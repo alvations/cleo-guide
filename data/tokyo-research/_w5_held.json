@@ -171,5 +171,158 @@
   "n": "The SG Club",
   "from": "_w5_bars_coffee_verified.json",
   "why": "no single named signature drink in sources (card rule: named dish/drink)"
+ },
+ {
+  "n": "Shuko Takigiya, Araki-chō (酒肴 たきぎや)",
+  "from": "_w5_izakaya_verified.json",
+  "why": "no specific named dish (generic \"izakaya plates\") — same reason as W3 drop",
+  "rec": {
+   "t": 2,
+   "a": "SJK",
+   "cz": [
+    "IZAKAYA"
+   ],
+   "dish": "simple rustic izakaya plates with an extensive sake list",
+   "n": "Shuko Takigiya, Araki-chō (酒肴 たきぎや)",
+   "address": "7-11 Arakichō, Shinjuku-ku, Tokyo 〒160-0007",
+   "w": "Rustic Araki-chō basement izakaya long beloved by salarymen, awarded a Michelin Bib Gourmand for simple, delicious dishes and a deep sake menu alongside shochu and umeshu.",
+   "sources": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/en/article/travel/travel-guide-michelin-recommended-izakayas-in-shinjuku"
+    ]
+   ],
+   "lat": null,
+   "lng": null,
+   "conf": "unverified",
+   "gs": "Google returned a maps/search URL (query_place_id=ChIJ5YEZfPKMGGARDv9JmAJsvD0, address 7-11 Arakicho) with no !3d!4d — https://www.google.com/maps/search/?api=1&query=Shuko+Takigiya,+Shinjuku,+Tokyo&query_place_id=ChIJ5YEZfPKMGGARDv9JmAJsvD0",
+   "st": "open",
+   "sts": "Google Maps listing present in search 2026-10; Michelin Bib article",
+   "kind": "food"
+  }
+ },
+ {
+  "n": "Kisaiya Hide, Kagurazaka (季彩や ひで)",
+  "from": "_w5_izakaya_verified.json",
+  "why": "no specific named dish; open status not re-checked — same reason as W3 drop",
+  "rec": {
+   "t": 3,
+   "a": "SJK",
+   "cz": [
+    "IZAKAYA"
+   ],
+   "dish": "seasonal izakaya dishes with an extensive sake list",
+   "n": "Kisaiya Hide, Kagurazaka (季彩や ひで)",
+   "address": "6-23 Kagurazaka, Shinjuku-ku, Tokyo",
+   "w": "Clean, minimalist Kagurazaka izakaya with a sushi-bar feel, awarded a Michelin Bib Gourmand; deep sake list alongside beer, umeshu and shochu.",
+   "sources": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/sg/en/article/travel/travel-guide-michelin-recommended-izakayas-in-shinjuku-sg"
+    ]
+   ],
+   "lat": null,
+   "lng": null,
+   "conf": "unverified",
+   "gs": "pin search not run — session WebSearch budget exhausted",
+   "st": "open",
+   "sts": "Michelin Shinjuku izakaya article (Bib Gourmand); current status not re-checked",
+   "kind": "food"
+  }
+ },
+ {
+  "n": "Tanako (たなこ)",
+  "from": "_w5_ramen_verified.json",
+  "why": "only Michelin source is a 2017 article; current Bib not confirmed",
+  "rec": {
+   "t": 1,
+   "a": "JHOKU",
+   "cz": [
+    "RAMEN"
+   ],
+   "dish": "niboshi shōyu chūka soba with handmade wholewheat noodles",
+   "n": "Tanako (たなこ)",
+   "address": "2-34-4 Minamiotsuka, Toshima-ku, Tokyo",
+   "w": "Michelin Bib Gourmand: handmade wholewheat noodles in a delicate niboshi shōyu broth of Akita free-range chicken and sweet dried sardines — Michelin calls it a prime example of Tokyo shōyu-style ramen.",
+   "sources": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/en/article/travel/japan-food-guide-where-you-should-be-eating-ramen-in-tokyo"
+    ]
+   ],
+   "lat": null,
+   "lng": null,
+   "conf": "unverified",
+   "gs": "no !3d!4d place URL returned (2 queries EN+JA)",
+   "sts": "Michelin Guide entry with current hours (lunch/dinner, closed Tue) — seen 2026-10-02; Michelin source is the 2017 travel article, Bib status not re-confirmed for 2026",
+   "kind": "food",
+   "st": "open"
+  }
+ },
+ {
+  "n": "Chūka Soba Ibuki (中華ソバ 伊吹)",
+  "from": "_w5_ramen_verified.json",
+  "why": "no source describes the bowl (dish = shop name only); TABELOG100 only via a Ramen Adventures reproduction",
+  "rec": {
+   "t": 3,
+   "a": "JHOKU",
+   "cz": [
+    "RAMEN"
+   ],
+   "dish": "chūka soba (named in the shop's own name; no source described the bowl further)",
+   "n": "Chūka Soba Ibuki (中華ソバ 伊吹)",
+   "address": "Itabashi-ku, Tokyo — street address not confirmed",
+   "w": "Itabashi chūka-soba shop ranked #25 in Tabelog's Ramen Hyakumeiten TOKYO 2025 (as reproduced by Ramen Adventures), which also has its own Ramen Adventures listing.",
+   "sources": [
+    [
+     "TABELOG100",
+     "https://ramenadventures.com/2025/12/15/tokyo-the-best-100-ramen-shops-in-2025/"
+    ],
+    [
+     "RAMENADVENTURES",
+     "https://ramenadventures.com/listing/chukasoba-ibuki-in-itabashi/"
+    ]
+   ],
+   "lat": null,
+   "lng": null,
+   "conf": "unverified",
+   "gs": "no pin search run — session WebSearch budget exhausted",
+   "st": "open",
+   "sts": "Tabelog Ramen Hyakumeiten TOKYO 2025 (Dec 2025) — operating",
+   "kind": "food"
+  }
+ },
+ {
+  "n": "Baikatei Kagurazaka (梅花亭 神楽坂本店)",
+  "from": "_w5_sweets_verified.json",
+  "why": "Tabelog Hyakumeiten claim only via a secondary aggregator; Time Out alone",
+  "rec": {
+   "t": 2,
+   "a": "SJK",
+   "cz": [
+    "SWEET"
+   ],
+   "dish": "mame daifuku, warabi mochi and rabbit/fish-shaped bean-paste cakes",
+   "n": "Baikatei Kagurazaka (梅花亭 神楽坂本店)",
+   "address": "6-15 Kagurazaka, Shinjuku-ku, Tokyo",
+   "w": "Kagurazaka wagashi shop since 1935 making additive-free sweets from domestic organic ingredients — mame daifuku, warabi mochi and seasonal specials.",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/shopping/baikatei"
+    ],
+    [
+     "TABELOG100",
+     "https://www.enprimeurclub.com/restaurants/baika-tei-kagurazaka-honten"
+    ]
+   ],
+   "lat": null,
+   "lng": null,
+   "conf": "unverified",
+   "gs": "Pin search not run — shared WebSearch budget exhausted",
+   "st": "open",
+   "sts": "Tabelog Wagashi Hyakumeiten 2023 (reported via secondary aggregator — Tabelog page not captured)",
+   "kind": "food"
+  }
  }
 ]
