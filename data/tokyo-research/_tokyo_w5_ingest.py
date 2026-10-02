@@ -54,6 +54,8 @@ def main():
         cnt = keys - ZERO - ({"OFFICIAL"} if is_food else set())
         if not (len(cnt) >= 2 and len(urls) >= 2) and not (keys & SOLO): why.append(f"sources {sorted(keys)}")
         if is_food and not (r.get("dish") or "").strip(): why.append("no dish")
+        if not (r.get("w") or "").strip() or r.get("t") not in (1, 2, 3): why.append("missing w/t")
+        if is_food and not r.get("cz"): why.append("missing cz")
         if norm(r["n"]) in have: why.append("duplicate")
         p = pin_ok(r)
         if p not in ("ok", "unverified"): why.append("pin: " + p)

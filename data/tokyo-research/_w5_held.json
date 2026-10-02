@@ -1,0 +1,175 @@
+[
+ {
+  "n": "Gen Yamamoto",
+  "from": "_w5_bars_coffee_verified.json",
+  "why": "sources ['TIMEOUT']",
+  "rec": {
+   "n": "Gen Yamamoto",
+   "a": "MNT",
+   "address": "Azabu-Juban, Minato City, Tokyo (exact address not confirmed; one Google result pointed at Sumitomo Fudosan Azabu-Juban Bldg, 1-4-1 Mita, Minato City 108-0073 — a building address, not a place listing, NOT trusted)",
+   "lat": null,
+   "lng": null,
+   "conf": "unverified",
+   "gs": "no !3d!4d place URL in 2 queries (EN + JA)",
+   "st": "open",
+   "sts": "Time Out venue page live with current tasting prices (4-7 drink sets ¥6,200-¥9,000); no closure reports found",
+   "dish": "Omakase seasonal fruit cocktail tasting — e.g. hassaku with Marc de Champagne, kiwi with soju & matcha (Time Out)",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/bars-and-pubs/gen-yamamoto"
+    ]
+   ],
+   "notes": "8-seat counter. WORLD50 URL still needed; pin needed. Possible relocation — verify address."
+  }
+ },
+ {
+  "n": "Tokyo Confidential",
+  "from": "_w5_bars_coffee_verified.json",
+  "why": "sources ['TIMEOUT']",
+  "rec": {
+   "n": "Tokyo Confidential",
+   "a": "MNT",
+   "address": "Azabu-Juban, Minato City, Tokyo (exact address not in results)",
+   "lat": null,
+   "lng": null,
+   "conf": "unverified",
+   "gs": "no !3d!4d place URL in 1 query",
+   "st": "open",
+   "sts": "Time Out news Aug 2025: #6 on Time Out Worldwide world's best bars roundup — open",
+   "dish": "Menu by Holly Graham & head bartender Wakana Murata spotlighting doburoku and awamori; terrace with Tokyo Tower view",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/bars-and-pubs/tokyo-confidential"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/news/this-tokyo-bar-was-just-named-a-must-visit-by-time-out-worldwide-080625"
+    ]
+   ],
+   "notes": "LACKS 2nd non-Time-Out credible source (only trade press: Australian Bartender, The Spirits Business, Options/The Edge). Not a Shingo Gokan bar."
+  }
+ },
+ {
+  "n": "Cafe Bon",
+  "from": "_w5_bars_coffee_verified.json",
+  "why": "sources ['TIMEOUT']",
+  "rec": {
+   "n": "Cafe Bon",
+   "a": "SJK",
+   "address": "Shinjuku, Shinjuku City, Tokyo (exact address not in results; JA name 自家焙煎珈琲 凡)",
+   "lat": null,
+   "lng": null,
+   "conf": "unverified",
+   "gs": "no !3d!4d place URL in 2 queries (EN + JA)",
+   "st": "open",
+   "sts": "No closure reports found; Time Out venue page live",
+   "dish": "Strawberry shortcake (16 slices/day) + house-roasted coffee in fine porcelain (Aynsley) cups — Time Out",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/restaurants/best-kissaten-coffee-shops-in-tokyo"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/restaurants/bon-1"
+    ]
+   ],
+   "notes": "LACKS 2nd independent credible source (both are Time Out). Japanese name 自家焙煎珈琲 凡 — try Tabelog Hyakumeiten / Brutus."
+  }
+ },
+ {
+  "n": "Monozuki",
+  "from": "_w5_bars_coffee_verified.json",
+  "why": "sources ['TIMEOUT']",
+  "rec": {
+   "n": "Monozuki",
+   "a": "JOSAI",
+   "address": "3-12-10 Nishiogi-Kita, Suginami City, Tokyo (per Time Out; postcode not in result)",
+   "lat": null,
+   "lng": null,
+   "conf": "unverified",
+   "gs": "no !3d!4d place URL in 1 query",
+   "st": "open",
+   "sts": "Time Out venue page lists current hours daily 11:30am-8pm; no closure reports found",
+   "dish": "Blend coffee (Mocha/Colombia/Brazil/Mandheling, ¥500) amid antique clocks & stained glass, since 1975 — Time Out",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/restaurants/monozuki"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/restaurants/best-kissaten-coffee-shops-in-tokyo"
+    ]
+   ],
+   "notes": "LACKS 2nd independent credible source. Candidate to check: experience-suginami.tokyo (Suginami tourism) https://experience-suginami.tokyo/?p=7330 — appeared in results but not confirmed to name Monozuki."
+  }
+ },
+ {
+  "n": "Higashi-Mukojima Coffee-Ten",
+  "from": "_w5_bars_coffee_verified.json",
+  "why": "sources ['OFFICIAL', 'TIMEOUT']",
+  "rec": {
+   "n": "Higashi-Mukojima Coffee-Ten",
+   "a": "SMKT",
+   "address": "1-34-7 Higashi-Mukojima, Sumida City, Tokyo (per Time Out; postcode not in result)",
+   "lat": null,
+   "lng": null,
+   "conf": "unverified",
+   "gs": "no !3d!4d place URL in 1 query",
+   "st": "open",
+   "sts": "Time Out venue page lists hours 8:30am-6pm, closed Wed; no closure reports found",
+   "dish": "13-hour water-drip (Dutch) iced coffee; no-bake cheesecake certified 'Sumida Modern' — Time Out",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/restaurants/higashi-mukojima-coffee-ten"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/news/five-eats-and-drinks-you-should-try-at-higashi-mukojima-coffee-ten-120817"
+    ],
+    [
+     "OFFICIAL",
+     "https://visit-sumida.jp/docs/map/sumida_bathandcafe_en.pdf"
+    ]
+   ],
+   "notes": "2nd non-TimeOut source is Sumida City tourism map PDF (municipal tourism; listed in results, content not confirmed) — weak. Owner Yasutaka Inaba. Hikifune Stn."
+  }
+ },
+ {
+  "n": "Satella",
+  "from": "_w5_bars_coffee_verified.json",
+  "why": "sources ['TIMEOUT']",
+  "rec": {
+   "n": "Satella",
+   "a": "SBY",
+   "address": "Aoyama Seven Heights Bldg, 1-7-5 Shibuya, Shibuya City, Tokyo (per Time Out; postcode not in result)",
+   "lat": null,
+   "lng": null,
+   "conf": "unverified",
+   "gs": "no !3d!4d place URL in 1 query",
+   "st": "open",
+   "sts": "Time Out venue page lists current hours (11am-7pm; Thu 8am-7pm; Fri 11am-8:30pm & 7pm-10pm); no closure reports",
+   "dish": "Cream cheese pudding with condensed milk; hand-drip blends from All Seasons Coffee (medium roast recommended) — Time Out",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/restaurants/satella"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/restaurants/best-kissaten-coffee-shops-in-tokyo"
+    ]
+   ],
+   "notes": "AREA = SBY (Shibuya 1-chome, near Aoyama/Miyamasuzaka). Opened 2020 in the former Aoyama Chakan kissaten space. LACKS 2nd independent credible source."
+  }
+ },
+ {
+  "n": "The SG Club",
+  "from": "_w5_bars_coffee_verified.json",
+  "why": "no single named signature drink in sources (card rule: named dish/drink)"
+ }
+]
