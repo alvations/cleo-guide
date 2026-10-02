@@ -85313,13 +85313,13 @@
    },
    "Kizakura Kappa Country (黄桜 カッパカントリー)": {
     "address": "Fushimi Sake District, Fushimi-ku, Kyoto",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 34.930667,
+    "lng": 135.760444,
+    "source": "ja.wikipedia published coordinates (北緯34度55分50.4秒 東経135度45分37.6秒; 228 Shioya-chō) https://ja.wikipedia.org/wiki/%E3%82%AD%E3%82%B6%E3%82%AF%E3%83%A9%E3%82%AB%E3%83%83%E3%83%91%E3%82%AB%E3%83%B3%E3%83%88%E3%83%AA%E3%83%BC",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
-    "statusSource": "japan-guide Fushimi Sake District page — operating; checked 2026-10-02",
+    "statusSource": "japan-guide Fushimi sake district page https://www.japan-guide.com/e/e3938.html (discovery listing); checked 2026-10-02",
     "statusChecked": "2026-10-02"
    },
    "Fushimi Yume Hyakushu (伏見夢百衆)": {
@@ -85654,13 +85654,13 @@
    },
    "Izusen Daitoku-ji (泉仙 大徳寺)": {
     "address": "Within the Daitoku-ji temple complex, Murasakino, Kita-ku, Kyoto",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 35.043917,
+    "lng": 135.746081,
+    "source": "containing temple complex Daitoku-ji (Izusen is in a sub-temple garden inside the complex) — Wikipedia published coordinates https://en.wikipedia.org/wiki/Daitoku-ji",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "Kyoto City Official vegetarian guide + Inside Kyoto — operating; checked 2026-10-02",
+    "statusSource": "Inside Kyoto restaurants near Kinkaku-ji https://www.insidekyoto.com/restaurants-near-kinkaku-ji-temple (discovery listing); checked 2026-10-02",
     "statusChecked": "2026-10-02"
    },
    "Omen Ginkakuji Honten (名代おめん 銀閣寺本店)": {
@@ -85720,13 +85720,13 @@
    },
    "Kyoto Ramen Koji (京都拉麺小路)": {
     "address": "10F, Kyoto Station Building, Shimogyō-ku, Kyoto",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 34.985444,
+    "lng": 135.757778,
+    "source": "containing building Kyoto Station (Ramen Koji is on 10F of the station building) — Wikipedia published coordinates https://en.wikipedia.org/wiki/Ky%C5%8Dto_Station",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "MATCHA Kyoto Ramen Koji guide + Inside Kyoto review — operating; checked 2026-10-02",
+    "statusSource": "Inside Kyoto page https://www.insidekyoto.com/kyoto-ramen-koji (discovery listing); checked 2026-10-02",
     "statusChecked": "2026-10-02"
    },
    "Hirobun (ひろ文), Kibune": {
@@ -86970,6 +86970,138 @@
     "confidence": "high",
     "status": "open",
     "statusSource": "Kanpai guide (current visiting info); checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Daikichiyama Observation Deck (大吉山展望台, Buttoku-san)": {
+    "address": "Daikichiyama Fūchi Park, Uji, Kyoto Prefecture",
+    "lat": 34.89222,
+    "lng": 135.81417,
+    "source": "ja.wikipedia published coordinates of the hill (deck is on it) https://ja.wikipedia.org/wiki/大吉山",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Keihan × Sound! Euphonium 2026 collaboration page lists the deck as a stamp point; checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Pokémon Center Kyoto (ポケモンセンターキョウト)": {
+    "address": "SUINA Muromachi 2F (Kyoto Economic Center), Shimogyō-ku, Kyoto",
+    "lat": 35.00306,
+    "lng": 135.75833,
+    "source": "ja.wikipedia published coordinates of the Kyoto Economic Center building (京都経済センター, via the Kyoto Chamber of Commerce page) https://ja.wikipedia.org/wiki/京都商工会議所",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Walkerplus spot page (current hours 10:00–20:00); checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Mausoleum of Emperor Tenji (天智天皇山科陵 / 御廟野古墳)": {
+    "address": "Goryō, Yamashina-ku, Kyoto",
+    "lat": 34.997475,
+    "lng": 135.8069972,
+    "source": "ja.wikipedia published coordinates (kofun mound) https://ja.wikipedia.org/wiki/御廟野古墳",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "ja.wikipedia + en.wikipedia (extant imperial mausoleum with public worship place); checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Kōbō-san Market at Tō-ji (弘法市)": {
+    "address": "Tō-ji, Minami-ku, Kyoto",
+    "lat": 34.980717,
+    "lng": 135.747806,
+    "source": "containing temple Tō-ji (market is held on Tō-ji's grounds) — UNESCO World Heritage Centre maps page component coordinate 34 58 50.58N 135 44 52.1E https://whc.unesco.org/en/list/688/maps",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Kyoto City tourism monthly markets page lists the 21st-of-month Tō-ji market https://kyoto.travel/en/travel-inspiration/monthly-and-seasonal-markets-in-kyoto/; checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Ryōan-ji Seigen-in (龍安寺 西源院)": {
+    "address": "Inside Ryōan-ji, Ukyō-ku, Kyoto",
+    "lat": 35.034636,
+    "lng": 135.718789,
+    "source": "containing temple Ryōan-ji (Seigen-in is a sub-temple inside its grounds) — UNESCO World Heritage Centre maps page component coordinate 35 2 4.69N 135 43 7.64E https://whc.unesco.org/en/list/688/maps",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Rurubu spot listing https://rurubu.jp/andmore/spot/80027181 (discovery listing); checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Seizan Sōdō (西山艸堂), Tenryū-ji": {
+    "address": "Saga-Tenryūji, Ukyō-ku, Kyoto (in a Tenryū-ji sub-temple)",
+    "lat": 35.016683,
+    "lng": 135.674714,
+    "source": "containing temple Tenryū-ji (restaurant is in a Tenryū-ji sub-temple) — UNESCO World Heritage Centre maps page component coordinate 35 1 0.06N 135 40 28.97E https://whc.unesco.org/en/list/688/maps",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Rurubu spot listing https://rurubu.jp/andmore/spot/80027229 (discovery listing); checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Funaoka Onsen (船岡温泉)": {
+    "address": "Murasakino, Kita-ku, Kyoto",
+    "lat": 35.0369111,
+    "lng": 135.7445778,
+    "source": "ja.wikipedia published coordinates (北緯35度2分12.88秒 東経135度44分40.48秒) https://ja.wikipedia.org/wiki/%E8%88%B9%E5%B2%A1%E6%B8%A9%E6%B3%89",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "ja.wikipedia article lists current hours 15:00–23:30, no closing days https://ja.wikipedia.org/wiki/%E8%88%B9%E5%B2%A1%E6%B8%A9%E6%B3%89; checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Keibunsha Ichijōji (恵文社一乗寺店)": {
+    "address": "Ichijōji, Sakyō-ku, Kyoto",
+    "lat": 35.043972,
+    "lng": 135.784917,
+    "source": "ja.wikipedia published coordinates https://ja.wikipedia.org/wiki/恵文社一乗寺店",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Kyoto City official travel guide + Rurubu listing (current hours); checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Kyoto University Museum (京都大学総合博物館)": {
+    "address": "Yoshida-honmachi, Sakyō-ku, Kyoto",
+    "lat": 35.027417,
+    "lng": 135.779306,
+    "source": "ja.wikipedia published coordinates https://ja.wikipedia.org/wiki/京都大学総合博物館",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Kyoto school-trip navi (kyoto.travel) current listing; checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Ōishi Shrine (大石神社), Yamashina": {
+    "address": "116 Nishinoyama Sakurababa-chō, Yamashina-ku, Kyoto",
+    "lat": 34.97,
+    "lng": 135.79556,
+    "source": "ja.wikipedia published coordinates https://ja.wikipedia.org/wiki/大石神社",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Kyoto City official travel guide + Keihan spot page (current); checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Nogi Shrine (乃木神社), Fushimi": {
+    "address": "32-2 Momoyama-chō Itakura Suō, Fushimi-ku, Kyoto",
+    "lat": 34.93225,
+    "lng": 135.776472,
+    "source": "ja.wikipedia published coordinates https://ja.wikipedia.org/wiki/乃木神社_(京都市)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Kyoto City official travel guide (current listing); checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Kisshōin Tenmangū (吉祥院天満宮)": {
+    "address": "3 Kisshōin Mandokoro-chō, Minami-ku, Kyoto",
+    "lat": 34.973361,
+    "lng": 135.734417,
+    "source": "ja.wikipedia published coordinates https://ja.wikipedia.org/wiki/吉祥院天満宮",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Kyoto City official travel guide (current listing); checked 2026-10-02",
     "statusChecked": "2026-10-02"
    }
   },

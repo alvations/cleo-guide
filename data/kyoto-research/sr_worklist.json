@@ -15,6 +15,21 @@
 "a": "KITA"
 },
 {
+"n": "Pokémon Center Kyoto (ポケモンセンターキョウト)",
+"addr": "SUINA Muromachi 2F (Kyoto Economic Center), Shimogyō-ku, Kyoto (direct from Shijō / Karasuma stations)",
+"a": "CTR"
+},
+{
+"n": "Nintendo KYOTO",
+"addr": "Kyoto Takashimaya S.C. [T8] 7F, Shimogyō-ku, Kyoto",
+"a": "CTR"
+},
+{
+"n": "Daikichiyama Observation Deck (大吉山展望台, Buttoku-san)",
+"addr": "Daikichiyama Fūchi Park, Uji, Kyoto Prefecture",
+"a": "UJI"
+},
+{
 "n": "Nishiki Market",
 "addr": "Nakagyō-ku, Kyoto, Japan",
 "a": "CTR"
@@ -1048,6 +1063,51 @@
 "n": "Funaoka Onsen (船岡温泉)",
 "addr": "Murasakino, Kita-ku, Kyoto",
 "a": "KITA"
+},
+{
+"n": "Keibunsha Ichijōji (恵文社一乗寺店)",
+"addr": "Ichijōji, Sakyō-ku, Kyoto",
+"a": "SAKYO"
+},
+{
+"n": "Kyoto Museum of Crafts and Design (京都伝統産業ミュージアム)",
+"addr": "Miyako Messe B1, 9-1 Okazaki Seishōji-chō, Sakyō-ku, Kyoto",
+"a": "SAKYO"
+},
+{
+"n": "Kyoto University Museum (京都大学総合博物館)",
+"addr": "Yoshida-honmachi, Sakyō-ku, Kyoto",
+"a": "SAKYO"
+},
+{
+"n": "Ōishi Shrine (大石神社), Yamashina",
+"addr": "116 Nishinoyama Sakurababa-chō, Yamashina-ku, Kyoto",
+"a": "FSHMI"
+},
+{
+"n": "Nogi Shrine (乃木神社), Fushimi",
+"addr": "32-2 Momoyama-chō Itakura Suō, Fushimi-ku, Kyoto",
+"a": "FSHMI"
+},
+{
+"n": "Kisshōin Tenmangū (吉祥院天満宮)",
+"addr": "3 Kisshōin Mandokoro-chō, Minami-ku, Kyoto",
+"a": "FSHMI"
+},
+{
+"n": "Fushimi Ōtesuji Shōtengai (伏見大手筋商店街)",
+"addr": "Ōtesuji, Fushimi-ku, Kyoto (west from Fushimi-Momoyama Station)",
+"a": "FSHMI"
+},
+{
+"n": "Gion Shinbashi Preservation District & Tatsumi-bashi (祇園新橋・巽橋)",
+"addr": "Shinbashi-dōri / Shirakawa, Gion, Higashiyama-ku, Kyoto",
+"a": "HGS"
+},
+{
+"n": "Ryōma-dōri Shōtengai (竜馬通り商店街), Fushimi",
+"addr": "Near Teradaya, Fushimi-ku, Kyoto",
+"a": "FSHMI"
 },
 {
 "n": "Gion Yorozuya",
@@ -2218,5 +2278,195 @@
 "n": "Shichimiya Honpo (七味家本舗), Sannenzaka",
 "addr": "Kiyomizu-dera approach (Sannenzaka), Higashiyama-ku, Kyoto",
 "a": "HGS"
+},
+{
+"n": "Unagi Hirokawa (うなぎ 廣川), Arashiyama",
+"addr": "44-1 Saga-Tenryūji Kitatsukurimichi-chō, Ukyō-ku, Kyoto (3 min walk from Randen Arashiyama Station)",
+"a": "RKSAI"
+},
+{
+"n": "Kakinoha-sushi Honpo Tanaka, Nara Honten (柿の葉すし本舗たなか なら本店)",
+"addr": "Nara city, Nara Prefecture",
+"a": "UJI"
+},
+{
+"n": "Yoshino Honkuzu Tenkyokudō Nara Honten (吉野本葛 天極堂 奈良本店)",
+"addr": "Nara city (on the site of Tōdai-ji's former West Gate), Nara Prefecture",
+"a": "UJI"
+},
+{
+"n": "Tō no Chaya (塔の茶屋), Naramachi",
+"addr": "Naramachi, Nara city, Nara Prefecture",
+"a": "UJI"
+},
+{
+"n": "Honke Tsuruki Soba (本家鶴㐂そば), Sakamoto",
+"addr": "4-11-40 Sakamoto, Ōtsu, Shiga Prefecture",
+"a": "KYFU"
+},
+{
+"n": "Kanō Shōjuan Sunainosato (叶 匠壽庵 寿長生の郷), Ōtsu",
+"addr": "4-2-1 Ōishi Ryūmon, Ōtsu, Shiga Prefecture",
+"a": "KYFU"
+},
+{
+"n": "Tamba Shikisai Ryōri Miyamotoya (丹波四季菜料理 宮本屋), Kameoka",
+"addr": "Yunohana Onsen, Kameoka, Kyoto Prefecture",
+"a": "KYFU"
+},
+{
+"n": "Doi Shibazuke Honpo, Ōhara Honten (土井志ば漬本舗 大原本店)",
+"addr": "41 Yase Hanajiri-chō, Sakyō-ku, Kyoto (Ōhara road)",
+"a": "RKHKU"
+},
+{
+"n": "Shibakyū (志ば久), Ōhara",
+"addr": "58 Ōhara Shōrinin-chō, Sakyō-ku, Kyoto",
+"a": "RKHKU"
+},
+{
+"n": "Seryō (芹生), Ōhara",
+"addr": "22 Ōhara Shōrinin-chō, Sakyō-ku, Kyoto (by Sanzen-in)",
+"a": "RKHKU"
+},
+{
+"n": "Tamondō (多聞堂), Kurama",
+"addr": "235 Kurama Honmachi, Sakyō-ku, Kyoto (in front of Kurama Station)",
+"a": "RKHKU"
+},
+{
+"n": "Warajiya (わらじや), Shichijō",
+"addr": "Shichijō, Higashiyama-ku, Kyoto (3 min walk from Keihan Shichijō Station, by Sanjūsangen-dō)",
+"a": "HGS"
+},
+{
+"n": "Imanishiken (今西軒), Gojō",
+"addr": "Near Gojō Station, Shimogyō-ku, Kyoto",
+"a": "CTR"
+},
+{
+"n": "Michihachi (道八), Fushimi Inari",
+"addr": "Fushimi Inari approach, Fushimi-ku, Kyoto",
+"a": "FSHMI"
+},
+{
+"n": "Okobu Kitasei (おこぶ北淸), Chūshojima",
+"addr": "4-52 Minami-shinchi, Fushimi-ku, Kyoto (by Keihan Chūshojima Station)",
+"a": "FSHMI"
+},
+{
+"n": "Tōji-mochi (東寺餅)",
+"addr": "By Tō-ji, Minami-ku, Kyoto",
+"a": "FSHMI"
+},
+{
+"n": "Arashiyama Gyātei (嵐山 ぎゃあてい)",
+"addr": "By Randen Arashiyama Station, Ukyō-ku, Kyoto",
+"a": "RKSAI"
+},
+{
+"n": "Kyō-ryōri Yudōfu Chikusen (京料理 ゆどうふ 竹仙), Seiryō-ji",
+"addr": "In the grounds of Seiryō-ji (Saga Shakadō), Ukyō-ku, Kyoto",
+"a": "RKSAI"
+},
+{
+"n": "Yudōfu Takemura (湯どうふ 竹むら), Arashiyama",
+"addr": "Arashiyama, Ukyō-ku, Kyoto",
+"a": "RKSAI"
+},
+{
+"n": "Ryōtei Yachiyo (料庭 八千代), Nanzen-ji",
+"addr": "Nanzen-ji approach, Sakyō-ku, Kyoto",
+"a": "SAKYO"
+},
+{
+"n": "Ichijōji Nakatani (一乗寺 中谷)",
+"addr": "Ichijōji, Sakyō-ku, Kyoto (at the foot of Sagarimatsu)",
+"a": "SAKYO"
+},
+{
+"n": "Gion Hara Ryōkaku (祇園 原了郭)",
+"addr": "Gion, Higashiyama-ku, Kyoto",
+"a": "HGS"
+},
+{
+"n": "Arashiyama Kumahiko (嵐山 熊彦)",
+"addr": "Arashiyama, Ukyō-ku, Kyoto",
+"a": "RKSAI"
+},
+{
+"n": "Kyō Arashiyama Nishiki (京・嵐山 錦)",
+"addr": "Arashiyama Park (Nakanoshima), Ukyō-ku, Kyoto",
+"a": "RKSAI"
+},
+{
+"n": "eX cafe Kyoto Arashiyama Honten",
+"addr": "Saga-Tenryūji, Ukyō-ku, Kyoto",
+"a": "RKSAI"
+},
+{
+"n": "Tōfu Ryōri Matsugae (豆腐料理 松ヶ枝), Arashiyama",
+"addr": "Arashiyama, Ukyō-ku, Kyoto",
+"a": "RKSAI"
+},
+{
+"n": "Kiyomizu Gojōzaka Yuba Izumi (清水五条坂ゆば泉)",
+"addr": "Gojōzaka, Higashiyama-ku, Kyoto (on the Kiyomizu-dera approach)",
+"a": "HGS"
+},
+{
+"n": "Minatoya Yūrei Kosodate Ame Honpo (みなとや幽霊子育飴本舗)",
+"addr": "Rokudō-no-tsuji (by Rokudō Chinnō-ji), Higashiyama-ku, Kyoto",
+"a": "HGS"
+},
+{
+"n": "Mo-an (茂庵), Yoshida-yama",
+"addr": "Summit of Yoshida-yama, Sakyō-ku, Kyoto",
+"a": "SAKYO"
+},
+{
+"n": "Sato-no-Eki Ōhara (里の駅 大原)",
+"addr": "Ōhara, Sakyō-ku, Kyoto",
+"a": "RKHKU"
+},
+{
+"n": "Imobō Hiranoya Honke (いもぼう平野家本家)",
+"addr": "Inside Maruyama Park, Higashiyama-ku, Kyoto",
+"a": "HGS"
+},
+{
+"n": "Saryō Hōsen (茶寮 宝泉), Shimogamo",
+"addr": "Shimogamo, Sakyō-ku, Kyoto",
+"a": "SAKYO"
+},
+{
+"n": "Kyūkeidokoro Saruya (休憩処 さるや), Shimogamo Shrine",
+"addr": "Within Shimogamo Shrine, Sakyō-ku, Kyoto",
+"a": "SAKYO"
+},
+{
+"n": "Garam Masala (ガラムマサラ), Kitashirakawa",
+"addr": "Kitashirakawa / Shirakawa-dōri, Sakyō-ku, Kyoto",
+"a": "SAKYO"
+},
+{
+"n": "Kakinoha-zushi Sōhonke Hiraso, Nara (柿の葉ずし 平宗 奈良店)",
+"addr": "30-1 Imamikado-chō, Nara city, Nara Prefecture",
+"a": "UJI"
+},
+{
+"n": "Yorozu Okashi Atsuraedokoro Kashiya (萬御菓子誂處 樫舎), Naramachi",
+"addr": "22-3 Chūin-chō, Nara city, Nara Prefecture",
+"a": "UJI"
+},
+{
+"n": "Monjusō Kanshichi Chaya (文珠荘 勘七茶屋), Amanohashidate",
+"addr": "Monju, Miyazu, Kyoto Prefecture (before Chion-ji / Monju-dō)",
+"a": "KYFU"
+},
+{
+"n": "Adachi Otoemon (足立音衛門), Fukuchiyama",
+"addr": "Fukuchiyama, Kyoto Prefecture",
+"a": "KYFU"
 }
 ]
