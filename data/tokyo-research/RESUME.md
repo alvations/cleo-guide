@@ -41,7 +41,7 @@ SJK 24/50 · SMKT 24/40 · TAITO 30/50 · TAMA 15/30 → **314 / ~530**. Food is
 JOTO 1, KANTO 2.
 
 ## In-flight wave
-None — W2 closed cleanly 2026-10-02.
+**W3 (2026-10-02, continuation):** executing the W3 plan below in order. Files: `FOOD_TOKYO_W3.json`, `SIGHTS_TOKYO_W3.json`, `geo/_geoout_tokyo_w3.json`, `_addrcheck_w3.json`. Search count W3: 14 (held queue + Michelin pin retries).
 
 ## Next wave (W3) — exact plan, in order
 1. **Clear the held queue first** (`_pending_w2.json`, 39 items): most need ONE more source or ONE pin. Use the

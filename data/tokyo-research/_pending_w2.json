@@ -8,18 +8,6 @@
    "need": "coords"
   },
   {
-   "n": "Chidorigafuchi",
-   "a": "CYD",
-   "have": "GOTOKYO+japan-guide+Time Out (W1); GOTOKYO https://www.gotokyo.org/en/spot/45/index.html; nearest Wikipedia point = Chidorigafuchi National Cemetery 35.69,139.74694 (adjacent, not the moat walk)",
-   "need": "coords"
-  },
-  {
-   "n": "Tsukiji Outer Market",
-   "a": "CHUO",
-   "have": "GOTOKYO https://www.gotokyo.org/en/spot/65/index.html; WIKIPEDIA Tsukiji fish market",
-   "need": "outer-market coords (Wikipedia point 35.66139,139.76972 is the demolished inner-market site — rejected, ~400 m off)"
-  },
-  {
    "n": "Todoroki Valley",
    "a": "JOSAI",
    "have": "GOTOKYO https://www.gotokyo.org/en/destinations/southern-tokyo/todoroki-valley/index.html; WIKIPEDIA Todoroki Ryokuchi?; TIMEOUT https://www.timeout.com/tokyo/things-to-do/todoroki-valley; address 1-22-26 Todoroki; NOTE Wikidata 'Todoroki Ryokuchi' is in Kawasaki — rejected",
@@ -32,12 +20,6 @@
    "need": "2nd + street pin"
   },
   {
-   "n": "Shinkyo Bridge",
-   "a": "KANTO",
-   "have": "JAPANGUIDE https://www.japan-guide.com/e/e3814.html; WIKIPEDIA Shinkyo",
-   "need": "bridge coords"
-  },
-  {
    "n": "Nihombashi Mitsukoshi Main Store",
    "a": "CHUO",
    "have": "GOTOKYO https://www.gotokyo.org/en/spot/82/index.html; TIMEOUT https://www.timeout.com/tokyo/shopping/nihombashi-mitsukoshi-main-store",
@@ -48,18 +30,6 @@
    "a": "SBY",
    "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/ichiran-shibuya; WIKIPEDIA https://en.wikipedia.org/wiki/Ichiran; B1F 1-22-7 Jinnan",
    "need": "coords"
-  },
-  {
-   "n": "Shoin Shrine",
-   "a": "JOSAI",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Sh%C5%8Din_shrine coords 35.6472333,139.6560889 (35°38′50.04″N 139°39′21.92″E)",
-   "need": "2nd"
-  },
-  {
-   "n": "Kuhonbutsu Joshin-ji",
-   "a": "JOSAI",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Kuhonbutsu_J%C5%8Dshin-ji coords 35.6082,139.6608",
-   "need": "2nd"
   },
   {
    "n": "Botan (torisuki)",
@@ -86,12 +56,6 @@
    "need": "exact pin + 2 sources"
   },
   {
-   "n": "Tamahide",
-   "a": "CHUO",
-   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/tamahide; SAVORJAPAN https://savorjapan.com/0006085680",
-   "need": "coords (Wikidata Q11572349 had none in results)"
-  },
-  {
    "n": "Tomoegata (chanko)",
    "a": "SMKT",
    "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/tomoegata; 2-17-6 Ryogoku",
@@ -112,7 +76,7 @@
   {
    "n": "Shinjuku Suehirotei",
    "a": "SJK",
-   "have": "TIMEOUT https://www.timeout.com/tokyo/theatre/suehirotei; Wikidata Q11501852 coords 35.691167,139.705806",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/theatre/suehirotei; Wikidata Q11501852 coords 35.691167,139.705806; JAPANTIMES rakugo book review 2008 (mention unconfirmed)",
    "need": "2nd"
   },
   {
@@ -134,12 +98,6 @@
    "need": "bridge pin (only station point returned)"
   },
   {
-   "n": "TAKAO 599 MUSEUM",
-   "a": "TAMA",
-   "have": "GOTOKYO https://www.gotokyo.org/en/spot/252/index.html; Wikidata Q48753510 coords 35.6325,139.269167",
-   "need": "2nd"
-  },
-  {
    "n": "Koiwa Iris Garden",
    "a": "JOTO",
    "have": "GOTOKYO https://www.gotokyo.org/en/spot/541/index.html; TIMEOUT https://www.timeout.com/tokyo/attractions/koiwa-iris-garden; 4 Kita-Koiwa",
@@ -149,12 +107,6 @@
    "n": "Gyosen Park",
    "a": "JOTO",
    "have": "TIMEOUT https://www.timeout.com/tokyo/museums/gyosen-park; Wikidata Q11626195 coords 35.671,139.8584",
-   "need": "2nd"
-  },
-  {
-   "n": "Omori Shell Mound",
-   "a": "JONAN",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/%C5%8Cmori_Shell_Mound coords 35.590778,139.729167",
    "need": "2nd"
   },
   {
@@ -212,27 +164,9 @@
    "need": "coords + 2nd"
   },
   {
-   "n": "Kawasaki Daishi",
-   "a": "KANTO",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Kawasaki_Daishi coords 35.534,139.729",
-   "need": "2nd"
-  },
-  {
-   "n": "Toneri Park",
-   "a": "JOTO",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Toneri_Park coords 35.7970524,139.768412",
-   "need": "2nd"
-  },
-  {
    "n": "Tower Hall Funabori",
    "a": "JOTO",
    "have": "TIMEOUT https://www.timeout.com/tokyo/things-to-do/tower-hall-funabori; Wikidata Q85872174 coords 35.684389,139.864861",
-   "need": "2nd"
-  },
-  {
-   "n": "Ryusen-ji (Meguro Fudoson)",
-   "a": "JONAN",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Ry%C5%ABsen-ji coords 35.62861,139.70806",
    "need": "2nd"
   }
  ]
