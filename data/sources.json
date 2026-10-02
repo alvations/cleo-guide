@@ -13122,6 +13122,449 @@
         }
       ],
       "creators": []
+    },
+    "miami-fl": {
+      "name": "miami-fl",
+      "sources": [
+        {
+          "key": "MICHELIN",
+          "name": "MICHELIN Guide Florida (Miami)",
+          "type": "guide",
+          "rank": 1,
+          "verified": true,
+          "credible": "International culinary authority; the Florida guide (since 2022) covers Miami/Fort Lauderdale with stars, Bib Gourmand and Recommended. A single distinction is institutional ground truth."
+        },
+        {
+          "key": "MICHELIN_BIB",
+          "name": "MICHELIN Bib Gourmand (Florida)",
+          "type": "guide",
+          "rank": 1,
+          "verified": true,
+          "credible": "Michelin's good-value distinction; institutional."
+        },
+        {
+          "key": "MICHELIN_STAR",
+          "name": "MICHELIN Star (Florida)",
+          "type": "guide",
+          "rank": 1,
+          "verified": true,
+          "credible": "Michelin star; institutional."
+        },
+        {
+          "key": "JAMESBEARD",
+          "name": "James Beard Foundation Awards",
+          "type": "award",
+          "rank": 1,
+          "verified": true,
+          "credible": "National culinary authority; Miami/Fort Lauderdale winners, nominees, semifinalists and America's Classics."
+        },
+        {
+          "key": "NPS",
+          "name": "National Park Service",
+          "type": "official",
+          "rank": 1,
+          "verified": true,
+          "credible": "Federal operator of Everglades NP, Biscayne NP and Big Cypress National Preserve — institutional ground truth for sites it runs."
+        },
+        {
+          "key": "MIAMIHERALD",
+          "name": "Miami Herald",
+          "type": "daily",
+          "rank": 1,
+          "verified": true,
+          "credible": "South Florida's daily of record since 1903; bylined food critics and local news (openings/closings)."
+        },
+        {
+          "key": "MIAMINEWTIMES",
+          "name": "Miami New Times (incl. Best of Miami)",
+          "type": "alt-weekly",
+          "rank": 1,
+          "verified": true,
+          "credible": "Miami's alt-weekly of record; annual Best of Miami awards are the city's long-running critics' benchmark."
+        },
+        {
+          "key": "SUNSENTINEL",
+          "name": "South Florida Sun Sentinel",
+          "type": "daily",
+          "rank": 1,
+          "verified": true,
+          "credible": "Broward's daily of record; bylined restaurant coverage for Fort Lauderdale/Hollywood."
+        },
+        {
+          "key": "EATERMIAMI",
+          "name": "Eater Miami",
+          "type": "digital",
+          "rank": 2,
+          "verified": true,
+          "credible": "Bylined Miami food news, Eater 38 essentials and heatmaps."
+        },
+        {
+          "key": "INFATUATION",
+          "name": "The Infatuation (Miami)",
+          "type": "digital",
+          "rank": 2,
+          "verified": true,
+          "credible": "National restaurant guide with a bylined Miami desk; rated reviews and guides."
+        },
+        {
+          "key": "WLRN",
+          "name": "WLRN (South Florida public media)",
+          "type": "public-media",
+          "rank": 2,
+          "verified": true,
+          "credible": "NPR member station for Miami-Dade/Broward; bylined culture, food and environment (Everglades) reporting."
+        },
+        {
+          "key": "TIMEOUT",
+          "name": "Time Out Miami",
+          "type": "travel",
+          "rank": 2,
+          "verified": true,
+          "credible": "International city guide with a bylined Miami desk."
+        },
+        {
+          "key": "GMCVB",
+          "name": "Greater Miami Convention & Visitors Bureau (miamiandbeaches.com)",
+          "type": "tourism",
+          "rank": 2,
+          "verified": true,
+          "credible": "Official tourism board for Miami-Dade; attractions and neighbourhood guides."
+        },
+        {
+          "key": "VISITLAUDERDALE",
+          "name": "Visit Lauderdale (Greater Fort Lauderdale CVB)",
+          "type": "tourism",
+          "rank": 2,
+          "verified": true,
+          "credible": "Official tourism board for Broward County."
+        },
+        {
+          "key": "FLSTATEPARKS",
+          "name": "Florida State Parks",
+          "type": "official",
+          "rank": 2,
+          "verified": true,
+          "credible": "State operator of Bill Baggs Cape Florida, Oleta River, Hugh Taylor Birch, The Barnacle etc. Official, needs a 2nd source."
+        },
+        {
+          "key": "MIAMIDADE",
+          "name": "Miami-Dade County Parks",
+          "type": "official",
+          "rank": 2,
+          "verified": true,
+          "credible": "County operator of Crandon, Matheson Hammock, Deering Estate, Zoo Miami etc."
+        },
+        {
+          "key": "ATLASOBSCURA",
+          "name": "Atlas Obscura",
+          "type": "travel",
+          "rank": 2,
+          "verified": true,
+          "credible": "Curated oddities catalogue; editorially reviewed entries."
+        },
+        {
+          "key": "WIKIPEDIA",
+          "name": "Wikipedia",
+          "type": "reference",
+          "rank": 3,
+          "verified": true,
+          "credible": "Notability + published coordinates (corroboration, not a lone recommender)."
+        },
+        {
+          "key": "OFFICIAL",
+          "name": "Official site",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "The place's own site — confirms facts/status; never a lone recommender."
+        },
+        {
+          "key": "CNTRAVELER",
+          "name": "Condé Nast Traveler",
+          "type": "travel",
+          "rank": 2,
+          "verified": true,
+          "credible": "National travel magazine; bylined Miami guides."
+        },
+        {
+          "key": "USATODAY",
+          "name": "USA Today 10Best",
+          "type": "travel",
+          "rank": 3,
+          "verified": true,
+          "credible": "Readers' Choice votes + editor picks; corroborating popularity."
+        },
+        {
+          "key": "LOCAL10",
+          "name": "WPLG Local 10",
+          "type": "tv",
+          "rank": 2,
+          "verified": true,
+          "credible": "Miami ABC affiliate; local news incl. openings/closings."
+        },
+        {
+          "key": "NBC6",
+          "name": "NBC 6 South Florida",
+          "type": "tv",
+          "rank": 2,
+          "verified": true,
+          "credible": "Miami NBC affiliate; local features."
+        },
+        {
+          "key": "CBSMIAMI",
+          "name": "CBS News Miami",
+          "type": "tv",
+          "rank": 2,
+          "verified": true,
+          "credible": "Miami CBS affiliate; local features."
+        },
+        {
+          "key": "NYT",
+          "name": "The New York Times",
+          "type": "daily",
+          "rank": 1,
+          "verified": true,
+          "credible": "National paper of record; 36 Hours, restaurant list."
+        },
+        {
+          "key": "FOODWINE",
+          "name": "Food & Wine",
+          "type": "magazine",
+          "rank": 2,
+          "verified": true,
+          "credible": "National food magazine; Best New Chefs, city guides."
+        },
+        {
+          "key": "TASTINGTABLE",
+          "name": "Tasting Table",
+          "type": "digital",
+          "rank": 3,
+          "verified": true,
+          "credible": "National food site; corroborating."
+        },
+        {
+          "key": "MIAMIMAG",
+          "name": "Miami Magazine / Ocean Drive",
+          "type": "magazine",
+          "rank": 2,
+          "verified": true,
+          "credible": "City magazines; bylined local guides."
+        },
+        {
+          "key": "VISITFLORIDA",
+          "name": "Visit Florida",
+          "type": "tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "State tourism board; corroborating."
+        },
+        {
+          "key": "AJC",
+          "name": "Atlanta Journal-Constitution (travel)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Major Southeast daily; staff travel piece on Everglades destinations."
+        },
+        {
+          "key": "CAPLINNEWS",
+          "name": "Caplin News (FIU)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "FIU journalism school's newsroom covering Miami neighbourhoods; local, bylined."
+        },
+        {
+          "key": "CORALGABLES",
+          "name": "City of Coral Gables (official)",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Municipal official attractions page."
+        },
+        {
+          "key": "CRAZYTOURIST",
+          "name": "The Crazy Tourist",
+          "type": "editorial",
+          "rank": 4,
+          "verified": true,
+          "credible": "Travel listicle site — corroborating only, never paired alone with another weak source."
+        },
+        {
+          "key": "CULTURETRIP",
+          "name": "Culture Trip",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established travel publisher with bylined destination guides."
+        },
+        {
+          "key": "DINERSCLUB",
+          "name": "Diners Club Travel",
+          "type": "editorial",
+          "rank": 4,
+          "verified": true,
+          "credible": "Card-issuer travel editorial — corroborating only."
+        },
+        {
+          "key": "EARTHTREKKERS",
+          "name": "Earth Trekkers",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running, widely-read national-parks travel blog (Julie & Tim Rivenbark); detailed first-hand park guides."
+        },
+        {
+          "key": "FLORIDARAMBLER",
+          "name": "Florida Rambler",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Veteran Florida travel site by former Sun Sentinel journalists; first-hand Old Florida coverage."
+        },
+        {
+          "key": "FODORS",
+          "name": "Fodor's Travel",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Established guidebook publisher with edited listings."
+        },
+        {
+          "key": "FOXNEWS",
+          "name": "Fox News (food)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "National news outlet; feature on Robert Is Here's 50th anniversary."
+        },
+        {
+          "key": "FROMMERS",
+          "name": "Frommer's",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Established guidebook publisher with edited listings."
+        },
+        {
+          "key": "GLOBALPHILE",
+          "name": "Globalphile",
+          "type": "editorial",
+          "rank": 4,
+          "verified": true,
+          "credible": "Travel blog — corroborating only."
+        },
+        {
+          "key": "GULFSHOREBUSINESS",
+          "name": "Gulfshore Business",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Southwest Florida business magazine; bylined Redland feature."
+        },
+        {
+          "key": "ISLANDS",
+          "name": "Islands (islands.com)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "National travel magazine brand; bylined Ochopee feature."
+        },
+        {
+          "key": "LONELYPLANET",
+          "name": "Lonely Planet",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Leading guidebook publisher; edited must-see listings."
+        },
+        {
+          "key": "MIAMILIVING",
+          "name": "Miami Living Magazine",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Local lifestyle magazine; full 2026 Michelin list (used to corroborate the award list)."
+        },
+        {
+          "key": "MICHELIN_EDITORIAL",
+          "name": "MICHELIN Guide editorial (best-of articles)",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Michelin's editorial round-ups — ONE ordinary source, never the lone-authority award (key hygiene)."
+        },
+        {
+          "key": "NATGEO",
+          "name": "National Geographic Travel",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Major travel publisher; Everglades activities guide."
+        },
+        {
+          "key": "NBCNEWS",
+          "name": "NBC News",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "National news; features on Robert Is Here and Coopertown airboats."
+        },
+        {
+          "key": "NRHP",
+          "name": "National Register of Historic Places (NPS travel itinerary)",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Federal historic designation listing — corroborates history, not an operator authority."
+        },
+        {
+          "key": "PARADISECOAST",
+          "name": "Naples, Marco Island, Everglades CVB (Paradise Coast)",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Official Collier County tourism board — Everglades City dining."
+        },
+        {
+          "key": "ROADSIDEAMERICA",
+          "name": "Roadside America",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running authority on US roadside attractions, user tips edited."
+        },
+        {
+          "key": "SHAKAGUIDE",
+          "name": "Shaka Guide",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "GPS audio-tour publisher with researched national-park itineraries."
+        }
+      ],
+      "creators": [
+        {
+          "key": "MARKWIENS",
+          "name": "Mark Wiens",
+          "platform": "YouTube",
+          "handle": "@MarkWiens",
+          "url": "https://tubitv.com/creators/mark_wiens",
+          "scale": "~11M YouTube subscribers",
+          "niche": "global street-food travel vlogs",
+          "credible": "One of the largest food-travel YouTubers; his Taste Tour USA Miami episode (2018) opens at Versailles for cafecito and Cuban sandwiches — findable episode on Tubi."
+        },
+        {
+          "key": "BURGERBEAST",
+          "name": "Burger Beast (Sef Gonzalez)",
+          "platform": "Blog/Instagram/YouTube",
+          "handle": "@burgerbeast",
+          "url": "https://burgerbeast.com/?p=701003",
+          "scale": "Miami's best-known burger & comfort-food creator since 2008; profiled by The Daily Meal and New Times",
+          "niche": "Miami burgers, fritas, comfort food",
+          "credible": "16+ years covering Miami burgers; featured by The Daily Meal ('Burger Beast's Best of Miami') and New Times; runs the Magic City Casino frita showdown coverage."
+        }
+      ]
     }
   }
 }

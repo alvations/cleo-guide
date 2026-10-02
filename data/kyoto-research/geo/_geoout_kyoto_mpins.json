@@ -72,9 +72,9 @@
  {
   "n": "Gombei",
   "address": "254 Gionmachi Kitagawa, Higashiyama-ku, Kyoto 605-0073, Japan",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
+  "lat": 35.004141,
+  "lng": 135.774308,
+  "confidence": "high",
   "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/gombe",
   "status": "open",
   "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
@@ -82,9 +82,9 @@
  {
   "n": "Choshoku Kishin",
   "address": "555 Komatsu-chō, Higashiyama-ku, Kyoto 605-0811, Japan",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
+  "lat": 35.002727,
+  "lng": 135.774054,
+  "confidence": "high",
   "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/choshoku-kishin",
   "status": "open",
   "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
@@ -272,9 +272,9 @@
  {
   "n": "Saryo Tesshin",
   "address": "321-2 Shinnyodō-chō, Nakagyō-ku, Kyoto 604-0853, Japan",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
+  "lat": 35.014574,
+  "lng": 135.760261,
+  "confidence": "high",
   "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/saryo-tesshin",
   "status": "open",
   "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
@@ -282,9 +282,9 @@
  {
   "n": "Kombu to Men Kiichi",
   "address": "2F, 74-2 Nishiitsutsuji Higashimachi, Kamigyō-ku, Kyoto 602-8478, Japan",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
+  "lat": 35.031045,
+  "lng": 135.742342,
+  "confidence": "high",
   "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/en/kyoto-region/kyoto/restaurant/kombu-to-men-kiichi",
   "status": "open",
   "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
@@ -292,9 +292,9 @@
  {
   "n": "Jukuseibuta Kawamura",
   "address": "57-1 Takehana Nishinoguchi-chō, Yamashina-ku, Kyoto 607-8089, Japan",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
+  "lat": 34.988748,
+  "lng": 135.81588,
+  "confidence": "high",
   "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/en/kyoto-region/kyoto/restaurant/jukuseibuta-kawamura",
   "status": "open",
   "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
@@ -326,6 +326,166 @@
   "lng": 135.829041,
   "confidence": "high",
   "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/nara-region/nara/restaurant/toi-inshokuten",
+  "status": "open",
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Ogawa",
+  "address": "515 Aneishinotōin-chō, Nakagyō-ku, Kyoto 604-8273, Japan",
+  "lat": 35.008838,
+  "lng": 135.755203,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/ogawa",
+  "status": "open",
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Tsujifusa",
+  "address": "155 Mukadeya-chō, Nakagyō-ku, Kyoto 604-0805, Japan",
+  "lat": 35.014965,
+  "lng": 135.763464,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/tsujifusa",
+  "status": "open",
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Kiyama",
+  "address": "136 Kinuya-chō, Nakagyō-ku, Kyoto 604-0804, Japan",
+  "lat": 35.01578,
+  "lng": 135.763078,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kiyama",
+  "status": "open",
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Miyawaki",
+  "address": "122-1 Shikiami-chō, Nakagyō-ku, Kyoto 604-8261, Japan",
+  "lat": 35.010035,
+  "lng": 135.753714,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/miyawaki-1205446",
+  "status": "open",
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Nijo Minami",
+  "address": "92-12 Enoki-chō, Nakagyō-ku, Kyoto 604-0931, Japan",
+  "lat": 35.013142,
+  "lng": 135.768119,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/nijo-minami",
+  "status": "open",
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Muromachi Wakuden",
+  "address": "679 Maruki-zaimoku-chō, Nakagyō-ku, Kyoto 604-8106, Japan",
+  "lat": 35.010146,
+  "lng": 135.763257,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/muromachi-wakuden",
+  "status": "open",
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Jiki Miyazawa",
+  "address": "553-1 Yaoya-chō, Nakagyō-ku, Kyoto 604-8123, Japan",
+  "lat": 35.0043254,
+  "lng": 135.7633929,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/jiki-miyazawa",
+  "status": "open",
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Gion Fukushi",
+  "address": "570-120 Gionmachi Minamigawa, Higashiyama-ku, Kyoto 605-0074, Japan",
+  "lat": 35.002145,
+  "lng": 135.774388,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/gion-fukushi",
+  "status": "open",
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Gion Kida",
+  "address": "570-192 Gionmachi Minamigawa, Higashiyama-ku, Kyoto 605-0074, Japan",
+  "lat": 35.002502,
+  "lng": 135.776138,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/gion-kida",
+  "status": "open",
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Gion Owatari",
+  "address": "570-265 Gionmachi Minamigawa, Higashiyama-ku, Kyoto 605-0074, Japan",
+  "lat": 35.001444,
+  "lng": 135.777074,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/gion-owatari",
+  "status": "open",
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Gion Maruyama",
+  "address": "570-171 Gionmachi Minamigawa, Higashiyama-ku, Kyoto 605-0074, Japan",
+  "lat": 35.002587,
+  "lng": 135.776068,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/gion-maruyama",
+  "status": "open",
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Gion Nishikawa",
+  "address": "473 Shimokawara-chō, Higashiyama-ku, Kyoto 605-0825, Japan",
+  "lat": 34.999797,
+  "lng": 135.778857,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/gion-nishikawa",
+  "status": "open",
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Sushi Kappo Nakaichi",
+  "address": "570-196 Gionmachi Minamigawa, Higashiyama-ku, Kyoto 605-0074, Japan",
+  "lat": 35.002323,
+  "lng": 135.776468,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/ae-az/en/kyoto-region/kyoto/restaurant/sushi-kappo-nakaichi",
+  "status": "open",
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Pontocho Masuda",
+  "address": "200 Shimokoriki-chō, Nakagyō-ku, Kyoto 604-8016, Japan",
+  "lat": 35.005793,
+  "lng": 135.771054,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/pontocho-masuda",
+  "status": "open",
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Saketosakana DNA",
+  "address": "559-1 Tōrō-chō, Shimogyō-ku, Kyoto 600-8401, Japan",
+  "lat": 35.000113,
+  "lng": 135.760822,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/saketosakana-dna",
+  "status": "open",
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Kyokaiseki Kichisen",
+  "address": "5 Shimogamo Morimoto-chō, Sakyō-ku, Kyoto 606-0805, Japan",
+  "lat": 35.035717,
+  "lng": 135.771236,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kyokaiseki-kichisen",
   "status": "open",
   "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
  }

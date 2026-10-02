@@ -46,3 +46,9 @@
 45 Downtown/Overtown historic (Freedom Tower, HistoryMiami, Olympia, Miami Circle, Lyric Theater LP, Black Police Precinct)
 46 North Miami (GMCVB NMB: Ancient Spanish Monastery, Oleta River SP, MOCA, Arch Creek, Greynolds)
 47 Wynwood/Design District museums (Rubell NT, ICA, Margulies, Museum of Graffiti, Design District)
+48 Broward attractions (Visit Lauderdale + Fodor's: Hollywood Broadwalk, Hugh Taylor Birch SP, MODS, Flamingo Gardens, Butterfly World)
+49 Glades food (GMCVB Everglades eats + Paradise Coast + Fodor's: Coopertown, City Seafood, Joanie's Blue Crab)
+50 Miami Beach icons (Puerto Sagua Inf, La Sandwicherie NT 2018, Las Olas Cafe, Mac's Club Deuce — sourcing unclear, held)
+51 Mark Wiens Miami (Taste Tour USA: Versailles) 
+52 Burger Beast / NT best burgers (Babe's, Edan Bistro, Off Site, USBS, ViceVersa, Are You Hungry Grill)
+(geocode agent w1: 38 searches) — running total ≈ 90
