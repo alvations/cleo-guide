@@ -220,6 +220,27 @@
      "https://osaka-info.jp/en/spot/kinguemon-dotonbori/"
     ]
    ]
+  },
+  {
+   "n": "Dotonbori Imai (kitsune udon)",
+   "a": "MINAM",
+   "src": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/special/dc/event/detail666/"
+    ]
+   ]
+  },
+  {
+   "n": "Roushouki (Kobe Nankinmachi, butaman since 1915)",
+   "a": "KNSAI",
+   "src": [
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E3%81%BE%E3%82%93"
+    ]
+   ],
+   "note": "needs 2nd source + address"
   }
  ],
  "single_source_sight": [
@@ -243,16 +264,6 @@
    "note": "CLOSED for renovation until 2027-01-05 per japan-guide e4024 — do not add as live"
   },
   {
-   "n": "Sennichimae Doguyasuji",
-   "a": "MINAM",
-   "src": [
-    [
-     "OSAKAINFO",
-     "https://osaka-info.jp/experience/en/osaka/spot/212"
-    ]
-   ]
-  },
-  {
    "n": "Osaka Tsuruhashi Market",
    "a": "EAST",
    "src": [
@@ -264,16 +275,6 @@
    "note": "~800 stalls; needs 2nd source + coord"
   },
   {
-   "n": "Jan Jan Yokochō (Shinsekai)",
-   "a": "TNJ",
-   "src": [
-    [
-     "OSAKAINFO",
-     "https://osaka-info.jp/experience/en/osaka/spot?area=4"
-    ]
-   ]
-  },
-  {
    "n": "Isshin-ji",
    "a": "TNJ",
    "coord": [
@@ -281,6 +282,20 @@
     135.510861
    ],
    "note": "jawiki coord; OSAKA-INFO listing only vaguely surfaced"
+  },
+  {
+   "n": "Osaka Shochikuza (kabuki theatre, Dōtonbori)",
+   "a": "MINAM",
+   "src": [
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E5%A4%A7%E9%98%AA%E6%9D%BE%E7%AB%B9%E5%BA%A7"
+    ]
+   ],
+   "coord": [
+    34.6685,
+    135.500889
+   ]
   }
  ],
  "timeout_area_lists_to_mine": [
@@ -309,17 +324,22 @@
    "url": "https://guide.michelin.com/en/osaka-region/osaka/restaurant/rivi"
   },
   {
-   "n": "PRESTAU (Italian, Bib 2025)",
-   "url": "",
-   "note": "address not surfaced"
+   "n": "Shunsaiten Tsuchiya",
+   "address": "41-4 Toyotsucho, Suita, Osaka 564-0051",
+   "url": "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/shunsaiten-tsuchiya"
   },
   {
-   "n": "Tempura Urakami",
-   "url": "https://guide.michelin.com/jp/en/osaka-region/osaka/restaurant/tempura-urakami"
+   "n": "Hiraishi",
+   "address": "3F, 1-9-6 Sonezakishinchi, Kita-ku, Osaka 530-0002",
+   "url": "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/hiraishi"
   },
   {
-   "n": "Kitashinchi Kushikatsu Bon",
-   "url": "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kitashinchi-kushikatsu-bon"
+   "n": "OIMATSU Tempura Suzuki",
+   "url": "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/oimatsu-tempura-suzuki"
+  },
+  {
+   "n": "Numata",
+   "url": "https://guide.michelin.com/sg/en/osaka-region/osaka/restaurant/numata"
   }
  ]
 }
