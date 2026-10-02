@@ -147,3 +147,38 @@
   His 2026 Philly stops (Johnny's Bryn Mawr, Marina's Fishtown, Liguria) not attached: scores not in-result.
 - Channel mix so far W3 (101 food + 18 sights): editorial of record (Inquirer, Philly Mag) ~95 · Infatuation ~65 · Visit Philly ~60 ·
   regional (Main Line Today 14, NJ Monthly 4, SJ Mag 1, Northeast Times 1) · travel (Atlas Obscura 3) · Billy Penn ~10 · creator 1.
+
+## 2026-10-02 · W3 batches 9-24 — canon, award lists, neighbourhood guides, sights, pins
+- Food canon: hoagies (Inquirer 20 best × Philly Mag 25 essential): Cosmi's, Ricci's, Sarcone's Deli, Campo's, Cacia's (Chickie's is
+  now Antonio's — already listed). Water ice: Pop's (Best of Philly) added; Italiano's added then DROPPED (closed, Inquirer 2013/2021).
+- Award lists (lone-authority JAMESBEARD, recorded with the reporting outlet's URL): JBF 2026 finalists/semifinalists → Fiore, Amá,
+  Almanac (+JB on Radin's); JBF 2025 semifinalists → Mawn (WON Emerging Chef 2025), Vernick Fish, Bolo, Little Fish, Càphê Roasters,
+  Machine Shop, Kampar; JBF 2024 → Cantina La Martina, a.kitchen + bar (+JB on Isgro, Gass & Main); JBF 2023 → Gabriella's Vietnam,
+  Heavy Metal Sausage, Denise's Delicacies, Mighty Bread, Le Caveau (+JB on Monk's); America's Classics 2024 → Vietnam Restaurant.
+  NYT best-in-America: Bomb Bomb Bar (2026, Philly's only entry), Meetinghouse + Mawn (2025), Amá (NYT greatest Mexican 2026).
+  Michelin: no 2026 Philadelphia edition yet — the Nov-2025 list is what W1 already holds.
+- Neighbourhood guides crossed with a 2nd outlet: Northeast Times 2026 lists × Infatuation NE (Steve's — HELD lead cleared, Giannone's,
+  La Patrona, Bishos, Asad's, Marinucci's, Café Carmela); Infatuation Germantown/Mt Airy × Philly Mag/Visit Philly (Deke's, Uncle
+  Bobbie's, Nile Cafe, Malelani, Attic Brewing) + Manayunk Brewing; Infatuation University City × Inquirer/Visit Philly (Terakawa,
+  Walnut Street Cafe, Franklin's Table, Clarkville, Renata's, Sabrina's) + Doro Bet, Vietnam Cafe; Infatuation Old City/Rittenhouse ×
+  Visit Philly/Inquirer (Malooga, Khyber Pass, Ogawa, Fork, Sonny's — HELD lead cleared, Buk Chon, Tequilas, La Jefa); Infatuation East
+  Passyunk/South Philly × Philly Mag/Inquirer/Visit Philly (Sao, Tesiny, Irwin's, Palizzi, Perla, CJ & D's, Blue Corn, Scampi — HELD
+  lead cleared); Delco (Inquirer × 6abc/Main Line Today): Phil & Jim's, Ro-Lynn.
+- MEASURED & DROPPED: Wit or Witout (only the Northeast Times citing a 2009 Philly Mag award — one real source); Guido's / Stoli's
+  (Yelp-ranking basis only); McMenamin's (a mention, not merit); Fireman's Hall Museum (two Visit Philly pages = one outlet); Hops.
+- HELD: Penang, Bai Wei, Plaza Garibaldi, Pho Ha, Cafe Diem, Ipanema, Passage, Buna Cafe, Trattoria Carina, Uchi, Prunella, Little
+  Nonna's, Barbuzzo, Buddakan, Morimoto, Han Dynasty, Lucky's Last Chance, Goat's Beard, Jean, Emilia, Mancuso's, D'Emilio's, Grey Towers
+  Castle, Church of the Advocate, Rail Park, Graffiti Pier (2024 partial collapse; park plans in limbo — not presented as a visit).
+- Status pass 2 (background agent, 30 searches, 22 checked): CLOSED → Tony's Place (Mayfair, 2022; Philly Grub 2026-03-30) kept FLAGGED
+  as "Tony's Place — CLOSED" (notable: 'probably the best tomato pie in the city'); Italiano's dropped. 20 address corrections applied
+  (Goldie → 1911 Sansom; Le Caveau → 614 S 7th St, moved to SPH; Kampar, Fiore, Amá, Almanac, Denise's, Mighty Bread, Cherry Hill/
+  Haddonfield/Collingswood addresses …). Federal Donuts: July 2026 CookNSolo closures hit several shops — address left generic.
+- Sights (Visit Philly / Valley Forge Tourism / Visit Bucks / Hidden City / Atlas Obscura / NPS × Wikipedia pins): NPS Independence
+  (Declaration House, Todd House, Bishop White House, Kosciuszko NM, Old City Hall — its Wikipedia point sat ~150 m off 5th & Chestnut,
+  REJECTED, left unpinned); Hopewell Furnace NHS; New Hope Railroad; Bowman's Hill; Pearl S. Buck House; Keswick Theatre, Graeme Park
+  (med, minute precision), Hope Lodge, Harriton House; Cave of Kelpius; Main Street Manayunk; Lemon Hill, Woodford, Laurel Hill Mansion
+  (the 4 park houses open for tours incl. Strawberry Mansion); Neumann Shrine; Clay Studio; Divine Lorraine (med), Horticulture Center,
+  The Met, Taller Puertorriqueño; African American Museum, Weitzman NMAJH, National Liberty Museum.
+- Restaurant place pins (Wikipedia infoboxes, geo/_geoout_w3_foodpins.json): Meetinghouse, Mish Mish, Her Place, Dalessandro's,
+  McGillin's, El Chingón, Max's (status unknown — sale in progress Jan 2026). Pat's/Geno's/Jim's were already pinned (W1).
+- Build (after batch 14): 341 sourced → 152 on page; 4 gates PASS; validate + test PASS; card + CITIES refreshed.
