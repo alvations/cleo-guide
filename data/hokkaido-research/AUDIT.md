@@ -227,3 +227,15 @@ Hakodate Kaisen Ichiba (hakodate.travel + rurubu spot).
 **W57:** Utonai-ko (hokki curry, Tomakomai miso-curry ramen; visit-hokkaido + wiki pin), Biei Shirogane Birke (Biei-wheat burgers;
 visit-hokkaido + rurubu + wiki pin). Not added (no signature food sourced): Date Rekishi no Mori, Tōya-ko, Asahikawa (pin 43.75992,
 142.34853 read), Okhotsk Monbetsu (44.32839,143.37494). **W58:** Mochigome no Sato Nayoro soft daifuku (rurubu + TripEat + wiki pin; DHOKU).
+**W60 sights (background agent, 12 searches):** see `_note_W60.md` — 13 kept (Esan, Komagatake, Hakodate Park, Hakodate Museum of Art,
+Bōgakudai, Kamui Kotan, Lake Nukabira [med: dam coord], Mikuni Pass, Arishima Memorial Museum, Hongō Shin museum, Fugoppe Cave,
+Cape Noshappu [med: lighthouse coord], Noshappu Aquarium). Held: Hangetsu Lake, Kompira crater (no coords), Wakkanai Youth Science Museum.
+**W61:** Hokkaido University campus (sapporo.travel + visit-hokkaido + wiki; med — campus point). Held: Sapporo City Archives
+(43.058528,141.337472) and Former Nagayama residence (43.0659111,141.3645167) — pins read, no 2nd source yet.
+**Registry:** SOURCES_HOKKAIDO_W61.json gives real `credible` rationales for 12 AUTO-registered keys (OFFICIAL, ANIMETOURISM88,
+GAMER4, HAKODATEASAICHI, KUSHIROTOURISM, TIMEOUT, TRAVELJP, TRAVELWATCH, LAKETOYA, NISEKOTOURISM, OBIKAN, RISHIRIPLUS) — patched into
+data/sources.json under the lock.
+**Build #5 (s3):** 296 discovered → 170 rendered (144 sights + 26 food). sourcecheck PASS 296 · geocheck PASS · statuscheck CONSISTENT ·
+buildcheck PASS · validate DATA OK · npm test ALL PASS. 126 UNVERIFIED held (restaurants → helper). Food share 136/296 = 46%
+(per area: SPR 54% · OTARU 50% · TKC 44% · DONAN 43% · DHOKU 46% · DOTO 45% · IBURI 35% · NSK 43% · SOYA 33%).
+ANIME collection: 4 (W40). Searches ≈ 131 (me ~104 + agents 27).
