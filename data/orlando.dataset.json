@@ -3802,6 +3802,10 @@
     [
      "ORLANDOWEEKLY",
      "https://www.orlandoweekly.com/food-drink/guy-fieris-triple-d-will-feature-six-orlando-restaurants-3771161"
+    ],
+    [
+     "FOODNETWORK",
+     "https://www.foodnetwork.com/restaurants/fl/orlando/willies-pinchos-restaurant"
     ]
    ]
   },
@@ -3809,8 +3813,8 @@
    "t": 1,
    "a": "MILLS",
    "n": "Se7en Bites",
-   "ad": "Orlando, FL",
-   "w": "Bakeshop of sweet-and-savory Southern comfort food featured on Diners, Drive-Ins and Dives (S26 E10, 2017). Order: Nostalgic Southern comfort food and pies.",
+   "ad": "617 N Primrose Dr, Orlando, FL",
+   "w": "Trina Gregory-Propst's Southern bakeshop (expanded 3,500-sq-ft space on N Primrose Dr): pies, biscuits, Southern poutine — featured on Diners, Drive-Ins and Dives and listed in the MICHELIN Guide. Order: Nostalgic Southern comfort food and pies.",
    "cz": [
     "DES",
     "US"
@@ -3823,6 +3827,14 @@
     [
      "ORLANDOWEEKLY",
      "https://www.orlandoweekly.com/food-drink/guy-fieris-triple-d-will-feature-six-orlando-restaurants-3771161"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/kr/ko/florida/orlando/restaurant/se7en-bites"
+    ],
+    [
+     "TASTYCHOMPS",
+     "https://tastychomps.com/2026/03/15-women-owned-and-led-restaurants-to-try-in-orlando.html"
     ]
    ]
   },
@@ -3867,6 +3879,104 @@
     [
      "ORLANDOWEEKLY",
      "https://www.orlandoweekly.com/food-drink/wendy-lopez-chef-behind-reyes-mezcaleria-and-sparrow-wine-bar-nominated-for-a-2026-james-beard-award/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "Black Bean Deli",
+   "ad": "1835 E Colonial Dr, Orlando, FL",
+   "w": "Local Cuban chain (also 1346 N Orange Ave, Winter Park) — Orlando Weekly readers' Best Cuban Sandwich 2023 and 2025 and Best Latin Restaurant 2023.",
+   "cz": [
+    "CUBA",
+    "US"
+   ],
+   "s": [
+    [
+     "ORLANDOWEEKLY",
+     "https://www.orlandoweekly.com/food-drink/black-bean-deli-to-open-third-orlando-area-location-36117343/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/orlando/reviews/black-bean-deli"
+    ],
+    [
+     "WFTV",
+     "https://www.wftv.com/news/local/popular-cuban-restaurant-black-bean-deli-headed-winter-garden/7WBJ5PDSSNFFBFUNTVRSFHVFCM"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "Pig Floyd's Urban Barbakoa",
+   "ad": "1326 N Mills Ave, Orlando, FL",
+   "w": "Thomas Ward's barbecue counter with Indian, Chinese and Mexican twists; #1 Mills 50 restaurant in Orlando Weekly's 2026 readers' poll. Order: Global-spiced barbecue tacos and sandwiches.",
+   "cz": [
+    "BBQ"
+   ],
+   "s": [
+    [
+     "ORLANDOWEEKLY",
+     "https://www.orlandoweekly.com/food-drink/the-quality-cue-at-pig-floyds-will-make-you-wish-you-were-here-2293402/"
+    ],
+    [
+     "SPECTRUMNEWS13",
+     "https://mynews13.com/fl/orlando/news/2019/10/23/chef-s-kitchen-pig-floyd-s-urban-barbakoa"
+    ],
+    [
+     "SCOTTJOSEPH",
+     "https://scottjosephorlando.com/restaurant_listing/pig-floyds-urban-barbakoa/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "East End Market (Orlando)",
+   "ad": "Audubon Park Garden District, Orlando, FL",
+   "w": "Orlando's first food hall (2013): a two-storey neighbourhood market of a dozen local merchants, a cocktail lounge and ramen. Order: Food-hall stalls and ramen (Domu started here).",
+   "cz": [
+    "JP"
+   ],
+   "g": [
+    "MKT",
+    "BAR"
+   ],
+   "s": [
+    [
+     "CLICKORLANDO",
+     "https://clickorlando.com/news/local/2023/10/26/orlandos-east-end-market-celebrates-10-years-with-family-day-saturday"
+    ],
+    [
+     "OFFICIAL",
+     "https://eastendmkt.com/our-story/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "WPK",
+   "n": "Ethos Vegan Kitchen — CLOSED",
+   "ad": "Winter Park, FL",
+   "w": "Winter Park's 17-year vegan institution (a Frommer's pick) — closed 2024; kept flagged so it never reads as open. Order: Plant-based comfort food.",
+   "closed": true,
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "ORLANDOWEEKLY",
+     "https://www.orlandoweekly.com/food-drink/longtime-winter-park-vegetarian-destination-ethos-vegan-kitchen-closes-after-17-years-37700621/"
+    ],
+    [
+     "WFTV",
+     "https://www.wftv.com/news/local/ethos-vegan-kitchen-closes-after-17-years-business/GEYWGR4MNRHZDGGGMDDXKEQ54I/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/orlando/restaurants/ethos-vegan-kitchen"
     ]
    ]
   },
@@ -4842,6 +4952,48 @@
   },
   {
    "t": 1,
+   "a": "IOA",
+   "n": "Mythos Restaurant",
+   "ad": "The Lost Continent, Universal Islands of Adventure, Orlando, FL",
+   "w": "Grotto-like table-service restaurant carved into a rock 'temple'; a perennial top Universal restaurant. Order: Mediterranean fusion — lamb meatballs, seasonal risotto.",
+   "cz": [
+    "PARK",
+    "ME"
+   ],
+   "s": [
+    [
+     "TOURINGPLANS",
+     "https://touringplans.com/blog/2025-awards-best-restaurants-hotels-of-universal-orlando"
+    ],
+    [
+     "TASTINGTABLE",
+     "https://www.tastingtable.com/1930949/best-universal-orlando-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "USF",
+   "n": "Krusty Burger (Universal Studios Florida)",
+   "ad": "Springfield, Universal Studios Florida, Orlando, FL",
+   "w": "Springfield's burger counter, ranked among the best quick-service spots in USF. Order: Krusty Burger.",
+   "cz": [
+    "PARK",
+    "US"
+   ],
+   "s": [
+    [
+     "TOURINGPLANS",
+     "https://touringplans.com/blog/2025-awards-best-restaurants-hotels-of-universal-orlando"
+    ],
+    [
+     "TASTINGTABLE",
+     "https://www.tastingtable.com/1930949/best-universal-orlando-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
    "a": "MILLS",
    "n": "Viet-Nomz",
    "ad": "Mills 50, Orlando, FL",
@@ -5240,11 +5392,35 @@
    "u": "https://mickeyblog.com/",
    "l": "MickeyBlog"
   },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "Official site (venue / Walt Disney World / Universal Orlando)",
+   "u": "",
+   "l": "Official site (venue / Walt Disney World / Universal Orlando)"
+  },
   "ORLANDOWEEKLY": {
    "k": "ORLANDO WEEKLY",
    "t": "Orlando Weekly",
    "u": "https://www.orlandoweekly.com/",
    "l": "Orlando Weekly"
+  },
+  "SCOTTJOSEPH": {
+   "k": "SCOTTJOSEPH",
+   "t": "Scott Joseph's Orlando Restaurant Guide",
+   "u": "https://scottjosephorlando.com/",
+   "l": "Scott Joseph's Orlando Restaurant Guide"
+  },
+  "SPECTRUMNEWS13": {
+   "k": "SPECTRUM NEWS 13",
+   "t": "Spectrum News 13",
+   "u": "https://mynews13.com/",
+   "l": "Spectrum News 13"
+  },
+  "TASTINGTABLE": {
+   "k": "TASTINGTABLE",
+   "t": "Tasting Table",
+   "u": "https://www.tastingtable.com/",
+   "l": "Tasting Table"
   },
   "TASTYCHOMPS": {
    "k": "TASTY CHOMPS",
