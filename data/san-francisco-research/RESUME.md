@@ -1,5 +1,34 @@
 # San Francisco & Peninsula — RESUME checkpoint (read first)
 
+## Targets (per area; parsed by tools/density.py — sum = 500, New York density)
+- `DTN` Downtown, SoMa & Union Square ~80
+- `NECN` Chinatown, North Beach & the Wharf ~75
+- `NOB` Nob Hill, Russian Hill & Polk/Tenderloin ~40
+- `NW` Marina, Pacific Heights, Japantown & Presidio ~50
+- `AVE` Richmond, Sunset & Golden Gate Park ~70
+- `MIS` Mission, Castro & Noe Valley ~75
+- `HAI` Haight, Hayes Valley & Divisadero ~45
+- `SE` Bayview, Dogpatch, Bernal & the Southeast ~30
+- `PEN` Peninsula & SFO (Daly City → San Mateo) ~35
+
+## Session 2026-10-02 (modernisation run) — search counter
+- WebSearch used this session: **0** / ~200 (session cap). Update after every wave.
+
+## In-flight wave
+- **M1 plumbing + credibility/key-hygiene audit (offline)** — density.py RDIR, CARD markers, `_sf_add.py`,
+  `_sf_push.sh`, `_sf_counts.sh`, this Targets block. Next: re-source Mandalay / Foreign Cinema / Chibog /
+  Basque Cultural Center; closure sweep (Aug→Oct 2026); then food-first discovery waves (FOOD_W3*.json).
+
+## Commands
+```
+python3 tools/density.py san-francisco-ca
+flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py san-francisco-ca --build
+python3 data/san-francisco-research/_sf_add.py FOOD_W3A.json < recs.json     # dedup-append
+bash data/san-francisco-research/_sf_push.sh                                  # pull+push loop
+flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock bash data/san-francisco-research/_sf_counts.sh
+```
+
+
 Single source of truth for where the SF build is and what to do next. Resume deterministically by
 reading, in order: **this file → `AUDIT.md` → `_AGENT_BRIEF.md` → the task list (#29 scaffold, #30 food,
 #31 sights)**. Then `cd data/san-francisco-research && python3 consolidate.py` for the live count, and
