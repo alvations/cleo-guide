@@ -362,7 +362,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Yuiga Dokuson, Furano (唯我独尊)
 
 ## kyoto
-- registry entries: **228** · verified pins: **215** (high 200 · med 15 · low 0)
+- registry entries: **229** · verified pins: **216** (high 201 · med 15 · low 0)
 - ⚠️ **UNVERIFIED** in registry (13) — held by the gate, need the helper:
     - Fushimi Sake District
     - Honke Daiichi-Asahi Takabashi
@@ -1355,7 +1355,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Talleyrand Park & the Big Spring
 
 ## tokyo
-- registry entries: **382** · verified pins: **377** (high 350 · med 27 · low 0)
+- registry entries: **387** · verified pins: **382** (high 362 · med 20 · low 0)
 - ⚠️ **UNVERIFIED** in registry (5) — held by the gate, need the helper:
     - Afuri Ebisu
     - Amazake-chaya, Hakone (甘酒茶屋)

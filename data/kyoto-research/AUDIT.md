@@ -197,3 +197,6 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
   CARD:kyoto counts and the CITIES.md row were refreshed.
 - **Closures found this wave:** none. Every place carries a 2026 status source. Kurama Onsen was confirmed reopened (Nov 2024).
 - Searches used: main 160 + worker 18 = 178.
+- Close-out: NARA NIKON ★★ (Nara, Michelin venue pin) added. Not added: SÉN (Tenkawa) and Da terra (Asuka), which are far outside the Uji & Nara area;
+  Gen and le content have no dish or are out of canon. Last build: 229 discovered / 216 rendered; all gates and tests PASS. W2 closed at about 180 searches
+  (main 162 + worker 18) because yields had fallen to about one place per search.

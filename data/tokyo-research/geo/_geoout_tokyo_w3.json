@@ -154,8 +154,8 @@
   "address": "2-1 Uenokōen, Taitō-ku, Tokyo",
   "lat": 35.7102,
   "lng": 139.7726,
-  "confidence": "med",
-  "geoSource": "Wikipedia Shitamachi Museum infobox (35°42′37″N 139°46′21″E — whole-second; SE shore of Shinobazu Pond)",
+  "confidence": "high",
+  "geoSource": "en.wikipedia Shitamachi Museum 35°42'37\"N 139°46'21\"E https://en.wikipedia.org/wiki/Shitamachi_Museum ; ja.wikipedia 下町風俗資料館 same coords, 台東区上野公園2-1 https://ja.wikipedia.org/wiki/%E4%B8%8B%E7%94%BA%E9%A2%A8%E4%BF%97%E8%B3%87%E6%96%99%E9%A4%A8 [W4 placement re-check: keep]",
   "status": "open",
   "statusSource": "Official site taitogeibun.net (exhibitions page) — closed Apr 2023 for renovation, reopened 9 Mar 2025"
  },
@@ -442,20 +442,20 @@
  {
   "n": "Toyama Park & Hakoneyama",
   "address": "Toyama 1–3-chōme / Ōkubo 3-chōme, Shinjuku-ku, Tokyo",
-  "lat": 35.705333,
-  "lng": 139.704556,
-  "confidence": "med",
-  "geoSource": "Wikidata Q10950260 Toyama Park P625 (35°42′19.199″N 139°42′16.402″E)",
+  "lat": 35.70361,
+  "lng": 139.71361,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 箱根山 (新宿区) 北緯35度42分13秒 東経139度42分49秒 (35.70361,139.71361), 戸山二丁目 https://ja.wikipedia.org/wiki/%E7%AE%B1%E6%A0%B9%E5%B1%B1_(%E6%96%B0%E5%AE%BF%E5%8C%BA) [W4 placement re-check: upgrade]",
   "status": "open",
   "statusSource": "GO TOKYO spot page (current) — public park"
  },
  {
   "n": "Gyosen Park",
   "address": "Edogawa-ku, Tokyo",
-  "lat": 35.671,
-  "lng": 139.8584,
-  "confidence": "med",
-  "geoSource": "Wikidata Q11626195 Gyosen Park P625 (35.671, 139.8584)",
+  "lat": 35.671556,
+  "lng": 139.858028,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 行船公園 北緯35度40分17.6秒 東経139度51分28.9秒 (35.671556,139.858028), 江戸川区北葛西 https://ja.wikipedia.org/wiki/%E8%A1%8C%E8%88%B9%E5%85%AC%E5%9C%92 [W4 placement re-check: upgrade]",
   "status": "open",
   "statusSource": "GO TOKYO spot page (current) + Time Out Tokyo listing"
  },
@@ -464,8 +464,8 @@
   "address": "Kagurazaka, Shinjuku-ku, Tokyo",
   "lat": 35.704969,
   "lng": 139.736331,
-  "confidence": "med",
-  "geoSource": "Wikidata Q11635471 Akagi Shrine P625 (35°42′17.89″N 139°44′10.79″E)",
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 赤城神社 (新宿区) 北緯35度42分17.9秒 東経139度44分10.8秒 (35.704972,139.736333), 赤城元町1-10 https://ja.wikipedia.org/wiki/%E8%B5%A4%E5%9F%8E%E7%A5%9E%E7%A4%BE_(%E6%96%B0%E5%AE%BF%E5%8C%BA) [W4 placement re-check: keep]",
   "status": "open",
   "statusSource": "Time Out Tokyo listing (current) — active shrine"
  },
@@ -474,18 +474,18 @@
   "address": "3-6-12 Shinjuku, Shinjuku-ku, Tokyo",
   "lat": 35.691167,
   "lng": 139.705806,
-  "confidence": "med",
-  "geoSource": "Wikidata Q11501852 Shinjuku Suehirotei P625 (35.691167, 139.705806)",
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 新宿末廣亭 北緯35度41分28.2秒 東経139度42分20.9秒 (35.691167,139.705806), 新宿3-6-12 https://ja.wikipedia.org/wiki/%E6%96%B0%E5%AE%BF%E6%9C%AB%E5%BB%A3%E4%BA%AD [W4 placement re-check: keep]",
   "status": "open",
   "statusSource": "Time Out Tokyo listing + GO TOKYO 2025-10 Shinjuku map (current)"
  },
  {
   "n": "Natsume Sōseki Memorial Museum",
   "address": "Near Waseda Station (Tōzai Line), Shinjuku-ku, Tokyo",
-  "lat": 35.709444,
-  "lng": 139.729167,
-  "confidence": "med",
-  "geoSource": "Wikidata Q24862403 Natsume Sōseki Memorial Museum P625 (35.709444, 139.729167)",
+  "lat": 35.703917,
+  "lng": 139.725472,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 新宿区立漱石山房記念館 北緯35度42分14.1秒 東経139度43分31.7秒 (35.703917,139.725472), 新宿区早稲田南町7 https://ja.wikipedia.org/wiki/%E6%96%B0%E5%AE%BF%E5%8C%BA%E7%AB%8B%E6%BC%B1%E7%9F%B3%E5%B1%B1%E6%88%BF%E8%A8%98%E5%BF%B5%E9%A4%A8 [W4 placement re-check: upgrade]",
   "status": "open",
   "statusSource": "japan-guide Shinjuku feature (current) — open"
  },
@@ -678,5 +678,55 @@
   "geoSource": "Wikipedia Tsukudajima infobox (35°40′03″N 139°46′58″E) — district point for a district sight",
   "status": "open",
   "statusSource": "GO TOKYO Tsukiji/Tsukuda guide (current) — public neighbourhood"
+ },
+ {
+  "n": "Shinobazu Pond",
+  "address": "Uenokōen, Taitō-ku, Tokyo (south-west corner of Ueno Park)",
+  "lat": 35.71139,
+  "lng": 139.77,
+  "confidence": "high",
+  "geoSource": "Wikipedia Shinobazu Pond infobox (35°42′41″N 139°46′12″E — on the pond)",
+  "status": "open",
+  "statusSource": "Time Out + japan-guide Ueno Park page (current) — public park"
+ },
+ {
+  "n": "Asakusa Culture Tourist Information Center",
+  "address": "Opposite Kaminarimon, Asakusa, Taitō-ku, Tokyo",
+  "lat": 35.71069,
+  "lng": 139.7965,
+  "confidence": "high",
+  "geoSource": "Wikipedia Asakusa Culture Tourist Information Center infobox (35°42′38″N 139°47′47″E)",
+  "status": "open",
+  "statusSource": "Time Out Tokyo listing (current)"
+ },
+ {
+  "n": "Yushima Tenmangū",
+  "address": "Yushima, Bunkyō-ku, Tokyo",
+  "lat": 35.707772,
+  "lng": 139.768225,
+  "confidence": "high",
+  "geoSource": "Wikidata Q335606 Yushima Tenmangū P625 (35°42′27.98″N 139°46′5.61″E)",
+  "status": "open",
+  "statusSource": "GO TOKYO spot page + Time Out ume-matsuri listing (current)"
+ },
+ {
+  "n": "Imado Shrine",
+  "address": "Imado, Taitō-ku, Tokyo (north of Asakusa)",
+  "lat": 35.719306,
+  "lng": 139.803528,
+  "confidence": "med",
+  "geoSource": "Wikidata Q11376985 Imado Shrine P625 (35°43′9.502″N 139°48′12.701″E)",
+  "status": "open",
+  "statusSource": "Time Out Tokyo listing (current) + GO TOKYO 2024 Sumida River map"
+ },
+ {
+  "n": "Hamacho Kaneko",
+  "address": "3-7-3 Nihombashi-Hamachō, Chūō-ku, Tokyo 103-0007",
+  "lat": 35.684005,
+  "lng": 139.788273,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page Hamacho Kaneko — 35.684005,139.788273",
+  "status": "open",
+  "statusSource": "MICHELIN Guide Japan 2026 — Bib Gourmand"
  }
 ]
