@@ -158,3 +158,15 @@ current Okinawa Traveler/C-lunch coverage) → kept, flagged, status sourced in 
 **FINAL W3 build:** 214 discovered (107 sights + 107 food = **50 % food**), 89 pinned; sourcecheck PASS 214/214,
 geocheck PASS, statuscheck CONSISTENT, buildcheck PASS; validate DATA OK; npm test ALL PASS. ANIME 4. WebSearch cap
 reached (harness: 200/200). Not live: 89 pins (rendered food only 13 — restaurant pins need the geocode-helper).
+
+## W4 (2026-10-02, fresh session) — geocode policy decision (orchestrator)
+- **Aggregator listing coordinates** (TripAdvisor / Wanderlog / hotpepper / gnavi venue pages, found via "<name> tripadvisor latitude longitude"):
+  not in the 4a list of authoritative pin sources, but they are published venue points (not viewports/centroids). Decision: accept
+  only when the point matches the sourced street address and nearby Stripes reference points, graded **`low`** (re-verify list,
+  docs/SOURCES.md: "flag for the re-verify pass"), with the aggregator named in geoSource. A point that disagrees with the address
+  is rejected (Café Kurukuma: ~5 km off → UNVERIFIED). TripAdvisor stays ZERO as a recommender. Takenoko (Taketomi): coordinate of
+  unidentifiable provenance → demoted to UNVERIFIED.
+- **Sight geocoder W4G1:** 19 pinned → after review 15 kept (11 high JA-Wikipedia infobox; 4 med: Yaedake summit, Pokémon Center =
+  Aeon Mall Rycom infobox, Mamoru-kun (one of ~20 figures, Atlas Obscura), Emerald Beach Stripes lat + beach-on-map ≤20 m);
+  Ryūtan / Tamatorizaki / Aragusuku / Azama Sun Sun demoted to UNVERIFIED (coordinate provenance unidentifiable). Tip: one name per
+  extended-mode query `<日本語名> wikipedia 座標` surfaces infobox coords; batched names don't.
