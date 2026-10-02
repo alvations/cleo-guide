@@ -455,3 +455,25 @@ surfaced no findable SF video naming a specific place → no creator attachments
 **BUILD W6-2:** 543 researched → **378 on the map (187 sights + 191 food)**. sourcecheck PASS 543/543 · geocheck PASS · statuscheck
 CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. Density: every area OK (AVE 79, DTN 87, HAI 50, MIS 86, NECN 76,
 NOB 44, NW 52, PEN 36, SE 33); food 64% overall, ≥50% in every area.
+**Batches 10–17 (searches 73–115).** Wikipedia-coordinate batches × a 2nd outlet (Chronicle 2025 "1906 survivors" tour, Chronicle 2025
+underrated parks, Chronicle best-kept secrets / Golden Gate Park secrets, SF Rec & Park, NPS, CA State Parks OHP, SM Daily Journal),
+plus SF Standard panels (deli sandwiches May 2025, best new bars 2025, North Beach nightlife Dec 2025, Lower Haight Jun 2025, Marina
+Jul 2025) and the Chronicle San Mateo guide / Infatuation Daly City + breweries guides.
+Pinned sights added: Burlingame Railroad Station, Milagra Ridge (med), Gray Whale Cove State Beach (PEN); Golden Fire Hydrant (MIS);
+Andy Goldsworthy's Wood Line (NW); Warm Water Cove Park, Bayview Park (med), Holly Park (SE); Randall Museum (HAI); Ingleside Terraces
+Sundial (Atlas pin), McLaren Lodge & Commission Vault Museum (AVE); Flood Building, Merchants Exchange Building, Central Tower (DTN);
+Jackson Square Historic District (med), National Shrine of St. Francis of Assisi (NECN); Francisco Park (NOB). Redwood Room pinned to
+the Clift's Wikipedia coordinate. Food/bars added (unpinned): Lucca Delicatessen, Causwells, Little Original Joe's (NW); Rikki's, Big
+Finish Wine Tavern, Martuni's (MIS); Arguello Market, Submarine Center (AVE); The Boys' Deli (NOB); Backhaus, Starbread Ling Nam (PEN);
+April Jean (NECN); Jules (HAI); Mestiza (DTN); Barebottle Brewing, Cellarmaker House of Pizza (SE).
+Re-verify: SFO Aviation Museum pin upgraded low → med (Wikipedia SFO BART station coordinate, which Wikipedia places inside the
+International Terminal that houses the museum) — clears the last ungraded/low SF pin.
+MEASURED & DROPPED / NOT ADDED: Otra — closing Dec 2026 (Hoodline Sep 2026); Fort Point Valencia — production moved out of SF in 2025,
+taproom status unconfirmed; Sushi Sam's Edomata — newest status evidence 2022; Inda + Mely, Kusina ni Tess, Standard Deviant Pier 70,
+Jilli, Stoa, Noc Noc, Tony Nik's, Dragon Well, Morella, Howells, Viva Goa, The Sentinel, Patio Filipino — single attributable outlet or
+no full address in hand (held); St. Ignatius Church, Mission High School, Hotel Majestic, Presidio Officers' Club — no 2nd outlet / not
+a visitor sight; Aquatic Park pier & Pioneer Park — duplicates of existing cards; Esprit Park & Visitacion Valley Greenway — only
+neighborhood-centroid coordinates found (not place pins).
+**BUILD W6-3:** 576 researched → 396 on the map (204 sights + 192 food); sourcecheck PASS 576/576 · geocheck PASS · statuscheck
+CONSISTENT · validate DATA OK · npm test ALL PASS. Every area ≥ target (AVE 83, DTN 91, HAI 52, MIS 90, NECN 79, NOB 46, NW 56, PEN 41,
+SE 38); food 63% overall, ≥50% in every area.
