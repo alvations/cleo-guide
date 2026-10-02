@@ -11078,9 +11078,38 @@
           "rank": 3,
           "verified": true,
           "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "TRAVELWI",
+          "name": "TRAVELWI",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
-      "creators": []
+      "creators": [
+        {
+          "key": "PORTNOY",
+          "name": "Dave Portnoy (One Bite pizza reviews)",
+          "platform": "YouTube/TikTok/Instagram",
+          "handle": "@stoolpresidente",
+          "url": "https://www.youtube.com/@onebite",
+          "scale": "millions of followers across platforms (Barstool Sports founder)",
+          "niche": "pizza reviews scored out of 10",
+          "credible": "Verifiably the most-watched pizza reviewer in the US; scores widely reported by press. Counts as ONE corroborating source, never institutional."
+        },
+        {
+          "key": "KEITHLEE",
+          "name": "Keith Lee",
+          "platform": "TikTok",
+          "handle": "@keith_lee125",
+          "url": "https://www.tiktok.com/@keith_lee125",
+          "scale": "~16M+ TikTok followers",
+          "niche": "independent-restaurant food reviews; Chicago tour covered by Fox32/NBC Chicago",
+          "credible": "Verifiably huge following with a documented 'Keith Lee effect' reported by mainstream press; ONE corroborating source."
+        }
+      ]
     },
     "akron-oh": {
       "name": "akron-oh",

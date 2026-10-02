@@ -80,3 +80,18 @@ street-food (Kogaryu, Juhachiban, Matsuba, Daruma, Wanaka, Azuma), Shinsaibashi-
 Nada breweries, KIX Sky View, Little Okinawa.
 **Stage 6 — build:** `rebuild-city.py osaka --build` → 140 discovered, 115 pins on page; sourcecheck PASS,
 geocheck PASS (high 112 · med 3), statuscheck CONSISTENT, buildcheck PASS; `npm run validate` + `npm test` PASS.
+
+## 2026-10-02 — W2 close-out (M2 + Michelin article mining + go-live)
+- M2 worker: 37 Michelin venues (36 pinned); 3 held to `_held_M2.json` (LE PONT DE CIEL, Kosai Fukumimi, Hachidori —
+  no cuisine/dish surfaced; a food card must name a dish). Caveats kept from the worker: SUSHI/TEMPURA tags for
+  name-evident sushi-/tempura-ya; "Japanese" → KAISEKI (M1 convention); Souikufu Bib cited from 2023.
+- Main: Michelin "9 New Bib Gourmands 2025" → Ueroku Wine (TNJ), Daidokoro Kamiya (CHUO) pinned; "December 2025
+  latest additions" → Tempura Sakugetsu, Tempura Fukana, Osteria Ottanta Sette, JIANG NAN CHUN, Wagyuchugokusai
+  Kumanohanare pinned (Kushikatsu Daibon was already in M1); Nishideria/RiVi held (cuisine not surfaced), PRESTAU held
+  (address not surfaced). jawiki coords: Kuromon, Shinsaibashi-suji, Amerikamura, Nakanoshima Museum of Art, Keitakuen,
+  Tennōji Park, Tenjinbashi-suji (med, north-end station). Aizuya added (Lonely Planet + ja.wikipedia 会津屋), pin UNVERIFIED.
+- Kobe food: japan-guide e3564 Kobe beef page names only a sponsored (brands.japan-guide) venue — not counted; gap stated.
+- **Build:** 189 discovered, 166 rendered (61 sights + 105 food), high 161 · med 5; 4 gates PASS; validate + test PASS.
+- **Go-live:** Japan hub CARD:osaka → live link; root CARD:japan "2 of 5 maps live"; CITIES.md row.
+- Channel mix (W2 total): Michelin 102 · editorial/official (japan-guide, OSAKA-INFO, Time Out, Lonely Planet, Cathay,
+  Wikipedia) 63 sights + 7 food · local (Inside Osaka) 2 corroborations · creators 0 (searched, none findable — stated).

@@ -38,7 +38,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Le Cirio
 
 ## chicago-il
-- registry entries: **130** · verified pins: **108** (high 106 · med 2 · low 0)
+- registry entries: **150** · verified pins: **128** (high 126 · med 2 · low 0)
 - ⛔ ship-worthy but **NOT yet geocoded** (7) — need a place-pin:
     - Birrieria Zaragoza
     - Borinquen Lounge
@@ -372,7 +372,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Ikema Island & Ikema Ōhashi (池間島)
 
 ## osaka
-- registry entries: **185** · verified pins: **162** (high 157 · med 5 · low 0)
+- registry entries: **192** · verified pins: **169** (high 164 · med 5 · low 0)
 - ⚠️ **UNVERIFIED** in registry (23) — held by the gate, need the helper:
     - Aizuya Honten (Tamade)
     - Az
@@ -399,7 +399,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - capi
 
 ## philadelphia-pa
-- registry entries: **166** · verified pins: **120** (high 101 · med 19 · low 0)
+- registry entries: **168** · verified pins: **122** (high 102 · med 20 · low 0)
 - ⛔ ship-worthy but **NOT yet geocoded** (13) — need a place-pin:
     - Barnes Arboretum at Saint Joseph's University
     - Boathouse Row
@@ -1041,7 +1041,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Talleyrand Park & the Big Spring
 
 ## tokyo
-- registry entries: **379** · verified pins: **374** (high 348 · med 26 · low 0)
+- registry entries: **382** · verified pins: **377** (high 350 · med 27 · low 0)
 - ⚠️ **UNVERIFIED** in registry (5) — held by the gate, need the helper:
     - Afuri Ebisu
     - Amazake-chaya, Hakone (甘酒茶屋)
