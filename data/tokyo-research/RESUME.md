@@ -55,7 +55,9 @@ Tokyo's 23 **special wards (tokubetsu-ku, 特別区)** are the borough-equivalen
 SBY 42/50 · SJK 40/50 · SMKT 29/40 · TAITO 40/50 · TAMA 19/30 → **433 / ~530**; food 184 (42.5%). (CYD 36, JHOKU 32 after anime.) Weakest food: TAMA 3, JOTO 3, KANTO 3, SMKT 8.
 
 ## In-flight wave
-None — W6 closed (see State).
+None — W6 closed (see State). W6 stopped at ~129 lead-agent search calls (+~25 tool-chained) + 92 agent searches,
+when yield fell below ~0.5 places/search (ward-level Michelin and area-guide queries now mostly return places already on
+the map or one-outlet candidates). Final: 539 discovered / 411 rendered; food 280 = 51.9%; ANIME layer +7 sights +1 café.
 
 ## W7 plan (next session)
 1. **Pins first (no/low searches):** 126 UNVERIFIED — run `tools/geocode-helper.html` in a browser over
