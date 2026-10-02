@@ -156,3 +156,7 @@
 155 Infatuation 13 best tacos ∩ Time Out 20 best tacos → Taqueria Morelia, La Cruzada, Taquerias El Mexicano (∩NT Best Tacos 2025), Coyo Taco
 156 Infatuation 16 best bars downtown & Brickell (ViceVersa, Bay View, Right Hand, Séptimo, Panamericano, Empire Social, Mike's at Venetia, NIU, Corner, Margot, Over Under, Mama Tried, Blackbird Ordinary, Tobacco Road by Kush, Lost Boy, Better Days; Baby Jane) → 2 added (∩ TO Brickell)
 157 Infatuation 13 best seafood (Shore To Door, Itamae AO, Plaza, Garcia's, El Floridita, La Mar, Joe's, Barra Callao, River Oyster Bar, Mignonette, La Camaronera, Black Point Ocean Grill, Captain Jim's) → 2 added
+158 Wikipedia batch DTB (D. A. Dorsey House 250 NW 9th St NRHP; Watson Island; Jungle Island/Bayside/Gesu not returned) → 1 sight
+159 Time Out 17 Mexican ∩ Infatuation 13 Mexican — no new intersections
+160 Infatuation 18 Broward (Lai Rai, Pupusatime, Chef Tally, Cleveland's Ice Cream, Dar Tajine, Larb, Ten Ten, Gabose, Tacos El Papi, Mai-Kai, Tabanka, Nour Thai, Bok Bok Baby, Phở Bar, Cap's, Mimi's) → Nour Thai (∩ NT hidden gems)
+161 Infatuation Wynwood listings (Hiyakawa, Zak, Uchi, Hiden, Cowy Burger, Cotidiano, 1-800-Lucky, La Fama, Cerveceria La Tropical, El Bajareque…) — no 2nd outlet in hand; held for next wave
