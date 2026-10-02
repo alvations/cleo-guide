@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Kyoto field guide — 136 sights and 62 places to eat, each traceable to its source (Michelin, UNESCO, Japanese press and vetted creators) on one interactive map with area, collection and cuisine filters.">
+<meta name="description" content="Kyoto field guide — 136 sights and 62 places to eat, each traceable to its source (UNESCO, the Agency for Cultural Affairs, Michelin, japan-guide and the Kyoto City Official Travel Guide) on one interactive map with area, collection and cuisine filters.">
 <title>Kyoto Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -221,8 +221,8 @@
 
 <header>
   <p class="eyebrow">Field guide · Kyoto (京都), sourced</p>
-  <h1>Kyoto<span class="thin">Higashiyama-ku · Sakyō-ku · Nakagyō & Shimogyō · Kita & Kamigyō · Ukyō & Nishikyō</span></h1>
-  <p class="standfirst">136 sights and 62 places to eat across <strong>Kyoto</strong>, every one traceable to its source. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <h1>Kyoto<span class="thin">Gion & Higashiyama · Rakuchū · Sakyō · Kita · Arashiyama · Fushimi · the mountains · Uji & Nara</span></h1>
+  <p class="standfirst">136 sights and 62 places to eat across <strong>Kyoto</strong> and its day-trip ring, every one traceable to its source: the seventeen UNESCO <em>Historic Monuments of Ancient Kyoto</em> and Nara's World Heritage temples, Gion and Pontochō, Arashiyama and Ōhara, Michelin-starred kaiseki and Bib Gourmand soba, saba-zushi and eel, Uji tea and the Fushimi sake district. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Japan/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -256,7 +256,7 @@
     <div class="chips" id="cuisineFilter"></div>
   </div>
   <p class="ctrl-label">Search</p>
-  <input id="search" type="search" placeholder="ramen, sushi, temple, onsen…" autocomplete="off">
+  <input id="search" type="search" placeholder="kaiseki, soba, temple, garden…" autocomplete="off">
   <p class="ctrl-label">Filter by source</p>
   <div class="chips" id="srcFilter"></div>
   <p class="ctrl-label">Filter by area</p>
@@ -300,7 +300,7 @@
   Hours, admission and opening days change — verify before you drive.<br>
   A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
   Compiled August 2026 · <strong>last verified 2026-10-02</strong>. Map tiles © OpenStreetMap contributors.<br>
-  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced in Japanese and English across Michelin, UNESCO, Japanese national and regional press, official tourism bodies and vetted creators. Every coordinate is verified into data/geocodes.json and every place status-checked open.</span><br><br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md), in Japanese and English: UNESCO component records, national designations, the MICHELIN Guide Kyoto Osaka 2026, japan-guide.com, the Kyoto City Official Travel Guide and en/ja Wikipedia. Pins come from UNESCO, Wikipedia and Michelin venue coordinates only and are recorded in data/geocodes.json; every place is status-checked open.</span><br><br>
   <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
   <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
 </footer>
