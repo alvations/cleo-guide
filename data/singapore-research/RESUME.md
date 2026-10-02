@@ -73,5 +73,13 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 - Lessons: EXTENDED-mode list queries naming 3+ guides yield 3-6 two-source places per call; standard mode ~1. Geocoding hawker-centre
   BUILDINGS by WebSearch mostly fails (Whampoa Makan Place, HV MFC, Punggol Coast HC, Punggol Settlement: no published pin) -> UNVERIFIED for
   tools/geocode-helper.html. Women's Weekly + Her World lists appear syndicated -> counted as ONE voice (2 Ghim Moh stalls held).
+### State (4-town, end of W2 — 2026-10-02)
+- HLV 56/55 OK — **LIVE** (33 pins). BLS 55/55 OK — NOT live until the browser helper pins Whampoa Makan Place/Balestier Market/Balestier Rd
+  (5 pins now). NVN 37/55 (NEED +18). PGL 35/93 (NEED +58). (True counts after the density.py worklist fix.)
 ### In-flight wave (4-town)
-- W2 continuing: extended list queries per town; next build at ~+40 places. Then go-live check per town (`python3 tools/density.py singapore --area <CODE>`).
+- none. NEXT (ordered): (1) `tools/geocode-helper.html` on the UNVERIFIED backlog for these 4 towns, then
+  `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py singapore --build` and add "balestier" to LIVE_SLUGS if >=40 pins;
+  (2) NVN +18 via domain-filtered 2nd-sourcing of `_note_NOVENA.md` held list; (3) PGL W3 per `_note_PUNGGOL.md`; (4) status re-check pass
+  (One Punggol operator change 2026). Push with `data/singapore-research/_sg4_push.sh` (auto-resolves the generated GEOCODE-BACKLOG conflict).
+
+- **FINAL (end of session): HLV 57/55 OK (LIVE) · BLS 56/55 OK (go-live held for pins) · NVN 37/55 (NEED +18) · PGL 35/93 (NEED +58).** Late adds: NVN Baan Ying, Banelé; BLS Niu Dian (VIIO @ Balestier); HLV Niu Dian (HV).

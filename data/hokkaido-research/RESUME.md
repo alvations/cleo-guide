@@ -20,20 +20,38 @@ Measured by `python3 tools/density.py hokkaido` on the DISCOVERED set. Total ≈
 Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi), Dō-nan (Hakodate), Dō-hoku (Asahikawa/Furano/Biei/Wakkanai), Dō-tō (Tokachi/Kushiro/Shiretoko/Abashiri) — with Sapporo as its own area.
 
 ## State
-- 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys).
-- 2026-10-02 W01 (SPR sights): 12 discovered (all ≥2 credible), 9 geocoded high + 3 UNVERIFIED; built & all gates
-  green (9 pins). **Blocked:** session WebSearch budget exhausted (200/200) after ~14 queries by this agent — raise
-  `CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION` (or relaunch in a fresh session) to continue. NOT live.
-- Counts vs target: SPR 12/130 · OTARU 0/50 · NSK 0/35 · DONAN 0/75 · IBURI 0/40 · DHOKU 0/60 · TKC 0/35 · DOTO 0/55 · SOYA 0/20.
+- 2026-10-02 scaffolded; W01 (session 1): 12 SPR sights, halted at the shared 200-search cap.
+- 2026-10-02 **session 2 (≈188 searches)**: W02–W30 + geocode workers G01/G02/G03 → **192 discovered, 132 rendered
+  (128 sights + 4 food), all 4 gates green, validate/test green — LIVE** (Japan hub card, root "3 of 5", CITIES.md row).
+- Discovered vs target: SPR 49/130 · OTARU 18/50 · NSK 8/35 · DONAN 30/75 · IBURI 16/40 · DHOKU 22/60 · TKC 16/35 ·
+  DOTO 24/55 · SOYA 9/20 (`python3 tools/density.py hokkaido`).
+- 60 UNVERIFIED held: 46 restaurants (addresses sourced; no place-pin readable via WebSearch) + 14 sights (Otaru Herring
+  Mansion, Kihinkan, Shimamui, Sushiya-dōri, Kitaichi No. 3, Hachimanzaka, Patchwork Road, Himenuma, Momoiwa, Magistrate's
+  Office is pinned at the Goryōkaku point (med), W30 gardens ×5).
 - Commands: `python3 tools/density.py hokkaido` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py hokkaido --build`.
 
 ## In-flight wave
-- **Session 2 (2026-10-02, fresh WebSearch budget)** — W02 SPR food canon (miso ramen, soup curry, jingisukan, Nijō
-  kaisendon, sweets) → W03 SPR sights b2 → W04 OTARU → W05 DONAN → W06 IBURI → W07 DHOKU → W08 TKC → W09 DOTO → W10 SOYA/NSK.
-  Ledgers `_w<NN>_<area>.py` (re-runnable). Search count this session tracked in `## Search ledger` below.
+- none (session 2 closed cleanly at ≈188 searches).
 
 ## Search ledger
-- session 2: 121 used by me+G01 (me 103, G01 18) + G02 geocode agent (≤15, running)
+- session 1: ~14 (cap shared with all agents). session 2: ≈188 (me ~147 + G01 18 + G02 15 + G03 8).
+
+## Next-wave plan (session 3)
+1. **Restaurant pins (biggest lever: +46 rendered):** run `tools/geocode-helper.html` (or a Google `!3d!4d` place-pin
+   pass) over the 46 food UNVERIFIED — every one already has a sourced address.
+2. **Discovery by gap (cheapest first):**
+   - Sights via `allowed_domains:["ja.wikipedia.org"]` + 3 Japanese names + 座標, paired with ONE `visit-hokkaido.jp`
+     / `sapporo.travel` / `hakodate.travel` / `japan-guide.com` area query (10 URLs) for the 2nd source.
+     Leads ready: Esan, Komagatake, Hakodate Park, Tokachidake Bōgakudai, Arishima Memorial Museum, Wakkarium,
+     Hakodate Museum of Art, Hongo Shin museum, Fugoppe Cave, Kamui Kotan, Lake Nukabira, Mikuni Pass, Shikabe geyser.
+   - Food via `rurubu.jp` + `mapple.net` + city tourism bodies (`otaru.gr.jp`, `hakodate.travel`, `sapporo.travel`
+     gourmet/shop pages) — 2nd sources for the held singles listed in AUDIT (Asari sukiyaki, Hakodate Beer Hall, Ippei
+     Muroran yakitori, Nonokasa udon, Ichimura soba, Ōkami Soup, Furanoya, Matsuo/Pokke jingisukan, Kinotoya, Aoba).
+   - Area order by gap: SPR (+81) → DONAN (+45) → DHOKU (+38) → OTARU (+32) → DOTO (+31) → NSK (+27) → IBURI (+24) → TKC (+19) → SOYA (+11).
+3. **Creators:** still 0 vettable — try Japanese creators by name (e.g. `<shop> SUSURU` ramen YouTuber, `<shop> 1分グルメ`)
+   with `allowed_domains:["youtube.com"]` and require the channel + a specific video naming the shop.
+4. Re-verify med pins (Jigokudani photo geotag, Sakaimachi junction, Ningle Terrace photo geotag, Naitai summit) and
+   per-outlet attribution for W16/W28.
 
 ## Next actions
 1. Discovery waves per area (canon first) → `python3 tools/density.py hokkaido` → iterate on every `NEED +N`.

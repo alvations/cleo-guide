@@ -1,0 +1,17 @@
+# Miami — held single-source leads (need a 2nd credible source before adding)
+- Sarussi Subs (Cuban sub) — MIAMINEWTIMES only (Man v. Food mention not separately sourced)
+- Enriqueta's Sandwich Shop, 186 NE 29th St (cubano preparado con croquetas) — MIAMINEWTIMES
+- Latin Cafe 2000 (Brickell; Cuban sandwich + ventanita) — MIAMINEWTIMES (×2 pieces, one outlet)
+- La Carreta Hialeah (W 16th Ave ventanita), Casavana Cuban Cuisine — MIAMINEWTIMES
+- El Mago de las Fritas (frita) — EATERMIAMI; La Esquina del Lechon — EATERMIAMI; Joe's Stone Crab — EATERMIAMI
+- Islas Canarias (croquetas) — INFATUATION; Dos Croquetas — INFATUATION; Cafe La Trova — MICHELIN_EDITORIAL
+- To Be Determined (new 2026 Bib) — location unknown
+- Hialeah (Infatuation only): La Fresa Francesa, La Viña Aragon, Shima
+- Doral (GMCVB only): Pisco y Nazca, BLT Prime, Beirut Doral; arepas (NT only): Samán Arepas, El Arepazo 2
+- Kendall/Pinecrest (Infatuation only): Milly's Empanada Factory, Lan Pan-Asian Cafe, Dr. Limon Ceviche Bar, Platea, Keg South
+- Key lime pie: Fireman Derek's (NT best KLP), Fookem's Fabulous (NT); Cindy Lou's, Over Under (Infatuation)
+- Burgers (NT best burgers): Babe's, Edan Bistro, Off Site, USBS, Are You Hungry Grill; Burger Beast pop-up at Mojo Donuts
+- Miami Beach: Puerto Sagua (Infatuation), La Sandwicherie (NT 2018), Las Olas Cafe, Mac's Club Deuce — sources not separable
+- Michelin 2022/2023 not yet added (location unknown): Krus Kitchen, Rosie's, Gibson Room; 2026: Bistro Ocho, Mano Libera, To Be Determined (Bib)
+- FTL: Steak 954 (Infatuation), Calusso, Ukiah Japanese Smokehouse, Valentino Cucina Italiana (Sun Sentinel critic)
+- Clive's Cafe (Jamaican, Little Haiti — NT only)

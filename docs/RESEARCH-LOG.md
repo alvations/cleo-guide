@@ -337,3 +337,56 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
   (Kalaya, Friday Saturday Sunday, South Philly Barbacoa, Vedge, Zahav, Pat's, Geno's, Jim's, John's, Dalessandro's).
   Plan restaurant pins for the browser helper from the start; spend the search budget on discovery + sights.
 - Rejected: an 'interpolated' coordinate built from neighbouring addresses on philadelphiabuildings.org (not a place pin).
+
+### 2026-10-02 — Hokkaido session 2 (≈140 searches → 140 discovered / 104 on the map)
+- **`allowed_domains:["ja.wikipedia.org"]` + 3 Japanese names + 座標** is the best sight geocoder found so far: ~2.6 of 3
+  coordinates per call (infobox DMS quoted in the summary), and it works for minor sights (waterfalls, passes, Jōmon sites,
+  museums) that the English Wikipedia lacks. Background geocode workers using it pinned 25 of 34 held sights.
+- **Second source cheaply:** domain-restricted area queries to `japan-guide.com`, `visit-hokkaido.jp`, `sapporo.travel`
+  return 10 staff/official URLs per call; for food, `rurubu.jp` + `mapple.net` (JTB / Shobunsha guidebook editorial) +
+  city tourism bodies (`otaru.gr.jp`, `hakodate.travel`) return named shops with addresses and hours.
+- **Dead ends:** restaurant lat/lng never surfaced (gltjp/mapple/rurubu give address only); unrestricted "Wikipedia
+  coordinates A; B; C" got ~1/3; creator queries (Paolo fromTOKYO, Abroad in Japan, Ramen Beast, youtube.com domain)
+  returned no vettable channel naming a specific Hokkaido place in result text.
+- **Lesson (honesty):** writing addresses with block numbers / postcodes "from knowledge" while transcribing sourced
+  coordinates is an easy CLAUDE.md 4a slip — audit every address against the result text before committing.
+
+
+## 2026-10-02 — Okinawa W2 (relaunch, ~174 searches → 119 discovered / 74 on the map)
+- **Stars and Stripes Okinawa list articles are the coordinate jackpot**: query the exact article title + "GPS" with
+  `allowed_domains=["okinawa.stripes.com"]` ("12 family-friendly Battle of Okinawa sites", "List of beaches", the soba
+  guide, castle pieces, "rainy-day", Nago/Yomitan/Nanjo round-ups) → 4–12 printed GPS per search. Pair each with an
+  independent outlet; two Stripes articles are one source.
+- **Search summaries mis-attribute GPS across articles** (Araha Beach got Tomigusuku's coordinate; one cherry-blossom
+  GPS was labelled Yaedake in one summary and Nakijin in another). Sanity-check every Stripes point against the place's
+  town; on conflict pull the pin to UNVERIFIED and cross-check with a Wikipedia infobox.
+- **Okinawa Times "900人の麺好きが選ぶ うまい沖縄そば" (2023, north/central/south/Miyako-Ishigaki editions)** names 31
+  soba shops in four searches — an editorial-of-record food source; pair with Mapple spot pages or KozaWeb (Okinawa City
+  tourism portal). Mapple (Shobunsha まっぷる) spot pages carry addresses, hours and editor copy.
+- Restaurant coordinates outside Stripes' coverage (Naha, Ishigaki, Miyako) did not surface by search — they are
+  discovered + sourced but held UNVERIFIED for `tools/geocode-helper.html`.
+
+## 2026-10-02 · Chicago (session 2)
+- Search budget restored for this session; discovery from editorial lists (Infatuation/Time Out/Chowhound/Chicago
+  Magazine "Iconic Eats" 50-dish package — captured in full in one query) + Michelin 2025 + JB America's Classics.
+- `chicagotribune.com` is blocked for the search user-agent (API 400 on `allowed_domains`) — drop it from domain filters.
+- `chicago.eater.com` returned nothing via `allowed_domains`; use Infatuation/Time Out instead.
+- Pins: Wikipedia 4-per-query batches (see AGENT-PROMPTS lesson). Restaurant pins via latlong.net mostly fail.
+- Watch-outs found: Ann Sather is relocating (Time Out, Apr 2026) and Maxwell Street Depot was forced to move
+  (Time Out, May 2026) — Wikipedia coords would be stale; both held back. Obama Presidential Center opened 2026-06-19.
+
+
+## 2026-10-02 — SG 4-town relaunch (Punggol, Balestier, Novena & Newton, Holland Village)
+- Extended-mode queries that NAME the guides ("stalls in Eatbook 13 best, Seth Lui 11 best, Women's Weekly 10 best") return per-guide
+  stall lists — 3-6 two-source places per call vs ~1 in standard mode.
+- Domain-filtered (`allowed_domains`) OR-queries over held names give exact attribution (see AGENT-PROMPTS lesson).
+- Dead end: hawker-centre BUILDING coordinates (Whampoa Makan Place, Balestier Market, Holland Village MFC, Punggol Coast HC, Punggol
+  Settlement) are not printed by any search-visible page; 28 geocoder searches yielded 0 → browser helper only. Wikipedia coords of a
+  co-located landmark (Punggol Regional Library → One Punggol; Guan Kee Fried Kway Teow infobox → Ghim Moh MFC) worked.
+- Food King (NOC) deleted all videos in 2022 — not citable. Timbre exits One Punggol HC management in 2026 (Mothership) — re-check stalls.
+
+## 2026-10-02 — Kyoto W2 (relaunch)
+- UNESCO WHC maps pages (688 Kyoto, 870 Nara, 660 Hōryū-ji) → component coordinates for 23 sights in 2 searches.
+- `allowed_domains` per outlet (japan-guide.com, kyoto.travel, en/ja.wikipedia.org, guide.michelin.com) makes each search return ~10 citable pages of ONE outlet, so attribution is exact. Mixed-outlet or 8+-name queries cause internal retries costing 3–6 searches.
+- Michelin: ward+genre list queries ("Kyoto Nakagyo-ku One MICHELIN Star Japanese restaurant address") give 3–7 venues with addresses. Pins come from a separate "<A>; <B>; <C> Kyoto address latitude longitude" query (3 pins per search). Asking for dish and lat/lng together loses the lat/lng.
+- Dead end: creator channel (YouTube-filtered, general, timeout.com) surfaced tour vendors and unattributed videos, with no verifiable Kyoto creator. Time Out's Kyoto coverage on timeout.com sits under /tokyo and is thin.

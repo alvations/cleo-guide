@@ -79,3 +79,61 @@ results: Ironai 1-11-16 (ja.wikipedia), Hanazono 1-1-1 〒047-0024 (otaru.gr.jp)
 Irifune 1-2-3 (Music Box Museum, Wikivoyage — replaced a wrong Sumiyoshi-chō number), the W02 restaurant addresses
 (gltjp/rurubu). One fabricated-looking postcode (Kiusu "066-0000") removed. G01 geoout addresses re-synced to the
 ledgers. Coordinates were unaffected (all from infobox reads).
+
+## 2026-10-02 — session 2 · W06–W15 + G02 geocode + build #2 (searches ≈139 = me ~106 + G01 18 + G02 15)
+**Waves:** W06 SPR sights b2 + regional food canon · W07 Otaru/Shakotan + Biei/Sōunkyō · W08 IBURI/NSK + 6 UNESCO
+Jōmon sites (whc.unesco.org/en/list/1632 + jomon-japan.jp; Washinoki is an *associated* site → not tagged UNESCO) ·
+W09 Otaru sushi/Kushiro/Picante · W10 SPR parks/zoo/art · W11 SPR beer garden/ramen alley/Kitakaro · W12 Hakodate
+Motomachi/Goryōkaku + Hakodate & Asahikawa food · W13 Akan-Mashū/Nemuro/Abashiri + Wakkanai/Rishiri/Rebun · W14
+Obihiro butadon/Rokkatei + Muroran curry ramen · W15 Furano/Biei/Asahikawa Ainu museum + Muroran bridge.
+**Sources by channel (W06–W15):** official tourism — HOKKAIDOTOURISM, SAPPOROTRAVEL, OTARUTOURISM (otaru.gr.jp),
+HAKODATETRAVEL; guidebook editorial — RURUBU (JTB Publishing), MAPPLE (Shobunsha); press — HOKKAIDOSHIMBUN;
+notable travel sites — JAPANGUIDE, CULTURETRIP, JAPANTRAVEL, MACARONI; institutional — UNESCO, JOMONJAPAN,
+MICHELIN_BIB/STAR (Hokkaido 2017); encyclopedic (corroborating) — WIKIPEDIA_JA/WIKIPEDIA/WIKIVOYAGE.
+**Creators:** a youtube.com-restricted query returned Sapporo food-tour videos but no identifiable, vettable channel
+naming a specific place in the result text → 0 attachments (stated, not filled). Running total creator queries: 3.
+**Held single-source / not added:** Matsuo Jingisukan Sapporo Ekimae, Sapporo Jingisukan Honten, Sumibiyaki Pokke,
+Itadakimasu (rurubu only); Teshikaga Ramen (sapporo.travel only); Kinotoya (unconfirmed); Kikuyo Shokudō (MAPPLE only);
+Aoba Asahikawa (MAPPLE only); Curry Shop Indian (MAPPLE only); Yakitori Ippei, Aji no Daiō Noboribetsu, Uemura Base,
+Lake Hill Farm (MAPPLE only); Fugoppe Cave, Hokkaido Museum, Museum of Modern Art, Cape Tachimachi, Cape Chikyū,
+Lake Utonai, Date Jidaimura, Tropical Botanical Garden, Tokachidake (Wikipedia only); Kitaichi Venetian Art Museum,
+Otokoyama Sake Museum, Furano Cheese Factory, Ice Pavilion, Noboribetsu Bear Park, Akan Crane Centre, Trappist
+Monastery, Yunokawa Onsen, Niseko Goshiki Onsen, Rusutsu, Shinei/Hokusei hills, Seven Stars/Ken & Mary trees
+(one outlet only). Rokkatei Sapporo dropped (no named dish in results). Sapporo Ramen Republic not added (ESTA
+building closed for redevelopment — no closure source read this session).
+**Rejected coordinates:** Sarobetsu "45.1939,141.258" (= national-park/Rishiri point); Sukoton (latitude only);
+Lake Shikaribetsu volcanic-group point (W05). G02 rejected Hachimanzaka (Motomachi centroid) and the Magistrate's
+Office's *original* Motomachi site coordinate; Shakotan town point for Shimamui.
+**Prose hygiene:** removed unsourced numeric colour from W11/W12/W13 descriptions (lengths, dates, temperatures).
+**G02:** 13/18 pinned (high 9, med 4: Magistrate's Office = Goryōkaku point; Curb Market = wholesale-market point;
+Beer Garden = Sapporo Garden Park point; Susukino = district point).
+**Build #2:** 140 discovered → 104 rendered (sights 100, food 4). sourcecheck PASS 140 (1 lone authority — Tonta,
+Michelin Bib 2017) · geocheck PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate DATA OK ·
+npm test ALL PASS. 36 UNVERIFIED held (mostly restaurants — no lat/lng surfaces via WebSearch).
+
+## 2026-10-02 — session 2 · W16–W30 + G03 geocode + final build (session total ≈188 searches: me ~147, G01 18, G02 15, G03 8)
+**Waves:** W16 Sapporo crab/sushi + Niseko dairy · W17 Otaru fried chicken, LeTAO, Kitaichi Glass · W18 Pirka Kotan,
+Sapporo Factory, Hōheikyō, Yunokawa · W19 Otaru Aquarium, Tokachigawa Onsen, Naitai Ranch, Cape Erimo (Hidaka coast —
+filed under TKC as the nearest area; noted) · W20 Kushiro zangi (Torimatsu) & spakatsu (Izumiya), Nemuro escalope (New
+Montblanc), Rishiri Ramen Miraku (Michelin Bib) · W21 Hakodate Jōmon Culture Center, Catholic Motomachi Church, Northern
+Peoples museum, Trappist Monastery, Kaiyō Maru · W22 Kikuyo Shokudō, Gotōken · W23 Ainu cuisine Poronno (Akan Ainu
+Kotan), Utoro fishermen's-wives canteen · W24 Akan Ainu Kotan, Cape Chikyū, Cape Tachimachi, Hokkaido Museum, Lake
+Utonai · W25 Museum of Modern Art, Tropical Botanical Garden, Date Jidaimura · W26–W27 Noboribetsu jigoku ramen, Aji no
+Sanpei, Keyaki, Shingen · W28 T38, Sapporo Dome, Yuiga Dokuson omu-curry, Furano Cheese Factory · W29 Grand Hirafu,
+HANAZONO, Rusutsu · W30 Ueno Farm, Kaze no Garden, Unkai Terrace, Ikeda Wine Castle, Tokachi Hills.
+**Attribution caveat (W16, W28):** the result summary merged rurubu + MAPPLE; each place was listed under both outlets'
+URLs in the same result set — re-verify per-outlet attribution at refresh.
+**Dropped:** Kaiten-zushi Toriton (chain without a named branch in results); Rokkatei Sapporo (no named dish).
+**Held single-source:** Asari Honten sukiyaki, Hakodate Beer Hall, Curry no Furanoya, Meisui Udon Nonokasa, Teuchi Soba
+Ichimura, Yakitori Ippei, Uemura Base, Lake Hill Farm, Ōkami Soup, Shirakaba Sansō (branch), JR-less: Hokkaido Hakodate
+Museum of Art, Hongo Shin sculpture museum, Wakkarium, Arishima Memorial Museum, Tokachidake Bōgakudai, Esan, Komagatake,
+Hakodate Park (Wikipedia coords read; no 2nd source yet).
+**G03 (Wikidata):** 5/12 — Tropical Botanical Garden, Kamome Island (Kaiyō Maru), Cape Sukoton, Sōya Hills (med, range
+point), Date Jidaimura. Not found: Himenuma (town centroid only), Hachimanzaka (shrine item ≠ slope), Momoiwa (youth-hostel
+item ≠ observatory); not reached: Herring Mansion, Kihinkan, Shimamui, Kitaichi No. 3.
+**Final build:** 192 discovered → 132 rendered (sights 128, food 4). sourcecheck PASS 192 (1 lone authority) · geocheck
+PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate DATA OK · npm test ALL PASS. 60 UNVERIFIED held
+(46 restaurants + 14 sights). Channel mix this session: official tourism ~45% of second sources (HOKKAIDOTOURISM,
+SAPPOROTRAVEL, HAKODATETRAVEL, OTARUTOURISM, JNTO), guidebook editorial ~25% (RURUBU, MAPPLE), travel sites ~15%
+(JAPANGUIDE, CULTURETRIP, JAPANTRAVEL, MACARONI, CATHAYPACIFIC, NAVITIMETRAVEL, FUNJAPAN, GOODLUCKTRIP), press (HOKKAIDOSHIMBUN),
+institutional (UNESCO, JOMONJAPAN, MICHELIN 2017); creators 0 (3 queries, nothing vettable — stated, not filled).

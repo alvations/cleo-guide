@@ -68,7 +68,7 @@ def load_records(rdir):
     food, sights = [], []
     for path in sorted(glob.glob(os.path.join(rdir, "*.json"))):
         base = os.path.basename(path)
-        if base.startswith(("_", "out_", "sr_", "geo_", "CREATORS", "SOURCES_")) or "dataset" in base:
+        if base.startswith(("_", "out_", "sr_", "geo_", "CREATORS", "SOURCES_")) or "dataset" in base or "worklist" in base:
             continue
         try: d = json.load(open(path, encoding="utf-8"))
         except Exception: continue

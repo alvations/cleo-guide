@@ -104,3 +104,96 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
   (35.031550,135.723469), Shōkoku-ji (35.03306,135.762347), Rozan-ji (35.0232,135.7640), Daihōon-ji (35.0319,135.7399),
   Umekōji Steam Locomotive Museum (now part of the Railway Museum — not separate). Myōshin-ji (JG mention only).
 - Searches used: 92.
+
+### batch 7 (2026-10-02) — Nara/Uji food, Fushimi, held corroborations
+- UJI food: Kiminami (soba), Kushizukushi (kushiage), toi Inshokuten (Indian thali) — MICHELIN_BIB (Nara region pages);
+  Tsuen Tea (est. 1160) and Nakamura Tokichi Honten (est. 1859) — JAPANGUIDE e3977 + WIKIPEDIA_JA (new key).
+- FSHMI: Jikkokubune Canal Cruise (JAPANGUIDE e3938 + KYOTOTOURISM); pin held (pier coordinate not surfaced).
+- HGS: Mimizuka (national Historic Site list + Wikipedia; pin from Wikipedia). SAKYO: Keage Incline (JG e3951 + Wikipedia).
+- Held: Taihōan municipal tea house (japan-guide only; the Japanese mention could not be tied to a specific page), Kizakura Kappa Country and
+  Fushimi Yume Hyakushu (could not tell which outlet said what → not attributed), Myōshin-ji (JG e3961; no coordinate yet),
+  Shimabara/Sumiya (Wikipedia only), Ike Edoyakiunagi Asahitei (Nara, no address).
+- Searches used: 100.
+
+### batch 8 (2026-10-02) — Michelin starred kaiseki + izakaya (FOOD_KYOTO_W3) and KYFU ring
+- FOOD W3 (16): One-star Nakagyō kaiseki ×7 (Ogawa, Tsujifusa, Kiyama, Miyawaki, Nijo Minami, Muromachi Wakuden, Jiki Miyazawa);
+  Gion: Gion Maruyama ★★, Gion Nishikawa ★★, Gion Fukushi/Kida/Owatari ★; Sushi Kappo Nakaichi ★; Kyokaiseki Kichisen ★★ (Shimogamo);
+  Pontocho Masuda (obanzai, MICHELIN); Saketosakana DNA (Bib izakaya).
+- **MEASURED & DROPPED (padding):** Gion Nishimura and Gion Rohan are Michelin-listed only, with no distinction surfaced. They would have been
+  a fifth and sixth near-identical Gion kaiseki counter, so they were dropped. **Held (no named dish / cuisine unclear):** Sambongi Shoten, Eitaroya, Muromachi Kaji
+  (izakaya, no dish); Higashiyama Yoshihisa ★★, Kyoboshi, TOKI, Kyo Seika ★, Higashiyama Ogata ★, Nishijin Hashimoto, Shimogamo
+  Saryo, Shimogamo Ichima, middle, ristorante DONO. Their cuisine or dish was not stated in the summary, and guessing would risk a cuisine mis-tag.
+- KYFU +7: Ishiyama-dera, Mii-dera, Hiyoshi Taisha (National Treasure designations via the Wikipedia NT lists + articles),
+  Nariai-ji (JG e3995 + WIKI), Kono Shrine (JG e3990 + WIKI), Jōruri-ji, Kaijūsen-ji (NT + WIKI). Pins from Wikipedia.
+- Rejected coordinate: "Kasagi-dera" was offered the Siege-of-Kasagi coordinate, which is not the temple, so it was not used. Held: Ōmi Jingū
+  (35.032444,135.851222), Ukimidō, Fukuchiyama Castle (35.296753,135.129625) — Wikipedia only.
+- Searches used: 117.
+
+### batch 9 (2026-10-02) — FSHMI +4, RKHKU +4, HGS +3 (ja-Wikipedia coordinates)
+- **Technique:** `allowed_domains=["ja.wikipedia.org"]` with 5–6 Japanese names + 座標 returns up to 5 published coordinates per search.
+  This works where enwiki has no article (Jakkō-in, Rurikō-in, Saimyō-ji, Miyama, Yasui Konpira-gū, Rokudō Chinnō-ji, Entoku-in).
+- FSHMI: Zuishin-in, Kajū-ji (KYOTOTOURISM + WIKI), Hōkai-ji (NT list + WIKI), Jōnan-gū (KYOTOTOURISM + WIKIPEDIA_JA).
+- RKHKU: Jakkō-in (JG e3932 + WIKIPEDIA_JA), Saimyō-ji (JG e2158_north + JA), Rurikō-in (KT + JA), Miyama Kayabuki-no-Sato
+  (JG e3985 + JA; the pin is the village, not the town centroid).
+- HGS: Yasui Konpira-gū, Rokudō Chinnō-ji (kyoto.travel map guide + JA), Entoku-in (JG e3927 + JA).
+- Held: Bishamon-dō (kyoto.travel only), Kurama Onsen (JA coords 35.11925,135.776456; one source).
+- Searches used: 121.
+
+### batch 10 (2026-10-02) — pins for 4 unpinned HGS records; CTR +5, KITA +3
+- Pins: Tōfuku-ji (ja-Wikipedia, high), Rokuharamitsu-ji (Wikipedia, from the W1 lead, high), Gion & Hanamikoji (Gion Kōbu Kaburenjō
+  on Hanami-kōji, med), Higashiyama District (Sannenzaka, med). These are real place pins on the street or theatre, not district centroids.
+- CTR: Mibu-dera, Shōsei-en (KYOTOTOURISM + WIKIPEDIA_JA), Nijō Jinya (JG e3926 + JA), Shimabara & Sumiya (KT + Wikipedia, med),
+  Teramachi & Shinkyōgoku arcades (JG e3958 + KT; UNVERIFIED, since a street has no single pin).
+- KITA: Genkō-an, Shōden-ji (KT + JA), Kōetsu-ji (japan-guide autumn report + JA).
+- Held: Seigan-ji (35.007361,135.767722), Funaoka Onsen (35.036911,135.744578), Goō Shrine (35.02222,135.75861): one source each.
+- Searches used: 127.
+
+### batch 11 (2026-10-02) — Michelin food pins + FOOD_KYOTO_W4 (10)
+- **Breakthrough (lesson borrowed from the Osaka log):** `allowed_domains=["guide.michelin.com"]` + "<A>; <B>; <C> Kyoto address
+  latitude longitude" returns each venue page's lat/lng. That gives 3 restaurant place-pins per search, so food is now renderable. The 46 remaining
+  W2/W3 Michelin food pins are delegated to a background worker (writes `geo/_geoout_kyoto_mpins.json` only). Main agent pinned
+  Gion Yorozuya, Izuu, Kyogoku Kaneyo and all W4 venues except Bistro Cerisier.
+- Asking for dish + coordinates in one query loses the coordinates. Do it in two steps: (1) ward list or dish query, (2) pin query.
+- W4: Higashiyama Yoshihisa ★★ (2026), Kyo Seika ★ (Chinese → INT), Higashiyama Ogata ★, Kokyu, Tenjaku (tempura), Sambongi Shoten
+  (char-grill izakaya), Sushizen (kyō-zushi), Ryoriya Otaya, Washoku Haru (saba-zushi roll), Bistro Cerisier — Bib unless noted.
+- Held: Bistro Yanagihara, BOCCA del VINO (dish not surfaced).
+- Searches used (main): 136; plus the background pin worker (≤20).
+
+### batch 12 (2026-10-02) — background pin worker + go-live + UJI/FSHMI sights
+- **Pin worker** (18 searches): 44/46 Michelin venues pinned from Michelin venue-page lat/lng (`geo/_geoout_kyoto_mpins.json`).
+  Spot-checked: all fall in the stated ward/chō. UNVERIFIED: Kyoudon Kisoba Okakita and Shutei Bankara (no venue page surfaced; not
+  marked closed, since no source said so). Rennosuke's new Michelin address (116-2 Higashitate-chō, Kamigyō-ku) was written into the food record.
+- **Build:** 208 discovered / 198 rendered; sourcecheck, geocheck, statuscheck and buildcheck PASS; `npm run validate` and `npm test` ALL PASS.
+- **GO-LIVE:** the Japan hub CARD:kyoto now links to cities/kyoto.html; root CARD:japan reads "4 of 5 maps live"; docs/CITIES.md has a Kyoto row; prose in
+  tools/build-kyoto.py was rewritten (no "vetted creators" claim, since none were vetted).
+- UJI +5: Kōshō-ji, Tale of Genji Museum, Uji Bridge, Yoshiki-en (JG + WIKIPEDIA_JA pins); Naramachi (JG e2165 + JA; UNVERIFIED,
+  because only an approximate district centre surfaced).
+- FSHMI +3: Fushimi Momoyama Mausoleum, Sekihō-ji (KT map guide + JA), Fujinomori Shrine (KT taxi-tips feature + JA).
+- Held: Gokō-no-miya (34.934722,135.7675; the kyoto.travel plaque found covers the shrine's ORIGINAL site, so it was not used as the 2nd source).
+- Searches used: main 149 + worker 18 = 167.
+
+### batch 13 (2026-10-02) — held leads corroborated + non-Michelin canon
+- KITA +3: Daihōon-ji/Senbon Shakadō (kyoto.travel plaque 2230 + WIKI), Shōkoku-ji, Rozan-ji (KT map guide + WIKI). CTR +2:
+  Shinsen-en (KT plaque 2192 + WIKI), Honnō-ji (KT map guide + WIKI). Pins from Wikipedia.
+- Food canon (non-Michelin, ≥2 editorial): Inoda Coffee Honten (ja.kyoto.travel listing + WIKIPEDIA_JA; pin from ja-Wikipedia),
+  Sōhonke Nishin Soba Matsuba (kyoto.travel restaurant page + ja-Wikipedia にしんそば article for its 1882 invention; pin held).
+- Held (single editorial source): Honke Owariya (KT, est. 1465), Nanzenji Junsei (KT, yudofu), Ippodō (ja-Wiki address only),
+  Ichiwa/Ichimonjiya Wasuke (ja-Wiki only), Kazariya (KT only).
+- Searches used: main 155 + worker 18 = 173.
+
+### batch 14 (2026-10-02) — KYFU/RKHKU fill + Owariya
+- KYFU +2: Kasamatsu Park (JG e3992 + WIKIPEDIA_JA), Hozugawa River Cruise (JG e3966 + ja-Wikipedia Hozu Gorge; med, a point on the route).
+- RKHKU +1: Kurama Onsen (JG e3933 + JA; reopened Nov 2024 per japan-guide → status open).
+- Food: Honke Owariya (est. 1465) — KYOTOTOURISM restaurant page + Time Out (Tokyo edition travel piece); pin held.
+- Held: Gansen-ji (ja coords 34.72025,135.885806, one source), Fukuchiyama Castle (en+ja Wikipedia = one outlet), Eizan Railway
+  'kōyō tunnel' (KT only), Shōrin-in, Raigō-in (JG only), Nanzenji Junsei, Okutan (yudofu; one source each).
+- Searches used: main 158 + worker 18 = 176.
+
+### batch 15 (2026-10-02) — final W2 build
+- HGS +1: Toyokuni Shrine (KT FAQ 1039 + WIKIPEDIA_JA; med, an arc-second-rounded coordinate). Held: Hōkō-ji (ja coords 34.992106,
+  135.772064; the matching kyoto.travel page could not be identified with certainty), Yōgen-in (34.987861,135.773639), Ryōzen Gokoku Shrine
+  (35.0,135.78306, rounded), Kawai Kanjirō House and Minami-za (no coords).
+- **Build:** 228 discovered / 215 rendered (152 sights + 63 food); 13 UNVERIFIED held; all 4 gates PASS; validate + test ALL PASS.
+  CARD:kyoto counts and the CITIES.md row were refreshed.
+- **Closures found this wave:** none. Every place carries a 2026 status source. Kurama Onsen was confirmed reopened (Nov 2024).
+- Searches used: main 160 + worker 18 = 178.

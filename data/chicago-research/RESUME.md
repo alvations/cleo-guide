@@ -13,28 +13,38 @@
 
 ## State
 - 2026-10-02 (session 1): scaffold created. W1 BLOCKED by the shared 200-search cap.
-- 2026-10-02 (session 2, this run): **100 places sourced (50 sights + 50 food), 72 pinned & rendered**;
-  all 4 gates + validate + test green. Page `cities/chicago.html` builds (SW hidden until a SW pin lands).
-  Files: FOOD_CANON.json (30), FOOD_MICHELIN.json (20), SIGHTS_W1.json (33), SIGHTS_W2.json (17);
+- 2026-10-02 (session 2, FINAL): **220 places researched, 191 pinned & rendered (146 sights + 45 food)**; LIVE on the hub
+  (`<!-- CARD:chicago-il -->` + CITIES.md row, refreshed by `_chi_counts.sh`). 4 gates + validate + test green.
+  Per area (researched food+sights / target, density.py): LOOP 72/110 · NORTH 44/85 · NW 25/80 · WEST 14/50 ·
+  SOUTH 22/60 · SW 7/25 · FAR 5/30 · SUB 18/50 · DAY 13/20.
+  Files: FOOD_CANON.json (39), FOOD_MICHELIN.json (35), SIGHTS_W1..W9.json (146), CREATORS_W1.json;
   geo/_geoout_canon.json, _geoout_michelin.json, _geoout_sights.json.
-  UNVERIFIED pins held (28): most restaurants without a Wikipedia article — see docs/GEOCODE-BACKLOG.md.
-- **Geocoding lesson:** WebSearch summaries rarely surface latlong/!3d!4d pins for small restaurants
-  (13/20 failed at 1 search each). Wikipedia batches of 4 names per query (allowed_domains en.wikipedia.org)
-  return published coords reliably — use them for sights and Wikipedia-notable restaurants; leave the rest
-  to tools/geocode-helper.html.
-- Search count (session 2): ~95 of the session budget used so far (main + 2 geocode subagents).
+  **UNVERIFIED pins held (29)** — restaurants with no Wikipedia article/POI pin: Al's #1, Johnnie's, Pequod's, George's Deep Dish, Milly's, Vito & Nick's, Pat's, Pizz'amici,
+  Middle Brow Bungalow, Redhot Ranch (Bucktown), Byron's, Fat Johnnie's, Jim's Original, Borinquen Lounge, Twin Anchors,
+  Margie's Candies, Gene & Georgetti, Birrieria Zaragoza, Original Rainbow Cone, Boka, Galit, Boonie's, Cellar Door
+  Provisions, Kie-Gol-Lanee, Sochi, Tortello, Mirra, Nadu, Taqueria Chingón (also in docs/GEOCODE-BACKLOG.md) → `tools/geocode-helper.html`.
+- Helpers (this dir): `_chi_add.py` (dedup-append), `_chi_sights.py` (append records + Wikipedia pins in one go),
+  `_chi_push.sh` (pull/push loop that regenerates conflicting shared files), `_chi_counts.sh` (refresh card/row counts).
+- **Geocoding lesson:** Wikipedia batches of 4 names per query return published coords reliably (sights and
+  Wikipedia-notable restaurants); per-restaurant latlong searches mostly fail. Street-address strings for Wikipedia-pinned
+  sights were taken from the sources/Wikipedia infobox; any not echoed verbatim in a search result should be confirmed in
+  the re-verify pass (the pin itself is Wikipedia's published coordinate).
+- Search count (session 2): ~218 (main ≈186 + 2 geocode subagents 32). Stopped when yield fell to ~1 place/search
+  (the remaining Wikipedia-pinnable landmarks are mostly used up; the next wave must be food + the geocode helper).
 
 ## In-flight wave
-W3 — more sights (Wikipedia-pinned) per area + food canon 2nd-sources (Papa's Cache Sabroso, Uncle Remus,
-Harold's, Rainbow Cone, Garrett, Portillo's, Chicago Mag Iconic Eats list in AUDIT) + a creator query.
+(none — W11 committed). 
 
 ## Next actions (ordered)
-1. Wave 1 food canon (FOOD_CANON.json) → wave 2 Michelin/JB (FOOD_MICHELIN.json) → sights per area (SIGHTS_<AREA>.json)
-   → immigrant corridors → creators. Measure `python3 tools/density.py chicago-il` after each.
-2. Geocode each batch into `geo/_geoout_<tag>.json` (place pins: Wikipedia coords / latlong.net OSM POI /
-   Google !3d!4d; never /@; UNVERIFIED if unresolvable) + status.
-3. `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py chicago-il --build`
-4. Go-live: relink `<!-- CARD:chicago-il -->` in index.html + CITIES.md row.
+1. Pin the 29 UNVERIFIED restaurants with `tools/geocode-helper.html` (browser) → re-run `--build`; that alone lifts
+   food on the map from 39 to ~68 and un-hides nothing (SW now has pins).
+2. Food density (biggest gap): Infatuation/Time Out neighbourhood guides for NW (Logan Sq/Wicker/Avondale), WEST
+   (Pilsen/Little Village taquerias — Carnitas Uruapan, La Chaparrita, El Milagro from Iconic Eats need a 2nd source),
+   SOUTH (Chinatown — Chiu Quon, Lao Sze Chuan; Bronzeville soul food — Keith Lee's picks Soul Prime, Cleo's), Devon
+   (IN), Argyle (VN — Nhu Lan), Polish (Milwaukee Ave), Swedish (Andersonville). Held single-source list in AUDIT.md.
+3. Sights still thin: FAR (Pullman sub-sites, Beverly), SW, SUB (Evanston/North Shore), SOUTH (Bronzeville, Kenwood).
+   Use the Wikipedia-4 pattern + one themed 2nd-source query.
+4. Re-verify pass (4b) on med/low pins; confirm street addresses flagged in geo notes (e.g. Irazu).
 
 ## Commands
 ```
@@ -44,6 +54,6 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
 
 ## Acceptance checklist
 - [ ] every area OK in density.py
-- [ ] --sourcecheck / --geocheck / --statuscheck / --buildcheck green
-- [ ] npm run validate && npm test green
-- [ ] card live + CITIES.md row + AGENT-PROMPTS run-log rows
+- [x] --sourcecheck / --geocheck / --statuscheck / --buildcheck green
+- [x] npm run validate && npm test green
+- [x] card live + CITIES.md row + AGENT-PROMPTS run-log rows

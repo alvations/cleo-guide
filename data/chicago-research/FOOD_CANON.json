@@ -72,6 +72,10 @@
    [
     "TIMEOUT",
     "https://www.timeout.com/chicago/restaurants/best-pizza-in-chicago"
+   ],
+   [
+    "PORTNOY",
+    "https://1440wrok.com/ixp/721/p/illinois-lowest-rated-one-bite-pizza-portnoy/"
    ]
   ]
  },
@@ -98,6 +102,10 @@
    [
     "CHIMAG",
     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/chicago-classic-at-lou-malnatis/"
+   ],
+   [
+    "KEITHLEE",
+    "https://www.fox32chicago.com/news/tiktok-food-influencer-chicago-restaurants"
    ]
   ]
  },
@@ -174,6 +182,10 @@
    [
     "INFATUATION",
     "https://www.theinfatuation.com/chicago/guides/chicago-greatest-old-school-restaurants"
+   ],
+   [
+    "PORTNOY",
+    "https://1440wrok.com/ixp/721/p/illinois-lowest-rated-one-bite-pizza-portnoy/"
    ]
   ]
  },
@@ -681,7 +693,7 @@
    "Burgers",
    "Tavern"
   ],
-  "dish": "",
+  "dish": "The double cheezborger",
   "closed": false
  },
  {
@@ -703,7 +715,7 @@
   "cz": [
    "Deep-Dish"
   ],
-  "dish": "",
+  "dish": "Cornmeal-crust deep dish with a sausage patty",
   "closed": false
  },
  {
@@ -725,7 +737,7 @@
   "cz": [
    "Italian Beef"
   ],
-  "dish": "",
+  "dish": "Italian beef, dipped, with hot giardiniera",
   "closed": false
  },
  {
@@ -770,7 +782,7 @@
   "cz": [
    "New American"
   ],
-  "dish": "",
+  "dish": "Wood-oven pig face with a sunny egg; goat empanadas",
   "closed": false
  },
  {
@@ -793,7 +805,7 @@
    "Mediterranean",
    "Wine Bar"
   ],
-  "dish": "",
+  "dish": "Chorizo-stuffed, bacon-wrapped Medjool dates; focaccia",
   "closed": false
  },
  {
@@ -815,7 +827,7 @@
   "cz": [
    "Greek"
   ],
-  "dish": "",
+  "dish": "Flaming saganaki ('Opa!'), lamb, grilled octopus",
   "closed": false
  },
  {
@@ -838,7 +850,110 @@
    "Jewish Deli",
    "Bagels"
   ],
-  "dish": "",
+  "dish": "Bagel and lox; corned beef",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "NORTH",
+  "n": "The Wieners Circle",
+  "address": "2622 N Clark St, Chicago, IL 60614",
+  "w": "Lincoln Park's late-night char-dog stand (to 4am weekends), as famous for the staff's good-natured verbal abuse as for its dogs.",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/chicago/reviews/the-wieners-circle"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/chicago/restaurants/the-wieners-circle"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/The_Wieners_Circle"
+   ]
+  ],
+  "cz": [
+   "Hot Dogs"
+  ],
+  "dish": "Char dog with everything; cheddar fries",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "NW",
+  "n": "Roeser's Bakery",
+  "address": "3216 W North Ave, Chicago, IL 60647",
+  "w": "Humboldt Park bakery run by the same family since 1911 — custom cakes, strudel, coffee cake and paczki.",
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/chicago/restaurants/roesers-bakery"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/chicago/reviews/roesers-bakery"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Roeser's_Bakery"
+   ]
+  ],
+  "cz": [
+   "Bakery",
+   "Paczki"
+  ],
+  "dish": "Strudel, coffee cake, custom cakes, Fat Tuesday paczki",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "LOOP",
+  "n": "Ceres Cafe",
+  "address": "141 W Jackson Blvd, Chicago, IL 60604",
+  "w": "The traders' bar in the Board of Trade lobby, notorious for a 'jack and coke' that's a giant cup of whiskey with the can on the side.",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/chicago/reviews/ceres-cafe"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Ceres_Cafe"
+   ]
+  ],
+  "cz": [
+   "Bar",
+   "Diner"
+  ],
+  "dish": "The oversized 'jack and coke'; diner breakfasts",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "WEST",
+  "n": "Goose Island Fulton Street Taproom",
+  "address": "1800 W Fulton St, Chicago, IL 60612",
+  "w": "The taproom attached to Goose Island's production brewery (brewing here since 1995) — test batches and Bourbon County Stout rarities.",
+  "sources": [
+   [
+    "CHOOSECHI",
+    "https://www.choosechicago.com/listing/goose-island-beer-company-fulton-market/"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/chicago/bars/goose-island-fulton-street-brewery"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Goose_Island_Brewery"
+   ]
+  ],
+  "cz": [
+   "Brewery",
+   "Taproom"
+  ],
+  "dish": "Bourbon County Stout, Sofie, test batches",
   "closed": false
  }
 ]

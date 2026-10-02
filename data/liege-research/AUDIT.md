@@ -71,3 +71,26 @@ exact name/OSM id makes the search summary print coordinates (≈50 % hit rate f
 **Build:** `rebuild-city.py liege --build` → sourcecheck PASS 65/65 (6 on a lone Michelin), geocheck PASS (43 on page:
 high 29 · med 14), statuscheck CONSISTENT (43 open, 0 closed), buildcheck PASS; 22 discovered places held (no pin yet).
 `npm run validate` DATA OK · `npm test` ALL PASS.
+
+## 2026-10-02 (session 2) — Wave 3 + FINAL BUILD + GO-LIVE
+**Sources added:** GAULTMILLAU venue pages (lone authority — 36 Liège-province tables), MOUSTIQUE (La Libre group: 12 boulets
+addresses; 7 Liège breweries; 6 gourmet addresses), ERICBOSCHMAN (creator: Belgian TV/radio sommelier, 9-best Liège list on
+Moustique), RTBF city lists (10 + 10 cafés; 'bonnes bières du côté de Liège'), GOURMANDIZ (DH food), APAQW, PAYSDEHERVE,
+PAYSDEVESDRE, LIEGECITY, Wikipedia (fr) coordinates for ~25 sights.
+**Channel mix (whole map, 147):** institutional (Michelin/G&M/UNESCO/AWaP/COE/KIK-IRPA) ≈60 · national/regional press
+(RTBF, L'Avenir, DH, La Libre, Moustique, Paris Match) ≈45 · tourism boards (Visit Liège, WBT, Pays de Herve/Vesdre) ≈35 ·
+travel guides (LP, Routard, Culture Trip) ≈25 · creators 2 (Darley Newman PBS, Eric Boschman) · local/uni (ULiège) 3.
+**MEASURED & DROPPED / held:** see RESUME.md 'Held single-source leads' (~30). Château de Harzé dropped (private events
+venue, not a visitor sight). Au Moriane kept (Michelin + G&M restaurant; the OSM 'leather shop' tag is the building's name).
+**Geocode corrections:** Une Gaufrette Saperlipopette DOWNGRADED to UNVERIFIED in data/geocodes.json (its point was Cabale's
+OSM node, Rue des Mineurs 6); Arabelle Meirlaen OSM pin rejected (no address, possible pre-move) → ViaMichelin POI used;
+Héliport Brasserie is in a château ~10 km out (ViaMichelin POI + Michelin text) — description corrected; Jupiler brewery =
+Rue des Anciennes Houblonnières 2; Le Grand Maur = Rue de Barisart 209; La Roseraie = Route de Limet 80, Modave; Darcis =
+Esplanade de la Grâce 1, Verviers.
+**Technique (lesson):** RestaurantGuru/Foursquare/Wanderlog single-place search (`allowed_domains`) prints venue lat/lng
+≈90 % of the time — far better than Mapcarta/OSM (≈15 %). ViaMichelin works for Michelin venues.
+**FINAL BUILD:** sourcecheck PASS 147/147 (34 on a lone Michelin/G&M) · geocheck PASS — **99 on page** (57 sights + 42
+food; high 51 · med 48 · low 0) · statuscheck CONSISTENT (0 closed) · buildcheck PASS. 48 held UNVERIFIED.
+Density: LIE 82/85 (NEED +3), LIER 66/60 OK. **Go-live:** CARD:liege relinked, countries.json belgium pages + blurb,
+Belgium hub (five maps), root Belgium card (606 places on maps), CITIES.md row, AGENT-PROMPTS run-log row.
+**Halt:** session-wide WebSearch cap 200/200 reached.

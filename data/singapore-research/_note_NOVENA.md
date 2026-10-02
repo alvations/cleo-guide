@@ -48,3 +48,24 @@ Velocity / United Sq / Goldhill, Chancery Lane, Cairnhill/Scotts edge. Balestier
 4. Viral/creator queries (§2a): "novena food tiktok", "newton food centre youtube", Mark Wiens/Nex Carlos Newton episodes.
 5. Geocode (OneMap/Wikidata/Google !3d!4d via WebSearch), `geo/_geoout_novena_w2.json`, then under the lock:
    `flock -w 3600 .git/cleo-shared.lock bash -c 'python3 tools/geo-merge.py singapore --only "_geoout_novena_*.json" && python3 tools/rebuild-city.py singapore --build'`.
+
+## W2 (2026-10-02 relaunch, 4-town session)
+- **Outcome:** NVN 27 food + 8 sights = **35 / target 55 -> NEED +20** (true count after the density.py fix); page renders ~23 pins; greyed (not live).
+- **Files:** FOOD_NOVENA2.json (22), SIGHTS_NOVENA2.json (7), SOURCES_NOVENA2.json, geo/_geoout_novena_w2.json, _w3.json, geo/_geoout_sg4_w2d.json.
+- **Sights:** Novena Church (Wikipedia+URA+Roots), Goodwood Park Hotel Tower Wing (National Monument; Wikipedia pin), Old Police Academy
+  — CLOSED (defunct 2005; conserved blocks), TTSH Heritage Museum, No. 1 Moulmein Rise (WOHA, Aga Khan 2007), Singapore Polo Club, The Istana.
+- **Food:** Newton FC (XO Minced Meat, 88 San Ren, 31 Heng Heng BBQ, Hajah Monah, Indian Kitchen, TKR Satay, Hai Yan BBQ); Scotts Rd
+  (Alma *, Gordon Grill, Iru Den, Buona Terra *, INDOCAFE The White House, The Song of India); Novena (Da Luca, Chye Kee Goldhill, Craftsmen,
+  El Cocinero, Sinn Ji); Hawkers' Street @ Square 2 (545 Whampoa Prawn Noodles, Tai Seng Fish Soup, Hill Street Hainanese Curry Rice); Waffletown.
+- **MEASURED & DROPPED:** Velocity/United Square/Square 2 mall chains (Song Fa outlet, Tomi Sushi, Gyu-Kaku, Fish & Co, Genki, Saizeriya…)
+  = padding; Mademoiselle Tang Noodle (Eatbook review lukewarm: overcooked) — mention is not merit; LONGJING (chain).
+- **Held:** Whitley Road prawn mee (main stall is Old Airport Rd), ThaiLily, Baan Ying, Mun Zuk, Cafe Gui, Ami Patisserie, The Big Bird,
+  Smiths, Chef Chan's, Guan Kee Grilled Seafood, Bee Heng Popiah, Banele, Alley Bar, Peranakan Place (Wikipedia-only), Mangiano by CC.
+- **Next (+12):** domain-filtered 2nd-sourcing of the held list; Newton Circus/Cairnhill/Emerald Hill edge (confirm planning-area scope);
+  geocode Scotts Rd restaurants (27/29/33/35 Scotts Rd) + Goldhill/Square 2 buildings via the helper.
+
+> **COUNT CORRECTION (2026-10-02, later the same session):** `tools/density.py` was fixed by another session (commit 4f706d7) to stop
+> counting `sg_worklist.json` as food — the earlier W2 figures in this file were inflated by that double-count. **True counts after the
+> fix: HLV 56/55 OK (live) · BLS 55/55 OK (go-live held for pins) · NVN 35/55 (NEED +20) · PGL 35/93 (NEED +58).**
+
+- **FINAL (end of session): HLV 57/55 OK (LIVE) · BLS 56/55 OK (go-live held for pins) · NVN 37/55 (NEED +18) · PGL 35/93 (NEED +58).** Late adds: NVN Baan Ying, Banelé; BLS Niu Dian (VIIO @ Balestier); HLV Niu Dian (HV).

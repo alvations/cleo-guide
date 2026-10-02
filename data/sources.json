@@ -6090,6 +6090,70 @@
           "rank": 3,
           "verified": true,
           "credible": "Government-run (MCI) editorial portal; heritage features incl. the 'National Monuments of Singapore' series and neighbourhood rediscovery guides."
+        },
+        {
+          "key": "LIVE2MAKAN",
+          "name": "Live2Makan (Singapore hawker food blog)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running Singapore food blog with dated, first-hand hawker reviews; corroborating source only."
+        },
+        {
+          "key": "TTSH",
+          "name": "Tan Tock Seng Hospital (official heritage pages)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official institutional page for its own heritage museum."
+        },
+        {
+          "key": "WOHA",
+          "name": "WOHA Architects (official project page)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "The architects' own project record."
+        },
+        {
+          "key": "AKDN",
+          "name": "Aga Khan Award for Architecture (AKDN)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Award body record of the 2007 Aga Khan Award."
+        },
+        {
+          "key": "EARCHITECT",
+          "name": "e-architect",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established architecture-news site; corroborating only."
+        },
+        {
+          "key": "NLBINFOPEDIA",
+          "name": "NLB Singapore Infopedia",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "National Library Board encyclopaedia of Singapore."
+        },
+        {
+          "key": "SPORTSG",
+          "name": "Sport Singapore",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Statutory board directory of sporting clubs."
+        },
+        {
+          "key": "SILVERSTREAK",
+          "name": "SilverStreak (Singapore lifestyle guide)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Singapore editorial lifestyle site with dated, first-hand park and neighbourhood guides; corroborating only."
         }
       ],
       "creators": [
@@ -11088,7 +11152,28 @@
           "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
-      "creators": []
+      "creators": [
+        {
+          "key": "PORTNOY",
+          "name": "Dave Portnoy (One Bite pizza reviews)",
+          "platform": "YouTube/TikTok/Instagram",
+          "handle": "@stoolpresidente",
+          "url": "https://www.youtube.com/@onebite",
+          "scale": "millions of followers across platforms (Barstool Sports founder)",
+          "niche": "pizza reviews scored out of 10",
+          "credible": "Verifiably the most-watched pizza reviewer in the US; scores widely reported by press. Counts as ONE corroborating source, never institutional."
+        },
+        {
+          "key": "KEITHLEE",
+          "name": "Keith Lee",
+          "platform": "TikTok",
+          "handle": "@keith_lee125",
+          "url": "https://www.tiktok.com/@keith_lee125",
+          "scale": "~16M+ TikTok followers",
+          "niche": "independent-restaurant food reviews; Chicago tour covered by Fox32/NBC Chicago",
+          "credible": "Verifiably huge following with a documented 'Keith Lee effect' reported by mainstream press; ONE corroborating source."
+        }
+      ]
     },
     "akron-oh": {
       "name": "akron-oh",
@@ -11651,6 +11736,70 @@
           "rank": 3,
           "verified": true,
           "credible": "Long-running English Japan travel media with named on-the-ground writers; one source."
+        },
+        {
+          "key": "MACARONI",
+          "name": "macaroni (macaro-ni.jp)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Major Japanese food-lifestyle media with bylined writers; one source."
+        },
+        {
+          "key": "MICHELIN_STAR",
+          "name": "Michelin Guide Hokkaido — star",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Institutional authority (Michelin star) — lone-solo per the gate."
+        },
+        {
+          "key": "UNESCO",
+          "name": "UNESCO World Heritage Centre",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Institutional authority (World Heritage inscription) — lone-solo per the gate."
+        },
+        {
+          "key": "JOMONJAPAN",
+          "name": "Jomon Prehistoric Sites in Northern Japan (official site, Jomon World Heritage Promotion Office)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official site of the World Heritage property's managing prefectures (Hokkaido/Aomori/Iwate/Akita); institutional, one source."
+        },
+        {
+          "key": "RURUBU",
+          "name": "rurubu&more. (JTB Publishing)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Web edition of JTB Publishing's rurubu guidebooks — Japan's best-selling guidebook brand; editor-written spot and dining features. One source."
+        },
+        {
+          "key": "OTARUTOURISM",
+          "name": "Otaru Tourism Association (otaru.gr.jp)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official city tourism association of Otaru — tourism body of record for the city."
+        },
+        {
+          "key": "HAKODATETRAVEL",
+          "name": "Hakodate Travel (hakodate.travel) — official Hakodate city tourism site",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official tourism site of the City of Hakodate / Hakodate International Tourism & Convention Association — tourism body of record."
+        },
+        {
+          "key": "HOKKAIDOSHIMBUN",
+          "name": "Hokkaido Shimbun (北海道新聞)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Hokkaido's regional newspaper of record (Japan brief: HOKKAIDOSHIMBUN)."
         }
       ],
       "creators": [
@@ -11946,6 +12095,262 @@
           "rank": 2,
           "verified": true,
           "credible": "Orlando NBC affiliate; reported local news."
+        },
+        {
+          "key": "ALLEARS",
+          "name": "ALLEARS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "FROMMERS",
+          "name": "FROMMERS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "INFATUATION",
+          "name": "INFATUATION",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "DISNEYBLOG",
+          "name": "DISNEYBLOG",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "ATTRACTIONSMAG",
+          "name": "Attractions Magazine",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Orlando-based theme-park magazine/YouTube channel (300k+ subs) since 2004."
+        },
+        {
+          "key": "TRAVELPULSE",
+          "name": "TravelPulse",
+          "type": "travel",
+          "rank": 3,
+          "verified": true,
+          "credible": "Travel-trade news outlet; staff-ranked Universal ride list."
+        },
+        {
+          "key": "NEVERENDINGVOYAGE",
+          "name": "Never Ending Voyage (Erin & Simon)",
+          "type": "creator",
+          "rank": 3,
+          "verified": true,
+          "credible": "Award-winning long-running travel blog (since 2010), large following; first-hand Universal guide."
+        },
+        {
+          "key": "ORLANDOINFORMER",
+          "name": "Orlando Informer",
+          "type": "creator",
+          "rank": 3,
+          "verified": true,
+          "credible": "Large Orlando theme-park guide site/creator (hundreds of thousands of followers); ride rankings."
+        },
+        {
+          "key": "THEMEPARKSHARK",
+          "name": "Theme Park Shark",
+          "type": "creator",
+          "rank": 3,
+          "verified": true,
+          "credible": "Theme-park news/creator site; corroborating ranking only."
+        },
+        {
+          "key": "TIMEOUT",
+          "name": "Time Out Orlando",
+          "type": "travel",
+          "rank": 3,
+          "verified": true,
+          "credible": "Global city-guide brand with staffed Orlando guide."
+        },
+        {
+          "key": "WINTERPARKCITY",
+          "name": "City of Winter Park (official visitor pages)",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Municipal government's own '25 things to see & do' list — official local source (counts once)."
+        },
+        {
+          "key": "FATHOM",
+          "name": "Fathom",
+          "type": "travel",
+          "rank": 3,
+          "verified": true,
+          "credible": "Award-winning travel magazine; named-writer Winter Park guide."
+        },
+        {
+          "key": "VISITFLORIDA",
+          "name": "VISIT FLORIDA",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Florida's official state tourism marketing body."
+        },
+        {
+          "key": "FLORIDAGUIDEBOOK",
+          "name": "Florida Guidebook",
+          "type": "travel",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running independent Florida travel guide (Bill & Lucy); springs guide with distances and maps."
+        },
+        {
+          "key": "MISSTOURIST",
+          "name": "Miss Tourist",
+          "type": "creator",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established travel blog; first-hand springs round-up. Corroborating only."
+        },
+        {
+          "key": "NATGEO",
+          "name": "National Geographic Travel",
+          "type": "travel",
+          "rank": 3,
+          "verified": true,
+          "credible": "National Geographic's travel desk; Space Coast guide."
+        },
+        {
+          "key": "TRAVELMOLE",
+          "name": "TravelMole",
+          "type": "travel",
+          "rank": 3,
+          "verified": true,
+          "credible": "Travel-industry news outlet; Space Coast museums feature."
+        },
+        {
+          "key": "LONELYPLANET",
+          "name": "Lonely Planet",
+          "type": "travel",
+          "rank": 3,
+          "verified": true,
+          "credible": "Major guidebook publisher; POI entries written by named authors."
+        },
+        {
+          "key": "LAUGHINGPLACE",
+          "name": "Laughing Place",
+          "type": "creator",
+          "rank": 3,
+          "verified": true,
+          "credible": "Theme-park news site since 1999 with staff writers; attraction rankings."
+        },
+        {
+          "key": "CNNTRAVEL",
+          "name": "CNN Travel",
+          "type": "travel",
+          "rank": 3,
+          "verified": true,
+          "credible": "CNN's travel desk; ranked Disney World hotels."
+        },
+        {
+          "key": "SMARTERTRAVEL",
+          "name": "SmarterTravel",
+          "type": "travel",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established consumer-travel publication; Florida water-park round-up."
+        },
+        {
+          "key": "ISLANDS",
+          "name": "Islands.com",
+          "type": "travel",
+          "rank": 3,
+          "verified": true,
+          "credible": "Travel-magazine site (formerly Islands magazine); Mills Market feature."
+        },
+        {
+          "key": "FLORIDARAMBLER",
+          "name": "Florida Rambler",
+          "type": "travel",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running independent Florida travel site by former Sun Sentinel journalists Bonnie Gross & David Blasco."
+        },
+        {
+          "key": "TOURINGPLANS",
+          "name": "TouringPlans",
+          "type": "creator",
+          "rank": 3,
+          "verified": true,
+          "credible": "Data-driven theme-park planning company (Unofficial Guide authors); staff-written reviews."
+        },
+        {
+          "key": "FOODNETWORK",
+          "name": "Food Network",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "National food TV network/editorial; restaurant feature."
+        },
+        {
+          "key": "MICKEYBLOG",
+          "name": "MickeyBlog",
+          "type": "creator",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running Disney fan news site; corroborating only."
+        },
+        {
+          "key": "EXPERIENCEKISSIMMEE",
+          "name": "Experience Kissimmee",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Osceola County's official tourism board (counts once)."
+        },
+        {
+          "key": "SHEBUYSTRAVEL",
+          "name": "SheBuysTravel",
+          "type": "creator",
+          "rank": 3,
+          "verified": true,
+          "credible": "Large women-led family travel publication (former Trips With Tweens/Family Travel Forum writers); named-author guides."
+        },
+        {
+          "key": "WIKIDATA",
+          "name": "WIKIDATA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "BRITONTHEMOVE",
+          "name": "Brit on the Move",
+          "type": "creator",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established travel blog (Victoria Brewood) with first-hand Orlando guides; corroborating only."
+        },
+        {
+          "key": "BUNGALOWER",
+          "name": "Bungalower",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Orlando neighbourhood news outlet since 2012; mapped the 2026 Michelin picks."
+        },
+        {
+          "key": "FOX35",
+          "name": "FOX 35 Orlando (WOFL)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Orlando FOX affiliate newsroom."
         }
       ],
       "creators": []
@@ -12076,6 +12481,54 @@
         {
           "key": "MIYAKOJIMACITY",
           "name": "MIYAKOJIMACITY",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "SAVORJAPAN",
+          "name": "Savor Japan",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Named in the Japan brief as a credible English food outlet (editorial 'Discover Oishii Japan' features); one source"
+        },
+        {
+          "key": "KOZAWEB",
+          "name": "KozaWeb — Okinawa City Tourism Portal",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Okinawa City tourism portal (city tourism association); one official-tourism source, its 'Top 10' is hit-count popularity (measurement only)"
+        },
+        {
+          "key": "JCASTLE",
+          "name": "Jcastle.info — Guide to Japanese Castles",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running specialist castle reference with per-site visitor reports and historic-site designations; one corroborating source for castle ruins"
+        },
+        {
+          "key": "BUNKA_SURVEY",
+          "name": "Agency for Cultural Affairs — modern-building survey (Okinawa)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Government heritage survey report (NOT a designation — ordinary source, never lone authority, per key hygiene)"
+        },
+        {
+          "key": "JAPANTIMES",
+          "name": "JAPANTIMES",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "OKINAWATIMES",
+          "name": "OKINAWATIMES",
           "type": "editorial",
           "rank": 3,
           "verified": true,
@@ -12567,6 +13020,70 @@
           "rank": 3,
           "verified": true,
           "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "APAQW",
+          "name": "APAQW",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "ELLE",
+          "name": "ELLE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "FOODLE",
+          "name": "FOODLE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "GAULTMILLAU",
+          "name": "GAULTMILLAU",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "GOURMANDIZ",
+          "name": "GOURMANDIZ",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MOUSTIQUE",
+          "name": "MOUSTIQUE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "PAYSDEHERVE",
+          "name": "PAYSDEHERVE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "PAYSDEVESDRE",
+          "name": "PAYSDEVESDRE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
       "creators": [
@@ -12579,6 +13096,16 @@
           "scale": "Emmy-winning PBS travel host; national US TV series + YouTube channel",
           "niche": "travel & food TV",
           "credible": "Verifiable broadcast series (PBS 'Travels with Darley'); filmed the Confrérie du Gay Boulet in Liège and named Amon Nanesse/Maison du Péket"
+        },
+        {
+          "key": "ERICBOSCHMAN",
+          "name": "Eric Boschman (sommelier, RTBF/Moustique columnist)",
+          "platform": "TV/radio/press",
+          "handle": "",
+          "url": "https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710",
+          "scale": "National Belgian TV/radio food & wine personality with regular press columns (Moustique)",
+          "niche": "wine & restaurants",
+          "credible": "Verifiable national media figure with a named, dated restaurant list for Liège published by Moustique (La Libre group)"
         }
       ]
     },
@@ -12680,9 +13207,484 @@
           "rank": 3,
           "verified": true,
           "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "WIKIPEDIA_JA",
+          "name": "Japanese Wikipedia (ja.wikipedia.org)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Encyclopedic reference with cited sources and published coordinates; corroborating only."
+        },
+        {
+          "key": "MICHELIN",
+          "name": "MICHELIN",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN_STAR",
+          "name": "MICHELIN_STAR",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "TIMEOUT",
+          "name": "TIMEOUT",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
       "creators": []
+    },
+    "miami-fl": {
+      "name": "miami-fl",
+      "sources": [
+        {
+          "key": "MICHELIN",
+          "name": "MICHELIN Guide Florida (Miami)",
+          "type": "guide",
+          "rank": 1,
+          "verified": true,
+          "credible": "International culinary authority; the Florida guide (since 2022) covers Miami/Fort Lauderdale with stars, Bib Gourmand and Recommended. A single distinction is institutional ground truth."
+        },
+        {
+          "key": "MICHELIN_BIB",
+          "name": "MICHELIN Bib Gourmand (Florida)",
+          "type": "guide",
+          "rank": 1,
+          "verified": true,
+          "credible": "Michelin's good-value distinction; institutional."
+        },
+        {
+          "key": "MICHELIN_STAR",
+          "name": "MICHELIN Star (Florida)",
+          "type": "guide",
+          "rank": 1,
+          "verified": true,
+          "credible": "Michelin star; institutional."
+        },
+        {
+          "key": "JAMESBEARD",
+          "name": "James Beard Foundation Awards",
+          "type": "award",
+          "rank": 1,
+          "verified": true,
+          "credible": "National culinary authority; Miami/Fort Lauderdale winners, nominees, semifinalists and America's Classics."
+        },
+        {
+          "key": "NPS",
+          "name": "National Park Service",
+          "type": "official",
+          "rank": 1,
+          "verified": true,
+          "credible": "Federal operator of Everglades NP, Biscayne NP and Big Cypress National Preserve — institutional ground truth for sites it runs."
+        },
+        {
+          "key": "MIAMIHERALD",
+          "name": "Miami Herald",
+          "type": "daily",
+          "rank": 1,
+          "verified": true,
+          "credible": "South Florida's daily of record since 1903; bylined food critics and local news (openings/closings)."
+        },
+        {
+          "key": "MIAMINEWTIMES",
+          "name": "Miami New Times (incl. Best of Miami)",
+          "type": "alt-weekly",
+          "rank": 1,
+          "verified": true,
+          "credible": "Miami's alt-weekly of record; annual Best of Miami awards are the city's long-running critics' benchmark."
+        },
+        {
+          "key": "SUNSENTINEL",
+          "name": "South Florida Sun Sentinel",
+          "type": "daily",
+          "rank": 1,
+          "verified": true,
+          "credible": "Broward's daily of record; bylined restaurant coverage for Fort Lauderdale/Hollywood."
+        },
+        {
+          "key": "EATERMIAMI",
+          "name": "Eater Miami",
+          "type": "digital",
+          "rank": 2,
+          "verified": true,
+          "credible": "Bylined Miami food news, Eater 38 essentials and heatmaps."
+        },
+        {
+          "key": "INFATUATION",
+          "name": "The Infatuation (Miami)",
+          "type": "digital",
+          "rank": 2,
+          "verified": true,
+          "credible": "National restaurant guide with a bylined Miami desk; rated reviews and guides."
+        },
+        {
+          "key": "WLRN",
+          "name": "WLRN (South Florida public media)",
+          "type": "public-media",
+          "rank": 2,
+          "verified": true,
+          "credible": "NPR member station for Miami-Dade/Broward; bylined culture, food and environment (Everglades) reporting."
+        },
+        {
+          "key": "TIMEOUT",
+          "name": "Time Out Miami",
+          "type": "travel",
+          "rank": 2,
+          "verified": true,
+          "credible": "International city guide with a bylined Miami desk."
+        },
+        {
+          "key": "GMCVB",
+          "name": "Greater Miami Convention & Visitors Bureau (miamiandbeaches.com)",
+          "type": "tourism",
+          "rank": 2,
+          "verified": true,
+          "credible": "Official tourism board for Miami-Dade; attractions and neighbourhood guides."
+        },
+        {
+          "key": "VISITLAUDERDALE",
+          "name": "Visit Lauderdale (Greater Fort Lauderdale CVB)",
+          "type": "tourism",
+          "rank": 2,
+          "verified": true,
+          "credible": "Official tourism board for Broward County."
+        },
+        {
+          "key": "FLSTATEPARKS",
+          "name": "Florida State Parks",
+          "type": "official",
+          "rank": 2,
+          "verified": true,
+          "credible": "State operator of Bill Baggs Cape Florida, Oleta River, Hugh Taylor Birch, The Barnacle etc. Official, needs a 2nd source."
+        },
+        {
+          "key": "MIAMIDADE",
+          "name": "Miami-Dade County Parks",
+          "type": "official",
+          "rank": 2,
+          "verified": true,
+          "credible": "County operator of Crandon, Matheson Hammock, Deering Estate, Zoo Miami etc."
+        },
+        {
+          "key": "ATLASOBSCURA",
+          "name": "Atlas Obscura",
+          "type": "travel",
+          "rank": 2,
+          "verified": true,
+          "credible": "Curated oddities catalogue; editorially reviewed entries."
+        },
+        {
+          "key": "WIKIPEDIA",
+          "name": "Wikipedia",
+          "type": "reference",
+          "rank": 3,
+          "verified": true,
+          "credible": "Notability + published coordinates (corroboration, not a lone recommender)."
+        },
+        {
+          "key": "OFFICIAL",
+          "name": "Official site",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "The place's own site — confirms facts/status; never a lone recommender."
+        },
+        {
+          "key": "CNTRAVELER",
+          "name": "Condé Nast Traveler",
+          "type": "travel",
+          "rank": 2,
+          "verified": true,
+          "credible": "National travel magazine; bylined Miami guides."
+        },
+        {
+          "key": "USATODAY",
+          "name": "USA Today 10Best",
+          "type": "travel",
+          "rank": 3,
+          "verified": true,
+          "credible": "Readers' Choice votes + editor picks; corroborating popularity."
+        },
+        {
+          "key": "LOCAL10",
+          "name": "WPLG Local 10",
+          "type": "tv",
+          "rank": 2,
+          "verified": true,
+          "credible": "Miami ABC affiliate; local news incl. openings/closings."
+        },
+        {
+          "key": "NBC6",
+          "name": "NBC 6 South Florida",
+          "type": "tv",
+          "rank": 2,
+          "verified": true,
+          "credible": "Miami NBC affiliate; local features."
+        },
+        {
+          "key": "CBSMIAMI",
+          "name": "CBS News Miami",
+          "type": "tv",
+          "rank": 2,
+          "verified": true,
+          "credible": "Miami CBS affiliate; local features."
+        },
+        {
+          "key": "NYT",
+          "name": "The New York Times",
+          "type": "daily",
+          "rank": 1,
+          "verified": true,
+          "credible": "National paper of record; 36 Hours, restaurant list."
+        },
+        {
+          "key": "FOODWINE",
+          "name": "Food & Wine",
+          "type": "magazine",
+          "rank": 2,
+          "verified": true,
+          "credible": "National food magazine; Best New Chefs, city guides."
+        },
+        {
+          "key": "TASTINGTABLE",
+          "name": "Tasting Table",
+          "type": "digital",
+          "rank": 3,
+          "verified": true,
+          "credible": "National food site; corroborating."
+        },
+        {
+          "key": "MIAMIMAG",
+          "name": "Miami Magazine / Ocean Drive",
+          "type": "magazine",
+          "rank": 2,
+          "verified": true,
+          "credible": "City magazines; bylined local guides."
+        },
+        {
+          "key": "VISITFLORIDA",
+          "name": "Visit Florida",
+          "type": "tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "State tourism board; corroborating."
+        },
+        {
+          "key": "AJC",
+          "name": "Atlanta Journal-Constitution (travel)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Major Southeast daily; staff travel piece on Everglades destinations."
+        },
+        {
+          "key": "CAPLINNEWS",
+          "name": "Caplin News (FIU)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "FIU journalism school's newsroom covering Miami neighbourhoods; local, bylined."
+        },
+        {
+          "key": "CORALGABLES",
+          "name": "City of Coral Gables (official)",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Municipal official attractions page."
+        },
+        {
+          "key": "CRAZYTOURIST",
+          "name": "The Crazy Tourist",
+          "type": "editorial",
+          "rank": 4,
+          "verified": true,
+          "credible": "Travel listicle site — corroborating only, never paired alone with another weak source."
+        },
+        {
+          "key": "CULTURETRIP",
+          "name": "Culture Trip",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established travel publisher with bylined destination guides."
+        },
+        {
+          "key": "DINERSCLUB",
+          "name": "Diners Club Travel",
+          "type": "editorial",
+          "rank": 4,
+          "verified": true,
+          "credible": "Card-issuer travel editorial — corroborating only."
+        },
+        {
+          "key": "EARTHTREKKERS",
+          "name": "Earth Trekkers",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running, widely-read national-parks travel blog (Julie & Tim Rivenbark); detailed first-hand park guides."
+        },
+        {
+          "key": "FLORIDARAMBLER",
+          "name": "Florida Rambler",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Veteran Florida travel site by former Sun Sentinel journalists; first-hand Old Florida coverage."
+        },
+        {
+          "key": "FODORS",
+          "name": "Fodor's Travel",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Established guidebook publisher with edited listings."
+        },
+        {
+          "key": "FOXNEWS",
+          "name": "Fox News (food)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "National news outlet; feature on Robert Is Here's 50th anniversary."
+        },
+        {
+          "key": "FROMMERS",
+          "name": "Frommer's",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Established guidebook publisher with edited listings."
+        },
+        {
+          "key": "GLOBALPHILE",
+          "name": "Globalphile",
+          "type": "editorial",
+          "rank": 4,
+          "verified": true,
+          "credible": "Travel blog — corroborating only."
+        },
+        {
+          "key": "GULFSHOREBUSINESS",
+          "name": "Gulfshore Business",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Southwest Florida business magazine; bylined Redland feature."
+        },
+        {
+          "key": "ISLANDS",
+          "name": "Islands (islands.com)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "National travel magazine brand; bylined Ochopee feature."
+        },
+        {
+          "key": "LONELYPLANET",
+          "name": "Lonely Planet",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Leading guidebook publisher; edited must-see listings."
+        },
+        {
+          "key": "MIAMILIVING",
+          "name": "Miami Living Magazine",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Local lifestyle magazine; full 2026 Michelin list (used to corroborate the award list)."
+        },
+        {
+          "key": "MICHELIN_EDITORIAL",
+          "name": "MICHELIN Guide editorial (best-of articles)",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Michelin's editorial round-ups — ONE ordinary source, never the lone-authority award (key hygiene)."
+        },
+        {
+          "key": "NATGEO",
+          "name": "National Geographic Travel",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Major travel publisher; Everglades activities guide."
+        },
+        {
+          "key": "NBCNEWS",
+          "name": "NBC News",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "National news; features on Robert Is Here and Coopertown airboats."
+        },
+        {
+          "key": "NRHP",
+          "name": "National Register of Historic Places (NPS travel itinerary)",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Federal historic designation listing — corroborates history, not an operator authority."
+        },
+        {
+          "key": "PARADISECOAST",
+          "name": "Naples, Marco Island, Everglades CVB (Paradise Coast)",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Official Collier County tourism board — Everglades City dining."
+        },
+        {
+          "key": "ROADSIDEAMERICA",
+          "name": "Roadside America",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running authority on US roadside attractions, user tips edited."
+        },
+        {
+          "key": "SHAKAGUIDE",
+          "name": "Shaka Guide",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "GPS audio-tour publisher with researched national-park itineraries."
+        }
+      ],
+      "creators": [
+        {
+          "key": "MARKWIENS",
+          "name": "Mark Wiens",
+          "platform": "YouTube",
+          "handle": "@MarkWiens",
+          "url": "https://tubitv.com/creators/mark_wiens",
+          "scale": "~11M YouTube subscribers",
+          "niche": "global street-food travel vlogs",
+          "credible": "One of the largest food-travel YouTubers; his Taste Tour USA Miami episode (2018) opens at Versailles for cafecito and Cuban sandwiches — findable episode on Tubi."
+        },
+        {
+          "key": "BURGERBEAST",
+          "name": "Burger Beast (Sef Gonzalez)",
+          "platform": "Blog/Instagram/YouTube",
+          "handle": "@burgerbeast",
+          "url": "https://burgerbeast.com/?p=701003",
+          "scale": "Miami's best-known burger & comfort-food creator since 2008; profiled by The Daily Meal and New Times",
+          "niche": "Miami burgers, fritas, comfort food",
+          "credible": "16+ years covering Miami burgers; featured by The Daily Meal ('Burger Beast's Best of Miami') and New Times; runs the Magic City Casino frita showdown coverage."
+        }
+      ]
     }
   }
 }

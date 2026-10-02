@@ -108,5 +108,75 @@
   "geoSource": "Wikipedia published coordinates https://en.wikipedia.org/wiki/Ky%C5%8Dto_Station",
   "status": "open",
   "statusSource": "operating JR/Kintetsu/subway station (japan-guide e3922, 2026)"
+ },
+ {
+  "n": "Mibu-dera",
+  "address": "Nakagyō-ku, Kyoto, Japan",
+  "lat": 35.0016,
+  "lng": 135.743339,
+  "confidence": "high",
+  "geoSource": "Japanese Wikipedia published coordinates https://ja.wikipedia.org/wiki/%E5%A3%AC%E7%94%9F%E5%AF%BA",
+  "status": "open",
+  "statusSource": "kyoto.travel (2026)"
+ },
+ {
+  "n": "Shōsei-en Garden",
+  "address": "Shimogyō-ku, Kyoto, Japan",
+  "lat": 34.99139,
+  "lng": 135.763222,
+  "confidence": "high",
+  "geoSource": "Japanese Wikipedia published coordinates https://ja.wikipedia.org/wiki/%E6%B8%89%E6%88%90%E5%9C%92",
+  "status": "open",
+  "statusSource": "kyoto.travel destination page (2026)"
+ },
+ {
+  "n": "Nijō Jinya",
+  "address": "Nakagyō-ku, Kyoto, Japan",
+  "lat": 35.010306,
+  "lng": 135.748694,
+  "confidence": "high",
+  "geoSource": "Japanese Wikipedia published coordinates https://ja.wikipedia.org/wiki/%E4%BA%8C%E6%9D%A1%E9%99%A3%E5%B1%8B",
+  "status": "open",
+  "statusSource": "japan-guide e3926 (tours daily, 2026)"
+ },
+ {
+  "n": "Shimabara & Sumiya",
+  "address": "Shimogyō-ku, Kyoto, Japan",
+  "lat": 34.992028,
+  "lng": 135.744083,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates (Shimabara) https://en.wikipedia.org/wiki/Shimabara,_Kyoto",
+  "status": "open",
+  "statusSource": "kyoto.travel (Sumiya seasonal opening, 2026)"
+ },
+ {
+  "n": "Teramachi & Shinkyōgoku arcades",
+  "address": "Nakagyō-ku, Kyoto, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "street, no single place pin (Wikipedia article has no coordinate) — held",
+  "status": "open",
+  "statusSource": "japan-guide e3958 (2026)"
+ },
+ {
+  "n": "Shinsen-en",
+  "address": "Nakagyō-ku, Kyoto, Japan",
+  "lat": 35.011381,
+  "lng": 135.748372,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates https://en.wikipedia.org/wiki/Shinsenen",
+  "status": "open",
+  "statusSource": "kyoto.travel plaque page (2026)"
+ },
+ {
+  "n": "Honnō-ji",
+  "address": "Nakagyō-ku, Kyoto, Japan",
+  "lat": 35.010294,
+  "lng": 135.768281,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates https://en.wikipedia.org/wiki/Honn%C5%8D-ji",
+  "status": "open",
+  "statusSource": "active temple (2026)"
  }
 ]
