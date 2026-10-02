@@ -258,3 +258,14 @@ credible source). Not reached: depachika, Akabane/Tateishi senbero, Rokurinsha/M
 Monocle (2), Tokyo Weekender (4), Tabelog Hyakumeiten (4), Michelin (1), creators — Ramen Adventures (4), Ramen Beast (1).
 **Build:** 424 discovered / 386 rendered (241 sights + 183 food → food share 43%, up from 37%); sourcecheck PASS ·
 geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. 33 W5 pins UNVERIFIED.
+### Batch 3 — ANIME & pop culture (agent ~23 searches; cap reached)
+**Kept (9, each with `"anime"`):** Super Potato Akihabara (Time Out + Tokyo Cheapo; pin), Mandarake Complex, @home cafe
+Akihabara (sight — no source names a dish), Pokémon Café Nihonbashi (food; reopened 17 Jun 2026 after renovation, Time
+Out), The Gundam Base Tokyo (still operating after the Unicorn statue's retirement), Pokémon Center Mega Tokyo (own store
+inside Sunshine City — distinct place), Tokiwasō Manga Museum (GO TOKYO + japan-guide; Google Arts & Culture point
+rejected as a pin → UNVERIFIED), Suginami Animation Museum, Suga Shrine stairs (*Your Name.*; Atlas Obscura + nippon.com).
+**Dropped (one outlet):** Kirby Café, Gachapon Kaikan / Gashapon Dept Store, Jump Shop/Character Street, Captain Tsubasa
+statues Yotsugi. Not reached: Ultraman Soshigaya, Sanrio Puroland, Toei Animation, Animate Ikebukuro, Tokyo Anime Center,
+Kamakura-kōkōmae, Anpanman Museum. **ANIME layer: 24 records** on the dataset (15 before W5).
+**Final W5 build:** 433 discovered / 387 rendered; all 4 gates PASS; validate DATA OK; npm test ALL PASS; hub refreshed.
+Session searches: lead 9 + agents ~154 + bars agent 44 → the 200 cap (shared with subagents) — W5 closed.

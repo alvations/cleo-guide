@@ -158,3 +158,11 @@ the Hakodate Morning Market cooperative's member directory; decision: a market b
 corroborating local source, not the shop's own site).
 **Address hygiene:** three W32 street numbers written from memory were caught on self-review and stripped to the
 landmark actually read (Sankaku Market, Kita no Yatai, Daimon Yokochō).
+**W34 SPR (2026-10-02, s3):** Ichiryūan (sapporo.travel + rurubu), Menya Yukikaze (MAPPLE TOP30 #3 + MAPPLE spot + GoodLuckTrip),
+Ebisoba Ichigen (MAPPLE TOP30 #4 + GoodLuckTrip + Time Out Tokyo branch page), shime-parfait Satō Honten (rurubu +
+visit-hokkaido + sapporo.travel BRUTUS magazine + Hokkaido Shimbun), INITIAL (rurubu + sapporo.travel magazine).
+Held single: Ōkami Soup (MAPPLE TOP30 #5 only), Toguchi, Baisensha, Misogin, Ozawa, Musashi, Hōryū (sapporo.travel only).
+**W35 OTARU:** ankake yakisoba Tororian (otaru.gr.jp + TripEat Hokkaido = Hokkaido Shimbun media), Keien (MAPPLE + TripEat),
+Kōzushi (rurubu spot + MAPPLE sushi list). Held: Otaru Nihonbashi (otaru.gr.jp only), Takinami Shokudō (otaru.gr.jp only).
+**W36 DHOKU:** Aoba Honten (promoted from held: rurubu spot + MAPPLE 43037), Yoshino Honten, Curry no Furanoya (promoted:
+rurubu + MAPPLE curry list), Furano Delice (MAPPLE + rurubu spots). Held: Tenkin (MAPPLE only), Kumagera, KOERU curry udon.
