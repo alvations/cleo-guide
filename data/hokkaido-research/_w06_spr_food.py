@@ -36,19 +36,19 @@ F(1,"DONAN",["RAMEN"],"Hakodate shio ramen (Ajisai shio — kelp-clear broth)","
   [("TABELOG100","https://www.gltjp.com/ja/directory/item/13744/"),("HOKKAIDOTOURISM",VHE+"destinations/foodie-tours-in-hakodate-checking-out-the-local-favorites"),("HOKKAIDOTOURISM",VH+"spot/detail_12825.html")],
   status=O,ssrc="Tabelog Ramen HOKKAIDO 百名店 selection (current) via Good Luck Trip directory")
 F(2,"DONAN",["INT"],"Chinese Chicken Burger","Lucky Pierrot Bay Area Honten (ラッキーピエロ ベイエリア本店)",
-  "Bay Area waterfront (Suehiro-chō), Hakodate, Hokkaido, Japan",
+  "Bay Area waterfront, Hakodate, Hokkaido, Japan",
   "Hakodate's own clown-themed burger chain (17 branches, all in the city) — the Chinese Chicken Burger, curry rice and soft-serve; the waterfront flagship.",
   [("HOKKAIDOTOURISM",VHE+"destinations/foodie-tours-in-hakodate-checking-out-the-local-favorites"),jg("e5312.html")],
   status=O,ssrc="visit-hokkaido.jp Hakodate foodie feature (current)")
 F(1,"DHOKU",["RAMEN"],"Asahikawa shōyu ramen (oily-sealed double broth, thin wavy noodles)","Asahikawa Ramen Village (あさひかわラーメン村)",
   "Nagayama, Asahikawa, Hokkaido, Japan",
   "Eight of Asahikawa's best-known shops under one roof — the city's shōyu style: pork-bone and seafood double broth sealed under a film of lard, thin, firm, wavy noodles.",
-  [jg("e6893.html"),("HOKKAIDOTOURISM",VHE+"destinations/the-tastiest-village-in-hokkaido-the-asahikawa-ramen-village")],
+  [jg("e6893.html"),("HOKKAIDOTOURISM",VHE+"destinations/the-tastiest-village-in-hokkaido-the-asahikawa-ramen-village"),("HOKKAIDOSHIMBUN","https://www.hokkaido-np.co.jp/article/1332973/")],
   status=O,ssrc="japan-guide.com e6893 (current)")
 F(1,"TKC",["HOKKAIDO"],"butadon (charcoal-grilled pork bowl, the 1933 original)","Ganso Butadon no Panchō, Obihiro (元祖豚丼のぱんちょう)",
   "In front of Obihiro Station, Obihiro, Hokkaido, Japan",
   "The 1933 Obihiro shop credited with inventing butadon — sweet-soy charcoal-grilled pork on rice, the Tokachi soul food. The name is from the Chinese 'fan ting'.",
-  [("GOODLUCKTRIP","https://www.gltjp.com/ja/directory/item/15300/"),("HOKKAIDOTOURISM",VH+"spot/detail_12868.html")],
+  [("GOODLUCKTRIP","https://www.gltjp.com/ja/directory/item/15300/"),("HOKKAIDOTOURISM",VH+"spot/detail_12868.html"),("RURUBU","https://rurubu.jp/andmore/article/10392")],
   status=O,ssrc="Good Luck Trip directory (operating, 90+ years) — current")
 F(2,"TKC",["HOKKAIDO"],"butadon","Butadon no Tonta, Obihiro (ぶた丼のとん田)",
   "Obihiro, Hokkaido, Japan",
