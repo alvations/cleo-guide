@@ -164,8 +164,19 @@ Heights + Bay Village spliced via `add-to-cleveland.py`: **+6 geocoded** (P 143�
 _Update the last rows' counts/outcomes when those agents complete and after the builds land._
 
 ---
+| 2026-10-02 | Chicago | food canon + Michelin/JB | beef/deep-dish/tavern/dogs/jibarito/Iconic Eats; Michelin 2025 stars+Bib; JB America's Classics | 69 food | 13 canon pins + 8 Bib pins UNVERIFIED (no Wikipedia/POI pin); Boka/Galit aggregator coords demoted | FOOD_CANON.json, FOOD_MICHELIN.json, geo/_geoout_canon.json, _geoout_michelin.json |
+| 2026-10-02 | Chicago | sights S1–S8 | every area via Wikipedia 4-per-query pins + Time Out/Choose Chicago/CAC/WTTW/Atlas Obscura 2nd sources | 135 sights | Uptown Theatre flagged CLOSED; Calumet Park dropped (2nd source didn't name it); Givins Castle/Indiana Dunes SP/Douglass Park coords too coarse — not used | SIGHTS_W1..W8.json, geo/_geoout_sights.json |
+| 2026-10-02 | Chicago | creators | Portnoy One Bite, Keith Lee | 2 creators / 3 attaches | SEO beef listicles rejected | CREATORS_W1.json |
 
 ## Lessons learned (successes, failures, and the code fix each produced)
+
+- **Wikipedia pins, four per query (Chicago 2026-10-02).** `Wikipedia coordinates A; B; C; D` with
+  `allowed_domains:["en.wikipedia.org"]` returns published coords for ~3–4 landmarks per search (≈0.3 searches/pin), and
+  Wikipedia restaurant articles (Girl & the Goat, Avec, Oriole, Next, Kumiko…) pin food too. Per-restaurant latlong.net
+  searches for non-Wikipedia restaurants failed 13/20 — hold those UNVERIFIED for the helper rather than burning budget.
+  Pair each coord batch with ONE themed 2nd-source query on `choosechicago.com`/`timeout.com`/`architecture.org`/`wttw.com`.
+  Builders: an area whose places are all un-pinned is now hidden by `tools/build-chicago.py` instead of tripping the
+  tier-1 assert (areas WITH pins must still carry a tier-1).
 
 - **Restaurant place-pins rarely surface via WebSearch here** (only place-id/CID/viewport links). → Honest
   `UNVERIFIED` + the browser `geocode-helper.html`; never fabricate. Sights (Wikipedia coords) geocode high.

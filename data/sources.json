@@ -12095,6 +12095,38 @@
           "rank": 2,
           "verified": true,
           "credible": "Orlando NBC affiliate; reported local news."
+        },
+        {
+          "key": "ALLEARS",
+          "name": "ALLEARS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "FROMMERS",
+          "name": "FROMMERS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "INFATUATION",
+          "name": "INFATUATION",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "DISNEYBLOG",
+          "name": "DISNEYBLOG",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
       "creators": []
@@ -12947,6 +12979,30 @@
         {
           "key": "WIKIPEDIA",
           "name": "WIKIPEDIA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "WIKIPEDIA_JA",
+          "name": "Japanese Wikipedia (ja.wikipedia.org)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Encyclopedic reference with cited sources and published coordinates; corroborating only."
+        },
+        {
+          "key": "MICHELIN",
+          "name": "MICHELIN",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN_STAR",
+          "name": "MICHELIN_STAR",
           "type": "editorial",
           "rank": 3,
           "verified": true,

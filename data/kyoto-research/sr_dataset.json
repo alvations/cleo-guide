@@ -434,6 +434,116 @@
    ]
   },
   {
+   "t": 2,
+   "a": "CTR",
+   "n": "Mibu-dera",
+   "ad": "Nakagyō-ku, Kyoto, Japan",
+   "w": "Temple founded in 991 for Jizō, guardian of children, and HQ ground of the Shinsengumi — graves of commander Kondō Isami and members lie in its Mibu-zuka; famous for its Kyōgen mime plays.",
+   "g": [
+    "TEMPLE",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/see-and-do/soundtrip_mibu-dera.html"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E5%A3%AC%E7%94%9F%E5%AF%BA"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Shōsei-en Garden",
+   "ad": "Shimogyō-ku, Kyoto, Japan",
+   "w": "Higashi Hongan-ji's 17th-century detached garden ('Kikoku-tei'), a nationally designated Place of Scenic Beauty a short walk from Kyoto Station.",
+   "g": [
+    "GARDEN",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/destinations/shoseien-garden-higashihonganji-temple/"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E6%B8%89%E6%88%90%E5%9C%92"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Nijō Jinya",
+   "ad": "Nakagyō-ku, Kyoto, Japan",
+   "w": "Former inn for visiting daimyō, riddled with secret passages, trap doors and hidden escape routes; guided tours by reservation.",
+   "g": [
+    "CASTLE",
+    "MUS",
+    "NATURE",
+    "MKT"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3926.html"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E4%BA%8C%E6%9D%A1%E9%99%A3%E5%B1%8B"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Shimabara & Sumiya",
+   "ad": "Shimogyō-ku, Kyoto, Japan",
+   "w": "Kyoto's oldest licensed pleasure quarter (1641): pass the Ōmon gate to Edo-period Wachigaiya and Sumiya, one of the city's largest machiya, now a seasonally opening museum of hospitality culture.",
+   "g": [
+    "CASTLE",
+    "MUS",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/travel-inspiration/things-to-do-in-the-umekoji-area/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shimabara,_Kyoto"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Teramachi & Shinkyōgoku arcades",
+   "ad": "Nakagyō-ku, Kyoto, Japan",
+   "w": "Two parallel covered shopping streets branching north off Shijō at Kawaramachi, packed with shops, temples and cheap eats — a younger crowd than Shijō's department stores.",
+   "g": [
+    "MKT",
+    "FREE",
+    "TEMPLE",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3958.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/getting-around/comfortable-access-to-central-kyoto-city-nishiki-market/"
+    ]
+   ]
+  },
+  {
    "t": 1,
    "a": "FSHMI",
    "n": "Fushimi Inari Taisha",
@@ -1271,6 +1381,73 @@
     [
      "WIKIPEDIA",
      "https://en.wikipedia.org/wiki/Sent%C5%8D_Imperial_Palace"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Genkō-an",
+   "ad": "Kita-ku, Kyoto, Japan",
+   "w": "Takagamine Zen temple famous for its two windows on the garden — the square 'Window of Confusion' and round 'Window of Enlightenment' — and a 'blood ceiling' of floorboards from Fushimi Castle.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/destinations/genkoan-temple/"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E6%BA%90%E5%85%89%E5%BA%B5"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Shōden-ji",
+   "ad": "Kita-ku, Kyoto, Japan",
+   "w": "Quiet temple in the northern hills whose dry garden of clipped azaleas borrows distant Mount Hiei as scenery; another Fushimi Castle 'blood ceiling'.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "VIEW",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/shrine_temple/147.html"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E6%AD%A3%E4%BC%9D%E5%AF%BA"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Kōetsu-ji",
+   "ad": "Kita-ku, Kyoto, Japan",
+   "w": "Nichiren temple on land Tokugawa Ieyasu granted the artist Hon'ami Kōetsu for his arts colony in Takagamine; known for its bamboo 'Kōetsu fence' and maples.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "MUS"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/blog/koyo14/141203.html"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E5%85%89%E6%82%A6%E5%AF%BA"
     ]
    ]
   },
