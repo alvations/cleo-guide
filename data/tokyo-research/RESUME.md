@@ -55,9 +55,12 @@ Tokyo's 23 **special wards (tokubetsu-ku, 特別区)** are the borough-equivalen
 SBY 42/50 · SJK 40/50 · SMKT 29/40 · TAITO 40/50 · TAMA 19/30 → **433 / ~530**; food 184 (42.5%). (CYD 36, JHOKU 32 after anime.) Weakest food: TAMA 3, JOTO 3, KANTO 3, SMKT 8.
 
 ## In-flight wave
-None — W6 closed (see State). W6 stopped at ~129 lead-agent search calls (+~25 tool-chained) + 92 agent searches,
-when yield fell below ~0.5 places/search (ward-level Michelin and area-guide queries now mostly return places already on
-the map or one-outlet candidates). Final: 539 discovered / 411 rendered; food 280 = 51.9%; ANIME layer +7 sights +1 café.
+**W7 (session_01LvabJcJR7Zay1SoN8gzwc7, 2026-10-02 18:17Z) — finishing pass.** (1) close last NEEDs food-first + anime:
+JONAN +2, SMKT +2, JOSAI/JOTO/SJK/TAITO/TAMA +1 → vetted inputs `_w7_*_verified.json` → `_tokyo_w6_ingest.py`-style
+ingest into `FOOD_TOKYO_W7.json` / `SIGHTS_TOKYO_W7.json` + `geo/_geoout_tokyo_w7.json`; anime candidates: Captain
+Tsubasa statues Yotsugi (JOTO), Seiseki-Sakuragaoka Whisper of the Heart (TAMA), Sazae-san street (JOSAI);
+(2) pin the 128 UNVERIFIED → `geo/_geofix_tokyo_w7.json` (Michelin venue pages / Google `!3d!4d` / Wikipedia only);
+(3) re-verify low-confidence pins.
 
 ## W7 plan (next session)
 1. **Pins first (no/low searches):** 126 UNVERIFIED — run `tools/geocode-helper.html` in a browser over
