@@ -391,3 +391,7 @@ duplicated; Levi's Plaza (no 2nd outlet) → held.
 **Batch 12 (searches 78–80):** Flood Mansion/Pacific-Union Club (was held — Wikipedia pin + SFGATE Nob Hill), Golden Gate Theatre (was held —
 Wikipedia pin + SFGATE + SF Travel Mid-Market) (NOB sights); Bob's Donuts (SFGATE × Infatuation × Time Out; KTVU confirms the 1720 Polk move,
 original 1621 Polk closed Nov 2025), Leopold's (SF Standard 2023 reopening × Infatuation × SFGATE) (NOB food).
+**Batch 13 (searches 81–83):** Duboce Park (Wikipedia pin × SF Standard dog parks × Hoodline), Patricia's Green (Wikipedia Octavia Blvd × Hoodline ×
+Time Out; unpinned), Haight Street Art Center (Wikipedia × SF Standard × SFGATE; unpinned) (HAI sights); Absinthe Brasserie (Infatuation × Time Out ×
+Hoodline) (HAI food). DROPPED: Rosamunde (Lower Haight) — closed 2019 (Hoodline); Little Gem — permanently closed; Fig & Thistle — temporarily
+closed / rebranded → none added.
