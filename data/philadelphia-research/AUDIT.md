@@ -80,3 +80,9 @@
   Glencairn, Rocky Statue (Rocky Steps point, med), Ryerss (Ryerss Mansion).
 - Rejected: New Hope borough point (town centroid — not a place pin); Race Street 'pier' hit was the street's own coordinate.
 - Build: 178 sourced → 120 on page (105 sights + 15 food); 4 gates PASS; validate + test PASS; card + CITIES refreshed.
+
+## 2026-10-02 · W2c — South Jersey + River Wards (final searches of the session budget)
+- Added: Walt Whitman's Tomb / Harleigh Cemetery (SJ Magazine + NJ Monthly + Wikipedia pin, med — cemetery point),
+  Hadrosaurus Foulkii Leidy Site (NJ Monthly + Wikipedia pin). HELD: Pomona Hall (Wikipedia only), Philadelphia Brewing Co.
+  and Syrenka Luncheonette (Visit Philly only), Cooper River Park (river coordinate, not a park pin — rejected).
+- Final build of the session: 180 sourced → 122 on page (107 sights + 15 food); 4 gates PASS; validate + test PASS.

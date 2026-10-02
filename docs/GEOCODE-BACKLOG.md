@@ -399,7 +399,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - capi
 
 ## philadelphia-pa
-- registry entries: **166** · verified pins: **120** (high 101 · med 19 · low 0)
+- registry entries: **168** · verified pins: **122** (high 102 · med 20 · low 0)
 - ⛔ ship-worthy but **NOT yet geocoded** (13) — need a place-pin:
     - Barnes Arboretum at Saint Joseph's University
     - Boathouse Row
