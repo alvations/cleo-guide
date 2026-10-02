@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Balestier (Singapore) field guide — 2 sights and 1 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<meta name="description" content="Balestier (Singapore) field guide — 4 sights and 1 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
 <title>Balestier — Singapore &amp; SEA field guide</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -231,7 +231,7 @@
 <header>
   <p class="eyebrow">Neighbourhood guide · Singapore</p>
   <h1>Balestier<span class="thin">a town of Singapore — sights &amp; hawker food, sourced</span></h1>
-  <p class="standfirst">2 sights and 1 places to eat in <strong>Balestier</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
+  <p class="standfirst">4 sights and 1 places to eat in <strong>Balestier</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -313,6 +313,8 @@
 
 const S = {
   "ROOTSSG":{k:"ROOTS.GOV.SG (NHB)",t:"Roots.gov.sg (NHB)",u:"https://www.roots.gov.sg",l:"Roots.gov.sg (NHB)"},
+  "THESMARTLOCAL":{k:"THESMARTLOCAL",t:"TheSmartLocal",u:"https://thesmartlocal.com",l:"TheSmartLocal"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://www.wikipedia.org/",l:"Wikipedia"},
   "WONDERWALL":{k:"WONDERWALL",t:"Wonderwall.sg (Singapore Ministry of Communications and Information lifestyle portal)",u:"https://wonderwall.sg",l:"Wonderwall.sg (Singapore Ministry of Communications and Information lifestyle portal)"}
 };
 
@@ -322,7 +324,9 @@ const AREAS = [
 
 const P = [
 {t:1,a:"BALESTIER",n:"Sun Yat Sen Nanyang Memorial Hall",ad:"12 Tai Gin Road, Singapore 327874",la:1.32806,ln:103.84694,w:"Wan Qing Yuan, the 1880s villa off Balestier Road that Dr Sun Yat Sen used as his Southeast Asian base for the Tongmenghui — now a National Monument whose galleries tell how overseas Chinese communities bankrolled and shaped the 1911 Revolution. Anchor stop on NHB's Balestier Heritage Trail.",k:"National Monument & museum; Tue-Sun, ticketed",g:["HERITAGE","MUS","ARCH"],s:[["ROOTSSG","https://roots.gov.sg/nhb/balestier-heritage-trail"],["WONDERWALL","https://wonderwall.sg/Places/adventures-at-home-lets-rediscover-balestier"]]},
-{t:1,a:"BALESTIER",n:"Maha Sasana Ramsi Burmese Buddhist Temple",ad:"14 Tai Gin Road, Singapore 327873",la:1.32842,ln:103.84687,w:"Singapore's Burmese Buddhist temple, founded on Kinta Road in 1878 and rebuilt beside the Sun Yat Sen villa on Tai Gin Road in 1991 — it houses the largest white-marble Buddha outside Myanmar, carved from a single block of Mandalay marble. On the 'Faith, Film and Food' route of NHB's Balestier Heritage Trail.",k:"Buddhist temple; free; dress modestly",g:["HERITAGE","TEMPLE","FREE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/trails/balestier-heritage-trail-faith-film-and-food"],["WONDERWALL","https://wonderwall.sg/Places/adventures-at-home-lets-rediscover-balestier"]]}
+{t:1,a:"BALESTIER",n:"Maha Sasana Ramsi Burmese Buddhist Temple",ad:"14 Tai Gin Road, Singapore 327873",la:1.32842,ln:103.84687,w:"Singapore's Burmese Buddhist temple, founded on Kinta Road in 1878 and rebuilt beside the Sun Yat Sen villa on Tai Gin Road in 1991 — it houses the largest white-marble Buddha outside Myanmar, carved from a single block of Mandalay marble. On the 'Faith, Film and Food' route of NHB's Balestier Heritage Trail.",k:"Buddhist temple; free; dress modestly",g:["HERITAGE","TEMPLE","FREE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/trails/balestier-heritage-trail-faith-film-and-food"],["WONDERWALL","https://wonderwall.sg/Places/adventures-at-home-lets-rediscover-balestier"]]},
+{t:1,a:"BALESTIER",n:"Former Malay Film Productions Studio (Shaw Studio)",ad:"8 Jalan Ampas, Singapore",la:1.32630,ln:103.85100,w:"Shaw Brothers' Malay Film Productions studio on Jalan Ampas (1947-1969), where more than 150 films — many starring P. Ramlee — were shot in the golden age of Malay cinema. The surviving studio gate and buildings sit at the end of a quiet lane off Balestier Road.",k:"Heritage site — exterior only; on NHB's Balestier Heritage Trail",g:["HERITAGE","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Malay_Film_Productions"],["THESMARTLOCAL","https://thesmartlocal.com/read/malay-film-productions-studio/"],["ROOTSSG","https://roots.gov.sg/-/media/Roots/Files/balestier-heritage-trail/nhb_balestier_trail-booklet_jun2020_web.ashx"]]},
+{t:2,a:"BALESTIER",n:"Balestier Art Deco Shophouses",ad:"230 & 246 Balestier Road, Singapore",la:1.32180,ln:103.85260,w:"1950s Art Deco blocks built over former taro farmland and ponds, unusual among shophouses in housing a separate apartment on each floor — streamlined façades conserved with the pre-war shophouses along Balestier Road in 2003.",k:"Conserved streetscape — view from Balestier Road",g:["HERITAGE","VIEW","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Balestier_Art_Deco_shophouses"],["ROOTSSG","https://roots.gov.sg/places/places-landing/Places/landmarks/balestier-heritage-trail-building-balestier/art-deco-apartment-blocks"]]}
 ];
 
 const FS = {
@@ -395,7 +399,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([1.32806,103.84694],16);
+  map = L.map('map',{scrollWheelZoom:false}).setView([1.3263,103.84947],16);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
