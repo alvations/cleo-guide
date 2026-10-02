@@ -1452,9 +1452,8 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - À la Table du Bon Roi Stanislas
 
 ## san-francisco-ca
-- registry entries: **280** · verified pins: **252** (high 224 · med 27 · low 1)
+- registry entries: **289** · verified pins: **261** (high 232 · med 28 · low 1)
 - ⚠️ **UNVERIFIED** in registry (28) — held by the gate, need the helper:
-    - 3rd Cousin
     - Arizmendi Bakery (Valencia)
     - Basque Cultural Center
     - Blue Heron Lake (Stow Lake) & Strawberry Hill
@@ -1462,6 +1461,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Chase Center
     - Chibog
     - Clarion Alley
+    - Golden Gate Park Bison Paddock
     - Good Luck Dim Sum
     - Gumbo Social
     - Hang Ah Tea Room
@@ -1475,9 +1475,9 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Lyon Street Steps
     - Marcella's Lasagneria
     - Mitchell's Ice Cream
-    - Noodle in a Haystack
     - Piccino
     - Seward Street Slides
+    - Tenderloin Museum
     - The Bread Basket
     - The Valley Club
     - Wild Parrots of Telegraph Hill

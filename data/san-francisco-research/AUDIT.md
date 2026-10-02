@@ -214,3 +214,11 @@ area ≥3 sight tier-1s). Ratings were not used.
 280/280 · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
 28 UNVERIFIED held (geocode backlog). data/sources.json: 25 auto-registered SF keys given real `credible`
 rationales (13 older wave-1/2 keys still carry the AUTO note — next wave).
+- Searches 158–168 (W3F): Japan Center (3-decimal → med), The Fillmore, Haas-Lilienthal House, SF Columbarium,
+  Bison Paddock (unpinned), Beach Chalet WPA murals, John McLaren Park, Candlestick Point SRA, Tenderloin Museum
+  (unpinned); Michelin pins for 3rd Cousin + Noodle in a Haystack. Held: St. Mary's Cathedral, Glide Memorial,
+  Holy Virgin Cathedral, Portsmouth Square, Tin How Temple (single source so far).
+
+## Stage 6 — BUILD #4 / FINAL of this session (2026-10-02)
+**289 researched → 261 on the map (98 sights + 163 food); food 181/289 = 62.6%.** All 4 gates PASS/CONSISTENT ·
+validate DATA OK · npm test ALL PASS. 28 UNVERIFIED held. Card + CITIES row refreshed by `_sf_counts.sh`.
