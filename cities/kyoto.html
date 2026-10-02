@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Kyoto field guide — 152 sights and 63 places to eat, each traceable to its source (UNESCO, the Agency for Cultural Affairs, Michelin, japan-guide and the Kyoto City Official Travel Guide) on one interactive map with area, collection and cuisine filters.">
+<meta name="description" content="Kyoto field guide — 152 sights and 64 places to eat, each traceable to its source (UNESCO, the Agency for Cultural Affairs, Michelin, japan-guide and the Kyoto City Official Travel Guide) on one interactive map with area, collection and cuisine filters.">
 <title>Kyoto Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Kyoto (京都), sourced</p>
   <h1>Kyoto<span class="thin">Gion & Higashiyama · Rakuchū · Sakyō · Kita · Arashiyama · Fushimi · the mountains · Uji & Nara</span></h1>
-  <p class="standfirst">152 sights and 63 places to eat across <strong>Kyoto</strong> and its day-trip ring, every one traceable to its source: the seventeen UNESCO <em>Historic Monuments of Ancient Kyoto</em> and Nara's World Heritage temples, Gion and Pontochō, Arashiyama and Ōhara, Michelin-starred kaiseki and Bib Gourmand soba, saba-zushi and eel, Uji tea and the Fushimi sake district. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">152 sights and 64 places to eat across <strong>Kyoto</strong> and its day-trip ring, every one traceable to its source: the seventeen UNESCO <em>Historic Monuments of Ancient Kyoto</em> and Nara's World Heritage temples, Gion and Pontochō, Arashiyama and Ōhara, Michelin-starred kaiseki and Bib Gourmand soba, saba-zushi and eel, Uji tea and the Fushimi sake district. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Japan/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -602,7 +602,8 @@ const F = [
 {t:1,a:"HGS",n:"Kanesho",ad:"155-2 Tokiwa-chō, Higashiyama-ku, Kyoto 605-0079, Japan",cz:["SUSHI"],la:35.00455,ln:135.77298,w:"Michelin Bib Gourmand eel house founded at the end of the Edo period as a river-fish wholesaler; the fourth-generation chef's kinshi-don, under thin-cut omelette ribbons, is renowned.",s:[["MICHELIN_BIB","https://guide.michelin.com/en/kyoto-region/kyoto/restaurant/kanesho"]]},
 {t:2,a:"HGS",n:"Kikunoi Mugesambo",ad:"524 Washio-chō, Higashiyama-ku, Kyoto 605-0072, Japan",cz:["KAISEKI"],la:35.00182,ln:135.78155,w:"Michelin Bib Gourmand casual offshoot of the three-star Kikunoi; its house speciality is shigure-meshi rice topped with sea bream sashimi in sesame sauce.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kikunoi-mugesambo"]]},
 {t:2,a:"HGS",n:"Canton Shunsai Ikki",ad:"17-5 Tsukimi-chō, Higashiyama-ku, Kyoto 605-0829, Japan",cz:["INT"],la:35.00090,ln:135.77797,w:"Michelin Bib Gourmand Cantonese kitchen — shrimp wontons, stir-fried squid with asparagus, seasonal soups.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/canton-shunsai-ikki"]]},
-{t:1,a:"CTR",n:"Inoda Coffee Honten",ad:"140 Dōyū-chō, Sakaimachi-dōri Sanjō-sagaru, Nakagyō-ku, Kyoto 604-8118, Japan",cz:["CAFE"],la:35.00819,ln:135.76306,w:"Kyoto's classic kissaten, in business since 1940; the retro main shop serves a 'Kyoto breakfast' available only at the flagship.",s:[["KYOTOTOURISM","https://ja.kyoto.travel/tourism/single01.php?category_id=4&tourism_id=2527"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%8E%E3%83%80%E3%82%B3%E3%83%BC%E3%83%92"]]}
+{t:1,a:"CTR",n:"Inoda Coffee Honten",ad:"140 Dōyū-chō, Sakaimachi-dōri Sanjō-sagaru, Nakagyō-ku, Kyoto 604-8118, Japan",cz:["CAFE"],la:35.00819,ln:135.76306,w:"Kyoto's classic kissaten, in business since 1940; the retro main shop serves a 'Kyoto breakfast' available only at the flagship.",s:[["KYOTOTOURISM","https://ja.kyoto.travel/tourism/single01.php?category_id=4&tourism_id=2527"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%8E%E3%83%80%E3%82%B3%E3%83%BC%E3%83%92"]]},
+{t:1,a:"UJI",n:"NARA NIKON",ad:"3 Nabeya-chō, Nara 630-8264, Japan",cz:["KAISEKI","FINE"],la:34.68690,ln:135.82938,w:"Two MICHELIN Stars Japanese restaurant in Nara showcasing traditional cuisine shaped by the seasons.",s:[["MICHELIN_STAR","https://guide.michelin.com/en/nara-region/nara/restaurant/nara-nikon"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -711,7 +712,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Higashiyama-ku", 34.9986, 135.7769], ["Sakyō-ku", 35.0252, 135.7879], ["Central — Nakagyō", 35.0041, 135.7591], ["Kita", 35.036, 135.7468], ["Rakusai — Ukyō", 35.0173, 135.6849], ["Fushimi", 34.955, 135.7856], ["Rakuhoku mountains", 35.1256, 135.754], ["Uji", 34.7413, 135.818], ["Kyoto Prefecture", 35.1791, 135.6012]];
+const LABELS=[["Higashiyama-ku", 34.9986, 135.7769], ["Sakyō-ku", 35.0252, 135.7879], ["Central — Nakagyō", 35.0041, 135.7591], ["Kita", 35.036, 135.7468], ["Rakusai — Ukyō", 35.0173, 135.6849], ["Fushimi", 34.955, 135.7856], ["Rakuhoku mountains", 35.1256, 135.754], ["Uji", 34.7392, 135.8185], ["Kyoto Prefecture", 35.1791, 135.6012]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1050,7 +1051,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 215 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 216 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

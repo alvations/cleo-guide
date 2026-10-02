@@ -22,15 +22,15 @@ Kyoto city's 11 **wards (-ku)** grouped as locals do (Rakuchū centre, Rakutō e
 ## State
 - 2026-10-02 scaffolded; W1 partial (12 places) halted at the shared 200-search cap.
 - 2026-10-02 **W2 (relaunch, own budget) — LIVE.** Page `cities/kyoto.html`, linked from the Japan hub (CARD:kyoto),
-  root CARD:japan "4 of 5 maps live", docs/CITIES.md row. Last full build: **228 discovered / 215 rendered (152 sights + 63 food)**;
+  root CARD:japan "4 of 5 maps live", docs/CITIES.md row. Last full build: **229 discovered / 216 rendered (152 sights + 64 food)**;
   sourcecheck / geocheck / statuscheck / buildcheck PASS; `npm run validate` + `npm test` ALL PASS. All batches are built.
-- Discovered/rendered per area at last build (target): HGS 41/40 (75) · CTR 45/41 (95) · UJI 28/25 (50) · SAKYO 25/24 (60) ·
+- Discovered/rendered per area at last build (target): HGS 41/40 (75) · CTR 45/41 (95) · UJI 29/26 (50) · SAKYO 25/24 (60) ·
   KITA 25/25 (50) · RKSAI 24/24 (55) · FSHMI 16/13 (45) · RKHKU 12/12 (30) · KYFU 12/11 (25).
 - Files: SIGHTS_KYOTO_{HGS1,HGS2,UNESCO,CTR1,SAKYO1,RKSAI1,KITA1,FSHMI1,UJI1,RKHKU1,KYFU1}.json; FOOD_KYOTO_{HGS1,W2,W3,W4}.json;
   SOURCES_KYOTO_{W1,W2}.json; geo/_geoout_kyoto_*.json (incl. `_mpins` from the Michelin pin worker). Helpers: `_kyoto_add.py`
   (append/dedup), `_kyoto_rows.py` (sight rows → SIGHTS + geoout), `_kyoto_food.py` (food rows → FOOD + geoout), `_kyoto_push.sh`
   (pull, regenerate a conflicted GEOCODE-BACKLOG, push; run under the lock).
-- Search budget used this session: ~178 (main 160 + pin worker 18). Per-batch counts are in AUDIT.md.
+- Search budget used this session: ~180 (main 162 + pin worker 18). Per-batch counts are in AUDIT.md.
 
 ## In-flight wave
 - none (W2 closed cleanly at each batch).

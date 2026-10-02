@@ -362,7 +362,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Yuiga Dokuson, Furano (唯我独尊)
 
 ## kyoto
-- registry entries: **228** · verified pins: **215** (high 200 · med 15 · low 0)
+- registry entries: **229** · verified pins: **216** (high 201 · med 15 · low 0)
 - ⚠️ **UNVERIFIED** in registry (13) — held by the gate, need the helper:
     - Fushimi Sake District
     - Honke Daiichi-Asahi Takabashi
