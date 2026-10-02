@@ -168,6 +168,36 @@
    "a": "JOTO",
    "have": "TIMEOUT https://www.timeout.com/tokyo/museums/gyosen-park",
    "need": "coords + 2nd"
+  },
+  {
+   "n": "Omori Shell Mound",
+   "a": "JONAN",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/%C5%8Cmori_Shell_Mound coords 35.590778,139.729167",
+   "need": "2nd"
+  },
+  {
+   "n": "Senzokuike Park",
+   "a": "JONAN",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/379/",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Edo-Tokyo Museum",
+   "a": "SMKT",
+   "have": "WIKIPEDIA coords 35.6964028,139.7961028",
+   "need": "current open/closed status (closed for renovation from 2022; reopening not confirmed in hand)"
+  },
+  {
+   "n": "Fukagawa Fudoson",
+   "a": "SMKT",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/things-to-do/fukagawa-fudoson; Wikidata Q11495650 coords 35.672917,139.798333",
+   "need": "2nd"
+  },
+  {
+   "n": "Blue Bottle Coffee Kiyosumi-Shirakawa",
+   "a": "SMKT",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/blue-bottle-coffee; WIKIPEDIA Blue Bottle (first Japan store 2015); 1-4-8 Hirano",
+   "need": "coords"
   }
  ]
 }
