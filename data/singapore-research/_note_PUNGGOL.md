@@ -82,3 +82,22 @@ from memory.
    the coffee shops. Cover chicken rice, Hokkien mee, CKT, bak chor mee, nasi lemak, prata, satay, laksa,
    kopi/kaya and zi char, using Michelin Bib/Selected, SethLui, Eatbook, DFD, MTC, ieat and Johor Kaki.
 4. Creator pass: Food King (NOC), Ghib Ojisan, Exploding Belly, Eatbook/SethLui video, #punggolfood TikTok.
+
+## W2 (2026-10-02 relaunch, 4-town session)
+- **Outcome:** PGL 35 food + 7 sights = **42 / target ~116 -> NEED +74**; page renders 16 pins; greyed (not live).
+- **Files:** FOOD_PUNGGOL2.json (23), SIGHTS_PUNGGOL2.json (3), SOURCES_PUNGGOL2.json, geo/_geoout_punggol_w2.json (13 pins: One Punggol via
+  Wikipedia Punggol Regional Library coords, Waterway Point, Coney Island, Punggol Point Park, Matilda House), _w2c.json, _w3.json.
+- **Added:** sights Matilda House (Wikipedia+URA), Punggol Waterway Park (NParks+HDB+TSL+SilverStreak; Wikipedia pin), Punggol Regional
+  Library; One Punggol HC (No.25 Minced Meat, Eng Kee Wings, Souperb!, Zi Jia YTF, Uncle Penyet); Punggol Coast HC (Hock Hai, Whampoa
+  Traditional Fried Oyster, Pin Wei CCF, Hakka Leipopo, Kedai Salima, Huay Kwang); Punggol Settlement/Tebing Lane (Izakaya 95, Whisk &
+  Paddle, White Restaurant, Georges by the Bay, Uncle Leong, Ponggol Seafood — CLOSED 2 May 2024); Buddy Hoagies, Well Collective, Anna's
+  Sourdough, Keng Eng Kee (SAFRA Punggol), Maruhachi, Huang Hong Ji.
+- **Watch:** Timbre stops managing One Punggol HC in 2026 (Mothership Dec 2025) — re-check the One Punggol stall line-up.
+- **UNVERIFIED (helper):** Punggol Coast HC building (84 Punggol Way S829911) + its stalls, The Punggol Settlement (3 Punggol Point Rd),
+  Whisk & Paddle (10 Tebing Lane), Northshore Plaza, Edgefield Plains coffeeshops, SAFRA Punggol.
+- **Held:** Seoul Good, Fat Po, Rise & Grind, Tenderbest Makcik Tuckshop, Cat & the Fiddle, Three Little Coconuts, Nomstop, Ju Hao,
+  JB Dai Tao Lala Pot, Fei Mookata, Shitamachi Tendon Akimitsu, House of Seafood, Rong Hua BKT, Tam Chiak Kopitiam (blogger-owned),
+  Punggol Digital District (Wikipedia-only), bridges (folded into Waterway Park), Punggol Promenade Nature Walk.
+- **Next (+74):** Punggol needs ~2 more full sessions: Oasis Terraces / Waterway Point / Punggol Plaza / Northshore / Sumang & Edgefield
+  coffeeshops (domain-filtered Eatbook/SethLui/DFD/MTC), Punggol Coast Mall (Eatbook 16 places), heritage (Punggol Heritage Trail, Lorong Buangkok
+  is USG), Sengkang-edge excluded. Geocode Punggol Coast HC + Settlement via helper first (unlocks ~10 pins).

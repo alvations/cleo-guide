@@ -13,26 +13,27 @@
 
 ## State
 - 2026-10-02 (session 1): scaffold created. W1 BLOCKED by the shared 200-search cap.
-- 2026-10-02 (session 2): **204 places researched, 175 pinned & rendered (136 sights + 39 food)**; LIVE on the hub
+- 2026-10-02 (session 2, FINAL): **220 places researched, 191 pinned & rendered (146 sights + 45 food)**; LIVE on the hub
   (`<!-- CARD:chicago-il -->` + CITIES.md row, refreshed by `_chi_counts.sh`). 4 gates + validate + test green.
-  Per area (researched food+sights / target): LOOP 65/110 · NORTH 41/85 · NW 24/80 · WEST 13/50 · SOUTH 18/60 ·
-  SW 7/25 · FAR 5/30 · SUB 18/50 · DAY 13/20.
-  Files: FOOD_CANON.json (36), FOOD_MICHELIN.json (32), SIGHTS_W1..W8.json (136), CREATORS_W1.json;
+  Per area (researched food+sights / target, density.py): LOOP 72/110 · NORTH 44/85 · NW 25/80 · WEST 14/50 ·
+  SOUTH 22/60 · SW 7/25 · FAR 5/30 · SUB 18/50 · DAY 13/20.
+  Files: FOOD_CANON.json (39), FOOD_MICHELIN.json (35), SIGHTS_W1..W9.json (146), CREATORS_W1.json;
   geo/_geoout_canon.json, _geoout_michelin.json, _geoout_sights.json.
-  **UNVERIFIED pins held (29)** — restaurants with no Wikipedia article/POI pin: Al's #1, Johnnie's, Pequod's, George's,
-  Milly's, Vito & Nick's, Pat's, Pizz'amici, Middle Brow, Redhot Ranch, Byron's, Fat Johnnie's, Jim's Original,
-  Borinquen Lounge, Twin Anchors, Margie's, Gene & Georgetti, Birrieria Zaragoza, Rainbow Cone, Boka, Galit, Kasama?
-  (see docs/GEOCODE-BACKLOG.md for the live list) → `tools/geocode-helper.html`.
+  **UNVERIFIED pins held (29)** — restaurants with no Wikipedia article/POI pin: Al's #1, Johnnie's, Pequod's, George's Deep Dish, Milly's, Vito & Nick's, Pat's, Pizz'amici,
+  Middle Brow Bungalow, Redhot Ranch (Bucktown), Byron's, Fat Johnnie's, Jim's Original, Borinquen Lounge, Twin Anchors,
+  Margie's Candies, Gene & Georgetti, Birrieria Zaragoza, Original Rainbow Cone, Boka, Galit, Boonie's, Cellar Door
+  Provisions, Kie-Gol-Lanee, Sochi, Tortello, Mirra, Nadu, Taqueria Chingón (also in docs/GEOCODE-BACKLOG.md) → `tools/geocode-helper.html`.
 - Helpers (this dir): `_chi_add.py` (dedup-append), `_chi_sights.py` (append records + Wikipedia pins in one go),
   `_chi_push.sh` (pull/push loop that regenerates conflicting shared files), `_chi_counts.sh` (refresh card/row counts).
 - **Geocoding lesson:** Wikipedia batches of 4 names per query return published coords reliably (sights and
   Wikipedia-notable restaurants); per-restaurant latlong searches mostly fail. Street-address strings for Wikipedia-pinned
   sights were taken from the sources/Wikipedia infobox; any not echoed verbatim in a search result should be confirmed in
   the re-verify pass (the pin itself is Wikipedia's published coordinate).
-- Search count (session 2): ~200 (main ≈168 + 2 geocode subagents 32).
+- Search count (session 2): ~218 (main ≈186 + 2 geocode subagents 32). Stopped when yield fell to ~1 place/search
+  (the remaining Wikipedia-pinnable landmarks are mostly used up; the next wave must be food + the geocode helper).
 
 ## In-flight wave
-(none — W9 committed). 
+(none — W11 committed). 
 
 ## Next actions (ordered)
 1. Pin the 29 UNVERIFIED restaurants with `tools/geocode-helper.html` (browser) → re-run `--build`; that alone lifts

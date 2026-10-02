@@ -878,5 +878,82 @@
   ],
   "dish": "Char dog with everything; cheddar fries",
   "closed": false
+ },
+ {
+  "t": 1,
+  "a": "NW",
+  "n": "Roeser's Bakery",
+  "address": "3216 W North Ave, Chicago, IL 60647",
+  "w": "Humboldt Park bakery run by the same family since 1911 — custom cakes, strudel, coffee cake and paczki.",
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/chicago/restaurants/roesers-bakery"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/chicago/reviews/roesers-bakery"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Roeser's_Bakery"
+   ]
+  ],
+  "cz": [
+   "Bakery",
+   "Paczki"
+  ],
+  "dish": "Strudel, coffee cake, custom cakes, Fat Tuesday paczki",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "LOOP",
+  "n": "Ceres Cafe",
+  "address": "141 W Jackson Blvd, Chicago, IL 60604",
+  "w": "The traders' bar in the Board of Trade lobby, notorious for a 'jack and coke' that's a giant cup of whiskey with the can on the side.",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/chicago/reviews/ceres-cafe"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Ceres_Cafe"
+   ]
+  ],
+  "cz": [
+   "Bar",
+   "Diner"
+  ],
+  "dish": "The oversized 'jack and coke'; diner breakfasts",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "WEST",
+  "n": "Goose Island Fulton Street Taproom",
+  "address": "1800 W Fulton St, Chicago, IL 60612",
+  "w": "The taproom attached to Goose Island's production brewery (brewing here since 1995) — test batches and Bourbon County Stout rarities.",
+  "sources": [
+   [
+    "CHOOSECHI",
+    "https://www.choosechicago.com/listing/goose-island-beer-company-fulton-market/"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/chicago/bars/goose-island-fulton-street-brewery"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Goose_Island_Brewery"
+   ]
+  ],
+  "cz": [
+   "Brewery",
+   "Taproom"
+  ],
+  "dish": "Bourbon County Stout, Sofie, test batches",
+  "closed": false
  }
 ]
