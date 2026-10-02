@@ -27,9 +27,9 @@ flock -w 3600 $LOCK python3 tools/rebuild-city.py philadelphia-pa --build   # + 
 (none — W1+W2 complete and committed; W3 = food pins + more sight pairs, see Next actions)
 
 ## State (2026-10-02, after W1+W2)
-- Discovered + sourced: **170** (106 sights, 64 food) — sourcecheck PASS 170/170. Page: **106 on map** (91 sights + 15 food).
+- Discovered + sourced: **178** (114 sights, 64 food) — sourcecheck PASS 178/178. Page: **120 on map** (105 sights + 15 food).
 - Per area (sourced / target): CC 65/125 · SPH 37/85 · FISH 13/55 · UCW 7/40 · NPH 9/30 · NW 12/45 · NE 4/25 ·
-  MAIN 7/35 · SJ 6/25 · DAY 10/35. Every area has a pinned tier-1 (build assert).
+  MAIN 9/35 · SJ 6/25 · DAY 16/35. Every area has a pinned tier-1 (build assert).
 - Gates: --sourcecheck / --geocheck / --statuscheck / --buildcheck all PASS; npm validate + test PASS. Index card LIVE.
 - Pins: sights ~95% (Wikipedia infobox via `allowed_domains:["en.wikipedia.org"]` batches); restaurants only 15/64 —
   **~49 food places are UNVERIFIED** (addresses verified, coords null) → finish with `tools/geocode-helper.html` (browser).
