@@ -41,7 +41,7 @@
  },
  {
   "n": "Kamikawa Taisetsu Shuzō Ryokkyū-gura (上川大雪酒造 緑丘蔵)",
-  "address": "Asahi-machi, Kamikawa, Kamikawa District, Hokkaido, Japan",
+  "address": "Asahi-machi 25-1, Kamikawa, Kamikawa District, Hokkaido, Japan",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -82,12 +82,102 @@
  {
   "n": "Furano Marché (フラノマルシェ)",
   "address": "Saiwai-chō 13-1, Furano, Hokkaido, Japan",
+  "lat": 43.34222,
+  "lng": 142.38694,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia フラノマルシェ infobox (北緯43度20分32秒 東経142度23分13秒) via WebSearch",
+  "status": "open",
+  "statusSource": "MAPPLE article (10:00–18:00, summer to 19:00, current)"
+ },
+ {
+  "n": "Goshōteya Honpo, Esashi (五勝手屋本舗)",
+  "address": "Honchō 38, Esashi, Hiyama District, Hokkaido, Japan",
+  "lat": 41.86444,
+  "lng": 140.12583,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 五勝手屋本舗 infobox (北緯41度51分52秒 東経140度07分33秒) via WebSearch",
+  "status": "open",
+  "statusSource": "rurubu&more spot page (8:00–18:00, closed 1 Jan, current)"
+ },
+ {
+  "n": "Kasshō Ryōri Ikasei Honten (活魚料理 いか清 本店)",
+  "address": "Honchō 2-14, Hakodate, Hokkaido, Japan",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
   "geoSource": "UNVERIFIED — no place pin found via WebSearch",
   "status": "open",
-  "statusSource": "MAPPLE article (10:00–18:00, summer to 19:00, current)"
+  "statusSource": "rurubu&more + MAPPLE spot pages (current hours)"
+ },
+ {
+  "n": "Yokoyama-ke, Esashi (横山家)",
+  "address": "Esashi Inishie Kaidō, Esashi, Hiyama District, Hokkaido, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — no place pin found via WebSearch",
+  "status": "open",
+  "statusSource": "MAPPLE nishin-soba collection (current)"
+ },
+ {
+  "n": "Hakodate Goryō no Kura (函館五稜乃蔵)",
+  "address": "Kameo-chō (former Kameo school site), Hakodate, Hokkaido, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — no place pin found via WebSearch",
+  "status": "open",
+  "statusSource": "visit-hokkaido.jp spot 12567 (current)"
+ },
+ {
+  "n": "Bräuhaus Ōnuma — Ōnuma Beer (ブロイハウス大沼)",
+  "address": "Ōnuma-chō 208, Nanae, Kameda District, Hokkaido, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — no place pin found via WebSearch",
+  "status": "open",
+  "statusSource": "rurubu&more spot page (9–17, Dec–Mar 9–16; closed Tue, current)"
+ },
+ {
+  "n": "Shōga Rāmen Mizuno, Asahikawa (生姜ラーメン みづの)",
+  "address": "Tokiwa-dōri 2-chōme, Asahikawa, Hokkaido, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — no place pin found via WebSearch",
+  "status": "open",
+  "statusSource": "rurubu&more spot page + atca.jp member listing (current)"
+ },
+ {
+  "n": "Michi-no-eki Biei 'Oka no Kura' — Kōbaku Shokudō (道の駅 びえい「丘のくら」香麦食堂)",
+  "address": "Biei, Kamikawa District, Hokkaido, Japan",
+  "lat": 43.59214,
+  "lng": 142.46378,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 道の駅びえい「丘のくら」 infobox (北緯43度35分32秒 東経142度27分50秒) via WebSearch",
+  "status": "open",
+  "statusSource": "MAPPLE curry-udon collection (current)"
+ },
+ {
+  "n": "Family Restaurant Daimaru, Biei (ファミリーレストラン だいまる)",
+  "address": "Biei, Kamikawa District, Hokkaido, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — no place pin found via WebSearch",
+  "status": "open",
+  "statusSource": "biei-hokkaido.jp facility page (current)"
+ },
+ {
+  "n": "Eki no Mieru Restaurant & Café KOERU, Biei (駅の見えるレストラン KOERU)",
+  "address": "Biei, Kamikawa District, Hokkaido, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — no place pin found via WebSearch",
+  "status": "open",
+  "statusSource": "biei-hokkaido.jp facility page (current)"
  },
  {
   "n": "Niseko Cheese Kōbō (ニセコチーズ工房)",
@@ -138,5 +228,15 @@
   "geoSource": "UNVERIFIED — no place pin found via WebSearch",
   "status": "open",
   "statusSource": "visit-hokkaido.jp spot 12846 (current)"
+ },
+ {
+  "n": "Niseko Konbu Onsen (ニセコ昆布温泉)",
+  "address": "Niseko-Konbu Onsen, Rankoshi, Isoya District, Hokkaido, Japan",
+  "lat": 42.83983,
+  "lng": 140.62242,
+  "confidence": "med",
+  "geoSource": "ja.wikipedia ニセコ昆布温泉 infobox (北緯42度50分23秒 東経140度37分21秒 — onsen-area point) via WebSearch",
+  "status": "open",
+  "statusSource": "visit-hokkaido.jp onsen page (current)"
  }
 ]
