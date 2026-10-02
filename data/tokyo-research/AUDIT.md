@@ -201,3 +201,8 @@ Kichijōji Satou / Ozasa / Funabashiya (no pin). Tonkatsu Nanaido and Nakiryu ad
 search summaries — both records correct (Michelin venue pins Aizumichō / Minami-Ōtsuka).
 **Build:** 379 discovered / 374 rendered (234 sights + 140 food); sourcecheck PASS · geocheck PASS · statuscheck
 CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. Searches W3 ≈ 155.
+**W4 opener (same session):** CHUO sights +3 — Mitsui Memorial Museum, Bank of Japan Currency Museum (GO TOKYO + Wikipedia
+pins), Tsukudajima (GO TOKYO + Wikipedia; district point for a district sight). Rejected: Nihombashi Mitsukoshi (only the
+Mitsukoshimae Station point), Kachidoki Bridge (whole-second point not confirmed on the span), Eitai Bridge (coords
+without a page in hand), Tokyo Stock Exchange (one source). → **382 discovered / 377 rendered (237 sights + 140 food)**;
+all gates green, validate + npm test pass.

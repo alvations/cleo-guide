@@ -1041,7 +1041,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Talleyrand Park & the Big Spring
 
 ## tokyo
-- registry entries: **379** · verified pins: **374** (high 348 · med 26 · low 0)
+- registry entries: **382** · verified pins: **377** (high 350 · med 27 · low 0)
 - ⚠️ **UNVERIFIED** in registry (5) — held by the gate, need the helper:
     - Afuri Ebisu
     - Amazake-chaya, Hakone (甘酒茶屋)
