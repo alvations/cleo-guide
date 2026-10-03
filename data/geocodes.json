@@ -111986,6 +111986,30 @@
     "statusSource": "Indianapolis Monthly Mar 2025 opening; WISH segment (open)",
     "statusChecked": "2026-10-03",
     "note": "no place-pin coordinate found via WebSearch (Apple/Waze/listing probes); queue for tools/geocode-helper.html"
+   },
+   "Dugout Bar": {
+    "address": "621 Virginia Ave, Indianapolis, IN 46203",
+    "lat": 39.7582496,
+    "lng": -86.1464405,
+    "source": "Waze live-map place record https://www.waze.com/live-map/directions/us/in/indianapolis/dugout-bar?to=place.ChIJTUI0fZtQa4gR4BenRAZeZzw (name + 621 Virginia Ave match; WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Waze + Foursquare live place listings (621 Virginia Ave); 'USA Today best of 2026' Indiana bar round-up mention; no closure reported (search 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "sanity: ~80 m NW of Bluebeard (653 Virginia) pin"
+   },
+   "Sam's Silver Circle": {
+    "address": "1102 Fletcher Ave, Indianapolis, IN 46203",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "WISH-TV (USA TODAY Bars of the Year, Dec 2024) + Foursquare live listing; no closure reported (search 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "no place-pin coordinate found via Waze/usarestaurants probe; queue for tools/geocode-helper.html"
    }
   },
   "harrisburg-pa": {
