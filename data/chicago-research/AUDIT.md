@@ -244,3 +244,22 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
   Cerdito Muerto (Infatuation only), Joy Yee Evanston (Time Out only), Burl Evanston (Chicago Mag hottest list only), Sweet Maple Cafe (dish not sourced),
   St. Ignatius College Prep building (pin ok, merit thin — not added).
 - Build: 439 researched / 246 rendered (177 sights + 69 food); 4 gates PASS; validate DATA OK; npm test ALL PASS.
+
+## 2026-10-03 (session 5 / wave 4) · batch 2 (≈84 searches cumulative)
+- **New pin channel — Apple Maps place links.** A `maps.apple.com`-restricted query naming 3 restaurants (name + street, or full street address)
+  returns Apple place links; ~45% of them carry `address=…&coordinate=<lat>,<lng>` (or `ll=`) — a place pin, not a viewport. Accepted only when the
+  link's address matches the record (or the link is a query-pin and the grid sanity check passes). Place-id-only links (no coordinate) are not used.
+  21 searches → 29 restaurant pins (Pequod's, Johnnie's, Vito & Nick's, George's, Kie-Gol-Lanee, Tortello, Mirra, Bloom, Lardon, Lula, Nella, Perilla,
+  Pleasant House, Smoque, Carnitas Uruapan, La Chaparrita, Old Town Ale House, Yao Yao, Dolo, Top-Notch, Don Pedro, Honey 1, Lexington Betty,
+  Asian Cuisine Express, Gibsons, Xocome…). All grid-checked (note field). Yield fell to ~1/search on the later batches.
+- Closures / status found by the pin pass: **Edzo's Burger Shop — CLOSED** (last service 21 Dec 2024, Evanston RoundTable + WTTW Check Please;
+  notable → kept flagged, tier → 3); **Milly's Pizza in the Pan** Uptown original closed → record moved to the operating West Town shop
+  (925 N Ashland, Infatuation) and area → NW; Valois confirmed open (Block Club, June 2026); George's Deep Dish confirmed open (status was 'unknown').
+  Pat's Pizza: Time Out shows 2679 N Lincoln Ave vs record 638 W Diversey — conflict, left 'unknown' + unpinned.
+- Discovery +9: SOUTH food — Cleo's Southern Cuisine (promoted; INF 8.1 + Time Out + Dolinsky + Keith Lee 10/10), Bronzeville Winery, Medici on 57th
+  (promoted), Qing Xiang Yuan (promoted), Hing Kee; SW — Xocome Antojeria (INF 9.4 + Hungry Hound + Fooditor; Apple pin); SOUTH sights (pinned) —
+  Pui Tak Center, Quinn Chapel AME, Ebenezer Missionary Baptist Church. Status/address filled: Chi Cafe (2160 S Archer, open), Nine Bar (216 W Cermak, open).
+- Held single-source: Go 4 Food, Triple Crown (Time Out only); El Solazo (Infatuation 7.3 only), Tio Luis Tacos, New Archview (South Side Weekly only);
+  Joy Yee (Time Out only).
+- New source key FOODITOR registered with a rationale.
+- Build: 448 researched / 275 rendered (180 sights + 95 food); 4 gates PASS; validate DATA OK; npm test ALL PASS.

@@ -74,16 +74,16 @@
   ]
  },
  {
-  "t": 1,
+  "t": 3,
   "a": "SUB",
-  "n": "Edzo's Burger Shop",
+  "n": "Edzo's Burger Shop — CLOSED",
   "address": "1571 Sherman Ave, Evanston, IL 60201",
   "cz": [
    "Burgers"
   ],
   "dish": "Griddled fresh-ground burgers, hand-cut fries, milkshakes",
-  "w": "Evanston's old-school burger counter (2009) — the North Shore's burger benchmark on Infatuation's and Time Out's Evanston lists.",
-  "closed": false,
+  "w": "Evanston's old-school burger counter (2009) — the North Shore's burger benchmark on Infatuation's and Time Out's Evanston lists — CLOSED: last service 21 Dec 2024 after 15 years (Evanston RoundTable); owner may reopen elsewhere.",
+  "closed": true,
   "sources": [
    [
     "TIMEOUT",
@@ -92,6 +92,10 @@
    [
     "INFATUATION",
     "https://www.theinfatuation.com/chicago/reviews/edzos-burger-shop"
+   ],
+   [
+    "EVANSTONROUNDTABLE",
+    "https://evanstonroundtable.com/2024/12/22/at-this-time-edzos-last-supper/"
    ]
   ]
  },

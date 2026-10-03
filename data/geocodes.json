@@ -58357,27 +58357,27 @@
    },
    "Johnnie's Beef": {
     "address": "7500 W North Ave, Elmwood Park, IL 60707",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.9089308,
+    "lng": -87.813381,
+    "source": "https://maps.apple.com/place?address=7500+W+North+AveElmwood+Park%2C+IL+60707United+States&coordinate=41.9089308%2C-87.813381&name=Johnnie%27s+Beef&place-id=IC9C726809D545C5F — Apple Maps place pin (address matches; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Visit Oak Park / Tasting Table listing (search 2026-10-02) shows current hours Mon-Fri 11am-11:59pm; no closure reported",
     "statusChecked": "2026-10-03",
-    "note": "address confirmed; no sourced coordinate"
+    "note": "sanity: North Ave 41.909, 7500 W -87.814"
    },
    "Pequod's Pizza": {
     "address": "2207 N Clybourn Ave, Chicago, IL 60614",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.921842,
+    "lng": -87.6644531,
+    "source": "https://maps.apple.com/place?address=2207+N+Clybourn+Ave%2C+Chicago%2C+IL++60614%2C+United+States&coordinate=41.921842%2C-87.6644531&name=Pequod%27s+Pizza&place-id=I768FEC45F66E7A94 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Official site pequodspizza.com live with Chicago directions page (search 2026-10-02); no closure reported",
     "statusChecked": "2026-10-03",
-    "note": "address confirmed by official site"
+    "note": "sanity: 2200 N ~41.921, Clybourn at Webster ~ -87.664"
    },
    "Lou Malnati's Pizzeria (River North)": {
     "address": "439 N Wells St, Chicago, IL 60654",
@@ -58393,39 +58393,39 @@
    },
    "George's Deep Dish": {
     "address": "6221 N Clark St, Chicago, IL 60660",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.9951439,
+    "lng": -87.6699622,
+    "source": "https://maps.apple.com/place?query=George%27s+Deep+Dish&coordinate=41.9951439%2C-87.6699622&place-id=I1356BB29D0233611 — Apple Maps place pin (WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "Infatuation/Time Out listings present in search 2026-10-02 but no dated 2025-26 open confirmation",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/reviews/georges-deep-dish + Time Out deep-dish guide (current hours listed; search 2026-10-03)",
     "statusChecked": "2026-10-03",
-    "note": "address confirmed"
+    "note": "sanity: 6200 N ~41.995, Clark St ~ -87.670"
    },
    "Milly's Pizza in the Pan": {
-    "address": "1005 W Argyle St, Chicago, IL 60640",
+    "address": "925 N Ashland Ave, Chicago, IL 60622",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Food Republic piece (foodrepublic.com/2194048) describes it selling out daily; ABC7 Uptown coverage; no closure reported in 2026-10-02 search",
+    "statusSource": "https://www.theinfatuation.com/chicago/reviews/millys-pizza-in-the-pan (search 2026-10-03: Uptown/Argyle original permanently closed; operating in West Town at 925 N Ashland Ave and Lakeview) — record moved to the West Town shop",
     "statusChecked": "2026-10-03",
-    "note": "ADDRESS CORRECTED: input '1005 N Western Ave' is wrong; sources give 1005 W Argyle St (Uptown)"
+    "note": "relocated: Argyle original closed; old Argyle pin never existed"
    },
    "Vito & Nick's Pizzeria": {
     "address": "8433 S Pulaski Rd, Chicago, IL 60652",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.739279,
+    "lng": -87.7212596,
+    "source": "https://maps.apple.com/place?address=8433+S+Pulaski+Rd%2C+Chicago%2C+IL++60652%2C+United+States&coordinate=41.739279%2C-87.7212596&name=Vito+%26+Nick%27s&place-id=I3C6FE3AEAAD4388A — Apple Maps place pin (address matches; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Spotted by Locals entry dated Apr 6, 2025 (spottedbylocals.com/chicago/vito-nicks) presents it as operating",
     "statusChecked": "2026-10-03",
-    "note": "address confirmed"
+    "note": "sanity: 8400 S ~41.740, Pulaski (4000 W) -87.722"
    },
    "Pat's Pizza & Ristorante": {
     "address": "638 W Diversey Pkwy, Chicago, IL 60614",
@@ -58801,15 +58801,15 @@
    },
    "Kie-Gol-Lanee": {
     "address": "5004 N Sheridan Rd, Chicago, IL 60640",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.9735387,
+    "lng": -87.6551613,
+    "source": "https://maps.apple.com/place?address=5004+N+Sheridan+Rd,+Chicago,+IL++60640,+United+States&coordinate=41.9735387,-87.6551613&name=Kie+Gol+Lanee&place-id=I73B0009E799CB325 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "unknown",
     "statusSource": "No 2025-26 evidence found in 2026-10-02 search (only a 2025 Bib Gourmand list mention)",
     "statusChecked": "2026-10-03",
-    "note": "Uptown per input (Logan Square per Wikipedia list summary — conflict); Oaxacan/Mexican"
+    "note": "sanity: 5000 N 41.973, Sheridan -87.655"
    },
    "Sochi Saigonese Kitchen": {
     "address": "1358 W Belmont Ave, Chicago, IL 60657",
@@ -58825,27 +58825,27 @@
    },
    "Tortello Pastificio": {
     "address": "1746 W Division St, Chicago, IL 60622",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.9034139,
+    "lng": -87.6718638,
+    "source": "https://maps.apple.com/place?address=1746+W+Division%2C+Chicago%2C+IL+60622%2C+United+States&coordinate=41.9034139%2C-87.6718638&name=Tortello&place-id=I8B44EE09289784A7 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Michelin Bib Gourmand listings in 2026-10-02 search results; no closure reported (no dated confirmation)",
     "statusChecked": "2026-10-03",
-    "note": "Wicker Park; ADDRESS CORRECTED from bare 'Wicker Park'"
+    "note": "sanity: Division 41.903, 1746 W -87.672"
    },
    "Mirra": {
     "address": "1954 W Armitage Ave, Chicago, IL 60622",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.9179479,
+    "lng": -87.6773485,
+    "source": "https://maps.apple.com/place?address=1954+W+Armitage+Ave%2C+Chicago%2C+IL++60622%2C+United+States&coordinate=41.9179479%2C-87.6773485&name=Mirra&place-id=I8C74847C1AABD4F9 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Michelin Bib Gourmand 2025 per Time Out (timeout.com/chicago/news/five-chicago-restaurants-were-just-added-to-the-michelin-guide-2025-071625) and Wikipedia Bib list; no closure reported",
     "statusChecked": "2026-10-03",
-    "note": "Bucktown; Indian-Mexican; ADDRESS CORRECTED from bare 'Bucktown'"
+    "note": "sanity: Armitage 41.918, 1954 W -87.677"
    },
    "Nadu": {
     "address": "2518 N Lincoln Ave, Chicago, IL 60614",
@@ -60925,15 +60925,15 @@
    },
    "Bloom Plant Based Kitchen": {
     "address": "1559 N Milwaukee Ave, Chicago, IL 60622",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.9098738,
+    "lng": -87.6764521,
+    "source": "https://maps.apple.com/place?address=1559+N+Milwaukee+Ave%2C+Chicago%2C+IL++60622%2C+United+States&coordinate=41.9098738%2C-87.6764521&name=Bloom+Plant+Based+Kitchen&place-id=I81144282DC48D19C — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Time Out Chicago listing + OpenTable reservations page (https://opentable.com/r/bloom-chicago) active",
     "statusChecked": "2026-10-03",
-    "note": "Wicker Park (NW) | demoted: coordinate came from an aggregator listing (frankiapp-type) not an approved pin source — session-2 precedent (Boka/Galit)"
+    "note": "sanity: 1559 N Milwaukee near North/Damen 41.910,-87.676"
    },
    "Cabra": {
     "address": "200 N Green St (12th-floor rooftop, The Hoxton), Chicago, IL 60607",
@@ -61009,27 +61009,27 @@
    },
    "Lardon": {
     "address": "2200 N California Ave, Chicago, IL 60647",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.921858,
+    "lng": -87.697581,
+    "source": "https://maps.apple.com/place?address=2200+N+California+Ave,+Chicago,+IL++60647,+United+States&coordinate=41.921858,-87.697581&name=Lardon&place-id=I458A7E9B712197A4 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://guide.michelin.com/us/en/illinois/chicago/restaurant/lardon ; Time Out https://www.timeout.com/chicago/restaurants/lardon",
     "statusChecked": "2026-10-03",
-    "note": "Logan Square, across from California Blue Line (NW)"
+    "note": "sanity: 2200 N 41.922, California (2800 W) -87.697"
    },
    "Lula Cafe": {
     "address": "2537 N Kedzie Blvd, Chicago, IL 60647",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.927621,
+    "lng": -87.706752,
+    "source": "https://maps.apple.com/place?place-id=I475CA992DAB56EBE&address=2537+N+Kedzie+Blvd%2C+Chicago%2C+IL++60647%2C+United+States&coordinate=41.927621%2C-87.706752&name=Lula+Cafe — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Michelin Bib Gourmand listing; chicagorestaurantinspections.com facility record",
     "statusChecked": "2026-10-03",
-    "note": "Logan Square (NW) | demoted: coordinate came from an aggregator listing (frankiapp-type) not an approved pin source — session-2 precedent (Boka/Galit)"
+    "note": "sanity: 2500 N 41.927, Kedzie Blvd -87.707"
    },
    "Mama Delia": {
     "address": "1721 W Division St, Chicago, IL 60622",
@@ -61093,39 +61093,39 @@
    },
    "Nella Pizza e Pasta": {
     "address": "1125 E 55th St, Chicago, IL 60615",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.794867,
+    "lng": -87.5986844,
+    "source": "https://maps.apple.com/place?place-id=I254245B214EE76F6&address=1125+E+55th+St%2C+Chicago%2C+IL++60615%2C+United+States&coordinate=41.794867%2C-87.5986844&name=Nella+Pizza+e+Pasta — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://guide.michelin.com/pl/en/illinois/chicago/restaurant/nella-pizza-e-pasta ; https://www.theinfatuation.com/chicago/reviews/nella (current hours)",
     "statusChecked": "2026-10-03",
-    "note": "Hyde Park (SOUTH) -> record says NORTH"
+    "note": "sanity: 55th St 41.795, 1125 E -87.599"
    },
    "Perilla": {
     "address": "401 N Milwaukee Ave, Chicago, IL 60654",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.8893613,
+    "lng": -87.6445075,
+    "source": "https://maps.apple.com/place?address=401+N+Milwaukee+Ave%2C+Chicago%2C+IL++60654%2C+United+States&coordinate=41.8893613%2C-87.6445075&name=PERILLA+Korean+American+Fare&place-id=IF1F77CA528F7B091 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "OpenTable listings for Perilla (original + Perilla Steakhouse sibling opened 2024 at 225 N Wabash, Time Out 2024) — group operating",
     "statusChecked": "2026-10-03",
-    "note": "River West / West Town at Milwaukee & Kinzie (borderline LOOP vs NW; adjacent to River North/West Loop). Original Korean-American Bib restaurant, NOT the 225 N Wabash steakhouse | demoted: coordinate came from an aggregator listing (frankiapp-type) not an approved pin source — session-2 precedent (Boka/Galit)"
+    "note": "sanity: 400 N 41.889, Milwaukee at Kinzie/Jefferson -87.644"
    },
    "Pleasant House Pub": {
     "address": "2119 S Halsted St, Chicago, IL 60608",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.8535713,
+    "lng": -87.6462119,
+    "source": "https://maps.apple.com/place?address=2119+S+Halsted+St%2C+Chicago%2C+IL++60608%2C+United+States&coordinate=41.8535713%2C-87.6462119&name=Pleasant+House+Pub&place-id=I288A139BE4EA44E8 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "frankiapp/Michelin Bib listing; DNAinfo/Time Out on Pilsen move",
     "statusChecked": "2026-10-03",
-    "note": "Pilsen (East Pilsen, Halsted) (WEST) | demoted: coordinate came from an aggregator listing (frankiapp-type) not an approved pin source — session-2 precedent (Boka/Galit)"
+    "note": "sanity: 2100 S 41.854, Halsted (800 W) -87.646"
    },
    "Pompette": {
     "address": "1960 N Damen Ave, Chicago, IL 60647",
@@ -61153,15 +61153,15 @@
    },
    "Smoque BBQ": {
     "address": "3800 N Pulaski Rd, Chicago, IL 60641",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.9502209,
+    "lng": -87.72782,
+    "source": "https://maps.apple.com/place?address=3800+N+Pulaski+Rd%2C+Chicago%2C+IL++60641%2C+United+States&coordinate=41.9502209%2C-87.72782&name=Smoque+BBQ&place-id=I7D87AE86CC9F1B09 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.theinfatuation.com/chicago/reviews/smoque-bbq ; swmichigandining.com review Aug 2026",
     "statusChecked": "2026-10-03",
-    "note": "Old Irving Park / Irving Park (NW) | demoted: coordinate came from an aggregator listing (frankiapp-type) not an approved pin source — session-2 precedent (Boka/Galit)"
+    "note": "sanity: 3800 N 41.950, Pulaski -87.728"
    },
    "Superkhana International": {
     "address": "3059 W Diversey Ave, Chicago, IL 60647",
@@ -61189,27 +61189,27 @@
    },
    "Carnitas Uruapan": {
     "address": "1725 W 18th St, Chicago, IL 60608",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.8576492,
+    "lng": -87.669704,
+    "source": "https://maps.apple.com/place?address=1725+W+18th+St,+Chicago,+IL++60608,+United+States&coordinate=41.8576492,-87.669704&name=Carnitas+Uruapan&place-id=I1C58E81CF26C2C86 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.theinfatuation.com/chicago/reviews/carnitas-uruapan ; Toast ordering https://www.toasttab.com/local/order/carnitasuruapanpilsen ; NBC Chicago Food Guy",
     "statusChecked": "2026-10-03",
-    "note": "Pilsen (WEST). Original 1975 carry-out counter; branches also in Gage Park and Little Village"
+    "note": "sanity: 18th St 41.858, 1725 W -87.670"
    },
    "La Chaparrita": {
     "address": "2500 S Whipple St, Chicago, IL 60623",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.8462588,
+    "lng": -87.701641,
+    "source": "https://maps.apple.com/place?address=2500+S+Whipple+St,+Chicago,+IL++60623,+United+States&coordinate=41.8462588,-87.701641&name=La+Chaparrita+Grocery&place-id=IE8D113EB4EBF6179 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://theinfatuation.com/chicago/reviews/la-chaparrita-taqueria ; Infatuation best-tacos guide",
     "statusChecked": "2026-10-03",
-    "note": "Little Village (South Lawndale) (WEST)"
+    "note": "sanity: 2500 S 41.847, Whipple (3000 W) -87.702"
    },
    "Soul Prime": {
     "address": "1969 N Halsted St, Chicago, IL 60614",
@@ -61261,15 +61261,15 @@
    },
    "Old Town Ale House": {
     "address": "219 W North Ave, Chicago, IL 60610",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.9110057,
+    "lng": -87.6355677,
+    "source": "https://maps.apple.com/place?address=219+W+North+Ave%2C+Chicago%2C+IL++60610%2C+United+States&coordinate=41.9110057%2C-87.6355677&name=Old+Town+Ale+House&place-id=ID1970BE069FEA151 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.theinfatuation.com/chicago/reviews/old-town-ale-house ; official site theoldtownalehouse.com",
     "statusChecked": "2026-10-03",
-    "note": "Old Town (Near North Side), next to Second City — LOOP area OK (Gold Coast-adjacent) | demoted: coordinate came from an aggregator listing (frankiapp-type) not an approved pin source — session-2 precedent (Boka/Galit)"
+    "note": "sanity: North Ave 41.911, 219 W -87.636"
    },
    "Lao Sze Chuan": {
     "address": "2172 S Archer Ave, Chicago, IL 60616",
@@ -61369,27 +61369,27 @@
    },
    "Yao Yao": {
     "address": "230 W Cermak Rd, Chicago, IL 60616",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.853002,
+    "lng": -87.6329986,
+    "source": "https://maps.apple.com/place?query=Yao+Yao&coordinate=41.853002%2C-87.6329986&place-id=ICC680EAA6B24FA1B — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://guide.michelin.com/us/en/illinois/chicago/restaurant/yao-yao ; https://www.theinfatuation.com/chicago/reviews/yao-yao ; https://www.yaoyaochicago.com/ (live)",
     "statusChecked": "2026-10-03",
-    "note": "Chinatown (SOUTH)"
+    "note": "sanity: Cermak (2200 S) 41.853, 230 W -87.633"
    },
    "Dolo": {
     "address": "2222 S Archer Ave, Chicago, IL 60616",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.8525411,
+    "lng": -87.6361048,
+    "source": "https://maps.apple.com/place?address=2222+S+Archer+Ave%2C+Chicago%2C+IL++60616%2C+United+States&coordinate=41.8525411%2C-87.6361048&name=Dolo+Restaurant&place-id=I150ABDFE8EF76EB2 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.yelp.com/biz/dolo-restaurant-and-bar-chicago-3 (updated July 2026); https://www.opentable.com/r/dolo-restaurant-chiacgo (2026)",
     "statusChecked": "2026-10-03",
-    "note": "Chinatown (SOUTH)"
+    "note": "sanity: Archer at ~2200 S 41.853, -87.636"
    },
    "Les Nomades — CLOSED": {
     "address": "222 E Ontario St, Chicago, IL 60611 (former)",
@@ -61429,15 +61429,15 @@
    },
    "Top-Notch Beefburger": {
     "address": "2116 W 95th St, Chicago, IL 60643",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.7211868,
+    "lng": -87.6754156,
+    "source": "https://maps.apple.com/place?address=2116+W+95th+St%2C+Chicago%2C+IL++60643%2C+United+States&coordinate=41.7211868%2C-87.6754156&name=Top-Notch+Beefburgers&place-id=I4DA0081F0DCB40C6 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.timeout.com/chicago/restaurants/top-notch-beefburger (current listing with hours, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "FAR"
+    "note": "sanity: 95th 41.721, 2116 W -87.675"
    },
    "Edzo's Burger Shop": {
     "address": "1571 Sherman Ave, Evanston, IL 60201",
@@ -61453,15 +61453,15 @@
    },
    "Don Pedro Carnitas": {
     "address": "1113 W 18th St, Chicago, IL 60608",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.8578973,
+    "lng": -87.6538049,
+    "source": "https://maps.apple.com/place?address=1113+W+18th+St%2C+Chicago%2C+IL++60608%2C+United+States&coordinate=41.8578973%2C-87.6538049&name=Carnitas+Don+Pedro&place-id=IBD3E6EAA80F62BE2 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.timeout.com/chicago/restaurants/don-pedro-carnitas (current listing with hours, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "WEST"
+    "note": "sanity: 18th 41.858, 1113 W -87.654"
    },
    "Freddy's Pizza": {
     "address": "1600 S 61st Ave, Cicero, IL 60804",
@@ -61507,9 +61507,8 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "https://www.chicagomag.com/chicago-magazine/august-2024/barack-slept-here (current listing, search 2026-10-03; no closure reported)",
-    "statusChecked": "2026-10-03",
-    "note": "SOUTH"
+    "statusSource": "https://blockclubchicago.org/2026/06/16/where-to-eat-around-the-obama-presidential-center/ (Block Club, June 2026: listed as operating)",
+    "statusChecked": "2026-10-03"
    },
    "Yassa African Restaurant": {
     "address": "3511 S Martin Luther King Dr, Chicago, IL 60653",
@@ -61525,15 +61524,15 @@
    },
    "Honey 1 BBQ": {
     "address": "746 E 43rd St, Chicago, IL 60653",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.816966,
+    "lng": -87.607275,
+    "source": "https://maps.apple.com/place?address=746+E+43rd+St%2C+Chicago%2C+IL++60653%2C+United+States&coordinate=41.816966%2C-87.607275&name=Honey+1+BBQ&place-id=I38F2C300483026E6 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.timeout.com/chicago/restaurants/honey-1-bbq (current listing) + NBC5 Food Guy Bronzeville barbecue; no closure reported (search 2026-10-03)",
     "statusChecked": "2026-10-03",
-    "note": "SOUTH"
+    "note": "sanity: 43rd 41.817, 746 E -87.607"
    },
    "Pearl's Place": {
     "address": "3901 S Michigan Ave, Chicago, IL 60653",
@@ -61549,27 +61548,27 @@
    },
    "Lexington Betty Smokehouse": {
     "address": "756 E 111th St, Chicago, IL 60628",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.6931507,
+    "lng": -87.6022349,
+    "source": "https://maps.apple.com/place?q=Lexington+Betty+Smoke+House&ll=41.6931507%2C-87.6022349&auid=7920640050803293437&lsp=9902&address=756+E+111th+St%2C+Chicago%2C+IL++60628%2C+United+States — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.timeout.com/chicago/restaurants/lexington-betty-smokehouse (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "FAR"
+    "note": "sanity: 111th 41.692, 756 E -87.602"
    },
    "Asian Cuisine Express": {
     "address": "3823 W 31st St, Chicago, IL 60623",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.8368535,
+    "lng": -87.7204357,
+    "source": "https://maps.apple.com/place?address=3823+W+31st+St%2C+Chicago%2C+IL++60623%2C+United+States&coordinate=41.8368535%2C-87.7204357&name=Asian+Cuisine+Express&place-id=ICCF207BF72336A05 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://littlevillagechamber.org/business-of-the-month-may-2026-asian-cuisine-express/ (Little Village Chamber, May 2026 — operating)",
     "statusChecked": "2026-10-03",
-    "note": "WEST"
+    "note": "sanity: 31st 41.837, 3823 W -87.720"
    },
    "El Milagro Tortilleria": {
     "address": "3048 W 26th St, Chicago, IL 60623",
@@ -61609,15 +61608,15 @@
    },
    "Gibsons Bar & Steakhouse": {
     "address": "1028 N Rush St, Chicago, IL 60611",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.9013725,
+    "lng": -87.6279154,
+    "source": "https://maps.apple.com/place?address=1028+N+Rush+St%2C+Chicago%2C+IL++60611%2C+United+States&coordinate=41.9013725%2C-87.6279154&name=Gibsons&place-id=IB0AA89839EB1A322 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.dnainfo.com/chicago/20141117/gold-coast/gibsons-steakhouse-25-years-cut-above/ (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "LOOP"
+    "note": "sanity: Rush at Oak/Bellevue 41.901, -87.628"
    },
    "Frank's Diner (Kenosha)": {
     "address": "downtown Kenosha, WI (per Wikipedia)",
@@ -62412,28 +62411,26 @@
     "note": "SOUTH | street number + 2025-26 status pending (MCA collaboration event suggests operating)"
    },
    "Chi Cafe": {
-    "address": "Chinatown, Chicago",
+    "address": "2160 S Archer Ave, Chicago, IL 60616",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unchecked",
-    "statusSource": "",
-    "statusChecked": "2026-10-03",
-    "note": "SOUTH | street address + status pending"
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/guides/best-chinatown-restaurants (current guide: open late most nights; search 2026-10-03)",
+    "statusChecked": "2026-10-03"
    },
    "Nine Bar (behind Moon Palace)": {
-    "address": "Cermak Rd, Chinatown, Chicago (behind Moon Palace Express)",
+    "address": "216 W Cermak Rd, Chicago, IL 60616",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unchecked",
-    "statusSource": "",
-    "statusChecked": "2026-10-03",
-    "note": "SOUTH | street address + status pending"
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/bars/nine-bar (current listing with Wed–Sun hours; search 2026-10-03)",
+    "statusChecked": "2026-10-03"
    },
    "Kopp's Frozen Custard (Greenfield)": {
     "address": "7631 W Layton Ave, Greenfield, WI 53220",
@@ -63130,6 +63127,126 @@
     "statusSource": "https://www.choosechicago.com/articles/museums-art/must-see-museums-near-the-chicago-loop/ (current listing; operating)",
     "statusChecked": "2026-10-03",
     "note": "LOOP | sanity: Erie (700 N) 41.894, ~40 E -87.627"
+   },
+   "Edzo's Burger Shop — CLOSED": {
+    "address": "1571 Sherman Ave, Evanston, IL 60201",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "closed",
+    "statusSource": "https://evanstonroundtable.com/2024/12/22/at-this-time-edzos-last-supper/ (Evanston RoundTable: last day of service Sat 21 Dec 2024) + https://checkplease.wttw.com/restaurants/edzos-burger-shop-closed",
+    "statusChecked": "2026-10-03",
+    "note": "SUB"
+   },
+   "Cleo's Southern Cuisine": {
+    "address": "4248 S Cottage Grove Ave, Chicago, IL 60653",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://touremuhammad.substack.com/p/cleos-opens-third-location-in-lakeview (expanding — third location opened; Bronzeville flagship operating)",
+    "statusChecked": "2026-10-03",
+    "note": "SOUTH | promoted from the held list; Bronzeville flagship (also Time Out Market + Lakeview branches)"
+   },
+   "Bronzeville Winery": {
+    "address": "S Cottage Grove Ave at E 44th St, Bronzeville, Chicago, IL 60653",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://choosechicago.com/listing/bronzeville-winery-2 (current listing, search 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "SOUTH | street number conflicts across sources (4420 Choose Chicago summary vs 4421 Toast) → block-level address kept"
+   },
+   "Medici on 57th": {
+    "address": "1327 E 57th St, Chicago, IL 60637",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/guides/hyde-park-restaurants (current guide, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "SOUTH | promoted from the held list (two national/local critics found)"
+   },
+   "Qing Xiang Yuan Dumplings": {
+    "address": "2002 S Wentworth Ave, Chicago, IL 60616",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/restaurants/qing-xiang-yuan-dumplings (current listing with hours, search 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "SOUTH | promoted from the held list; Chinatown flagship (also Wicker Park + Time Out Market)"
+   },
+   "Hing Kee Restaurant": {
+    "address": "2140 S Archer Ave, Chicago, IL 60616",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/restaurants/hing-kee (current listing with hours, search 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "SOUTH"
+   },
+   "Pui Tak Center": {
+    "address": "2216 S Wentworth Ave, Chicago, IL 60616",
+    "lat": 41.852306,
+    "lng": -87.63222,
+    "source": "https://en.wikipedia.org/wiki/Pui_Tak_Center — Wikipedia published coord (WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.wttw.com/most-beautiful-places-in-chicago/dramatic-architecture/pui-tak-center (operating community centre)",
+    "statusChecked": "2026-10-03",
+    "note": "SOUTH | sanity: 2200 S ~41.852, Wentworth (200 W) -87.632"
+   },
+   "Quinn Chapel A.M.E. Church": {
+    "address": "2401 S Wabash Ave, Chicago, IL 60616",
+    "lat": 41.84889,
+    "lng": -87.625,
+    "source": "https://en.wikipedia.org/wiki/Quinn_Chapel_AME_Church_(Chicago) — Wikipedia published coord (WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.choosechicago.com/listing/quinn-chapel-a-m-e-church/ (current listing; active congregation)",
+    "statusChecked": "2026-10-03",
+    "note": "SOUTH | sanity: 2400 S 41.849, Wabash (45 E) -87.625"
+   },
+   "Ebenezer Missionary Baptist Church": {
+    "address": "4501 S Vincennes Ave, Chicago, IL 60653",
+    "lat": 41.81278,
+    "lng": -87.61389,
+    "source": "https://en.wikipedia.org/wiki/Ebenezer_Missionary_Baptist_Church_(Chicago) — Wikipedia published coord (WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.choosechicago.com/articles/chicago-music/your-guide-to-gospel-music-in-chicago/ (current guide; active congregation)",
+    "statusChecked": "2026-10-03",
+    "note": "SOUTH | sanity: 4500 S 41.813, Vincennes (~400 E) -87.614"
+   },
+   "Xocome Antojeria": {
+    "address": "5200 S Archer Ave, Unit 8, Chicago, IL 60632",
+    "lat": 41.8000835,
+    "lng": -87.7347432,
+    "source": "https://maps.apple.com/place?address=5200+S+Archer+Ave%2C+Unit+8%2C+Chicago%2C+IL+60632%2C+United+States&coordinate=41.8000835%2C-87.7347432&name=Xocome+Antojeria&place-id=IA7CE3B93857D5BF9 — Apple Maps place pin (WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/guides/best-mexican-restaurants-chicago (current guide, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "SW | sanity: 5200 S 41.800; Archer at ~4400 W -87.735"
    }
   },
   "philadelphia-pa": {
