@@ -390,3 +390,16 @@ skipped). One address typed from memory (Asari honten street number) caught and 
 CONSISTENT (0 closed) · buildcheck PASS · validate DATA OK · npm test ALL PASS.
 **Density: every area OK** — SPR 131/130, OTARU 51/50, NSK 36/35, DONAN 78/75, IBURI 41/40, DHOKU 65/60, TKC 37/35,
 DOTO 56/55, SOYA 20/20. 514 discovered, food 275 = 53.5 %. 118 UNVERIFIED held (mostly restaurants; NAVITIME batches next).
+
+## 2026-10-03 — P1: PINS ONLY (no discovery)
+- ≈27 searches: NAVITIME 3–4-name `緯度 経度` queries (tourist-DB `02301-*` spots print coords reliably; gourmet
+  `01125-*` spots mostly print only address/phone), MapFan single-name spot pages (Kawamura hit; multi-name misses),
+  Apple Maps (no Hokkaido hits). Each pin's address/branch matched to the record; all `med`.
+- **16 pins**: pinned 396 → **412** of 514. ANIME 30 tagged, 28 on map (+ Gorō's Stone House, Hachimanzaka).
+  Sights: Herring Mansion, Otaru Kihinkan, Crane Center GRUS, Unkai Terrace, Kaze no Garden, Ōyunuma footbath,
+  Makkari Onsen, Patchwork Road, Yōtei Nature Park (Makkari campground point). Food: Kawamura (MapFan), Takahashi Farm
+  Milk Kōbō, Campana Rokkatei, Hakodate Beer, Misono.
+- **Rejected:** Kamuiwakka (NAVITIME gave only a rounded 「参考」 43.96/145.12 — not a place pin), Niseko Cheese Kōbō
+  (NAVITIME address Soga 263 ≠ record Kondō 425-6 — possible relocation, re-check), Yōtei/Kyōgoku etc. address-only.
+- Still held: 102 UNVERIFIED (gourmet: Muroran Aji no Daiō / Ippei, Nanbantei, Hakodate ramen, Otaru Amatō/Kōzushi,
+  Sapporo bars/cafés; Snow Miku Sky Town ★ — NAVITIME confirms Domestic Terminal 4F, no coordinate).

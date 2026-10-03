@@ -58534,27 +58534,27 @@
    },
    "Redhot Ranch (Bucktown)": {
     "address": "2449 W Armitage Ave, Chicago, IL 60647",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.9174304,
+    "lng": -87.6891506,
+    "source": "https://www.waze.com/live-map/directions/united-states/illinois/chicago/redhot-ranch?to=place.ChIJ-5FyW9LTD4gRl2s45F883dE — Waze place record (name+address match; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Wikipedia/Infatuation in 2026-10-02 search describe it as one of three operating locations; no closure reported",
     "statusChecked": "2026-10-03",
-    "note": "address confirmed; Wikipedia article exists — coords may be on it but not shown | Wikipedia Redhot Ranch coords (41.831,-87.639) are the Bridgeport location, NOT this Armitage one — not used."
+    "note": "sanity: matches Armitage (2000 N) at 2449 W grid"
    },
    "Byron's Hot Dogs": {
     "address": "1017 W Irving Park Rd, Chicago, IL 60613",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.9543277,
+    "lng": -87.6552866,
+    "source": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/631268-byrons-hotdogs.htm — usarestaurants.info listing (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "unknown",
     "statusSource": "DNAinfo May 31 2017 reported reopening after a fire; no dated 2025-26 evidence in search",
     "statusChecked": "2026-10-03",
-    "note": "address confirmed; 2017 fire closure then reopened — current status needs check"
+    "note": "sanity: matches Irving Park Rd (4000 N) at ~1017 W grid"
    },
    "Fat Johnnie's Famous Red Hots": {
     "address": "7242 S Western Ave, Chicago, IL 60636",
@@ -60969,16 +60969,16 @@
     "note": "sanity: 1559 N Milwaukee near North/Damen 41.910,-87.676"
    },
    "Cabra": {
-    "address": "200 N Green St (12th-floor rooftop, The Hoxton), Chicago, IL 60607",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "200 N Green St, Chicago, IL 60607",
+    "lat": 41.8858811,
+    "lng": -87.6491082,
+    "source": "https://maps.apple.com/place?address=200+N+Green+St%2C+Chicago%2C+IL++60607%2C+United+States&coordinate=41.8858811%2C-87.6491082&name=Cabra&place-id=I9104E0439D03EE8F&_provider=9902 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://thehoxton.com/chicago/cabra-restaurant/ ; https://www.choosechicago.com/listing/cabra/",
     "statusChecked": "2026-10-03",
-    "note": "Fulton Market / West Loop (LOOP)"
+    "note": "sanity: matches 200 N / ~800 W (Green St) grid"
    },
    "Dear Margaret — CLOSED": {
     "address": "2965 N Lincoln Ave, Chicago, IL 60657",
@@ -61006,15 +61006,15 @@
    },
    "Ghin Khao": {
     "address": "2128 W Cermak Rd, Chicago, IL 60608",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.8522936,
+    "lng": -87.6795132,
+    "source": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/287141-ghin-khao-eat-rice.htm — usarestaurants.info listing (Ghin Khao Eat Rice, 2128 W Cermak Rd match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "https://guide.michelin.com/ph/en/illinois/chicago/restaurant/ghin-khao (current hours Wed-Sat)",
     "statusChecked": "2026-10-03",
-    "note": "Pilsen / Heart of Chicago (Lower West Side) -> WEST, record says NW"
+    "note": "sanity: Cermak (2200 S ≈ 41.852) at ~2130 W (≈ -87.680) — consistent"
    },
    "Giant": {
     "address": "3209 W Armitage Ave, Chicago, IL 60647",
@@ -61306,15 +61306,15 @@
    },
    "Lao Sze Chuan": {
     "address": "2172 S Archer Ave, Chicago, IL 60616",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.8533142,
+    "lng": -87.6350557,
+    "source": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/62746-lao-sze-chuan.htm — usarestaurants.info listing (Lao Sze Chuan, 2172 S Archer Ave match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "https://www.theinfatuation.com/chicago/reviews/lao-sze-chuan ; https://www.timeout.com/chicago/restaurants/lao-sze-chuan-chinatown",
     "statusChecked": "2026-10-03",
-    "note": "Chinatown, Archer between Wentworth & Princeton (SOUTH)"
+    "note": "sanity: Chinatown Square on Archer (~2170 S ≈ 41.853, ~-87.635) — consistent"
    },
    "Hopleaf": {
     "address": "5148 N Clark St, Chicago, IL 60640",
@@ -61378,15 +61378,15 @@
    },
    "Andros Taverna": {
     "address": "2542 N Milwaukee Ave, Chicago, IL 60647",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.9273607,
+    "lng": -87.7048376,
+    "source": "https://www.waze.com/live-map/directions/us/il/chicago/andros-taverna?to=place.ChIJWfaiPh_ND4gRaRT5k6Wp24g — Waze place record (name+address match; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.androstaverna.com/location/andros-taverna/ ; https://www.choosechicago.com/listing/andros-taverna/ ; OpenTable active",
     "statusChecked": "2026-10-03",
-    "note": "Logan Square (NW)"
+    "note": "sanity: matches 2542 N on Milwaukee diagonal near Logan Sq (~3050 W) grid"
    },
    "Dove's Luncheonette": {
     "address": "1545 N Damen Ave, Chicago, IL 60622",
@@ -61438,27 +61438,27 @@
    },
    "Phil's Pizza": {
     "address": "1102 W 35th St, Chicago, IL 60609",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.8308784,
+    "lng": -87.6536815,
+    "source": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/631587-phils-pizza.htm — usarestaurants.info listing (Phil's Pizza, 1102 W 35th St match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "https://www.timeout.com/chicago/restaurants/phils-pizza (current listing with hours, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "SOUTH | moved from 3551 S Halsted in 2008 (Time Out). latlong.net 'phil-s-pizza-571446' 41.7301,-87.7806 is a different Phil's (79th/Harlem) — rejected"
+    "note": "sanity: 35th St (~41.831) at Aberdeen (~1100 W ≈ -87.654) — consistent"
    },
    "Tony's Italian Beef": {
     "address": "7007 S Pulaski Rd, Chicago, IL 60629",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.765623,
+    "lng": -87.7221749,
+    "source": "https://www.waze.com/live-map/directions/us/il/chicago/tonys-italian-beef?to=place.ChIJu4gS1UUwDogRL0e627me-aQ — Waze place record (name + address 7007 S Pulaski Rd match; lat/lng in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.theinfatuation.com/chicago/reviews/tonys-italian-beef (current listing with hours, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "SW"
+    "note": "sanity: 70th St (~41.766) x Pulaski (~-87.723) — matches the 7007 S Pulaski example"
    },
    "Top-Notch Beefburger": {
     "address": "2116 W 95th St, Chicago, IL 60643",
@@ -61498,15 +61498,15 @@
    },
    "Freddy's Pizza": {
     "address": "1600 S 61st Ave, Cicero, IL 60804",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.858017197,
+    "lng": -87.776523887,
+    "source": "https://www.waze.com/live-map/directions/freddys-pizzagrocery-s-61st-ave-1600-cicero?to=place.w.178389411.1784025178.539689 — Waze place record (Freddy's Pizza/Grocery, 1600 S 61st Ave match; coordinate in result snippet, corroborated within ~20 m by usarestaurants.info listing 41.8579856,-87.7767127; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.timeout.com/chicago/restaurants/freddys-pizza (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "SUB"
+    "note": "sanity: 61st Ave (≈ 6100 W ≈ -87.776) at 16th St (~41.858) — consistent"
    },
    "Kouklas Greek Eatery": {
     "address": "7620 N Milwaukee Ave, Niles, IL 60714",
@@ -61544,16 +61544,16 @@
     "statusChecked": "2026-10-03"
    },
    "Yassa African Restaurant": {
-    "address": "3511 S Martin Luther King Dr, Chicago, IL 60653",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "3511 S King Dr, Chicago, IL 60653",
+    "lat": 41.8307311,
+    "lng": -87.6166893,
+    "source": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/803107-yassa-african-restaurant.htm — usarestaurants.info listing (Yassa African Restaurant, 3511 S King Dr match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "https://www.dnainfo.com/chicago/20150514/bronzeville/yassa-african-restaurant-re-emerges-after-fire-now-thriving-bronzeville/slideshow/613284 (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "SOUTH"
+    "note": "sanity: 35th St (~41.831) on King Dr (400 E ≈ -87.617) — consistent"
    },
    "Honey 1 BBQ": {
     "address": "746 E 43rd St, Chicago, IL 60653",
@@ -61569,15 +61569,15 @@
    },
    "Pearl's Place": {
     "address": "3901 S Michigan Ave, Chicago, IL 60653",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.823640011,
+    "lng": -87.622707054,
+    "source": "https://www.waze.com/live-map/directions/amber-inn-s-michigan-ave-3901-chicago?to=place.w.178520482.1785073750.4357806 — Waze place record for the Amber Inn, 3901 S Michigan Ave (same street address as the record; Pearl's Place operates in the Amber Inn building; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "https://www.timeout.com/chicago/restaurants/pearls-place + https://www.theinfatuation.com/chicago/reviews/pearls-place (current listings; breakfast buffet daily) — no closure reported",
     "statusChecked": "2026-10-03",
-    "note": "SOUTH"
+    "note": "sanity: Michigan (100 E ≈ -87.623) at Pershing (3900 S ≈ 41.824) — consistent; med because pin is the host hotel record, not Pearl's own | Waze record is the Amber Inn (same 3901 S Michigan building that houses Pearl's Place) — building pin, med"
    },
    "Lexington Betty Smokehouse": {
     "address": "756 E 111th St, Chicago, IL 60628",
@@ -61617,15 +61617,15 @@
    },
    "Pizzeria Uno": {
     "address": "29 E Ohio St, Chicago, IL 60611",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.8923043,
+    "lng": -87.626929,
+    "source": "https://www.waze.com/live-map/directions/us/il/chicago/pizzeria-uno?to=place.ChIJ_2NJoa0sDogR4g520LwywQ4 — Waze place record (name+address match; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://en.wikipedia.org/wiki/Uno_Pizzeria_%26_Grill (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "LOOP"
+    "note": "sanity: matches Ohio St (600 N) at 29 E (just E of State) grid"
    },
    "Harry Caray's Italian Steakhouse": {
     "address": "33 W Kinzie St, Chicago, IL 60654",
@@ -61665,15 +61665,15 @@
    },
    "Leon's Frozen Custard": {
     "address": "3131 S 27th St, Milwaukee, WI 53215",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 42.98779187,
+    "lng": -87.948694496,
+    "source": "https://www.waze.com/live-map/directions/leons-frozen-custard-s-27th-st-3131-milwaukee?to=place.w.178323886.1782911179.1212035 — Waze place record (name + 3131 S 27th St match); coordinate in result snippet alongside https://usarestaurants.info/explore/united-states/wisconsin/milwaukee-county/milwaukee/664645-leons-frozen-custard.htm listing (WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "https://en.wikipedia.org/wiki/Leon%27s_Frozen_Custard (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "DAY"
+    "note": "sanity: S 27th St (≈ -87.949) between Oklahoma Ave (~42.988) and Euclid — consistent; med because snippet did not say which page carried the coordinate"
    },
    "Solly's Grille": {
     "address": "4629 N Port Washington Rd, Glendale, WI 53212",
@@ -61688,40 +61688,40 @@
     "note": "DAY | street address + status pending"
    },
    "Hecky's Barbecue": {
-    "address": "1902 Green Bay Rd, Evanston, IL 60201",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1902 Green Bay Rd, Evanston, IL",
+    "lat": 42.052346624,
+    "lng": -87.689124703,
+    "source": "https://www.waze.com/af/live-map/directions/heckys-barbecue-green-bay-road-1902-evanston?to=place.w.178454949.1784615021.4068311 — Waze place record (Hecky's Barbecue, 1902 Green Bay Rd match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.visitchicagonorthshore.com/heckysbarbecue (CVB listing with current hours, 2026-10-03)",
     "statusChecked": "2026-10-03",
-    "note": "SUB"
+    "note": "sanity: Green Bay Rd near Emerson St, west Evanston (~42.052, -87.689) — consistent"
    },
    "Walker Bros. Original Pancake House (Wilmette)": {
     "address": "153 Green Bay Rd, Wilmette, IL 60091",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 42.070557644,
+    "lng": -87.704190343,
+    "source": "https://www.waze.com/live-map/directions/walker-brothers-green-bay-rd-153-wilmette?to=place.w.178454949.1784549487.819812 — Waze place record (Walker Brothers, 153 Green Bay Rd, Wilmette match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.timeout.com/chicago/restaurants/walker-bros-original-pancake-house (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "SUB"
+    "note": "sanity: Green Bay Rd in south-central Wilmette near Linden/Lake (~42.071, -87.704) — consistent"
    },
    "Russell's Barbecue": {
-    "address": "1621 Thatcher Ave, Elmwood Park, IL 60707",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1621 N Thatcher Ave, Elmwood Park, IL 60707",
+    "lat": 41.909468209,
+    "lng": -87.82380919,
+    "source": "https://www.waze.com/live-map/directions/russells-barbecue-n-thatcher-ave-1621-elmwood-park?to=place.w.178389411.1783763039.506952 — Waze place record (name + 1621 N Thatcher Ave match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.oakpark.com/2023/11/06/russells-secret-is-in-the-sauce-and-in-your-memories/ (Wednesday Journal Nov 2023 — operating) + oakparkandbeyond.org listing",
     "statusChecked": "2026-10-03",
-    "note": "SUB | street number + status pending"
+    "note": "sanity: Thatcher (~8000 W ≈ -87.824) at ~1600 N (≈ 41.910) — consistent"
    },
    "Svea Restaurant": {
     "address": "5236 N Clark St, Chicago, IL 60640",
@@ -61737,39 +61737,39 @@
    },
    "MacArthur's Restaurant": {
     "address": "5412 W Madison St, Chicago, IL 60644",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.880502227,
+    "lng": -87.760740995,
+    "source": "https://www.waze.com/live-map/directions/macarthurs-restaurant-w-madison-st-5412-chicago?to=place.w.178389411.1784156252.4029962 — Waze place record (name + 5412 W Madison St match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.theinfatuation.com/chicago/reviews/macarthurs (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "WEST"
+    "note": "sanity: Madison (0 N/S ≈ 41.881) between Lotus & Long (~5400 W ≈ -87.761) — consistent"
    },
    "Carm's Beef and Italian Ice": {
     "address": "1057 W Polk St, Chicago, IL 60607",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.871725767,
+    "lng": -87.653513549,
+    "source": "https://www.waze.com/live-map/directions/carms-beef-w-polk-st-1057-chicago?to=place.w.178454947.1784877147.3425710 — Waze place record (Carms Beef, 1057 W Polk St match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.theinfatuation.com/chicago/reviews/carms-beef (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "WEST"
+    "note": "sanity: Polk (800 S ≈ 41.871) at Carpenter (~1030 W ≈ -87.653) — consistent"
    },
    "Simone's": {
     "address": "960 W 18th St, Chicago, IL 60608",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.8581996,
+    "lng": -87.6510674,
+    "source": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/361439-simones.htm — usarestaurants.info listing (Simone's, 960 W 18th St match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "https://www.toasttab.com/local/simones-960-w-18th-st/r-1362bbf3-c964-4c38-8bdf-6482e02be26a (live online-ordering page) + Chicago Mag",
     "statusChecked": "2026-10-03",
-    "note": "WEST"
+    "note": "sanity: 18th St (~41.858) at Morgan (1000 W ≈ -87.651) — consistent"
    },
    "Simon's Tavern": {
     "address": "N Clark St just north of Foster Ave, Andersonville, Chicago",
@@ -61785,15 +61785,15 @@
    },
    "Café Colao": {
     "address": "2638 W Division St, Chicago, IL 60622",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.9032546,
+    "lng": -87.6935205,
+    "source": "https://www.waze.com/live-map/directions/us/il/chicago/cafe-colao?to=place.ChIJVwNwO6nSD4gRW_mVhpN4_RY — Waze place record (name+address match; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.theinfatuation.com/chicago/reviews/cafe-colao (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "NW"
+    "note": "sanity: matches Division (1200 N) at 2638 W grid"
    },
    "Big Star": {
     "address": "1531 N Damen Ave, Chicago, IL 60622",
@@ -61857,15 +61857,15 @@
    },
    "Huaraches Doña Chio": {
     "address": "1547 W Elmdale Ave, Chicago, IL 60660",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.9907102,
+    "lng": -87.66948,
+    "source": "https://maps.apple.com/place?address=1547+W+Elmdale+Ave%2C+Chicago%2C+IL++60660%2C+United+States&coordinate=41.9907102%2C-87.66948&name=Huaraches+Do%C3%B1a+Chio&place-id=I926858B4994CB78A&_provider=9902 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.timeout.com/chicago/restaurants/huaraches-donya-chio (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "NORTH"
+    "note": "sanity: matches Elmdale (~6000 N) at ~1547 W grid"
    },
    "Taqueria El Asadero": {
     "address": "2213 W Montrose Ave, Chicago, IL 60618",
@@ -61917,15 +61917,15 @@
    },
    "Monteverde": {
     "address": "1020 W Madison St, Chicago, IL 60607",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.881863,
+    "lng": -87.6530314,
+    "source": "https://maps.apple.com/place?address=1020+W+Madison+St%2C+Chicago%2C+IL++60607%2C+United+States&coordinate=41.881863%2C-87.6530314&name=Monteverde&place-id=I5EB151E3D72E537&_provider=9902 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.fsrmagazine.com/chef-profiles/magic-behind-sarah-gruenebergs-chicago-pasta-kingdom (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "LOOP"
+    "note": "sanity: matches Madison St (0 N/S) at ~1020 W grid"
    },
    "Washington Park": {
     "address": "Washington Park community area, Chicago (per Wikipedia)",
@@ -62001,15 +62001,15 @@
    },
    "Janson's Drive-In": {
     "address": "9900 S Western Ave, Chicago, IL 60643",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.713542938,
+    "lng": -87.682022094,
+    "source": "https://www.waze.com/live-map/directions/jansons-drive-in-s-western-ave-9900-chicago?to=place.w.178454945.1784680523.3739154 — Waze place record (name + 9900 S Western Ave match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "unchecked",
     "statusSource": "",
     "statusChecked": "2026-10-03",
-    "note": "FAR | status needs a 2025-26 check (Beverly Review Jan 2025 article not read) | owner Joe Janson died Dec 2024 (Beverly Review) — operating status after that unconfirmed"
+    "note": "sanity: 99th St (~41.714) on Western (2400 W ≈ -87.682) — consistent"
    },
    "Longman & Eagle": {
     "address": "2657 N Kedzie Ave, Chicago, IL 60647",
@@ -62025,15 +62025,15 @@
    },
    "Jibaritos y Más": {
     "address": "3400 W Fullerton Ave, Chicago, IL 60647",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.924840423,
+    "lng": -87.712314679,
+    "source": "https://www.waze.com/live-map/directions/jibaritos-y-mas-w-fullerton-ave-3400-chicago?to=place.w.178454947.1784483936.4324306 — Waze place record (name+address match; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.theinfatuation.com/chicago/reviews/jibaritos-y-mas (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "NW"
+    "note": "sanity: matches Fullerton (2400 N) at 3400 W (Kimball) grid"
    },
    "Spacca Napoli": {
     "address": "1769 W Sunnyside Ave, Chicago, IL 60640",
@@ -62049,15 +62049,15 @@
    },
    "Miller's Pub": {
     "address": "134 S Wabash Ave, Chicago, IL 60603",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.879798373,
+    "lng": -87.626277982,
+    "source": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/millers-pub-312-263-4988.htm — usarestaurants.info listing (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "https://chibarproject.com/reviews/millerspub/ + Preservation Chicago legacy-business feature; no closure reported (2026-10-03 search)",
     "statusChecked": "2026-10-03",
-    "note": "LOOP"
+    "note": "sanity: matches 134 S (just N of Adams 200 S) on Wabash (~-87.626) grid; Waze place record also exists at same address"
    },
    "J.P. Graziano Grocery": {
     "address": "Randolph St at Peoria St, West Loop, Chicago",
@@ -62205,15 +62205,15 @@
    },
    "Home Run Inn (original, 31st Street)": {
     "address": "4254 W 31st St, Chicago, IL 60623",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.836913341,
+    "lng": -87.731513023,
+    "source": "https://www.waze.com/live-map/directions/home-run-inn-w-31st-st-4254-chicago?to=place.w.178454946.1784352856.1224288 — Waze place record (Home Run Inn, 4254 W 31st St match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.fsrmagazine.com/industry-news/home-run-inn-to-celebrate-national-tavern-style-pizza-day-with-special-offers-and-donation (FSR 2024 — operating) + ABC7 reopening report",
     "statusChecked": "2026-10-03",
-    "note": "WEST"
+    "note": "sanity: 31st St (~41.837) at ~4250 W (≈ -87.731) — consistent"
    },
    "Bob Chinn's Crab House": {
     "address": "Milwaukee Ave 'Restaurant Row', Wheeling, IL",
@@ -62253,15 +62253,15 @@
    },
    "Murphy's Bleachers": {
     "address": "3655 N Sheffield Ave, Chicago, IL 60613",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.948927948,
+    "lng": -87.654278498,
+    "source": "https://www.waze.com/live-map/directions/murphys-bleachers-north-sheffield-ave-3655-chicago?to=place.w.178454947.1784877155.4034405 — Waze place record (name+address match; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://ma.to/event/yankees-vs-cubs-at-murphys-31-jul-2026 (2026-season event listing at the bar) + https://www.choosechicago.com/blog/tours-attractions/things-to-do-in-wrigleyville/",
     "statusChecked": "2026-10-03",
-    "note": "NORTH"
+    "note": "sanity: matches 3655 N (just S of Waveland 3700 N) on Sheffield (1000 W) grid"
    },
    "Southport Lanes — CLOSED": {
     "address": "Southport Ave at Henderson St, Lakeview, Chicago",
@@ -62277,15 +62277,15 @@
    },
    "Paulie Gee's Logan Square": {
     "address": "2451 N Milwaukee Ave, Chicago, IL 60647",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.9258984,
+    "lng": -87.7018052,
+    "source": "https://maps.apple.com/place?query=Paulie+Gee%27s+Logan+Square&coordinate=41.9258984%2C-87.7018052&place-id=I6EC28A38C324E7CD&_provider=9902 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.timeout.com/chicago/restaurants/11-essential-chicago-pizzas-you-have-to-try (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "NW"
+    "note": "sanity: matches 2451 N Milwaukee diagonal (~2950 W at 2450 N) grid; URL carries name only, single Logan Square location"
    },
    "Piece Brewery & Pizzeria": {
     "address": "",
@@ -62539,15 +62539,15 @@
    },
    "Huck Finn Donuts": {
     "address": "3414 S Archer Ave, Chicago, IL 60608",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.831891367,
+    "lng": -87.675768732,
+    "source": "https://www.waze.com/live-map/directions/huck-finn-donuts-restaurant-s-archer-ave-3414-chicago?to=place.w.178454946.1784680535.1582495 — Waze place record (Huck Finn Donuts, 3414 S Archer Ave match); coordinate in result snippet alongside https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/517517-huck-finn-restaurant.htm listing (WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "https://www.timeout.com/chicago/restaurants/old-school-chicago-doughnut-shops (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "SW"
+    "note": "sanity: Archer at Damen (2000 W ≈ -87.676) near 35th St (~41.831) — consistent"
    },
    "Palmisano Park": {
     "address": "2700 S Halsted St area (former Stearns Quarry), Bridgeport, Chicago (per Wikipedia)",
@@ -62754,16 +62754,16 @@
     "note": "NW | address + status pending"
    },
    "Bennison's Bakery": {
-    "address": "1000 Davis St, Evanston, IL 60201",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1000 Davis St, Evanston, IL",
+    "lat": 42.046917229,
+    "lng": -87.685182213,
+    "source": "https://www.waze.com/live-map/directions?from=place.w.178454948.1784615021.3216026 — Waze place record (Bennisons Bakery, 1000 Davis St, Evanston match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://news.medill.northwestern.edu/chicago/?p=55954 (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "SUB"
+    "note": "sanity: Davis St at Maple Ave, downtown Evanston (~42.047, -87.685) — consistent"
    },
    "Temperance Beer Co.": {
     "address": "Evanston, IL",
@@ -62815,15 +62815,15 @@
    },
    "Exchequer Restaurant & Pub": {
     "address": "226 S Wabash Ave, Chicago, IL 60604",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.878820764,
+    "lng": -87.626287268,
+    "source": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/17513-exchequer-restaurant-pub.htm — usarestaurants.info listing (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "https://theinfatuation.com/chicago/reviews/exchequer-restaurant-and-pub (current listing, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "LOOP"
+    "note": "sanity: matches 226 S (just S of Adams 200 S) on Wabash (~-87.626) grid; Waze place record also exists at same address"
    },
    "Cindy's Rooftop": {
     "address": "13th floor, Chicago Athletic Association hotel, S Michigan Ave, Chicago",
@@ -63170,16 +63170,16 @@
     "note": "SUB"
    },
    "Cleo's Southern Cuisine": {
-    "address": "4248 S Cottage Grove Ave, Chicago, IL 60653",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "4248 S Cottage Grove Ave, Chicago, IL",
+    "lat": 41.8171113,
+    "lng": -87.6070765,
+    "source": "https://www.waze.com/live-map/directions/us/il/chicago/cleos-southern-cuisine?to=place.ChIJM-CYYugrDogRllsDrW7ZCMk — Waze place record (name + 4248 S Cottage Grove Ave match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://touremuhammad.substack.com/p/cleos-opens-third-location-in-lakeview (expanding — third location opened; Bronzeville flagship operating)",
     "statusChecked": "2026-10-03",
-    "note": "SOUTH | promoted from the held list; Bronzeville flagship (also Time Out Market + Lakeview branches)"
+    "note": "sanity: 42nd-43rd St (~41.817) on Cottage Grove (800 E ≈ -87.607) — consistent"
    },
    "Bronzeville Winery": {
     "address": "S Cottage Grove Ave at E 44th St, Bronzeville, Chicago, IL 60653",
@@ -63219,15 +63219,15 @@
    },
    "Hing Kee Restaurant": {
     "address": "2140 S Archer Ave, Chicago, IL 60616",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.853869,
+    "lng": -87.633737,
+    "source": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/633737-hing-kee.htm — usarestaurants.info listing (Hing Kee, 2140 S Archer Ave match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "https://www.timeout.com/chicago/restaurants/hing-kee (current listing with hours, search 2026-10-03)",
     "statusChecked": "2026-10-03",
-    "note": "SOUTH"
+    "note": "sanity: Chinatown Square stretch of Archer, just NE of 2172 S Archer (41.8533,-87.6351) as expected for a lower number on diagonal Archer — consistent"
    },
    "Pui Tak Center": {
     "address": "S Wentworth Ave, Chinatown, Chicago, IL 60616",
@@ -63287,16 +63287,16 @@
     "note": "WEST | sanity: DeKoven (1100 S) 41.869, 558 W -87.641"
    },
    "Lucido's Tacos": {
-    "address": "4147 W 26th St, Chicago, IL 60623",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "4147 W 26th St, Chicago, IL",
+    "lat": 41.8440581,
+    "lng": -87.7288001,
+    "source": "https://www.waze.com/live-map/directions/us/il/chicago/lucidos-tacos?to=place.ChIJc4fNJ10yDogRgjgfpAY5r34 — Waze place record (name + 4147 W 26th St match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.timeout.com/chicago/restaurants/lucidos-tacos (current listing with hours, search 2026-10-03)",
     "statusChecked": "2026-10-03",
-    "note": "WEST"
+    "note": "sanity: 26th St (~41.844) at ~4150 W (≈ -87.729) — consistent"
    },
    "Lincoln Park (lakefront park)": {
     "address": "Lakefront from North Ave to Ardmore Ave, Chicago (Chicago Park District)",
@@ -63759,15 +63759,15 @@
    },
    "Hai Yen": {
     "address": "1055 W Argyle St, Chicago, IL 60640",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.9731313,
+    "lng": -87.6572447,
+    "source": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/637040-hai-yen-restaurant.htm — usarestaurants.info listing (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "https://www.theinfatuation.com/chicago/guides/best-vietnamese-restaurants-chicago (current guide, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "NORTH"
+    "note": "sanity: matches Argyle (5000 N) at 1055 W grid"
    },
    "Argyle Street (Asia on Argyle)": {
     "address": "W Argyle St between Broadway and Sheridan Rd, Uptown, Chicago",
@@ -63783,15 +63783,15 @@
    },
    "JM Seafood": {
     "address": "3312 S Halsted St, Chicago, IL 60608",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.8343607,
+    "lng": -87.6465323,
+    "source": "https://redirect.foursquare.com/v/jm-seafood-wing-yip-chop-suey-restaurant/64188abb66b57d40fd4334c9 — Foursquare listing (JM Seafood (Wing Yip Chop Suey Restaurant), 3312 S Halsted St match; coordinate in result snippet; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "https://www.timeout.com/chicago/restaurants/the-best-restaurants-in-bridgeport (current guide with hours, search 2026-10-03)",
     "statusChecked": "2026-10-03",
-    "note": "SOUTH"
+    "note": "sanity: 33rd St (~41.834) on Halsted (800 W ≈ -87.646) — consistent"
    },
    "Han 202": {
     "address": "605 W 31st St, Chicago, IL 60616",
@@ -63903,15 +63903,15 @@
    },
    "Tryzub Ukrainian Kitchen": {
     "address": "2201 W Chicago Ave, Chicago, IL 60622",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.8957128,
+    "lng": -87.682153,
+    "source": "https://maps.apple.com/place?q=Tryzub+Ukrainian+Kitchen&ll=41.8957128%2C-87.682153&auid=3096076931492020440&lsp=9902&address=2201+W+Chicago+Ave%2C+Chicago%2C+IL+60622%2C+United+States — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://theinfatuation.com/chicago/guides/where-to-eat-ukrainian-food-in-chicago (current listing; Apple Maps place listing live, search 2026-10-03; no closure reported)",
     "statusChecked": "2026-10-03",
-    "note": "address from Apple Maps place listing (search 2026-10-03); pin not exposed → UNVERIFIED"
+    "note": "sanity: matches Chicago Ave (800 N) at 2201 W grid"
    },
    "Cho Sun Ok": {
     "address": "4200 N Lincoln Ave, Chicago, IL 60618",
@@ -63995,6 +63995,174 @@
     "statusSource": "https://blockclubchicago.org/2024/09/12/iconic-little-village-arch-unveiled-after-extensive-renovation/ (restored and unveiled Sept 2024; public street)",
     "statusChecked": "2026-10-03",
     "note": "WEST"
+   },
+   "Weber's Bakery": {
+    "address": "7055 W Archer Ave, Chicago, IL 60638",
+    "lat": 41.791778824,
+    "lng": -87.798564598,
+    "source": "https://www.waze.com/live-map/directions/webers-bakery-w-archer-ave-7055-chicago?to=place.w.178389410.1783894099.652949 — Waze place record (Weber's Bakery, 7055 W Archer Ave match); coordinate in result snippet (WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Apple Maps listing with current hours Tue–Sun (maps.apple.com/place?place-id=I2F59BC557B38D26C), search 2026-10-03; no closure reported",
+    "statusChecked": "2026-10-03",
+    "note": "sanity: Archer at Nottingham (7000 W ≈ -87.80), ~41.79 — consistent; med because Waze also lists the bakery's parking lots at the same address and the snippet did not say which record carried the coordinate"
+   },
+   "Pticek & Son Bakery": {
+    "address": "5523 S Narragansett Ave, Chicago, IL 60638",
+    "lat": 41.791568756,
+    "lng": -87.781402587,
+    "source": "https://www.waze.com/en-GB/live-map/directions/pticek-and-son-bakery-s-narragansett-ave-5523-chicago?to=place.w.178389410.1784025171.2675867 — Waze place record (name + 5523 S Narragansett Ave match; coordinate in result snippet; WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "ABC7 Chicago Paczki Day 2024 list + WTTW paczki report (current operation, staff named); no closure reported in search 2026-10-03",
+    "statusChecked": "2026-10-03",
+    "note": "sanity: between 55th & 56th (~41.792) on Narragansett (6400 W ≈ -87.782) — consistent"
+   },
+   "Paco's Tacos (Archer original)": {
+    "address": "4311 S Archer Ave, Chicago, IL 60632",
+    "lat": 41.81513899,
+    "lng": -87.702288507,
+    "source": "https://www.waze.com/en-GB/live-map/directions/pacos-tacos-s-archer-ave-4311-chicago?to=place.w.178454946.1784549462.2384844 — Waze place record (name + 4311 S Archer Ave match); coordinate in result snippet alongside https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/936951-pacos-tacos.htm listing (WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Apple Maps listing, open 8am–8pm (maps.apple.com/place?place-id=I2A136745CAA6FE29), search 2026-10-03",
+    "statusChecked": "2026-10-03",
+    "note": "sanity: Archer at ~43rd St (~41.816) near California/Kedzie (-87.70) — consistent; med because snippet did not say which page carried the coordinate"
+   },
+   "La Internacional (Back of the Yards taqueria)": {
+    "address": "4556 S Ashland Ave, Chicago, IL 60609",
+    "lat": 41.810658871,
+    "lng": -87.665248631,
+    "source": "https://www.waze.com/live-map/directions/la-internacional-supermercado-s-ashland-ave-4556-chicago?to=place.w.178454946.1784746069.3820614 — Waze place record (La Internacional Supermercado, 4556 S Ashland Ave — street number matches; coordinate in result snippet; WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Apple Maps listing La Internacional, 4556 S Ashland (maps.apple.com/place?place-id=IA306371FA79885D) + Axios Nov 2025; search 2026-10-03",
+    "statusChecked": "2026-10-03",
+    "note": "sanity: 45th-46th St (~41.811) on Ashland (1600 W ≈ -87.665) — consistent; med because Waze names it 'Supermercado' (taqueria counter at same address)"
+   },
+   "Taquerías Atotonilco (Gage Park)": {
+    "address": "5656 S Kedzie Ave, Chicago, IL 60629",
+    "lat": 41.790043,
+    "lng": -87.7036856,
+    "source": "https://www.waze.com/live-map/directions/us/il/chicago/taquerias-atotonilco?to=place.ChIJ4dPEytsxDogRcnLLTLEBWcg — Waze place record (name + 5656 S Kedzie Ave match; lat/lng in result snippet; WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Apple Maps listing Taquerias Atotonilco, 5656 S Kedzie, current hours (maps.apple.com/place?place-id=ID2FB859E7690CBEC), search 2026-10-03",
+    "statusChecked": "2026-10-03",
+    "note": "sanity: ~57th St (~41.790) on Kedzie (3200 W ≈ -87.703) — consistent"
+   },
+   "The Map Room": {
+    "address": "1949 N Hoyne Ave, Chicago, IL 60647",
+    "lat": 41.917605242,
+    "lng": -87.679946778,
+    "source": "https://www.waze.com/live-map/directions/map-room-n-hoyne-ave-1949-chicago?to=place.w.178454947.1784680544.1424506 — Waze place record (name+address match; WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Apple Maps listing with current hours (maps.apple.com/place?place-id=I368F3FD48CADA087), search 2026-10-03",
+    "statusChecked": "2026-10-03",
+    "note": "sanity: matches 1949 N (just S of Armitage 2000 N) on Hoyne (2100 W) grid"
+   },
+   "Ferrara Bakery": {
+    "address": "2210 W Taylor St, Chicago, IL 60612",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Apple Maps listing \"Original\" Ferrara Bakery with current hours (maps.apple.com/place?place-id=I4BD3DB6648ADF8E0), search 2026-10-03",
+    "statusChecked": "2026-10-03",
+    "note": "WEST"
+   },
+   "Cork & Kerry": {
+    "address": "10614 S Western Ave, Chicago, IL 60643",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Apple Maps listing with current hours (maps.apple.com/place?place-id=I58B68790DAD53E8), search 2026-10-03",
+    "statusChecked": "2026-10-03",
+    "note": "FAR"
+   },
+   "Twin Anchors Restaurant & Tavern": {
+    "address": "1655 N Sedgwick St, Chicago, IL 60614",
+    "lat": 41.9127041,
+    "lng": -87.6383405,
+    "source": "https://maps.apple.com/place?+Tavern=&_provider=9902&address=1655+N+Sedgwick+St%2C+Chicago%2C+IL++60614%2C+United+States&coordinate=41.9127041%2C-87.6383405&name=Twin+Anchors+Restaurant+&place-id=IB8007E7041EB27F4 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/guides/chicago-greatest-old-school-restaurants (current listing; Apple Maps place listing live, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "sanity: matches 1655 N / Sedgwick (~400 W) grid"
+   },
+   "Akahoshi Ramen": {
+    "address": "2340 N California Ave, Unit B, Chicago, IL 60647",
+    "lat": 41.9240333,
+    "lng": -87.6975864,
+    "source": "https://maps.apple.com/place?address=2340+N+California+Ave%2C+Unit+B%2C+Chicago%2C+IL++60647%2C+United+States&coordinate=41.9240333%2C-87.6975864&name=Akahoshi+Ramen&place-id=I41B000A4DD5B4D20&_provider=9902 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://nbcchicago.com/news/local/chicago-restaurant-named-to-bon-appetits-list-of-20-best-new-restaurants-for-2024/3544607 (current listing; Apple Maps place listing live, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "sanity: matches 2340 N / California (2800 W) grid"
+   },
+   "Margie's Candies": {
+    "address": "1960 N Western Ave, Chicago, IL 60647",
+    "lat": 41.917458089,
+    "lng": -87.687634738,
+    "source": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/431130-margies-candies.htm — usarestaurants.info listing (address matches record; WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/guides/chicago-greatest-old-school-restaurants (current listing; Apple Maps place listing live, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "sanity: matches 1960 N (just S of Armitage 2000 N) on Western (2400 W) grid; Waze place record also exists at same address"
+   },
+   "Birrieria Zaragoza": {
+    "address": "4852 S Pulaski Rd, Chicago, IL 60632",
+    "lat": 41.80447,
+    "lng": -87.7237406,
+    "source": "https://maps.apple.com/place?q=Birrieria+Zaragoza&ll=41.80447%2C-87.7237406&auid=384527534371184454&lsp=9902&address=4852+S+Pulaski+Rd%2C+Chicago%2C+IL++60632%2C+United+States — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "MICHELIN Guide listing + Apple Maps (ll pin) both mark it TEMPORARILY closed (search 2026-10-03) — not a permanent closure; kept as open with this flag, re-check before publishing a refresh",
+    "statusChecked": "2026-10-03",
+    "note": "temporarily closed per Michelin/Apple 2026-10-03"
+   },
+   "Tufano's Vernon Park Tap": {
+    "address": "1073 W Vernon Park Pl, Chicago, IL 60607",
+    "lat": 41.872940641,
+    "lng": -87.654099403,
+    "source": "https://www.waze.com/live-map/directions/tufanos-vernon-park-tap-w-vernon-park-pl-1073-chicago?to=place.w.178454947.1784877147.2480112 — Waze place record (name + 1073 W Vernon Park Pl match; coordinate in result snippet; WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.choosechicago.com/articles/festivals-special-events/chicagos-james-beard-award-winners/ (current listing; Apple Maps place listing live, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "sanity: Vernon Park Pl just N of Polk (~41.873), ~1070 W (≈ -87.654) — consistent"
+   },
+   "Mario's Italian Lemonade": {
+    "address": "1068 W Taylor St, Chicago, IL 60607",
+    "lat": 41.8696695,
+    "lng": -87.6538286,
+    "source": "https://www.waze.com/live-map/directions/us/il/chicago/marios-italian-lemonade?to=place.ChIJ952t8uMsDogRoCWg8HbqYck — Waze place record (name + 1068 W Taylor St match; coordinate in result snippet; WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/reviews/marios-italian-lemonade (current listing; Apple Maps place listing live, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "sanity: Taylor (1000 S ≈ 41.869) at ~1068 W (≈ -87.654) — consistent"
    }
   },
   "philadelphia-pa": {
@@ -66416,23 +66584,22 @@
    },
    "Hymie's Merion Delicatessen": {
     "address": "342 Montgomery Ave, Merion Station, PA 19066",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 40.00551605,
+    "lng": -75.24375916,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '342 Montgomery Ave' (two listings agree): restaurantji.com/pa/merion-station/hymies-/ · menupix.com/pennsylvania/restaurants/map/3811275",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "",
-    "statusChecked": "2026-10-03",
-    "note": "Mentioned in Merion Station, PA article (Merion-Cynwyd Commercial District, Montgomery Ave) but no venue coordinates."
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
    },
    "Lark": {
     "address": "611 Righters Ferry Rd, Bala Cynwyd, PA 19004",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 40.0156625,
+    "lng": -75.2143742,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '611 Righters Ferry Rd (Ironworks at Pencoyd Landing)': restaurantguru.com/Lark-Bala-Cynwyd · restaurantji.com/pa/bala-cynwyd/lark-/",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "unknown",
     "statusSource": "no 2025-2026 source found within search budget; no closing article found",
     "statusChecked": "2026-10-03"
@@ -66472,11 +66639,11 @@
    },
    "Teresa's Next Door": {
     "address": "126 N Wayne Ave, Wayne, PA 19087",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 40.0450677,
+    "lng": -75.3881724,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '126 N Wayne Ave': restaurantji.com/pa/wayne/teresas-next-door-bar-/ · restaurantguru.com/Teresas-Next-Door-Wayne-Pennsylvania",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "unknown",
     "statusSource": "no 2025-2026 source found within search budget; no closing article found; named in Philly Mag 50 Best Bars (date not shown)",
     "statusChecked": "2026-10-03"
@@ -66493,15 +66660,16 @@
     "statusChecked": "2026-10-03"
    },
    "Pica's Restaurant (West Chester)": {
-    "address": "West Chester, PA 19380",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1233 West Chester Pike, West Chester, PA 19382",
+    "lat": 39.9686111,
+    "lng": -75.5572222,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing 'Pica's Restaurant, West Chester, 1233 West Chester Pike (West Goshen)' — DMS-rounded (~30 m): restaurantji.com/pa/west-chester/picas-restaurant-west-chester-/ · restaurantguru.com/Picas-Restaurant-West-Chester-West-Goshen",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "unknown",
     "statusSource": "no 2025-2026 source found within search budget; no closing article found; street address not verified",
-    "statusChecked": "2026-10-03"
+    "statusChecked": "2026-10-03",
+    "note": "address corrected from 'West Chester, PA 19380' to the listing's street address"
    },
    "Wanamaker Building & Grand Court Organ": {
     "address": "",
@@ -66823,15 +66991,16 @@
     "statusChecked": "2026-10-03"
    },
    "Phil & Jim's Steaks & Hoagies": {
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "2905 Edgmont Ave, Brookhaven, PA 19015",
+    "lat": 39.8677352,
+    "lng": -75.378,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing 'Phil & Jim's Steaks & Hoagies, 2905 Edgmont Ave, Brookhaven PA 19015' (Parkside/Brookhaven line, same ZIP as record): restaurantji.com/pa/brookhaven/phil-and-jims-delicatessen-/ · restaurantguru.com/Phil-and-Jims-Delicatessen-Chester-Pennsylvania",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "unknown",
     "statusSource": "Visit Delco (undated) https://visitdelcopa.com/phil-jims-steaks-hoagies",
-    "statusChecked": "2026-10-03"
+    "statusChecked": "2026-10-03",
+    "note": "address corrected from 'Parkside, PA 19015' to the listing's street address"
    },
    "Fort Mifflin": {
     "address": "",
@@ -67177,22 +67346,22 @@
    },
    "La Belle Epoque Bistro": {
     "address": "38 W State St, Media, PA 19063",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.9179442,
+    "lng": -75.3909181,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing 'La Belle Epoque Wine Bistro, 38 W State St': wanderlog.com/place/details/2642101 · restaurantguru.com/La-Belle-Epoque-Cafe-Upper-Providence-Township",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "OpenTable current reservation listing (checked 2026-10-02) https://www.opentable.com.au/la-belle-epoque-wine-bistro",
     "statusChecked": "2026-10-03"
    },
    "Domani Star": {
     "address": "57 W State St, Doylestown, PA 18901",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 40.3093708,
+    "lng": -75.1319578,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '57 W State St': restaurantji.com/pa/doylestown/domani-star-/ · restaurantguru.com/Domani-Star-Doylestown",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "unknown",
     "statusSource": "Inquirer suburbs Italian guide (undated) https://inquirer.com/food/italian-restaurants-philadelphia-suburbs-bucks-chester.html ; wanderlog https://wanderlog.com/place/details/2780747/domani-star",
     "statusChecked": "2026-10-03"
@@ -68477,6 +68646,171 @@
     "status": "open",
     "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
     "statusChecked": "2026-10-03"
+   },
+   "Tired Hands Fermentaria": {
+    "address": "35 Cricket Terrace, Ardmore, PA 19003",
+    "lat": 40.006676,
+    "lng": -75.290372,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '35 Cricket Terrace' (two listings within 20 m): restaurantji.com/pa/ardmore/tired-hands-fermentaria-/ · restaurantguru.com/Tired-Hands-Fermentaria-Philadelphia",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Donkey's Place": {
+    "address": "1223 Haddon Ave, Camden, NJ 08103",
+    "lat": 39.9315086,
+    "lng": -75.102272,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '1223 Haddon Ave' (two listings agree): restaurantji.com/nj/camden/donkeys-place-/ · restaurantguru.com/Donkeys-Place-Cherry-Hill",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Hearthside": {
+    "address": "801 Haddon Ave, Collingswood, NJ 08108",
+    "lat": 39.91567993,
+    "lng": -75.06641388,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '801 Haddon Ave': restaurantji.com/nj/collingswood/hearthside-/ · sirved.com/restaurant/collingswood-new_jersey-usa/hearthside/731304",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "June BYOB": {
+    "address": "690 Haddon Ave, Collingswood, NJ 08108",
+    "lat": 39.91622162,
+    "lng": -75.06942749,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '690 Haddon Ave': restaurantji.com/pa/philadelphia/june-byob-/ · restaurantguru.com/June-BYOB-Philadelphia",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Zeppoli": {
+    "address": "618 Collings Ave, Collingswood, NJ 08107",
+    "lat": 39.9107253,
+    "lng": -75.0845011,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '618 Collings Ave': restaurantji.com/nj/collingswood/zeppoli-/ · restaurantguru.com/Zeppoli-Cherry-Hill",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Vecchia Pizzeria": {
+    "address": "249 Bridge St, Phoenixville, PA 19460",
+    "lat": 40.13381195,
+    "lng": -75.51834869,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing at '249 Bridge St Suite 2' now trading as 'Vecchia Nuova' (same address; restaurantguru slug Vecchia-Pizzeria-Phoenixville): restaurantji.com/pa/phoenixville/vecchia-pizzeria-/",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Victory Brewing Company (Downingtown)": {
+    "address": "420 Acorn Ln, Downingtown, PA 19335",
+    "lat": 40.004718,
+    "lng": -75.6938179,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '420 Acorn Ln' (two listings agree): restaurantji.com/pa/downingtown/victory-brewing-company-/ · restaurantguru.com/Victory-Brewing-Company-Downingtown",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Bluebird Distilling": {
+    "address": "100 Bridge St, Phoenixville, PA 19460",
+    "lat": 40.13411713,
+    "lng": -75.5125351,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '100 Bridge St': restaurantji.com/pa/phoenixville/bluebird-distilling-/ · sirved.com/restaurant/phoenixville-pennsylvania-usa/bluebird-distilling/771486",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Jolene's": {
+    "address": "29 E Gay St, West Chester, PA 19380",
+    "lat": 39.9609956,
+    "lng": -75.6045546,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '29 E Gay St': restaurantji.com/pa/west-chester/jolene-s-/ · restaurantguru.com/Jolenes-West-Chester",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Sweet Amelia's": {
+    "address": "102 E State St, Kennett Square, PA 19348",
+    "lat": 39.8467456,
+    "lng": -75.7114565,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '102 E State St': restaurantji.com/pa/kennett-square/sweet-amelias-/ · restaurantguru.com/Sweet-Amelias-Kennett-Square",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Ro-Lynn Delicatessen": {
+    "address": "3407 Edgmont Ave, Brookhaven, PA 19015",
+    "lat": 39.87028885,
+    "lng": -75.38345337,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '3407 Edgmont Ave' (two listings agree): restaurantji.com/pa/brookhaven/ro-lynns-delicatessen-/ · restaurantguru.com/Ro-Lynn-Deli-Aston",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Autograph Brasserie": {
+    "address": "503 W Lancaster Ave, Wayne, PA 19087",
+    "lat": 40.0451993,
+    "lng": -75.4019931,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '503 W Lancaster Ave' (two listings agree): restaurantji.com/pa/wayne/autograph-brasserie-/ · restaurantguru.com/Autograph-Brasserie-King-of-Prussia",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Bam Bam Kitchen": {
+    "address": "31 E Lancaster Ave, Ardmore, PA 19003",
+    "lat": 40.00745773,
+    "lng": -75.28985596,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '31 E Lancaster Ave': restaurantji.com/pa/ardmore/bam-bam-kitchen-/ · restaurantguru.com/Bam-Bam-Ardmore-Pennsylvania",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Coyote Crossing": {
+    "address": "800 Spring Mill Ave, Conshohocken, PA 19428",
+    "lat": 40.0756845,
+    "lng": -75.2928669,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '800 Spring Mill Ave' (two listings within 15 m): restaurantji.com/pa/conshohocken/coyote-crossing-/ · menupix.com/pennsylvania/restaurants/map/3805738",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "The Bakery House": {
+    "address": "604 W Lancaster Ave, Bryn Mawr, PA 19010",
+    "lat": 40.0179583,
+    "lng": -75.3116514,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '604 W Lancaster Ave': restaurantji.com/pa/bryn-mawr/the-bakery-house-/ · restaurantguru.com/The-Bakery-House-Bryn-Mawr",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
    }
   },
   "hokkaido": {
@@ -69416,23 +69750,23 @@
     "statusChecked": "2026-10-03"
    },
    "Otaru Herring Mansion, Shukutsu (鰊御殿)": {
-    "address": "Shukutsu, Otaru, Hokkaido, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "北海道小樽市祝津3-228 (小樽市鰊御殿)",
+    "lat": 43.237805,
+    "lng": 141.015577,
+    "source": "NAVITIME POI https://www.navitime.co.jp/poi?spot=02301-1503775 — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, P1)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "japan-guide.com e6703 (seasonal, current)",
     "statusChecked": "2026-10-03"
    },
    "Former Aoyama Villa — Otaru Kihinkan (小樽貴賓館 旧青山別邸)": {
-    "address": "Shukutsu, Otaru, Hokkaido, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "北海道小樽市祝津3-63",
+    "lat": 43.231674,
+    "lng": 141.007808,
+    "source": "NAVITIME POI https://www.navitime.co.jp/poi?spot=02301-1300149 — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, P1)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "visit-hokkaido.jp spot 10041 (current)",
     "statusChecked": "2026-10-03"
@@ -69471,12 +69805,12 @@
     "statusChecked": "2026-10-03"
    },
    "Patchwork Road, Biei (パッチワークの路)": {
-    "address": "Biei (northwest of the town centre), Kamikawa District, Hokkaido, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "北海道上川郡美瑛町 (パッチワークの路)",
+    "lat": 43.630674,
+    "lng": 142.427759,
+    "source": "NAVITIME POI https://www.navitime.co.jp/poi?spot=02301-1503127 — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, P1)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "japan-guide.com e6828 (current)",
     "statusChecked": "2026-10-03"
@@ -69757,12 +70091,12 @@
     "statusChecked": "2026-10-03"
    },
    "Hachimanzaka Slope (八幡坂)": {
-    "address": "Motomachi, Hakodate, Hokkaido, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "北海道函館市末広町 (八幡坂)",
+    "lat": 41.764898,
+    "lng": 140.712888,
+    "source": "NAVITIME POI https://www.navitime.co.jp/poi?spot=02301-1300137 — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, P1)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "visit-hokkaido.jp spot 10089 (public street)",
     "statusChecked": "2026-10-03"
@@ -70054,12 +70388,12 @@
     "statusChecked": "2026-10-03"
    },
    "Niseko Takahashi Farm Milk Kobo (ニセコ高橋牧場 ミルク工房)": {
-    "address": "Niseko, Abuta District, Hokkaido, Japan (near Niseko Village ski resort)",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "北海道虻田郡ニセコ町曽我888-1",
+    "lat": 42.837178,
+    "lng": 140.675236,
+    "source": "NAVITIME POI https://www.navitime.co.jp/poi?spot=02301-1300050 — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, P1)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "rurubu&more spot page (prices listed, current)",
     "statusChecked": "2026-10-03"
@@ -70549,23 +70883,23 @@
     "statusChecked": "2026-10-03"
    },
    "Kaze no Garden, Furano (風のガーデン)": {
-    "address": "New Furano Prince Hotel grounds, Furano, Hokkaido, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "北海道富良野市中御料 (新富良野プリンスホテル内 風のガーデン)",
+    "lat": 43.326819,
+    "lng": 142.358594,
+    "source": "NAVITIME POI https://www.navitime.co.jp/poi?spot=02301-1500715 — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, P1)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "visit-hokkaido.jp spot 10147 (seasonal, current)",
     "statusChecked": "2026-10-03"
    },
    "Unkai Terrace, Hoshino Resorts Tomamu (雲海テラス)": {
-    "address": "Tomamu, Shimukappu, Yūfutsu District, Hokkaido, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "北海道勇払郡占冠村中トマム (星野リゾート トマム 雲海テラス)",
+    "lat": 43.078183,
+    "lng": 142.596425,
+    "source": "NAVITIME POI https://www.navitime.co.jp/poi?spot=02301-1500609 — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, P1)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "rurubu&more (seasonal opening May–Oct, current season listed)",
     "statusChecked": "2026-10-03"
@@ -70967,12 +71301,12 @@
     "statusChecked": "2026-10-03"
    },
    "Kushiro Rāmen Kawamura (釧路ラーメン 河むら)": {
-    "address": "Suehiro-chō 5-3, Kushiro, Hokkaido, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "北海道釧路市末広町5-3",
+    "lat": 42.9843094,
+    "lng": 144.3863385,
+    "source": "MapFan spot https://mapfan.com/spots/S3W4W,J,2NH1 — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, P1)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "rurubu&more spot page (hours current)",
     "statusChecked": "2026-10-03"
@@ -71264,12 +71598,12 @@
     "statusChecked": "2026-10-03"
    },
    "Hakodate Beer (はこだてビール)": {
-    "address": "Kaikō-dōri, Ōte-machi 5-22, Hakodate, Hokkaido, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "北海道函館市大手町5-22 明治館通り",
+    "lat": 41.768285,
+    "lng": 140.721231,
+    "source": "NAVITIME POI https://www.navitime.co.jp/poi?spot=02301-1300033 — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, P1)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "rurubu&more spot page (current)",
     "statusChecked": "2026-10-03"
@@ -72089,12 +72423,12 @@
     "statusChecked": "2026-10-03"
    },
    "Ōyunuma River Natural Footbath, Noboribetsu (大湯沼川天然足湯)": {
-    "address": "Noboribetsu Onsen, Noboribetsu, Hokkaido, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "北海道登別市登別温泉町 (大湯沼川天然足湯)",
+    "lat": 42.502195,
+    "lng": 141.142945,
+    "source": "NAVITIME POI https://www.navitime.co.jp/poi?spot=02301-1503475 — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, P1)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "visit-hokkaido.jp spot 11428 (hours 8:00–17:00, winter closure possible)",
     "statusChecked": "2026-10-03"
@@ -72364,12 +72698,12 @@
     "statusChecked": "2026-10-03"
    },
    "Ice Cream Parlor Misono, Otaru (アイスクリームパーラー美園)": {
-    "address": "Inaho 2-12-15, Otaru, Hokkaido, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "北海道小樽市稲穂2-12-15",
+    "lat": 43.197568,
+    "lng": 140.996099,
+    "source": "NAVITIME POI https://www.navitime.co.jp/poi?spot=02301-1500125 — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, P1)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "rurubu spot page (closed Tue/Wed)",
     "statusChecked": "2026-10-03"
@@ -72914,12 +73248,12 @@
     "statusChecked": "2026-10-03"
    },
    "Akan International Crane Center 'GRUS' (阿寒国際ツルセンター)": {
-    "address": "23-40 Kamiakan, Akan-chō, Kushiro, Hokkaido, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "北海道釧路市阿寒町上阿寒23線40",
+    "lat": 43.143975,
+    "lng": 144.145378,
+    "source": "NAVITIME POI https://www.navitime.co.jp/poi?spot=02301-1300123 — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, P1)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "kushiro-lakeakan.com winter feature (current)",
     "statusChecked": "2026-10-03"
@@ -73464,23 +73798,23 @@
     "statusChecked": "2026-10-03"
    },
    "Makkari Onsen (まっかり温泉)": {
-    "address": "Makkari, Abuta District, Hokkaido, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "北海道虻田郡真狩村緑岡174-3",
+    "lat": 42.765076,
+    "lng": 140.77766,
+    "source": "NAVITIME POI https://www.navitime.co.jp/poi?spot=02300-1015502 — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, P1)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "rurubu&more day-onsen 2026 listing",
     "statusChecked": "2026-10-03"
    },
    "Yōtei Nature Park & Yōtei Spring, Makkari (羊蹄山自然公園・羊蹄の湧水)": {
-    "address": "Makkari, Abuta District, Hokkaido, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "北海道虻田郡真狩村 (羊蹄山自然公園 真狩キャンプ場)",
+    "lat": 42.793454,
+    "lng": 140.786296,
+    "source": "NAVITIME POI https://www.navitime.co.jp/poi?spot=00004-01151900138 — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, P1)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "visit-hokkaido spot 10329 (current)",
     "statusChecked": "2026-10-03"
@@ -73673,12 +74007,12 @@
     "statusChecked": "2026-10-03"
    },
    "Campana Rokkatei, Furano (カンパーナ六花亭)": {
-    "address": "Shimizuyama, Furano, Hokkaido, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "北海道富良野市清水山 (〒076-0048, カンパーナ六花亭)",
+    "lat": 43.364394,
+    "lng": 142.377224,
+    "source": "NAVITIME POI https://www.navitime.co.jp/poi?spot=02301-1500228 — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, P1)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "rurubu&more spot page (10:30–16:00, seasonal, current)",
     "statusChecked": "2026-10-03"
@@ -74025,12 +74359,12 @@
     "statusChecked": "2026-10-03"
    },
    "Gorō's Stone House — 'Kita no Kuni kara' (五郎の石の家・最初の家)": {
-    "address": "Rokugō, Furano, Hokkaido, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "北海道富良野市東麓郷 (五郎の石の家, 〒076-0175)",
+    "lat": 43.313993,
+    "lng": 142.564449,
+    "source": "NAVITIME POI https://www.navitime.co.jp/poi?spot=02301-1500634 — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, P1)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "rurubu spot page + furanotourism.com spot 401 (3-site common ticket, current)",
     "statusChecked": "2026-10-03"
@@ -98274,15 +98608,14 @@
    },
    "The Strand": {
     "address": "807 N Mills Ave, Orlando, FL 32803",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 28.5553174,
+    "lng": -81.36429,
+    "source": "restaurantguru.com/The-Strand-Orlando listing 28.55531740,-81.36429000 (807 N Mills Ave, matches)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Listed in the 2026 MICHELIN Guide Florida (announced 2026-05-28): https://guide.michelin.com/us/en/florida/orlando/restaurants",
-    "statusChecked": "2026-10-03",
-    "note": "restaurant place-pin not surfaced by WebSearch; queue for tools/geocode-helper.html"
+    "statusChecked": "2026-10-03"
    },
    "Sushi Saint": {
     "address": "400 Pittman St, Suite A, Orlando, FL 32801",
@@ -98297,16 +98630,15 @@
     "note": "restaurant place-pin not surfaced by WebSearch; queue for tools/geocode-helper.html"
    },
    "Taste of Chengdu": {
-    "address": "856 New Broad St, Orlando, FL 32814",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "4856 New Broad St, Orlando, FL 32814",
+    "lat": 28.5671222,
+    "lng": -81.3265548,
+    "source": "restaurantguru.com/Taste-Of-Chengdu-Orlando-2 listing 28.56712220,-81.32655480 at 4856 New Broad St (Baldwin Park) — record's '856 New Broad St' corrected; the separate 2030 W Colonial Dr branch is not this record",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Listed in the 2026 MICHELIN Guide Florida (announced 2026-05-28): https://guide.michelin.com/us/en/florida/orlando/restaurants",
-    "statusChecked": "2026-10-03",
-    "note": "restaurant place-pin not surfaced by WebSearch; queue for tools/geocode-helper.html"
+    "statusChecked": "2026-10-03"
    },
    "UniGirl": {
     "address": "1110 E Colonial Dr, Orlando, FL 32803",
@@ -99917,16 +100249,15 @@
     "note": "via WebSearch 2026-10-03"
    },
    "Morimoto Asia": {
-    "address": "Disney Springs, Lake Buena Vista, FL",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1600 E Buena Vista Dr, Lake Buena Vista, FL 32830",
+    "lat": 28.370839291,
+    "lng": -81.517914383,
+    "source": "Waze live-map place record 'Morimoto Asia & Street Food, 1600 E Buena Vista Dr' (place.w.182518044.1825049365.2393735) 28.370839291,-81.517914383 (near the Disney Springs centre record → med)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Recommended as open in https://guide.michelin.com/us/en/florida/orlando/restaurants",
-    "statusChecked": "2026-10-03",
-    "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+    "statusChecked": "2026-10-03"
    },
    "Pizza Bruno": {
     "address": "Curry Ford West, Orlando, FL",
@@ -100912,15 +101243,14 @@
    },
    "Black Hammock Restaurant (Lazy Gator Bar)": {
     "address": "2316 Black Hammock Fish Camp Rd, Oviedo, FL",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 28.704506706,
+    "lng": -81.206677587,
+    "source": "Waze live-map place record 'The Black Hammock Restaurant, 2316 Black Hammock Fish Camp Rd, Oviedo' (place.w.182714655.1827081014.1034793) 28.704506706,-81.206677587",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://tastychomps.com/2026/07/a-taste-of-old-florida-and-gator-tail-at-black-hammock-restaurant-on-lake-jesup.html (open July 2026)",
-    "statusChecked": "2026-10-03",
-    "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+    "statusChecked": "2026-10-03"
    },
    "Hollerbach's Willow Tree Café": {
     "address": "205 E 1st St, Sanford, FL",
@@ -100959,15 +101289,14 @@
    },
    "Wine Bar George": {
     "address": "1610 E. Buena Vista Drive, Lake Buena Vista, FL",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 28.371331,
+    "lng": -81.5177799,
+    "source": "usarestaurants.info wine-bar-george-a-restaurant-bar-407-490-1800 listing 28.371331,-81.5177799 (1610 E Buena Vista Dr, matches)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Recommended as open in https://scottjosephorlando.com/restaurant_listing/wine-bar-george/",
-    "statusChecked": "2026-10-03",
-    "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+    "statusChecked": "2026-10-03"
    },
    "Jaleo": {
     "address": "West Side, Disney Springs, Lake Buena Vista, FL",
@@ -101055,15 +101384,14 @@
    },
    "The Boathouse": {
     "address": "1620 E. Buena Vista Drive, Disney Springs, Lake Buena Vista, FL",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 28.371843199,
+    "lng": -81.517759652,
+    "source": "Waze live-map place record 'The Boathouse, 1620 E Buena Vista Dr' (place.w.182518044.1825049365.2393969) 28.371843199,-81.517759652",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Recommended as open in https://community.orlandoweekly.com/best-of/2025/food-dining/best-theme-park-restaurant-40216703",
-    "statusChecked": "2026-10-03",
-    "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+    "statusChecked": "2026-10-03"
    },
    "Gideon's Bakehouse": {
     "address": "The Landing (between Morimoto Asia and Wine Bar George), Disney Springs, Lake Buena Vista, FL",
@@ -101209,27 +101537,25 @@
    },
    "Bacán": {
     "address": "Lake Nona Wave Hotel, 6100 Wave Hotel Dr, Orlando, FL 32827",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 28.3738641,
+    "lng": -81.2815696,
+    "source": "Waze/Google place record 'Lake Nona Wave Hotel, 6100 Wave Hotel Dr' (place.ChIJSwwySj-J3YgRGZWz5rH91eE) 28.3738641,-81.2815696 — building pin; Bacán is the hotel's ground-floor restaurant",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Recommended as open in https://guide.michelin.com/mx/es/florida/orlando/restaurante/bacan",
-    "statusChecked": "2026-10-03",
-    "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+    "statusChecked": "2026-10-03"
    },
    "Nami": {
     "address": "Lake Nona Wave Hotel, 6100 Wave Hotel Dr, Orlando, FL 32827",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 28.3738641,
+    "lng": -81.2815696,
+    "source": "Waze/Google place record 'Lake Nona Wave Hotel, 6100 Wave Hotel Dr' (place.ChIJSwwySj-J3YgRGZWz5rH91eE) 28.3738641,-81.2815696 — building pin; Nami is inside the hotel",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Recommended as open in https://guide.michelin.com/be/fr/florida/orlando/restaurant/nami",
-    "statusChecked": "2026-10-03",
-    "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+    "statusChecked": "2026-10-03"
    },
    "Columbia Restaurant (Celebration)": {
     "address": "649 Front St, Celebration, FL 34747",
@@ -101256,16 +101582,15 @@
     "note": "RG files it under Bay Lake; same 3270 Margaritaville Blvd address"
    },
    "Estefan Kitchen": {
-    "address": "Sunset Walk at Margaritaville Resort Orlando, Margaritaville Blvd, Kissimmee, FL 34747",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "3269 Margaritaville Blvd (Sunset Walk), Kissimmee, FL 34747",
+    "lat": 28.3456203,
+    "lng": -81.6084969,
+    "source": "restaurantguru.com/Estefan-Kitchen-Bay-Lake listing 28.34562030,-81.60849690 at 3269 Margaritaville Blvd (Sunset Walk, matches record street)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Recommended as open in https://www.orlandomagazine.com/the-2025-orlando-dining-awards-readers-choice-list/",
-    "statusChecked": "2026-10-03",
-    "note": "exact street number not surfaced; Sunset Walk complex on Margaritaville Blvd — needs place-pin pass"
+    "statusChecked": "2026-10-03"
    },
    "Melao Bakery": {
     "address": "1912 Fortune Rd, Kissimmee, FL 34744",
@@ -101304,15 +101629,14 @@
    },
    "Raglan Road Irish Pub": {
     "address": "The Landing, Disney Springs, 1640 E Buena Vista Dr, Lake Buena Vista, FL 32830",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 28.3711664,
+    "lng": -81.5176381,
+    "source": "usarestaurants.info raglan-road-irish-pub-407-938-0300 listing / Waze place 'Raglan Road Irish Pub & Restaurant, 1640 E Buena Vista Dr' — 28.3711664,-81.5176381",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Recommended as open in https://touringplans.com/blog/2023-awards-best-of-disney-world-dining/",
-    "statusChecked": "2026-10-03",
-    "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+    "statusChecked": "2026-10-03"
    },
    "Chef Art Smith's Homecomin'": {
     "address": "The Landing, Disney Springs, 1602 E Buena Vista Dr, Lake Buena Vista, FL 32830",
@@ -101763,16 +102087,15 @@
     "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
    },
    "The Cowfish Sushi Burger Bar": {
-    "address": "Universal CityWalk (second floor, next to Red Oven Pizza Bakery), Orlando, FL",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "6000 Universal Blvd (CityWalk), Orlando, FL 32819",
+    "lat": 28.473076422,
+    "lng": -81.465559571,
+    "source": "Waze live-map place record 'The Cowfish - Universal CityWalk, 6000 Universal Blvd' (place.w.182518045.1825377055.1474719) 28.473076422,-81.465559571 (distinct from the CityWalk centre 28.47299,-81.46589)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Recommended as open in https://www.fodors.com/world/north-america/usa/florida/universal-orlando/neighborhoods/universal-citywalk/restaurants",
-    "statusChecked": "2026-10-03",
-    "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+    "statusChecked": "2026-10-03"
    },
    "ICON Park & The Wheel": {
     "address": "8375 International Dr, Orlando, FL 32819",
@@ -101799,16 +102122,15 @@
     "note": "adjacent-complex point, not WonderWorks own → low, re-verify"
    },
    "Aquatica Orlando": {
-    "address": "SeaWorld Orlando resort complex, Orlando, FL",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "5800 Water Play Way, Orlando, FL 32821",
+    "lat": 28.415473367,
+    "lng": -81.45683054,
+    "source": "Waze live-map place record 'Aquatica, 5800 Water Play Way, Orlando' (place.w.182518044.1825442586.265699) 28.415473367,-81.45683054; Wikipedia's Aquatica coord (28.4054,-81.4617) rejected — ~1.2 km off the park",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://en.wikipedia.org/wiki/Aquatica_(water_parks) (listed as operating)",
-    "statusChecked": "2026-10-03",
-    "note": "no published coordinate surfaced; needs a place-pin pass"
+    "statusChecked": "2026-10-03"
    },
    "Discovery Cove": {
     "address": "SeaWorld Orlando resort complex, Orlando, FL",
@@ -102224,15 +102546,14 @@
    },
    "Wondermade": {
     "address": "214 E 1st St, Sanford, FL 32771",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 28.811948365,
+    "lng": -81.26693429,
+    "source": "Waze live-map place record 'Wondermade, 214 E 1st St, Sanford' (place.w.182649120.1826687809.6455103) 28.811948365,-81.26693429",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Recommended as open in https://www.orlandoweekly.com/food-drink/20-essential-sanford-restaurants-you-probably-shouldve-tried-by-now-30946809/",
-    "statusChecked": "2026-10-03",
-    "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+    "statusChecked": "2026-10-03"
    },
    "Lake Apopka Wildlife Drive": {
     "address": "2850 Lust Rd, Apopka, FL 32703",
@@ -102590,15 +102911,14 @@
    },
    "Vines Grille & Wine Bar": {
     "address": "7533 W Sand Lake Rd, Orlando, FL",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 28.450627985,
+    "lng": -81.484873863,
+    "source": "Waze live-map place record 'Vines Grille & Wine Bar, 7533 W Sand Lake Rd' (place.w.182518045.1825245981.3606574) 28.450627985,-81.484873863",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Recommended as open in https://www.orlandoweekly.com/food-drink/the-30-best-restaurants-a-short-drive-from-orlando-theme-parks-39509741/",
-    "statusChecked": "2026-10-03",
-    "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+    "statusChecked": "2026-10-03"
    },
    "Charley's Steak House (Kissimmee)": {
     "address": "2901 Parkway Blvd Suite 1A, Kissimmee, FL 34747",
@@ -104861,34 +105181,34 @@
     "statusChecked": "2026-10-03"
    },
    "Coopertown Restaurant": {
-    "address": "22700 SW 8th St, Miami",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "22700 SW 8th St, Miami, FL",
+    "lat": 25.7607502,
+    "lng": -80.5612506,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '22700 SW 8th St' (Coopertown airboat + restaurant): restaurantguru.com/Coopertown-Restaurant-United-States · wanderlog.com/place/details/472446",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "miamiandbeaches.com official listing: open daily 9am-5pm (searched 2026-10-02)",
     "statusChecked": "2026-10-03"
    },
    "City Seafood": {
-    "address": "702 Begonia St, Everglades City",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "702 Begonia St, Everglades City, FL",
+    "lat": 25.8665922,
+    "lng": -81.3849092,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '702 Begonia St': restaurantji.com/fl/everglades-city/city-seafood-/ · restaurantguru.com/City-Seafood-Everglades-City",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
     "statusChecked": "2026-10-03"
    },
    "Joanie's Blue Crab Cafe": {
-    "address": "39395 Tamiami Trail E, Ochopee",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "39395 Tamiami Trail E, Ochopee, FL",
+    "lat": 25.901475,
+    "lng": -81.2949694,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '39395 Tamiami Trl E' (two listings agree): restaurantji.com/fl/ochopee/joanies-blue-crab-cafe-/ · restaurantguru.com/Joanies-Blue-Crab-Cafe-Ochopee",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "floridafoodsafety.org inspection record 2025-05-08; Infatuation review (searched 2026-10-02)",
     "statusChecked": "2026-10-03"
@@ -108355,6 +108675,87 @@
     "status": "open",
     "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
     "statusChecked": "2026-10-03"
+   },
+   "Flanigan's Coconut Grove": {
+    "address": "2721 Bird Ave, Miami (Coconut Grove), FL 33133",
+    "lat": 25.73582268,
+    "lng": -80.2383728,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing 'Flanigan's Seafood Bar and Grill, 2721 Bird Ave, Coconut Grove': restaurantji.com/fl/coconut-grove/flanigans-seafood-bar-and-grill-/ · restaurantguru.com/Flanigans-Seafood-Bar-and-Grill-Miami-8",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03",
+    "note": "address corrected from 'Coconut Grove, Miami, FL' to the listing's street address"
+   },
+   "Taurus Beer & Whiskey House": {
+    "address": "3540 Main Hwy, Coconut Grove, Miami, FL",
+    "lat": 25.7252843,
+    "lng": -80.2450288,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing 'The Taurus Coconut Grove, 3540 Main Hwy': wanderlog.com/place/details/447118 · restaurantguru.com/Taurus-Miami",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "El Carajo International Tapas & Wines": {
+    "address": "2465 SW 17th Ave, Miami, FL 33145",
+    "lat": 25.7467685,
+    "lng": -80.2215438,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing 'El Carajo, 2465 SW 17th Ave' (inside the gas station): restaurantji.com/fl/miami/el-carajo-international-tapas-and-wines-/ · restaurantguru.com/El-Carajo-International-Tapas-and-Wines-Miami",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03",
+    "note": "address corrected from 'Coconut Grove, FL (inside a gas station)' to the listing's street address"
+   },
+   "Jack's Old Fashioned Hamburger House": {
+    "address": "4201 N Federal Hwy, Oakland Park, FL 33308",
+    "lat": 26.17934418,
+    "lng": -80.12001801,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing 'Jack's Old Fashion Hamburger, 4201 N Federal Hwy, Oakland Park': restaurantji.com/fl/oakland-park/jacks-old-fashion-hamburger-/ · sirved.com/restaurant/oakland_park-florida-usa/jacks-old-fashion-hamburger-house/699195",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03",
+    "note": "address corrected from 'Oakland Park, FL' to the listing's street address"
+   },
+   "Billy's Stone Crab": {
+    "address": "400 N Ocean Dr, Hollywood, FL 33019",
+    "lat": 26.01450348,
+    "lng": -80.11767578,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing 'Billy's Stone Crab Restaurant, 400 N Ocean Dr, Hollywood': restaurantji.com/fl/hollywood/billys-stone-crab-hollywood-/ · restaurantguru.com/Billys-Stone-Crab-Hollywood",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03",
+    "note": "address corrected from 'Hollywood, FL (Intracoastal waterfront)' to the listing's street address"
+   },
+   "Triad Seafood Market & Café": {
+    "address": "401 W School Dr, Everglades City, FL",
+    "lat": 25.8638453,
+    "lng": -81.3878024,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing for '401 W School Dr': restaurantji.com/fl/everglades-city/triad-seafood-market-and-cafe-/ · restaurantguru.com/Triad-Seafood-Everglades-City",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Live map place record (Waze/Apple/listing) with no closure marker; open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Havana Café of the Everglades": {
+    "address": "191 Smallwood Dr, Chokoloskee, FL",
+    "lat": 25.81529045,
+    "lng": -81.35958099,
+    "source": "W-pins 2026-10-03 place pin via WebSearch: aggregator listing 'HavAnnA Cafe, 191 Smallwood Dr, Chokoloskee': restaurantji.com/fl/chokoloskee/havana-cafe-of-the-everglades-/ · sirved.com/restaurant/chokoloskee-florida-usa/havana-cafe-of-the-everglades/401296",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "unknown",
+    "statusSource": "Apple Maps listing showed 'temporarily closed' (W5); aggregator listings (restaurantji/sirved, as 'HavAnnA Cafe') still active — reopening not confirmed by press. Status UNKNOWN, recheck. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
    }
   },
   "madison-wi": {
@@ -110651,11 +111052,11 @@
    },
    "Union South & the Sett": {
     "address": "1308 W Dayton St, Madison, WI 53715",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 43.07639,
+    "lng": -89.4,
+    "source": "https://en.wikipedia.org/wiki/Union_South_(Wisconsin) (43°4′35″N 89°24′0″W)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Badger Bash at Union South, Sept 2026 (WMTV)",
     "statusChecked": "2026-10-03"
@@ -110749,14 +111150,25 @@
     "statusChecked": "2026-10-03"
    },
    "Mid-Continent Railway Museum": {
-    "address": "North Freedom, WI 53951",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "E8948 Museum Rd, North Freedom, WI 53951",
+    "lat": 43.4602,
+    "lng": -89.8744,
+    "source": "https://www.midcontinent.org/contact-us/ (official GPS N 43.4602, W 89.8744; Wikipedia 43°28′N 89°52′W agrees)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
-    "statusSource": "Current listing (Travel Wisconsin / Destination Madison / Dane County, 2026)",
+    "statusSource": "Current hours on Apple Maps place card / midcontinent.org (2026)",
+    "statusChecked": "2026-10-03"
+   },
+   "Gates & Brovi": {
+    "address": "3502 Monroe St, Madison, WI 53711",
+    "lat": 43.052922956,
+    "lng": -89.435660183,
+    "source": "https://www.waze.com/en/live-map/directions/gates-and-brovi-monroe-st-3502-madison?to=place.w.177340847.1773146321.1555971",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Waze live place + current Travel Wisconsin fish-fry guide (2026)",
     "statusChecked": "2026-10-03"
    }
   },
@@ -111168,15 +111580,15 @@
    },
    "9th Street Bistro": {
     "address": "56 S 9th St, Noblesville, IN",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 40.045057,
+    "lng": -86.0132957,
+    "source": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/hamilton-county/noblesville-township/noblesville/9th-street-bistro-317-774-5065.htm (WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Indianapolis Monthly Best Restaurants 2026 (Sept 2026)",
     "statusChecked": "2026-10-03",
-    "note": "no published place coordinate found via WebSearch; queue for tools/geocode-helper.html"
+    "note": "sanity: downtown Noblesville, just W of the courthouse square (~40.045,-86.009) on S 9th St"
    },
    "Love Handle": {
     "address": "877 Massachusetts Ave, Indianapolis, IN 46202",
@@ -111341,15 +111753,15 @@
    },
    "Holliday Park & The Ruins": {
     "address": "6363 Spring Mill Rd, Indianapolis, IN 46260",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.871108211,
+    "lng": -86.161281163,
+    "source": "Waze live-map place record https://www.waze.com/live-map/directions/holliday-park-spring-mill-rd-6363-indianapolis?to=place.w.179437967.1794641811.256803 (name + address match; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Indy Parks page",
     "statusChecked": "2026-10-03",
-    "note": "no published place coordinate found via WebSearch; queue for tools/geocode-helper.html"
+    "note": "sanity: Spring Mill Rd (~-86.16) at ~64th St (~39.871), Meridian-Kessler/Butler-Tarkington north side; park pin, not specifically the Ruins"
    },
    "Holcomb Observatory & Planetarium": {
     "address": "4600 Sunset Ave, Indianapolis, IN",
@@ -111453,15 +111865,15 @@
    },
    "Coxhall Gardens": {
     "address": "11677 Towne Rd, Carmel, IN 46032",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.958657789,
+    "lng": -86.197605907,
+    "source": "Waze live-map place record https://www.waze.com/live-map/directions/coxhall-park-and-gardens-w-116th-st-2000-carmel?to=place.w.179437968.1794379676.259069 (name match; Waze address 2000 W 116th St vs input 11677 Towne Rd; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Visit Hamilton County guide",
     "statusChecked": "2026-10-03",
-    "note": "no published place coordinate found via WebSearch; queue for tools/geocode-helper.html"
+    "note": "sanity: SW corner area of 116th St (~39.956) & Towne Rd (~-86.20), west Carmel; same park, different entrance address | pin source address: 2000 W 116th St, Carmel, IN 46033"
    },
    "Zionsville Village (brick Main Street)": {
     "address": "Main St, Zionsville, IN",
@@ -111705,15 +112117,15 @@
    },
    "Holy Rosary Church & Italian Street Festival": {
     "address": "520 Stevens St, Indianapolis, IN",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.758028488,
+    "lng": -86.148785947,
+    "source": "Waze live-map place record https://www.waze.com/live-map/directions/holy-rosary-catholic-church-stevens-street-520-indianapolis?to=place.w.179503502.1794707336.2174459 (name + address match; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Active parish; festival covered annually (WRTV/WISH)",
     "statusChecked": "2026-10-03",
-    "note": "no published place coordinate found via WebSearch; queue for tools/geocode-helper.html"
+    "note": "sanity: Fletcher Place just SE of downtown (~39.758,-86.149), near I-65/I-70 split | pin source address: 520 Stevens Street, Indianapolis, IN"
    },
    "Monon Trail (10th Street trailhead)": {
     "address": "Monon Trail at E 10th St, Indianapolis, IN",
@@ -111729,15 +112141,15 @@
    },
    "Indiana Landmarks Center": {
     "address": "1201 Central Ave, Indianapolis, IN 46202",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.7833169,
+    "lng": -86.148961767,
+    "source": "Waze live-map place record https://www.waze.com/live-map/directions/indiana-landmarks-center-central-ave-1201-indianapolis?to=place.w.179503502.1794707338.483660 (name + address match; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Indiana Landmarks campus page (HQ in use)",
     "statusChecked": "2026-10-03",
-    "note": "no published place coordinate found via WebSearch; queue for tools/geocode-helper.html"
+    "note": "sanity: Old Northside, Central Ave (~-86.149) at 12th St (~39.783)"
    },
    "International Marketplace (Lafayette Square)": {
     "address": "Lafayette Rd & W 38th St, Indianapolis, IN",
@@ -112101,15 +112513,15 @@
    },
    "Egg Roll #1 (Pho #1)": {
     "address": "4540 S Emerson Ave, Indianapolis, IN",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.7010404,
+    "lng": -86.0833665,
+    "source": "Waze live-map place record https://www.waze.com/live-map/directions/us/in/indianapolis/egg-roll-number-1?to=place.ChIJ7Q6wl9pEa4gRcb60zPYxdvY (name + address match; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "WRTV pho guide (listed as open)",
     "statusChecked": "2026-10-03",
-    "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+    "note": "sanity: on S Emerson Ave (~-86.083) in the 4500 S block near Beech Grove/Perry Twp line"
    },
    "The Inferno Room": {
     "address": "902 Virginia Ave, Indianapolis, IN 46203",
@@ -112184,39 +112596,39 @@
    },
    "Hoagies & Hops (Chilly Water Taproom)": {
     "address": "4155 Boulevard Pl, Indianapolis, IN",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.8320174,
+    "lng": -86.1638546,
+    "source": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/marion-county/washington-township/indianapolis/589969-hoagies-and-hops.htm (WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "WISH National Cheesesteak Day feature; current hours listed (open)",
     "statusChecked": "2026-10-03",
-    "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+    "note": "sanity: Boulevard Pl (~-86.164) near 42nd St (~39.832), Butler-Tarkington by Butler Univ"
    },
    "Oaken Barrel Brewing Co.": {
     "address": "50 N Airport Pkwy, Suite L, Greenwood, IN 46143",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.615638075,
+    "lng": -86.090502556,
+    "source": "Waze live-map place record https://www.waze.com/live-map/directions/oaken-barrel-airport-pkwy-50-greenwood?to=place.w.179503500.1795100538.1302518 (name + address match; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "NUVO 2024: 30th anniversary in business (open)",
     "statusChecked": "2026-10-03",
-    "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+    "note": "sanity: Greenwood east side on Airport Pkwy near US-31/Main St (~39.61,-86.09) | pin source address: 50 Airport Pkwy, Greenwood, IN"
    },
    "Field Brewing": {
     "address": "303 E Main St, Westfield, IN",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 40.0425243,
+    "lng": -86.1247759,
+    "source": "Waze live-map place record https://www.waze.com/live-map/directions/us/in/westfield/field-brewing?to=place.ChIJ79YhDPOvFIgRFCNadrTh4bk (name + address match; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Indianapolis Monthly Best Restaurants 2026 (open)",
     "statusChecked": "2026-10-03",
-    "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+    "note": "sanity: downtown Westfield, E Main St just E of US-31/Union St (~40.043,-86.127)"
    },
    "Good Omen": {
     "address": "65 Boone Village, Zionsville, IN 46077",
@@ -112256,15 +112668,15 @@
    },
    "Bub's Burgers & Ice Cream": {
     "address": "210 W Main St, Carmel, IN 46032",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.9785443,
+    "lng": -86.1300139,
+    "source": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/hamilton-county/clay-township/carmel/215639-bubs-burgers-ice-cream.htm (WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "IM The Feed May 2024: only the Westfield Bub's closed (moving to Park St); FOX59/IBJ: Bub's Café closure left the burger shops open; Carmel online ordering live (open)",
     "statusChecked": "2026-10-03",
-    "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+    "note": "sanity: Carmel Main St (~39.978) a few hundred m W of Rangeline Rd (~-86.127), Arts & Design District"
    },
    "Goose the Market": {
     "address": "2503 N Delaware St, Indianapolis, IN 46205",
@@ -112291,51 +112703,51 @@
    },
    "Broad Ripple Brewpub": {
     "address": "842 E 65th St, Indianapolis, IN 46220",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.873601452,
+    "lng": -86.142851879,
+    "source": "Waze live-map place record https://www.waze.com/live-map/directions/broad-ripple-brewpub-e-65th-st-840-indianapolis?to=place.w.179503503.1794772883.530657 (name match; Waze shows 840 E 65th St vs 842; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Visit Indiana 2025: celebrating 35 years (open)",
     "statusChecked": "2026-10-03",
-    "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+    "note": "sanity: Broad Ripple, E 65th St just E of College Ave (~39.873,-86.144) | pin source address: 840 E 65th St, Indianapolis, IN"
    },
    "Fernando's Mexican & Brazilian Cuisine": {
     "address": "834 E 64th St, Indianapolis, IN",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.8726304,
+    "lng": -86.1431629,
+    "source": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/marion-county/washington-township/indianapolis/fernando-s-mexican-brazilian-cuisine-317-377-4779.htm (WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Indianapolis Monthly Best Restaurants 2026; Axios Devour Summerfest Aug 2026 (open)",
     "statusChecked": "2026-10-03",
-    "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+    "note": "sanity: Broad Ripple, E 64th St one block S of the Brewpub (~39.8726,-86.143)"
    },
    "Delicia": {
     "address": "5215 N College Ave, Indianapolis, IN",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.8473778,
+    "lng": -86.1452797,
+    "source": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/marion-county/washington-township/indianapolis/453562-delicia.htm (WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Axios Devour Summerfest menus, Aug 2026 (open)",
     "statusChecked": "2026-10-03",
-    "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+    "note": "sanity: N College Ave (~-86.145) just N of 52nd St (~39.846)"
    },
    "Jockamo Upper Crust Pizza": {
     "address": "5646 E Washington St, Indianapolis, IN",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.770932688,
+    "lng": -86.070693015,
+    "source": "Waze live-map place record https://www.waze.com/live-map/directions/jockamo-pizza-e-washington-st-5646-indianapolis?to=place.w.179503502.1795231625.2142910 (name + address match; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "FOX59 Reader's Digest best-pizza story; locations in Irvington, Greenwood, Lawrence (open)",
     "statusChecked": "2026-10-03",
-    "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+    "note": "sanity: Irvington, E Washington St (~39.771) at 5600 E (~-86.07)"
    },
    "Pa & Ma's Backyard BBQ": {
     "address": "2621 Dr. Martin Luther King Jr. St, Indianapolis, IN",
@@ -112731,15 +113143,15 @@
    },
    "Kimu Restaurant": {
     "address": "1280 US Hwy 31 N, Greenwood, IN",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.6347968,
+    "lng": -86.1270672,
+    "source": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/johnson-county/pleasant-township/greenwood/399466-kimu-restaurant.htm (WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Visit Indy current listing (open)",
     "statusChecked": "2026-10-03",
-    "note": "no place-pin coordinate found via WebSearch (Apple/Waze/listing probes); queue for tools/geocode-helper.html"
+    "note": "sanity: on US-31 (~-86.127) in north Greenwood (~39.635) | pin source address: 1280 US-31, Greenwood, IN 46142"
    },
    "Revery": {
     "address": "299 W Main St, Greenwood, IN",
@@ -112811,15 +113223,15 @@
    },
    "Southeastway Park": {
     "address": "5624 S Carroll Rd, Indianapolis, IN",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.687663,
+    "lng": -85.957979,
+    "source": "Waze live-map place record https://www.waze.com/live-map/directions/us/in/new-palestine/southeastway-park-office?to=place.ChIJU9bJ6aFHa4gRMLNJ43NOO9A (Southeastway Park Office, 5624 S Carroll Rd address match; WebSearch 2026-10-03)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Indy Parks nature park (open)",
     "statusChecked": "2026-10-03",
-    "note": "no published place coordinate found via WebSearch; queue for tools/geocode-helper.html"
+    "note": "sanity: far SE Marion County on S Carroll Rd (~-85.958) near the county line (~39.69); pin is the park office, Waze lists the postal town as New Palestine"
    },
    "Beech Grove Shops": {
     "address": "Beech Grove, IN",

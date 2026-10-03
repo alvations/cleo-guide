@@ -43,6 +43,10 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
   **Every area at target** (SPR 131/130 · NSK 36/35 · …). 118 UNVERIFIED held.
 - Commands: `python3 tools/density.py hokkaido` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py hokkaido --build`.
 
+- 2026-10-03 **P1 pins-only** (≈27 searches): 16 NAVITIME/MapFan pins → **412 / 514 on map**, ANIME 28/30 on map,
+  all 4 gates + validate + test green. 102 UNVERIFIED held (see AUDIT P1). Next: MapFan single-name spot queries
+  (`<店名> <町名> 地図`, allowed_domains mapfan.com) — 1 hit per ~3 tries; else `tools/geocode-helper.html`.
+
 ## In-flight wave
 - none (session 6 W94 + G06 committed).
 

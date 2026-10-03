@@ -40,6 +40,11 @@ Run protocol: `docs/RUN-2026-10-02.md` (shared lock, commit+push every batch, §
 - Session 7 files: FOOD_W6A/SIGHTS_W6A/SOURCES_W6A (`_w6a_add.py`), geo/_geoout_w6pin.json (41 pins, helper `_w6pin.py`: wz/rg/ls),
   `_w6_status.py` (status evidence overrides).
 
+- **2026-10-03 P1 PINS ONLY (session_014tccsddAZhWkWHE1pGLan6, ~58 searches):** +14 pins → **387 on page**, 135 unpinned. AUDIT P1.
+  Next: status-check Carib Brewery (→ "321 Lime House"?) and Persimmon Hollow DeLand before pinning; Kōri address 741 vs 721;
+  Disney Springs remaining (Homecomin' 1602, Polite Pig 1536, Jaleo, Summer House, Gideon's, Enzo's, Dockside, Erin McKenna's)
+  and CityWalk venues via Waze `<Name> <complex> <street #> latitude longitude`; in-park → helper.
+
 ## In-flight wave
 - (none — wave 6 closed cleanly)
 

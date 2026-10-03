@@ -24,7 +24,18 @@ flock -w 3600 $LOCK python3 tools/rebuild-city.py philadelphia-pa --build   # + 
 ```
 
 ## In-flight wave
-(none — W6 PINS committed 2026-10-03, session_01DsVQh4xSMpquswxCXqQqid; see State (W6).)
+(none — W7 PINS committed 2026-10-03, session_01847XyVQRMAQiVAHDWpaEmS; see State (W7).)
+
+## State (2026-10-03, after W7 — PINS via aggregator listings)
+- Discovered + sourced: **518** (unchanged). Page: **363 on map (165 sights + 198 food)**, up from 276. Confidence: 240 high · 123 med.
+  4 gates PASS; statuscheck CONSISTENT; npm validate + test PASS; card + CITIES + AGENT-PROMPTS run-log refreshed.
+- Pinned / discovered per area: CC 109/126 · SPH 61/85 · FISH 29/56 · UCW 27/40 · NPH 20/33 · NW 26/45 · NE 17/25 · MAIN 25/35 · SJ 15/25 ·
+  DAY 34/48. **~155 still UNVERIFIED.**
+- **Channel that works now (≈80% hit rate):** one place per WebSearch, `"<Name> <street address> <city> GPS coordinates"` with
+  `allowed_domains: ["restaurantguru.com","wanderlog.com","sirved.com","restaurantji.com","menupix.com"]` — the listing's lat/lng comes back in the
+  answer. Check the point against the street block (cross-street sanity), grade `med`; Waze `place.*` with matching name+address → `high`.
+  Writer: `python3 data/philadelphia-research/_pinw.py philadelphia-pa <tag> < lines` ("Name|lat|lng|conf|source[|corrected address]").
+- W7 files: geo/_geoout_w7a.json (34) · _w7b (8) · _w7c (23) · _w7d (22).
 
 ## State (2026-10-03, after W6 — PINS)
 - Discovered + sourced: **518** (176 sights, 342 food) — unchanged. Page: **276 on map (165 sights + 111 food)**, up from 182.
@@ -93,25 +104,26 @@ Taqueria La Raza held), DAY (Marsha Brown, 1906 at Longwood, Portabello's, Kenne
 Chaddsford Winery), NW (Chestnut Hill Brewing, Mt Airy Tap Room, Bar Lizette, Downtime Bakery, Hot Clucks, Tyemeka's, Zion's),
 then UCW drinks, FISH breweries, NE, MAIN. W3 did not apply this rule — the session's search budget was spent before it arrived.
 
-## Next wave (W7) — ordered plan (pins; discovery is at density)
-1. **Pins via tools/geocode-helper.html (browser)** for the ~242 UNVERIFIED — WebSearch/Apple is close to exhausted here (bare `place-id`
-   listings don't change on re-phrasing). Priority: tier-1 icons Apple won't give — Dim Sum Garden, Nan Zhou, Amma's, Monk's Cafe, Bolo,
-   Forsythia, High Street Philly, Ogawa, La Jefa, Tequilas, Han Dynasty (confirm 123 vs 110 Chestnut), Vietnam Restaurant, Franklin Fountain;
-   SPH Sarcone's (bakery + deli), Iannelli's, John's Water Ice, Hardena, Pho 75, Termini, Isgro, Di Bruno, Mike's BBQ, Pop's, Antonio's,
-   Farina Di Vita, Center City Soft Pretzel, Machine Shop, Blue Corn, Bomb Bomb; FISH Sulimay's, Czerw's, Johnny Brenda's, Emmett, Phila
-   Brewing Co, R&D, Amy's Pastelillos, Joe's Steaks (1 W Girard); UCW Dahlak, Kilimandjaro, Fu-Wah; NE Dining Car, Georgian Bread; then MAIN/SJ/DAY.
-2. **Address re-checks before pinning:** Paesano's (Apple "Paesano's Philly Style" 943 S 9th vs record 1017 S 9th); Goldie (Apple 1526 vs
-   record 1911 Sansom); Portabello's (Apple 108 **E** State vs record 108-112 W State); Holmesburg Bakery (7935 vs 7933 Frankford); Bell's
-   Market (8336 vs 8330 Bustleton); American Sardine Bar (1800 vs 1801 Federal); White Yak (Apple 6118 Ridge Ave — record has no number);
-   Wyck (Wikipedia coordinate ~2 km off — needs a real pin); Gou unit number.
-3. **Status leads:** Buna Cafe (Apple "permanently closed", no press — re-check); Love City Brewing Manayunk (only the Callowhill listing
-   surfaced); Conshohocken Brewing (Elm St taproom not found); Stella of New Hope / Nektar / Ferry Market (not found at their addresses on Apple).
-4. Held leads from W5 (need a 2nd outlet or an address) — unchanged; see the W5 list in AUDIT.md.
+## Next wave (W8) — ordered plan (pins; discovery is at density)
+1. **Keep the aggregator channel** (above) for the ~155 UNVERIFIED — it was nowhere near exhausted when W7's budget ran out. Untried names
+   first: FISH (Amá, Emilia, Elma, Gilda, Front Street Cafe, Loco Pez, Stock's, Evil Genius, Four Humours, Kostas, Barcade, Bottle Bar East,
+   Les & Doreen's, St. Oner's, Mixteca, Boricua #2, Café Tinto, Joe's Steaks 1 W Girard), NPH (Porky's Point, El Coqui, Rybrew, Denise's),
+   UCW (Fu-Wah, Terakawa, Franklin's Table, Clarkville, Sabrina's, Local 44, Vietnam Cafe), NW (Töska, Malelani, CinCin, Bar Jawn, Santucci's,
+   White Yak, Liberty Kitchen), NE (Bishos, Miracles, Asad's, Taqueria La Patrona, Bell's Market), SPH (Cacia's, Le Caveau, Perla, Scampi),
+   CC (Sally, Illata, Little Water, Via Locusta, a.kitchen, Grace Tavern, Bar Cicci, Malooga), MAIN/SJ/DAY remainder (Carlino's, Ripplewood,
+   Rosalie, Eshkol, Little Blue Owl, Conshohocken Brewing, Free Will, Levante, Stable 12, Portabello's, River House, Stella, Chaddsford Winery).
+2. **Retry the misses with Waze phrasing** (`"<Name> <street> latitude longitude"`, `allowed_domains` waze/usarestaurants/foursquare): The Franklin
+   Fountain, Vietnam Restaurant, La Jefa, Ogawa, Sarcone's Bakery + Deli, Di Bruno (9th St), Pop's, Pho 75, Philadelphia Brewing Co, Amy's
+   Pastelillos, George's Sandwich Shop, Honeysuckle, Frankford Hall, Teikoku, Nam Phuong (own pin, not the plaza's).
+3. **Address/status leads:** Hank's Place (Chadds Ford 1635 Creek Rd vs temporary Kennett site), plus W6's Paesano's, Goldie, Portabello's,
+   Holmesburg Bakery, Bell's Market, American Sardine Bar, White Yak, Wyck, Gou; Buna Cafe; Love City Manayunk; Conshohocken Brewing.
+4. **Sights (11 left):** Wikipedia/NPS coordinates — Bishop White House, Wyck (real pin), Fillmore, Clay Studio, Taller Puertorriqueño,
+   Schuylkill Center, Las Parcelas, Liberty Lands, Main Street Manayunk, Wiggins Park.
 
 ## Acceptance checklist
 - [x] every area OK in density.py (W5, 2026-10-03) — and every area ≥50% food & drink
 - [x] --sourcecheck / --geocheck / --statuscheck / --buildcheck green (2026-10-03, after W5)
-- [ ] restaurant pins: ~242 UNVERIFIED → geocode-helper (W6 Apple pass took the page 182 → 276)
+- [ ] restaurant pins: ~155 UNVERIFIED (W6 Apple 182 → 276; W7 aggregator listings 276 → 363) — continue W8 plan
 - [x] closure check on every on-page place (W6, 2026-10-03 — statuscheck 0 unchecked)
 - [x] npm run validate && npm test green (2026-10-03)
 - [x] index card live with counts; CITIES.md row; AGENT-PROMPTS run-log rows (2026-10-02)

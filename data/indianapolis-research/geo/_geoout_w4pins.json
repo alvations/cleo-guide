@@ -1,146 +1,178 @@
 [
  {
   "n": "9th Street Bistro",
+  "address": "56 S 9th St, Noblesville, IN",
   "lat": 40.045057,
   "lng": -86.0132957,
   "geoSource": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/hamilton-county/noblesville-township/noblesville/9th-street-bistro-317-774-5065.htm (WebSearch 2026-10-03)",
   "confidence": "med",
-  "note": "sanity: downtown Noblesville, just W of the courthouse square (~40.045,-86.009) on S 9th St",
-  "address": "56 S 9th St, Noblesville, IN"
+  "status": "open",
+  "statusSource": "Indianapolis Monthly Best Restaurants 2026 (Sept 2026)",
+  "note": "sanity: downtown Noblesville, just W of the courthouse square (~40.045,-86.009) on S 9th St"
  },
  {
   "n": "Egg Roll #1 (Pho #1)",
+  "address": "4540 S Emerson Ave, Indianapolis, IN",
   "lat": 39.7010404,
   "lng": -86.0833665,
   "geoSource": "Waze live-map place record https://www.waze.com/live-map/directions/us/in/indianapolis/egg-roll-number-1?to=place.ChIJ7Q6wl9pEa4gRcb60zPYxdvY (name + address match; WebSearch 2026-10-03)",
   "confidence": "high",
-  "note": "sanity: on S Emerson Ave (~-86.083) in the 4500 S block near Beech Grove/Perry Twp line",
-  "address": "4540 S Emerson Ave, Indianapolis, IN"
+  "status": "open",
+  "statusSource": "WRTV pho guide (listed as open)",
+  "note": "sanity: on S Emerson Ave (~-86.083) in the 4500 S block near Beech Grove/Perry Twp line"
  },
  {
   "n": "Oaken Barrel Brewing Co.",
+  "address": "50 N Airport Pkwy, Suite L, Greenwood, IN 46143",
   "lat": 39.615638075,
   "lng": -86.090502556,
   "geoSource": "Waze live-map place record https://www.waze.com/live-map/directions/oaken-barrel-airport-pkwy-50-greenwood?to=place.w.179503500.1795100538.1302518 (name + address match; WebSearch 2026-10-03)",
   "confidence": "high",
-  "note": "sanity: Greenwood east side on Airport Pkwy near US-31/Main St (~39.61,-86.09)",
-  "address": "50 Airport Pkwy, Greenwood, IN"
+  "status": "open",
+  "statusSource": "NUVO 2024: 30th anniversary in business (open)",
+  "note": "sanity: Greenwood east side on Airport Pkwy near US-31/Main St (~39.61,-86.09) | pin source address: 50 Airport Pkwy, Greenwood, IN"
  },
  {
   "n": "Field Brewing",
+  "address": "303 E Main St, Westfield, IN",
   "lat": 40.0425243,
   "lng": -86.1247759,
   "geoSource": "Waze live-map place record https://www.waze.com/live-map/directions/us/in/westfield/field-brewing?to=place.ChIJ79YhDPOvFIgRFCNadrTh4bk (name + address match; WebSearch 2026-10-03)",
   "confidence": "high",
-  "note": "sanity: downtown Westfield, E Main St just E of US-31/Union St (~40.043,-86.127)",
-  "address": "303 E Main St, Westfield, IN 46074"
+  "status": "open",
+  "statusSource": "Indianapolis Monthly Best Restaurants 2026 (open)",
+  "note": "sanity: downtown Westfield, E Main St just E of US-31/Union St (~40.043,-86.127)"
  },
  {
   "n": "Bub's Burgers & Ice Cream",
+  "address": "210 W Main St, Carmel, IN 46032",
   "lat": 39.9785443,
   "lng": -86.1300139,
   "geoSource": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/hamilton-county/clay-township/carmel/215639-bubs-burgers-ice-cream.htm (WebSearch 2026-10-03)",
   "confidence": "med",
-  "note": "sanity: Carmel Main St (~39.978) a few hundred m W of Rangeline Rd (~-86.127), Arts & Design District",
-  "address": "210 W Main St, Carmel, IN 46032"
+  "status": "open",
+  "statusSource": "IM The Feed May 2024: only the Westfield Bub's closed (moving to Park St); FOX59/IBJ: Bub's Café closure left the burger shops open; Carmel online ordering live (open)",
+  "note": "sanity: Carmel Main St (~39.978) a few hundred m W of Rangeline Rd (~-86.127), Arts & Design District"
  },
  {
   "n": "Broad Ripple Brewpub",
+  "address": "842 E 65th St, Indianapolis, IN 46220",
   "lat": 39.873601452,
   "lng": -86.142851879,
   "geoSource": "Waze live-map place record https://www.waze.com/live-map/directions/broad-ripple-brewpub-e-65th-st-840-indianapolis?to=place.w.179503503.1794772883.530657 (name match; Waze shows 840 E 65th St vs 842; WebSearch 2026-10-03)",
   "confidence": "med",
-  "note": "sanity: Broad Ripple, E 65th St just E of College Ave (~39.873,-86.144)",
-  "address": "840 E 65th St, Indianapolis, IN"
+  "status": "open",
+  "statusSource": "Visit Indiana 2025: celebrating 35 years (open)",
+  "note": "sanity: Broad Ripple, E 65th St just E of College Ave (~39.873,-86.144) | pin source address: 840 E 65th St, Indianapolis, IN"
  },
  {
   "n": "Fernando's Mexican & Brazilian Cuisine",
+  "address": "834 E 64th St, Indianapolis, IN",
   "lat": 39.8726304,
   "lng": -86.1431629,
   "geoSource": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/marion-county/washington-township/indianapolis/fernando-s-mexican-brazilian-cuisine-317-377-4779.htm (WebSearch 2026-10-03)",
   "confidence": "med",
-  "note": "sanity: Broad Ripple, E 64th St one block S of the Brewpub (~39.8726,-86.143)",
-  "address": "834 E 64th St, Indianapolis, IN"
+  "status": "open",
+  "statusSource": "Indianapolis Monthly Best Restaurants 2026; Axios Devour Summerfest Aug 2026 (open)",
+  "note": "sanity: Broad Ripple, E 64th St one block S of the Brewpub (~39.8726,-86.143)"
  },
  {
   "n": "Delicia",
+  "address": "5215 N College Ave, Indianapolis, IN",
   "lat": 39.8473778,
   "lng": -86.1452797,
   "geoSource": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/marion-county/washington-township/indianapolis/453562-delicia.htm (WebSearch 2026-10-03)",
   "confidence": "med",
-  "note": "sanity: N College Ave (~-86.145) just N of 52nd St (~39.846)",
-  "address": "5215 N College Ave, Indianapolis, IN"
+  "status": "open",
+  "statusSource": "Axios Devour Summerfest menus, Aug 2026 (open)",
+  "note": "sanity: N College Ave (~-86.145) just N of 52nd St (~39.846)"
  },
  {
   "n": "Jockamo Upper Crust Pizza",
+  "address": "5646 E Washington St, Indianapolis, IN",
   "lat": 39.770932688,
   "lng": -86.070693015,
   "geoSource": "Waze live-map place record https://www.waze.com/live-map/directions/jockamo-pizza-e-washington-st-5646-indianapolis?to=place.w.179503502.1795231625.2142910 (name + address match; WebSearch 2026-10-03)",
   "confidence": "high",
-  "note": "sanity: Irvington, E Washington St (~39.771) at 5600 E (~-86.07)",
-  "address": "5646 E Washington St, Indianapolis, IN"
+  "status": "open",
+  "statusSource": "FOX59 Reader's Digest best-pizza story; locations in Irvington, Greenwood, Lawrence (open)",
+  "note": "sanity: Irvington, E Washington St (~39.771) at 5600 E (~-86.07)"
  },
  {
   "n": "Kimu Restaurant",
+  "address": "1280 US Hwy 31 N, Greenwood, IN",
   "lat": 39.6347968,
   "lng": -86.1270672,
   "geoSource": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/johnson-county/pleasant-township/greenwood/399466-kimu-restaurant.htm (WebSearch 2026-10-03)",
   "confidence": "med",
-  "note": "sanity: on US-31 (~-86.127) in north Greenwood (~39.635)",
-  "address": "1280 US-31, Greenwood, IN 46142"
+  "status": "open",
+  "statusSource": "Visit Indy current listing (open)",
+  "note": "sanity: on US-31 (~-86.127) in north Greenwood (~39.635) | pin source address: 1280 US-31, Greenwood, IN 46142"
  },
  {
   "n": "Holliday Park & The Ruins",
+  "address": "6363 Spring Mill Rd, Indianapolis, IN 46260",
   "lat": 39.871108211,
   "lng": -86.161281163,
   "geoSource": "Waze live-map place record https://www.waze.com/live-map/directions/holliday-park-spring-mill-rd-6363-indianapolis?to=place.w.179437967.1794641811.256803 (name + address match; WebSearch 2026-10-03)",
   "confidence": "high",
-  "note": "sanity: Spring Mill Rd (~-86.16) at ~64th St (~39.871), Meridian-Kessler/Butler-Tarkington north side; park pin, not specifically the Ruins",
-  "address": "6363 Spring Mill Rd, Indianapolis, IN"
+  "status": "open",
+  "statusSource": "Indy Parks page",
+  "note": "sanity: Spring Mill Rd (~-86.16) at ~64th St (~39.871), Meridian-Kessler/Butler-Tarkington north side; park pin, not specifically the Ruins"
  },
  {
   "n": "Coxhall Gardens",
+  "address": "11677 Towne Rd, Carmel, IN 46032",
   "lat": 39.958657789,
   "lng": -86.197605907,
   "geoSource": "Waze live-map place record https://www.waze.com/live-map/directions/coxhall-park-and-gardens-w-116th-st-2000-carmel?to=place.w.179437968.1794379676.259069 (name match; Waze address 2000 W 116th St vs input 11677 Towne Rd; WebSearch 2026-10-03)",
   "confidence": "med",
-  "note": "sanity: SW corner area of 116th St (~39.956) & Towne Rd (~-86.20), west Carmel; same park, different entrance address",
-  "address": "2000 W 116th St, Carmel, IN 46033"
+  "status": "open",
+  "statusSource": "Visit Hamilton County guide",
+  "note": "sanity: SW corner area of 116th St (~39.956) & Towne Rd (~-86.20), west Carmel; same park, different entrance address | pin source address: 2000 W 116th St, Carmel, IN 46033"
  },
  {
   "n": "Southeastway Park",
+  "address": "5624 S Carroll Rd, Indianapolis, IN",
   "lat": 39.687663,
   "lng": -85.957979,
   "geoSource": "Waze live-map place record https://www.waze.com/live-map/directions/us/in/new-palestine/southeastway-park-office?to=place.ChIJU9bJ6aFHa4gRMLNJ43NOO9A (Southeastway Park Office, 5624 S Carroll Rd address match; WebSearch 2026-10-03)",
   "confidence": "med",
-  "note": "sanity: far SE Marion County on S Carroll Rd (~-85.958) near the county line (~39.69); pin is the park office, Waze lists the postal town as New Palestine",
-  "address": "5624 S Carroll Rd, New Palestine, IN"
+  "status": "open",
+  "statusSource": "Indy Parks nature park (open)",
+  "note": "sanity: far SE Marion County on S Carroll Rd (~-85.958) near the county line (~39.69); pin is the park office, Waze lists the postal town as New Palestine"
  },
  {
   "n": "Indiana Landmarks Center",
+  "address": "1201 Central Ave, Indianapolis, IN 46202",
   "lat": 39.7833169,
   "lng": -86.148961767,
   "geoSource": "Waze live-map place record https://www.waze.com/live-map/directions/indiana-landmarks-center-central-ave-1201-indianapolis?to=place.w.179503502.1794707338.483660 (name + address match; WebSearch 2026-10-03)",
   "confidence": "high",
-  "note": "sanity: Old Northside, Central Ave (~-86.149) at 12th St (~39.783)",
-  "address": "1201 Central Ave, Indianapolis, IN"
+  "status": "open",
+  "statusSource": "Indiana Landmarks campus page (HQ in use)",
+  "note": "sanity: Old Northside, Central Ave (~-86.149) at 12th St (~39.783)"
  },
  {
   "n": "Holy Rosary Church & Italian Street Festival",
+  "address": "520 Stevens St, Indianapolis, IN",
   "lat": 39.758028488,
   "lng": -86.148785947,
   "geoSource": "Waze live-map place record https://www.waze.com/live-map/directions/holy-rosary-catholic-church-stevens-street-520-indianapolis?to=place.w.179503502.1794707336.2174459 (name + address match; WebSearch 2026-10-03)",
   "confidence": "high",
-  "note": "sanity: Fletcher Place just SE of downtown (~39.758,-86.149), near I-65/I-70 split",
-  "address": "520 Stevens Street, Indianapolis, IN"
+  "status": "open",
+  "statusSource": "Active parish; festival covered annually (WRTV/WISH)",
+  "note": "sanity: Fletcher Place just SE of downtown (~39.758,-86.149), near I-65/I-70 split | pin source address: 520 Stevens Street, Indianapolis, IN"
  },
  {
   "n": "Hoagies & Hops (Chilly Water Taproom)",
+  "address": "4155 Boulevard Pl, Indianapolis, IN",
   "lat": 39.8320174,
   "lng": -86.1638546,
   "geoSource": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/marion-county/washington-township/indianapolis/589969-hoagies-and-hops.htm (WebSearch 2026-10-03)",
   "confidence": "med",
-  "note": "sanity: Boulevard Pl (~-86.164) near 42nd St (~39.832), Butler-Tarkington by Butler Univ",
-  "address": "4155 Boulevard Pl, Indianapolis, IN"
+  "status": "open",
+  "statusSource": "WISH National Cheesesteak Day feature; current hours listed (open)",
+  "note": "sanity: Boulevard Pl (~-86.164) near 42nd St (~39.832), Butler-Tarkington by Butler Univ"
  }
 ]

@@ -18,7 +18,7 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
 - `TRIP` day trips (Spring Green, New Glarus, House on the Rock, Devil's Lake) — ~30
 
 ## Acceptance
-- [ ] every area `OK` in `tools/density.py madison-wi`; every place ≥2 credible (or lone JB/NPS); merit-measured
+- [x] every area `OK` in `tools/density.py madison-wi` (W7); every place ≥2 credible (or lone JB/NPS); merit-measured
 - [ ] every place status-checked (closures kept, flagged)
 - [ ] `--sourcecheck` PASS · `--geocheck` PASS · `--statuscheck` CONSISTENT · `--buildcheck` PASS · npm validate/test
 - [ ] index.html CARD:madison-wi relinked live with counts; docs/CITIES.md row; AGENT-PROMPTS run-log rows
@@ -61,7 +61,20 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
   upgrades), _geoout_w6b/c/d.json. Pinned/discovered per area: CAP 26/34 · UW 20/23 · EAST 25/33 · WEST 19/24 ·
   TRIP 22/27 · DANE 13/22 · MVF 15/19. All 4 gates green; validate + test ALL PASS.
 
-## Next (ordered) — W7
+- **2026-10-03 W7 (fresh session, ~120 searches)** — +29 places closing every NEED area → **211 researched (135 food = 64% /
+  76 sights), ~156 pinned; every area OK in density.py.** Files: FOOD_W7a.json, SIGHTS_W7a.json, SOURCES_W7.json,
+  geo/_geoout_w7.json. Closures added flagged: Himal Chuli (Dec 2025), Mariner's Inn (Aug 2025), Paisan's.
+
+## Next (ordered) — W8 (pins + refresh only; density is complete)
+1. **Pins:** ~55 UNVERIFIED (`python3 tools/geocode-status.py` → madison-wi). WebSearch is exhausted for the old misses
+   (W7 re-try 0/4) → run `tools/geocode-helper.html` in a browser session. New W7 misses with full street addresses
+   (Mediterranean Cafe 625 State St, Lucky's 1313 Regent, Fabiola's 1301 Regent, Bavaria Sausage 6317 Nesbitt Rd, Villa Dolce
+   1828 Parmenter St, Schumacher Farm Park 5682 WI-19) are the easiest.
+2. Re-grade the `med` usarestaurants pins (Jordan's, Swagat, Hop Haus, Brix, Coopers) to exact place pins when a helper runs.
+3. Held leads that could graduate with one more outlet / 2026 status: Chaat Cafe, Tapas Rias, Toro y Pampa (2027), Muramoto,
+   Kohl Center, Muir Knoll, Tumbled Rock, Popolo (AUDIT W6/W7 "held").
+
+## Next (ordered) — W7 (done)
 1. **Pins (42 UNVERIFIED, list = `python3 tools/geocode-status.py` / AUDIT W6):** one place per query,
    `"<Name> <street address> latitude longitude"` + `allowed_domains: [waze.com, usarestaurants.info, foursquare.com]`
    (~70% hit in W6); for misses try an Apple street-level query ("<Name> <street> Madison WI", `maps.apple.com`) —
@@ -119,4 +132,4 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
    `flock … python3 tools/rebuild-city.py madison-wi --build` → 4 gates → relink CARD:madison-wi, CITIES.md row.
 
 ## In-flight wave
-- (none — W6 closed 2026-10-03; resume from 'Next (ordered) — W7')
+- (none — W7 closed 2026-10-03; resume from 'Next (ordered) — W8')
