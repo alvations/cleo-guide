@@ -1,4 +1,4 @@
-# W5D1 notes — NAHA discovery (29 WebSearch run; 30th refused: session-wide 200/200 cap hit)
+# W5D1 notes — NAHA discovery (30/30 WebSearch used; a 31st was refused — session-wide 200/200 cap)
 
 Kept 8 (food 6 = 75%, sights 2). Pinned 3 (1 high, 2 med). UNVERIFIED 5. Closed found: 0 new (Kadoya still held).
 
