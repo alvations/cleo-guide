@@ -157,3 +157,27 @@ Ojisan Namba Honten, Takoya Dōtonbori Kukuru, Bible Club Osaka (promoted). Cave
 URL for Kani Doraku/Harijyu/Kukuru came from a search summary. Held (single-source): Dotonbori Akaoni (Bib 2016–18 lapsed),
 Takotako King, Daitako, Tiger Lily, Winestand Perche, Stand Umineko, Bar Jazz, Ajinoya, Shimauchi Fujimaru Brewery,
 Sennariya, Kurogin Maguroya.
+
+## 2026-10-03 — Wave W4 (session 4): 6 background workers × 28 searches + main
+**Stage 1 — new outlets vetted (`SOURCES_OSAKA_W4.json`, `SOURCES_OSAKA_W4A.json`):** NIPPONCOM (nippon.com), RURUBU and
+GLTJP (JTB Publishing), INSIDEKYOTO (Chris Rowthorn), SAKAITCB (Sakai official tourism), WAKAYAMATOURISM, ARIMATOURISM,
+HYOGOTOURISM/VISITHYOGO, JNTO, KOBENP (Kobe Shimbun), KUMANICHI (Kyodo wire). Decision: all accepted as ordinary credible
+sources (official tourism bodies / established publishers / newspapers); none is a lone authority.
+**Stage 2/3 — written (+49; channel counts in worker reports: Michelin 1 · editorial ~30 · official/municipal ~15 ·
+Wikipedia ~15 · Tabelog100 2 · creator 1 (Ramen Adventures, Ide Shoten) · local press 3):**
+- W4A MINAM food 5 (Takoume Honten, Fukutaro, Mizuno, Ajinoya, Kushinobo) — status `unknown` (not yet closure-checked), pins UNVERIFIED.
+- W4B 13 sights: anime +6 (Super Nintendo World, Nijigen no Mori, Takarazuka Grand Theater, Hello Kitty Smile, Kissa-ya Dream
+  [Haruhi], Niteko Pond Grave-of-the-Fireflies memorial) + Central Public Hall, Ohatsu Tenjin, Mitsu-dera, Kamigata Ukiyo-e,
+  Orange Street, Ura-Namba (sponsored japan-guide /ad/ source replaced by Inside Osaka Minami page — main search), Osaka
+  Shochikuza **— CLOSED** (last show 26 May 2026, ja.wikipedia + Kyodo).
+- W4C TNJ/EAST 7 (Yaekatsu, Yakiniku Sora, Kissa Doremi, Isshin-ji, Abe no Seimei, Imamiya Ebisu, Smartball New Star).
+- W4D SOUTH 10 (Kojimaya, Yaogen Raikodo, Tsuboichi, Tsunechan, Gofuso, Toretore Ichi; Densho-kan & Rishō no Mori promoted
+  from `_held_S1`, Nisanzai Kofun, Sumiyoshi Park).
+- W4E BAY 6 (RODDA group; municipal ferries, Nanko Bird Sanctuary, Santa Maria, ATC, LEGOLAND Discovery Center).
+- W4F KNSAI/NORTH food 8 (Mouriya, Steakland, Wakkoqu, Freundlieb, Nishimura Coffee, Ide Shoten, Mitsumori Honpo; Ichiju
+  Nisai Ueno Minoten — recorded as MICHELIN (listed) not STAR: the venue page only said "listed").
+- HELD single-source + MEASURED & DROPPED → `_held_W4.json`.
+**Channel lessons:** Michelin is dead for the suburbs/bay wards (search returns only central Osaka; Hyōgo guide not until
+2027-02-16). asahi/mainichi/nhk/sankei/yomiuri/cntraveler are rejected as `allowed_domains`. Yield ≈ 0.3 places/search.
+**Geocode:** W4 high 15 · med 3 · unverified 31. **Build:** 368 discovered (140 sights + 228 food = 62% food), 286 rendered;
+sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. ANIME 16.
