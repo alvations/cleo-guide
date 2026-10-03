@@ -277,3 +277,33 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
 - New source key BEVERLYREVIEW registered with a rationale.
 - Build: 469 researched / 291 rendered (194 sights + 97 food); 4 gates PASS; validate + npm test PASS. LOOP now OK (110/110) but its food share
   dipped to 49% → next LOOP adds must be food.
+
+## 2026-10-03 (session 5 / wave 4) · batch 4 (≈139 searches cumulative)
+- Sights +12 (pinned): NW — Villa District (med), Copernicus Center (Gateway Theatre), Intuit Art Museum, Ukrainian Village District (med);
+  SUB — Frank Lloyd Wright Historic District Oak Park (med), Block Museum of Art, Oak Park Conservatory; WEST — Jackson Boulevard District (med),
+  Austin Town Hall; NORTH — Argyle Street / Asia on Argyle (med). (Two more counted in batch 3's file.)
+- Food & drink +17: NORTH — Ghareeb Nawaz (Apple pin), Hema's Kitchen (status 'unchecked' — no 2025-26 confirmation, not on Apple Maps),
+  Uru-Swati (Block Club Sept 2026), Phở 777, Hai Yen; SUB — Babygold Barbecue, Katy's Dumpling House (Oak Park), One Lake Brewing; WEST — Soul Food
+  Lounge, Soulé (North Lawndale), Bob's Pizza + Kristoffer's (both promoted from held); SOUTH — JM Seafood, Han 202, Zaytune.
+- Address hygiene: addresses I had typed for W11 sights without a source echoing them (St. Nicholas, Robey, NMPRAC, Coonley, Pui Tak, Quinn Chapel,
+  Ebenezer, Marquette, Carbide & Carbon, Second Presbyterian, Chicago Temple, Ukrainian Village, FLW district) were coarsened to the sourced
+  street/locality (Tokyo W3 lesson); St. Stanislaus Kostka corrected to 1327 N Noble St (Choose Chicago).
+- MEASURED & DROPPED / held: Cocoa Chili (added then removed — not on Apple Maps, latest source 2021, dish unspecific); Cerdito Muerto (Infatuation
+  only); Bundoo Khan (Infatuation only); Ba Le, DaNang Kitchen (Choose Chicago only); Nana Bridgeport (Time Out only); Congress Theater (closed for
+  restoration until 2027); Holy Trinity Polish Mission (Wikipedia only); Wabash Avenue YMCA (pin found, 2nd source not yet); La Cecina, Taqueria
+  San Julian, Sputnik Coffee (one credible each); SW Arab/Palestinian 63rd St corridor — no credible list found.
+
+## 2026-10-03 (session 5 / wave 4) · batch 5 + close-out (≈167 searches total, no sub-agents)
+- Food & drink +3: FAR — Mabe's Deli; SW — La Cecina (promoted: Time Out + Chicago Reader); (Solazo added then removed — no named dish).
+- Sights +2: FAR — Pullman Market Hall (NPS place page, unpinned); NW — Polish Triangle (Wikipedia pin).
+- Pins (Apple Maps): Half Acre Balmoral, The Publican, Dat Donut, Spacca Napoli, 5 Rabanitos, Sweet Mandy B's, Birrieria Reyes de Ocotlan,
+  Cafe Jumping Bean, HaiSous, Kopp's, Lost Larson, Au Cheval, Taxim; Greenstone Church (HMDB marker, med). Addresses filled from Apple
+  listings: Kasia's Deli, Tryzub, Cho Sun Ok, Au Cheval, Taxim, Babygold (6615 Roosevelt), One Lake (1 Lake St).
+- **Parachute — CLOSED** (23 Mar 2024; Block Club + Sun-Times; ex-Michelin star, JBF 2019) — notable → kept flagged, pinned at 3500 N Elston.
+- Channel mix (session 5, 83 new places): editorial/travel (Time Out, Infatuation, Chicago Mag, Choose Chicago, Atlas Obscura, CAC, Enjoy
+  Illinois, Visit Oak Park) ≈60 · local press (Block Club, WTTW, WBEZ, Sun-Times, Wednesday Journal, Beverly Review, Evanston RoundTable,
+  South Side Weekly, Chicago Reader) ≈30 · institutional (NPS/NHL, City of Chicago landmarks, Park District, FLW Trust) ≈25 · critics/creators
+  (Steve Dolinsky/Hungry Hound, Fooditor, Keith Lee via Block Club) ≈5 (places carry 2–4 sources, channels overlap).
+  Creator query this wave: Keith Lee's Chicago picks (Block Club 2024) → Cleo's corroborated; no new creator vetted.
+- Final build: 498 researched / 318 rendered (206 sights + 112 food); 59% food overall; LOOP/NORTH/SOUTH/DAY OK; 4 gates PASS
+  (statuscheck: 2 places without a closure check); npm run validate DATA OK; npm test ALL PASS.
