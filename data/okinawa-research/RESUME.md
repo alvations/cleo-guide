@@ -58,12 +58,7 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 | KRM | 4 | 10 | 14 | 30 | +16 |
 
 ## In-flight wave
-- **W8** (session_01Df9Wi2VqyzsSc7XCRZBEQz, started 2026-10-03; rules `_okinawa_w8_agentrules.md`). Agents/tags (files
-  `FOOD_/SIGHTS_/SOURCES_/CREATORS_OKINAWA_<TAG>.json`, `geo/_geoout_okinawa_<TAG>.json`, `_okinawa_<TAG>_notes.md`):
-  W8H held leads (cap 22) · W8A anime (Nago/Itoman/Tomigusuku/Nanjō lids, Anime-88 Taketomi/Ishigaki, pin 6 unpinned anime; cap 20) ·
-  W8D1 Chūbu food (Koza steak houses; cap 22) · W8D2 Hokubu food-first (cap 22) · W8D3 Naha balanced (cap 22) ·
-  W8D4 Nanbu + KRM food-only (cap 22) · W8D5 MYK + YAEYA (cap 24) · W8G UNVERIFIED geocoder (`_okinawa_geo_todo_W8G.json`, 83; cap 30).
-  If relaunched: check which `_okinawa_W8*_notes.md` exist; rerun only missing agents, then build loop.
+- none (W8 closed 2026-10-03; ~184 of the session's ~200 searches spent).
 
 - 2026-10-02 **W4 done** (fresh session, ~186 searches, 9 background subagents): pin-first + discovery + anime.
   **258 discovered (128 sights + 130 food & drink = 50 % food), 130 pinned (was 89)** — pins per area NAHA 18 · CHUBU 24 ·
@@ -133,7 +128,37 @@ CHUBU food is only 41 % → next Chūbu discovery is food-only.
 | YAEYA | 27 | 21 | 48 | 60 | +12 | 33 |
 | KRM | 7 | 17 | 24 | 30 | +6 | 13 |
 
-## Next actions (W8 plan, ordered)
+- 2026-10-03 **W8 done** (session_01Df9Wi2VqyzsSc7XCRZBEQz, ~184 searches, 8 bg agents; rules `_okinawa_w8_agentrules.md`): **418 discovered
+  (191 sights + 227 food & drink = 54 %), 344 pinned (was 295)** — high 119 · med 72 · low 153. **ANIME 22 found / 15 pinned** (+6 Poké Lids & Anime-88
+  West Pier). No new closures. 4 gates PASS; validate + test ALL PASS. Agent tags: W8H +5, W8D1 +2, W8D2 +6, W8D3 +7, W8D4 +5, W8D5 +9, W8A +6, W8G +14 pins.
+
+### Density after W8
+| area | food | sights | have | target | need | pins |
+|---|---|---|---|---|---|---|
+| NAHA | 59 | 42 | 101 | 120 | +19 | 85 |
+| CHUBU | 39 | 34 | 73 | 95 | +22 | 68 |
+| HOKBU | 43 | 29 | 72 | 90 | +18 | 61 |
+| NANBU | 23 | 28 | 51 | 65 | +14 | 40 |
+| MYK | 23 | 16 | 39 | 50 | +11 | 32 |
+| YAEYA | 30 | 24 | 54 | 60 | +6 | 41 |
+| KRM | 10 | 18 | 28 | 30 | +2 | 17 |
+
+## Next actions (W9 plan, ordered)
+1. **Chūbu +22 is now the biggest gap, food & drink only.** Koza steak houses: mine Okinawa Times series 「沖縄ステーキ史 since1950」 (W8D1 notes)
+   for named houses + pair each with Stripes/KozaWeb/RS; resolve New York Restaurant status. Chūbu held: Mickey, Shimanchu Soba, Churuge Soba, Ippe Coppe.
+2. **Naha +19 food-first** (W8D3 added 5 sights / 2 food): awamori bars, min'yō sakaba, kissaten, bakeries. Held: Naha Soba, Shima Nakama, Teshiraji,
+   The President, Awamori Souko/A STAND. Oninoude: check BRUTUS EN post-332928 names it before swapping the root URL.
+3. **Hokubu +18, Nanbu +14 (food only — 45 % food), MYK +11, YAEYA +6, KRM +2.** Held lists in `_okinawa_W8D2/D4/D5_notes.md`.
+4. **Anime:** pin the 7 unpinned (list in AUDIT W8); W8A part 3 not run (Okinawa pilgrimage/collab cafés/Ultraman-Kinjō searches); card notes for
+   lids at existing places (Tokashiki, Kumejima, Miyako, Nanjō, Okinawa City Kodomo no Kuni, Ginowan Tropical Beach) and Anime-88 Kabira/Kondoi.
+5. **Pins:** ~74 UNVERIFIED; W8G "still unverified" list (Hiyajō Banta, Wajī, Kaminohama, Aharen, Nakanoshima, Yoshino, Chuko-gura, Kumesen, Tokuyama,
+   Nishikiya, Ryū no Kura, Utahime @東町17-11) needs a different channel (browser `tools/geocode-helper.html`). 4b: 153 `low` → re-verify flags in AUDIT W8.
+6. **Creators:** 0 kept W4–W8 — stop unless a query names a specific shop.
+7. Build loop unchanged: `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py okinawa --build` → 4 gates →
+   `cd tools && npm run validate && npm test` → CARD:okinawa stat + CITIES row + AGENT-PROMPTS row → commit+push
+   (`bash data/okinawa-research/_okinawa_push_w8.sh "msg" <extra paths>` — update its session trailer for a new session).
+
+## Older plan (W8)
 1. **Held leads (one confirm search each)** — listed in AUDIT.md W7 "Held"; cheapest: Nago Poké Lid (already 2 sources — just pin),
    Naha Soba (Kinjō), Shima Nakama, Imai Pan, Teshiraji, Miyazato Soba, VONGO & ANCHOR, Ippe Coppe. Blue Turtle Farm is MYK.
 2. **Discovery:** Naha +31 (food 58 % → balanced), Hokubu +25 (food-first), Chūbu +24 (Koza steak houses = named gap; food-first),

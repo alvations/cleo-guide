@@ -364,7 +364,7 @@
    "n": "Expo '70 Commemorative Park & Tower of the Sun",
    "ad": "1-1 Senri Banpaku-koen, Suita, Osaka, Japan",
    "w": "Vast park on the grounds of the 1970 Japan World Exposition, the first in Asia; Tarō Okamoto's 70 m Tower of the Sun stands over the main entrance as its icon.",
-   "k": "★ Anime & pop culture — Taro Okamoto's Tower of the Sun — a pop-art icon of Expo '70 and a key motif of Naoki Urasawa's manga 20th Century Boys · park / monument",
+   "k": "★ Anime & pop culture — Crayon Shin-chan: The Adult Empire Strikes Back (2001) and 20th Century Boys (the real tower dressed as the 'Tomodachi tower', 2009) — ja.wikipedia 太陽の塔 · park / monument",
    "g": [
     "ANIME",
     "ICON",
@@ -379,6 +379,10 @@
     [
      "WIKIPEDIA",
      "https://en.wikipedia.org/wiki/Tower_of_the_Sun"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94"
     ]
    ]
   },
@@ -4141,6 +4145,81 @@
     [
      "OFFICIAL",
      "https://www.city.wakayama.wakayama.jp/_res/projects/default_project/_page_/001/043/504/1223-4.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "TNJ",
+   "n": "Kiyomizu-dera, Osaka (清水寺, Tamade no Taki)",
+   "ad": "Tennōji-ku, Osaka (top of Kiyomizu-zaka, one of the Tennōji Seven Slopes)",
+   "w": "Osaka's own Kiyomizu-dera, with a mini 'Kiyomizu stage' looking toward Tsūtenkaku and the Tamade-no-taki waterfall — the only natural waterfall inside Osaka city; listed by Time Out Osaka and Osaka Metro's Osaka Mania (Kiyomizu-zaka).",
+   "k": "temple",
+   "g": [
+    "TEMPLE",
+    "ICON",
+    "CASTLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.jp/osaka/ja/things-to-do/kiyomizudera"
+    ],
+    [
+     "OSAKAMETRO",
+     "https://osakamania.jp/shop/hill_08/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TNJ",
+   "n": "Taiyoshi Hyakuban (鯛よし百番, Tobita)",
+   "ad": "3-5-25 San'ō, Nishinari-ku, Osaka 557-0001",
+   "w": "Taishō-era former Tobita yūkaku brothel building, now a working ryōtei; its lavish interiors are a nationally Registered Tangible Cultural Property (2000) and the go-to place in Japan to step into the world of Demon Slayer's Entertainment District arc, since nothing comparable survives in Tokyo's old Yoshiwara.",
+   "k": "★ Anime & pop culture — Demon Slayer (Kimetsu no Yaiba) — Entertainment District (Yūkaku-hen) arc: surviving Taishō pleasure-quarter interiors featured by Mapple as the arc's real-world pilgrimage spot · historic ryōtei / former yūkaku architecture",
+   "g": [
+    "ANIME",
+    "HIST",
+    "POP",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "MAPPLE",
+     "https://www.mapple.net/original/285604/"
+    ],
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/ja/osaka/spot/346"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E9%AF%9B%E3%82%88%E3%81%97%E7%99%BE%E7%95%AA"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KITA",
+   "n": "Capcom Store & Cafe Umeda",
+   "ad": "13F, South Gate Building (LUCUA SOUTH), 3-1-1 Umeda, Kita-ku, Osaka",
+   "w": "Capcom's third store and first Kansai café (opened Nov 2022) — ~900 Monster Hunter / Resident Evil / Street Fighter goods plus a 56-seat rotating collab café; still trading in 2026 (Ōkami 20th-anniversary collab, June 2026) after the building's 13F became LUCUA SOUTH.",
+   "k": "★ Anime & pop culture — Capcom (Monster Hunter, Resident Evil, Street Fighter, Ōkami) — the publisher's only Kansai store-café, Osaka being Capcom's home city · game store & collab café",
+   "g": [
+    "ANIME",
+    "POP",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "LMAGA",
+     "https://www.lmaga.jp/news/2022/11/549226/"
+    ],
+    [
+     "GAMEBUSINESS",
+     "https://www.gamebusiness.jp/article/2022/09/21/20808.html"
     ]
    ]
   }
@@ -8850,7 +8929,7 @@
    "t": 2,
    "a": "BAY",
    "n": "Okinawa Sakaba Kijimunā no Mori (沖縄酒場 きじむなーの森)",
-   "ad": "Sangenya-nishi, Taishō-ku, Osaka (moved into TUGBOAT_TAISHO, 1-11-14 Sangenya-nishi, Jan 2020)",
+   "ad": "TUGBOAT_TAISHO, Sangenya-nishi 1-chōme, Taishō-ku, Osaka (moved in Jan 2020; block number conflicts between sources — 1-1-14 vs 1-11-14 — so street number withheld)",
    "w": "Long-loved Little Okinawa izakaya from under the Taishō rail viaduct, relocated into TUGBOAT_TAISHO in January 2020 (Lmaga.jp); featured in Kansai Walker's Taishō Little Okinawa guide.",
    "cz": [
     "OKINAWA"
@@ -9335,6 +9414,351 @@
      "https://ramenadventures.com/2017/12/18/%E5%92%8C%E6%AD%8C%E5%B1%B1%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3-wakayama-ramen-adventure/"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Arabiya Coffee (アラビヤコーヒー, Namba)",
+   "ad": "1-6-7 Namba, Chūō-ku, Osaka 542-0076",
+   "w": "Namba kissaten opened in 1951 a few steps from Hōzen-ji, now run by the second-generation master; a Tabelog Kissaten Hyakumeiten pick (2022) featured in Osaka Metro's OsakaMania jun-kissa series.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TABELOG100",
+     "https://award.tabelog.com/hyakumeiten/kissaten/2022"
+    ],
+    [
+     "OSAKAMETRO",
+     "https://osakamania.jp/shop/junkissa_09/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Men no Yōji (麺のようじ, Kōzu)",
+   "ad": "2-1-2 Kōzu, Chūō-ku, Osaka (walk from Nipponbashi Station)",
+   "w": "Eight-seat chicken-and-vegetable-broth ramen counter near Nipponbashi; a Tabelog Ramen OSAKA Hyakumeiten 2025 pick, and logged by Ramen Beast.",
+   "cz": [
+    "RAMEN"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TABELOG100",
+     "https://award.tabelog.com/hyakumeiten/ramen_osaka/2025"
+    ],
+    [
+     "CREATOR_RAMENBEAST",
+     "https://foodle.pro/ramenbeast/meals/osaka/men-no-yoji/17961"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Tonkatsu Kōshirō (とんかつ 康四郎, Shinsaibashi)",
+   "ad": "Shinsaibashi, Chūō-ku, Osaka",
+   "w": "Omakase-style tonkatsu counter in Shinsaibashi serving a progression of pork cuts; a Time Out Osaka must-go and a Tabelog Tonkatsu Hyakumeiten pick.",
+   "cz": [
+    "TEISHOKU"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/restaurants/tonkatsu-koshiro"
+    ],
+    [
+     "TABELOG100",
+     "https://award.tabelog.com/hyakumeiten/tonkatsu/2021"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Dotonbori Akaoni (道頓堀 赤鬼)",
+   "ad": "1-2-3 Namba, Chūō-ku, Osaka (between Namba and Nipponbashi stations)",
+   "w": "Dōtonbori takoyaki stand on Time Out Osaka's best-takoyaki list (it held a Michelin Bib Gourmand 2016–18, since lapsed); Mapple's Osaka takoyaki 16 picks it for its takoyaki × cheese menu.",
+   "cz": [
+    "KONAMON"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/restaurants/dotonbori-akaoni"
+    ],
+    [
+     "MAPPLE",
+     "https://www.mapple.net/article/6243/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CHUO",
+   "n": "Ikareta Noodle Fishtons (いかれたヌードル フィッシュトンズ)",
+   "ad": "1-25-18 Shinmachi, Nishi-ku, Osaka (Renajia Shinmachi Bldg 1F; near Nishi-Ōhashi Station)",
+   "w": "Back-alley tsukemen specialist near Nishi-Ōhashi; a Tabelog Ramen OSAKA Hyakumeiten pick (2023, 2024) with a Ramen Adventures write-up of its heavy tonkotsu-gyokai dip.",
+   "cz": [
+    "RAMEN"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TABELOG100",
+     "https://award.tabelog.com/hyakumeiten/ramen_osaka/2024"
+    ],
+    [
+     "CREATOR_RAMENADVENTURES",
+     "https://ramenadventures.com/listing/noodle-fishtons/"
+    ],
+    [
+     "CREATOR_RAMENBEAST",
+     "https://foodle.pro/ramenbeast/meals/osaka/ikareta-noodle-fishtons/17966"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Tsuruichi Honten (鶴一 本店)",
+   "ad": "3-3 Shimoajiharachō, Tennōji-ku, Osaka (by JR Tsuruhashi Stn)",
+   "w": "Founded 1948. Mapple's Tsuruhashi yakiniku guide calls it the district's oldest yakiniku house and credits it with the tsukedare dipping-sauce style. Rurubu also lists it, and both note its 100 g single portions. Address per Mapple; an earlier lead gave 2-13 Shimoajiharachō, so recheck when pinning.",
+   "cz": [
+    "WAGYU"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80027938"
+    ],
+    [
+     "MAPPLE",
+     "https://www.mapple.net/spot/27000605/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "EAST",
+   "n": "Yakiniku Yoshida Shinkan (焼肉 吉田 新館)",
+   "ad": "3-15 Higashiuemachi, Tennōji-ku, Osaka (5 min from JR Tsuruhashi central exit)",
+   "w": "A four-floor Tsuruhashi yakiniku house. Both Rurubu and Mapple list it for its hand-selected domestic kuroge wagyu, with each cut trimmed to its own thickness.",
+   "cz": [
+    "WAGYU"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80027950"
+    ],
+    [
+     "MAPPLE",
+     "https://www.mapple.net/spot/27000510/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BAY",
+   "n": "Taishō Salon Hige to Bōin (大正サロン 髭とボヰン)",
+   "ad": "Taishō-ku, Osaka (about 50 m from Taishō Stn)",
+   "w": "A standing bar by Taishō Station, picked in Osaka Metro's senbero feature and selected for the Tabelog Tachinomi Hyakumeiten 2025.",
+   "cz": [
+    "SAKE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OSAKAMETRO",
+     "https://osakamania.jp/shop/senbero_02/"
+    ],
+    [
+     "TABELOG100",
+     "https://award.tabelog.com/hyakumeiten/tachinomi/2025"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BAY",
+   "n": "Sakamoto Sushi (Nishikujō)",
+   "ad": "1-23-13 Nishikujō, Konohana-ku, Osaka 554-0012",
+   "w": "A Bib Gourmand in the MICHELIN Guide Japan 2026, a neighbourhood sushi counter in Nishikujō on the way to USJ.",
+   "cz": [
+    "SUSHI"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sakamoto-sushi"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BAY",
+   "n": "Akamaru Shokudō (赤丸食堂, Bentenchō)",
+   "ad": "Minato-ku, Osaka (8 min walk from JR Bentenchō Stn)",
+   "w": "A shokudō founded in 1945 and known for huge portions, with queues at lunch. Osaka Metro's Osaka Mania calls it 'the face of Bentenchō', and the Minato ward office featured it in a ward publication.",
+   "cz": [
+    "TEISHOKU"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OSAKAMETRO",
+     "https://osakamania.jp/shop/teishoku_03/"
+    ],
+    [
+     "OSAKACITY",
+     "https://www.city.osaka.lg.jp/minato/cmsfiles/contents/0000374/374172/akamaru1.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TNJ",
+   "n": "Itamae Yakiniku Itto Tengachaya Honten (板前焼肉一斗 天下茶屋本店)",
+   "ad": "1-23-18 Tengachaya-higashi, Nishinari-ku, Osaka",
+   "w": "Butcher-backed 'itamae' yakiniku by Tengachaya where the chef cuts A4–A5 Japanese black beef to order from a glass showcase; a repeat Tabelog Yakiniku WEST Hyakumeiten pick (2020–2025) and an Osaka Metro NiNE spot.",
+   "cz": [
+    "WAGYU"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TABELOG100",
+     "https://award.tabelog.com/hyakumeiten/yakiniku_west/2025"
+    ],
+    [
+     "METRONINE",
+     "https://metronine.osaka/en/spot-details/?spot_id=69027011178"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TNJ",
+   "n": "Abeno Takoyaki Yamachan (あべのたこやき やまちゃん, Abeno)",
+   "ad": "1-2-34 Abeno-suji, Abeno-ku, Osaka",
+   "w": "Unassuming stall behind Abeno Harukas whose dashi-rich batter makes it, per Inside Osaka, 'probably the city's favourite place for takoyaki'; also picked by Mapple.",
+   "cz": [
+    "KONAMON"
+   ],
+   "g": [],
+   "s": [
+    [
+     "INSIDEOSAKA",
+     "https://insideosaka.com/abeno-takoyaki-yamachan/"
+    ],
+    [
+     "MAPPLE",
+     "https://www.mapple.net/spot/27015604/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Osakamon Ryōri Sushi Moriya (おおさかもん料理 鮨 守屋, Sakai)",
+   "ad": "Sakai, Osaka",
+   "w": "Sakai sushi counter aging local-port fish into 'osaka-mon' (Osaka-produce) sushi; in Time Out Osaka's 'South Osaka: 20 restaurants to go to' and the Sakai tourism bureau's 'experience South Osaka' feature.",
+   "cz": [
+    "SUSHI"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.jp/osaka/ja/restaurant/minamiosaka-must-go-restaurant"
+    ],
+    [
+     "SAKAITCB",
+     "https://www.sakai-tcb.or.jp/experience-south-osaka/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Yamato (大和, Kishiwada kashimin-yaki)",
+   "ad": "Kishiwada, Osaka",
+   "w": "Seaside Kishiwada teppan shop credited by Walkerplus with adding beef-tallow mince and naming 'kashimin-yaki', the city's soul food; also featured in JAL's OnTrip Kishiwada piece. (Street address conflicts between sources — Honmachi 4-4 vs 15-4 Kamiyamachi — so ward-level only.)",
+   "cz": [
+    "KONAMON"
+   ],
+   "g": [],
+   "s": [
+    [
+     "WALKERPLUS",
+     "https://www.walkerplus.com/article/191707/"
+    ],
+    [
+     "JALONTRIP",
+     "https://ontrip.jal.co.jp/kansai-nanki/17815790/p2"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Izumisano Fishermen's Co-op Aozora Ichiba (泉佐野漁協青空市場)",
+   "ad": "Shinmachi, Izumisano, Osaka (Izumisano fishing port)",
+   "w": "Co-op-run open-air fish market at Izumisano port, near KIX — Osaka's biggest-catch fishery selling the day's landing, with sushi and kaisen-don counters inside; picked by OSAKA-INFO and Walkerplus's Kansai-drive sushi-lunch feature.",
+   "cz": [
+    "MKT",
+    "SUSHI"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/special/dc/event/detail433/"
+    ],
+    [
+     "WALKERPLUS",
+     "https://www.walkerplus.com/trend/matome/article/1007177/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "TNJ",
+   "n": "Shinsekai Market & Yatai-gai Food Stall Street (新世界市場屋台街)",
+   "ad": "1-20-10 Ebisu-higashi, Naniwa-ku, Osaka",
+   "w": "1916 covered market beside Tsūtenkaku, revived since 2022 as a cheap hand-built food-stall street by the shopping co-op's young members; featured by OSAKA-INFO (Shittonka/Discover Osaka local tour + spot page), Osaka Metro's Osaka Mania and Lmaga's Shinsekai night-market story. Closed Thursdays; hours vary by stall.",
+   "cz": [
+    "MKT"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "OSAKAINFO",
+     "https://discover.osaka-info.jp/en/spots/shinsekai-market"
+    ],
+    [
+     "OSAKAMETRO",
+     "https://osakamania.jp/shop/arcade_13/"
+    ],
+    [
+     "LMAGA",
+     "https://www.lmaga.jp/news/2019/06/69187/"
+    ]
+   ]
   }
  ],
  "S": {
@@ -9355,6 +9779,12 @@
    "t": "Feel KOBE — Kobe Tourism Bureau official guide",
    "u": "https://www.feel-kobe.jp/en/",
    "l": "Feel KOBE — Kobe Tourism Bureau official guide"
+  },
+  "GAMEBUSINESS": {
+   "k": "GAMEBUSINESS",
+   "t": "GameBusiness.jp (IID, Inc.)",
+   "u": "https://www.gamebusiness.jp/",
+   "l": "GameBusiness.jp (IID, Inc.)"
   },
   "INSIDEOSAKA": {
    "k": "INSIDEOSAKA",
@@ -9398,6 +9828,12 @@
    "u": "https://www.lmaga.jp/",
    "l": "Lmaga.jp (京阪神エルマガジン社)"
   },
+  "MAPPLE": {
+   "k": "MAPPLE",
+   "t": "Mapple / まっぷるウェブ (Shobunsha Publications)",
+   "u": "https://www.mapple.net/",
+   "l": "Mapple / まっぷるウェブ (Shobunsha Publications)"
+  },
   "METRONINE": {
    "k": "METRONINE",
    "t": "Osaka Metro NiNE (metronine.osaka)",
@@ -9415,6 +9851,12 @@
    "t": "OSAKA-INFO (Osaka Convention & Tourism Bureau)",
    "u": "https://osaka-info.jp/en/",
    "l": "OSAKA-INFO (Osaka Convention & Tourism Bureau)"
+  },
+  "OSAKAMETRO": {
+   "k": "OSAKAMETRO",
+   "t": "OsakaMania (オオサカマニア, Osaka Metro)",
+   "u": "https://osakamania.jp/",
+   "l": "OsakaMania (オオサカマニア, Osaka Metro)"
   },
   "SAKAITCB": {
    "k": "SAKAITCB",
@@ -9507,6 +9949,12 @@
    "t": "Ramen Adventures (Brian MacDuckston)",
    "u": "https://ramenadventures.com/listing/mentokokoro-seven-osaka/",
    "l": "Ramen Adventures (Brian MacDuckston)"
+  },
+  "CREATOR_RAMENBEAST": {
+   "k": "CREATOR RAMENBEAST",
+   "t": "Ramen Beast",
+   "u": "https://foodle.pro/ramenbeast/meals/osaka/61d2ef98d2e0a/10973",
+   "l": "Ramen Beast"
   },
   "DAILY": {
    "k": "DAILY",

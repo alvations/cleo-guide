@@ -250,3 +250,36 @@ Per-agent logs `_okinawa_W7*_notes.md` hold every query, kept/dropped/held lead 
 - Channel mix (kept): regional press (RS/OT/OTV) ~10 · Japanese travel media (Mapple/Rurubu/Tabirai/GLTJP/Okinawa CLIP) ~14 ·
   official/municipal/OCVB ~8 · national (TV Tokyo, BRUTUS, Tabelog Hyakumeiten selection) 3 · English (Culture Trip, Fun Japan,
   Stripes, Wikipedia) ~8 · creators 0.
+
+## 2026-10-03 — W8 (session_01Df9Wi2VqyzsSc7XCRZBEQz; 8 bg agents, ~184 of ~200 searches; rules `_okinawa_w8_agentrules.md`)
+Per-agent logs `_okinawa_W8*_notes.md` hold every query, kept/dropped/held lead and its source; summary:
+- **Discovery (+40 → 418; 25 food & drink):** W8H Naha held confirms +5 food (Yuunami Sakashita, Soba-dokoro Kikuya, Okinawa Jiryōri Angama,
+  Shima-uta to Jiryōri Tubarama, Imai Pan — 2nd sources OT 2023 reader poll / OTV / Okinawa Traveler / Tabirai / Okinawa CLIP / OCVB).
+  W8D1 Chūbu food +2 (Miyoya curry soba, Kadena — OTV 2025 soba 15 #3 + rurubu; TESIO sausages, Koza Gate-dōri — IFFA gold, OTV/RS/Tabirai).
+  W8D2 Hokubu +6 (Yaezen, Nakijin Soba, Famille tacos, Nago-magari Restaurant, CAFE FUKURUBI, Kouri Ocean Tower; new outlet NAKIJINKANKO).
+  W8D3 Naha +7 (Shikina-gū, Okinogū [2 sources], Asato Hachimangū, Ameku-gū — Ryūkyū Eight Shrines; Gajanbira Park; Kōhī Sakan Inshallah (1974);
+  Live House Shimauta). W8D4 Nanbu +2 (Okinawa Soba Kintarō, Minatomachi Parlor) / KRM +3 (Yukui-dokoro Washima, Wayama Mozuku, Boku no Mise
+  Ojisan — katsudon now named). W8D5 MYK +5 (Kikunotsuyu, Okinohikari, Ninufa, Painagama Beach, Ikema Wetlands) / YAEYA +4 (Tamanaha Shuzōsho,
+  Dunan/Kokusen hanazake, Ishigaki Public Market, Tachigami-iwa). W8A anime +6 (Poké Lids Nago/Hinpun Gajumaru, Itoman, Tomigusuku/Michi-no-Eki
+  Toyosaki, Zamami, Ishigaki; Taketomi West Pier — Non Non Biyori, official Anime Tourism 88 page).
+- **Orchestrator fact-check:** W8D5 flagged two cites it had *assumed* named the place → removed rather than trusted: Tamanaha's rurubu 22673
+  (3 sources remain: Yaeyama VB, Tabirai, NTA awards) and Tachigami-iwa's ja.wiki 与那国島 article (replaced by tabi-mag on0209 立神岩 spot page,
+  surfaced by an orchestrator search; OCVB + TABIMAG). New keys TANOSHIMA (publisher unverified) and MIDORIHANA (prefecture greening foundation):
+  Ikema Wetlands still has WIKIPEDIA_JA + MIDORIHANA without TANOSHIMA. Uruma Tauros lid address corrected in SIGHTS_OKINAWA_W7A.json
+  (1-2 Ishikawa-Ishizaki = gymnasium, 1.1 km off → 2316 Ishikawa, the sports grounds; W8A). BRUTUS EN post-332928 (Top-100 bars, Naha) surfaced
+  for Oninoude — not swapped in (no evidence the page names it); candidate for W9.
+- **Dropped / held:** Senbero Mattchan dropped (PR TIMES only). VONGO & ANCHOR dropped (blogs only). Yarazamori Gusuku dropped (inside Naha
+  Military Port, no public access). New York Restaurant (Koza, A-lunch origin) not written — Tabelog says closed 2008, Hotpepper/Ekiten list an
+  izakaya of that name. Helios Pub renamed/moved (Bacchus no Ibukuro?) — held. Held single-source: Naha Soba, Shima Nakama, The President,
+  Teshiraji, Awamori Souko (→ "A STAND"?), Kihachi, Blue Turtle Farm, Mickey, Shimanchu Soba, Churuge Soba, Ippe Coppe, Tototo, Uppama Soba,
+  Miyazato Soba (3rd miss), Marutaka, Koja, Doka Doka, KAIHOLO, Furumiya, Kōganeya, Restaurant Ryū, Tokashiki shokudō, Shima Soba Ichiban-chi,
+  Yakiniku Kihachi, Kanifu/Shidamē-kan, Ikema Shuzō. Ashibiuna: no closure evidence (the "2019 fire" was likely the Shuri Castle fire) — no record.
+- **Closures:** none new.
+- **Geocode:** W8G +14 on the UNVERIFIED queue (2 med NAVITIME — Takatsukiyama, Inazaki; 12 low incl. Yaesen/Takamine/Sakimoto/Iejima
+  distilleries); re-verify flags: Kingyū (two listings ~250 m apart), Kura (3-decimal longitude), Kōrakuen (inland point), Yaesen/Sakimoto/
+  Hakoniwa (listing page not identified). Address updates suggested: Pengin 大川199-1, Kōrakuen 平得1535-19. W8A pinned 3 existing anime
+  (Midori no Yakata Sēfā, Tenbusu Arcanine lid, Uruma Tauros lid — all med). Discovery agents pinned 29 of their 40.
+- **Build + gates:** `rebuild-city.py okinawa --build` → sourcecheck PASS (418) · geocheck PASS (high 119 · med 72 · low 153) · statuscheck
+  CONSISTENT (0 unchecked) · buildcheck PASS; `npm run validate` DATA OK; `npm test` ALL PASS. Pins 295 → 344. Food share 227/418 = 54 %.
+  **ANIME 22 found / 15 pinned** (unpinned: Ryūtan lid, Kinjō Tetsuo/Shōfūen, Azama Sun Sun, Sugar Road, Zamami lid, Ishigaki lid, West Pier).
+- **Creators:** ~10 searches across agents — 0 kept (rejections in `CREATORS_OKINAWA_W8*.json`).

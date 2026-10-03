@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Madison &amp; Dane County (Wisconsin) field guide — 34 sights and 19 places to eat across the Capitol Square isthmus, UW–Madison, the east and west sides, Middleton, Verona, the Dane County towns and the day trips to Taliesin, New Glarus and Devil&rsquo;s Lake, each traceable to its source (Wisconsin State Journal, Cap Times, Isthmus, Madison Magazine, WPR, Travel Wisconsin, James Beard), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Madison &amp; Dane County (Wisconsin) field guide — 39 sights and 20 places to eat across the Capitol Square isthmus, UW–Madison, the east and west sides, Middleton, Verona, the Dane County towns and the day trips to Taliesin, New Glarus and Devil&rsquo;s Lake, each traceable to its source (Wisconsin State Journal, Cap Times, Isthmus, Madison Magazine, WPR, Travel Wisconsin, James Beard), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
 <title>Madison &amp; Dane County Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Madison, Wisconsin &amp; Dane County, sourced</p>
   <h1>Madison<span class="thin">the isthmus, the lakes &amp; Dane County &mdash; curds, fish fry &amp; Frank Lloyd Wright</span></h1>
-  <p class="standfirst">34 sights and 19 places to eat across <strong>Madison</strong> &mdash; the Capitol Square isthmus, the UW campus, the east and west sides &mdash; plus Middleton, Verona, the <strong>Dane County</strong> towns and the classic day trips (Taliesin, New Glarus, Devil&rsquo;s Lake), each traceable to the source that named it. The canon is Wisconsin&rsquo;s own: squeaky <strong>cheese curds</strong>, the <strong>Friday fish fry</strong>, <strong>supper clubs</strong> and the brandy old fashioned, the <strong>Dane County Farmers&rsquo; Market</strong>, Babcock Hall ice cream, Hmong &amp; Lao kitchens and New Glarus beer. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">39 sights and 20 places to eat across <strong>Madison</strong> &mdash; the Capitol Square isthmus, the UW campus, the east and west sides &mdash; plus Middleton, Verona, the <strong>Dane County</strong> towns and the classic day trips (Taliesin, New Glarus, Devil&rsquo;s Lake), each traceable to the source that named it. The canon is Wisconsin&rsquo;s own: squeaky <strong>cheese curds</strong>, the <strong>Friday fish fry</strong>, <strong>supper clubs</strong> and the brandy old fashioned, the <strong>Dane County Farmers&rsquo; Market</strong>, Babcock Hall ice cream, Hmong &amp; Lao kitchens and New Glarus beer. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -309,19 +309,25 @@
 <script>
 
 const S = {
+  "AMAZINGAMERICA":{k:"AMAZINGAMERICA",t:"Amazing America (Sinclair TV, syndicated on WJLA etc.)",u:"https://wjla.com/amazing-america",l:"Amazing America (Sinclair TV, syndicated on WJLA etc.)"},
+  "AMERICANTHEATRE":{k:"AMERICANTHEATRE",t:"American Theatre magazine",u:"https://americantheatre.org",l:"American Theatre magazine"},
   "ARCHITECTMAG":{k:"ARCHITECTMAG",t:"Architect magazine (AIA)",u:"https://www.architectmagazine.com/",l:"Architect magazine (AIA)"},
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/things-to-do/madison-wisconsin",l:"Atlas Obscura"},
   "BADGERHERALD":{k:"BADGERHERALD",t:"The Badger Herald",u:"https://badgerherald.com/",l:"The Badger Herald"},
+  "BRAVA":{k:"BRAVA",t:"Brava Magazine",u:"https://bravamagazine.com/",l:"Brava Magazine"},
   "CITYMADISON":{k:"CITYMADISON",t:"City of Madison Parks",u:"https://www.cityofmadison.com/parks/",l:"City of Madison Parks"},
   "CLIO":{k:"CLIO",t:"The Clio",u:"https://theclio.com/",l:"The Clio"},
   "DAILYCARDINAL":{k:"DAILYCARDINAL",t:"The Daily Cardinal (UW–Madison)",u:"https://www.dailycardinal.com/",l:"The Daily Cardinal (UW–Madison)"},
+  "DANECOUNTY":{k:"DANECOUNTY",t:"Dane County Parks (official)",u:"https://www.danecountyparks.com",l:"Dane County Parks (official)"},
   "EXPERIENCEWI":{k:"EXPERIENCEWI",t:"Experience Wisconsin magazine",u:"https://experiencewisconsinmag.com/",l:"Experience Wisconsin magazine"},
   "FLWFOUNDATION":{k:"FLWFOUNDATION",t:"Frank Lloyd Wright Foundation",u:"https://franklloydwright.org/",l:"Frank Lloyd Wright Foundation"},
   "ISTHMUS":{k:"ISTHMUS",t:"Isthmus",u:"https://isthmus.com/",l:"Isthmus"},
   "LONELYPLANET":{k:"LONELYPLANET",t:"Lonely Planet",u:"https://www.lonelyplanet.com/",l:"Lonely Planet"},
   "NPS":{k:"NPS",t:"National Park Service (NHL / National Natural Landmark)",u:"https://www.nps.gov/",l:"National Park Service (NHL / National Natural Landmark)"},
   "SAHARCHIPEDIA":{k:"SAHARCHIPEDIA",t:"SAH Archipedia (Society of Architectural Historians)",u:"https://sah-archipedia.org/",l:"SAH Archipedia (Society of Architectural Historians)"},
+  "SHEPHERDEXPRESS":{k:"SHEPHERDEXPRESS",t:"Shepherd Express",u:"https://shepherdexpress.com",l:"Shepherd Express"},
   "SHOWCAVES":{k:"SHOWCAVES",t:"showcaves.com",u:"https://showcaves.com/",l:"showcaves.com"},
+  "TELEGRAPHHERALD":{k:"TELEGRAPHHERALD",t:"Telegraph Herald (Dubuque)",u:"https://www.telegraphherald.com",l:"Telegraph Herald (Dubuque)"},
   "TIMEOUT":{k:"TIMEOUT",t:"Time Out — Madison",u:"https://www.timeout.com/madison",l:"Time Out — Madison"},
   "TONEMADISON":{k:"TONEMADISON",t:"Tone Madison",u:"https://tonemadison.com/",l:"Tone Madison"},
   "TRAVELWI":{k:"TRAVEL WISCONSIN",t:"Travel Wisconsin (WI Dept. of Tourism)",u:"https://www.travelwisconsin.com/",l:"Travel Wisconsin (WI Dept. of Tourism)"},
@@ -385,7 +391,12 @@ const P = [
 {t:2,a:"UW",n:"Allen Centennial Garden",ad:"10 Babcock Dr, Madison, WI 53706",la:43.07694,ln:-89.41278,w:"A free 2.5-acre teaching garden around the 1896 Victorian dean's house on the ag campus — themed rooms from a Dutch to a New American garden, featured in The American Gardener.",k:"free",g:["CAMPUS","LAKES","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Allen_Centennial_Gardens"],["UWALUMNI","https://www.uwalumni.com/allen-centennial-garden/"]]},
 {t:3,a:"EAST",n:"Wisconsin Governor's Mansion",ad:"99 Cambridge Rd, Maple Bluff, WI 53704",la:43.10867,ln:-89.36981,w:"The 1920s Classical Revival executive residence on 3.7 lakeshore acres in Maple Bluff, home to Wisconsin's governors since 1949; open for limited free summer tours.",g:["LAKES","OUTDOOR","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Wisconsin_Governor%27s_Mansion"],["WHS","https://www.wisconsinhistory.org/Records/Article/CS4235"],["WIDOA","https://doa.wi.gov/Pages/AboutDOA/Governors-Executive-Residence.aspx"]]},
 {t:2,a:"CAP",n:"Madison Children's Museum",ad:"100 N Hamilton St, Madison, WI 53703",la:43.07690,ln:-89.38440,w:"A hands-on museum off the Capitol Square, rebuilt green with the year-round 'Rooftop Ramble' garden (chickens included) — named one of the top five US children's museums by Parents magazine.",g:["ICON","MUS","LAKES","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Madison_Children%27s_Museum"],["ARCHITECTMAG","https://www.architectmagazine.com/?p=180565"]]},
-{t:2,a:"CAP",n:"Orpheum Theater",ad:"216 State St, Madison, WI 53703",la:43.07500,ln:-89.38861,w:"A 1927 Rapp & Rapp movie palace a block from the Capitol — Art Deco outside, French Renaissance within — still a live-music hall; on the National Register.",g:["HIST","ARTS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Orpheum_Theater_(Madison,_Wisconsin)"],["ISTHMUS","https://isthmus.com/arts/the-once-and-future-orpheum-theatre"],["WHS","https://www.wisconsinhistory.org/Records/NationalRegister/NR2316"]]}
+{t:2,a:"CAP",n:"Orpheum Theater",ad:"216 State St, Madison, WI 53703",la:43.07500,ln:-89.38861,w:"A 1927 Rapp & Rapp movie palace a block from the Capitol — Art Deco outside, French Renaissance within — still a live-music hall; on the National Register.",g:["HIST","ARTS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Orpheum_Theater_(Madison,_Wisconsin)"],["ISTHMUS","https://isthmus.com/arts/the-once-and-future-orpheum-theatre"],["WHS","https://www.wisconsinhistory.org/Records/NationalRegister/NR2316"]]},
+{t:1,a:"TRIP",n:"American Players Theatre",ad:"Spring Green (Iowa County side of the Wisconsin River), WI",la:43.14222,ln:-90.03833,w:"Classical repertory theatre on 110 Driftless acres across the river from Spring Green: the 1,075-seat outdoor Hill Theatre in an oak-wooded hollow plus the indoor Touchstone. Nearly 100,000 visitors a season (June–November); 2026 Regional Theatre Tony Award.",g:["ARTS"],s:[["AMERICANTHEATRE","https://americantheatre.org/2016/06/07/know-a-theatre-american-players-theatre"],["TELEGRAPHHERALD","https://www.telegraphherald.com/news/features/article_4a1cadf8-d516-46fe-8546-bc1f678cc1aa.amp.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/American_Players_Theatre"]]},
+{t:2,a:"CAP",n:"Wisconsin Veterans Museum",ad:"30 W Mifflin St, Madison, WI 53703",la:43.07500,ln:-89.38674,w:"Free state museum on Capitol Square tracing Wisconsin's military history from the Civil War (including Old Abe, the war eagle) to the present. The state has bought the building to replace it with a new five-story museum — check before visiting as construction nears.",g:["ICON","MUS","HIST","FREE"],s:[["VISITMADISON","https://www.visitmadison.com/things-to-do/free-things-to-do/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wisconsin_Veterans_Museum"],["WPR","https://wpr.org/news/wisconsin-veterans-museum-funding-new-building"]]},
+{t:1,a:"CAP",n:"Madison Museum of Contemporary Art (MMoCA)",ad:"State St (Overture Center complex), Madison, WI 53703",la:43.07452,ln:-89.38891,w:"Free contemporary-art museum in the Cesar Pelli–designed Overture complex at the top of State Street, with a rooftop sculpture garden.",g:["MUS","LAKES","ARTS","FREE"],s:[["VISITMADISON","https://www.visitmadison.com/things-to-do/free-things-to-do/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Madison_Museum_of_Contemporary_Art"]]},
+{t:1,a:"DANE",n:"Stoughton Opera House",ad:"381 E Main St, Stoughton, WI 53589",la:42.91650,ln:-89.21689,w:"Stoughton's 1901 city-hall opera house, left to decay after 1953 and reopened in 2001 after a 20-year community restoration; 80+ shows a year in the Norwegian-heritage town. Celebrated 125 years in 2026.",g:["HIST","ARTS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Stoughton_Opera_House"],["WMTV","https://www.wmtv15news.com/2026/03/09/its-community-led-effort-stoughton-opera-house-celebrates-125-years"],["BRAVA","https://bravamagazine.com/?p=16216"]]},
+{t:2,a:"TRIP",n:"Chalet of the Golden Fleece",ad:"618 2nd St, New Glarus, WI 53574",la:42.81378,ln:-89.63488,w:"A 1937–38 Bernese mountain chalet (NRHP) built for Wilhelm Tell pageant founder Edwin Barlow and given to the village as a museum in 1955 — Swiss folk art plus oddities like a Louis XVI watch and Etruscan earrings. Open Saturdays late May–October and festival weekends.",g:["MUS","HIST","ODD"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Chalet_of_the_Golden_Fleece"],["TRAVELWI","https://www.travelwisconsin.com/things-to-do/culture-arts/museums-history/chalet-of-the-golden-fleece-museum"],["WHS","https://www.wisconsinhistory.org/Records/NationalRegister/NR2429"]]}
 ];
 
 const FS = {
@@ -421,6 +432,7 @@ const FS = {
   "VISITMIDDLETON":{k:"VISITMIDDLETON",t:"Visit Middleton (Middleton Tourism Commission)",u:"https://visitmiddleton.com/",l:"Visit Middleton (Middleton Tourism Commission)"},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (notability + published coordinates)",u:"https://en.wikipedia.org/",l:"Wikipedia (notability + published coordinates)"},
   "WMTV":{k:"WMTV 15",t:"WMTV 15 News",u:"https://www.wmtv15news.com/",l:"WMTV 15 News"},
+  "WPR":{k:"WPR",t:"Wisconsin Public Radio",u:"https://www.wpr.org/",l:"Wisconsin Public Radio"},
   "WSJ":{k:"WISCONSIN STATE JOURNAL",t:"Wisconsin State Journal (madison.com)",u:"https://madison.com/",l:"Wisconsin State Journal (madison.com)"}
 };
 
@@ -479,7 +491,8 @@ const F = [
 {t:1,a:"MVF",n:"Quivey's Grove",ad:"6261 Nesbitt Rd, Fitchburg, WI 53719",cz:["SUPPR","FISH"],la:43.00917,ln:-89.47861,w:"Dinner in an 1856 Italianate sandstone farmhouse (the National Register-listed John Mann House) with a stone-barn Stable Grill. Its Spotted Cow-battered fry is a Madison Magazine pick and an Isthmus food editor's favourite. <strong>Order:</strong> Award-winning fish fry — cod and perch beer-battered with New Glarus Spotted Cow (Wednesdays & Fridays).",s:[["MADMAG","https://www.channel3000.com/madison-magazine/dining-and-drink/18-fin-tastic-places-to-get-fish-fry-in-the-madison-area/article_5bfc7047-be47-590b-b995-f733583518c8.html"],["CITYCAST","https://madison.citycast.fm/podcasts/where-do-you-friday-fish-fry"],["WIKIPEDIA","https://en.wikipedia.org/wiki/John_Mann_House"]]},
 {t:2,a:"EAST",n:"Dexter's Pub",ad:"301 North St, Madison, WI 53704",cz:["TAV","FISH"],la:43.10340,ln:-89.35022,w:"A north-east-side neighbourhood pub whose sustainable, wild-caught fish fry runs twice a week; in Madison Magazine's fish-fry list, Travel Wisconsin's eight Madison fish-fry picks and City Cast's guide. <strong>Order:</strong> Wild-caught fish fry Wednesdays & Fridays — cod, bluegill, walleye — with Madison Sourdough rye.",s:[["MADMAG","https://www.channel3000.com/madison-magazine/dining-and-drink/18-fin-tastic-places-to-get-fish-fry-in-the-madison-area/article_5bfc7047-be47-590b-b995-f733583518c8.html"],["TRAVELWI","https://TravelWisconsin.com/article/restaurants/8-madison-spots-for-fabulous-fish-fry"],["CITYCAST","https://madison.citycast.fm/best/best-fish-fries-madison"],["ISTHMUS","https://isthmus.com/locations/dexters-pub"]]},
 {t:1,a:"DANE",n:"Wollersheim Winery",ad:"Across the Wisconsin River east of Prairie du Sac, Dane County, WI",cz:["BREW"],la:43.28813,ln:-89.70728,w:"Wisconsin's historic winery: Hungarian count Agoston Haraszthy planted these slopes in the 1840s before leaving to found California's wine industry; Peter Kehl's stone buildings are on the National Register. Now a winery, distillery and restaurant. <strong>Order:</strong> Estate wines and Wollersheim's own brandy, tasted in the 1840s-rooted stone cellars.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Wollersheim_Winery"],["ONMILWAUKEE","https://onmilwaukee.com/articles/wollersheimwinery"]]},
-{t:1,a:"UW",n:"Der Rathskeller",ad:"Memorial Union, 800 Langdon St, Madison, WI 53706",cz:["BREW","TAV"],la:43.07639,ln:-89.40000,w:"The Memorial Union's 1928 German-style beer hall: when its first keg was tapped in 1933, UW became the first public university in the US to serve beer. Eugene Hausler's murals and riddles, restored after the union's renovation, and the 'Battle of Beer and Wine' next door in der Stiftskeller. <strong>Order:</strong> A Wisconsin tap beer under the 1928 Hausler murals and 300 steins (then out to the Terrace).",s:[["VISITMADISON","https://www.visitmadison.com/blog/stories/post/things-to-know-memorial-union-and-terrace/"],["ISTHMUS","https://isthmus.com/arts/der-stiftskeller-murals-to-be-reconstructed-after-memorial-union-renovation/"],["UWNEWS","https://news.wisc.edu/memorial-union-has-evolved-over-the-years-but-that-union-vibe-remains"]]}
+{t:1,a:"UW",n:"Der Rathskeller",ad:"Memorial Union, 800 Langdon St, Madison, WI 53706",cz:["BREW","TAV"],la:43.07639,ln:-89.40000,w:"The Memorial Union's 1928 German-style beer hall: when its first keg was tapped in 1933, UW became the first public university in the US to serve beer. Eugene Hausler's murals and riddles, restored after the union's renovation, and the 'Battle of Beer and Wine' next door in der Stiftskeller. <strong>Order:</strong> A Wisconsin tap beer under the 1928 Hausler murals and 300 steins (then out to the Terrace).",s:[["VISITMADISON","https://www.visitmadison.com/blog/stories/post/things-to-know-memorial-union-and-terrace/"],["ISTHMUS","https://isthmus.com/arts/der-stiftskeller-murals-to-be-reconstructed-after-memorial-union-renovation/"],["UWNEWS","https://news.wisc.edu/memorial-union-has-evolved-over-the-years-but-that-union-vibe-remains"]]},
+{t:2,a:"CAP",n:"Great Dane Pub & Brewing Co.",ad:"123 E Doty St, Madison, WI 53703",cz:["BREW","TAV"],la:43.07444,ln:-89.38000,w:"Madison's flagship brewpub since November 1994, in the NRHP-listed Fess Hotel (1858) at Doty & King; UpNorthNews readers' #1 Madison brewery 2025. <strong>Order:</strong> House-brewed Good Dog IPA or Black Earth Porter in the 1858 Fess Hotel.",s:[["UPNORTHNEWS","https://upnorthnewswi.com/local/food-drink/best-breweries-2025/"],["ISTHMUS","https://isthmus.com/food-drink/beer/the-great-dane-pub-celebrates-20-years-of-craft-brewing-in-madison-and-beyond"],["MADMAG","https://www.channel3000.com/madison-magazine/city-life/the-great-dane-pub-brewing-co-has-brewed-success/article_34afb0f5-5300-5996-b7b0-9ab5ff02ed52.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Fess_Hotel"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -504,7 +517,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([43.0763,-89.4],10);
+  map = L.map('map',{scrollWheelZoom:false}).setView([43.0758,-89.3986],9);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -588,7 +601,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["The Isthmus", 43.0748, -89.3838], ["UW–Madison campus", 43.0765, -89.4051], ["East side — Willy Street", 43.0931, -89.3542], ["West side — Monroe Street", 43.0616, -89.4267], ["Middleton", 43.0523, -89.4949], ["Dane County towns", 43.0891, -89.6089], ["Day trips", 43.3056, -89.8968]];
+const LABELS=[["The Isthmus", 43.0748, -89.3841], ["UW–Madison campus", 43.0765, -89.4051], ["East side — Willy Street", 43.0931, -89.3542], ["West side — Monroe Street", 43.0616, -89.4267], ["Middleton", 43.0523, -89.4949], ["Dane County towns", 43.0604, -89.5436], ["Day trips", 43.2401, -89.8847]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -927,7 +940,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 53 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 59 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

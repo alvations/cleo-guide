@@ -56,7 +56,11 @@
   Chief O'Neill's, Chi Cafe, Nine Bar.
 
 ## In-flight wave
-(none — session 4 closed cleanly at the search budget.)
+- **Session 5 / wave 4 (2026-10-03, started):** budget ~200 searches split ~50/50.
+  (a) PIN pass on the unpinned (latlong.net OSM POI / Wikipedia / Apple Maps place / Google !3d!4d, 3 names per query) →
+      `geo/_geoout_w18.json` (status/statusSource copied from the registry row; later file wins in geo-merge).
+  (b) NEED discovery → `FOOD_W18.json` + `SIGHTS_W11.json` (+ geo rows via `_chi_batch.py`, which writes `_geoout_w15.json`):
+      WEST +17, NW +14 (sights), SUB +13, NORTH +12, SOUTH +11, LOOP +10, SW +9, FAR +9 (sights where food-heavy, food where sight-heavy).
 
 ## Next actions (ordered)
 **Session-5 plan (next wave):**
