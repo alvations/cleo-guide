@@ -247,3 +247,12 @@
 89 NT: Gator Grill, Royal Palm Grill, Farmers' Market (Fodor's only → held) → 4 added
 90 NPS: Long Pine Key, Pinelands, Paurotis Pond, Eco Pond (lone NPS authority) → 4 sights; Chekika CLOSED indefinitely (NPS) → not added
 91 Coords probe Eco Pond / Paurotis / Pinelands: extract printed 25.138709,-80.937543 (Eco) and 25.282657,-80.799723 (Paurotis) but the printing page is ambiguous (npplan.com vs nps.gov/places) → NOT pinned; candidate values recorded in AUDIT for re-verify
+92 Infatuation 25 best FTL (Larb, Greek Islands, Daniel's, D's Sports Bar, Southport, Steak 954, Evelyn's, Takato, Red Sea Eritrean, Il Paesano, Mai-Kai, Nour, Laspada's, Tortilleria Mexicana, Epazote, Egg N' You, Nove Pasta House; Gai Chicken & Rice, Kousine reviews)
+93 NT 10 best downtown FTL (Casa Sensei, Catch & Cut, Mykonos, Boathouse, The Katherine, Yolo, Temple Street) + 16 waterfront FTL (Coconuts, Boatyard, Shooters, Takato, Southport, Ocean Prime, Yot Bar)
+94 NT/VL for Inf-only (Epazote NT Mexican FTL; Red Sea, Nove = VL listings only → held; D's Sports Bar held)
+95 Inf/TO/VL for NT-only (Boatyard, Shooters — VL dock-and-dine; Temple Street — VL international; Yot, Mykonos held) → 4 added
+96 Wikipedia coords: Everglades Holiday Park (high); Mizell-Johnson SP, Anne Kolb none
+97 VL/Fodor's Broward nature sights → 3 sights
+98 TO 19 best downtown (Tâm Tâm, Jaguar Sun, NIU Kitchen, Drinking Pig, Eleventh Street Pizza, Mr. Omakase, Zuma, Miami Slice, Julia & Henry's, Motek, Over Under, PEZ, Mangrove, Soya & Pomodoro, Giselle, Manna Life, Pollos y Jarras, Novikov, Meraki)
+99 Infatuation Brickell 16 (NAOE 'longest-running omakase and still its best', River Oyster, Claudie, Kaori, Sunkissed) + downtown guides
+100 Infatuation reviews for TO downtown names (NIU, Drinking Pig, Eleventh Street, Miami Slice; Motek review is NYC → held) → 5 added incl. NAOE
