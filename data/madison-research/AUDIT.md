@@ -276,3 +276,35 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
   "Fitchburg fail"), Namio's (Isthmus: "isn't a game-changer"), Everly (Travel Wisconsin only), Brasserie V (still no
   2026 open evidence beyond listings), Tex Tubb's (Best of Madison 2026 tacos gold; EAST, needs a 2nd editorial),
   Muir Knoll & Carillon Tower (no pin path / single source), Jordan's Big Ten Pub (OnMilwaukee only).
+
+### W6 batch b
+- **Searches:** ~30 (session ~130). Creator query run ("Madison food TikTok creator…") — surfaced only UpNorthNews
+  reader-poll guides (already registered), no new verifiable creator; logged, no creator added this wave.
+- **Food (FOOD_W6b.json, 6):** J. Henry & Sons (DANE; Cap Times + Destination Madison), Banzo (EAST; Best of Madison
+  2026 gold + Isthmus Mad Faves), RED (CAP; Best of Madison 2026 East Asian gold + Mad Faves Japanese), Oakcrest Tavern
+  (WEST; Isthmus burger survey + Doug Moe/MadMag + UpNorthNews 2025), Driftless Café (TRIP t1; 2017 JB semifinalist —
+  WPR + OnMilwaukee + Travel Wisconsin; ~2 h, Viroqua), Bar Corallini (EAST; Isthmus + Cap Times).
+- **Sights (SIGHTS_W6b.json, 4):** Livsreise Norwegian Heritage Center (DANE; FOX11 + Travel Wisconsin; FOX11 registered
+  in SOURCES_W6.json), Indian Lake County Park & St. Mary of the Oaks Chapel (DANE; Dane County Parks + Destination
+  Madison + WHS), Capital Springs SRA (MVF; DNR + Wikipedia, med area point), Military Ridge State Trail (MVF; DNR +
+  Wikipedia, med endpoint point).
+- **Pins:** Banzo (Waze high), Oakcrest (usarestaurants med), Capital Springs + Military Ridge (Wikipedia med).
+  UNVERIFIED: J. Henry, Livsreise, Indian Lake, RED, Driftless Café, Bar Corallini.
+- **Held / dropped:** Swad (Mad Faves Indian, but listings conflict — Monona address vs a west-side coordinate; not
+  pinned or added), Skål Public House (student paper + 2015 'Burbs vote only), Paoli Schoolhouse (OpenTable only),
+  Spring Green General Store (WSJ: owner selling after 33 years — status unclear), Driftless Depot (Isthmus only),
+  Eloura / Rokuaji / The Perch (2026 openings, too new), Schumacher Farm Park (Travel Wisconsin + own site only).
+
+### W6 batch c
+- **Searches:** ~25 (session ~160).
+- **Food (FOOD_W6c.json, 4):** Wisconsin Brewing Company (MVF; Isthmus + Experience Wisconsin; Waze pin high),
+  Taqueria Guadalajara (WEST; Isthmus + Cap Times + Daily Cardinal + Mad Faves; Waze pin high), Puempel's Olde Tavern
+  (TRIP; OnMilwaukee + Travel Wisconsin; UNVERIFIED pin), Viking Brew Pub (DANE t3; Isthmus + Travel Wisconsin; UNVERIFIED).
+- **Sights (SIGHTS_W6c.json, 1):** North Hall (UW; NHL — NPS + Wikipedia; Wikipedia pin high).
+- **Pin upgrade:** The Robin Room — Apple Maps `coordinate=` (high).
+- **Status checks:** Tempest Oyster Bar — absent from an Apple street query, so checked: still taking reservations
+  (OpenTable/Tock, 2026) → stays open. Fresco (MMoCA rooftop) — Cap Times: rooftop now hosts Tall Grass / dome pop-ups →
+  not added (closed). Liliana's (Fitchburg) — closed 2022 (WKOW) → not added.
+- **Held:** Mediterranean Cafe (Isthmus + Badger Herald, but no 2026 status evidence), Popolo (Mineral Point; Isthmus
+  only), My Sister's Kitchen (it is in Mazomanie, Isthmus only), Tapas Rias / Fuji (Isthmus only), Tumbled Rock Brewery,
+  Little Village Cafe, Jen's Alpine Cafe (Baraboo; climbing-guide blog only), Wisconsin Field House (NRHP only).

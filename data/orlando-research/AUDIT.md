@@ -311,3 +311,42 @@
   Toast ordering page → pinned there (med).
 - No RG listing: Moon Wok, Bar Kada, The Chapman, Persimmon Hollow, Wondermade, Carib Brewery, Q's Crackin' Crab → wave 6 retry list.
 - Rebuild → 4 gates PASS · validate DATA OK · npm test ALL PASS → **192 sights + 136 food = 328 on the map** (wave start 226), 483 researched.
+
+## 2026-10-03 (session 7 · wave 6) · batch 1 — density closed (all 18 areas OK) + 28 pins
+- **Discovery (FOOD_W6A / SIGHTS_W6A / SOURCES_W6A, script `_w6a_add.py`, every field from this session's WebSearch):**
+  DTO — White Wolf Cafe (Scott Joseph + OW 2025 #2 Ivanhoe + Tasty Chomps), Shakers American Cafe (SJ + OW Best of 2026), Gabriel's
+  Submarine (News 6 iconic 2023 + OW), Burton's Bar (OW + Bungalower), Wall Street Plaza (WFTV + Frommer's), Rogers Building/CityArts
+  (WIKIPEDIA + Clio + OW), Tinker Building (WIKIPEDIA + NRHP nomination + City walking tour — 2nd source found), Lake Cherokee HD
+  (WIKIPEDIA + City + DDB), Ivanhoe Village (City Main Street + Visit Orlando), Orlando City Hall (WIKIPEDIA + City + ORL Today).
+  IDR — Primo by Melissa Kelly (MICHELIN + Hotels Above Par), Chatham's Place, Cedar's (OW + SJ), Dragonfly Robata (OW + SJ), The H Orlando
+  (OW Best Sand Lake/Dr Phillips 2026 + Central Florida Lifestyle), Ripley's Odditorium (Orlando Informer + blooloop), Bay Hill Club &
+  Lodge (WIKIPEDIA + PGA TOUR), Orange County Convention Center (WIKIPEDIA + I-Drive district). WPK — Chuan Fu (MICHELIN 2024-26 + Tasty
+  Chomps), Winter Park Fish Co. (OW + SJ), Bulla Gastrobar (OW + Winter Park Mag), Umi (OW + SJ + Visit Orlando). MILLS (sights) — Loch
+  Haven Park, Orlando Family Stage, Orlando Fire Museum, Audubon Park Garden District, Mills 50 District. KISS — Daddy Ninja, Pa' Paraguaná,
+  La Mexicana, Mi Llano Grill (Gastro Obscura × Experience Kissimmee trail, same rule as W5). SPACE — The Space Bar (WFTV + News 6 + Space
+  Coast Living), Fishlips (FOX 35 + AAA). SPRNG — Cress (SJ + DiRōNA), Stetson University Campus HD (WIKIPEDIA + HMDB + Stetson).
+  DAK — Yak & Yeti Local Food Cafes, Eight Spoon Café, Restaurantosaurus — CLOSED (2026-02-02, Pueblo Esperanza). IOA — Fire-Eater's Grill.
+- **Closure sweep caught 5 dead leads before publish (dropped, not added):** Slate (closed 2024-01-03), Hammered Lamb (2025-01-25),
+  DoveCote (2023-10-01), Soco (mid-2025), Skeletons: Museum of Osteology (Atlas Obscura: permanently closed). Ceviche Tapas (Gayot: closed)
+  never added. *Lesson:* Orlando Weekly/SJ evergreen lists lag closures — status-check every new food lead before writing it.
+- **Status notes:** Vines Grille → rebranded **Vines by H** (H Hospitality, June 2025) — existing record kept, rename queued. Wall Street
+  Plaza: downtown nightlife thinning under Project DTO, but the plaza operates (owner revamping venues, WFTV).
+- **Pins (`geo/_geoout_w6pin.json`, 28):** Apple Maps tried first per task — Orlando listings are bare `place-id=` again (0/3) → Waze
+  live-map place records (high) + restaurantguru/usarestaurants listings (med, address-matched); host-building pins noted (Primo via Encore
+  @4040, Bulla via Sixty Vines @110 S Orlando, Chuan Fu via prior tenant of #105). Rogers Building now pinned from its HMDB marker
+  (replaces the rejected Wikipedia coord). Lake Cherokee HD Wikipedia coord rejected (identical to Lake Eola Heights' — a copy error).
+- Rebuild → 4 gates PASS · validate DATA OK · npm test ALL PASS → **201 sights + 155 food = 356 on the map** (wave start 328), 522 researched.
+
+## 2026-10-03 (session 7 · wave 6) · batch 2 — +17 pins, wave close
+- **Pins (`geo/_geoout_w6pin.json` = 41):** Waze place records (high): Pho 88, The Monroe, Francesco's, Kabooki Sushi, Ivanhoe Park
+  Brewing, Nile Ethiopian, Q's Crackin' Crab, The H Orlando, Boggy Creek Airboat, St. James Cathedral, Kissimmee Lakefront Park, Orlando
+  Shakespeare Theater (two Waze records agree ~30 m), Fort Christmas, Lake Apopka Wildlife Drive, Loch Haven Park (+HMDB marker), Orlando
+  Family Stage. Listing/host pins (med): Taverna Opa (usarestaurants), Moon Wok (same plaza #320), The Courtesy (Winter Park Social House via
+  Foxtail listing), The Hideaway Bar (listing 516 vs record 523 Virginia Dr — near-miss, noted).
+- **Rejected:** bare street records for Will's Pub / Zymarium (Waze 'North Mills Avenue' street point — not a place pin).
+- **Re-checks queued:** Shin Jung (Foursquare: original 'Now Closed', a 'Shinjung Korean BBQ & Grill Bulgogi' listing at the same 1638 E
+  Colonial address — rename or closure?); Kōri Bakery (Foursquare says 741 N Mills, record 721); Persimmon Hollow (Foursquare shows an
+  Orlando taproom at 227 N Eola Dr — second location?).
+- Budget: ≈190 WebSearch (≈80 discovery/corroboration, ≈15 status, ≈95 pins).
+- Rebuild → 4 gates PASS · validate DATA OK · npm test ALL PASS → **207 sights + 166 food = 373 on the map** (wave start 328), 522 researched,
+  food share 56.3%, density 18/18 OK.

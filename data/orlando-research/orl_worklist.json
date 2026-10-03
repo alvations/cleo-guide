@@ -1085,11 +1085,6 @@
 "a": "DTO"
 },
 {
-"n": "Skeletons: Museum of Osteology",
-"addr": "8441 International Dr Suite 250, Orlando, FL 32819",
-"a": "IDR"
-},
-{
 "n": "Ripley's Believe It or Not! Orlando",
 "addr": "8201 International Dr, Orlando, FL 32819",
 "a": "IDR"
@@ -1128,6 +1123,11 @@
 "n": "Stetson University Campus Historic District",
 "addr": "421 N Woodland Blvd, DeLand, FL 32723",
 "a": "SPRNG"
+},
+{
+"n": "Orange County Convention Center",
+"addr": "9860 Universal Blvd, Orlando, FL 32819",
+"a": "IDR"
 },
 {
 "n": "Winter Garden Downtown Historic District",
@@ -2490,21 +2490,6 @@
 "a": "KISS"
 },
 {
-"n": "Soco",
-"addr": "629 E Central Blvd, Orlando, FL 32801",
-"a": "DTO"
-},
-{
-"n": "Hammered Lamb",
-"addr": "1235 N Orange Ave, Orlando, FL 32804",
-"a": "DTO"
-},
-{
-"n": "DoveCote Brasserie",
-"addr": "390 N Orange Ave, Orlando, FL 32801",
-"a": "DTO"
-},
-{
 "n": "Burton's Bar",
 "addr": "801 E Washington St, Orlando, FL 32801",
 "a": "DTO"
@@ -2527,11 +2512,6 @@
 {
 "n": "Dragonfly Robata Grill & Sushi",
 "addr": "7972 Via Dellagio Way, Orlando, FL 32819",
-"a": "IDR"
-},
-{
-"n": "Slate",
-"addr": "8323 W Sand Lake Rd, Orlando, FL 32819",
 "a": "IDR"
 },
 {
@@ -2608,5 +2588,25 @@
 "n": "Fire-Eater's Grill",
 "addr": "The Lost Continent, Universal Islands of Adventure, Orlando, FL 32819",
 "a": "IOA"
+},
+{
+"n": "White Wolf Cafe",
+"addr": "1829 N Orange Ave, Orlando, FL 32804",
+"a": "DTO"
+},
+{
+"n": "Shakers American Cafe",
+"addr": "1308 Edgewater Dr, Orlando, FL 32804",
+"a": "DTO"
+},
+{
+"n": "Gabriel's Submarine Sandwich Shop",
+"addr": "3006 Edgewater Dr, Orlando, FL 32804",
+"a": "DTO"
+},
+{
+"n": "The H Orlando",
+"addr": "7512 Dr Phillips Blvd #80, Orlando, FL 32819",
+"a": "IDR"
 }
 ]
