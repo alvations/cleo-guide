@@ -19,3 +19,22 @@
 - Write a `_note_W7<X>.md` with queries run, kept, MEASURED & DROPPED, held (that file is your audit trail).
 - Your files: `FOOD_OSAKA_W7<X>.json`, `SIGHTS_OSAKA_W7<X>.json`, `SOURCES_OSAKA_W7<X>.json`, `CREATORS_OSAKA_W7<X>.json`,
   `geo/_geoout_osaka_W7<X>.json`, `_note_W7<X>.md`, `_tmp_W7<X>_*.json` (delete at end). Nothing else.
+
+## W7 round 2 (G/H/I) — what round 1 learned (read this)
+- Round 1 yield ≈ 0.12/search: broad list queries surface single-source leads. What WORKED: **one name per search** against
+  a second outlet — e.g. `allowed_domains:["rurubu.jp","mapple.net"]` `<JP shop name> <ward>` (W7B promoted Tsuruichi with
+  RURUBU + MAPPLE spot pages). OR-queries with several shop names return nothing.
+- Rurubu/Mapple **spot pages count only if they carry an editorial description** (not a bare address/hours stub) — quote
+  the dish from it. Mapple article pages (e.g. mapple.net/article/6243 takoyaki, /395908 yakiniku, /5893 okonomiyaki) list
+  several shops = one MAPPLE source each.
+- **Ramen Walker** editorial (`ramen.walkerplus.com/article/…`, Kansai Walker's ramen magazine, Kadokawa) is accepted as
+  `WALKERPLUS` (same key as walkerplus.com/article — so it does NOT pair with Kansai Walker). Shop-database pages
+  (`/shop.php`, `/saiai/`) = 0.
+- A list *restating* the Tabelog 百名店 (e.g. Ramen Adventures' "100 best ramen in Osaka" translations) is derivative of
+  TABELOG100 → does not count as a 2nd source; a creator's own review page of the shop does.
+- Two Osaka Metro properties (osakamania.jp + metronine.osaka) = ONE key. `OSAKACITY` (ward-office/municipal pages) accepted
+  as an official municipal source.
+- **Pins: MapFan works** (`_note_W7E.md`): `allowed_domains:["mapfan.com"]`, `<JP name> MapFan 地図`, ONE place per query;
+  accept only if the spot page's name + address match → confidence "med", geoSource with the exact URL. Spend ~30% of your
+  cap pinning your own new places this way.
+- Only cite URLs that appeared in YOUR search results — never construct or guess a URL (two round-1 records were held for this).

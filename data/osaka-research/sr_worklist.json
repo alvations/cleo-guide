@@ -830,6 +830,21 @@
 "a": "KNSAI"
 },
 {
+"n": "Kiyomizu-dera, Osaka (清水寺, Tamade no Taki)",
+"addr": "Tennōji-ku, Osaka (top of Kiyomizu-zaka, one of the Tennōji Seven Slopes)",
+"a": "TNJ"
+},
+{
+"n": "Taiyoshi Hyakuban (鯛よし百番, Tobita)",
+"addr": "3-5-25 San'ō, Nishinari-ku, Osaka 557-0001",
+"a": "TNJ"
+},
+{
+"n": "Capcom Store & Cafe Umeda",
+"addr": "13F, South Gate Building (LUCUA SOUTH), 3-1-1 Umeda, Kita-ku, Osaka",
+"a": "KITA"
+},
+{
 "n": "Chukashunsai Morimoto",
 "addr": "B1F, 1-4-14 Shinsaibashisuji, Chuo-ku, Osaka 542-0085, Japan",
 "a": "MINAM"
@@ -2071,7 +2086,7 @@
 },
 {
 "n": "Okinawa Sakaba Kijimunā no Mori (沖縄酒場 きじむなーの森)",
-"addr": "Sangenya-nishi, Taishō-ku, Osaka (moved into TUGBOAT_TAISHO, 1-11-14 Sangenya-nishi, Jan 2020)",
+"addr": "TUGBOAT_TAISHO, Sangenya-nishi 1-chōme, Taishō-ku, Osaka (moved in Jan 2020; block number conflicts between sources — 1-1-14 vs 1-11-14 — so street number withheld)",
 "a": "BAY"
 },
 {
@@ -2178,5 +2193,85 @@
 "n": "Honke Arochi Marutaka (本家アロチ 丸髙 中華そば, Wakayama)",
 "addr": "2-50 Tomodachō, Wakayama, Wakayama",
 "a": "KNSAI"
+},
+{
+"n": "Arabiya Coffee (アラビヤコーヒー, Namba)",
+"addr": "1-6-7 Namba, Chūō-ku, Osaka 542-0076",
+"a": "MINAM"
+},
+{
+"n": "Men no Yōji (麺のようじ, Kōzu)",
+"addr": "2-1-2 Kōzu, Chūō-ku, Osaka (walk from Nipponbashi Station)",
+"a": "MINAM"
+},
+{
+"n": "Tonkatsu Kōshirō (とんかつ 康四郎, Shinsaibashi)",
+"addr": "Shinsaibashi, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Dotonbori Akaoni (道頓堀 赤鬼)",
+"addr": "1-2-3 Namba, Chūō-ku, Osaka (between Namba and Nipponbashi stations)",
+"a": "MINAM"
+},
+{
+"n": "Ikareta Noodle Fishtons (いかれたヌードル フィッシュトンズ)",
+"addr": "1-25-18 Shinmachi, Nishi-ku, Osaka (Renajia Shinmachi Bldg 1F; near Nishi-Ōhashi Station)",
+"a": "CHUO"
+},
+{
+"n": "Tsuruichi Honten (鶴一 本店)",
+"addr": "3-3 Shimoajiharachō, Tennōji-ku, Osaka (by JR Tsuruhashi Stn)",
+"a": "EAST"
+},
+{
+"n": "Yakiniku Yoshida Shinkan (焼肉 吉田 新館)",
+"addr": "3-15 Higashiuemachi, Tennōji-ku, Osaka (5 min from JR Tsuruhashi central exit)",
+"a": "EAST"
+},
+{
+"n": "Taishō Salon Hige to Bōin (大正サロン 髭とボヰン)",
+"addr": "Taishō-ku, Osaka (about 50 m from Taishō Stn)",
+"a": "BAY"
+},
+{
+"n": "Sakamoto Sushi (Nishikujō)",
+"addr": "1-23-13 Nishikujō, Konohana-ku, Osaka 554-0012",
+"a": "BAY"
+},
+{
+"n": "Akamaru Shokudō (赤丸食堂, Bentenchō)",
+"addr": "Minato-ku, Osaka (8 min walk from JR Bentenchō Stn)",
+"a": "BAY"
+},
+{
+"n": "Itamae Yakiniku Itto Tengachaya Honten (板前焼肉一斗 天下茶屋本店)",
+"addr": "1-23-18 Tengachaya-higashi, Nishinari-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Abeno Takoyaki Yamachan (あべのたこやき やまちゃん, Abeno)",
+"addr": "1-2-34 Abeno-suji, Abeno-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Osakamon Ryōri Sushi Moriya (おおさかもん料理 鮨 守屋, Sakai)",
+"addr": "Sakai, Osaka",
+"a": "SOUTH"
+},
+{
+"n": "Yamato (大和, Kishiwada kashimin-yaki)",
+"addr": "Kishiwada, Osaka",
+"a": "SOUTH"
+},
+{
+"n": "Izumisano Fishermen's Co-op Aozora Ichiba (泉佐野漁協青空市場)",
+"addr": "Shinmachi, Izumisano, Osaka (Izumisano fishing port)",
+"a": "SOUTH"
+},
+{
+"n": "Shinsekai Market & Yatai-gai Food Stall Street (新世界市場屋台街)",
+"addr": "1-20-10 Ebisu-higashi, Naniwa-ku, Osaka",
+"a": "TNJ"
 }
 ]

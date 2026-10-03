@@ -135,3 +135,41 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
   Held: Tenney Park–Yahara Parkway (NRHP; no coordinate surfaced).
 - **Build + gates:** 53 on the page (34 sights + 19 food) of 72 researched; 19 UNVERIFIED (all restaurants).
   sourcecheck PASS 72/72 · geocheck PASS (high 35 · med 18 · low 0) · statuscheck CONSISTENT · buildcheck PASS.
+
+## 2026-10-03 · W4 (fresh session) — batch 1: pins attempt + food-first (supper clubs, fish fry, curds, bars)
+- **Pins first (held 19):** 10 coordinate searches (Toby's, Fromagination, Essen Haus, Lao Laan-Xang, latlong.net
+  domain-restricted batch, mapcarta, Fess Hotel/Wikipedia ×3) → **0 pins**. The summariser no longer surfaces
+  latlong.net POIs or Wikipedia infobox coordinates for these; stopped spending the pin budget and kept all 19 +
+  every new restaurant UNVERIFIED for `tools/geocode-helper.html` (never estimated).
+- **Status re-check:** Essen Haus still OPEN (Oktoberfest 2026; Lotus redevelopment only proposed — city meeting
+  2026-08-12, construction would start 2027). Smoky's Club closed 2022 (Channel 3000) — not added.
+- **Sources discovered:** Imbibe (Brian Bartels' Madison where-to-drink), Cook's Country, Heavy Table, Milwaukee
+  Record (→ SOURCES_W4.json); City Cast list pages (supper clubs, fish fry, dive bars, oldest restaurants,
+  'national critics love'); Madison Magazine Best of Madison 2025 category winners; UpNorthNews 2025 reader polls.
+- **Food added (FOOD_W4a.json, 15):** Dorf Haus (DANE, t1 fish fry gold), Craftsman Table & Tap (MVF curds),
+  Chocolate Shoppe (CAP), Tipsy Cow (CAP), North and South Seafood (WEST), Ishnala (TRIP t1), Kavanaugh's Esquire
+  Club — CLOSED (Jan 2026, WMTV/WKOW), Sardine (EAST t1), The Harvey House (CAP t1), Plaza Tavern, Caribou Tavern,
+  Le Tigre Lounge (WEST), Turn Key Supper Club (EAST), Village Bar (WEST), Great Dane (CAP).
+- **Held single-source:** Rex's Innkeeper, Slices, Woody & Anne's, Laurel Tavern, Paul's, Players (City Cast only);
+  Ohio Tavern, Irish Pub (Madison Magazine only); Robin Room (Imbibe only); Lombardino's, Lola's Hi/Lo (City Cast
+  only); Gates & Brovi (Travel Wisconsin only); It's Good For You, Little Palace (Infatuation only).
+- **Channel mix (batch):** editorial 15/15 · reader vote (MadMag/UpNorth) 9 · local-rec (City Cast) 9 · creators 0.
+- **Build + gates:** 87 researched; sourcecheck PASS 87 · geocheck PASS · statuscheck CONSISTENT (Esquire flagged)
+  · buildcheck PASS · validate DATA OK · test ALL PASS. 34 UNVERIFIED (all restaurants).
+
+### W4 batch 2 — JB semis, MVF food, held sights re-sourced + Wikipedia pins
+- **Pin channel found:** single-name queries with `allowed_domains` = en.wikipedia.org + wikidata.org return the
+  infobox coordinate (APT, Fess Hotel, Veterans Museum, Stoughton Opera House, Chalet of the Golden Fleece: 5/6;
+  Pheasant Branch has no article → UNVERIFIED; Ishnala → only the state-park centroid, rejected).
+- **Food (FOOD_W4b.json, 6):** Babcock Hall Dairy Store (UW t1), CocoVaa (EAST; JB semi 2024), Imaginary Factory
+  (EAST; JB semi 2026), Pasture and Plenty (WEST; JB semi 2024), Capital Brewery (MVF t1; State Trunk Tour 2026),
+  Clasen's European Bakery (MVF).
+- **Sights (SIGHTS_W4a.json, 7):** American Players Theatre (TRIP t1, high), Trollway (DANE t1), Pheasant Branch
+  Conservancy (MVF t1), Wisconsin Veterans Museum (CAP; OPEN — replacement planned, no closure date), MMoCA (CAP, 2nd
+  source = Destination Madison free list), Stoughton Opera House (DANE, med — two points returned), Chalet of the
+  Golden Fleece (TRIP, high).
+- **Held:** Wisconsin Brewing Co. (Experience WI only), Imperial Garden (Travel WI only), Matz Farmstead Ruins,
+  Sid Boyum sculptures, Forest Products Lab (Atlas Obscura only), Norwegian Heritage Center/Livsreise and UW Geology
+  Museum (Destination Madison only) — next wave.
+- **Build + gates:** 100 researched (59 food = 59% / 41 sights), 59 pinned; 4 gates PASS; validate + test green.
+  Card + CITIES.md refreshed via `_mad_card.py`.

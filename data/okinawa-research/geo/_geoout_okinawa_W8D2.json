@@ -36,5 +36,25 @@
   "geoSource": "W8D2 #13 extended '名護曲レストラン 名護市世冨慶574 緯度 経度' — listing coordinate 26.573494,127.98283 from aggregator/POI pages (navitime POI 01125-J000114121 / hotpepper J000114121 / Yahoo Map H7hRX0PTv0Y); consistent with Yofuke on Route 58 SW of central Nago",
   "status": "open",
   "statusSource": "rurubu 80042844 hours 11-19 (closed Thu); current hotpepper/gorp listings 2026 show operating"
+ },
+ {
+  "n": "CAFE FUKURUBI, Kouri Island (カフェ フクルビ)",
+  "address": "2516 Kouri, Nakijin-son, Kunigami-gun, Okinawa, Japan",
+  "lat": 26.710075,
+  "lng": 128.016769,
+  "confidence": "low",
+  "geoSource": "W8D2 #16 extended 'CAFE FUKURUBI 今帰仁村古宇利2516 緯度 経度' — listing coordinate 26.710075,128.016769 from aggregator pages (tabelog 47001365 / tripadvisor d10009745 / navitime RK166480); consistent with the hilltop on Kouri's north side near Heart Rock",
+  "status": "open",
+  "statusSource": "official fukurubi.com menu page + Okinawa CLIP hours 12:00-18:00; W8D2 2026-10-03"
+ },
+ {
+  "n": "Kouri Ocean Tower, Kouri Island (古宇利オーシャンタワー)",
+  "address": "538 Kouri, Nakijin-son, Kunigami-gun, Okinawa 905-0406, Japan",
+  "lat": 26.700161,
+  "lng": 128.024049,
+  "confidence": "med",
+  "geoSource": "W8D2 #20 extended '古宇利オーシャンタワー navitime 緯度 経度' — NAVITIME venue POIs 01365-17864 / 02301-1800424 print 26.700161,128.024049 and 26.700351,128.024193 (~25 m apart; first used); consistent with Kouri 538 on the island's south slope above the bridge",
+  "status": "open",
+  "statusSource": "rurubu spot 80043126 + Nakijin tourism association spot 57 (current listing with hours/fees); W8D2 2026-10-03"
  }
 ]

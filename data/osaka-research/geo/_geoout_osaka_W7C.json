@@ -1,0 +1,72 @@
+[
+ {
+  "n": "Itamae Yakiniku Itto Tengachaya Honten (板前焼肉一斗 天下茶屋本店)",
+  "address": "1-23-18 Tengachaya-higashi, Nishinari-ku, Osaka",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no place pin found; address from Metro NiNE spot page https://metronine.osaka/en/spot-details/?spot_id=69027011178",
+  "status": "open",
+  "statusSource": "Metro NiNE spot page lists current hours 17:00–24:00, closed Mon & 3rd Tue https://metronine.osaka/en/spot-details/?spot_id=69027011178"
+ },
+ {
+  "n": "Abeno Takoyaki Yamachan (あべのたこやき やまちゃん, Abeno)",
+  "address": "1-2-34 Abeno-suji, Abeno-ku, Osaka",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no place pin found; address from Inside Osaka https://insideosaka.com/abeno-takoyaki-yamachan/ and Mapple https://www.mapple.net/spot/27015604/",
+  "status": "open",
+  "statusSource": "Mapple spot page lists current prices/hours https://www.mapple.net/spot/27015604/"
+ },
+ {
+  "n": "Osakamon Ryōri Sushi Moriya (おおさかもん料理 鮨 守屋, Sakai)",
+  "address": "Sakai, Osaka",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no address or pin surfaced (Time Out JP list https://www.timeout.jp/osaka/ja/restaurant/minamiosaka-must-go-restaurant)",
+  "status": "unknown",
+  "statusSource": "listed in Time Out JP South Osaka 20 and Sakai TCB feature, but no dated open confirmation found"
+ },
+ {
+  "n": "Yamato (大和, Kishiwada kashimin-yaki)",
+  "address": "Kishiwada, Osaka",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "address conflict: Walkerplus/JAL search summaries give Honmachi 4-4 while W6C recorded 15-4 Kamiyamachi from JAL OnTrip — resolve before pinning",
+  "status": "open",
+  "statusSource": "Walkerplus article lists hours 8:30–18:30, closed Thu (article undated — recheck) https://www.walkerplus.com/article/191707/"
+ },
+ {
+  "n": "Izumisano Fishermen's Co-op Aozora Ichiba (泉佐野漁協青空市場)",
+  "address": "Shinmachi, Izumisano, Osaka (Izumisano fishing port)",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no pin found; in-market eatery address 2-5187-101 Shinmachi, Izumisano per Walkerplus https://www.walkerplus.com/trend/matome/article/1007177/",
+  "status": "open",
+  "statusSource": "OSAKA-INFO spot page (current) https://osaka-info.jp/special/dc/event/detail433/ and Walkerplus eatery hours"
+ },
+ {
+  "n": "Shinsekai Market & Yatai-gai Food Stall Street (新世界市場屋台街)",
+  "address": "1-20-10 Ebisu-higashi, Naniwa-ku, Osaka",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no pin found; address from Discover Osaka spot page https://discover.osaka-info.jp/en/spots/shinsekai-market",
+  "status": "open",
+  "statusSource": "Discover Osaka spot page: hours vary by shop, closed Thursdays https://discover.osaka-info.jp/en/spots/shinsekai-market"
+ },
+ {
+  "n": "Kiyomizu-dera, Osaka (清水寺, Tamade no Taki)",
+  "address": "Tennōji-ku, Osaka",
+  "lat": 34.6551806,
+  "lng": 135.511417,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 清水寺 (大阪市) infobox 座標, found by W6C (see _note_W6C.md); not re-fetched by W7C",
+  "status": "open",
+  "statusSource": "active temple; Time Out JP spot page https://www.timeout.jp/osaka/ja/things-to-do/kiyomizudera and Osaka Mania https://osakamania.jp/shop/hill_08/"
+ }
+]
