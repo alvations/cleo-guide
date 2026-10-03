@@ -24,7 +24,9 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md**. Rebuild: `python3 
 - Files: FOOD_W6*.json, SIGHTS_W6*.json, SOURCES_W6.json, geo/_geoout_w6*.json. Plan: promote held leads with a 2nd outlet, then new
   discovery for CANT, NSUM, AKR, BARB, KENT, MASS (food-first), pins via Apple/Waze/usarestaurants per place. Progress notes appended below.
 - **W6 batch 1 DONE:** +9 food → 175 places, 134 pinned. AKR 53 · CANT 38 · NSUM 30 · KENT 24 · MASS 17 · BARB 13. NEED AKR +7, BARB +7,
-  CANT +7, KENT +6, NSUM +5, MASS +3. Next: BARB (Wadsworth/Green/Norton) + KENT (Ravenna/Aurora) + AKR sights.
+  CANT +7, KENT +6, NSUM +5, MASS +3.
+- **W6 batch 2 DONE:** +6 food +4 sights → 185 places, 137 pinned. AKR 57 · CANT 38 · NSUM 30 · KENT 26 · BARB 17 · MASS 17.
+  NEED CANT +7, NSUM +5, KENT +4, AKR +3, BARB +3, MASS +3. Next: CANT + MASS + NSUM, then a pin pass on the 16 W6 UNVERIFIED.
 
 ## Previous plan (W6, as written after W5 on 2026-10-03)
 - **W5 DONE 2026-10-03:** 124 → **166 places** (68 sights / 98 food = 59%; food ≥50% in every area), pins 94 → **128**. 4 gates green,

@@ -68,10 +68,26 @@
   Status unchecked: Hema's Kitchen (+ the session-4 list below that still lacks a check: Janson's, Piece, Spinning J, Peach's, FEW, Lindy's,
   Chief O'Neill's, Sobelman's, The Plant). ~150 UNVERIFIED (docs/GEOCODE-BACKLOG.md).
 
+- 2026-10-03 (session 6 / W19 finishing pass, FINAL): **510 researched — every area OK in density.py** (SW 25 · NW 80 · WEST 50 · FAR 30 + the rest at target);
+  **367 rendered (206 sights + 161 food)**; 4 gates + validate + test green; card + CITIES.md + AGENT-PROMPTS run-log refreshed.
+  Discovery +8 food & drink (FOOD_W19.json): SW Weber's Bakery, Pticek & Son, Paco's Tacos, La Internacional, Taquerías Atotonilco; NW The Map Room;
+  WEST Ferrara Bakery; FAR Cork & Kerry. New outlet CITYCAST (SOURCES_W19.json).
+  Pins +49 (two sub-agents, 45 searches each; geo/_pins_agentA.json + _pins_agentB.json merged via _chi_pin.py into geo/_geoout_w18.json): Apple coordinate links
+  (8), Waze place records (≈25), usarestaurants.info / Foursquare listings (≈16, med). Apple batch queries now mostly return bare place-id URLs — the
+  one-place Waze/usarestaurants fallback did most of the work. **143 still unpinned** (`python3 data/chicago-research/_chi_unpinned.py`).
+  Birrieria Zaragoza: TEMPORARILY closed per Michelin + Apple (kept open, flagged in card text + statusSource).
+
 ## In-flight wave
 (none — session 5 closed cleanly; remaining budget kept as slack.)
 
 ## Next actions (ordered)
+**Session-7 plan:** (a) pin pass on the 143 unpinned — one place per query, Waze/usarestaurants.info/foursquare allowed_domains (Apple batches mostly
+  place-id only now); the agent "not tried" list first: Bob's Pizza, El Milagro, Jim's Original, Soul Food Lounge, Soulé, Daisy's, Maria's, Nine Bar,
+  Cork & Kerry, Horse Thief Hollow, Mabe's, Sanders BBQ, Soul Veg City, Ware Ranch, Autre Monde, Babygold, Burl, Hackney's, Joy Yee, Kouklas, One Lake;
+  sights (Emmett Till House, Muddy Waters House, Holy Cross, Nativity BVM, Pullman Porter Museum, Hotel Florence, R. W. Evans House) via Wikipedia-4.
+  (b) Address checks: Daley's (Foursquare shows 809 E 63rd St vs record 6257 S Cottage Grove); Milly's (search shows 3409 N Broadway vs 925 N Ashland).
+  (c) Re-check Birrieria Zaragoza's temporary closure; the 3 places with no closure check (statuscheck NOTE).
+
 **Session-6 plan (next wave):**
   (a) Close the last NEED (≈12): SW +5 (food — Taqueria San Julian / Sputnik Coffee / Somos Monos need a 2nd source; Back of the Yards,
       Brighton Park, Archer Heights Polish), WEST +1 (Little Village Arch pin, Douglass Park, Nuevo Leon status),
@@ -120,7 +136,7 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
 ```
 
 ## Acceptance checklist
-- [ ] every area OK in density.py
+- [x] every area OK in density.py (2026-10-03, W19)
 - [x] --sourcecheck / --geocheck / --statuscheck / --buildcheck green
 - [x] npm run validate && npm test green
 - [x] card live + CITIES.md row + AGENT-PROMPTS run-log rows

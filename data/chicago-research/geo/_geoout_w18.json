@@ -287,14 +287,14 @@
  },
  {
   "n": "Cleo's Southern Cuisine",
-  "address": "4248 S Cottage Grove Ave, Chicago, IL 60653",
+  "address": "4248 S Cottage Grove Ave, Chicago, IL",
+  "lat": 41.8171113,
+  "lng": -87.6070765,
+  "geoSource": "https://www.waze.com/live-map/directions/us/il/chicago/cleos-southern-cuisine?to=place.ChIJM-CYYugrDogRllsDrW7ZCMk — Waze place record (name + 4248 S Cottage Grove Ave match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
   "status": "open",
   "statusSource": "https://touremuhammad.substack.com/p/cleos-opens-third-location-in-lakeview (expanding — third location opened; Bronzeville flagship operating)",
-  "note": "SOUTH | promoted from the held list; Bronzeville flagship (also Time Out Market + Lakeview branches)",
-  "lat": null,
-  "lng": null,
-  "geoSource": "UNVERIFIED",
-  "confidence": "UNVERIFIED"
+  "note": "sanity: 42nd-43rd St (~41.817) on Cottage Grove (800 E ≈ -87.607) — consistent"
  },
  {
   "n": "Bronzeville Winery",
@@ -354,13 +354,13 @@
  {
   "n": "Hing Kee Restaurant",
   "address": "2140 S Archer Ave, Chicago, IL 60616",
+  "lat": 41.853869,
+  "lng": -87.633737,
+  "geoSource": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/633737-hing-kee.htm — usarestaurants.info listing (Hing Kee, 2140 S Archer Ave match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "med",
   "status": "open",
   "statusSource": "https://www.timeout.com/chicago/restaurants/hing-kee (current listing with hours, search 2026-10-03)",
-  "note": "SOUTH",
-  "lat": null,
-  "lng": null,
-  "geoSource": "UNVERIFIED",
-  "confidence": "UNVERIFIED"
+  "note": "sanity: Chinatown Square stretch of Archer, just NE of 2172 S Archer (41.8533,-87.6351) as expected for a lower number on diagonal Archer — consistent"
  },
  {
   "n": "Pui Tak Center",
@@ -716,14 +716,14 @@
  },
  {
   "n": "Lucido's Tacos",
-  "address": "4147 W 26th St, Chicago, IL 60623",
+  "address": "4147 W 26th St, Chicago, IL",
+  "lat": 41.8440581,
+  "lng": -87.7288001,
+  "geoSource": "https://www.waze.com/live-map/directions/us/il/chicago/lucidos-tacos?to=place.ChIJc4fNJ10yDogRgjgfpAY5r34 — Waze place record (name + 4147 W 26th St match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
   "status": "open",
   "statusSource": "https://www.timeout.com/chicago/restaurants/lucidos-tacos (current listing with hours, search 2026-10-03)",
-  "note": "WEST",
-  "lat": null,
-  "lng": null,
-  "geoSource": "UNVERIFIED",
-  "confidence": "UNVERIFIED"
+  "note": "sanity: 26th St (~41.844) at ~4150 W (≈ -87.729) — consistent"
  },
  {
   "n": "Lincoln Park (lakefront park)",
@@ -1157,13 +1157,13 @@
  {
   "n": "Hai Yen",
   "address": "1055 W Argyle St, Chicago, IL 60640",
+  "lat": 41.9731313,
+  "lng": -87.6572447,
+  "geoSource": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/637040-hai-yen-restaurant.htm — usarestaurants.info listing (address matches record; WebSearch 2026-10-03)",
+  "confidence": "med",
   "status": "open",
   "statusSource": "https://www.theinfatuation.com/chicago/guides/best-vietnamese-restaurants-chicago (current guide, search 2026-10-03; no closure reported)",
-  "note": "NORTH",
-  "lat": null,
-  "lng": null,
-  "geoSource": "UNVERIFIED",
-  "confidence": "UNVERIFIED"
+  "note": "sanity: matches Argyle (5000 N) at 1055 W grid"
  },
  {
   "n": "Argyle Street (Asia on Argyle)",
@@ -1179,13 +1179,13 @@
  {
   "n": "JM Seafood",
   "address": "3312 S Halsted St, Chicago, IL 60608",
+  "lat": 41.8343607,
+  "lng": -87.6465323,
+  "geoSource": "https://redirect.foursquare.com/v/jm-seafood-wing-yip-chop-suey-restaurant/64188abb66b57d40fd4334c9 — Foursquare listing (JM Seafood (Wing Yip Chop Suey Restaurant), 3312 S Halsted St match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "med",
   "status": "open",
   "statusSource": "https://www.timeout.com/chicago/restaurants/the-best-restaurants-in-bridgeport (current guide with hours, search 2026-10-03)",
-  "note": "SOUTH",
-  "lat": null,
-  "lng": null,
-  "geoSource": "UNVERIFIED",
-  "confidence": "UNVERIFIED"
+  "note": "sanity: 33rd St (~41.834) on Halsted (800 W ≈ -87.646) — consistent"
  },
  {
   "n": "Han 202",
@@ -1399,13 +1399,13 @@
  {
   "n": "Tryzub Ukrainian Kitchen",
   "address": "2201 W Chicago Ave, Chicago, IL 60622",
+  "lat": 41.8957128,
+  "lng": -87.682153,
+  "geoSource": "https://maps.apple.com/place?q=Tryzub+Ukrainian+Kitchen&ll=41.8957128%2C-87.682153&auid=3096076931492020440&lsp=9902&address=2201+W+Chicago+Ave%2C+Chicago%2C+IL+60622%2C+United+States — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
   "status": "open",
   "statusSource": "https://theinfatuation.com/chicago/guides/where-to-eat-ukrainian-food-in-chicago (current listing; Apple Maps place listing live, search 2026-10-03; no closure reported)",
-  "note": "address from Apple Maps place listing (search 2026-10-03); pin not exposed → UNVERIFIED",
-  "lat": null,
-  "lng": null,
-  "geoSource": "UNVERIFIED",
-  "confidence": "UNVERIFIED"
+  "note": "sanity: matches Chicago Ave (800 N) at 2201 W grid"
  },
  {
   "n": "Cho Sun Ok",
@@ -1487,68 +1487,68 @@
  {
   "n": "Weber's Bakery",
   "address": "7055 W Archer Ave, Chicago, IL 60638",
+  "lat": 41.791778824,
+  "lng": -87.798564598,
+  "geoSource": "https://www.waze.com/live-map/directions/webers-bakery-w-archer-ave-7055-chicago?to=place.w.178389410.1783894099.652949 — Waze place record (Weber's Bakery, 7055 W Archer Ave match); coordinate in result snippet (WebSearch 2026-10-03)",
+  "confidence": "med",
   "status": "open",
   "statusSource": "Apple Maps listing with current hours Tue–Sun (maps.apple.com/place?place-id=I2F59BC557B38D26C), search 2026-10-03; no closure reported",
-  "note": "SW",
-  "lat": null,
-  "lng": null,
-  "geoSource": "UNVERIFIED",
-  "confidence": "UNVERIFIED"
+  "note": "sanity: Archer at Nottingham (7000 W ≈ -87.80), ~41.79 — consistent; med because Waze also lists the bakery's parking lots at the same address and the snippet did not say which record carried the coordinate"
  },
  {
   "n": "Pticek & Son Bakery",
   "address": "5523 S Narragansett Ave, Chicago, IL 60638",
+  "lat": 41.791568756,
+  "lng": -87.781402587,
+  "geoSource": "https://www.waze.com/en-GB/live-map/directions/pticek-and-son-bakery-s-narragansett-ave-5523-chicago?to=place.w.178389410.1784025171.2675867 — Waze place record (name + 5523 S Narragansett Ave match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
   "status": "open",
   "statusSource": "ABC7 Chicago Paczki Day 2024 list + WTTW paczki report (current operation, staff named); no closure reported in search 2026-10-03",
-  "note": "SW | not on Apple Maps search — pin pending",
-  "lat": null,
-  "lng": null,
-  "geoSource": "UNVERIFIED",
-  "confidence": "UNVERIFIED"
+  "note": "sanity: between 55th & 56th (~41.792) on Narragansett (6400 W ≈ -87.782) — consistent"
  },
  {
   "n": "Paco's Tacos (Archer original)",
   "address": "4311 S Archer Ave, Chicago, IL 60632",
+  "lat": 41.81513899,
+  "lng": -87.702288507,
+  "geoSource": "https://www.waze.com/en-GB/live-map/directions/pacos-tacos-s-archer-ave-4311-chicago?to=place.w.178454946.1784549462.2384844 — Waze place record (name + 4311 S Archer Ave match); coordinate in result snippet alongside https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/936951-pacos-tacos.htm listing (WebSearch 2026-10-03)",
+  "confidence": "med",
   "status": "open",
   "statusSource": "Apple Maps listing, open 8am–8pm (maps.apple.com/place?place-id=I2A136745CAA6FE29), search 2026-10-03",
-  "note": "SW",
-  "lat": null,
-  "lng": null,
-  "geoSource": "UNVERIFIED",
-  "confidence": "UNVERIFIED"
+  "note": "sanity: Archer at ~43rd St (~41.816) near California/Kedzie (-87.70) — consistent; med because snippet did not say which page carried the coordinate"
  },
  {
   "n": "La Internacional (Back of the Yards taqueria)",
   "address": "4556 S Ashland Ave, Chicago, IL 60609",
+  "lat": 41.810658871,
+  "lng": -87.665248631,
+  "geoSource": "https://www.waze.com/live-map/directions/la-internacional-supermercado-s-ashland-ave-4556-chicago?to=place.w.178454946.1784746069.3820614 — Waze place record (La Internacional Supermercado, 4556 S Ashland Ave — street number matches; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "med",
   "status": "open",
   "statusSource": "Apple Maps listing La Internacional, 4556 S Ashland (maps.apple.com/place?place-id=IA306371FA79885D) + Axios Nov 2025; search 2026-10-03",
-  "note": "SW",
-  "lat": null,
-  "lng": null,
-  "geoSource": "UNVERIFIED",
-  "confidence": "UNVERIFIED"
+  "note": "sanity: 45th-46th St (~41.811) on Ashland (1600 W ≈ -87.665) — consistent; med because Waze names it 'Supermercado' (taqueria counter at same address)"
  },
  {
   "n": "Taquerías Atotonilco (Gage Park)",
   "address": "5656 S Kedzie Ave, Chicago, IL 60629",
+  "lat": 41.790043,
+  "lng": -87.7036856,
+  "geoSource": "https://www.waze.com/live-map/directions/us/il/chicago/taquerias-atotonilco?to=place.ChIJ4dPEytsxDogRcnLLTLEBWcg — Waze place record (name + 5656 S Kedzie Ave match; lat/lng in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
   "status": "open",
   "statusSource": "Apple Maps listing Taquerias Atotonilco, 5656 S Kedzie, current hours (maps.apple.com/place?place-id=ID2FB859E7690CBEC), search 2026-10-03",
-  "note": "SW",
-  "lat": null,
-  "lng": null,
-  "geoSource": "UNVERIFIED",
-  "confidence": "UNVERIFIED"
+  "note": "sanity: ~57th St (~41.790) on Kedzie (3200 W ≈ -87.703) — consistent"
  },
  {
   "n": "The Map Room",
   "address": "1949 N Hoyne Ave, Chicago, IL 60647",
+  "lat": 41.917605242,
+  "lng": -87.679946778,
+  "geoSource": "https://www.waze.com/live-map/directions/map-room-n-hoyne-ave-1949-chicago?to=place.w.178454947.1784680544.1424506 — Waze place record (name+address match; WebSearch 2026-10-03)",
+  "confidence": "high",
   "status": "open",
   "statusSource": "Apple Maps listing with current hours (maps.apple.com/place?place-id=I368F3FD48CADA087), search 2026-10-03",
-  "note": "NW",
-  "lat": null,
-  "lng": null,
-  "geoSource": "UNVERIFIED",
-  "confidence": "UNVERIFIED"
+  "note": "sanity: matches 1949 N (just S of Armitage 2000 N) on Hoyne (2100 W) grid"
  },
  {
   "n": "Ferrara Bakery",
@@ -1571,5 +1571,412 @@
   "lng": null,
   "geoSource": "UNVERIFIED",
   "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Cabra",
+  "address": "200 N Green St, Chicago, IL 60607",
+  "lat": 41.8858811,
+  "lng": -87.6491082,
+  "geoSource": "https://maps.apple.com/place?address=200+N+Green+St%2C+Chicago%2C+IL++60607%2C+United+States&coordinate=41.8858811%2C-87.6491082&name=Cabra&place-id=I9104E0439D03EE8F&_provider=9902 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://thehoxton.com/chicago/cabra-restaurant/ ; https://www.choosechicago.com/listing/cabra/",
+  "note": "sanity: matches 200 N / ~800 W (Green St) grid"
+ },
+ {
+  "n": "Monteverde",
+  "address": "1020 W Madison St, Chicago, IL 60607",
+  "lat": 41.881863,
+  "lng": -87.6530314,
+  "geoSource": "https://maps.apple.com/place?address=1020+W+Madison+St%2C+Chicago%2C+IL++60607%2C+United+States&coordinate=41.881863%2C-87.6530314&name=Monteverde&place-id=I5EB151E3D72E537&_provider=9902 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.fsrmagazine.com/chef-profiles/magic-behind-sarah-gruenebergs-chicago-pasta-kingdom (current listing, search 2026-10-03; no closure reported)",
+  "note": "sanity: matches Madison St (0 N/S) at ~1020 W grid"
+ },
+ {
+  "n": "Byron's Hot Dogs",
+  "address": "1017 W Irving Park Rd, Chicago, IL 60613",
+  "lat": 41.9543277,
+  "lng": -87.6552866,
+  "geoSource": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/631268-byrons-hotdogs.htm — usarestaurants.info listing (address matches record; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "status": "unknown",
+  "statusSource": "DNAinfo May 31 2017 reported reopening after a fire; no dated 2025-26 evidence in search",
+  "note": "sanity: matches Irving Park Rd (4000 N) at ~1017 W grid"
+ },
+ {
+  "n": "Huaraches Doña Chio",
+  "address": "1547 W Elmdale Ave, Chicago, IL 60660",
+  "lat": 41.9907102,
+  "lng": -87.66948,
+  "geoSource": "https://maps.apple.com/place?address=1547+W+Elmdale+Ave%2C+Chicago%2C+IL++60660%2C+United+States&coordinate=41.9907102%2C-87.66948&name=Huaraches+Do%C3%B1a+Chio&place-id=I926858B4994CB78A&_provider=9902 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.timeout.com/chicago/restaurants/huaraches-donya-chio (current listing, search 2026-10-03; no closure reported)",
+  "note": "sanity: matches Elmdale (~6000 N) at ~1547 W grid"
+ },
+ {
+  "n": "Twin Anchors Restaurant & Tavern",
+  "address": "1655 N Sedgwick St, Chicago, IL 60614",
+  "lat": 41.9127041,
+  "lng": -87.6383405,
+  "geoSource": "https://maps.apple.com/place?+Tavern=&_provider=9902&address=1655+N+Sedgwick+St%2C+Chicago%2C+IL++60614%2C+United+States&coordinate=41.9127041%2C-87.6383405&name=Twin+Anchors+Restaurant+&place-id=IB8007E7041EB27F4 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.theinfatuation.com/chicago/guides/chicago-greatest-old-school-restaurants (current listing; Apple Maps place listing live, search 2026-10-03; no closure reported)",
+  "note": "sanity: matches 1655 N / Sedgwick (~400 W) grid"
+ },
+ {
+  "n": "Akahoshi Ramen",
+  "address": "2340 N California Ave, Unit B, Chicago, IL 60647",
+  "lat": 41.9240333,
+  "lng": -87.6975864,
+  "geoSource": "https://maps.apple.com/place?address=2340+N+California+Ave%2C+Unit+B%2C+Chicago%2C+IL++60647%2C+United+States&coordinate=41.9240333%2C-87.6975864&name=Akahoshi+Ramen&place-id=I41B000A4DD5B4D20&_provider=9902 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://nbcchicago.com/news/local/chicago-restaurant-named-to-bon-appetits-list-of-20-best-new-restaurants-for-2024/3544607 (current listing; Apple Maps place listing live, search 2026-10-03; no closure reported)",
+  "note": "sanity: matches 2340 N / California (2800 W) grid"
+ },
+ {
+  "n": "Paulie Gee's Logan Square",
+  "address": "2451 N Milwaukee Ave, Chicago, IL 60647",
+  "lat": 41.9258984,
+  "lng": -87.7018052,
+  "geoSource": "https://maps.apple.com/place?query=Paulie+Gee%27s+Logan+Square&coordinate=41.9258984%2C-87.7018052&place-id=I6EC28A38C324E7CD&_provider=9902 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.timeout.com/chicago/restaurants/11-essential-chicago-pizzas-you-have-to-try (current listing, search 2026-10-03; no closure reported)",
+  "note": "sanity: matches 2451 N Milwaukee diagonal (~2950 W at 2450 N) grid; URL carries name only, single Logan Square location"
+ },
+ {
+  "n": "Miller's Pub",
+  "address": "134 S Wabash Ave, Chicago, IL 60603",
+  "lat": 41.879798373,
+  "lng": -87.626277982,
+  "geoSource": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/millers-pub-312-263-4988.htm — usarestaurants.info listing (address matches record; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://chibarproject.com/reviews/millerspub/ + Preservation Chicago legacy-business feature; no closure reported (2026-10-03 search)",
+  "note": "sanity: matches 134 S (just N of Adams 200 S) on Wabash (~-87.626) grid; Waze place record also exists at same address"
+ },
+ {
+  "n": "Exchequer Restaurant & Pub",
+  "address": "226 S Wabash Ave, Chicago, IL 60604",
+  "lat": 41.878820764,
+  "lng": -87.626287268,
+  "geoSource": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/17513-exchequer-restaurant-pub.htm — usarestaurants.info listing (address matches record; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://theinfatuation.com/chicago/reviews/exchequer-restaurant-and-pub (current listing, search 2026-10-03; no closure reported)",
+  "note": "sanity: matches 226 S (just S of Adams 200 S) on Wabash (~-87.626) grid; Waze place record also exists at same address"
+ },
+ {
+  "n": "Pizzeria Uno",
+  "address": "29 E Ohio St, Chicago, IL 60611",
+  "lat": 41.8923043,
+  "lng": -87.626929,
+  "geoSource": "https://www.waze.com/live-map/directions/us/il/chicago/pizzeria-uno?to=place.ChIJ_2NJoa0sDogR4g520LwywQ4 — Waze place record (name+address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Uno_Pizzeria_%26_Grill (current listing, search 2026-10-03; no closure reported)",
+  "note": "sanity: matches Ohio St (600 N) at 29 E (just E of State) grid"
+ },
+ {
+  "n": "Margie's Candies",
+  "address": "1960 N Western Ave, Chicago, IL 60647",
+  "lat": 41.917458089,
+  "lng": -87.687634738,
+  "geoSource": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/431130-margies-candies.htm — usarestaurants.info listing (address matches record; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://www.theinfatuation.com/chicago/guides/chicago-greatest-old-school-restaurants (current listing; Apple Maps place listing live, search 2026-10-03; no closure reported)",
+  "note": "sanity: matches 1960 N (just S of Armitage 2000 N) on Western (2400 W) grid; Waze place record also exists at same address"
+ },
+ {
+  "n": "Jibaritos y Más",
+  "address": "3400 W Fullerton Ave, Chicago, IL 60647",
+  "lat": 41.924840423,
+  "lng": -87.712314679,
+  "geoSource": "https://www.waze.com/live-map/directions/jibaritos-y-mas-w-fullerton-ave-3400-chicago?to=place.w.178454947.1784483936.4324306 — Waze place record (name+address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.theinfatuation.com/chicago/reviews/jibaritos-y-mas (current listing, search 2026-10-03; no closure reported)",
+  "note": "sanity: matches Fullerton (2400 N) at 3400 W (Kimball) grid"
+ },
+ {
+  "n": "Redhot Ranch (Bucktown)",
+  "address": "2449 W Armitage Ave, Chicago, IL 60647",
+  "lat": 41.9174304,
+  "lng": -87.6891506,
+  "geoSource": "https://www.waze.com/live-map/directions/united-states/illinois/chicago/redhot-ranch?to=place.ChIJ-5FyW9LTD4gRl2s45F883dE — Waze place record (name+address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "Wikipedia/Infatuation in 2026-10-02 search describe it as one of three operating locations; no closure reported",
+  "note": "sanity: matches Armitage (2000 N) at 2449 W grid"
+ },
+ {
+  "n": "Murphy's Bleachers",
+  "address": "3655 N Sheffield Ave, Chicago, IL 60613",
+  "lat": 41.948927948,
+  "lng": -87.654278498,
+  "geoSource": "https://www.waze.com/live-map/directions/murphys-bleachers-north-sheffield-ave-3655-chicago?to=place.w.178454947.1784877155.4034405 — Waze place record (name+address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://ma.to/event/yankees-vs-cubs-at-murphys-31-jul-2026 (2026-season event listing at the bar) + https://www.choosechicago.com/blog/tours-attractions/things-to-do-in-wrigleyville/",
+  "note": "sanity: matches 3655 N (just S of Waveland 3700 N) on Sheffield (1000 W) grid"
+ },
+ {
+  "n": "Café Colao",
+  "address": "2638 W Division St, Chicago, IL 60622",
+  "lat": 41.9032546,
+  "lng": -87.6935205,
+  "geoSource": "https://www.waze.com/live-map/directions/us/il/chicago/cafe-colao?to=place.ChIJVwNwO6nSD4gRW_mVhpN4_RY — Waze place record (name+address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.theinfatuation.com/chicago/reviews/cafe-colao (current listing, search 2026-10-03; no closure reported)",
+  "note": "sanity: matches Division (1200 N) at 2638 W grid"
+ },
+ {
+  "n": "Andros Taverna",
+  "address": "2542 N Milwaukee Ave, Chicago, IL 60647",
+  "lat": 41.9273607,
+  "lng": -87.7048376,
+  "geoSource": "https://www.waze.com/live-map/directions/us/il/chicago/andros-taverna?to=place.ChIJWfaiPh_ND4gRaRT5k6Wp24g — Waze place record (name+address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.androstaverna.com/location/andros-taverna/ ; https://www.choosechicago.com/listing/andros-taverna/ ; OpenTable active",
+  "note": "sanity: matches 2542 N on Milwaukee diagonal near Logan Sq (~3050 W) grid"
+ },
+ {
+  "n": "Birrieria Zaragoza",
+  "address": "4852 S Pulaski Rd, Chicago, IL 60632",
+  "status": "open",
+  "statusSource": "MICHELIN Guide listing + Apple Maps (ll pin) both mark it TEMPORARILY closed (search 2026-10-03) — not a permanent closure; kept as open with this flag, re-check before publishing a refresh",
+  "note": "temporarily closed per Michelin/Apple 2026-10-03",
+  "lat": 41.80447,
+  "lng": -87.7237406,
+  "geoSource": "https://maps.apple.com/place?q=Birrieria+Zaragoza&ll=41.80447%2C-87.7237406&auid=384527534371184454&lsp=9902&address=4852+S+Pulaski+Rd%2C+Chicago%2C+IL++60632%2C+United+States — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high"
+ },
+ {
+  "n": "Tony's Italian Beef",
+  "address": "7007 S Pulaski Rd, Chicago, IL 60629",
+  "lat": 41.765623,
+  "lng": -87.7221749,
+  "geoSource": "https://www.waze.com/live-map/directions/us/il/chicago/tonys-italian-beef?to=place.ChIJu4gS1UUwDogRL0e627me-aQ — Waze place record (name + address 7007 S Pulaski Rd match; lat/lng in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.theinfatuation.com/chicago/reviews/tonys-italian-beef (current listing with hours, search 2026-10-03; no closure reported)",
+  "note": "sanity: 70th St (~41.766) x Pulaski (~-87.723) — matches the 7007 S Pulaski example"
+ },
+ {
+  "n": "Huck Finn Donuts",
+  "address": "3414 S Archer Ave, Chicago, IL 60608",
+  "lat": 41.831891367,
+  "lng": -87.675768732,
+  "geoSource": "https://www.waze.com/live-map/directions/huck-finn-donuts-restaurant-s-archer-ave-3414-chicago?to=place.w.178454946.1784680535.1582495 — Waze place record (Huck Finn Donuts, 3414 S Archer Ave match); coordinate in result snippet alongside https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/517517-huck-finn-restaurant.htm listing (WebSearch 2026-10-03)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://www.timeout.com/chicago/restaurants/old-school-chicago-doughnut-shops (current listing, search 2026-10-03; no closure reported)",
+  "note": "sanity: Archer at Damen (2000 W ≈ -87.676) near 35th St (~41.831) — consistent"
+ },
+ {
+  "n": "Carm's Beef and Italian Ice",
+  "address": "1057 W Polk St, Chicago, IL 60607",
+  "lat": 41.871725767,
+  "lng": -87.653513549,
+  "geoSource": "https://www.waze.com/live-map/directions/carms-beef-w-polk-st-1057-chicago?to=place.w.178454947.1784877147.3425710 — Waze place record (Carms Beef, 1057 W Polk St match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.theinfatuation.com/chicago/reviews/carms-beef (current listing, search 2026-10-03; no closure reported)",
+  "note": "sanity: Polk (800 S ≈ 41.871) at Carpenter (~1030 W ≈ -87.653) — consistent"
+ },
+ {
+  "n": "Tufano's Vernon Park Tap",
+  "address": "1073 W Vernon Park Pl, Chicago, IL 60607",
+  "lat": 41.872940641,
+  "lng": -87.654099403,
+  "geoSource": "https://www.waze.com/live-map/directions/tufanos-vernon-park-tap-w-vernon-park-pl-1073-chicago?to=place.w.178454947.1784877147.2480112 — Waze place record (name + 1073 W Vernon Park Pl match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.choosechicago.com/articles/festivals-special-events/chicagos-james-beard-award-winners/ (current listing; Apple Maps place listing live, search 2026-10-03; no closure reported)",
+  "note": "sanity: Vernon Park Pl just N of Polk (~41.873), ~1070 W (≈ -87.654) — consistent"
+ },
+ {
+  "n": "Mario's Italian Lemonade",
+  "address": "1068 W Taylor St, Chicago, IL 60607",
+  "lat": 41.8696695,
+  "lng": -87.6538286,
+  "geoSource": "https://www.waze.com/live-map/directions/us/il/chicago/marios-italian-lemonade?to=place.ChIJ952t8uMsDogRoCWg8HbqYck — Waze place record (name + 1068 W Taylor St match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.theinfatuation.com/chicago/reviews/marios-italian-lemonade (current listing; Apple Maps place listing live, search 2026-10-03; no closure reported)",
+  "note": "sanity: Taylor (1000 S ≈ 41.869) at ~1068 W (≈ -87.654) — consistent"
+ },
+ {
+  "n": "Home Run Inn (original, 31st Street)",
+  "address": "4254 W 31st St, Chicago, IL 60623",
+  "lat": 41.836913341,
+  "lng": -87.731513023,
+  "geoSource": "https://www.waze.com/live-map/directions/home-run-inn-w-31st-st-4254-chicago?to=place.w.178454946.1784352856.1224288 — Waze place record (Home Run Inn, 4254 W 31st St match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.fsrmagazine.com/industry-news/home-run-inn-to-celebrate-national-tavern-style-pizza-day-with-special-offers-and-donation (FSR 2024 — operating) + ABC7 reopening report",
+  "note": "sanity: 31st St (~41.837) at ~4250 W (≈ -87.731) — consistent"
+ },
+ {
+  "n": "MacArthur's Restaurant",
+  "address": "5412 W Madison St, Chicago, IL 60644",
+  "lat": 41.880502227,
+  "lng": -87.760740995,
+  "geoSource": "https://www.waze.com/live-map/directions/macarthurs-restaurant-w-madison-st-5412-chicago?to=place.w.178389411.1784156252.4029962 — Waze place record (name + 5412 W Madison St match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.theinfatuation.com/chicago/reviews/macarthurs (current listing, search 2026-10-03; no closure reported)",
+  "note": "sanity: Madison (0 N/S ≈ 41.881) between Lotus & Long (~5400 W ≈ -87.761) — consistent"
+ },
+ {
+  "n": "Simone's",
+  "address": "960 W 18th St, Chicago, IL 60608",
+  "lat": 41.8581996,
+  "lng": -87.6510674,
+  "geoSource": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/361439-simones.htm — usarestaurants.info listing (Simone's, 960 W 18th St match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://www.toasttab.com/local/simones-960-w-18th-st/r-1362bbf3-c964-4c38-8bdf-6482e02be26a (live online-ordering page) + Chicago Mag",
+  "note": "sanity: 18th St (~41.858) at Morgan (1000 W ≈ -87.651) — consistent"
+ },
+ {
+  "n": "Ghin Khao",
+  "address": "2128 W Cermak Rd, Chicago, IL 60608",
+  "lat": 41.8522936,
+  "lng": -87.6795132,
+  "geoSource": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/287141-ghin-khao-eat-rice.htm — usarestaurants.info listing (Ghin Khao Eat Rice, 2128 W Cermak Rd match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://guide.michelin.com/ph/en/illinois/chicago/restaurant/ghin-khao (current hours Wed-Sat)",
+  "note": "sanity: Cermak (2200 S ≈ 41.852) at ~2130 W (≈ -87.680) — consistent"
+ },
+ {
+  "n": "Lao Sze Chuan",
+  "address": "2172 S Archer Ave, Chicago, IL 60616",
+  "lat": 41.8533142,
+  "lng": -87.6350557,
+  "geoSource": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/62746-lao-sze-chuan.htm — usarestaurants.info listing (Lao Sze Chuan, 2172 S Archer Ave match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://www.theinfatuation.com/chicago/reviews/lao-sze-chuan ; https://www.timeout.com/chicago/restaurants/lao-sze-chuan-chinatown",
+  "note": "sanity: Chinatown Square on Archer (~2170 S ≈ 41.853, ~-87.635) — consistent"
+ },
+ {
+  "n": "Phil's Pizza",
+  "address": "1102 W 35th St, Chicago, IL 60609",
+  "lat": 41.8308784,
+  "lng": -87.6536815,
+  "geoSource": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/631587-phils-pizza.htm — usarestaurants.info listing (Phil's Pizza, 1102 W 35th St match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://www.timeout.com/chicago/restaurants/phils-pizza (current listing with hours, search 2026-10-03; no closure reported)",
+  "note": "sanity: 35th St (~41.831) at Aberdeen (~1100 W ≈ -87.654) — consistent"
+ },
+ {
+  "n": "Pearl's Place",
+  "address": "3901 S Michigan Ave, Chicago, IL 60653",
+  "lat": 41.823640011,
+  "lng": -87.622707054,
+  "geoSource": "https://www.waze.com/live-map/directions/amber-inn-s-michigan-ave-3901-chicago?to=place.w.178520482.1785073750.4357806 — Waze place record for the Amber Inn, 3901 S Michigan Ave (same street address as the record; Pearl's Place operates in the Amber Inn building; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://www.timeout.com/chicago/restaurants/pearls-place + https://www.theinfatuation.com/chicago/reviews/pearls-place (current listings; breakfast buffet daily) — no closure reported",
+  "note": "sanity: Michigan (100 E ≈ -87.623) at Pershing (3900 S ≈ 41.824) — consistent; med because pin is the host hotel record, not Pearl's own | Waze record is the Amber Inn (same 3901 S Michigan building that houses Pearl's Place) — building pin, med"
+ },
+ {
+  "n": "Leon's Frozen Custard",
+  "address": "3131 S 27th St, Milwaukee, WI 53215",
+  "lat": 42.98779187,
+  "lng": -87.948694496,
+  "geoSource": "https://www.waze.com/live-map/directions/leons-frozen-custard-s-27th-st-3131-milwaukee?to=place.w.178323886.1782911179.1212035 — Waze place record (name + 3131 S 27th St match); coordinate in result snippet alongside https://usarestaurants.info/explore/united-states/wisconsin/milwaukee-county/milwaukee/664645-leons-frozen-custard.htm listing (WebSearch 2026-10-03)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Leon%27s_Frozen_Custard (current listing, search 2026-10-03; no closure reported)",
+  "note": "sanity: S 27th St (≈ -87.949) between Oklahoma Ave (~42.988) and Euclid — consistent; med because snippet did not say which page carried the coordinate"
+ },
+ {
+  "n": "Janson's Drive-In",
+  "address": "9900 S Western Ave, Chicago, IL 60643",
+  "lat": 41.713542938,
+  "lng": -87.682022094,
+  "geoSource": "https://www.waze.com/live-map/directions/jansons-drive-in-s-western-ave-9900-chicago?to=place.w.178454945.1784680523.3739154 — Waze place record (name + 9900 S Western Ave match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "unchecked",
+  "statusSource": "",
+  "note": "sanity: 99th St (~41.714) on Western (2400 W ≈ -87.682) — consistent"
+ },
+ {
+  "n": "Hecky's Barbecue",
+  "address": "1902 Green Bay Rd, Evanston, IL",
+  "lat": 42.052346624,
+  "lng": -87.689124703,
+  "geoSource": "https://www.waze.com/af/live-map/directions/heckys-barbecue-green-bay-road-1902-evanston?to=place.w.178454949.1784615021.4068311 — Waze place record (Hecky's Barbecue, 1902 Green Bay Rd match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.visitchicagonorthshore.com/heckysbarbecue (CVB listing with current hours, 2026-10-03)",
+  "note": "sanity: Green Bay Rd near Emerson St, west Evanston (~42.052, -87.689) — consistent"
+ },
+ {
+  "n": "Russell's Barbecue",
+  "address": "1621 N Thatcher Ave, Elmwood Park, IL 60707",
+  "lat": 41.909468209,
+  "lng": -87.82380919,
+  "geoSource": "https://www.waze.com/live-map/directions/russells-barbecue-n-thatcher-ave-1621-elmwood-park?to=place.w.178389411.1783763039.506952 — Waze place record (name + 1621 N Thatcher Ave match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.oakpark.com/2023/11/06/russells-secret-is-in-the-sauce-and-in-your-memories/ (Wednesday Journal Nov 2023 — operating) + oakparkandbeyond.org listing",
+  "note": "sanity: Thatcher (~8000 W ≈ -87.824) at ~1600 N (≈ 41.910) — consistent"
+ },
+ {
+  "n": "Freddy's Pizza",
+  "address": "1600 S 61st Ave, Cicero, IL 60804",
+  "lat": 41.858017197,
+  "lng": -87.776523887,
+  "geoSource": "https://www.waze.com/live-map/directions/freddys-pizzagrocery-s-61st-ave-1600-cicero?to=place.w.178389411.1784025178.539689 — Waze place record (Freddy's Pizza/Grocery, 1600 S 61st Ave match; coordinate in result snippet, corroborated within ~20 m by usarestaurants.info listing 41.8579856,-87.7767127; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.timeout.com/chicago/restaurants/freddys-pizza (current listing, search 2026-10-03; no closure reported)",
+  "note": "sanity: 61st Ave (≈ 6100 W ≈ -87.776) at 16th St (~41.858) — consistent"
+ },
+ {
+  "n": "Walker Bros. Original Pancake House (Wilmette)",
+  "address": "153 Green Bay Rd, Wilmette, IL 60091",
+  "lat": 42.070557644,
+  "lng": -87.704190343,
+  "geoSource": "https://www.waze.com/live-map/directions/walker-brothers-green-bay-rd-153-wilmette?to=place.w.178454949.1784549487.819812 — Waze place record (Walker Brothers, 153 Green Bay Rd, Wilmette match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.timeout.com/chicago/restaurants/walker-bros-original-pancake-house (current listing, search 2026-10-03; no closure reported)",
+  "note": "sanity: Green Bay Rd in south-central Wilmette near Linden/Lake (~42.071, -87.704) — consistent"
+ },
+ {
+  "n": "Bennison's Bakery",
+  "address": "1000 Davis St, Evanston, IL",
+  "lat": 42.046917229,
+  "lng": -87.685182213,
+  "geoSource": "https://www.waze.com/live-map/directions?from=place.w.178454948.1784615021.3216026 — Waze place record (Bennisons Bakery, 1000 Davis St, Evanston match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://news.medill.northwestern.edu/chicago/?p=55954 (current listing, search 2026-10-03; no closure reported)",
+  "note": "sanity: Davis St at Maple Ave, downtown Evanston (~42.047, -87.685) — consistent"
+ },
+ {
+  "n": "Yassa African Restaurant",
+  "address": "3511 S King Dr, Chicago, IL 60653",
+  "lat": 41.8307311,
+  "lng": -87.6166893,
+  "geoSource": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/803107-yassa-african-restaurant.htm — usarestaurants.info listing (Yassa African Restaurant, 3511 S King Dr match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://www.dnainfo.com/chicago/20150514/bronzeville/yassa-african-restaurant-re-emerges-after-fire-now-thriving-bronzeville/slideshow/613284 (current listing, search 2026-10-03; no closure reported)",
+  "note": "sanity: 35th St (~41.831) on King Dr (400 E ≈ -87.617) — consistent"
  }
 ]
