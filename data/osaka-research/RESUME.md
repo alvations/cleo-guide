@@ -42,12 +42,13 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
 - `allowed_domains:["japan-guide.com"]` / `["osaka-info.jp"]` area queries → sight lists (source 1).
 
 ## In-flight wave
-- **W5 (session 5, 2026-10-03)** — 6 background workers (brief `_W5_worker_brief.md`) + main:
-  W5A BAY food/drink (Taishō Little Okinawa, Kujō, Nishikujō, Bentenchō, USJ side) + held BAY · W5B EAST (Tsuruhashi,
-  Ikuno, Kyōbashi, Higashi-Ōsaka, Fuse) · W5C TNJ (Shinsekai kushikatsu, Abeno, Nishinari, Tamade) + held TNJ ·
-  W5D MINAM food + anime (Mandarake, Jump Shop, Animate, Donguri) · W5E SOUTH/NORTH/KNSAI · W5G geocoder for the 82
-  unrendered. Files `FOOD_OSAKA_W5*.json`, `SIGHTS_OSAKA_W5*.json`, `geo/_geoout_osaka_W5*.json`, `CREATORS_OSAKA_W5*.json`.
-  If cut off: whatever W5 files exist are valid (append-only); rebuild + gates + commit, then continue Next actions.
+- none — W5 closed (session 5; workers 171 searches + main).
+
+- 2026-10-03 **W5 (session 5)** — 6 workers (A BAY · B EAST · C TNJ · D MINAM+anime · E SOUTH/NORTH/KNSAI · G geocoder) + main.
+  **398 discovered (151 sights + 247 food = 62% food), 297 rendered (126 + 171)**; ANIME 21 (+5: Kinopio's Café, Mandarake Grand
+  Chaos, Super Potato, Animate Nipponbashi, Kuidaore Taro); 4 gates PASS; validate + npm test PASS. Per area vs target:
+  KITA 100/80 OK · CHUO 56/45 OK · KNSAI 39/40 (+1) · MINAM 63/95 (+32) · TNJ 41/55 (+14) · BAY 24/35 (+11) · EAST 19/35 (+16) ·
+  SOUTH 28/40 (+12) · NORTH 28/35 (+7). Yield ≈ 0.15/search. Held leads: `_held_W5.json` (~45, most need ONE more source).
 
 - 2026-10-02 **W3 (session 3)** — 7 parallel workers + main, **200/200 searches**. **319 discovered (114 sights + 205
   food = 64% food), 266 rendered (104 + 162)**; 4 gates PASS; validate + npm test PASS; ANIME 10 (was 0).
@@ -60,7 +61,19 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
   MINAM 57/95 (+38) · TNJ 34/55 (+21) · BAY 18/35 (+17) · EAST 19/35 (+16) · SOUTH 27/40 (+13) · NORTH 23/35 (+12).
   Yield ≈ 0.3 places/search — the English editorial channel is exhausted for the outer areas; held leads in `_held_W4.json`.
 
-## Next actions (W5 plan — supersedes W4/W3 lists where they overlap)
+## Next actions (W6 plan — supersedes the W5/W4/W3 lists where they overlap)
+1. **Promote `_held_W5.json` first** (cheapest gain — each needs ONE more credible key): EAST Tachinomi Shomin (TIMEOUT), Manmasa
+   (TABELOG100), Okamuro (WALKERPLUS), Matsui (LMAGA), Yamatoya (OSAKAINFO; try co-trip 152925); BAY Taishō Okinawan cluster
+   (Omoro, Usupare Hōnen, Yamaneko, Kijimuna no Mori, Ichariba — WALKERPLUS), Sōjuen (TABELOG100), Atariya (TVTOKYO); TNJ Yosozake,
+   Okonomiyaki Den, Niji no Hotoke (find the real Oggi/Lmaga article); NORTH Ramen Hyakumeiten singles + Kajikasō (Lmaga 2024/11/862200);
+   SOUTH SAKAITCB singles (Nakai Grill, Nishino, Iwashibune, Hikari); MINAM Jump Shop, Donguri Republic (OSAKAINFO only).
+2. **Pins are now the main gap (101 discovered-but-unrendered).** WebSearch cannot pin small shops (OSM/Google `!3d!4d` don't surface;
+   Wikipedia only for landmarks). Run `tools/geocode-helper.html` in a browser for the UNVERIFIED list, or a session with a geocoding channel.
+   Re-verify Mashino Ken (Michelin coord ~1.5 km off its address).
+3. Then fresh discovery: MINAM via Metro NiNE (`metronine.osaka`) + Lmaga area features; EAST via Keihan K-PRESS standing-bar issue and
+   osaka-info `special/higashiosakashi-guide`; BAY via TV Tokyo Adomachi Tengoku episode pages (one page per ranked spot).
+
+## Next actions (W5 plan — historical)
 1. **Switch channel for the outer areas: Japanese-language queries.** `<区/市> 百名店 2025` (Tabelog Hyakumeiten selection
    pages, `TABELOG100`) paired with OSAKA-INFO `local_journey` / ward-official pages / Kobe Shimbun / Lmaga editorial.
    Every `_held_W4.json` BAY item already holds TABELOG100 (Aabel Curry, Yasubei, Sōjuen, Hige to Boin) — one OSAKA-INFO
@@ -82,7 +95,19 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
   MINAM 57/95 (+38) · TNJ 34/55 (+21) · BAY 18/35 (+17) · EAST 19/35 (+16) · SOUTH 27/40 (+13) · NORTH 23/35 (+12).
   Yield ≈ 0.3 places/search — the English editorial channel is exhausted for the outer areas; held leads in `_held_W4.json`.
 
-## Next actions (W5 plan — supersedes W4/W3 lists where they overlap)
+## Next actions (W6 plan — supersedes the W5/W4/W3 lists where they overlap)
+1. **Promote `_held_W5.json` first** (cheapest gain — each needs ONE more credible key): EAST Tachinomi Shomin (TIMEOUT), Manmasa
+   (TABELOG100), Okamuro (WALKERPLUS), Matsui (LMAGA), Yamatoya (OSAKAINFO; try co-trip 152925); BAY Taishō Okinawan cluster
+   (Omoro, Usupare Hōnen, Yamaneko, Kijimuna no Mori, Ichariba — WALKERPLUS), Sōjuen (TABELOG100), Atariya (TVTOKYO); TNJ Yosozake,
+   Okonomiyaki Den, Niji no Hotoke (find the real Oggi/Lmaga article); NORTH Ramen Hyakumeiten singles + Kajikasō (Lmaga 2024/11/862200);
+   SOUTH SAKAITCB singles (Nakai Grill, Nishino, Iwashibune, Hikari); MINAM Jump Shop, Donguri Republic (OSAKAINFO only).
+2. **Pins are now the main gap (101 discovered-but-unrendered).** WebSearch cannot pin small shops (OSM/Google `!3d!4d` don't surface;
+   Wikipedia only for landmarks). Run `tools/geocode-helper.html` in a browser for the UNVERIFIED list, or a session with a geocoding channel.
+   Re-verify Mashino Ken (Michelin coord ~1.5 km off its address).
+3. Then fresh discovery: MINAM via Metro NiNE (`metronine.osaka`) + Lmaga area features; EAST via Keihan K-PRESS standing-bar issue and
+   osaka-info `special/higashiosakashi-guide`; BAY via TV Tokyo Adomachi Tengoku episode pages (one page per ranked spot).
+
+## Next actions (W5 plan — historical)
 1. **Switch channel for the outer areas: Japanese-language queries.** `<区/市> 百名店 2025` (Tabelog Hyakumeiten selection
    pages, `TABELOG100`) paired with OSAKA-INFO `local_journey` / ward-official pages / Kobe Shimbun / Lmaga editorial.
    Every `_held_W4.json` BAY item already holds TABELOG100 (Aabel Curry, Yasubei, Sōjuen, Hige to Boin) — one OSAKA-INFO

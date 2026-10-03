@@ -61072,7 +61072,91 @@
     "note": "DAY"
    },
    "Solly's Grille": {
-    "address": "Glendale, WI (per Wikipedia)",
+    "address": "4629 N Port Washington Rd, Glendale, WI 53212",
+    "lat": 43.1003406,
+    "lng": -87.9175486,
+    "source": "https://www.latlong.net/poi/solly-s-grille-213229 (latlong.net OSM POI 'Solly's Grille', seen in WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://urbanmilwaukee.com/business/sollys-grille/ (Urban Milwaukee business listing) + Shepherd Express; no closure reported",
+    "statusChecked": "2026-10-03",
+    "note": "DAY | street address + status pending"
+   },
+   "Hecky's Barbecue": {
+    "address": "1902 Green Bay Rd, Evanston, IL 60201",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.visitchicagonorthshore.com/heckysbarbecue (CVB listing with current hours, 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "SUB"
+   },
+   "Walker Bros. Original Pancake House (Wilmette)": {
+    "address": "153 Green Bay Rd, Wilmette, IL 60091",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/restaurants/walker-bros-original-pancake-house (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "SUB"
+   },
+   "Russell's Barbecue": {
+    "address": "1621 Thatcher Ave, Elmwood Park, IL 60707",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.oakpark.com/2023/11/06/russells-secret-is-in-the-sauce-and-in-your-memories/ (Wednesday Journal Nov 2023 — operating) + oakparkandbeyond.org listing",
+    "statusChecked": "2026-10-03",
+    "note": "SUB | street number + status pending"
+   },
+   "Svea Restaurant": {
+    "address": "5236 N Clark St, Chicago, IL 60640",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/reviews/svea (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "MacArthur's Restaurant": {
+    "address": "5412 W Madison St, Chicago, IL 60644",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/reviews/macarthurs (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "WEST"
+   },
+   "Carm's Beef and Italian Ice": {
+    "address": "1057 W Polk St, Chicago, IL 60607",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/reviews/carms-beef (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "WEST"
+   },
+   "Simone's": {
+    "address": "",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
@@ -61081,7 +61165,199 @@
     "status": "unchecked",
     "statusSource": "",
     "statusChecked": "2026-10-03",
-    "note": "DAY | street address + status pending"
+    "note": "WEST | address + status pending"
+   },
+   "Simon's Tavern": {
+    "address": "N Clark St just north of Foster Ave, Andersonville, Chicago",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://blockclubchicago.org/2024/05/22/simons-tavern-celebrates-90-years-as-andersonvilles-bar/ (Block Club, May 2024 — 90th anniversary; no closure reported since)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH | street number pending"
+   },
+   "Café Colao": {
+    "address": "2638 W Division St, Chicago, IL 60622",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/reviews/cafe-colao (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NW"
+   },
+   "Big Star": {
+    "address": "1531 N Damen Ave, Chicago, IL 60622",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.choosechicago.com/listing/big-star-wicker-park/ (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NW"
+   },
+   "Half Acre Balmoral": {
+    "address": "2050 W Balmoral Ave, Chicago, IL 60625",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://timeout.com/chicago/bars/half-acre-brewery-balmoral (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "Carol's Pub": {
+    "address": "4659 N Clark St, Chicago, IL 60640",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://timeout.com/chicago/bars/carols-pub (Time Out listing — 'back from the dead and good as ever'); Block Club reopening report 2018-12-21; no later closure reported",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "L&L Tavern": {
+    "address": "3207 N Clark St, Chicago, IL 60657",
+    "lat": 41.9403472,
+    "lng": -87.6502417,
+    "source": "Wikipedia published coordinates 41°56′25.25″N 87°39′0.87″W (en.wikipedia.org/wiki/L%26L_Tavern, WebSearch 2026-10-03); grid-check Clark & Belmont",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/L%26L_Tavern (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "Lou Malnati's Pizzeria (Lincolnwood)": {
+    "address": "6649 N Lincoln Ave, Lincolnwood, IL 60712",
+    "lat": 42.0031667,
+    "lng": -87.7338306,
+    "source": "https://latitude.to/articles-by-country/us/united-states/34072/lou-malnatis-pizzeria (Wikipedia-article coordinate 42°00′11.40″N 87°44′1.79″W, WebSearch 2026-10-03); grid-check 6649 N Lincoln ≈ 42.003",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "https://enjoyillinois.com/explore/listing/lou-malnatis-pizzeria-lincolnwood (state tourism listing) + OpenTable page active 2026",
+    "statusChecked": "2026-10-03",
+    "note": "SUB | Wikipedia coordinate assumed to be the Lincolnwood original — re-verify (4b)"
+   },
+   "Huaraches Doña Chio": {
+    "address": "1547 W Elmdale Ave, Chicago, IL 60660",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/restaurants/huaraches-donya-chio (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "Taqueria El Asadero": {
+    "address": "2213 W Montrose Ave, Chicago, IL 60618",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/restaurants/taqueria-el-asadero (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "FitzGerald's Nightclub": {
+    "address": "6615 Roosevelt Rd, Berwyn, IL 60402",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://chicago.suntimes.com/entertainment-culture/2025/05/09/fitzgeralds-berwyn-club-music-venue-chicago (Sun-Times May 2025 — operating, NRHP listing)",
+    "statusChecked": "2026-10-03",
+    "note": "SUB"
+   },
+   "The Publican": {
+    "address": "837 W Fulton Market, Chicago, IL 60607",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://choosechicago.com/listing/the-publican (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "LOOP"
+   },
+   "Italian Village": {
+    "address": "71 W Monroe St, Chicago, IL 60603",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.preservationchicago.org/chicago-legacy-business-italian-village-restaurants-adds-cafe-pisolino-espresso-bar-continuing-99-years-of-family-legacy-at-71-w-monroe-street-downtown/ (Preservation Chicago 2026 — operating, adding an espresso bar)",
+    "statusChecked": "2026-10-03",
+    "note": "LOOP"
+   },
+   "Monteverde": {
+    "address": "1020 W Madison St, Chicago, IL 60607",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.fsrmagazine.com/chef-profiles/magic-behind-sarah-gruenebergs-chicago-pasta-kingdom (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "LOOP"
+   },
+   "ISAC Museum (Institute for the Study of Ancient Cultures)": {
+    "address": "University of Chicago campus, Hyde Park (per Wikipedia)",
+    "lat": 41.78944,
+    "lng": -87.59778,
+    "source": "https://en.wikipedia.org/wiki/Institute_for_the_Study_of_Ancient_Cultures (Wikipedia/GeoHack published coordinates)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Institute_for_the_Study_of_Ancient_Cultures (current 2025-26 listing)",
+    "statusChecked": "2026-10-03",
+    "note": "Wikipedia published coordinates"
+   },
+   "Washington Park": {
+    "address": "Washington Park community area, Chicago (per Wikipedia)",
+    "lat": 41.79583,
+    "lng": -87.61111,
+    "source": "https://en.wikipedia.org/wiki/Washington_Park_(Chicago_park) (Wikipedia/GeoHack published coordinates)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Washington_Park_(Chicago_park) (current 2025-26 listing)",
+    "statusChecked": "2026-10-03",
+    "note": "Wikipedia published coordinates"
+   },
+   "Charles Gates Dawes House": {
+    "address": "Evanston lakefront, IL (per NPS NHL record)",
+    "lat": 42.04295,
+    "lng": -87.67373,
+    "source": "HMDB marker m=139208 coordinates 42° 2.577′N 87° 40.424′W (WebSearch 2026-10-03) — historical marker at the house",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "https://skokieparks.org/events/adults-over-60-mitchell-museum--dawes-house (2026 park-district outing to the Dawes House — open to visitors)",
+    "statusChecked": "2026-10-03",
+    "note": "Wikipedia published coordinates"
    }
   },
   "philadelphia-pa": {
@@ -61184,10 +61460,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "MICHELIN Guide 2025 venue page (guide.michelin.com/us/en/pennsylvania/philadelphia_2942787/restaurant/4th-street-deli), current listing",
+    "status": "unknown",
+    "statusSource": "",
     "statusChecked": "2026-10-03",
-    "note": "address verified (Michelin venue page), matches input; no place-pin coordinate found"
+    "note": "No Wikipedia article surfaced."
    },
    "Fiorella": {
     "address": "817 Christian St, Philadelphia, PA 19147",
@@ -61208,10 +61484,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "MICHELIN Guide 2025 venue page (guide.michelin.com/us/en/pennsylvania/philadelphia_2942787/restaurant/pizzeria-beddia), current listing",
+    "status": "unknown",
+    "statusSource": "",
     "statusChecked": "2026-10-03",
-    "note": "address verified (Michelin venue page), matches input; no place-pin coordinate found"
+    "note": "Only listed in Wikipedia's Michelin Bib Gourmand list (2025); no own article/coordinates."
    },
    "Royal Sushi & Izakaya": {
     "address": "780 S 2nd St, Philadelphia, PA 19147",
@@ -61340,10 +61616,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "MICHELIN Guide 2025 venue page (guide.michelin.com/us/en/pennsylvania/philadelphia_2942787/restaurant/laser-wolf-1213729), current listing",
+    "status": "unknown",
+    "statusSource": "",
     "statusChecked": "2026-10-03",
-    "note": "address verified (Michelin venue page), matches input; no place-pin coordinate found"
+    "note": "No own article; mentioned in Michael Solomonov article."
    },
    "Laurel — CLOSED": {
     "address": "1617 E Passyunk Ave, Philadelphia, PA 19148",
@@ -61434,10 +61710,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "MICHELIN Guide 2025 venue page (guide.michelin.com/us/en/pennsylvania/philadelphia_2942787/restaurant/suraya), current listing",
+    "status": "unknown",
+    "statusSource": "",
     "statusChecked": "2026-10-03",
-    "note": "address verified (Michelin venue page), matches input; no place-pin coordinate found"
+    "note": "No Wikipedia article surfaced."
    },
    "Vedge": {
     "address": "1221 Locust St, Philadelphia, PA 19107",
@@ -61469,10 +61745,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "MICHELIN Guide 2025 venue page (guide.michelin.com/us/en/pennsylvania/philadelphia_2942787/restaurant/vetri-cucina), current listing",
+    "status": "unknown",
+    "statusSource": "",
     "statusChecked": "2026-10-03",
-    "note": "address verified (Michelin venue page), matches input; no place-pin coordinate found"
+    "note": "No own Wikipedia article surfaced (only Urban Outfitters/Vetri Family mentions)."
    },
    "Zahav": {
     "address": "237 St James Pl, Philadelphia, PA 19106",
@@ -61793,9 +62069,9 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "not checked - WebSearch budget (28) exhausted; needs closure-check wave",
+    "statusSource": "",
     "statusChecked": "2026-10-03",
-    "note": "not checked this wave (budget exhausted): address from input unverified, no coordinate, status unchecked"
+    "note": "Only in Wikipedia Michelin Bib Gourmand list; no own article/coordinates."
    },
    "Valley Green Inn": {
     "address": "7 Valley Green Rd, Philadelphia, PA 19128",
@@ -63169,9 +63445,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Star News Philly (8 Jun 2026) \"Czerw's Kielbasa keeps an 88-year recipe alive after owner's death\" https://starnewsphilly.com/2026/06/08/czerws-kielbasa-port-richmond-owner-death/ ; Inquirer (21 Jun 2025) https://inquirer.com/food/restaurants/john-czerw-kielbasa-20250621.html",
-    "statusChecked": "2026-10-03"
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No Wikipedia article surfaced."
    },
    "Dim Sum Garden": {
     "address": "1024 Race St, Philadelphia, PA 19107",
@@ -63202,9 +63479,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Inquirer (21 Dec 2024) reopened after L&I steam-leak closure https://inquirer.com/food/sang-kee-restaurant-reopen-steam-chinatown-20241221.html ; 6abc https://6abc.com/post/chinatowns-sang-kee-peking-duck-house-indefinitely-closed-due-electrical-hazard/15665562/",
-    "statusChecked": "2026-10-03"
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own Wikipedia article surfaced."
    },
    "Tom's Dim Sum": {
     "address": "59 N 11th St, Philadelphia, PA 19107",
@@ -63268,9 +63546,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Philly Mag Italian Market guide (1 Jul 2026) https://www.phillymag.com/restaurants/2026/07/01/italian-market-philadelphia/ (\"recipes untouched in 126 years\"; expanding to 764 S 9th St)",
-    "statusChecked": "2026-10-03"
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own Wikipedia article surfaced."
    },
    "Oyster House": {
     "address": "1516 Sansom St, Philadelphia, PA 19102",
@@ -63279,9 +63558,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "NBC Philadelphia (2026) Oyster House wins 2026 James Beard America's Classics Award https://www.nbcphiladelphia.com/entertainment/the-scene/oyster-house-philadelphia-2026-james-beard-americas-classics-award/4359984/",
-    "statusChecked": "2026-10-03"
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own Wikipedia article; a search summary mentions a 2026 James Beard America's Classics (Mid-Atlantic) award for The Oyster House (est. 1947) — suggests operating, but no citable URL captured, so status left unknown."
    },
    "The Franklin Fountain": {
     "address": "116 Market St, Philadelphia, PA 19106",
@@ -63291,8 +63571,9 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "no dated 2025-2026 source found; Inquirer topic page https://www.inquirer.com/food/restaurants/franklin-fountain/ (new-flavor coverage, undated); no closing article found",
-    "statusChecked": "2026-10-03"
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own Wikipedia article (search returned Franklin Square Fountain, unrelated); no mapcarta node surfaced. 2 dry queries."
    },
    "Parc": {
     "address": "227 S 18th St, Philadelphia, PA 19103",
@@ -63313,8 +63594,9 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "no dated 2025-2026 source found; Foursquare listing 217-219 Chestnut St; no closing article found",
-    "statusChecked": "2026-10-03"
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own article; mentioned in Jose Garces article (opened 2005, Old City)."
    },
    "Villa di Roma": {
     "address": "936 S 9th St, Philadelphia, PA 19147",
@@ -63334,9 +63616,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Philly Mag \"Italian Market Bible\" (1 Jul 2026) https://www.phillymag.com/restaurants/2026/07/01/italian-market-philadelphia/ (named in the red-gravy \"Holy Trinity\")",
-    "statusChecked": "2026-10-03"
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own article; mentioned in Joey Merlino article as at 10th & Catharine (consistent with address) but no coordinates."
    },
    "Isgro Pastries": {
     "address": "1009 Christian St, Philadelphia, PA 19147",
@@ -63345,9 +63628,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Philly Mag \"Italian Market Bible\" (1 Jul 2026) https://www.phillymag.com/restaurants/2026/07/01/italian-market-philadelphia/",
-    "statusChecked": "2026-10-03"
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No Wikipedia article surfaced."
    },
    "Di Bruno Bros. (Italian Market)": {
     "address": "930 S 9th St, Philadelphia, PA 19147",
@@ -63356,9 +63640,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Philly Mag \"Italian Market Bible\" (1 Jul 2026) https://www.phillymag.com/restaurants/2026/07/01/italian-market-philadelphia/",
-    "statusChecked": "2026-10-03"
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own article; only mentioned in Italian Market article. Italian Market district coordinate rejected (street-length market, would be a centroid)."
    },
    "Termini Bros. Bakery": {
     "address": "1523 S 8th St, Philadelphia, PA 19147",
@@ -63367,9 +63652,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "6abc (c. 2025) \"Termini Brothers Bakery vandalized as family mourns father's passing\" (104-year business, operating) https://6abc.com/amp/post/suspects-wanted-vandalism-termini-brothers-bakery-south-philadelphia/18007248/",
-    "statusChecked": "2026-10-03"
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No Wikipedia article surfaced."
    },
    "Ray's Happy Birthday Bar": {
     "address": "1200 E Passyunk Ave, Philadelphia, PA 19147",
@@ -63379,8 +63665,9 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "PhillyVoice: owner Lou Capozzoli died at 86 (date not shown) https://www.phillyvoice.com/owner-rays-happy-birthday-bar-lou-capozzoli-dies/ ; no closing article found, no confirmed 2025-2026 operating source",
-    "statusChecked": "2026-10-03"
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No Wikipedia article surfaced."
    },
    "Le Virtù": {
     "address": "1927 E Passyunk Ave, Philadelphia, PA 19148",
@@ -63511,8 +63798,9 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "no 2025-2026 source found within search budget; no closing article found; Visit Philly Chestnut Hill neighborhood guide (undated)",
-    "statusChecked": "2026-10-03"
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No Wikipedia article surfaced."
    },
    "White Yak": {
     "address": "Ridge Ave, Roxborough, Philadelphia, PA 19128",
@@ -63544,8 +63832,9 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "no 2025-2026 source found within search budget; no closing article found",
-    "statusChecked": "2026-10-03"
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "Mentioned in Merion Station, PA article (Merion-Cynwyd Commercial District, Montgomery Ave) but no venue coordinates."
    },
    "Lark": {
     "address": "611 Righters Ferry Rd, Bala Cynwyd, PA 19004",
@@ -63589,17 +63878,6 @@
     "confidence": "UNVERIFIED",
     "status": "unknown",
     "statusSource": "no 2025-2026 source found within search budget; no closing article found",
-    "statusChecked": "2026-10-03"
-   },
-   "Tired Hands Brewing Company": {
-    "address": "16 Ardmore Ave, Ardmore, PA 19003",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Inquirer Main Line breweries guide (5 Jun 2025) https://www.inquirer.com/food/main-line-breweries-craft-beer-patios-ardmore-malvern-20250605.html",
     "statusChecked": "2026-10-03"
    },
    "Teresa's Next Door": {
@@ -64616,14 +64894,15 @@
    },
    "Vernick Fish": {
     "address": "1 N 19th St (Comcast Technology Center), Philadelphia, PA 19103",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.9549,
+    "lng": -75.1704,
+    "source": "Wikipedia coordinates of host building Comcast Technology Center (39°57′18″N 75°10′13″W) https://en.wikipedia.org/wiki/Comcast_Technology_Center",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Four Seasons Philadelphia official dining page (active, reservations/hours) https://www.fourseasons.com/philadelphia/dining/restaurants/vernick-fish/ checked 2026-10-03",
-    "statusChecked": "2026-10-03"
+    "confidence": "med",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "Host-building coordinate (Comcast Technology Center, 1800 Arch St); restaurant is in the Four Seasons podium at 19th & Arch, within the building footprint. Wikipedia value only 4 decimals."
    },
    "Bomb Bomb Bar": {
     "address": "1026 Wolf St, Philadelphia, PA 19148",
@@ -64679,6 +64958,185 @@
     "status": "open",
     "statusSource": "Inquirer 2026-01-21 James Beard 2026 semifinalists (Tequilas, beverage service) https://www.inquirer.com/food/restaurants/james-beard-semifinalists-2026-philadelphia-20260121.html",
     "statusChecked": "2026-10-03"
+   },
+   "Paul Robeson House & Museum": {
+    "address": "4951 Walnut St, Philadelphia, PA 19139",
+    "lat": 39.95667,
+    "lng": -75.22139,
+    "source": "Wikipedia article coordinates (39°57′24″N 75°13′17″W) https://en.wikipedia.org/wiki/Paul_Robeson_House",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Official site visit page (Thu–Sat 10–4) https://paulrobesonhouse.org/visit-us/ (checked 2026-10-03)",
+    "statusChecked": "2026-10-03"
+   },
+   "Walnut Street Cafe": {
+    "address": "2929 Walnut St, Philadelphia, PA 19104 (FMC Tower)",
+    "lat": 39.952114,
+    "lng": -75.18351,
+    "source": "Wikipedia coordinates of host building FMC Tower at Cira Centre South (39°57′08″N 75°11′01″W / 39.952114, -75.18351) https://en.wikipedia.org/wiki/Cira_Centre_South",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "Host-building coordinate (FMC Tower, 2929 Walnut St). The Cira Centre South article also shows a coarser complex-level value 39.957,-75.182 (north of Walnut, rejected); the precise 39.952114,-75.18351 matches 30th & Walnut."
+   },
+   "Talula's Garden": {
+    "address": "210 W Washington Sq, Philadelphia, PA 19106 (Ayer Building)",
+    "lat": 39.94726,
+    "lng": -75.15354,
+    "source": "Wikipedia coordinates of host building N. W. Ayer Building, 210 W Washington Sq (39°56′50″N 75°09′13″W / 39.94726, -75.15354) https://en.wikipedia.org/wiki/N._W._Ayer_%26_Son",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "Host-building coordinate (Ayer Building, west side of Washington Square at 7th St); restaurant occupies the building's ground floor/courtyard."
+   },
+   "Shane Confectionery": {
+    "address": "110 Market St, Philadelphia, PA 19106",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "Own Wikipedia article exists (https://en.wikipedia.org/wiki/Shane_Confectionery) confirming 110 Market St, but no coordinates surfaced in snippets; mapcarta query dry."
+   },
+   "Johnny Brenda's": {
+    "address": "1201 Frankford Ave, Philadelphia, PA 19125",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own Wikipedia article (only mentioned in band articles)."
+   },
+   "Philadelphia Brewing Company": {
+    "address": "2440 Frankford Ave, Philadelphia, PA 19125",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "Own Wikipedia article exists (https://en.wikipedia.org/wiki/Philadelphia_Brewing_Company; housed in 1885 Weisbrod & Hess Oriental Brewing building) but no coordinates surfaced in 3 queries (incl. host building Weisbrod & Hess Oriental Brewing — no article coordinates)."
+   },
+   "Standard Tap": {
+    "address": "901 N 2nd St, Philadelphia, PA 19123",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own Wikipedia article surfaced."
+   },
+   "Monk's Cafe": {
+    "address": "264 S 16th St, Philadelphia, PA 19102",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "Wikipedia 'Monk's Café' is the fictional Seinfeld diner; no article for the Philadelphia bar."
+   },
+   "Tired Hands Brewing Company — CLOSED": {
+    "address": "16 Ardmore Ave, Ardmore, PA 19003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "closed",
+    "statusSource": "Philadelphia Inquirer, 2026-02-20: Ardmore Brew Cafe (renamed Ardmore Brewing Company spring 2025) shifted to private events only, no public taproom hours https://www.inquirer.com/food/tired-hands-ardmore-brewing-company-20260220.html",
+    "statusChecked": "2026-10-03",
+    "note": "Own Wikipedia article exists (https://en.wikipedia.org/wiki/Tired_Hands_Brewing_Company) but no coordinates surfaced. STATUS: 16 Ardmore Ave location is private-events-only as of Feb 2026 (closed to the public); Tired Hands Fermentaria (35 Cricket Terrace, Ardmore) and St. Oner's (2218 Frankford Ave, Fishtown) remain open per the same report — consider repointing the entry."
+   },
+   "Bob & Barbara's Lounge": {
+    "address": "1509 South St, Philadelphia, PA 19146",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own Wikipedia article surfaced."
+   },
+   "Khyber Pass Pub": {
+    "address": "56 S 2nd St, Philadelphia, PA 19106",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own article; only mentioned in David Headley article."
+   },
+   "Manayunk Brewing Company": {
+    "address": "4120 Main St, Philadelphia, PA 19127",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own article; only mentioned in Yards Brewing Company article."
+   },
+   "Palizzi Social Club": {
+    "address": "1408 S 12th St, Philadelphia, PA 19147",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No Wikipedia article surfaced."
+   },
+   "Butcher and Singer": {
+    "address": "1500 Walnut St, Philadelphia, PA 19102",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own article (only Starr Restaurants mention); no Wikipedia article for host building 1500 Walnut St surfaced."
+   },
+   "Conshohocken Brewing Company": {
+    "address": "739 E Elm St, Conshohocken, PA 19428",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No Wikipedia article surfaced."
    }
   },
   "hokkaido": {
@@ -82434,14 +82892,14 @@
     "statusChecked": "2026-10-03"
    },
    "HEP Five Ferris Wheel": {
-    "address": "HEP Five, Kita-ku, Osaka, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "HEP FIVE, 5-15 Kakudacho, Kita-ku, Osaka 530-0017",
+    "lat": 34.7040028,
+    "lng": 135.5004472,
+    "source": "ja.wikipedia HEP FIVE infobox 座標 (the wheel is mounted on the HEP FIVE building) https://ja.wikipedia.org/wiki/HEP_FIVE",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
-    "statusSource": "japan-guide.com e4009 (current)",
+    "statusSource": "ja.wikipedia HEP FIVE article (operating complex, no closure noted) https://ja.wikipedia.org/wiki/HEP_FIVE",
     "statusChecked": "2026-10-03"
    },
    "Kushikatsu Gojoya": {
@@ -83028,14 +83486,14 @@
     "statusChecked": "2026-10-03"
    },
    "capi": {
-    "address": "6F, 1-10-2 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "6F, 1-10-2 Sonezakishinchi, Kita-ku, Osaka 530-0002",
+    "lat": 34.697954,
+    "lng": 135.497901,
+    "source": "MICHELIN Guide venue page lat/lng https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/capi",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
-    "statusSource": "MICHELIN Guide venue page live on guide.michelin.com",
+    "statusSource": "MICHELIN Guide current venue listing https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/capi",
     "statusChecked": "2026-10-03"
    },
    "LE PONT DE CIEL": {
@@ -84260,15 +84718,16 @@
     "statusChecked": "2026-10-03"
    },
    "Mashino Ken": {
-    "address": "2F, 1-3-6 Awajimachi, Chuo-ku, Osaka, Japan",
+    "address": "2F, 1-3-6 Awajimachi, Chuo-ku, Osaka 541-0047",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "MICHELIN Guide venue page live https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/mashino-ken",
-    "statusChecked": "2026-10-03"
+    "statusSource": "MICHELIN Guide current venue listing https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/mashino-ken",
+    "statusChecked": "2026-10-03",
+    "note": "HELD: MICHELIN venue page gives 34.673359,135.517416 but that point is ~1.5 km SE of Awajimachi 1-chome (cf. Michelin Ponte Vecchio, 1-8-16 Kitahama = 34.691443,135.507296) — coordinate/address mismatch, needs 4b re-verify https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/mashino-ken"
    },
    "PONTE VECCHIO": {
     "address": "1-8-16 Kitahama, Chuo-ku, Osaka, Japan",
@@ -84832,67 +85291,72 @@
     "statusChecked": "2026-10-03"
    },
    "Takoume Honten (たこ梅 本店)": {
-    "address": "Dōtonbori, Chuo-ku, Osaka, Japan",
+    "address": "1-1-8 Dōtonbori, Chuo-ku, Osaka",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not closure-checked; source pages (2024-26 listings) present it as operating — needs --statuscheck pass",
-    "statusChecked": "2026-10-03"
+    "status": "open",
+    "statusSource": "current listing gltjp.com directory https://www.gltjp.com/ja/directory/item/19259/ + mapple https://www.mapple.net/spot/27014331/ ; no 閉店 news found (search 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "no place-pin source surfaced (address from gltjp directory)"
    },
    "Okonomiyaki Fukutaro Sennichimae Honten (福太郎)": {
-    "address": "2-3-17 Sennichimae, Chuo-ku, Osaka, Japan",
+    "address": "2-3-17 Sennichimae, Chuo-ku, Osaka",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not closure-checked; source pages (2024-26 listings) present it as operating — needs --statuscheck pass",
-    "statusChecked": "2026-10-03"
+    "status": "open",
+    "statusSource": "mapple current listing w/ hours https://www.mapple.net/region/a0503000000_g03050a00_s-situation=couple/spot/ ; no 閉店 news (search 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "no place-pin source surfaced"
    },
    "Okonomiyaki Mizuno (美津の)": {
-    "address": "Dōtonbori, Chuo-ku, Osaka, Japan",
+    "address": "1-4-15 Dōtonbori, Chuo-ku, Osaka",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not closure-checked; source pages (2024-26 listings) present it as operating — needs --statuscheck pass",
-    "statusChecked": "2026-10-03"
+    "status": "open",
+    "statusSource": "mapple current listing w/ hours https://www.mapple.net/region/a0503000000_g03050a00_s-situation=couple/spot/ ; no 閉店 news (search 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "no place-pin source surfaced (address from mapple)"
    },
    "Ajinoya Honten (味乃家)": {
-    "address": "2F, 1-7-16 Namba, Chuo-ku, Osaka, Japan",
+    "address": "2F Gendai Koisan Bldg, 1-7-16 Namba, Chuo-ku, Osaka",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not closure-checked; source pages (2024-26 listings) present it as operating — needs --statuscheck pass",
-    "statusChecked": "2026-10-03"
+    "status": "open",
+    "statusSource": "gltjp directory current listing w/ hours https://www.gltjp.com/ja/directory/item/13191/ ; no 閉店 news (search 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "no place-pin source surfaced"
    },
    "Kushinobo Hozenji Honten (串の坊 法善寺本店)": {
-    "address": "Hōzenji area, Namba, Chuo-ku, Osaka, Japan",
+    "address": "1-5-6 Namba, Chuo-ku, Osaka",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not closure-checked; source pages (2024-26 listings) present it as operating — needs --statuscheck pass",
-    "statusChecked": "2026-10-03"
+    "status": "open",
+    "statusSource": "gnavi store page https://r.gnavi.co.jp/k010203/ + mapple https://www.mapple.net/original/488037/ (hours, 無休) ; no 閉店 news (search 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "no place-pin source surfaced (address from mapple/gnavi)"
    },
    "Super Nintendo World (Universal Studios Japan)": {
     "address": "Universal Studios Japan, 2-1-33 Sakurajima, Konohana-ku, Osaka",
-    "lat": 34.66472,
-    "lng": 135.43306,
-    "source": "en.wikipedia infobox coordinate (may be the USJ park point, not the land itself) https://en.wikipedia.org/wiki/Super_Nintendo_World",
+    "lat": 34.668056,
+    "lng": 135.429917,
+    "source": "4b re-pin: ja.wikipedia マリオカート 〜クッパの挑戦状〜 infobox 座標 34°40'05.0\"N 135°25'47.7\"E (flagship ride inside Super Nintendo World; replaces USJ park-point) https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AA%E3%82%AA%E3%82%AB%E3%83%BC%E3%83%88_%E3%80%9C%E3%82%AF%E3%83%83%E3%83%91%E3%81%AE%E6%8C%91%E6%88%A6%E7%8A%B6%E3%80%9C",
     "verified": "2026-10-03",
-    "confidence": "med",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Inside Osaka USJ guide (current timed-entry info) https://insideosaka.com/universal-studios-japan-guide/",
     "statusChecked": "2026-10-03"
@@ -85162,14 +85626,14 @@
     "statusChecked": "2026-10-03"
    },
    "Sakai Traditional Crafts Museum (Sakai Densho-kan) — Sakai knives": {
-    "address": "1-1-30 Zaimokuchō-nishi, Sakai-ku, Sakai, Osaka 〒590-0801",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1-1-30 Zaimokuchō-nishi, Sakai-ku, Sakai, Osaka 〒590-0801 (now 堺HAMONOミュージアム / Sakai HAMONO Museum)",
+    "lat": 34.582833,
+    "lng": 135.477389,
+    "source": "ja.wikipedia 堺HAMONOミュージアム infobox 座標 (same address 材木町西1-1-30; the Densho-kan's current name) https://ja.wikipedia.org/wiki/%E5%A0%BAHAMONO%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
-    "statusSource": "current SAKAI tourism spot page https://www.sakai-tcb.or.jp/en/spot/detail/407 (checked 2026-10-03)",
+    "statusSource": "ja.wikipedia 堺HAMONOミュージアム (facility operating under new name) https://ja.wikipedia.org/wiki/%E5%A0%BAHAMONO%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0",
     "statusChecked": "2026-10-03"
    },
    "Sakai Plaza of Rikyū and Akiko (Sakai Rishō no Mori)": {
@@ -85412,6 +85876,292 @@
     "confidence": "high",
     "status": "open",
     "statusSource": "Listed in MICHELIN Guide Japan 2026 (venue page)",
+    "statusChecked": "2026-10-03"
+   },
+   "Yasubei (安兵衛, Nishikujō)": {
+    "address": "3-11-18 Nishikujō, Konohana-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "open — TV Tokyo Adomachi 2024-08-17 + official site lists hours https://www.yasubee.net/nishikujo/",
+    "statusChecked": "2026-10-03"
+   },
+   "Aabel Curry (アアベルカレー)": {
+    "address": "3F Fujii Estate Bldg, 1-25-9 Kujō, Nishi-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "open — Tabelog Curry WEST Hyakumeiten 2026 listing with current hours https://tabelog.com/en/osaka/A2701/A270401/27091414/",
+    "statusChecked": "2026-10-03"
+   },
+   "Sawashi Shoten (沢志商店, Hirao Little Okinawa)": {
+    "address": "3-15-19 Hirao, Taishō-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "open — osaka-info Shittonka Osaka feature (current) https://osaka-info.jp/local_journey/stopby-osaka/little-okinawa/",
+    "statusChecked": "2026-10-03"
+   },
+   "TUGBOAT_TAISHO (タグボート大正)": {
+    "address": "1-1-14 Sangen'ya-nishi, Taishō-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "open — osaka-info spot page + Osaka Pref. FY2022–24 operating report https://www.pref.osaka.lg.jp/documents/100072/03_shiryou2-1.pdf",
+    "statusChecked": "2026-10-03"
+   },
+   "Kinopio's Café (Super Nintendo World)": {
+    "address": "Super Nintendo World, Universal Studios Japan, Sakurajima, Konohana-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "open — official USJ restaurant page with current menu https://www.usj.co.jp/web/en/us/restaurants/kinopios-cafe",
+    "statusChecked": "2026-10-03"
+   },
+   "Kirara Kujō Shopping Street (キララ九条商店街)": {
+    "address": "Kujō, Nishi-ku, Osaka (west of Kujō Station)",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "open — osaka-info spot page https://osaka-info.jp/spot/kirara-kujo-shopping-street/",
+    "statusChecked": "2026-10-03"
+   },
+   "Tengu (Jan Jan Yokochō kushikatsu)": {
+    "address": "Jan Jan Yokochō, Ebisuhigashi, Naniwa-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Inside Osaka venue page https://insideosaka.com/tengu/ (describes current queues); no closure notice found",
+    "statusChecked": "2026-10-03"
+   },
+   "Tsuriganeya Honpo (釣鐘屋本舗)": {
+    "address": "Tennōji-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "listed on GLTJP/co-trip spot pages, no explicit 2025-26 status check",
+    "statusChecked": "2026-10-03"
+   },
+   "Sennariya Coffee (千成屋珈琲)": {
+    "address": "Jan Jan Yokochō, Ebisuhigashi, Naniwa-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "Daily Sports 2020 article https://www.daily.co.jp/leisure/kansai/2020/09/09/0013679632.shtml and rurubu new-brand report — original shop changed hands c.2018-19; current status not re-checked",
+    "statusChecked": "2026-10-03"
+   },
+   "Chausuyama (茶臼山古墳, Tennōji Park)": {
+    "address": "1 Chausuyama-chō, Tennōji-ku, Osaka",
+    "lat": 34.6516833,
+    "lng": 135.5123389,
+    "source": "ja.wikipedia infobox 座標 https://ja.wikipedia.org/wiki/茶臼山古墳_(大阪市)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "OSAKA-INFO https://osaka-info.jp/en/spot/chausuyama-tennoji-park/",
+    "statusChecked": "2026-10-03"
+   },
+   "Yasui Shrine (安居神社)": {
+    "address": "1-3-24 Ōsaka, Tennōji-ku, Osaka",
+    "lat": 34.6544806,
+    "lng": 135.5109306,
+    "source": "ja.wikipedia infobox 座標 https://ja.wikipedia.org/wiki/安居神社",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "OSAKA-INFO https://osaka-info.jp/en/spot/yasuijinja/",
+    "statusChecked": "2026-10-03"
+   },
+   "Sankō Shrine & Sanada Yukimura statue (三光神社)": {
+    "address": "14-90 Tamatsukuri-honmachi, Tennōji-ku, Osaka",
+    "lat": 34.673,
+    "lng": 135.529389,
+    "source": "ja.wikipedia infobox 座標 https://ja.wikipedia.org/wiki/三光神社",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "OSAKA-INFO https://osaka-info.jp/en/spot/statue-sanada-yukimura/",
+    "statusChecked": "2026-10-03"
+   },
+   "Hinode-yu (日之出湯)": {
+    "address": "2-7-9 Sannō, Nishinari-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "All About https://news.allabout.co.jp/articles/o/114208/ (current hours/prices listed)",
+    "statusChecked": "2026-10-03"
+   },
+   "Sennichimae Hatsuse (千日前はつせ)": {
+    "address": "2F Hatsuse Bldg., 11-25 Namba Sennichimae, Chuo-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Osaka Metro NiNE spot page lists current hours https://metronine.osaka/en/spot-details/?spot_id=15930718461451 (undated)",
+    "statusChecked": "2026-10-03"
+   },
+   "Mandarake Grand Chaos (Nipponbashi)": {
+    "address": "4-12-6 Nipponbashi, Naniwa-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Osaka Metro NiNE 'open daily 12:00-20:00' https://metronine.osaka/en/spot-details/?spot_id=15620667893434; Amerikamura store closed, relocated Dec 2020 (Mandarake 沿革)",
+    "statusChecked": "2026-10-03"
+   },
+   "Super Potato Osaka (Den Den Town)": {
+    "address": "Nipponbashi, Naniwa-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "listed on OSAKA-INFO pop-culture page; no dated closure check",
+    "statusChecked": "2026-10-03"
+   },
+   "Animate Osaka Nipponbashi": {
+    "address": "Nipponbashi-nishi, Naniwa-ku, Osaka (Den Den Town)",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "OSAKA-INFO Den Den Town / pop-culture pages list it current",
+    "statusChecked": "2026-10-03"
+   },
+   "Kuidaore Taro & Nakaza Kuidaore Building": {
+    "address": "Dotonbori, Chuo-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "OSAKA-INFO: building renovated, reopened spring 2025 https://osaka-info.jp/en/spot/nakaza-kuidaore-eat-till-you-drop-building/",
+    "statusChecked": "2026-10-03"
+   },
+   "Misono Building (味園ビル) — CLOSED": {
+    "address": "Sennichimae, Chuo-ku, Osaka",
+    "lat": 34.665611,
+    "lng": 135.50525,
+    "source": "ja.wikipedia 味園ビル infobox 座標 https://ja.wikipedia.org/wiki/%E5%91%B3%E5%9C%92%E3%83%93%E3%83%AB",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "closed",
+    "statusSource": "Time Out Osaka JP: whole building closed 5 Jul 2025 https://www.timeout.jp/osaka/ja/news/last-day-of-misono-universe-072225",
+    "statusChecked": "2026-10-03"
+   },
+   "Hisakuni Kōsendō (久國紅仙堂, Minoo momiji tempura)": {
+    "address": "1-1-40 Minoo, Minoh-shi, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Time Out Japan listing https://www.timeout.jp/osaka/ja/ショッピング/hisakuni-kousendo (hours 9:30–18:00, closed Thu; checked 2026-10-03)",
+    "statusChecked": "2026-10-03"
+   },
+   "Momotaro (桃太郎, Minoo momiji tempura)": {
+    "address": "Taki-michi, Minoo, Minoh-shi, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Atlas Obscura place page + Rurubu 2024-era foliage feature (no closure reported; checked 2026-10-03)",
+    "statusChecked": "2026-10-03"
+   },
+   "Menya Hakkaisan (麺屋 八海山)": {
+    "address": "Takatsuki–Ibaraki area, Osaka Prefecture",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Tabelog Ramen OSAKA Hyakumeiten 2025 selection https://award.tabelog.com/hyakumeiten/ramen_osaka/2025",
+    "statusChecked": "2026-10-03"
+   },
+   "Saishiki Ramen Kinsei Takatsuki Honten (彩色ラーメンきんせい 高槻本店)": {
+    "address": "Takatsuki-shi, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Tabelog Ramen OSAKA Hyakumeiten 2025 selection https://award.tabelog.com/hyakumeiten/ramen_osaka/2025",
+    "statusChecked": "2026-10-03"
+   },
+   "Le Sucré-Coeur Kishibe (ル・シュクレクール 岸部)": {
+    "address": "Kishibe, Suita-shi, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Time Out 23 must-go restaurants in Northern Osaka (current) https://www.timeout.com/osaka/restaurants/must-go-restaurants-north",
+    "statusChecked": "2026-10-03"
+   },
+   "Okonomiyaki Aomori (お好み焼 青森, Shin-Nagata)": {
+    "address": "4-8-6 Kubo-cho, Nagata-ku, Kobe, Hyogo",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "FEEL KOBE (Kobe official tourism) column, current https://www.feel-kobe.jp/column/nagata-gourmet/",
+    "statusChecked": "2026-10-03"
+   },
+   "Sakai City Tea Houses Shin-an & Ōbai-an (伸庵・黄梅庵)": {
+    "address": "2 Mozusekiun-cho, Sakai-ku, Sakai, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "SAKAI tourism spot page https://www.sakai-tcb.or.jp/en/spot/detail/106 (checked 2026-10-03)",
     "statusChecked": "2026-10-03"
    }
   },
@@ -96996,6 +97746,28 @@
     "confidence": "high",
     "status": "open",
     "statusSource": "Florida Rambler current guide (https://www.floridarambler.com/florida-getaways/rustic-inn-old-florida-crab-shack-fort-lauderdale/) and Goldbelly shipping its garlic crabs live; no closure report found. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "NSU Art Museum Fort Lauderdale": {
+    "address": "1 E Las Olas Blvd, Fort Lauderdale, FL",
+    "lat": 26.11963,
+    "lng": -80.14288,
+    "source": "Wikipedia 'Museum of Art Fort Lauderdale' https://en.wikipedia.org/wiki/Museum_of_Art_Fort_Lauderdale printed 26°07′11″N 80°08′34″W (26.11963, -80.14288)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Visit Lauderdale top-10 page lists current admission ($16 adults) and free first Thursdays. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Young At Art Museum": {
+    "address": "Broward Mall, Plantation, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Visit Lauderdale listing: open Wed–Sun 10am–6pm inside Broward Mall (https://www.visitlauderdale.com/listing/young-at-art-museum/18071/). Checked 2026-10-03.",
     "statusChecked": "2026-10-03"
    }
   }
