@@ -493,6 +493,10 @@ const CUISINES = [
   {id:"FARM",n:"Farms & U-Pick"}
 ];
 
+// Collections (cross-cutting themes). Empty -> the engine hides the filter; it
+// must still be declared or the engine throws (CATS is not defined) and no list renders.
+const CATS = [];
+
 const F = [
 {t:1,a:"DT",cz:["IT","PZ"],n:"Cassese's MVR",ad:"410 N Walnut St",la:41.10343,ln:-80.64431,
  w:"Open since 1927. The dish is a Brier Hill 'Smoky Hollow' pizza — tomato, bell peppers and grated romano — eaten beside the bocce courts out back. As Youngstown as it gets.",
