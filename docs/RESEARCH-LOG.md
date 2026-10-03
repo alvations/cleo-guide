@@ -570,3 +570,9 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - Batching **3** names per Wikipedia-coordinate query conflated coordinates (Penn Square monument returned Fulton Theatre's);
   **2** per query was reliable. Reject minute-precision coords (e.g. 40.033,-76.300) as centroids.
 - Dead ends: pennlive.com, ydr.com, eveningsun.com, eater.com, nytimes.com, foodandwine.com are blocked for allowed_domains here.
+
+### 2026-10-03 — Akron W6 (lessons)
+- Status before merit: a "best of" list from 2019-2021 still surfaces long-closed places (Royal Docks closed Sep 2025, Smoke on the Water + Pick's
+  at PLX, Treno). One AOL/Yahoo search on "<name> closes/closing" before adding saved four bad pins.
+- A Waze place for a hotel/depot address is the building, not the restaurant inside it — grade those `med` (Beau's Grille = Hilton Akron/Fairlawn).
+- Never type a source URL from memory: one Signal Akron URL was written before the search and caught pre-commit.

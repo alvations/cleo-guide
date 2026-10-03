@@ -546,3 +546,16 @@ New source keys: MAHONINGMATTERS, BARBERTONLIBRARY (SOURCES_W3A.json).
 - **Pin pass:** Waze/usarestaurants retries for Green Valley, Vue, Hartville Chocolate Factory, Joey's Kendal Tavern → no place records
   (usarestaurants 'Kendall House Inc' at Massillon not confirmed as the same business). W6 UNVERIFIED now 13 → geocode-helper.html backlog.
 - Gates: sourcecheck PASS (191) · geocheck PASS (141 on page) · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. ≈159 WebSearch.
+
+## 2026-10-03 W6 · batch 5 (close) — KENT markets + wave summary (SIGHTS_W6C, geo/_geoout_w6d)
+- **Added sights (KENT):** Haymaker Farmers' Market (KentWired + Signal Akron + Akron Life + CLEMAG; producers-only since 1992), Acorn Alley
+  (CLEMAG Downtown Kent + Akron Life + KentWired). Both UNVERIFIED (no place pin; Waze gave only a street segment for Acorn Alley).
+- **Source-exhaustion log (areas still short at the bar):** CANT (40/45) — searched Repository foodie panel/patio/lunch/coffee/chicken/Black-owned
+  round-ups, Visit Canton International + Stark11, Ohio Magazine hot dogs/oldest/road-trip, CLEMAG Canton 21, Akron Life Winning Eats; remaining
+  names are single-outlet (Dog Daze, Francisco's, Country Cones, Blue Habanero, Kozmo's, Good Fortune [no post-opening coverage]) or closed
+  (Royal Docks). NSUM (31/35) — CLEMAG Silver Spoon 2025 / readers 2026 (no Summit winners surfaced), ABJ Hudson/Stow, Akron Life Falls/Hudson;
+  held: Crave Cantina (status), Lager & Vine, Good Grief, Taste Asia, Downtown 140, Clifford's museum. BARB (17/20) — Wadsworth/Green/Fairlawn
+  Akron Life + ABJ; Portage Lakes leads closed (Smoke on the Water, Pick's); Lala's, Sweet Pea, Circle L single-outlet. MASS (18/20) — Repository
+  Massillon reviews, Akron Life Canal Fulton; V-Li's (status), Lions Lincoln Theatre, Kozmo's single-outlet. KENT (28/30) — KentWired BOK,
+  Portager, Akron Life Kent guide; Over Easy (status), Tree City, Henry Wahner's, Water Street Tavern single-outlet. AKR (59/60).
+- **W6 totals:** +17 food, +10 sights → 193 places (115 food = 60%; every area ≥50% food), 141 pinned (52 UNVERIFIED). ≈170 WebSearch.
