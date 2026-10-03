@@ -258,3 +258,22 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
 - **Not added:** Flamingo backcountry trails (Snake Bight, Christian Point, Coastal Prairie, Bear Lake) — NPS says they are not being
   maintained (Cape Sable thoroughwort habitat); Historic Hampton House (Brownsville — outside DTB; area call pending);
   St. John's Baptist Church (Wikipedia only); Sunkissed (Inf only); Spanish Marie, Prison Pals, Unbranded, Gulf Stream (one outlet).
+
+## 2026-10-03 (session 4) · batch 11 — bakeries, Opa-locka, Kendall
+- **Added (15):** bakeries 5 — Rosetta (MBCH), Gilbert's (LHAV; NT Best Pastelito 2018 / Best Cortadito 2024–25), Caracas Bakery
+  (WYN), Piononos (t1), Flour & Weirdoughs (CGCG) — Time Out 17 ∩ Infatuation 20 / NT. NMIA sights 2 — Opa-locka Museum of Art &
+  History (1927 Seaboard station), Opa-locka/Hialeah Flea Market (NT Best Flea Market ×3 + GMCVB). SDADE food 4 — Hungry Bear,
+  Best Sub & Sandwich, Shibui, Caribbean Delite (Inf 17 best Kendall ∩ NT; Caribbean Delite also an influencer pick in NT's
+  "Miami's top influencers' hidden gems" — the creator-channel corroboration this wave).
+- **Documented gap — Haitian food in North Dade:** Infatuation's 19 best Haitian list names Family Bakery, Lakay Food Spot, Bon Bagay,
+  Horace Bakery, L'auberge (all North Miami) and Chez Katu (Miramar), but no second credible outlet surfaced for any of them in two
+  searches (NT/TO/WLRN/GMCVB) → all held, not added. Gregs Cookout: Infatuation marks it permanently closed → dropped.
+
+## 2026-10-03 (session 4) · batch 12 — bars, Tamiami Trail airboats, last per-area gaps
+- **Added (12):** food 10 — Platea (SDADE), Versailles Bakery (LHAV), Palace Bar (MBCH), Sugar, Better Days, Mike's at Venetia (DTB),
+  Gulf Stream Brewing (FTL); sights 2 — Everglades Safari Park, Gator Park (GLADE; Fodor's Tamiami Trail + GMCVB).
+- **Closure checks:** Medium Cool — NT: closing 22 Aug 2026 at its 17th St location → not added; Stormy Monday — limited-run pop-up
+  through July → not added; **Macchialina** (in dataset) — Stormy Monday occupied its "former home", so re-checked: still OPEN, moved
+  next door at 820 Alton Rd (old room is sibling Fluke) — no change needed.
+- **Held:** El Titan de Bronze (NT 2007 only), Stormy Monday / Water Lion (Inf only), Zaytona, Fonda Sabaneta, El Tambo (Inf only).
+- **Density:** CGCG, FTL, GLADE, LHAV, SDADE, WYN now at/over target; DTB 54/55, MBCH 62/65, NMIA 37/40.

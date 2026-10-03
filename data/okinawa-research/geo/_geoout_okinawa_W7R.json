@@ -1,0 +1,92 @@
+[
+ {
+  "n": "Mekaru Tomb Site, Shintoshin (銘苅墓跡群)",
+  "address": "Mekaru 2-chōme, Naha, Okinawa",
+  "lat": 26.230611,
+  "lng": 127.697028,
+  "confidence": "high",
+  "geoSource": "W7R 2026-10-03 4b re-verify: Wikipedia infobox (en.wikipedia.org/wiki/Mekaru_Tomb_Cluster; ja.wiki 銘苅墓跡群) printed 北緯26度13分50.2秒 東経127度41分49.3秒 = 26.230611,127.697028 (en.wiki also 26°13′50″N 127°41′51″E). Replaces low search-summary point 26.236752,127.696008 — moved 690 m. Bunka-cho designation (online.bunka.go.jp/heritages/detail/163218) places site at 那覇市大字銘苅 小字銘苅原/名護松尾原.",
+  "status": "open",
+  "statusSource": "National historic site (designated 2007-07-26) per 文化遺産オンライン online.bunka.go.jp/heritages/detail/163218 — outdoor archaeological site, no closure reported"
+ },
+ {
+  "n": "Ikema Island & Ikema Ōhashi (池間島)",
+  "address": "Ikema, Hirara, Miyakojima, Okinawa, Japan",
+  "lat": 24.91889,
+  "lng": 125.26194,
+  "confidence": "high",
+  "geoSource": "W7R 2026-10-03 4b re-verify: ja.wikipedia.org/wiki/池間大橋 infobox printed 北緯24度55分08秒 東経125度15分43秒 = 24.91889,125.26194 (second-precision point on the 1,425 m Ikema Ōhashi bridge, the record's named attraction). Replaces minute-precision island point 24.917,125.25 — moved 1222 m (old point was an island-level centroid).",
+  "status": "open",
+  "statusSource": "Public road bridge opened 1992-02-14 (ja.wikipedia 池間大橋); listed current on okinawastory.jp/spot/20380902"
+ },
+ {
+  "n": "Ishigaki-jima Milmil Honpo (石垣島ミルミル本舗)",
+  "address": "1583-74 Arakawa, Ishigaki, Okinawa, Japan (沖縄県石垣市新川1583-74)",
+  "lat": 24.369682,
+  "lng": 124.120619,
+  "confidence": "med",
+  "geoSource": "W7R 2026-10-03 4b re-verify of the 250 m listing spread: WebSearch extended keyed on the NAVITIME venue page (travel.navitime.com/ja/area/jp/spot/02301-1803063/ '石垣島ミルミル本舗 本店の観光ガイド (沖縄県石垣市字新川1583-74)' + navitime.co.jp/poi?spot=02301-1803063) printed 24.369682,124.120619 — NAVITIME venue page whose address matches exactly; the 24.370927,124.1226 pair traces to gnavi/hotpepper listings. Resolves the flag in favour of the NAVITIME point — moved 244 m from the prior low pin 24.370929,124.1226. Still a listing-derived point (not !3d!4d); official mirumiru1583.com/access gives only address + DENSO MapCode 956 434 027*63 (not decodable here).",
+  "status": "open",
+  "statusSource": "NAVITIME spot page + gnavi r.gnavi.co.jp/dzhv2az90000 list current hours (10:00–19:00 / 10:00–18:30 winter, open year-round); official mirumiru1583.com/access live 2026-10"
+ },
+ {
+  "n": "KITCHEN inaba, Iriomote (キッチン イナバ)",
+  "address": "742-6 Uehara, Taketomi, Yaeyama District, Okinawa, Japan (沖縄県八重山郡竹富町上原742-6)",
+  "lat": 24.423391,
+  "lng": 123.777805,
+  "confidence": "med",
+  "geoSource": "W7R 2026-10-03 4b re-verify: NAVITIME venue page navitime.co.jp/poi?spot=02301-t4357 ('KITCHEN inaba(キッチン イナバ)' 八重山郡竹富町 〒907-1541, 上原742-6, tel 0980-84-8164, along 県道215号) printed 24.423391,123.777805 — address matches; independently agrees with the prior single listing 24.423203,123.777954 (travel.yahoo/gnavi/TripAdvisor) within 26 m, so the single-listing flag is cleared. Moved 26 m.",
+  "status": "open",
+  "statusSource": "NAVITIME poi 02301-t4357 + gnavi r.gnavi.co.jp/1y8sgkcc0000 current listings (2026-10); recent blog reviews (okinawa-labo.com Iriomote lunch round-up)"
+ },
+ {
+  "n": "Michi-no-Eki Kyoda — Yanbaru Bussan Center (道の駅許田)",
+  "address": "17-1 Kyoda, Nago, Okinawa 905-0024 (沖縄県名護市許田17-1)",
+  "lat": 26.55206,
+  "lng": 127.96925,
+  "confidence": "high",
+  "geoSource": "W7R 2026-10-03 4b re-verify: ja.wikipedia.org/wiki/道の駅許田 infobox printed 北緯26度33分07秒 東経127度58分09秒 = 26.55206,127.96925, 所在地 名護市字許田17番地の1 (matches). Replaces low listing point 26.552103,127.969873 — moved 62 m.",
+  "status": "open",
+  "statusSource": "ja.wikipedia 道の駅許田 (hours 8:30–19:00) + okinawastory.jp/spot/1019 + MLIT Okinawa dc.ogb.go.jp/road/Michi-no-Eki/kyoda.htm current"
+ },
+ {
+  "n": "Itoman Fishermen's Co-op Osakana Center, Michi-no-Eki Itoman (糸満漁協 お魚センター)",
+  "address": "4-19 Nishizaki-chō, Itoman, Okinawa, Japan",
+  "lat": 26.13847,
+  "lng": 127.66125,
+  "confidence": "high",
+  "geoSource": "W7R 2026-10-03 4b re-verify: ja.wikipedia.org/wiki/道の駅いとまん infobox printed 北緯26度08分18秒 東経127度39分40秒 = 26.13847,127.66125, 所在地 糸満市西崎町4丁目19番地の1 (matches). Point is the Michi-no-Eki Itoman complex (the Osakana Center is one of its buildings). Replaces low listing point 26.13827,127.66131 — moved 23 m.",
+  "status": "open",
+  "statusSource": "ja.wikipedia 道の駅いとまん + MLIT Okinawa dc.ogb.go.jp/road/Michi-no-Eki/itoman.htm + okinawastory.jp/spot/600006773 current"
+ },
+ {
+  "n": "Ryukyu Mura, Onna (琉球村)",
+  "address": "1130 Yamada, Onna-son, Okinawa 904-0416",
+  "lat": 26.42944,
+  "lng": 127.77528,
+  "confidence": "high",
+  "geoSource": "W7R 2026-10-03 4b re-verify: en.wikipedia.org/wiki/Ryukyu_Mura infobox printed 26°25′46″N 127°46′31″E = 26.42944,127.77528, address 1130 Yamada, Onna (matches). Replaces low Mapion listing point 26.4299197,127.77476798 — moved 74 m.",
+  "status": "open",
+  "statusSource": "en.wikipedia Ryukyu_Mura (operating theme park, opened 1982-10-23) + official ryukyumura.co.jp live 2026-10"
+ },
+ {
+  "n": "Seaside Drive-In, Onna (シーサイドドライブイン)",
+  "address": "885 Nakadomari, Onna-son, Kunigami-gun, Okinawa (沖縄県国頭郡恩納村仲泊885) — street number per listings (official seaside-drivein.jp/access)",
+  "lat": 26.44261,
+  "lng": 127.80348,
+  "confidence": "high",
+  "geoSource": "W7R 2026-10-03 4b re-verify: Stars and Stripes Okinawa 'MY FAVES: Good eats for great picnic on Okinawa's beautiful beaches' (okinawa.stripes.com/food-drink/my-faves-good-eats-for-a-great-picnic-on-okinawa's-beautiful-beaches.html) printed 'GPS Coordinates: N 26.44261, E 127.80348' for Seaside Drive-in Restaurant, Onna. Independently confirms the prior low navitime listing point 26.442728,127.803449 — moved 13 m.",
+  "status": "open",
+  "statusSource": "Official seaside-drivein.jp/access live 2026-10; navitime poi 02301-1800434 current listing"
+ },
+ {
+  "n": "Nuchi Māsu Salt Factory, Miyagi Island (ぬちまーす観光製塩ファクトリー)",
+  "address": "2768 Miyagi, Yonashiro, Uruma, Okinawa 904-2423, Japan",
+  "lat": 26.36038,
+  "lng": 127.991004,
+  "confidence": "high",
+  "geoSource": "W7R 2026-10-03 4b re-verify: Stars and Stripes Okinawa printed 'GPS coordinates for Nuchiuna: N 26.360380, E 127.991004' with address 2768 Yonashiro Miyagi, Uruma 904-2423 (matches) — result set okinawa.stripes.com/food-drink/okinawain-sea-salt-factory-a-real-treat.html and okinawa.stripes.com/travel/quick-trip-to-okinawa's-beautiful-miyagi-island.html (summary did not say which of the two printed it). Confirms the prior low TripAdvisor point 26.360344,127.99098 — moved 5 m.",
+  "status": "open",
+  "statusSource": "Stars and Stripes Okinawa: open 9 a.m.–5:30 p.m., free admission (same articles); no closure news"
+ }
+]

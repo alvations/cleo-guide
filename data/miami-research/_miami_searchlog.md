@@ -295,3 +295,17 @@
 137 VL/NT/BPB Broward breweries (Tarpon River, LauderAle, Gulf Stream, 3 Sons) → 3 added (Gulf Stream VL only, held)
 138 NT/Inf/TO Miami breweries (Spanish Marie, Strange Beast, MIA, Prison Pals, Tripping Animals, The Tank, Unbranded, Miami Brewing Co)
 139 Time Out 16 breweries confirm: The Tank, M.I.A., Strange Beast (+ La Tropical TO page) → 4 added; Spanish Marie, Prison Pals, Unbranded not on TO list (held)
+140 TO 17 best bakeries (Oori, Bachour, True Loaf, Flour & Weirdoughs, Zak, Madruga, B Bistro, Dbakers, Rosetta, Piononos, Gilbert's, Chocolate Fashion, Fireman Derek's, Breadman, Bunnie Cakes, Versailles Bakery, Chez Bon Bon)
+141 Infatuation 20 best bakeries (Breadman, Ophelia, Zak, Piononos, Domaselo, Knaus, Flour & Weirdoughs, Family Bakery, Flagler St, Baker & Barista, Casa Bake, Façade, Cindy Lou's, Caracas MiMo, Baker305, True Loaf)
+142 NT for TO/Inf bakeries → Rosetta, Gilbert's (NT Best Pastelito 2018, Best Cortadito 2024/25); + TO∩Inf Caracas, Piononos, Flour & Weirdoughs = 5 added; Family Bakery (Haitian, Inf only) held
+143 Infatuation 19 best Haitian (Gregs Cookout CLOSED; Family Bakery, Chez Katu (Miramar), Lakay, Bon Bagay, Horace, L'auberge)
+144 NT/TO/GMCVB for the Haitian names — nothing → all held (Inf only); documented as an NMIA gap
+145 GMCVB Opa-locka/Miami Gardens + NT flea market → Opa-locka Museum (Seaboard station), Opa-locka/Hialeah Flea Market added; Heritage Trail, Enchanted Forest park held (GMCVB only)
+146 Infatuation 17 best Kendall + Pinecrest/Palmetto Bay pages (Apocalypse, Best Sub Shop, Hungry Bear, Zaytona, Ghee, Shibui, Fonda Sabaneta, El Tambo, Platea, Pinecrest Bakery, Caribbean Delite, Babe's)
+147 NT for Kendall names → Hungry Bear, Best Sub & Sandwich, Shibui, Caribbean Delite (NT influencers' hidden gems — creator-channel corroboration) = 4 added; Zaytona, Fonda Sabaneta, El Tambo, Platea held
+148 TO/NT/Inf: Platea (TO+Inf+NT), Versailles Bakery (Inf+TO 17), El Titan de Bronze (NT 2007 + TO LH guide unconfirmed → held)
+149 Fodor's/GMCVB Tamiami Trail airboats: Everglades Safari Park, Gator Park → 2 sights (Miccosukee Village already in)
+150 Bars: Inf 14/16 best South Beach bars (Club Deuce, Brother's Keeper, Monterrey, Swizzle, Sweet Liberty, Stormy Monday, Water Lion, Tropezón, Palace, Medium Cool)
+151 Bars downtown/Brickell: TO 15 Brickell, NT top 50 (Better Days, Sugar, American Social, Mike's at Venetia, Margot)
+152 TO/NT: Sugar, Medium Cool (NT: closing 22 Aug 2026 at its 17th St home → not added), Palace (TO+NT+Inf), Stormy Monday (limited-run pop-up through July → not added)
+153 CLOSURE CHECK Macchialina (Stormy Monday took 'former home') → Macchialina OPEN, moved next door at 820 Alton Rd; old room is sibling Fluke — no change
