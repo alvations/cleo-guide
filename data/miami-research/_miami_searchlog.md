@@ -256,3 +256,13 @@
 98 TO 19 best downtown (Tâm Tâm, Jaguar Sun, NIU Kitchen, Drinking Pig, Eleventh Street Pizza, Mr. Omakase, Zuma, Miami Slice, Julia & Henry's, Motek, Over Under, PEZ, Mangrove, Soya & Pomodoro, Giselle, Manna Life, Pollos y Jarras, Novikov, Meraki)
 99 Infatuation Brickell 16 (NAOE 'longest-running omakase and still its best', River Oyster, Claudie, Kaori, Sunkissed) + downtown guides
 100 Infatuation reviews for TO downtown names (NIU, Drinking Pig, Eleventh Street, Miami Slice; Motek review is NYC → held) → 5 added incl. NAOE
+101 NT/TO/Inf NMIA held: Chéen-Huaye (NT+TO) added; Topkapi (Inf + NT hammam piece) added; Sim Sim, Sichuan Fish (Inf only) held
+102 Wikipedia NMIA sights: only city centroids (rejected); FIU Biscayne Bay Campus not a visitor sight
+103 NT/Inf/TO Aventura & Sunny Isles (Casa D'Angelo NT ×2, Asiatiko, Jarana, Etzel Itzik, Chayhana Oasis)
+104 GMCVB North Dade sights (Haulover Park/Marina, Tidal Cove, Oleta, Arch Creek — all in or resort-only)
+105 Etzel Itzik (NT + Inf) added; Jarana, Chayhana Oasis, Casa D'Angelo Aventura (NT only) held
+106 Infatuation 163rd St / NMB (Korean Kitchen, Sichuan Fish, Sim Sim, Sang's, Panya, King Palace, CY Chinese review)
+107 NT ten best North Miami (Captain Jim's, Ricky's Thai, Bulldog (closed), Chéen-Huaye, Fish Fish, Little Havana, Vega's, Petit Rouge, Cane a Sucre, Steve's) — old list; CY Chinese added (Inf + NT hot pot piece)
+108 Inf/TO Little Havana Central American (Pinolandia, Paseo Catracho, Antigua Guatemala, Mi Ranchito, Inf fritangas guide)
+109 NT/TO Hialeah/Doral held (Doggi's NT Best Arepa 2021, La Latina NT 2024, Charlie's, Pisco y Nazca — NT only)
+110 NT for Inf LH names → Pinolandia, Yambo, El Atlacatl added; Guayacan, Paseo Catracho, Old's Havana held
