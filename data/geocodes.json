@@ -62205,17 +62205,6 @@
     "statusChecked": "2026-10-03",
     "note": "Wikipedia infobox coordinate; address 400 South St confirmed (press + Wikipedia); on the Society Hill/Queen Village line at 4th & South - CC acceptable"
    },
-   "Tony Luke's": {
-    "address": "39 E Oregon Ave, Philadelphia, PA 19148",
-    "lat": 39.914444,
-    "lng": -75.148889,
-    "source": "Wikipedia infobox coordinates 39°54′52″N 75°8′56″W (https://en.wikipedia.org/wiki/Tony_Luke%27s), read via WebSearch summary; own freestanding building",
-    "verified": "2026-10-03",
-    "confidence": "med",
-    "status": "unknown",
-    "statusSource": "",
-    "statusChecked": "2026-10-03"
-   },
    "Castellino's Italian Market": {
     "address": "1255 E Palmer St, Philadelphia, PA 19125",
     "lat": null,
@@ -64661,17 +64650,6 @@
     "statusSource": "Valley Forge Tourism listing",
     "statusChecked": "2026-10-03"
    },
-   "Declaration House (Graff House)": {
-    "address": "",
-    "lat": 39.950946,
-    "lng": -75.151849,
-    "source": "Wikipedia infobox coordinates (via WebSearch, en.wikipedia.org)",
-    "verified": "2026-10-03",
-    "confidence": "high",
-    "status": "unknown",
-    "statusSource": "",
-    "statusChecked": "2026-10-03"
-   },
    "Todd House": {
     "address": "",
     "lat": 39.94745,
@@ -64690,8 +64668,8 @@
     "source": "Wikipedia infobox coordinates (via WebSearch, en.wikipedia.org)",
     "verified": "2026-10-03",
     "confidence": "high",
-    "status": "unknown",
-    "statusSource": "",
+    "status": "open",
+    "statusSource": "NPS operating hours page (Sat–Sun 12–4, seasonal; closes for the season Nov 1 2026) https://www.nps.gov/thko/planyourvisit/hours.htm (checked 2026-10-03)",
     "statusChecked": "2026-10-03"
    },
    "Hopewell Furnace National Historic Site": {
@@ -64955,8 +64933,9 @@
     "verified": "2026-10-03",
     "confidence": "high",
     "status": "unknown",
-    "statusSource": "Inquirer 2026-01-12: sale in progress after three decades — re-check",
-    "statusChecked": "2026-10-03"
+    "statusSource": "Inquirer 2026-01-12: sale to Rob LaScala in progress (PLCB transfer) https://www.inquirer.com/food/restaurants/maxs-steaks-sold-philadelphia-rocky-20260112.html",
+    "statusChecked": "2026-10-03",
+    "note": "Still trading at last report; re-check after the sale closes."
    },
    "Lemon Hill": {
     "address": "",
@@ -65135,15 +65114,16 @@
     "statusChecked": "2026-10-03"
    },
    "Joe's Steaks + Soda Shop": {
-    "address": "6030 Torresdale Ave, Philadelphia, PA 19135",
-    "lat": 40.018443,
-    "lng": -75.058081,
-    "source": "Wikipedia infobox coordinates 40.018443, -75.058081 (https://en.wikipedia.org/wiki/Joe's_Steaks_+_Soda_Shop), read via WebSearch summary; standalone shop",
+    "address": "1 W Girard Ave, Philadelphia, PA 19123",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
     "verified": "2026-10-03",
-    "confidence": "med",
-    "status": "NONE",
-    "statusSource": "",
-    "statusChecked": "2026-10-03"
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Star News Philly 2022-07-07 (Fishtown location kept as flagship) https://starnewsphilly.com/2022/07/07/joes-steaks-keeping-fishtown-location-plans-to-close-wissinoming-shop/ ; Torresdale original closed Sept 2022 (Inquirer 2022-07-01)",
+    "statusChecked": "2026-10-03",
+    "note": "Old Wikipedia pin = closed Torresdale shop, removed in W5; Fishtown shop needs a place pin (geocode-helper)."
    },
    "Sparks Shot Tower": {
     "address": "",
@@ -65264,10 +65244,9 @@
     "source": "Wikipedia coordinates of host building N. W. Ayer Building, 210 W Washington Sq (39°56′50″N 75°09′13″W / 39.94726, -75.15354) https://en.wikipedia.org/wiki/N._W._Ayer_%26_Son",
     "verified": "2026-10-03",
     "confidence": "med",
-    "status": "unknown",
-    "statusSource": "",
-    "statusChecked": "2026-10-03",
-    "note": "Host-building coordinate (Ayer Building, west side of Washington Square at 7th St); restaurant occupies the building's ground floor/courtyard."
+    "status": "open",
+    "statusSource": "PhillyVoice 2025 (Taylor Swift & Travis Kelce Mother's Day dinner) https://www.phillyvoice.com/taylor-swift-travis-kelce-mothers-day-talulas-garden/ (checked 2026-10-03)",
+    "statusChecked": "2026-10-03"
    },
    "Shane Confectionery": {
     "address": "110 Market St, Philadelphia, PA 19106",
@@ -65412,6 +65391,30 @@
     "statusSource": "",
     "statusChecked": "2026-10-03",
     "note": "No Wikipedia article surfaced."
+   },
+   "Tony & Nick's Steaks (formerly Tony Luke's)": {
+    "address": "39 E Oregon Ave, Philadelphia, PA 19148",
+    "lat": 39.914444,
+    "lng": -75.148889,
+    "source": "Wikipedia infobox coordinates 39°54′52″N 75°8′56″W (https://en.wikipedia.org/wiki/Tony_Luke%27s), read via WebSearch summary; own freestanding building",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Inquirer 2022-07-11 (shop continues under the Tony & Nick's name) https://www.inquirer.com/food/tony-lukes-name-change-lawsuit-20220711.html ; PhillyVoice tax-case story notes the shop still open https://www.phillyvoice.com/tony-lukes-tax-fraud-south-philly-cheesesteak-shop-still-open-irs/",
+    "statusChecked": "2026-10-03",
+    "note": "Renamed from Tony Luke's (2022)."
+   },
+   "Declaration House (Graff House) — CLOSED": {
+    "address": "",
+    "lat": 39.950946,
+    "lng": -75.151849,
+    "source": "Wikipedia infobox coordinates (via WebSearch, en.wikipedia.org)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "closed",
+    "statusSource": "NPS place page: Declaration House is currently closed and not open to the public https://www.nps.gov/places/000/declaration-house.htm (checked 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "Reconstructed house (1975) — interior closed to the public; exterior at 7th & Market still viewable."
    }
   },
   "hokkaido": {

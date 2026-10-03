@@ -1,0 +1,68 @@
+[
+ {
+  "n": "Thaddeus Kosciuszko National Memorial",
+  "address": "",
+  "lat": 39.943438,
+  "lng": -75.147276,
+  "geoSource": "Wikipedia infobox coordinates (via WebSearch, en.wikipedia.org)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "NPS operating hours page (Sat–Sun 12–4, seasonal; closes for the season Nov 1 2026) https://www.nps.gov/thko/planyourvisit/hours.htm (checked 2026-10-03)",
+  "note": ""
+ },
+ {
+  "n": "Declaration House (Graff House)",
+  "address": "",
+  "lat": 39.950946,
+  "lng": -75.151849,
+  "geoSource": "Wikipedia infobox coordinates (via WebSearch, en.wikipedia.org)",
+  "confidence": "high",
+  "status": "closed",
+  "statusSource": "NPS place page: Declaration House is currently closed and not open to the public https://www.nps.gov/places/000/declaration-house.htm (checked 2026-10-03)",
+  "note": "Reconstructed house (1975) — interior closed to the public; exterior at 7th & Market still viewable."
+ },
+ {
+  "n": "Talula's Garden",
+  "address": "210 W Washington Sq, Philadelphia, PA 19106 (Ayer Building)",
+  "lat": 39.94726,
+  "lng": -75.15354,
+  "geoSource": "Wikipedia coordinates of host building N. W. Ayer Building, 210 W Washington Sq (39°56′50″N 75°09′13″W / 39.94726, -75.15354) https://en.wikipedia.org/wiki/N._W._Ayer_%26_Son",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "PhillyVoice 2025 (Taylor Swift & Travis Kelce Mother's Day dinner) https://www.phillyvoice.com/taylor-swift-travis-kelce-mothers-day-talulas-garden/ (checked 2026-10-03)",
+  "note": ""
+ },
+ {
+  "n": "Tony & Nick's Steaks (formerly Tony Luke's)",
+  "address": "39 E Oregon Ave, Philadelphia, PA 19148",
+  "lat": 39.914444,
+  "lng": -75.148889,
+  "geoSource": "Wikipedia infobox coordinates 39°54′52″N 75°8′56″W (https://en.wikipedia.org/wiki/Tony_Luke%27s), read via WebSearch summary; own freestanding building",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "Inquirer 2022-07-11 (shop continues under the Tony & Nick's name) https://www.inquirer.com/food/tony-lukes-name-change-lawsuit-20220711.html ; PhillyVoice tax-case story notes the shop still open https://www.phillyvoice.com/tony-lukes-tax-fraud-south-philly-cheesesteak-shop-still-open-irs/",
+  "note": "Renamed from Tony Luke's (2022)."
+ },
+ {
+  "n": "Max's Steaks",
+  "address": "3653 Germantown Ave, Philadelphia, PA 19140",
+  "lat": 40.00898,
+  "lng": -75.15057,
+  "geoSource": "Wikipedia infobox coordinates (via WebSearch, en.wikipedia.org)",
+  "confidence": "high",
+  "status": "unknown",
+  "statusSource": "Inquirer 2026-01-12: sale to Rob LaScala in progress (PLCB transfer) https://www.inquirer.com/food/restaurants/maxs-steaks-sold-philadelphia-rocky-20260112.html",
+  "note": "Still trading at last report; re-check after the sale closes."
+ },
+ {
+  "n": "Joe's Steaks + Soda Shop",
+  "address": "1 W Girard Ave, Philadelphia, PA 19123",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "unverified",
+  "status": "open",
+  "statusSource": "Star News Philly 2022-07-07 (Fishtown location kept as flagship) https://starnewsphilly.com/2022/07/07/joes-steaks-keeping-fishtown-location-plans-to-close-wissinoming-shop/ ; Torresdale original closed Sept 2022 (Inquirer 2022-07-01)",
+  "note": "Old Wikipedia pin = closed Torresdale shop, removed in W5; Fishtown shop needs a place pin (geocode-helper)."
+ }
+]

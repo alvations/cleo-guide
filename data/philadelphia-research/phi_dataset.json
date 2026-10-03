@@ -3417,10 +3417,11 @@
   {
    "t": 2,
    "a": "CC",
-   "n": "Declaration House (Graff House)",
+   "n": "Declaration House (Graff House) — CLOSED",
    "ad": "700 Market St, Philadelphia, PA 19106",
    "w": "Reconstruction of the boarding house at 7th & Market where Thomas Jefferson wrote the Declaration of Independence in 1776 — part of Independence National Historical Park (NPS).",
    "k": "historic",
+   "closed": true,
    "g": [
     "HIST",
     "PARK",
@@ -4273,6 +4274,29 @@
      "https://prod.aws.phillyvoice.com/phillys-plethora-pocket-parks/"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "MAIN",
+   "n": "Grey Towers Castle",
+   "ad": "Arcadia University campus, Glenside, PA 19038",
+   "w": "Horace Trumbauer's 1893 castle-mansion for sugar magnate William Welsh Harrison, Beaver College's home from 1929 and now Arcadia University's centrepiece — a National Historic Landmark (1985); student-led tours and October ghost tours. (HELD lead from W3 cleared.)",
+   "k": "historic",
+   "g": [
+    "HIST",
+    "ARCH",
+    "ODD"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Grey_Towers_Castle"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/grey-towers-castle"
+    ]
+   ]
   }
  ],
  "F": [
@@ -4582,9 +4606,9 @@
   {
    "t": 2,
    "a": "SPH",
-   "n": "Tony Luke's",
+   "n": "Tony & Nick's Steaks (formerly Tony Luke's)",
    "ad": "39 E Oregon Ave, Philadelphia, PA 19148",
-   "w": "The original East Oregon Avenue stand under the I-95 overpass; Craig LaBan's 2002 cheesesteak survey rated it among the city's best.",
+   "w": "The original East Oregon Avenue stand under the I-95 overpass, renamed Tony & Nick's Steaks in 2022 after a family legal settlement over the Tony Luke's name (Inquirer, 6abc); Craig LaBan's 2002 cheesesteak survey rated it among the city's best.",
    "cz": [
     "CHS"
    ],
@@ -4596,6 +4620,10 @@
     [
      "CBSPHILLY",
      "https://www.cbsnews.com/philadelphia/news/philadelphia-cheesesteaks-history-pats-genos-angelos-jims/"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/tony-lukes-name-change-lawsuit-20220711.html"
     ]
    ]
   },
@@ -5600,8 +5628,8 @@
    "t": 2,
    "a": "FISH",
    "n": "Joe's Steaks + Soda Shop",
-   "ad": "6030 Torresdale Ave, Philadelphia, PA 19135",
-   "w": "Around since the 1940s (the old Chink's) — retro soda-fountain cheesesteaks; Craig LaBan rated the original among his 2002 favourites.",
+   "ad": "1 W Girard Ave, Philadelphia, PA 19123",
+   "w": "Around since the 1940s (the old Chink's) — retro soda-fountain cheesesteaks; Craig LaBan rated the original among his 2002 favourites. The Torresdale Ave original closed Labor Day 2022 after 73 years (Inquirer, PhillyVoice); the Fishtown shop at Girard & Front is now the flagship.",
    "cz": [
     "CHS"
    ],
@@ -5613,6 +5641,10 @@
     [
      "INQUIRER",
      "https://inquirer.com/philly/news/breaking/20080404_After_45_cheesesteaks__the_best_were____.html"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/joes-steaks-closing-philadelphia-20220701.html"
     ]
    ]
   },
@@ -10539,7 +10571,7 @@
    "a": "NPH",
    "n": "Down North Pizza",
    "ad": "2804 W Lehigh Ave, Philadelphia, PA 19132",
-   "w": "Kurt Evans's Strawberry Mansion pizzeria that employs only formerly incarcerated people — Detroit-style pies named to the NYT's 2021 list of America's 50 most vibrant restaurants, Philly Mag Best of Philly (pizza), LaBan's new-pizza roundup and a Hulu documentary.",
+   "w": "Kurt Evans's Strawberry Mansion pizzeria that employs only formerly incarcerated people — Detroit-style pies (light, cushiony crust) named to the NYT's 2021 list of America's 50 most vibrant restaurants, Philly Mag Best of Philly (pizza), LaBan's new-pizza roundup and a Hulu documentary.",
    "cz": [
     "PZ"
    ],
@@ -11058,6 +11090,454 @@
     [
      "INFATUATION",
      "https://www.theinfatuation.com/philadelphia/guides/fishtown-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Salam Cafe",
+   "ad": "5532 Greene St, Philadelphia, PA 19144",
+   "w": "Germantown's warm Ethiopian café from Hayat Ali (sister to Alif Brew and Doro Bet) — Philly Mag Best of Philly (Best Ethiopian Restaurant), the Infatuation's Germantown & Mount Airy 20, 6abc.",
+   "cz": [
+    "AFR"
+   ],
+   "s": [
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/best-of-philly-archive/salam-cafe/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/best-mt-airy-germantown-philadelphia-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Downtime Bakery",
+   "ad": "6624 Germantown Ave, Philadelphia, PA 19119",
+   "w": "Sourdough bakery-café in a former Mount Airy insurance office with a posted daily bake schedule — the Inquirer's 'Northwest Philly's latest hit bakery', PhillyVoice, Chestnut Hill Local, the Infatuation's Germantown & Mount Airy guide.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/sourdough-bakeries-philadelphia-bagels-focaccia-downtime-mount-airy-20250121.html"
+    ],
+    [
+     "PHILLYVOICE",
+     "https://www.phillyvoice.com/downtime-bakery-opening-mt-airy-sourdough/"
+    ],
+    [
+     "CHESTNUTHILLLOCAL",
+     "https://www.chestnuthilllocal.com/stories/home-baking-business-grows-into-mt-airy-storefront,34833"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/best-mt-airy-germantown-philadelphia-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Doho",
+   "ad": "18 W Hortter St, Philadelphia, PA 19119",
+   "w": "Date-night bistro just off Germantown Ave in West Mount Airy (Oct 2025) that grew from a pandemic ghost kitchen — Latin and East Asian flavours with European technique, full bar; Inquirer, 6abc, Chestnut Hill Local, Infatuation.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/restaurants/doho-restaurant-mount-airy-20251008.html"
+    ],
+    [
+     "6ABC",
+     "https://6abc.com/post/doho-brings-bistro-setting-mount-airy/18086651/"
+    ],
+    [
+     "CHESTNUTHILLLOCAL",
+     "https://chestnuthilllocal.com/stories/doho-new-upscale-restaurant-opens-in-west-mt-airy,41388"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Tranzilli's Real Italian Water Ice",
+   "ad": "5901 Belfield Ave, Philadelphia, PA 19144",
+   "w": "Germantown water-ice shop opened by Nobile and Olimpia Tranzilli in 1969 and still family-run — 20-plus flavours by the cup or gallon 'party bucket'; Inquirer, Visit Philly's best water ice, the Infatuation's Germantown guide.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/restaurants/tranzillis-real-italian-water-ice/"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/top-spots-for-water-ice-in-philadelphia/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/best-mt-airy-germantown-philadelphia-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NW",
+   "n": "Hot Clucks",
+   "ad": "10 W Chelten Ave, Philadelphia, PA 19144",
+   "w": "Halal Nashville-style hot-chicken shop in Germantown — 12-hour-marinated tenders in heat levels from 'plain' to 'unbelievable'; on the Inquirer's halal hot-chicken guide and the Infatuation's Germantown & Mount Airy 20.",
+   "cz": [
+    "ME"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/halal-hot-chicken-philly-muslims-near-me-20230317.html"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/best-mt-airy-germantown-philadelphia-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPH",
+   "n": "Bok Bar",
+   "ad": "800 Mifflin St (8th floor), Philadelphia, PA 19148",
+   "w": "Seasonal walk-in rooftop bar atop the repurposed Bok vocational school, views from New Jersey to West Philly, pop-up food and live music — on the Inquirer's best rooftop bars 2025, the Infatuation's review and Visit Philly's most memorable rooftops.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/best-rooftop-bars-philly-2025-20250605.html"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/reviews/bok-bar"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/top-rooftop-bars-in-philadelphia/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SPH",
+   "n": "Café Ynez",
+   "ad": "2025 Washington Ave, Philadelphia, PA 19146",
+   "w": "Jet Wine Bar owners Evan Malone and Jill Weber's Mexico City-style café on Washington Ave — pulled-pork cemitas, chicken tinga, horchata and Mexican coffees; Philly Mag and Visit Philly's Graduate Hospital guide.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/restaurants/2014/12/04/eating-cafe-ynez/"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/media-center/press-releases/neighborhood-guide-graduate-hospital/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SPH",
+   "n": "Sidecar Bar & Grille",
+   "ad": "2201 Christian St, Philadelphia, PA 19146",
+   "w": "Two-floor Graduate Hospital gastropub with a constantly rotating beer list, revived in 2019 by Mike's BBQ's Michael Strauss and Stockyard's owners — Philly Mag Best of Philly (Best Pizza) and Visit Philly's Graduate Hospital guide.",
+   "cz": [
+    "US",
+    "BREW"
+   ],
+   "s": [
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/best-of-philly-archive/sidecar-bar-grille/"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/media-center/press-releases/neighborhood-guide-graduate-hospital/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Grace Tavern",
+   "ad": "2229 Grays Ferry Ave (23rd & South), Philadelphia, PA 19146",
+   "w": "Post-Prohibition corner bar by the Monk's Café team, closed Jan 2025 and reopened under new owners in Sept 2025 with craft drafts and all-day egg sandwiches — Inquirer and Philly Mag reopening stories, Infatuation review, Visit Philly.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/restaurants/grace-tavern-reopening-20250916.html"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/foobooz/2025/09/16/grace-tavern-reopens/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/reviews/grace-tavern"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPH",
+   "n": "Schmaltz",
+   "ad": "1300 S 18th St, Philadelphia, PA 19146",
+   "w": "'Jew-ish' breakfast-and-lunch café at 18th & Wharton (2026) — latkes, blintzes with seasonal jam and house-baked English muffins slathered in schmaltz; an early hit per the Inquirer, on the Infatuation's Point Breeze picks.",
+   "cz": [
+    "COF"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/restaurants/schmaltz-restaurant-point-breeze-philadelphia-20260717.html"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/reviews/schmaltz-s-18th-street"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPH",
+   "n": "Griddle & Rice",
+   "ad": "2151 S 22nd St, Philadelphia, PA 19145",
+   "w": "Family-run Indonesian all-day café that started as pop-ups — among the first to serve Indonesian breakfast in Philly; Philly Mag's 'most comforting breakfast', the Inquirer's Indonesian-cafés story, the Infatuation's Point Breeze list.",
+   "cz": [
+    "SEA",
+    "COF"
+   ],
+   "s": [
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/restaurants/2025/10/27/griddle-and-rice/"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/indonesian-cafes-philadelphia-griddle-and-rice-omi-kitchen-coffee-20251019.html"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/the-best-restaurants-in-south-philly"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPH",
+   "n": "Lillian's",
+   "ad": "S 19th St & Mifflin St, Philadelphia, PA 19145",
+   "w": "Former barbershop turned parlour-style cocktail bar and bistro in Point Breeze (opened July 2026) that hands its kitchen to rotating guest chefs — Inquirer opening story, on the Infatuation's Point Breeze picks.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/restaurants/lillians-cocktail-bar-point-breeze-philadelphia-20260706.html"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/best-new-philadelphia-restaurants-hit-list"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NE",
+   "n": "Holmesburg Bakery",
+   "ad": "7933 Frankford Ave, Philadelphia, PA 19136",
+   "w": "Frankford Avenue bakery selling cream doughnuts since 1900 — the 'century-plus-old bakery' on Philly Mag's Northeast Philly guide, an Infatuation review, a Northeast Times landmark.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/restaurants/best-restaurants-northeast-philadelphia/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/reviews/holmesburg-bakery"
+    ],
+    [
+     "NORTHEASTTIMES",
+     "https://northeasttimes.com/2015/01/29/celebrating-80-years"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NE",
+   "n": "Four Seasons Diner",
+   "ad": "2811 Cottman Ave, Philadelphia, PA 19149",
+   "w": "24-hour Northeast staple on Cottman Ave — oversized omelets at dawn, burgers late at night; Infatuation review and best-diners-in-Philly guide; diners took cover here during the Jan 2025 Northeast plane crash (6abc).",
+   "cz": [
+    "DIN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/reviews/four-seasons-diner"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/the-best-diners-in-philly"
+    ],
+    [
+     "6ABC",
+     "https://6abc.com/post/people-seasons-diner-duck-cover-philadelphia-plane-crash/15854481/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Barbuzzo",
+   "ad": "110 S 13th St, Philadelphia, PA 19107",
+   "w": "Marcie Turney and Valerie Safran's Mediterranean small-plates bar (2010) that turned 13th Street into Midtown Village's dining strip — Philly Mag Best of Philly (Best Dessert), Inquirer, Visit Philly.",
+   "cz": [
+    "ME",
+    "IT"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/food-drink/barbuzzo/"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/best-of-philly-archive/barbuzzo/"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/philly/blogs/the-insider/marcie-turney-valerie-safran-george-sabatino-restaurants-barbuzzo-lolita-20180813.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Little Nonna's",
+   "ad": "1234 Locust St, Philadelphia, PA 19107",
+   "w": "Turney and Safran's cosy Italian-American spot with a garden courtyard — Philly Mag Best of Philly (Best Outdoor Dining) and best-meatballs pick, Infatuation review, Thrillist's best Italian restaurants in the US (PhillyVoice), Visit Philly.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/reviews/little-nonnas"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/best-of-philly-archive/little-nonnas/"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/food-drink/little-nonnas/"
+    ],
+    [
+     "PHILLYVOICE",
+     "https://www.phillyvoice.com/thrillist-best-italian-restaurants-america-vetri-cucina-little-nonnas-philadelphia/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Morimoto",
+   "ad": "723 Chestnut St, Philadelphia, PA 19106",
+   "w": "Iron Chef Masaharu Morimoto's first American restaurant, opened with Stephen Starr in 2001 — set the local standard for modern Japanese dining and helped put Philly on the national map; Philly Mag Best of Philly (Best Japanese), Inquirer, Infatuation, Visit Philly.",
+   "cz": [
+    "JK"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/restaurants/morimoto/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/reviews/morimoto"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/best-of-philly-archive/morimoto/"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/food-drink/morimoto/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Zeppoli",
+   "ad": "618 Collings Ave, Collingswood, NJ 08107",
+   "w": "Joey Baldino's 35-seat Sicilian BYOB (2011) — the Vetri/Osteria alum's tribute to Anna Tasca Lanza's Sicily; LaBan 'passion in every dish' review, one of the region's best $55 prix fixes per the Inquirer's Collingswood guide, Philly Mag, 6abc.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "LABAN",
+     "https://inquirer.com/philly/food/20151105_LaBan_Zeppoli_Passion_in_every_dish.html"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/collingswood-nj-restaurants-bars-food.html"
+    ],
+    [
+     "PHILLYMAG",
+     "https://phillymag.com/?p=29462"
+    ],
+    [
+     "6ABC",
+     "https://6abc.com/archive/8366870"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UCW",
+   "n": "Kabobeesh",
+   "ad": "3748 Lancaster Ave, Philadelphia, PA 19104",
+   "w": "University City's beloved halal Pakistani/Kashmiri kabob house (2000), kabobs fired to order over natural charcoal and naan from the tandoor — moved from 4201 Chestnut to a bigger Powelton space on Lancaster Ave in April 2026 (Inquirer); Philly Mag called it the city's best for kebabs.",
+   "cz": [
+    "IN",
+    "ME"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/kabobeesh-philadelphia-new-location-20260423.html"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/news/2011/12/19/best-philadelphia-restaurants-west-philly-restaurants/"
     ]
    ]
   }
