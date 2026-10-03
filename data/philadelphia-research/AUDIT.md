@@ -239,3 +239,20 @@ Michelin coordinates NEVER surface through WebSearch — restaurant pins need to
   Neighborhoods newsroom (registered as PHILLYNEIGHBORHOODS, corroborating only). Rebuild: 456 sourced, 4 gates PASS, validate + test PASS.
   Searches this session: ~95 main thread + 86 in background passes. DAY food searches (LaBan Chester County, Lambertville/New Hope,
   Kennett, Phoenixville, West Chester) returned only OpenTable/County Lines/regional blogs — no 2-credible place; DAY stays NEED +3.
+
+## 2026-10-03 · W5 — pins first, then NEED areas (session_01MqoZKuTGYq8oSdEz2K3dLu)
+**Pin probe.** Re-tested the restaurant pin channels before spending: `"1625 Sansom St" !3d39 !4d-75` on google.com returns only
+`maps?cid=` / `data=!4m2!3m1!1s…` links (no `!3d!4d`); mapcarta-restricted queries for Zahav/Dizengoff return nothing. The W4 lesson
+stands — so the pin pass is limited to restaurants with their own Wikipedia article or a Wikipedia-listed host building (background
+agent, ≤50 searches → geo/_geoout_w5_pinA.json). The rest stay UNVERIFIED for tools/geocode-helper.html.
+**Batch 1 (UCW + NPH, food first) — FOOD_W5.json / SIGHTS_W5.json:**
+- UCW: Cleo Bagels (Infatuation West Philly 20 + Philly Mag ×2), Indian Char House (Infatuation review + Visit Philly 12 best Indian),
+  Alif Brew & Mini Mart (Billy Penn + Inquirer Cedar Park guide + Philadelphia Tribune; Food & Wine best lunch); sights Paul Robeson
+  House & Museum (Wikipedia pin 39.95667,-75.22139 high + WHYY + 6abc), Malcolm X Park (Wikipedia + PhillyVoice + Phila Tribune; pin not surfaced).
+- NPH: Gou (Infatuation + Inquirer + 6abc + WHYY 2026), Down North Pizza (NYT 2021 list via Inquirer + LaBan + Philly Mag Best of Philly
+  + Infatuation), Sid Booker's Shrimp Corner (Infatuation + Inquirer 2025 obit + Philly Mag), El Bohio + Delicias Bakery (HELD leads
+  cleared: Visit Philly El Centro de Oro + Inquirer El Bloque de Oro neighbourhood guide), Baby's Kusina & Market (LaBan review 2025 +
+  Philly Mag + Infatuation), Champs Diner (Infatuation + Philly Mag Temple guide + Inquirer), Kim's BBQ (Inquirer + Philly Mag + Infatuation).
+- MEASURED & DROPPED: Aksum (4630 Baltimore Ave) — permanently closed (Infatuation), non-notable → dropped. Kabobeesh (4201 Chestnut)
+  — Inquirer page + 2011 Philly Mag only, delivery listing closed 2022, current status unclear → HELD.
+- New outlets: FOODANDWINE, PHILLYTRIB (SOURCES_W5.json). NPH now 33/30 OK (food 17/33 = 52% — over the §2b bar for the first time).

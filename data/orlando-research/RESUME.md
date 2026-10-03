@@ -35,7 +35,11 @@ Run protocol: `docs/RUN-2026-10-02.md` (shared lock, commit+push every batch, §
 - Search budget: 200/200 used (hard session cap).
 
 ## In-flight wave
-- (none — session 3 closed cleanly)
+- **Session 4 / wave 3 (2026-10-03)** — NEED-area push, food-first. Lead: pins (geo/_geoout_w3bldg.json building-level
+  EPCOT/resort pins done; geo/_geoout_w3pin*.json for searched pins). Background workers (brief `_S3_AGENT_TASK.md`, ≤35
+  searches each), tags: `W3A` IDR+DSP+CWALK · `W3B` DTO+MILLS+WPK · `W3C` KISS+SPRNG+WEST+EAST+SPACE (+ _PENDING_LEADS S3) ·
+  `W3D` parks USF/IOA/EPIC/DHS/DAK/EPCOT/MK signature eats & attractions. Files: FOOD_/SIGHTS_/SOURCES_/CREATORS_W3?.json,
+  geo/_geoout_w3?.json. If relaunched: check which W3? files exist, finish missing tags, then rebuild + gates.
 
 ## Next actions (ordered) — next-wave plan (session 4)
 0. **Restaurant pins are the #1 gap**: ~125 restaurants UNVERIFIED → run `tools/geocode-helper.html` (addresses in geo/_geoout_*.json).
