@@ -388,3 +388,30 @@ New source keys: MAHONINGMATTERS, BARBERTONLIBRARY (SOURCES_W3A.json).
   Tontos, Social at the Stone House, Rosewood Grill, Café Toscano, McArthur's, Farmer's Rail/Amelia's, Village Inn,
   New Era, Mustard Seed.
 - Gates: sourcecheck PASS · geocheck PASS (85/85) · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS.
+
+## 2026-10-03 W4 · batch 2 — food discovery (food-first, merit-measured)
+- **Sources mined:** Signal Akron Best of the City 2025 + 2026 (reader votes), Akron Life 330 Flavor Awards 2026 (Jan 22 2026),
+  Canton Repository via Yahoo/AOL (downtown dining guide, Stark coffee guide, Grapes in a Glass, Sylvester's reopening, Sully's),
+  Wine Spectator Restaurant Awards, USA TODAY 2026 Bars of the Year, Cleveland Magazine "Cuyahoga Falls' 18 Best Restaurants and
+  Bars", Cleveland Scene breweries-worth-the-drive, Ohio Magazine roadside ice cream, Akron Beacon Journal (Yahoo) pizza bracket
+  + Lake House review. Creator query run (Akron/Kent/Canton food YouTube/vlog) — no verifiably popular creator surfaced; Explore
+  City Tours (local food-tour operator) noted, not used as a source.
+- **Added (14 food, FOOD_W4 + FOOD_W4B; new outlets WINESPECTATOR, USATODAY in SOURCES_W4):**
+  AKR — Saffron Patch (Signal Best Ethnic 2025+2026; 330 Best Indian), DeCheco's Pizzeria (Signal Best Pizza 2026 + ABJ 2025 bracket),
+  Ido Bar & Grill (Signal Best Burger 2026 + Akron Life), The Eye Opener (Signal Best Breakfast 2025 + Akron Life; promoted from held),
+  750ml Wine Bar & Boutique (Signal Best Date Night 2025 + Akron Life). CANT — Grapes in a Glass (Wine Spectator Best of Award of
+  Excellence 2026 + Repository), George's Lounge (Repository Best Burger/Bar + Visit Canton), Muggswigz (Repository ×2 + Visit Canton),
+  Sylvester's North End Grille (Akron Life 2026 #1 Stark + Repository reopening). MASS — Sully's Speakeasy (USA TODAY Bars of the Year
+  2026 + Repository). BARB — Pav's Creamery Portage Lakes original (Akron Life Best Ice Cream + Ohio Magazine + CLEMAG).
+  NSUM — Missing Mountain Brewing (Scene + CLEMAG + Akron Life), Butcher & Sprout (CLEMAG + Akron Life). KENT — The Lake House
+  Kitchen + Bar (Akron Life 2026 Portage #3 + ABJ review).
+- **Pins for new places:** 9 of 14 (DeCheco's, Eye Opener, Sylvester's, Pav's, Butcher & Sprout high; Saffron Patch, Ido, 750ml med;
+  Grapes in a Glass med = Google address point at 575 Market Ave N). UNVERIFIED: George's Lounge, Muggswigz, Sully's (129 N Canal St
+  shares the Barrel Room address), Missing Mountain, Lake House.
+- **Held (not added):** Boss ChickNBeer Cuyahoga Falls (CLEMAG + Scene + ABJ, but street number unconfirmed — 1791 Front St is only an
+  inference); Downtown 140 Hudson (status unclear — an "Uptown 140" listing appeared; Shawn Monday's One Red Door became Porta Rossa,
+  single Scene source); Vue (Wadsworth), Bistro of Green (Akron Life only); Arcadia Grille, Fromage du Monde (Repository + CVB
+  listing only — mentions, not merit); Tremont Coffee (Repository only); Zakee Mediterranean (Signal Best New 2025 only);
+  Miller-Doan Tavern (Repository review only); West Side Bakery, El Fogon, El Mesón (330 Flavor Awards only).
+- **Lead:** Crave — Apple + Foursquare list 156 S Main St; our record says 57 E Market St — verify move before pinning.
+- Session WebSearch ≈ 176 (pins ≈ 98, discovery ≈ 62, new-place pins/details ≈ 16).
