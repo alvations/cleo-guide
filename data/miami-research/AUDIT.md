@@ -171,3 +171,18 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   Fort Lauderdale Antique Car Museum (VL only), Krakatoa / GoBistro / Tipsy Boar / Fish Shack / Cafe La Buca (BPB only).
 - **Search note:** sun-sentinel.com is refused by the search tool (like eater.com) — never put it in allowed_domains.
 - **Gates:** sourcecheck/geocheck PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate DATA OK · test ALL PASS.
+
+## 2026-10-03 (session 4) · batch 3 — South Dade + Downtown
+- **Added (14):** SDADE food 6 — Redland Market Village (t1), Broadway Subs, Lan Pan-Asian Cafe, Two Chefs (t1), Hole in the Wall,
+  Macita's; SDADE sights 3 — Cauley Square, Black Point Park & Marina, Larry & Penny Thompson Park (all high Wikipedia pins;
+  status from Miami-Dade Parks pages / GMCVB). DTB food 3 — Soya e Pomodoro, LPM, Garcia's (t1); WYN food 1 — Plaza Seafood
+  Market (Allapattah → WYN, nearest district); DTB sight 1 — Gesù Church (high pin).
+- **MEASURED & DROPPED:** Seaspice (Infatuation: "more for the scene than the food"); Delilah (Infatuation negative).
+- **Held:** NAOE (Time Out 2026 world-ranking news only; not confirmed on the Michelin 2026 star list), Felice (Inf; no TO URL),
+  Café Pastis — renamed Café Panisse per Infatuation (hold until confirmed), Babe's Meat & Counter, Jamrock, Yafa, Ifra's (Inf only),
+  Seminole Theatre / Homestead-Miami Speedway (Wikipedia only), Miami Tower, Lummus Park HD (Wagner House, Fort Dallas) (Wikipedia
+  coords in hand; second source not confirmed), Ichimura Miami-Japan Garden (Time Out only).
+- **Address hygiene:** street numbers I had not seen printed in a source were reduced to street/area level (Gold Coast RR, Wings
+  Over Miami, Amelia Earhart Park, Jungle Island, LHCC, NSU Art Museum, Cauley Square, Gesù) — CLAUDE.md 4a.
+- **Michelin check:** every 2026 Miami-area Bib Gourmand / star already in the dataset (2 searches).
+- **Gates:** all 4 green, 0 unchecked; validate DATA OK; test ALL PASS.

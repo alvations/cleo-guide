@@ -208,3 +208,16 @@
 49 Infatuation 14 best NMB list (Barra Callao, Korean Kitchen, Panya, Topkapi, Farofa, Sim Sim, Basilic, Sang's, King Palace, Sichuan Fish, Pho Mi 2 Go, Lutong Pinoy)
 50 NT Best Restaurant Aventura 2025 = Perl; NT NMB lists
 51 NT for Sang's, Pho Mi 2 Go, Basilic → 3 added; Sim Sim, Topkapi, Sichuan Fish held (Inf only)
+52 NT/TO/GMCVB Homestead held (Redland Market Village NT, Broadway Subs GMCVB, Pasadita) → 2 added
+53 Inf/TO South Miami/Kendall held (Lan review, Two Chefs TO, Café Pastis now 'Café Panisse' → held (rename unclear), Babe's)
+54 NT/Inf/TO Kendall held (Hole in the Wall NT+TO, Macita's NT+Inf, Jamrock/Yafa/Ifra's Inf only → held)
+55 Wikipedia coords: Cauley Square, Seminole Theatre (held, wiki only), Homestead-Miami Speedway (held)
+56 GMCVB South Dade: Cauley Square, Black Point, Larry & Penny Thompson → 3 sights
+57 Status: Larry & Penny / Black Point (Miami-Dade Parks pages); Cauley Square (GMCVB listing)
+58 Inf/Michelin/NT DTB held (Soya e Pomodoro, LPM, Felice reviews; Seaspice 'scene over food' + Delilah negative → DROP; Zeru NT opening)
+59 TO/NT DTB held (Garcia's NT, Plaza Seafood NT, NIU Wine)
+60 TO URLs: Soya & Pomodoro, LPM, Garcia's, NAOE (TO news 2026 world ranking — held for Michelin 2nd)
+61 Infatuation seafood: Garcia's, Plaza Seafood reviews → 4 added
+62-63 Michelin 2026 Florida Bib + stars pages — every Miami Michelin place already in; NAOE not confirmed starred in 2026 (held)
+64 GMCVB/TO downtown history (Gesù, Freedom Tower, Ichimura Garden TO 1101 MacArthur Cswy) → Gesù added
+65 Wikipedia coords Miami Tower, Wagner House/Fort Dallas (Lummus Park HD) — held (no 2nd source confirmed)
