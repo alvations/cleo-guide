@@ -39695,11 +39695,11 @@
    },
    "Smiths Authentic British Fish and Chips (Balmoral Plaza)": {
     "address": "Balmoral Plaza, 271 Bukit Timah Road #01-02, Singapore 259708",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 1.3164396,
+    "lng": 103.8354876,
+    "source": "OneMap (Singapore Land Authority) building search result for 'BALMORAL PLAZA' — onemap.gov.sg/?lat=1.3164396&lng=103.8354876 (1.3164396,103.8354876); unit within building → med; WebSearch 2026-10-03",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Eatbook / Seth Lui / Time Out listings (current); no closure report",
     "statusChecked": "2026-10-03"
@@ -39860,11 +39860,11 @@
    },
    "Sixth Floor Oyster Cake (Northshore Plaza) — CLOSED": {
     "address": "Northshore Plaza I, 407 Northshore Drive #02-41, Singapore 820407",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 1.4162821,
+    "lng": 103.901825,
+    "source": "OneMap (Singapore Land Authority) building search result for 'NORTHSHORE PLAZA I' — onemap.gov.sg/?lat=1.4162821&lng=103.901825 (1.4162821,103.901825); unit within building → med; WebSearch 2026-10-03",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "closed",
     "statusSource": "Seth Lui: both outlets shut permanently after 28 Sep 2025 (owner's Instagram announcement)",
     "statusChecked": "2026-10-03"
@@ -40068,12 +40068,12 @@
     "statusChecked": "2026-10-03"
    },
    "Downstairs (Northshore Plaza)": {
-    "address": "#02-22 Northshore Plaza I, 407 Northshore Drive, Singapore",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "#02-22 Northshore Plaza I, 407 Northshore Drive, Singapore 820407",
+    "lat": 1.4162821,
+    "lng": 103.901825,
+    "source": "OneMap (Singapore Land Authority) building search result for 'NORTHSHORE PLAZA I' — onemap.gov.sg/?lat=1.4162821&lng=103.901825 (1.4162821,103.901825); unit within building → med; WebSearch 2026-10-03",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Eatbook Northshore Plaza guide (daily 8.30am-8.30pm)",
     "statusChecked": "2026-10-03"
@@ -40090,14 +40090,80 @@
     "statusChecked": "2026-10-03"
    },
    "Punggol Waterway Terraces": {
-    "address": "Punggol Walk / Punggol Way / Sumang Link, Singapore",
+    "address": "Waterway Terraces I (Blks 308A-C), Punggol Walk, Singapore",
+    "lat": 1.40800694944027,
+    "lng": 103.899074357998,
+    "source": "OneMap (Singapore Land Authority) building search result for 'WATERWAY TERRACES I' — onemap.gov.sg/?lat=1.40800694944027&lng=103.899074357998 (1.40800694944027,103.899074357998); unit within building → med; WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Stacked Homes estate review (occupied HDB estate)",
+    "statusChecked": "2026-10-03"
+   },
+   "Baan Ying (Royal Square at Novena)": {
+    "address": "Royal Square at Novena, 103 Irrawaddy Road #02-07, Singapore",
+    "lat": 1.320476,
+    "lng": 103.8432528,
+    "source": "OneMap (Singapore Land Authority) building search result for 'ROYAL SQUARE AT NOVENA' — onemap.gov.sg/?lat=1.320476&lng=103.8432528 (1.320476,103.8432528); unit within building → med; WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "open per the W2 discovery sources (FOOD_NOVENA2.json, 2026-10-02)",
+    "statusChecked": "2026-10-03"
+   },
+   "Da Luca Italian Restaurant": {
+    "address": "Goldhill Plaza, 1 Goldhill Plaza, Singapore 308899",
+    "lat": 1.3185189,
+    "lng": 103.8429045,
+    "source": "OneMap (Singapore Land Authority) building search result for 'GOLDHILL PLAZA' — onemap.gov.sg/?lat=1.3185189&lng=103.8429045 (1.3185189,103.8429045); unit within building → med; WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "open per the W2 discovery sources (FOOD_NOVENA2.json, 2026-10-02)",
+    "statusChecked": "2026-10-03"
+   },
+   "Craftsmen Specialty Coffee (Novena)": {
+    "address": "173 Thomson Road, Goldhill Plaza, Singapore 308899",
+    "lat": 1.3185189,
+    "lng": 103.8429045,
+    "source": "OneMap (Singapore Land Authority) building search result for 'GOLDHILL PLAZA' — onemap.gov.sg/?lat=1.3185189&lng=103.8429045 (1.3185189,103.8429045); unit within building → med; WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "open per the W2 discovery sources (FOOD_NOVENA2.json, 2026-10-02); Seth Lui Novena/Thomson guide",
+    "statusChecked": "2026-10-03"
+   },
+   "Waffletown (Balmoral Plaza)": {
+    "address": "Balmoral Plaza, 271 Bukit Timah Road, Singapore 259708",
+    "lat": 1.3164396,
+    "lng": 103.8354876,
+    "source": "OneMap (Singapore Land Authority) building search result for 'BALMORAL PLAZA' — onemap.gov.sg/?lat=1.3164396&lng=103.8354876 (1.3164396,103.8354876); unit within building → med; WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "open per the W2 discovery sources (FOOD_NOVENA2.json, 2026-10-02)",
+    "statusChecked": "2026-10-03"
+   },
+   "75 Ah Balling Peanut Soup (One Punggol)": {
+    "address": "One Punggol Hawker Centre, 1 Punggol Drive, Singapore 828629",
+    "lat": 1.4086,
+    "lng": 103.9024,
+    "source": "stall within One Punggol Hawker Centre; building pin reused from the sourced geocodes entry (Wikipedia Punggol Regional Library coords 1.4086,103.9024 — co-located in One Punggol)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Eatbook One Punggol guide (opening hours listed) + HungryGoWhere One Punggol guide",
+    "statusChecked": "2026-10-03"
+   },
+   "Xiang Chi Mian (Punggol Coast)": {
+    "address": "Punggol Coast Hawker Centre, 84 Punggol Way #02-K55, Singapore 829911",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Stacked Homes estate review (occupied HDB estate)",
+    "statusSource": "Women's Weekly Punggol Coast guide (2025, opened Jul 2025)",
     "statusChecked": "2026-10-03"
    }
   },
