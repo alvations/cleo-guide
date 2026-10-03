@@ -1,4 +1,40 @@
-{"outlets": [
- {"key": "NIPPONCOM", "name": "nippon.com (Nippon Communications Foundation)", "url": "https://www.nippon.com/", "credible": "Multilingual Japan news/feature site of the Nippon Communications Foundation; bylined staff and contributor features; one ordinary editorial source"},
- {"key": "RURUBU", "name": "Rurubu (るるぶ, JTB Publishing)", "url": "https://www.rurubu.jp/", "credible": "JTB Publishing's long-running guidebook brand (Japan's best-selling domestic travel guide series); editor-researched spot pages; one ordinary editorial source"}
-]}
+{
+ "outlets": [
+  {
+   "key": "NIPPONCOM",
+   "name": "nippon.com (Nippon Communications Foundation)",
+   "url": "https://www.nippon.com/",
+   "credible": "Multilingual Japan news/feature site of the Nippon Communications Foundation; bylined staff and contributor features; one ordinary editorial source"
+  },
+  {
+   "key": "RURUBU",
+   "name": "Rurubu (るるぶ, JTB Publishing)",
+   "url": "https://www.rurubu.jp/",
+   "credible": "JTB Publishing's long-running guidebook brand (Japan's best-selling domestic travel guide series); editor-researched spot pages; one ordinary editorial source"
+  },
+  {
+   "key": "INSIDEKYOTO",
+   "name": "Inside Kyoto (Chris Rowthorn)",
+   "url": "https://www.insidekyoto.com/",
+   "credible": "Bylined guide by Chris Rowthorn (long-time Lonely Planet Japan author), sister site of Inside Osaka; covers Kobe day trips; one ordinary editorial source"
+  },
+  {
+   "key": "WAKAYAMATOURISM",
+   "name": "Visit Wakayama (Wakayama Prefecture tourism federation)",
+   "url": "https://www.wakayama-kanko.or.jp/",
+   "credible": "Official prefectural tourism body"
+  },
+  {
+   "key": "ARIMATOURISM",
+   "name": "Arima Onsen Tourism Association",
+   "url": "https://visit.arima-onsen.com/",
+   "credible": "Official local tourism association for Arima Onsen"
+  },
+  {
+   "key": "HYOGOTOURISM",
+   "name": "HYOGO! Tourism Guide (Hyōgo Tourism Bureau)",
+   "url": "https://www.hyogo-tourism.jp/",
+   "credible": "Official prefectural tourism bureau"
+  }
+ ]
+}
