@@ -192,3 +192,19 @@
 30 Wikipedia Michelin FL category — all article-bearing Miami restaurants already pinned
 31-33 Status: Cap's Place, Rustic Inn, Pinecrest Gardens/Amelia Earhart (open)
 34 Status: Bayside Marketplace (open)
+35-36 (refused: sun-sentinel.com not accessible to the search tool — never include it)
+37 Infatuation/TO/Fodor's FTL held (Ukiah review, Top Hat Deli review, Burlock Coast forum-only → held)
+38 NT/BPB FTL held (Peter Pan, Hot Dog Heaven — "for sale after 45 yrs", status unclear → held, Egg N' You, NT 16 best FTL)
+39 NT/BPB Broward Infatuation-18 names (Gabose NT+BPB)
+40 Infatuation guide URLs: 20 classic FTL, 18 Broward (U Know Korean Bistro held)
+41 NT 16 best FTL (Runway 84, Larb, Coconuts, Takato, Heritage, Greek Islands, Vitolo, Ukiah)
+42 BPB Hollywood/Pompano/Dania best (Le Tub, Billy's Stone Crab, GG's, GoBistro, J&C Oyster, Tipsy Boar, Krakatoa; Fish Shack, Cafe La Buca, Calypso; Dania Beach Bar & Grill)
+43 Fodor's/Inf: Le Tub (Infatuation negative → DROP), Cafe Martorano, Quarterdeck (Fodor's FTL restaurants page) held
+44 Visit Lauderdale: Billy's Stone Crab, GG's, J&C (listing only → held), Calypso → 3 added
+45 Visit Lauderdale/Wikipedia Broward sights (NSU Art Museum, Antique Car Museum (held), Young At Art, Fisher Family Pier)
+46 Wikipedia coords NSU Art Museum (high); Young at Art (old Davie coord → rejected)
+47 Inf/TO NMIA held (Steve's Pizza Inf+TO, Perl review, Bulldog BBQ CLOSED → drop)
+48 NT/TO Infatuation-only NMIA (Lutong Pinoy TO+NT; Chung Hing/Boteco not found)
+49 Infatuation 14 best NMB list (Barra Callao, Korean Kitchen, Panya, Topkapi, Farofa, Sim Sim, Basilic, Sang's, King Palace, Sichuan Fish, Pho Mi 2 Go, Lutong Pinoy)
+50 NT Best Restaurant Aventura 2025 = Perl; NT NMB lists
+51 NT for Sang's, Pho Mi 2 Go, Basilic → 3 added; Sim Sim, Topkapi, Sichuan Fish held (Inf only)
