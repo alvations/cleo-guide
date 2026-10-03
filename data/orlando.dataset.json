@@ -5178,6 +5178,125 @@
   },
   {
    "t": 1,
+   "a": "IDR",
+   "n": "SeaWorld Orlando",
+   "ad": "7007 Sea World Dr, Orlando, FL 32821",
+   "w": "SeaWorld's flagship marine park (1973) — Mako, Kraken, Manta, Pipeline and Penguin Trek coasters plus orca, dolphin and penguin habitats; the anchor of the I-Drive/SeaWorld district (Wikipedia; SeaWorld official).",
+   "k": "theme park marine animals coasters family icon",
+   "g": [
+    "RIDE",
+    "ICON",
+    "WILD",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/SeaWorld_Orlando"
+    ],
+    [
+     "OFFICIAL",
+     "https://seaworld.com/orlando/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "IDR",
+   "n": "The Mall at Millenia",
+   "ad": "4200 Conroy Rd, Orlando, FL 32839",
+   "w": "Orlando's luxury mall (2002) — Chanel, Gucci, Louis Vuitton and an Apple store under a glass-and-steel Millenia rotunda; a fixture of international-visitor shopping trips (Wikipedia; mall official).",
+   "k": "shopping luxury mall",
+   "g": [
+    "SHOP",
+    "MKT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Mall_at_Millenia"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.mallatmillenia.com/"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/listing/the-mall-at-millenia/31381/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTO",
+   "n": "Angebilt Building",
+   "ad": "37 N Orange Ave, Orlando, FL 32801",
+   "w": "\"The jewel of downtown Orlando\": Joseph Ange's 11-storey 1923 Angebilt Hotel by Murry S. King — rooftop garden, WLOF radio on the mezzanine; NRHP-listed (Wikipedia; CRA historical marker).",
+   "k": "historic nrhp architecture 1920s skyscraper",
+   "g": [
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Angebilt_Hotel"
+    ],
+    [
+     "HMDB",
+     "https://www.hmdb.org/m.asp?m=266749"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTO",
+   "n": "Lake Eola Heights Historic District",
+   "ad": "Lake Eola Heights (north/east of Lake Eola), Orlando, FL 32801",
+   "w": "One of Orlando's oldest, most architecturally mixed neighbourhoods — ~500 historic bungalows, Colonial Revivals and Queen Annes on brick streets above Lake Eola; NRHP 1992 and a city historic preservation district (Wikipedia; City of Orlando).",
+   "k": "historic neighborhood nrhp architecture walk free",
+   "g": [
+    "HIST",
+    "FREE",
+    "SPRNG"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lake_Eola_Heights_Historic_District"
+    ],
+    [
+     "ORLANDOGOV",
+     "https://www.orlando.gov/Our-Government/History/Historic-Preservation-Districts"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPRNG",
+   "n": "Big Tree Park (The Senator)",
+   "ad": "General Hutchison Pkwy (between US 17-92 and SR 427), Longwood, FL",
+   "w": "Site of The Senator, a ~3,500-year-old bald cypress — once the largest in the US — that burned in 2012; the park keeps its remains, a boardwalk to 'Lady Liberty' and The Phoenix, a clone grown from it (Wikipedia; Seminole County).",
+   "k": "nature tree boardwalk park free history",
+   "g": [
+    "NATURE",
+    "FREE",
+    "SPRNG",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Senator_(tree)"
+    ],
+    [
+     "SEMINOLECOUNTY",
+     "https://www.seminolecountyfl.gov/locations/location-info/big-tree-park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
    "a": "WEST",
    "n": "Winter Garden Downtown Historic District",
    "ad": "Plant St, Winter Garden, FL",
@@ -11265,6 +11384,148 @@
      "https://www.chowhound.com/2105592/florida-seafood-platters-big-portions-qs-crackin-crab"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "IDR",
+   "n": "Selam Ethiopian & Eritrean Cuisine",
+   "ad": "5494 Central Florida Pkwy, Orlando, FL 32821",
+   "w": "MICHELIN Guide Florida 2026 Recommended (SeaWorld area) — Orlando's Michelin-listed Ethiopian/Eritrean kitchen: injera with doro wat, tibs and shiro. Order: injera platters (doro wat, tibs, shiro).",
+   "cz": [
+    "ME"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.org/media/press-releases/post/60-orlando-restaurants-recognized-in-2026-michelin-florida-guide/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WPK",
+   "n": "Kai Asian Street Fare",
+   "ad": "1555 FL-436 #1171, Winter Park, FL 32792",
+   "w": "MICHELIN Guide Florida 2026 Recommended (Winter Park) — Asian street-food counter of bao, noodles and wings in a SR-436 strip. Order: Asian street-fare plates (bao, noodles, wings).",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.org/media/press-releases/post/60-orlando-restaurants-recognized-in-2026-michelin-florida-guide/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTO",
+   "n": "RusTeak Thornton Park",
+   "ad": "101 S Eola Dr Suite 103, Orlando, FL 32801",
+   "w": "Thornton Park's polished-casual New American restaurant & wine bar (since 2012, repeat Wine Spectator Award of Excellence); moved from College Park to Thornton Park in 2021 (News 6); Visit Orlando listing. Order: new American plates with a Wine Spectator-awarded list.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/listing/rusteak-thornton-park/50622/"
+    ],
+    [
+     "CLICKORLANDO",
+     "https://www.clickorlando.com/news/local/2021/07/15/restaurant-on-the-move-rusteak-moves-from-one-orlando-neighborhood-to-another/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KISS",
+   "n": "Perico Ripiao Latin Food",
+   "ad": "5295 W Irlo Bronson Memorial Hwy, Kissimmee, FL 34746",
+   "w": "Locally owned Dominican restaurant on US-192 — a stop on Gastro Obscura × Experience Kissimmee's 20-stop Latin Culinary Trail (2025): mangú, chicharrón, sancocho. Order: Dominican classics (mangú, chicharrón, sancocho).",
+   "cz": [
+    "LAT"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/perico-ripiao"
+    ],
+    [
+     "EXPERIENCEKISSIMMEE",
+     "https://www.experiencekissimmee.com/press/press-releases/experience-flavors-kissimmee-new-latin-culinary-trail"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KISS",
+   "n": "Sajoma Latin Fusion",
+   "ad": "1600 Osceola Pkwy, Kissimmee, FL 34744",
+   "w": "Caribbean/Latin American fusion kitchen on Osceola Parkway — Gastro Obscura place page + Experience Kissimmee Latin Culinary Trail stop (2025). Order: Caribbean/Latin fusion plates.",
+   "cz": [
+    "LAT"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/sajoma-latin-fusion"
+    ],
+    [
+     "EXPERIENCEKISSIMMEE",
+     "https://www.experiencekissimmee.com/press/press-releases/experience-flavors-kissimmee-new-latin-culinary-trail"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KISS",
+   "n": "Express Cafe (Kissimmee)",
+   "ad": "5820 W Irlo Bronson Memorial Hwy, Kissimmee, FL 34746",
+   "w": "Latin-fusion bistro on US-192 — Gastro Obscura place page + Experience Kissimmee Latin Culinary Trail stop (2025). Order: Latin-fusion bistro plates & cafecito.",
+   "cz": [
+    "LAT",
+    "CUBA"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/express-cafe"
+    ],
+    [
+     "EXPERIENCEKISSIMMEE",
+     "https://www.experiencekissimmee.com/press/press-releases/experience-flavors-kissimmee-new-latin-culinary-trail"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KISS",
+   "n": "Susana's Cafe",
+   "ad": "Downtown Kissimmee, FL",
+   "w": "Café in a historic Downtown Kissimmee house serving dishes from across Latin America — Gastro Obscura × Experience Kissimmee Latin Culinary Trail (2025); Experience Kissimmee downtown dining page. Order: Latin American café plates in a historic house.",
+   "cz": [
+    "LAT",
+    "DES"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://kissimmee-latin-culinary-trail.atlasobscura.com/"
+    ],
+    [
+     "EXPERIENCEKISSIMMEE",
+     "https://www.experiencekissimmee.com/press/press-releases/experience-flavors-kissimmee-new-latin-culinary-trail"
+    ]
+   ]
   }
  ],
  "S": {
@@ -11496,6 +11757,12 @@
    "u": "https://www.orangeobserver.com/",
    "l": "Orange Observer (West Orange Times & Observer)"
   },
+  "ORLANDOGOV": {
+   "k": "ORLANDOGOV",
+   "t": "City of Orlando (official site — historic preservation)",
+   "u": "https://www.orlando.gov/",
+   "l": "City of Orlando (official site — historic preservation)"
+  },
   "ORLANDOINFORMER": {
    "k": "ORLANDOINFORMER",
    "t": "Orlando Informer",
@@ -11519,6 +11786,12 @@
    "t": "Roller Coaster DataBase",
    "u": "https://rcdb.com/",
    "l": "Roller Coaster DataBase"
+  },
+  "SEMINOLECOUNTY": {
+   "k": "SEMINOLECOUNTY",
+   "t": "Seminole County Government (Parks & Recreation)",
+   "u": "https://www.seminolecountyfl.gov/",
+   "l": "Seminole County Government (Parks & Recreation)"
   },
   "SHEBUYSTRAVEL": {
    "k": "SHEBUYSTRAVEL",
@@ -11665,6 +11938,12 @@
    "t": "AllEars.net",
    "u": "https://allears.net/",
    "l": "AllEars.net"
+  },
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com/things-to-do/orlando-florida",
+   "l": "Atlas Obscura"
   },
   "ATTRACTIONSMAG": {
    "k": "ATTRACTIONSMAG",

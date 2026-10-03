@@ -395,3 +395,15 @@ corroborating Angelo's only) · Wikipedia (2 sights). Searches: ~122 main thread
   never surfaced a coordinate variant here — unlike Miami — so the remaining budget went to new names, sights and status.
 - **Build:** 260 → 275 on map (165 sights + 110 food). sourcecheck PASS 518 · geocheck PASS · statuscheck CONSISTENT (10 closed, 0
   unchecked) · buildcheck PASS · validate DATA OK · npm test ALL PASS. ~120 WebSearch calls so far.
+
+## 2026-10-03 (W6 · PINS) · batch 4 + wave close
+- **Pin +1:** Irwin's (Apple listing at 800 Mifflin St = the Bok Building's other street address; record 1901 S 9th St, 8th floor) — high,
+  noted. Final Apple probes of DAY (Phoenixville, West Chester, Kennett Square, New Hope), NW (Attic, Young American, White Yak) and the
+  remaining city sights (Clay Studio, Fillmore, Taller Puertorriqueño) returned only bare `place-id` listings.
+- **Address leads logged in RESUME (not changed):** Portabello's (Apple 108 E State St vs record 108-112 W State St), White Yak (Apple
+  6118 Ridge Ave), American Sardine Bar (1800 vs 1801 Federal St).
+- **W6 totals:** 182 → **276 on map** (+94: 80 food, 14 sights) · on-page confidence 238 high / 38 med · 3 closures flagged (Manakeesh,
+  The Olde Bar, Todd House) · statuscheck 0 unchecked (was 9) · ≈135 WebSearch calls (≈105 maps.apple.com, ≈18 en.wikipedia.org, ≈12
+  closure/status news).
+- **Gates (final build):** sourcecheck PASS 518 · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test
+  ALL PASS. density.py: every area OK (unchanged). Hub card, CITIES.md row, AGENT-PROMPTS run-log row, RESUME (State W6 + W7 plan) updated.
