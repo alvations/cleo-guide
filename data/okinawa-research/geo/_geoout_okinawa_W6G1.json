@@ -1,0 +1,144 @@
+[
+ {
+  "n": "Aharen Beach, Tokashiki Island (阿波連ビーチ)",
+  "address": "Aharen, Tokashiki, Shimajiri District, Okinawa, Japan",
+  "lat": 26.170067,
+  "lng": 127.34594,
+  "confidence": "low",
+  "geoSource": "W6G1 2026-10-03: WebSearch extended '阿波連ビーチ 渡嘉敷 緯度 経度' returned 26.170067,127.34594 alongside listing pages (4travel dm_shisetsu/10031880, guidoor 9335, tripadvisor d1373634); same value returned unattributed in W4G5 (candidates iko-yo 26971 / rurubu 80043342 / mapple 501175). Aggregator listing coordinate; consistent with Aharen village beach on SW Tokashiki. Not an official/jawiki point — re-verify with a place pin (!3d!4d) when possible.",
+  "status": "open",
+  "statusSource": "visitokinawajapan.com/discover/beach-information/aharen-beach/ + activityjapan.com/feature/aharen_beach/ (2025-26 swim season info)"
+ },
+ {
+  "n": "Ama Beach, Zamami Island (阿真ビーチ)",
+  "address": "Ama, Zamami, Shimajiri District, Okinawa, Japan",
+  "lat": 26.226806,
+  "lng": 127.292028,
+  "confidence": "med",
+  "geoSource": "W6G1 2026-10-03: WebSearch extended restricted to okinawa.stripes.com ('Zamami Ama Beach ... GPS') returned Ama Beach GPS 26°13'36.5\"N 127°17'31.3\"E printed in Stars and Stripes Okinawa island-hopping coverage (okinawa.stripes.com/travel/3-days-3-islands-300-let's-go-island-hopping-in-okinawa.html / island-hopping-300-usd.html). Converted to decimal. West of Zamami village, consistent with Ama settlement (not Furuzamami).",
+  "status": "open",
+  "statusSource": "okinawa.stripes.com beach-opening schedule coverage + japan-guide e7193 (current)"
+ },
+ {
+  "n": "Kumejima no Kumesen distillery, Kume Island (久米島の久米仙)",
+  "address": "2157 Ueshiro (宇江城), Kumejima, Shimajiri District, Okinawa 901-3101, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W6G1 tried: navitime-restricted '久米島の久米仙 緯度 経度' (no spot page); open '久米島の久米仙 + full address 緯度 経度' (only Kume island centroid 26.359039,126.775365 — rejected); ja.wikipedia 久米島の久米仙 article (has only island coords 26.35444,126.77083 — rejected as centroid). Next: navitime/mapion POI for 字宇江城2157.",
+  "status": "open",
+  "statusSource": "k-kumesen.co.jp/company/ (HQ 宇江城2157, hours 9:30-17:30) + okinawa-awamori.or.jp/distilleries/kumejima_kumesen/"
+ },
+ {
+  "n": "Shimashi Ōzato Castle Ruins, Nanjō (島添大里城跡)",
+  "address": "Ōzato, Ōzato, Nanjō, Okinawa, Japan (Ōzato Castle Ruins Park)",
+  "lat": 26.1866,
+  "lng": 127.7601417,
+  "confidence": "high",
+  "geoSource": "W6G1 2026-10-03: ja.wikipedia.org/wiki/島添大里城 infobox coordinates 北緯26度11分11.76秒 東経127度45分36.51秒 (26.1866000, 127.7601417), via WebSearch extended restricted to ja.wikipedia.org.",
+  "status": "open",
+  "statusSource": "kankou-nanjo.okinawa/bunka/216/ (Nanjō city tourism page, public castle-ruins park) + shirobito.jp/castle/2984"
+ },
+ {
+  "n": "Takanazaki & Japan's Southernmost Point Monument, Hateruma (高那崎・日本最南端の碑)",
+  "address": "Hateruma, Taketomi, Yaeyama District, Okinawa, Japan (south-east tip of Hateruma Island)",
+  "lat": 24.049806,
+  "lng": 123.805056,
+  "confidence": "high",
+  "geoSource": "W6G1 2026-10-03: ja.wikipedia.org/wiki/高那崎 coordinates 北緯24度2分59.3秒 東経123度48分18.2秒 (24.049806, 123.805056); article describes the 日本最南端之碑 (1970) and 日本最南端平和の碑 (1995) at the cape. Via WebSearch extended restricted to ja.wikipedia.org.",
+  "status": "open",
+  "statusSource": "rurubu.jp/andmore/spot/80043464 + painusima.com/934/ (open-air monument, current listing)"
+ },
+ {
+  "n": "Ryūtan Pond, Shuri (龍潭)",
+  "address": "Shuri Castle Park, Shuri Mawashi-chō, Naha, Okinawa, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W6G1 tried: '龍潭 首里 wikipedia 座標' restricted to ja.wikipedia.org — the 龍潭 article surfaced but no coordinates were returned for it (only 首里 district and 首里城 coords, which are not the pond — rejected). Next: en.wikipedia 'Ryūtan' or navitime spot page.",
+  "status": "open",
+  "statusSource": "mlit.go.jp/tagengo-db/en/R2-00482.html (MLIT multilingual signage DB, Shuri Castle Park)"
+ },
+ {
+  "n": "Tomari International Cemetery (泊外人墓地)",
+  "address": "Tomari, Naha, Okinawa (north shore of Tomari Port)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W6G1 tried: '泊外人墓地 wikipedia 座標' restricted to ja/en.wikipedia.org — no article for it surfaced. Next: Stripes Perry article GPS, or navitime '泊外人墓地'.",
+  "status": "open",
+  "statusSource": "samurai-archives.com/wiki/Tomari_International_Cemetery + okinawa.stripes.com Perry article (extant historic cemetery)"
+ },
+ {
+  "n": "Yonejima Shuzō awamori distillery, Kume Island (米島酒造)",
+  "address": "499 Ōta (大田), Kumejima, Shimajiri District, Okinawa 901-3123, Japan",
+  "lat": 26.34575,
+  "lng": 126.751222,
+  "confidence": "low",
+  "geoSource": "W6G1 2026-10-03: WebSearch extended '米島酒造 久米島町大田499 緯度 経度' returned 26°20'44.7\"N 126°45'04.4\"E for the brewery at 大田499, alongside the official access-map page yonesima.jp/free/map and okinawa-awamori.or.jp/distilleries/yonesima; result not attributed to one page, so graded low. Consistent with Ōta (west Kume) and ~500 m from Yan-kō at adjacent Nakadomari.",
+  "status": "open",
+  "statusSource": "yonesima.jp/free/company-profile + okinawa-awamori.or.jp/distilleries/yonesima/ (active distillery, 2025-26 pages)"
+ },
+ {
+  "n": "Kumejima Soba-dokoro Yan-kō, Kume Island (久米島そば処 やん小～)",
+  "address": "509 Nakadomari (仲泊), Kumejima, Shimajiri District, Okinawa, Japan",
+  "lat": 26.34745823969232,
+  "lng": 126.74657739806948,
+  "confidence": "low",
+  "geoSource": "W6G1 2026-10-03: WebSearch extended '久米島そば処 やん小～ 久米島町仲泊509 緯度 経度' returned 26.34745823969232,126.74657739806948 alongside listing pages (co-trip 126571, mapple 47012362, ekiten 67986111, tabelog 47001595) — aggregator listing coordinate, consistent with the sourced 仲泊509 address.",
+  "status": "open",
+  "statusSource": "otv.co.jp/okitive/article/53732/ (OTV Okitive feature on its miso-moyashi soba) + okinawaclip.com/post/1707375338/"
+ },
+ {
+  "n": "Sukeroku Kamaboko, Kume Island (助ろく)",
+  "address": "423-1 Kadekaru (嘉手苅), Kumejima, Shimajiri District, Okinawa, Japan",
+  "lat": 26.338002439703967,
+  "lng": 126.76425469796156,
+  "confidence": "low",
+  "geoSource": "W6G1 2026-10-03: WebSearch extended '助ろく かまぼこ 久米島町嘉手苅423-1 緯度 経度' returned 26.338002439703967,126.76425469796156 for かまぶくの店 助ろく at 字嘉手苅423-1, with the tabelog listing 47007779 as the matching page — aggregator listing coordinate (tabelog = coordinate only, never a recommender), consistent with the sourced address (~10 min drive from Kumejima Airport).",
+  "status": "open",
+  "statusSource": "tabelog.com 47007779 listing active (no closure flag) 2026-10-03; okinawatimes.co.jp/articles/-/180918 — weak status evidence, recheck on official/SNS"
+ },
+ {
+  "n": "Shinri-hama Beach, Kume Island (シンリ浜)",
+  "address": "113 Ōhara (大原), Kumejima, Shimajiri District, Okinawa, Japan (in front of Cypress Resort Kumejima, by the airport runway)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W6G1 tried: navitime-restricted 'シンリ浜 久米島 緯度 経度' (no spot page; result text gave address 大原113, unattributed) and open 'シンリ浜 久米島町大原 緯度 経度 座標' (no coordinate). Next: navitime/mapion POI for シンリ浜海浜公園.",
+  "status": "open",
+  "statusSource": "sugartravel22.com/kumejima3/ (recent visit) + visitokinawajapan.com/destinations/kume-island/"
+ },
+ {
+  "n": "Hiyajō Banta viewpoint, Kume Island (比屋定バンタ)",
+  "address": "Hiyajō (比屋定), Kumejima, Shimajiri District, Okinawa 901-3102, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W6G1 tried: open extended '比屋定バンタ 緯度 経度' (2 internal passes; pages okinawastory 1379, kanko-kumejima 663, iko-yo 28788, 4travel 10006678, jalan — none returned a coordinate).",
+  "status": "open",
+  "statusSource": "kanko-kumejima.com/spot/see/663/ (Kumejima tourism association, current) + okinawastory.jp/spot/1379"
+ },
+ {
+  "n": "Takatsukiyama Observatory, Zamami (高月山展望台)",
+  "address": "Zamami, Zamami, Shimajiri District, Okinawa, Japan (~137 m; 20 min walk from Zamami Port)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W6G1 tried: '高月山展望台 座間味 navitime 緯度 経度' (rurubu 80043351, tabirai 0003448, keramatour — no coordinate) and Stripes-restricted Zamami GPS search (gave Ama Beach only). jawiki 高月山 is a different mountain (W4G5).",
+  "status": "open",
+  "statusSource": "rurubu.jp/andmore/spot/80043351 + keramatour.world-tours.jp/spot/takatsukiyama-observatory (current)"
+ },
+ {
+  "n": "Aharen-enchi Viewpoint, Tokashiki (阿波連園地)",
+  "address": "Aharen, Tokashiki, Shimajiri District, Okinawa, Japan (southern tip, ~3 km from Aharen village)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W6G1 tried: open extended '阿波連園地 渡嘉敷 展望台 緯度 経度' (okinawastory 600010497, 4travel 11364426, env.go.jp Kerama course 04, tokashiki-island.jp — no coordinate). Lead: env.go.jp national-park course page may carry a map.",
+  "status": "open",
+  "statusSource": "env.go.jp/nature/nationalparks/list/kerama-shoto/course/04/ (Ministry of Environment course incl. the viewpoint) + okinawaclip.com/post/1708908186/"
+ },
+ {
+  "n": "Karaoke Izakaya Marine Box, Tokashiki (カラオケ居酒屋マリンボックス)",
+  "address": "1779-2 Tokashiki, Tokashiki, Shimajiri District, Okinawa, Japan (near Tokashiki Port)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W6G1 tried: open extended 'カラオケ居酒屋マリンボックス 渡嘉敷村渡嘉敷1779-2 緯度 経度' — no coordinate returned. Lead: Yahoo map place znVulqscoa2; tokashiki.info/shop/01301. Note: now trades as 'marine Box とかしき本店 / 創作島人ダイニング'.",
+  "status": "open",
+  "statusSource": "torakichi.osaka/22133.html (visit report May 2026) + tokashiki.info/shop/01301 (Tokashiki tourism association listing)"
+ },
+ {
+  "n": "Todoroki Falls Park, Nago (轟の滝)",
+  "address": "594 Sukuta, Nago, Okinawa, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W6G1 tried: ja.wikipedia-restricted '轟の滝 名護市数久田 wikipedia 座標' — only the disambiguation 轟の滝 surfaced; the Okinawa article's coordinates were not returned. W5D3's unattributed 26.562672,127.988342 still unconfirmed.",
+  "status": "open",
+  "statusSource": "okinawastory.jp/spot/30000063 (OCVB, current) + rurubu.jp/andmore/spot/80042856"
+ }
+]
