@@ -307,3 +307,213 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - A stall inside an already-pinned food centre can reuse that registry pin (med, stall-within-centre) — no new search.
 - Dead end: session WebSearch cap (200, shared by ~16 concurrent agents) stopped W1 after 27 calls; Ghim Moh / Holland
   Village MFC pins left UNVERIFIED rather than estimated.
+
+## 2026-10-02 — Tokyo W2 (relaunch, 166 searches → 314 discovered / 294 on the map)
+- **Sights: ~3.5 places per search.** `en.wikipedia.org`+`gotokyo.org`(+`timeout.com`) restricted, 4 names as
+  "A coordinates; B coordinates; C coordinates; D coordinates" → Wikipedia infobox coords + GO TOKYO spot pages in
+  one call. Kantō day trips: swap GO TOKYO for `japan-guide.com`.
+- **Food: ~1.5–2.5 per search.** Michelin 3-name venue-page queries (lone authority + pin), and Wikidata P625 pins
+  for heritage shops paired with a Time Out / Japan Times / Savor Japan corroboration query.
+- **Dead ends:** `google.com`-restricted Maps searches return unrelated places (abandoned after 1); 5–6-name Michelin
+  queries and any query containing "cuisine" drop the coordinates; mixed-topic queries ("X? — Y; Z…") waste a call.
+- **Rejected pins (logged):** Tsukiji fish market point (demolished inner market, ~400 m off the outer market),
+  Daikokuya and Shiseido Parlour (whole-second Wikidata points off the building), Yamashita Park (Wikipedia point
+  ~25 km off), Todoroki Ryokuchi (a Kawasaki park, not Todoroki Valley), several district/station points.
+
+
+### 2026-10-02 — Osaka W2 (search techniques & dead ends)
+- **Michelin venue pins, 2–3 per query:** `allowed_domains:["guide.michelin.com"]` + "<A>; <B>; <C> Osaka address latitude longitude" returns each venue page's address + lat/lng (~2.5 pins per search). Mine Michelin *articles* ("N New Bib Gourmands …", "December 2025: latest additions …") for name lists first, then pin them.
+- **Fan-out trap:** when names in a batched query are NOT on the restricted domain (street-food stalls on Michelin, creators), the search tool silently runs 4–5 sub-searches — only batch names known to hit.
+- **Japanese Wikipedia coordinates:** `allowed_domains:["ja.wikipedia.org"]` "<名称> 座標; <名称> 座標; <名称> 座標" hit 3/3 for markets, arcades and gardens that en.wikipedia lacks (黒門市場, 心斎橋筋商店街, アメリカ村, 慶沢園, 天王寺公園).
+- **Dead ends:** mapcarta/OSM search (no venue pages); Tabelog まとめ (user lists — not Hyakumeiten, zero); broad creator queries (Paolo fromTOKYO / Abroad in Japan / Mark Wiens / "Somebody Feed Phil" — no Osaka episode) returned nothing findable; brands.japan-guide.com and japan-guide /ad/ pages are sponsored.
+- **Hyōgo:** Michelin's first Kobe & Awaji selection is announced Feb 2027 — no Hyōgo Michelin to lean on until then.
+### 2026-10-02 — Philadelphia W1+W2: Wikipedia-domain batches pin sights; restaurant pins don't surface
+- `WebSearch` with `allowed_domains:["en.wikipedia.org"]` and `A; B; C; D; E coordinates` (exact article titles) returned
+  infobox coords for 4-5 of 5 Philadelphia landmarks per call — pair it with one Visit Philly query (2nd source) and you
+  get ~4-5 fully-sourced, pinned sights per 2 searches. When a name misses, the tool silently runs extra follow-up searches
+  (up to 5 per call) — keep batches to names that surely have an infobox, and never mix restaurants in.
+- Philadelphia restaurant place pins do NOT surface via WebSearch (Michelin venue snippets, OpenTable, latlong.net: 0/3 single
+  probes; a geocode agent got 11/61 in 28 calls, all Wikipedia/RTM). Only restaurants with their own Wikipedia article pin
+  (Kalaya, Friday Saturday Sunday, South Philly Barbacoa, Vedge, Zahav, Pat's, Geno's, Jim's, John's, Dalessandro's).
+  Plan restaurant pins for the browser helper from the start; spend the search budget on discovery + sights.
+- Rejected: an 'interpolated' coordinate built from neighbouring addresses on philadelphiabuildings.org (not a place pin).
+
+### 2026-10-02 — Hokkaido session 2 (≈140 searches → 140 discovered / 104 on the map)
+- **`allowed_domains:["ja.wikipedia.org"]` + 3 Japanese names + 座標** is the best sight geocoder found so far: ~2.6 of 3
+  coordinates per call (infobox DMS quoted in the summary), and it works for minor sights (waterfalls, passes, Jōmon sites,
+  museums) that the English Wikipedia lacks. Background geocode workers using it pinned 25 of 34 held sights.
+- **Second source cheaply:** domain-restricted area queries to `japan-guide.com`, `visit-hokkaido.jp`, `sapporo.travel`
+  return 10 staff/official URLs per call; for food, `rurubu.jp` + `mapple.net` (JTB / Shobunsha guidebook editorial) +
+  city tourism bodies (`otaru.gr.jp`, `hakodate.travel`) return named shops with addresses and hours.
+- **Dead ends:** restaurant lat/lng never surfaced (gltjp/mapple/rurubu give address only); unrestricted "Wikipedia
+  coordinates A; B; C" got ~1/3; creator queries (Paolo fromTOKYO, Abroad in Japan, Ramen Beast, youtube.com domain)
+  returned no vettable channel naming a specific Hokkaido place in result text.
+- **Lesson (honesty):** writing addresses with block numbers / postcodes "from knowledge" while transcribing sourced
+  coordinates is an easy CLAUDE.md 4a slip — audit every address against the result text before committing.
+
+
+## 2026-10-02 — Okinawa W2 (relaunch, ~174 searches → 119 discovered / 74 on the map)
+- **Stars and Stripes Okinawa list articles are the coordinate jackpot**: query the exact article title + "GPS" with
+  `allowed_domains=["okinawa.stripes.com"]` ("12 family-friendly Battle of Okinawa sites", "List of beaches", the soba
+  guide, castle pieces, "rainy-day", Nago/Yomitan/Nanjo round-ups) → 4–12 printed GPS per search. Pair each with an
+  independent outlet; two Stripes articles are one source.
+- **Search summaries mis-attribute GPS across articles** (Araha Beach got Tomigusuku's coordinate; one cherry-blossom
+  GPS was labelled Yaedake in one summary and Nakijin in another). Sanity-check every Stripes point against the place's
+  town; on conflict pull the pin to UNVERIFIED and cross-check with a Wikipedia infobox.
+- **Okinawa Times "900人の麺好きが選ぶ うまい沖縄そば" (2023, north/central/south/Miyako-Ishigaki editions)** names 31
+  soba shops in four searches — an editorial-of-record food source; pair with Mapple spot pages or KozaWeb (Okinawa City
+  tourism portal). Mapple (Shobunsha まっぷる) spot pages carry addresses, hours and editor copy.
+- Restaurant coordinates outside Stripes' coverage (Naha, Ishigaki, Miyako) did not surface by search — they are
+  discovered + sourced but held UNVERIFIED for `tools/geocode-helper.html`.
+
+## 2026-10-02 · Chicago (session 2)
+- Search budget restored for this session; discovery from editorial lists (Infatuation/Time Out/Chowhound/Chicago
+  Magazine "Iconic Eats" 50-dish package — captured in full in one query) + Michelin 2025 + JB America's Classics.
+- `chicagotribune.com` is blocked for the search user-agent (API 400 on `allowed_domains`) — drop it from domain filters.
+- `chicago.eater.com` returned nothing via `allowed_domains`; use Infatuation/Time Out instead.
+- Pins: Wikipedia 4-per-query batches (see AGENT-PROMPTS lesson). Restaurant pins via latlong.net mostly fail.
+- Watch-outs found: Ann Sather is relocating (Time Out, Apr 2026) and Maxwell Street Depot was forced to move
+  (Time Out, May 2026) — Wikipedia coords would be stale; both held back. Obama Presidential Center opened 2026-06-19.
+
+
+## 2026-10-02 — SG 4-town relaunch (Punggol, Balestier, Novena & Newton, Holland Village)
+- Extended-mode queries that NAME the guides ("stalls in Eatbook 13 best, Seth Lui 11 best, Women's Weekly 10 best") return per-guide
+  stall lists — 3-6 two-source places per call vs ~1 in standard mode.
+- Domain-filtered (`allowed_domains`) OR-queries over held names give exact attribution (see AGENT-PROMPTS lesson).
+- Dead end: hawker-centre BUILDING coordinates (Whampoa Makan Place, Balestier Market, Holland Village MFC, Punggol Coast HC, Punggol
+  Settlement) are not printed by any search-visible page; 28 geocoder searches yielded 0 → browser helper only. Wikipedia coords of a
+  co-located landmark (Punggol Regional Library → One Punggol; Guan Kee Fried Kway Teow infobox → Ghim Moh MFC) worked.
+- Food King (NOC) deleted all videos in 2022 — not citable. Timbre exits One Punggol HC management in 2026 (Mothership) — re-check stalls.
+
+## 2026-10-02 — Kyoto W2 (relaunch)
+- UNESCO WHC maps pages (688 Kyoto, 870 Nara, 660 Hōryū-ji) → component coordinates for 23 sights in 2 searches.
+- `allowed_domains` per outlet (japan-guide.com, kyoto.travel, en/ja.wikipedia.org, guide.michelin.com) makes each search return ~10 citable pages of ONE outlet, so attribution is exact. Mixed-outlet or 8+-name queries cause internal retries costing 3–6 searches.
+- Michelin: ward+genre list queries ("Kyoto Nakagyo-ku One MICHELIN Star Japanese restaurant address") give 3–7 venues with addresses. Pins come from a separate "<A>; <B>; <C> Kyoto address latitude longitude" query (3 pins per search). Asking for dish and lat/lng together loses the lat/lng.
+- Dead end: creator channel (YouTube-filtered, general, timeout.com) surfaced tour vendors and unattributed videos, with no verifiable Kyoto creator. Time Out's Kyoto coverage on timeout.com sits under /tokyo and is thin.
+
+## 2026-10-02 — Orlando (session 2)
+- **Theme parks geocode beautifully via search**: batched `A; B; C coordinates` with `allowed_domains=["en.wikipedia.org"]`
+  returns infobox coords for 3–7 attractions per call; Coasterpedia/Wikidata fill most gaps (Epic Universe rides, EPCOT
+  pavilions, resorts). 5 background pin-pass agents resolved 111 of 154 requested places.
+- **Restaurants do not**: Google `!3d!4d`, Apple Maps (place-id URLs only), mapcarta/latlong — no decimals surfaced for any
+  Orlando restaurant; Wikipedia/Wikidata have coords for only ~6 (Be Our Guest, Space 220, Sci-Fi Dine-In, V&A, Otto's).
+  Budget food discovery for the helper backlog, not for pins.
+- **Summariser borrow check**: two coordinates were copied from a neighbouring result (Slinky Dog Dash ← Rock 'n' Roller
+  Coaster; Cocoa Beach Pier ← Ron Jon). Always dedupe coordinates across a wave before merging.
+- **Agent pin files must carry statusSource** — geo-merge is last-write-wins by filename, so an agent file with empty
+  statusSource that sorts after the research geo file silently blanks the closure check (79 records patched).
+- **Addresses**: only use a street address printed in a result; otherwise a sourced locality (10 memory-typed addresses
+  were caught and replaced before commit).
+
+### 2026-10-02 · Philadelphia W3 — technique notes
+- **density.py double-count bug (fixed):** a research dir with a list-shaped worklist file (phi_worklist.json, _chi_worklist.json,
+  …) was counted as food, inflating totals (Philadelphia showed 297 when 180 were real). density.py now skips *worklist* files.
+- **Two-outlet neighbourhood method:** pull an Infatuation neighbourhood guide (names only), then ONE domain-restricted query
+  (phillymag/inquirer/visitphilly) naming 5-7 of those places — each place the second outlet confirms goes in (~4-6 per search).
+- **Award lists are the highest-yield queries:** James Beard semifinalist/finalist round-ups (Inquirer/Philly Mag/Billy Penn) and
+  NYT best-in-America notes each cleared 3-8 lone-authority places per search.
+- **Long multi-name queries fan out** into up to 7 hidden searches ("max_uses_exceeded" seen) — the 200-search session cap was hit
+  after ~125 visible calls + 3 status agents (~91). Keep verification queries to 3-6 names.
+- **Restaurant pins:** only restaurants with their own Wikipedia article pin (Meetinghouse, Mish Mish, Her Place, Dalessandro's,
+  McGillin's, El Chingón, Max's); the rest stay UNVERIFIED for tools/geocode-helper.html.
+- **Rejected pins:** Old City Hall's returned Wikipedia point sat ~150 m off 5th & Chestnut (it matched Todd House) — left unpinned;
+  Upsala's returned point was ~4 km east of Germantown Ave.
+
+
+## 2026-10-02 — Okinawa W3 (food & drink first)
+- **Best yield for Japanese regional food:** pair the two big guidebook webs — Rurubu (るるぶ&more, JTB) list articles and Mapple (まっぷる) list/spot pages — each list search returns 4–8 names with addresses; a search on the other domain confirms 2–4 of them. Okinawa Traveler (Rikka Docca editors) features and the prefecture's 「琉球料理が味わえる店」 certification list add independent channels.
+- **Restaurant pins are not findable via WebSearch summaries** (geocoder pass: 1 of 50) — Stars and Stripes prints GPS in the article body, but summaries rarely surface it; leave restaurants UNVERIFIED for tools/geocode-helper.html and record the Stripes article URLs in the notes for the helper.
+- **Reject summary coordinates without a citable page** — 5 of 12 geocoder hits were dropped for this; also re-check citation URLs before commit (one draft pointed a rurubu URL at the wrong shop).
+
+## 2026-10-02 — Kyoto W3 (food & drink first + anime)
+- **Michelin multi-name pin queries fan out:** `allowed_domains=["guide.michelin.com"]`, "<A>; <B>; <C>; <D>; <E> Kyoto MICHELIN dish
+  description latitude longitude" — the search tool runs per-name sub-queries and returned venue lat/lng + description for 4–6
+  restaurants in ONE call (best yield of the session). Names without a page just come back with an address.
+- **Inside Kyoto (Chris Rowthorn) category pages × Leaf KYOTO store pages** is the most reliable non-Michelin pairing for Kyoto
+  (≈1 place/search). Do not pair Inside Kyoto alone with Lonely Planet — same author.
+- **Same name ≠ same restaurant:** the Michelin "wabiya" (Shimogyō) is not Gion's "Wabiya Korekidō", and Savor Japan's
+  "Wabiya Korekido" listing is an Osaka branch. Check the venue address before merging sources.
+- Tabelog 百名店 list queries return image pages, not names — skip them; Japanese pickles/tsukemono queries returned only generic pages.
+
+### 2026-10-02 — San Francisco modernisation (lessons)
+- **Michelin venue pages carry the place pin.** A `guide.michelin.com`-restricted WebSearch naming 4 venues +
+  "latitude longitude" returns each venue page's address AND lat/lng (≈4 pins/search; ~half the batches need one
+  retry). Bounding-box sanity checks must cover the whole region (San Mateo is lng −122.32 — a −122.35 cut wrongly
+  rejected 4 good pins). It also re-verifies old address-level pins: Yank Sing's was 176 m off.
+- **ZIP-code sweeps** (`"Michelin Guide restaurant San Francisco 941xx"`, domain-filtered) list 4–9 venues per search
+  with the guide's own address + cuisine — the most efficient lone-authority discovery channel; it saturates after
+  ~25 ZIP/cuisine queries for SF.
+- **A Michelin page is not open-proof**: Café Jacqueline (closed) and several legacy-format pages
+  (`/us/san-francisco/<slug>/restaurant`) persist — treat legacy-format URLs as "listing not confirmed current".
+- Multi-name queries for names that lack a Wikipedia/Michelin page make the search tool fan out into several
+  internal searches — query only names you expect to resolve.
+
+- 2026-10-02 (Tokyo W6): MICHELIN venue pages print coordinates when 3 names are queried with "MICHELIN Guide map coordinates"
+  (allowed_domains guide.michelin.com) — ~50% of calls return all 3 pins; the 2026 three/two-star list was largely missing from
+  the map and became the cheapest source of PINNED food. Department stores have no building coords on Wikipedia (district
+  points only); openstreetmap.org is not indexed by WebSearch (wiki pages only). Google `!3d!4d` via WebSearch: 4 pins in 28 tries.
+
+## 2026-10-02 — Miami (session 3)
+- **"list every X named in <outlet> <guide>" + `allowed_domains=[one outlet]`** makes WebSearch return a whole list (12–50 names)
+  instead of a 3-name summary. Intersecting two such lists (Time Out ∩ Infatuation, NT ∩ Fodor's, Infatuation ∩ NT Best-of)
+  yielded 4–15 two-source places per pair of searches — ~3× the per-place corroboration rate.
+- `allowed_domains` containing eater.com makes the whole call fail (domain not accessible to the search tool) — omit it.
+- Multi-clause queries ("A; B; C") often trigger 2–5 internal sub-searches; budget them as several calls.
+- Restaurant place pins: 4 probes (google `!3d!4d`, mapcarta, "GPS coordinates", raw `!3d25`) → 0 coords. Leave restaurants
+  UNVERIFIED for tools/geocode-helper.html; spend WebSearch on discovery + Wikipedia/hmdb sight pins.
+- geo-merge applies `_geoout_*.json` in sorted order: a status-only correction file must sort LAST (`_geoout_zz_*`) or an older
+  wave's `unknown` row overwrites it.
+- A ticketing listing (Songkick) is not open-status evidence: the Fillmore Miami Beach has been closed since May 2022 (NT/WLRN).
+
+## 2026-10-02 — San Francisco W4 (wave 2, food first)
+- Highest-yield discovery pattern: one `allowed_domains:["theinfatuation.com"]` neighbourhood/cuisine guide query (returns 6–15
+  names, often with street addresses) → one multi-name `"A" OR "B" OR …` query restricted to sfchronicle/sfstandard/sfgate/
+  timeout/missionlocal for the 2nd source + status. ~1 place per search overall (vs ~0.5 for open web queries).
+- The SF Chronicle Top 100 2026 surfaced via an enprimeurclub transcription — its city labels are unreliable (Oakland places
+  tagged "San Francisco"); confirm every name with a 2nd outlet carrying a street address.
+- Restaurant place pins via WebSearch fail here (mapcarta/Michelin returned coords for 4 of 46) — route new restaurants to
+  tools/geocode-helper.html. Vendors inside a single building (Ferry Building, Ghirardelli Square) take the building's
+  published coordinate at **med** confidence with a note — never a neighbourhood centroid.
+- Year-end closure round-ups (SF Standard "saddest closures of 2025", Chronicle "restaurants that closed in 2025") are a
+  cheap 1-search closure sweep across the whole dataset.
+
+## 2026-10-02 — Tokyo W7 (finishing pass)
+- Closed the last 7 NEED areas food-first (Kameido Gyoza, Kamata hanetsuki gyoza at Hoanyon, Bear Pond, Tsunahachi, noura, two Meguro Bibs) + anime statues/pilgrimages (Captain Tsubasa Yotsugi, Whisper of the Heart Seiseki-Sakuragaoka, Oizumi Anime Gate). Municipal tourism sites (Ōta 'Unique Ota', Visit Sumida) are good second sources for ward-canon food.
+- Pinning: ja.wikipedia `座標` 3-name queries are the only productive WebSearch pin channel left for Tokyo (18 pins); beware coordinate cross-contamination in the summary (see AGENT-PROMPTS lessons). Dead ends measured: Google `!3d!4d` for kissaten/bars, Michelin venue pages (no coords in summary), Apple Maps / OSM node pages.
+- Allpress Espresso Tokyo Roastery (Kiyosumi) closes autumn 2026 → not added.
+
+## 2026-10-02 — Okinawa W4 (pin-first)
+- Restaurant GPS almost never appears in WebSearch summaries (W4: 13/94 food pinned). What worked, one name per extended-mode query:
+  `<日本語名> wikipedia 座標` (sights → high), `site:travel.navitime.com <日本語名> 緯度 経度` (NAVITIME spot pages print lat/lng and tie the
+  point to one page → med), `<name> tripadvisor latitude longitude` (aggregator → graded low, must match the sourced address).
+- Unrestricted searches often return a coordinate without saying which page printed it — unusable under rule 4a (5 demoted).
+- Batched multi-name coordinate queries mostly fail; Stars and Stripes GPS searches rarely hit outside the main island.
+
+### 2026-10-02 — San Francisco W6 (session 4): two cheap channels
+- **SF Standard "according to a panel of pros" lists** print each pick's street address; one follow-up `allowed_domains=[theinfatuation.com, sfchronicle.com, sfgate.com, 7x7.com, missionlocal.org]` query with the new names OR-ed together returns the independent 2nd outlet for 2–5 of them. ~2 searches → 3–5 sourced, addressed places.
+- **Restaurant pins:** only `allowed_domains=[en.wikipedia.org]` + "<name> <street> coordinates" worked (8 of 133 held places, all with Wikipedia pages); Michelin/mapcarta/Atlas queries returned no coordinates. Building-level pins (Ferry Building vendors, hotel bars via the hotel's Wikipedia coord) graded `med`/`high` with the building named in `geoSource`.
+- Dead end: creator channel (Mark Wiens / YouTube SF food tours / Strictly Dumpling) surfaced no findable video naming a specific SF place in 3 searches.
+
+
+- 2026-10-03 (Osaka W4): Michelin venue-page search returns only central-Osaka-city venues — Sakai, Hokusetsu, bay wards and Hyōgo yield nothing (Hyōgo selection due 2027-02-16). allowed_domains rejects asahi/mainichi/nhk/sankei/yomiuri/cntraveler. Michelin *editorial* round-ups (oden guide, casual lunches, Naniwa on a Plate) are the cheapest way to get a named dish for a Michelin-listed venue. English editorial is exhausted for Osaka outer areas (~0.3 places/search); next wave should go Japanese-first (百名店 + ward/official pages).
+
+### 2026-10-03 · Philadelphia W5 — lessons
+- Restaurant pins via WebSearch are exhausted: a dedicated 44-search pass found 3/34 (all Wikipedia coordinates of a *host building* —
+  Comcast Technology Center, FMC Tower, Ayer Building — graded med). Google results return only `maps?cid=` links (no `!3d!4d`);
+  mapcarta has no restaurant POIs for Philly in the index. Remaining ~336 restaurant pins → `tools/geocode-helper.html`.
+- A Wikipedia restaurant pin can point at a CLOSED branch: Joe's Steaks' article coordinates are the Torresdale original (closed 2022).
+  Check that the pinned branch is the live one before trusting an article's coordinates.
+- Highest-yield discovery query shape this wave: an Infatuation neighbourhood guide (one search → 6–10 names) followed by one batched
+  `"A"; "B"; "C"` query restricted to inquirer.com/phillymag.com/6abc.com/visitphilly.com for the second outlet.
+- Suburban day-trip food (DAY) is best sourced via the Inquirer's town guides (Kennett Square, New Hope, Doylestown) × Main Line Today /
+  Visit Bucks County, and Visit Philly's 15-essential-breweries list.
+
+### 2026-10-03 — Madison W2/W3 (geocoding channel yields)
+- Wikipedia/NRHP infobox coordinates: ~90% hit when the query is "<name> Wikipedia coordinates" — the reliable
+  pin channel for sights, state parks, NHLs and NRHP-listed restaurants (Quivey's Grove = John Mann House).
+- latlong.net POI records for restaurants: ~50% hit, and only with `"<name>" <street address> GPS coordinates
+  latitude` (or `latlong.net poi "<name>" <city> restaurant map`). `allowed_domains:["latlong.net"]` returns
+  nothing useful — don't. After two misses, queue the place UNVERIFIED for tools/geocode-helper.html.
+- Never type a street address from memory while writing a geocode record — use the sourced locality (rule 4a);
+  caught and fixed four times this run before merge.
+

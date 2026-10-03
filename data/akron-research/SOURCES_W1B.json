@@ -1,0 +1,332 @@
+{
+ "outlets": [
+  {
+   "key": "SIGNALAKRON",
+   "name": "Signal Akron",
+   "type": "nonprofit newsroom",
+   "url": "https://signalakron.org/",
+   "rank": 2,
+   "credible": "Akron's nonprofit local newsroom (Signal Ohio); runs the reader-voted Best of the City awards (2024–26) with bylined winner features."
+  },
+  {
+   "key": "AKRONLIFE",
+   "name": "Akron Life",
+   "type": "city magazine",
+   "url": "https://www.akronlife.com/",
+   "rank": 2,
+   "credible": "Akron's city magazine (Baker Media) with an edited dining desk and the reader-voted 330 Flavor Awards."
+  },
+  {
+   "key": "OHIOMAG",
+   "name": "Ohio Magazine",
+   "type": "state magazine",
+   "url": "https://www.ohiomagazine.com/",
+   "rank": 2,
+   "credible": "Statewide travel/food magazine with bylined features (sponsored posts excluded)."
+  },
+  {
+   "key": "BEACONJOURNAL",
+   "name": "Akron Beacon Journal",
+   "type": "paper of record",
+   "url": "https://www.beaconjournal.com/",
+   "rank": 1,
+   "credible": "Akron's daily paper of record (Gannett); cited via AOL/Yahoo syndication because beaconjournal.com is not crawlable here."
+  },
+  {
+   "key": "CANTONREP",
+   "name": "The Canton Repository",
+   "type": "paper of record",
+   "url": "https://www.cantonrep.com/",
+   "rank": 1,
+   "credible": "Canton/Stark daily paper of record (Gannett); its foodie-panel '11 Stark County restaurants' piece is the regional merit list, cited via AOL syndication."
+  },
+  {
+   "key": "SCENE",
+   "name": "Cleveland Scene",
+   "type": "alt-weekly",
+   "url": "https://www.clevescene.com/",
+   "rank": 2,
+   "credible": "Northeast Ohio alt-weekly with a long-running food desk (Douglas Trattner)."
+  },
+  {
+   "key": "WKYC",
+   "name": "WKYC Channel 3",
+   "type": "TV news",
+   "url": "https://www.wkyc.com/",
+   "rank": 3,
+   "credible": "Cleveland NBC affiliate; food & local news coverage of Summit County."
+  },
+  {
+   "key": "NEWS5",
+   "name": "News 5 Cleveland (WEWS)",
+   "type": "TV news",
+   "url": "https://www.news5cleveland.com/",
+   "rank": 3,
+   "credible": "Cleveland ABC affiliate."
+  },
+  {
+   "key": "IDEASTREAM",
+   "name": "Ideastream Public Media (WKSU)",
+   "type": "public media",
+   "url": "https://www.ideastream.org/",
+   "rank": 2,
+   "credible": "NPR/PBS public media for Northeast Ohio; arts & culture desk."
+  },
+  {
+   "key": "KENTWIRED",
+   "name": "KentWired / The Kent Stater",
+   "type": "student newspaper + reader vote",
+   "url": "https://kentwired.com/",
+   "rank": 3,
+   "credible": "Kent State's student newspaper; its annual reader-voted Best of Kent is the town's local vote."
+  },
+  {
+   "key": "CLEVELANDJEWISHNEWS",
+   "name": "Cleveland Jewish News",
+   "type": "regional newspaper",
+   "url": "https://www.clevelandjewishnews.com/",
+   "rank": 3,
+   "credible": "Regional weekly; reported Reader's Digest's best-burger-in-Ohio pick."
+  },
+  {
+   "key": "PITTMAG",
+   "name": "Pittsburgh Magazine",
+   "type": "city magazine",
+   "url": "https://www.pittsburghmagazine.com/",
+   "rank": 3,
+   "credible": "Pittsburgh's city magazine; travel feature on Gervasi."
+  },
+  {
+   "key": "VISITCANTON",
+   "name": "Visit Canton / Stark County CVB",
+   "type": "CVB",
+   "url": "https://www.visitcanton.com/",
+   "rank": 3,
+   "credible": "Official Stark County visitors bureau — corroboration/listing only, never sole merit."
+  },
+  {
+   "key": "VISITAKRON",
+   "name": "Akron/Summit CVB",
+   "type": "CVB",
+   "url": "https://visitakron-summit.org/",
+   "rank": 3,
+   "credible": "Official Akron/Summit visitors bureau — corroboration only."
+  },
+  {
+   "key": "OHIOERIECANALWAY",
+   "name": "Ohio & Erie Canalway (National Heritage Area)",
+   "type": "heritage area",
+   "url": "https://www.ohioanderiecanalway.com/",
+   "rank": 2,
+   "credible": "NPS-designated National Heritage Area's official listings."
+  },
+  {
+   "key": "HMDB",
+   "name": "Historical Marker Database",
+   "type": "reference",
+   "url": "https://www.hmdb.org/",
+   "rank": 3,
+   "credible": "Marker texts + GPS coordinates."
+  },
+  {
+   "key": "REMARKABLEOHIO",
+   "name": "Remarkable Ohio (Ohio History Connection markers)",
+   "type": "reference",
+   "url": "https://remarkableohio.org/",
+   "rank": 2,
+   "credible": "Official Ohio Historical Marker database."
+  },
+  {
+   "key": "LIVINGNEWDEAL",
+   "name": "The Living New Deal",
+   "type": "research archive",
+   "url": "https://livingnewdeal.org/",
+   "rank": 2,
+   "credible": "UC Berkeley-founded archive of New Deal public works."
+  },
+  {
+   "key": "HERITAGEOHIO",
+   "name": "Heritage Ohio",
+   "type": "preservation nonprofit",
+   "url": "https://www.heritageohio.org/",
+   "rank": 2,
+   "credible": "Statewide preservation org; annual awards."
+  },
+  {
+   "key": "CINEMATREASURES",
+   "name": "Cinema Treasures",
+   "type": "reference",
+   "url": "https://cinematreasures.org/",
+   "rank": 3,
+   "credible": "Historic-theatre database."
+  },
+  {
+   "key": "ROADSIDEAMERICA",
+   "name": "Roadside America",
+   "type": "oddities guide",
+   "url": "https://www.roadsideamerica.com/",
+   "rank": 2,
+   "credible": "Long-running guide to offbeat attractions."
+  },
+  {
+   "key": "DOCOMOMO",
+   "name": "Docomomo US",
+   "type": "architecture register",
+   "url": "https://docomomo-us.org/",
+   "rank": 2,
+   "credible": "Modernist-architecture register."
+  },
+  {
+   "key": "SAHARCHIPEDIA",
+   "name": "SAH Archipedia",
+   "type": "architecture reference",
+   "url": "https://sah-archipedia.org/",
+   "rank": 2,
+   "credible": "Society of Architectural Historians' encyclopedia."
+  },
+  {
+   "key": "SUMMITHISTORY",
+   "name": "Summit County Historical Society",
+   "type": "historical society",
+   "url": "https://www.summithistory.org/",
+   "rank": 2,
+   "credible": "County historical society."
+  },
+  {
+   "key": "TREKOHIO",
+   "name": "Trek Ohio",
+   "type": "outdoors guide",
+   "url": "https://trekohio.com/",
+   "rank": 3,
+   "credible": "Detailed Ohio parks/trails guide."
+  },
+  {
+   "key": "ISLANDS",
+   "name": "Islands",
+   "type": "travel magazine",
+   "url": "https://www.islands.com/",
+   "rank": 3,
+   "credible": "Travel publication."
+  },
+  {
+   "key": "ECH",
+   "name": "Encyclopedia of Cleveland History (CWRU)",
+   "type": "reference",
+   "url": "https://case.edu/ech/",
+   "rank": 2,
+   "credible": "Case Western's regional encyclopedia."
+  },
+  {
+   "key": "DEZEEN",
+   "name": "Dezeen",
+   "type": "architecture magazine",
+   "url": "https://www.dezeen.com/",
+   "rank": 2,
+   "credible": "International architecture magazine."
+  },
+  {
+   "key": "SPECTRUM",
+   "name": "Spectrum News 1 Ohio",
+   "type": "TV news",
+   "url": "https://spectrumnews1.com/oh/",
+   "rank": 3,
+   "credible": "Statewide cable news."
+  },
+  {
+   "key": "AASLH",
+   "name": "American Association for State and Local History",
+   "type": "professional body",
+   "url": "https://aaslh.org/",
+   "rank": 2,
+   "credible": "National history-museum association."
+  },
+  {
+   "key": "FARMANDDAIRY",
+   "name": "Farm and Dairy",
+   "type": "regional newspaper",
+   "url": "https://www.farmanddairy.com/",
+   "rank": 3,
+   "credible": "Regional weekly."
+  },
+  {
+   "key": "CLEVELANDLAWLIB",
+   "name": "Cleveland Law Library",
+   "type": "reference",
+   "url": "https://clevelandlawlibrary.org/",
+   "rank": 3,
+   "credible": "Library exhibit."
+  },
+  {
+   "key": "PATCH",
+   "name": "Patch",
+   "type": "local news",
+   "url": "https://patch.com/",
+   "rank": 3,
+   "credible": "Hyperlocal news network."
+  },
+  {
+   "key": "MENTALFLOSS",
+   "name": "Mental Floss",
+   "type": "national magazine",
+   "url": "https://mentalfloss.com/",
+   "rank": 3,
+   "credible": "National general-interest magazine."
+  },
+  {
+   "key": "TWINSBURG200",
+   "name": "Twinsburg Bicentennial (city history project)",
+   "type": "official history",
+   "url": "https://twinsburg200.com/",
+   "rank": 3,
+   "credible": "City bicentennial history site."
+  },
+  {
+   "key": "STARKPARKS",
+   "name": "Stark Parks",
+   "type": "park district",
+   "url": "https://starkparks.com/",
+   "rank": 2,
+   "credible": "Stark County park district (official)."
+  },
+  {
+   "key": "CLEVELANDHISTORICAL",
+   "name": "Cleveland Historical (CSU)",
+   "type": "reference",
+   "url": "https://clevelandhistorical.org/",
+   "rank": 2,
+   "credible": "Cleveland State University's curated regional-history site."
+  },
+  {
+   "key": "MEATPOULTRY",
+   "name": "Meat+Poultry",
+   "type": "trade publication",
+   "url": "https://www.meatpoultry.com/",
+   "rank": 3,
+   "credible": "Meat-industry trade journal; feature on the Barberton chicken houses."
+  },
+  {
+   "key": "KSU",
+   "name": "Kent State University",
+   "type": "official",
+   "url": "https://www.kent.edu/",
+   "rank": 3,
+   "credible": "University news office."
+  },
+  {
+   "key": "STADIUMJOURNEY",
+   "name": "Stadium Journey",
+   "type": "venue reviews",
+   "url": "https://www.stadiumjourney.com/",
+   "rank": 3,
+   "credible": "Independent stadium-review site."
+  },
+  {
+   "key": "BALLPARKGUIDE",
+   "name": "The Ballpark Guide",
+   "type": "venue reviews",
+   "url": "https://www.theballparkguide.com/",
+   "rank": 3,
+   "credible": "Independent ballpark guide."
+  }
+ ]
+}

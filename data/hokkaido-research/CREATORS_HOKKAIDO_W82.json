@@ -1,0 +1,16 @@
+{
+ "creators": [
+  {"key":"RAMENADVENTURES","name":"Ramen Adventures (Brian MacDuckston)","platform":"Blog + YouTube","handle":"@RamenAdventures","url":"https://ramenadventures.com/","scale":"Tokyo ramen writer since 2008; author of 'Ramen at Home'; ~100k+ YouTube; publishes yearly best-ramen lists (already vetted in W47)","niche":"ramen across Japan, first-hand dated reviews","credible":"yes: one corroborating source per shop, never the only one"},
+  {"key":"JUSTONECOOKBOOK","name":"Just One Cookbook (Namiko Hirasawa Chen)","platform":"Blog + YouTube + Instagram","handle":"@justonecookbook","url":"https://www.justonecookbook.com/","scale":"Major Japanese-food site; ~1M+ YouTube subscribers; first-hand Hokkaido travel guides (Sapporo, Shakotan & Yoichi, Niseko)","niche":"Japanese home cooking + JOC Japan travel guides","credible":"yes: counts once per place"}
+ ],
+ "attach": [
+  {"place":"Misoramen Senmonten Ōkami Soup (味噌らーめん専門店 狼スープ)","creatorKey":"RAMENADVENTURES","url":"https://ramenadventures.com/listing/%E7%8B%BC%E3%82%B9%E3%83%BC%E3%83%97-okami-soup-in-sapporo-hokkaido/"},
+  {"place":"Kiraito, Tanukikōji (喜来登)","creatorKey":"RAMENADVENTURES","url":"https://ramenadventures.com/listing/kiraito/"},
+  {"place":"Otaru Milk Plant (小樽ミルクプラント)","creatorKey":"JUSTONECOOKBOOK","url":"https://www.justonecookbook.com/tags/hokkaido/"}
+ ],
+ "rejected": [
+  {"name":"Japanese Sapporo-gourmet YouTubers (query '札幌 グルメ YouTuber 人気 チャンネル 登録者')","reason":"results were only yutura/vidiq aggregator stubs and a Sapporo comedy channel; no food channel with a follower count that could be checked. Popularity that can't be verified doesn't count."},
+  {"name":"Paolo fromTOKYO / Abroad in Japan (Sapporo food tour)","reason":"English query returned no Sapporo/Otaru video from either channel, so nothing to attach"},
+  {"name":"Ramen Adventures listing for Junren Takadanobaba","reason":"Tokyo branch, not the Sapporo shop; not attached"}
+ ]
+}

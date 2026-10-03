@@ -1,0 +1,108 @@
+{
+ "creators": [
+  {
+   "key": "DISNEYFOODBLOG",
+   "name": "Disney Food Blog (AJ Wolfe)",
+   "platform": "blog+youtube",
+   "handle": "@DisneyFoodBlog",
+   "url": "https://www.disneyfoodblog.com/",
+   "scale": "Largest Disney-dining site; YouTube channel ~1M subscribers",
+   "niche": "Disney & Universal theme-park food reviews; 'we've eaten at every restaurant in <park>' rankings",
+   "credible": "Verifiably popular, 15+ years, first-hand dated reviews of every park restaurant"
+  },
+  {
+   "key": "WDWNT",
+   "name": "WDW News Today",
+   "platform": "web+youtube",
+   "handle": "@WDWNT",
+   "url": "https://wdwnt.com/",
+   "scale": "500k+ YouTube subscribers; daily news site",
+   "niche": "Disney/Universal openings, closures, full-menu reviews",
+   "credible": "Dated first-hand photo reporting; used as closure source (Finnegan's, Thunder Falls)"
+  },
+  {
+   "key": "DISNEYTOURISTBLOG",
+   "name": "Disney Tourist Blog (Tom Bricker)",
+   "platform": "blog",
+   "handle": "disneytouristblog.com",
+   "url": "https://www.disneytouristblog.com/",
+   "scale": "One of the most-read independent Disney planning blogs since 2011",
+   "niche": "WDW trip planning & restaurant reviews",
+   "credible": "Long-running, named author, detailed first-hand reviews"
+  }
+ ],
+ "attach": [
+  {
+   "place": "Satu'li Canteen",
+   "creatorKey": "DISNEYFOODBLOG",
+   "url": "https://www.disneyfoodblog.com/2022/11/05/weve-eaten-at-every-restaurant-in-disneys-animal-kingdom-these-are-the-best/"
+  },
+  {
+   "place": "Docking Bay 7 Food and Cargo",
+   "creatorKey": "DISNEYFOODBLOG",
+   "url": "https://www.disneyfoodblog.com/2026/05/15/weve-eaten-at-every-restaurant-in-disneys-hollywood-studios-these-are-the-best/"
+  },
+  {
+   "place": "Woody's Lunch Box",
+   "creatorKey": "DISNEYFOODBLOG",
+   "url": "https://www.disneyfoodblog.com/2026/06/26/we-reviewed-our-10-favorite-snacks-in-disneys-hollywood-studios/"
+  },
+  {
+   "place": "The Burning Blade Tavern",
+   "creatorKey": "DISNEYFOODBLOG",
+   "url": "https://skunk.disneyfoodblog.com/2025/06/20/the-best-things-to-eat-in-epic-universe-from-someone-who-reviews-theme-park-food-for-a-living"
+  },
+  {
+   "place": "Regal Eagle Smokehouse: Craft Drafts & Barbecue",
+   "creatorKey": "WDWNT",
+   "url": "https://wdwnt.com/2020/02/review-every-food-item-and-specialty-beverage-at-regal-eagle-smokehouse-craft-drafts-barbecue-at-epcot/"
+  },
+  {
+   "place": "Main Street Bakery",
+   "creatorKey": "WDWNT",
+   "url": "https://wdwnt.com/2017/05/review-mickey-shaped-cinnamon-roll-brings-classic-treat-back-main-street-bakery-magic-kingdom"
+  },
+  {
+   "place": "Milk Stand",
+   "creatorKey": "WDWNT",
+   "url": "https://wdwnt.com/2019/05/review-blue-and-green-milk-makes-us-blue-in-star-wars-galaxys-edge"
+  },
+  {
+   "place": "Louie's Italian Restaurant",
+   "creatorKey": "WDWNT",
+   "url": "https://wdwnt.com/?p=922539"
+  },
+  {
+   "place": "Les Halles Boulangerie-Patisserie",
+   "creatorKey": "DISNEYTOURISTBLOG",
+   "url": "https://www.disneytouristblog.com/best-counter-service-restaurant-epcot-les-halles-boulangerie-patisserie-review/"
+  },
+  {
+   "place": "Cinderella's Royal Table",
+   "creatorKey": "DISNEYTOURISTBLOG",
+   "url": "https://www.disneytouristblog.com/cinderellas-royal-table-review/comment-page-2/"
+  }
+ ],
+ "rejected": [
+  {
+   "name": "ziggyknowsdisney.com",
+   "reason": "web-story listicles, no verifiable following/author track record"
+  },
+  {
+   "name": "disneyparknerds.com",
+   "reason": "SEO ranking pages, no named author/verified audience"
+  },
+  {
+   "name": "mickeyvisit.com",
+   "reason": "ranks from Yelp scores (Yelp=0)"
+  },
+  {
+   "name": "benable.com / dr-chuck.com / copychief / defendernetwork mirrors",
+   "reason": "list/scraper farms"
+  },
+  {
+   "name": "undercovertourist.com",
+   "reason": "ticket reseller listings; not used as a recommender"
+  }
+ ]
+}

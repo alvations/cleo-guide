@@ -1,0 +1,38 @@
+"""G05 — pin unpinned places via Wikipedia infobox coords (2026-10-03). Writes geo/_geoout_hokkaido_g05.json.
+Only coordinates read in WebSearch results from ja.wikipedia infoboxes. No food row could be pinned this pass
+(see _note_G05.md); the 5 pins below are S (sight) rows from _hk_unpinned.txt."""
+import json, os
+U = {l.split('\t')[2] for l in open('_hk_unpinned.txt', encoding='utf-8') if l.strip()}
+P = [
+ dict(n="Pokémon Center Sapporo (ポケモンセンターサッポロ)",
+      address="Daimaru Sapporo 8F, Kita 5-jō Nishi 4-7, Chuo-ku, Sapporo 060-0005, Hokkaido, Japan",
+      lat=43.067583, lng=141.349306, confidence="med",
+      geoSource="ja.wikipedia 大丸札幌店 infobox (北緯43度4分3.3秒 東経141度20分57.5秒) via WebSearch; shop is inside host (Daimaru Sapporo 8F) per existing sourced address / pokemon.co.jp store page",
+      status="open", statusSource="pokemon.co.jp store page + voice.pokemon.co.jp Sapporo event post May 2026 (current)"),
+ dict(n="Wakkanai Fukukō Market (稚内副港市場)",
+      address="1-6-28 Minato, Wakkanai, Hokkaido, Japan",
+      lat=45.40861, lng=141.67667, confidence="high",
+      geoSource="ja.wikipedia 稚内副港市場 infobox (北緯45度24分31秒 東経141度40分36秒) via WebSearch — the place's own article",
+      status="open", statusSource="mapple 1015056 (8-23 year-round)"),
+ dict(n="Ikeda Wine Castle (池田ワイン城)",
+      address="Ikeda, Nakagawa District (Tokachi), Hokkaido, Japan",
+      lat=42.919167, lng=143.457778, confidence="high",
+      geoSource="ja.wikipedia 池田町ブドウ・ブドウ酒研究所 infobox (北緯42度55分09秒 東経143度27分28秒) via WebSearch — article states the facility is called 'ワイン城'",
+      status="open", statusSource="visit-hokkaido.jp spot 10463 (current)"),
+ dict(n="Tokachi Hills (十勝ヒルズ)",
+      address="Makubetsu, Nakagawa District (Tokachi), Hokkaido, Japan",
+      lat=42.863333, lng=143.243333, confidence="high",
+      geoSource="ja.wikipedia 十勝ヒルズ infobox (北緯42度51分48秒 東経143度14分36秒, 幕別町) via WebSearch — the place's own article",
+      status="open", statusSource="visit-hokkaido.jp spot 11229 (seasonal, current)"),
+ dict(n="Ueno Farm, Asahikawa (上野ファーム)",
+      address="Asahikawa, Hokkaido, Japan",
+      lat=43.808333, lng=142.48575, confidence="high",
+      geoSource="ja.wikipedia 上野ファーム infobox (北緯43度48分30秒 東経142度29分8.7秒) via WebSearch — the place's own article",
+      status="open", statusSource="visit-hokkaido.jp spot 10119 (seasonal, current)"),
+]
+for p in P:
+    assert p["n"] in U, p["n"]
+    assert 41 < p["lat"] < 46 and 139 < p["lng"] < 146
+os.makedirs('geo', exist_ok=True)
+json.dump(P, open('geo/_geoout_hokkaido_g05.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+print(len(P), "pins ->", 'geo/_geoout_hokkaido_g05.json')

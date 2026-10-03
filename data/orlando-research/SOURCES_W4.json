@@ -1,0 +1,46 @@
+{
+ "outlets": [
+  {
+   "key": "TIMEOUT",
+   "name": "Time Out Orlando",
+   "type": "travel",
+   "url": "https://www.timeout.com/orlando",
+   "credible": "Global city-guide brand with staffed Orlando guide."
+  },
+  {
+   "key": "WINTERPARKCITY",
+   "name": "City of Winter Park (official visitor pages)",
+   "type": "official",
+   "url": "https://winterpark.org/",
+   "credible": "Municipal government's own '25 things to see & do' list — official local source (counts once)."
+  },
+  {
+   "key": "FATHOM",
+   "name": "Fathom",
+   "type": "travel",
+   "url": "https://fathomaway.com/",
+   "credible": "Award-winning travel magazine; named-writer Winter Park guide."
+  },
+  {
+   "key": "VISITFLORIDA",
+   "name": "VISIT FLORIDA",
+   "type": "official",
+   "url": "https://visitflorida.com/",
+   "credible": "Florida's official state tourism marketing body."
+  },
+  {
+   "key": "HMDB",
+   "name": "The Historical Marker Database",
+   "type": "heritage registry",
+   "url": "https://www.hmdb.org",
+   "credible": "Edited database of physical historical markers with photos + transcribed text; widely cited by heritage bodies"
+  },
+  {
+   "key": "NPR",
+   "name": "NPR",
+   "type": "national press",
+   "url": "https://www.npr.org",
+   "credible": "US national public radio news organization of record"
+  }
+ ]
+}

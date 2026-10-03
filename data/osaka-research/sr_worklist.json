@@ -1,5 +1,170 @@
 [
 {
+"n": "Universal Studios Japan",
+"addr": "2-1-33 Sakurajima, Konohana-ku, Osaka, Japan",
+"a": "BAY"
+},
+{
+"n": "Osaka Aquarium Kaiyūkan",
+"addr": "1-1-10 Kaigan-dori, Minato-ku, Osaka (Tempozan Harbor Village), Japan",
+"a": "BAY"
+},
+{
+"n": "Tempozan Giant Ferris Wheel",
+"addr": "Tempozan Harbor Village, 1-1-10 Kaigan-dori, Minato-ku, Osaka, Japan",
+"a": "BAY"
+},
+{
+"n": "Sakishima Cosmo Tower Observatory",
+"addr": "Osaka Prefectural Government Sakishima Building, 1-14-16 Nanko-kita, Suminoe-ku, Osaka, Japan",
+"a": "BAY"
+},
+{
+"n": "Sumiyoshi Taisha",
+"addr": "2-9-89 Sumiyoshi, Sumiyoshi-ku, Osaka, Japan",
+"a": "SOUTH"
+},
+{
+"n": "Mozu Kofun Group — Daisen Kofun (Emperor Nintoku's Tomb)",
+"addr": "Daisen-cho, Sakai-ku, Sakai, Osaka, Japan",
+"a": "SOUTH"
+},
+{
+"n": "Sakai City Museum",
+"addr": "Daisen Park, 2 Mozu Yugumo-cho, Sakai-ku, Sakai, Osaka, Japan",
+"a": "SOUTH"
+},
+{
+"n": "Expo '70 Commemorative Park & Tower of the Sun",
+"addr": "1-1 Senri Banpaku-koen, Suita, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "Minoo Park & Minoo Falls",
+"addr": "Minoo Park, Minoh, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "Katsuō-ji",
+"addr": "2914-1 Aomadani, Minoh, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "National Museum of Ethnology (Minpaku)",
+"addr": "10-1 Senri Expo Park, Suita, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "CupNoodles Museum Osaka Ikeda",
+"addr": "8-25 Masumi-cho, Ikeda, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "Himeji Castle",
+"addr": "68 Honmachi, Himeji, Hyogo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Kitano Ijinkan (Kitano-chō)",
+"addr": "Kitano-cho, Chuo-ku, Kobe, Hyogo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Meriken Park & Kobe Port Tower",
+"addr": "Hatoba-cho, Chuo-ku, Kobe, Hyogo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Kobe Harborland",
+"addr": "Higashi-Kawasaki-cho, Chuo-ku, Kobe, Hyogo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Nankinmachi (Kobe Chinatown)",
+"addr": "Sakaemachi-dori / Motomachi-dori, Chuo-ku, Kobe, Hyogo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Ikuta Shrine",
+"addr": "1-2-1 Shimoyamate-dori, Chuo-ku, Kobe, Hyogo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Arima Onsen",
+"addr": "Arima-cho, Kita-ku, Kobe, Hyogo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Nunobiki Falls & Herb Gardens",
+"addr": "Fukiai-cho, Chuo-ku, Kobe, Hyogo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Mount Rokkō",
+"addr": "Rokkosan-cho, Nada-ku, Kobe, Hyogo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Akashi Kaikyō Bridge",
+"addr": "Higashimaiko-cho, Tarumi-ku, Kobe, Hyogo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Nada sake breweries (Nada-gogō)",
+"addr": "Nada-gogo, Higashinada-ku / Nada-ku, Kobe, Hyogo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Kōyasan — Okunoin",
+"addr": "Koyasan, Koya-cho, Ito-gun, Wakayama, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Kōyasan — Kongōbu-ji",
+"addr": "132 Koyasan, Koya-cho, Ito-gun, Wakayama, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Wakayama Castle",
+"addr": "3 Ichibancho, Wakayama, Wakayama, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Kishiwada Castle",
+"addr": "9-1 Kishiki-cho, Kishiwada, Osaka, Japan",
+"a": "SOUTH"
+},
+{
+"n": "Rinku Town & Rinku Premium Outlets",
+"addr": "Rinku Ourai-kita, Izumisano, Osaka, Japan",
+"a": "SOUTH"
+},
+{
+"n": "Kansai Airport Observation Hall Sky View",
+"addr": "Senshu-kuko-kita, Izumisano, Osaka, Japan",
+"a": "SOUTH"
+},
+{
+"n": "Hirakata Park",
+"addr": "1-1-1 Hirakatakoen-cho, Hirakata, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "Imashirozuka Kofun",
+"addr": "1 Gunge-shinmachi, Takatsuki, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "Taishō 'Little Okinawa' (Hirao)",
+"addr": "Hirao, Taisho-ku, Osaka, Japan",
+"a": "BAY"
+},
+{
+"n": "Kōko-en Garden (Himeji)",
+"addr": "68 Honmachi, Himeji, Hyogo, Japan",
+"a": "KNSAI"
+},
+{
 "n": "Umeda Sky Building — Kuchū Teien Floating Garden Observatory",
 "addr": "Umeda Sky Building, northwest of JR Osaka Station, Kita-ku, Osaka, Japan",
 "a": "KITA"
@@ -18,6 +183,1031 @@
 "n": "HEP Five Ferris Wheel",
 "addr": "HEP Five, east of Hankyu Umeda, Kita-ku, Osaka, Japan",
 "a": "KITA"
+},
+{
+"n": "Osaka Castle",
+"addr": "Osakajō, Chuo-ku, Osaka, Japan",
+"a": "CHUO"
+},
+{
+"n": "Dōtonbori",
+"addr": "Dōtonbori, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Kuromon Market",
+"addr": "Nipponbashi, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Shinsaibashi-suji Shopping Arcade",
+"addr": "Shinsaibashi-suji, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Amerikamura (Amemura)",
+"addr": "Nishishinsaibashi, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Shinsekai & Tsūtenkaku",
+"addr": "Ebisuhigashi, Naniwa-ku, Osaka, Japan",
+"a": "TNJ"
+},
+{
+"n": "Shitennō-ji",
+"addr": "Shitennōji, Tennoji-ku, Osaka, Japan",
+"a": "TNJ"
+},
+{
+"n": "Tennōji Zoo",
+"addr": "Tennōji Park, Chausuyamacho, Tennoji-ku, Osaka, Japan",
+"a": "TNJ"
+},
+{
+"n": "Osaka City Museum of Fine Arts",
+"addr": "Tennōji Park, Chausuyamacho, Tennoji-ku, Osaka, Japan",
+"a": "TNJ"
+},
+{
+"n": "Osaka Museum of History",
+"addr": "4-1-32 Otemae, Chuo-ku, Osaka 540-0008, Japan",
+"a": "CHUO"
+},
+{
+"n": "National Museum of Art, Osaka",
+"addr": "Nakanoshima, Kita-ku, Osaka, Japan",
+"a": "KITA"
+},
+{
+"n": "Osaka Science Museum",
+"addr": "Nakanoshima, Kita-ku, Osaka, Japan",
+"a": "KITA"
+},
+{
+"n": "Nakanoshima Museum of Art, Osaka",
+"addr": "Nakanoshima, Kita-ku, Osaka, Japan",
+"a": "KITA"
+},
+{
+"n": "Tenjinbashi-suji Shopping Street",
+"addr": "Tenjinbashi 1-7 chōme, Kita-ku, Osaka, Japan",
+"a": "KITA"
+},
+{
+"n": "Hōzen-ji & Hōzenji Yokochō",
+"addr": "Namba, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Den Den Town (Nipponbashi)",
+"addr": "Nipponbashi, Naniwa-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Kitashinchi",
+"addr": "Sonezakishinchi, Kita-ku, Osaka, Japan",
+"a": "KITA"
+},
+{
+"n": "Nakazakichō",
+"addr": "Nakazakinishi, Kita-ku, Osaka, Japan",
+"a": "KITA"
+},
+{
+"n": "Ikukunitama Shrine",
+"addr": "13-9 Ikutamacho, Tennoji-ku, Osaka 543-0071, Japan",
+"a": "TNJ"
+},
+{
+"n": "Hōkoku Shrine (Osaka Castle Park)",
+"addr": "Osaka Castle Park, Chuo-ku, Osaka, Japan",
+"a": "CHUO"
+},
+{
+"n": "Namba Parks",
+"addr": "Nambanaka, Naniwa-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Ikuno Korea Town (Miyuki-dōri)",
+"addr": "Momodani 3-chōme, Ikuno-ku, Osaka, Japan",
+"a": "EAST"
+},
+{
+"n": "National Bunraku Theatre",
+"addr": "Nipponbashi, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Grand Green Osaka & Umekita Park",
+"addr": "Ōfukachō, Kita-ku, Osaka, Japan",
+"a": "KITA"
+},
+{
+"n": "Naniwa Palace Site (Naniwa-no-Miya)",
+"addr": "Hōenzaka, Chuo-ku, Osaka, Japan",
+"a": "CHUO"
+},
+{
+"n": "Abeno Harukas 300 Observatory",
+"addr": "Abenosuji, Abeno-ku, Osaka, Japan",
+"a": "TNJ"
+},
+{
+"n": "Keitakuen Garden",
+"addr": "Tennōji Park, Chausuyamacho, Tennoji-ku, Osaka, Japan",
+"a": "TNJ"
+},
+{
+"n": "Tennōji Park & Tenshiba",
+"addr": "Chausuyamacho, Tennoji-ku, Osaka, Japan",
+"a": "TNJ"
+},
+{
+"n": "Osaka Tsuruhashi Market",
+"addr": "Tsuruhashi, Ikuno-ku / Higashinari-ku, Osaka, Japan",
+"a": "EAST"
+},
+{
+"n": "Ebisubashi & the Glico Running Man sign",
+"addr": "Ebisubashi bridge, Dōtonbori, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Namba Yasaka Shrine",
+"addr": "Motomachi, Naniwa-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Namba Grand Kagetsu (NGK)",
+"addr": "Namba-sennichimae, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Jan Jan Yokochō",
+"addr": "Ebisuhigashi, Naniwa-ku, Osaka, Japan",
+"a": "TNJ"
+},
+{
+"n": "Sennichimae Doguyasuji",
+"addr": "Namba-sennichimae, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "LUCUA Characters World — Pokémon Center Osaka & Nintendo OSAKA",
+"addr": "LUCUA SOUTH 10–13F (South Gate Building), JR Osaka Station, Umeda, Kita-ku, Osaka",
+"a": "KITA"
+},
+{
+"n": "Osamu Tezuka Manga Museum (Takarazuka)",
+"addr": "Mukogawa-chō, Takarazuka, Hyōgo",
+"a": "KNSAI"
+},
+{
+"n": "Tetsujin-28 Monument (Shin-Nagata, Kobe)",
+"addr": "Wakamatsu Park, Wakamatsu-chō, Nagata-ku, Kobe, Hyōgo",
+"a": "KNSAI"
+},
+{
+"n": "Kobe Anpanman Children's Museum & Mall",
+"addr": "Harborland, Chūō-ku, Kobe, Hyōgo",
+"a": "KNSAI"
+},
+{
+"n": "Ōtori Taisha (大鳥大社)",
+"addr": "Near JR Ōtori Station, Sakai, Osaka, Japan",
+"a": "SOUTH"
+},
+{
+"n": "Kanshin-ji (観心寺)",
+"addr": "Kawachinagano, Osaka, Japan",
+"a": "SOUTH"
+},
+{
+"n": "Amanosan Kongō-ji (天野山金剛寺)",
+"addr": "996 Amano-chō, Kawachinagano, Osaka, Japan",
+"a": "SOUTH"
+},
+{
+"n": "Chikatsu Asuka Museum (大阪府立近つ飛鳥博物館)",
+"addr": "299 Higashiyama, Kanan-chō, Minamikawachi-gun, Osaka 〒585-0001, Japan",
+"a": "SOUTH"
+},
+{
+"n": "Hamadera Park (浜寺公園)",
+"addr": "In front of Hamadera Ekimae / Hamadera-kōen Station, Sakai & Takaishi, Osaka, Japan",
+"a": "SOUTH"
+},
+{
+"n": "Kishiwada Danjiri Kaikan (Danjiri Museum)",
+"addr": "11-23 Honmachi, Kishiwada, Osaka, Japan",
+"a": "SOUTH"
+},
+{
+"n": "Maishima Incineration Plant (舞洲工場)",
+"addr": "Maishima, Konohana-ku, Osaka, Japan",
+"a": "BAY"
+},
+{
+"n": "Tempozan Park — Mt. Tempōzan (天保山)",
+"addr": "Tempozan Park, Chikkō, Minato-ku, Osaka, Japan",
+"a": "BAY"
+},
+{
+"n": "Tempozan Marketplace / Naniwa Kuishinbo Yokocho",
+"addr": "Tempozan Harbor Village, 1 Kaigan-dōri, Minato-ku, Osaka, Japan",
+"a": "BAY"
+},
+{
+"n": "Hiraoka Shrine (枚岡神社)",
+"addr": "7-16 Izumoi-chō, Higashi-Ōsaka, Osaka, Japan",
+"a": "EAST"
+},
+{
+"n": "Ishikiri Tsurugiya Shrine (石切劔箭神社)",
+"addr": "1-1-1 Higashi-Ishikiri-chō, Higashi-Ōsaka, Osaka, Japan",
+"a": "EAST"
+},
+{
+"n": "Sakuya Konohana Kan (Tsurumi Ryokuchi Park)",
+"addr": "2-163 Ryokuchi-kōen, Tsurumi-ku, Osaka 〒538-0036, Japan",
+"a": "EAST"
+},
+{
+"n": "Suntory Yamazaki Distillery (山崎蒸溜所)",
+"addr": "5-2-1 Yamazaki, Shimamoto-chō, Mishima-gun, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "Open-Air Museum of Old Japanese Farmhouses (日本民家集落博物館)",
+"addr": "1-2 Hattori Ryokuchi, Toyonaka, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "Ryūan-ji / Takiyasu-ji (瀧安寺)",
+"addr": "2-23 Minoo-kōen, Minoh, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "Iwafune Shrine (磐船神社, Katano)",
+"addr": "9-19-1 Kisaichi, Katano, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "Hirakatashuku Kagiya Museum (枚方宿鍵屋資料館)",
+"addr": "Hirakata-juku, Hirakata, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "Engyō-ji (Mount Shosha, 書写山圓教寺)",
+"addr": "Mount Shosha, Himeji, Hyōgo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Kōyasan — Danjō Garan (壇上伽藍)",
+"addr": "Kōyasan, Kōya-chō, Ito-gun, Wakayama, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Furuichi Kofun Group — Konda Gobyōyama Kofun (誉田御廟山古墳)",
+"addr": "Konda, Habikino, Osaka, Japan",
+"a": "SOUTH"
+},
+{
+"n": "Mount Kongō (金剛山)",
+"addr": "Kongō range, Chihaya-Akasaka village, Osaka / Nara border, Japan",
+"a": "SOUTH"
+},
+{
+"n": "EXPOCITY (NIFREL, Redhorse Osaka Wheel)",
+"addr": "Senri Banpaku Kōen, Suita, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "Hoshida Park — Hoshi no Buranko suspension bridge (星のブランコ)",
+"addr": "Osaka Prefectural Forest Hoshida Park, Katano, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "Hanazono Rugby Stadium (東大阪市花園ラグビー場)",
+"addr": "Hanazono, Higashi-Ōsaka, Osaka, Japan",
+"a": "EAST"
+},
+{
+"n": "Fujita Museum of Art (藤田美術館)",
+"addr": "Amijima-chō, Miyakojima-ku, Osaka (Kyōbashi side), Japan",
+"a": "EAST"
+},
+{
+"n": "Shiba Ryōtarō Memorial Museum (司馬遼太郎記念館)",
+"addr": "Higashi-Ōsaka, Osaka, Japan",
+"a": "EAST"
+},
+{
+"n": "Panasonic Museum (Kōnosuke Matsushita History Museum, Kadoma)",
+"addr": "Kadoma, Osaka, Japan",
+"a": "EAST"
+},
+{
+"n": "Kyocera Dome Osaka (京セラドーム大阪)",
+"addr": "Chiyozaki, Nishi-ku, Osaka (by Taishō), Japan",
+"a": "BAY"
+},
+{
+"n": "GLION MUSEUM (Chikkō Red Brick Warehouse)",
+"addr": "Chikkō Red Brick Warehouse, Chikkō, Minato-ku, Osaka, Japan",
+"a": "BAY"
+},
+{
+"n": "Osaka Maishima Seaside Park (大阪まいしまシーサイドパーク)",
+"addr": "Maishima, Konohana-ku, Osaka, Japan",
+"a": "BAY"
+},
+{
+"n": "Ikeda Castle Ruins Park (池田城跡公園)",
+"addr": "Shiroyama-chō, Ikeda, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "Satsukiyama Park & Zoo (五月山公園・五月山動物園)",
+"addr": "Satsukiyama, Ikeda, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "Itsuō Art Museum & Kobayashi Ichizō Memorial Hall (逸翁美術館)",
+"addr": "Ikeda, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "Kobe Earthquake Memorial Museum (人と防災未来センター)",
+"addr": "HAT Kobe, Chūō-ku, Kobe, Hyōgo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Sōrakuen Garden (相楽園)",
+"addr": "Chūō-ku, Kobe, Hyōgo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Kobe City Museum (神戸市立博物館)",
+"addr": "Old Settlement (Kyūkyoryūchi), Chūō-ku, Kobe, Hyōgo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Osaka Museum of Housing and Living (大阪くらしの今昔館)",
+"addr": "Tenjinbashi 6-chōme, Kita-ku, Osaka, Japan",
+"a": "KITA"
+},
+{
+"n": "Daisen Park Japanese Garden (大仙公園日本庭園)",
+"addr": "Daisen Park, Sakai-ku, Sakai, Osaka, Japan",
+"a": "SOUTH"
+},
+{
+"n": "Temma Tenjin Hanjo Tei (天満天神繁昌亭, rakugo theatre)",
+"addr": "Tenjinbashi 2-chōme, Kita-ku, Osaka, Japan",
+"a": "KITA"
+},
+{
+"n": "Super Nintendo World (Universal Studios Japan)",
+"addr": "Universal Studios Japan, 2-1-33 Sakurajima, Konohana-ku, Osaka",
+"a": "BAY"
+},
+{
+"n": "Nijigen no Mori (Awaji Island)",
+"addr": "Hyōgo Prefectural Awaji Shima Park, Awaji, Hyōgo",
+"a": "KNSAI"
+},
+{
+"n": "Hello Kitty Smile (Awaji Island)",
+"addr": "Awaji, Hyōgo (Awaji Island west coast)",
+"a": "KNSAI"
+},
+{
+"n": "Takarazuka Grand Theater (Takarazuka Revue)",
+"addr": "Takarazuka, Hyōgo",
+"a": "KNSAI"
+},
+{
+"n": "Haruhi Suzumiya pilgrimage — Kissa-ya Dream (珈琲屋ドリーム), Nishinomiya",
+"addr": "Kōfūen 1-chōme, Nishinomiya, Hyōgo (about 1 min from Nishinomiya-Kitaguchi Station)",
+"a": "KNSAI"
+},
+{
+"n": "Niteko Pond & Grave of the Fireflies memorial (Nishinomiya)",
+"addr": "Manikedani-chō, Nishinomiya, Hyōgo",
+"a": "KNSAI"
+},
+{
+"n": "Osaka City Central Public Hall (Nakanoshima)",
+"addr": "Nakanoshima, Kita-ku, Osaka",
+"a": "KITA"
+},
+{
+"n": "Tsuyu no Tenjinsha (Ohatsu Tenjin)",
+"addr": "Sonezaki, Kita-ku, Osaka",
+"a": "KITA"
+},
+{
+"n": "Mitsu-dera (Mittera Temple)",
+"addr": "Shinsaibashi-suji, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Osaka Shochikuza — CLOSED",
+"addr": "Dōtonbori, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Kamigata Ukiyo-e Museum",
+"addr": "Namba 1-chōme (corner lot west of Hōzen-ji), Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Orange Street (Tachibana-dori, Horie)",
+"addr": "Minami-Horie, Nishi-ku, Osaka (3 min from Yotsubashi Station)",
+"a": "MINAM"
+},
+{
+"n": "Ura-Namba (back-alley bar district)",
+"addr": "Namba Sennichimae, Chūō-ku, Osaka (between Doguyasuji and Nankai Namba)",
+"a": "MINAM"
+},
+{
+"n": "Isshin-ji (一心寺)",
+"addr": "2-8-69 Ōsaka (逢坂), Tennōji-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Abe no Seimei Shrine (安倍晴明神社)",
+"addr": "Abenomotomachi, Abeno-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Imamiya Ebisu Shrine (今宮戎神社)",
+"addr": "Naniwa-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Smartball New Star",
+"addr": "Jan Jan Yokochō, Ebisuhigashi, Naniwa-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Sakai Traditional Crafts Museum (Sakai Densho-kan) — Sakai knives",
+"addr": "1-1-30 Zaimokuchō-nishi, Sakai-ku, Sakai, Osaka 〒590-0801",
+"a": "SOUTH"
+},
+{
+"n": "Sakai Plaza of Rikyū and Akiko (Sakai Rishō no Mori)",
+"addr": "Sakai-ku, Sakai, Osaka (facing the site of Sen no Rikyū's residence)",
+"a": "SOUTH"
+},
+{
+"n": "Nisanzai Kofun (土師ニサンザイ古墳)",
+"addr": "Kita-ku, Sakai, Osaka",
+"a": "SOUTH"
+},
+{
+"n": "Sumiyoshi Park (住吉公園)",
+"addr": "Suminoe-ku, Osaka (opposite Sumiyoshi Taisha)",
+"a": "SOUTH"
+},
+{
+"n": "Osaka municipal ferries (Tempozan & Taishō crossings)",
+"addr": "Tempozan Ferry Landing, 3-2-25 Chikkō, Minato-ku ↔ 3-10-34 Sakurajima, Konohana-ku, Osaka (also Taishō-ku crossings e.g. Senbonmatsu, 1-11-1 Minami-Ongashima)",
+"a": "BAY"
+},
+{
+"n": "Osaka Nanko Bird Sanctuary (大阪南港野鳥園)",
+"addr": "Nankō-kita, Suminoe-ku, Osaka (NW corner of Sakishima)",
+"a": "BAY"
+},
+{
+"n": "ATC — Asia & Pacific Trade Center",
+"addr": "Nankō-kita, Suminoe-ku, Osaka (Sakishima, by Trade Center-mae Stn)",
+"a": "BAY"
+},
+{
+"n": "Santa Maria cruise (Osaka Port)",
+"addr": "Kaiyūkan West Pier, Tempozan Harbor Village, Kaigandori, Minato-ku, Osaka",
+"a": "BAY"
+},
+{
+"n": "LEGOLAND Discovery Center Osaka",
+"addr": "Tempozan Marketplace 3F, 1-1-10 Kaigandori, Minato-ku, Osaka 552-0022",
+"a": "BAY"
+},
+{
+"n": "Kirara Kujō Shopping Street (キララ九条商店街)",
+"addr": "Kujō, Nishi-ku, Osaka (west of Kujō Station)",
+"a": "BAY"
+},
+{
+"n": "Chausuyama (茶臼山古墳, Tennōji Park)",
+"addr": "1 Chausuyama-chō, Tennōji-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Yasui Shrine (安居神社)",
+"addr": "1-3-24 Ōsaka (逢阪), Tennōji-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Sankō Shrine & Sanada Yukimura statue (三光神社)",
+"addr": "14-90 Tamatsukuri-honmachi, Tennōji-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Hinode-yu (日之出湯)",
+"addr": "2-7-9 Sannō, Nishinari-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Mandarake Grand Chaos (Nipponbashi)",
+"addr": "4-12-6 Nipponbashi, Naniwa-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Super Potato Osaka (Den Den Town)",
+"addr": "Nipponbashi, Naniwa-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Animate Osaka Nipponbashi",
+"addr": "Nipponbashi-nishi, Naniwa-ku, Osaka (Den Den Town)",
+"a": "MINAM"
+},
+{
+"n": "Kuidaore Taro & Nakaza Kuidaore Building",
+"addr": "Dotonbori, Chuo-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Misono Building (味園ビル) — CLOSED",
+"addr": "Sennichimae, Chuo-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Sakai City Tea Houses Shin-an & Ōbai-an (伸庵・黄梅庵)",
+"addr": "2 Mozusekiun-cho, Sakai-ku, Sakai, Osaka (inside Daisen Park, beside Sakai City Museum)",
+"a": "SOUTH"
+},
+{
+"n": "Daimaru Shinsaibashi Main Building (大丸心斎橋店 本館, Vories)",
+"addr": "Shinsaibashi-suji 1-chōme, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Aizen-dō Shōman-in (愛染堂勝鬘院)",
+"addr": "5-36 Yūhigaoka-chō, Tennōji-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Abe Ōji Shrine (阿倍王子神社)",
+"addr": "9-4 Abeno-motomachi, Abeno-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Abeno Shrine (阿部野神社)",
+"addr": "Kitabatake, Abeno-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Spa World (スパワールド, Shinsekai)",
+"addr": "3-4-24 Ebisu-higashi, Naniwa-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Tennōji Seven Slopes (天王寺七坂)",
+"addr": "Uemachi plateau, Tennōji-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Joshin Super Kids Land Main Store (Den Den Town)",
+"addr": "Nipponbashi, Naniwa-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Volks Osaka Showroom (Hobby Square)",
+"addr": "4-9-18 Nipponbashi, Naniwa-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Kiddy Land Umeda",
+"addr": "Hankyu Sanbangai, Umeda, Kita-ku, Osaka",
+"a": "KITA"
+},
+{
+"n": "Jump Shop Osaka Shinsaibashi",
+"addr": "Daimaru Shinsaibashi 9F, Shinsaibashi-suji, Chuo-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Kaiyodo Hobby Land (Kadoma)",
+"addr": "3F, 3-1-101 Shinbashi-cho, Kadoma, Osaka 〒571-0048",
+"a": "NORTH"
+},
+{
+"n": "Shinsaibashi PARCO Character Floors (Chiikawa Land · Donguri Republic)",
+"addr": "Shinsaibashi PARCO 5F–6F, 1-8-3 Shinsaibashi-suji, Chuo-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Gashapon Department Store HEP FIVE (Umeda)",
+"addr": "HEP FIVE 9F, Umeda, Kita-ku, Osaka",
+"a": "KITA"
+},
+{
+"n": "Amako Sōbē Manga Gallery (Amagasaki)",
+"addr": "Amagasaki City Kaimei Building 1F, 2-1-1 Kaimei-cho, Amagasaki, Hyōgo",
+"a": "KNSAI"
+},
+{
+"n": "Tomogashima Islands (Wakayama)",
+"addr": "Miyama, Wakayama City, Wakayama (ferry from Kada Port)",
+"a": "KNSAI"
+},
+{
+"n": "Chukashunsai Morimoto",
+"addr": "B1F, 1-4-14 Shinsaibashisuji, Chuo-ku, Osaka 542-0085, Japan",
+"a": "MINAM"
+},
+{
+"n": "DIVA",
+"addr": "6-1-29 Tenjimbashi, Kita-ku, Osaka 530-0041, Japan",
+"a": "KITA"
+},
+{
+"n": "bistrot neuf",
+"addr": "1-4-17 Tohei, Chuo-ku, Osaka 542-0063, Japan",
+"a": "CHUO"
+},
+{
+"n": "Kurubushi",
+"addr": "4-12 Naniwacho, Kita-ku, Osaka 530-0022, Japan",
+"a": "KITA"
+},
+{
+"n": "Ukitacho Ima",
+"addr": "2-5-27 Ukida, Kita-ku, Osaka 530-0021, Japan",
+"a": "KITA"
+},
+{
+"n": "Kawahara",
+"addr": "2-4-21 Toyosaki, Kita-ku, Osaka 531-0072, Japan",
+"a": "KITA"
+},
+{
+"n": "Kamigatachuka SHINTANI",
+"addr": "1-4-21 Nakazaki, Kita-ku, Osaka 530-0016, Japan",
+"a": "KITA"
+},
+{
+"n": "Mugito Mensuke",
+"addr": "3-4-12 Toyosaki, Kita-ku, Osaka 531-0072, Japan",
+"a": "KITA"
+},
+{
+"n": "Terada",
+"addr": "2F, 2-35 Tamatsukurimotomachi, Tennoji-ku, Osaka 543-0014, Japan",
+"a": "TNJ"
+},
+{
+"n": "Teruya",
+"addr": "2-1-24 Ueshio, Chuo-ku, Osaka 542-0064, Japan",
+"a": "CHUO"
+},
+{
+"n": "Oku",
+"addr": "2-1-37 Katamachi, Miyakojima-ku, Osaka 534-0025, Japan",
+"a": "EAST"
+},
+{
+"n": "Sumibiyakitori Torio",
+"addr": "2-7-17 Fukushima, Fukushima-ku, Osaka 553-0003, Japan",
+"a": "KITA"
+},
+{
+"n": "Sushidokoro Hirokawa",
+"addr": "1-8-39 Gamo, Joto-ku, Osaka 536-0016, Japan",
+"a": "EAST"
+},
+{
+"n": "Oryori Matsumura",
+"addr": "4-20-11 Gamo, Joto-ku, Osaka 536-0016, Japan",
+"a": "EAST"
+},
+{
+"n": "Yakitori Matsuri",
+"addr": "2-2-33 Dojima, Kita-ku, Osaka 530-0003, Japan",
+"a": "KITA"
+},
+{
+"n": "Yakitori Matsuoka",
+"addr": "1-4-17 Tohei, Chuo-ku, Osaka 542-0063, Japan",
+"a": "CHUO"
+},
+{
+"n": "Sushiroku",
+"addr": "4-12-22 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "Oimatsu Kitagawa",
+"addr": "4-12-27 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "kushiage 010",
+"addr": "4F, 1-1-41 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
+"a": "KITA"
+},
+{
+"n": "Az",
+"addr": "B1F, 4-4-8 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "Oryori Amenimomakezu",
+"addr": "4-10-17 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "Kushikatsu Daibon",
+"addr": "5F, 4-7-7 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "Kitashinchi Kushikatsu Bon",
+"addr": "B1F, 1-3-16 Dojima, Kita-ku, Osaka 530-0003, Japan",
+"a": "KITA"
+},
+{
+"n": "Shokudo Akari",
+"addr": "2F, 1-6-27 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
+"a": "KITA"
+},
+{
+"n": "Gochiso nene",
+"addr": "2F, 5-3-22 Tenjimbashi, Kita-ku, Osaka 530-0041, Japan",
+"a": "KITA"
+},
+{
+"n": "Nishishinsaibashi Yuno",
+"addr": "1-10-35 Nishishinsaibashi, Chuo-ku, Osaka 542-0086, Japan",
+"a": "MINAM"
+},
+{
+"n": "Sennarizushi",
+"addr": "5-5-13 Sugahara, Higashiyodogawa-ku, Osaka 533-0022, Japan",
+"a": "KITA"
+},
+{
+"n": "Sushi Yuden",
+"addr": "1-27 Ikutama Maemachi, Tennoji-ku, Osaka 543-0072, Japan",
+"a": "TNJ"
+},
+{
+"n": "Shitennoji Hayauchi",
+"addr": "1-12-16 Shitennoji, Tennoji-ku, Osaka 543-0051, Japan",
+"a": "TNJ"
+},
+{
+"n": "TAVERNETTA da KITAYAMA",
+"addr": "1-6 Ishigatsujicho, Tennoji-ku, Osaka 543-0031, Japan",
+"a": "TNJ"
+},
+{
+"n": "Hachi",
+"addr": "8-1-8 Uehommachi, Tennoji-ku, Osaka 543-0001, Japan",
+"a": "TNJ"
+},
+{
+"n": "Sushidokoro Amano",
+"addr": "1-13-2 Shitennoji, Tennoji-ku, Osaka 543-0051, Japan",
+"a": "TNJ"
+},
+{
+"n": "au soleil couchant",
+"addr": "1-14-25 Shitennoji, Tennoji-ku, Osaka 543-0051, Japan",
+"a": "TNJ"
+},
+{
+"n": "Sakeya Sakana Yoshimura",
+"addr": "1-13-21 Tenjimbashi, Kita-ku, Osaka 530-0041, Japan",
+"a": "KITA"
+},
+{
+"n": "Kaishoku Shimizu",
+"addr": "1F, Shin Daibiru, 1-2-1 Dojimahama, Kita-ku, Osaka 530-0004, Japan",
+"a": "KITA"
+},
+{
+"n": "Kashiwaya Osaka Senriyama",
+"addr": "2-5-18 Senriyamanishi, Suita, Osaka 565-0851, Japan",
+"a": "NORTH"
+},
+{
+"n": "Sui Okazaki",
+"addr": "2F, 1-16-20 Higashishinsaibashi, Chuo-ku, Osaka 542-0083, Japan",
+"a": "MINAM"
+},
+{
+"n": "Point",
+"addr": "2-17-47 Uenohigashi, Toyonaka, Osaka 560-0013, Japan",
+"a": "NORTH"
+},
+{
+"n": "HAJIME",
+"addr": "1-9-11 Edobori, Nishi-ku, Osaka 550-0002, Japan",
+"a": "CHUO"
+},
+{
+"n": "Taian",
+"addr": "1-21-2 Shimanochi, Chuo-ku, Osaka 542-0082, Japan",
+"a": "MINAM"
+},
+{
+"n": "KushinGarando",
+"addr": "4F, 1-5-18 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
+"a": "KITA"
+},
+{
+"n": "Kitashinchi Gyosai Masashi",
+"addr": "2F, 1-5-26 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
+"a": "KITA"
+},
+{
+"n": "Kashiwaya Osaka Kitashinchi",
+"addr": "5F, 1-7-4 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
+"a": "KITA"
+},
+{
+"n": "Sushidokoro Kurosugi Shinkan",
+"addr": "10F, 1-10-22 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
+"a": "KITA"
+},
+{
+"n": "Sushidokoro SHIN",
+"addr": "7-12-14 Tenjimbashi, Kita-ku, Osaka 531-0041, Japan",
+"a": "KITA"
+},
+{
+"n": "Sushidokoro Kaihara",
+"addr": "5-4 Ikedacho, Kita-ku, Osaka 530-0033, Japan",
+"a": "KITA"
+},
+{
+"n": "Sushitsune",
+"addr": "2-4-3 Tenjimbashi, Kita-ku, Osaka 530-0041, Japan",
+"a": "KITA"
+},
+{
+"n": "Sushisho Nehachi",
+"addr": "4-1-70 Fukushima, Fukushima-ku, Osaka 553-0003, Japan",
+"a": "KITA"
+},
+{
+"n": "Sushi Hoshiyama",
+"addr": "1-16 Sugaharacho, Kita-ku, Osaka 530-0046, Japan",
+"a": "KITA"
+},
+{
+"n": "Sushi Ichiei",
+"addr": "B1F, 1-6-10 Sennichimae, Chuo-ku, Osaka 542-0074, Japan",
+"a": "MINAM"
+},
+{
+"n": "Sushi Marumine",
+"addr": "6-2-20 Tenjimbashi, Kita-ku, Osaka 530-0041, Japan",
+"a": "KITA"
+},
+{
+"n": "Sushi Murakami Jiro",
+"addr": "1-5-7 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
+"a": "KITA"
+},
+{
+"n": "Matsuzushi Tanigawa",
+"addr": "3-13-6 Ojicho, Abeno-ku, Osaka 545-0023, Japan",
+"a": "TNJ"
+},
+{
+"n": "capi",
+"addr": "6F, 1-10-2 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
+"a": "KITA"
+},
+{
+"n": "Kitashinchi Okurano",
+"addr": "3F, 1-3-23 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
+"a": "KITA"
+},
+{
+"n": "TEMPURA HANAGATAMI",
+"addr": "5F, The Ritz-Carlton, Osaka, 2-5-25 Umeda, Kita-ku, Osaka 530-0001, Japan",
+"a": "KITA"
+},
+{
+"n": "Shunzen Kiraku",
+"addr": "1-3-16 Tohei, Chuo-ku, Osaka 542-0063, Japan",
+"a": "CHUO"
+},
+{
+"n": "Hozan",
+"addr": "3-13 Higashikozucho, Tennoji-ku, Osaka 543-0021, Japan",
+"a": "TNJ"
+},
+{
+"n": "Souikufu",
+"addr": "5-8-14 Toyosaki, Kita-ku, Osaka 531-0072, Japan",
+"a": "KITA"
+},
+{
+"n": "Higashichaya Nakamura",
+"addr": "1-25-8 Honjohigashi, Kita-ku, Osaka 531-0074, Japan",
+"a": "KITA"
+},
+{
+"n": "Masuda",
+"addr": "2F, 1-3-12 Shinsaibashisuji, Chuo-ku, Osaka 542-0085, Japan",
+"a": "MINAM"
+},
+{
+"n": "Oimatsu Hisano",
+"addr": "4-8-3 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "Nishitemma Nakamura",
+"addr": "4-5-25 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "Nishitemma Ichigaya",
+"addr": "2-10-9 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "Numata Sou",
+"addr": "3F, 4-7-7 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "Zeshin",
+"addr": "B1F, 2-9-3 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "Kitashinchi Shien",
+"addr": "2F, 1-7-19 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
+"a": "KITA"
+},
+{
+"n": "Oryori Yamada",
+"addr": "4F, 4-7-7 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "Oryori Nonohara",
+"addr": "7-17-11 Fukushima, Fukushima-ku, Osaka 553-0003, Japan",
+"a": "KITA"
+},
+{
+"n": "Kitashinchi Fukutatei The UKAI",
+"addr": "B1F, 1-11-19 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
+"a": "KITA"
+},
+{
+"n": "Shokudo Uchino",
+"addr": "4F, 1-4-7 Dojima, Kita-ku, Osaka 530-0003, Japan",
+"a": "KITA"
+},
+{
+"n": "Kamigata Rainbow",
+"addr": "4-6-3 Katsuyama, Tennoji-ku, Osaka 543-0043, Japan",
+"a": "TNJ"
+},
+{
+"n": "Sui Oya",
+"addr": "2F, 3-1-2 Temma, Kita-ku, Osaka 530-0043, Japan",
+"a": "KITA"
+},
+{
+"n": "Tenjimbashi Aoki",
+"addr": "7-12-14 Tenjimbashi, Kita-ku, Osaka 531-0041, Japan",
+"a": "KITA"
+},
+{
+"n": "Tenboshi",
+"addr": "7-10-9 Tenjimbashi, Kita-ku, Osaka 531-0041, Japan",
+"a": "KITA"
+},
+{
+"n": "Ñ",
+"addr": "1-6-3 Azuchimachi, Chuo-ku, Osaka 541-0052, Japan",
+"a": "CHUO"
 },
 {
 "n": "Kushikatsu Gojoya",
@@ -138,5 +1328,855 @@
 "n": "Yakitori Torisen",
 "addr": "3F, 1-4-26 Dojima, Kita-ku, Osaka 530-0003, Japan",
 "a": "KITA"
+},
+{
+"n": "Jibundoki",
+"addr": "4-5-11 Minamikyuhojimachi, Chuo-ku, Osaka 541-0058, Japan",
+"a": "CHUO"
+},
+{
+"n": "Tanpopo (Kitashinchi)",
+"addr": "6F, 1-10-16 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
+"a": "KITA"
+},
+{
+"n": "Oribe",
+"addr": "1-6-18 Shimmachi, Nishi-ku, Osaka 550-0013, Japan",
+"a": "CHUO"
+},
+{
+"n": "Okonomiyaki Shimizu",
+"addr": "1-5-20 Tosabori, Nishi-ku, Osaka 550-0001, Japan",
+"a": "CHUO"
+},
+{
+"n": "PITAK GOHAN",
+"addr": "2-2-13 Nakazaki, Kita-ku, Osaka 530-0016, Japan",
+"a": "KITA"
+},
+{
+"n": "Mendokoro Subete",
+"addr": "2-17-12 Momodani, Ikuno-ku, Osaka 544-0034, Japan",
+"a": "EAST"
+},
+{
+"n": "Sumisho Mikuriya",
+"addr": "5-10-4 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "Sumibi Iwata",
+"addr": "3-5-8 Miyakojimanakadori, Miyakojima-ku, Osaka 534-0022, Japan",
+"a": "EAST"
+},
+{
+"n": "Shuko Osaka Manpukudou",
+"addr": "3-4-14 Oimazatonishi, Higashinari-ku, Osaka 537-0014, Japan",
+"a": "EAST"
+},
+{
+"n": "Kogaryu Honten (Amerikamura)",
+"addr": "2-18-4 Nishishinsaibashi, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Takoyaki Juhachiban Dotonbori",
+"addr": "Dōtonbori, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Matsuba Sohonten",
+"addr": "Shin-Umeda Shokudōgai, Kita-ku, Osaka, Japan",
+"a": "KITA"
+},
+{
+"n": "Kushikatsu Daruma Shinsekai Sohonten",
+"addr": "2-3-9 Ebisuhigashi, Naniwa-ku, Osaka 556-0002, Japan",
+"a": "TNJ"
+},
+{
+"n": "Takoyaki Doraku Wanaka Sennichimae Honten",
+"addr": "11-19 Namba-sennichimae, Chuo-ku, Osaka 542-0075, Japan",
+"a": "MINAM"
+},
+{
+"n": "Azuma (Ikeda)",
+"addr": "Ikeda, Osaka, Japan",
+"a": "NORTH"
+},
+{
+"n": "Aizuya Honten (Tamade)",
+"addr": "2-3-1 Tamadenishi, Nishinari-ku, Osaka, Japan",
+"a": "TNJ"
+},
+{
+"n": "Ueroku Wine",
+"addr": "4-15 Higashikozucho, Tennoji-ku, Osaka 543-0021, Japan",
+"a": "TNJ"
+},
+{
+"n": "Daidokoro Kamiya",
+"addr": "1-10-12 Kyomachibori, Nishi-ku, Osaka 550-0003, Japan",
+"a": "CHUO"
+},
+{
+"n": "Tempura Sakugetsu",
+"addr": "2-9-26 Shimanochi, Chuo-ku, Osaka 542-0082, Japan",
+"a": "MINAM"
+},
+{
+"n": "Tempura Fukana",
+"addr": "B1F, 2-1-25 Dojima, Kita-ku, Osaka 530-0003, Japan",
+"a": "KITA"
+},
+{
+"n": "Osteria Ottanta Sette",
+"addr": "4-1-11 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "JIANG NAN CHUN (Four Seasons Osaka)",
+"addr": "37F, Four Seasons Hotel Osaka, 2-4-32 Dojima, Kita-ku, Osaka 530-0003, Japan",
+"a": "KITA"
+},
+{
+"n": "Wagyuchugokusai Kumanohanare",
+"addr": "1-4-4 Dojimahama, Kita-ku, Osaka 530-0004, Japan",
+"a": "KITA"
+},
+{
+"n": "Usamitei Matsubaya",
+"addr": "3-8-1 Minamisenba, Chuo-ku, Osaka 542-0081, Japan",
+"a": "CHUO"
+},
+{
+"n": "Jiyuken Namba Honten",
+"addr": "Namba Center Street, Namba, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "551 Hōrai Honten (Namba)",
+"addr": "3-6-3 Namba, Chuo-ku, Osaka 542-0076, Japan",
+"a": "MINAM"
+},
+{
+"n": "Tempura Urakami",
+"addr": "5-6-3 Fukushima, Fukushima-ku, Osaka 553-0003, Japan",
+"a": "KITA"
+},
+{
+"n": "PRESTAU",
+"addr": "2-17-17 Shimmachi, Nishi-ku, Osaka 550-0013, Japan",
+"a": "CHUO"
+},
+{
+"n": "Yoshitaka",
+"addr": "2F, 2-8-5 Higashishinsaibashi, Chuo-ku, Osaka 542-0083, Japan",
+"a": "MINAM"
+},
+{
+"n": "Le Nez",
+"addr": "2F, 1-3-29 Higashishinsaibashi, Chuo-ku, Osaka 542-0083, Japan",
+"a": "MINAM"
+},
+{
+"n": "KAKAN",
+"addr": "4F, 2-1-6 Tsuriganecho, Chuo-ku, Osaka 540-0035, Japan",
+"a": "CHUO"
+},
+{
+"n": "Tempura Kawaharasaki",
+"addr": "3-1-5 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "Benikurage",
+"addr": "5-4 Hommachibashi, Chuo-ku, Osaka 540-0029, Japan",
+"a": "CHUO"
+},
+{
+"n": "Fushimimachi Kakoiyama",
+"addr": "2-4-12 Fushimimachi, Chuo-ku, Osaka 541-0044, Japan",
+"a": "CHUO"
+},
+{
+"n": "Shintaro",
+"addr": "2-5-5 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "épa",
+"addr": "2F, 3-7-20 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "SINAE",
+"addr": "2F, 2-4-12 Fushimimachi, Chuo-ku, Osaka 541-0044, Japan",
+"a": "CHUO"
+},
+{
+"n": "macua",
+"addr": "2-2-3 Fushimimachi, Chuo-ku, Osaka 541-0044, Japan",
+"a": "CHUO"
+},
+{
+"n": "ETXOLA",
+"addr": "1-4-2 Utsubohommachi, Nishi-ku, Osaka 550-0004, Japan",
+"a": "CHUO"
+},
+{
+"n": "milpa",
+"addr": "1-16-25 Kitahorie, Nishi-ku, Osaka 550-0014, Japan",
+"a": "MINAM"
+},
+{
+"n": "Kamekichi",
+"addr": "1-3-13 Yariyamachi, Chuo-ku, Osaka 540-0027, Japan",
+"a": "CHUO"
+},
+{
+"n": "KAMINOZA",
+"addr": "3-1-25 Nonimbashi, Chuo-ku, Osaka 540-0011, Japan",
+"a": "CHUO"
+},
+{
+"n": "Tosara",
+"addr": "2-7-26 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "Óptimo",
+"addr": "2-6-6 Fukushima, Fukushima-ku, Osaka 553-0003, Japan",
+"a": "KITA"
+},
+{
+"n": "Le Caneton",
+"addr": "2-6-23 Uehommachinishi, Chuo-ku, Osaka 542-0062, Japan",
+"a": "MINAM"
+},
+{
+"n": "Mugunfa",
+"addr": "5-16-15 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "Yoshokuya Fujiya",
+"addr": "2-2-1 Yariyamachi, Chuo-ku, Osaka 540-0027, Japan",
+"a": "CHUO"
+},
+{
+"n": "Hommachi Seimenjo Chukasobakobo",
+"addr": "B2F, Semba Center Bldg No. 2, 1-3-2 Sembachuo, Chuo-ku, Osaka 541-0055, Japan",
+"a": "CHUO"
+},
+{
+"n": "Kamado",
+"addr": "4-1-11 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "Sugimachi",
+"addr": "1-6-22 Azuchimachi, Chuo-ku, Osaka 541-0052, Japan",
+"a": "CHUO"
+},
+{
+"n": "OIMATSU Tempura Suzuki",
+"addr": "4-4-2 Nishitemma, Kita-ku, Osaka 530-0047, Japan",
+"a": "KITA"
+},
+{
+"n": "Être à l'aise",
+"addr": "1-26-2 Uemachi, Chuo-ku, Osaka 540-0005, Japan",
+"a": "CHUO"
+},
+{
+"n": "Pokémon Center Osaka DX & Pokémon Café",
+"addr": "Daimaru Shinsaibashi Main Bldg 9F, 1-7-1 Shinsaibashi-suji, Chuo-ku, Osaka 〒542-8501",
+"a": "MINAM"
+},
+{
+"n": "Kirby Café Osaka",
+"addr": "Daimaru Shinsaibashi 9F, 1-7-1 Shinsaibashi-suji, Chuo-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Sushi Harasho",
+"addr": "3-30 Uenomiyacho, Tennoji-ku, Osaka 543-0037, Japan",
+"a": "TNJ"
+},
+{
+"n": "Shunten Shin",
+"addr": "3-8-10 Ueshio, Tennoji-ku, Osaka 543-0002, Japan",
+"a": "TNJ"
+},
+{
+"n": "Yugen",
+"addr": "14-14 Ishigatsujicho, Tennoji-ku, Osaka 543-0031, Japan",
+"a": "TNJ"
+},
+{
+"n": "genso",
+"addr": "2-7-18 Inari, Naniwa-ku, Osaka 556-0023, Japan",
+"a": "TNJ"
+},
+{
+"n": "Shunsaiten Tsuchiya",
+"addr": "41-4 Toyotsucho, Suita, Osaka 564-0051, Japan",
+"a": "NORTH"
+},
+{
+"n": "Kirari",
+"addr": "7-1-49 Tanimachi, Chuo-ku, Osaka 542-0012, Japan",
+"a": "CHUO"
+},
+{
+"n": "Nikomi Kimura",
+"addr": "6-18-6 Tanimachi, Chuo-ku, Osaka 542-0012, Japan",
+"a": "CHUO"
+},
+{
+"n": "LE PONT DE CIEL",
+"addr": "B1F Nihonseimei Yodoyabashi Bldg, 3-5-29 Kitahama, Chuo-ku, Osaka, Japan",
+"a": "CHUO"
+},
+{
+"n": "atelier HANADA",
+"addr": "2F Yodoyabashi odona, 4-3-1 Kitahama, Chuo-ku, Osaka, Japan",
+"a": "CHUO"
+},
+{
+"n": "Mashino Ken",
+"addr": "2F, 1-3-6 Awajimachi, Chuo-ku, Osaka, Japan",
+"a": "CHUO"
+},
+{
+"n": "PONTE VECCHIO",
+"addr": "1-8-16 Kitahama, Chuo-ku, Osaka, Japan",
+"a": "CHUO"
+},
+{
+"n": "La Cime",
+"addr": "3-2-15 Kawaramachi, Chuo-ku, Osaka 541-0048, Japan",
+"a": "CHUO"
+},
+{
+"n": "Yoshinosushi",
+"addr": "3-4-14 Awajimachi, Chuo-ku, Osaka, Japan",
+"a": "CHUO"
+},
+{
+"n": "Kitahama Anagoya",
+"addr": "Kitahama, Chuo-ku, Osaka, Japan",
+"a": "CHUO"
+},
+{
+"n": "Sushi Kyomachibori Sato",
+"addr": "B1F, 1-8-22 Kyomachibori, Nishi-ku, Osaka, Japan",
+"a": "CHUO"
+},
+{
+"n": "Nishino",
+"addr": "1-9-21 Kyomachibori, Nishi-ku, Osaka, Japan",
+"a": "CHUO"
+},
+{
+"n": "RiVi",
+"addr": "1-16-28 Kyomachibori, Nishi-ku, Osaka, Japan",
+"a": "CHUO"
+},
+{
+"n": "Osteria La Cicerchia",
+"addr": "3F, 2-3-4 Kyomachibori, Nishi-ku, Osaka, Japan",
+"a": "CHUO"
+},
+{
+"n": "Différence",
+"addr": "1-16-12 Utsubohommachi, Nishi-ku, Osaka 550-0004, Japan",
+"a": "CHUO"
+},
+{
+"n": "Utsubohommachi Gaku",
+"addr": "1-14-15 Utsubohommachi, Nishi-ku, Osaka 550-0004, Japan",
+"a": "CHUO"
+},
+{
+"n": "Sushi Sanshin",
+"addr": "2-7-14 Uchikyuhojimachi, Chuo-ku, Osaka 540-0013, Japan",
+"a": "CHUO"
+},
+{
+"n": "gastroteka bimendi",
+"addr": "1-5-9 Utsubohommachi, Nishi-ku, Osaka 550-0004, Japan",
+"a": "CHUO"
+},
+{
+"n": "Yiwanshui",
+"addr": "2-6-13 Utsubohommachi, Nishi-ku, Osaka 550-0004, Japan",
+"a": "CHUO"
+},
+{
+"n": "Daiko Sushi (Jan Jan Yokochō)",
+"addr": "Janjan Yokochō (Nanyo-dori shopping street), Ebisu-higashi, Naniwa-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Tsuruhashi Fugetsu (Tsuruhashi honten)",
+"addr": "In front of Tsuruhashi Station, Ikuno-ku, Osaka",
+"a": "EAST"
+},
+{
+"n": "Minoh Beer WAREHOUSE (Minoh Brewery)",
+"addr": "Minoh, Osaka Prefecture",
+"a": "NORTH"
+},
+{
+"n": "Kanbukuro",
+"addr": "1-2-1 Shinzaikecho-higashi, Sakai-ku, Sakai, Osaka",
+"a": "SOUTH"
+},
+{
+"n": "Kappo Matsuya",
+"addr": "Sennan (Senshū) area, southern Osaka Prefecture",
+"a": "SOUTH"
+},
+{
+"n": "Meoto Zenzai (夫婦善哉)",
+"addr": "Hōzenji Yokochō, Namba 1, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Kani Doraku Dōtonbori Honten (かに道楽 道頓堀本店)",
+"addr": "Dōtonbori 1-6-18, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Kinryu Ramen Dōtonbori (金龍ラーメン)",
+"addr": "Dōtonbori 1-1-18, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Harijyu Dōtonbori Honten (はり重)",
+"addr": "〒542-0071 Dōtonbori 1-9-17, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Dōtonbori Kamukura (どうとんぼり神座)",
+"addr": "Dōtonbori, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Kinguemon Dōtonbori (金久右衛門)",
+"addr": "Dōtonbori, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Chitose (千とせ) — Sennichimae",
+"addr": "Namba Sennichimae, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Rikuro Ojisan no Mise Namba Honten (りくろーおじさんの店)",
+"addr": "Namba, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Takoya Dōtonbori Kukuru Honten (たこ家道頓堀くくる)",
+"addr": "Dōtonbori, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Bible Club Osaka",
+"addr": "B1F, 2-1-11 Shinsaibashisuji, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Craftroom",
+"addr": "B2F Osaka Ekimae Daiichi Building, Umeda, Kita-ku, Osaka, Japan",
+"a": "KITA"
+},
+{
+"n": "Bar Nayuta",
+"addr": "Nishishinsaibashi (opposite Triangle Park, Amerikamura), Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Izakaya Toyo",
+"addr": "3-2-26 Higashinodamachi, Miyakojima-ku, Osaka, Japan",
+"a": "EAST"
+},
+{
+"n": "Hanadako",
+"addr": "Shin-Umeda Shokudōgai, Kakudachō, Kita-ku, Osaka, Japan",
+"a": "KITA"
+},
+{
+"n": "Dotonbori Imai",
+"addr": "Dōtonbori, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Ult Coffee Roasters",
+"addr": "Kyōmachibori, Nishi-ku, Osaka, Japan",
+"a": "CHUO"
+},
+{
+"n": "Marufuku Coffee Sennichimae Honten",
+"addr": "1-9-1 Sennichimae, Chuo-ku, Osaka 542-0074, Japan",
+"a": "MINAM"
+},
+{
+"n": "Chibo Dotonbori Honten",
+"addr": "Dōtonbori, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Mimiu Honten",
+"addr": "Hiranomachi, Chuo-ku, Osaka, Japan",
+"a": "CHUO"
+},
+{
+"n": "Misono Kobe (元祖鉄板焼ステーキ みその)",
+"addr": "Sannomiya, Chuo-ku, Kobe, Hyōgo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Hokkyokusei Shinsaibashi Honten",
+"addr": "2-7-27 Nishi-Shinsaibashi, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Roushouki (老祥記, Nankinmachi)",
+"addr": "Nankinmachi, Motomachi-dōri, Chuo-ku, Kobe, Hyōgo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Kobe Fugetsudo Motomachi Honten",
+"addr": "3-3-10 Motomachi-dōri, Chuo-ku, Kobe, Hyōgo, Japan",
+"a": "KNSAI"
+},
+{
+"n": "Takoume Honten (たこ梅 本店)",
+"addr": "Dōtonbori, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Okonomiyaki Fukutaro Sennichimae Honten (福太郎)",
+"addr": "2-3-17 Sennichimae, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Okonomiyaki Mizuno (美津の)",
+"addr": "Dōtonbori, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Ajinoya Honten (味乃家)",
+"addr": "2F, 1-7-16 Namba, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Kushinobo Hozenji Honten (串の坊 法善寺本店)",
+"addr": "Hōzenji area, Namba, Chuo-ku, Osaka, Japan",
+"a": "MINAM"
+},
+{
+"n": "Yaekatsu",
+"addr": "Jan Jan Yokochō (Nan'yō-dōri), Ebisuhigashi, Naniwa-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Yakiniku Sora (Tsuruhashi)",
+"addr": "In front of Tsuruhashi Station, Osaka",
+"a": "EAST"
+},
+{
+"n": "Kissa Doremi (喫茶ドレミ)",
+"addr": "Shinsekai, Ebisuhigashi, Naniwa-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Kojimaya (Sakai keshi mochi)",
+"addr": "Sakai-ku, Sakai, Osaka",
+"a": "SOUTH"
+},
+{
+"n": "Yaogen Raikodo (八百源来弘堂)",
+"addr": "Sakai-ku, Sakai, Osaka",
+"a": "SOUTH"
+},
+{
+"n": "Saryo Tsuboichi Seicha Honpo",
+"addr": "Sakai-ku, Sakai, Osaka",
+"a": "SOUTH"
+},
+{
+"n": "Tsunechan (yakiniku, Sakai)",
+"addr": "Wasin Bldg 1F, 4-7 Goryōdōri, Sakai-ku, Sakai, Osaka",
+"a": "SOUTH"
+},
+{
+"n": "Gofuso (五風荘)",
+"addr": "18-1 Kishiki-chō, Kishiwada, Osaka (just south of the Kishiwada Castle moat; 5 min walk from Nankai Takojizō Station)",
+"a": "SOUTH"
+},
+{
+"n": "Toretore Ichi (Sakai Dejima Fishing Port market)",
+"addr": "Sakai Dejima Fishing Port, Sakai-ku, Sakai, Osaka",
+"a": "SOUTH"
+},
+{
+"n": "RODDA group (ロッダグループ)",
+"addr": "1-23-9 Chiyozaki, Nishi-ku, Osaka (Sakura Bldg 2, 1F; by Kyocera Dome, Dome-mae Chiyozaki / Kujō stns)",
+"a": "BAY"
+},
+{
+"n": "Mouriya Honten (モーリヤ本店, Kobe)",
+"addr": "2-1-17 Shimoyamate-dori, Chuo-ku, Kobe, Hyogo",
+"a": "KNSAI"
+},
+{
+"n": "Steakland Kobe-kan (ステーキランド神戸館)",
+"addr": "6F Sannomiya Kogyo Bldg., 1-9-17 Kitanagasa-dori, Chuo-ku, Kobe, Hyogo",
+"a": "KNSAI"
+},
+{
+"n": "Wakkoqu (和黒, Kitano)",
+"addr": "1F Hillside Terrace, 1-22-13 Nakayamate-dori, Chuo-ku, Kobe, Hyogo",
+"a": "KNSAI"
+},
+{
+"n": "Freundlieb (フロインドリーブ, Kobe)",
+"addr": "4-6-15 Ikuta-cho, Chuo-ku, Kobe, Hyogo",
+"a": "KNSAI"
+},
+{
+"n": "Nishimura Coffee Nakayamate Honten (にしむら珈琲店 中山手本店)",
+"addr": "Nakayamate-dori 1-chome 26, Chuo-ku, Kobe, Hyogo 650-0004",
+"a": "KNSAI"
+},
+{
+"n": "Ide Shoten (井出商店, Wakayama)",
+"addr": "4-84 Tanaka-machi, Wakayama-shi, Wakayama",
+"a": "KNSAI"
+},
+{
+"n": "Mitsumori Honpo (三津森本舗, Arima Onsen)",
+"addr": "Yumotozaka, Arima-cho, Kita-ku, Kobe, Hyogo",
+"a": "KNSAI"
+},
+{
+"n": "Ichiju Nisai Ueno Minoten (一汁二菜うえの 箕面店)",
+"addr": "2-5 Minokoen, Minoh, Osaka 562-0002",
+"a": "NORTH"
+},
+{
+"n": "Man-u",
+"addr": "5F, 1-2-33 Dojima, Kita-ku, Osaka 530-0003",
+"a": "KITA"
+},
+{
+"n": "Yoshiko",
+"addr": "1-8-5 Sonezakishinchi, Kita-ku, Osaka 530-0002",
+"a": "KITA"
+},
+{
+"n": "Macauda",
+"addr": "2-1-3 Tokiwamachi, Chuo-ku, Osaka 540-0028",
+"a": "CHUO"
+},
+{
+"n": "il luogo di TAKEUCHI",
+"addr": "5-1-26 Fukushima, Fukushima-ku, Osaka 553-0003",
+"a": "KITA"
+},
+{
+"n": "Yasubei (安兵衛, Nishikujō)",
+"addr": "3-11-18 Nishikujō, Konohana-ku, Osaka",
+"a": "BAY"
+},
+{
+"n": "Aabel Curry (アアベルカレー)",
+"addr": "3F Fujii Estate Bldg, 1-25-9 Kujō, Nishi-ku, Osaka",
+"a": "BAY"
+},
+{
+"n": "Sawashi Shoten (沢志商店, Hirao Little Okinawa)",
+"addr": "3-15-19 Hirao, Taishō-ku, Osaka",
+"a": "BAY"
+},
+{
+"n": "TUGBOAT_TAISHO (タグボート大正)",
+"addr": "1-1-14 Sangen'ya-nishi, Taishō-ku, Osaka",
+"a": "BAY"
+},
+{
+"n": "Kinopio's Café (Super Nintendo World)",
+"addr": "Super Nintendo World, Universal Studios Japan, Sakurajima, Konohana-ku, Osaka",
+"a": "BAY"
+},
+{
+"n": "Tengu (Jan Jan Yokochō kushikatsu)",
+"addr": "Jan Jan Yokochō (Nan'yō-dōri), Ebisuhigashi, Naniwa-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Tsuriganeya Honpo (釣鐘屋本舗)",
+"addr": "By Shitennō-ji, Tennōji-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Sennariya Coffee (千成屋珈琲)",
+"addr": "Jan Jan Yokochō, Ebisuhigashi, Naniwa-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Sennichimae Hatsuse (千日前はつせ)",
+"addr": "2F Hatsuse Bldg., 11-25 Namba Sennichimae, Chuo-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Hisakuni Kōsendō (久國紅仙堂, Minoo momiji tempura)",
+"addr": "1-1-40 Minoo, Minoh-shi, Osaka",
+"a": "NORTH"
+},
+{
+"n": "Momotaro (桃太郎, Minoo momiji tempura)",
+"addr": "Taki-michi (falls trail), Minoo, Minoh-shi, Osaka",
+"a": "NORTH"
+},
+{
+"n": "Menya Hakkaisan (麺屋 八海山)",
+"addr": "Takatsuki–Ibaraki area (Tabelog area 高槻), Osaka Prefecture",
+"a": "NORTH"
+},
+{
+"n": "Saishiki Ramen Kinsei Takatsuki Honten (彩色ラーメンきんせい 高槻本店)",
+"addr": "Takatsuki-shi, Osaka",
+"a": "NORTH"
+},
+{
+"n": "Le Sucré-Coeur Kishibe (ル・シュクレクール 岸部)",
+"addr": "Kishibe, Suita-shi, Osaka",
+"a": "NORTH"
+},
+{
+"n": "Okonomiyaki Aomori (お好み焼 青森, Shin-Nagata)",
+"addr": "4-8-6 Kubo-cho, Nagata-ku, Kobe, Hyogo",
+"a": "KNSAI"
+},
+{
+"n": "Katamachi Kawaguchi (片町 川口)",
+"addr": "1-3-11 Katamachi, Miyakojima-ku, Osaka 534-0025",
+"a": "EAST"
+},
+{
+"n": "Okinawa Sakaba Kijimunā no Mori (沖縄酒場 きじむなーの森)",
+"addr": "Sangenya-nishi, Taishō-ku, Osaka (moved into TUGBOAT_TAISHO, 1-11-14 Sangenya-nishi, Jan 2020)",
+"a": "BAY"
+},
+{
+"n": "Yamada Shōten (山田商店, Ikuno Koreatown)",
+"addr": "4-9-6 Momodani, Ikuno-ku, Osaka 544-0034",
+"a": "EAST"
+},
+{
+"n": "Yakiniku Horumon Manmasa (焼肉・ホルモン 万正)",
+"addr": "3-3-2 Momodani, Ikuno-ku, Osaka",
+"a": "EAST"
+},
+{
+"n": "Omoro Taishō Honten (おもろ 大正本店)",
+"addr": "1-8-7 Sangenya-higashi, Taishō-ku, Osaka",
+"a": "BAY"
+},
+{
+"n": "Okamuro Saketen Chokubaijo (岡室酒店直売所, Kyōbashi)",
+"addr": "3-2-13 Higashi-Nodachō, Miyakojima-ku, Osaka",
+"a": "EAST"
+},
+{
+"n": "Izakaya Marushin (居酒屋 丸進, Kyōbashi)",
+"addr": "3-2-19 Higashi-Nodachō, Miyakojima-ku, Osaka",
+"a": "EAST"
+},
+{
+"n": "Junkissa American (純喫茶アメリカン)",
+"addr": "1-7-4 Dōtonbori, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Naniwa Menjiro (なにわ 麺次郎)",
+"addr": "4-1-17 Namba, Chūō-ku, Osaka 542-0076 (inside Kintetsu Osaka-Namba Station — platform ticket needed)",
+"a": "MINAM"
+},
+{
+"n": "Shōben Tango-tei (正弁丹吾亭)",
+"addr": "Hōzenji Yokochō, Namba 1-chōme, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Creo-Ru Dōtonbori (たこ焼き くれおーる 道頓堀)",
+"addr": "1-6-4 Dōtonbori, Chūō-ku, Osaka 542-0071",
+"a": "MINAM"
+},
+{
+"n": "Jūtei (重亭, Namba)",
+"addr": "3-1-30 Namba, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Okonomiyaki Yukari Sennichimae (ゆかり 千日前店)",
+"addr": "2-11-12 Sennichimae, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Rokukakutei (六覚燈, Kuromon)",
+"addr": "Kuromon Market arcade, Nipponbashi, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Menya Joroku (麺屋 丈六, Ura-Namba)",
+"addr": "Ura-Namba (near Nankai Namba Station), Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Meijiken (明治軒, Shinsaibashi)",
+"addr": "Shinsaibashi, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Grill Baranoki (グリルばらの木)",
+"addr": "near Shinsaibashi Station, Chūō-ku, Osaka",
+"a": "MINAM"
+},
+{
+"n": "Okonomiyaki Den (Nishinari)",
+"addr": "1-5-18 Tsurumibashi, Nishinari-ku, Osaka",
+"a": "TNJ"
+},
+{
+"n": "Fukase-zushi (深清鮓, Sakai)",
+"addr": "1-1-22 Dejimachō, Sakai-ku, Sakai, Osaka",
+"a": "SOUTH"
+},
+{
+"n": "Nakai Grill (Sakai)",
+"addr": "2-1-30 Kurumanochō, Sakai-ku, Sakai, Osaka",
+"a": "SOUTH"
+},
+{
+"n": "Iwashibune (いわし船, Sakai)",
+"addr": "3-2-13 Ichinochō-higashi, Sakai-ku, Sakai, Osaka",
+"a": "SOUTH"
+},
+{
+"n": "Torimi (鳥美, Kishiwada kashimin-yaki)",
+"addr": "7-29 Sakaimachi, Kishiwada, Osaka",
+"a": "SOUTH"
+},
+{
+"n": "Honke Arochi Marutaka (本家アロチ 丸髙 中華そば, Wakayama)",
+"addr": "2-50 Tomodachō, Wakayama, Wakayama",
+"a": "KNSAI"
 }
 ]

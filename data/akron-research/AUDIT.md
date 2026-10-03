@@ -30,6 +30,7 @@
 - Tooling fix (lesson → code): `tools/density.py` listed only areas that already had records, so 5 of 6 empty
   areas were invisible; it now reports every RESUME-targeted area (0-count areas show NEED +N).
 
+<<<<<<< HEAD
 ## 2026-10-03 · W2a food AKR+BARB
 Budget: 34 WebSearch calls (cap 40; one, a `allowed_domains=[cleveland.com]` call, was rejected by the API as
 not crawlable — counted anyway). WebFetch not used (policy). Nothing from memory: every address/dish/status
@@ -104,3 +105,37 @@ Total: 34 WebSearch calls (incl. the rejected cleveland.com call), under the 40 
 
 **Channel mix:** reader votes 2 (Signal Akron BOTC, Akron Life Flavor/BOTC) · editorial 4 (Akron Life, Scene, Ohio Magazine, Signal features) · TV 1 (WKYC) · reference 1 (Wikipedia) · CVB 1 (corroborating) · creators 0.
 **Geocoding:** 1 search spent; no attributable place-pin coordinate surfaced → all 10 UNVERIFIED in `geo/_geoout_w2a.json` (for the browser helper). **BARB yield low (1)**: Barberton/Wadsworth/Green coverage is mostly Akron Life alone — the next BARB wave should target Beacon Journal (via AOL syndication), Cleveland Magazine and Scene directly.
+=======
+## 2026-10-03 · W1b — first full wave (food canon + sights backbone) · Stages 1–6
+- Fresh session WebSearch budget; ~156 calls used (discovery ~120, address/status/geocode ~36). WebFetch not used
+  (policy). Gannett domains (beaconjournal.com, cantonrep.com) refuse the crawler → Beacon Journal / Repository stories
+  cited via their AOL/Yahoo syndication URLs (same bylined articles).
+- **Merit lists used (measurement):** Signal Akron Best of the City 2025/2026 (reader vote) · Akron Life 330 Flavor Awards
+  2026 (reader vote) + "20 Best Restaurants for 2026" + Best of the City 2025 · Canton Repository foodie panel "11 Stark
+  County restaurants" · Cleveland Magazine Cuyahoga Falls 18 best / Highland Square 12 / Canton 21 must-go · Ohio Magazine
+  Akron features · KentWired Best of Kent 2024–26 (reader vote) · Beacon Journal burger/pizza brackets + Local Flavor.
+- **Kept:** 35 food (+ Belgrade) and 41 sights, each ≥2 independent credible sources (CVB listings count only as
+  corroboration of a place measured elsewhere). Tiers graded within area; every area has a pinned tier-1 (AKR Stan Hywet
+  /Dr. Bob's/Derby Downs…, NSUM Gorge + Hudson, KENT May 4 + Kent Dam + Nelson-Kennedy, BARB Anna-Dean barns, CANT Pro
+  Football HOF/First Ladies/McKinley, MASS Massillon Museum).
+- **Status:** all kept places open per 2025/2026 coverage; specific checks — Parasson's (WKYC: Akron dining room reopened
+  while Stow/Barberton closed), Bob's Hamburg (WKYC fire story → Yelp listing updated Aug 2026 with current hours: open),
+  Village Inn Chicken (Milich's closed 2014, reopened as Village Inn Chicken). Wild Goats Café held (Uber Eats closed
+  May 2025).
+- **Geocode:** 29 sights pinned from Wikipedia infobox / HMDB / Remarkable Ohio coords (high 21 · med 8). Restaurants: tried
+  3 (Swensons, Belgrade, Strickland's) — no place pin surfaces → all food UNVERIFIED for the browser helper; never estimated.
+- **MEASURED & DROPPED / held:** see RESUME.md "Held" (single-outlet or status-unverified). Deep Lock Quarry excluded
+  (CVNP interior). Ohio Magazine *sponsored* Gervasi/Hartville posts not counted.
+- **Tooling:** `tools/build-akron.py` Cleveland-leak exemption widened for legit regional names that appeared in data
+  (Cleveland-Massillon Rd, Cleveland Guardians, Cleveland Jewish News, Cleveland Historical, Encyclopedia of Cleveland
+  History, News 5 Cleveland) — still fires on a real template leak.
+- **Build:** `rebuild-city.py akron-oh --build` → 29 pins; sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT ·
+  buildcheck PASS; `npm run validate` + `npm test` green. Index card relinked live; CITIES.md row updated.
+>>>>>>> c3fcb6aa458070449328f0dcf111a9baa672cce7
+
+## 2026-10-03 · W2a ↔ W1b reconciliation
+- W2a (above) ran in parallel with W1b (two sessions on the same branch). Merged on pull: 6 W2a places were already in
+  W1b → their extra sources folded into the W1b records (Swensons +AKRONLIFE; Hoppin' Frog +OHIOMAG +VISITAKRON); the
+  other 4 duplicates added nothing new. W2a now holds only the 4 genuinely new/promoted places: New Era Restaurant,
+  Papa Joe's Iacomini's (was held — OpenTable only; now Signal Akron + Akron Life), Thirsty Dog Taphouse (was held —
+  Akron Life only; now Ohio Magazine + Visit Akron-Summit), Lock 15 Brewing (was held — Signal only; now + Visit Akron).
