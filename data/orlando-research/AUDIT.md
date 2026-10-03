@@ -280,3 +280,34 @@
   The Strand (Apple shows Side Chik at 811 N Mills — status re-check queued), The Monroe, Sushi Saint, City Food Hall, Hideaway, Courtesy,
   AVA, Francesco's, Nile, Taverna Opa, Anh Hong, Kabooki (E Colonial), Shin Jung, Ivanhoe Park Brewing.
 - Rebuild → 4 gates PASS · validate DATA OK · npm test ALL PASS → **186 sights + 92 food = 278 on the map** (was 226).
+
+## 2026-10-03 (session 6 · wave 5) · batch 2 — +39 pins, +12 places (NEED areas)
+- **Pins (39 more, `geo/_geoout_w5pin.json` now 91):** restaurantguru place pins (med, address-matched) across KISS, SPRNG, SPACE,
+  EAST, WEST; host-building pins Plant Street Market + Crooked Can @ 426 W Plant St (via Norigami listing). Wikipedia own-article
+  coords (high) for the new sights.
+- **New places (FOOD_W5A / SIGHTS_W5A / SOURCES_W5A):**
+  IDR — Selam Ethiopian & Eritrean (MICHELIN 2026 Rec.), SeaWorld Orlando (park itself was missing; WIKIPEDIA + OFFICIAL),
+  The Mall at Millenia (WIKIPEDIA + OFFICIAL + VISITORLANDO). WPK — Kai Asian Street Fare (MICHELIN 2026 Rec.).
+  DTO — RusTeak Thornton Park (VISITORLANDO + CLICKORLANDO; Wine Spectator awards), Angebilt Building (WIKIPEDIA + HMDB),
+  Lake Eola Heights Historic District (WIKIPEDIA + City of Orlando). KISS — Perico Ripiao, Sajoma Latin Fusion, Express Cafe,
+  Susana's Cafe (held lead → promoted): Gastro Obscura place pages + Experience Kissimmee Latin Culinary Trail. *Judgement call:*
+  the trail is a joint Experience Kissimmee × Atlas Obscura product — counted as CVB + editorial (2 voices), same rule as Visit
+  Orlando + editorial elsewhere. SPRNG — Big Tree Park (The Senator) (WIKIPEDIA + Seminole County).
+- **Verification catch:** two sight fields first drafted from memory (Big Tree Park street number + county URL, Mall at Millenia
+  address) were re-checked by search before commit — Mall confirmed (4200 Conroy Rd); Big Tree Park address replaced by the county's
+  own description (no street number published).
+- **Status:** Mirchi Indian Street Food — RG "permanently closed" flag is stale: Orange Observer (2026-07-07) reports Cilantro moved in
+  and shares the space → open. El Cilantrillo (Kissimmee) — RG "may be permanently closed" flag, no closure news found; kept open per
+  FOX 35 + 2025 Latin Culinary Trail, **re-check queued**. The Strand (807 N Mills) — Apple shows Side Chik at 811 N Mills; re-check queued.
+- **Rejected/skipped:** Swine & Sons (Michelin says Winter Park, RG says 201 N Bumby — location ambiguous), Rogers Building (wiki coord
+  ~700 m off, as W4), Tinker Building (no 2nd source confirmed), Pulse (demolished Mar 2026, memorial due 2027), Madame Tussauds/SEA LIFE
+  (no own coordinate inside ICON Park), Walala (no address surfaced), Primo/Chuan Fu/JUJU (no RG listing).
+- Rebuild → 4 gates PASS · validate DATA OK · npm test ALL PASS → **192 sights + 125 food = 317 on the map**, 483 researched.
+
+## 2026-10-03 (session 6 · wave 5) · batch 3 — +11 pins, wave close
+- **Pins (+11, `_geoout_w5pin.json` = 102):** At Siam, Twenty Pho Hour, Kavas (IDR); Austin's Coffee, Foxtail (WPK); Charley's,
+  Lizzie's, Celebration Town Tavern (address 721 Front St from RG), Big John's Rockin' BBQ (KISS); Willie's Pinchos, Linda's La Cantina (EAST).
+- **Address correction:** Big John's Rockin' BBQ — 324 Broadway listing closed; current 220 E Monument Ave Ste A per the restaurant's own
+  Toast ordering page → pinned there (med).
+- No RG listing: Moon Wok, Bar Kada, The Chapman, Persimmon Hollow, Wondermade, Carib Brewery, Q's Crackin' Crab → wave 6 retry list.
+- Rebuild → 4 gates PASS · validate DATA OK · npm test ALL PASS → **192 sights + 136 food = 328 on the map** (wave start 226), 483 researched.
