@@ -500,3 +500,28 @@ New source keys: MAHONINGMATTERS, BARBERTONLIBRARY (SOURCES_W3A.json).
   (Akron Life ×2; measured 4.7★/258 on one platform), Burntwood Tavern (regional chain — skipped).
 - **Lesson:** a Signal Akron URL was first written from memory and caught before commit — URLs only from search results.
 - Gates: sourcecheck PASS (175) · geocheck PASS (134) · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. ≈62 WebSearch.
+
+## 2026-10-03 W6 · batch 2 — BARB + KENT food, AKR sights (FOOD_W6B, FOOD_W6C, SIGHTS_W6, SOURCES_W6, geo/_geoout_w6b)
+- **Sources mined:** Akron Life (Vue ×2, Industry Kitchen, Well Grilled Beau, Slice of Home, Gourmet Food in the City of Green, Eating Your
+  Way Through Kent, Akron History Center, Firestone/BLU Jazz location pages, 330 Flavor Awards Portage), ABJ via Yahoo/AOL (Industry Local
+  Flavor, outdoor-dining list, Over Easy features, "Brews'd and battered" brewery story), Repository patio round-up, Medina Gazette (Vue
+  opening), Cleveland Magazine (Bell Tower, 12 Highland Square spots), Scene (BLU Jazz+), Signal Akron (History Center, Highland Square,
+  Coventry Crossing), Ideastream, Ohio Magazine (18 reasons Akron-Canton, Akron: Shop Eat & See), The Portager + Record-Courier (Horseshoe
+  Diner, Bell Tower, Over Easy), KentWired Best of Kent 2023/24. New outlets in SOURCES_W6: MEDINAGAZETTE; RECORDCOURIER got its registry name/url.
+- **Added food (6):** BARB The Vue Wadsworth (Akron Life ×2 + Medina Gazette), The Industry Kitchen & Bar Green (Akron Life + ABJ Local Flavor;
+  1890 East Liberty schoolhouse), Beau's Grille Fairlawn (Akron Life ×2 + ABJ 2025; promoted from W5 held), 35° Brix Green (Akron Life +
+  Repository patio list) · KENT Bell Tower Brewing Co. (CLEMAG + Portager + ABJ; 1858 church), Horseshoe Diner Ravenna (Portager +
+  Record-Courier) — first Ravenna place on the map.
+- **Added sights (4, AKR):** Akron History Center (opened Apr 2025; Signal + Ideastream + Akron Life + Ohio Magazine), Firestone Metro Park
+  (Wikipedia + Akron Life + Signal), BLU Jazz+ (Scene + Akron Life), Highland Theatre (CLEMAG + Signal).
+- **Pins:** 3 of 14 med (Beau's = Hilton Akron/Fairlawn Waze place; 35° Brix usarestaurants; Firestone Metro Park park coords + Waze place).
+  UNVERIFIED: Vue, Industry, Bell Tower, Horseshoe Diner, Akron History Center, BLU Jazz+, Highland Theatre.
+- **Closures surfaced:** Smoke on the Water + Pick's at PLX (Portage Lakes) shut after Labor Day (ABJ via Yahoo "Two favorite restaurants shut
+  down at Portage Lakes") → not added; Treno Ristorante (Kent depot) closed — depot now Over Easy; Square Records (Highland Square) closed
+  (Signal Akron "One last dig through bins"); Royal Docks (batch 1). R. Shea Brewing Akron closed; Lock 15 acquired (still operating — kept).
+- **Held:** Over Easy at the Depot Kent (Portager + ABJ, 152 Franklin Ave — no dated 2025/26 status source), Tree City Coffee (KentWired
+  BOK ×2 only + Scene directory), Henry Wahner's (Akron Life only), Water Street Tavern (Akron Life + KentWired; no dish), Lala's in the Lakes
+  (Akron Life only), Sweet Pea Cafe Fairlawn (Akron Life only), Akron Glass Works (Ohio Magazine only), Clifford's Mini Auto Museum,
+  North Water Brewing (KentWired + Portager openings only), Alessi's Ristorante Ravenna (Portager opening only), Circle L / Galaxy Wadsworth
+  (Akron Life listing only). Garrett's Mill: reopened under new ownership (Weekly Villager) — record stays open.
+- Gates: sourcecheck PASS (185) · geocheck PASS (137) · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. ≈112 WebSearch.

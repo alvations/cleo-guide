@@ -421,3 +421,14 @@ corroborating Angelo's only) · Wikipedia (2 sights). Searches: ~122 main thread
 - **No coordinate surfaced:** The Franklin Fountain, Vietnam Restaurant, La Jefa, Ogawa, Sarcone's Bakery/Deli, Di Bruno (9th St), Pop's,
   Pho 75, Philadelphia Brewing Co, Amy's Pastelillos, Amá, Emilia, Denise's Delicacies. Status: none of these listings showed a closure marker.
 - **Build:** 276 → **310 on map**. sourcecheck PASS 518 · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
+
+## 2026-10-03 (W7 · PINS ONLY) · batches B + C
+- **+31 pins** (`geo/_geoout_w7b.json` 8, `geo/_geoout_w7c.json` 23), same aggregator technique, each checked against its street block:
+  Buk Chon, Campo's Deli, DanDan, Heung Fa Chun, Khyber Pass Pub, Ray's Cafe, Siddiq's Water Ice, Fette Sau · Gojjo, Vientiane Cafe,
+  Saad's Halal, Hadramout, Tom's Dim Sum, Ting Wong, Dim Sum House by Jane G's, Villa di Roma, Los Cuatro Soles, Mole Poblano, Hello
+  Vietnam, Cake, El Poquito, Night Kitchen Bakery, Bredenbeck's, McNally's Tavern, La Nova Pizza & Steak, Picanha, Chaikhana Uzbekistan
+  (listing now trades as "Uzbekistan Restaurant (formerly Chaikhana Uzbekistan)" — same address, open), Manayunk Brewing, Deke's Bar-B-Que,
+  Palizzi Social Club, Lloyd Whiskey Bar.
+- **Held (no coordinate / shared-building only):** George's Sandwich Shop, Honeysuckle, Frankford Hall, Taqueria La Patrona; Nam Phuong (only the
+  1100 Washington Ave plaza point of a neighbouring tenant surfaced — not used); Attic Brewing (shares 137 W Berkley St with Deke's — needs its own pin).
+- **Build:** 310 → **341 on map**. 4 gates PASS/CONSISTENT · validate DATA OK · npm test ALL PASS.
