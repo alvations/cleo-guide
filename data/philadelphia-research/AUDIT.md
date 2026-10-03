@@ -317,3 +317,18 @@ Philly Mag). MAIN: Grey Towers Castle (HELD lead cleared — National Historic L
   geoout w1/w4 records corrected so the merge can't restore the stale pin). A pin on a closed branch is a wrong pin.
 - Build: sourcecheck PASS 505 · geocheck PASS · statuscheck CONSISTENT (7 closed flagged; 9 on-page places still unchecked) · buildcheck
   PASS; page 182 on map; npm validate DATA OK, npm test ALL PASS.
+**Batch 7 (DAY food share 31% → 50%):** Jolene's (Inquirer top 2025 openings + MLT Best French 2026); Phoenixville — Stable 12 Brewing
+(Visit Philly Craft Beer Trail + MLT), Steel City Coffeehouse & Brewery (Visit Philly + MLT + Inquirer), Root Down Brewing (Inquirer 2017 +
+Craft Beer & Brewing 'Breakout Brewer' [new key CRAFTBEERBREWING]); Kennett Square — Portabello's (HELD lead cleared: Inquirer Kennett
+guide + MLT), Philter Coffee, La Michoacana Homemade Ice Cream (Inquirer + MLT), Sweet Amelia's (LaBan review 2023 + MLT); Chadds Ford —
+Hank's Place (reopened 2025-07-15 after Ida: Inquirer + 6abc + MLT + CBS), Chaddsford Winery (MLT + Visit Philly wine guide + Inquirer);
+New Hope — Stella of New Hope (Inquirer + 6abc + Visit Bucks), Ferry Market, Nektar (Inquirer New Hope guide + Visit Philly [+ Visit Bucks]).
+DROPPED/HELD: The Hattery Stove & Still (replaced by The Still on State); Heirloom, Terrain Café (Doylestown — no address surfaced);
+Pietro's Prime (OpenTable/MLT only); Rivertown Taps, Sedona Taphouse (single outlet / opening notice only).
+**W5 FINAL BUILD:** rebuild-city --build → sourcecheck PASS 518/518 (0 lone-authority) · geocheck PASS · statuscheck CONSISTENT (7 closed
+flagged; 10 on-page places without a closure check — listed in RESUME) · buildcheck PASS; page 182 on map (151 sights + 31 food); npm
+validate DATA OK; npm test ALL PASS. density.py: every area OK; food share ≥50% in every area (DAY exactly 50%).
+**W5 channel mix (62 new places):** editorial of record (Inquirer/LaBan ~45, Philly Mag ~22, WHYY/Billy Penn/Phila Tribune ~6) ·
+food/travel sites (Infatuation ~30, Visit Philly ~22, Time Out 1, Food & Wine 1, Craft Beer & Brewing 1, Atlas Obscura 1) · regional
+(Main Line Today ~14, Visit Bucks 3, Chestnut Hill Local 2, Northeast Times 1) · local TV (6abc ~10, CBS 1) · creators 1 (Mark Wiens,
+corroborating Angelo's only) · Wikipedia (2 sights). Searches: ~122 main thread + 44 background pin agent.

@@ -247,3 +247,22 @@
 89 NT: Gator Grill, Royal Palm Grill, Farmers' Market (Fodor's only → held) → 4 added
 90 NPS: Long Pine Key, Pinelands, Paurotis Pond, Eco Pond (lone NPS authority) → 4 sights; Chekika CLOSED indefinitely (NPS) → not added
 91 Coords probe Eco Pond / Paurotis / Pinelands: extract printed 25.138709,-80.937543 (Eco) and 25.282657,-80.799723 (Paurotis) but the printing page is ambiguous (npplan.com vs nps.gov/places) → NOT pinned; candidate values recorded in AUDIT for re-verify
+92 Infatuation 25 best FTL (Larb, Greek Islands, Daniel's, D's Sports Bar, Southport, Steak 954, Evelyn's, Takato, Red Sea Eritrean, Il Paesano, Mai-Kai, Nour, Laspada's, Tortilleria Mexicana, Epazote, Egg N' You, Nove Pasta House; Gai Chicken & Rice, Kousine reviews)
+93 NT 10 best downtown FTL (Casa Sensei, Catch & Cut, Mykonos, Boathouse, The Katherine, Yolo, Temple Street) + 16 waterfront FTL (Coconuts, Boatyard, Shooters, Takato, Southport, Ocean Prime, Yot Bar)
+94 NT/VL for Inf-only (Epazote NT Mexican FTL; Red Sea, Nove = VL listings only → held; D's Sports Bar held)
+95 Inf/TO/VL for NT-only (Boatyard, Shooters — VL dock-and-dine; Temple Street — VL international; Yot, Mykonos held) → 4 added
+96 Wikipedia coords: Everglades Holiday Park (high); Mizell-Johnson SP, Anne Kolb none
+97 VL/Fodor's Broward nature sights → 3 sights
+98 TO 19 best downtown (Tâm Tâm, Jaguar Sun, NIU Kitchen, Drinking Pig, Eleventh Street Pizza, Mr. Omakase, Zuma, Miami Slice, Julia & Henry's, Motek, Over Under, PEZ, Mangrove, Soya & Pomodoro, Giselle, Manna Life, Pollos y Jarras, Novikov, Meraki)
+99 Infatuation Brickell 16 (NAOE 'longest-running omakase and still its best', River Oyster, Claudie, Kaori, Sunkissed) + downtown guides
+100 Infatuation reviews for TO downtown names (NIU, Drinking Pig, Eleventh Street, Miami Slice; Motek review is NYC → held) → 5 added incl. NAOE
+101 NT/TO/Inf NMIA held: Chéen-Huaye (NT+TO) added; Topkapi (Inf + NT hammam piece) added; Sim Sim, Sichuan Fish (Inf only) held
+102 Wikipedia NMIA sights: only city centroids (rejected); FIU Biscayne Bay Campus not a visitor sight
+103 NT/Inf/TO Aventura & Sunny Isles (Casa D'Angelo NT ×2, Asiatiko, Jarana, Etzel Itzik, Chayhana Oasis)
+104 GMCVB North Dade sights (Haulover Park/Marina, Tidal Cove, Oleta, Arch Creek — all in or resort-only)
+105 Etzel Itzik (NT + Inf) added; Jarana, Chayhana Oasis, Casa D'Angelo Aventura (NT only) held
+106 Infatuation 163rd St / NMB (Korean Kitchen, Sichuan Fish, Sim Sim, Sang's, Panya, King Palace, CY Chinese review)
+107 NT ten best North Miami (Captain Jim's, Ricky's Thai, Bulldog (closed), Chéen-Huaye, Fish Fish, Little Havana, Vega's, Petit Rouge, Cane a Sucre, Steve's) — old list; CY Chinese added (Inf + NT hot pot piece)
+108 Inf/TO Little Havana Central American (Pinolandia, Paseo Catracho, Antigua Guatemala, Mi Ranchito, Inf fritangas guide)
+109 NT/TO Hialeah/Doral held (Doggi's NT Best Arepa 2021, La Latina NT 2024, Charlie's, Pisco y Nazca — NT only)
+110 NT for Inf LH names → Pinolandia, Yambo, El Atlacatl added; Guayacan, Paseo Catracho, Old's Havana held

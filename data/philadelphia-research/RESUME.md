@@ -24,13 +24,21 @@ flock -w 3600 $LOCK python3 tools/rebuild-city.py philadelphia-pa --build   # + 
 ```
 
 ## In-flight wave
-**W5 (2026-10-03, session_01MqoZKuTGYq8oSdEz2K3dLu) — pins first, then NEED areas.**
-- Pin pass A (background agent, ≤50 searches): Wikipedia-article / host-building coordinates for ~40 unpinned restaurants
-  → `geo/_geoout_w5_pinA.json`. Probe this session: Google `!3d!4d` again NOT surfaced (cid links only); mapcarta dry for
-  restaurants — confirms the W4 lesson.
-- Discovery (main thread): NPH food (El Bohio/La Sierra/El Príncipe 2nd source), DAY food, UCW +6, MAIN +6, FISH +7, NW +5, SPH +5,
-  CC +3, NE +2, SJ +1 → `FOOD_W5.json` / `SIGHTS_W5.json` / `CREATORS_W5.json`.
-- Then rebuild --build → 4 gates → validate/test → card/CITIES/run-log.
+(none — W5 committed 2026-10-03, session_01MqoZKuTGYq8oSdEz2K3dLu; see State (W5).)
+
+## State (2026-10-03, after W5)
+- Discovered + sourced: **518** (176 sights, 342 food) — sourcecheck PASS 518/518. Page: **182 on map** (151 sights + 31 food).
+  4 gates PASS (statuscheck: 7 closed flagged, 9 on-page places still without a closure check); npm validate + test PASS; card + CITIES refreshed.
+- Per area (density.py) — **every area OK**: CC 126/125 · SPH 86/85 · FISH 56/55 · UCW 40/40 · NPH 33/30 · NW 45/45 · NE 25/25 ·
+  MAIN 35/35 · SJ 25/25 · DAY 48/35.
+- Food & drink share — **every area ≥ 50%**: CC 56% · SPH 86% · FISH 89% · UCW 68% · NPH 52% · NW 60% · NE 80% · MAIN 60% · SJ 52% · DAY 50%.
+- **The gap is now pins, not discovery: ~336 sourced places (almost all restaurants) are UNVERIFIED** and held off the page by the
+  geocode gate. W5 proved WebSearch can't close it (3/34 pins, all host-building Wikipedia coords) → `tools/geocode-helper.html`.
+- W5 files: FOOD_W5.json (58) · SIGHTS_W5.json (4) · SOURCES_W5.json (FOODANDWINE, PHILLYTRIB, PPS, CRAFTBEERBREWING) · CREATORS_W5.json
+  (Mark Wiens → Angelo's) · geo/_geoout_w5_pinA.json (34: 3 med) · geo/_geoout_w5_disc.json (Paul Robeson House, high) ·
+  geo/_geoout_w5_status.json (6 statuses). Push helper: `_phi_push.sh` (regenerates docs/GEOCODE-BACKLOG.md on merge conflict).
+- Corrections: Tony Luke's → "Tony & Nick's Steaks (formerly Tony Luke's)"; Joe's Steaks re-addressed to the Fishtown flagship
+  (1 W Girard Ave) and its stale Torresdale pin removed; Tired Hands Brewing Company (16 Ardmore Ave) and Declaration House flagged CLOSED.
 
 ## State (2026-10-03, after W4)
 - Discovered + sourced: **456** (172 sights, 284 food) — sourcecheck PASS 456/456. Page: **179 on map** (150 sights + 29 food).
@@ -72,28 +80,24 @@ Taqueria La Raza held), DAY (Marsha Brown, 1906 at Longwood, Portabello's, Kenne
 Chaddsford Winery), NW (Chestnut Hill Brewing, Mt Airy Tap Room, Bar Lizette, Downtime Bakery, Hot Clucks, Tyemeka's, Zion's),
 then UCW drinks, FISH breweries, NE, MAIN. W3 did not apply this rule — the session's search budget was spent before it arrived.
 
-## Next wave (W5) — ordered plan (food & drink first in NPH and DAY)
-1. **DAY +3 and food share (8/32)**: needs ≥2 credible per place — try Inquirer LaBan suburban reviews / Main Line Today "Best of" /
-   Philly Mag for: Victory Brewing Downingtown (address needed), Iron Hill West Chester (3 W Gay St), Side Bar (10 E Gay St), Portabello's
-   (Kennett), Black Bass Hotel (3774 River Rd, Lumberville — OpenTable 4.8/4,966 measured), Lambertville Station, d'floret, Dilworthtown Inn,
-   Kennett Brewing, Triumph New Hope, 1906 at Longwood, Marsha Brown.
-2. **NPH +6 (food 8/24)**: second source for the Fairhill held three (El Bohio, La Sierra, El Príncipe — La Caribeña added via Temple Philadelphia Neighborhoods — try Al Día, WHYY,
-   Inquirer "El Centro de Oro"); Isla Verde Cafe; Brewerytown: Boozy Mutt done, try Brewerytown Beats/Taproom, Fairmount Park Parks on Tap;
-   Temple: Iron Hill N Broad (1700 N Broad St). Sights: Church of the Advocate, Smith Memorial Arch, Uptown Theater.
-3. **FISH +7**: Next of Kin (confirm location), Dock Street Fishtown, St. Oner's (Tired Hands), Brewery ARS Frankford Ave, Philly Style Bagels,
-   Cake Life, Sor Ynez; sights: Liberty Lands Park, St. Michael's (NoLibs), Palmer Cemetery, Penn Treaty Museum, Fishtown shad signs.
-4. **UCW +6 / MAIN +6 / NW +5 / SPH +5 / CC +3 / NE +2 / SJ +1**: UCW Aksum, Lil Pop Shop, Tacos Don Memo, Kabobeesh, City Tap House, Distrito;
-   sights Paul Robeson House, Malcolm X Park. MAIN Villa Artigiano, McCloskey's, Izzy's (Inquirer Ardmore map) + Lassan/Narberth; sights Grey
-   Towers, Ambler Theater. NW Zion's Cuisine, Ramen MNYK, Biryani Bowl, Trolley Car. SPH Schmaltz, Grace Tavern, The Sidecar, Café Ynez; Bok
-   rooftop. CC Lillian's, Little Nonna's, Barbuzzo, Morimoto. NE Lipkin's (8013 Castor), Passage (10783 Bustleton), Four Seasons Diner.
-   SJ Indiya (612 Haddon), Cafe Antonio's (827 Haddon) — need a 2nd attributable source.
-5. Status pass on ~170 still-unchecked places: use 2026 closings round-ups by month, then current best-of lists (efficient multi-name hits).
-6. Pins: tools/geocode-helper.html on the UNVERIFIED backlog (~250 restaurants).
-7. Every ~50 places: `flock … python3 tools/rebuild-city.py philadelphia-pa --build` → gates → npm validate/test →
-   `python3 data/philadelphia-research/_phi_card.py <sights_on> <food_on> <sourced> <date> "<note>"` (under the lock).
+## Next wave (W6) — ordered plan (pins first; discovery is at density)
+1. **Pins via tools/geocode-helper.html (browser)** on the UNVERIFIED backlog (docs/GEOCODE-BACKLOG.md → philadelphia-pa; ~336). Priority:
+   tier-1/2 restaurants in CC and SPH (Zahav-tier Michelin, cheesesteak/roast-pork canon), then the W5 adds, then Joe's Steaks (Fishtown,
+   1 W Girard Ave). Write results to geo/_geoout_w6_helper.json → `rebuild-city.py philadelphia-pa --build`.
+   Confirm Gou's unit number (5734 Old 2nd St came from a search summary) before pinning.
+2. **Status pass** on the 9 on-page places with no closure check (Todd House, Hopewell Furnace, Vedge, Talula's Table, Sly Fox, Barclay
+   Prime, Vernick Fish, Steve's Prince of Steaks, Walnut Street Cafe) and on the ~200 off-page places still "unknown" — 2026 closings
+   round-ups first (multi-name hits). Max's Steaks: re-check after the Jan 2026 sale.
+3. **Held leads** (need a 2nd attributable outlet or an address): La Sierra, El Príncipe (Fairhill); Zion's Cuisine, Tyemeka's, Das Good
+   Cafe (Germantown); Passage (Bustleton); Lipkin's Best (Overbrook Park); Osushi, Locust Lane, Will's + Bill's, Bald Birds, Animated
+   Brewing (suburbs); The Hawke, Hamilton's Grill Room, Lambertville Station (NJ Monthly only); Heirloom / Terrain (Doylestown, no address);
+   Indiya, Cafe Antonio's (Collingswood).
+4. Optional balance: NPH/SJ food share sits at 52% — add food first if those areas grow.
 
 ## Acceptance checklist
-- [ ] every area OK in density.py (W4: ~44 short — SJ/NE/CC nearly there)
-- [x] --sourcecheck / --geocheck / --statuscheck / --buildcheck green (2026-10-03)
+- [x] every area OK in density.py (W5, 2026-10-03) — and every area ≥50% food & drink
+- [x] --sourcecheck / --geocheck / --statuscheck / --buildcheck green (2026-10-03, after W5)
+- [ ] restaurant pins: ~336 UNVERIFIED → geocode-helper (the remaining gap between sourced and rendered)
+- [ ] closure check on the last 9 on-page places
 - [x] npm run validate && npm test green (2026-10-03)
 - [x] index card live with counts; CITIES.md row; AGENT-PROMPTS run-log rows (2026-10-02)

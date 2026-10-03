@@ -215,3 +215,18 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
 - **Geocode candidates NOT pinned:** a search extract printed Eco Pond 25.138709,-80.937543 and Paurotis Pond 25.282657,-80.799723,
   but the printing page could be npplan.com rather than nps.gov → left UNVERIFIED; re-verify on an NPS/Wikipedia page.
 - **Gates:** all green, 0 unchecked; validate DATA OK; test ALL PASS.
+
+## 2026-10-03 (session 4) · batch 6 — FTL lists + Broward nature + downtown lists
+- **Added (17):** FTL food 4 — Epazote (Inf 25 ∩ NT best Mexican FTL), Boatyard, Shooters (NT 16 waterfront ∩ Visit Lauderdale
+  dock-and-dine), Temple Street Eatery (NT downtown FTL ∩ VL international); FTL sights 3 — Mizell-Eula Johnson State Park (Fodor's +
+  Wikipedia), Anne Kolb Nature Center, Everglades Holiday Park (high pin). DTB food 5 — NAOE (t1; Inf "still its best" + Time Out
+  2026 ranking — resolves the batch-3 hold), NIU Kitchen, Drinking Pig BBQ, Eleventh Street Pizza, Miami Slice (TO 19 downtown ∩ Inf).
+- **Held:** Red Sea Eritrean, Nove Pasta House (Inf + VL listing only), D's Sports Bar, Yot Bar, Mykonos (one editorial outlet),
+  Motek (Inf review found is the NYC branch), Sunkissed (Inf only), Julia & Henry's / PEZ / Giselle / Pollos y Jarras / Meraki (TO only).
+
+## 2026-10-03 (session 4) · batch 7 — North Dade + Little Havana Central American canon
+- **Added (7 food):** NMIA — Chéen-Huaye (NT + TO), Topkapi at Hürrem Hammam (Inf + NT), Etzel Itzik Deli (Inf + NT), CY Chinese
+  (Inf + NT hot pot); LHAV — Pinolandia (t1, 24-hour fritanga), Yambo (baho), El Atlacatl (pupusas) — Inf ∩ NT.
+- **Held:** Sim Sim Cafe, Sichuan Fish, Guayacan, Paseo Catracho, Old's Havana (Inf only); Jarana, Chayhana Oasis, Casa D'Angelo
+  Aventura, Fish Fish, Petit Rouge, Doggi's, La Latina, Charlie's, Pisco y Nazca (NT only).
+- **Totals:** 448 researched (296 food & drink = 66%) → 124 pinned (107 sights + 17 food). Hub card, CITIES.md row, run-log row updated.

@@ -496,3 +496,14 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 
 
 - 2026-10-03 (Osaka W4): Michelin venue-page search returns only central-Osaka-city venues — Sakai, Hokusetsu, bay wards and Hyōgo yield nothing (Hyōgo selection due 2027-02-16). allowed_domains rejects asahi/mainichi/nhk/sankei/yomiuri/cntraveler. Michelin *editorial* round-ups (oden guide, casual lunches, Naniwa on a Plate) are the cheapest way to get a named dish for a Michelin-listed venue. English editorial is exhausted for Osaka outer areas (~0.3 places/search); next wave should go Japanese-first (百名店 + ward/official pages).
+
+### 2026-10-03 · Philadelphia W5 — lessons
+- Restaurant pins via WebSearch are exhausted: a dedicated 44-search pass found 3/34 (all Wikipedia coordinates of a *host building* —
+  Comcast Technology Center, FMC Tower, Ayer Building — graded med). Google results return only `maps?cid=` links (no `!3d!4d`);
+  mapcarta has no restaurant POIs for Philly in the index. Remaining ~336 restaurant pins → `tools/geocode-helper.html`.
+- A Wikipedia restaurant pin can point at a CLOSED branch: Joe's Steaks' article coordinates are the Torresdale original (closed 2022).
+  Check that the pinned branch is the live one before trusting an article's coordinates.
+- Highest-yield discovery query shape this wave: an Infatuation neighbourhood guide (one search → 6–10 names) followed by one batched
+  `"A"; "B"; "C"` query restricted to inquirer.com/phillymag.com/6abc.com/visitphilly.com for the second outlet.
+- Suburban day-trip food (DAY) is best sourced via the Inquirer's town guides (Kennett Square, New Hope, Doylestown) × Main Line Today /
+  Visit Bucks County, and Visit Philly's 15-essential-breweries list.
