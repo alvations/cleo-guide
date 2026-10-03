@@ -36,5 +36,15 @@
   "geoSource": "Extended '<name> 座間味 navitime 緯度 経度' returned only the address (TV Tokyo travel entry) — no venue coordinate",
   "status": "open",
   "statusSource": "Mapple 50726 current Zamami lunch guide + TV Tokyo travel entry 22306, checked 2026-10-03"
+ },
+ {
+  "n": "Minatomachi Parlor, Itoman (港町パーラー)",
+  "address": "沖縄県糸満市糸満989-83 糸満市場いとま～る内",
+  "lat": 26.128846,
+  "lng": 127.667959,
+  "confidence": "low",
+  "geoSource": "Extended '港町パーラー 沖縄県糸満市糸満989-83 緯度 経度' — two listing coordinates (Yahoo Map place / ekitan/gnavi result set) 26.1288456,127.6679590 and 26.128846,127.6679592 agree; consistent with Itoman market Itomāru at 糸満989-83 → aggregator = low",
+  "status": "open",
+  "statusSource": "Ryukyu Shimpo 4969355 (2026 feature, opened Apr 2025) + OTV 88014 + shop Instagram @minatomati.parlor (11:00-15:00), checked 2026-10-03"
  }
 ]
