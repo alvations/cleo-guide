@@ -218,5 +218,35 @@
   "geoSource": "Wikipedia infobox (High_Water_Mark_of_the_Rebellion_Monument) 39°48.747′N 77°14.143′W",
   "status": "open",
   "statusSource": "NPS Gettysburg NMP (open grounds)"
+ },
+ {
+  "n": "Colonial Complex & Colonial Courthouse (York County History Center)",
+  "address": "157 W Market St, York, PA 17401",
+  "lat": 39.96194,
+  "lng": -76.72972,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox (Golden_Plough_Tavern, 157–159 W Market St) 39°57′43″N 76°43′47″W",
+  "status": "open",
+  "statusSource": "home.nps.gov article on the revitalized Colonial Complex (current)"
+ },
+ {
+  "n": "Pine Grove Furnace State Park",
+  "address": "1100 Pine Grove Rd, Gardners, PA 17324",
+  "lat": 40.03295,
+  "lng": -77.30467,
+  "confidence": "med",
+  "geoSource": "Wikipedia infobox 40°01′59″N 77°18′17″W (park point, at the furnace/visitor area)",
+  "status": "open",
+  "statusSource": "dcnr.pa.gov Pine Grove Furnace State Park pages (current)"
+ },
+ {
+  "n": "Boiling Springs & Children's Lake",
+  "address": "Front St, Boiling Springs, PA 17007",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No lake/place pin surfaced (only village centroid) — held",
+  "status": "open",
+  "statusSource": "visitpa.com Boiling Springs listing"
  }
 ]

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Madison &amp; Dane County (Wisconsin) field guide — 23 sights and 18 places to eat across the Capitol Square isthmus, UW–Madison, the east and west sides, Middleton, Verona, the Dane County towns and the day trips to Taliesin, New Glarus and Devil&rsquo;s Lake, each traceable to its source (Wisconsin State Journal, Cap Times, Isthmus, Madison Magazine, WPR, Travel Wisconsin, James Beard), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
-<title>Madison &amp; Dane County Field Guide — Sourced</title>
+<meta name="description" content="Indianapolis field guide — 27 sights and 5 places to eat across Indianapolis, Speedway, the north suburbs and the south side, each traceable to its source (IndyStar, Indianapolis Monthly, Indianapolis Business Journal, WFYI, Visit Indy, James Beard, NPS, Atlas Obscura), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<title>Indianapolis Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -220,9 +220,9 @@
 <div class="wrap">
 
 <header>
-  <p class="eyebrow">Field guide · Madison, Wisconsin &amp; Dane County, sourced</p>
-  <h1>Madison<span class="thin">the isthmus, the lakes &amp; Dane County &mdash; curds, fish fry &amp; Frank Lloyd Wright</span></h1>
-  <p class="standfirst">23 sights and 18 places to eat across <strong>Madison</strong> &mdash; the Capitol Square isthmus, the UW campus, the east and west sides &mdash; plus Middleton, Verona, the <strong>Dane County</strong> towns and the classic day trips (Taliesin, New Glarus, Devil&rsquo;s Lake), each traceable to the source that named it. The canon is Wisconsin&rsquo;s own: squeaky <strong>cheese curds</strong>, the <strong>Friday fish fry</strong>, <strong>supper clubs</strong> and the brandy old fashioned, the <strong>Dane County Farmers&rsquo; Market</strong>, Babcock Hall ice cream, Hmong &amp; Lao kitchens and New Glarus beer. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="eyebrow">Field guide · Indianapolis &amp; Central Indiana, sourced</p>
+  <h1>Indianapolis<span class="thin">the Speedway, Mass Ave, the Cultural Trail &amp; a deep immigrant table</span></h1>
+  <p class="standfirst">27 sights and 5 places to eat across <strong>Indianapolis</strong> &mdash; downtown and Monument Circle, Mass Ave, Fountain Square, Broad Ripple, Irvington, the <strong>Speedway</strong> &mdash; plus the north suburbs and the south side. Each is traceable to the source that named it. Indy’s canon is its own: the breaded <strong>pork tenderloin</strong> sandwich, <strong>sugar cream pie</strong>, St. Elmo’s fiery <strong>shrimp cocktail</strong>, Shapiro’s deli, fried biscuits &amp; apple butter, the <strong>Burmese/Chin</strong> kitchens of the south side and the International Marketplace’s global corridor. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -233,13 +233,14 @@
   <div class="chips" id="baseFilter"></div>
 </div>
 <div class="maplegend">
-  <span><i style="background:#C0504D"></i>The Isthmus & Capitol Square</span>
-  <span><i style="background:#41729F"></i>UW–Madison campus & State Street</span>
-  <span><i style="background:#9BBB59"></i>East side — Willy Street, Atwood, Schenk-Atwood, Monona & the north side</span>
-  <span><i style="background:#8064A2"></i>West side — Monroe Street, the Arboretum, Hilldale & Odana</span>
-  <span><i style="background:#E8973A"></i>Middleton, Verona & Fitchburg</span>
-  <span><i style="background:#4BACC6"></i>Dane County towns</span>
-  <span><i style="background:#B5838D"></i>Day trips</span>
+  <span><i style="background:#E8973A"></i>Downtown & Wholesale District</span>
+  <span><i style="background:#C0504D"></i>Mass Ave, Lockerbie & the Old Northside</span>
+  <span><i style="background:#8064A2"></i>Fountain Square, Fletcher Place & the near south</span>
+  <span><i style="background:#4F81BD"></i>Midtown</span>
+  <span><i style="background:#4BACC6"></i>Speedway & the westside</span>
+  <span><i style="background:#D4A017"></i>Irvington & the east side</span>
+  <span><i style="background:#7E8FC4"></i>North suburbs</span>
+  <span><i style="background:#A6588C"></i>South side</span>
   <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
 </div>
 
@@ -254,7 +255,7 @@
     <div class="chips" id="cuisineFilter"></div>
   </div>
   <p class="ctrl-label">Search</p>
-  <input id="search" type="search" placeholder="cheese curds, fish fry, Capitol, Taliesin…" autocomplete="off">
+  <input id="search" type="search" placeholder="tenderloin, sugar cream pie, Speedway, Mass Ave…" autocomplete="off">
   <p class="ctrl-label">Filter by source</p>
   <div class="chips" id="srcFilter"></div>
   <p class="ctrl-label">Filter by area</p>
@@ -298,7 +299,7 @@
   Hours, admission and opening days change — verify before you drive.<br>
   A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
   Compiled August 2026 · <strong>last verified 2026-10-02</strong>. Map tiles © OpenStreetMap contributors.<br>
-  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across the Wisconsin State Journal, The Cap Times, Isthmus, Madison Magazine, City Cast Madison, Wisconsin Public Radio, Travel Wisconsin, Destination Madison, the James Beard Foundation, the Wisconsin DNR and the Frank Lloyd Wright / Taliesin institutions, plus vetted creators. Every coordinate is verified into data/geocodes.json and every place status-checked; closed places stay on the map, flagged. Places still awaiting a verified pin are held back until they have one.</span><br><br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across IndyStar, Indianapolis Monthly, the Indianapolis Business Journal, WFYI, Mirror Indy, Visit Indy, James Beard, NPS, Indiana DNR, Atlas Obscura and official sites. Every coordinate is verified into data/geocodes.json and every place status-checked. Newly-added spots still pending a verified place pin are held back until they have one.</span><br><br>
   <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
   <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
 </footer>
@@ -309,144 +310,134 @@
 <script>
 
 const S = {
-  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/things-to-do/madison-wisconsin",l:"Atlas Obscura"},
-  "DAILYCARDINAL":{k:"DAILYCARDINAL",t:"The Daily Cardinal (UW–Madison)",u:"https://www.dailycardinal.com/",l:"The Daily Cardinal (UW–Madison)"},
-  "EXPERIENCEWI":{k:"EXPERIENCEWI",t:"Experience Wisconsin magazine",u:"https://experiencewisconsinmag.com/",l:"Experience Wisconsin magazine"},
-  "FLWFOUNDATION":{k:"FLWFOUNDATION",t:"Frank Lloyd Wright Foundation",u:"https://franklloydwright.org/",l:"Frank Lloyd Wright Foundation"},
-  "LONELYPLANET":{k:"LONELYPLANET",t:"Lonely Planet",u:"https://www.lonelyplanet.com/",l:"Lonely Planet"},
-  "NPS":{k:"NPS",t:"National Park Service (NHL / National Natural Landmark)",u:"https://www.nps.gov/",l:"National Park Service (NHL / National Natural Landmark)"},
+  "CLIO":{k:"CLIO",t:"Clio (Marshall University)",u:"https://theclio.com/",l:"Clio (Marshall University)"},
+  "CURRENT":{k:"CURRENT",t:"Current Publishing (Current in Carmel/Fishers/Noblesville)",u:"https://www.youarecurrent.com/",l:"Current Publishing (Current in Carmel/Fishers/Noblesville)"},
+  "DOWNTOWNINDY":{k:"DOWNTOWNINDY",t:"Downtown Indy, Inc.",u:"https://downtownindy.org/",l:"Downtown Indy, Inc."},
+  "EXARC":{k:"EXARC",t:"EXARC",u:"https://exarc.net/",l:"EXARC"},
+  "IBJ":{k:"INDIANAPOLIS BUSINESS JOURNAL",t:"INDIANAPOLIS BUSINESS JOURNAL",u:"",l:""},
+  "INDIANAHISTORY":{k:"INDIANA HISTORICAL SOCIETY",t:"Indiana Historical Society / Indiana Historical Bureau",u:"https://indianahistory.org/",l:"Indiana Historical Society / Indiana Historical Bureau"},
+  "INDYARTS":{k:"INDYARTS",t:"Arts Council of Indianapolis (Indy Arts Guide)",u:"https://indyarts.org/",l:"Arts Council of Indianapolis (Indy Arts Guide)"},
+  "INDYENCYCLOPEDIA":{k:"INDYENCYCLOPEDIA",t:"The Encyclopedia of Indianapolis (IUPUI/Polis Center)",u:"https://indyencyclopedia.org/",l:"The Encyclopedia of Indianapolis (IUPUI/Polis Center)"},
+  "INDYPL":{k:"INDYPL",t:"Indianapolis Public Library",u:"https://www.indypl.org/",l:"Indianapolis Public Library"},
+  "IPM":{k:"IPM",t:"Indiana Public Media",u:"https://www.ipm.org/",l:"Indiana Public Media"},
+  "LOC":{k:"LOC",t:"Library of Congress (HABS/HAER)",u:"https://www.loc.gov/",l:"Library of Congress (HABS/HAER)"},
+  "NPS":{k:"NATIONAL PARK SVC",t:"NATIONAL PARK SVC",u:"",l:""},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
+  "POLIS":{k:"POLIS",t:"Polis Center (Indiana University Indianapolis)",u:"https://polis.indianapolis.iu.edu/",l:"Polis Center (Indiana University Indianapolis)"},
+  "ROADSIDEAMERICA":{k:"ROADSIDE AMERICA",t:"Roadside America",u:"https://www.roadsideamerica.com/",l:"Roadside America"},
   "SAHARCHIPEDIA":{k:"SAHARCHIPEDIA",t:"SAH Archipedia (Society of Architectural Historians)",u:"https://sah-archipedia.org/",l:"SAH Archipedia (Society of Architectural Historians)"},
-  "SHOWCAVES":{k:"SHOWCAVES",t:"showcaves.com",u:"https://showcaves.com/",l:"showcaves.com"},
-  "TIMEOUT":{k:"TIMEOUT",t:"Time Out — Madison",u:"https://www.timeout.com/madison",l:"Time Out — Madison"},
-  "TONEMADISON":{k:"TONEMADISON",t:"Tone Madison",u:"https://tonemadison.com/",l:"Tone Madison"},
-  "TRAVELWI":{k:"TRAVEL WISCONSIN",t:"Travel Wisconsin (WI Dept. of Tourism)",u:"https://www.travelwisconsin.com/",l:"Travel Wisconsin (WI Dept. of Tourism)"},
-  "UNESCO":{k:"UNESCO",t:"UNESCO World Heritage Centre",u:"https://whc.unesco.org/en/list/1496",l:"UNESCO World Heritage Centre"},
-  "UPNORTHNEWS":{k:"UPNORTHNEWS",t:"UpNorthNews — Madison Food Guide (reader surveys)",u:"https://upnorthnewswi.com/food-guide/madison/",l:"UpNorthNews — Madison Food Guide (reader surveys)"},
-  "VISITMADISON":{k:"DESTINATION MADISON",t:"Destination Madison (CVB)",u:"https://www.visitmadison.com/",l:"Destination Madison (CVB)"},
-  "VISITMIDDLETON":{k:"VISITMIDDLETON",t:"Visit Middleton (Middleton Tourism Commission)",u:"https://visitmiddleton.com/",l:"Visit Middleton (Middleton Tourism Commission)"},
-  "VISITTHEUSA":{k:"VISITTHEUSA",t:"Visit The USA (Brand USA)",u:"https://www.visittheusa.com/destination/madison",l:"Visit The USA (Brand USA)"},
-  "WHS":{k:"WISCONSIN HIST. SOCIETY",t:"Wisconsin Historical Society",u:"https://www.wisconsinhistory.org/",l:"Wisconsin Historical Society"},
-  "WIDNR":{k:"WISCONSIN DNR",t:"Wisconsin DNR — State Parks",u:"https://dnr.wisconsin.gov/topic/parks",l:"Wisconsin DNR — State Parks"},
-  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (notability + published coordinates)",u:"https://en.wikipedia.org/",l:"Wikipedia (notability + published coordinates)"},
-  "WMTV":{k:"WMTV 15",t:"WMTV 15 News",u:"https://www.wmtv15news.com/",l:"WMTV 15 News"},
-  "WPR":{k:"WPR",t:"Wisconsin Public Radio",u:"https://www.wpr.org/",l:"Wisconsin Public Radio"},
-  "WTMJ":{k:"WTMJ",t:"WTMJ (Milwaukee)",u:"https://wtmj.com/",l:"WTMJ (Milwaukee)"}
+  "TCLF":{k:"TCLF",t:"The Cultural Landscape Foundation",u:"https://www.tclf.org/",l:"The Cultural Landscape Foundation"},
+  "VISITINDIANA":{k:"VISITINDIANA",t:"Visit Indiana (Indiana Destination Development Corp.)",u:"https://visitindiana.com/",l:"Visit Indiana (Indiana Destination Development Corp.)"},
+  "VISITINDY":{k:"VISIT INDY",t:"VISIT INDY",u:"",l:""},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"WIKIPEDIA",u:"",l:""},
+  "WISH":{k:"WISH-TV 8",t:"WISH-TV 8",u:"",l:""}
 };
 
 const AREAS = [
-  {id:"CAP",n:"The Isthmus & Capitol Square (downtown, King St, Monona Terrace)",c:"#C0504D"},
-  {id:"UW",n:"UW–Madison campus & State Street (Bascom Hill, Memorial Union, Picnic Point)",c:"#41729F"},
-  {id:"EAST",n:"East side — Willy Street, Atwood, Schenk-Atwood, Monona & the north side",c:"#9BBB59"},
-  {id:"WEST",n:"West side — Monroe Street, the Arboretum, Hilldale & Odana",c:"#8064A2"},
-  {id:"MVF",n:"Middleton, Verona & Fitchburg",c:"#E8973A"},
-  {id:"DANE",n:"Dane County towns (Mount Horeb, Stoughton, Sun Prairie, McFarland, Cross Plains, Mazomanie)",c:"#4BACC6"},
-  {id:"TRIP",n:"Day trips (Spring Green & Taliesin, New Glarus, House on the Rock, Devil's Lake & Baraboo)",c:"#B5838D"}
+  {id:"DTN",n:"Downtown & Wholesale District (Monument Circle, White River State Park, Indiana Ave)",c:"#E8973A"},
+  {id:"MASS",n:"Mass Ave, Lockerbie & the Old Northside",c:"#C0504D"},
+  {id:"FSQ",n:"Fountain Square, Fletcher Place & the near south",c:"#8064A2"},
+  {id:"MID",n:"Midtown (Newfields, Children's Museum, Crown Hill, Butler)",c:"#4F81BD"},
+  {id:"WEST",n:"Speedway & the westside (International Marketplace)",c:"#4BACC6"},
+  {id:"EAST",n:"Irvington & the east side",c:"#D4A017"},
+  {id:"NORTH",n:"North suburbs (Carmel, Fishers, Zionsville, Noblesville, Westfield)",c:"#7E8FC4"},
+  {id:"SOUTH",n:"South side (Greenwood, Beech Grove, Southport — 'Chindianapolis')",c:"#A6588C"}
 ];
 
 const P = [
-{t:1,a:"CAP",n:"Wisconsin State Capitol",ad:"2 E Main St, Madison, WI 53703",la:43.07472,ln:-89.38417,w:"The 1917 Beaux-Arts capitol at the heart of the Isthmus — the only granite capitol dome in the US. Free tours cover the rotunda mural 'The Resources of Wisconsin', and the summer observation deck gives a 360° view of the lakes. A National Historic Landmark (2001).",k:"free tours; observation deck in summer",g:["ICON","LAKES","HIST","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Wisconsin_State_Capitol"],["VISITTHEUSA","https://www.visittheusa.co.uk/destination/madison"],["WHS","https://www.wisconsinhistory.org/Records/NationalRegister/NR1769"]]},
-{t:1,a:"CAP",n:"Monona Terrace",ad:"1 John Nolen Dr, Madison, WI 53703",la:43.07167,ln:-89.38056,w:"Frank Lloyd Wright's 1938 design for a civic center on Lake Monona, rejected by one vote and built only in 1997, nearly four decades after his death. The free rooftop garden is the city's best lake-and-Capitol view.",g:["ICON","FLW","LAKES","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Monona_Terrace"],["FLWFOUNDATION","https://franklloydwright.org/?p=296"],["SAHARCHIPEDIA","https://archipediavm.upress.virginia.edu/buildings/WI-01-DA22"]]},
-{t:1,a:"UW",n:"Memorial Union Terrace",ad:"800 Langdon St, Madison, WI 53706",la:43.07639,ln:-89.40000,w:"The lakeside terrace of the 1928 Memorial Union on Lake Mendota — the city's 'unofficial living room', with sunburst chairs in John Deere green, Allis-Chalmers orange and yellow, a beer and a Babcock cone at sunset. The Union is on the National Register.",g:["ICON","CAMPUS","LAKES","HIST"],s:[["VISITTHEUSA","https://www.visittheusa.co.uk/destination/madison"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Memorial_Union_(University_of_Wisconsin%E2%80%93Madison)"],["WHS","https://www.wisconsinhistory.org/Records/NationalRegister/NR2419"]]},
-{t:1,a:"EAST",n:"Olbrich Botanical Gardens & Thai Pavilion",ad:"3330 Atwood Ave, Madison, WI 53704",la:43.09270,ln:-89.33461,w:"16 acres of free outdoor gardens on Lake Monona plus the Bolz Conservatory glass pyramid — and the gilded Royal Thai Pavilion, a gift of the Thai government and the only one on the US mainland.",k:"outdoor gardens free",g:["ICON","LAKES","ODD","FREE"],s:[["VISITTHEUSA","https://www.visittheusa.co.uk/destination/madison"],["ATLASOBSCURA","https://www.atlasobscura.com/places/royal-thai-pavilion"]]},
-{t:1,a:"WEST",n:"UW–Madison Arboretum",ad:"1207 Seminole Hwy, Madison, WI 53711",la:43.04142,ln:-89.43065,w:"The world's first restored ecological communities — prairies, savannas and wetlands started by Aldo Leopold and CCC crews in the 1930s — now a National Historic Landmark (2021) with a free trail network. Atlas Obscura's 'Lost City Forest' is the failed 1920s subdivision inside it.",k:"free",g:["ICON","CAMPUS","LAKES","OUTDOOR"],s:[["NPS","https://home.nps.gov/subjects/nationalhistoriclandmarks/upload/UW-Arboretum_NHL_WSecFinal_2021-06-30_Redacted-photos1.pdf"],["VISITTHEUSA","https://www.visittheusa.co.uk/destination/madison"],["ATLASOBSCURA","https://www.atlasobscura.com/places/lost-city-forest"]]},
-{t:1,a:"TRIP",n:"Taliesin",ad:"5607 County Rd C, Spring Green, WI 53588",la:43.14111,ln:-90.07056,w:"Frank Lloyd Wright's home, studio and 600-acre estate in the Wyoming Valley, the exemplar of the Prairie School — a UNESCO World Heritage Site since 2019 (the 20th-Century Architecture of Frank Lloyd Wright). Tours from the visitor center.",g:["ICON","FLW","LAKES","HIST"],s:[["UNESCO","https://usicomos.org/frank-lloyd-wrights-taliesin-and-taliesin-west-world-heritage-sites"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Taliesin_(studio)"],["FLWFOUNDATION","https://franklloydwright.org/?p=13081"]]},
-{t:1,a:"TRIP",n:"House on the Rock",ad:"5754 State Rd 23, Spring Green, WI 53588",la:43.10000,ln:-90.13611,w:"Alex Jordan Jr.'s maximalist fever-dream (1945–59) atop a rock chimney near Spring Green — the cantilevered Infinity Room, automaton music machines and the world's largest indoor carousel. Time Out calls it a must from Madison; it sits minutes from Taliesin.",g:["ICON","FLW","OUTDOOR","ARTS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/House_on_the_Rock"],["TIMEOUT","https://www.timeout.com/madison/things-to-do/best-things-to-do-in-madison"],["TRAVELWI","https://www.travelwisconsin.com/entertainment-and-attractions/house-on-the-rock-attraction-203820"]]},
-{t:1,a:"TRIP",n:"Devil's Lake State Park",ad:"Devil's Lake State Park, south of Baraboo, Sauk County, WI",la:43.41472,ln:-89.71306,w:"Wisconsin's largest state park (1911), a glacial lake ringed by 500-foot pink-quartzite bluffs in the Baraboo Range, 35 miles from Madison — the Devil's Doorway trail is the classic short climb.",g:["ICON","LAKES","OUTDOOR"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Devil%27s_Lake_State_Park_(Wisconsin)"],["UPNORTHNEWS","https://upnorthnewswi.com/local/things-to-do/wisconsin-day-trips/"],["WHS","https://www.wisconsinhistory.org/record/property/HI91125/devils-lake-state-park"]]},
-{t:1,a:"DANE",n:"Cave of the Mounds",ad:"Blue Mounds, WI 53517",la:43.01806,ln:-89.81611,w:"A limestone show cave in the south slope of the East Blue Mound, discovered by quarrymen in 1939 — a National Natural Landmark (1987) that the Chicago Academy of Sciences called 'the significant cave of the upper Midwest'.",g:["OUTDOOR","HIST"],s:[["NPS","https://en.wikipedia.org/wiki/Cave_of_the_Mounds"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Cave_of_the_Mounds"],["SHOWCAVES","https://showcaves.com/english/usa/showcaves/Mounds.html"]]},
-{t:1,a:"MVF",n:"National Mustard Museum",ad:"7477 Hubbard Ave, Middleton, WI 53562",la:43.09537,ln:-89.51109,w:"Barry Levenson's free museum of 7,000+ mustards (and mustard memorabilia) in downtown Middleton, with a tasting bar — Wisconsin roadside whimsy at its best.",k:"free admission",g:["MUS","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/National_Mustard_Museum"],["LONELYPLANET","https://www.lonelyplanet.com/usa/wisconsin/south-central-wisconsin/attractions/national-mustard-museum/a/poi-sig/1250696/1324495"],["VISITMIDDLETON","https://visitmiddleton.com/location/national-mustard-museum/"]]},
-{t:2,a:"WEST",n:"Henry Vilas Zoo",ad:"Henry Vilas Park, Madison, WI",la:43.05944,ln:-89.41028,w:"A 28-acre AZA-accredited county zoo beside Lake Wingra that has been free since 1904 — a condition of the Vilas family's land gift.",k:"free admission",g:["LAKES","FAM","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Henry_Vilas_Zoo"],["TRAVELWI","https://www.travelwisconsin.com/listing/henry-vilas-zoo/940/"],["SAHARCHIPEDIA","https://archipediavm.upress.virginia.edu/buildings/WI-01-DA33"]]},
-{t:1,a:"WEST",n:"Jacobs House (Wright's first Usonian)",ad:"441 Toepfer Ave, Madison, WI 53711",la:43.05861,ln:-89.44167,w:"Frank Lloyd Wright's 1937 house for journalist Herbert Jacobs — often cited as his first Usonian design, and one of eight Wright buildings inscribed together as a UNESCO World Heritage Site in 2019. A private home: view from the street.",k:"private residence — exterior only",g:["FLW","HIST"],s:[["UNESCO","https://industry.travelwisconsin.com/media/press-releases/inscription-of-two-wisconsin-landmarks-to-the-unesco-world-heritage-list"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Herbert_and_Katherine_Jacobs_First_House"],["WMTV","https://www.wmtv15news.com/content/news/2--512451231.html"]]},
-{t:1,a:"WEST",n:"First Unitarian Society Meeting House",ad:"900 University Bay Dr, Shorewood Hills, WI 53705",la:43.07589,ln:-89.43518,w:"Wright's own congregation's church (1949–51), its copper-clad prow roof rising like hands in prayer — a National Historic Landmark (2004) with public tours.",g:["FLW","HIST"],s:[["NPS","https://npgallery.nps.gov/NRHP/GetAsset/NRHP/73000076_text"],["WIKIPEDIA","https://en.wikipedia.org/wiki/First_Unitarian_Society_of_Madison"],["WHS","https://wisconsinhistory.org/record/national-register/NR74/900-university-bay-dr"]]},
-{t:1,a:"UW",n:"Chazen Museum of Art",ad:"750 University Ave, Madison, WI 53706",la:43.07389,ln:-89.39863,w:"UW–Madison's free art museum — 25,000 works across two buildings, the second a 2011 Machado-Silvetti addition — the second-largest collection in Wisconsin.",k:"free admission",g:["CAMPUS","MUS","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Chazen_Museum_of_Art"],["TRAVELWI","https://www.travelwisconsin.com/things-to-do/culture-arts/museums-history/chazen-museum-of-art"],["VISITMADISON","https://www.visitmadison.com/listings/chazen-museum-of-art/178662/"]]},
-{t:3,a:"CAP",n:"Robert M. Lamp House",ad:"22 N Butler St, Madison, WI 53703",la:43.07698,ln:-89.38253,w:"Madison's oldest Wright-designed house (1903), built for his boyhood friend 'Robie' Lamp and hidden inside a downtown block two streets from the Capitol — Atlas Obscura calls it an Easter egg. Exterior only.",k:"private — exterior only",g:["FLW","HIST","ODD"],s:[["ATLASOBSCURA","https://atlasobscura.com/places/lamp-house"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Robert_M._Lamp_House"],["WHS","https://www.wisconsinhistory.org/Records/Property/HI16091"]]},
-{t:2,a:"UW",n:"Camp Randall Stadium",ad:"1440 Monroe St, Madison, WI 53711",la:43.07000,ln:-89.41278,w:"The Badgers' 1917 stadium on a Civil War training-camp site — come for a home game and 'Jump Around' between the third and fourth quarters, when 76,000 people make the stands sway.",g:["ICON","CAMPUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Camp_Randall_Stadium"],["DAILYCARDINAL","https://dailycardinal.com/article/2024/09/jumping-into-the-history-of-uws-iconic-gameday-songs"],["WTMJ","https://wtmj.com/wisconsins-morning-news/2023/05/25/the-origin-of-jump-around-takes-home-emmy-for-best-short-feature/"]]},
-{t:1,a:"TRIP",n:"International Crane Foundation",ad:"E11376 Shady Lane Rd, Baraboo, WI 53913",la:43.54770,ln:-89.75630,w:"The world's only collection of all 15 crane species, at the Baraboo headquarters of the conservation group founded by two Cornell ornithology students in 1973 — Tone Madison calls it the nature scene's must-see.",g:["MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/International_Crane_Foundation"],["TONEMADISON","https://tonemadison.com/articles/making-the-nature-scene-baraboos-international-crane-foundation-has-all-the-cranes/"],["EXPERIENCEWI","https://experiencewisconsinmag.com/international-crane-foundation-baraboo/"]]},
-{t:2,a:"TRIP",n:"Circus World Museum",ad:"550 Water St, Baraboo, WI 53913",la:43.46690,ln:-89.73530,w:"The Ringling Brothers' winter quarters (1884–1918), now a Wisconsin Historical Society museum of circus wagons and history with summer big-top shows — a National Historic Landmark.",g:["MUS","HIST"],s:[["NPS","https://en.wikipedia.org/wiki/Circus_World_Museum"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Circus_World_Museum"],["WHS","https://www.wisconsinhistory.org/Records/Property/HI154479"]]},
-{t:2,a:"TRIP",n:"Pendarvis",ad:"114 Shake Rag St, Mineral Point, WI 53565",la:42.86389,ln:-90.17250,w:"Restored 1840s stone and log cottages of Cornish lead miners on Mineral Point's Shake Rag Street, run as a Wisconsin Historical Society site — pair it with a Cornish pasty in town.",g:["MUS","HIST"],s:[["WHS","https://www.wisconsinhistory.org/Records/NationalRegister/NR1806"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Pendarvis_(Mineral_Point,_Wisconsin)"],["SAHARCHIPEDIA","https://sah-archipedia.org/node/21384"]]},
-{t:2,a:"DANE",n:"Blue Mound State Park",ad:"Blue Mounds, WI 53517 (Iowa & Dane counties)",la:43.02806,ln:-89.85278,w:"The highest point in southern Wisconsin: two observation towers atop the West Blue Mound look north to the Baraboo Range and east to Madison, with mountain-bike and hiking trails and a hilltop pool.",g:["LAKES","OUTDOOR","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Blue_Mound_State_Park"],["WIDNR","https://dnr.wisconsin.gov/topic/parks/bluemound/nature"],["TRAVELWI","https://travelwisconsin.com/state-parks-forests/state-parks/blue-mound-state-park-204165"]]},
-{t:1,a:"UW",n:"Picnic Point",ad:"Lakeshore Nature Preserve, Univ. Bay Dr entrance, Madison, WI 53705",la:43.08944,ln:-89.41623,w:"A wooded peninsula that juts nearly a mile into Lake Mendota inside UW's 300-acre Lakeshore Nature Preserve — a flat walk to fire circles at the tip with the Capitol skyline across the water. On the north shore, Atlas Obscura's never-opened 1968 'Wright-style' beach house.",k:"free",g:["ICON","CAMPUS","LAKES","HIST"],s:[["VISITMADISON","https://www.visitmadison.com/blog/stories/post/hiking-picnic-point-and-lakeshore-preserve/"],["TRAVELWI","https://travelwisconsin.com/birding/lakeshore-nature-preserve-193648"],["ATLASOBSCURA","https://www.atlasobscura.com/things-to-do/madison-wisconsin"]]},
-{t:2,a:"TRIP",n:"Aldo Leopold Shack and Farm",ad:"South bank of the Wisconsin River, northeast of Baraboo, WI",la:43.56278,ln:-89.65917,w:"The worn-out farm and converted chicken coop where Aldo Leopold's family replanted pines and prairie in the 1930s — the place that grew 'A Sand County Almanac'. A National Historic Landmark (2009); tours via the Aldo Leopold Foundation.",g:["LAKES","HIST","FAM"],s:[["NPS","https://www.nps.gov/articles/aldo-leopold-farm-and-shack-national-historic-landmark.htm"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Aldo_Leopold_Shack_and_Farm"],["WPR","https://www.wpr.org/environment/place-where-leopolds-almanac-grew"]]},
-{t:2,a:"CAP",n:"Overture Center for the Arts",ad:"201 State St, Madison, WI 53703",la:43.07444,ln:-89.38861,w:"César Pelli's 2004 performing-arts center at the top of State Street — Overture Hall, the restored Capitol Theater and, next door, the Madison Museum of Contemporary Art.",g:["MUS","HIST","ARTS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Overture_Center_for_the_Arts"],["SAHARCHIPEDIA","https://archipediavm.upress.virginia.edu/buildings/WI-01-DA25"]]}
+{t:1,a:"DTN",n:"Soldiers' and Sailors' Monument",ad:"Monument Circle, Indianapolis, IN",la:39.76833,ln:-86.15806,w:"The 284-ft neoclassical monument on Monument Circle, dedicated 1902 — the city's signature structure and literal centre of the original Mile Square plan. Free; observation deck and the Civil War museum below.",k:"Monument Circle",g:["ICON","MUS","PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Soldiers%27_and_Sailors%27_Monument_(Indianapolis)"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/?p=14539"],["INDYARTS","https://indyarts.org/public-art/soldiers-and-sailors-monument/"]]},
+{t:1,a:"DTN",n:"Indiana World War Memorial Plaza",ad:"Indiana World War Memorial Plaza (N Meridian St), Indianapolis, IN",la:39.77361,ln:-86.15694,w:"Five city blocks of memorials — the stepped-pyramid Indiana War Memorial (free military museum + Shrine Room), the Obelisk and the American Legion Mall. One of the largest memorial plazas in the US; free.",g:["ICON","MUS","ARCH","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indiana_World_War_Memorial_Plaza"],["VISITINDY","https://www.visitindy.com/directory/indiana-war-memorial-plaza-historic-district/"],["TCLF","https://tclf.org/indiana-war-memorials-historic-district"]]},
+{t:1,a:"WEST",n:"Indianapolis Motor Speedway Museum",ad:"4750 W 16th St, Indianapolis, IN 46222",la:39.79030,ln:-86.23360,w:"Inside the oval: Indy 500-winning cars, the Borg-Warner Trophy and the grounds tour that ends kissing the Yard of Bricks. The essential racing stop.",k:"Speedway",g:["ICON","RACE","MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indianapolis_Motor_Speedway_Museum"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/indianapolis-motor-speedway-hall-of-fame-museum/"]]},
+{t:1,a:"WEST",n:"Indianapolis Motor Speedway",ad:"W 16th St (museum entrance at 4750 W 16th St), Speedway, IN",la:39.79833,ln:-86.23278,w:"The Brickyard (1909), home of the Indianapolis 500 — a National Historic Landmark with the Pagoda scoring tower, Gasoline Alley and the original yard of bricks at the start/finish line.",k:"Speedway",g:["ICON","RACE","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indianapolis_Motor_Speedway"],["NPS","https://npgallery.nps.gov/NRHP/GetAsset/NHLS/75000044_text"],["TCLF","https://www.tclf.org/landscapes/indianapolis-motor-speedway"]]},
+{t:1,a:"MID",n:"The Children's Museum of Indianapolis",ad:"3000 N Meridian St, Indianapolis, IN 46208",la:39.81060,ln:-86.15803,w:"The world's largest children's museum (1925) — dinosaurs bursting out of the façade, the Chihuly Fireworks of Glass tower, an 1890s carousel. Over a million visitors a year.",g:["ICON","MUS","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/The_Children%27s_Museum_of_Indianapolis"],["SAHARCHIPEDIA","https://sah-archipedia.org/node/12992"],["DOWNTOWNINDY","https://downtownindy.org/go/the-childrens-museum-of-indianapolis-1"]]},
+{t:1,a:"MID",n:"Newfields (Indianapolis Museum of Art)",ad:"4000 Michigan Rd, Indianapolis, IN",la:39.82583,ln:-86.18556,w:"152-acre campus: the encyclopedic Indianapolis Museum of Art (1883, 54,000 works), Lilly House, the gardens and the 100-acre Fairbanks Art & Nature Park; Robert Indiana's LOVE lives here.",k:"Newfields",g:["ICON","MUS","PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indianapolis_Museum_of_Art"],["IBJ","https://www.ibj.com/articles/65024-update-art-museum-names-campus-with-big-changes-on-drawing-board"],["DOWNTOWNINDY","https://downtownindy.org/go/newfields"]]},
+{t:1,a:"DTN",n:"Indiana Statehouse",ad:"200 W Washington St, Indianapolis, IN 46204",la:39.76861,ln:-86.16278,w:"The 1888 Renaissance Revival capitol with a stained-glass rotunda dome; free self-guided and guided tours on weekdays.",g:["ICON","ARCH","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indiana_Statehouse"],["SAHARCHIPEDIA","https://sah-archipedia.org/node/12973"]]},
+{t:1,a:"DTN",n:"Eiteljorg Museum",ad:"White River State Park, Indianapolis, IN",la:39.76830,ln:-86.16780,w:"Museum of American Indians and Western Art (1989) in White River State Park — Native contemporary art plus Western painting and sculpture.",g:["MUS","PARK","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Eiteljorg_Museum_of_American_Indians_and_Western_Art"],["CLIO","https://theclio.com/entry/17451"]]},
+{t:2,a:"DTN",n:"Indiana State Museum",ad:"650 W Washington St, Indianapolis, IN 46204",la:39.76893,ln:-86.16998,w:"The state's history-and-science museum on the canal in White River State Park, with an IMAX theatre and a sculpture in every Indiana county's limestone on the façade.",g:["MUS","PARK","ARCH","ENT"],s:[["DOWNTOWNINDY","https://downtownindy.org/go/indiana-state-museum-and-historic-sites"],["WIKIPEDIA","https://en.wikipedia.org/wiki/White_River_State_Park"]]},
+{t:1,a:"MID",n:"Crown Hill Cemetery & Riley's Tomb",ad:"Crown Hill Cemetery, Dr. Martin Luther King Jr. St between 32nd & 42nd Sts, Indianapolis, IN",la:39.81982,ln:-86.17729,w:"555-acre cemetery and arboretum, third-largest non-government cemetery in the US; follow the white line to James Whitcomb Riley's tomb on the summit, one of the highest points in Marion County. John Dillinger and Benjamin Harrison are here too.",k:"Crown Hill",g:["ICON","PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/James_Whitcomb_Riley"],["INDYPL","https://blog.indypl.org/kids/james-whitcomb-riley/"]]},
+{t:1,a:"DTN",n:"White River State Park",ad:"White River State Park, Indianapolis, IN",la:39.76667,ln:-86.16972,w:"267-acre urban state park on both banks of the White River — the Central Canal walk, the zoo, Eiteljorg, Indiana State Museum, Victory Field and the old Washington Street bridge for walking.",g:["MUS","PARK","ENT","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/White_River_State_Park"],["TCLF","https://www.tclf.org/white-river-state-park"],["OFFICIAL","https://whiteriverstatepark.org/history/"]]},
+{t:1,a:"DTN",n:"Indianapolis Zoo",ad:"White River State Park, Indianapolis, IN",la:39.76694,ln:-86.17694,w:"Zoo, aquarium and White River Gardens in White River State Park — dolphins, the Bicentennial orangutan centre, and the first triple-accredited zoo in the US.",g:["PARK","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indianapolis_Zoo"],["POLIS","https://polis.indianapolis.iu.edu/indianapolis-zoo"]]},
+{t:2,a:"DTN",n:"Indianapolis Union Station",ad:"39 Jackson Place, Indianapolis, IN",la:39.75720,ln:-86.15647,w:"The 1888 Romanesque Revival head-house of the world's first union station, with its barrel-vaulted Grand Hall and rose window.",g:["ARCH","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indianapolis_Union_Station"],["NPS","https://www.nps.gov/Nr/travel/indianapolis/unionstation.htm"]]},
+{t:2,a:"DTN",n:"Indianapolis City Market",ad:"222 E Market St, Indianapolis, IN",la:39.76861,ln:-86.15333,w:"Public market since 1821 in its 1886 D.A. Bohlen & Son hall (NRHP) — now a food hall; the catacombs of the old Tomlinson Hall lie underneath.",g:["ENT","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indianapolis_City_Market"],["LOC","https://www.loc.gov/item/in0432"],["VISITINDIANA","https://visitindiana.com/blog/index.php/2016/01/31/indys-modern-city-market-with-a-history/"]]},
+{t:1,a:"DTN",n:"Scottish Rite Cathedral",ad:"650 N Meridian St, Indianapolis, IN 46204",la:39.77613,ln:-86.15799,w:"The 1929 Tudor-Gothic Masonic cathedral — the largest Scottish Rite building anywhere, with a 54-bell carillon tower; guided tours.",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Scottish_Rite_Cathedral_(Indianapolis)"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/scottish-rite-cathedral/"],["SAHARCHIPEDIA","https://sah-archipedia.org/node/12988"]]},
+{t:1,a:"DTN",n:"Madam Walker Legacy Center",ad:"617 Indiana Ave, Indianapolis, IN",la:39.77597,ln:-86.16708,w:"The 1927 Madam C.J. Walker Building (NHL) on historic Indiana Avenue — her company HQ and Art Deco theatre, the heart of Black Indianapolis jazz and culture; reopened 2020 after a $15M restoration.",g:["ARCH","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Madam_Walker_Legacy_Center"],["IPM","https://www.ipm.org/show/journeyindiana/2026-02-26/walkers-legacy-inside-a-historic-theatre-the-hub-of-black-culture-in-indianapolis"],["WISH","https://wishtv.com/?p=1114137"]]},
+{t:1,a:"MASS",n:"The Athenaeum (Das Deutsche Haus)",ad:"401 E Michigan St, Indianapolis, IN",la:39.77333,ln:-86.15028,w:"The 1893-98 Vonnegut & Bohn German-American clubhouse — the most ornate building of German Indianapolis, still home to the Rathskeller (1894) and its biergarten.",k:"Lockerbie",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Athen%C3%A6um_(Das_Deutsche_Haus)"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/?p=1059"],["INDIANAHISTORY","https://discoverindianahistory.org/items/show/46"]]},
+{t:1,a:"NORTH",n:"Conner Prairie",ad:"13400 Allisonville Rd, Fishers, IN",la:39.98453,ln:-86.02886,w:"Smithsonian-affiliate living-history museum around William Conner's 1823 house — an 1836 prairie town, Lenape camp and the 1859 balloon voyage.",k:"Fishers",g:["MUS","ARCH","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Conner_Prairie"],["OFFICIAL","https://fishersin.gov/fishers-history-conner-prairie/"],["EXARC","https://exarc.net/venues/conner-prairie-us"]]},
+{t:1,a:"MASS",n:"Benjamin Harrison Presidential Site",ad:"1230 N Delaware St, Indianapolis, IN 46202",la:39.78397,ln:-86.15416,w:"The 23rd president's 16-room 1875 Italianate home (NHL 1964) — he ran the 1888 Front Porch Campaign from its porch and died upstairs in 1901. Guided tours.",k:"Old Northside",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Benjamin_Harrison_Presidential_Site"],["NPS","https://www.nps.gov/parkhistory/online_books/presidents/site21.htm"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/benjamin-harrison-presidential-site/"]]},
+{t:1,a:"MASS",n:"James Whitcomb Riley Museum Home",ad:"528 Lockerbie St, Indianapolis, IN",la:39.77194,ln:-86.14778,w:"The 1872 Lockerbie Square house where the 'Hoosier Poet' lived as a paying guest from 1893 until 1916 — preserved as he left it (NHL 1962), on the cobbled heart of Indy's oldest neighbourhood.",k:"Lockerbie",g:["MUS","PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/James_Whitcomb_Riley_Museum_Home"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/james-whitcomb-riley-home"],["SAHARCHIPEDIA","https://sah-archipedia.org/node/12971"]]},
+{t:1,a:"SOUTH",n:"Garfield Park & Conservatory",ad:"2505 Conservatory Dr, Indianapolis, IN 46203",la:39.73208,ln:-86.14202,w:"Indianapolis' oldest city park (128 acres, NRHP) — George Kessler's 1916 Sunken Garden with fountains, and the 1954 aluminium-framed conservatory, the first of its kind in the US.",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Garfield_Park_(Indianapolis)"],["NPS","https://www.nps.gov/NR/travel/indianapolis/garfieldpark.htm"],["OFFICIAL","https://parks.indy.gov/facilities/garfield-park-conservatory-sunken-garden/"]]},
+{t:1,a:"FSQ",n:"Fountain Square Theatre Building",ad:"Fountain Square Theatre Building, Shelby St at Virginia Ave, Fountain Square, Indianapolis, IN",la:39.75210,ln:-86.13960,w:"1928 theatre block anchoring Fountain Square — a hotel, rooftop, and the Midwest's only duckpin bowling (Atomic Bowl's 1950s lanes, Action Duckpin's 1930s ones).",k:"Fountain Square",g:["ARCH","ENT","ODD"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Fountain_Square_Theatre"],["NPS","https://www.nps.gov/nr/Travel/indianapolis/vaave.htm"],["ROADSIDEAMERICA","https://origin.roadsideamerica.com/tip/8074"]]},
+{t:1,a:"MID",n:"Hinkle Fieldhouse",ad:"510 W 49th St, Indianapolis, IN",la:39.84361,ln:-86.16722,w:"Butler's 1928 fieldhouse (NHL), once the largest basketball arena in the US — where Milan beat Muncie Central in 1954, the game that became 'Hoosiers'.",k:"Butler",g:["ARCH","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Hinkle_Fieldhouse"],["SAHARCHIPEDIA","https://sah-archipedia.org/node/12986"],["OFFICIAL","https://butlersports.com/sports/2016/5/19/information-facilities-hinkle-fieldhouse.aspx"]]},
+{t:1,a:"WEST",n:"Eagle Creek Park",ad:"7840 W 56th St, Indianapolis, IN",la:39.85500,ln:-86.29750,w:"One of the largest city parks in the US — a reservoir, nature centre, bird sanctuary, beach and trails on the northwest side.",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Eagle_Creek_Park"],["VISITINDIANA","https://visitindiana.in.gov/blog/post/eagle-creek-park/"],["VISITINDY","https://www.visitindy.com/directory/eagle-creek-trail/"]]},
+{t:2,a:"WEST",n:"Indiana Medical History Museum",ad:"3045 W Vermont St, Indianapolis, IN 46222",la:39.77000,ln:-86.21333,w:"The 1895 Old Pathology Building of Central State Hospital — the oldest surviving pathology lab in the US, with its teaching amphitheatre and specimen collection intact.",g:["MUS","ARCH","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indiana_Medical_History_Museum"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/indiana-medical-history-museum/"],["VISITINDIANA","https://visitindiana.in.gov/blog/post/medical-museum/"]]},
+{t:1,a:"EAST",n:"Irvington Historic District & Bona Thompson Center",ad:"5350 E University Ave, Indianapolis, IN",la:39.76650,ln:-86.07680,w:"Butler University's first campus village (1875-1928) of curving streets and Victorian houses; the 1903 Bona Thompson Memorial Center holds the Irvington Historical Society. Famous for its October Halloween festival.",k:"Irvington",g:["MUS","ARCH","ENT","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Irvington_Historic_District_(Indianapolis)"],["NPS","https://www.nps.gov/nr/Travel/indianapolis/irvington.htm"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/bona-thompson-center/"]]},
+{t:2,a:"EAST",n:"Fort Harrison State Park",ad:"Fort Harrison State Park, Lawrence (Marion County), IN",la:39.86700,ln:-86.01700,w:"1,700 acres of the former Fort Benjamin Harrison along Fall Creek — trails, a saddle barn and the historic officers' homes; run by Indiana DNR.",g:["PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Fort_Harrison_State_Park"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/?p=2071"],["CURRENT","https://www.youarecurrent.com/2022/08/29/city-centerpiece-forts-history-amenities-a-major-draw-for-lawrence/"]]}
 ];
 
 const FS = {
-  "BRAVA":{k:"BRAVA",t:"Brava Magazine",u:"https://bravamagazine.com/",l:"Brava Magazine"},
-  "CAPTIMES":{k:"CAP TIMES",t:"The Cap Times",u:"https://captimes.com/",l:"The Cap Times"},
-  "CITYCAST":{k:"CITY CAST MADISON",t:"City Cast Madison",u:"https://madison.citycast.fm/",l:"City Cast Madison"},
-  "DAILYCARDINAL":{k:"DAILYCARDINAL",t:"The Daily Cardinal (UW–Madison)",u:"https://www.dailycardinal.com/",l:"The Daily Cardinal (UW–Madison)"},
-  "EXPERIENCEWI":{k:"EXPERIENCEWI",t:"Experience Wisconsin magazine",u:"https://experiencewisconsinmag.com/",l:"Experience Wisconsin magazine"},
-  "INFATUATION":{k:"THE INFATUATION",t:"The Infatuation (Madison reviews)",u:"https://www.theinfatuation.com/madison",l:"The Infatuation (Madison reviews)"},
-  "ISTHMUS":{k:"ISTHMUS",t:"Isthmus",u:"https://isthmus.com/",l:"Isthmus"},
-  "JAMESBEARD":{k:"JAMES BEARD",t:"James Beard Foundation",u:"https://www.jamesbeard.org/",l:"James Beard Foundation"},
-  "JBF_EDITORIAL":{k:"JBF EDITORIAL",t:"James Beard Foundation — editorial ('Ask a Chef')",u:"https://www.jamesbeard.org/blog",l:"James Beard Foundation — editorial ('Ask a Chef')"},
-  "MADISON365":{k:"MADISON365",t:"Madison365",u:"https://madison365.com/",l:"Madison365"},
-  "MADMAG":{k:"MADISON MAGAZINE",t:"Madison Magazine / Channel 3000",u:"https://www.channel3000.com/madison-magazine/",l:"Madison Magazine / Channel 3000"},
-  "ONMILWAUKEE":{k:"ONMILWAUKEE",t:"ONMILWAUKEE",u:"",l:""},
-  "PBSWI":{k:"PBS WISCONSIN",t:"PBS Wisconsin",u:"https://pbswisconsin.org/",l:"PBS Wisconsin"},
-  "TIMEOUT":{k:"TIMEOUT",t:"Time Out — Madison",u:"https://www.timeout.com/madison",l:"Time Out — Madison"},
-  "TRAVELWI":{k:"TRAVEL WISCONSIN",t:"Travel Wisconsin (WI Dept. of Tourism)",u:"https://www.travelwisconsin.com/",l:"Travel Wisconsin (WI Dept. of Tourism)"},
-  "UPNORTHNEWS":{k:"UPNORTHNEWS",t:"UpNorthNews — Madison Food Guide (reader surveys)",u:"https://upnorthnewswi.com/food-guide/madison/",l:"UpNorthNews — Madison Food Guide (reader surveys)"},
-  "VISITMADISON":{k:"DESTINATION MADISON",t:"Destination Madison (CVB)",u:"https://www.visitmadison.com/",l:"Destination Madison (CVB)"},
-  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (notability + published coordinates)",u:"https://en.wikipedia.org/",l:"Wikipedia (notability + published coordinates)"},
-  "WMTV":{k:"WMTV 15",t:"WMTV 15 News",u:"https://www.wmtv15news.com/",l:"WMTV 15 News"},
-  "WSJ":{k:"WISCONSIN STATE JOURNAL",t:"Wisconsin State Journal (madison.com)",u:"https://madison.com/",l:"Wisconsin State Journal (madison.com)"}
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"ATLAS OBSCURA",u:"",l:""},
+  "AXIOS":{k:"AXIOS",t:"Axios Indianapolis",u:"https://www.axios.com/local/indianapolis",l:"Axios Indianapolis"},
+  "CULINARYCROSSROADS":{k:"CULINARYCROSSROADS",t:"Culinary Crossroads (Indiana food history blog)",u:"https://culinarycrossroads.org/",l:"Culinary Crossroads (Indiana food history blog)"},
+  "CURRENT":{k:"CURRENT",t:"Current Publishing (Current in Carmel/Fishers/Noblesville)",u:"https://www.youarecurrent.com/",l:"Current Publishing (Current in Carmel/Fishers/Noblesville)"},
+  "DOWNTOWNINDY":{k:"DOWNTOWNINDY",t:"Downtown Indy, Inc.",u:"https://downtownindy.org/",l:"Downtown Indy, Inc."},
+  "EDIBLEINDY":{k:"EDIBLEINDY",t:"Edible Indy",u:"https://edibleindy.ediblecommunities.com/",l:"Edible Indy"},
+  "FOODNETWORK":{k:"FOODNETWORK",t:"Food Network",u:"https://www.foodnetwork.com/",l:"Food Network"},
+  "FOX59":{k:"FOX59",t:"FOX59",u:"",l:""},
+  "IBJ":{k:"INDIANAPOLIS BUSINESS JOURNAL",t:"INDIANAPOLIS BUSINESS JOURNAL",u:"",l:""},
+  "INDIANAHISTORY":{k:"INDIANA HISTORICAL SOCIETY",t:"Indiana Historical Society / Indiana Historical Bureau",u:"https://indianahistory.org/",l:"Indiana Historical Society / Indiana Historical Bureau"},
+  "INDYENCYCLOPEDIA":{k:"INDYENCYCLOPEDIA",t:"The Encyclopedia of Indianapolis (IUPUI/Polis Center)",u:"https://indyencyclopedia.org/",l:"The Encyclopedia of Indianapolis (IUPUI/Polis Center)"},
+  "INDYMONTHLY":{k:"INDIANAPOLIS MONTHLY",t:"INDIANAPOLIS MONTHLY",u:"",l:""},
+  "INDYTODAY":{k:"INDYTODAY",t:"Indy Today (6AM City)",u:"https://indytoday.6amcity.com/",l:"Indy Today (6AM City)"},
+  "JAMESBEARD":{k:"JAMES BEARD",t:"JAMES BEARD",u:"",l:""},
+  "NUVO":{k:"NUVO",t:"NUVO",u:"",l:""},
+  "PUNCHDRINK":{k:"PUNCHDRINK",t:"PUNCH",u:"https://punchdrink.com/",l:"PUNCH"},
+  "ROADFOOD":{k:"ROADFOOD",t:"Roadfood (Jane & Michael Stern)",u:"https://roadfood.com/",l:"Roadfood (Jane & Michael Stern)"},
+  "TASTINGTABLE":{k:"TASTINGTABLE",t:"Tasting Table",u:"https://www.tastingtable.com/",l:"Tasting Table"},
+  "THETAKEOUT":{k:"THETAKEOUT",t:"The Takeout",u:"https://thetakeout.com/",l:"The Takeout"},
+  "VISITINDIANA":{k:"VISITINDIANA",t:"Visit Indiana (Indiana Destination Development Corp.)",u:"https://visitindiana.com/",l:"Visit Indiana (Indiana Destination Development Corp.)"},
+  "VISITINDY":{k:"VISIT INDY",t:"VISIT INDY",u:"",l:""},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"WIKIPEDIA",u:"",l:""},
+  "WISH":{k:"WISH-TV 8",t:"WISH-TV 8",u:"",l:""},
+  "WRTV":{k:"WRTV",t:"WRTV 6 (ABC Indianapolis)",u:"https://www.wrtv.com/",l:"WRTV 6 (ABC Indianapolis)"},
+  "WTHR":{k:"WTHR 13",t:"WTHR 13",u:"",l:""}
 };
 
 const CUISINES = [
-  {id:"CURD",n:"Cheese Curds & Cheese"},
-  {id:"FISH",n:"Friday Fish Fry"},
-  {id:"SUPPR",n:"Supper Clubs & Brandy Old Fashioneds"},
-  {id:"TAV",n:"Taverns, Brats & Burgers"},
-  {id:"CREAM",n:"Ice Cream & Frozen Custard"},
-  {id:"BAKE",n:"Bakeries & Kringle"},
-  {id:"SEA",n:"Hmong, Lao & Southeast Asian"},
-  {id:"ASIAN",n:"Asian"},
-  {id:"BREW",n:"Breweries, Wineries & Distilleries"},
-  {id:"FINE",n:"Farm-to-Table & Fine Dining"},
+  {id:"HOOS",n:"Hoosier Classics (tenderloin, fried chicken, biscuits & apple butter)"},
+  {id:"STEAK",n:"Steakhouses & Fine Dining"},
   {id:"US",n:"American & New American"},
-  {id:"PIZZA",n:"Pizza"},
+  {id:"DELI",n:"Delis, Sandwiches & Diners"},
+  {id:"SOUL",n:"Soul, BBQ & Southern"},
+  {id:"ITAL",n:"Pizza & Italian"},
+  {id:"BURMA",n:"Burmese & Chin"},
+  {id:"ASIAN",n:"Asian"},
   {id:"MEX",n:"Mexican & Latin"},
   {id:"MED",n:"Mediterranean, Middle Eastern & African"},
-  {id:"EURO",n:"European (Swiss, German, Norwegian, Italian)"},
-  {id:"BREAK",n:"Breakfast, Cafés & Coffee"},
-  {id:"MKT",n:"Markets & Cheese Shops"},
-  {id:"FARM",n:"Farms & Orchards"},
-  {id:"VIRAL",n:"Viral / Creator Favorite"}
+  {id:"PIE",n:"Sugar Cream Pie, Bakeries & Sweets"},
+  {id:"BREW",n:"Breweries, Bars & Cocktails"},
+  {id:"COF",n:"Coffee & Cafés"},
+  {id:"VIRAL",n:"Viral / Social"}
 ];
 
 const CATS = [
   {id:"ICON",n:"Iconic & Must-See"},
-  {id:"FLW",n:"Frank Lloyd Wright"},
-  {id:"CAMPUS",n:"UW–Madison Campus"},
+  {id:"RACE",n:"Racing & the Speedway"},
   {id:"MUS",n:"Museums & Galleries"},
-  {id:"LAKES",n:"Lakes, Parks & Gardens"},
-  {id:"OUTDOOR",n:"Hikes, Trails & Outdoors"},
-  {id:"HIST",n:"History & Heritage"},
-  {id:"ARTS",n:"Performing Arts & Music"},
+  {id:"PARK",n:"Parks, Trails & Gardens"},
+  {id:"ARCH",n:"Architecture, Monuments & History"},
+  {id:"ENT",n:"Sports, Music & Entertainment"},
+  {id:"SHOP",n:"Markets & Districts"},
   {id:"FAM",n:"Family & Kids"},
   {id:"ODD",n:"Oddities & Hidden Gems"},
   {id:"FREE",n:"Free to Visit"}
 ];
 
 const F = [
-{t:1,a:"CAP",n:"The Old Fashioned",ad:"23 N Pinckney St, Madison, WI 53703",cz:["TAV","CURD","FISH"],la:43.07629,ln:-89.38356,w:"The Capitol Square's all-Wisconsin tavern and supper-club homage — Wisconsin beers, brandy old fashioneds and curds. Voted Madison's best cheese curds in the 2025 reader survey and named by Isthmus associate editor Linda Falkenstein among her top fish fries. <strong>Order:</strong> Beer-battered cheese curds (house recipe batter) and the Friday fish fry.",s:[["UPNORTHNEWS","https://upnorthnewswi.com/food-guide/madison/best-cheese-curds-2025"],["CITYCAST","https://madison.citycast.fm/podcasts/where-do-you-friday-fish-fry"],["INFATUATION","https://www.theinfatuation.com/madison/reviews/the-old-fashioned"]]},
-{t:2,a:"CAP",n:"Tornado Club Steak House",ad:"116 S Hamilton St, Madison, WI 53703",cz:["SUPPR"],la:43.07257,ln:-89.38462,w:"Off the Capitol Square, an old-school supper-club steakhouse with classic service — 2012 James Beard Best Chef Tory Miller's date-night pick, and runner-up for Madison's best old fashioned in the 2025 reader vote. <strong>Order:</strong> Barrel-aged brandy old fashioned and old-school steakhouse steaks.",s:[["JBF_EDITORIAL","https://jamesbeard.org/blog/ask-chef-tory-miller-where-should-we-eat-madison-area"],["UPNORTHNEWS","https://upnorthnewswi.com/food-guide/madison/best-old-fashioned-2025"],["TIMEOUT","https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"]]},
-{t:1,a:"EAST",n:"Mint Mark",ad:"1874 E Washington Ave, Madison, WI 53704",cz:["FINE","FISH"],la:43.09189,ln:-89.36049,w:"Produce-forward small plates from an open kitchen on East Washington, built on Wisconsin farms and local spirits. Its chefs have been James Beard semifinalists in two separate years — Sean Pharr (2024) and Kasey Lee Cooke (2026) — and Travel Wisconsin puts it in its first-timer's guide to eating in Madison. <strong>Order:</strong> Wisconsin-farm small plates that rotate weekly, and a Friday-night fish fry.",s:[["JAMESBEARD","https://www.channel3000.com/madison-magazine/three-madison-names-included-among-2026-james-beard-award-semifinalists/article_01ee566a-d45c-4a6b-bd17-a81c3d0449c2.html"],["TRAVELWI","https://www.travelwisconsin.com/article/restaurants/the-first-timers-guide-to-eating-in-madison"]]},
-{t:1,a:"CAP",n:"L'Etoile",ad:"1 S Pinckney St, Madison, WI 53703",cz:["FINE"],la:43.07522,ln:-89.38232,w:"Madison's founding farm-to-table restaurant (Odessa Piper, 1976) on the Capitol Square — two of its chefs, Piper (2001) and Tory Miller (2012), won the James Beard Award for Best Chef: Midwest. Time Out's Madison list calls it out for working with more than 200 local vendors. <strong>Order:</strong> The seasonal farm-to-table tasting menu, sourced from 200+ local vendors.",s:[["JAMESBEARD","https://www.visitmadison.com/blog/stories/post/james-beard-honors/"],["TIMEOUT","https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"],["ISTHMUS","https://isthmus.com/food-drink/a-look-inside-the-new-digs-for-letoile-graze-in-downtown-madison/"]]},
-{t:2,a:"CAP",n:"Graze",ad:"1 S Pinckney St, Madison, WI 53703",cz:["US","FINE"],la:43.07522,ln:-89.38232,w:"Tory Miller's more casual, glass-walled sibling to L'Etoile on the Square (opened 2010), still farm-sourced; Madison Magazine marked its 15th year. <strong>Order:</strong> Seasonal farm-to-table gastropub plates with a view of the Capitol.",s:[["ISTHMUS","https://isthmus.com/food-drink/a-look-inside-the-new-digs-for-letoile-graze-in-downtown-madison/"],["MADMAG","https://www.channel3000.com/madison-magazine/graze-celebrates-15-years-with-a-special-dinner/article_ad820e5a-c58c-4c0d-92bf-88b539fa48d8.html"]]},
-{t:1,a:"WEST",n:"Mickies Dairy Bar",ad:"1511 Monroe St, Madison, WI 53711",cz:["BREAK","US"],la:43.06743,ln:-89.41299,w:"A cash-only breakfast diner across from Camp Randall since 1947, with a reader-board menu and portions of legend. First on Time Out's Madison list; the Cap Times covered the founding family handing it to new owners rather than closing it. <strong>Order:</strong> The famously massive Scrambler, plate-sized pancakes and crispy hash browns (cash only).",s:[["TIMEOUT","https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"],["ISTHMUS","https://isthmus.com/locations/mickies-dairy-bar/"],["CAPTIMES","https://captimes.com/food-drink/mickies-dairy-bar-owners-will-retire-pass-ownership/article_df0752c8-f4aa-4e3e-9b31-1e4aa6952fef.html"],["TRAVELWI","https://www.travelwisconsin.com/food-drink/restaurants/mickies-dairy-bar"]]},
-{t:2,a:"UW",n:"Dotty Dumpling's Dowry",ad:"317 N Frances St, Madison, WI 53703",cz:["TAV"],la:43.07282,ln:-89.39569,w:"A longstanding campus-edge burger institution off State Street, its ceiling hung with kites and memorabilia. On Time Out's Madison list; Isthmus calls burgers 'the heart and soul of Dotty's'. <strong>Order:</strong> Thick hand-made burgers cooked to order, with 14 cheeses to choose from.",s:[["TIMEOUT","https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"],["ISTHMUS","https://isthmus.com/locations/dotty-dumplings-dowry/"],["TRAVELWI","https://www.travelwisconsin.com/food-drink/restaurants/dotty-dumpling-s-dowry"]]},
-{t:1,a:"CAP",n:"Dane County Farmers' Market",ad:"Capitol Square (Saturdays Apr–Nov), Madison, WI 53703",cz:["MKT","CURD"],la:43.07472,ln:-89.38417,w:"America's largest producers-only farmers' market (founded 1972): on summer Saturdays some 150 Wisconsin growers and cheesemakers completely encircle the State Capitol, and everything is grown or made by the person behind the stand. Time Out ranks it among the country's best. <strong>Order:</strong> Saturday-morning cheese curds, cheese bread and in-season produce sold by the people who made them.",g:["MKT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Dane_County_Farmers%27_Market"],["VISITMADISON","https://www.visitmadison.com/event/dane-county-farmers-market-on-the-square/70975"],["TRAVELWI","https://www.travelwisconsin.com/things-to-do/farm-fresh-experiences/farmers-markets/dane-county-farmers-market"],["TIMEOUT","https://www.timeout.com/madison/things-to-do/best-things-to-do-in-madison"]]},
-{t:2,a:"EAST",n:"The Weary Traveler Freehouse",ad:"1201 Williamson St, Madison, WI 53703",cz:["TAV"],la:43.08322,ln:-89.36400,w:"A dim, deep-booth Willy Street pub since 2002, walls lined with travel posters; its award-winning burger is the order. On Time Out's Madison list and in the 2025 reader vote for best bar food. <strong>Order:</strong> Bob's Bad Breath Burger — half a pound with cream cheese, green goddess, caramelized onions and garlic.",s:[["TIMEOUT","https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"],["ISTHMUS","https://isthmus.com/locations/weary-traveler-freehouse/"],["MADMAG","https://www.channel3000.com/madison-magazine/dining-and-drink/williamson-street-restaurant-carries-on-with-new-owners/article_12835527-d0ea-5a7e-ae5f-542cd4363d32.html"],["UPNORTHNEWS","https://upnorthnewswi.com/food-guide/madison/best-bar-food-2025"]]},
-{t:3,a:"EAST",n:"Monty's Blue Plate Diner",ad:"2089 Atwood Ave, Madison, WI 53704",cz:["US","BREAK"],la:43.09239,ln:-89.35194,w:"A retro east-side diner in a former gas station on Atwood Avenue; on Time Out's Madison list and the State Journal's ranking of Madison's favourite breakfast spots. <strong>Order:</strong> Diner breakfasts and blue-plate specials in a converted Atwood gas station.",s:[["TIMEOUT","https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"],["WSJ","https://madison.com/entertainment/dining/restaurants/madisons-favorite-breakfast-spots-ranked/collection_22e003e4-b220-5cb7-9177-b0d5573439da.html"],["ISTHMUS","https://isthmus.com/locations/montys-blue-plate-diner/"]]},
-{t:2,a:"CAP",n:"Ian's Pizza",ad:"100 State St, Madison, WI 53703",cz:["PIZZA"],la:43.07486,ln:-89.38706,w:"The late-night State Street slice shop that made mac-and-cheese pizza a Madison rite of passage. On Time Out's Madison restaurant list and its best-things-to-do roundup. <strong>Order:</strong> Mac n' cheese pizza by the slice, served until 2:30am.",s:[["TIMEOUT","https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"],["ISTHMUS","https://isthmus.com/locations/ians-pizza-state-st"],["TRAVELWI","https://www.travelwisconsin.com/food-drink/restaurants/ian-s-pizza-by-the-slice"]]},
-{t:2,a:"EAST",n:"Lazy Jane's Cafe",ad:"1358 Williamson St, Madison, WI 53703",cz:["BREAK","BAKE"],la:43.08536,ln:-89.36171,w:"A Willy Street breakfast house since 1998 with a line out the door and a counter of legendary scones; its founder Jane Capito is credited by the Cap Times with seeding Madison's restaurant scene. On Time Out's Madison list. <strong>Order:</strong> The scones (lemon crème) and seasonal scramblers and frittatas.",s:[["TIMEOUT","https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"],["CAPTIMES","https://captimes.com/news/local/city-life/not-so-lazy-jane-how-jane-capito-helped-foster-madisons-flourishing-restaurant-scene/article_064ae879-630d-5101-9358-b84862a47f80.html"],["DAILYCARDINAL","https://dailycardinal.com/article/2005/06/restaurant-review-lazy-janes-caf"]]},
-{t:1,a:"CAP",n:"Osteria Papavero",ad:"128 E Wilson St, Madison, WI 53703",cz:["EURO"],la:43.07408,ln:-89.37936,w:"An intimate Italian osteria (2006) off the Capitol Square; Bologna-raised chef Francesco Mangano advanced to James Beard Best Chef: Midwest nominee in 2023. <strong>Order:</strong> Chef Francesco Mangano's Bologna- and Tuscany-rooted Italian cooking.",s:[["JAMESBEARD","https://www.channel3000.com/madison-magazine/three-madison-chefs-make-james-beard-shortlist-for-best-chef-midwest/article_4b234068-ce4e-11ed-9232-dfb99252f6dc.html"],["MADMAG","https://www.channel3000.com/madison-magazine/five-madison-chefs-named-james-beard-award-semifinalists/article_2e1e786c-9ce3-11ed-b67c-339a2fd2c13e.html"],["CAPTIMES","https://captimes.com/food-drink/three-madison-chefs-nominated-for-2023-james-beard-awards/article_bbf1815a-c2d8-567b-bce9-961c8b722a3c.html"]]},
-{t:2,a:"CAP",n:"Lucille",ad:"101 King St, Madison, WI 53703",cz:["PIZZA","BREW"],la:43.07454,ln:-89.38150,w:"A tri-level King Street pizzeria and cocktail bar in the old Isthmus building (2016), with a weekly jazz night; in Travel Wisconsin's first-timer's guide to eating in Madison. <strong>Order:</strong> Wood-fired pizza and craft cocktails; Wednesday-night live jazz.",s:[["TRAVELWI","https://www.travelwisconsin.com/article/restaurants/the-first-timers-guide-to-eating-in-madison"],["CAPTIMES","https://captimes.com/entertainment/dining/new-pizzeria-lucille-open-in-old-isthmus-building/article_43b416c2-6117-5116-b6b4-c47b1df4d9bc.html"]]},
-{t:2,a:"EAST",n:"Ha Long Bay",ad:"1353 Williamson St, Madison, WI 53703",cz:["SEA"],la:43.08560,ln:-89.36078,w:"A Willy Street Southeast Asian institution that reopened in 2025 after a yearlong renovation, now run by the original owners' nieces with their mother's recipes. A family-dinner pick of James Beard winner Tory Miller. <strong>Order:</strong> Vietnamese, Thai and Lao dishes built on the family's house-made soups, broths and sauces.",s:[["MADMAG","https://www.channel3000.com/madison-magazine/after-a-yearlong-hiatus-and-renovation-ha-long-bay-is-back/article_c9764bba-ff7b-4d88-8ce6-e9a6686af3ea.html"],["JBF_EDITORIAL","https://jamesbeard.org/blog/ask-chef-tory-miller-where-should-we-eat-madison-area"],["WSJ","https://madison.com/life-entertainment/local/food-drink/article_9c6a736f-43c9-455d-a01e-96b94f19d98b.html"]]},
-{t:1,a:"MVF",n:"Quivey's Grove",ad:"6261 Nesbitt Rd, Fitchburg, WI 53719",cz:["SUPPR","FISH"],la:43.00917,ln:-89.47861,w:"Dinner in an 1856 Italianate sandstone farmhouse (the National Register-listed John Mann House) with a stone-barn Stable Grill. Its Spotted Cow-battered fry is a Madison Magazine pick and an Isthmus food editor's favourite. <strong>Order:</strong> Award-winning fish fry — cod and perch beer-battered with New Glarus Spotted Cow (Wednesdays & Fridays).",s:[["MADMAG","https://www.channel3000.com/madison-magazine/dining-and-drink/18-fin-tastic-places-to-get-fish-fry-in-the-madison-area/article_5bfc7047-be47-590b-b995-f733583518c8.html"],["CITYCAST","https://madison.citycast.fm/podcasts/where-do-you-friday-fish-fry"],["WIKIPEDIA","https://en.wikipedia.org/wiki/John_Mann_House"]]},
-{t:2,a:"EAST",n:"Dexter's Pub",ad:"301 North St, Madison, WI 53704",cz:["TAV","FISH"],la:43.10340,ln:-89.35022,w:"A north-east-side neighbourhood pub whose sustainable, wild-caught fish fry runs twice a week; in Madison Magazine's fish-fry list, Travel Wisconsin's eight Madison fish-fry picks and City Cast's guide. <strong>Order:</strong> Wild-caught fish fry Wednesdays & Fridays — cod, bluegill, walleye — with Madison Sourdough rye.",s:[["MADMAG","https://www.channel3000.com/madison-magazine/dining-and-drink/18-fin-tastic-places-to-get-fish-fry-in-the-madison-area/article_5bfc7047-be47-590b-b995-f733583518c8.html"],["TRAVELWI","https://TravelWisconsin.com/article/restaurants/8-madison-spots-for-fabulous-fish-fry"],["CITYCAST","https://madison.citycast.fm/best/best-fish-fries-madison"],["ISTHMUS","https://isthmus.com/locations/dexters-pub"]]},
-{t:1,a:"DANE",n:"Wollersheim Winery",ad:"Across the Wisconsin River east of Prairie du Sac, Dane County, WI",cz:["BREW"],la:43.28813,ln:-89.70728,w:"Wisconsin's historic winery: Hungarian count Agoston Haraszthy planted these slopes in the 1840s before leaving to found California's wine industry; Peter Kehl's stone buildings are on the National Register. Now a winery, distillery and restaurant. <strong>Order:</strong> Estate wines and Wollersheim's own brandy, tasted in the 1840s-rooted stone cellars.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Wollersheim_Winery"],["ONMILWAUKEE","https://onmilwaukee.com/articles/wollersheimwinery"]]}
+{t:1,a:"DTN",n:"St. Elmo Steak House",ad:"127 S Illinois St, Indianapolis, IN 46225",cz:["STEAK"],la:39.76482,ln:-86.15964,w:"Order: The fiery shrimp cocktail (horseradish-loaded sauce, on the menu since 1947) and dry-aged USDA Prime steaks. Indianapolis' defining restaurant, in the Wholesale District since 1902 — bow-tied career servers, dark-panelled rooms, one of the city's great bourbon lists, and the only James Beard Award ever won in Indy (America's Classics, 2012). On Indianapolis Monthly's 2026 Best Restaurants.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/St._Elmo_Steak_House"],["INDYMONTHLY","https://indianapolismonthly.com/best-restaurants/best-restaurants-2026-st-elmo-steak-house-wisanggeni-pawon/"],["AXIOS","https://www.axios.com/local/indianapolis/2026/07/15/30-over-30-st-elmo-steak-houses-history-of-hosting"],["TASTINGTABLE","https://www.tastingtable.com/1457397/st-elmo-steak-house-indianapolis-history"],["INDYTODAY","https://indytoday.6amcity.com/food/a-history-of-james-beard-winners-and-semifinalists-in-indy"]]},
+{t:1,a:"WEST",n:"Mug-n-Bun",ad:"5211 W 10th St, Speedway, IN",cz:["HOOS","US"],la:39.77970,ln:-86.24880,w:"Order: House-brewed root beer in a frosted mug, the pork tenderloin, hand-cut onion rings. Speedway's carhop drive-in since 1956 (a Frostop until 1964) a mile from the track — Indy's oldest continuously operating drive-in, with root beer brewed on site to Morris May's sweeter recipe.",k:"Speedway",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Mug-n-Bun"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/mug-n-bun/"],["ROADFOOD","https://roadfood.com/?p=17198"],["VISITINDIANA","https://visitindiana.in.gov/blog/post/the-greatest-spectacle-in-drive-ins/"]]},
+{t:1,a:"DTN",n:"Slippery Noodle Inn",ad:"372 S Meridian St, Indianapolis, IN",cz:["BREW","SOUL"],la:39.76167,ln:-86.15861,w:"Order: Live blues on two stages nightly, with bar food. Indiana's oldest continuously operating bar (1850, the Tremont House) — an Underground Railroad stop, Prohibition brewery and brothel before becoming the city's great blues bar; 1890 tin ceiling and century-old oak bar.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Slippery_Noodle_Inn"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/slippery-noodle-inn/"],["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/slippery-noodle-haunted-history/"]]},
+{t:1,a:"WEST",n:"Long's Bakery",ad:"1453 N Tremont St, Indianapolis, IN 46222",cz:["PIE"],la:39.78760,ln:-86.20070,w:"Order: Hot glazed yeast donuts (Carl Long's lighter dough, 1955). Westside donut counter Carl and Mildred Long opened in 1955; the line for hot glazed is an Indy ritual, and the third generation still runs it. On Indianapolis Monthly's 25 Essential Eats of Indy.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Long%27s_Bakery"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/longs-bakery/"],["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/the-25-essential-eats-of-indy/"],["INDIANAHISTORY","https://indianahistory.org/blog/producing-desire-the-heritage-of-doughnut-shops/"]]},
+{t:1,a:"MASS",n:"The Rathskeller",ad:"401 E Michigan St, Indianapolis, IN",cz:["US"],la:39.77333,ln:-86.15028,w:"Order: Schnitzel, sauerbraten, ochsenschwanz suppe; the biergarten in summer. Indianapolis' oldest restaurant still operating (1894), in the cellar and biergarten of the Athenaeum — German food and a Kellerbar beer list.",k:"Lockerbie",s:[["VISITINDY","https://www.visitindy.com/directory/the-rathskeller/"],["THETAKEOUT","https://thetakeout.com/1737075/indiana-bavarian-rathskeller-restaurant"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Athen%C3%A6um_(Das_Deutsche_Haus)"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -457,21 +448,21 @@ const SRCOF = p => p.kind==='food' ? FS : S;
 
 /* ── trip list, persisted where possible ── */
 let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
-try{const r=localStorage.getItem('msn_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
-try{const r=localStorage.getItem('msn_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
-function saveTrip(){try{localStorage.setItem('msn_trip',JSON.stringify([...TRIP]));}catch(e){}}
-function saveSeen(){try{localStorage.setItem('msn_seen',JSON.stringify([...SEEN]));}catch(e){}}
+try{const r=localStorage.getItem('ind_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('ind_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('ind_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('ind_seen',JSON.stringify([...SEEN]));}catch(e){}}
 
-function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Madison WI')+'&query_place_id=';}
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Indianapolis IN')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {CAP:'#C0504D',UW:'#41729F',EAST:'#9BBB59',WEST:'#8064A2',MVF:'#E8973A',DANE:'#4BACC6',TRIP:'#B5838D'};
+const AC = {DTN:'#E8973A',MASS:'#C0504D',FSQ:'#8064A2',MID:'#4F81BD',WEST:'#4BACC6',EAST:'#D4A017',NORTH:'#7E8FC4',SOUTH:'#A6588C'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([43.0752,-89.3986],10);
+  map = L.map('map',{scrollWheelZoom:false}).setView([39.8096,-86.1388],11);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -555,7 +546,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["The Isthmus", 43.0746, -89.3834], ["UW–Madison campus", 43.0765, -89.4047], ["East side — Willy Street", 43.0907, -89.3548], ["West side — Monroe Street", 43.0606, -89.4262], ["Middleton", 43.0523, -89.4949], ["Dane County towns", 43.1114, -89.7921], ["Day trips", 43.2996, -89.8919]];
+const LABELS=[["Downtown", 39.7681, -86.1627], ["Mass Ave", 39.7756, -86.1506], ["Fountain Square", 39.7521, -86.1396], ["Midtown", 39.825, -86.172], ["Speedway", 39.7968, -86.2378], ["Irvington", 39.8167, -86.0469], ["North suburbs", 39.9845, -86.0289], ["South side", 39.7321, -86.142]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -867,16 +858,16 @@ document.getElementById('tripKml').onclick=()=>{
       +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
       +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
     +'</Document></kml>';
-  dl('madison-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  dl('indianapolis-my-list.kml','application/vnd.google-earth.kml+xml',kml);
   alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
 };
 document.getElementById('tripJson').onclick=()=>{
-  dl('madison-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+  dl('indianapolis-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
     ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
       google:gmaps(p),apple:amaps(p)})),null,2));
 };
 document.getElementById('saveGuide').onclick=()=>{
-  dl('madison-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+  dl('indianapolis-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
 };
 
 document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
@@ -885,16 +876,16 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   +'<span>'+s.l+'</span></div></div>').join('')
   + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
   + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
-  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. Madison’s canon is Wisconsin’s own: fresh and fried <b>cheese curds</b>, the <b>Friday fish fry</b>, <b>supper clubs</b> and the brandy old fashioned sweet, the producer-only <b>Dane County Farmers’ Market</b> on the Capitol Square, <b>Babcock Hall</b> ice cream, brats and butter burgers, the city’s <b>Hmong and Lao</b> kitchens, and <b>New Glarus</b> beer. Kringle is a Racine tradition — where Madison has no standout, the gap is stated rather than filled. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. Indianapolis’s canon is its own: the breaded <b>pork tenderloin</b> sandwich, <b>sugar cream pie</b> (the Hoosier pie), <b>St. Elmo</b>’s horseradish-fired shrimp cocktail, <b>Shapiro’s</b> deli, persimmon pudding, fried biscuits &amp; apple butter, the <b>Burmese &amp; Chin</b> kitchens of the south side and the <b>International Marketplace</b>’s global corridor, sourced to IndyStar, Indianapolis Monthly and the IBJ. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
-  + '<span>Every place is traceable to at least two credible sources (or one institutional authority such as the James Beard Foundation or the National Park Service) — the Wisconsin State Journal, The Cap Times, Isthmus, Madison Magazine, WPR, Travel Wisconsin, Destination Madison and vetted creators — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
+  + '<span>Every place is traceable to a credible source — IndyStar, Indianapolis Monthly, the Indianapolis Business Journal, WFYI, Mirror Indy, Visit Indy, James Beard, NPS, Indiana DNR, Atlas Obscura and official sites — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
 
 setMode('sights');
 
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 41 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 32 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
