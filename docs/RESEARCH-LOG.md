@@ -537,3 +537,13 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - Wikipedia articles for cloned attractions can carry the TWIN's coordinate (Smugglers Run → Disneyland 33.81,-117.92): always
   sanity-check a theme-park coord against the park's own bbox before using it.
 - A Yelp-derived local-TV neighbourhood guide (ClickOrlando 2019 "top spots") is Yelp in disguise → counts 0 for the ≥2 gate.
+
+## 2026-10-03 — Osaka W7: MapFan as a WebSearch pin channel for small shops (lesson)
+- `allowed_domains:["mapfan.com"]` + `<Japanese name with branch> MapFan 地図`, ONE place per query: MapFan spot pages expose
+  "Degree" lat/lng + address in the search summary → a map-provider place pin (grade `med`; accept only when name AND address
+  match). Yield 0.24–0.65 pins/search (chains with exact branch names and old Shinsekai/Jan Jan Yokochō shops hit well; new bars,
+  ramen, craft places mostly have no page). Wikidata P625 (missing on small items) and NAVITIME route-URL coords (old Tokyo datum,
+  ~500 m off) were rejected. Adding dish/genre/緯度経度 to the query loses the spot page.
+- Held-lead promotion: OR-queries with several shop names return nothing; one name per search against a DIFFERENT outlet
+  (Rurubu/Mapple spot pages with editorial text, Ramen Walker articles) is what promotes single-source leads.
+- Main review must re-check any 2nd-source URL a worker did not see in its own results (2 guessed/unconfirmed URLs held this wave).
