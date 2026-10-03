@@ -62,3 +62,8 @@ Kyoto city's 11 **wards (-ku)** grouped as locals do (Rakuchū centre, Rakutō e
 ## Acceptance
 - [x] every area ≥ target (W4; per-area food ≥50% still open for FSHMI/KYFU/UJI/RKSAI/SAKYO/KITA) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
 - [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] Japan hub card live · [x] CITIES.md row
+
+## 2026-10-03 P1 (pins only)
+- 59 NAVITIME place pins → **398 / 494 on map**, all 4 gates + validate/test green. 96 held — see AUDIT P1 (incl. the
+  Jikkokubune 休業中 status flag to re-check). Next: per-shop single-name NAVITIME queries with the full 住所 for the
+  Kibune/Ōhara/Arashiyama holdouts; the geocode-helper for bars (K6, Rocking Chair, L'Escamoteur, Yoramu).

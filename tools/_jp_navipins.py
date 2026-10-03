@@ -12,7 +12,7 @@ D = json.load(open(os.path.join(R, "data", f"{city}.dataset.json")))
 names = {x["n"] for k in ("P", "F") for x in D[k]}
 out = json.load(open(P)) if os.path.exists(P) else []
 have = {x["n"] for x in out}; n0 = len(out)
-BOX = {"tokyo": (35.4, 35.95, 139.0, 140.0), "kyoto": (34.7, 35.8, 135.4, 136.1), "hokkaido": (41.3, 45.6, 139.3, 145.9)}[city]
+BOX = {"tokyo": (35.4, 35.95, 139.0, 140.0), "kyoto": (34.55, 35.8, 134.9, 136.1), "hokkaido": (41.3, 45.6, 139.3, 145.9)}[city]
 for line in sys.stdin:
     line = line.strip()
     if not line or line.startswith("#"): continue

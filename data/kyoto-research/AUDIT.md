@@ -331,3 +331,17 @@ statuscheck / buildcheck PASS; `npm run validate` DATA OK; `npm test` ALL PASS. 
 - **FINAL W4 build:** 494 discovered (222 sights + 272 food = 55%) / 339 rendered (211 + 128). All four gates PASS (high 306 · med 33 · low 0); validate DATA
   OK; npm test ALL PASS; ★ Anime 9. **Every area meets its density target.** Food share by area: CTR 76% · HGS 71% · SAKYO 48% · KITA 49% · RKHKU 50% ·
   RKSAI 45% · UJI 44% · KYFU 44% · FSHMI 35%. Closures found: none. Searches: main ~98 + workers 53 ≈ 151.
+
+## 2026-10-03 — P1: PINS ONLY (no discovery) — NAVITIME POI place pins
+- Technique: `"<店名A> / <店名B> / <店名C> / <店名D> 緯度 経度"` with `allowed_domains:["navitime.co.jp"]` (summaries print
+  WGS84 緯度経度 + block address); each hit's address/branch matched to the record before writing (record addresses
+  that held only a landmark/neighbourhood were checked on name + branch + chō). Ingest `python3 tools/_jp_navipins.py
+  kyoto p1` → `geo/_geoout_kyoto_p1.json` (all `med`). Apple Maps (3 tries) returned no Kyoto restaurant pins.
+- ≈31 searches → **59 pins**: pinned 339 → **398** of 494. ANIME 9/9 on map (+ Nintendo KYOTO, Takashimaya T8 7F).
+- **Not pinned (mismatch / ambiguous):** Tsujiri Honten (NAVITIME returned 辻利兵衛本店 — a different company),
+  Restaurant Funaya Ine (only the 伊根の舟屋 district point), Kibune Beniya / Kifune Ugenta / Ginjō Shubō Abura-chō /
+  Sōhonke Hōgyokudō / Tōji-mochi / Okutan… (address but no coordinate printed), Shinpuku Saikan Honten (coords never
+  printed in 3 tries), Miki Keiran (only market-area estimate offered — rejected, never an estimate).
+- **Status note for re-check:** NAVITIME labels 伏見十石舟・三十石船 "(休業中)" — may be seasonal/temporary suspension;
+  Jikkokubune kept `open` (record cites a current operator page) — verify against fushimi-jikkokubune official before next refresh.
+- Still held: 96 UNVERIFIED (Gion/Kibune/Arashiyama kaiseki & bars with landmark-only addresses; Nara sweets).
