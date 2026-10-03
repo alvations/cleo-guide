@@ -366,3 +366,25 @@ New source keys: MAHONINGMATTERS, BARBERTONLIBRARY (SOURCES_W3A.json).
 **Pins:** 0 new. All 7 food are UNVERIFIED and queued for geocode-helper.html (`geo/_geoout_w3b.json`). Nothing was estimated.
 **New source keys:** none. Kent Stater URLs (kentstater.com) are filed under the existing KENTWIRED outlet, which is the same student newsroom.
 **Searches used: 38 of 40** (37 logged queries; entry 5 covers two calls), including one call that failed with a 400 error because record-courier.com is not crawlable.
+
+## 2026-10-03 W4 · batch 1 — PIN PASS (Waze / usarestaurants place pins)
+- **Channel finding:** `allowed_domains:["maps.apple.com"]` returns Apple place URLs for Ohio but almost all are bare
+  `place-id=` (no `coordinate=`) — 0 usable of ~8 probes. What works here: one place per query,
+  `"<Name> <street address> latitude longitude"` with `allowed_domains:["waze.com","usarestaurants.info","foursquare.com"]`.
+  Waze live-map place records (`place.w.*` / Google `ChIJ…` place ids) and usarestaurants.info listing pages carry the
+  place coordinate; ~70% hit rate. Waze place with matching name+address = **high**; usarestaurants listing or a Waze
+  place whose number differs slightly (Ray's 153 vs 135 Franklin; Mr. Zub's 812 vs 795 W Market) = **med**.
+  Every point sanity-checked against the street (bbox + neighbourhood). `geo/_geoout_w4pins.json`.
+- **+51 pins** (46 food + 9 sights… incl. Glamorgan Castle & Lake Anna from Wikipedia coords, Canton Museum of Art,
+  Seiberling Nature Realm, Brady's Leap, Liberty Park, Twins Days/Glen Chamberlin, Sippo Lake): **34 → 85 rendered**
+  (high 58 · med 27 · low 0). ≈98 WebSearch calls.
+- **Held / rejected (UNVERIFIED stays):** Desert Inn (Waze place lists 204 12th St **NE**, point on Market Ave centreline
+  vs our 12th St NW) · Crave (Apple + Foursquare list **156 S Main St** vs our 57 E Market St — address re-check; may
+  have moved) · Wally Waffle Downtown (Foursquare: 845 W Market "Now Closed" + 3997 Medina Rd; Locust St unconfirmed —
+  status check) · Momo House (only coordinate surfaced belonged to another listing) · Hoover Historical Center
+  (Wikipedia 40.874177,-81.397228 vs Waze "Hoover Park" 40.875385,-81.37004 — still conflicting) · St. Helena III
+  (only 3-decimal coords) · Five Oaks · Garrett's Mill (8148 Main St = former Main Street Grill & Brewing on Foursquare;
+  no pin). No result: Taggart's, Fred's Diner, Cilantro, Hoppin' Frog, Bombay Sitar, Bocca Grande, Angel Falls, Taco
+  Tontos, Social at the Stone House, Rosewood Grill, Café Toscano, McArthur's, Farmer's Rail/Amelia's, Village Inn,
+  New Era, Mustard Seed.
+- Gates: sourcecheck PASS · geocheck PASS (85/85) · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS.
