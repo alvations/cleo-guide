@@ -28,3 +28,41 @@
   yet confirmed as a 2nd credible source). 4 further queries refused by the budget cap.
 - Channel counts this wave: editorial 0 · creators 0 · travel sites 0 · local 0 — **0 places added**. Nothing
   fabricated; no records written. Per CLAUDE.md, discovery cannot proceed without WebSearch (WebFetch blocked).
+
+## Stage 2–6 — relaunch wave W1 (food canon) + W2 (sights) + first geocode pass (2026-10-03)
+- WebSearch budget available again (fresh session). ~98 searches this wave.
+- **Method.** Food: discovery searches per canon item (shoofly pie, whoopie pie, pot pie, smorgasbords, pretzels,
+  markets, Lebanon bologna, snack factories, creameries) then a pin attempt. Sights: one combined
+  "<place> coordinates wikipedia" search per place, yielding the ≥2 sources AND the Wikipedia/official infobox pin.
+- **Channel mix (places contributed, counting each place once by its strongest channel):** editorial of record
+  (Inquirer, NPR, Spotlight PA, LebTown, CPBJ, WFMZ, 6abc, CBS21, Stars & Stripes, Lancaster County Magazine) 14 ·
+  tourism boards / official (Discover Lancaster, Visit Hershey & Harrisburg, Destination Gettysburg, Visit Cumberland
+  Valley, Visit PA, NPS, PHMC, DCNR, PA Dept of Agriculture, City of Harrisburg) 21 · travel sites (Uncovering PA,
+  Atlas Obscura, Frommer's, Tasting Table, Islands, Roadside America, PA Bucket List) 16 · Wikipedia + heritage
+  bodies (notability + pins) 11 · creators 0 (Peter Santenello searched — no Lancaster-specific findable piece
+  naming a place; none attached) · awards 1 (Luca — 2026 James Beard finalist, Best Chef: Mid-Atlantic, via PA Eats).
+- **Discovered: 25 food + 37 sights = 62**, every one ≥2 credible (Luca on lone JB authority). sourcecheck PASS 62/62.
+- **MEASURED & DROPPED / HELD:**
+  - Stoltzfus Farm Restaurant (Intercourse) — CLOSED per Amish365; non-notable closed → dropped.
+  - Good 'N Plenty (Smoketown) — conflicting closure signal (Airbnb "permanently closed" vs current listings) → held
+    until a real status source is found.
+  - Held single-source: Hammond's Pretzel Bakery (Discover Lancaster only), Strasburg Creamery (LancasterPA survey),
+    Katie's Kitchen (Amish America only), Hershey Pantry + Chocolate Avenue Grill (Tasting Table only), Sight & Sound
+    Theatres (Wikipedia only), Boyer Nurseries (Destination Gettysburg only), Neptune Diner / Gracie's (Discover
+    Lancaster only), Lancaster Brewing / Bube's / Cartel (one outlet each), Wilbur Chocolate (no credible source).
+  - Lancaster County Magazine Best of 2025 names (Belvedere Inn, C'est La Vie, Cabalar, Shot & Bottle) need a 2nd source.
+  - Rejected as sources: Stacker (Yelp-derived), Hoodline (Yelp-derived), unearththevoyage / fightcancer.org / spam-
+    hosted "best restaurants" pages (SEO farms), Only In Your State, Airbnb/Expedia/Travelocity/wanderlog.
+  - Generic "best restaurants <city>" queries for Harrisburg/York returned SEO farms only — dead end; use outlet-
+    specific or dish-specific queries next wave.
+- **Geocode (W6 partial):** 31 verified pins (high 26 · med 5) from Wikipedia infoboxes / official GPS; 0 low.
+  Restaurant pins essentially do NOT surface through WebSearch (1 of 9 attempts) → 31 places queued UNVERIFIED in
+  `geo/_geoout_w6pending.json` for `tools/geocode-helper.html` (listed in docs/GEOCODE-BACKLOG.md). Rejected pins:
+  Lancaster Central Market (Wikipedia minute-precision ≈700 m off), Bird-in-Hand Hotel pin (wrong longitude),
+  Carlisle Barracks pin for USAHEC (different campus), Strasburg Rail Road (unattributed search-snippet coord).
+- **Status:** every record open per a current listing (statusSource recorded); 0 closed flagged.
+- **Build:** cities/harrisburg.html built, 31 pins rendered; --sourcecheck PASS · --geocheck PASS · --statuscheck
+  CONSISTENT · --buildcheck PASS · npm validate DATA OK · npm test ALL PASS.
+- **Address note:** addresses for Shady Maple, Miller's, Bird-in-Hand Bakery, Green Dragon, Utz confirmed by search
+  results; Snyder's, Lapp Valley, Fox Meadows, Root's, Hollabaugh, Luca, Millworks, Martin's, Spring House,
+  Harley-Davidson are discovery-stage addresses to confirm in the helper geocode pass.

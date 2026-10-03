@@ -24,23 +24,20 @@ Total ~216.
 - [ ] index.html card relinked live with counts; docs/CITIES.md row.
 
 ## State
-- 2026-10-02 scaffold: consolidate.py (7 areas), tools/build-harrisburg.py (State College clone, centre derived
-  from pins), _AGENT_BRIEF.md, AUDIT.md, RESUME.md, SOURCES_HBG.json; `data/sources.json` cities["harrisburg-pa"] registered (29 outlets).
+- 2026-10-02 scaffold (consolidate.py, build-harrisburg.py, brief, 29-outlet palette). W1 blocked by budget.
+- **2026-10-03 W1+W2 (relaunch):** 25 food + 37 sights = 62 discovered (all ≥2 credible); 31 pinned; page
+  `cities/harrisburg.html` BUILT, all 4 gates green, npm validate/test pass. Card on index.html still "being built"
+  (only 31 pins — relink live once ~100 pins). 43 new outlets registered with rationale (SOURCES_W1.json).
+- Density (discovered): AMISH 18/40 · CAR 6/20 · GBG 10/22 · HBG 8/38 · HER 7/24 · LAN 6/38 · YORK 7/34.
 
 ## In-flight wave
-- **W1 food canon — BLOCKED before it started (2026-10-02).** The session's shared WebSearch budget was
-  already exhausted (200/200) when this agent began discovery: 1 search returned results, every later call
-  returned "session has used its web search budget". No places have been written — nothing was invented.
-  On relaunch (fresh budget): run W1 exactly as planned below, writing to `FOOD_CANON.json`.
-- W1 plan (tag `CANON`, file `FOOD_CANON.json`): shoofly pie; whoopie pie; PA Dutch chicken pot pie;
-  smorgasbords (Shady Maple, Hershey Farm, Miller's, Good 'N Plenty — measure, don't pad); pretzels (Julius
-  Sturgis, Tom Sturgis, Hanover/Snyder's); markets (Lancaster Central Market, Broad Street Market, York Central
-  Market, Root's, Green Dragon, Bird-in-Hand Farmers Market); Hershey chocolate; Seltzer's Lebanon bologna.
-- Leads from the one search that ran (NOT yet ≥2-credible — re-verify before adding): Bird-in-Hand Bakery & Cafe
-  (shoofly pie; Al Roker "Family Style" episode; Frommer's "Local Favorites in Lancaster County"); Dutch Haven,
-  Ronks ("the place that made shoo-fly pie famous").
-- Then W2 sights (Wikipedia + NPS/PHMC/DCNR + CVBs, all 7 areas), W3 Harrisburg/York food, W4 Lancaster city
-  food, W5 creators/viral (Peter Santenello Amish videos are in nationalCreators), W6 geocode, W7 build.
+- none. NEXT (ordered): (1) W3 Harrisburg/York food (dish- and outlet-specific queries — PennLive/TheBurg/YDR/FOX43
+  "best <dish>"; Bhutanese/Nepali momo; York City Pretzel Co; Central Family; Cafe 1500…), (2) W4 Lancaster city food
+  + sights (LancasterHistory, Demuth Museum, Lancaster Science Factory, Penn Square/Soldiers & Sailors, Rock Ford),
+  (3) AMISH sights (Sight & Sound needs 2nd source, Intercourse, Bird-in-Hand village, Lititz, Mount Joy Bube's,
+  Columbia National Watch & Clock Museum, Marietta, Dutch Wonderland), (4) HER/CAR/GBG fill, (5) W5 creators,
+  (6) helper geocode of `geo/_geoout_w6pending.json` (31 UNVERIFIED), (7) go live on index.html card.
+- Held/single-source list + rejected sources: see AUDIT.md 2026-10-03 section.
 
 ## Files
 - `FOOD_*.json` / `SIGHTS_*.json` — research records by wave tag. `geo/_geoout_*.json` — geocode results.

@@ -32,6 +32,12 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
   (geo/_geoout_w1.json, The Old Fashioned, med). 19 food + 1 sight leads with URLs in `_PENDING_LEADS.md`.
   Density: 3 / ~210. **No page built** (build asserts a geocoded tier-1 in all 7 areas).
 
+- **2026-10-03 W2a** — 26 food + 11 sights added (40 discovered; 25 pinned + on the page). All 4 gates green.
+  15 food await a pin (list in AUDIT W2a). Page `cities/madison.html` built.
+
+- **2026-10-03 W2b** — +12 sights +1 food → 53 researched, 41 on the page; 12 UNVERIFIED queued. Card live.
+  Per area (discovered): CAP 15/38 · UW 7/30 · EAST 14/32 · WEST 8/30 · MVF 2/25 · DANE 5/25 · TRIP 10/30.
+
 ## Next (ordered) — needs a fresh WebSearch budget (raise CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION or relaunch)
 1. Finish `_PENDING_LEADS.md` (dish/address/status per lead) → append to FOOD_CANON.json in batches of ~10, commit each.
 2. Remaining W1 canon queries (list at the bottom of `_PENDING_LEADS.md`) + creator pass → CREATORS_W1.json.
@@ -41,4 +47,7 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
    `flock … python3 tools/rebuild-city.py madison-wi --build` → 4 gates → relink CARD:madison-wi, CITIES.md row.
 
 ## In-flight wave
-- (none — W1 closed as truncated; resume from Next step 1)
+- (W2a/W2b closed — see State)
+- **W2c (2026-10-03, same session)** — finish _PENDING_LEADS food → FOOD_W2.json; canon queries
+  (Infatuation, farmers' market, Babcock, cheese shops, brats, Hmong, custard, New Glarus) → FOOD_W2*.json;
+  sights per area → SIGHTS_W2.json; geocodes → geo/_geoout_w2*.json; build + gates; relink CARD:madison-wi.

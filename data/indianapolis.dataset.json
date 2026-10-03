@@ -1,0 +1,1660 @@
+{
+ "areas": [
+  {
+   "id": "DTN",
+   "n": "Downtown & Wholesale District (Monument Circle, White River State Park, Indiana Ave)"
+  },
+  {
+   "id": "MASS",
+   "n": "Mass Ave, Lockerbie & the Old Northside"
+  },
+  {
+   "id": "FSQ",
+   "n": "Fountain Square, Fletcher Place & the near south"
+  },
+  {
+   "id": "MID",
+   "n": "Midtown (Newfields, Children's Museum, Crown Hill, Butler)"
+  },
+  {
+   "id": "BRIP",
+   "n": "Broad Ripple, Meridian-Kessler & SoBro"
+  },
+  {
+   "id": "WEST",
+   "n": "Speedway & the westside (International Marketplace)"
+  },
+  {
+   "id": "EAST",
+   "n": "Irvington & the east side"
+  },
+  {
+   "id": "NORTH",
+   "n": "North suburbs (Carmel, Fishers, Zionsville, Noblesville, Westfield)"
+  },
+  {
+   "id": "SOUTH",
+   "n": "South side (Greenwood, Beech Grove, Southport — 'Chindianapolis')"
+  }
+ ],
+ "ac": {
+  "DTN": "#E8973A",
+  "MASS": "#C0504D",
+  "FSQ": "#8064A2",
+  "MID": "#4F81BD",
+  "BRIP": "#9BBB59",
+  "WEST": "#4BACC6",
+  "EAST": "#D4A017",
+  "NORTH": "#7E8FC4",
+  "SOUTH": "#A6588C"
+ },
+ "cuisines": [
+  {
+   "id": "HOOS",
+   "n": "Hoosier Classics (tenderloin, fried chicken, biscuits & apple butter)"
+  },
+  {
+   "id": "STEAK",
+   "n": "Steakhouses & Fine Dining"
+  },
+  {
+   "id": "US",
+   "n": "American & New American"
+  },
+  {
+   "id": "DELI",
+   "n": "Delis, Sandwiches & Diners"
+  },
+  {
+   "id": "SOUL",
+   "n": "Soul, BBQ & Southern"
+  },
+  {
+   "id": "ITAL",
+   "n": "Pizza & Italian"
+  },
+  {
+   "id": "BURMA",
+   "n": "Burmese & Chin"
+  },
+  {
+   "id": "ASIAN",
+   "n": "Asian"
+  },
+  {
+   "id": "MEX",
+   "n": "Mexican & Latin"
+  },
+  {
+   "id": "MED",
+   "n": "Mediterranean, Middle Eastern & African"
+  },
+  {
+   "id": "PIE",
+   "n": "Sugar Cream Pie, Bakeries & Sweets"
+  },
+  {
+   "id": "BREW",
+   "n": "Breweries, Bars & Cocktails"
+  },
+  {
+   "id": "COF",
+   "n": "Coffee & Cafés"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Social"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "RACE",
+   "n": "Racing & the Speedway"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks, Trails & Gardens"
+  },
+  {
+   "id": "ARCH",
+   "n": "Architecture, Monuments & History"
+  },
+  {
+   "id": "ENT",
+   "n": "Sports, Music & Entertainment"
+  },
+  {
+   "id": "SHOP",
+   "n": "Markets & Districts"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Soldiers' and Sailors' Monument",
+   "ad": "Monument Circle, Indianapolis, IN",
+   "w": "The 284-ft neoclassical monument on Monument Circle, dedicated 1902 — the city's signature structure and literal centre of the original Mile Square plan. Free; observation deck and the Civil War museum below.",
+   "k": "Monument Circle",
+   "g": [
+    "ICON",
+    "MUS",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Soldiers%27_and_Sailors%27_Monument_(Indianapolis)"
+    ],
+    [
+     "INDYENCYCLOPEDIA",
+     "https://indyencyclopedia.org/?p=14539"
+    ],
+    [
+     "INDYARTS",
+     "https://indyarts.org/public-art/soldiers-and-sailors-monument/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Indiana World War Memorial Plaza",
+   "ad": "Indiana World War Memorial Plaza (N Meridian St), Indianapolis, IN",
+   "w": "Five city blocks of memorials — the stepped-pyramid Indiana War Memorial (free military museum + Shrine Room), the Obelisk and the American Legion Mall. One of the largest memorial plazas in the US; free.",
+   "g": [
+    "ICON",
+    "MUS",
+    "ARCH",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Indiana_World_War_Memorial_Plaza"
+    ],
+    [
+     "VISITINDY",
+     "https://www.visitindy.com/directory/indiana-war-memorial-plaza-historic-district/"
+    ],
+    [
+     "TCLF",
+     "https://tclf.org/indiana-war-memorials-historic-district"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Indianapolis Motor Speedway Museum",
+   "ad": "4750 W 16th St, Indianapolis, IN 46222",
+   "w": "Inside the oval: Indy 500-winning cars, the Borg-Warner Trophy and the grounds tour that ends kissing the Yard of Bricks. The essential racing stop.",
+   "k": "Speedway",
+   "g": [
+    "ICON",
+    "RACE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Indianapolis_Motor_Speedway_Museum"
+    ],
+    [
+     "INDYENCYCLOPEDIA",
+     "https://indyencyclopedia.org/indianapolis-motor-speedway-hall-of-fame-museum/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Indianapolis Motor Speedway",
+   "ad": "W 16th St (museum entrance at 4750 W 16th St), Speedway, IN",
+   "w": "The Brickyard (1909), home of the Indianapolis 500 — a National Historic Landmark with the Pagoda scoring tower, Gasoline Alley and the original yard of bricks at the start/finish line.",
+   "k": "Speedway",
+   "g": [
+    "ICON",
+    "RACE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Indianapolis_Motor_Speedway"
+    ],
+    [
+     "NPS",
+     "https://npgallery.nps.gov/NRHP/GetAsset/NHLS/75000044_text"
+    ],
+    [
+     "TCLF",
+     "https://www.tclf.org/landscapes/indianapolis-motor-speedway"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MID",
+   "n": "The Children's Museum of Indianapolis",
+   "ad": "3000 N Meridian St, Indianapolis, IN 46208",
+   "w": "The world's largest children's museum (1925) — dinosaurs bursting out of the façade, the Chihuly Fireworks of Glass tower, an 1890s carousel. Over a million visitors a year.",
+   "g": [
+    "ICON",
+    "MUS",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Children%27s_Museum_of_Indianapolis"
+    ],
+    [
+     "SAHARCHIPEDIA",
+     "https://sah-archipedia.org/node/12992"
+    ],
+    [
+     "DOWNTOWNINDY",
+     "https://downtownindy.org/go/the-childrens-museum-of-indianapolis-1"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MID",
+   "n": "Newfields (Indianapolis Museum of Art)",
+   "ad": "4000 Michigan Rd, Indianapolis, IN",
+   "w": "152-acre campus: the encyclopedic Indianapolis Museum of Art (1883, 54,000 works), Lilly House, the gardens and the 100-acre Fairbanks Art & Nature Park; Robert Indiana's LOVE lives here.",
+   "k": "Newfields",
+   "g": [
+    "ICON",
+    "MUS",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Indianapolis_Museum_of_Art"
+    ],
+    [
+     "IBJ",
+     "https://www.ibj.com/articles/65024-update-art-museum-names-campus-with-big-changes-on-drawing-board"
+    ],
+    [
+     "DOWNTOWNINDY",
+     "https://downtownindy.org/go/newfields"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Indiana Statehouse",
+   "ad": "200 W Washington St, Indianapolis, IN 46204",
+   "w": "The 1888 Renaissance Revival capitol with a stained-glass rotunda dome; free self-guided and guided tours on weekdays.",
+   "g": [
+    "ICON",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Indiana_Statehouse"
+    ],
+    [
+     "SAHARCHIPEDIA",
+     "https://sah-archipedia.org/node/12973"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Eiteljorg Museum",
+   "ad": "White River State Park, Indianapolis, IN",
+   "w": "Museum of American Indians and Western Art (1989) in White River State Park — Native contemporary art plus Western painting and sculpture.",
+   "g": [
+    "MUS",
+    "PARK",
+    "ENT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Eiteljorg_Museum_of_American_Indians_and_Western_Art"
+    ],
+    [
+     "CLIO",
+     "https://theclio.com/entry/17451"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Indiana State Museum",
+   "ad": "650 W Washington St, Indianapolis, IN 46204",
+   "w": "The state's history-and-science museum on the canal in White River State Park, with an IMAX theatre and a sculpture in every Indiana county's limestone on the façade.",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH",
+    "ENT"
+   ],
+   "s": [
+    [
+     "DOWNTOWNINDY",
+     "https://downtownindy.org/go/indiana-state-museum-and-historic-sites"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/White_River_State_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MID",
+   "n": "Crown Hill Cemetery & Riley's Tomb",
+   "ad": "Crown Hill Cemetery, Dr. Martin Luther King Jr. St between 32nd & 42nd Sts, Indianapolis, IN",
+   "w": "555-acre cemetery and arboretum, third-largest non-government cemetery in the US; follow the white line to James Whitcomb Riley's tomb on the summit, one of the highest points in Marion County. John Dillinger and Benjamin Harrison are here too.",
+   "k": "Crown Hill",
+   "g": [
+    "ICON",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/James_Whitcomb_Riley"
+    ],
+    [
+     "INDYPL",
+     "https://blog.indypl.org/kids/james-whitcomb-riley/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "White River State Park",
+   "ad": "White River State Park, Indianapolis, IN",
+   "w": "267-acre urban state park on both banks of the White River — the Central Canal walk, the zoo, Eiteljorg, Indiana State Museum, Victory Field and the old Washington Street bridge for walking.",
+   "g": [
+    "MUS",
+    "PARK",
+    "ENT",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/White_River_State_Park"
+    ],
+    [
+     "TCLF",
+     "https://www.tclf.org/white-river-state-park"
+    ],
+    [
+     "OFFICIAL",
+     "https://whiteriverstatepark.org/history/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Indianapolis Zoo",
+   "ad": "White River State Park, Indianapolis, IN",
+   "w": "Zoo, aquarium and White River Gardens in White River State Park — dolphins, the Bicentennial orangutan centre, and the first triple-accredited zoo in the US.",
+   "g": [
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Indianapolis_Zoo"
+    ],
+    [
+     "POLIS",
+     "https://polis.indianapolis.iu.edu/indianapolis-zoo"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Indianapolis Union Station",
+   "ad": "39 Jackson Place, Indianapolis, IN",
+   "w": "The 1888 Romanesque Revival head-house of the world's first union station, with its barrel-vaulted Grand Hall and rose window.",
+   "g": [
+    "ARCH",
+    "ENT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Indianapolis_Union_Station"
+    ],
+    [
+     "NPS",
+     "https://www.nps.gov/Nr/travel/indianapolis/unionstation.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Indianapolis City Market",
+   "ad": "222 E Market St, Indianapolis, IN",
+   "w": "Public market since 1821 in its 1886 D.A. Bohlen & Son hall (NRHP) — now a food hall; the catacombs of the old Tomlinson Hall lie underneath.",
+   "g": [
+    "ENT",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Indianapolis_City_Market"
+    ],
+    [
+     "LOC",
+     "https://www.loc.gov/item/in0432"
+    ],
+    [
+     "VISITINDIANA",
+     "https://visitindiana.com/blog/index.php/2016/01/31/indys-modern-city-market-with-a-history/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Scottish Rite Cathedral",
+   "ad": "650 N Meridian St, Indianapolis, IN 46204",
+   "w": "The 1929 Tudor-Gothic Masonic cathedral — the largest Scottish Rite building anywhere, with a 54-bell carillon tower; guided tours.",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Scottish_Rite_Cathedral_(Indianapolis)"
+    ],
+    [
+     "INDYENCYCLOPEDIA",
+     "https://indyencyclopedia.org/scottish-rite-cathedral/"
+    ],
+    [
+     "SAHARCHIPEDIA",
+     "https://sah-archipedia.org/node/12988"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Madam Walker Legacy Center",
+   "ad": "617 Indiana Ave, Indianapolis, IN",
+   "w": "The 1927 Madam C.J. Walker Building (NHL) on historic Indiana Avenue — her company HQ and Art Deco theatre, the heart of Black Indianapolis jazz and culture; reopened 2020 after a $15M restoration.",
+   "g": [
+    "ARCH",
+    "ENT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Madam_Walker_Legacy_Center"
+    ],
+    [
+     "IPM",
+     "https://www.ipm.org/show/journeyindiana/2026-02-26/walkers-legacy-inside-a-historic-theatre-the-hub-of-black-culture-in-indianapolis"
+    ],
+    [
+     "WISH",
+     "https://wishtv.com/?p=1114137"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MASS",
+   "n": "The Athenaeum (Das Deutsche Haus)",
+   "ad": "401 E Michigan St, Indianapolis, IN",
+   "w": "The 1893-98 Vonnegut & Bohn German-American clubhouse — the most ornate building of German Indianapolis, still home to the Rathskeller (1894) and its biergarten.",
+   "k": "Lockerbie",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Athen%C3%A6um_(Das_Deutsche_Haus)"
+    ],
+    [
+     "INDYENCYCLOPEDIA",
+     "https://indyencyclopedia.org/?p=1059"
+    ],
+    [
+     "INDIANAHISTORY",
+     "https://discoverindianahistory.org/items/show/46"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Conner Prairie",
+   "ad": "13400 Allisonville Rd, Fishers, IN",
+   "w": "Smithsonian-affiliate living-history museum around William Conner's 1823 house — an 1836 prairie town, Lenape camp and the 1859 balloon voyage.",
+   "k": "Fishers",
+   "g": [
+    "MUS",
+    "ARCH",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Conner_Prairie"
+    ],
+    [
+     "OFFICIAL",
+     "https://fishersin.gov/fishers-history-conner-prairie/"
+    ],
+    [
+     "EXARC",
+     "https://exarc.net/venues/conner-prairie-us"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MASS",
+   "n": "Benjamin Harrison Presidential Site",
+   "ad": "1230 N Delaware St, Indianapolis, IN 46202",
+   "w": "The 23rd president's 16-room 1875 Italianate home (NHL 1964) — he ran the 1888 Front Porch Campaign from its porch and died upstairs in 1901. Guided tours.",
+   "k": "Old Northside",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Benjamin_Harrison_Presidential_Site"
+    ],
+    [
+     "NPS",
+     "https://www.nps.gov/parkhistory/online_books/presidents/site21.htm"
+    ],
+    [
+     "INDYENCYCLOPEDIA",
+     "https://indyencyclopedia.org/benjamin-harrison-presidential-site/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MASS",
+   "n": "James Whitcomb Riley Museum Home",
+   "ad": "528 Lockerbie St, Indianapolis, IN",
+   "w": "The 1872 Lockerbie Square house where the 'Hoosier Poet' lived as a paying guest from 1893 until 1916 — preserved as he left it (NHL 1962), on the cobbled heart of Indy's oldest neighbourhood.",
+   "k": "Lockerbie",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/James_Whitcomb_Riley_Museum_Home"
+    ],
+    [
+     "INDYENCYCLOPEDIA",
+     "https://indyencyclopedia.org/james-whitcomb-riley-home"
+    ],
+    [
+     "SAHARCHIPEDIA",
+     "https://sah-archipedia.org/node/12971"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Garfield Park & Conservatory",
+   "ad": "2505 Conservatory Dr, Indianapolis, IN 46203",
+   "w": "Indianapolis' oldest city park (128 acres, NRHP) — George Kessler's 1916 Sunken Garden with fountains, and the 1954 aluminium-framed conservatory, the first of its kind in the US.",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Garfield_Park_(Indianapolis)"
+    ],
+    [
+     "NPS",
+     "https://www.nps.gov/NR/travel/indianapolis/garfieldpark.htm"
+    ],
+    [
+     "OFFICIAL",
+     "https://parks.indy.gov/facilities/garfield-park-conservatory-sunken-garden/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FSQ",
+   "n": "Fountain Square Theatre Building",
+   "ad": "Fountain Square Theatre Building, Shelby St at Virginia Ave, Fountain Square, Indianapolis, IN",
+   "w": "1928 theatre block anchoring Fountain Square — a hotel, rooftop, and the Midwest's only duckpin bowling (Atomic Bowl's 1950s lanes, Action Duckpin's 1930s ones).",
+   "k": "Fountain Square",
+   "g": [
+    "ARCH",
+    "ENT",
+    "ODD"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fountain_Square_Theatre"
+    ],
+    [
+     "NPS",
+     "https://www.nps.gov/nr/Travel/indianapolis/vaave.htm"
+    ],
+    [
+     "ROADSIDEAMERICA",
+     "https://origin.roadsideamerica.com/tip/8074"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MID",
+   "n": "Hinkle Fieldhouse",
+   "ad": "510 W 49th St, Indianapolis, IN",
+   "w": "Butler's 1928 fieldhouse (NHL), once the largest basketball arena in the US — where Milan beat Muncie Central in 1954, the game that became 'Hoosiers'.",
+   "k": "Butler",
+   "g": [
+    "ARCH",
+    "ENT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hinkle_Fieldhouse"
+    ],
+    [
+     "SAHARCHIPEDIA",
+     "https://sah-archipedia.org/node/12986"
+    ],
+    [
+     "OFFICIAL",
+     "https://butlersports.com/sports/2016/5/19/information-facilities-hinkle-fieldhouse.aspx"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Eagle Creek Park",
+   "ad": "7840 W 56th St, Indianapolis, IN",
+   "w": "One of the largest city parks in the US — a reservoir, nature centre, bird sanctuary, beach and trails on the northwest side.",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Eagle_Creek_Park"
+    ],
+    [
+     "VISITINDIANA",
+     "https://visitindiana.in.gov/blog/post/eagle-creek-park/"
+    ],
+    [
+     "VISITINDY",
+     "https://www.visitindy.com/directory/eagle-creek-trail/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Indiana Medical History Museum",
+   "ad": "3045 W Vermont St, Indianapolis, IN 46222",
+   "w": "The 1895 Old Pathology Building of Central State Hospital — the oldest surviving pathology lab in the US, with its teaching amphitheatre and specimen collection intact.",
+   "g": [
+    "MUS",
+    "ARCH",
+    "ENT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Indiana_Medical_History_Museum"
+    ],
+    [
+     "INDYENCYCLOPEDIA",
+     "https://indyencyclopedia.org/indiana-medical-history-museum/"
+    ],
+    [
+     "VISITINDIANA",
+     "https://visitindiana.in.gov/blog/post/medical-museum/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Irvington Historic District & Bona Thompson Center",
+   "ad": "5350 E University Ave, Indianapolis, IN",
+   "w": "Butler University's first campus village (1875-1928) of curving streets and Victorian houses; the 1903 Bona Thompson Memorial Center holds the Irvington Historical Society. Famous for its October Halloween festival.",
+   "k": "Irvington",
+   "g": [
+    "MUS",
+    "ARCH",
+    "ENT",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Irvington_Historic_District_(Indianapolis)"
+    ],
+    [
+     "NPS",
+     "https://www.nps.gov/nr/Travel/indianapolis/irvington.htm"
+    ],
+    [
+     "INDYENCYCLOPEDIA",
+     "https://indyencyclopedia.org/bona-thompson-center/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Fort Harrison State Park",
+   "ad": "Fort Harrison State Park, Lawrence (Marion County), IN",
+   "w": "1,700 acres of the former Fort Benjamin Harrison along Fall Creek — trails, a saddle barn and the historic officers' homes; run by Indiana DNR.",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fort_Harrison_State_Park"
+    ],
+    [
+     "INDYENCYCLOPEDIA",
+     "https://indyencyclopedia.org/?p=2071"
+    ],
+    [
+     "CURRENT",
+     "https://www.youarecurrent.com/2022/08/29/city-centerpiece-forts-history-amenities-a-major-draw-for-lawrence/"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "St. Elmo Steak House",
+   "ad": "127 S Illinois St, Indianapolis, IN 46225",
+   "w": "Order: The fiery shrimp cocktail (horseradish-loaded sauce, on the menu since 1947) and dry-aged USDA Prime steaks. Indianapolis' defining restaurant, in the Wholesale District since 1902 — bow-tied career servers, dark-panelled rooms, one of the city's great bourbon lists, and the only James Beard Award ever won in Indy (America's Classics, 2012). On Indianapolis Monthly's 2026 Best Restaurants.",
+   "cz": [
+    "STEAK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/St._Elmo_Steak_House"
+    ],
+    [
+     "INDYMONTHLY",
+     "https://indianapolismonthly.com/best-restaurants/best-restaurants-2026-st-elmo-steak-house-wisanggeni-pawon/"
+    ],
+    [
+     "AXIOS",
+     "https://www.axios.com/local/indianapolis/2026/07/15/30-over-30-st-elmo-steak-houses-history-of-hosting"
+    ],
+    [
+     "TASTINGTABLE",
+     "https://www.tastingtable.com/1457397/st-elmo-steak-house-indianapolis-history"
+    ],
+    [
+     "INDYTODAY",
+     "https://indytoday.6amcity.com/food/a-history-of-james-beard-winners-and-semifinalists-in-indy"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Shapiro's Delicatessen",
+   "ad": "808 S Meridian St, Indianapolis, IN 46225",
+   "w": "Order: Corned beef on house rye, the Reuben, potato latkes, matzo ball soup. Kosher-style deli-cafeteria opened as a grocery by Louis and Rebecca Shapiro in 1905, on South Meridian since 1912 — one of the few surviving Jewish delis in the Midwest. Order at the counter; carry your tray.",
+   "cz": [
+    "DELI"
+   ],
+   "s": [
+    [
+     "ROADFOOD",
+     "https://roadfood.com/?p=17062"
+    ],
+    [
+     "NUVO",
+     "https://www.nuvo.net/food/annual-manual-2019-historic-indy-dining/article_f47493c0-0ead-11e9-8794-5382f21e5f90.html"
+    ],
+    [
+     "INDYENCYCLOPEDIA",
+     "https://indyencyclopedia.org/shapiro-s/"
+    ],
+    [
+     "VISITINDY",
+     "https://www.visitindy.com/directory/shapiros-delicatessen/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Workingman's Friend",
+   "ad": "234 N Belmont Ave, Indianapolis, IN 46222",
+   "w": "Order: The smash double cheeseburger and the breaded pork tenderloin. Haughville tavern opened in 1918 by Macedonian immigrant Louis Stamatkin and still run by his family — named for the tabs he let striking workers run. Thrillist (2015) and Food & Wine (2022) rated its burger Indiana's best. Cash only, 21+.",
+   "cz": [
+    "HOOS",
+    "US"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Workingman%27s_Friend"
+    ],
+    [
+     "INDYMONTHLY",
+     "https://www.indianapolismonthly.com/drinks/old-fashioneds-well-worn-well-loved-dives/"
+    ],
+    [
+     "WISH",
+     "https://wishtv.com/?p=945952"
+    ],
+    [
+     "FOX59",
+     "https://digital-release.fox59.com/morning-news/indys-best/the-workingmans-friend-named-indys-best-burger"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Mug-n-Bun",
+   "ad": "5211 W 10th St, Speedway, IN",
+   "w": "Order: House-brewed root beer in a frosted mug, the pork tenderloin, hand-cut onion rings. Speedway's carhop drive-in since 1956 (a Frostop until 1964) a mile from the track — Indy's oldest continuously operating drive-in, with root beer brewed on site to Morris May's sweeter recipe.",
+   "k": "Speedway",
+   "cz": [
+    "HOOS",
+    "US"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mug-n-Bun"
+    ],
+    [
+     "INDYENCYCLOPEDIA",
+     "https://indyencyclopedia.org/mug-n-bun/"
+    ],
+    [
+     "ROADFOOD",
+     "https://roadfood.com/?p=17198"
+    ],
+    [
+     "VISITINDIANA",
+     "https://visitindiana.in.gov/blog/post/the-greatest-spectacle-in-drive-ins/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Slippery Noodle Inn",
+   "ad": "372 S Meridian St, Indianapolis, IN",
+   "w": "Order: Live blues on two stages nightly, with bar food. Indiana's oldest continuously operating bar (1850, the Tremont House) — an Underground Railroad stop, Prohibition brewery and brothel before becoming the city's great blues bar; 1890 tin ceiling and century-old oak bar.",
+   "cz": [
+    "BREW",
+    "SOUL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Slippery_Noodle_Inn"
+    ],
+    [
+     "INDYENCYCLOPEDIA",
+     "https://indyencyclopedia.org/slippery-noodle-inn/"
+    ],
+    [
+     "INDYMONTHLY",
+     "https://www.indianapolismonthly.com/food-and-drinks/slippery-noodle-haunted-history/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Long's Bakery",
+   "ad": "1453 N Tremont St, Indianapolis, IN 46222",
+   "w": "Order: Hot glazed yeast donuts (Carl Long's lighter dough, 1955). Westside donut counter Carl and Mildred Long opened in 1955; the line for hot glazed is an Indy ritual, and the third generation still runs it. On Indianapolis Monthly's 25 Essential Eats of Indy.",
+   "cz": [
+    "PIE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Long%27s_Bakery"
+    ],
+    [
+     "INDYENCYCLOPEDIA",
+     "https://indyencyclopedia.org/longs-bakery/"
+    ],
+    [
+     "INDYMONTHLY",
+     "https://www.indianapolismonthly.com/food-and-drinks/the-25-essential-eats-of-indy/"
+    ],
+    [
+     "INDIANAHISTORY",
+     "https://indianahistory.org/blog/producing-desire-the-heritage-of-doughnut-shops/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRIP",
+   "n": "Hollyhock Hill",
+   "ad": "8110 N College Ave, Indianapolis, IN",
+   "w": "Order: Skillet-fried chicken family style (lard, tri-flour mix) with biscuits, mashed potatoes, green beans and corn. Family-style fried-chicken dinners since 1928 — one of the last of its kind and Indiana's second-oldest restaurant; new owner Kelly Haney kept the 90-year-old recipe.",
+   "cz": [
+    "HOOS"
+   ],
+   "s": [
+    [
+     "ROADFOOD",
+     "https://roadfood.com/?p=17648"
+    ],
+    [
+     "FOODNETWORK",
+     "https://www.foodnetwork.com/restaurants/in/indianapolis/hollyhock-hill-restaurant"
+    ],
+    [
+     "IBJ",
+     "https://www.ibj.com/articles/61835-hollyhock-hill-one-of-citys-oldest-eateries-changes-ownership"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRIP",
+   "n": "Taylor's Bakery",
+   "ad": "6216 Allisonville Rd, Indianapolis, IN",
+   "w": "Order: Sugar cream pie (Indiana's state pie). Founded 1913 at 38th & Illinois and billed as Indiana's oldest bakery; at 62nd & Allisonville since 1968 — the city's go-to counter for sugar cream pie.",
+   "cz": [
+    "PIE"
+   ],
+   "s": [
+    [
+     "IBJ",
+     "https://www.ibj.com/articles/new-taylors-bakery-owner-plans-no-changes-at-110-year-old-business"
+    ],
+    [
+     "CURRENT",
+     "https://youarecurrent.com/2013/02/05/hundred-year-hunger/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRIP",
+   "n": "Red Key Tavern",
+   "ad": "5170 N College Ave, Indianapolis, IN 46205",
+   "w": "Order: Cold beer and a burger at Kurt Vonnegut's neighbourhood bar (1933 jukebox-and-booths tavern). Meridian-Kessler tavern since 1933 (the Red Key from 1935), famous for its house rules and as a Vonnegut haunt; a Piggly Wiggly before that.",
+   "cz": [
+    "BREW",
+    "HOOS"
+   ],
+   "s": [
+    [
+     "INDYENCYCLOPEDIA",
+     "https://indyencyclopedia.org/red-key-tavern/"
+    ],
+    [
+     "INDYMONTHLY",
+     "https://www.indianapolismonthly.com/news-opinion/a-night-at-the-red-key-tavern/"
+    ],
+    [
+     "NUVO",
+     "https://www.nuvo.net/food/the-red-key-tavern-turns-65/article_51e1d264-adb0-502d-9f37-7523568b511f.html"
+    ],
+    [
+     "PUNCHDRINK",
+     "https://punchdrink.com/articles/kurt-vonnegut-in-indianapolis-bars-indy/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Historic Steer-In",
+   "ad": "5130 E 10th St, Indianapolis, IN",
+   "w": "Order: Carhop burgers and the tenderloin at a 1960 drive-in. Drive-in on the edge of Irvington since the 1930s (Laughner's Steer-In from 1960); Guy Fieri visited twice on Diners, Drive-Ins & Dives (2011, 2025).",
+   "k": "Irvington",
+   "cz": [
+    "DELI",
+    "US"
+   ],
+   "s": [
+    [
+     "INDYENCYCLOPEDIA",
+     "https://indyencyclopedia.org/steer-in/"
+    ],
+    [
+     "INDYMONTHLY",
+     "https://www.indianapolismonthly.com/food-and-drinks/dining/the-historic-steer-in-brings-back-the-carhop/"
+    ],
+    [
+     "INDYTODAY",
+     "https://indytoday.6amcity.com/food/diners-drive-ins-dives-indianapolis"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FSQ",
+   "n": "Iaria's Italian Restaurant",
+   "ad": "317 S College Ave, Indianapolis, IN 46202",
+   "w": "Order: Red-sauce pasta and meatballs. The Iaria family's Holy Rosary institution — a 1916 Italian grocery that became the restaurant, in this building since 1954.",
+   "cz": [
+    "ITAL"
+   ],
+   "s": [
+    [
+     "DOWNTOWNINDY",
+     "https://downtownindy.org/go/iarias-italian-restaurant"
+    ],
+    [
+     "IBJ",
+     "https://www.ibj.com/articles/longtime-restaurant-operator-nick-iaria-dead-at-75"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MASS",
+   "n": "The Rathskeller",
+   "ad": "401 E Michigan St, Indianapolis, IN",
+   "w": "Order: Schnitzel, sauerbraten, ochsenschwanz suppe; the biergarten in summer. Indianapolis' oldest restaurant still operating (1894), in the cellar and biergarten of the Athenaeum — German food and a Kellerbar beer list.",
+   "k": "Lockerbie",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "VISITINDY",
+     "https://www.visitindy.com/directory/the-rathskeller/"
+    ],
+    [
+     "THETAKEOUT",
+     "https://thetakeout.com/1737075/indiana-bavarian-rathskeller-restaurant"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Athen%C3%A6um_(Das_Deutsche_Haus)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Chin Brothers Restaurant",
+   "ad": "2318 E Stop 11 Rd, Indianapolis, IN 46227",
+   "w": "Order: Sabuti (Chin white-corn and pork-bone soup) and vok ril (pork blood sausage). Than Hre's Chin kitchen — the restaurant Atlas Obscura chose to explain the food of 'Chindianapolis', the largest Chin community outside Myanmar.",
+   "cz": [
+    "BURMA"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://atlasobscura.com/articles/burmese-food-in-indianapolis"
+    ],
+    [
+     "CULINARYCROSSROADS",
+     "https://culinarycrossroads.org/welcome-to-little-burma-a-bit-of-asia-in-central-indiana/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MASS",
+   "n": "Tinker Street",
+   "ad": "402 E 16th St, Indianapolis, IN 46202",
+   "w": "Order: Seasonal small plates and the wine list in a 16th Street urban cottage. Tom Main's restaurant and wine bar between Herron-Morton Place and the Old Northside; Main was a James Beard Outstanding Restaurateur semifinalist (2025, 2026). An Indianapolis Monthly Best Restaurant.",
+   "k": "Old Northside",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.jamesbeard.org/stories/james-beard-award-semifinalists-2026"
+    ],
+    [
+     "INDYMONTHLY",
+     "https://www.indianapolismonthly.com/food-and-drinks/indiana-nabs-seven-james-beard-nominations/"
+    ],
+    [
+     "WISH",
+     "https://wishtv.com/?p=1002185"
+    ],
+    [
+     "VISITINDY",
+     "https://www.visitindy.com/directory/tinker-street-restaurant-wine-bar/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MASS",
+   "n": "Vida",
+   "ad": "601 E New York St, Indianapolis, IN",
+   "w": "Order: The chef's tasting menu with wine pairings. Lockerbie Square fine dining — the city's only AAA Four Diamond restaurant per WRTV. James Beard semifinalists: chef Thomas Melvin (Best Chef: Great Lakes, 2022) and GM/wine director Jared May (beverage/bar service, 2025 & 2026).",
+   "k": "Lockerbie",
+   "cz": [
+    "STEAK"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.jamesbeard.org/stories/the-2025-james-beard-award-semifinalists"
+    ],
+    [
+     "INDYMONTHLY",
+     "https://www.indianapolismonthly.com/food-and-drinks/indiana-nabs-seven-james-beard-nominations/"
+    ],
+    [
+     "WRTV",
+     "https://www.wrtv.com/lifestyle/food/meet-indianapolis-only-four-diamond-restaurant-vida"
+    ],
+    [
+     "DOWNTOWNINDY",
+     "https://downtownindy.org/go/vida"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Macizo",
+   "ad": "6335 Intech Commons Dr, Suites C/D, Indianapolis, IN 46278",
+   "w": "Order: Mexican-Peruvian fusion: ceviche, lomo saltado, tacos. Luz and Omar Gonzalez's Mexican-Peruvian kitchen in a northwest-side office park — James Beard 2026 semifinalists for Best Chef: Great Lakes and on Indianapolis Monthly's 2026 Best Restaurants.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.jamesbeard.org/stories/james-beard-award-semifinalists-2026"
+    ],
+    [
+     "INDYMONTHLY",
+     "https://www.indianapolismonthly.com/best-restaurants/best-restaurants-2026-freelands-macizo/"
+    ],
+    [
+     "WISH",
+     "https://wishtv.com/?p=1300237"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FSQ",
+   "n": "Bluebeard",
+   "ad": "653 Virginia Ave, Indianapolis, IN",
+   "w": "Order: The daily-changing New American menu with bread from sister bakery Amelia's. Fletcher Place gastropub in a 1924 warehouse, named for Kurt Vonnegut's 12th novel; Indy's most James Beard-recognised restaurant (Abbi Merriss, Best Chef: Great Lakes semifinalist 2023). Now led by chef Alan Sternberg.",
+   "k": "Fletcher Place",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://indytoday.6amcity.com/food/a-history-of-james-beard-winners-and-semifinalists-in-indy"
+    ],
+    [
+     "INDYMONTHLY",
+     "https://www.indianapolismonthly.com/food-and-drinks/best-restaurants-2024-bluebeard/"
+    ],
+    [
+     "IBJ",
+     "https://www.ibj.com/articles/bluebeard-chef-abbi-merriss-to-be-succeeded-by-alan-sternberg"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Abbi_Merriss"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Beholder",
+   "ad": "1844 E 10th St, Indianapolis, IN",
+   "w": "Order: Jonathan Brooks' seasonal dinner menu. Jonathan Brooks' (Milktooth) dinner restaurant in Windsor Park, opened 2018; Brooks was a James Beard Best Chef: Great Lakes semifinalist in 2025.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.jamesbeard.org/stories/the-2025-james-beard-award-semifinalists"
+    ],
+    [
+     "INDYMONTHLY",
+     "https://www.indianapolismonthly.com/food-and-drinks/reviews/review-beholder/"
+    ],
+    [
+     "IBJ",
+     "https://www.ibj.com/blogs/property-lines/69222-milktooth-chef-jonathan-brooks-opens-beholder-restaurant"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "9th Street Bistro",
+   "ad": "56 S 9th St, Noblesville, IN",
+   "w": "Order: Samir Mohammad's globally inspired small menu. Tiny Noblesville bistro opened 2021 by Samir and Rachel Mohammad; Samir was a James Beard Best Chef: Great Lakes semifinalist (2023). On Indianapolis Monthly's Best Restaurants 2025 and 2026.",
+   "k": "Noblesville",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://indytoday.6amcity.com/food/a-history-of-james-beard-winners-and-semifinalists-in-indy"
+    ],
+    [
+     "INDYMONTHLY",
+     "https://www.indianapolismonthly.com/best-restaurants/best-restaurants-2025-9th-street-bistro-bluebeard/"
+    ],
+    [
+     "CURRENT",
+     "https://www.youarecurrent.com/2022/02/07/labor-of-love-couple-own-and-operate-new-noblesville-restaurant-9th-street-bistro/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MASS",
+   "n": "Love Handle",
+   "ad": "877 Massachusetts Ave, Indianapolis, IN 46202",
+   "w": "Order: Fried chicken and the meat-forward sandwiches. Ten-plus years of house-butchered fried chicken and sandwiches, now on Mass Ave after leaving 10th Street; a James Beard semifinalist pick and an Indianapolis Monthly Best Restaurant.",
+   "cz": [
+    "HOOS",
+    "DELI"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://indytoday.6amcity.com/food/a-history-of-james-beard-winners-and-semifinalists-in-indy"
+    ],
+    [
+     "INDYMONTHLY",
+     "https://www.indianapolismonthly.com/food-and-drinks/dining/love-handle-2/"
+    ],
+    [
+     "EDIBLEINDY",
+     "https://edibleindy.ediblecommunities.com/eat/meats-and-sweets"
+    ],
+    [
+     "DOWNTOWNINDY",
+     "https://downtownindy.org/go/love-handle"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "His Place Eatery",
+   "ad": "6916 E 30th St, Indianapolis, IN",
+   "w": "Order: Fried chicken and waffles, hickory rib tips, bourbon creamed corn, collards. James and Shawn Jones' soul food since 2009 (at 30th & Shadeland since 2012; second branch on W 86th St) — on Guy Fieri's Diners, Drive-Ins & Dives and Indianapolis Monthly's 2026 Best Restaurants.",
+   "cz": [
+    "SOUL"
+   ],
+   "s": [
+    [
+     "INDYMONTHLY",
+     "https://www.indianapolismonthly.com/food-and-drinks/best-restaurants-2026-commission-row-his-place-eatery/"
+    ],
+    [
+     "WTHR",
+     "https://wthr.com/article/life/food/his-place-eatery-guy-fieri-diners-drive-ins-dives-food-network-soul-food-indianapolis-indiana/531-f8caa555-b01d-4f2e-aae7-0aec12445ddd"
+    ],
+    [
+     "WRTV",
+     "https://www.wrtv.com/lifestyle/black-history-month/his-place-eatery-brings-soul-food-with-a-twist-to-indianapolis"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "CLIO": {
+   "k": "CLIO",
+   "t": "Clio (Marshall University)",
+   "u": "https://theclio.com/",
+   "l": "Clio (Marshall University)"
+  },
+  "CURRENT": {
+   "k": "CURRENT",
+   "t": "Current Publishing (Current in Carmel/Fishers/Noblesville)",
+   "u": "https://www.youarecurrent.com/",
+   "l": "Current Publishing (Current in Carmel/Fishers/Noblesville)"
+  },
+  "DOWNTOWNINDY": {
+   "k": "DOWNTOWNINDY",
+   "t": "Downtown Indy, Inc.",
+   "u": "https://downtownindy.org/",
+   "l": "Downtown Indy, Inc."
+  },
+  "EXARC": {
+   "k": "EXARC",
+   "t": "EXARC",
+   "u": "https://exarc.net/",
+   "l": "EXARC"
+  },
+  "IBJ": {
+   "k": "INDIANAPOLIS BUSINESS JOURNAL",
+   "t": "INDIANAPOLIS BUSINESS JOURNAL",
+   "u": "",
+   "l": ""
+  },
+  "INDIANAHISTORY": {
+   "k": "INDIANA HISTORICAL SOCIETY",
+   "t": "Indiana Historical Society / Indiana Historical Bureau",
+   "u": "https://indianahistory.org/",
+   "l": "Indiana Historical Society / Indiana Historical Bureau"
+  },
+  "INDYARTS": {
+   "k": "INDYARTS",
+   "t": "Arts Council of Indianapolis (Indy Arts Guide)",
+   "u": "https://indyarts.org/",
+   "l": "Arts Council of Indianapolis (Indy Arts Guide)"
+  },
+  "INDYENCYCLOPEDIA": {
+   "k": "INDYENCYCLOPEDIA",
+   "t": "The Encyclopedia of Indianapolis (IUPUI/Polis Center)",
+   "u": "https://indyencyclopedia.org/",
+   "l": "The Encyclopedia of Indianapolis (IUPUI/Polis Center)"
+  },
+  "INDYPL": {
+   "k": "INDYPL",
+   "t": "Indianapolis Public Library",
+   "u": "https://www.indypl.org/",
+   "l": "Indianapolis Public Library"
+  },
+  "IPM": {
+   "k": "IPM",
+   "t": "Indiana Public Media",
+   "u": "https://www.ipm.org/",
+   "l": "Indiana Public Media"
+  },
+  "LOC": {
+   "k": "LOC",
+   "t": "Library of Congress (HABS/HAER)",
+   "u": "https://www.loc.gov/",
+   "l": "Library of Congress (HABS/HAER)"
+  },
+  "NPS": {
+   "k": "NATIONAL PARK SVC",
+   "t": "NATIONAL PARK SVC",
+   "u": "",
+   "l": ""
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "OFFICIAL SITE",
+   "u": "",
+   "l": ""
+  },
+  "POLIS": {
+   "k": "POLIS",
+   "t": "Polis Center (Indiana University Indianapolis)",
+   "u": "https://polis.indianapolis.iu.edu/",
+   "l": "Polis Center (Indiana University Indianapolis)"
+  },
+  "ROADSIDEAMERICA": {
+   "k": "ROADSIDE AMERICA",
+   "t": "Roadside America",
+   "u": "https://www.roadsideamerica.com/",
+   "l": "Roadside America"
+  },
+  "SAHARCHIPEDIA": {
+   "k": "SAHARCHIPEDIA",
+   "t": "SAH Archipedia (Society of Architectural Historians)",
+   "u": "https://sah-archipedia.org/",
+   "l": "SAH Archipedia (Society of Architectural Historians)"
+  },
+  "TCLF": {
+   "k": "TCLF",
+   "t": "The Cultural Landscape Foundation",
+   "u": "https://www.tclf.org/",
+   "l": "The Cultural Landscape Foundation"
+  },
+  "VISITINDIANA": {
+   "k": "VISITINDIANA",
+   "t": "Visit Indiana (Indiana Destination Development Corp.)",
+   "u": "https://visitindiana.com/",
+   "l": "Visit Indiana (Indiana Destination Development Corp.)"
+  },
+  "VISITINDY": {
+   "k": "VISIT INDY",
+   "t": "VISIT INDY",
+   "u": "",
+   "l": ""
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "WIKIPEDIA",
+   "u": "",
+   "l": ""
+  },
+  "WISH": {
+   "k": "WISH-TV 8",
+   "t": "WISH-TV 8",
+   "u": "",
+   "l": ""
+  }
+ },
+ "FS": {
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "ATLAS OBSCURA",
+   "u": "",
+   "l": ""
+  },
+  "AXIOS": {
+   "k": "AXIOS",
+   "t": "Axios Indianapolis",
+   "u": "https://www.axios.com/local/indianapolis",
+   "l": "Axios Indianapolis"
+  },
+  "CULINARYCROSSROADS": {
+   "k": "CULINARYCROSSROADS",
+   "t": "Culinary Crossroads (Indiana food history blog)",
+   "u": "https://culinarycrossroads.org/",
+   "l": "Culinary Crossroads (Indiana food history blog)"
+  },
+  "CURRENT": {
+   "k": "CURRENT",
+   "t": "Current Publishing (Current in Carmel/Fishers/Noblesville)",
+   "u": "https://www.youarecurrent.com/",
+   "l": "Current Publishing (Current in Carmel/Fishers/Noblesville)"
+  },
+  "DOWNTOWNINDY": {
+   "k": "DOWNTOWNINDY",
+   "t": "Downtown Indy, Inc.",
+   "u": "https://downtownindy.org/",
+   "l": "Downtown Indy, Inc."
+  },
+  "EDIBLEINDY": {
+   "k": "EDIBLEINDY",
+   "t": "Edible Indy",
+   "u": "https://edibleindy.ediblecommunities.com/",
+   "l": "Edible Indy"
+  },
+  "FOODNETWORK": {
+   "k": "FOODNETWORK",
+   "t": "Food Network",
+   "u": "https://www.foodnetwork.com/",
+   "l": "Food Network"
+  },
+  "FOX59": {
+   "k": "FOX59",
+   "t": "FOX59",
+   "u": "",
+   "l": ""
+  },
+  "IBJ": {
+   "k": "INDIANAPOLIS BUSINESS JOURNAL",
+   "t": "INDIANAPOLIS BUSINESS JOURNAL",
+   "u": "",
+   "l": ""
+  },
+  "INDIANAHISTORY": {
+   "k": "INDIANA HISTORICAL SOCIETY",
+   "t": "Indiana Historical Society / Indiana Historical Bureau",
+   "u": "https://indianahistory.org/",
+   "l": "Indiana Historical Society / Indiana Historical Bureau"
+  },
+  "INDYENCYCLOPEDIA": {
+   "k": "INDYENCYCLOPEDIA",
+   "t": "The Encyclopedia of Indianapolis (IUPUI/Polis Center)",
+   "u": "https://indyencyclopedia.org/",
+   "l": "The Encyclopedia of Indianapolis (IUPUI/Polis Center)"
+  },
+  "INDYMONTHLY": {
+   "k": "INDIANAPOLIS MONTHLY",
+   "t": "INDIANAPOLIS MONTHLY",
+   "u": "",
+   "l": ""
+  },
+  "INDYTODAY": {
+   "k": "INDYTODAY",
+   "t": "Indy Today (6AM City)",
+   "u": "https://indytoday.6amcity.com/",
+   "l": "Indy Today (6AM City)"
+  },
+  "JAMESBEARD": {
+   "k": "JAMES BEARD",
+   "t": "JAMES BEARD",
+   "u": "",
+   "l": ""
+  },
+  "NUVO": {
+   "k": "NUVO",
+   "t": "NUVO",
+   "u": "",
+   "l": ""
+  },
+  "PUNCHDRINK": {
+   "k": "PUNCHDRINK",
+   "t": "PUNCH",
+   "u": "https://punchdrink.com/",
+   "l": "PUNCH"
+  },
+  "ROADFOOD": {
+   "k": "ROADFOOD",
+   "t": "Roadfood (Jane & Michael Stern)",
+   "u": "https://roadfood.com/",
+   "l": "Roadfood (Jane & Michael Stern)"
+  },
+  "TASTINGTABLE": {
+   "k": "TASTINGTABLE",
+   "t": "Tasting Table",
+   "u": "https://www.tastingtable.com/",
+   "l": "Tasting Table"
+  },
+  "THETAKEOUT": {
+   "k": "THETAKEOUT",
+   "t": "The Takeout",
+   "u": "https://thetakeout.com/",
+   "l": "The Takeout"
+  },
+  "VISITINDIANA": {
+   "k": "VISITINDIANA",
+   "t": "Visit Indiana (Indiana Destination Development Corp.)",
+   "u": "https://visitindiana.com/",
+   "l": "Visit Indiana (Indiana Destination Development Corp.)"
+  },
+  "VISITINDY": {
+   "k": "VISIT INDY",
+   "t": "VISIT INDY",
+   "u": "",
+   "l": ""
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "WIKIPEDIA",
+   "u": "",
+   "l": ""
+  },
+  "WISH": {
+   "k": "WISH-TV 8",
+   "t": "WISH-TV 8",
+   "u": "",
+   "l": ""
+  },
+  "WRTV": {
+   "k": "WRTV",
+   "t": "WRTV 6 (ABC Indianapolis)",
+   "u": "https://www.wrtv.com/",
+   "l": "WRTV 6 (ABC Indianapolis)"
+  },
+  "WTHR": {
+   "k": "WTHR 13",
+   "t": "WTHR 13",
+   "u": "",
+   "l": ""
+  }
+ }
+}

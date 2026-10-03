@@ -268,3 +268,28 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
 - **Documented gap — Haitian food in North Dade:** Infatuation's 19 best Haitian list names Family Bakery, Lakay Food Spot, Bon Bagay,
   Horace Bakery, L'auberge (all North Miami) and Chez Katu (Miramar), but no second credible outlet surfaced for any of them in two
   searches (NT/TO/WLRN/GMCVB) → all held, not added. Gregs Cookout: Infatuation marks it permanently closed → dropped.
+
+## 2026-10-03 (session 4) · batch 12 — bars, Tamiami Trail airboats, last per-area gaps
+- **Added (12):** food 10 — Platea (SDADE), Versailles Bakery (LHAV), Palace Bar (MBCH), Sugar, Better Days, Mike's at Venetia (DTB),
+  Gulf Stream Brewing (FTL); sights 2 — Everglades Safari Park, Gator Park (GLADE; Fodor's Tamiami Trail + GMCVB).
+- **Closure checks:** Medium Cool — NT: closing 22 Aug 2026 at its 17th St location → not added; Stormy Monday — limited-run pop-up
+  through July → not added; **Macchialina** (in dataset) — Stormy Monday occupied its "former home", so re-checked: still OPEN, moved
+  next door at 820 Alton Rd (old room is sibling Fluke) — no change needed.
+- **Held:** El Titan de Bronze (NT 2007 only), Stormy Monday / Water Lion (Inf only), Zaytona, Fonda Sabaneta, El Tambo (Inf only).
+- **Density:** CGCG, FTL, GLADE, LHAV, SDADE, WYN now at/over target; DTB 54/55, MBCH 62/65, NMIA 37/40.
+
+## 2026-10-03 (session 4) · batch 13 + wave close — every area at target
+- **Added (9):** NMIA food 2 — Jarana (Acurio group; Inf + NT), Chayhana Oasis (Inf + NT); NMIA sights 2 — Aventura Arts & Cultural
+  Center (TO + NT), Opa-locka Heritage Trail (WLRN + GMCVB); MBCH sights 4 — Art Deco Welcome Center & Museum (LP + Fodor's),
+  Miami Beach Post Office (LP + Wikipedia; high pin), Faena Theater (TO + NT), North Shore Open Space Park (TO + NT); DTB sight 1 —
+  Ichimura Miami-Japan Garden (TO + NT).
+- **Not added:** Enchanted Forest Elaine Gordon Park (WLRN Apr 2026: residents say it "isn't living up to its name" — merit doubt).
+- **Session 4 totals:** 357 → 509 discovered (+152: +101 food & drink, +51 sights), food & drink 66%; 104 → 136 pinned (+32: 27 sights,
+  5 restaurants via Wikipedia). Density: CGCG 61/55 · DTB 55/55 · FTL 75/75 · GLADE 41/40 · LHAV 55/55 · MBCH 66/65 · NMIA 41/40 ·
+  SDADE 55/55 · WYN 60/60 — **all OK**. Food share per area ≥50% everywhere except GLADE (7/41, park area — noted, not padded).
+- **Channel mix (session 4 adds):** local editorial (Miami New Times / New Times Broward-Palm Beach, WLRN) ≈ 95 citations; travel/
+  national editorial (Infatuation ≈ 85, Time Out ≈ 70, Fodor's 8, Lonely Planet 3, AFAR 1); tourism boards (GMCVB ≈ 40, Visit Lauderdale
+  ≈ 15); institutions (NPS 4 lone; Wikipedia ≈ 40 as 2nd source / coords); creators: 2 creator queries, 1 creator-corroborated pick
+  (Caribbean Delite via NT's influencer hidden-gem roundup) — creators remain a thin channel for Miami (no YouTube episode surfaced).
+- **Gates (final build):** sourcecheck 509 PASS · geocheck PASS · statuscheck CONSISTENT (1 closed on page, 0 unchecked) · buildcheck PASS ·
+  `npm run validate` DATA OK · `npm test` ALL PASS. Hub card, CITIES.md row, AGENT-PROMPTS run-log row and RESUME (next-wave plan) updated.
