@@ -19,3 +19,5 @@ Claude-Session: https://claude.ai/code/session_01PCNcUkfa5S1N1BKGzZA4xx).
 Keep your hub CARD counts, docs/CITIES.md row and the docs/AGENT-PROMPTS.md run-log row current. Do not stop to ask questions — make the sensible call, log it in AUDIT.md. Finish with a ≤300-word report (discovered vs rendered per area vs target, food share, gates, closures, UNVERIFIED held) and a next-wave plan in RESUME.md.
 
 **Branch sync:** if your clone is behind the remote, `git pull --no-rebase origin claude/peaceful-goodall-i0hsrt` (or `git merge --ff-only` when you have no local commits). Never `git reset --hard`, never force-push, and never stop to ask about it. (Lesson from row 39, 2026-10-03.)
+
+**Restaurant-pin techniques that work via WebSearch (2026-10-03):** `allowed_domains: ["maps.apple.com"]` returns Apple place URLs carrying `coordinate=`/`ll=` (Apple's own place pin — check it against the record's street address); Singapore: `allowed_domains: ["onemap.gov.sg"]` building points; Japan: NAVITIME spot pages. Google `!3d!4d`, mapcarta and latlong rarely yield restaurant pins here. (Miami W4: 136 → 261 pins.)
