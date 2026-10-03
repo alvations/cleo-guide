@@ -110637,11 +110637,11 @@
    },
    "Union South & the Sett": {
     "address": "1308 W Dayton St, Madison, WI 53715",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 43.07639,
+    "lng": -89.4,
+    "source": "https://en.wikipedia.org/wiki/Union_South_(Wisconsin) (43°4′35″N 89°24′0″W)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Badger Bash at Union South, Sept 2026 (WMTV)",
     "statusChecked": "2026-10-03"
@@ -110735,14 +110735,25 @@
     "statusChecked": "2026-10-03"
    },
    "Mid-Continent Railway Museum": {
-    "address": "North Freedom, WI 53951",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "E8948 Museum Rd, North Freedom, WI 53951",
+    "lat": 43.4602,
+    "lng": -89.8744,
+    "source": "https://www.midcontinent.org/contact-us/ (official GPS N 43.4602, W 89.8744; Wikipedia 43°28′N 89°52′W agrees)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
-    "statusSource": "Current listing (Travel Wisconsin / Destination Madison / Dane County, 2026)",
+    "statusSource": "Current hours on Apple Maps place card / midcontinent.org (2026)",
+    "statusChecked": "2026-10-03"
+   },
+   "Gates & Brovi": {
+    "address": "3502 Monroe St, Madison, WI 53711",
+    "lat": 43.052922956,
+    "lng": -89.435660183,
+    "source": "https://www.waze.com/en/live-map/directions/gates-and-brovi-monroe-st-3502-madison?to=place.w.177340847.1773146321.1555971",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Waze live place + current Travel Wisconsin fish-fry guide (2026)",
     "statusChecked": "2026-10-03"
    }
   },
