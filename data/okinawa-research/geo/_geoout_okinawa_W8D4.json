@@ -2,10 +2,10 @@
  {
   "n": "Okinawa Soba Kintarō, Nanjō (沖縄そば 金太郎)",
   "address": "沖縄県南城市玉城船越1197",
-  "lat": 26.148916,
-  "lng": 127.755269,
-  "confidence": "low",
-  "geoSource": "Extended WebSearch '沖縄そば金太郎 南城市玉城船越 住所 緯度 経度' — listing coordinate 26.148916,127.755269 surfaced with NAVITIME poi 01125-117674r / ramendb listing for 玉城船越1197; consistent with Funakoshi address; aggregator coordinate = low",
+  "lat": 26.14893,
+  "lng": 127.75532,
+  "confidence": "med",
+  "geoSource": "Stars and Stripes Okinawa printed GPS 'N 26.14893, E 127.75532' for Okinawa Soba Kintaro (surfaced in site:okinawa.stripes.com Nanjō soba search; article among the Nanjō day-trip/soba pieces, exact article not pinpointed). Agrees within ~5 m with listing coordinate 26.148916,127.755269 (NAVITIME poi 01125-117674r). 玉城船越1197",
   "status": "open",
   "statusSource": "Official site okinawasoba-kintarou.jp + kankou-nanjo eat/106 (hours 11:00-16:30, closed Wed), checked 2026-10-03"
  },
@@ -28,5 +28,13 @@
   "geoSource": "Extended WebSearch '和山海雲 WAYAMA MOZUKU 座間味 navitime 緯度 経度' — listing coordinate (4travel/okibra/tabelog result set, not a NAVITIME venue page) 26.226835,127.303870 for 字座間味9; consistent with Zamami village near the port → low",
   "status": "open",
   "statusSource": "Official site wayamamozuku.jp/shop (current restaurant page, 11:00-15:00) + Mapple 50726, checked 2026-10-03"
+ },
+ {
+  "n": "Boku no Mise Ojisan, Zamami (ぼくの店 おじさん)",
+  "address": "沖縄県島尻郡座間味村座間味13",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Extended '<name> 座間味 navitime 緯度 経度' returned only the address (TV Tokyo travel entry) — no venue coordinate",
+  "status": "open",
+  "statusSource": "Mapple 50726 current Zamami lunch guide + TV Tokyo travel entry 22306, checked 2026-10-03"
  }
 ]
