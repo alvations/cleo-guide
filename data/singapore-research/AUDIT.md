@@ -621,3 +621,10 @@ Area code **PGL** (slug `punggol`, target ~93). Files: `FOOD_PUNGGOL.json` (5), 
 - Gates after rebuild: geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck FAIL only on 46 pre-existing single-source places elsewhere (none PGL/NVN). validate + test ALL PASS.
 - Density: PGL 50/93 (NEED +43), NVN 47/55 (NEED +8). Rendered: punggol.html 23, newton-novena.html 29. Full held/dropped lists: _note_PUNGGOL.md / _note_NOVENA.md W3.
 - **W3 close (same day):** NVN +6 more (Cairnhill CA, Tan Chin Tuan Mansion, The Line, Waterfall, L'Espresso, Guan Kee) → **53/55**, 35 pinned. PGL net 0 more: +3 (Hee Hee Hee, SJ Sickander Ammal, Warabimochi Kamakura) and −3 **attribution correction** (75 Ah Balling, One Soy, You Fu re-HELD after domain-restricted checks failed to confirm their second source) → **50/93**, 24 pinned. Gates unchanged (geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck FAIL only on 46 pre-existing non-PGL/NVN single-source places). Lesson logged in _note_PUNGGOL.md: confirm 2nd sources with `allowed_domains` before filing.
+
+## 2026-10-03 — PGL + NVN W4 (wave-3 relaunch session), batch 1
+- NVN: +4 food (Soon Wah, Newton Tian Xiang, R&B Express, Hong Kong Cha Kee), −1 duplicate (Bee Heng Popiah W3 = Bee Heng Satay W1) → **56/55 OK**; 37 pinned.
+- PGL: +5 food (219 Sarawak Kolo Mee, Fat Po, Seoul Good, House of Seafood, Downstairs) +3 sights (Punggol East Container Park, Treelodge@Punggol, Waterway Terraces) → **58/93 (NEED +35)**; 25 pinned.
+- Channels: editorial 13 (Eatbook, Seth Lui, DFD, MTC, TSL, Honeycombers, HGW, Tatler Asia, Sassy Mama, Little Day Out), institutional/ref 2 (Wikipedia, HDB), architecture media 2 (designboom, RTF), creators 0 (none vetted for Punggol).
+- Gates: geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck FAIL only on the 46 pre-existing single-source places elsewhere (none PGL/NVN). validate DATA OK · npm test ALL PASS.
+- Held/dropped detail: _note_PUNGGOL.md / _note_NOVENA.md "W4".
