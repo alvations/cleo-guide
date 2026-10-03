@@ -336,3 +336,17 @@
   @4040, Bulla via Sixty Vines @110 S Orlando, Chuan Fu via prior tenant of #105). Rogers Building now pinned from its HMDB marker
   (replaces the rejected Wikipedia coord). Lake Cherokee HD Wikipedia coord rejected (identical to Lake Eola Heights' — a copy error).
 - Rebuild → 4 gates PASS · validate DATA OK · npm test ALL PASS → **201 sights + 155 food = 356 on the map** (wave start 328), 522 researched.
+
+## 2026-10-03 (session 7 · wave 6) · batch 2 — +17 pins, wave close
+- **Pins (`geo/_geoout_w6pin.json` = 41):** Waze place records (high): Pho 88, The Monroe, Francesco's, Kabooki Sushi, Ivanhoe Park
+  Brewing, Nile Ethiopian, Q's Crackin' Crab, The H Orlando, Boggy Creek Airboat, St. James Cathedral, Kissimmee Lakefront Park, Orlando
+  Shakespeare Theater (two Waze records agree ~30 m), Fort Christmas, Lake Apopka Wildlife Drive, Loch Haven Park (+HMDB marker), Orlando
+  Family Stage. Listing/host pins (med): Taverna Opa (usarestaurants), Moon Wok (same plaza #320), The Courtesy (Winter Park Social House via
+  Foxtail listing), The Hideaway Bar (listing 516 vs record 523 Virginia Dr — near-miss, noted).
+- **Rejected:** bare street records for Will's Pub / Zymarium (Waze 'North Mills Avenue' street point — not a place pin).
+- **Re-checks queued:** Shin Jung (Foursquare: original 'Now Closed', a 'Shinjung Korean BBQ & Grill Bulgogi' listing at the same 1638 E
+  Colonial address — rename or closure?); Kōri Bakery (Foursquare says 741 N Mills, record 721); Persimmon Hollow (Foursquare shows an
+  Orlando taproom at 227 N Eola Dr — second location?).
+- Budget: ≈190 WebSearch (≈80 discovery/corroboration, ≈15 status, ≈95 pins).
+- Rebuild → 4 gates PASS · validate DATA OK · npm test ALL PASS → **207 sights + 166 food = 373 on the map** (wave start 328), 522 researched,
+  food share 56.3%, density 18/18 OK.

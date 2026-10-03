@@ -15,12 +15,11 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Take One — CLOSED
 
 ## akron-oh
-- registry entries: **159** · verified pins: **117** (high 79 · med 38 · low 0)
-- ⚠️ **UNVERIFIED** in registry (42) — held by the gate, need the helper:
+- registry entries: **167** · verified pins: **128** (high 85 · med 43 · low 0)
+- ⚠️ **UNVERIFIED** in registry (39) — held by the gate, need the helper:
     - 91 Wood Fired Oven
     - Amelia's by the Farmer's Rail
     - Angel Falls Coffee Company
-    - Big Eu'es BBQ
     - Bocca Grande Italian Steakhouse
     - Bombay Sitar
     - Boss ChickNBeer (Cuyahoga Falls)
@@ -29,15 +28,14 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Cilantro Thai & Sushi
     - Crave
     - Desert Inn
-    - Diamond Deli
     - Five Oaks (Massillon Woman's Club)
     - Fred's Diner
     - Garrett's Mill & Brewing Co.
     - George's Lounge
     - Hoover Historical Center
     - Hoppin' Frog Brewery
-    - Kenmore Boulevard Historic District
     - Kent State University Museum
+    - Leather Helmet Grill
     - Maddalena's Italian Ristorante
     - McArthur's Brew House
     - Menches Bros. (Green)
@@ -48,7 +46,6 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - New Era Restaurant
     - Rosewood Grill
     - Social at the Stone House
-    - Sojourner Truth Legacy Plaza
     - St. Helena III Canal Boat (Canal Fulton)
     - Sully's Speakeasy
     - Summit Artspace
@@ -689,9 +686,8 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Ōyunuma River Natural Footbath, Noboribetsu (大湯沼川天然足湯)
 
 ## indianapolis-in
-- registry entries: **198** · verified pins: **123** (high 75 · med 45 · low 3)
-- ⚠️ **UNVERIFIED** in registry (75) — held by the gate, need the helper:
-    - 1933 Lounge by St. Elmo
+- registry entries: **215** · verified pins: **139** (high 82 · med 54 · low 3)
+- ⚠️ **UNVERIFIED** in registry (76) — held by the gate, need the helper:
     - 9th Street Bistro
     - Astrea
     - Bee Coffee Roasters
@@ -707,10 +703,12 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Central Canal Walk
     - Chatterbox Jazz Club
     - Chin Brothers Restaurant
+    - Command Coffee
     - Commission Row
     - Convivio Italian Artisan Cuisine
     - Corridor
     - Coxhall Gardens
+    - Daredevil Brewing Co.
     - Delicia
     - Edwards Drive-In — CLOSED
     - Egg Roll #1 (Pho #1)
@@ -720,12 +718,10 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Fountain Square Brewing Co.
     - Freeland's
     - Good Omen
-    - Goose the Market
-    - Hannah House
+    - Harrison's Restaurant Bar
     - Hoagies & Hops (Chilly Water Taproom)
     - Holliday Park & The Ruins
     - Holy Rosary Church & Italian Street Festival
-    - Hotel Tango Distillery
     - Indiana Landmarks Center
     - Jockamo Upper Crust Pizza
     - Juniper on Main
@@ -741,7 +737,8 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Milktooth (arlene's by Milktooth)
     - Mochi Joy
     - Monterey Coastal Cuisine
-    - Nesso Italian Kitchen
+    - Napolese Pizzeria
+    - Niku Kitchen & Sushi Bar
     - Nyla's
     - Oaken Barrel Brewing Co.
     - Oh Yumm! Bistro
@@ -756,13 +753,14 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Sushi Den
     - Tavern on South
     - Taylor's Bakery
+    - Ten Cuts Brazilian Steakhouse
+    - The CourtHouse Club
+    - The Flying Cupcake (Illinois Street original)
     - The Inferno Room
     - Tiburon Coastal Cuisine
-    - Tinker Coffee — The Firehouse
     - Tipsy Mermaid
     - Tlaolli
     - Turchetti's Delicatessen
-    - University of Indianapolis
     - Vivante French Eatery (Hotel Carmichael)
     - Your Local Deli and Market
     - Zionsville Village (brick Main Street)
@@ -945,8 +943,8 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - The Owl Distillery (Belgian Owl)
 
 ## madison-wi
-- registry entries: **177** · verified pins: **136** (high 92 · med 44 · low 0)
-- ⚠️ **UNVERIFIED** in registry (41) — held by the gate, need the helper:
+- registry entries: **182** · verified pins: **140** (high 96 · med 44 · low 0)
+- ⚠️ **UNVERIFIED** in registry (42) — held by the gate, need the helper:
     - Bar Corallini
     - Candinas Chocolatier
     - Caribou Tavern
@@ -971,6 +969,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - North and South Seafood & Smokehouse
     - Pheasant Branch Conservancy
     - Public Parking
+    - Puempel's Olde Tavern
     - RED
     - Red Rooster Cafe
     - Saigon Noodles
@@ -983,10 +982,10 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Tempest Oyster Bar
     - The Harvey House
     - The Kollege Klub
-    - The Robin Room
     - The Trollway (Mount Horeb)
     - Tip Top Tavern
     - Turn Key Supper Club
+    - Viking Brew Pub
     - Villa Tap
 
 ## miami-fl
@@ -1561,10 +1560,10 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Ōshiro Tempura, Ōjima (大城てんぷら店)
 
 ## orlando-fl
-- registry entries: **533** · verified pins: **368** (high 194 · med 168 · low 6)
+- registry entries: **533** · verified pins: **385** (high 207 · med 172 · low 6)
 - ⛔ ship-worthy but **NOT yet geocoded** (1) — need a place-pin:
     - Susana's Cafe
-- ⚠️ **UNVERIFIED** in registry (165) — held by the gate, need the helper:
+- ⚠️ **UNVERIFIED** in registry (148) — held by the gate, need the helper:
     - "Doc" Sugrue's Desert Kebab House
     - 1921 Mount Dora
     - ABC Commissary
@@ -1583,7 +1582,6 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Bigfire
     - Black Hammock Restaurant (Lazy Gator Bar)
     - Bob Marley – A Tribute to Freedom
-    - Boggy Creek Airboat Adventures
     - Bumblebee Man's Taco Truck
     - Café L'air de la Sirène
     - Café Margaux
@@ -1614,8 +1612,6 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Florean Fortescue's Ice-Cream Parlour
     - Flying Fish
     - Food Trucks Heaven
-    - Fort Christmas Historical Park
-    - Francesco's Ristorante and Pizzeria
     - Gaston's Tavern
     - Gideon's Bakehouse
     - Green Eggs and Ham Cafe
@@ -1625,22 +1621,18 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Hog's Head
     - Illumination's Minion Cafe
     - Illumination's Villain-Con Minion Blast
-    - Ivanhoe Park Brewing Co.
     - Ivanhoe Village (Antique Row)
     - Jaleo
     - June
     - Jungle Navigation Co. Ltd. Skipper Canteen
     - Jurassic Park River Adventure
-    - Kabooki Sushi
     - Kappo Tsan
     - Karamell-Küche
     - Kaya
-    - Kissimmee Lakefront Park
     - Krusty Burger (Universal Studios Florida)
     - Kusafiri Coffee Shop & Bakery
     - Kōri Bakery & Dessert
     - La Cava del Tequila
-    - Lake Apopka Wildlife Drive
     - Lake Cherokee Historic District
     - Las Carretas
     - Le Gobelet Noir
@@ -1656,24 +1648,19 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Millennium Falcon: Smugglers Run
     - Moe's Tavern
     - Monsieur Paul
-    - Moon Wok Kitchen & Lounge
     - Morimoto Asia
     - Mythos Restaurant
     - Nami
-    - Nile Ethiopian Restaurant
     - Nomad Lounge
     - Oakland Nature Preserve
     - Oga's Cantina
-    - Orlando Shakespeare Theater (Lowndes Shakespeare Center)
     - Osteria Ester
     - Pecos Bill Tall Tale Inn and Cafe
     - Persimmon Hollow Brewing Company
-    - Pho 88
     - Pizza Bruno
     - Playalinda Brewing Company
     - Pongu Pongu
     - Prato
-    - Q's Crackin' Crab & Seafood Kitchen
     - Raglan Road Irish Pub
     - Randall R. Tuten Orlando Fire Museum
     - Red Oven Pizza Bakery
@@ -1687,25 +1674,20 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Sleepy Hollow Refreshments
     - Smoke & Donuts
     - Sparrow
-    - St. James Cathedral (Orlando)
     - Strong Water Tavern
     - Summer House on the Lake
     - Sushi Saint
     - Taste of Chengdu
-    - Taverna Opa
     - The Atlantic
     - The Boathouse
     - The Burning Blade Tavern
     - The Cat in the Hat (Islands of Adventure)
     - The Chapman
-    - The Courtesy
     - The Cowfish Sushi Burger Bar
     - The Current Seafood Counter
     - The Fat Snook
     - The Hangry Bison (Winter Garden)
-    - The Hideaway Bar
     - The Hollywood Brown Derby
-    - The Monroe
     - The Oak & Star Tavern
     - The Polite Pig
     - The Smiling Bison

@@ -24,19 +24,26 @@ Total target ≈ 210.
 - [ ] index.html card relinked live with counts; docs/CITIES.md row; AGENT-PROMPTS run-log rows.
 
 ## In-flight wave
-- (none — W2 complete 2026-10-03.)
-- **Next (W3), in order:**
-  1. Pins: the 71 UNVERIFIED restaurants need `tools/geocode-helper.html` (browser) — the Apple-Maps WebSearch technique does
-     NOT work for Indianapolis (AUDIT W2 Stage 0). Don't re-spend searches on it.
-  2. Food share below 50% in DTN (8/30), MASS (9/19), MID (6/15): DTN — Harry & Izzy's, Nesso, Astrea/Dean's (Axios Devour
-     2026 new list), Kilroy's/Bru Burger need IM/Axios pair; Mass Ave — Bazbeaux, Ball & Biscuit (resolve address), Harrison's,
-     Bakersfield, Yats; MID — Tarkington-area cafés, Garden Terrace at Newfields (only official so far).
-  3. SOUTH (6/20): Burmese/Chin second outlets (Burmese Restaurant 7040 Madison Ave, Kimu status), Napoli Villa (Beech Grove,
-     WRTV), Revery (Greenwood, status), Famous Subs (Southport); sights: Southeastway Park, University of Indianapolis.
-  4. Resolve held: Daisy Bar address, Wisanggeni Pawon (Irvington vs 71st St), Cheeky Bastards/Open Kitchen/Big Woods 2nd outlet.
-  5. Re-verify the 3 low pins (Fort Harrison SP, Broad Ripple Village, Museum of Miniature Houses).
+- (none — W3 complete 2026-10-03.)
+- **Next (W4), in order:**
+  1. Pins — 76 places still UNVERIFIED (incl. Chin Brothers, Turchetti's, Milktooth (540 vs 534 Virginia Ave), Commission Row,
+     Chatterbox, Magdalena, Borage, Tlaolli, Corridor, Inferno Room, Oaken Barrel, Good Omen, Okonori, Serliana, Astrea,
+     Bocca, Foundry Provisions (236 E 16th St), Tavern on South, Sushi Den, Tiburon, Nyla's, Tipsy Mermaid, Kimu, Ten Cuts).
+     Technique that works here: `"latitude longitude of <name> <addr>, <name> <addr>, <name> <addr>"` with
+     `allowed_domains:["waze.com","usarestaurants.info","foursquare.com"]` (~2 pins/query). Name-only queries fail — always
+     include the street address. Apple Maps does NOT work for Indianapolis. Then `tools/geocode-helper.html` for the remainder.
+  2. FSQ +1 (19/20): a Wikipedia-pinned sight (only district centroids found this wave — not used) or one more sourced spot
+     (held leads: Rook 501 Virginia Ave status, Upland FSQ, West Fork Social House 1233 Shelby).
+  3. Re-verify the 3 low pins (Fort Harrison SP, Broad Ripple Village, Museum of Miniature Houses) and the med building pins.
+  4. Held leads needing a 2nd outlet / status: Meridian Restaurant & Bar (IM only), SmockTown Brewery (Daily Journal only),
+     Mom's Family Restaurant (IM only), Hinata (IBJ only), Kilroy's (temp. closure), Rick's Cafe Boatyard (fire status),
+     Mo's A Place for Steaks Greenwood (opening), Tavern at the Point, Daisy Bar, Wisanggeni Pawon.
 
 ## State
+- 2026-10-03 — W3: +65 (60 food & drink, 5 sights) → 215 sourced (141 food = 66%; ≥50% in every area), 139 on page
+  (65 sights + 74 food; +67 Waze/usarestaurants.info/Wikipedia pins). Density OK in 8/9 areas: BRIP 20, DTN 44, EAST 16, MASS 24,
+  MID 22, NORTH 30, SOUTH 20, WEST 20; FSQ 19/20. All 4 gates PASS; validate + test green. Files: FOOD_W3/SIGHTS_W3/SOURCES_W3.json,
+  geo/_geoout_w3.json + geo/_geoout_w3pins.json (`_ind_w3_records.py`, `_ind_pins_w3.py`).
 - 2026-10-03 — W2: +47 (40 food & drink, 7 sights) → 150 sourced (81 food = 54%), 72 on page (62 sights + 10 food);
   all gates green; density NEED in every area (BRIP 15/20, DTN 30/38, EAST 11/16, FSQ 15/20, MASS 19/24, MID 15/22,
   NORTH 21/30, SOUTH 6/20, WEST 18/20). Files: FOOD_W2/SIGHTS_W2/SOURCES_W2.json, geo/_geoout_w2.json (`_ind_w2_records.py`).
