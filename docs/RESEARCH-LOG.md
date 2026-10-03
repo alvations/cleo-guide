@@ -494,3 +494,5 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - **Restaurant pins:** only `allowed_domains=[en.wikipedia.org]` + "<name> <street> coordinates" worked (8 of 133 held places, all with Wikipedia pages); Michelin/mapcarta/Atlas queries returned no coordinates. Building-level pins (Ferry Building vendors, hotel bars via the hotel's Wikipedia coord) graded `med`/`high` with the building named in `geoSource`.
 - Dead end: creator channel (Mark Wiens / YouTube SF food tours / Strictly Dumpling) surfaced no findable video naming a specific SF place in 3 searches.
 
+
+- 2026-10-03 (Osaka W4): Michelin venue-page search returns only central-Osaka-city venues — Sakai, Hokusetsu, bay wards and Hyōgo yield nothing (Hyōgo selection due 2027-02-16). allowed_domains rejects asahi/mainichi/nhk/sankei/yomiuri/cntraveler. Michelin *editorial* round-ups (oden guide, casual lunches, Naniwa on a Plate) are the cheapest way to get a named dish for a Michelin-listed venue. English editorial is exhausted for Osaka outer areas (~0.3 places/search); next wave should go Japanese-first (百名店 + ward/official pages).
