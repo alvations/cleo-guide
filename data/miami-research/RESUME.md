@@ -24,12 +24,14 @@ South Dade belt (SDADE) → the two national parks + the Tamiami Trail (GLADE). 
 municipality/neighbourhood (address).
 
 ## In-flight wave
-- **Session 4 / wave F6+S7 (2026-10-03)** — files: FOOD_F6.json, SIGHTS_S7.json, CREATORS_F6.json, SOURCES_S4.json,
-  geo/_geoout_w9*.json. Plan: promote held leads (_PENDING_LEADS.md) with one corroborating list-query each; sights in
-  LHAV/WYN/SDADE/DTB/NMIA; food in GLADE; restaurant-pin probes (Wikipedia coords for restaurants with articles).
-  Log every call in _miami_searchlog.md (§ session 4).
+- none (session 4 wave F6/S7 finished: every area at/over target; closing work = restaurant pins via Wikipedia articles).
 
 ## State
+- 2026-10-03 session 4 (wave F6/S7) — **509 discovered (335 food & drink = 66%) → 136 pinned (119 sights + 17 food)**; every area at or
+  over its density target: CGCG 61/55 · DTB 55/55 · FTL 75/75 · GLADE 41/40 · LHAV 55/55 · MBCH 66/65 · NMIA 41/40 · SDADE 55/55 ·
+  WYN 60/60. Pins per area: CGCG 21 · DTB 20 · FTL 19 · GLADE 19 · LHAV 7 · MBCH 17 · NMIA 10 · SDADE 13 · WYN 10.
+  4 gates + validate + test green (sourcecheck 509 PASS; statuscheck CONSISTENT, 0 unchecked; 1 closed on page).
+  Files: FOOD_F6.json (101), SIGHTS_S7.json (51), geo/_geoout_w9.json; ≈160 WebSearch calls (log: _miami_searchlog.md § Session 4).
 - 2026-10-02 session 3 FINAL — 357 discovered (234 food & drink = 66%) → 104 pinned (92 sights + 12 food); 4 gates + validate + test green.
   Density: CGCG 50/55 · DTB 35/55 · FTL 50/75 · GLADE 34/40 · LHAV 42/55 · MBCH 45/65 · NMIA 24/40 · SDADE 28/55 · WYN 49/60.
   Session-3 files: FOOD_F5.json (151), SIGHTS_S6.json (40), CREATORS_F5.json, SOURCES_S3.json, geo/_geoout_w4–w8.json,
@@ -51,27 +53,25 @@ municipality/neighbourhood (address).
   leads), _miami_searchlog.md (every call), helpers _miami_add.py / _miami_srcrationale.py / _miami_golive.py.
 - 2026-10-02 session 1: scaffolded (consolidate.py, build-miami.py, brief, SOURCES_SEED.json).
 
-## Next actions (next wave plan)
-1. **Restaurant pins (biggest win; WebSearch cannot do it — 4 probes, 0 coords):** 230+ UNVERIFIED food places. Run
-   `tools/geocode-helper.html` in a browser for google `!3d!4d` place pins → `geo/_geoout_helper.json` → rebuild. Food on the
-   map is only 12 of 234 discovered.
-2. **Sight pins still UNVERIFIED:** Las Olas Blvd, FTL Beach, Domino Park, Tower Theater, Cuban Memorial Blvd, Black Police
-   Precinct (NRHP 100004974), Rubell, Margulies, Museum of Graffiti, ICA, Loop Road, Clyde Butcher, Skunk Ape, South Beach,
-   Sunny Isles/Surfside/Bal Harbour/Hallandale beaches, Newport Pier, Broward Center, Jungle Queen, Bandshell, Fillmore,
-   Miccosukee Village, Big Cypress Bend, Calle Ocho Walk of Fame, Coe VC, Mahogany Hammock, Nine Mile Pond, West Lake.
-   Try Wikipedia coord phrasing (`"<name>" coordinates 25°`) and hmdb markers; never Clippix/latlong-style pages unless the
-   printing page is named. Re-verify the med pier points (Deerfield/Pompano/Dania from diveagainstdebris) and Hollywood Broadwalk.
-3. **Promote held leads** (`_PENDING_LEADS.md` § Session 3) with ONE corroborating domain-restricted query each batch —
-   the "list every X named in <outlet> <guide>" phrasing on timeout.com / theinfatuation.com / miaminewtimes.com / fodors.com
-   returns whole lists (4–10 places per search). eater.com is NOT accessible to the search tool.
-4. **Discovery by need** (targets): SDADE +27 (Kendall/Pinecrest: Infatuation ∩ NT Best-of; Cutler Bay/Palmetto Bay sights),
-   FTL +25 (Hollywood/Dania/Pompano food; Broward sights: Fort Lauderdale Antique Car Museum, Bonnet House area, Pompano
-   pier), DTB +20 (Overtown/Brickell sights: Bayside, Jungle Island, Gesu Church, Ichimura Japan Garden), MBCH +20,
-   NMIA +16 (Aventura Perl ∩ 2nd; FIU Biscayne Bay), LHAV +13 (sights: Cubaocho, Tower Theater pin), WYN +11 (sights:
-   Little Haiti Cultural Complex, Moore Building, MiMo district), GLADE +6, CGCG +5. ≥1 creator query per wave
-   (Josiah Eats / Miami Food Porn registered in CREATORS_F5.json).
-5. Closure re-checks: Broken Shaker, Elliott/Adams Key (NPS access), Dorsey House (visitor access), Havana Harry's.
+## Next actions (next wave plan — session 5)
+1. **Restaurant pins (the gap: 17 of 335 food pinned).** Run `tools/geocode-helper.html` in a browser for google `!3d!4d` place pins →
+   `geo/_geoout_helper.json` → rebuild. WebSearch never surfaces restaurant place pins (re-probed this session: 0); only restaurants with
+   a Wikipedia article can be pinned that way (done: Versailles, Mai-Kai, Cap's Place, Rustic Inn, L'Atelier Robuchon + earlier ones).
+   Every geo row must carry status + statusSource (a row without them blanks the stored statusSource on merge — see AUDIT session 4).
+2. **Sight pins still UNVERIFIED** (Wikipedia gave none / centroid only): LHCC, Superblue, Moore Building, Locust Projects, El Espacio 23,
+   MiMo district, Overtown Folklife Village, Ichimura garden, Young At Art (moved to Broward Mall), Anne Kolb, Opa-locka museum/flea
+   market/Heritage Trail, Aventura Arts Center, Art Deco Welcome Center, Faena Theater, North Shore Open Space Park, Cubaocho,
+   Homestead downtown, Long Pine Key, Pinelands, Paurotis Pond, Eco Pond (candidate coords in AUDIT — re-verify on nps.gov), Domino Park
+   (Wikipedia value = neighbourhood centroid, rejected), plus the session-3 list (Las Olas, FTL Beach, Rubell, Margulies, ICA, Loop Road…).
+3. **Balance:** food share ≥50% overall and in every area EXCEPT GLADE (7 food / 41 — park area; Everglades City/Tamiami Trail food is
+   thin and mostly in) and the inverse risk in LHAV/WYN (sights 10 / 15). Next waves: LHAV & WYN sights; GLADE food only if a 2nd outlet
+   appears (Farmers' Market Restaurant, La Brisa held).
+4. **Promote held leads** (_PENDING_LEADS.md + AUDIT session 4 "Held" lines): Haitian North Dade (Family Bakery, Lakay, Bon Bagay, Horace —
+   Infatuation only), Sim Sim, Sichuan Fish, Red Sea Eritrean, Nove Pasta House, Seminole Theatre, Miami Tower, Lummus Park HD, St. John's
+   Baptist, El Titan de Bronze, Morningside HD.
+5. **Closure re-checks:** Tower Theater (MDC takeover 1 Nov 2026, reopening 10 Dec — re-check after), Miami-Dade County Courthouse
+   (public access?), Medium Cool (closing Aug 2026 — confirm relocation), Hot Dog Heaven (for sale).
 
 ## Acceptance
-- [ ] every area ≥ target · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
+- [x] every area ≥ target (2026-10-03) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
 - [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] index card live · [x] CITIES.md row

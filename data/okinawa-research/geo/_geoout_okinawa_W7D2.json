@@ -56,5 +56,13 @@
   "geoSource": "Extended search '<名> 沖縄市中央 住所 緯度 経度' returned address (KozaWeb eats/33, official players-cafe.com) but no coordinate; next: '<名> 沖縄市中央2-6-47 緯度 経度'",
   "status": "open",
   "statusSource": "Official players-cafe.com (lunch menu, hours Mon-Fri 11:30-14:30/17:00-22:00, Sat 15:00-22:00) + KozaWeb eats/33"
+ },
+ {
+  "n": "Parlor Minato, Chatan (パーラーみなと)",
+  "address": "10-7 Minato, Chatan-chō, Nakagami-gun, Okinawa, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "No coordinate surfaced (search cap reached); next: 'パーラーみなと 北谷町港10-7 緯度 経度' extended",
+  "status": "open",
+  "statusSource": "Okinawa Times 1668694 (2025-09-12, hours 10:30-14:30, closed Tue & alt. Wed) + Ryukyu Shimpo 5521169"
  }
 ]

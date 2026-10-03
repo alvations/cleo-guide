@@ -309,3 +309,9 @@
 151 Bars downtown/Brickell: TO 15 Brickell, NT top 50 (Better Days, Sugar, American Social, Mike's at Venetia, Margot)
 152 TO/NT: Sugar, Medium Cool (NT: closing 22 Aug 2026 at its 17th St home → not added), Palace (TO+NT+Inf), Stormy Monday (limited-run pop-up through July → not added)
 153 CLOSURE CHECK Macchialina (Stormy Monday took 'former home') → Macchialina OPEN, moved next door at 820 Alton Rd; old room is sibling Fluke — no change
+154 Inf/TO/NT NMIA held → Jarana (Inf+NT), Chayhana Oasis (Inf+NT) added; Asiatiko NT only
+155 NMIA sights → Aventura Arts & Cultural Center (TO+NT), Opa-locka Heritage Trail (WLRN+GMCVB) added; Enchanted Forest park (WLRN Apr 2026: residents say it 'isn't living up to its name') → not added
+156 MBCH sights: Art Deco Welcome Center (LP+Fodor's), Miami Beach Post Office (LP+Wikipedia, pin from search 117), Faena Theater (TO+NT), North Shore Open Space Park (TO+NT) → 4 added
+157 Ichimura Miami-Japan Garden (TO + NT location, 1101 MacArthur Cswy) → DTB sight added
+158 Wikipedia coords: Surf Club Restaurant (article exists, address 9011 Collins Ave, no coords printed), Prime 112, Club Deuce — none
+159 Wikipedia coords: LHCC / Moore Building — only Little Haiti / Design District centroids → REJECTED. Stopped here: further Wikipedia probes are yielding centroids; restaurant pins need tools/geocode-helper.html

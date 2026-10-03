@@ -58,12 +58,7 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 | KRM | 4 | 10 | 14 | 30 | +16 |
 
 ## In-flight wave
-- **W7** (2026-10-03, session_01ArZFSzKcMbcHeXLyDAXfRU; rules `_okinawa_w7_agentrules.md`; 8 bg agents, caps in brackets):
-  W7D1 Naha food & drink [30] · W7D2 Chūbu food & drink only [30] · W7D3 Naha sights [18] · W7A anime/pop culture
-  Naha+Chūbu [15] · W7H held-lead confirms (Hokubu/Nanbu/islands, Zhyvago, Blue Turtle Farm, Haisai Tanteidan) [22] ·
-  W7R re-verify low pins (`_okinawa_geo_todo_W7R.json`, 98) [32] · W7G1 UNVERIFIED Naha/Chūbu (`_okinawa_geo_todo_W7G1.json`, 32) [22] ·
-  W7G2 UNVERIFIED rest (`_okinawa_geo_todo_W7G2.json`, 68) [18]. Files: `*_OKINAWA_W7*.json`, `geo/_geoout_okinawa_W7*.json`,
-  `_okinawa_W7*_notes.md`. On relaunch: check which notes files exist (= finished agents); rerun only the missing tags.
+- none (W7 closed 2026-10-03; ~191 of the session's ~200 searches spent).
 
 - 2026-10-02 **W4 done** (fresh session, ~186 searches, 9 background subagents): pin-first + discovery + anime.
   **258 discovered (128 sights + 130 food & drink = 50 % food), 130 pinned (was 89)** — pins per area NAHA 18 · CHUBU 24 ·
@@ -117,7 +112,38 @@ CHUBU food is only 41 % → next Chūbu discovery is food-only.
 | YAEYA | 26 | 21 | 47 | 60 | +13 | 31 |
 | KRM | 7 | 17 | 24 | 30 | +6 | 13 |
 
-## Next actions (W7 plan, ordered)
+- 2026-10-03 **W7 done** (fresh session, ~191 searches, 8 bg agents; rules `_okinawa_w7_agentrules.md`): **378 discovered
+  (176 sights + 202 food & drink = 53 %), 295 pinned (was 246)** — high 112 · med 60 · low 123 · UNVERIFIED 86. ANIME 16 (+5 Poké Lids).
+  Closures flagged: Mutsumibashi Kadoya, Naha City Museum of History. 4 gates PASS; validate + test ALL PASS. Agent tags: W7D1 Naha food +8,
+  W7D2 Chūbu food +7, W7D3 Naha sights +9, W7H held +6, W7A anime +5, W7G1 +18 pins, W7G2 +7 pins, W7R 9 low→high/med. Details: AUDIT.md W7.
+
+### Density after W7
+| area | food | sights | have | target | need | pins |
+|---|---|---|---|---|---|---|
+| NAHA | 52 | 37 | 89 | 120 | +31 | 73 |
+| CHUBU | 37 | 34 | 71 | 95 | +24 | 65 |
+| HOKBU | 38 | 27 | 65 | 90 | +25 | 52 |
+| NANBU | 21 | 26 | 47 | 65 | +18 | 34 |
+| MYK | 20 | 14 | 34 | 50 | +16 | 25 |
+| YAEYA | 27 | 21 | 48 | 60 | +12 | 33 |
+| KRM | 7 | 17 | 24 | 30 | +6 | 13 |
+
+## Next actions (W8 plan, ordered)
+1. **Held leads (one confirm search each)** — listed in AUDIT.md W7 "Held"; cheapest: Nago Poké Lid (already 2 sources — just pin),
+   Naha Soba (Kinjō), Shima Nakama, Imai Pan, Teshiraji, Miyazato Soba, VONGO & ANCHOR, Ippe Coppe. Blue Turtle Farm is MYK.
+2. **Discovery:** Naha +31 (food 58 % → balanced), Hokubu +25 (food-first), Chūbu +24 (Koza steak houses = named gap; food-first),
+   Nanbu +18 (food 45 % → food-only), MYK +16, YAEYA +12, KRM +6 (food 29 % → food-only: Zamami/Tokashiki/Kume shokudō & soba).
+   Best yielding lists in W7: OTV Okitive reader Top-30 ↔ KozaWeb; Ryukyu Shimpo gourmet; Mapple articles.
+3. **Pins:** 86 UNVERIFIED (W7G1/W7G2 notes list what was tried). 4b: ~114 `low` food pins never re-verified (W7R reached sights +
+   flagged ones only) — NAVITIME venue pages were the productive upgrade channel (med). Reconcile Araha Beach address (2-2-1 vs 2-21),
+   update Utahime's relocation (東町17-11), Busena (park-level point), Sakihama Seimen (tabelog-only).
+4. **Fact-check follow-ups:** find a real article URL (or replace) for Oninoude's BRUTUS cite; spot page for Kinjō Bakery.
+5. **Creators:** 0 kept W4–W7 (~36 searches). Stop generic creator queries; only targeted ones naming a shop.
+6. Build loop unchanged: `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py okinawa --build`
+   → 4 gates → `cd tools && npm run validate && npm test` → CARD:okinawa stat + CITIES row + AGENT-PROMPTS row → commit+push
+   (`bash data/okinawa-research/_okinawa_push_w7.sh "msg" <extra paths>` — update its session trailer for a new session).
+
+## Older plan (W7)
 1. **Discovery yield is the bottleneck now** (W6: ~2.3 searches per kept place; most JA list searches return aggregators).
    Pair the held leads first — each is ONE confirm search from kept: Naha (Oninoude, Yappari Steak 1st store, Teshiraji, Kinjō
    Bakery, Shima Nakama, Mutsumibashi Kadoya), Hokubu (Miyazato Soba, Shirasa Shokudō, Cafe Hakoniwa, Cafe Kokuu, Iejima rum,
