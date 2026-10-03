@@ -42,8 +42,10 @@ Run protocol: `docs/RUN-2026-10-02.md` (shared lock, commit+push every batch, §
 - (none — wave 4 closed cleanly)
 
 ## Next actions (ordered) — wave 5 plan
-1. **Restaurant pins** (250 UNVERIFIED) are the gap between discovered (471) and rendered (221): run `tools/geocode-helper.html`
-   over the Orlando section of docs/GEOCODE-BACKLOG.md. Do NOT spend WebSearch on street-address restaurant pins (3 waves of dead ends).
+1. **Restaurant pins** (250 UNVERIFIED) are the gap between discovered (471) and rendered (221). NEW technique (docs/RESEARCH-LOG.md,
+   Liège W4, ≈85% hit): WebSearch `allowed_domains:["restaurantguru.com","foursquare.com","wanderlog.com","viamichelin.com"]` +
+   `<name> <street> Orlando coordinates`, ONE place per search; accept only when the returned address matches the record. Spend the
+   W5 budget here first (biggest render win), then `tools/geocode-helper.html` for the rest. Mapcarta/Wikipedia = dead end for restaurants.
 2. **Held leads** (one search each for a 2nd credible source): Tropico Mofongo, Susana's Cafe, Sol de Borinquen (KISS); Vault 5421 (IDR);
    Parea, The Osprey (WPK); Nona Blue (KISS); Fishlips, Rusty's (SPACE); Neighbors Taqueria, Mister O1; Walala (Michelin Rec. — decide area).
 3. **NEED areas**: DTO +13 (Wall Street Plaza bars, Thornton Park cafés, Parramore, Church St; sights: Orlando City Hall has a coord),
