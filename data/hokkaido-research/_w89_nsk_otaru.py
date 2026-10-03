@@ -76,7 +76,7 @@ F(2,"OTARU",["MKT","HOKKAIDO"],"4 a.m. Otaru fish market — fresh fish, himono 
 F(3,"OTARU",["MKT","IZAKAYA"],"20+ stalls cooking Otaru seafood, ramen and yakitori in a Meiji–Taishō-style alley",
   "Otaru Denuki Kōji (小樽出抜小路)",
   "Ironai 1-1, Otaru, Hokkaido, Japan",
-  "A retro food alley opposite the canal recreating Otaru's Meiji–Taishō merchant streets, with over twenty small eateries and a fire-lookout tower view over the water.",
+  "A retro food alley opposite the canal recreating Otaru's Meiji–Taishō merchant streets, with over twenty small eateries serving Japanese, Western and Chinese dishes from local seafood.",
   [("OTARUTOURISM","https://otaru.gr.jp/shop/denuki-koji"),("HOKKAIDOTOURISM","https://www.visit-hokkaido.jp/spot/detail_12801.html"),("RURUBU",RU+"80000615")],
   status=O,ssrc="visit-hokkaido spot 12801 (current)")
 F(3,"OTARU",["HOKKAIDO","MKT"],"kaisendon of boiled tarabagani, house-cured ikura and raw scallop",

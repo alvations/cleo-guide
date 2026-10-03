@@ -10,7 +10,9 @@ OUTLETS=[{"key":"NEMUROTOURISM","name":"Nemuro City Tourism Association (根室�
          {"key":"SHIRETOKOTOURISM","name":"Shiretoko Shari Tourism Association (知床斜里町観光協会)","url":"https://www.shiretoko.asia/",
           "credible":"official town tourism association for Shari/Utoro (Shiretoko)"},
          {"key":"SHIRAOITOURISM","name":"Shiraoi Tourism Association (白老観光協会)","url":"https://shiraoi.net/",
-          "credible":"official town tourism association for Shiraoi (Upopoy's town)"}]
+          "credible":"official town tourism association for Shiraoi (Upopoy's town)"},
+         {"key":"ALLABOUT","name":"All About News (オールアバウト)","url":"https://news.allabout.co.jp/",
+          "credible":"national Japanese editorial site with bylined guide-writers; food news desk"}]
 
 # ---------------- DONAN ----------------
 F(2,"DONAN",["RAMEN","HOKKAIDO"],"Hakodate shio ramen — whole-chicken & Minami-kayabe kombu clear broth, house-made thin noodles","Hakodate Men'ya Ichimonji, Yunokawa (函館麺や 一文字)",
@@ -26,8 +28,8 @@ F(2,"DONAN",["CAFE","SWEET"],"British afternoon tea set in the old consulate","T
 
 F(2,"DONAN",["RAMEN","HOKKAIDO"],"the 'Ryūhō' yatai-style original Hakodate shio ramen of ~40 years ago","Shin-Hakodate Ramen Mame-san (新函館ラーメン マメさん)",
   "22-6 Hōrai-chō, Hakodate, Hokkaido, Japan",
-  "Hōrai-chō counter reviving the shio ramen of the old 'Ryūhō' street stall — the pre-boom Hakodate bowl, below Mt Hakodate.",
-  [("RURUBU",RU+"80000445"),("MAPPLE","https://www.mapple.net/article/53509/")],
+  "Hōrai-chō counter reviving the shio ramen of the old 'Ryūhō' street stall (with its trademark fu) — the 'phantom' Hakodate bowl was guest-revived at the Shin-Yokohama Ramen Museum.",
+  [("RURUBU",RU+"80000445"),("MAPPLE","https://www.mapple.net/article/53509/"),("ALLABOUT","https://news.allabout.co.jp/articles/o/59052/")],
   status=O,ssrc="rurubu 80000445 (11-15, 17-20; closed Thu & 2nd/3rd Wed)")
 F(2,"DONAN",["INT","HOKKAIDO"],"Hakodate 'Indo curry' — 1948-recipe spiced roux curry","Indo Curry Koike Honten, Hakodate (印度カレー 小いけ本店)",
   "22-5 Hōrai-chō, Hakodate, Hokkaido, Japan",
@@ -44,6 +46,17 @@ F(2,"DONAN",["MKT","HOKKAIDO"],"kaisendon, uni-ikura-don and ikasōmen from the 
   "The Morning Market's canteen arcade — a covered lane of donburi shokudō open from dawn into lunch, the place for kaisendon by Hakodate Station.",
   [("RURUBU","https://rurubu.jp/andmore/article/22507"),("MAPPLE","https://www.mapple.net/article/43226/")],
   status=O,ssrc="rurubu article 22507 (2026 guide, current)")
+
+F(2,"DONAN",["CAFE","SWEET"],"shiratama matcha-cream anmitsu and the Hishii parfait in a 1921 pawnshop kura","Sabō Hishii, Hōrai-chō (茶房ひし伊)",
+  "9-4 Hōrai-chō, Hakodate, Hokkaido, Japan",
+  "Hakodate's pioneering renovation café — a 1921 pawnbroker's warehouse, Western counter downstairs, tatami upstairs, Japanese sweets and an antique shop.",
+  [("RURUBU","https://rurubu.jp/andmore/article/10436"),("MAPPLE",MP+"1001562/"),("HAKODATETRAVEL","https://www.hakodate.travel/en/more-about-hakodate/retrocafe/")],
+  status=O,ssrc="rurubu article 10436 (11-18, no closed days); mapple 1001562 lists 11:00-16:30, closed Wed")
+F(3,"DONAN",["CAFE","SWEET"],"hand-whisked matcha with Japanese sweets","Sabō Kyū Chayatei, Suehiro-chō (茶房 旧茶屋亭)",
+  "Suehiro-chō, Hakodate, Hokkaido, Japan (near Kanemori Red Brick Warehouses)",
+  "A 1939 merchant house — a designated Traditional Building of Cultural Significance — where the tea-ceremony-trained owner whisks matcha cup by cup.",
+  [("RURUBU",RU+"80000430"),("HAKODATETRAVEL","https://www.hakodate.travel/en/sightseeing-spots/food-drink-cafe/tea-room-kyu-chaya-tei/")],
+  status=O,ssrc="hakodate.travel spot page (current)")
 S(2,"DONAN","Former Sōma Residence (旧相馬家住宅)","Motomachi, Hakodate, Hokkaido, Japan",
   "Merchant Sōma Teppei's 1908 Japanese-Western house beside the Old Public Hall he paid for — an Important Cultural Property with a kura gallery of Esashi screens.",
   [("BUNKACHO","https://kunishitei.bunka.go.jp/"),("HAKODATETRAVEL","https://www.hakodate.travel/chs/sightseeing-spots/historic-building/old-soma-residence/"),("WIKIPEDIA_JA",JA+"%E6%97%A7%E7%9B%B8%E9%A6%AC%E5%AE%B6%E4%BD%8F%E5%AE%85")],
@@ -121,5 +134,14 @@ F(3,"IBURI",["SWEET","HOKKAIDO"],"farm-milk gelato with Mt Yōtei view; 'Mura-ic
   "Dairy-farm gelateria on the hill above Lake Tōya — gelato made daily from its own cows' milk, looking across to Mt Yōtei.",
   [("HOKKAIDOTOURISM",VH+"10431.html"),("MAPPLE","https://www.mapple.net/region/a0102030000_g03000000/spot/")],
   status=O,ssrc="visit-hokkaido 10431 (summer 9-18, winter 9-17)")
+S(2,"IBURI","Nakajima Island, Lake Tōya (中島)","Lake Tōya (by Tōyako Kisen cruise from Tōyako Onsen), Tōyako, Hokkaido, Japan",
+  "The four forested islands at the heart of the caldera lake — the Espoir cruise lands you at the Nakajima Lake Forest Museum and its Ezo-deer trails.",
+  [("HOKKAIDOTOURISM","https://www.visit-hokkaido.jp/en/spot/detail_10427.html"),("JAPANGUIDE","https://www.japan-guide.com/e/e6729.html"),("WIKIPEDIA_JA",JA+"%E4%B8%AD%E5%B3%B6_(%E6%B4%9E%E7%88%BA%E6%B9%96)")],
+  42.60056,140.85611,"med","ja.wikipedia 中島 (洞爺湖) infobox (北緯42度36分02秒 東経140度51分22秒 — island-group centre) via WebSearch",O,"visit-hokkaido 10428 cruise (year-round; late Apr-Oct every 30 min)",k="lake island & forest museum",g=["NATURE","VIEW"])
+F(3,"IBURI",["TEISHOKU","HOKKAIDO"],"home-style teishoku of Funka Bay seafood and local produce","Meshidokoro Matsumaeya, Tōyako Onsen (めしどころ 松前屋)",
+  "40-16 Tōyako Onsen, Tōyako, Abuta District, Hokkaido, Japan",
+  "Five minutes from the Tōyako Onsen bus terminal — the onsen town's local-ingredient set-meal house for seasonal seafood.",
+  [("MAPPLE","https://www.mapple.net/region/a0102030101_g03000000/spot/"),("LAKETOYA","https://www.laketoya.com/en/restaurant/")],
+  status=O,ssrc="mapple Tōyako Onsen gourmet list (12-15, 17:30-22)")
 
 emit("W91",OUTLETS)

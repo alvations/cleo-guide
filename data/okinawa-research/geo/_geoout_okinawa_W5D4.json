@@ -120,5 +120,31 @@
   "geoSource": "Mapple printed address only",
   "status": "open",
   "statusSource": "Mapple/rurubu current hours 11-19, season Feb-Nov"
+ },
+ {
+  "n": "Toguchi-no-hama Beach, Irabu Island (渡口の浜)",
+  "address": "Irabu, Miyakojima",
+  "lat": 24.811861,
+  "lng": 125.178389,
+  "confidence": "high",
+  "geoSource": "Japanese Wikipedia 渡口の浜 infobox: 北緯24度48分42.7秒 東経125度10分42.2秒",
+  "status": "open",
+  "statusSource": "public beach; rurubu article 8165 (current)"
+ },
+ {
+  "n": "Blue Turtle, Irabu Island (ブルー タートル)",
+  "address": "Irabu, Miyakojima (in front of Toguchi-no-hama)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "none; venue faces Toguchi beach per rurubu but beach point not used for venue",
+  "status": "open",
+  "statusSource": "rurubu article 15855 / Mapple Irabu cafe list (current)"
+ },
+ {
+  "n": "Takanazaki & Japan's Southernmost Point Monument, Hateruma (高那崎・日本最南端の碑)",
+  "address": "Hateruma Island, Taketomi",
+  "confidence": "UNVERIFIED",
+  "geoSource": "wikipedia/coord search #20 surfaced no coordinate",
+  "status": "open",
+  "statusSource": "Taketomi tourism association painusima.com/934 (current); open-air monument"
  }
 ]
