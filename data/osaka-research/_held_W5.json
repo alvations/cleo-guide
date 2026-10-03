@@ -101,6 +101,121 @@
     "MICHELIN"
    ],
    "why": "no cuisine/dish surfaced"
+  },
+  {
+   "n": "Niji no Hotoke (虹の仏, Rainbow Buddha)",
+   "a": "TNJ",
+   "dish": "Dashi keema (Sri Lankan-style keema curry blended with seafood dashi)",
+   "have": [
+    "TIMEOUT https://www.timeout.jp/osaka/ja/レストラン/niji-no-hotoke",
+    "OGGI https://oggi.jp/194732"
+   ],
+   "why": "main review: Oggi URL not confirmed to name the shop (1 search, not found)"
+  },
+  {
+   "n": "Mentokokoro 7 (麺と心 7)",
+   "a": "TNJ",
+   "dish": "Gyokai paitan ramen (99% seafood white broth) with house-made noodles",
+   "have": [
+    "CREATOR_RAMENADVENTURES https://ramenadventures.com/listing/mentokokoro-seven-osaka/",
+    "CREATOR_RAMENBEAST https://foodle.pro/ramenbeast/meals/osaka/61d2ef98d2e0a/10973"
+   ],
+   "why": "both sources are creators (Ramen Adventures, Ramen Beast) — creator = one corroborating source; status unknown after founder's death 2022"
+  },
+  {
+   "n": "Yosozake",
+   "a": "TNJ",
+   "have": [
+    "TIMEOUT (EN+JP = one key)"
+   ]
+  },
+  {
+   "n": "Okonomiyaki Den (Nishinari)",
+   "a": "TNJ",
+   "have": [
+    "OSAKAINFO"
+   ]
+  },
+  {
+   "n": "Grill Bon Shinsekai (beef hire-katsu sando)",
+   "a": "TNJ",
+   "have": [],
+   "why": "sources found cover the Ginza branch"
+  },
+  {
+   "n": "Derailleur Brew Works / Stand Umineko 3tR",
+   "a": "TNJ",
+   "have": [
+    "TIMEOUT"
+   ]
+  },
+  {
+   "n": "Tentomo, Otis Blue",
+   "a": "TNJ?",
+   "have": [
+    "TIMEOUT"
+   ]
+  },
+  {
+   "n": "Taishō Salon Hige to Bōin (大正サロン 髭とボヰン)",
+   "a": "BAY",
+   "dish": "Denki Bran and a rotating list of ~20 rare sake with creative small plates",
+   "have": [
+    "TABELOG100 https://tabelog.com/en/osaka/A2701/A270401/27119536/",
+    "OSAKAMETRO https://osakamania.jp/shop/senbero_02/"
+   ],
+   "why": "main review: the TABELOG100 URL is the shop's own Tabelog page, not a Hyakumeiten selection page → only OSAKAMETRO counts"
+  },
+  {
+   "n": "Sōjuen (宗寿苑)",
+   "a": "BAY",
+   "address": "1-14-17 Torishima, Konohana-ku",
+   "have": [
+    "TABELOG100"
+   ]
+  },
+  {
+   "n": "Ichariba (いちゃりば)",
+   "a": "BAY",
+   "have": [
+    "WALKERPLUS"
+   ]
+  },
+  {
+   "n": "Atariya (あたりや)",
+   "a": "BAY",
+   "address": "2-4-16 Takami, Konohana-ku",
+   "have": [
+    "TVTOKYO"
+   ]
+  },
+  {
+   "n": "Omoro Taishō Honten / Usupare Hōnen / Yamaneko / Kijimuna no Mori (Taishō Okinawan)",
+   "a": "BAY",
+   "have": [
+    "WALKERPLUS"
+   ]
+  },
+  {
+   "n": "Chingu (Kujō okonomiyaki) / Minoya (Nishikujō horumon, 1973)",
+   "a": "BAY",
+   "have": [
+    "OSAKAMETRO / TVTOKYO"
+   ]
+  },
+  {
+   "n": "Bun Bun Spice",
+   "a": "BAY",
+   "have": [
+    "YAHOOEXPERT"
+   ]
+  },
+  {
+   "n": "Sake to Meshi (Myanmar curry)",
+   "a": "BAY",
+   "have": [
+    "WALKERPLUS"
+   ]
   }
  ],
  "dropped": [
