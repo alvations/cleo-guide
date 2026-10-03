@@ -464,5 +464,82 @@
   "status": "open",
   "statusSource": "Public historic neighbourhood",
   "note": "district centroid"
+ },
+ {
+  "n": "Bee Coffee Roasters",
+  "address": "201 S Capitol Ave, Suite 110, Indianapolis, IN 46225",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Downtown Indy listing (open)",
+  "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+ },
+ {
+  "n": "Hotel Tango Distillery",
+  "address": "702 Virginia Ave, Indianapolis, IN 46203",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Visit Indy listing (open)",
+  "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+ },
+ {
+  "n": "Vivante French Eatery (Hotel Carmichael)",
+  "address": "Hotel Carmichael, Carter Green (overlooking the Palladium gardens), Carmel, IN",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Visit Indy directory listing (open)",
+  "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+ },
+ {
+  "n": "Juniper on Main",
+  "address": "W Main St (1907 bungalow, Carmel Arts & Design District), Carmel, IN",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Visit Hamilton County restaurant feature (open)",
+  "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+ },
+ {
+  "n": "Riverside Park",
+  "address": "Riverside Regional Park (near northwest side, along the White River), Indianapolis, IN",
+  "lat": 39.804976,
+  "lng": -86.193495,
+  "geoSource": "Wikipedia infobox 39°48′18″N 86°11′37″W (https://en.wikipedia.org/wiki/Riverside_Park_(Indianapolis))",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "Indy Parks regional park, open daily",
+  "note": "park centroid"
+ },
+ {
+  "n": "Holcomb Gardens (Butler University)",
+  "address": "Butler University campus, Indianapolis, IN",
+  "lat": 39.8427,
+  "lng": -86.1713,
+  "geoSource": "Wikipedia (Holcomb Gardens) 39°50′34″N 86°10′17″W (https://en.wikipedia.org/wiki/Holcomb_Gardens)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "Open campus garden",
+  "note": "garden point from Wikipedia"
+ },
+ {
+  "n": "Kincaid's Meat Market",
+  "address": "5605 N Illinois St, Indianapolis, IN",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Towne Post centenary feature; family-run on Illinois St (open)",
+  "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
  }
 ]

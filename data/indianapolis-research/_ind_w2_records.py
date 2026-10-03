@@ -217,3 +217,37 @@ S(2,"FSQ","Fletcher Place Historic District","Fletcher Place (between Virginia A
  "40-acre NRHP district (1982) of Irish and German worker cottages and Italianate/Queen Anne rows (Briggs Flats 1893, Fletcher Place Methodist) — now the restaurant strip of Bluebeard, Iaria's and Milktooth.",
  [["WIKIPEDIA",W+"Fletcher_Place"],["INDYENCYCLOPEDIA",IE+"fletcher-place/"]],"Public historic neighbourhood",
  geo=g("Fletcher Place Historic District","Fletcher Place (between Virginia Ave, East St and I-65/70), Indianapolis, IN",39.75750,-86.14611,"Wikipedia infobox 39°45′27″N 86°8′46″W ("+W+"Fletcher_Place)",conf="med",ss="Public historic neighbourhood",note="district centroid"),k="Fletcher Place")
+
+# ---- batch 14 (coffee & spirits) ----
+F(2,"DTN","Bee Coffee Roasters","201 S Capitol Ave, Suite 110, Indianapolis, IN 46225",["Coffee","Roaster"],"Pour-overs of single origins such as the Peru Cajamarca (toffee notes); careful lattes",
+ "Small-batch Indy roaster's airy downtown café directly across from the Convention Center — among the best places in town for a perfect pour-over (Indianapolis Monthly's coffee and roaster round-ups); Gen Con week is its busiest.",
+ [["INDYMONTHLY",IM+"food-and-drinks/indys-most-buzzworthy-coffee/"],["DOWNTOWNINDY","https://downtownindy.org/go/bee-coffee-roasters"],["INSIDEINDIANABUSINESS","https://www.insideindianabusiness.com/articles/gen-con-fueling-local-coffee-business"]],
+ "Downtown Indy listing (open)")
+F(2,"FSQ","Hotel Tango Distillery","702 Virginia Ave, Indianapolis, IN 46203",["Distillery","Cocktails"],"Its own house-distilled spirits, poured in tasting-room cocktails",
+ "Fletcher Place micro-distillery — the first service-disabled, combat-veteran-owned artisan distillery in the US — with a tasting room pouring its own spirits; one of the openings that turned Fletcher Place into a food-and-drink district.",
+ [["INDYMONTHLY",IM+"food-and-drinks/drinks/hotel-tango/"],["IBJ","https://www.ibj.com/property-lines-scott-olson/47048-micro-distillery-opening-in-fletcher-place-neighborhood"],["VISITINDY","https://www.visitindy.com/listing/hotel-tango-distillery/233862/"]],
+ "Visit Indy listing (open)",k="Fletcher Place")
+
+# ---- batch 15 (Carmel) ----
+F(2,"NORTH","Vivante French Eatery (Hotel Carmichael)","Hotel Carmichael, Carter Green (overlooking the Palladium gardens), Carmel, IN",["French"],"Gratinée Carmichael (French onion soup), scallops provençal, roast duck chasseur",
+ "Approachable French brasserie in Carmel's Hotel Carmichael (chef Joseph Hsu) with a patio over the Palladium gardens — classic technique, local ingredients; reviewed by Indianapolis Monthly and Current.",
+ [["INDYMONTHLY",IM+"food-and-drinks/vivante-french-eaterys-quiet-debut-speaks-for-itself/"],["CURRENT","https://www.youarecurrent.com/2020/09/20/hotel-carmichaels-vivante-offers-full-range-of-french-cuisine/"],["VISITINDY","https://www.visitindy.com/directory/vivante-french-eatery-at-hotel-carmichael/"]],
+ "Visit Indy directory listing (open)",k="Carmel")
+F(2,"NORTH","Juniper on Main","W Main St (1907 bungalow, Carmel Arts & Design District), Carmel, IN",["Southern","Seafood"],"Lowcountry crab cakes, shrimp and grits",
+ "Savannah-to-Charleston Lowcountry cooking from Hoosier chef Christine Daniel in a 1907 white bungalow with a pergola patio in Carmel's Arts & Design District — reviewed by Indianapolis Monthly; Visit Hamilton County's pick for elevated comfort food.",
+ [["INDYMONTHLY",IM+"food-and-drinks/reviews/review-juniper-on-main/"],["HAMILTONCOUNTY","https://www.visithamiltoncounty.com/blog/stories/post/hot-new-restaurants-in-hamilton-county/"]],
+ "Visit Hamilton County restaurant feature (open)",k="Carmel")
+
+# ---- batch 16 (Midtown sights with Wikipedia pins) ----
+S(2,"MID","Riverside Park","Riverside Regional Park (near northwest side, along the White River), Indianapolis, IN",
+ "Opened 1899 as one of the largest municipal parks in the US (953 acres on the White River), laid out by J. Clyde Power and George Kessler with two landmark bridges — the anchor of the NRHP-listed Indianapolis Park and Boulevard System.",
+ [["WIKIPEDIA",W+"Riverside_Park_(Indianapolis)"],["INDYENCYCLOPEDIA",IE+"riverside-park/"]],"Indy Parks regional park, open daily",
+ geo=g("Riverside Park","Riverside Regional Park (near northwest side, along the White River), Indianapolis, IN",39.804976,-86.193495,"Wikipedia infobox 39°48′18″N 86°11′37″W ("+W+"Riverside_Park_(Indianapolis))",conf="med",ss="Indy Parks regional park, open daily",note="park centroid"))
+S(3,"MID","Holcomb Gardens (Butler University)","Butler University campus, Indianapolis, IN",
+ "James Irving Holcomb's botanical garden at Butler — garden house, Holcomb Lake (1950) and classical statuary — a free stroll beside Holcomb Observatory.",
+ [["WIKIPEDIA",W+"Holcomb_Gardens"],["INDYENCYCLOPEDIA",IE+"james-irving-holcomb/"]],"Open campus garden",
+ geo=g("Holcomb Gardens (Butler University)","Butler University campus, Indianapolis, IN",39.8427,-86.1713,"Wikipedia (Holcomb Gardens) 39°50′34″N 86°10′17″W ("+W+"Holcomb_Gardens)",conf="med",ss="Open campus garden",note="garden point from Wikipedia"),k="Butler")
+F(3,"MID","Kincaid's Meat Market","5605 N Illinois St, Indianapolis, IN",["Butcher","American"],"Prime rib roasts, steaks and house-made turduckens",
+ "Butler-Tarkington butcher counter opened by L.E. Kincaid in 1921 and family-run ever since (the Dugdales bought it from his grandson in 2015) — a century-old neighbourhood institution on the Illinois St strip.",
+ [["INDYMONTHLY",IM+"lifestyle/street-savvy-butler-tarkington/"],["TOWNEPOST","https://townepost.com/indiana/north-indy/well-done-kincaids/"],["CURRENT","https://www.youarecurrent.com/?p=195802"]],
+ "Towne Post centenary feature; family-run on Illinois St (open)",k="Butler-Tarkington")
