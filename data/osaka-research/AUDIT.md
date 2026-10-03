@@ -290,3 +290,17 @@ Mashino Ken: Michelin + Tabelog still list 1-3-6 Awajimachi → the Michelin pin
 **Channel mix (round 1):** Michelin 1 · Tabelog100 7 · editorial ~20 (Time Out, Mapple, Rurubu, Lmaga, Walkerplus, Osaka Metro, Savor
 Japan, JAL) · official/municipal 4 · Wikipedia 2 · creators 3 (Ramen Beast 1, Ramen Adventures 1 — corroborating only).
 **Yield:** ≈ 0.12 places/search — held-lead promotion mostly fails (small shops rarely named by two different outlets).
+
+## 2026-10-03 — W7 round 2: workers G MINAM · H EAST+BAY · I NORTH/SOUTH/TNJ · J MapFan geocoder
+Searches: G 42 · H 40 · I 41 · J 45 · main 2 (W7I flag checks). Detail per worker in `_note_W7{G,H,I,J}.md`.
+**Added (+22; 455 → 477):** W7G +10 MINAM (8 food: Hōzenji Yokochō Yakizen, Okonomiyaki Okaru, Okonomiyaki Sanpei Shinsaibashi,
+Daigen Amerikamura, Bonkuraya Dōtonbori, Honke Ōtako, Ganso Takomasa, DINING Ajito; 2 ★anime: Jungle Osaka Nipponbashi, Kotobukiya
+Nipponbashi). W7H +7 (EAST food Sumibi Yakiniku Ōkura, Chūkasoba Kōyōken (Takaida-kei origin); EAST sights Tamatsukuri Inari,
+Miyuki-mori Tenjingū (both jawiki pins); BAY food Uruma Goten, Nakasone Seinikuten, Chingu). W7I +5 (TNJ Tane-yoshi, Ōmiya Honten
+kushikatsu; NORTH Asahi Beer Museum Suita, Takatsuki Shiitake Center, Mentetsu Toyonaka). Main checked W7I flags: Mapple shows Ōmiya
+(2-3-18 Ebisu-higashi, panko-free batter in beef tallow) and Walker 1002613 is the Toyonaka–Itami ramen feature naming Mentetsu → kept.
+**Area corrections logged (W7I):** 仁しむら is Fuse (Higashi-Ōsaka → EAST), 麺屋 一慶 Ibaraki, 麺や 而今 Daitō (EAST).
+**Geocode:** W7J 12 MapFan pins (TNJ 5 — Shinsekai/Jan Jan Yokochō shops list well; CHUO 2; SOUTH 2; BAY 2; MINAM 1) + W7G 3 + W7H 2 jawiki.
+Steakland Kobe-kan not pinned (MapFan 1-8-2 ≠ current 1-9-17 per EPARK). **Build:** 477 discovered (173 sights + 304 food = 64%),
+351 rendered, **ANIME 34**; 4 gates PASS; validate + npm test PASS. Density NEED: MINAM +3 · EAST +5 · BAY +3 · NORTH +3 · SOUTH +5 · TNJ +1.
+**Round 3 launched:** K (MINAM/EAST/TNJ) · L (SOUTH/NORTH) · M (BAY); sight fallback allowed on BUNKACHO/≥2-credible after food leads.
