@@ -58,12 +58,7 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 | KRM | 4 | 10 | 14 | 30 | +16 |
 
 ## In-flight wave
-- **W6** (2026-10-03, fresh session, ~190 searches, 8 bg agents; rules `_okinawa_w6_agentrules.md`):
-  W6G1 KRM + all unpinned sights (`_okinawa_geo_todo_W6G1.json`, 28) · W6G2 main-island food pins (`_W6G2`, 51) ·
-  W6G3 Miyako/Yaeyama food pins (`_W6G3`, 40) · W6D1 Chūbu food-first discovery · W6D2 Hokubu discovery ·
-  W6D3 Naha discovery · W6D4 Yaeyama/Miyako/Kerama/Nanbu discovery · W6A anime + creators.
-  Each writes `FOOD_/SIGHTS_/SOURCES_/CREATORS_OKINAWA_<TAG>.json`, `geo/_geoout_okinawa_<TAG>.json`, `_okinawa_<TAG>_notes.md`.
-  A relaunch: check which tags have notes files (= finished); rerun only the missing ones, then rebuild + gates.
+- none (W6 closed 2026-10-03; ~188 of the session's ~200 searches spent).
 
 - 2026-10-02 **W4 done** (fresh session, ~186 searches, 9 background subagents): pin-first + discovery + anime.
   **258 discovered (128 sights + 130 food & drink = 50 % food), 130 pinned (was 89)** — pins per area NAHA 18 · CHUBU 24 ·
@@ -100,18 +95,40 @@ CHUBU food is only 41 % → next Chūbu discovery is food-only.
 | YAEYA | 25 | 21 | 46 | 60 | +14 |
 | KRM | 7 | 13 | 20 | 30 | +10 |
 
-## Next actions (W6 plan, ordered)
-1. **Go-live is 2 Kerama pins away** (KRM 8/10; total 183 ≥ 150): pin Takatsukiyama, Ama Beach, Marine Box, Kumesen, Yan-kō, Uegusuku-area
-   KRM records via NAVITIME spot pages (`<日本語名> navitime 緯度 経度`, extended) → rebuild → flip CARD:okinawa live + root CARD:japan "5 of 5".
-2. **Restaurant pins:** the W5G1 pattern `<日本語名> <full JA street address> 緯度 経度` (extended, one per query) hit 20/23 → `low`.
-   Run it over the ~119 UNVERIFIED (`python3` over geocodes → `_okinawa_unpinned_W6.json`). Then a re-verify pass on the 49 `low` pins
-   (`!3d!4d`), incl. Tamatorizaki, Akagi trees, Charlie's Tacos (second Honten?).
-3. **Discovery** (≥55 % food): Chūbu food is still 45 % — food-only; Naha needs +58: pair W5 held leads first (`_okinawa_W5D*_notes.md`).
-   Japanese list searches mostly return aggregators — use Okinawa Times/Ryukyu Shimpo polls (soba, shokudō) and Rurubu↔Mapple pairs.
-4. **Creators:** 0 kept in W4+W5 (~15 searches). Try named JA YouTubers (e.g. Okinawa-based channels ≥100k) with a specific shop video.
-5. **Anime:** firm up Kira Kira Beach's anime source; Okitsura manholes (Kin/Ginoza), Poké Lids per site.
-6. After each ~50: `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py okinawa --build`
-   → 4 gates → `cd tools && npm run validate && npm test` → `python3 data/okinawa-research/_okinawa_card.py …` → commit+push.
+- 2026-10-03 **W6 done** (fresh session, ~188 searches, 8 bg agents; rules `_okinawa_w6_agentrules.md`): **343 discovered
+  (162 sights + 181 food & drink = 53 %), 246 pinned (was 183)** — high 98 · med 50 · low 98. Pins/area NAHA 47 · CHUBU 51 ·
+  NANBU 32 · HOKBU 48 · KRM 13 · MYK 24 · YAEYA 31. ANIME 11. **Went LIVE** (CARD:okinawa linked; root CARD:japan "5 of 5").
+  4 gates PASS; validate + test ALL PASS. Agent tags: W6G1/G2/G3 geocoders (+7/+19/+21), W6D1 Chūbu +11, W6D2 Hokubu +9
+  (Parlor Senri CLOSED), W6D3 Naha +8, W6D4 Nanbu/islands +11, W6A anime +2. Held by orchestrator: Blue Turtle Farm, Zhyvago.
+
+### Density after W6
+| area | food | sights | have | target | need | pins |
+|---|---|---|---|---|---|---|
+| NAHA | 44 | 26 | 70 | 120 | +50 | 47 |
+| CHUBU | 29 | 31 | 60 | 95 | +35 | 51 |
+| HOKBU | 35 | 27 | 62 | 90 | +28 | 48 |
+| NANBU | 21 | 26 | 47 | 65 | +18 | 32 |
+| MYK | 19 | 14 | 33 | 50 | +17 | 24 |
+| YAEYA | 26 | 21 | 47 | 60 | +13 | 31 |
+| KRM | 7 | 17 | 24 | 30 | +6 | 13 |
+
+## Next actions (W7 plan, ordered)
+1. **Discovery yield is the bottleneck now** (W6: ~2.3 searches per kept place; most JA list searches return aggregators).
+   Pair the held leads first — each is ONE confirm search from kept: Naha (Oninoude, Yappari Steak 1st store, Teshiraji, Kinjō
+   Bakery, Shima Nakama, Mutsumibashi Kadoya), Hokubu (Miyazato Soba, Shirasa Shokudō, Cafe Hakoniwa, Cafe Kokuu, Iejima rum,
+   Tototo, Agai, Yukuru), islands/Nanbu (Tōfu no Higa, Boku no Mise Ojisan, Kihachi, Marukami), Zhyvago (confirm RS 751034),
+   Blue Turtle Farm (find a real 2nd source). Notes: `_okinawa_W6D*_notes.md`.
+2. **Naha +50 / Chūbu +35:** food-first (Naha food 63 %, Chūbu 48 % → Chūbu food-only). Lists: Stripes "best of", OTV Okitive,
+   Okinawa Times soba/shokudō polls, Michelin Guide Okinawa? (none — Japan Michelin doesn't cover Okinawa; confirm), KozaWeb.
+3. **Pins:** ~97 UNVERIFIED remain (`geo` records + dataset). W6G2 left all 16 NAHA food + 10 others unreached; W6G3 left 17
+   (7 island distilleries etc.); W6G1 left 12. Same pattern: extended `<日本語名> <JA address> 緯度 経度` (→ low).
+4. **Re-verify (4b):** 98 `low` pins → upgrade to `!3d!4d`; specifically Milmil Honpo (listings 250 m apart), KITCHEN inaba
+   (single listing), Tamatorizaki, Akagi trees. Recheck Sukeroku status (tabelog-only).
+5. **Creators:** 0 kept in W4–W6 (~25 searches). Haisai Tanteidan (1.1M subs, verified) is the best candidate — search its
+   videos for named shops already on the map. Stop spending on generic creator queries.
+6. After each ~40: `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py okinawa --build`
+   → 4 gates → `cd tools && npm run validate && npm test` → refresh CARD:okinawa stat (live format) + CITIES row → commit+push
+   (`bash data/okinawa-research/_okinawa_push_w6.sh "msg" <extra paths>` — update its session trailer for a new session).
 
 ## Older plan (W5)
 W5 lessons (W4): restaurant GPS almost never surfaces in search → (a) **browser `tools/geocode-helper.html` run on the 132
@@ -153,5 +170,5 @@ pins the box spans ~400 km and the derived view lands in the sea at zoom ~7–8.
 documented CFG override (e.g. `VIEW`) in tools/belgium_build.py under the lock rather than hardcoding.
 
 ## Acceptance
-- [ ] every area ≥ target · [ ] sourcecheck PASS · [ ] geocheck PASS · [ ] statuscheck CONSISTENT, 0 unchecked
-- [x] buildcheck PASS · [x] `npm run validate && npm test` green · [ ] Japan hub card live · [ ] CITIES.md row
+- [ ] every area ≥ target · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
+- [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] Japan hub card live · [x] CITIES.md row
