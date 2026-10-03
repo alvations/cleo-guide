@@ -15,18 +15,9 @@ outlets(T,[
  dict(key="BLOGMICKEY",name="BlogMickey",type="creator",url="https://blogmickey.com/",credible="Daily Disney parks news blog with dated dining reviews."),
 ])
 # ---------------- DTO (+10) ----------------
-food(T,2,"DTO",["Southern","American"],"grilled meatloaf with lobster mash; Southern fried quail & waffles; TV-dinner special","Soco",
- "629 E Central Blvd, Orlando, FL 32801",
- "Thornton Park's Southern-contemporary kitchen (chef Greg Richie) a block from Lake Eola — Orlando Magazine Best New Restaurant 2015; Orlando Weekly: 'imaginative takes on classic Southern staples'; reviewed by The Infatuation.",
- [["INFATUATION","https://www.theinfatuation.com/orlando/reviews/soco"],["SCOTTJOSEPH","https://scottjosephorlando.com/?p=2496"],["ORLANDOWEEKLY","https://www.orlandoweekly.com/?p=234648"]])
-food(T,3,"DTO",["American","Mediterranean"],"Bloody Mary bar brunch; lamb gyro, lamb burrito","Hammered Lamb",
- "1235 N Orange Ave, Orlando, FL 32804",
- "Ivanhoe Village pub across from Lake Ivanhoe (since 2013) — Orlando Weekly's '25 restaurants every new resident needs to try'; weekend brunch with a Bloody Mary bar voted best in town, per Tasty Chomps.",
- [["ORLANDOWEEKLY","https://www.orlandoweekly.com/food-drink/25-orlando-restaurants-every-new-resident-needs-to-try-before-calling-themselves-a-local-36723175/"],["TASTYCHOMPS","https://tastychomps.com/2016/08/sunday-brunch-at-the-hammered-lamb.html"]])
-food(T,2,"DTO",["French","Brasserie"],"French onion soup with bone marrow, steak frites, raw bar","DoveCote Brasserie",
- "390 N Orange Ave, Orlando, FL 32801",
- "French brasserie in the base of downtown's Bank of America tower (2016) from chef Clay Miller (ex-French Laundry; opening chef at Norman's) with The Courtesy's Gene Zimmerman; Scott Joseph: 'a welcome addition to the Central Florida dining scene'.",
- [["SCOTTJOSEPH","https://scottjosephorlando.com/?p=3584"],["ORLANDOWEEKLY","https://www.orlandoweekly.com/food-drink/dont-pigeonhole-dovecote-downtowns-newest-brasserie-2483392/"],["VISITORLANDO","https://www.visitorlando.com/en/things-to-do/restaurants/orlando-districts/downtown-orlando"]])
+# Soco dropped: closed mid-2025 (diners' last-day reviews May 2025; no 2026 activity)
+# Hammered Lamb dropped: closed 2025-01-25 (WFTV / Orlando Weekly / WKMG)
+# DoveCote Brasserie dropped: downtown location closed 2023-10-01, no reopening found (Orlando Weekly / Scott Joseph / WFTV)
 food(T,3,"DTO",["American","Bar"],"neighbourhood-bar burgers and cheap drinks on the patio","Burton's Bar",
  "801 E Washington St, Orlando, FL 32801",
  "Thornton Park's 80-plus-year neighbourhood bar — one of downtown's longest-lived establishments, reopened under the same name in 2017 by The Lodge/The Woods owners; Orlando Weekly: the area's 'cheapest and friendliest' with a prime people-watching patio.",
@@ -68,13 +59,8 @@ food(T,2,"IDR",["Japanese"],"robatayaki skewers and sushi","Dragonfly Robata Gri
  "7972 Via Dellagio Way, Orlando, FL 32819",
  "Dellagio's Japanese robata grill and sushi bar (from Gainesville) — five-time Florida Trend Golden Spoon winner (2015-19); reviewed by Orlando Weekly ('Mister Robata') and Scott Joseph.",
  [["ORLANDOWEEKLY","https://www.orlandoweekly.com/arts/mister-robata-2317971/"],["SCOTTJOSEPH","https://scottjosephorlando.com/?p=19401"]])
-food(T,3,"IDR",["American"],"seasonal wood-fired New American plates","Slate",
- "8323 W Sand Lake Rd, Orlando, FL 32819",
- "Handsome Restaurant Row dining room (2015) — Orlando Weekly: competent seasonal fare 'in one of the more handsome restaurants in the city'; Scott Joseph review + revisit; WMFE opening spotlight.",
- [["ORLANDOWEEKLY","https://www.orlandoweekly.com/food-drink/chef-dominic-rice-fires-up-safe-seasonal-fare-in-a-handsome-room-at-dr-phillips-slate-2440845"],["SCOTTJOSEPH","https://scottjosephorlando.com/restaurant_listing/slate/"],["WMFE","https://www.cfpublic.org/2015-07-24/spotlight-slate-opens-on-sand-lake-roads-restaurant-row"]])
-sight(T,2,"IDR","Skeletons: Museum of Osteology","8441 International Dr Suite 250, Orlando, FL 32819",
- "One of only two skeleton museums in the US (2015) — 500+ real animal skeletons articulated by Skulls Unlimited, incl. a Sumatran rhino and two Komodo dragons (Atlas Obscura; Spectrum News 13; Attractions Magazine).",
- "museum natural history odd skeletons",[["ATLASOBSCURA","https://atlasobscura.com/places/skeletons-museum-of-osteology"],["SPECTRUMNEWS13","https://www.mynews13.com/fl/orlando/news/2018/06/07/bone-a-fied--orlando-s-skeleton-museum-of-osteology"],["ATTRACTIONSMAG","https://attractionsmagazine.com/skeletons-museum-announces-opening-date-drive-360-location/"]],g=["ODD"])
+# Slate (8323 W Sand Lake) dropped: permanently closed 2024-01-03 (FOX 35 / News 6 / Orange Observer)
+# Skeletons: Museum of Osteology dropped: Atlas Obscura lists it permanently closed
 sight(T,3,"IDR","Ripley's Believe It or Not! Orlando","8201 International Dr, Orlando, FL 32819",
  "I-Drive's 'sinking' odditorium — a building in Ripley's disaster architecture tilting into a mock sinkhole, one of the strip's most photographed facades; 600 exhibits in 16 galleries (Orlando Informer review; blooloop).",
  "odd museum architecture photo stop",[["ORLANDOINFORMER","https://orlandoinformer.com/2012/ripleys-believe-it-or-not-orlando-review-photo-gallery/"],["BLOOLOOP","https://blooloop.com/uncategorised/news/visitor-attractions-ripley-entertainment-inc-acquires-orlando-and-branson-believe-it-or-not-odditoriums"]],g=["ODD"])
@@ -170,3 +156,27 @@ food(T,3,"IOA",["Greek","Mediterranean"],"lamb and chicken kebabs, gyros, hummus
  "Lost Continent counter for kebabs and gyros — TouringPlans' 'This Not That' Universal dining pick; ranked in Islands.com's IOA restaurants list.",
  [["TOURINGPLANS","https://touringplans.com/blog/this-not-that-universal-orlando-dining/"],["ISLANDS","https://www.islands.com/2189458/best-islands-of-adventure-restaurants-ranked/"]])
 print("ok")
+# ---- DTO replacements (after closure sweep): College Park + Ivanhoe Village classics with 2025-26 evidence ----
+food(T,2,"DTO",["American","Cafe"],"giant cinnamon rolls, weekend brunch among antiques","White Wolf Cafe",
+ "1829 N Orange Ave, Orlando, FL 32804",
+ "Ivanhoe Village's 30-plus-year 'Orlando Classic' (Scott Joseph) — an antique shop turned cafe-bar, named for the owners' white shepherd; Orlando Weekly readers' #2 Ivanhoe Village restaurant 2025; Food Network's $40 a Day stop; Tasty Chomps snapshots.",
+ [["SCOTTJOSEPH","https://scottjosephorlando.com/white-wolf-cafe-bar/"],["ORLANDOWEEKLY","https://www.orlandoweekly.com/best-of/the-best-restaurant-in-every-part-of-orlando-according-to-our-readers/"],["TASTYCHOMPS","https://tastychomps.com/2015/08/snapshots-from-white-wolf-cafe-in-ivanhoe-village.html"]])
+food(T,2,"DTO",["American","Diner"],"breakfast plates and daily quiche under a wall of salt-and-pepper shakers","Shakers American Cafe",
+ "1308 Edgewater Dr, Orlando, FL 32804",
+ "College Park's breakfast-and-lunch diner (since the 1990s) named for its salt-and-pepper-shaker collection — Scott Joseph 'bona fide Orlando Classic' and Foodster Best Breakfast 2017; Orlando Weekly Edgewater essential + Best of Orlando 2026 entry.",
+ [["SCOTTJOSEPH","https://scottjosephorlando.com/2017-foodster-award-for-best-breakfast-shakers-american-cafe/"],["ORLANDOWEEKLY","https://community.orlandoweekly.com/best-of/2026/food-dining/best-salt-and-pepper-shakers-american-cafe-41108051"]],
+ stsrc="Open — Orlando Weekly Best of Orlando 2026 entry https://community.orlandoweekly.com/best-of/2026/food-dining/best-salt-and-pepper-shakers-american-cafe-41108051")
+food(T,3,"DTO",["American","Sandwiches"],"cooked-to-order subs and shakes from the original milkshake machine","Gabriel's Submarine Sandwich Shop",
+ "3006 Edgewater Dr, Orlando, FL 32804",
+ "Paul Gabriel's family-run College Park sub shop (1958) — one of Orlando's oldest restaurants, still with its original milkshake machine and dining furniture (News 6 'last remaining iconic restaurants of Orlando' 2023; Orlando Weekly Edgewater essential).",
+ [["CLICKORLANDO","https://www.clickorlando.com/news/local/2023/11/23/here-are-the-last-remaining-iconic-restaurants-of-orlando"],["ORLANDOWEEKLY","https://www.orlandoweekly.com/orlando/24-essential-edgewater-drive-restaurants-you-shouldve-tried-by-now/Slideshow/30946705"]])
+sight(T,3,"IDR","Orange County Convention Center","9860 Universal Blvd, Orlando, FL 32819",
+ "The second-largest convention center in the US after Chicago's McCormick Place (opened 1983; 7 million sq ft, 2.1 million of exhibit space) — the anchor of International Drive's south end (Wikipedia; I-Drive district).",
+ "landmark architecture conventions",[["WIKIPEDIA",W("Orange_County_Convention_Center")],["OFFICIAL","https://www.internationaldriveorlando.com/visitor-information/orange-county-convention-center/"]],
+ lat=28.4271846,lng=-81.4639235,conf="med",note="Wikipedia coordinate for a multi-building campus (West/North-South concourses)")
+outlets(T,[dict(key="CFLIFESTYLE",name="Central Florida Lifestyle",type="local magazine",url="https://www.centralfloridalifestyle.com/",credible="Regional lifestyle magazine with bylined local dining coverage.")])
+food(T,2,"IDR",["Steakhouse","Mediterranean"],"Mediterranean-inspired prime cuts and seafood","The H Orlando",
+ "7512 Dr Phillips Blvd #80, Orlando, FL 32819",
+ "Dr. Phillips' Mediterranean-leaning modern steakhouse — Orlando Weekly readers' Best Sand Lake/Dr. Phillips Restaurant 2026 (ahead of DOMU and Seito); its group took over Restaurant Row's Vines Grille as Vines by H in 2025 (Central Florida Lifestyle).",
+ [["ORLANDOWEEKLY","https://www.orlandoweekly.com/best-of/the-best-restaurant-in-every-part-of-orlando-according-to-our-readers/"],["CFLIFESTYLE","https://www.centralfloridalifestyle.com/?p=71375"]],
+ stsrc="Open — Orlando Weekly Best of Orlando 2026 winner https://www.orlandoweekly.com/best-of/the-best-restaurant-in-every-part-of-orlando-according-to-our-readers/")
