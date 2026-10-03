@@ -1287,6 +1287,10 @@
     [
      "CLEVELANDJEWISHNEWS",
      "https://www.clevelandjewishnews.com/features/nosh/swenson-s-drive-in-named-best-burger-in-ohio/article_8af44c66-3ee4-11ef-9f52-cf3f38af25b7.html"
+    ],
+    [
+     "AKRONLIFE",
+     "https://www.akronlife.com/dining/Flavor-blog/classic%C2%A0330-dishes/"
     ]
    ]
   },
@@ -1679,6 +1683,14 @@
     [
      "CLEMAG",
      "https://clevelandmagazine.com/articles/beer-guide-hoppin-frog-brewery-and-tasting-room/"
+    ],
+    [
+     "OHIOMAG",
+     "https://www.ohiomagazine.com/travel/cities/article/akron-beer-sampler"
+    ],
+    [
+     "VISITAKRON",
+     "https://www.visitakron-summit.org/summit-brew-path/official-stops"
     ]
    ]
   },
@@ -2084,6 +2096,87 @@
      "Scene — Barberton-style chicken classics (carried from data/cleveland-research/barberton-chicken.json)"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "AKR",
+   "n": "New Era Restaurant",
+   "ad": "10 Massillon Rd, Akron, OH",
+   "w": "A family-run Balkan tavern founded by Croatian immigrants (Rade and Lucija Juric) — Akron's keeper of its Eastern European table, with chicken paprikash as the famous plate.",
+   "cz": [
+    "EURO"
+   ],
+   "s": [
+    [
+     "SCENE",
+     "https://www.clevescene.com/food-drink/new-era-old-style-1490337/"
+    ],
+    [
+     "AKRONLIFE",
+     "https://www.akronlife.com/dining/Flavor-blog/classic%C2%A0330-dishes/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AKR",
+   "n": "Papa Joe's Iacomini's",
+   "ad": "1561 Akron Peninsula Rd, Akron, OH",
+   "w": "The Iacomini family's Merriman Valley dining room, open since 1932 — Akron's celebration-dinner standby. Signal Akron readers voted it the city's best restaurant in 2026.",
+   "cz": [
+    "ITAL"
+   ],
+   "s": [
+    [
+     "SIGNALAKRON",
+     "https://signalakron.org/akron-2026-best-of-the-city-winners-food-favorites-restaurants-coffee-pizza-more/"
+    ],
+    [
+     "AKRONLIFE",
+     "https://www.akronlife.com/dining/Flavor-blog/classic%C2%A0330-dishes/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "AKR",
+   "n": "Thirsty Dog Brewing Co. Taphouse",
+   "ad": "587 Grant St, Akron, OH",
+   "w": "A Summit Brew Path mainstay brewing regional classics like Labrador Lager; the Sour Haus is up the street at 529 Grant St.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "OHIOMAG",
+     "https://www.ohiomagazine.com/travel/cities/article/akron-beer-sampler"
+    ],
+    [
+     "VISITAKRON",
+     "https://www.visitakron-summit.org/summit-brew-path/official-stops"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "AKR",
+   "n": "Lock 15 Brewing Co.",
+   "ad": "21 W North St, Akron, OH",
+   "w": "North Hill brewpub that Signal Akron readers voted best bar/brewery in both 2025 and 2026; an official Summit Brew Path stop.",
+   "cz": [
+    "BREW",
+    "US"
+   ],
+   "s": [
+    [
+     "SIGNALAKRON",
+     "https://signalakron.org/signal-akron-best-of-city-2025-winner-bar-brewery-lock-15-brewing/"
+    ],
+    [
+     "VISITAKRON",
+     "https://www.visitakron-summit.org/summit-brew-path/official-stops"
+    ]
+   ]
   }
  ],
  "S": {
@@ -2436,6 +2529,12 @@
    "t": "The Takeout — 'Get Schooled By Barberton Fried Chicken'",
    "u": "https://thetakeout.com/barberton-fried-chicken-ohio-hopocan-belgrade-lard-1840822213/",
    "l": "The Takeout — 'Get Schooled By Barberton Fried Chicken'"
+  },
+  "VISITAKRON": {
+   "k": "AKRON/SUMMIT CVB",
+   "t": "Akron/Summit CVB",
+   "u": "https://visitakron-summit.org/",
+   "l": "Akron/Summit CVB"
   },
   "VISITCANTON": {
    "k": "VISIT CANTON",
