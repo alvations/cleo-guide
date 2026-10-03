@@ -1,0 +1,38 @@
+[
+ {
+  "n": "Poké Lid — Growlithe over Mihama fireworks, Depot Island Boardwalk, Chatan (ポケふた ガーディ 北谷町美浜)",
+  "address": "Depot Island Boardwalk (seaside), 9-1 Mihama, Chatan Town, Okinawa 904-0115, Japan",
+  "lat": 26.315777,
+  "lng": 127.753698,
+  "confidence": "med",
+  "geoSource": "NAVITIME POI 02022-10041593 (OKINAWA MARKET Depot Island store, on the seaside boardwalk) printed 26.315777,127.753698; Depot Island POI 02301-1800126 printed 26.315796,127.754322 (60 m). Lid is at the boardwalk steps per RS 4565569 / Chatan Tourism.",
+  "status": "open",
+  "statusSource": "Installed Aug 2025 (Ryukyu Shimpo 4565569, QAB 2025-08-15); listed on OCVB Poké Lid page (okinawastory.jp, 2026)"
+ },
+ {
+  "n": "Poké Lid — Solrock & Skiploom, Kumiodori Park, Urasoe (ポケふた ソルロック×ポポッコ 組踊公園)",
+  "address": "Kumiodori Park (south plaza of the National Theatre Okinawa), 4-14-1 Jitchaku, Urasoe, Okinawa 901-2122, Japan",
+  "lat": 26.24639,
+  "lng": 127.68861,
+  "confidence": "med",
+  "geoSource": "ja.wikipedia 国立劇場おきなわ infobox 26°14′47″N 127°41′19″E (26.24639,127.68861) — host-venue point; the lid is in the adjacent Kumiodori Park/south plaza (RS 1470705, OCVB), so graded med",
+  "status": "open",
+  "statusSource": "Ryukyu Shimpo 1470705 (installed Feb 2022); still listed on OCVB Poké Lid page okinawastory.jp/feature/flying_pikachu/manhole (2026)"
+ },
+ {
+  "n": "Poké Lid — Tauros & Katsuren Castle, Ishikawa Sports Grounds, Uruma (ポケふた ケンタロス×勝連城跡 石川運動広場)",
+  "address": "Entrance of Ishikawa Sports Grounds, Uruma Ishikawa Sports Complex, 1-2 Ishikawa-Ishizaki, Uruma, Okinawa 904-1104, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "A search extract printed 26.426552,127.829684 for the Uruma Ishikawa sports complex (石川石崎1-2), but it could not be tied to one specific page (moshicom/navitime gym POI), and the complex covers several hundred metres, so the lid entrance was not isolated. Next: Google place pin for 石川運動広場 (!3d!4d) or a navitime POI.",
+  "status": "open",
+  "statusSource": "Ryukyu Shimpo 1342954 (installation); listed on OCVB Poké Lid page okinawastory.jp (2026)"
+ },
+ {
+  "n": "Poké Lid — Growlithe & Shureimon, Ryūtan Plaza, Shuri (ポケふた ガーディ×守礼門 龍潭広場)",
+  "address": "Ryūtan Hiroba, 18 Shuri Ikehata-chō, Naha, Okinawa, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Tried '龍潭広場 那覇市首里池端町 緯度 経度' and navitime/mapion. Only the Naha City park page (address, 200 m from the Shuri-jō-mae bus stop) came back, with no coordinate. Do not reuse the Ryūtan pond point: the plaza is on the north side by Jōsei Elementary. Next: Google place pin !3d!4d for 龍潭広場.",
+  "status": "open",
+  "statusSource": "Okinawa Times 1715693 and Ryukyu Shimpo 4783701 (unveiled 2025-10-24, set at Ryūtan Plaza in early Nov 2025); QAB 2025-10-27"
+ }
+]
