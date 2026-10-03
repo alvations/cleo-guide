@@ -20,15 +20,22 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md**. Rebuild: `python3 
 ## State
 - 2026-10-02 scaffold: consolidate.py (6 areas, Akron-Canton cuisine taxonomy), brief, build-akron.py.
 
-## In-flight wave — W6 (started 2026-10-03, this session) — resume here
-- Files: FOOD_W6*.json, SIGHTS_W6*.json, SOURCES_W6.json, geo/_geoout_w6*.json. Plan: promote held leads with a 2nd outlet, then new
-  discovery for CANT, NSUM, AKR, BARB, KENT, MASS (food-first), pins via Apple/Waze/usarestaurants per place. Progress notes appended below.
-- **W6 batch 1 DONE:** +9 food → 175 places, 134 pinned. AKR 53 · CANT 38 · NSUM 30 · KENT 24 · MASS 17 · BARB 13. NEED AKR +7, BARB +7,
-  CANT +7, KENT +6, NSUM +5, MASS +3.
-- **W6 batch 2 DONE:** +6 food +4 sights → 185 places, 137 pinned. AKR 57 · CANT 38 · NSUM 30 · KENT 26 · BARB 17 · MASS 17.
-  NEED CANT +7, NSUM +5, KENT +4, AKR +3, BARB +3, MASS +3.
-- **W6 batch 3 DONE:** 189 places. AKR 57 · CANT 40 · NSUM 31 · KENT 26 · MASS 18 · BARB 17. NEED CANT +5, KENT +4, NSUM +4, AKR +3,
-  BARB +3, MASS +2. Next: sights for BARB/KENT/NSUM (food share allows), then W6 pin pass.
+## In-flight wave — none (W6 closed 2026-10-03). Next session = W7, start here
+- **W6 DONE 2026-10-03:** 166 → **193 places** (78 sights / 115 food = 60%; food ≥50% in every area), pins 128 → **141** (52 UNVERIFIED).
+  4 gates green, validate + npm test PASS. Density AKR 59/60 · CANT 40/45 · NSUM 31/35 · KENT 28/30 · MASS 18/20 · BARB 17/20.
+  Files: FOOD_W6/W6B/W6C/W6D, SIGHTS_W6/W6B/W6C, SOURCES_W6, geo/_geoout_w6–w6d. Full log: AUDIT.md W6 batches 1–5.
+- **W7 plan (ordered):**
+  1. **Pins (biggest gap: 52 UNVERIFIED)** — run `tools/geocode-helper.html` (browser) over the backlog, or Waze retries with name variants:
+     W6: Green Valley Brewing, Hartville Chocolate Factory, Joey's Kendal Tavern, The Vue, Industry Kitchen, Bell Tower, Horseshoe Diner,
+     3 Palms, Akron History Center, BLU Jazz+, Highland Theatre, Nightlight Cinema, Haymaker Market, Acorn Alley; W5/W4 backlog in AUDIT
+     (Menches, Boss ChickNBeer, Summit Artspace, KSU Museum, Cast Iron, Maddalena's, Towner's Woods, Leather Helmet, Taggart's, Fred's,
+     Hoppin' Frog, Bocca Grande…).
+  2. **Fixes:** Crave address (156 S Main St?), Desert Inn NW/NE, Wally Waffle Downtown status, Hoover Historical Center coordinate conflict,
+     Al's Corner Barberton status.
+  3. **Discovery to close the last 17:** CANT +5, NSUM +4, BARB +3, KENT +2, MASS +2, AKR +1. Each held lead in AUDIT W6 needs one more credible
+     outlet or a dated status: Over Easy at the Depot (Kent), Crave Cantina (Cuyahoga Falls), V-Li's Thai (Canal Fulton), Dog Daze (Canton),
+     Tree City Coffee, Henry Wahner's, Lala's in the Lakes, Lager & Vine, Good Grief, Lions Lincoln Theatre, Beech Creek Gardens, Clifford's
+     Mini Auto Museum. If still single-outlet, state the gap (CLAUDE.md: gaps are stated, not filled).
 
 ## Previous plan (W6, as written after W5 on 2026-10-03)
 - **W5 DONE 2026-10-03:** 124 → **166 places** (68 sights / 98 food = 59%; food ≥50% in every area), pins 94 → **128**. 4 gates green,
