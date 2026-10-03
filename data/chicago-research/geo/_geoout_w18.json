@@ -134,13 +134,13 @@
  {
   "n": "Mariscos San Pedro",
   "address": "1227 W 18th St, Chicago, IL 60608",
+  "lat": 41.857834,
+  "lng": -87.6575118,
+  "geoSource": "https://maps.apple.com/place?address=1227+W+18th+St%2C+Chicago%2C+IL++60608%2C+United+States&coordinate=41.857834%2C-87.6575118&name=Mariscos+San+Pedro&place-id=I67609680D532D6E6 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
   "status": "open",
   "statusSource": "https://timeout.com/chicago/restaurants/mariscos-san-pedro (current listing with hours, search 2026-10-03)",
-  "note": "WEST",
-  "lat": null,
-  "lng": null,
-  "geoSource": "UNVERIFIED",
-  "confidence": "UNVERIFIED"
+  "note": "sanity: 18th St 41.858, 1227 W -87.658 (Thalia Hall)"
  },
  {
   "n": "HaiSous Vietnamese Kitchen",
@@ -702,5 +702,236 @@
   "status": "open",
   "statusSource": "https://www.dnainfo.com/chicago/20141117/gold-coast/gibsons-steakhouse-25-years-cut-above/ (current listing, search 2026-10-03; no closure reported)",
   "note": "sanity: Rush at Oak/Bellevue 41.901, -87.628"
+ },
+ {
+  "n": "Site of the Great Chicago Fire (Pillar of Fire)",
+  "address": "558 W DeKoven St, Chicago, IL 60607",
+  "status": "open",
+  "statusSource": "https://www.choosechicago.com/listing/site-of-the-great-chicago-fire/ (current listing; sculpture + plaque viewable)",
+  "note": "WEST | sanity: DeKoven (1100 S) 41.869, 558 W -87.641",
+  "lat": 41.869002,
+  "lng": -87.641501,
+  "geoSource": "https://en.wikipedia.org/wiki/DeKoven_Street — Wikipedia published coord of the O'Leary/fire-academy site (WebSearch 2026-10-03)",
+  "confidence": "high"
+ },
+ {
+  "n": "Lucido's Tacos",
+  "address": "4147 W 26th St, Chicago, IL 60623",
+  "status": "open",
+  "statusSource": "https://www.timeout.com/chicago/restaurants/lucidos-tacos (current listing with hours, search 2026-10-03)",
+  "note": "WEST",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Lincoln Park (lakefront park)",
+  "address": "Lakefront from North Ave to Ardmore Ave, Chicago (Chicago Park District)",
+  "status": "open",
+  "statusSource": "https://www.chicagoparkdistrict.com/parks-facilities/lincoln-abraham-park (public park)",
+  "note": "NORTH | park centroid (7-mile park) — med by nature; lands in the park near Diversey Harbor",
+  "lat": 41.94,
+  "lng": -87.635,
+  "geoSource": "https://en.wikipedia.org/wiki/Lincoln_Park,_Chicago,_Illinois — Wikipedia published park coord 41°56′24″N 87°38′06″W (WebSearch 2026-10-03)",
+  "confidence": "med"
+ },
+ {
+  "n": "Andersonville Commercial District",
+  "address": "N Clark St around Foster & Balmoral Aves, Andersonville, Chicago",
+  "status": "open",
+  "statusSource": "https://www.timeout.com/chicago/andersonville (current neighbourhood guide; public street)",
+  "note": "NORTH | district point on Clark St — med by nature",
+  "lat": 41.9803,
+  "lng": -87.6683,
+  "geoSource": "https://en.wikipedia.org/wiki/Andersonville_Commercial_Historic_District — Wikipedia published district coord (WebSearch 2026-10-03)",
+  "confidence": "med"
+ },
+ {
+  "n": "Edgewater Beach Apartments",
+  "address": "N Sheridan Rd at the north end of Lake Shore Drive, Edgewater, Chicago",
+  "status": "open",
+  "statusSource": "https://www.choosechicago.com/listing/edgewater-beach-apartments/ (standing; residential co-op, exterior view)",
+  "note": "NORTH | sanity: ~5555 N 41.984, Sheridan at the lake -87.655",
+  "lat": 41.98361,
+  "lng": -87.65472,
+  "geoSource": "https://en.wikipedia.org/wiki/Edgewater_Beach_Hotel — Wikipedia published coord for the Edgewater Beach Apartments (WebSearch 2026-10-03)",
+  "confidence": "high"
+ },
+ {
+  "n": "Bryn Mawr Avenue Historic District",
+  "address": "900–1100 blocks of W Bryn Mawr Ave (Sheridan Rd to Broadway), Edgewater, Chicago",
+  "status": "open",
+  "statusSource": "https://www.chicago.gov/city/en/depts/dcd/provdrs/hist/news/2026/september/landmark-district-designation-approved-for-bryn-mawr-avenue-in-e.html (designated Sept 2026; public street)",
+  "note": "NORTH | district point — med; sanity: Bryn Mawr (5600 N) 41.984, ~1000 W -87.657",
+  "lat": 41.9837,
+  "lng": -87.6575,
+  "geoSource": "https://en.wikipedia.org/wiki/Bryn_Mawr_Historic_District — Wikipedia published district coord (WebSearch 2026-10-03)",
+  "confidence": "med"
+ },
+ {
+  "n": "Givins Beverly Castle (Beverly Unitarian Church)",
+  "address": "10244 S Longwood Dr, Chicago, IL 60643",
+  "status": "open",
+  "statusSource": "https://www.choosechicago.com/listing/robert-c-givens-castle-beverly-unitarian-church/ (current listing; active church)",
+  "note": "FAR | sanity: 10244 S 41.707, Longwood Dr (~1800 W) -87.671",
+  "lat": 41.706812,
+  "lng": -87.671336,
+  "geoSource": "https://en.wikipedia.org/wiki/Beverly_Unitarian_Church — Wikipedia published coord (WebSearch 2026-10-03)",
+  "confidence": "high"
+ },
+ {
+  "n": "Calumet Park & Beach",
+  "address": "9801 S Avenue G, Chicago, IL 60617",
+  "status": "open",
+  "statusSource": "https://www.chicagoparkdistrict.com/parks-facilities/calumet-park (public park; 2026 events listed)",
+  "note": "FAR | park point near the fieldhouse (98th & Ave G) — med",
+  "lat": 41.7179,
+  "lng": -87.5294,
+  "geoSource": "https://en.wikipedia.org/wiki/Calumet_Park — Wikipedia published park coord (WebSearch 2026-10-03)",
+  "confidence": "med"
+ },
+ {
+  "n": "Sanders BBQ Supply Co.",
+  "address": "1742 W 99th St, Chicago, IL 60643",
+  "status": "open",
+  "statusSource": "https://www.beverlyreview.net/news/community_news/article_d9b57c97-2bb9-489e-89e9-814d116df188.html (Banchet award Jan 2026; current hours listed, search 2026-10-03)",
+  "note": "FAR",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Justice of the Pies",
+  "address": "E 87th St, Avalon Park, Chicago",
+  "status": "open",
+  "statusSource": "https://www.wttw.com/playlist/2026/03/10/where-get-pie-pi-day-2026 (WTTW Pi Day 2026 list; operating)",
+  "note": "FAR | street number pending",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Open Outcry Brewing Co.",
+  "address": "S Western Ave, Beverly, Chicago",
+  "status": "open",
+  "statusSource": "https://www.beverlyreview.net/news/community_news/article_0fe8a926-120d-11ef-b804-8bf4faa3d867.html (new owners took over May 2024; Block Club 2025 rooftop guide lists it)",
+  "note": "FAR | street number pending",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Ware Ranch Steak House",
+  "address": "11147 S Michigan Ave, Chicago, IL 60628",
+  "status": "open",
+  "statusSource": "https://www.choosechicago.com/blog/dining/restaurants-on-chicagos-south-side/ (current South Side dining guide; no closure reported)",
+  "note": "FAR",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Marz Community Brewing Co.",
+  "address": "3630 S Iron St, Chicago, IL 60609",
+  "lat": 41.8277866,
+  "lng": -87.6597512,
+  "geoSource": "https://maps.apple.com/place?address=3630+S+Iron+St%2C+Chicago%2C+IL++60609%2C+United+States&coordinate=41.8277866%2C-87.6597512&name=Marz+Community+Brewing+Co.&place-id=I24B4BE8D7B95D6D4 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://blockclubchicago.org/2026/08/20/28-things-to-do-in-chicago-this-weekend-lakeview-taco-fest-back-to-school-events-and-more/ (Aug 2026 event listing; operating)",
+  "note": "sanity: 3600 S 41.828, Iron St (~1300 W) -87.660"
+ },
+ {
+  "n": "Gorditas La Tia Susy",
+  "address": "3500 S Western Ave, Chicago, IL 60609",
+  "status": "open",
+  "statusSource": "https://www.theinfatuation.com/chicago/guides/the-9-best-burritos-in-chicago (current guide, search 2026-10-03; no closure reported)",
+  "note": "SW",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Old St. Patrick's Church",
+  "address": "700 W Adams St, Chicago, IL 60661",
+  "status": "open",
+  "statusSource": "https://www.choosechicago.com/listing/old-st-patricks-church/ (current listing; active parish)",
+  "note": "LOOP | sanity: Adams (200 S) 41.879, Des Plaines (700 W) -87.644",
+  "lat": 41.87917,
+  "lng": -87.64444,
+  "geoSource": "https://en.wikipedia.org/wiki/Old_St._Patrick's_Church_(Chicago) — Wikipedia published coord (WebSearch 2026-10-03)",
+  "confidence": "high"
+ },
+ {
+  "n": "Marquette Building",
+  "address": "140 S Dearborn St, Chicago, IL 60603",
+  "status": "open",
+  "statusSource": "https://www.choosechicago.com/listing/marquette-building/ (current listing; lobby open business hours)",
+  "note": "LOOP | sanity: Adams/Dearborn 41.8795,-87.630",
+  "lat": 41.8795,
+  "lng": -87.6300694,
+  "geoSource": "https://en.wikipedia.org/wiki/Marquette_Building_(Chicago) — Wikipedia published coord (WebSearch 2026-10-03)",
+  "confidence": "high"
+ },
+ {
+  "n": "Carbide & Carbon Building",
+  "address": "230 N Michigan Ave, Chicago, IL 60601",
+  "status": "open",
+  "statusSource": "https://www.choosechicago.com/listing/pendry-chicago/ (operating hotel)",
+  "note": "LOOP | sanity: 230 N Michigan 41.8866,-87.6249",
+  "lat": 41.8866,
+  "lng": -87.6249,
+  "geoSource": "https://en.wikipedia.org/wiki/Carbide_&_Carbon_Building — Wikipedia published coord (WebSearch 2026-10-03)",
+  "confidence": "high"
+ },
+ {
+  "n": "Clarke House Museum",
+  "address": "1827 S Indiana Ave, Chicago, IL 60616",
+  "status": "open",
+  "statusSource": "https://www.chicago.gov/city/en/depts/dca/supp_info/clarke_house_museum.html (city DCASE museum; tours)",
+  "note": "LOOP | sanity: 1800 S 41.857, Indiana (200 E) -87.622",
+  "lat": 41.85722,
+  "lng": -87.62194,
+  "geoSource": "https://en.wikipedia.org/wiki/Henry_B._Clarke_House — Wikipedia published coord (WebSearch 2026-10-03)",
+  "confidence": "high"
+ },
+ {
+  "n": "Chicago Architecture Center",
+  "address": "111 E Wacker Dr, Chicago, IL 60601",
+  "status": "open",
+  "statusSource": "https://www.choosechicago.com/articles/architecture-and-history/chicago-architecture-center/ (current listing; operating)",
+  "note": "LOOP | sanity: 111 E Wacker 41.888,-87.624",
+  "lat": 41.88792,
+  "lng": -87.623668,
+  "geoSource": "https://en.wikipedia.org/wiki/Chicago_Architecture_Center — Wikipedia published coord (WebSearch 2026-10-03)",
+  "confidence": "high"
+ },
+ {
+  "n": "Second Presbyterian Church",
+  "address": "1936 S Michigan Ave, Chicago, IL 60616",
+  "status": "open",
+  "statusSource": "https://www.choosechicago.com/listing/second-presbyterian-church/ (current listing; active congregation)",
+  "note": "LOOP | sanity: 1936 S 41.856, Michigan Ave -87.624",
+  "lat": 41.85583,
+  "lng": -87.62444,
+  "geoSource": "https://en.wikipedia.org/wiki/Second_Presbyterian_Church_(Chicago) — Wikipedia published coord (WebSearch 2026-10-03)",
+  "confidence": "high"
+ },
+ {
+  "n": "Chicago Temple (Sky Chapel)",
+  "address": "77 W Washington St, Chicago, IL 60602",
+  "status": "open",
+  "statusSource": "https://www.atlasobscura.com/places/chicago-temple (active church; Sky Chapel tours)",
+  "note": "LOOP | sanity: Washington/Clark 41.883,-87.631",
+  "lat": 41.883,
+  "lng": -87.6306,
+  "geoSource": "https://en.wikipedia.org/wiki/Chicago_Temple_Building — Wikipedia published coord (whole seconds; WebSearch 2026-10-03)",
+  "confidence": "med"
  }
 ]

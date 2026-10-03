@@ -71,7 +71,7 @@ municipality/neighbourhood (address).
    Katana, Orilla, La Sandwicherie, Papi Steak, Josh's Deli (9517 Harding Ave), Panya Thai, Steve's Pizza (12101 Biscayne Blvd), Perl,
    Captain Jim's, Farofa, Basilic, Chéen-Huaye, Jarana, Chayhana Oasis, Etzel Itzik, Zaika, Ghee… Sights: Apple gives place-ids only →
    Wikipedia/NPS or the browser `tools/geocode-helper.html`.
-2. **Address mismatches to re-verify before pinning:** Midorie (Apple: 851 NE 79th St, Upper East Side vs our "Coconut Grove"), Rosetta Bakery
+2. **Address mismatches to re-verify before pinning:** Cotoa (pin withdrawn — Apple/NT/Michelin put it at The B100M, 100 Biscayne Blvd downtown, Michelin 'temporarily closed'; area may move NMIA→DTB), Midorie (Apple: 851 NE 79th St, Upper East Side vs our "Coconut Grove"), Rosetta Bakery
    (Apple: 1666 Collins Ave vs our 929 Collins), Piman Bouk restaurant (5921 NE 2nd Ave; Apple only pinned the bakery at 46 NE 62nd St),
    Versailles Bakery (3501 SW 8th St), Drinking Pig BBQ (our "Downtown" vs Apple 3444 Main Hwy Coconut Grove / 845 NE 151st St), Knaus Berry
    Farm (new farm 16790 SW 177th Ave — pin it), Laspada's (med; Commercial Blvd vs Seagrape Dr corner).

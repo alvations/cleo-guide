@@ -353,3 +353,11 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   google.com `!3d!4d`, mapcarta, latlong/findlatitudeandlongitude, untappd: none returned usable restaurant pins).
 - **Gates (final build):** sourcecheck 509 PASS · geocheck PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate DATA OK ·
   npm test ALL PASS. Hub card, CITIES.md row, AGENT-PROMPTS run-log row and RESUME next-wave plan updated.
+
+## 2026-10-03 (session 5) · batch 5 — orchestrator resume
+- **Pin +1:** CY Chinese Restaurant (1242 NE 163rd St, Apple place pin; `geo/_geoout_x5.json`).
+- **Pin withdrawn:** Cotoa — the same Apple place-id now resolves to 100 Biscayne Blvd (The B100M, downtown) as well as 12475 NE 6th Ct;
+  Miami New Times (B100M opening) puts Cotoa downtown and the Michelin listing shows "temporarily closed". Row removed from `_geoout_x2.json`,
+  registry entry reset to UNVERIFIED (`geo/_geoout_x5s.json`); re-check location + status before re-pinning (area may be DTB, not NMIA).
+- 3 more retry queries (Steve's Pizza, Panya Thai, Perl, Farofa, Basilic, Chéen-Huaye, Shiver's, Fox's Lounge, Redland Market Village) gave
+  only bare place-ids — the long tail is now ~0.3 pins/search with this channel. Net pinned: 261. Gates + validate + test green.
