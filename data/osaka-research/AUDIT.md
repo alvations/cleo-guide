@@ -181,3 +181,9 @@ Wikipedia ~15 · Tabelog100 2 · creator 1 (Ramen Adventures, Ide Shoten) · loc
 2027-02-16). asahi/mainichi/nhk/sankei/yomiuri/cntraveler are rejected as `allowed_domains`. Yield ≈ 0.3 places/search.
 **Geocode:** W4 high 15 · med 3 · unverified 31. **Build:** 368 discovered (140 sights + 228 food = 62% food), 286 rendered;
 sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. ANIME 16.
+
+### 2026-10-03 — W4M (main): +4 Michelin food (Man-u, Yoshiko 1★, Macauda, il luogo di TAKEUCHI), all 4 pinned from Michelin
+venue pages (high); dish from Michelin editorial ("Naniwa on a Plate", "casual lunches under ¥2,000"). Ura-Namba: sponsored
+japan-guide /ad/ source replaced with Inside Osaka (Minami area). Searched & missed: Tengu (OSAKA-INFO kushikatsu pages don't
+name it), Hozenji Sanpei. Held 14 Michelin leads with no dish surfaced; dropped Tominoya (see `_held_W4.json`).
+Final W4 build: 372 discovered / 290 rendered; 4 gates PASS; validate + npm test PASS. Main searches ~17; session total ~185.

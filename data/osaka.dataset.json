@@ -7720,6 +7720,90 @@
      "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/ichiju-nisai-ueno-minoten"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Man-u",
+   "ad": "5F, 1-2-33 Dojima, Kita-ku, Osaka 530-0003",
+   "w": "Michelin Guide Japan 2026-listed oden counter by a kappo-trained chef; featured in Michelin's 'Naniwa on a Plate' piece on old-Osaka flavours.",
+   "cz": [
+    "IZAKAYA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/man-u"
+    ],
+    [
+     "MICHELIN_EDITORIAL",
+     "https://guide.michelin.com/jp/en/best-of/osaka_cuisine"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KITA",
+   "n": "Yoshiko",
+   "ad": "1-8-5 Sonezakishinchi, Kita-ku, Osaka 530-0002",
+   "w": "One Michelin star (2026); second-generation fugu chef in Kitashinchi, wife a certified sake advisor — Osaka is one of Japan's biggest fugu-eating cities.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/yoshiko"
+    ],
+    [
+     "MICHELIN_EDITORIAL",
+     "https://guide.michelin.com/jp/en/best-of/osaka_cuisine"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CHUO",
+   "n": "Macauda",
+   "ad": "2-1-3 Tokiwamachi, Chuo-ku, Osaka 540-0028",
+   "w": "Michelin Guide Japan 2026-listed southern-Italian kitchen specialising in fish; picked by Michelin's inspectors among Osaka's best casual lunches under ¥2,000.",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/macauda"
+    ],
+    [
+     "MICHELIN_EDITORIAL",
+     "https://guide.michelin.com/sg/en/best-of/michelin_recommended_restaurants-lunch-for-under-2-000-yen-in-osaka"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KITA",
+   "n": "il luogo di TAKEUCHI",
+   "ad": "5-1-26 Fukushima, Fukushima-ku, Osaka 553-0003",
+   "w": "Michelin Guide Japan 2026-listed Fukushima trattoria; on Michelin's inspector list of Osaka casual lunches under ¥2,000.",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/osaka-region/osaka/restaurant/il-luogo-di-takeuchi"
+    ],
+    [
+     "MICHELIN_EDITORIAL",
+     "https://guide.michelin.com/sg/en/best-of/michelin_recommended_restaurants-lunch-for-under-2-000-yen-in-osaka"
+    ]
+   ]
   }
  ],
  "S": {
@@ -7910,6 +7994,12 @@
    "t": "MICHELIN Guide Japan 2026 — Osaka region Bib Gourmand",
    "u": "https://guide.michelin.com/us/en/osaka-region/restaurants/bib-gourmand",
    "l": "MICHELIN Guide Japan 2026 — Osaka region Bib Gourmand"
+  },
+  "MICHELIN_EDITORIAL": {
+   "k": "MICHELIN EDITORIAL",
+   "t": "MICHELIN_EDITORIAL",
+   "u": "",
+   "l": ""
   },
   "MICHELIN_STAR": {
    "k": "MICHELIN ★",

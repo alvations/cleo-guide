@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Osaka field guide — 120 sights and 166 places to eat, each traceable to its source (Michelin, UNESCO, Japanese press and vetted creators) on one interactive map with area, collection and cuisine filters.">
+<meta name="description" content="Osaka field guide — 120 sights and 170 places to eat, each traceable to its source (Michelin, UNESCO, Japanese press and vetted creators) on one interactive map with area, collection and cuisine filters.">
 <title>Osaka Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Osaka (大阪), sourced</p>
   <h1>Osaka<span class="thin">Kita · Minami · the Castle · Shinsekai · the Bay · Kansai day trips</span></h1>
-  <p class="standfirst">120 sights and 166 places to eat across <strong>Osaka</strong> — the city of <em>kuidaore</em>, eat till you drop — every one traceable to its source: okonomiyaki teppan, kushikatsu counters, Michelin Bib Gourmand udon and soba, Kita and Minami, the castle, the bay and the Kansai ring. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">120 sights and 170 places to eat across <strong>Osaka</strong> — the city of <em>kuidaore</em>, eat till you drop — every one traceable to its source: okonomiyaki teppan, kushikatsu counters, Michelin Bib Gourmand udon and soba, Kita and Minami, the castle, the bay and the Kansai ring. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Japan/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -480,6 +480,7 @@ const FS = {
   "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet — Osaka",u:"https://www.lonelyplanet.com/articles/guide-to-osaka-japan",l:"Lonely Planet — Osaka"},
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide Japan — Osaka region selection",u:"https://guide.michelin.com/us/en/osaka-region/restaurants",l:"MICHELIN Guide Japan — Osaka region selection"},
   "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN Guide Japan 2026 — Osaka region Bib Gourmand",u:"https://guide.michelin.com/us/en/osaka-region/restaurants/bib-gourmand",l:"MICHELIN Guide Japan 2026 — Osaka region Bib Gourmand"},
+  "MICHELIN_EDITORIAL":{k:"MICHELIN EDITORIAL",t:"MICHELIN_EDITORIAL",u:"",l:""},
   "MICHELIN_STAR":{k:"MICHELIN ★",t:"MICHELIN Guide Kyoto Osaka 2026 — starred restaurants (Osaka region)",u:"https://guide.michelin.com/us/en/osaka-region/restaurants/1-star-michelin",l:"MICHELIN Guide Kyoto Osaka 2026 — starred restaurants (Osaka region)"},
   "NETFLIX":{k:"NETFLIX",t:"NETFLIX",u:"",l:""},
   "NIPPONCOM":{k:"NIPPONCOM",t:"nippon.com (Nippon Communications Foundation)",u:"https://www.nippon.com/",l:"nippon.com (Nippon Communications Foundation)"},
@@ -700,7 +701,11 @@ const F = [
 {t:1,a:"MINAM",n:"Harijyu Dōtonbori Honten (はり重)",ad:"〒542-0071 Dōtonbori 1-9-17, Chūō-ku, Osaka",cz:["WAGYU"],la:34.66856,ln:135.50064,w:"A century-old Dōtonbori beef house: Time Out calls it legendary for melt-in-the-mouth wagyu sukiyaki and shabu-shabu; ja.wikipedia documents the honten.",s:[["TIMEOUT","https://www.timeout.com/osaka/things-to-do/best-things-to-do-in-dotonbori"],["WIKIPEDIA","https://ja.wikipedia.org/wiki/%E3%81%AF%E3%82%8A%E9%87%8D"]]},
 {t:1,a:"SOUTH",n:"Gofuso (五風荘)",ad:"18-1 Kishiki-chō, Kishiwada, Osaka (just south of the Kishiwada Castle moat; 5 min walk from Nankai Takojizō Station)",cz:["KAISEKI"],la:34.45783,ln:135.37089,w:"1929–39 magnate's estate on the site of the Kishiwada lords' teahouse, with three tea houses and a stroll garden, now a kaiseki restaurant in private rooms — Time Out's Southern Osaka must-go list and OSAKA-INFO.",s:[["TIMEOUT","https://www.timeout.com/osaka/things-to-do/gofuso"],["OSAKAINFO","https://osaka-info.jp/en/spot/kishiwada-gofuso-garden/"]]},
 {t:2,a:"KNSAI",n:"Freundlieb (フロインドリーブ, Kobe)",ad:"4-6-15 Ikuta-cho, Chuo-ku, Kobe, Hyogo",cz:["CAFE"],la:34.70083,ln:135.19528,w:"German bakery founded by Heinrich Freundlieb in 1924, since 1997 housed in the W.M. Vories-designed former Kobe Union Church: cakes, sandwiches and pastries under a vaulted nave.",s:[["WIKIPEDIA","https://ja.wikipedia.org/wiki/%E3%83%8F%E3%82%A4%E3%83%B3%E3%83%AA%E3%83%92%E3%83%BB%E3%83%95%E3%83%AD%E3%82%A4%E3%83%B3%E3%83%89%E3%83%AA%E3%83%BC%E3%83%96"],["INSIDEKYOTO","https://www.insidekyoto.com/freundlieb"]]},
-{t:1,a:"NORTH",n:"Ichiju Nisai Ueno Minoten (一汁二菜うえの 箕面店)",ad:"2-5 Minokoen, Minoh, Osaka 562-0002",cz:["KAISEKI"],la:34.83902,ln:135.47102,w:"Michelin-listed (2026 guide) Japanese restaurant at the foot of the Minoh mountains, near the Minoo Park trailhead.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/ichiju-nisai-ueno-minoten"]]}
+{t:1,a:"NORTH",n:"Ichiju Nisai Ueno Minoten (一汁二菜うえの 箕面店)",ad:"2-5 Minokoen, Minoh, Osaka 562-0002",cz:["KAISEKI"],la:34.83902,ln:135.47102,w:"Michelin-listed (2026 guide) Japanese restaurant at the foot of the Minoh mountains, near the Minoo Park trailhead.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/ichiju-nisai-ueno-minoten"]]},
+{t:2,a:"KITA",n:"Man-u",ad:"5F, 1-2-33 Dojima, Kita-ku, Osaka 530-0003",cz:["IZAKAYA"],la:34.69620,ln:135.49986,w:"Michelin Guide Japan 2026-listed oden counter by a kappo-trained chef; featured in Michelin's 'Naniwa on a Plate' piece on old-Osaka flavours.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/man-u"],["MICHELIN_EDITORIAL","https://guide.michelin.com/jp/en/best-of/osaka_cuisine"]]},
+{t:1,a:"KITA",n:"Yoshiko",ad:"1-8-5 Sonezakishinchi, Kita-ku, Osaka 530-0002",cz:["FINE"],la:34.69738,ln:135.50018,w:"One Michelin star (2026); second-generation fugu chef in Kitashinchi, wife a certified sake advisor — Osaka is one of Japan's biggest fugu-eating cities.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/yoshiko"],["MICHELIN_EDITORIAL","https://guide.michelin.com/jp/en/best-of/osaka_cuisine"]]},
+{t:3,a:"CHUO",n:"Macauda",ad:"2-1-3 Tokiwamachi, Chuo-ku, Osaka 540-0028",cz:["INT"],la:34.68241,ln:135.51436,w:"Michelin Guide Japan 2026-listed southern-Italian kitchen specialising in fish; picked by Michelin's inspectors among Osaka's best casual lunches under ¥2,000.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/macauda"],["MICHELIN_EDITORIAL","https://guide.michelin.com/sg/en/best-of/michelin_recommended_restaurants-lunch-for-under-2-000-yen-in-osaka"]]},
+{t:3,a:"KITA",n:"il luogo di TAKEUCHI",ad:"5-1-26 Fukushima, Fukushima-ku, Osaka 553-0003",cz:["INT"],la:34.69697,ln:135.49005,w:"Michelin Guide Japan 2026-listed Fukushima trattoria; on Michelin's inspector list of Osaka casual lunches under ¥2,000.",s:[["MICHELIN","https://guide.michelin.com/en/osaka-region/osaka/restaurant/il-luogo-di-takeuchi"],["MICHELIN_EDITORIAL","https://guide.michelin.com/sg/en/best-of/michelin_recommended_restaurants-lunch-for-under-2-000-yen-in-osaka"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -809,7 +814,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Kita", 34.7, 135.5022], ["Minami", 34.67, 135.5036], ["Chūō", 34.6828, 135.5069], ["Tennōji", 34.6555, 135.5142], ["East Osaka", 34.6888, 135.5661], ["Bay Area", 34.6545, 135.4281], ["Southern Osaka", 34.5132, 135.4956], ["Hokusetsu", 34.8141, 135.5227], ["Kansai day trips", 34.6577, 135.1534]];
+const LABELS=[["Kita", 34.6999, 135.502], ["Minami", 34.67, 135.5036], ["Chūō", 34.6828, 135.507], ["Tennōji", 34.6555, 135.5142], ["East Osaka", 34.6888, 135.5661], ["Bay Area", 34.6545, 135.4281], ["Southern Osaka", 34.5132, 135.4956], ["Hokusetsu", 34.8141, 135.5227], ["Kansai day trips", 34.6577, 135.1534]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1148,7 +1153,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 286 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 290 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
