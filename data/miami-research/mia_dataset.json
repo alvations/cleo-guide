@@ -3070,6 +3070,51 @@
      "https://www.afar.com/places/little-haiti-cultural-center-miami"
     ]
    ]
+  },
+  {
+   "t": 1,
+   "a": "FTL",
+   "n": "NSU Art Museum Fort Lauderdale",
+   "ad": "1 E Las Olas Blvd, Fort Lauderdale, FL",
+   "w": "Broward's flagship art museum on Las Olas — 7,500+ works incl. the largest US collection of CoBrA art and William Glackens; free first Thursdays.",
+   "g": [
+    "ART",
+    "MUS",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITLAUDERDALE",
+     "https://www.visitlauderdale.com/things-to-do/attractions/top-10-things-to-do/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Museum_of_Art_Fort_Lauderdale"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Young At Art Museum",
+   "ad": "Broward Mall, Plantation, FL",
+   "w": "Interactive children's art museum with immersive galleries, now inside Broward Mall in Plantation.",
+   "g": [
+    "ART",
+    "MUS",
+    "FAM"
+   ],
+   "s": [
+    [
+     "VISITLAUDERDALE",
+     "https://www.visitlauderdale.com/listing/young-at-art-museum/18071/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Young_at_Art_Museum"
+    ]
+   ]
   }
  ],
  "F": [
@@ -8149,6 +8194,314 @@
     [
      "TIMEOUT",
      "https://www.timeout.com/miami/restaurants/taquiza"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Egg N' You Diner",
+   "ad": "Wilton Manors, FL",
+   "w": "A shining classic American diner, in business since 1956 (Infatuation's 20 classic Fort Lauderdale restaurants).",
+   "k": "Order: Biscuits & gravy, cheap breakfast combos and the patty melt on crispy rye",
+   "cz": [
+    "BURG",
+    "US"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/fort-lauderdale-classic-restaurants"
+    ],
+    [
+     "BROWARDPALMBEACH",
+     "https://www.browardpalmbeach.com/location/egg-n-you-diner-6361998/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Peter Pan Diner",
+   "ad": "Oakland Park, FL",
+   "w": "Wood-panelled Greek diner open since 1979 — the late Jaco Pastorius's favourite haunt.",
+   "k": "Order: Greek-diner plates off an encyclopedic menu, under wood panelling",
+   "cz": [
+    "BURG",
+    "MED"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/fort-lauderdale-classic-restaurants"
+    ],
+    [
+     "BROWARDPALMBEACH",
+     "https://www.browardpalmbeach.com/location/peter-pan-diner-6370882/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Top Hat Deli",
+   "ad": "415 NE 3rd St, Fort Lauderdale, FL",
+   "w": "Shiny modern Jewish deli by downtown Fort Lauderdale.",
+   "k": "Order: Matzo brei, bagels & lox and challah French toast",
+   "cz": [
+    "BURG"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/reviews/top-hat-deli"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/usa/restaurants/best-restaurants-in-fort-lauderdale"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Gabose",
+   "ad": "Lauderhill, FL",
+   "w": "The founding landmark of Lauderhill's little Koreatown, Broward's Korean-food cluster.",
+   "k": "Order: Charcoal Korean barbecue at the table; soju and pub grub at sister Gabose Pocha",
+   "cz": [
+    "ASIAN",
+    "BURG"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/gaboses-korean-barbecue-asian-food-south-florida-needs-6571006/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-broward-restaurants"
+    ],
+    [
+     "BROWARDPALMBEACH",
+     "https://www.browardpalmbeach.com/location/gabose-restaurant-6375994/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Ukiah Japanese Smokehouse",
+   "ad": "221 SW 1st Ave, Fort Lauderdale, FL",
+   "w": "Riverfront smokehouse near Las Olas on New Times' 16 best restaurants in Fort Lauderdale.",
+   "k": "Order: Japanese soul food meets smoked meats — brisket and small plates on the New River",
+   "cz": [
+    "ASIAN",
+    "BURG"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/best-restaurants-in-fort-lauderdale-florida-22004237/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/reviews/ukiah"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FTL",
+   "n": "Billy's Stone Crab",
+   "ad": "Hollywood, FL (Intracoastal waterfront)",
+   "w": "Hollywood's dockside stone-crab house, on New Times' best-in-Hollywood list and Visit Lauderdale's seafood guide.",
+   "k": "Order: Fresh-cracked stone crab claws with Billy's signature mustard sauce (Oct–May season)",
+   "cz": [
+    "SEAF"
+   ],
+   "s": [
+    [
+     "BROWARDPALMBEACH",
+     "https://www.browardpalmbeach.com/food-drink/the-9-best-restaurants-in-hollywood-florida-19132361/"
+    ],
+    [
+     "VISITLAUDERDALE",
+     "https://www.visitlauderdale.com/blog/stories/post/a-seafood-lovers-dining-guide-to-greater-fort-lauderdale/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "GG's Waterfront Bar & Grill",
+   "ad": "Hollywood, FL (Intracoastal waterfront)",
+   "w": "The 1960s Rat Pack hangout (Sinatra drank here), re-imagined as Hollywood's waterfront seafood grill.",
+   "k": "Order: Local fish, raw bar and stone crabs over the Intracoastal",
+   "cz": [
+    "SEAF"
+   ],
+   "s": [
+    [
+     "BROWARDPALMBEACH",
+     "https://www.browardpalmbeach.com/food-drink/the-9-best-restaurants-in-hollywood-florida-19132361/"
+    ],
+    [
+     "VISITLAUDERDALE",
+     "https://www.visitlauderdale.com/listing/ggs-waterfront-bar-&-grill/2183/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Calypso Restaurant & Raw Bar",
+   "ad": "Pompano Beach, FL",
+   "w": "Pompano's long-running Caribbean seafood hidden gem.",
+   "k": "Order: Oxtail, conch salad and jerk chicken",
+   "cz": [
+    "CARIB",
+    "SEAF"
+   ],
+   "s": [
+    [
+     "BROWARDPALMBEACH",
+     "https://www.browardpalmbeach.com/food-drink/the-eight-best-restaurants-in-pompano-beach-7281915/"
+    ],
+    [
+     "VISITLAUDERDALE",
+     "https://www.visitlauderdale.com/beaches-and-beyond/cities-towns/pompano-beach/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NMIA",
+   "n": "Steve's Pizza",
+   "ad": "North Miami, FL (Biscayne Blvd)",
+   "w": "North Miami's old-school pizzeria since 1974 — arcade games, late hours, a 50th anniversary in 2024.",
+   "k": "Order: Sweet-sauced NY-style slices with cupped pepperoni, served late",
+   "cz": [
+    "EU"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/reviews/steves-pizza"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/restaurants/steves-pizza"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NMIA",
+   "n": "Lutong Pinoy Filipino Cuisine",
+   "ad": "17048 W Dixie Hwy, North Miami Beach, FL",
+   "w": "North Miami Beach's go-to Filipino kitchen.",
+   "k": "Order: Sizzling sisig, kare-kare and the offal dishes (pig-heart stew) from a huge Filipino menu",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-restaurants-north-miami-beach"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/restaurants/lutong-pinoy-filipino-cuisine"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/restaurants/lutong-pinoy-serves-sizzling-filipino-cuisine-in-north-miami-beach-6394209"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NMIA",
+   "n": "Perl by Chef IP",
+   "ad": "Aventura, FL (off Miami Gardens Dr)",
+   "w": "New Times' Best Restaurant in Aventura 2025: private chef Isaac Perlman's Japanese-Mediterranean room with a rooftop terrace.",
+   "k": "Order: Kampachi crudo, chicken katsu sandwich and grilled hearts of palm",
+   "cz": [
+    "ASIAN",
+    "MED"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/best-of-miami/2025/eat-and-drink/best-restaurant-aventura-23469948/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/reviews/perl-by-chef-ip"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NMIA",
+   "n": "Sang's Chinese Food",
+   "ad": "1925 NE 163rd St, North Miami Beach, FL",
+   "w": "The dumpling king of Miami's 163rd Street 'Chinatown' strip.",
+   "k": "Order: Daily handmade dim sum — 40+ plates, 11am–4pm",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/location/sangs-chinese-food-6410049/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-restaurants-north-miami-beach"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NMIA",
+   "n": "Pho Mi 2 Go",
+   "ad": "17010 W Dixie Hwy, North Miami Beach, FL",
+   "w": "Tiny Vietnamese counter — Infatuation calls its pho the best in Miami.",
+   "k": "Order: Bánh mì and pho",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/pho-mi-2-go-in-north-miami-beach-serves-a-better-banh-mi-8401652/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-restaurants-north-miami-beach"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NMIA",
+   "n": "Basilic Vietnamese Grill",
+   "ad": "14734 Biscayne Blvd, North Miami Beach, FL",
+   "w": "Family-run Vietnamese grill on Biscayne.",
+   "k": "Order: Star-anise pho, green-papaya salad and fresh spring rolls",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/family-run-vietnamese-restaurant-basilic-serves-miamis-best-pho-8382794/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-restaurants-north-miami-beach"
     ]
    ]
   }

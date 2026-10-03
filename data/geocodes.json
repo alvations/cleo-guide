@@ -82434,14 +82434,14 @@
     "statusChecked": "2026-10-03"
    },
    "HEP Five Ferris Wheel": {
-    "address": "HEP Five, Kita-ku, Osaka, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "HEP FIVE, 5-15 Kakudacho, Kita-ku, Osaka 530-0017",
+    "lat": 34.7040028,
+    "lng": 135.5004472,
+    "source": "ja.wikipedia HEP FIVE infobox 座標 (the wheel is mounted on the HEP FIVE building) https://ja.wikipedia.org/wiki/HEP_FIVE",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
-    "statusSource": "japan-guide.com e4009 (current)",
+    "statusSource": "ja.wikipedia HEP FIVE article (operating complex, no closure noted) https://ja.wikipedia.org/wiki/HEP_FIVE",
     "statusChecked": "2026-10-03"
    },
    "Kushikatsu Gojoya": {
@@ -83028,14 +83028,14 @@
     "statusChecked": "2026-10-03"
    },
    "capi": {
-    "address": "6F, 1-10-2 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "6F, 1-10-2 Sonezakishinchi, Kita-ku, Osaka 530-0002",
+    "lat": 34.697954,
+    "lng": 135.497901,
+    "source": "MICHELIN Guide venue page lat/lng https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/capi",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
-    "statusSource": "MICHELIN Guide venue page live on guide.michelin.com",
+    "statusSource": "MICHELIN Guide current venue listing https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/capi",
     "statusChecked": "2026-10-03"
    },
    "LE PONT DE CIEL": {
@@ -84260,15 +84260,16 @@
     "statusChecked": "2026-10-03"
    },
    "Mashino Ken": {
-    "address": "2F, 1-3-6 Awajimachi, Chuo-ku, Osaka, Japan",
+    "address": "2F, 1-3-6 Awajimachi, Chuo-ku, Osaka 541-0047",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "MICHELIN Guide venue page live https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/mashino-ken",
-    "statusChecked": "2026-10-03"
+    "statusSource": "MICHELIN Guide current venue listing https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/mashino-ken",
+    "statusChecked": "2026-10-03",
+    "note": "HELD: MICHELIN venue page gives 34.673359,135.517416 but that point is ~1.5 km SE of Awajimachi 1-chome (cf. Michelin Ponte Vecchio, 1-8-16 Kitahama = 34.691443,135.507296) — coordinate/address mismatch, needs 4b re-verify https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/mashino-ken"
    },
    "PONTE VECCHIO": {
     "address": "1-8-16 Kitahama, Chuo-ku, Osaka, Japan",
@@ -84832,67 +84833,72 @@
     "statusChecked": "2026-10-03"
    },
    "Takoume Honten (たこ梅 本店)": {
-    "address": "Dōtonbori, Chuo-ku, Osaka, Japan",
+    "address": "1-1-8 Dōtonbori, Chuo-ku, Osaka",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not closure-checked; source pages (2024-26 listings) present it as operating — needs --statuscheck pass",
-    "statusChecked": "2026-10-03"
+    "status": "open",
+    "statusSource": "current listing gltjp.com directory https://www.gltjp.com/ja/directory/item/19259/ + mapple https://www.mapple.net/spot/27014331/ ; no 閉店 news found (search 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "no place-pin source surfaced (address from gltjp directory)"
    },
    "Okonomiyaki Fukutaro Sennichimae Honten (福太郎)": {
-    "address": "2-3-17 Sennichimae, Chuo-ku, Osaka, Japan",
+    "address": "2-3-17 Sennichimae, Chuo-ku, Osaka",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not closure-checked; source pages (2024-26 listings) present it as operating — needs --statuscheck pass",
-    "statusChecked": "2026-10-03"
+    "status": "open",
+    "statusSource": "mapple current listing w/ hours https://www.mapple.net/region/a0503000000_g03050a00_s-situation=couple/spot/ ; no 閉店 news (search 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "no place-pin source surfaced"
    },
    "Okonomiyaki Mizuno (美津の)": {
-    "address": "Dōtonbori, Chuo-ku, Osaka, Japan",
+    "address": "1-4-15 Dōtonbori, Chuo-ku, Osaka",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not closure-checked; source pages (2024-26 listings) present it as operating — needs --statuscheck pass",
-    "statusChecked": "2026-10-03"
+    "status": "open",
+    "statusSource": "mapple current listing w/ hours https://www.mapple.net/region/a0503000000_g03050a00_s-situation=couple/spot/ ; no 閉店 news (search 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "no place-pin source surfaced (address from mapple)"
    },
    "Ajinoya Honten (味乃家)": {
-    "address": "2F, 1-7-16 Namba, Chuo-ku, Osaka, Japan",
+    "address": "2F Gendai Koisan Bldg, 1-7-16 Namba, Chuo-ku, Osaka",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not closure-checked; source pages (2024-26 listings) present it as operating — needs --statuscheck pass",
-    "statusChecked": "2026-10-03"
+    "status": "open",
+    "statusSource": "gltjp directory current listing w/ hours https://www.gltjp.com/ja/directory/item/13191/ ; no 閉店 news (search 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "no place-pin source surfaced"
    },
    "Kushinobo Hozenji Honten (串の坊 法善寺本店)": {
-    "address": "Hōzenji area, Namba, Chuo-ku, Osaka, Japan",
+    "address": "1-5-6 Namba, Chuo-ku, Osaka",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not closure-checked; source pages (2024-26 listings) present it as operating — needs --statuscheck pass",
-    "statusChecked": "2026-10-03"
+    "status": "open",
+    "statusSource": "gnavi store page https://r.gnavi.co.jp/k010203/ + mapple https://www.mapple.net/original/488037/ (hours, 無休) ; no 閉店 news (search 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "no place-pin source surfaced (address from mapple/gnavi)"
    },
    "Super Nintendo World (Universal Studios Japan)": {
     "address": "Universal Studios Japan, 2-1-33 Sakurajima, Konohana-ku, Osaka",
-    "lat": 34.66472,
-    "lng": 135.43306,
-    "source": "en.wikipedia infobox coordinate (may be the USJ park point, not the land itself) https://en.wikipedia.org/wiki/Super_Nintendo_World",
+    "lat": 34.668056,
+    "lng": 135.429917,
+    "source": "4b re-pin: ja.wikipedia マリオカート 〜クッパの挑戦状〜 infobox 座標 34°40'05.0\"N 135°25'47.7\"E (flagship ride inside Super Nintendo World; replaces USJ park-point) https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AA%E3%82%AA%E3%82%AB%E3%83%BC%E3%83%88_%E3%80%9C%E3%82%AF%E3%83%83%E3%83%91%E3%81%AE%E6%8C%91%E6%88%A6%E7%8A%B6%E3%80%9C",
     "verified": "2026-10-03",
-    "confidence": "med",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Inside Osaka USJ guide (current timed-entry info) https://insideosaka.com/universal-studios-japan-guide/",
     "statusChecked": "2026-10-03"
@@ -85162,14 +85168,14 @@
     "statusChecked": "2026-10-03"
    },
    "Sakai Traditional Crafts Museum (Sakai Densho-kan) — Sakai knives": {
-    "address": "1-1-30 Zaimokuchō-nishi, Sakai-ku, Sakai, Osaka 〒590-0801",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1-1-30 Zaimokuchō-nishi, Sakai-ku, Sakai, Osaka 〒590-0801 (now 堺HAMONOミュージアム / Sakai HAMONO Museum)",
+    "lat": 34.582833,
+    "lng": 135.477389,
+    "source": "ja.wikipedia 堺HAMONOミュージアム infobox 座標 (same address 材木町西1-1-30; the Densho-kan's current name) https://ja.wikipedia.org/wiki/%E5%A0%BAHAMONO%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
-    "statusSource": "current SAKAI tourism spot page https://www.sakai-tcb.or.jp/en/spot/detail/407 (checked 2026-10-03)",
+    "statusSource": "ja.wikipedia 堺HAMONOミュージアム (facility operating under new name) https://ja.wikipedia.org/wiki/%E5%A0%BAHAMONO%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0",
     "statusChecked": "2026-10-03"
    },
    "Sakai Plaza of Rikyū and Akiko (Sakai Rishō no Mori)": {
@@ -85412,6 +85418,292 @@
     "confidence": "high",
     "status": "open",
     "statusSource": "Listed in MICHELIN Guide Japan 2026 (venue page)",
+    "statusChecked": "2026-10-03"
+   },
+   "Yasubei (安兵衛, Nishikujō)": {
+    "address": "3-11-18 Nishikujō, Konohana-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "open — TV Tokyo Adomachi 2024-08-17 + official site lists hours https://www.yasubee.net/nishikujo/",
+    "statusChecked": "2026-10-03"
+   },
+   "Aabel Curry (アアベルカレー)": {
+    "address": "3F Fujii Estate Bldg, 1-25-9 Kujō, Nishi-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "open — Tabelog Curry WEST Hyakumeiten 2026 listing with current hours https://tabelog.com/en/osaka/A2701/A270401/27091414/",
+    "statusChecked": "2026-10-03"
+   },
+   "Sawashi Shoten (沢志商店, Hirao Little Okinawa)": {
+    "address": "3-15-19 Hirao, Taishō-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "open — osaka-info Shittonka Osaka feature (current) https://osaka-info.jp/local_journey/stopby-osaka/little-okinawa/",
+    "statusChecked": "2026-10-03"
+   },
+   "TUGBOAT_TAISHO (タグボート大正)": {
+    "address": "1-1-14 Sangen'ya-nishi, Taishō-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "open — osaka-info spot page + Osaka Pref. FY2022–24 operating report https://www.pref.osaka.lg.jp/documents/100072/03_shiryou2-1.pdf",
+    "statusChecked": "2026-10-03"
+   },
+   "Kinopio's Café (Super Nintendo World)": {
+    "address": "Super Nintendo World, Universal Studios Japan, Sakurajima, Konohana-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "open — official USJ restaurant page with current menu https://www.usj.co.jp/web/en/us/restaurants/kinopios-cafe",
+    "statusChecked": "2026-10-03"
+   },
+   "Kirara Kujō Shopping Street (キララ九条商店街)": {
+    "address": "Kujō, Nishi-ku, Osaka (west of Kujō Station)",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "open — osaka-info spot page https://osaka-info.jp/spot/kirara-kujo-shopping-street/",
+    "statusChecked": "2026-10-03"
+   },
+   "Tengu (Jan Jan Yokochō kushikatsu)": {
+    "address": "Jan Jan Yokochō, Ebisuhigashi, Naniwa-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Inside Osaka venue page https://insideosaka.com/tengu/ (describes current queues); no closure notice found",
+    "statusChecked": "2026-10-03"
+   },
+   "Tsuriganeya Honpo (釣鐘屋本舗)": {
+    "address": "Tennōji-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "listed on GLTJP/co-trip spot pages, no explicit 2025-26 status check",
+    "statusChecked": "2026-10-03"
+   },
+   "Sennariya Coffee (千成屋珈琲)": {
+    "address": "Jan Jan Yokochō, Ebisuhigashi, Naniwa-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "Daily Sports 2020 article https://www.daily.co.jp/leisure/kansai/2020/09/09/0013679632.shtml and rurubu new-brand report — original shop changed hands c.2018-19; current status not re-checked",
+    "statusChecked": "2026-10-03"
+   },
+   "Chausuyama (茶臼山古墳, Tennōji Park)": {
+    "address": "1 Chausuyama-chō, Tennōji-ku, Osaka",
+    "lat": 34.6516833,
+    "lng": 135.5123389,
+    "source": "ja.wikipedia infobox 座標 https://ja.wikipedia.org/wiki/茶臼山古墳_(大阪市)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "OSAKA-INFO https://osaka-info.jp/en/spot/chausuyama-tennoji-park/",
+    "statusChecked": "2026-10-03"
+   },
+   "Yasui Shrine (安居神社)": {
+    "address": "1-3-24 Ōsaka, Tennōji-ku, Osaka",
+    "lat": 34.6544806,
+    "lng": 135.5109306,
+    "source": "ja.wikipedia infobox 座標 https://ja.wikipedia.org/wiki/安居神社",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "OSAKA-INFO https://osaka-info.jp/en/spot/yasuijinja/",
+    "statusChecked": "2026-10-03"
+   },
+   "Sankō Shrine & Sanada Yukimura statue (三光神社)": {
+    "address": "14-90 Tamatsukuri-honmachi, Tennōji-ku, Osaka",
+    "lat": 34.673,
+    "lng": 135.529389,
+    "source": "ja.wikipedia infobox 座標 https://ja.wikipedia.org/wiki/三光神社",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "OSAKA-INFO https://osaka-info.jp/en/spot/statue-sanada-yukimura/",
+    "statusChecked": "2026-10-03"
+   },
+   "Hinode-yu (日之出湯)": {
+    "address": "2-7-9 Sannō, Nishinari-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "All About https://news.allabout.co.jp/articles/o/114208/ (current hours/prices listed)",
+    "statusChecked": "2026-10-03"
+   },
+   "Sennichimae Hatsuse (千日前はつせ)": {
+    "address": "2F Hatsuse Bldg., 11-25 Namba Sennichimae, Chuo-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Osaka Metro NiNE spot page lists current hours https://metronine.osaka/en/spot-details/?spot_id=15930718461451 (undated)",
+    "statusChecked": "2026-10-03"
+   },
+   "Mandarake Grand Chaos (Nipponbashi)": {
+    "address": "4-12-6 Nipponbashi, Naniwa-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Osaka Metro NiNE 'open daily 12:00-20:00' https://metronine.osaka/en/spot-details/?spot_id=15620667893434; Amerikamura store closed, relocated Dec 2020 (Mandarake 沿革)",
+    "statusChecked": "2026-10-03"
+   },
+   "Super Potato Osaka (Den Den Town)": {
+    "address": "Nipponbashi, Naniwa-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "listed on OSAKA-INFO pop-culture page; no dated closure check",
+    "statusChecked": "2026-10-03"
+   },
+   "Animate Osaka Nipponbashi": {
+    "address": "Nipponbashi-nishi, Naniwa-ku, Osaka (Den Den Town)",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "OSAKA-INFO Den Den Town / pop-culture pages list it current",
+    "statusChecked": "2026-10-03"
+   },
+   "Kuidaore Taro & Nakaza Kuidaore Building": {
+    "address": "Dotonbori, Chuo-ku, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "OSAKA-INFO: building renovated, reopened spring 2025 https://osaka-info.jp/en/spot/nakaza-kuidaore-eat-till-you-drop-building/",
+    "statusChecked": "2026-10-03"
+   },
+   "Misono Building (味園ビル) — CLOSED": {
+    "address": "Sennichimae, Chuo-ku, Osaka",
+    "lat": 34.665611,
+    "lng": 135.50525,
+    "source": "ja.wikipedia 味園ビル infobox 座標 https://ja.wikipedia.org/wiki/%E5%91%B3%E5%9C%92%E3%83%93%E3%83%AB",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "closed",
+    "statusSource": "Time Out Osaka JP: whole building closed 5 Jul 2025 https://www.timeout.jp/osaka/ja/news/last-day-of-misono-universe-072225",
+    "statusChecked": "2026-10-03"
+   },
+   "Hisakuni Kōsendō (久國紅仙堂, Minoo momiji tempura)": {
+    "address": "1-1-40 Minoo, Minoh-shi, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Time Out Japan listing https://www.timeout.jp/osaka/ja/ショッピング/hisakuni-kousendo (hours 9:30–18:00, closed Thu; checked 2026-10-03)",
+    "statusChecked": "2026-10-03"
+   },
+   "Momotaro (桃太郎, Minoo momiji tempura)": {
+    "address": "Taki-michi, Minoo, Minoh-shi, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Atlas Obscura place page + Rurubu 2024-era foliage feature (no closure reported; checked 2026-10-03)",
+    "statusChecked": "2026-10-03"
+   },
+   "Menya Hakkaisan (麺屋 八海山)": {
+    "address": "Takatsuki–Ibaraki area, Osaka Prefecture",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Tabelog Ramen OSAKA Hyakumeiten 2025 selection https://award.tabelog.com/hyakumeiten/ramen_osaka/2025",
+    "statusChecked": "2026-10-03"
+   },
+   "Saishiki Ramen Kinsei Takatsuki Honten (彩色ラーメンきんせい 高槻本店)": {
+    "address": "Takatsuki-shi, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Tabelog Ramen OSAKA Hyakumeiten 2025 selection https://award.tabelog.com/hyakumeiten/ramen_osaka/2025",
+    "statusChecked": "2026-10-03"
+   },
+   "Le Sucré-Coeur Kishibe (ル・シュクレクール 岸部)": {
+    "address": "Kishibe, Suita-shi, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Time Out 23 must-go restaurants in Northern Osaka (current) https://www.timeout.com/osaka/restaurants/must-go-restaurants-north",
+    "statusChecked": "2026-10-03"
+   },
+   "Okonomiyaki Aomori (お好み焼 青森, Shin-Nagata)": {
+    "address": "4-8-6 Kubo-cho, Nagata-ku, Kobe, Hyogo",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "FEEL KOBE (Kobe official tourism) column, current https://www.feel-kobe.jp/column/nagata-gourmet/",
+    "statusChecked": "2026-10-03"
+   },
+   "Sakai City Tea Houses Shin-an & Ōbai-an (伸庵・黄梅庵)": {
+    "address": "2 Mozusekiun-cho, Sakai-ku, Sakai, Osaka",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "SAKAI tourism spot page https://www.sakai-tcb.or.jp/en/spot/detail/106 (checked 2026-10-03)",
     "statusChecked": "2026-10-03"
    }
   },
@@ -96197,6 +96489,28 @@
     "confidence": "high",
     "status": "open",
     "statusSource": "Florida Rambler current guide (https://www.floridarambler.com/florida-getaways/rustic-inn-old-florida-crab-shack-fort-lauderdale/) and Goldbelly shipping its garlic crabs live; no closure report found. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "NSU Art Museum Fort Lauderdale": {
+    "address": "1 E Las Olas Blvd, Fort Lauderdale, FL",
+    "lat": 26.11963,
+    "lng": -80.14288,
+    "source": "Wikipedia 'Museum of Art Fort Lauderdale' https://en.wikipedia.org/wiki/Museum_of_Art_Fort_Lauderdale printed 26°07′11″N 80°08′34″W (26.11963, -80.14288)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Visit Lauderdale top-10 page lists current admission ($16 adults) and free first Thursdays. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Young At Art Museum": {
+    "address": "Broward Mall, Plantation, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Visit Lauderdale listing: open Wed–Sun 10am–6pm inside Broward Mall (https://www.visitlauderdale.com/listing/young-at-art-museum/18071/). Checked 2026-10-03.",
     "statusChecked": "2026-10-03"
    }
   }
