@@ -381,3 +381,12 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   - Taquiza: aggregator says 1351 Collins Ave is now Coyote Taqueria (Taquiza 'permanently closed' there); its coordinate pointed to North Beach (25.8605) — not pinned; STATUS LEAD: verify closure of the South Beach shop.
   - Panya Thai: listing gives 520 NE 167th St, Miami 33162 but no coordinate.
 - **Build:** 261 → **290 on map**. sourcecheck PASS 509 · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
+
+## 2026-10-03 (W6 · PINS ONLY) · batch B
+- **+25 pins** (`geo/_geoout_w6b.json`): Monty's Raw Bar, LoKal, Farofa, Katana, Zaika, Casablanca Café, Milly's Empanada Factory, Papi Steak
+  (listing active after the 2025 makeover), CJ's Crab Shack, Lutong Pinoy (listing active — clears the W5 status lead), Basilic, Hole in the
+  Wall, Plaza Seafood Market, The Pit Bar-B-Q, Royal Palm Grill, Everglades Gator Grill, Chéen-Huaye, Etzel Itzik, Jamrock Cuisine (listings
+  split 12560 vs 12618 N Kendall Dr, same strip → med), Mimi's Ravioli, Dolce Salato, Gilbert's Bakery (5777 Bird Rd = SW 40th St),
+  Loretta & The Butcher, Chayhana Oasis, Breadman Bakery.
+- **No coordinate surfaced:** Le Bouchon du Grove, Biscayne Bay Brewing, Ukiah, Julia & Henry's, Topkapi (Hürrem Hammam).
+- **Build:** 290 → **315 on map**. 4 gates PASS/CONSISTENT · validate DATA OK · npm test ALL PASS.
