@@ -18,5 +18,25 @@
   "geoSource": "Extended search '八重山料理 潭亭 那覇市首里赤平町2-40-1 緯度 経度': single listing coordinate 26.223114,127.721741 (results incl. NAVITIME poi 01125-3009246, jalan, gnavi); consistent with Torazuyama, Shuri Akahira. Re-verify against the NAVITIME poi.",
   "status": "open",
   "statusSource": "OCVB 600011673 and Tabirai 0004265 give current reservation-only hours (lunch and dinner), closed Mondays (2026-10)"
+ },
+ {
+  "n": "Arakaki Chinsukō Honpo, Kokusai-dōri Makishi (新垣ちんすこう本舗 牧志店)",
+  "address": "1-3-68 Makishi, Naha, Okinawa, Japan",
+  "lat": 26.21586,
+  "lng": 127.686177,
+  "confidence": "low",
+  "geoSource": "Extended search '新垣ちんすこう本舗 牧志店 那覇市牧志1-3-68 緯度 経度': single listing coordinate 26.21586,127.686177 (results incl. NAVITIME poi 02301-1300757, Yahoo travel spot-00003182, ekiten 2480308); matches Makishi 1-3-68 on Kokusai-dōri. Re-verify against the NAVITIME poi.",
+  "status": "open",
+  "statusSource": "Mapple 47010203 / Rurubu 80042457 list current hours 9:30-21:00, closed only 1-2 January; active Instagram @arakakichinsuko (2026-10)"
+ },
+ {
+  "n": "Takara Shokudō, Wakasa (高良食堂)",
+  "address": "1-7-10 Wakasa, Naha, Okinawa 900-0031, Japan",
+  "lat": 26.219076,
+  "lng": 127.673384,
+  "confidence": "low",
+  "geoSource": "Extended search '高良食堂 那覇市若狭1-7-10 緯度 経度': four aggregator listings agree within ~15 m (26.219076,127.673384; Hotpepper 26.218989,127.673487; Retty 26.2189756,127.6734785; Gnavi 26.2190897,127.6733992). Matches the sourced address Wakasa 1-7-10.",
+  "status": "open",
+  "statusSource": "OCVB 600004404 lists current hours (Mon-Wed, Fri-Sun 10:30-20:00, Thu to 15:00) (2026-10)"
  }
 ]
