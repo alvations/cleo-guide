@@ -225,3 +225,15 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
   Military Ridge State Trail (only trail endpoints in the article), Dhaba / Monk's (Visit Middleton just relays the vote).
 - **Channel note:** OpenTable-dominated results for Verona/Fitchburg — no credible list coverage of Fitchburg found; MVF
   remains the thinnest area by source exhaustion, not by effort.
+
+### W5 batch 2
+- **Searches:** ~17 more (W5 total ~45).
+- **Food (FOOD_W5b.json, 5):** The Robin Room (CAP t1; Imbibe + City Cast), Heritage Tavern (CAP), Natt Spil (CAP;
+  Madison Magazine 'thirty bars' + City Cast), Madison Public Market (EAST t1; opened July 2026 — WMTV/WKOW/Madison365/
+  Cap Times), Sern Sapp (EAST; Lao, Isthmus review).
+- **Sights (SIGHTS_W5b.json, 2):** Lake Wingra & Vilas Park beach (WEST; Wikipedia lake point, med), Ice Age Complex at
+  Cross Plains (DANE; NPS lone authority + Wikipedia; UNVERIFIED pin).
+- **Held:** Coopers Tavern, Alchemy Café, Eldorado Grill, The Malt House (Madison Magazine only); Oasis Cafe (Fitchburg),
+  King of Falafel, Bierock (City Cast only); Owen Conservation Park, Elver Park, Livsreise (Destination Madison only);
+  Indian Lake County Park (no source surfaced); new 2025–26 openings (One Social Food Hall, Begonia, Taj) — too new to
+  measure. Eno Vino reported closing (Cap Times) — not added.
