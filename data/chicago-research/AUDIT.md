@@ -316,3 +316,19 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
 - SW source exhaustion (documented): Taqueria San Julian, Sputnik Coffee, Somos Monos, El Solazo/Solazo (no named dish), Tio Luis, New Archview,
   63rd St Arab corridor — searched Time Out / Infatuation / Chicago Mag / Reader / South Side Weekly / WTTW / ABC7; none reached 2 credible + dish.
 - Build: 502 researched / 318 rendered; 4 gates PASS; validate + test PASS.
+
+## 2026-10-03 (session 6 / wave 5 — finishing pass) · discovery (≈14 searches)
+- Task: close the last NEED (NW +1, FAR +1, WEST +1, SW +5) then an Apple-Maps pin pass on the unpinned.
+- SW new angles (Archer Heights / Garfield Ridge / Clearing / West Lawn Polish + Lithuanian, Brighton Park / Gage Park / Back of the Yards Mexican):
+  - **Weber's Bakery** (Garfield Ridge, since 1930) — Time Out + NBC Chicago (Business Insider "best bakery in Illinois"); Apple listing live → KEEP.
+  - **Pticek & Son Bakery** (Garfield Ridge, 1943; paczki) — ABC7 Paczki Day 2024 + WTTW paczki report → KEEP (not on Apple search; pin pending).
+  - **Paco's Tacos (Archer original)** (Brighton Park) — WGN News taco poll + City Cast Chicago best tacos (+ Nagrant guide context) → KEEP.
+  - **La Internacional** (Back of the Yards, 4556 S Ashland per Apple) — Infatuation + Axios Chicago Nov 2025 + City Cast → KEEP.
+  - **Taquerías Atotonilco** (Gage Park, 5656 S Kedzie; founded 1972) — South Side Weekly feature + City Cast → KEEP.
+  - MEASURED & DROPPED / held: Bobak's Sausage (Archer retail store CLOSED 2015 — Sun-Times; never added); Racine Bakery (Lithuanian-Polish,
+    6216 S Archer — Chicagoist 2007 only → held); Grand Duke's (Lithuanian, Summit = SUB, not needed); Apachee Grill / Don Jose (Nagrant only, still held);
+    Bree Thai, Taqueria El Palenque (SEO/aggregator only).
+- NW: **The Map Room** (Bucktown beer bar) — Infatuation + Time Out. WEST: **Ferrara Bakery** (Little Italy since 1908; cannoli) — WBEZ 2024 + ABC7.
+  FAR: **Cork & Kerry** (Beverly Irish pub since 1988) — Time Out + Chicago Magazine.
+- New outlet key CITYCAST (SOURCES_W19.json, rationale recorded). All 8 → FOOD_W19.json (food & drink; LOOP/SW food share unchanged ≥50%).
+- density.py: **every area OK — 510 researched** (SW 25/25, NW 80/80, WEST 50/50, FAR 30/30).

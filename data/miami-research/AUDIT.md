@@ -361,3 +361,23 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   registry entry reset to UNVERIFIED (`geo/_geoout_x5s.json`); re-check location + status before re-pinning (area may be DTB, not NMIA).
 - 3 more retry queries (Steve's Pizza, Panya Thai, Perl, Farofa, Basilic, Chéen-Huaye, Shiver's, Fox's Lounge, Redland Market Village) gave
   only bare place-ids — the long tail is now ~0.3 pins/search with this channel. Net pinned: 261. Gates + validate + test green.
+
+## 2026-10-03 (W6 · PINS ONLY, session_01847XyVQRMAQiVAHDWpaEmS) · batch A
+- **Channel switch:** Apple bare-place-id retries were ~0.3 pins/search, so this wave uses the **aggregator technique**: one place per
+  WebSearch, `"<Name> <street address> <city> GPS coordinates"` with `allowed_domains` restaurantguru / wanderlog / sirved / restaurantji /
+  menupix (listing lat/lng → `med`); Waze place records → `high` (Zak the Baker). Each point checked against the street address/cross-street.
+  For records with only a neighbourhood ("North Miami, FL"), the listing's street address is recorded in the geo row (`note`).
+  Writer: `_pinw.py miami-fl <tag>` (refuses unknown/pinned names, out-of-bbox points; never flips a CLOSED status).
+- **+29 pins** (`geo/_geoout_w6a.json`): Zak the Baker, Chez Le Bebe, Cvi.che 105, Ricky Bakery Coral Way, El Turco, Heritage, Tropical
+  Acres, Anthony's Runway 84, Funky Buddha, La Carreta (3632 SW 8th St), Mama Tried, Soya e Pomodoro, The Corner, Georgia Pig, Casa Sensei,
+  Coconuts, Lester's Diner, Evelyn's, S3, Knaus Berry Farm (new farm, 16790 SW 177th Ave), Shiver's BBQ, Fox's Lounge, Redland Market
+  Village, Apocalypse BBQ (8695 SW 124th Ave), Black Point Ocean Grill, Captain Jim's, Steve's Pizza, Perl by Chef IP, Cafe Prima Pasta.
+- **Address corrections (listing-proven):** Georgia Pig BBQ → **1285 S State Rd 7** (record said "W State Road 84"); Captain Jim's → 12950 W
+  Dixie Hwy; Steve's Pizza → 12101 Biscayne Blvd; Perl → 2420 NE 186th St; Black Point Ocean Grill → 24775 SW 87th Ave.
+- **Not pinned / leads:**
+  - Fireman Derek's: aggregator coordinate is the Coconut Grove shop (3435 Main Hwy), not Wynwood — not pinned (area/address mismatch).
+  - El Brazo Fuerte: search summary offered only an 'approximate' geocode — rejected.
+  - The Floridian: aggregator coordinate tied to 1492 E Las Olas vs record 1410 — not pinned (address mismatch).
+  - Taquiza: aggregator says 1351 Collins Ave is now Coyote Taqueria (Taquiza 'permanently closed' there); its coordinate pointed to North Beach (25.8605) — not pinned; STATUS LEAD: verify closure of the South Beach shop.
+  - Panya Thai: listing gives 520 NE 167th St, Miami 33162 but no coordinate.
+- **Build:** 261 → **290 on map**. sourcecheck PASS 509 · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.

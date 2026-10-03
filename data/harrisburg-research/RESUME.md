@@ -83,6 +83,12 @@ Total ~216.
 - Density (discovered / target): AMISH 40/40 · CAR 20/20 · GBG 24/22 · HBG 38/38 · HER 24/24 · LAN 38/38 · YORK 34/34 — all OK.
 - Rendered (pinned) per area: AMISH 30 · CAR 13 · GBG 17 · HBG 29 · HER 20 · LAN 26 · YORK 21.
 
+- **2026-10-03 P1 PINS ONLY (session_014tccsddAZhWkWHE1pGLan6, ~58 searches):** +15 pins → **171 on page**, 47 UNVERIFIED; Hunt's
+  Battlefield Fries flagged CLOSED (abc27). Rendered: AMISH 34 · CAR 14 · GBG 21 · HBG 30 · HER 20 · LAN 29 · YORK 23. AUDIT P1.
+  **NEXT pins:** PA National Fire Museum (coord in hand — add registry entry + status check, then pin); Kreider Farms address
+  (286 Doe Run Rd?); remaining 47 via tools/geocode-helper.html or restaurantguru name variants (e.g. "Queen's BBQ" → check
+  listing slug), Wikipedia for museums (YCHC 121 N Pershing Ave since 2024 — update address first).
+
 ## Files
 - `FOOD_*.json` / `SIGHTS_*.json` — research records by wave tag. `geo/_geoout_*.json` — geocode results.
 - `SOURCES_*.json` outlets; `CREATORS_*.json` creators.
