@@ -18,5 +18,51 @@
   "geoSource": "W9D5 extended search 'カフェ ウエスヤ 沖縄県宮古島市平良字下里574 緯度 経度' — summary reported the shop moved (tabelog 47010670 marked 【移転】) to 平良字下里43, current listing (tabelog 47025691 / Yahoo map) printed 24.80536804,125.27789628. Old 574 point 24.80353,125.28053 NOT used. Aggregator → low.",
   "status": "open",
   "statusSource": "Tabelog current listing 47025691 and Yahoo/PayPay Gourmet place page live 2026-10 (old site marked relocated, not closed)"
+ },
+ {
+  "n": "Miyako Jinja — Japan's southernmost shrine, Hirara (宮古神社)",
+  "address": "沖縄県宮古島市平良字西里5-1",
+  "lat": 24.80775,
+  "lng": 125.280417,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 宮古神社 infobox coordinates N24°48'27.9\" E125°16'49.5\" (24.807750,125.280417), via W9D5 extended search",
+  "status": "open",
+  "statusSource": "Official site miyako-jinja.com live 2026-10; ja.wiki"
+ },
+ {
+  "n": "Imgya Marine Garden, Gusukube (イムギャーマリンガーデン)",
+  "address": "沖縄県宮古島市城辺友利605-2",
+  "lat": 24.725314,
+  "lng": 125.357921,
+  "confidence": "med",
+  "geoSource": "W9D5 extended search 'イムギャーマリンガーデン ... wikipedia 座標' — summary printed 24.725314,125.357921 alongside ja.wikipedia イムギャーマリンガーデン and NAVITIME poi 02301-1300744; could not confirm which page printed it, so graded med not high. Consistent with Tomori, Gusukube south coast.",
+  "status": "open",
+  "statusSource": "Miyakojima Tourism Association page miyako-island.net beach_spot_003 live 2026-10; travel blog visit dated 2026-07-22"
+ },
+ {
+  "n": "Miyanohana awamori distillery, Irabu Island (宮の華)",
+  "address": "沖縄県宮古島市伊良部字仲地158-1",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W9D5 extended '宮の華 酒造 沖縄県宮古島市伊良部仲地158-1 緯度 経度' returned no coordinate (gBiz, okinawa-awamori.or.jp, official, JSS pages only). Not pinned.",
+  "status": "open",
+  "statusSource": "Official site miyanohana.com and okinawa-awamori.or.jp distillery page live 2026-10"
+ },
+ {
+  "n": "Ikema Shuzō awamori distillery, Miyako (池間酒造)",
+  "address": "沖縄県宮古島市平良字西原57",
+  "confidence": "UNVERIFIED",
+  "geoSource": "No pin search run (budget); only address from Tabirai/okinawa awamori search summary. Next: navitime/mapfan venue page.",
+  "status": "open",
+  "statusSource": "Official online shop ikemasyuzou.base.shop and Tabirai 0003380 live 2026-10"
+ },
+ {
+  "n": "Shima Soba Ichiban-chi Ishigaki Honten (島そば一番地 石垣本店)",
+  "address": "沖縄県石垣市字石垣1-1",
+  "lat": 24.34067,
+  "lng": 124.156331,
+  "confidence": "low",
+  "geoSource": "W9D5 extended '島そば一番地 石垣市 住所 緯度 経度' — summary printed 24.340669629,124.156330526 (sources returned: NAVITIME poi 02301-1800167, 4travel, gnavi, official shimasoba-yaeyama.jp); consistent with Aza-Ishigaki near the port, ~7 min walk per summary. Aggregator → low.",
+  "status": "open",
+  "statusSource": "Official site shimasoba-yaeyama.jp/ishigaki live 2026-10"
  }
 ]
