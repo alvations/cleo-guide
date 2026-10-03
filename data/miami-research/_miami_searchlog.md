@@ -313,3 +313,5 @@
 155 NMIA sights → Aventura Arts & Cultural Center (TO+NT), Opa-locka Heritage Trail (WLRN+GMCVB) added; Enchanted Forest park (WLRN Apr 2026: residents say it 'isn't living up to its name') → not added
 156 MBCH sights: Art Deco Welcome Center (LP+Fodor's), Miami Beach Post Office (LP+Wikipedia, pin from search 117), Faena Theater (TO+NT), North Shore Open Space Park (TO+NT) → 4 added
 157 Ichimura Miami-Japan Garden (TO + NT location, 1101 MacArthur Cswy) → DTB sight added
+158 Wikipedia coords: Surf Club Restaurant (article exists, address 9011 Collins Ave, no coords printed), Prime 112, Club Deuce — none
+159 Wikipedia coords: LHCC / Moore Building — only Little Haiti / Design District centroids → REJECTED. Stopped here: further Wikipedia probes are yielding centroids; restaurant pins need tools/geocode-helper.html

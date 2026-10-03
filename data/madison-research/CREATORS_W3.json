@@ -1,0 +1,41 @@
+{
+ "creators": [
+  {
+   "key": "STATETRUNKTOUR",
+   "name": "State Trunk Tour (Kevin Mack)",
+   "platform": "web/TV/YouTube",
+   "handle": "statetrunktour",
+   "url": "https://statetrunktour.com/",
+   "scale": "long-running Wisconsin travel show and site (2008–); syndicated WTMJ travel segments",
+   "niche": "Wisconsin road-trip food & attractions",
+   "credible": "Established Wisconsin travel creator with a findable, dated guide (Wisconsin pasty shops, Aug 2026). One corroborating source, never institutional."
+  },
+  {
+   "key": "WICHEESEPLEASE",
+   "name": "Wisconsin Cheese Please (Sam Buschman)",
+   "platform": "web/Instagram/TikTok/Facebook",
+   "handle": "wisconsincheeseplease",
+   "url": "https://milwaukeerecord.com/food-drink/meet-the-curd-connoisseur-behind-wisconsin-cheese-please/",
+   "scale": "follower count not verified; press-profiled by Milwaukee Record and The Takeout; 130+ establishments rated",
+   "niche": "cheese curds",
+   "credible": "PENDING — press-profiled 'curdfluencer' but follower scale unverified and no Madison-specific rating found yet; not attached to any place."
+  }
+ ],
+ "attach": [
+  {
+   "place": "Red Rooster Cafe",
+   "creatorKey": "STATETRUNKTOUR",
+   "url": "https://statetrunktour.com/wisconsin-pasty-shops-a-state-trunk-tour-guide/"
+  }
+ ],
+ "rejected": [
+  {
+   "name": "Curd Queen (Tara Rushmer, @curdqueen)",
+   "why": "profiled by The Takeout but follower scale unverifiable here; no Madison place content found"
+  },
+  {
+   "name": "Dave Portnoy One Bite",
+   "why": "no Madison reviews found (Racine/Milwaukee only)"
+  }
+ ]
+}

@@ -1,0 +1,500 @@
+{
+ "outlets": [
+  {
+   "key": "6ABC",
+   "name": "6abc Action News (WPVI, Philadelphia ABC O&O)",
+   "type": "editorial",
+   "url": "https://6abc.com",
+   "credible": "Major-market ABC-owned TV news; its 'FYI Philly' travel/food features report on-site.",
+   "rank": 3
+  },
+  {
+   "key": "AMISHAMERICA",
+   "name": "Amish America (Erik Wesner)",
+   "type": "editorial",
+   "url": "https://amishamerica.com",
+   "credible": "Long-running (2008–) authoritative Amish-culture site by author Erik Wesner; cited by national press on Amish life; corroborating only.",
+   "rank": 3
+  },
+  {
+   "key": "ARMYWARCOLLEGE",
+   "name": "U.S. Army War College (Carlisle Barracks)",
+   "type": "editorial",
+   "url": "https://www.armywarcollege.edu",
+   "credible": "Official institution that operates the Carlisle Barracks cemetery and the Carlisle Indian School research reports.",
+   "rank": 3
+  },
+  {
+   "key": "ASCE",
+   "name": "American Society of Civil Engineers — Historic Landmarks",
+   "type": "editorial",
+   "url": "https://asce.org",
+   "credible": "National engineering society's Historic Civil Engineering Landmark designation.",
+   "rank": 3
+  },
+  {
+   "key": "BATTLEFIELDS",
+   "name": "American Battlefield Trust",
+   "type": "editorial",
+   "url": "https://www.battlefields.org",
+   "credible": "National non-profit battlefield-preservation authority; curated heritage-site listings.",
+   "rank": 3
+  },
+  {
+   "key": "BLUEGRAY",
+   "name": "Blue & Gray Education Society",
+   "type": "editorial",
+   "url": "https://blueandgrayeducation.org",
+   "credible": "Non-profit Civil War education society with historian-led content.",
+   "rank": 3
+  },
+  {
+   "key": "CHOWHOUND",
+   "name": "Chowhound",
+   "type": "editorial",
+   "url": "https://chowhound.com",
+   "credible": "National food publication (Static Media) with reported features.",
+   "rank": 3
+  },
+  {
+   "key": "CLIO",
+   "name": "Clio (Marshall University)",
+   "type": "editorial",
+   "url": "https://theclio.com",
+   "credible": "Academic, peer-sourced historic-site guide founded at Marshall University; entries cite sources.",
+   "rank": 3
+  },
+  {
+   "key": "COVEREDBRIDGES",
+   "name": "Covered Bridges of Pennsylvania (coveredbridges.net)",
+   "type": "editorial",
+   "url": "https://coveredbridges.net",
+   "credible": "Specialist covered-bridge reference with WGN numbers and history; corroborating.",
+   "rank": 3
+  },
+  {
+   "key": "CPBJ",
+   "name": "Central Penn Business Journal",
+   "type": "editorial",
+   "url": "https://www.cpbj.com",
+   "credible": "Regional business newspaper of record for central PA.",
+   "rank": 3
+  },
+  {
+   "key": "DICKINSON",
+   "name": "Carlisle Indian School Digital Resource Center (Dickinson College)",
+   "type": "editorial",
+   "url": "https://carlisleindian.dickinson.edu",
+   "credible": "Academic archive of the Carlisle Indian School run by Dickinson College.",
+   "rank": 3
+  },
+  {
+   "key": "ELCA",
+   "name": "Evangelical Lutheran Church in America",
+   "type": "editorial",
+   "url": "https://www.elca.org",
+   "credible": "Owner-denomination of the Gettysburg seminary; official news.",
+   "rank": 3
+  },
+  {
+   "key": "EMERGINGCW",
+   "name": "Emerging Civil War",
+   "type": "editorial",
+   "url": "https://emergingcivilwar.com",
+   "credible": "Historian-run Civil War publication (book series + blog) with named authors.",
+   "rank": 3
+  },
+  {
+   "key": "FROMMERS",
+   "name": "Frommer's",
+   "type": "editorial",
+   "url": "https://www.frommers.com",
+   "credible": "Established national travel-guide publisher.",
+   "rank": 3
+  },
+  {
+   "key": "GETTYSBURGDAILY",
+   "name": "Gettysburg Daily",
+   "type": "editorial",
+   "url": "https://www.gettysburgdaily.com",
+   "credible": "Long-running battlefield-site reporting with Licensed Battlefield Guides.",
+   "rank": 3
+  },
+  {
+   "key": "GPB",
+   "name": "Georgia Public Broadcasting (PBS/NPR member)",
+   "type": "editorial",
+   "url": "https://www.gpb.org",
+   "credible": "Public-media newsroom; reported piece on the Carlisle Indian School repatriations.",
+   "rank": 3
+  },
+  {
+   "key": "HALLOWEDGROUND",
+   "name": "Journey Through Hallowed Ground National Heritage Area",
+   "type": "editorial",
+   "url": "https://www.hallowedground.org",
+   "credible": "Congressionally designated National Heritage Area partnership; curated site listings.",
+   "rank": 3
+  },
+  {
+   "key": "HBGCITY",
+   "name": "City of Harrisburg (official)",
+   "type": "editorial",
+   "url": "https://harrisburgpa.gov",
+   "credible": "Official municipal site that owns/operates City Island.",
+   "rank": 3
+  },
+  {
+   "key": "HISTORICHBG",
+   "name": "Historic Harrisburg Association",
+   "type": "editorial",
+   "url": "https://historicharrisburg.org",
+   "credible": "Harrisburg's historic-preservation non-profit (est. 1973).",
+   "rank": 3
+  },
+  {
+   "key": "ISLANDS",
+   "name": "Islands",
+   "type": "editorial",
+   "url": "https://www.islands.com",
+   "credible": "National travel publication (Static Media) with reported destination features.",
+   "rank": 3
+  },
+  {
+   "key": "LANCASTERHISTORY",
+   "name": "LancasterHistory",
+   "type": "editorial",
+   "url": "https://www.lancasterhistory.org",
+   "credible": "Lancaster County's historical society and museum (operates Wheatland).",
+   "rank": 3
+  },
+  {
+   "key": "LANCASTERPA",
+   "name": "LancasterPA.com",
+   "type": "editorial",
+   "url": "https://lancasterpa.com",
+   "credible": "Independent Lancaster County visitor guide online since the 1990s; corroborating.",
+   "rank": 3
+  },
+  {
+   "key": "LCMAG",
+   "name": "Lancaster County Magazine",
+   "type": "editorial",
+   "url": "https://lancastercountymag.com",
+   "credible": "Lancaster County's city/county magazine; runs the annual reader-voted Best of Lancaster.",
+   "rank": 3
+  },
+  {
+   "key": "LEBTOWN",
+   "name": "LebTown",
+   "type": "editorial",
+   "url": "https://lebtown.com",
+   "credible": "Lebanon County's independent local newsroom.",
+   "rank": 3
+  },
+  {
+   "key": "MASHED",
+   "name": "Mashed",
+   "type": "editorial",
+   "url": "https://www.mashed.com",
+   "credible": "National food publication (Static Media); corroborating.",
+   "rank": 3
+  },
+  {
+   "key": "MIDATLDAYTRIPS",
+   "name": "Mid-Atlantic Day Trips",
+   "type": "editorial",
+   "url": "https://midatlanticdaytrips.com",
+   "credible": "Regional travel writer's site with first-hand visits; corroborating.",
+   "rank": 3
+  },
+  {
+   "key": "NOVAMAG",
+   "name": "Northern Virginia Magazine",
+   "type": "editorial",
+   "url": "https://northernvirginiamag.com",
+   "credible": "Regional city magazine with reported travel features.",
+   "rank": 3
+  },
+  {
+   "key": "NPR",
+   "name": "NPR (The Salt)",
+   "type": "editorial",
+   "url": "https://www.npr.org",
+   "credible": "National public radio food desk.",
+   "rank": 3
+  },
+  {
+   "key": "PABUCKETLIST",
+   "name": "PA Bucket List",
+   "type": "editorial",
+   "url": "https://pabucketlist.com",
+   "credible": "Popular Pennsylvania travel site (first-hand visits); corroborating.",
+   "rank": 3
+  },
+  {
+   "key": "PAEATS",
+   "name": "PA Eats",
+   "type": "editorial",
+   "url": "https://www.paeats.org",
+   "credible": "Pennsylvania food media covering the state's restaurants, awards and food trails.",
+   "rank": 3
+  },
+  {
+   "key": "PAGOV",
+   "name": "Commonwealth of Pennsylvania (PA Dept. of Agriculture)",
+   "type": "editorial",
+   "url": "https://www.pa.gov",
+   "credible": "Official state agency (Scooped Ice Cream Trail).",
+   "rank": 3
+  },
+  {
+   "key": "PAHERITAGE",
+   "name": "PA Heritage / Trails of History (PHMC)",
+   "type": "editorial",
+   "url": "https://paheritage.org",
+   "credible": "PHMC's official Trails of History site listings.",
+   "rank": 3
+  },
+  {
+   "key": "PHILLYINQ",
+   "name": "The Philadelphia Inquirer",
+   "type": "editorial",
+   "url": "https://www.inquirer.com",
+   "credible": "Pennsylvania's largest newspaper of record.",
+   "rank": 3
+  },
+  {
+   "key": "PSUEXT",
+   "name": "Penn State Extension",
+   "type": "editorial",
+   "url": "https://extension.psu.edu",
+   "credible": "Penn State University's official extension service.",
+   "rank": 3
+  },
+  {
+   "key": "RAILFANGUIDES",
+   "name": "Railfan Guides",
+   "type": "editorial",
+   "url": "https://www.railfanguides.us",
+   "credible": "Specialist rail-heritage site guides; corroborating for rail sites.",
+   "rank": 3
+  },
+  {
+   "key": "ROADSIDEAMERICA",
+   "name": "Roadside America",
+   "type": "editorial",
+   "url": "https://www.roadsideamerica.com",
+   "credible": "The national authority on roadside attractions since 1986.",
+   "rank": 3
+  },
+  {
+   "key": "SPOTLIGHTPA",
+   "name": "Spotlight PA",
+   "type": "editorial",
+   "url": "https://www.spotlightpa.org",
+   "credible": "Non-profit statewide Pennsylvania newsroom.",
+   "rank": 3
+  },
+  {
+   "key": "STRIPES",
+   "name": "Stars and Stripes",
+   "type": "editorial",
+   "url": "https://stripes.com",
+   "credible": "U.S. military's independent news organization.",
+   "rank": 3
+  },
+  {
+   "key": "SUSQGREENWAY",
+   "name": "Susquehanna Greenway Partnership",
+   "type": "editorial",
+   "url": "https://susquehannagreenway.org",
+   "credible": "Regional non-profit managing the Susquehanna Greenway park & trail listings.",
+   "rank": 3
+  },
+  {
+   "key": "TASTINGTABLE",
+   "name": "Tasting Table",
+   "type": "editorial",
+   "url": "https://www.tastingtable.com",
+   "credible": "National food publication with reported features.",
+   "rank": 3
+  },
+  {
+   "key": "UNCHARTEDLANC",
+   "name": "Uncharted Lancaster",
+   "type": "editorial",
+   "url": "https://unchartedlancaster.com",
+   "credible": "Local Lancaster history publication with researched articles; corroborating.",
+   "rank": 3
+  },
+  {
+   "key": "WFMZ",
+   "name": "WFMZ-TV 69 News",
+   "type": "editorial",
+   "url": "https://www.wfmz.com",
+   "credible": "Lehigh Valley/Berks TV newsroom covering Lancaster County's eastern edge.",
+   "rank": 3
+  },
+  {
+   "key": "PAFISHBOAT",
+   "name": "PA Fish & Boat Commission",
+   "type": "editorial",
+   "url": "https://www.fishandboat.com",
+   "credible": "Official state agency (Children's Lake/Yellow Breeches feature).",
+   "rank": 3
+  },
+  {
+   "key": "ARTISTSHOMES",
+   "name": "Historic Artists' Homes & Studios (National Trust program)",
+   "type": "editorial",
+   "url": "https://artistshomes.org",
+   "credible": "National Trust for Historic Preservation program of member artist-home museums.",
+   "rank": 3
+  },
+  {
+   "key": "BAYJOURNAL",
+   "name": "Bay Journal",
+   "type": "editorial",
+   "url": "https://www.bayjournal.com",
+   "credible": "Non-profit Chesapeake Bay watershed newspaper with reported travel features.",
+   "rank": 3
+  },
+  {
+   "key": "BLOOLOOP",
+   "name": "Blooloop",
+   "type": "editorial",
+   "url": "https://blooloop.com",
+   "credible": "Attractions-industry trade publication; park histories.",
+   "rank": 3
+  },
+  {
+   "key": "DAUPHINHIST",
+   "name": "Historical Society of Dauphin County",
+   "type": "editorial",
+   "url": "https://dauphincountyhistory.org",
+   "credible": "Operator of the John Harris–Simon Cameron Mansion; county historical society.",
+   "rank": 3
+  },
+  {
+   "key": "FANDM",
+   "name": "Franklin & Marshall College",
+   "type": "editorial",
+   "url": "https://www.fandm.edu",
+   "credible": "Lancaster college whose faculty researched the Stevens site; institutional news.",
+   "rank": 3
+  },
+  {
+   "key": "JOURNALOFANTIQUES",
+   "name": "Journal of Antiques & Collectibles",
+   "type": "editorial",
+   "url": "https://journalofantiques.com",
+   "credible": "Established antiques trade magazine; museum features.",
+   "rank": 3
+  },
+  {
+   "key": "LIVEDESIGN",
+   "name": "Live Design",
+   "type": "editorial",
+   "url": "https://www.livedesignonline.com",
+   "credible": "Entertainment-design trade publication.",
+   "rank": 3
+  },
+  {
+   "key": "RELIGIONNEWS",
+   "name": "Religion News Service",
+   "type": "editorial",
+   "url": "https://religionnews.com",
+   "credible": "National non-profit religion news wire.",
+   "rank": 3
+  },
+  {
+   "key": "VISITLEBANONVALLEY",
+   "name": "Visit Lebanon Valley",
+   "type": "editorial",
+   "url": "https://visitlebanonvalley.com",
+   "credible": "Official Lebanon County tourism promotion agency.",
+   "rank": 3
+  },
+  {
+   "key": "WASHINGTONIAN",
+   "name": "Washingtonian",
+   "type": "editorial",
+   "url": "https://www.washingtonian.com",
+   "credible": "Washington, DC city magazine with reported getaway features.",
+   "rank": 3
+  },
+  {
+   "key": "AMAZINGAMERICA",
+   "name": "Amazing America (Sinclair Broadcast Group)",
+   "type": "editorial",
+   "url": "https://wjla.com/amazing-america",
+   "credible": "Sinclair's national travel/heritage series syndicated across its station group; reported features.",
+   "rank": 3
+  },
+  {
+   "key": "CELEBRATEGBG",
+   "name": "Celebrate Gettysburg magazine — Gettysburg's Greatest awards",
+   "type": "editorial",
+   "url": "https://digital.graphcompubs.com",
+   "credible": "Gettysburg's lifestyle magazine; runs the annual reader-voted Gettysburg's Greatest awards.",
+   "rank": 3
+  },
+  {
+   "key": "FOXNEWS",
+   "name": "Fox News Travel",
+   "type": "editorial",
+   "url": "https://www.foxnews.com/travel",
+   "credible": "National news outlet; reported Budget Travel's Coolest Small Towns result.",
+   "rank": 3
+  },
+  {
+   "key": "HERALDSTANDARD",
+   "name": "Herald-Standard",
+   "type": "editorial",
+   "url": "https://www.heraldstandard.com",
+   "credible": "Pennsylvania daily newspaper (Uniontown) with statewide features.",
+   "rank": 3
+  },
+  {
+   "key": "LANCASTERFARMING",
+   "name": "Lancaster Farming",
+   "type": "editorial",
+   "url": "https://www.lancasterfarming.com",
+   "credible": "The Northeast's agricultural newspaper of record, based in Lancaster County since 1955.",
+   "rank": 3
+  },
+  {
+   "key": "OLDCARSWEEKLY",
+   "name": "Old Cars Weekly",
+   "type": "editorial",
+   "url": "https://www.oldcarsweekly.com",
+   "credible": "National collector-car trade newspaper.",
+   "rank": 3
+  },
+  {
+   "key": "PAWINE",
+   "name": "Pennsylvania Winery Association",
+   "type": "editorial",
+   "url": "https://pennsylvaniawine.com",
+   "credible": "Statewide wine-industry association; official winery news.",
+   "rank": 3
+  },
+  {
+   "key": "PUBLISHERSWEEKLY",
+   "name": "Publishers Weekly",
+   "type": "editorial",
+   "url": "https://www.publishersweekly.com",
+   "credible": "National book-trade magazine of record.",
+   "rank": 3
+  },
+  {
+   "key": "SHELFAWARENESS",
+   "name": "Shelf Awareness",
+   "type": "editorial",
+   "url": "https://shelf-awareness.com",
+   "credible": "National bookselling trade newsletter.",
+   "rank": 3
+  }
+ ]
+}

@@ -77,3 +77,61 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
   (high 12 · med 13) · statuscheck CONSISTENT · buildcheck PASS · npm validate DATA OK · npm test ALL PASS.
 - **Channel mix:** editorial (Time Out/Isthmus/Cap Times/Madison Mag/Travel WI) 37/40 · institutional (JB 6,
   NPS 2, UNESCO 1) · reader vote 5 · creators 0 (creator pass not yet run) · local-rec (City Cast) 4.
+
+## 2026-10-03 · W2b — sights per area + Wright trail + day trips; go-live
+- **Searches:** ~35 more (session total ~117). Wikipedia/NRHP infobox coordinates are the reliable pin channel
+  (≈90% hit); restaurant pins via latlong.net POIs ≈50% (three attempts each for Toby's/Fairchild/Sourdough failed).
+- **Sights added (SIGHTS_W2b.json, 12):** Jacobs House (UNESCO 2019, private — exterior), First Unitarian
+  Meeting House (NHL), Chazen Museum of Art, Robert M. Lamp House (Atlas Obscura; exterior), Camp Randall,
+  International Crane Foundation, Circus World (NHL), Pendarvis (WHS site), Blue Mound SP, Picnic Point
+  (GNIS point), Aldo Leopold Shack (NHL), Overture Center.
+- **Food added (FOOD_W2d.json, 1):** Wollersheim Winery (DANE; NRHP; Wikipedia + OnMilwaukee).
+- **Held (pinned/sourced partly, not added):** MMoCA (coords 43.07452,-89.38891 from Wikipedia but no 2nd
+  recommender yet); Wisconsin Veterans Museum (2026 status unclear — 30 W Mifflin slated for demolition/rebuild,
+  WXOW/WDVA; needs a status check before adding); American Players Theatre, Swiss Historical Village, Mount Horeb
+  Trollway, Pheasant Branch, Ingersoll Physics Museum, Bascom Hill — sourced, but no place-pin coordinate found.
+- **Rule-4a corrections:** street addresses I first typed from memory (Devil's Lake, Cave of the Mounds, Vilas
+  Zoo, Wollersheim) replaced with sourced localities before any merge.
+- **UNVERIFIED queued (geo/_geoout_w2_unverified.json, 12):** Toby's, Fairchild, Pig in a Fur Coat,
+  Fromagination, Lao Laan-Xang, La Rosita, Short Stack (closed), Madison Sourdough, Villa Tap, Ahan, Public
+  Parking, Buck & Honey's — each with a sourced 2026 status; coordinates for tools/geocode-helper.html.
+- **Build + gates:** 41 on the page (23 sights + 18 food) of 53 researched. sourcecheck PASS 53/53 · geocheck
+  PASS (high 25 · med 16) · statuscheck CONSISTENT (Short Stack flagged — CLOSED) · buildcheck PASS · npm
+  validate DATA OK · npm test ALL PASS.
+- **Go-live:** CARD:madison-wi relinked live ("first wave", 41 mapped / 53 researched); docs/CITIES.md row updated.
+
+## 2026-10-03 · W2c — brats/German canon + NRHP/state-park sights for thin areas
+- **Searches:** ~20 more (session total ~137).
+- **Food (FOOD_W2e.json, 3):** State Street Brats (UW t1 — red brat; ESPN + On Wisconsin + Daily Cardinal),
+  Essen Haus (CAP t2 — German beer hall), Sugar River Pizza (MVF t2 — Best of Madison 2025 pizza). All three
+  UNVERIFIED (no place pin surfaced in 4 coordinate searches).
+- **Sights (SIGHTS_W2c.json, 8):** Science Hall (NHL), Washburn Observatory, Garver Feed Mill (NRHP 2017),
+  Governor Nelson SP (panther effigy mound), Forest Hill Cemetery (effigy mounds; med pin), Natural Bridge SP,
+  Lake Kegonsa SP, Allen Centennial Garden.
+- **Held — sourced but no usable pin:** Stoughton Opera House (only a town centroid surfaced — rejected),
+  Mid-Continent Railway Museum (Wikipedia gives 43.46,-89.87 — 2-decimal, too coarse), Gates of Heaven
+  Synagogue, Pope Farm / Pheasant Branch conservancies, Babcock Hall Dairy Store (TRAVELWI + Daily Cardinal
+  sourced; 2 pin searches failed), New Glarus Brewing (only an OpenBeerDB point that may be the old Riverside
+  brewery — not used).
+- **Creator channel:** searched Dave Portnoy One Bite × Madison — no Madison reviews (Racine/Milwaukee only).
+  Creator channel still 0 for Madison; next wave should search YouTube/TikTok Madison food creators explicitly.
+- **Build + gates:** 49 on the page (31 sights + 18 food) of 64 researched; 15 UNVERIFIED (all restaurants).
+  sourcecheck PASS 64/64 · geocheck PASS (high 32 · med 17 · low 0) · statuscheck CONSISTENT · buildcheck PASS ·
+  npm validate DATA OK · npm test ALL PASS. Card + CITIES.md counts refreshed.
+
+## 2026-10-03 · W3a — creators + thin-area food + CAP/EAST sights
+- **Searches:** ~13 (session total ~150).
+- **Creator pass (CREATORS_W3.json):** State Trunk Tour (Kevin Mack — long-running Wisconsin travel show/site;
+  dated 2026 pasty-shop guide) ACCEPTED and attached to Red Rooster Cafe. Wisconsin Cheese Please (Sam Buschman,
+  press-profiled by Milwaukee Record/The Takeout) PENDING — follower scale unverified, no Madison rating found.
+  Rejected: Curd Queen (scale unverifiable), Portnoy (no Madison reviews). AFAR's 2024 Madison food feature found
+  but its snippet names no places (registered as an outlet, unused).
+- **Food (FOOD_W3a.json, 5):** Der Rathskeller (UW t1 — first public-university beer, 1933; pinned at the Memorial
+  Union building, med), Fosdal Home Bakery (DANE — Norwegian rosettes/krumkake), Hubbard Avenue Diner (MVF —
+  Munch Madness pie winner), Glarner Stube (TRIP t1 — Swiss), Red Rooster Cafe (TRIP — Cornish pasties).
+  Held: Gates & Brovi (only Travel Wisconsin found ×2 — one outlet), Hmong Kitchen / Hmong Legacy Market (only
+  608today + aggregator), New Glarus Hotel restaurant (one source).
+- **Sights (SIGHTS_W3a.json, 3):** Wisconsin Governor's Mansion, Madison Children's Museum, Orpheum Theater.
+  Held: Tenney Park–Yahara Parkway (NRHP; no coordinate surfaced).
+- **Build + gates:** 53 on the page (34 sights + 19 food) of 72 researched; 19 UNVERIFIED (all restaurants).
+  sourcecheck PASS 72/72 · geocheck PASS (high 35 · med 18 · low 0) · statuscheck CONSISTENT · buildcheck PASS.

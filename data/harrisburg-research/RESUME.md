@@ -24,21 +24,20 @@ Total ~216.
 - [ ] index.html card relinked live with counts; docs/CITIES.md row.
 
 ## State
-- 2026-10-02 scaffold: consolidate.py (7 areas), tools/build-harrisburg.py (State College clone, centre derived
-  from pins), _AGENT_BRIEF.md, AUDIT.md, RESUME.md, SOURCES_HBG.json; `data/sources.json` cities["harrisburg-pa"] registered (29 outlets).
+- 2026-10-02 scaffold (consolidate.py, build-harrisburg.py, brief, 29-outlet palette). W1 blocked by budget.
+- **2026-10-03 W1+W2 (relaunch):** 25 food + 37 sights = 62 discovered (all ≥2 credible); 31 pinned; page
+  `cities/harrisburg.html` BUILT, all 4 gates green, npm validate/test pass. Card on index.html still "being built"
+  (only 31 pins — relink live once ~100 pins). 43 new outlets registered with rationale (SOURCES_W1.json).
+- Density (discovered): AMISH 18/40 · CAR 6/20 · GBG 10/22 · HBG 8/38 · HER 7/24 · LAN 6/38 · YORK 7/34.
 
 ## In-flight wave
-- **2026-10-03 relaunch (fresh WebSearch budget).** W1 food canon + W2 sights running together. Method: sights use ONE
-  combined search ("<place> coordinates wikipedia") that yields ≥2 sources + the Wikipedia infobox pin; food uses a
-  discovery search, then a separate geocode wave (W6). Files: `FOOD_CANON.json`, `SIGHTS_W2.json`, `geo/_geoout_w2.json`.
-  Helpers: `_hbg_add.py <FILE> < records.json` (dedup append), `_hbg_geo.py <geoout> < geo.json`.
-- Held single-source / status-unclear (re-check before adding): Good 'N Plenty (Smoketown — conflicting closure
-  signal), Hammond's Pretzel Bakery (only Discover Lancaster), Strasburg Creamery, Katie's Kitchen (Amish America only),
-  Hershey Pantry + Chocolate Avenue Grill (Tasting Table only), Sight & Sound Theatres (Wikipedia only), Hershey's
-  Chocolate World (Wikipedia only), Hershey Gardens (no pin yet), Belvedere Inn / C'est La Vie / Cabalar / Shot & Bottle
-  (Lancaster County Magazine Best of 2025 only).
-- Pins still needed for: Strasburg Rail Road, Little Round Top, David Wills House (+status — museum operation unclear),
-  Kitchen Kettle Village, Amish Farm and House, Hunsecker's Mill Covered Bridge, and every FOOD_CANON record.
+- none. NEXT (ordered): (1) W3 Harrisburg/York food (dish- and outlet-specific queries — PennLive/TheBurg/YDR/FOX43
+  "best <dish>"; Bhutanese/Nepali momo; York City Pretzel Co; Central Family; Cafe 1500…), (2) W4 Lancaster city food
+  + sights (LancasterHistory, Demuth Museum, Lancaster Science Factory, Penn Square/Soldiers & Sailors, Rock Ford),
+  (3) AMISH sights (Sight & Sound needs 2nd source, Intercourse, Bird-in-Hand village, Lititz, Mount Joy Bube's,
+  Columbia National Watch & Clock Museum, Marietta, Dutch Wonderland), (4) HER/CAR/GBG fill, (5) W5 creators,
+  (6) helper geocode of `geo/_geoout_w6pending.json` (31 UNVERIFIED), (7) go live on index.html card.
+- Held/single-source list + rejected sources: see AUDIT.md 2026-10-03 section.
 
 ## Files
 - `FOOD_*.json` / `SIGHTS_*.json` — research records by wave tag. `geo/_geoout_*.json` — geocode results.

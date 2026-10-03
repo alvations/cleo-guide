@@ -228,3 +228,39 @@ listing for Okinawan cuisine — no Michelin venue page found, held. Jump Shop /
 japan-guide forum (0) → held; Metro NiNE spot pages exist for Gashapon Department Store HEP FIVE (1 key). Ikuno Koreatown: OSAKA-INFO
 / Metro NiNE pages name no individual shops. Sawashi Shoten: the reading of 沢志 (possibly Okinawan "Takushi") is unconfirmed —
 re-check and rename if a source gives the reading. Session total ≈ 190/200 searches.
+
+## 2026-10-03 — W6 (session 6): held promotions + JP/EN Kansai editorial + ★anime + geocode attempt (5 bg workers + main)
+Workers: W6A EAST+BAY (39 searches), W6B MINAM (45), W6C TNJ/SOUTH/NORTH/KNSAI (38), W6D ★anime (27), W6G geocoder (29); main 2.
+Per-worker detail (queries, MEASURED & DROPPED, held): `_note_W6{A,B,C,D,G}.md`; consolidated held list `_held_W6.json`.
+**Added (+38 discovered; 398 → 436):**
+- W6A +7 food — EAST Katamachi Kawaguchi (Michelin ★ 2025, kaiseki, pinned), Yamada Shōten, Manmasa, Okamuro Saketen (promoted),
+  Izakaya Marushin (dancyu + Walkerplus); BAY Omoro Taishō Honten, Kijimunā no Mori (promoted; status unknown — Lmaga 2020 says
+  inside TUGBOAT_TAISHO 1-11-14 Sangenya-nishi vs a Hot Pepper 1-6-4 listing; resolve before trusting the address).
+- W6B +11 food +1 sight (MINAM) — Junkissa American, Naniwa Menjiro (Michelin + 百名店, pinned), Shōben Tango-tei, Creo-Ru, Jūtei,
+  Okonomiyaki Yukari Sennichimae (promoted W2 pending), Rokukakutei (status unknown — star only in a 2009 Michelin editorial),
+  Menya Joroku, Meijiken, Grill Baranoki, Daimaru Shinsaibashi Main Building (Vories; pinned).
+- W6C +6 food +5 sights — TNJ Okonomiyaki Den (promoted) + Aizen-dō Shōman-in, Abe Ōji, Abeno Shrine, Spa World (4 jawiki pins),
+  Tennōji Seven Slopes; SOUTH Fukase-zushi, Nakai Grill, Iwashibune (promoted SAKAITCB singles), Torimi kashimin-yaki; KNSAI Honke
+  Arochi Marutaka (Wakayama ramen).
+- W6D +9 ★anime sights — Jump Shop Shinsaibashi + Kiddy Land Umeda (promoted), Shinsaibashi PARCO character floors (Chiikawa Land,
+  Donguri Republic), Joshin Super Kids Land, Volks Osaka Showroom, Gashapon Department Store HEP FIVE (inside Bandai Namco Cross Store
+  since 2023), Kaiyodo Hobby Land Kadoma (status unknown), Amako Sōbē Manga Gallery Amagasaki (Nintama Rantarō; JATA88 credit seen
+  in a search summary — re-confirm), Tomogashima (Summer Time Rendering; JATA88 2023).
+**Main review:** Grill Baranoki — Walkerplus 181940 (関西の洋食店 グラタン4選) confirmed by a main search. Horumon Jibie Myōjō — TABELOG100
+tachinomi 2025 confirmed, but its 2nd source (Lmaga × Caption by Hyatt shop list) is partner/sponsored content → 0; **moved to held**.
+New outlets accepted: `MAPPLE` (Shobunsha's guidebook web arm, editor-written spot pages — same standing as RURUBU; W6C had treated
+it as an aggregator, overruled), `JALONTRIP` (JAL's bylined travel magazine), `WAKAYAMATOURISM`, `VISITWAKAYAMA`. Spa World's OSAKA-INFO
+page is the e-Pass facility page — still the official tourism body, accepted.
+**Flags checked, no change:** W6D noted the Daimaru Umeda → LUCUA SOUTH conversion; the LUCUA Characters World card already cites
+japan-guide (7 Apr 2026) for the April 2026 opening — kept. W6G read Mandarake at Amerikamura from en.wikipedia; that article predates
+the Dec 2020 move to 4-12-6 Nipponbashi (Metro NiNE) — kept.
+**Geocode:** W6G 0/101 pins in 29 searches (ja.wikipedia articles exist for 道具屋筋, 鶴橋商店街, 公営渡船, 自由軒, 金龍, かに道楽, 神座, 金久右衛門,
+にしむら珈琲店, 灘五郷, 大仙公園 but none surfaced a place coordinate; Michelin gave none for Kisuke/Yoshino/Matsubaya/Mimiu/Anagoya);
+rejected parent/district coords (Kōya, Maishima, KIX, 千日前, 鶴橋, 大仙公園, 法善寺). Mashino Ken Michelin coord 34.673359,135.517416 is
+~1.5 km SE of 1-3-6 Awajimachi — stays UNVERIFIED. Workers pinned 12 new (high 7, med 5 = building-level jawiki coords for shops).
+**Build:** 436 discovered (166 sights + 270 food = 62% food), 309 rendered (136 + 173); **ANIME 30** (+9); sourcecheck PASS · geocheck
+PASS · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. Density: KITA 102/80 OK · CHUO 56/45 OK · KNSAI 42/40 OK
+(newly OK) · MINAM 78/95 (+17) · EAST 24/35 (+11) · BAY 26/35 (+9) · TNJ 47/55 (+8) · SOUTH 32/40 (+8) · NORTH 29/35 (+6).
+**Channel mix W6:** Michelin 3 · Tabelog100 ~8 · editorial ~45 (Walkerplus, Lmaga, Mapple, Rurubu, TV Tokyo, Time Out, Savor Japan,
+dancyu, Metro NiNE/OsakaMania) · official/municipal ~10 · Wikipedia ~10 · JATA88 2 · creators 1 (Ramen Adventures, corroborating).
+**Yield:** ≈ 0.21 places/search (38 / ~180). Session total ≈ 180/200 searches.
