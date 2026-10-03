@@ -118,7 +118,7 @@
     text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
   .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
     padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
-    color:var(--patina);text-decoration:none;transition:.15s;}
+    color:var(--patina);text-decoration:none;transition:.15s;max-width:100%;overflow-wrap:anywhere;}
   .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
   .src .num{color:var(--brass);}
   .src:hover .num{color:var(--iron);}
@@ -562,7 +562,7 @@ const P = [
 ];
 
 const FS = {
-  "DANIELFOOD":{k:"DANIEL FOOD DIARY",t:"Daniel Food Diary",u:"https://danielfooddiary.com/2025/12/11/bunchahuonglien/",l:"Daniel Food Diary"},
+  "DANIELFOOD":{k:"DANIEL FOOD DIARY",t:"Daniel Food Diary",u:"https://danielfooddiary.com",l:"Daniel Food Diary"},
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide",u:"https://guide.michelin.com/",l:"MICHELIN Guide"},
   "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN Guide — Bib Gourmand",u:"https://guide.michelin.com/",l:"MICHELIN Guide — Bib Gourmand"},
   "VIETNAMCORACLE":{k:"VIETNAM CORACLE",t:"Vietnam Coracle (Tom Divers)",u:"https://www.vietnamcoracle.com/",l:"Vietnam Coracle (Tom Divers)"},
@@ -789,8 +789,12 @@ let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
 function tag(t,tbl){
   const [id,num]=t, m=(tbl||S)[id];
   const cls = id==='ADD' ? 'src extra' : 'src';
-  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
-  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+  // A source ref is [key, item#] or [key, article-URL]: link the article itself and
+  // show a short arrow, never the raw URL (it overflowed the card on desktop).
+  const url = typeof num==='string' && /^https?:\/\//.test(num) ? num : '';
+  const label = m.k + (num?' <span class="num">'+(url?'\u2197':num)+'</span>':'');
+  const href = url || m.u;
+  return href ? '<a class="'+cls+'" href="'+href+'" target="_blank" rel="noopener">'+label+'</a>'
              : '<span class="'+cls+'">'+label+'</span>';
 }
 
