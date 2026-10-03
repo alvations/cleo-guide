@@ -156,7 +156,7 @@ F(2,"NORTH","Okonori Japanese High Kitchen","1685 E 116th St, Suite 155 (The Cor
 F(2,"NORTH","Bub's Burgers & Ice Cream","210 W Main St, Carmel, IN 46032",["Burgers","Ice Cream"],"The Big Ugly — a one-pound fully loaded burger (Man v. Food challenge)",
  "Carmel Arts & Design District burger joint whose one-pound 'Big Ugly' earned a Man v. Food challenge (Adam Richman tapped out on the third) and a wall of fame for finishers; house ice cream too.",
  [["IBJ","https://www.ibj.com/articles/22040-eateries-cash-in-on-tv-appearance"],["VISITINDIANA","https://visitindiana.in.gov/blog/post/bubs-burgers-ice-cream/"]],
- "Online ordering live for the Carmel location (Toast, 2026) (open)",k="Carmel")
+ "IM The Feed May 2024: only the Westfield Bub's closed (moving to Park St); FOX59/IBJ: Bub's Café closure left the burger shops open; Carmel online ordering live (open)",k="Carmel")
 
 # ---- batch 9 (canon: IM 25 Essential Eats) ----
 F(1,"MASS","Goose the Market","2503 N Delaware St, Indianapolis, IN 46205",["Deli","Sandwiches"],"The Batali — Smoking Goose coppa, soppressata and capocollo with provolone and giardiniera",
@@ -167,3 +167,53 @@ F(2,"DTN","Serliana","InterContinental Indianapolis (2nd floor), steps from Monu
  "French-leaning all-day dining room on the second floor of the InterContinental, a block off Monument Circle — 'an impressive, modern take on boeuf bourguignon, cassoulet, sophisticated beef tartare' (Indianapolis Monthly Best Restaurants 2026); Axios's pick among Indy's best new restaurants for Devour 2026.",
  [["INDYMONTHLY",IM+"best-restaurants/best-restaurants-2026-magdalena-serliana/"],["AXIOS","https://www.axios.com/local/indianapolis/2026/01/20/new-restaurants-devour-indy-winterfest"]],
  "Indianapolis Monthly Best Restaurants 2026; Axios Jan 2026 (open)")
+
+# ---- batch 10 (Broad Ripple / SoBro) ----
+AX_DEV26="https://www.axios.com/local/indianapolis/2026/08/24/best-devour-summerfest-menus-every-budget-downtown-carmel-broad-ripple"
+F(2,"BRIP","Broad Ripple Brewpub","842 E 65th St, Indianapolis, IN 46220",["Brewery","Pub"],"English-style house ales; pub fare in a converted auto-parts store",
+ "Indiana's first brewpub (opened 14 Nov 1990 by Englishman John Hill) and the state's oldest operating brewery — the place that spurred Indiana's craft-beer industry; 35th birthday in 2025.",
+ [["VISITINDIANA","https://visitindiana.in.gov/blog/post/indianas-first-brewpub-is-celebrating-a-big-birthday-in-2025/"],["NUVO","https://www.nuvo.net/beerbuzz/cheers-to-30-years-how-broad-ripple-brew-pub-spurred-indiana-s-craft-beer-industry/article_ac00312a-25bd-11eb-ba3e-9b370d710a91.html"],["BREWERMAG","https://thebrewermagazine.com/the-early-changes-that-indianas-1st-brewpub-had-to-make-to-thrive/"]],
+ "Visit Indiana 2025: celebrating 35 years (open)",k="Broad Ripple")
+F(1,"BRIP","Fernando's Mexican & Brazilian Cuisine","834 E 64th St, Indianapolis, IN",["Mexican","Brazilian"],"Feijoada (weekends), Sinaloa tacos, crawfish quesadilla, caipirinhas",
+ "Broad Ripple Latin kitchen from Cristiano Rodrigues (Brazil) and Elizabeth Fernandez (Mexico), named for their son — the Brazilian dishes are Rodrigues's mother's recipes, and she runs the kitchen. Indianapolis Monthly Best Restaurants 2024, 2025 and 2026; a second location opened on Mass Ave.",
+ [["INDYMONTHLY",IM+"best-restaurants/best-restaurants-2025-fernandos-julieta/"],["IBJ","https://www.ibj.com/articles/fernandos-mexican-brazilian-cuisine-to-add-mass-ave-location"],["TOWNEPOST","https://townepost.com/indiana/north-indy/a-cross-culture-success/"]],
+ "Indianapolis Monthly Best Restaurants 2026; Axios Devour Summerfest Aug 2026 (open)",k="Broad Ripple")
+F(2,"BRIP","Delicia","5215 N College Ave, Indianapolis, IN",["Latin American"],"Ancho-peach glazed pork medallions; barbacoa with cilantro-lime crema; sancocho amuse-bouche",
+ "SoBro New Latin restaurant from the Northside Social group in a converted video store — Caribbean, Cuban and Dominican-inflected seafood and sauced meats; rave reviews from both Indianapolis Monthly and the IBJ.",
+ [["INDYMONTHLY",IM+"food-and-drinks/dining/mas-appeal-a-review-of-delicia/"],["IBJ","https://www.ibj.com/articles/41813-dining-delicia-lives-up-to-the-name"],["AXIOS",AX_DEV26]],
+ "Axios Devour Summerfest menus, Aug 2026 (open)",k="SoBro")
+
+# ---- batch 11 (Irvington) ----
+F(2,"EAST","Jockamo Upper Crust Pizza","5646 E Washington St, Indianapolis, IN",["Pizza"],"Extra-crisp crust pies like the Slaughterhouse Five; weekend huevos rancheros pizza",
+ "Mick McGrath's Irvington pizzeria (2007) that helped revive the neighbourhood — extra-crisp crusts and offbeat combos; Thrillist named it Indiana's best pizzeria and Reader's Digest's state pick followed (FOX59).",
+ [["INDYMONTHLY",IM+"food-and-drinks/dining/eat-sheet-jockamos-upper-crust-mug/"],["FOX59","https://digital-release.fox59.com/indiana-news/this-is-the-best-pizza-in-indiana-according-to-readers-digest/amp"],["TOWNEPOST","https://townepost.com/indiana/geist/jockamo-upper-crust-pizza-inspires-loyalty-customers-staff/"]],
+ "FOX59 Reader's Digest best-pizza story; locations in Irvington, Greenwood, Lawrence (open)",k="Irvington")
+F(2,"MID","Pa & Ma's Backyard BBQ","2621 Dr. Martin Luther King Jr. St, Indianapolis, IN",["Barbecue","Soul Food"],"Brisket, fried catfish, fried chicken, candied yams, chicken and dumplings",
+ "Family-run cafeteria-style barbecue and soul-food line (moved in 2024 from College Ave to a bigger MLK St space near Crown Hill) — on Diners, Drive-Ins and Dives in October 2024, aired a month after founder George Nelson Sr. died.",
+ [["WTHR","https://wthr.com/article/news/local/pa-and-mas-backyard-bbq-to-be-featured-on-food-network-diners-drive-ins-and-dives-guy-fieri-george-nelson-sr-indianapolis/531-f6d63dfd-3aef-468a-a5a8-e4ba34e8f6ca"],["INDYMONTHLY",IM+"food-and-drinks/bbq-restaurant-in-indianapolis/"],["FOX59","https://fox59.com/indiana-news/indy-southern-comfort-restaurant-to-be-featured-on-food-networks-diners-drive-ins-and-dives/amp"]],
+ "WTHR/FOX59 Oct 2024 DDD coverage at the new MLK St location (open)")
+
+# ---- batch 12 (Mass Ave / Lockerbie) ----
+F(2,"MASS","Livery","720 N College Ave, Indianapolis, IN 46202",["Latin American"],"Ceviche, paella, arroz con pollo, skirt steak — shared plates",
+ "Central and South American shared plates in a restored 1890s horse stable off Mass Ave — ranked No. 91 on Yelp's 2023 Top 100 US restaurants and among its top Midwest picks (as reported by Axios and WRTV; Yelp counted only as a popularity measure).",
+ [["AXIOS","https://www.axios.com/local/indianapolis/2024/01/23/livery-yelp-best-restaurants-list"],["WRTV","https://www.wrtv.com/news/local-news/5-indianapolis-restaurants-ranked-among-yelps-top-100-in-the-midwest"]],
+ "Current hours listed Mon–Sun from 4 pm (open)",k="Lockerbie")
+
+# ---- batch 13 (sights with Wikipedia infobox pins — thin-sight areas) ----
+IE="https://indyencyclopedia.org/"
+S(2,"WEST","Major Taylor Velodrome","Cold Spring Rd, immediately north of the Marian University campus, Indianapolis, IN",
+ "Outdoor concrete velodrome (1982, 28° banked turns) named for 1899 world cycling champion Major Taylor — the first publicly funded building in Indianapolis named for an African American; Thursday-night racing April-Sept, plus BMX and MTB trails at the Indy Cycloplex.",
+ [["WIKIPEDIA",W+"Major_Taylor_Velodrome"],["INDYENCYCLOPEDIA",IE+"marshall-w-major-taylor/"]],"Marian University-run; weekly racing programme April–September",
+ geo=g("Major Taylor Velodrome","Cold Spring Rd, immediately north of the Marian University campus, Indianapolis, IN",39.821444,-86.199361,"Wikipedia infobox 39°49′17.2″N 86°11′57.7″W ("+W+"Major_Taylor_Velodrome)",ss="Marian University-run; weekly racing programme April–September"))
+S(3,"WEST","Allison Mansion (Riverdale)","3200 Cold Spring Rd, Indianapolis, IN",
+ "Arts & Crafts estate (1911-14) of Speedway co-founder James A. Allison — sunken conservatory, white-marble aviary, Moravian tiles; since 1936 the heart of Marian University and on the NRHP (1970).",
+ [["WIKIPEDIA",W+"Allison_Mansion"],["INDYENCYCLOPEDIA",IE+"marian-college-mansions/"]],"In use as Marian University president's offices",
+ geo=g("Allison Mansion (Riverdale)","3200 Cold Spring Rd, Indianapolis, IN",39.80611,-86.20139,"Wikipedia infobox 39°48′22″N 86°12′5″W ("+W+"Allison_Mansion)",ss="In use as Marian University president's offices"))
+S(2,"EAST","Arsenal Technical High School (U.S. Arsenal)","1500 E Michigan St, Indianapolis, IN",
+ "A Civil War U.S. Arsenal (1864-1903) turned high school in 1912 — the oldest military installation in central Indiana, with the 1864 Arsenal building and barracks still in school use on a 76-acre NRHP campus.",
+ [["WIKIPEDIA",W+"Arsenal_Technical_High_School"],["INDYENCYCLOPEDIA",IE+"u-s-arsenal/"]],"Operating IPS high school (NRHP 1976)",
+ geo=g("Arsenal Technical High School (U.S. Arsenal)","1500 E Michigan St, Indianapolis, IN",39.77778,-86.13306,"Wikipedia infobox 39°46′40″N 86°7′59″W ("+W+"Arsenal_Technical_High_School)",ss="Operating IPS high school (NRHP 1976)"))
+S(2,"FSQ","Fletcher Place Historic District","Fletcher Place (between Virginia Ave, East St and I-65/70), Indianapolis, IN",
+ "40-acre NRHP district (1982) of Irish and German worker cottages and Italianate/Queen Anne rows (Briggs Flats 1893, Fletcher Place Methodist) — now the restaurant strip of Bluebeard, Iaria's and Milktooth.",
+ [["WIKIPEDIA",W+"Fletcher_Place"],["INDYENCYCLOPEDIA",IE+"fletcher-place/"]],"Public historic neighbourhood",
+ geo=g("Fletcher Place Historic District","Fletcher Place (between Virginia Ave, East St and I-65/70), Indianapolis, IN",39.75750,-86.14611,"Wikipedia infobox 39°45′27″N 86°8′46″W ("+W+"Fletcher_Place)",conf="med",ss="Public historic neighbourhood",note="district centroid"),k="Fletcher Place")

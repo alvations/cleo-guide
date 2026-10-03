@@ -333,7 +333,7 @@
   "geoSource": "UNVERIFIED",
   "confidence": "UNVERIFIED",
   "status": "open",
-  "statusSource": "Online ordering live for the Carmel location (Toast, 2026) (open)",
+  "statusSource": "IM The Feed May 2024: only the Westfield Bub's closed (moving to Park St); FOX59/IBJ: Bub's Café closure left the burger shops open; Carmel online ordering live (open)",
   "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
  },
  {
@@ -357,5 +357,112 @@
   "status": "open",
   "statusSource": "Indianapolis Monthly Best Restaurants 2026; Axios Jan 2026 (open)",
   "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+ },
+ {
+  "n": "Broad Ripple Brewpub",
+  "address": "842 E 65th St, Indianapolis, IN 46220",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Visit Indiana 2025: celebrating 35 years (open)",
+  "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+ },
+ {
+  "n": "Fernando's Mexican & Brazilian Cuisine",
+  "address": "834 E 64th St, Indianapolis, IN",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Indianapolis Monthly Best Restaurants 2026; Axios Devour Summerfest Aug 2026 (open)",
+  "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+ },
+ {
+  "n": "Delicia",
+  "address": "5215 N College Ave, Indianapolis, IN",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Axios Devour Summerfest menus, Aug 2026 (open)",
+  "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+ },
+ {
+  "n": "Jockamo Upper Crust Pizza",
+  "address": "5646 E Washington St, Indianapolis, IN",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "FOX59 Reader's Digest best-pizza story; locations in Irvington, Greenwood, Lawrence (open)",
+  "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+ },
+ {
+  "n": "Pa & Ma's Backyard BBQ",
+  "address": "2621 Dr. Martin Luther King Jr. St, Indianapolis, IN",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "WTHR/FOX59 Oct 2024 DDD coverage at the new MLK St location (open)",
+  "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+ },
+ {
+  "n": "Livery",
+  "address": "720 N College Ave, Indianapolis, IN 46202",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Current hours listed Mon–Sun from 4 pm (open)",
+  "note": "Apple Maps/Wikipedia searches return no place coordinate for this restaurant; queue for tools/geocode-helper.html"
+ },
+ {
+  "n": "Major Taylor Velodrome",
+  "address": "Cold Spring Rd, immediately north of the Marian University campus, Indianapolis, IN",
+  "lat": 39.821444,
+  "lng": -86.199361,
+  "geoSource": "Wikipedia infobox 39°49′17.2″N 86°11′57.7″W (https://en.wikipedia.org/wiki/Major_Taylor_Velodrome)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "Marian University-run; weekly racing programme April–September"
+ },
+ {
+  "n": "Allison Mansion (Riverdale)",
+  "address": "3200 Cold Spring Rd, Indianapolis, IN",
+  "lat": 39.80611,
+  "lng": -86.20139,
+  "geoSource": "Wikipedia infobox 39°48′22″N 86°12′5″W (https://en.wikipedia.org/wiki/Allison_Mansion)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "In use as Marian University president's offices"
+ },
+ {
+  "n": "Arsenal Technical High School (U.S. Arsenal)",
+  "address": "1500 E Michigan St, Indianapolis, IN",
+  "lat": 39.77778,
+  "lng": -86.13306,
+  "geoSource": "Wikipedia infobox 39°46′40″N 86°7′59″W (https://en.wikipedia.org/wiki/Arsenal_Technical_High_School)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "Operating IPS high school (NRHP 1976)"
+ },
+ {
+  "n": "Fletcher Place Historic District",
+  "address": "Fletcher Place (between Virginia Ave, East St and I-65/70), Indianapolis, IN",
+  "lat": 39.7575,
+  "lng": -86.14611,
+  "geoSource": "Wikipedia infobox 39°45′27″N 86°8′46″W (https://en.wikipedia.org/wiki/Fletcher_Place)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "Public historic neighbourhood",
+  "note": "district centroid"
  }
 ]
