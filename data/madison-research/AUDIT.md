@@ -256,3 +256,23 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
   Candinas, Turn Key, Stella's, Kavanaugh's (closed), Trollway, Edgewood mounds, Pheasant Branch, Ice Age Complex,
   Madison Public Market, + the address-only six. Wikipedia queries for the three sight areas returned only parent-article
   points (college / city) — not used.
+
+### W6 batch a — discovery (MVF / WEST / UW)
+- **Searches:** ~32 (session ~100).
+- **Food (FOOD_W6a.json, 12):** MVF — Taigu (t1; Isthmus + Madison Magazine ×2 + Cap Times + PBS Wisconsin Life),
+  Dhaba Indian Bistro (Isthmus + Cap Times biryani showdown + Best of Madison 2025), Rolling Pin Bake Shop (Fitchburg;
+  Isthmus + Cap Times strip-mall list), Curry in the Box (Fitchburg; t3, Isthmus + Cap Times). WEST — Saigon Noodles
+  (Cap Times + MadMag + Isthmus), Petra Bakery & Restaurant (Isthmus + MadMag + Cap Times), El Panzon (Isthmus + Cap
+  Times), Osteria Novella (opened Nov 2025; Cap Times + MadMag + City Cast best new). UW — Teddywedgers (pasty, since
+  1976; MadMag + State Trunk Tour pasty guide + Badger Herald), The Kollege Klub (since 1953; Wisconsin Alumni Assn +
+  OnMilwaukee), Library Mall food carts (t1 campus institution; Isthmus + WAA; 2025-26 ranking leaders Surco/Braisin' Hussies).
+- **Sights (SIGHTS_W6a.json, 3):** Pope Farm Conservancy (MVF; Cap Times + TMJ4), Frank W. Hoyt Park (WEST; Wikipedia +
+  WHS NRHP + SAH Archipedia), The Red Gym (UW; NHL — NPS + Wikipedia).
+- **Pins (geo/_geoout_w6b.json):** 10 of 15 — Pope Farm (Waze, high), Hoyt Park + Red Gym (Wikipedia, high), Taigu,
+  Curry in the Box, Petra, Teddywedgers (usarestaurants, med), Dhaba / Rolling Pin / Osteria Novella (same-address
+  building Waze records, med). UNVERIFIED: Saigon Noodles, El Panzon, Kollege Klub, Library Mall food carts.
+- **MEASURED & HELD:** Toro y Pampa (Middleton, Cap Times + IB Madison only — too new to measure), Pikkito (moved/
+  second site unclear), Orchard (Verona; Isthmus review mixed — "prices feel high", seasoning off), Me & Julio (Isthmus
+  "Fitchburg fail"), Namio's (Isthmus: "isn't a game-changer"), Everly (Travel Wisconsin only), Brasserie V (still no
+  2026 open evidence beyond listings), Tex Tubb's (Best of Madison 2026 tacos gold; EAST, needs a 2nd editorial),
+  Muir Knoll & Carillon Tower (no pin path / single source), Jordan's Big Ten Pub (OnMilwaukee only).

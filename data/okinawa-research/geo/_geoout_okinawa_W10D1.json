@@ -100,5 +100,37 @@
   "geoSource": "Rurubu 80042665 gives 宜野湾市大山2-22-5; Stripes 'jimmy's-bakery' search returned no GPS (it printed the Factory Shop address 7-2-20 Ōyama — a different building)",
   "status": "open",
   "statusSource": "Rurubu spot 80042665 current listing"
+ },
+ {
+  "n": "Uehara Zenzai, Moromizato (上原ぜんざい)",
+  "address": "2-2-2 Moromizato, Okinawa City, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Search '上原ぜんざい 沖縄市 諸見里' gave address 諸見里2-2-2 (nankurulife, tabi.media) and a Yahoo map place URL without coordinates",
+  "status": "open",
+  "statusSource": "Ryukyu Shimpo entry-1134800 (20th-anniversary profile); tabi.media 10502 hours 11–19, closed Sun"
+ },
+ {
+  "n": "Gaburi Shokudō, Ginowan Yui Marché (がぶり食堂)",
+  "address": "Ginowan Yui Marché, Ōyama, Ginowan, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Search 'がぶり食堂 宜野湾 骨汁' gave location inside ぎのわんゆいマルシェ (Ōyama) but no street number or coordinate",
+  "status": "open",
+  "statusSource": "okinawashokuzainomise.kuwachii-okinawa.com shop-2601 (prefecture-run Okinawa ingredients shop registry) — 11:00–15:00, open daily"
+ },
+ {
+  "n": "Histreet — Okinawa City Post-war Culture Museum (沖縄市戦後文化資料展示館 ヒストリート)",
+  "address": "Gate-dōri, Chūō, Okinawa City, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Search 'ヒストリート 中央 ゲート通り' gave location on Gate-dōri, Chūō (Ryukyu Shimpo) but no street number or coordinate; no pin search spent",
+  "status": "open",
+  "statusSource": "Stars and Stripes 2026-09-03 post-WW2 culture museum article (current)"
+ },
+ {
+  "n": "Kuwachii Shokudō Aozora, Kitanakagusuku (くわっちぃ食堂 青空 北中城店)",
+  "address": "1359-1 Adaniya, Kitanakagusuku, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Searches gave address 北中城村安谷屋1359-1 (Hotel Southern Village; kitapo.jp, okinawalikes 926) and a Yahoo map place URL without coordinates",
+  "status": "open",
+  "statusSource": "kitapo.jp spot/aozora + official aozora.okinawa — lunch 11–15, dinner 17–21, closed Sun"
  }
 ]

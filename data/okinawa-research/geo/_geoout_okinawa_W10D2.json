@@ -38,5 +38,101 @@
   "geoSource": "Extended search '高良食堂 那覇市若狭1-7-10 緯度 経度': four aggregator listings agree within ~15 m (26.219076,127.673384; Hotpepper 26.218989,127.673487; Retty 26.2189756,127.6734785; Gnavi 26.2190897,127.6733992). Matches the sourced address Wakasa 1-7-10.",
   "status": "open",
   "statusSource": "OCVB 600004404 lists current hours (Mon-Wed, Fri-Sun 10:30-20:00, Thu to 15:00) (2026-10)"
+ },
+ {
+  "n": "Taishū Shokudō Ikariya, Maejima (大衆食堂 いかり屋)",
+  "address": "Okinawa Sailors Hall 1F, 3-25-50 Maejima, Naha, Okinawa, Japan",
+  "lat": 26.2239475,
+  "lng": 127.6812928,
+  "confidence": "low",
+  "geoSource": "Extended search '大衆食堂 いかり屋 那覇市前島3-25-50 緯度 経度': two listing coordinates 26.2239475,127.6812928 and 26.223738,127.68145 (~27 m apart; results incl. gnavi 920z1gex0000, Retty, tabetime 40034179). Consistent with the Okinawa Sailors Hall by Tomarin.",
+  "status": "open",
+  "statusSource": "Ryukyu Shimpo 1721703 (recent feature) and OTV 42524 give current hours 11:30-21:00, no closing day (2026-10)"
+ },
+ {
+  "n": "Stand Suehiro, Sakaemachi (スタンド末広)",
+  "address": "Ōyama Apartment 1F, 388-9 Asato, Naha, Okinawa, Japan",
+  "lat": 26.2158304,
+  "lng": 127.6972121,
+  "confidence": "low",
+  "geoSource": "Extended search 'スタンド末広 那覇市安里388-9 大山アパート 緯度 経度': two listing coordinates 26.2158304,127.6972121 and Retty 26.215875,127.6971964 (~5 m apart; Yahoo! Map place 64hb5eurkHs, Hotpepper J004324269). RE-VERIFY: the point is ~190 m south of the Sakaemachi Market pins; Asato 388-9 may sit on the south side of the block.",
+  "status": "open",
+  "statusSource": "OTV 72568 and Smart Magazine 37435 describe it trading; Hotpepper/Yahoo listings current (2026-10)"
+ },
+ {
+  "n": "Okinawa Kushikatsu Senbero-ya, Sakaemachi (沖縄串カツ せんべろ家)",
+  "address": "385 Asato (Sakaemachi Market), Naha, Okinawa, Japan",
+  "lat": 26.2173919,
+  "lng": 127.6971411,
+  "confidence": "low",
+  "geoSource": "Extended search '沖縄串カツ せんべろ家 那覇市安里385 緯度 経度': single listing coordinate 26.21739194,127.69714111 (results incl. Suntory gourmet S000012831, Tabelog 47031448, gnavi ejyyvk5t0000). Matches Asato 385 inside Sakaemachi Market (~25 m from the Bottleneck pin).",
+  "status": "open",
+  "statusSource": "OTV 72582 and nahanavi.com give current hours 15:00-23:00, closed Tuesdays; active Instagram (2026-10)"
+ },
+ {
+  "n": "Kiraku, Makishi Public Market 2F (きらく 第一牧志公設市場)",
+  "address": "2F Naha City Daiichi Makishi Public Market, 2-10-1 Matsuo, Naha, Okinawa, Japan",
+  "lat": 26.214608,
+  "lng": 127.6883,
+  "confidence": "med",
+  "geoSource": "Host-building point: the restaurant is on the 2nd floor of the Makishi Public Market building. Uses that building's sourced coordinate in data/geocodes.json (Stars and Stripes Makishi article printed GPS for the new building, 26.214608,127.6883). Venue-level, not a separate venue pin.",
+  "status": "open",
+  "statusSource": "Ryukyu Shimpo 933592 and co-trip 613167 describe mochiage at the rebuilt market (opened 2023-03); no closure notice found (2026-10)"
+ },
+ {
+  "n": "KANEHIDE CRAFT BREWERY, Asahi-machi (カネヒデクラフトブルワリー)",
+  "address": "Kanehide Building West 1F, 112-1 Asahi-machi, Naha, Okinawa, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Tried: extended 'KANEHIDE CRAFT BREWERY 那覇市旭町112-1 緯度 経度' (hitosara, Tabelog 47028803, beertiful, my-beers; no coordinate printed). Next: NAVITIME poi or the Kanehide Building on ja.wiki/official.",
+  "status": "open",
+  "statusSource": "Tabelog/my-beers listings give current weekday hours 16:00-20:30; Facebook @beerkanehide active (2026-10)"
+ },
+ {
+  "n": "Sakurazaka Brewery, Makishi (桜坂ブルワリー)",
+  "address": "1F, 3-6-3 Makishi, Naha, Okinawa 900-0013, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched (cap). Next: extended '桜坂ブルワリー 那覇市牧志3-6-3 緯度 経度'.",
+  "status": "open",
+  "statusSource": "OCVB tourism news 4398 lists current hours 12:00-20:00 (2026-10)"
+ },
+ {
+  "n": "BOULANGERIE BZ, Yogi (ブーランジェリービズ)",
+  "address": "368-22 Yogi, Naha, Okinawa 902-0076, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched (cap). Address from the Yahoo! Loco listing g-X1j_VGuUjzU and RETRIP. Next: extended 'BOULANGERIE BZ 那覇市与儀368-22 緯度 経度'.",
+  "status": "open",
+  "statusSource": "Yahoo! Loco and omalblog 2024-11 show it trading, hours 8:00-20:00; oka-explorers notes a renewal reopening (2026-10)"
+ },
+ {
+  "n": "Shuzen Maeda, Kume (酒膳 眞榮田)",
+  "address": "2-11-22 Kume, Naha, Okinawa 900-0033, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched (cap). Next: extended '酒膳 眞榮田 那覇市久米2-11-22 緯度 経度'.",
+  "status": "open",
+  "statusSource": "Okinawa Traveler certified-shop feature lists current hours 17:00-22:00, closed Sundays; RYUKYURYORI certification page current (2026-10)"
+ },
+ {
+  "n": "Matsubaraya Seika, Matsuo (松原屋製菓)",
+  "address": "2-9-9 Matsuo, Naha, Okinawa, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched (cap). Next: extended '松原屋製菓 那覇市松尾2-9-9 緯度 経度'.",
+  "status": "open",
+  "statusSource": "Rurubu 80042460 lists hours 9:00-17:00, closed Wednesdays; OTV 75287 profile (2026-10)"
+ },
+ {
+  "n": "Sātā Andāgī no Mise Amuro, Shuri (さーたーあんだーぎーの店 安室 首里平良店)",
+  "address": "1-66 Shuri Taira-chō, Naha, Okinawa, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched (cap). Next: extended 'さーたーあんだーぎーの店 安室 首里平良町1-66 緯度 経度'.",
+  "status": "open",
+  "statusSource": "Rurubu 80042592 lists hours 9:00-17:00, closed Sundays (2026-10)"
+ },
+ {
+  "n": "Oden Tōdai, Sakaemachi (おでん東大) — CLOSED",
+  "address": "Sakaemachi, Asato, Naha, Okinawa, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched (closed venue; cap). Exact lot number not captured.",
+  "status": "closed",
+  "statusSource": "Ryukyu Shimpo 1591927: closed 26 September 2022 after ~70 years; dee-okinawa 2022-09 closure report"
  }
 ]
