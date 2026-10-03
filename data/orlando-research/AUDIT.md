@@ -169,3 +169,46 @@
   note added to card + FOX35 source. Thunder Falls Terrace (IOA) closed summer 2026 for a 2027 replacement (told W3D).
 - Build: page 144 sights + 26 food (was 141 + 6); gates sourcecheck (9 held single-source only) / geocheck PASS / statuscheck
   CONSISTENT / buildcheck PASS; npm validate DATA OK, npm test ALL PASS.
+
+## 2026-10-03 · Session 4 · Wave 3 — discovery (4 background workers + lead) + build
+- **Searches:** lead ≈ 29 (pins + 3 corroborations + 1 Boma dish) · W3A 34 · W3B 35 · W3C 39 · W3D 39 → ≈ 176 of the session cap.
+- **Added 106 places** (research 284 → 390): W3A 28 (IDR 10, DSP 14, CWALK 5 — Raglan Road, Homecomin', Polite Pig, Toledo, Sanaa, Jiko,
+  Boma, Toothsome, Bigfire, Strong Water, Twenty Pho Hour, YH Seafood Clubhouse, Nile Ethiopian, Susuru; ICON Park, Discovery Cove,
+  Aquatica, WonderWorks, Drawn to Life, Aerophile, Skyliner) · W3B 21 (DTO 6, MILLS 9, WPK 6 — Z Asian Bib, Zymarium, Black Rooster,
+  EDOBOY, Sticky Rice, Shin Jung, Tori Tori (lone Michelin listing), Francesco's, The Monroe, Kres; Enzian, Birds of Prey, Annie
+  Russell, Hannibal Square, Mead Garden, Milk District) · W3C 20 (SPRNG/WEST/EAST/SPACE/KISS — Old Jailhouse, Tennessee Truffle,
+  Wondermade, Copacabana, Olive Branch, Market to Table, Guavate, Las Carretas, Florida's Fresh Grill, Grills, Ossorio; Boggy Creek,
+  Fun Spot Kissimmee, Shingle Creek, Plant Street Market, Citrus Tower, Lake Apopka Wildlife Drive, Fort Christmas, Little Big Econ,
+  Cocoa Village Playhouse) · W3D 35 park food & drink (MK 7, DAK 6, EPCOT 5, DHS 5, EPIC 5, USF 4, IOA 3) · lead W3L 2 (Fun Spot
+  America Orlando — Frommer's/Orlando Informer/Attractions Mag; Alexander Springs — Florida Guidebook/OW/USFS; both pins pre-existed).
+- **Channel mix (citations):** theme-park editorial/creators ≈ 95 (DFB, TouringPlans, AllEars, Orlando Informer, WDWNT, Laughing Place,
+  Theme Park Insider, Disney Tourist Blog); local press & food writers ≈ 75 (Orlando Weekly incl. Best of Orlando, Scott Joseph, Tasty
+  Chomps, Orlando Magazine, Space Coast Living, FOX 35, ClickOrlando, Spectrum, WFTV); travel ≈ 30 (Frommer's, Fodor's, Infatuation,
+  Time Out, Visit Orlando/Florida, Experience Kissimmee, Florida Guidebook); institutional ≈ 20 (Michelin, Wikipedia, USFS, SJRWMD, FWC,
+  Osceola County). **Creators vetted:** Disney Food Blog (AJ Wolfe, ~1M YouTube), WDWNT, Disney Tourist Blog (Tom Bricker),
+  @somehowimnotfat (via FOX 35) → CREATORS_W3A/W3D.json. Creator queries for Mills 50 / Winter Park / Kissimmee / Space Coast TikTok &
+  YouTube surfaced no verifiable creator (rejected: ziggyknowsdisney, disneyparknerds, mickeyvisit, benable, undercovertourist).
+- **New outlets:** DISNEYTOURISTBLOG, WDWNT, THEPOINTSGUY, FODORS, FLBIRDINGTRAIL, CLIO, PREVUE, WHATNOW (status only), TRIANGLESUN,
+  RCDB, FWC, MYSANFORDMAG (each with `credible` rationale in SOURCES_W3*.json).
+- **MEASURED & DROPPED:** Roundup Rodeo BBQ (value complaints — AllEars/Kenny the Pirate), Paddlefish (TouringPlans 6.7/10, mixed),
+  Teppan Edo (mixed), Comic Strip Cafe / Circus McGurkus (ratings only), Neighbors Artisan Taqueria (no credible outlet), Jinya (chain).
+- **Held single-source** (next wave, one search each): The Chapman, Luma on Park, Umi, BoVine, Cocina 214, RusTeak, Banh Mi Nha Trang,
+  Lazy Moon, Tasty Wok, Tropico Mofongo, Pal Campo, Achiote, Chimiking, Sofrito, Nona Blue, Park Pizza & Brewing, Wa Ramen, Hook and
+  Eagle, Fishlips, Medieval Times (Sentinel Foodie 2016 via WDWInfo/ticket sites only), Caribbean Sunshine Bakery, Taco Norteño,
+  Breezeway, Shantell's, Fuel BBQ, Gator's Riverside, Stefano's, Tabla, Crazy Cork, Q's Crackin' Crab, Mel's Drive-In, TODAY Cafe,
+  Pizza Moon, Oak & Star, Meteor Astropub, Voodoo Doughnut, Bob Marley, Amorette's, The Edison, Pointe Orlando, Seito Sushi, Bull & Bear,
+  Taverna Opa, Q'Kenan, Pio Pio, Tapa Toro.
+- **Closures / status:** Gringos Locos — CLOSED (all 4 locations, 4 Aug 2026; hoodline) added flagged. Thunder Falls Terrace closed
+  2026-07-20 (not added). Finnegan's refurb since 2026-01-12 (not added; re-check). Chayote Barrio Kitchen replaced by The Grove (not
+  added). Murdock's Southern Bistro closed (not added). Mythos open, closing 2027 (noted). Shin Jung reopened after fire (re-check),
+  Tennessee Truffle open status rests on undated OW list (re-check), Hanamizuki status unknown (held).
+- **Geocode (lead, after the workers):** Wikipedia — ICON Park, Discovery Cove, Enzian, Annie Russell, Hannibal Square Heritage Center,
+  Woody's Lunch Box (high); building-level med — Jiko + Boma (AK Lodge Jambo House), Toledo (Gran Destino), Garden Grill (The Land),
+  Regal Eagle (American Adventure), Rose & Crown (UK), Biergarten (Germany), Cinderella's Royal Table (castle, by W3D); HMDB marker —
+  Shingle Creek Regional Park (med); low — WonderWorks (Pointe Orlando point). Rejected: Liberty Square / Plant Street / Lake Apopka /
+  Audubon (Maitland) decimals = land/district/lake/city points. Workers: Fun Spot Kissimmee, Citrus Tower, Little Big Econ (med),
+  Cocoa Village Playhouse, Mead Garden (med). Restaurants on ordinary streets: still UNVERIFIED (geocode-helper).
+- **Fix:** Boma dish was generic → "turkey bobotie, peri peri chicken, zebra domes" (disneyblog.com + Scott Joseph review added).
+- **Build:** rebuild-city --build OK — 390 researched (177 sights + 213 food = **54.6% food**), page **157 sights + 35 food** (was 141 + 6);
+  sourcecheck FAIL only on the 9 held single-source (dropped by build; 1 lone-authority Michelin) · geocheck PASS · statuscheck
+  CONSISTENT · buildcheck PASS · npm validate DATA OK · npm test ALL PASS. Card + CITIES row + AGENT-PROMPTS run log refreshed.

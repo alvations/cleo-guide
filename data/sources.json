@@ -13855,9 +13855,107 @@
           "rank": 3,
           "verified": true,
           "credible": "Long-running (since 2011) independent Disney-parks blog by Tom Bricker, one of the most-read Disney trip-planning sites; detailed first-hand restaurant reviews."
+        },
+        {
+          "key": "FODORS",
+          "name": "Fodor's Travel",
+          "type": "tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running major travel-guide publisher (since 1936) with staff-edited destination listings"
+        },
+        {
+          "key": "WDWNT",
+          "name": "WDW News Today",
+          "type": "creator",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running Walt Disney World news site with a large theme-park YouTube channel; publishes dated, photographed first-hand reviews"
+        },
+        {
+          "key": "PREVUE",
+          "name": "Prevue Meetings (Worth/Prevue magazine)",
+          "type": "press",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established national meetings/travel trade magazine with bylined destination features"
+        },
+        {
+          "key": "RCDB",
+          "name": "Roller Coaster DataBase",
+          "type": "blog",
+          "rank": 3,
+          "verified": true,
+          "credible": "Standard reference database of roller coasters/amusement parks since 1996, widely cited by press and Wikipedia"
+        },
+        {
+          "key": "FWC",
+          "name": "Florida Fish and Wildlife Conservation Commission (incl. Great Florida Birding Trail)",
+          "type": "tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "State wildlife agency; institutional authority on Florida public conservation lands"
+        },
+        {
+          "key": "MYSANFORDMAG",
+          "name": "My Sanford Magazine",
+          "type": "press",
+          "rank": 3,
+          "verified": true,
+          "credible": "Sanford city magazine running the annual reader-voted Best of Sanford awards"
+        },
+        {
+          "key": "THEPOINTSGUY",
+          "name": "The Points Guy",
+          "type": "travel",
+          "rank": 3,
+          "verified": true,
+          "credible": "Major US travel publication (millions of monthly readers) with staff-reported theme-park dining guides."
         }
       ],
-      "creators": []
+      "creators": [
+        {
+          "key": "SOMEHOWIMNOTFAT",
+          "name": "Christina Petsos (@somehowimnotfat)",
+          "platform": "Instagram",
+          "following": "61,000+ (per FOX 35)",
+          "piece": "https://fox35orlando.com/news/best-restaurants-of-orlando-here-are-24-restaurants-popular-food-influencer-says-you-must-try-in-2024",
+          "used_for": [
+            "At Siam Thai Cuisine",
+            "Kavas Tacos + Tequila"
+          ]
+        },
+        {
+          "key": "WDWNT",
+          "name": "WDW News Today",
+          "platform": "web + YouTube",
+          "piece": "https://wdwnt.com/2022/09/review-black-magic-milkshake-puts-a-spell-on-us-at-the-toothsome-chocolate-emporium-and-savory-feast-kitchen-in-universal-citywalk-orlando/",
+          "used_for": [
+            "Toothsome Chocolate Emporium & Savory Feast Kitchen",
+            "Erin McKenna's Bakery NYC"
+          ]
+        },
+        {
+          "key": "DISNEYFOODBLOG",
+          "name": "Disney Food Blog (AJ Wolfe)",
+          "platform": "blog+youtube",
+          "handle": "@DisneyFoodBlog",
+          "url": "https://www.disneyfoodblog.com/",
+          "scale": "Largest Disney-dining site; YouTube channel ~1M subscribers",
+          "niche": "Disney & Universal theme-park food reviews; 'we've eaten at every restaurant in <park>' rankings",
+          "credible": "Verifiably popular, 15+ years, first-hand dated reviews of every park restaurant"
+        },
+        {
+          "key": "DISNEYTOURISTBLOG",
+          "name": "Disney Tourist Blog (Tom Bricker)",
+          "platform": "blog",
+          "handle": "disneytouristblog.com",
+          "url": "https://www.disneytouristblog.com/",
+          "scale": "One of the most-read independent Disney planning blogs since 2011",
+          "niche": "WDW trip planning & restaurant reviews",
+          "credible": "Long-running, named author, detailed first-hand reviews"
+        }
+      ]
     },
     "okinawa": {
       "name": "okinawa",
