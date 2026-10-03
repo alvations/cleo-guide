@@ -332,3 +332,23 @@ validate DATA OK; npm test ALL PASS. density.py: every area OK; food share ≥50
 food/travel sites (Infatuation ~30, Visit Philly ~22, Time Out 1, Food & Wine 1, Craft Beer & Brewing 1, Atlas Obscura 1) · regional
 (Main Line Today ~14, Visit Bucks 3, Chestnut Hill Local 2, Northeast Times 1) · local TV (6abc ~10, CBS 1) · creators 1 (Mark Wiens,
 corroborating Angelo's only) · Wikipedia (2 sights). Searches: ~122 main thread + 44 background pin agent.
+
+## 2026-10-03 (W6 · PINS, session_01DsVQh4xSMpquswxCXqQqid) · batch 1 — Apple Maps place pins, tier-1 first
+- **Channel:** `WebSearch` with `allowed_domains:["maps.apple.com"]` (technique from Miami W4). Queries of 3 "Name street-address"
+  items (address-style beat "Name + cuisine + neighbourhood" here); results whose URL carries `coordinate=`/`ll=` give Apple's own
+  place pin. New helpers: `_phi_pin.py` (asserts name ∈ dataset, not already pinned, Philly-region bbox) and `_phi_pinurl.py` (parses
+  coordinate + address from the Apple URL and refuses a **high** pin when the URL's street number ≠ the record's). Output
+  `geo/_geoout_w6a.json`. Bare `place-id=` URLs carry no coordinate → left UNVERIFIED (never inferred).
+- **Pins (49 · 48 high, 1 med):** CC — Dizengoff, Vernick Food & Drink, Vetri Cucina, Fork, Almanac, Oyster House, Butcher and Singer,
+  Nom Wah Tea Parlor, Shane Confectionery, Amada, Middle Child, My Loup, Sang Kee Peking Duck House, Parc, Double Knot · SPH — Gabriella's
+  Vietnam, Ba Le Bakery, Angelo's Pizzeria, Famous 4th Street Delicatessen, Fiorella, Royal Sushi & Izakaya, Ralph's, Dante & Luigi's,
+  Le Virtù, Cosmi's Deli, Ricci's Hoagies, Mawn, Little Fish, Kampar, Sao, Ambra · FISH — Suraya, Pizzeria Beddia, Laser Wolf, Wm.
+  Mulherin's Sons, Castellino's, Pietramala, Middle Child Clubhouse, Fiore, Càphê Roasters, Bastia (**med** — Apple query-listing URL has
+  no street address; point at Susquehanna & Belgrade = Hotel Anna & Bel) · UCW — Abyssinia, Doro Bet · NW — The Nile Cafe · NE —
+  Marinucci's Deli, China Gourmet · NPH — Down North Pizza · SJ — Corinne's Place · DAY — Andiario.
+  Status for each: Apple listing active (no closure marker) + 2025–26 discovery sources.
+- **Held / leads:** Paesano's — Apple lists "Paesano's Philly Style" at 943 S 9th St (record: 1017 S 9th St) → not pinned; address
+  re-check. Han Dynasty (Old City) — an Infatuation snippet says 110 Chestnut vs record 123 Chestnut → not pinned. Franklin Fountain —
+  only the sibling Franklin Ice Cream Bar (112 Market) surfaced with a coordinate → not used.
+- **Build:** 182 → 231 on map (151 sights + 80 food). sourcecheck PASS 518 · geocheck PASS · statuscheck CONSISTENT (7 closed; 9 on-page
+  unchecked) · buildcheck PASS · validate DATA OK · npm test ALL PASS. ~33 WebSearch calls so far.
