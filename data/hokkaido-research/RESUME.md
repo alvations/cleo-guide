@@ -38,7 +38,10 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
 - Commands: `python3 tools/density.py hokkaido` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py hokkaido --build`.
 
 ## In-flight wave
-- none (session 4 B1 build committed).
+- **session 5 (2026-10-03)** — background subagents (brief `_hk_s5_brief.md`, ≤30 searches each): W88 SPR food · W89 NSK+OTARU ·
+  W90 DHOKU+TKC · W91 DONAN+DOTO+IBURI · W92 anime (Golden Kamuy, Silver Spoon, Love Live! Sunshine!!, Pokémon, Animate/Mandarake) ·
+  G05 restaurant pins (`_hk_unpinned.txt`). Each writes `_w<NN>_*.py` + `_note_W<NN>.md`; a relaunched orchestrator re-runs any
+  finished script, reviews the notes, then builds (B1 s5). Unfinished agents → re-launch with the same wave tag.
 
 ## Search ledger
 - session 1: ~14 · session 2: ≈188 · session 3: ≈178 (me ~151 + W40 agent 15 + W60 agent 12).
