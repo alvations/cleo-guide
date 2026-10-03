@@ -42,7 +42,9 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
 - `allowed_domains:["japan-guide.com"]` / `["osaka-info.jp"]` area queries → sight lists (source 1).
 
 ## In-flight wave
-- none — W3 closed at the session-wide 200-search cap (W3G may have written a partial batch; it is committed as-is).
+- **W4 (session 4, 2026-10-03)** — 6 background workers (~28 searches each) + main. Files `FOOD/SIGHTS_OSAKA_W4{A..F}.json`,
+  `geo/_geoout_osaka_W4{A..F}.json`, `CREATORS_OSAKA_W4*.json`. A=MINAM food · B=anime wave + MINAM/KITA sights ·
+  C=TNJ+EAST · D=SOUTH · E=BAY · F=KNSAI+NORTH food. If relaunched: check which tag files exist, rerun only missing tags.
 
 - 2026-10-02 **W3 (session 3)** — 7 parallel workers + main, **200/200 searches**. **319 discovered (114 sights + 205
   food = 64% food), 266 rendered (104 + 162)**; 4 gates PASS; validate + npm test PASS; ANIME 10 (was 0).
