@@ -1,5 +1,385 @@
 [
 {
+"n": "Wisconsin State Capitol",
+"addr": "2 E Main St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Monona Terrace",
+"addr": "1 John Nolen Dr, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Memorial Union Terrace",
+"addr": "800 Langdon St, Madison, WI 53706",
+"a": "UW"
+},
+{
+"n": "Olbrich Botanical Gardens & Thai Pavilion",
+"addr": "3330 Atwood Ave, Madison, WI 53704",
+"a": "EAST"
+},
+{
+"n": "UW–Madison Arboretum",
+"addr": "1207 Seminole Hwy, Madison, WI 53711",
+"a": "WEST"
+},
+{
+"n": "Taliesin",
+"addr": "5607 County Rd C, Spring Green, WI 53588",
+"a": "TRIP"
+},
+{
+"n": "House on the Rock",
+"addr": "5754 State Rd 23, Spring Green, WI 53588",
+"a": "TRIP"
+},
+{
+"n": "Devil's Lake State Park",
+"addr": "Devil's Lake State Park, south of Baraboo, Sauk County, WI",
+"a": "TRIP"
+},
+{
+"n": "Cave of the Mounds",
+"addr": "Blue Mounds, WI 53517",
+"a": "DANE"
+},
+{
+"n": "National Mustard Museum",
+"addr": "7477 Hubbard Ave, Middleton, WI 53562",
+"a": "MVF"
+},
+{
+"n": "Henry Vilas Zoo",
+"addr": "Henry Vilas Park, Madison, WI",
+"a": "WEST"
+},
+{
+"n": "Jacobs House (Wright's first Usonian)",
+"addr": "441 Toepfer Ave, Madison, WI 53711",
+"a": "WEST"
+},
+{
+"n": "First Unitarian Society Meeting House",
+"addr": "900 University Bay Dr, Shorewood Hills, WI 53705",
+"a": "WEST"
+},
+{
+"n": "Chazen Museum of Art",
+"addr": "750 University Ave, Madison, WI 53706",
+"a": "UW"
+},
+{
+"n": "Robert M. Lamp House",
+"addr": "22 N Butler St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Camp Randall Stadium",
+"addr": "1440 Monroe St, Madison, WI 53711",
+"a": "UW"
+},
+{
+"n": "International Crane Foundation",
+"addr": "E11376 Shady Lane Rd, Baraboo, WI 53913",
+"a": "TRIP"
+},
+{
+"n": "Circus World Museum",
+"addr": "550 Water St, Baraboo, WI 53913",
+"a": "TRIP"
+},
+{
+"n": "Pendarvis",
+"addr": "114 Shake Rag St, Mineral Point, WI 53565",
+"a": "TRIP"
+},
+{
+"n": "Blue Mound State Park",
+"addr": "Blue Mounds, WI 53517 (Iowa & Dane counties)",
+"a": "DANE"
+},
+{
+"n": "Picnic Point",
+"addr": "Lakeshore Nature Preserve, Univ. Bay Dr entrance, Madison, WI 53705",
+"a": "UW"
+},
+{
+"n": "Aldo Leopold Shack and Farm",
+"addr": "South bank of the Wisconsin River, northeast of Baraboo, WI",
+"a": "TRIP"
+},
+{
+"n": "Overture Center for the Arts",
+"addr": "201 State St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Science Hall",
+"addr": "550 N Park St, Madison, WI 53706",
+"a": "UW"
+},
+{
+"n": "Washburn Observatory",
+"addr": "1401 Observatory Dr, Madison, WI 53706",
+"a": "UW"
+},
+{
+"n": "Garver Feed Mill",
+"addr": "3244 Atwood Ave, Madison, WI 53704",
+"a": "EAST"
+},
+{
+"n": "Governor Nelson State Park",
+"addr": "North shore of Lake Mendota, Town of Westport (near Waunakee), WI",
+"a": "DANE"
+},
+{
+"n": "Forest Hill Cemetery",
+"addr": "1 Speedway Rd, Madison, WI 53705",
+"a": "WEST"
+},
+{
+"n": "Natural Bridge State Park",
+"addr": "Town of Honey Creek, southwest of Baraboo, Sauk County, WI",
+"a": "TRIP"
+},
+{
+"n": "Lake Kegonsa State Park",
+"addr": "2405 Door Creek Rd, Stoughton, WI 53589",
+"a": "DANE"
+},
+{
+"n": "Allen Centennial Garden",
+"addr": "10 Babcock Dr, Madison, WI 53706",
+"a": "UW"
+},
+{
+"n": "Wisconsin Governor's Mansion",
+"addr": "99 Cambridge Rd, Maple Bluff, WI 53704",
+"a": "EAST"
+},
+{
+"n": "Madison Children's Museum",
+"addr": "100 N Hamilton St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Orpheum Theater",
+"addr": "216 State St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "American Players Theatre",
+"addr": "Spring Green (Iowa County side of the Wisconsin River), WI",
+"a": "TRIP"
+},
+{
+"n": "The Trollway (Mount Horeb)",
+"addr": "Main St, Mount Horeb, WI 53572",
+"a": "DANE"
+},
+{
+"n": "Pheasant Branch Conservancy",
+"addr": "Century Ave (County Hwy M), Middleton, WI 53562",
+"a": "MVF"
+},
+{
+"n": "Wisconsin Veterans Museum",
+"addr": "30 W Mifflin St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Madison Museum of Contemporary Art (MMoCA)",
+"addr": "State St (Overture Center complex), Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Stoughton Opera House",
+"addr": "381 E Main St, Stoughton, WI 53589",
+"a": "DANE"
+},
+{
+"n": "Chalet of the Golden Fleece",
+"addr": "618 2nd St, New Glarus, WI 53574",
+"a": "TRIP"
+},
+{
+"n": "Burrows Park Effigy Mound",
+"addr": "Burrows Park, Lake Mendota shore (north side), Madison, WI",
+"a": "EAST"
+},
+{
+"n": "Elmside Park Mounds",
+"addr": "Elmside Park, Madison, WI",
+"a": "EAST"
+},
+{
+"n": "Vilas Circle Bear Effigy Mound",
+"addr": "Bear Mound Park, Vilas Circle, Madison, WI",
+"a": "WEST"
+},
+{
+"n": "Observatory Hill Mound Group",
+"addr": "Observatory Hill, UW–Madison campus, Madison, WI",
+"a": "UW"
+},
+{
+"n": "Edgewood College Mound Group",
+"addr": "Edgewood campus, Woodrow St off Monroe St, Madison, WI",
+"a": "WEST"
+},
+{
+"n": "UW–Madison Geology Museum",
+"addr": "Weeks Hall, UW–Madison campus, Madison, WI",
+"a": "UW"
+},
+{
+"n": "Bascom Hill & the Lincoln statue",
+"addr": "Bascom Hill, UW–Madison campus, Madison, WI 53706",
+"a": "UW"
+},
+{
+"n": "L. R. Ingersoll Physics Museum",
+"addr": "Chamberlin Hall, UW–Madison campus, Madison, WI",
+"a": "UW"
+},
+{
+"n": "Lakeshore Nature Preserve & Lakeshore Path",
+"addr": "South shore of Lake Mendota, UW–Madison campus, Madison, WI",
+"a": "UW"
+},
+{
+"n": "Wyoming Valley School",
+"addr": "6306 WI Hwy 23, Wyoming (Iowa County), WI",
+"a": "TRIP"
+},
+{
+"n": "A. D. German Warehouse",
+"addr": "316 S Church St, Richland Center, WI",
+"a": "TRIP"
+},
+{
+"n": "Seth Peterson Cottage",
+"addr": "E9982 Fern Dell Rd (Mirror Lake State Park), Reedsburg, WI",
+"a": "TRIP"
+},
+{
+"n": "Al. Ringling Theatre",
+"addr": "136 4th Ave, Baraboo, WI",
+"a": "TRIP"
+},
+{
+"n": "Tower Hill State Park",
+"addr": "SE of Spring Green, Iowa County, WI",
+"a": "TRIP"
+},
+{
+"n": "Lake Wingra & Vilas Park beach",
+"addr": "Vilas Park, north shore of Lake Wingra, Madison, WI",
+"a": "WEST"
+},
+{
+"n": "Ice Age Complex at Cross Plains (Ice Age National Scenic Trail)",
+"addr": "8075 Old Sauk Pass Rd, Cross Plains, WI",
+"a": "DANE"
+},
+{
+"n": "Pope Farm Conservancy",
+"addr": "7440 W Old Sauk Rd, Middleton (Town), WI 53562",
+"a": "MVF"
+},
+{
+"n": "Frank W. Hoyt Park",
+"addr": "3902 Regent St, Madison, WI 53705",
+"a": "WEST"
+},
+{
+"n": "The Red Gym (UW Armory and Gymnasium)",
+"addr": "716 Langdon St, Madison, WI 53706",
+"a": "UW"
+},
+{
+"n": "Livsreise Norwegian Heritage Center",
+"addr": "Main St, Stoughton, WI 53589",
+"a": "DANE"
+},
+{
+"n": "Indian Lake County Park & St. Mary of the Oaks Chapel",
+"addr": "WI Hwy 19, 2 mi west of US 12, Town of Berry (near Cross Plains), WI",
+"a": "DANE"
+},
+{
+"n": "Capital Springs State Recreation Area",
+"addr": "3101 Lake Farm Rd, Madison (Fitchburg line), WI 53711",
+"a": "MVF"
+},
+{
+"n": "Military Ridge State Trail (Fitchburg–Verona trailhead)",
+"addr": "Quarry Ridge Recreation Area, 2740 Fitchrona Rd, Fitchburg, WI 53719",
+"a": "MVF"
+},
+{
+"n": "North Hall (University of Wisconsin)",
+"addr": "Bascom Hill, UW–Madison campus, Madison, WI 53706",
+"a": "UW"
+},
+{
+"n": "Carillon Tower (UW–Madison)",
+"addr": "Observatory Dr, UW–Madison campus, Madison, WI 53706",
+"a": "UW"
+},
+{
+"n": "Union South & the Sett",
+"addr": "1308 W Dayton St, Madison, WI 53715",
+"a": "UW"
+},
+{
+"n": "Elver Park",
+"addr": "1250 McKenna Blvd, Madison, WI 53719",
+"a": "WEST"
+},
+{
+"n": "Owen Conservation Park",
+"addr": "6021 Old Sauk Rd, Madison, WI 53705",
+"a": "WEST"
+},
+{
+"n": "Mendota County Park",
+"addr": "County Rd M, Town of Westport (near Middleton), WI 53562",
+"a": "MVF"
+},
+{
+"n": "Prairie Moraine County Park",
+"addr": "6724 Wesner Rd, Verona, WI 53593",
+"a": "MVF"
+},
+{
+"n": "Schumacher Farm Park",
+"addr": "5682 WI-19, Waunakee, WI 53597",
+"a": "DANE"
+},
+{
+"n": "Gates of Heaven Synagogue",
+"addr": "302 E Gorham St (James Madison Park), Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Tenney Park & the Tenney Lock",
+"addr": "1414 E Johnson St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Swiss Historical Village & Museum",
+"addr": "New Glarus, WI 53574",
+"a": "TRIP"
+},
+{
+"n": "Mid-Continent Railway Museum",
+"addr": "E8948 Museum Rd, North Freedom, WI 53951",
+"a": "TRIP"
+},
+{
 "n": "Toby's Supper Club",
 "addr": "3717 S Dutch Mill Rd, Madison, WI 53718",
 "a": "EAST"
@@ -13,5 +393,665 @@
 "n": "Tornado Club Steak House",
 "addr": "116 S Hamilton St, Madison, WI 53703",
 "a": "CAP"
+},
+{
+"n": "Fairchild",
+"addr": "2611 Monroe St, Madison, WI 53711",
+"a": "WEST"
+},
+{
+"n": "Mint Mark",
+"addr": "1874 E Washington Ave, Madison, WI 53704",
+"a": "EAST"
+},
+{
+"n": "L'Etoile",
+"addr": "1 S Pinckney St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Graze",
+"addr": "1 S Pinckney St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Mickies Dairy Bar",
+"addr": "1511 Monroe St, Madison, WI 53711",
+"a": "WEST"
+},
+{
+"n": "Dotty Dumpling's Dowry",
+"addr": "317 N Frances St, Madison, WI 53703",
+"a": "UW"
+},
+{
+"n": "A Pig in a Fur Coat",
+"addr": "940 Williamson St, Madison, WI 53703",
+"a": "EAST"
+},
+{
+"n": "Dane County Farmers' Market",
+"addr": "Capitol Square (Saturdays Apr–Nov), Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Fromagination",
+"addr": "12 S Carroll St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Lao Laan-Xang",
+"addr": "2098 Atwood Ave, Madison, WI 53704",
+"a": "EAST"
+},
+{
+"n": "The Weary Traveler Freehouse",
+"addr": "1201 Williamson St, Madison, WI 53703",
+"a": "EAST"
+},
+{
+"n": "Monty's Blue Plate Diner",
+"addr": "2089 Atwood Ave, Madison, WI 53704",
+"a": "EAST"
+},
+{
+"n": "Ian's Pizza",
+"addr": "100 State St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "La Rosita",
+"addr": "6005 Monona Dr, Monona, WI 53716",
+"a": "EAST"
+},
+{
+"n": "Short Stack Eatery — CLOSED",
+"addr": "301 W Johnson St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Lazy Jane's Cafe",
+"addr": "1358 Williamson St, Madison, WI 53703",
+"a": "EAST"
+},
+{
+"n": "Madison Sourdough",
+"addr": "916 Williamson St, Madison, WI 53703",
+"a": "EAST"
+},
+{
+"n": "Osteria Papavero",
+"addr": "128 E Wilson St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Lucille",
+"addr": "101 King St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Villa Tap",
+"addr": "2302 Packers Ave, Madison, WI 53704",
+"a": "EAST"
+},
+{
+"n": "Ha Long Bay",
+"addr": "1353 Williamson St, Madison, WI 53703",
+"a": "EAST"
+},
+{
+"n": "Ahan",
+"addr": "744 Williamson St, Madison, WI 53703",
+"a": "EAST"
+},
+{
+"n": "Quivey's Grove",
+"addr": "6261 Nesbitt Rd, Fitchburg, WI 53719",
+"a": "MVF"
+},
+{
+"n": "Dexter's Pub",
+"addr": "301 North St, Madison, WI 53704",
+"a": "EAST"
+},
+{
+"n": "Public Parking",
+"addr": "711 E Johnson St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Buck & Honey's",
+"addr": "804 Liberty Blvd, Sun Prairie, WI 53590",
+"a": "DANE"
+},
+{
+"n": "Wollersheim Winery",
+"addr": "Across the Wisconsin River east of Prairie du Sac, Dane County, WI",
+"a": "DANE"
+},
+{
+"n": "State Street Brats",
+"addr": "603 State St, Madison, WI 53703",
+"a": "UW"
+},
+{
+"n": "Essen Haus",
+"addr": "514 E Wilson St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Sugar River Pizza",
+"addr": "957 Liberty Dr, Verona, WI 53593",
+"a": "MVF"
+},
+{
+"n": "Der Rathskeller",
+"addr": "Memorial Union, 800 Langdon St, Madison, WI 53706",
+"a": "UW"
+},
+{
+"n": "Fosdal Home Bakery",
+"addr": "243 E Main St, Stoughton, WI 53589",
+"a": "DANE"
+},
+{
+"n": "Hubbard Avenue Diner",
+"addr": "7445 Hubbard Ave, Middleton, WI 53562",
+"a": "MVF"
+},
+{
+"n": "Glarner Stube",
+"addr": "518 1st St, New Glarus, WI 53574",
+"a": "TRIP"
+},
+{
+"n": "Red Rooster Cafe",
+"addr": "158 High St, Mineral Point, WI 53565",
+"a": "TRIP"
+},
+{
+"n": "Dorf Haus Supper Club",
+"addr": "County Hwy Y, Roxbury (3 mi SE of Sauk City), WI",
+"a": "DANE"
+},
+{
+"n": "Craftsman Table & Tap",
+"addr": "6712 Frank Lloyd Wright Ave, Middleton, WI 53562",
+"a": "MVF"
+},
+{
+"n": "Chocolate Shoppe Ice Cream",
+"addr": "State Street, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Tipsy Cow",
+"addr": "King St at Main St, Capitol Square, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "North and South Seafood & Smokehouse",
+"addr": "6604 Mineral Point Rd, Madison, WI 53705",
+"a": "WEST"
+},
+{
+"n": "Ishnala Supper Club",
+"addr": "Mirror Lake (inside Mirror Lake State Park), Lake Delton, WI",
+"a": "TRIP"
+},
+{
+"n": "Kavanaugh's Esquire Club — CLOSED",
+"addr": "Madison's north side, WI",
+"a": "EAST"
+},
+{
+"n": "Sardine",
+"addr": "617 Williamson St, Madison, WI 53703",
+"a": "EAST"
+},
+{
+"n": "The Harvey House",
+"addr": "West Washington Ave (by the former Milwaukee Road depot), Madison, WI",
+"a": "CAP"
+},
+{
+"n": "The Plaza Tavern",
+"addr": "319 N Henry St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Caribou Tavern",
+"addr": "703 E Johnson St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Le Tigre Lounge",
+"addr": "1328 S Midvale Blvd, Madison, WI 53711",
+"a": "WEST"
+},
+{
+"n": "Turn Key Supper Club",
+"addr": "East Washington Ave (1885 building), Madison, WI",
+"a": "EAST"
+},
+{
+"n": "The Village Bar",
+"addr": "3801 Mineral Point Rd, Madison, WI 53705",
+"a": "WEST"
+},
+{
+"n": "Great Dane Pub & Brewing Co.",
+"addr": "123 E Doty St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Babcock Hall Dairy Store",
+"addr": "1605 Linden Dr, Madison, WI 53706",
+"a": "UW"
+},
+{
+"n": "CocoVaa Chocolatier",
+"addr": "1815 E Washington Ave (The Marling), Madison, WI 53704",
+"a": "EAST"
+},
+{
+"n": "Imaginary Factory",
+"addr": "1401 Northern Ct, Madison, WI 53703",
+"a": "EAST"
+},
+{
+"n": "Pasture and Plenty",
+"addr": "2433 University Ave, Madison, WI 53726",
+"a": "WEST"
+},
+{
+"n": "Capital Brewery",
+"addr": "Middleton, WI 53562",
+"a": "MVF"
+},
+{
+"n": "Clasen's European Bakery",
+"addr": "Middleton, WI",
+"a": "MVF"
+},
+{
+"n": "Lombardino's",
+"addr": "University Ave, Madison, WI",
+"a": "WEST"
+},
+{
+"n": "Working Draft Beer Company",
+"addr": "1129 E Wilson St, Madison, WI 53703",
+"a": "EAST"
+},
+{
+"n": "Rex's Innkeeper",
+"addr": "Waunakee, WI",
+"a": "DANE"
+},
+{
+"n": "Maple Tree Supper Club",
+"addr": "McFarland, WI",
+"a": "DANE"
+},
+{
+"n": "Player's Sports Bar & Grill",
+"addr": "Atwood neighborhood, Madison, WI",
+"a": "EAST"
+},
+{
+"n": "New Glarus Brewing Co.",
+"addr": "Hilltop brewery, New Glarus, WI 53574",
+"a": "TRIP"
+},
+{
+"n": "Greenbush Bakery",
+"addr": "Greenbush neighborhood, Madison, WI",
+"a": "WEST"
+},
+{
+"n": "Stella's Bakery",
+"addr": "Capitol Square (Dane County Farmers' Market), Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Marigold Kitchen",
+"addr": "Downtown (Capitol Square area), Madison, WI",
+"a": "CAP"
+},
+{
+"n": "Tip Top Tavern",
+"addr": "Madison, WI",
+"a": "EAST"
+},
+{
+"n": "Driftless Glen Distillery",
+"addr": "Baraboo River, Baraboo, WI",
+"a": "TRIP"
+},
+{
+"n": "The Del-Bar",
+"addr": "Lake Delton, WI",
+"a": "TRIP"
+},
+{
+"n": "Baumgartner's Cheese Store & Tavern",
+"addr": "Monroe, WI 53566",
+"a": "TRIP"
+},
+{
+"n": "Suzy's Pointer Cafe",
+"addr": "809 Ridge St, Mineral Point, WI 53565",
+"a": "TRIP"
+},
+{
+"n": "Grumpy Troll Brew Pub",
+"addr": "105 S Second St, Mount Horeb, WI 53572",
+"a": "DANE"
+},
+{
+"n": "Sjölinds Chocolate House",
+"addr": "219 E Main St, Mount Horeb, WI 53572",
+"a": "DANE"
+},
+{
+"n": "Paul's Pel'meni",
+"addr": "State St area, Madison, WI",
+"a": "UW"
+},
+{
+"n": "Candinas Chocolatier",
+"addr": "Verona, WI 53593",
+"a": "MVF"
+},
+{
+"n": "Cento",
+"addr": "122 W Mifflin St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Tempest Oyster Bar",
+"addr": "120 E Wilson St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Vintage Brewing Co.",
+"addr": "674 S Whitney Way, Madison, WI 53719",
+"a": "WEST"
+},
+{
+"n": "Green Owl Cafe",
+"addr": "1970 Atwood Ave, Madison, WI 53704",
+"a": "EAST"
+},
+{
+"n": "Gail Ambrosius Chocolatier",
+"addr": "2083 Atwood Ave, Madison, WI 53704",
+"a": "EAST"
+},
+{
+"n": "Salvatore's Tomato Pies",
+"addr": "121 E Main St, Sun Prairie, WI 53590",
+"a": "DANE"
+},
+{
+"n": "Firefly Coffeehouse",
+"addr": "Oregon, WI 53575",
+"a": "DANE"
+},
+{
+"n": "Drumlin Ridge Winery",
+"addr": "Waunakee countryside (between Waunakee and Westport), WI",
+"a": "DANE"
+},
+{
+"n": "Hook's Cheese Company",
+"addr": "Shake Rag district, Mineral Point, WI 53565",
+"a": "TRIP"
+},
+{
+"n": "Bailey's Run Vineyard",
+"addr": "New Glarus, WI 53574",
+"a": "TRIP"
+},
+{
+"n": "Stone Porch Alehouse",
+"addr": "Verona, WI 53593",
+"a": "MVF"
+},
+{
+"n": "Imperial Garden",
+"addr": "Middleton (Madison–Middleton line), WI",
+"a": "MVF"
+},
+{
+"n": "The Nitty Gritty",
+"addr": "223 N Frances St, Madison, WI 53703",
+"a": "UW"
+},
+{
+"n": "La Taguara",
+"addr": "3502 E Washington Ave, Madison, WI 53704",
+"a": "EAST"
+},
+{
+"n": "The Robin Room",
+"addr": "821 E Johnson St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Heritage Tavern",
+"addr": "Downtown Madison, WI",
+"a": "CAP"
+},
+{
+"n": "Natt Spil",
+"addr": "King St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Madison Public Market",
+"addr": "First St & E Johnson St, Madison, WI",
+"a": "EAST"
+},
+{
+"n": "Sern Sapp",
+"addr": "1146 Williamson St, Madison, WI 53703",
+"a": "EAST"
+},
+{
+"n": "Taigu",
+"addr": "7610 Elmwood Ave, Middleton, WI 53562",
+"a": "MVF"
+},
+{
+"n": "Dhaba Indian Bistro",
+"addr": "8333 Greenway Blvd #100, Middleton, WI 53562",
+"a": "MVF"
+},
+{
+"n": "Rolling Pin Bake Shop",
+"addr": "2935 S Fish Hatchery Rd, Fitchburg, WI 53711",
+"a": "MVF"
+},
+{
+"n": "Curry in the Box",
+"addr": "3050 Cahill Main #3, Fitchburg, WI 53711",
+"a": "MVF"
+},
+{
+"n": "Saigon Noodles",
+"addr": "6754 Odana Rd, Madison, WI 53719",
+"a": "WEST"
+},
+{
+"n": "Petra Bakery & Restaurant",
+"addr": "6119 Odana Rd, Madison, WI 53719",
+"a": "WEST"
+},
+{
+"n": "El Panzon",
+"addr": "1310 S Midvale Blvd, Madison, WI 53711",
+"a": "WEST"
+},
+{
+"n": "Osteria Novella",
+"addr": "2903 University Ave, Madison, WI 53705",
+"a": "WEST"
+},
+{
+"n": "Teddywedgers",
+"addr": "101 State St, Madison, WI 53703",
+"a": "UW"
+},
+{
+"n": "The Kollege Klub",
+"addr": "529 N Lake St, Madison, WI 53703",
+"a": "UW"
+},
+{
+"n": "Library Mall food carts",
+"addr": "Library Mall (State St at Park St), UW–Madison campus, Madison, WI 53706",
+"a": "UW"
+},
+{
+"n": "J. Henry & Sons",
+"addr": "7794 Patton Rd, Dane, WI 53529",
+"a": "DANE"
+},
+{
+"n": "Banzo",
+"addr": "2105 Sherman Ave, Madison, WI 53704",
+"a": "EAST"
+},
+{
+"n": "RED",
+"addr": "316 W Washington Ave, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Oakcrest Tavern",
+"addr": "5371 Old Middleton Rd, Madison, WI 53705",
+"a": "WEST"
+},
+{
+"n": "Driftless Café",
+"addr": "118 W Court St, Viroqua, WI 54665",
+"a": "TRIP"
+},
+{
+"n": "Bar Corallini",
+"addr": "2004 Atwood Ave, Madison, WI 53704",
+"a": "EAST"
+},
+{
+"n": "Wisconsin Brewing Company",
+"addr": "1079 American Way, Verona, WI 53593",
+"a": "MVF"
+},
+{
+"n": "Taqueria Guadalajara",
+"addr": "1033 S Park St, Madison, WI 53715",
+"a": "WEST"
+},
+{
+"n": "Puempel's Olde Tavern",
+"addr": "18 6th Ave, New Glarus, WI 53574",
+"a": "TRIP"
+},
+{
+"n": "Viking Brew Pub",
+"addr": "211 E Main St, Stoughton, WI 53589",
+"a": "DANE"
+},
+{
+"n": "Mediterranean Cafe",
+"addr": "625 State St, Madison, WI 53703",
+"a": "UW"
+},
+{
+"n": "Jordan's Big 10 Pub",
+"addr": "1330 Regent St, Madison, WI 53715",
+"a": "UW"
+},
+{
+"n": "Lucky's 1313 Brew Pub",
+"addr": "1313 Regent St, Madison, WI 53715",
+"a": "UW"
+},
+{
+"n": "Fabiola's Spaghetti House & Deli",
+"addr": "1301 Regent St, Madison, WI 53715",
+"a": "UW"
+},
+{
+"n": "Himal Chuli — CLOSED",
+"addr": "300 block of State St, Madison, WI 53703",
+"a": "UW"
+},
+{
+"n": "Sa-Bai Thong",
+"addr": "2840 University Ave, Madison, WI 53705",
+"a": "WEST"
+},
+{
+"n": "Everly",
+"addr": "2701 Monroe St, Madison, WI 53711",
+"a": "WEST"
+},
+{
+"n": "Swagat",
+"addr": "707 N High Point Rd, Madison, WI 53717",
+"a": "WEST"
+},
+{
+"n": "Bavaria Sausage",
+"addr": "6317 Nesbitt Rd, Fitchburg, WI 53719",
+"a": "MVF"
+},
+{
+"n": "Hop Haus Brewing Co. (Verona)",
+"addr": "231 S Main St, Verona, WI 53593",
+"a": "MVF"
+},
+{
+"n": "Villa Dolce",
+"addr": "1828 Parmenter St, Middleton, WI 53562",
+"a": "MVF"
+},
+{
+"n": "Zafferano Ristorante",
+"addr": "2969 Cahill Main, Fitchburg, WI 53711",
+"a": "MVF"
+},
+{
+"n": "Mariner's Inn — CLOSED",
+"addr": "5339 Lighthouse Bay Dr, Madison, WI 53704",
+"a": "DANE"
+},
+{
+"n": "Brix Cider",
+"addr": "119 S 2nd St, Mount Horeb, WI 53572",
+"a": "DANE"
+},
+{
+"n": "The Coopers Tavern",
+"addr": "20 W Mifflin St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Paisan's — CLOSED",
+"addr": "131 W Wilson St, Madison, WI 53703",
+"a": "CAP"
+},
+{
+"n": "Minhas Craft Brewery",
+"addr": "1208 14th Ave, Monroe, WI 53566",
+"a": "TRIP"
+},
+{
+"n": "Gates & Brovi",
+"addr": "3502 Monroe St, Madison, WI 53711",
+"a": "WEST"
 }
 ]

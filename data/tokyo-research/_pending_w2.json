@@ -1,0 +1,161 @@
+{
+ "note": "held sights — need coords and/or a 2nd credible source; do not write until both exist | METHOD: wikidata.org-restricted 'X latitude longitude' returns Wikidata P625 for streets/alleys that en.wikipedia infoboxes lack.",
+ "items": [
+  {
+   "n": "Harmonica Alley Kichijoji",
+   "a": "TAMA",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/165/index.html; TIMEOUT https://www.timeout.com/tokyo/restaurants/harmonica-yokocho",
+   "need": "coords"
+  },
+  {
+   "n": "Todoroki Valley",
+   "a": "JOSAI",
+   "have": "GOTOKYO https://www.gotokyo.org/en/destinations/southern-tokyo/todoroki-valley/index.html; WIKIPEDIA Todoroki Ryokuchi?; TIMEOUT https://www.timeout.com/tokyo/things-to-do/todoroki-valley; address 1-22-26 Todoroki; NOTE Wikidata 'Todoroki Ryokuchi' is in Kawasaki — rejected",
+   "need": "coords"
+  },
+  {
+   "n": "Togoshi Ginza",
+   "a": "JONAN",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/174/index.html; station point 35.61602,139.71501 (Togoshi-ginza Station)",
+   "need": "2nd + street pin"
+  },
+  {
+   "n": "Nihombashi Mitsukoshi Main Store",
+   "a": "CHUO",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/82/index.html; TIMEOUT https://www.timeout.com/tokyo/shopping/nihombashi-mitsukoshi-main-store",
+   "need": "store coords (returned point = Nihonbashi district, rejected)"
+  },
+  {
+   "n": "Ichiran Shibuya",
+   "a": "SBY",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/ichiran-shibuya; WIKIPEDIA https://en.wikipedia.org/wiki/Ichiran; B1F 1-22-7 Jinnan",
+   "need": "coords"
+  },
+  {
+   "n": "Botan (torisuki)",
+   "a": "CYD",
+   "have": "JAPANTIMES 2012 Kanda article; Wikidata Q22019484 coords 35.695,139.771389",
+   "need": "2nd + current status"
+  },
+  {
+   "n": "Takemura (sweets)",
+   "a": "CYD",
+   "have": "JAPANTIMES 2012 Kanda article; 1-19 Kanda-Sudacho; JAPANTIMES 2013 https://www.japantimes.co.jp/life/2013/07/04/food/takemura-as-traditional-as-it-gets/",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Asakusa Imahan",
+   "a": "TAITO",
+   "have": "Wikidata Q11557218 coords 35.713969,139.792111",
+   "need": "2 sources"
+  },
+  {
+   "n": "Daikokuya Tempura",
+   "a": "TAITO",
+   "have": "Wikidata Q22017198 coords 35.713333,139.8 (whole-second precision, ~400 m east of the shop — REJECTED)",
+   "need": "exact pin + 2 sources"
+  },
+  {
+   "n": "Tomoegata (chanko)",
+   "a": "SMKT",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/tomoegata; 2-17-6 Ryogoku; TIMEOUT https://www.timeout.com/tokyo/things-to-do/ryogoku-area-guide (on the Tomozuna stable premises); GOTOKYO sumo feature https://www.gotokyo.org/en/new-and-now/new-and-trending/260113/topics.html (mention unconfirmed)",
+   "need": "pin (Wikidata has none) — geocode-helper"
+  },
+  {
+   "n": "Hantei (kushiage)",
+   "a": "JHOKU",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/hantei; 2-12-15 Nezu; registered tangible cultural property",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Nonbei Yokocho",
+   "a": "SBY",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/nonbei-yokocho; GOTOKYO yokocho guide; 1-25 Shibuya",
+   "need": "coords (try wikidata)"
+  },
+  {
+   "n": "Komachi-dori Kamakura",
+   "a": "KANTO",
+   "have": "Wikidata Q65263822 coords 35.32153,139.55232",
+   "need": "2 sources"
+  },
+  {
+   "n": "Shiseido Parlour Ginza",
+   "a": "CHUO",
+   "have": "Wikidata Q21019211 point 35.671389,139.766667 REJECTED (whole-second, ~400 m from the 8-chome building)",
+   "need": "pin + 2 sources"
+  },
+  {
+   "n": "Kachidoki Bridge",
+   "a": "CHUO",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/490/index.html",
+   "need": "bridge pin (only station point returned)"
+  },
+  {
+   "n": "Koiwa Iris Garden",
+   "a": "JOTO",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/541/index.html; TIMEOUT https://www.timeout.com/tokyo/attractions/koiwa-iris-garden; 4 Kita-Koiwa",
+   "need": "coords"
+  },
+  {
+   "n": "Senzokuike Park",
+   "a": "JONAN",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/379/; Wikidata Q11555793 Senzoku-ike P625 35.601611,139.690333",
+   "need": "2nd source"
+  },
+  {
+   "n": "Blue Bottle Coffee Kiyosumi-Shirakawa",
+   "a": "SMKT",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/blue-bottle-coffee; WIKIPEDIA Blue Bottle (first Japan store 2015); 1-4-8 Hirano",
+   "need": "coords"
+  },
+  {
+   "n": "Yamashita Park (Yokohama)",
+   "a": "KANTO",
+   "have": "WIKIPEDIA + JAPANGUIDE https://www.japan-guide.com/e/e3204.html",
+   "need": "pin — returned 35.2644,139.3859 is ~25 km off (REJECTED)"
+  },
+  {
+   "n": "Harajuku Gyoza Rou",
+   "a": "SBY",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/harajuku-gyoza-lou; 6-2-4 Jingumae",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Uogashi Nihon-ichi Shibuya Dogenzaka",
+   "a": "SBY",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/uogashi-nihon-ichi-shibuya-dogenzaka; 2-9-1 Dogenzaka",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Tower Hall Funabori",
+   "a": "JOTO",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/things-to-do/tower-hall-funabori; Wikidata Q85872174 coords 35.684389,139.864861",
+   "need": "2nd"
+  },
+  {
+   "n": "Fukagawajuku (Fukagawa-meshi)",
+   "a": "SMKT",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/fukagawajuku-tomioka-hachiman-branch + https://www.timeout.com/tokyo/restaurants/best-fukagawa-meshi-in-tokyo (bukkake + takikomi Fukagawa-meshi)",
+   "need": "2nd non-Time-Out source + pin (Wikidata none) — geocode-helper"
+  },
+  {
+   "n": "Kichijoji Satou (maru menchi)",
+   "a": "TAMA",
+   "have": "GOTOKYO comfort-food story https://www.gotokyo.org/en/story/guide/japanese-comfort-food/index.html; japan-guide Kichijoji e3080 (mention unconfirmed)",
+   "need": "pin (Wikidata none) — geocode-helper"
+  },
+  {
+   "n": "Funabashiya Kameido (kuzumochi)",
+   "a": "SMKT",
+   "have": "Wikidata Q11614131 (company, no shop pin); TIMEOUT Funabashiya Koyomi (branch)",
+   "need": "main-shop pin + 2nd source"
+  },
+  {
+   "n": "Matsuchiyama Shōden (Honryū-in)",
+   "a": "TAITO",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/992/index.html (7-4-1 Asakusa); Wikidata Q11521073 P625 35.717361,139.802972",
+   "need": "2nd source"
+  }
+ ]
+}

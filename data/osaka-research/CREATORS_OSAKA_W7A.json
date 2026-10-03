@@ -1,0 +1,14 @@
+{"creators":[
+ {"key":"CREATOR_RAMENBEAST","name":"Ramen Beast (Abram Plaut)","platform":"app/site (foodle.pro)","handle":"ramenbeast","url":"https://foodle.pro/ramenbeast","scale":"widely used English ramen guide/app for Japan","niche":"ramen","credible":"yes — named on the Japan brief's creator list; already vetted in earlier waves"},
+ {"key":"CREATOR_RAMENADVENTURES","name":"Ramen Adventures (Brian MacDuckston)","platform":"blog/YouTube","handle":"ramenadventures.com","url":"https://ramenadventures.com/","scale":"since 2008; 3000+ shops; books, TV","niche":"ramen","credible":true}
+],
+"attach":[
+ {"place":"Men no Yōji (麺のようじ, Kōzu)","creatorKey":"CREATOR_RAMENBEAST","url":"https://foodle.pro/ramenbeast/meals/osaka/men-no-yoji/17961"},
+ {"place":"Menshō Shisei (麺匠至誠, Yotsubashi)","creatorKey":"CREATOR_RAMENBEAST","url":"https://foodle.pro/ramenbeast/toplists"},
+ {"place":"Ikareta Noodle Fishtons (いかれたヌードル フィッシュトンズ)","creatorKey":"CREATOR_RAMENADVENTURES","url":"https://ramenadventures.com/listing/noodle-fishtons/"},
+ {"place":"Ikareta Noodle Fishtons (いかれたヌードル フィッシュトンズ)","creatorKey":"CREATOR_RAMENBEAST","url":"https://foodle.pro/ramenbeast/meals/osaka/ikareta-noodle-fishtons/17966"}
+],
+"rejected":[
+ {"name":"YouTube okonomiyaki vlogs (search 'Hozenji Sanpei negiyaki')","why":"no verifiable large creator naming Hozenji Sanpei surfaced"},
+ {"name":"macaro-ni.jp, joinpearl.co, enprimeurclub.com, arigatojapan, kansai-odyssey","why":"aggregator/SEO or unvetted; not counted"}
+]}

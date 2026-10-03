@@ -1,0 +1,136 @@
+[
+ {
+  "n": "Bios Hill (ビオスの丘)",
+  "address": "Ishikawa-Kadekaru, Uruma, Okinawa",
+  "lat": 26.421966,
+  "lng": 127.796789,
+  "confidence": "high",
+  "geoSource": "Stars and Stripes Okinawa https://okinawa.stripes.com/travel/find-hidden-gems-at-bios-on-the-hill.html printed GPS 26.421966, 127.796789",
+  "status": "open",
+  "statusSource": "Official site bios-hill.co.jp/en current hours/tickets (2026)"
+ },
+ {
+  "n": "National Theatre Okinawa (国立劇場おきなわ)",
+  "address": "4-14-1 Jitchaku, Urasoe, Okinawa",
+  "lat": 26.24639,
+  "lng": 127.68861,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 国立劇場おきなわ infobox 北緯26度14分47秒 東経127度41分19秒 (26.24639,127.68861)",
+  "status": "open",
+  "statusSource": "Official site nt-okinawa.or.jp facility overview / access (current)"
+ },
+ {
+  "n": "Agena Castle Ruins (安慶名城跡)",
+  "address": "Agena, Uruma, Okinawa",
+  "lat": 26.38083,
+  "lng": 127.85028,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 安慶名城 infobox 北緯26度22分51秒 東経127度51分01秒",
+  "status": "open",
+  "statusSource": "Uruma City national cultural properties page city.uruma.lg.jp/bunka/2399.html (current)"
+ },
+ {
+  "n": "Nakabaru Ruins, Ikei Island (仲原遺跡)",
+  "address": "Ikei, Uruma, Okinawa",
+  "lat": 26.391528,
+  "lng": 127.994583,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 仲原遺跡 infobox 北緯26度23分29.5秒 東経127度59分40.5秒",
+  "status": "open",
+  "statusSource": "OCVB okinawastory.jp spot 30000095 (current listing)"
+ },
+ {
+  "n": "Shirumichu sacred cave, Hamahiga Island (シルミチュー霊場)",
+  "address": "near 1606-3 Katsuren-Higa, Uruma, Okinawa",
+  "lat": 26.324308,
+  "lng": 127.966412,
+  "confidence": "low",
+  "geoSource": "Extended WebSearch 'シルミチュー 浜比嘉島 霊場 北緯 東経' — result set (okinawa-labo.com/shirumichu-amamichu-60578, 4travel 11321883) printed 26.324308,127.966412 with address うるま市勝連比嘉1606-3近辺; single unattributed listing → re-verify",
+  "status": "open",
+  "statusSource": "Okinawa CLIP post 1707357522 (2024) — cave open on set days / Lunar New Year"
+ },
+ {
+  "n": "Urasoe Art Museum (浦添市美術館)",
+  "address": "1-9-2 Nakama, Urasoe, Okinawa",
+  "lat": 26.249917,
+  "lng": 127.719472,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 浦添市美術館 infobox 北緯26.249917 東経127.719472 (address 浦添市仲間1-9-2 matches)",
+  "status": "open",
+  "statusSource": "Urasoe City facility page city.urasoe.lg.jp/kokyoshisetsu/art (current); official X @urasoeartmuseum"
+ },
+ {
+  "n": "Higa Distillery — ZANPA Factory Shop (比嘉酒造 ZANPAファクトリーショップ)",
+  "address": "1061 Nagahama, Yomitan, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Extended search '比嘉酒造 読谷村 住所 緯度 経度' returned address 読谷村字長浜1061 (yasa-okinawaguide, japansake.or.jp) and a ja.wiki page 比嘉酒造 (読谷村) but no printed coordinate; Yahoo map place URL has no lat/lng",
+  "status": "open",
+  "statusSource": "yasa-okinawaguide.com shop 681 — factory shop 9:00–17:00, closed Sun; okinawa-awamori.or.jp member listing"
+ },
+ {
+  "n": "Rotary Drive-In, Michi-no-Eki Kadena (ロータリードライブイン)",
+  "address": "1F Michi-no-Eki Kadena, 1026-3 Yara, Kadena, Okinawa",
+  "lat": 26.36806,
+  "lng": 127.77411,
+  "confidence": "med",
+  "geoSource": "Host building point: ja.wikipedia 道の駅かでな infobox 北緯26度22分05秒 東経127度46分27秒 (already in data/geocodes.json); Ryukyu Shimpo entry-1260702 places the shop on the roadside station's 1st floor",
+  "status": "open",
+  "statusSource": "Ryukyu Shimpo entry-1260702 — operating as take-out shop on Michi-no-Eki Kadena 1F after the dining room closed"
+ },
+ {
+  "n": "Yuntanza Museum, Zakimi Castle (世界遺産座喜味城跡ユンタンザミュージアム)",
+  "address": "708-6 Zakimi, Yomitan, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Search '読谷村立歴史民俗資料館 美術館 座喜味' gave address 座喜味708-6 (OCVB 20150400, museum.or.jp 17787) but no coordinate; adjacent Zakimi Castle pin is a different point → not reused",
+  "status": "open",
+  "statusSource": "OCVB okinawastory.jp spot 20150400 — hours 9:00–18:00 (current)"
+ },
+ {
+  "n": "RuLer's TACORiCE Ginowan Honten (ルーラーズタコライス 宜野湾本店)",
+  "address": "3-8-2 Maehara, Ginowan, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Search 'ルーラーズタコライス 宜野湾' gave address 宜野湾市真栄原3-8-2 but no coordinate",
+  "status": "open",
+  "statusSource": "Tabirai taco-rice article 44689 (2025 edition) lists it as open"
+ },
+ {
+  "n": "Jimmy's Ōyama (ジミー 大山店)",
+  "address": "2-22-5 Ōyama, Ginowan, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Rurubu 80042665 gives 宜野湾市大山2-22-5; Stripes 'jimmy's-bakery' search returned no GPS (it printed the Factory Shop address 7-2-20 Ōyama — a different building)",
+  "status": "open",
+  "statusSource": "Rurubu spot 80042665 current listing"
+ },
+ {
+  "n": "Uehara Zenzai, Moromizato (上原ぜんざい)",
+  "address": "2-2-2 Moromizato, Okinawa City, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Search '上原ぜんざい 沖縄市 諸見里' gave address 諸見里2-2-2 (nankurulife, tabi.media) and a Yahoo map place URL without coordinates",
+  "status": "open",
+  "statusSource": "Ryukyu Shimpo entry-1134800 (20th-anniversary profile); tabi.media 10502 hours 11–19, closed Sun"
+ },
+ {
+  "n": "Gaburi Shokudō, Ginowan Yui Marché (がぶり食堂)",
+  "address": "Ginowan Yui Marché, Ōyama, Ginowan, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Search 'がぶり食堂 宜野湾 骨汁' gave location inside ぎのわんゆいマルシェ (Ōyama) but no street number or coordinate",
+  "status": "open",
+  "statusSource": "okinawashokuzainomise.kuwachii-okinawa.com shop-2601 (prefecture-run Okinawa ingredients shop registry) — 11:00–15:00, open daily"
+ },
+ {
+  "n": "Histreet — Okinawa City Post-war Culture Museum (沖縄市戦後文化資料展示館 ヒストリート)",
+  "address": "Gate-dōri, Chūō, Okinawa City, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Search 'ヒストリート 中央 ゲート通り' gave location on Gate-dōri, Chūō (Ryukyu Shimpo) but no street number or coordinate; no pin search spent",
+  "status": "open",
+  "statusSource": "Stars and Stripes 2026-09-03 post-WW2 culture museum article (current)"
+ },
+ {
+  "n": "Kuwachii Shokudō Aozora, Kitanakagusuku (くわっちぃ食堂 青空 北中城店)",
+  "address": "1359-1 Adaniya, Kitanakagusuku, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Searches gave address 北中城村安谷屋1359-1 (Hotel Southern Village; kitapo.jp, okinawalikes 926) and a Yahoo map place URL without coordinates",
+  "status": "open",
+  "statusSource": "kitapo.jp spot/aozora + official aozora.okinawa — lunch 11–15, dinner 17–21, closed Sun"
+ }
+]

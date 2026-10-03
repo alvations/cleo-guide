@@ -19,32 +19,278 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 
 ## State
 - 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys).
-- 2026-10-02 **W1 done (truncated)** — 13 places discovered & sourced (NAHA 6 · CHUBU 3 · NANBU 1 · HOKBU 3 · KRM 0 ·
-  MYK 0 · YAEYA 0); 6 verified pins + 7 UNVERIFIED in `geo/_geoout_okinawa_W1.json` (NOT yet merged into
-  data/geocodes.json — merge happens on the first `--build`). Files: `SIGHTS_OKINAWA_W1.json`, `FOOD_OKINAWA_W1.json`,
-  `SOURCES_OKINAWA_W1.json`. **Stopped because the session WebSearch cap (200/200, shared by all agents) was hit
-  after 17 of this agent's searches** — every further search is refused. Relaunch with a fresh search budget.
-- Build-script prose (`tools/build-okinawa.py`) rewritten for real Okinawa content.
-- Append helper: `python3 _okinawa_add.py F|S|G <TAG> < records.json` (dedups by name; F/S/G = food/sights/geo).
+- 2026-10-02 **W1** (truncated by the shared cap): 13 discovered (`*_W1.json`).
+- 2026-10-02 **W2 done** (relaunch, ~174 WebSearch calls): +106 → **119 discovered (92 sights + 27 food), 74 pinned**,
+  45 UNVERIFIED (helper queue). Gates: sourcecheck / geocheck / statuscheck / buildcheck **PASS**; `npm run validate`
+  + `npm test` **ALL PASS**. Files: `SIGHTS/FOOD/SOURCES/CREATORS_OKINAWA_W2.json`, `geo/_geoout_okinawa_W2.json`,
+  raw per-search log `_okinawa_w2_notes.md` (every surfaced GPS and held lead, numbered — read before searching).
+- View: opt-in `CFG["VIEW"]=(26.45,127.85,9)` in `tools/build-okinawa.py` (shared `tools/belgium_build.py` gained the
+  backwards-compatible key) — frames the main island; Kerama/Miyako/Yaeyama by pan/zoom.
+- **Not live**: hub card stat updated ("119 researched · 74 pinned · still being built"); CITIES.md row refreshed.
+
+### Density (python3 tools/density.py okinawa, discovered set)
+| area | have | target | need |
+|---|---|---|---|
+| NAHA | 21 | 120 | +99 |
+| CHUBU | 22 | 95 | +73 |
+| HOKBU | 23 | 90 | +67 |
+| NANBU | 18 | 65 | +47 |
+| YAEYA | 14 | 60 | +46 |
+| MYK | 14 | 50 | +36 |
+| KRM | 7 | 30 | +23 |
+
+- 2026-10-02 **W3 done** (food & drink first + ANIME; WebSearch budget fully spent — 200/200 incl. two background
+  geocoders): +95 → **214 discovered (107 sights + 107 food & drink = 50 % food, was 22 %), 89 pinned**; ANIME 4
+  (Nirai Kanai, Azama, Pokémon Center Okinawa, Sugar Road/Chura-san); 2 notable closures flagged (Ayagu, Ichigin). 4 gates PASS, `npm run
+  validate` + `npm test` ALL PASS. Files `FOOD/SIGHTS/SOURCES_OKINAWA_W3.json`, `geo/_geoout_okinawa_W3.json` (discovery
+  pins), `_W3G` (held-sight geocoder: 7 kept, 5 rejected), `_W3R` (restaurant geocoder: 1/50), raw log `_okinawa_w3_notes.md`
+  (120 numbered entries — every held lead and its source; read before searching).
+
+### Density after W3 (python3 tools/density.py okinawa)
+| area | food | sights | have | target | need |
+|---|---|---|---|---|---|
+| NAHA | 25 | 17 | 42 | 120 | +78 |
+| CHUBU | 18 | 18 | 36 | 95 | +59 |
+| HOKBU | 20 | 18 | 38 | 90 | +52 |
+| NANBU | 15 | 17 | 32 | 65 | +33 |
+| YAEYA | 13 | 15 | 28 | 60 | +32 |
+| MYK | 12 | 12 | 24 | 50 | +26 |
+| KRM | 4 | 10 | 14 | 30 | +16 |
 
 ## In-flight wave
-- none (W1 closed, truncated by the shared WebSearch cap — see State).
+- none (W9 closed 2026-10-03; ~190 of the session's ~200 searches spent).
 
-## Next actions
-0. Held leads to re-source first: Tsuboya Yachimun-dōri, Shuri Soba, Miyazato Soba (Nago), Yanbaru Soba; re-geocode
-   Shikinaen, Makishi Market, King Tacos, and Nakagusuku/Nakijin/Zakimi/Katsuren (Wikipedia infobox, one place per query).
-   Cheap channel to try: `allowed_domains` searches on visitokinawajapan.com / japan-guide.com / okinawa.stripes.com
-   (Stripes prints venue GPS).
-1. Discovery waves per area (canon first) → `python3 tools/density.py okinawa` → iterate on every `NEED +N`.
-2. Geocode waves → `geo/_geoout_okinawa_*.json` → `python3 tools/rebuild-city.py okinawa --build` (under the shared lock).
-3. Re-verify pin placement (CLAUDE.md 4b) + closure pass (4c) until statuscheck reports zero unchecked.
+- 2026-10-02 **W4 done** (fresh session, ~186 searches, 9 background subagents): pin-first + discovery + anime.
+  **258 discovered (128 sights + 130 food & drink = 50 % food), 130 pinned (was 89)** — pins per area NAHA 18 · CHUBU 24 ·
+  NANBU 21 · HOKBU 34 · KRM 5 · MYK 11 · YAEYA 17. ANIME 6 (+Cape Chinen/Aquatope, Okitsura Gushikawa). 4 gates PASS,
+  validate + test ALL PASS. Card stat + CITIES.md refreshed; **not live** (go-live bar: ≥150 pins, every area ≥10).
+  Geocoders: W4G1 sights 15/31 (11 high JA-Wikipedia), W4G2 Naha/Chūbu food 2/39, W4G3 south/north food 10/30 (aggregator
+  coords → `low`, AUDIT policy), W4G4 islands food 1/25. Discovery: W4D1 Naha +12 (Ukishima → held), W4D2 Chūbu/Nanbu +11,
+  W4D3 Hokubu/islands +19, W4A anime +2. Per-agent logs `_okinawa_W4*_notes.md`.
 
-## Map-view caveat (check at first build)
+### Density after W4
+| area | food | sights | have | target | need |
+|---|---|---|---|---|---|
+| NAHA | 34 | 20 | 54 | 120 | +66 |
+| CHUBU | 18 | 26 | 44 | 95 | +51 |
+| HOKBU | 24 | 20 | 44 | 90 | +46 |
+| NANBU | 17 | 20 | 37 | 65 | +28 |
+| MYK | 14 | 12 | 26 | 50 | +24 |
+| YAEYA | 18 | 20 | 38 | 60 | +22 |
+| KRM | 5 | 10 | 15 | 30 | +15 |
+CHUBU food is only 41 % → next Chūbu discovery is food-only.
+
+- 2026-10-03 **W5 done** (fresh session, 200 searches, 8 bg agents): **302 discovered (143 sights + 159 food & drink = 53 %),
+  183 pinned (was 130)** — high 89 · med 45 · low 49. Pins/area NAHA 42 · CHUBU 38 · NANBU 26 · HOKBU 36 · KRM 8 · MYK 13 · YAEYA 20.
+  ANIME 9. Closures flagged 3 (Ayagu, Ichigin, Arakaki Shokudō). 4 gates PASS; validate + test ALL PASS. Not live (KRM < 10 pins).
+
+### Density after W5
+| area | food | sights | have | target | need |
+|---|---|---|---|---|---|
+| NAHA | 40 | 22 | 62 | 120 | +58 |
+| CHUBU | 22 | 27 | 49 | 95 | +46 |
+| HOKBU | 29 | 22 | 51 | 90 | +39 |
+| NANBU | 18 | 25 | 43 | 65 | +22 |
+| MYK | 18 | 13 | 31 | 50 | +19 |
+| YAEYA | 25 | 21 | 46 | 60 | +14 |
+| KRM | 7 | 13 | 20 | 30 | +10 |
+
+- 2026-10-03 **W6 done** (fresh session, ~188 searches, 8 bg agents; rules `_okinawa_w6_agentrules.md`): **343 discovered
+  (162 sights + 181 food & drink = 53 %), 246 pinned (was 183)** — high 98 · med 50 · low 98. Pins/area NAHA 47 · CHUBU 51 ·
+  NANBU 32 · HOKBU 48 · KRM 13 · MYK 24 · YAEYA 31. ANIME 11. **Went LIVE** (CARD:okinawa linked; root CARD:japan "5 of 5").
+  4 gates PASS; validate + test ALL PASS. Agent tags: W6G1/G2/G3 geocoders (+7/+19/+21), W6D1 Chūbu +11, W6D2 Hokubu +9
+  (Parlor Senri CLOSED), W6D3 Naha +8, W6D4 Nanbu/islands +11, W6A anime +2. Held by orchestrator: Blue Turtle Farm, Zhyvago.
+
+### Density after W6
+| area | food | sights | have | target | need | pins |
+|---|---|---|---|---|---|---|
+| NAHA | 44 | 26 | 70 | 120 | +50 | 47 |
+| CHUBU | 29 | 31 | 60 | 95 | +35 | 51 |
+| HOKBU | 35 | 27 | 62 | 90 | +28 | 48 |
+| NANBU | 21 | 26 | 47 | 65 | +18 | 32 |
+| MYK | 19 | 14 | 33 | 50 | +17 | 24 |
+| YAEYA | 26 | 21 | 47 | 60 | +13 | 31 |
+| KRM | 7 | 17 | 24 | 30 | +6 | 13 |
+
+- 2026-10-03 **W7 done** (fresh session, ~191 searches, 8 bg agents; rules `_okinawa_w7_agentrules.md`): **378 discovered
+  (176 sights + 202 food & drink = 53 %), 295 pinned (was 246)** — high 112 · med 60 · low 123 · UNVERIFIED 86. ANIME 16 (+5 Poké Lids).
+  Closures flagged: Mutsumibashi Kadoya, Naha City Museum of History. 4 gates PASS; validate + test ALL PASS. Agent tags: W7D1 Naha food +8,
+  W7D2 Chūbu food +7, W7D3 Naha sights +9, W7H held +6, W7A anime +5, W7G1 +18 pins, W7G2 +7 pins, W7R 9 low→high/med. Details: AUDIT.md W7.
+
+### Density after W7
+| area | food | sights | have | target | need | pins |
+|---|---|---|---|---|---|---|
+| NAHA | 52 | 37 | 89 | 120 | +31 | 73 |
+| CHUBU | 37 | 34 | 71 | 95 | +24 | 65 |
+| HOKBU | 38 | 27 | 65 | 90 | +25 | 52 |
+| NANBU | 21 | 26 | 47 | 65 | +18 | 34 |
+| MYK | 20 | 14 | 34 | 50 | +16 | 25 |
+| YAEYA | 27 | 21 | 48 | 60 | +12 | 33 |
+| KRM | 7 | 17 | 24 | 30 | +6 | 13 |
+
+- 2026-10-03 **W8 done** (session_01Df9Wi2VqyzsSc7XCRZBEQz, ~184 searches, 8 bg agents; rules `_okinawa_w8_agentrules.md`): **418 discovered
+  (191 sights + 227 food & drink = 54 %), 344 pinned (was 295)** — high 119 · med 72 · low 153. **ANIME 22 found / 15 pinned** (+6 Poké Lids & Anime-88
+  West Pier). No new closures. 4 gates PASS; validate + test ALL PASS. Agent tags: W8H +5, W8D1 +2, W8D2 +6, W8D3 +7, W8D4 +5, W8D5 +9, W8A +6, W8G +14 pins.
+
+### Density after W8
+| area | food | sights | have | target | need | pins |
+|---|---|---|---|---|---|---|
+| NAHA | 59 | 42 | 101 | 120 | +19 | 85 |
+| CHUBU | 39 | 34 | 73 | 95 | +22 | 68 |
+| HOKBU | 43 | 29 | 72 | 90 | +18 | 61 |
+| NANBU | 23 | 28 | 51 | 65 | +14 | 40 |
+| MYK | 23 | 16 | 39 | 50 | +11 | 32 |
+| YAEYA | 30 | 24 | 54 | 60 | +6 | 41 |
+| KRM | 10 | 18 | 28 | 30 | +2 | 17 |
+
+- 2026-10-03 **W9 done** (session_012LmRFpCmy9XHMHT66hkzS3, ~190 searches, 7 bg agents; rules `_okinawa_w9_agentrules.md`): **451 discovered
+  (198 sights + 253 food & drink = 56 %), 378 pinned (was 344)** — high 124 · med 76 · low 178. **ANIME 23 found / 18 pinned** (+Chiikawa Restaurant
+  Okinawa). No new closures. 4 gates PASS; validate + test ALL PASS. Agent tags: W9D1 +6, W9D2 +5, W9D3 +8, W9D4 +4, W9D5 +9, W9A +1, W9G +6 pins.
+  4 records removed by orchestrator fact-check (AUDIT W9). Apple Maps pin channel: 0 coordinates for Okinawa.
+
+### Density after W9
+| area | food | sights | have | target | need |
+|---|---|---|---|---|---|
+| NAHA | 64 | 42 | 106 | 120 | +14 |
+| CHUBU | 46 | 34 | 80 | 95 | +15 |
+| HOKBU | 47 | 33 | 80 | 90 | +10 |
+| NANBU | 26 | 28 | 54 | 65 | +11 |
+| MYK | 26 | 19 | 45 | 50 | +5 |
+| YAEYA | 33 | 24 | 57 | 60 | +3 |
+| KRM | 11 | 18 | 29 | 30 | +1 |
+
+- 2026-10-03 **W10 done — DENSITY MET in every area** (session_01SNdRN4VTyvqgJyuKThEgUA, ~196 searches, 6 bg agents + orchestrator):
+  **513 discovered (213 sights + 300 food & drink = 58 %), 408 pinned (was 378)** — high 132 · med 80 · low 196 · UNVERIFIED 105.
+  ANIME 23 found / 18 pinned (0 new). Closure flagged: Oden Tōdai (2022). 4 gates PASS; validate + test ALL PASS. Details: AUDIT.md W10.
+
+### Density after W10
+| area | food | sights | have | target | status |
+|---|---|---|---|---|---|
+| NAHA | 79 | 42 | 121 | 120 | OK |
+| CHUBU | 53 | 42 | 95 | 95 | OK |
+| HOKBU | 54 | 38 | 92 | 90 | OK |
+| NANBU | 36 | 29 | 65 | 65 | OK |
+| MYK | 31 | 19 | 50 | 50 | OK |
+| YAEYA | 35 | 25 | 60 | 60 | OK |
+| KRM | 12 | 18 | 30 | 30 | OK |
+
+- 2026-10-03 **P1 pins-only** (session_014tccsddAZhWkWHE1pGLan6, ~55 searches): **425 pinned** (+17; NAVITIME POI one-shop-per-query
+  `<店名> <住所> 緯度 経度`), 88 UNVERIFIED, Kingyū low→high. Next: retry the 9 "POI exists, coord not printed" (AUDIT P1) with the POI's
+  exact name; status-check Kura (Bocca burger now at 久貝654-6); resolve Utahime address (牧志1-2-31 vs 東町17-11).
+
+## Next actions (W11 plan — pins & quality, not discovery)
+1. **Pins: 105 UNVERIFIED** (W10 added ~33: see `geo/_geoout_okinawa_W10*.json` UNVERIFIED rows). Search channels are nearly exhausted
+   (Apple Maps 0 for Okinawa; NAVITIME/MapFan rare). Run the browser `tools/geocode-helper.html` on `docs/GEOCODE-BACKLOG.md` → okinawa.
+2. **4b re-verify 196 `low`** → upgrade to place pins; W10 flags: Stand Suehiro (~190 m off the market pins), Shirumichu (Hamahiga),
+   Do~me Gohan Café (shares Glass Village point), plus W9 flags (Ojisan, Zhyvago, ROCO; Kingyū, Kura, Kōrakuen).
+3. **Anime:** 5 unpinned (Ryūtan lid @首里池端町18, Shōfūen, Sugar Road, Zamami lid, Ishigaki lid) → browser helper.
+4. **Quality swaps (optional):** held leads in AUDIT W10 can replace weaker t3 records if they gain a 2nd source; Kōganeya street address.
+5. Build loop unchanged (push script `_okinawa_push_w10.sh` — update its trailer for a new session).
+
+## Older plan (W10)
+1. **Discovery yield is ~1 kept per 4 searches now** (most JA list searches return aggregators). Pair the W9 held leads first (AUDIT W9 "Held") —
+   each is one confirm search. Chūbu +15: food & drink only (Kawaraya, Shirahamaya, Yomitanzan Soba, Sobe, Cocoroar, Churuge) + Chūbu sights are
+   now under-weight (34) — Nakagusuku/Katsuren/Zakimi already in; try Urasoe Yōdore area, Kitanakagusuku Nakamura House, Yomitan Zakimi pottery
+   village (Yachimun no Sato), Uruma Kaichū-dōro islands (Hamahiga/Henza/Ikei). Naha +14: sights (42) are fine → food & drink.
+   Nanbu +11 (food 48 %) food-first. MYK +5 · YAEYA +3 · KRM +1 — each one targeted search.
+2. **Koza steak houses** remain a stated gap after ~10 searches (W8D1/W9D1); try Stripes "Jack's Steak House" style named searches only if a name surfaces.
+3. **Anime:** pin the 5 unpinned (Ryūtan lid, Shōfūen, Sugar Road, Zamami lid, Ishigaki lid) — the Poké Lid official map
+   (local.pokemon.jp/manhole) has not surfaced coords via search; browser `tools/geocode-helper.html` is the channel. Held: Gushikawa Soba Ai-chan,
+   Animate Naha, Mangasouko.
+4. **Pins:** ~73 UNVERIFIED (W9G notes "still unverified"). Apple Maps `allowed_domains` gave no coordinates for Okinawa — don't repeat;
+   use the browser geocode-helper. 4b: 178 `low` → re-verify (W9G flags Ojisan, Zhyvago, ROCO; W8 flags Kingyū, Kura, Kōrakuen).
+5. **Creators:** 0 kept W4–W9 — stop.
+6. Build loop unchanged: `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py okinawa --build` → 4 gates →
+   `cd tools && npm run validate && npm test` → CARD:okinawa stat + CITIES row + AGENT-PROMPTS row → commit+push
+   (`bash data/okinawa-research/_okinawa_push_w9.sh "msg" <extra paths>` — update its session trailer for a new session).
+
+## Older plan (W9)
+1. **Chūbu +22 is now the biggest gap, food & drink only.** Koza steak houses: mine Okinawa Times series 「沖縄ステーキ史 since1950」 (W8D1 notes)
+   for named houses + pair each with Stripes/KozaWeb/RS; resolve New York Restaurant status. Chūbu held: Mickey, Shimanchu Soba, Churuge Soba, Ippe Coppe.
+2. **Naha +19 food-first** (W8D3 added 5 sights / 2 food): awamori bars, min'yō sakaba, kissaten, bakeries. Held: Naha Soba, Shima Nakama, Teshiraji,
+   The President, Awamori Souko/A STAND. Oninoude: check BRUTUS EN post-332928 names it before swapping the root URL.
+3. **Hokubu +18, Nanbu +14 (food only — 45 % food), MYK +11, YAEYA +6, KRM +2.** Held lists in `_okinawa_W8D2/D4/D5_notes.md`.
+4. **Anime:** pin the 7 unpinned (list in AUDIT W8); W8A part 3 not run (Okinawa pilgrimage/collab cafés/Ultraman-Kinjō searches); card notes for
+   lids at existing places (Tokashiki, Kumejima, Miyako, Nanjō, Okinawa City Kodomo no Kuni, Ginowan Tropical Beach) and Anime-88 Kabira/Kondoi.
+5. **Pins:** ~74 UNVERIFIED; W8G "still unverified" list (Hiyajō Banta, Wajī, Kaminohama, Aharen, Nakanoshima, Yoshino, Chuko-gura, Kumesen, Tokuyama,
+   Nishikiya, Ryū no Kura, Utahime @東町17-11) needs a different channel (browser `tools/geocode-helper.html`). 4b: 153 `low` → re-verify flags in AUDIT W8.
+6. **Creators:** 0 kept W4–W8 — stop unless a query names a specific shop.
+7. Build loop unchanged: `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py okinawa --build` → 4 gates →
+   `cd tools && npm run validate && npm test` → CARD:okinawa stat + CITIES row + AGENT-PROMPTS row → commit+push
+   (`bash data/okinawa-research/_okinawa_push_w8.sh "msg" <extra paths>` — update its session trailer for a new session).
+
+## Older plan (W8)
+1. **Held leads (one confirm search each)** — listed in AUDIT.md W7 "Held"; cheapest: Nago Poké Lid (already 2 sources — just pin),
+   Naha Soba (Kinjō), Shima Nakama, Imai Pan, Teshiraji, Miyazato Soba, VONGO & ANCHOR, Ippe Coppe. Blue Turtle Farm is MYK.
+2. **Discovery:** Naha +31 (food 58 % → balanced), Hokubu +25 (food-first), Chūbu +24 (Koza steak houses = named gap; food-first),
+   Nanbu +18 (food 45 % → food-only), MYK +16, YAEYA +12, KRM +6 (food 29 % → food-only: Zamami/Tokashiki/Kume shokudō & soba).
+   Best yielding lists in W7: OTV Okitive reader Top-30 ↔ KozaWeb; Ryukyu Shimpo gourmet; Mapple articles.
+3. **Pins:** 86 UNVERIFIED (W7G1/W7G2 notes list what was tried). 4b: ~114 `low` food pins never re-verified (W7R reached sights +
+   flagged ones only) — NAVITIME venue pages were the productive upgrade channel (med). Reconcile Araha Beach address (2-2-1 vs 2-21),
+   update Utahime's relocation (東町17-11), Busena (park-level point), Sakihama Seimen (tabelog-only).
+4. **Fact-check follow-ups:** find a real article URL (or replace) for Oninoude's BRUTUS cite; spot page for Kinjō Bakery.
+5. **Creators:** 0 kept W4–W7 (~36 searches). Stop generic creator queries; only targeted ones naming a shop.
+6. Build loop unchanged: `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py okinawa --build`
+   → 4 gates → `cd tools && npm run validate && npm test` → CARD:okinawa stat + CITIES row + AGENT-PROMPTS row → commit+push
+   (`bash data/okinawa-research/_okinawa_push_w7.sh "msg" <extra paths>` — update its session trailer for a new session).
+
+## Older plan (W7)
+1. **Discovery yield is the bottleneck now** (W6: ~2.3 searches per kept place; most JA list searches return aggregators).
+   Pair the held leads first — each is ONE confirm search from kept: Naha (Oninoude, Yappari Steak 1st store, Teshiraji, Kinjō
+   Bakery, Shima Nakama, Mutsumibashi Kadoya), Hokubu (Miyazato Soba, Shirasa Shokudō, Cafe Hakoniwa, Cafe Kokuu, Iejima rum,
+   Tototo, Agai, Yukuru), islands/Nanbu (Tōfu no Higa, Boku no Mise Ojisan, Kihachi, Marukami), Zhyvago (confirm RS 751034),
+   Blue Turtle Farm (find a real 2nd source). Notes: `_okinawa_W6D*_notes.md`.
+2. **Naha +50 / Chūbu +35:** food-first (Naha food 63 %, Chūbu 48 % → Chūbu food-only). Lists: Stripes "best of", OTV Okitive,
+   Okinawa Times soba/shokudō polls, Michelin Guide Okinawa? (none — Japan Michelin doesn't cover Okinawa; confirm), KozaWeb.
+3. **Pins:** ~97 UNVERIFIED remain (`geo` records + dataset). W6G2 left all 16 NAHA food + 10 others unreached; W6G3 left 17
+   (7 island distilleries etc.); W6G1 left 12. Same pattern: extended `<日本語名> <JA address> 緯度 経度` (→ low).
+4. **Re-verify (4b):** 98 `low` pins → upgrade to `!3d!4d`; specifically Milmil Honpo (listings 250 m apart), KITCHEN inaba
+   (single listing), Tamatorizaki, Akagi trees. Recheck Sukeroku status (tabelog-only).
+5. **Creators:** 0 kept in W4–W6 (~25 searches). Haisai Tanteidan (1.1M subs, verified) is the best candidate — search its
+   videos for named shops already on the map. Stop spending on generic creator queries.
+6. After each ~40: `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py okinawa --build`
+   → 4 gates → `cd tools && npm run validate && npm test` → refresh CARD:okinawa stat (live format) + CITIES row → commit+push
+   (`bash data/okinawa-research/_okinawa_push_w6.sh "msg" <extra paths>` — update its session trailer for a new session).
+
+## Older plan (W5)
+W5 lessons (W4): restaurant GPS almost never surfaces in search → (a) **browser `tools/geocode-helper.html` run on the 132
+UNVERIFIED is the fastest way to ~250 pins / go-live**; (b) in search, `site:travel.navitime.com <日本語名> 緯度 経度` (med, one page per point) plus the only other productive patterns were extended-mode ONE name per
+query: `<日本語名> wikipedia 座標` (sights, high) and `<name> tripadvisor latitude longitude` (restaurants → `low`, must match the
+sourced address); Stripes `GPS` searches rarely hit. (c) Discovery: most Naha list leads were single-source — pair Rurubu ↔ Mapple ↔
+Okinawa Traveler deliberately; held leads per agent are in `_okinawa_W4D*_notes.md`. (d) Re-verify the 13 `low` pins to `!3d!4d`.
+
+## Older plan (W4, partly done)
+0. **Pins are the bottleneck (89 of 186 render).** ~95 places (≈70 restaurants) are UNVERIFIED: run
+   `tools/geocode-helper.html` in a browser on `docs/GEOCODE-BACKLOG.md` → okinawa. Stripes article URLs that print GPS
+   for held restaurants are listed in `_okinawa_w3_notes.md` (Mikasa, Yagiya/noodles-nanjo, Jack's, Charlie's, Tacoloco,
+   Curcuma). Sights still unpinned: Shikinaen, Sakaemachi, Sunayama, Irabu Bridge, Gangala, Hate-no-hama, Yaedake,
+   Tamatorizaki, Kume beaches, Aharen, Araha, Emerald, Yoshino, Aragusuku, Pokémon Center (Aeon Rycom), Ama, Takatsukiyama,
+   Ryūtan, Karate Kaikan. Go live at ≥150 pins with every area ≥10 pins.
+1. **Food (keep ≥50 % per area):** the Rurubu ↔ Mapple pairing works (1 list search → 4–8 names; 1 confirm search →
+   2–4 kept). Held single-source leads to pair next (see notes #): Miyazato Soba, Mutsumibashi Kadoya, Shuri Soba
+   Nakada, Teshiraji, George Restaurant, Ishimine Shokudō, Tsubame (Makishi 2F), Adachiya, Sangoza Kitchen, Koshuya,
+   COFFEE potohoto, HUU'S, ippe coppe, Cafe Kokuu, CASA SOL, Kissa Agachi-mori, Jef Yonabaru, Seaside Drive-In, Cafe
+   Ocean, Kitauchi Bokujō, Hitoshi, Gen, Yaesen/Seifuku distilleries, Kihachi & Yan-kō (Kume), Marumi-ya (Zamami), Kanifu
+   & Shidamē-kan (Taketomi), Iriomote cafés, Yukishio Museum, KOURI SHRIMP, Makabe Chinā, Kaiyō Shokudō, Maeda Shokudō.
+   Unmined/half-mined lists: Mapple tourism/okinawa/02 (Kokusai 19 — Pork Tamago Onigiri Honten, Okinawa Daiichi Hotel
+   breakfast, C&C Breakfast, Ball Donut Park, Sekka no Sato need a 2nd source), rurubu 14269 (cafés 31), KozaWeb bakeries
+   280 / senbero 283, Okinawa Traveler 0003 ranking, Hateruma/Kohama/Iriomote food (Mapple-only names in notes #104-108).
+2. **Sights for Naha/Chūbu** (largest gaps): Tomari International Cemetery, Mekaru tombs, Shuri Kannondō, Naminoue Beach,
+   Urasoe Castle/Yōdore, Kakazu Ridge, Sugar Loaf, Minatogawa Stateside Town (Stripes GPS), Kadena michi-no-eki lookout,
+   Okinawa Zoo, Plaza House, Rycom; Ishigaki Limestone Cave & Cape Hirakubo (GLTJP + Stripes '20 things').
+3. **ANIME (3 so far):** Okitsura (Uruma — pilgrimage map RS 3833039, manholes RS 4174266), Poké Lids (16 in 12 cities —
+   need per-lid sites), One Piece Card Game shop (San-A Naha Main Place), Chura-san (NHK drama, Kohama Island).
+4. **Creators:** still 0 vetted attachments (SUSURU TV, Rachel & Jun, LWIF, Tokyo Lens checked). Try Japanese Okinawa
+   YouTubers with ≥100k subs naming specific shops.
+5. After each ~50: `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py okinawa --build`
+   → 4 gates → `cd tools && npm run validate && npm test` → commit+push.
+
+## Map-view caveat (RESOLVED 2026-10-02 — VIEW override; keep checking after island pins land)
 The centre/zoom is derived from the 5–95 % pin percentiles over ALL Okinawa pins. Once Miyako/Yaeyama hold >5 % of
 pins the box spans ~400 km and the derived view lands in the sea at zoom ~7–8. After the first `--build` run
 `node tools/research.js --buildcheck okinawa` and eyeball the view; if the main island isn't framed, add a
 documented CFG override (e.g. `VIEW`) in tools/belgium_build.py under the lock rather than hardcoding.
 
 ## Acceptance
-- [ ] every area ≥ target · [ ] sourcecheck PASS · [ ] geocheck PASS · [ ] statuscheck CONSISTENT, 0 unchecked
-- [ ] buildcheck PASS · [ ] `npm run validate && npm test` green · [ ] Japan hub card live · [ ] CITIES.md row
+- [x] every area ≥ target (W10) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
+- [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] Japan hub card live · [x] CITIES.md row

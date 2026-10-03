@@ -65,3 +65,35 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 ### In-flight wave (HLV)
 - none. W1 DONE (truncated by the 200/200 session WebSearch cap): 13 discovered (10 food + 3 sights) / target 55;
   7 pins on the (greyed) page; 8 UNVERIFIED for the helper. Next = W2 plan in `_note_HOLLANDV.md` "Next actions".
+
+## 4-town relaunch session (PGL/BLS/NVN/HLV, 2026-10-02) — checkpoint
+- One session does all four towns (shared dir). Helper: `_sg4_add.py` (dedupe + >=2-credible assert); search log: `_sg4_searchlog.md`.
+- Files this session: FOOD_PUNGGOL2, SIGHTS_PUNGGOL2, FOOD_BALESTIER2, SIGHTS_BALESTIER (+), FOOD_NOVENA2, SIGHTS_NOVENA2, FOOD_HOLLANDV2, SIGHTS_HOLLANDV2,
+  SOURCES_BALESTIER2/3, SOURCES_NOVENA2; geo/_geoout_punggol_w2(+c), _geoout_sg4_w2b, _geoout_hollandv_w2, _geoout_novena_w2.
+- Lessons: EXTENDED-mode list queries naming 3+ guides yield 3-6 two-source places per call; standard mode ~1. Geocoding hawker-centre
+  BUILDINGS by WebSearch mostly fails (Whampoa Makan Place, HV MFC, Punggol Coast HC, Punggol Settlement: no published pin) -> UNVERIFIED for
+  tools/geocode-helper.html. Women's Weekly + Her World lists appear syndicated -> counted as ONE voice (2 Ghim Moh stalls held).
+### State (4-town, end of W2 — 2026-10-02)
+- HLV 56/55 OK — **LIVE** (33 pins). BLS 55/55 OK — NOT live until the browser helper pins Whampoa Makan Place/Balestier Market/Balestier Rd
+  (5 pins now). NVN 37/55 (NEED +18). PGL 35/93 (NEED +58). (True counts after the density.py worklist fix.)
+### In-flight wave (4-town)
+- none. NEXT (ordered): (1) `tools/geocode-helper.html` on the UNVERIFIED backlog for these 4 towns, then
+  `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py singapore --build` and add "balestier" to LIVE_SLUGS if >=40 pins;
+  (2) NVN +18 via domain-filtered 2nd-sourcing of `_note_NOVENA.md` held list; (3) PGL W3 per `_note_PUNGGOL.md`; (4) status re-check pass
+  (One Punggol operator change 2026). Push with `data/singapore-research/_sg4_push.sh` (auto-resolves the generated GEOCODE-BACKLOG conflict).
+
+- **FINAL (end of session): HLV 57/55 OK (LIVE) · BLS 56/55 OK (go-live held for pins) · NVN 37/55 (NEED +18) · PGL 35/93 (NEED +58).** Late adds: NVN Baan Ying, Banelé; BLS Niu Dian (VIIO @ Balestier); HLV Niu Dian (HV).
+
+## PGL + NVN W3 (2026-10-03) — checkpoint
+- **State (W3 closed):** PGL 50/93 (NEED +43; 24 pinned; 74% food) · NVN 53/55 (NEED +2; 35 pinned; 79% food). Details + held lists: `_note_PUNGGOL.md` / `_note_NOVENA.md` "W3".
+- **In-flight wave:** none.
+- **Next:** (1) helper-geocode Punggol Coast HC (84 Punggol Way S829911) + The Punggol Settlement + Northshore Plaza + Scotts Rd 27/35 + Balmoral Plaza — unlocks ~25 PGL/NVN pins; (2) NVN +8 from the held list (Carousel award source, Mun Zuk, Cairnhill conservation, Smiths-style Balmoral/Newton picks); (3) PGL +43: Punggol Settlement/Tebing Lane status pass, Waterway Point/Punggol Plaza, Sumang/Edgefield coffeeshops, creator pass.
+- **Commands:** `python3 tools/density.py singapore` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py singapore --build --geo-only "_geoout_*_w4.json"`
+
+## PGL + NVN W4 (2026-10-03, wave-3 relaunch session) — checkpoint
+- **State (W4 closed):** NVN **56/55 OK — LIVE** (42 pinned; 80% food) · PGL **63/93 (NEED +30)** (29 pinned; 73% food; greyed). Details + held lists: `_note_NOVENA.md` / `_note_PUNGGOL.md` "W4".
+- **Files:** FOOD_NOVENA4, FOOD_PUNGGOL4, SIGHTS_PUNGGOL4, SOURCES_PUNGGOL4 (SASSYMAMA, RTF, HOMETEAMNS), geo/_geoout_{novena,punggol}_w5.json.
+- **In-flight wave:** none.
+- **New geocode route:** OneMap building points via `WebSearch allowed_domains:["onemap.gov.sg"]` + the building's OneMap name ("NORTHSHORE PLAZA I - OneMap") — the result URL carries the SLA building lat/lng. Partial index; HDB block numbers sometimes resolve ("199C PUNGGOL FIELD").
+- **Next:** (1) helper-geocode Punggol Coast HC / The Punggol Settlement / Tebing Lane / Sumang & Edgefield coffeeshops (~+30 PGL pins) and the 14 NVN UNVERIFIED; (2) PGL +30 via Have Halal Will Travel × Seth Lui/Eatbook intersections + Settlement status pass; (3) re-check One Punggol stalls after the 2026 operator change.
+- **Commands:** `python3 tools/density.py singapore` · `flock -w 3600 .git/cleo-shared.lock bash -c 'python3 tools/geo-merge.py singapore --only "_geoout_*_w5.json" && python3 tools/rebuild-city.py singapore --build'`

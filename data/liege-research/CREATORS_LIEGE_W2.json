@@ -1,0 +1,71 @@
+{
+ "creators": [
+  {
+   "key": "DARLEYNEWMAN",
+   "name": "Darley Newman — Travels with Darley (PBS)",
+   "platform": "TV/YouTube/blog",
+   "handle": "@darleynewman",
+   "url": "https://www.darley-newman.com",
+   "scale": "Emmy-winning PBS travel host; national US TV series + YouTube channel",
+   "niche": "travel & food TV",
+   "credible": "Verifiable broadcast series (PBS 'Travels with Darley'); filmed the Confrérie du Gay Boulet in Liège and named Amon Nanesse/Maison du Péket"
+  },
+  {
+   "key": "ERICBOSCHMAN",
+   "name": "Eric Boschman (sommelier, RTBF/Moustique columnist)",
+   "platform": "TV/radio/press",
+   "handle": "",
+   "url": "https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710",
+   "scale": "National Belgian TV/radio food & wine personality with regular press columns (Moustique)",
+   "niche": "wine & restaurants",
+   "credible": "Verifiable national media figure with a named, dated restaurant list for Liège published by Moustique (La Libre group)"
+  }
+ ],
+ "attach": [
+  {
+   "place": "La Maison du Péket",
+   "creatorKey": "DARLEYNEWMAN",
+   "url": "https://www.darley-newman.com/blog/are-these-the-greatest-meatballs-ever"
+  },
+  {
+   "place": "Héliport Brasserie",
+   "creatorKey": "ERICBOSCHMAN",
+   "url": "https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710"
+  },
+  {
+   "place": "Sébastian",
+   "creatorKey": "ERICBOSCHMAN",
+   "url": "https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710"
+  },
+  {
+   "place": "¡Toma!",
+   "creatorKey": "ERICBOSCHMAN",
+   "url": "https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710"
+  },
+  {
+   "place": "La Cuisine de Yannick",
+   "creatorKey": "ERICBOSCHMAN",
+   "url": "https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710"
+  },
+  {
+   "place": "Un Max de Goût",
+   "creatorKey": "ERICBOSCHMAN",
+   "url": "https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710"
+  },
+  {
+   "place": "Les Sabots d'Hélène",
+   "creatorKey": "ERICBOSCHMAN",
+   "url": "https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710"
+  }
+ ],
+ "rejected": [
+  {
+   "name": "generationvoyage.fr / lemagvoyage",
+   "why": "SEO travel listicles — corroboration only"
+  },
+  {
+   "name": "bidmanager.stategroup.com 'Top 5 Liège foodie'",
+   "why": "content farm"
+  }
+ ]
+}

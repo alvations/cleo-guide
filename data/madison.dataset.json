@@ -162,7 +162,1842 @@
    "n": "Free to Visit"
   }
  ],
- "P": [],
+ "P": [
+  {
+   "t": 1,
+   "a": "CAP",
+   "n": "Wisconsin State Capitol",
+   "ad": "2 E Main St, Madison, WI 53703",
+   "w": "The 1917 Beaux-Arts capitol at the heart of the Isthmus — the only granite capitol dome in the US. Free tours cover the rotunda mural 'The Resources of Wisconsin', and the summer observation deck gives a 360° view of the lakes. A National Historic Landmark (2001).",
+   "k": "free tours; observation deck in summer",
+   "g": [
+    "ICON",
+    "LAKES",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wisconsin_State_Capitol"
+    ],
+    [
+     "VISITTHEUSA",
+     "https://www.visittheusa.co.uk/destination/madison"
+    ],
+    [
+     "WHS",
+     "https://www.wisconsinhistory.org/Records/NationalRegister/NR1769"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAP",
+   "n": "Monona Terrace",
+   "ad": "1 John Nolen Dr, Madison, WI 53703",
+   "w": "Frank Lloyd Wright's 1938 design for a civic center on Lake Monona, rejected by one vote and built only in 1997, nearly four decades after his death. The free rooftop garden is the city's best lake-and-Capitol view.",
+   "g": [
+    "ICON",
+    "FLW",
+    "LAKES",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Monona_Terrace"
+    ],
+    [
+     "FLWFOUNDATION",
+     "https://franklloydwright.org/?p=296"
+    ],
+    [
+     "SAHARCHIPEDIA",
+     "https://archipediavm.upress.virginia.edu/buildings/WI-01-DA22"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UW",
+   "n": "Memorial Union Terrace",
+   "ad": "800 Langdon St, Madison, WI 53706",
+   "w": "The lakeside terrace of the 1928 Memorial Union on Lake Mendota — the city's 'unofficial living room', with sunburst chairs in John Deere green, Allis-Chalmers orange and yellow, a beer and a Babcock cone at sunset. The Union is on the National Register.",
+   "g": [
+    "ICON",
+    "CAMPUS",
+    "LAKES",
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITTHEUSA",
+     "https://www.visittheusa.co.uk/destination/madison"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Memorial_Union_(University_of_Wisconsin%E2%80%93Madison)"
+    ],
+    [
+     "WHS",
+     "https://www.wisconsinhistory.org/Records/NationalRegister/NR2419"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Olbrich Botanical Gardens & Thai Pavilion",
+   "ad": "3330 Atwood Ave, Madison, WI 53704",
+   "w": "16 acres of free outdoor gardens on Lake Monona plus the Bolz Conservatory glass pyramid — and the gilded Royal Thai Pavilion, a gift of the Thai government and the only one on the US mainland.",
+   "k": "outdoor gardens free",
+   "g": [
+    "ICON",
+    "LAKES",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITTHEUSA",
+     "https://www.visittheusa.co.uk/destination/madison"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/royal-thai-pavilion"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "UW–Madison Arboretum",
+   "ad": "1207 Seminole Hwy, Madison, WI 53711",
+   "w": "The world's first restored ecological communities — prairies, savannas and wetlands started by Aldo Leopold and CCC crews in the 1930s — now a National Historic Landmark (2021) with a free trail network. Atlas Obscura's 'Lost City Forest' is the failed 1920s subdivision inside it.",
+   "k": "free",
+   "g": [
+    "ICON",
+    "CAMPUS",
+    "LAKES",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://home.nps.gov/subjects/nationalhistoriclandmarks/upload/UW-Arboretum_NHL_WSecFinal_2021-06-30_Redacted-photos1.pdf"
+    ],
+    [
+     "VISITTHEUSA",
+     "https://www.visittheusa.co.uk/destination/madison"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/lost-city-forest"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TRIP",
+   "n": "Taliesin",
+   "ad": "5607 County Rd C, Spring Green, WI 53588",
+   "w": "Frank Lloyd Wright's home, studio and 600-acre estate in the Wyoming Valley, the exemplar of the Prairie School — a UNESCO World Heritage Site since 2019 (the 20th-Century Architecture of Frank Lloyd Wright). Tours from the visitor center.",
+   "g": [
+    "ICON",
+    "FLW",
+    "LAKES",
+    "HIST"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://usicomos.org/frank-lloyd-wrights-taliesin-and-taliesin-west-world-heritage-sites"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Taliesin_(studio)"
+    ],
+    [
+     "FLWFOUNDATION",
+     "https://franklloydwright.org/?p=13081"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TRIP",
+   "n": "House on the Rock",
+   "ad": "5754 State Rd 23, Spring Green, WI 53588",
+   "w": "Alex Jordan Jr.'s maximalist fever-dream (1945–59) atop a rock chimney near Spring Green — the cantilevered Infinity Room, automaton music machines and the world's largest indoor carousel. Time Out calls it a must from Madison; it sits minutes from Taliesin.",
+   "g": [
+    "ICON",
+    "FLW",
+    "OUTDOOR",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/House_on_the_Rock"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/madison/things-to-do/best-things-to-do-in-madison"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/entertainment-and-attractions/house-on-the-rock-attraction-203820"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TRIP",
+   "n": "Devil's Lake State Park",
+   "ad": "Devil's Lake State Park, south of Baraboo, Sauk County, WI",
+   "w": "Wisconsin's largest state park (1911), a glacial lake ringed by 500-foot pink-quartzite bluffs in the Baraboo Range, 35 miles from Madison — the Devil's Doorway trail is the classic short climb.",
+   "g": [
+    "ICON",
+    "LAKES",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Devil%27s_Lake_State_Park_(Wisconsin)"
+    ],
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/local/things-to-do/wisconsin-day-trips/"
+    ],
+    [
+     "WHS",
+     "https://www.wisconsinhistory.org/record/property/HI91125/devils-lake-state-park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DANE",
+   "n": "Cave of the Mounds",
+   "ad": "Blue Mounds, WI 53517",
+   "w": "A limestone show cave in the south slope of the East Blue Mound, discovered by quarrymen in 1939 — a National Natural Landmark (1987) that the Chicago Academy of Sciences called 'the significant cave of the upper Midwest'.",
+   "g": [
+    "OUTDOOR",
+    "HIST"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://en.wikipedia.org/wiki/Cave_of_the_Mounds"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cave_of_the_Mounds"
+    ],
+    [
+     "SHOWCAVES",
+     "https://showcaves.com/english/usa/showcaves/Mounds.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MVF",
+   "n": "National Mustard Museum",
+   "ad": "7477 Hubbard Ave, Middleton, WI 53562",
+   "w": "Barry Levenson's free museum of 7,000+ mustards (and mustard memorabilia) in downtown Middleton, with a tasting bar — Wisconsin roadside whimsy at its best.",
+   "k": "free admission",
+   "g": [
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/National_Mustard_Museum"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/usa/wisconsin/south-central-wisconsin/attractions/national-mustard-museum/a/poi-sig/1250696/1324495"
+    ],
+    [
+     "VISITMIDDLETON",
+     "https://visitmiddleton.com/location/national-mustard-museum/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Henry Vilas Zoo",
+   "ad": "Henry Vilas Park, Madison, WI",
+   "w": "A 28-acre AZA-accredited county zoo beside Lake Wingra that has been free since 1904 — a condition of the Vilas family's land gift.",
+   "k": "free admission",
+   "g": [
+    "LAKES",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Henry_Vilas_Zoo"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/listing/henry-vilas-zoo/940/"
+    ],
+    [
+     "SAHARCHIPEDIA",
+     "https://archipediavm.upress.virginia.edu/buildings/WI-01-DA33"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Jacobs House (Wright's first Usonian)",
+   "ad": "441 Toepfer Ave, Madison, WI 53711",
+   "w": "Frank Lloyd Wright's 1937 house for journalist Herbert Jacobs — often cited as his first Usonian design, and one of eight Wright buildings inscribed together as a UNESCO World Heritage Site in 2019. A private home: view from the street.",
+   "k": "private residence — exterior only",
+   "g": [
+    "FLW",
+    "HIST"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://industry.travelwisconsin.com/media/press-releases/inscription-of-two-wisconsin-landmarks-to-the-unesco-world-heritage-list"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Herbert_and_Katherine_Jacobs_First_House"
+    ],
+    [
+     "WMTV",
+     "https://www.wmtv15news.com/content/news/2--512451231.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "First Unitarian Society Meeting House",
+   "ad": "900 University Bay Dr, Shorewood Hills, WI 53705",
+   "w": "Wright's own congregation's church (1949–51), its copper-clad prow roof rising like hands in prayer — a National Historic Landmark (2004) with public tours.",
+   "g": [
+    "FLW",
+    "HIST"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://npgallery.nps.gov/NRHP/GetAsset/NRHP/73000076_text"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/First_Unitarian_Society_of_Madison"
+    ],
+    [
+     "WHS",
+     "https://wisconsinhistory.org/record/national-register/NR74/900-university-bay-dr"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UW",
+   "n": "Chazen Museum of Art",
+   "ad": "750 University Ave, Madison, WI 53706",
+   "w": "UW–Madison's free art museum — 25,000 works across two buildings, the second a 2011 Machado-Silvetti addition — the second-largest collection in Wisconsin.",
+   "k": "free admission",
+   "g": [
+    "CAMPUS",
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chazen_Museum_of_Art"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/things-to-do/culture-arts/museums-history/chazen-museum-of-art"
+    ],
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/listings/chazen-museum-of-art/178662/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CAP",
+   "n": "Robert M. Lamp House",
+   "ad": "22 N Butler St, Madison, WI 53703",
+   "w": "Madison's oldest Wright-designed house (1903), built for his boyhood friend 'Robie' Lamp and hidden inside a downtown block two streets from the Capitol — Atlas Obscura calls it an Easter egg. Exterior only.",
+   "k": "private — exterior only",
+   "g": [
+    "FLW",
+    "HIST",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://atlasobscura.com/places/lamp-house"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Robert_M._Lamp_House"
+    ],
+    [
+     "WHS",
+     "https://www.wisconsinhistory.org/Records/Property/HI16091"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UW",
+   "n": "Camp Randall Stadium",
+   "ad": "1440 Monroe St, Madison, WI 53711",
+   "w": "The Badgers' 1917 stadium on a Civil War training-camp site — come for a home game and 'Jump Around' between the third and fourth quarters, when 76,000 people make the stands sway.",
+   "g": [
+    "ICON",
+    "CAMPUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Camp_Randall_Stadium"
+    ],
+    [
+     "DAILYCARDINAL",
+     "https://dailycardinal.com/article/2024/09/jumping-into-the-history-of-uws-iconic-gameday-songs"
+    ],
+    [
+     "WTMJ",
+     "https://wtmj.com/wisconsins-morning-news/2023/05/25/the-origin-of-jump-around-takes-home-emmy-for-best-short-feature/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TRIP",
+   "n": "International Crane Foundation",
+   "ad": "E11376 Shady Lane Rd, Baraboo, WI 53913",
+   "w": "The world's only collection of all 15 crane species, at the Baraboo headquarters of the conservation group founded by two Cornell ornithology students in 1973 — Tone Madison calls it the nature scene's must-see.",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/International_Crane_Foundation"
+    ],
+    [
+     "TONEMADISON",
+     "https://tonemadison.com/articles/making-the-nature-scene-baraboos-international-crane-foundation-has-all-the-cranes/"
+    ],
+    [
+     "EXPERIENCEWI",
+     "https://experiencewisconsinmag.com/international-crane-foundation-baraboo/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TRIP",
+   "n": "Circus World Museum",
+   "ad": "550 Water St, Baraboo, WI 53913",
+   "w": "The Ringling Brothers' winter quarters (1884–1918), now a Wisconsin Historical Society museum of circus wagons and history with summer big-top shows — a National Historic Landmark.",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://en.wikipedia.org/wiki/Circus_World_Museum"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Circus_World_Museum"
+    ],
+    [
+     "WHS",
+     "https://www.wisconsinhistory.org/Records/Property/HI154479"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TRIP",
+   "n": "Pendarvis",
+   "ad": "114 Shake Rag St, Mineral Point, WI 53565",
+   "w": "Restored 1840s stone and log cottages of Cornish lead miners on Mineral Point's Shake Rag Street, run as a Wisconsin Historical Society site — pair it with a Cornish pasty in town.",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WHS",
+     "https://www.wisconsinhistory.org/Records/NationalRegister/NR1806"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pendarvis_(Mineral_Point,_Wisconsin)"
+    ],
+    [
+     "SAHARCHIPEDIA",
+     "https://sah-archipedia.org/node/21384"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DANE",
+   "n": "Blue Mound State Park",
+   "ad": "Blue Mounds, WI 53517 (Iowa & Dane counties)",
+   "w": "The highest point in southern Wisconsin: two observation towers atop the West Blue Mound look north to the Baraboo Range and east to Madison, with mountain-bike and hiking trails and a hilltop pool.",
+   "g": [
+    "LAKES",
+    "OUTDOOR",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Blue_Mound_State_Park"
+    ],
+    [
+     "WIDNR",
+     "https://dnr.wisconsin.gov/topic/parks/bluemound/nature"
+    ],
+    [
+     "TRAVELWI",
+     "https://travelwisconsin.com/state-parks-forests/state-parks/blue-mound-state-park-204165"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UW",
+   "n": "Picnic Point",
+   "ad": "Lakeshore Nature Preserve, Univ. Bay Dr entrance, Madison, WI 53705",
+   "w": "A wooded peninsula that juts nearly a mile into Lake Mendota inside UW's 300-acre Lakeshore Nature Preserve — a flat walk to fire circles at the tip with the Capitol skyline across the water. On the north shore, Atlas Obscura's never-opened 1968 'Wright-style' beach house.",
+   "k": "free",
+   "g": [
+    "ICON",
+    "CAMPUS",
+    "LAKES",
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/blog/stories/post/hiking-picnic-point-and-lakeshore-preserve/"
+    ],
+    [
+     "TRAVELWI",
+     "https://travelwisconsin.com/birding/lakeshore-nature-preserve-193648"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/things-to-do/madison-wisconsin"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TRIP",
+   "n": "Aldo Leopold Shack and Farm",
+   "ad": "South bank of the Wisconsin River, northeast of Baraboo, WI",
+   "w": "The worn-out farm and converted chicken coop where Aldo Leopold's family replanted pines and prairie in the 1930s — the place that grew 'A Sand County Almanac'. A National Historic Landmark (2009); tours via the Aldo Leopold Foundation.",
+   "g": [
+    "LAKES",
+    "HIST",
+    "FAM"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/articles/aldo-leopold-farm-and-shack-national-historic-landmark.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Aldo_Leopold_Shack_and_Farm"
+    ],
+    [
+     "WPR",
+     "https://www.wpr.org/environment/place-where-leopolds-almanac-grew"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Overture Center for the Arts",
+   "ad": "201 State St, Madison, WI 53703",
+   "w": "César Pelli's 2004 performing-arts center at the top of State Street — Overture Hall, the restored Capitol Theater and, next door, the Madison Museum of Contemporary Art.",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Overture_Center_for_the_Arts"
+    ],
+    [
+     "SAHARCHIPEDIA",
+     "https://archipediavm.upress.virginia.edu/buildings/WI-01-DA25"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UW",
+   "n": "Science Hall",
+   "ad": "550 N Park St, Madison, WI 53706",
+   "w": "An 1888 red-brick Romanesque pile at the foot of Bascom Hill (and a fixture of Accidentally Wes Anderson), where Charles Van Hise built geology's national reputation — a National Historic Landmark since 1993.",
+   "g": [
+    "ICON",
+    "CAMPUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.wisconsinhistory.org/Records/NationalRegister/NR1729"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/University_of_Wisconsin_Science_Hall"
+    ],
+    [
+     "WHS",
+     "https://www.wisconsinhistory.org/Records/NationalRegister/NR1729"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "UW",
+   "n": "Washburn Observatory",
+   "ad": "1401 Observatory Dr, Madison, WI 53706",
+   "w": "UW's 1881 observatory on Observatory Hill above Lake Mendota; its 15.6-inch Clark refractor still opens to the public on clear-night open houses.",
+   "g": [
+    "CAMPUS",
+    "LAKES"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Washburn_Observatory"
+    ],
+    [
+     "UWLIBRARIES",
+     "https://www.library.wisc.edu/friends/2024/10/09/research-reveals-the-rich-history-of-the-washburn-observatory-at-uw-madison/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Garver Feed Mill",
+   "ad": "3244 Atwood Ave, Madison, WI 53704",
+   "w": "A 1905 sugar-beet factory turned feed mill beside Olbrich Gardens, rescued from ruin and reopened as a food-maker hub and event space; on the National Register since 2017.",
+   "g": [
+    "ICON",
+    "LAKES",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Garver_Feed_Mill"
+    ],
+    [
+     "WHS",
+     "https://wisconsinhistory.org/Records/Property/HI27802"
+    ],
+    [
+     "BADGERHERALD",
+     "https://badgerherald.com/?p=129974"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DANE",
+   "n": "Governor Nelson State Park",
+   "ad": "North shore of Lake Mendota, Town of Westport (near Waunakee), WI",
+   "w": "A 422-acre day-use park on Lake Mendota's north shore with a sand beach, restored prairie and oak savanna — and an unusually large panther effigy mound on the Woodland Trail.",
+   "g": [
+    "LAKES",
+    "OUTDOOR",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Governor_Nelson_State_Park"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/outdoors/parks-wildlife-areas/state-parks-forests/governor-nelson-state-park"
+    ],
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/listings/governor-nelson-state-park/183060/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Forest Hill Cemetery",
+   "ad": "1 Speedway Rd, Madison, WI 53705",
+   "w": "Madison's 1857 garden cemetery: seven effigy mounds from 700–1200 CE (a goose flying toward Lake Wingra, two panthers), Confederate Rest for prisoners who died at Camp Randall, and governors and senators. The city publishes a walking tour.",
+   "k": "free",
+   "g": [
+    "ICON",
+    "CAMPUS",
+    "LAKES",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Forest_Hill_Cemetery_(Madison,_Wisconsin)"
+    ],
+    [
+     "CITYMADISON",
+     "https://cityofmadison.com/parks/documents/ForestHillWalkingTour.pdf"
+    ],
+    [
+     "CLIO",
+     "https://theclio.com/entry/71667"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TRIP",
+   "n": "Natural Bridge State Park",
+   "ad": "Town of Honey Creek, southwest of Baraboo, Sauk County, WI",
+   "w": "Wisconsin's largest natural sandstone arch, with the Raddatz rock shelter beneath it — one of the oldest dated human occupation sites in the upper Midwest.",
+   "g": [
+    "LAKES",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Natural_Bridge_State_Park_(Wisconsin)"
+    ],
+    [
+     "WIDNR",
+     "https://dnr.wisconsin.gov/topic/parks/naturalbridge/history"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DANE",
+   "n": "Lake Kegonsa State Park",
+   "ad": "2405 Door Creek Rd, Stoughton, WI 53589",
+   "w": "A 343-acre lakeside state park on Kegonsa's northeast shore, a few minutes from Norwegian-heritage Stoughton — beach, campground and prairie trails.",
+   "g": [
+    "LAKES",
+    "OUTDOOR",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lake_Kegonsa_State_Park"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/outdoors/parks-wildlife-areas/state-parks-forests/lake-kegonsa-state-park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UW",
+   "n": "Allen Centennial Garden",
+   "ad": "10 Babcock Dr, Madison, WI 53706",
+   "w": "A free 2.5-acre teaching garden around the 1896 Victorian dean's house on the ag campus — themed rooms from a Dutch to a New American garden, featured in The American Gardener.",
+   "k": "free",
+   "g": [
+    "CAMPUS",
+    "LAKES",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Allen_Centennial_Gardens"
+    ],
+    [
+     "UWALUMNI",
+     "https://www.uwalumni.com/allen-centennial-garden/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "EAST",
+   "n": "Wisconsin Governor's Mansion",
+   "ad": "99 Cambridge Rd, Maple Bluff, WI 53704",
+   "w": "The 1920s Classical Revival executive residence on 3.7 lakeshore acres in Maple Bluff, home to Wisconsin's governors since 1949; open for limited free summer tours.",
+   "g": [
+    "LAKES",
+    "OUTDOOR",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wisconsin_Governor%27s_Mansion"
+    ],
+    [
+     "WHS",
+     "https://www.wisconsinhistory.org/Records/Article/CS4235"
+    ],
+    [
+     "WIDOA",
+     "https://doa.wi.gov/Pages/AboutDOA/Governors-Executive-Residence.aspx"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Madison Children's Museum",
+   "ad": "100 N Hamilton St, Madison, WI 53703",
+   "w": "A hands-on museum off the Capitol Square, rebuilt green with the year-round 'Rooftop Ramble' garden (chickens included) — named one of the top five US children's museums by Parents magazine.",
+   "g": [
+    "ICON",
+    "MUS",
+    "LAKES",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Madison_Children%27s_Museum"
+    ],
+    [
+     "ARCHITECTMAG",
+     "https://www.architectmagazine.com/?p=180565"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Orpheum Theater",
+   "ad": "216 State St, Madison, WI 53703",
+   "w": "A 1927 Rapp & Rapp movie palace a block from the Capitol — Art Deco outside, French Renaissance within — still a live-music hall; on the National Register.",
+   "g": [
+    "HIST",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Orpheum_Theater_(Madison,_Wisconsin)"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/arts/the-once-and-future-orpheum-theatre"
+    ],
+    [
+     "WHS",
+     "https://www.wisconsinhistory.org/Records/NationalRegister/NR2316"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TRIP",
+   "n": "American Players Theatre",
+   "ad": "Spring Green (Iowa County side of the Wisconsin River), WI",
+   "w": "Classical repertory theatre on 110 Driftless acres across the river from Spring Green: the 1,075-seat outdoor Hill Theatre in an oak-wooded hollow plus the indoor Touchstone. Nearly 100,000 visitors a season (June–November); 2026 Regional Theatre Tony Award.",
+   "g": [
+    "ARTS"
+   ],
+   "s": [
+    [
+     "AMERICANTHEATRE",
+     "https://americantheatre.org/2016/06/07/know-a-theatre-american-players-theatre"
+    ],
+    [
+     "TELEGRAPHHERALD",
+     "https://www.telegraphherald.com/news/features/article_4a1cadf8-d516-46fe-8546-bc1f678cc1aa.amp.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/American_Players_Theatre"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DANE",
+   "n": "The Trollway (Mount Horeb)",
+   "ad": "Main St, Mount Horeb, WI 53572",
+   "w": "40-plus hand-carved trolls lining Main Street in the self-styled 'Troll Capital of the World' since the 1970s — a nod to the town's Norwegian heritage; free walking tour.",
+   "g": [
+    "HIST",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "TRAVELWI",
+     "https://travelwisconsin.com/tours/the-trollway-mount-horebs-trolls-192897"
+    ],
+    [
+     "AMAZINGAMERICA",
+     "https://wjla.com/amazing-america/we-are-trolling-for-adventure-in-the-troll-capital-of-the-world"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MVF",
+   "n": "Pheasant Branch Conservancy",
+   "ad": "Century Ave (County Hwy M), Middleton, WI 53562",
+   "w": "682-acre conservancy on Middleton's north edge: bubbling springs, prairie, marsh, effigy mounds, a 3.3-mile loop and the climb up Frederick's Hill for a view over Lake Mendota; 150+ bird species. Free, open 7am–10pm.",
+   "g": [
+    "LAKES",
+    "OUTDOOR",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITMIDDLETON",
+     "https://visitmiddleton.com/five-things-to-know-about-pheasant-branch-conservancy/"
+    ],
+    [
+     "SHEPHERDEXPRESS",
+     "https://shepherdexpress.com/culture/off-the-beaten-path/pheasant-branch-pleasant-branch"
+    ],
+    [
+     "DANECOUNTY",
+     "https://department8-test.countyofdane.com/ParkDocument/GetFile/485/PheasantBranch_Overview.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Wisconsin Veterans Museum",
+   "ad": "30 W Mifflin St, Madison, WI 53703",
+   "w": "Free state museum on Capitol Square tracing Wisconsin's military history from the Civil War (including Old Abe, the war eagle) to the present. The state has bought the building to replace it with a new five-story museum — check before visiting as construction nears.",
+   "g": [
+    "ICON",
+    "MUS",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/things-to-do/free-things-to-do/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wisconsin_Veterans_Museum"
+    ],
+    [
+     "WPR",
+     "https://wpr.org/news/wisconsin-veterans-museum-funding-new-building"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAP",
+   "n": "Madison Museum of Contemporary Art (MMoCA)",
+   "ad": "State St (Overture Center complex), Madison, WI 53703",
+   "w": "Free contemporary-art museum in the Cesar Pelli–designed Overture complex at the top of State Street, with a rooftop sculpture garden.",
+   "g": [
+    "MUS",
+    "LAKES",
+    "ARTS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/things-to-do/free-things-to-do/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Madison_Museum_of_Contemporary_Art"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DANE",
+   "n": "Stoughton Opera House",
+   "ad": "381 E Main St, Stoughton, WI 53589",
+   "w": "Stoughton's 1901 city-hall opera house, left to decay after 1953 and reopened in 2001 after a 20-year community restoration; 80+ shows a year in the Norwegian-heritage town. Celebrated 125 years in 2026.",
+   "g": [
+    "HIST",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Stoughton_Opera_House"
+    ],
+    [
+     "WMTV",
+     "https://www.wmtv15news.com/2026/03/09/its-community-led-effort-stoughton-opera-house-celebrates-125-years"
+    ],
+    [
+     "BRAVA",
+     "https://bravamagazine.com/?p=16216"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TRIP",
+   "n": "Chalet of the Golden Fleece",
+   "ad": "618 2nd St, New Glarus, WI 53574",
+   "w": "A 1937–38 Bernese mountain chalet (NRHP) built for Wilhelm Tell pageant founder Edwin Barlow and given to the village as a museum in 1955 — Swiss folk art plus oddities like a Louis XVI watch and Etruscan earrings. Open Saturdays late May–October and festival weekends.",
+   "g": [
+    "MUS",
+    "HIST",
+    "ODD"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chalet_of_the_Golden_Fleece"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/things-to-do/culture-arts/museums-history/chalet-of-the-golden-fleece-museum"
+    ],
+    [
+     "WHS",
+     "https://www.wisconsinhistory.org/Records/NationalRegister/NR2429"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Burrows Park Effigy Mound",
+   "ad": "Burrows Park, Lake Mendota shore (north side), Madison, WI",
+   "w": "A bird effigy with a 128-foot wingspan in a small lakeshore park — one of the best-preserved of Madison's effigy mounds (NRHP). Free.",
+   "g": [
+    "LAKES",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ONMILWAUKEE",
+     "https://onmilwaukee.com/articles/beyond1003"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Burrows_Park_Effigy_Mound_and_Campsite"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "EAST",
+   "n": "Elmside Park Mounds",
+   "ad": "Elmside Park, Madison, WI",
+   "w": "Two animal effigies — a lynx and a bear — plus a linear mound on the Lake Monona side of the east isthmus (NRHP). Free.",
+   "g": [
+    "LAKES",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ONMILWAUKEE",
+     "https://onmilwaukee.com/articles/beyond1003"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Elmside_Park_Mounds"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Vilas Circle Bear Effigy Mound",
+   "ad": "Bear Mound Park, Vilas Circle, Madison, WI",
+   "w": "An intact bear effigy (only a leg section lost) in tiny Bear Mound Park by Vilas Park, NRHP-listed with the nearby Curtis Mounds; Vilas Park itself holds a seven-mound group. Free.",
+   "g": [
+    "LAKES",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ONMILWAUKEE",
+     "https://onmilwaukee.com/articles/beyond1003"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Vilas_Circle_Bear_Effigy_Mound_and_the_Curtis_Mounds"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UW",
+   "n": "Observatory Hill Mound Group",
+   "ad": "Observatory Hill, UW–Madison campus, Madison, WI",
+   "w": "A bird effigy and a rare two-tailed water-spirit mound just west of Washburn Observatory, overlooking Lake Mendota (NRHP). Free.",
+   "g": [
+    "CAMPUS",
+    "LAKES",
+    "OUTDOOR",
+    "HIST"
+   ],
+   "s": [
+    [
+     "ONMILWAUKEE",
+     "https://onmilwaukee.com/articles/beyond1003"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Observatory_Hill_Mound_Group"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "WEST",
+   "n": "Edgewood College Mound Group",
+   "ad": "Edgewood campus, Woodrow St off Monroe St, Madison, WI",
+   "w": "Twelve preserved mounds on the Edgewood campus — a linear mound and six conicals visible from Edgewood Drive (NRHP archaeological district). Free.",
+   "g": [
+    "LAKES",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ONMILWAUKEE",
+     "https://onmilwaukee.com/articles/beyond1003"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Edgewood_College_Mound_Group_Archaeological_District"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UW",
+   "n": "UW–Madison Geology Museum",
+   "ad": "Weeks Hall, UW–Madison campus, Madison, WI",
+   "w": "Free campus museum in Weeks Hall: Wisconsin's deep past in rocks, fossils, meteorites, a fluorescent-mineral room, dinosaurs and a mastodon skeleton.",
+   "g": [
+    "CAMPUS",
+    "MUS",
+    "OUTDOOR",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/things-to-do/free-things-to-do/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/UW%E2%80%93Madison_Geology_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UW",
+   "n": "Bascom Hill & the Lincoln statue",
+   "ad": "Bascom Hill, UW–Madison campus, Madison, WI 53706",
+   "w": "The steep historic quad at the heart of campus, crowned by Bascom Hall and Adolph Weinman's seated Abraham Lincoln — the most-photographed spot for graduating seniors, who climb into his lap. Free.",
+   "g": [
+    "ICON",
+    "CAMPUS",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/plan/itinerary-ideas/university-highlights/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bascom_Hill"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UW",
+   "n": "L. R. Ingersoll Physics Museum",
+   "ad": "Chamberlin Hall, UW–Madison campus, Madison, WI",
+   "w": "A 1918 hands-on physics museum — one of the first of its kind — with 65+ interactive exhibits built by faculty and students; free on weekdays.",
+   "g": [
+    "MUS",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/l-r-ingersoll-physics-museum"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/L._R._Ingersoll_Physics_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UW",
+   "n": "Lakeshore Nature Preserve & Lakeshore Path",
+   "ad": "South shore of Lake Mendota, UW–Madison campus, Madison, WI",
+   "w": "300 acres along four miles of Lake Mendota's south shore; the Lakeshore Path runs from the Memorial Union through woods and prairie out to Picnic Point. Free.",
+   "g": [
+    "ICON",
+    "CAMPUS",
+    "LAKES",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/plan/itinerary-ideas/university-highlights/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/University_of_Wisconsin%E2%80%93Madison_Lakeshore_Nature_Preserve"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TRIP",
+   "n": "Wyoming Valley School",
+   "ad": "6306 WI Hwy 23, Wyoming (Iowa County), WI",
+   "w": "Wright's 1956 two-room schoolhouse built in honor of his kindergarten-teacher mother, now a cultural arts center a few miles from Taliesin; a stop on Wisconsin's 200-mile Frank Lloyd Wright Trail.",
+   "g": [
+    "ICON",
+    "FLW",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wyoming_Valley_School"
+    ],
+    [
+     "CHICAGOSUNTIMES",
+     "https://chicago.suntimes.com/lifestyles/200-mile-frank-lloyd-wright-trail-showcases-architects-diverse-works/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TRIP",
+   "n": "A. D. German Warehouse",
+   "ad": "316 S Church St, Richland Center, WI",
+   "w": "Wright's 1921 Mayan Revival brick-and-concrete warehouse in his birthplace town — the western-most stop on the Frank Lloyd Wright Trail.",
+   "g": [
+    "FLW",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/A._D._German_Warehouse"
+    ],
+    [
+     "CHICAGOSUNTIMES",
+     "https://chicago.suntimes.com/lifestyles/200-mile-frank-lloyd-wright-trail-showcases-architects-diverse-works/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TRIP",
+   "n": "Seth Peterson Cottage",
+   "ad": "E9982 Fern Dell Rd (Mirror Lake State Park), Reedsburg, WI",
+   "w": "One of Wright's last designs, a tiny stone-and-glass cottage over Mirror Lake — the first Wright house anywhere you can rent overnight; open-house tours monthly.",
+   "g": [
+    "FLW",
+    "LAKES"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Seth_Peterson_Cottage"
+    ],
+    [
+     "FLWFOUNDATION",
+     "https://franklloydwright.org/?p=321"
+    ],
+    [
+     "WIDNR",
+     "https://dnr.wisconsin.gov/topic/parks/mirrorlake/cottage"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TRIP",
+   "n": "Al. Ringling Theatre",
+   "ad": "136 4th Ave, Baraboo, WI",
+   "w": "'America's Prettiest Playhouse' — a 1915 Rapp & Rapp movie palace commissioned by circus co-founder Al Ringling; shows, classic films, Barton organ demos and daily 1:30pm tours.",
+   "g": [
+    "ARTS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Al._Ringling_Theatre"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/things-to-do/culture-arts/architecture/al-ringling-theatre"
+    ],
+    [
+     "WHS",
+     "https://www.wisconsinhistory.org/Records/Article/CS17135"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TRIP",
+   "n": "Tower Hill State Park",
+   "ad": "SE of Spring Green, Iowa County, WI",
+   "w": "Small state park on the Wisconsin River bluff with the reconstructed Helena Shot Tower (1832) and its 120-foot shaft through the sandstone; NRHP.",
+   "g": [
+    "LAKES",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tower_Hill_State_Park"
+    ],
+    [
+     "WIDNR",
+     "https://dnr.wisconsin.gov/topic/parks/towerhill/history"
+    ],
+    [
+     "WHS",
+     "https://www.wisconsinhistory.org/Records/NationalRegister/NR1789"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Lake Wingra & Vilas Park beach",
+   "ad": "Vilas Park, north shore of Lake Wingra, Madison, WI",
+   "w": "Madison's small, quiet fifth lake between the Arboretum and Vilas Park: a sandy beach, fishing piers, paddling, and winter skating on the lagoon; next to the free Henry Vilas Zoo.",
+   "g": [
+    "ICON",
+    "LAKES",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/blog/stories/post/madison-for-everyone/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lake_Wingra"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DANE",
+   "n": "Ice Age Complex at Cross Plains (Ice Age National Scenic Trail)",
+   "ad": "8075 Old Sauk Pass Rd, Cross Plains, WI",
+   "w": "National Park Service unit of the Ice Age National Scientific Reserve — 161 acres at the edge of the last glacier's reach (moraine, gorge and the Driftless boundary), with the Ice Age Trail's interpretive site.",
+   "g": [
+    "LAKES",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/iatr/planyourvisit/int_site.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ice_Age_National_Scientific_Reserve"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MVF",
+   "n": "Pope Farm Conservancy",
+   "ad": "7440 W Old Sauk Rd, Middleton (Town), WI 53562",
+   "w": "105 acres atop three glacial moraines with prairie restorations, a Native American garden and 8 miles of trails — famous for Sunflower Days, half a million blooms that once drew 92,000 visitors in nine days.",
+   "g": [
+    "LAKES",
+    "OUTDOOR",
+    "FAM"
+   ],
+   "s": [
+    [
+     "CAPTIMES",
+     "https://captimes.com/pope-farm-conservancy-calls-off-sunflower-days-for-2018-due-to-overwhelming-crowds/article_2b59c55c-ef91-5abb-97d5-9574456d6d76.html"
+    ],
+    [
+     "WTMJ",
+     "https://www.tmj4.com/news/local-news/sunflower-days-return-to-pope-farm-conservancy"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Frank W. Hoyt Park",
+   "ad": "3902 Regent St, Madison, WI 53705",
+   "w": "Drumlin-top park with Depression-era CWA/WPA rustic stone shelter, fireplaces, stairs and the Sunset Point lookout, plus 1850s sandstone quarries; on the National Register since 2018.",
+   "g": [
+    "LAKES",
+    "OUTDOOR",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Frank_W._Hoyt_Park"
+    ],
+    [
+     "WHS",
+     "https://www.wisconsinhistory.org/Records/NationalRegister/NR2586"
+    ],
+    [
+     "SAHARCHIPEDIA",
+     "https://archipediavm.upress.virginia.edu/buildings/WI-01-DA39"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UW",
+   "n": "The Red Gym (UW Armory and Gymnasium)",
+   "ad": "716 Langdon St, Madison, WI 53706",
+   "w": "1894 castle-like armory-gymnasium on Lake Mendota's shore — a National Historic Landmark (1993) that now houses UW's visitor and welcome center.",
+   "g": [
+    "LAKES",
+    "HIST"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/subjects/nationalhistoriclandmarks/list-of-nhls-by-state.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/University_of_Wisconsin_Armory_and_Gymnasium"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DANE",
+   "n": "Livsreise Norwegian Heritage Center",
+   "ad": "Main St, Stoughton, WI 53589",
+   "w": "Free 15,000 sq ft heritage center ('life's journey') telling Stoughton's Norwegian immigration story — a 33-screen interactive wall to build an emigrant's profile, plus a genealogy center.",
+   "g": [
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "FOX11",
+     "https://fox11online.com/news/state/gallery/norwegian-heritage-center-doubles-down-on-stoughtons-roots?photo=1"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/things-to-do/culture-arts/museums-history/norwegian-heritage-center-livsreise"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DANE",
+   "n": "Indian Lake County Park & St. Mary of the Oaks Chapel",
+   "ad": "WI Hwy 19, 2 mi west of US 12, Town of Berry (near Cross Plains), WI",
+   "w": "791-acre county park around a kettle lake, crossed by the Ice Age Trail; a half-mile climb leads to the tiny 1857 hilltop chapel the Endres family built after surviving diphtheria.",
+   "g": [
+    "LAKES",
+    "OUTDOOR",
+    "FAM"
+   ],
+   "s": [
+    [
+     "DANECOUNTY",
+     "https://www.danecountyparks.com/Park/IndianLake"
+    ],
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/blog/stories/post/escape-to-indian-lake-county-park/"
+    ],
+    [
+     "WHS",
+     "https://www.wisconsinhistory.org/Records/Property/HI4907"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MVF",
+   "n": "Capital Springs State Recreation Area",
+   "ad": "3101 Lake Farm Rd, Madison (Fitchburg line), WI 53711",
+   "w": "Wisconsin's first urban state recreation area — Lake Waubesa shoreline, the Lussier family heritage area and the Lake Farm archaeological trail, joined to Dane County's Lunney Lake Farm park.",
+   "g": [
+    "LAKES",
+    "OUTDOOR",
+    "HIST",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIDNR",
+     "https://dnr.wisconsin.gov/topic/parks/capsprings"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Capital_Springs_State_Recreation_Area"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MVF",
+   "n": "Military Ridge State Trail (Fitchburg–Verona trailhead)",
+   "ad": "Quarry Ridge Recreation Area, 2740 Fitchrona Rd, Fitchburg, WI 53719",
+   "w": "40-mile rail-trail along the old Military Ridge road to Dodgeville; the paved Fitchburg–Verona end is the easy Madison-area ride, with Driftless hills further west.",
+   "g": [
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "WIDNR",
+     "https://dnr.wisconsin.gov/topic/parks/militaryridge/info"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Military_Ridge_State_Trail"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UW",
+   "n": "North Hall (University of Wisconsin)",
+   "ad": "Bascom Hill, UW–Madison campus, Madison, WI 53706",
+   "w": "The university's first building (1851), on Bascom Hill — John Muir's dorm 1860–63; a National Historic Landmark since 1965.",
+   "g": [
+    "ICON",
+    "CAMPUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/subjects/nationalhistoriclandmarks/list-of-nhls-by-state.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/North_Hall_(University_of_Wisconsin)"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "UW",
+   "n": "Carillon Tower (UW–Madison)",
+   "ad": "Observatory Dr, UW–Madison campus, Madison, WI 53706",
+   "w": "85-ft sandstone bell tower (1934–36), gift of the classes of 1917–26 — now 56 bells; contributing to the NRHP Bascom Hill Historic District.",
+   "g": [
+    "ICON",
+    "CAMPUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WHS",
+     "https://wisconsinhistory.org/Records/Property/HI100642"
+    ],
+    [
+     "UWMUSIC",
+     "https://music.wisc.edu/tag/carillon/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UW",
+   "n": "Union South & the Sett",
+   "ad": "1308 W Dayton St, Madison, WI 53715",
+   "w": "The 2011 Prairie-style union steps from Camp Randall — bowling, billiards and a two-story climbing wall at the Sett; Badger Bash with the UW Marching Band before every home game.",
+   "g": [
+    "ICON",
+    "CAMPUS",
+    "LAKES"
+   ],
+   "s": [
+    [
+     "UWNEWS",
+     "https://news.wisc.edu/union-south-takes-shape-as-a-campus-gathering-place"
+    ],
+    [
+     "WMTV",
+     "https://www.wmtv15news.com/2026/09/09/badger-bash-returns-union-south-this-saturday/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "WEST",
+   "n": "Elver Park",
+   "ad": "1250 McKenna Blvd, Madison, WI 53719",
+   "w": "Madison's largest community park (250 acres) — the lighted sledding hill, disc golf and lit ski trails.",
+   "g": [
+    "LAKES",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "CITYMADISON",
+     "https://cityofmadison.com/parks/elver"
+    ],
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/blog/stories/post/disc-golf-and-day-hike-at-elver-park/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "WEST",
+   "n": "Owen Conservation Park",
+   "ad": "6021 Old Sauk Rd, Madison, WI 53705",
+   "w": "A professor's hilltop farm returned to prairie and oak savanna — 3 miles of trails and monthly guided nature walks.",
+   "g": [
+    "LAKES",
+    "OUTDOOR",
+    "FAM"
+   ],
+   "s": [
+    [
+     "CITYMADISON",
+     "https://www.cityofmadison.com/parks/owen"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/locations/owen-conservation-park/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MVF",
+   "n": "Mendota County Park",
+   "ad": "County Rd M, Town of Westport (near Middleton), WI 53562",
+   "w": "Dane County beach park on Lake Mendota's west shore — swimming, a paddle launch and a lakeside campground.",
+   "g": [
+    "LAKES",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/listings/mendota-county-park/183179/"
+    ],
+    [
+     "DANECOUNTY",
+     "https://www.danecountyparks.com/documents/PDFs/plans/posp/2018-2023-Dane-County-Parks---Open-Space-Plan-Map.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MVF",
+   "n": "Prairie Moraine County Park",
+   "ad": "6724 Wesner Rd, Verona, WI 53593",
+   "w": "The Johnstown Moraine crest on the Ice Age Trail, plus a 76-acre off-leash dog park — Dane County's busiest park and a Best of Madison winner.",
+   "g": [
+    "LAKES",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "DANECOUNTY",
+     "https://parks-lwrd.danecounty.gov/Park/PrairieMoraine"
+    ],
+    [
+     "VERONAPRESS",
+     "https://www.veronapress.com/news/community/prairie-moraine-projects-seek-to-attract-pollinators-engage-volunteers/article_78bac252-f959-5799-abf9-bffd1077ed2f.html"
+    ],
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/listings/prairie-moraine-county-park/183206/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DANE",
+   "n": "Schumacher Farm Park",
+   "ad": "5682 WI-19, Waunakee, WI 53597",
+   "w": "116-acre Dane County outdoor museum of 1920s–30s farm life — 1908 farmhouse and barn, restored prairie, Center for Rural History.",
+   "g": [
+    "MUS",
+    "LAKES",
+    "HIST",
+    "FAM"
+   ],
+   "s": [
+    [
+     "DANECOUNTY",
+     "https://www.danecountyparks.com/Park/SchumacherFarmParkHistoricSite"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/things-to-do/culture-arts/museums-history/schumacher-farm-park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Gates of Heaven Synagogue",
+   "ad": "302 E Gorham St (James Madison Park), Madison, WI 53703",
+   "w": "Wisconsin's first synagogue (1863, August Kutzbock) — among the oldest surviving in the U.S.; moved to James Madison Park in 1971 to escape demolition.",
+   "g": [
+    "LAKES"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Gates_of_Heaven_Synagogue"
+    ],
+    [
+     "MADISON365",
+     "https://madison365.com/madisons-first-synagogue-the-history-of-gates-of-heaven/"
+    ],
+    [
+     "WHS",
+     "https://wisconsinhistory.org/Records/NationalRegister/NR2204"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Tenney Park & the Tenney Lock",
+   "ad": "1414 E Johnson St, Madison, WI 53703",
+   "w": "O.C. Simonds' 1899 park — 'Madison's prettiest place to skate' on the lagoon (Isthmus) — and the Yahara's busiest boat lock; NRHP-listed city landmark.",
+   "g": [
+    "LAKES",
+    "HIST"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/arts/on-tenney-park-lagoon-skating-time-is-finally-here/"
+    ],
+    [
+     "CITYMADISON",
+     "https://www.cityofmadison.com/parks/find-a-park/tenney/history"
+    ],
+    [
+     "DANECOUNTY",
+     "https://www.danecountyparks.com/Park/Tenney-Park-Lock-and-Dam"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TRIP",
+   "n": "Swiss Historical Village & Museum",
+   "ad": "New Glarus, WI 53574",
+   "w": "Fourteen buildings telling the 1845 founding of 'America's Little Switzerland' — settler log home, bee house, cheese factory; run by the New Glarus Historical Society since 1938.",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/things-to-do/culture-arts/museums-history/swiss-historical-village-museum"
+    ],
+    [
+     "WHS",
+     "https://wisconsinhistory.org/Records/Property/HI230381"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TRIP",
+   "n": "Mid-Continent Railway Museum",
+   "ad": "E8948 Museum Rd, North Freedom, WI 53951",
+   "w": "Golden-age steam railroading west of Baraboo — a 7-mile round trip on C&NW track behind historic locomotives (NRHP-listed C&NW 1385).",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "TRAINS",
+     "https://trains.com/?p=170964"
+    ],
+    [
+     "CLIO",
+     "https://theclio.com/entry/17182"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mid-Continent_Railway_Museum"
+    ]
+   ]
+  }
+ ],
  "F": [
   {
    "t": 1,
@@ -230,18 +2065,3458 @@
    ],
    "s": [
     [
-     "JAMESBEARD",
+     "JBF_EDITORIAL",
      "https://jamesbeard.org/blog/ask-chef-tory-miller-where-should-we-eat-madison-area"
     ],
     [
      "UPNORTHNEWS",
      "https://upnorthnewswi.com/food-guide/madison/best-old-fashioned-2025"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Fairchild",
+   "ad": "2611 Monroe St, Madison, WI 53711",
+   "w": "A small Monroe Street dining room in a century-old brick building whose chef-owners Itaru Nagano and Andrew Kroeger won the 2023 James Beard Award for Best Chef: Midwest — the third Madison chef ever to take it. <strong>Order:</strong> A short, seasonal menu — snacks like deviled eggs, a seasonal soup, a couple of pastas and entrées such as halibut.",
+   "cz": [
+    "FINE"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://captimes.com/food-drink/madison-chefs-from-fairchild-win-james-beard-award/article_b9388bab-331b-5e55-9a3b-820b489c92a5.html"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/entertainment/dining/dining-review-fetching-fairchild-is-the-fine-dining-spot-next-door/article_5975d9a1-412d-5894-8f8d-7759a6032fc8.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Mint Mark",
+   "ad": "1874 E Washington Ave, Madison, WI 53704",
+   "w": "Produce-forward small plates from an open kitchen on East Washington, built on Wisconsin farms and local spirits. Its chefs have been James Beard semifinalists in two separate years — Sean Pharr (2024) and Kasey Lee Cooke (2026) — and Travel Wisconsin puts it in its first-timer's guide to eating in Madison. <strong>Order:</strong> Wisconsin-farm small plates that rotate weekly, and a Friday-night fish fry.",
+   "cz": [
+    "FINE",
+    "FISH"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.channel3000.com/madison-magazine/three-madison-names-included-among-2026-james-beard-award-semifinalists/article_01ee566a-d45c-4a6b-bd17-a81c3d0449c2.html"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/article/restaurants/the-first-timers-guide-to-eating-in-madison"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAP",
+   "n": "L'Etoile",
+   "ad": "1 S Pinckney St, Madison, WI 53703",
+   "w": "Madison's founding farm-to-table restaurant (Odessa Piper, 1976) on the Capitol Square — two of its chefs, Piper (2001) and Tory Miller (2012), won the James Beard Award for Best Chef: Midwest. Time Out's Madison list calls it out for working with more than 200 local vendors. <strong>Order:</strong> The seasonal farm-to-table tasting menu, sourced from 200+ local vendors.",
+   "cz": [
+    "FINE"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.visitmadison.com/blog/stories/post/james-beard-honors/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/a-look-inside-the-new-digs-for-letoile-graze-in-downtown-madison/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Graze",
+   "ad": "1 S Pinckney St, Madison, WI 53703",
+   "w": "Tory Miller's more casual, glass-walled sibling to L'Etoile on the Square (opened 2010), still farm-sourced; Madison Magazine marked its 15th year. <strong>Order:</strong> Seasonal farm-to-table gastropub plates with a view of the Capitol.",
+   "cz": [
+    "US",
+    "FINE"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/a-look-inside-the-new-digs-for-letoile-graze-in-downtown-madison/"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/graze-celebrates-15-years-with-a-special-dinner/article_ad820e5a-c58c-4c0d-92bf-88b539fa48d8.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Mickies Dairy Bar",
+   "ad": "1511 Monroe St, Madison, WI 53711",
+   "w": "A cash-only breakfast diner across from Camp Randall since 1947, with a reader-board menu and portions of legend. First on Time Out's Madison list; the Cap Times covered the founding family handing it to new owners rather than closing it. <strong>Order:</strong> The famously massive Scrambler, plate-sized pancakes and crispy hash browns (cash only).",
+   "cz": [
+    "BREAK",
+    "US"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/locations/mickies-dairy-bar/"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/mickies-dairy-bar-owners-will-retire-pass-ownership/article_df0752c8-f4aa-4e3e-9b31-1e4aa6952fef.html"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/mickies-dairy-bar"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UW",
+   "n": "Dotty Dumpling's Dowry",
+   "ad": "317 N Frances St, Madison, WI 53703",
+   "w": "A longstanding campus-edge burger institution off State Street, its ceiling hung with kites and memorabilia. On Time Out's Madison list; Isthmus calls burgers 'the heart and soul of Dotty's'. <strong>Order:</strong> Thick hand-made burgers cooked to order, with 14 cheeses to choose from.",
+   "cz": [
+    "TAV"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/locations/dotty-dumplings-dowry/"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/dotty-dumpling-s-dowry"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "A Pig in a Fur Coat",
+   "ad": "940 Williamson St, Madison, WI 53703",
+   "w": "A small Willy Street room serving rich, constantly changing Mediterranean-European small plates built on local ingredients; reserve ahead. On Time Out's Madison list. <strong>Order:</strong> Shared Spanish/French/Italian small plates — the gnocchi and the beet salad.",
+   "cz": [
+    "EURO"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/pigs-in-a-fur-coat-to-serve-small-plates-on-willy-street/"
+    ],
+    [
+     "TRAVELWI",
+     "https://travelwisconsin.com/restaurants/a-pig-in-a-fur-coat-226451"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAP",
+   "n": "Dane County Farmers' Market",
+   "ad": "Capitol Square (Saturdays Apr–Nov), Madison, WI 53703",
+   "w": "America's largest producers-only farmers' market (founded 1972): on summer Saturdays some 150 Wisconsin growers and cheesemakers completely encircle the State Capitol, and everything is grown or made by the person behind the stand. Time Out ranks it among the country's best. <strong>Order:</strong> Saturday-morning cheese curds, cheese bread and in-season produce sold by the people who made them.",
+   "cz": [
+    "MKT",
+    "CURD"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Dane_County_Farmers%27_Market"
+    ],
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/event/dane-county-farmers-market-on-the-square/70975"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/things-to-do/farm-fresh-experiences/farmers-markets/dane-county-farmers-market"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/madison/things-to-do/best-things-to-do-in-madison"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAP",
+   "n": "Fromagination",
+   "ad": "12 S Carroll St, Madison, WI 53703",
+   "w": "A European-style cut-to-order cheese shop on the Capitol Square since 2007, showcasing award-winning Wisconsin artisan cheesemakers — the obvious place to taste the state's cheese beyond curds. <strong>Order:</strong> Cut-to-order Wisconsin artisan cheese.",
+   "cz": [
+    "CURD",
+    "MKT"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/fromagination-to-provide-artisan-cheese-on-capitol-square/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/madison/things-to-do/best-things-to-do-in-madison"
+    ],
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/listings/fromagination/175397/"
+    ],
+    [
+     "BRAVA",
+     "https://bravamagazine.com/specialty-food-markets/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Lao Laan-Xang",
+   "ad": "2098 Atwood Ave, Madison, WI 53704",
+   "w": "Madison's first Laotian restaurant, family-run since 1989; the original Willy Street room closed in 2022 but the Atwood Avenue location carries on. On Time Out's Madison list and profiled by Brava and Experience Wisconsin. <strong>Order:</strong> Laotian classics — moak pa (fish steamed in banana leaf), curry squash, larb and the eggrolls.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"
+    ],
+    [
+     "BRAVA",
+     "https://bravamagazine.com/lao-laan-xang/"
+    ],
+    [
+     "EXPERIENCEWI",
+     "https://experiencewisconsinmag.com/?p=4505"
+    ],
+    [
+     "MADISON365",
+     "https://madison365.com/lao-laan-xangs-williamson-street-location-closes-after-25-years-of-serving-love-comfort-and-cuisine/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "The Weary Traveler Freehouse",
+   "ad": "1201 Williamson St, Madison, WI 53703",
+   "w": "A dim, deep-booth Willy Street pub since 2002, walls lined with travel posters; its award-winning burger is the order. On Time Out's Madison list and in the 2025 reader vote for best bar food. <strong>Order:</strong> Bob's Bad Breath Burger — half a pound with cream cheese, green goddess, caramelized onions and garlic.",
+   "cz": [
+    "TAV"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/locations/weary-traveler-freehouse/"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/dining-and-drink/williamson-street-restaurant-carries-on-with-new-owners/article_12835527-d0ea-5a7e-ae5f-542cd4363d32.html"
+    ],
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/food-guide/madison/best-bar-food-2025"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "EAST",
+   "n": "Monty's Blue Plate Diner",
+   "ad": "2089 Atwood Ave, Madison, WI 53704",
+   "w": "A retro east-side diner in a former gas station on Atwood Avenue; on Time Out's Madison list and the State Journal's ranking of Madison's favourite breakfast spots. <strong>Order:</strong> Diner breakfasts and blue-plate specials in a converted Atwood gas station.",
+   "cz": [
+    "US",
+    "BREAK"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"
+    ],
+    [
+     "WSJ",
+     "https://madison.com/entertainment/dining/restaurants/madisons-favorite-breakfast-spots-ranked/collection_22e003e4-b220-5cb7-9177-b0d5573439da.html"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/locations/montys-blue-plate-diner/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Ian's Pizza",
+   "ad": "100 State St, Madison, WI 53703",
+   "w": "The late-night State Street slice shop that made mac-and-cheese pizza a Madison rite of passage. On Time Out's Madison restaurant list and its best-things-to-do roundup. <strong>Order:</strong> Mac n' cheese pizza by the slice, served until 2:30am.",
+   "cz": [
+    "PIZZA"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/locations/ians-pizza-state-st"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/ian-s-pizza-by-the-slice"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "EAST",
+   "n": "La Rosita",
+   "ad": "6005 Monona Dr, Monona, WI 53716",
+   "w": "A Latino grocery in Monona with a taqueria counter turning out tortas and tacos — reviewed by Isthmus and named on Time Out's Madison list. <strong>Order:</strong> Tortas and tacos from the counter of a Latino grocery.",
+   "cz": [
+    "MEX",
+    "MKT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/reviews/la-rosita-offers-tortas-tacos-and-more/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CAP",
+   "n": "Short Stack Eatery — CLOSED",
+   "ad": "301 W Johnson St, Madison, WI 53703",
+   "w": "A downtown all-day breakfast spot on Time Out's Madison list for more than a decade — it announced its permanent closure in January 2025 (WMTV). Kept on the map flagged closed. <strong>Order:</strong> Pancake-forward breakfast and brunch.",
+   "closed": true,
+   "cz": [
+    "BREAK"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/short-stack-eatery"
+    ],
+    [
+     "WMTV",
+     "https://www.wmtv15news.com/video/2025/01/06/short-stack-eatery-set-close-its-doors-after-more-than-decade-downtown-madison/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Lazy Jane's Cafe",
+   "ad": "1358 Williamson St, Madison, WI 53703",
+   "w": "A Willy Street breakfast house since 1998 with a line out the door and a counter of legendary scones; its founder Jane Capito is credited by the Cap Times with seeding Madison's restaurant scene. On Time Out's Madison list. <strong>Order:</strong> The scones (lemon crème) and seasonal scramblers and frittatas.",
+   "cz": [
+    "BREAK",
+    "BAKE"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/madison/restaurants/best-restaurants-in-madison"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/news/local/city-life/not-so-lazy-jane-how-jane-capito-helped-foster-madisons-flourishing-restaurant-scene/article_064ae879-630d-5101-9358-b84862a47f80.html"
+    ],
+    [
+     "DAILYCARDINAL",
+     "https://dailycardinal.com/article/2005/06/restaurant-review-lazy-janes-caf"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Madison Sourdough",
+   "ad": "916 Williamson St, Madison, WI 53703",
+   "w": "A European-style bakery-café that mills around 40% of its own flour from local farmers' grain; baker Andrew Hutchison was a 2023 James Beard semifinalist (Outstanding Bakery/pastry) and Travel Wisconsin calls it 'a Madison must for breakfast'. <strong>Order:</strong> Naturally leavened breads from flour milled in-house, croissants (almond, cheddar-chive) and the cinnamon roll.",
+   "cz": [
+    "BAKE",
+    "BREAK",
+    "FINE"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.channel3000.com/madison-magazine/five-madison-chefs-named-james-beard-award-semifinalists/article_2e1e786c-9ce3-11ed-b67c-339a2fd2c13e.html"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/article/restaurants/the-first-timers-guide-to-eating-in-madison"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/dining-and-drink/12-madison-locations-serving-simply-savory-and-delectable-baked-goods/article_b38d3fa5-2e6b-5be1-9603-3fb25a691c9f.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAP",
+   "n": "Osteria Papavero",
+   "ad": "128 E Wilson St, Madison, WI 53703",
+   "w": "An intimate Italian osteria (2006) off the Capitol Square; Bologna-raised chef Francesco Mangano advanced to James Beard Best Chef: Midwest nominee in 2023. <strong>Order:</strong> Chef Francesco Mangano's Bologna- and Tuscany-rooted Italian cooking.",
+   "cz": [
+    "EURO"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.channel3000.com/madison-magazine/three-madison-chefs-make-james-beard-shortlist-for-best-chef-midwest/article_4b234068-ce4e-11ed-9232-dfb99252f6dc.html"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/five-madison-chefs-named-james-beard-award-semifinalists/article_2e1e786c-9ce3-11ed-b67c-339a2fd2c13e.html"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/three-madison-chefs-nominated-for-2023-james-beard-awards/article_bbf1815a-c2d8-567b-bce9-961c8b722a3c.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Lucille",
+   "ad": "101 King St, Madison, WI 53703",
+   "w": "A tri-level King Street pizzeria and cocktail bar in the old Isthmus building (2016), with a weekly jazz night; in Travel Wisconsin's first-timer's guide to eating in Madison. <strong>Order:</strong> Wood-fired pizza and craft cocktails; Wednesday-night live jazz.",
+   "cz": [
+    "PIZZA",
+    "BREW"
+   ],
+   "s": [
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/article/restaurants/the-first-timers-guide-to-eating-in-madison"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/entertainment/dining/new-pizzeria-lucille-open-in-old-isthmus-building/article_43b416c2-6117-5116-b6b4-c47b1df4d9bc.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Villa Tap",
+   "ad": "2302 Packers Ave, Madison, WI 53704",
+   "w": "A north-side tavern whose Friday fry (perch, bluegill, walleye) is a Madison Magazine pick, a City Cast Madison fish-fry recommendation and a 2025 reader-vote runner-up. <strong>Order:</strong> Friday fish fry — lake perch, cod, bluegill or walleye.",
+   "cz": [
+    "TAV",
+    "FISH"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/dining-and-drink/18-fin-tastic-places-to-get-fish-fry-in-the-madison-area/article_5bfc7047-be47-590b-b995-f733583518c8.html"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/podcasts/where-do-you-friday-fish-fry"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/locations/chicos-villa-tap/"
+    ],
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/food-guide/madison/best-fish-fry-2025"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Ha Long Bay",
+   "ad": "1353 Williamson St, Madison, WI 53703",
+   "w": "A Willy Street Southeast Asian institution that reopened in 2025 after a yearlong renovation, now run by the original owners' nieces with their mother's recipes. A family-dinner pick of James Beard winner Tory Miller. <strong>Order:</strong> Vietnamese, Thai and Lao dishes built on the family's house-made soups, broths and sauces.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/after-a-yearlong-hiatus-and-renovation-ha-long-bay-is-back/article_c9764bba-ff7b-4d88-8ce6-e9a6686af3ea.html"
+    ],
+    [
+     "JBF_EDITORIAL",
+     "https://jamesbeard.org/blog/ask-chef-tory-miller-where-should-we-eat-madison-area"
+    ],
+    [
+     "WSJ",
+     "https://madison.com/life-entertainment/local/food-drink/article_9c6a736f-43c9-455d-a01e-96b94f19d98b.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Ahan",
+   "ad": "744 Williamson St, Madison, WI 53703",
+   "w": "'Ahan' means food in Lao: Jamie and Chuckie Brown-Soukaseume's Willy Street restaurant cooks from Jamie's Lao childhood with Wisconsin ingredients. James Beard semifinalist for Best Chef: Midwest (2025) after an Emerging Chef nod; reviewed by Isthmus and profiled by PBS Wisconsin. <strong>Order:</strong> Beef laab (Lao beef salad with toasted rice powder) and Luang Prabang-style khao soi in clear chicken broth.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://captimes.com/food-drink/james-beard-honors-co-owners-of-madisons-ahan-in-best-chef-midwest/article_0132692e-d447-11ef-a92d-b337ed2703e7.html"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/james-beard-honors-co-owners-of-madisons-ahan-in-best-chef-midwest/article_0132692e-d447-11ef-a92d-b337ed2703e7.html"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/reviews/noodling-around/"
+    ],
+    [
+     "PBSWI",
+     "https://pbswisconsin.org/watch/ahan/ahan-4gvfev"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/ahan"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MVF",
+   "n": "Quivey's Grove",
+   "ad": "6261 Nesbitt Rd, Fitchburg, WI 53719",
+   "w": "Dinner in an 1856 Italianate sandstone farmhouse (the National Register-listed John Mann House) with a stone-barn Stable Grill. Its Spotted Cow-battered fry is a Madison Magazine pick and an Isthmus food editor's favourite. <strong>Order:</strong> Award-winning fish fry — cod and perch beer-battered with New Glarus Spotted Cow (Wednesdays & Fridays).",
+   "cz": [
+    "SUPPR",
+    "FISH"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/dining-and-drink/18-fin-tastic-places-to-get-fish-fry-in-the-madison-area/article_5bfc7047-be47-590b-b995-f733583518c8.html"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/podcasts/where-do-you-friday-fish-fry"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/John_Mann_House"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Dexter's Pub",
+   "ad": "301 North St, Madison, WI 53704",
+   "w": "A north-east-side neighbourhood pub whose sustainable, wild-caught fish fry runs twice a week; in Madison Magazine's fish-fry list, Travel Wisconsin's eight Madison fish-fry picks and City Cast's guide. <strong>Order:</strong> Wild-caught fish fry Wednesdays & Fridays — cod, bluegill, walleye — with Madison Sourdough rye.",
+   "cz": [
+    "TAV",
+    "FISH"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/dining-and-drink/18-fin-tastic-places-to-get-fish-fry-in-the-madison-area/article_5bfc7047-be47-590b-b995-f733583518c8.html"
+    ],
+    [
+     "TRAVELWI",
+     "https://TravelWisconsin.com/article/restaurants/8-madison-spots-for-fabulous-fish-fry"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/best/best-fish-fries-madison"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/locations/dexters-pub"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAP",
+   "n": "Public Parking",
+   "ad": "711 E Johnson St, Madison, WI 53703",
+   "w": "A Tenney-Lapham cocktail bar (opened October 2024) that went national fast: Bon Appétit and Punch best new bar, a Tales of the Cocktail top-10 for the US Central, and a 2026 James Beard semifinalist for Best New Bar. <strong>Order:</strong> Inventive cocktails with long-winded names, wild garnishes and irreverent glassware.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.channel3000.com/madison-magazine/three-madison-names-included-among-2026-james-beard-award-semifinalists/article_01ee566a-d45c-4a6b-bd17-a81c3d0449c2.html"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/public-parking-named-a-best-new-bar-by-bon-app-tit/article_3274cd83-a207-4cfa-99a8-a99398e67334.html"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/podcasts/madisons-public-parking-is-up-for-nations-best-new-bar"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DANE",
+   "n": "Buck & Honey's",
+   "ad": "804 Liberty Blvd, Sun Prairie, WI 53590",
+   "w": "Sun Prairie's big supper-house-style restaurant, a four-time Best of Madison gold winner in 2025 (best restaurant, bartender, outdoor dining, catering). <strong>Order:</strong> Steaks and an all-day American menu, with live music.",
+   "cz": [
+    "US",
+    "SUPPR"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2025-winners/article_4bb2a532-b29f-4de5-aa03-56770e542729.html"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/buck-honeys-sun-prairie"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DANE",
+   "n": "Wollersheim Winery",
+   "ad": "Across the Wisconsin River east of Prairie du Sac, Dane County, WI",
+   "w": "Wisconsin's historic winery: Hungarian count Agoston Haraszthy planted these slopes in the 1840s before leaving to found California's wine industry; Peter Kehl's stone buildings are on the National Register. Now a winery, distillery and restaurant. <strong>Order:</strong> Estate wines and Wollersheim's own brandy, tasted in the 1840s-rooted stone cellars.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wollersheim_Winery"
+    ],
+    [
+     "ONMILWAUKEE",
+     "https://onmilwaukee.com/articles/wollersheimwinery"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UW",
+   "n": "State Street Brats",
+   "ad": "603 State St, Madison, WI 53703",
+   "w": "The State Street campus bar since 1953 and Madison's brat temple — its red brat is the game-day ritual before Badger football. ESPN put it among college football's iconic stops; the Daily Cardinal and UW's alumni magazine call it part of the street's fabric. <strong>Order:</strong> The smoked, split and grilled red brat (pork + beef), with curds and a Spotted Cow.",
+   "cz": [
+    "TAV"
+   ],
+   "s": [
+    [
+     "ESPN",
+     "https://africa.espn.com/espn/mobile/news/story?id=5499506"
+    ],
+    [
+     "ONWISCONSIN",
+     "https://onwisconsin.uwalumni.com/state-street-that-great-street/"
+    ],
+    [
+     "DAILYCARDINAL",
+     "https://dailycardinal.com/article/2007/09/madisons-best-brats"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Essen Haus",
+   "ad": "514 E Wilson St, Madison, WI 53703",
+   "w": "A Bavarian 'trinken halle' on East Wilson with 16 German taps, the passed-around glass boot, lederhosen-clad servers and live polka every Friday and Saturday — Madison's German-immigrant roots, played loud. <strong>Order:</strong> Two-liter glass beer boots of German tap beer, soft pretzels with mustard; weekend oompah.",
+   "cz": [
+    "EURO",
+    "BREW"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/locations/essen-haus"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/essen-haus-german-restaurant"
+    ],
+    [
+     "BADGERHERALD",
+     "https://badgerherald.com/?p=227647"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MVF",
+   "n": "Sugar River Pizza",
+   "ad": "957 Liberty Dr, Verona, WI 53593",
+   "w": "A family-run Verona pizzeria (now several locations) that won Best Pizza in Best of Madison 2025; Isthmus reviewed its growth. <strong>Order:</strong> Scratch pizza on dough and sauce made daily.",
+   "cz": [
+    "PIZZA"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2025-winners/article_4bb2a532-b29f-4de5-aa03-56770e542729.html"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/reviews/sugar-river-pizza-third-location/"
+    ],
+    [
+     "VERONAPRESS",
+     "https://www.veronapress.com/news/business/business-briefs-march/article_8411a8f3-3f9b-56a9-92de-d995ba757106.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UW",
+   "n": "Der Rathskeller",
+   "ad": "Memorial Union, 800 Langdon St, Madison, WI 53706",
+   "w": "The Memorial Union's 1928 German-style beer hall: when its first keg was tapped in 1933, UW became the first public university in the US to serve beer. Eugene Hausler's murals and riddles, restored after the union's renovation, and the 'Battle of Beer and Wine' next door in der Stiftskeller. <strong>Order:</strong> A Wisconsin tap beer under the 1928 Hausler murals and 300 steins (then out to the Terrace).",
+   "cz": [
+    "BREW",
+    "TAV"
+   ],
+   "s": [
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/blog/stories/post/things-to-know-memorial-union-and-terrace/"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/arts/der-stiftskeller-murals-to-be-reconstructed-after-memorial-union-renovation/"
+    ],
+    [
+     "UWNEWS",
+     "https://news.wisc.edu/memorial-union-has-evolved-over-the-years-but-that-union-vibe-remains"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DANE",
+   "n": "Fosdal Home Bakery",
+   "ad": "243 E Main St, Stoughton, WI 53589",
+   "w": "Stoughton's hometown bakery on Main Street in one of America's most Norwegian towns; Madison Magazine's guide to tracing Norway in Stoughton sends you here, and UpNorthNews readers voted it among Wisconsin's 13 best bakeries. <strong>Order:</strong> Norwegian cookies — rosettes and krumkake — plus a monthly specialty donut.",
+   "cz": [
+    "BAKE",
+    "EURO"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/find-traces-of-norway-in-stoughton/article_7952daf7-53f9-43d5-a823-3f5a9d1f0cfa.html"
+    ],
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/news/we-asked-you-answered-the-13-best-bakeries-in-wisconsin/"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/sweets-treats/fosdal-home-bakery"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MVF",
+   "n": "Hubbard Avenue Diner",
+   "ad": "7445 Hubbard Ave, Middleton, WI 53562",
+   "w": "Downtown Middleton's retro diner, whose French silk won Madison Magazine's 'Munch Madness' pie bracket; a few doors from the Mustard Museum. <strong>Order:</strong> French silk pie — 2,000–3,000 sold a year — from a case of a dozen-plus daily pies.",
+   "cz": [
+    "US",
+    "BAKE"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/hubbards-french-silk-wins-madison-magazines-pie-bracket/article_3dd7c39c-d3db-11ed-9add-5be387923c48.html"
+    ],
+    [
+     "FOX6",
+     "https://www.fox6now.com/news/pie-tacos-coming-to-wisconsins-hubbard-avenue-diner"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/locations/hubbard-avenue-diner"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TRIP",
+   "n": "Glarner Stube",
+   "ad": "518 1st St, New Glarus, WI 53574",
+   "w": "The Swiss table in 'America's Little Switzerland', the village founded by 108 Glarus emigrants in 1845 — fondue and rösti a short drive from New Glarus Brewing. <strong>Order:</strong> Cheese fondue, rösti, schnitzel and Swiss sausages.",
+   "cz": [
+    "EURO"
+   ],
+   "s": [
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/glarner-stube"
+    ],
+    [
+     "PLANETWARE",
+     "https://www.planetware.com/2111607/new-glarus-wisconsin-americas-little-switzerland-charming-hidden-gem-midwest/"
+    ],
+    [
+     "ONMILWAUKEE",
+     "https://onmilwaukee.com/articles/newglarus"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TRIP",
+   "n": "Red Rooster Cafe",
+   "ad": "158 High St, Mineral Point, WI 53565",
+   "w": "A family café on Mineral Point's historic High Street making the pasties that Cornish lead miners carried down the shafts in the 1830s–40s — a stop on State Trunk Tour's Wisconsin pasty-shop guide. Pair with Pendarvis. <strong>Order:</strong> Cornish pasties and figgyhobbin.",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/the-red-rooster-cafe"
+    ],
+    [
+     "STATETRUNKTOUR",
+     "https://statetrunktour.com/wisconsin-pasty-shops-a-state-trunk-tour-guide/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DANE",
+   "n": "Dorf Haus Supper Club",
+   "ad": "County Hwy Y, Roxbury (3 mi SE of Sauk City), WI",
+   "w": "A Roxbury tavern-and-dance-hall turned German supper club, run by the Maier family since 1959. Gold for Fish Fry in Madison Magazine's Best of Madison 2025 and winner of its 'Most Fabulous Fish Fry' contest; Milwaukee Record calls it the Friday-night pilgrimage. <strong>Order:</strong> All-you-can-eat Friday haddock fish fry with potato pancakes/fritters, or jäger schnitzel with spaetzle.",
+   "cz": [
+    "SUPPR",
+    "FISH",
+    "EURO"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/dining-and-drink/dorf-haus-wins-most-fabulous-fish-fry/article_cd15745f-8606-57a3-ab10-7dcc8bc1c128.html"
+    ],
+    [
+     "MILWAUKEERECORD",
+     "https://milwaukeerecord.com/food-drink/enjoy-every-fish-fry-a-friday-night-in-roxbury-at-the-dorf-haus-supper-club/"
+    ],
+    [
+     "TRAVELWI",
+     "https://TravelWisconsin.com/restaurants/dorf-haus-supper-club-195322"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MVF",
+   "n": "Craftsman Table & Tap",
+   "ad": "6712 Frank Lloyd Wright Ave, Middleton, WI 53562",
+   "w": "Middleton taphouse (18 taps, 50 bottles) whose Hook's-cheddar curds took silver for Cheese Curds in Best of Madison 2025 and topped UpNorthNews readers' 2025 cheese-curd vote. <strong>Order:</strong> Beer-battered Hook's cheddar curds.",
+   "cz": [
+    "CURD",
+    "TAV"
+   ],
+   "s": [
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/food-guide/madison/best-cheese-curds-2025"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2025-winners/article_4bb2a532-b29f-4de5-aa03-56770e542729.html"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/dining/craftsman-table-tap-196805"
+    ],
+    [
+     "VISITMIDDLETON",
+     "https://visitmiddleton.com/location/craft-table-and-tap/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAP",
+   "n": "Chocolate Shoppe Ice Cream",
+   "ad": "State Street, Madison, WI 53703",
+   "w": "Madison's own super-premium ice cream since 1962; the 1964 State Street parlor is its oldest. Gold for Ice Cream in Best of Madison 2025 and UpNorthNews readers' best ice cream shop 2025. <strong>Order:</strong> Zanzibar Chocolate (three African cocoas, since 2001).",
+   "cz": [
+    "CREAM"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2025-winners/article_4bb2a532-b29f-4de5-aa03-56770e542729.html"
+    ],
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/food-guide/madison/best-ice-cream-shop-2025"
+    ],
+    [
+     "DAILYCARDINAL",
+     "https://www.dailycardinal.com/article/2005/09/the-scoop-on-state-street"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Tipsy Cow",
+   "ad": "King St at Main St, Capitol Square, Madison, WI 53703",
+   "w": "Burger-and-whisky bar at the point of King and Main off the Square; bronze for Cheese Curds and Burger and a Best Bar medal in Best of Madison 2025; on UpNorthNews' best-curds list. <strong>Order:</strong> Beer-battered curds with Tipsy sauce; Wisconsin butter burger.",
+   "cz": [
+    "TAV",
+    "CURD"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2025-winners/article_4bb2a532-b29f-4de5-aa03-56770e542729.html"
+    ],
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/2024/03/12/the-cream-of-the-crop-madisons-best-cheese-curd-spots"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/reviews/tipsy-cow-sun-prairie/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "North and South Seafood & Smokehouse",
+   "ad": "6604 Mineral Point Rd, Madison, WI 53705",
+   "w": "West-side seafood-and-smokehouse with branches in DeForest and Verona; silver for Fish Fry (and a Barbecue medal) in Best of Madison 2025, on Madison Magazine's fish-fry roundup, reviewed by the Cap Times. <strong>Order:</strong> All-you-can-eat haddock fish fry; smoked pulled pork.",
+   "cz": [
+    "FISH",
+    "US"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/dining-and-drink/18-fin-tastic-places-to-get-fish-fry-in-the-madison-area/article_5bfc7047-be47-590b-b995-f733583518c8.html"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/entertainment/dining/restaurant-review-pulled-pork-joins-fabulous-fish-at-new-north-and-south-seafood-smokehouse/article_0d108eb2-f964-5cda-a285-05ad7ff4356a.html"
+    ],
+    [
+     "TRAVELWI",
+     "https://travelwisconsin.com/restaurants/north-and-south-seafood-smokehouse-madison-336960"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TRIP",
+   "n": "Ishnala Supper Club",
+   "ad": "Mirror Lake (inside Mirror Lake State Park), Lake Delton, WI",
+   "w": "Summer-season supper club built in 1953 over Mirror Lake, with Norway pines growing through the floor; won in Best of Madison 2025 and profiled by Cook's Country as the archetype of the Wisconsin supper club. <strong>Order:</strong> A brandy old fashioned (sweet, sour or press) — 108,504 poured in 2023 — then prime rib over Mirror Lake.",
+   "cz": [
+    "SUPPR"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/ishnala-supper-club-wins-in-best-of-madison-2025/article_fc5e1da0-24ce-4abb-94ce-db9adac227fa.html"
+    ],
+    [
+     "COOKSCOUNTRY",
+     "https://www.americastestkitchen.com/cookscountry/articles/8529-how-supper-clubs-offer-a-link-to-the-past-and-a-glimpse-of-the-future"
+    ],
+    [
+     "HEAVYTABLE",
+     "https://heavytable.com/?p=78745"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Kavanaugh's Esquire Club — CLOSED",
+   "ad": "Madison's north side, WI",
+   "w": "Madison's oldest restaurant — a 1947 north-side tavern turned supper club, run by the Kavanaugh family for nearly 80 years and voted the city's best fish fry in 2025. CLOSED: it shut in January 2026 a week after owner John Kavanaugh III died (WMTV, WKOW). Kept, flagged, as a piece of the supper-club canon. <strong>Order:</strong> Friday fish fry (UpNorthNews readers' #1, 2025); prime rib.",
+   "closed": true,
+   "cz": [
+    "SUPPR",
+    "FISH"
+   ],
+   "s": [
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/food-guide/madison/best-fish-fry-2025"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/food-drink/historic-madison-restaurants"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/after-76-years-kavanaughs-esquire-club-changes-hands/article_6fb0e4be-096a-11ef-99f1-9b84a75556e7.html"
+    ],
+    [
+     "BRAVA",
+     "https://bravamagazine.com/madison-supper-clubs/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Sardine",
+   "ad": "617 Williamson St, Madison, WI 53703",
+   "w": "French bistro in a converted warehouse on the Lake Monona shore; on The Infatuation's 14 best in Madison, Imbibe's where-to-drink list (best bar seat for a Martini and oysters) and runner-up best restaurant + best view in UpNorthNews readers' 2025 vote. <strong>Order:</strong> Moules-frites, steak frites with shallot butter, and the gruyère-draped bar hot dog.",
+   "cz": [
+    "FINE",
+    "BREW"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/madison/reviews/sardine-madison"
+    ],
+    [
+     "IMBIBE",
+     "https://imbibemagazine.com/where-to-drink-in-madison-wisconsin/"
+    ],
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/food-guide/madison/best-restaurants-2025"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/sardine"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAP",
+   "n": "The Harvey House",
+   "ad": "West Washington Ave (by the former Milwaukee Road depot), Madison, WI",
+   "w": "A 2021 high-end throwback to the Wisconsin supper club: Esquire's 40 best new restaurants in America, one of the New York Times' 50 favorite restaurants of 2022, featured on Top Chef Wisconsin, and The Infatuation's pick for Madison's best fine dining. <strong>Order:</strong> Supper-club classics reworked — relish tray, beef Wellington-style showpieces and a brandy old fashioned.",
+   "cz": [
+    "SUPPR",
+    "FINE"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/madison/guides/best-restaurants-madison-wisconsin"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/food-drink/madison-restaurants-national-spotlight"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "The Plaza Tavern",
+   "ad": "319 N Henry St, Madison, WI 53703",
+   "w": "A Prohibition-era (1930) downtown tavern that invented the double-stack Plazaburger and still won't reveal its sauce; on City Cast's oldest-restaurants and best-dive-bars lists, a Daily Cardinal 'bite of the week'. <strong>Order:</strong> The Plazaburger with the secret sauce (since 1963–64).",
+   "cz": [
+    "TAV"
+   ],
+   "s": [
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/food-drink/historic-madison-restaurants"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/bars-taverns/plaza-tavern"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/columns/plaza-tavern-s-pals-come-to-the-rescue/article_521efe36-7a62-5b9f-824d-937a580fd62f.html"
+    ],
+    [
+     "DAILYCARDINAL",
+     "https://www.dailycardinal.com/article/2007/03/bite-of-the-week-5c0edcd67e662"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Caribou Tavern",
+   "ad": "703 E Johnson St, Madison, WI 53703",
+   "w": "A Madison institution since 1966 for PBRs, brandy old fashioneds and the extra-large 'Bou Burger — on Imbibe's where-to-drink, Madison Magazine's dive bars and City Cast's best dive bars. <strong>Order:</strong> The 'Bou Burger and a brandy old fashioned.",
+   "cz": [
+    "TAV"
+   ],
+   "s": [
+    [
+     "IMBIBE",
+     "https://imbibemagazine.com/where-to-drink-in-madison-wisconsin/"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/dining-and-drink/7-dive-bars-that-are-more-than-meets-the-eye/article_e5248677-5daa-578b-8239-ca6080ffa906.html"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/madison-best/madison-best-dive-bars"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Le Tigre Lounge",
+   "ad": "1328 S Midvale Blvd, Madison, WI 53711",
+   "w": "Strip-mall tiger-themed lounge, family-run since the mid-1960s with one of the city's oldest liquor licenses; Imbibe, Madison Magazine and City Cast all list it. <strong>Order:</strong> A gin Martini under the stuffed tiger.",
+   "cz": [
+    "TAV",
+    "BREW"
+   ],
+   "s": [
+    [
+     "IMBIBE",
+     "https://imbibemagazine.com/where-to-drink-in-madison-wisconsin/"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/dining-and-drink/7-dive-bars-that-are-more-than-meets-the-eye/article_e5248677-5daa-578b-8239-ca6080ffa906.html"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/madison-best/madison-best-dive-bars"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Turn Key Supper Club",
+   "ad": "East Washington Ave (1885 building), Madison, WI",
+   "w": "Bar author Brian Bartels' modern homage to the supper club in an 1885 building on East Wash; on Imbibe's where-to-drink list and City Cast's supper-club and fish-fry roundups. <strong>Order:</strong> Fish Fry Friday / Prime Rib Saturday with relish tray; Brian Bartels' old fashioneds.",
+   "cz": [
+    "SUPPR",
+    "FISH",
+    "BREW"
+   ],
+   "s": [
+    [
+     "IMBIBE",
+     "https://imbibemagazine.com/where-to-drink-in-madison-wisconsin/"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/food-drink/supper-clubs-madison"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "WEST",
+   "n": "The Village Bar",
+   "ad": "3801 Mineral Point Rd, Madison, WI 53705",
+   "w": "West-side neighborhood tavern on Madison Magazine's dive-bar list and City Cast's 'bars that feel like home'. <strong>Order:</strong> Burger with fried onions and homemade chili.",
+   "cz": [
+    "TAV"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/dining-and-drink/7-dive-bars-that-are-more-than-meets-the-eye/article_e5248677-5daa-578b-8239-ca6080ffa906.html"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/food-drink/madison-neighborhood-bars"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Great Dane Pub & Brewing Co.",
+   "ad": "123 E Doty St, Madison, WI 53703",
+   "w": "Madison's flagship brewpub since November 1994, in the NRHP-listed Fess Hotel (1858) at Doty & King; UpNorthNews readers' #1 Madison brewery 2025. <strong>Order:</strong> House-brewed Good Dog IPA or Black Earth Porter in the 1858 Fess Hotel.",
+   "cz": [
+    "BREW",
+    "TAV"
+   ],
+   "s": [
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/local/food-drink/best-breweries-2025/"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/beer/the-great-dane-pub-celebrates-20-years-of-craft-brewing-in-madison-and-beyond"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/city-life/the-great-dane-pub-brewing-co-has-brewed-success/article_34afb0f5-5300-5996-b7b0-9ab5ff02ed52.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fess_Hotel"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UW",
+   "n": "Babcock Hall Dairy Store",
+   "ad": "1605 Linden Dr, Madison, WI 53706",
+   "w": "The UW dairy plant's own shop since 1951 — the nation's oldest university dairy facility, making ~75,000 gallons in 90+ flavors from Wisconsin milk. Silver for Ice Cream in Best of Madison 2025. <strong>Order:</strong> Union Utopia (or Mnookie Dough) scooped from the campus dairy plant.",
+   "cz": [
+    "CREAM",
+    "CURD"
+   ],
+   "s": [
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/babcock-hall-dairy-store"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2025-winners/article_4bb2a532-b29f-4de5-aa03-56770e542729.html"
+    ],
+    [
+     "DAILYCARDINAL",
+     "https://www.dailycardinal.com/article/2005/11/i-scream"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "CocoVaa Chocolatier",
+   "ad": "1815 E Washington Ave (The Marling), Madison, WI 53704",
+   "w": "Syovata 'Vata' Edari's award-winning chocolate shop (17 international awards); she was a 2024 James Beard semifinalist for Outstanding Pastry Chef or Baker. Reopened in a new Marling space in December 2025. <strong>Order:</strong> Single-origin truffles and custom chocolate bars.",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.channel3000.com/madison-magazine/two-madison-chefs-and-one-madison-restaurant-named-james-beard-award-semifinalists/article_6698054e-bada-11ee-9461-0b78dcd464fd.html"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/james-beard-honors-mint-mark-cocovaa-and-pasture-plenty/article_5c745740-b975-11ee-bfca-2324602b6796.html"
+    ],
+    [
+     "MADISON365",
+     "https://madison365.com/madisons-cocovaa-chocolatier-wins-17-international-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Imaginary Factory",
+   "ad": "1401 Northern Ct, Madison, WI 53703",
+   "w": "East-side craft-beverage production facility and tasting room of cocktail specialist Hastings Cameron (liqueurs, bitters, aromatized wine); Cameron was a 2026 James Beard semifinalist for Outstanding Professional in Cocktail Service and earlier a finalist. <strong>Order:</strong> A house-made liqueur/aperitif cocktail (e.g. the pineapple-sage).",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.wkow.com/news/2026-james-beard-award-semifinalists-include-3-madison-representatives/article_50f1b523-eb26-41aa-b65d-78a8065754c2.html"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/one-dish-pineapple-sage-at-imaginary-factory"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/madisons-imaginary-factory-founder-is-james-beard-award-finalist/article_48229a1a-fe9b-4d24-b054-8c776fcb33fb.html"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/hastings-cameron-approaches-cocktails-with-all-out-playfulness/article_5b8144ae-6240-4a6e-b943-ba8d3915a084.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Pasture and Plenty",
+   "ad": "2433 University Ave, Madison, WI 53726",
+   "w": "Christy McKenzie's farm-to-table deli, meal-kit and catering hub; a 2024 James Beard semifinalist for Outstanding Hospitality. <strong>Order:</strong> Farm-to-table deli sandwiches and grab-and-go meals.",
+   "cz": [
+    "FINE",
+    "US"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.channel3000.com/madison-magazine/two-madison-chefs-and-one-madison-restaurant-named-james-beard-award-semifinalists/article_6698054e-bada-11ee-9461-0b78dcd464fd.html"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/james-beard-honors-mint-mark-cocovaa-and-pasture-plenty/article_5c745740-b975-11ee-bfca-2324602b6796.html"
+    ],
+    [
+     "WPR",
+     "https://wpr.org/food/9-wisconsin-restaurants-chefs-named-as-james-beard-award-semifinalists"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MVF",
+   "n": "Capital Brewery",
+   "ad": "Middleton, WI 53562",
+   "w": "Middleton's 40-year-old lager brewery (240 awards) whose Bier Garten — 'Middleton's back yard' — draws 1,500 on summer Fridays; indoor Bier Stube in winter. State Trunk Tour attraction page (2026). <strong>Order:</strong> Island Wheat (Washington Island wheat) in the Bier Garten.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "STATETRUNKTOUR",
+     "https://statetrunktour.com/attractions/capital-brewery/"
+    ],
+    [
+     "VISITMIDDLETON",
+     "https://visitmiddleton.com/middletons-back-yard/"
+    ],
+    [
+     "TRAVELWI",
+     "https://travelwisconsin.com/breweries/capital-brewery-203268"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MVF",
+   "n": "Clasen's European Bakery",
+   "ad": "Middleton, WI",
+   "w": "German brothers Ralph and Ernst Clasen's Middleton bakery (since 1959), now third-generation; bronze for Bread in Best of Madison 2025, profiled by Brava. <strong>Order:</strong> Holiday stollen and German breads from the founders' 1959 recipes.",
+   "cz": [
+    "BAKE",
+    "EURO"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2025-winners/article_4bb2a532-b29f-4de5-aa03-56770e542729.html"
+    ],
+    [
+     "BRAVA",
+     "https://bravamagazine.com/clasens-european-bakery/"
+    ],
+    [
+     "VISITMIDDLETON",
+     "https://visitmiddleton.com/front-porch-series-clasens-european-bakery/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Lombardino's",
+   "ad": "University Ave, Madison, WI",
+   "w": "On University Avenue since 1952 (City Cast's oldest-restaurants list); Best of Madison 2026 gold for Italian, silver for Chef (Andres Martinez) and bronze for Upscale Dining. <strong>Order:</strong> Classic red-sauce Italian-American — housemade pasta and a martini at the bar.",
+   "cz": [
+    "EURO"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/food-drink/historic-madison-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Working Draft Beer Company",
+   "ad": "1129 E Wilson St, Madison, WI 53703",
+   "w": "East-isthmus brewery (2018) with a serious mixed-fermentation program; UpNorthNews readers' #4 Madison brewery 2025 and bronze Brewery in Best of Madison 2026. <strong>Order:</strong> Modern lagers, IPAs and mixed-fermentation sours.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/local/food-drink/best-breweries-2025/"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DANE",
+   "n": "Rex's Innkeeper",
+   "ad": "Waunakee, WI",
+   "w": "Waunakee supper club popular for special-occasion banquets (City Cast's supper-club guide); silver for Salad Bar in Best of Madison 2026. <strong>Order:</strong> Supper-club salad bar and prime rib.",
+   "cz": [
+    "SUPPR"
+   ],
+   "s": [
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/food-drink/supper-clubs-madison"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DANE",
+   "n": "Maple Tree Supper Club",
+   "ad": "McFarland, WI",
+   "w": "McFarland supper club serving the full supper-club ritual for 40+ years (City Cast); gold for Salad Bar in Best of Madison 2026. <strong>Order:</strong> Full salad bar and prime-rib specials.",
+   "cz": [
+    "SUPPR"
+   ],
+   "s": [
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/food-drink/supper-clubs-madison"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/maple-tree-supper-club"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "EAST",
+   "n": "Player's Sports Bar & Grill",
+   "ad": "Atwood neighborhood, Madison, WI",
+   "w": "Atwood neighborhood sports bar City Cast credits with Madison's best bar burgers; silver Sports Bar in Best of Madison 2026. <strong>Order:</strong> The bar burger City Cast calls the best in town.",
+   "cz": [
+    "TAV"
+   ],
+   "s": [
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/food-drink/madison-neighborhood-bars"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TRIP",
+   "n": "New Glarus Brewing Co.",
+   "ad": "Hilltop brewery, New Glarus, WI 53574",
+   "w": "The Swiss village's craft brewery, maker of Spotted Cow (Best of Madison 2026 gold for local craft beer, gold Brewery 2025 & 2026); Time Out names it the side-trip from Madison, and its Bavarian-style hilltop brewery has a self-guided tour and beer garden. <strong>Order:</strong> Spotted Cow — sold only in Wisconsin — in the hilltop beer garden.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/madison/things-to-do/best-things-to-do-in-madison"
+    ],
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/local/food-drink/best-breweries-2025/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Greenbush Bakery",
+   "ad": "Greenbush neighborhood, Madison, WI",
+   "w": "Kosher donut bakery since 1996 — gold for Bakery–Sweets in Best of Madison 2025 and 2026, UpNorthNews readers' best bakery in southern Wisconsin, #26 on a 2025 national best-donut-shops list. <strong>Order:</strong> Old-fashioned and apple-fritter donuts (Madison's only certified-kosher bakery).",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/2025/05/19/we-asked-you-answered-the-13-best-bakeries-in-wisconsin"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAP",
+   "n": "Stella's Bakery",
+   "ad": "Capitol Square (Dane County Farmers' Market), Madison, WI 53703",
+   "w": "The farmers' market ritual: Stella's hot & spicy cheese bread, torn apart while circling the Capitol. Silver for Bakery–Bread in Best of Madison 2025 and 2026; UpNorthNews' bakery roundup. <strong>Order:</strong> Hot & spicy cheese bread, pulled warm at the Saturday farmers' market.",
+   "cz": [
+    "BAKE"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/2025/05/19/we-asked-you-answered-the-13-best-bakeries-in-wisconsin"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Marigold Kitchen",
+   "ad": "Downtown (Capitol Square area), Madison, WI",
+   "w": "Downtown brunch standby — gold for Breakfast/Brunch in Best of Madison 2026 (silver 2025), and on UpNorthNews' best-brunch roundup. <strong>Order:</strong> Locally sourced weekend brunch plates.",
+   "cz": [
+    "BREAK"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/community/the-5-best-brunch-places-in-madison-according-to-reddit/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "EAST",
+   "n": "Tip Top Tavern",
+   "ad": "Madison, WI",
+   "w": "Neighborhood tavern on City Cast's best-fish-fry list and UpNorthNews' best-brunch roundup. <strong>Order:</strong> Friday fish fry; weekend brunch.",
+   "cz": [
+    "TAV",
+    "FISH",
+    "BREAK"
+   ],
+   "s": [
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/madison-best/madison-best-fish-fry"
+    ],
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/community/the-5-best-brunch-places-in-madison-according-to-reddit/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TRIP",
+   "n": "Driftless Glen Distillery",
+   "ad": "Baraboo River, Baraboo, WI",
+   "w": "Baraboo craft distillery with a riverfront restaurant whose menu is cooked with its own spirits; Best of Madison 2026 gold for Outdoor Dining and bronze for Old Fashioned and Bloody Mary, plus a 2025 Bar medal. <strong>Order:</strong> A Driftless Glen brandy old fashioned on the Baraboo River patio; brandy-glazed salmon.",
+   "cz": [
+    "BREW",
+    "SUPPR"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/news/local/distillery-serves-more-than-drinks-driftless-glen-open-for-meals/article_31284c77-390b-5260-9882-1ce12ac954fd.html"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/distilleries/driftless-glen-distillery-restaurant"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TRIP",
+   "n": "The Del-Bar",
+   "ad": "Lake Delton, WI",
+   "w": "Supper club run by the Wimmer family since 1943, its stone-and-glass building designed by Taliesin-trained James Dresser in Wright's organic style; celebrated 80 years in 2023. Best of Madison 2026 silver for Destination Restaurant and Steakhouse, bronze for Supper Club. <strong>Order:</strong> Prime rib or a steak and a relish tray under Wright-protégé architecture.",
+   "cz": [
+    "SUPPR"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "WMTV",
+     "https://www.wmtv15news.com/2023/05/28/wisconsin-dells-supper-club-celebrates-80th-anniversary/"
+    ],
+    [
+     "WHS",
+     "https://wisconsinhistory.org/Records/Property/HI243679"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TRIP",
+   "n": "Baumgartner's Cheese Store & Tavern",
+   "ad": "Monroe, WI 53566",
+   "w": "Wisconsin's oldest cheese store (1931) in Monroe, the Green County seat where the nation's last Limburger plant still runs; a Saveur 100 pick for its Limburger sandwich, also featured by Tasting Table. <strong>Order:</strong> The Limburger sandwich — three slices on rye with raw onion and mustard — and a local bock.",
+   "cz": [
+    "CURD",
+    "TAV"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "SAVEUR",
+     "https://www.saveur.com/article/Travels/saveur-100-baumgartners-limburger/"
+    ],
+    [
+     "TASTINGTABLE",
+     "https://www.tastingtable.com/2148297/wisconsin-oldest-cheese-shop-limburger-sandwich/"
+    ],
+    [
+     "WMTV",
+     "https://www.wmtv15news.com/content/news/The-legend-of-Limburger-known-as-the-worlds-stinkiest-cheese-510327271.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TRIP",
+   "n": "Suzy's Pointer Cafe",
+   "ad": "809 Ridge St, Mineral Point, WI 53565",
+   "w": "Mineral Point family diner on State Trunk Tour's 2026 guide to Wisconsin pasty shops — the Cornish miners' pasty in the town they settled. <strong>Order:</strong> A Cornish pasty with homemade pie.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "STATETRUNKTOUR",
+     "https://statetrunktour.com/wisconsin-pasty-shops-a-state-trunk-tour-guide/"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/suzy-s-pointer-cafe"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DANE",
+   "n": "Grumpy Troll Brew Pub",
+   "ad": "105 S Second St, Mount Horeb, WI 53572",
+   "w": "Brewpub in a 1916 creamery in the middle of the Trollway, open since 1998 and 'still packed every night' (Milwaukee Magazine's Mount Horeb–New Glarus day trip). <strong>Order:</strong> House ales and lagers and a Friday fish fry among the trolls.",
+   "cz": [
+    "BREW",
+    "TAV"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MILWAUKEEMAG",
+     "https://www.milwaukeemag.com/milwaukee-day-trip-mount-horeb-new-glarus/"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/grumpy-troll-brew-pub"
+    ],
+    [
+     "MIDWESTWEEKENDS",
+     "https://midwestweekends.com/plan-a-trip/history-heritage/ethnic-towns/mount-horeb-wisconsin/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DANE",
+   "n": "Sjölinds Chocolate House",
+   "ad": "219 E Main St, Mount Horeb, WI 53572",
+   "w": "Mount Horeb chocolate house and café of European sweets — lebkuchen, Finnish pies, macarons — plus Swedish potato sausage and meatballs at lunch (Milwaukee Magazine, Travel Wisconsin). <strong>Order:</strong> Hot chocolate with chocolate-dipped lebkuchen or a Finnish pie.",
+   "cz": [
+    "BAKE",
+    "BREAK",
+    "EURO"
+   ],
+   "s": [
+    [
+     "MILWAUKEEMAG",
+     "https://www.milwaukeemag.com/milwaukee-day-trip-mount-horeb-new-glarus/"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/cafes-coffee-shops/sjolinds-chocolate-house"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UW",
+   "n": "Paul's Pel'meni",
+   "ad": "State St area, Madison, WI",
+   "w": "Late-night student institution serving a single dish of Russian dumplings; on The Infatuation's 14 best restaurants in Madison and a Daily Cardinal favorite. <strong>Order:</strong> Pel'meni (beef or potato) with butter, sour cream, curry and cilantro — the whole menu.",
+   "cz": [
+    "EURO",
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/madison/guides/best-restaurants-madison-wisconsin"
+    ],
+    [
+     "DAILYCARDINAL",
+     "https://www.dailycardinal.com/article/2004/01/pelmini-a-hearty-treat"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MVF",
+   "n": "Candinas Chocolatier",
+   "ad": "Verona, WI 53593",
+   "w": "Swiss-trained Markus Candinas has made truffles in Verona since 1994 (Capitol Square boutique since 2007); Consumer Reports named it among the nation's best; Isthmus and Midwest Weekends chocolate tours; Best of Madison 2026 bronze for Chocolate. <strong>Order:</strong> Fresh cream-centered truffles (only 12–14 flavors).",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/news/cover-story/Isthmus-guide-to-chocolate-shops/"
+    ],
+    [
+     "MIDWESTWEEKENDS",
+     "https://midwestweekends.com/plan-a-trip/shopping-eating/dining/madison-chocolate-shops/"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "WMTV",
+     "https://www.wmtv15news.com/2023/02/14/verona-chocolatier-navigating-inflation-amid-busy-valentines-holiday"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAP",
+   "n": "Cento",
+   "ad": "122 W Mifflin St, Madison, WI 53703",
+   "w": "Capitol Square Italian in a brick-and-stained-glass historic office building; Best of Madison 2026 silver for Restaurant, bronze for Italian and Chef (Edwin Ramirez); reviewed by Isthmus, The Takeout and the Daily Cardinal. <strong>Order:</strong> Handmade pasta (gnocchi with mushrooms and breadcrumbs) and wood-fired pizza.",
+   "cz": [
+    "EURO"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/cento-puts-michael-pruetts-talents-on-display/"
+    ],
+    [
+     "TAKEOUT",
+     "https://www.thetakeout.com/1759348/cento-wisconsin-restaurant-real-estate-office"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Tempest Oyster Bar",
+   "ad": "120 E Wilson St, Madison, WI 53703",
+   "w": "Swanky oyster bar in a former funeral parlor off the Square (stuffed blue marlin, a boat, a giant shell); Best of Madison seafood medals 2025–26; reviewed by Isthmus and Tone Madison. <strong>Order:</strong> A seafood tower of oysters, gulf shrimp and clams; Great Lakes whitefish cakes.",
+   "cz": [
+    "FISH"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/dining/a-years-worth-of-madison-restaurants/"
+    ],
+    [
+     "TONEMADISON",
+     "https://tonemadison.com/articles/small-plates-in-nice-places-tempest-oyster-bar/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Vintage Brewing Co.",
+   "ad": "674 S Whitney Way, Madison, WI 53719",
+   "w": "West-side brewpub (2010) with a long British-ale/IPA list and a full kitchen; Best of Madison 2026 silver for Brewery; Isthmus beer columnist Robin Shepard tracks its beers. <strong>Order:</strong> Gratzer (oak-smoked Polish wheat) and a Blue Heaven burger amid 1950s kitsch.",
+   "cz": [
+    "BREW",
+    "TAV"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/locations/vintage-brewing-company/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Green Owl Cafe",
+   "ad": "1970 Atwood Ave, Madison, WI 53704",
+   "w": "Madison's dedicated vegetarian & vegan restaurant on Atwood Avenue; gold for Vegetarian/Vegan-Focused in Best of Madison 2026. <strong>Order:</strong> Vegan comfort food (seitan, tempeh, scratch soups).",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/green-owl-cafe"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/locations/green-owl-cafe/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Gail Ambrosius Chocolatier",
+   "ad": "2083 Atwood Ave, Madison, WI 53704",
+   "w": "Atwood Avenue chocolatier working in single-origin dark chocolate (an Isthmus cover story); gold for Chocolate in Best of Madison 2026; on Brava's and Experience Wisconsin's chocolate-shop lists. <strong>Order:</strong> Single-origin dark-chocolate truffles with spices and teas.",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/news/cover-story/gail-ambrosius-brings-a-world-of-chocolate-to-madison/"
+    ],
+    [
+     "BRAVA",
+     "https://bravamagazine.com/?p=22728"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DANE",
+   "n": "Salvatore's Tomato Pies",
+   "ad": "121 E Main St, Sun Prairie, WI 53590",
+   "w": "Sun Prairie's pizza obsession: New Jersey-style tomato pies reviewed by the Cap Times, Isthmus and Heavy Table; silver for Pizza in Best of Madison 2025 and 2026. <strong>Order:</strong> Trenton-style sauce-on-top tomato pie with fennel pollen and housemade stracciatella.",
+   "cz": [
+    "PIZZA"
+   ],
+   "s": [
+    [
+     "CAPTIMES",
+     "https://captimes.com/entertainment/dining/restaurant-review-sleek-space-and-hearty-entrees-move-salvatores-tomato-pies-ahead-in-sun-prairie/article_b97539a4-5a97-5d48-862c-2680a878891b.html"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/reviews/new-salvatores-tomato-pies-sun-prairie"
+    ],
+    [
+     "HEAVYTABLE",
+     "https://heavytable.com/fig-and-bacon-pizza-at-salvatores-tomato-pies-in-madison/"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DANE",
+   "n": "Firefly Coffeehouse",
+   "ad": "Oregon, WI 53575",
+   "w": "'Oregon's living room' since 2000, in a former grocery; now run by Wisconsin Cheese Originals founder Jeanne Carpenter with an artisan cheese counter. Silver for Coffee Shop in Best of Madison 2025 and 2026. <strong>Order:</strong> Espresso and from-scratch bakery, plus a Wisconsin artisan-cheese case.",
+   "cz": [
+    "BREAK",
+    "CURD"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "WKOW",
+     "https://www.wkow.com/news/wake-up-wisconsin/firefly-coffeehouse-known-as-oregons-living-room/article_4206ad12-53b5-4343-857c-e5b753153bab.html"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/food-news/the-carpenters-buy-a-coffeehouse/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DANE",
+   "n": "Drumlin Ridge Winery",
+   "ad": "Waunakee countryside (between Waunakee and Westport), WI",
+   "w": "Family winery (2017) on a glacial drumlin north of Madison with a 6,400 sq ft tasting room and patio; Best of Madison 2026 silver Wine Bar and bronze Winery; on Brava's Madison-area winery trail. <strong>Order:</strong> Estate wine or hard cider on the drumlin-top patio with a cheese board.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "BRAVA",
+     "https://bravamagazine.com/traipsing-vines-madison-wineries/"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/drumlin-ridge-winery-set-to-open-this-fall/"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/wineries-cideries/drumlin-ridge-winery"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TRIP",
+   "n": "Hook's Cheese Company",
+   "ad": "Shake Rag district, Mineral Point, WI 53565",
+   "w": "Tony and Julie Hook's Mineral Point cheese company (1976), famous for extra-aged cheddars — its 10-year won an American Cheese Society first; profiled by PBS Wisconsin's Wisconsin Foodie and culture magazine; gold Cheese Producer in Best of Madison 2026. <strong>Order:</strong> Hook's 10- (or 20-) year aged cheddar and blues.",
+   "cz": [
+    "CURD"
+   ],
+   "s": [
+    [
+     "PBSWI",
+     "https://pbswisconsin.org/watch/wisconsin-foodie/wisconsin-foodie-hooks-cheese/"
+    ],
+    [
+     "CULTUREMAG",
+     "https://culturecheesemag.com/cheese-library/cheddar-hooks-10-year"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "WMTV",
+     "https://www.wmtv15news.com/content/news/Hooks-Cheese-releasing-20-year-cheddar-but-youll-have-to-spend-serious-cheddar-for-it-567170941.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TRIP",
+   "n": "Bailey's Run Vineyard",
+   "ad": "New Glarus, WI 53574",
+   "w": "Hilltop New Glarus winery (2018) with ~30 wines, Green County small plates and weekend live music; Best of Madison winery medals 2023–2026; profiled by Brava and Northwest Quarterly. <strong>Order:</strong> A flight of estate wines with a brick-oven Neapolitan pizza on weekends.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "BRAVA",
+     "https://bravamagazine.com/?p=48775"
+    ],
+    [
+     "NWQUARTERLY",
+     "https://northwestchicagoland.northwestquarterly.com/2020/10/21/baileys-run-vineyard-a-winery-with-a-stunning-view/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MVF",
+   "n": "Stone Porch Alehouse",
+   "ad": "Verona, WI 53593",
+   "w": "Verona tavern where chef Jacob Goldsberry (ex-Down Home Cookhouse) puts Southern fried chicken at the center (Cap Times feature); silver for Outdoor Dining in Best of Madison 2026. <strong>Order:</strong> Nashville hot chicken sandwich; chicken and waffles.",
+   "cz": [
+    "US",
+    "TAV"
+   ],
+   "s": [
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/in-verona-stone-porch-alehouse-makes-fried-chicken-a-focus/article_1b3496c4-ee08-11ee-ad60-133882944ca3.html"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MVF",
+   "n": "Imperial Garden",
+   "ad": "Middleton (Madison–Middleton line), WI",
+   "w": "West-side Chinese institution voted Best of Madison every year since 1984; silver for East Asian in Best of Madison 2026; a Visit Middleton dining pick. <strong>Order:</strong> Cantonese-American classics in a 1980s-grand dining room.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "VISITMIDDLETON",
+     "https://visitmiddleton.com/location/imperial-garden-chinese-restaurant/"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/imperial-garden-chinese-restaurant"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UW",
+   "n": "The Nitty Gritty",
+   "ad": "223 N Frances St, Madison, WI 53703",
+   "w": "Opened 1968 as a blues club, 'Madison's Official Birthday Bar' since 1985 (330,000 birthdays); rebuilt after a 2023 fire; silver for Burger in Best of Madison 2025. Doug Moe on its storied history (Madison Magazine). <strong>Order:</strong> The Grittyburger with Gritty Sauce — and a free birthday beer in a commemorative mug.",
+   "cz": [
+    "TAV"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/columns/doug-moe-madison/nitty-gritty-s-fire-sparks-appreciation-of-its-storied-history-and-late-founder/article_424f64ca-c5d7-5217-acc5-701aecb0fd53.html"
+    ],
+    [
+     "DAILYCARDINAL",
+     "https://www.dailycardinal.com/article/2005/09/food-connoisseurs-marsh-shapiro"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/nitty-gritty-downtown-madison"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "La Taguara",
+   "ad": "3502 E Washington Ave, Madison, WI 53704",
+   "w": "Madison's Venezuelan restaurant (2013), family recipes from the Badell family — arepas, empanadas, patacón; gold for Latin American in Best of Madison 2026; repeatedly covered by Isthmus and the Cap Times. <strong>Order:</strong> Reina pepiada arepa; pabellón criollo with guasacaca.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/one-dish-camarones-al-ajillo-from-la-taguara/"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/entertainment/dining/restaurants/lets-eat-arepas-and-patacon-pisao-mean-lunch-at-la-taguara/article_2234775c-4546-507c-8208-f4a1e83eba7c.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAP",
+   "n": "The Robin Room",
+   "ad": "821 E Johnson St, Madison, WI 53703",
+   "w": "Chad Vogel's 2016 lounge that 'catapulted Madison's cocktail scene' (Imbibe); on City Cast's must-try cocktails and coziest-spots lists. <strong>Order:</strong> The Jasmine (gin, Campari, Cointreau, lemon) or a seasonal house cocktail.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "IMBIBE",
+     "https://imbibemagazine.com/where-to-drink-in-madison-wisconsin/"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/food-drink/7-madison-cocktails-you-have-to-try"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Heritage Tavern",
+   "ad": "Downtown Madison, WI",
+   "w": "Farm-to-table tavern with a James Beard–semifinalist chef, on City Cast's cocktail roundup and UpNorthNews' best-brunch list. <strong>Order:</strong> Farm-to-table plates and reimagined brunch staples; weekday happy-hour cocktails.",
+   "cz": [
+    "FINE",
+    "BREAK"
+   ],
+   "s": [
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/food-drink/7-madison-cocktails-you-have-to-try"
+    ],
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/community/the-5-best-brunch-places-in-madison-according-to-reddit/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Natt Spil",
+   "ad": "King St, Madison, WI 53703",
+   "w": "Red-lit King Street tavern for cocktails, wood-fired pizza and DJs — on Madison Magazine's 'thirty local bars we love' and City Cast's hidden-gems list (a favorite of Madisonians in the know; it has never had a phone). <strong>Order:</strong> Wood-fired pizza and dumplings with a cocktail under red lights (no phone).",
+   "cz": [
+    "BREW",
+    "PIZZA"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/dining-and-drink/thirty-local-bars-we-love/article_d971b14f-6028-5a2c-aae3-651eeb0aabee.html"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/food-drink/secrets-madison-dining-scene"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Madison Public Market",
+   "ad": "First St & E Johnson St, Madison, WI",
+   "w": "The city's long-planned year-round public market and food hall (~$24 million), opened July 2026 with 11 local vendors and more joining; open Wednesday–Sunday. <strong>Order:</strong> Melly Mell's fried perch or catfish, a Cinn City smash burger, Chocolate Shoppe scoops.",
+   "cz": [
+    "MKT"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "WMTV",
+     "https://www.wmtv15news.com/2026/07/29/madison-public-market-opens-after-years-planning/"
+    ],
+    [
+     "WKOW",
+     "https://www.wkow.com/news/madison-public-market-reveals-hours-ahead-of-july-23-grand-opening/article_5f08ee49-1868-4c5e-8232-c0c3a79aeae7.html"
+    ],
+    [
+     "MADISON365",
+     "https://madison365.com/this-is-a-dream-come-true-at-long-last-melly-mells-ready-to-deliver-delicious-homemade-soul-food-at-new-madison-public-market/"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/news/government/sneak-peek-inside-the-future-madison-public-market/article_57131190-0dd3-5287-9f33-bf30a475dda1.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Sern Sapp",
+   "ad": "1146 Williamson St, Madison, WI 53703",
+   "w": "Everyday Lao comfort food from Ounprason Inthachith (2025) in the Willy Street space Lao Laan-Xang held for 25 years — reviewed by Isthmus, covered by the Cap Times, Madison Magazine and Madison365. <strong>Order:</strong> Kao piak khao (Lao congee); khao poon curry noodle soup.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/reviews/sern-sapp-something-new-in-madison-lao-scene/"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/new-madison-restaurant-aims-to-share-laotian-food-culture/article_22bf544c-ef8d-4d28-b854-0ae2671e5523.html"
+    ],
+    [
+     "MADISON365",
+     "https://madison365.com/i-think-madison-is-ready-for-more-lao-food-sern-sapp-restaurant-brings-authentic-laotian-cuisine-back-to-willy-street/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MVF",
+   "n": "Taigu",
+   "ad": "7610 Elmwood Ave, Middleton, WI 53562",
+   "w": "Gao Hong's Shanxi kitchen (since 2014) — the Madison area's go-to for housemade knife-cut and cat's-ear noodles; reviewed by Isthmus, Madison Magazine (twice) and the Cap Times, and profiled by PBS Wisconsin's Wisconsin Life. <strong>Order:</strong> Hand-cut knife-shaved noodles or cat's-ear noodles (Shanxi style).",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/reviews/taigu-brings-hand-cut-noodles-to-middleton/"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/a-second-serving-of-taigu/article_ecd00506-c88c-11ef-9c51-87ee21fd5ead.html"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/22-of-the-madison-area-s-best-strip-mall-restaurants/article_7fa37e3a-0429-11f0-9a80-839e7f49d4c5.html"
+    ],
+    [
+     "PBSWI",
+     "https://wisconsinlife.org/story/the-taste-of-shanxi-noodles-helps-a-restaurant-owner-connect-her-hometown-to-her-community/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MVF",
+   "n": "Dhaba Indian Bistro",
+   "ad": "8333 Greenway Blvd #100, Middleton, WI 53562",
+   "w": "Middleton's Indian bistro — Best of Madison South Asian winner; Isthmus calls it a menu that 'doesn't even need a buffet', and the Cap Times put its biryani in a Madison Indian showdown. <strong>Order:</strong> Lamb biryani, karhi pakora, lobster korma.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/dhaba-indian-bistro-doesnt-even-need-a-buffet"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/who-has-madisons-better-biryani-an-indian-restaurant-showdown/article_c3dc7d00-cf50-5783-b697-aad57b1c1333.html"
+    ],
+    [
+     "VISITMIDDLETON",
+     "https://visitmiddleton.com/best-of-madison-awards-middleton-2025/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MVF",
+   "n": "Rolling Pin Bake Shop",
+   "ad": "2935 S Fish Hatchery Rd, Fitchburg, WI 53711",
+   "w": "Fitchburg strip-mall bakery-café that Isthmus rates 'a top-notch breakfast spot and an inventive sandwich shop' as well as a stand-up bakery; on the Cap Times' 22 best strip-mall restaurants. <strong>Order:</strong> Layer cakes (lemon sunshine, fudgy raspberry) and breakfast sandwiches.",
+   "cz": [
+    "BAKE",
+    "BREAK"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/fresh-from-fitchburg-the-rolling-pin-bake-shop"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/22-of-the-madison-area-s-best-strip-mall-restaurants/article_7fa37e3a-0429-11f0-9a80-839e7f49d4c5.html"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MVF",
+   "n": "Curry in the Box",
+   "ad": "3050 Cahill Main #3, Fitchburg, WI 53711",
+   "w": "The original Fitchburg curry counter (now with a University Ave sibling): curries built on seven Thai and Indian sauces; Isthmus-reviewed and on the Cap Times' best strip-mall list. <strong>Order:</strong> Panang chicken curry from seven house Thai & Indian curry sauces.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/reviews/curry-in-the-box-serves-quality-rice-and-noodle-dishes/"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/22-of-the-madison-area-s-best-strip-mall-restaurants/article_7fa37e3a-0429-11f0-9a80-839e7f49d4c5.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Saigon Noodles",
+   "ad": "6754 Odana Rd, Madison, WI 53719",
+   "w": "Ann and Henry Tran's west-side pho house (since 2004) — profiled by the Cap Times, Madison Magazine and Isthmus, and on the Cap Times' best strip-mall restaurants list. <strong>Order:</strong> Beef pho and fresh spring rolls.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/22-of-the-madison-area-s-best-strip-mall-restaurants/article_7fa37e3a-0429-11f0-9a80-839e7f49d4c5.html"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/experience-the-flavors-of-vietnamese-cuisine/article_afbf0992-30b1-11ee-9fff-fbd180e334fc.html"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/ann-tran-co-owner-with-brother-henry-of-saigon-noodles/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Petra Bakery & Restaurant",
+   "ad": "6119 Odana Rd, Madison, WI 53719",
+   "w": "Jordanian chef Mohammed Elbeik's halal bakery-restaurant on Odana (2021): shawarma from meat butchered in-house; reviewed by Isthmus ('a lovely Middle Eastern interlude'), Madison Magazine and the Cap Times. <strong>Order:</strong> Halal shawarma, then baklava or Turkish delight.",
+   "cz": [
+    "MED",
+    "BAKE"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/reviews/lovely-middle-eastern-interlude-at-petra-madison/"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/petra-bakery-restaurant-serves-up-halal-dishes-for-all/article_3ab91060-71e8-11ef-8bb5-db65665742ec.html"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/22-of-the-madison-area-s-best-strip-mall-restaurants/article_7fa37e3a-0429-11f0-9a80-839e7f49d4c5.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "El Panzon",
+   "ad": "1310 S Midvale Blvd, Madison, WI 53711",
+   "w": "Loncheria y panaderia from Tlaxcala natives — huge cemita sandwiches ('aguacate, mas aguacate') and Mexican sweet breads; reviewed by Isthmus and the Cap Times, on the Cap Times' strip-mall best list. <strong>Order:</strong> Cemita de milanesa (Tlaxcala-style sandwich with papalo) and pan dulce.",
+   "cz": [
+    "MEX",
+    "BAKE"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/reviews/el-panzon-also-offers-mexican-food/"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/entertainment/dining/restaurants/lets-eat-el-panzon-is-big-on-sandwiches-and-strong-family-ties/article_3542c6c6-359d-5860-9208-cf855630aa18.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Osteria Novella",
+   "ad": "2903 University Ave, Madison, WI 53705",
+   "w": "Bar Corallini alumni Giovanni Novella and Evan Ackers' Neapolitan/Amalfi osteria (Nov 2025) — everything handmade, pasta to mozzarella; covered by the Cap Times and Madison Magazine and named on City Cast's best new bars & restaurants. <strong>Order:</strong> Handmade pasta with Amalfi-coast seafood; brick-oven pizza; limoncello cocktails.",
+   "cz": [
+    "EURO",
+    "PIZZA"
+   ],
+   "s": [
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/a-first-look-at-osteria-novella-a-new-italian-spot-on-university/article_78913271-5bb2-48cd-b92b-642586c2246c.html"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/osteria-novella-opens-on-university-avenue/article_58f135b3-90ba-4858-a4c1-5f2b3f104f5b.html"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/food-drink/madison-s-best-new-bars-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UW",
+   "n": "Teddywedgers",
+   "ad": "101 State St, Madison, WI 53703",
+   "w": "Pasty counter at the top of State Street since 1976, carrying on the Cornish-miner pasty of SW Wisconsin's lead region; Madison Magazine calls it a Madison staple, and it anchors State Trunk Tour's Wisconsin pasty-shop guide. <strong>Order:</strong> Traditional Cornish pasty (steak, potato, onion) — the Mineral Point miners' lunch.",
+   "cz": [
+    "EURO",
+    "BAKE"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/this-madison-staple-is-hot-to-go/article_bd815ee2-c88e-11ef-8898-6be04d3cf2bf.html"
+    ],
+    [
+     "STATETRUNKTOUR",
+     "https://statetrunktour.com/wisconsin-pasty-shops-a-state-trunk-tour-guide/"
+    ],
+    [
+     "BADGERHERALD",
+     "https://badgerherald.com/?p=176682"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UW",
+   "n": "The Kollege Klub",
+   "ad": "529 N Lake St, Madison, WI 53703",
+   "w": "The 'KK', the Meier family's campus bar since 1953 (moved to Lake & Langdon in 1972) — the game-day home of Badger athletes and fans, per Wisconsin Alumni Association history and OnMilwaukee's Madison sports-bar guide. <strong>Order:</strong> The Big Ten burger and a pitcher before a Badgers game.",
+   "cz": [
+    "TAV"
+   ],
+   "s": [
+    [
+     "UWALUMNI",
+     "https://www.uwalumni.com/news/how-long-has-the-kollege-klub-been-around/"
+    ],
+    [
+     "ONMILWAUKEE",
+     "https://onmilwaukee.com/articles/madisonsportsbars09"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UW",
+   "n": "Library Mall food carts",
+   "ad": "Library Mall (State St at Park St), UW–Madison campus, Madison, WI 53706",
+   "w": "Madison's famous lunchtime food-cart row between Memorial Library and State Street — spots are awarded by the city's annual cart ranking (2025-26 top scorers: Surco Peruvian, Surco 2, Braisin' Hussies); a campus institution per Isthmus and the Wisconsin Alumni Association. <strong>Order:</strong> Lunch from the top-ranked carts — Surco Peruvian's lomo saltado or ají de gallina.",
+   "cz": [
+    "MKT",
+    "MEX"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/lunch-at-surco-peruvian-thai-riffic-and-the-dandelion-food-carts-at-library-mall/"
+    ],
+    [
+     "UWALUMNI",
+     "https://www.uwalumni.com/news/food-carts"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DANE",
+   "n": "J. Henry & Sons",
+   "ad": "7794 Patton Rd, Dane, WI 53529",
+   "w": "Third-generation Dane farm making grain-to-bottle Wisconsin straight bourbon from its own heirloom red corn, aged in old barns and tasted in the family farmhouse; profiled by the Cap Times and Destination Madison. <strong>Order:</strong> Wisconsin straight bourbon from heirloom red corn, tasted in the farmhouse.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "CAPTIMES",
+     "https://captimes.com/news/local/city-life/q-a-farmer-joe-henry-makes-wisconsin-bourbon-from-grain-to-bottle/article_11244d3e-f5cc-5e41-a61a-77472ce92905.html"
+    ],
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/local-libations/makers/liz-joe-henry/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Banzo",
+   "ad": "2105 Sherman Ave, Madison, WI 53704",
+   "w": "The Library Mall falafel cart that grew a north-side restaurant — Best of Madison 2026 Mediterranean/Middle Eastern gold (Madison Magazine) and Isthmus readers' Mad Faves Middle Eastern pick. <strong>Order:</strong> Falafel pita and shawarma plates (the lime-green cart's brick-and-mortar).",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/isthmus-city-guide/isthmus-readers-pick-their-madison-favorites/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "RED",
+   "ad": "316 W Washington Ave, Madison, WI 53703",
+   "w": "Downtown sushi lounge that sweeps both reader polls — Best of Madison 2026 East Asian gold (Madison Magazine) and Isthmus readers' Mad Faves Japanese restaurant. <strong>Order:</strong> Signature maki and nigiri off the Capitol Square.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/best-of-madison-2026-winners/article_43d5b5eb-e764-46f1-a3ae-2a0d02e9ced6.html"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/isthmus-city-guide/isthmus-readers-pick-their-madison-favorites/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Oakcrest Tavern",
+   "ad": "5371 Old Middleton Rd, Madison, WI 53705",
+   "w": "West-side neighborhood tavern whose burger keeps topping Madison lists — Isthmus' survey of burger heroes, Doug Moe's Madison Magazine column (Chicago magazine called it the top of 'burger heaven'), and UpNorthNews readers' best bar food 2025. <strong>Order:</strong> Char-grilled Oakcrest burger from Knoche's steak trimmings, ground daily.",
+   "cz": [
+    "TAV"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/dining/a-survey-of-madisons-modest-hamburger-heroes/"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/columns/doug-moe-madison/the-decades-long-search-for-madisons-best-burger/article_d9ef4aec-f64b-11ed-adad-07fcc49bbbb9.html"
+    ],
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/local/food-drink/best-bar-food-2025/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TRIP",
+   "n": "Driftless Café",
+   "ad": "118 W Court St, Viroqua, WI 54665",
+   "w": "Luke Zahm's Viroqua farm-to-table café (since 2013; 2017 James Beard Best Chef Midwest semifinalist; host of PBS's Wisconsin Foodie) — ~85% of its food from within 100 miles, the Driftless region's flagship table. A long day trip (~2 h). <strong>Order:</strong> The nightly-changing dinner menu built from Vernon County's organic farms.",
+   "cz": [
+    "FINE"
+   ],
+   "s": [
+    [
+     "WPR",
+     "https://wpr.org/wisconsin-restaurants-recognized-some-best-us"
+    ],
+    [
+     "ONMILWAUKEE",
+     "https://onmilwaukee.com/articles/luke-zahm-carries-torch-for-local-food"
+    ],
+    [
+     "TRAVELWI",
+     "https://travelwisconsin.com/article/restaurants/dining-in-the-driftless-a-foodies-guide-to-southwest-wisconsin"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Bar Corallini",
+   "ad": "2004 Atwood Ave, Madison, WI 53704",
+   "w": "Food Fight's Neapolitan bar on Atwood, built around chef Giovanni Novella's Torre del Greco recipes and a proper wood-fire oven — Isthmus likens it to an oceanside bistro near Naples; the Cap Times calls the crust as good as any in town. <strong>Order:</strong> Wood-fired Neapolitan pizza and a Venetian spritz.",
+   "cz": [
+    "EURO",
+    "PIZZA"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/reviews/bar-corallini/"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/entertainment/dining/restaurant-review-bar-corallini-makes-a-spritzy-splash-on-atwood/article_73ac7d3b-d185-5d05-b210-3156521fd295.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MVF",
+   "n": "Wisconsin Brewing Company",
+   "ad": "1079 American Way, Verona, WI 53593",
+   "w": "Verona production brewery whose pond-side taproom a fellow brewer called 'the most state-of-the-art new brewery in Wisconsin' (Isthmus); featured in Experience Wisconsin's craft tap-room guide. <strong>Order:</strong> A flight in the two-story-windowed taproom (free Friday concerts in summer).",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/beer/wisconsin-brewing-company-christens-verona-taproom-readies-to-debut-its-beers-in-madison/"
+    ],
+    [
+     "EXPERIENCEWI",
+     "https://experiencewisconsinmag.com/wisconsin-craft-brewing-tap-rooms/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Taqueria Guadalajara",
+   "ad": "1033 S Park St, Madison, WI 53715",
+   "w": "Park Street's real taquería — handmade tortillas, a steamy counter and a back patio; Isthmus readers' Mad Faves Mexican pick, reviewed by Isthmus, the Cap Times and the Daily Cardinal ('Madison favorite'). <strong>Order:</strong> Tacos on handmade tortillas, huaraches and sopes.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/taqueria-guadalajara-serves-mexican-favorites"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/taqueria-guadalajara-kicks-up-classics-with-spicy-salsa/article_f43f17b6-a2a2-52e7-805b-9e2fb5b55608.html"
+    ],
+    [
+     "DAILYCARDINAL",
+     "https://dailycardinal.com/article/2017/11/devour-tacos-at-madison-favorite-taqueria-guadalajara"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TRIP",
+   "n": "Puempel's Olde Tavern",
+   "ad": "18 6th Ave, New Glarus, WI 53574",
+   "w": "New Glarus' 1893 tavern, its bar, floors, walls and ceiling 'like they were 110 years ago' — OnMilwaukee's New Glarus pick; Travel Wisconsin-listed. <strong>Order:</strong> A Spotted Cow at the 1893 back bar, with a brat or Swiss cheese plate.",
+   "cz": [
+    "TAV",
+    "EURO"
+   ],
+   "s": [
+    [
+     "ONMILWAUKEE",
+     "https://onmilwaukee.com/articles/newglarus"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/bars-taverns/puempel-s-olde-tavern"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DANE",
+   "n": "Viking Brew Pub",
+   "ad": "211 E Main St, Stoughton, WI 53589",
+   "w": "Stoughton brewpub (2014; in-house brewing since 2015) leaning into the town's Norwegian heritage — a Nordic fishing-boat bar and Norwegian plates; Isthmus covered its opening. <strong>Order:</strong> Saturday Norwegian meatballs with lingonberry, or Norwegian salmon with dill hollandaise.",
+   "cz": [
+    "BREW",
+    "EURO"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/beer/stoughton-echoes-with-cries-of-skol-as-viking-brewpub-opens-its-doors/"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/bars-taverns/viking-brew-pub"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UW",
+   "n": "Mediterranean Cafe",
+   "ad": "625 State St, Madison, WI 53703",
+   "w": "Lower State Street's homegrown lunch counter since 1996 — Algerian founder Faisal Belakhdar still helps make the weekly specials (Badger Herald 2025); 'one of the best homegrown restaurants left on lower State Street' (Isthmus). <strong>Order:</strong> Friday couscous, moussaka and bourak at the lunch counter.",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "BADGERHERALD",
+     "https://badgerherald.com/artsetc/2025/02/05/madison-restaurant-forms-community-through-food-since-1996"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/locations/mediterranean-cafe"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/mediterranean-cafe"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "UW",
+   "n": "Jordan's Big 10 Pub",
+   "ad": "1330 Regent St, Madison, WI 53715",
+   "w": "The Camp Randall pre-game fixture with Regent Street's largest outdoor beer garden — City Cast Madison's tailgate pick; OnMilwaukee's Madison sports-bar guide; Madison Magazine's Regent St game-day story. <strong>Order:</strong> A game-day beer in Regent Street's biggest beer garden.",
+   "cz": [
+    "TAV"
+   ],
+   "s": [
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/best/the-best-places-to-tailgate-in-madison"
+    ],
+    [
+     "ONMILWAUKEE",
+     "https://onmilwaukee.com/articles/madisonsportsbars09"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/is-regent-streets-game-day-culture-changing/article_d3c09dc4-8a5b-11ef-a09f-83a04078172c.html"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "UW",
+   "n": "Lucky's 1313 Brew Pub",
+   "ad": "1313 Regent St, Madison, WI 53715",
+   "w": "Regent Street brewpub in a former auto-repair garage, brewhouse run by veteran brewer Grant Johnston (Isthmus); its event hall is 'custom-made for big Badger gameday tailgaters' (City Cast Madison). <strong>Order:</strong> House beer from the 10-barrel brewhouse in a converted 1930s auto garage.",
+   "cz": [
+    "BREW",
+    "TAV"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/luckys-1313-brew-pub-grant-johnston/"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/best/the-best-places-to-tailgate-in-madison"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UW",
+   "n": "Fabiola's Spaghetti House & Deli",
+   "ad": "1301 Regent St, Madison, WI 53715",
+   "w": "Sam Brown's 2023 love letter to the old Greenbush 'Spaghetti Corners' — Italian red sauce plus Jewish deli (Madison Magazine, City Cast Madison); its blocked-off lot is the 'serious tailgater' party on game days (Isthmus). <strong>Order:</strong> Red-sauce spaghetti and meatballs, or bialys and latkes from the deli side.",
+   "cz": [
+    "EURO"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/old-school-italian-restaurant-returns-regent-street-to-its-roots/article_dec5d028-7cd7-11ee-876a-37ed27e24ff6.html"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/podcasts/fabiolas-is-reviving-madisons-spaghetti-corners"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/reviews/your-guide-to-game-day-uw-badger-tailgates/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "UW",
+   "n": "Himal Chuli — CLOSED",
+   "ad": "300 block of State St, Madison, WI 53703",
+   "w": "Opened 1986 by Bishnu and Krishna Pradhan — billed as the first Nepali restaurant in the U.S.; closed for good in December 2025 (Daily Cardinal, Jan 2026). Kept, flagged. <strong>Order:</strong> (closed) dal-and-roti combo and momocha.",
+   "closed": true,
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "DAILYCARDINAL",
+     "https://www.dailycardinal.com/article/2026/01/that-was-grandmas-table-an-ode-to-himal-chuli-madisons-slice-of-nepal"
+    ],
+    [
+     "BADGERHERALD",
+     "https://badgerherald.com/guide-reviews/2004/11/15/serving-up-authentic/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Sa-Bai Thong",
+   "ad": "2840 University Ave, Madison, WI 53705",
+   "w": "Madison's long-running Thai standard-bearer — an Isthmus readers' Mad Faves Thai pick and a perennial Madison Magazine Best of Madison winner. <strong>Order:</strong> Fish-sauce-free curries and noodles, voted Best of Madison since 1997.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/archive/zzzisthmus-annual-manual/madfaves-2015-winners/"
+    ],
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/listings/sa-bai-thong-thai-cuisine-near-west/177758/"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/sa-bai-thong-thai-restaurant"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "WEST",
+   "n": "Everly",
+   "ad": "2701 Monroe St, Madison, WI 53711",
+   "w": "Monroe Street's sunny California-style room where 'vegetables are the star' (Cap Times review); Travel Wisconsin-listed; rated 4.4 on ~900 reviews. <strong>Order:</strong> Weekend brunch or the vegetable plates on the indoor-outdoor bar patio.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "CAPTIMES",
+     "https://captimes.com/entertainment/dining/restaurant-review-let-the-sun-shine-in-at-everly-where-vegetables-are-the-star/article_3b9c34e6-41ff-5816-bb3f-41580a2934d9.html"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/everly"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Swagat",
+   "ad": "707 N High Point Rd, Madison, WI 53717",
+   "w": "Madison Magazine Best of Madison 2024 South Asian gold; a top reader pick in the Cap Times' best strip-mall restaurants round-up. <strong>Order:</strong> Fish pakora and lamb shahi korma (lunch buffet).",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/swagat-indian-restaurant-wins-in-best-of-madison-2024/article_387d4378-746f-11ef-833b-674f5599d919.html"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/news/local/city-life/madisons-top-10-er-11-best-strip-mall-restaurants/article_1a0e6bf1-7ca3-556d-890b-5fec8de324b6.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MVF",
+   "n": "Bavaria Sausage",
+   "ad": "6317 Nesbitt Rd, Fitchburg, WI 53719",
+   "w": "Founded 1961 by Bavarian master sausage maker Fred Voll, who introduced Madison to its 'first bratwurst' (Fitchburg Historical Society); Travel Wisconsin-listed. <strong>Order:</strong> Hand-mixed Nürnberger bratwurst and Weisswurst, plus imported German groceries.",
+   "cz": [
+    "EURO",
+    "MKT"
+   ],
+   "s": [
+    [
+     "FITCHBURGHIST",
+     "https://fitchburghistory.org/bavaria-sausage/"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/things-to-do/shopping/bavaria-sausage"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MVF",
+   "n": "Hop Haus Brewing Co. (Verona)",
+   "ad": "231 S Main St, Verona, WI 53593",
+   "w": "German-tavern brewpub on Verona's Main Street beside the Military Ridge State Trail (Isthmus, Verona Press); grew into a second Fitchburg brewery. <strong>Order:</strong> German-style lagers on the Military Ridge Trail.",
+   "cz": [
+    "BREW",
+    "EURO"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/beer/hop-haus-opens-in-verona/"
+    ],
+    [
+     "VERONAPRESS",
+     "https://www.veronapress.com/news/business/hop-haus-brings-crafted-brews-to-downtown-hangout/article_062cec8a-5cfd-5125-8119-743d40751a39.html"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MVF",
+   "n": "Villa Dolce",
+   "ad": "1828 Parmenter St, Middleton, WI 53562",
+   "w": "Downtown Middleton's gelato café run by the Lumani brothers (Isthmus profile); Visit Middleton's dessert-guide staple. <strong>Order:</strong> House-made gelato and thin-crust pizza.",
+   "cz": [
+    "EURO",
+    "CREAM"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/tony-lumani"
+    ],
+    [
+     "VISITMIDDLETON",
+     "https://visitmiddleton.com/location/villa-dolce/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MVF",
+   "n": "Zafferano Ristorante",
+   "ad": "2969 Cahill Main, Fitchburg, WI 53711",
+   "w": "Two-kitchen Indian–Italian fusion (Cap Times: 'Indian spins on Italian dishes slap'); City Cast Madison's weird-pizza pick; ~200 butter-chicken pizzas a day (Badger Herald, mixed review). <strong>Order:</strong> Butter-chicken pizza and masala eggplant parm.",
+   "cz": [
+    "ASIAN",
+    "EURO"
+   ],
+   "s": [
+    [
+     "CAPTIMES",
+     "https://captimes.com/food-drink/at-zafferano-ristorante-indian-spins-on-italian-dishes-slap/article_f784780a-5f0e-4305-964e-88a916d0ca2f.html"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/food-drink/best-weird-pizza-madison"
+    ],
+    [
+     "BADGERHERALD",
+     "https://badgerherald.com/artsetc/reviews/2025/04/28/zafferano-ristorante-highs-lows-of-bold-indian-italian-fusion-concept/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DANE",
+   "n": "Mariner's Inn — CLOSED",
+   "ad": "5339 Lighthouse Bay Dr, Madison, WI 53704",
+   "w": "The von Rutenberg family's supper club on Lake Mendota since 1966 — 'one of Madison's best supper clubs for 59 years' — closed Aug. 29, 2025 (Cap Times). Kept, flagged. <strong>Order:</strong> (closed) tenderloin filet and lake perch at the Yahara mouth.",
+   "closed": true,
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "CAPTIMES",
+     "https://captimes.com/opinion/dave-zweifel/opinion-a-fond-farewell-to-mariners-inn/article_c02b85b4-5d1f-4dd7-b694-660406287c7b.html"
+    ],
+    [
+     "GAZETTEXTRA",
+     "https://www.gazettextra.com/entertainment/dining_reviews/restaurant-review-mariners-inn-remains-madison-steak-stalwart/article_7fe13adc-edb7-5897-acd0-e35be312fdab.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DANE",
+   "n": "Brix Cider",
+   "ad": "119 S 2nd St, Mount Horeb, WI 53572",
+   "w": "Mount Horeb cidery-restaurant pressing only locally grown apples, two-thirds of its kitchen sourced from Wisconsin farms (Isthmus, Brava); Travel Wisconsin-listed. <strong>Order:</strong> Small-batch cider from 18 area orchards, with house-made sausages.",
+   "cz": [
+    "BREW",
+    "FINE"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/brix-cider-of-mount-horeb/"
+    ],
+    [
+     "BRAVA",
+     "https://bravamagazine.com/?p=50567"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/breweries/brix-cider-llc"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CAP",
+   "n": "The Coopers Tavern",
+   "ad": "20 W Mifflin St, Madison, WI 53703",
+   "w": "Irish-born Peter McElvanna's Capitol Square gastropub (2010) uniting 'Irish and Midwestern flavors' (Isthmus); Destination Madison-listed. <strong>Order:</strong> The Reuben in the snug, with an Irish whiskey.",
+   "cz": [
+    "EURO",
+    "TAV"
+   ],
+   "s": [
+    [
+     "ISTHMUS",
+     "https://isthmus.com/food-drink/the-coopers-tavern-unites-irish-and-midwestern-flavors/"
+    ],
+    [
+     "VISITMADISON",
+     "https://www.visitmadison.com/listings/the-coopers-tavern/180088/"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/coopers-tavern"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CAP",
+   "n": "Paisan's — CLOSED",
+   "ad": "131 W Wilson St, Madison, WI 53703",
+   "w": "Downtown Madison's decades-old pizza house, forced out of its W. Wilson St building for the final time (Cap Times: 'a sad end to Paisan's pizza'); Madison Magazine and On Wisconsin profiled it. Kept, flagged. <strong>Order:</strong> (closed) thin-crust pizza.",
+   "closed": true,
+   "cz": [
+    "EURO",
+    "PIZZA"
+   ],
+   "s": [
+    [
+     "CAPTIMES",
+     "https://captimes.com/opinion/dave-zweifel/opinion-a-sad-end-to-paisans-pizza/article_6b1cefcc-1753-5d5a-91a5-3c605748fa8c.html"
+    ],
+    [
+     "MADMAG",
+     "https://www.channel3000.com/madison-magazine/city-life/paisan-s-produces-popular-pizza-and-more/article_22ea9a4d-e297-50a9-88dd-3cb0e6b462a7.html"
+    ],
+    [
+     "ONWISCONSIN",
+     "https://onwisconsin.uwalumni.com/paisans/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TRIP",
+   "n": "Minhas Craft Brewery",
+   "ad": "1208 14th Ave, Monroe, WI 53566",
+   "w": "The Midwest's oldest brewery (1845, ex-Joseph Huber) and the second-oldest in the U.S. (Wikipedia, Tasting Table); State Trunk Tour attraction pick. <strong>Order:</strong> A tour of the 1845 brewery and its brewery-memorabilia museum.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Minhas_Craft_Brewery"
+    ],
+    [
+     "STATETRUNKTOUR",
+     "https://statetrunktour.com/attractions/minhas-craft-brewery/"
+    ],
+    [
+     "TASTINGTABLE",
+     "https://www.tastingtable.com/2255365/oldest-beer-brands-us/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Gates & Brovi",
+   "ad": "3502 Monroe St, Madison, WI 53711",
+   "w": "Sardine chefs Phillip Hurley and John Gadau's Monroe Street fish house–meets–Wisconsin tavern (opened 2012; Wisconsin State Journal); one of Travel Wisconsin's 8 Madison fish-fry picks; a Cap Times family-dining favourite. <strong>Order:</strong> Friday fried cod or Great Lakes bluegill, clam pizza and chowder.",
+   "cz": [
+    "FISH",
+    "EURO",
+    "TAV"
+   ],
+   "s": [
+    [
+     "TRAVELWI",
+     "https://TravelWisconsin.com/article/restaurants/8-madison-spots-for-fabulous-fish-fry"
+    ],
+    [
+     "WSJ",
+     "https://madison.com/life-entertainment/article_e465c3a2-1254-11e2-8f1d-001a4bcf887a.html"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/entertainment/dining/small-plates-madison-restaurants-lure-families-with-creative-kids-menus/article_39a0f61e-f3a2-53d5-8dca-42c35f37cc20.html"
     ]
    ]
   }
  ],
- "S": {},
+ "S": {
+  "AMAZINGAMERICA": {
+   "k": "AMAZINGAMERICA",
+   "t": "Amazing America (Sinclair TV, syndicated on WJLA etc.)",
+   "u": "https://wjla.com/amazing-america",
+   "l": "Amazing America (Sinclair TV, syndicated on WJLA etc.)"
+  },
+  "AMERICANTHEATRE": {
+   "k": "AMERICANTHEATRE",
+   "t": "American Theatre magazine",
+   "u": "https://americantheatre.org",
+   "l": "American Theatre magazine"
+  },
+  "ARCHITECTMAG": {
+   "k": "ARCHITECTMAG",
+   "t": "Architect magazine (AIA)",
+   "u": "https://www.architectmagazine.com/",
+   "l": "Architect magazine (AIA)"
+  },
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com/things-to-do/madison-wisconsin",
+   "l": "Atlas Obscura"
+  },
+  "BADGERHERALD": {
+   "k": "BADGERHERALD",
+   "t": "The Badger Herald",
+   "u": "https://badgerherald.com/",
+   "l": "The Badger Herald"
+  },
+  "BRAVA": {
+   "k": "BRAVA",
+   "t": "Brava Magazine",
+   "u": "https://bravamagazine.com/",
+   "l": "Brava Magazine"
+  },
+  "CAPTIMES": {
+   "k": "CAP TIMES",
+   "t": "The Cap Times",
+   "u": "https://captimes.com/",
+   "l": "The Cap Times"
+  },
+  "CHICAGOSUNTIMES": {
+   "k": "CHICAGOSUNTIMES",
+   "t": "Chicago Sun-Times",
+   "u": "https://chicago.suntimes.com",
+   "l": "Chicago Sun-Times"
+  },
+  "CITYMADISON": {
+   "k": "CITYMADISON",
+   "t": "City of Madison Parks",
+   "u": "https://www.cityofmadison.com/parks/",
+   "l": "City of Madison Parks"
+  },
+  "CLIO": {
+   "k": "CLIO",
+   "t": "The Clio",
+   "u": "https://theclio.com/",
+   "l": "The Clio"
+  },
+  "DAILYCARDINAL": {
+   "k": "DAILYCARDINAL",
+   "t": "The Daily Cardinal (UW–Madison)",
+   "u": "https://www.dailycardinal.com/",
+   "l": "The Daily Cardinal (UW–Madison)"
+  },
+  "DANECOUNTY": {
+   "k": "DANECOUNTY",
+   "t": "Dane County Parks (official)",
+   "u": "https://www.danecountyparks.com",
+   "l": "Dane County Parks (official)"
+  },
+  "EXPERIENCEWI": {
+   "k": "EXPERIENCEWI",
+   "t": "Experience Wisconsin magazine",
+   "u": "https://experiencewisconsinmag.com/",
+   "l": "Experience Wisconsin magazine"
+  },
+  "FLWFOUNDATION": {
+   "k": "FLWFOUNDATION",
+   "t": "Frank Lloyd Wright Foundation",
+   "u": "https://franklloydwright.org/",
+   "l": "Frank Lloyd Wright Foundation"
+  },
+  "FOX11": {
+   "k": "FOX11",
+   "t": "FOX 11 (WLUK, Green Bay)",
+   "u": "https://fox11online.com",
+   "l": "FOX 11 (WLUK, Green Bay)"
+  },
+  "ISTHMUS": {
+   "k": "ISTHMUS",
+   "t": "Isthmus",
+   "u": "https://isthmus.com/",
+   "l": "Isthmus"
+  },
+  "LONELYPLANET": {
+   "k": "LONELYPLANET",
+   "t": "Lonely Planet",
+   "u": "https://www.lonelyplanet.com/",
+   "l": "Lonely Planet"
+  },
+  "MADISON365": {
+   "k": "MADISON365",
+   "t": "Madison365",
+   "u": "https://madison365.com/",
+   "l": "Madison365"
+  },
+  "NPS": {
+   "k": "NPS",
+   "t": "National Park Service (NHL / National Natural Landmark)",
+   "u": "https://www.nps.gov/",
+   "l": "National Park Service (NHL / National Natural Landmark)"
+  },
+  "ONMILWAUKEE": {
+   "k": "ONMILWAUKEE",
+   "t": "OnMilwaukee",
+   "u": "https://onmilwaukee.com/",
+   "l": "OnMilwaukee"
+  },
+  "SAHARCHIPEDIA": {
+   "k": "SAHARCHIPEDIA",
+   "t": "SAH Archipedia (Society of Architectural Historians)",
+   "u": "https://sah-archipedia.org/",
+   "l": "SAH Archipedia (Society of Architectural Historians)"
+  },
+  "SHEPHERDEXPRESS": {
+   "k": "SHEPHERDEXPRESS",
+   "t": "Shepherd Express",
+   "u": "https://shepherdexpress.com",
+   "l": "Shepherd Express"
+  },
+  "SHOWCAVES": {
+   "k": "SHOWCAVES",
+   "t": "showcaves.com",
+   "u": "https://showcaves.com/",
+   "l": "showcaves.com"
+  },
+  "TELEGRAPHHERALD": {
+   "k": "TELEGRAPHHERALD",
+   "t": "Telegraph Herald (Dubuque)",
+   "u": "https://www.telegraphherald.com",
+   "l": "Telegraph Herald (Dubuque)"
+  },
+  "TIMEOUT": {
+   "k": "TIMEOUT",
+   "t": "Time Out — Madison",
+   "u": "https://www.timeout.com/madison",
+   "l": "Time Out — Madison"
+  },
+  "TONEMADISON": {
+   "k": "TONEMADISON",
+   "t": "Tone Madison",
+   "u": "https://tonemadison.com/",
+   "l": "Tone Madison"
+  },
+  "TRAINS": {
+   "k": "TRAINS",
+   "t": "Trains magazine (Trains.com)",
+   "u": "https://trains.com",
+   "l": "Trains magazine (Trains.com)"
+  },
+  "TRAVELWI": {
+   "k": "TRAVEL WISCONSIN",
+   "t": "Travel Wisconsin (WI Dept. of Tourism)",
+   "u": "https://www.travelwisconsin.com/",
+   "l": "Travel Wisconsin (WI Dept. of Tourism)"
+  },
+  "UNESCO": {
+   "k": "UNESCO",
+   "t": "UNESCO World Heritage Centre",
+   "u": "https://whc.unesco.org/en/list/1496",
+   "l": "UNESCO World Heritage Centre"
+  },
+  "UPNORTHNEWS": {
+   "k": "UPNORTHNEWS",
+   "t": "UpNorthNews — Madison Food Guide (reader surveys)",
+   "u": "https://upnorthnewswi.com/food-guide/madison/",
+   "l": "UpNorthNews — Madison Food Guide (reader surveys)"
+  },
+  "UWALUMNI": {
+   "k": "UWALUMNI",
+   "t": "Wisconsin Alumni Association",
+   "u": "https://www.uwalumni.com/",
+   "l": "Wisconsin Alumni Association"
+  },
+  "UWLIBRARIES": {
+   "k": "UWLIBRARIES",
+   "t": "UW–Madison Libraries",
+   "u": "https://www.library.wisc.edu/",
+   "l": "UW–Madison Libraries"
+  },
+  "UWMUSIC": {
+   "k": "UWMUSIC",
+   "t": "UW–Madison Mead Witter School of Music",
+   "u": "https://music.wisc.edu",
+   "l": "UW–Madison Mead Witter School of Music"
+  },
+  "UWNEWS": {
+   "k": "UW–MADISON NEWS",
+   "t": "UW–Madison News",
+   "u": "https://news.wisc.edu/",
+   "l": "UW–Madison News"
+  },
+  "VERONAPRESS": {
+   "k": "VERONAPRESS",
+   "t": "Verona Press",
+   "u": "https://www.veronapress.com/",
+   "l": "Verona Press"
+  },
+  "VISITMADISON": {
+   "k": "DESTINATION MADISON",
+   "t": "Destination Madison (CVB)",
+   "u": "https://www.visitmadison.com/",
+   "l": "Destination Madison (CVB)"
+  },
+  "VISITMIDDLETON": {
+   "k": "VISITMIDDLETON",
+   "t": "Visit Middleton (Middleton Tourism Commission)",
+   "u": "https://visitmiddleton.com/",
+   "l": "Visit Middleton (Middleton Tourism Commission)"
+  },
+  "VISITTHEUSA": {
+   "k": "VISITTHEUSA",
+   "t": "Visit The USA (Brand USA)",
+   "u": "https://www.visittheusa.com/destination/madison",
+   "l": "Visit The USA (Brand USA)"
+  },
+  "WHS": {
+   "k": "WISCONSIN HIST. SOCIETY",
+   "t": "Wisconsin Historical Society",
+   "u": "https://www.wisconsinhistory.org/",
+   "l": "Wisconsin Historical Society"
+  },
+  "WIDNR": {
+   "k": "WISCONSIN DNR",
+   "t": "Wisconsin DNR — State Parks",
+   "u": "https://dnr.wisconsin.gov/topic/parks",
+   "l": "Wisconsin DNR — State Parks"
+  },
+  "WIDOA": {
+   "k": "WIDOA",
+   "t": "Wisconsin Dept. of Administration",
+   "u": "https://doa.wi.gov/",
+   "l": "Wisconsin Dept. of Administration"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia (notability + published coordinates)",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia (notability + published coordinates)"
+  },
+  "WMTV": {
+   "k": "WMTV 15",
+   "t": "WMTV 15 News",
+   "u": "https://www.wmtv15news.com/",
+   "l": "WMTV 15 News"
+  },
+  "WPR": {
+   "k": "WPR",
+   "t": "Wisconsin Public Radio",
+   "u": "https://www.wpr.org/",
+   "l": "Wisconsin Public Radio"
+  },
+  "WTMJ": {
+   "k": "WTMJ",
+   "t": "WTMJ (Milwaukee)",
+   "u": "https://wtmj.com/",
+   "l": "WTMJ (Milwaukee)"
+  }
+ },
  "FS": {
+  "BADGERHERALD": {
+   "k": "BADGERHERALD",
+   "t": "The Badger Herald",
+   "u": "https://badgerherald.com/",
+   "l": "The Badger Herald"
+  },
+  "BRAVA": {
+   "k": "BRAVA",
+   "t": "Brava Magazine",
+   "u": "https://bravamagazine.com/",
+   "l": "Brava Magazine"
+  },
   "CAPTIMES": {
    "k": "CAP TIMES",
    "t": "The Cap Times",
@@ -253,6 +5528,66 @@
    "t": "City Cast Madison",
    "u": "https://madison.citycast.fm/",
    "l": "City Cast Madison"
+  },
+  "COOKSCOUNTRY": {
+   "k": "COOKSCOUNTRY",
+   "t": "Cook's Country (America's Test Kitchen)",
+   "u": "https://www.americastestkitchen.com/cookscountry",
+   "l": "Cook's Country (America's Test Kitchen)"
+  },
+  "CULTUREMAG": {
+   "k": "CULTUREMAG",
+   "t": "culture: the word on cheese",
+   "u": "https://culturecheesemag.com",
+   "l": "culture: the word on cheese"
+  },
+  "DAILYCARDINAL": {
+   "k": "DAILYCARDINAL",
+   "t": "The Daily Cardinal (UW–Madison)",
+   "u": "https://www.dailycardinal.com/",
+   "l": "The Daily Cardinal (UW–Madison)"
+  },
+  "ESPN": {
+   "k": "ESPN",
+   "t": "ESPN",
+   "u": "https://www.espn.com/",
+   "l": "ESPN"
+  },
+  "EXPERIENCEWI": {
+   "k": "EXPERIENCEWI",
+   "t": "Experience Wisconsin magazine",
+   "u": "https://experiencewisconsinmag.com/",
+   "l": "Experience Wisconsin magazine"
+  },
+  "FITCHBURGHIST": {
+   "k": "FITCHBURGHIST",
+   "t": "Fitchburg Historical Society",
+   "u": "https://fitchburghistory.org",
+   "l": "Fitchburg Historical Society"
+  },
+  "FOX6": {
+   "k": "FOX6",
+   "t": "FOX6 Milwaukee",
+   "u": "https://www.fox6now.com/",
+   "l": "FOX6 Milwaukee"
+  },
+  "GAZETTEXTRA": {
+   "k": "GAZETTEXTRA",
+   "t": "The Gazette (Janesville)",
+   "u": "https://www.gazettextra.com",
+   "l": "The Gazette (Janesville)"
+  },
+  "HEAVYTABLE": {
+   "k": "HEAVYTABLE",
+   "t": "Heavy Table",
+   "u": "https://heavytable.com",
+   "l": "Heavy Table"
+  },
+  "IMBIBE": {
+   "k": "IMBIBE",
+   "t": "Imbibe Magazine — Where to Drink in Madison",
+   "u": "https://imbibemagazine.com/where-to-drink-in-madison-wisconsin/",
+   "l": "Imbibe Magazine — Where to Drink in Madison"
   },
   "INFATUATION": {
    "k": "THE INFATUATION",
@@ -272,6 +5607,108 @@
    "u": "https://www.jamesbeard.org/",
    "l": "James Beard Foundation"
   },
+  "JBF_EDITORIAL": {
+   "k": "JBF EDITORIAL",
+   "t": "James Beard Foundation — editorial ('Ask a Chef')",
+   "u": "https://www.jamesbeard.org/blog",
+   "l": "James Beard Foundation — editorial ('Ask a Chef')"
+  },
+  "MADISON365": {
+   "k": "MADISON365",
+   "t": "Madison365",
+   "u": "https://madison365.com/",
+   "l": "Madison365"
+  },
+  "MADMAG": {
+   "k": "MADISON MAGAZINE",
+   "t": "Madison Magazine / Channel 3000",
+   "u": "https://www.channel3000.com/madison-magazine/",
+   "l": "Madison Magazine / Channel 3000"
+  },
+  "MIDWESTWEEKENDS": {
+   "k": "MIDWESTWEEKENDS",
+   "t": "Midwest Weekends",
+   "u": "https://midwestweekends.com",
+   "l": "Midwest Weekends"
+  },
+  "MILWAUKEEMAG": {
+   "k": "MILWAUKEEMAG",
+   "t": "Milwaukee Magazine",
+   "u": "https://www.milwaukeemag.com",
+   "l": "Milwaukee Magazine"
+  },
+  "MILWAUKEERECORD": {
+   "k": "MILWAUKEERECORD",
+   "t": "Milwaukee Record",
+   "u": "https://milwaukeerecord.com",
+   "l": "Milwaukee Record"
+  },
+  "NWQUARTERLY": {
+   "k": "NWQUARTERLY",
+   "t": "Northwest Quarterly",
+   "u": "https://northwestchicagoland.northwestquarterly.com",
+   "l": "Northwest Quarterly"
+  },
+  "ONMILWAUKEE": {
+   "k": "ONMILWAUKEE",
+   "t": "OnMilwaukee",
+   "u": "https://onmilwaukee.com/",
+   "l": "OnMilwaukee"
+  },
+  "ONWISCONSIN": {
+   "k": "ONWISCONSIN",
+   "t": "On Wisconsin (UW alumni magazine)",
+   "u": "https://onwisconsin.uwalumni.com/",
+   "l": "On Wisconsin (UW alumni magazine)"
+  },
+  "PBSWI": {
+   "k": "PBS WISCONSIN",
+   "t": "PBS Wisconsin",
+   "u": "https://pbswisconsin.org/",
+   "l": "PBS Wisconsin"
+  },
+  "PLANETWARE": {
+   "k": "PLANETWARE",
+   "t": "PlanetWare",
+   "u": "https://www.planetware.com/",
+   "l": "PlanetWare"
+  },
+  "SAVEUR": {
+   "k": "SAVEUR",
+   "t": "Saveur (Saveur 100)",
+   "u": "https://www.saveur.com",
+   "l": "Saveur (Saveur 100)"
+  },
+  "STATETRUNKTOUR": {
+   "k": "STATETRUNKTOUR",
+   "t": "State Trunk Tour",
+   "u": "https://statetrunktour.com/",
+   "l": "State Trunk Tour"
+  },
+  "TAKEOUT": {
+   "k": "TAKEOUT",
+   "t": "The Takeout",
+   "u": "https://www.thetakeout.com",
+   "l": "The Takeout"
+  },
+  "TASTINGTABLE": {
+   "k": "TASTINGTABLE",
+   "t": "Tasting Table",
+   "u": "https://www.tastingtable.com",
+   "l": "Tasting Table"
+  },
+  "TIMEOUT": {
+   "k": "TIMEOUT",
+   "t": "Time Out — Madison",
+   "u": "https://www.timeout.com/madison",
+   "l": "Time Out — Madison"
+  },
+  "TONEMADISON": {
+   "k": "TONEMADISON",
+   "t": "Tone Madison",
+   "u": "https://tonemadison.com/",
+   "l": "Tone Madison"
+  },
   "TRAVELWI": {
    "k": "TRAVEL WISCONSIN",
    "t": "Travel Wisconsin (WI Dept. of Tourism)",
@@ -283,6 +5720,72 @@
    "t": "UpNorthNews — Madison Food Guide (reader surveys)",
    "u": "https://upnorthnewswi.com/food-guide/madison/",
    "l": "UpNorthNews — Madison Food Guide (reader surveys)"
+  },
+  "UWALUMNI": {
+   "k": "UWALUMNI",
+   "t": "Wisconsin Alumni Association",
+   "u": "https://www.uwalumni.com/",
+   "l": "Wisconsin Alumni Association"
+  },
+  "UWNEWS": {
+   "k": "UW–MADISON NEWS",
+   "t": "UW–Madison News",
+   "u": "https://news.wisc.edu/",
+   "l": "UW–Madison News"
+  },
+  "VERONAPRESS": {
+   "k": "VERONAPRESS",
+   "t": "Verona Press",
+   "u": "https://www.veronapress.com/",
+   "l": "Verona Press"
+  },
+  "VISITMADISON": {
+   "k": "DESTINATION MADISON",
+   "t": "Destination Madison (CVB)",
+   "u": "https://www.visitmadison.com/",
+   "l": "Destination Madison (CVB)"
+  },
+  "VISITMIDDLETON": {
+   "k": "VISITMIDDLETON",
+   "t": "Visit Middleton (Middleton Tourism Commission)",
+   "u": "https://visitmiddleton.com/",
+   "l": "Visit Middleton (Middleton Tourism Commission)"
+  },
+  "WHS": {
+   "k": "WISCONSIN HIST. SOCIETY",
+   "t": "Wisconsin Historical Society",
+   "u": "https://www.wisconsinhistory.org/",
+   "l": "Wisconsin Historical Society"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia (notability + published coordinates)",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia (notability + published coordinates)"
+  },
+  "WKOW": {
+   "k": "WKOW 27",
+   "t": "WKOW 27 (Madison ABC)",
+   "u": "https://www.wkow.com/",
+   "l": "WKOW 27 (Madison ABC)"
+  },
+  "WMTV": {
+   "k": "WMTV 15",
+   "t": "WMTV 15 News",
+   "u": "https://www.wmtv15news.com/",
+   "l": "WMTV 15 News"
+  },
+  "WPR": {
+   "k": "WPR",
+   "t": "Wisconsin Public Radio",
+   "u": "https://www.wpr.org/",
+   "l": "Wisconsin Public Radio"
+  },
+  "WSJ": {
+   "k": "WISCONSIN STATE JOURNAL",
+   "t": "Wisconsin State Journal (madison.com)",
+   "u": "https://madison.com/",
+   "l": "Wisconsin State Journal (madison.com)"
   }
  }
 }

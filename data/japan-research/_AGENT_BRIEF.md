@@ -20,6 +20,27 @@ Use the **common romanized name** as `n` (Hepburn, macrons fine: "Sensō-ji", "I
 the Japanese in parentheses: `"Kanda Matsuya (神田まつや)"`. Never a bare kanji name (the dedup normalizer keys on
 romanized text). Branches: name the branch ("Ichiran Shibuya"), never a chain generically.
 
+## ★ ANIME, MANGA & POP CULTURE — a required layer on every Japan map (user instruction 2026-10-02)
+Every Japan map gets a dedicated **"★ Anime, Manga & Pop Culture"** collection (`ANIME`, first in the filter) and each
+such card carries a **special note** shown on the card. Find **as many as possible** — sights AND food:
+- **Franchise flagships & museums:** Pokémon Center / Pokémon Café, Nintendo stores & Super Nintendo World, Gundam
+  (Gundam Base, Gundam Factory Yokohama legacy, life-size statues), Ghibli (Ghibli Museum, Ghibli Park edge, Donguri
+  Kyowakoku), Doraemon (Fujiko F. Fujio Museum), Tezuka Osamu Manga Museum (Takarazuka), Kyoto International Manga
+  Museum, Toei/Sunrise/Kyoto Animation sites, Ultraman/Godzilla/Kamen Rider spots, Sanrio Puroland/Hello Kitty,
+  Jump Shop, Capcom/Sega/Square Enix cafés & stores, Detective Conan (Hokuei town if in reach), Chiikawa, Tamagotchi,
+  gachapon halls.
+- **Districts & shops:** Akihabara, Nakano Broadway, Ikebukuro Otome Road, Den Den Town (Osaka), Teramachi (Kyoto),
+  Mandarake, Animate, Surugaya, retro-game shops, maid/character/collab cafés with real acclaim.
+- **Anime pilgrimage (seichi junrei) sites** with verifiable fame: e.g. Kanda Myōjin (Love Live!), Suga Shrine stairs
+  (Your Name), Uji (Hibike! Euphonium), Otaru / Hakodate / Okinawa locations used in well-known series, Okinawa's
+  Shuri/Chatan anime settings — only with ≥2 credible sources (Japan Anime Tourism Association "88 Anime Spots" list
+  counts as one credible source; official franchise/municipal pages count once as OFFICIAL).
+- **Record format:** add `"anime": "<franchise — why it matters, one line>"` to the record (sight or food). The
+  consolidator forces it into `ANIME` (first collection) and prefixes the card note with
+  "★ Anime & pop culture — …". Whole-word keyword matching also tags obvious ones automatically.
+- Same bar as everything: ≥2 credible sources or a lone institution, verified open (retired statues/closed cafés kept
+  flagged — e.g. the DiverCity Unicorn Gundam), real pins. Report the ANIME count per map in AUDIT.md each wave.
+
 ## The source bar (hard rule)
 ≥2 **credible** sources per place, OR one lone institutional authority: **Michelin Guide** (star / Bib Gourmand /
 Selected — key `MICHELIN` / `MICHELIN_BIB` / `MICHELIN_STAR`), **UNESCO**, or the **Agency for Cultural Affairs**

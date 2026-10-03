@@ -1,0 +1,300 @@
+{
+ "outlets": [
+  {
+   "key": "TIMEOUT",
+   "name": "Time Out — Madison",
+   "type": "editorial",
+   "rank": 1,
+   "url": "https://www.timeout.com/madison",
+   "credible": "International city-guide brand; bylined Madison restaurant (15 best) and things-to-do lists."
+  },
+  {
+   "key": "BRAVA",
+   "name": "Brava Magazine",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://bravamagazine.com/",
+   "credible": "Madison's women's lifestyle magazine (since 2005); bylined food features incl. Kevin Revolinski."
+  },
+  {
+   "key": "MADISON365",
+   "name": "Madison365",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://madison365.com/",
+   "credible": "Madison nonprofit newsroom covering communities of color; reports restaurant openings/closings."
+  },
+  {
+   "key": "DAILYCARDINAL",
+   "name": "The Daily Cardinal (UW–Madison)",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://www.dailycardinal.com/",
+   "credible": "UW–Madison's independent student daily since 1892; long-running restaurant reviews. Corroborating only."
+  },
+  {
+   "key": "WMTV",
+   "name": "WMTV 15 News",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.wmtv15news.com/",
+   "credible": "Madison NBC affiliate newsroom; reports closings."
+  },
+  {
+   "key": "JBF_EDITORIAL",
+   "name": "James Beard Foundation — editorial ('Ask a Chef')",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.jamesbeard.org/blog",
+   "credible": "JBF editorial content (chef interviews). Counts as ONE ordinary source, never lone authority (run-protocol key hygiene)."
+  },
+  {
+   "key": "PBSWI",
+   "name": "PBS Wisconsin",
+   "type": "editorial",
+   "rank": 1,
+   "url": "https://pbswisconsin.org/",
+   "credible": "Statewide public broadcaster; produced features on Madison restaurants."
+  },
+  {
+   "key": "VISITTHEUSA",
+   "name": "Visit The USA (Brand USA)",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.visittheusa.com/destination/madison",
+   "credible": "The US national destination-marketing organization; Madison destination page names the Capitol, Olbrich, Memorial Union Terrace and Arboretum."
+  },
+  {
+   "key": "ATLASOBSCURA",
+   "name": "Atlas Obscura",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.atlasobscura.com/things-to-do/madison-wisconsin",
+   "credible": "Notable travel site for unusual places; per-place pages with coordinates."
+  },
+  {
+   "key": "FLWFOUNDATION",
+   "name": "Frank Lloyd Wright Foundation",
+   "type": "institutional",
+   "rank": 2,
+   "url": "https://franklloydwright.org/",
+   "credible": "The Wright Foundation (owns Taliesin West, archives); authoritative on Wright buildings. Not a lone authority."
+  },
+  {
+   "key": "WHS",
+   "name": "Wisconsin Historical Society",
+   "type": "institutional",
+   "rank": 1,
+   "url": "https://www.wisconsinhistory.org/",
+   "credible": "State historical society; National/State Register property records. Editorial weight, not lone."
+  },
+  {
+   "key": "SAHARCHIPEDIA",
+   "name": "SAH Archipedia (Society of Architectural Historians)",
+   "type": "institutional",
+   "rank": 2,
+   "url": "https://sah-archipedia.org/",
+   "credible": "Peer-reviewed architectural encyclopedia of US buildings."
+  },
+  {
+   "key": "UNESCO",
+   "name": "UNESCO World Heritage Centre",
+   "type": "institutional",
+   "rank": 1,
+   "url": "https://whc.unesco.org/en/list/1496",
+   "credible": "World Heritage inscription (Taliesin, 2019, 'The 20th-Century Architecture of Frank Lloyd Wright'). Lone authority."
+  },
+  {
+   "key": "NPS",
+   "name": "National Park Service (NHL / National Natural Landmark)",
+   "type": "institutional",
+   "rank": 1,
+   "url": "https://www.nps.gov/",
+   "credible": "NPS designations only (National Historic Landmarks, National Natural Landmarks). Lone authority for those sites."
+  },
+  {
+   "key": "LONELYPLANET",
+   "name": "Lonely Planet",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.lonelyplanet.com/",
+   "credible": "Guidebook publisher; curated POI entries."
+  },
+  {
+   "key": "VISITMIDDLETON",
+   "name": "Visit Middleton (Middleton Tourism Commission)",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://visitmiddleton.com/",
+   "credible": "Official municipal tourism office for Middleton."
+  },
+  {
+   "key": "SHOWCAVES",
+   "name": "showcaves.com",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://showcaves.com/",
+   "credible": "Long-running international show-cave directory (Jochen Duckeck). Corroborating only."
+  },
+  {
+   "key": "ESPN",
+   "name": "ESPN",
+   "type": "editorial",
+   "rank": 1,
+   "url": "https://www.espn.com/",
+   "credible": "National sports network; college-football travel features."
+  },
+  {
+   "key": "ONWISCONSIN",
+   "name": "On Wisconsin (UW alumni magazine)",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://onwisconsin.uwalumni.com/",
+   "credible": "Wisconsin Alumni Association's magazine; bylined campus-culture features."
+  },
+  {
+   "key": "BADGERHERALD",
+   "name": "The Badger Herald",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://badgerherald.com/",
+   "credible": "UW–Madison independent student newspaper; corroborating only."
+  },
+  {
+   "key": "VERONAPRESS",
+   "name": "Verona Press",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://www.veronapress.com/",
+   "credible": "Verona's community weekly (Unified Newspaper Group)."
+  },
+  {
+   "key": "ONMILWAUKEE",
+   "name": "OnMilwaukee",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://onmilwaukee.com/",
+   "credible": "Milwaukee's digital city magazine; statewide travel features."
+  },
+  {
+   "key": "TONEMADISON",
+   "name": "Tone Madison",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://tonemadison.com/",
+   "credible": "Independent Madison arts & culture outlet."
+  },
+  {
+   "key": "WTMJ",
+   "name": "WTMJ (Milwaukee)",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://wtmj.com/",
+   "credible": "Milwaukee broadcast newsroom."
+  },
+  {
+   "key": "UWLIBRARIES",
+   "name": "UW–Madison Libraries",
+   "type": "institutional",
+   "rank": 3,
+   "url": "https://www.library.wisc.edu/",
+   "credible": "University library historical features."
+  },
+  {
+   "key": "CITYMADISON",
+   "name": "City of Madison Parks",
+   "type": "institutional",
+   "rank": 2,
+   "url": "https://www.cityofmadison.com/parks/",
+   "credible": "Municipal parks dept — official walking tours."
+  },
+  {
+   "key": "CLIO",
+   "name": "The Clio",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://theclio.com/",
+   "credible": "Academic-led historical-site guide (Marshall University). Corroborating only."
+  },
+  {
+   "key": "WIDNR",
+   "name": "Wisconsin DNR — State Parks",
+   "type": "institutional",
+   "rank": 2,
+   "url": "https://dnr.wisconsin.gov/topic/parks",
+   "credible": "State parks agency; editorial weight, not lone."
+  },
+  {
+   "key": "UWALUMNI",
+   "name": "Wisconsin Alumni Association",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://www.uwalumni.com/",
+   "credible": "UW alumni association; campus features."
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://en.wikipedia.org/",
+   "credible": "Notability + published coordinates."
+  },
+  {
+   "key": "UWNEWS",
+   "name": "UW–Madison News",
+   "type": "institutional",
+   "rank": 3,
+   "url": "https://news.wisc.edu/",
+   "credible": "University news office."
+  },
+  {
+   "key": "FOX6",
+   "name": "FOX6 Milwaukee",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.fox6now.com/",
+   "credible": "Milwaukee broadcast newsroom."
+  },
+  {
+   "key": "PLANETWARE",
+   "name": "PlanetWare",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://www.planetware.com/",
+   "credible": "Bylined travel-guide site (since 1990s)."
+  },
+  {
+   "key": "STATETRUNKTOUR",
+   "name": "State Trunk Tour",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://statetrunktour.com/",
+   "credible": "Wisconsin travel creator (see CREATORS_W3)."
+  },
+  {
+   "key": "AFAR",
+   "name": "AFAR magazine",
+   "type": "editorial",
+   "rank": 1,
+   "url": "https://www.afar.com/",
+   "credible": "National travel magazine."
+  },
+  {
+   "key": "WIDOA",
+   "name": "Wisconsin Dept. of Administration",
+   "type": "institutional",
+   "rank": 3,
+   "url": "https://doa.wi.gov/",
+   "credible": "State agency managing the Executive Residence."
+  },
+  {
+   "key": "ARCHITECTMAG",
+   "name": "Architect magazine (AIA)",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.architectmagazine.com/",
+   "credible": "The AIA's journal; bylined building features."
+  }
+ ]
+}

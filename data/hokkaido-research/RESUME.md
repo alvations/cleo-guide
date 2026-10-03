@@ -20,28 +20,62 @@ Measured by `python3 tools/density.py hokkaido` on the DISCOVERED set. Total ≈
 Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi), Dō-nan (Hakodate), Dō-hoku (Asahikawa/Furano/Biei/Wakkanai), Dō-tō (Tokachi/Kushiro/Shiretoko/Abashiri) — with Sapporo as its own area.
 
 ## State
-- 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys).
-- 2026-10-02 W01 (SPR sights): 12 discovered (all ≥2 credible), 9 geocoded high + 3 UNVERIFIED; built & all gates
-  green (9 pins). **Blocked:** session WebSearch budget exhausted (200/200) after ~14 queries by this agent — raise
-  `CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION` (or relaunch in a fresh session) to continue. NOT live.
-- Counts vs target: SPR 12/130 · OTARU 0/50 · NSK 0/35 · DONAN 0/75 · IBURI 0/40 · DHOKU 0/60 · TKC 0/35 · DOTO 0/55 · SOYA 0/20.
+- 2026-10-02 scaffolded; W01 (session 1): 12 SPR sights, halted at the shared 200-search cap.
+- 2026-10-02 session 2 (≈188 searches): W02–W30 + G01–G03 → 192 discovered, 132 rendered (128 sights + 4 food), LIVE.
+- 2026-10-02 **session 3 (≈178 searches; food-first per RUN §2b, anime layer per §2c)**: W31–W79 (+ background agents W40 anime,
+  W60 sights) → **334 discovered, 189 rendered** (161 sights + 28 food), all 4 gates PASS, validate DATA OK, npm test ALL PASS.
+  **Food share 26% → 46%** (154/334). ANIME collection 0 → 7 (Pokémon Center Sapporo, Hokuchin museum, Hakodate Arena, Snow Miku
+  Sky Town + Golden Kamuy overlay on Abashiri Prison Museum, Upopoy, Noboribetsu Jigokudani).
+- Discovered vs target (`python3 tools/density.py hokkaido`) — food/total:
+  SPR 47/89 (130) · OTARU 18/33 (50) · DONAN 24/53 (75) · DHOKU 17/39 (60) · DOTO 16/35 (55) · TKC 11/27 (35) · IBURI 10/27 (40) ·
+  NSK 6/16 (35) · SOYA 5/15 (20). Every area still NEED.
+- 145 UNVERIFIED held for `tools/geocode-helper.html`: ~125 restaurants (every one has a sourced address/landmark; Hokkaido has no
+  Michelin venue pages and `<shop> 緯度経度` returns only centroids) + ~18 sights without infobox coords.
+- 2026-10-02 **session 4** (≈141 searches; local clone reset to origin — backup branch `backup-stale-local`): W80 pins, W81 anime,
+  W82–W84 discovery, W85–W87 (sights + promotions), G04 pin → **435 discovered (50% food), 252 rendered** (194 sights + 58 food), ANIME 18,
+  all 4 gates + validate + test green (build B2). 183 UNVERIFIED held (restaurants).
+  Discovered vs target: SPR 114/130 · OTARU 45/50 · DONAN 66/75 · DHOKU 50/60 · DOTO 47/55 · TKC 32/35 · IBURI 36/40 · NSK 25/35 · SOYA 20/20 OK.
+- 2026-10-03 **session 5** (≈178 searches; 5 bg discovery agents W88–W92 + G05 pins + W93 promotions) → **509 discovered (54% food), 274 rendered**
+  (212 sights + 62 food), ANIME/pop 30, all 4 gates + validate + test green. Discovered vs target: SPR 128/130 · OTARU 51/50 · DONAN 78/75 ·
+  DHOKU 65/60 · DOTO 56/55 · TKC 37/35 · IBURI 41/40 · NSK 34/35 · SOYA 20/20. 235 UNVERIFIED held (restaurants).
+- 2026-10-03 **session 6** (≈85 searches): W94 (+5: SPR 3 sights, NSK 2 food) + G06 (118 restaurant pins via NAVITIME POI)
+  → **514 discovered (53.5% food), 396 rendered** (217 sights + 179 food), ANIME 31 tagged / 26 on map, all 4 gates + validate + test green.
+  **Every area at target** (SPR 131/130 · NSK 36/35 · …). 118 UNVERIFIED held.
 - Commands: `python3 tools/density.py hokkaido` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py hokkaido --build`.
 
-## In-flight wave
-- **W01 — Sapporo (SPR)** STOPPED at the session WebSearch cap (200/200, shared by all agents). Its committed output
-  is complete and gated; resume with **W01b** = the remaining SPR queries below.
-- W01b queries still to run: Sapporo sights batch 2 (Ōkurayama — need 2nd source; Nakajima Park/Hōheikan; Tanukikōji;
-  Nijō Market; Shiroi Koibito Park; Maruyama Zoo; Sapporo Art Park; Hokkaido Museum; Takino Suzuran; Hoheikyo);
-  SPR food canon: miso ramen (Sumire, Saimi, Shingen, Keyaki, Aji no Sanpei — Tabelog 百名店 2025 / Michelin 2017 Bib),
-  soup curry (Suage, Garaku, Picante, Samurai), jingisukan (Daruma), Nijō kaisendon, Rokkatei/Kitakaro, Sapporo
-  Beer Garden; creators: Just One Cookbook, Ramen Adventures, Paolo fromTOKYO, Abroad in Japan.
-- Helper: `_hk.py` (S()/F()/emit()); wave ledgers `_w<NN>_<area>.py` are re-runnable (`python3 _w01_spr.py`).
+- 2026-10-03 **P1 pins-only** (≈27 searches): 16 NAVITIME/MapFan pins → **412 / 514 on map**, ANIME 28/30 on map,
+  all 4 gates + validate + test green. 102 UNVERIFIED held (see AUDIT P1). Next: MapFan single-name spot queries
+  (`<店名> <町名> 地図`, allowed_domains mapfan.com) — 1 hit per ~3 tries; else `tools/geocode-helper.html`.
 
-## Next actions
-1. Discovery waves per area (canon first) → `python3 tools/density.py hokkaido` → iterate on every `NEED +N`.
-2. Geocode waves → `geo/_geoout_hokkaido_*.json` → `python3 tools/rebuild-city.py hokkaido --build` (under the shared lock).
-3. Re-verify pin placement (CLAUDE.md 4b) + closure pass (4c) until statuscheck reports zero unchecked.
+## In-flight wave
+- none (session 6 W94 + G06 committed).
+
+## Search ledger
+- session 1: ~14 · session 2: ≈188 · session 3: ≈178 (me ~151 + W40 agent 15 + W60 agent 12) · session 4 ≈141 · session 5 ≈178 · session 6 ≈85 (shared with Liège W4).
+
+## What works (session 3 lessons — reuse)
+- **Pinned food & drink = michi-no-eki + breweries/markets with ja.wikipedia infoboxes**: `"<A> 座標; <B> 座標; <C> 座標"`
+  (allowed_domains ja.wikipedia.org) → then ONE rurubu/MAPPLE/visit-hokkaido query for the signature dish. Only add a roadside
+  station when a source names its dish (Date, Tōya, Asahikawa, Monbetsu, Swan 44, Biei Oka-no-kura pins read but NOT added).
+- **Restaurants**: query 3–4 shop names restricted to `rurubu.jp` + `mapple.net` → spot pages of both outlets = 2 sources in 1 search.
+  City tourism bodies with shop DBs: sapporo.travel, hakodate.travel, otaru.gr.jp, kushiro-lakeakan.com, obikan.jp, laketoya.com,
+  jozankei.jp, niseko-ta.jp, rishiri-plus.jp. List articles as ONE source for many: Time Out "50 things to do in Sapporo",
+  GoodLuckTrip "21 Must-Try Restaurants in Susukino" / "12 Jingisukan", Ramen Adventures "Hokkaido best ramen 2024" (top 100).
+- **Sights**: same 3-name wiki-coord query + one sapporo.travel / visit-hokkaido / japan-guide query → ~2 pinned sights per search.
+- **Overlay waves**: same-name record with only new sources + `"anime"` (no geo) — merged by `japan_consolidate._overlay()`.
+- Dead ends: guide.michelin.com (no Hokkaido venue pages), Michelin 2017 Bib list, Tabelog 百名店 lists, Time Out "10 things to eat",
+  SAVOR JAPAN (Gurunavi), visit-hokkaido dish pages (no shop names), corporate plants' wiki coords.
+
+## Next-wave plan (session 7)
+1. **Pin the last 118 UNVERIFIED with the G06 NAVITIME technique** (`_g06_worklist.txt` minus `geo/_geoout_hokkaido_g06.json`):
+   `<name1> / <name2> / <name3> 緯度 経度` with `allowed_domains:["navitime.co.jp"]`, then `python3 _g06_pins.py` (pipe format;
+   checks the name exists). Match NAVITIME's address/branch to the record before writing; never use route-URL lon/lat params
+   (Tokyo datum). ≈50 searches should clear most of them. Remaining misses → `tools/geocode-helper.html`.
+2. ANIME: second credible source for Mandarake/Animate Sapporo (e.g. a Matcha / japan-guide / Time Out otaku feature) and the
+   single-sourced overlays (Morning Market, Kanemori — DIME; Beer Museum — WARAKU); Ghost of Yōtei × Niseko official page.
+3. Re-verify `med` pins (all G06 pins are `med`); closure re-check on long-running restaurants (statusChecked dates).
+4. Optional depth beyond target (food ≥50 % holds): held leads in AUDIT (hirihiri 2-gō, Suginome, Hirafu restaurants).
 
 ## Acceptance
-- [ ] every area ≥ target · [ ] sourcecheck PASS · [ ] geocheck PASS · [ ] statuscheck CONSISTENT, 0 unchecked
-- [ ] buildcheck PASS · [ ] `npm run validate && npm test` green · [ ] Japan hub card live · [ ] CITIES.md row
+- [x] every area ≥ target (session 6) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
+- [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] Japan hub card live · [x] CITIES.md row
