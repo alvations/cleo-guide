@@ -1,0 +1,112 @@
+[
+ {
+  "n": "Hopleaf",
+  "address": "5148 N Clark St, Chicago, IL 60640",
+  "lat": 41.9758285,
+  "lng": -87.6685545,
+  "geoSource": "https://maps.apple.com/place?address=5148+N+Clark+St%2C+Chicago%2C+IL++60640&coordinate=41.9758285%2C-87.6685545&name=Hopleaf+Bar&place-id=ID8DB00C2444A116C (Apple Maps place-pin URL seen in search result); grid-checked ~5150 N / ~1600 W",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://hopleafbar.com/ (live site, Tock reservations https://www.exploretock.com/hopleaf); Yelp updated Mar 2026",
+  "note": "Andersonville (NORTH)"
+ },
+ {
+  "n": "Virtue",
+  "address": "1462 E 53rd St, Chicago, IL 60615",
+  "lat": 41.7996863,
+  "lng": -87.589315,
+  "geoSource": "https://maps.apple.com/place?address=1462+E+53rd+St%2C+Chicago%2C+IL++60615&coordinate=41.7996863%2C-87.589315&name=Virtue&place-id=I60AEBF85939AB448 (Apple Maps place-pin URL seen in search result); grid-checked 5300 S / ~1460 E",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://guide.michelin.com/us/en/illinois/chicago/restaurant/virtue ; https://www.choosechicago.com/listing/virtue-restaurant-bar/",
+  "note": "Hyde Park (SOUTH)"
+ },
+ {
+  "n": "Ricobene's",
+  "address": "252 W 26th St, Chicago, IL 60616",
+  "lat": 41.8457619,
+  "lng": -87.6339463,
+  "geoSource": "https://www.latlong.net/poi/ricobene-s-571994 (latlong.net OSM POI 'Ricobene's' Fast Food, seen in search result); grid-checked 2600 S / ~250 W",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://ricobenespizza.com/ (live official site); https://checkplease.wttw.com/restaurants/ricobenes",
+  "note": "Bridgeport (SOUTH) — original 26th St shop by the Dan Ryan"
+ },
+ {
+  "n": "Momotaro",
+  "address": "820 W Lake St, Chicago, IL 60607",
+  "lat": 41.8858771,
+  "lng": -87.6484242,
+  "geoSource": "https://maps.apple.com/place?q=Momotaro&ll=41.8858771%2C-87.6484242&auid=2700300175249511513&address=820+W+Lake+St (Apple Maps place-pin URL seen in search result); grid-checked ~180 N / 820 W",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.momotarochicago.com/ (live); https://guide.michelin.com/en/illinois/chicago/restaurant/momotaro ; Yelp updated Sept 2026",
+  "note": "West Loop / Fulton Market (LOOP)"
+ },
+ {
+  "n": "Omakase Yume",
+  "address": "651 W Washington Blvd, Chicago, IL 60661",
+  "lat": 41.8828842,
+  "lng": -87.6444477,
+  "geoSource": "https://maps.apple.com/place?address=651+W+Washington+Blvd&coordinate=41.8828842%2C-87.6444477&name=OMAKASE+YUME&place-id=I7F232281163CE683 (Apple Maps place-pin URL seen in search result); corroborated by https://en.wikipedia.org/wiki/Omakase_Yume (41.88306 N, 87.64444 W)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.theinfatuation.com/chicago/reviews/omakase-yume ; Yelp updated July 2026",
+  "note": "West Loop (LOOP)"
+ },
+ {
+  "n": "Andros Taverna",
+  "address": "2542 N Milwaukee Ave, Chicago, IL 60647",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED — search synthesis gave 41.9273607,-87.7048376 without an attributable place-pin page (possibly viamichelin POI https://www.viamichelin.com/maps/restaurants/poi/chicago-60647-797f1ae1); grid-plausible ~2540 N on Milwaukee by Logan Sq; needs Apple/Google !3d!4d pin",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "https://www.androstaverna.com/location/andros-taverna/ ; https://www.choosechicago.com/listing/andros-taverna/ ; OpenTable active",
+  "note": "Logan Square (NW)"
+ },
+ {
+  "n": "Dove's Luncheonette",
+  "address": "1545 N Damen Ave, Chicago, IL 60622",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED — Apple Maps place page https://maps.apple.com/place?place-id=IA6B345EF8E183F8F surfaced without a coordinate; search synthesis gave 41.90945,-87.67726 (unattributed, grid-plausible ~1545 N / 2000 W) — needs a place-pin source",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "https://www.yelp.com/biz/doves-luncheonette-chicago (updated Sept 2026); https://www.exploretock.com/dovesluncheonette/ ; http://www.doveschicago.com/findus",
+  "note": "Wicker Park (NW)"
+ },
+ {
+  "n": "Yao Yao",
+  "address": "230 W Cermak Rd, Chicago, IL 60616",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED — address per https://pos.chowbus.com/online-ordering/store/Yao-Yao/9838 and Michelin/Infatuation; search synthesis gave 41.8530174,-87.6329997 (unattributed; grid-plausible 2200 S / 230 W) — needs a place-pin source",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "https://guide.michelin.com/us/en/illinois/chicago/restaurant/yao-yao ; https://www.theinfatuation.com/chicago/reviews/yao-yao ; https://www.yaoyaochicago.com/ (live)",
+  "note": "Chinatown (SOUTH)"
+ },
+ {
+  "n": "Dolo",
+  "address": "2222 S Archer Ave, Chicago, IL 60616",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED — address per https://www.dolochinatown.com/contact and Yelp; search synthesis gave 41.8525451,-87.6360999 (unattributed; grid-plausible, Archer Ave in Chinatown) — needs a place-pin source",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "https://www.yelp.com/biz/dolo-restaurant-and-bar-chicago-3 (updated July 2026); https://www.opentable.com/r/dolo-restaurant-chiacgo (2026)",
+  "note": "Chinatown (SOUTH)"
+ },
+ {
+  "n": "Les Nomades — CLOSED",
+  "address": "222 E Ontario St, Chicago, IL 60611 (former)",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED — https://en.wikipedia.org/wiki/Les_Nomades exists but its coordinates did not surface in search; search synthesis gave 41.8936337,-87.6217654 (unattributed listing source; grid-plausible ~630 N / 222 E)",
+  "confidence": "UNVERIFIED",
+  "status": "closed",
+  "statusSource": "https://www.timeout.com/chicago/news/after-32-years-iconic-streeterville-restaurant-les-nomades-has-closed-110425 ; https://en.wikipedia.org/wiki/Les_Nomades (closed October 2025 after 32 years; building being sold)",
+  "note": "Streeterville (LOOP) | CLOSED Oct 2025"
+ }
+]

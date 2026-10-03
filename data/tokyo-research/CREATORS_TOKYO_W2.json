@@ -1,0 +1,58 @@
+{
+ "creators": [
+  {
+   "key": "RAMENADVENTURES",
+   "name": "Ramen Adventures (Brian MacDuckston)",
+   "platform": "blog + YouTube",
+   "handle": "ramenadventures",
+   "url": "https://ramenadventures.com/",
+   "scale": "Tokyo's best-known English ramen blog since 2009; author of 'Ramen at Home'; long-running YouTube channel",
+   "niche": "Tokyo/Japan ramen",
+   "credible": "Named-author specialist with a 15-year track record and annual Tokyo top-100 roundups; corroborating source only"
+  },
+  {
+   "key": "PAOLOFROMTOKYO",
+   "name": "Paolo fromTOKYO",
+   "platform": "YouTube",
+   "handle": "@paolofromtokyo",
+   "url": "https://www.youtube.com/@paolofromtokyo",
+   "scale": "multi-million-subscriber Tokyo food/travel channel; 'Behind the Counter' kitchen series",
+   "niche": "Tokyo restaurants, behind-the-scenes",
+   "credible": "Verifiably large Tokyo-based channel with a long-running restaurant series; one corroborating source only"
+  }
+ ],
+ "attach": [
+  {
+   "place": "Sobahouse Konjiki Hototogisu (金色不如帰)",
+   "creatorKey": "RAMENADVENTURES",
+   "url": "https://ramenadventures.com/listing/%E9%87%91%E8%89%B2%E4%B8%8D%E5%A6%82%E5%B8%B0-hototogisu-in-shinjuku/"
+  },
+  {
+   "place": "Homemade Ramen Muginae (自家製麺 麦苗)",
+   "creatorKey": "RAMENADVENTURES",
+   "url": "https://ramenadventures.com/listing/homemade-ramen-muginae-in-omori/"
+  },
+  {
+   "place": "Sosakumenkobo Nakiryu (創作麺工房 鳴龍)",
+   "creatorKey": "RAMENADVENTURES",
+   "url": "https://ramenadventures.com/listing/nakiryu-in-otsuka/"
+  },
+  {
+   "place": "Yakumo (八雲)",
+   "creatorKey": "RAMENADVENTURES",
+   "url": "https://ramenadventures.com/2025/12/15/tokyo-the-best-100-ramen-shops-in-2025/"
+  },
+  {
+   "place": "Isegen (いせ源)",
+   "creatorKey": "PAOLOFROMTOKYO",
+   "url": "https://www.youtube.com/watch?v=M7rxIC6CvYA",
+   "note": "'Behind the Counter at the ONLY Japanese Monkfish Restaurant in Tokyo' — Isegen is Tokyo's only anko-nabe specialist"
+  }
+ ],
+ "rejected": [
+  {
+   "name": "ONLY in JAPAN (John Daub)",
+   "reason": "credible creator (large channel) but no findable video naming a place on this map surfaced in the search; not attached"
+  }
+ ]
+}

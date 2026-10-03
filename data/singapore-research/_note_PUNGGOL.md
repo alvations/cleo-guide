@@ -1,7 +1,7 @@
 # Punggol (PGL): wave notes
 
 ## In-flight wave
-None. W1 stopped early (see below). Next is W2, which needs WebSearch budget.
+(none — W3 closed 2026-10-03; was: W3 PGL+NVN session — files FOOD_PUNGGOL3.json, SIGHTS_PUNGGOL3.json, SOURCES_PUNGGOL3.json, CREATORS_PUNGGOL3.json, geo/_geoout_punggol_w4.json. Queries: Oasis Terraces / Punggol Plaza / Northshore / Sumang+Edgefield coffeeshops (Eatbook/SethLui/DFD/MTC), Punggol Coast Mall, creator pass (TikTok/YouTube), heritage sights, Punggol Coast HC + Settlement geocodes.)
 
 ## W1 (2026-10-02): discovery, cut short by the WebSearch budget
 **Outcome.** 9 places discovered (5 food + 4 sights) against a target of ~93 (`python3 tools/density.py singapore --area PGL`).
@@ -82,3 +82,44 @@ from memory.
    the coffee shops. Cover chicken rice, Hokkien mee, CKT, bak chor mee, nasi lemak, prata, satay, laksa,
    kopi/kaya and zi char, using Michelin Bib/Selected, SethLui, Eatbook, DFD, MTC, ieat and Johor Kaki.
 4. Creator pass: Food King (NOC), Ghib Ojisan, Exploding Belly, Eatbook/SethLui video, #punggolfood TikTok.
+
+## W2 (2026-10-02 relaunch, 4-town session)
+- **Outcome:** PGL 28 food + 7 sights = **35 / target ~93 -> NEED +58** (true count after the density.py fix); page renders 16 pins; greyed (not live).
+- **Files:** FOOD_PUNGGOL2.json (23), SIGHTS_PUNGGOL2.json (3), SOURCES_PUNGGOL2.json, geo/_geoout_punggol_w2.json (13 pins: One Punggol via
+  Wikipedia Punggol Regional Library coords, Waterway Point, Coney Island, Punggol Point Park, Matilda House), _w2c.json, _w3.json.
+- **Added:** sights Matilda House (Wikipedia+URA), Punggol Waterway Park (NParks+HDB+TSL+SilverStreak; Wikipedia pin), Punggol Regional
+  Library; One Punggol HC (No.25 Minced Meat, Eng Kee Wings, Souperb!, Zi Jia YTF, Uncle Penyet); Punggol Coast HC (Hock Hai, Whampoa
+  Traditional Fried Oyster, Pin Wei CCF, Hakka Leipopo, Kedai Salima, Huay Kwang); Punggol Settlement/Tebing Lane (Izakaya 95, Whisk &
+  Paddle, White Restaurant, Georges by the Bay, Uncle Leong, Ponggol Seafood — CLOSED 2 May 2024); Buddy Hoagies, Well Collective, Anna's
+  Sourdough, Keng Eng Kee (SAFRA Punggol), Maruhachi, Huang Hong Ji.
+- **Watch:** Timbre stops managing One Punggol HC in 2026 (Mothership Dec 2025) — re-check the One Punggol stall line-up.
+- **UNVERIFIED (helper):** Punggol Coast HC building (84 Punggol Way S829911) + its stalls, The Punggol Settlement (3 Punggol Point Rd),
+  Whisk & Paddle (10 Tebing Lane), Northshore Plaza, Edgefield Plains coffeeshops, SAFRA Punggol.
+- **Held:** Seoul Good, Fat Po, Rise & Grind, Tenderbest Makcik Tuckshop, Cat & the Fiddle, Three Little Coconuts, Nomstop, Ju Hao,
+  JB Dai Tao Lala Pot, Fei Mookata, Shitamachi Tendon Akimitsu, House of Seafood, Rong Hua BKT, Tam Chiak Kopitiam (blogger-owned),
+  Punggol Digital District (Wikipedia-only), bridges (folded into Waterway Park), Punggol Promenade Nature Walk.
+- **Next (+74):** Punggol needs ~2 more full sessions: Oasis Terraces / Waterway Point / Punggol Plaza / Northshore / Sumang & Edgefield
+  coffeeshops (domain-filtered Eatbook/SethLui/DFD/MTC), Punggol Coast Mall (Eatbook 16 places), heritage (Punggol Heritage Trail, Lorong Buangkok
+  is USG), Sengkang-edge excluded. Geocode Punggol Coast HC + Settlement via helper first (unlocks ~10 pins).
+
+> **COUNT CORRECTION (2026-10-02, later the same session):** `tools/density.py` was fixed by another session (commit 4f706d7) to stop
+> counting `sg_worklist.json` as food — the earlier W2 figures in this file were inflated by that double-count. **True counts after the
+> fix: HLV 56/55 OK (live) · BLS 55/55 OK (go-live held for pins) · NVN 35/55 (NEED +20) · PGL 35/93 (NEED +58).**
+
+- **FINAL (end of session): HLV 57/55 OK (LIVE) · BLS 56/55 OK (go-live held for pins) · NVN 37/55 (NEED +18) · PGL 35/93 (NEED +58).** Late adds: NVN Baan Ying, Banelé; BLS Niu Dian (VIIO @ Balestier); HLV Niu Dian (HV).
+
+## W3 (2026-10-03, PGL+NVN session) — batch 1+2
+- **Outcome:** PGL 37 food + 13 sights = **50 / ~93 → NEED +43** (was 35). Page renders **23** pins (was 16); greyed (not live).
+- **Files:** FOOD_PUNGGOL3.json (9), SIGHTS_PUNGGOL3.json (6), SOURCES_PUNGGOL3.json (ARCHNET, ARCHITIZER, JTC, MONOCLE, DEZEEN, DESIGNBOOM, VULCANPOST, TWOBEARBEAR), CREATORS_PUNGGOL3.json, geo/_geoout_punggol_w4.json.
+- **Added food:** Lao Jiang Superior Soup + Rise & Grind (Oasis Terraces, pinned), Rendang Nation (One Punggol, pinned); Punggol Coast HC: Jade's Chicken, 75 Ah Balling, One Soy, You Fu Ban Mian, What The Puff! (UNVERIFIED — building pin); Sixth Floor Oyster Cake — **CLOSED** after 28 Sep 2025 (Seth Lui).
+- **Added sights:** Masjid Al-Islah (Wikipedia pin, MUIS address), Punggol Digital District / SIT campus (Wikipedia pin), Oasis Terraces (Wikipedia pin), Punggol Point Jetty (park pin, med), Punggol Promenade + Punggol Heritage Trail (linear — UNVERIFIED).
+- **Held (1 credible source / status unknown):** Selera Sumang Nasi Padang + Satay Sumang (Seth Lui only, 2021), Tuck Shop (One Punggol drinks), Downstairs (Northshore; chain), Xiang Chi Mian, SJ Sickander Ammal (no named dish), Hee Hee Hee Steamed Fish (7th branch = chain), Seoul Good / Ju Hao (Eatbook only), Fei Mookata, Siam Square Mookata, JB Dai Tao Lala Hotpot, Ah Dong Teh House (2015–18 sources, status unconfirmed), Shitamachi Tendon Akimitsu (Waterway Point; 2018, status unknown), HK Street Chun Tat Kee (chain; blog only), Gallop Stable Punggol Ranch (location may be USG-side), Chai O'Clock (pasar-malam pop-up — not a place).
+- **Dropped:** Punggol Coast Mall chains (Din Tai Fung, Paradise Hotpot, Sushi-GO, Ya Kun, Jollibee, Playmade, Shihlin) = padding; Tenderbest Makcik (Punggol Park = USG); Punggol Noodles (Hainanese Village = Hougang/USG); St Anne's Church (Lorong Buangkok = USG).
+- **Geocode blocker:** Punggol Coast HC (84 Punggol Way S829911), The Punggol Settlement, Northshore Plaza have NO published place pin WebSearch can read → 16+ PGL records wait on tools/geocode-helper.html. This is the single biggest lever for rendered density.
+
+### W3 close (2026-10-03)
+- **Final:** PGL 37 food + 13 sights = **50 / ~93 (NEED +43)**; food share 74%; **24 pinned** on punggol.html (was 16).
+- **Attribution correction (same session, before publish):** 75 Ah Balling, One Soy and You Fu Ban Mian were first filed with a second source (Honeycombers / 2bearbear) inferred from co-surfacing search results; domain-restricted re-checks showed Honeycombers' 12-stall list does NOT include them and 2bearbear's page could not be confirmed to name them → **removed and re-HELD** (Women's Weekly / Seth Lui only). Lesson: confirm each second source with an `allowed_domains` query before filing.
+- **Added late:** Hee Hee Hee Steamed Fish, SJ Sickander Ammal (Honeycombers 12 + WW / Time Out / Little Day Out), Warabimochi Kamakura café (Waterway Point; Time Out + Mothership + Eatbook; pinned).
+- **More held:** Dosa Delights, Xiang Chi Mian (attribution unconfirmed), 218 Centre Hokkien Mee (MTC + blog, 2017, status unknown), Fat Po (2018–19 sources, status unknown), Siam Square Mookata / House of Seafood (status unknown; note DFD prints the Settlement as 500 Punggol Point Rd vs 3 Punggol Point Rd elsewhere — resolve at helper), NomStop (Eatbook + SIT alumni page only), Hwa Heng Beef Noodle Waterway Point branch (Seth Lui: weaker than the original — dropped).
+- **Next wave plan (PGL +43):** (1) helper-pin Punggol Coast HC → +11 pins immediately; (2) status pass on the Settlement/Tebing Lane held list (Siam Square, House of Seafood, Fat Po, Ah Dong, JB Dai Tao) via each place's own socials/2025 coverage; (3) domain-restricted 2nd-sourcing of held hawkers (Ah Balling, One Soy, You Fu, Xiang Chi Mian, Dosa Delights, Rendang-style Malay stalls); (4) Sumang/Edgefield/Punggol Field coffeeshops via MTC/DFD/ieat domain queries; (5) Punggol Plaza + Punggol Coast Mall non-chain picks.
