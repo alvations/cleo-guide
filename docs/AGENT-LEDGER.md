@@ -197,6 +197,14 @@ open/closed status), `docs/CITIES.md` (one row per city), `docs/AGENT-PROMPTS.md
 | `session_013SchN5xr8QFAgVqjZY37dr` | San Francisco map — wave 3 expansion (PRIORITY) | 2026-10-02 15:19 | failed | You've hit your session limit · resets 6:10pm (UTC) |
 | `session_01Hg5dmhczkVf2CSHxgwBCVu` | San Francisco map — wave 2 (PRIORITY, food & drink first) | 2026-10-02 18:17 | completed | SF map audit complete: 579 places, 343 high pins, 63% food, all gates pass |
 
+### Follow-up sessions (after deploy)
+
+| Session | Task | Started (UTC) | Final status | Outcome |
+|---|---|---|---|---|
+| `session_01DpemyawneXmB7YPoPQhDWv` | Singapore gap-fill — Balestier pins + Punggol | 2026-10-03 09:55 | completed, archived | Balestier pins 5→49, Punggol 29→48 (places 63→65); both LIVE; 0 places removed |
+| `session_011cSHJwH2jx8M9RXKJBJ6Ds` | Site-wide QA, mobile + desktop | 2026-10-03 09:56 | running | — |
+| `session_019cuMgwoxChA7ZDeYk9WCji` | UI/UX redesign proposals for owner review | 2026-10-03 10:02 | running | — |
+
 ### Cross-city pin and top-up passes (5 sessions)
 
 | Session | Wave | Started (UTC) | Final status | Outcome (session's own summary) |
