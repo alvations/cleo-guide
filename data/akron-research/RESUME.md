@@ -18,9 +18,26 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md**. Rebuild: `python3 
 - [ ] index.html card relinked live; docs/CITIES.md row.
 
 ## State
+- 2026-10-03 W7: **207 places (127 food 61% / 80 sights), 150 pinned**; 4 gates green; validate + npm test PASS.
 - 2026-10-02 scaffold: consolidate.py (6 areas, Akron-Canton cuisine taxonomy), brief, build-akron.py.
 
-## In-flight wave — none (W6 closed 2026-10-03). Next session = W7, start here
+## In-flight wave — none (W7 closed 2026-10-03 — discovery complete, deploy-ready). Next session = W8 (pins only), start here
+- **W7 DONE 2026-10-03:** 193 → **207 places** (80 sights / 127 food = 61%; food ≥50% in every area), pins 141 → **150** (57 UNVERIFIED).
+  4 gates green, validate + npm test PASS. Density AKR 60/60 · KENT 30/30 · MASS 20/20 · NSUM 34/35 · CANT 44/45 · BARB 19/20 (207/210).
+  Files: FOOD_W7, SIGHTS_W7, geo/_geoout_w7 + _w7b. Full log + source-exhaustion notes: AUDIT.md W7 batches 1–2.
+- **Resolved in W7:** Hoover Historical Center pin (Waze place at 1875 E Maple St = Remarkable Ohio marker, med); Desert Inn address = 204 12th St NW
+  (Repository) — but Waze's place record says 204 12th St **NE**, so the pin stays held; Al's Corner Barberton = CLOSED (now TUSK); Tremont flagship =
+  215 Erie St N (added).
+- **W8 plan (pins only — discovery is at the bar; do not pad):**
+  1. Run `tools/geocode-helper.html` (browser) over the 57 UNVERIFIED in docs/GEOCODE-BACKLOG.md (akron-oh). The WebSearch Waze/usarestaurants channel
+     is exhausted for these names (re-tried W4–W7). Priority: canon food (Taggart's, Desert Inn [NW vs NE], Hoppin' Frog, Fred's, Village Inn Chicken,
+     Menches), W7 adds (West Side Bakery, Muskellunge, North Water, Tremont, Ignite), sights (KSU Museum/Rockwell Hall, Summit Artspace, Akron History
+     Center, Highland Theatre, Nightlight, BLU Jazz+, Towner's Woods, St. Helena III, Five Oaks). Canton Arts District / Acorn Alley need a place anchor.
+  2. Optional last +3 (only if a 2nd credible outlet appears): CANT — Blazing Pig (Repository review), Dog Daze (Ohio Mag), Starflyer; NSUM — Vaccaro's
+     Trattoria (Bath; Akron Life ×2 + OpenTable 4.8★/1,522), Ocelot Café Richfield (ABJ), Downtown 140 (status); BARB — Angie's Italian (ABJ +
+     city), Bistro of Green (Akron Life ×2).
+
+## Previous plan (W7, as written after W6)
 - **W6 DONE 2026-10-03:** 166 → **193 places** (78 sights / 115 food = 60%; food ≥50% in every area), pins 128 → **141** (52 UNVERIFIED).
   4 gates green, validate + npm test PASS. Density AKR 59/60 · CANT 40/45 · NSUM 31/35 · KENT 28/30 · MASS 18/20 · BARB 17/20.
   Files: FOOD_W6/W6B/W6C/W6D, SIGHTS_W6/W6B/W6C, SOURCES_W6, geo/_geoout_w6–w6d. Full log: AUDIT.md W6 batches 1–5.

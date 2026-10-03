@@ -596,3 +596,18 @@ New source keys: MAHONINGMATTERS, BARBERTONLIBRARY (SOURCES_W3A.json).
   for sale) · Samantha's (5-shop chain) · College Inn Alliance (Repository review only) · Dog Daze, Starflyer, Arcadia Grille (one outlet).
 - Gates: sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. ≈108 WebSearch.
   Density AKR 60/60 · NSUM 34/35 · KENT 30/30 · BARB 19/20 · CANT 44/45 · MASS 20/20 (207/210).
+
+## 2026-10-03 W7 · batch 2 (close) — pin pass + wave summary (geo/_geoout_w7b)
+- **Hoover Historical Center RESOLVED (med):** Waze place.ChIJITqAKYjRNogRJkoC3IpxzjI at 1875 E Maple St (40.875385,-81.37004) agrees within ~12 m with
+  Remarkable Ohio marker 9-76 (40.87530,-81.36992). The Wikipedia 40.874177,-81.397228 point is the Hoover Co. factory (~2.3 km W); the
+  40°52′40″N 81°22′14″W reading is ~270 m N. Pin restored.
+- **Pin retries with no place record (held):** Taggart's, Desert Inn (Waze place exists but at **204 12th St NE** vs Repository's NW — conflict kept
+  held), Hoppin' Frog, Industry Kitchen, Bell Tower, 3 Palms, Highland Theatre, Nightlight, Akron History Center, KSU Museum (only the Ohio State
+  Normal College district centroid — not a place pin), Towner's Woods (street segment only), Five Oaks (NRHP list has no coord). The WebSearch
+  channel is spent on these names → W8 = browser geocode-helper.
+- **Source-exhaustion log (last 3 short):** CANT 44/45 — Repository downtown guide/roasters/reviews (College Inn, Blazing Pig: single outlet), Akron Life
+  330 Flavor Awards 2026, Visit Canton; Arcadia Grille, Dog Daze, Starflyer, Poppy's single-outlet; Samantha's Grill Oakwood + Athens closed; Tozzi's =
+  event venue for sale. NSUM 34/35 — CLEMAG Falls 18 + speakeasies, Akron Life Falls drinks; Leo's (chain), Ohio Brewing (sold), Oak & Olive, Vaccaro's,
+  Ocelot, Downtown 140 single-outlet or no status. BARB 19/20 — ABJ Barberton spotlight, Akron Life Green/Wadsworth; Coffee Pot closed (Jan 2026),
+  Wink's 3.8★, Angie's/Galaxy/Bistro of Green single-outlet. Gaps are stated, not filled.
+- **W7 totals:** +12 food, +2 sights → 207 places (127 food = 61%; every area ≥50% food), 150 pinned (57 UNVERIFIED). ≈140 WebSearch.
