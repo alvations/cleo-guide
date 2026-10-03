@@ -1,0 +1,81 @@
+{
+ "outlets": [
+  {
+   "key": "ORLTODAY",
+   "name": "ORL Today (6AM City)",
+   "type": "local news",
+   "url": "https://orltoday.6amcity.com/",
+   "credible": "Daily local newsletter/newsroom (6AM City network) — local history features."
+  },
+  {
+   "key": "DOWNTOWNORLANDO",
+   "name": "Downtown Orlando (Downtown Development Board)",
+   "type": "municipal",
+   "url": "https://www.downtownorlando.com/",
+   "credible": "City of Orlando's Downtown Development Board — official district/neighbourhood pages."
+  },
+  {
+   "key": "NPS",
+   "name": "National Park Service (NRHP / NPGallery)",
+   "type": "institution",
+   "url": "https://npgallery.nps.gov/",
+   "credible": "National Register of Historic Places nomination files."
+  },
+  {
+   "key": "PGATOUR",
+   "name": "PGA TOUR",
+   "type": "official",
+   "url": "https://www.pgatour.com/",
+   "credible": "Official tour site for the Arnold Palmer Invitational at Bay Hill."
+  },
+  {
+   "key": "ORANGECOUNTY",
+   "name": "Orange County Government (OCFL newsroom)",
+   "type": "municipal",
+   "url": "https://newsroom.ocfl.net/",
+   "credible": "Official county government newsroom."
+  },
+  {
+   "key": "BLOOLOOP",
+   "name": "blooloop",
+   "type": "industry press",
+   "url": "https://blooloop.com/",
+   "credible": "Attractions-industry trade publication."
+  },
+  {
+   "key": "HOTELSABOVEPAR",
+   "name": "Hotels Above Par",
+   "type": "travel site",
+   "url": "https://www.hotelsabovepar.com/",
+   "credible": "Luxury hotel & resort-dining review site with bylined reviews."
+  },
+  {
+   "key": "AAA",
+   "name": "AAA TripCanvas",
+   "type": "travel guide",
+   "url": "https://www.aaa.com/tripcanvas/",
+   "credible": "AAA inspected/listed restaurant guide."
+  },
+  {
+   "key": "DIRONA",
+   "name": "DiRōNA (Distinguished Restaurants of North America)",
+   "type": "award",
+   "url": "https://dirona.com/",
+   "credible": "Independent restaurant award with anonymous inspection."
+  },
+  {
+   "key": "KENNYTHEPIRATE",
+   "name": "KennyThePirate",
+   "type": "creator",
+   "url": "https://www.kennythepirate.com/",
+   "credible": "Long-running Disney World planning blog/creator (large following, dated reviews)."
+  },
+  {
+   "key": "BLOGMICKEY",
+   "name": "BlogMickey",
+   "type": "creator",
+   "url": "https://blogmickey.com/",
+   "credible": "Daily Disney parks news blog with dated dining reviews."
+  }
+ ]
+}
