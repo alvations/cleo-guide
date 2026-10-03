@@ -203,7 +203,7 @@ open/closed status), `docs/CITIES.md` (one row per city), `docs/AGENT-PROMPTS.md
 |---|---|---|---|---|
 | `session_01DpemyawneXmB7YPoPQhDWv` | Singapore gap-fill — Balestier pins + Punggol | 2026-10-03 09:55 | completed, archived | Balestier pins 5→49, Punggol 29→48 (places 63→65); both LIVE; 0 places removed |
 | `session_011cSHJwH2jx8M9RXKJBJ6Ds` | Site-wide QA, mobile + desktop | 2026-10-03 09:56 | completed, archived | 160 pages × 3 loads, 0 FAIL after fixes (Youngstown empty-list bug, dead links, raw-URL chips, hub copy); D1–D8 deferred; 0 places removed — docs/QA-2026-10-03.md |
-| `session_019cuMgwoxChA7ZDeYk9WCji` | UI/UX redesign proposals for owner review | 2026-10-03 10:02 | running | — |
+| `session_019cuMgwoxChA7ZDeYk9WCji` | UI/UX redesign proposals for owner review | 2026-10-03 10:02 | completed, archived | design/ux-2026-10/README.md — 3 directions, Salon & Night out recommended, prototypes + 61 screenshots, roadmap, 8 decisions |
 
 ### Cross-city pin and top-up passes (5 sessions)
 
