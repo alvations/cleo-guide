@@ -555,3 +555,9 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - Wikipedia 4-name coordinate queries still pin landmarks reliably; summariser can cross-contaminate (Hotel Florence got the Pullman district
   point → rejected). Pair every batch with one Choose Chicago / Time Out / CAC / WTTW / City-landmarks corroboration query.
 - Address hygiene: never type a street number the search results didn't echo — coarsen to the sourced street/locality (13 W11 sights fixed).
+
+## 2026-10-03 — Harrisburg W7 (food & drink first)
+- South-central PA: `allowed_domains:["maps.apple.com"]` returned only bare `place-id=` URLs (no `coordinate=`) in 10+ probes — useful for open-status (current hours) only. `allowed_domains:["restaurantguru.com"]` + `<Name> <street> <town> coordinates`, ONE place per query, pinned ~70% (graded med; the listing address checked against the record; predecessor-tenant same-address pins noted). Misses cost several internal sub-searches — don't retry a miss; queue it for the helper.
+- pennlive.com, ydr.com, eveningsun.com and eater.com are blocked as `allowed_domains` (400). YDR content is reachable via aol.com/yahoo.com syndication; Sentinel via cumberlink.com.
+- Best yield per search: one critic's list (Craig LaBan's 2026 Lancaster 15) + one magazine reader vote (LCM Best of Lancaster) gave 2 independent outlets for ~8 places in 3 searches.
+
