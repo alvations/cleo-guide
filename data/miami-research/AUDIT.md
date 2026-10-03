@@ -247,3 +247,14 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   CGCG sights 3 — Merrick House (t1), Coral Gables Congregational Church, Plymouth Congregational Church (all high pins).
 - **Held:** Morningside/Bay Shore HD (Wikipedia + unattributed GMCVB text), JP's Bagel, Pupusatime, Le Patio, Stork's, Ophelia,
   Emissary, Da Angelino (one outlet each).
+
+## 2026-10-03 (session 4) · batch 10 — breweries, downtown food hall, Overtown, pins for sourced sights
+- **Added (10):** breweries 7 — Tarpon River, LauderAle, 3 Sons (FTL; Visit Lauderdale brewery guide ∩ NT), The Tank, M.I.A. Beer Co.
+  (LHAV), Strange Beast (SDADE), Cervecería La Tropical (WYN) (Time Out 16 breweries ∩ NT/Inf); DTB food 1 — Julia & Henry's (TO + Inf
+  + NT readers' Best Food Hall 2024); DTB sight 1 — Overtown Historic Folklife Village.
+- **Pins:** Tower Theater (high, Wikipedia; status: MFF screenings 2026; MDC takes over 1 Nov 2026, reopening 10 Dec after upgrades),
+  Amelia Earhart Park, Mizell-Eula Johnson SP, Bay of Pigs Museum (high, Wikipedia). REJECTED: Máximo Gómez Park value = Little
+  Havana neighbourhood centroid.
+- **Not added:** Flamingo backcountry trails (Snake Bight, Christian Point, Coastal Prairie, Bear Lake) — NPS says they are not being
+  maintained (Cape Sable thoroughwort habitat); Historic Hampton House (Brownsville — outside DTB; area call pending);
+  St. John's Baptist Church (Wikipedia only); Sunkissed (Inf only); Spanish Marie, Prison Pals, Unbranded, Gulf Stream (one outlet).
