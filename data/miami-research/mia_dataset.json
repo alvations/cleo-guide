@@ -3547,6 +3547,91 @@
      "https://en.wikipedia.org/wiki/Everglades_Holiday_Park"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "Homestead Historic Downtown District",
+   "ad": "Krome Ave, Homestead, FL",
+   "w": "NRHP-listed (2007) farm-town main street — the 1917 Town Hall museum, the Seminole Theatre and old Krome Avenue storefronts.",
+   "g": [
+    "MUS",
+    "HIST",
+    "ENT"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/history-and-heritage/historic-treasures-in-homestead-and-florida-city"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Homestead_Historic_Downtown_District"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "Fontainebleau Miami Beach",
+   "ad": "Collins Ave (Mid-Beach), Miami Beach, FL",
+   "w": "Morris Lapidus's 1954 MiMo icon — the curving tower, bow-tie floors and the famous 'Staircase to Nowhere'.",
+   "g": [
+    "BEACH",
+    "DECO"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/art-and-culture/self-guided-arts-culture-tours-in-miami-beach"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fontainebleau_Miami_Beach"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTB",
+   "n": "Alfred I. duPont Building",
+   "ad": "Flagler St, Downtown Miami, FL",
+   "w": "Miami's only Art Deco skyscraper (1939) — black-granite base and a lavish lobby with bronze elevator doors of egrets, herons and ibises.",
+   "g": [
+    "DECO",
+    "ART",
+    "WILD"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/history-and-heritage/downtown-miami-architecture"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Alfred_I._DuPont_Building"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTB",
+   "n": "Ingraham Building",
+   "ad": "Downtown Miami, FL",
+   "w": "Schultze & Weaver's 1927 Flagler-era office tower — Florentine eaves, bronze doors and a hand-painted lobby ceiling.",
+   "g": [
+    "DECO"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/history-and-heritage/downtown-miami-architecture"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ingraham_Building"
+    ]
+   ]
   }
  ],
  "F": [
@@ -9856,6 +9941,118 @@
     [
      "INFATUATION",
      "https://www.theinfatuation.com/miami/cuisines/salvadoran"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SDADE",
+   "n": "Babe's Meat & Counter",
+   "ad": "9216 SW 156th St, Palmetto Bay, FL",
+   "w": "Palmetto Bay butcher counter that grew from the Pinecrest farmers' market — expanded to 40 seats in 2026.",
+   "k": "Order: The house-ground cheeseburger (New Times Best Burger 2025) and in-house bacon sandwiches",
+   "cz": [
+    "BURG"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/best-of-miami/2025/eat-and-drink/best-burger-23474725/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/restaurants/babes-meat-counter"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/the-best-banh-mi-sandwiches-in-miami"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "Jamrock Cuisine",
+   "ad": "12618 Kendall Dr, Miami, FL",
+   "w": "Chef Maurice Chang cooks his Chinese father's and Jamaican mother's food — New Times' Best Jamaican Restaurant 2018.",
+   "k": "Order: Beef patties and Chinese-Jamaican favourites",
+   "cz": [
+    "CARIB"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/jamrock-cuisine-cooks-chinese-jamaican-favorites-in-kendall-7954850/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-jamaican-restaurants-miami"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "Josh's Deli",
+   "ad": "Surfside, FL",
+   "w": "Surfside's modern Jewish deli — breads and cures made in house.",
+   "k": "Order: House-cured pastrami on seeded rye and giant challah French toast",
+   "cz": [
+    "BURG"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/reviews/joshs-deli"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/restaurants/joshs-deli"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "Las Vacas Gordas",
+   "ad": "Normandy Isle, Miami Beach, FL",
+   "w": "Lively Argentine grill at the heart of North Beach's 'Little Buenos Aires'.",
+   "k": "Order: Parrillada of sweetbreads, morcilla, chinchulines and one-pound cuts",
+   "cz": [
+    "LATAM"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/restaurants/las-vacas-gordas"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-restaurants-north-beach-miami"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "The Joyce",
+   "ad": "off Española Way, Miami Beach, FL",
+   "w": "Hidden 60-seat steakhouse: date-night quiet early, game-night packed late.",
+   "k": "Order: Steaks in a 60-seat room hidden off Española Way",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/south-beach-restaurants"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/best-restaurants-in-south-beach-40538237/"
     ]
    ]
   }
