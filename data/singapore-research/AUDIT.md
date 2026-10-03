@@ -613,3 +613,10 @@ Area code **PGL** (slug `punggol`, target ~93). Files: `FOOD_PUNGGOL.json` (5), 
 - Per-town detail: `_note_HOLLANDV.md`, `_note_BALESTIER.md`, `_note_NOVENA.md`, `_note_PUNGGOL.md` (W2 sections).
 
 - **FINAL (end of session): HLV 57/55 OK (LIVE) · BLS 56/55 OK (go-live held for pins) · NVN 37/55 (NEED +18) · PGL 35/93 (NEED +58).** Late adds: NVN Baan Ying, Banelé; BLS Niu Dian (VIIO @ Balestier); HLV Niu Dian (HV).
+
+## 2026-10-03 — PGL + NVN W3 (PGL+NVN session)
+- Discovery: PGL +15 (9 food, 6 sights), NVN +10 (9 food, 1 sight). Channels: institutional/official (Wikipedia, NParks, JTC, MUIS, HDB, MND, NHB/Roots, MICHELIN_EDITORIAL) 9; editorial (Eatbook, Seth Lui, Women's Weekly, Honeycombers, Time Out, City Nomads, Makansutra, Tatler, The Peak, Frommer's, Monocle, Dezeen, designboom, Vulcan Post) 21; blogs/creators (ieatishootipost attach, SGFoodOnFoot, live2makan, Ordinary Patrons, 2bearbear, ladyironchef) 8.
+- Closure: Sixth Floor Oyster Cake (Northshore Plaza) — CLOSED after 28 Sep 2025 (Seth Lui).
+- Geocode: 12 pinned (4 high: Bukit Brown, Masjid Al-Islah, Oasis Terraces + building reuse; 8 med building-reuse), 13 UNVERIFIED (Punggol Coast HC, Northshore, Scotts Rd bungalows, Balmoral Plaza, Keng Lee Rd, 2 linear trails). Street centroids (Punggol Way) rejected.
+- Gates after rebuild: geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck FAIL only on 46 pre-existing single-source places elsewhere (none PGL/NVN). validate + test ALL PASS.
+- Density: PGL 50/93 (NEED +43), NVN 47/55 (NEED +8). Rendered: punggol.html 23, newton-novena.html 29. Full held/dropped lists: _note_PUNGGOL.md / _note_NOVENA.md W3.
