@@ -20,7 +20,12 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md**. Rebuild: `python3 
 ## State
 - 2026-10-02 scaffold: consolidate.py (6 areas, Akron-Canton cuisine taxonomy), brief, build-akron.py.
 
-## In-flight wave — resume here (W3, after W2a/W2b on 2026-10-03)
+## In-flight wave — resume here (W3b+, after W3a on 2026-10-03)
+- **W3a DONE 2026-10-03** (CANT+MASS, 42 searches): +7 food (Social at the Stone House, Canal Boat Lounge, Papa Gyros,
+  Lucca, Lucia's Steakhouse, Walkie Talkie Espresso, Mike's Pizza & Deli) + 3 sights (Glamorgan Castle, Sippo Lake Park,
+  Lake Anna Park) — all UNVERIFIED pins. 91 Wood Fired Oven dropped (listings only). Canton Repository is not
+  searchable by domain (400); its stories surface only via AOL/Yahoo. New held list for CANT/MASS in AUDIT W3a section.
+  Next: W3b NSUM + KENT food (+22/+18), then AKR (+23), BARB (+12); sight pins for Glamorgan Castle, Sippo, Lake Anna.
 - **W2 DONE 2026-10-03:** W2a (FOOD_W2A: New Era, Papa Joe's, Thirsty Dog, Lock 15 promoted/new; 6 dupes of W1b folded
   in as extra sources) + W2b (FOOD_W2B: 11 promoted held leads incl. Momo House, Mike's Place, Taco Tontos, River
   Merchant, Laziza, Flury's, Szalay's, Kingfish, Twisted Olive, Sweet Mary's, Angel Falls; 5 new sight pins). 93 places,
@@ -50,3 +55,5 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md**. Rebuild: `python3 
   BARB 5/20 (78/210).
 - 2026-10-03 W2a+W2b: **93 places (51 food / 42 sights), 34 pinned**; all 4 gates green. Density AKR 37/60 · CANT 16/45 ·
   NSUM 13/35 · KENT 12/30 · MASS 8/20 · BARB 7/20 (93/210).
+- 2026-10-03 W3a: **103 places (58 food / 45 sights), 34 pinned**; 4 gates green. AKR 37 · CANT 23 · NSUM 13 · KENT 12 ·
+  MASS 10 · BARB 8 (103/210).

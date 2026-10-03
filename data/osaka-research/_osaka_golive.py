@@ -9,7 +9,7 @@ card = '''<!-- CARD:osaka -->
       <p class="kicker">大阪 · Kita · Minami · the Castle · Tennōji · the Bay · Kansai day trips</p>
       <p class="nm">Osaka</p>
       <p class="desc">Kuidaore: okonomiyaki teppan and kushikatsu counters, Michelin Bib Gourmand udon and soba counters and a deep Kitashinchi bench; Dōtonbori, Hōzen-ji, Shinsekai, Osaka Castle and Ikuno Koreatown — out to Sakai's kofun, Minoo, Kobe and Himeji.</p>
-      <p class="stat">%s places · %s sights · %s food · 9 areas · growing toward ~460</p>
+      <p class="stat">%s places · %s sights · %s food · 9 areas · ★ anime layer</p>
       <span class="go">Open Osaka →</span>
     </a>
     <!-- /CARD:osaka -->''' % (n, s, f)
@@ -22,8 +22,8 @@ seg2 = re.sub(r'\d of 5 maps live', '%d of 5 maps live' % live, seg)
 open(I, 'w').write(r.replace(seg, seg2))
 C = 'docs/CITIES.md'; c = open(C).read()
 row = ('| Osaka (JP) | `cities/osaka.html` (linked from the Japan hub) | `data/osaka.dataset.json` | `data/osaka-research/` | %s | live · 9 areas: KITA, MINAM, CHUO, TNJ, EAST, BAY, SOUTH, NORTH, KNSAI (Kansai day trips; Nara is on the Kyoto map). '
-       '**%s rendered** (%s sights + %s food); every place ≥2 credible or lone Michelin/UNESCO; pins from Michelin venue pages and en/ja Wikipedia infoboxes only. '
-       'Konamon street-food canon (Kogaryū, Wanaka, Daruma, Aizuya…) discovered but UNVERIFIED (geocode-helper). Below the ~460 target (MINAM/SOUTH/BAY thinnest) — continue from `data/osaka-research/RESUME.md`. '
+       '**%s rendered** (%s sights + %s food); every place ≥2 credible or lone Michelin/UNESCO; pins from Michelin venue pages, en/ja Wikipedia infoboxes and MapFan spot pages (med). '
+       '**499 discovered — every area at density target (W7, 2026-10-03)**, 63%% food, ANIME 34; ~134 discovered places still UNVERIFIED (shop pins → geocode-helper). Continue from `data/osaka-research/RESUME.md`. '
        'Rebuild: `python3 tools/rebuild-city.py osaka --build`. |') % (n, n, s, f)
 lines = c.split('\n'); idx = [i for i, l in enumerate(lines) if l.startswith('| Osaka')]
 if idx:
