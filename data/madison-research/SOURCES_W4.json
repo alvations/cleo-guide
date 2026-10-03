@@ -1,6 +1,76 @@
-{"outlets":[
-{"key":"MILWAUKEERECORD","name":"Milwaukee Record","type":"editorial","rank":2,"url":"https://milwaukeerecord.com","credible":"Statewide Wisconsin alt-weekly-style food & culture outlet with bylined staff features (Wisconsin fish-fry series)."},
-{"key":"COOKSCOUNTRY","name":"Cook's Country (America's Test Kitchen)","type":"editorial","rank":1,"url":"https://www.americastestkitchen.com/cookscountry","credible":"National food magazine (America's Test Kitchen); bylined supper-club feature reporting from Ishnala."},
-{"key":"HEAVYTABLE","name":"Heavy Table","type":"editorial","rank":2,"url":"https://heavytable.com","credible":"Long-running Upper Midwest food magazine (Minneapolis); bylined 'Wisconsin Dining Journal' reviews."},
-{"key":"IMBIBE","name":"Imbibe Magazine — Where to Drink in Madison","type":"editorial","rank":1,"url":"https://imbibemagazine.com/where-to-drink-in-madison-wisconsin/","credible":"National drinks magazine; Madison guide by bar author Brian Bartels (named bars with specific drinks)."}
-]}
+{
+ "outlets": [
+  {
+   "key": "MILWAUKEERECORD",
+   "name": "Milwaukee Record",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://milwaukeerecord.com",
+   "credible": "Statewide Wisconsin alt-weekly-style food & culture outlet with bylined staff features (Wisconsin fish-fry series)."
+  },
+  {
+   "key": "COOKSCOUNTRY",
+   "name": "Cook's Country (America's Test Kitchen)",
+   "type": "editorial",
+   "rank": 1,
+   "url": "https://www.americastestkitchen.com/cookscountry",
+   "credible": "National food magazine (America's Test Kitchen); bylined supper-club feature reporting from Ishnala."
+  },
+  {
+   "key": "HEAVYTABLE",
+   "name": "Heavy Table",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://heavytable.com",
+   "credible": "Long-running Upper Midwest food magazine (Minneapolis); bylined 'Wisconsin Dining Journal' reviews."
+  },
+  {
+   "key": "IMBIBE",
+   "name": "Imbibe Magazine — Where to Drink in Madison",
+   "type": "editorial",
+   "rank": 1,
+   "url": "https://imbibemagazine.com/where-to-drink-in-madison-wisconsin/",
+   "credible": "National drinks magazine; Madison guide by bar author Brian Bartels (named bars with specific drinks)."
+  },
+  {
+   "key": "AMERICANTHEATRE",
+   "name": "American Theatre magazine",
+   "type": "editorial",
+   "rank": 1,
+   "url": "https://americantheatre.org",
+   "credible": "National magazine of Theatre Communications Group; bylined 'Know a Theatre' profile."
+  },
+  {
+   "key": "TELEGRAPHHERALD",
+   "name": "Telegraph Herald (Dubuque)",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.telegraphherald.com",
+   "credible": "Regional daily newspaper of the tri-state area; bylined travel feature on APT."
+  },
+  {
+   "key": "AMAZINGAMERICA",
+   "name": "Amazing America (Sinclair TV, syndicated on WJLA etc.)",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://wjla.com/amazing-america",
+   "credible": "Nationally syndicated TV travel segment carried by dozens of Sinclair stations; bylined Mount Horeb Trollway segment."
+  },
+  {
+   "key": "SHEPHERDEXPRESS",
+   "name": "Shepherd Express",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://shepherdexpress.com",
+   "credible": "Milwaukee's long-running alt-weekly; bylined 'Off the Beaten Path' outdoors column."
+  },
+  {
+   "key": "DANECOUNTY",
+   "name": "Dane County Parks (official)",
+   "type": "official",
+   "rank": 2,
+   "url": "https://www.danecountyparks.com",
+   "credible": "County park authority — official overview of the conservancy (facts/hours)."
+  }
+ ]
+}
