@@ -58,7 +58,12 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 | KRM | 4 | 10 | 14 | 30 | +16 |
 
 ## In-flight wave
-- none (W6 closed 2026-10-03; ~188 of the session's ~200 searches spent).
+- **W7** (2026-10-03, session_01ArZFSzKcMbcHeXLyDAXfRU; rules `_okinawa_w7_agentrules.md`; 8 bg agents, caps in brackets):
+  W7D1 Naha food & drink [30] · W7D2 Chūbu food & drink only [30] · W7D3 Naha sights [18] · W7A anime/pop culture
+  Naha+Chūbu [15] · W7H held-lead confirms (Hokubu/Nanbu/islands, Zhyvago, Blue Turtle Farm, Haisai Tanteidan) [22] ·
+  W7R re-verify low pins (`_okinawa_geo_todo_W7R.json`, 98) [32] · W7G1 UNVERIFIED Naha/Chūbu (`_okinawa_geo_todo_W7G1.json`, 32) [22] ·
+  W7G2 UNVERIFIED rest (`_okinawa_geo_todo_W7G2.json`, 68) [18]. Files: `*_OKINAWA_W7*.json`, `geo/_geoout_okinawa_W7*.json`,
+  `_okinawa_W7*_notes.md`. On relaunch: check which notes files exist (= finished agents); rerun only the missing tags.
 
 - 2026-10-02 **W4 done** (fresh session, ~186 searches, 9 background subagents): pin-first + discovery + anime.
   **258 discovered (128 sights + 130 food & drink = 50 % food), 130 pinned (was 89)** — pins per area NAHA 18 · CHUBU 24 ·
