@@ -94,3 +94,35 @@ food; high 51 · med 48 · low 0) · statuscheck CONSISTENT (0 closed) · buildc
 Density: LIE 82/85 (NEED +3), LIER 66/60 OK. **Go-live:** CARD:liege relinked, countries.json belgium pages + blurb,
 Belgium hub (five maps), root Belgium card (606 places on maps), CITIES.md row, AGENT-PROMPTS run-log row.
 **Halt:** session-wide WebSearch cap 200/200 reached.
+
+## 2026-10-03 (session 3) — Wave 4: pin pass + LIE top-up (~95 searches)
+**Pins (geo/_geoout_liege_w4.json, 45 records):** one place per WebSearch, `allowed_domains`
+restaurantguru/foursquare/wanderlog/viamichelin → venue lat/lng in the summary (≈85 % hit rate again). 40 of the 48 held
+places pinned (all `med`, RestaurantGuru/ViaMichelin POI; CTLM Verviers `high` from fr.wikipedia infobox). Town-only
+discovery addresses replaced with the venue street address from the pin source (`_liege_w4geo.py` only fills addresses with
+no house number). **Corrections:** L'Epicurien (Herve) is Rue des Martyrs 15 per its Michelin page (Bib Gourmand — MICHELIN
+source added), not Rue des Xhawirs; Une Gaufrette Saperlipopette re-pinned at Rue des Mineurs 18 (RestaurantGuru) — the old
+Cabale-node point stays retired; Danieli = Rue Hors-Château 46 — RestaurantGuru flags the old Danieli 'permanently closed'
+but Le Fooding documents its revival by Yann Stroobant (ex-Cabale) at the same address → kept OPEN, LEFOODING added; Cyrano
+(Waimes) = Rue de la Gare 23 (Hôtel Ravel); Les Brasseries de Liège share the Grand Poste building (Quai sur Meuse 19).
+**CLOSURE:** **Qualia** (Verviers, Gault&Millau 13.5) CLOSED August 2024 — Paris Match Belgique 2024-10-08; flagged
+`closed:true`, pinned at Le Petit Château Peltzer (Mapcarta W626979293) so it renders as `— CLOSED`.
+**Still UNVERIFIED (8):** Origo (no venue coord printed), Beer Lover's Café & Shop (Foursquare 'Fermé maintenant' vs live
+Schlouk Map listing — status ambiguous, not pinned until settled), Musée en plein air du Sart-Tilman (Wikidata point is the
+city centre — rejected; campus-wide museum), Brasserie Coopérative Liégeoise (Badjawe), Fromagerie du Vieux Moulin, Galler
+(Vaux-sous-Chèvremont; only a village centroid printed — rejected), Siroperie Meurens (search returned the *Siroperie
+Artisanale d'Aubel* — a different company — rejected), The Owl Distillery (area centroid only).
+**Discovery (LIE +5, food-first; FOOD_LIEGE_W4.json, SIGHTS_LIEGE_W4.json, SOURCES_LIEGE_W4.json):**
+- Magma — Michelin Bib Gourmand 2024 (lone authority) + RTBF.
+- La Grand Poste (food market + house brewery) — ELLE Belgique + Brussels Times 'Hidden Belgium' + RTBF.
+- Utamu Coffee'n Pastries — European Coffee Trip (awards: top-10 Belgian specialty café) + ELLE.
+- Constantin Café — Le Fooding + Visit Liège + ELLE.
+- Théâtre de Liège (Émulation) — Visit Liège + La Libre + L'Avenir; pin fr.wikipedia 50°38′27″N 5°34′29″E.
+Channel mix this wave: institution 1 · national press 4 (RTBF, ELLE, La Libre, L'Avenir) · guides/creator-scale outlets 3
+(Le Fooding, European Coffee Trip, Brussels Times) · tourism board 2. Creator query run ('Liège food tour youtube vlog') →
+only Taste of Liège tour copy + Darley Newman (already registered); no new creator met the bar.
+**MEASURED & held (single source):** Volga bar d'atmosphère (Le Fooding only), La Caféière (RTBF only), Torrefactory coffee
+shop (Paris Match only), Eggenols waffles (one blog), Le Barbecue de Jacky (Barchon, G&M 'hip' — LIER, not needed).
+**Build:** sourcecheck PASS · geocheck PASS — **144 on page** (59 sights + 85 food) of 153 · statuscheck CONSISTENT
+(1 closed: Qualia) · buildcheck PASS · `npm run validate` DATA OK · `npm test` ALL PASS.
+**Density:** LIE 87/85 OK (51 food + 36 sights), LIER 66/60 OK → **every area OK**; food share 92/153 = 60 %.
