@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Harrisburg, York, Lancaster &amp; Amish Country field guide — 44 sights and 5 places to eat across Harrisburg, Hershey, Carlisle, York, Lancaster, Lancaster County (Intercourse, Bird-in-Hand, Strasburg, Ephrata, Lititz) and Gettysburg, each traceable to its source (LancasterOnline/LNP, PennLive, York Daily Record, Discover Lancaster, Visit Hershey &amp; Harrisburg, Explore York, NPS), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Harrisburg, York, Lancaster &amp; Amish Country field guide — 49 sights and 5 places to eat across Harrisburg, Hershey, Carlisle, York, Lancaster, Lancaster County (Intercourse, Bird-in-Hand, Strasburg, Ephrata, Lititz) and Gettysburg, each traceable to its source (LancasterOnline/LNP, PennLive, York Daily Record, Discover Lancaster, Visit Hershey &amp; Harrisburg, Explore York, NPS), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
 <title>Harrisburg, York &amp; Lancaster Field Guide</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · South-Central Pennsylvania &amp; Amish Country, sourced</p>
   <h1>Harrisburg · York · Lancaster<span class="thin">Hershey, Amish country &amp; the road to Gettysburg</span></h1>
-  <p class="standfirst">44 sights and 5 places to eat across <strong>Harrisburg</strong> and the West Shore, <strong>Hershey</strong>, <strong>Carlisle</strong>, <strong>York</strong>, <strong>Lancaster</strong> and the <strong>Amish country</strong> of Lancaster County, with <strong>Gettysburg</strong> as the day-trip edge, each traceable to the source that named it. The food canon is Pennsylvania Dutch: <strong>shoofly pie</strong>, <strong>whoopie pies</strong>, square-noodle <strong>chicken pot pie</strong>, chow-chow, scrapple, <strong>Lititz soft pretzels</strong>, the York&ndash;Hanover snack belt, <strong>Hershey chocolate</strong> and the country&rsquo;s oldest farmers&rsquo; markets. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">49 sights and 5 places to eat across <strong>Harrisburg</strong> and the West Shore, <strong>Hershey</strong>, <strong>Carlisle</strong>, <strong>York</strong>, <strong>Lancaster</strong> and the <strong>Amish country</strong> of Lancaster County, with <strong>Gettysburg</strong> as the day-trip edge, each traceable to the source that named it. The food canon is Pennsylvania Dutch: <strong>shoofly pie</strong>, <strong>whoopie pies</strong>, square-noodle <strong>chicken pot pie</strong>, chow-chow, scrapple, <strong>Lititz soft pretzels</strong>, the York&ndash;Hanover snack belt, <strong>Hershey chocolate</strong> and the country&rsquo;s oldest farmers&rsquo; markets. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -311,6 +311,7 @@
 const S = {
   "ABC27":{k:"ABC27 WHTM",t:"abc27 WHTM (Harrisburg)",u:"https://www.abc27.com/",l:"abc27 WHTM (Harrisburg)"},
   "AMISHAMERICA":{k:"AMISHAMERICA",t:"Amish America (Erik Wesner)",u:"https://amishamerica.com",l:"Amish America (Erik Wesner)"},
+  "APA":{k:"APA",t:"APA",u:"",l:""},
   "ARMYWARCOLLEGE":{k:"ARMYWARCOLLEGE",t:"U.S. Army War College (Carlisle Barracks)",u:"https://www.armywarcollege.edu",l:"U.S. Army War College (Carlisle Barracks)"},
   "ARTISTSHOMES":{k:"ARTISTSHOMES",t:"Historic Artists' Homes & Studios (National Trust program)",u:"https://artistshomes.org",l:"Historic Artists' Homes & Studios (National Trust program)"},
   "ASCE":{k:"ASCE",t:"American Society of Civil Engineers — Historic Landmarks",u:"https://asce.org",l:"American Society of Civil Engineers — Historic Landmarks"},
@@ -332,22 +333,27 @@ const S = {
   "EMERGINGCW":{k:"EMERGINGCW",t:"Emerging Civil War",u:"https://emergingcivilwar.com",l:"Emerging Civil War"},
   "FANDM":{k:"FANDM",t:"Franklin & Marshall College",u:"https://www.fandm.edu",l:"Franklin & Marshall College"},
   "FOXNEWS":{k:"FOXNEWS",t:"Fox News Travel",u:"https://www.foxnews.com/travel",l:"Fox News Travel"},
+  "FROMMERS":{k:"FROMMERS",t:"Frommer's",u:"https://www.frommers.com",l:"Frommer's"},
   "GETTYSBURGDAILY":{k:"GETTYSBURGDAILY",t:"Gettysburg Daily",u:"https://www.gettysburgdaily.com",l:"Gettysburg Daily"},
   "GPB":{k:"GPB",t:"Georgia Public Broadcasting (PBS/NPR member)",u:"https://www.gpb.org",l:"Georgia Public Broadcasting (PBS/NPR member)"},
   "HALLOWEDGROUND":{k:"HALLOWEDGROUND",t:"Journey Through Hallowed Ground National Heritage Area",u:"https://www.hallowedground.org",l:"Journey Through Hallowed Ground National Heritage Area"},
   "HBGCITY":{k:"HBGCITY",t:"City of Harrisburg (official)",u:"https://harrisburgpa.gov",l:"City of Harrisburg (official)"},
   "HERALDSTANDARD":{k:"HERALDSTANDARD",t:"Herald-Standard",u:"https://www.heraldstandard.com",l:"Herald-Standard"},
-  "INVENTIONTECH":{k:"INVENTIONTECH",t:"INVENTIONTECH",u:"",l:""},
+  "HERSHEYARCHIVES":{k:"HERSHEYARCHIVES",t:"HERSHEYARCHIVES",u:"",l:""},
+  "HISTORICHOTELS":{k:"HISTORICHOTELS",t:"HISTORICHOTELS",u:"",l:""},
+  "INVENTIONTECH":{k:"INVENTIONTECH",t:"Invention & Technology (American Heritage) — Landmarks",u:"https://www.inventionandtech.com",l:"Invention & Technology (American Heritage) — Landmarks"},
   "JOURNALOFANTIQUES":{k:"JOURNALOFANTIQUES",t:"Journal of Antiques & Collectibles",u:"https://journalofantiques.com",l:"Journal of Antiques & Collectibles"},
+  "LANCASTERFARMING":{k:"LANCASTERFARMING",t:"Lancaster Farming",u:"https://www.lancasterfarming.com",l:"Lancaster Farming"},
   "LANCASTERHISTORY":{k:"LANCASTERHISTORY",t:"LancasterHistory",u:"https://www.lancasterhistory.org",l:"LancasterHistory"},
   "LANCASTERPA":{k:"LANCASTERPA",t:"LancasterPA.com",u:"https://lancasterpa.com",l:"LancasterPA.com"},
   "LCMAG":{k:"LCMAG",t:"Lancaster County Magazine",u:"https://lancastercountymag.com",l:"Lancaster County Magazine"},
-  "LEBANONHIST":{k:"LEBANONHIST",t:"LEBANONHIST",u:"",l:""},
+  "LEBANONHIST":{k:"LEBANONHIST",t:"Lebanon County Historical Society",u:"https://lebanoncountyhistory.org",l:"Lebanon County Historical Society"},
   "LIVEDESIGN":{k:"LIVEDESIGN",t:"Live Design",u:"https://www.livedesignonline.com",l:"Live Design"},
   "MIDATLDAYTRIPS":{k:"MIDATLDAYTRIPS",t:"Mid-Atlantic Day Trips",u:"https://midatlanticdaytrips.com",l:"Mid-Atlantic Day Trips"},
   "NPS":{k:"NATIONAL PARK SERVICE",t:"National Park Service",u:"https://www.nps.gov/",l:"National Park Service"},
   "OLDCARSWEEKLY":{k:"OLDCARSWEEKLY",t:"Old Cars Weekly",u:"https://www.oldcarsweekly.com",l:"Old Cars Weekly"},
   "PABUCKETLIST":{k:"PABUCKETLIST",t:"PA Bucket List",u:"https://pabucketlist.com",l:"PA Bucket List"},
+  "PAEATS":{k:"PAEATS",t:"PA Eats",u:"https://www.paeats.org",l:"PA Eats"},
   "PAFISHBOAT":{k:"PAFISHBOAT",t:"PA Fish & Boat Commission",u:"https://www.fishandboat.com",l:"PA Fish & Boat Commission"},
   "PAGOV":{k:"PAGOV",t:"Commonwealth of Pennsylvania (PA Dept. of Agriculture)",u:"https://www.pa.gov",l:"Commonwealth of Pennsylvania (PA Dept. of Agriculture)"},
   "PAHERITAGE":{k:"PAHERITAGE",t:"PA Heritage / Trails of History (PHMC)",u:"https://paheritage.org",l:"PA Heritage / Trails of History (PHMC)"},
@@ -358,6 +364,7 @@ const S = {
   "RAILFANGUIDES":{k:"RAILFANGUIDES",t:"Railfan Guides",u:"https://www.railfanguides.us",l:"Railfan Guides"},
   "RELIGIONNEWS":{k:"RELIGIONNEWS",t:"Religion News Service",u:"https://religionnews.com",l:"Religion News Service"},
   "ROADSIDEAMERICA":{k:"ROADSIDEAMERICA",t:"Roadside America",u:"https://www.roadsideamerica.com",l:"Roadside America"},
+  "SAHARCHIPEDIA":{k:"SAHARCHIPEDIA",t:"SAHARCHIPEDIA",u:"",l:""},
   "SHELFAWARENESS":{k:"SHELFAWARENESS",t:"Shelf Awareness",u:"https://shelf-awareness.com",l:"Shelf Awareness"},
   "SMITHSONIAN":{k:"SMITHSONIAN",t:"Smithsonian / Smithsonian Magazine",u:"https://www.smithsonianmag.com/",l:"Smithsonian / Smithsonian Magazine"},
   "SPOTLIGHTPA":{k:"SPOTLIGHTPA",t:"Spotlight PA",u:"https://www.spotlightpa.org",l:"Spotlight PA"},
@@ -428,11 +435,17 @@ const P = [
 {t:2,a:"YORK",n:"Ma & Pa Railroad Heritage Village",ad:"Muddy Creek Forks, Airville, PA 17302",la:39.80750,ln:-76.47528,w:"The preserved railroad hamlet of Muddy Creek Forks on the old Maryland & Pennsylvania ('Ma & Pa') line — general store, mill and grain elevator, with seasonal motor-car and train rides through the Muddy Creek valley.",k:"RAIL",g:["HIST","PARK","RAIL"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Muddy_Creek_Forks_Historic_District"],["LCMAG","https://lcm.engleonline.com/?p=11743"]]},
 {t:2,a:"GBG",n:"Jennie Wade House",ad:"548 Baltimore St, Gettysburg, PA 17325",la:39.82330,ln:-77.23087,w:"Where 20-year-old Mary Virginia 'Jennie' Wade, baking bread for Union soldiers on July 3, 1863, was struck by a stray bullet — the only civilian killed in the battle. The bullet holes in the door remain; now a museum.",k:"CIVIL",g:["CIVIL","MUS","ODD"],s:[["ATLASOBSCURA","https://www.atlasobscura.com/places/jennie-wade-house"],["BATTLEFIELDS","https://www.battlefields.org/visit/heritage-sites/jennie-wade-house-museum"],["UNCOVERINGPA","https://uncoveringpa.com/?p=49003"]]},
 {t:2,a:"HER",n:"Cornwall Iron Furnace",ad:"Rexmont Rd & Boyd St, Cornwall, PA 17016",la:40.27056,ln:-76.40611,w:"A complete charcoal-era ironworks — furnace stack, blast machinery and ironmaster's village — that made iron from 1742 to 1883, including cannon for the Revolution; a PHMC-run National Historic Landmark.",k:"HIST",g:["HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Cornwall_Iron_Furnace"],["INVENTIONTECH","https://www.inventionandtech.com/landmark_landing/80153"]]},
-{t:2,a:"HER",n:"Union Canal Tunnel Park",ad:"Union Canal Tunnel Park, Lebanon, PA 17046",la:40.34958,ln:-76.46139,w:"The oldest existing transportation tunnel in the United States: 729 feet hand-cut through slate in 1825–27 for the Union Canal linking Middletown to Reading; walk through it, or ride summer boat tours, off the Lebanon Valley Rail Trail.",k:"HIST",g:["CIVIL","PARK","OUTDOOR"],s:[["ASCE","https://www.asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/union-canal-tunnel"],["ABC27","https://www.abc27.com/digital-originals/did-you-know-pennsylvania-is-home-to-the-oldest-existing-transportation-tunnel-in-the-united-states/amp/"],["LEBANONHIST","https://lebanoncountyhistory.org/canal-tunnel"]]}
+{t:2,a:"HER",n:"Union Canal Tunnel Park",ad:"Union Canal Tunnel Park, Lebanon, PA 17046",la:40.34958,ln:-76.46139,w:"The oldest existing transportation tunnel in the United States: 729 feet hand-cut through slate in 1825–27 for the Union Canal linking Middletown to Reading; walk through it, or ride summer boat tours, off the Lebanon Valley Rail Trail.",k:"HIST",g:["CIVIL","PARK","OUTDOOR"],s:[["ASCE","https://www.asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/union-canal-tunnel"],["ABC27","https://www.abc27.com/digital-originals/did-you-know-pennsylvania-is-home-to-the-oldest-existing-transportation-tunnel-in-the-united-states/amp/"],["LEBANONHIST","https://lebanoncountyhistory.org/canal-tunnel"]]},
+{t:2,a:"YORK",n:"Indian Steps Museum",ad:"205 Indian Steps Rd, Airville, PA 17302",la:39.86333,ln:-76.37583,w:"Judge John Vandersloot's 1908–12 Arts-and-Crafts cabin above the Susquehanna, built as a memorial and museum to Native American culture, with thousands of artifacts set into its walls.",k:"MUS",g:["MUS","ODD"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indian_Steps_Cabin"],["VISITPA","https://www.visitpa.com/region/dutch-country-roads/indian-steps-museum"],["ATLASOBSCURA","https://www.atlasobscura.com/places/indian-steps-museum"]]},
+{t:2,a:"YORK",n:"Columbia–Wrightsville Bridge & Zimmerman Center",ad:"Zimmerman Center, 1706 Long Level Rd, Wrightsville, PA 17368",la:40.02844,ln:-76.51822,w:"Where Union militia burned the mile-long covered bridge on June 28, 1863 to stop Confederates crossing the Susquehanna — the farthest east Lee's army reached. Today's 1930 concrete-arch bridge is an ASCE landmark; the riverside Zimmerman Center is the visitor station for the Captain John Smith Chesapeake National Historic Trail.",k:"CIVIL",g:["CIVIL","AMISH","HIST","OUTDOOR"],s:[["ASCE","https://www.asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/columbia-wrightsville-bridge"],["NPS","https://www.nps.gov/articles/susquehanna-celebration.htm"],["PAEATS","https://www.paeats.org/feature/small-town-adventures-wrightsville-pa/"]]},
+{t:2,a:"HBG",n:"Riverfront Park & Holocaust Memorial",ad:"Front St & Sayford St, Harrisburg, PA 17102",la:40.26740,ln:-76.89250,w:"Harrisburg's 1912 City Beautiful riverfront — miles of Susquehanna promenade, steps and gardens along Front Street — named one of America's Great Public Spaces by the American Planning Association; the Holocaust Memorial for the Commonwealth (1994) stands at Sayford Street.",k:"PARK",g:["PARK","OUTDOOR"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Riverfront_Park_(Harrisburg)"],["APA","https://pittsburghparks.org/great-public-spaces-in-pennsylvania-detailed-by-planning-professionals/"]]},
+{t:2,a:"HER",n:"The Hotel Hershey",ad:"100 Hotel Rd, Hershey, PA 17033",la:40.29980,ln:-76.65960,w:"Milton Hershey's Depression-era (1933) Mediterranean-style grand hotel on Pat's Hill above the chocolate factory — famous for its circular dining room, built so no guest would be seated in a corner ('if you don't tip well, they put you in a corner'). A Historic Hotels of America member.",k:"HIST",g:["FACT","HIST"],s:[["HERSHEYARCHIVES","https://hersheyarchives.org/?p=7410"],["HISTORICHOTELS","https://www.historichotels.org/us/hotels-resorts/the-hotel-hershey/history"],["SAHARCHIPEDIA","https://sah-archipedia.org/node/17971"]]},
+{t:2,a:"YORK",n:"Hanover Junction Railroad Station",ad:"PA Route 616, Hanover Junction (North Codorus Twp), PA 17362",la:39.84361,ln:-76.77722,w:"The restored junction depot on the Heritage Rail Trail where Lincoln changed trains en route to deliver the Gettysburg Address in November 1863; small museum of Civil War images and station history.",k:"CIVIL",g:["CIVIL","MUS","HIST","OUTDOOR"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Hanover_Junction_Railroad_Station"],["WITF","https://witf.org/2019/04/26/smart_talk_road_trip_goes_to_the_york_heritage_rail_trail_at_hanover_junction_station/"]]}
 ];
 
 const FS = {
   "6ABC":{k:"6ABC",t:"6abc Action News (WPVI, Philadelphia ABC O&O)",u:"https://6abc.com",l:"6abc Action News (WPVI, Philadelphia ABC O&O)"},
+  "ABC27":{k:"ABC27 WHTM",t:"abc27 WHTM (Harrisburg)",u:"https://www.abc27.com/",l:"abc27 WHTM (Harrisburg)"},
   "AMAZINGAMERICA":{k:"AMAZINGAMERICA",t:"Amazing America (Sinclair Broadcast Group)",u:"https://wjla.com/amazing-america",l:"Amazing America (Sinclair Broadcast Group)"},
   "AMISHAMERICA":{k:"AMISHAMERICA",t:"Amish America (Erik Wesner)",u:"https://amishamerica.com",l:"Amish America (Erik Wesner)"},
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/",l:"Atlas Obscura"},
@@ -536,7 +549,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([40.0933,-76.7328],9);
+  map = L.map('map',{scrollWheelZoom:false}).setView([40.0933,-76.7297],9);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -620,7 +633,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Harrisburg", 40.2793, -76.8869], ["Hershey", 40.2854, -76.5904], ["Carlisle", 40.1375, -77.2323], ["York", 39.9138, -76.6893], ["Lancaster city", 40.0316, -76.3094], ["Lancaster County Amish country", 40.0596, -76.2606], ["Gettysburg", 39.815, -77.2376]];
+const LABELS=[["Harrisburg", 40.2783, -76.8874], ["Hershey", 40.287, -76.5981], ["Carlisle", 40.1375, -77.2323], ["York", 39.9131, -76.6452], ["Lancaster city", 40.0316, -76.3094], ["Lancaster County Amish country", 40.0596, -76.2606], ["Gettysburg", 39.815, -77.2376]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -959,7 +972,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 49 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 54 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

@@ -25,15 +25,15 @@ Total ~216.
 
 ## State
 - 2026-10-02 scaffold (consolidate.py, build-harrisburg.py, brief, 29-outlet palette). W1 blocked by budget.
-- **2026-10-03 (one session, ~170 searches): W1–W5 done, LIVE.** 111 discovered (37 food + 74 sights, all ≥2
-  credible); 49 pinned and rendered on `cities/harrisburg.html`; all 4 gates green; npm validate/test pass;
+- **2026-10-03 (one session, ~185 searches): W1–W6 done, LIVE.** 120 discovered (38 food + 82 sights, all ≥2
+  credible); 54 pinned and rendered on `cities/harrisburg.html`; all 4 gates green; npm validate/test pass;
   index.html card LIVE; docs/CITIES.md row added; 54 new outlets registered with rationale (SOURCES_W1.json).
-- Density (discovered / target): AMISH 29/40 · CAR 10/20 · GBG 17/22 · HBG 14/38 · HER 15/24 · LAN 13/38 · YORK 13/34.
-- Pinned on page: 49 of 111 — 62 UNVERIFIED (mostly restaurants; WebSearch rarely surfaces restaurant place-pins).
+- Density (discovered / target): AMISH 30/40 · CAR 10/20 · GBG 17/22 · HBG 16/38 · HER 16/24 · LAN 15/38 · YORK 16/34.
+- Pinned on page: 54 of 120 — 66 UNVERIFIED (mostly restaurants; WebSearch rarely surfaces restaurant place-pins).
 
 ## In-flight wave
 - none. NEXT (ordered):
-  1. **Helper geocode** of the 62 UNVERIFIED (docs/GEOCODE-BACKLOG.md → tools/geocode-helper.html), confirming the
+  1. **Helper geocode** of the 66 UNVERIFIED (docs/GEOCODE-BACKLOG.md → tools/geocode-helper.html), confirming the
      discovery-stage addresses listed in AUDIT.md 2026-10-03 W3–W5 section. Biggest single lift for the map.
   2. **HBG food** (2/~19): outlet-specific — TheBurg, PennLive "best of", Harrisburg Magazine Simply the Best;
      Broad Street Market stands; Bhutanese/Nepali (Mount Everest, Momo Hunt — need 2 sources); Progress Grill,
