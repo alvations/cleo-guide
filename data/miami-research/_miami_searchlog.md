@@ -284,3 +284,14 @@
 126 Wikipedia coords: Plymouth Congregational, Merrick House, Coral Gables Congregational (high)
 127 NT for Grove names → Shore To Door, Midorie (NT Best CG 2023), Loretta, Daily Bread → 4 added
 128 GMCVB/TO/Coral Gables: Merrick House (GMCVB+TO), Congregational churches (GMCVB tours) → 3 sights
+129 NPS Flamingo trails (Snake Bight, Christian Point, Coastal Prairie, Bear Lake) — NPS: 'not currently being maintained' (Cape Sable thoroughwort habitat) → NOT added as live suggestions
+130 Wikipedia: Tower Theater coords (high) → pinned (session-3 UNVERIFIED sight)
+131 Status: Tower Theater 2026 (MFF Apr 2026, Gems; MDC takeover 1 Nov, reopening 10 Dec)
+132 Wikipedia coords: Máximo Gómez Park — printed value equals the Little Havana neighbourhood centroid → REJECTED; Rubell, Black Police Precinct none
+133 Wikipedia coords: Amelia Earhart Park, Mizell-Johnson SP (high); Broward Center none
+134 Wikipedia coords: Bay of Pigs Museum (high); ICA, Margulies none
+135 NT/Inf for TO downtown names: Julia & Henry's (TO + Inf + NT readers' Best Food Hall 2024) added; Sunkissed (Inf only) held
+136 Overtown: Folklife Village (GMCVB + Wikipedia Overtown) added; St. John's Baptist (Wikipedia only), Hampton House (Brownsville, outside DTB) held
+137 VL/NT/BPB Broward breweries (Tarpon River, LauderAle, Gulf Stream, 3 Sons) → 3 added (Gulf Stream VL only, held)
+138 NT/Inf/TO Miami breweries (Spanish Marie, Strange Beast, MIA, Prison Pals, Tripping Animals, The Tank, Unbranded, Miami Brewing Co)
+139 Time Out 16 breweries confirm: The Tank, M.I.A., Strange Beast (+ La Tropical TO page) → 4 added; Spanish Marie, Prison Pals, Unbranded not on TO list (held)

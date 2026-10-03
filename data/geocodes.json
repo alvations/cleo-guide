@@ -98290,14 +98290,14 @@
     "statusChecked": "2026-10-03"
    },
    "Tower Theater": {
-    "address": "1508 SW 8th St, Miami",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1508 SW 8th St, Miami, FL",
+    "lat": 25.765672,
+    "lng": -80.219464,
+    "source": "Wikipedia 'Tower Theater (Miami, Florida)' https://en.wikipedia.org/wiki/Tower_Theater_(Miami,_Florida) printed 25°45′56.42″N 80°13′10.07″W (25.765672, -80.219464) with address 1508 SW 8th St",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "WLRN 2023-01-31 (https://www.wlrn.org/arts-culture/2023-01-31/whats-next-for-the-tower-theater-in-little-havana): MDC handed keys to City of Miami, which has plans for the theater - building extant; current programming not confirmed",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Hosting Miami Film Festival screenings 9–19 Apr 2026 (GMCVB event page) and the returning fall 'Gems' showcase (Miami New Times); WLRN 8 Jan 2026 / Miami Today 7 Jan 2026: city returning operation to Miami Dade College from 1 Nov 2026 with a post-upgrade reopening planned 10 Dec — programming may pause in Nov–Dec 2026. Checked 2026-10-03.",
     "statusChecked": "2026-10-03"
    },
    "Cuban Memorial Boulevard": {
@@ -99468,11 +99468,11 @@
    },
    "Amelia Earhart Park": {
     "address": "Hialeah, FL (unincorporated Miami-Dade, north of Hialeah)",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 25.8862646,
+    "lng": -80.2786059,
+    "source": "Wikipedia 'Amelia Earhart Park' https://en.wikipedia.org/wiki/Amelia_Earhart_Park printed 25°53′11″N 80°16′43″W (25.8862646, -80.2786059)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Trail-race calendar lists an event at the park 18 Oct 2026 (https://gotrail.run/trail-running-calendar/united-states/florida/hialeah); Miami-Dade County park upgrades reported (Hoodline). Checked 2026-10-03.",
     "statusChecked": "2026-10-03"
@@ -99600,11 +99600,11 @@
    },
    "Bay of Pigs Museum (Brigade 2506)": {
     "address": "1821 SW 9th St, Little Havana, Miami, FL",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 25.764989,
+    "lng": -80.225059,
+    "source": "Wikipedia 'Bay of Pigs Museum' https://en.wikipedia.org/wiki/Bay_of_Pigs_Museum printed 25°45′54″N 80°13′30″W (25.764989, -80.225059) with address 1821 SW 9th St",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "GMCVB current listing (https://www.miamiandbeaches.com/l/arts-and-culture/bay-of-pigs-brigade-2506-museum/52808) and Time Out venue page. Checked 2026-10-03.",
     "statusChecked": "2026-10-03"
@@ -99721,11 +99721,11 @@
    },
    "Dr. Von D. Mizell-Eula Johnson State Park": {
     "address": "Dania Beach, FL",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 26.07,
+    "lng": -80.11306,
+    "source": "Wikipedia 'Dr. Von D. Mizell-Eula Johnson State Park' https://en.wikipedia.org/wiki/Dr._Von_D._Mizell-Eula_Johnson_State_Park printed 26°04′12″N 80°06′47″W (26.07000, -80.11306)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Fodor's current sight review; Whiskey Creek Hideout rentals operating (Visit Lauderdale kayak guide). Checked 2026-10-03.",
     "statusChecked": "2026-10-03"
@@ -99849,6 +99849,17 @@
     "confidence": "high",
     "status": "open",
     "statusSource": "Active church; GMCVB 'Visit six Coconut Grove historic sites' (current). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Overtown Historic Folklife Village": {
+    "address": "NW 3rd Ave, Overtown, Miami, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Public streetscape; GMCVB 'Explore Historic Overtown' (current). Checked 2026-10-03.",
     "statusChecked": "2026-10-03"
    }
   }
