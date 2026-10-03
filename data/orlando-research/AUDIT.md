@@ -259,3 +259,7 @@
   sourcecheck **PASS** · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · npm validate DATA OK · npm test ALL PASS. Card + CITIES row refreshed.
 - **Density:** OK 9/18 (CWALK, DHS, DSP, EAST, EPCOT, EPIC, MK, USF, WEST); NEED DTO +13, IDR +11, KISS +8, MILLS +5, WPK +5, SPRNG +3, SPACE +2,
   DAK +1, IOA +1. 250 places UNVERIFIED (restaurant pins) → geocode-helper.
+- **Pin technique test (lead, 8 searches)** — the Liège-W4 method (`allowed_domains` restaurantguru/foursquare/wanderlog/viamichelin,
+  `<name> <street address> coordinates`, one place per search) works for Orlando: **5/8 pinned (med, address-matched)** — Pig Floyd's,
+  The Ravenous Pig, Dixie Crossroads, Smokemade, Columbia (Celebration) → `geo/_geoout_w4pin.json`. Rejected: Se7en Bites (snippet unsure
+  N vs S Primrose, 4-decimal point). No decimals: ÔMO by Jônt, Mills Market. → W5 should spend its budget on this pin pass first.

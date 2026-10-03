@@ -25,14 +25,14 @@ Run protocol: `docs/RUN-2026-10-02.md` (shared lock, commit+push every batch, §
 - `SPACE` Space Coast ~25
 
 ## State (session 5 / wave 4, 2026-10-03)
-- **LIVE**: `cities/orlando.html` — **186 sights + 35 food = 221 on the map**; **all 4 gates PASS** (sourcecheck now PASS — the 9 held
+- **LIVE**: `cities/orlando.html` — **186 sights + 40 food = 226 on the map** (5 restaurant pins via the new aggregator-pin technique); **all 4 gates PASS** (sourcecheck now PASS — the 9 held
   single-source were corroborated); npm validate + test green; card, CITIES row, AGENT-PROMPTS run log refreshed.
 - **471 researched (263 food + 208 sights) — food share 55.8%**.
 - Per area (food+sights / target): CWALK 8+2/10 OK · DAK 9+12/22 · DHS 10+10/20 OK · DSP 19+6/25 OK · DTO 21+16/50 · EAST 8+2/10 OK ·
   EPCOT 16+19/35 OK · EPIC 9+11/20 OK · IDR 19+15/45 · IOA 8+11/20 · KISS 14+13/35 · MILLS 45+10/60 · MK 14+19/30 OK · SPACE 10+13/25 ·
   SPRNG 15+12/30 · USF 9+11/20 OK · WEST 7+8/15 OK · WPK 22+18/45.
   NEED: DTO +13 · IDR +11 · KISS +8 · MILLS +5 (sights) · WPK +5 · SPRNG +3 · SPACE +2 · DAK +1 · IOA +1.
-- **250 UNVERIFIED** (mostly street-address restaurants + park counter-service): MILLS 42, DTO 22, WPK 22, IDR 18, DSP 17, KISS 16, SPRNG 14 …
+- **245 UNVERIFIED** (mostly street-address restaurants + park counter-service): MILLS 42, DTO 22, WPK 22, IDR 18, DSP 17, KISS 16, SPRNG 14 …
   WebSearch cannot pin them (probed again W4: Mapcarta/Wikipedia return only land/park centroids) → `tools/geocode-helper.html`.
 - Session 5 files: FOOD/SIGHTS/SOURCES_W4{A,B,C,L}.json, geo/_geoout_w4{a,b,c,l}.json, logs `_W4_log_W4{A,B,C,L}.md`, worker brief
   `_W4_WORKER_BRIEF.md`, names list `_orl_existing_names.txt` (regenerate from orl_dataset.json before a new wave).
