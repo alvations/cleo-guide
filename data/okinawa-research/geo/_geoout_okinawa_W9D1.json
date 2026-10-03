@@ -18,5 +18,35 @@
   "geoSource": "Extended WebSearch 'サムズアンカーイン宜野湾店 住所 宜野湾市 緯度 経度' -> listing coordinate (okinawastory/mice.okinawastory/hotpepper result set) 26.27163002708336,127.73858878608596; consistent with Mashiki 624-1 on Route 58 near Mashiki bus stop. Apple Maps place I8337825E2B6CAD0E exists (no coordinate in snippet)",
   "status": "open",
   "statusSource": "Ryukyu Shimpo 4586688 (55th anniversary, 2025) + OCVB 600004147 hours dinner 17:00-23:00"
+ },
+ {
+  "n": "Maeda Soba, Enobi (前田そば)",
+  "address": "19 Enobi (Corpo Ikehara), Uruma, Okinawa, Japan",
+  "lat": 26.391339,
+  "lng": 127.832752,
+  "confidence": "low",
+  "geoSource": "Extended WebSearch '前田そば うるま市栄野比 住所 緯度 経度' -> aggregator listing coordinate (hitosara 0031483770 / tabelog 47026777 set) 26.391338720815746,127.83275245891308; consistent with Enobi 19 near Enobi crossroads",
+  "status": "open",
+  "statusSource": "hitosara listing hours 11:00-17:00 (sold-out close); OTV Okitive 95698"
+ },
+ {
+  "n": "Subaya Yūbaru Menkata, Uruma (すば家 ゆーばる麺方)",
+  "address": "433-5 Kyan, Uruma, Okinawa, Japan",
+  "lat": 26.358046,
+  "lng": 127.84959,
+  "confidence": "low",
+  "geoSource": "Extended WebSearch 'すば家 ゆーばる麺方 うるま市 住所 緯度 経度' -> aggregator listing coordinate (Yahoo map 4nOLfz5ibfI / hitosara 0031746349 set) 26.358046,127.84959; consistent with Kyan 433-5, 2 min walk from 'Uruma Shimin Geijutsu Gekijō-mae' bus stop",
+  "status": "open",
+  "statusSource": "Opened 2025-07-21 (Kamiya Chihiro on X, status 1940729415652331889); OTV Okitive 98809; Okinawa Times 1754981"
+ },
+ {
+  "n": "Ippe Coppe, Minatogawa Stateside Town (ippe coppe いっぺこっぺ)",
+  "address": "No.26, 2-16-1 Minatogawa, Urasoe, Okinawa, Japan",
+  "lat": 26.262579,
+  "lng": 127.715704,
+  "confidence": "low",
+  "geoSource": "Extended WebSearch 'ippe coppe いっぺこっぺ 浦添市港川2-16-1 緯度 経度' -> listing coordinate (urasoenavi/mapple/tabelog 47005113 result set) 26.262578840054875,127.71570419653277; consistent with Minatogawa 2-16 Stateside Town",
+  "status": "open",
+  "statusSource": "Tabirai 0004741 + Mapple spot 47011942 hours 12:30-18:30 (closed Tue/Wed/3rd Mon); Yelp page updated Aug 2025"
  }
 ]
