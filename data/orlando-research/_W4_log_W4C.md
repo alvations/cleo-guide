@@ -43,3 +43,12 @@ Playalinda Brewing Company | SPACE | CLICKORLANDO profile, VISITSPACECOAST | UNV
 HELD Q's Crackin' Crab & Seafood Kitchen (Cocoa Beach) — SPACECOASTLIVING Best New Restaurant 2026 only; need 2nd
 HELD Fishlips / Rusty's (Port Canaveral) — VISITSPACECOAST only + port blog; no award/critic rave found
 NOTE River Rocks = SCL Best Seafood 2025, Dixie Crossroads = SCL Best Seafood 2026 (both already in dataset — can add SCL as extra source)
+Lakeside Inn (Mount Dora) | SPRNG | WIKIPEDIA (28.79778,-81.645), VISITFLORIDA, FLORIDARAMBLER | PINNED |
+Donnelly House (Mount Dora) | SPRNG | WIKIPEDIA (28.80056,-81.645), FLORIDARAMBLER | PINNED | inside Mount Dora Historic District (existing) but own NRHP landmark
+Sanford Commercial District & RiverWalk | SPRNG | WIKIPEDIA (28.81167,-81.2675 — NRHP district's own coord, conf med), FLORIDARAMBLER | PINNED |
+The Smiling Bison | SPRNG | ORLANDOWEEKLY 20 essential Sanford, ORLANDOMAG Sanford guide | UNVERIFIED | open status: no dated 2025-26 confirmation surfaced — lead please status-check
+DROP Pom Pom's (Sanford, Henry's Depot) — founder publicly cut ties Dec 2025, recipes altered (Bungalower); legacy merit no longer applies
+NOTE Hollerbach's Willow Tree Café (existing) = Orlando Weekly Best Sanford Restaurant 2025 (https://community.orlandoweekly.com/best-of/2025/food-dining/best-sanford-restaurant-40216773) — extra source
+LEAD The District Eatery, Tap & Barrel (Sanford) — Orlando Weekly only
+HELD The Bavarian Haus (Mount Dora) — ORLANDOWEEKLY Mount Dora essentials only; 2nd search returned only aggregators
+HELD Neighbors Artisan Taqueria (DeLand) — ORLANDOWEEKLY small-town list only
