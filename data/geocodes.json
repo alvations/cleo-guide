@@ -39868,6 +39868,105 @@
     "status": "closed",
     "statusSource": "Seth Lui: both outlets shut permanently after 28 Sep 2025 (owner's Instagram announcement)",
     "statusChecked": "2026-10-03"
+   },
+   "The Line (Shangri-La Singapore)": {
+    "address": "Shangri-La Singapore, 22 Orange Grove Road, Singapore 258350",
+    "lat": 1.31139,
+    "lng": 103.82667,
+    "source": "restaurant within the hotel; building pin = Wikipedia 'Shangri-La Hotel, Singapore' published coords 1°18′41″N 103°49′36″E (1.31139,103.82667), WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Seth Lui / Miss Tam Chiak / Time Out listings; no closure report (2026-10-03)",
+    "statusChecked": "2026-10-03"
+   },
+   "Tan Chin Tuan Mansion": {
+    "address": "42 Cairnhill Road, Singapore",
+    "lat": 1.30525,
+    "lng": 103.83742,
+    "source": "coords 1.30525,103.83742 published for Tan Chin Tuan Mansion (Wikipedia article / penang-traveltips page) read via WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "URA conservation portal (conserved building, standing)",
+    "statusChecked": "2026-10-03"
+   },
+   "Cairnhill Conservation Area": {
+    "address": "Cairnhill Road, Newton, Singapore",
+    "lat": 1.30525,
+    "lng": 103.83742,
+    "source": "area marker at the Tan Chin Tuan Mansion (Cairnhill Road / Cairnhill Circle junction, inside the conservation area) — coords 1.30525,103.83742 read via WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "URA Cairnhill Conservation Area portal (current)",
+    "statusChecked": "2026-10-03"
+   },
+   "Guan Kee Grilled Seafood (Newton)": {
+    "address": "Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",
+    "lat": 1.3119888,
+    "lng": 103.8395742,
+    "source": "stall within Newton Food Centre; building pin reused from the sourced geocodes entry Newton Food Centre (Google place pin !3d1.3119888!4d103.8395742)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Miss Tam Chiak Newton guide + 2026 blog visit (Mar 2026); Newton FC renovation closure was Nov 2022–Jan 2023 only (Mothership)",
+    "statusChecked": "2026-10-03"
+   },
+   "L'Espresso (Goodwood Park Hotel)": {
+    "address": "Goodwood Park Hotel, 22 Scotts Road, Singapore 228221",
+    "lat": 1.30825,
+    "lng": 103.83389,
+    "source": "building pin reused from the sourced geocodes entry Goodwood Park Hotel (Tower Wing) — Wikipedia 1°18′29.7″N 103°50′02″E",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "SGFoodOnFoot Oct 2022 + Seth Lui; no closure report (2026-10-03)",
+    "statusChecked": "2026-10-03"
+   },
+   "Waterfall Ristorante Italiano (Shangri-La Singapore)": {
+    "address": "Shangri-La Singapore, 22 Orange Grove Road, Singapore 258350",
+    "lat": 1.31139,
+    "lng": 103.82667,
+    "source": "restaurant within the hotel; building pin = Wikipedia Shangri-La Hotel, Singapore coords 1°18′41″N 103°49′36″E (1.31139,103.82667), WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "SGFoodOnFoot visit Jul 2025 (new Puglia menu)",
+    "statusChecked": "2026-10-03"
+   },
+   "Hee Hee Hee Steamed Fish & Seafood (Punggol Coast)": {
+    "address": "Punggol Coast Hawker Centre, 84 Punggol Way #02-55, Singapore 829911",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Honeycombers + Women's Weekly 2025 Punggol Coast guides",
+    "statusChecked": "2026-10-03"
+   },
+   "SJ Sickander Ammal Muslim Food (Punggol Coast)": {
+    "address": "Punggol Coast Hawker Centre, 84 Punggol Way #02-55, Singapore 829911",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Honeycombers 2025 guide + Time Out / Little Day Out opening coverage (Jul 2025)",
+    "statusChecked": "2026-10-03"
+   },
+   "Warabimochi Kamakura (Waterway Point)": {
+    "address": "Waterway Point West Wing #01-72/73, 83 Punggol Central, Singapore 828761",
+    "lat": 1.40667,
+    "lng": 103.90194,
+    "source": "unit within Waterway Point; building pin reused from the sourced geocodes entry Waterway Point (Wikipedia 1°24′24″N 103°54′7″E)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Time Out / Mothership / HungryGoWhere opening coverage (Oct–Nov 2024); no closure report found 2026-10-03",
+    "statusChecked": "2026-10-03"
    }
   },
   "state-college-pa": {
@@ -61227,28 +61326,28 @@
     "note": "SOUTH"
    },
    "Honey 1 BBQ": {
-    "address": "",
+    "address": "746 E 43rd St, Chicago, IL 60653",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unchecked",
-    "statusSource": "",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/restaurants/honey-1-bbq (current listing) + NBC5 Food Guy Bronzeville barbecue; no closure reported (search 2026-10-03)",
     "statusChecked": "2026-10-03",
-    "note": "SOUTH | address + status pending"
+    "note": "SOUTH"
    },
    "Pearl's Place": {
-    "address": "",
+    "address": "3901 S Michigan Ave, Chicago, IL 60653",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unchecked",
-    "statusSource": "",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/restaurants/pearls-place + https://www.theinfatuation.com/chicago/reviews/pearls-place (current listings; breakfast buffet daily) — no closure reported",
     "statusChecked": "2026-10-03",
-    "note": "SOUTH | address + status pending"
+    "note": "SOUTH"
    },
    "Lexington Betty Smokehouse": {
     "address": "756 E 111th St, Chicago, IL 60628",
@@ -61431,16 +61530,16 @@
     "note": "WEST"
    },
    "Simone's": {
-    "address": "",
+    "address": "960 W 18th St, Chicago, IL 60608",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unchecked",
-    "statusSource": "",
+    "status": "open",
+    "statusSource": "https://www.toasttab.com/local/simones-960-w-18th-st/r-1362bbf3-c964-4c38-8bdf-6482e02be26a (live online-ordering page) + Chicago Mag",
     "statusChecked": "2026-10-03",
-    "note": "WEST | address + status pending"
+    "note": "WEST"
    },
    "Simon's Tavern": {
     "address": "N Clark St just north of Foster Ave, Andersonville, Chicago",
@@ -61695,16 +61794,16 @@
     "note": "FAR | status needs a 2025-26 check (Beverly Review Jan 2025 article not read)"
    },
    "Longman & Eagle": {
-    "address": "",
+    "address": "2657 N Kedzie Ave, Chicago, IL 60647",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unchecked",
-    "statusSource": "",
+    "status": "open",
+    "statusSource": "Time Out / Infatuation listings current; no closure reported (search 2026-10-03)",
     "statusChecked": "2026-10-03",
-    "note": "NW | address + status pending"
+    "note": "NW"
    },
    "Jibaritos y Más": {
     "address": "3400 W Fullerton Ave, Chicago, IL 60647",
@@ -61873,6 +61972,198 @@
     "statusSource": "https://www.nps.gov/pull/learn/historyculture/index.htm (NPS Pullman — standing landmark)",
     "statusChecked": "2026-10-03",
     "note": "FAR"
+   },
+   "Amici-Chicago": {
+    "address": "3933 N Broadway, Chicago, IL 60613",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://fox32chicago.com/news/food-critics-visit-sparks-massive-boost-buena-park-restaurant (Fox32 — operating after the visit; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "Home Run Inn (original, 31st Street)": {
+    "address": "4254 W 31st St, Chicago, IL 60623",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.fsrmagazine.com/industry-news/home-run-inn-to-celebrate-national-tavern-style-pizza-day-with-special-offers-and-donation (FSR 2024 — operating) + ABC7 reopening report",
+    "statusChecked": "2026-10-03",
+    "note": "WEST"
+   },
+   "Bob Chinn's Crab House": {
+    "address": "Milwaukee Ave 'Restaurant Row', Wheeling, IL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.visitchicagonorthshore.com/restaurant-row (CVB Restaurant Row listing, current) — restaurant continues after Bob Chinn's 2022 death (Restaurant Business)",
+    "statusChecked": "2026-10-03",
+    "note": "SUB | street number pending"
+   },
+   "Hackney's on Harms": {
+    "address": "1241 Harms Rd, Glenview, IL 60025",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://chibarproject.com/reviews/hackneys-1/ (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "SUB"
+   },
+   "Sweet Mandy B's": {
+    "address": "1208 W Webster Ave, Chicago, IL 60614",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/reviews/sweet-mandy-bs (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "Murphy's Bleachers": {
+    "address": "3655 N Sheffield Ave, Chicago, IL 60613",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unchecked",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH | status needs a 2025-26 check (owner Beth Murphy died; bar presumed operating)"
+   },
+   "Southport Lanes — CLOSED": {
+    "address": "Southport Ave at Henderson St, Lakeview, Chicago",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "closed",
+    "statusSource": "https://blockclubchicago.org/2021/07/07/southport-lanes-closed-for-good-after-nearly-100-years-will-auction-off-its-famed-sign/ (Block Club, July 2021 — closed for good)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "Paulie Gee's Logan Square": {
+    "address": "2451 N Milwaukee Ave, Chicago, IL 60647",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/restaurants/11-essential-chicago-pizzas-you-have-to-try (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NW"
+   },
+   "Piece Brewery & Pizzeria": {
+    "address": "",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unchecked",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "NW | address + status pending"
+   },
+   "Spinning J Bakery & Soda Fountain": {
+    "address": "",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unchecked",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "NW | address + status pending"
+   },
+   "Steppenwolf Theatre Company": {
+    "address": "1650 N Halsted St, Chicago, IL",
+    "lat": 41.907508,
+    "lng": -87.642503,
+    "source": "https://latitude.to/satellite-map/us/united-states/16600/steppenwolf-theatre-company (Wikipedia-article coordinate 41°54′27.03″N 87°38′33.01″W, WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.steppenwolf.org/about-us/our-history (official — current season)",
+    "statusChecked": "2026-10-03",
+    "note": "Wikipedia published coordinates"
+   },
+   "Old Town School of Folk Music": {
+    "address": "4545 N Lincoln Ave, Chicago, IL 60625",
+    "lat": 41.964167,
+    "lng": -87.686111,
+    "source": "Published coordinate 41°57′51″N 87°41′10″W (Wikipedia/landmark record surfaced in WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "https://www.wbez.org/architecture/2024/09/03/whats-that-building-old-town-school-of-folk-music (WBEZ Sept 2024 — operating)",
+    "statusChecked": "2026-10-03",
+    "note": "Wikipedia published coordinates"
+   },
+   "Couch Tomb": {
+    "address": "2045 N Lincoln Park West (in Lincoln Park), Chicago, IL",
+    "lat": 41.913183,
+    "lng": -87.6318,
+    "source": "Published coordinate 41° 54.791′N 87° 37.908′W (HMDB-style marker coordinate surfaced in WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "https://atlasobscura.com/places/couch-tomb (in public Lincoln Park — always visible)",
+    "statusChecked": "2026-10-03",
+    "note": "Wikipedia published coordinates"
+   },
+   "Arthur Heurtley House": {
+    "address": "Forest Ave, Oak Park, IL (per Wikipedia)",
+    "lat": 41.892722,
+    "lng": -87.799833,
+    "source": "https://en.wikipedia.org/wiki/Arthur_Heurtley_House (Wikipedia/GeoHack published coordinates)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "private residence — exterior viewable from Forest Ave (Wikipedia)",
+    "statusChecked": "2026-10-03",
+    "note": "Wikipedia published coordinates"
+   },
+   "St. Valentine's Day Massacre Site": {
+    "address": "2122 N Clark St, Chicago, IL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://chicagodetours.com/whats-left-site-st-valentines-day-massacre/ (public lawn at the former garage site)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "Paseo Boricua (Puerto Rican Flags)": {
+    "address": "Division St between Western Ave and California Ave, Chicago, IL 60622",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://choosechicago.com/listing/puerto-rican-flags (public street landmark)",
+    "statusChecked": "2026-10-03",
+    "note": "NW"
    }
   },
   "philadelphia-pa": {
@@ -98869,6 +99160,105 @@
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "GMCVB Design District arts page (current): Elastika on view, Torno Subito operating inside. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "New World Center & SoundScape Park": {
+    "address": "17th St (Lincoln Road area), Miami Beach, FL",
+    "lat": 25.792,
+    "lng": -80.133,
+    "source": "Wikipedia 'New World Center' https://en.wikipedia.org/wiki/New_World_Center printed 25°47′31″N 80°07′59″W (25.792, -80.133)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "GMCVB Miami Beach arts page (current): New World Symphony season and SoundScape Cinema Series Wednesdays Oct–May. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Villa Casa Casuarina (Versace Mansion)": {
+    "address": "Ocean Dr at 11th St, Miami Beach, FL",
+    "lat": 25.782,
+    "lng": -80.130611,
+    "source": "Wikipedia 'Casa Casuarina' https://en.wikipedia.org/wiki/Casa_Casuarina printed 25°46′55.2″N 80°7′50.2″W (25.782000, -80.130611)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "GMCVB self-guided Miami Beach tours page (current) — operating as The Villa Casa Casuarina hotel. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Long Pine Key Trails & Campground": {
+    "address": "Main Park Road, Everglades National Park, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "NPS operator page current (https://www.nps.gov/ever/planyourvisit/long-pine-key-trails.htm); no closure notice (contrast Chekika, which NPS lists as closed indefinitely). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Pinelands Trail": {
+    "address": "Main Park Road (2 mi west of Long Pine Key), Everglades National Park, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "NPS operator page current (https://www.nps.gov/places/pinelands-trail.htm); no closure notice (contrast Chekika, which NPS lists as closed indefinitely). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Paurotis Pond": {
+    "address": "Main Park Road, Everglades National Park, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "NPS operator page current (https://www.nps.gov/places/paurotis-pond.htm); no closure notice (contrast Chekika, which NPS lists as closed indefinitely). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Eco Pond": {
+    "address": "Flamingo, Everglades National Park, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "NPS operator page current (https://www.nps.gov/places/eco-pond.htm); no closure notice (contrast Chekika, which NPS lists as closed indefinitely). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Everglades Holiday Park": {
+    "address": "western Broward County (Fort Lauderdale), FL",
+    "lat": 26.0604,
+    "lng": -80.4447,
+    "source": "Wikipedia 'Everglades Holiday Park' https://en.wikipedia.org/wiki/Everglades_Holiday_Park printed 26°03′37″N 80°26′41″W (26.0604, -80.4447)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Visit Lauderdale current teen-adventures guide recommends the airboat tours and gator shows. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Dr. Von D. Mizell-Eula Johnson State Park": {
+    "address": "Dania Beach, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Fodor's current sight review; Whiskey Creek Hideout rentals operating (Visit Lauderdale kayak guide). Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Anne Kolb Nature Center (West Lake Park)": {
+    "address": "West Lake Park, Hollywood, FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Visit Lauderdale current listing and kayak guide (boat tours, rentals). Checked 2026-10-03.",
     "statusChecked": "2026-10-03"
    }
   }

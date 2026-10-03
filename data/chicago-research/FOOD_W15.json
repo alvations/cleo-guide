@@ -247,7 +247,7 @@
   "t": 1,
   "a": "SOUTH",
   "n": "Honey 1 BBQ",
-  "address": "",
+  "address": "746 E 43rd St, Chicago, IL 60653",
   "cz": [
    "Barbecue"
   ],
@@ -262,6 +262,10 @@
    [
     "CHOOSECHI",
     "https://www.choosechicago.com/blog/dining/restaurants-on-chicagos-south-side/"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/chicago/restaurants/honey-1-bbq"
    ]
   ]
  },
@@ -269,7 +273,7 @@
   "t": 1,
   "a": "SOUTH",
   "n": "Pearl's Place",
-  "address": "",
+  "address": "3901 S Michigan Ave, Chicago, IL 60653",
   "cz": [
    "Soul Food"
   ],
@@ -284,6 +288,14 @@
    [
     "CHOOSECHI",
     "https://www.choosechicago.com/blog/dining/restaurants-on-chicagos-south-side/"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/chicago/restaurants/pearls-place"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/chicago/reviews/pearls-place"
    ]
   ]
  },
@@ -482,6 +494,80 @@
    [
     "ABC7",
     "https://abc7chicago.com/archive/8995310/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "WEST",
+  "n": "Home Run Inn (original, 31st Street)",
+  "address": "4254 W 31st St, Chicago, IL 60623",
+  "cz": [
+   "Pizza"
+  ],
+  "dish": "Thin, buttery-crust tavern-style pizza, party cut",
+  "w": "The 1923 Little Village tavern (named for baseballs through its window) where Home Run Inn pizza began in 1947 — the brand that founded National Tavern-Style Pizza Day.",
+  "closed": false,
+  "sources": [
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Home_Run_Inn"
+   ],
+   [
+    "ABC7",
+    "https://abc7chicago.com/post/original-home-run-inn-restaurant-reopens-after-70-years-in-little-village/5644858/"
+   ],
+   [
+    "PIZZATODAY",
+    "https://pizzatoday.com/news/its-official-mayor-of-chicago-celebrates-home-run-inn-as-founder-of-national-tavern-style-pizza-day-to-be-celebrated-for-the-first-time-on-tuesday-october-22-2024/148074/"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SUB",
+  "n": "Bob Chinn's Crab House",
+  "address": "Milwaukee Ave 'Restaurant Row', Wheeling, IL",
+  "cz": [
+   "Seafood"
+  ],
+  "dish": "Alaskan king crab legs, garlic rolls and mai tais",
+  "w": "Wheeling's 700-seat seafood hall (1982) — ranked by Forbes in 2012 as America's top-grossing restaurant; 3,000 lb of seafood flown in daily.",
+  "closed": false,
+  "sources": [
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Bob_Chinn_(restaurateur)"
+   ],
+   [
+    "RESTAURANTBUSINESS",
+    "https://restaurantbusinessonline.com/leadership/bob-chinn-proprietor-high-volume-crab-house-same-name-dead-age-99"
+   ],
+   [
+    "VISITNORTHSHORE",
+    "https://www.visitchicagonorthshore.com/restaurant-row"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SUB",
+  "n": "Hackney's on Harms",
+  "address": "1241 Harms Rd, Glenview, IL 60025",
+  "cz": [
+   "Burgers"
+  ],
+  "dish": "Half-pound Hackneyburger on dark rye with a 'brick' of fried onions",
+  "w": "The 1939 original of the North Shore burger tavern — burgers on house dark rye from a 1920s back-porch recipe.",
+  "closed": false,
+  "sources": [
+   [
+    "CHIBARPROJECT",
+    "https://chibarproject.com/reviews/hackneys-1/"
+   ],
+   [
+    "PATCH",
+    "https://patch.com/illinois/wilmette/best-burger-wilmette-area-hackneys-harms-readers-pick"
    ]
   ]
  }

@@ -11,7 +11,7 @@ Goodwood Park, Orange Grove, Monk's Hill, Istana Negara) — Newton Food Centre,
 Velocity / United Sq / Goldhill, Chancery Lane, Cairnhill/Scotts edge. Balestier Road = BLS agent (excluded).
 
 ## In-flight wave
-- **W3 (2026-10-03, PGL+NVN session)** — files FOOD_NOVENA3.json, SIGHTS_NOVENA3.json, SOURCES_NOVENA3.json, CREATORS_NOVENA3.json, geo/_geoout_novena_w4.json. Queries: 2nd-source the HELD list, Newton/Cairnhill/Thomson food canon, creator pass, sights (Kampong Java Park, Newton Circus, Chancery Lane), Scotts Rd + Goldhill geocodes.
+- (none — W3 closed 2026-10-03; was: W3 PGL+NVN session — files FOOD_NOVENA3.json, SIGHTS_NOVENA3.json, SOURCES_NOVENA3.json, CREATORS_NOVENA3.json, geo/_geoout_novena_w4.json. Queries: 2nd-source the HELD list, Newton/Cairnhill/Thomson food canon, creator pass, sights (Kampong Java Park, Newton Circus, Chancery Lane), Scotts Rd + Goldhill geocodes.)
 
 ## State (2026-10-02)
 - **W1 DONE (partial — halted by the session WebSearch cap: 200/200 used across the shared run after ~14 NOVENA queries).**
@@ -77,3 +77,9 @@ Velocity / United Sq / Goldhill, Chancery Lane, Cairnhill/Scotts edge. Balestier
 - **Held:** Mun Zuk (Eatbook only), Thailily / Rochor Thai (Burpple/Seth Lui only), Whitley Rd prawn mee Thomson (Michelin listing is the Old Airport Rd stall), Cafe Gui (Eatbook review lukewarm — mention ≠ merit), Carousel (AsiaOne People's Choice Hall of Fame, but only hotel/OpenTable pages surfaced the award), Daily Affairs, Chui Huay Lim Club as a sight (PA heritage page only), Cairnhill conservation (URA + Roots — next wave).
 - **Dropped:** Rolina curry puff (Bib 2018 when at Novena Church; long since moved to Tanjong Pagar).
 - **Creator pass:** Mark Wiens / Food Ranger / Best Ever Food Review at Newton → no findable video; ieatishootipost (Dr Leslie Tay) Bee Heng post attached.
+
+### W3 close (2026-10-03)
+- **Final:** NVN 42 food + 11 sights = **53 / 55 (NEED +2)**; food share 79%; **35 pinned** on newton-novena.html (was 23).
+- **Added late:** Cairnhill Conservation Area (URA + Roots) + Tan Chin Tuan Mansion (Wikipedia + URA + Roots; pin), The Line + Waterfall Ristorante (Shangri-La; pinned), L'Espresso (Goodwood; pinned), Guan Kee Grilled Seafood (Newton; pinned).
+- **Checked:** Newton FC "3-month closure" = Nov 2022–Jan 2023 (reopened 1 Feb 2023; Mothership) — not current. Kampong Java Park = Kallang planning area + closed for N–S Corridor works → out of scope. LKY birthplace (92 Kampong Java Rd) = marker only → not added.
+- **Next (+2 → go-live):** Goodwood Park Deli (Durian Fiesta since 1983: BK, The Peak, City Nomads, Makansutra — distinct outlet from the Coffee Lounge; decide de-dup), Carousel (find independent coverage of the AsiaOne People's Choice Hall of Fame), Mun Zuk 2nd source; then helper-pin AMI / Chef Chan's / Chui Huay Lim / Smiths / Banelé and add `newton-novena` to LIVE_SLUGS.

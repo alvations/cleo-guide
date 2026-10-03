@@ -189,3 +189,12 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
   2013); Medici on 57th (only student-press sources — held); Qing Xiang Yuan, HaiSous, La Catedral, Pompei, Portillo's River North, Exchequer,
   Cork & Kerry, La Cecina, Rosangela's, Marz, Whiner — 1 credible source each, held; St. Adalbert (parish closed 2019; status details unverified — held).
 - Build: 359 researched / 218 rendered; 4 gates PASS; validate + test PASS.
+
+## 2026-10-03 (session 4 / wave 3) · batch 4 (≈140 searches cumulative)
+- Sights +6 (4 pinned): Steppenwolf (Wikipedia coord via latitude.to), Old Town School of Folk Music (med), Couch Tomb (Atlas Obscura; marker coord, med),
+  Arthur Heurtley House (Wikipedia), St. Valentine's Day Massacre site + Paseo Boricua flags (unpinned).
+- Food & drink +12: Amici-Chicago (Keith Lee visit, Fox32 — creator channel), Home Run Inn original (31st St), Bob Chinn's Crab House, Hackney's on Harms,
+  Sweet Mandy B's, Murphy's Bleachers (status unchecked), Southport Lanes — CLOSED (2020, Block Club; notable → kept flagged), Paulie Gee's Logan Square,
+  Piece Brewery, Spinning J. Addresses filled for Honey 1 (746 E 43rd), Pearl's Place (3901 S Michigan), Longman & Eagle (2657 N Kedzie), Simone's (960 W 18th).
+- CREATORS_W2.json: Keith Lee → Amici-Chicago; rejected a one-off viral TikTok (Taco-Bout-Joy's) and two unvetted coffee blogs.
+- Held single-source: Resi's Bierstube, Laschet's Inn (Chicago Bar Project only), The Map Room, Ann Sather (relocating to 3042 N Broadway, fall 2026 — CBS).

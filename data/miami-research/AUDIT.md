@@ -201,3 +201,25 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   El Titan de Bronze, Dot Fiftyone (GMCVB only).
 - **Gates:** all green, 0 unchecked; validate DATA OK; test ALL PASS. Density: CGCG 52 · DTB 42 · FTL 60 · GLADE 34 · LHAV 48 ·
   MBCH 49 · NMIA 31 · SDADE 43 · WYN 55.
+
+## 2026-10-03 (session 4) · batch 5 — Miami Beach lists, Everglades/Homestead dining, NPS east-side sights
+- **Added (21):** MBCH food 5 — Queen, MILA (Inf 25 ∩ TO 24 South Beach), Las Olas Cafe, True Loaf, Aviv (JBF-winner Solomonov);
+  MBCH sights 2 — New World Center & SoundScape Park, Villa Casa Casuarina (both high Wikipedia pins). GLADE food 1 — The Pit
+  Bar-B-Q (Fodor's + GMCVB); SDADE food 3 — Everglades Gator Grill, Royal Palm Grill, Chefs on the Run (mofongo — the named dish
+  that resolves session 3's hold). GLADE sights 4 (lone NPS) — Long Pine Key, Pinelands Trail, Paurotis Pond, Eco Pond.
+- **MEASURED & DROPPED:** Stiltsville Fish Bar (closed Dec, NT — non-notable); Sushi | Bar ("novelty wears off", Inf); Lido Bayside
+  Grill ("the view, not the food", Inf); Havana 1957 (tourist chain — padding); Oyster House, Everglades City (Fodor's: no longer
+  operating); Chekika (NPS: closed indefinitely).
+- **Held:** The Joyce, Vecinos (Inf only); Queen Omakase, Planta, RED, Prime Italian, Joliet (TO only); Farmers' Market Restaurant,
+  Suvi Thai (Fodor's only); La Brisa (GMCVB only); Fontainebleau, Art Deco Welcome Center, Faena Theater (GMCVB only).
+- **Geocode candidates NOT pinned:** a search extract printed Eco Pond 25.138709,-80.937543 and Paurotis Pond 25.282657,-80.799723,
+  but the printing page could be npplan.com rather than nps.gov → left UNVERIFIED; re-verify on an NPS/Wikipedia page.
+- **Gates:** all green, 0 unchecked; validate DATA OK; test ALL PASS.
+
+## 2026-10-03 (session 4) · batch 6 — FTL lists + Broward nature + downtown lists
+- **Added (17):** FTL food 4 — Epazote (Inf 25 ∩ NT best Mexican FTL), Boatyard, Shooters (NT 16 waterfront ∩ Visit Lauderdale
+  dock-and-dine), Temple Street Eatery (NT downtown FTL ∩ VL international); FTL sights 3 — Mizell-Eula Johnson State Park (Fodor's +
+  Wikipedia), Anne Kolb Nature Center, Everglades Holiday Park (high pin). DTB food 5 — NAOE (t1; Inf "still its best" + Time Out
+  2026 ranking — resolves the batch-3 hold), NIU Kitchen, Drinking Pig BBQ, Eleventh Street Pizza, Miami Slice (TO 19 downtown ∩ Inf).
+- **Held:** Red Sea Eritrean, Nove Pasta House (Inf + VL listing only), D's Sports Bar, Yot Bar, Mykonos (one editorial outlet),
+  Motek (Inf review found is the NYC branch), Sunkissed (Inf only), Julia & Henry's / PEZ / Giselle / Pollos y Jarras / Meraki (TO only).
