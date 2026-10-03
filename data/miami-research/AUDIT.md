@@ -239,3 +239,11 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   article — coordinate discarded); Miami-Dade County Courthouse (current public-access status unverified); Miami Beach Post Office,
   Faena Hotel (Wikipedia only); Florida Pioneer Museum, Town Hall Museum (GMCVB only).
 - **Gates:** all green, 0 unchecked; validate DATA OK; test ALL PASS.
+
+## 2026-10-03 (session 4) · batch 9 — WYN sights, Hollywood/Wilton Manors food, Coconut Grove & Coral Gables
+- **Added (18):** WYN sights 3 — Margaret Pace Park (high pin), El Espacio 23, MiMo Biscayne Blvd Historic District (t1). FTL food 4 —
+  Krakatoa, Jack's Hollywood Diner, Mimi's Ravioli, Dolce Salato (Inf Hollywood 15 / Wilton Manors 10 ∩ New Times Broward-Palm Beach).
+  CGCG food 4 — Shore To Door, Midorie (NT Best CG 2023), Loretta & The Butcher, Original Daily Bread (Inf Grove 19 ∩ NT);
+  CGCG sights 3 — Merrick House (t1), Coral Gables Congregational Church, Plymouth Congregational Church (all high pins).
+- **Held:** Morningside/Bay Shore HD (Wikipedia + unattributed GMCVB text), JP's Bagel, Pupusatime, Le Patio, Stork's, Ophelia,
+  Emissary, Da Angelino (one outlet each).
