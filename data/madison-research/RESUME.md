@@ -55,7 +55,31 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
   UW 18/30 · MVF 11/25. W5 items done from the list below: UW Bascom/Ingersoll/Lakeshore; TRIP Wright trail + Al. Ringling
   + Tower Hill; MVF Stone Porch + Imperial Garden; Lake Wingra.
 
-## Next (ordered) — W6 (W5 list below still applies where not done)
+- **2026-10-03 W6 (fresh session, 200/200 searches)** — pin pass first: **+51 pins** (Waze place records /
+  usarestaurants listings / Apple `coordinate=`), then +29 places → **182 researched (117 food = 64% / 65 sights),
+  140 pinned**. Files: FOOD_W6a–c.json, SIGHTS_W6a–c.json, SOURCES_W6.json (FOX11), geo/_geoout_w6.json (pins + address
+  upgrades), _geoout_w6b/c/d.json. Pinned/discovered per area: CAP 26/34 · UW 20/23 · EAST 25/33 · WEST 19/24 ·
+  TRIP 22/27 · DANE 13/22 · MVF 15/19. All 4 gates green; validate + test ALL PASS.
+
+## Next (ordered) — W7
+1. **Pins (42 UNVERIFIED, list = `python3 tools/geocode-status.py` / AUDIT W6):** one place per query,
+   `"<Name> <street address> latitude longitude"` + `allowed_domains: [waze.com, usarestaurants.info, foursquare.com]`
+   (~70% hit in W6); for misses try an Apple street-level query ("<Name> <street> Madison WI", `maps.apple.com`) —
+   it returns `coordinate=` URLs for several neighbours at once. Sights without an article (Trollway, Pheasant Branch,
+   Edgewood mounds, Ice Age Complex, Indian Lake, Livsreise) → Waze place query with the park/entrance name.
+2. **UW (+7):** Jordan's Big 10 Pub (1330 Regent St; usarestaurants pin 43.0678667,-89.4082639 found — needs a
+   verified 2nd outlet + 2026 status) and Lucky's 1313 Brew Pub (Madison Magazine Regent St game-day piece — confirm a
+   2nd outlet); Mediterranean Cafe (Isthmus + Badger Herald; needs 2026 status); Union South, Carillon Tower, Muir
+   Knoll (need a 2nd source / pin path); Rocky Rococo (founded on Gilman St 1974 — check a surviving State St store).
+3. **MVF (+6):** My Sister's Kitchen is Mazomanie (DANE); Tapas Rias, Fuji (Isthmus only); Toro y Pampa (Cap Times +
+   IB Madison — re-measure in 2027); Badger Prairie Park, Epic campus, Lake Mendota County Park.
+4. **WEST (+6):** Brasserie V (needs 2026 status), Everly (needs editorial), Swad (resolve address), Pikkito
+   (Junction Rd), Restaurant Muramoto (Hilldale; Isthmus), Cafe Hollander (Isthmus), Chaat Cafe (Isthmus).
+5. **CAP (+4) / DANE (+3) / TRIP (+3):** Coopers Tavern (Best of Madison 2025 restaurant + 2nd), Paisan's (closed
+   2022 — check reopening); Skål Public House, Schumacher Farm Park, Mazomanie's My Sister's Kitchen; Popolo
+   (Mineral Point), Driftless Depot & Spring Green General Store (status), Tumbled Rock Brewery (Baraboo).
+
+## Next (ordered) — W6 (superseded by W7; W5 list below still applies where not done)
 1. **Pins:** ~69 UNVERIFIED (all of geo/_geoout_w2_unverified.json + geo/_geoout_w4a.json) → `tools/geocode-helper.html`.
    WebSearch does NOT surface restaurant coordinates any more (0/10 in W4). For anything with a Wikipedia/Wikidata
    article use `allowed_domains: [en.wikipedia.org, wikidata.org]` + "<name> coordinates" (5/6 hit in W4).
@@ -95,4 +119,4 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
    `flock … python3 tools/rebuild-city.py madison-wi --build` → 4 gates → relink CARD:madison-wi, CITIES.md row.
 
 ## In-flight wave
-- (none — W4 closed 2026-10-03; resume from 'Next (ordered) — W5')
+- (none — W6 closed 2026-10-03; resume from 'Next (ordered) — W7')

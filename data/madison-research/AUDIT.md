@@ -308,3 +308,6 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
 - **Held:** Mediterranean Cafe (Isthmus + Badger Herald, but no 2026 status evidence), Popolo (Mineral Point; Isthmus
   only), My Sister's Kitchen (it is in Mazomanie, Isthmus only), Tapas Rias / Fuji (Isthmus only), Tumbled Rock Brewery,
   Little Village Cafe, Jen's Alpine Cafe (Baraboo; climbing-guide blog only), Wisconsin Field House (NRHP only).
+- **Session end:** WebSearch budget hit (200/200) during the Lucky's 1313 pin query. Jordan's Big 10 Pub (usarestaurants
+  coordinate found) and Lucky's 1313 held — their second outlets weren't confirmed by name in a fetched result, so not
+  added (attribution must be exact). Next-wave plan in RESUME.md "Next (ordered) — W7".
