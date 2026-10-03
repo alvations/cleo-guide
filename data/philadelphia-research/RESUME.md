@@ -24,7 +24,12 @@ flock -w 3600 $LOCK python3 tools/rebuild-city.py philadelphia-pa --build   # + 
 ```
 
 ## In-flight wave
-(none — W3 complete and committed 2026-10-02, session_013h32337aVQ9QKB7DKgSPdW; ended at the 200-search session cap)
+W4 (2026-10-03, session_01ECt8nbbQXGgxskj1179NHd) — files: FOOD_W4.json, SIGHTS_W4.json, geo/_geoout_w4_*.json.
+- Main thread: density discovery, food & drink first (FISH bars/breweries+sights, NPH Puerto Rican Fairhill, NW, UCW Baltimore Ave,
+  NE Little Brazil, MAIN Ardmore/Narberth, SJ Collingswood BYOBs, DAY, Chinatown, SPH sights).
+- Background (≤30 searches each): pin pass A (_phi_pinlist_A.txt → geo/_geoout_w4_pinA.json), pin pass B (_phi_pinlist_B.txt →
+  geo/_geoout_w4_pinB.json), status pass (_phi_statuslist.txt → geo/_geoout_w4_status.json). If relaunched: re-run density, rebuild
+  the worklists for names not yet in those geoout files, and continue.
 
 ## State (2026-10-02, after W3)
 - Discovered + sourced: **422** (170 sights, 252 food) — sourcecheck PASS 422/422. Page: **170 on map** (149 sights + 21 food).
