@@ -155,7 +155,7 @@ F(1,"MID","Bocca","122 E 22nd St, Indianapolis, IN",["Italian"],"Polpo (octopus)
  "'Next-generation Italian' in Fall Creek Place (the old Shoefly Public House corner) — modern small plates and handmade pasta; voted among Indy's top restaurants.",
  [["INDYMONTHLY",IM+"food-and-drinks/dining/bocca-brings-next-generation-italian/"],["VISITINDY",VI+"bocca/"],["WISH","https://www.wishtv.com/lifestylelive/indy-restaurant-bocca-offers-modern-italian-cuisine/"]],
  "Visit Indy current listing with hours (open)",k="Fall Creek Place")
-F(2,"MID","Foundry Provisions","16th & Alabama Sts (Herron-Morton Place), Indianapolis, IN",["Cafe","Coffee"],"Tinker Coffee affogato; paninis on Amelia's bread with Smoking Goose meats",
+F(2,"MID","Foundry Provisions","236 E 16th St (at Alabama St), Indianapolis, IN",["Cafe","Coffee"],"Tinker Coffee affogato; paninis on Amelia's bread with Smoking Goose meats",
  "Breakfast-and-lunch café and coffee bar in the old Herron School metalworking studio ('the Foundry') — Goose the Market alum Kimmie Burton; jazz nights.",
  [["INDYMONTHLY",IM+"food-and-drinks/dining/new-in-town-foundry-provisions/"],["IBJ","https://www.ibj.com/articles/43276-dining-foundry-pushes-geographical-boundaries-on-16th-street"],["WISH","https://www.wishtv.com/news/foundry-provisions-coffee-shop/"],["VISITINDY","https://www.visitindy.com/restaurants/beverages/coffeehouses/"]],
  "WISH-TV jazz-nights segment; Visit Indy coffeehouse list (open)",k="Herron-Morton Place")
@@ -229,3 +229,72 @@ F(2,"WEST","Dawson's on Main","1464 Main St, Speedway, IN",["American","Tenderlo
  "Speedway Main Street grill (Hill family, 2006) a few blocks from the Speedway — its Hoosier breaded tenderloin is the runaway best seller; a race-week institution.",
  [["WTHR","https://www.wthr.com/article/news/local/whats-cooking-dawsons-on-main/531-3bddb929-4a4d-441f-b6b6-97ce729a3981"],["FOX59","https://fox59.com/video/wheres-sherman-dawsons-on-main/8675118/"],["WISH","https://www.wishtv.com/sports/indy-500/10-off-track-escapes-for-local-flavor-on-speedways-main-street/"]],
  "WISH Indy 500 Main Street guide (open)",k="Speedway")
+
+# ===================== batch 2 (W3): BRIP / MID / FSQ / MASS / NORTH / WEST =====================
+F(1,"BRIP","Petite Chou Bistro & Champagne Bar","823 Westfield Blvd, Indianapolis, IN",["French","Bistro"],"Crêpes, broken-yolk sandwich, the grilled cheese Axios calls perfect; Champagne by the glass",
+ "Martha Hoover's (6× James Beard semifinalist restaurateur) French neighbourhood bistro and Champagne bar in Broad Ripple — Zagat/Travel + Leisure top-10 US spots for iconic French food.",
+ [["INDYMONTHLY",IM+"food-and-drinks/dining/petite-chou/"],["VISITINDY",VI+"petite-chou-bistro-champagne-bar/"],["FOX59","https://fox59.com/news/foodie-spotlight-petite-chou-bistro-and-champagne-bar/"],["AXIOS","https://www.axios.com/local/indianapolis/2024/11/18/grilled-cheese-petite-chou"]],
+ "Axios Nov 2024; Visit Indy current listing (open)",k="Broad Ripple")
+F(1,"BRIP","Mama Carolla's Old Italian Restaurant","1031 E 54th St, Indianapolis, IN",["Italian"],"Homemade meatballs, steamed mussels, lasagna",
+ "Italian institution in a 1920s stucco house with a romantic terrace on 54th Street — Indianapolis Monthly 25 Essential Eats and FOX59's 'one of Indy's best'.",
+ [["INDYMONTHLY",IM+"food-and-drinks/swoon-list-mama-carollas-hilltop-tavern-and-more/"],["VISITINDY",VI+"mama-carollas-old-italian-restaurant/"],["FOX59","https://fox59.com/news/foodie-spotlight-great-menu-exquisite-atmosphere-make-mama-carollas-one-of-indys-best/"],["WISH","https://www.wishtv.com/news/celebrate-national-lasagna-day-at-these-8-local-pasta-pushers/"]],
+ "Visit Indy current listing (open)",k="SoBro")
+F(2,"BRIP","Twenty Tap","5406 N College Ave, Indianapolis, IN",["Brewpub","American"],"40+ regional craft taps incl. house Twenty Below beers; soy-glazed pork belly, poutine",
+ "SoBro craft-beer pub with a 40-plus regional tap rotation and its owner's own Twenty Below brewery beers; reopened after a 2023 fire.",
+ [["INDYMONTHLY",IM+"restaurant-guide/brewpub-1/twenty-tap/"],["VISITINDY",VI+"twenty-tap-twenty-below-brewing/"],["WISH","https://www.wishtv.com/news/twenty-tap-to-reopen-six-months-after-fire/"]],
+ "WISH-TV reopening after fire; Visit Indy listing (open)",k="SoBro")
+F(2,"BRIP","Napolese Pizzeria","114 E 49th St, Indianapolis, IN",["Pizza","Italian"],"Blistered Neapolitan-style pies from a brick oven",
+ "Martha Hoover's 2011 Neapolitan pizzeria at 49th & Pennsylvania, around the corner from the original Café Patachou — Indianapolis Monthly 25 Best Restaurants (No. 22). The Fashion Mall branch closed June 2026; this flagship stays open.",
+ [["INDYMONTHLY",IM+"food-and-drinks/reviews/napolese-pizzeria/"],["IBJ","https://www.ibj.com/articles/napolese-pizzeria-closes-downtown-location"],["FOX59","https://fox59.com/news/napolese-pizzeria-set-to-close-in-fashion-mall/"]],
+ "FOX59 June 2026: Fashion Mall branch closing, 49th St flagship remains open",k="Meridian-Kessler")
+F(2,"BRIP","Marrakesh Moroccan Cuisine and Bar","4923 N College Ave, Indianapolis, IN",["Moroccan","French"],"Shrimp pil pil with chermoula; lamb shank tagine with apricots and almonds",
+ "French-Moroccan dining room and cocktail lounge in the old Sinking Ship dive bar (fall 2025) — Casablanca-born, French-trained chef Aziz Mountassar; its lamb tagine is already among the city's best lamb dishes (Indianapolis Monthly).",
+ [["INDYMONTHLY",IM+"food-and-drinks/marrakeshs-fills-space-on-college-avenue-with-french-moroccan-cuisine/"],["AXIOS","https://www.axios.com/local/indianapolis/2025/03/26/marrakesh-moroccan-restaurant-coming-soon-to-former-sinking-ship-location"],["VISITINDY",VI+"marrakesh-moroccan-cuisine-and-bar/"]],
+ "Indianapolis Monthly review (opened fall 2025; open)",k="Meridian-Kessler")
+F(2,"MID","Illinois Street Food Emporium","5550 N Illinois St, Indianapolis, IN",["Deli","Bakery"],"Deli sandwiches and bakery case, Butler-Tarkington since 1979",
+ "Butler-Tarkington bakery-deli-café and community hangout since 1979 — taken over in August 2025 by a lifelong regular determined to keep it as it was.",
+ [["INDYMONTHLY",IM+"food-and-drinks/the-feed-6/illinois-street-food-emporium-sold-ocean-world-social-cantina/"],["WRTV","https://www.wrtv.com/news/local-news/in-your-community/north-side-indy/from-customer-to-owner-illinois-street-food-emporium-continues-legacy-under-lifelong-regular"],["WISH","https://www.wishtv.com/lifestyle/indy-food-emporium-tradition/"],["FOX59","https://fox59.com/morning-news/where-is-sherman/where-is-sherman-illinois-street-food-emporium/"]],
+ "WRTV/WISH: new owner Aug 2025 (open)",k="Butler-Tarkington")
+F(3,"MID","The Flying Cupcake (Illinois Street original)","5617 N Illinois St, Indianapolis, IN",["Bakery","Dessert"],"Cupcakes, with the most vegan and gluten-free options of the chain",
+ "Indiana's original cupcake bakery (Kate Drury, 2007) — the Illinois Street first shop carries the most vegan and gluten-free choices; an Indianapolis Monthly Great Bakes pick.",
+ [["INDYMONTHLY",IM+"great-bakes-2024/great-bakes-cakes/"],["VISITINDY",VI+"the-flying-cupcake-bakery-north/"],["IBJ","https://www.ibj.com/north-of-96th-lindsey-erdody/63284-roundup-flying-cupcake-landing-new-concept-in-zionsville-e-bike-shop-hits-whitestown"]],
+ "Visit Indy current listing (open)",k="Butler-Tarkington")
+F(3,"MID","Command Coffee","2910 N College Ave, Indianapolis, IN",["Coffee"],"Lattes and specialty drinks from a walk-up/drive-thru at Fall Creek and College",
+ "Locally owned Mapleton-Fall Creek coffee shop (Danny Heller, 2020) on the corner of College Ave and Fall Creek Parkway — grew a second shop on Monument Circle.",
+ [["VISITINDY",VI+"command-coffee/"],["WISH","https://www.wishtv.com/lifestylelive/command-coffee-indianapolis-specialty-drinks/"],["AXIOS","https://www.axios.com/local/indianapolis/2024/02/27/command-coffee-monument-circle"]],
+ "Visit Indy current listing (open)",k="Mapleton-Fall Creek")
+S(3,"MID","Herron–Morton Place Historic District","16th–22nd Sts between Pennsylvania St and Central Ave, Indianapolis, IN",
+ "NRHP district of stately late-19th/early-20th-century houses on the grounds of Civil War Camp Morton and the old Herron art school — Indianapolis Monthly 'Hot Neighborhoods'.",
+ [["WIKIPEDIA",W+"Herron%E2%80%93Morton_Place_Historic_District"],["INDYMONTHLY",IM+"arts-and-culture/circle-city/hot-neighborhoods-herron-morton-place/"]],"Residential historic district (walk the streets)",k="Herron-Morton Place")
+F(2,"FSQ","Kuma's Corner","1127 Prospect St, Indianapolis, IN",["American","Burgers"],"Metal-band-named burgers and craft beer",
+ "Chicago's heavy-metal burger bar on the corner of Morris and Prospect — its first location outside Chicago; reopened after a fire.",
+ [["INDYMONTHLY",IM+"restaurant-guide/burgers-1/kumas-corner/"],["IBJ","https://www.ibj.com/articles/54732-dining-at-the-intersection-of-meat-and-music-sits-kumas-corner"],["WISH","https://www.wishtv.com/news/local-news/kumas-corner-burger-restaurant-to-reopen-friday-after-october-fire/"],["WRTV","https://www.wrtv.com/open/kumas-corner-in-indy-is-keeping-it-rolling-following-temporary-closure-due-to-fire"]],
+ "Indianapolis Monthly Street Savvy: Prospect Street (open)")
+F(2,"FSQ","Easy Rider Diner","1043 Virginia Ave, Indianapolis, IN",["American","Diner"],"Southwest-leaning brunch plates and vegan brunch options",
+ "Scruffy rock-star diner from Hi-Fi/MOKB's Josh Baker in the historic G.C. Murphy Building, next to the Hi-Fi music venue — morning-to-night brunch with Southwestern flavours.",
+ [["INDYMONTHLY",IM+"food-and-drinks/reviews/easy-rider-is-fountain-squares-latest-scruffy-rock-star-diner/"],["AXIOS","https://www.axios.com/local/indianapolis/2023/09/18/meatless-monday-easy-rider-fountain-square"],["WTHR","https://www.wthr.com/article/news/local/good-news/tell-us-your-good-news-easy-rider-diner-fountain-square-indianapolis/531-a1213cc6-df64-4f70-9c0b-3afa1cd1c03f"],["IBJ","https://www.ibj.com/articles/owners-of-hi-fi-music-venue-will-open-fountain-square-diner"]],
+ "Indianapolis Monthly 'Easy Rider Diner's Fan Fare' (open)")
+F(2,"MASS","Harrison's Restaurant Bar","Delaware St (former Regions Bank by Riley Towers), Indianapolis, IN",["Italian","Steakhouse"],"Double-bone pork chop with apple-bourbon reduction; Chicken à la Marco",
+ "Old-school Italian-American-meets-steakhouse (2025) from FortyFive Degrees/Metro owner Bill Pritt in a former bank, its drive-thru reborn as a terrace.",
+ [["INDYMONTHLY",IM+"news-and-opinion/opinion-and-columns/restaurant-review-harrisons-on-delaware-st/"],["FOX59","https://fox59.com/indy-now/indy-monthly/featured-foodie-friday-with-indy-monthly-ft-harrisons/"],["IBJ","https://www.ibj.com/articles/restaurant-to-take-over-former-bank-branch-near-riley-towers"]],
+ "Indianapolis Monthly review / Axios July 2025 (open)",k="Riley Towers")
+F(2,"NORTH","The CourtHouse Club","110 N 9th St, Noblesville, IN",["American","Cocktail Bar"],"Black & Blue flatbread, gumbo, fried goat cheese salad; cocktails facing the 1879 courthouse",
+ "Upscale, speakeasy-tinged room on Noblesville's courthouse square — sushi, sliders, flatbreads and an 8-oz filet.",
+ [["INDYMONTHLY",IM+"food-and-drinks/dining/new-in-town-courthouse-club/"],["HAMILTONCOUNTY","https://www.visithamiltoncounty.com/blog/stories/post/hot-new-restaurants-in-hamilton-county/"]],
+ "Visit Hamilton County 'Hot & New' (open)",k="Noblesville")
+F(2,"NORTH","Niku Kitchen & Sushi Bar","The Farm at Silo Crossing, Zionsville, IN",["Japanese","Sushi"],"Omakase nigiri flights; A5 Miyazaki wagyu",
+ "Chef Aziz Mountassar's (Marrakesh) omakase room in Zionsville — Japanese cuisine with French technique and Moroccan/Italian accents.",
+ [["WISH","https://www.wishtv.com/lifestyle/new-omakase-restaurant-nikus-opening/"],["CURRENT","https://youarecurrent.com/2026/07/29/savory-mix-moroccan-born-chef-blends-cultures-at-niku-kitchen-sushi-bar/"]],
+ "Current July 2026 feature (open)",k="Zionsville")
+F(2,"WEST","Daredevil Brewing Co.","1151 Main St, Speedway, IN",["Brewery","Beer"],"Lift Off IPA",
+ "Craft brewery on two acres off Speedway's Main Street in view of the Indianapolis Motor Speedway — award-winning Lift Off IPA, concerts, pizza and a dog-friendly yard.",
+ [["VISITINDY",VI+"daredevil-brewing-co-speedway/"],["IBJ","https://www.ibj.com/property-lines-scott-olson/46445-craft-brewery-on-tap-for-speedway-s-main-street"],["WISH","https://www.wishtv.com/sports/indy-500/10-off-track-escapes-for-local-flavor-on-speedways-main-street/"]],
+ "WISH Indy 500 Main Street guide; Visit Indy listing (open)",k="Speedway")
+F(3,"DTN","Doc Crow's Southern Smokehouse and Raw Bar","130 S Pennsylvania St (Hyatt Place), Indianapolis, IN",["Barbecue","Seafood"],"House-rubbed smokehouse barbecue, raw-bar oysters, 750+ bourbons",
+ "Louisville's 16-year-old smokehouse-and-raw-bar opened its first Indiana outpost (May 2025) in the Hyatt Place across from Gainbridge Fieldhouse, in the old Pier 48 space — dry-rubbed barbecue and one of downtown's deepest bourbon walls.",
+ [["INDYMONTHLY",IM+"food-and-drinks/dining/the-feed-doc-crows-southern-smokehouse-and-raw-bar-opens-downtown/"],["WISH","https://www.wishtv.com/lifestyle/doc-crows-southern-smokehouse-indianapolis/"],["FOX59","https://fox59.com/indiana-news/kentucky-based-barbecue-restaurant-opening-downtown-indianapolis-location/"],["IBJ","https://www.ibj.com/articles/bbq-and-seafood-restaurant-expected-to-open-in-hyatt-place-hyatt-house-hotel"]],
+ "Indianapolis Monthly: opened May 2025 (open)",k="Wholesale District")
+F(3,"SOUTH","Ten Cuts Brazilian Steakhouse","1001 N State Rd 135 (Meridian Meadows), Greenwood, IN",["Brazilian","Steakhouse"],"All-you-can-eat churrasco carved tableside",
+ "Locally owned Brazilian churrascaria (opened March 2025) that an opening-night guest told Indianapolis Monthly rivals Fogo de Chão and Terra Gaucha.",
+ [["INDYMONTHLY",IM+"food-and-drinks/the-feed-6/neew-indianapolis-restaurants-march-2025/"],["FOX59","https://fox59.com/morning-news/where-is-sherman/where-is-sherman-ten-cuts-brazilian-steak-house/"],["WISH","https://www.wishtv.com/lifestyle/lifestylelive/ten-cuts-inc-brazilian-steakhouse/"]],
+ "Indianapolis Monthly Mar 2025 opening; WISH segment (open)",k="Greenwood")
