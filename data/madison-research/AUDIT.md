@@ -191,3 +191,21 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
   La Taguara, Gail Ambrosius, Candinas, Hook's Cheese, Green Owl, Sa Bai Thong, Swagat, Stone Porch, Karben4,
   Vintage, Delta Beer Lab (area unclear — south side), Mickey's Tavern, Heritage Tavern.
 - **Build + gates:** 118 researched (71 food = 60% / 47 sights), 65 pinned; 4 gates PASS; validate + test green.
+
+### W4 batch 4 — day-trip canon (Monroe Limburger, Mount Horeb, pasties) + paired Best-of-Madison checks
+- **Food (FOOD_W4d.json, 12):** Baumgartner's Cheese Store & Tavern (TRIP t1; Saveur 100 Limburger), Suzy's Pointer
+  Cafe (TRIP; State Trunk Tour pasty guide 2026), Grumpy Troll Brew Pub & Sjölinds Chocolate House (DANE; Milwaukee
+  Magazine day trip), Paul's Pel'meni (UW t1; Infatuation), Candinas Chocolatier (MVF t1), Cento & Tempest (CAP),
+  Vintage Brewing (WEST), Green Owl Cafe & Gail Ambrosius (EAST), Salvatore's Tomato Pies (DANE t1; Cap Times review).
+- **Held:** Teddywedgers (State Trunk Tour only), Skål Public House, Enrique's Market & It's Good For You (Infatuation
+  only), Brasserie V (Badger Herald only), Everly (area/address unsourced).
+- **Channel mix (W4 so far):** editorial 56 · reader vote (Madison Magazine Best of Madison 2025/26, UpNorthNews) 30 ·
+  local-rec (City Cast) 14 · creator (State Trunk Tour) 2 · institutional (JB semis) 3.
+
+### W4 batch 5 + close (WebSearch session limit reached)
+- **Food (FOOD_W4e.json, 4):** Firefly Coffeehouse (DANE, Oregon), Drumlin Ridge Winery (DANE, Waunakee), Hook's Cheese
+  Company (TRIP t1, Mineral Point), Bailey's Run Vineyard (TRIP, New Glarus).
+- **Held:** Arthur's Supper Club (Travel WI ×2 = one outlet + APT's own area guide), Commerce Street Brewery & Hotel
+  (Brewery Creek renamed — Isthmus coverage predates the change; re-check).
+- **Session totals:** ~125 WebSearch calls; W4 +62 places (72 → 134; 87 food = 65%); pins +12 (all via Wikipedia/
+  Wikidata-restricted queries); UNVERIFIED now ~69 (restaurants + Pheasant Branch, Edgewood mounds, Trollway).
