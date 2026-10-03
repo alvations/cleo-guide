@@ -341,3 +341,15 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
 - **Status leads (not changed — no press confirmation yet):** Sapore di Mare (one Apple listing "permanently closed"), Golden Rule Seafood
   and Chefs on the Run (no Apple listing).
 - **Build:** 229 → 255 pinned; 4 gates + validate + npm test green.
+
+## 2026-10-03 (session 5 · wave 4 PINS) · batch 4 + wave close
+- **Pins (6, `geo/_geoout_x4.json`):** retries of bare-place-id listings with re-phrased queries (cuisine/descriptor added) surfaced the
+  coordinate variant for Broken Shaker, Yambo, Tropical Chinese, Frankie's Pizza, The Katherine; + Fritanga Caña Brava (2795 NW 7th St).
+- **Status checks:** Funky Buddha (Oakland Park) — no closure found, listing active Nov 2025 → stays open (unpinned). Tropical Acres — only the
+  2011 fire / 2012 reopening surfaced, no closure → stays open (unpinned).
+- **Session 5 totals:** 136 → **261 pinned** (+125: 120 food, 5 sights incl. Rubell, ICA, Museum of Graffiti, Little Haiti Cultural Complex,
+  Calle Ocho Walk of Fame). On-page confidence: 213 high · 46 med · 2 low. 7 newly CLOSED flagged (none had been on the map), Knaus Berry
+  Farm address corrected. ≈150 WebSearch calls (≈130 geocoding at maps.apple.com, ≈12 closure/status, ≈8 probes of other channels —
+  google.com `!3d!4d`, mapcarta, latlong/findlatitudeandlongitude, untappd: none returned usable restaurant pins).
+- **Gates (final build):** sourcecheck 509 PASS · geocheck PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate DATA OK ·
+  npm test ALL PASS. Hub card, CITIES.md row, AGENT-PROMPTS run-log row and RESUME next-wave plan updated.
