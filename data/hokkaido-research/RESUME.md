@@ -41,7 +41,7 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
 - Commands: `python3 tools/density.py hokkaido` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py hokkaido --build`.
 
 ## In-flight wave
-- none (session 5 build B1-s5 committed).
+- **Session 6 (2026-10-03)**: W94 (SPR +2 / NSK +1, ≥5 new incl. anime where possible → `_w94_spr_nsk.py`) then G06 restaurant pins via the Liège-proven RestaurantGuru/Foursquare/Wanderlog single-place search (`geo/_geoout_hokkaido_g06.json`, `_g06_pins.py`). Rebuild + 4 gates.
 
 ## Search ledger
 - session 1: ~14 · session 2: ≈188 · session 3: ≈178 (me ~151 + W40 agent 15 + W60 agent 12) · session 4 ≈141 · session 5 ≈178.
