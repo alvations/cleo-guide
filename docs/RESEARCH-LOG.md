@@ -517,3 +517,10 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - Never type a street address from memory while writing a geocode record — use the sourced locality (rule 4a);
   caught and fixed four times this run before merge.
 
+
+### 2026-10-03 · Orlando W4 — pin probe & wiki-coordinate traps
+- OSM mirrors (Mapcarta) via WebSearch return no decimals in snippets; Wikipedia queries for restaurants return only park/land
+  centroids — street-address restaurant pins remain helper-only (3rd wave confirming).
+- Wikipedia articles for cloned attractions can carry the TWIN's coordinate (Smugglers Run → Disneyland 33.81,-117.92): always
+  sanity-check a theme-park coord against the park's own bbox before using it.
+- A Yelp-derived local-TV neighbourhood guide (ClickOrlando 2019 "top spots") is Yelp in disguise → counts 0 for the ≥2 gate.
