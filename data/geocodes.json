@@ -61227,28 +61227,28 @@
     "note": "SOUTH"
    },
    "Honey 1 BBQ": {
-    "address": "",
+    "address": "746 E 43rd St, Chicago, IL 60653",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unchecked",
-    "statusSource": "",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/restaurants/honey-1-bbq (current listing) + NBC5 Food Guy Bronzeville barbecue; no closure reported (search 2026-10-03)",
     "statusChecked": "2026-10-03",
-    "note": "SOUTH | address + status pending"
+    "note": "SOUTH"
    },
    "Pearl's Place": {
-    "address": "",
+    "address": "3901 S Michigan Ave, Chicago, IL 60653",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unchecked",
-    "statusSource": "",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/restaurants/pearls-place + https://www.theinfatuation.com/chicago/reviews/pearls-place (current listings; breakfast buffet daily) — no closure reported",
     "statusChecked": "2026-10-03",
-    "note": "SOUTH | address + status pending"
+    "note": "SOUTH"
    },
    "Lexington Betty Smokehouse": {
     "address": "756 E 111th St, Chicago, IL 60628",
@@ -61431,16 +61431,16 @@
     "note": "WEST"
    },
    "Simone's": {
-    "address": "",
+    "address": "960 W 18th St, Chicago, IL 60608",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unchecked",
-    "statusSource": "",
+    "status": "open",
+    "statusSource": "https://www.toasttab.com/local/simones-960-w-18th-st/r-1362bbf3-c964-4c38-8bdf-6482e02be26a (live online-ordering page) + Chicago Mag",
     "statusChecked": "2026-10-03",
-    "note": "WEST | address + status pending"
+    "note": "WEST"
    },
    "Simon's Tavern": {
     "address": "N Clark St just north of Foster Ave, Andersonville, Chicago",
@@ -61695,16 +61695,16 @@
     "note": "FAR | status needs a 2025-26 check (Beverly Review Jan 2025 article not read)"
    },
    "Longman & Eagle": {
-    "address": "",
+    "address": "2657 N Kedzie Ave, Chicago, IL 60647",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unchecked",
-    "statusSource": "",
+    "status": "open",
+    "statusSource": "Time Out / Infatuation listings current; no closure reported (search 2026-10-03)",
     "statusChecked": "2026-10-03",
-    "note": "NW | address + status pending"
+    "note": "NW"
    },
    "Jibaritos y Más": {
     "address": "3400 W Fullerton Ave, Chicago, IL 60647",
@@ -61873,6 +61873,198 @@
     "statusSource": "https://www.nps.gov/pull/learn/historyculture/index.htm (NPS Pullman — standing landmark)",
     "statusChecked": "2026-10-03",
     "note": "FAR"
+   },
+   "Amici-Chicago": {
+    "address": "3933 N Broadway, Chicago, IL 60613",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://fox32chicago.com/news/food-critics-visit-sparks-massive-boost-buena-park-restaurant (Fox32 — operating after the visit; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "Home Run Inn (original, 31st Street)": {
+    "address": "4254 W 31st St, Chicago, IL 60623",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.fsrmagazine.com/industry-news/home-run-inn-to-celebrate-national-tavern-style-pizza-day-with-special-offers-and-donation (FSR 2024 — operating) + ABC7 reopening report",
+    "statusChecked": "2026-10-03",
+    "note": "WEST"
+   },
+   "Bob Chinn's Crab House": {
+    "address": "Milwaukee Ave 'Restaurant Row', Wheeling, IL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.visitchicagonorthshore.com/restaurant-row (CVB Restaurant Row listing, current) — restaurant continues after Bob Chinn's 2022 death (Restaurant Business)",
+    "statusChecked": "2026-10-03",
+    "note": "SUB | street number pending"
+   },
+   "Hackney's on Harms": {
+    "address": "1241 Harms Rd, Glenview, IL 60025",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://chibarproject.com/reviews/hackneys-1/ (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "SUB"
+   },
+   "Sweet Mandy B's": {
+    "address": "1208 W Webster Ave, Chicago, IL 60614",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/reviews/sweet-mandy-bs (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "Murphy's Bleachers": {
+    "address": "3655 N Sheffield Ave, Chicago, IL 60613",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unchecked",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH | status needs a 2025-26 check (owner Beth Murphy died; bar presumed operating)"
+   },
+   "Southport Lanes — CLOSED": {
+    "address": "Southport Ave at Henderson St, Lakeview, Chicago",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "closed",
+    "statusSource": "https://blockclubchicago.org/2021/07/07/southport-lanes-closed-for-good-after-nearly-100-years-will-auction-off-its-famed-sign/ (Block Club, July 2021 — closed for good)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "Paulie Gee's Logan Square": {
+    "address": "2451 N Milwaukee Ave, Chicago, IL 60647",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/restaurants/11-essential-chicago-pizzas-you-have-to-try (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NW"
+   },
+   "Piece Brewery & Pizzeria": {
+    "address": "",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unchecked",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "NW | address + status pending"
+   },
+   "Spinning J Bakery & Soda Fountain": {
+    "address": "",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unchecked",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "NW | address + status pending"
+   },
+   "Steppenwolf Theatre Company": {
+    "address": "1650 N Halsted St, Chicago, IL",
+    "lat": 41.907508,
+    "lng": -87.642503,
+    "source": "https://latitude.to/satellite-map/us/united-states/16600/steppenwolf-theatre-company (Wikipedia-article coordinate 41°54′27.03″N 87°38′33.01″W, WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.steppenwolf.org/about-us/our-history (official — current season)",
+    "statusChecked": "2026-10-03",
+    "note": "Wikipedia published coordinates"
+   },
+   "Old Town School of Folk Music": {
+    "address": "4545 N Lincoln Ave, Chicago, IL 60625",
+    "lat": 41.964167,
+    "lng": -87.686111,
+    "source": "Published coordinate 41°57′51″N 87°41′10″W (Wikipedia/landmark record surfaced in WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "https://www.wbez.org/architecture/2024/09/03/whats-that-building-old-town-school-of-folk-music (WBEZ Sept 2024 — operating)",
+    "statusChecked": "2026-10-03",
+    "note": "Wikipedia published coordinates"
+   },
+   "Couch Tomb": {
+    "address": "2045 N Lincoln Park West (in Lincoln Park), Chicago, IL",
+    "lat": 41.913183,
+    "lng": -87.6318,
+    "source": "Published coordinate 41° 54.791′N 87° 37.908′W (HMDB-style marker coordinate surfaced in WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "https://atlasobscura.com/places/couch-tomb (in public Lincoln Park — always visible)",
+    "statusChecked": "2026-10-03",
+    "note": "Wikipedia published coordinates"
+   },
+   "Arthur Heurtley House": {
+    "address": "Forest Ave, Oak Park, IL (per Wikipedia)",
+    "lat": 41.892722,
+    "lng": -87.799833,
+    "source": "https://en.wikipedia.org/wiki/Arthur_Heurtley_House (Wikipedia/GeoHack published coordinates)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "private residence — exterior viewable from Forest Ave (Wikipedia)",
+    "statusChecked": "2026-10-03",
+    "note": "Wikipedia published coordinates"
+   },
+   "St. Valentine's Day Massacre Site": {
+    "address": "2122 N Clark St, Chicago, IL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://chicagodetours.com/whats-left-site-st-valentines-day-massacre/ (public lawn at the former garage site)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "Paseo Boricua (Puerto Rican Flags)": {
+    "address": "Division St between Western Ave and California Ave, Chicago, IL 60622",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://choosechicago.com/listing/puerto-rican-flags (public street landmark)",
+    "statusChecked": "2026-10-03",
+    "note": "NW"
    }
   },
   "philadelphia-pa": {
