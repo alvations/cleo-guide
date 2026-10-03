@@ -42,7 +42,9 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
 - `allowed_domains:["japan-guide.com"]` / `["osaka-info.jp"]` area queries → sight lists (source 1).
 
 ## In-flight wave
-- none — W6 closed (session 6; workers 178 searches + main 2).
+- **W7 (session 7, 2026-10-03)** — workers A MINAM food (+20) · B EAST+BAY food (+22) · C TNJ+SOUTH (+18) · D NORTH food + ★anime ·
+  E geocoder (wikidata.org / OSM channel trial on `_unrendered_W7.json`, 127). Brief `_W7_worker_brief.md`. Files `*_W7{A..E}*`.
+  Main: review, consolidate, build, gates, commit. If relaunched: check which `_note_W7*.md` exist; rerun only missing workers.
 
 - 2026-10-03 **W6 (session 6)** — 5 workers (A EAST+BAY · B MINAM · C TNJ/SOUTH/NORTH/KNSAI · D ★anime · G geocoder) + main.
   **436 discovered (166 sights + 270 food = 62% food), 309 rendered (136 + 173)**; **ANIME 30** (+9); 4 gates PASS; validate + npm test
