@@ -1,0 +1,633 @@
+[
+ {
+  "n": "Anhinga Trail (Royal Palm)",
+  "address": "Royal Palm Visitor Center, State Road 9336, Everglades National Park, FL 33034",
+  "lat": 25.38167,
+  "lng": -80.60972,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°22′54″N 80°36′35″W (https://en.wikipedia.org/wiki/Anhinga_Trail)",
+  "status": "open",
+  "statusSource": "NPS place page nps.gov/places/anhinga-trail.htm"
+ },
+ {
+  "n": "Shark Valley",
+  "address": "36000 SW 8th St, Miami, FL 33194",
+  "lat": 25.70778,
+  "lng": -80.76306,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coords for Shark Valley 25°42′28″N 80°45′47″W (https://en.wikipedia.org/wiki/Shark_Valley) — area coordinate, may not be the SW 8th St entrance/visitor center",
+  "status": "open",
+  "statusSource": "NPS Shark Valley directions page live (nps.gov/ever/planyourvisit/svdirections.htm)"
+ },
+ {
+  "n": "Pa-hay-okee Overlook",
+  "address": "Main Park Road, Everglades National Park, FL 33034",
+  "lat": 25.441447,
+  "lng": -80.783922,
+  "confidence": "med",
+  "geoSource": "Site GPS 25°26′29.21″N 80°47′2.12″W published by floridawildlifeviewing.com/florida_everglades/pa-hay-okee_overlook.html",
+  "status": "open",
+  "statusSource": "NPS page nps.gov/ever/planyourvisit/pa-hay-okee-overlook.htm"
+ },
+ {
+  "n": "Flamingo Visitor Center & Marina",
+  "address": "Flamingo, Everglades National Park, FL 33034",
+  "lat": 25.14083,
+  "lng": -80.92417,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coords for Flamingo, Florida 25°8′27″N 80°55′27″W (https://en.wikipedia.org/wiki/Flamingo,_Florida) — settlement point, not the visitor-center building",
+  "status": "open",
+  "statusSource": "floridawildlifeviewing.com Flamingo Visitor Center page; no closure found"
+ },
+ {
+  "n": "Bonnet House Museum & Gardens",
+  "address": "900 N Birch Rd, Fort Lauderdale, FL 33304",
+  "lat": 26.13528,
+  "lng": -80.10556,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 26°8′7″N 80°6′20″W (https://en.wikipedia.org/wiki/Bonnet_House)",
+  "status": "open",
+  "statusSource": "Operating museum (NRHP; Broward County must-see list); no closure reported"
+ },
+ {
+  "n": "Las Olas Boulevard",
+  "address": "Las Olas Blvd, Fort Lauderdale, FL",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Riverwalk Fort Lauderdale",
+  "address": "Riverwalk, New River, Fort Lauderdale, FL",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Stranahan House",
+  "address": "335 SE 6th Ave, Fort Lauderdale, FL 33301",
+  "lat": 26.118056,
+  "lng": -80.138056,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 26°07′05″N 80°08′17″W (NRHP listings in Broward County)",
+  "status": "open",
+  "statusSource": "Operating house museum; no closure reported"
+ },
+ {
+  "n": "Fort Lauderdale Beach",
+  "address": "Fort Lauderdale Beach Blvd (A1A), Fort Lauderdale, FL",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Miami Beach Architectural District (Art Deco Historic District)",
+  "address": "Ocean Drive & Collins Ave, South Beach, Miami Beach, FL 33139",
+  "lat": 25.78583,
+  "lng": -80.13417,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°47′9″N 80°8′3″W (https://en.wikipedia.org/wiki/Miami_Beach_Architectural_District)",
+  "status": "open",
+  "statusSource": "Public historic district"
+ },
+ {
+  "n": "The Wolfsonian–FIU",
+  "address": "1001 Washington Ave, Miami Beach, FL 33139",
+  "lat": 25.78084,
+  "lng": -80.13257,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°46′51″N 80°07′57″W (https://en.wikipedia.org/wiki/Wolfsonian–FIU)",
+  "status": "open",
+  "statusSource": "Operating FIU museum; no closure reported"
+ },
+ {
+  "n": "Lincoln Road Mall",
+  "address": "Lincoln Rd, Miami Beach, FL 33139",
+  "lat": 25.79056,
+  "lng": -80.13639,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°47′26″N 80°8′11″W (https://en.wikipedia.org/wiki/Lincoln_Road)",
+  "status": "open",
+  "statusSource": "Public pedestrian mall (lincolnroad.com)"
+ },
+ {
+  "n": "South Pointe Park",
+  "address": "1 Washington Ave, Miami Beach, FL 33139",
+  "lat": 25.768339,
+  "lng": -80.131853,
+  "confidence": "low",
+  "geoSource": "Address geocode of adjacent 101 S Pointe Dr, Miami Beach 25.768339,-80.131853 (findlatitudeandlongitude.com) — not a park pin; re-verify",
+  "status": "open",
+  "statusSource": "Public city park (timeout.com, gobrightline.com listings)"
+ },
+ {
+  "n": "Holocaust Memorial Miami Beach",
+  "address": "1933-1945 Meridian Ave, Miami Beach, FL 33139",
+  "lat": 25.795506,
+  "lng": -80.136219,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°47′43.82″N 80°08′10.39″W (https://en.wikipedia.org/wiki/Holocaust_Memorial_of_the_Greater_Miami_Jewish_Federation)",
+  "status": "open",
+  "statusSource": "Operating memorial (miamiandbeaches.com, jewishmiami.org listings)"
+ },
+ {
+  "n": "The Bass",
+  "address": "2100 Collins Ave, Miami Beach, FL 33139",
+  "lat": 25.7973966,
+  "lng": -80.1299536,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°47′51″N 80°07′48″W (Bass Museum article)",
+  "status": "open",
+  "statusSource": "Operating museum (miamibeachconvention.com / ocula listings)"
+ },
+ {
+  "n": "Bayfront Park",
+  "address": "301 Biscayne Blvd, Miami, FL 33132",
+  "lat": 25.775,
+  "lng": -80.186,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°46′30″N 80°11′10″W (https://en.wikipedia.org/wiki/Bayfront_Park)",
+  "status": "open",
+  "statusSource": "Public park (miamiandbeaches.com listing)"
+ },
+ {
+  "n": "Pérez Art Museum Miami",
+  "address": "1103 Biscayne Blvd, Miami, FL 33132",
+  "lat": 25.785894,
+  "lng": -80.186705,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°47′09″N 80°11′12″W (https://en.wikipedia.org/wiki/Pérez_Art_Museum_Miami)",
+  "status": "open",
+  "statusSource": "Operating museum; no closure reported"
+ },
+ {
+  "n": "Phillip and Patricia Frost Museum of Science",
+  "address": "1101 Biscayne Blvd, Miami, FL 33132",
+  "lat": 25.7853,
+  "lng": -80.1878,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°47′07″N 80°11′16″W (https://en.wikipedia.org/wiki/Phillip_and_Patricia_Frost_Museum_of_Science)",
+  "status": "open",
+  "statusSource": "Operating museum; no closure reported"
+ },
+ {
+  "n": "Wynwood Walls",
+  "address": "2516 NW 2nd Ave, Miami, FL 33127",
+  "lat": 25.801018,
+  "lng": -80.199493,
+  "confidence": "med",
+  "geoSource": "latlong.net place listing 'Wynwood Walls, FL, USA' 25.801018,-80.199493 (https://www.latlong.net/place/wynwood-walls-fl-usa-33202.html). Rejected a 25.773891,-80.25711 value from another result (wrong area)",
+  "status": "open",
+  "statusSource": "Official site web.thewynwoodwalls.com/info live"
+ },
+ {
+  "n": "Vizcaya Museum and Gardens",
+  "address": "3251 S Miami Ave, Miami, FL 33129",
+  "lat": 25.74361,
+  "lng": -80.21028,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°44′37″N 80°12′37″W",
+  "status": "open",
+  "statusSource": "Operating museum (flightcentre/destination.com 2025 listings); no closure reported"
+ },
+ {
+  "n": "Fairchild Tropical Botanic Garden",
+  "address": "10901 Old Cutler Rd, Coral Gables, FL 33156",
+  "lat": 25.678662,
+  "lng": -80.273742,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°40′43″N 80°16′25″W (https://en.wikipedia.org/wiki/Fairchild_Tropical_Botanic_Garden)",
+  "status": "open",
+  "statusSource": "Operating garden (coralgables.com attraction listing)"
+ },
+ {
+  "n": "L'Atelier de Joël Robuchon Miami",
+  "address": "Paradise Plaza, NE 41st St near NE 2nd Ave, Miami Design District, Miami, FL 33137 (street number not confirmed)",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "OpenTable listing with 2026 events (Easter Sunday dinner Apr 5 2026; wine dinner May 13 2026); Michelin 2-star"
+ },
+ {
+  "n": "Shingo",
+  "address": "Coral Gables, FL (street number not in result)",
+  "lat": 25.7531,
+  "lng": -80.2567,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°45′11″N 80°15′24″W (https://en.wikipedia.org/wiki/Shingo_(restaurant))",
+  "status": "open",
+  "statusSource": "Wikipedia article (Michelin-starred); no closure reported in results"
+ },
+ {
+  "n": "Ariete",
+  "address": "3540 Main Hwy, Miami, FL 33133",
+  "lat": 25.72528,
+  "lng": -80.245,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°43′31″N 80°14′42″W (https://en.wikipedia.org/wiki/Ariete_(restaurant))",
+  "status": "open",
+  "statusSource": "Local10 2025-07-28: Michelin-star restaurants on Miami Spice 2025 menus (Ariete)"
+ },
+ {
+  "n": "Boia De",
+  "address": "5205 NE 2nd Ave, Miami, FL 33137",
+  "lat": 25.824306,
+  "lng": -80.19139,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°49′27.5″N 80°11′29″W (from earlier session search)",
+  "status": "open",
+  "statusSource": "Michelin-starred, operating per Wikipedia/Michelin (earlier search)"
+ },
+ {
+  "n": "Cote Miami",
+  "address": "3900 NE 2nd Ave, Miami, FL 33137",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Miami Design District official listing miamidesigndistrict.com/listing/cote-miami"
+ },
+ {
+  "n": "Elcielo Miami",
+  "address": "31 SE 5th St, Miami, FL 33131",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Michelin Guide listing guide.michelin.com/.../miami/restaurant/elcielo-miami; brand expanded to SLS South Beach 2023 (commercialobserver.com)"
+ },
+ {
+  "n": "Hiden",
+  "address": "313 NW 25th St, Miami, FL 33127",
+  "lat": 25.80083,
+  "lng": -80.20139,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°48′3″N 80°12′5″W (https://en.wikipedia.org/wiki/Hiden_(restaurant))",
+  "status": "open",
+  "statusSource": "Miami Living 'Miami Michelin Guide 2026' list; Michelin Guide listing guide.michelin.com/.../miami/restaurant/hiden"
+ },
+ {
+  "n": "Le Jardinier Miami",
+  "address": "151 NE 41st St, Miami, FL 33137",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Miami Living 'Miami Michelin Guide 2026' list (search result)"
+ },
+ {
+  "n": "Los Félix",
+  "address": "Coconut Grove, Miami, FL 33133 (street number not in result)",
+  "lat": 25.727611,
+  "lng": -80.2425,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°43′39.4″N 80°14′33″W (https://en.wikipedia.org/wiki/Los_Félix)",
+  "status": "open",
+  "statusSource": "Michelin Guide listing guide.michelin.com/.../miami/restaurant/los-felix live"
+ },
+ {
+  "n": "Mutra",
+  "address": "2188 NE 123rd St, North Miami, FL 33181",
+  "lat": 25.8892,
+  "lng": -80.1541,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°53′21″N 80°09′15″W (https://en.wikipedia.org/wiki/Mutra)",
+  "status": "open",
+  "statusSource": "Wikipedia article / List of restaurants in Miami; no closure reported"
+ },
+ {
+  "n": "Ogawa",
+  "address": "7223 NW 2nd Ave, Miami, FL 33150",
+  "lat": 25.8415,
+  "lng": -80.2006,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°50′29″N 80°12′02″W (https://en.wikipedia.org/wiki/Ogawa_(restaurant))",
+  "status": "open",
+  "statusSource": "Michelin Guide listing guide.michelin.com/us/en/florida/miami/restaurant/ogawa-1204468"
+ },
+ {
+  "n": "Stubborn Seed",
+  "address": "101 Washington Ave, Miami Beach, FL 33139",
+  "lat": 25.770194,
+  "lng": -80.134917,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°46′12.7″N 80°8′5.7″W (https://en.wikipedia.org/wiki/Stubborn_Seed)",
+  "status": "open",
+  "statusSource": "Local10/Telemundo51 Miami Spice 2025 Michelin-star list"
+ },
+ {
+  "n": "Tambourine Room by Tristan Brandt",
+  "address": "6801 Collins Ave (Carillon Miami Wellness Resort), Miami Beach, FL 33141",
+  "lat": 25.85278,
+  "lng": -80.12,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°51′10″N 80°7′12″W (https://en.wikipedia.org/wiki/Tambourine_Room)",
+  "status": "open",
+  "statusSource": "Miami Living 'Miami Michelin Guide 2026' list"
+ },
+ {
+  "n": "The Surf Club Restaurant",
+  "address": "9011 Collins Ave, Surfside, FL 33154",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Michelin Guide listing guide.michelin.com/.../surfside/restaurant/the-surf-club-restaurant; Town of Surfside business page"
+ },
+ {
+  "n": "Tâm Tâm",
+  "address": "99 NW 1st St, Miami, FL 33128",
+  "lat": 25.7752,
+  "lng": -80.1951,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°46′31″N 80°11′42″W (https://en.wikipedia.org/wiki/Tâm_Tâm)",
+  "status": "open",
+  "statusSource": "Wikipedia article; no closure reported"
+ },
+ {
+  "n": "Bachour",
+  "address": "2020 Salzedo St, Coral Gables, FL 33134",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": "Listed in miamiandbeaches.com Michelin Bib Gourmand page; no 2025/26 operation evidence seen"
+ },
+ {
+  "n": "Chug's Diner",
+  "address": "3444 Main Hwy Suite 21, Miami (Coconut Grove), FL 33133",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Current listings (enprimeurclub.com Google 4.7/3,889 reviews; joinpearl.co) after Miami New Times 'Michael Beltran to reopen Chug's in Coconut Grove'"
+ },
+ {
+  "n": "El Turco",
+  "address": "184 NE 50th Terr, Miami, FL 33137 (original Buena Vista location; second location 140 NE 39th St, Design District)",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Miami New Times 'Turkish restaurant El Turco opens in Miami Design District' (second location); Michelin Guide listing guide.michelin.com/.../miami/restaurant/el-turco"
+ },
+ {
+  "n": "Ghee Indian Kitchen",
+  "address": "8965 SW 72nd Pl, Miami (Downtown Dadeland), FL 33156",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Time Out Miami 'Ghee Indian Kitchen Downtown Dadeland'; OpenTable 'ghee-indian-kitchen-kendall' listing live"
+ },
+ {
+  "n": "Hometown Barbecue Miami",
+  "address": "1200 NW 22nd St Ste 100, Miami, FL 33142",
+  "lat": 25.79744,
+  "lng": -80.2157,
+  "confidence": "low",
+  "geoSource": "Business-listing coordinate 25.79744,-80.2157 (frankiapp.com/business/hometown-bar-b-que-13447) — aggregator value, not a place pin; upgrade",
+  "status": "open",
+  "statusSource": "Michelin Guide listing guide.michelin.com/.../miami/restaurant/hometown-barbecue-miami"
+ },
+ {
+  "n": "La Natural",
+  "address": "7289 NW 2nd Ave, Miami, FL 33150",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": "joinpearl.co/foodle.pro/finedininglovers listings; no explicit 2025/26 date"
+ },
+ {
+  "n": "Lucali",
+  "address": "1930 Bay Rd, Miami Beach, FL 33139",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Michelin Guide listing guide.michelin.com/.../miami-beach/restaurant/lucali; Time Out Miami"
+ },
+ {
+  "n": "Mandolin Aegean Bistro",
+  "address": "4312 NE 2nd Ave, Miami, FL 33137",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Official site mandolinrestaurant.com/location/mandolin-aegean-bistro; Miami Design District listing"
+ },
+ {
+  "n": "Michael's Genuine Food & Drink",
+  "address": "130 NE 40th St, Miami, FL 33137",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Time Out Miami / Frommer's / AAA listings live; no closure reported"
+ },
+ {
+  "n": "Phuc Yea",
+  "address": "7100 Biscayne Blvd, Miami, FL (zip unconfirmed)",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — a listing gave 25.77385,-80.190276 but that point is downtown, inconsistent with 7100 Biscayne Blvd; rejected",
+  "status": "open",
+  "statusSource": "Miami New Times: permanent location opened at 7100 Biscayne Blvd (MiMo); business listings/reviews as of Nov 2025, no closure news found"
+ },
+ {
+  "n": "Sanguich de Miami",
+  "address": "2057 SW 8th St, Miami, FL",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Zitz Sum",
+  "address": "396 Alhambra Cir Suite 155, Coral Gables, FL 33134",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": "Listed in miamiandbeaches.com Michelin Bib Gourmand page / foodle.pro Coral Gables; no explicit 2025/26 evidence"
+ },
+ {
+  "n": "Tinta y Café",
+  "address": "1315 Ponce de Leon Blvd, Coral Gables, FL 33134",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": "Listed in Coral Gables Bib Gourmand roundup (search result); no explicit 2025/26 evidence"
+ },
+ {
+  "n": "Barra Callao",
+  "address": "17034 W Dixie Hwy, North Miami Beach, FL 33160",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "OpenTable reservation listing live (opentable.com/r/barra-callao-north-miami-beach); Infatuation review"
+ },
+ {
+  "n": "Cotoa",
+  "address": "CONFLICT: search result gave 100 Biscayne Blvd Suite 104, Miami, FL 33132 (downtown) via foodle.pro — contradicts record's North Miami; confirm before using",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": "foodle.pro listing with hours; unconfirmed — possible DTB areaFix pending confirmation"
+ },
+ {
+  "n": "Double Luck",
+  "address": "1085 NE 79th St, Miami, FL 33138",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": "foodle.pro listing with current hours (Wed–Sun 17:30–22:00); no explicit 2025/26 date"
+ },
+ {
+  "n": "Versailles Restaurant",
+  "address": "3555 SW 8th St, Miami, FL 33135",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "AOL/news: Versailles celebrates 50th anniversary; Wikipedia article (https://en.wikipedia.org/wiki/Versailles_(restaurant))"
+ },
+ {
+  "n": "Havana Harry's",
+  "address": "4612 S Le Jeune Rd, Coral Gables, FL 33146",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": "CONFLICTING: Local10 2025-06-20 'Havana Harry's ordered shut by state inspectors' and Miami New Times 'City forces Coral Gables Cuban spot to close indefinitely'; later whatnow.com 'Havana Harry's Returns To Coral Gables' — reopening date not confirmed; recheck"
+ },
+ {
+  "n": "El Mago de las Fritas",
+  "address": "5828 SW 8th St, Miami, FL 33144",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Opinionated About Dining Cheap Eats list 2023–2025 (search summary); Time Out Miami listing with current hours"
+ },
+ {
+  "n": "Joe's Stone Crab",
+  "address": "11 Washington Ave, Miami Beach, FL 33139",
+  "lat": 25.7692,
+  "lng": -80.135,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coords 25°46′09″N 80°08′06″W (https://en.wikipedia.org/wiki/Joe's_Stone_Crab)",
+  "status": "open",
+  "statusSource": "Miami New Times 'Joe's Stone Crab Miami Beach opens for 106th season' (2018+ seasons; OpenTable listing live)"
+ },
+ {
+  "n": "Chez Le Bebe",
+  "address": "114 NE 54th St, Miami, FL 33137",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": "Infatuation/Time Out/FIU Caplin News Haitian roundup list it; no explicit 2025/26 date seen"
+ },
+ {
+  "n": "Chef Creole",
+  "address": "200 NW 54th St, Miami, FL 33127",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": "Infatuation/WSVN/FIU Caplin News list it; no explicit 2025/26 date seen"
+ },
+ {
+  "n": "Cvi.che 105",
+  "address": "105 NE 3rd Ave, Miami, FL 33132",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": "Listings with hours (foodle.pro, hoodline 2018/2019, Local10); no explicit 2025/26 date seen"
+ },
+ {
+  "n": "Chef's Counter at MAASS",
+  "address": "525 N Fort Lauderdale Beach Blvd (Four Seasons Hotel Fort Lauderdale), Fort Lauderdale, FL 33304",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Michelin Guide listing guide.michelin.com/.../fort-lauderdale_2883737/restaurant/chef-s-counter-at-maass; OpenTable Michelin Florida 2025 list"
+ },
+ {
+  "n": "Recoveco",
+  "address": "6000 SW 74th St Ste 1, South Miami, FL 33143",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Michelin Guide listing guide.michelin.com/en/florida/miami/restaurant/recoveco (Michelin Plate 2024)",
+  "areaFix": "SDADE"
+ },
+ {
+  "n": "Amara at Paraiso",
+  "address": "3101 NE 7th Ave, Miami, FL 33137",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "OpenTable listing live with 2026 events; no closure news found"
+ },
+ {
+  "n": "Bar Bucce",
+  "address": "N Miami Ave, Little River, Miami, FL (street number not in result)",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Opened 2025; James Beard 2026 Best New Bar semifinalist (Miami New Times 'Inside Bar Bucce, Miami's only James Beard bar nominee')"
+ }
+]

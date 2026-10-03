@@ -1,0 +1,55 @@
+[
+ {
+  "t": 2,
+  "a": "CHUO",
+  "cz": [
+   "FINE"
+  ],
+  "dish": "Michelin-starred course",
+  "n": "LE PONT DE CIEL",
+  "address": "B1F, Nihonseimei Yodoyabashi Bldg, 3-5-29 Kitahama, Chuo-ku, Osaka 540-0031, Japan",
+  "w": "Michelin One Star restaurant in the Nihonseimei Yodoyabashi Building, Kitahama.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN_STAR",
+    "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/le-pont-de-ciel"
+   ]
+  ],
+  "_held": "Michelin-listed but no cuisine/dish surfaced — a food card must name a dish; resolve next wave"
+ },
+ {
+  "t": 3,
+  "a": "KITA",
+  "cz": [],
+  "dish": "Michelin Guide-listed (cuisine not captured)",
+  "n": "Kosai Fukumimi",
+  "address": "2F, 1-1-8 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
+  "w": "Michelin Guide-listed restaurant in Kitashinchi; cuisine not captured in this pass.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kosai-fukumimi"
+   ]
+  ],
+  "_held": "Michelin-listed but no cuisine/dish surfaced — a food card must name a dish; resolve next wave"
+ },
+ {
+  "t": 3,
+  "a": "EAST",
+  "cz": [],
+  "dish": "Michelin Guide-listed (cuisine not captured)",
+  "n": "Hachidori",
+  "address": "1-20-2 Miyakojimakitadori, Miyakojima-ku, Osaka 534-0014, Japan",
+  "w": "Michelin Guide-listed restaurant in Miyakojima; cuisine not captured in this pass.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/hachidori"
+   ]
+  ],
+  "_held": "Michelin-listed but no cuisine/dish surfaced — a food card must name a dish; resolve next wave"
+ }
+]

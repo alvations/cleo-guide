@@ -1,0 +1,573 @@
+{
+ "sights": [
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Washington Park",
+   "address": "Washington Park community area, Chicago (per Wikipedia)",
+   "w": "Olmsted & Vaux's 372-acre South Side park, home of Lorado Taft's 'Fountain of Time' and the DuSable museum.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Washington_Park_(Chicago_park)"
+    ],
+    [
+     "TCLF",
+     "https://www.tclf.org/washington-park-chicago"
+    ]
+   ],
+   "k": "park"
+  },
+  {
+   "t": 2,
+   "a": "SUB",
+   "n": "Charles Gates Dawes House",
+   "address": "Evanston lakefront, IL (per NPS NHL record)",
+   "w": "Château-style 1894 lakefront mansion of Nobel laureate and US Vice President Charles G. Dawes — a National Historic Landmark run by the Evanston History Center.",
+   "sources": [
+    [
+     "NPS",
+     "https://npgallery.nps.gov/NRHP/GetAsset/NHLS/76000706_text"
+    ],
+    [
+     "VISITNORTHSHORE",
+     "https://www.visitchicagonorthshore.com/Museums"
+    ],
+    [
+     "HMDB",
+     "https://www.hmdb.org/m.asp?m=139208"
+    ]
+   ],
+   "k": "house historic landmark"
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Pilsen Historic District",
+   "address": "Lower West Side (Pilsen), around 18th St, Chicago (per Wikipedia / City of Chicago landmark district)",
+   "w": "National Register district of 1870s–1910s Bohemian worker cottages, storefronts and churches — now the heart of Mexican Pilsen and its murals along 16th and 18th Streets.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pilsen_Historic_District"
+    ],
+    [
+     "CITYCHI",
+     "https://www.chicago.gov/content/dam/city/depts/zlup/Historic_Preservation/Publications/Pilsen_Historic_District.pdf"
+    ]
+   ],
+   "k": "historic district mural"
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Garfield Park Fieldhouse (Gold Dome)",
+   "address": "300 N Central Park Ave, Chicago, IL",
+   "w": "The 1928 Spanish Baroque 'Gold Dome' fieldhouse, a gold-leafed Chicago Landmark towering over Garfield Park — under a $9M restoration.",
+   "sources": [
+    [
+     "CITYCHI",
+     "https://www.chicago.gov/dam/city/depts/zlup/Historic_Preservation/Publications/Garfield_Park_Fieldhouse.pdf"
+    ],
+    [
+     "WTTW",
+     "https://interactive.wttw.com/most-beautiful-places-in-chicago/lovely-landscapes/garfield-park"
+    ],
+    [
+     "PRESERVATIONCHI",
+     "https://www.preservationchicago.org/win-9m-approved-for-garfield-park-and-garfield-park-fieldhouse-renovation/"
+    ]
+   ],
+   "k": "landmark building park"
+  },
+  {
+   "t": 2,
+   "a": "SW",
+   "n": "Holy Cross Church (Back of the Yards)",
+   "address": "1740 W 46th St, Chicago, IL",
+   "w": "National Register Lithuanian church (1915) whose twin towers rise over Back of the Yards, the old stockyards neighbourhood.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Holy_Cross_Church_(Chicago)"
+    ],
+    [
+     "NPS",
+     "https://npgallery.nps.gov/AssetDetail/0b658727-420d-4264-a957-f6761c800bf7"
+    ],
+    [
+     "OPENHOUSECHI",
+     "https://app.openhousechicago.org/archive/sites/recrGHhdZj68WfPal"
+    ]
+   ],
+   "k": "church historic"
+  },
+  {
+   "t": 2,
+   "a": "SW",
+   "n": "Church of the Nativity of the Blessed Virgin Mary (Marquette Park)",
+   "address": "6812 S Washtenaw Ave, Chicago, IL 60629",
+   "w": "Mid-century Lithuanian Catholic church facing Marquette Park, designed in Lithuanian folk style — the spiritual centre of Chicago's Lithuanian community.",
+   "sources": [
+    [
+     "NCREGISTER",
+     "https://www.ncregister.com/features/honor-mary-lithuanian-style"
+    ],
+    [
+     "CHICAGOCATHOLIC",
+     "https://legacy.chicagocatholic.com/cnw/issue/parishpride_090306.html"
+    ]
+   ],
+   "k": "church"
+  },
+  {
+   "t": 3,
+   "a": "SW",
+   "n": "The Plant (Back of the Yards)",
+   "address": "W 47th St a few blocks east of S Ashland Ave, Back of the Yards, Chicago",
+   "w": "A 93,500 sq ft former meatpacking plant turned net-zero vertical farm and food-business incubator, home to Whiner Beer.",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/vertical-farming-comes-to-chicago"
+    ],
+    [
+     "POPSCI",
+     "https://www.popsci.com/?p=23938"
+    ],
+    [
+     "NPR",
+     "https://www.kunc.org/npr-news/2014-04-09/food-scraps-to-fuel-vertical-farmings-rise-in-chicago"
+    ]
+   ],
+   "k": "odd oddities"
+  },
+  {
+   "t": 2,
+   "a": "FAR",
+   "n": "Hotel Florence",
+   "address": "11111 S Forrestville Ave, Chicago, IL",
+   "w": "George Pullman's 1881 Queen Anne hotel at the heart of his company town — now restored within Pullman National Historical Park.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hotel_Florence"
+    ],
+    [
+     "NPS",
+     "https://www.nps.gov/pull/learn/historyculture/index.htm"
+    ]
+   ],
+   "k": "historic hotel landmark"
+  },
+  {
+   "t": 3,
+   "a": "FAR",
+   "n": "Greenstone Church (Pullman)",
+   "address": "11211 S St Lawrence Ave, Chicago, IL",
+   "w": "Pullman's 1882 serpentine-greenstone church, designed by Solon S. Beman as part of the model town.",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/pull/learn/historyculture/index.htm"
+    ],
+    [
+     "CHICAGOANCESTORS",
+     "https://chicagoancestors.org/meta/collection/pullman-collection"
+    ]
+   ],
+   "k": "church historic"
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Steppenwolf Theatre Company",
+   "address": "1650 N Halsted St, Chicago, IL",
+   "w": "The ensemble theatre founded in 1974 by Gary Sinise, Terry Kinney and Jeff Perry — Tony-winning home of Malkovich, Metcalf and 'August: Osage County'.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Steppenwolf_Theatre_Company"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.steppenwolf.org/about-us/our-history"
+    ]
+   ],
+   "k": "theater theatre"
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Old Town School of Folk Music",
+   "address": "4545 N Lincoln Ave, Chicago, IL 60625",
+   "w": "Folk-music school and concert hall (founded 1957) in a restored 1929 library building on Lincoln Square's main street.",
+   "sources": [
+    [
+     "WBEZ",
+     "https://www.wbez.org/architecture/2024/09/03/whats-that-building-old-town-school-of-folk-music"
+    ],
+    [
+     "TIMEOUT",
+     "https://timeout.com/chicago/things-to-do/old-town-school-of-folk-music"
+    ],
+    [
+     "OPENHOUSECHI",
+     "https://openhousechicago.org/sites/site/old-town-school-of-folk-music/"
+    ]
+   ],
+   "k": "music concert"
+  },
+  {
+   "t": 3,
+   "a": "NORTH",
+   "n": "Couch Tomb",
+   "address": "2045 N Lincoln Park West (in Lincoln Park), Chicago, IL",
+   "w": "The last tomb left from the old City Cemetery under Lincoln Park — Ira Couch's 1858 mausoleum, too heavy to move.",
+   "sources": [
+    [
+     "ATLASOBSCURA",
+     "https://atlasobscura.com/places/couch-tomb"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ira_Couch"
+    ],
+    [
+     "CHIPARKS",
+     "https://www.chicagoparkdistrict.com/node/8334"
+    ]
+   ],
+   "k": "cemetery historic oddities"
+  },
+  {
+   "t": 3,
+   "a": "NORTH",
+   "n": "St. Valentine's Day Massacre Site",
+   "address": "2122 N Clark St, Chicago, IL",
+   "w": "The garage site of Capone-era Chicago's most notorious hit (1929) — the building is gone; a fenced lawn marks the spot.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Saint_Valentine%27s_Day_Massacre"
+    ],
+    [
+     "CHICAGODETOURS",
+     "https://chicagodetours.com/whats-left-site-st-valentines-day-massacre/"
+    ],
+    [
+     "ROADSIDEAMERICA",
+     "https://www.roadsideamerica.com/story/18001"
+    ]
+   ],
+   "k": "historic oddities"
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Paseo Boricua (Puerto Rican Flags)",
+   "address": "Division St between Western Ave and California Ave, Chicago, IL 60622",
+   "w": "Humboldt Park's Puerto Rican main street, bracketed by two 59-ft, 45-ton steel Puerto Rican flags arching over Division Street — a designated Chicago Landmark.",
+   "sources": [
+    [
+     "CHOOSECHI",
+     "https://choosechicago.com/listing/puerto-rican-flags"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Paseo_Boricua"
+    ],
+    [
+     "CITYCHI",
+     "https://www.chicago.gov/content/dam/city/depts/zlup/Historic_Preservation/Publications/Paseo_Boricua_Gateway_Flags_Final_Report.pdf"
+    ]
+   ],
+   "k": "landmark public art"
+  },
+  {
+   "t": 2,
+   "a": "SUB",
+   "n": "Arthur Heurtley House",
+   "address": "Forest Ave, Oak Park, IL (per Wikipedia)",
+   "w": "Frank Lloyd Wright's 1902 Prairie-style house on Forest Avenue — low roman-brick walls and a raised main floor, a National Historic Landmark.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Arthur_Heurtley_House"
+    ],
+    [
+     "OPRFMUSEUM",
+     "https://oprfmuseum.org/sites/default/files/documents/OPRFHS%20Poster%20Key.pdf"
+    ]
+   ],
+   "k": "frank lloyd wright prairie school house"
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Roberts Temple Church of God in Christ",
+   "address": "4021 S State St, Chicago, IL",
+   "w": "Bronzeville church where Mamie Till-Mobley held her son Emmett Till's open-casket funeral in 1955 — part of the Emmett Till and Mamie Till-Mobley National Monument (2023).",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/places/roberts-temple.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Roberts_Temple_Church_of_God_in_Christ"
+    ],
+    [
+     "WBEZ",
+     "https://www.wbez.org/morning-shift/2018/01/04/whats-that-building-roberts-temple-church-of-god-in-christ"
+    ]
+   ],
+   "k": "church historic memorial"
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Muddy Waters House",
+   "address": "4339 S Lake Park Ave, Chicago, IL",
+   "w": "Kenwood two-flat where Muddy Waters lived and rehearsed (1954–74) — a Chicago Landmark being restored as the MOJO Muddy Waters museum.",
+   "sources": [
+    [
+     "CITYCHI",
+     "https://www.chicago.gov/content/dam/city/depts/zlup/Historic_Preservation/Publications/Muddy_Waters_House_Revised_Final_Report.pdf"
+    ],
+    [
+     "PRESERVATIONCHI",
+     "https://www.preservationchicago.org/?p=5501"
+    ]
+   ],
+   "k": "house historic landmark music"
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Palmisano Park",
+   "address": "2700 S Halsted St area (former Stearns Quarry), Bridgeport, Chicago (per Wikipedia)",
+   "w": "A 1830s limestone quarry turned 27-acre park — a fishing pond in the pit, terraced wetlands and the city's best skyline hill.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Palmisano_Park"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/palmisano-park"
+    ],
+    [
+     "WTTW",
+     "https://interactive.wttw.com/node/19065"
+    ],
+    [
+     "CAC",
+     "https://ventrata.architecture.org/online-resources/buildings-of-chicago/palmisano-park"
+    ]
+   ],
+   "k": "park"
+  },
+  {
+   "t": 2,
+   "a": "SW",
+   "n": "Sherman Park",
+   "address": "New City / Back of the Yards, Chicago (per Wikipedia)",
+   "w": "Olmsted Brothers & Burnham 'neighbourhood park' (1905) ringed by a lagoon, with a Burnham-designed fieldhouse — a landmark of the South Parks reform movement.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sherman_Park"
+    ],
+    [
+     "TCLF",
+     "https://www.tclf.org/sherman-park"
+    ]
+   ],
+   "k": "park lagoon"
+  },
+  {
+   "t": 3,
+   "a": "SW",
+   "n": "Davis Square Park",
+   "address": "Back of the Yards, Chicago (per Wikipedia)",
+   "w": "One of the first 1905 South Parks small parks, built to give stockyards families a fieldhouse, baths and playgrounds.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Davis_Square_(Chicago)"
+    ],
+    [
+     "CHIPARKS",
+     "https://www.chicagoparkdistrict.com/parks-facilities/davis-dr-nathan-square-park"
+    ],
+    [
+     "UCHICAGOSTUDIES",
+     "https://chicagostudies.uchicago.edu/back-yards/back-yards-davis-square-park"
+    ]
+   ],
+   "k": "park historic"
+  },
+  {
+   "t": 3,
+   "a": "SW",
+   "n": "Bubbly Creek",
+   "address": "South Fork of the South Branch, Chicago River (headwaters, per Wikipedia)",
+   "w": "The stockyards' notorious waste channel — Upton Sinclair's 'Bubbly Creek' still burps methane from century-old sediment, now ringed by new trails.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bubbly_Creek"
+    ],
+    [
+     "WTTW",
+     "https://news.wttw.com/node/28004"
+    ],
+    [
+     "FRIENDSCHIRIVER",
+     "https://chicagoriver.org/about-the-river/inside-out-around/story-3-bubby-creek"
+    ]
+   ],
+   "k": "river oddities"
+  },
+  {
+   "t": 2,
+   "a": "SUB",
+   "n": "Burr Oak Cemetery",
+   "address": "Alsip, IL (per Wikipedia)",
+   "w": "Historic African American cemetery — resting place of Emmett Till, Dinah Washington and Willie Dixon.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Burr_Oak_Cemetery"
+    ],
+    [
+     "EMMETTTILL",
+     "https://tillapp.emmett-till.org/items/show/21"
+    ]
+   ],
+   "k": "cemetery historic memorial"
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Emmett Till and Mamie Till-Mobley House",
+   "address": "6427 S St Lawrence Ave, Chicago, IL",
+   "w": "The West Woodlawn two-flat Emmett Till left in 1955 — a Chicago Landmark (2021) being restored as a museum and community space.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Till_House"
+    ],
+    [
+     "CITYCHI",
+     "https://www.chicago.gov/content/dam/city/depts/zlup/Historic_Preservation/Publications/Emmett_Till_and_Mamie_Till-Mobley_House_report.pdf"
+    ]
+   ],
+   "k": "house historic landmark memorial"
+  },
+  {
+   "t": 2,
+   "a": "FAR",
+   "n": "R. W. Evans House (Frank Lloyd Wright)",
+   "address": "9914 S Longwood Dr, Chicago, IL",
+   "w": "Frank Lloyd Wright's 1908 hilltop Prairie house on Beverly's Longwood Drive ridge.",
+   "sources": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/frank-lloyd-wrights-raymond-w-evans-house/"
+    ],
+    [
+     "OPENHOUSECHI",
+     "https://app.openhousechicago.org/archive/2023/stops/recNklTy90SXVw1wF"
+    ],
+    [
+     "FLWTRUST",
+     "https://cal.flwright.org/explore/rw-evans-house"
+    ]
+   ],
+   "k": "frank lloyd wright prairie school house"
+  },
+  {
+   "t": 2,
+   "a": "FAR",
+   "n": "Walter Burley Griffin Place District",
+   "address": "1600–1800 blocks of W 104th Pl (Griffin Place), Beverly, Chicago",
+   "w": "A street of Prairie School houses (1909–14), seven by Walter Burley Griffin — later the designer of Canberra — a Chicago Landmark district.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Walter_Burley_Griffin_Place_District"
+    ],
+    [
+     "CITYCHI",
+     "https://webapps1.chicago.gov/landmarksweb/web/districtdetails.htm?disId=32"
+    ],
+    [
+     "CHOOSECHI",
+     "https://choosechicago.com/listing/walter-burley-griffin-place-landmark-district"
+    ]
+   ],
+   "k": "prairie school historic district house"
+  },
+  {
+   "t": 2,
+   "a": "FAR",
+   "n": "Big Marsh Park",
+   "address": "South Deering, east shore of Lake Calumet, Chicago",
+   "w": "A former slag dump turned the Park District's largest natural site (~300 acres) — wetlands, birding and a bike park with pump tracks.",
+   "sources": [
+    [
+     "CHIPARKS",
+     "https://www.chicagoparkdistrict.com/parks-facilities/big-marsh-park"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/blog/ride-through-winter-at-chicagos-new-big-marsh-bike-park-111616"
+    ],
+    [
+     "INSIDEHOOK",
+     "https://www.insidehook.com/culture-chicago/big-marsh-park-chicago/amp"
+    ]
+   ],
+   "k": "park nature trail"
+  },
+  {
+   "t": 2,
+   "a": "FAR",
+   "n": "Dan Ryan Woods",
+   "address": "87th St & Western Ave, Chicago, IL",
+   "w": "A 257-acre forest preserve inside city limits on Beverly's ridge — trails, a sledding hill and the Major Taylor Trail.",
+   "sources": [
+    [
+     "OPENLANDS",
+     "https://openlands.org/dan-ryan-woods/"
+    ],
+    [
+     "SOUTHSIDEWEEKLY",
+     "https://southsideweekly.com/best-place-to-be-in-nature-the-dan-ryan-woods/"
+    ]
+   ],
+   "k": "park woods trail"
+  },
+  {
+   "t": 1,
+   "a": "FAR",
+   "n": "National A. Philip Randolph Pullman Porter Museum",
+   "address": "10406 S Maryland Ave, Chicago, IL",
+   "w": "Museum of the Pullman porters and the Brotherhood of Sleeping Car Porters — the birthplace of Black labor history, within Pullman National Historical Park.",
+   "sources": [
+    [
+     "NPS",
+     "https://home.nps.gov/thingstodo/explore-the-national-a-philip-randolph-pullman-porter-museum.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pullman,_Chicago"
+    ]
+   ],
+   "k": "museum historic"
+  }
+ ],
+ "sources": []
+}

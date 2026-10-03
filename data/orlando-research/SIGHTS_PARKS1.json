@@ -1,0 +1,454 @@
+{
+ "sources": [
+  {
+   "key": "ALLEARS",
+   "name": "AllEars.net",
+   "url": "https://allears.net/"
+  },
+  {
+   "key": "FROMMERS",
+   "name": "Frommer's",
+   "url": "https://www.frommers.com/"
+  },
+  {
+   "key": "INFATUATION",
+   "name": "The Infatuation (Orlando)",
+   "url": "https://www.theinfatuation.com/orlando"
+  }
+ ],
+ "sights": [
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Cinderella Castle",
+   "address": "Fantasyland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "The 189-ft castle at the hub of Magic Kingdom — the park's icon and the backdrop for its nightly fireworks.",
+   "k": "icon castle",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cinderella_Castle"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Space Mountain (Magic Kingdom)",
+   "address": "Tomorrowland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "The original 1975 indoor dark roller coaster in Tomorrowland.",
+   "k": "roller coaster ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Space_Mountain_(Magic_Kingdom)"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Pirates of the Caribbean (Magic Kingdom)",
+   "address": "Adventureland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "The Adventureland boat dark ride, Florida's version of the 1967 Disneyland classic.",
+   "k": "dark ride boat ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean_(attraction)"
+    ],
+    [
+     "OFFICIAL",
+     "https://disneyworld.disney.go.com/attractions/magic-kingdom/pirates-of-the-caribbean/"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Big Thunder Mountain Railroad (Magic Kingdom)",
+   "address": "Frontierland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Runaway mine-train roller coaster through the red-rock buttes of Frontierland.",
+   "k": "roller coaster ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Big_Thunder_Mountain_Railroad"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Seven Dwarfs Mine Train",
+   "address": "Fantasyland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Family mine-train coaster with swinging cars (2014), one of the park's most in-demand rides.",
+   "k": "roller coaster ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Seven_Dwarfs_Mine_Train"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Haunted Mansion (Magic Kingdom)",
+   "address": "Liberty Square, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Doom Buggy dark ride through 999 happy haunts in Liberty Square.",
+   "k": "dark ride",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://disneyworld.disney.go.com/en-ca/attractions/magic-kingdom/haunted-mansion/"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EPCOT",
+   "n": "Spaceship Earth",
+   "address": "World Celebration, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "The 18-storey geodesic sphere at EPCOT's entrance, with a slow time-machine dark ride inside.",
+   "k": "icon dark ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Spaceship_Earth_(Epcot)"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EPCOT",
+   "n": "Guardians of the Galaxy: Cosmic Rewind",
+   "address": "World Discovery, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Reverse-launch 'storytelling coaster' with rotating cars (2022) — one of the longest enclosed coasters in the world.",
+   "k": "roller coaster ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Guardians_of_the_Galaxy:_Cosmic_Rewind"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EPCOT",
+   "n": "Soarin' Around the World",
+   "address": "World Nature (The Land), EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Hang-glider flight simulator in The Land pavilion.",
+   "k": "simulator ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Soarin'"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EPCOT",
+   "n": "Test Track",
+   "address": "World Discovery, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "High-speed car-design slot-car ride, EPCOT's fastest attraction.",
+   "k": "ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Epcot_attractions"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EPCOT",
+   "n": "Frozen Ever After",
+   "address": "Norway Pavilion, World Showcase, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Boat ride through Arendelle in the Norway pavilion.",
+   "k": "boat ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Epcot_attractions"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EPCOT",
+   "n": "Remy's Ratatouille Adventure",
+   "address": "France Pavilion, World Showcase, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Trackless 3D dark ride at rat's-eye height through Gusteau's kitchen (2021).",
+   "k": "dark ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Remy's_Ratatouille_Adventure"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DHS",
+   "n": "The Twilight Zone Tower of Terror",
+   "address": "Sunset Boulevard, Disney's Hollywood Studios, Walt Disney World, Bay Lake, FL",
+   "w": "The 199-ft Hollywood Tower Hotel drop-tower dark ride.",
+   "k": "icon drop tower ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Twilight_Zone_Tower_of_Terror"
+    ],
+    [
+     "DISNEYBLOG",
+     "https://disneyblog.com/faq/attractions/best-rides-hollywood-studios"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DHS",
+   "n": "Rock 'n' Roller Coaster",
+   "address": "Sunset Boulevard, Disney's Hollywood Studios, Walt Disney World, Bay Lake, FL",
+   "w": "Launched indoor coaster on Sunset Boulevard (0–57 mph in 2.8 s).",
+   "k": "roller coaster ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rock_'n'_Roller_Coaster"
+    ],
+    [
+     "DISNEYBLOG",
+     "https://disneyblog.com/faq/attractions/best-rides-hollywood-studios"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DHS",
+   "n": "Slinky Dog Dash",
+   "address": "Toy Story Land, Disney's Hollywood Studios, Walt Disney World, Bay Lake, FL",
+   "w": "Family launch coaster in Toy Story Land (2018).",
+   "k": "roller coaster ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Slinky_Dog_Dash"
+    ],
+    [
+     "DISNEYBLOG",
+     "https://disneyblog.com/faq/attractions/best-rides-hollywood-studios"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DHS",
+   "n": "Star Wars: Rise of the Resistance",
+   "address": "Star Wars: Galaxy's Edge, Disney's Hollywood Studios, Walt Disney World, Bay Lake, FL",
+   "w": "Trackless dark ride / walk-through epic inside a Star Destroyer — widely ranked the best ride at Walt Disney World.",
+   "k": "dark ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Disney's_Hollywood_Studios_attractions"
+    ],
+    [
+     "DISNEYBLOG",
+     "https://disneyblog.com/faq/attractions/best-rides-hollywood-studios"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAK",
+   "n": "Tree of Life (Disney)",
+   "address": "Discovery Island, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "The 145-ft carved tree at the heart of Animal Kingdom, covered in ~300 animal carvings.",
+   "k": "icon",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tree_of_Life_(Disney)"
+    ],
+    [
+     "OFFICIAL",
+     "https://disneyworld.disney.go.com/attractions/animal-kingdom/tree-of-life/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAK",
+   "n": "Expedition Everest",
+   "address": "Asia, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Roller coaster up (and backwards down) a Himalayan peak with a Yeti.",
+   "k": "roller coaster ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Expedition_Everest"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/ak/ak_attr.htm"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/disneys-animal-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAK",
+   "n": "Avatar Flight of Passage",
+   "address": "Pandora – The World of Avatar, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "3D motorbike-style flight simulator on a banshee over Pandora (2017).",
+   "k": "simulator ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Avatar_Flight_of_Passage"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/ak/ak_attr.htm"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/disneys-animal-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAK",
+   "n": "Kilimanjaro Safaris",
+   "address": "Africa, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Open-truck safari across a 110-acre savanna of live African animals.",
+   "k": "safari animal wildlife ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kilimanjaro_Safaris"
+    ],
+    [
+     "OFFICIAL",
+     "https://disneyworld.disney.go.com/destinations/animal-kingdom/kilimanjaro-safaris/"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/ak/ak_attr.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAK",
+   "n": "Na'vi River Journey",
+   "address": "Pandora – The World of Avatar, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Slow boat ride through a bioluminescent Pandoran rainforest.",
+   "k": "boat ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Na%27vi_River_Journey"
+    ],
+    [
+     "OFFICIAL",
+     "https://disneyworld.disney.go.com/attractions/animal-kingdom/navi-river-journey/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DAK",
+   "n": "Dinosaur — CLOSED",
+   "address": "DinoLand U.S.A., Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Time-rover dark ride (1998) — closed 2 Feb 2026 as DinoLand is replaced; kept flagged so it never reads as open.",
+   "k": "dark ride",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Dinosaur_(Disney%27s_Animal_Kingdom)"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/ak/ak_attr.htm"
+    ]
+   ],
+   "closed": true
+  }
+ ]
+}

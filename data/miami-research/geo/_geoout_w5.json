@@ -1,0 +1,162 @@
+[
+ {
+  "n": "Newport Fishing Pier",
+  "address": "16701 Collins Ave, Sunny Isles Beach",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED (main-agent review: NOAA tide-gauge coord only 2-decimal (~1 km) precision; candidate was NOAA benchmark sheet station 8723050 https://tidesandcurrents.noaa.gov/benchmarks/8723050.html prints 25° 55.8' N, 80° 7.2' W; tide gage on )",
+  "status": "open",
+  "statusSource": "sibfl.gov 'Newport Fishing Pier' https://www.sibfl.gov/Parks-Recreation/Beach/Newport-Fishing-Pier (city page for operating pier)"
+ },
+ {
+  "n": "Sunny Isles Beach",
+  "address": "Sunny Isles Beach",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — only city centroids and 16701 Collins Ave (= Newport pier address geocode) found; Samson Oceanfront Park (17425 Collins Ave, sibfl.gov) has no printed coord in results",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Aventura Mall & Slide Tower",
+  "address": "19501 Biscayne Blvd, Aventura",
+  "lat": 25.95806,
+  "lng": -80.14306,
+  "confidence": "high",
+  "geoSource": "Wikipedia 'Aventura Mall' https://en.wikipedia.org/wiki/Aventura_Mall prints 25°57′29″N 80°08′35″W (25.95806°N 80.14306°W) — mall coord; Slide Tower is inside the mall complex",
+  "status": "open",
+  "statusSource": "Wikipedia 'Aventura Mall': operating regional mall at 19501 Biscayne Blvd"
+ },
+ {
+  "n": "Adrienne Arsht Center for the Performing Arts",
+  "address": "1300 Biscayne Blvd, Miami",
+  "lat": 25.7875,
+  "lng": -80.19222,
+  "confidence": "high",
+  "geoSource": "Wikipedia 'Adrienne Arsht Center for the Performing Arts' https://en.wikipedia.org/wiki/Adrienne_Arsht_Center_for_the_Performing_Arts prints 25°47′15″N 80°11′32″W",
+  "status": "open",
+  "statusSource": "Wikipedia + arshtcenter.org fact sheet describe it as an operating performing-arts center"
+ },
+ {
+  "n": "Kaseya Center",
+  "address": "601 Biscayne Blvd, Miami",
+  "lat": 25.78139,
+  "lng": -80.18806,
+  "confidence": "high",
+  "geoSource": "Wikipedia 'Kaseya Center' https://en.wikipedia.org/wiki/Kaseya_Center prints 25°46′53″N 80°11′17″W (25.78139°N 80.18806°W)",
+  "status": "open",
+  "statusSource": "Wikipedia: home arena of the Miami Heat (operating)"
+ },
+ {
+  "n": "Metromover",
+  "address": "downtown Miami",
+  "lat": 25.77583,
+  "lng": -80.19583,
+  "confidence": "med",
+  "geoSource": "Wikipedia 'Government Center station (Miami)' https://en.wikipedia.org/wiki/Government_Center_station_(Miami) prints 25°46′33″N 80°11′45″W (25.77583°N 80.19583°W) — Metromover/Metrorail hub station used as system anchor",
+  "status": "open",
+  "statusSource": "Wikipedia 'Metromover': fare-free people mover with 21 operating stations"
+ },
+ {
+  "n": "Brickell Key",
+  "address": "Miami",
+  "lat": 25.76917,
+  "lng": -80.18694,
+  "confidence": "med",
+  "geoSource": "Wikipedia 'Carbonell Condominium' https://en.wikipedia.org/wiki/Carbonell_Condominium prints 25°46′09″N 80°11′13″W — a building on Brickell Key (Wikipedia's Brickell Key article coord 25°49′28″N 80°11′27″W is erroneous, lands ~6 km north in Edgewater, so rejected)",
+  "status": "open",
+  "statusSource": "public island/neighborhood (Wikipedia 'Brickell Key')"
+ },
+ {
+  "n": "The Underline",
+  "address": "Brickell",
+  "lat": 25.76361,
+  "lng": -80.19528,
+  "confidence": "med",
+  "geoSource": "Wikipedia 'Brickell station' https://en.wikipedia.org/wiki/Brickell_station prints 25°45′49″N 80°11′43″W (25.76361°N 80.19528°W) — Underline Phase 1 (Brickell Backyard) runs beneath this station; no Wikipedia coord found for the park itself",
+  "status": "open",
+  "statusSource": "TimeOut Miami 2024 + traillink: 2.8 mi open Miami River–SW 19th Ave"
+ },
+ {
+  "n": "Broward Center for the Performing Arts",
+  "address": "201 SW 5th Ave, Fort Lauderdale",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED (main-agent review: printing page unconfirmed; candidate was 26°7'13\"N 80°8'55\"W printed for Broward Center in search results citing https://en.wikipedia.org/wiki/Broward_Center_for_the_Performing_Arts)",
+  "status": "open",
+  "statusSource": "browardcenter.org/about + Wikipedia: 700+ performances/yr"
+ },
+ {
+  "n": "Seminole Hard Rock Hotel & Casino (Guitar Hotel)",
+  "address": "1 Seminole Way, Hollywood FL",
+  "lat": 26.051809,
+  "lng": -80.211464,
+  "confidence": "med",
+  "geoSource": "latlong.net 'Seminole Hard Rock Hotel & Casino Hollywood, FL, USA' https://www.latlong.net/place/seminole-hard-rock-hotel-casino-hollywood-fl-usa-657.html prints 26.051809, -80.211464 (no Wikipedia coord surfaced)",
+  "status": "open",
+  "statusSource": "Wikipedia 'Seminole Hard Rock Hotel & Casino Hollywood' describes operating resort"
+ },
+ {
+  "n": "Jungle Queen Riverboat",
+  "address": "801 Seabreeze Blvd, Fort Lauderdale (Bahia Mar dock)",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED (main-agent review: tide-station point, not the dock (~180 m precision); candidate was NOAA tide station 'Bahia Mar Yacht Club, Fort Lauderdale' https://tide-forecast.com/locations/Bahia-Mar-Yacht-Club-Fort-Lauderdale-Florida p)",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Deerfield Beach",
+  "address": "Deerfield Beach FL",
+  "lat": 26.3164522,
+  "lng": -80.074169,
+  "confidence": "med",
+  "geoSource": "Deerfield Beach International Fishing Pier (beach POI, not city centroid): Dive Against Debris survey submissions https://diveagainstdebris.org/debris-data/deerfield-beach-pier-7 print 26.3164522, -80.074169",
+  "status": "open",
+  "statusSource": "visitflorida.com Deerfield Beach beach guide; pier remodeled 976-ft and operating"
+ },
+ {
+  "n": "Pompano Beach",
+  "address": "Pompano Beach FL",
+  "lat": 26.235243743368,
+  "lng": -80.087390644503,
+  "confidence": "med",
+  "geoSource": "Pompano Beach Fishing Pier (beach POI, not city centroid): Dive Against Debris survey https://diveagainstdebris.org/debris-data/pompano-beach-pier prints 26.235243743368, -80.087390644503 (Dixie Divers, 2022-09-03; 2023 survey 26.235197,-80.087394 agrees)",
+  "status": "open",
+  "statusSource": "pompanobeacharts.org fishing/water sports page describes pier operating"
+ },
+ {
+  "n": "Hillsboro Beach & Hillsboro Inlet Light",
+  "address": "Hillsboro Inlet Light",
+  "lat": 26.25889,
+  "lng": -80.08083,
+  "confidence": "high",
+  "geoSource": "Wikipedia 'Hillsboro Inlet Light' https://en.wikipedia.org/wiki/Hillsboro_Inlet_Light prints 26°15′32″N 80°4′51″W (26.25889°N 80.08083°W)",
+  "status": "open",
+  "statusSource": "USCG history page: active aid to navigation (lighthouse); grounds by tour only"
+ },
+ {
+  "n": "Dania Beach",
+  "address": "Dania Beach FL",
+  "lat": 26.058277,
+  "lng": -80.111511,
+  "confidence": "med",
+  "geoSource": "Dania Beach Pier (beach POI, not city centroid): Dive Against Debris survey https://diveagainstdebris.org/debris-survey/dania-beach-pier-1 prints 26.058277, -80.111511",
+  "status": "open",
+  "statusSource": "beach/pier public; survey describes active pier"
+ },
+ {
+  "n": "Hallandale Beach",
+  "address": "Hallandale Beach FL",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — only city centroid 25.987219,-80.153206 (latlong.net) found; North City Beach Park coord not printed",
+  "status": "unknown",
+  "statusSource": ""
+ }
+]

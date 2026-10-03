@@ -1,0 +1,769 @@
+{
+ "sources": [],
+ "sights": [
+  {
+   "t": 1,
+   "a": "CHUO",
+   "n": "Osaka Castle",
+   "address": "Osakajō, Chuo-ku, Osaka, Japan",
+   "w": "Hideyoshi's 1583 castle, rebuilt in 1931 — the main keep (a museum with a top-floor lookout) rises from stone walls and moats in a vast park famous for plum and cherry blossom.",
+   "k": "castle, museum, park",
+   "g": [
+    "ICON",
+    "CASTLE",
+    "MUS",
+    "VIEW"
+   ],
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/things-to-do/best-things-to-do-in-osaka"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Osaka_Castle"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MINAM",
+   "n": "Dōtonbori",
+   "address": "Dōtonbori, Chuo-ku, Osaka, Japan",
+   "w": "The canal-side heart of kuidaore Osaka: neon, mechanised signs (the Glico Running Man, the Kani Doraku crab) and street food that barely closes.",
+   "k": "nightlife, street food",
+   "g": [
+    "ICON",
+    "NIGHT",
+    "POP",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4001.html"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/things-to-do/best-things-to-do-in-osaka"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/D%C5%8Dtonbori"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MINAM",
+   "n": "Kuromon Market",
+   "address": "Nipponbashi, Chuo-ku, Osaka, Japan",
+   "w": "\"Osaka's Kitchen\": a several-hundred-metre covered arcade of fishmongers, butchers, greengrocers and grill-it-on-the-spot stalls.",
+   "k": "market",
+   "g": [
+    "MKT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4031.html"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/things-to-do/best-things-to-do-in-osaka"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Shinsaibashi-suji Shopping Arcade",
+   "address": "Shinsaibashi-suji, Chuo-ku, Osaka, Japan",
+   "w": "Osaka's premier shopping street — a ~600 m covered arcade mixing chain stores, boutiques and department stores, running north from Dōtonbori.",
+   "k": "shopping arcade",
+   "g": [
+    "POP",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4001.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shinsaibashi"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Amerikamura (Amemura)",
+   "address": "Nishishinsaibashi, Chuo-ku, Osaka, Japan",
+   "w": "Osaka's answer to Harajuku: thrift stores, cafes and youth fashion around Triangle Park, west of Mido-suji.",
+   "k": "youth culture, shopping",
+   "g": [
+    "POP",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4001.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Amerikamura"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TNJ",
+   "n": "Shinsekai & Tsūtenkaku",
+   "address": "Ebisuhigashi, Naniwa-ku, Osaka, Japan",
+   "w": "The 'New World' district built after the 1903 Expo — half Paris, half Coney Island — around Tsūtenkaku, the 103 m tower rebuilt in 1956; the home of Osaka kushikatsu.",
+   "k": "retro district, tower",
+   "g": [
+    "ICON",
+    "VIEW",
+    "NIGHT"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4012.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TNJ",
+   "n": "Shitennō-ji",
+   "address": "Shitennōji, Tennoji-ku, Osaka, Japan",
+   "w": "Founded by Prince Shōtoku in 593 — one of Japan's oldest temples and the first built by the state, with its five-storey pagoda on the classic straight-line layout.",
+   "k": "temple",
+   "g": [
+    "TEMPLE",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4025.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shitenn%C5%8D-ji"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TNJ",
+   "n": "Tennōji Zoo",
+   "address": "Tennōji Park, Chausuyamacho, Tennoji-ku, Osaka, Japan",
+   "w": "Osaka's city zoo (1915) in Tennōji Park, below Tsūtenkaku.",
+   "k": "zoo",
+   "g": [
+    "NATURE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4025.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tenn%C5%8Dji_Zoo"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TNJ",
+   "n": "Osaka City Museum of Fine Arts",
+   "address": "Tennōji Park, Chausuyamacho, Tennoji-ku, Osaka, Japan",
+   "w": "The 1936 municipal art museum in Tennōji Park, with Keitakuen garden behind it.",
+   "k": "art museum",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4025.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Osaka_City_Museum_of_Fine_Arts"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CHUO",
+   "n": "Osaka Museum of History",
+   "address": "4-1-32 Otemae, Chuo-ku, Osaka 540-0008, Japan",
+   "w": "Opened 2001 in a tower beside NHK Osaka, across from the castle: large-scale models chronicle the city from its days as Japan's first capital to the early Shōwa era, with views over the castle park.",
+   "k": "history museum",
+   "g": [
+    "MUS",
+    "VIEW"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4014.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Osaka_Museum_of_History"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "National Museum of Art, Osaka",
+   "address": "Nakanoshima, Kita-ku, Osaka, Japan",
+   "w": "Contemporary Japanese and international art on two underground floors of Nakanoshima; the 2007 building's entrance structure is designed to evoke growing bamboo.",
+   "k": "art museum",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4016.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/National_Museum_of_Art,_Osaka"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KITA",
+   "n": "Osaka Science Museum",
+   "address": "Nakanoshima, Kita-ku, Osaka, Japan",
+   "w": "Hands-on science museum and planetarium on Nakanoshima, next to the National Museum of Art.",
+   "k": "science museum",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4015.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Osaka_Science_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Nakanoshima Museum of Art, Osaka",
+   "address": "Nakanoshima, Kita-ku, Osaka, Japan",
+   "w": "The city art museum that opened on Nakanoshima in February 2022 — modern and contemporary art and design, part of the island's museum cluster.",
+   "k": "art museum",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/area_kita/"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4017.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nakanoshima_Museum_of_Art,_Osaka"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Tenjinbashi-suji Shopping Street",
+   "address": "Tenjinbashi 1-7 chōme, Kita-ku, Osaka, Japan",
+   "w": "Claimed as Japan's longest covered shopping street — 2.6 km of shops and eateries running north from the Tenmangū approach.",
+   "k": "shopping arcade",
+   "g": [
+    "POP",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/204"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4024.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MINAM",
+   "n": "Hōzen-ji & Hōzenji Yokochō",
+   "address": "Namba, Chuo-ku, Osaka, Japan",
+   "w": "A moss-covered Fudō Myōō statue that worshippers splash with water, beside two 80 m stone-paved alleys of old kappo counters, bars and okonomiyaki shops — the setting of Oda Sakunosuke's 'Meoto Zenzai'.",
+   "k": "temple, lantern-lit alleys",
+   "g": [
+    "TEMPLE",
+    "NIGHT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4001.html"
+    ],
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/hozenji-yokocho/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/H%C5%8Dzen-ji_(Osaka)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Den Den Town (Nipponbashi)",
+   "address": "Nipponbashi, Naniwa-ku, Osaka, Japan",
+   "w": "Osaka's Akihabara: electronics, anime, games and maid cafés along Sakaisuji in Nipponbashi.",
+   "k": "electronics & otaku district",
+   "g": [
+    "POP",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/229"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nipponbashi"
+    ]
+   ],
+   "anime": "Kansai's otaku district — Nipponbashi Ota Road, Animate, Mandarake and Jungle for anime, manga, figures and retro games"
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Kitashinchi",
+   "address": "Sonezakishinchi, Kita-ku, Osaka, Japan",
+   "w": "Osaka's grown-up entertainment quarter just south of Osaka Station — hundreds of restaurants, hostess bars and counters.",
+   "k": "dining & nightlife district",
+   "g": [
+    "NIGHT"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4009.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kitashinchi_Station"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Nakazakichō",
+   "address": "Nakazakinishi, Kita-ku, Osaka, Japan",
+   "w": "A pocket of pre-war row houses east of Umeda whose narrow lanes are now full of cafés, craft shops and vintage stores.",
+   "k": "retro neighbourhood",
+   "g": [
+    "POP",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4009.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nakazakich%C5%8D_Station"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TNJ",
+   "n": "Ikukunitama Shrine",
+   "address": "13-9 Ikutamacho, Tennoji-ku, Osaka 543-0071, Japan",
+   "w": "Osaka's oldest tutelary shrine, an Engishiki-listed great shrine to the land deities Ikushima and Tarushima, on the Uemachi ridge near Tanimachi 9-chōme.",
+   "k": "shrine",
+   "g": [
+    "TEMPLE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/ikukunitamajinja/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ikukunitama_Shrine"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CHUO",
+   "n": "Hōkoku Shrine (Osaka Castle Park)",
+   "address": "Osaka Castle Park, Chuo-ku, Osaka, Japan",
+   "w": "Shrine inside Osaka Castle Park enshrining Toyotomi Hideyoshi, Hideyori and Hidenaga as deities of success — a branch of Kyoto's Toyokuni Shrine.",
+   "k": "shrine",
+   "g": [
+    "TEMPLE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/448"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/H%C5%8Dkoku_Shrine_(Osaka)"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MINAM",
+   "n": "Namba Parks",
+   "address": "Nambanaka, Naniwa-ku, Osaka, Japan",
+   "w": "Jon Jerde's 2003 mall on the old Osaka Stadium site, shaped like a canyon of rock strata, with ~70,000 plants on its terraced rooftop Parks Garden.",
+   "k": "rooftop garden, mall",
+   "g": [
+    "GARDEN",
+    "POP",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/240"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Namba_Parks"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Ikuno Korea Town (Miyuki-dōri)",
+   "address": "Momodani 3-chōme, Ikuno-ku, Osaka, Japan",
+   "w": "Japan's largest Koreatown: about 150 grocers, kimchi and chijimi stalls, restaurants and hanbok shops along a 300 m shopping street in Ikuno, a short walk from Tsuruhashi's yakiniku alleys.",
+   "k": "Koreatown, street food",
+   "g": [
+    "MKT",
+    "POP",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/miyuki-dori-korea-town/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ikuno_Korea_Town"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "National Bunraku Theatre",
+   "address": "Nipponbashi, Chuo-ku, Osaka, Japan",
+   "w": "The nation's most prestigious stage for bunraku, Osaka's own puppet theatre — runs of about three weeks in January, April, June, July/August and November.",
+   "k": "puppet theatre",
+   "g": [
+    "ICON",
+    "NIGHT"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e2092.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/National_Bunraku_Theatre"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Grand Green Osaka & Umekita Park",
+   "address": "Ōfukachō, Kita-ku, Osaka, Japan",
+   "w": "The Umekita redevelopment beside JR Osaka Station — a large urban park with new towers opening in stages through spring 2027, next to the Grand Front Osaka complex.",
+   "k": "urban park",
+   "g": [
+    "GARDEN",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/news/osaka-station-umekita.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Grand_Green_Osaka"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CHUO",
+   "n": "Naniwa Palace Site (Naniwa-no-Miya)",
+   "address": "Hōenzaka, Chuo-ku, Osaka, Japan",
+   "w": "Open lawns and reconstructed platform bases across from Osaka Castle Park marking the 7th–8th-century imperial palace of Naniwa-kyō, when Osaka was Japan's capital.",
+   "k": "archaeological site",
+   "g": [
+    "FREE",
+    "MUS"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/249"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Naniwa-ky%C5%8D"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TNJ",
+   "n": "Abeno Harukas 300 Observatory",
+   "address": "Abenosuji, Abeno-ku, Osaka, Japan",
+   "w": "The ~300 m skyscraper that opened in 2014 — department store, hotel, art museum and the Harukas 300 observation deck with panoramic views across Osaka.",
+   "k": "observation deck",
+   "g": [
+    "VIEW",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/376"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Abeno_Harukas"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TNJ",
+   "n": "Keitakuen Garden",
+   "address": "Tennōji Park, Chausuyamacho, Tennoji-ku, Osaka, Japan",
+   "w": "A 19,800 m² strolling pond garden behind the city art museum, designed by tea master Kizu Issai and built by Ogawa Jihei VII (of Heian Shrine and Murin-an fame); entry is just ¥150.",
+   "k": "Japanese garden",
+   "g": [
+    "GARDEN"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4025.html"
+    ],
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/318"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "TNJ",
+   "n": "Tennōji Park & Tenshiba",
+   "address": "Chausuyamacho, Tennoji-ku, Osaka, Japan",
+   "w": "The park holding the zoo, greenhouse, art museum and Keitakuen, fronted by 'Tenshiba' — a Good Design Award-winning lawn with cafés a short walk from Tennōji Station.",
+   "k": "park",
+   "g": [
+    "GARDEN",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/228"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4025.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Osaka Tsuruhashi Market",
+   "address": "Tsuruhashi, Ikuno-ku / Higashinari-ku, Osaka, Japan",
+   "w": "Some 800 stalls in the warren beside Tsuruhashi Station — yakiniku, kimchi and Korean groceries, fresh fish and offal hot-pots; the smell of grilling meat greets you on the platform.",
+   "k": "market, yakiniku district",
+   "g": [
+    "MKT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/osaka-tsuruhashi-market/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E9%B6%B4%E6%A9%8B%E5%95%86%E5%BA%97%E8%A1%97"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MINAM",
+   "n": "Ebisubashi & the Glico Running Man sign",
+   "address": "Ebisubashi bridge, Dōtonbori, Chuo-ku, Osaka, Japan",
+   "w": "The bridge over the Dōtonbori canal where everyone poses with the Glico Running Man — the neon heart of Minami's mechanised signs.",
+   "k": "neon sign, bridge",
+   "g": [
+    "ICON",
+    "NIGHT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4001.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E9%81%93%E9%A0%93%E5%A0%80%E3%82%B0%E3%83%AA%E3%82%B3%E3%82%B5%E3%82%A4%E3%83%B3"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Namba Yasaka Shrine",
+   "address": "Motomachi, Naniwa-ku, Osaka, Japan",
+   "w": "Famous for its 12 m-high lion-head stage, whose gaping mouth swallows bad luck and brings victory in competition; the shrine was rebuilt after the 1945 air raids and keeps an intangible-folk-culture tug-of-war rite.",
+   "k": "shrine",
+   "g": [
+    "TEMPLE",
+    "FREE",
+    "POP"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/nanbayasakajinja/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E9%9B%A3%E6%B3%A2%E5%85%AB%E9%98%AA%E7%A5%9E%E7%A4%BE"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Namba Grand Kagetsu (NGK)",
+   "address": "Namba-sennichimae, Chuo-ku, Osaka, Japan",
+   "w": "Yoshimoto's 858-seat 'hall of laughter', Japan's largest comedy theatre — Yoshimoto Shinkigeki, manzai and rakugo 365 days a year.",
+   "k": "comedy theatre",
+   "g": [
+    "NIGHT",
+    "POP"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/namba-grand-kagetsu/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E3%81%AA%E3%82%93%E3%81%B0%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%89%E8%8A%B1%E6%9C%88"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TNJ",
+   "n": "Jan Jan Yokochō",
+   "address": "Ebisuhigashi, Naniwa-ku, Osaka, Japan",
+   "w": "Shinsekai's 130 m covered alley of kushikatsu and doteyaki counters and old game parlours, running south toward Dōbutsuen-mae.",
+   "k": "food alley",
+   "g": [
+    "NIGHT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot?area=4"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%A3%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%B3%E6%A8%AA%E4%B8%81"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Sennichimae Doguyasuji",
+   "address": "Namba-sennichimae, Chuo-ku, Osaka, Japan",
+   "w": "A 150 m arcade of professional kitchen-supply shops — knives, plastic food samples, lanterns, signs and tableware — three minutes from Namba Station.",
+   "k": "shopping arcade",
+   "g": [
+    "POP",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/sennichimae-doguyasuji-shopping-street/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E5%8D%83%E6%97%A5%E5%89%8D%E9%81%93%E5%85%B7%E5%B1%8B%E7%AD%8B%E5%95%86%E5%BA%97%E8%A1%97"
+    ]
+   ]
+  }
+ ]
+}

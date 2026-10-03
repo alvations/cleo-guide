@@ -42,6 +42,7 @@ RDIR = {
     "indianapolis-in": "data/indianapolis-research",
     "liege": "data/liege-research",
     "philadelphia-pa": "data/philadelphia-research",
+    "san-francisco-ca": "data/san-francisco-research",
 }
 # human labels for Singapore area codes (best-effort; unknown codes print the raw code)
 SG_LABELS = {"TPY":"Toa Payoh","BSH":"Bishan","AMK":"Ang Mo Kio","PPM":"Potong Pasir & MacPherson",
@@ -68,7 +69,7 @@ def load_records(rdir):
     food, sights = [], []
     for path in sorted(glob.glob(os.path.join(rdir, "*.json"))):
         base = os.path.basename(path)
-        if base.startswith(("_", "out_", "sr_", "geo_", "CREATORS", "SOURCES_")) or "dataset" in base:
+        if base.startswith(("_", "out_", "sr_", "geo_", "CREATORS", "SOURCES_")) or "dataset" in base or "worklist" in base:
             continue
         try: d = json.load(open(path, encoding="utf-8"))
         except Exception: continue

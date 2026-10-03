@@ -15,16 +15,18 @@ def _geo(n, address, lat, lng, conf, gsrc, status, ssrc):
                "geoSource": (gsrc if lat is not None else "UNVERIFIED — no place pin found via WebSearch"),
                "status": status, "statusSource": ssrc})
 
-def S(t, a, n, address, w, sources, lat=None, lng=None, conf="high", gsrc="", status="open", ssrc="", k="", g=None, closed=False):
+def S(t, a, n, address, w, sources, lat=None, lng=None, conf="high", gsrc="", status="open", ssrc="", k="", g=None, closed=False, anime=""):
     r = {"t": t, "a": a, "n": n, "address": address, "w": w, "sources": [list(x) for x in sources]}
+    if anime: r["anime"] = anime
     if k: r["k"] = k
     if g: r["g"] = g
     if closed: r["closed"] = True
     _S.append(r); _geo(n, address, lat, lng, conf, gsrc, status, ssrc)
 
-def F(t, a, cz, dish, n, address, w, sources, lat=None, lng=None, conf="high", gsrc="", status="open", ssrc="", closed=False):
+def F(t, a, cz, dish, n, address, w, sources, lat=None, lng=None, conf="high", gsrc="", status="open", ssrc="", closed=False, anime=""):
     r = {"t": t, "a": a, "cz": cz, "dish": dish, "n": n, "address": address, "w": w, "closed": closed,
          "sources": [list(x) for x in sources]}
+    if anime: r["anime"] = anime
     _F.append(r); _geo(n, address, lat, lng, conf, gsrc, status, ssrc)
 
 def emit(tag, src_outlets=None):

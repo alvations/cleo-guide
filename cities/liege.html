@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Liège field guide — 57 sights and 42 places to eat across Liège and the Meuse valley (Spa, Huy, Herve, Val-Dieu, Blegny-Mine), each traceable to its source (Michelin, UNESCO, Le Soir, RTBF, La Meuse, Visit Liège) on one interactive map with area, collection and cuisine filters — beer &amp; breweries a first-class layer — a trip builder and exports.">
+<title>Liège Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · Liège &amp; the Meuse valley, sourced</p>
+  <h1>Liège<span class="thin">&amp; the Meuse — Montagne de Bueren · Palais · Batte · Guillemins · Spa · Huy · Val-Dieu</span></h1>
+  <p class="standfirst">57 sights and 42 places to eat across <strong>Liège</strong> and the Meuse valley — from the 374 steps of the <strong>Montagne de Bueren</strong>, the <strong>Prince-Bishops' Palace</strong>, the <strong>Grand Curtius</strong> and La Boverie to the Sunday <strong>Batte</strong> market, Outremeuse and Calatrava's <strong>Guillemins</strong> station, out to <strong>Spa</strong>, Francorchamps, <strong>Huy</strong>, the abbey of <strong>Val-Dieu</strong> and the UNESCO coal mine at <strong>Blegny</strong>. A food canon all its own: <strong>boulets à la liégeoise</strong> in sauce lapin, the pearl-sugar <strong>gaufre de Liège</strong>, salade liégeoise, <strong>péket</strong>, sirop de Liège and <strong>Herve</strong> cheese. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong> (beer is its own layer), and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Belgium/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#C0504D"></i>Liège</span>
+  <span><i style="background:#6A8D3F"></i>Around Liège</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="boulets, gaufre de Liège, péket, Val-Dieu, Herve…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-09-04</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced in French across Michelin, UNESCO, Gault&amp;Millau, Le Soir, La Libre, RTBF, La Meuse, L'Avenir, Visit Liège, Wallonie Belgique Tourisme and the Walloon heritage agency, with beer &amp; breweries grouped as a first-class layer. Every coordinate is verified into data/geocodes.json and every place status-checked. Places whose exact pin could not be verified are held back until a final coordinate pass.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "AWAP":{k:"AWAP",t:"AWAP",u:"",l:""},
+  "COE":{k:"COE",t:"COE",u:"",l:""},
+  "CULTURETRIP":{k:"CULTURETRIP",t:"CULTURETRIP",u:"",l:""},
+  "ERIH":{k:"ERIH",t:"ERIH",u:"",l:""},
+  "EUROPEANWATERFALLS":{k:"EUROPEANWATERFALLS",t:"EUROPEANWATERFALLS",u:"",l:""},
+  "KIKIRPA":{k:"KIKIRPA",t:"KIKIRPA",u:"",l:""},
+  "LADH":{k:"LA DH",t:"LA DH",u:"",l:""},
+  "LALIBRE":{k:"LA LIBRE",t:"La Libre Belgique",u:"https://www.lalibre.be",l:"La Libre Belgique"},
+  "LAVENIR":{k:"LAVENIR",t:"LAVENIR",u:"",l:""},
+  "LIEGECITY":{k:"LIEGECITY",t:"LIEGECITY",u:"",l:""},
+  "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet (FR edition)",u:"https://www.lonelyplanet.fr",l:"Lonely Planet (FR edition)"},
+  "MUSEUMDE":{k:"MUSEUMDE",t:"MUSEUMDE",u:"",l:""},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
+  "PARISMATCHBE":{k:"PARISMATCHBE",t:"Paris Match Belgique",u:"https://www.parismatch.be",l:"Paris Match Belgique"},
+  "PROVINCELIEGE":{k:"PROVINCELIEGE",t:"PROVINCELIEGE",u:"",l:""},
+  "ROUTARD":{k:"ROUTARD",t:"Le Guide du Routard (FR travel guide of record)",u:"https://www.routard.com",l:"Le Guide du Routard (FR travel guide of record)"},
+  "RTBF":{k:"RTBF",t:"RTBF (Belgian public broadcaster)",u:"https://www.rtbf.be",l:"RTBF (Belgian public broadcaster)"},
+  "SHOWCAVES":{k:"SHOWCAVES",t:"SHOWCAVES",u:"",l:""},
+  "SNCB":{k:"SNCB",t:"SNCB/NMBS — Discover Belgium editorial (national railway)",u:"https://www.belgiantrain.be",l:"SNCB/NMBS — Discover Belgium editorial (national railway)"},
+  "ULIEGE":{k:"ULIEGE",t:"Université de Liège — campus guide (curated local-cuisine selection)",u:"https://www.campus.uliege.be",l:"Université de Liège — campus guide (curated local-cuisine selection)"},
+  "UNESCO":{k:"UNESCO",t:"UNESCO",u:"",l:""},
+  "VISITLIEGE":{k:"VISITLIEGE",t:"Visit Liège — Maison du Tourisme du Pays de Liège (official)",u:"https://www.visitezliege.be",l:"Visit Liège — Maison du Tourisme du Pays de Liège (official)"},
+  "WBT":{k:"WBT",t:"Wallonie Belgique Tourisme (official regional tourism)",u:"https://walloniabelgiumtourism.co.uk",l:"Wallonie Belgique Tourisme (official regional tourism)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"WIKIPEDIA",u:"",l:""}
+};
+
+const AREAS = [
+  {id:"LIE",n:"Liège (Carré · Outremeuse · Batte · Montagne de Bueren · Guillemins · Palais · Curtius · Boverie)",c:"#C0504D"},
+  {id:"LIER",n:"Around Liège (Spa & Francorchamps · Huy · the Meuse · Herve plateau · Val-Dieu · Blegny-Mine)",c:"#6A8D3F"}
+];
+
+const P = [
+{t:1,a:"LIE",n:"Grand Curtius",ad:"Quai de Maastricht 13, 4000 Liège, Belgium",la:50.64742,ln:5.58394,w:"The early-17th-c. red-brick mansion of the arms merchant Jean Curtius on the Meuse, reopened in 2009 as one museum merging archaeology, weaponry, glass, decorative arts and Mosan religious art over 5,000 m².",g:["MUS","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Curtius_Museum"],["VISITLIEGE","https://visitezliege.be/en/grand-curtius"],["OFFICIAL","https://grandcurtius.be/en/museum"]]},
+{t:1,a:"LIE",n:"Palais des Princes-Évêques",ad:"Place Saint-Lambert, 4000 Liège, Belgium",la:50.64620,ln:5.57345,w:"The 16th-c. palace of the Prince-Bishops who ruled Liège for eight centuries, dominating Place Saint-Lambert; today the Palais de Justice, its arcaded first courtyard is open to walk through.",g:["ICON","HIST","ARCH","MKT"],s:[["LONELYPLANET","https://www.lonelyplanet.fr/article/4-des-meilleures-choses-faire-liege"],["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/province-de-liege/liege"],["VISITLIEGE","https://www.visitezliege.be/Photos/WPA_MediaSource/city_fr_220124.pdf"]]},
+{t:1,a:"LIE",n:"Collégiale Saint-Barthélemy",ad:"Place Saint-Barthélemy, 4000 Liège, Belgium",la:50.64790,ln:5.58280,w:"Romanesque collegiate church with a twin-towered westwork, home to Renier de Huy's baptismal font (c. 1107–1118) — a lost-wax brass basin on ten oxen, a masterpiece of Mosan art.",g:["ARCH","HIST","MUS","NIGHT"],s:[["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/province-de-liege/liege/collegiale-saint-barthelemy"],["WBT","https://walloniabelgiumtourism.co.uk/en-gb/content/collegiate-church-saint-barthelemy-and-its-baptismal-fonts"]]},
+{t:1,a:"LIE",n:"Montagne de Bueren",ad:"Montagne de Bueren, 4000 Liège, Belgium",la:50.64794,ln:5.57759,w:"The 374-step stairway (1881) cut straight up the hillside from Hors-Château to the Citadelle, built so soldiers could reach town without the alleys — Liège's emblem and its best free climb, with a panorama over the roofs and the Meuse.",g:["ICON","HIST","FREE","ARCH"],s:[["VISITLIEGE","https://visitezliege.be/en/offre/montagne-de-bueren"],["LONELYPLANET","https://www.lonelyplanet.fr/article/4-des-meilleures-choses-faire-liege"],["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/province-de-liege/liege"]]},
+{t:1,a:"LIE",n:"Gare de Liège-Guillemins",ad:"Place des Guillemins 2, 4000 Liège, Belgium",la:50.62472,ln:5.56694,w:"Santiago Calatrava's white steel-and-glass vault (2009) — a station with no façade, just a 160 m canopy over the tracks; worth the detour even if you arrive by car.",g:["ICON","ARCH","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Li%C3%A8ge-Guillemins_railway_station"],["SNCB","https://www.belgiantrain.be/fr/travel-ideas/inspiration/discover-belgium/liege/liege-impossibletomiss"]]},
+{t:1,a:"LIE",n:"La Boverie",ad:"Parc de la Boverie 3, 4020 Liège, Belgium",la:50.62750,ln:5.57750,w:"The city's fine-arts museum in a 1905 Exhibition palace on the Boverie island park, with a glass extension for blockbuster shows run in partnership with the Louvre; Ingres, Monet, Picasso and the Walloon school.",g:["MUS","PARK"],s:[["LONELYPLANET","https://www.lonelyplanet.fr/article/4-des-meilleures-choses-faire-liege"],["WIKIPEDIA","https://en.wikipedia.org/wiki/La_Boverie"],["LIEGECITY","https://www.liege.be/en/discover/culture/museums/la-boverie/the-park-de-la-boverie/"]]},
+{t:1,a:"LIE",n:"Cathédrale Saint-Paul et son Trésor",ad:"Place de la Cathédrale, 4000 Liège, Belgium",la:50.64019,ln:5.57106,w:"Gothic cathedral since 1802 (after the revolutionaries razed Saint-Lambert); its Trésor holds the reliquary bust of Saint Lambert and the gold reliquary Charles the Bold gave in penance for sacking the city.",g:["ARCH","MUS","HIST","ICON"],s:[["VISITLIEGE","https://www.visitezliege.be/en/offre/la-cathedrale-saint-paul"],["LONELYPLANET","https://www.nonprod.lonelyplanet.com/points-of-interest/cathedrale-st-paul/1262164"],["LADH","https://www.dhnet.be/regions/liege/2025/10/24/liege-la-cathedrale-saint-paul-va-etre-restauree-IKMF2ZZMUNDJ3P5U622OEGDANI/"]]},
+{t:2,a:"LIE",n:"La Cité Miroir",ad:"Place Xavier Neujean 22, 4000 Liège, Belgium",la:50.64344,ln:5.56815,w:"The 1930s Sauvenière swimming baths, an Art Deco modernist landmark, reborn as a civic culture centre with exhibitions on memory and citizenship (incl. the permanent 'Plus jamais ça!' Holocaust route).",g:["MUS","ARCH","HIST","ICON"],s:[["SNCB","https://www.belgiantrain.be/fr/travel-ideas/inspiration/discover-belgium/liege/liege-cultural"],["VISITLIEGE","https://www.visitezliege.be/Photos/WPA_MediaSource/city_fr_220124.pdf"]]},
+{t:2,a:"LIE",n:"Musée de la Vie wallonne",ad:"Cour des Mineurs, 4000 Liège, Belgium",la:50.64681,ln:5.57614,w:"The Province's folk-life museum in the 17th-c. Friars Minor convent — a century of Walloon everyday life, crafts, dialect and the Liège puppets (with marionnette shows).",g:["MUS","HIST"],s:[["LONELYPLANET","https://www.nonprod.lonelyplanet.com/points-of-interest/musee-de-la-vie-wallonne/462124"],["ERIH","https://www.erih.net/i-want-to-go-there/site/museum-of-walloon-life"],["PROVINCELIEGE","https://www.provincedeliege.be/sites/default/files/media/6041/Dossierdepresse_100ans_Mus%C3%A9eViewallonne.pdf"]]},
+{t:1,a:"LIER",n:"Blegny-Mine",ad:"Blegny-Mine, Blegny, Belgium",la:50.68646,ln:5.72210,w:"One of the four UNESCO 'Major Mining Sites of Wallonia' and one of only a handful of European coal mines you can still descend — ex-miners guide you 30 and 60 m down the shafts of the Trembleur colliery (closed 1980).",g:["UNESCO","HIST","MUS"],s:[["UNESCO","https://whc.unesco.org/en/list/1344"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Blegny-Mine"]]},
+{t:1,a:"LIER",n:"Fort de Huy",ad:"Fort de Huy, Huy, Belgium",la:50.51730,ln:5.23710,w:"The Dutch-built (1818–23) citadel crowning the rock above the Meuse at Huy — a Nazi prison and Gestapo jail in WWII, now a memorial museum with sweeping river views.",g:["HIST","ARCH","MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Citadel_of_Huy"],["PARISMATCHBE","https://www.parismatch.be/lifestyle/voyages/2021/03/28/le-fort-de-huy-un-colosse-mosan-FAHATFOALNHW7IJYIZUHRGBDDY/"]]},
+{t:1,a:"LIER",n:"Collégiale Notre-Dame de Huy",ad:"Huy, Belgium",la:50.51882,ln:5.23817,w:"Gothic collegiate church on the Meuse with the great rose window 'Li Rondia' and a treasury holding Mosan reliquary shrines of the 12th–13th c.",g:["ARCH","HIST","MUS"],s:[["LONELYPLANET","https://www.nonprod.lonelyplanet.com/points-of-interest/collegiale-notre-dame-de-huy/1261573"],["KIKIRPA","https://www.kikirpa.be/files/Publicaties/Publications-for-download/Others/La-coll%C3%A9giale-de-Huy.pdf"],["WIKIPEDIA","https://en.wikipedia.org/wiki/List_of_protected_heritage_sites_in_Huy"]]},
+{t:1,a:"LIER",n:"Pouhon Pierre-le-Grand",ad:"Spa, Belgium",la:50.49357,ln:5.86694,w:"Victor Besme's 1880 octagonal pavilion over Spa's most famous iron-rich spring, named for Peter the Great who took the cure here in 1717 — taste the water, see the Livre d'Or painting of famous curistes.",g:["ICON","HIST"],s:[["LONELYPLANET","https://www.nonprod.lonelyplanet.com/points-of-interest/pouhon-pierre-le-grand/1262310"],["WBT","https://visitwallonia.com/en-gb/produit/attractions/activites/museum-discovery/the-pouhon-pierre-le-grand-monument-in-spa/13462"],["WIKIPEDIA","https://en.wikipedia.org/wiki/List_of_protected_heritage_sites_in_Spa,_Belgium"]]},
+{t:1,a:"LIER",n:"Circuit de Spa-Francorchamps",ad:"Route du Circuit, Francorchamps (Stavelot), Belgium",la:50.43722,ln:5.97139,w:"The 7 km Ardennes circuit of the Belgian Grand Prix since 1921 and its legendary Eau Rouge–Raidillon climb; tours, a museum in Stavelot abbey and race weekends all season.",g:["ICON","ARCH","MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Circuit_de_Spa-Francorchamps"],["LONELYPLANET","https://www-lonelyplanet-com-57e2.imagizer.com/pois/1334292"],["OFFICIAL","https://www.spagrandprix.com/en/le-circuit"]]},
+{t:1,a:"LIE",n:"Archéoforum",ad:"Place Saint-Lambert, 4000 Liège, Belgium",la:50.64530,ln:5.57330,w:"Under Place Saint-Lambert: the excavated foundations of the vanished Cathedral of Saint-Lambert (razed 1794), a Gallo-Roman villa and finds back to the Mesolithic — the city's birthplace, walked underground.",g:["MUS","HIST","ICON","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Arch%C3%A9oforum"],["MUSEUMDE","https://www.museum.de/en/museen/archeoforum"]]},
+{t:1,a:"LIE",n:"Église Saint-Jacques",ad:"Place Saint-Jacques, 4000 Liège, Belgium",la:50.63699,ln:5.57043,w:"Former Benedictine abbey church with a flamboyant-Gothic nave under a dazzling painted star vault, a Romanesque westwork and a Renaissance portal — Liège's most beautiful interior.",g:["ARCH","HIST","CANAL"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/St_James%27s_Church,_Li%C3%A8ge"],["VISITLIEGE","https://www.visitezliege.be/en/offre/eglise-saint-jacques"],["LONELYPLANET","https://www.nonprod.lonelyplanet.com/points-of-interest/eglise-st-jacques/1600671"]]},
+{t:2,a:"LIE",n:"Musée Tchantchès",ad:"Rue Surlet 56, 4020 Liège, Belgium",la:50.63919,ln:5.58156,w:"Museum of the 'Free Republic of Outremeuse' devoted to Tchantchès, Liège's cheeky wooden-puppet hero — his costumes, the Bisscheroux marionettes and puppet shows in season.",g:["MUS","NIGHT","FREE"],s:[["VISITLIEGE","https://visitezliege.be/en/offre/musee-tchantches"],["MUSEUMDE","https://www.museum.de/en/museen/musee-tchantches"],["LADH","https://www.dhnet.be/regions/liege/tchantches-et-sa-legende-5989ddc2cd706e263f450dc7"]]},
+{t:2,a:"LIE",n:"Opéra royal de Wallonie",ad:"Place de l'Opéra, 4000 Liège, Belgium",la:50.64333,ln:5.57028,w:"The 1820 neoclassical Théâtre royal, Wallonia's opera house, with a modern rooftop extension; Grétry's heart is in an urn at the foot of his statue outside.",g:["ARCH","NIGHT","MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Op%C3%A9ra_Royal_de_Wallonie"],["VISITLIEGE","https://www.visitezliege.be/Photos/WPA_MediaSource/city_fr_220124.pdf"]]},
+{t:2,a:"LIE",n:"Aquarium-Muséum",ad:"Quai Édouard Van Beneden 22, 4020 Liège, Belgium",la:50.63836,ln:5.57950,w:"The University of Liège's aquarium (2,500 fish in some 50 tanks) and zoological museum in the 19th-c. Institut de Zoologie on the Meuse — a whale skeleton, dioramas and a cabinet of curiosities.",g:["MUS","PARK"],s:[["WBT","https://visitwallonia.com/en-gb/3/where-to-go-in-wallonia/gateway-towns/liege/must-sees-/lieges-aquarium-museum-dive-in-a-magical-world/13220"],["LONELYPLANET","https://www.nonprod.lonelyplanet.com/points-of-interest/institut-zoologique/1600675"]]},
+{t:2,a:"LIE",n:"Collégiale Saint-Denis",ad:"Place Saint-Denis, 4000 Liège, Belgium",la:50.64290,ln:5.57462,w:"One of Liège's seven collegiate churches (founded c. 987) with a fortress-like Romanesque tower; inside, a carved Brabant altarpiece of the Passion of St Denis (early 16th c.).",g:["ARCH","HIST","ICON"],s:[["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/province-de-liege/liege/eglise-saint-denis"],["AWAP","https://lampspw.wallonie.be/dgo4/site_ipic/index.php/pdf/fiche/62063-INV-0341-01"]]},
+{t:1,a:"LIE",n:"Coteaux de la Citadelle",ad:"Coteaux de la Citadelle, 4000 Liège, Belgium",la:50.64700,ln:5.57294,w:"86 ha of terraced hillside orchards, vineyards, stairways and alleys between Hors-Château and the Citadelle — Liège's green lung, laureate of the Council of Europe Landscape Award; walk the Terrasses des Minimes for the views.",g:["PARK","HIST","FREE","ARCH"],s:[["VISITLIEGE","https://www.visitezliege.be/en/offre/les-coteaux-de-la-citadelle"],["COE","https://rm.coe.int/16806f5b22"]]},
+{t:1,a:"LIE",n:"Place du Marché & le Perron",ad:"Place du Marché, 4000 Liège, Belgium",la:50.64554,ln:5.57573,w:"The old market square in front of the 18th-c. town hall 'La Violette', ringed by café terraces; the Perron fountain at its centre is the symbol of Liège's civic liberties since the Middle Ages.",g:["ICON","MKT","HIST","FREE"],s:[["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/province-de-liege/liege/place-du-marche"],["VISITLIEGE","https://visitezliege.be/en/offre/place-du-marche"],["AWAP","https://lampspw.wallonie.be/dgo4/site_ipic/index.php/pdf/fiche/62063-INV-0700-01"]]},
+{t:2,a:"LIE",n:"Musée d'Ansembourg",ad:"En Féronstrée, 4000 Liège, Belgium",la:50.64698,ln:5.58216,w:"An 18th-c. merchant-banker's mansion on Féronstrée kept as a period house museum — Liège furniture, Cordoba leather wall-hangings, tapestries and stucco ceilings of the prince-bishops' golden age.",g:["MUS","HIST","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Ansembourg_Museum"],["LONELYPLANET","https://www.nonprod.lonelyplanet.com/points-of-interest/musee-d-ansembourg/462120"],["AWAP","https://lampspw.wallonie.be/dgo4/site_ipic/index.php/pdf/fiche/62063-INV-0486-01"]]},
+{t:2,a:"LIE",n:"Maison de la Métallurgie et de l'Industrie de Liège",ad:"Boulevard Raymond Poincaré 17, 4020 Liège, Belgium",la:50.63083,ln:5.57972,w:"Industrial-heritage museum in the old Espérance-Longdoz steelworks — a working 17th-c.-style forge, blast-furnace models and the story of the coal and steel that made Liège.",g:["MUS","HIST"],s:[["ERIH","https://www.erih.net/i-want-to-go-there/the-house-of-metallurgy-and-industry-of-liege"],["VISITLIEGE","https://visitezliege.be/en/offre/maison-de-la-metallurgie-et-de-l-industrie-de-liege"],["RTBF","https://www.rtbf.be/article/un-projet-de-10-millions-deuros-pour-renover-le-musee-de-la-metallurgie-a-liege-10931611"]]},
+{t:3,a:"LIE",n:"Musée des Transports en commun de Wallonie",ad:"Rue Richard Heintz 9, 4020 Liège, Belgium",la:50.62902,ln:5.58328,w:"Old Vennes tram depot full of Liège trams, trolleybuses and buses from horse-drawn days on — a nostalgic stop now the city's new tram is running again.",g:["MUS","CANAL"],s:[["ERIH","https://www.erih.net/i-want-to-go-there/site/wallonia-public-transport-museum"],["VISITLIEGE","https://www.visitezliege.be/en/offre/musee-des-transports-en-commun-de-wallonie"],["LADH","https://www.dhnet.be/regions/liege/2024/09/02/la-renovation-du-musee-des-transports-est-relancee-II7PR7W3PRCRTP43A5BSXSSDUE/"]]},
+{t:2,a:"LIE",n:"Mémorial interallié de Cointe",ad:"Cointe, 4000 Liège, Belgium",la:50.61965,ln:5.56924,w:"The Interallied Memorial on the Cointe hill: a 75 m tower and a basilica raised in the 1930s by the WWI Allies to honour the 1914 defence of Liège — the lift up the tower gives the city's best panorama.",g:["HIST","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Interallied_Memorial_of_Cointe"],["WBT","https://walloniabelgiumtourism.co.uk/en-gb/content/cointe-inter-allied-memorial-liege"]]},
+{t:1,a:"LIER",n:"Grottes de Remouchamps",ad:"Remouchamps, Aywaille, Belgium",la:50.48004,ln:5.71202,w:"Show cave on the Amblève at Aywaille — a walk through vast chambers ending in what the caves bill as one of the longest underground boat rides in Europe.",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Cave_of_Remouchamps"],["SHOWCAVES","https://www.showcaves.com/english/be/showcaves/Remouchamps.html"],["RTBF","https://www.rtbf.be/article/12-adresses-au-fil-de-l-ambleve-coo-remouchamps-et-trois-ponts-10352669"]]},
+{t:2,a:"LIER",n:"Cascade de Coo",ad:"Coo, Stavelot, Belgium",la:50.39350,ln:5.87674,w:"Belgium's best-known waterfall on the Amblève near Stavelot, with a chairlift up to the Montagne de Lancre viewpoint above.",g:["PARK","FREE"],s:[["RTBF","https://www.rtbf.be/article/12-adresses-au-fil-de-l-ambleve-coo-remouchamps-et-trois-ponts-10352669"],["EUROPEANWATERFALLS","https://www.europeanwaterfalls.com/?p=3830"]]},
+{t:2,a:"LIER",n:"Château de Franchimont",ad:"Theux, Belgium",la:50.52767,ln:5.82424,w:"Ruined medieval fortress on a rock above Theux, seat of the old marquisate of Franchimont; its towers and casemates can be explored.",g:["ARCH","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Franchimont_Castle"],["OFFICIAL","https://chateau-franchimont.be/?p=362"]]},
+{t:2,a:"LIER",n:"Signal de Botrange",ad:"Signal de Botrange, Waimes, Belgium",la:50.50167,ln:6.09278,w:"Belgium's highest point (694 m) on the Hautes Fagnes plateau — the gateway to the raised-bog boardwalks of the High Fens nature reserve.",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.com/wiki/Botrange"],["LALIBRE","https://www.lalibre.be/lifestyle/voyages/2009/08/22/les-hautes-fagnes-HOQODEMMV5G3TFOQCDOHFUB42I/"]]},
+{t:1,a:"LIER",n:"Château du Val-Saint-Lambert (Cristal Discovery)",ad:"Esplanade du Val, Seraing, Belgium",la:50.59329,ln:5.48266,w:"The former Cistercian abbey on the Meuse at Seraing where Val-Saint-Lambert has blown lead crystal since 1826 — the Cristal Discovery visit shows glassblowers at work and two centuries of pieces.",g:["MUS","HIST","ARCH"],s:[["LONELYPLANET","https://www.nonprod.lonelyplanet.com/points-of-interest/val-st-lambert/1262652"],["WBT","https://visitwallonia.com/en-gb/content/cristal-discovery-chateau-du-val-saint-lambert-seraing"],["VISITLIEGE","https://www.visitezliege.be/en/page/seraing"]]},
+{t:1,a:"LIE",n:"Marché de la Batte",ad:"Quai de la Batte, 4000 Liège, Belgium",la:50.64477,ln:5.57922,w:"Every Sunday morning since 1561: Belgium's oldest and biggest street market stretches 2 km along the Meuse quays — fruit, Herve cheese, live poultry, flowers, books, and péket and gaufres to keep you going.",g:["ICON","MKT","FREE","CANAL"],s:[["PARISMATCHBE","https://www.parismatch.be/actualites/societe/2024/09/02/vetements-animaux-alimentation-accessoires-ce-marche-historique-est-le-plus-grand-de-belgique-AJCJUJBCTJBO5CSNJH6R6226GI/"],["RTBF","https://www.rtbf.be/article/liege-a-90-ans-et-apres-65-ans-de-marches-isy-prend-sa-retraite-11404915"],["LADH","https://www.dhnet.be/regions/liege/2020/03/21/la-batte-et-le-tram-aussi-en-mode-confinement-TCHNNNNA65BEDDP43YE2T74GUE/"]]},
+{t:1,a:"LIER",n:"Thermes de Spa",ad:"Colline d'Annette et Lubin, Spa, Belgium",la:50.49417,ln:5.86417,w:"The modern glass thermal baths on Annette-et-Lubin hill, reached by funicular from the town centre — naturally carbonated Spa waters in the town that gave every 'spa' its name, a UNESCO Great Spa Town of Europe since 2021.",g:["ICON","UNESCO"],s:[["WBT","https://visitwallonia.com/en-gb/3/where-to-go-in-wallonia/walloon-towns-and-cities/spa/must-sees"],["LONELYPLANET","https://www.lonelyplanet.fr/destinations/europe/belgique/que-faire/la-ville-de-spa"],["LAVENIR","https://www.lavenir.net/cnt/dmf20210724_01599937/la-ville-de-spa-officiellement-inscrite-sur-la-liste-du-patrimoine-mondial-de-l-unesco"]]},
+{t:2,a:"LIER",n:"Musée de la Ville d'eaux (Villa Royale)",ad:"Villa Royale Marie-Henriette, Spa, Belgium",la:50.49167,ln:5.85750,w:"In Queen Marie-Henriette's Villa Royale: the story of Spa as Europe's 'Café of Europe' resort, with the painted-wood 'Jolités de Spa' souvenirs; the Spa horse museum is in the stables.",g:["MUS","HIST","NIGHT"],s:[["WBT","https://visitwallonia.com/en-gb/3/where-to-go-in-wallonia/walloon-towns-and-cities/spa/must-sees"],["LONELYPLANET","https://www.lonelyplanet.fr/destinations/europe/belgique/que-faire/la-ville-de-spa"]]},
+{t:1,a:"LIER",n:"Abbaye de Stavelot",ad:"Abbaye de Stavelot, Stavelot, Belgium",la:50.39361,ln:5.93167,w:"The former prince-abbey of Stavelot-Malmedy, its 11th-c. church foundations laid open, now three museums: the Principality's history, Guillaume Apollinaire, and the Spa-Francorchamps circuit museum of F1 cars and bikes.",g:["MUS","HIST","ARCH"],s:[["OFFICIAL","https://abbayedestavelot.be/en/musee/musee-historique-de-la-principaute-de-stavelot-malmedy/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/List_of_protected_heritage_sites_in_Stavelot"],["LONELYPLANET","https://www.lonelyplanet.com/belgium/the-ardennes/attractions"]]},
+{t:2,a:"LIE",n:"Basilique Saint-Martin",ad:"Mont-Saint-Martin, 4000 Liège, Belgium",la:50.64405,ln:5.56392,w:"10th-c. collegiate church rebuilt in Gothic style (1506–42) on the aristocratic Mont-Saint-Martin — where the feast of Corpus Christi (Fête-Dieu) was first celebrated in 1246; 16th-c. stained glass and calvary.",g:["ARCH","HIST","MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/St._Martin's_Basilica,_Li%C3%A8ge"],["VISITLIEGE","https://www.visitezliege.be/fr/offre/basilique-saint-martin"]]},
+{t:3,a:"LIE",n:"Collégiale Sainte-Croix",ad:"Centre, 4000 Liège, Belgium",la:50.64528,ln:5.57000,w:"Notger's collegiate church of 979 with a rare Romanesque west choir — currently closed for a long restoration, but the building site opens for themed guided visits.",g:["ARCH","HIST"],s:[["WIKIPEDIA","https://fr.wikipedia.org/wiki/Coll%C3%A9giale_Sainte-Croix_de_Li%C3%A8ge"],["VISITLIEGE","https://www.visitezliege.be/fr/offre/collegiale-sainte-croix"]]},
+{t:2,a:"LIE",n:"Trinkhall Museum",ad:"Parc d'Avroy, 4000 Liège, Belgium",la:50.63417,ln:5.56833,w:"In the heart of Parc d'Avroy, a museum of ~3,000 works of 'situated art' made in workshops by artists with mental disabilities — one of the most original collections in Belgium.",g:["MUS","PARK"],s:[["WIKIPEDIA","https://fr.wikipedia.org/wiki/Trinkhall_Museum"],["VISITLIEGE","https://www.visitezliege.be/fr/offre/trinkhall-museum"]]},
+{t:3,a:"LIE",n:"Musée Grétry",ad:"Outremeuse, 4020 Liège, Belgium",la:50.64111,ln:5.58361,w:"The Outremeuse birthplace of composer André-Modeste Grétry (1741), with his instruments, scores and period furnishings.",g:["MUS","HIST","MKT"],s:[["WIKIPEDIA","https://fr.wikipedia.org/wiki/Mus%C3%A9e_Gr%C3%A9try"],["VISITLIEGE","https://www.visitezliege.be/en/offre/musee-gretry"]]},
+{t:2,a:"LIE",n:"Hôtel de Ville de Liège (La Violette)",ad:"Place du Marché, 4000 Liège, Belgium",la:50.64530,ln:5.57560,w:"The 1714–18 town hall known as 'La Violette', its Louis XIV façade on the Place du Marché hiding a sumptuous interior of marble, stucco and grisailles.",g:["ARCH","HIST","MKT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/H%C3%B4tel_de_Ville,_Li%C3%A8ge"],["LONELYPLANET","https://www.lonelyplanet.com/belgium/wallonia/liege/attractions/hotel-de-ville/a/poi-sig/1335086/358717"]]},
+{t:1,a:"LIER",n:"Fort de Loncin",ad:"Fort de Loncin, Ans (Loncin), Belgium",la:50.67450,ln:5.49246,w:"The most famous of Brialmont's ring of forts: on 15 Aug 1914 a German 'Big Bertha' shell blew up its magazine and entombed 350 defenders — the crater, the crypt-necropolis and a scenographic museum relive the moment.",g:["HIST","MUS"],s:[["WIKIPEDIA","https://en.m.wikipedia.org/wiki/Fort_de_Loncin"],["VISITLIEGE","https://visitezliege.be/fr/necropole-nationale-du-fort-de-loncin-et-son-musee"],["WBT","https://visitwallonia.com/en-gb/content/fort-de-loncin-unique-memorial-great-war-liege"]]},
+{t:2,a:"LIER",n:"Château de Jehay",ad:"Jehay-Bodegnée, Amay, Belgium",la:50.57722,ln:5.32333,w:"A fairytale 16th-c. moated castle with a chequerboard sandstone-and-limestone façade, owned by the Province; the interior is closed for long-term restoration but the gardens and park are open.",g:["ARCH","PARK","HIST"],s:[["WIKIPEDIA","https://fr.wikipedia.org/wiki/Ch%C3%A2teau_de_Jehay"],["WBT","https://visitwallonia.com/en-gb/119/blog/a-getaway-around-the-vineyards-and-castles-of-wallonia/culture-heritage-gastronomy-and-relaxation-in-the-liege-region"],["VISITLIEGE","https://www.visitezliege.be/Photos/WPA_MediaSource/caplg_ete.pdf"]]},
+{t:2,a:"LIER",n:"Barrage de la Gileppe",ad:"Barrage de la Gileppe, Jalhay, Belgium",la:50.58917,ln:5.97444,w:"One of Europe's oldest dams (inaugurated 1878), crowned by the 13.5 m sandstone Lion of the Gileppe; free access to the crest, the panoramic tower and lakeside walks.",g:["PARK","HIST","FREE","NIGHT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Gileppe_Dam"],["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/province-de-liege/hautes-fagnes/lac-de-la-gileppe"]]},
+{t:2,a:"LIER",n:"Château de Reinhardstein",ad:"Château de Reinhardstein, Ovifat (Waimes), Belgium",la:50.45250,ln:6.10222,w:"A 1354 castle on a rock spur above the Warche gorge, rebuilt in 1969 as the archetypal fortress — 75-minute guided tours of armour, tapestries and furniture, plus the Reinhardstein waterfall walk.",g:["ARCH","HIST","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Reinhardstein_Castle"],["LONELYPLANET","https://lonelyplanet.com/belgium/hautes-fagnes/attractions/chateau-de-reinhardstein/a/poi-sig/1262887/1325907"],["WBT","https://visitwallonia.com/en-gb/content/hiking-wallonia-napoleons-nose-reinhardstein-castle-and-robertville-dam"]]},
+{t:3,a:"LIER",n:"Lac de Warfaaz",ad:"Lac de Warfaaz, Spa, Belgium",la:50.50306,ln:5.89056,w:"Spa's 19th-c. reservoir lake in the woods just north of town — pedal boats, fishing and an easy lakeside loop.",g:["PARK","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Lake_Warfaaz"],["WBT","https://visitwallonia.com/en-gb/3/where-to-go-in-wallonia/walloon-towns-and-cities/spa/must-sees"]]},
+{t:2,a:"LIER",n:"Malmundarium",ad:"Malmedy, Belgium",la:50.42667,ln:6.02722,w:"The restored former monastery of Malmedy, now the town's heritage and visitor centre.",g:["MUS","HIST"],s:[["WIKIPEDIA","https://fr.wikipedia.org/wiki/Malmundarium"],["LONELYPLANET","https://www-lonelyplanet-com-57e2.imagizer.com/belgium/malmedy/attractions/malmundarium/a/poi-sig/1335032/1339593"]]},
+{t:1,a:"LIER",n:"Préhistomuseum de Ramioul",ad:"Rue de la Grotte 128, 4400 Flémalle, Belgium",la:50.58000,ln:5.43000,w:"A 30-ha prehistory park around the Ramioul cave above the Meuse — hands-on flint-knapping, fire-making, reconstructed camps and a hunting trail; plan half a day.",g:["MUS","PARK"],s:[["RTBF","https://www.rtbf.be/article/voyage-au-c-ur-de-la-prehistoire-decouvrez-le-prehistomuseum-de-flemalle-11516005"],["LAVENIR","https://www.lavenir.net/regions/liege/flemalle/2026/07/18/a-decouvrir-cet-ete-la-ferme-repensee-au-prehistomuseum-de-ramioul-car-apprendre-en-samusant-fait-partie-de-notre-nouvelle-approche-photos-L7KGGOC32NEGVBKHGTANSTDBJQ/"],["WBT","https://visitwallonia.com/en-gb/content/prehistomuseum-de-ramioul-journey-cro-magnon-mans-time"]]},
+{t:2,a:"LIER",n:"Château d'Aigremont",ad:"Rue du Château d'Aigremont 1, 4400 Flémalle, Belgium",la:50.59100,ln:5.41481,w:"Early-18th-c. Liège château high above the Meuse at Les Awirs, classified exceptional heritage — guided visits of its panelled rooms, a staircase of restored trompe-l'œil paintings and French gardens.",g:["ARCH","HIST","PARK"],s:[["VISITLIEGE","https://www.visitezliege.be/fr/offre/visite-guidee-du-chateau-d-aigremont"],["RTBF","https://www.rtbf.be/article/ce-dimanche-7-juillet-venez-visiter-le-chateau-d-aigremont-10260231?id=10260231&programId=1231"],["WIKIPEDIA","https://fr.wikipedia.org/wiki/Ch%C3%A2teau_d'Aigremont"]]},
+{t:1,a:"LIER",n:"Grand-Place de Huy & Li Bassinia",ad:"Grand-Place, 4500 Huy, Belgium",la:50.51806,ln:5.24083,w:"Huy's lively main square in front of the town hall, centred on Li Bassinia, the bronze fountain whose oldest parts date from 1406 — one of the 'four wonders' of Huy with the Rondia rose window, the bridge and the castle.",g:["ICON","MKT","HIST","FREE"],s:[["WIKIPEDIA","https://fr.wikipedia.org/wiki/Li_Bassinia"],["WBT","https://visitwallonia.com/en-gb/3/where-to-go-in-wallonia/walloon-towns-and-cities/huy/must-sees"],["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/province-de-liege/huy"]]},
+{t:3,a:"LIER",n:"Domaine provincial de Wégimont",ad:"Domaine de Wégimont, Soumagne, Belgium",la:50.61219,ln:5.73639,w:"The Province's 22-ha leisure park around the moated Wégimont castle on the Herve plateau — open-air pools, boating, minigolf and picnic lawns; a favourite family day out from Liège.",g:["PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/W%C3%A9gimont_Castle"],["WBT","https://visitwallonia.com/en-gb/content/domaine-provincial-de-wegimont-leisure-park-soumagne"]]},
+{t:2,a:"LIE",n:"Parc d'Avroy",ad:"Avroy, 4000 Liège, Belgium",la:50.63278,ln:5.56861,w:"Five-hectare landscape park in the city centre with a pond, statues and remarkable trees (a Cedar of Lebanon, bald cypresses, plane-tree alleys); the Trinkhall Museum sits in it.",g:["PARK","FREE","MUS"],s:[["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/province-de-liege/liege/parc-d-avroy"],["WIKIPEDIA","https://fr.wikipedia.org/wiki/Parc_d'Avroy"]]},
+{t:2,a:"LIE",n:"Jardin botanique de Liège",ad:"Centre, 4000 Liège, Belgium",la:50.63500,ln:5.56139,w:"The University's former botanical garden (c. 3 ha), now a city park with some 400 trees including fifteen Belgian 'champion' specimens — sequoias, ginkgo, Japanese zelkova — and 19th-c. glasshouses.",g:["PARK","FREE"],s:[["LIEGECITY","https://www.liege.be/fr/decouvrir/plein-air/espaces-verts/jardin-botanique"],["WIKIPEDIA","https://fr.wikipedia.org/wiki/Jardin_botanique_de_Li%C3%A8ge"]]},
+{t:1,a:"LIE",n:"Le Carré",ad:"Le Carré, 4000 Liège, Belgium",la:50.64139,ln:5.56889,w:"Liège's famous pedestrian nightlife block between the Boulevard de la Sauvenière and Pont d'Avroy — some thirty bars in four little streets, packed with students and the whole city at weekends, with no fixed closing time.",g:["NIGHT","FREE"],s:[["VISITLIEGE","https://www.visitezliege.be/fr/offre/vinave-d-ile-et-le-carre"],["CULTURETRIP","https://theculturetrip.com/europe/belgium/articles/8-of-the-best-bars-in-liege-belgium"]]},
+{t:2,a:"LIE",n:"En Roture (Outremeuse)",ad:"En Roture, 4020 Liège, Belgium",la:50.64000,ln:5.58000,w:"Outremeuse's narrow restaurant lane — one cooking smell after another, small cafés and terraces, the nerve centre of the quarter's nightlife a step from the Meuse.",g:["NIGHT","HIST","FREE","MUS"],s:[["VISITLIEGE","https://www.visitezliege.be/fr/page/ou-boire-et-manger-a-liege"],["LIEGECITY","https://www.liege.be/fr/vie-communale/services-communaux/commerce/telechargements-1/brochure-identites-commerces.pdf/@@download/file/brochure-identites-commerces.pdf"]]},
+{t:2,a:"LIE",n:"Collégiale Saint-Jean-l'Évangéliste",ad:"Quartier de l'Île, 4000 Liège, Belgium",la:50.64306,ln:5.56722,w:"Founded c. 980 by Notger, Liège's first prince-bishop, who is buried here; an 11th-c. west tower fronts the 18th-c. rotunda church, and the cloister walls are lined with canons' tombstones — freshly restored.",g:["ARCH","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Collegiate_Church_of_St_John_the_Evangelist,_Li%C3%A8ge"],["VISITLIEGE","https://www.visitezliege.be/fr/offre/collegiale-saint-jean-l-evangeliste"],["RTBF","https://www.rtbf.be/article/la-restauration-de-la-collegiale-saint-jean-l-evangeliste-a-liege-est-terminee-11479609"]]},
+{t:3,a:"LIE",n:"Passerelle La Belle Liégeoise",ad:"Passerelle La Belle Liégeoise, 4000 Liège, Belgium",la:50.62750,ln:5.57472,w:"The 294 m footbridge (2016) linking Guillemins station to the Boverie park across the Meuse, named after the revolutionary feminist Théroigne de Méricourt.",g:["ARCH","FREE","PARK"],s:[["WIKIPEDIA","https://fr.wikipedia.org/wiki/Passerelle_La_Belle_Li%C3%A9geoise"],["LAVENIR","https://www.lavenir.net/regions/liege/liege/2026/09/15/10-ans-apres-son-inauguration-60-jours-pour-rendre-a-la-passerelle-la-belle-liegeoise-son-eclat-ASSJVLN56ZEGHA7SXVMNJQNQXQ/"],["LADH","https://www.dhnet.be/regions/liege/2024/01/08/a-la-decouverte-des-rues-de-liege-la-belle-liegeoise-ou-la-passerelle-baptisee-en-hommage-a-theroigne-de-mericourt-4YU2JBKJ4ZFPZP4D2GAN5LFA5M/"]]},
+{t:3,a:"LIE",n:"Le Forum",ad:"Rue Pont d'Avroy, 4000 Liège, Belgium",la:50.64083,ln:5.57028,w:"Historic concert and comedy hall on Pont d'Avroy, one of Liège's main live-music venues.",g:["NIGHT","ARCH","HIST"],s:[["WIKIPEDIA","https://fr.wikipedia.org/wiki/Forum_(Li%C3%A8ge)"],["LONELYPLANET","https://www-lonelyplanet-com-57e2.imagizer.com/belgium/wallonia/liege/entertainment/le-forum/a/poi-ent/1600663/358717"]]}
+];
+
+const FS = {
+  "APAQW":{k:"APAQW",t:"APAQW",u:"",l:""},
+  "AUBEL":{k:"AUBEL",t:"AUBEL",u:"",l:""},
+  "BOULETTES":{k:"BOULETTES",t:"BOULETTES",u:"",l:""},
+  "BRUSSELSTIMES":{k:"THE BRUSSELS TIMES",t:"The Brussels Times (Hidden Belgium)",u:"https://brusselstimes.com",l:"The Brussels Times (Hidden Belgium)"},
+  "COE":{k:"COE",t:"COE",u:"",l:""},
+  "CULTURETRIP":{k:"CULTURETRIP",t:"CULTURETRIP",u:"",l:""},
+  "DARLEYNEWMAN":{k:"DARLEYNEWMAN",t:"Darley Newman — Travels with Darley (PBS)",u:"https://www.darley-newman.com",l:"Darley Newman — Travels with Darley (PBS)"},
+  "ELLE":{k:"ELLE",t:"ELLE",u:"",l:""},
+  "ERICBOSCHMAN":{k:"ERICBOSCHMAN",t:"Eric Boschman (sommelier, RTBF/Moustique columnist)",u:"https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710",l:"Eric Boschman (sommelier, RTBF/Moustique columnist)"},
+  "EUROPEANBARGUIDE":{k:"EUROPEANBARGUIDE",t:"EUROPEANBARGUIDE",u:"",l:""},
+  "FOODLE":{k:"FOODLE",t:"FOODLE",u:"",l:""},
+  "FORBES":{k:"FORBES",t:"FORBES",u:"",l:""},
+  "GAULTMILLAU":{k:"GAULT&MILLAU",t:"GAULT&MILLAU",u:"",l:""},
+  "GOURMANDIZ":{k:"GOURMANDIZ",t:"GOURMANDIZ",u:"",l:""},
+  "INFOLUX":{k:"INFOLUX",t:"INFOLUX",u:"",l:""},
+  "LADH":{k:"LA DH",t:"LA DH",u:"",l:""},
+  "LALIBRE":{k:"LA LIBRE",t:"La Libre Belgique",u:"https://www.lalibre.be",l:"La Libre Belgique"},
+  "LAVENIR":{k:"LAVENIR",t:"LAVENIR",u:"",l:""},
+  "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet (FR edition)",u:"https://www.lonelyplanet.fr",l:"Lonely Planet (FR edition)"},
+  "MICHELIN":{k:"MICHELIN",t:"MICHELIN",u:"",l:""},
+  "MOUSTIQUE":{k:"MOUSTIQUE",t:"MOUSTIQUE",u:"",l:""},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
+  "PARISMATCHBE":{k:"PARISMATCHBE",t:"Paris Match Belgique",u:"https://www.parismatch.be",l:"Paris Match Belgique"},
+  "PAYSDEHERVE":{k:"PAYSDEHERVE",t:"PAYSDEHERVE",u:"",l:""},
+  "PAYSDEVESDRE":{k:"PAYSDEVESDRE",t:"PAYSDEVESDRE",u:"",l:""},
+  "RTBF":{k:"RTBF",t:"RTBF (Belgian public broadcaster)",u:"https://www.rtbf.be",l:"RTBF (Belgian public broadcaster)"},
+  "SNCB":{k:"SNCB",t:"SNCB/NMBS — Discover Belgium editorial (national railway)",u:"https://www.belgiantrain.be",l:"SNCB/NMBS — Discover Belgium editorial (national railway)"},
+  "ULIEGE":{k:"ULIEGE",t:"Université de Liège — campus guide (curated local-cuisine selection)",u:"https://www.campus.uliege.be",l:"Université de Liège — campus guide (curated local-cuisine selection)"},
+  "VISITLIEGE":{k:"VISITLIEGE",t:"Visit Liège — Maison du Tourisme du Pays de Liège (official)",u:"https://www.visitezliege.be",l:"Visit Liège — Maison du Tourisme du Pays de Liège (official)"},
+  "WBT":{k:"WBT",t:"Wallonie Belgique Tourisme (official regional tourism)",u:"https://walloniabelgiumtourism.co.uk",l:"Wallonie Belgique Tourisme (official regional tourism)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"WIKIPEDIA",u:"",l:""}
+};
+
+const CUISINES = [
+  {id:"BEL",n:"Belgian & Flemish"},
+  {id:"FR",n:"French & Brasserie"},
+  {id:"BEER",n:"Beer & Breweries"},
+  {id:"SWEET",n:"Chocolate, Waffles & Sweets"},
+  {id:"FINE",n:"Michelin & Fine Dining"},
+  {id:"CAFE",n:"Café & Brown Café"},
+  {id:"SEA",n:"North Sea & Seafood"},
+  {id:"VEG",n:"Vegetarian & Vegan"},
+  {id:"INT",n:"International & Student"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"UNESCO",n:"UNESCO World Heritage"},
+  {id:"HIST",n:"History & Heritage"},
+  {id:"ARCH",n:"Churches, Belfries & Castles"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"CANAL",n:"Canals & Waterfront"},
+  {id:"PARK",n:"Parks & Nature"},
+  {id:"MKT",n:"Markets & Squares"},
+  {id:"NIGHT",n:"Nightlife & Quarters"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"LIE",n:"Café Lequet",ad:"Quai sur Meuse 17, 4000 Liège, Belgium",cz:["BEL","FR"],la:50.64238,ln:5.57686,w:"One of Liège's oldest cafés and the locals' answer to 'where for boulets?' — boulet-frites in sauce lapin is the house institution; a past Diamond Boulet winner of the Gay Boulet brotherhood.",s:[["ULIEGE","https://www.campus.uliege.be/cms/c_9316882/en/liege-downtown-a-selection-of-restaurants-serving-liege-and-regional-cuisine"],["SNCB","https://www.belgiantrain.be/fr/travel-ideas/inspiration/discover-belgium/liege/liege-impossibletomiss"],["LONELYPLANET","https://www-lonelyplanet-com-57e2.imagizer.com/belgium/wallonia/liege/restaurants"],["BOULETTES","https://www.boulettesmagazine.be/?p=6795"]]},
+{t:1,a:"LIER",n:"Le Roannay",ad:"Rue de Spa 155, 4970 Francorchamps, Belgium",cz:["FINE"],la:50.45815,ln:5.95122,w:"One Michelin star — the province's flagship table, a family hotel-restaurant by the Spa-Francorchamps circuit; chef Mathieu Vande Velde's produce-and-terroir menus.",s:[["MICHELIN","https://guide.michelin.com/ae-az/en/liege/francorchamps/restaurant/le-roannay"],["INFOLUX","https://www.info-lux.com/?p=1591741"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/le-roannay-stavelot-francorchamps"]]},
+{t:1,a:"LIER",n:"Un Max de Goût",ad:"Quai de l'Ourthe 17, 4170 Comblain-au-Pont, Belgium",cz:["FINE"],la:50.47678,ln:5.57858,w:"One Michelin star on the Ourthe quay at Comblain-au-Pont — creative, flavour-forward cooking in a small riverside house.",s:[["MICHELIN","https://guide.michelin.com/be/fr/liege/comblain-au-pont/restaurant/un-max-de-gout"],["INFOLUX","https://www.info-lux.com/?p=1591745"],["ERICBOSCHMAN","https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710"]]},
+{t:1,a:"LIER",n:"Arabelle Meirlaen",ad:"Chemin de Bertrandfontaine 7, 4570 Marchin, Belgium",cz:["FINE","VEG"],la:50.48090,ln:5.22567,w:"One Michelin star plus a Green Star — Arabelle Meirlaen's intensely vegetal 'intuitive cuisine' built on her potager in the Condroz; Gault&Millau prize-winner 2025.",s:[["MICHELIN","https://guide.michelin.com/ph/en/liege/marchin/restaurant/arabelle-meirlaen"],["LALIBRE","https://www.lalibre.be/lifestyle/food/2025/05/14/une-cheffe-etoilee-belge-recompensee-par-le-gault-millau-une-belle-surprise-IFU6F5RTDFD4FFLCEF3TD5YMFE/"],["LAVENIR","https://www.lavenir.net/regions/huy-waremme/huy/2025/05/13/arabelle-meirlaen-de-marchin-decroche-un-prix-decerne-par-gaultmillau-je-suis-heureuse-que-ma-philosophie-soit-mise-en-avant-WELLS3WBZ5G4XKIKLC2E5OU5CM/"]]},
+{t:1,a:"LIER",n:"Le Coq aux Champs",ad:"Rue du Montys 71, 4557 Soheit-Tinlot, Belgium",cz:["FINE"],la:50.47134,ln:5.38785,w:"One Michelin star in a converted Condroz farmhouse at Soheit-Tinlot — refined, seasonal country cooking.",s:[["MICHELIN","https://guide.michelin.com/tw/zh_TW/liege/soheit-tinlot/restaurant/le-coq-aux-champs"],["INFOLUX","https://www.info-lux.com/?p=1591645"]]},
+{t:2,a:"LIER",n:"La Roseraie",ad:"Route de Limet 80, 4577 Modave, Belgium",cz:["FINE"],la:50.45417,ln:5.28639,w:"One Michelin star since 2024 for chef Marie Trignon's table in Modave, in the Liège Condroz.",s:[["INFOLUX","https://www.info-lux.com/?p=1591645"],["FORBES","https://www.forbes.be/fr/qui-sont-les-six-cheffes-etoilees-belges/"]]},
+{t:2,a:"LIER",n:"La Chapellerie",ad:"Chaussée de la Seigneurie 13, 4800 Petit-Rechain (Verviers), Belgium",cz:["FINE","FR"],la:50.61449,ln:5.83584,w:"Michelin Bib Gourmand at Petit-Rechain (Verviers) — a keen-priced seasonal menu.",s:[["MICHELIN","https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2025"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/la-chapellerie-verviers-petit-rechain"]]},
+{t:2,a:"LIER",n:"Au Dos de la Cuillère",ad:"Rue Jules Cerexhe 10, 4800 Verviers, Belgium",cz:["FINE","FR"],la:50.59378,ln:5.85093,w:"Michelin Bib Gourmand in Verviers, the old wool town on the Vesdre.",s:[["MICHELIN","https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2025"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/au-dos-de-la-cuillere-verviers"]]},
+{t:2,a:"LIER",n:"Le Coin des Saveurs",ad:"Avenue de Spa 28, 4800 Verviers, Belgium",cz:["FINE","FR"],la:50.58338,ln:5.86273,w:"Michelin Bib Gourmand in Verviers.",s:[["MICHELIN","https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2025"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/le-coin-des-saveurs-verviers"]]},
+{t:1,a:"LIER",n:"Abbaye du Val-Dieu",ad:"Val-Dieu, Aubel, Belgium",cz:["BEER"],la:50.69792,ln:5.80500,w:"The only abbey brewery still brewing inside its abbey walls in Wallonia's Pays de Herve — Val-Dieu ales poured in the abbey tavern; Saturday guided abbey + brewery tours with beer and Herve cheese.",s:[["OFFICIAL","https://val-dieu.com/en"],["WBT","https://walloniabelgiumtourism.co.uk/content/brasserie-du-val-dieu-and-its-abbey-aubel"],["RTBF","https://www.rtbf.be/article/4-abbayes-a-visiter-en-wallonie-entre-histoire-nature-et-ressourcement-11553773"],["COE","https://coe.int/en/web/cultural-routes/-/val-dieu-abbey"],["INFOLUX","https://www.info-lux.com/?p=1696588"]]},
+{t:1,a:"LIER",n:"Brasserie Grain d'Orge",ad:"Rue Laschet 3, 4852 Hombourg (Plombières), Belgium",cz:["BEER"],la:50.72305,ln:5.92073,w:"Family brewery at the Three Borders in Hombourg — Joup, Brice and the Aubel triple; pub with food Wed–Sun, cheese shop, and Saturday tours.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Grain_d%27Orge_Brewery"],["WBT","https://visitwallonia.com/content/grain-dorge-brewery-hombourg"],["LAVENIR","https://www.lavenir.net/regions/verviers/plombieres/2020/09/30/nos-bieres-locales-primees-a-harze-FFNEHR42QRH4PKPDBAS2UZYS3A/"],["MOUSTIQUE","https://moustique.lalibre.be/tendances/food/2022/10/08/7-brasseries-ou-boire-une-bonne-biere-a-liege-248282"]]},
+{t:3,a:"LIER",n:"Murmure",ad:"Avenue Peltzer 41, 4800 Verviers, Belgium",cz:["FINE"],la:50.58074,ln:5.85264,w:"Gault&Millau-listed creative bistronomy in Verviers.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/murmure-verviers"]]},
+{t:3,a:"LIER",n:"Au Clair Obscur",ad:"Place Albert 1er 5, 4800 Verviers, Belgium",cz:["FINE"],la:50.58822,ln:5.86112,w:"Gault&Millau-listed restaurant on Place Albert Ier in Verviers.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/au-clair-obscur-verviers"]]},
+{t:3,a:"LIER",n:"Le Chat Volant",ad:"Place du Marché 6, 4800 Verviers, Belgium",cz:["FINE"],la:50.59275,ln:5.86721,w:"Gault&Millau-listed restaurant on Verviers' Place du Marché.",g:["MKT"],s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/le-chat-volant-verviers"]]},
+{t:2,a:"LIER",n:"Le Grand Maur",ad:"Rue de Barisart 209, 4900 Spa, Belgium",cz:["FINE"],la:50.48516,ln:5.85950,w:"Gault&Millau-listed modern French restaurant on the Barisart road out of Spa (Michelin Bib Gourmand in 2024).",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/le-grand-maur-spa"]]},
+{t:1,a:"LIER",n:"La Chocolaterie Darcis",ad:"Esplanade de la Grâce 1, 4800 Verviers, Belgium",cz:["SWEET"],la:50.59078,ln:5.84875,w:"Jean-Philippe Darcis — 'ambassador of Belgian chocolate' and pioneer of the macaron in Belgium — runs his shop, tasting room, workshop and a walk-through chocolate museum near the centre of Verviers.",s:[["RTBF","https://www.rtbf.be/article/torrefier-soi-meme-le-cacao-un-reve-de-gosse-pour-jean-philippe-darcis-9427869"],["LADH","https://www.dhnet.be/conso/consommation/2019/03/31/darcis-nihant-cyril-chocolatissimo-edouard-visites-chocolatees-en-territoire-wallon-J7ZFY23NXBDURJXE7X4U2DRVPY/"],["PAYSDEVESDRE","https://www.paysdevesdre.be/en/details/ALD-10-00KU-0001&type=11"]]},
+{t:1,a:"LIE",n:"¡Toma!",ad:"Boulevard de la Sauvenière 70, 4000 Liège, Belgium",cz:["FINE"],la:50.64389,ln:5.56638,w:"One Michelin star — creative South-American-inspired cooking on the Sauvenière, one of the city's two starred tables in the 2026 guide.",s:[["INFOLUX","https://www.info-lux.com/?p=1591744"],["FOODLE","https://foodle.pro/restaurants/liege/toma"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/toma-liege"],["ERICBOSCHMAN","https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710"],["MOUSTIQUE","https://moustique.lalibre.be/tendances/nos-bons-plans/2023/12/12/specialites-locales-nos-6-adresses-preferees-a-liege-270727"]]},
+{t:1,a:"LIE",n:"Héliport Brasserie",ad:"Allée des Érables, 4000 Liège, Belgium",cz:["FINE","FR"],la:50.57899,ln:5.59616,w:"One Michelin star — a 'brasserie gastronomique' set, per Michelin, in a pretty little castle some 10 km outside the centre (address Allée des Érables), all old beams and a summer terrace; creative French cooking.",s:[["MICHELIN","https://guide.michelin.com/be/fr/liege/liege/restaurant/heliport-brasserie"],["INFOLUX","https://www.info-lux.com/?p=1591645"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/heliport-brasserie-liege"],["ERICBOSCHMAN","https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710"]]},
+{t:1,a:"LIE",n:"Le Bistrot d'en Face",ad:"Rue de la Goffe 8, 4000 Liège, Belgium",cz:["FINE","FR"],la:50.64535,ln:5.57788,w:"Michelin Bib Gourmand bistro behind the Goffe market hall — a lyonnais-style room serving generous Liège and French bistro classics.",g:["MKT"],s:[["MICHELIN","https://guide.michelin.com/be/fr/liege/liege/restaurant/le-bistrot-d-en-face"],["LAVENIR","https://www.lavenir.net/actu/discover/2026/04/27/en-attendant-les-etoiles-le-guide-michelin-devoile-ses-nouveaux-restaurants-bib-gourmand-lun-dans-le-namurois-lautre-en-region-de-liege-XSEZVPSXCRHKLEEPK4MNXOQPTY/"],["LONELYPLANET","https://www-lonelyplanet-com-57e2.imagizer.com/belgium/wallonia/liege/restaurants"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/le-bistrot-den-face-liege"]]},
+{t:2,a:"LIE",n:"Le Cabochon",ad:"Boulevard Émile de Laveleye 191, 4020 Liège, Belgium",cz:["FINE","FR"],la:50.61960,ln:5.59190,w:"Michelin Bib Gourmand in Longdoz — a good-value, market-driven bistro menu across the river from the centre.",g:["MKT"],s:[["MICHELIN","https://guide.michelin.com/sg/zh_CN/liege/restaurants"]]},
+{t:2,a:"LIE",n:"La Cuisine de Yannick",ad:"En Féronstrée 111, 4000 Liège, Belgium",cz:["FINE","FR"],la:50.64700,ln:5.58106,w:"Michelin Bib Gourmand on Féronstrée, the museum street — a short seasonal set menu at a keen price.",s:[["MICHELIN","https://guide.michelin.com/sg/zh_CN/liege/liege/restaurant/la-cuisine-de-yannick"],["MOUSTIQUE","https://moustique.lalibre.be/tendances/food/2022/10/01/liege-12-restaurants-pour-deguster-des-boulets-et-autres-specialites-de-la-region-247833"],["ERICBOSCHMAN","https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710"]]},
+{t:2,a:"LIE",n:"Sébastian",ad:"Rue de la Cathédrale 25, 4000 Liège, Belgium",cz:["FINE","FR"],la:50.64312,ln:5.57628,w:"Michelin Bib Gourmand since 2025 — farm-to-table, creative French cooking in the Carré near the cathedral.",s:[["MICHELIN","https://guide.michelin.com/be/fr/liege/liege/restaurant/sebastian-1212736"],["PARISMATCHBE","https://www.parismatch.be/lifestyle/food/2025/04/22/le-guide-michelin-devoile-les-15-nouveaux-restaurants-aureoles-dun-bib-gourmand-voici-ou-ils-se-trouvent-IXSCSLBCU5H6BHWMY7ISZW6JOA/"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/sebastian-liege"],["ERICBOSCHMAN","https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710"]]},
+{t:3,a:"LIE",n:"Caudalie",ad:"Rue Saint-Jean-en-Isle 6, 4000 Liège, Belgium",cz:["FINE","FR"],la:50.64208,ln:5.56866,w:"Michelin-selected contemporary French table run by sommelier Élodie Timmermans — the wine list is the point.",s:[["MICHELIN","https://guide.michelin.com/be/fr/liege/liege/restaurant/caudalie"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/caudalie-liege"]]},
+{t:1,a:"LIE",n:"Le Pot au Lait",ad:"Rue Sœurs-de-Hasque 9, 4000 Liège, Belgium",cz:["BEER"],la:50.64043,ln:5.57333,w:"The Carré's mythic, wildly decorated bar — #8 in The European Bar Guide's Top 100 of 2025; big beer list, often-free gigs, open till 4am.",s:[["PARISMATCHBE","https://www.parismatch.be/lifestyle/food/2025/01/17/ce-mythique-bar-situe-a-liege-fait-partie-des-10-meilleurs-deurope-IIY3AWZFWRACBFA427GTNVM5OY/"],["LALIBRE","https://www.lalibre.be/regions/liege/2025/01/26/ce-mythique-bar-situe-a-liege-fait-partie-des-10-meilleurs-deurope-HNQRBADU7RDS7HQ7CJK5P4DFWI/"],["EUROPEANBARGUIDE","https://theeuropeanbarguide.com/tag/belgium/"],["CULTURETRIP","https://theculturetrip.com/europe/belgium/articles/8-of-the-best-bars-in-liege-belgium"],["RTBF","https://www.rtbf.be/article/10-cafes-ou-prendre-un-verre-a-liege-9027689"]]},
+{t:1,a:"LIE",n:"Brasserie C",ad:"Impasse des Ursulines 14, 4000 Liège, Belgium",cz:["BEER"],la:50.64757,ln:5.57742,w:"Liège's own city microbrewery since 2012, tucked at the foot of the Montagne de Bueren — brews Curtius (the city's blonde), Black {C} and Smash {C}; tours and tasting workshops, taproom Thu–Sun.",s:[["VISITLIEGE","https://visitezliege.be/en/offre/brasserie-c-curtius"],["RTBF","https://www.rtbf.be/article/liege-la-biere-curtius-fete-ses-10-ans-11009065"],["SNCB","https://www.belgiantrain.be/fr/travel-ideas/inspiration/discover-belgium/liege/liege-impossibletomiss"],["MOUSTIQUE","https://moustique.lalibre.be/tendances/food/2022/10/08/7-brasseries-ou-boire-une-bonne-biere-a-liege-248282"]]},
+{t:1,a:"LIE",n:"La Maison du Péket",ad:"Rue de l'Épée 2, 4000 Liège, Belgium",cz:["FR","BEL"],la:50.64494,ln:5.57605,w:"The péket temple in restored 18th-c. houses off Place du Marché — dozens of flavoured jenevers by the glass, and in its Amon Nanesse restaurant Liège dishes cooked with péket; the boulets here were filmed for Darley Newman's PBS travel series.",g:["MKT"],s:[["WBT","https://visitwallonia.com/en-gb/3/where-to-go-in-wallonia/destinations/liege/a-taste-of-liege"],["DARLEYNEWMAN","https://www.darley-newman.com/blog/are-these-the-greatest-meatballs-ever"],["CULTURETRIP","https://theculturetrip.com/europe/belgium/articles/top-10-things-to-do-and-see-in-liege"]]},
+{t:1,a:"LIE",n:"Tchantchès et Nanesse",ad:"Rue Grande-Bêche 35, 4020 Liège, Belgium",cz:["FR","BEL"],la:50.64039,ln:5.58093,w:"Outremeuse taverne named for the city's puppet hero and his wife — terroir cooking, boulets in sauce lapin and the folklore of the 'free republic' quarter.",s:[["WBT","https://visitwallonia.com/en-gb/3/where-to-go-in-wallonia/destinations/liege/a-taste-of-liege"],["ULIEGE","https://www.campus.uliege.be/cms/c_9316882/en/liege-downtown-a-selection-of-restaurants-serving-liege-and-regional-cuisine"],["MOUSTIQUE","https://moustique.lalibre.be/tendances/food/2022/10/01/liege-12-restaurants-pour-deguster-des-boulets-et-autres-specialites-de-la-region-247833"]]},
+{t:2,a:"LIE",n:"Taverne Saint-Paul",ad:"Rue Saint-Paul 8, 4000 Liège, Belgium",cz:["BEER"],la:50.64005,ln:5.57267,w:"Old-world tavern a few steps from the cathedral, ranked #76 in The European Bar Guide's Top 100 European bars — a charming room from another era.",s:[["PARISMATCHBE","https://www.parismatch.be/lifestyle/food/2025/01/17/ce-mythique-bar-situe-a-liege-fait-partie-des-10-meilleurs-deurope-IIY3AWZFWRACBFA427GTNVM5OY/"],["EUROPEANBARGUIDE","https://theeuropeanbarguide.com/tag/belgium/"]]},
+{t:1,a:"LIE",n:"As Ouhès",ad:"Place du Marché 21, 4000 Liège, Belgium",cz:["FR","BEL"],la:50.64583,ln:5.57565,w:"The busiest of the Place du Marché café-restaurants (the name is Walloon for 'the birds') — generous Walloon specialities like rabbit stewed in beer and big boulets on a terrace facing the Perron.",g:["MKT"],s:[["LONELYPLANET","https://www-lonelyplanet-com-57e2.imagizer.com/belgium/wallonia/liege/restaurants"],["ULIEGE","https://www.campus.uliege.be/cms/c_9316882/en/liege-downtown-a-selection-of-restaurants-serving-liege-and-regional-cuisine"],["BOULETTES","https://www.boulettesmagazine.be/?p=6795"],["MOUSTIQUE","https://moustique.lalibre.be/tendances/food/2022/10/01/liege-12-restaurants-pour-deguster-des-boulets-et-autres-specialites-de-la-region-247833"],["VISITLIEGE","https://visitezliege.be/fr/offre/as-ouhes"]]},
+{t:2,a:"LIE",n:"Au Point de Vue",ad:"Place Verte 10, 4000 Liège, Belgium",cz:["FR"],la:50.64416,ln:5.57053,w:"Old-school brasserie looking onto the Opéra royal; its boulets won the Confrérie du Gay Boulet's Diamond Boulet in 2008.",s:[["LONELYPLANET","https://www-lonelyplanet-com-57e2.imagizer.com/belgium/wallonia/liege/restaurants"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Boulets_%C3%A0_la_Li%C3%A9geoise"]]},
+{t:2,a:"LIE",n:"Brasserie de Jupille (Jupiler)",ad:"Rue des Anciennes Houblonnières 2, 4020 Jupille (Liège), Belgium",cz:["BEER"],la:50.64889,ln:5.62882,w:"Birthplace of Jupiler, Belgium's best-selling pils — AB InBev's giant Meuse-side brewery in Jupille, visitable by reservation (breweryvisits.com).",s:[["LADH","https://www.dhnet.be/regions/liege/2022/10/18/liege-jupille-la-brasserie-ab-inbev-a-30-ans-VZWN2RHJARE7DMEYM5CONGHQSQ/"],["LALIBRE","https://www.lalibre.be/economie/entreprises-startup/2023/02/27/energie-gestion-de-leau-dechets-ab-inbev-vise-la-neutralite-carbone-pour-2028-sur-son-site-de-jupille-realiste-O47HU4SAZVEXVF32WWHR7IIZVE/"],["INFOLUX","https://www.info-lux.com/?p=1696504"]]},
+{t:2,a:"LIE",n:"Enoteca",ad:"Rue de la Casquette 5, 4000 Liège, Belgium",cz:["FINE","INT","FR"],la:50.64269,ln:5.56967,w:"Michelin Bib Gourmand Italian enoteca on Rue de la Casquette in the centre; also a Culture Trip lunch pick.",s:[["MICHELIN","https://guide.michelin.com/us/en/liege/liege/restaurant/enoteca210027"],["CULTURETRIP","https://www.theculturetrip.com/europe/belgium/articles/9-of-the-best-lunch-places-in-liege-belgium"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/enoteca-liege"]]},
+{t:2,a:"LIE",n:"Au Moriane",ad:"En Neuvice 55, 4000 Liège, Belgium",cz:["FINE","FR"],la:50.64463,ln:5.57752,w:"Michelin-selected and Gault&Millau-listed: Sébastien Lambert-Carabin's contemporary cooking of local produce in a monumentally renovated 17th-c. building on En Neuvice, near the Batte.",s:[["MICHELIN","https://guide.michelin.com/us/en/liege/liege/restaurant/au-moriane"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/au-moriane-liege"]]},
+{t:2,a:"LIE",n:"Grand Café de la Gare",ad:"Gare des Guillemins 20c, 4000 Liège, Belgium",cz:["FINE","FR"],la:50.62487,ln:5.56679,w:"Gault&Millau-listed modern brasserie facing the Guillemins station — consistently high quality across a wide menu.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/grand-cafe-de-la-gare-liege"],["MOUSTIQUE","https://moustique.lalibre.be/tendances/food/2022/10/01/liege-12-restaurants-pour-deguster-des-boulets-et-autres-specialites-de-la-region-247833"]]},
+{t:1,a:"LIE",n:"Merry",ad:"Rue des Carmes 15, 4000 Liège, Belgium",cz:["FINE"],la:50.63958,ln:5.57385,w:"Gault&Millau-listed neo-gastronomic table on Rue des Carmes — bold, precise cooking that follows the seasons.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/merry-liege"],["MOUSTIQUE","https://moustique.lalibre.be/tendances/nos-bons-plans/2023/12/12/specialites-locales-nos-6-adresses-preferees-a-liege-270727"]]},
+{t:3,a:"LIE",n:"Cabale",ad:"Rue des Mineurs 6, 4000 Liège, Belgium",cz:["FINE"],la:50.64605,ln:5.57683,w:"Gault&Millau-listed restaurant at Rue des Mineurs 6 that introduced Georgian cuisine to Liège (Moustique).",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/cabale-liege"],["MOUSTIQUE","https://moustique.lalibre.be/tendances/nos-bons-plans/2023/12/12/specialites-locales-nos-6-adresses-preferees-a-liege-270727"]]},
+{t:1,a:"LIE",n:"Le Petit Bougnat",ad:"Rue Roture 17, 4020 Liège, Belgium",cz:["BEER"],la:50.64004,ln:5.58278,w:"Outremeuse institution in the heart of Roture — terrace across the square in summer, all-night French-song sing-alongs in winter; the tourist office calls it essential.",s:[["VISITLIEGE","https://visitezliege.be/fr/offre/le-petit-bougnat"],["RTBF","https://www.rtbf.be/article/10-autres-cafes-ou-aller-boire-un-verre-a-liege-9295230?id=9295230"],["LAVENIR","https://www.lavenir.net/regions/liege/2026/07/13/cambriolage-au-petit-bougnat-a-liege-lhomme-de-31-ans-intercepte-par-la-police-SGZUAQTGZRGBPG4EPV76GAD6AA/"]]},
+{t:2,a:"LIE",n:"Grand Maison",ad:"Quai de la Goffe 37, 4000 Liège, Belgium",cz:["CAFE"],la:50.64537,ln:5.57928,w:"Fashionable brunch-and-lunch address on the Goffe quay — simple healthy plates and a big terrace looking over the Meuse.",s:[["RTBF","https://www.rtbf.be/article/10-autres-cafes-ou-aller-boire-un-verre-a-liege-9295230?id=9295230"],["CULTURETRIP","https://www.theculturetrip.com/europe/belgium/articles/9-of-the-best-lunch-places-in-liege-belgium"],["MOUSTIQUE","https://moustique.lalibre.be/tendances/nos-bons-plans/2023/12/12/specialites-locales-nos-6-adresses-preferees-a-liege-270727"]]},
+{t:1,a:"LIE",n:"Le Dernier Ragot",ad:"Rue des Clarisses 12, 4000 Liège, Belgium",cz:["FR","BEL"],la:50.63938,ln:5.57287,w:"Two-time Diamond Boulet winner of the Confrérie du Gay Boulet (2005, 2006) — classic boulets in sauce lapin with proper frites, near the Carré.",s:[["MOUSTIQUE","https://moustique.lalibre.be/tendances/food/2022/10/01/liege-12-restaurants-pour-deguster-des-boulets-et-autres-specialites-de-la-region-247833"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Boulets_%C3%A0_la_Li%C3%A9geoise"]]},
+{t:2,a:"LIE",n:"Les Sabots d'Hélène",ad:"Rue Saint-Jean-en-Isle 18, 4000 Liège, Belgium",cz:["FR"],la:50.64179,ln:5.56899,w:"Small bistro in the Carré on both Moustique's boulets list and sommelier Eric Boschman's nine best Liège restaurants.",s:[["MOUSTIQUE","https://moustique.lalibre.be/tendances/food/2022/10/01/liege-12-restaurants-pour-deguster-des-boulets-et-autres-specialites-de-la-region-247833"],["ERICBOSCHMAN","https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710"]]},
+{t:1,a:"LIE",n:"Côté Cour Côté Jardin",ad:"Boulevard de la Constitution 48, 4020 Liège, Belgium",cz:["FR","BEL","VEG"],la:50.64348,ln:5.58612,w:"Warm, all-homemade Outremeuse brasserie whose boulets won the Confrérie du Gay Boulet's Boulet de Cristal in 2021; also good vegetarian dishes.",s:[["RTBF","https://www.rtbf.be/article/liege-la-brasserie-restaurant-cote-cour-cote-jardin-remporte-le-boulet-de-cristal-2021-10901522"],["MOUSTIQUE","https://moustique.lalibre.be/tendances/food/2022/10/01/liege-12-restaurants-pour-deguster-des-boulets-et-autres-specialites-de-la-region-247833"]]},
+{t:2,a:"LIE",n:"Chez Philippe",ad:"Rue Haute-Sauvenière 39, 4000 Liège, Belgium",cz:["FR","BEL"],la:50.64534,ln:5.56936,w:"Boulets specialist near the Sauvenière — several house sauces and generous frites, simple wines.",s:[["MOUSTIQUE","https://moustique.lalibre.be/tendances/food/2022/10/01/liege-12-restaurants-pour-deguster-des-boulets-et-autres-specialites-de-la-region-247833"],["GOURMANDIZ","https://gourmandiz.dhnet.be/manger-mieux/17162/voici-ou-deguster-les-meilleurs-boulets-a-la-liegeoise"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('lie_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('lie_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('lie_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('lie_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Liège')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {LIE:'#C0504D',LIER:'#6A8D3F'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([50.5643,5.6474],10);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle area labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Liège", 50.6397, 5.576], ["Around Liège", 50.538, 5.7185]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('liege-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('liege-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('liege-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish or beer — a label alone doesn’t qualify. The Liège canon: <b>boulets à la liégeoise</b> (sauce lapin with sirop de Liège), the pearl-sugar <b>gaufre de Liège</b>, salade liégeoise, <b>péket</b>, sirop de Liège and <b>Herve</b> cheese. <b>Beer &amp; breweries are their own grouped layer</b> (Val-Dieu, Brasserie C, Jupiler’s Jupille). A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched in French and fact-checked'
+  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, Gault&amp;Millau, Le Soir, La Libre, RTBF, La Meuse, L’Avenir, Visit Liège, Wallonie Belgique Tourisme, beer authorities and vetted creators — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked. Yelp/TripAdvisor/RateBeer never count toward the two-source bar.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 99 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+</body>
+</html>
