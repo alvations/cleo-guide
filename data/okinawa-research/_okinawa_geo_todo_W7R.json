@@ -1,0 +1,884 @@
+[
+ {
+  "n": "Ikema Island & Ikema Ōhashi (池間島)",
+  "a": "MYK",
+  "kind": "P",
+  "address": "Ikema, Hirara, Miyakojima, Okinawa, Japan",
+  "lat": 24.917,
+  "lng": 125.25,
+  "source": "Wikipedia (Ikema Island) 24°55′N 125°15′E — minute-precision island point (~1 km); upgrade later"
+ },
+ {
+  "n": "Mikasa Matsuyama (三笠 松山店)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "1-12-20 Matsuyama, Naha, Okinawa 900-0032",
+  "lat": 26.217767,
+  "lng": 127.678957,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for 三笠 松山店 那覇市松山1-12-20 (navitime poi 02301-1800026 / travel.navitime spot 02301-1800026 / hamoni / gnavi 8vbcu10v0000): 26.217767,127.678957; consistent with Matsuyama 1-chome, 5 min from Kenchō-mae stn (shop relocated two streets back — address is the new one)."
+ },
+ {
+  "n": "Jack's Steak House (ジャッキーステーキハウス)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "1-7-3 Nishi, Naha, Okinawa 900-0036",
+  "lat": 26.212994,
+  "lng": 127.67238,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for ジャッキーステーキハウス 那覇市西1-7-3 (hotpepper strJ000114098 / navitime poi 02301-1300749 / travel.yahoo spot-00003176): 26.212994,127.67238; consistent with Nishi 1-chome, 5 min from Asahibashi stn."
+ },
+ {
+  "n": "Yūnangi (ゆうなんぎい)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "3-3-3 Kumoji, Naha, Okinawa",
+  "lat": 26.214541,
+  "lng": 127.6819,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for ゆうなんぎい 那覇市久茂地3-3-3 from hotpepper.jp/strJ000114188 / autoreserve listing: 26.214541,127.6819 (alt 26.2144817,127.681912); consistent with Kumoji 3-chome, ~5 min walk from Kenchō-mae stn. Aggregator coordinate only."
+ },
+ {
+  "n": "Charlie's Tacos, Koza (チャーリー多幸寿)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "4-11-5 Chuo, Okinawa City, Okinawa 904-0004, Japan",
+  "lat": 26.340187,
+  "lng": 127.79933,
+  "source": "TripAdvisor listing d1665575 coordinate 26.340187,127.79933 with address 4-11-5 Chuo (Park Avenue) via WebSearch extended 2026-10-03; NAVITIME spot 02301-1300760n gives same address; aggregator → low. NOTE: a second TripAdvisor listing 'Charlie's Tacos Honten' d25376918 exists — re-check whether the shop relocated."
+ },
+ {
+  "n": "Tamatorizaki Observation Point, Ishigaki (玉取崎展望台)",
+  "a": "YAEYA",
+  "kind": "P",
+  "address": "Ibaruma, Ishigaki, Okinawa 907-0332, Japan",
+  "lat": 24.489238,
+  "lng": 124.276962,
+  "source": "NAVITIME POI page https://www.navitime.co.jp/poi?spot=02301-1300758 (玉取崎展望台, 石垣市伊原間) — coordinate 24.489238,124.276962 surfaced in WebSearch extended 2026-10-03 attributed to NAVITIME; consistent with Ibaruma address [orchestrator: downgraded med→low — provenance only via search summary, re-verify]"
+ },
+ {
+  "n": "Iriomote Island jungle & mangroves (西表島)",
+  "a": "YAEYA",
+  "kind": "P",
+  "address": "Taketomi, Yaeyama District, Okinawa, Japan",
+  "lat": 24.34,
+  "lng": 123.81,
+  "source": "Wikipedia 'Iriomote Island' (en.wikipedia.org/wiki/Iriomote_Island) infobox 24°20′24″N 123°48′36″E — island-level coordinate (the entry is the whole island's jungle/mangroves, not a single point)"
+ },
+ {
+  "n": "Kojasobaya (古謝そば屋)",
+  "a": "MYK",
+  "kind": "F",
+  "address": "1517-1 Shimozato, Hirara, Miyakojima, Okinawa 906-0013, Japan (沖縄県宮古島市平良字下里1517-1)",
+  "lat": 24.7903113,
+  "lng": 125.2844707,
+  "source": "W6G3 2026-10-03 WebSearch extended '古謝そば屋 沖縄県宮古島市平良字下里1517-1 緯度 経度' — listing coordinate 24.7903113,125.2844707 (DMS 24°47'25.12\" 125°17'4.09\") from aggregator listings in result set (app.hamoni.jp/shop/bAOp2CDD4kswfCw13KM5, ramendb.supleks.jp/s/20090.html, mapfan.com/spots/S3W5H,J,EET11); consistent with sourced address (Shimozato, south-east Hirara). Aggregator = coordinate only."
+ },
+ {
+  "n": "Rakuen no Kajitsu, Kurima Island (楽園の果実)",
+  "a": "MYK",
+  "kind": "F",
+  "address": "476-1 Kurima, Shimoji, Miyakojima, Okinawa, Japan (沖縄県宮古島市下地字来間476-1)",
+  "lat": 24.7254559,
+  "lng": 125.2516184,
+  "source": "W6G3 2026-10-03 WebSearch extended '楽園の果実 沖縄県宮古島市下地字来間476-1 緯度 経度' — listing coordinate 24.7254559,125.2516184 from aggregator listings in result set (epark.jp/shopinfo/jsp609292, eatery.jp/restaurants/17577366, r.gnavi.co.jp/f126500); consistent with sourced address (on Kurima Island). Aggregator = coordinate only."
+ },
+ {
+  "n": "Doug's Burger Miyakojima (ダグズ・バーガー)",
+  "a": "MYK",
+  "kind": "F",
+  "address": "1153-3-101 Shimozato, Hirara, Miyakojima, Okinawa 906-0013, Japan",
+  "lat": 24.795673,
+  "lng": 125.28681,
+  "source": "LOW (orchestrator W4 policy): venue coordinate published by a listing aggregator, sanity-checked vs the sourced street address — not an official/Google/Wikipedia pin; re-verify with Google !3d!4d. Wanderlog place page https://wanderlog.com/place/details/2668784/dougs-burger prints lat 24.795673, lng 125.28681 (Google Places venue point) with matching address Shimozato 1153-3-101; via WebSearch 2026-10-02"
+ },
+ {
+  "n": "Café Kurukuma (カフェくるくま)",
+  "a": "NANBU",
+  "kind": "F",
+  "address": "1190 Chinen, Chinen, Nanjō, Okinawa 901-1513 (沖縄県南城市知念字知念1190)",
+  "lat": 26.16209,
+  "lng": 127.812515,
+  "source": "WebSearch extended 2026-10-03 'カフェくるくま 南城市知念1190 緯度 経度' — four agreeing listing coordinates 26.16209,127.812515 / 26.16213024,127.8123867 / 26.16210513,127.8124001 / 26.1622459,127.8123122 from listings incl. iko-yo 37880 / hotpepper strJ000114226 / jalan grm_guide000000172608 / matcha-jp place-master 13796; consistent with Chinen 1190 hilltop (replaces the W5-rejected TripAdvisor point 5 km W)"
+ },
+ {
+  "n": "Aharen Beach, Tokashiki Island (阿波連ビーチ)",
+  "a": "KRM",
+  "kind": "P",
+  "address": "Aharen, Tokashiki, Shimajiri District, Okinawa, Japan",
+  "lat": 26.170067,
+  "lng": 127.34594,
+  "source": "W6G1 2026-10-03: WebSearch extended '阿波連ビーチ 渡嘉敷 緯度 経度' returned 26.170067,127.34594 alongside listing pages (4travel dm_shisetsu/10031880, guidoor 9335, tripadvisor d1373634); same value returned unattributed in W4G5 (candidates iko-yo 26971 / rurubu 80043342 / mapple 501175). Aggregator listing coordinate; consistent with Aharen village beach on SW Tokashiki. Not an official/jawiki point — re-verify with a place pin (!3d!4d) when possible."
+ },
+ {
+  "n": "Shuri Soba (首里そば)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "Concert Gallery Shirokuma 1F, 1-7 Shuri Akata-chō, Naha, Okinawa",
+  "lat": 26.217615,
+  "lng": 127.722722,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for 首里そば 那覇市首里赤田町1-7 (travel.yahoo spot-00038559 / gnavi 14yhak020000 / navitime poi 02301-pn0002174): 26.217615,127.722722; consistent with Akata-chō, 5 min walk from Shuri monorail stn."
+ },
+ {
+  "n": "Ryūkyū Cuisine Mie (琉球料理 美榮)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "1-8-8 Kumoji, Naha, Okinawa",
+  "lat": 26.214998,
+  "lng": 127.678077,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for 琉球料理 美榮 那覇市久茂地 (gnavi 2k7pkvy50000/map, navitime poi 02301-t4232, map.yahoo -kHb7FjRcDg): address 久茂地1-8-8, 26.214998,127.678077; consistent with ~2 min from Kenchō-mae stn."
+ },
+ {
+  "n": "Tamakaya Soba Honten (そば処 玉家 本店)",
+  "a": "NANBU",
+  "kind": "F",
+  "address": "913-1 Furugen, Ōzato, Nanjō, Okinawa, Japan",
+  "lat": 26.190836,
+  "lng": 127.745063,
+  "source": "LOW (orchestrator W4 policy): venue coordinate published by a listing aggregator, sanity-checked vs the sourced street address — not an official/Google/Wikipedia pin; re-verify with Google !3d!4d. WebSearch (extended) 2026-10-02: lat 26.190836 / lng 127.745063 surfaced for そば処・玉家・本店 南城市大里古堅913-1 from venue listing pages (hotpepper strJ000601118 / travel.yahoo spot-00016049 / gnavi m2pzfsdw0000 map) — listing-published coordinate, not !3d!4d"
+ },
+ {
+  "n": "Suunumee (すーぬめぇ)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "40-1 Kokuba, Naha, Okinawa 902-0075 (shop name is そば処 すーまぬめぇ Sūmanumē)",
+  "lat": 26.196257,
+  "lng": 127.702698,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for そば処 すーまぬめぇ 那覇市国場 (travel.navitime spot 01125-32845r / gnavi 2107cgab0000 / jalan grm_alikejpB001102055): 国場40-1, 26.196257,127.702698; consistent with Kokuba, 3 min walk from Kokuba bus stop. Shop name is すーまぬめぇ (Sūmanumē)."
+ },
+ {
+  "n": "Nemu Isa (根夢 伊佐店)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "4-2-14 Isa, Ginowan, Okinawa 901-2221 (沖縄県宜野湾市伊佐4-2-14)",
+  "lat": 26.289185,
+  "lng": 127.752998,
+  "source": "WebSearch extended 2026-10-03 — aggregator listing coordinate 26.289185,127.752998 (second listing 26.28905435,127.7529025) from mapion phonebook G5919677-001 / navitime poi 01125-138873r / gnavi ch9b792d0000; consistent with Isa 4-chome by Ginowan Bypass (Union Isa landmark)"
+ },
+ {
+  "n": "Misato Soba (美里そば)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "1-23-12 Higashi, Okinawa City, Okinawa 904-2154 (沖縄県沖縄市東1-23-12)",
+  "lat": 26.3433303,
+  "lng": 127.820661,
+  "source": "WebSearch extended 2026-10-03 — aggregator listing coordinate 26.343330311376917,127.82066097259519 from listings kozaweb.jp/eats/show/2 / navitime poi 01125-151593r / gnavi 9jdbda540000 map; consistent with Higashi 1-chome, Okinawa City"
+ },
+ {
+  "n": "Komehachi Soba (米八そば)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "5-29-6 Awase, Okinawa City, Okinawa (沖縄県沖縄市泡瀬5-29-6)",
+  "lat": 26.3238,
+  "lng": 127.829765,
+  "source": "WebSearch extended 2026-10-03 — aggregator listing coordinate 26.3238,127.829765 from listings map.yahoo.co.jp/v3/place/Y354JqJ24aU / hotpepper strJ000600872 / navitime J000600872; consistent with Awase 5-chome"
+ },
+ {
+  "n": "Kinatsuyu (八重山そば処 来夏世)",
+  "a": "YAEYA",
+  "kind": "F",
+  "address": "203 Ishigaki, Ishigaki, Okinawa, Japan (沖縄県石垣市字石垣203)",
+  "lat": 24.3455328,
+  "lng": 124.1591596,
+  "source": "W6G3 2026-10-03 WebSearch extended '来夏世 八重山そば 沖縄県石垣市字石垣203 緯度 経度' — listing coordinate 24.3455328,124.1591596 from aggregator listings in result set (hotpepper.jp/strJ000766978, retty.me/.../100000090098, co-trip.jp/spot/70008); consistent with sourced address (Aza Ishigaki, behind Ishigaki Elementary School per okinawaclip/yuntakuya). Aggregator = coordinate only."
+ },
+ {
+  "n": "Hanagasa Shokudō (花笠食堂)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "3-2-48 Makishi, Naha, Okinawa",
+  "lat": 26.214846,
+  "lng": 127.688958,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for 花笠食堂 那覇市牧志3-2-48 (hotpepper strJ000599036: 26.214846,127.688958; Retty 26.214988,127.688878; ekiten 26.214844,127.688961 — all within ~20 m); consistent with Makishi 3-chome / Heiwa-dōri."
+ },
+ {
+  "n": "Itoman Gyomin Shokudō (糸満漁民食堂)",
+  "a": "NANBU",
+  "kind": "F",
+  "address": "4-17-7 Nishizaki-chō, Itoman, Okinawa 901-0306, Japan",
+  "lat": 26.13931,
+  "lng": 127.659904,
+  "source": "TripAdvisor listing d6938941 coordinate 26.13931,127.659904 with address 4-17 Nishizakicho via WebSearch extended 2026-10-03; aggregator → low; consistent with address and ~200 m from Itoman Osakana Center (4-19 Nishizaki, W4G3 pin 26.13827,127.66131)"
+ },
+ {
+  "n": "Maeda Shokudō, Ōgimi (前田食堂)",
+  "a": "HOKBU",
+  "kind": "F",
+  "address": "985 Tsuha, Ōgimi, Kunigami, Okinawa 905-1300, Japan",
+  "lat": 26.65355,
+  "lng": 128.0915,
+  "source": "TripAdvisor listing d4558732 (Maeda Shokudo, Ogimi-son) coordinate 26.65355,128.0915 with address 985 Tsuha via WebSearch extended 2026-10-03 (NAVITIME spot 02301-1800148 also listed); aggregator → low; consistent with Tsuha, Ōgimi (W coast, near Shikuwasa Park). Flag: Stripes headline says 'near Camp Schwab' (Henoko) — loose wording; address agrees with Tsuha."
+ },
+ {
+  "n": "Sennichi (千日)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "1-7-14 Kume, Naha, Okinawa",
+  "lat": 26.217836,
+  "lng": 127.673157,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for 千日 ぜんざい 那覇市久米 (hotpepper strJ000114351; alts travel.yahoo spot-00015941 / gnavi 5b4j9emd0000: 26.217731,127.673244 and 26.2178369,127.6731714, all within ~15 m): 久米1-7-14; consistent with Kume 1-chome."
+ },
+ {
+  "n": "A&W Makiminato (A&W 牧港店)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "4-9-1 Makiminato, Urasoe, Okinawa 901-2131, Japan",
+  "lat": 26.266909,
+  "lng": 127.7283,
+  "source": "TripAdvisor listing d1482703 (A&W Makiminato) coordinate 26.266909,127.7283 with address 4-9-1 Makiminato via WebSearch extended 2026-10-03; aggregator → low; consistent with sourced address"
+ },
+ {
+  "n": "Steakhouse 88 Tsuji Honten (ステーキハウス88 辻本店)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "1F, 2-8-21 Tsuji, Naha, Okinawa 900-0037",
+  "lat": 26.217769,
+  "lng": 127.671541,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for ステーキハウス88 辻本店 那覇市辻2-8-21 (jafnavi 471147X00339 / travel.yahoo spot-00016293 / tenposstar): 26.2177691,127.6715410; consistent with Tsuji 2-chome."
+ },
+ {
+  "n": "OKINAWA SOBA EIBUN",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "1-5-14 Tsuboya, Naha, Okinawa",
+  "lat": 26.212802,
+  "lng": 127.689998,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for OKINAWA SOBA EIBUN 那覇 壺屋 (4travel dm_shisetsu/11630186 / gnavi 2kc2tdp90000/map / jalan grm_guide000000207407): 壺屋1-5-14, 26.2128017,127.6899978; consistent with Tsuboya 1-chome, 9 min from Makishi stn."
+ },
+ {
+  "n": "Urizun (古酒と琉球料理 うりずん)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "388-5 Asato, Naha, Okinawa 902-0067",
+  "lat": 26.217434,
+  "lng": 127.6964,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for うりずん 那覇市安里388-5 (travel.yahoo spot-00016091 / hotpepper strJ000114092 / navitime poi 02301-1800242): 26.217434,127.6964; consistent with 5-min walk from Asato monorail stn."
+ },
+ {
+  "n": "Dachibin Naha Kumoji (沖縄居酒屋 抱瓶 那覇久茂地店)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "2-18-1 Kumoji, Naha, Okinawa 900-0015",
+  "lat": 26.218175,
+  "lng": 127.682564,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for 抱瓶 那覇久茂地店 (hitosara EG00552966 / paypaygourmet 126022 / gnavi 8j539jwf0000; address confirmed by official dachibin-okinawa.com/about): 久茂地2-18-1, 26.2181752,127.6825637; consistent with 3 min from Miebashi stn."
+ },
+ {
+  "n": "Tamagusuku Coffee Roasters (タマグスクコーヒー)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "Green Heights Naha 202, 2-19-39 Matsuo, Naha, Okinawa",
+  "lat": 26.213194,
+  "lng": 127.687391,
+  "source": "Listing coordinates surfaced by WebSearch (extended) for タマグスクコーヒー 那覇市松尾2-19-39 (gnavi m5xhushf0000 / navitime poi 01125-7621265 / myfunnow): 26.2131939,127.6873915 (alts 26.213387,127.687326; 26.213496,127.68708 — all within ~35 m); consistent with Matsuo 2-chome."
+ },
+ {
+  "n": "Coffee Yatai Hibari-ya (珈琲屋台 ひばり屋)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "3-9-26 Makishi, Naha, Okinawa 900-0013",
+  "lat": 26.215714,
+  "lng": 127.69034,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for 珈琲屋台 ひばり屋 那覇市牧志3-9-26 (map.yahoo ecSaOtl1xvE / navitime poi 02301-t4310 / travel.yahoo spot-00031484): 26.215714,127.690340 (alt 26.215704,127.690326); consistent with Makishi 3-chome off Kokusai-dōri."
+ },
+ {
+  "n": "rokkan COFFEE SHURI (ロッカン コーヒー シュリ)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "Yamagō Bldg 1F, 2-14 Shuri Tonokura-chō, Naha, Okinawa 903-0812",
+  "lat": 26.220093,
+  "lng": 127.719589,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for rokkan COFFEE SHURI (map.yahoo kruKEJGjk7g / hitosara 0031661035 / gnavi fka6vb0c0000): 首里当蔵町2-14, 26.2200931,127.7195885; consistent with Tonokura-chō, ~7 min from Gibo stn."
+ },
+ {
+  "n": "Tacos Café Tacoloco, Chatan (タコスカフェ タコロコ)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "American Village Bldg B 2F, 9-2 Mihama, Chatan-chō, Nakagami-gun, Okinawa (沖縄県中頭郡北谷町美浜9-2 アメリカンビレッジ内 B棟2F)",
+  "lat": 26.3162771,
+  "lng": 127.7567351,
+  "source": "WebSearch extended 2026-10-03 — aggregator listing coordinate 26.316277140839208,127.75673511820818 from listings incl. 4travel.jp/dm_shisetsu/11554622 / retty 100001302145 / gnavi namk4z6w0000 / churaguru shop 208275; consistent with American Village, Mihama 9-chome"
+ },
+ {
+  "n": "Mendokoro Tiandaa (麺処 てぃあんだー)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "1-6-10 Ameku, Naha, Okinawa 900-0005",
+  "lat": 26.230421,
+  "lng": 127.690772,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for 麺処 てぃあんだー 那覇 天久 (map.yahoo pxxRrOGnkZo / travel.yahoo spot-00016166 / navitime poi 02301-1800343 / okinawastory 600002717): 天久1-6-10, 26.230421,127.690772; consistent with Ameku/Shintoshin."
+ },
+ {
+  "n": "Teppanyaki Steak House Shiki, Sonoda Honten (ステーキハウス四季 園田本店)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "3-1-25 Sonoda, Okinawa City, Okinawa 904-0022 (沖縄県沖縄市園田3-1-25)",
+  "lat": 26.3303824,
+  "lng": 127.7962256,
+  "source": "WebSearch extended 2026-10-03 — aggregator listing coordinates 26.3303824285111,127.79622563614689 (also 26.3302768,127.79629468 and 26.330302,127.796292 agreeing) from listings incl. map.yahoo.co.jp/v3/place/KI1tNHH8N-U, hotpepper strJ000600640, gnavi 4v2z9byg0000; consistent with Sonoda 3-chome"
+ },
+ {
+  "n": "Highway Drive-In Restaurant, Okinawa City (ハイウェイ食堂)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "701 Noborikawa, Okinawa City, Okinawa 904-2142, Japan",
+  "lat": 26.371094,
+  "lng": 127.82689,
+  "source": "TripAdvisor listing d7448921 (Highway Drive Inn) coordinate 26.371094,127.82689 with address 701 Noborikawa via WebSearch extended 2026-10-03 (NAVITIME spot 00011-081080020 also listed); aggregator → low; consistent with Noborikawa, NE Okinawa City"
+ },
+ {
+  "n": "Blue Seal Makiminato Honten (ブルーシール 牧港本店)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "5-5-6 Makiminato, Urasoe, Okinawa 901-2131, Japan",
+  "lat": 26.267336,
+  "lng": 127.72143,
+  "source": "TripAdvisor listing d1663969 (Blue Seal Makiminato Cafe) coordinate 26.267336,127.72143 via WebSearch extended 2026-10-03; aggregator listing → low; consistent with sourced address 5-5-6 Makiminato (Route 58, Urasoe)"
+ },
+ {
+  "n": "Benriya Yulinglong, Sakaemachi (べんり屋 玉玲瓏)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "388-1 Asato (Sakaemachi Market), Naha, Okinawa 902-0067",
+  "lat": 26.21749,
+  "lng": 127.696607,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for べんり屋 玉玲瓏 那覇市安里388-1 (hotpepper strJ000621882 / navitime poi 01125-5655368 / fun-compass mapple-okinawa-47011712): 26.21749,127.696607; consistent with Sakaemachi Market, 2 min from Asato stn east exit."
+ },
+ {
+  "n": "Nakamura-ya, Kumoji (海産物料理とあわもりの店 なかむら家)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "1F, 3-15-2 Kumoji, Naha, Okinawa",
+  "lat": 26.215844,
+  "lng": 127.682192,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for なかむら家 那覇市久茂地 (map.yahoo ShzRUkUfN6g / hotpepper strJ000598613 / gnavi hu96e5x50000): 久茂地3-15-2, 26.215844,127.682192; consistent with Kumoji 3-chome (~30 m from Karakara at 3-15-15)."
+ },
+ {
+  "n": "Karakara to Chibugwā (カラカラとちぶぐゎ〜)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "Yamako 2nd Bldg 1F, 3-15-15 Kumoji, Naha, Okinawa",
+  "lat": 26.215773,
+  "lng": 127.682514,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for カラカラとちぶぐゎ〜 那覇市久茂地3-15-15 (map.yahoo Z_VnPxEjW8c / gnavi 48uwk1eh0000 / autoreserve): 26.2157727,127.6825142; consistent with Kumoji 3-chome, ~4 min from Kenchō-mae stn."
+ },
+ {
+  "n": "Kozakura (小桜)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "3-12-21 Makishi, Naha, Okinawa 900-0013",
+  "lat": 26.216847,
+  "lng": 127.690544,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for 小桜 那覇市牧志3-12-21 (navitime poi 01125-J000603019 / map.yahoo z9m9MFLblcY / okinawastory 600013243): 26.216847,127.690544; consistent with Makishi 3-chome."
+ },
+ {
+  "n": "Takaesu Soba, Urasoe (高江洲そば)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "3-36-2 Iso, Urasoe, Okinawa 901-2132, Japan",
+  "lat": 26.25607,
+  "lng": 127.72236,
+  "source": "TripAdvisor listing d1689946 coordinate 26.25607,127.72236 with address 3-36-2 Iso via WebSearch extended 2026-10-03; aggregator → low; consistent with sourced Iso, Urasoe"
+ },
+ {
+  "n": "Kingetsu Soba Yomitan Honten (金月そば 読谷本店)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "201 Kina, Yomitan-son, Nakagami-gun, Okinawa (沖縄県中頭郡読谷村喜名201)",
+  "lat": 26.3977023,
+  "lng": 127.7574056,
+  "source": "WebSearch extended 2026-10-03 '金月そば 読谷本店 読谷村喜名201 緯度 経度' — aggregator listing coordinate 26.397702280787705,127.75740561903018 printed via listings iko-yo.net/facilities/18260 / travel.yahoo.co.jp/kanko/spot-00037429 / retty 100000451933; consistent with Kina, Yomitan (address matches W5 refined 201 Kina)"
+ },
+ {
+  "n": "Keishoku no Mise Ruby, Tomari (軽食の店ルビー)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "3-4-15 Tomari, Naha, Okinawa",
+  "lat": 26.226817,
+  "lng": 127.685567,
+  "source": "Listing coordinate surfaced by WebSearch (extended) for 軽食の店ルビー 那覇市泊 (4travel dm_shisetsu/10188575 / jalan grm_alikejpB000117937 / ekiten shop_2485685): 泊3-4-15, 26.226817,127.685567; consistent with Route 58 near Tomari Bridge."
+ },
+ {
+  "n": "Nuchi Māsu Salt Factory, Miyagi Island (ぬちまーす観光製塩ファクトリー)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "2768 Miyagi, Yonashiro, Uruma, Okinawa 904-2423, Japan",
+  "lat": 26.360344,
+  "lng": 127.99098,
+  "source": "TripAdvisor listing coordinate 26.360344,127.99098 (summarizer: 'from TripAdvisor data'; likely the on-site Nuchi-Masu Cafe Takanahari listing d7122827, same building) via WebSearch extended 2026-10-03; aggregator → low; consistent with 2768 Miyagi (E Miyagi Island, by Kafu Banta)"
+ },
+ {
+  "n": "Itoman Fishermen's Co-op Osakana Center, Michi-no-Eki Itoman (糸満漁協 お魚センター)",
+  "a": "NANBU",
+  "kind": "F",
+  "address": "4-19 Nishizaki-chō, Itoman, Okinawa, Japan",
+  "lat": 26.13827,
+  "lng": 127.66131,
+  "source": "LOW (orchestrator W4 policy): venue coordinate published by a listing aggregator, sanity-checked vs the sourced street address — not an official/Google/Wikipedia pin; re-verify with Google !3d!4d. WebSearch (extended) 2026-10-02: venue lat/long 26.13827,127.66131 printed for 'Fish Center' Itoman listing (tripadvisor d10103090 POI) — listing coordinate, not Stripes/Google !3d; consistent with Nishizaki 4-19 address (gltjp 17431, navitime 02301-1800088). Upgrade with !3d!4d when available."
+ },
+ {
+  "n": "Arakaki Zenzai-ya (新垣ぜんざい屋)",
+  "a": "HOKBU",
+  "kind": "F",
+  "address": "11-2 Toguchi, Motobu, Kunigami District, Okinawa, Japan",
+  "lat": 26.660524,
+  "lng": 127.89577,
+  "source": "LOW (orchestrator W4 policy): venue coordinate published by a listing aggregator, sanity-checked vs the sourced street address — not an official/Google/Wikipedia pin; re-verify with Google !3d!4d. WebSearch (extended) 2026-10-02: lat 26.660524 / lng 127.89577 printed for Arakaki Zenzaiya, 11-2 Toguchi (tripadvisor d4237451 listing coordinate); consistent with Toguchi soba cluster (Stripes GPS Kishimoto Honten N26.660328 E127.895893 ~25 m away — the two are known neighbours)"
+ },
+ {
+  "n": "Helios Distillery (ヘリオス酒造)",
+  "a": "HOKBU",
+  "kind": "F",
+  "address": "405 Kyoda, Nago, Okinawa 905-0024, Japan",
+  "lat": 26.537409,
+  "lng": 127.96177,
+  "source": "LOW (orchestrator W4 policy): venue coordinate published by a listing aggregator, sanity-checked vs the sourced street address — not an official/Google/Wikipedia pin; re-verify with Google !3d!4d. WebSearch (extended) 2026-10-02: lat 26.537409 / lng 127.96177 printed for Helios Distillery 405 Kyoda (tripadvisor d6764552 attraction listing coordinate); address confirmed by whiskeylore + walkerplus ar1047s366876"
+ },
+ {
+  "n": "Yachimun Kissa Shīsā-en, Motobu (やちむん喫茶 シーサー園)",
+  "a": "HOKBU",
+  "kind": "F",
+  "address": "1439 Izumi, Motobu, Kunigami District, Okinawa 905-0221, Japan",
+  "lat": 26.643835,
+  "lng": 127.9412,
+  "source": "LOW (orchestrator W4 policy): venue coordinate published by a listing aggregator, sanity-checked vs the sourced street address — not an official/Google/Wikipedia pin; re-verify with Google !3d!4d. WebSearch (extended) 2026-10-02: lat 26.643835 / lng 127.9412 printed for Yachimun Kissa, 1439 Izumi (tripadvisor d1191564 listing coordinate); address confirmed by trip.com poi 137315279"
+ },
+ {
+  "n": "Pizza Kissa Kajinhō, Motobu (ピザ喫茶 花人逢)",
+  "a": "HOKBU",
+  "kind": "F",
+  "address": "1153-2 Yamazato, Motobu, Kunigami District, Okinawa 905-0219, Japan",
+  "lat": 26.668528,
+  "lng": 127.90075,
+  "source": "LOW (orchestrator W4 policy): venue coordinate published by a listing aggregator, sanity-checked vs the sourced street address — not an official/Google/Wikipedia pin; re-verify with Google !3d!4d. WebSearch (extended) 2026-10-02: lat 26.668528 / lng 127.90075 printed for Kajinho, 1153-2 Yamazato (tripadvisor d1198343 listing coordinate); Stripes 'Pizza in the Sky' article + totalokinawa confirm venue (no GPS surfaced from them)"
+ },
+ {
+  "n": "Cafe ichara, Motobu (カフェ イチャラ)",
+  "a": "HOKBU",
+  "kind": "F",
+  "address": "2414-6 Izumi, Motobu, Kunigami District, Okinawa 905-0221, Japan",
+  "lat": 26.646976,
+  "lng": 127.951035,
+  "source": "LOW (orchestrator W4 policy): venue coordinate published by a listing aggregator, sanity-checked vs the sourced street address — not an official/Google/Wikipedia pin; re-verify with Google !3d!4d. WebSearch (extended) 2026-10-02: lat 26.646976 / lng 127.951035 printed for Cafe Ichara, 2414-6 Izumi (tripadvisor d1236324 listing coordinate)"
+ },
+ {
+  "n": "Nakamura Soba (なかむらそば)",
+  "a": "HOKBU",
+  "kind": "F",
+  "address": "1669-1 Serakaki, Onna, Kunigami District, Okinawa 904-0404, Japan",
+  "lat": 26.506754,
+  "lng": 127.86558,
+  "source": "LOW (orchestrator W4 policy): venue coordinate published by a listing aggregator, sanity-checked vs the sourced street address — not an official/Google/Wikipedia pin; re-verify with Google !3d!4d. WebSearch (extended) 2026-10-02: lat 26.506754 / lng 127.86558 printed for Nakamurasoba, 1669-1 Serakaki (tripadvisor d1678831 listing coordinate); consistent with Serakaki on Rt 58 ~1.5 km E of Manzamo (Stripes N26.504971 E127.850138)"
+ },
+ {
+  "n": "Kaiyō Shokudō, Tomigusuku (海洋食堂)",
+  "a": "NANBU",
+  "kind": "F",
+  "address": "192-10 Nakachi, Tomigusuku, Okinawa 901-0235, Japan",
+  "lat": 26.176687,
+  "lng": 127.665375,
+  "source": "LOW (orchestrator W4 policy): venue coordinate published by a listing aggregator, sanity-checked vs the sourced street address — not an official/Google/Wikipedia pin; re-verify with Google !3d!4d. WebSearch (extended) 2026-10-02: lat 26.176687 / lng 127.665375 printed for Kaiyo Shokudo, 192-10 Nakachi (tripadvisor d5039601 listing coordinate)"
+ },
+ {
+  "n": "Sobaya Yoshiko, Motobu (そば屋よしこ)",
+  "a": "HOKBU",
+  "kind": "F",
+  "address": "2662 Izumi, Motobu, Kunigami District, Okinawa 905-0221, Japan",
+  "lat": 26.639357,
+  "lng": 127.95863,
+  "source": "LOW (orchestrator W4 policy): venue coordinate published by a listing aggregator, sanity-checked vs the sourced street address — not an official/Google/Wikipedia pin; re-verify with Google !3d!4d. WebSearch (extended) 2026-10-02: lat 26.639357 / lng 127.95863 printed for Yoshiko, 2662 Izumi (tripadvisor d1699716 listing coordinate); address confirmed by okinawatraveler shop/776 + good-okinawa"
+ },
+ {
+  "n": "Yagiya (屋宜家)",
+  "a": "NANBU",
+  "kind": "F",
+  "address": "1172 Ōgan, Yaese-chō, Shimajiri-gun, Okinawa (沖縄県島尻郡八重瀬町大頓1172)",
+  "lat": 26.1273416,
+  "lng": 127.7369507,
+  "source": "WebSearch extended 2026-10-03 — listing coordinate 26.12734164014753,127.73695069515185 printed via listings incl. okinawastory.jp/gourmet/600004315 / tabelog 47001738 / suba.okinawa yagi; consistent with Ōgan, Yaese (registered tangible cultural property house)"
+ },
+ {
+  "n": "Nantō Shokurakuen, Kume Island (南島食楽園)",
+  "a": "KRM",
+  "kind": "F",
+  "address": "160-81 Higa, Kumejima, Okinawa, Japan",
+  "lat": 26.329073,
+  "lng": 126.806239,
+  "source": "WebSearch extended 2026-10-03 ('Nanto Shokurakuen Kumejima tripadvisor latitude longitude'): summary printed 26.329073,126.806239 with address Higa 160-81, 'diagonally opposite Resort Hotel Kume Island' — from NAVITIME Japan Travel spot 02301-1800145n / tabelog listing (unisolated aggregator listing coordinate → low). Consistent with sourced address (Higa, east Kume near Eef Beach)."
+ },
+ {
+  "n": "Sukeroku Kamaboko, Kume Island (助ろく)",
+  "a": "KRM",
+  "kind": "F",
+  "address": "423-1 Kadekaru (嘉手苅), Kumejima, Shimajiri District, Okinawa, Japan",
+  "lat": 26.338002439703967,
+  "lng": 126.76425469796156,
+  "source": "W6G1 2026-10-03: WebSearch extended '助ろく かまぼこ 久米島町嘉手苅423-1 緯度 経度' returned 26.338002439703967,126.76425469796156 for かまぶくの店 助ろく at 字嘉手苅423-1, with the tabelog listing 47007779 as the matching page — aggregator listing coordinate (tabelog = coordinate only, never a recommender), consistent with the sourced address (~10 min drive from Kumejima Airport)."
+ },
+ {
+  "n": "Onna no Eki Nakayukui Ichiba (おんなの駅 なかゆくい市場)",
+  "a": "HOKBU",
+  "kind": "F",
+  "address": "1656-9 Nakadomari, Onna-son, Kunigami-gun, Okinawa (沖縄県国頭郡恩納村字仲泊1656-9)",
+  "lat": 26.436155,
+  "lng": 127.794842,
+  "source": "WebSearch extended 2026-10-03 — listing coordinate 26.436155,127.794842 printed via listings incl. hotpepper strJ000872855 / map.yahoo.co.jp/v3/place/BcC60eH_7b_ / satomono.jp market 47311/3098; consistent with Nakadomari 1656-9 (address confirmed on Onna village page vill.onna.okinawa.jp cocoico spot 501)"
+ },
+ {
+  "n": "Michi-no-Eki Kyoda — Yanbaru Bussan Center (道の駅許田)",
+  "a": "HOKBU",
+  "kind": "F",
+  "address": "17-1 Kyoda, Nago, Okinawa 905-0024 (沖縄県名護市許田17-1)",
+  "lat": 26.552103,
+  "lng": 127.969873,
+  "source": "WebSearch extended 2026-10-03 — listing coordinate 26.552103,127.969873 printed via listings incl. drive.jafnavi.jp/spots/471147X00017 / navitime poi 02301-1300765 / ekitan / satomono.jp market 47209/14263; consistent with Kyoda, Nago on Route 58"
+ },
+ {
+  "n": "Chadokoro Makabe Chinā, Itoman (茶処 真壁ちなー)",
+  "a": "NANBU",
+  "kind": "F",
+  "address": "223 Makabe, Itoman, Okinawa (沖縄県糸満市真壁223)",
+  "lat": 26.10565,
+  "lng": 127.691324,
+  "source": "WebSearch extended 2026-10-03 — listing coordinate 26.10565,127.691324 printed via listings incl. navitime poi 02301-1800333 / travel.navitime.com spot 02301-1800333 / map.yahoo.co.jp c-X1_Akew3c / hotpepper strJ000114219; consistent with Makabe, Itoman"
+ },
+ {
+  "n": "Awamori Masahiro Gallery, Itoman (泡盛まさひろギャラリー)",
+  "a": "NANBU",
+  "kind": "F",
+  "address": "5-8-7 Nishizaki-chō, Itoman, Okinawa (沖縄県糸満市西崎町5-8-7)",
+  "lat": 26.142904,
+  "lng": 127.654157,
+  "source": "WebSearch extended 2026-10-03 — listing coordinate 26.142904,127.654157 printed via listings incl. jalan guide000000179962 / travel.yahoo spot-00016265 / LINE PLACE 30772407 / localplace t000365091; consistent with Nishizaki-chō 5-chome industrial estate, Itoman"
+ },
+ {
+  "n": "Restaurant Marumi-ya, Zamami (レストラン まるみ屋)",
+  "a": "KRM",
+  "kind": "F",
+  "address": "432-2 Zamami, Zamami, Shimajiri, Okinawa 901-3402, Japan",
+  "lat": 26.229982,
+  "lng": 127.30253,
+  "source": "TripAdvisor listing d3342904 (Restaurant Marumiya, Zamami-son) coordinate 26.229982,127.30253 via WebSearch extended 2026-10-03; aggregator listing → low; consistent with address 432-2 Zamami (Zamami port village)"
+ },
+ {
+  "n": "Irabu Soba Kame (伊良部そば かめ)",
+  "a": "MYK",
+  "kind": "F",
+  "address": "251 Nagahama, Irabu, Miyakojima, Okinawa 906-0506, Japan (沖縄県宮古島市伊良部字長浜251)",
+  "lat": 24.8399918,
+  "lng": 125.1653942,
+  "source": "W6G3 2026-10-03 WebSearch extended '伊良部そば かめ 宮古島市伊良部字長浜251 緯度 経度' — three listings agree within ~60 m: 24.8399918,125.1653942; 24.840006,125.165403; 24.840456,125.164749 (result set: autoreserve.com/ja/restaurants/hHZjjaKYK2fXoZQNJcPK, epark.jp/shopinfo/jsp654528, navitime.co.jp/poi?spot=02301-ni0000017, r.gnavi.co.jp/61t0gnmt0000); consistent with sourced address (Nagahama, NE Irabu). Aggregator = coordinate only."
+ },
+ {
+  "n": "Maruyoshi Shokudō (丸吉食堂)",
+  "a": "MYK",
+  "kind": "F",
+  "address": "975-1 Sunagawa, Gusukube, Miyakojima, Okinawa 906-0108, Japan (沖縄県宮古島市城辺字砂川975-1)",
+  "lat": 24.7316406,
+  "lng": 125.3516878,
+  "source": "W6G3 2026-10-03 WebSearch extended '丸吉食堂 沖縄県宮古島市城辺字砂川975-1 緯度 経度' — listings agree: 24.731604,125.351652; 24.7316406,125.3516878; 24.732111,125.351001 (result set: retty.me/.../100000171379/map, navitime.co.jp/poi?spot=02301-1800232, rubese.net gurucomi id=2979795, travel.yahoo.co.jp spot-00016084); consistent with sourced address (Sunagawa, Gusukube). Aggregator = coordinate only."
+ },
+ {
+  "n": "Yamato Shokudō (大和食堂)",
+  "a": "MYK",
+  "kind": "F",
+  "address": "819-3 Nishizato, Hirara, Miyakojima, Okinawa, Japan (沖縄県宮古島市平良字西里819-3)",
+  "lat": 24.799701,
+  "lng": 125.292547,
+  "source": "W6G3 2026-10-03 WebSearch extended '大和食堂 宮古島市平良字西里819-3 緯度 経度' — hotpepper.jp/strJ000114436 listing 24.799701,125.292547; tabelog 47000267 24.799709,125.292589; navitime poi 01125-127752r 24.800196,125.291891 (agree within ~90 m); consistent with sourced address (Nishizato, Hirara). Aggregator = coordinate only."
+ },
+ {
+  "n": "Minato Shokudō, Miyako (みなと食堂)",
+  "a": "MYK",
+  "kind": "F",
+  "address": "593-10 Nikadori, Hirara, Miyakojima, Okinawa, Japan (沖縄県宮古島市平良字荷川取593-10)",
+  "lat": 24.817164,
+  "lng": 125.279667,
+  "source": "W6G3 2026-10-03 WebSearch extended 'みなと食堂 宮古島市平良字荷川取593-10 緯度 経度' — listing coordinate 24.817164,125.279667 from result set (hamoni.jp/shop/cDVNZUD41jhlxkpvjONh, navitime.co.jp/poi?spot=02022-1449799, r.gnavi.co.jp/45u24ud00000); consistent with sourced address (facing Nikadori fishing port). Aggregator = coordinate only."
+ },
+ {
+  "n": "Jinku-ya (じんく屋)",
+  "a": "MYK",
+  "kind": "F",
+  "address": "84 Shimozato, Hirara, Miyakojima, Okinawa, Japan (沖縄県宮古島市平良字下里84)",
+  "lat": 24.803537,
+  "lng": 125.278321,
+  "source": "W6G3 2026-10-03 WebSearch extended 'じんく屋 宮古島市平良字下里84 緯度 経度' — listings agree: 24.803537,125.278321 and 24.8035505,125.2783325 (result set: hotpepper.jp/strJ000597433, hamoni.jp/shop/8HBil..., jalan grm_alikejpB000671152, ekiten shop_2466158); consistent with sourced address (central Hirara). Aggregator = coordinate only."
+ },
+ {
+  "n": "Ishigaki-gyū Sumibi Yakiniku Yamamoto (石垣牛 炭火焼肉 やまもと)",
+  "a": "YAEYA",
+  "kind": "F",
+  "address": "2-5-18 Hamasaki-chō, Ishigaki, Okinawa, Japan (沖縄県石垣市浜崎町2-5-18)",
+  "lat": 24.341497,
+  "lng": 124.149683,
+  "source": "W6G3 2026-10-03 WebSearch extended '石垣牛炭火焼肉やまもと 沖縄県石垣市浜崎町2-5-18 緯度 経度' — listings agree: 24.3414804,124.1497135; 24.341497,124.149683; 24.3414953,124.1497161 (one outlier 24.340189,124.147655 ignored) (result set: hamoni.jp/en/shop/8YuLcfKXBrMRon3OwmHg, co-trip.jp/spot/70057, navitime poi 02301-1803071, r.gnavi.co.jp/6fjew2wa0000); consistent with sourced address (Hamasaki-chō). Aggregator = coordinate only."
+ },
+ {
+  "n": "Kimi Shokudō, Ishigaki (キミ食堂)",
+  "a": "YAEYA",
+  "kind": "F",
+  "address": "319-6 Tonoshiro, Ishigaki, Okinawa 907-0004, Japan (沖縄県石垣市登野城319-6)",
+  "lat": 24.341632,
+  "lng": 124.166577,
+  "source": "W6G3 2026-10-03 WebSearch extended 'キミ食堂 沖縄県石垣市登野城319-6 緯度 経度' — listings agree: 24.3416128,124.1666009 and 24.341632,124.166577 (outlier 24.340337,124.164569 ignored) (result set: map.yahoo.co.jp/v3/place/rZw82jaNudU, hotpepper strJ000114443, ekiten shop_2474998, navitime poi 01125-115234r); consistent with sourced address (Tonoshiro). Aggregator = coordinate only."
+ },
+ {
+  "n": "Awamori to Okinawa Ryōri Gōya, Miyako (泡盛と沖縄料理 郷家)",
+  "a": "MYK",
+  "kind": "F",
+  "address": "570-2 Nishizato, Hirara, Miyakojima, Okinawa, Japan (沖縄県宮古島市平良字西里570-2)",
+  "lat": 24.802467,
+  "lng": 125.282714,
+  "source": "W6G3 2026-10-03 WebSearch extended '泡盛と沖縄料理 郷家 沖縄県宮古島市平良字西里570-2 緯度 経度' — listing coordinate 24.802467,125.282714 from result set (rtrp.jp/spots/4ceff6f4-..., navitime poi 02301-1800221n, ekiten shop_2467061, r.gnavi catf68d30000); consistent with sourced address (Nishizato, on prefectural road 78). Aggregator = coordinate only."
+ },
+ {
+  "n": "RICCO gelato, Miyako (リッコジェラート)",
+  "a": "MYK",
+  "kind": "F",
+  "address": "550 Shimozato, Hirara, Miyakojima, Okinawa 906-0013, Japan (沖縄県宮古島市平良字下里550)",
+  "lat": 24.8028989,
+  "lng": 125.2797993,
+  "source": "W6G3 2026-10-03 WebSearch extended 'リッコジェラート 沖縄県宮古島市平良字下里550 緯度 経度' — listing coordinate 24.802898940,125.279799283 from result set (tabelog 47007314 peripheral_map, ricco-gelato.com/shop-info); consistent with sourced address (central Hirara, Shimozato). Aggregator = coordinate only."
+ },
+ {
+  "n": "Shima Café Tunkaraya, Miyako (島cafe とぅんからや)",
+  "a": "MYK",
+  "kind": "F",
+  "address": "1214 Shinzato, Ueno, Miyakojima, Okinawa, Japan (沖縄県宮古島市上野字新里1214)",
+  "lat": 24.725847,
+  "lng": 125.348264,
+  "source": "W6G3 2026-10-03 WebSearch extended '島cafe とぅんからや 沖縄県宮古島市上野字新里1214 緯度 経度' — ekiten.jp/shop_6012879/access printed 24.725847,125.348264; consistent with sourced address (Ueno-Shinzato, overlooking the Sigira golf course coast per myakuzumi.com/435). Aggregator = coordinate only."
+ },
+ {
+  "n": "Ishigaki-jima Milmil Honpo (石垣島ミルミル本舗)",
+  "a": "YAEYA",
+  "kind": "F",
+  "address": "1583-74 Arakawa, Ishigaki, Okinawa, Japan (沖縄県石垣市新川1583-74)",
+  "lat": 24.370929,
+  "lng": 124.1226,
+  "source": "W6G3 2026-10-03 WebSearch extended '石垣島ミルミル本舗 沖縄県石垣市新川1583-74 緯度 経度' — two listings print 24.370927,124.1226 / 24.370929,124.1226; a third prints 24.369682,124.120619 (~250 m apart) (result set: hotpepper strJ001071535, r.gnavi.co.jp/dzhv2az90000/map, navitime poi 02301-1803063, travel.yahoo spot-00016267). Took the agreeing pair; all on the Arakawa hilltop above Nagura Bay per mirumiru1583.com/access. FLAG for 4b re-verify (spread 250 m). Aggregator = coordinate only."
+ },
+ {
+  "n": "Shima Ryōri Izakaya Adan-tei, Ishigaki (島料理居酒屋 あだん亭)",
+  "a": "YAEYA",
+  "kind": "F",
+  "address": "East 1F, 430 Ōkawa, Ishigaki, Okinawa 907-0022, Japan (沖縄県石垣市大川430 1F東)",
+  "lat": 24.345975,
+  "lng": 124.161816,
+  "source": "W6G3 2026-10-03 WebSearch extended '島料理居酒屋 あだん亭 沖縄県石垣市大川430 緯度 経度' — listings agree: 24.345975,124.161816 and 24.3459701,124.1618400 (result set: hotpepper strJ000114238, enjoytokyo g_fb2s800, ekiten shop_15618912, adantei.gorp.jp); consistent with sourced address (Ōkawa, 2 min walk from Hotel Nikko Yaeyama per adantei.com). Aggregator = coordinate only."
+ },
+ {
+  "n": "Mori no Kenja, Ishigaki (森の賢者)",
+  "a": "YAEYA",
+  "kind": "F",
+  "address": "1F, 49-2 Arakawa, Ishigaki, Okinawa 907-0024, Japan (沖縄県石垣市字新川49-2 1F)",
+  "lat": 24.345085,
+  "lng": 124.152663,
+  "source": "W6G3 2026-10-03 WebSearch extended '森の賢者 沖縄県石垣市新川49-2 緯度 経度' — listing coordinate 24.345085,124.152663 from result set (map.yahoo.co.jp/v3/place/NO1kwRoHo8M, hotpepper strJ000114178, hamoni.jp/shop/yxQMuAJEj7y5omg2MkC8, navitime poi 01125-7174126); consistent with sourced address (Arakawa, west edge of downtown). Aggregator = coordinate only."
+ },
+ {
+  "n": "Maguro Senmon Izakaya Hitoshi, Ishigantō (まぐろ専門居酒屋 ひとし 石敢當店)",
+  "a": "YAEYA",
+  "kind": "F",
+  "address": "197-1 Ōkawa, Ishigaki, Okinawa, Japan (沖縄県石垣市大川197-1)",
+  "lat": 24.339972,
+  "lng": 124.159141,
+  "source": "W6G3 2026-10-03 WebSearch extended 'まぐろ専門居酒屋 ひとし 石敢當店 沖縄県石垣市大川197-1 緯度 経度' — listings agree: 24.339972,124.159141 and 24.339992,124.159108 (result set: hotpepper strJ000675737, map.yahoo.co.jp/v3/place/ZkUs5qpETSU, hamoni.jp/shop/yiSVYjBqZ6nBAPuXSKYm, ekiten shop_2474815/access); consistent with sourced address (Ōkawa, downtown Ishigaki). Aggregator = coordinate only."
+ },
+ {
+  "n": "KITCHEN inaba, Iriomote (キッチン イナバ)",
+  "a": "YAEYA",
+  "kind": "F",
+  "address": "742-6 Uehara, Taketomi, Yaeyama District, Okinawa, Japan (沖縄県八重山郡竹富町上原742-6)",
+  "lat": 24.423203,
+  "lng": 123.777954,
+  "source": "W6G3 2026-10-03 WebSearch extended 'キッチン イナバ 西表島 竹富町上原742-6 緯度 経度' — listing coordinate 24.423203,123.777954 from result set (travel.yahoo.co.jp spot-00031520, r.gnavi.co.jp/1y8sgkcc0000, TripAdvisor d3835679); consistent with sourced address (Uehara, along prefectural road 215, north Iriomote). Single listing; FLAG for 4b re-verify. Aggregator = coordinate only."
+ },
+ {
+  "n": "Akashi Shokudō, Ishigaki (明石食堂)",
+  "a": "YAEYA",
+  "kind": "F",
+  "address": "360 Ihara, Ishigaki, Okinawa, Japan (沖縄県石垣市伊原間360, Akashi area)",
+  "lat": 24.53949,
+  "lng": 124.30014,
+  "source": "W6G3 2026-10-03 WebSearch extended '明石食堂 沖縄県石垣市伊原間360 緯度 経度' — listings agree: 24.5394901,124.3001408 and 24.5395010,124.3001533 (result set: hotpepper strJ000597813, ramendb.supleks.jp/s/10327, cookdoor 14092762440, travel.navitime.com spot 01125-10327r); consistent with sourced address (Akashi, north Ishigaki). Aggregator = coordinate only."
+ },
+ {
+  "n": "Sakana-dokoro Shiken-bara, Miyako (肴処 志堅原)",
+  "a": "MYK",
+  "kind": "F",
+  "address": "236 Nishizato, Hirara, Miyakojima, Okinawa, Japan (沖縄県宮古島市平良字西里236)",
+  "lat": 24.805187,
+  "lng": 125.280632,
+  "source": "W6G3 2026-10-03 WebSearch extended '肴処 志堅原 沖縄県宮古島市平良字西里236 緯度 経度' — four listings agree within ~50 m: 24.8051962,125.2804363; 24.8051224,125.2803981; 24.805187,125.280632; 24.8056508,125.2805788 (result set: hotpepper strJ001080390, map.goo.ne.jp/place/XFRSUFHK, jalan grm_foomoojH000313328, travel.yahoo spot-00015960); consistent with sourced address (Nishizato, central Hirara). Aggregator = coordinate only."
+ },
+ {
+  "n": "Kumejima Soba-dokoro Yan-kō, Kume Island (久米島そば処 やん小～)",
+  "a": "KRM",
+  "kind": "F",
+  "address": "509 Nakadomari (仲泊), Kumejima, Shimajiri District, Okinawa, Japan",
+  "lat": 26.34745823969232,
+  "lng": 126.74657739806948,
+  "source": "W6G1 2026-10-03: WebSearch extended '久米島そば処 やん小～ 久米島町仲泊509 緯度 経度' returned 26.34745823969232,126.74657739806948 alongside listing pages (co-trip 126571, mapple 47012362, ekiten 67986111, tabelog 47001595) — aggregator listing coordinate, consistent with the sourced 仲泊509 address."
+ },
+ {
+  "n": "Yonejima Shuzō awamori distillery, Kume Island (米島酒造)",
+  "a": "KRM",
+  "kind": "F",
+  "address": "499 Ōta (大田), Kumejima, Shimajiri District, Okinawa 901-3123, Japan",
+  "lat": 26.34575,
+  "lng": 126.751222,
+  "source": "W6G1 2026-10-03: WebSearch extended '米島酒造 久米島町大田499 緯度 経度' returned 26°20'44.7\"N 126°45'04.4\"E for the brewery at 大田499, alongside the official access-map page yonesima.jp/free/map and okinawa-awamori.or.jp/distilleries/yonesima; result not attributed to one page, so graded low. Consistent with Ōta (west Kume) and ~500 m from Yan-kō at adjacent Nakadomari."
+ },
+ {
+  "n": "Great Akagi Trees of Shuri Kinjō (首里金城の大アカギ)",
+  "a": "NAHA",
+  "kind": "P",
+  "address": "3-18 Shuri Kinjō-chō, Naha, Okinawa (Uchikanagusuku-utaki precinct)",
+  "lat": 26.215887,
+  "lng": 127.716012,
+  "source": "tabi-mag.jp/on0016 '内金城嶽の大アカギ' info block printed 緯度・経度 26.215887, 127.716012 (as surfaced in WebSearch summary); consistent with 首里金城町3-18 south of Shuri Castle [orchestrator: med→low — coordinate seen only in a search summary; re-verify]"
+ },
+ {
+  "n": "Tacos-ya Chatan (タコス屋 北谷店)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "1-5 Miyagi, Chatan, Okinawa 904-0113",
+  "lat": 26.323477,
+  "lng": 127.75065,
+  "source": "Tripadvisor listing 'Tacos-Ya Chatan' (d6050307) coordinate 26.323477,127.75065 surfaced via extended search; consistent with the sourced address 1-5 Miyagi, Chatan near the Sunabe Seawall (Stripes). Aggregator coordinate — re-verify to !3d!4d."
+ },
+ {
+  "n": "Mihama Shokudō, Chatan (みはま食堂)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "1-2-10 Mihama, Chatan, Okinawa 904-0115",
+  "lat": 26.31059,
+  "lng": 127.761795,
+  "source": "Tripadvisor listing 'Mihama Shokudo' (d7187051) coordinate 26.31059,127.761795 surfaced via extended search; consistent with sourced address 1-2-10 Mihama (inland Mihama 1-chome by Route 58). Aggregator coordinate — re-verify to !3d!4d."
+ },
+ {
+  "n": "Sanchōme no Shima Soba-ya, Ginowan (3丁目の島そば屋)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "3-10-1 Kakazu, Ginowan, Okinawa",
+  "lat": 26.257654,
+  "lng": 127.7362,
+  "source": "Tripadvisor listing 'Sanchome no Shimasobaya Ginowan' (d6957170) coordinate 26.257654,127.7362 surfaced via extended search; consistent with sourced address Kakazu 3-10-1 (beside Kakazu Takadai Park, itself pinned 26.25806,127.73670). Aggregator coordinate — re-verify to !3d!4d."
+ },
+ {
+  "n": "Seaside Drive-In, Onna (シーサイドドライブイン)",
+  "a": "HOKBU",
+  "kind": "F",
+  "address": "885 Nakadomari, Onna-son, Kunigami-gun, Okinawa (沖縄県国頭郡恩納村仲泊885) — street number per listings (official seaside-drivein.jp/access)",
+  "lat": 26.442728,
+  "lng": 127.803449,
+  "source": "WebSearch extended 2026-10-03 — navitime poi 02301-1800434 listing 26.442728,127.803449; hotpepper strJ000872895 26.442683,127.803389 and tabelog 47000156 26.44260833,127.80348322 agree within ~15 m; consistent with Nakadomari seaside on Route 58"
+ },
+ {
+  "n": "Emi no Mise, Ōgimi (笑味の店)",
+  "a": "HOKBU",
+  "kind": "F",
+  "address": "61 Ōganeku, Ōgimi-son, Kunigami-gun, Okinawa (沖縄県国頭郡大宜味村字大兼久61)",
+  "lat": 26.7027183,
+  "lng": 128.1235831,
+  "source": "WebSearch extended 2026-10-03 — listing coordinate 26.7027183007106,128.12358306185445 printed via listings incl. travel.yahoo spot-00015980 / asoview 47302fc3562007223 / gnavi duumpg730000 / churatown 6485; consistent with Ōganeku, Ōgimi on Route 58"
+ },
+ {
+  "n": "Okashi Goten Onna (御菓子御殿 恩納店)",
+  "a": "HOKBU",
+  "kind": "F",
+  "address": "100 Seragaki, Onna-son, Kunigami-gun, Okinawa (沖縄県国頭郡恩納村瀬良垣100) — street number per listings",
+  "lat": 26.5066252,
+  "lng": 127.8786841,
+  "source": "WebSearch extended 2026-10-03 — listing coordinate 26.5066252,127.8786841 printed via listings incl. mapfan SQ3Y,J,E9PB1 / iko-yo 24173 / navitime poi 02301-1800136 / jalan guide000000183314; consistent with Seragaki, Onna on Route 58 (sourced 'coastal Route 58')"
+ },
+ {
+  "n": "How Tree Gelato, Ishigaki (ハウトゥリージェラート)",
+  "a": "YAEYA",
+  "kind": "F",
+  "address": "281 Ōkawa, Ishigaki, Okinawa, Japan (沖縄県石垣市大川281)",
+  "lat": 24.340577,
+  "lng": 124.157855,
+  "source": "W6G3 2026-10-03 WebSearch extended 'ハウトゥリージェラート 沖縄県石垣市大川281 緯度 経度' — listing coordinate 24.340577,124.157855 from result set (hamoni.jp/shop/SylsB5VQp0otpWSt4CZT, hotpepper strJ001063916, travel.yahoo spot-00031332, r.gnavi 2dkec3ub0000); consistent with sourced address (Ōkawa, downtown Ishigaki). Aggregator = coordinate only."
+ },
+ {
+  "n": "Shinzan Soba (新山そば)",
+  "a": "HOKBU",
+  "kind": "F",
+  "address": "1-9-2 Daitō, Nago, Okinawa (沖縄県名護市大東1-9-2) — note: 新山そば is read Shinzan Soba",
+  "lat": 26.588676,
+  "lng": 127.985635,
+  "source": "WebSearch extended 2026-10-03 — navitime poi 02301-pn0001061 listing coordinate 26.588676,127.985635; tabelog 47000062 26.58859255,127.98593484 and retty 100000723279 26.58858162,127.98592693 agree within ~15 m; consistent with Daitō 1-chome, Nago"
+ },
+ {
+  "n": "Shima-buta Shichirin-yaki Manmi, Nago (島豚七輪焼 満味)",
+  "a": "HOKBU",
+  "kind": "F",
+  "address": "251 Isagawa, Nago, Okinawa 905-1152 (沖縄県名護市伊差川251) — CORRECTION: Isagawa is in Nago city, not Motobu (official manmi-yanbaru.com, okinawastory.jp, mapion all print 名護市伊差川251)",
+  "lat": 26.605625,
+  "lng": 128.00093,
+  "source": "WebSearch extended 2026-10-03 '島豚七輪焼 満味 名護市伊差川251 緯度 経度' — listing coordinate 26.605625,128.00093 printed via listings incl. mapion phonebook G7333018-001 / gnavi bt710vuu0000 / travel.yahoo spot-00016304; consistent with Isagawa, Nago (Haneji side)"
+ },
+ {
+  "n": "Gordie's, Sunabe (ゴーディーズ)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "100 Sunabe, Chatan, Okinawa",
+  "lat": 26.334121,
+  "lng": 127.747414,
+  "source": "Extended search 'ゴーディーズ 北谷町砂辺100 緯度 経度' — coordinate 26.334121,127.747414 printed with the NAVITIME POI (spot=02301-pn0001034)/autoreserve listings; aggregator coordinate consistent with 100 Sunabe by the seawall. Re-verify to !3d!4d."
+ },
+ {
+  "n": "Hanaori Soba, Yomitan (花織そば)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "2418-1 Hanza, Yomitan, Okinawa 904-0322",
+  "lat": 26.397674,
+  "lng": 127.725121,
+  "source": "Extended search '花織そば 読谷村 住所 緯度 経度' — coordinate 26.397674,127.725121 printed alongside the NAVITIME POI page (spot=01125-54199r) / rurubu 80043283 results; aggregator listing coordinate, consistent with Hanza on Pref. Rd 6. Re-verify to !3d!4d."
+ },
+ {
+  "n": "Ploughman's Lunch Bakery, Kitanakagusuku (PLOUGHMANS LUNCH BAKERY)",
+  "a": "CHUBU",
+  "kind": "F",
+  "address": "927-2 Adaniya, Kitanakagusuku, Okinawa",
+  "lat": 26.294509,
+  "lng": 127.791541,
+  "source": "Extended search 'プラウマンズランチベーカリー 北中城村安谷屋927-2 緯度 経度' — coordinate 26.294509,127.791541 printed with the NAVITIME POI (spot=02301-1800399)/Yahoo travel listings; aggregator coordinate consistent with Adaniya. Re-verify to !3d!4d."
+ },
+ {
+  "n": "Ryukyu Mura, Onna (琉球村)",
+  "a": "HOKBU",
+  "kind": "P",
+  "address": "1130 Yamada, Onna-son, Okinawa 904-0416",
+  "lat": 26.4299197,
+  "lng": 127.77476798,
+  "source": "Mapion POI page ILSP0000118896 URL prints 26.4299197,127.77476798 (aggregator listing coordinate; consistent with Yamada 1130, Onna; an unattributed summary also gave 26.43003,127.774929, ~20 m away)"
+ },
+ {
+  "n": "Mekaru Tomb Site, Shintoshin (銘苅墓跡群)",
+  "a": "NAHA",
+  "kind": "P",
+  "address": "Mekaru 2-chōme, Naha, Okinawa",
+  "lat": 26.236752,
+  "lng": 127.696008,
+  "source": "WGS coordinate 26.236752,127.696008 printed in a search result for the site (extended search; page attributed among ja.wikipedia/rubese gurucomi listing) — consistent with Mekaru 2-chōme opposite Naha fire HQ; upgrade from ja.wiki infobox"
+ },
+ {
+  "n": "BACAR OKINAWA, Kumoji (バカール オキナワ)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "3-16-15 Kumoji, Naha, Okinawa",
+  "lat": 26.216093,
+  "lng": 127.68161,
+  "source": "Extended search '<name> 那覇市久茂地3-16-15 緯度 経度' — listing coordinate 26.216092853,127.681609598 from aggregator listings (hotpepper/okinawastory/jalan pages; alt 26.2159843,127.6816842) — consistent with Kumoji 3-16-15"
+ },
+ {
+  "n": "Ryūkyū Shinmen Tondō, Oroku Honten (琉球新麺 通堂 小禄本店)",
+  "a": "NAHA",
+  "kind": "F",
+  "address": "5-4-6 Kanagusuku, Naha, Okinawa 〒901-0155",
+  "lat": 26.198075,
+  "lng": 127.665973,
+  "source": "Extended search '<name> 那覇市金城 住所 緯度 経度' — listing coordinate 26.198075,127.665973 (Mapion phonebook / navitime poi 01125-4644r listing) — consistent with Kanagusuku 5-4-6 near Oroku stn"
+ }
+]

@@ -1,0 +1,18 @@
+{
+ "creators": [
+  {"key": "BOURDAIN", "name": "Anthony Bourdain (The Layover: San Francisco, Travel Channel 2011)", "type": "creator", "platform": "TV / Travel Channel",
+   "handle": "The Layover S1 'San Francisco'", "url": "https://www.sfstation.com/2012/01/11/layover-sf-list/amp/",
+   "scale": "Internationally famous chef-TV host (No Reservations, Parts Unknown, The Layover); multi-million audience; Emmy/Peabody-winning", "niche": "food & bars",
+   "verified": true,
+   "credible": "Verifiably famous food creator with a specific, findable episode naming SF places (episode guide reported by SF Station, NBC Bay Area, Miami New Times recap). Counts as ONE corroborating source, never institutional; every attached place already clears ≥2 credible sources without it."}
+ ],
+ "attach": [
+  {"place": "Swan Oyster Depot", "creatorKey": "BOURDAIN", "url": "https://www.nbcbayarea.com/news/local/anyone-who-doesnt-have-a-great-time-in-san-francisco-is-pretty-much-dead-to-me-remembering-anthony-bourdains-favorite-spots-in-sf/176289/"},
+  {"place": "House of Prime Rib", "creatorKey": "BOURDAIN", "url": "https://www.nbcbayarea.com/news/local/anyone-who-doesnt-have-a-great-time-in-san-francisco-is-pretty-much-dead-to-me-remembering-anthony-bourdains-favorite-spots-in-sf/176289/"},
+  {"place": "Tonga Room & Hurricane Bar", "creatorKey": "BOURDAIN", "url": "https://www.sfstation.com/2012/01/11/layover-sf-list/amp/"},
+  {"place": "Comstock Saloon", "creatorKey": "BOURDAIN", "url": "https://www.sfstation.com/2012/01/11/layover-sf-list/amp/"}
+ ],
+ "rejected": [
+  {"name": "Mark Wiens", "reason": "Verifiably huge YouTube following, but no findable San Francisco food video surfaced (2026-10-02 query) — not attached."}
+ ]
+}

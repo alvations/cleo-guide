@@ -1,0 +1,96 @@
+[
+ {
+  "n": "Kakazu Ridge — Kakazu Takadai Park (嘉数高台公園)",
+  "address": "Kakazu, Ginowan, Okinawa",
+  "lat": 26.2580599,
+  "lng": 127.736701,
+  "confidence": "high",
+  "geoSource": "Stars and Stripes Okinawa 'battle-of-okinawa-sites' printed Kakazu Ridge (Kakazutakadai Park) 26.2580599,127.7367010 (https://okinawa.stripes.com/travel/battle-of-okinawa-sites.html; surfaced in W2 notes)",
+  "status": "open",
+  "statusSource": "DVIDS 2023 volunteer beautification of Kakazu Takadai Park; Stripes Kakazu & Hacksaw article (public park)"
+ },
+ {
+  "n": "Haebaru Army Hospital Shelter No. 20 (南風原陸軍病院壕 20号壕)",
+  "address": "Kyan, Haebaru, Okinawa",
+  "lat": 26.1872465,
+  "lng": 127.7307703,
+  "confidence": "med",
+  "geoSource": "Stars and Stripes 'battle-of-okinawa-sites' printed Okinawa Army Hospital 26.1872465,127.7307703 (W2 notes)",
+  "status": "open",
+  "statusSource": "showcaves.com: tours by appointment via Haebaru Town Culture Center"
+ },
+ {
+  "n": "Minatogawa Stateside Town (港川ステイツサイドタウン)",
+  "address": "2-17 Minatogawa, Urasoe, Okinawa",
+  "lat": 26.262747,
+  "lng": 127.7154,
+  "confidence": "med",
+  "geoSource": "Stars and Stripes Okinawa printed GPS N26.262747 E127.715400 for Minatogawa Stateside Town (surfaced in W2 notes items 57-59; district-level point inside the housing block)",
+  "status": "open",
+  "statusSource": "GLTJP directory 17279 and ANA Japan Travel Planner list it as a current café/shopping area"
+ },
+ {
+  "n": "Chibichiri Gama (チビチリガマ)",
+  "address": "Namihira, Yomitan, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "UNVERIFIED by orchestrator: candidate 26.405367,127.724061 — provenance (Stripes vs showcaves) unidentifiable. GPS N26.405367 E127.724061 printed in WebSearch results for the Stripes '2 Okinawan caves offer glimpse into deadly WWII battle' article / showcaves.com (exact page not disambiguated) — re-verify",
+  "status": "open",
+  "statusSource": "Ryukyu Shimpo 2012 memorial service; site exists as memorial (cave entry prohibited)"
+ },
+ {
+  "n": "Nakamura House (中村家住宅)",
+  "address": "106 Ōshiro, Kitanakagusuku, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "searched 'Nakamura House Kitanakagusuku wikipedia coordinates' — address only surfaced (Samurai Archives, Japan Experience); no printed lat/lng",
+  "status": "open",
+  "statusSource": "Japan Experience attraction page (current)"
+ },
+ {
+  "n": "Kudaka Island (久高島)",
+  "address": "Kudaka, Nanjō, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Wikipedia Kudaka_Island infobox coords not shown in search excerpt; island centroid not acceptable — pin Tokujin port in a later pass",
+  "status": "open",
+  "statusSource": "VisitOkinawa ?p=1675 (current ferry info)"
+ },
+ {
+  "n": "Itoman Gyomin Shokudō (糸満漁民食堂)",
+  "address": "Nishizaki, Itoman, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "no printed coordinate surfaced (Serai/All About/Ryukyu Shimpo results) — pin needed",
+  "status": "open",
+  "statusSource": "Serai gourmet 217173 and All About 446327 describe it as operating"
+ },
+ {
+  "n": "Urasoe Yōdore Royal Mausoleum & Urasoe Castle ruins (浦添ようどれ・浦添城跡)",
+  "address": "2-53-1 Nakama, Urasoe, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Wikipedia infobox coords not in search excerpt; W2-held Stripes GPS N26.248041 E127.730335 lacks a confirmed article URL → not used",
+  "status": "open",
+  "statusSource": "yui-rail navi page (free parking & entry, current)"
+ },
+ {
+  "n": "Chuko Awamori Distillery — Chuko-gura (忠孝酒造 忠孝蔵)",
+  "address": "556-2 Iraha, Tomigusuku, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "searched Stripes awamori-tours article + Chuko official/OCVB pages: address only, no printed lat/lng",
+  "status": "open",
+  "statusSource": "chuko-awamori.com tour page (current tour times) + Stripes awamori distillery tours"
+ },
+ {
+  "n": "Plaza House Shopping Center (プラザハウス ショッピングセンター)",
+  "address": "Okinawa City, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "GLTJP/OCVB/plazahouse.co.jp surfaced without coordinates; Stripes GPS search returned nothing",
+  "status": "open",
+  "statusSource": "plazahouse.co.jp official site (current brand/operation pages) + GLTJP 13688"
+ },
+ {
+  "n": "Okinawa Zoo & Museum — Okinawa Kodomo no Kuni (沖縄こどもの国)",
+  "address": "5-7-1 Goya, Okinawa City",
+  "confidence": "UNVERIFIED",
+  "geoSource": "only a partial latitude (26.3268) from an aggregator surfaced — rejected; no Stripes GPS found",
+  "status": "open",
+  "statusSource": "Stripes 'Okinawa Zoo — the southernmost zoo in Japan' (current hours/admission)"
+ }
+]
