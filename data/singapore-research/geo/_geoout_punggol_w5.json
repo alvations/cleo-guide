@@ -50,16 +50,6 @@
   "statusSource": "official site houseofseafood.com.sg lists the Punggol outlet; 2026-dated diner reviews"
  },
  {
-  "n": "Downstairs (Northshore Plaza)",
-  "address": "#02-22 Northshore Plaza I, 407 Northshore Drive, Singapore",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "UNVERIFIED — Northshore Plaza has no published place pin readable via WebSearch; queued for helper",
-  "status": "open",
-  "statusSource": "Eatbook Northshore Plaza guide (daily 8.30am-8.30pm)"
- },
- {
   "n": "Treelodge@Punggol",
   "address": "Punggol Road / Punggol Drive / Punggol Place, Singapore",
   "lat": 1.40639,
@@ -70,12 +60,52 @@
   "statusSource": "HDB eco-town page (occupied estate)"
  },
  {
-  "n": "Punggol Waterway Terraces",
-  "address": "Punggol Walk / Punggol Way / Sumang Link, Singapore",
+  "n": "75 Ah Balling Peanut Soup (One Punggol)",
+  "address": "One Punggol Hawker Centre, 1 Punggol Drive, Singapore 828629",
+  "lat": 1.4086,
+  "lng": 103.9024,
+  "confidence": "med",
+  "geoSource": "stall within One Punggol Hawker Centre; building pin reused from the sourced geocodes entry (Wikipedia Punggol Regional Library coords 1.4086,103.9024 — co-located in One Punggol)",
+  "status": "open",
+  "statusSource": "Eatbook One Punggol guide (opening hours listed) + HungryGoWhere One Punggol guide"
+ },
+ {
+  "n": "Xiang Chi Mian (Punggol Coast)",
+  "address": "Punggol Coast Hawker Centre, 84 Punggol Way #02-K55, Singapore 829911",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
-  "geoSource": "UNVERIFIED — multi-block estate, no published place pin readable via WebSearch; queued for helper",
+  "geoSource": "UNVERIFIED — Punggol Coast HC building has no readable place pin; queued for helper",
+  "status": "open",
+  "statusSource": "Women's Weekly Punggol Coast guide (2025, opened Jul 2025)"
+ },
+ {
+  "n": "Downstairs (Northshore Plaza)",
+  "address": "#02-22 Northshore Plaza I, 407 Northshore Drive, Singapore 820407",
+  "lat": 1.4162821,
+  "lng": 103.901825,
+  "confidence": "med",
+  "geoSource": "OneMap (Singapore Land Authority) building search result for 'NORTHSHORE PLAZA I' — onemap.gov.sg/?lat=1.4162821&lng=103.901825 (1.4162821,103.901825); unit within building → med; WebSearch 2026-10-03",
+  "status": "open",
+  "statusSource": "Eatbook Northshore Plaza guide (daily 8.30am-8.30pm)"
+ },
+ {
+  "n": "Sixth Floor Oyster Cake (Northshore Plaza) — CLOSED",
+  "address": "Northshore Plaza I, 407 Northshore Drive #02-41, Singapore 820407",
+  "lat": 1.4162821,
+  "lng": 103.901825,
+  "confidence": "med",
+  "geoSource": "OneMap (Singapore Land Authority) building search result for 'NORTHSHORE PLAZA I' — onemap.gov.sg/?lat=1.4162821&lng=103.901825 (1.4162821,103.901825); unit within building → med; WebSearch 2026-10-03",
+  "status": "closed",
+  "statusSource": "Seth Lui: both outlets shut permanently after 28 Sep 2025 (owner's Instagram announcement)"
+ },
+ {
+  "n": "Punggol Waterway Terraces",
+  "address": "Waterway Terraces I (Blks 308A-C), Punggol Walk, Singapore",
+  "lat": 1.40800694944027,
+  "lng": 103.899074357998,
+  "confidence": "med",
+  "geoSource": "OneMap (Singapore Land Authority) building search result for 'WATERWAY TERRACES I' — onemap.gov.sg/?lat=1.40800694944027&lng=103.899074357998 (1.40800694944027,103.899074357998); unit within building → med; WebSearch 2026-10-03",
   "status": "open",
   "statusSource": "Stacked Homes estate review (occupied HDB estate)"
  }
