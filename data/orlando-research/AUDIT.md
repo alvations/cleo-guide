@@ -263,3 +263,20 @@
   `<name> <street address> coordinates`, one place per search) works for Orlando: **5/8 pinned (med, address-matched)** — Pig Floyd's,
   The Ravenous Pig, Dixie Crossroads, Smokemade, Columbia (Celebration) → `geo/_geoout_w4pin.json`. Rejected: Se7en Bites (snippet unsure
   N vs S Primrose, 4-decimal point). No decimals: ÔMO by Jônt, Mills Market. → W5 should spend its budget on this pin pass first.
+
+## 2026-10-03 (session 6 · wave 5 PINS) · batch 1 — restaurant place pins (aggregator channel)
+- **Channel probe:** Apple Maps (`allowed_domains:["maps.apple.com"]`, 3-name and 1-name queries, 8 probes) returned the
+  `coordinate=`/`ll=` variant only once (Black Rooster Taqueria → **high**); Orlando listings come back as bare `place-id=` URLs.
+  Mapcarta and aggregators for **in-park restaurants** (Casey's Corner, Satu'li Canteen, Columbia Harbour House) → no pin (park
+  address only) — park counter-service stays UNVERIFIED (never a park centroid).
+- **Working channel:** WebSearch `allowed_domains:["restaurantguru.com"]` + `<Name> <street/neighbourhood> <City> coordinates`,
+  one place per search (~70% hit for venues ≥2 years old; new 2024-26 openings are mostly absent). Each accepted pin's returned
+  street address was checked against the record → **med** (aggregator place pin). Helper `_orl_pin.py` (now `ORL_PIN_OUT`, default
+  `geo/_geoout_w5pin.json`, optional corrected address).
+- **Pins (52):** 1 high + 51 med. Address corrections: Tako Cheena → 948 N Mills Ave; Norman's → 7924 Via Dellagio Way.
+  Host-building pins (med, noted): Gyukatsu Rose @ East End Market; Mills Market + Kai Kai + UniGirl @ 1110 E Colonial (Bánh Mì Boy listing).
+- **Rejected (address mismatch, left UNVERIFIED):** Taste of Chengdu (RG = 2030 W Colonial, record = 856 New Broad St),
+  Vines Grille (RG = 7585 vs record 7533 W Sand Lake), Osteria Ester (conflicting addresses). No result: Pho 88, Zymarium, Will's Pub,
+  The Strand (Apple shows Side Chik at 811 N Mills — status re-check queued), The Monroe, Sushi Saint, City Food Hall, Hideaway, Courtesy,
+  AVA, Francesco's, Nile, Taverna Opa, Anh Hong, Kabooki (E Colonial), Shin Jung, Ivanhoe Park Brewing.
+- Rebuild → 4 gates PASS · validate DATA OK · npm test ALL PASS → **186 sights + 92 food = 278 on the map** (was 226).

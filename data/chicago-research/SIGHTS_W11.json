@@ -4,7 +4,7 @@
    "t": 2,
    "a": "NW",
    "n": "St. Nicholas Ukrainian Catholic Cathedral",
-   "address": "2238 W Rice St, Chicago, IL 60622",
+   "address": "Ukrainian Village, Chicago, IL 60622 (street number pending re-verify)",
    "w": "1915 Neo-Byzantine cathedral modelled on Kyiv's St. Sophia — its thirteen copper domes crown Ukrainian Village; interior mosaics are among Chicago's finest.",
    "k": "church cathedral landmark",
    "sources": [
@@ -48,7 +48,7 @@
    "t": 2,
    "a": "NW",
    "n": "National Museum of Puerto Rican Arts and Culture",
-   "address": "3015 W Division St, Chicago, IL 60622",
+   "address": "Humboldt Park (1895 park stables), Chicago, IL 60622",
    "w": "The only US national museum devoted to Puerto Rican art, in Humboldt Park's 1895 stables — the park's oldest building.",
    "k": "museum art culture",
    "sources": [
@@ -70,7 +70,7 @@
    "t": 2,
    "a": "NW",
    "n": "The Robey (Northwest Tower)",
-   "address": "2018 W North Ave, Chicago, IL 60647",
+   "address": "Milwaukee / North / Damen six-way intersection, Wicker Park, Chicago",
    "w": "The triangular 1929 Art Deco Northwest Tower — first skyscraper of its size outside downtown — at the six-way Milwaukee/North/Damen crossing, now a hotel with skyline rooftop bars.",
    "k": "architecture art deco hotel rooftop",
    "sources": [
@@ -92,7 +92,7 @@
    "t": 2,
    "a": "NW",
    "n": "St. Stanislaus Kostka Church",
-   "address": "1351 W Evergreen Ave, Chicago, IL 60642",
+   "address": "1327 N Noble St, Chicago, IL 60642",
    "w": "Mother church of Chicago Polonia (1867–81, Patrick Keely) — by 1897 the largest parish in the US; a 'Polish Cathedral' landmark in Noble Square.",
    "k": "church polish landmark",
    "sources": [
@@ -250,7 +250,7 @@
    "t": 2,
    "a": "SUB",
    "n": "Avery Coonley House (Frank Lloyd Wright)",
-   "address": "Scottswood Rd, Riverside, IL 60546",
+   "address": "Riverside, IL 60546 (private residence)",
    "w": "Wright's own 'most successful of my houses' (1906–09) — a long, low U-shaped Prairie complex set into Olmsted's Riverside; National Historic Landmark (private, exterior view).",
    "k": "frank lloyd wright architecture house",
    "sources": [
@@ -352,7 +352,7 @@
    "t": 2,
    "a": "SOUTH",
    "n": "Pui Tak Center",
-   "address": "2216 S Wentworth Ave, Chicago, IL 60616",
+   "address": "S Wentworth Ave, Chinatown, Chicago, IL 60616",
    "w": "The 1928 On Leong Merchants Association building — pagoda towers, green tile roofs and terracotta, Chinatown's signature landmark (Chicago Landmark 1993).",
    "k": "architecture landmark chinatown",
    "sources": [
@@ -374,7 +374,7 @@
    "t": 2,
    "a": "SOUTH",
    "n": "Quinn Chapel A.M.E. Church",
-   "address": "2401 S Wabash Ave, Chicago, IL 60616",
+   "address": "S Wabash Ave, Bronzeville (Near South Side), Chicago",
    "w": "Home of Chicago's oldest Black congregation (1844), an Underground Railroad station; its 1892 sanctuary still stands at Bronzeville's northern edge (Chicago Landmark).",
    "k": "church black history landmark",
    "sources": [
@@ -400,7 +400,7 @@
    "t": 2,
    "a": "SOUTH",
    "n": "Ebenezer Missionary Baptist Church",
-   "address": "4501 S Vincennes Ave, Chicago, IL 60653",
+   "address": "Bronzeville, Chicago, IL 60653",
    "w": "Birthplace of gospel music — Thomas A. Dorsey's 1931 choir here launched Mahalia Jackson and a new American sound (Chicago Landmark 2011).",
    "k": "church music history landmark",
    "sources": [
@@ -614,7 +614,7 @@
    "t": 2,
    "a": "LOOP",
    "n": "Marquette Building",
-   "address": "140 S Dearborn St, Chicago, IL 60603",
+   "address": "S Dearborn St at W Adams St, the Loop, Chicago",
    "w": "Holabird & Roche's 1895 Chicago School landmark — Tiffany mosaics of Père Marquette's voyage and Edward Kemeys bronzes in the lobby.",
    "k": "architecture skyscraper landmark",
    "sources": [
@@ -640,7 +640,7 @@
    "t": 2,
    "a": "LOOP",
    "n": "Carbide & Carbon Building",
-   "address": "230 N Michigan Ave, Chicago, IL 60601",
+   "address": "N Michigan Ave, the Loop, Chicago (Pendry Chicago hotel)",
    "w": "The Burnham brothers' 1929 black-granite and gold-leaf Art Deco tower — said to be modelled on a champagne bottle — now the Pendry hotel with a rooftop bar.",
    "k": "architecture art deco landmark",
    "sources": [
@@ -710,7 +710,7 @@
    "t": 3,
    "a": "LOOP",
    "n": "Second Presbyterian Church",
-   "address": "1936 S Michigan Ave, Chicago, IL 60616",
+   "address": "S Michigan Ave, Prairie Avenue district, Chicago",
    "w": "Gothic Revival church re-done inside in Arts & Crafts style by Howard Van Doren Shaw after a 1900 fire — 21 stained-glass windows, nine by Tiffany (NHL).",
    "k": "church arts and crafts landmark",
    "sources": [
@@ -736,7 +736,7 @@
    "t": 3,
    "a": "LOOP",
    "n": "Chicago Temple (Sky Chapel)",
-   "address": "77 W Washington St, Chicago, IL 60602",
+   "address": "W Washington St, the Loop, Chicago",
    "w": "The 1924 First United Methodist 'Chicago Temple' — the world's tallest church building, with a tiny Sky Chapel in its spire 400 ft above the Loop.",
    "k": "church skyscraper landmark",
    "sources": [
@@ -751,6 +751,234 @@
     [
      "WTTW",
      "https://www.wttw.com/loop/buildings/chicago-temple"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NW",
+   "n": "Villa District",
+   "address": "Irving Park — blocks around Avers & Hamlin Aves north of Addison St, Chicago",
+   "w": "Seven boulevard blocks of 126 Prairie & Craftsman bungalows (1907–25) with double lots and deep setbacks — a hidden NRHP + Chicago Landmark district.",
+   "k": "historic district bungalows architecture",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Villa_District"
+    ],
+    [
+     "CITYCHI",
+     "https://webapps1.chicago.gov/landmarksweb/web/districtdetails.htm?disId=31"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/la-villa-district/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Copernicus Center (Gateway Theatre)",
+   "address": "5216 W Lawrence Ave, Chicago, IL 60630",
+   "w": "Rapp & Rapp's 1930 Gateway movie palace, restored as the Polish-American Copernicus cultural centre — concerts and dance most nights; next door to the Taste of Polonia festival.",
+   "k": "theatre polish culture landmark",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Copernicus_Center_(Chicago,_Illinois)"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/itineraries/polish-heritage-chicago-neighborhood-guide/"
+    ],
+    [
+     "WTTW",
+     "https://www.wttw.com/chicago-by-l/neighborhoods/jefferson-park"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/film/a-map-of-chicagos-movie-palaces-past-and-present"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Intuit Art Museum",
+   "address": "756 N Milwaukee Ave, Chicago, IL 60642",
+   "w": "America's leading museum of outsider and self-taught art — home of the recreated Henry Darger Room; reopened in 2025 after a major expansion.",
+   "k": "museum art outsider",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Intuit_Art_Museum"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/intuit-art-museum/"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/intuit-the-center-for-intuitive-and-outsider-art"
+    ],
+    [
+     "WTTW",
+     "https://news.wttw.com/2025/05/20/intuit-art-museum-set-reopen-after-expansion-and-transformation-take-look-inside"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NW",
+   "n": "Ukrainian Village District",
+   "address": "Ukrainian Village, Chicago (Chicago Landmark district)",
+   "w": "Chicago Landmark district of worker cottages and two-flats around the onion-domed churches — the heart of the city's Ukrainian community (CAC walking tour).",
+   "k": "historic district neighbourhood",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ukrainian_Village_District"
+    ],
+    [
+     "CITYCHI",
+     "https://webapps1.chicago.gov/landmarksweb/web/districtdetails.htm?disId=30"
+    ],
+    [
+     "CAC",
+     "https://www.architecture.org/city-tours/ukrainian-village"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUB",
+   "n": "Frank Lloyd Wright Historic District (Oak Park)",
+   "address": "Oak Park, IL 60302 (historic district)",
+   "w": "The world's largest concentration of Wright buildings — two dozen Prairie houses within walking distance of his Home & Studio; FLW Trust guided walks April–November.",
+   "k": "frank lloyd wright architecture historic district",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Frank_Lloyd_Wright%E2%80%93Prairie_School_of_Architecture_Historic_District"
+    ],
+    [
+     "VISITOAKPARK",
+     "https://www.visitoakpark.com/things-to-do/architecture-and-history/frank-lloyd-wright"
+    ],
+    [
+     "FLWTRUST",
+     "https://flwright.org/tour/wright-around-oak-park"
+    ],
+    [
+     "ENJOYILLINOIS",
+     "https://www.enjoyillinois.com/explore/listing/frank-lloyd-wright-historic-district/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUB",
+   "n": "Block Museum of Art (Northwestern)",
+   "address": "40 Arts Circle Dr, Evanston, IL 60208",
+   "w": "Northwestern's free art museum on the lakefill campus — prints, photography, film and ambitious exhibitions.",
+   "k": "museum art free",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mary_and_Leigh_Block_Museum_of_Art"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/museums-institutions/mary-leigh-block-museum-of-art"
+    ],
+    [
+     "VISITNORTHSHORE",
+     "https://www.visitchicagonorthshore.com/theblockmuseum"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SUB",
+   "n": "Oak Park Conservatory",
+   "address": "615 Garfield St, Oak Park, IL 60304",
+   "w": "1929 glasshouse with 20,000 plants in Mediterranean, tropical and desert rooms — a free hidden gem south of downtown Oak Park.",
+   "k": "conservatory garden",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Oak_Park_Conservatory"
+    ],
+    [
+     "ENJOYILLINOIS",
+     "https://www.enjoyillinois.com/explore/listing/oak-park-conservatory/"
+    ],
+    [
+     "VISITOAKPARK",
+     "https://explore.visitoakpark.com/info/oak-park-conservatory-hidden-gem"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "WEST",
+   "n": "Jackson Boulevard District",
+   "address": "W Jackson Blvd between Laflin St and Ashland Ave, Near West Side, Chicago",
+   "w": "A block of 1880s Victorian rowhouses and mansions that survived the West Side's decline — a Chicago Landmark district and NRHP listing.",
+   "k": "historic district architecture",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Jackson_Boulevard_District_and_Extension"
+    ],
+    [
+     "CITYCHI",
+     "https://www.chicago.gov/content/dam/city/depts/zlup/Historic_Preservation/Publications/National_Register_List_31OCT2025.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Austin Town Hall",
+   "address": "5610 W Lake St, Chicago, IL 60644",
+   "w": "1929 town hall at the heart of Austin — now a Chicago Park District cultural centre and fieldhouse with a historic auditorium.",
+   "k": "landmark park cultural center",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Austin_Town_Hall_Park"
+    ],
+    [
+     "CHIPARKS",
+     "https://www.chicagoparkdistrict.com/parks-facilities/austin-town-hall-cultural-centerfieldhouse"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/austin-town-hall"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Argyle Street (Asia on Argyle)",
+   "address": "W Argyle St between Broadway and Sheridan Rd, Uptown, Chicago",
+   "w": "Chicago's 'Little Saigon' — a few blocks of pho houses, bakeries and Asian markets around the Argyle 'L' stop (NRHP historic district; Asia on Argyle night market).",
+   "k": "neighbourhood historic district food street",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/West_Argyle_Street_Historic_District"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/argyle-street"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/neighborhoods-blog/your-guide-to-asia-on-argyle-in-chicagos-uptown-neighborhood/"
     ]
    ]
   }
