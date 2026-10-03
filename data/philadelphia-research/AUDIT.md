@@ -200,3 +200,38 @@
   bodies (James Beard 30, NYT 4, NPS 7), regional (Main Line Today 20, Northeast Times 9, NJ Monthly 5, SJ Mag 3, Visit NJ 4, Valley
   Forge Tourism 6, Visit Bucks 4), travel (Atlas Obscura 5), local (Billy Penn ~12, Hidden City 5, 6abc 1, PhillyVoice 1), creator 1
   (Portnoy). Wikipedia = coordinates/notability for ~50 sights + 7 restaurants.
+
+## 2026-10-03 · W4 — food & drink first density wave (session_01ECt8nbbQXGgxskj1179NHd)
+**Plan.** Close NEED areas food & drink first (RUN §2b), plus a pin pass on ~230 unpinned restaurants and a status pass on 183
+'unknown'/unchecked places — the two passes delegated to 3 background agents capped at 30 WebSearch calls each.
+**Discovery (main thread, ~90 searches) — +33 places (31 food & drink, 2 sights), FOOD_W4.json / SIGHTS_W4.json:**
+- FISH: Evil Genius Beer Co. (Northeast Times 2026 taproom roundup + Billy Penn + Inquirer), Four Humours (Infatuation + Philly Mag best
+  Fishtown bars), Bottle Bar East (Philly Mag + Hop Culture), Emilia (LaBan "phenomenal" Apr 2026 + Philly Mag + Eater 38 summer 2026),
+  Stock's Bakery (Inquirer ×2 + PhillyVoice), Mixteca (Inquirer Aug 2026 + Eater heatmap Sep 2026); sight Las Parcelas (WHYY + Smithsonian
+  Community of Gardens + 6abc).
+- NPH: Rybrew (Philly Mag Brewerytown guide + Inquirer). CC: The Boozy Mutt (Philly Mag review + Inquirer + Billy Penn; 27th & Poplar is
+  south of Girard → CC per the brief), Bar Cicci (Inquirer + Eater), Ray's Cafe, EMei, Nom Wah (Infatuation Chinatown + Visit Philly).
+- NW: CinCin (Philly Mag + Infatuation + Time Out + Chestnut Hill Local), Bar Jawn + Love City Manayunk (Infatuation + Philly Mag; Love
+  City also Inquirer/PhillyVoice 2026), Mount Airy Tap Room (Infatuation + Chestnut Hill Local), Young American Hard Cider (Inquirer + NBC10).
+- UCW: Local 44 (Time Out + Inquirer + Philly Mag), Booker's (LaBan + Visit Philly + Inquirer 2023 new-owner story), Buna Cafe (LaBan + Infatuation).
+- NE: Northeast Sandwich Co., China Gourmet (Infatuation NE 20 + Northeast Times), Gaeta's Tomato Pies (Inquirer + Infatuation + Billy Penn +
+  Northeast Times), Chaikhana Uzbekistan, Miracles Jamaican (Philly Mag NE guide + Visit Philly).
+- MAIN: Bam Bam Kitchen (Inquirer Ardmore map 2025 + Philly Mag). SPH: Anh Em (Inquirer + Eater), Manatawny Still Works & Barcelona Wine Bar
+  East Passyunk (Philly Mag where-to-drink + Billy Penn / Time Out / PhillyVoice), Bob & Barbara's (Inquirer + WHYY + Visit Philly + Philly Mag),
+  American Sardine Bar (Inquirer + Infatuation); sight Sparks Shot Tower (Wikipedia pin + Inquirer + PhillyHistory).
+- Channel mix: editorial of record (Inquirer/LaBan, Philly Mag, WHYY, Billy Penn) 33/33 · travel/food sites (Infatuation, Eater, Time Out,
+  Visit Philly) 22 · local press (Northeast Times, Chestnut Hill Local) 8 · creators 0 (no new verifiable-scale Philly creator surfaced this wave).
+**MEASURED & DROPPED / HELD.** Crime & Punishment Brewing (closed Apr 2025, Inquirer) and Majolica (closed Dec 2019) dropped — non-notable
+closed. Graffiti Pier skipped: Conrail-owned, trespass-only after the 2024 partial collapse, sale/park stalled (FOX29/WHYY/Inquirer) — not a
+place to send visitors. HELD single-source (Visit Philly El Centro de Oro guide only; Star News Philly echoes it): El Bohio (2746 N 5th St),
+La Sierra (3401 N Front St), La Caribeña Bakery (3447 N 2nd St), El Príncipe (115 W Lehigh Ave). Held for no address/second source:
+Ramen MNYK, Zion's Cuisine, Next of Kin (Fishtown vs 2025 Wash Sq W move unclear), Asadero Los Tios, Four Seasons Diner, Lipkin's, Passage,
+Broncos, Green Eggs Brewerytown (conflicting addresses), Indiya + Cafe Antonio's (Collingswood — sources unattributable), Black Bass Hotel
+(OpenTable 4.8/4,966 = measurement only), Portabello's (regional blogs only), Iron Hill/Side Bar West Chester (County Lines only).
+**Background passes.** Pin A/B (56 searches): 8 pins, all Wikipedia-infobox coords (Provenance, Vedge, Barclay Prime [ground floor of
+The Barclay — recheck], Tony Luke's, Sly Fox, Steve's, Talula's Table, Joe's Steaks) graded med. Google `!3d!4d` place URLs, OSM nodes and
+Michelin coordinates NEVER surface through WebSearch — restaurant pins need tools/geocode-helper.html. Status pass (29 searches): 10 open
+(Michelin/76/NYT/JBF 2026 lists), 2 CLOSED: Kensington Quarters (16 Mar 2024; PhillyVoice + Philly Mag) and Dock Street Brewing West Philly
+(31 May 2022; Billy Penn + Philly Mag) — kept, flagged. Federal Donuts: 3 Center City shops closed Jul 2026, Fairmount Ave + South St remain.
+**Build.** rebuild-city --build: sourcecheck PASS 455/455 · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS; page 179 on map
+(150 sights + 29 food); npm validate DATA OK; npm test ALL PASS. Card + CITIES row refreshed.

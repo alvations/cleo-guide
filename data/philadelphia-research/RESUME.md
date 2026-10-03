@@ -24,12 +24,19 @@ flock -w 3600 $LOCK python3 tools/rebuild-city.py philadelphia-pa --build   # + 
 ```
 
 ## In-flight wave
-W4 (2026-10-03, session_01ECt8nbbQXGgxskj1179NHd) — files: FOOD_W4.json, SIGHTS_W4.json, geo/_geoout_w4_*.json.
-- Main thread: density discovery, food & drink first (FISH bars/breweries+sights, NPH Puerto Rican Fairhill, NW, UCW Baltimore Ave,
-  NE Little Brazil, MAIN Ardmore/Narberth, SJ Collingswood BYOBs, DAY, Chinatown, SPH sights).
-- Background (≤30 searches each): pin pass A (_phi_pinlist_A.txt → geo/_geoout_w4_pinA.json), pin pass B (_phi_pinlist_B.txt →
-  geo/_geoout_w4_pinB.json), status pass (_phi_statuslist.txt → geo/_geoout_w4_status.json). If relaunched: re-run density, rebuild
-  the worklists for names not yet in those geoout files, and continue.
+(none — W4 batches 1-3 committed 2026-10-03, session_01ECt8nbbQXGgxskj1179NHd; see State (W4).)
+
+## State (2026-10-03, after W4)
+- Discovered + sourced: **455** (172 sights, 283 food) — sourcecheck PASS 455/455. Page: **179 on map** (150 sights + 29 food).
+  4 gates PASS; npm validate + test PASS; card + CITIES.md refreshed.
+- Per area (density.py): CC 122/125 (+3) · SPH 80/85 (+5) · FISH 48/55 (+7) · UCW 34/40 (+6) · NPH 24/30 (+6) · NW 40/45 (+5) ·
+  NE 23/25 (+2) · MAIN 29/35 (+6) · SJ 24/25 (+1) · DAY 32/35 (+3). **~44 to go.**
+- Food share: CC 54% · SPH 85% · FISH 90% · UCW 68% · NE 78% · NW 55% · MAIN 55% · SJ 50% · **NPH 33% · DAY 25%** (still below bar).
+- W4 files: FOOD_W4.json (31) · SIGHTS_W4.json (2) · SOURCES_W4.json (5 outlets) · geo/_geoout_w4_pinA/pinB (8 Wikipedia pins) ·
+  geo/_geoout_w4_status.json (11 statuses) · geo/_geoout_w4_sights.json (Shot Tower). Worklists: _phi_pinlist_A/B.txt, _phi_statuslist.txt.
+- Closures now flagged: Hiroki, Laurel, Tony's Place, Kensington Quarters, Dock Street Brewing (West Philly 50th St).
+- PIN LESSON (W4): WebSearch never surfaces Google `!3d!4d` URLs, OSM nodes or Michelin coordinates — only Wikipedia infobox coords.
+  ~250 restaurant pins can only be finished with tools/geocode-helper.html (browser). Don't spend more search budget on pin passes.
 
 ## State (2026-10-02, after W3)
 - Discovered + sourced: **422** (170 sights, 252 food) — sourcecheck PASS 422/422. Page: **170 on map** (149 sights + 21 food).
@@ -59,31 +66,28 @@ Taqueria La Raza held), DAY (Marsha Brown, 1906 at Longwood, Portabello's, Kenne
 Chaddsford Winery), NW (Chestnut Hill Brewing, Mt Airy Tap Room, Bar Lizette, Downtime Bakery, Hot Clucks, Tyemeka's, Zion's),
 then UCW drinks, FISH breweries, NE, MAIN. W3 did not apply this rule — the session's search budget was spent before it arrived.
 
-## Next wave (W4) — ordered plan
-1. **Status/address pass on the ~88 unchecked W3 food** (short 1-2-name queries; start with 2026 closings round-ups). Several
-   addresses are partial (Bastia, Fiore-area done, White Yak, Liberty Kitchen, Eshkol, Phil & Jim's, Federal Donuts, Hello Vietnam…).
-2. **FISH +14** (fewest sights: 4): Graffiti Pier (re-check access after the 2024 partial collapse), Liberty Lands, St. Adalbert,
-   Norris Square / Las Parcelas, Penn Treaty Museum; food leads HELD: Izakaya Fishtown, Nunu, Jean, Ekta, Primary Plant Based,
-   Cake Life, Philly Style Bagels, Stock's Bakery (Port Richmond), Sor Ynez, Next of Kin, Caletta, Bottle Bar East, Interstate Drafthouse.
-3. **SPH +11**: Little Saigon (Pho Ha, Cafe Diem, BB Tee House), Point Breeze/Newbold, Pennsport (2nd Street Brewhouse, Pennsport Beer
-   Boutique), Mancuso's, D'Emilio's, Stina, La Llorona, Barcelona Wine Bar, Juana Tamale; sights: Shot Tower, Bok Building rooftop.
-4. **NW +10**: Chestnut Hill Brewing, New Era Indian, CinCin, Tokyo Sushi, Trolley Car Cafe, Mt Airy Tap Room, Bar Lizette, Downtime
-   Bakery, Hot Clucks, Tyemeka's, Zion's Cuisine; sights: Germantown White House + Wyck pins, Woodward houses, Andorra.
-5. **UCW +9**: Buna Cafe, Tacos Don Memo, Lil Pop Shop, Green Line Cafe, Mood Cafe, Kabobeesh, Nafi, Corio; sights: Paul Robeson
-   House, Malcolm X Park, Penn campus (Fisher done), Cira Green, Woodland Ave African corridor.
-6. **CC +8 / NPH +7 / NE +7 / MAIN +7 / DAY +3 / SJ +1**: CC — Little Nonna's, Barbuzzo, El Vez, Morimoto, Buddakan, Trattoria
-   Carina, Uchi, Rail Park (2nd source), Fireman's Hall (2nd outlet), Old St. Joseph's, Cherry/Race St Piers; NPH — Church of the
-   Advocate, Smith Memorial Arch, Uptown Theater, Temple; NE — Ipanema, Passage, Sergio's, Insectarium, Holy Redeemer; MAIN — Grey Towers
-   Castle, Manorah, Mary (Ambler), Daisy Tavern, Ambler Theater; DAY — Marsha Brown, 1906 at Longwood, Portabello's; SJ — Collingswood
-   Farmers Market, Haddonfield downtown.
-7. Creator channel: Portnoy 2026 Philly stops (Johnny's Bryn Mawr, Marina's Fishtown, Liguria) — attach only if scores are findable;
-   Mark Wiens Philly Pt 1; Philly TikTok food creators with verifiable scale (W1 scan found none qualifying).
-8. Restaurant pins: run tools/geocode-helper.html on the UNVERIFIED backlog (~230) — WebSearch only pins restaurants with Wikipedia articles.
-9. Every ~50 places: `flock … python3 tools/rebuild-city.py philadelphia-pa --build` → gates → npm validate/test →
+## Next wave (W5) — ordered plan (food & drink first in NPH and DAY)
+1. **DAY +3 and food share (8/32)**: needs ≥2 credible per place — try Inquirer LaBan suburban reviews / Main Line Today "Best of" /
+   Philly Mag for: Victory Brewing Downingtown (address needed), Iron Hill West Chester (3 W Gay St), Side Bar (10 E Gay St), Portabello's
+   (Kennett), Black Bass Hotel (3774 River Rd, Lumberville — OpenTable 4.8/4,966 measured), Lambertville Station, d'floret, Dilworthtown Inn,
+   Kennett Brewing, Triumph New Hope, 1906 at Longwood, Marsha Brown.
+2. **NPH +6 (food 8/24)**: second source for the Fairhill held four (El Bohio, La Sierra, La Caribeña, El Príncipe — try Al Día, WHYY,
+   Inquirer "El Centro de Oro"); Isla Verde Cafe; Brewerytown: Boozy Mutt done, try Brewerytown Beats/Taproom, Fairmount Park Parks on Tap;
+   Temple: Iron Hill N Broad (1700 N Broad St). Sights: Church of the Advocate, Smith Memorial Arch, Uptown Theater.
+3. **FISH +7**: Next of Kin (confirm location), Dock Street Fishtown, St. Oner's (Tired Hands), Brewery ARS Frankford Ave, Philly Style Bagels,
+   Cake Life, Sor Ynez; sights: Liberty Lands Park, St. Michael's (NoLibs), Palmer Cemetery, Penn Treaty Museum, Fishtown shad signs.
+4. **UCW +6 / MAIN +6 / NW +5 / SPH +5 / CC +3 / NE +2 / SJ +1**: UCW Aksum, Lil Pop Shop, Tacos Don Memo, Kabobeesh, City Tap House, Distrito;
+   sights Paul Robeson House, Malcolm X Park. MAIN Villa Artigiano, McCloskey's, Izzy's (Inquirer Ardmore map) + Lassan/Narberth; sights Grey
+   Towers, Ambler Theater. NW Zion's Cuisine, Ramen MNYK, Biryani Bowl, Trolley Car. SPH Schmaltz, Grace Tavern, The Sidecar, Café Ynez; Bok
+   rooftop. CC Lillian's, Little Nonna's, Barbuzzo, Morimoto. NE Lipkin's (8013 Castor), Passage (10783 Bustleton), Four Seasons Diner.
+   SJ Indiya (612 Haddon), Cafe Antonio's (827 Haddon) — need a 2nd attributable source.
+5. Status pass on ~170 still-unchecked places: use 2026 closings round-ups by month, then current best-of lists (efficient multi-name hits).
+6. Pins: tools/geocode-helper.html on the UNVERIFIED backlog (~250 restaurants).
+7. Every ~50 places: `flock … python3 tools/rebuild-city.py philadelphia-pa --build` → gates → npm validate/test →
    `python3 data/philadelphia-research/_phi_card.py <sights_on> <food_on> <sourced> <date> "<note>"` (under the lock).
 
 ## Acceptance checklist
-- [ ] every area OK in density.py (W3: ~80 short — SJ/DAY nearly there)
-- [x] --sourcecheck / --geocheck / --statuscheck / --buildcheck green (2026-10-02)
-- [x] npm run validate && npm test green (2026-10-02)
+- [ ] every area OK in density.py (W4: ~44 short — SJ/NE/CC nearly there)
+- [x] --sourcecheck / --geocheck / --statuscheck / --buildcheck green (2026-10-03)
+- [x] npm run validate && npm test green (2026-10-03)
 - [x] index card live with counts; CITIES.md row; AGENT-PROMPTS run-log rows (2026-10-02)
