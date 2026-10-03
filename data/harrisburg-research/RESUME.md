@@ -30,12 +30,29 @@ Total ~216.
   index.html card LIVE; docs/CITIES.md row added; 54 new outlets registered with rationale (SOURCES_W1.json).
 - Density (discovered / target): AMISH 30/40 · CAR 10/20 · GBG 17/22 · HBG 16/38 · HER 16/24 · LAN 15/38 · YORK 16/34.
 - Pinned on page: 55 of 120 — 65 UNVERIFIED (mostly restaurants; WebSearch rarely surfaces restaurant place-pins).
+- **2026-10-03 W7 (session_01MjBZJmVPTEPASWdxECDdFx, ~140 searches): FOOD & DRINK FIRST.** +51 food & drink (FOOD_W7.json);
+  171 discovered (89 food = 52% + 82 sights), food ≥50% in every area; 98 pinned on page (+41 this wave via restaurantguru
+  place pins, med), 73 UNVERIFIED; all 4 gates green; validate/test pass; hub card + CITIES.md refreshed.
+- Density (discovered / target): AMISH 37/40 · CAR 15/20 · GBG 24/22 OK · HBG 26/38 · HER 24/24 OK · LAN 22/38 · YORK 23/34.
+- Rendered (pinned) per area: AMISH 17 · CAR 7 · GBG 14 · HBG 21 · HER 16 · LAN 8 · YORK 15.
 
 ## In-flight wave
-- **W7 (2026-10-03, food & drink first)** — writing `FOOD_W7.json` + `geo/_geoout_w7.json` + `SOURCES_W7.json`/`CREATORS_W7.json`.
-  Goal: food ≥ sights in every area (need ≥ +44 food: HBG+10 HER+8 GBG+7 YORK+6 AMISH+6 CAR+4 LAN+3, more for LAN/HBG density).
-  Pin via WebSearch allowed_domains maps.apple.com. If cut off: run density.py, continue from what's in FOOD_W7.json.
-- Previous NEXT list (still valid): NEXT (ordered):
+- none. NEXT (ordered):
+  1. **Pins**: restaurantguru (`allowed_domains:["restaurantguru.com"]`, one place per query, `<Name> <street> <town>
+     coordinates`) for the remaining food UNVERIFIED in geo/_geoout_w6pending.json (Bird-in-Hand Farmers Market, Root's,
+     Green Dragon, Lapp Valley, Fox Meadows, Seltzer's, Spring House, Hollabaugh, Martin's, Utz, Snyder's) + the 14 W7
+     UNVERIFIED (AUDIT W7) — misses go to tools/geocode-helper.html. LAN has only 8 pins — biggest map gap.
+  2. **LAN** (22/38, sights only 9): Lancaster Museum of Art / Long's Park exist; add Southern Market food hall (LaBan),
+     Passenger Coffee (2nd source), Yi Pin (2nd source), Issei (address 38 W Orange vs 44 N Queen — resolve), Bistro Barberet
+     (2nd source), Lancaster Cathedral, Fulton (pin), Hands-on House, F&M North Museum.
+  3. **HBG** (26/38): sights — Fort Hunter, Dauphin Narrows/Statue of Liberty replica, John Harris–Simon Cameron Mansion,
+     Pennsylvania National Fire Museum (2nd source), Wildwood Park (2nd source); food — Appalachian Brewing flagship
+     (2nd source), Mount Everest Nepali (merit), Broad Street Market stands (Hummer's, Evanilla).
+  4. **YORK** (23/34): Mudhook/Liquid Hero/Gift Horse (2nd sources), Central Family Restaurant, Blue Heron, Accomac Inn,
+     Wolfgang Candy (2nd source), Haines Shoe House pin, York County History Center Smalls campus.
+  5. **CAR** (15/20): Boiling Springs Tavern, Café Bruges (status — structural closure), Leo's Ice Cream, Shippensburg.
+  6. Keep food ≥ sights per area when adding sights. Creators: still none verifiable — try `Lancaster PA food tour youtube`.
+- Previous NEXT list (wave 1, partly done):
   1. **Helper geocode** of the 65 UNVERIFIED (docs/GEOCODE-BACKLOG.md → tools/geocode-helper.html), confirming the
      discovery-stage addresses listed in AUDIT.md 2026-10-03 W3–W5 section. Biggest single lift for the map.
   2. **HBG food** (2/~19): outlet-specific — TheBurg, PennLive "best of", Harrisburg Magazine Simply the Best;

@@ -110,3 +110,57 @@
   Magazine Simply the Best 2025 list (not retrievable).
 - Totals: 120 discovered (38 food + 82 sights), 54 pinned; all gates green; card + CITIES.md counts refreshed.
 - Discovery-stage addresses to confirm in the helper pass: Choo Choo Barn (226 Gap Rd), Hotel Hershey (100 Hotel Rd).
+
+## Stage 2–7 — wave W7 FOOD & DRINK FIRST (2026-10-03, session_01MjBZJmVPTEPASWdxECDdFx, ~140 searches)
+- **Goal:** protocol §2b — food & drink ≥50% of the map and of every area (was 38 food / 82 sights = 31%).
+- **Discovery method:** outlet-restricted `allowed_domains` queries (generic "best restaurants" = SEO farms, abandoned again).
+  Lists that yielded many places per search: Craig LaBan, Philadelphia Inquirer "15 places that prove Lancaster's food
+  scene is in full bloom" (2026-05-02) · Lancaster County Magazine Best of Lancaster 2025 · TravelAwaits Gettysburg 15
+  · PA Eats (York fine dining, York ice cream, Harrisburg coffee/BBQ, Hershey/Harrisburg region) · Uncovering PA
+  (Hershey restaurants, Harrisburg & York breweries) · Tasting Table Chocolate Avenue 6 · The Sentinel Best of Cumberland
+  County 2025/2026 + Visit Cumberland Valley Meal Madness 2026 · Visit PA getaway guides (Harrisburg, Mount Gretna) ·
+  Amish America 10 + Discover Lancaster PA Dutch dishes · TheBurg (Harrisburg) · LebTown Lebanon Valley Food Critics.
+- **Added 51 food & drink (FOOD_W7.json):** LAN 7 (Passerine, Chellas, Rice & Noodles, Pizzeria LUCA, Belvedere Inn,
+  Himalayan Curry & Grill, Hammond's Pretzel) · YORK 7 (Viet Thai Cafe, Tutoni's, Hamir's, Wyndridge Farm, Collusion Tap
+  Works, Perrydell Farm Dairy, John Wright) · HBG 10 (Pizza Boy, Ever Grain, Little Amps, Elementary Coffee, Note,
+  Valley Bistro, Greystone Public House, Raising the Bar, Queen's BBQ, Isabelle's) · HER 8 (Fenicci's, Chocolate Avenue
+  Grill, Alfred's Victorian, Snitz Creek Palmyra, Desserts Etc., Hershey Social, Porch & Pantry, Mount Gretna Hideaway)
+  · GBG 8 (Mr. G's, Garryowen, Lincoln Diner, Hickory Bridge Farm, Gettysburg Baking Co., Hunt's Battlefield Fries,
+  Battlefield Brew Works) · CAR 5 (Helena's, Fay's, Redd's, Little Mexico Tacos, Pitt Street Station) · AMISH 7 (Hershey
+  Farm Restaurant, Stoll & Wolfe, Cavolo, Rise Bake Shoppe, Plain & Fancy, Dienner's, Katie's Kitchen).
+  PA Dutch canon covered: whoopie pies (Hershey Farm — LNP taste-test winner), chicken pot pie (Plain & Fancy, Dienner's,
+  Katie's), sourdough pretzels (Hammond's), smorgasbord/family-style; drinks: 7 breweries/distillery/cidery + 2 coffee roasters.
+- **Channel mix (51 adds):** local editorial of record 24 (LNP, TheBurg, YDR, York Dispatch, Sentinel, Gettysburg Times,
+  LebTown, CPBJ, WITF, FOX43, abc27) · regional/national press & awards 11 (Inquirer/LaBan, NYT via WNEP, USA Today
+  Restaurants of the Year, Wine Spectator, Tasting Table, LCM Best of) · tourism boards 30 (Discover Lancaster, Visit
+  Hershey, Destination Gettysburg, Visit Cumberland Valley, Visit PA, Visit Lebanon Valley) · travel/food sites 25 (PA Eats,
+  Uncovering PA, TravelAwaits, Amish America) · creators 0 (no new verifiable creator piece surfaced; Santenello/Uriot still held).
+- **Food share after W7:** 89 food / 82 sights = **52%**; per area AMISH 19/18 · CAR 8/7 · GBG 12/12 · HBG 13/13 · HER
+  12/12 · LAN 13/9 · YORK 12/11 — every area ≥50%.
+- **MEASURED & DROPPED / HELD:** Char's at Tracy Mansion — CLOSED May 2021 (abc27) → dropped (non-notable closed). Intercourse
+  Pretzel Factory — closed 2015 (LNP) → dropped. Sugar Whipped Bakery (Lititz) — closed, replaced by Erica Joy Bakes (LNP) →
+  dropped. Smoked Bar & Grill (Hummelstown) — restaurantguru flags "may be permanently closed", OpenTable shows hours →
+  status unresolved → HELD (not added). The Left Bank (York) — closed end 2023 → not added. Zeroday Brewing — 3rd St taproom
+  closed 2025-12-28 (outposts remain) → not added. Bird-in-Hand Family Restaurant — fire Dec 2023, reopening unconfirmed →
+  held. Good 'N Plenty — LNP confirms owners closed it and put it up for sale (2022) → still not added (needs a 2nd source
+  to add as a flagged CLOSED landmark). Single-source holds: Yi Pin, Passenger Coffee, Mekatos/Pizzeria 211 (Southern
+  Market), Lapp's Food Trailer (no fixed address) — LaBan only; Lisa's Cafe on Chocolate (Tasting Table only); Appalachian
+  Brewing HBG flagship (Uncovering PA only); Camp Curtin BBQ (PA Eats only, status unknown); Timbers, Funck's (one outlet);
+  Leo's Ice Cream, Miseno's II (Sentinel only); Bistro Barberet (Discover Lancaster only); Raising-the-Bar-era Broad Street
+  Market stands (Hummer's, Evanilla — TheBurg only). New 2026 openings (Eleve, Aunt Hocker's, Crispy Halal) — a mention is
+  not merit → not added.
+- **Geocode (geo/_geoout_w7.json + _geoout_w7old.json):** new channel `allowed_domains:["restaurantguru.com"]`, one place per
+  query (`<Name> <street> <town> coordinates`) — ~70% hit rate; each pin's listing address checked against the record →
+  **med**. Apple Maps (`maps.apple.com`) returned only bare `place-id=` URLs for this region (no `coordinate=`), so it was used
+  for open-status (current hours) only. 37 new places pinned + 4 older UNVERIFIED upgraded (Luca, Miller's Smorgasbord,
+  Horse Inn, The Millworks). Same-address building pins (noted, med): Passerine (predecessor Beer Wall on Prince),
+  Hershey Social (predecessor Houlihan's), Plain & Fancy (on-site Smokehouse BBQ & Brews listing). Addresses corrected from
+  listings: Gettysburg Baking Co. → 17 Lincoln Square; Redd's → 109 N Hanover St; Pitt Street Station → 10 N Pitt St;
+  Valley Bistro → 4520 Valley Rd; Greystone → 2120 Colonial Rd (Colonial Park); Raising the Bar → 1507 N 3rd St; Hideaway →
+  40 Boulevard Ave; Dienner's → 2855 Lincoln Hwy E; Pizzeria LUCA → 1200 Christopher Pl.
+  **UNVERIFIED (14 new → helper):** Chellas, Rice & Noodles, Hamir's, Hunt's Battlefield Fries, Battlefield Brew Works,
+  Katie's Kitchen, Hammond's, Helena's, Snitz Creek Palmyra, Little Mexico Tacos, Porch & Pantry, Queen's BBQ (+ older:
+  Bird-in-Hand Bakery, Spring House, Seltzer's — restaurantguru misses).
+- **Status:** every W7 record status-checked (statusSource in geoout) — 0 closed among the added; closures above dropped.
+- **Build:** rebuild-city --build → 171 places, 98 pinned on page, 73 UNVERIFIED held; --sourcecheck PASS 171/171 ·
+  --geocheck PASS · --statuscheck CONSISTENT · --buildcheck PASS · npm validate DATA OK · npm test ALL PASS.
