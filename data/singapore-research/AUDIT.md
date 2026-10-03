@@ -589,3 +589,35 @@ Area code **PGL** (slug `punggol`, target ~93). Files: `FOOD_PUNGGOL.json` (5), 
   8 UNVERIFIED (no pin obtainable — helper queue). **Build:** holland-village.html 7 pins, greyed (not live);
   geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate/test PASS. Density 13/55 (NEED +42).
   Full detail: `_note_HOLLANDV.md`.
+
+### 4-town relaunch session (PGL/BLS/NVN/HLV) — W2 (2026-10-02; one session, own WebSearch budget)
+- **Searches:** ~118 discovery (log: `_sg4_searchlog.md`) + 52 by 4 background geocode agents. Method lesson: EXTENDED-mode list
+  queries (3-6 two-source places/call) and DOMAIN-FILTERED queries (`allowed_domains` = credible outlets → exact attribution) beat
+  standard queries (~1 place/call). Straitstimes/cntraveler/tatler are refused by the search API as allowed_domains.
+- **Discovered (density.py):** HLV 56/55 **OK → LIVE** (33 pins) · BLS 55/55 **OK, held from go-live** (5 pins — hawker buildings
+  unpinnable via search) · NVN 35/55 · PGL 35/93. (True counts after density.py stopped double-counting sg_worklist.json — first
+  reported 57/61/43/42 were inflated.) Later additions: HLV Le Bon Funk, Frankie & Fern's, Fireplace by Bedrock, Bao Er (HV); BLS Cafe de
+  Hong Kong, Lotus Vegetarian, House of Tau Sar Piah — CLOSED (paused indefinitely 23 Apr 2025), Balestier Conservation Area, Shaw Plaza.
+- **Fact-check / merit:** every kept place >=2 credible or lone Michelin (helper `_sg4_add.py` asserts it). Women's Weekly + Her World
+  treated as one syndicated voice. Mall chains dropped as padding (One Holland Village, Velocity, United Square). Mademoiselle Tang
+  dropped (lukewarm review).
+- **Closures flagged (kept):** Miao Sin Popiah & Carrot Cake (26 Feb 2026), Ponggol Seafood (2 May 2024), Old Police Academy (2005);
+  noted-not-added: Thambi Magazine Store (5 May 2024), Da Chang Jin CCF (gone per DFD). Balestier Market closure reversed (to ~2027).
+- **Geocode:** pins from Wikipedia coords (Goodwood Park, Old Police Academy, Waterway Park, Matilda House, Coney Island, Punggol Point,
+  Waterway Point, Sun Yat Sen Hall, Burmese temple, Novena Church, Punggol Regional Library→One Punggol, Guan Kee→Ghim Moh MFC, Jalan
+  Ampas, Art Deco shophouses) + reused registry building pins (Newton FC, Holland Drive MFC). UNVERIFIED for the helper: Whampoa Makan
+  Place, Balestier Market, Balestier Plaza, Balestier Rd shops, Holland Village MFC, Lorong Mambong/One Holland Village, Punggol Coast HC,
+  Punggol Settlement, Scotts Rd restaurants, Goldhill/Square 2.
+- **Gates (build 3):** geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck FAIL only on the 46 pre-existing
+  single-source places in other towns (0 in these 4) · validate DATA OK · npm test ALL PASS.
+- Per-town detail: `_note_HOLLANDV.md`, `_note_BALESTIER.md`, `_note_NOVENA.md`, `_note_PUNGGOL.md` (W2 sections).
+
+- **FINAL (end of session): HLV 57/55 OK (LIVE) · BLS 56/55 OK (go-live held for pins) · NVN 37/55 (NEED +18) · PGL 35/93 (NEED +58).** Late adds: NVN Baan Ying, Banelé; BLS Niu Dian (VIIO @ Balestier); HLV Niu Dian (HV).
+
+## 2026-10-03 — PGL + NVN W3 (PGL+NVN session)
+- Discovery: PGL +15 (9 food, 6 sights), NVN +10 (9 food, 1 sight). Channels: institutional/official (Wikipedia, NParks, JTC, MUIS, HDB, MND, NHB/Roots, MICHELIN_EDITORIAL) 9; editorial (Eatbook, Seth Lui, Women's Weekly, Honeycombers, Time Out, City Nomads, Makansutra, Tatler, The Peak, Frommer's, Monocle, Dezeen, designboom, Vulcan Post) 21; blogs/creators (ieatishootipost attach, SGFoodOnFoot, live2makan, Ordinary Patrons, 2bearbear, ladyironchef) 8.
+- Closure: Sixth Floor Oyster Cake (Northshore Plaza) — CLOSED after 28 Sep 2025 (Seth Lui).
+- Geocode: 12 pinned (4 high: Bukit Brown, Masjid Al-Islah, Oasis Terraces + building reuse; 8 med building-reuse), 13 UNVERIFIED (Punggol Coast HC, Northshore, Scotts Rd bungalows, Balmoral Plaza, Keng Lee Rd, 2 linear trails). Street centroids (Punggol Way) rejected.
+- Gates after rebuild: geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck FAIL only on 46 pre-existing single-source places elsewhere (none PGL/NVN). validate + test ALL PASS.
+- Density: PGL 50/93 (NEED +43), NVN 47/55 (NEED +8). Rendered: punggol.html 23, newton-novena.html 29. Full held/dropped lists: _note_PUNGGOL.md / _note_NOVENA.md W3.
+- **W3 close (same day):** NVN +6 more (Cairnhill CA, Tan Chin Tuan Mansion, The Line, Waterfall, L'Espresso, Guan Kee) → **53/55**, 35 pinned. PGL net 0 more: +3 (Hee Hee Hee, SJ Sickander Ammal, Warabimochi Kamakura) and −3 **attribution correction** (75 Ah Balling, One Soy, You Fu re-HELD after domain-restricted checks failed to confirm their second source) → **50/93**, 24 pinned. Gates unchanged (geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck FAIL only on 46 pre-existing non-PGL/NVN single-source places). Lesson logged in _note_PUNGGOL.md: confirm 2nd sources with `allowed_domains` before filing.
