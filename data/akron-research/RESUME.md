@@ -21,6 +21,7 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md**. Rebuild: `python3 
 - 2026-10-02 scaffold: consolidate.py (6 areas, Akron-Canton cuisine taxonomy), brief, build-akron.py.
 
 ## In-flight wave — resume here (W5 in progress, 2026-10-03)
+- **W5 batches 2–3 DONE:** 165 places, 127 pinned. AKR 52 · CANT 36 · NSUM 26 · KENT 22 · MASS 16 · BARB 13.
 - **W5 batch 1 DONE:** +14 sights +11 food → 149 places, 113 pinned. AKR 48 · CANT 31 · NSUM 24 · KENT 19 · MASS 14 · BARB 13.
   NEED AKR +12, CANT +14, NSUM +11, KENT +11, BARB +7, MASS +6. Held leads in AUDIT W5 batch 1.
 
@@ -88,3 +89,4 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md**. Rebuild: `python3 
 - 2026-10-03 W4: **124 places (79 food 64% / 45 sights), 94 pinned**; 4 gates green. AKR 42 · CANT 27 · NSUM 18 · KENT 17 ·
   MASS 11 · BARB 9 (124/210). ≈176 WebSearch.
 - 2026-10-03 W5 batch 1: **149 places, 113 pinned**; 4 gates green.
+- 2026-10-03 W5 batches 2–3: **165 places, 127 pinned**; 4 gates green.

@@ -455,3 +455,17 @@ New source keys: MAHONINGMATTERS, BARBERTONLIBRARY (SOURCES_W3A.json).
   Pizza Alliance (NYT readers' list claim not confirmed), Jilly's Music Room (Akron Life vote + Scene listing), Tiffany's Bakery, Taste of
   Bangkok, Kasai (Akron Life vote only), Canton Arts District (no pin anchor), Starflyer (still no named beer), Muskellunge (no address),
   Hiram/Garfield sites (house private; no single visitable pin).
+
+## 2026-10-03 W5 · batch 3 (FOOD_W5C, SIGHTS_W5C, geo/_geoout_w5c/_w5d) + pin pass
+- **Added food (4):** CANT Dough Co. (CLEMAG Canton 21 + Akron Life 2026 Flavor Awards Best Doughnuts ranking), Fronimo's Downtown (CLEMAG +
+  Repository downtown guide; promoted from held), Leather Helmet Grill (Repository review + Akron Life "6 newer spots in Canton") · NSUM
+  Shawarma Brothers (promoted: Akron Life "Middle Ground" + CLEMAG; measured 4.8★/257 — #2 in a USA TODAY Network Ohio ratings roundup).
+- **Added sights (3):** AKR Summit Lake Nature Center & Trail (Summit Metro Parks + Spectrum + Landscape Architecture Magazine + Signal),
+  E.J. Thomas Performing Arts Hall (Wikipedia + UA + Playhouse Square) · NSUM Western Reserve Academy (Wikipedia + NPS NRHP + CLEMAG).
+- **Pin pass:** Sojourner Truth plaza ← Atlas Obscura coords (high); Diamond Deli, Big Eu'es ← usarestaurants (med); Kenmore Blvd district
+  anchored on Lay's Guitar Shop's Waze place inside the district (med). Diamond Deli gained a measured-rating source (4.7★/279, same roundup).
+- **Held:** Good Fortune Canton (Akron Life + Repository opening news), Blue Smoke, Samantha's (Akron Life only), Great Oaks Tavern Wadsworth
+  (ABJ only), Beau's Grille Fairlawn (Akron Life chef vote only), Ignite Brewing Barberton (ABJ mention only), Al's Corner Barberton (Roadfood
+  + Akron Life listing, but 545 W Tuscarawas shows as Al's Quality Meats "now closed" on Foursquare — status unresolved), Munroe Falls / Hudson
+  Springs / Silver Springs parks (agency pages only), Front Street Cuyahoga Falls district (no place anchor), Good Grief Hudson (ABJ only).
+- Still UNVERIFIED from W5: Menches, Boss ChickNBeer, Summit Artspace, KSU Museum, Cast Iron, Maddalena's, Towner's Woods, Leather Helmet.
