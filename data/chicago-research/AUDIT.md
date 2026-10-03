@@ -263,3 +263,17 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
   Joy Yee (Time Out only).
 - New source key FOODITOR registered with a rationale.
 - Build: 448 researched / 275 rendered (180 sights + 95 food); 4 gates PASS; validate DATA OK; npm test ALL PASS.
+
+## 2026-10-03 (session 5 / wave 4) · batch 3 (≈105 searches cumulative)
+- Sights +17 (all pinned, Wikipedia + ≥1 of Choose Chicago / Time Out / CAC / WTTW / City landmarks / Atlas Obscura): WEST — Site of the Great
+  Chicago Fire (Pillar of Fire); NORTH — Lincoln Park (med), Andersonville Commercial District (med), Edgewater Beach Apartments, Bryn Mawr Avenue
+  Historic District (med; landmarked Sept 2026); FAR — Givins Beverly Castle, Calumet Park & Beach (med); LOOP — Old St. Patrick's, Marquette Building,
+  Carbide & Carbon Building, Clarke House Museum, Chicago Architecture Center, Second Presbyterian, Chicago Temple (med).
+- Food & drink +7: WEST — Lucido's Tacos; FAR — Sanders BBQ Supply Co. (NYT 2025 top-50, Banchet 2026), Justice of the Pies, Open Outcry Brewing,
+  Ware Ranch Steak House; SW — Marz Community Brewing (Apple pin), Gorditas La Tia Susy. Pin: Mariscos San Pedro (Apple).
+- MEASURED & DROPPED: Whiner Beer Co. — CLOSED 29 Mar 2026 (Time Out) and never on the map → not added; Nuevo Leon restaurant + Mi Tierra
+  (WTTW Check Please lists both closed — not added); Chatham Village / Pullman clock-tower coords (community centroid / arc-minute only) rejected;
+  Pritzker Military Museum (Wikipedia now places it in Kenosha) not added; Somos Monos Cerveceria (Block Club only) held.
+- New source key BEVERLYREVIEW registered with a rationale.
+- Build: 469 researched / 291 rendered (194 sights + 97 food); 4 gates PASS; validate + npm test PASS. LOOP now OK (110/110) but its food share
+  dipped to 49% → next LOOP adds must be food.

@@ -12,7 +12,7 @@ for f in glob.glob(os.path.join(D, '[FS]*_*.json')):
 W18 = {g['n']: g for g in (json.load(open(os.path.join(D, 'geo', '_geoout_w18.json'))) if os.path.exists(os.path.join(D, 'geo', '_geoout_w18.json')) else [])}
 out = []
 for p in json.load(sys.stdin):
-    r = reg.get(p['n'])
+    r = reg.get(p['n']) or W18.get(p['n'])
     if r is None:  # older record never geo-rowed: take address from the pin source, status from its own sources
         rec = REC[p['n']]; assert p.get('address'), 'address required: ' + p['n']
         r = {'status': 'open', 'statusSource': rec['sources'][0][1] + ' (current listing; Apple Maps place listing live, search 2026-10-03; no closure reported)'}
