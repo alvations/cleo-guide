@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Okinawa field guide — 114 sights and 59 places to eat, each traceable to its source (UNESCO, Okinawan and Japanese press, Stars and Stripes Okinawa and vetted creators) on one interactive map with area, collection and cuisine filters.">
+<meta name="description" content="Okinawa field guide — 120 sights and 63 places to eat, each traceable to its source (UNESCO, Okinawan and Japanese press, Stars and Stripes Okinawa and vetted creators) on one interactive map with area, collection and cuisine filters.">
 <title>Okinawa Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Okinawa (沖縄), sourced</p>
   <h1>Okinawa<span class="thin">the Ryūkyū islands — Naha, the main island, Kerama, Miyako &amp; Yaeyama</span></h1>
-  <p class="standfirst">114 sights and 59 places to eat across <strong>Okinawa</strong> — the Ryūkyū Kingdom’s castles and sacred groves, Okinawa soba counters and taco-rice joints, from Naha out to the Miyako and Yaeyama islands — every one traceable to its source. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">120 sights and 63 places to eat across <strong>Okinawa</strong> — the Ryūkyū Kingdom’s castles and sacred groves, Okinawa soba counters and taco-rice joints, from Naha out to the Miyako and Yaeyama islands — every one traceable to its source. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Japan/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -311,9 +311,12 @@
 const S = {
   "ALLABOUT":{k:"ALLABOUT",t:"All About (allabout.co.jp)",u:"https://allabout.co.jp",l:"All About (allabout.co.jp)"},
   "ANATRAVEL":{k:"ANATRAVEL",t:"ANA Japan Travel Planner",u:"https://www.ana.co.jp/en/us/japan-travel-planner/",l:"ANA Japan Travel Planner"},
+  "ANIMECLICK":{k:"ANIMECLICK",t:"AnimeClick.it (Italy's largest anime/manga news & database site)",u:"https://www.animeclick.it/",l:"AnimeClick.it (Italy's largest anime/manga news & database site)"},
   "ANIMETOURISM88":{k:"ANIMETOURISM88",t:"ANIMETOURISM88",u:"",l:""},
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"ATLAS OBSCURA",u:"",l:""},
+  "BUNKACHO":{k:"AGENCY FOR CULTURAL AFFAIRS",t:"AGENCY FOR CULTURAL AFFAIRS",u:"",l:""},
   "BUNKA_SURVEY":{k:"BUNKA SURVEY",t:"Agency for Cultural Affairs — modern-building survey (Okinawa)",u:"https://www.bunka.go.jp/kindai/kenzoubutsu/research/okinawa/",l:"Agency for Cultural Affairs — modern-building survey (Okinawa)"},
+  "CIATR":{k:"CIATR",t:"ciatr (Japanese entertainment/anime web magazine)",u:"https://ciatr.jp/",l:"ciatr (Japanese entertainment/anime web magazine)"},
   "ENV_NP":{k:"ENV NP",t:"Ministry of the Environment — National Parks of Japan",u:"https://www.env.go.jp/nature/nationalparks/",l:"Ministry of the Environment — National Parks of Japan"},
   "FUNJAPAN":{k:"FUNJAPAN",t:"FUN! JAPAN (JTB)",u:"https://www.fun-japan.jp",l:"FUN! JAPAN (JTB)"},
   "GAMEWATCH":{k:"GAMEWATCH",t:"GAME Watch (Impress Watch)",u:"https://game.watch.impress.co.jp",l:"GAME Watch (Impress Watch)"},
@@ -321,26 +324,34 @@ const S = {
   "GOVONLINE":{k:"GOVONLINE",t:"Highlighting Japan (Government of Japan Public Relations Office)",u:"https://www.gov-online.go.jp/hlj/en/",l:"Highlighting Japan (Government of Japan Public Relations Office)"},
   "HAEBARUTOWN":{k:"HAEBARUTOWN",t:"HAEBARUTOWN",u:"",l:""},
   "IMPRESSTRAVELWATCH":{k:"IMPRESSTRAVELWATCH",t:"IMPRESSTRAVELWATCH",u:"",l:""},
+  "ITOMANCITY":{k:"ITOMANCITY",t:"Itoman City — Itoman kankō navi (official)",u:"https://www.city.itoman.lg.jp/site/kankou-navi/",l:"Itoman City — Itoman kankō navi (official)"},
   "JAPANEXPERIENCE":{k:"JAPANEXPERIENCE",t:"Japan Experience",u:"https://www.japan-experience.com",l:"Japan Experience"},
   "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"JAPAN-GUIDE",u:"",l:""},
   "JAPANTRAVEL":{k:"JAPANTRAVEL",t:"Japan Travel (japantravel.com)",u:"https://en.japantravel.com",l:"Japan Travel (japantravel.com)"},
   "JCASTLE":{k:"JCASTLE",t:"Jcastle.info — Guide to Japanese Castles",u:"https://jcastle.info",l:"Jcastle.info — Guide to Japanese Castles"},
   "JNTO":{k:"JNTO",t:"JNTO",u:"",l:""},
   "JTA_TAGENGO":{k:"JTA TAGENGO",t:"Japan Tourism Agency multilingual commentary database (MLIT)",u:"https://www.mlit.go.jp/tagengo-db/",l:"Japan Tourism Agency multilingual commentary database (MLIT)"},
+  "KUMEJIMAKANKO":{k:"KUMEJIMAKANKO",t:"Kumejima Town Tourism Association (久米島町観光協会, official)",u:"https://www.kanko-kumejima.com/",l:"Kumejima Town Tourism Association (久米島町観光協会, official)"},
   "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet",u:"https://www.lonelyplanet.com/",l:"Lonely Planet"},
   "MAPPLE":{k:"MAPPLE",t:"Mapple (まっぷる, Shobunsha guidebooks)",u:"https://www.mapple.net",l:"Mapple (まっぷる, Shobunsha guidebooks)"},
   "MIYAKOJIMACITY":{k:"MIYAKOJIMACITY",t:"Miyakojima City cultural-properties site",u:"https://miyakojimabunkazai.jp",l:"Miyakojima City cultural-properties site"},
   "NAHACITY":{k:"NAHACITY",t:"Naha City (official municipal publications)",u:"https://www.city.naha.okinawa.jp/",l:"Naha City (official municipal publications)"},
+  "NANJOTOURISM":{k:"NANJOTOURISM",t:"Nanjō City Tourism Association (kankou-nanjo.okinawa)",u:"https://www.kankou-nanjo.okinawa/",l:"Nanjō City Tourism Association (kankou-nanjo.okinawa)"},
   "OCVB":{k:"OCVB",t:"Okinawa Convention & Visitors Bureau (Okinawa Film Office)",u:"https://filmoffice.ocvb.or.jp",l:"Okinawa Convention & Visitors Bureau (Okinawa Film Office)"},
   "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
+  "OKINAWA41":{k:"OKINAWA41",t:"OKINAWA41 (Okinawa Prefecture-run local-tourism site, okinawa41.go.jp)",u:"https://www.okinawa41.go.jp/",l:"OKINAWA41 (Okinawa Prefecture-run local-tourism site, okinawa41.go.jp)"},
   "OKINAWATIMES":{k:"OKINAWA TIMES",t:"OKINAWA TIMES",u:"",l:""},
   "OKINAWATRAVELER":{k:"OKINAWATRAVELER",t:"Okinawa Traveler (沖縄トラベラー, by the editors of local magazine Rikka Docca)",u:"https://www.okinawatraveler.net",l:"Okinawa Traveler (沖縄トラベラー, by the editors of local magazine Rikka Docca)"},
+  "OTV":{k:"OTV",t:"Okinawa Television (OTV) — Okitive",u:"https://www.otv.co.jp/okitive/",l:"Okinawa Television (OTV) — Okitive"},
   "PACIFICWRECKS":{k:"PACIFICWRECKS",t:"Pacific Wrecks (WWII sites database)",u:"https://pacificwrecks.com",l:"Pacific Wrecks (WWII sites database)"},
   "RURUBU":{k:"RURUBU",t:"Rurubu (るるぶ&more, JTB Publishing)",u:"https://rurubu.jp",l:"Rurubu (るるぶ&more, JTB Publishing)"},
   "RYUKYUSHIMPO":{k:"RYUKYU SHIMPO",t:"Ryukyu Shimpo (琉球新報)",u:"https://ryukyushimpo.jp/",l:"Ryukyu Shimpo (琉球新報)"},
   "SAMURAIARCHIVES":{k:"SAMURAIARCHIVES",t:"SamuraiWiki (Samurai-Archives)",u:"https://samurai-archives.com/wiki/",l:"SamuraiWiki (Samurai-Archives)"},
+  "SHIROBITO":{k:"SHIROBITO",t:"Shirobito (城びと) — castle portal",u:"https://shirobito.jp/",l:"Shirobito (城びと) — castle portal"},
   "SHOWCAVES":{k:"SHOWCAVES",t:"showcaves.com (cave & subterranea reference)",u:"https://showcaves.com",l:"showcaves.com (cave & subterranea reference)"},
   "STRIPES":{k:"STRIPES",t:"Stars and Stripes Okinawa",u:"https://okinawa.stripes.com",l:"Stars and Stripes Okinawa"},
+  "TABIMAG":{k:"TABIMAG",t:"Tabi Magazine (tabi-mag.jp, editorial Japan travel site)",u:"https://tabi-mag.jp/",l:"Tabi Magazine (tabi-mag.jp, editorial Japan travel site)"},
+  "TAKETOMIKANKO":{k:"TAKETOMIKANKO",t:"Taketomi Town Tourism Association (竹富町観光協会, official, painusima.com)",u:"https://painusima.com/",l:"Taketomi Town Tourism Association (竹富町観光協会, official, painusima.com)"},
   "UNESCO":{k:"UNESCO",t:"UNESCO",u:"",l:""},
   "VISITOKINAWA":{k:"VISIT OKINAWA",t:"VISIT OKINAWA",u:"",l:""},
   "WALKERPLUS":{k:"WALKERPLUS",t:"Walkerplus (KADOKAWA Walker magazines)",u:"https://www.walkerplus.com",l:"Walkerplus (KADOKAWA Walker magazines)"},
@@ -476,15 +487,22 @@ const P = [
 {t:2,a:"YAEYA",n:"Kondoi Beach, Taketomi Island (コンドイ浜)",ad:"Taketomi, Yaeyama, Okinawa, Japan",la:24.32538,ln:124.07741,w:"Taketomi's west-coast swimming beach: white sand and a long, shallow emerald lagoon calm enough for small children; reached by rental bicycle from the village.",k:"Shallow lagoon beach",g:["NATURE","FREE","CASTLE"],s:[["RURUBU","https://rurubu.jp/andmore/spot/80043560"],["MAPPLE","https://www.mapple.net/spot/47001119/"]]},
 {t:2,a:"HOKBU",n:"Neo Park Okinawa, Nago (ネオパークオキナワ)",ad:"4607-41 Nago, Nago, Okinawa, Japan",la:26.61070,ln:127.99138,w:"Nago's municipal wildlife and botanical park (opened December 1992): about 100 species in free-roaming Africa, Amazon and Oceania zones, circled by a small light railway.",k:"Walk-through flamingo & bird park",g:["NATURE","FREE"],s:[["RURUBU","https://rurubu.jp/andmore/spot/80042867"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E3%83%8D%E3%82%AA%E3%83%91%E3%83%BC%E3%82%AF%E3%82%AA%E3%82%AD%E3%83%8A%E3%83%AF"],["MAPPLE","https://www.mapple.net/spot/47001084/"]]},
 {t:2,a:"HOKBU",n:"Gesashi Bay mangroves, Higashi (慶佐次湾のヒルギ林)",ad:"Gesashi, Higashi, Kunigami, Okinawa, Japan",la:26.60401,ln:128.14484,w:"The second-largest mangrove forest on Okinawa's main island — about 10 ha along the Gesashi River estuary, explored by boardwalk or guided kayak.",k:"Mangrove kayaking",g:["NATURE","FREE"],s:[["RURUBU","https://rurubu.jp/andmore/spot/80043114"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E6%85%B6%E4%BD%90%E6%AC%A1%E6%B9%BE"]]},
-{t:2,a:"NAHA",n:"Sugar Loaf Hill (シュガーローフ / 安里52高地)",ad:"1-6 Omoromachi, Naha, Okinawa (Asato Haisuichi Park)",la:26.22236,ln:127.69614,w:"The low hill the US Marines called Sugar Loaf and the Japanese 'Asato Hill 52', locally Kerama-chiiji, was fought over by the 6th Marine Division and the Japanese 32nd Army in May 1945. Today it is the Asato reservoir park beside Omoromachi monorail station, with an inscribed marker amid the new city centre.",k:"Battle of Okinawa hill in the middle of Shintoshin",g:["FREE","VIEW","CASTLE","NATURE"],s:[["WIKI","https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A5%E3%82%AC%E3%83%BC%E3%83%AD%E3%83%BC%E3%83%95%E3%81%AE%E6%88%A6%E3%81%84"],["NAHACITY","https://www.rekishi-archive.city.naha.okinawa.jp/spot/153"]]}
+{t:2,a:"NAHA",n:"Sugar Loaf Hill (シュガーローフ / 安里52高地)",ad:"1-6 Omoromachi, Naha, Okinawa (Asato Haisuichi Park)",la:26.22236,ln:127.69614,w:"The low hill the US Marines called Sugar Loaf and the Japanese 'Asato Hill 52', locally Kerama-chiiji, was fought over by the 6th Marine Division and the Japanese 32nd Army in May 1945. Today it is the Asato reservoir park beside Omoromachi monorail station, with an inscribed marker amid the new city centre.",k:"Battle of Okinawa hill in the middle of Shintoshin",g:["FREE","VIEW","CASTLE","NATURE"],s:[["WIKI","https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A5%E3%82%AC%E3%83%BC%E3%83%AD%E3%83%BC%E3%83%95%E3%81%AE%E6%88%A6%E3%81%84"],["NAHACITY","https://www.rekishi-archive.city.naha.okinawa.jp/spot/153"]]},
+{t:3,a:"NAHA",n:"Great Akagi Trees of Shuri Kinjō (首里金城の大アカギ)",ad:"3-18-20 Shuri Kinjō-chō, Naha, Okinawa",la:26.21589,ln:127.71601,w:"A grove of six huge akagi (Bischofia) trees and one Ryūkyū hackberry behind the Uchikanagusuku shrine just off the Kinjō-chō stone road, designated a national Natural Monument in 1972; the largest is 5.2 m round and 13 m tall. No other such grove of giant akagi survives in a settled area of Okinawa.",k:"National Natural Monument grove off the stone road",g:["NATURE","FREE","ICON","UNESCO"],s:[["BUNKACHO","https://online.bunka.go.jp/heritages/detail/162758"],["TABIMAG","https://tabi-mag.jp/on0016/"],["OCVB","https://www.okinawastory.jp/spot/30000022"]]},
+{t:2,a:"HOKBU",n:"Kayauchi Banta cliff, Kunigami (茅打バンタ)",ad:"Ginama, Kunigami-son, Kunigami-gun, Okinawa, Japan",la:26.85417,ln:128.24833,w:"A ~100 m sheer cliff and lookout near the island's northern tip, inside Yanbaru National Park; the name ('banta' = cliff) comes from the tale that a bundle of thatch thrown over the edge was torn apart by the wind.",k:"Yanbaru's 100 m cliff lookout",g:["NATURE","VIEW","FREE","MUS"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E8%8C%85%E6%89%93%E3%83%90%E3%83%B3%E3%82%BF"],["JTA_TAGENGO","https://www.mlit.go.jp/tagengo-db/R1-03027.html"],["OCVB","https://www.okinawastory.jp/spot/1382"]]},
+{t:1,a:"NANBU",n:"Senaga Island & Umikaji Terrace, Tomigusuku (瀬長島ウミカジテラス)",ad:"174-6 Senaga, Tomigusuku, Okinawa, Japan",la:26.17500,ln:127.64250,w:"A small island ~600 m off the southern west coast and 1.5 km south of Naha Airport, returned by the US military in 1977; since summer 2015 its slope is lined with the white, Mediterranean-style shops and cafés of Umikaji Terrace, with planes landing overhead and sunset views.",k:"Sunset terrace by the runway",g:["NATURE","MKT","VIEW","FREE"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E7%80%AC%E9%95%B7%E5%B3%B6"],["OTV","https://www.otv.co.jp/okitive/article/58724/"]]},
+{t:2,a:"NANBU",n:"Cape Kyan & the Peace Tower, Itoman (喜屋武岬)",ad:"Kyan, Itoman, Okinawa, Japan",la:26.07819,ln:127.66894,w:"The south-western tip of the main island, 10–20 m cliffs where the Pacific meets the East China Sea; this coast saw the last desperate fighting of the Battle of Okinawa, and the 1969 Peace Tower memorial stands at the point, inside Okinawa Senseki Quasi-National Park.",k:"Southwest tip, war-memorial cliffs",g:["NATURE","VIEW","CASTLE","FREE"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E5%96%9C%E5%B1%8B%E6%AD%A6%E5%B2%AC"],["RURUBU","https://rurubu.jp/andmore/spot/80042891"],["ITOMANCITY","https://www.city.itoman.lg.jp/site/kankou-navi/1808.html"]]},
+{t:1,a:"KRM",n:"Uegusuku Castle Ruins, Kume Island (宇江城城跡)",ad:"Uegusuku, Kumejima, Okinawa (summit of Uegusuku-dake)",la:26.37639,ln:126.76917,w:"Gusuku ruins on the 310 m summit of Uegusuku-dake — the highest castle site in Okinawa Prefecture — with a 360-degree view over almost the whole of Kume Island. Free. Designated a National Historic Site in 2009.",k:"Okinawa's highest gusuku",g:["CASTLE","VIEW","FREE","UNESCO"],s:[["RURUBU","https://rurubu.jp/andmore/spot/80043430"],["KUMEJIMAKANKO","https://www.kanko-kumejima.com/spot/see/665/"],["BUNKACHO","https://online.bunka.go.jp/heritages/detail/140627"]]},
+{t:1,a:"MYK",n:"Toguchi-no-hama Beach, Irabu Island (渡口の浜)",ad:"Irabu, Miyakojima, Okinawa (south-west Irabu Island)",la:24.81186,ln:125.17839,w:"An 800 m gently curving arc of fine white sand on south-west Irabu, renowned across Okinawa for its powdery sand and clear water, looking across to Miyako and Kurima islands; counted among Irabu's finest beaches.",k:"Irabu's 800 m white-sand arc",g:["NATURE","FREE"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E6%B8%A1%E5%8F%A3%E3%81%AE%E6%B5%9C"],["RURUBU","https://rurubu.jp/andmore/article/8165"]]}
 ];
 
 const FS = {
   "ALLABOUT":{k:"ALLABOUT",t:"All About (allabout.co.jp)",u:"https://allabout.co.jp",l:"All About (allabout.co.jp)"},
-  "ARUKIKATA":{k:"ARUKIKATA",t:"ARUKIKATA",u:"",l:""},
+  "ARUKIKATA":{k:"ARUKIKATA",t:"Chikyū no Arukikata (地球の歩き方) web magazine",u:"https://www.arukikata.co.jp/",l:"Chikyū no Arukikata (地球の歩き方) web magazine"},
   "BEERTENGOKU":{k:"BEERTENGOKU",t:"Beer Tengoku (ビール天国)",u:"https://beertengoku.com",l:"Beer Tengoku (ビール天国)"},
   "BUNKA_SURVEY":{k:"BUNKA SURVEY",t:"Agency for Cultural Affairs — modern-building survey (Okinawa)",u:"https://www.bunka.go.jp/kindai/kenzoubutsu/research/okinawa/",l:"Agency for Cultural Affairs — modern-building survey (Okinawa)"},
   "CULTURETRIP":{k:"CULTURETRIP",t:"Culture Trip",u:"https://theculturetrip.com",l:"Culture Trip"},
+  "FUNJAPAN":{k:"FUNJAPAN",t:"FUN! JAPAN (JTB)",u:"https://www.fun-japan.jp",l:"FUN! JAPAN (JTB)"},
   "GIGAZINE":{k:"GIGAZINE",t:"GIGAZINE",u:"https://gigazine.net",l:"GIGAZINE"},
   "GLTJP":{k:"GLTJP",t:"Good Luck Trip (gltjp.com)",u:"https://www.gltjp.com",l:"Good Luck Trip (gltjp.com)"},
   "HISMAG":{k:"HISMAG",t:"H.I.S. travel magazine (article.his-j.com, editorial travel features)",u:"https://article.his-j.com/",l:"H.I.S. travel magazine (article.his-j.com, editorial travel features)"},
@@ -495,18 +513,19 @@ const FS = {
   "JAPANTRAVEL":{k:"JAPANTRAVEL",t:"Japan Travel (japantravel.com)",u:"https://en.japantravel.com",l:"Japan Travel (japantravel.com)"},
   "JSS":{k:"JSS",t:"Japan Sake and Shochu Makers Association — Sakagura tourism pages",u:"https://www.japansake.or.jp",l:"Japan Sake and Shochu Makers Association — Sakagura tourism pages"},
   "KOZAWEB":{k:"KOZAWEB",t:"KozaWeb — Okinawa City Tourism Portal",u:"https://en.kozaweb.jp",l:"KozaWeb — Okinawa City Tourism Portal"},
-  "KUMEJIMAKANKO":{k:"KUMEJIMAKANKO",t:"KUMEJIMAKANKO",u:"",l:""},
+  "KUMEJIMAKANKO":{k:"KUMEJIMAKANKO",t:"Kumejima Town Tourism Association (久米島町観光協会, official)",u:"https://www.kanko-kumejima.com/",l:"Kumejima Town Tourism Association (久米島町観光協会, official)"},
   "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet",u:"https://www.lonelyplanet.com/",l:"Lonely Planet"},
   "MACARONI":{k:"MACARONI",t:"macaroni (macaro-ni.jp)",u:"https://macaro-ni.jp",l:"macaroni (macaro-ni.jp)"},
   "MAPPLE":{k:"MAPPLE",t:"Mapple (まっぷる, Shobunsha guidebooks)",u:"https://www.mapple.net",l:"Mapple (まっぷる, Shobunsha guidebooks)"},
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide (travel article: Awamori tour in Okinawa)",u:"https://guide.michelin.com",l:"MICHELIN Guide (travel article: Awamori tour in Okinawa)"},
-  "MIYAKOMAINICHI":{k:"MIYAKOMAINICHI",t:"MIYAKOMAINICHI",u:"",l:""},
+  "MIYAKOMAINICHI":{k:"MIYAKOMAINICHI",t:"Miyako Mainichi Shimbun (宮古毎日新聞)",u:"https://www.miyakomainichi.com/",l:"Miyako Mainichi Shimbun (宮古毎日新聞)"},
   "NAHACITY":{k:"NAHACITY",t:"Naha City (official municipal publications)",u:"https://www.city.naha.okinawa.jp/",l:"Naha City (official municipal publications)"},
-  "NTA":{k:"NTA",t:"NTA",u:"",l:""},
+  "NTA":{k:"NTA",t:"National Tax Agency — Okinawa Regional Taxation Bureau sakagura (distillery) guide",u:"https://www.nta.go.jp/about/organization/okinawa/sake/",l:"National Tax Agency — Okinawa Regional Taxation Bureau sakagura (distillery) guide"},
   "OCVB":{k:"OCVB",t:"Okinawa Convention & Visitors Bureau (Okinawa Film Office)",u:"https://filmoffice.ocvb.or.jp",l:"Okinawa Convention & Visitors Bureau (Okinawa Film Office)"},
   "OKINAWAPREF":{k:"OKINAWAPREF",t:"Okinawa Prefecture — 「琉球料理が味わえる店」 certification",u:"https://www.pref.okinawa.jp/bunkakoryu/bunkageijutsu/1022485/1030735.html",l:"Okinawa Prefecture — 「琉球料理が味わえる店」 certification"},
   "OKINAWATIMES":{k:"OKINAWA TIMES",t:"OKINAWA TIMES",u:"",l:""},
   "OKINAWATRAVELER":{k:"OKINAWATRAVELER",t:"Okinawa Traveler (沖縄トラベラー, by the editors of local magazine Rikka Docca)",u:"https://www.okinawatraveler.net",l:"Okinawa Traveler (沖縄トラベラー, by the editors of local magazine Rikka Docca)"},
+  "OTV":{k:"OTV",t:"Okinawa Television (OTV) — Okitive",u:"https://www.otv.co.jp/okitive/",l:"Okinawa Television (OTV) — Okitive"},
   "PARTSUNKNOWN":{k:"PARTSUNKNOWN",t:"Explore Parts Unknown (CNN / Anthony Bourdain)",u:"https://explorepartsunknown.com",l:"Explore Parts Unknown (CNN / Anthony Bourdain)"},
   "RAMENADVENTURES":{k:"RAMENADVENTURES",t:"Ramen Adventures (Brian MacDuckston)",u:"https://ramenadventures.com",l:"Ramen Adventures (Brian MacDuckston)"},
   "RURUBU":{k:"RURUBU",t:"Rurubu (るるぶ&more, JTB Publishing)",u:"https://rurubu.jp",l:"Rurubu (るるぶ&more, JTB Publishing)"},
@@ -514,9 +533,12 @@ const FS = {
   "SAVORJAPAN":{k:"SAVOR JAPAN",t:"Savor Japan",u:"https://savorjapan.com",l:"Savor Japan"},
   "SERAI":{k:"SERAI",t:"Serai (サライ, Shogakukan magazine)",u:"https://serai.jp",l:"Serai (サライ, Shogakukan magazine)"},
   "STRIPES":{k:"STRIPES",t:"Stars and Stripes Okinawa",u:"https://okinawa.stripes.com",l:"Stars and Stripes Okinawa"},
+  "TABIMAG":{k:"TABIMAG",t:"Tabi Magazine (tabi-mag.jp, editorial Japan travel site)",u:"https://tabi-mag.jp/",l:"Tabi Magazine (tabi-mag.jp, editorial Japan travel site)"},
+  "TABIRAI":{k:"TABIRAI",t:"Tabirai Okinawa (tabirai.net sightseeing columns, Okinawa travel portal editorial)",u:"https://www.tabirai.net/",l:"Tabirai Okinawa (tabirai.net sightseeing columns, Okinawa travel portal editorial)"},
+  "TRAVELWATCH":{k:"TRAVELWATCH",t:"Travel Watch (Impress Watch)",u:"https://travel.watch.impress.co.jp",l:"Travel Watch (Impress Watch)"},
   "VISITOKINAWA":{k:"VISIT OKINAWA",t:"VISIT OKINAWA",u:"",l:""},
   "WALKERPLUS":{k:"WALKERPLUS",t:"Walkerplus (KADOKAWA Walker magazines)",u:"https://www.walkerplus.com",l:"Walkerplus (KADOKAWA Walker magazines)"},
-  "YAEYAMAMAINICHI":{k:"YAEYAMAMAINICHI",t:"YAEYAMAMAINICHI",u:"",l:""},
+  "YAEYAMAMAINICHI":{k:"YAEYAMAMAINICHI",t:"Yaeyama Mainichi Shimbun (八重山毎日新聞)",u:"https://www.y-mainichi.co.jp/",l:"Yaeyama Mainichi Shimbun (八重山毎日新聞)"},
   "YAEYAMAVB":{k:"YAEYAMAVB",t:"Yaeyama Visitors Bureau (八重山ビジターズビューロー, official tourism association)",u:"https://yaeyama.or.jp/",l:"Yaeyama Visitors Bureau (八重山ビジターズビューロー, official tourism association)"}
 };
 
@@ -617,7 +639,11 @@ const F = [
 {t:2,a:"NAHA",n:"Hanagasa Shokudō (花笠食堂)",ad:"3-2-48 Makishi, Naha, Okinawa",cz:["TEISHOKU","OKINAWA"],la:26.21485,ln:127.68896,w:"A popular old-style shokudō off the Heiwa-dōri arcade serving Okinawan home cooking as set meals: pick white, brown or red (sekihan) rice and one of five soups including inamuruchi and nakami-jiru. Its sweet house iced tea is famous enough to have been sold in cartons.",s:[["MAPPLE","https://www.mapple.net/spot/47011544/"],["RURUBU","https://rurubu.jp/andmore/spot/80042511"]]},
 {t:1,a:"NANBU",n:"Itoman Gyomin Shokudō (糸満漁民食堂)",ad:"Nishizaki, Itoman, Okinawa, Japan",cz:["OKINAWA"],la:26.13931,ln:127.65990,w:"Fish restaurant in the fishing town of Itoman, opened in 2013 in a building of stacked Ryūkyū limestone that won a Good Design Award and JCD Design Award. Its signature is the day's local fish butter-grilled until crisp outside and tender within.",s:[["SERAI","https://serai.jp/gourmet/217173"],["ALLABOUT","https://allabout.co.jp/gm/gc/446327"],["JALSKYWARD","https://skywardplus.jal.co.jp/?p=29471"]]},
 {t:2,a:"MYK",n:"Yukishio Museum, Miyako (雪塩ミュージアム)",ad:"191 Karimata, Hirara, Miyakojima, Okinawa, Japan",cz:["SWEET"],la:24.90268,ln:125.26780,w:"Showroom of the 'Yukishio' salt works, which makes powder-fine salt from limestone-filtered underground seawater; free guided looks at the production line, and the shop's Yukishio soft-serve is the draw.",s:[["RURUBU","https://rurubu.jp/andmore/spot/80129718"],["MAPPLE","https://www.mapple.net/region/a0705030100_g04030000/spot/"]]},
-{t:1,a:"HOKBU",n:"Maeda Shokudō, Ōgimi (前田食堂)",ad:"Tsuha, Ōgimi, Kunigami, Okinawa, Japan",cz:["NOODLE","OKINAWA"],la:26.65355,ln:128.09150,w:"Yanbaru noodle shop founded in 1972, on the way to Hiji Falls and Mt Yonaha; its signature gyūniku soba piles pepper-fried beef and bean sprouts on thin noodles, and weekend queues are the norm. Closes when the broth runs out.",s:[["STRIPES","https://okinawa.stripes.com/food-drink/slurp-delicious-okinawan-noodles-at-maeda-shokudo-near-camp-schwab.html"],["OKINAWATRAVELER","https://www.okinawatraveler.net/feature/0105_sp"]]}
+{t:1,a:"HOKBU",n:"Maeda Shokudō, Ōgimi (前田食堂)",ad:"Tsuha, Ōgimi, Kunigami, Okinawa, Japan",cz:["NOODLE","OKINAWA"],la:26.65355,ln:128.09150,w:"Yanbaru noodle shop founded in 1972, on the way to Hiji Falls and Mt Yonaha; its signature gyūniku soba piles pepper-fried beef and bean sprouts on thin noodles, and weekend queues are the norm. Closes when the broth runs out.",s:[["STRIPES","https://okinawa.stripes.com/food-drink/slurp-delicious-okinawan-noodles-at-maeda-shokudo-near-camp-schwab.html"],["OKINAWATRAVELER","https://www.okinawatraveler.net/feature/0105_sp"]]},
+{t:1,a:"NAHA",n:"Tomari Iyumachi Fish Market (泊いゆまち)",ad:"1-1-18 Minatomachi, Naha, Okinawa",cz:["MKT","SUSHI","OKINAWA"],la:26.23012,ln:127.68014,w:"The Okinawa fisheries co-op's market by Tomari Port, where about 70 percent of the catch sold is tuna, delivered unfrozen the day it is landed. Stalls sell sashimi, seafood bowls, shellfish and mozuku to eat on the upstairs terrace.",g:["MKT"],s:[["VISITOKINAWA","https://visitokinawajapan.com/travel-inspiration/fresh-seafood-markets/"],["NAHACITY","https://www.city.naha.okinawa.jp/_res/projects/default_project/_page_/001/007/888/shiminnotomo202210_01-03.pdf"]]},
+{t:2,a:"CHUBU",n:"Mihama Shokudō, Chatan (みはま食堂)",ad:"1-2-10 Mihama, Chatan, Okinawa, Japan",cz:["OKINAWA","TEISHOKU"],la:26.31059,ln:127.76180,w:"Local shokudō by Chatan's Mihama known for hone-jiru — pork backbones and tofu simmered in a kombu broth and eaten by hand — and hone-soba heaped with bone-in sōki; both often sell out early.",s:[["TRAVELWATCH","https://travel.watch.impress.co.jp/docs/news/tabirepo/1287089.html"],["MACARONI","https://macaro-ni.jp/150322?page=2"]]},
+{t:2,a:"CHUBU",n:"Sanchōme no Shima Soba-ya, Ginowan (3丁目の島そば屋)",ad:"3-10-1 Kakazu, Ginowan, Okinawa, Japan (White Papillon Sato 101)",cz:["OKINAWA","NOODLE"],la:26.25765,ln:127.73620,w:"Newer Ginowan soba shop picked among the eight best soba shops of central Okinawa in Okinawa Times' 2023 poll of 900 noodle lovers; Okinawa TV's Okitive praised its noodles, soup and toppings, notably the uneven mix of three noodle cuts.",s:[["OKINAWATIMES","https://www.okinawatimes.co.jp/articles/-/1243603"],["OTV","https://www.otv.co.jp/okitive/article/29075/"]]},
+{t:1,a:"CHUBU",n:"Tacos-ya Chatan (タコス屋 北谷店)",ad:"1-5 Miyagi, Chatan, Okinawa, Japan (near the Sunabe Seawall)",cz:["INT"],la:26.32348,ln:127.75065,w:"Small taco shop on a backstreet near the Sunabe Seawall that has fed locals and visitors for about 35 years; it still fries its house-made shells to order for a chewy-crisp texture, and its Tacos-ya Plate piles tacos, taco rice, onion rings and fries on one plate.",s:[["STRIPES","https://okinawa.stripes.com/food-drink/taste-of-okinawa-tacos-ya-serves-up-delicious-mexican-food.html"],["WALKERPLUS","https://www.walkerplus.com/article/1337951/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -726,7 +752,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Naha", 26.2172, 127.6939], ["Chūbu — Central Okinawa", 26.3263, 127.7879], ["Nanbu — Southern Okinawa", 26.1497, 127.7391], ["Hokubu — Northern Okinawa", 26.6401, 127.9712], ["Kerama", 26.3112, 126.9535], ["Miyako Islands", 24.7987, 125.2726], ["Yaeyama Islands", 24.3897, 123.871]];
+const LABELS=[["Naha", 26.2175, 127.6941], ["Chūbu — Central Okinawa", 26.324, 127.7849], ["Nanbu — Southern Okinawa", 26.1479, 127.7327], ["Hokubu — Northern Okinawa", 26.6461, 127.9789], ["Kerama", 26.3194, 126.9305], ["Miyako Islands", 24.7998, 125.2654], ["Yaeyama Islands", 24.3897, 123.871]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1065,7 +1091,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 173 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 183 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

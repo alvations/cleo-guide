@@ -58,11 +58,7 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 | KRM | 4 | 10 | 14 | 30 | +16 |
 
 ## In-flight wave
-- **W5 (2026-10-03, fresh session, ~190-search budget)** — 8 background subagents, rules `_okinawa_w5_agentrules.md`:
-  W5G1 Naha pins (`_okinawa_geo_todo_W5G1.json`, 36), W5G2 Miyako+Yaeyama pins (`_W5G2`, 36), W5G3 Chūbu/Nanbu/Hokubu/
-  Kerama pins (`_W5G3`, 56); W5D1 Naha food-first discovery, W5D2 Chūbu food, W5D3 Nanbu+Hokubu, W5D4 Kerama/Miyako/
-  Yaeyama, W5A anime + creators. Each writes `FOOD/SIGHTS/SOURCES/CREATORS_OKINAWA_<TAG>.json`, `geo/_geoout_okinawa_<TAG>.json`,
-  `_okinawa_<TAG>_notes.md`. If relaunched: check which notes files exist; rerun only missing tags.
+- none (W5 closed 2026-10-03 at the session WebSearch cap).
 
 - 2026-10-02 **W4 done** (fresh session, ~186 searches, 9 background subagents): pin-first + discovery + anime.
   **258 discovered (128 sights + 130 food & drink = 50 % food), 130 pinned (was 89)** — pins per area NAHA 18 · CHUBU 24 ·
@@ -84,7 +80,35 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 | KRM | 5 | 10 | 15 | 30 | +15 |
 CHUBU food is only 41 % → next Chūbu discovery is food-only.
 
-## Next actions (W5 plan, ordered)
+- 2026-10-03 **W5 done** (fresh session, 200 searches, 8 bg agents): **302 discovered (143 sights + 159 food & drink = 53 %),
+  183 pinned (was 130)** — high 89 · med 45 · low 49. Pins/area NAHA 42 · CHUBU 38 · NANBU 26 · HOKBU 36 · KRM 8 · MYK 13 · YAEYA 20.
+  ANIME 9. Closures flagged 3 (Ayagu, Ichigin, Arakaki Shokudō). 4 gates PASS; validate + test ALL PASS. Not live (KRM < 10 pins).
+
+### Density after W5
+| area | food | sights | have | target | need |
+|---|---|---|---|---|---|
+| NAHA | 40 | 22 | 62 | 120 | +58 |
+| CHUBU | 22 | 27 | 49 | 95 | +46 |
+| HOKBU | 29 | 22 | 51 | 90 | +39 |
+| NANBU | 18 | 25 | 43 | 65 | +22 |
+| MYK | 18 | 13 | 31 | 50 | +19 |
+| YAEYA | 25 | 21 | 46 | 60 | +14 |
+| KRM | 7 | 13 | 20 | 30 | +10 |
+
+## Next actions (W6 plan, ordered)
+1. **Go-live is 2 Kerama pins away** (KRM 8/10; total 183 ≥ 150): pin Takatsukiyama, Ama Beach, Marine Box, Kumesen, Yan-kō, Uegusuku-area
+   KRM records via NAVITIME spot pages (`<日本語名> navitime 緯度 経度`, extended) → rebuild → flip CARD:okinawa live + root CARD:japan "5 of 5".
+2. **Restaurant pins:** the W5G1 pattern `<日本語名> <full JA street address> 緯度 経度` (extended, one per query) hit 20/23 → `low`.
+   Run it over the ~119 UNVERIFIED (`python3` over geocodes → `_okinawa_unpinned_W6.json`). Then a re-verify pass on the 49 `low` pins
+   (`!3d!4d`), incl. Tamatorizaki, Akagi trees, Charlie's Tacos (second Honten?).
+3. **Discovery** (≥55 % food): Chūbu food is still 45 % — food-only; Naha needs +58: pair W5 held leads first (`_okinawa_W5D*_notes.md`).
+   Japanese list searches mostly return aggregators — use Okinawa Times/Ryukyu Shimpo polls (soba, shokudō) and Rurubu↔Mapple pairs.
+4. **Creators:** 0 kept in W4+W5 (~15 searches). Try named JA YouTubers (e.g. Okinawa-based channels ≥100k) with a specific shop video.
+5. **Anime:** firm up Kira Kira Beach's anime source; Okitsura manholes (Kin/Ginoza), Poké Lids per site.
+6. After each ~50: `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py okinawa --build`
+   → 4 gates → `cd tools && npm run validate && npm test` → `python3 data/okinawa-research/_okinawa_card.py …` → commit+push.
+
+## Older plan (W5)
 W5 lessons (W4): restaurant GPS almost never surfaces in search → (a) **browser `tools/geocode-helper.html` run on the 132
 UNVERIFIED is the fastest way to ~250 pins / go-live**; (b) in search, `site:travel.navitime.com <日本語名> 緯度 経度` (med, one page per point) plus the only other productive patterns were extended-mode ONE name per
 query: `<日本語名> wikipedia 座標` (sights, high) and `<name> tripadvisor latitude longitude` (restaurants → `low`, must match the

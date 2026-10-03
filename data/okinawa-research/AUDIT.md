@@ -180,3 +180,26 @@ reached (harness: 200/200). Not live: 89 pins (rendered food only 13 — restaur
   geocheck PASS, statuscheck CONSISTENT, buildcheck PASS (VIEW override still frames the main island); validate DATA OK; npm test ALL
   PASS. ANIME 6. Searches ≈198 (G1 25, G2 27, G3 22, G4 17, G5 12, D1 30, D2 25, D3 25, A 15). Channel mix (new places): Rurubu/Mapple/
   Okinawa Traveler majority; Ryukyu Shimpo, Stripes, Lonely Planet, japan-guide, Michelin travel article, OCVB, JA-Wikipedia; creators 0.
+
+## W5 (2026-10-03, fresh session, ~200 searches, 8 background subagents; rules `_okinawa_w5_agentrules.md`)
+- **Geocoders (pins + status):** W5G1 Naha 21/36 searched → 21 `low` (hotpepper/navitime/Yahoo/gnavi listing coords, each matching
+  the sourced street address; pattern `<日本語名> <那覇市 address> 緯度 経度`, extended, 20/23 hits), 2 UNVERIFIED. W5G2 Miyako/Yaeyama
+  4 NAVITIME pins (Kondoi, Yukishio Museum, Sobadokoro Takenoko replaces W4's unattributed point; **Tamatorizaki downgraded med→low** by
+  orchestrator — provenance only via search summary), 9 UNVERIFIED. W5G3 Chūbu/Nanbu/Hokubu/Kerama 17 (5 high JA-Wikipedia, 2 med,
+  10 low), 11 UNVERIFIED; KOURI SHRIMP rejected (listing address 436-1 ≠ sourced 314 Kouri); Charlie's Tacos may have a second "Honten"
+  — re-verify.
+- **Discovery:** W5D1 Naha +8 (6 food: Pork Tamago Onigiri Honten, Fujiya Tomari zenzai, Tomari Iyumachi, Yatai-mura, Arakaki Kashiten,
+  Nuchigafū; sights Sugar Loaf Hill, Shuri Kinjō Akagi trees — **Akagi pin med→low**, coordinate seen only in a search summary). W5D2
+  Chūbu +4 food (Kamimura distillery, Mihama Shokudō, Sanchōme no Shima Soba-ya, Tacos-ya Chatan). W5D3 Hokubu/Nanbu +11 (6 food);
+  **Todoroki Falls pin demoted → UNVERIFIED** (unattributed search coordinate, W4 policy). W5D4 islands +18 (13 food: awamori — Hateruma
+  Awanami, Sakimoto, Yonejima, Tokuyama; soba/shokudō); **CLOSURE: Arakaki Shokudō, Ishigaki — closed after 35 yrs (Yaeyama Mainichi
+  y-mainichi 42149)** → kept, flagged "— CLOSED". W5A anime +3 (Kinjō Tetsuo/Ultraman archive, Nanjō Aquatope 88 plate, Nishihara Kira
+  Kira Beach/Harukana Receive — anime link via AnimeClick + ciatr, place via OKINAWA41 + Mapple; flagged for a stronger anime source).
+- Held leads per agent in `_okinawa_W5*_notes.md` (Señor Taco, Cafe Ocean, Hanaori/Gon/Suke Soba, Gokoku-ji, Parlor Tokuchan, Shirasa
+  Shokudō & Sawanoya (Stripes URL, need 2nd), Miyazato Soba, Kihachi, Ninufa, Ikema Shuzō, Okitsura manholes, Poké Lids…).
+- Creators: 11 searches across agents, **0 kept** (rejections in CREATORS_OKINAWA_W5*.json). Channel mix (new places): Ryukyu Shimpo,
+  Okinawa Times, Yaeyama/Miyako Mainichi, Rurubu, Mapple, Okinawa Traveler, Lonely Planet, Stripes, Walkerplus, prefecture/municipal
+  tourism sites, Anime Tourism 88.
+- **Build:** 302 discovered (143 sights + 159 food & drink = 53 %), **183 pinned** (high 89 · med 45 · low 49); sourcecheck PASS,
+  geocheck PASS, statuscheck CONSISTENT, buildcheck PASS; validate DATA OK; npm test ALL PASS. Pins/area NAHA 42 · CHUBU 38 · NANBU 26 ·
+  HOKBU 36 · KRM 8 · MYK 13 · YAEYA 20 → **not live** (go-live bar needs every area ≥10 pins; KRM 8). Session WebSearch cap 200/200 reached.
