@@ -13752,6 +13752,78 @@
           "rank": 2,
           "verified": true,
           "credible": "USA TODAY Network's annual Bars of the Year picks (editors + local critics)."
+        },
+        {
+          "key": "SMITHSONIAN",
+          "name": "Smithsonian Magazine Museum Day venues",
+          "type": "institutional",
+          "rank": 2,
+          "verified": true,
+          "credible": "Smithsonian Magazine's vetted Museum Day participating-venue pages (sights)."
+        },
+        {
+          "key": "VINTAGEAVIATION",
+          "name": "Vintage Aviation News",
+          "type": "specialist press",
+          "rank": 3,
+          "verified": true,
+          "credible": "Specialist aviation-heritage news site; museum features (sights)."
+        },
+        {
+          "key": "AP",
+          "name": "Associated Press",
+          "type": "wire service",
+          "rank": 1,
+          "verified": true,
+          "credible": "AP national wire story (syndicated via ABC17) on the Sojourner Truth plaza dedication."
+        },
+        {
+          "key": "CANJOURNAL",
+          "name": "CAN Journal (Collective Arts Network)",
+          "type": "regional arts press",
+          "rank": 3,
+          "verified": true,
+          "credible": "Northeast Ohio's arts quarterly; gallery and venue coverage (sights)."
+        },
+        {
+          "key": "PORTAGER",
+          "name": "The Portager",
+          "type": "local news",
+          "rank": 2,
+          "verified": true,
+          "credible": "Nonprofit Portage County newsroom (Kent/Ravenna); restaurant reviews and parks news."
+        },
+        {
+          "key": "PBS",
+          "name": "PBS (Western Reserve PBS)",
+          "type": "public media",
+          "rank": 2,
+          "verified": true,
+          "credible": "Public-television local history documentary."
+        },
+        {
+          "key": "COURTNEWSOHIO",
+          "name": "Court News Ohio (Supreme Court of Ohio)",
+          "type": "official",
+          "rank": 2,
+          "verified": true,
+          "credible": "Supreme Court of Ohio's news service 'Seats of Justice' courthouse series."
+        },
+        {
+          "key": "STRONGTOWNS",
+          "name": "Strong Towns",
+          "type": "national urbanism journal",
+          "rank": 3,
+          "verified": true,
+          "credible": "National nonprofit's journal; neighbourhood revival features."
+        },
+        {
+          "key": "ODNR",
+          "name": "ODNR",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
       "creators": []
@@ -17171,6 +17243,86 @@
           "rank": 3,
           "verified": true,
           "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "ASCII",
+          "name": "ASCII / Weekly ASCII (週刊アスキー) — Japanese tech & pop-culture news",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "GINOWANFINEDAYS",
+          "name": "Fine day's GINOWAN — Ginowan local tourism guide (finedays.ginowan.or.jp, ginowan.or.jp domain)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Local tourism/official-domain guide for Ginowan; counts as one local tourism source"
+        },
+        {
+          "key": "KITANAKAGUSUKUKANKO",
+          "name": "Kitapo (きたぽ) — Kitanakagusuku Village Commerce & Industry Association portal",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official local portal run by the Kitanakagusuku Village Commerce and Industry Association (confirmed via Ryukyu Shimpo PR entry 204567); counts like municipal tourism — corroborating, one source."
+        },
+        {
+          "key": "TAGOO",
+          "name": "TAGOO (Okinawa local lifestyle media)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "RYUKYURYORI",
+          "name": "Ryūkyū ryōri ga ajiwaeru mise certification (琉球料理が味わえる店 認証制度, ryukyuryouri.com)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "MODELPRESS",
+          "name": "Modelpress / 女子旅プレス (travel.mdpr.jp)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "NAHANAVICOM",
+          "name": "Naha Navi (nahanavi.com) — local Naha food & nightlife guide (NOT the Naha City Tourist Association naha-navi.or.jp)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "NLAB",
+          "name": "ITmedia Netorabo (ねとらぼ調査隊)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "ITmedia's national news site; its research desk runs published reader polls/rankings (a vote, measured merit)"
+        },
+        {
+          "key": "IEJIMAVILLAGE",
+          "name": "Ie Village official site (伊江村役場)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "ISHIGAKICITY",
+          "name": "Ishigaki City (石垣市) — official municipal site, cultural-properties list (教育委員会文化財課)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official municipal government; publishes the designated cultural-property register for Ishigaki"
         }
       ],
       "creators": []
@@ -17713,6 +17865,14 @@
           "rank": 1,
           "verified": true,
           "credible": "Major Chicago daily; bylined travel feature on Wisconsin's Frank Lloyd Wright Trail."
+        },
+        {
+          "key": "FOX11",
+          "name": "FOX 11 (WLUK, Green Bay)",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Wisconsin broadcast newsroom (Sinclair statewide feed); bylined story on the Stoughton heritage center."
         }
       ],
       "creators": [

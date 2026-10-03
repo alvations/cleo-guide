@@ -37,7 +37,8 @@ Total ~216.
 - Rendered (pinned) per area: AMISH 17 · CAR 7 · GBG 14 · HBG 21 · HER 16 · LAN 8 · YORK 15.
 
 ## In-flight wave
-- none. NEXT (ordered):
+- **W8 (2026-10-03, session_014zSqoUsvHc6U5mJKtpL7hf)**: discovery LAN +16, HBG +12, YORK +11, CAR +5, AMISH +3 (food ≥50%/area) → FOOD_W8.json / SIGHTS_W8.json; then pins (Wikipedia coords for sights, Apple/Waze/restaurantguru for food) → geo/_geoout_w8.json.
+- Prior NEXT (ordered):
   1. **Pins**: restaurantguru (`allowed_domains:["restaurantguru.com"]`, one place per query, `<Name> <street> <town>
      coordinates`) for the remaining food UNVERIFIED in geo/_geoout_w6pending.json (Bird-in-Hand Farmers Market, Root's,
      Green Dragon, Lapp Valley, Fox Meadows, Seltzer's, Spring House, Hollabaugh, Martin's, Utz, Snyder's) + the 14 W7
