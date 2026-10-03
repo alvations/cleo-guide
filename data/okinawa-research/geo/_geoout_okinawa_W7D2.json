@@ -18,5 +18,43 @@
   "geoSource": "Extended search — tabelog 47001778 listing 26.31935395,127.79376855; MapFan Plaza House SC 26.3193643,127.7937636; hotpepper 26.319871,127.793881 — all inside Plaza House (Kubota 3-1)",
   "status": "open",
   "statusSource": "KozaWeb eats/show/169 lists hours 11:30-20:30 (current)"
+ },
+ {
+  "n": "Suba-dokoro Wachichi, Okinawa City (すば処 うゎちち)",
+  "address": "1-16-27 Hiyagon, Okinawa City, Okinawa 904-2143, Japan",
+  "lat": 26.315423,
+  "lng": 127.823521,
+  "confidence": "low",
+  "geoSource": "Extended search '<名> 沖縄市比屋根1-16-27 緯度 経度' — listing coordinate 26.31542309,127.82352137 (aggregator listing data, tabelog 47005500 / churatown in results); consistent with Hiyagon 1-chōme",
+  "status": "open",
+  "statusSource": "KozaWeb eats/show/5 and churatown 1376 list current hours 10:00-15:00, closed Wed"
+ },
+ {
+  "n": "Daruma Soba, Okinawa City (だるまそば)",
+  "address": "2-13-20 Yamazato, Okinawa City, Okinawa 904-0033, Japan",
+  "lat": 26.322414,
+  "lng": 127.789343,
+  "confidence": "low",
+  "geoSource": "Rakuten Gurunavi jm35k4880000 map page listing coordinate 26.3224136,127.7893431; consistent with Yamazato 2-chōme",
+  "status": "open",
+  "statusSource": "KozaWeb eats/show/19 current hours 11:00-21:00 (Obon 2024 closure notice)"
+ },
+ {
+  "n": "Banjutei, Yomitan (番所亭)",
+  "address": "473 Kina, Yomitan-son, Nakagami-gun, Okinawa 904-0302, Japan",
+  "lat": 26.399915,
+  "lng": 127.757907,
+  "confidence": "low",
+  "geoSource": "Extended search '<名> 読谷村喜名473 緯度 経度' — listing coordinates 26.39991520,127.75790700 / 26.39991886,127.75791540 / 26.4000747,127.7576139 (tabelog 47001528 / gnavi / Tripadvisor d1670830) agree within 35 m; consistent with Kina",
+  "status": "open",
+  "statusSource": "Official banjyutei.com/about store info + co-trip 69889 (hours 11:00-21:00, closed Wed)"
+ },
+ {
+  "n": "Player's Cafe, Koza (プレイヤーズカフェ)",
+  "address": "2-6-47 Chūō (Park Avenue), Okinawa City, Okinawa 904-0004, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Extended search '<名> 沖縄市中央 住所 緯度 経度' returned address (KozaWeb eats/33, official players-cafe.com) but no coordinate; next: '<名> 沖縄市中央2-6-47 緯度 経度'",
+  "status": "open",
+  "statusSource": "Official players-cafe.com (lunch menu, hours Mon-Fri 11:30-14:30/17:00-22:00, Sat 15:00-22:00) + KozaWeb eats/33"
  }
 ]
