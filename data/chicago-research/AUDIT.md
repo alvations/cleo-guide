@@ -147,3 +147,20 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
   Gozamos/WBEZ) ≈6 · creators: Keith Lee (Soul Prime), Ramen Lord/Mike Satinover is the chef (Akahoshi) — creator channel remains thin.
 - Searches: 200/200 session cap reached (main ≈75; geocode agents ≈125). Lesson: geocode agents spent ~60% of the budget for ~35% pin
   yield — next session cap them at ~30 searches and spend the rest on discovery (discovery is what moves density).
+
+## 2026-10-03 (session 4 / wave 3) · W15–W17 batch 1 (food first: SOUTH, SW, FAR, WEST, SUB, DAY)
+- Searches so far ≈47. Sources: Infatuation/Time Out reviews + neighbourhood guides, Chicagoist, Saveur Pilsen guide, ABC7 Hungry Hound,
+  Steve Dolinsky (stevedolinsky.com — The Hungry Hound, ABC7 food reporter; key HUNGRYHOUND), Wednesday Journal, NBC5 Food Guy, Choose Chicago
+  South Side + Little Village guides, DNAinfo, South Side Weekly, Roadfood, CNN Travel, Chicago Mag, Texas Monthly, Restaurant Business Top-100,
+  Travel Wisconsin, Milwaukee Record, Shepherd Express, Wikipedia.
+- Added 21 (FOOD_W15 = 12, FOOD_W16 = 3, FOOD_W17 = 6): Phil's Pizza, Tony's Italian Beef, Top-Notch Beefburger, Edzo's, Don Pedro Carnitas,
+  Freddy's Pizza (Cicero), Kouklas (Niles; NYT best-restaurants list via Time Out + NBC5), Chef's Special Cocktail Bar (lone Michelin Bib),
+  Valois, Yassa, Honey 1 BBQ, Pearl's Place, Lexington Betty Smokehouse, Asian Cuisine Express, El Milagro, Pizzeria Uno, Harry Caray's,
+  Gibsons, Frank's Diner (Kenosha, Wikipedia pin), Leon's Frozen Custard, Solly's Grille.
+- Creators: Keith Lee 2023 tour (Matador/TravelNoire: Cleo's Southern Cuisine his only 10/10 — address/branch still to confirm); Portnoy One
+  Bite Chicago scores (radio-site roundup: Dino's 7.4, Barnaby's 7.8, Giordano's 8.4) — creator-only, held.
+- Geocode: Phil's latlong.net POI 'phil-s-pizza-571446' (41.7301,-87.7806) is a different Phil's at 79th/Harlem — REJECTED. Restaurant pins
+  remain mostly UNVERIFIED (address + status recorded in geo/_geoout_w15.json). Frank's Diner pinned from Wikipedia.
+- Held single-source: Frangella Italian Market (ABC7), Hecky's BBQ (Resy), Taco Diablo, Bennison's, Original Soul Vegetarian, Dino's,
+  Barnaby's, 3 Floyds (brewpub closed 2020, taproom reopening — status unclear), O&H Danish Bakery (address of the flagship unconfirmed).
+- Build: 316 researched / 210 rendered; sourcecheck/geocheck/statuscheck/buildcheck PASS; validate + test PASS.

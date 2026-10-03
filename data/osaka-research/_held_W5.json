@@ -1,0 +1,115 @@
+{
+ "note": "W5 (2026-10-03) single-source / unresolved leads — each needs ONE more credible source (different key).",
+ "held": [
+  {
+   "n": "Tachinomi Shomin (Kyōbashi)",
+   "a": "EAST",
+   "address": "3-2-11 Higashi-Nodachō, Miyakojima-ku",
+   "dish": "tataki, hanpamaki",
+   "have": [
+    "TIMEOUT (venue + standing-bars list = one key)"
+   ]
+  },
+  {
+   "n": "Minzokumura",
+   "a": "EAST",
+   "have": [
+    "INSIDEOSAKA"
+   ]
+  },
+  {
+   "n": "Yamada Shōten",
+   "a": "EAST",
+   "dish": "reimen",
+   "have": [
+    "INSIDEOSAKA"
+   ]
+  },
+  {
+   "n": "Manmasa (万正, Tsuruhashi yakiniku)",
+   "a": "EAST",
+   "dish": "momi-dare beef",
+   "have": [
+    "TABELOG100 https://award.tabelog.com/hyakumeiten/yakiniku_west/2025"
+   ],
+   "lead": "Walkerplus 217892 (鶴橋の焼肉店4選) unconfirmed"
+  },
+  {
+   "n": "Tsuruichi Honten (鶴一)",
+   "a": "EAST",
+   "have": [
+    "RURUBU https://www.rurubu.jp/andmore/spot/80027938"
+   ],
+   "why": "address conflict 3-3 vs 2-13 Shimoajiharachō"
+  },
+  {
+   "n": "Okamuro Saketen Chokubaijo (Kyōbashi)",
+   "a": "EAST",
+   "dish": "oden, yudōfu",
+   "have": [
+    "WALKERPLUS 141751"
+   ]
+  },
+  {
+   "n": "Tachinomi Kushikatsu Matsui (Kyōbashi)",
+   "a": "EAST",
+   "have": [
+    "LMAGA 2024/07/833135"
+   ]
+  },
+  {
+   "n": "Kyōbashi Sasala (gold-sesame tantanmen)",
+   "a": "EAST",
+   "have": [
+    "TIMEOUT JP"
+   ]
+  },
+  {
+   "n": "Utopia Shiratama Onsen / Sameshima Coffee Roastery ANGLER / Kyōbashi S6 Yokochō",
+   "a": "EAST",
+   "have": [
+    "TIMEOUT JP 京橋でしかできない8のこと"
+   ]
+  },
+  {
+   "n": "Rita (ice cream, Tsuruhashi)",
+   "a": "EAST",
+   "have": [
+    "TIMEOUT"
+   ]
+  },
+  {
+   "n": "Yamatoya (yomogi udon, Ishikiri)",
+   "a": "EAST",
+   "address": "1-7-56 Higashi-Ishikirichō, Higashi-Ōsaka",
+   "have": [
+    "OSAKAINFO discover.osaka-info.jp/en/articles/higashiosaka-ishikiri"
+   ],
+   "lead": "co-trip.jp/article/152925 unconfirmed"
+  },
+  {
+   "n": "Ishikiri Sandō Shopping Street",
+   "a": "EAST",
+   "have": [
+    "OSAKAINFO"
+   ]
+  },
+  {
+   "n": "Hachidori (Michelin, Miyakojima)",
+   "a": "EAST",
+   "have": [
+    "MICHELIN"
+   ],
+   "why": "no cuisine/dish surfaced"
+  }
+ ],
+ "dropped": [
+  "Kanmi Ichi Tsuruhashi (moved to Honmachi)",
+  "Akagakiya Kyōbashi (chain branch)",
+  "Mapple, Retty, 4travel, macaro-ni, aumo, Tabelog matome, Hot Pepper (aggregators)"
+ ],
+ "geo_held": [
+  "Mashino Ken: Michelin page lat/lng 34.673359,135.517416 is ~1.5 km SE of its own Awajimachi 1-chōme address → held UNVERIFIED pending 4b re-verify",
+  "Rejected as not the place's own coord: Sennichimae Doguyasuji (千日前 district), Tsuruhashi market (鶴橋 area), Danjō Garan (Kōyasan point / minute-rounded), KIX Sky View (airport coord)"
+ ]
+}
