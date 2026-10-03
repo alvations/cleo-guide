@@ -82,5 +82,15 @@
   "geoSource": "Two searches (wikipedia 座標 and navitime 緯度経度) returned the address 竹富207 but no printed coordinate",
   "status": "open",
   "statusSource": "Taketomi tourism taketomi-shimajikan.okinawa/spot/15072 + Bunka Isan Online 185123 (current pages; a public pier, no closure)"
+ },
+ {
+  "n": "Poké Lid — Tauros & Katsuren Castle, Ishikawa Sports Grounds, Uruma (ポケふた ケンタロス×勝連城跡 石川運動広場)",
+  "address": "Entrance of Ishikawa Sports Grounds (石川運動広場), 2316 Ishikawa, Uruma, Okinawa, Japan",
+  "lat": 26.436561,
+  "lng": 127.826456,
+  "confidence": "med",
+  "geoSource": "Host-venue point. WebSearch extended 2026-10-03 ('石川運動広場', Uruma portal uruma-portal.okinawa/archives/739 plus the NAVITIME sports-facility listing) printed 石川運動広場, うるま市石川2316, 26.436561,127.826456. ADDRESS CORRECTION: the record's 石川石崎1-2 is the Ishikawa Gymnasium (26.426552,127.829684, NAVITIME 00011-080690463), about 1.1 km south and a different facility. Ryukyu Shimpo 1342954 puts the lid at the 運動広場 entrance.",
+  "status": "open",
+  "statusSource": "Ryukyu Shimpo 1342954 (installation) + OCVB Poké Lid page (current trail)"
  }
 ]
