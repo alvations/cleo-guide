@@ -12398,6 +12398,278 @@
           "rank": 2,
           "verified": true,
           "credible": "Akron's city/lifestyle magazine with a dining section (e.g. 'Taste of Tradition' on Barberton chicken); palette outlet — per-place URLs captured in discovery."
+        },
+        {
+          "key": "SIGNALAKRON",
+          "name": "Signal Akron",
+          "type": "nonprofit newsroom",
+          "rank": 2,
+          "verified": true,
+          "credible": "Akron's nonprofit local newsroom (Signal Ohio); runs the reader-voted Best of the City awards (2024–26) with bylined winner features."
+        },
+        {
+          "key": "OHIOMAG",
+          "name": "Ohio Magazine",
+          "type": "state magazine",
+          "rank": 2,
+          "verified": true,
+          "credible": "Statewide travel/food magazine with bylined features (sponsored posts excluded)."
+        },
+        {
+          "key": "BEACONJOURNAL",
+          "name": "Akron Beacon Journal",
+          "type": "paper of record",
+          "rank": 1,
+          "verified": true,
+          "credible": "Akron's daily paper of record (Gannett); cited via AOL/Yahoo syndication because beaconjournal.com is not crawlable here."
+        },
+        {
+          "key": "CANTONREP",
+          "name": "The Canton Repository",
+          "type": "paper of record",
+          "rank": 1,
+          "verified": true,
+          "credible": "Canton/Stark daily paper of record (Gannett); its foodie-panel '11 Stark County restaurants' piece is the regional merit list, cited via AOL syndication."
+        },
+        {
+          "key": "WKYC",
+          "name": "WKYC Channel 3",
+          "type": "TV news",
+          "rank": 3,
+          "verified": true,
+          "credible": "Cleveland NBC affiliate; food & local news coverage of Summit County."
+        },
+        {
+          "key": "NEWS5",
+          "name": "News 5 Cleveland (WEWS)",
+          "type": "TV news",
+          "rank": 3,
+          "verified": true,
+          "credible": "Cleveland ABC affiliate."
+        },
+        {
+          "key": "IDEASTREAM",
+          "name": "Ideastream Public Media (WKSU)",
+          "type": "public media",
+          "rank": 2,
+          "verified": true,
+          "credible": "NPR/PBS public media for Northeast Ohio; arts & culture desk."
+        },
+        {
+          "key": "KENTWIRED",
+          "name": "KentWired / The Kent Stater",
+          "type": "student newspaper + reader vote",
+          "rank": 3,
+          "verified": true,
+          "credible": "Kent State's student newspaper; its annual reader-voted Best of Kent is the town's local vote."
+        },
+        {
+          "key": "CLEVELANDJEWISHNEWS",
+          "name": "Cleveland Jewish News",
+          "type": "regional newspaper",
+          "rank": 3,
+          "verified": true,
+          "credible": "Regional weekly; reported Reader's Digest's best-burger-in-Ohio pick."
+        },
+        {
+          "key": "PITTMAG",
+          "name": "Pittsburgh Magazine",
+          "type": "city magazine",
+          "rank": 3,
+          "verified": true,
+          "credible": "Pittsburgh's city magazine; travel feature on Gervasi."
+        },
+        {
+          "key": "VISITCANTON",
+          "name": "Visit Canton / Stark County CVB",
+          "type": "CVB",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Stark County visitors bureau — corroboration/listing only, never sole merit."
+        },
+        {
+          "key": "VISITAKRON",
+          "name": "Akron/Summit CVB",
+          "type": "CVB",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Akron/Summit visitors bureau — corroboration only."
+        },
+        {
+          "key": "OHIOERIECANALWAY",
+          "name": "Ohio & Erie Canalway (National Heritage Area)",
+          "type": "heritage area",
+          "rank": 2,
+          "verified": true,
+          "credible": "NPS-designated National Heritage Area's official listings."
+        },
+        {
+          "key": "HMDB",
+          "name": "Historical Marker Database",
+          "type": "reference",
+          "rank": 3,
+          "verified": true,
+          "credible": "Marker texts + GPS coordinates."
+        },
+        {
+          "key": "REMARKABLEOHIO",
+          "name": "Remarkable Ohio (Ohio History Connection markers)",
+          "type": "reference",
+          "rank": 2,
+          "verified": true,
+          "credible": "Official Ohio Historical Marker database."
+        },
+        {
+          "key": "LIVINGNEWDEAL",
+          "name": "The Living New Deal",
+          "type": "research archive",
+          "rank": 2,
+          "verified": true,
+          "credible": "UC Berkeley-founded archive of New Deal public works."
+        },
+        {
+          "key": "HERITAGEOHIO",
+          "name": "Heritage Ohio",
+          "type": "preservation nonprofit",
+          "rank": 2,
+          "verified": true,
+          "credible": "Statewide preservation org; annual awards."
+        },
+        {
+          "key": "CINEMATREASURES",
+          "name": "Cinema Treasures",
+          "type": "reference",
+          "rank": 3,
+          "verified": true,
+          "credible": "Historic-theatre database."
+        },
+        {
+          "key": "ROADSIDEAMERICA",
+          "name": "Roadside America",
+          "type": "oddities guide",
+          "rank": 2,
+          "verified": true,
+          "credible": "Long-running guide to offbeat attractions."
+        },
+        {
+          "key": "DOCOMOMO",
+          "name": "Docomomo US",
+          "type": "architecture register",
+          "rank": 2,
+          "verified": true,
+          "credible": "Modernist-architecture register."
+        },
+        {
+          "key": "SAHARCHIPEDIA",
+          "name": "SAH Archipedia",
+          "type": "architecture reference",
+          "rank": 2,
+          "verified": true,
+          "credible": "Society of Architectural Historians' encyclopedia."
+        },
+        {
+          "key": "SUMMITHISTORY",
+          "name": "Summit County Historical Society",
+          "type": "historical society",
+          "rank": 2,
+          "verified": true,
+          "credible": "County historical society."
+        },
+        {
+          "key": "TREKOHIO",
+          "name": "Trek Ohio",
+          "type": "outdoors guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "Detailed Ohio parks/trails guide."
+        },
+        {
+          "key": "ISLANDS",
+          "name": "Islands",
+          "type": "travel magazine",
+          "rank": 3,
+          "verified": true,
+          "credible": "Travel publication."
+        },
+        {
+          "key": "ECH",
+          "name": "Encyclopedia of Cleveland History (CWRU)",
+          "type": "reference",
+          "rank": 2,
+          "verified": true,
+          "credible": "Case Western's regional encyclopedia."
+        },
+        {
+          "key": "DEZEEN",
+          "name": "Dezeen",
+          "type": "architecture magazine",
+          "rank": 2,
+          "verified": true,
+          "credible": "International architecture magazine."
+        },
+        {
+          "key": "SPECTRUM",
+          "name": "Spectrum News 1 Ohio",
+          "type": "TV news",
+          "rank": 3,
+          "verified": true,
+          "credible": "Statewide cable news."
+        },
+        {
+          "key": "AASLH",
+          "name": "American Association for State and Local History",
+          "type": "professional body",
+          "rank": 2,
+          "verified": true,
+          "credible": "National history-museum association."
+        },
+        {
+          "key": "FARMANDDAIRY",
+          "name": "Farm and Dairy",
+          "type": "regional newspaper",
+          "rank": 3,
+          "verified": true,
+          "credible": "Regional weekly."
+        },
+        {
+          "key": "CLEVELANDLAWLIB",
+          "name": "Cleveland Law Library",
+          "type": "reference",
+          "rank": 3,
+          "verified": true,
+          "credible": "Library exhibit."
+        },
+        {
+          "key": "ATLASOBSCURA",
+          "name": "ATLASOBSCURA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "NPS",
+          "name": "NPS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "OFFICIAL",
+          "name": "OFFICIAL",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "SUMMITMETRO",
+          "name": "SUMMITMETRO",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
       "creators": []
