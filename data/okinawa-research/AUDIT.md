@@ -214,3 +214,39 @@ reached (harness: 200/200). Not live: 89 pins (rendered food only 13 — restaur
 - W6D4 (Nanbu + islands discovery, 26 searches, cap): 12 returned → **11 kept** (NANBU 4: Ōshiro Tempura, Ōjima Imaiyu Market, Jef Yonabaru, Konpaku-no-tō; MYK 2: Utopia Farm, Nakasone Tuyumya tomb (ICP); YAEYA 1: Hateruma Seitō; KRM 4 sights: Uezu House (ICP), Inazaki & Kaminohama observatories, Nishibama Beach). **Held by orchestrator:** Blue Turtle Farm Mango Café — its 2nd source (macaroni 148660 p4) was the agent's inference, not a confirmed mention → single-source, removed from FOOD_W6D4 + geo. All 11 UNVERIFIED pins (status recorded). Creators 2 searches, 0 kept. Held: Tōfu no Higa, Boku no Mise Ojisan, Kihachi, Marukami.
 - W6D1 (Chūbu food-first discovery, 30 searches): 12 returned → **11 kept** — food 7: Shinzato Distillery (awamori, 1846), Gordie's Sunabe, Pizza House Honten Urasoe (1958), Miyanchi STUDIO & COFFEE, Tsurukame-dō Zenzai, Hanaori Soba (last 3 = held leads paired), Ploughman's Lunch Bakery; sights 4 (ja-WP high pins): Sakima Art Museum, Futenma-gū, Southeast Botanical Gardens, Koza Music Town. Pins 7 (4 high, 3 low), 4 UNVERIFIED. **Held by orchestrator:** Zhyvago Coffee Works — 2nd source Ryukyu Shimpo gourmet/entry-751034 surfaces on a Zhyvago query (orchestrator re-search, 1 search) but its title/content never showed → not a confirmed mention; single-source (GLTJP) until confirmed. Dropped Kona's Coffee (45-store national chain). Creators 0 kept.
 - **W6 build** (`rebuild-city.py okinawa --build`): 343 discovered (162 sights + 181 food = 53 %), 246 pinned (high 98 · med 50 · low 98), every area ≥13 pins → go-live bar (≥150, every area ≥10) met → CARD:okinawa flipped live, root CARD:japan "5 of 5 maps live". Gates: sourcecheck PASS · geocheck PASS (98 pins block-level/low → re-verify pass next) · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS (centre 26.45,127.85 z9). `npm run validate` DATA OK; `npm test` ALL PASS. Source-channel mix W6: editorial/tourism (Rurubu, Mapple, OCVB, Ryukyu Shimpo, Stripes, GLTJP, visitokinawajapan, OTV) ~all kept places; national designations (ICP / National Historic Site) 4; creators 0 kept (~10 searches, all rejected — see CREATORS_OKINAWA_W6*.json).
+
+## 2026-10-03 — W7 (session_01ArZFSzKcMbcHeXLyDAXfRU; 8 bg agents, ~191 of ~200 searches; rules `_okinawa_w7_agentrules.md`)
+Per-agent logs `_okinawa_W7*_notes.md` hold every query, kept/dropped/held lead and its source; summary:
+- **Discovery (+35 → 378; 21 food & drink):** W7D1 Naha food & drink +8 (Oninoude, Kinjō Bakery, Sakaemachi Bottleneck, Jimanya,
+  Daitō Soba Kokusai-dōri, BAR Owl, Yappari Steak 1st Cocktail Plaza, Mutsumibashi Kadoya — CLOSED 2024-06-20 per Ryukyu Shimpo 3146539).
+  W7D2 Chūbu food & drink +7 (Señor Taco, Cafe Ocean, Suba-dokoro Wachichi, Daruma Soba, Banjutei, Player's Cafe, Parlor Minato;
+  OTV Okitive reader Top-30 ↔ KozaWeb pairing). W7D3 Naha sights +9 (Kume Shiseibyō, Heiwa-dōri, Bin-nu-utaki, Okinawa Gokoku Shrine,
+  Mie Gusuku, Yogi Park, Shuri Ryusen, Tenbusu Naha, Naha City Museum of History — CLOSED 2025-08-31). W7H held confirms +6
+  (Cafe Hakoniwa, Cafe Kokuu, Iejima Distillery, Tōfu no Higa, Marukami (Kurima, MYK), Zhyvago — 2nd sources RS 2455738 + OT 1513363;
+  RS 751034 NOT confirmed and not cited). W7A anime +5 (Poké Lids).
+- **Fact-check notes (orchestrator review):** Oninoude's BRUTUS cite is the magazine root URL (No.1005 "Top 100 bars — Naha",
+  surfaced W6D3) — still ≥2 without it (OKINAWACLIP + SYUGYOKU, both promo/feature sites = ordinary sources); flagged for a
+  stronger 2nd source. Kinjō Bakery's MAPPLE cite is a region list page. Kadoya's MACARONI mention is from a search summary.
+  Okinawa Gokoku Shrine is tier 3 with exactly 2 sources (kept).
+- **Closures:** Mutsumibashi Kadoya (2024), Naha City Museum of History (2025) flagged; Gajumaru Shokudō closed 2022-06 (held lead,
+  dropped — not notable enough to keep). Ashibiuna possibly closed after a 2019 fire (held, unverified).
+- **Held (still single-source / unresolved):** Naha — Naha Soba (Kinjō, reopened 2025-10), Shima Nakama, Kikuya, Yuunami, Angama,
+  Senbero Mattchan, The President, Tubarama, Imai Pan, Teshiraji. Chūbu — VONGO & ANCHOR, Cocoroar Cafe, Shirano, Ippe Coppe,
+  Pizza Stand NY, Mesilla Kitchen, Kintiti, Gon Soba; Koza steak houses remain a gap. Hokubu — Miyazato Soba, Shirasa, Tototo, Agai,
+  Yukuru. Islands — Boku no Mise Ojisan (no dish), Kihachi, Blue Turtle Farm (is in Miyako → MYK, not Nanbu; no real 2nd source).
+  Nago Poké Lid already has 2 sources (W7A notes) — next anime win.
+- **Geocode:** W7G1 Naha/Chūbu UNVERIFIED → +18 (3 med, 15 low); W7G2 other areas → +7 (1 med Stripes, 6 low); discovery agents pinned
+  their own (W7D3 9/9, 7 high). Araha Beach: NAVITIME prints 2-2-1 vs our 2-21 — reconcile. Utahime relocated 2026-03-11 to 東町17-11
+  (name/address to update; still UNVERIFIED). Pork Tamago / C&C Breakfast listings conflict → not pinned.
+- **Re-verify (4b), W7R:** 9 of 98 `low` upgraded — high 7 (Mekaru Tomb Site moved 690 m to the en/ja.wiki infobox point;
+  Ikema Island moved 1,222 m from an island-level point to the ja.wiki 池間大橋 point; Michi-no-Eki Kyoda, Itoman Osakana Center,
+  Ryukyu Mura, Seaside Drive-In, Nuchi Māsu), med 2 (Milmil Honpo moved 244 m — NAVITIME venue page resolves the 250 m listing
+  conflict; KITCHEN inaba 26 m). No wrong pins found. Tamatorizaki / Akagi trees: only the same aggregator point resurfaced → stay low.
+  Sukeroku: 2nd status source (rurubu, open). ~80 food low pins not reached.
+- **Creators:** ~11 searches across agents (incl. 3 for Haisai Tanteidan) — 0 kept, rejections in `CREATORS_OKINAWA_W7*.json`.
+- **Build + gates:** `rebuild-city.py okinawa --build` → sourcecheck PASS · geocheck PASS (123 low pins to re-verify) · statuscheck
+  CONSISTENT · buildcheck PASS; `npm run validate` DATA OK; `npm test` ALL PASS. Pins 246 → 295 (high 112 · med 60 · low 123;
+  UNVERIFIED 86). Food share 202/378 = 53 % (Naha 58 %, Chūbu 52 %, KRM 29 % ← lowest). **ANIME 16.**
+- Channel mix (kept): regional press (RS/OT/OTV) ~10 · Japanese travel media (Mapple/Rurubu/Tabirai/GLTJP/Okinawa CLIP) ~14 ·
+  official/municipal/OCVB ~8 · national (TV Tokyo, BRUTUS, Tabelog Hyakumeiten selection) 3 · English (Culture Trip, Fun Japan,
+  Stripes, Wikipedia) ~8 · creators 0.
