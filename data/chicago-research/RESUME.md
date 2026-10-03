@@ -55,14 +55,33 @@
   Bob Chinn's, Jimmy's Woodlawn Tap, Ramova Grill, Gayety's, Gale Street Inn, Temperance, Mader's, Cindy's, LH Rooftop, Sabri Nihari, Piece, Spinning J,
   Chief O'Neill's, Chi Cafe, Nine Bar.
 
+- 2026-10-03 (session 5 / wave 4, FINAL; +4 on resume → 502 researched, SUB now OK): **498 researched (293 food & drink = 59%), 318 rendered (206 sights + 112 food)**; 4 gates +
+  validate + test green; card + CITIES.md + AGENT-PROMPTS run-log refreshed. ~167 searches, no sub-agents.
+  Per area (food+sights / target): LOOP 54+56=110/110 OK · NORTH 49+36=85/85 OK · SOUTH 31+29=60/60 OK · DAY 20/20 OK · NW 56+23=79/80 ·
+  WEST 32+15=47/50 · FAR 16+13=29/30 · SUB 24+24=48/50 · SW 10+10=20/25.
+  **Food share watch:** LOOP 49% and SW 50% — next LOOP/SW adds must be food & drink.
+  New files: FOOD_W18.json (38), SIGHTS_W11.json (45), geo/_geoout_w18.json (pins + status rows; sorts last so it wins in geo-merge);
+  helpers _chi_pin.py (pin existing places, copies registry status), _chi_upd.py (address/status updates), _p.py (compact pin rows),
+  _chi_batch.py now takes the geo file as 3rd arg.
+  **Pin channel:** Apple Maps place links (`maps.apple.com` allowed_domains, 3 names + street per query) → ~90 new pins this wave.
+  Closures: Edzo's (Dec 2024), Parachute (Mar 2024) flagged — CLOSED; Milly's Uptown original closed → record moved to West Town shop.
+  Status unchecked: Hema's Kitchen (+ the session-4 list below that still lacks a check: Janson's, Piece, Spinning J, Peach's, FEW, Lindy's,
+  Chief O'Neill's, Sobelman's, The Plant). ~150 UNVERIFIED (docs/GEOCODE-BACKLOG.md).
+
 ## In-flight wave
-- **Session 5 / wave 4 (2026-10-03, started):** budget ~200 searches split ~50/50.
-  (a) PIN pass on the unpinned (latlong.net OSM POI / Wikipedia / Apple Maps place / Google !3d!4d, 3 names per query) →
-      `geo/_geoout_w18.json` (status/statusSource copied from the registry row; later file wins in geo-merge).
-  (b) NEED discovery → `FOOD_W18.json` + `SIGHTS_W11.json` (+ geo rows via `_chi_batch.py`, which writes `_geoout_w15.json`):
-      WEST +17, NW +14 (sights), SUB +13, NORTH +12, SOUTH +11, LOOP +10, SW +9, FAR +9 (sights where food-heavy, food where sight-heavy).
+(none — session 5 closed cleanly; remaining budget kept as slack.)
 
 ## Next actions (ordered)
+**Session-6 plan (next wave):**
+  (a) Close the last NEED (≈12): SW +5 (food — Taqueria San Julian / Sputnik Coffee / Somos Monos need a 2nd source; Back of the Yards,
+      Brighton Park, Archer Heights Polish), WEST +1 (Little Village Arch pin, Douglass Park, Nuevo Leon status),
+      NW +1, FAR +1 (Wabash YMCA is SOUTH; FAR: Pullman Market Hall pin,
+      Hotel Florence precise pin). LOOP/SW food share ≥ 50%: add LOOP food, not sights.
+  (b) Apple Maps pin pass on the ~150 UNVERIFIED (3 names + full street address per query; accept coordinate= links whose address matches):
+      start with the names the last pass returned place-id-only for (retry with full street address), then FOOD_W12/W13/W14 (never geo-rowed).
+  (c) Status: Hema's Kitchen + the session-4 unchecked list; re-verify Walker Bros Wilmette, Huck Finn (Apple calls it a restaurant), Cocoa Chili
+      (removed), Pat's Pizza address conflict (Lincoln Ave vs Diversey).
+  (d) Re-verify (4b) the med pins (district/park centroids are med by nature; upgrade Lincoln Park, Millennium Park to a named feature if desired).
 **Session-5 plan (next wave):**
   (a) PINS are now the main gap (187 unpinned, 228 rendered of 415): run `tools/geocode-helper.html` on the UNVERIFIED list, or a pin pass that tries
       Wikipedia/Wikidata first, then latlong.net POI / Apple Maps place links (accept only these + Google !3d!4d); grid-check every coordinate.

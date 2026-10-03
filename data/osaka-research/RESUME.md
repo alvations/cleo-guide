@@ -45,12 +45,12 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
 - none — W7 closed (session 7; 12 workers + main ≈ 525 searches).
 
 - 2026-10-03 **W7 (session 7)** — 3 rounds: A–D, G–I, K–M discovery (held-lead pairing one name per search) + E/F/J MapFan geocoders.
-  **499 discovered (183 sights + 316 food = 63% food), 365 rendered (158 + 207)**; **ANIME 34** (+4); 4 gates PASS; validate + npm test PASS.
+  **499 discovered (183 sights + 316 food = 63% food), 369 rendered (159 + 210)**; **ANIME 34** (+4); 4 gates PASS; validate + npm test PASS.
   **Every area OK:** KITA 103/80 · CHUO 57/45 · KNSAI 42/40 · MINAM 95/95 · TNJ 55/55 · EAST 35/35 · BAY 35/35 · SOUTH 40/40 · NORTH 37/35.
   New pin channel: **MapFan spot pages** (`_note_W7E.md`) — 33 med pins. Held: `_held_W7.json` + `_note_W7*.md`.
 
 ## Next actions (W8 plan — supersedes the older lists below)
-1. **Pins: 134 discovered-but-unrendered** (MINAM ~41, SOUTH ~16, BAY ~17, KNSAI ~13, TNJ ~10, EAST ~14, NORTH ~14). Continue MapFan
+1. **Pins: 130 discovered-but-unrendered** (MapFan exhausted after W7N — use `tools/geocode-helper.html` / a browser session; try Tsunechan + Jungle Nipponbashi first) (MINAM ~41, SOUTH ~16, BAY ~17, KNSAI ~13, TNJ ~10, EAST ~14, NORTH ~14). Continue MapFan
    one-name-per-query on the names `_note_W7F.md`/`_note_W7J.md` did not try; then `tools/geocode-helper.html` for the rest.
    Candidate pin to confirm: Sobakiri Tenshō (MapFan 19-1 Okahigashi-chō vs "Oka-machi 10-30"). Mashino Ken: Michelin pin wrong, address OK.
 2. **Food share in the outer areas (§2b):** BAY 43%, NORTH 49%, SOUTH 43%, KNSAI 29% → food-only additions there (Kobe/Himeji/Wakayama

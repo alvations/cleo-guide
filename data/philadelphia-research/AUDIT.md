@@ -352,3 +352,46 @@ corroborating Angelo's only) · Wikipedia (2 sights). Searches: ~122 main thread
   only the sibling Franklin Ice Cream Bar (112 Market) surfaced with a coordinate → not used.
 - **Build:** 182 → 231 on map (151 sights + 80 food). sourcecheck PASS 518 · geocheck PASS · statuscheck CONSISTENT (7 closed; 9 on-page
   unchecked) · buildcheck PASS · validate DATA OK · npm test ALL PASS. ~33 WebSearch calls so far.
+
+## 2026-10-03 (W6 · PINS) · batch 2 — Apple Maps pins, tier-2 across areas + 1 closure
+- **Pins (29, `geo/_geoout_w6b.json` · 28 high, 1 med):** CC — Sonny's Famous Steaks, K'Far, Bud & Marilyn's, Little Nonna's (**med** —
+  Apple's coordinate is identical to sibling Bud & Marilyn's at the same 1234 Locust St address, i.e. an address-level point), EMei,
+  Barbuzzo, Morimoto · FISH — Del Rossi's, Murph's Bar, Café La Maude, Standard Tap, Pizza Shackamaxon, Tulip Pasta & Wine Bar · SPH —
+  River Twice, Roxanne, Barcelona Wine Bar (East Passyunk), Café y Chocolate, Heavy Metal Sausage Co., Mighty Bread Co., Tesiny, Bob &
+  Barbara's · UCW — Renata's Kitchen, Booker's, Cleo Bagels · NE — Giannone's Steaks, Northeast Sandwich Co., Café Carmela · NPH — Sid
+  Booker's Shrimp Corner · NW — Uncle Bobbie's.
+- **CLOSED (flagged, kept):** Manakeesh Cafe Bakery & Grill (4420 Walnut St) — West Philly Local: permanently closed after 15 years, last
+  day 17 Feb 2026 (rent); cloud-kitchen only while it seeks a new site; Apple listing "permanently closed". It was never on the map.
+  Helper `_phi_close.py` (renames the research record "— CLOSED", writes `geo/_geoout_w6s.json`).
+- **Status leads (not changed — no press confirmation yet):** Buna Cafe (5121 Baltimore Ave) — Apple listing shows "permanently closed".
+- **Address mismatches (not pinned):** Goldie — Apple's coordinate listing is 1526 Sansom St (record 1911 Sansom); Holmesburg Bakery —
+  Apple says 7935 Frankford Ave (record 7933; no coordinate surfaced anyway); Bell's Market — 8336 vs 8330 Bustleton.
+- **Yield note:** suburban (MAIN/SJ/DAY) and Germantown/Chestnut Hill listings come back almost entirely as bare `place-id=` URLs
+  (≈1 coordinate per 6 names) vs ≈1 per 2 in Center City / South Philly / Fishtown.
+- **Build:** 231 → 260 on map (151 sights + 109 food). 4 gates PASS (statuscheck CONSISTENT, 8 closed flagged, 9 on-page unchecked);
+  validate DATA OK; npm test ALL PASS. ~70 WebSearch calls so far.
+
+## 2026-10-03 (W6 · PINS) · batch 3 — sights via Wikipedia coords, closure pass on every on-page place
+- **Sight pins (14, `geo/_geoout_w6c.json`, Wikipedia infobox coordinates via WebSearch `allowed_domains:["en.wikipedia.org"]`, one or
+  two per query):** Boathouse Row, The Met Philadelphia, National Shrine of St. John Neumann, Germantown White House (cross-checked: 30 m
+  from the Apple pin of Uncle Bobbie's across the street at 5445 Germantown Ave), Red Bank Battlefield Park, Grey Towers Castle, Barclay
+  Farmstead (Barclay Farm House article), Malcolm X Park, National Liberty Museum, Washington Avenue Pier (Washington Avenue Immigration
+  Station = Pier 53 article), Barnes Arboretum, Camden Children's Garden — all high; Old City Hall (**med** — point ~100 m south of the
+  Chestnut St frontage at 1″ precision) and Mummers Museum (**med** — Wikimedia Commons photo geotag at 2nd & Washington, not an infobox
+  coordinate). + 1 Apple food pin: CJ & D's Trenton Tomato Pie (inside Cartesian Brewing, 1326 E Passyunk Ave).
+- **Rejected sight coordinates:** Wyck (Wikipedia point 40.0217 is ~2 km south of 6026 Germantown Ave — Nile Cafe at 6008 pins at
+  40.0395 — so the infobox value is wrong/low-precision; left UNVERIFIED); Schuylkill Center (only the Upper Roxborough Historic District
+  centroid surfaced); Liberty Lands, Wiggins Park (search summary gave a coordinate without a citable infobox); Fillmore (only the former
+  TLA venue's coordinate); Bishop White House, Taller Puertorriqueño, Clay Studio (no coordinates surfaced).
+- **Closure check — every on-page place now has a sourced status (statuscheck: 0 unchecked, was 9):** Vedge (own site, Michelin 2025),
+  Talula's Table (Tock bookings live + 6abc), Steve's Prince of Steaks (Time Out listing/hours), Barclay Prime and Vernick Fish (Apple
+  listings active + OpenTable / Four Seasons press; no closure in a 2026 news search), Walnut Street Cafe (Apple listing active; no
+  closure in a 2026 University City closures search), Sly Fox (Pottstown tasting room operating), Hopewell Furnace (NPS hours Wed–Sun),
+  Max's Steaks (operating through the Jan 2026 sale — Inquirer).
+- **CLOSED (flagged, kept):** Todd House — interior closed to the public since at least July 2022 (Wikipedia "Dolley Todd House"; NPS
+  page lists no tours); pin kept, name carries "— CLOSED" (same treatment as Declaration House). The Olde Bar — restaurant closed 9 Nov
+  2024, events venue closed by 9 Aug 2025 (Inquirer 2024-11-11, 2025-06-17; PhillyVoice); never on the map.
+- **Apple retries:** re-phrasing bare-`place-id` tier-1 listings (Dim Sum Garden, Forsythia, Hardena, Pho 75) with cuisine/neighbourhood/ZIP
+  never surfaced a coordinate variant here — unlike Miami — so the remaining budget went to new names, sights and status.
+- **Build:** 260 → 275 on map (165 sights + 110 food). sourcecheck PASS 518 · geocheck PASS · statuscheck CONSISTENT (10 closed, 0
+  unchecked) · buildcheck PASS · validate DATA OK · npm test ALL PASS. ~120 WebSearch calls so far.

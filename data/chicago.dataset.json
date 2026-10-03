@@ -2813,6 +2813,84 @@
    ]
   },
   {
+   "t": 3,
+   "a": "FAR",
+   "n": "Pullman Market Hall",
+   "ad": "11159 S Champlain Ave, Chicago, IL 60628",
+   "w": "The 1890s market square at the centre of George Pullman's company town — once 16 market stalls and a meeting hall, ringed by colonnaded apartments still lived in today; now a public-art site in the national park.",
+   "k": "history architecture national park",
+   "g": [
+    "PARK",
+    "ARCH",
+    "MKT"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/places/pullman-market-hall.htm"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/neighborhoods/roseland/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NW",
+   "n": "Polish Triangle (Polonia Triangle)",
+   "ad": "Division St / Milwaukee Ave / Ashland Ave, Wicker Park–Noble Square, Chicago",
+   "w": "The plaza at the heart of old 'Polish Downtown', where nearly every major Polish-American organisation once had its headquarters — summer 'Tuesdays at the Triangle' events.",
+   "k": "plaza history polish",
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Polish_Downtown_(Chicago)"
+    ],
+    [
+     "BLOCKCLUB",
+     "https://blockclubchicago.org/2022/04/26/next-stop-polish-triangle-wicker-parks-division-street-blue-line-station-could-be-renamed-to-honor-areas-polish-past/"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/itineraries/polish-heritage-chicago-neighborhood-guide/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Little Village Arch",
+   "ad": "3100 W 26th St, Chicago, IL 60623",
+   "w": "Adrian Lozano's 1990 tiled gateway arch — 'Bienvenidos A Little Village' — over 26th Street, the Mexican capital of the Midwest; a Chicago Landmark since 2022, restored 2024.",
+   "k": "landmark gateway public art",
+   "g": [
+    "ARCH",
+    "MURAL"
+   ],
+   "s": [
+    [
+     "CITYCHI",
+     "https://www.chicago.gov/content/dam/city/depts/zlup/Historic_Preservation/Publications/Little_Village_Arch_Report.pdf"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/little-village-arch/"
+    ],
+    [
+     "BLOCKCLUB",
+     "https://blockclubchicago.org/2024/09/12/iconic-little-village-arch-unveiled-after-extensive-renovation/"
+    ],
+    [
+     "WTTW",
+     "https://news.wttw.com/2024/09/11/community-members-city-officials-gather-celebrate-restoration-little-village-arch"
+    ]
+   ]
+  },
+  {
    "t": 1,
    "a": "SUB",
    "n": "Chicago Botanic Garden",
@@ -7980,7 +8058,7 @@
    "t": 1,
    "a": "NW",
    "n": "Kasia's Deli",
-   "ad": "",
+   "ad": "2101 W Chicago Ave, Chicago, IL 60622",
    "w": "Ukrainian Village deli at Chicago Ave & Hoyne opened in 1982 by Polish immigrant Kazimiera 'Kasia' Bober, whose award-winning pierogi reached United flights and presidents.",
    "cz": [
     "EEU",
@@ -8005,7 +8083,7 @@
    "t": 1,
    "a": "NORTH",
    "n": "Lost Larson",
-   "ad": "",
+   "ad": "5318 N Clark St, Chicago, IL 60640",
    "w": "Andersonville bakery-café honouring the neighbourhood's Swedish roots (chef Bobby Schaffer mills his own flour).",
    "cz": [
     "DES",
@@ -8222,7 +8300,7 @@
    "t": 2,
    "a": "NW",
    "n": "Taxim",
-   "ad": "",
+   "ad": "1558 N Milwaukee Ave, Chicago, IL 60622",
    "w": "Wicker Park's modern Greek — no Greektown kitsch, refined regional cooking.",
    "cz": [
     "ME"
@@ -8262,7 +8340,7 @@
    "t": 1,
    "a": "NORTH",
    "n": "Cho Sun Ok",
-   "ad": "",
+   "ad": "4200 N Lincoln Ave, Chicago, IL 60618",
    "w": "Korean institution since 1988 on the old Lincoln Ave Koreatown strip.",
    "cz": [
     "KR"
@@ -8299,11 +8377,12 @@
    ]
   },
   {
-   "t": 1,
+   "t": 3,
    "a": "NW",
-   "n": "Parachute",
-   "ad": "",
-   "w": "Beverly Kim and Johnny Clark's highly personal Korean-American restaurant in Avondale — one of the most creative rooms in town.",
+   "n": "Parachute — CLOSED",
+   "ad": "3500 N Elston Ave, Chicago, IL 60618",
+   "w": "Beverly Kim and Johnny Clark's highly personal Korean-American restaurant in Avondale — one of the most creative rooms in town — CLOSED 23 Mar 2024 after 10 years (Michelin star 2014–21, James Beard 2019); the space is now the chefs' casual Parachute HiFi music bar.",
+   "closed": true,
    "cz": [
     "KR"
    ],
@@ -8315,6 +8394,10 @@
     [
      "INFATUATION",
      "https://theinfatuation.com/chicago/guides/the-best-korean-restaurants-in-chicago"
+    ],
+    [
+     "BLOCKCLUB",
+     "https://blockclubchicago.org/2024/03/04/parachute-closing-beloved-korean-american-restaurant-after-a-decade-in-avondale/"
     ]
    ]
   },
@@ -8322,7 +8405,7 @@
    "t": 1,
    "a": "LOOP",
    "n": "Au Cheval",
-   "ad": "",
+   "ad": "800 W Randolph St, Chicago, IL 60607",
    "w": "West Loop diner whose cheeseburger Thrillist ranked among America's best — the most hyped burger in Chicago.",
    "cz": [
     "DOG",
@@ -11506,6 +11589,115 @@
      "https://www.timeout.com/chicago/restaurants/the-best-restaurants-in-bridgeport"
     ]
    ]
+  },
+  {
+   "t": 3,
+   "a": "FAR",
+   "n": "Mabe's Deli",
+   "ad": "312 E 75th St, Chicago, IL 60619",
+   "w": "Chatham's healthy-leaning neighbourhood deli on the 75th Street 'Restaurant Row', named for owner Derrick Rowe's grandmother.",
+   "cz": [
+    "US",
+    "DELI"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/dining/restaurants-on-chicagos-south-side/"
+    ],
+    [
+     "BLOCKCLUB",
+     "https://blockclubchicago.org/2018/07/06/new-chatham-restaurant-mabes-deli-aims-to-be-a-healthy-neighborhood-staple/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SW",
+   "n": "La Cecina",
+   "ad": "W 47th St, Back of the Yards, Chicago, IL 60609",
+   "w": "Back of the Yards Guerrero kitchen built on cecina — thin-pounded, marinated, grilled beef with guacamole and housemade tortillas.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/la-cecina"
+    ],
+    [
+     "CHIREADER",
+     "https://chicagoreader.com/food/the-regional-taqueria/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUB",
+   "n": "Burl",
+   "ad": "2545 Prairie Ave, Evanston, IL 60201",
+   "w": "Galit alum Tom Carlin and Rachel Canfora-Carlin's farm-focused wood-fired restaurant — on Chicago magazine's April 2026 hottest-restaurants list.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/dining-drinking/burl-brings-an-upscale-experience-to-evanston/"
+    ],
+    [
+     "EVANSTONROUNDTABLE",
+     "https://evanstonroundtable.com/2026/03/29/this-burl-is-on-fire-a-first-look-at-burl-restaurant-in-northwest-evanston/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SUB",
+   "n": "Joy Yee Noodles (Evanston)",
+   "ad": "533 Davis St, Evanston, IL 60201",
+   "w": "The Joy Yee mini-empire's 1993 original — a sunny downtown corner of pan-Asian noodles and Evanston's favourite bubble tea.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/the-best-restaurants-in-evanston"
+    ],
+    [
+     "EVANSTONROUNDTABLE",
+     "https://evanstonroundtable.com/2024/05/19/celebrating-evanstons-asian-owned-restaurants-for-aapi-heritage-month/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Cerdito Muerto",
+   "ad": "1700 S Halsted St, Chicago, IL 60608",
+   "w": "Candlelit Pilsen tavern in the Fire-surviving house its owner grew up in — 100 bottles of mezcal and tequila, sharp Mexican cocktails and small plates.",
+   "cz": [
+    "MEX",
+    "BAR"
+   ],
+   "g": [
+    "SPEAK"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/pilsen-restaurants"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/november-2025/three-new-spots-for-a-mexican-bar-crawl/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/bars/best-bars-in-pilsen"
+    ]
+   ]
   }
  ],
  "S": {
@@ -11852,6 +12044,12 @@
    "t": "Chicago Magazine (Best New Restaurants, 50 Best Things to Eat, Best Pizza)",
    "u": "https://www.chicagomag.com/",
    "l": "Chicago Magazine (Best New Restaurants, 50 Best Things to Eat, Best Pizza)"
+  },
+  "CHIREADER": {
+   "k": "CHICAGO READER",
+   "t": "Chicago Reader",
+   "u": "https://chicagoreader.com/",
+   "l": "Chicago Reader"
   },
   "CHOOSECHI": {
    "k": "CHOOSE CHICAGO",

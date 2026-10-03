@@ -380,7 +380,7 @@
  {
   "t": 2,
   "a": "UCW",
-  "n": "Manakeesh Cafe Bakery & Grill",
+  "n": "Manakeesh Cafe Bakery & Grill — CLOSED",
   "address": "4420 Walnut St, Philadelphia, PA 19104",
   "w": "High-ceilinged Lebanese bakery-café named for its flatbread (Visit Philly West Philly/halal guides; Philly Mag halal guide).",
   "sources": [
@@ -398,7 +398,7 @@
    "Bakery"
   ],
   "dish": "manakeesh with za'atar, cheese or egg",
-  "closed": false
+  "closed": true
  },
  {
   "t": 1,
@@ -4496,7 +4496,7 @@
  {
   "t": 3,
   "a": "CC",
-  "n": "The Olde Bar",
+  "n": "The Olde Bar — CLOSED",
   "address": "125 Walnut St, Philadelphia, PA 19106",
   "w": "Jose Garces' cocktail and raw bar in Old City (Philly Mag Center City guide; Visit Philly romantic date ideas).",
   "sources": [
@@ -4514,6 +4514,6 @@
    "Cocktail Bar"
   ],
   "dish": "raw bar and classic cocktails in the old Bookbinder's",
-  "closed": false
+  "closed": true
  }
 ]
