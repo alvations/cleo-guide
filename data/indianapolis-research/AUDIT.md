@@ -179,3 +179,13 @@ Wikipedia pins: Hannah House, University of Indianapolis, Herron–Morton Place 
 `npm run validate && npm test` green. Density: BRIP 20/20, DTN 44/38, EAST 16/16, FSQ 19/20, MASS 24/24, MID 22/22, NORTH 30/30,
 SOUTH 20/20, WEST 20/20. Food share 141/215 = 66%; per area BRIP 85% · DTN 50% · EAST 75% · FSQ 84% · MASS 58% · MID 55% ·
 NORTH 70% · SOUTH 70% · WEST 65%.
+
+## 2026-10-03 — W4 finishing pass (FSQ +1, pins)
+- Discovery (5 searches): Fountain Square / Fletcher Place bars. **Dugout Bar** (621 Virginia Ave, 1954; fried bologna) — WRTV + Indianapolis Monthly
+  neighbourhood bars + Indy Today dive bars → KEEP, Waze place pin (high). **Sam's Silver Circle** (1102 Fletcher Ave, 1938) — WISH (USA TODAY Bars of the
+  Year 2024) + Indianapolis Monthly + Indy Today → KEEP, UNVERIFIED pin. Not added: Tappers Arcade Bar (aggregator only), Bocca already listed.
+- Pins: one sub-agent, 41 searches, Waze/usarestaurants.info/foursquare allowed_domains → 16 pins (6 high + Holy Rosary/Landmarks Center high, 9 med);
+  address deltas noted in each row (Broad Ripple Brewpub 840 vs 842 E 65th; Coxhall Gardens 2000 W 116th St entrance; Oaken Barrel "50 Airport Pkwy").
+  Rejected wrong-business / address-point records: Corridor, Tiburon, Macizo, Convivio, Bocca, Tavern on South, Taylor's Bakery.
+- Build: 217 sourced / 156 on page (70 sights + 86 food); sourcecheck PASS · geocheck PASS (3 ungraded block-level pins noted) · statuscheck CONSISTENT ·
+  buildcheck PASS; npm run validate DATA OK; npm test ALL PASS.

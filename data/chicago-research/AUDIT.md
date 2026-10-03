@@ -332,3 +332,13 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
   FAR: **Cork & Kerry** (Beverly Irish pub since 1988) — Time Out + Chicago Magazine.
 - New outlet key CITYCAST (SOURCES_W19.json, rationale recorded). All 8 → FOOD_W19.json (food & drink; LOOP/SW food share unchanged ≥50%).
 - density.py: **every area OK — 510 researched** (SW 25/25, NW 80/80, WEST 50/50, FAR 30/30).
+
+## 2026-10-03 (session 6 / W19) · pin pass + build
+- Two pin sub-agents (LOOP/NORTH/NW and SOUTH/SW/WEST/FAR/SUB/DAY), 45 searches each. Accepted only coordinates appearing verbatim for the named place at
+  the matching street number; grid-sanity checked. A: 19 (7 Apple high, 7 Waze high, 5 usarestaurants med). B: 30 (17 high, 13 med).
+- Rejected: Purple Pig (Waze address point #1200), Margie's Apple pin (Montrose store, not 1960 N Western), Milly's (search summary put it at 3409 N Broadway),
+  Kasia's (approximate), Daley's (Foursquare 809 E 63rd St ≠ record) — address checks queued.
+- Med notes: Pearl's Place = Waze's Amber Inn record at the same 3901 S Michigan building; La Internacional = "La Internacional Supermercado" record.
+- Status: Birrieria Zaragoza TEMPORARILY closed (Michelin listing + Apple) → kept open with flag (precedent: Osaka/Youngstown temporary closures).
+- Build: 510 researched / 367 rendered (206 sights + 161 food); sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT (3 without closure check) ·
+  buildcheck PASS; npm run validate DATA OK; npm test ALL PASS.
