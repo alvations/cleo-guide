@@ -525,3 +525,15 @@ New source keys: MAHONINGMATTERS, BARBERTONLIBRARY (SOURCES_W3A.json).
   North Water Brewing (KentWired + Portager openings only), Alessi's Ristorante Ravenna (Portager opening only), Circle L / Galaxy Wadsworth
   (Akron Life listing only). Garrett's Mill: reopened under new ownership (Weekly Villager) — record stays open.
 - Gates: sourcecheck PASS (185) · geocheck PASS (137) · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. ≈112 WebSearch.
+
+## 2026-10-03 W6 · batch 3 — CANT/MASS/NSUM (FOOD_W6D, SIGHTS_W6B, geo/_geoout_w6c)
+- **Added:** CANT sights Canton Classic Car Museum (Akron Life '6 things to do in Canton' + Visit Canton; Waze place pin high), Jackson Bog State
+  Nature Preserve (Wikipedia + ODNR + Visit Canton; Wikipedia coords high; Jackson Twp → CANT) · NSUM food 3 Palms Pizzeria & Bakery Hudson
+  (Akron Life + ABJ 2025) · MASS food Sisters Century House Canal Fulton (Akron Life Crossroads + Visit Canton; usarestaurants pin med).
+- **Resolved:** Ohio Military Museum — moved into the MAPS Air Museum in 2016 (316 Lincoln Way E is now an antiques shop) → folded into the
+  MAPS card, dropped from held. Munroe Falls Metro Park — swimming ended 2022 (Summit Metro Parks) → not added (padding).
+- **Held / dead ends:** Dog Daze (Ohio Magazine only), Good Fortune Canton (only 2023-24 opening news), Francisco's Cantina (Repository only),
+  Lions Lincoln Theatre Massillon (Visit Canton only), Beech Creek Gardens Alliance (Visit Canton only), V-Li's Thai Canal Fulton (Akron Life;
+  shares 129 N Canal St with Sully's — status unknown), Lager & Vine Hudson (ABJ business story + Scene directory), Downtown 140 Hudson (status),
+  Taste Asia Stow (ABJ openings slideshow only), Country Cones Canton (Visit Canton only), Kozmo's / Top of the Viaduct Massillon (listings).
+- Gates: sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. ≈146 WebSearch.
