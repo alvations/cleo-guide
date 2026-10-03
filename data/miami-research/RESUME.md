@@ -24,9 +24,17 @@ South Dade belt (SDADE) → the two national parks + the Tamiami Trail (GLADE). 
 municipality/neighbourhood (address).
 
 ## In-flight wave
-- none (session 4 wave F6/S7 finished: every area at/over target; closing work = restaurant pins via Wikipedia articles).
+- none (session 5 wave 4 PINS finished 2026-10-03: 136 → 261 pinned; next = keep pinning the ~240 UNVERIFIED, see Next actions).
 
 ## State
+- 2026-10-03 session 5 (wave 4 PINS) — **509 discovered (66% food & drink) → 261 pinned (124 sights + 137 food)**, 213 high · 46 med · 2 low.
+  Pins per area (pinned/discovered): CGCG 37/61 · DTB 32/55 · FTL 31/75 · GLADE 19/41 · LHAV 30/55 · MBCH 36/66 · NMIA 19/41 · SDADE 22/55 · WYN 35/60.
+  **New channel:** WebSearch `allowed_domains:["maps.apple.com"]`, 3 "Name + street/neighbourhood" items per query → Apple place URLs with
+  `coordinate=<lat>,<lng>` (or `ll=` on `q=&auid=` listings) = Apple's own place pin; ~1.7 pins/search early, ~0.7 on the long tail. Bare
+  `place-id=` results carry no coordinate — a *re-phrased* retry (add cuisine/descriptor, e.g. "Yambo Nicaraguan restaurant SW 1st St") often
+  surfaces the coordinate variant (Yambo, Tropical Chinese, Frankie's, Broken Shaker, Katherine came through on retry). Helper:
+  `_miami_pin.py` (name ∈ dataset, not already pinned, bbox) → `geo/_geoout_x1–x4.json`. Closures this session: `_geoout_x1s/_x2s.json`.
+  4 gates + validate + test green. ≈150 WebSearch calls.
 - 2026-10-03 session 4 (wave F6/S7) — **509 discovered (335 food & drink = 66%) → 136 pinned (119 sights + 17 food)**; every area at or
   over its density target: CGCG 61/55 · DTB 55/55 · FTL 75/75 · GLADE 41/40 · LHAV 55/55 · MBCH 66/65 · NMIA 41/40 · SDADE 55/55 ·
   WYN 60/60. Pins per area: CGCG 21 · DTB 20 · FTL 19 · GLADE 19 · LHAV 7 · MBCH 17 · NMIA 10 · SDADE 13 · WYN 10.
@@ -53,24 +61,27 @@ municipality/neighbourhood (address).
   leads), _miami_searchlog.md (every call), helpers _miami_add.py / _miami_srcrationale.py / _miami_golive.py.
 - 2026-10-02 session 1: scaffolded (consolidate.py, build-miami.py, brief, SOURCES_SEED.json).
 
-## Next actions (next wave plan — session 5)
-1. **Restaurant pins (the gap: 17 of 335 food pinned).** Run `tools/geocode-helper.html` in a browser for google `!3d!4d` place pins →
-   `geo/_geoout_helper.json` → rebuild. WebSearch never surfaces restaurant place pins (re-probed this session: 0); only restaurants with
-   a Wikipedia article can be pinned that way (done: Versailles, Mai-Kai, Cap's Place, Rustic Inn, L'Atelier Robuchon + earlier ones).
-   Every geo row must carry status + statusSource (a row without them blanks the stored statusSource on merge — see AUDIT session 4).
-2. **Sight pins still UNVERIFIED** (Wikipedia gave none / centroid only): LHCC, Superblue, Moore Building, Locust Projects, El Espacio 23,
-   MiMo district, Overtown Folklife Village, Ichimura garden, Young At Art (moved to Broward Mall), Anne Kolb, Opa-locka museum/flea
-   market/Heritage Trail, Aventura Arts Center, Art Deco Welcome Center, Faena Theater, North Shore Open Space Park, Cubaocho,
-   Homestead downtown, Long Pine Key, Pinelands, Paurotis Pond, Eco Pond (candidate coords in AUDIT — re-verify on nps.gov), Domino Park
-   (Wikipedia value = neighbourhood centroid, rejected), plus the session-3 list (Las Olas, FTL Beach, Rubell, Margulies, ICA, Loop Road…).
-3. **Balance:** food share ≥50% overall and in every area EXCEPT GLADE (7 food / 41 — park area; Everglades City/Tamiami Trail food is
-   thin and mostly in) and the inverse risk in LHAV/WYN (sights 10 / 15). Next waves: LHAV & WYN sights; GLADE food only if a 2nd outlet
-   appears (Farmers' Market Restaurant, La Brisa held).
-4. **Promote held leads** (_PENDING_LEADS.md + AUDIT session 4 "Held" lines): Haitian North Dade (Family Bakery, Lakay, Bon Bagay, Horace —
-   Infatuation only), Sim Sim, Sichuan Fish, Red Sea Eritrean, Nove Pasta House, Seminole Theatre, Miami Tower, Lummus Park HD, St. John's
-   Baptist, El Titan de Bronze, Morningside HD.
-5. **Closure re-checks:** Tower Theater (MDC takeover 1 Nov 2026, reopening 10 Dec — re-check after), Miami-Dade County Courthouse
-   (public access?), Medium Cool (closing Aug 2026 — confirm relocation), Hot Dog Heaven (for sale).
+## Next actions (next wave plan — session 6)
+1. **Keep pinning (≈240 UNVERIFIED, ~210 restaurants).** Same Apple Maps method; first retry the tier-1 bare-place-id ones with re-phrased
+   queries: Zak the Baker, El Turco, Chez Le Bebe, Fireman Derek's, La Carreta (3632 SW 8th St), El Brazo Fuerte, Ricky Bakery, Cvi.che 105,
+   Mama Tried, The Corner, Soya e Pomodoro, Mangrove, Catch & Cut, Heritage, Funky Buddha (Oakland Park, open per Nov 2025 listing),
+   Anthony's Runway 84, Tropical Acres (open — 2012 rebuild), Lester's, Georgia Pig, The Floridian, Casa Sensei, Coconuts, S3, Evelyn's,
+   Chef's Counter at MAASS, Jack's Old Fashioned, Billy's Stone Crab, Coopertown, Joanie's, City Seafood, Camellia Street Grill, Triad,
+   Shiver's, Apocalypse BBQ (8705 SW 124th Ave per Apple), Fox's Lounge, Redland Market Village, Surf Club Restaurant, Lido, Cafe Prima Pasta,
+   Katana, Orilla, La Sandwicherie, Papi Steak, Josh's Deli (9517 Harding Ave), Panya Thai, Steve's Pizza (12101 Biscayne Blvd), Perl,
+   Captain Jim's, Farofa, Basilic, Chéen-Huaye, Jarana, Chayhana Oasis, Etzel Itzik, Zaika, Ghee… Sights: Apple gives place-ids only →
+   Wikipedia/NPS or the browser `tools/geocode-helper.html`.
+2. **Address mismatches to re-verify before pinning:** Cotoa (pin withdrawn — Apple/NT/Michelin put it at The B100M, 100 Biscayne Blvd downtown, Michelin 'temporarily closed'; area may move NMIA→DTB), Midorie (Apple: 851 NE 79th St, Upper East Side vs our "Coconut Grove"), Rosetta Bakery
+   (Apple: 1666 Collins Ave vs our 929 Collins), Piman Bouk restaurant (5921 NE 2nd Ave; Apple only pinned the bakery at 46 NE 62nd St),
+   Versailles Bakery (3501 SW 8th St), Drinking Pig BBQ (our "Downtown" vs Apple 3444 Main Hwy Coconut Grove / 845 NE 151st St), Knaus Berry
+   Farm (new farm 16790 SW 177th Ave — pin it), Laspada's (med; Commercial Blvd vs Seagrape Dr corner).
+3. **Status re-checks (Apple closure marker / no listing; press not found yet):** Kush (Wynwood), Taquiza (1351 Collins), Lutong Pinoy (17048 W
+   Dixie Hwy), Sapore di Mare (3111 Grand Ave), Havana Café of the Everglades ("temporarily closed"), Two Chefs, Golden Rule Seafood, Chefs on
+   the Run, Papi Steak (Sep 2025 makeover — confirm reopened); plus session-4 items: Tower Theater (MDC reopening 10 Dec 2026), Medium Cool,
+   Hot Dog Heaven.
+4. **Balance:** discovery is done (every area at target); food share per area ≥50% except GLADE. Lowest pinned ratios: FTL 31/75, SDADE 22/55,
+   NMIA 19/41 — prioritise those in the next pin wave.
+5. **Promote held leads** (_PENDING_LEADS.md + AUDIT "Held" lines) only after the pin backlog shrinks.
 
 ## Acceptance
 - [x] every area ≥ target (2026-10-03) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked

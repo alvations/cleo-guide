@@ -43,7 +43,37 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
   34 sights), 53 on the page; 19 UNVERIFIED (restaurants). Density: CAP 18/38 · UW 10/30 · EAST 16/32 · WEST 7/30 ·
   MVF 4/25 · DANE 7/25 · TRIP 10/30.
 
-## Next (ordered) — W3
+- **2026-10-03 W4 (fresh session)** — +62 (72 → 134 researched: 87 food = 65% / 47 sights), 65 pinned.
+  Files: FOOD_W4a–e.json, SIGHTS_W4a–b.json, SOURCES_W4.json, geo/_geoout_w4a.json (UNVERIFIED + status),
+  geo/_geoout_w4b.json (pins). Kavanaugh's Esquire Club added CLOSED (Jan 2026). Session ended at the WebSearch
+  session limit (~125 searches). Density: CAP 30/38 · EAST 28/32 · TRIP 22/30 · DANE 17/25 · WEST 16/30 · UW 14/30 ·
+  MVF 9/25.
+
+- **2026-10-03 W5 (same session, after the limit reset)** — +19 (134 → 153 researched: 96 food = 63% / 57 sights),
+  74 pinned. Files: FOOD_W5a–b.json, SIGHTS_W5a–b.json, SOURCES_W5.json, geo/_geoout_w5.json (pins),
+  geo/_geoout_w5u.json (UNVERIFIED + status). Density: CAP 33/38 · EAST 31/32 · TRIP 25/30 · DANE 18/25 · WEST 17/30 ·
+  UW 18/30 · MVF 11/25. W5 items done from the list below: UW Bascom/Ingersoll/Lakeshore; TRIP Wright trail + Al. Ringling
+  + Tower Hill; MVF Stone Porch + Imperial Garden; Lake Wingra.
+
+## Next (ordered) — W6 (W5 list below still applies where not done)
+1. **Pins:** ~69 UNVERIFIED (all of geo/_geoout_w2_unverified.json + geo/_geoout_w4a.json) → `tools/geocode-helper.html`.
+   WebSearch does NOT surface restaurant coordinates any more (0/10 in W4). For anything with a Wikipedia/Wikidata
+   article use `allowed_domains: [en.wikipedia.org, wikidata.org]` + "<name> coordinates" (5/6 hit in W4).
+2. **MVF (+16):** sights — Pope Farm Conservancy, Military Ridge State Trail, Badger Prairie Park, Middleton Hills;
+   food — Stone Porch Alehouse, Wisconsin Brewing Co. (needs 2nd outlet), Imperial Garden, Swagat, Ken's Meats.
+3. **UW (+16):** Bascom Hill/Lincoln, Carillon Tower, Lakeshore Nature Preserve, Ingersoll Physics Museum (Atlas
+   Obscura + Wikipedia), Union South, Kohl Center, Muir Knoll (Wikipedia pins); food — Teddywedgers (State Trunk
+   Tour + 1), Michelangelo's, State St late-night.
+4. **WEST (+14):** Lake Wingra/Vilas Park, Hoyt Park, Owen Conservation, Elver Park; food — Everly, Brasserie V,
+   Gates & Brovi, Toot & Kate's, Sa Bai Thong, La Taguara, Delta Beer Lab (area?).
+5. **TRIP (+8) / DANE (+8) / CAP (+8) / EAST (+4):** Dells of the Wisconsin River, Wyoming Valley School, Tower Hill
+   SP, Al. Ringling Theatre, Mid-Continent Railway (precise pin), Arthur's Supper Club, Commerce Street Brewery
+   (ex-Brewery Creek); Skål Public House, J. Henry & Sons, Paoli Schoolhouse, Matz Farmstead ruins, Livsreise;
+   Eno Vino, Osteria Novella, Bar Corallini, Heritage Tavern, Robin Room, Coopers Tavern; Banzo, State Line
+   Distillery, Mickey's Tavern, Karben4.
+6. Held-lead list with what each still needs: AUDIT.md W4 batches 1–4 "Held" lines.
+
+## Next (W3 plan — superseded)
 1. **Pins first:** run `tools/geocode-helper.html` (or a fresh session) on the 15 UNVERIFIED restaurants in
    `geo/_geoout_w2_unverified.json` (Toby's, Fairchild, Fromagination, Ahan, Lao Laan-Xang, State Street Brats…).
    WebSearch rarely surfaces restaurant place pins; latlong.net POIs hit ~50% with "<name>" <street> GPS coordinates latitude.
@@ -65,9 +95,4 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
    `flock … python3 tools/rebuild-city.py madison-wi --build` → 4 gates → relink CARD:madison-wi, CITIES.md row.
 
 ## In-flight wave
-- **W4 (2026-10-03, fresh session)** — (1) pin the 19 held restaurants in geo/_geoout_w2_unverified.json →
-  geo/_geoout_w4pins.json; (2) food-first expansion every area (supper clubs, fish fry, curds, brewpubs) →
-  FOOD_W4a.json…, sights → SIGHTS_W4a.json…, pins → geo/_geoout_w4*.json; build + gates per batch.
-- ~~W2 plan~~ — finish _PENDING_LEADS food → FOOD_W2.json; canon queries
-  (Infatuation, farmers' market, Babcock, cheese shops, brats, Hmong, custard, New Glarus) → FOOD_W2*.json;
-  sights per area → SIGHTS_W2.json; geocodes → geo/_geoout_w2*.json; build + gates; relink CARD:madison-wi.
+- (none — W4 closed 2026-10-03; resume from 'Next (ordered) — W5')

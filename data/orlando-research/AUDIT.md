@@ -228,3 +228,38 @@
   Florida listing page (guide.michelin.com …/orlando/restaurant/shin-jung) → open; MICHELIN source added. **The Tennessee Truffle** — only
   undated listings (AAA, Tasty Chomps 2019) surfaced; kept, re-check next wave. **Willie's Pinchos** — DDD/Food Network + FOX 35 lists,
   no 2025–26 closure report; kept, re-check next wave.
+
+## 2026-10-03 · Session 5 · Wave 4 — discovery (3 background workers + lead) + build
+- **Searches (session total ≈ 187):** lead ≈ 29 (9 corroboration, 3 pin probe, 3 status, 14 discovery/pins) · W4A 50 · W4B 54 · W4C 54.
+- **Added 81 places (390 → 471):** W4A 17 (IDR 10 — Seito Sushi, Christini's, Vines Grille, Taverna Opa, Moon Wok, The Whiskey; SeaWorld
+  Infinity Falls / Penguin Trek / Journey to Atlantis (Wikipedia pins), Pointe Orlando (med); KISS 7 — Food Trucks Heaven, Charley's,
+  Big John's Rockin' BBQ, Celebration Town Tavern, Canvas, Margaritaville Resort (med), Kissimmee Lakefront Park) · W4B 22 (DTO 7 — The Pinery
+  (Michelin Bib), Mathers Social Gathering, City Food Hall, Nikki's Place, Tinker Field, Beacham Theatre, St. James Cathedral; MILLS 7 — Kai Kai,
+  Gyukatsu Rose (Michelin Rec.), Foreigner, Will's Pub, The Plaza Live, Orlando Shakespeare Theater, 1926 Orlando station; WPK 8 — Bar Kada
+  (Michelin Rec.), Reel Fish, The Chapman, Kappy's Subs, Casa Feliz, Waterhouse Residence, WP Farmers' Market, WP History Museum) · W4C 38
+  (park food first: EPCOT 5, IOA 4+3, USF 3+3, CWALK 3, DHS 2, DAK 1, DSP 1, EPIC 1; SPACE 4, SPRNG 1+3, WEST 2+2, EAST 1) · lead 5 (Wildlife
+  Express Train, Smugglers Run, Central Florida Railroad Museum, Q's Crackin' Crab, Rollins Museum of Art).
+- **Channel mix (W4):** local editorial (Orlando Weekly Best of/lists, Sentinel, Orlando Magazine, Tasty Chomps, Bungalower, Scott Joseph,
+  Orange Observer, Space Coast Living) ≈ 45%; park fan press (AllEars, TouringPlans, DFB, WDWMagic, WDWInfo, Orlando Informer, TPI) ≈ 25%;
+  institutional/reference (Michelin, Wikipedia, HMDB, Florida Heritage) ≈ 20%; tourism (Visit Orlando, Experience Kissimmee, Visit Space
+  Coast) ≈ 10%. Creator queries (3, one per worker) returned only SEO/spam — no YouTube/TikTok creator vetted this wave.
+- **New outlets:** HMDB, NPR, CHOWHOUND, DISNEYTOURISTBLOG (W4A), HISTORYCENTER, CULTURETRIP, FLHERITAGE, UCFRICHES, VISITSPACECOAST, DIRONA,
+  FRLA, FLORIDAHIKES (credible rationale in SOURCES_W4*.json).
+- **Lead review:** HELD Nona Blue (2nd source a Yelp-derived 2019 guide = 0); DROP Pizza Predattoria (ratings-only merit); refurb status
+  rewritten as TEMPORARY (Jurassic Park River Adventure to 2026-11-20; Finnegan's late 2026). Weak, kept with caveat: Canvas (open per
+  current Visit Orlando listing only), Nikki's Place (open per Feb-2026 roundup), La Cava del Tequila / The Smiling Bison (undated) → re-check.
+- **MEASURED & DROPPED / HELD:** full lists in `_W4_log_W4{A,B,C,L}.md` — notably Pulse (demolished Mar 2025, memorial due 2027; coords
+  logged), Rip Ride Rockit + Fast & Furious Supercharged (closed), Rafiki's Planet Watch (closed 2026-02-23), Pom Pom's (founder split),
+  Zootopia show (panned), Duff Brewery/Mel's (ratings only), Bavarian Haus (mixed); held single-source: Tropico Mofongo, Susana's,
+  Sol de Borinquen, Vault 5421, Parea, The Osprey, Fishlips, Rusty's, Neighbors Taqueria, Mister O1, Orlando City Hall; Walala (Michelin
+  Rec., 5062 W Colonial — no matching area) → lead decision next wave.
+- **Geocode:** +18 pins (Wikipedia own-article coords; 2 med site pins); Smugglers Run wiki coord = Disneyland twin (rejected); Rogers
+  Building coord ~700 m off address (rejected); Lake Ivanhoe / Eatonville / Windermere = district/town centroids (rejected).
+- **Build:** rebuild-city --build OK — **471 researched (208 sights + 263 food = 55.8% food)**, page **186 sights + 35 food = 221** (was 192);
+  sourcecheck **PASS** · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · npm validate DATA OK · npm test ALL PASS. Card + CITIES row refreshed.
+- **Density:** OK 9/18 (CWALK, DHS, DSP, EAST, EPCOT, EPIC, MK, USF, WEST); NEED DTO +13, IDR +11, KISS +8, MILLS +5, WPK +5, SPRNG +3, SPACE +2,
+  DAK +1, IOA +1. 250 places UNVERIFIED (restaurant pins) → geocode-helper.
+- **Pin technique test (lead, 8 searches)** — the Liège-W4 method (`allowed_domains` restaurantguru/foursquare/wanderlog/viamichelin,
+  `<name> <street address> coordinates`, one place per search) works for Orlando: **5/8 pinned (med, address-matched)** — Pig Floyd's,
+  The Ravenous Pig, Dixie Crossroads, Smokemade, Columbia (Celebration) → `geo/_geoout_w4pin.json`. Rejected: Se7en Bites (snippet unsure
+  N vs S Primrose, 4-decimal point). No decimals: ÔMO by Jônt, Mills Market. → W5 should spend its budget on this pin pass first.

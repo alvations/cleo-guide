@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Madison &amp; Dane County (Wisconsin) field guide — 44 sights and 21 places to eat across the Capitol Square isthmus, UW–Madison, the east and west sides, Middleton, Verona, the Dane County towns and the day trips to Taliesin, New Glarus and Devil&rsquo;s Lake, each traceable to its source (Wisconsin State Journal, Cap Times, Isthmus, Madison Magazine, WPR, Travel Wisconsin, James Beard), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Madison &amp; Dane County (Wisconsin) field guide — 53 sights and 21 places to eat across the Capitol Square isthmus, UW–Madison, the east and west sides, Middleton, Verona, the Dane County towns and the day trips to Taliesin, New Glarus and Devil&rsquo;s Lake, each traceable to its source (Wisconsin State Journal, Cap Times, Isthmus, Madison Magazine, WPR, Travel Wisconsin, James Beard), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
 <title>Madison &amp; Dane County Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Madison, Wisconsin &amp; Dane County, sourced</p>
   <h1>Madison<span class="thin">the isthmus, the lakes &amp; Dane County &mdash; curds, fish fry &amp; Frank Lloyd Wright</span></h1>
-  <p class="standfirst">44 sights and 21 places to eat across <strong>Madison</strong> &mdash; the Capitol Square isthmus, the UW campus, the east and west sides &mdash; plus Middleton, Verona, the <strong>Dane County</strong> towns and the classic day trips (Taliesin, New Glarus, Devil&rsquo;s Lake), each traceable to the source that named it. The canon is Wisconsin&rsquo;s own: squeaky <strong>cheese curds</strong>, the <strong>Friday fish fry</strong>, <strong>supper clubs</strong> and the brandy old fashioned, the <strong>Dane County Farmers&rsquo; Market</strong>, Babcock Hall ice cream, Hmong &amp; Lao kitchens and New Glarus beer. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">53 sights and 21 places to eat across <strong>Madison</strong> &mdash; the Capitol Square isthmus, the UW campus, the east and west sides &mdash; plus Middleton, Verona, the <strong>Dane County</strong> towns and the classic day trips (Taliesin, New Glarus, Devil&rsquo;s Lake), each traceable to the source that named it. The canon is Wisconsin&rsquo;s own: squeaky <strong>cheese curds</strong>, the <strong>Friday fish fry</strong>, <strong>supper clubs</strong> and the brandy old fashioned, the <strong>Dane County Farmers&rsquo; Market</strong>, Babcock Hall ice cream, Hmong &amp; Lao kitchens and New Glarus beer. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -315,6 +315,7 @@ const S = {
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/things-to-do/madison-wisconsin",l:"Atlas Obscura"},
   "BADGERHERALD":{k:"BADGERHERALD",t:"The Badger Herald",u:"https://badgerherald.com/",l:"The Badger Herald"},
   "BRAVA":{k:"BRAVA",t:"Brava Magazine",u:"https://bravamagazine.com/",l:"Brava Magazine"},
+  "CHICAGOSUNTIMES":{k:"CHICAGOSUNTIMES",t:"Chicago Sun-Times",u:"https://chicago.suntimes.com",l:"Chicago Sun-Times"},
   "CITYMADISON":{k:"CITYMADISON",t:"City of Madison Parks",u:"https://www.cityofmadison.com/parks/",l:"City of Madison Parks"},
   "CLIO":{k:"CLIO",t:"The Clio",u:"https://theclio.com/",l:"The Clio"},
   "DAILYCARDINAL":{k:"DAILYCARDINAL",t:"The Daily Cardinal (UW–Madison)",u:"https://www.dailycardinal.com/",l:"The Daily Cardinal (UW–Madison)"},
@@ -402,7 +403,16 @@ const P = [
 {t:3,a:"EAST",n:"Elmside Park Mounds",ad:"Elmside Park, Madison, WI",la:43.09028,ln:-89.34000,w:"Two animal effigies — a lynx and a bear — plus a linear mound on the Lake Monona side of the east isthmus (NRHP). Free.",g:["LAKES","HIST","FREE"],s:[["ONMILWAUKEE","https://onmilwaukee.com/articles/beyond1003"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Elmside_Park_Mounds"]]},
 {t:2,a:"WEST",n:"Vilas Circle Bear Effigy Mound",ad:"Bear Mound Park, Vilas Circle, Madison, WI",la:43.06306,ln:-89.41139,w:"An intact bear effigy (only a leg section lost) in tiny Bear Mound Park by Vilas Park, NRHP-listed with the nearby Curtis Mounds; Vilas Park itself holds a seven-mound group. Free.",g:["LAKES","HIST","FREE"],s:[["ONMILWAUKEE","https://onmilwaukee.com/articles/beyond1003"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Vilas_Circle_Bear_Effigy_Mound_and_the_Curtis_Mounds"]]},
 {t:2,a:"UW",n:"Observatory Hill Mound Group",ad:"Observatory Hill, UW–Madison campus, Madison, WI",la:43.07611,ln:-89.41000,w:"A bird effigy and a rare two-tailed water-spirit mound just west of Washburn Observatory, overlooking Lake Mendota (NRHP). Free.",g:["CAMPUS","LAKES","OUTDOOR","HIST"],s:[["ONMILWAUKEE","https://onmilwaukee.com/articles/beyond1003"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Observatory_Hill_Mound_Group"]]},
-{t:2,a:"UW",n:"UW–Madison Geology Museum",ad:"Weeks Hall, UW–Madison campus, Madison, WI",la:43.07066,ln:-89.40641,w:"Free campus museum in Weeks Hall: Wisconsin's deep past in rocks, fossils, meteorites, a fluorescent-mineral room, dinosaurs and a mastodon skeleton.",g:["CAMPUS","MUS","OUTDOOR","FREE"],s:[["VISITMADISON","https://www.visitmadison.com/things-to-do/free-things-to-do/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/UW%E2%80%93Madison_Geology_Museum"]]}
+{t:2,a:"UW",n:"UW–Madison Geology Museum",ad:"Weeks Hall, UW–Madison campus, Madison, WI",la:43.07066,ln:-89.40641,w:"Free campus museum in Weeks Hall: Wisconsin's deep past in rocks, fossils, meteorites, a fluorescent-mineral room, dinosaurs and a mastodon skeleton.",g:["CAMPUS","MUS","OUTDOOR","FREE"],s:[["VISITMADISON","https://www.visitmadison.com/things-to-do/free-things-to-do/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/UW%E2%80%93Madison_Geology_Museum"]]},
+{t:1,a:"UW",n:"Bascom Hill & the Lincoln statue",ad:"Bascom Hill, UW–Madison campus, Madison, WI 53706",la:43.07534,ln:-89.40408,w:"The steep historic quad at the heart of campus, crowned by Bascom Hall and Adolph Weinman's seated Abraham Lincoln — the most-photographed spot for graduating seniors, who climb into his lap. Free.",g:["ICON","CAMPUS","HIST","FREE"],s:[["VISITMADISON","https://www.visitmadison.com/plan/itinerary-ideas/university-highlights/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Bascom_Hill"]]},
+{t:2,a:"UW",n:"L. R. Ingersoll Physics Museum",ad:"Chamberlin Hall, UW–Madison campus, Madison, WI",la:43.07380,ln:-89.40550,w:"A 1918 hands-on physics museum — one of the first of its kind — with 65+ interactive exhibits built by faculty and students; free on weekdays.",g:["MUS","ODD","FREE"],s:[["ATLASOBSCURA","https://www.atlasobscura.com/places/l-r-ingersoll-physics-museum"],["WIKIPEDIA","https://en.wikipedia.org/wiki/L._R._Ingersoll_Physics_Museum"]]},
+{t:2,a:"UW",n:"Lakeshore Nature Preserve & Lakeshore Path",ad:"South shore of Lake Mendota, UW–Madison campus, Madison, WI",la:43.07556,ln:-89.42500,w:"300 acres along four miles of Lake Mendota's south shore; the Lakeshore Path runs from the Memorial Union through woods and prairie out to Picnic Point. Free.",g:["ICON","CAMPUS","LAKES","FREE"],s:[["VISITMADISON","https://www.visitmadison.com/plan/itinerary-ideas/university-highlights/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/University_of_Wisconsin%E2%80%93Madison_Lakeshore_Nature_Preserve"]]},
+{t:2,a:"TRIP",n:"Wyoming Valley School",ad:"6306 WI Hwy 23, Wyoming (Iowa County), WI",la:43.11861,ln:-90.11361,w:"Wright's 1956 two-room schoolhouse built in honor of his kindergarten-teacher mother, now a cultural arts center a few miles from Taliesin; a stop on Wisconsin's 200-mile Frank Lloyd Wright Trail.",g:["ICON","FLW","OUTDOOR"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Wyoming_Valley_School"],["CHICAGOSUNTIMES","https://chicago.suntimes.com/lifestyles/200-mile-frank-lloyd-wright-trail-showcases-architects-diverse-works/"]]},
+{t:2,a:"TRIP",n:"A. D. German Warehouse",ad:"316 S Church St, Richland Center, WI",la:43.33333,ln:-90.38444,w:"Wright's 1921 Mayan Revival brick-and-concrete warehouse in his birthplace town — the western-most stop on the Frank Lloyd Wright Trail.",g:["FLW","OUTDOOR"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/A._D._German_Warehouse"],["CHICAGOSUNTIMES","https://chicago.suntimes.com/lifestyles/200-mile-frank-lloyd-wright-trail-showcases-architects-diverse-works/"]]},
+{t:2,a:"TRIP",n:"Seth Peterson Cottage",ad:"E9982 Fern Dell Rd (Mirror Lake State Park), Reedsburg, WI",la:43.56306,ln:-89.82500,w:"One of Wright's last designs, a tiny stone-and-glass cottage over Mirror Lake — the first Wright house anywhere you can rent overnight; open-house tours monthly.",g:["FLW","LAKES"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Seth_Peterson_Cottage"],["FLWFOUNDATION","https://franklloydwright.org/?p=321"],["WIDNR","https://dnr.wisconsin.gov/topic/parks/mirrorlake/cottage"]]},
+{t:1,a:"TRIP",n:"Al. Ringling Theatre",ad:"136 4th Ave, Baraboo, WI",la:43.47111,ln:-89.74361,w:"'America's Prettiest Playhouse' — a 1915 Rapp & Rapp movie palace commissioned by circus co-founder Al Ringling; shows, classic films, Barton organ demos and daily 1:30pm tours.",g:["ARTS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Al._Ringling_Theatre"],["TRAVELWI","https://www.travelwisconsin.com/things-to-do/culture-arts/architecture/al-ringling-theatre"],["WHS","https://www.wisconsinhistory.org/Records/Article/CS17135"]]},
+{t:2,a:"TRIP",n:"Tower Hill State Park",ad:"SE of Spring Green, Iowa County, WI",la:43.14806,ln:-90.04361,w:"Small state park on the Wisconsin River bluff with the reconstructed Helena Shot Tower (1832) and its 120-foot shaft through the sandstone; NRHP.",g:["LAKES","OUTDOOR"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Tower_Hill_State_Park"],["WIDNR","https://dnr.wisconsin.gov/topic/parks/towerhill/history"],["WHS","https://www.wisconsinhistory.org/Records/NationalRegister/NR1789"]]},
+{t:2,a:"WEST",n:"Lake Wingra & Vilas Park beach",ad:"Vilas Park, north shore of Lake Wingra, Madison, WI",la:43.05361,ln:-89.41972,w:"Madison's small, quiet fifth lake between the Arboretum and Vilas Park: a sandy beach, fishing piers, paddling, and winter skating on the lagoon; next to the free Henry Vilas Zoo.",g:["ICON","LAKES","FAM","FREE"],s:[["VISITMADISON","https://www.visitmadison.com/blog/stories/post/madison-for-everyone/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Lake_Wingra"]]}
 ];
 
 const FS = {
@@ -411,6 +421,7 @@ const FS = {
   "CAPTIMES":{k:"CAP TIMES",t:"The Cap Times",u:"https://captimes.com/",l:"The Cap Times"},
   "CITYCAST":{k:"CITY CAST MADISON",t:"City Cast Madison",u:"https://madison.citycast.fm/",l:"City Cast Madison"},
   "COOKSCOUNTRY":{k:"COOKSCOUNTRY",t:"Cook's Country (America's Test Kitchen)",u:"https://www.americastestkitchen.com/cookscountry",l:"Cook's Country (America's Test Kitchen)"},
+  "CULTUREMAG":{k:"CULTUREMAG",t:"culture: the word on cheese",u:"https://culturecheesemag.com",l:"culture: the word on cheese"},
   "DAILYCARDINAL":{k:"DAILYCARDINAL",t:"The Daily Cardinal (UW–Madison)",u:"https://www.dailycardinal.com/",l:"The Daily Cardinal (UW–Madison)"},
   "ESPN":{k:"ESPN",t:"ESPN",u:"https://www.espn.com/",l:"ESPN"},
   "EXPERIENCEWI":{k:"EXPERIENCEWI",t:"Experience Wisconsin magazine",u:"https://experiencewisconsinmag.com/",l:"Experience Wisconsin magazine"},
@@ -423,13 +434,20 @@ const FS = {
   "JBF_EDITORIAL":{k:"JBF EDITORIAL",t:"James Beard Foundation — editorial ('Ask a Chef')",u:"https://www.jamesbeard.org/blog",l:"James Beard Foundation — editorial ('Ask a Chef')"},
   "MADISON365":{k:"MADISON365",t:"Madison365",u:"https://madison365.com/",l:"Madison365"},
   "MADMAG":{k:"MADISON MAGAZINE",t:"Madison Magazine / Channel 3000",u:"https://www.channel3000.com/madison-magazine/",l:"Madison Magazine / Channel 3000"},
+  "MIDWESTWEEKENDS":{k:"MIDWESTWEEKENDS",t:"Midwest Weekends",u:"https://midwestweekends.com",l:"Midwest Weekends"},
+  "MILWAUKEEMAG":{k:"MILWAUKEEMAG",t:"Milwaukee Magazine",u:"https://www.milwaukeemag.com",l:"Milwaukee Magazine"},
   "MILWAUKEERECORD":{k:"MILWAUKEERECORD",t:"Milwaukee Record",u:"https://milwaukeerecord.com",l:"Milwaukee Record"},
+  "NWQUARTERLY":{k:"NWQUARTERLY",t:"Northwest Quarterly",u:"https://northwestchicagoland.northwestquarterly.com",l:"Northwest Quarterly"},
   "ONMILWAUKEE":{k:"ONMILWAUKEE",t:"OnMilwaukee",u:"https://onmilwaukee.com/",l:"OnMilwaukee"},
   "ONWISCONSIN":{k:"ONWISCONSIN",t:"On Wisconsin (UW alumni magazine)",u:"https://onwisconsin.uwalumni.com/",l:"On Wisconsin (UW alumni magazine)"},
   "PBSWI":{k:"PBS WISCONSIN",t:"PBS Wisconsin",u:"https://pbswisconsin.org/",l:"PBS Wisconsin"},
   "PLANETWARE":{k:"PLANETWARE",t:"PlanetWare",u:"https://www.planetware.com/",l:"PlanetWare"},
+  "SAVEUR":{k:"SAVEUR",t:"Saveur (Saveur 100)",u:"https://www.saveur.com",l:"Saveur (Saveur 100)"},
   "STATETRUNKTOUR":{k:"STATETRUNKTOUR",t:"State Trunk Tour",u:"https://statetrunktour.com/",l:"State Trunk Tour"},
+  "TAKEOUT":{k:"TAKEOUT",t:"The Takeout",u:"https://www.thetakeout.com",l:"The Takeout"},
+  "TASTINGTABLE":{k:"TASTINGTABLE",t:"Tasting Table",u:"https://www.tastingtable.com",l:"Tasting Table"},
   "TIMEOUT":{k:"TIMEOUT",t:"Time Out — Madison",u:"https://www.timeout.com/madison",l:"Time Out — Madison"},
+  "TONEMADISON":{k:"TONEMADISON",t:"Tone Madison",u:"https://tonemadison.com/",l:"Tone Madison"},
   "TRAVELWI":{k:"TRAVEL WISCONSIN",t:"Travel Wisconsin (WI Dept. of Tourism)",u:"https://www.travelwisconsin.com/",l:"Travel Wisconsin (WI Dept. of Tourism)"},
   "UPNORTHNEWS":{k:"UPNORTHNEWS",t:"UpNorthNews — Madison Food Guide (reader surveys)",u:"https://upnorthnewswi.com/food-guide/madison/",l:"UpNorthNews — Madison Food Guide (reader surveys)"},
   "UWNEWS":{k:"UW–MADISON NEWS",t:"UW–Madison News",u:"https://news.wisc.edu/",l:"UW–Madison News"},
@@ -438,6 +456,7 @@ const FS = {
   "VISITMIDDLETON":{k:"VISITMIDDLETON",t:"Visit Middleton (Middleton Tourism Commission)",u:"https://visitmiddleton.com/",l:"Visit Middleton (Middleton Tourism Commission)"},
   "WHS":{k:"WISCONSIN HIST. SOCIETY",t:"Wisconsin Historical Society",u:"https://www.wisconsinhistory.org/",l:"Wisconsin Historical Society"},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (notability + published coordinates)",u:"https://en.wikipedia.org/",l:"Wikipedia (notability + published coordinates)"},
+  "WKOW":{k:"WKOW 27",t:"WKOW 27 (Madison ABC)",u:"https://www.wkow.com/",l:"WKOW 27 (Madison ABC)"},
   "WMTV":{k:"WMTV 15",t:"WMTV 15 News",u:"https://www.wmtv15news.com/",l:"WMTV 15 News"},
   "WPR":{k:"WPR",t:"Wisconsin Public Radio",u:"https://www.wpr.org/",l:"Wisconsin Public Radio"},
   "WSJ":{k:"WISCONSIN STATE JOURNAL",t:"Wisconsin State Journal (madison.com)",u:"https://madison.com/",l:"Wisconsin State Journal (madison.com)"}
@@ -525,7 +544,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([43.0758,-89.4],10);
+  map = L.map('map',{scrollWheelZoom:false}).setView([43.0759,-89.4055],9);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -609,7 +628,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["The Isthmus", 43.0748, -89.3841], ["UW–Madison campus", 43.0759, -89.4057], ["East side — Willy Street", 43.0936, -89.3541], ["West side — Monroe Street", 43.0618, -89.4245], ["Middleton", 43.0523, -89.4949], ["Dane County towns", 43.0604, -89.5436], ["Day trips", 43.1996, -89.8618]];
+const LABELS=[["The Isthmus", 43.0748, -89.3841], ["UW–Madison campus", 43.0757, -89.4069], ["East side — Willy Street", 43.0936, -89.3541], ["West side — Monroe Street", 43.0608, -89.4239], ["Middleton", 43.0523, -89.4949], ["Dane County towns", 43.0604, -89.5436], ["Day trips", 43.2394, -89.9119]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -948,7 +967,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 65 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 74 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

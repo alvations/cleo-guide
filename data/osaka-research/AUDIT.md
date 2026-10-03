@@ -304,3 +304,26 @@ kushikatsu; NORTH Asahi Beer Museum Suita, Takatsuki Shiitake Center, Mentetsu T
 Steakland Kobe-kan not pinned (MapFan 1-8-2 ≠ current 1-9-17 per EPARK). **Build:** 477 discovered (173 sights + 304 food = 64%),
 351 rendered, **ANIME 34**; 4 gates PASS; validate + npm test PASS. Density NEED: MINAM +3 · EAST +5 · BAY +3 · NORTH +3 · SOUTH +5 · TNJ +1.
 **Round 3 launched:** K (MINAM/EAST/TNJ) · L (SOUTH/NORTH) · M (BAY); sight fallback allowed on BUNKACHO/≥2-credible after food leads.
+
+## 2026-10-03 — W7 round 3: workers K MINAM/EAST/TNJ · L SOUTH/NORTH · M BAY (first launch killed by the account session limit at 02:52Z; relaunched 06:08Z)
+Searches: K 39 · L 39 · M 31 · main 2. Detail in `_note_W7{K,L,M}.md`.
+**Added (+22; 477 → 499):**
+- W7K +9 (after main review) — MINAM Nishiya Shinsaibashi Honten (udon-chiri; MAPPLE + RURUBU), Shinsaibashi Mitsuya Honten (teppan
+  napolitan; OSAKAINFO + RURUBU), Kōzu-gū (OSAKAINFO + jawiki; Kōzu kept in MINAM like Men no Yōji); EAST Pâtisserie Liergues (TIMEOUT
+  + TABELOG100 sweets), Gyokai Bekkan Nomisuke Kyōbashi (OSAKAMETRO + RURUBU), Kainantei Tsuruhashi (RURUBU + TABELOG100; main search
+  confirmed 3-15 Kobashi-chō + yukhoe licence), Kōnoike Shinden Kaisho (BUNKACHO ICP via bunka.nii.ac.jp), Tsurumi Ryokuchi; TNJ Horikoshi
+  Shrine. **Main review → held:** Uoya Hidezo (Walker 143378 not confirmed to name it on recheck).
+- W7L +11 — NORTH Sobakiri Tenshō (TABELOG100 + Mapple Hirakata–Katano list), Menya Shiki (Moriguchi; TABELOG100 + Ramen Walker),
+  Marushō Gyōza-ten (Daitō; TIMEOUT + RURUBU), Katsumen Tomizō (Shijōnawate; TIMEOUT + TABELOG100 udon), Katano Tenjin-sha (ICP);
+  SOUTH Saijō Gōshi / Amanozake brewery, Kawachi Wine Kan (OSAKAINFO + RURUBU), National Treasures Fujii-dera, Jigen-in (Izumisano),
+  Kōon-ji (Kaizuka) on BUNKACHO. Mochizuki Ichimian found CLOSED (ikyu closure notice) — not in dataset, not added.
+- W7M +3 BAY — Minoya (Nishikujō horumon; TVTOKYO + TIMEOUT), Senbonmatsu Ōhashi, Namihaya Ōhashi (jawiki + OSAKACITY + Mapple/Osaka Metro; pinned).
+**Build:** **499 discovered (183 sights + 316 food = 63% food), 365 rendered (158 + 207)**; **ANIME 34**; sourcecheck PASS · geocheck PASS ·
+statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. **Density: all 9 areas OK** — KITA 103/80 · CHUO 57/45 · KNSAI 42/40 ·
+MINAM 95/95 · TNJ 55/55 · EAST 35/35 · BAY 35/35 · SOUTH 40/40 · NORTH 37/35.
+**Food share per area (§2b):** ≥50% in KITA, CHUO, MINAM, EAST, TNJ; BELOW 50% in BAY 43% (15/35), NORTH 49% (18/37), SOUTH 43% (17/40),
+KNSAI 29% (12/42) — the outer areas' food channel is source-exhausted for two-key small shops; next waves there should be food-only.
+**W7 totals:** +63 discovered (436 → 499), +56 rendered (309 → 365), ANIME 30 → 34 (Taiyoshi Hyakuban, Capcom Store Umeda, Jungle Osaka,
+Kotobukiya Nipponbashi; Expo Tower of the Sun gained an anime note). ~525 searches across 12 workers + main. Channel mix (W7): Michelin 2 ·
+Tabelog100 ~14 · editorial ~60 (Rurubu, Mapple, Time Out, Walkerplus/Ramen Walker, Lmaga, Osaka Metro, TV Tokyo, Savor Japan, JAL) ·
+official/municipal ~15 (OSAKA-INFO, OSAKACITY, SAKAITCB) · BUNKACHO 4 · Wikipedia ~14 · creators 3 (corroborating).

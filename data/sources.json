@@ -13188,6 +13188,15 @@
           "verified": true,
           "credible": "Independent Chicago food publication by Michael Gebert, a veteran Chicago food journalist; named-dish restaurant writeups — one ordinary corroborating source.",
           "url": "https://fooditor.com/"
+        },
+        {
+          "key": "BEVERLYREVIEW",
+          "name": "The Beverly Review (community newspaper)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running weekly community newspaper of Beverly/Morgan Park/Mount Greenwood (Chicago's Far Southwest Side); local reporting on openings, owners and closures — one ordinary corroborating source.",
+          "url": "https://www.beverlyreview.net/"
         }
       ],
       "creators": [
@@ -15163,6 +15172,14 @@
           "rank": 3,
           "verified": true,
           "credible": "Japanese games-industry trade news site (sister of Inside-Games), staff-written industry reporting; used only for game-publisher venues"
+        },
+        {
+          "key": "BUNKACHO",
+          "name": "文化遺産オンライン (Cultural Heritage Online, Agency for Cultural Affairs × NII) — bunka.nii.ac.jp",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Agency for Cultural Affairs' national heritage database; heritage detail pages record the Important Cultural Property designation. Main: confirm bunka.nii.ac.jp is accepted under the BUNKACHO key (kunishitei.bunka.go.jp is the other BUNKACHO domain)."
         }
       ],
       "creators": [
@@ -15930,6 +15947,78 @@
           "rank": 3,
           "verified": true,
           "credible": "US national public radio news organization of record"
+        },
+        {
+          "key": "HISTORYCENTER",
+          "name": "Orange County Regional History Center (Reflections of Central Florida)",
+          "type": "museum / institutional",
+          "rank": 3,
+          "verified": true,
+          "credible": "Smithsonian-affiliate county history museum; publishes researched local-history articles"
+        },
+        {
+          "key": "CULTURETRIP",
+          "name": "Culture Trip",
+          "type": "travel publisher",
+          "rank": 3,
+          "verified": true,
+          "credible": "Large international travel-editorial publisher with named writers; corroborating only"
+        },
+        {
+          "key": "FLHERITAGE",
+          "name": "Florida Division of Historical Resources - Florida Historical Marker Program",
+          "type": "state institutional",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official State of Florida historical-marker registry"
+        },
+        {
+          "key": "UCFRICHES",
+          "name": "UCF RICHES Mosaic Interface (Regional Initiative for Collecting the History, Experiences and Stories)",
+          "type": "academic archive",
+          "rank": 3,
+          "verified": true,
+          "credible": "University of Central Florida public-history digital archive with curated exhibits"
+        },
+        {
+          "key": "VISITSPACECOAST",
+          "name": "Visit Space Coast (Florida's Space Coast Office of Tourism)",
+          "type": "official tourism board",
+          "rank": 3,
+          "verified": true,
+          "credible": "Brevard County's official tourism office; curated dining guides (like VISITORLANDO)"
+        },
+        {
+          "key": "DIRONA",
+          "name": "Distinguished Restaurants of North America (DiRoNA)",
+          "type": "award",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running North American fine-dining award program with anonymous inspections; Award of Excellence"
+        },
+        {
+          "key": "FRLA",
+          "name": "Florida Restaurant & Lodging Association",
+          "type": "industry association/press",
+          "rank": 3,
+          "verified": true,
+          "credible": "Statewide restaurant trade association; reported Emeril Lagasse's Emeril's Florida TV features"
+        },
+        {
+          "key": "FLORIDAHIKES",
+          "name": "Florida Hikes! (Sandra Friend & John Keatley)",
+          "type": "guidebook author/blog",
+          "rank": 3,
+          "verified": true,
+          "credible": "Run by Sandra Friend, author of 30+ Florida hiking guidebooks and Florida Trail Association mainstay; first-hand trail reports"
+        },
+        {
+          "key": "CHOWHOUND",
+          "name": "Chowhound",
+          "type": "national food media",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running national food outlet (Static Media) with staff-written dining features; one corroborating source"
         }
       ],
       "creators": [
@@ -17368,6 +17457,70 @@
           "rank": 2,
           "verified": true,
           "credible": "County park authority — official overview of the conservancy (facts/hours)."
+        },
+        {
+          "key": "SAVEUR",
+          "name": "Saveur (Saveur 100)",
+          "type": "editorial",
+          "rank": 1,
+          "verified": true,
+          "credible": "National food magazine; the annual Saveur 100 list."
+        },
+        {
+          "key": "TASTINGTABLE",
+          "name": "Tasting Table",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "National food site with bylined features."
+        },
+        {
+          "key": "MILWAUKEEMAG",
+          "name": "Milwaukee Magazine",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Milwaukee's city magazine (since 1983); bylined day-trip guides."
+        },
+        {
+          "key": "MIDWESTWEEKENDS",
+          "name": "Midwest Weekends",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running Midwest travel guide site (Chicago-based editor); bylined town guides."
+        },
+        {
+          "key": "TAKEOUT",
+          "name": "The Takeout",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "National food site (founded at The A.V. Club); bylined restaurant features."
+        },
+        {
+          "key": "CULTUREMAG",
+          "name": "culture: the word on cheese",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "National cheese magazine; cheese-library entries by staff."
+        },
+        {
+          "key": "NWQUARTERLY",
+          "name": "Northwest Quarterly",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Regional lifestyle magazine (northern Illinois / southern Wisconsin); bylined travel features."
+        },
+        {
+          "key": "CHICAGOSUNTIMES",
+          "name": "Chicago Sun-Times",
+          "type": "editorial",
+          "rank": 1,
+          "verified": true,
+          "credible": "Major Chicago daily; bylined travel feature on Wisconsin's Frank Lloyd Wright Trail."
         }
       ],
       "creators": [

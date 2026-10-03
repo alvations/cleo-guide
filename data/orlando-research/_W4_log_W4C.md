@@ -34,7 +34,7 @@ Despicable Me Minion Mayhem | USF | WIKIPEDIA (coord 28.4752722,-81.4681028), TH
 Illumination's Villain-Con Minion Blast | USF | WIKIPEDIA (USF article), THEMEPARKINSIDER | UNVERIFIED | t3
 DreamWorks Land | USF | WIKIPEDIA, THEMEPARKINSIDER, ATTRACTIONSMAG, TOURINGPLANS | UNVERIFIED | land — no own coord, never pin to centroid
 Hard Rock Cafe Orlando | CWALK | ORLANDOINFORMER history, TOURINGPLANS Saturday Six, FODORS | UNVERIFIED | world's largest Hard Rock Cafe
-Bob Marley – A Tribute to Freedom | CWALK | ORLANDOINFORMER, ORLANDOWEEKLY listing, TOURINGPLANS | UNVERIFIED | dish "jerk chicken" is generic Jamaican—lead may verify menu
+Bob Marley – A Tribute to Freedom | CWALK | ORLANDOINFORMER, ORLANDOWEEKLY listing, TOURINGPLANS | UNVERIFIED | dish verified vs ALLEARS 2026 menu (jerk chicken, oxtail stew); Orlando Informer: food not spectacular but a hidden gem for atmosphere
 LEAD Bread Box Handcrafted Sandwiches (CWALK) — TOURINGPLANS 2025 Award top QS CityWalk + ORLANDOINFORMER guide; qualifies, not added (quota met)
 The Fat Snook | SPACE | SPACECOASTLIVING fine-dining top5, VISITSPACECOAST seafood guide, FRLA (Emeril's Florida feature) | UNVERIFIED | dish generic (no specific dish surfaced)
 Café Margaux | SPACE | DIRONA (2024 Gold Award, only FL restaurant), SPACECOASTLIVING fine-dining top5 | UNVERIFIED | Cocoa Village
@@ -52,3 +52,14 @@ NOTE Hollerbach's Willow Tree Café (existing) = Orlando Weekly Best Sanford Res
 LEAD The District Eatery, Tap & Barrel (Sanford) — Orlando Weekly only
 HELD The Bavarian Haus (Mount Dora) — ORLANDOWEEKLY Mount Dora essentials only; 2nd search returned only aggregators
 HELD Neighbors Artisan Taqueria (DeLand) — ORLANDOWEEKLY small-town list only
+The Hangry Bison (Winter Garden) | WEST | ORLANDOWEEKLY Best WG Restaurant 2025, ORANGEOBSERVER (new key) | UNVERIFIED | also 2019 Sentinel Foodie Award best burger (per OW)
+Mirchi Indian Street Food | WEST | ORLANDOWEEKLY critic review (rave), ORANGEOBSERVER opening | UNVERIFIED | one snippet called it veg/vegan yet OW names chicken 65 — lead may verify dish
+LEAD Pie Fection (Windermere, 13211 Reams Rd) — OW only; Hawkers Windermere = OW #2 Windermere 2025 (chain)
+Tibet-Butler Preserve | WEST | WIKIPEDIA (28.4425,-81.54167, preserve's own article coord; conf med — large preserve, may want trailhead pin), FLORIDAHIKES (new key), ORANGEOBSERVER | PINNED |
+Oakland Nature Preserve | WEST | FLORIDAHIKES, ORLANDOWEEKLY best trails (via West Orange Trail entry) | UNVERIFIED |
+DROP Windermere Town Hall — only Windermere town centroid on Wikipedia; no own article/coord; skipped
+The Town House Restaurant (Oviedo) | EAST | ORLANDOWEEKLY classic 25+yr list, OFFICIAL site | UNVERIFIED | 1950s landmark diner; Saboscrivner blog (2024) also reviewed (creator popularity unverified, not counted)
+HELD Mister O1 Extraordinary Pizza (Oviedo) — OW says brand is Michelin-recommended but rec may be another location; needs location check
+LEAD Yao's (Oviedo, Shanghainese) — OW only
+SEARCHES USED: 54 / 55
+- LEAD REVIEW: DROP Pizza Predattoria — merit rests on reviewer ratings + a guide listing only (merit bar). Refurb statusSources rewritten as TEMPORARY closures (Jurassic Park River Adventure to 2026-11-20; Finnegan's late 2026); cards carry the NOTE.

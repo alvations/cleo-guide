@@ -1,5 +1,5 @@
 {
- "note": "W7 main review: moved out of FOOD_OSAKA_W7A — 2nd source not verifiable (Menshō Shisei: Ramen Beast URL was a guess, no page surfaced on recheck; Kurogin: Time Out Kuromon page does not name it on recheck, SAVORJAPAN 'Kuromon Kuragin' identity unconfirmed).",
+ "note": "W7 main review: moved out of FOOD_OSAKA_W7A — 2nd source not verifiable (Menshō Shisei: Ramen Beast URL was a guess, no page surfaced on recheck; Kurogin: Time Out Kuromon page does not name it on recheck, SAVORJAPAN 'Kuromon Kuragin' identity unconfirmed). | Uoya Hidezo (W7K): WALKERPLUS 143378 not confirmed to name it on a main recheck → held (MAPPLE spot only).",
  "held": [
   {
    "t": 2,
@@ -45,6 +45,30 @@
      "https://savorjapan.com/contents/discover-oishii-japan/10-best-restaurants-near-kuromon-market-in-osaka"
     ]
    ]
+  },
+  {
+   "t": 3,
+   "a": "MINAM",
+   "cz": [
+    "IZAKAYA",
+    "SAKE"
+   ],
+   "dish": "daily-changing fish dishes from the morning's buying, with a deep sake list (standing bar)",
+   "n": "Uoya Hidezo (魚屋ひでぞう 立ち呑み店, Ura-Namba)",
+   "address": "9-1 Nanba-Sennichimae, Chūō-ku, Osaka",
+   "w": "Busy Ura-Namba standing bar run like a fishmonger's counter. Mapple's editors flag the range and the prices of a fish menu that changes with each day's buying, plus plenty of sake to match; Kansai Walker includes it in its Ura-Namba late-night queue-shops round-up.",
+   "closed": false,
+   "sources": [
+    [
+     "MAPPLE",
+     "https://www.mapple.net/spot/27015385/"
+    ],
+    [
+     "WALKERPLUS",
+     "https://www.walkerplus.com/article/143378/"
+    ]
+   ],
+   "tag": "W7K"
   }
  ]
 }
