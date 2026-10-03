@@ -474,3 +474,29 @@ New source keys: MAHONINGMATTERS, BARBERTONLIBRARY (SOURCES_W3A.json).
   Loyal Oak (Norton) tavern claim not supported → not added.
 - **W5 totals:** +27 sights, +23 food → 166 places (98 food, 59%; every area ≥50% food), 128 pinned (38 UNVERIFIED). Closures surfaced: Skyway
   Drive-In (Scene), Meow Bao (Signal) — neither added. ≈185 WebSearch this session (beaconjournal.com 400s as an allowed_domain).
+
+## 2026-10-03 W6 · batch 1 — held-lead promotion + new food (FOOD_W6, geo/_geoout_w6)
+- **Sources mined:** Repository via AOL/Yahoo ("Eat your way through Stark County: 11 restaurants chosen by foodies", patio round-up,
+  Bistro of Oakwood + Joey's Kendal Tavern reviews, USA TODAY ROTY 2025 = Social at the Stone House), ABJ via Yahoo (outdoor-dining 14,
+  waterfront 10, Local Flavor index, Frank's Place review, Good Grief Hudson review), Cleveland Magazine (12 must-go Cuyahoga Falls, best
+  wineries, 2026 readers' poll, Blue Canyon review), Scene (Joe's Barbecue, Crave Cantina opening, Blue Canyon), Ohio Magazine (Green Valley
+  Brewing, Royal Docks, Hartville Best Hometowns, hot-dog joints, oldest restaurants, college-town eats), Akron Life (330 Flavor Awards,
+  Cuyahoga Falls breweries, Fresh Brewed), Signal Akron (Best of the City 2026 burger). Creator query not run this batch (budget to editorial).
+- **Added food (9):** NSUM Michael Angelo's Winery (CLEMAG best wineries + CLEMAG 2026 readers #1 winery + ABJ + WKYC), HiHO Brewing
+  (CLEMAG beer guide + 12 must-go + Akron Life reader vote), Blue Canyon Kitchen & Tavern (CLEMAG review + Scene review + ABJ 2025 list for
+  status; promoted from W3 held — dish now named), Green Valley Brewing Hudson (Ohio Magazine + Akron Life) · KENT Joe's Barbecue, Brimfield
+  (Scene + CLEMAG + ABJ) · AKR Frank's Place on Market (Signal Akron 2026 Best Burger + ABJ Local Flavor; promoted from W1 held) ·
+  CANT Hartville Chocolate Factory (Akron Life 330 Flavor Awards 1st Best Chocolate + Ohio Magazine Best Hometowns; promoted), The Bistro of
+  Oakwood (Repository review + patio list + Visit Canton) · MASS Joey's Kendal Tavern (Repository review + Visit Canton; 1891 stagecoach stop).
+- **Closures surfaced:** **Royal Docks Brewing Co.** (Jackson Twp; Ohio Magazine + Repository) — original 7162 Fulton Dr NW taproom and
+  Oakwood Square closed June 2025, last location closed Sept 21 2025 (Repository via Yahoo "Once-booming Royal Docks … set to close last
+  location") → NOT added. Bravo! Belden Village, Burntwood Tavern Belden Village, Rockne's Stow — chains/closed, not candidates.
+- **Pins:** 6 of 9 (Michael Angelo's + Blue Canyon high via Waze place; HiHO, Frank's, Joe's, Bistro of Oakwood med via usarestaurants).
+  UNVERIFIED: Green Valley (Apple bare place-id), Hartville Chocolate Factory, Joey's Kendal Tavern.
+- **Held:** Crave Cantina Cuyahoga Falls (Scene 2017 opening + CLEMAG; 2097 Front St per Foursquare — no current-status source),
+  Clifford's Mini Auto Museum (CLEMAG + automotivemuseumguide only), Dog Daze Gourmet Hot Dogs Canton (Ohio Magazine only), Francisco's
+  Cantina (Repository panel ×2, same outlet), Funny Noodle (ABJ only), Smoke on the Water / Biggins' Big Dip / Pick's at PLX Portage Lakes
+  (ABJ lists only), Kozmo's Grille Massillon (Akron Life listing + VC listing — mentions), Good Grief Hudson (ABJ only), Bistro of Green
+  (Akron Life ×2; measured 4.7★/258 on one platform), Burntwood Tavern (regional chain — skipped).
+- **Lesson:** a Signal Akron URL was first written from memory and caught before commit — URLs only from search results.
+- Gates: sourcecheck PASS (175) · geocheck PASS (134) · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. ≈62 WebSearch.
