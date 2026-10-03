@@ -27,12 +27,12 @@ flock -w 3600 $LOCK python3 tools/rebuild-city.py philadelphia-pa --build   # + 
 (none — W4 batches 1-3 committed 2026-10-03, session_01ECt8nbbQXGgxskj1179NHd; see State (W4).)
 
 ## State (2026-10-03, after W4)
-- Discovered + sourced: **455** (172 sights, 283 food) — sourcecheck PASS 455/455. Page: **179 on map** (150 sights + 29 food).
+- Discovered + sourced: **456** (172 sights, 284 food) — sourcecheck PASS 456/456. Page: **179 on map** (150 sights + 29 food).
   4 gates PASS; npm validate + test PASS; card + CITIES.md refreshed.
-- Per area (density.py): CC 122/125 (+3) · SPH 80/85 (+5) · FISH 48/55 (+7) · UCW 34/40 (+6) · NPH 24/30 (+6) · NW 40/45 (+5) ·
-  NE 23/25 (+2) · MAIN 29/35 (+6) · SJ 24/25 (+1) · DAY 32/35 (+3). **~44 to go.**
+- Per area (density.py): CC 122/125 (+3) · SPH 80/85 (+5) · FISH 48/55 (+7) · UCW 34/40 (+6) · NPH 25/30 (+5) · NW 40/45 (+5) ·
+  NE 23/25 (+2) · MAIN 29/35 (+6) · SJ 24/25 (+1) · DAY 32/35 (+3). **~43 to go.**
 - Food share: CC 54% · SPH 85% · FISH 90% · UCW 68% · NE 78% · NW 55% · MAIN 55% · SJ 50% · **NPH 33% · DAY 25%** (still below bar).
-- W4 files: FOOD_W4.json (31) · SIGHTS_W4.json (2) · SOURCES_W4.json (5 outlets) · geo/_geoout_w4_pinA/pinB (8 Wikipedia pins) ·
+- W4 files: FOOD_W4.json (32) · SIGHTS_W4.json (2) · SOURCES_W4.json (6 outlets) · geo/_geoout_w4_pinA/pinB (8 Wikipedia pins) ·
   geo/_geoout_w4_status.json (11 statuses) · geo/_geoout_w4_sights.json (Shot Tower). Worklists: _phi_pinlist_A/B.txt, _phi_statuslist.txt.
 - Closures now flagged: Hiroki, Laurel, Tony's Place, Kensington Quarters, Dock Street Brewing (West Philly 50th St).
 - PIN LESSON (W4): WebSearch never surfaces Google `!3d!4d` URLs, OSM nodes or Michelin coordinates — only Wikipedia infobox coords.
@@ -71,7 +71,7 @@ then UCW drinks, FISH breweries, NE, MAIN. W3 did not apply this rule — the se
    Philly Mag for: Victory Brewing Downingtown (address needed), Iron Hill West Chester (3 W Gay St), Side Bar (10 E Gay St), Portabello's
    (Kennett), Black Bass Hotel (3774 River Rd, Lumberville — OpenTable 4.8/4,966 measured), Lambertville Station, d'floret, Dilworthtown Inn,
    Kennett Brewing, Triumph New Hope, 1906 at Longwood, Marsha Brown.
-2. **NPH +6 (food 8/24)**: second source for the Fairhill held four (El Bohio, La Sierra, La Caribeña, El Príncipe — try Al Día, WHYY,
+2. **NPH +6 (food 8/24)**: second source for the Fairhill held three (El Bohio, La Sierra, El Príncipe — La Caribeña added via Temple Philadelphia Neighborhoods — try Al Día, WHYY,
    Inquirer "El Centro de Oro"); Isla Verde Cafe; Brewerytown: Boozy Mutt done, try Brewerytown Beats/Taproom, Fairmount Park Parks on Tap;
    Temple: Iron Hill N Broad (1700 N Broad St). Sights: Church of the Advocate, Smith Memorial Arch, Uptown Theater.
 3. **FISH +7**: Next of Kin (confirm location), Dock Street Fishtown, St. Oner's (Tired Hands), Brewery ARS Frankford Ave, Philly Style Bagels,

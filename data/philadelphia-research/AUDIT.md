@@ -235,3 +235,7 @@ Michelin coordinates NEVER surface through WebSearch — restaurant pins need to
 (31 May 2022; Billy Penn + Philly Mag) — kept, flagged. Federal Donuts: 3 Center City shops closed Jul 2026, Fairmount Ave + South St remain.
 **Build.** rebuild-city --build: sourcecheck PASS 455/455 · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS; page 179 on map
 (150 sights + 29 food); npm validate DATA OK; npm test ALL PASS. Card + CITIES row refreshed.
+- Addendum (end of W4): La Caribeña Bakery (NPH) promoted from held → added with a 2nd source, Temple University's Philadelphia
+  Neighborhoods newsroom (registered as PHILLYNEIGHBORHOODS, corroborating only). Rebuild: 456 sourced, 4 gates PASS, validate + test PASS.
+  Searches this session: ~95 main thread + 86 in background passes. DAY food searches (LaBan Chester County, Lambertville/New Hope,
+  Kennett, Phoenixville, West Chester) returned only OpenTable/County Lines/regional blogs — no 2-credible place; DAY stays NEED +3.
