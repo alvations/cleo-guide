@@ -315,3 +315,17 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   2025) — re-check before pinning.
 - **Build:** 136 → 185 pinned. sourcecheck 509 PASS · geocheck PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate
   DATA OK · npm test ALL PASS.
+
+## 2026-10-03 (session 5 · wave 4 PINS) · batch 2 — Apple Maps pins, tier-1 first
+- **Pins (44, `geo/_geoout_x2.json`):** 41 high + 2 med (Laspada's — Apple lists 233 Commercial Blvd, our sources 4346 Seagrape Dr = same
+  corner storefront; Bar Kaiju — pin of host building The Citadel, 8300 NE 2nd Ave) + Little Haiti Cultural Complex (sight; was UNVERIFIED).
+  Lesson: "Name + neighbourhood" queries (no street number) return coordinate-bearing Apple URLs as often as full-address ones, so
+  vague-address records are pinnable too; each URL's own address was checked against the record (rejected: Pack Supermarket's
+  15327 NW 7th Ave branch, Drinking Pig's 845 NE 151st St listing — different branches).
+- **Closures / moves (`geo/_geoout_x2s.json`):** Jaguar Sun CLOSED (Aug 2024 — Axios + NT; Apple "permanently closed"). Knaus Berry Farm
+  MOVED: sold 2025, reopened 22 Dec 2025 at 16790 SW 177th Ave (WLRN, Florida Rambler, NT) — FOOD_F5 address + blurb corrected; old site
+  closed; not yet pinned at the new farm.
+- **Held, status unresolved (Apple shows a closure marker, no press found):** Kush (Wynwood, 2003 N Miami Ave), Taquiza (1351 Collins),
+  Lutong Pinoy (17048 W Dixie Hwy). Two Chefs (South Miami): no Apple listing found → re-check. Havana Café of the Everglades: Apple
+  "temporarily closed".
+- **Build:** 185 → 229 pinned; sourcecheck/geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
