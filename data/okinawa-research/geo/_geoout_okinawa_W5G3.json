@@ -230,5 +230,31 @@
   "geoSource": "W5G3 extended 'Chuko Awamori distillery ... tripadvisor latitude longitude' 2026-10-03: TripAdvisor attraction d3154321 found but no coordinate surfaced",
   "status": "open",
   "statusSource": "Okinawa Awamori Distillers Assoc. okinawa-awamori.or.jp/distilleries/chuko/ + mice.okinawastory.jp s-557 + chuko-awamori.com (tours operating), current"
+ },
+ {
+  "n": "Takaesu Soba, Urasoe (高江洲そば)",
+  "address": "3-36-2 Iso, Urasoe, Okinawa 901-2132, Japan",
+  "lat": 26.25607,
+  "lng": 127.72236,
+  "confidence": "low",
+  "geoSource": "TripAdvisor listing d1689946 coordinate 26.25607,127.72236 with address 3-36-2 Iso via WebSearch extended 2026-10-03; aggregator → low; consistent with sourced Iso, Urasoe",
+  "status": "open",
+  "statusSource": "TripAdvisor listing (rated 4.4, #3 of 314 Urasoe, 2026 pages) + tabelog 47000071 — coordinate/status only"
+ },
+ {
+  "n": "Kingetsu Soba Yomitan Honten (金月そば 読谷本店)",
+  "address": "201 Kina, Yomitan, Nakagami, Okinawa 904-0302, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W5G3 extended 'Kingetsu Soba Yomitan tripadvisor latitude longitude' 2026-10-03: TripAdvisor listing d5484584 'Kintiti Soba' (address 201 Kina) and Apple Maps place found, but only Yomitan village centroid printed → rejected",
+  "status": "open",
+  "statusSource": "TripAdvisor listing (4.3, #14 of 140 Yomitan) + Hoshino Resorts MICHIKUSA guide (current)"
+ },
+ {
+  "n": "Teppanyaki Steak House Shiki, Sonoda Honten (ステーキハウス四季 園田本店)",
+  "address": "3-1-25 Sonoda, Okinawa City, Okinawa 904-0022, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W5G3 extended 'Steak House Shiki Sonoda ... tripadvisor latitude longitude' 2026-10-03: TripAdvisor d7605738 gave address 3-1-25 Sonoda but no coordinate",
+  "status": "open",
+  "statusSource": "TripAdvisor listing (hours 11:00-15:00/17:00-21:15, phone 098-933-5731) + en.kozaweb.jp/eats/show/187, current"
  }
 ]
