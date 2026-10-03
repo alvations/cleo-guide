@@ -150,3 +150,22 @@
 - **Build:** rebuild-city --build OK; sourcecheck FAIL only on 9 HELD single-source (dropped by build), geocheck PASS,
   statuscheck CONSISTENT; npm validate DATA OK; npm test ALL PASS. Page: 141 sights + 6 food pinned; 284 researched.
 - **Density / food share:** 131 food / 284 = **46%** (was 26%). Held leads in `_PENDING_LEADS.md` (Session 3 section).
+
+## 2026-10-03 · Session 4 · Wave 3 — lead pin pass (batch 1)
+- Repo sync: the local clone had an unrelated pre-rewrite history; reset the working branch to `origin/claude/peaceful-goodall-i0hsrt`
+  (local ref kept as `backup-local-d44bb88`; no local work lost — tree was clean).
+- **Building-level pins (0 searches)** → `geo/_geoout_w3bldg.json` (med): Kringla Bakeri (Norway Pavilion), Le Cellier (Canada),
+  Via Napoli (Italy), Takumi-Tei (Japan), Spice Road Table (Morocco), Citricos (Grand Floridian) — host-building Wikipedia coords
+  already in the registry (SF Ferry Building precedent). Land/park/district centroids (Disney Springs, Hogsmeade, Diagon Alley) still rejected.
+- **Searched pins** (13 searches) → `geo/_geoout_w3pin.json`: Wikipedia published coords for Sorekara, Kadence, Camille, Capa,
+  Soseki, Knife & Spoon, Papa Llama — CLOSED, 50's Prime Time Café, Kraft Azalea Park (high); Downtown Winter Park Historic District
+  for Park Avenue (med); Rosen Shingle Creek hotel coords for A Land Remembered (med, building-level). Low (aggregator decimals,
+  source page not individually attributable → re-verify): Chef's Table at the Edgewater (Edgewater Hotel), East End Market + Lineage
+  + Domu (3201 Corrine Dr), Four Flamingos (Hyatt Regency Grand Cypress).
+- **Re-verify catch:** the Cocoa Beach Pier decimal returned again (28.320221,-80.608871) is identical to Ron Jon Surf Shop's →
+  rejected again; pier stays UNVERIFIED. Four Seasons aggregator decimal superseded by Capa's own Wikipedia coord.
+- Dead end: ordinary street-address restaurants (Dixie Crossroads test) — WebSearch returns no place-pin decimal; keep for helper.
+- **Status:** Mythos (IOA) — open; Universal announced (May 2026; DFB, FOX 35, BlogMickey) it closes in 2027 with the Lost Continent →
+  note added to card + FOX35 source. Thunder Falls Terrace (IOA) closed summer 2026 for a 2027 replacement (told W3D).
+- Build: page 144 sights + 26 food (was 141 + 6); gates sourcecheck (9 held single-source only) / geocheck PASS / statuscheck
+  CONSISTENT / buildcheck PASS; npm validate DATA OK, npm test ALL PASS.
