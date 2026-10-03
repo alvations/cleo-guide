@@ -212,3 +212,19 @@
 - **Build:** rebuild-city --build OK — 390 researched (177 sights + 213 food = **54.6% food**), page **157 sights + 35 food** (was 141 + 6);
   sourcecheck FAIL only on the 9 held single-source (dropped by build; 1 lone-authority Michelin) · geocheck PASS · statuscheck
   CONSISTENT · buildcheck PASS · npm validate DATA OK · npm test ALL PASS. Card + CITIES row + AGENT-PROMPTS run log refreshed.
+
+## 2026-10-03 · Session 5 · Wave 4 — step 1: corroborate the 9 single-source (all kept)
+- 9 searches. Each held place got a 2nd credible source (`_orl_addsrc.py`): Randall Knife Museum + WIKIPEDIA (Randall Made Knives);
+  World's Largest Entertainment McDonald's + ATTRACTIONSMAG + ORLANDOWEEKLY (2016 rebuild/reopen); Global Convergence + WIKIPEDIA
+  (See Art Orlando) + BUNGALOWER; Dr. Phillips House + HMDB + CLIO; Osceola County Courthouse + EXPERIENCEKISSIMMEE; Gaylord Palms +
+  FROMMERS; Race Through New York + THEMEPARKINSIDER + ORLANDOINFORMER; Space View Park + FOX35 (reopened after repairs) + NPR;
+  Cocoa Beach Pier + OFFICIAL (cocoabeachpier.com history — weakest pairing, OFFICIAL counts once; re-corroborate with press next wave).
+- New outlets: HMDB, NPR (SOURCES_W4.json, with credible rationale).
+- Pin probe (3 searches): Mapcarta (OSM mirror) snippets carry no decimals; Wikipedia queries for Beefy King / Brown Derby / Oga's
+  return only park or land centroids (rejected). Confirms the wave-3 dead end — street restaurants stay UNVERIFIED for
+  `tools/geocode-helper.html` (189 unpinned: MILLS 37, DTO 17, WPK 17, DSP 16, SPRNG 13, IDR 12, KISS 10, MK 10 …).
+- Build: sourcecheck **PASS** (was FAIL on 9) · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · test PASS.
+- Status re-checks (3 searches, lead): **Shin Jung** — reopened 2021 after the 2019 fire (Orlando Weekly) and now carries a Michelin Guide
+  Florida listing page (guide.michelin.com …/orlando/restaurant/shin-jung) → open; MICHELIN source added. **The Tennessee Truffle** — only
+  undated listings (AAA, Tasty Chomps 2019) surfaced; kept, re-check next wave. **Willie's Pinchos** — DDD/Food Network + FOX 35 lists,
+  no 2025–26 closure report; kept, re-check next wave.

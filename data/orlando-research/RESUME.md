@@ -40,7 +40,7 @@ Run protocol: `docs/RUN-2026-10-02.md` (shared lock, commit+push every batch, §
 - Search budget: ≈176 used this session (lead 29 + workers 147).
 
 ## In-flight wave
-- (none — wave 3 closed cleanly)
+- **W4 (session 5, 2026-10-03)**: step 1 corroborate-or-drop the 9 single-source (Randall Knife Museum, Entertainment McDonald's, Global Convergence, Dr. Phillips House, Osceola Courthouse, Gaylord Palms, Race Through NY, Cocoa Beach Pier, Space View Park) via `_orl_addsrc.py`; step 2 pin held restaurants → `geo/_geoout_w4pin.json`; step 3 NEED areas → `FOOD_W4*/SIGHTS_W4*`. Step 1 DONE (commit c127796, sourcecheck PASS). Step 2: WebSearch pin probe = dead end (logged). Step 3 running: workers W4A (IDR+KISS), W4B (DTO+MILLS+WPK), W4C (parks+SPACE/SPRNG/WEST/EAST) per `_W4_WORKER_BRIEF.md`; logs `_W4_log_<TAG>.md`.
 
 ## Next actions (ordered) — wave 4 plan
 1. **Pins for restaurants** remain the gap (35 of 213 food pinned): run `tools/geocode-helper.html` over the UNVERIFIED list

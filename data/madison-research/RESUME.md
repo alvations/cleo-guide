@@ -65,7 +65,9 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
    `flock … python3 tools/rebuild-city.py madison-wi --build` → 4 gates → relink CARD:madison-wi, CITIES.md row.
 
 ## In-flight wave
-- (none — W3a closed; resume from 'Next (ordered) — W3')
+- **W4 (2026-10-03, fresh session)** — (1) pin the 19 held restaurants in geo/_geoout_w2_unverified.json →
+  geo/_geoout_w4pins.json; (2) food-first expansion every area (supper clubs, fish fry, curds, brewpubs) →
+  FOOD_W4a.json…, sights → SIGHTS_W4a.json…, pins → geo/_geoout_w4*.json; build + gates per batch.
 - ~~W2 plan~~ — finish _PENDING_LEADS food → FOOD_W2.json; canon queries
   (Infatuation, farmers' market, Babcock, cheese shops, brats, Hmong, custard, New Glarus) → FOOD_W2*.json;
   sights per area → SIGHTS_W2.json; geocodes → geo/_geoout_w2*.json; build + gates; relink CARD:madison-wi.

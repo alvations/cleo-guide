@@ -1,0 +1,66 @@
+[
+ {
+  "n": "Kikunotsuyu Shuzō awamori distillery, Miyako (菊之露酒造)",
+  "address": "沖縄県宮古島市平良字西里290",
+  "lat": 24.803614,
+  "lng": 125.281353,
+  "confidence": "low",
+  "geoSource": "W8D5 extended search '菊之露酒造 宮古島市平良西里290 緯度 経度' — result summary printed 24.803614,125.281353 (sources returned: ja.wikipedia 菊之露酒造, NAVITIME poi 00004-47160900011, baseconnect); consistent with Nishizato, central Hirara. Graded low (could not confirm which page printed it).",
+  "status": "open",
+  "statusSource": "Official company page kikunotsuyu.co.jp/company/ and okinawa-awamori.or.jp distillery page live 2026-10; RS PR TIMES 2025 product releases"
+ },
+ {
+  "n": "Tamanaha Shuzōsho awamori distillery, Ishigaki (玉那覇酒造所)",
+  "address": "〒907-0023 沖縄県石垣市字石垣47",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W8D5 extended '玉那覇酒造所 石垣市石垣 住所 緯度 経度' returned address/hours (yaeyama.or.jp, tabirai, 4travel) but no venue coordinate; only a city centroid — rejected.",
+  "status": "open",
+  "statusSource": "Official shop tamanotuyu.com live; yaeyama.or.jp listing hours 08:30-17:00 (closed Sun) 2026-10"
+ },
+ {
+  "n": "Donan (Kokusen Awamori) hanazake distillery, Yonaguni (どなん 国泉泡盛)",
+  "address": "〒907-1801 沖縄県八重山郡与那国町字与那国2087",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W8D5 extended 'どなん 国泉泡盛 与那国町与那国2087 navitime 緯度 経度' — address confirmed (donan-kokusenawamori.com/about, yaenavi), Yahoo map place aqfsDwYjB02 listed but no coordinate printed; island centroids only — rejected.",
+  "status": "open",
+  "statusSource": "Official site donan-kokusenawamori.com live 2026; ti-da blog posting 2025 fair events"
+ },
+ {
+  "n": "Painagama Beach, Hirara (パイナガマビーチ)",
+  "address": "沖縄県宮古島市平良字下里338-3",
+  "lat": 24.8026123,
+  "lng": 125.2703656,
+  "confidence": "med",
+  "geoSource": "W8D5 extended 'パイナガマビーチ 宮古島 wikipedia 座標' — result summary printed 24.8026123,125.2703656 alongside ja.wikipedia パイナガマビーチ, tanoshima.jp spot page and miyako-island.net; 7-decimal style suggests a spot-page map embed rather than the wiki infobox, so med. Consistent with the beach SW of Hirara port.",
+  "status": "open",
+  "statusSource": "Miyako tourism association miyako-island.net beach_spot_026 and OCVB okinawastory 600006192 live listings 2026"
+ },
+ {
+  "n": "Ikemajima gelato cafe Ninufa, Ikema Island (ニヌファ)",
+  "address": "〒906-0422 沖縄県宮古島市平良字前里976-1",
+  "lat": 24.92993,
+  "lng": 125.23345,
+  "confidence": "low",
+  "geoSource": "W8D5 extended 'ニヌファ 宮古島市平良字前里976-1 緯度 経度' — two listings agreed at 24.929930,125.233457 / 24.929928,125.233448 (aggregator listings among co-trip spot 902887, retty, tabelog, autoreserve); a third point 24.9285078,125.238198 (~520 m E) rejected as outlier. Consistent with Maezato, west coast of Ikema by the heart rock.",
+  "status": "open",
+  "statusSource": "Official shop ninufa.theshop.jp; search result listing hours 10:00-17:00 (closed Wed), co-trip spot 902887 2026"
+ },
+ {
+  "n": "Tachigami-iwa sea stack, Yonaguni (立神岩)",
+  "address": "沖縄県八重山郡与那国町 (東海岸)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W8D5 extended '立神岩 与那国島 wikipedia 座標' — no ja.wiki article for the Yonaguni rock (only Saga's 立神岩 has one); ja.wiki 与那国島 gives island-level coords only; OCVB 20420900 / tanoshima / 4travel printed no coordinate. One summary gave address 与那国2329 — that is Sakimoto Shuzō's address, rejected as wrong.",
+  "status": "open",
+  "statusSource": "Natural feature; OCVB okinawastory spot 20420900 live listing 2026"
+ },
+ {
+  "n": "Ikema Wetlands, Ikema Island (池間湿原)",
+  "address": "沖縄県宮古島市平良字池間",
+  "lat": 24.93194,
+  "lng": 125.24306,
+  "confidence": "high",
+  "geoSource": "W8D5 ja.wikipedia 池間湿原 infobox: 北緯24度55分55秒 東経125度14分35秒 = 24.93194,125.24306 (centre of Ikema Island).",
+  "status": "open",
+  "statusSource": "Natural wetland, national wildlife protection area since 2011 (ja.wiki 池間湿原); tanoshima.jp spot page live 2026"
+ }
+]
