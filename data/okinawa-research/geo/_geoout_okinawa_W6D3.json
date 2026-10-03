@@ -32,5 +32,45 @@
   "geoSource": "No coordinate or street number surfaced",
   "status": "open",
   "statusSource": "Veltra Yokka market-crawl article + Mapple 51283 senbero list (current)"
+ },
+ {
+  "n": "Mekaru Tomb Site, Shintoshin (銘苅墓跡群)",
+  "address": "Mekaru 2-chōme, Naha, Okinawa",
+  "lat": 26.236752,
+  "lng": 127.696008,
+  "confidence": "low",
+  "geoSource": "WGS coordinate 26.236752,127.696008 printed in a search result for the site (extended search; page attributed among ja.wikipedia/rubese gurucomi listing) — consistent with Mekaru 2-chōme opposite Naha fire HQ; upgrade from ja.wiki infobox",
+  "status": "open",
+  "statusSource": "Bunka Isan Online 163218 (national historic site, open hillside) + bunkaisan.exblog visit guide"
+ },
+ {
+  "n": "Gokoku-ji Temple, Naminoue (護国寺)",
+  "address": "1-25-5 Wakasa, Naha, Okinawa",
+  "lat": 26.22005,
+  "lng": 127.67159,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 護国寺 (那覇市) infobox coords 26.2200500,127.67159 (surfaced W5D1 search 16)",
+  "status": "open",
+  "statusSource": "en.wikipedia/Samurai-Archives (active temple adjacent to Naminoue Shrine), 2026-10"
+ },
+ {
+  "n": "BACAR OKINAWA, Kumoji (バカール オキナワ)",
+  "address": "3-16-15 Kumoji, Naha, Okinawa",
+  "lat": 26.216093,
+  "lng": 127.68161,
+  "confidence": "low",
+  "geoSource": "Extended search '<name> 那覇市久茂地3-16-15 緯度 経度' — listing coordinate 26.216092853,127.681609598 from aggregator listings (hotpepper/okinawastory/jalan pages; alt 26.2159843,127.6816842) — consistent with Kumoji 3-16-15",
+  "status": "open",
+  "statusSource": "TableCheck reservation page + OCVB okinawastory gourmet 600010917 + Yelp page updated Feb 2026 (status only)"
+ },
+ {
+  "n": "Ryūkyū Shinmen Tondō, Oroku Honten (琉球新麺 通堂 小禄本店)",
+  "address": "5-4-6 Kanagusuku, Naha, Okinawa 〒901-0155",
+  "lat": 26.198075,
+  "lng": 127.665973,
+  "confidence": "low",
+  "geoSource": "Extended search '<name> 那覇市金城 住所 緯度 経度' — listing coordinate 26.198075,127.665973 (Mapion phonebook / navitime poi 01125-4644r listing) — consistent with Kanagusuku 5-4-6 near Oroku stn",
+  "status": "open",
+  "statusSource": "rurubu spot 80042405 + operator store list ryoji-family.co.jp/store.php (hours 11:00–24:30), 2026-10"
  }
 ]

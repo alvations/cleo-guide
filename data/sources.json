@@ -12364,6 +12364,30 @@
           "rank": 2,
           "verified": true,
           "credible": "Editor-reviewed neighbourhood news site of Temple University's journalism program, covering North Philly and other under-covered neighbourhoods since 2008 — corroborating only."
+        },
+        {
+          "key": "FOODANDWINE",
+          "name": "Food & Wine",
+          "type": "magazine",
+          "rank": 2,
+          "verified": true,
+          "credible": "National food magazine (Meredith/Dotdash) with bylined city restaurant lists — corroborating."
+        },
+        {
+          "key": "PHILLYTRIB",
+          "name": "The Philadelphia Tribune",
+          "type": "newspaper",
+          "rank": 2,
+          "verified": true,
+          "credible": "America's oldest continuously published Black newspaper (1884); Philadelphia neighbourhood business coverage — corroborating."
+        },
+        {
+          "key": "PPS",
+          "name": "Project for Public Spaces",
+          "type": "nonprofit",
+          "rank": 2,
+          "verified": true,
+          "credible": "Nonprofit planning organisation (since 1975) whose placemaking case studies document notable public spaces — corroborating."
         }
       ],
       "creators": [
@@ -13298,6 +13322,110 @@
           "rank": 3,
           "verified": true,
           "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "WALKERPLUS",
+          "name": "Walkerplus / Kansai Walker (KADOKAWA)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "KADOKAWA's regional city-magazine brand; staff-written area features (Little Okinawa guide 107265, Kujō curry 1327226, TUGBOAT_TAISHO opening report 219846). /article/ editorial only"
+        },
+        {
+          "key": "TVTOKYO",
+          "name": "TV Tokyo — Shutsubotsu! Adomachi Tengoku (出没！アド街ック天国)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "national-network TV program (since 1995) that ranks a neighbourhood's top-30 spots; each ranked place has its own broadcaster backnumber page (e.g. 2024-08-17 'Osaka Universal City' episode)"
+        },
+        {
+          "key": "OSAKAMETRO",
+          "name": "OsakaMania (オオサカマニア, Osaka Metro)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "outing site published by Osaka Metro Co. (the city's subway operator); editor-curated 'mania' themes (senbero, machi-yakiniku, neon) with per-shop pages"
+        },
+        {
+          "key": "YAHOOEXPERT",
+          "name": "Yahoo! News Expert (Yahoo!ニュース エキスパート)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Yahoo! JAPAN's vetted-contributor column programme (authors approved by Yahoo News, bylined); weaker than staff press — use only as one corroborating source"
+        },
+        {
+          "key": "LMAGA",
+          "name": "Lmaga.jp (京阪神エルマガジン社)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Kansai city-magazine publisher (Meets Regional / Savvy); staff-reported news on openings and long-running bars"
+        },
+        {
+          "key": "COTRIP",
+          "name": "co-trip (ことりっぷ, Shobunsha)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Shobunsha guidebook brand. CANDIDATE ONLY: it surfaced for Ishikiri Yamatoya, but this pass did not confirm it as editorial"
+        },
+        {
+          "key": "ALLABOUT",
+          "name": "All About (All About Inc.)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "major Japanese expert-guide portal; articles by named subject guides, editorial not user reviews"
+        },
+        {
+          "key": "OGGI",
+          "name": "Oggi.jp (Shogakukan)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Shogakukan national women's magazine web edition; editor-written food features"
+        },
+        {
+          "key": "WARAKU",
+          "name": "和樂web (Shogakukan)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Shogakukan Japanese-culture magazine web edition; bylined features"
+        },
+        {
+          "key": "DAILY",
+          "name": "Daily Sports (デイリースポーツ, Kobe Shimbun group)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "national sports daily of the Kobe Shimbun group; Kansai leisure desk news"
+        },
+        {
+          "key": "OSAKACITY",
+          "name": "Osaka City official (city.osaka.lg.jp)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "municipal government publication (Tennōji area planning PDF) — official, corroborating"
+        },
+        {
+          "key": "METRONINE",
+          "name": "Osaka Metro NiNE (metronine.osaka)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official travel magazine of Osaka Metro Co. with staff-written spot pages and articles (addresses, hours); a municipal-transport editorial outlet, not user reviews."
+        },
+        {
+          "key": "KANPAI",
+          "name": "Kanpai Japan (kanpai-japan.com)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running (2011–) independent Japan travel guide with first-hand venue write-ups in EN/FR; borderline — main session may downgrade to corroboration only."
         }
       ],
       "creators": [
@@ -13330,6 +13458,16 @@
           "scale": "long-running English-language ramen authority in Japan; author of Ramen at Home; runs Osaka ramen-school course",
           "niche": "ramen",
           "credible": "yes — specific venue listing pages"
+        },
+        {
+          "key": "CREATOR_RAMENBEAST",
+          "name": "Ramen Beast",
+          "platform": "app/site (foodle.pro)",
+          "handle": "ramenbeast",
+          "url": "https://foodle.pro/ramenbeast/meals/osaka/61d2ef98d2e0a/10973",
+          "scale": "widely used English ramen guide/app for Japan",
+          "niche": "ramen",
+          "credible": "yes — named on the Japan brief's creator list"
         }
       ]
     },
@@ -16290,6 +16428,14 @@
           "rank": 2,
           "verified": true,
           "credible": "Peer-reviewed encyclopedia of US buildings by the Society of Architectural Historians."
+        },
+        {
+          "key": "AFAR",
+          "name": "AFAR",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
       "creators": [

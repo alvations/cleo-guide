@@ -92,5 +92,53 @@
   "geoSource": "W6G1 2026-10-03: WebSearch extended '助ろく かまぼこ 久米島町嘉手苅423-1 緯度 経度' returned 26.338002439703967,126.76425469796156 for かまぶくの店 助ろく at 字嘉手苅423-1, with the tabelog listing 47007779 as the matching page — aggregator listing coordinate (tabelog = coordinate only, never a recommender), consistent with the sourced address (~10 min drive from Kumejima Airport).",
   "status": "open",
   "statusSource": "tabelog.com 47007779 listing active (no closure flag) 2026-10-03; okinawatimes.co.jp/articles/-/180918 — weak status evidence, recheck on official/SNS"
+ },
+ {
+  "n": "Shinri-hama Beach, Kume Island (シンリ浜)",
+  "address": "113 Ōhara (大原), Kumejima, Shimajiri District, Okinawa, Japan (in front of Cypress Resort Kumejima, by the airport runway)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W6G1 tried: navitime-restricted 'シンリ浜 久米島 緯度 経度' (no spot page; result text gave address 大原113, unattributed) and open 'シンリ浜 久米島町大原 緯度 経度 座標' (no coordinate). Next: navitime/mapion POI for シンリ浜海浜公園.",
+  "status": "open",
+  "statusSource": "sugartravel22.com/kumejima3/ (recent visit) + visitokinawajapan.com/destinations/kume-island/"
+ },
+ {
+  "n": "Hiyajō Banta viewpoint, Kume Island (比屋定バンタ)",
+  "address": "Hiyajō (比屋定), Kumejima, Shimajiri District, Okinawa 901-3102, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W6G1 tried: open extended '比屋定バンタ 緯度 経度' (2 internal passes; pages okinawastory 1379, kanko-kumejima 663, iko-yo 28788, 4travel 10006678, jalan — none returned a coordinate).",
+  "status": "open",
+  "statusSource": "kanko-kumejima.com/spot/see/663/ (Kumejima tourism association, current) + okinawastory.jp/spot/1379"
+ },
+ {
+  "n": "Takatsukiyama Observatory, Zamami (高月山展望台)",
+  "address": "Zamami, Zamami, Shimajiri District, Okinawa, Japan (~137 m; 20 min walk from Zamami Port)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W6G1 tried: '高月山展望台 座間味 navitime 緯度 経度' (rurubu 80043351, tabirai 0003448, keramatour — no coordinate) and Stripes-restricted Zamami GPS search (gave Ama Beach only). jawiki 高月山 is a different mountain (W4G5).",
+  "status": "open",
+  "statusSource": "rurubu.jp/andmore/spot/80043351 + keramatour.world-tours.jp/spot/takatsukiyama-observatory (current)"
+ },
+ {
+  "n": "Aharen-enchi Viewpoint, Tokashiki (阿波連園地)",
+  "address": "Aharen, Tokashiki, Shimajiri District, Okinawa, Japan (southern tip, ~3 km from Aharen village)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W6G1 tried: open extended '阿波連園地 渡嘉敷 展望台 緯度 経度' (okinawastory 600010497, 4travel 11364426, env.go.jp Kerama course 04, tokashiki-island.jp — no coordinate). Lead: env.go.jp national-park course page may carry a map.",
+  "status": "open",
+  "statusSource": "env.go.jp/nature/nationalparks/list/kerama-shoto/course/04/ (Ministry of Environment course incl. the viewpoint) + okinawaclip.com/post/1708908186/"
+ },
+ {
+  "n": "Karaoke Izakaya Marine Box, Tokashiki (カラオケ居酒屋マリンボックス)",
+  "address": "1779-2 Tokashiki, Tokashiki, Shimajiri District, Okinawa, Japan (near Tokashiki Port)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W6G1 tried: open extended 'カラオケ居酒屋マリンボックス 渡嘉敷村渡嘉敷1779-2 緯度 経度' — no coordinate returned. Lead: Yahoo map place znVulqscoa2; tokashiki.info/shop/01301. Note: now trades as 'marine Box とかしき本店 / 創作島人ダイニング'.",
+  "status": "open",
+  "statusSource": "torakichi.osaka/22133.html (visit report May 2026) + tokashiki.info/shop/01301 (Tokashiki tourism association listing)"
+ },
+ {
+  "n": "Todoroki Falls Park, Nago (轟の滝)",
+  "address": "594 Sukuta, Nago, Okinawa, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W6G1 tried: ja.wikipedia-restricted '轟の滝 名護市数久田 wikipedia 座標' — only the disambiguation 轟の滝 surfaced; the Okinawa article's coordinates were not returned. W5D3's unattributed 26.562672,127.988342 still unconfirmed.",
+  "status": "open",
+  "statusSource": "okinawastory.jp/spot/30000063 (OCVB, current) + rurubu.jp/andmore/spot/80042856"
  }
 ]

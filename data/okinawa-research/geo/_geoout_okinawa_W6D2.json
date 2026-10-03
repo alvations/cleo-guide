@@ -32,5 +32,47 @@
   "geoSource": "no coordinate surfaced",
   "status": "open",
   "statusSource": "OCVB gourmet 600004413 (hours 11-15, closed Tue)"
+ },
+ {
+  "n": "Parlor Senri, Kin (パーラー千里) — CLOSED",
+  "address": "Kin, Kin-chō, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "closed 2015; no coordinate surfaced",
+  "status": "closed",
+  "statusSource": "Ryukyu Shimpo prentry-245848: closed 29 June (2015) after 31 years"
+ },
+ {
+  "n": "Busena Marine Park Underwater Observatory, Nago (ブセナ海中公園 海中展望塔)",
+  "address": "1744-1 Kise, Nago-shi, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "jawiki article surfaced without coordinates in search result",
+  "status": "open",
+  "statusSource": "rurubu spot 80042865 + Okinawa Traveler shop 53 (current hours/fees listing)"
+ },
+ {
+  "n": "Wajī Spring Cliffs & Lookout, Ie Island (湧出展望台)",
+  "address": "Near 3674 Agarie-ue, Ie-son, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "address only (付近) from rurubu; no coordinate surfaced",
+  "status": "open",
+  "statusSource": "rurubu spot 80043246 (free, always open)"
+ },
+ {
+  "n": "Sakihama Seimen, Onna (崎濱製麺)",
+  "address": "847 Yamada, Onna-son, Okinawa 904-0416",
+  "confidence": "UNVERIFIED",
+  "geoSource": "no coordinate surfaced",
+  "status": "open",
+  "statusSource": "OTV okitive 59912 (hours 11-16, closed Sun; reopened Apr 2024)"
+ },
+ {
+  "n": "Ryukyu Mura, Onna (琉球村)",
+  "address": "1130 Yamada, Onna-son, Okinawa 904-0416",
+  "lat": 26.4299197,
+  "lng": 127.77476798,
+  "confidence": "low",
+  "geoSource": "Mapion POI page ILSP0000118896 URL prints 26.4299197,127.77476798 (aggregator listing coordinate; consistent with Yamada 1130, Onna; an unattributed summary also gave 26.43003,127.774929, ~20 m away)",
+  "status": "open",
+  "statusSource": "official site ryukyumura.co.jp + Onna Village cocoico spot 497 (current)"
  }
 ]

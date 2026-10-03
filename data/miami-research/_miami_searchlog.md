@@ -160,3 +160,51 @@
 159 Time Out 17 Mexican ∩ Infatuation 13 Mexican — no new intersections
 160 Infatuation 18 Broward (Lai Rai, Pupusatime, Chef Tally, Cleveland's Ice Cream, Dar Tajine, Larb, Ten Ten, Gabose, Tacos El Papi, Mai-Kai, Tabanka, Nour Thai, Bok Bok Baby, Phở Bar, Cap's, Mimi's) → Nour Thai (∩ NT hidden gems)
 161 Infatuation Wynwood listings (Hiyakawa, Zak, Uchi, Hiden, Cowy Burger, Cotidiano, 1-800-Lucky, La Fama, Cerveceria La Tropical, El Bajareque…) — no 2nd outlet in hand; held for next wave
+
+## Session 4 (2026-10-03)
+1 NT Best of Miami 2025 South Dade → Pinecrest Bakery (Best Bakery 2025, already in)
+2 Little Havana things to do (GMCVB 12 historic sites, treksplorer) → Cubaocho (held, 1 credible)
+3 Little Haiti/Design District/MiMo → Little Haiti Cultural Complex (GMCVB+AFAR)
+4 GMCVB 12 historic sites Little Havana — list not surfaced
+5 Kendall sights → Gold Coast RR, Wings Over Miami (Time Out), Larry & Penny Thompson (Wikipedia only, held)
+6 Hialeah/Doral sights → Amelia Earhart Park, Bay of Pigs Museum leads
+7 Wikipedia coords: Gold Coast RR, Wings Over Miami, Larry&Penny (3 high)
+8 Wikipedia coords: Bayside, Jungle Island, Gesu Church (3 high)
+9 Wikipedia: Little Haiti/MiMo/Moore — only neighbourhood centroids (rejected)
+10 Time Out downtown things — SEO only
+11 Wikipedia: Bay of Pigs Museum (1821 SW 9th St), Amelia Earhart Park (no coords printed)
+12 Wikipedia coords: Pinecrest Gardens, Black Point Marina (high)
+13 GMCVB domain: Pinecrest Gardens, Amelia Earhart Park, Jungle Island, Bayside pages
+14 Time Out domain: Gold Coast RR, Pinecrest Gardens, Jungle Island pages
+15-17 Status: Wings Over Miami (hours), Jungle Island (2026 ops), Gold Coast RR + LHCC (2026 events)
+18 NT Kendall (Milly's, Lan, Dr. Limón Best Ceviche 2024)
+19 NT/Inf South Dade (Two Chefs, Café Pastis, Black Point Ocean Grill, Babe's) → 2 added after 20
+20 Infatuation Kendall URLs (Milly's review)
+21 Infatuation MBCH held (Kissaki SB CLOSED → drop; Casa Isola 6.7 → drop; Carbone, Byblos negative → drop; Taquiza 8.2; Abbalé 7.7)
+22 TO/NT MBCH held (Papi Steak, CJ's, Las Olas Cafe, Big Pink)
+23 TO URLs: Taquiza, Big Pink, Abbalé (SB 24 list), Neya (Surfside, held)
+24 Wikipedia coords: Versailles, Mai-Kai, Cap's Place (3 high restaurant pins)
+25 Wikipedia: Ball & Chain / Club Deuce / Robert Is Here — no coords
+26 Google !3d!4d probe (Taquiza) — nothing (confirms restaurant pins not reachable via search)
+27 Wikipedia: L'Atelier Robuchon Miami (high); Cote/Le Jardinier Miami coords not printed
+28 Wikipedia: Michael's Genuine / Schnebly / Coopertown — none
+29 Wikipedia: Rustic Inn (high)
+30 Wikipedia Michelin FL category — all article-bearing Miami restaurants already pinned
+31-33 Status: Cap's Place, Rustic Inn, Pinecrest Gardens/Amelia Earhart (open)
+34 Status: Bayside Marketplace (open)
+35-36 (refused: sun-sentinel.com not accessible to the search tool — never include it)
+37 Infatuation/TO/Fodor's FTL held (Ukiah review, Top Hat Deli review, Burlock Coast forum-only → held)
+38 NT/BPB FTL held (Peter Pan, Hot Dog Heaven — "for sale after 45 yrs", status unclear → held, Egg N' You, NT 16 best FTL)
+39 NT/BPB Broward Infatuation-18 names (Gabose NT+BPB)
+40 Infatuation guide URLs: 20 classic FTL, 18 Broward (U Know Korean Bistro held)
+41 NT 16 best FTL (Runway 84, Larb, Coconuts, Takato, Heritage, Greek Islands, Vitolo, Ukiah)
+42 BPB Hollywood/Pompano/Dania best (Le Tub, Billy's Stone Crab, GG's, GoBistro, J&C Oyster, Tipsy Boar, Krakatoa; Fish Shack, Cafe La Buca, Calypso; Dania Beach Bar & Grill)
+43 Fodor's/Inf: Le Tub (Infatuation negative → DROP), Cafe Martorano, Quarterdeck (Fodor's FTL restaurants page) held
+44 Visit Lauderdale: Billy's Stone Crab, GG's, J&C (listing only → held), Calypso → 3 added
+45 Visit Lauderdale/Wikipedia Broward sights (NSU Art Museum, Antique Car Museum (held), Young At Art, Fisher Family Pier)
+46 Wikipedia coords NSU Art Museum (high); Young at Art (old Davie coord → rejected)
+47 Inf/TO NMIA held (Steve's Pizza Inf+TO, Perl review, Bulldog BBQ CLOSED → drop)
+48 NT/TO Infatuation-only NMIA (Lutong Pinoy TO+NT; Chung Hing/Boteco not found)
+49 Infatuation 14 best NMB list (Barra Callao, Korean Kitchen, Panya, Topkapi, Farofa, Sim Sim, Basilic, Sang's, King Palace, Sichuan Fish, Pho Mi 2 Go, Lutong Pinoy)
+50 NT Best Restaurant Aventura 2025 = Perl; NT NMB lists
+51 NT for Sang's, Pho Mi 2 Go, Basilic → 3 added; Sim Sim, Topkapi, Sichuan Fish held (Inf only)
