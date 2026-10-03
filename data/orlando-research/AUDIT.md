@@ -350,3 +350,29 @@
 - Budget: ≈190 WebSearch (≈80 discovery/corroboration, ≈15 status, ≈95 pins).
 - Rebuild → 4 gates PASS · validate DATA OK · npm test ALL PASS → **207 sights + 166 food = 373 on the map** (wave start 328), 522 researched,
   food share 56.3%, density 18/18 OK.
+
+## 2026-10-03 P1 — PINS ONLY (session_014tccsddAZhWkWHE1pGLan6, ~58 searches, no discovery)
+- **+14 pins (373 → 387 on page; 149 → 135 unpinned)** in `geo/_geoout_pins1003.json`:
+  high — Aquatica Orlando (Waze place, 5800 Water Play Way), Wondermade (Waze), The Boathouse (Waze), Black Hammock Restaurant
+  (Waze), Vines Grille & Wine Bar (Waze); med — Raglan Road, Wine Bar George (usarestaurants listings, Disney Springs street
+  addresses), Morimoto Asia (Waze place close to the Disney Springs centre record → med), The Cowfish (Waze CityWalk venue record),
+  The Strand (RG, 807 N Mills), Taste of Chengdu (RG — **address corrected to 4856 New Broad St**, Baldwin Park; the 2030 W
+  Colonial branch is a different record), Estefan Kitchen (RG, 3269 Margaritaville Blvd), Bacán + Nami (Lake Nona Wave Hotel
+  building pin — both restaurants are inside the hotel).
+- **Rejected / held:** Wikipedia's Aquatica coordinate (28.4054,-81.4617 — ~1.2 km off the Waze place; not used); Will's Pub,
+  Zymarium, Kōri, City Food Hall, Current Seafood, Orlando Fire Museum → only Waze bare STREET records came back (never place
+  pins); Toothsome → only the CityWalk centre; Hard Rock Cafe → the coordinate surfaced beside the Hard Rock *Live* record
+  (ambiguous, held); Polite Pig → coordinate belonged to Volcom/Levi's at the same 1536 address (held); Smugglers Run / Cat in the
+  Hat / Jurassic Park River Adventure → park- or land-level wiki coords only (never centroids); Gideon's → only the Corrine Dr
+  branch surfaced; Liberty Tree Tavern / Three Broomsticks → no in-park venue pin (RG gave the Hollywood branch).
+- **Status flags for the next pass (not changed here):** Carib Brewery USA — its phone (321-728-4114) is now listed for
+  "321 Lime House" at Cape Canaveral → possible rebrand/closure, check before pinning; Persimmon Hollow Brewing — no current
+  listing at 111 W Georgia Ave, DeLand (Orlando/Port Orange/Winter Garden taprooms only) → check whether the DeLand brewery
+  closed/moved; Kōri listed at **741** N Mills (record says 721).
+- **Channel notes:** in-park restaurants remain the hard core (~60): RG lists few Disney/Universal venues; Waze has some (The
+  Cowfish, Boathouse) — query `<Name> <park/complex> <street address> latitude longitude` with the waze/usarestaurants/foursquare
+  triad. Disney Springs venues with their own E Buena Vista Dr numbers hit ~60%.
+- **Build:** rebuild-city --build → 522 places, **387 on page**; --sourcecheck PASS · --geocheck PASS (high 206 · med 175 · low 6) ·
+  --statuscheck CONSISTENT · --buildcheck PASS · npm validate DATA OK · npm test ALL PASS; `_orl_golive.py` refreshed card + row.
+  Pinned per area: CWALK 3/10 · DAK 12/24 · DHS 12/20 · DSP 12/25 · DTO 40/50 · EAST 9/10 · EPCOT 29/35 · EPIC 11/20 · IDR 42/45 ·
+  IOA 9/20 · KISS 32/35 · MILLS 48/60 · MK 23/33 · SPACE 20/25 · SPRNG 27/30 · USF 9/20 · WEST 13/15 · WPK 36/45.
