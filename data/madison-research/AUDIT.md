@@ -77,3 +77,25 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
   (high 12 · med 13) · statuscheck CONSISTENT · buildcheck PASS · npm validate DATA OK · npm test ALL PASS.
 - **Channel mix:** editorial (Time Out/Isthmus/Cap Times/Madison Mag/Travel WI) 37/40 · institutional (JB 6,
   NPS 2, UNESCO 1) · reader vote 5 · creators 0 (creator pass not yet run) · local-rec (City Cast) 4.
+
+## 2026-10-03 · W2b — sights per area + Wright trail + day trips; go-live
+- **Searches:** ~35 more (session total ~117). Wikipedia/NRHP infobox coordinates are the reliable pin channel
+  (≈90% hit); restaurant pins via latlong.net POIs ≈50% (three attempts each for Toby's/Fairchild/Sourdough failed).
+- **Sights added (SIGHTS_W2b.json, 12):** Jacobs House (UNESCO 2019, private — exterior), First Unitarian
+  Meeting House (NHL), Chazen Museum of Art, Robert M. Lamp House (Atlas Obscura; exterior), Camp Randall,
+  International Crane Foundation, Circus World (NHL), Pendarvis (WHS site), Blue Mound SP, Picnic Point
+  (GNIS point), Aldo Leopold Shack (NHL), Overture Center.
+- **Food added (FOOD_W2d.json, 1):** Wollersheim Winery (DANE; NRHP; Wikipedia + OnMilwaukee).
+- **Held (pinned/sourced partly, not added):** MMoCA (coords 43.07452,-89.38891 from Wikipedia but no 2nd
+  recommender yet); Wisconsin Veterans Museum (2026 status unclear — 30 W Mifflin slated for demolition/rebuild,
+  WXOW/WDVA; needs a status check before adding); American Players Theatre, Swiss Historical Village, Mount Horeb
+  Trollway, Pheasant Branch, Ingersoll Physics Museum, Bascom Hill — sourced, but no place-pin coordinate found.
+- **Rule-4a corrections:** street addresses I first typed from memory (Devil's Lake, Cave of the Mounds, Vilas
+  Zoo, Wollersheim) replaced with sourced localities before any merge.
+- **UNVERIFIED queued (geo/_geoout_w2_unverified.json, 12):** Toby's, Fairchild, Pig in a Fur Coat,
+  Fromagination, Lao Laan-Xang, La Rosita, Short Stack (closed), Madison Sourdough, Villa Tap, Ahan, Public
+  Parking, Buck & Honey's — each with a sourced 2026 status; coordinates for tools/geocode-helper.html.
+- **Build + gates:** 41 on the page (23 sights + 18 food) of 53 researched. sourcecheck PASS 53/53 · geocheck
+  PASS (high 25 · med 16) · statuscheck CONSISTENT (Short Stack flagged — CLOSED) · buildcheck PASS · npm
+  validate DATA OK · npm test ALL PASS.
+- **Go-live:** CARD:madison-wi relinked live ("first wave", 41 mapped / 53 researched); docs/CITIES.md row updated.
