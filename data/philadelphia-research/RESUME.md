@@ -24,7 +24,13 @@ flock -w 3600 $LOCK python3 tools/rebuild-city.py philadelphia-pa --build   # + 
 ```
 
 ## In-flight wave
-(none — W4 batches 1-3 committed 2026-10-03, session_01ECt8nbbQXGgxskj1179NHd; see State (W4).)
+**W5 (2026-10-03, session_01MqoZKuTGYq8oSdEz2K3dLu) — pins first, then NEED areas.**
+- Pin pass A (background agent, ≤50 searches): Wikipedia-article / host-building coordinates for ~40 unpinned restaurants
+  → `geo/_geoout_w5_pinA.json`. Probe this session: Google `!3d!4d` again NOT surfaced (cid links only); mapcarta dry for
+  restaurants — confirms the W4 lesson.
+- Discovery (main thread): NPH food (El Bohio/La Sierra/El Príncipe 2nd source), DAY food, UCW +6, MAIN +6, FISH +7, NW +5, SPH +5,
+  CC +3, NE +2, SJ +1 → `FOOD_W5.json` / `SIGHTS_W5.json` / `CREATORS_W5.json`.
+- Then rebuild --build → 4 gates → validate/test → card/CITIES/run-log.
 
 ## State (2026-10-03, after W4)
 - Discovered + sourced: **456** (172 sights, 284 food) — sourcecheck PASS 456/456. Page: **179 on map** (150 sights + 29 food).

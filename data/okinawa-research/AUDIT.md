@@ -203,3 +203,7 @@ reached (harness: 200/200). Not live: 89 pins (rendered food only 13 — restaur
 - **Build:** 302 discovered (143 sights + 159 food & drink = 53 %), **183 pinned** (high 89 · med 45 · low 49); sourcecheck PASS,
   geocheck PASS, statuscheck CONSISTENT, buildcheck PASS; validate DATA OK; npm test ALL PASS. Pins/area NAHA 42 · CHUBU 38 · NANBU 26 ·
   HOKBU 36 · KRM 8 · MYK 13 · YAEYA 20 → **not live** (go-live bar needs every area ≥10 pins; KRM 8). Session WebSearch cap 200/200 reached.
+
+## 2026-10-03 — W6 (fresh session, 8 bg agents, ~190 searches; rules `_okinawa_w6_agentrules.md`)
+- W6A (anime/creators, 12 searches): +2 ANIME sights — KIN Sunrise Beach (Okitsura manhole + Kan-Kin-Bay collab; Ryukyu Shimpo + Kin Town + OCVB film office + official beach site; med NAVITIME pin) and Michi-no-Eki Ginoza (Okitsura manhole; Ryukyu Shimpo + Kin Town + Rurubu + All About + Ginoza village; high ja-WP pin). Creators kept 0 (Haisai Tanteidan: 1.1M subs verified but no video naming a mapped place; 2 rejected). Held: Naha Shureimon Poké Lid (single source).
+- W6G2 (main-island food pins, 28 searches): 25 geo records — 2 med (ja-WP), 17 low (aggregator coords matched to street address), 6 UNVERIFIED; 26 not reached (all NAHA). **Fixes applied:** Manmi is in Nago (伊差川251), not Motobu → renamed `Shima-buta Shichirin-yaki Manmi, Nago` and address corrected; 新山そば reads Shinzan → renamed `Shinzan Soba (新山そば)` (all research + geo files).
