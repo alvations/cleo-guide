@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Osaka field guide — 126 sights and 171 places to eat, each traceable to its source (Michelin, UNESCO, Japanese press and vetted creators) on one interactive map with area, collection and cuisine filters.">
+<meta name="description" content="Osaka field guide — 136 sights and 173 places to eat, each traceable to its source (Michelin, UNESCO, Japanese press and vetted creators) on one interactive map with area, collection and cuisine filters.">
 <title>Osaka Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Osaka (大阪), sourced</p>
   <h1>Osaka<span class="thin">Kita · Minami · the Castle · Shinsekai · the Bay · Kansai day trips</span></h1>
-  <p class="standfirst">126 sights and 171 places to eat across <strong>Osaka</strong> — the city of <em>kuidaore</em>, eat till you drop — every one traceable to its source: okonomiyaki teppan, kushikatsu counters, Michelin Bib Gourmand udon and soba, Kita and Minami, the castle, the bay and the Kansai ring. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">136 sights and 173 places to eat across <strong>Osaka</strong> — the city of <em>kuidaore</em>, eat till you drop — every one traceable to its source: okonomiyaki teppan, kushikatsu counters, Michelin Bib Gourmand udon and soba, Kita and Minami, the castle, the bay and the Kansai ring. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Japan/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -316,9 +316,11 @@ const S = {
   "FEELKOBE":{k:"FEELKOBE",t:"Feel KOBE — Kobe Tourism Bureau official guide",u:"https://www.feel-kobe.jp/en/",l:"Feel KOBE — Kobe Tourism Bureau official guide"},
   "INSIDEOSAKA":{k:"INSIDEOSAKA",t:"Inside Osaka",u:"https://insideosaka.com/",l:"Inside Osaka"},
   "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"japan-guide.com — Osaka",u:"https://www.japan-guide.com/e/e2157.html",l:"japan-guide.com — Osaka"},
+  "JATA88":{k:"JATA88",t:"Anime Tourism Association — Japanese Anime Tourism 88-Spots",u:"https://animetourism88.com/",l:"Anime Tourism Association — Japanese Anime Tourism 88-Spots"},
   "JNTO":{k:"JNTO",t:"JNTO — Japan National Tourism Organization (japan.travel)",u:"https://www.japan.travel/",l:"JNTO — Japan National Tourism Organization (japan.travel)"},
   "KOBENP":{k:"KOBENP",t:"Kobe Shimbun",u:"https://www.kobe-np.co.jp/",l:"Kobe Shimbun"},
   "KUMANICHI":{k:"KUMANICHI",t:"Kumamoto Nichinichi Shimbun (Kyodo News wire)",u:"https://kumanichi.com/",l:"Kumamoto Nichinichi Shimbun (Kyodo News wire)"},
+  "LMAGA":{k:"LMAGA",t:"Lmaga.jp (京阪神エルマガジン社)",u:"https://www.lmaga.jp/",l:"Lmaga.jp (京阪神エルマガジン社)"},
   "METRONINE":{k:"METRONINE",t:"Osaka Metro NiNE (metronine.osaka)",u:"https://metronine.osaka/en/",l:"Osaka Metro NiNE (metronine.osaka)"},
   "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
   "OSAKAINFO":{k:"OSAKA INFO",t:"OSAKA-INFO (Osaka Convention & Tourism Bureau)",u:"https://osaka-info.jp/en/",l:"OSAKA-INFO (Osaka Convention & Tourism Bureau)"},
@@ -326,6 +328,8 @@ const S = {
   "TIMEOUT":{k:"TIME OUT",t:"Time Out Osaka",u:"https://www.timeout.com/osaka",l:"Time Out Osaka"},
   "UNESCO":{k:"UNESCO",t:"UNESCO World Heritage Centre",u:"https://whc.unesco.org/",l:"UNESCO World Heritage Centre"},
   "VISITHYOGO":{k:"VISITHYOGO",t:"HYOGO! Tourism Guide / Visit Hyogo",u:"https://www.hyogo-tourism.jp/",l:"HYOGO! Tourism Guide / Visit Hyogo"},
+  "VISITWAKAYAMA":{k:"VISITWAKAYAMA",t:"Visit Wakayama — official tourism site of Wakayama Prefecture",u:"https://visitwakayama.jp/en/",l:"Visit Wakayama — official tourism site of Wakayama Prefecture"},
+  "WALKERPLUS":{k:"WALKERPLUS",t:"Walkerplus / Kansai Walker (KADOKAWA)",u:"https://www.walkerplus.com/",l:"Walkerplus / Kansai Walker (KADOKAWA)"},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"}
 };
 
@@ -467,7 +471,17 @@ const P = [
 {t:2,a:"TNJ",n:"Chausuyama (茶臼山古墳, Tennōji Park)",ad:"1 Chausuyama-chō, Tennōji-ku, Osaka",la:34.65168,ln:135.51234,w:"26 m mound in Tennōji Park long held to be a 5th-century kofun; it was Tokugawa Ieyasu's HQ in the Winter Siege and Sanada Yukimura's in the Summer Siege of Osaka (1614–15). Summit markers explain the battle.",k:"historic site",g:["FREE","VIEW","CASTLE","NATURE"],s:[["WIKIPEDIA","https://ja.wikipedia.org/wiki/%E8%8C%B6%E8%87%BC%E5%B1%B1%E5%8F%A4%E5%A2%B3_(%E5%A4%A7%E9%98%AA%E5%B8%82)"],["OSAKAINFO","https://osaka-info.jp/en/spot/chausuyama-tennoji-park/"]]},
 {t:3,a:"TNJ",n:"Yasui Shrine (安居神社)",ad:"1-3-24 Ōsaka (逢阪), Tennōji-ku, Osaka",la:34.65448,ln:135.51093,w:"Small hillside shrine on the Tennōji slopes where Sanada Yukimura is said to have fallen in 1615; also linked to Sugawara no Michizane.",k:"shrine",g:["TEMPLE","FREE","CASTLE"],s:[["WIKIPEDIA","https://ja.wikipedia.org/wiki/%E5%AE%89%E5%B1%85%E7%A5%9E%E7%A4%BE"],["OSAKAINFO","https://osaka-info.jp/en/spot/yasuijinja/"]]},
 {t:3,a:"TNJ",n:"Sankō Shrine & Sanada Yukimura statue (三光神社)",ad:"14-90 Tamatsukuri-honmachi, Tennōji-ku, Osaka",la:34.67300,ln:135.52939,w:"Tamatsukuri shrine guarding a bronze statue of Sanada Yukimura and the 'Sanada tunnel' entrance near the site of his Sanada-maru fort.",k:"shrine",g:["TEMPLE","FREE"],s:[["WIKIPEDIA","https://ja.wikipedia.org/wiki/%E4%B8%89%E5%85%89%E7%A5%9E%E7%A4%BE"],["OSAKAINFO","https://osaka-info.jp/en/spot/statue-sanada-yukimura/"]]},
-{t:3,a:"MINAM",n:"Misono Building (味園ビル) — CLOSED",ad:"Sennichimae, Chuo-ku, Osaka",la:34.66561,ln:135.50525,w:"1956 Sennichimae leisure building whose 2nd-floor warren of tiny bars and the Misono Universe hall made it an Ura-Namba nightlife legend; tenants left at the end of 2024 and the whole building closed on 5 July 2025 ahead of redevelopment.",k:"nightlife",closed:1,g:["NIGHT","CASTLE"],s:[["OSAKAINFO","https://osaka-info.jp/en/spot/popculture-misono/"],["TIMEOUT","https://www.timeout.jp/osaka/ja/news/last-day-of-misono-universe-072225"],["WIKIPEDIA","https://ja.wikipedia.org/wiki/%E5%91%B3%E5%9C%92%E3%83%93%E3%83%AB"]]}
+{t:3,a:"MINAM",n:"Misono Building (味園ビル) — CLOSED",ad:"Sennichimae, Chuo-ku, Osaka",la:34.66561,ln:135.50525,w:"1956 Sennichimae leisure building whose 2nd-floor warren of tiny bars and the Misono Universe hall made it an Ura-Namba nightlife legend; tenants left at the end of 2024 and the whole building closed on 5 July 2025 ahead of redevelopment.",k:"nightlife",closed:1,g:["NIGHT","CASTLE"],s:[["OSAKAINFO","https://osaka-info.jp/en/spot/popculture-misono/"],["TIMEOUT","https://www.timeout.jp/osaka/ja/news/last-day-of-misono-universe-072225"],["WIKIPEDIA","https://ja.wikipedia.org/wiki/%E5%91%B3%E5%9C%92%E3%83%93%E3%83%AB"]]},
+{t:2,a:"MINAM",n:"Daimaru Shinsaibashi Main Building (大丸心斎橋店 本館, Vories)",ad:"Shinsaibashi-suji 1-chōme, Chūō-ku, Osaka",la:34.67392,ln:135.50094,w:"William Merrell Vories' 1933 neo-Gothic department store on Midōsuji; rebuilt 2019 reusing the original tiled façade, peacock relief and Art Deco interiors — Lmaga runs Vories architecture walks here and OSAKA-INFO lists it as a historic-architecture highlight.",k:"architecture / department store",g:["ICON","ARCH","SHOP","CASTLE"],s:[["OSAKAINFO","https://osaka-info.jp/spot/daimaru-shinsaibashi/"],["LMAGA","https://www.lmaga.jp/news/2019/09/76753/"],["WIKIPEDIA","https://ja.wikipedia.org/wiki/%E5%A4%A7%E4%B8%B8"]]},
+{t:2,a:"TNJ",n:"Aizen-dō Shōman-in (愛染堂勝鬘院)",ad:"5-36 Yūhigaoka-chō, Tennōji-ku, Osaka",la:34.65711,ln:135.51292,w:"Temple of Aizen Myōō, the deity of love and marriage, whose 1597 Hideyoshi-rebuilt tahōtō pagoda is an Important Cultural Property and the oldest wooden building in Osaka city; its Aizen Matsuri (30 Jun–2 Jul) opens Osaka's summer festival season.",k:"temple",g:["TEMPLE","FREE"],s:[["WIKIPEDIA","https://ja.wikipedia.org/wiki/%E5%8B%9D%E9%AC%98%E9%99%A2"],["OSAKAINFO","https://en.osaka-info.jp/spot/shomanin/"],["TIMEOUT","https://www.timeout.com/osaka/things-to-do/aizen-festival"]]},
+{t:3,a:"TNJ",n:"Abe Ōji Shrine (阿倍王子神社)",ad:"9-4 Abeno-motomachi, Abeno-ku, Osaka",la:34.63100,ln:135.50911,w:"The only surviving Kumano Kodō 'ōji' waypoint shrine inside Osaka city, counted fourth of the 99 Kumano ōji and traditionally founded under Emperor Nintoku.",k:"shrine",g:["TEMPLE","FREE"],s:[["WIKIPEDIA","https://ja.wikipedia.org/wiki/%E9%98%BF%E5%80%8D%E7%8E%8B%E5%AD%90%E7%A5%9E%E7%A4%BE"],["OSAKAINFO","https://osaka-info.jp/en/spot/abeojijinja/"]]},
+{t:3,a:"TNJ",n:"Abeno Shrine (阿部野神社)",ad:"Kitabatake, Abeno-ku, Osaka",la:34.62833,ln:135.49953,w:"Meiji-era shrine to the loyalist Kitabatake Akiie and his father Chikafusa, near the site where Akiie fell in 1338; a quiet stop on the Abeno–Sumiyoshi tram walk.",k:"shrine",g:["TEMPLE","FREE"],s:[["WIKIPEDIA","https://ja.wikipedia.org/wiki/%E9%98%BF%E9%83%A8%E9%87%8E%E7%A5%9E%E7%A4%BE"],["OSAKAINFO","https://osaka-info.jp/en/spot/abenojinja/"]]},
+{t:2,a:"TNJ",n:"Spa World (スパワールド, Shinsekai)",ad:"3-4-24 Ebisu-higashi, Naniwa-ku, Osaka",la:34.64997,ln:135.50564,w:"Giant Shinsekai bathhouse with themed European and Asian bath floors (17 hot-spring styles from 12 countries) plus a rooftop pool — Osaka's classic day-long soak.",k:"onsen",g:["ONSEN","NIGHT","POP"],s:[["WIKIPEDIA","https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%91%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89"],["OSAKAINFO","https://www.e-pass.osaka-info.jp/en/premium/facility/detail?id=49"]]},
+{t:2,a:"KITA",n:"Kiddy Land Umeda",ad:"Hankyu Sanbangai, Umeda, Kita-ku, Osaka",la:34.70464,ln:135.49856,w:"Kiddy Land's Kansai flagship (renewed April 2017 with Hankyu Sanbangai): character-specialist corners (Snoopy, Rilakkuma, Miffy and more), nekomart and toy/fancy goods.",k:"★ Anime & pop culture — Character goods — Kiddy Land, Japan's classic character-toy chain, Kansai flagship · shop",g:["ANIME","POP","MUS"],s:[["OSAKAINFO","https://osaka-info.jp/en/osaka/pop-culture/pop-culture-osakanippombashi-sakaisuji/"],["WALKERPLUS","https://www.walkerplus.com/article/102354/"]]},
+{t:2,a:"MINAM",n:"Jump Shop Osaka Shinsaibashi",ad:"Daimaru Shinsaibashi 9F, Shinsaibashi-suji, Chuo-ku, Osaka",la:34.67392,ln:135.50094,w:"Weekly Shōnen Jump's official shop (One Piece, Dragon Ball, Demon Slayer, Jujutsu Kaisen merch) on Daimaru Shinsaibashi's 9th-floor pop-culture zone beside Pokémon Center Osaka DX.",k:"★ Anime & pop culture — Weekly Shōnen Jump — the magazine's official store (One Piece, Dragon Ball, JJK) · shop",g:["ANIME","POP"],s:[["OSAKAINFO","https://osaka-info.jp/en/osaka/pop-culture/pop-culture-osakanippombashi-sakaisuji/"],["WALKERPLUS","https://www.walkerplus.com/kanko/topics/article/namba/"]]},
+{t:2,a:"MINAM",n:"Shinsaibashi PARCO Character Floors (Chiikawa Land · Donguri Republic)",ad:"Shinsaibashi PARCO 5F–6F, 1-8-3 Shinsaibashi-suji, Chuo-ku, Osaka",la:34.67389,ln:135.50083,w:"Shinsaibashi PARCO's 'POP CULTURE SHINSAIBASHI' floors gather character flagships with photo spots — Chiikawa Land (creator Nagano's official shop, 6F), a large Donguri Republic Ghibli store, Kiddy Land and more; directly linked to Shinsaibashi Station.",k:"★ Anime & pop culture — Chiikawa & Studio Ghibli — Osaka's character-shop floor (Chiikawa Land, Donguri Republic) · shop",g:["ANIME","POP"],s:[["LMAGA","https://www.lmaga.jp/news/2020/11/183455/"],["LMAGA","https://www.lmaga.jp/news/2022/03/413453/"],["OSAKAINFO","https://osaka-info.jp/special/universal/tourism/%E5%BF%83%E6%96%8E%E6%A9%8Bparco/"],["WALKERPLUS","https://www.walkerplus.com/kanko/topics/article/namba/"]]},
+{t:3,a:"KITA",n:"Gashapon Department Store HEP FIVE (Umeda)",ad:"HEP FIVE 9F, Umeda, Kita-ku, Osaka",la:34.70400,ln:135.50045,w:"Bandai's capsule-toy hall — about 1,000 gashapon machines, opened Dec 2020 as the chain's first Kansai store and billed as the region's largest; since March 2023 it trades inside Bandai Namco Cross Store Osaka Umeda, beside the HEP FIVE Ferris wheel.",k:"★ Anime & pop culture — Gashapon — Bandai's capsule-toy department store, ~1,000 machines of anime/character capsules · shop",g:["ANIME","POP","MUS","NIGHT"],s:[["WALKERPLUS","https://www.walkerplus.com/article/1014519/"],["METRONINE","https://metronine.osaka/article_tour/20240209-capsule-toy-hepfive"]]},
+{t:2,a:"KNSAI",n:"Tomogashima Islands (Wakayama)",ad:"Miyama, Wakayama City, Wakayama (ferry from Kada Port)",la:34.28222,ln:135.01194,w:"Four uninhabited islands in the Kitan Strait with overgrown Meiji-era fort ruins, 20 min by ferry from Kada; the real-world model for Hitogashima in Wakayama-born Yoshinori Tanaka's Summer Time Rendering, selected for the 2023 Anime Tourism 88 with Wakayama City.",k:"★ Anime & pop culture — Summer Time Rendering — model for the series' island Hitogashima; Anime Tourism 88 (2023, Wakayama City) · nature",g:["ANIME","POP","NATURE","CASTLE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4930.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Summer_Time_Rendering"],["VISITWAKAYAMA","https://visitwakayama.jp/en/attractions/detail_577.html"],["OFFICIAL","https://www.city.wakayama.wakayama.jp/_res/projects/default_project/_page_/001/043/504/1223-4.pdf"]]}
 ];
 
 const FS = {
@@ -481,16 +495,20 @@ const FS = {
   "CREATOR_RAMENADVENTURES":{k:"CREATOR RAMENADVENTURES",t:"Ramen Adventures (Brian MacDuckston)",u:"https://ramenadventures.com/listing/mentokokoro-seven-osaka/",l:"Ramen Adventures (Brian MacDuckston)"},
   "DAILY":{k:"DAILY",t:"Daily Sports (デイリースポーツ, Kobe Shimbun group)",u:"https://www.daily.co.jp/",l:"Daily Sports (デイリースポーツ, Kobe Shimbun group)"},
   "DAILYSPORTS":{k:"DAILYSPORTS",t:"DAILYSPORTS",u:"",l:""},
+  "DANCYU":{k:"DANCYU",t:"DANCYU",u:"",l:""},
   "FEELKOBE":{k:"FEELKOBE",t:"Feel KOBE — Kobe Tourism Bureau official guide",u:"https://www.feel-kobe.jp/en/",l:"Feel KOBE — Kobe Tourism Bureau official guide"},
   "GLTJP":{k:"GLTJP",t:"GOOD LUCK TRIP (gltjp.com)",u:"https://www.gltjp.com/en/",l:"GOOD LUCK TRIP (gltjp.com)"},
   "HYOGOTOURISM":{k:"HYOGOTOURISM",t:"HYOGO! Tourism Guide (Hyōgo Tourism Bureau)",u:"https://www.hyogo-tourism.jp/",l:"HYOGO! Tourism Guide (Hyōgo Tourism Bureau)"},
   "INSIDEKYOTO":{k:"INSIDEKYOTO",t:"Inside Kyoto (Chris Rowthorn)",u:"https://www.insidekyoto.com/",l:"Inside Kyoto (Chris Rowthorn)"},
   "INSIDEOSAKA":{k:"INSIDEOSAKA",t:"Inside Osaka",u:"https://insideosaka.com/",l:"Inside Osaka"},
+  "JALONTRIP":{k:"JALONTRIP",t:"OnTrip JAL (Japan Airlines travel magazine, ontrip.jal.co.jp)",u:"https://ontrip.jal.co.jp/",l:"OnTrip JAL (Japan Airlines travel magazine, ontrip.jal.co.jp)"},
   "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"japan-guide.com — Osaka",u:"https://www.japan-guide.com/e/e2157.html",l:"japan-guide.com — Osaka"},
   "JAPANTIMES":{k:"THE JAPAN TIMES",t:"THE JAPAN TIMES",u:"",l:""},
   "JNTO":{k:"JNTO",t:"JNTO — Japan National Tourism Organization (japan.travel)",u:"https://www.japan.travel/",l:"JNTO — Japan National Tourism Organization (japan.travel)"},
   "KOBENP":{k:"KOBENP",t:"Kobe Shimbun",u:"https://www.kobe-np.co.jp/",l:"Kobe Shimbun"},
+  "LMAGA":{k:"LMAGA",t:"Lmaga.jp (京阪神エルマガジン社)",u:"https://www.lmaga.jp/",l:"Lmaga.jp (京阪神エルマガジン社)"},
   "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet — Osaka",u:"https://www.lonelyplanet.com/articles/guide-to-osaka-japan",l:"Lonely Planet — Osaka"},
+  "MAPPLE":{k:"MAPPLE",t:"Mapple / まっぷるウェブ (Shobunsha Publications)",u:"https://www.mapple.net/",l:"Mapple / まっぷるウェブ (Shobunsha Publications)"},
   "METRONINE":{k:"METRONINE",t:"Osaka Metro NiNE (metronine.osaka)",u:"https://metronine.osaka/en/",l:"Osaka Metro NiNE (metronine.osaka)"},
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide Japan — Osaka region selection",u:"https://guide.michelin.com/us/en/osaka-region/restaurants",l:"MICHELIN Guide Japan — Osaka region selection"},
   "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN Guide Japan 2026 — Osaka region Bib Gourmand",u:"https://guide.michelin.com/us/en/osaka-region/restaurants/bib-gourmand",l:"MICHELIN Guide Japan 2026 — Osaka region Bib Gourmand"},
@@ -504,7 +522,7 @@ const FS = {
   "OSAKAMETRO":{k:"OSAKAMETRO",t:"OsakaMania (オオサカマニア, Osaka Metro)",u:"https://osakamania.jp/",l:"OsakaMania (オオサカマニア, Osaka Metro)"},
   "RURUBU":{k:"RURUBU",t:"Rurubu (るるぶ, JTB Publishing)",u:"https://www.rurubu.jp/",l:"Rurubu (るるぶ, JTB Publishing)"},
   "SAKAITCB":{k:"SAKAITCB",t:"Sakai Tourist & Convention Bureau (sakai-tcb.or.jp)",u:"https://www.sakai-tcb.or.jp/",l:"Sakai Tourist & Convention Bureau (sakai-tcb.or.jp)"},
-  "SAVORJAPAN":{k:"SAVOR JAPAN",t:"SAVOR JAPAN",u:"",l:""},
+  "SAVORJAPAN":{k:"SAVOR JAPAN",t:"SAVOR JAPAN 'Discover Oishii Japan' editorial (Gurunavi)",u:"https://savorjapan.com/contents/discover-oishii-japan/",l:"SAVOR JAPAN 'Discover Oishii Japan' editorial (Gurunavi)"},
   "SERAI":{k:"SERAI",t:"SERAI",u:"",l:""},
   "SILICONERA":{k:"SILICONERA",t:"SILICONERA",u:"",l:""},
   "TABELOG100":{k:"TABELOG HYAKUMEITEN",t:"TABELOG HYAKUMEITEN",u:"",l:""},
@@ -727,7 +745,9 @@ const F = [
 {t:2,a:"KITA",n:"Man-u",ad:"5F, 1-2-33 Dojima, Kita-ku, Osaka 530-0003",cz:["IZAKAYA"],la:34.69620,ln:135.49986,w:"Michelin Guide Japan 2026-listed oden counter by a kappo-trained chef; featured in Michelin's 'Naniwa on a Plate' piece on old-Osaka flavours.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/man-u"],["MICHELIN_EDITORIAL","https://guide.michelin.com/jp/en/best-of/osaka_cuisine"]]},
 {t:1,a:"KITA",n:"Yoshiko",ad:"1-8-5 Sonezakishinchi, Kita-ku, Osaka 530-0002",cz:["FINE"],la:34.69738,ln:135.50018,w:"One Michelin star (2026); second-generation fugu chef in Kitashinchi, wife a certified sake advisor — Osaka is one of Japan's biggest fugu-eating cities.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/yoshiko"],["MICHELIN_EDITORIAL","https://guide.michelin.com/jp/en/best-of/osaka_cuisine"]]},
 {t:3,a:"CHUO",n:"Macauda",ad:"2-1-3 Tokiwamachi, Chuo-ku, Osaka 540-0028",cz:["INT"],la:34.68241,ln:135.51436,w:"Michelin Guide Japan 2026-listed southern-Italian kitchen specialising in fish; picked by Michelin's inspectors among Osaka's best casual lunches under ¥2,000.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/macauda"],["MICHELIN_EDITORIAL","https://guide.michelin.com/sg/en/best-of/michelin_recommended_restaurants-lunch-for-under-2-000-yen-in-osaka"]]},
-{t:3,a:"KITA",n:"il luogo di TAKEUCHI",ad:"5-1-26 Fukushima, Fukushima-ku, Osaka 553-0003",cz:["INT"],la:34.69697,ln:135.49005,w:"Michelin Guide Japan 2026-listed Fukushima trattoria; on Michelin's inspector list of Osaka casual lunches under ¥2,000.",s:[["MICHELIN","https://guide.michelin.com/en/osaka-region/osaka/restaurant/il-luogo-di-takeuchi"],["MICHELIN_EDITORIAL","https://guide.michelin.com/sg/en/best-of/michelin_recommended_restaurants-lunch-for-under-2-000-yen-in-osaka"]]}
+{t:3,a:"KITA",n:"il luogo di TAKEUCHI",ad:"5-1-26 Fukushima, Fukushima-ku, Osaka 553-0003",cz:["INT"],la:34.69697,ln:135.49005,w:"Michelin Guide Japan 2026-listed Fukushima trattoria; on Michelin's inspector list of Osaka casual lunches under ¥2,000.",s:[["MICHELIN","https://guide.michelin.com/en/osaka-region/osaka/restaurant/il-luogo-di-takeuchi"],["MICHELIN_EDITORIAL","https://guide.michelin.com/sg/en/best-of/michelin_recommended_restaurants-lunch-for-under-2-000-yen-in-osaka"]]},
+{t:1,a:"EAST",n:"Katamachi Kawaguchi (片町 川口)",ad:"1-3-11 Katamachi, Miyakojima-ku, Osaka 534-0025",cz:["KAISEKI"],la:34.69300,ln:135.52625,w:"Chef Hiroshi Kawaguchi's kaiseki counter near Kyōbashi, reopened under this name in 2023; awarded One MICHELIN Star in the Michelin Guide Kyoto Osaka 2025.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/katamachi-kawaguchi"]]},
+{t:1,a:"MINAM",n:"Naniwa Menjiro (なにわ 麺次郎)",ad:"4-1-17 Namba, Chūō-ku, Osaka 542-0076 (inside Kintetsu Osaka-Namba Station — platform ticket needed)",cz:["RAMEN"],la:34.66730,ln:135.49785,w:"Michelin Guide-listed ramen counter inside Kintetsu Osaka-Namba Station and a Tabelog Ramen OSAKA Hyakumeiten 2025 pick; the clam-dashi Ōgonkai ramen is the signature, with Oigatsuo ramen as runner-up.",s:[["MICHELIN","https://guide.michelin.com/th/th/osaka-region/osaka/restaurant/naniwa-menjiro"],["TABELOG100","https://award.tabelog.com/hyakumeiten/ramen_osaka/2025"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -752,7 +772,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([34.683,135.3833],10);
+  map = L.map('map',{scrollWheelZoom:false}).setView([34.6829,135.3821],10);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -836,7 +856,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Kita", 34.7, 135.5019], ["Minami", 34.6699, 135.5036], ["Chūō", 34.6828, 135.507], ["Tennōji", 34.6559, 135.5145], ["East Osaka", 34.6888, 135.5661], ["Bay Area", 34.6547, 135.4278], ["Southern Osaka", 34.5173, 135.4946], ["Hokusetsu", 34.8141, 135.5227], ["Kansai day trips", 34.6577, 135.1534]];
+const LABELS=[["Kita", 34.7, 135.5019], ["Minami", 34.6701, 135.5032], ["Chūō", 34.6828, 135.507], ["Tennōji", 34.6543, 135.5136], ["East Osaka", 34.6891, 135.5636], ["Bay Area", 34.6547, 135.4278], ["Southern Osaka", 34.5173, 135.4946], ["Hokusetsu", 34.8141, 135.5227], ["Kansai day trips", 34.6433, 135.148]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1175,7 +1195,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 297 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 309 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
