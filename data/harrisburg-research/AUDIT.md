@@ -99,3 +99,14 @@
 - **Build:** 49 pins on page; --sourcecheck PASS · --geocheck PASS · --statuscheck CONSISTENT · --buildcheck PASS ·
   npm validate DATA OK · npm test ALL PASS. **index.html card relinked LIVE** (49 mapped / 111 researched);
   docs/CITIES.md row added.
+
+## Stage 2–7 — wave W6 (2026-10-03, same session, ~13 searches)
+- Added 9: Lancaster Museum of Art, Long's Park (LAN); Indian Steps Museum, Columbia–Wrightsville Bridge & Zimmerman
+  Center, Hanover Junction station (YORK); Riverfront Park & Holocaust Memorial, 1700 Degrees Steakhouse (HBG — Mashed
+  "best steakhouse in PA" 2025 via abc27); Choo Choo Barn (AMISH); The Hotel Hershey (HER — Hershey Archives +
+  Historic Hotels of America + SAH Archipedia; Wikipedia used only for the pin).
+- Held: Mount Everest Nepali & Indian (CPBJ + CBS21 opening news only — a mention is not merit), Momo Hunt (no 2nd
+  source), Agricultural & Industrial Museum / Fire Museum of York County (nonprofit directory only), Harrisburg
+  Magazine Simply the Best 2025 list (not retrievable).
+- Totals: 120 discovered (38 food + 82 sights), 54 pinned; all gates green; card + CITIES.md counts refreshed.
+- Discovery-stage addresses to confirm in the helper pass: Choo Choo Barn (226 Gap Rd), Hotel Hershey (100 Hotel Rd).

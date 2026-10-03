@@ -103412,13 +103412,13 @@
    },
    "Hershey Gardens & Butterfly Atrium": {
     "address": "170 Hotel Rd, Hershey, PA 17033",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 40.2987,
+    "lng": -76.657,
+    "source": "Wikipedia infobox (Hershey_Gardens) 40°17′55″N 76°39′25″W",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
-    "statusSource": "https://extension.psu.edu/great-greenhouses-of-pennsylvania-hershey-gardens",
+    "statusSource": "cpbj.com free-admission weekend report; PSU Extension feature",
     "statusChecked": "2026-10-03"
    },
    "Haines Shoe House": {
@@ -104002,6 +104002,105 @@
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "visithersheyharrisburg.org listing (current)",
+    "statusChecked": "2026-10-03"
+   },
+   "Indian Steps Museum": {
+    "address": "205 Indian Steps Rd, Airville, PA 17302",
+    "lat": 39.86333,
+    "lng": -76.37583,
+    "source": "Wikipedia infobox (Indian_Steps_Cabin) 39°51′48″N 76°22′33″W",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "visitpa.com listing (current)",
+    "statusChecked": "2026-10-03"
+   },
+   "Columbia–Wrightsville Bridge & Zimmerman Center": {
+    "address": "Zimmerman Center, 1706 Long Level Rd, Wrightsville, PA 17368",
+    "lat": 40.028444,
+    "lng": -76.518222,
+    "source": "published bridge coordinate 40°01'42.4\"N 76°31'05.6\"W (pin on the bridge span)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "nps.gov Susquehanna article (Zimmerman Center operating)",
+    "statusChecked": "2026-10-03"
+   },
+   "Riverfront Park & Holocaust Memorial": {
+    "address": "Front St & Sayford St, Harrisburg, PA 17102",
+    "lat": 40.2674,
+    "lng": -76.8925,
+    "source": "Wikipedia infobox (Riverfront_Park_(Harrisburg)) 40°16′03″N 76°53′33″W (linear park; point mid-park)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "public city park",
+    "statusChecked": "2026-10-03"
+   },
+   "Lancaster Museum of Art": {
+    "address": "135 N Lime St, Lancaster, PA 17602",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "discoverlancaster.com directory (current)",
+    "statusChecked": "2026-10-03"
+   },
+   "The Hotel Hershey": {
+    "address": "100 Hotel Rd, Hershey, PA 17033",
+    "lat": 40.2998,
+    "lng": -76.6596,
+    "source": "Wikipedia (Hotel Hershey) 40.2998,-76.6596; TopoQuest 40.30009,-76.65969 agrees",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "historichotels.org member listing (operating)",
+    "statusChecked": "2026-10-03"
+   },
+   "Choo Choo Barn": {
+    "address": "226 Gap Rd, Strasburg, PA 17579",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "visitpa.com listing; open mid-March–Dec",
+    "statusChecked": "2026-10-03"
+   },
+   "Hanover Junction Railroad Station": {
+    "address": "PA Route 616, Hanover Junction (North Codorus Twp), PA 17362",
+    "lat": 39.84361,
+    "lng": -76.77722,
+    "source": "Wikipedia infobox (Hanover_Junction_Railroad_Station) 39°50′37″N 76°46′38″W",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "witf.org feature; Heritage Rail Trail station (open)",
+    "statusChecked": "2026-10-03"
+   },
+   "Long's Park": {
+    "address": "1441 Harrisburg Pike, Lancaster, PA 17603",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "public city park; summer series ongoing (lancasterpa.com)",
+    "statusChecked": "2026-10-03"
+   },
+   "1700 Degrees Steakhouse": {
+    "address": "1 N 2nd St (Hilton Harrisburg), Harrisburg, PA 17101",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "abc27.com 2025 report (operating)",
     "statusChecked": "2026-10-03"
    }
   },
