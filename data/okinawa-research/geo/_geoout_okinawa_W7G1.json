@@ -108,5 +108,35 @@
   "geoSource": "Listing coordinate 26.30837784,127.81298350 surfaced by WebSearch extended 'みやんち STUDIO&COFFEE 沖縄市与儀1-29-22 緯度 経度' (results: tabelog 47011332 dtlmap, gnavi 5tj47ntu0000, Yahoo map 3mqLy6IhcKs — exact aggregator not identified); consistent with sourced address 与儀1-29-22.",
   "status": "open",
   "statusSource": "Official site miyanchi.jp/about/ and oki-raku.net current listing"
+ },
+ {
+  "n": "Tsurukame-dō Zenzai, Yomitan (鶴亀堂ぜんざい)",
+  "address": "248-1 Zakimi, Yomitan, Okinawa",
+  "lat": 26.406196,
+  "lng": 127.742291,
+  "confidence": "low",
+  "geoSource": "Retty listing 100000716941 coordinate 26.406196,127.7422909; Hotpepper strJ000721777 (26.406302,127.742223) and a third listing (26.406205,127.742296) agree within ~12 m; surfaced by WebSearch extended '鶴亀堂ぜんざい 読谷村座喜味248-1 緯度 経度'. Consistent with sourced address 座喜味248-1, opposite Zakimi Castle ruins.",
+  "status": "open",
+  "statusSource": "hotpepper.jp/strJ000721777 (Yomitan honten) and flatview.okinawa tsurukamedo2109 current listings"
+ },
+ {
+  "n": "Okinawa Daiichi Hotel breakfast (沖縄第一ホテル 薬膳朝食)",
+  "address": "1-1-12 Makishi, Naha, Okinawa",
+  "lat": 26.216149,
+  "lng": 127.684257,
+  "confidence": "low",
+  "geoSource": "Two listing coordinates agree within ~2 m (26.21614857,127.68425748 and 26.2161399,127.6842478) surfaced by WebSearch extended '沖縄第一ホテル 那覇市牧志1-1-12 緯度 経度' (results: tabelog 47009640, 4travel dm_hotel-11289486, OCVB okinawastory.jp/stay/1183, GLTJP 13461 — exact aggregator not identified); consistent with sourced address 牧志1-1-12 (Miebashi end of Kokusai-dōri).",
+  "status": "open",
+  "statusSource": "OCVB okinawastory.jp/stay/1183 and GLTJP directory 13461 current listings (hotel operating, breakfast served)"
+ },
+ {
+  "n": "Yagi Ryōri Misaki, Sakaemachi (山羊料理 美咲)",
+  "address": "388-6 Asato (Sakaemachi), Naha, Okinawa",
+  "lat": 26.216412,
+  "lng": 127.696016,
+  "confidence": "low",
+  "geoSource": "Retty listing 100000728628 coordinate 26.216412,127.696016; Tabelog 47004238 (26.216429,127.695974) agrees ~5 m, Ekiten shop_38197137 (26.216484,127.696617) ~60 m; surfaced by WebSearch extended '山羊料理 美咲 那覇市安里388-6 緯度 経度'. Consistent with sourced address 安里388-6 (Sakaemachi, 1 min from Asato stn).",
+  "status": "open",
+  "statusSource": "okinawa-c.site yagi-misaki_230111 and Retty current listing (17:30-2:00, closed Sun/holidays)"
  }
 ]
