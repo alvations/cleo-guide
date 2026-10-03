@@ -18,7 +18,7 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
 Total ~216.
 
 ## Acceptance
-- [ ] Every area OK in density.py; every food card names a dish; ≥2 credible per place.
+- [x] Every area OK in density.py (W8); every food card names a dish; ≥2 credible per place.
 - [ ] Every place status-checked (closures kept-flagged).
 - [ ] `--sourcecheck` PASS · `--geocheck` PASS · `--statuscheck` CONSISTENT · `--buildcheck` PASS · npm validate/test.
 - [ ] index.html card relinked live with counts; docs/CITIES.md row.
@@ -37,7 +37,16 @@ Total ~216.
 - Rendered (pinned) per area: AMISH 17 · CAR 7 · GBG 14 · HBG 21 · HER 16 · LAN 8 · YORK 15.
 
 ## In-flight wave
-- **W8 (2026-10-03, session_014zSqoUsvHc6U5mJKtpL7hf)**: discovery LAN +16, HBG +12, YORK +11, CAR +5, AMISH +3 (food ≥50%/area) → FOOD_W8.json / SIGHTS_W8.json; then pins (Wikipedia coords for sights, Apple/Waze/restaurantguru for food) → geo/_geoout_w8.json.
+- none. NEXT (ordered, wave 9):
+  1. **Pins (62 UNVERIFIED)** — biggest remaining gap. Technique that works here: one place per query,
+     `"<Name> <street> <town> latitude longitude"` with `allowed_domains:["waze.com","usarestaurants.info","foursquare.com"]`
+     (~60% hit). Misses → tools/geocode-helper.html (docs/GEOCODE-BACKLOG.md). Priorities: CAR (13/20 rendered), GBG (17/24),
+     YORK (21/34): Gift Horse, Mudhook, Green Bean, Graham Rooftop/Yorktowne, Harley tour, YCHC, AIM, Fire Museum; GBG Farnsworth,
+     Hollabaugh, Adams County Winery, Battlefield Brew Works, Shriver House, Culp's Hill; CAR Market Cross, Hamilton, Helena's,
+     CCHS, Boiling Springs; Issei (new Orange St site), Proof, Square One, Hands-on House, LMA, Long's Park.
+  2. Depth beyond target (optional): Yi Pin (needs a non-Inquirer 2nd source), Citronnelle, Cafe Fresco, Leo's, Central Family,
+     Lancaster Puerto Rican canon (J&J Mofongo / El Rincón Ponceño need merit), Broad Street Market stands.
+  3. Creators: still none verifiable for this region — try `Lancaster PA food tour youtube` / Amish country vlog with a named piece.
 - Prior NEXT (ordered):
   1. **Pins**: restaurantguru (`allowed_domains:["restaurantguru.com"]`, one place per query, `<Name> <street> <town>
      coordinates`) for the remaining food UNVERIFIED in geo/_geoout_w6pending.json (Bird-in-Hand Farmers Market, Root's,
@@ -67,6 +76,12 @@ Total ~216.
      status; Intercourse Pretzel Factory; Countryside Road Stand; Strasburg Creamery; Choo Choo Barn).
   6. Creators: find a Lancaster-place-naming piece for Santenello; verify Uriot scale.
 - Held/single-source + rejected sources: AUDIT.md 2026-10-03 sections.
+
+- **2026-10-03 W8 (session_014zSqoUsvHc6U5mJKtpL7hf, ~160 searches): every area OK.** +47 (33 food + 14 sights; FOOD_W8 /
+  SIGHTS_W8) → 218 discovered (120 food = 55%, ≥50% every area); +58 pins (Wikipedia/NPS + Waze/usarestaurants) → **156 on page**;
+  62 UNVERIFIED; 4 gates green; validate/test pass; hub card + CITIES.md + AGENT-PROMPTS row refreshed.
+- Density (discovered / target): AMISH 40/40 · CAR 20/20 · GBG 24/22 · HBG 38/38 · HER 24/24 · LAN 38/38 · YORK 34/34 — all OK.
+- Rendered (pinned) per area: AMISH 30 · CAR 13 · GBG 17 · HBG 29 · HER 20 · LAN 26 · YORK 21.
 
 ## Files
 - `FOOD_*.json` / `SIGHTS_*.json` — research records by wave tag. `geo/_geoout_*.json` — geocode results.

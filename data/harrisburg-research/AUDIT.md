@@ -164,3 +164,56 @@
 - **Status:** every W7 record status-checked (statusSource in geoout) — 0 closed among the added; closures above dropped.
 - **Build:** rebuild-city --build → 171 places, 98 pinned on page, 73 UNVERIFIED held; --sourcecheck PASS 171/171 ·
   --geocheck PASS · --statuscheck CONSISTENT · --buildcheck PASS · npm validate DATA OK · npm test ALL PASS.
+
+## Stage 1–7 — wave W8 close every NEED + pins (2026-10-03, session_014zSqoUsvHc6U5mJKtpL7hf, ~160 searches)
+- **Goal:** density.py NEED LAN +16, HBG +12, YORK +11, CAR +5, AMISH +3 (food ≥50% per area), then pin the unpinned.
+- **Discovery (≈45 searches, outlet-restricted `allowed_domains`):** LNP (hidden gems, speakeasy bars, readers' cocktails,
+  Passenger/Food & Wine, OpenTable romantic 2025, Wilbur, Trinity Lutheran, ice-cream lists) · Discover Lancaster (downtown
+  dining, fine dining, coffee, outdoor dining, family attractions, Gallery Row, Penn Medicine Park, Amish experiences) ·
+  Inquirer/LaBan "15 places" (May 2026) + Inquirer Lancaster weekend (May 2026) · Lancaster County Magazine · VisitPA ·
+  TheBurg (bakeries, High Dive, Bacco, Mount Everest, Governor's Residence) · FOX43 "Matt vs. Food: Harrisburg" · Visit Hershey
+  & Harrisburg (uniquely Harrisburg, cool cocktails, Farm Show, Statue of Liberty kayak trail) · Atlas Obscura · WITF · Uncovering PA
+  (Harrisburg free things, Fire Museum, Farm Show, downtown York itinerary, York breweries, York County History Center,
+  Fire Museum of York County, Dickinson) · Explore York (beer guide, AIM, Brown's) · DCNR · Historic Hotels of America ·
+  The Sentinel (Watershed Pub, Caffe 101, Something's Brewing) · Visit Cumberland Valley (West Shore, beer trail, CCHS) · abc27.
+- **Added 47 (FOOD_W8.json 33 food & drink + SIGHTS_W8.json 14 sights):**
+  LAN 16 — Issei Noodle & Hi-Fi Izakaya, Southern Market, Proof, Tellus360, Annie Bailey's, Passenger Coffee, Prince Street Cafe,
+  Square One, Josephine's Downtown, Thistle Finch, Lombardo's · North Museum, Hands-on House, Gallery Row, Penn Medicine Park,
+  Holy Trinity Lutheran. HBG 12 — Jackson House, Alvaro Bread & Pastry, Anna Rose Bakery, High Dive, Watershed Pub (Camp Hill),
+  Mount Everest Nepali (now 2 credible: TheBurg feature review + abc27 — W1 hold lifted), Bacco · Dauphin Narrows Statue of Liberty,
+  Wildwood Park, PA National Fire Museum, Governor's Residence, Farm Show Complex. YORK 11 — Gift Horse, Mudhook, Liquid Hero,
+  Graham Rooftop Lounge (Yorktowne Hotel, merged with the hotel to avoid a duplicate pin), Green Bean, Brown's Orchards,
+  Stony Run · York County History Center Museum (2024 steam-plant campus), Gifford Pinchot SP, Fire Museum of York County,
+  Agricultural & Industrial Museum. CAR 5 — Caffe 101, Desperate Times, Molly Pitcher Brewing · Cumberland County Historical
+  Society, Dickinson College & Trout Gallery. AMISH 3 — Strasburg Creamery, Countryside Road-Stand, Wilbur Chocolate Store.
+- **Channel mix (47):** local editorial of record 27 (LNP, TheBurg, FOX43, abc27, WITF, Sentinel) · regional/national press 6
+  (Inquirer ×3, Historic Hotels of America, LCM ×2) · tourism boards 33 (Discover Lancaster, Visit Hershey, Explore York, VCV,
+  VisitPA, DCNR) · travel sites 21 (Uncovering PA, Atlas Obscura, Amish America) · creators 0 (none surfaced; still held).
+- **MEASURED & DROPPED / HELD:** Appalachian Brewing HBG flagship — first-floor restaurant CLOSED (abc27) → not added ·
+  Accomac Inn — closed 2018 (WITF) → not added · Wolfgang Candy — retail store closed 2016, B2B now → not added · Boiling Springs
+  Tavern — closed for multi-year renovation (Sentinel) → not added · Café Bruges — status unresolved → not added · Yi Pin — LaBan
+  + LNP-about-LaBan only (1 outlet) → held · Citronnelle, 401 Prime (Vescor padding), Cafe Fresco, Home 231, Mangia Qui, Federal
+  Taphouse (TripAdvisor-only measurement) → held · Leo's, Inside Scoop, King Tut, Jewels of India (Sentinel only) → held · Broad
+  Street Market stands (TheBurg only, share the market pin) → held · J&J Mofongo / El Rincón Ponceño (opening news only) → held ·
+  Central Family Restaurant (Explore York listing only) → held · Wacker Brewing (taproom moved to Willow Street) → not added.
+- **Food share after W8:** 120 food / 98 sights = **55%**; per area AMISH 22/18 · CAR 11/9 · GBG 12/12 · HBG 20/18 · HER 12/12 ·
+  LAN 24/14 · YORK 19/15 — every area ≥50%. density.py: **every area OK** (218 vs ~216 target).
+- **Geocode (geo/_geoout_w8.json, ≈110 searches):** sights via Wikipedia/NPS coordinates, 2 names per query (3-name batches
+  conflated coordinates once — Penn Square monument got Fulton's coords → rejected); restaurants via Waze live-map place records /
+  usarestaurants.info listings (`"<Name> <street> <town> latitude longitude"`, allowed_domains waze/usarestaurants/foursquare;
+  Apple Maps still gives bare place-id= URLs here). **58 new pins** (W8 + older UNVERIFIED): 41 high (Waze place with matching
+  name+address, Wikipedia/NPS) · 17 med (listing pins, park/campus coordinates, same-address building pins: Chellas = Cabalar's
+  former 325 N Queen building; Science Factory = 454 New Holland Ave building). Rejected: Lancaster Central Market wiki coord
+  (minute-precision centroid → used Waze place instead), Countryside Road-Stand waze hit (out of region), Sight & Sound
+  snippet coord without a source (later pinned from Waze). **Address corrections:** Josephine's → 50 W Grant St; Liquid Hero →
+  50 E North St; Watershed Pub → 2129 Market St; Caffe 101 → 101 Front St; Anna Rose → 100 N 2nd St; Cabalar Meat Co. → moved to
+  501 W Lemon St (LNP 2024; Chellas took 325 N Queen); Snyder's of Hanover → 1350 York St. Issei: only the pre-2024 44 N Queen
+  listing pin surfaced; LaBan says it moved to Orange St → kept UNVERIFIED rather than pin the old site.
+- **UNVERIFIED (62 → helper):** new — Issei, Proof, Square One, Anna Rose, Mount Everest, High Dive, Gift Horse, Mudhook, Green Bean,
+  Graham Rooftop, Strasburg Creamery, Countryside Road-Stand, Cabalar (new site), Snyder's + W8 sights Hands-on House, Gallery Row,
+  YCHC museum, Fire Museum of York County, AIM, CCHS, PA National Fire Museum; plus the older backlog (docs/GEOCODE-BACKLOG.md).
+- **Status:** every W8 record status-checked (statusSource in geoout); Little Round Top confirmed reopened 2024-06-24 (WNEP);
+  Governor's Residence stays on tour after the April 2025 arson (TheBurg); 0 closed among the added.
+- **Build:** rebuild-city --build → 218 places, **156 on page** (was 98); --sourcecheck PASS · --geocheck PASS · --statuscheck
+  CONSISTENT · --buildcheck PASS · npm validate DATA OK · npm test ALL PASS. Rendered per area: AMISH 30 · CAR 13 · GBG 17 ·
+  HBG 29 · HER 20 · LAN 26 · YORK 21.

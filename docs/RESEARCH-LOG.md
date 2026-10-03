@@ -561,3 +561,12 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - pennlive.com, ydr.com, eveningsun.com and eater.com are blocked as `allowed_domains` (400). YDR content is reachable via aol.com/yahoo.com syndication; Sentinel via cumberlink.com.
 - Best yield per search: one critic's list (Craig LaBan's 2026 Lancaster 15) + one magazine reader vote (LCM Best of Lancaster) gave 2 independent outlets for ~8 places in 3 searches.
 
+
+### 2026-10-03 — Harrisburg W8: Waze place records pin PA restaurants; 2-name Wikipedia batches
+- `"<Name> <street> <town> latitude longitude"` with `allowed_domains:["waze.com","usarestaurants.info","foursquare.com"]` pinned
+  ~60% of south-central PA restaurants/markets (Waze live-map `place.w.*`/`ChIJ…` records with matching name+address = high;
+  usarestaurants listing = med). It also surfaces **address drift** (Josephine's, Liquid Hero, Snyder's, Cabalar moved) — always
+  compare the returned street to the record before accepting.
+- Batching **3** names per Wikipedia-coordinate query conflated coordinates (Penn Square monument returned Fulton Theatre's);
+  **2** per query was reliable. Reject minute-precision coords (e.g. 40.033,-76.300) as centroids.
+- Dead ends: pennlive.com, ydr.com, eveningsun.com, eater.com, nytimes.com, foodandwine.com are blocked for allowed_domains here.
