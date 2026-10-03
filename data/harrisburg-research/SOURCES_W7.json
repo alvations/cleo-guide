@@ -1,0 +1,44 @@
+{
+ "outlets": [
+  {
+   "key": "WINESPECTATOR",
+   "name": "Wine Spectator Restaurant Awards",
+   "type": "award",
+   "url": "https://www.winespectator.com/restaurants",
+   "credible": "National wine-list award (Award of Excellence) \u2014 a real juried award; counts as one source.",
+   "rank": 2
+  },
+  {
+   "key": "TRAVELAWAITS",
+   "name": "TravelAwaits",
+   "type": "travel",
+   "url": "https://www.travelawaits.com",
+   "credible": "National travel site with bylined writers who visited (Gettysburg 15-places piece) \u2014 one corroborating source, not a lone authority.",
+   "rank": 3
+  },
+  {
+   "key": "GBGTIMES",
+   "name": "Gettysburg Times",
+   "type": "editorial",
+   "url": "https://www.gettysburgtimes.com",
+   "credible": "Adams County daily newspaper of record.",
+   "rank": 1
+  },
+  {
+   "key": "WNEP",
+   "name": "WNEP-TV (ABC 16)",
+   "type": "editorial",
+   "url": "https://wnep.com",
+   "credible": "Scranton/Wilkes-Barre ABC affiliate newsroom; used to cite the NYT list.",
+   "rank": 2
+  },
+  {
+   "key": "LEBTOWN",
+   "name": "LebTown",
+   "type": "editorial",
+   "url": "https://lebtown.com",
+   "credible": "Lebanon County nonprofit local news; Lebanon Valley Food Critics column.",
+   "rank": 2
+  }
+ ]
+}
