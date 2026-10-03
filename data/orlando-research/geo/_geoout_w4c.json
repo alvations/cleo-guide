@@ -300,5 +300,48 @@
   "lng": null,
   "confidence": "UNVERIFIED",
   "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+ },
+ {
+  "n": "Lakeside Inn (Mount Dora)",
+  "address": "Mount Dora, FL",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Lakeside_Inn_(Mount_Dora,_Florida) (listed as operating)",
+  "lat": 28.79778,
+  "lng": -81.645,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Lakeside_Inn_(Mount_Dora,_Florida)): 28.79778,-81.645",
+  "note": ""
+ },
+ {
+  "n": "Donnelly House (Mount Dora)",
+  "address": "Mount Dora, FL",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Donnelly_House_(Mount_Dora,_Florida) (listed as operating)",
+  "lat": 28.80056,
+  "lng": -81.645,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Donnelly_House_(Mount_Dora,_Florida)): 28.80056,-81.645",
+  "note": ""
+ },
+ {
+  "n": "Sanford Commercial District & RiverWalk",
+  "address": "Downtown Sanford, FL",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Sanford_Commercial_District (listed as operating)",
+  "lat": 28.81167,
+  "lng": -81.2675,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Sanford_Commercial_District): 28.81167,-81.2675",
+  "note": ""
+ },
+ {
+  "n": "The Smiling Bison",
+  "address": "Downtown Sanford, FL",
+  "status": "open",
+  "statusSource": "Recommended as open in https://www.orlandoweekly.com/orlando/20-essential-sanford-restaurants-you-probably-shouldve-tried-by-now/Slideshow/30946809",
+  "lat": null,
+  "lng": null,
+  "confidence": "UNVERIFIED",
+  "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
  }
 ]

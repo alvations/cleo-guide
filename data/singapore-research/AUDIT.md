@@ -628,3 +628,8 @@ Area code **PGL** (slug `punggol`, target ~93). Files: `FOOD_PUNGGOL.json` (5), 
 - Channels: editorial 13 (Eatbook, Seth Lui, DFD, MTC, TSL, Honeycombers, HGW, Tatler Asia, Sassy Mama, Little Day Out), institutional/ref 2 (Wikipedia, HDB), architecture media 2 (designboom, RTF), creators 0 (none vetted for Punggol).
 - Gates: geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck FAIL only on the 46 pre-existing single-source places elsewhere (none PGL/NVN). validate DATA OK · npm test ALL PASS.
 - Held/dropped detail: _note_PUNGGOL.md / _note_NOVENA.md "W4".
+
+## 2026-10-03 — PGL + NVN W4 batch 2
+- PGL +2 food (75 Ah Balling One Punggol, Xiang Chi Mian) → 60/93; pins 25→29. NVN pins 37→42 (density 56/55 OK).
+- New geocode method: OneMap (SLA) building search-result URLs via WebSearch allowed_domains onemap.gov.sg — 5 buildings resolved (Northshore Plaza I, Waterway Terraces I, Royal Square at Novena, Goldhill Plaza, Balmoral Plaza); partial index, see _note_* for misses.
+- Gates: geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck 46 pre-existing (none PGL/NVN) · validate OK · npm test ALL PASS.
