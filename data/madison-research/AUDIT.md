@@ -237,3 +237,22 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
   King of Falafel, Bierock (City Cast only); Owen Conservation Park, Elver Park, Livsreise (Destination Madison only);
   Indian Lake County Park (no source surfaced); new 2025–26 openings (One Social Food Hall, Begonia, Taj) — too new to
   measure. Eno Vino reported closing (Cap Times) — not added.
+
+## 2026-10-03 · W6 (fresh session) — pin pass first
+- **Channel:** Apple Maps (`allowed_domains: maps.apple.com`) mostly returned bare `place-id=` URLs for single-place queries
+  (Toby's), but a *street-level* query ("A Pig in a Fur Coat Madison Williamson") returned Apple URLs carrying `coordinate=`
+  for several places at once (Pig in a Fur Coat, Sardine). The workhorse was the Akron-W4 fallback: one place per query,
+  `"<Name> <street address> latitude longitude"` + `allowed_domains: [waze.com, usarestaurants.info, foursquare.com]`.
+- **Searches:** ~68 → **48 new pins** (geo/_geoout_w6.json): 37 `high` (Waze place record or Apple pin with matching
+  name + address), 11 `med` (usarestaurants.info listing coordinate; Ahan = same-address listing of predecessor tenant
+  Eldorado Grill at 744 Williamson). Page: **74 → 122 pinned** of 153.
+- **Addresses upgraded** (vague → street address, from Waze/Foursquare records): Rex's Innkeeper, Maple Tree, Capital
+  Brewery, Clasen's, Lombardino's, Player's, Greenbush Bakery, Marigold Kitchen, Driftless Glen, Del-Bar, Baumgartner's,
+  Paul's Pel'meni (414 W Gilman), Firefly, Drumlin Ridge, Bailey's Run, Heritage Tavern, Tipsy Cow, Ishnala, Dorf Haus;
+  address only (still UNVERIFIED): Stone Porch (950 Kimball Ln), Imperial Garden (2039 Allen Blvd), Natt Spil (211 King St),
+  Tip Top Tavern (601 North St), Harvey House (644 W Washington Ave), Chocolate Shoppe (468 State St).
+- **No pin surfaced (31 left):** State St Brats, Villa Tap, Public Parking, Le Tigre, Caribou, North & South, Tempest,
+  Robin Room, Sern Sapp, Salvatore's (Sun Prairie), Sjölinds, Fosdal, Glarner Stube, Red Rooster, CocoVaa, Hook's,
+  Candinas, Turn Key, Stella's, Kavanaugh's (closed), Trollway, Edgewood mounds, Pheasant Branch, Ice Age Complex,
+  Madison Public Market, + the address-only six. Wikipedia queries for the three sight areas returned only parent-article
+  points (college / city) — not used.
