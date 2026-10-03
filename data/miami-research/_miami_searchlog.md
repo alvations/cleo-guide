@@ -275,3 +275,12 @@
 117 Wikipedia coords: Fontainebleau (high) → added (GMCVB + Wikipedia); Faena Hotel, Miami Beach Post Office (Wikipedia only) held
 118 GMCVB downtown architecture (duPont Building, Ingraham, County Courthouse)
 119 Wikipedia coords duPont, Ingraham, Courthouse (high) → 2 added; Courthouse NOT added (current public-access status unverified — needs a fresh status source before it can be a live suggestion)
+120 Wikipedia: Margaret Pace Park (high), Morningside/Bay Shore HD, Design District (centroid), El Espacio 23 none
+121 GMCVB/TO: El Espacio 23, Margaret Pace Park, MiMo district, Morningside → 3 sights (Morningside held)
+122 Inf/TO/Fodor's BPB Hollywood names → Krakatoa review (Inf) 
+123 Infatuation Wilton Manors 10 + Hollywood 15 lists
+124 BPB/NT/VL for Inf names → Jack's Hollywood Diner, Mimi's Ravioli, Dolce Salato (+Krakatoa) = 4 added; JP's Bagel, Pupusatime, Le Patio, Stork's held
+125 Infatuation 19 best Coconut Grove (Ariete, Drinking Pig, Shore To Door, Le Bouchon, Ophelia, Chug's, Chuggie's, Midorie, El Bagel, Emissary, El Carajo, Grove Grocer, Daily Bread, Krüs, Barracuda, Loretta & The Butcher, Sapore di Mare, Fuzzbee's, Da Angelino)
+126 Wikipedia coords: Plymouth Congregational, Merrick House, Coral Gables Congregational (high)
+127 NT for Grove names → Shore To Door, Midorie (NT Best CG 2023), Loretta, Daily Bread → 4 added
+128 GMCVB/TO/Coral Gables: Merrick House (GMCVB+TO), Congregational churches (GMCVB tours) → 3 sights
