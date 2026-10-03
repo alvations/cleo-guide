@@ -217,3 +217,29 @@
 - **Build:** rebuild-city --build → 218 places, **156 on page** (was 98); --sourcecheck PASS · --geocheck PASS · --statuscheck
   CONSISTENT · --buildcheck PASS · npm validate DATA OK · npm test ALL PASS. Rendered per area: AMISH 30 · CAR 13 · GBG 17 ·
   HBG 29 · HER 20 · LAN 26 · YORK 21.
+
+## 2026-10-03 P1 — PINS ONLY (session_014tccsddAZhWkWHE1pGLan6, ~58 searches, no discovery)
+- **Channels:** restaurantguru listing pages via `allowed_domains:["restaurantguru.com"]` with the query shape
+  `<Name> <town> GPS coordinates latitude longitude` (one place per query; the page's 8-decimal listing coordinate is
+  quoted back — ~55% hit rate on food) · Wikipedia infobox coords (`<article> coordinates`, `allowed_domains:["en.wikipedia.org"]`).
+  Apple Maps returned bare `place-id=` URLs only; Waze/usarestaurants/foursquare returned no coordinates for these leftovers.
+- **+15 pins (156 → 171 on page; 62 → 47 UNVERIFIED)** in `geo/_geoout_pins1003.json`: high — Bube's Brewery (Central Hotel
+  wiki), Farnsworth House Inn (wiki); med — Culp's Hill tower (summit coord, tower stands on summit), Wolf Sanctuary of PA
+  (Speedwell Forge wiki, same 465 Speedwell Forge Rd property), Hamilton Restaurant, Hamir's, Hunt's, Battlefield Brew Works,
+  Mudhook, 1700 Degrees, Katie's Kitchen (address → 200 Hartman Bridge Rd, Ronks), Cabalar (501 W Lemon), Proof, Issei
+  (**new 38 W Orange St site** — resolves the W8 hold), Countryside Road-Stand (2966 Stumptown Rd) — every listing coordinate
+  checked against the record's street address.
+- **Closure found:** Hunt's Battlefield Fries & Cafe → **CLOSED** (abc27: owner retired, closed end of the Nov 2024 season;
+  restaurantguru marks it permanently closed). geo-merge renamed it "— CLOSED"; --statuscheck surfaces it.
+- **Rejected:** Soldiers & Sailors Monument wiki snippet (returned 40.038,-76.308194 = the Fulton Theatre's coordinate, not
+  Penn Square → not trusted); Strasburg Creamery (only a 226 Gap Rd creamery surfaced ≠ 1 W Main St); Fox Meadows (2475 W Main
+  St listing ≠ record's 193 Crooked Ln farm); Snitz Creek (only the Lebanon branch); PA National Fire Museum wiki coord found
+  (40.2764,-76.8923, 1820 N 4th St) but the place has no registry entry/status check yet → held; township/borough centroids
+  offered for Ned Smith Center, Long's Park, Pine Grove Furnace, Snyder's, AIM → refused (never centroids).
+- **Still UNVERIFIED (47):** see docs/GEOCODE-BACKLOG.md (harrisburg-pa) — misses this pass: Amish Farm & House, Seltzer's,
+  Market Cross, Queen's BBQ, Rice & Noodles (no Lititz Pike listing), Anna Rose, Square One, Mount Everest, Gift Horse, High Dive,
+  Graham Rooftop, Green Bean, York City Pretzel, Little Mexico, Porch & Pantry, Helena's, Stony Run, Hollabaugh, Adams County
+  Winery, Snyder's, Kreider (listing shows 286 Doe Run Rd — address check needed), Pine Grove store + museums.
+- **Build:** rebuild-city --build → 218 places, **171 on page**; --sourcecheck PASS · --geocheck PASS (high 86 · med 85 · low 0)
+  · --statuscheck CONSISTENT (1 closed) · --buildcheck PASS · npm validate DATA OK · npm test ALL PASS. Rendered per area:
+  AMISH 34/40 · CAR 14/20 · GBG 21/24 · HBG 30/38 · HER 20/24 · LAN 29/38 · YORK 23/34.
