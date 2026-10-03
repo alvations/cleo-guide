@@ -58,7 +58,12 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 | KRM | 4 | 10 | 14 | 30 | +16 |
 
 ## In-flight wave
-- none (W5 closed 2026-10-03 at the session WebSearch cap).
+- **W6** (2026-10-03, fresh session, ~190 searches, 8 bg agents; rules `_okinawa_w6_agentrules.md`):
+  W6G1 KRM + all unpinned sights (`_okinawa_geo_todo_W6G1.json`, 28) · W6G2 main-island food pins (`_W6G2`, 51) ·
+  W6G3 Miyako/Yaeyama food pins (`_W6G3`, 40) · W6D1 Chūbu food-first discovery · W6D2 Hokubu discovery ·
+  W6D3 Naha discovery · W6D4 Yaeyama/Miyako/Kerama/Nanbu discovery · W6A anime + creators.
+  Each writes `FOOD_/SIGHTS_/SOURCES_/CREATORS_OKINAWA_<TAG>.json`, `geo/_geoout_okinawa_<TAG>.json`, `_okinawa_<TAG>_notes.md`.
+  A relaunch: check which tags have notes files (= finished); rerun only the missing ones, then rebuild + gates.
 
 - 2026-10-02 **W4 done** (fresh session, ~186 searches, 9 background subagents): pin-first + discovery + anime.
   **258 discovered (128 sights + 130 food & drink = 50 % food), 130 pinned (was 89)** — pins per area NAHA 18 · CHUBU 24 ·
