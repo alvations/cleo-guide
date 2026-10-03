@@ -32,7 +32,10 @@ Total ~216.
 - Pinned on page: 55 of 120 — 65 UNVERIFIED (mostly restaurants; WebSearch rarely surfaces restaurant place-pins).
 
 ## In-flight wave
-- none. NEXT (ordered):
+- **W7 (2026-10-03, food & drink first)** — writing `FOOD_W7.json` + `geo/_geoout_w7.json` + `SOURCES_W7.json`/`CREATORS_W7.json`.
+  Goal: food ≥ sights in every area (need ≥ +44 food: HBG+10 HER+8 GBG+7 YORK+6 AMISH+6 CAR+4 LAN+3, more for LAN/HBG density).
+  Pin via WebSearch allowed_domains maps.apple.com. If cut off: run density.py, continue from what's in FOOD_W7.json.
+- Previous NEXT list (still valid): NEXT (ordered):
   1. **Helper geocode** of the 65 UNVERIFIED (docs/GEOCODE-BACKLOG.md → tools/geocode-helper.html), confirming the
      discovery-stage addresses listed in AUDIT.md 2026-10-03 W3–W5 section. Biggest single lift for the map.
   2. **HBG food** (2/~19): outlet-specific — TheBurg, PennLive "best of", Harrisburg Magazine Simply the Best;
