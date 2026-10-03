@@ -107,3 +107,12 @@ from memory.
 > fix: HLV 56/55 OK (live) · BLS 55/55 OK (go-live held for pins) · NVN 35/55 (NEED +20) · PGL 35/93 (NEED +58).**
 
 - **FINAL (end of session): HLV 57/55 OK (LIVE) · BLS 56/55 OK (go-live held for pins) · NVN 37/55 (NEED +18) · PGL 35/93 (NEED +58).** Late adds: NVN Baan Ying, Banelé; BLS Niu Dian (VIIO @ Balestier); HLV Niu Dian (HV).
+
+## W3 (2026-10-03, PGL+NVN session) — batch 1+2
+- **Outcome:** PGL 37 food + 13 sights = **50 / ~93 → NEED +43** (was 35). Page renders **23** pins (was 16); greyed (not live).
+- **Files:** FOOD_PUNGGOL3.json (9), SIGHTS_PUNGGOL3.json (6), SOURCES_PUNGGOL3.json (ARCHNET, ARCHITIZER, JTC, MONOCLE, DEZEEN, DESIGNBOOM, VULCANPOST, TWOBEARBEAR), CREATORS_PUNGGOL3.json, geo/_geoout_punggol_w4.json.
+- **Added food:** Lao Jiang Superior Soup + Rise & Grind (Oasis Terraces, pinned), Rendang Nation (One Punggol, pinned); Punggol Coast HC: Jade's Chicken, 75 Ah Balling, One Soy, You Fu Ban Mian, What The Puff! (UNVERIFIED — building pin); Sixth Floor Oyster Cake — **CLOSED** after 28 Sep 2025 (Seth Lui).
+- **Added sights:** Masjid Al-Islah (Wikipedia pin, MUIS address), Punggol Digital District / SIT campus (Wikipedia pin), Oasis Terraces (Wikipedia pin), Punggol Point Jetty (park pin, med), Punggol Promenade + Punggol Heritage Trail (linear — UNVERIFIED).
+- **Held (1 credible source / status unknown):** Selera Sumang Nasi Padang + Satay Sumang (Seth Lui only, 2021), Tuck Shop (One Punggol drinks), Downstairs (Northshore; chain), Xiang Chi Mian, SJ Sickander Ammal (no named dish), Hee Hee Hee Steamed Fish (7th branch = chain), Seoul Good / Ju Hao (Eatbook only), Fei Mookata, Siam Square Mookata, JB Dai Tao Lala Hotpot, Ah Dong Teh House (2015–18 sources, status unconfirmed), Shitamachi Tendon Akimitsu (Waterway Point; 2018, status unknown), HK Street Chun Tat Kee (chain; blog only), Gallop Stable Punggol Ranch (location may be USG-side), Chai O'Clock (pasar-malam pop-up — not a place).
+- **Dropped:** Punggol Coast Mall chains (Din Tai Fung, Paradise Hotpot, Sushi-GO, Ya Kun, Jollibee, Playmade, Shihlin) = padding; Tenderbest Makcik (Punggol Park = USG); Punggol Noodles (Hainanese Village = Hougang/USG); St Anne's Church (Lorong Buangkok = USG).
+- **Geocode blocker:** Punggol Coast HC (84 Punggol Way S829911), The Punggol Settlement, Northshore Plaza have NO published place pin WebSearch can read → 16+ PGL records wait on tools/geocode-helper.html. This is the single biggest lever for rendered density.

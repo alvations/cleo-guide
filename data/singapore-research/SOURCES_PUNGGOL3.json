@@ -1,6 +1,69 @@
-{"outlets":[
-{"key":"ARCHNET","name":"ArchNet (MIT / Aga Khan Trust for Culture)","type":"architecture archive","url":"https://archnet.org","credible":"Academic architecture database run with MIT; documents notable Islamic architecture.","rank":2},
-{"key":"ARCHITIZER","name":"Architizer","type":"architecture media","url":"https://architizer.com","credible":"International architecture platform/awards (A+Awards); project documentation. Corroborating.","rank":3},
-{"key":"JTC","name":"JTC Corporation","type":"official","url":"https://www.jtc.gov.sg","credible":"Singapore statutory board that developed Punggol Digital District and Punggol Coast Hawker Centre; official.","rank":1},
-{"key":"MONOCLE","name":"Monocle","type":"magazine","url":"https://monocle.com","credible":"International affairs/urbanism magazine; editorial.","rank":2}],
-"note":"PGL+NVN session W3 (2026-10-03), Punggol."}
+{
+ "outlets": [
+  {
+   "key": "ARCHNET",
+   "name": "ArchNet (MIT / Aga Khan Trust for Culture)",
+   "type": "architecture archive",
+   "url": "https://archnet.org",
+   "credible": "Academic architecture database run with MIT; documents notable Islamic architecture.",
+   "rank": 2
+  },
+  {
+   "key": "ARCHITIZER",
+   "name": "Architizer",
+   "type": "architecture media",
+   "url": "https://architizer.com",
+   "credible": "International architecture platform/awards (A+Awards); project documentation. Corroborating.",
+   "rank": 3
+  },
+  {
+   "key": "JTC",
+   "name": "JTC Corporation",
+   "type": "official",
+   "url": "https://www.jtc.gov.sg",
+   "credible": "Singapore statutory board that developed Punggol Digital District and Punggol Coast Hawker Centre; official.",
+   "rank": 1
+  },
+  {
+   "key": "MONOCLE",
+   "name": "Monocle",
+   "type": "magazine",
+   "url": "https://monocle.com",
+   "credible": "International affairs/urbanism magazine; editorial.",
+   "rank": 2
+  },
+  {
+   "key": "DEZEEN",
+   "name": "Dezeen",
+   "type": "architecture media",
+   "url": "https://www.dezeen.com",
+   "credible": "Leading international architecture/design magazine; editorial.",
+   "rank": 2
+  },
+  {
+   "key": "DESIGNBOOM",
+   "name": "designboom",
+   "type": "architecture media",
+   "url": "https://www.designboom.com",
+   "credible": "Long-running international architecture/design magazine; editorial.",
+   "rank": 2
+  },
+  {
+   "key": "VULCANPOST",
+   "name": "Vulcan Post",
+   "type": "business news",
+   "url": "https://vulcanpost.com",
+   "credible": "Singapore/Malaysia business-and-startup news site; dated reported profiles of F&B businesses. Corroborating.",
+   "rank": 3
+  },
+  {
+   "key": "TWOBEARBEAR",
+   "name": "2bearbear (Singapore food & travel blog)",
+   "type": "blog",
+   "url": "https://www.2bearbear.com",
+   "credible": "Long-running Singapore food blog (since 2009) with dated first-hand visits; corroborating only.",
+   "rank": 3
+  }
+ ],
+ "note": "PGL+NVN session W3 (2026-10-03), Punggol."
+}

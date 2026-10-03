@@ -39566,33 +39566,308 @@
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
-    "verified": "2026-10-02",
+    "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "closed",
     "statusSource": "Seth Lui Apr 2025: operations paused indefinitely from 23 Apr 2025 (shop's own Facebook post)",
-    "statusChecked": "2026-10-02"
+    "statusChecked": "2026-10-03"
    },
    "Cafe de Hong Kong (Balestier)": {
     "address": "Balestier Road, Singapore",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
-    "verified": "2026-10-02",
+    "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "Miss Tam Chiak / ieatishootipost / DFD (2018) — NOT re-checked for 2025-26; re-check before go-live",
-    "statusChecked": "2026-10-02"
+    "statusChecked": "2026-10-03"
    },
    "Lotus Vegetarian Restaurant (Balestier)": {
     "address": "Balestier Road, Singapore",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
-    "verified": "2026-10-02",
+    "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "NHB Balestier Food Trail + Honeycombers — NOT re-checked for 2025-26",
-    "statusChecked": "2026-10-02"
+    "statusChecked": "2026-10-03"
+   },
+   "Bukit Brown Cemetery": {
+    "address": "Lornie Road / Kheam Hock Road, Novena, Singapore",
+    "lat": 1.3361,
+    "lng": 103.823,
+    "source": "Wikipedia 'Bukit Brown Cemetery' published coords 1°20′10″N 103°49′23″E (1.3361,103.8230), WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Wikipedia + bukitbrown.org (guided walks ongoing); MND written answer on future redevelopment — site still a cemetery/heritage area",
+    "statusChecked": "2026-10-03"
+   },
+   "Min Jiang (Goodwood Park Hotel)": {
+    "address": "Goodwood Park Hotel, 22 Scotts Road, Singapore 228221",
+    "lat": 1.30825,
+    "lng": 103.83389,
+    "source": "building pin reused from the sourced data/geocodes.json entry 'Goodwood Park Hotel (Tower Wing)' — Wikipedia published coords 1°18′29.7″N 103°50′02″E",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Frommer's listing; refurbished 2020 (search 2026-10-03); no closure report found",
+    "statusChecked": "2026-10-03"
+   },
+   "Goodwood Park Hotel Coffee Lounge (durian desserts)": {
+    "address": "Goodwood Park Hotel, 22 Scotts Road, Singapore 228221",
+    "lat": 1.30825,
+    "lng": 103.83389,
+    "source": "building pin reused from the sourced data/geocodes.json entry 'Goodwood Park Hotel (Tower Wing)' — Wikipedia published coords 1°18′29.7″N 103°50′02″E",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Eatbook durian-buffet coverage (2024 edition) + Time Out listing; no closure report",
+    "statusChecked": "2026-10-03"
+   },
+   "Bee Heng Popiah (Newton)": {
+    "address": "Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",
+    "lat": 1.3119888,
+    "lng": 103.8395742,
+    "source": "stall within Newton Food Centre; building pin reused from the sourced geocodes entry 'Newton Food Centre' (Google place pin !3d1.3119888!4d103.8395742)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Women's Weekly + Seth Lui (Oct 2024 update) Newton guides",
+    "statusChecked": "2026-10-03"
+   },
+   "Shang Palace (Shangri-La Singapore)": {
+    "address": "Shangri-La Singapore, 22 Orange Grove Road, Singapore 258350",
+    "lat": 1.31139,
+    "lng": 103.82667,
+    "source": "restaurant within the hotel; building pin = Wikipedia 'Shangri-La Hotel, Singapore' published coords 1°18′41″N 103°49′36″E (1.31139,103.82667), read via WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Ordinary Patrons review Jan 2024; MICHELIN Guide editorial",
+    "statusChecked": "2026-10-03"
+   },
+   "Origin Grill (Shangri-La Singapore)": {
+    "address": "Shangri-La Singapore, 22 Orange Grove Road, Singapore 258350",
+    "lat": 1.31139,
+    "lng": 103.82667,
+    "source": "restaurant within the hotel; building pin = Wikipedia 'Shangri-La Hotel, Singapore' published coords 1°18′41″N 103°49′36″E (1.31139,103.82667), read via WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Star Wine List 2026 recognition (search 2026-10-03)",
+    "statusChecked": "2026-10-03"
+   },
+   "AMI Patisserie": {
+    "address": "27 Scotts Road, Singapore 228222",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "SGFoodOnFoot Feb 2024 + ladyironchef Mar 2024; no closure report",
+    "statusChecked": "2026-10-03"
+   },
+   "Chef Chan's Private Dine": {
+    "address": "35 Scotts Road, Singapore 228227",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "SGFoodOnFoot Feb 2024 + Eatbook Newton guide",
+    "statusChecked": "2026-10-03"
+   },
+   "Chui Huay Lim Teochew Cuisine": {
+    "address": "Chui Huay Lim Club, Keng Lee Road, Singapore",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Ordinary Patrons review 15 Jun 2026",
+    "statusChecked": "2026-10-03"
+   },
+   "Smiths Authentic British Fish and Chips (Balmoral Plaza)": {
+    "address": "Balmoral Plaza, 271 Bukit Timah Road #01-02, Singapore 259708",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Eatbook / Seth Lui / Time Out listings (current); no closure report",
+    "statusChecked": "2026-10-03"
+   },
+   "Masjid Al-Islah": {
+    "address": "30 Punggol Field, Singapore 828812",
+    "lat": 1.4013989,
+    "lng": 103.9015299,
+    "source": "Wikipedia 'Masjid Al Islah' coords 1°24′05″N 103°54′06″E (1.4013989,103.9015299); address per MUIS mosque directory; WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "MUIS mosque directory (active mosque)",
+    "statusChecked": "2026-10-03"
+   },
+   "Punggol Digital District (SIT Punggol Campus)": {
+    "address": "Punggol Way, Punggol Coast, Singapore",
+    "lat": 1.413322,
+    "lng": 103.91139,
+    "source": "Wikipedia 'Punggol Digital District' published coords 01°24′47.96″N 103°54′41.004″E (district reference point, 50-ha site), WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "JTC press release: SIT Punggol campus officially opened",
+    "statusChecked": "2026-10-03"
+   },
+   "Lao Jiang Superior Soup (Oasis Terraces)": {
+    "address": "Oasis Terraces, 681 Punggol Drive, Singapore 820681",
+    "lat": 1.402767,
+    "lng": 103.913175,
+    "source": "unit within Oasis Terraces; building pin = Wikipedia 'Oasis Terraces' published coords 1°24′10″N 103°54′47″E (1.402767,103.913175), WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Seth Lui review (2025, '14-year-old establishment') + Eatbook Punggol guide",
+    "statusChecked": "2026-10-03"
+   },
+   "Rise & Grind Coffee Co. (Oasis Terraces)": {
+    "address": "Oasis Terraces, 681 Punggol Drive, Singapore 820681",
+    "lat": 1.402767,
+    "lng": 103.913175,
+    "source": "unit within Oasis Terraces; building pin = Wikipedia 'Oasis Terraces' published coords 1°24′10″N 103°54′47″E (1.402767,103.913175), WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "City Nomads Sengkang–Punggol guide + Eatbook Punggol guide (current)",
+    "statusChecked": "2026-10-03"
+   },
+   "Rendang Nation (One Punggol)": {
+    "address": "One Punggol Hawker Centre, 1 Punggol Drive, Singapore 828629",
+    "lat": 1.4086,
+    "lng": 103.9024,
+    "source": "stall within One Punggol Hawker Centre; building pin reused from the sourced geocodes entry (Wikipedia 'Punggol Regional Library' coords, co-located in One Punggol)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Women's Weekly + Seth Lui One Punggol guides; DBS Hawker Stories feature",
+    "statusChecked": "2026-10-03"
+   },
+   "Punggol Point Jetty": {
+    "address": "Punggol Point Park, Punggol Point Road, Singapore",
+    "lat": 1.421139,
+    "lng": 103.910833,
+    "source": "jetty within Punggol Point Park; park pin reused from the sourced geocodes entry (Wikipedia 'Punggol Point Park' 1°25′16.1″N 103°54′39.0″E)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Wikipedia Punggol Point Park + NHB/Roots (heritage landmark)",
+    "statusChecked": "2026-10-03"
+   },
+   "Oasis Terraces": {
+    "address": "Oasis Terraces, 681 Punggol Drive, Singapore 820681",
+    "lat": 1.402767,
+    "lng": 103.913175,
+    "source": "Wikipedia 'Oasis Terraces' published coords 1°24′10″N 103°54′47″E (1.402767,103.913175), WebSearch 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "HDB where2shop listing (operating neighbourhood centre)",
+    "statusChecked": "2026-10-03"
+   },
+   "Punggol Promenade (Nature Walk & Riverside Walk)": {
+    "address": "Punggol Promenade, Punggol, Singapore",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "NParks PCN pages (current)",
+    "statusChecked": "2026-10-03"
+   },
+   "Punggol Heritage Trail (Old Punggol Road)": {
+    "address": "Old Punggol Road, Punggol Waterway Park, Singapore",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "NParks park-detail page (current)",
+    "statusChecked": "2026-10-03"
+   },
+   "Jade's Chicken (Punggol Coast)": {
+    "address": "Punggol Coast Hawker Centre, 84 Punggol Way #02-55, Singapore 829911",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "opened 25 Jul 2025 (Time Out / Eatbook / Little Day Out); named in 2025 guides",
+    "statusChecked": "2026-10-03"
+   },
+   "75 Ah Balling Peanut Soup (Punggol Coast)": {
+    "address": "Punggol Coast Hawker Centre, 84 Punggol Way #02-55, Singapore 829911",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "opened 25 Jul 2025 (Time Out / Eatbook / Little Day Out); named in 2025 guides",
+    "statusChecked": "2026-10-03"
+   },
+   "One Soy (Punggol Coast)": {
+    "address": "Punggol Coast Hawker Centre, 84 Punggol Way #02-55, Singapore 829911",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "opened 25 Jul 2025 (Time Out / Eatbook / Little Day Out); named in 2025 guides",
+    "statusChecked": "2026-10-03"
+   },
+   "You Fu Ban Mian & Pao Fan (Punggol Coast)": {
+    "address": "Punggol Coast Hawker Centre, 84 Punggol Way #02-55, Singapore 829911",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "opened 25 Jul 2025 (Time Out / Eatbook / Little Day Out); named in 2025 guides",
+    "statusChecked": "2026-10-03"
+   },
+   "What The Puff! (Punggol Coast)": {
+    "address": "Punggol Coast Hawker Centre, 84 Punggol Way #02-55, Singapore 829911",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Vulcan Post 2025-26 profile (strongest outlet) + Eatbook/Time Out",
+    "statusChecked": "2026-10-03"
+   },
+   "Sixth Floor Oyster Cake (Northshore Plaza) — CLOSED": {
+    "address": "Northshore Plaza I, 407 Northshore Drive #02-41, Singapore 820407",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "closed",
+    "statusSource": "Seth Lui: both outlets shut permanently after 28 Sep 2025 (owner's Instagram announcement)",
+    "statusChecked": "2026-10-03"
    }
   },
   "state-college-pa": {
@@ -61072,7 +61347,91 @@
     "note": "DAY"
    },
    "Solly's Grille": {
-    "address": "Glendale, WI (per Wikipedia)",
+    "address": "4629 N Port Washington Rd, Glendale, WI 53212",
+    "lat": 43.1003406,
+    "lng": -87.9175486,
+    "source": "https://www.latlong.net/poi/solly-s-grille-213229 (latlong.net OSM POI 'Solly's Grille', seen in WebSearch 2026-10-03)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://urbanmilwaukee.com/business/sollys-grille/ (Urban Milwaukee business listing) + Shepherd Express; no closure reported",
+    "statusChecked": "2026-10-03",
+    "note": "DAY | street address + status pending"
+   },
+   "Hecky's Barbecue": {
+    "address": "1902 Green Bay Rd, Evanston, IL 60201",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.visitchicagonorthshore.com/heckysbarbecue (CVB listing with current hours, 2026-10-03)",
+    "statusChecked": "2026-10-03",
+    "note": "SUB"
+   },
+   "Walker Bros. Original Pancake House (Wilmette)": {
+    "address": "153 Green Bay Rd, Wilmette, IL 60091",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/restaurants/walker-bros-original-pancake-house (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "SUB"
+   },
+   "Russell's Barbecue": {
+    "address": "1621 Thatcher Ave, Elmwood Park, IL 60707",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.oakpark.com/2023/11/06/russells-secret-is-in-the-sauce-and-in-your-memories/ (Wednesday Journal Nov 2023 — operating) + oakparkandbeyond.org listing",
+    "statusChecked": "2026-10-03",
+    "note": "SUB | street number + status pending"
+   },
+   "Svea Restaurant": {
+    "address": "5236 N Clark St, Chicago, IL 60640",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/reviews/svea (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "MacArthur's Restaurant": {
+    "address": "5412 W Madison St, Chicago, IL 60644",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/reviews/macarthurs (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "WEST"
+   },
+   "Carm's Beef and Italian Ice": {
+    "address": "1057 W Polk St, Chicago, IL 60607",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/reviews/carms-beef (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "WEST"
+   },
+   "Simone's": {
+    "address": "",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
@@ -61081,7 +61440,199 @@
     "status": "unchecked",
     "statusSource": "",
     "statusChecked": "2026-10-03",
-    "note": "DAY | street address + status pending"
+    "note": "WEST | address + status pending"
+   },
+   "Simon's Tavern": {
+    "address": "N Clark St just north of Foster Ave, Andersonville, Chicago",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://blockclubchicago.org/2024/05/22/simons-tavern-celebrates-90-years-as-andersonvilles-bar/ (Block Club, May 2024 — 90th anniversary; no closure reported since)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH | street number pending"
+   },
+   "Café Colao": {
+    "address": "2638 W Division St, Chicago, IL 60622",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.theinfatuation.com/chicago/reviews/cafe-colao (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NW"
+   },
+   "Big Star": {
+    "address": "1531 N Damen Ave, Chicago, IL 60622",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.choosechicago.com/listing/big-star-wicker-park/ (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NW"
+   },
+   "Half Acre Balmoral": {
+    "address": "2050 W Balmoral Ave, Chicago, IL 60625",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://timeout.com/chicago/bars/half-acre-brewery-balmoral (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "Carol's Pub": {
+    "address": "4659 N Clark St, Chicago, IL 60640",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://timeout.com/chicago/bars/carols-pub (Time Out listing — 'back from the dead and good as ever'); Block Club reopening report 2018-12-21; no later closure reported",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "L&L Tavern": {
+    "address": "3207 N Clark St, Chicago, IL 60657",
+    "lat": 41.9403472,
+    "lng": -87.6502417,
+    "source": "Wikipedia published coordinates 41°56′25.25″N 87°39′0.87″W (en.wikipedia.org/wiki/L%26L_Tavern, WebSearch 2026-10-03); grid-check Clark & Belmont",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/L%26L_Tavern (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "Lou Malnati's Pizzeria (Lincolnwood)": {
+    "address": "6649 N Lincoln Ave, Lincolnwood, IL 60712",
+    "lat": 42.0031667,
+    "lng": -87.7338306,
+    "source": "https://latitude.to/articles-by-country/us/united-states/34072/lou-malnatis-pizzeria (Wikipedia-article coordinate 42°00′11.40″N 87°44′1.79″W, WebSearch 2026-10-03); grid-check 6649 N Lincoln ≈ 42.003",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "https://enjoyillinois.com/explore/listing/lou-malnatis-pizzeria-lincolnwood (state tourism listing) + OpenTable page active 2026",
+    "statusChecked": "2026-10-03",
+    "note": "SUB | Wikipedia coordinate assumed to be the Lincolnwood original — re-verify (4b)"
+   },
+   "Huaraches Doña Chio": {
+    "address": "1547 W Elmdale Ave, Chicago, IL 60660",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/restaurants/huaraches-donya-chio (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "Taqueria El Asadero": {
+    "address": "2213 W Montrose Ave, Chicago, IL 60618",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/restaurants/taqueria-el-asadero (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
+   },
+   "FitzGerald's Nightclub": {
+    "address": "6615 Roosevelt Rd, Berwyn, IL 60402",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://chicago.suntimes.com/entertainment-culture/2025/05/09/fitzgeralds-berwyn-club-music-venue-chicago (Sun-Times May 2025 — operating, NRHP listing)",
+    "statusChecked": "2026-10-03",
+    "note": "SUB"
+   },
+   "The Publican": {
+    "address": "837 W Fulton Market, Chicago, IL 60607",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://choosechicago.com/listing/the-publican (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "LOOP"
+   },
+   "Italian Village": {
+    "address": "71 W Monroe St, Chicago, IL 60603",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.preservationchicago.org/chicago-legacy-business-italian-village-restaurants-adds-cafe-pisolino-espresso-bar-continuing-99-years-of-family-legacy-at-71-w-monroe-street-downtown/ (Preservation Chicago 2026 — operating, adding an espresso bar)",
+    "statusChecked": "2026-10-03",
+    "note": "LOOP"
+   },
+   "Monteverde": {
+    "address": "1020 W Madison St, Chicago, IL 60607",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.fsrmagazine.com/chef-profiles/magic-behind-sarah-gruenebergs-chicago-pasta-kingdom (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "LOOP"
+   },
+   "ISAC Museum (Institute for the Study of Ancient Cultures)": {
+    "address": "University of Chicago campus, Hyde Park (per Wikipedia)",
+    "lat": 41.78944,
+    "lng": -87.59778,
+    "source": "https://en.wikipedia.org/wiki/Institute_for_the_Study_of_Ancient_Cultures (Wikipedia/GeoHack published coordinates)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Institute_for_the_Study_of_Ancient_Cultures (current 2025-26 listing)",
+    "statusChecked": "2026-10-03",
+    "note": "Wikipedia published coordinates"
+   },
+   "Washington Park": {
+    "address": "Washington Park community area, Chicago (per Wikipedia)",
+    "lat": 41.79583,
+    "lng": -87.61111,
+    "source": "https://en.wikipedia.org/wiki/Washington_Park_(Chicago_park) (Wikipedia/GeoHack published coordinates)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Washington_Park_(Chicago_park) (current 2025-26 listing)",
+    "statusChecked": "2026-10-03",
+    "note": "Wikipedia published coordinates"
+   },
+   "Charles Gates Dawes House": {
+    "address": "Evanston lakefront, IL (per NPS NHL record)",
+    "lat": 42.04295,
+    "lng": -87.67373,
+    "source": "HMDB marker m=139208 coordinates 42° 2.577′N 87° 40.424′W (WebSearch 2026-10-03) — historical marker at the house",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "https://skokieparks.org/events/adults-over-60-mitchell-museum--dawes-house (2026 park-district outing to the Dawes House — open to visitors)",
+    "statusChecked": "2026-10-03",
+    "note": "Wikipedia published coordinates"
    }
   },
   "philadelphia-pa": {
@@ -61184,10 +61735,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "MICHELIN Guide 2025 venue page (guide.michelin.com/us/en/pennsylvania/philadelphia_2942787/restaurant/4th-street-deli), current listing",
+    "status": "unknown",
+    "statusSource": "",
     "statusChecked": "2026-10-03",
-    "note": "address verified (Michelin venue page), matches input; no place-pin coordinate found"
+    "note": "No Wikipedia article surfaced."
    },
    "Fiorella": {
     "address": "817 Christian St, Philadelphia, PA 19147",
@@ -61208,10 +61759,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "MICHELIN Guide 2025 venue page (guide.michelin.com/us/en/pennsylvania/philadelphia_2942787/restaurant/pizzeria-beddia), current listing",
+    "status": "unknown",
+    "statusSource": "",
     "statusChecked": "2026-10-03",
-    "note": "address verified (Michelin venue page), matches input; no place-pin coordinate found"
+    "note": "Only listed in Wikipedia's Michelin Bib Gourmand list (2025); no own article/coordinates."
    },
    "Royal Sushi & Izakaya": {
     "address": "780 S 2nd St, Philadelphia, PA 19147",
@@ -61340,10 +61891,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "MICHELIN Guide 2025 venue page (guide.michelin.com/us/en/pennsylvania/philadelphia_2942787/restaurant/laser-wolf-1213729), current listing",
+    "status": "unknown",
+    "statusSource": "",
     "statusChecked": "2026-10-03",
-    "note": "address verified (Michelin venue page), matches input; no place-pin coordinate found"
+    "note": "No own article; mentioned in Michael Solomonov article."
    },
    "Laurel — CLOSED": {
     "address": "1617 E Passyunk Ave, Philadelphia, PA 19148",
@@ -61434,10 +61985,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "MICHELIN Guide 2025 venue page (guide.michelin.com/us/en/pennsylvania/philadelphia_2942787/restaurant/suraya), current listing",
+    "status": "unknown",
+    "statusSource": "",
     "statusChecked": "2026-10-03",
-    "note": "address verified (Michelin venue page), matches input; no place-pin coordinate found"
+    "note": "No Wikipedia article surfaced."
    },
    "Vedge": {
     "address": "1221 Locust St, Philadelphia, PA 19107",
@@ -61469,10 +62020,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "MICHELIN Guide 2025 venue page (guide.michelin.com/us/en/pennsylvania/philadelphia_2942787/restaurant/vetri-cucina), current listing",
+    "status": "unknown",
+    "statusSource": "",
     "statusChecked": "2026-10-03",
-    "note": "address verified (Michelin venue page), matches input; no place-pin coordinate found"
+    "note": "No own Wikipedia article surfaced (only Urban Outfitters/Vetri Family mentions)."
    },
    "Zahav": {
     "address": "237 St James Pl, Philadelphia, PA 19106",
@@ -61793,9 +62344,9 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "not checked - WebSearch budget (28) exhausted; needs closure-check wave",
+    "statusSource": "",
     "statusChecked": "2026-10-03",
-    "note": "not checked this wave (budget exhausted): address from input unverified, no coordinate, status unchecked"
+    "note": "Only in Wikipedia Michelin Bib Gourmand list; no own article/coordinates."
    },
    "Valley Green Inn": {
     "address": "7 Valley Green Rd, Philadelphia, PA 19128",
@@ -63169,9 +63720,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Star News Philly (8 Jun 2026) \"Czerw's Kielbasa keeps an 88-year recipe alive after owner's death\" https://starnewsphilly.com/2026/06/08/czerws-kielbasa-port-richmond-owner-death/ ; Inquirer (21 Jun 2025) https://inquirer.com/food/restaurants/john-czerw-kielbasa-20250621.html",
-    "statusChecked": "2026-10-03"
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No Wikipedia article surfaced."
    },
    "Dim Sum Garden": {
     "address": "1024 Race St, Philadelphia, PA 19107",
@@ -63202,9 +63754,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Inquirer (21 Dec 2024) reopened after L&I steam-leak closure https://inquirer.com/food/sang-kee-restaurant-reopen-steam-chinatown-20241221.html ; 6abc https://6abc.com/post/chinatowns-sang-kee-peking-duck-house-indefinitely-closed-due-electrical-hazard/15665562/",
-    "statusChecked": "2026-10-03"
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own Wikipedia article surfaced."
    },
    "Tom's Dim Sum": {
     "address": "59 N 11th St, Philadelphia, PA 19107",
@@ -63268,9 +63821,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Philly Mag Italian Market guide (1 Jul 2026) https://www.phillymag.com/restaurants/2026/07/01/italian-market-philadelphia/ (\"recipes untouched in 126 years\"; expanding to 764 S 9th St)",
-    "statusChecked": "2026-10-03"
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own Wikipedia article surfaced."
    },
    "Oyster House": {
     "address": "1516 Sansom St, Philadelphia, PA 19102",
@@ -63279,9 +63833,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "NBC Philadelphia (2026) Oyster House wins 2026 James Beard America's Classics Award https://www.nbcphiladelphia.com/entertainment/the-scene/oyster-house-philadelphia-2026-james-beard-americas-classics-award/4359984/",
-    "statusChecked": "2026-10-03"
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own Wikipedia article; a search summary mentions a 2026 James Beard America's Classics (Mid-Atlantic) award for The Oyster House (est. 1947) — suggests operating, but no citable URL captured, so status left unknown."
    },
    "The Franklin Fountain": {
     "address": "116 Market St, Philadelphia, PA 19106",
@@ -63291,8 +63846,9 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "no dated 2025-2026 source found; Inquirer topic page https://www.inquirer.com/food/restaurants/franklin-fountain/ (new-flavor coverage, undated); no closing article found",
-    "statusChecked": "2026-10-03"
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own Wikipedia article (search returned Franklin Square Fountain, unrelated); no mapcarta node surfaced. 2 dry queries."
    },
    "Parc": {
     "address": "227 S 18th St, Philadelphia, PA 19103",
@@ -63313,8 +63869,9 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "no dated 2025-2026 source found; Foursquare listing 217-219 Chestnut St; no closing article found",
-    "statusChecked": "2026-10-03"
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own article; mentioned in Jose Garces article (opened 2005, Old City)."
    },
    "Villa di Roma": {
     "address": "936 S 9th St, Philadelphia, PA 19147",
@@ -63334,9 +63891,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Philly Mag \"Italian Market Bible\" (1 Jul 2026) https://www.phillymag.com/restaurants/2026/07/01/italian-market-philadelphia/ (named in the red-gravy \"Holy Trinity\")",
-    "statusChecked": "2026-10-03"
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own article; mentioned in Joey Merlino article as at 10th & Catharine (consistent with address) but no coordinates."
    },
    "Isgro Pastries": {
     "address": "1009 Christian St, Philadelphia, PA 19147",
@@ -63345,9 +63903,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Philly Mag \"Italian Market Bible\" (1 Jul 2026) https://www.phillymag.com/restaurants/2026/07/01/italian-market-philadelphia/",
-    "statusChecked": "2026-10-03"
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No Wikipedia article surfaced."
    },
    "Di Bruno Bros. (Italian Market)": {
     "address": "930 S 9th St, Philadelphia, PA 19147",
@@ -63356,9 +63915,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Philly Mag \"Italian Market Bible\" (1 Jul 2026) https://www.phillymag.com/restaurants/2026/07/01/italian-market-philadelphia/",
-    "statusChecked": "2026-10-03"
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own article; only mentioned in Italian Market article. Italian Market district coordinate rejected (street-length market, would be a centroid)."
    },
    "Termini Bros. Bakery": {
     "address": "1523 S 8th St, Philadelphia, PA 19147",
@@ -63367,9 +63927,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "6abc (c. 2025) \"Termini Brothers Bakery vandalized as family mourns father's passing\" (104-year business, operating) https://6abc.com/amp/post/suspects-wanted-vandalism-termini-brothers-bakery-south-philadelphia/18007248/",
-    "statusChecked": "2026-10-03"
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No Wikipedia article surfaced."
    },
    "Ray's Happy Birthday Bar": {
     "address": "1200 E Passyunk Ave, Philadelphia, PA 19147",
@@ -63379,8 +63940,9 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "PhillyVoice: owner Lou Capozzoli died at 86 (date not shown) https://www.phillyvoice.com/owner-rays-happy-birthday-bar-lou-capozzoli-dies/ ; no closing article found, no confirmed 2025-2026 operating source",
-    "statusChecked": "2026-10-03"
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No Wikipedia article surfaced."
    },
    "Le Virtù": {
     "address": "1927 E Passyunk Ave, Philadelphia, PA 19148",
@@ -63511,8 +64073,9 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "no 2025-2026 source found within search budget; no closing article found; Visit Philly Chestnut Hill neighborhood guide (undated)",
-    "statusChecked": "2026-10-03"
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No Wikipedia article surfaced."
    },
    "White Yak": {
     "address": "Ridge Ave, Roxborough, Philadelphia, PA 19128",
@@ -63544,8 +64107,9 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "no 2025-2026 source found within search budget; no closing article found",
-    "statusChecked": "2026-10-03"
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "Mentioned in Merion Station, PA article (Merion-Cynwyd Commercial District, Montgomery Ave) but no venue coordinates."
    },
    "Lark": {
     "address": "611 Righters Ferry Rd, Bala Cynwyd, PA 19004",
@@ -63589,17 +64153,6 @@
     "confidence": "UNVERIFIED",
     "status": "unknown",
     "statusSource": "no 2025-2026 source found within search budget; no closing article found",
-    "statusChecked": "2026-10-03"
-   },
-   "Tired Hands Brewing Company": {
-    "address": "16 Ardmore Ave, Ardmore, PA 19003",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Inquirer Main Line breweries guide (5 Jun 2025) https://www.inquirer.com/food/main-line-breweries-craft-beer-patios-ardmore-malvern-20250605.html",
     "statusChecked": "2026-10-03"
    },
    "Teresa's Next Door": {
@@ -64616,14 +65169,15 @@
    },
    "Vernick Fish": {
     "address": "1 N 19th St (Comcast Technology Center), Philadelphia, PA 19103",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 39.9549,
+    "lng": -75.1704,
+    "source": "Wikipedia coordinates of host building Comcast Technology Center (39°57′18″N 75°10′13″W) https://en.wikipedia.org/wiki/Comcast_Technology_Center",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Four Seasons Philadelphia official dining page (active, reservations/hours) https://www.fourseasons.com/philadelphia/dining/restaurants/vernick-fish/ checked 2026-10-03",
-    "statusChecked": "2026-10-03"
+    "confidence": "med",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "Host-building coordinate (Comcast Technology Center, 1800 Arch St); restaurant is in the Four Seasons podium at 19th & Arch, within the building footprint. Wikipedia value only 4 decimals."
    },
    "Bomb Bomb Bar": {
     "address": "1026 Wolf St, Philadelphia, PA 19148",
@@ -64679,6 +65233,185 @@
     "status": "open",
     "statusSource": "Inquirer 2026-01-21 James Beard 2026 semifinalists (Tequilas, beverage service) https://www.inquirer.com/food/restaurants/james-beard-semifinalists-2026-philadelphia-20260121.html",
     "statusChecked": "2026-10-03"
+   },
+   "Paul Robeson House & Museum": {
+    "address": "4951 Walnut St, Philadelphia, PA 19139",
+    "lat": 39.95667,
+    "lng": -75.22139,
+    "source": "Wikipedia article coordinates (39°57′24″N 75°13′17″W) https://en.wikipedia.org/wiki/Paul_Robeson_House",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Official site visit page (Thu–Sat 10–4) https://paulrobesonhouse.org/visit-us/ (checked 2026-10-03)",
+    "statusChecked": "2026-10-03"
+   },
+   "Walnut Street Cafe": {
+    "address": "2929 Walnut St, Philadelphia, PA 19104 (FMC Tower)",
+    "lat": 39.952114,
+    "lng": -75.18351,
+    "source": "Wikipedia coordinates of host building FMC Tower at Cira Centre South (39°57′08″N 75°11′01″W / 39.952114, -75.18351) https://en.wikipedia.org/wiki/Cira_Centre_South",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "Host-building coordinate (FMC Tower, 2929 Walnut St). The Cira Centre South article also shows a coarser complex-level value 39.957,-75.182 (north of Walnut, rejected); the precise 39.952114,-75.18351 matches 30th & Walnut."
+   },
+   "Talula's Garden": {
+    "address": "210 W Washington Sq, Philadelphia, PA 19106 (Ayer Building)",
+    "lat": 39.94726,
+    "lng": -75.15354,
+    "source": "Wikipedia coordinates of host building N. W. Ayer Building, 210 W Washington Sq (39°56′50″N 75°09′13″W / 39.94726, -75.15354) https://en.wikipedia.org/wiki/N._W._Ayer_%26_Son",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "Host-building coordinate (Ayer Building, west side of Washington Square at 7th St); restaurant occupies the building's ground floor/courtyard."
+   },
+   "Shane Confectionery": {
+    "address": "110 Market St, Philadelphia, PA 19106",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "Own Wikipedia article exists (https://en.wikipedia.org/wiki/Shane_Confectionery) confirming 110 Market St, but no coordinates surfaced in snippets; mapcarta query dry."
+   },
+   "Johnny Brenda's": {
+    "address": "1201 Frankford Ave, Philadelphia, PA 19125",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own Wikipedia article (only mentioned in band articles)."
+   },
+   "Philadelphia Brewing Company": {
+    "address": "2440 Frankford Ave, Philadelphia, PA 19125",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "Own Wikipedia article exists (https://en.wikipedia.org/wiki/Philadelphia_Brewing_Company; housed in 1885 Weisbrod & Hess Oriental Brewing building) but no coordinates surfaced in 3 queries (incl. host building Weisbrod & Hess Oriental Brewing — no article coordinates)."
+   },
+   "Standard Tap": {
+    "address": "901 N 2nd St, Philadelphia, PA 19123",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own Wikipedia article surfaced."
+   },
+   "Monk's Cafe": {
+    "address": "264 S 16th St, Philadelphia, PA 19102",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "Wikipedia 'Monk's Café' is the fictional Seinfeld diner; no article for the Philadelphia bar."
+   },
+   "Tired Hands Brewing Company — CLOSED": {
+    "address": "16 Ardmore Ave, Ardmore, PA 19003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "closed",
+    "statusSource": "Philadelphia Inquirer, 2026-02-20: Ardmore Brew Cafe (renamed Ardmore Brewing Company spring 2025) shifted to private events only, no public taproom hours https://www.inquirer.com/food/tired-hands-ardmore-brewing-company-20260220.html",
+    "statusChecked": "2026-10-03",
+    "note": "Own Wikipedia article exists (https://en.wikipedia.org/wiki/Tired_Hands_Brewing_Company) but no coordinates surfaced. STATUS: 16 Ardmore Ave location is private-events-only as of Feb 2026 (closed to the public); Tired Hands Fermentaria (35 Cricket Terrace, Ardmore) and St. Oner's (2218 Frankford Ave, Fishtown) remain open per the same report — consider repointing the entry."
+   },
+   "Bob & Barbara's Lounge": {
+    "address": "1509 South St, Philadelphia, PA 19146",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own Wikipedia article surfaced."
+   },
+   "Khyber Pass Pub": {
+    "address": "56 S 2nd St, Philadelphia, PA 19106",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own article; only mentioned in David Headley article."
+   },
+   "Manayunk Brewing Company": {
+    "address": "4120 Main St, Philadelphia, PA 19127",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own article; only mentioned in Yards Brewing Company article."
+   },
+   "Palizzi Social Club": {
+    "address": "1408 S 12th St, Philadelphia, PA 19147",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No Wikipedia article surfaced."
+   },
+   "Butcher and Singer": {
+    "address": "1500 Walnut St, Philadelphia, PA 19102",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No own article (only Starr Restaurants mention); no Wikipedia article for host building 1500 Walnut St surfaced."
+   },
+   "Conshohocken Brewing Company": {
+    "address": "739 E Elm St, Conshohocken, PA 19428",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "No Wikipedia article surfaced."
    }
   },
   "hokkaido": {
@@ -71186,25 +71919,25 @@
     "statusChecked": "2026-10-03"
    },
    "Kojasobaya (古謝そば屋)": {
-    "address": "1517-1 Shimozato, Hirara, Miyakojima, Okinawa 906-0013, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1517-1 Shimozato, Hirara, Miyakojima, Okinawa 906-0013, Japan (沖縄県宮古島市平良字下里1517-1)",
+    "lat": 24.7903113,
+    "lng": 125.2844707,
+    "source": "W6G3 2026-10-03 WebSearch extended '古謝そば屋 沖縄県宮古島市平良字下里1517-1 緯度 経度' — listing coordinate 24.7903113,125.2844707 (DMS 24°47'25.12\" 125°17'4.09\") from aggregator listings in result set (app.hamoni.jp/shop/bAOp2CDD4kswfCw13KM5, ramendb.supleks.jp/s/20090.html, mapfan.com/spots/S3W5H,J,EET11); consistent with sourced address (Shimozato, south-east Hirara). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "NAVITIME POI 02301-1800151 lists current hours (weekdays 11:00-16:00, Sat/Sun 11:00-20:00), tel 0980-72-8304, 2026-10-03",
+    "statusSource": "kojasoba.com/shop (official shop page, hours 11:00-15:00) + ramendb listing, seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Rakuen no Kajitsu, Kurima Island (楽園の果実)": {
-    "address": "476-1 Kurima, Shimoji, Miyakojima, Okinawa, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "476-1 Kurima, Shimoji, Miyakojima, Okinawa, Japan (沖縄県宮古島市下地字来間476-1)",
+    "lat": 24.7254559,
+    "lng": 125.2516184,
+    "source": "W6G3 2026-10-03 WebSearch extended '楽園の果実 沖縄県宮古島市下地字来間476-1 緯度 経度' — listing coordinate 24.7254559,125.2516184 from aggregator listings in result set (epark.jp/shopinfo/jsp609292, eatery.jp/restaurants/17577366, r.gnavi.co.jp/f126500); consistent with sourced address (on Kurima Island). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "Mapple Miyako list (2026)",
+    "statusSource": "f126500.gorp.jp official gnavi shop page + jalan gourmet listing current 2026-10-03; miyakojima-style.jp yukuru feature",
     "statusChecked": "2026-10-03"
    },
    "Doug's Burger Miyakojima (ダグズ・バーガー)": {
@@ -71241,14 +71974,14 @@
     "statusChecked": "2026-10-03"
    },
    "Shinri-hama Beach, Kume Island (シンリ浜)": {
-    "address": "Ōhara, Kumejima, Okinawa 901-3132 (near Kumejima Airport)",
+    "address": "113 Ōhara (大原), Kumejima, Shimajiri District, Okinawa, Japan (in front of Cypress Resort Kumejima, by the airport runway)",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "kanko-kumejima.com/spot/see/679/ (current)",
+    "statusSource": "sugartravel22.com/kumejima3/ (recent visit) + visitokinawajapan.com/destinations/kume-island/",
     "statusChecked": "2026-10-03"
    },
    "Aragusuku Beach, Miyako (新城海岸)": {
@@ -71318,14 +72051,14 @@
     "statusChecked": "2026-10-03"
    },
    "Café Kurukuma (カフェくるくま)": {
-    "address": "1190 Chinen, Chinen, Nanjō, Okinawa 901-1513, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1190 Chinen, Chinen, Nanjō, Okinawa 901-1513 (沖縄県南城市知念字知念1190)",
+    "lat": 26.16209,
+    "lng": 127.812515,
+    "source": "WebSearch extended 2026-10-03 'カフェくるくま 南城市知念1190 緯度 経度' — four agreeing listing coordinates 26.16209,127.812515 / 26.16213024,127.8123867 / 26.16210513,127.8124001 / 26.1622459,127.8123122 from listings incl. iko-yo 37880 / hotpepper strJ000114226 / jalan grm_guide000000172608 / matcha-jp place-master 13796; consistent with Chinen 1190 hilltop (replaces the W5-rejected TripAdvisor point 5 km W)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "tripadvisor 2026 listing (#1 of 107 Nanjo) + Mapple Nanjo list",
+    "statusSource": "hotpepper strJ000114226 + jalan grm_guide000000172608 + cocolocala 76509 current listings",
     "statusChecked": "2026-10-03"
    },
    "Ginowan Tropical Beach (宜野湾トロピカルビーチ)": {
@@ -71395,14 +72128,14 @@
     "statusChecked": "2026-10-03"
    },
    "Aharen Beach, Tokashiki Island (阿波連ビーチ)": {
-    "address": "Aharen, Tokashiki, Okinawa",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "Aharen, Tokashiki, Shimajiri District, Okinawa, Japan",
+    "lat": 26.170067,
+    "lng": 127.34594,
+    "source": "W6G1 2026-10-03: WebSearch extended '阿波連ビーチ 渡嘉敷 緯度 経度' returned 26.170067,127.34594 alongside listing pages (4travel dm_shisetsu/10031880, guidoor 9335, tripadvisor d1373634); same value returned unattributed in W4G5 (candidates iko-yo 26971 / rurubu 80043342 / mapple 501175). Aggregator listing coordinate; consistent with Aharen village beach on SW Tokashiki. Not an official/jawiki point — re-verify with a place pin (!3d!4d) when possible.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "okinawastory.jp/spot/1085 (current)",
+    "statusSource": "visitokinawajapan.com/discover/beach-information/aharen-beach/ + activityjapan.com/feature/aharen_beach/ (2025-26 swim season info)",
     "statusChecked": "2026-10-03"
    },
    "Cape Irizaki, Yonaguni — Japan's westernmost point (西崎)": {
@@ -71527,47 +72260,47 @@
     "statusChecked": "2026-10-03"
    },
    "Nemu Isa (根夢 伊佐店)": {
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "4-2-14 Isa, Ginowan, Okinawa 901-2221 (沖縄県宜野湾市伊佐4-2-14)",
+    "lat": 26.289185,
+    "lng": 127.752998,
+    "source": "WebSearch extended 2026-10-03 — aggregator listing coordinate 26.289185,127.752998 (second listing 26.28905435,127.7529025) from mapion phonebook G5919677-001 / navitime poi 01125-138873r / gnavi ch9b792d0000; consistent with Isa 4-chome by Ginowan Bypass (Union Isa landmark)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "current listing in todo sources: https://www.okinawatimes.co.jp/articles/-/1243603, https://www.mapple.net/region/a0705010300_g03050b00/spot/?page=1",
+    "statusSource": "Yahoo!ニュース expert article on そば処根夢 伊佐店 + hotpepper strJ001017926 hours 11:00-20:00, current",
     "statusChecked": "2026-10-03"
    },
    "Misato Soba (美里そば)": {
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1-23-12 Higashi, Okinawa City, Okinawa 904-2154 (沖縄県沖縄市東1-23-12)",
+    "lat": 26.3433303,
+    "lng": 127.820661,
+    "source": "WebSearch extended 2026-10-03 — aggregator listing coordinate 26.343330311376917,127.82066097259519 from listings kozaweb.jp/eats/show/2 / navitime poi 01125-151593r / gnavi 9jdbda540000 map; consistent with Higashi 1-chome, Okinawa City",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "current listing in todo sources: https://www.okinawatimes.co.jp/articles/-/1243603, https://en.kozaweb.jp/featurePages/show/237",
+    "statusSource": "kozaweb.jp/eats/show/2 (Okinawa City tourism portal) hours 11:00-18:00 closed Thu; okinawastory.jp/gourmet/600004579",
     "statusChecked": "2026-10-03"
    },
    "Komehachi Soba (米八そば)": {
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "5-29-6 Awase, Okinawa City, Okinawa (沖縄県沖縄市泡瀬5-29-6)",
+    "lat": 26.3238,
+    "lng": 127.829765,
+    "source": "WebSearch extended 2026-10-03 — aggregator listing coordinate 26.3238,127.829765 from listings map.yahoo.co.jp/v3/place/Y354JqJ24aU / hotpepper strJ000600872 / navitime J000600872; consistent with Awase 5-chome",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "current listing in todo sources: https://www.okinawatimes.co.jp/articles/-/1243603, https://en.kozaweb.jp/featurePages/show/237",
+    "statusSource": "kozaweb.jp/eats/show/16 + official komehatisoba.rocks; hours 11:00-15:00 closed Fri",
     "statusChecked": "2026-10-03"
    },
    "Kinatsuyu (八重山そば処 来夏世)": {
-    "address": "203 Ishigaki, Ishigaki, Okinawa, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "203 Ishigaki, Ishigaki, Okinawa, Japan (沖縄県石垣市字石垣203)",
+    "lat": 24.3455328,
+    "lng": 124.1591596,
+    "source": "W6G3 2026-10-03 WebSearch extended '来夏世 八重山そば 沖縄県石垣市字石垣203 緯度 経度' — listing coordinate 24.3455328,124.1591596 from aggregator listings in result set (hotpepper.jp/strJ000766978, retty.me/.../100000090098, co-trip.jp/spot/70008); consistent with sourced address (Aza Ishigaki, behind Ishigaki Elementary School per okinawaclip/yuntakuya). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "No closure evidence seen; mapple spot 47010966 (todo src). Not freshly re-checked",
+    "statusSource": "ishigaki-yaeyama2.com 2024-03-07 visit + yuntakuya.okinawa 2023-11; hours 10:00-14:00, closed Wed/Thu/Sun",
     "statusChecked": "2026-10-03"
    },
    "Nakayoshi Shokudō, Ishigaki (なかよし食堂)": {
@@ -71725,14 +72458,14 @@
     "statusChecked": "2026-10-03"
    },
    "Tomari International Cemetery (泊外人墓地)": {
-    "address": "Tomari, Naha, Okinawa",
+    "address": "Tomari, Naha, Okinawa (north shore of Tomari Port)",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "SamuraiWiki + Ryukyu Shimpo column 420003 (existing cemetery)",
+    "statusSource": "samurai-archives.com/wiki/Tomari_International_Cemetery + okinawa.stripes.com Perry article (extant historic cemetery)",
     "statusChecked": "2026-10-03"
    },
    "Hanagasa Shokudō (花笠食堂)": {
@@ -71956,14 +72689,14 @@
     "statusChecked": "2026-10-03"
    },
    "Chuko Awamori Distillery — Chuko-gura (忠孝酒造 忠孝蔵)": {
-    "address": "556-2 Iraha, Tomigusuku, Okinawa 901-0232, Japan",
+    "address": "556-2 Iraha, Tomigusuku, Okinawa 901-0232 (沖縄県豊見城市伊良波556-2)",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Okinawa Awamori Distillers Assoc. okinawa-awamori.or.jp/distilleries/chuko/ + mice.okinawastory.jp s-557 + chuko-awamori.com (tours operating), current",
+    "statusSource": "official chuko-online.com company page + facebook.com/chukoshuzo, current",
     "statusChecked": "2026-10-03"
    },
    "Plaza House Shopping Center (プラザハウス ショッピングセンター)": {
@@ -72099,25 +72832,25 @@
     "statusChecked": "2026-10-03"
    },
    "Kumejima no Kumesen distillery, Kume Island (久米島の久米仙)": {
-    "address": "2157 Ueshiro (Uegusuku), Kumejima, Shimajiri, Okinawa, Japan",
+    "address": "2157 Ueshiro (宇江城), Kumejima, Shimajiri District, Okinawa 901-3101, Japan",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Official site k-kumesen.co.jp + Okinawa Awamori Distillers Assoc. okinawa-awamori.or.jp/distilleries/kumejima_kumesen/ (current), 2026-10-03",
+    "statusSource": "k-kumesen.co.jp/company/ (HQ 宇江城2157, hours 9:30-17:30) + okinawa-awamori.or.jp/distilleries/kumejima_kumesen/",
     "statusChecked": "2026-10-03"
    },
    "KOURI SHRIMP, Kouri Island (古宇利島 KOURI SHRIMP)": {
-    "address": "314 Kouri, Nakijin, Kunigami, Okinawa, Japan",
+    "address": "314 Kouri, Nakijin-son, Kunigami-gun, Okinawa 905-0406 (沖縄県国頭郡今帰仁村古宇利314)",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "TripAdvisor listing ranked #1 of 81 Nakijin-son + tabelog 47024391 (current listings)",
+    "statusSource": "Nakijin tourism association nakijinson.jp spot 46 + OTV Okitive 59668 + official lovesokinawa.co.jp; hours 11:00-16:00",
     "statusChecked": "2026-10-03"
    },
    "Seifuku Shuzō awamori distillery, Ishigaki (請福酒造)": {
@@ -72209,14 +72942,14 @@
     "statusChecked": "2026-10-03"
    },
    "Ryūtan Pond, Shuri (龍潭)": {
-    "address": "Shuri Mawashi-chō, Naha, Okinawa",
+    "address": "Shuri Castle Park, Shuri Mawashi-chō, Naha, Okinawa, Japan",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "okinawastory.jp/spot/1365 (prefectural historic site, public park)",
+    "statusSource": "mlit.go.jp/tagengo-db/en/R2-00482.html (MLIT multilingual signage DB, Shuri Castle Park)",
     "statusChecked": "2026-10-03"
    },
    "Ishigaki-jima Limestone Cave (石垣島鍾乳洞)": {
@@ -72264,25 +72997,25 @@
     "statusChecked": "2026-10-03"
    },
    "Ama Beach, Zamami Island (阿真ビーチ)": {
-    "address": "Ama, Zamami, Shimajiri, Okinawa 901-3403, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "Ama, Zamami, Shimajiri District, Okinawa, Japan",
+    "lat": 26.226806,
+    "lng": 127.292028,
+    "source": "W6G1 2026-10-03: WebSearch extended restricted to okinawa.stripes.com ('Zamami Ama Beach ... GPS') returned Ama Beach GPS 26°13'36.5\"N 127°17'31.3\"E printed in Stars and Stripes Okinawa island-hopping coverage (okinawa.stripes.com/travel/3-days-3-islands-300-let's-go-island-hopping-in-okinawa.html / island-hopping-300-usd.html). Converted to decimal. West of Zamami village, consistent with Ama settlement (not Furuzamami).",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "okinawastory.jp/spot/600006150 + visit-zamami.com (current), 2026-10-03",
+    "statusSource": "okinawa.stripes.com beach-opening schedule coverage + japan-guide e7193 (current)",
     "statusChecked": "2026-10-03"
    },
    "Takatsukiyama Observatory, Zamami (高月山展望台)": {
-    "address": "Zamami, Zamami, Shimajiri, Okinawa, Japan",
+    "address": "Zamami, Zamami, Shimajiri District, Okinawa, Japan (~137 m; 20 min walk from Zamami Port)",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Ministry of Environment Kerama NP course page env.go.jp/nature/nationalparks/list/kerama-shoto/course/01/ + rurubu.jp/andmore/spot/80043351, 2026-10-03",
+    "statusSource": "rurubu.jp/andmore/spot/80043351 + keramatour.world-tours.jp/spot/takatsukiyama-observatory (current)",
     "statusChecked": "2026-10-03"
    },
    "Sugar Road, Kohama Island (シュガーロード)": {
@@ -72297,14 +73030,14 @@
     "statusChecked": "2026-10-03"
    },
    "Aharen-enchi Viewpoint, Tokashiki (阿波連園地)": {
-    "address": "Aharen, Tokashiki, Okinawa",
+    "address": "Aharen, Tokashiki, Shimajiri District, Okinawa, Japan (southern tip, ~3 km from Aharen village)",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "okinawastory.jp/spot/600010497 (current)",
+    "statusSource": "env.go.jp/nature/nationalparks/list/kerama-shoto/course/04/ (Ministry of Environment course incl. the viewpoint) + okinawaclip.com/post/1708908186/",
     "statusChecked": "2026-10-03"
    },
    "17END, Shimoji Island (17エンド)": {
@@ -72440,14 +73173,14 @@
     "statusChecked": "2026-10-03"
    },
    "Tacos Café Tacoloco, Chatan (タコスカフェ タコロコ)": {
-    "address": "9-39 Mihama, Chatan (Stripes 'You'll go loco' article)",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "American Village Bldg B 2F, 9-2 Mihama, Chatan-chō, Nakagami-gun, Okinawa (沖縄県中頭郡北谷町美浜9-2 アメリカンビレッジ内 B棟2F)",
+    "lat": 26.3162771,
+    "lng": 127.7567351,
+    "source": "WebSearch extended 2026-10-03 — aggregator listing coordinate 26.316277140839208,127.75673511820818 from listings incl. 4travel.jp/dm_shisetsu/11554622 / retty 100001302145 / gnavi namk4z6w0000 / churaguru shop 208275; consistent with American Village, Mihama 9-chome",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "current listing in todo sources: https://rurubu.jp/andmore/spot/80043311, https://www.okinawatraveler.net/shop/s1103",
+    "statusSource": "rurubu.jp/andmore/spot/80043311 (hours 11-16, 17-22, no holidays) + okinawatraveler.net/shop/s1103, current",
     "statusChecked": "2026-10-03"
    },
    "Mendokoro Tiandaa (麺処 てぃあんだー)": {
@@ -72462,14 +73195,14 @@
     "statusChecked": "2026-10-03"
    },
    "Teppanyaki Steak House Shiki, Sonoda Honten (ステーキハウス四季 園田本店)": {
-    "address": "3-1-25 Sonoda, Okinawa City, Okinawa 904-0022, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "3-1-25 Sonoda, Okinawa City, Okinawa 904-0022 (沖縄県沖縄市園田3-1-25)",
+    "lat": 26.3303824,
+    "lng": 127.7962256,
+    "source": "WebSearch extended 2026-10-03 — aggregator listing coordinates 26.3303824285111,127.79622563614689 (also 26.3302768,127.79629468 and 26.330302,127.796292 agreeing) from listings incl. map.yahoo.co.jp/v3/place/KI1tNHH8N-U, hotpepper strJ000600640, gnavi 4v2z9byg0000; consistent with Sonoda 3-chome",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "TripAdvisor listing (hours 11:00-15:00/17:00-21:15, phone 098-933-5731) + en.kozaweb.jp/eats/show/187, current",
+    "statusSource": "kozaweb.jp/eats/show/14 (Okinawa City tourism portal) + okinawa-arena.jp near-OA gourmet listing, current",
     "statusChecked": "2026-10-03"
    },
    "Kaizoku Kōbō, Okinawa Zoo & Museum (こどもの国レストラン 海族工房)": {
@@ -72561,14 +73294,14 @@
     "statusChecked": "2026-10-03"
    },
    "Kingetsu Soba Yomitan Honten (金月そば 読谷本店)": {
-    "address": "201 Kina, Yomitan, Nakagami, Okinawa 904-0302, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "201 Kina, Yomitan-son, Nakagami-gun, Okinawa (沖縄県中頭郡読谷村喜名201)",
+    "lat": 26.3977023,
+    "lng": 127.7574056,
+    "source": "WebSearch extended 2026-10-03 '金月そば 読谷本店 読谷村喜名201 緯度 経度' — aggregator listing coordinate 26.397702280787705,127.75740561903018 printed via listings iko-yo.net/facilities/18260 / travel.yahoo.co.jp/kanko/spot-00037429 / retty 100000451933; consistent with Kina, Yomitan (address matches W5 refined 201 Kina)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "TripAdvisor listing (4.3, #14 of 140 Yomitan) + Hoshino Resorts MICHIKUSA guide (current)",
+    "statusSource": "okinawastory.jp/gourmet/600006800 (OCVB listing) + shop blog kintiti.ti-da.net menu page, current 2026 listings",
     "statusChecked": "2026-10-03"
    },
    "Keishoku no Mise Ruby, Tomari (軽食の店ルビー)": {
@@ -72715,14 +73448,14 @@
     "statusChecked": "2026-10-03"
    },
    "Yagiya (屋宜家)": {
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1172 Ōgan, Yaese-chō, Shimajiri-gun, Okinawa (沖縄県島尻郡八重瀬町大頓1172)",
+    "lat": 26.1273416,
+    "lng": 127.7369507,
+    "source": "WebSearch extended 2026-10-03 — listing coordinate 26.12734164014753,127.73695069515185 printed via listings incl. okinawastory.jp/gourmet/600004315 / tabelog 47001738 / suba.okinawa yagi; consistent with Ōgan, Yaese (registered tangible cultural property house)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not checked this wave (source listings https://www.mapple.net/region/a0705010200_g03050000/spot/, https://www.okinawatraveler.net/feature/0114_sp)",
+    "confidence": "low",
+    "status": "open",
+    "statusSource": "OTV Okitive article 82020 + okinawastory.jp/gourmet/600004315 (OCVB), current",
     "statusChecked": "2026-10-03"
    },
    "Nanbu Soba (南部そば)": {
@@ -72770,36 +73503,36 @@
     "statusChecked": "2026-10-03"
    },
    "Sukeroku Kamaboko, Kume Island (助ろく)": {
-    "address": "423-1 Kadekaru, Kumejima, Okinawa, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "423-1 Kadekaru (嘉手苅), Kumejima, Shimajiri District, Okinawa, Japan",
+    "lat": 26.338002439703967,
+    "lng": 126.76425469796156,
+    "source": "W6G1 2026-10-03: WebSearch extended '助ろく かまぼこ 久米島町嘉手苅423-1 緯度 経度' returned 26.338002439703967,126.76425469796156 for かまぶくの店 助ろく at 字嘉手苅423-1, with the tabelog listing 47007779 as the matching page — aggregator listing coordinate (tabelog = coordinate only, never a recommender), consistent with the sourced address (~10 min drive from Kumejima Airport).",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not confirmed — search surfaced no current page (W5G3 2026-10-03)",
+    "confidence": "low",
+    "status": "open",
+    "statusSource": "tabelog.com 47007779 listing active (no closure flag) 2026-10-03; okinawatimes.co.jp/articles/-/180918 — weak status evidence, recheck on official/SNS",
     "statusChecked": "2026-10-03"
    },
    "Onna no Eki Nakayukui Ichiba (おんなの駅 なかゆくい市場)": {
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1656-9 Nakadomari, Onna-son, Kunigami-gun, Okinawa (沖縄県国頭郡恩納村字仲泊1656-9)",
+    "lat": 26.436155,
+    "lng": 127.794842,
+    "source": "WebSearch extended 2026-10-03 — listing coordinate 26.436155,127.794842 printed via listings incl. hotpepper strJ000872855 / map.yahoo.co.jp/v3/place/BcC60eH_7b_ / satomono.jp market 47311/3098; consistent with Nakadomari 1656-9 (address confirmed on Onna village page vill.onna.okinawa.jp cocoico spot 501)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not checked this wave (source listings https://rurubu.jp/andmore/article/17749, https://www.okinawatraveler.net/feature/0106_sp)",
+    "confidence": "low",
+    "status": "open",
+    "statusSource": "Onna village official page vill.onna.okinawa.jp (cocoico spot 501) + GLTJP 16107 — hours 10:00-19:00, current",
     "statusChecked": "2026-10-03"
    },
    "Michi-no-Eki Kyoda — Yanbaru Bussan Center (道の駅許田)": {
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "17-1 Kyoda, Nago, Okinawa 905-0024 (沖縄県名護市許田17-1)",
+    "lat": 26.552103,
+    "lng": 127.969873,
+    "source": "WebSearch extended 2026-10-03 — listing coordinate 26.552103,127.969873 printed via listings incl. drive.jafnavi.jp/spots/471147X00017 / navitime poi 02301-1300765 / ekitan / satomono.jp market 47209/14263; consistent with Kyoda, Nago on Route 58",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not checked this wave (source listings https://rurubu.jp/andmore/article/17306, https://www.mapple.net/spot/47011467/)",
+    "confidence": "low",
+    "status": "open",
+    "statusSource": "okinawastory.jp/spot/1019 (OCVB) + nagomun.or.jp/facility/1777 (Nago tourism) — hours 8:30-19:00, current",
     "statusChecked": "2026-10-03"
    },
    "Yama no Chaya Rakusui, Nanjō (山の茶屋 楽水)": {
@@ -72825,14 +73558,14 @@
     "statusChecked": "2026-10-03"
    },
    "Michi-no-Eki Yuiyui Kunigami (道の駅 ゆいゆい国頭)": {
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1605 Okuma, Kunigami-son, Kunigami-gun, Okinawa (沖縄県国頭郡国頭村字奥間1605)",
+    "lat": 26.73197,
+    "lng": 128.16933,
+    "source": "WebSearch extended 2026-10-03 — published DMS coordinate N26°43'55\" E128°10'10\" (26.73197,128.16933) surfaced with ja.wikipedia.org/wiki/道の駅ゆいゆい国頭 and Okinawa General Bureau dc.ogb.go.jp/road/Michi-no-Eki/kunigami.htm; seconds-precision venue point (~30 m), consistent with Okuma on Route 58",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not checked this wave (source listings https://www.mapple.net/article/51451/, https://www.okinawatraveler.net/feature/0139_sp)",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "official yuiyui-k.jp + OTV Okitive article 7238 + okinawa41.go.jp report 2023-05, current",
     "statusChecked": "2026-10-03"
    },
    "Michi-no-Eki Toyosaki (道の駅 豊崎)": {
@@ -72858,36 +73591,36 @@
     "statusChecked": "2026-10-03"
    },
    "Chadokoro Makabe Chinā, Itoman (茶処 真壁ちなー)": {
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "223 Makabe, Itoman, Okinawa (沖縄県糸満市真壁223)",
+    "lat": 26.10565,
+    "lng": 127.691324,
+    "source": "WebSearch extended 2026-10-03 — listing coordinate 26.10565,127.691324 printed via listings incl. navitime poi 02301-1800333 / travel.navitime.com spot 02301-1800333 / map.yahoo.co.jp c-X1_Akew3c / hotpepper strJ000114219; consistent with Makabe, Itoman",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not checked this wave (source listings https://www.mapple.net/spot/47010445/, https://rurubu.jp/andmore/article/2479)",
+    "confidence": "low",
+    "status": "open",
+    "statusSource": "Mapple 47010445 + hotpepper strJ000114219 (hours 11:00-16:00) + shop blog makabechina.ti-da.net, current",
     "statusChecked": "2026-10-03"
    },
    "Awamori Masahiro Gallery, Itoman (泡盛まさひろギャラリー)": {
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "5-8-7 Nishizaki-chō, Itoman, Okinawa (沖縄県糸満市西崎町5-8-7)",
+    "lat": 26.142904,
+    "lng": 127.654157,
+    "source": "WebSearch extended 2026-10-03 — listing coordinate 26.142904,127.654157 printed via listings incl. jalan guide000000179962 / travel.yahoo spot-00016265 / LINE PLACE 30772407 / localplace t000365091; consistent with Nishizaki-chō 5-chome industrial estate, Itoman",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not checked this wave (source listings https://rurubu.jp/andmore/spot/80042883, https://www.okinawatraveler.net/feature/0138_sp_01)",
+    "confidence": "low",
+    "status": "open",
+    "statusSource": "official awamori-masahiro.com (access page) + okinawastory.jp/spot/1030 + Itoman tourism association page, current",
     "statusChecked": "2026-10-03"
    },
    "Uema Kashiten Factory — Suppaiman (上間菓子店 工場見学)": {
-    "address": "",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "3-64 Toyosaki, Tomigusuku, Okinawa (沖縄県豊見城市字豊崎3番64)",
+    "lat": 26.153056,
+    "lng": 127.654528,
+    "source": "WebSearch extended 2026-10-03 — ja.wikipedia.org/wiki/上間菓子店 infobox HQ coordinate N26°9'11.0\" E127°39'16.3\" (26.153056,127.654528) at the same 3-64 Toyosaki address as the factory; independent listing coordinate 26.15317738,127.65451356 (iko-yo 103495 / mapion) agrees within ~15 m. med = company-HQ point for the factory-tour site",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not checked this wave (source listings https://www.mapple.net/spot/47013394/, https://www.okinawatraveler.net/feature/0138_sp_01)",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "official amaume.co.jp shop/about pages + @suppaiman_uema on X + jalan spt_47212ga3552081088, current",
     "statusChecked": "2026-10-03"
    },
    "Restaurant Marumi-ya, Zamami (レストラン まるみ屋)": {
@@ -72902,14 +73635,14 @@
     "statusChecked": "2026-10-03"
    },
    "Karaoke Izakaya Marine Box, Tokashiki (カラオケ居酒屋マリンボックス)": {
-    "address": "1779-2 Tokashiki, Tokashiki, Okinawa, Japan",
+    "address": "1779-2 Tokashiki, Tokashiki, Shimajiri District, Okinawa, Japan (near Tokashiki Port)",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "okijets.com Tokashiki island guide (restaurant in Tokashiki port village that turns into after-hours karaoke bar) — undated, weak",
+    "statusSource": "torakichi.osaka/22133.html (visit report May 2026) + tokashiki.info/shop/01301 (Tokashiki tourism association listing)",
     "statusChecked": "2026-10-03"
    },
    "Sobadokoro Takenoko, Taketomi (そば処 竹の子)": {
@@ -72924,80 +73657,80 @@
     "statusChecked": "2026-10-03"
    },
    "Inaka Ryōri no Mise Kura, Miyako (田舎料理の店 蔵)": {
-    "address": "654-6 Hisagai, Hirara, Miyakojima, Okinawa, Japan",
+    "address": "654-6 Hisagai, Hirara, Miyakojima, Okinawa, Japan (沖縄県宮古島市平良字久貝654-6)",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Mapple spot 47011251",
+    "statusSource": "hotpepper.jp/strJ000114423 + churaguru listing with current hours 11:00-14:00 / 18:00-23:00, seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Irabu Soba Kame (伊良部そば かめ)": {
-    "address": "251 Irabu Nagahama, Irabu, Miyakojima, Okinawa 906-0506, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "251 Nagahama, Irabu, Miyakojima, Okinawa 906-0506, Japan (沖縄県宮古島市伊良部字長浜251)",
+    "lat": 24.8399918,
+    "lng": 125.1653942,
+    "source": "W6G3 2026-10-03 WebSearch extended '伊良部そば かめ 宮古島市伊良部字長浜251 緯度 経度' — three listings agree within ~60 m: 24.8399918,125.1653942; 24.840006,125.165403; 24.840456,125.164749 (result set: autoreserve.com/ja/restaurants/hHZjjaKYK2fXoZQNJcPK, epark.jp/shopinfo/jsp654528, navitime.co.jp/poi?spot=02301-ni0000017, r.gnavi.co.jp/61t0gnmt0000); consistent with sourced address (Nagahama, NE Irabu). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "Trip.com / Mapple 30654 listing (2026)",
+    "statusSource": "autoreserve/epark current listings 2026-10-03 (tel 0980-78-5477, parking) + miyakojima-bb.com item page",
     "statusChecked": "2026-10-03"
    },
    "Maruyoshi Shokudō (丸吉食堂)": {
-    "address": "975-1 Sunagawa, Gusukube, Miyakojima, Okinawa 906-0108, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "975-1 Sunagawa, Gusukube, Miyakojima, Okinawa 906-0108, Japan (沖縄県宮古島市城辺字砂川975-1)",
+    "lat": 24.7316406,
+    "lng": 125.3516878,
+    "source": "W6G3 2026-10-03 WebSearch extended '丸吉食堂 沖縄県宮古島市城辺字砂川975-1 緯度 経度' — listings agree: 24.731604,125.351652; 24.7316406,125.3516878; 24.732111,125.351001 (result set: retty.me/.../100000171379/map, navitime.co.jp/poi?spot=02301-1800232, rubese.net gurucomi id=2979795, travel.yahoo.co.jp spot-00016084); consistent with sourced address (Sunagawa, Gusukube). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "rurubu 24736 (hours 10:30–14:00)",
+    "statusSource": "suba.okinawa/subaya/maruyoshi-sunagawa + myakuzumi.com/117 current listings 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Yamato Shokudō (大和食堂)": {
-    "address": "819-3 Nishizato, Hirara, Miyakojima, Okinawa, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "819-3 Nishizato, Hirara, Miyakojima, Okinawa, Japan (沖縄県宮古島市平良字西里819-3)",
+    "lat": 24.799701,
+    "lng": 125.292547,
+    "source": "W6G3 2026-10-03 WebSearch extended '大和食堂 宮古島市平良字西里819-3 緯度 経度' — hotpepper.jp/strJ000114436 listing 24.799701,125.292547; tabelog 47000267 24.799709,125.292589; navitime poi 01125-127752r 24.800196,125.291891 (agree within ~90 m); consistent with sourced address (Nishizato, Hirara). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "rurubu 24736 / travelhub.slt-inc.jp (hours 9:30–19:00, closed Tue)",
+    "statusSource": "ameblo.jp/ryoko-tabi/entry-12904671137 (2025 visit) + map.yahoo.co.jp place listing, seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Minato Shokudō, Miyako (みなと食堂)": {
-    "address": "593-10 Nikadori, Hirara, Miyakojima, Okinawa, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "593-10 Nikadori, Hirara, Miyakojima, Okinawa, Japan (沖縄県宮古島市平良字荷川取593-10)",
+    "lat": 24.817164,
+    "lng": 125.279667,
+    "source": "W6G3 2026-10-03 WebSearch extended 'みなと食堂 宮古島市平良字荷川取593-10 緯度 経度' — listing coordinate 24.817164,125.279667 from result set (hamoni.jp/shop/cDVNZUD41jhlxkpvjONh, navitime.co.jp/poi?spot=02022-1449799, r.gnavi.co.jp/45u24ud00000); consistent with sourced address (facing Nikadori fishing port). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "rurubu 24736",
+    "statusSource": "miyakojima.jp/lunch/minaato-shokudou + hotelmiyakojima.jp page; hours 11:00-16:00, closed Wed, seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Jinku-ya (じんく屋)": {
-    "address": "84 Shimozato, Hirara, Miyakojima, Okinawa, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "84 Shimozato, Hirara, Miyakojima, Okinawa, Japan (沖縄県宮古島市平良字下里84)",
+    "lat": 24.803537,
+    "lng": 125.278321,
+    "source": "W6G3 2026-10-03 WebSearch extended 'じんく屋 宮古島市平良字下里84 緯度 経度' — listings agree: 24.803537,125.278321 and 24.8035505,125.2783325 (result set: hotpepper.jp/strJ000597433, hamoni.jp/shop/8HBil..., jalan grm_alikejpB000671152, ekiten shop_2466158); consistent with sourced address (central Hirara). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "rurubu 24736 / Mapple 30654",
+    "statusSource": "churaguru.net shop jinkuya + okinawashokuzainomise registered shop 2566, current 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Ishigaki-gyū Sumibi Yakiniku Yamamoto (石垣牛 炭火焼肉 やまもと)": {
-    "address": "2-5-18 Hamasaki-chō, Ishigaki, Okinawa, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "2-5-18 Hamasaki-chō, Ishigaki, Okinawa, Japan (沖縄県石垣市浜崎町2-5-18)",
+    "lat": 24.341497,
+    "lng": 124.149683,
+    "source": "W6G3 2026-10-03 WebSearch extended '石垣牛炭火焼肉やまもと 沖縄県石垣市浜崎町2-5-18 緯度 経度' — listings agree: 24.3414804,124.1497135; 24.341497,124.149683; 24.3414953,124.1497161 (one outlier 24.340189,124.147655 ignored) (result set: hamoni.jp/en/shop/8YuLcfKXBrMRon3OwmHg, co-trip.jp/spot/70057, navitime poi 02301-1803071, r.gnavi.co.jp/6fjew2wa0000); consistent with sourced address (Hamasaki-chō). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "rurubu 24755 / Mapple 47011048",
+    "statusSource": "ishigaki-tours.com/column/ishigaki-yamamoto-yakiniku (2026 guide, hours/reservations) seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Shima no Ushi Ishigaki-ya (島のうし 石垣屋)": {
@@ -73012,14 +73745,14 @@
     "statusChecked": "2026-10-03"
    },
    "Kimi Shokudō, Ishigaki (キミ食堂)": {
-    "address": "319-6 Tonoshiro, Ishigaki, Okinawa 907-0004, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "319-6 Tonoshiro, Ishigaki, Okinawa 907-0004, Japan (沖縄県石垣市登野城319-6)",
+    "lat": 24.341632,
+    "lng": 124.166577,
+    "source": "W6G3 2026-10-03 WebSearch extended 'キミ食堂 沖縄県石垣市登野城319-6 緯度 経度' — listings agree: 24.3416128,124.1666009 and 24.341632,124.166577 (outlier 24.340337,124.164569 ignored) (result set: map.yahoo.co.jp/v3/place/rZw82jaNudU, hotpepper strJ000114443, ekiten shop_2474998, navitime poi 01125-115234r); consistent with sourced address (Tonoshiro). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "Wanderlog 3565961 current hours (closed Thu); Mapple listing (2026)",
+    "statusSource": "rikakotenkinblog.com 2023-12-09 visit + map.yahoo.co.jp place listing, seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Shiraho Shokudō (白保食堂)": {
@@ -73034,102 +73767,102 @@
     "statusChecked": "2026-10-03"
    },
    "Awamori to Okinawa Ryōri Gōya, Miyako (泡盛と沖縄料理 郷家)": {
-    "address": "570-2 Nishizato, Hirara, Miyakojima, Okinawa, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "570-2 Nishizato, Hirara, Miyakojima, Okinawa, Japan (沖縄県宮古島市平良字西里570-2)",
+    "lat": 24.802467,
+    "lng": 125.282714,
+    "source": "W6G3 2026-10-03 WebSearch extended '泡盛と沖縄料理 郷家 沖縄県宮古島市平良字西里570-2 緯度 経度' — listing coordinate 24.802467,125.282714 from result set (rtrp.jp/spots/4ceff6f4-..., navitime poi 02301-1800221n, ekiten shop_2467061, r.gnavi catf68d30000); consistent with sourced address (Nishizato, on prefectural road 78). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "NAVITIME listing: 17:30-22:00 (LO 21:00), irregular holidays, tel 0980-74-2358, 2026-10-03",
+    "statusSource": "miyako-island.net/gourmet/gourmet_spot_016 (Miyakojima Tourism Association official; 17:30-22:00, nightly sanshin live) seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "RICCO gelato, Miyako (リッコジェラート)": {
-    "address": "550 Shimozato, Hirara, Miyakojima, Okinawa 906-0013, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "550 Shimozato, Hirara, Miyakojima, Okinawa 906-0013, Japan (沖縄県宮古島市平良字下里550)",
+    "lat": 24.8028989,
+    "lng": 125.2797993,
+    "source": "W6G3 2026-10-03 WebSearch extended 'リッコジェラート 沖縄県宮古島市平良字下里550 緯度 経度' — listing coordinate 24.802898940,125.279799283 from result set (tabelog 47007314 peripheral_map, ricco-gelato.com/shop-info); consistent with sourced address (central Hirara, Shimozato). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "Wanderlog 1361625 current hours (closed Tue–Wed); rurubu 80049145. Note: one 2016 TripAdvisor review titled 'Closed?' — a temporary closure, current listings show open",
+    "statusSource": "ricco-gelato.com/shop-info (official; 11:00-18:00, closed Tue/Wed) seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Shima Café Tunkaraya, Miyako (島cafe とぅんからや)": {
-    "address": "1214 Shinzato, Ueno, Miyakojima, Okinawa, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1214 Shinzato, Ueno, Miyakojima, Okinawa, Japan (沖縄県宮古島市上野字新里1214)",
+    "lat": 24.725847,
+    "lng": 125.348264,
+    "source": "W6G3 2026-10-03 WebSearch extended '島cafe とぅんからや 沖縄県宮古島市上野字新里1214 緯度 経度' — ekiten.jp/shop_6012879/access printed 24.725847,125.348264; consistent with sourced address (Ueno-Shinzato, overlooking the Sigira golf course coast per myakuzumi.com/435). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "rurubu 15800",
+    "statusSource": "tanoshima.jp facilities page + shimanoiro.site guide, current 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Ishigaki-jima Milmil Honpo (石垣島ミルミル本舗)": {
-    "address": "1583-74 Arakawa, Ishigaki, Okinawa, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1583-74 Arakawa, Ishigaki, Okinawa, Japan (沖縄県石垣市新川1583-74)",
+    "lat": 24.370929,
+    "lng": 124.1226,
+    "source": "W6G3 2026-10-03 WebSearch extended '石垣島ミルミル本舗 沖縄県石垣市新川1583-74 緯度 経度' — two listings print 24.370927,124.1226 / 24.370929,124.1226; a third prints 24.369682,124.120619 (~250 m apart) (result set: hotpepper strJ001071535, r.gnavi.co.jp/dzhv2az90000/map, navitime poi 02301-1803063, travel.yahoo spot-00016267). Took the agreeing pair; all on the Arakawa hilltop above Nagura Bay per mirumiru1583.com/access. FLAG for 4b re-verify (spread 250 m). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "Mapple spot 47012259",
+    "statusSource": "mirumiru1583.com/access (official, 10:00-sunset, open all year) seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Shima Ryōri Izakaya Adan-tei, Ishigaki (島料理居酒屋 あだん亭)": {
-    "address": "East 1F, 430 Ōkawa, Ishigaki, Okinawa 907-0022, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "East 1F, 430 Ōkawa, Ishigaki, Okinawa 907-0022, Japan (沖縄県石垣市大川430 1F東)",
+    "lat": 24.345975,
+    "lng": 124.161816,
+    "source": "W6G3 2026-10-03 WebSearch extended '島料理居酒屋 あだん亭 沖縄県石垣市大川430 緯度 経度' — listings agree: 24.345975,124.161816 and 24.3459701,124.1618400 (result set: hotpepper strJ000114238, enjoytokyo g_fb2s800, ekiten shop_15618912, adantei.gorp.jp); consistent with sourced address (Ōkawa, 2 min walk from Hotel Nikko Yaeyama per adantei.com). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "OkinawaTraveler shop 91324 / Mapple 29790",
+    "statusSource": "adantei.com/about (official, 17:00-24:00, closed Tue) seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Mori no Kenja, Ishigaki (森の賢者)": {
-    "address": "1F, 49-2 Arakawa, Ishigaki, Okinawa, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "1F, 49-2 Arakawa, Ishigaki, Okinawa 907-0024, Japan (沖縄県石垣市字新川49-2 1F)",
+    "lat": 24.345085,
+    "lng": 124.152663,
+    "source": "W6G3 2026-10-03 WebSearch extended '森の賢者 沖縄県石垣市新川49-2 緯度 経度' — listing coordinate 24.345085,124.152663 from result set (map.yahoo.co.jp/v3/place/NO1kwRoHo8M, hotpepper strJ000114178, hamoni.jp/shop/yxQMuAJEj7y5omg2MkC8, navitime poi 01125-7174126); consistent with sourced address (Arakawa, west edge of downtown). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "rurubu spot 80042737",
+    "statusSource": "rurubu.jp/andmore/spot/80042737 + churaguru morinokenja current listings, seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Maguro Senmon Izakaya Hitoshi, Ishigantō (まぐろ専門居酒屋 ひとし 石敢當店)": {
-    "address": "197-1 Ōkawa, Ishigaki, Okinawa, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "197-1 Ōkawa, Ishigaki, Okinawa, Japan (沖縄県石垣市大川197-1)",
+    "lat": 24.339972,
+    "lng": 124.159141,
+    "source": "W6G3 2026-10-03 WebSearch extended 'まぐろ専門居酒屋 ひとし 石敢當店 沖縄県石垣市大川197-1 緯度 経度' — listings agree: 24.339972,124.159141 and 24.339992,124.159108 (result set: hotpepper strJ000675737, map.yahoo.co.jp/v3/place/ZkUs5qpETSU, hamoni.jp/shop/yiSVYjBqZ6nBAPuXSKYm, ekiten shop_2474815/access); consistent with sourced address (Ōkawa, downtown Ishigaki). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "Mapple spot 47011623",
+    "statusSource": "hotpepper/jalan current listings (16:30-23:00) + tabipa.com visit post, seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "KITCHEN inaba, Iriomote (キッチン イナバ)": {
-    "address": "742-6 Uehara, Taketomi, Yaeyama District, Okinawa, Japan",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "742-6 Uehara, Taketomi, Yaeyama District, Okinawa, Japan (沖縄県八重山郡竹富町上原742-6)",
+    "lat": 24.423203,
+    "lng": 123.777954,
+    "source": "W6G3 2026-10-03 WebSearch extended 'キッチン イナバ 西表島 竹富町上原742-6 緯度 経度' — listing coordinate 24.423203,123.777954 from result set (travel.yahoo.co.jp spot-00031520, r.gnavi.co.jp/1y8sgkcc0000, TripAdvisor d3835679); consistent with sourced address (Uehara, along prefectural road 215, north Iriomote). Single listing; FLAG for 4b re-verify. Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "rurubu 80043585 / Mapple 47011256",
+    "statusSource": "churaguru.net shop inaba + TripAdvisor d3835679 (238 reviews) current listing, seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Shima Gourmet ROCO, Iriomote (島ぐるめ ROCO)": {
-    "address": "58 Uehara, Taketomi, Yaeyama District, Okinawa, Japan",
+    "address": "58 Uehara, Taketomi, Yaeyama District, Okinawa, Japan (沖縄県八重山郡竹富町上原58)",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "rurubu 80043524",
+    "statusSource": "okinawa-j-travel.com/food/roco-2 + TripAdvisor d7428723 current listing (18:00-22:00), seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Sugar Loaf Hill (シュガーローフ / 安里52高地)": {
@@ -73177,14 +73910,14 @@
     "statusChecked": "2026-10-03"
    },
    "Akashi Shokudō, Ishigaki (明石食堂)": {
-    "address": "360 Ihara, Ishigaki",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "360 Ihara, Ishigaki, Okinawa, Japan (沖縄県石垣市伊原間360, Akashi area)",
+    "lat": 24.53949,
+    "lng": 124.30014,
+    "source": "W6G3 2026-10-03 WebSearch extended '明石食堂 沖縄県石垣市伊原間360 緯度 経度' — listings agree: 24.5394901,124.3001408 and 24.5395010,124.3001533 (result set: hotpepper strJ000597813, ramendb.supleks.jp/s/10327, cookdoor 14092762440, travel.navitime.com spot 01125-10327r); consistent with sourced address (Akashi, north Ishigaki). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "Mapple article 29568 (current, queues before opening)",
+    "statusSource": "ishigakijima.okinawa.jp (official MADE IN 石垣島, 2022-01-26) + escort-ishigaki.com spot page, seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Arakaki Shokudō, Ishigaki — CLOSED (新垣食堂)": {
@@ -73221,36 +73954,36 @@
     "statusChecked": "2026-10-03"
    },
    "Sakana-dokoro Shiken-bara, Miyako (肴処 志堅原)": {
-    "address": "236 Nishizato, Hirara, Miyakojima",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "236 Nishizato, Hirara, Miyakojima, Okinawa, Japan (沖縄県宮古島市平良字西里236)",
+    "lat": 24.805187,
+    "lng": 125.280632,
+    "source": "W6G3 2026-10-03 WebSearch extended '肴処 志堅原 沖縄県宮古島市平良字西里236 緯度 経度' — four listings agree within ~50 m: 24.8051962,125.2804363; 24.8051224,125.2803981; 24.805187,125.280632; 24.8056508,125.2805788 (result set: hotpepper strJ001080390, map.goo.ne.jp/place/XFRSUFHK, jalan grm_foomoojH000313328, travel.yahoo spot-00015960); consistent with sourced address (Nishizato, central Hirara). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "Mapple spot / jalan current hours 18:00-24:00, closed Tue",
+    "statusSource": "sakanadokoro-shikenbaru.jp (official site) + hotpepper reservation page, seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Kumejima Soba-dokoro Yan-kō, Kume Island (久米島そば処 やん小～)": {
-    "address": "509 Nakadomari, Kumejima",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "509 Nakadomari (仲泊), Kumejima, Shimajiri District, Okinawa, Japan",
+    "lat": 26.34745823969232,
+    "lng": 126.74657739806948,
+    "source": "W6G1 2026-10-03: WebSearch extended '久米島そば処 やん小～ 久米島町仲泊509 緯度 経度' returned 26.34745823969232,126.74657739806948 alongside listing pages (co-trip 126571, mapple 47012362, ekiten 67986111, tabelog 47001595) — aggregator listing coordinate, consistent with the sourced 仲泊509 address.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "Kumejima tourism association soba page (current hours 11:30-13:30, closed Sun)",
+    "statusSource": "otv.co.jp/okitive/article/53732/ (OTV Okitive feature on its miso-moyashi soba) + okinawaclip.com/post/1707375338/",
     "statusChecked": "2026-10-03"
    },
    "Yonejima Shuzō awamori distillery, Kume Island (米島酒造)": {
-    "address": "499 Ōta, Kumejima",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "499 Ōta (大田), Kumejima, Shimajiri District, Okinawa 901-3123, Japan",
+    "lat": 26.34575,
+    "lng": 126.751222,
+    "source": "W6G1 2026-10-03: WebSearch extended '米島酒造 久米島町大田499 緯度 経度' returned 26°20'44.7\"N 126°45'04.4\"E for the brewery at 大田499, alongside the official access-map page yonesima.jp/free/map and okinawa-awamori.or.jp/distilleries/yonesima; result not attributed to one page, so graded low. Consistent with Ōta (west Kume) and ~500 m from Yan-kō at adjacent Nakadomari.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "kanko-kumejima.com spot 2034 (current hours)",
+    "statusSource": "yonesima.jp/free/company-profile + okinawa-awamori.or.jp/distilleries/yonesima/ (active distillery, 2025-26 pages)",
     "statusChecked": "2026-10-03"
    },
    "Kinjō Tetsuo Archive at Shōfūen, Haebaru (金城哲夫資料館・松風苑)": {
@@ -73375,14 +74108,14 @@
     "statusChecked": "2026-10-03"
    },
    "Kamimura Distillery Kūsu-gura (神村酒造 古酒蔵)": {
-    "address": "570 Ishikawa-Kadekaru, Uruma, Okinawa",
+    "address": "570 Ishikawa-Kadekaru, Uruma, Okinawa 904-1114 (沖縄県うるま市石川嘉手苅570)",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "OCVB MICE c-134 (tours 10:00-17:00) + official tour page kamimura-shuzo.co.jp/tour/",
+    "statusSource": "official kamimura-shuzo.co.jp + uruma-ru.jp member page for 古酒蔵 direct shop, current",
     "statusChecked": "2026-10-03"
    },
    "Mihama Shokudō, Chatan (みはま食堂)": {
@@ -73419,47 +74152,47 @@
     "statusChecked": "2026-10-03"
    },
    "Seaside Drive-In, Onna (シーサイドドライブイン)": {
-    "address": "Nakadomari, Onna-son, Okinawa",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "885 Nakadomari, Onna-son, Kunigami-gun, Okinawa (沖縄県国頭郡恩納村仲泊885) — street number per listings (official seaside-drivein.jp/access)",
+    "lat": 26.442728,
+    "lng": 127.803449,
+    "source": "WebSearch extended 2026-10-03 — navitime poi 02301-1800434 listing 26.442728,127.803449; hotpepper strJ000872895 26.442683,127.803389 and tabelog 47000156 26.44260833,127.80348322 agree within ~15 m; consistent with Nakadomari seaside on Route 58",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "rurubu spot 80043229 + Stripes picnic article (current, 24h take-out counter)",
+    "statusSource": "official seaside-drivein.jp (access page) + hotpepper strJ000872895, current",
     "statusChecked": "2026-10-03"
    },
    "Emi no Mise, Ōgimi (笑味の店)": {
-    "address": "61 Ōganeku, Ōgimi-son, Okinawa",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "61 Ōganeku, Ōgimi-son, Kunigami-gun, Okinawa (沖縄県国頭郡大宜味村字大兼久61)",
+    "lat": 26.7027183,
+    "lng": 128.1235831,
+    "source": "WebSearch extended 2026-10-03 — listing coordinate 26.7027183007106,128.12358306185445 printed via listings incl. travel.yahoo spot-00015980 / asoview 47302fc3562007223 / gnavi duumpg730000 / churatown 6485; consistent with Ōganeku, Ōgimi on Route 58",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "rurubu spot 80043104 (hours 9-16, closed Tue-Thu, reservation)",
+    "statusSource": "CREA (crea.bunshun.jp/articles/-/32400) + yambaru-artfes.jp spot ogimi007 + kuwachii-okinawa registered shop 2286, current",
     "statusChecked": "2026-10-03"
    },
    "Okashi Goten Onna (御菓子御殿 恩納店)": {
-    "address": "Onna-son, Okinawa (Route 58)",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "100 Seragaki, Onna-son, Kunigami-gun, Okinawa (沖縄県国頭郡恩納村瀬良垣100) — street number per listings",
+    "lat": 26.5066252,
+    "lng": 127.8786841,
+    "source": "WebSearch extended 2026-10-03 — listing coordinate 26.5066252,127.8786841 printed via listings incl. mapfan SQ3Y,J,E9PB1 / iko-yo 24173 / navitime poi 02301-1800136 / jalan guide000000183314; consistent with Seragaki, Onna on Route 58 (sourced 'coastal Route 58')",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "rurubu spot 80043203 (current, tart-making experience bookable)",
+    "statusSource": "jalan guide000000183314 + GLTJP 16373 — hours 8:30-19:30, open year-round, current",
     "statusChecked": "2026-10-03"
    },
    "Mozuku Soba Kunnatu, Nanjō (もずくそばの店 くんなとぅ)": {
-    "address": "460-2 Shikenbaru, Tamagusuku, Nanjō, Okinawa",
+    "address": "460-2 Shikenbaru, Tamagusuku, Nanjō, Okinawa (沖縄県南城市玉城字志堅原460-2) — just before the Ōjima bridge",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "rurubu spot 80043068 (hours 11-16)",
+    "statusSource": "Nanjō tourism kankou-nanjo.okinawa/eat/78 + rurubu 80043068 (hours 11-16), current",
     "statusChecked": "2026-10-03"
    },
    "Senaga Island & Umikaji Terrace, Tomigusuku (瀬長島ウミカジテラス)": {
@@ -73485,47 +74218,47 @@
     "statusChecked": "2026-10-03"
    },
    "Todoroki Falls Park, Nago (轟の滝)": {
-    "address": "594 Sukuta, Nago, Okinawa",
+    "address": "594 Sukuta, Nago, Okinawa, Japan",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "rurubu spot 80042856 / jalan (hours 9-18, ¥200 admission, current)",
+    "statusSource": "okinawastory.jp/spot/30000063 (OCVB, current) + rurubu.jp/andmore/spot/80042856",
     "statusChecked": "2026-10-03"
    },
    "Shimashi Ōzato Castle Ruins, Nanjō (島添大里城跡)": {
-    "address": "Ōzato, Nanjō, Okinawa",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "Ōzato, Ōzato, Nanjō, Okinawa, Japan (Ōzato Castle Ruins Park)",
+    "lat": 26.1866,
+    "lng": 127.7601417,
+    "source": "W6G1 2026-10-03: ja.wikipedia.org/wiki/島添大里城 infobox coordinates 北緯26度11分11.76秒 東経127度45分36.51秒 (26.1866000, 127.7601417), via WebSearch extended restricted to ja.wikipedia.org.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
-    "statusSource": "Nanjō tourism association bunka/216 (current); open-air ruins park",
+    "statusSource": "kankou-nanjo.okinawa/bunka/216/ (Nanjō city tourism page, public castle-ruins park) + shirobito.jp/castle/2984",
     "statusChecked": "2026-10-03"
    },
    "Yamakawa Shuzō awamori distillery, Motobu (山川酒造)": {
-    "address": "58 Namizato, Motobu-chō, Okinawa",
+    "address": "58 Namizato, Motobu-chō, Kunigami-gun, Okinawa 905-0222 (沖縄県国頭郡本部町字並里58)",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "GLTJP directory 13418 (current tour/tasting listing); Ryukyu Shimpo tag page shows ongoing releases",
+    "statusSource": "official yamakawashuzo.com company page + @yamakawa_shuzo on X + jalan guide000000201313 (tours bookable), current",
     "statusChecked": "2026-10-03"
    },
    "Kin Shōnyūdō cave awamori cellar — Ryū no Kura, Kin (金武鍾乳洞 古酒蔵 龍の蔵)": {
-    "address": "245 Kin, Kin-chō, Okinawa",
+    "address": "245 Kin, Kin-chō, Kunigami-gun, Okinawa (沖縄県国頭郡金武町金武245) — cave under Kin Kannon-ji",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "tabi-mag on0435 (current: open 9:00-16:45 daily, tours 11/14/15:30)",
+    "statusSource": "mice.okinawastory.jp/contents/contents-all/c-252 (OCVB MICE) + Mapple 47000773 current listing",
     "statusChecked": "2026-10-03"
    },
    "Uegusuku Castle Ruins, Kume Island (宇江城城跡)": {
@@ -73540,14 +74273,14 @@
     "statusChecked": "2026-10-03"
    },
    "Hiyajō Banta viewpoint, Kume Island (比屋定バンタ)": {
-    "address": "Hiyajō, Kumejima",
+    "address": "Hiyajō (比屋定), Kumejima, Shimajiri District, Okinawa 901-3102, Japan",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "rurubu spot 80043406 (current)",
+    "statusSource": "kanko-kumejima.com/spot/see/663/ (Kumejima tourism association, current) + okinawastory.jp/spot/1379",
     "statusChecked": "2026-10-03"
    },
    "Mīfugā rock, Kume Island (ミーフガー)": {
@@ -73573,14 +74306,14 @@
     "statusChecked": "2026-10-03"
    },
    "How Tree Gelato, Ishigaki (ハウトゥリージェラート)": {
-    "address": "281 Ōkawa, Ishigaki",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "281 Ōkawa, Ishigaki, Okinawa, Japan (沖縄県石垣市大川281)",
+    "lat": 24.340577,
+    "lng": 124.157855,
+    "source": "W6G3 2026-10-03 WebSearch extended 'ハウトゥリージェラート 沖縄県石垣市大川281 緯度 経度' — listing coordinate 24.340577,124.157855 from result set (hamoni.jp/shop/SylsB5VQp0otpWSt4CZT, hotpepper strJ001063916, travel.yahoo spot-00031332, r.gnavi 2dkec3ub0000); consistent with sourced address (Ōkawa, downtown Ishigaki). Aggregator = coordinate only.",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "low",
     "status": "open",
-    "statusSource": "Mapple/rurubu current hours 11-19, season Feb-Nov",
+    "statusSource": "hotpepper strJ001063916 + nirakana.com/hautreegerato current listings, seen 2026-10-03",
     "statusChecked": "2026-10-03"
    },
    "Toguchi-no-hama Beach, Irabu Island (渡口の浜)": {
@@ -73606,14 +74339,487 @@
     "statusChecked": "2026-10-03"
    },
    "Takanazaki & Japan's Southernmost Point Monument, Hateruma (高那崎・日本最南端の碑)": {
-    "address": "Hateruma Island, Taketomi",
+    "address": "Hateruma, Taketomi, Yaeyama District, Okinawa, Japan (south-east tip of Hateruma Island)",
+    "lat": 24.049806,
+    "lng": 123.805056,
+    "source": "W6G1 2026-10-03: ja.wikipedia.org/wiki/高那崎 coordinates 北緯24度2分59.3秒 東経123度48分18.2秒 (24.049806, 123.805056); article describes the 日本最南端之碑 (1970) and 日本最南端平和の碑 (1995) at the cape. Via WebSearch extended restricted to ja.wikipedia.org.",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "rurubu.jp/andmore/spot/80043464 + painusima.com/934/ (open-air monument, current listing)",
+    "statusChecked": "2026-10-03"
+   },
+   "Shinzan Soba (新山そば)": {
+    "address": "1-9-2 Daitō, Nago, Okinawa (沖縄県名護市大東1-9-2) — note: 新山そば is read Shinzan Soba",
+    "lat": 26.588676,
+    "lng": 127.985635,
+    "source": "WebSearch extended 2026-10-03 — navitime poi 02301-pn0001061 listing coordinate 26.588676,127.985635; tabelog 47000062 26.58859255,127.98593484 and retty 100000723279 26.58858162,127.98592693 agree within ~15 m; consistent with Daitō 1-chome, Nago",
+    "verified": "2026-10-03",
+    "confidence": "low",
+    "status": "open",
+    "statusSource": "map.yahoo.co.jp/v3/place/cLq3ObHT7LI + okinawatravel.jp/shinzansoba current listings; Okinawa Times 1305747 (100-year profile)",
+    "statusChecked": "2026-10-03"
+   },
+   "Shima-buta Shichirin-yaki Manmi, Nago (島豚七輪焼 満味)": {
+    "address": "251 Isagawa, Nago, Okinawa 905-1152 (沖縄県名護市伊差川251) — CORRECTION: Isagawa is in Nago city, not Motobu (official manmi-yanbaru.com, okinawastory.jp, mapion all print 名護市伊差川251)",
+    "lat": 26.605625,
+    "lng": 128.00093,
+    "source": "WebSearch extended 2026-10-03 '島豚七輪焼 満味 名護市伊差川251 緯度 経度' — listing coordinate 26.605625,128.00093 printed via listings incl. mapion phonebook G7333018-001 / gnavi bt710vuu0000 / travel.yahoo spot-00016304; consistent with Isagawa, Nago (Haneji side)",
+    "verified": "2026-10-03",
+    "confidence": "low",
+    "status": "open",
+    "statusSource": "official manmi-yanbaru.com + OKINAWA41 report 2026-02-16 + okinawastory.jp ethical_travel/manmi; hours 17:00-22:00, closed Sun/Mon",
+    "statusChecked": "2026-10-03"
+   },
+   "KIN Sunrise Beach (KINサンライズビーチ海浜公園)": {
+    "address": "沖縄県国頭郡金武町金武10819-4",
+    "lat": 26.459619,
+    "lng": 127.947151,
+    "source": "NAVITIME POI venue page https://www.navitime.co.jp/poi?spot=02022-10006196 printed 26.459619,127.947151 with the address 金武10819-4 (consistent with Kin Bay shore); search 2026-10-03",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Official site kinsunrisebeach.com (live park/BBQ operations) + OCVB film office location page, checked 2026-10-03",
+    "statusChecked": "2026-10-03"
+   },
+   "Michi-no-Eki Ginoza (道の駅ぎのざ)": {
+    "address": "沖縄県国頭郡宜野座村字漢那1633",
+    "lat": 26.47369,
+    "lng": 127.95203,
+    "source": "Japanese Wikipedia 道の駅ぎのざ infobox: 北緯26度28分25秒 東経127度57分07秒 / 26.47369, 127.95203 (https://ja.wikipedia.org/wiki/道の駅ぎのざ)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "All About 2025 survey article (news.allabout.co.jp/articles/o/105559) + michi-no-eki.jp station page, checked 2026-10-03",
+    "statusChecked": "2026-10-03"
+   },
+   "Sakima Art Museum (佐喜眞美術館)": {
+    "address": "1-22 Uehara, Ginowan, Okinawa 901-2204",
+    "lat": 26.278028,
+    "lng": 127.774972,
+    "source": "Japanese Wikipedia 佐喜眞美術館 infobox coordinate N26°16'40.9\" E127°46'29.9\" (26.278028,127.774972)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Ginowan City tourist page 7131 and OCVB MICE s-23263 list current visitor info",
+    "statusChecked": "2026-10-03"
+   },
+   "Futenma-gū Shrine & cave (普天満宮)": {
+    "address": "1-27-10 Futenma, Ginowan, Okinawa",
+    "lat": 26.292889,
+    "lng": 127.777194,
+    "source": "Japanese Wikipedia 普天満宮 infobox coordinate N26°17'34.4\" E127°46'37.9\" (26.292889,127.777194)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Rurubu spot 80042662 (current access/hours)",
+    "statusChecked": "2026-10-03"
+   },
+   "Southeast Botanical Gardens (東南植物楽園)": {
+    "address": "2146 Chibana, Okinawa City, Okinawa 904-2143",
+    "lat": 26.375,
+    "lng": 127.80667,
+    "source": "Japanese Wikipedia 東南植物楽園 infobox coordinate N26°22'30\" E127°48'24\" (26.37500,127.80667); seconds-level only, inside the large garden",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Official site southeast-botanical.jp access page; Kozaweb categoryPages/103",
+    "statusChecked": "2026-10-03"
+   },
+   "Shinzato Distillery (新里酒造)": {
+    "address": "12-17 Suzaki, Uruma, Okinawa 904-2234",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Taketomi tourism association painusima.com/934 (current); open-air monument",
+    "statusSource": "OCVB MICE c-135 (current tour listing); official site shinzato-shuzo.co.jp",
+    "statusChecked": "2026-10-03"
+   },
+   "Gordie's, Sunabe (ゴーディーズ)": {
+    "address": "100 Sunabe, Chatan, Okinawa",
+    "lat": 26.334121,
+    "lng": 127.747414,
+    "source": "Extended search 'ゴーディーズ 北谷町砂辺100 緯度 経度' — coordinate 26.334121,127.747414 printed with the NAVITIME POI (spot=02301-pn0001034)/autoreserve listings; aggregator coordinate consistent with 100 Sunabe by the seawall. Re-verify to !3d!4d.",
+    "verified": "2026-10-03",
+    "confidence": "low",
+    "status": "open",
+    "statusSource": "OTV Okitive article 52610 and NAVITIME POI list current hours 11:00-20:00",
+    "statusChecked": "2026-10-03"
+   },
+   "Pizza House Honten, Urasoe (ピザハウス 本店)": {
+    "address": "2-20-5 Minatogawa, Urasoe, Okinawa 901-2134",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Ryukyu Shimpo economics 5119726 — renewal reopening 15 March 2026",
+    "statusChecked": "2026-10-03"
+   },
+   "Hanaori Soba, Yomitan (花織そば)": {
+    "address": "2418-1 Hanza, Yomitan, Okinawa 904-0322",
+    "lat": 26.397674,
+    "lng": 127.725121,
+    "source": "Extended search '花織そば 読谷村 住所 緯度 経度' — coordinate 26.397674,127.725121 printed alongside the NAVITIME POI page (spot=01125-54199r) / rurubu 80043283 results; aggregator listing coordinate, consistent with Hanza on Pref. Rd 6. Re-verify to !3d!4d.",
+    "verified": "2026-10-03",
+    "confidence": "low",
+    "status": "open",
+    "statusSource": "Rurubu 80043283 current hours (11:00-16:30, closed Wed/Thu); okinawasoba.hatenablog 2026-05-16 'renewal reopening'",
+    "statusChecked": "2026-10-03"
+   },
+   "Miyanchi STUDIO & COFFEE, Okinawa City (みやんち STUDIO&COFFEE)": {
+    "address": "1-29-22 Yogi, Okinawa City, Okinawa 904-2174",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Okinawa Traveler shop 975 / feature 0114 list current hours (11:00-17:00, closed Tue); no closure news surfaced",
+    "statusChecked": "2026-10-03"
+   },
+   "Tsurukame-dō Zenzai, Yomitan (鶴亀堂ぜんざい)": {
+    "address": "248-1 Zakimi, Yomitan, Okinawa",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Rurubu spot 80043272 (current hours 11:00-17:00)",
+    "statusChecked": "2026-10-03"
+   },
+   "Ploughman's Lunch Bakery, Kitanakagusuku (PLOUGHMANS LUNCH BAKERY)": {
+    "address": "927-2 Adaniya, Kitanakagusuku, Okinawa",
+    "lat": 26.294509,
+    "lng": 127.791541,
+    "source": "Extended search 'プラウマンズランチベーカリー 北中城村安谷屋927-2 緯度 経度' — coordinate 26.294509,127.791541 printed with the NAVITIME POI (spot=02301-1800399)/Yahoo travel listings; aggregator coordinate consistent with Adaniya. Re-verify to !3d!4d.",
+    "verified": "2026-10-03",
+    "confidence": "low",
+    "status": "open",
+    "statusSource": "Official site ploughmans.net; Savor Japan listing with current hours",
+    "statusChecked": "2026-10-03"
+   },
+   "Koza Music Town (コザ・ミュージックタウン)": {
+    "address": "1-1-1 Uechi, Okinawa City, Okinawa",
+    "lat": 26.334997,
+    "lng": 127.799477,
+    "source": "Japanese Wikipedia コザ・ミュージックタウン infobox coordinate N26°20'5.99\" E127°47'58.12\" (26.334996806,127.7994765)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "OCVB okinawastory spot 600003721 and Kozaweb plays/1 (current facility pages)",
+    "statusChecked": "2026-10-03"
+   },
+   "Shokuji-dokoro Nishikiya, Kouri Island (食事処 錦屋)": {
+    "address": "297 Kouri, Nakijin-son, Okinawa",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Okinawa Traveler shop s1272 / listing hours 9:00-21:00, no regular holiday (2026 search)",
+    "statusChecked": "2026-10-03"
+   },
+   "Sawanoya Motobu Honten (さわのや 本部本店)": {
+    "address": "Motobu-chō, Okinawa",
+    "lat": 26.660179,
+    "lng": 127.896308,
+    "source": "Stars and Stripes Okinawa noodles article printed GPS N26.660179 E127.896308 (surfaced W2/W4D3 notes)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Mapple article 50031 (current Motobu soba road guide lists it)",
+    "statusChecked": "2026-10-03"
+   },
+   "Umi to Mugi to, Motobu (海と麦と)": {
+    "address": "Motobu-chō, Okinawa",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "OTV okitive 59269 + Mapple 50031 (queues since 2021 opening)",
+    "statusChecked": "2026-10-03"
+   },
+   "Yae Shokudō, Nago (八重食堂)": {
+    "address": "1-9-3 Gusuku, Nago-shi, Okinawa",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "OCVB gourmet 600004413 (hours 11-15, closed Tue)",
+    "statusChecked": "2026-10-03"
+   },
+   "Parlor Senri, Kin (パーラー千里) — CLOSED": {
+    "address": "Kin, Kin-chō, Okinawa",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "closed",
+    "statusSource": "Ryukyu Shimpo prentry-245848: closed 29 June (2015) after 31 years",
+    "statusChecked": "2026-10-03"
+   },
+   "Busena Marine Park Underwater Observatory, Nago (ブセナ海中公園 海中展望塔)": {
+    "address": "1744-1 Kise, Nago-shi, Okinawa",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "rurubu spot 80042865 + Okinawa Traveler shop 53 (current hours/fees listing)",
+    "statusChecked": "2026-10-03"
+   },
+   "Wajī Spring Cliffs & Lookout, Ie Island (湧出展望台)": {
+    "address": "Near 3674 Agarie-ue, Ie-son, Okinawa",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "rurubu spot 80043246 (free, always open)",
+    "statusChecked": "2026-10-03"
+   },
+   "Sakihama Seimen, Onna (崎濱製麺)": {
+    "address": "847 Yamada, Onna-son, Okinawa 904-0416",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "OTV okitive 59912 (hours 11-16, closed Sun; reopened Apr 2024)",
+    "statusChecked": "2026-10-03"
+   },
+   "Ryukyu Mura, Onna (琉球村)": {
+    "address": "1130 Yamada, Onna-son, Okinawa 904-0416",
+    "lat": 26.4299197,
+    "lng": 127.77476798,
+    "source": "Mapion POI page ILSP0000118896 URL prints 26.4299197,127.77476798 (aggregator listing coordinate; consistent with Yamada 1130, Onna; an unattributed summary also gave 26.43003,127.774929, ~20 m away)",
+    "verified": "2026-10-03",
+    "confidence": "low",
+    "status": "open",
+    "statusSource": "official site ryukyumura.co.jp + Onna Village cocoico spot 497 (current)",
+    "statusChecked": "2026-10-03"
+   },
+   "Tsushima Maru Memorial Museum (対馬丸記念館)": {
+    "address": "1-25 Wakasa, Naha, Okinawa",
+    "lat": 26.220111,
+    "lng": 127.672806,
+    "source": "ja.wikipedia 対馬丸記念館 infobox: 北緯26.220111 東経127.672806",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Official tsushimamaru.or.jp/about.php (current museum info) 2026-10",
+    "statusChecked": "2026-10-03"
+   },
+   "Arakaki Family Residence, Tsuboya (新垣家住宅)": {
+    "address": "1-28-32 Tsuboya, Naha, Okinawa",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Walkerplus summer 2024 odekake listing + tsuboya-yachimundori.com page (exterior viewable; ICP)",
+    "statusChecked": "2026-10-03"
+   },
+   "Okinawa Daiichi Hotel breakfast (沖縄第一ホテル 薬膳朝食)": {
+    "address": "1-1-12 Makishi, Naha, Okinawa",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Mapple Kokusai-dōri guide (tourism/okinawa/02) + All About 457560 current listings, 2026-10 search",
+    "statusChecked": "2026-10-03"
+   },
+   "Adachiya, Makishi (足立屋)": {
+    "address": "Makishi, Naha (arcade by former public market)",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Veltra Yokka market-crawl article + Mapple 51283 senbero list (current)",
+    "statusChecked": "2026-10-03"
+   },
+   "Mekaru Tomb Site, Shintoshin (銘苅墓跡群)": {
+    "address": "Mekaru 2-chōme, Naha, Okinawa",
+    "lat": 26.236752,
+    "lng": 127.696008,
+    "source": "WGS coordinate 26.236752,127.696008 printed in a search result for the site (extended search; page attributed among ja.wikipedia/rubese gurucomi listing) — consistent with Mekaru 2-chōme opposite Naha fire HQ; upgrade from ja.wiki infobox",
+    "verified": "2026-10-03",
+    "confidence": "low",
+    "status": "open",
+    "statusSource": "Bunka Isan Online 163218 (national historic site, open hillside) + bunkaisan.exblog visit guide",
+    "statusChecked": "2026-10-03"
+   },
+   "Gokoku-ji Temple, Naminoue (護国寺)": {
+    "address": "1-25-5 Wakasa, Naha, Okinawa",
+    "lat": 26.22005,
+    "lng": 127.67159,
+    "source": "ja.wikipedia 護国寺 (那覇市) infobox coords 26.2200500,127.67159 (surfaced W5D1 search 16)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "en.wikipedia/Samurai-Archives (active temple adjacent to Naminoue Shrine), 2026-10",
+    "statusChecked": "2026-10-03"
+   },
+   "BACAR OKINAWA, Kumoji (バカール オキナワ)": {
+    "address": "3-16-15 Kumoji, Naha, Okinawa",
+    "lat": 26.216093,
+    "lng": 127.68161,
+    "source": "Extended search '<name> 那覇市久茂地3-16-15 緯度 経度' — listing coordinate 26.216092853,127.681609598 from aggregator listings (hotpepper/okinawastory/jalan pages; alt 26.2159843,127.6816842) — consistent with Kumoji 3-16-15",
+    "verified": "2026-10-03",
+    "confidence": "low",
+    "status": "open",
+    "statusSource": "TableCheck reservation page + OCVB okinawastory gourmet 600010917 + Yelp page updated Feb 2026 (status only)",
+    "statusChecked": "2026-10-03"
+   },
+   "Ryūkyū Shinmen Tondō, Oroku Honten (琉球新麺 通堂 小禄本店)": {
+    "address": "5-4-6 Kanagusuku, Naha, Okinawa 〒901-0155",
+    "lat": 26.198075,
+    "lng": 127.665973,
+    "source": "Extended search '<name> 那覇市金城 住所 緯度 経度' — listing coordinate 26.198075,127.665973 (Mapion phonebook / navitime poi 01125-4644r listing) — consistent with Kanagusuku 5-4-6 near Oroku stn",
+    "verified": "2026-10-03",
+    "confidence": "low",
+    "status": "open",
+    "statusSource": "rurubu spot 80042405 + operator store list ryoji-family.co.jp/store.php (hours 11:00–24:30), 2026-10",
+    "statusChecked": "2026-10-03"
+   },
+   "Ōshiro Tempura, Ōjima (大城てんぷら店)": {
+    "address": "193 Tamagusuku Ōjima, Nanjō, Okinawa, Japan",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "VisitOkinawaJapan Ōjima feature (current) + Stripes article",
+    "statusChecked": "2026-10-03"
+   },
+   "Ōjima Imaiyu Market, Nanjō (奥武島いまいゆ市場)": {
+    "address": "Tamagusuku Ōjima, Nanjō, Okinawa, Japan",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Ryukyu Shimpo region entry-4387361 (new eating space opened)",
+    "statusChecked": "2026-10-03"
+   },
+   "Jef Yonabaru (ジェフ与那原店)": {
+    "address": "Yonabaru, Yonabaru-chō, Okinawa, Japan",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Okinawa Traveler shop 528 listing + Ryukyu Shimpo 1317722",
+    "statusChecked": "2026-10-03"
+   },
+   "Utopia Farm Miyakojima (ユートピアファーム宮古島)": {
+    "address": "Hirara area, Miyakojima, Okinawa, Japan",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "rurubu article 16709 / search summary listing current parfait price ¥1,980 and ¥280 entry",
+    "statusChecked": "2026-10-03"
+   },
+   "Hateruma Seitō black-sugar factory, Hateruma Island (波照間製糖)": {
+    "address": "Hateruma Island, Taketomi-chō, Okinawa, Japan",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Ryukyu Shimpo 1508601 / Discover Japan 68179 (operating factory, production figures)",
+    "statusChecked": "2026-10-03"
+   },
+   "Uezu House, Kume Island (上江洲家住宅)": {
+    "address": "816 Nishime, Kumejima-chō, Okinawa, Japan",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Kumejima Tourism Association archives/28492 (visiting arrangements page — check current visiting terms)",
+    "statusChecked": "2026-10-03"
+   },
+   "Tuyumya-baka — Tomb of Nakasone Tuyumya, Miyako (仲宗根豊見親の墓)": {
+    "address": "3-4 Nishi-Nakasone Makago, Hirara, Miyakojima, Okinawa, Japan",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Miyakojima City cultural-property page (designated ICP, open-air tomb)",
+    "statusChecked": "2026-10-03"
+   },
+   "Inazaki Observatory, Zamami (稲崎展望台)": {
+    "address": "North Zamami Island, Zamami-son, Okinawa, Japan",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "JNTO national-parks observatories page (current)",
+    "statusChecked": "2026-10-03"
+   },
+   "Kaminohama Observatory, Zamami (神の浜展望台)": {
+    "address": "West Zamami Island, Zamami-son, Okinawa, Japan",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "JNTO national-parks observatories page (current)",
+    "statusChecked": "2026-10-03"
+   },
+   "Nishibama Beach, Aka Island (ニシバマビーチ)": {
+    "address": "Aka Island, Zamami-son, Okinawa, Japan",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Ministry of the Environment Keramashotō NP view guide (current)",
+    "statusChecked": "2026-10-03"
+   },
+   "Konpaku-no-tō memorial, Itoman (魂魄の塔)": {
+    "address": "1441-3 Komesu, Itoman, Okinawa, Japan",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Ryukyu Shimpo 1733971 (Irei-no-hi visitors) + MIC memorial site page",
     "statusChecked": "2026-10-03"
    }
   },

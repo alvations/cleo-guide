@@ -164,3 +164,17 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
 - Held single-source: Frangella Italian Market (ABC7), Hecky's BBQ (Resy), Taco Diablo, Bennison's, Original Soul Vegetarian, Dino's,
   Barnaby's, 3 Floyds (brewpub closed 2020, taproom reopening — status unclear), O&H Danish Bakery (address of the flagship unconfirmed).
 - Build: 316 researched / 210 rendered; sourcecheck/geocheck/statuscheck/buildcheck PASS; validate + test PASS.
+
+## 2026-10-03 (session 4 / wave 3) · batch 2 (≈92 searches cumulative)
+- Added 23 food & drink + 3 sights: Hecky's, Walker Bros (Wilmette original), Russell's Barbecue (1930), Svea, MacArthur's, Carm's, Simone's,
+  Simon's Tavern, Café Colao, Big Star, Half Acre Balmoral, Carol's Pub, L&L Tavern (Wikipedia pin), Lou Malnati's Lincolnwood (Wikipedia-article
+  coord via latitude.to, med — re-verify), Huaraches Doña Chio, Taqueria El Asadero, FitzGerald's (Berwyn, NRHP 2025), The Publican, Italian Village,
+  Monteverde; sights ISAC Museum + Washington Park (Wikipedia pins), Charles Gates Dawes House (HMDB marker coord, med; NPS NHL record).
+- Pins this batch: L&L Tavern (Wikipedia), Solly's Grille (latlong.net POI), Lou Malnati's Lincolnwood (med). Aggregator coords (frankiapp/thatch for
+  Lula Cafe) REJECTED per precedent. Pequod's / Vito & Nick's: no POI coordinate surfaced → stay UNVERIFIED.
+- MEASURED & DROPPED: Revolution Brewing Logan Square brewpub — CLOSED 14 Dec 2024 (NBC5/CBS) and not notable enough to keep as a closed pin;
+  Taqueria Los Comales (Infatuation 7.0, chain of 3 — padding); Devon Ave Pakistani spots (only forum/blog-comment sources found); Tank Noodle /
+  Nhu Lan (Hoodline/Yelp-derived only); Gene's Sausage Shop (rooftop-directory only); Al Bawadi, Albasha, Nile (Bridgeview — Time Out guide undated,
+  2nd credible missing); Skylark (attribution in Time Out list not confirmed).
+- Creator channel: Portnoy One Bite (scores via radio-site roundups) and Keith Lee (Matador/TravelNoire) — only corroborating; Cleo's still held.
+- Build: 339 researched / 216 rendered; 4 gates PASS; validate + test PASS.

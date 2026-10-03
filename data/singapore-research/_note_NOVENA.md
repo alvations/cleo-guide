@@ -69,3 +69,11 @@ Velocity / United Sq / Goldhill, Chancery Lane, Cairnhill/Scotts edge. Balestier
 > fix: HLV 56/55 OK (live) · BLS 55/55 OK (go-live held for pins) · NVN 35/55 (NEED +20) · PGL 35/93 (NEED +58).**
 
 - **FINAL (end of session): HLV 57/55 OK (LIVE) · BLS 56/55 OK (go-live held for pins) · NVN 37/55 (NEED +18) · PGL 35/93 (NEED +58).** Late adds: NVN Baan Ying, Banelé; BLS Niu Dian (VIIO @ Balestier); HLV Niu Dian (HV).
+
+## W3 (2026-10-03, PGL+NVN session)
+- **Outcome:** NVN 38 food + 9 sights = **47 / 55 → NEED +8** (was 37). Page renders **29** pins (was 23); greyed.
+- **Files:** FOOD_NOVENA3.json (9), SIGHTS_NOVENA3.json (1), SOURCES_NOVENA3.json (BUKITBROWN, MND, ANDYHAYLER, THEPEAK, MAKANSUTRA, SGFOODONFOOT, FROMMERS), CREATORS_NOVENA3.json (ieatishootipost attach), geo/_geoout_novena_w4.json.
+- **Added:** Bukit Brown Cemetery (Novena planning area per Wikipedia; Wikipedia pin), Min Jiang + Goodwood Coffee Lounge durian desserts (Goodwood pin), Bee Heng Popiah (Newton FC pin), Shang Palace + Origin Grill (Shangri-La, Orange Grove = Newton subzone; Wikipedia pin), AMI Patisserie (27 Scotts), Chef Chan's Private Dine (35 Scotts), Chui Huay Lim Teochew Cuisine (Keng Lee Rd), Smiths Fish & Chips (Balmoral Plaza) — last four UNVERIFIED (no place pin readable).
+- **Held:** Mun Zuk (Eatbook only), Thailily / Rochor Thai (Burpple/Seth Lui only), Whitley Rd prawn mee Thomson (Michelin listing is the Old Airport Rd stall), Cafe Gui (Eatbook review lukewarm — mention ≠ merit), Carousel (AsiaOne People's Choice Hall of Fame, but only hotel/OpenTable pages surfaced the award), Daily Affairs, Chui Huay Lim Club as a sight (PA heritage page only), Cairnhill conservation (URA + Roots — next wave).
+- **Dropped:** Rolina curry puff (Bib 2018 when at Novena Church; long since moved to Tanjong Pagar).
+- **Creator pass:** Mark Wiens / Food Ranger / Best Ever Food Review at Newton → no findable video; ieatishootipost (Dr Leslie Tay) Bee Heng post attached.
