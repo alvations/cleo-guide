@@ -352,3 +352,21 @@ corroborating Angelo's only) · Wikipedia (2 sights). Searches: ~122 main thread
   only the sibling Franklin Ice Cream Bar (112 Market) surfaced with a coordinate → not used.
 - **Build:** 182 → 231 on map (151 sights + 80 food). sourcecheck PASS 518 · geocheck PASS · statuscheck CONSISTENT (7 closed; 9 on-page
   unchecked) · buildcheck PASS · validate DATA OK · npm test ALL PASS. ~33 WebSearch calls so far.
+
+## 2026-10-03 (W6 · PINS) · batch 2 — Apple Maps pins, tier-2 across areas + 1 closure
+- **Pins (29, `geo/_geoout_w6b.json` · 28 high, 1 med):** CC — Sonny's Famous Steaks, K'Far, Bud & Marilyn's, Little Nonna's (**med** —
+  Apple's coordinate is identical to sibling Bud & Marilyn's at the same 1234 Locust St address, i.e. an address-level point), EMei,
+  Barbuzzo, Morimoto · FISH — Del Rossi's, Murph's Bar, Café La Maude, Standard Tap, Pizza Shackamaxon, Tulip Pasta & Wine Bar · SPH —
+  River Twice, Roxanne, Barcelona Wine Bar (East Passyunk), Café y Chocolate, Heavy Metal Sausage Co., Mighty Bread Co., Tesiny, Bob &
+  Barbara's · UCW — Renata's Kitchen, Booker's, Cleo Bagels · NE — Giannone's Steaks, Northeast Sandwich Co., Café Carmela · NPH — Sid
+  Booker's Shrimp Corner · NW — Uncle Bobbie's.
+- **CLOSED (flagged, kept):** Manakeesh Cafe Bakery & Grill (4420 Walnut St) — West Philly Local: permanently closed after 15 years, last
+  day 17 Feb 2026 (rent); cloud-kitchen only while it seeks a new site; Apple listing "permanently closed". It was never on the map.
+  Helper `_phi_close.py` (renames the research record "— CLOSED", writes `geo/_geoout_w6s.json`).
+- **Status leads (not changed — no press confirmation yet):** Buna Cafe (5121 Baltimore Ave) — Apple listing shows "permanently closed".
+- **Address mismatches (not pinned):** Goldie — Apple's coordinate listing is 1526 Sansom St (record 1911 Sansom); Holmesburg Bakery —
+  Apple says 7935 Frankford Ave (record 7933; no coordinate surfaced anyway); Bell's Market — 8336 vs 8330 Bustleton.
+- **Yield note:** suburban (MAIN/SJ/DAY) and Germantown/Chestnut Hill listings come back almost entirely as bare `place-id=` URLs
+  (≈1 coordinate per 6 names) vs ≈1 per 2 in Center City / South Philly / Fishtown.
+- **Build:** 231 → 260 on map (151 sights + 109 food). 4 gates PASS (statuscheck CONSISTENT, 8 closed flagged, 9 on-page unchecked);
+  validate DATA OK; npm test ALL PASS. ~70 WebSearch calls so far.
