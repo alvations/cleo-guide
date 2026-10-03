@@ -258,3 +258,13 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
 - **Not added:** Flamingo backcountry trails (Snake Bight, Christian Point, Coastal Prairie, Bear Lake) — NPS says they are not being
   maintained (Cape Sable thoroughwort habitat); Historic Hampton House (Brownsville — outside DTB; area call pending);
   St. John's Baptist Church (Wikipedia only); Sunkissed (Inf only); Spanish Marie, Prison Pals, Unbranded, Gulf Stream (one outlet).
+
+## 2026-10-03 (session 4) · batch 11 — bakeries, Opa-locka, Kendall
+- **Added (15):** bakeries 5 — Rosetta (MBCH), Gilbert's (LHAV; NT Best Pastelito 2018 / Best Cortadito 2024–25), Caracas Bakery
+  (WYN), Piononos (t1), Flour & Weirdoughs (CGCG) — Time Out 17 ∩ Infatuation 20 / NT. NMIA sights 2 — Opa-locka Museum of Art &
+  History (1927 Seaboard station), Opa-locka/Hialeah Flea Market (NT Best Flea Market ×3 + GMCVB). SDADE food 4 — Hungry Bear,
+  Best Sub & Sandwich, Shibui, Caribbean Delite (Inf 17 best Kendall ∩ NT; Caribbean Delite also an influencer pick in NT's
+  "Miami's top influencers' hidden gems" — the creator-channel corroboration this wave).
+- **Documented gap — Haitian food in North Dade:** Infatuation's 19 best Haitian list names Family Bakery, Lakay Food Spot, Bon Bagay,
+  Horace Bakery, L'auberge (all North Miami) and Chez Katu (Miramar), but no second credible outlet surfaced for any of them in two
+  searches (NT/TO/WLRN/GMCVB) → all held, not added. Gregs Cookout: Infatuation marks it permanently closed → dropped.
