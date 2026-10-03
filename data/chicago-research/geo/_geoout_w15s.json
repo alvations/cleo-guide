@@ -108,5 +108,71 @@
   "lng": null,
   "geoSource": "UNVERIFIED",
   "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Steppenwolf Theatre Company",
+  "address": "1650 N Halsted St, Chicago, IL",
+  "lat": 41.907508,
+  "lng": -87.642503,
+  "geoSource": "https://latitude.to/satellite-map/us/united-states/16600/steppenwolf-theatre-company (Wikipedia-article coordinate 41°54′27.03″N 87°38′33.01″W, WebSearch 2026-10-03)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.steppenwolf.org/about-us/our-history (official — current season)",
+  "note": "Wikipedia published coordinates"
+ },
+ {
+  "n": "Old Town School of Folk Music",
+  "address": "4545 N Lincoln Ave, Chicago, IL 60625",
+  "lat": 41.964167,
+  "lng": -87.686111,
+  "geoSource": "Published coordinate 41°57′51″N 87°41′10″W (Wikipedia/landmark record surfaced in WebSearch 2026-10-03)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://www.wbez.org/architecture/2024/09/03/whats-that-building-old-town-school-of-folk-music (WBEZ Sept 2024 — operating)",
+  "note": "Wikipedia published coordinates"
+ },
+ {
+  "n": "Couch Tomb",
+  "address": "2045 N Lincoln Park West (in Lincoln Park), Chicago, IL",
+  "lat": 41.913183,
+  "lng": -87.6318,
+  "geoSource": "Published coordinate 41° 54.791′N 87° 37.908′W (HMDB-style marker coordinate surfaced in WebSearch 2026-10-03)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://atlasobscura.com/places/couch-tomb (in public Lincoln Park — always visible)",
+  "note": "Wikipedia published coordinates"
+ },
+ {
+  "n": "Arthur Heurtley House",
+  "address": "Forest Ave, Oak Park, IL (per Wikipedia)",
+  "lat": 41.892722,
+  "lng": -87.799833,
+  "geoSource": "https://en.wikipedia.org/wiki/Arthur_Heurtley_House (Wikipedia/GeoHack published coordinates)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "private residence — exterior viewable from Forest Ave (Wikipedia)",
+  "note": "Wikipedia published coordinates"
+ },
+ {
+  "n": "St. Valentine's Day Massacre Site",
+  "address": "2122 N Clark St, Chicago, IL",
+  "status": "open",
+  "statusSource": "https://chicagodetours.com/whats-left-site-st-valentines-day-massacre/ (public lawn at the former garage site)",
+  "note": "NORTH",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Paseo Boricua (Puerto Rican Flags)",
+  "address": "Division St between Western Ave and California Ave, Chicago, IL 60622",
+  "status": "open",
+  "statusSource": "https://choosechicago.com/listing/puerto-rican-flags (public street landmark)",
+  "note": "NW",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED"
  }
 ]
