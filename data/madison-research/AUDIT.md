@@ -99,3 +99,39 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
   PASS (high 25 · med 16) · statuscheck CONSISTENT (Short Stack flagged — CLOSED) · buildcheck PASS · npm
   validate DATA OK · npm test ALL PASS.
 - **Go-live:** CARD:madison-wi relinked live ("first wave", 41 mapped / 53 researched); docs/CITIES.md row updated.
+
+## 2026-10-03 · W2c — brats/German canon + NRHP/state-park sights for thin areas
+- **Searches:** ~20 more (session total ~137).
+- **Food (FOOD_W2e.json, 3):** State Street Brats (UW t1 — red brat; ESPN + On Wisconsin + Daily Cardinal),
+  Essen Haus (CAP t2 — German beer hall), Sugar River Pizza (MVF t2 — Best of Madison 2025 pizza). All three
+  UNVERIFIED (no place pin surfaced in 4 coordinate searches).
+- **Sights (SIGHTS_W2c.json, 8):** Science Hall (NHL), Washburn Observatory, Garver Feed Mill (NRHP 2017),
+  Governor Nelson SP (panther effigy mound), Forest Hill Cemetery (effigy mounds; med pin), Natural Bridge SP,
+  Lake Kegonsa SP, Allen Centennial Garden.
+- **Held — sourced but no usable pin:** Stoughton Opera House (only a town centroid surfaced — rejected),
+  Mid-Continent Railway Museum (Wikipedia gives 43.46,-89.87 — 2-decimal, too coarse), Gates of Heaven
+  Synagogue, Pope Farm / Pheasant Branch conservancies, Babcock Hall Dairy Store (TRAVELWI + Daily Cardinal
+  sourced; 2 pin searches failed), New Glarus Brewing (only an OpenBeerDB point that may be the old Riverside
+  brewery — not used).
+- **Creator channel:** searched Dave Portnoy One Bite × Madison — no Madison reviews (Racine/Milwaukee only).
+  Creator channel still 0 for Madison; next wave should search YouTube/TikTok Madison food creators explicitly.
+- **Build + gates:** 49 on the page (31 sights + 18 food) of 64 researched; 15 UNVERIFIED (all restaurants).
+  sourcecheck PASS 64/64 · geocheck PASS (high 32 · med 17 · low 0) · statuscheck CONSISTENT · buildcheck PASS ·
+  npm validate DATA OK · npm test ALL PASS. Card + CITIES.md counts refreshed.
+
+## 2026-10-03 · W3a — creators + thin-area food + CAP/EAST sights
+- **Searches:** ~13 (session total ~150).
+- **Creator pass (CREATORS_W3.json):** State Trunk Tour (Kevin Mack — long-running Wisconsin travel show/site;
+  dated 2026 pasty-shop guide) ACCEPTED and attached to Red Rooster Cafe. Wisconsin Cheese Please (Sam Buschman,
+  press-profiled by Milwaukee Record/The Takeout) PENDING — follower scale unverified, no Madison rating found.
+  Rejected: Curd Queen (scale unverifiable), Portnoy (no Madison reviews). AFAR's 2024 Madison food feature found
+  but its snippet names no places (registered as an outlet, unused).
+- **Food (FOOD_W3a.json, 5):** Der Rathskeller (UW t1 — first public-university beer, 1933; pinned at the Memorial
+  Union building, med), Fosdal Home Bakery (DANE — Norwegian rosettes/krumkake), Hubbard Avenue Diner (MVF —
+  Munch Madness pie winner), Glarner Stube (TRIP t1 — Swiss), Red Rooster Cafe (TRIP — Cornish pasties).
+  Held: Gates & Brovi (only Travel Wisconsin found ×2 — one outlet), Hmong Kitchen / Hmong Legacy Market (only
+  608today + aggregator), New Glarus Hotel restaurant (one source).
+- **Sights (SIGHTS_W3a.json, 3):** Wisconsin Governor's Mansion, Madison Children's Museum, Orpheum Theater.
+  Held: Tenney Park–Yahara Parkway (NRHP; no coordinate surfaced).
+- **Build + gates:** 53 on the page (34 sights + 19 food) of 72 researched; 19 UNVERIFIED (all restaurants).
+  sourcecheck PASS 72/72 · geocheck PASS (high 35 · med 18 · low 0) · statuscheck CONSISTENT · buildcheck PASS.

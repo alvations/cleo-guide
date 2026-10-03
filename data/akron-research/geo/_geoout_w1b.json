@@ -112,10 +112,10 @@
  {
   "n": "Akron Civic Theatre",
   "address": "182 S Main St, Akron, OH 44308",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "no place-pin read in W1b (WebSearch budget prioritised discovery); queued for geocode wave / geocode-helper.html",
+  "lat": 41.084029,
+  "lng": -81.520361,
+  "confidence": "med",
+  "geoSource": "Tripomatic/American Buildings POI 41°4'50.506\"N 81°31'13.3\"W for 182 S Main St",
   "status": "open",
   "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
  },
@@ -151,7 +151,7 @@
  },
  {
   "n": "Paul Brown Museum",
-  "address": "121 Lincoln Way E, Massillon, OH 44646",
+  "address": "Lincoln Way E, Massillon, OH 44646",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -212,16 +212,26 @@
  {
   "n": "Perkins Stone Mansion & John Brown House",
   "address": "550 Copley Rd, Akron, OH 44320",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "no place-pin read in W1b (WebSearch budget prioritised discovery); queued for geocode wave / geocode-helper.html",
+  "lat": 41.085,
+  "lng": -81.54167,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox (Perkins Stone Mansion) 41°5′6″N 81°32′30″W",
   "status": "open",
   "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
  },
  {
   "n": "Glendale Steps",
   "address": "Glendale Ave & S Walnut St, Akron, OH 44302",
+  "lat": 41.085585,
+  "lng": -81.523099,
+  "confidence": "high",
+  "geoSource": "Remarkable Ohio marker 36-77 (Glendale Steps) 41.0855850,-81.5230990",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "F.A. Seiberling Nature Realm",
+  "address": "828 Smith Rd, Akron, OH 44313",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -230,8 +240,178 @@
   "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
  },
  {
-  "n": "F.A. Seiberling Nature Realm",
-  "address": "828 Smith Rd, Akron, OH 44313",
+  "n": "Dr. Bob's Home (birthplace of Alcoholics Anonymous)",
+  "address": "855 Ardmore Ave, Akron, OH 44302",
+  "lat": 41.09583,
+  "lng": -81.54889,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox (Dr. Robert Smith House) 41°5′45″N 81°32′56″W",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "7 17 Credit Union Park (Akron RubberDucks)",
+  "address": "300 S Main St, Akron, OH 44308",
+  "lat": 41.077924,
+  "lng": -81.522202,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox (7 17 Credit Union Park) 41°04′41″N 81°31′20″W",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Quaker Square",
+  "address": "135 S Broadway St, Akron, OH 44308",
+  "lat": 41.08111,
+  "lng": -81.515,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox (Quaker Square) 41°4′52″N 81°30′54″W",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Glendale Cemetery & Civil War Memorial Chapel",
+  "address": "150 Glendale Ave, Akron, OH 44302",
+  "lat": 41.08477,
+  "lng": -81.5281686,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox (Glendale Cemetery) 41°05′05″N 81°31′41″W",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Canton Museum of Art",
+  "address": "1001 Market Ave N, Canton, OH 44702",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no place-pin read in W1b (WebSearch budget prioritised discovery); queued for geocode wave / geocode-helper.html",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Quail Hollow Park",
+  "address": "13480 Congress Lake Ave, Hartville, OH 44632",
+  "lat": 40.97861,
+  "lng": -81.31222,
+  "confidence": "med",
+  "geoSource": "Wikipedia infobox (Quail Hollow State Park) 40°58′43″N 81°18′44″W (park centroid)",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Massillon Museum (MassMu)",
+  "address": "121 Lincoln Way E, Massillon, OH 44646",
+  "lat": 40.796667,
+  "lng": -81.521633,
+  "confidence": "med",
+  "geoSource": "HMDB marker 269469 at the Massillon Museum, 40° 47.8′N 81° 31.298′W (0.1′ lat precision)",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Kent Dam & Kent Industrial District",
+  "address": "Cuyahoga River at downtown Kent, OH 44240",
+  "lat": 41.153056,
+  "lng": -81.360278,
+  "confidence": "med",
+  "geoSource": "Wikipedia infobox (Kent Industrial District) 41°9′11″N 81°21′37″W — district point at the dam",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Tallmadge Circle & First Congregational Church",
+  "address": "115 Tallmadge Circle, Tallmadge, OH 44278",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no place-pin read in W1b (WebSearch budget prioritised discovery); queued for geocode wave / geocode-helper.html",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Portage Lakes State Park",
+  "address": "Portage Lakes, Coventry Township, OH 44319",
+  "lat": 40.96917,
+  "lng": -81.55694,
+  "confidence": "med",
+  "geoSource": "Wikipedia infobox (Portage Lakes State Park) 40°58′09″N 81°33′25″W (park centroid)",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Anna-Dean Farm Barns (O.C. Barber)",
+  "address": "Anna-Dean Farm, Barberton, OH 44203",
+  "lat": 41.00722,
+  "lng": -81.59361,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox (O. C. Barber Barn No. 1) 41°0′26″N 81°35′37″W",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Five Oaks (Massillon Woman's Club)",
+  "address": "210 4th St NE, Massillon, OH 44646",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no place-pin read in W1b (WebSearch budget prioritised discovery); queued for geocode wave / geocode-helper.html",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Akron Fossils & Science Center",
+  "address": "2080 S Cleveland-Massillon Rd, Copley, OH 44321",
+  "lat": 41.082,
+  "lng": -81.644,
+  "confidence": "med",
+  "geoSource": "aroundus/Wikipedia-derived POI 41.08200,-81.64400 (3-decimal precision)",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Twins Days Festival (Glen Chamberlin Park)",
+  "address": "Glen Chamberlin Park, Twinsburg, OH 44087",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no place-pin read in W1b (WebSearch budget prioritised discovery); queued for geocode wave / geocode-helper.html",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Liberty Park & Twinsburg Ledges",
+  "address": "9999 Liberty Rd, Twinsburg, OH 44087",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no place-pin read in W1b (WebSearch budget prioritised discovery); queued for geocode wave / geocode-helper.html",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Paul Brown Tiger Stadium",
+  "address": "1 Paul E Brown Dr SE, Massillon, OH 44646",
+  "lat": 40.7929,
+  "lng": -81.50281,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox (Paul Brown Tiger Stadium) 40.7929,-81.50281",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Brady's Leap Park",
+  "address": "229 Gougler Ave, Kent, OH 44240",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no place-pin read in W1b (WebSearch budget prioritised discovery); queued for geocode wave / geocode-helper.html",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "The Kent Stage",
+  "address": "175 E Main St, Kent, OH 44240",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -311,7 +491,7 @@
  },
  {
   "n": "Ray's Place",
-  "address": "Kent, OH",
+  "address": "135 Franklin Ave, Kent, OH 44240",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -331,13 +511,13 @@
  },
  {
   "n": "Parasson's Italian Restaurant",
-  "address": "Akron, OH",
+  "address": "959 E Waterloo Rd, Akron, OH 44306",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
   "geoSource": "no place-pin read in W1b (WebSearch budget prioritised discovery); queued for geocode wave / geocode-helper.html",
   "status": "open",
-  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+  "statusSource": "open — WKYC: Akron (E Waterloo Rd) dining room reopened while Stow/Barberton closed (2024)"
  },
  {
   "n": "Bob's Hamburg",
@@ -347,7 +527,7 @@
   "confidence": "unverified",
   "geoSource": "no place-pin read in W1b (WebSearch budget prioritised discovery); queued for geocode wave / geocode-helper.html",
   "status": "open",
-  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+  "statusSource": "open — Yelp listing updated Aug 2026 with current Tue–Sat hours; a Highland Square satellite operates inside Ray's Pub"
  },
  {
   "n": "Basil Asian Bistro",
@@ -361,7 +541,7 @@
  },
  {
   "n": "Gervasi Vineyard (The Bistro)",
-  "address": "Canton, OH",
+  "address": "1700 55th St NE, Canton, OH 44721",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -411,7 +591,7 @@
  },
  {
   "n": "Hoppin' Frog Brewery",
-  "address": "Akron, OH",
+  "address": "1680 E Waterloo Rd, Akron, OH 44306",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -421,7 +601,7 @@
  },
  {
   "n": "Crave",
-  "address": "Akron, OH",
+  "address": "57 E Market St, Akron, OH 44308",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -431,7 +611,7 @@
  },
  {
   "n": "The Lockview",
-  "address": "Akron, OH",
+  "address": "207 S Main St, Akron, OH 44308",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -441,7 +621,7 @@
  },
  {
   "n": "Mr. Zub's Deli & Bar",
-  "address": "Highland Square, Akron, OH",
+  "address": "795 W Market St, Akron, OH 44303",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -461,7 +641,7 @@
  },
  {
   "n": "Mustard Seed Market & Cafe (Highland Square)",
-  "address": "Highland Square, Akron, OH",
+  "address": "W Market St (Highland Square retail center), Akron, OH 44303",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -491,7 +671,7 @@
  },
  {
   "n": "The Farmer's Rail",
-  "address": "Cuyahoga Falls, OH",
+  "address": "2231 Front St, Cuyahoga Falls, OH 44221",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -501,7 +681,7 @@
  },
  {
   "n": "Amelia's by the Farmer's Rail",
-  "address": "Cuyahoga Falls, OH",
+  "address": "2231 Front St (downstairs), Cuyahoga Falls, OH 44221",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -511,7 +691,7 @@
  },
  {
   "n": "Beau's on the River",
-  "address": "Cuyahoga Falls, OH",
+  "address": "1989 Front St (Sheraton Suites), Cuyahoga Falls, OH 44221",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -521,7 +701,7 @@
  },
  {
   "n": "Lucci's Place",
-  "address": "Kent, OH",
+  "address": "405 E Main St, Kent, OH 44240",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -530,8 +710,58 @@
   "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
  },
  {
-  "n": "Wild Goats Café",
-  "address": "Kent, OH",
+  "n": "Village Inn Chicken (ex-Milich's Village Inn)",
+  "address": "4444 S Cleveland-Massillon Rd, Norton, OH 44203",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no place-pin read in W1b (WebSearch budget prioritised discovery); queued for geocode wave / geocode-helper.html",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Chloe's Diner",
+  "address": "112 1st St NE, Massillon, OH 44646",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no place-pin read in W1b (WebSearch budget prioritised discovery); queued for geocode wave / geocode-helper.html",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Darby's on 59",
+  "address": "2764 Front St, Cuyahoga Falls, OH 44221",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no place-pin read in W1b (WebSearch budget prioritised discovery); queued for geocode wave / geocode-helper.html",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Table Six Kitchen + Bar",
+  "address": "6113 Whipple Ave NW, North Canton, OH 44720",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no place-pin read in W1b (WebSearch budget prioritised discovery); queued for geocode wave / geocode-helper.html",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Good Company (Akron)",
+  "address": "60 S Maple St, Akron, OH 44302",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no place-pin read in W1b (WebSearch budget prioritised discovery); queued for geocode wave / geocode-helper.html",
+  "status": "open",
+  "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported"
+ },
+ {
+  "n": "Ken Stewart's Grille",
+  "address": "1970 W Market St, Akron, OH 44313",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
