@@ -42,9 +42,21 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
 - `allowed_domains:["japan-guide.com"]` / `["osaka-info.jp"]` area queries → sight lists (source 1).
 
 ## In-flight wave
-- **W7 (session 7, 2026-10-03)** — workers A MINAM food (+20) · B EAST+BAY food (+22) · C TNJ+SOUTH (+18) · D NORTH food + ★anime ·
-  E geocoder (wikidata.org / OSM channel trial on `_unrendered_W7.json`, 127). Brief `_W7_worker_brief.md`. Files `*_W7{A..E}*`.
-  Main: review, consolidate, build, gates, commit. If relaunched: check which `_note_W7*.md` exist; rerun only missing workers.
+- none — W7 closed (session 7; 12 workers + main ≈ 525 searches).
+
+- 2026-10-03 **W7 (session 7)** — 3 rounds: A–D, G–I, K–M discovery (held-lead pairing one name per search) + E/F/J MapFan geocoders.
+  **499 discovered (183 sights + 316 food = 63% food), 365 rendered (158 + 207)**; **ANIME 34** (+4); 4 gates PASS; validate + npm test PASS.
+  **Every area OK:** KITA 103/80 · CHUO 57/45 · KNSAI 42/40 · MINAM 95/95 · TNJ 55/55 · EAST 35/35 · BAY 35/35 · SOUTH 40/40 · NORTH 37/35.
+  New pin channel: **MapFan spot pages** (`_note_W7E.md`) — 33 med pins. Held: `_held_W7.json` + `_note_W7*.md`.
+
+## Next actions (W8 plan — supersedes the older lists below)
+1. **Pins: 134 discovered-but-unrendered** (MINAM ~41, SOUTH ~16, BAY ~17, KNSAI ~13, TNJ ~10, EAST ~14, NORTH ~14). Continue MapFan
+   one-name-per-query on the names `_note_W7F.md`/`_note_W7J.md` did not try; then `tools/geocode-helper.html` for the rest.
+   Candidate pin to confirm: Sobakiri Tenshō (MapFan 19-1 Okahigashi-chō vs "Oka-machi 10-30"). Mashino Ken: Michelin pin wrong, address OK.
+2. **Food share in the outer areas (§2b):** BAY 43%, NORTH 49%, SOUTH 43%, KNSAI 29% → food-only additions there (Kobe/Himeji/Wakayama
+   food for KNSAI: Kobe beef, sobameshi, Akashiyaki, Himeji oden, Wakayama ramen via FEELKOBE/KOBENP/Rurubu/Mapple pairing).
+3. Held singles worth one more pairing search: Chikuma (SAKAITCB), Yasuke, Ryūkishin, Menya Ikkei, 仁しむら (Fuse → EAST), RESTAURANT Antoine,
+   Kaisen Yatai Yūdanmaru, Kissa Coco, Surugaya Nipponbashi, Game Detectives/ATHENA (anime), Nihonshu Unagidani; drop Kuromon Sanpei (5 misses).
 
 - 2026-10-03 **W6 (session 6)** — 5 workers (A EAST+BAY · B MINAM · C TNJ/SOUTH/NORTH/KNSAI · D ★anime · G geocoder) + main.
   **436 discovered (166 sights + 270 food = 62% food), 309 rendered (136 + 173)**; **ANIME 30** (+9); 4 gates PASS; validate + npm test
@@ -179,5 +191,5 @@ npm run validate && npm test` · `flock … python3 data/osaka-research/_osaka_g
 commit then `flock … data/osaka-research/_osaka_sync.sh`.
 
 ## Acceptance
-- [ ] every area ≥ target (KITA, CHUO, KNSAI OK; 6 to go) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
+- [x] every area ≥ target (all 9 OK, W7) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
 - [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] Japan hub card live · [x] CITIES.md row

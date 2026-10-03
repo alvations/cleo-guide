@@ -209,3 +209,31 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
   (Brewery Creek renamed — Isthmus coverage predates the change; re-check).
 - **Session totals:** ~125 WebSearch calls; W4 +62 places (72 → 134; 87 food = 65%); pins +12 (all via Wikipedia/
   Wikidata-restricted queries); UNVERIFIED now ~69 (restaurants + Pheasant Branch, Edgewood mounds, Trollway).
+
+## 2026-10-03 · W5 (same session, after the usage-limit reset) — batch 1
+- **Searches:** ~25 (WebSearch available again after the session limit reset).
+- **Sights (SIGHTS_W5a.json, 8, all Wikipedia-pinned):** Bascom Hill & Lincoln statue (UW t1), Ingersoll Physics Museum
+  (UW; Atlas Obscura), Lakeshore Nature Preserve (UW, med — area point), Wyoming Valley School & A. D. German Warehouse
+  (TRIP; FLW Trail per Chicago Sun-Times; German Warehouse med — round-minute latitude), Seth Peterson Cottage (TRIP;
+  FLW Foundation + DNR), Al. Ringling Theatre (TRIP t1), Tower Hill State Park (TRIP).
+- **Food (FOOD_W5a.json, 4):** Stone Porch Alehouse (MVF; Cap Times), Imperial Garden (MVF; Best of Madison since 1984),
+  The Nitty Gritty (UW t1; birthday bar since 1985), La Taguara (EAST; Venezuelan).
+- **MEASURED & DROPPED:** 1847 at the Stamm House (MVF) — two Cap Times reviews call it "beautiful but uneven" /
+  "still hit or miss": below the merit bar despite the 1847 building. Eno Vino — Cap Times reports it closing (not added).
+- **Held:** Brasserie V (Cap Times/Isthmus/Hop Culture, but no 2026 open-status evidence found), Sa-Bai Thong (Destination
+  Madison listing + reader vote only), Hoyt Park & Lake Wingra (Wikipedia pins found, need a 2nd recommender),
+  Military Ridge State Trail (only trail endpoints in the article), Dhaba / Monk's (Visit Middleton just relays the vote).
+- **Channel note:** OpenTable-dominated results for Verona/Fitchburg — no credible list coverage of Fitchburg found; MVF
+  remains the thinnest area by source exhaustion, not by effort.
+
+### W5 batch 2
+- **Searches:** ~17 more (W5 total ~45).
+- **Food (FOOD_W5b.json, 5):** The Robin Room (CAP t1; Imbibe + City Cast), Heritage Tavern (CAP), Natt Spil (CAP;
+  Madison Magazine 'thirty bars' + City Cast), Madison Public Market (EAST t1; opened July 2026 — WMTV/WKOW/Madison365/
+  Cap Times), Sern Sapp (EAST; Lao, Isthmus review).
+- **Sights (SIGHTS_W5b.json, 2):** Lake Wingra & Vilas Park beach (WEST; Wikipedia lake point, med), Ice Age Complex at
+  Cross Plains (DANE; NPS lone authority + Wikipedia; UNVERIFIED pin).
+- **Held:** Coopers Tavern, Alchemy Café, Eldorado Grill, The Malt House (Madison Magazine only); Oasis Cafe (Fitchburg),
+  King of Falafel, Bierock (City Cast only); Owen Conservation Park, Elver Park, Livsreise (Destination Madison only);
+  Indian Lake County Park (no source surfaced); new 2025–26 openings (One Social Food Hall, Begonia, Taj) — too new to
+  measure. Eno Vino reported closing (Cap Times) — not added.
