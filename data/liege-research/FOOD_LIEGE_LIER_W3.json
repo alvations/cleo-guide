@@ -6,14 +6,18 @@
    "Gault&Millau"
   ],
   "dish": "Gastronomic menu",
-  "n": "Qualia",
+  "n": "Qualia — CLOSED",
   "address": "Avenue Peltzer 41, 4800 Verviers, Belgium",
-  "w": "Gault&Millau-listed gastronomic table on Avenue Peltzer in Verviers' villa quarter.",
-  "closed": false,
+  "w": "Gault&Millau-listed (13.5/20, Nov 2023) gastronomic table in the little Château Peltzer, Verviers — CLOSED August 2024 (Paris Match).",
+  "closed": true,
   "sources": [
    [
     "GAULTMILLAU",
     "https://www.gaultmillau.be/en/restaurants/qualia-verviers"
+   ],
+   [
+    "PARISMATCHBE",
+    "https://www.parismatch.be/lifestyle/food/2024/10/08/ce-restaurant-entre-dans-le-gault-millau-il-y-a-moins-dun-an-ferme-ses-portes-GLK74DESCBECRNXVRBVBEZQUME/"
    ]
   ]
  },
@@ -97,15 +101,20 @@
   ],
   "dish": "Herve-plateau gastronomic menu",
   "n": "L'Epicurien",
-  "address": "Rue des Xhawirs 15, 4650 Herve, Belgium",
+  "address": "Rue des Martyrs 15, 4650 Herve, Belgium",
   "w": "Gault&Millau-listed table in Herve, capital of the cheese country.",
   "closed": false,
   "sources": [
    [
     "GAULTMILLAU",
     "https://www.gaultmillau.be/en/restaurants/lepicurien-herve"
+   ],
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/gb/en/liege/herve/restaurant/l-epicurien550101"
    ]
-  ]
+  ],
+  "michelin": true
  },
  {
   "t": 3,
@@ -133,7 +142,7 @@
   ],
   "dish": "Creative modern cooking",
   "n": "Un air de famille",
-  "address": "Theux, Belgium",
+  "address": "Place du Perron 36, 4910 Theux, Belgium",
   "w": "Gault&Millau-listed: in an elegant natural-stone building, chefs Sami Chebil and Deniz Bâg mix tradition and modernity with precise, balanced plates.",
   "closed": false,
   "sources": [
@@ -151,7 +160,7 @@
   ],
   "dish": "Accessible tradition-meets-creativity menu",
   "n": "Table Rase",
-  "address": "Theux, Belgium",
+  "address": "Avenue René Lange 18, 4910 Theux, Belgium",
   "w": "Gault&Millau-listed family restaurant in Theux, warm welcome and accessible cooking.",
   "closed": false,
   "sources": [
@@ -169,7 +178,7 @@
   ],
   "dish": "Creative, generous seasonal cooking",
   "n": "Le Basilic",
-  "address": "Chaudfontaine, Belgium",
+  "address": "Rue de Chèvremont 91, 4050 Chaudfontaine, Belgium",
   "w": "Gault&Millau-listed restaurant near the basilica of Chèvremont in Chaudfontaine.",
   "closed": false,
   "sources": [
@@ -187,7 +196,7 @@
   ],
   "dish": "Cocktails and bold tapas",
   "n": "Hexa-Gone",
-  "address": "Herstal, Belgium",
+  "address": "1ère Avenue 66, 4040 Herstal, Belgium",
   "w": "Gault&Millau-listed cocktail bar-restaurant in Herstal — bold creations and tapas.",
   "closed": false,
   "sources": [
@@ -205,7 +214,7 @@
   ],
   "dish": "Inventive local-meets-international menu",
   "n": "Antoine",
-  "address": "Eupen, Belgium",
+  "address": "Stendrich 21, 4700 Eupen, Belgium",
   "w": "Gault&Millau-listed: chef Mirko Radermeker's inventive cooking of local products with international accents, in Eupen.",
   "closed": false,
   "sources": [
@@ -223,7 +232,7 @@
   ],
   "dish": "French classics with Asian accents",
   "n": "Couleur Rouge",
-  "address": "Eupen, Belgium",
+  "address": "Gospertstraße 22, 4700 Eupen, Belgium",
   "w": "Gault&Millau-listed fusion kitchen in Eupen — French classics lightened with Asian notes.",
   "closed": false,
   "sources": [
@@ -241,7 +250,7 @@
   ],
   "dish": "Wood-fire locavore cooking",
   "n": "L'Air de Rien",
-  "address": "Fontin, Esneux, Belgium",
+  "address": "Place du Vieux Tilleul 14 (Fontin), 4130 Esneux, Belgium",
   "w": "Gault&Millau-listed: a renovated farmhouse in the Ourthe valley cooking local artisans' produce over a wood fire.",
   "closed": false,
   "sources": [
@@ -259,7 +268,7 @@
   ],
   "dish": "Southern-French cooking (thyme, rosemary)",
   "n": "L'Olivier des Sens",
-  "address": "Tilff, Esneux, Belgium",
+  "address": "Avenue Laboulle 18 (Tilff), 4130 Esneux, Belgium",
   "w": "Gault&Millau-listed: Narbonne-born chef Manuel Béjar brings the French south to Tilff on the Ourthe.",
   "closed": false,
   "sources": [
@@ -277,7 +286,7 @@
   ],
   "dish": "French cooking with worldly accents",
   "n": "La Table Toquée",
-  "address": "Tilff, Esneux, Belgium",
+  "address": "Avenue des Ardennes 107 (Tilff), 4130 Esneux, Belgium",
   "w": "Gault&Millau-listed warm restaurant in Tilff.",
   "closed": false,
   "sources": [
@@ -296,7 +305,7 @@
   ],
   "dish": "Refined Italian cooking",
   "n": "Le Coq en Pâte",
-  "address": "Aywaille, Belgium",
+  "address": "Place Joseph Thiry 41, 4920 Aywaille, Belgium",
   "w": "Gault&Millau-listed elegant Italian restaurant on Aywaille's square.",
   "closed": false,
   "sources": [
@@ -314,7 +323,7 @@
   ],
   "dish": "Seasonal, southern-inspired French gastronomy",
   "n": "Le Cadre Culinaire",
-  "address": "Huy, Belgium",
+  "address": "Rue des Rôtisseurs 4, 4500 Huy, Belgium",
   "w": "Gault&Millau-listed: Grégory Baruthio Muller's seasonal French cooking with a southern lilt, in Huy.",
   "closed": false,
   "sources": [
@@ -333,7 +342,7 @@
   ],
   "dish": "Italian-Vietnamese cooking",
   "n": "La Table de Maxou",
-  "address": "Huy, Belgium",
+  "address": "Route de Hamoir 87, 4500 Huy, Belgium",
   "w": "Gault&Millau-listed — an original Italian-meets-Vietnamese kitchen in Huy.",
   "closed": false,
   "sources": [
@@ -352,7 +361,7 @@
   ],
   "dish": "Generous Italian cooking with Sicilian accents",
   "n": "BASTA!",
-  "address": "Wanze, Belgium",
+  "address": "Chaussée de Tirlemont 118, 4520 Wanze, Belgium",
   "w": "Gault&Millau-listed (and Michelin Bib Gourmand) Italian with Sicilian accents and an open kitchen, in Wanze.",
   "closed": false,
   "sources": [
@@ -374,7 +383,7 @@
   ],
   "dish": "Garden-driven menu (roast Jerusalem artichoke, hazelnut, Mont d'Or)",
   "n": "Pollen",
-  "address": "Domaine de Naxhelet, Wanze, Belgium",
+  "address": "Rue Naxhelet 1 (Domaine de Naxhelet), 4520 Wanze, Belgium",
   "w": "Gault&Millau-listed table of the Naxhelet estate — chef François Durand cooks from the estate's own vegetable garden.",
   "closed": false,
   "sources": [
@@ -392,7 +401,7 @@
   ],
   "dish": "Generous gastronomic country cooking",
   "n": "Au Cheval Blanc",
-  "address": "Waimes, Belgium",
+  "address": "Rue du Centre 20, 4950 Waimes, Belgium",
   "w": "Gault&Millau-listed countryside bistro with a mountain-chalet feel in Waimes, near the Hautes Fagnes.",
   "closed": false,
   "sources": [
@@ -410,7 +419,7 @@
   ],
   "dish": "Chef Gerty Linnertz's personal tasting menu",
   "n": "Cyrano",
-  "address": "Hôtel Ravel, Waimes, Belgium",
+  "address": "Rue de la Gare 23 (Hôtel Ravel), 4950 Waimes, Belgium",
   "w": "Gault&Millau-listed intimate restaurant in the Hôtel Ravel — reservation only.",
   "closed": false,
   "sources": [
@@ -428,7 +437,7 @@
   ],
   "dish": "Local produce and garden vegetables",
   "n": "La Menuiserie",
-  "address": "Waimes, Belgium",
+  "address": "Champagne 12, 4950 Waimes, Belgium",
   "w": "Gault&Millau-listed: chef David Simons cooks local produce and garden vegetables in Waimes.",
   "closed": false,
   "sources": [
