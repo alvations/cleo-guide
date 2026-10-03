@@ -1,6 +1,69 @@
-{"outlets":[
- {"key":"SMITHSONIAN","name":"Smithsonian Magazine Museum Day venues","type":"institutional","url":"https://www.smithsonianmag.com/museumday/","rank":2,"credible":"Smithsonian Magazine's vetted Museum Day participating-venue pages (sights)."},
- {"key":"VINTAGEAVIATION","name":"Vintage Aviation News","type":"specialist press","url":"https://vintageaviationnews.com/","rank":3,"credible":"Specialist aviation-heritage news site; museum features (sights)."},
- {"key":"AP","name":"Associated Press","type":"wire service","url":"https://apnews.com/","rank":1,"credible":"AP national wire story (syndicated via ABC17) on the Sojourner Truth plaza dedication."},
- {"key":"CANJOURNAL","name":"CAN Journal (Collective Arts Network)","type":"regional arts press","url":"https://canjournal.org/","rank":3,"credible":"Northeast Ohio's arts quarterly; gallery and venue coverage (sights)."}
-],"creators":[]}
+{
+ "outlets": [
+  {
+   "key": "SMITHSONIAN",
+   "name": "Smithsonian Magazine Museum Day venues",
+   "type": "institutional",
+   "url": "https://www.smithsonianmag.com/museumday/",
+   "rank": 2,
+   "credible": "Smithsonian Magazine's vetted Museum Day participating-venue pages (sights)."
+  },
+  {
+   "key": "VINTAGEAVIATION",
+   "name": "Vintage Aviation News",
+   "type": "specialist press",
+   "url": "https://vintageaviationnews.com/",
+   "rank": 3,
+   "credible": "Specialist aviation-heritage news site; museum features (sights)."
+  },
+  {
+   "key": "AP",
+   "name": "Associated Press",
+   "type": "wire service",
+   "url": "https://apnews.com/",
+   "rank": 1,
+   "credible": "AP national wire story (syndicated via ABC17) on the Sojourner Truth plaza dedication."
+  },
+  {
+   "key": "CANJOURNAL",
+   "name": "CAN Journal (Collective Arts Network)",
+   "type": "regional arts press",
+   "url": "https://canjournal.org/",
+   "rank": 3,
+   "credible": "Northeast Ohio's arts quarterly; gallery and venue coverage (sights)."
+  },
+  {
+   "key": "PORTAGER",
+   "name": "The Portager",
+   "type": "local news",
+   "url": "https://theportager.com/",
+   "rank": 2,
+   "credible": "Nonprofit Portage County newsroom (Kent/Ravenna); restaurant reviews and parks news."
+  },
+  {
+   "key": "PBS",
+   "name": "PBS (Western Reserve PBS)",
+   "type": "public media",
+   "url": "https://www.pbs.org/",
+   "rank": 2,
+   "credible": "Public-television local history documentary."
+  },
+  {
+   "key": "COURTNEWSOHIO",
+   "name": "Court News Ohio (Supreme Court of Ohio)",
+   "type": "official",
+   "url": "https://courtnewsohio.gov/",
+   "rank": 2,
+   "credible": "Supreme Court of Ohio's news service 'Seats of Justice' courthouse series."
+  },
+  {
+   "key": "STRONGTOWNS",
+   "name": "Strong Towns",
+   "type": "national urbanism journal",
+   "url": "https://strongtowns.org/",
+   "rank": 3,
+   "credible": "National nonprofit's journal; neighbourhood revival features."
+  }
+ ],
+ "creators": []
+}

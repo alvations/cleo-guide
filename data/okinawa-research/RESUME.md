@@ -159,7 +159,31 @@ CHUBU food is only 41 % → next Chūbu discovery is food-only.
 | YAEYA | 33 | 24 | 57 | 60 | +3 |
 | KRM | 11 | 18 | 29 | 30 | +1 |
 
-## Next actions (W10 plan, ordered)
+- 2026-10-03 **W10 done — DENSITY MET in every area** (session_01SNdRN4VTyvqgJyuKThEgUA, ~196 searches, 6 bg agents + orchestrator):
+  **513 discovered (213 sights + 300 food & drink = 58 %), 408 pinned (was 378)** — high 132 · med 80 · low 196 · UNVERIFIED 105.
+  ANIME 23 found / 18 pinned (0 new). Closure flagged: Oden Tōdai (2022). 4 gates PASS; validate + test ALL PASS. Details: AUDIT.md W10.
+
+### Density after W10
+| area | food | sights | have | target | status |
+|---|---|---|---|---|---|
+| NAHA | 79 | 42 | 121 | 120 | OK |
+| CHUBU | 53 | 42 | 95 | 95 | OK |
+| HOKBU | 54 | 38 | 92 | 90 | OK |
+| NANBU | 36 | 29 | 65 | 65 | OK |
+| MYK | 31 | 19 | 50 | 50 | OK |
+| YAEYA | 35 | 25 | 60 | 60 | OK |
+| KRM | 12 | 18 | 30 | 30 | OK |
+
+## Next actions (W11 plan — pins & quality, not discovery)
+1. **Pins: 105 UNVERIFIED** (W10 added ~33: see `geo/_geoout_okinawa_W10*.json` UNVERIFIED rows). Search channels are nearly exhausted
+   (Apple Maps 0 for Okinawa; NAVITIME/MapFan rare). Run the browser `tools/geocode-helper.html` on `docs/GEOCODE-BACKLOG.md` → okinawa.
+2. **4b re-verify 196 `low`** → upgrade to place pins; W10 flags: Stand Suehiro (~190 m off the market pins), Shirumichu (Hamahiga),
+   Do~me Gohan Café (shares Glass Village point), plus W9 flags (Ojisan, Zhyvago, ROCO; Kingyū, Kura, Kōrakuen).
+3. **Anime:** 5 unpinned (Ryūtan lid @首里池端町18, Shōfūen, Sugar Road, Zamami lid, Ishigaki lid) → browser helper.
+4. **Quality swaps (optional):** held leads in AUDIT W10 can replace weaker t3 records if they gain a 2nd source; Kōganeya street address.
+5. Build loop unchanged (push script `_okinawa_push_w10.sh` — update its trailer for a new session).
+
+## Older plan (W10)
 1. **Discovery yield is ~1 kept per 4 searches now** (most JA list searches return aggregators). Pair the W9 held leads first (AUDIT W9 "Held") —
    each is one confirm search. Chūbu +15: food & drink only (Kawaraya, Shirahamaya, Yomitanzan Soba, Sobe, Cocoroar, Churuge) + Chūbu sights are
    now under-weight (34) — Nakagusuku/Katsuren/Zakimi already in; try Urasoe Yōdore area, Kitanakagusuku Nakamura House, Yomitan Zakimi pottery
@@ -264,5 +288,5 @@ pins the box spans ~400 km and the derived view lands in the sea at zoom ~7–8.
 documented CFG override (e.g. `VIEW`) in tools/belgium_build.py under the lock rather than hardcoding.
 
 ## Acceptance
-- [ ] every area ≥ target · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
+- [x] every area ≥ target (W10) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
 - [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] Japan hub card live · [x] CITIES.md row

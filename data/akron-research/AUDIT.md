@@ -442,3 +442,16 @@ New source keys: MAHONINGMATTERS, BARBERTONLIBRARY (SOURCES_W3A.json).
   Guido's Ravenna, Johnny's Diner, Marie's Patisserie (ABJ only) · Munroe Falls / Furnace Run Metro Parks (agency page only; padding).
   **Rejected:** Skyway Drive-In Fairlawn (CLOSED — Scene "Ends its 74-year run"); Meow Bao (closed per Signal Akron).
 - Gates: sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. ≈82 WebSearch.
+
+## 2026-10-03 W5 · batch 2 (FOOD_W5B, SIGHTS_W5B, geo/_geoout_w5b)
+- **Added food (4):** MASS Cast Iron Bar & Grille (Repository review + Visit Canton Stark11 Canal Fulton pick), Miller-Doan Tavern (Repository
+  review + Visit Canton; promoted from W4 held) · KENT Maddalena's Italian Ristorante (opened Jul 2025; Akron Life + The Portager) ·
+  AKR Diamond Deli (Akron Life Best Deli 2025 + ABJ downtown-lunch guide).
+- **Added sights (5):** CANT Haines House Underground Railroad Museum (Wikipedia/NRHP + Repository + WOSU + Visit Canton), Stark County
+  Courthouse (Wikipedia + PBS + WKSU + Court News Ohio) · KENT West Branch State Park (Wikipedia + ODNR), Towner's Woods (Portage Park District
+  + The Portager + Akron Life) · AKR Kenmore Boulevard Historic District (NRHP 2019; Signal Akron ×2 + Strong Towns).
+- **Pins:** 4 of 9 high. UNVERIFIED: Cast Iron, Maddalena's, Diamond Deli, Towner's Woods, Kenmore Blvd.
+- **Held:** Kraus' Pizza Massillon (CVB + menu sites only), Kozmo's Grille / Top of the Viaduct / Bugsy's (Visit Canton only), Victorio's
+  Pizza Alliance (NYT readers' list claim not confirmed), Jilly's Music Room (Akron Life vote + Scene listing), Tiffany's Bakery, Taste of
+  Bangkok, Kasai (Akron Life vote only), Canton Arts District (no pin anchor), Starflyer (still no named beer), Muskellunge (no address),
+  Hiram/Garfield sites (house private; no single visitable pin).
