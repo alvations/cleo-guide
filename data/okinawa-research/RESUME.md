@@ -58,11 +58,7 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 | KRM | 4 | 10 | 14 | 30 | +16 |
 
 ## In-flight wave
-- **W9** (session_012LmRFpCmy9XHMHT66hkzS3, started 2026-10-03; rules `_okinawa_w9_agentrules.md`): 7 bg agents —
-  W9D1 Chūbu food (cap 30) · W9D2 Naha food & drink (28) · W9D3 Hokubu (26) · W9D4 Nanbu+KRM food (24) · W9D5 MYK+YAEYA (26) ·
-  W9A anime part 3 + pin 7 unpinned anime (18) · W9G geocoder on `_okinawa_geo_todo_W9G.json` (74 UNVERIFIED; Apple Maps channel) (25).
-  Files: `FOOD/SIGHTS/SOURCES/CREATORS_OKINAWA_W9*.json`, `geo/_geoout_okinawa_W9*.json`, `_okinawa_W9*_notes.md`.
-  On relaunch: check which notes files exist; rerun only the missing agents, then build → gates → commit.
+- none (W9 closed 2026-10-03; ~190 of the session's ~200 searches spent).
 
 - 2026-10-02 **W4 done** (fresh session, ~186 searches, 9 background subagents): pin-first + discovery + anime.
   **258 discovered (128 sights + 130 food & drink = 50 % food), 130 pinned (was 89)** — pins per area NAHA 18 · CHUBU 24 ·
@@ -147,7 +143,40 @@ CHUBU food is only 41 % → next Chūbu discovery is food-only.
 | YAEYA | 30 | 24 | 54 | 60 | +6 | 41 |
 | KRM | 10 | 18 | 28 | 30 | +2 | 17 |
 
-## Next actions (W9 plan, ordered)
+- 2026-10-03 **W9 done** (session_012LmRFpCmy9XHMHT66hkzS3, ~190 searches, 7 bg agents; rules `_okinawa_w9_agentrules.md`): **451 discovered
+  (198 sights + 253 food & drink = 56 %), 378 pinned (was 344)** — high 124 · med 76 · low 178. **ANIME 23 found / 18 pinned** (+Chiikawa Restaurant
+  Okinawa). No new closures. 4 gates PASS; validate + test ALL PASS. Agent tags: W9D1 +6, W9D2 +5, W9D3 +8, W9D4 +4, W9D5 +9, W9A +1, W9G +6 pins.
+  4 records removed by orchestrator fact-check (AUDIT W9). Apple Maps pin channel: 0 coordinates for Okinawa.
+
+### Density after W9
+| area | food | sights | have | target | need |
+|---|---|---|---|---|---|
+| NAHA | 64 | 42 | 106 | 120 | +14 |
+| CHUBU | 46 | 34 | 80 | 95 | +15 |
+| HOKBU | 47 | 33 | 80 | 90 | +10 |
+| NANBU | 26 | 28 | 54 | 65 | +11 |
+| MYK | 26 | 19 | 45 | 50 | +5 |
+| YAEYA | 33 | 24 | 57 | 60 | +3 |
+| KRM | 11 | 18 | 29 | 30 | +1 |
+
+## Next actions (W10 plan, ordered)
+1. **Discovery yield is ~1 kept per 4 searches now** (most JA list searches return aggregators). Pair the W9 held leads first (AUDIT W9 "Held") —
+   each is one confirm search. Chūbu +15: food & drink only (Kawaraya, Shirahamaya, Yomitanzan Soba, Sobe, Cocoroar, Churuge) + Chūbu sights are
+   now under-weight (34) — Nakagusuku/Katsuren/Zakimi already in; try Urasoe Yōdore area, Kitanakagusuku Nakamura House, Yomitan Zakimi pottery
+   village (Yachimun no Sato), Uruma Kaichū-dōro islands (Hamahiga/Henza/Ikei). Naha +14: sights (42) are fine → food & drink.
+   Nanbu +11 (food 48 %) food-first. MYK +5 · YAEYA +3 · KRM +1 — each one targeted search.
+2. **Koza steak houses** remain a stated gap after ~10 searches (W8D1/W9D1); try Stripes "Jack's Steak House" style named searches only if a name surfaces.
+3. **Anime:** pin the 5 unpinned (Ryūtan lid, Shōfūen, Sugar Road, Zamami lid, Ishigaki lid) — the Poké Lid official map
+   (local.pokemon.jp/manhole) has not surfaced coords via search; browser `tools/geocode-helper.html` is the channel. Held: Gushikawa Soba Ai-chan,
+   Animate Naha, Mangasouko.
+4. **Pins:** ~73 UNVERIFIED (W9G notes "still unverified"). Apple Maps `allowed_domains` gave no coordinates for Okinawa — don't repeat;
+   use the browser geocode-helper. 4b: 178 `low` → re-verify (W9G flags Ojisan, Zhyvago, ROCO; W8 flags Kingyū, Kura, Kōrakuen).
+5. **Creators:** 0 kept W4–W9 — stop.
+6. Build loop unchanged: `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py okinawa --build` → 4 gates →
+   `cd tools && npm run validate && npm test` → CARD:okinawa stat + CITIES row + AGENT-PROMPTS row → commit+push
+   (`bash data/okinawa-research/_okinawa_push_w9.sh "msg" <extra paths>` — update its session trailer for a new session).
+
+## Older plan (W9)
 1. **Chūbu +22 is now the biggest gap, food & drink only.** Koza steak houses: mine Okinawa Times series 「沖縄ステーキ史 since1950」 (W8D1 notes)
    for named houses + pair each with Stripes/KozaWeb/RS; resolve New York Restaurant status. Chūbu held: Mickey, Shimanchu Soba, Churuge Soba, Ippe Coppe.
 2. **Naha +19 food-first** (W8D3 added 5 sights / 2 food): awamori bars, min'yō sakaba, kissaten, bakeries. Held: Naha Soba, Shima Nakama, Teshiraji,
