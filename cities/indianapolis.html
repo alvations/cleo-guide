@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Indianapolis field guide — 56 sights and 8 places to eat across Indianapolis, Speedway, the north suburbs and the south side, each traceable to its source (IndyStar, Indianapolis Monthly, Indianapolis Business Journal, WFYI, Visit Indy, James Beard, NPS, Atlas Obscura), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Indianapolis field guide — 56 sights and 10 places to eat across Indianapolis, Speedway, the north suburbs and the south side, each traceable to its source (IndyStar, Indianapolis Monthly, Indianapolis Business Journal, WFYI, Visit Indy, James Beard, NPS, Atlas Obscura), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
 <title>Indianapolis Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Indianapolis &amp; Central Indiana, sourced</p>
   <h1>Indianapolis<span class="thin">the Speedway, Mass Ave, the Cultural Trail &amp; a deep immigrant table</span></h1>
-  <p class="standfirst">56 sights and 8 places to eat across <strong>Indianapolis</strong> &mdash; downtown and Monument Circle, Mass Ave, Fountain Square, Broad Ripple, Irvington, the <strong>Speedway</strong> &mdash; plus the north suburbs and the south side. Each is traceable to the source that named it. Indy’s canon is its own: the breaded <strong>pork tenderloin</strong> sandwich, <strong>sugar cream pie</strong>, St. Elmo’s fiery <strong>shrimp cocktail</strong>, Shapiro’s deli, fried biscuits &amp; apple butter, the <strong>Burmese/Chin</strong> kitchens of the south side and the International Marketplace’s global corridor. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">56 sights and 10 places to eat across <strong>Indianapolis</strong> &mdash; downtown and Monument Circle, Mass Ave, Fountain Square, Broad Ripple, Irvington, the <strong>Speedway</strong> &mdash; plus the north suburbs and the south side. Each is traceable to the source that named it. Indy’s canon is its own: the breaded <strong>pork tenderloin</strong> sandwich, <strong>sugar cream pie</strong>, St. Elmo’s fiery <strong>shrimp cocktail</strong>, Shapiro’s deli, fried biscuits &amp; apple butter, the <strong>Burmese/Chin</strong> kitchens of the south side and the International Marketplace’s global corridor. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -445,10 +445,12 @@ const FS = {
   "ROADFOOD":{k:"ROADFOOD",t:"Roadfood (Jane & Michael Stern)",u:"https://roadfood.com/",l:"Roadfood (Jane & Michael Stern)"},
   "TASTINGTABLE":{k:"TASTINGTABLE",t:"Tasting Table",u:"https://www.tastingtable.com/",l:"Tasting Table"},
   "THETAKEOUT":{k:"THETAKEOUT",t:"The Takeout",u:"https://thetakeout.com/",l:"The Takeout"},
+  "TOWNEPOST":{k:"TOWNEPOST",t:"Towne Post Network (central-Indiana neighbourhood magazines)",u:"https://townepost.com/",l:"Towne Post Network (central-Indiana neighbourhood magazines)"},
   "VISITINDIANA":{k:"VISITINDIANA",t:"Visit Indiana (Indiana Destination Development Corp.)",u:"https://visitindiana.com/",l:"Visit Indiana (Indiana Destination Development Corp.)"},
   "VISITINDY":{k:"VISIT INDY",t:"VISIT INDY",u:"",l:""},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"WIKIPEDIA",u:"",l:""},
   "WISH":{k:"WISH-TV 8",t:"WISH-TV 8",u:"",l:""},
+  "WORLDS50BEST":{k:"WORLDS50BEST",t:"The World's 50 Best Discovery",u:"https://www.theworlds50best.com/discovery/",l:"The World's 50 Best Discovery"},
   "WRTV":{k:"WRTV",t:"WRTV 6 (ABC Indianapolis)",u:"https://www.wrtv.com/",l:"WRTV 6 (ABC Indianapolis)"},
   "WTHR":{k:"WTHR 13",t:"WTHR 13",u:"",l:""}
 };
@@ -491,7 +493,9 @@ const F = [
 {t:1,a:"MASS",n:"The Rathskeller",ad:"401 E Michigan St, Indianapolis, IN",cz:["BREW"],la:39.77333,ln:-86.15028,w:"Order: Schnitzel, sauerbraten, ochsenschwanz suppe; the biergarten in summer. Indianapolis' oldest restaurant still operating (1894), in the cellar and biergarten of the Athenaeum — German food and a Kellerbar beer list.",k:"Lockerbie",s:[["VISITINDY","https://www.visitindy.com/directory/the-rathskeller/"],["THETAKEOUT","https://thetakeout.com/1737075/indiana-bavarian-rathskeller-restaurant"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Athen%C3%A6um_(Das_Deutsche_Haus)"]]},
 {t:1,a:"DTN",n:"Sun King Brewing",ad:"135 N College Ave, Indianapolis, IN",cz:["BREW"],la:39.76903,ln:-86.14482,w:"Order: Sunlight Cream Ale and Osiris Pale Ale in the production-floor taproom. Indianapolis' largest brewery (2009) in the Cole-Noble district by Lockerbie — all-ages taproom with 25+ taps and tours.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Sun_King_Brewing"],["DOWNTOWNINDY","https://downtownindy.org/go/sun-king-brewing-co"],["IBJ","https://www.ibj.com/articles/49082-sun-king-plans-8-8m-brewery-tasting-room-in-fishers"]]},
 {t:1,a:"DTN",n:"Julieta Taco Shop",ad:"1060 N Capitol Ave, Suite 1-103 (Stutz courtyard), Indianapolis, IN",cz:["MEX"],la:39.78167,ln:-86.16194,w:"Order: Al pastor and carnitas on nixtamalized corn tortillas; the broccolini taco. Counter-service taqueria tucked into the Stutz building courtyard (Esteban Rosas & Gabriel Sañudo) — fresh masa tortillas, rotating tacos, lunch only. Named Indiana's best hole-in-the-wall taco joint (Cheapism) and on a national top-100 taco list.",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/restaurants-2024/best-restaurants-2024-julieta-taco-shop/"],["FOX59","https://digital-release.fox59.com/indiana-news/delicioso-2-indy-taco-spots-land-in-national-top-100-list"],["CHEAPISM","https://www.aol.com/finance/best-hole-wall-taco-joint-140000228.html"]]},
-{t:1,a:"MASS",n:"Coat Check Coffee",ad:"401 E Michigan St (The Athenaeum), Indianapolis, IN",cz:["COF","PIE"],la:39.77333,ln:-86.15028,w:"Order: Pistachio latte (house pistachio orgeat, rose water, lemon peel); currywurst croissant. Three-level café in the Athenaeum's old coat-check rooms — grand staircase, stained glass, German-leaning pastries; its pistachio latte is a cult order among Indy coffee people.",k:"Lockerbie",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/indys-most-buzzworthy-coffee/"],["AXIOS","https://www.axios.com/local/indianapolis/2023/04/07/indianapolis-coffee-shops-remote-work"]]}
+{t:1,a:"MASS",n:"Coat Check Coffee",ad:"401 E Michigan St (The Athenaeum), Indianapolis, IN",cz:["COF","PIE"],la:39.77333,ln:-86.15028,w:"Order: Pistachio latte (house pistachio orgeat, rose water, lemon peel); currywurst croissant. Three-level café in the Athenaeum's old coat-check rooms — grand staircase, stained glass, German-leaning pastries; its pistachio latte is a cult order among Indy coffee people.",k:"Lockerbie",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/indys-most-buzzworthy-coffee/"],["AXIOS","https://www.axios.com/local/indianapolis/2023/04/07/indianapolis-coffee-shops-remote-work"]]},
+{t:2,a:"FSQ",n:"The Commodore",ad:"1107 Prospect St (Fountain Square Theatre Building), Indianapolis, IN",cz:["BREW"],la:39.75210,ln:-86.13960,w:"Order: Clarified milk punches. Signless speakeasy lounge inside the rambling 1928 Fountain Square Theatre Building — leather sofas, dim light and top-notch cocktails (Imbibe; Indianapolis Monthly's pandemic-era cocktail-bar openings).",k:"Fountain Square",s:[["IMBIBE","https://imbibemagazine.com/where-to-drink-in-indianapolis/"],["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/four-indy-cocktail-bars-that-opened-their-doors-during-the-pandemic/"]]},
+{t:2,a:"MID",n:"The Melody Inn",ad:"3826 N Illinois St, Indianapolis, IN",cz:["BREW"],la:39.82558,ln:-86.15947,w:"Order: Cheap beer and Saturday Punk Rock Night (since 2000). Butler-Tarkington dive that opened as a piano bar in 1935 (original floor, metalwork and back-bar mirror) — home of Punk Rock Night, the world's longest-running weekly punk showcase; 7,000+ acts since 2001.",k:"Butler-Tarkington",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Melody_Inn_(nightclub)"],["INDYMONTHLY","https://www.indianapolismonthly.com/best-bars/no-24-melody-inn/"],["IBJ","https://www.ibj.com/articles/22348-owners-enjoy-melody-inn-s-niche-as-well-worn-music-venue"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -516,7 +520,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([39.8709,-86.1308],11);
+  map = L.map('map',{scrollWheelZoom:false}).setView([39.8683,-86.1308],11);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -600,7 +604,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Downtown", 39.77, -86.1617], ["Mass Ave", 39.7782, -86.1482], ["Fountain Square", 39.7521, -86.1396], ["Midtown", 39.8299, -86.1663], ["Broad Ripple", 39.8722, -86.1427], ["Speedway", 39.8012, -86.2371], ["Irvington", 39.8038, -86.0741], ["North suburbs", 40.0182, -86.0748], ["South side", 39.673, -86.1259]];
+const LABELS=[["Downtown", 39.77, -86.1617], ["Mass Ave", 39.7782, -86.1482], ["Fountain Square", 39.7521, -86.1396], ["Midtown", 39.8293, -86.1655], ["Broad Ripple", 39.8722, -86.1427], ["Speedway", 39.8012, -86.2371], ["Irvington", 39.8038, -86.0741], ["North suburbs", 40.0182, -86.0748], ["South side", 39.673, -86.1259]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -939,7 +943,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 64 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 66 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

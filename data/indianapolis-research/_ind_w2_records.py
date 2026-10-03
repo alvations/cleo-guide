@@ -94,3 +94,76 @@ F(2,"WEST","Sizzling Wok Hai","4351 Lafayette Rd, Indianapolis, IN",["Vietnamese
 F(3,"SOUTH","Egg Roll #1 (Pho #1)","4540 S Emerson Ave, Indianapolis, IN",["Vietnamese"],"Egg rolls and pho",
  "Southeast-side Vietnamese counter on Emerson Ave — an Indianapolis Monthly 'Cheap Eats' pick and on WRTV's where-to-eat-pho list.",
  [["INDYMONTHLY",IM+"food-and-drinks/dining/cheap-eats-24-wallet-friendly-indy-restaurants/"],["WRTV",WRTV_PHO]],"WRTV pho guide (listed as open)")
+
+# ---- batch 5 (bars: Imbibe 'Where to Drink in Indianapolis' + a 2nd outlet) ----
+IMBIBE_IND="https://imbibemagazine.com/where-to-drink-in-indianapolis/"
+F(1,"FSQ","The Inferno Room","902 Virginia Ave, Indianapolis, IN 46203",["Cocktail Bar"],"Tropical tiki classics and house rum cocktails",
+ "High-end tiki bar (2018) in a former Marion County courthouse building — part bar, part museum, holding one of the largest collections of Papua New Guinea tribal art outside a museum. Imbibe's Indianapolis pick; World's 50 Best Discovery listing.",
+ [["IMBIBE",IMBIBE_IND],["INDYMONTHLY",IM+"features/isle-of-tiki/"],["VISITINDIANA","https://visitindiana.in.gov/blog/post/inferno-room-tiki-bar/"],["WORLDS50BEST","https://www.theworlds50best.com/discovery/Establishments/US/Indianapolis/The-Inferno-Room.html"]],
+ "Visit Indy directory + World's 50 Best Discovery listing (open)",k="Fountain Square")
+F(2,"FSQ","The Commodore","1107 Prospect St (Fountain Square Theatre Building), Indianapolis, IN",["Cocktail Bar"],"Clarified milk punches",
+ "Signless speakeasy lounge inside the rambling 1928 Fountain Square Theatre Building — leather sofas, dim light and top-notch cocktails (Imbibe; Indianapolis Monthly's pandemic-era cocktail-bar openings).",
+ [["IMBIBE",IMBIBE_IND],["INDYMONTHLY",IM+"food-and-drinks/four-indy-cocktail-bars-that-opened-their-doors-during-the-pandemic/"]],
+ "Imbibe Indianapolis guide (open)",
+ geo=g("The Commodore","1107 Prospect St (Fountain Square Theatre Building), Indianapolis, IN",39.7521,-86.1396,"Wikipedia infobox of the Fountain Square Theatre building that houses it, 39°45′08″N 86°08′23″W ("+W+"Fountain_Square_Theatre)",conf="med",ss="Imbibe Indianapolis guide (open)",note="bar is inside the Fountain Square Theatre Building; pin = building point"),k="Fountain Square")
+F(3,"FSQ","Square Cat Vinyl","1054 Virginia Ave, Indianapolis, IN 46203",["Bar","Coffee"],"Coffee bar plus local beer and cider, with in-store live sets",
+ "Fountain Square record shop that is also a bar, coffee counter and small live-music room — on Imbibe's where-to-drink list; IBJ covered its expansion with a kitchen.",
+ [["IMBIBE",IMBIBE_IND],["IBJ","https://www.ibj.com/articles/fountain-square-record-store-to-add-kitchen-as-part-of-expansion"],["DOWNTOWNINDY","https://downtownindy.org/go/square-cat-vinyl"]],
+ "Downtown Indy listing (open)",k="Fountain Square")
+
+# ---- batch 6 (Midtown — Butler-Tarkington) ----
+F(2,"MID","Tinker Coffee — The Firehouse","5555 N Illinois St, Indianapolis, IN",["Coffee","Cafe"],"House-roasted Tinker coffee by day; beer, wine and low-ABV cocktails with shareables after 4 pm",
+ "Indy roaster Tinker Coffee's café in Butler-Tarkington's 1932 Station 16 firehouse (ex-Chalet) — the Market Street café menu in the morning, a casual dinner-and-drinks room from 4 pm.",
+ [["IBJ","https://www.ibj.com/articles/tinker-coffee-to-open-butler-tarkington-cafe-in-former-firehouse"],["AXIOS","https://www.axios.com/local/indianapolis/2024/10/29/tinker-coffee-butler-tarkington-cafe"],["WISH","https://wishtv.com/?p=1312547"]],
+ "Axios Oct 2024 opening; WISH 'Monday Jolt' feature (open)",k="Butler-Tarkington")
+F(2,"MID","Oh Yumm! Bistro","5615 N Illinois St, Indianapolis, IN",["American","Comfort"],"Fried green tomatoes with pesto and grilled corn; chocolate-chip bread pudding",
+ "Butler-Tarkington's neighbourhood bistro since 2001, five minutes from Butler's campus — Southern-leaning small plates and kicked-up comfort food; Indianapolis Monthly's pick for a pre-show dinner on the Illinois St strip.",
+ [["IBJ","https://www.ibj.com/articles/14790-dining-appetizing-name-raises-restaurant-expectations"],["INDYMONTHLY",IM+"food-and-drinks/dining/street-savvy-butler-tarkington-neighborhood/"],["VISITINDIANA","https://visitindiana.in.gov/blog/post/yumm/"]],
+ "Current hours listed Tue–Sun (open)",k="Butler-Tarkington")
+F(2,"MID","The Melody Inn","3826 N Illinois St, Indianapolis, IN",["Bar"],"Cheap beer and Saturday Punk Rock Night (since 2000)",
+ "Butler-Tarkington dive that opened as a piano bar in 1935 (original floor, metalwork and back-bar mirror) — home of Punk Rock Night, the world's longest-running weekly punk showcase; 7,000+ acts since 2001.",
+ [["WIKIPEDIA",W+"Melody_Inn_(nightclub)"],["INDYMONTHLY",IM+"best-bars/no-24-melody-inn/"],["IBJ","https://www.ibj.com/articles/22348-owners-enjoy-melody-inn-s-niche-as-well-worn-music-venue"]],
+ "punkrocknight.com: weekly shows every Saturday at the Melody Inn (current site, checked 2026-10-03)",
+ geo=g("The Melody Inn","3826 N Illinois St, Indianapolis, IN",39.825583,-86.159472,"Wikipedia infobox 39°49′32.1″N 86°9′34.1″W ("+W+"Melody_Inn_(nightclub))",ss="punkrocknight.com: weekly shows every Saturday at the Melody Inn (current site, checked 2026-10-03)"),k="Butler-Tarkington")
+F(2,"MID","Hoagies & Hops (Chilly Water Taproom)","4155 Boulevard Pl, Indianapolis, IN",["Sandwiches","Brewery"],"Philly cheesesteak on South Jersey Liscio's rolls; hoagies with Chilly Water beer",
+ "Kristina Mazza's Southeast-Pennsylvania sandwich shop (2015) sharing a roof with Chilly Water's Butler-Tarkington taproom — imported South Jersey bread, Pennsylvania Dutch meats and sides.",
+ [["INDYMONTHLY",IM+"lifestyle/street-savvy-butler-tarkington/"],["WISH","https://wishtv.com/?p=885538"],["EDIBLEINDY","https://edibleindy.ediblecommunities.com/guide/hoagies-hops"]],
+ "WISH National Cheesesteak Day feature; current hours listed (open)",k="Butler-Tarkington")
+
+# ---- batch 7 (south side) ----
+F(2,"SOUTH","Oaken Barrel Brewing Co.","50 N Airport Pkwy, Suite L, Greenwood, IN 46143",["Brewery","Beer"],"Oaktoberfest (2016 Brewers' Cup gold, European Amber Lager)",
+ "Indiana's second-oldest craft brewery (1994) — a Greenwood brewpub with family room, two bars and patio; celebrated 30 years on 4 July 2024.",
+ [["WRTV","https://www.wrtv.com/open/oaken-barrels-kwang-casey-on-beer-owning-the-states-second-oldest-brewery-aapi-heritage-month"],["NUVO","https://www.nuvo.net/beerbuzz/in-2024-indianas-craft-breweries-are-celebrating-momentous-anniversaries/article_a1125310-3fae-11ef-9b04-9f52ebcaaf37.html"]],
+ "NUVO 2024: 30th anniversary in business (open)",k="Greenwood")
+
+# ---- batch 8 (north suburbs) ----
+F(1,"NORTH","Field Brewing","303 E Main St, Westfield, IN",["Brewery","New American"],"Crispy lamb ribs with chimichurri; maple-bacon Brussels sprouts; house beers",
+ "Westfield's chef-driven brewpub (2018) — ex-Cerulean/Bluebeard chef Alan Sternberg, twice a James Beard Rising Chef nominee, runs the kitchen beside the Dikos family's house brews. Indianapolis Monthly Best Restaurants 2026.",
+ [["INDYMONTHLY",IM+"food-and-drinks/reviews/review-field-brewing"],["CURRENT","https://www.youarecurrent.com/?p=168517"],["TOWNEPOST","https://townepost.com/indiana/westfield/field-brewing/"]],
+ "Indianapolis Monthly Best Restaurants 2026 (open)",k="Westfield")
+F(1,"NORTH","Good Omen","65 Boone Village, Zionsville, IN 46077",["Italian"],"Duck bolognese; butternut squash ravioli; aperitivo hour",
+ "Mother-and-son (Diane & chef Nicholas Gattone) Northern Italian restaurant in Zionsville's Boone Village — seasonal menu, fresh pasta, aperitivo hour 3-5 pm. Indianapolis Monthly review and Best Restaurants 2026.",
+ [["INDYMONTHLY",IM+"food-and-drinks/review-good-omen/"],["CURRENT","https://www.youarecurrent.com/2023/05/14/italian-restaurant-to-open-soon-in-zionsville/"]],
+ "Indianapolis Monthly Best Restaurants 2026 (open)",k="Zionsville")
+F(2,"NORTH","Convivio Italian Artisan Cuisine","11529 Spring Mill Rd, Carmel, IN 46032",["Italian"],"Fresh pasta made in the open pasta shop",
+ "Carmel trattoria (2016) from Cinque Terre-born Andrea Melani, with a glass-walled pasta shop where you watch the day's pasta being made — reviewed by the IBJ and featured by Visit Hamilton County.",
+ [["IBJ","https://www.ibj.com/articles/61635-dining-dante-inspired-indulgence-at-carmels-new-pasta-purveyor"],["HAMILTONCOUNTY","https://www.visithamiltoncounty.com/blog/stories/post/hot-new-restaurants-in-hamilton-county/"],["TOWNEPOST","https://townepost.com/indiana/geist/delizioso-convivio-brings-italian-culture-delicious-dishes/"]],
+ "Visit Hamilton County restaurant feature (open)",k="Carmel")
+F(2,"NORTH","Okonori Japanese High Kitchen","1685 E 116th St, Suite 155 (The Corner), Carmel, IN",["Japanese","Sushi"],"16-course omakase; nigiri with fish from Hokkaido and Toyosu",
+ "Upscale Japanese room at The Corner in Carmel (opened 13 Nov 2025) — omakase counter, nigiri, miso cod and soba, designed end-to-end by co-owner Kimmie Chang. Indianapolis Monthly Best Restaurants 2026.",
+ [["INDYMONTHLY",IM26],["CURRENT","https://youarecurrent.com/2025/11/13/upscale-japanese-restaurant-okonori-opens-at-the-corner/"],["IBJ","https://www.ibj.com/articles/restaurant-designer-puts-stamp-in-carmel-with-upscale-japanese-eatery"]],
+ "Indianapolis Monthly Best Restaurants 2026 (open)",k="Carmel")
+F(2,"NORTH","Bub's Burgers & Ice Cream","210 W Main St, Carmel, IN 46032",["Burgers","Ice Cream"],"The Big Ugly — a one-pound fully loaded burger (Man v. Food challenge)",
+ "Carmel Arts & Design District burger joint whose one-pound 'Big Ugly' earned a Man v. Food challenge (Adam Richman tapped out on the third) and a wall of fame for finishers; house ice cream too.",
+ [["IBJ","https://www.ibj.com/articles/22040-eateries-cash-in-on-tv-appearance"],["VISITINDIANA","https://visitindiana.in.gov/blog/post/bubs-burgers-ice-cream/"]],
+ "Online ordering live for the Carmel location (Toast, 2026) (open)",k="Carmel")
+
+# ---- batch 9 (canon: IM 25 Essential Eats) ----
+F(1,"MASS","Goose the Market","2503 N Delaware St, Indianapolis, IN 46205",["Deli","Sandwiches"],"The Batali — Smoking Goose coppa, soppressata and capocollo with provolone and giardiniera",
+ "Chris Eley's butcher-and-charcuterie market in Herron-Morton Place, birthplace of Smoking Goose Meatery (2011); its Batali sandwich is one of Indianapolis Monthly's 25 Essential Eats and Bon Appétit ranked it among the top ten sandwich shops in the US.",
+ [["INDYMONTHLY",IM+"food-and-drinks/the-25-essential-eats-of-indy/"],["CURRENT","https://www.youarecurrent.com/?p=197240"],["NUVO","https://www.nuvo.net/food/indys-table-a-look-behind-the-scenes-at-goose-the-market/article_03e2b2d7-a49f-520d-91b9-348d1dadc2da.amp.html"],["VISITINDY","https://www.visitindy.com/directory/goose-the-market/"]],
+ "Indianapolis Monthly Best Restaurants 2024; current hours listed (open)",k="Herron-Morton Place")
+F(2,"DTN","Serliana","InterContinental Indianapolis (2nd floor), steps from Monument Circle, Indianapolis, IN",["French","Steakhouse"],"Modern boeuf bourguignon, duck cassoulet, beef tartare",
+ "French-leaning all-day dining room on the second floor of the InterContinental, a block off Monument Circle — 'an impressive, modern take on boeuf bourguignon, cassoulet, sophisticated beef tartare' (Indianapolis Monthly Best Restaurants 2026); Axios's pick among Indy's best new restaurants for Devour 2026.",
+ [["INDYMONTHLY",IM+"best-restaurants/best-restaurants-2026-magdalena-serliana/"],["AXIOS","https://www.axios.com/local/indianapolis/2026/01/20/new-restaurants-devour-indy-winterfest"]],
+ "Indianapolis Monthly Best Restaurants 2026; Axios Jan 2026 (open)")
