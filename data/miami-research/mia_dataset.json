@@ -3367,6 +3367,119 @@
      "https://en.wikipedia.org/wiki/Haitian_Heritage_Museum"
     ]
    ]
+  },
+  {
+   "t": 1,
+   "a": "MBCH",
+   "n": "New World Center & SoundScape Park",
+   "ad": "17th St (Lincoln Road area), Miami Beach, FL",
+   "w": "Frank Gehry's home for the New World Symphony — free WALLCAST concerts and SoundScape Cinema projected on the façade over the park lawn.",
+   "g": [
+    "PARK",
+    "ENT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/art-and-culture/art-culture-on-miami-beach"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/usa/florida/miami/south-beach/attractions/new-world-center/a/poi-sig/1346438/1341616"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/New_World_Center"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "Villa Casa Casuarina (Versace Mansion)",
+   "ad": "Ocean Dr at 11th St, Miami Beach, FL",
+   "w": "The 1930 Mediterranean mansion Gianni Versace made famous — now a hotel and restaurant on Ocean Drive.",
+   "g": [
+    "ICON",
+    "DECO"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/art-and-culture/self-guided-arts-culture-tours-in-miami-beach"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Casa_Casuarina"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GLADE",
+   "n": "Long Pine Key Trails & Campground",
+   "ad": "Main Park Road, Everglades National Park, FL",
+   "w": "22+ miles of connected pineland trails west to Pine Glades Lake, plus the park's 108-site east-side campground and fishing pond.",
+   "g": [
+    "PARK",
+    "WILD",
+    "BOAT"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/ever/planyourvisit/long-pine-key-trails.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GLADE",
+   "n": "Pinelands Trail",
+   "ad": "Main Park Road (2 mi west of Long Pine Key), Everglades National Park, FL",
+   "w": "Paved, wheelchair-accessible 0.4-mile loop through slash pine, palmetto and wildflowers over exposed limestone.",
+   "g": [
+    "WILD"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/places/pinelands-trail.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GLADE",
+   "n": "Paurotis Pond",
+   "ad": "Main Park Road, Everglades National Park, FL",
+   "w": "Roadside pond and paddling launch — a wading-bird rookery in nesting season (wood storks, roseate spoonbills).",
+   "g": [
+    "WILD"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/places/paurotis-pond.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GLADE",
+   "n": "Eco Pond",
+   "ad": "Flamingo, Everglades National Park, FL",
+   "w": "Half-mile loop round a freshwater pond by Flamingo — wading birds, ducks, alligators and softshell turtles.",
+   "g": [
+    "WILD"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/places/eco-pond.htm"
+    ]
+   ]
   }
  ],
  "F": [
@@ -9140,6 +9253,202 @@
     [
      "INFATUATION",
      "https://www.theinfatuation.com/miami/cuisines/mexican?page=2"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "Queen Miami Beach",
+   "ad": "South Beach, Miami Beach, FL (historic Paris Theater)",
+   "w": "Opulent Japanese steakhouse inside a restored historic South Beach theatre.",
+   "k": "Order: Wagyu and robata from a Japanese steakhouse menu, under the restored theatre dome",
+   "cz": [
+    "ASIAN",
+    "US"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/restaurants/best-restaurants-in-south-beach"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/south-beach-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "MILA",
+   "ad": "Lincoln Road area, Miami Beach, FL",
+   "w": "Rooftop Pan-Asian/Mediterranean scene restaurant on both outlets' South Beach best lists.",
+   "k": "Order: Rooftop 'MediterrAsian' plates and sushi",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/restaurants/best-restaurants-in-south-beach"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/south-beach-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "Las Olas Cafe",
+   "ad": "644 6th St, Miami Beach, FL",
+   "w": "Old-school South of Fifth Cuban café — on Infatuation's 25 best in South Beach.",
+   "k": "Order: Cuban breakfast, cafecito and pressed sandwiches",
+   "cz": [
+    "CUBAN",
+    "COF"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/south-beach-restaurants"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/location/las-olas-cafe-6410610/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "True Loaf",
+   "ad": "1894 Bay Rd, Miami Beach (Sunset Harbour), FL",
+   "w": "Sunset Harbour bakery by Venezuelan baker Tomás Strulovic (SF Baking Institute) — rescued by donated sourdough starter from fellow Miami bakers.",
+   "k": "Order: Sourdough, croissants and guava pastelitos",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/south-beach-restaurants"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/restaurants/true-loaf"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/location/true-loaf-6422817/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MBCH",
+   "n": "Aviv",
+   "ad": "1 Hotel South Beach, Miami Beach, FL",
+   "w": "James Beard Award–winner Michael Solomonov (Zahav) brings his Israeli cooking to South Beach.",
+   "k": "Order: Michael Solomonov's hummus, laffa and wood-grilled Israeli plates",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/south-beach-restaurants"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/best-restaurants-in-south-beach-40538237/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GLADE",
+   "n": "The Pit Bar-B-Q",
+   "ad": "16400 SW 8th St (Tamiami Trail near Krome Ave), Miami, FL",
+   "w": "Old-fashioned roadside smokehouse on the Tamiami Trail since 1965 — the last stop before Shark Valley.",
+   "k": "Order: Barbecued chicken and ribs with tangy basting sauce, corn bread and the double-decker pork sandwich",
+   "cz": [
+    "BURG"
+   ],
+   "s": [
+    [
+     "FODORS",
+     "https://fodors.com/world/north-america/usa/florida/the-everglades/restaurants/reviews/the-pit-bar-b-q-43757"
+    ],
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/restaurants/best-places-to-eat-in-the-everglades"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "Everglades Gator Grill",
+   "ad": "36650 SW 192nd Ave, Homestead, FL",
+   "w": "Counter-service gator kitchen with picnic tables 6 miles from the Everglades NP entrance.",
+   "k": "Order: Grilled gator sandwich, Cajun gator tail, gator tacos and kabobs",
+   "cz": [
+    "US",
+    "GLADF"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/restaurants/best-places-to-eat-in-the-everglades"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://miaminewtimes.com/restaurants/gator-grill-in-homestead-serves-the-best-gator-tail-this-side-of-the-bayou-6580308"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "Royal Palm Grill",
+   "ad": "806 N Krome Ave, Homestead, FL",
+   "w": "Nostalgic Krome Avenue diner on Fodor's Everglades-gateway list.",
+   "k": "Order: All-day breakfast and 99-cent sliders",
+   "cz": [
+    "BURG"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/restaurants/royal-palm-grill-in-homestead-serves-dollar-sliders-with-a-side-of-nostalgia-6567806"
+    ],
+    [
+     "FODORS",
+     "https://www.fodors.com/world/north-america/usa/florida/the-everglades/restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "Chefs on the Run",
+   "ad": "Homestead, FL",
+   "w": "Chef Jodrick Ujaque's Puerto Rican kitchen — the mofongo menu is the draw.",
+   "k": "Order: Mofongo topped with churrasco, chicken or vegetables",
+   "cz": [
+    "CARIB"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/restaurants/where-to-dine-in-homestead-florida-city"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-restaurants-homestead"
     ]
    ]
   }

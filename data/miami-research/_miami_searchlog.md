@@ -234,3 +234,16 @@
 76 Wikipedia coords: Haitian Heritage Museum, Cuban Diaspora museum (high); Superblue none
 77 Status: Superblue 2026 programme
 78 Status: Cuban Diaspora museum 2026, Locust Projects 2026; Cubaocho none found (unpinned, status pending)
+79 Infatuation 25 best South Beach (Macchialina, True Loaf, Sweet Liberty, The Joyce, Vecinos, Aviv, Queen, La Sandwicherie, Abbalé, Havana 1957, Orilla, Las Olas Cafe, MILA…)
+80 Time Out 24 best South Beach (Stubborn Seed, Macchialina, Joe's, Kissaki, Casa Isola, Queen Omakase, Lucali, Sushi|Bar, Queen, Byblos, Orilla, Planta, Abbalé, Carbone, Tropezón, RED, Prime Italian, MILA, Joliet, Taquiza, Stiltsville, La Sandwicherie, Lido Bayside, Sweet Liberty)
+81 Inf/NT TO-only: Stiltsville Fish Bar CLOSED Dec (non-notable → drop); Sushi|Bar 'novelty wears off' → drop; Lido Bayside 'view not food' → drop
+82 NT/TO Inf-only: True Loaf (NT+TO), Aviv (NT 16 best SB), Havana 1957 (tourist chain → not added, padding)
+83 Wikipedia coords: New World Center, Casa Casuarina (high); Fontainebleau none
+84 GMCVB/LP Miami Beach culture: New World Center, Versace Mansion → 2 sights; Fontainebleau, Art Deco Welcome Center, Faena Theater (GMCVB only → held)
+85 Everglades eats (GMCVB + Fodor's 13 best Everglades) → Pit Bar-B-Q
+86 Fodor's/Frommers/GMCVB: Pit BBQ review (Fodor's), Oyster House (Fodor's: no longer operating → drop)
+87 Fodor's 13 best Everglades list (Capri, City Seafood, Coopertown, Farmers' Market, HavAnnA, Joanie's, Pit, Rosita's, Royal Palm Grill, Shiver's, Suvi Thai, Triad, White Lion)
+88 GMCVB Everglades + Homestead dining (Coopertown, Gator Grill, La Brisa, Camellia, HavAnnA, Triad; Schnebly, Chefs on the Run (mofongo — named dish resolves the session-3 hold), Taqueria Morelia, Casita Tejas, Yardie Spice, Shiver's)
+89 NT: Gator Grill, Royal Palm Grill, Farmers' Market (Fodor's only → held) → 4 added
+90 NPS: Long Pine Key, Pinelands, Paurotis Pond, Eco Pond (lone NPS authority) → 4 sights; Chekika CLOSED indefinitely (NPS) → not added
+91 Coords probe Eco Pond / Paurotis / Pinelands: extract printed 25.138709,-80.937543 (Eco) and 25.282657,-80.799723 (Paurotis) but the printing page is ambiguous (npplan.com vs nps.gov/places) → NOT pinned; candidate values recorded in AUDIT for re-verify
