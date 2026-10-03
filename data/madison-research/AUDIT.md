@@ -38,3 +38,42 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
 - **Geocode:** The Old Fashioned → latlong.net POI 43.07629,-89.38356 (med; re-verify). Probe showed Google results
   return only place_id links (no !3d!4d) for restaurants; latlong.net/Wikipedia snippets do return decimals.
 - **Status:** Toby's, The Old Fashioned, Tornado Club — open per 2025 reader-vote results (statusSource recorded on geocode).
+
+## 2026-10-03 · W2a — finish W1 leads + canon lists + headline sights (fresh session budget)
+- **Searches:** ~80 this batch (session-local budget). Channels: Time Out Madison (15 best restaurants; best things
+  to do), Travel Wisconsin (first-timer's guide; 8 fish-fry spots), Madison Magazine (18 fish fries; Best of
+  Madison 2025; JB semifinalist reports), Isthmus/Cap Times venue pages + reviews, City Cast, Atlas Obscura,
+  Visit The USA, Wikipedia (coords), latlong.net POI (restaurant pins).
+- **New outlets (SOURCES_W2.json, 17):** TIMEOUT, BRAVA, MADISON365, DAILYCARDINAL (corroborating), WMTV,
+  JBF_EDITORIAL, PBSWI, VISITTHEUSA, ATLASOBSCURA, FLWFOUNDATION, WHS, SAHARCHIPEDIA, UNESCO, NPS, LONELYPLANET,
+  VISITMIDDLETON, SHOWCAVES. **Rejected:** tablejourney.com (aggregator), wanderlog, atmosfy, northshorefamily-
+  adventures (unverified blog), we3travel (affiliate travel blog — lead only), SEO "best fish fry" farms on
+  hijacked domains (alzheimers.org.uk/?p=…, rmportal etc.).
+- **Key hygiene fix:** Tornado Club's JB "Ask a Chef" source re-keyed `JAMESBEARD` → `JBF_EDITORIAL` (+ TIMEOUT
+  added so it still clears ≥2). Ha Long Bay uses JBF_EDITORIAL likewise.
+- **Food kept (FOOD_W2a/b/c, 26):** Fairchild (JB 2023 winner), Mint Mark, L'Etoile, Graze, Mickies Dairy Bar,
+  Dotty Dumpling's Dowry, A Pig in a Fur Coat, Dane County Farmers' Market, Fromagination, Lao Laan-Xang
+  (Atwood; Willy St branch closed 2022 — Madison365), Weary Traveler, Monty's, Ian's Pizza, La Rosita (Monona),
+  Short Stack Eatery (**CLOSED** Jan 2025 — WMTV; kept flagged), Lazy Jane's, Madison Sourdough, Osteria
+  Papavero (JB 2023 nominee), Lucille, Villa Tap, Ha Long Bay (reopened 2025), Ahan (JB semi 2025), Quivey's
+  Grove (NRHP John Mann House), Dexter's Pub, Public Parking (JB Best New Bar semi 2026; Bon Appétit), Buck &
+  Honey's (Best of Madison 2025 gold).
+- **Measured & dropped / held:** Forequarter — closed Sept 2025 with a vague "new concept next spring"
+  (Cap Times/Madison Mag); not added. Natt Spil, Saigon Noodles, Athens Grill, Craftsman Table, Imaginary
+  Factory, CocoVaa, Pasture and Plenty — still single-source/unchecked, remain in _PENDING_LEADS.md.
+- **Sights kept (SIGHTS_W2.json, 11):** State Capitol (NHL), Monona Terrace (FLW), Memorial Union Terrace,
+  Olbrich & Thai Pavilion, UW Arboretum (NHL 2021), Taliesin (UNESCO 2019), House on the Rock, Devil's Lake SP,
+  Cave of the Mounds (NNL), National Mustard Museum, Henry Vilas Zoo. Every area now has a tier-1.
+- **Geocode (geo/_geoout_w2a/b.json, 25 verified):** 12 high (Wikipedia/NRHP infobox coords, Atlas Obscura
+  place coords) · 13 med (latlong.net POI records — third-party POI DB, re-verify in placement pass). Lesson:
+  latlong.net POIs only surface when the query carries name + street address + "GPS coordinates latitude";
+  `allowed_domains:["latlong.net"]` returns nothing useful (4 searches wasted). Hit rate ~55%.
+  Addresses I had first typed from memory for Devil's Lake / Cave of the Mounds / Vilas Zoo were replaced with
+  the sourced locality before merge (rule 4a).
+- **Not yet pinned (15, dropped by the build until geocoded):** Toby's, Fairchild, Mint Mark, Pig in a Fur Coat,
+  Fromagination, Lao Laan-Xang, La Rosita, Short Stack, Madison Sourdough, Lucille, Villa Tap, Ahan, Dexter's,
+  Public Parking, Buck & Honey's.
+- **Build + gates:** 25 places on the page (11 sights + 14 food). sourcecheck PASS 40/40 · geocheck PASS
+  (high 12 · med 13) · statuscheck CONSISTENT · buildcheck PASS · npm validate DATA OK · npm test ALL PASS.
+- **Channel mix:** editorial (Time Out/Isthmus/Cap Times/Madison Mag/Travel WI) 37/40 · institutional (JB 6,
+  NPS 2, UNESCO 1) · reader vote 5 · creators 0 (creator pass not yet run) · local-rec (City Cast) 4.

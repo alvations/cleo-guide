@@ -15791,6 +15791,142 @@
           "rank": 3,
           "verified": true,
           "credible": "Notability index + published coordinates for landmarks; pinning source, needs a 2nd recommender."
+        },
+        {
+          "key": "TIMEOUT",
+          "name": "Time Out — Madison",
+          "type": "editorial",
+          "rank": 1,
+          "verified": true,
+          "credible": "International city-guide brand; bylined Madison restaurant (15 best) and things-to-do lists."
+        },
+        {
+          "key": "BRAVA",
+          "name": "Brava Magazine",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Madison's women's lifestyle magazine (since 2005); bylined food features incl. Kevin Revolinski."
+        },
+        {
+          "key": "MADISON365",
+          "name": "Madison365",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Madison nonprofit newsroom covering communities of color; reports restaurant openings/closings."
+        },
+        {
+          "key": "DAILYCARDINAL",
+          "name": "The Daily Cardinal (UW–Madison)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "UW–Madison's independent student daily since 1892; long-running restaurant reviews. Corroborating only."
+        },
+        {
+          "key": "WMTV",
+          "name": "WMTV 15 News",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Madison NBC affiliate newsroom; reports closings."
+        },
+        {
+          "key": "JBF_EDITORIAL",
+          "name": "James Beard Foundation — editorial ('Ask a Chef')",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "JBF editorial content (chef interviews). Counts as ONE ordinary source, never lone authority (run-protocol key hygiene)."
+        },
+        {
+          "key": "PBSWI",
+          "name": "PBS Wisconsin",
+          "type": "editorial",
+          "rank": 1,
+          "verified": true,
+          "credible": "Statewide public broadcaster; produced features on Madison restaurants."
+        },
+        {
+          "key": "VISITTHEUSA",
+          "name": "Visit The USA (Brand USA)",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "The US national destination-marketing organization; Madison destination page names the Capitol, Olbrich, Memorial Union Terrace and Arboretum."
+        },
+        {
+          "key": "ATLASOBSCURA",
+          "name": "Atlas Obscura",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Notable travel site for unusual places; per-place pages with coordinates."
+        },
+        {
+          "key": "FLWFOUNDATION",
+          "name": "Frank Lloyd Wright Foundation",
+          "type": "institutional",
+          "rank": 2,
+          "verified": true,
+          "credible": "The Wright Foundation (owns Taliesin West, archives); authoritative on Wright buildings. Not a lone authority."
+        },
+        {
+          "key": "WHS",
+          "name": "Wisconsin Historical Society",
+          "type": "institutional",
+          "rank": 1,
+          "verified": true,
+          "credible": "State historical society; National/State Register property records. Editorial weight, not lone."
+        },
+        {
+          "key": "SAHARCHIPEDIA",
+          "name": "SAH Archipedia (Society of Architectural Historians)",
+          "type": "institutional",
+          "rank": 2,
+          "verified": true,
+          "credible": "Peer-reviewed architectural encyclopedia of US buildings."
+        },
+        {
+          "key": "UNESCO",
+          "name": "UNESCO World Heritage Centre",
+          "type": "institutional",
+          "rank": 1,
+          "verified": true,
+          "credible": "World Heritage inscription (Taliesin, 2019, 'The 20th-Century Architecture of Frank Lloyd Wright'). Lone authority."
+        },
+        {
+          "key": "NPS",
+          "name": "National Park Service (NHL / National Natural Landmark)",
+          "type": "institutional",
+          "rank": 1,
+          "verified": true,
+          "credible": "NPS designations only (National Historic Landmarks, National Natural Landmarks). Lone authority for those sites."
+        },
+        {
+          "key": "LONELYPLANET",
+          "name": "Lonely Planet",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Guidebook publisher; curated POI entries."
+        },
+        {
+          "key": "VISITMIDDLETON",
+          "name": "Visit Middleton (Middleton Tourism Commission)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official municipal tourism office for Middleton."
+        },
+        {
+          "key": "SHOWCAVES",
+          "name": "showcaves.com",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running international show-cave directory (Jochen Duckeck). Corroborating only."
         }
       ],
       "creators": []
