@@ -24,7 +24,20 @@ flock -w 3600 $LOCK python3 tools/rebuild-city.py philadelphia-pa --build   # + 
 ```
 
 ## In-flight wave
-(none — W5 committed 2026-10-03, session_01MqoZKuTGYq8oSdEz2K3dLu; see State (W5).)
+(none — W6 PINS committed 2026-10-03, session_01DsVQh4xSMpquswxCXqQqid; see State (W6).)
+
+## State (2026-10-03, after W6 — PINS)
+- Discovered + sourced: **518** (176 sights, 342 food) — unchanged. Page: **276 on map (165 sights + 111 food)**, up from 182.
+  Confidence on page: 238 high · 38 med. 4 gates PASS; **statuscheck 0 unchecked** (every on-page place has a sourced status); 10 closed
+  flagged; npm validate + test PASS; card + CITIES + AGENT-PROMPTS run-log refreshed.
+- Pinned / discovered per area: CC 92/126 · SPH 45/85 · FISH 20/56 · UCW 19/40 · NPH 18/33 · NW 19/45 · NE 11/25 · MAIN 14/35 ·
+  SJ 11/25 · DAY 27/48. **~242 still UNVERIFIED** (mostly restaurants; suburbs/NW worst).
+- Channel that worked: WebSearch `allowed_domains:["maps.apple.com"]`, 3 "Name street-address" per query → Apple URLs with
+  `coordinate=`/`ll=` (Apple's own place pin). Yield ≈1 coordinate per 2 names in CC/SPH/FISH, ≈1 per 6 in MAIN/SJ/DAY/NW, ~0 on retries.
+  Sights: `allowed_domains:["en.wikipedia.org"]` "<name> coordinates", 1–2 per query (infobox coords). Helpers: `_phi_pinurl.py`
+  (parses the URL, refuses a high pin when the URL's street number ≠ the record's), `_phi_pin.py`, `_phi_close.py`.
+- W6 files: geo/_geoout_w6a.json (49) · _geoout_w6b.json (29) · _geoout_w6c.json (16: 14 sights + CJ & D's + Irwin's) ·
+  _geoout_w6s.json (statuses: 9 on-page checks, Max's, + CLOSED Manakeesh, The Olde Bar, Todd House).
 
 ## State (2026-10-03, after W5)
 - Discovered + sourced: **518** (176 sights, 342 food) — sourcecheck PASS 518/518. Page: **182 on map** (151 sights + 31 food).
@@ -80,24 +93,25 @@ Taqueria La Raza held), DAY (Marsha Brown, 1906 at Longwood, Portabello's, Kenne
 Chaddsford Winery), NW (Chestnut Hill Brewing, Mt Airy Tap Room, Bar Lizette, Downtime Bakery, Hot Clucks, Tyemeka's, Zion's),
 then UCW drinks, FISH breweries, NE, MAIN. W3 did not apply this rule — the session's search budget was spent before it arrived.
 
-## Next wave (W6) — ordered plan (pins first; discovery is at density)
-1. **Pins via tools/geocode-helper.html (browser)** on the UNVERIFIED backlog (docs/GEOCODE-BACKLOG.md → philadelphia-pa; ~336). Priority:
-   tier-1/2 restaurants in CC and SPH (Zahav-tier Michelin, cheesesteak/roast-pork canon), then the W5 adds, then Joe's Steaks (Fishtown,
-   1 W Girard Ave). Write results to geo/_geoout_w6_helper.json → `rebuild-city.py philadelphia-pa --build`.
-   Confirm Gou's unit number (5734 Old 2nd St came from a search summary) before pinning.
-2. **Status pass** on the 9 on-page places with no closure check (Todd House, Hopewell Furnace, Vedge, Talula's Table, Sly Fox, Barclay
-   Prime, Vernick Fish, Steve's Prince of Steaks, Walnut Street Cafe) and on the ~200 off-page places still "unknown" — 2026 closings
-   round-ups first (multi-name hits). Max's Steaks: re-check after the Jan 2026 sale.
-3. **Held leads** (need a 2nd attributable outlet or an address): La Sierra, El Príncipe (Fairhill); Zion's Cuisine, Tyemeka's, Das Good
-   Cafe (Germantown); Passage (Bustleton); Lipkin's Best (Overbrook Park); Osushi, Locust Lane, Will's + Bill's, Bald Birds, Animated
-   Brewing (suburbs); The Hawke, Hamilton's Grill Room, Lambertville Station (NJ Monthly only); Heirloom / Terrain (Doylestown, no address);
-   Indiya, Cafe Antonio's (Collingswood).
-4. Optional balance: NPH/SJ food share sits at 52% — add food first if those areas grow.
+## Next wave (W7) — ordered plan (pins; discovery is at density)
+1. **Pins via tools/geocode-helper.html (browser)** for the ~242 UNVERIFIED — WebSearch/Apple is close to exhausted here (bare `place-id`
+   listings don't change on re-phrasing). Priority: tier-1 icons Apple won't give — Dim Sum Garden, Nan Zhou, Amma's, Monk's Cafe, Bolo,
+   Forsythia, High Street Philly, Ogawa, La Jefa, Tequilas, Han Dynasty (confirm 123 vs 110 Chestnut), Vietnam Restaurant, Franklin Fountain;
+   SPH Sarcone's (bakery + deli), Iannelli's, John's Water Ice, Hardena, Pho 75, Termini, Isgro, Di Bruno, Mike's BBQ, Pop's, Antonio's,
+   Farina Di Vita, Center City Soft Pretzel, Machine Shop, Blue Corn, Bomb Bomb; FISH Sulimay's, Czerw's, Johnny Brenda's, Emmett, Phila
+   Brewing Co, R&D, Amy's Pastelillos, Joe's Steaks (1 W Girard); UCW Dahlak, Kilimandjaro, Fu-Wah; NE Dining Car, Georgian Bread; then MAIN/SJ/DAY.
+2. **Address re-checks before pinning:** Paesano's (Apple "Paesano's Philly Style" 943 S 9th vs record 1017 S 9th); Goldie (Apple 1526 vs
+   record 1911 Sansom); Portabello's (Apple 108 **E** State vs record 108-112 W State); Holmesburg Bakery (7935 vs 7933 Frankford); Bell's
+   Market (8336 vs 8330 Bustleton); American Sardine Bar (1800 vs 1801 Federal); White Yak (Apple 6118 Ridge Ave — record has no number);
+   Wyck (Wikipedia coordinate ~2 km off — needs a real pin); Gou unit number.
+3. **Status leads:** Buna Cafe (Apple "permanently closed", no press — re-check); Love City Brewing Manayunk (only the Callowhill listing
+   surfaced); Conshohocken Brewing (Elm St taproom not found); Stella of New Hope / Nektar / Ferry Market (not found at their addresses on Apple).
+4. Held leads from W5 (need a 2nd outlet or an address) — unchanged; see the W5 list in AUDIT.md.
 
 ## Acceptance checklist
 - [x] every area OK in density.py (W5, 2026-10-03) — and every area ≥50% food & drink
 - [x] --sourcecheck / --geocheck / --statuscheck / --buildcheck green (2026-10-03, after W5)
-- [ ] restaurant pins: ~336 UNVERIFIED → geocode-helper (the remaining gap between sourced and rendered)
-- [ ] closure check on the last 9 on-page places
+- [ ] restaurant pins: ~242 UNVERIFIED → geocode-helper (W6 Apple pass took the page 182 → 276)
+- [x] closure check on every on-page place (W6, 2026-10-03 — statuscheck 0 unchecked)
 - [x] npm run validate && npm test green (2026-10-03)
 - [x] index card live with counts; CITIES.md row; AGENT-PROMPTS run-log rows (2026-10-02)
