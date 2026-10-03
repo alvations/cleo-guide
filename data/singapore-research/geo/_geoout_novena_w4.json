@@ -98,5 +98,65 @@
   "geoSource": "UNVERIFIED — no published place pin readable via WebSearch (2026-10-03); queued for tools/geocode-helper.html",
   "status": "open",
   "statusSource": "Eatbook / Seth Lui / Time Out listings (current); no closure report"
+ },
+ {
+  "n": "The Line (Shangri-La Singapore)",
+  "address": "Shangri-La Singapore, 22 Orange Grove Road, Singapore 258350",
+  "lat": 1.31139,
+  "lng": 103.82667,
+  "confidence": "med",
+  "geoSource": "restaurant within the hotel; building pin = Wikipedia 'Shangri-La Hotel, Singapore' published coords 1°18′41″N 103°49′36″E (1.31139,103.82667), WebSearch 2026-10-03",
+  "status": "open",
+  "statusSource": "Seth Lui / Miss Tam Chiak / Time Out listings; no closure report (2026-10-03)"
+ },
+ {
+  "n": "Tan Chin Tuan Mansion",
+  "address": "42 Cairnhill Road, Singapore",
+  "lat": 1.30525,
+  "lng": 103.83742,
+  "confidence": "med",
+  "geoSource": "coords 1.30525,103.83742 published for Tan Chin Tuan Mansion (Wikipedia article / penang-traveltips page) read via WebSearch 2026-10-03",
+  "status": "open",
+  "statusSource": "URA conservation portal (conserved building, standing)"
+ },
+ {
+  "n": "Cairnhill Conservation Area",
+  "address": "Cairnhill Road, Newton, Singapore",
+  "lat": 1.30525,
+  "lng": 103.83742,
+  "confidence": "med",
+  "geoSource": "area marker at the Tan Chin Tuan Mansion (Cairnhill Road / Cairnhill Circle junction, inside the conservation area) — coords 1.30525,103.83742 read via WebSearch 2026-10-03",
+  "status": "open",
+  "statusSource": "URA Cairnhill Conservation Area portal (current)"
+ },
+ {
+  "n": "Guan Kee Grilled Seafood (Newton)",
+  "address": "Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",
+  "lat": 1.3119888,
+  "lng": 103.8395742,
+  "confidence": "med",
+  "geoSource": "stall within Newton Food Centre; building pin reused from the sourced geocodes entry Newton Food Centre (Google place pin !3d1.3119888!4d103.8395742)",
+  "status": "open",
+  "statusSource": "Miss Tam Chiak Newton guide + 2026 blog visit (Mar 2026); Newton FC renovation closure was Nov 2022–Jan 2023 only (Mothership)"
+ },
+ {
+  "n": "L'Espresso (Goodwood Park Hotel)",
+  "address": "Goodwood Park Hotel, 22 Scotts Road, Singapore 228221",
+  "lat": 1.30825,
+  "lng": 103.83389,
+  "confidence": "med",
+  "geoSource": "building pin reused from the sourced geocodes entry Goodwood Park Hotel (Tower Wing) — Wikipedia 1°18′29.7″N 103°50′02″E",
+  "status": "open",
+  "statusSource": "SGFoodOnFoot Oct 2022 + Seth Lui; no closure report (2026-10-03)"
+ },
+ {
+  "n": "Waterfall Ristorante Italiano (Shangri-La Singapore)",
+  "address": "Shangri-La Singapore, 22 Orange Grove Road, Singapore 258350",
+  "lat": 1.31139,
+  "lng": 103.82667,
+  "confidence": "med",
+  "geoSource": "restaurant within the hotel; building pin = Wikipedia Shangri-La Hotel, Singapore coords 1°18′41″N 103°49′36″E (1.31139,103.82667), WebSearch 2026-10-03",
+  "status": "open",
+  "statusSource": "SGFoodOnFoot visit Jul 2025 (new Puglia menu)"
  }
 ]

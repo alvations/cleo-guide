@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Chicago field guide — 149 sights and 67 places to eat across the Loop, the North, Northwest, West, South and Far South Sides, the suburbs and day trips, each traceable to its source (Michelin, James Beard, the Chicago Tribune, Sun-Times, Chicago Magazine, Eater Chicago, Block Club Chicago, WTTW, the National Park Service), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Chicago field guide — 151 sights and 67 places to eat across the Loop, the North, Northwest, West, South and Far South Sides, the suburbs and day trips, each traceable to its source (Michelin, James Beard, the Chicago Tribune, Sun-Times, Chicago Magazine, Eater Chicago, Block Club Chicago, WTTW, the National Park Service), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
 <title>Chicago Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · the Loop, the neighborhoods &amp; Chicagoland, sourced</p>
   <h1>Chicago<span class="thin">deep-dish to tavern-cut, the Loop to Pullman</span></h1>
-  <p class="standfirst">149 sights and 67 places to eat from the Loop out through the North, West and South Sides to the suburbs and the Indiana Dunes, each traceable to the source that named it. The architecture &mdash; the Rookery, Robie House, the river and the lakefront &mdash; anchors the map; the food runs on what Chicago does that nowhere else does: deep-dish and tavern-cut thin crust, Italian beef, the dragged-through-the-garden hot dog and the Maxwell Street Polish, the jibarito, mild-sauce chicken, the Rainbow Cone, and the immigrant corridors of Pilsen, Chinatown, Devon Avenue, Argyle and Little Village. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">151 sights and 67 places to eat from the Loop out through the North, West and South Sides to the suburbs and the Indiana Dunes, each traceable to the source that named it. The architecture &mdash; the Rookery, Robie House, the river and the lakefront &mdash; anchors the map; the food runs on what Chicago does that nowhere else does: deep-dish and tavern-cut thin crust, Italian beef, the dragged-through-the-garden hot dog and the Maxwell Street Polish, the jibarito, mild-sauce chicken, the Rainbow Cone, and the immigrant corridors of Pilsen, Chinatown, Devon Avenue, Argyle and Little Village. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -314,13 +314,21 @@ const S = {
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura — Chicago",u:"https://www.atlasobscura.com/things-to-do/chicago-illinois",l:"Atlas Obscura — Chicago"},
   "BLOCKCLUB":{k:"BLOCK CLUB CHICAGO",t:"Block Club Chicago",u:"https://blockclubchicago.org/",l:"Block Club Chicago"},
   "CAC":{k:"CHICAGO ARCHITECTURE CTR",t:"Chicago Architecture Center",u:"https://www.architecture.org/",l:"Chicago Architecture Center"},
+  "CHICAGOANCESTORS":{k:"CHICAGOANCESTORS",t:"CHICAGOANCESTORS",u:"",l:""},
+  "CHICAGOCATHOLIC":{k:"CHICAGOCATHOLIC",t:"CHICAGOCATHOLIC",u:"",l:""},
   "CHOOSECHI":{k:"CHOOSE CHICAGO",t:"Choose Chicago (official CVB)",u:"https://www.choosechicago.com/",l:"Choose Chicago (official CVB)"},
+  "CITYCHI":{k:"CITY OF CHICAGO",t:"CITY OF CHICAGO",u:"",l:""},
   "FLWTRUST":{k:"FLW TRUST",t:"FLW TRUST",u:"",l:""},
   "HMDB":{k:"HMDB",t:"HMDB",u:"",l:""},
   "ILDNR":{k:"ILLINOIS DNR",t:"ILLINOIS DNR",u:"",l:""},
   "INFATUATION":{k:"INFATUATION",t:"The Infatuation Chicago",u:"https://www.theinfatuation.com/chicago",l:"The Infatuation Chicago"},
+  "NCREGISTER":{k:"NCREGISTER",t:"NCREGISTER",u:"",l:""},
+  "NPR":{k:"NPR",t:"NPR",u:"",l:""},
   "NPS":{k:"NATIONAL PARK SVC",t:"National Park Service",u:"https://www.nps.gov/",l:"National Park Service"},
   "OFFICIAL":{k:"OFFICIAL SITE",t:"The place's own official site",u:"",l:"The place's own official site"},
+  "OPENHOUSECHI":{k:"OPENHOUSECHI",t:"OPENHOUSECHI",u:"",l:""},
+  "POPSCI":{k:"POPSCI",t:"POPSCI",u:"",l:""},
+  "PRESERVATIONCHI":{k:"PRESERVATIONCHI",t:"PRESERVATIONCHI",u:"",l:""},
   "TCLF":{k:"TCLF",t:"TCLF",u:"",l:""},
   "TIMEOUT":{k:"TIME OUT CHICAGO",t:"Time Out Chicago",u:"https://www.timeout.com/chicago",l:"Time Out Chicago"},
   "TRAVELWI":{k:"TRAVELWI",t:"TRAVELWI",u:"",l:""},
@@ -380,6 +388,8 @@ const P = [
 {t:1,a:"SOUTH",n:"ISAC Museum (Institute for the Study of Ancient Cultures)",ad:"University of Chicago campus, Hyde Park (per Wikipedia)",la:41.78944,ln:-87.59778,w:"The University of Chicago's free museum of the ancient Near East (ex-Oriental Institute) — a 40-ton Assyrian lamassu, Egyptian mummies, Persepolis reliefs.",k:"museum",g:["MUS","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Institute_for_the_Study_of_Ancient_Cultures"],["OFFICIAL","https://architecture.uchicago.edu/locations/institute-for-the-study-of-ancient-cultures/"]]},
 {t:2,a:"SOUTH",n:"Washington Park",ad:"Washington Park community area, Chicago (per Wikipedia)",la:41.79583,ln:-87.61111,w:"Olmsted & Vaux's 372-acre South Side park, home of Lorado Taft's 'Fountain of Time' and the DuSable museum.",k:"park",g:["MUS","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Washington_Park_(Chicago_park)"],["TCLF","https://www.tclf.org/washington-park-chicago"]]},
 {t:2,a:"SUB",n:"Charles Gates Dawes House",ad:"Evanston lakefront, IL (per NPS NHL record)",la:42.04295,ln:-87.67373,w:"Château-style 1894 lakefront mansion of Nobel laureate and US Vice President Charles G. Dawes — a National Historic Landmark run by the Evanston History Center.",k:"house historic landmark",g:["ARCH","WATER"],s:[["NPS","https://npgallery.nps.gov/NRHP/GetAsset/NHLS/76000706_text"],["VISITNORTHSHORE","https://www.visitchicagonorthshore.com/Museums"],["HMDB","https://www.hmdb.org/m.asp?m=139208"]]},
+{t:2,a:"WEST",n:"Pilsen Historic District",ad:"Lower West Side (Pilsen), around 18th St, Chicago (per Wikipedia / City of Chicago landmark district)",la:41.85389,ln:-87.65778,w:"National Register district of 1870s–1910s Bohemian worker cottages, storefronts and churches — now the heart of Mexican Pilsen and its murals along 16th and 18th Streets.",k:"historic district mural",g:["ARCH","MURAL"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Pilsen_Historic_District"],["CITYCHI","https://www.chicago.gov/content/dam/city/depts/zlup/Historic_Preservation/Publications/Pilsen_Historic_District.pdf"]]},
+{t:2,a:"WEST",n:"Garfield Park Fieldhouse (Gold Dome)",ad:"300 N Central Park Ave, Chicago, IL",la:41.88639,ln:-87.71722,w:"The 1928 Spanish Baroque 'Gold Dome' fieldhouse, a gold-leafed Chicago Landmark towering over Garfield Park — under a $9M restoration.",k:"landmark building park",g:["PARK","ARCH","SPORT"],s:[["CITYCHI","https://www.chicago.gov/dam/city/depts/zlup/Historic_Preservation/Publications/Garfield_Park_Fieldhouse.pdf"],["WTTW","https://interactive.wttw.com/most-beautiful-places-in-chicago/lovely-landscapes/garfield-park"],["PRESERVATIONCHI","https://www.preservationchicago.org/win-9m-approved-for-garfield-park-and-garfield-park-fieldhouse-renovation/"]]},
 {t:1,a:"SUB",n:"Chicago Botanic Garden",ad:"1000 Lake Cook Rd, Glencoe, IL 60022",la:42.14833,ln:-87.79000,w:"385 acres on nine islands in the Cook County Forest Preserves at Glencoe — 24 gardens, prairies and greenhouses; the winter Orchid Show.",k:"botanic garden park",g:["PARK","ARCH"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/parks-outdoors/chicago-conservatories-and-winter-gardens/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Chicago_Botanic_Garden"]]},
 {t:1,a:"SUB",n:"Brookfield Zoo",ad:"8400 31st St, Brookfield, IL 60513",la:41.83267,ln:-87.83346,w:"The 216-acre Chicago Zoological Park in Brookfield — polar bears, the Seven Seas dolphins, Tropic World.",k:"zoo family",g:["PARK","SPORT","FAM"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/tours-and-attractions/discover-nearby-sights-and-attractions/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Brookfield_Zoo"]]},
 {t:1,a:"NW",n:"The 606 (Bloomingdale Trail)",ad:"1805 N Ridgeway Ave, Chicago, IL 60647",la:41.91380,ln:-87.70200,w:"The 2.7-mile elevated rail-trail through Logan Square, Humboldt Park, Wicker Park and Bucktown. Free.",k:"trail park free",g:["PARK","FREE"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/The_606"]]},
@@ -518,11 +528,15 @@ const FS = {
   "EATERCHI":{k:"EATER CHICAGO",t:"Eater Chicago",u:"https://chicago.eater.com/",l:"Eater Chicago"},
   "ENJOYILLINOIS":{k:"ENJOYILLINOIS",t:"ENJOYILLINOIS",u:"",l:""},
   "FATHOM":{k:"FATHOM",t:"FATHOM",u:"",l:""},
+  "FINEDININGLOVERS":{k:"FINEDININGLOVERS",t:"FINEDININGLOVERS",u:"",l:""},
+  "FOODREPUBLIC":{k:"FOODREPUBLIC",t:"FOODREPUBLIC",u:"",l:""},
   "FSR":{k:"FSR",t:"FSR",u:"",l:""},
   "GAYOT":{k:"GAYOT",t:"GAYOT",u:"",l:""},
   "GOZAMOS":{k:"GOZAMOS",t:"GOZAMOS",u:"",l:""},
   "HUNGRYHOUND":{k:"HUNGRYHOUND",t:"HUNGRYHOUND",u:"",l:""},
+  "ILLINOISBREWING":{k:"ILLINOISBREWING",t:"ILLINOISBREWING",u:"",l:""},
   "INFATUATION":{k:"INFATUATION",t:"The Infatuation Chicago",u:"https://www.theinfatuation.com/chicago",l:"The Infatuation Chicago"},
+  "INSIDEHOOK":{k:"INSIDEHOOK",t:"INSIDEHOOK",u:"",l:""},
   "JAMESBEARD":{k:"JAMES BEARD",t:"James Beard Foundation Awards (incl. America's Classics)",u:"https://www.jamesbeard.org/awards",l:"James Beard Foundation Awards (incl. America's Classics)"},
   "KEITHLEE":{k:"KEITHLEE",t:"KEITHLEE",u:"",l:""},
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide Chicago (stars + Bib Gourmand)",u:"https://guide.michelin.com/us/en/illinois/chicago",l:"MICHELIN Guide Chicago (stars + Bib Gourmand)"},
@@ -532,6 +546,7 @@ const FS = {
   "NODEPRESSION":{k:"NODEPRESSION",t:"NODEPRESSION",u:"",l:""},
   "NRN":{k:"NRN",t:"NRN",u:"",l:""},
   "NYT":{k:"NYT",t:"The New York Times",u:"https://www.nytimes.com/",l:"The New York Times"},
+  "OKAYAFRICA":{k:"OKAYAFRICA",t:"OKAYAFRICA",u:"",l:""},
   "PASTE":{k:"PASTE",t:"PASTE",u:"",l:""},
   "PORTNOY":{k:"PORTNOY",t:"PORTNOY",u:"",l:""},
   "PRESERVATIONCHI":{k:"PRESERVATIONCHI",t:"PRESERVATIONCHI",u:"",l:""},
@@ -694,7 +709,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([41.8865,-87.6437],10);
+  map = L.map('map',{scrollWheelZoom:false}).setView([41.8864,-87.6441],10);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -778,7 +793,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["The Loop", 41.8832, -87.6306], ["North Side (Lincoln Park", 41.9459, -87.6522], ["Northwest Side (Wicker Park", 41.9152, -87.6921], ["West Side (Pilsen", 41.8714, -87.6783], ["South Side (Chinatown", 41.8063, -87.6075], ["Southwest Side (Back of the Yards", 41.7966, -87.6884], ["Far South (Pullman", 41.7045, -87.6076], ["Suburbs", 41.9501, -87.8513], ["Day Trips (Indiana Dunes", 42.4601, -87.9]];
+const LABELS=[["The Loop", 41.8832, -87.6306], ["North Side (Lincoln Park", 41.9459, -87.6522], ["Northwest Side (Wicker Park", 41.9152, -87.6921], ["West Side (Pilsen", 41.8712, -87.6796], ["South Side (Chinatown", 41.8063, -87.6075], ["Southwest Side (Back of the Yards", 41.7966, -87.6884], ["Far South (Pullman", 41.7045, -87.6076], ["Suburbs", 41.9501, -87.8513], ["Day Trips (Indiana Dunes", 42.4601, -87.9]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1117,7 +1132,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 216 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 218 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

@@ -302,3 +302,18 @@ Mag BoP Best Japanese + Visit Philly). NE 25/25 OK, CC 126/125 OK.
   number before pinning (geocode-helper).
 - Dish-line hygiene: every W5 `dish` was re-checked against the cited text; memory-only dish names (e.g. mofongo, longsilog, butter
   cake) were removed before commit.
+**Batch 6 (last gaps) — every area now OK in density.py (506 discovered / 505 sourced).** SJ: Zeppoli (LaBan review + Inquirer Collingswood
+guide + Philly Mag + 6abc). UCW: Kabobeesh (HELD lead cleared — moved to 3748 Lancaster Ave, reopened 2026-04-10, Inquirer 2026-04-23 +
+Philly Mag). MAIN: Grey Towers Castle (HELD lead cleared — National Historic Landmark; Wikipedia + Atlas Obscura; pin not surfaced).
+**Status pass (on-page places with no closure check, 3 searches):**
+- Thaddeus Kosciuszko NM → open (NPS hours: weekends, closes for the season 2026-11-01).
+- Declaration House (Graff House) → CLOSED to the public per NPS place page — flagged "— CLOSED" (exterior still viewable; noted).
+- Talula's Garden → open (PhillyVoice 2025). Max's Steaks → unknown (sale to Rob LaScala in progress, Inquirer 2026-01-12).
+- **Tony Luke's (39 E Oregon Ave) renamed → "Tony & Nick's Steaks (formerly Tony Luke's)"**: the original stand was forced to drop the
+  name in 2022 (Inquirer 2022-07-11, 6abc); still open. Record, geoout files and registry key renamed; Wikipedia pin kept (same building).
+- **Joe's Steaks + Soda Shop — PIN REMOVED**: the W4 Wikipedia pin (40.018443,-75.058081) was the Torresdale Ave original, which CLOSED
+  Labor Day 2022 after 73 years (Inquirer 2022-07-01, PhillyVoice). The live shop is the Fishtown flagship, 1 W Girard Ave (Star News
+  Philly 2022-07-07, Philly Mag) → record re-addressed, coordinate set UNVERIFIED for the geocode-helper (registry edited under the lock,
+  geoout w1/w4 records corrected so the merge can't restore the stale pin). A pin on a closed branch is a wrong pin.
+- Build: sourcecheck PASS 505 · geocheck PASS · statuscheck CONSISTENT (7 closed flagged; 9 on-page places still unchecked) · buildcheck
+  PASS; page 182 on map; npm validate DATA OK, npm test ALL PASS.

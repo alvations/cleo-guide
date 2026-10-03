@@ -178,3 +178,14 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
   2nd credible missing); Skylark (attribution in Time Out list not confirmed).
 - Creator channel: Portnoy One Bite (scores via radio-site roundups) and Keith Lee (Matador/TravelNoire) — only corroborating; Cleo's still held.
 - Build: 339 researched / 216 rendered; 4 gates PASS; validate + test PASS.
+
+## 2026-10-03 (session 4 / wave 3) · batch 3 (≈120 searches cumulative)
+- Food & drink +14: Daley's (oldest restaurant, 1892 — moved to 6257 S Cottage Grove 2019, POAH), Maria's Packaged Goods & Kimski, Horse Thief Hollow,
+  Dat Donut, Janson's Drive-In (status unchecked — Beverly Review Jan 2025 not read), Longman & Eagle (address pending), Jibaritos y Más, Spacca Napoli
+  (50 Top Pizza), Miller's Pub, J.P. Graziano, Garrett Popcorn (Michigan Ave), Ethiopian Diamond, 5 Rabanitos.
+- Sights +7: Pilsen Historic District + Garfield Park Fieldhouse (pinned, med), Holy Cross (Back of the Yards), Nativity BVM Lithuanian church,
+  The Plant, Hotel Florence, Greenstone Church (unpinned — no published coord surfaced).
+- MEASURED & DROPPED / held: Mixteco Grill (Time Out lists it CLOSED — dropped, not notable enough to pin closed); Uncle John's BBQ original (closed
+  2013); Medici on 57th (only student-press sources — held); Qing Xiang Yuan, HaiSous, La Catedral, Pompei, Portillo's River North, Exchequer,
+  Cork & Kerry, La Cecina, Rosangela's, Marz, Whiner — 1 credible source each, held; St. Adalbert (parish closed 2019; status details unverified — held).
+- Build: 359 researched / 218 rendered; 4 gates PASS; validate + test PASS.
