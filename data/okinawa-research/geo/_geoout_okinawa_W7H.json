@@ -36,10 +36,12 @@
  {
   "n": "Okinawa Soba Marukami, Miyako (沖縄そば まるかみ)",
   "address": "91 Kurima (下地来間), Shimoji, Kurima Island, Miyakojima-shi, Okinawa, Japan",
-  "confidence": "UNVERIFIED",
-  "geoSource": "W7H: no coordinate surfaced. Next: '沖縄そば まるかみ 宮古島市下地来間91 緯度 経度'.",
+  "confidence": "low",
+  "geoSource": "W7H extended search '沖縄そば まるかみ 宮古島市下地来間91 緯度 経度': three listing coordinates in the result set (hitosara/hamoni/ramendb/Retty listings) agree within <1 m at 24.723735,125.253160, which is consistent with the Kurima Island address (下地来間91). Aggregator point = low.",
   "status": "open",
-  "statusSource": "Mapple spot 47014060 (current hours 11:00–14:30, closed Sun & 2nd/4th Mon)"
+  "statusSource": "Mapple spot 47014060 (current hours 11:00–14:30, closed Sun & 2nd/4th Mon)",
+  "lat": 24.723735,
+  "lng": 125.25316
  },
  {
   "n": "Zhyvago Coffee Works Okinawa, Chatan (ジバゴコーヒーワークス)",
