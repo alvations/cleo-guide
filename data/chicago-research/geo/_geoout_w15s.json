@@ -31,5 +31,82 @@
   "status": "open",
   "statusSource": "https://skokieparks.org/events/adults-over-60-mitchell-museum--dawes-house (2026 park-district outing to the Dawes House — open to visitors)",
   "note": "Wikipedia published coordinates"
+ },
+ {
+  "n": "Pilsen Historic District",
+  "address": "Lower West Side (Pilsen), around 18th St, Chicago (per Wikipedia / City of Chicago landmark district)",
+  "lat": 41.85389,
+  "lng": -87.65778,
+  "geoSource": "https://en.wikipedia.org/wiki/Pilsen_Historic_District (Wikipedia/GeoHack published coordinates)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Pilsen_Historic_District (public streetscape — always open)",
+  "note": "district published point (NRHP); centroid-type — med"
+ },
+ {
+  "n": "Garfield Park Fieldhouse (Gold Dome)",
+  "address": "300 N Central Park Ave, Chicago, IL",
+  "lat": 41.88639,
+  "lng": -87.71722,
+  "geoSource": "Published coordinate 41°53′11″N 87°43′2″W for the Garfield Park Fieldhouse (Wikipedia/landmark record surfaced in WebSearch 2026-10-03); building at 300 N Central Park Ave",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://www.preservationchicago.org/win-9m-approved-for-garfield-park-and-garfield-park-fieldhouse-renovation/ (Park District fieldhouse in use; renovation funded)",
+  "note": "Wikipedia published coordinates"
+ },
+ {
+  "n": "Holy Cross Church (Back of the Yards)",
+  "address": "1740 W 46th St, Chicago, IL",
+  "status": "open",
+  "statusSource": "https://www.claret.org/holy-cross-and-immaculate-heart-of-mary-parishes-back-to-the-care-of-the-archdiocese-of-chicago/ (active parish)",
+  "note": "SW",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Church of the Nativity of the Blessed Virgin Mary (Marquette Park)",
+  "address": "6812 S Washtenaw Ave, Chicago, IL 60629",
+  "status": "open",
+  "statusSource": "https://gcatholic.org/churches/usa-07/19966 (active parish listing)",
+  "note": "SW",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "The Plant (Back of the Yards)",
+  "address": "W 47th St east of Ashland, Chicago",
+  "status": "unchecked",
+  "statusSource": "",
+  "note": "SW",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Hotel Florence",
+  "address": "11111 S Forrestville Ave, Chicago, IL",
+  "status": "open",
+  "statusSource": "https://www.nps.gov/pull/learn/news/celebrate-the-grand-opening.htm (NPS — restored, open within Pullman NHP)",
+  "note": "FAR",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Greenstone Church (Pullman)",
+  "address": "11211 S St Lawrence Ave, Chicago, IL",
+  "status": "open",
+  "statusSource": "https://www.nps.gov/pull/learn/historyculture/index.htm (NPS Pullman — standing landmark)",
+  "note": "FAR",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "UNVERIFIED"
  }
 ]
