@@ -344,3 +344,27 @@ Per-agent logs `_okinawa_W10*_notes.md` hold every query, kept/dropped/held lead
   2026 edition (Weekly ASCII 4375764). **ANIME 23 found / 18 pinned.**
 - **Build + gates:** `rebuild-city.py okinawa --build` → sourcecheck PASS (513) · geocheck PASS (high 132 · med 80 · low 196 = 408 pins) ·
   statuscheck CONSISTENT · buildcheck PASS; `npm run validate` DATA OK; `npm test` ALL PASS. Food share 300/513 = 58 %.
+
+## 2026-10-03 P1 — PINS ONLY (session_014tccsddAZhWkWHE1pGLan6, ~55 searches, no discovery)
+- **Channel that works:** NAVITIME POI pages via `allowed_domains:["navitime.co.jp"]`, ONE shop per query, query
+  `<店名> <住所> 緯度 経度` — the summary quotes the POI page's 緯度経度 when the shop is a NAVITIME POI (~45% hit; providers
+  01125/02022/02301/00011 all printed at least once). 3-names-per-query mostly printed only one. ja.wikipedia `<名称> 座標` for
+  monuments. Route-URL millisecond coords (lon/lat=…/3600000) are Tokyo-datum route points — not used.
+- **+17 pins (408 → 425 on page; 105 → 88 UNVERIFIED)** in `geo/_geoout_pins1003.json`, every POI address matched to the record:
+  RuLer's Tacorice Ginowan Honten, Jimmy's Ōyama, BOULANGERIE BZ, Shuzen Maeda, Matsubaraya Seika, Umibudō Farm Umin-chi,
+  JA Farmers Market Itoman Umanchu, Nago Fishing Port fish market, Pork Tamago Onigiri Honten (松尾2-8-35), C&C Breakfast,
+  KOURI SHRIMP, Mozuku Soba Kunnatu, Charu Soba, Yonabaru-ya, Konpaku-no-tō (ja.wiki), Okinawa Ryōri Maruoki Shōten (address
+  → 名護市幸喜1398-1) — high; Adachiya (address → 松尾2-10-20, POI name 「足立屋角打ち酒場」) — med.
+- **4b re-verify (W11 list):** Yakiniku Kingyū **low → high** (NAVITIME POI 24.337713,124.154274; the old HotPepper point was
+  ~250 m off). Kura (Miyako): NAVITIME lists **"Bocca burger" at the same 平良久貝654-6** (24.799667,125.269529) and no Kura POI →
+  possible replacement — status re-check needed before upgrading; left low. Zhyvago: only the separate ZHYVAGO COFFEE ROASTERY
+  POI printed (26.318285,127.755647) — not the Works shop → left low. Stand Suehiro, Kōrakuen, ROCO, Shirumichu: no POI coordinate
+  (ROCO POI 02301-t4355 exists, coord not printed) → left low. Ojisan / Do~me not reached this pass.
+- **Address flags:** Min'yō Stage Utahime — NAVITIME POI 00011-080656156 gives **牧志1-2-31** (26.215736,127.685045) vs the record's
+  東町17-11 → not pinned; confirm which is current. Histreet POI gives 中央2-2-1 タサトビル. Itomāru = 糸満989-83.
+- **Misses (POI exists, coord not printed):** Kuwacchii Aozora (02022-1320908), Taragawa (02301-t3997), Miyanohana (02301-t3988),
+  Chuko-gura (02301-1803116), Imai Pan (02301-pn0002990), AOSORA PARLOR (02022-1080147), Kameshima Pan Nichūmae (00011-080656773),
+  Sangoza Kitchen (01125-6410977), Imaiyu (00004-47166000060) — retry with the POI name verbatim, or the browser helper.
+- **Build:** rebuild-city --build → 513 places, **425 on page**; --sourcecheck PASS · --geocheck PASS (high 149 · med 81 · low 195)
+  · --statuscheck CONSISTENT · --buildcheck PASS · npm validate DATA OK · npm test ALL PASS. Pinned per area: CHUBU 85/95 ·
+  HOKBU 78/92 · KRM 19/30 · MYK 40/50 · NAHA 103/121 · NANBU 52/65 · YAEYA 48/60. Japan hub card + CITIES row updated.

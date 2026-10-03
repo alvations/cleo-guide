@@ -174,6 +174,10 @@ CHUBU food is only 41 % → next Chūbu discovery is food-only.
 | YAEYA | 35 | 25 | 60 | 60 | OK |
 | KRM | 12 | 18 | 30 | 30 | OK |
 
+- 2026-10-03 **P1 pins-only** (session_014tccsddAZhWkWHE1pGLan6, ~55 searches): **425 pinned** (+17; NAVITIME POI one-shop-per-query
+  `<店名> <住所> 緯度 経度`), 88 UNVERIFIED, Kingyū low→high. Next: retry the 9 "POI exists, coord not printed" (AUDIT P1) with the POI's
+  exact name; status-check Kura (Bocca burger now at 久貝654-6); resolve Utahime address (牧志1-2-31 vs 東町17-11).
+
 ## Next actions (W11 plan — pins & quality, not discovery)
 1. **Pins: 105 UNVERIFIED** (W10 added ~33: see `geo/_geoout_okinawa_W10*.json` UNVERIFIED rows). Search channels are nearly exhausted
    (Apple Maps 0 for Okinawa; NAVITIME/MapFan rare). Run the browser `tools/geocode-helper.html` on `docs/GEOCODE-BACKLOG.md` → okinawa.
