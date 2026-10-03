@@ -1,0 +1,30 @@
+[
+ {
+  "n": "Captain Kangaroo, Nago (キャプテンカンガルー)",
+  "address": "183 Umusa, Nago-shi, Okinawa 905-0006",
+  "lat": 26.59528,
+  "lng": 127.95816,
+  "confidence": "med",
+  "geoSource": "Stars and Stripes Okinawa taco-rice article (https://okinawa.stripes.com/food-drink/taste-of-okinawa-burger-joint-captain-kangaroo-in-nago-now-hot-spot-for-taco-rice.html) printed GPS 26.59528, 127.95816; address 名護市宇茂佐183 per NAVITIME poi 02301-1803126 / townpage; med because the article date vs. 2020 move is not confirmed",
+  "status": "open",
+  "statusSource": "OCVB okinawastory.jp gourmet/600011786 current listing; OTV Okitive 50457"
+ },
+ {
+  "n": "HEY burger, Nago (ヘイ)",
+  "address": "Nago Jūjiro arcade, Nago-shi, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Search #11 (HEY ヘイ 名護市 住所) returned RS 1563685, Stripes review, GLTJP 13625 but no street number or coordinate printed in results; no place pin found",
+  "status": "open",
+  "statusSource": "Stripes review + OTV 41516 (no closure reported)"
+ },
+ {
+  "n": "Minna Island — 'Croissant Island', Motobu (水納島)",
+  "address": "Minna-jima, Motobu-cho, Okinawa",
+  "lat": 26.64722,
+  "lng": 127.81778,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 水納島 (沖縄県本部町) infobox: 北緯26度38分50秒 東経127度49分04秒 = 26.64722,127.81778 (island point)",
+  "status": "open",
+  "statusSource": "OCVB okinawastory.jp about/around_area/minna + spot/600006147 (Minna Beach) current listings"
+ }
+]

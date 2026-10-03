@@ -1,0 +1,42 @@
+[
+ {
+  "n": "Poké Lid — Growlithe & Shureimon, Ryūtan Plaza, Shuri (ポケふた ガーディ×守礼門 龍潭広場)",
+  "address": "Ryūtan Plaza (龍潭広場), 18 Shuri Ikehata-chō, Naha, Okinawa, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W10A: placement confirmed in Ryūtan Plaza, 首里池端町18 (Okinawa Times articles/-/1715693; Ryukyu Shimpo region/entry-4783701; QAB 20251027270803; Naha City Ryūtan Plaza page city.naha.okinawa.jp/.../1002199.html). Extended '龍潭広場 首里池端町18 緯度 経度' returned no venue coordinate; Ryūtan pond point deliberately not reused.",
+  "status": "open",
+  "statusSource": "Okinawa Times 1715693 / Ryukyu Shimpo 4783701 (unveiled Oct 2025)"
+ },
+ {
+  "n": "Kinjō Tetsuo Archive at Shōfūen, Haebaru (金城哲夫資料館・松風苑)",
+  "address": "Shōfūen, 1384 Tsukazan, Haebaru, Shimajiri District, Okinawa 901-1117, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W10A: NAVITIME POIs exist (navitime.co.jp/poi?spot=91001-ani00763 金城哲夫資料館; spot=01125-6314341 松風苑) but no lat/lng in snippets; extended '金城哲夫資料館 松風苑 津嘉山1384 緯度 経度' gave OCVB okinawastory spot/600012108, Haebaru town site/kankou/2369, syofuen.jp — none print coordinates. Next try: NAVITIME POI page directly or MapFan.",
+  "status": "open",
+  "statusSource": "Haebaru Town site/kankou/2369 + syofuen.jp/kinjo-tetsuo (open by reservation, 11:30–17:00)"
+ },
+ {
+  "n": "Sugar Road, Kohama Island (シュガーロード)",
+  "address": "Kohama, Taketomi, Yaeyama District, Okinawa, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W10A: Stripes (okinawa/japan.stripes.com) search for Kohama Sugar Road GPS — no hit (prior W8A/W9A NAVITIME/ext tries also nil). A road, not a point: needs a named midpoint coordinate source.",
+  "status": "open",
+  "statusSource": "public road (Rurubu 80043556, W9A)"
+ },
+ {
+  "n": "Poké Lid — Growlithe, Zamami Village (ポケふた ガーディ 座間味村)",
+  "address": "165 Zamami, Zamami Village, Shimajiri District, Okinawa, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W10A: extended '座間味村 ポケふた ガーディ 設置場所' re-confirmed only the address 座間味165 (4Gamer 20250801026); no landmark/coordinate.",
+  "status": "open",
+  "statusSource": "4Gamer 20250801026 (installed Aug 2025)"
+ },
+ {
+  "n": "Poké Lid — Mantine & Remoraid, Ishigaki Port Remote Island Terminal (ポケふた マンタイン×テッポウオ 石垣港離島ターミナル)",
+  "address": "Near Euglena Ishigaki Port Remote Island Terminal, 1 Misaki-chō, Ishigaki, Okinawa, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W10A: ja.wiki 石垣港離島ターミナル found but snippet carried no infobox coordinate; '石垣港離島ターミナル 座標' gave only port-level 24°20'N 124°8'E (rejected, centroid). Lid's exact spot also unconfirmed (blogs vs Southern Gate Bridge).",
+  "status": "open",
+  "statusSource": "Yaeyama Mainichi 38284 / OCVB"
+ }
+]
