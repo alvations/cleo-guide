@@ -50,3 +50,5 @@ The Smiling Bison | SPRNG | ORLANDOWEEKLY 20 essential Sanford, ORLANDOMAG Sanfo
 DROP Pom Pom's (Sanford, Henry's Depot) — founder publicly cut ties Dec 2025, recipes altered (Bungalower); legacy merit no longer applies
 NOTE Hollerbach's Willow Tree Café (existing) = Orlando Weekly Best Sanford Restaurant 2025 (https://community.orlandoweekly.com/best-of/2025/food-dining/best-sanford-restaurant-40216773) — extra source
 LEAD The District Eatery, Tap & Barrel (Sanford) — Orlando Weekly only
+HELD The Bavarian Haus (Mount Dora) — ORLANDOWEEKLY Mount Dora essentials only; 2nd search returned only aggregators
+HELD Neighbors Artisan Taqueria (DeLand) — ORLANDOWEEKLY small-town list only
