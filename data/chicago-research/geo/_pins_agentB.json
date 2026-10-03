@@ -1,0 +1,83 @@
+[
+ {
+  "n": "Birrieria Zaragoza",
+  "lat": 41.80447,
+  "lng": -87.7237406,
+  "geoSource": "https://maps.apple.com/place?q=Birrieria+Zaragoza&ll=41.80447%2C-87.7237406&auid=384527534371184454&lsp=9902&address=4852+S+Pulaski+Rd%2C+Chicago%2C+IL++60632%2C+United+States — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: just S of 47th St (~41.809) on Pulaski (4000 W ≈ -87.724) — consistent; Apple snippet says 'temporarily closed' (status check needed)",
+  "address": "4852 S Pulaski Rd, Chicago, IL 60632"
+ },
+ {
+  "n": "Tony's Italian Beef",
+  "lat": 41.765623,
+  "lng": -87.7221749,
+  "geoSource": "https://www.waze.com/live-map/directions/us/il/chicago/tonys-italian-beef?to=place.ChIJu4gS1UUwDogRL0e627me-aQ — Waze place record (name + address 7007 S Pulaski Rd match; lat/lng in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: 70th St (~41.766) x Pulaski (~-87.723) — matches the 7007 S Pulaski example",
+  "address": "7007 S Pulaski Rd, Chicago, IL 60629"
+ },
+ {
+  "n": "Paco's Tacos (Archer original)",
+  "lat": 41.81513899,
+  "lng": -87.702288507,
+  "geoSource": "https://www.waze.com/en-GB/live-map/directions/pacos-tacos-s-archer-ave-4311-chicago?to=place.w.178454946.1784549462.2384844 — Waze place record (name + 4311 S Archer Ave match); coordinate in result snippet alongside https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/936951-pacos-tacos.htm listing (WebSearch 2026-10-03)",
+  "confidence": "med",
+  "note": "sanity: Archer at ~43rd St (~41.816) near California/Kedzie (-87.70) — consistent; med because snippet did not say which page carried the coordinate",
+  "address": "4311 S Archer Ave, Chicago, IL 60632"
+ },
+ {
+  "n": "Huck Finn Donuts",
+  "lat": 41.831891367,
+  "lng": -87.675768732,
+  "geoSource": "https://www.waze.com/live-map/directions/huck-finn-donuts-restaurant-s-archer-ave-3414-chicago?to=place.w.178454946.1784680535.1582495 — Waze place record (Huck Finn Donuts, 3414 S Archer Ave match); coordinate in result snippet alongside https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/517517-huck-finn-restaurant.htm listing (WebSearch 2026-10-03)",
+  "confidence": "med",
+  "note": "sanity: Archer at Damen (2000 W ≈ -87.676) near 35th St (~41.831) — consistent",
+  "address": "3414 S Archer Ave, Chicago, IL 60608"
+ },
+ {
+  "n": "Taquerías Atotonilco (Gage Park)",
+  "lat": 41.790043,
+  "lng": -87.7036856,
+  "geoSource": "https://www.waze.com/live-map/directions/us/il/chicago/taquerias-atotonilco?to=place.ChIJ4dPEytsxDogRcnLLTLEBWcg — Waze place record (name + 5656 S Kedzie Ave match; lat/lng in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: ~57th St (~41.790) on Kedzie (3200 W ≈ -87.703) — consistent",
+  "address": "5656 S Kedzie Ave, Chicago, IL 60629"
+ },
+ {
+  "n": "Weber's Bakery",
+  "lat": 41.791778824,
+  "lng": -87.798564598,
+  "geoSource": "https://www.waze.com/live-map/directions/webers-bakery-w-archer-ave-7055-chicago?to=place.w.178389410.1783894099.652949 — Waze place record (Weber's Bakery, 7055 W Archer Ave match); coordinate in result snippet (WebSearch 2026-10-03)",
+  "confidence": "med",
+  "note": "sanity: Archer at Nottingham (7000 W ≈ -87.80), ~41.79 — consistent; med because Waze also lists the bakery's parking lots at the same address and the snippet did not say which record carried the coordinate",
+  "address": "7055 W Archer Ave, Chicago, IL 60638"
+ },
+ {
+  "n": "Pticek & Son Bakery",
+  "lat": 41.791568756,
+  "lng": -87.781402587,
+  "geoSource": "https://www.waze.com/en-GB/live-map/directions/pticek-and-son-bakery-s-narragansett-ave-5523-chicago?to=place.w.178389410.1784025171.2675867 — Waze place record (name + 5523 S Narragansett Ave match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: between 55th & 56th (~41.792) on Narragansett (6400 W ≈ -87.782) — consistent",
+  "address": "5523 S Narragansett Ave, Chicago, IL 60638"
+ },
+ {
+  "n": "La Internacional (Back of the Yards taqueria)",
+  "lat": 41.810658871,
+  "lng": -87.665248631,
+  "geoSource": "https://www.waze.com/live-map/directions/la-internacional-supermercado-s-ashland-ave-4556-chicago?to=place.w.178454946.1784746069.3820614 — Waze place record (La Internacional Supermercado, 4556 S Ashland Ave — street number matches; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "note": "sanity: 45th-46th St (~41.811) on Ashland (1600 W ≈ -87.665) — consistent; med because Waze names it 'Supermercado' (taqueria counter at same address)",
+  "address": "4556 S Ashland Ave, Chicago, IL 60609"
+ },
+ {
+  "n": "Carm's Beef and Italian Ice",
+  "lat": 41.871725767,
+  "lng": -87.653513549,
+  "geoSource": "https://www.waze.com/live-map/directions/carms-beef-w-polk-st-1057-chicago?to=place.w.178454947.1784877147.3425710 — Waze place record (Carms Beef, 1057 W Polk St match; coordinate in result snippet; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: Polk (800 S ≈ 41.871) at Carpenter (~1030 W ≈ -87.653) — consistent",
+  "address": "1057 W Polk St, Chicago, IL 60607"
+ }
+]
