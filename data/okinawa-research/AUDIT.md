@@ -315,3 +315,32 @@ Per-agent logs `_okinawa_W9*_notes.md` hold every query, kept/dropped/held lead 
 - **Channel mix (kept):** regional press (RS/OT/OTV) ~12 · Japanese travel media (Tabirai/Mapple/Rurubu/Okinawa CLIP/KozaWeb/Smart Magazine/
   cotrip) ~16 · official/municipal tourism (OCVB, Nago, Yanbaru, Urasoe, Kumejima, Taketomi) ~7 · national/anime press (KAI-YOU, Mynavi,
   AnimeAnime, JSS) ~4 · English (Stripes, Feel Japan) ~3 · creators 0 (~7 searches, all rejected).
+
+## 2026-10-03 — W10 (session_01SNdRN4VTyvqgJyuKThEgUA; 6 bg agents + orchestrator, ~196 of ~200 searches; rules `_okinawa_w10_agentrules.md`)
+Per-agent logs `_okinawa_W10*_notes.md` hold every query, kept/dropped/held lead and source; summary:
+- **Discovery (+62 → 513; 47 food & drink = 76 % of additions) — density CLOSED in every area.**
+  W10D1 Chūbu +15 (7 food: Higa Distillery/ZANPA, RuLer's TACORiCE, Rotary Drive-In Kadena, Jimmy's Ōyama, Uehara Zenzai, Gaburi Shokudō,
+  Kuwachii Shokudō Aozora; 8 sights: Bios Hill, National Theatre Okinawa, Agena Castle ruins, Nakabaru ruins (Ikei), Shirumichu (Hamahiga),
+  Urasoe Art Museum, Yuntanza Museum, Histreet). W10D2 Naha +15 food (Stand Suehiro, Senbero-ya, BOULANGERIE BZ [held paired], Ryōtei Naha,
+  Tantei, Shuzen Maeda, Arakaki Chinsukō Honpo, Matsubaraya Seika, Amuro andāgī, KANEHIDE & Sakurazaka breweries, Takara Shokudō, Ikariya,
+  Kiraku [Makishi 2F mochiage], Oden Tōdai — CLOSED 2022-09-26, RS). W10D3 Nanbu +10 (9 food incl. Kōganeya [held paired], Yonabaru-ya,
+  Inamine shirokuma; Ryukyu Glass Village). W10D4 Hokubu +12 (7 food: Captain Kangaroo, HEY, Nago fishing-port diner, Kaneyan, GATE1,
+  Ōgimi Shīkwāsā Park, Bookcafe Okinawa Rail; 5 sights: Minna Island, Nyatiya Cave, Bashōfu Hall, Kin Kannon-ji, Fukuji Dam).
+  W10D5 MYK +5 food, YAEYA +2 (Taira Shōten; Tōrin-ji & Gongen-dō — BUNKACHO), KRM +1 food (YUNAMI FACTORY).
+  Orchestrator (tag W10O) +2 to close the last gaps: Okinawa Soba Cafe Tenten, Yaese (OTV ×2 + TAGOO — held lead paired) and Kato Soba,
+  Kabira (Mapple 29568 + Tabirai 0008549 — held lead paired; Mapple attribution read from the search summary of an exact-name query).
+- **Orchestrator fact-check:** Bīdoro (Naha) REMOVED → held (Tabelog Izakaya WEST Hyakumeiten 2025 claim not confirmed by a search).
+  Inamine: SuperTaste cite (unconfirmed) replaced by Ryukyu Shimpo 'Uchinā Aji Māi' 92 entry-2425513 + OCVB 600013256. Kōganeya: street
+  number 兼城756 came from a summary only → address now 'near Haerun Park, Haebaru' (pin UNVERIFIED). Ōbanmai: Rurubu 8870 confirmed by a
+  site-limited search; address → 伊良部前里添1. Kiraku RS URL corrected (style/gourmet/entry-933592) and confirmed; Sakurazaka's Feel Japan
+  + OCVB cites confirmed. KITANAKAGUSUKUKANKO = Kitapo, Kitanakagusuku Commerce & Industry Association portal (confirmed, RS PR 204567).
+- **Held (single-source):** Chūbu — Kawaraya, Shirahamaya (RS only), Yomitanzan Soba, Sobe, Cocoroar, Churuge, Nankuru 796, New Royal, IMUA;
+  Naha — Bīdoro, Kugani, Chonchon, Kingetsu (moved to Makishi 2-5-14); Hokubu — Tototo, Uppama, Miyazato, British Wine & Tea, Ichifuji (+12 in
+  W10D4 notes); Nanbu — Iibaru-ya (RS only), Café Bean's, Kalu; islands — Eifuku, Ikema Shuzō, Kihachi, Nanbika, Kanifu, Noriba Shokudō,
+  Māsā no Mise. Chūbu closures seen (not on map): Sankaku Shokudō (closed 2024-05-31), Oden Ikoi.
+- **Duplicate caught:** held 'Naha Soba' = existing Naha-tei (RS 4699630: reopened 2025-10-17).
+- **ANIME:** 0 new (Animate Naha, Mangasouko, Ani-Mall dropped — blog/JapanTravel only; Gushikawa Soba Ai-chan held, Mapple only).
+  5 unpinned lids/sites stay UNVERIFIED (no venue coordinate surfaced in 14 searches). Okitsura/Gushikawa confirmed in Anime Tourism 88
+  2026 edition (Weekly ASCII 4375764). **ANIME 23 found / 18 pinned.**
+- **Build + gates:** `rebuild-city.py okinawa --build` → sourcecheck PASS (513) · geocheck PASS (high 132 · med 80 · low 196 = 408 pins) ·
+  statuscheck CONSISTENT · buildcheck PASS; `npm run validate` DATA OK; `npm test` ALL PASS. Food share 300/513 = 58 %.
