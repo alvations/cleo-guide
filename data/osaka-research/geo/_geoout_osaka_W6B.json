@@ -1,7 +1,7 @@
 [
  {
   "n": "Junkissa American (純喫茶アメリカン)",
-  "address": "Dōtonbori, Chūō-ku, Osaka",
+  "address": "1-7-4 Dōtonbori, Chūō-ku, Osaka",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -18,5 +18,55 @@
   "geoSource": "Michelin venue page lat/lng https://guide.michelin.com/th/th/osaka-region/osaka/restaurant/naniwa-menjiro",
   "status": "open",
   "statusSource": "open — listed in current Michelin selection + Tabelog Ramen OSAKA 百名店 2025"
+ },
+ {
+  "n": "Shōben Tango-tei (正弁丹吾亭)",
+  "address": "Hōzenji Yokochō, Namba 1-chōme, Chūō-ku, Osaka",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "none — no Michelin/Wikipedia/official-map/!3d!4d pin surfaced via WebSearch (W6B)",
+  "status": "open",
+  "statusSource": "open — current OSAKA-INFO Hōzenji Yokochō gourmet guide lists it https://osaka-info.jp/spot/gastronomy-hozenjiyokocho/ (no closure news found)"
+ },
+ {
+  "n": "Creo-Ru Dōtonbori (たこ焼き くれおーる 道頓堀)",
+  "address": "1-6-4 Dōtonbori, Chūō-ku, Osaka 542-0071",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "none — no pin surfaced via WebSearch (W6B)",
+  "status": "open",
+  "statusSource": "open — OSAKA-INFO Minami model course lists hours 11:00–23:00, open daily https://osaka-info.jp/modelcourse/minami/"
+ },
+ {
+  "n": "Jūtei (重亭, Namba)",
+  "address": "3-1-30 Namba, Chūō-ku, Osaka",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "none — no pin surfaced via WebSearch (W6B)",
+  "status": "open",
+  "statusSource": "open — Kansai Walker listing gives current hours 11:30–15:00 / 17:00–20:30, closed Tue https://www.walkerplus.com/article/120757/ (no closure news found)"
+ },
+ {
+  "n": "Okonomiyaki Yukari Sennichimae (ゆかり 千日前店)",
+  "address": "2-11-12 Sennichimae, Chūō-ku, Osaka",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "none — no pin surfaced via WebSearch (W6B)",
+  "status": "open",
+  "statusSource": "open — current SAVOR JAPAN okonomiyaki feature lists the branch (no closure news found); not independently re-confirmed — treat as likely open"
+ },
+ {
+  "n": "Rokukakutei (六覚燈, Kuromon)",
+  "address": "Kuromon Market arcade, Nipponbashi, Chūō-ku, Osaka",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "none — no pin surfaced via WebSearch (W6B); exact street number not captured",
+  "status": "unknown",
+  "statusSource": "not confirmed — SAVOR JAPAN Minami feature lists it as operating; no current Michelin venue page surfaced (2009 star only in Michelin editorial)"
  }
 ]
