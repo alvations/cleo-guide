@@ -40,10 +40,12 @@
  {
   "n": "Gordie's, Sunabe (ゴーディーズ)",
   "address": "100 Sunabe, Chatan, Okinawa",
-  "confidence": "UNVERIFIED",
-  "geoSource": "No coordinate surfaced in discovery searches (Stripes/Mapple); try 'ゴーディーズ 北谷町砂辺100 緯度 経度'",
+  "confidence": "low",
+  "geoSource": "Extended search 'ゴーディーズ 北谷町砂辺100 緯度 経度' — coordinate 26.334121,127.747414 printed with the NAVITIME POI (spot=02301-pn0001034)/autoreserve listings; aggregator coordinate consistent with 100 Sunabe by the seawall. Re-verify to !3d!4d.",
   "status": "open",
-  "statusSource": "Mapple region spot list (current hours 11:00-19:30, combo price)"
+  "statusSource": "OTV Okitive article 52610 and NAVITIME POI list current hours 11:00-20:00",
+  "lat": 26.334121,
+  "lng": 127.747414
  },
  {
   "n": "Pizza House Honten, Urasoe (ピザハウス 本店)",
@@ -86,5 +88,25 @@
   "geoSource": "No coordinate surfaced; try '鶴亀堂ぜんざい 読谷村座喜味248-1 緯度 経度'",
   "status": "open",
   "statusSource": "Rurubu spot 80043272 (current hours 11:00-17:00)"
+ },
+ {
+  "n": "Ploughman's Lunch Bakery, Kitanakagusuku (PLOUGHMANS LUNCH BAKERY)",
+  "address": "927-2 Adaniya, Kitanakagusuku, Okinawa",
+  "lat": 26.294509,
+  "lng": 127.791541,
+  "confidence": "low",
+  "geoSource": "Extended search 'プラウマンズランチベーカリー 北中城村安谷屋927-2 緯度 経度' — coordinate 26.294509,127.791541 printed with the NAVITIME POI (spot=02301-1800399)/Yahoo travel listings; aggregator coordinate consistent with Adaniya. Re-verify to !3d!4d.",
+  "status": "open",
+  "statusSource": "Official site ploughmans.net; Savor Japan listing with current hours"
+ },
+ {
+  "n": "Koza Music Town (コザ・ミュージックタウン)",
+  "address": "1-1-1 Uechi, Okinawa City, Okinawa",
+  "lat": 26.334997,
+  "lng": 127.799477,
+  "confidence": "high",
+  "geoSource": "Japanese Wikipedia コザ・ミュージックタウン infobox coordinate N26°20'5.99\" E127°47'58.12\" (26.334996806,127.7994765)",
+  "status": "open",
+  "statusSource": "OCVB okinawastory spot 600003721 and Kozaweb plays/1 (current facility pages)"
  }
 ]
