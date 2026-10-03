@@ -4194,6 +4194,85 @@
      "https://blog.phillyhistory.org/index.php/2008/01/from-musket-balls-to-basketballs-the-sparks-shot-tower"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "UCW",
+   "n": "Paul Robeson House & Museum",
+   "ad": "4951 Walnut St, Philadelphia, PA 19139",
+   "w": "Walnut Hill rowhouse where singer, actor and activist Paul Robeson lived with his sister from 1966 until his death in 1976 — NRHP-listed (2000), now a museum with lectures, concerts and exhibits; the block of Walnut St is co-named for him.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "ARCH",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Paul_Robeson_House"
+    ],
+    [
+     "WHYY",
+     "https://whyy.org/articles/west-philadelphia-street-renamed-paul-robeson/"
+    ],
+    [
+     "6ABC",
+     "https://6abc.com/paul-robeson-walnut-street-west-philadelphia-cultural-alliance-renamed/13128673/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "UCW",
+   "n": "Malcolm X Park",
+   "ad": "51st St & Pine St, Philadelphia, PA 19143",
+   "w": "Six-acre Cedar Park/Walnut Hill green (Black Oak Park, 1903–10) renamed for Malcolm X in 1995 — a hub for West Philly drumming circles, festivals and community events, a block from the restored Malcolm X mural building.",
+   "k": "park",
+   "g": [
+    "ART",
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Malcolm_X_Park_(Philadelphia)"
+    ],
+    [
+     "PHILLYVOICE",
+     "https://phillyvoice.com/malcolm-x-philly-facts-civil-rights-birthday"
+    ],
+    [
+     "PHILLYTRIB",
+     "https://www.phillytrib.com/news/local_news/after-fire-funding-secured-to-repair-building-with-malcolm-x-mural-in-west-philadelphia/article_7ed5e4de-1e48-5538-ab81-91c91b6ce482.html"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "FISH",
+   "n": "Liberty Lands Park",
+   "ad": "N 3rd St between Poplar St & Girard Ave, Northern Liberties, Philadelphia, PA 19123",
+   "w": "Two-acre community park on a former tannery site, built and still run by the Northern Liberties Neighbors Association without city support — a Project for Public Spaces case study; hayrides, summer movies and the neighbourhood's Welcome America festival.",
+   "k": "park",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "PHILLYNEIGHBORHOODS",
+     "https://philadelphianeighborhoods.com/2015/11/09/northern-liberties-liberty-lands-brings-the-community-closer/"
+    ],
+    [
+     "PPS",
+     "https://pps.org/places/liberty-lands"
+    ],
+    [
+     "PHILLYVOICE",
+     "https://prod.aws.phillyvoice.com/phillys-plethora-pocket-parks/"
+    ]
+   ]
   }
  ],
  "F": [
@@ -6766,9 +6845,10 @@
   {
    "t": 1,
    "a": "MAIN",
-   "n": "Tired Hands Brewing Company",
+   "n": "Tired Hands Brewing Company — CLOSED",
    "ad": "16 Ardmore Ave, Ardmore, PA 19003",
    "w": "Ardmore's world-acclaimed brewery (brew café + the Fermentaria brewpub) — Visit Philly; Inquirer 'beer train' guide; Philly Mag; Main Line Today.",
+   "closed": true,
    "cz": [
     "BREW"
    ],
@@ -10354,6 +10434,632 @@
      "https://philadelphianeighborhoods.com/2018/04/22/franklinville-la-caribena-bakery-creates-a-sense-of-home-for-immigrant-community/"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "UCW",
+   "n": "Cleo Bagels",
+   "ad": "5013 Baltimore Ave, Philadelphia, PA 19143",
+   "w": "Alex Malamy's malt-boiled, hearth-baked bagels — the Dodo Bagels pop-up turned Baltimore Ave shop (2023); on the Infatuation's 20 best in West Philly and Philly Mag's best-bagels guide for its mad-scientist sandwiches.",
+   "cz": [
+    "HOAG",
+    "DES"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/the-best-restaurants-in-west-philly"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/restaurants/2023/09/11/west-philly-cleo-bagels/"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/restaurants/best-bagels-philadelphia/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UCW",
+   "n": "Indian Char House",
+   "ad": "4612 Woodland Ave, Philadelphia, PA 19143",
+   "w": "Halal Indian barbecue in Southwest Philly — twenty items on the grill menu, skillets of whole charred fish and lamb chops, mains under $20; on the Infatuation's West Philly 20 and Visit Philly's 12 best Indian restaurants.",
+   "cz": [
+    "IN",
+    "ME"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/reviews/indian-char-house"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/indian-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UCW",
+   "n": "Alif Brew & Mini Mart",
+   "ad": "4501 Baltimore Ave, Philadelphia, PA 19143",
+   "w": "Hayat Alif's bright Ethiopian café-grocery at 45th & Baltimore (2020) — the traditional coffee ceremony, injera wraps of kitfo and collards; Billy Penn and the Inquirer's Cedar Park guide, ranked by Food & Wine among Philly's best lunches. Sister of Doro Bet.",
+   "cz": [
+    "AFR",
+    "COF"
+   ],
+   "s": [
+    [
+     "BILLYPENN",
+     "https://billypenn.com/?p=170835"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/things-to-do/neighborhood-guide-cedar-park-philadelphia-things-to-do.html"
+    ],
+    [
+     "PHILLYTRIB",
+     "https://www.phillytrib.com/news/comcast-business-spotlight-alif-brew-and-mini-mart-in-west-philadelphia/article_6762010c-e67d-5823-8851-3fe610d3a827.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NPH",
+   "n": "Gou",
+   "ad": "5734 Old 2nd St, Philadelphia, PA 19120",
+   "w": "Olney BYOB that the Infatuation calls Philly's best Haitian restaurant — griot, pwason fri, black rice and soup joumou; went viral for feeding neighbours its unsold food and became the diaspora's 2026 World Cup hub (WHYY, Billy Penn).",
+   "cz": [
+    "LAT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/the-best-restaurants-in-north-philly"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/restaurants/gou-restaurant/"
+    ],
+    [
+     "6ABC",
+     "https://6abc.com/post/gou-haitian-restaurants-where-to-eat-philly/13595390/"
+    ],
+    [
+     "WHYY",
+     "https://whyy.org/articles/philly-haitian-community-world-cup-gou-olney-match/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NPH",
+   "n": "Down North Pizza",
+   "ad": "2804 W Lehigh Ave, Philadelphia, PA 19132",
+   "w": "Kurt Evans's Strawberry Mansion pizzeria that employs only formerly incarcerated people — Detroit-style pies named to the NYT's 2021 list of America's 50 most vibrant restaurants, Philly Mag Best of Philly (pizza), LaBan's new-pizza roundup and a Hulu documentary.",
+   "cz": [
+    "PZ"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/down-north-pizza-korshak-bagels-laser-wolf-philadelphia-nyt-20211013.html"
+    ],
+    [
+     "LABAN",
+     "https://www.inquirer.com/food/craig-laban/new-philadelphia-pizza-craig-laban-20210219.html"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/best-of-philly-archive/down-north/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/the-best-restaurants-in-north-philly"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NPH",
+   "n": "Sid Booker's Shrimp Corner",
+   "ad": "4600 N Broad St (at Belfield Ave), Philadelphia, PA 19140",
+   "w": "The hot-pink Broad Street takeout window Sid 'Colonel of Shrimp' Booker opened in 1966 — battered shrimp baskets until the small hours; the 4600 block is co-named Sid Booker Way (2023). Infatuation North Philly guide, Philly Mag 'Eat This Now', Inquirer.",
+   "cz": [
+    "SEAF"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/the-best-restaurants-in-north-philly"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/obituaries/sid-booker-obituary-philadelphia-shrimp-corner-20250206.html"
+    ],
+    [
+     "PHILLYMAG",
+     "http://www.phillymag.com/articles/taste-eat-this-now-sids-shrimp/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NPH",
+   "n": "El Bohio",
+   "ad": "2746 N 5th St, Philadelphia, PA 19133",
+   "w": "Corner Puerto Rican restaurant on Fifth Street, the main artery of El Centro de Oro — Visit Philly's El Centro de Oro guide and the Inquirer's neighbourhood guide to Philadelphia's Latino heart.",
+   "cz": [
+    "LAT"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/best-restaurants-philadelphia-el-centro-de-oro/"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/life/philadelphia-neighborhood-guide-el-bloque-de-oro.html"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NPH",
+   "n": "Delicias Bakery",
+   "ad": "2861 N 5th St, Philadelphia, PA 19133",
+   "w": "El Centro de Oro's favourite Puerto Rican pastries, baked by a Mexican chef at a Brazilian-owned shop — quesitos, pan sobao, pastelillos de guayaba and pan de agua (Inquirer neighbourhood guide; Visit Philly El Centro de Oro guide).",
+   "cz": [
+    "LAT",
+    "DES"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/life/philadelphia-neighborhood-guide-el-bloque-de-oro.html"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/best-restaurants-philadelphia-el-centro-de-oro/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NPH",
+   "n": "Baby's Kusina & Market",
+   "ad": "2816 W Girard Ave, Philadelphia, PA 19130",
+   "w": "Raquel Villanueva Dang's Filipino café-market in Brewerytown (opened Feb 2025) — LaBan called it 'a bright new voice in Philly's Filipino scene'; Philly Mag's comfort-and-charm feature and the Infatuation's North Philly guide.",
+   "cz": [
+    "SEA"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "LABAN",
+     "https://www.inquirer.com/food/craig-laban/babys-kusina-review-brewerytown-filipino-restaurant-20250731.html"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/restaurants/2025/09/29/babys-kusina-market/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/the-best-restaurants-in-north-philly"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NPH",
+   "n": "Champs Diner",
+   "ad": "1539 Cecil B. Moore Ave, Philadelphia, PA 19121",
+   "w": "Small corner diner by Temple (2015), open early until 2pm — the Infatuation's North Philly guide and Philly Mag's where-to-eat-around-Temple pick for hangover breakfasts; reopened after a 2018 car crash (Inquirer).",
+   "cz": [
+    "DIN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/the-best-restaurants-in-north-philly"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/foobooz/restaurants-food-trucks-temple-university/"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/philly/food/champs-diner-temple-closed-car-crash-20180621.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NPH",
+   "n": "Kim's BBQ",
+   "ad": "5955 N 5th St, Philadelphia, PA 19120",
+   "w": "Olney's original Korean grill (1982) in a drafty old diner car on North Fifth Street, still dropping cast-iron grates straight onto live charcoal — LaBan's Olney Korean-BBQ standard-bearer, Philly Mag, the Infatuation's North Philly guide.",
+   "cz": [
+    "JK",
+    "SOUL"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/restaurants/kims-restaurant/"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/restaurant/kims-bbq/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/the-best-restaurants-in-north-philly"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Victory Brewing Company (Downingtown)",
+   "ad": "420 Acorn Ln, Downingtown, PA 19335",
+   "w": "The region's original big craft brewery (1996), still brewing and pouring in the old Pepperidge Farm factory in Downingtown — HopDevil, Prima Pils, Golden Monkey at the source; Visit Philly's 15 essential breweries and Time Out.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/essential-craft-breweries-of-greater-philadelphia/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/philadelphia/bars/victory-brewing-company"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Victory_Brewing_Company"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Free Will Brewing Co. (Perkasie)",
+   "ad": "410 E Walnut St, Perkasie, PA 18944",
+   "w": "Upper Bucks brewery (2012) known for puckery sours, hazy IPAs and a dozen constantly rotating taps, food trucks outside — Visit Philly's 15 essential craft breweries; Inquirer suburban brewery coverage; Visit Bucks County.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/essential-craft-breweries-of-greater-philadelphia/"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/philly-tips/craft-breweries-philadelphia-pennsylvania-20210406.html"
+    ],
+    [
+     "VISITBUCKS",
+     "https://www.visitbuckscounty.com/listing/free-will-brewing-company-llc/3183/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Levante Brewing Company",
+   "ad": "208 Carter Dr, Suite 2, West Chester, PA 19382",
+   "w": "West Chester brewery born from two friends' homebrewing — a dozen-plus drafts heavy on New England and double IPAs and big stouts, dog-friendly taproom; Visit Philly's 15 essential breweries, Philly Mag, Inquirer.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/essential-craft-breweries-of-greater-philadelphia/"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/2016/02/03/levante-brewing-company-elevates-the-craft-experience-with-beer-and-dogs"
+    ],
+    [
+     "INQUIRER",
+     "https://inquirer.com/philly/blogs/food_department/West-Chesters-Levante-Brewing-Company-expands-tasting-room-hours-brewing-capabilities-.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAIN",
+   "n": "Carlino's Market (Ardmore)",
+   "ad": "2616 E County Line Rd, Ardmore, PA 19003",
+   "w": "Italian specialty market founded by Nicola and Angela Carlino in 1983 — prepared foods, breads, cheeses and focaccia stuffing; Main Line Today's Best Deli 2026 and a 2026 Inquirer 'Main Line mainstay' profile.",
+   "cz": [
+    "IT",
+    "HOAG"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MAINLINETODAY",
+     "https://mainlinetoday.com/best-of-the-main-line/best-of-main-line-2026/drink-food-best/"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/carlinos-main-line-italian-grocery-ardmore-20260218.html"
+    ],
+    [
+     "6ABC",
+     "https://6abc.com/post/dish-italian-sausage-focaccia-stuffing-recipe-carlinos-market-thanksgiving-day-dinner/18151139/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAIN",
+   "n": "The Bakery House",
+   "ad": "604 W Lancaster Ave, Bryn Mawr, PA 19010",
+   "w": "Sandra Stauffer's Bryn Mawr bakery (c.1990), a Thanksgiving-pie institution — Main Line Today's Best Bakery 2026, Philly Mag Best of Philly (Best Pies), Inquirer's seven great suburban bakeries.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "MAINLINETODAY",
+     "https://mainlinetoday.com/best-of-the-main-line/best-of-main-line-2026/drink-food-best/"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/best-of-philly-archive/the-bakery-house/"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/suburban-bakeries-bucks-montco-20240907.html"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MAIN",
+   "n": "Minella's Diner",
+   "ad": "320 Lancaster Ave, Wayne, PA 19087",
+   "w": "Round-the-clock Lancaster Ave diner beloved by Villanova students and Main Liners — weekend-breakfast waits; Main Line Today's Best Diner 2026 (reader/critic vote) and a PhillyVoice regular.",
+   "cz": [
+    "DIN"
+   ],
+   "s": [
+    [
+     "MAINLINETODAY",
+     "https://mainlinetoday.com/best-of-the-main-line/best-of-main-line-2026/drink-food-best/"
+    ],
+    [
+     "PHILLYVOICE",
+     "https://www.phillyvoice.com/rupert-grint-harry-potter-servant-minellas-diner-main-line-wayne/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAIN",
+   "n": "Teikoku",
+   "ad": "5492 West Chester Pike, Newtown Square, PA 19073",
+   "w": "Win and Sutida Somboonsong's Japanese-Thai dining room (WIN Hospitality) in Newtown Square — Main Line Today's Best Japanese and Best Sushi 2026; Philly Mag's Main Line sushi coverage.",
+   "cz": [
+    "JK"
+   ],
+   "s": [
+    [
+     "MAINLINETODAY",
+     "https://mainlinetoday.com/best-of-the-main-line/best-of-main-line-2026/drink-food-best/"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/foobooz/2017/03/01/sushi-main-line-teikoku-azie/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAIN",
+   "n": "Tired Hands Fermentaria",
+   "ad": "35 Cricket Terrace, Ardmore, PA 19003",
+   "w": "Tired Hands' production brewery and 180-seat taproom in a century-old Ardmore trolley-repair shop, with a 36-seat viking table — the cult saison/IPA brewer's flagship now that the original 16 Ardmore Ave brewpub went private-events-only (Inquirer, Feb 2026). LaBan's best brewpubs, Inquirer Main Line breweries 2025, Main Line Today, Visit Philly's walk-from-Regional-Rail breweries.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/main-line-breweries-craft-beer-patios-ardmore-malvern-20250605.html"
+    ],
+    [
+     "MAINLINETODAY",
+     "https://mainlinetoday.com/life-style/now-open-tired-hands-brewing-companys-fermentaria/"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/philadelphia-craft-breweries-walking-regional-rail/"
+    ],
+    [
+     "LABAN",
+     "https://www.inquirer.com/philly/food/20151115_LaBan_best_brewpubs_Phila.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FISH",
+   "n": "Boricua #2",
+   "ad": "3843 Aramingo Ave, Philadelphia, PA 19137",
+   "w": "Port Richmond Puerto Rican restaurant glowing with island flavour and culture — Philly Mag Best of Philly (Best Puerto Rican Restaurant), the Inquirer's 2022 profile, the Infatuation's best Puerto Rican spots for its pernil, and 6abc.",
+   "cz": [
+    "LAT"
+   ],
+   "s": [
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/best-of-philly-archive/boricua-2/"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/news/restaurant-puerto-rican-boricua-port-richmond-20220812.html"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/puerto-rican-philly"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FISH",
+   "n": "Amy's Pastelillos",
+   "ad": "2001 Memphis St, Philadelphia, PA 19125",
+   "w": "Amy Rivera's pop-up-to-storefront Puerto Rican turnover shop in Fishtown — on Esquire's 2024 best new restaurants in America; Infatuation ('worth the line, every time'), Philly Mag, Inquirer (now a Sixers partner, Sep 2026).",
+   "cz": [
+    "LAT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/reviews/amys-pastelillos"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/restaurants/2024/08/27/amys-pastelillos/"
+    ],
+    [
+     "PHILLYVOICE",
+     "https://www.phillyvoice.com/esquire-best-new-restaurants-america-philadelphia-bastia-amys-pastelillos/"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/restaurants/amys-pastelillos-enrich-program-philadelphia-sixers-partnership-20260922.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FISH",
+   "n": "St. Oner's",
+   "ad": "2218 Frankford Ave, Philadelphia, PA 19125",
+   "w": "Tired Hands Brewing's Fishtown bar (2020) — the cult Ardmore brewer's only Philadelphia outpost, its saisons and IPAs on draught and to go; Inquirer, Philly Mag and PhillyVoice coverage, still open per the Inquirer's Feb 2026 Tired Hands report.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/tired-hands-brewing-beer-st-oners-stoners-fishtown-ardmore-jean-broillet-20200224.html"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/foobooz/2019/02/04/tired-hands-fishtown-bar-restaurant-st-oners/"
+    ],
+    [
+     "PHILLYVOICE",
+     "https://www.phillyvoice.com/stoners-tired-hands-brewing-fishtown-restaurant-chinese-food/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FISH",
+   "n": "Café Tinto (Fishtown)",
+   "ad": "1701 N Front St, Philadelphia, PA 19122",
+   "w": "Chef Daniela Garcia's Colombian bakery-café (original on Wyoming Ave in Feltonville) — the Infatuation says it 'leads the pack' of Philly's Colombian spots; the $5 happy-hour Colombian hot dog made the Inquirer's 2026 best-hot-dogs map; 6abc Hispanic Heritage features.",
+   "cz": [
+    "LAT",
+    "DES",
+    "COF"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/fishtown-restaurants"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/best-hot-dogs-map-philadelphia-20260824.html"
+    ],
+    [
+     "6ABC",
+     "https://6abc.com/post/caf-tinto-philadelphia-hispanic-heritage-month-greater-chamber-of-commerce-colombian-cuisine/11027579/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FISH",
+   "n": "Elma",
+   "ad": "431 E Girard Ave, Philadelphia, PA 19125",
+   "w": "James Nardone's 16-seat Italian tasting-menu BYOB inspired by his grandmother — LaBan's 2024 round-up of three Italian tasting-menu splurges redefining Italian dining; on the Infatuation's 15 best in Fishtown.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "LABAN",
+     "https://www.inquirer.com/food/craig-laban/salvatore-irwins-ambra-elma-italian-tasting-menu-20240430.html"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/fishtown-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FISH",
+   "n": "Pizza Shackamaxon",
+   "ad": "115 E Girard Ave, Philadelphia, PA 19125",
+   "w": "No-frills slice shop in the old Pizzeria Beddia space — huge cheesy slices in four rotating flavours plus tomato pie; Philly Mag Best of Philly (Best Pizza), Visit Philly's best-pizza guide, the Infatuation's Fishtown 15, the Daily Meal's 101 best pizzas.",
+   "cz": [
+    "PZ"
+   ],
+   "s": [
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/best-of-philly-archive/pizza-shackamaxon/"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/where-to-find-the-best-pizza-in-philadelphia/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/fishtown-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FISH",
+   "n": "Tulip Pasta & Wine Bar",
+   "ad": "2302 E Norris St (at Tulip St), Philadelphia, PA 19125",
+   "w": "Corner-storefront pasta and wine bar from Waywine Vineyards' crew — LaBan's 'Fishtown hit' review praises the ruffled mafalde and beet-pink ravioli with Pennsylvania wines; on the Infatuation's 15 best in Fishtown.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "LABAN",
+     "https://inquirer.com/columnists/tulip-wine-bar-fishtown-review-20230110.html"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/fishtown-restaurants"
+    ]
+   ]
   }
  ],
  "S": {
@@ -10452,6 +11158,30 @@
    "t": "PHILADELPHIA MAGAZINE",
    "u": "",
    "l": ""
+  },
+  "PHILLYNEIGHBORHOODS": {
+   "k": "PHILLYNEIGHBORHOODS",
+   "t": "PHILLYNEIGHBORHOODS",
+   "u": "",
+   "l": ""
+  },
+  "PHILLYTRIB": {
+   "k": "PHILADELPHIA TRIBUNE",
+   "t": "PHILADELPHIA TRIBUNE",
+   "u": "",
+   "l": ""
+  },
+  "PHILLYVOICE": {
+   "k": "PHILLYVOICE",
+   "t": "PHILLYVOICE",
+   "u": "",
+   "l": ""
+  },
+  "PPS": {
+   "k": "PPS",
+   "t": "Project for Public Spaces",
+   "u": "https://www.pps.org/",
+   "l": "Project for Public Spaces"
   },
   "RUTGERSCAMDEN": {
    "k": "RUTGERSCAMDEN",
@@ -10656,6 +11386,12 @@
   "PHILLYNEIGHBORHOODS": {
    "k": "PHILLYNEIGHBORHOODS",
    "t": "PHILLYNEIGHBORHOODS",
+   "u": "",
+   "l": ""
+  },
+  "PHILLYTRIB": {
+   "k": "PHILADELPHIA TRIBUNE",
+   "t": "PHILADELPHIA TRIBUNE",
    "u": "",
    "l": ""
   },
