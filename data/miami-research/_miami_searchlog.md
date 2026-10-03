@@ -303,3 +303,9 @@
 145 GMCVB Opa-locka/Miami Gardens + NT flea market → Opa-locka Museum (Seaboard station), Opa-locka/Hialeah Flea Market added; Heritage Trail, Enchanted Forest park held (GMCVB only)
 146 Infatuation 17 best Kendall + Pinecrest/Palmetto Bay pages (Apocalypse, Best Sub Shop, Hungry Bear, Zaytona, Ghee, Shibui, Fonda Sabaneta, El Tambo, Platea, Pinecrest Bakery, Caribbean Delite, Babe's)
 147 NT for Kendall names → Hungry Bear, Best Sub & Sandwich, Shibui, Caribbean Delite (NT influencers' hidden gems — creator-channel corroboration) = 4 added; Zaytona, Fonda Sabaneta, El Tambo, Platea held
+148 TO/NT/Inf: Platea (TO+Inf+NT), Versailles Bakery (Inf+TO 17), El Titan de Bronze (NT 2007 + TO LH guide unconfirmed → held)
+149 Fodor's/GMCVB Tamiami Trail airboats: Everglades Safari Park, Gator Park → 2 sights (Miccosukee Village already in)
+150 Bars: Inf 14/16 best South Beach bars (Club Deuce, Brother's Keeper, Monterrey, Swizzle, Sweet Liberty, Stormy Monday, Water Lion, Tropezón, Palace, Medium Cool)
+151 Bars downtown/Brickell: TO 15 Brickell, NT top 50 (Better Days, Sugar, American Social, Mike's at Venetia, Margot)
+152 TO/NT: Sugar, Medium Cool (NT: closing 22 Aug 2026 at its 17th St home → not added), Palace (TO+NT+Inf), Stormy Monday (limited-run pop-up through July → not added)
+153 CLOSURE CHECK Macchialina (Stormy Monday took 'former home') → Macchialina OPEN, moved next door at 820 Alton Rd; old room is sibling Fluke — no change
