@@ -156,3 +156,20 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
 - **Channel mix (batch):** editorial 15/15 · reader vote (MadMag/UpNorth) 9 · local-rec (City Cast) 9 · creators 0.
 - **Build + gates:** 87 researched; sourcecheck PASS 87 · geocheck PASS · statuscheck CONSISTENT (Esquire flagged)
   · buildcheck PASS · validate DATA OK · test ALL PASS. 34 UNVERIFIED (all restaurants).
+
+### W4 batch 2 — JB semis, MVF food, held sights re-sourced + Wikipedia pins
+- **Pin channel found:** single-name queries with `allowed_domains` = en.wikipedia.org + wikidata.org return the
+  infobox coordinate (APT, Fess Hotel, Veterans Museum, Stoughton Opera House, Chalet of the Golden Fleece: 5/6;
+  Pheasant Branch has no article → UNVERIFIED; Ishnala → only the state-park centroid, rejected).
+- **Food (FOOD_W4b.json, 6):** Babcock Hall Dairy Store (UW t1), CocoVaa (EAST; JB semi 2024), Imaginary Factory
+  (EAST; JB semi 2026), Pasture and Plenty (WEST; JB semi 2024), Capital Brewery (MVF t1; State Trunk Tour 2026),
+  Clasen's European Bakery (MVF).
+- **Sights (SIGHTS_W4a.json, 7):** American Players Theatre (TRIP t1, high), Trollway (DANE t1), Pheasant Branch
+  Conservancy (MVF t1), Wisconsin Veterans Museum (CAP; OPEN — replacement planned, no closure date), MMoCA (CAP, 2nd
+  source = Destination Madison free list), Stoughton Opera House (DANE, med — two points returned), Chalet of the
+  Golden Fleece (TRIP, high).
+- **Held:** Wisconsin Brewing Co. (Experience WI only), Imperial Garden (Travel WI only), Matz Farmstead Ruins,
+  Sid Boyum sculptures, Forest Products Lab (Atlas Obscura only), Norwegian Heritage Center/Livsreise and UW Geology
+  Museum (Destination Madison only) — next wave.
+- **Build + gates:** 100 researched (59 food = 59% / 41 sights), 59 pinned; 4 gates PASS; validate + test green.
+  Card + CITIES.md refreshed via `_mad_card.py`.

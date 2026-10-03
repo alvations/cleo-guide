@@ -264,3 +264,29 @@ PASS · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. D
 **Channel mix W6:** Michelin 3 · Tabelog100 ~8 · editorial ~45 (Walkerplus, Lmaga, Mapple, Rurubu, TV Tokyo, Time Out, Savor Japan,
 dancyu, Metro NiNE/OsakaMania) · official/municipal ~10 · Wikipedia ~10 · JATA88 2 · creators 1 (Ramen Adventures, corroborating).
 **Yield:** ≈ 0.21 places/search (38 / ~180). Session total ≈ 180/200 searches.
+
+## 2026-10-03 — W7 (session 7) round 1: workers A MINAM · B EAST+BAY · C TNJ+SOUTH · D NORTH+★anime · E/F MapFan geocoders
+Searches: A 38 · B 39 · C 37 · D 32 · E 22 · F 50 · main 5. Per-worker detail (queries, MEASURED & DROPPED, held): `_note_W7{A,B,C,D,E,F}.md`.
+**Added (+19 discovered; 436 → 455):**
+- W7A +5 food (MINAM 4 + CHUO 1) — Arabiya Coffee (TABELOG100 kissaten + OSAKAMETRO junkissa_09, URL confirmed by a main search),
+  Men no Yōji (TABELOG100 + Ramen Beast), Tonkatsu Kōshirō (TIMEOUT + TABELOG100), Dotonbori Akaoni (TIMEOUT + MAPPLE 6243),
+  Ikareta Noodle Fishtons (TABELOG100 + Ramen Adventures; Shinmachi → CHUO for consistency with Oribe).
+  **Main review → held (`_held_W7.json`):** Menshō Shisei (Ramen Beast URL was guessed; no page on recheck), Maguroya Kurogin
+  (Time Out Kuromon page doesn't name it; Savor Japan "Kuragin" identity unconfirmed).
+- W7B +5 food — EAST Tsuruichi Honten, Yakiniku Yoshida Shinkan (RURUBU + MAPPLE); BAY Taishō Salon Hige to Bōin (OSAKAMETRO +
+  TABELOG100), Sakamoto Sushi (MICHELIN_BIB 2026, pinned high), Akamaru Shokudō (OSAKAMETRO + OSAKACITY — Minato ward office,
+  accepted as official municipal). Kijimunā no Mori: address street number withheld (1-1-14 vs 1-11-14 conflict). W7B's
+  "Yoshiko is in Minato-ku" flag NOT applied — our Yoshiko is the Kitashinchi fugu star (1-8-5 Sonezakishinchi); different venue.
+- W7C +6 food +1 sight — TNJ Itamae Yakiniku Itto (promoted, dish surfaced), Abeno Takoyaki Yamachan, Shinsekai Market & yatai;
+  Kiyomizu-dera Osaka (pinned); SOUTH Sushi Moriya (Sakai), Yamato (kashimin-yaki origin; JALONTRIP accepted in W6), Izumisano
+  Aozora Ichiba. Dropped: Mentokokoro 7 (closed 2022), Horumon Ready Go (owned by a YouTuber → not independent).
+- W7D +2 ★anime sights — Taiyoshi Hyakuban (Demon Slayer Entertainment District pilgrimage; MAPPLE + OSAKAINFO + jawiki, pinned high),
+  Capcom Store & Cafe Umeda (promoted; now LUCUA SOUTH 13F; LMAGA + GAMEBUSINESS). Expo '70 Tower of the Sun record gained an
+  `anime` note (Crayon Shin-chan Otona Teikoku / 20th Century Boys; ja.wikipedia). NORTH food: 0 — all leads single-key (held list in note).
+**Geocode:** new channel **MapFan** spot pages (Degree lat/lng in the search summary; map-provider place pin → `med`): W7E 9/14,
+W7F 12/50 (MINAM 10). Wikidata (P625 missing on small items) and NAVITIME route coords (old Tokyo datum) rejected.
+Mashino Ken: Michelin + Tabelog still list 1-3-6 Awajimachi → the Michelin pin is wrong; stays UNVERIFIED.
+**Build:** 455 discovered (169 sights + 286 food = 63% food), 334 rendered; **ANIME 32**; 4 gates PASS; validate + npm test PASS.
+**Channel mix (round 1):** Michelin 1 · Tabelog100 7 · editorial ~20 (Time Out, Mapple, Rurubu, Lmaga, Walkerplus, Osaka Metro, Savor
+Japan, JAL) · official/municipal 4 · Wikipedia 2 · creators 3 (Ramen Beast 1, Ramen Adventures 1 — corroborating only).
+**Yield:** ≈ 0.12 places/search — held-lead promotion mostly fails (small shops rarely named by two different outlets).

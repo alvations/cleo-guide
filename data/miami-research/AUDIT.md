@@ -293,3 +293,39 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   (Caribbean Delite via NT's influencer hidden-gem roundup) — creators remain a thin channel for Miami (no YouTube episode surfaced).
 - **Gates (final build):** sourcecheck 509 PASS · geocheck PASS · statuscheck CONSISTENT (1 closed on page, 0 unchecked) · buildcheck PASS ·
   `npm run validate` DATA OK · `npm test` ALL PASS. Hub card, CITIES.md row, AGENT-PROMPTS run-log row and RESUME (next-wave plan) updated.
+
+## 2026-10-03 (session 5 · wave 4 PINS) · batch 1 — Apple Maps place pins + closure audit
+- **New geocoding channel (works where google.com/mapcarta/latlong fail):** `WebSearch` with `allowed_domains:["maps.apple.com"]`
+  and a query of 3 "Name street-address" items returns Apple Maps place URLs; ~45% of them embed the place pin as
+  `coordinate=<lat>,<lng>` (or `ll=` on `q=…&auid=` listings). That value is Apple's own place-pin coordinate for the named
+  listing at the stated address → graded **high** (address in the URL checked against our record each time). Listings that
+  come back as bare `place-id=` URLs carry no coordinate and re-querying them (ZIP, exact title phrasing) did not help → left
+  UNVERIFIED. Helper: `_miami_pin.py` (asserts name ∈ dataset, not already pinned, bbox). Output: `geo/_geoout_x1.json`.
+- **Pins (49):** 45 high + Double Luck **med** (same-address pin of predecessor tenant New Schnitzel House, 1085 NE 79th St) + 4
+  sights (Rubell Museum, ICA Miami, Museum of Graffiti — high; were on the session-3 UNVERIFIED list). Status for each pin: Apple
+  listing active with current hours/no closure marker + 2025–26 discovery sources.
+- **Closure audit (6 newly CLOSED, flagged not deleted — `geo/_geoout_x1s.json`):** Itamae AO (final service 2 Aug 2025 — NT +
+  Wikipedia), Gramps (closed 4 Jan 2026 — Axios + NT; Gramps Getaway stays open), Wynwood Brewing Company (2024 — Axios), J. Wakefield
+  Brewing (28 Oct 2024 — NT; Untappd venue closed), Baby Jane (30 May 2026 — NT/What Now), Havana Harry's (City of Coral Gables ordered
+  it closed indefinitely Sep 2025 after the June 2025 DBPR shutdown; no reopening found → treated as closed). All were un-pinned, so
+  none had been shown on the map; statuscheck CONSISTENT.
+- **Held for a status re-check (Apple shows a closure marker; not pinned):** Taquiza (1351 Collins listing "permanently closed"),
+  Lutong Pinoy ("permanently closed"), Knaus Berry Farm (one listing "permanently closed" — probably a stale duplicate of the seasonal
+  farm), Havana Café of the Everglades ("temporarily closed"). Papi Steak closed temporarily Sep 2025 for a makeover (reopening Nov
+  2025) — re-check before pinning.
+- **Build:** 136 → 185 pinned. sourcecheck 509 PASS · geocheck PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate
+  DATA OK · npm test ALL PASS.
+
+## 2026-10-03 (session 5 · wave 4 PINS) · batch 2 — Apple Maps pins, tier-1 first
+- **Pins (44, `geo/_geoout_x2.json`):** 41 high + 2 med (Laspada's — Apple lists 233 Commercial Blvd, our sources 4346 Seagrape Dr = same
+  corner storefront; Bar Kaiju — pin of host building The Citadel, 8300 NE 2nd Ave) + Little Haiti Cultural Complex (sight; was UNVERIFIED).
+  Lesson: "Name + neighbourhood" queries (no street number) return coordinate-bearing Apple URLs as often as full-address ones, so
+  vague-address records are pinnable too; each URL's own address was checked against the record (rejected: Pack Supermarket's
+  15327 NW 7th Ave branch, Drinking Pig's 845 NE 151st St listing — different branches).
+- **Closures / moves (`geo/_geoout_x2s.json`):** Jaguar Sun CLOSED (Aug 2024 — Axios + NT; Apple "permanently closed"). Knaus Berry Farm
+  MOVED: sold 2025, reopened 22 Dec 2025 at 16790 SW 177th Ave (WLRN, Florida Rambler, NT) — FOOD_F5 address + blurb corrected; old site
+  closed; not yet pinned at the new farm.
+- **Held, status unresolved (Apple shows a closure marker, no press found):** Kush (Wynwood, 2003 N Miami Ave), Taquiza (1351 Collins),
+  Lutong Pinoy (17048 W Dixie Hwy). Two Chefs (South Miami): no Apple listing found → re-check. Havana Café of the Everglades: Apple
+  "temporarily closed".
+- **Build:** 185 → 229 pinned; sourcecheck/geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
