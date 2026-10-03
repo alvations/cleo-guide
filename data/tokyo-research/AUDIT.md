@@ -407,3 +407,20 @@ WebSearch. **W7 pins total 26 (high 16 · med 10).**
 Final build: **552 discovered / 441 rendered (260 sights + 181 food); UNVERIFIED 111**; placement high 404 · med 37 · low 0;
 4 gates PASS; validate DATA OK; npm test ALL PASS; density all 13 OK; cards + CITIES.md refreshed (DENSE).
 Searches this session: ~75 (discovery/corroboration ~30, pins ~45).
+
+## 2026-10-03 — P1: PINS ONLY (no discovery) — NAVITIME POI + Apple Maps place pins
+- Technique: `"<店名A> / <店名B> / <店名C> 緯度 経度"` with `allowed_domains:["navitime.co.jp"]` → NAVITIME POI
+  page summaries print 緯度経度 (WGS84) + the block address; Apple Maps (`maps.apple.com`) `coordinate=` place URLs
+  as a second channel. Each pin's NAVITIME/Apple address was matched to the record's block-numbered address (or, where
+  the record held only a neighbourhood, to the record's neighbourhood + name/branch) before writing. Ingest:
+  `python3 tools/_jp_navipins.py tokyo p1 < lines` → `geo/_geoout_tokyo_p1.json` (all `med`; Apple = `high`).
+- ≈40 searches → **47 pins**: pinned 441 → **488** of 552. ANIME: 38 tagged, 37 now on map (+ Mandarake Complex,
+  @home café… see below, Anime Tokyo Station, Daily Chico).
+- **Rejected (address mismatch, not pinned):** Azuki to Kouri (NAVITIME hit at Yoyogi 1-46-2 ≠ Yoyogi-Uehara),
+  Guchokuni (NAVITIME 4-3 Kagurazaka 4F ≠ record 6-21 3F), Tempura Tsunahachi (only Takashimaya branch returned ≠
+  Sōhonten), Unagi Komagata Maekawa (NAVITIME 2-1-29 ≠ record 2-7-5), Meguro Sushi Taichi (NAVITIME 5-8-3
+  Nakameguro ≠ record 2-11-5 Nakachō), Kameido Gyoza (Apple place had no coordinate; NAVITIME only neighbours).
+- **CLOSURE:** Tofuya Ukai, Shiba-kōen closed end of March 2026 (site contract expired) — Apple Maps "permanently
+  closed" + BAILA (Shueisha) report. Kept, flagged `— CLOSED` (geo-merge renamed), pin still UNVERIFIED (held).
+- Still held: 63 UNVERIFIED (mostly bars/cafés with neighbourhood-only addresses: Bar High Five, Punch Room, Nihao,
+  Uchida, Gem by Moto, Tanimoto, Popeye, Fukagawajuku, Oku, Iseya, Sabouru, Bar Libre, Mont St. Clair, Bear Pond …).
