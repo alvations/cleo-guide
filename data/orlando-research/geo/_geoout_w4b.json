@@ -126,10 +126,11 @@
   "address": "425 N Bumby Ave, Orlando, FL 32803",
   "status": "open",
   "statusSource": "https://en.wikipedia.org/wiki/The_Plaza_Live (listed as operating)",
-  "lat": null,
-  "lng": null,
-  "confidence": "UNVERIFIED",
-  "note": "no published coordinate surfaced; needs a place-pin pass"
+  "lat": 28.5487,
+  "lng": -81.3513,
+  "confidence": "high",
+  "note": "",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/The_Plaza_Live): 28.5487,-81.3513"
  },
  {
   "n": "Orlando Shakespeare Theater (Lowndes Shakespeare Center)",
@@ -196,12 +197,33 @@
  },
  {
   "n": "Kappy's Subs",
-  "address": "Maitland, FL (US 17-92 sub shop)",
+  "address": "501 N Orlando Ave, Maitland, FL 32751",
   "status": "open",
   "statusSource": "Reopened Sept 2024 (FOX 35) and a 2025 Orlando Weekly Best Maitland Restaurant finalist",
   "lat": null,
   "lng": null,
   "confidence": "UNVERIFIED",
   "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+ },
+ {
+  "n": "Winter Park History Museum",
+  "address": "200 W New England Ave, Winter Park, FL 32789",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Winter_Park_Historical_Museum (listed as operating)",
+  "lat": 28.59574,
+  "lng": -81.35218,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Winter_Park_Historical_Museum): 28.59574,-81.35218",
+  "note": ""
+ },
+ {
+  "n": "St. James Cathedral (Orlando)",
+  "address": "215 N Orange Ave, Orlando, FL 32801",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/St._James_Cathedral_(Orlando,_Florida) (listed as operating)",
+  "lat": null,
+  "lng": null,
+  "confidence": "UNVERIFIED",
+  "note": "no published coordinate surfaced; needs a place-pin pass"
  }
 ]
