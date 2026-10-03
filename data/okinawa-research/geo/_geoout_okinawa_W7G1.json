@@ -138,5 +138,53 @@
   "geoSource": "Retty listing 100000728628 coordinate 26.216412,127.696016; Tabelog 47004238 (26.216429,127.695974) agrees ~5 m, Ekiten shop_38197137 (26.216484,127.696617) ~60 m; surfaced by WebSearch extended '山羊料理 美咲 那覇市安里388-6 緯度 経度'. Consistent with sourced address 安里388-6 (Sakaemachi, 1 min from Asato stn).",
   "status": "open",
   "statusSource": "okinawa-c.site yagi-misaki_230111 and Retty current listing (17:30-2:00, closed Sun/holidays)"
+ },
+ {
+  "n": "Ryūkyū Ryōri Nuchigafū (琉球料理 ぬちがふぅ)",
+  "address": "1-28-3 Tsuboya, Naha, Okinawa 902-0065 (那覇市壺屋1-28-3)",
+  "lat": 26.212681,
+  "lng": 127.692884,
+  "confidence": "low",
+  "geoSource": "Listing coordinate 26.21268069,127.69288407 surfaced by WebSearch extended '琉球料理 ぬちがふぅ 那覇市壺屋 住所 緯度 経度' (results: OCVB okinawastory.jp/gourmet/600010021, tabelog 47018281, Retty 100001340712, oki-raku — exact aggregator not identified); street address 壺屋1-28-3 from OCVB/Okinawa Prefecture Ryukyu-cuisine certified list. Consistent: ~17 m from the neighbouring Arakaki Residence (1-28-32) listing point.",
+  "status": "open",
+  "statusSource": "Okinawa Prefecture 'Ryūkyū ryōri' certified-shop list pref.okinawa.lg.jp/bunkakoryu/bunkageijutsu/1022485/1030735.html and OCVB 600010021 (lunch 11-14, afternoon tea 14-17)"
+ },
+ {
+  "n": "Uchinā Chaya Buku-Buku, Tsuboya (うちなー茶屋 ぶくぶく)",
+  "address": "1-22-35 Tsuboya, Naha, Okinawa 902-0065 (那覇市壺屋1-22-35)",
+  "lat": 26.212815,
+  "lng": 127.692065,
+  "confidence": "low",
+  "geoSource": "Listing coordinate 26.212815,127.692065 surfaced by WebSearch extended 'うちなー茶屋 ぶくぶく 那覇市壺屋 住所 緯度 経度' (results: Retty 100001490492, ekiten shop_2480654, gnavi 7kxa9d5h0000, NAVITIME 01125-7629035 — exact aggregator not identified); street address 壺屋1-22-35 from the listings; consistent with Tsuboya Yachimun-dōri.",
+  "status": "open",
+  "statusSource": "Official site bukubuku.jp and tsuboya-yachimun.com/gallery/bukubuku/ (11:00-18:00, closed Tue)"
+ },
+ {
+  "n": "Arakaki Kashiten, Shuri Samukawa (新垣菓子店 首里寒川店)",
+  "address": "1-81-8 Shuri Samukawa-chō, Naha, Okinawa (那覇市首里寒川町1-81-8)",
+  "lat": 26.215871,
+  "lng": 127.711748,
+  "confidence": "low",
+  "geoSource": "Listing coordinate 26.215871,127.711748 surfaced by WebSearch extended '新垣菓子店 首里寒川店 住所 緯度 経度' (results: rurubu&more 80042578, hotpepper strJ001083269, 4travel 11286257, jalan grm_alikejpB001180095, tabelog 47009469 — exact aggregator not identified); street address 首里寒川町1-81-8 from those listings; consistent with Samukawa, SW of Shuri Castle.",
+  "status": "open",
+  "statusSource": "rurubu&more spot 80042578 and hotpepper strJ001083269 current listings (9:30-18:30, Sun to 17:30, open daily)"
+ },
+ {
+  "n": "Kokusai-dōri Yatai-mura (国際通り屋台村)",
+  "address": "3-11-16/17 Makishi, Naha, Okinawa (那覇市牧志3-11-16、17)",
+  "lat": 26.216748,
+  "lng": 127.690413,
+  "confidence": "low",
+  "geoSource": "Listing coordinate 26.216748,127.690413 surfaced by WebSearch extended '国際通り屋台村 那覇市牧志3-11-16 緯度 経度' (results: Okinawa Traveler shop/367, NAVITIME 02301-1800252, tabelog 47023016, official kokusaidoori-yataimura.okinawa/access-2 — exact aggregator not identified); street address 牧志3-11-16,17 from the official/listings; consistent with the lot just off Kokusai-dōri, ~5 min from Makishi stn.",
+  "status": "open",
+  "statusSource": "Official site kokusaidoori-yataimura.okinawa (current, operating)"
+ },
+ {
+  "n": "Min'yō Stage Utahime, Kokusai-dōri (民謡ステージ歌姫)",
+  "address": "Higashi-fukurōkan Bldg 1F, 17-11 Higashimachi, Naha, Okinawa 900-0034 (那覇市東町17-11) — relocated 2026-03-11 from 1-2-31 Makishi (Haisai Okinawa Bldg B1F, Kokusai-dōri)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "WebSearch extended '民謡ステージ歌姫 那覇市 国際通り 住所 緯度 経度' surfaced the OLD Kokusai-dōri point 26.215736,127.685045 (1-2-31 Makishi) plus a notice that the venue reopened at 東町17-11 on 2026-03-11 (results: hotpepper strJ001250805, NAVITIME 00011-080656156, operator l.e. Co. sunsean.co.jp/utahime.php). Old point deliberately NOT used; new-address coordinate not found (search cap reached). Card name/address 'Kokusai-dōri' needs updating.",
+  "status": "open",
+  "statusSource": "Relocation notice surfaced 2026-10-03 via hotpepper/operator listings (reopened 2026-03-11 at Higashimachi 17-11); still operating"
  }
 ]
