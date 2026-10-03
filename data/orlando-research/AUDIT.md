@@ -303,3 +303,11 @@
   ~700 m off, as W4), Tinker Building (no 2nd source confirmed), Pulse (demolished Mar 2026, memorial due 2027), Madame Tussauds/SEA LIFE
   (no own coordinate inside ICON Park), Walala (no address surfaced), Primo/Chuan Fu/JUJU (no RG listing).
 - Rebuild → 4 gates PASS · validate DATA OK · npm test ALL PASS → **192 sights + 125 food = 317 on the map**, 483 researched.
+
+## 2026-10-03 (session 6 · wave 5) · batch 3 — +11 pins, wave close
+- **Pins (+11, `_geoout_w5pin.json` = 102):** At Siam, Twenty Pho Hour, Kavas (IDR); Austin's Coffee, Foxtail (WPK); Charley's,
+  Lizzie's, Celebration Town Tavern (address 721 Front St from RG), Big John's Rockin' BBQ (KISS); Willie's Pinchos, Linda's La Cantina (EAST).
+- **Address correction:** Big John's Rockin' BBQ — 324 Broadway listing closed; current 220 E Monument Ave Ste A per the restaurant's own
+  Toast ordering page → pinned there (med).
+- No RG listing: Moon Wok, Bar Kada, The Chapman, Persimmon Hollow, Wondermade, Carib Brewery, Q's Crackin' Crab → wave 6 retry list.
+- Rebuild → 4 gates PASS · validate DATA OK · npm test ALL PASS → **192 sights + 136 food = 328 on the map** (wave start 226), 483 researched.
