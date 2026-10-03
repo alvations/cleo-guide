@@ -187,3 +187,36 @@ venue pages (high); dish from Michelin editorial ("Naniwa on a Plate", "casual l
 japan-guide /ad/ source replaced with Inside Osaka (Minami area). Searched & missed: Tengu (OSAKA-INFO kushikatsu pages don't
 name it), Hozenji Sanpei. Held 14 Michelin leads with no dish surfaced; dropped Tominoya (see `_held_W4.json`).
 Final W4 build: 372 discovered / 290 rendered; 4 gates PASS; validate + npm test PASS. Main searches ~17; session total ~185.
+
+## 2026-10-03 — Wave W5 (session 5): 6 background workers + main
+Brief: `_W5_worker_brief.md` (W4 brief + Japanese-language channel, 25% pin reserve, closure status per record).
+**Stage 1 — outlets proposed/vetted (`SOURCES_OSAKA_W5{A-E}.json`):** LMAGA (Lmaga.jp / Keihanshin L Magazine), WALKERPLUS
+(Kansai Walker, KADOKAWA — `/article/` pieces only, not `/release/`), TVTOKYO (Adomachi Tengoku broadcaster pages), OSAKAMETRO /
+METRONINE (Osaka Metro's own OsakaMania / Metro NiNE guides), COTRIP (Shobunsha), ALLABOUT (named-expert guides), OGGI & WARAKU
+(Shogakukan magazines), DAILY (Daily Sports), OSAKACITY (municipal PDF), YAHOOEXPERT (corroborating only — weaker). Accepted as
+ordinary credible sources. **Rejected by main: KANPAI** (enthusiast blog) → Hozenji Sanpei back to held.
+**Stage 2/3 — written (+26 net: 372 → 398):**
+- W5A BAY +6: Yasubei (TABELOG100 + TVTOKYO), Aabel Curry, Sawashi Shoten 沢志商店 (sata andagi; romanization of 沢志 is the
+  worker's own reading), TUGBOAT_TAISHO, ★ Kinopio's Café (Super Nintendo World; WIKIPEDIA + TIMEOUT), Kirara Kujō.
+- W5B EAST 0 — every Tsuruhashi/Kyōbashi lead single-source (13 held).
+- W5C TNJ +7: Tengu (promoted), Tsuriganeya Honpo, Sennariya Coffee (status unknown — changed hands 2018–19), Chausuyama Kofun,
+  Yasui Shrine, Sankō Shrine, Hinode-yu.
+- W5D MINAM +6: Sennichimae Hatsuse; ★ Mandarake Grand Chaos, ★ Super Potato, ★ Animate Nipponbashi (street number dropped —
+  unclear source), ★ Kuidaore Taro; Misono Building **— CLOSED** (5 Jul 2025; OSAKAINFO + TIMEOUT + jawiki).
+- W5E +7: NORTH Hisakuni Kōsendō, Momotaro (momiji tempura, promoted), Menya Hakkaisan, Saishiki Ramen Kinsei, Le Sucré-Coeur;
+  KNSAI Okonomiyaki Aomori (sobameshi birthplace; FEELKOBE + KOBENP); SOUTH Shin-an & Ōbai-an tea houses.
+**Main review — held back:** Niji no Hotoke (Oggi URL could not be confirmed to name it, 1 search), Mentokokoro 7 (two creators
+only + status unknown), Taishō Salon Hige to Boin (the "TABELOG100" link was the shop's own Tabelog page), Hozenji Sanpei (KANPAI).
+Manmasa/Tsuruichi: Walkerplus 217892 checked by main — does not name them. All held → `_held_W5.json`.
+**Closure re-check:** Osaka Shochikuza stays **CLOSED** — Time Out's "last-minute reprieve" (Apr 2026) is a plan to rebuild in another
+form; last performance 26 May 2026, demolition planned (Kumanichi/Kyodo). Zuboraya (2020) and Futami no butaman (2024) closures
+noted as candidate CLOSED cards (single source).
+**Geocode (W5G + workers):** +8 high (HEP Five wheel, Sakai Densho-kan = 堺HAMONOミュージアム, capi [Michelin], Super Nintendo World
+re-pinned to the Mario Kart ride coord (4b), Chausuyama, Yasui, Sankō, Misono Bldg); Mashino Ken's Michelin coord is ~1.5 km off
+its own address → kept UNVERIFIED. W4A five closure-checked → open (addresses corrected). Channels tested & dropped: openstreetmap.org
+(no node pages in results), Google `!3d!4d` (none surface). Rejected district coords for Doguyasuji, Tsuruhashi market, Danjō Garan, KIX.
+**Build:** 398 discovered (151 sights + 247 food = 62% food), 297 rendered (126 + 171); ANIME 21 (+5); sourcecheck PASS ·
+geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS.
+**Channel mix W5:** Michelin 0 · Tabelog100 5 · editorial ~45 · official/municipal ~15 · Wikipedia ~10 · creators 2 (Ramen Adventures).
+**Yield:** ≈ 0.15 places/search (26 places / ~175 searches) — the outer areas are near single-source exhaustion on the WebSearch
+channel; most shops have exactly one credible editorial mention. Searches: workers 171 + main ~5.

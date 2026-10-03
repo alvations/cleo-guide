@@ -174,5 +174,60 @@
   "confidence": "med",
   "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Downtown_Winter_Park_Historic_District): 28°35′50″N 81°21′07″W",
   "note": "district point for the Park Ave historic district (the sight itself is the street); via WebSearch 2026-10-03"
+ },
+ {
+  "n": "Woody's Lunch Box",
+  "address": "Toy Story Land, Disney's Hollywood Studios, 351 S Studio Dr, Lake Buena Vista, FL",
+  "status": "open",
+  "statusSource": "Recommended as open in https://www.disneyfoodblog.com/2026/06/26/we-reviewed-our-10-favorite-snacks-in-disneys-hollywood-studios/",
+  "lat": 28.3557,
+  "lng": -81.5622,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Woody%27s_Lunch_Box): 28°21′21″N 81°33′44″W",
+  "note": "via WebSearch 2026-10-03"
+ },
+ {
+  "n": "Garden Grill Restaurant",
+  "address": "The Land Pavilion, EPCOT, 200 Epcot Center Dr, Lake Buena Vista, FL",
+  "status": "open",
+  "statusSource": "Recommended as open in https://touringplans.com/blog/review-epcots-garden-grill-restaurant",
+  "lat": 28.3738806,
+  "lng": -81.5528861,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates of the host building (The Land pavilion — Living with the Land, https://en.wikipedia.org/wiki/Living_with_the_Land): 28.3738806,-81.5528861",
+  "note": "building-level pin: restaurant is inside/part of this pavilion; not a park centroid"
+ },
+ {
+  "n": "Regal Eagle Smokehouse: Craft Drafts & Barbecue",
+  "address": "The American Adventure Pavilion, World Showcase, EPCOT, 200 Epcot Center Dr, Lake Buena Vista, FL",
+  "status": "open",
+  "statusSource": "Recommended as open in https://www.disneyfoodblog.com/2023/07/30/review-this-epcot-restaurant-went-from-awful-to-awesome/",
+  "lat": 28.367462,
+  "lng": -81.549454,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates of the host building (The American Adventure pavilion, https://en.wikipedia.org/wiki/The_American_Adventure_(Epcot)): 28.367462,-81.549454",
+  "note": "building-level pin: restaurant is inside/part of this pavilion; not a park centroid"
+ },
+ {
+  "n": "Rose & Crown Dining Room",
+  "address": "United Kingdom Pavilion, World Showcase, EPCOT, 200 Epcot Center Dr, Lake Buena Vista, FL",
+  "status": "open",
+  "statusSource": "Recommended as open in https://disneyfoodblog.com/2026/05/05/weve-eaten-at-every-epcot-restaurant-these-are-the-best/",
+  "lat": 28.37028,
+  "lng": -81.55194,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates of the host building (United Kingdom Pavilion at Epcot, https://en.wikipedia.org/wiki/United_Kingdom_Pavilion_at_Epcot): 28.37028,-81.55194",
+  "note": "building-level pin: restaurant is inside/part of this pavilion; not a park centroid"
+ },
+ {
+  "n": "Biergarten Restaurant",
+  "address": "Germany Pavilion, World Showcase, EPCOT, 200 Epcot Center Dr, Lake Buena Vista, FL",
+  "status": "open",
+  "statusSource": "Recommended as open in https://touringplans.com/blog/review-biergarten-boasts-a-brilliant-value-in-the-current-climate-of-epcot/",
+  "lat": 28.36806,
+  "lng": -81.54694,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates of the host building (Germany Pavilion at Epcot, https://en.wikipedia.org/wiki/Germany_Pavilion_at_Epcot): 28.36806,-81.54694",
+  "note": "building-level pin: restaurant is inside/part of this pavilion; not a park centroid"
  }
 ]
