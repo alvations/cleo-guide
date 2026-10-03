@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # _jp_navipins.py — PINS-ONLY pass for the Japan maps (2026-10-03, wave P1): NAVITIME POI place pins
-# (navitime.co.jp/poi?spot=…) whose WebSearch summaries print the venue's 緯度経度 (WGS84) + block address.
+# (navitime.co.jp/poi?spot=…), MapFan spot pages (mapfan.com/spots/…) and Apple Maps places, whose WebSearch summaries print the venue's 緯度経度 (WGS84) + block address.
 #   python3 tools/_jp_navipins.py <city> <tag>   < lines "<exact record name>|<NAVITIME address>|<lat>|<lng>|<url>[|high]"
 # Appends to data/<city>-research/geo/_geoout_<city>_<tag>.json (dedup by name); keeps the record's status.
 import json, os, sys
@@ -24,7 +24,7 @@ for line in sys.stdin:
     if n in have: print("dup", n); continue
     old = G.get(n, {})
     out.append({"n": n, "address": a, "lat": la, "lng": ln, "confidence": conf,
-        "geoSource": f"NAVITIME POI {u} — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, {tag.upper()})",
+        "geoSource": f"{'MapFan spot' if 'mapfan.com' in u else 'Apple Maps place' if 'maps.apple.com' in u else 'NAVITIME POI'} {u} — 緯度経度 printed in WebSearch summary, address matched to record (2026-10-03, {tag.upper()})",
         "status": old.get("status", "open"),
         "statusSource": old.get("statusSource") or f"NAVITIME POI listing live 2026-10-03 ({u})"})
     have.add(n)

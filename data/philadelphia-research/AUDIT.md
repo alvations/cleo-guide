@@ -432,3 +432,16 @@ corroborating Angelo's only) · Wikipedia (2 sights). Searches: ~122 main thread
 - **Held (no coordinate / shared-building only):** George's Sandwich Shop, Honeysuckle, Frankford Hall, Taqueria La Patrona; Nam Phuong (only the
   1100 Washington Ave plaza point of a neighbouring tenant surfaced — not used); Attic Brewing (shares 137 W Berkley St with Deke's — needs its own pin).
 - **Build:** 310 → **341 on map**. 4 gates PASS/CONSISTENT · validate DATA OK · npm test ALL PASS.
+
+## 2026-10-03 (W7 · PINS ONLY) · batch D + wave close
+- **+22 pins** (`geo/_geoout_w7d.json`): Hymie's, Lark, Phil & Jim's (address fixed: listing 2905 Edgmont Ave, Brookhaven 19015 — record had
+  only "Parkside, PA 19015"), Tired Hands Fermentaria, Donkey's Place, Hearthside, June BYOB, Zeppoli, Vecchia Pizzeria (listing now trades as
+  "Vecchia Nuova", same 249 Bridge St address), Victory Downingtown, Pica's West Chester (listing 1233 West Chester Pike, DMS-rounded ~30 m),
+  Bluebird Distilling, Jolene's, Domani Star, Sweet Amelia's, Ro-Lynn Deli, Teresa's Next Door, Autograph Brasserie, Bam Bam Kitchen, Coyote
+  Crossing, La Belle Epoque, The Bakery House.
+- **Not pinned:** Teikoku (no coordinate); Hank's Place — only the temporary Kennett Square site (201 Birch St) carried a coordinate, Chadds Ford
+  listing says 1635 Creek Rd → ADDRESS/STATUS LEAD (post-Ida relocation).
+- **W7 totals:** 276 → **363 on map** (+87 food: 165 sights + 198 food) · on-page confidence 240 high / 123 med · ≈100 WebSearch calls
+  (≈97 aggregator-domain, 3 Waze; session budget then exhausted). Hit rate ≈80% on named+addressed restaurants — far above Apple's W6 tail.
+- **Gates (final build):** sourcecheck PASS 518 · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
+  Hub card, CITIES.md row, AGENT-PROMPTS run-log row, RESUME (State W7 + W8 plan) updated.
