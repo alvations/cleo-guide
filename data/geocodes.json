@@ -101375,14 +101375,15 @@
    },
    "Fulton Theatre": {
     "address": "12 N Prince St, Lancaster, PA 17603",
-    "lat": 40.038,
-    "lng": -76.308194,
-    "source": "Wikipedia infobox (Fulton_Opera_House) 40°2′16.8″N 76°18′29.5″W",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
     "verified": "2026-10-03",
-    "confidence": "high",
+    "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "thefulton.org (current season)",
-    "statusChecked": "2026-10-03"
+    "statusChecked": "2026-10-03",
+    "note": "downgraded 2026-10-03: snippet coord duplicated Penn Square monument"
    },
    "Walnut Street Bridge & City Island": {
     "address": "Walnut St at Front St, Harrisburg, PA 17101",
