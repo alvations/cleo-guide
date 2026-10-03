@@ -42,7 +42,12 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
 - `allowed_domains:["japan-guide.com"]` / `["osaka-info.jp"]` area queries → sight lists (source 1).
 
 ## In-flight wave
-- none — W4 closed (session 4, ~185 searches: 6 workers × 28 + main ~17).
+- **W5 (session 5, 2026-10-03)** — 6 background workers (brief `_W5_worker_brief.md`) + main:
+  W5A BAY food/drink (Taishō Little Okinawa, Kujō, Nishikujō, Bentenchō, USJ side) + held BAY · W5B EAST (Tsuruhashi,
+  Ikuno, Kyōbashi, Higashi-Ōsaka, Fuse) · W5C TNJ (Shinsekai kushikatsu, Abeno, Nishinari, Tamade) + held TNJ ·
+  W5D MINAM food + anime (Mandarake, Jump Shop, Animate, Donguri) · W5E SOUTH/NORTH/KNSAI · W5G geocoder for the 82
+  unrendered. Files `FOOD_OSAKA_W5*.json`, `SIGHTS_OSAKA_W5*.json`, `geo/_geoout_osaka_W5*.json`, `CREATORS_OSAKA_W5*.json`.
+  If cut off: whatever W5 files exist are valid (append-only); rebuild + gates + commit, then continue Next actions.
 
 - 2026-10-02 **W3 (session 3)** — 7 parallel workers + main, **200/200 searches**. **319 discovered (114 sights + 205
   food = 64% food), 266 rendered (104 + 162)**; 4 gates PASS; validate + npm test PASS; ANIME 10 (was 0).
