@@ -240,3 +240,69 @@ writing this section, so its per-query log is lost; outcomes below are reconstru
 - Still unpinned sights: Seiberling Nature Realm, Twins Days, St. Helena III, Canton Museum of Art, Five Oaks,
   Liberty Park, Brady's Leap, Hoover. All 11 W2b food → browser geocode-helper queue.
 - Search count unknown (≤45 cap).
+
+## 2026-10-03 · W3a CANT+MASS food
+(in progress, written incrementally)
+
+**Queries**
+1. `Papa Gyros Canton Ohio` → Visit Canton directory (2045 Cleveland Ave NW; huge gyros, since 2001) + **Akron Life Flavor "papa of all gyros"** → 2nd outlet for the Repository-panel lead → KEPT.
+2. `best restaurants Canton Ohio` [visitcanton.com] → downtown dining (Lucca, Bender's, Basil), International (Blue Habanero), breakfast Stark11 (Gregory's).
+3. `Canton Stark County restaurants best` [ohiomag/clemag/akronlife] → Akron Life "Winning Eats in Canton", Good Fortune (Akron Life only), Muskellunge Brewing (Akron Life). Ohio Magazine Visit Canton post = *sponsored*, not counted.
+4. `Lucca Canton … address` → 228 4th St NW (OpenTable listing used for the address only, not as a source).
+5. `Canton restaurants Lucia's Blue Smoke Arcade Market` [6 editorial domains] → Akron Life "Winning Eats in Canton": Lucia's (4769 Belpar St NW, filet/veal), Blue Smoke (Belden Village Mall food court, Texas BBQ); WKYC Mélange opening (221 Market Ave N).
+6. `"A Clevelander's Guide to Canton" 21 must-go` [clemag] → new leads: Dough Co. Doughnuts, Fronimo's Downtown, Smoosh Cookies, Starflyer Brewing, Tremont Coffee, Twisted Cafe, Walkie Talkie Espresso.
+7. `330 Flavor Awards winners 2026 Canton…` [akronlife] → no Stark-specific winners surfaced (Canton Importing mentioned, Best Artisan Food Shop honourable mention).
+8. `Canton Repository Stark County best coney dog` → nothing credible (delivery listings, Dog Daze). 
+9. `Canton Ohio coney island hot dog … history` → nothing for Canton OH. **GAP STATED:** no Canton coney-dog place surfaced that meets the bar in this wave.
+10. (allowed_domains with cantonrep.com → 400 error; not counted as a result.) `Canton Repository … Blue Habanero Gregory's Doug's` [aol/yahoo] → nothing usable.
+11. `Stark County favorite restaurants readers poll Repository` [aol/yahoo] → Repository foodie panel (re-confirms Francisco's Cantina: nachos/tacos); USA Today Restaurants of the Year Stark lead.
+12. `USA TODAY Restaurants of the Year Stark County` → Mahoning Matters: **Social at the Stone House**, Massillon, USA Today best restaurants 2025.
+13. `"Great lunch spot…" 10 in Stark County` → Repository lunch list (Deli Ohio, BAM! Healthy Cuisine) — single outlet, not pursued.
+14. `"Social at the Stone House" Massillon USA TODAY … address` → 824 Lincoln Way E, opened July 2021.
+15. `Massillon restaurant Social Stone House dish OR "At Your Table"` → Akron Life feature (tuna tartare avocado stack, chef Jeff Herman) → KEPT MASS t1. At Your Table: nothing surfaced.
+16. `Francisco's Cantina Lucia's Steakhouse Blue Smoke Canton` [visitcanton] → Lucia's Steakhouse directory (Hob Nob lineage, 4769 Belpar) → KEPT (Akron Life + Visit Canton). Francisco's / Blue Smoke: no 2nd source.
+17. `Stark County breweries Starflyer … Muskellunge` → Visit Canton directories; Starflyer (500 Cleveland Ave NW; CLEMAG + VISITCANTON, but **no named beer** → HELD, same rule as Missing Falls); Muskellunge (Akron Life feature + Visit Canton + News 5 HOF Hops trail; Tiger Musky Double IPA) → address not surfaced → HELD.
+18. `Canton "Walkie Talkie" OR "Dough Co" OR Fronimo's OR "Smoosh Cookies"` [7 editorial domains] → **Walkie Talkie**: Ohio Magazine + Akron Life ×2 (+ CLEMAG) → KEPT. Dough Co., Smoosh: nothing. Fronimo's: event listing only.
+19. `Alliance … OR Hartville … OR Louisville … OR Canal Fulton restaurant` [ohiomag/akronlife/clemag] → Akron Life *directory listings* only (Grinders Alliance, Hartville Pie Factory) — not merit; Hartville Kitchen already in dataset.
+20. `Canal Fulton Massillon things to do eat weekend` [ohiomag/clemag/wkyc] → Chloe's Diner (already in), Royal Docks lead.
+21. `Royal Docks Brewing Canton Jackson Township` → **WKYC: Jackson Twp brewhouse/taproom (7162 Fulton Dr NW) CLOSED Sept 21**; Foeder House at Oakwood Square status/address not confirmed → not added (logged).
+22. `Walkie Talkie … address hours 2025` → 504 15th St NW, Canton 44703; current hours (Akron Life/Ohio Mag) → status open.
+23. `Muskellunge Brewing … address` → no street address surfaced → HELD.
+24. `Canton "Blue Habanero" OR "Gregory's…" OR "Doug's Classic 57" OR "Grumpy Troll" OR "Samantha's"` [8 editorial] → Samantha's Downtown (217 Market Ave; peach pecan pancakes, tuna melt) in Akron Life "Winning Eats in Canton" → with Visit Canton = 2 sources, but street direction/status unconfirmed → HELD. Blue Habanero: the CLEMAG/Scene coverage is the **Cleveland** (Gordon Square) restaurant — cannot be transferred to the Canton listing → still HELD. Gregory's, Doug's, Grumpy Troll, Pete's: nothing → HELD.
+25. `Massillon restaurant review Lincoln Way …` → re-confirms Social at the Stone House, Chloe's (in). Mary Ann Donuts: delivery listing only.
+26. `"renaissance of downtown Massillon" …` → Paradigm Shift Craft Brewery, Downtown by Hecks (Visit Canton only).
+27. `Paradigm Shift Craft Brewery Massillon … address` → no street address, no 2nd outlet → HELD.
+28. `Canton OR "North Canton" OR Massillon OR Alliance food-drink` [ohiomag] → Ohio Magazine "12 Reasons to Visit Canton": Fourth Street Collective (Woodshop, Deli Ohio, Mike's Pizza NY-style); Newman Creek Cellars (Massillon, Camelot-themed wines; Ohio Mag wine regions — single outlet → HELD); Canton Food Tours.
+29. `Deli Ohio Woodshop Mike's Pizza Fourth Street Collective … address` → Repository (AOL) opening story: 328 Walnut Ave NE.
+30. `"What's for dinner? HOF visitors … 15 must-visit eateries"` → Repository list: Mike's Pizza (fermented-dough NY pies), Heritage Bistro (new; single outlet), Jerzee's → **Mike's Pizza & Deli Ohio KEPT** (Repository ×2 = one outlet + Ohio Magazine + Visit Canton).
+31. `Canton Stark County restaurant closed 2025 OR 2026 … Lucia's OR Lucca OR "Papa Gyros" OR "Samantha's"` → no closure for any kept place (Nacho Mama's Canton closed Jan 2025: not a candidate). Samantha's Sunny Corner (Hills & Dales, 1991 original) is open, but the held lead is Samantha's Downtown.
+32. `Canton OR Massillon … restaurant worth the drive` [scene/clemag] → 91 Wood Fired Oven (CLEMAG guide), The Butcher, Fedeli (attribution unclear → HELD).
+33. `"91 Wood Fired Oven" OR "The Butcher" OR "Fedeli" Canton address` → 91 WFO: 5570 Fulton Dr NW + 1983 E Maple St (N. Canton) → KEPT t3 (CLEMAG restaurant guide + Visit Canton). The Butcher / Fedeli: no address → HELD.
+34. `Sippo Lake Park … coordinates` → Stark Parks (5300 Tyner St NW, 300 acres, 1977) + Trek Ohio + Repository (kayak launch) → KEPT sight; coordinate truncated → unverified.
+35. `Ohio Society of Military History museum Massillon` → "Ohio Military Museum", 316 Lincoln Way E (Clio + directories).
+36. `"Ohio Military Museum" Massillon 316 Lincoln Way` → no 2nd credible source and no 2025/26 status → HELD.
+37. `Glamorgan Castle Alliance … NRHP` → NPS NRHP asset (1025 S Union Ave, listed 1972) + Visit Canton + News 5 → KEPT sight (CANT t1, the Alliance anchor). No coordinate → unverified.
+38. `Lake Anna Barberton …` → Wikipedia Lake Anna Park + Barberton library history + Canalway Magic City quest → KEPT sight (BARB). No coordinate in snippet → unverified.
+39. `Stark County best burgers OR pizza OR wings … Repository` [aol/yahoo] → Yahoo Local directory junk only.
+40. `Canal Fulton … restaurant brewery coffee` [6 domains] → Visit Canton Canal Fulton Stark11 (Speakeasy Coffee, The Exchange, Barrel Room, **At Your Table Cafe & Catering** — directory only, no 2nd outlet → HELD), Ohio Magazine "3 Just-Off-The-Trail Breweries and Bars".
+41. `"Canal Boat Lounge" Canal Fulton towpath burger` → Ohio Magazine (photo caption + text: family-owned since 1994, burgers) + Visit Canton Stark11 (+ Islands) → KEPT.
+42. `Canal Boat Lounge … address` → 119 S Canal St, Canal Fulton 44614.
+
+**Kept (8 food + 3 sights):**
+- MASS t1 **Social at the Stone House** (824 Lincoln Way E; tuna tartare avocado stack): MAHONINGMATTERS (USA Today Restaurants of the Year 2025) + AKRONLIFE.
+- MASS t3 **Canal Boat Lounge** (119 S Canal St, Canal Fulton; burgers): OHIOMAG + VISITCANTON.
+- CANT t2 **Papa Gyros (Cleveland Ave)** (2045 Cleveland Ave NW; huge gyro): CANTONREP panel + AKRONLIFE + VISITCANTON. *Promoted from held.*
+- CANT t2 **Lucca** (228 4th St NW; hand-made pasta, double-boned pork chop): CANTONREP panel + VISITCANTON. *Promoted from held* (same standard as Desert Inn / Bocca Grande).
+- CANT t3 **Lucia's Steakhouse** (4769 Belpar St NW; filet, veal): AKRONLIFE + VISITCANTON.
+- CANT t2 **Walkie Talkie Espresso & Coffee** (504 15th St NW; habanero latte): OHIOMAG + AKRONLIFE + CLEMAG.
+- CANT t2 **Mike's Pizza & Deli Ohio (Fourth Street Collective)** (328 Walnut Ave NE; fermented-dough NY pizza): CANTONREP ×2 + OHIOMAG + VISITCANTON.
+- CANT t3 **91 Wood Fired Oven** (5570 Fulton Dr NW; wood-fired pizza): CLEMAG guide + VISITCANTON (weakest keep, mention-level; revisit if a rave or award surfaces).
+- Sights: CANT t1 **Glamorgan Castle** (NPS NRHP), CANT t2 **Sippo Lake Park** (Stark Parks), BARB t2 **Lake Anna Park** (Wikipedia).
+**Still held:** Francisco's Cantina (Repository panel only), Blue Habanero (Canton listing; editorial coverage is the Cleveland restaurant), Gregory's, Doug's Classic 57, Pete's, Grumpy Troll, Samantha's Downtown (Akron Life + VC, address/status), Starflyer Brewing (no named beer), Muskellunge Brewing (address), Paradigm Shift (address/2nd), Newman Creek Cellars (Ohio Mag only), At Your Table (VC only), Blue Smoke (Akron Life only), Good Fortune (Akron Life only), Heritage Bistro (Repository only), The Butcher / Fedeli (attribution), Dough Co. / Smoosh / Tremont Coffee / Twisted Cafe / Fronimo's (CLEMAG only), Ohio Military Museum (2nd source/status), Royal Docks Foeder House (status).
+**Rejected / logged:** Royal Docks Jackson Twp taproom (CLOSED Sept 21, WKYC). Ohio Magazine sponsored Visit Canton posts (not counted). Yahoo Local / OpenTable / Toast (address-only). **Canton coney GAP stated:** no Canton coney-dog place met the bar this wave (searches 8–9).
+**Pins:** 0 new. All 8 food → geocode-helper queue; the 3 sights have no attributable coordinate yet (Sippo snippet was truncated, so it was not used). Nothing was estimated.
+**Searches used: 42 of 45** (plus 1 rejected call to the cantonrep.com domain filter, which returned a 400 error).
+New source keys: MAHONINGMATTERS, BARBERTONLIBRARY (SOURCES_W3A.json).
+- **Orchestrator review (W3a):** dropped **91 Wood Fired Oven** — its two sources are a Cleveland Magazine
+  restaurant-guide listing + a Visit Canton directory entry; a listing is not merit (SOURCES.md merit bar: no award,
+  vote, rave or measured rating). Back to held. W3a nets 10 places (7 food + 3 sights).
