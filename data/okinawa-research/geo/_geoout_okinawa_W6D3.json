@@ -32,5 +32,25 @@
   "geoSource": "No coordinate or street number surfaced",
   "status": "open",
   "statusSource": "Veltra Yokka market-crawl article + Mapple 51283 senbero list (current)"
+ },
+ {
+  "n": "Mekaru Tomb Site, Shintoshin (銘苅墓跡群)",
+  "address": "Mekaru 2-chōme, Naha, Okinawa",
+  "lat": 26.236752,
+  "lng": 127.696008,
+  "confidence": "low",
+  "geoSource": "WGS coordinate 26.236752,127.696008 printed in a search result for the site (extended search; page attributed among ja.wikipedia/rubese gurucomi listing) — consistent with Mekaru 2-chōme opposite Naha fire HQ; upgrade from ja.wiki infobox",
+  "status": "open",
+  "statusSource": "Bunka Isan Online 163218 (national historic site, open hillside) + bunkaisan.exblog visit guide"
+ },
+ {
+  "n": "Gokoku-ji Temple, Naminoue (護国寺)",
+  "address": "1-25-5 Wakasa, Naha, Okinawa",
+  "lat": 26.22005,
+  "lng": 127.67159,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 護国寺 (那覇市) infobox coords 26.2200500,127.67159 (surfaced W5D1 search 16)",
+  "status": "open",
+  "statusSource": "en.wikipedia/Samurai-Archives (active temple adjacent to Naminoue Shrine), 2026-10"
  }
 ]
