@@ -34,3 +34,6 @@ HELD Orlando Health/Amtrak station (1926 Mission-style) — WIKIPEDIA coords 28.
 DROP Rogers Building — Wikipedia coord 28.54278,-81.37056 looks ~700 m east of 37-39 S Magnolia Ave; suspect, not used
 Nikki's Place | DTO | ORLANDOWEEKLY+WMFE(Scott Joseph) | no | Parramore 1949 landmark; status via buyblack.org Feb-2026 list (weak - lead may want a 2nd status check); address 742 Carter St per OW (ClickOrlando/Hoodline print 5742)
 Orlando Health/Amtrak Station (1926 ACL depot) | MILLS (SoDo) | WIKIPEDIA+FLHERITAGE(new outlet)+BUNGALOWER | PINNED 28.52590,-81.38130 (Orlando_Health/Amtrak_station wiki) | supersedes HELD line above
+Kappy's Subs | WPK (Maitland) | ORLANDOWEEKLY(2025 finalist)+FOX35+CLICKORLANDO | no | ADDRESS NOT surfaced — only 'Maitland'; needs street address before geocode.
+HELD Parea Greek Taverna (Maitland) — only Orlando Weekly review; need 2nd
+HELD The Osprey (Baldwin Park) / Seito Sushi Baldwin Park — OW 2025 finalists only
