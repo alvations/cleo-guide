@@ -55,7 +55,7 @@
   Bob Chinn's, Jimmy's Woodlawn Tap, Ramova Grill, Gayety's, Gale Street Inn, Temperance, Mader's, Cindy's, LH Rooftop, Sabri Nihari, Piece, Spinning J,
   Chief O'Neill's, Chi Cafe, Nine Bar.
 
-- 2026-10-03 (session 5 / wave 4, FINAL): **498 researched (293 food & drink = 59%), 318 rendered (206 sights + 112 food)**; 4 gates +
+- 2026-10-03 (session 5 / wave 4, FINAL; +4 on resume → 502 researched, SUB now OK): **498 researched (293 food & drink = 59%), 318 rendered (206 sights + 112 food)**; 4 gates +
   validate + test green; card + CITIES.md + AGENT-PROMPTS run-log refreshed. ~167 searches, no sub-agents.
   Per area (food+sights / target): LOOP 54+56=110/110 OK · NORTH 49+36=85/85 OK · SOUTH 31+29=60/60 OK · DAY 20/20 OK · NW 56+23=79/80 ·
   WEST 32+15=47/50 · FAR 16+13=29/30 · SUB 24+24=48/50 · SW 10+10=20/25.
@@ -74,8 +74,8 @@
 ## Next actions (ordered)
 **Session-6 plan (next wave):**
   (a) Close the last NEED (≈12): SW +5 (food — Taqueria San Julian / Sputnik Coffee / Somos Monos need a 2nd source; Back of the Yards,
-      Brighton Park, Archer Heights Polish), WEST +3 (Cerdito Muerto 2nd source, Little Village Arch pin, Douglass Park, Nuevo Leon status),
-      SUB +2 (Joy Yee / Burl Evanston 2nd source; Scratch/Hecho en Oak Park), NW +1, FAR +1 (Wabash YMCA is SOUTH; FAR: Pullman Market Hall pin,
+      Brighton Park, Archer Heights Polish), WEST +1 (Little Village Arch pin, Douglass Park, Nuevo Leon status),
+      NW +1, FAR +1 (Wabash YMCA is SOUTH; FAR: Pullman Market Hall pin,
       Hotel Florence precise pin). LOOP/SW food share ≥ 50%: add LOOP food, not sights.
   (b) Apple Maps pin pass on the ~150 UNVERIFIED (3 names + full street address per query; accept coordinate= links whose address matches):
       start with the names the last pass returned place-id-only for (retry with full street address), then FOOD_W12/W13/W14 (never geo-rowed).

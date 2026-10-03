@@ -307,3 +307,12 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
   Creator query this wave: Keith Lee's Chicago picks (Block Club 2024) → Cleo's corroborated; no new creator vetted.
 - Final build: 498 researched / 318 rendered (206 sights + 112 food); 59% food overall; LOOP/NORTH/SOUTH/DAY OK; 4 gates PASS
   (statuscheck: 2 places without a closure check); npm run validate DATA OK; npm test ALL PASS.
+
+## 2026-10-03 (session 5 / wave 4) · resume after usage-limit reset (≈174 searches total)
+- Orchestrator asked to resume; wave 4 had already closed out, so the remaining budget went on the NEED tail.
+- +4 promoted from the held list: Burl (Chicago Mag + Evanston RoundTable; 2545 Prairie Ave via Apple listing), Joy Yee Noodles Evanston
+  (Time Out + Evanston RoundTable), Cerdito Muerto (Infatuation + Chicago Mag Nov 2025 + Time Out); new sight Little Village Arch
+  (City landmark report + Choose Chicago + Block Club + WTTW; unpinned, Apple place-id only). SUB now OK.
+- SW source exhaustion (documented): Taqueria San Julian, Sputnik Coffee, Somos Monos, El Solazo/Solazo (no named dish), Tio Luis, New Archview,
+  63rd St Arab corridor — searched Time Out / Infatuation / Chicago Mag / Reader / South Side Weekly / WTTW / ABC7; none reached 2 credible + dish.
+- Build: 502 researched / 318 rendered; 4 gates PASS; validate + test PASS.
