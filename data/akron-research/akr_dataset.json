@@ -536,7 +536,7 @@
    "t": 1,
    "a": "MASS",
    "n": "Paul Brown Museum",
-   "ad": "Lincoln Way E, Massillon, OH 44646",
+   "ad": "121 Lincoln Way E (inside the Massillon Museum), Massillon, OH 44646",
    "w": "Massillon's shrine to 'Tigertown' football — a 30-foot timeline of Massillon Tiger history from 1891, the early pro Massillon Tigers, and Paul Brown, who coached here before Ohio State, the Browns and the Bengals. Paul Brown Tiger Stadium, Ohio's largest high-school field, is across town.",
    "k": "MUS",
    "g": [
@@ -555,6 +555,10 @@
     [
      "FARMANDDAIRY",
      "https://www.farmanddairy.com/?p=3147"
+    ],
+    [
+     "OHIOMAG",
+     "https://www.ohiomagazine.com/ohio-life/article/paul-brown-museum-massillon"
     ]
    ]
   },
@@ -751,7 +755,7 @@
    "t": 2,
    "a": "AKR",
    "n": "F.A. Seiberling Nature Realm",
-   "ad": "828 Smith Rd, Akron, OH 44313",
+   "ad": "1828 Smith Rd, Akron, OH 44313",
    "w": "Summit Metro Parks' nature-study preserve on land Goodyear founder F.A. Seiberling owned — the park district's first nature center, a rock garden, ponds and a suspension bridge over the ravine.",
    "k": "PARK",
    "g": [
@@ -1133,7 +1137,7 @@
    "t": 2,
    "a": "NSUM",
    "n": "Twins Days Festival (Glen Chamberlin Park)",
-   "ad": "Glen Chamberlin Park, Twinsburg, OH 44087",
+   "ad": "Glen Chamberlin Park, 10260 Ravenna Rd, Twinsburg, OH 44087",
    "w": "Every first full weekend of August since 1976, ~2,000 sets of twins converge on Twinsburg — the world's largest gathering of twins, in the town named for Moses and Aaron Wilcox, the identical twins who bought it in 1819.",
    "k": "ODD",
    "g": [
@@ -2177,6 +2181,281 @@
      "https://www.visitakron-summit.org/summit-brew-path/official-stops"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "AKR",
+   "n": "Momo House",
+   "ad": "1548 Home Ave, Akron, OH",
+   "w": "A family-run Nepali restaurant and bar in North Hill, Akron's International District, where the Bhutanese-Nepali community settled. Signal Akron singled out its chicken momo; Akron Life's North Hill profile lists it for momos, chow mein and fried rice. The first North Hill Nepali kitchen on the map.",
+   "cz": [
+    "HIMAL"
+   ],
+   "s": [
+    [
+     "SIGNALAKRON",
+     "https://signalakron.org/taste-this-chicken-momo-at-momo-house/"
+    ],
+    [
+     "AKRONLIFE",
+     "https://www.akronlife.com/people/north-hill-ben-gage/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "AKR",
+   "n": "Sweet Mary's Bakery",
+   "ad": "76 E Mill St, Akron, OH 44308",
+   "w": "A small downtown bakery, four chairs at a low orange counter facing the window, with cases of macarons, cheesecakes, croissants and scones. Signal Akron readers voted it Best Bakery in 2025 and again in 2026, and Akron Life readers picked it in Best of the City 2024.",
+   "cz": [
+    "ICE"
+   ],
+   "s": [
+    [
+     "SIGNALAKRON",
+     "https://signalakron.org/akron-best-of-the-city-food-favorites-bakery-sweet-marys/"
+    ],
+    [
+     "SIGNALAKRON",
+     "https://signalakron.org/signal-akron-best-of-city-2025-winner-bakery-sweet-marys/"
+    ],
+    [
+     "AKRONLIFE",
+     "https://www.akronlife.com/arts/330-area-blog/best-of-the-city-2024-readers-picks/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "AKR",
+   "n": "Angel Falls Coffee Company",
+   "ad": "792 W Market St, Akron, OH 44303",
+   "w": "A Highland Square roaster and coffeehouse since 1996, named by co-founder Rafael Oletta for the Venezuelan waterfall, the tallest in the world. Signal Akron readers voted it Best Coffee/Tea in 2025 and Akron Life has profiled it.",
+   "cz": [
+    "COF"
+   ],
+   "s": [
+    [
+     "SIGNALAKRON",
+     "https://signalakron.org/signal-akron-best-of-city-2025-winner-coffee-tea-angel-falls/"
+    ],
+    [
+     "SIGNALAKRON",
+     "https://signalakron.org/akron-best-of-the-city-food-favorites-coffee-tea-angel-falls-highland-square/"
+    ],
+    [
+     "AKRONLIFE",
+     "https://www.akronlife.com/arts/angel-falls-coffee-company/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KENT",
+   "n": "Mike's Place",
+   "ad": "1700 S Water St, Kent, OH 44240",
+   "w": "Kent's oddball institution: a huge, joke-filled menu (Jedi Jan's Sandwich of Meta Perversion and the like), large portions, award-winning barbecue and kitschy decor. Kent State students voted it Best Restaurant in Best of Kent 2025. Scene ('We Like Mike') and Ideastream's 'Beyond the Dish' have both covered it.",
+   "cz": [
+    "US",
+    "SOUL"
+   ],
+   "s": [
+    [
+     "KENTWIRED",
+     "https://kentstater.com/128235/best-of-kent-2025/bok-25-best-restaurant/"
+    ],
+    [
+     "SCENE",
+     "https://www.clevescene.com/food-drink/we-like-mike-1478024"
+    ],
+    [
+     "IDEASTREAM",
+     "https://www.ideastream.org/programs/applause/beyond-the-dish-mikes-place"
+    ],
+    [
+     "AKRONLIFE",
+     "https://www.akronlife.com/locations/mike%E2%80%99s-place/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KENT",
+   "n": "Taco Tontos",
+   "ad": "123 Franklin Ave, Kent, OH",
+   "w": "Kent's favourite Mexican spot since 1972. It began as a food truck before moving to Franklin Avenue, and it hand-cuts its chicken and steak and makes its salsas and sauces from scratch. Cleveland Magazine's taco guide called its black bean and sweet potato taco an instant hit, and it won Best Mexican Food in Best of Kent in 2024, 2025 and 2026.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "KENTWIRED",
+     "https://kentstater.com/140529/best-of-kent/bok-26-mexican-food/"
+    ],
+    [
+     "KENTWIRED",
+     "https://kentstater.com/128249/best-of-kent-2025/bok-25-best-mexican-food"
+    ],
+    [
+     "CLEMAG",
+     "https://clevelandmagazine.com/articles/cleveland-taco-guide-taco-tontos-black-bean-and-sweet-potato-taco-is-an-instant-hit"
+    ],
+    [
+     "SCENE",
+     "https://www.clevescene.com/news/first-look-taco-tontos-3080734/"
+    ],
+    [
+     "AKRONLIFE",
+     "https://www.akronlife.com/locations/taco-tontos/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KENT",
+   "n": "The River Merchant",
+   "ad": "911 N Mantua St, Kent, OH",
+   "w": "A small upscale New American room beside the Cuyahoga just outside downtown Kent, with a wine market of more than 350 bottles and craft beers. It is on Akron Life's 20 Best Restaurants for 2026 and won Best Date Spot in Best of Kent 2025.",
+   "cz": [
+    "US"
+   ],
+   "g": [
+    "SHOP"
+   ],
+   "s": [
+    [
+     "AKRONLIFE",
+     "https://www.akronlife.com/dining/Flavor-blog/river-merchant-kent/"
+    ],
+    [
+     "AKRONLIFE",
+     "https://www.akronlife.com/dining/akron-restaurant-search/20-best-restaurants-for-2026/"
+    ],
+    [
+     "KENTWIRED",
+     "https://kentstater.com/127980/best-of-kent-2025/bok-25-best-date-spot/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KENT",
+   "n": "Laziza",
+   "ad": "195 E Erie St, Kent, OH",
+   "w": "A two-storey downtown Kent kitchen whose Lebanese entrées the Beacon Journal's Local Flavor column called 'fragrant, spicy pleasures'. It has a 4.5 rating from 500-plus OpenTable reviews (a popularity measure only) and has since added a craft-American menu alongside the Lebanese one.",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "BEACONJOURNAL",
+     "https://www.yahoo.com/entertainment/local-flavor-lazizas-lebanese-entrees-110156903.html"
+    ],
+    [
+     "KENTWIRED",
+     "https://kentwired.com/8866/uncategorized/gift-guide-laziza"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NSUM",
+   "n": "Flury's Cafe",
+   "ad": "2202 Front St, Cuyahoga Falls, OH 44221",
+   "w": "Lee and Bertie Flury opened this breakfast café in 1966. Kimberly White bought it in 1994 and moved it from Sackett Avenue to a downtown Front Street corner in 2015. Signal Akron's 'Taste This' featured its croissant breakfast sandwich, and it appears in Roadfood and Scene's all-day breakfast round-up. Open Wednesday to Sunday mornings.",
+   "cz": [
+    "BURG"
+   ],
+   "s": [
+    [
+     "SIGNALAKRON",
+     "https://signalakron.org/bite-into-this-croissant-breakfast-sandwich-in-cuyahoga-falls-served-with-savory-jam/"
+    ],
+    [
+     "ROADFOOD",
+     "https://roadfood.com/?p=28025"
+    ],
+    [
+     "SCENE",
+     "https://www.clevescene.com/cleveland/10-greater-cleveland-all-day-breakfast-joints-you-should-try/Slideshow/4317427/4317917"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NSUM",
+   "n": "Szalay's Farm Market",
+   "ad": "4563 Riverview Rd, Peninsula, OH",
+   "w": "A third-generation family sweet-corn farm in the Cuyahoga Valley that has grown corn for more than 90 years. Its market sells corn by the dozen, and outdoor stands roast it with sandwiches, lemonade and sundaes. Weekends bring music, and autumn brings a corn maze. Signal Akron and Akron Life both send readers here for local sweet corn. Seasonal.",
+   "cz": [
+    "US"
+   ],
+   "g": [
+    "SHOP"
+   ],
+   "s": [
+    [
+     "SIGNALAKRON",
+     "https://signalakron.org/aw-shucks-heres-where-to-find-ohio-sweet-corn-in-akron-grafs-szalays/"
+    ],
+    [
+     "AKRONLIFE",
+     "https://www.akronlife.com/dining/making-summer-sweeter"
+    ],
+    [
+     "CLEVELAND19",
+     "https://www.cleveland19.com/story/38686751/szalays-sweet-corn-is-ready-so-thats-whats-for-dinner-until-october/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BARB",
+   "n": "Kingfish Seafood",
+   "ad": "115 Montrose West Ave, Copley, OH 44321",
+   "w": "Hospitality Restaurants' East Coast-style seafood house in Montrose, behind a lighthouse tower and with a New England summer-home dining room. It won Best Restaurant in Akron Life's 2026 330 Flavor Awards and was praised in Cleveland Magazine's review.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "AKRONLIFE",
+     "https://www.akronlife.com/dining/330-flavor-awards-winners-2026/"
+    ],
+    [
+     "AKRONLIFE",
+     "https://www.akronlife.com/dining/Flavor-blog/kingfish-fine-dining/"
+    ],
+    [
+     "CLEMAG",
+     "https://clevelandmagazine.com/food-drink/restaurant-reviews/articles/kingfish-hooks-us-with-an-east-coast-inspired-menu"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BARB",
+   "n": "The Twisted Olive",
+   "ad": "5430 Massillon Rd, Green, OH 44720",
+   "w": "An Italian-American restaurant and pub in Green's Southgate Park, with a sprawling deck and covered patio over two ponds. It was the only Ohio restaurant on OpenTable's 2022 list of America's 100 best for outdoor dining, as reported by WKYC, and it is on Akron Life's 20 Best Restaurants for 2026.",
+   "cz": [
+    "ITAL"
+   ],
+   "s": [
+    [
+     "AKRONLIFE",
+     "https://www.akronlife.com/dining/akron-restaurant-search/20-best-restaurants-for-2026/"
+    ],
+    [
+     "WKYC",
+     "https://www.wkyc.com/article/life/food/twisted-olive-restaurant-north-canton-100-best-restaurants-outdoor-dining-america-opentable/95-0966c27d-c224-4e4e-9fb4-7536b1a15e60"
+    ],
+    [
+     "OHIOMAG",
+     "https://www.ohiomagazine.com/food-drink/restaurants/Details/the-twisted-olive"
+    ]
+   ]
   }
  ],
  "S": {
@@ -2458,6 +2737,12 @@
    "u": "https://clevelandmagazine.com/",
    "l": "Cleveland Magazine"
   },
+  "CLEVELAND19": {
+   "k": "CLEVELAND19",
+   "t": "Cleveland 19 News (WOIO)",
+   "u": "https://www.cleveland19.com/",
+   "l": "Cleveland 19 News (WOIO)"
+  },
   "CLEVELANDJEWISHNEWS": {
    "k": "CLEVELANDJEWISHNEWS",
    "t": "Cleveland Jewish News",
@@ -2511,6 +2796,12 @@
    "t": "Pittsburgh Magazine",
    "u": "https://www.pittsburghmagazine.com/",
    "l": "Pittsburgh Magazine"
+  },
+  "ROADFOOD": {
+   "k": "ROADFOOD",
+   "t": "Roadfood",
+   "u": "https://roadfood.com/",
+   "l": "Roadfood"
   },
   "SCENE": {
    "k": "SCENE MAGAZINE",
