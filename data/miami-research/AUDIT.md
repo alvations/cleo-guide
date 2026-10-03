@@ -156,3 +156,18 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   L'Atelier, Bayside became "status UNVERIFIED"). Fix applied in data: every w9 row now carries status+statusSource.
   Rule for Miami geo files: never write a coordinate row without status — copy the prior status if unchanged.
 - **Gates:** sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate DATA OK · test ALL PASS.
+
+## 2026-10-03 (session 4) · batch 2 — FTL + NMIA food, Broward sights
+- **Sources:** Infatuation guides (20 classic FTL, 18 Broward, 14 best North Miami Beach) + reviews; New Times Broward-Palm Beach
+  (9 best Hollywood, 8 best Pompano, location write-ups); Miami New Times (16 best FTL, Best Restaurant Aventura 2025, NMB pieces);
+  Time Out (FTL best, venue pages); Visit Lauderdale (seafood guide, Pompano page, top-10, YAA listing); Wikipedia.
+- **Added (16):** FTL food 8 — Egg N' You, Peter Pan Diner, Top Hat Deli, Gabose, Ukiah, Billy's Stone Crab, GG's Waterfront,
+  Calypso; FTL sights 2 — NSU Art Museum (high pin), Young At Art (UNVERIFIED: Wikipedia coord is the former Davie building).
+  NMIA food 6 — Steve's Pizza (t1), Lutong Pinoy, Perl (NT Best Aventura 2025), Sang's dim sum, Pho Mi 2 Go, Basilic.
+- **MEASURED & DROPPED:** Le Tub (Infatuation: "the burger just doesn't taste the same" after renovation — negative review beats a
+  local vote, same rule as Dos Croquetas); Bulldog Barbecue (Time Out: closed, non-notable → drop).
+- **Held:** Hot Dog Heaven (NT: "for sale after 45 years" — status unclear), Burlock Coast (Fodor's forum only), J&C Oyster (VL
+  listing only), Cafe Martorano / Quarterdeck (Fodor's only), U Know Korean Bistro, Sim Sim Cafe, Topkapi, Sichuan Fish (Inf only),
+  Fort Lauderdale Antique Car Museum (VL only), Krakatoa / GoBistro / Tipsy Boar / Fish Shack / Cafe La Buca (BPB only).
+- **Search note:** sun-sentinel.com is refused by the search tool (like eater.com) — never put it in allowed_domains.
+- **Gates:** sourcecheck/geocheck PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate DATA OK · test ALL PASS.
