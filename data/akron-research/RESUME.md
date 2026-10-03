@@ -20,7 +20,13 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md**. Rebuild: `python3 
 ## State
 - 2026-10-02 scaffold: consolidate.py (6 areas, Akron-Canton cuisine taxonomy), brief, build-akron.py.
 
-## In-flight wave — resume here (W6, after W5 on 2026-10-03)
+## In-flight wave — W6 (started 2026-10-03, this session) — resume here
+- Files: FOOD_W6*.json, SIGHTS_W6*.json, SOURCES_W6.json, geo/_geoout_w6*.json. Plan: promote held leads with a 2nd outlet, then new
+  discovery for CANT, NSUM, AKR, BARB, KENT, MASS (food-first), pins via Apple/Waze/usarestaurants per place. Progress notes appended below.
+- **W6 batch 1 DONE:** +9 food → 175 places, 134 pinned. AKR 53 · CANT 38 · NSUM 30 · KENT 24 · MASS 17 · BARB 13. NEED AKR +7, BARB +7,
+  CANT +7, KENT +6, NSUM +5, MASS +3. Next: BARB (Wadsworth/Green/Norton) + KENT (Ravenna/Aurora) + AKR sights.
+
+## Previous plan (W6, as written after W5 on 2026-10-03)
 - **W5 DONE 2026-10-03:** 124 → **166 places** (68 sights / 98 food = 59%; food ≥50% in every area), pins 94 → **128**. 4 gates green,
   validate + npm test PASS. Density AKR 52/60 · CANT 36/45 · NSUM 26/35 · KENT 23/30 · MASS 16/20 · BARB 13/20.
 - **Next session (W6):** (1) pins for W5 UNVERIFIED — Menches Bros. (3700 Massillon Rd, Uniontown), Boss ChickNBeer (1791 Front St), Summit
