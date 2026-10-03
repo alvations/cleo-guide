@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Philadelphia field guide — 150 sights and 29 places to eat across Philadelphia, the Main Line, South Jersey and the Brandywine / Valley Forge day trips, each traceable to its source (Michelin, James Beard, the Philadelphia Inquirer, Philadelphia Magazine, Eater Philly, The Infatuation, the National Park Service), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Philadelphia field guide — 151 sights and 32 places to eat across Philadelphia, the Main Line, South Jersey and the Brandywine / Valley Forge day trips, each traceable to its source (Michelin, James Beard, the Philadelphia Inquirer, Philadelphia Magazine, Eater Philly, The Infatuation, the National Park Service), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
 <title>Philadelphia Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Philadelphia, the Main Line, South Jersey &amp; the Brandywine, sourced</p>
   <h1>Philadelphia<span class="thin">Independence Hall, the mural city &amp; the sandwich capital</span></h1>
-  <p class="standfirst">150 sights and 29 places to eat from Old City out to the Main Line, Camden and the Brandywine Valley, each traceable to the source that named it. Independence Hall, the Liberty Bell and the Art Museum steps anchor the map; the food runs on what Philadelphia is famous for &mdash; the cheesesteak and the roast pork Italian, the hoagie, tomato pie, soft pretzels, water ice and scrapple, Reading Terminal and the Italian Market, the Mexican and Vietnamese kitchens of South Philly, and a Michelin and James Beard bench. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">151 sights and 32 places to eat from Old City out to the Main Line, Camden and the Brandywine Valley, each traceable to the source that named it. Independence Hall, the Liberty Bell and the Art Museum steps anchor the map; the food runs on what Philadelphia is famous for &mdash; the cheesesteak and the roast pork Italian, the hoagie, tomato pie, soft pretzels, water ice and scrapple, Reading Terminal and the Italian Market, the Mexican and Vietnamese kitchens of South Philly, and a Michelin and James Beard bench. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -328,6 +328,10 @@ const S = {
   "PHILAGOV":{k:"PHILAGOV",t:"City of Philadelphia (phila.gov)",u:"https://www.phila.gov/",l:"City of Philadelphia (phila.gov)"},
   "PHILLYHISTORY":{k:"PHILLYHISTORY",t:"PHILLYHISTORY",u:"",l:""},
   "PHILLYMAG":{k:"PHILADELPHIA MAGAZINE",t:"PHILADELPHIA MAGAZINE",u:"",l:""},
+  "PHILLYNEIGHBORHOODS":{k:"PHILLYNEIGHBORHOODS",t:"PHILLYNEIGHBORHOODS",u:"",l:""},
+  "PHILLYTRIB":{k:"PHILADELPHIA TRIBUNE",t:"PHILADELPHIA TRIBUNE",u:"",l:""},
+  "PHILLYVOICE":{k:"PHILLYVOICE",t:"PHILLYVOICE",u:"",l:""},
+  "PPS":{k:"PPS",t:"Project for Public Spaces",u:"https://www.pps.org/",l:"Project for Public Spaces"},
   "RUTGERSCAMDEN":{k:"RUTGERSCAMDEN",t:"Rutgers University–Camden: Explore Camden",u:"https://camden.rutgers.edu/discover-camden/explore-camden/have-fun-in-around-camden",l:"Rutgers University–Camden: Explore Camden"},
   "SJMAGAZINE":{k:"SJMAGAZINE",t:"SJ Magazine",u:"https://sjmagazine.net/",l:"SJ Magazine"},
   "SMITHSONIAN":{k:"SMITHSONIAN",t:"SMITHSONIAN",u:"",l:""},
@@ -505,7 +509,8 @@ const P = [
 {t:3,a:"DAY",n:"Newlin Grist Mill",ad:"219 Cheyney Rd, Glen Mills, PA 19342",la:39.89028,ln:-75.50611,w:"Working 1704 grist mill in a 160-acre park with 8+ miles of woodland and meadow trails (Main Line Today parks & hiking guides).",k:"historic",g:["HIST","PARK"],s:[["MAINLINETODAY","https://mainlinetoday.com/things-to-do/go-hiking/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Newlin_Mill_Complex"]]},
 {t:2,a:"DAY",n:"Baldwin's Book Barn",ad:"865 Lenape Rd, West Chester, PA 19382",la:39.93760,ln:-75.61190,w:"Used and rare bookshop since 1946 — 300,000+ items on five floors of a two-century-old stone barn, named by Architectural Digest among the world's most beloved independent bookstores (Visit Philly hidden gems).",k:"shop",g:["ODD"],s:[["VISITPHILLY","https://www.visitphilly.com/articles/philadelphia/phillys-hidden-gems/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Baldwin's_Book_Barn"]]},
 {t:2,a:"SJ",n:"Pomona Hall & Camden County Historical Society",ad:"1900 Park Blvd, Camden, NJ 08103",la:39.93083,ln:-75.09444,w:"The Cooper family's 18th-century home plus the Camden County History Museum and African American History Room; Pomona Hall tours by reservation (Visit NJ; Inquirer).",k:"historic",g:["HIST","MUS"],s:[["VISITNJ","https://visitnj.org/nj-historic-sites-memorials/camden-county-historical-society"],["INQUIRER","https://www.inquirer.com/philly/news/new_jersey/20160515_Renovated_historical_society_expands_its_story.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Pomona_Hall"]]},
-{t:2,a:"SPH",n:"Sparks Shot Tower",ad:"129-131 Carpenter St, Philadelphia, PA 19147",la:39.93480,ln:-75.14630,w:"142-ft brick shot tower completed on July 4, 1808 — one of the first in the US, dripping molten lead into musket balls for the War of 1812; now ringed by the city's Shot Tower Playground in Queen Village.",k:"landmark",g:["ARCH","PARK","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Sparks_Shot_Tower"],["INQUIRER","https://www.inquirer.com/news/philadelphia/shot-tower-south-philly-recreation-20230907.html"],["PHILLYHISTORY","https://blog.phillyhistory.org/index.php/2008/01/from-musket-balls-to-basketballs-the-sparks-shot-tower"]]}
+{t:2,a:"SPH",n:"Sparks Shot Tower",ad:"129-131 Carpenter St, Philadelphia, PA 19147",la:39.93480,ln:-75.14630,w:"142-ft brick shot tower completed on July 4, 1808 — one of the first in the US, dripping molten lead into musket balls for the War of 1812; now ringed by the city's Shot Tower Playground in Queen Village.",k:"landmark",g:["ARCH","PARK","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Sparks_Shot_Tower"],["INQUIRER","https://www.inquirer.com/news/philadelphia/shot-tower-south-philly-recreation-20230907.html"],["PHILLYHISTORY","https://blog.phillyhistory.org/index.php/2008/01/from-musket-balls-to-basketballs-the-sparks-shot-tower"]]},
+{t:2,a:"UCW",n:"Paul Robeson House & Museum",ad:"4951 Walnut St, Philadelphia, PA 19139",la:39.95667,ln:-75.22139,w:"Walnut Hill rowhouse where singer, actor and activist Paul Robeson lived with his sister from 1966 until his death in 1976 — NRHP-listed (2000), now a museum with lectures, concerts and exhibits; the block of Walnut St is co-named for him.",k:"museum",g:["MUS","ARCH","ARTS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Paul_Robeson_House"],["WHYY","https://whyy.org/articles/west-philadelphia-street-renamed-paul-robeson/"],["6ABC","https://6abc.com/paul-robeson-walnut-street-west-philadelphia-cultural-alliance-renamed/13128673/"]]}
 ];
 
 const FS = {
@@ -531,6 +536,7 @@ const FS = {
   "NYT":{k:"NEW YORK TIMES",t:"NEW YORK TIMES",u:"",l:""},
   "PHILLYMAG":{k:"PHILADELPHIA MAGAZINE",t:"PHILADELPHIA MAGAZINE",u:"",l:""},
   "PHILLYNEIGHBORHOODS":{k:"PHILLYNEIGHBORHOODS",t:"PHILLYNEIGHBORHOODS",u:"",l:""},
+  "PHILLYTRIB":{k:"PHILADELPHIA TRIBUNE",t:"PHILADELPHIA TRIBUNE",u:"",l:""},
   "PHILLYVOICE":{k:"PHILLYVOICE",t:"PHILLYVOICE",u:"",l:""},
   "PORTNOY":{k:"ONE BITE (PORTNOY)",t:"ONE BITE (PORTNOY)",u:"",l:""},
   "SJMAGAZINE":{k:"SJMAGAZINE",t:"SJ Magazine",u:"https://sjmagazine.net/",l:"SJ Magazine"},
@@ -609,7 +615,10 @@ const F = [
 {t:2,a:"DAY",n:"Sly Fox Brewing Company",ad:"331 Circle of Progress Dr, Pottstown, PA 19464",cz:["BREW"],la:40.24972,ln:-75.64028,w:"One of the region's original craft breweries (1995), with tasting rooms in Pottstown, Phoenixville and Malvern (Main Line Today; Visit Philly essential breweries).",s:[["MAINLINETODAY","https://mainlinetoday.com/restaurant/sly-fox-brewing-company/"],["VISITPHILLY","https://www.visitphilly.com/articles/philadelphia/essential-craft-breweries-of-greater-philadelphia/"]]},
 {t:1,a:"NPH",n:"Max's Steaks",ad:"3653 Germantown Ave, Philadelphia, PA 19140",cz:["CHS"],la:40.00898,ln:-75.15057,w:"The Germantown & Erie cheesesteak shop with 'the largest drink in Philly' bar next door, made famous by the Creed movies; a sale after three decades was in the works in Jan 2026 (Inquirer; Visit Philly Cheesesteak 101; Billy Penn).",s:[["INQUIRER","https://www.inquirer.com/food/restaurants/maxs-steaks-sold-philadelphia-rocky-20260112.html"],["VISITPHILLY","https://www.visitphilly.com/media-center/press-releases/cheesesteak-101-a-primer-on-the-who-what-where-whiz-of-philly-cheesesteaks/"],["BILLYPENN","https://billypenn.com/2019/11/10/cheesesteak-destination-maxs-steaks-shut-down-by-philly-health-department/"]]},
 {t:1,a:"CC",n:"Barclay Prime",ad:"237 S 18th St, Philadelphia, PA 19103",cz:["US","CHS"],la:39.94853,ln:-75.17075,w:"Rittenhouse boutique steakhouse — LaBan's gold standard for dry-aged rib-eye and home of the famous luxury cheesesteak; Infatuation 'city's best steakhouse'; Philly Mag Best of Philly.",s:[["INQUIRER","https://www.inquirer.com/food/most-expensive-cheesesteak-barclay-prime-shays-live-casino-20250418.html"],["INFATUATION","https://www.theinfatuation.com/philadelphia/reviews/barclay-prime"],["PHILLYMAG","https://www.phillymag.com/best-of-philly-archive/barclay-prime/"]]},
+{t:2,a:"CC",n:"Talula's Garden",ad:"210 W Washington Sq, Philadelphia, PA 19106",cz:["US"],la:39.94726,ln:-75.15354,w:"Aimee Olexy & Stephen Starr's farm-table restaurant with a vine-covered patio on Washington Square — Bon Appétit top-10 new restaurant (2011, per Philly Mag), Best of Philly first date; Infatuation.",s:[["PHILLYMAG","https://www.phillymag.com/best-of-philly-archive/talulas-garden-2/"],["INFATUATION","https://www.theinfatuation.com/philadelphia/reviews/talulas-garden"]]},
+{t:1,a:"CC",n:"Vernick Fish",ad:"1 N 19th St (Comcast Technology Center), Philadelphia, PA 19103",cz:["SEAF"],la:39.95490,ln:-75.17040,w:"Greg Vernick's seafood restaurant in the Comcast Technology Center — 2025 James Beard semifinalist (Outstanding Chef); Vernick was a 2026 semifinalist for Outstanding Restaurateur.",s:[["JAMESBEARD","https://www.inquirer.com/food/restaurants/philadelphia-james-beard-chef-restaurant-semifinalists-2025-20250122.html"],["PHILLYMAG","https://www.phillymag.com/foobooz/2025/01/22/2025-james-beard-award-semifinalists/"]]},
 {t:1,a:"NE",n:"Steve's Prince of Steaks",ad:"7200 Bustleton Ave, Philadelphia, PA 19149",cz:["CHS"],la:40.04562,ln:-75.06092,w:"The Northeast's diner-style cheesesteak royalty (now four shops) — on the Inquirer's 23 best cheesesteaks and the Northeast Times 2026 best list. HELD lead cleared.",s:[["INQUIRER","https://www.inquirer.com/food/best-cheesesteaks-philadelphia.html"],["NORTHEASTTIMES","https://northeasttimes.com/2026/07/27/6-of-the-best-cheesesteak-spots-in-northeast-philadelphia-right-now/"]]},
+{t:2,a:"UCW",n:"Walnut Street Cafe",ad:"2929 Walnut St, Philadelphia, PA 19104",cz:["US"],la:39.95211,ln:-75.18351,w:"All-day café-restaurant by 30th Street Station (Inquirer University City guide; Infatuation University City guide).",s:[["INQUIRER","https://www.inquirer.com/phillys-best/university-city-restaurants-food-drink.html"],["INFATUATION","https://www.theinfatuation.com/philadelphia/guides/university-city-restaurants"]]},
 {t:1,a:"FISH",n:"Meetinghouse",ad:"2331 E Cumberland St, Philadelphia, PA 19125",cz:["BREW","US"],la:39.98040,ln:-75.12300,w:"Kensington tavern (2023) named to the New York Times' 2025 list of the best restaurants in America (Inquirer; PhillyVoice); has its own Wikipedia article.",s:[["NYT","https://www.inquirer.com/food/philly-restaurants-nyt-best-mawn-meetinghouse-2025-20250909.html"],["PHILLYVOICE","https://www.phillyvoice.com/mawn-meetinghouse-best-restaurants-new-york-times/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Meetinghouse_(restaurant)"]]}
 ];
 
@@ -635,7 +644,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([39.9534,-75.163],10);
+  map = L.map('map',{scrollWheelZoom:false}).setView([39.9534,-75.1631],10);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -719,7 +728,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Center City", 39.9518, -75.158], ["South Philly", 39.9192, -75.1641], ["Fishtown", 39.9851, -75.1108], ["University City", 39.9375, -75.2091], ["North Philly", 39.9835, -75.191], ["Northwest", 40.045, -75.1945], ["Northeast Philly", 40.0595, -75.0435], ["The Main Line", 40.0893, -75.1706], ["South Jersey", 39.9272, -75.0901], ["Brandywine", 40.116, -75.3426]];
+const LABELS=[["Center City", 39.9518, -75.1581], ["South Philly", 39.9192, -75.1641], ["Fishtown", 39.9851, -75.1108], ["University City", 39.9401, -75.2081], ["North Philly", 39.9835, -75.191], ["Northwest", 40.045, -75.1945], ["Northeast Philly", 40.0595, -75.0435], ["The Main Line", 40.0893, -75.1706], ["South Jersey", 39.9272, -75.0901], ["Brandywine", 40.116, -75.3426]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1058,7 +1067,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 179 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 183 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
