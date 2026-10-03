@@ -965,28 +965,6 @@
    ]
   },
   {
-   "t": 1,
-   "a": "SOUTH",
-   "n": "ISAC Museum (Institute for the Study of Ancient Cultures)",
-   "ad": "University of Chicago campus, Hyde Park (per Wikipedia)",
-   "w": "The University of Chicago's free museum of the ancient Near East (ex-Oriental Institute) — a 40-ton Assyrian lamassu, Egyptian mummies, Persepolis reliefs.",
-   "k": "museum",
-   "g": [
-    "MUS",
-    "FREE"
-   ],
-   "s": [
-    [
-     "WIKIPEDIA",
-     "https://en.wikipedia.org/wiki/Institute_for_the_Study_of_Ancient_Cultures"
-    ],
-    [
-     "OFFICIAL",
-     "https://architecture.uchicago.edu/locations/institute-for-the-study-of-ancient-cultures/"
-    ]
-   ]
-  },
-  {
    "t": 2,
    "a": "SOUTH",
    "n": "Washington Park",
@@ -1346,6 +1324,328 @@
     [
      "OPRFMUSEUM",
      "https://oprfmuseum.org/sites/default/files/documents/OPRFHS%20Poster%20Key.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Roberts Temple Church of God in Christ",
+   "ad": "4021 S State St, Chicago, IL",
+   "w": "Bronzeville church where Mamie Till-Mobley held her son Emmett Till's open-casket funeral in 1955 — part of the Emmett Till and Mamie Till-Mobley National Monument (2023).",
+   "k": "church historic memorial",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/places/roberts-temple.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Roberts_Temple_Church_of_God_in_Christ"
+    ],
+    [
+     "WBEZ",
+     "https://www.wbez.org/morning-shift/2018/01/04/whats-that-building-roberts-temple-church-of-god-in-christ"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Muddy Waters House",
+   "ad": "4339 S Lake Park Ave, Chicago, IL",
+   "w": "Kenwood two-flat where Muddy Waters lived and rehearsed (1954–74) — a Chicago Landmark being restored as the MOJO Muddy Waters museum.",
+   "k": "house historic landmark music",
+   "g": [
+    "MUS",
+    "ARCH",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "CITYCHI",
+     "https://www.chicago.gov/content/dam/city/depts/zlup/Historic_Preservation/Publications/Muddy_Waters_House_Revised_Final_Report.pdf"
+    ],
+    [
+     "PRESERVATIONCHI",
+     "https://www.preservationchicago.org/?p=5501"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Palmisano Park",
+   "ad": "2700 S Halsted St area (former Stearns Quarry), Bridgeport, Chicago (per Wikipedia)",
+   "w": "A 1830s limestone quarry turned 27-acre park — a fishing pond in the pit, terraced wetlands and the city's best skyline hill.",
+   "k": "park",
+   "g": [
+    "PARK",
+    "ICON"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Palmisano_Park"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/palmisano-park"
+    ],
+    [
+     "WTTW",
+     "https://interactive.wttw.com/node/19065"
+    ],
+    [
+     "CAC",
+     "https://ventrata.architecture.org/online-resources/buildings-of-chicago/palmisano-park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SW",
+   "n": "Sherman Park",
+   "ad": "New City / Back of the Yards, Chicago (per Wikipedia)",
+   "w": "Olmsted Brothers & Burnham 'neighbourhood park' (1905) ringed by a lagoon, with a Burnham-designed fieldhouse — a landmark of the South Parks reform movement.",
+   "k": "park lagoon",
+   "g": [
+    "PARK",
+    "ARCH",
+    "SPORT",
+    "WATER"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sherman_Park"
+    ],
+    [
+     "TCLF",
+     "https://www.tclf.org/sherman-park"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SW",
+   "n": "Davis Square Park",
+   "ad": "Back of the Yards, Chicago (per Wikipedia)",
+   "w": "One of the first 1905 South Parks small parks, built to give stockyards families a fieldhouse, baths and playgrounds.",
+   "k": "park historic",
+   "g": [
+    "PARK",
+    "ARCH",
+    "SPORT",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Davis_Square_(Chicago)"
+    ],
+    [
+     "CHIPARKS",
+     "https://www.chicagoparkdistrict.com/parks-facilities/davis-dr-nathan-square-park"
+    ],
+    [
+     "UCHICAGOSTUDIES",
+     "https://chicagostudies.uchicago.edu/back-yards/back-yards-davis-square-park"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SW",
+   "n": "Bubbly Creek",
+   "ad": "South Fork of the South Branch, Chicago River (headwaters, per Wikipedia)",
+   "w": "The stockyards' notorious waste channel — Upton Sinclair's 'Bubbly Creek' still burps methane from century-old sediment, now ringed by new trails.",
+   "k": "river oddities",
+   "g": [
+    "PARK",
+    "WATER",
+    "ODD"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bubbly_Creek"
+    ],
+    [
+     "WTTW",
+     "https://news.wttw.com/node/28004"
+    ],
+    [
+     "FRIENDSCHIRIVER",
+     "https://chicagoriver.org/about-the-river/inside-out-around/story-3-bubby-creek"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUB",
+   "n": "Burr Oak Cemetery",
+   "ad": "Alsip, IL (per Wikipedia)",
+   "w": "Historic African American cemetery — resting place of Emmett Till, Dinah Washington and Willie Dixon.",
+   "k": "cemetery historic memorial",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Burr_Oak_Cemetery"
+    ],
+    [
+     "EMMETTTILL",
+     "https://tillapp.emmett-till.org/items/show/21"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Emmett Till and Mamie Till-Mobley House",
+   "ad": "6427 S St Lawrence Ave, Chicago, IL",
+   "w": "The West Woodlawn two-flat Emmett Till left in 1955 — a Chicago Landmark (2021) being restored as a museum and community space.",
+   "k": "house historic landmark memorial",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Till_House"
+    ],
+    [
+     "CITYCHI",
+     "https://www.chicago.gov/content/dam/city/depts/zlup/Historic_Preservation/Publications/Emmett_Till_and_Mamie_Till-Mobley_House_report.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FAR",
+   "n": "R. W. Evans House (Frank Lloyd Wright)",
+   "ad": "9914 S Longwood Dr, Chicago, IL",
+   "w": "Frank Lloyd Wright's 1908 hilltop Prairie house on Beverly's Longwood Drive ridge.",
+   "k": "frank lloyd wright prairie school house",
+   "g": [
+    "ARCH",
+    "FLW"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/frank-lloyd-wrights-raymond-w-evans-house/"
+    ],
+    [
+     "OPENHOUSECHI",
+     "https://app.openhousechicago.org/archive/2023/stops/recNklTy90SXVw1wF"
+    ],
+    [
+     "FLWTRUST",
+     "https://cal.flwright.org/explore/rw-evans-house"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FAR",
+   "n": "Walter Burley Griffin Place District",
+   "ad": "1600–1800 blocks of W 104th Pl (Griffin Place), Beverly, Chicago",
+   "w": "A street of Prairie School houses (1909–14), seven by Walter Burley Griffin — later the designer of Canberra — a Chicago Landmark district.",
+   "k": "prairie school historic district house",
+   "g": [
+    "ARCH",
+    "FLW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Walter_Burley_Griffin_Place_District"
+    ],
+    [
+     "CITYCHI",
+     "https://webapps1.chicago.gov/landmarksweb/web/districtdetails.htm?disId=32"
+    ],
+    [
+     "CHOOSECHI",
+     "https://choosechicago.com/listing/walter-burley-griffin-place-landmark-district"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FAR",
+   "n": "Big Marsh Park",
+   "ad": "South Deering, east shore of Lake Calumet, Chicago",
+   "w": "A former slag dump turned the Park District's largest natural site (~300 acres) — wetlands, birding and a bike park with pump tracks.",
+   "k": "park nature trail",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CHIPARKS",
+     "https://www.chicagoparkdistrict.com/parks-facilities/big-marsh-park"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/blog/ride-through-winter-at-chicagos-new-big-marsh-bike-park-111616"
+    ],
+    [
+     "INSIDEHOOK",
+     "https://www.insidehook.com/culture-chicago/big-marsh-park-chicago/amp"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FAR",
+   "n": "Dan Ryan Woods",
+   "ad": "87th St & Western Ave, Chicago, IL",
+   "w": "A 257-acre forest preserve inside city limits on Beverly's ridge — trails, a sledding hill and the Major Taylor Trail.",
+   "k": "park woods trail",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "OPENLANDS",
+     "https://openlands.org/dan-ryan-woods/"
+    ],
+    [
+     "SOUTHSIDEWEEKLY",
+     "https://southsideweekly.com/best-place-to-be-in-nature-the-dan-ryan-woods/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FAR",
+   "n": "National A. Philip Randolph Pullman Porter Museum",
+   "ad": "10406 S Maryland Ave, Chicago, IL",
+   "w": "Museum of the Pullman porters and the Brotherhood of Sleeping Car Porters — the birthplace of Black labor history, within Pullman National Historical Park.",
+   "k": "museum historic",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://home.nps.gov/thingstodo/explore-the-national-a-philip-randolph-pullman-porter-museum.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pullman,_Chicago"
     ]
    ]
   },
@@ -7574,6 +7874,127 @@
    ]
   },
   {
+   "t": 2,
+   "a": "SUB",
+   "n": "FEW Spirits",
+   "ad": "Evanston, IL",
+   "w": "The first distillery in Evanston since Prohibition (2011) — in the dry-until-1972 home of the temperance movement, ironically named for Frances E. Willard's initials.",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/bars/few-spirits"
+    ],
+    [
+     "WHISKEYWASH",
+     "https://thewhiskeywash.com/?p=16959"
+    ],
+    [
+     "DISTILLERYTRAIL",
+     "https://www.distillerytrail.com/blog/a-day-on-the-trail-a-visit-to-few-spirits-distillery/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUB",
+   "n": "Autre Monde Café & Spirits",
+   "ad": "6727 Roosevelt Rd, Berwyn, IL 60402",
+   "w": "Berwyn's Mediterranean café from fine-dining alumni — a past Michelin Bib Gourmand and on the Tribune critic's top-50 Chicago restaurants (2018).",
+   "cz": [
+    "ME"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/autre-monde"
+    ],
+    [
+     "TASTINGTABLE",
+     "https://tastingtable.com/683512/autre-monde-cafe-chicago"
+    ],
+    [
+     "SHAWLOCAL",
+     "https://www.shawlocal.com/2013/12/03/autre-monde-makes-bib-gourmands-list-with-michelin-guide/axc8d2n"
+    ],
+    [
+     "VISITOAKPARK",
+     "https://explore.visitoakpark.com/eat-drink/autre-monde-cafe-spirits"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUB",
+   "n": "Gayety's Chocolates & Ice Cream",
+   "ad": "downtown Lansing, IL",
+   "w": "Greek-immigrant James Papageorge's 1920 South Chicago sweet shop (beside the Gayety theatre), moved to Lansing in 2003 when the steel mills closed — still hand-dipping.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "LANSINGJOURNAL",
+     "https://thelansingjournal.org/2026/05/24/a-love-affair-with-gayetys-keeps-a-century-old-tradition-alive-in-lansing/"
+    ],
+    [
+     "NATIONALHELLENICMUSEUM",
+     "https://collections.nationalhellenicmuseum.org/Detail/objects/6564"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SW",
+   "n": "Lindy's Chili & Gertie's Ice Cream (Archer original)",
+   "ad": "3685 S Archer Ave, Chicago, IL 60609",
+   "w": "McKinley Park's chili parlor (1924) merged in 1974 with Gertie's Ice Cream (1901) — two South Side institutions under one roof on Archer Avenue.",
+   "cz": [
+    "US",
+    "DES"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://timeout.com/chicago/restaurants/gerties-ice-cream-lindys-chili"
+    ],
+    [
+     "NAGRANT",
+     "https://www.michaelnagrant.com/neighborhood-eating-guides/a-taste-of-mckinley-brighton-park"
+    ],
+    [
+     "CHICAGOMAROON",
+     "https://chicagomaroon.com/25172/arts/bite-lindys-chili-gerties-ice-cream"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SW",
+   "n": "Huck Finn Donuts",
+   "ad": "3414 S Archer Ave, Chicago, IL 60608",
+   "w": "Archer Avenue's 24-hour donut-and-diner counter, on Time Out's list of old-school Chicago doughnut shops.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/old-school-chicago-doughnut-shops"
+    ],
+    [
+     "DNAINFO",
+     "https://www.dnainfo.com/chicago/20140213/mckinley-park/huck-finn-donuts-serve-heart-shaped-pastries-friday"
+    ],
+    [
+     "NAGRANT",
+     "https://www.michaelnagrant.com/neighborhood-eating-guides/a-taste-of-mckinley-brighton-park"
+    ]
+   ]
+  },
+  {
    "t": 1,
    "a": "FAR",
    "n": "Lexington Betty Smokehouse",
@@ -7790,6 +8211,227 @@
     [
      "FINEDININGLOVERS",
      "https://www.finedininglovers.com/restaurants/5-rabanitos"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Jimmy's Woodlawn Tap",
+   "ad": "E 55th St, Hyde Park, Chicago",
+   "w": "Hyde Park's bar of record (1948) — Saul Bellow's 'local haunt', where students, professors and neighbours have always mixed.",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "UCHICAGOMAG",
+     "https://mag.uchicago.edu/university-news/jimmys-woodlawn-tap-oral-history"
+    ],
+    [
+     "PRESERVATIONCHI",
+     "https://www.preservationchicago.org/uchicago-magazine-jimmys-woodlawn-tap-an-oral-history/"
+    ],
+    [
+     "CHIBARPROJECT",
+     "https://chibarproject.com/reviews/woodlawntap/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Daisy's Po'Boy & Tavern",
+   "ad": "5215 S Harper Ave, Chicago, IL 60615",
+   "w": "James Beard winner Erick Williams' Louisiana tavern (2022) a block from his Virtue — live New Orleans jazz on first Wednesdays.",
+   "cz": [
+    "CHX",
+    "SEAF"
+   ],
+   "s": [
+    [
+     "ABC7",
+     "https://abc7chicago.com/chicago-daisys-po-boy-tavern-hyde-park/14444977/"
+    ],
+    [
+     "BLOCKCLUB",
+     "https://blockclubchicago.org/2022/08/15/daisys-po-boy-and-tavern-chef-erick-williams-latest-restaurant-opens-near-virtue-in-hyde-park/"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/?p=56061"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Ramova Grill & Taproom",
+   "ad": "S Halsted St at the Ramova Theatre, Bridgeport, Chicago",
+   "w": "Bridgeport's 1929 Spanish-courtyard movie palace reborn in 2024 as a concert hall, with its old diner (famous for chili, closed 2012) and a brewery taproom beside it.",
+   "cz": [
+    "US",
+    "BAR"
+   ],
+   "g": [
+    "POP"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/news/bridgeports-historic-ramova-theatre-has-been-reborn-012224"
+    ],
+    [
+     "WBEZ",
+     "https://www.wbez.org/culture-the-arts/2024/02/15/what-is-the-ramova-theatre-chicago-bridgeport"
+    ],
+    [
+     "NBC5",
+     "https://nbcchicago.com/news/local/ramova-theatre-to-reopen-this-fall-under-ownership-led-by-quincy-jones-jennifer-hudson-and-chance-the-rapper/3279248"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FAR",
+   "n": "Soul Veg City (Original Soul Vegetarian)",
+   "ad": "205 E 75th St, Chicago, IL 60619",
+   "w": "Chatham's vegan soul-food pioneer since 1982 (as Original Soul Vegetarian), renamed and renovated for its 40th year.",
+   "cz": [
+    "CHX"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/soul-veg-city"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/reviews/soul-veg-city"
+    ],
+    [
+     "VEGNEWS",
+     "https://vegnews.com/2021/6/chicago-vegan-restaurant-soul-veg-city"
+    ],
+    [
+     "WTTW",
+     "https://www.pbs.org/video/south-sides-vegan-soul-food-restaurant-xlsfmp"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Peach's on 47th",
+   "ad": "E 47th St at S King Dr, Bronzeville, Chicago",
+   "w": "Chef Cliff Rome's Bronzeville breakfast café — Southern brunch on 47th Street, with a visit from Barack Obama (WGN).",
+   "cz": [
+    "CHX"
+   ],
+   "s": [
+    [
+     "SOUTHSIDEWEEKLY",
+     "https://southsideweekly.com/peachy-perfect-quirky-bronzeville-cafe-offers-southern-take-brunch/"
+    ],
+    [
+     "CHICAGOIST",
+     "https://chicagoist.com/2015/04/16/peachs_on_47th_knows_breakfast.php"
+    ],
+    [
+     "WGN",
+     "https://wgntv.com/news/chicago-news/obama-stops-by-peachs-restaurant-in-chicagos-bronzeville-neighborhood/amp/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Chi Cafe",
+   "ad": "Chinatown, Chicago",
+   "w": "Chinatown's Hong Kong-style café for the late-night crowd — open till 4am most nights, 24 hours on weekends.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/reviews/chi-cafe"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/chi-cafe"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Nine Bar (behind Moon Palace)",
+   "ad": "Cermak Rd, Chinatown, Chicago (behind Moon Palace Express)",
+   "w": "Chinatown's first speakeasy, a moody Blade Runner-esque lounge hidden behind Moon Palace Express — the family's restaurant still serves its soup dumplings up front.",
+   "cz": [
+    "BAR",
+    "CN"
+   ],
+   "g": [
+    "SPEAK"
+   ],
+   "s": [
+    [
+     "WBEZ",
+     "https://wbez.org/culture-the-arts/2023/12/13/nine-bar-brings-cocktail-bar-to-chicagos-chinatown"
+    ],
+    [
+     "TIMEOUT",
+     "https://timeout.com/chicago/restaurants/best-chinese-in-chicago-where-to-find-the-best-dim-sum-and-more"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/reviews/moon-palace-restaurant"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Kopp's Frozen Custard (Greenfield)",
+   "ad": "7631 W Layton Ave, Greenfield, WI 53220",
+   "w": "Milwaukee-area custard stand since 1950 — one of the city's 'big three' with Gilles and Leon's; the Greenfield store is the original HQ.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "ONMILWAUKEE",
+     "https://onmilwaukee.com/articles/custardguide"
+    ],
+    [
+     "MILWAUKEERECORD",
+     "https://milwaukeerecord.com/food-drink/mandatory-milwaukee-kopps-frozen-custard-hand-in-hand/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kopp%27s_Frozen_Custard"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Birrieria Reyes de Ocotlan",
+   "ad": "1322 W 18th St, Chicago, IL 60608",
+   "w": "Pilsen birrieria with a half-dozen-item menu — Time Out: 'one visit to this one before you stop caring about the rest.'",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/birrieria-reyes-de-ocotlan"
+    ],
+    [
+     "ABC7",
+     "https://abc7chicago.com/archive/7911523"
     ]
    ]
   },
@@ -8591,9 +9233,21 @@
    "u": "",
    "l": ""
   },
+  "EMMETTTILL": {
+   "k": "EMMETTTILL",
+   "t": "EMMETTTILL",
+   "u": "",
+   "l": ""
+  },
   "FLWTRUST": {
    "k": "FLW TRUST",
    "t": "FLW TRUST",
+   "u": "",
+   "l": ""
+  },
+  "FRIENDSCHIRIVER": {
+   "k": "FRIENDSCHIRIVER",
+   "t": "FRIENDSCHIRIVER",
    "u": "",
    "l": ""
   },
@@ -8614,6 +9268,12 @@
    "t": "The Infatuation Chicago",
    "u": "https://www.theinfatuation.com/chicago",
    "l": "The Infatuation Chicago"
+  },
+  "INSIDEHOOK": {
+   "k": "INSIDEHOOK",
+   "t": "INSIDEHOOK",
+   "u": "",
+   "l": ""
   },
   "NCREGISTER": {
    "k": "NCREGISTER",
@@ -8645,6 +9305,12 @@
    "u": "",
    "l": ""
   },
+  "OPENLANDS": {
+   "k": "OPENLANDS",
+   "t": "OPENLANDS",
+   "u": "",
+   "l": ""
+  },
   "OPRFMUSEUM": {
    "k": "OPRFMUSEUM",
    "t": "OPRFMUSEUM",
@@ -8669,6 +9335,12 @@
    "u": "",
    "l": ""
   },
+  "SOUTHSIDEWEEKLY": {
+   "k": "SOUTHSIDEWEEKLY",
+   "t": "SOUTHSIDEWEEKLY",
+   "u": "",
+   "l": ""
+  },
   "TCLF": {
    "k": "TCLF",
    "t": "TCLF",
@@ -8684,6 +9356,12 @@
   "TRAVELWI": {
    "k": "TRAVELWI",
    "t": "TRAVELWI",
+   "u": "",
+   "l": ""
+  },
+  "UCHICAGOSTUDIES": {
+   "k": "UCHICAGOSTUDIES",
+   "t": "UCHICAGOSTUDIES",
    "u": "",
    "l": ""
   },
@@ -8797,6 +9475,12 @@
    "u": "https://chicagoist.com/",
    "l": "Chicagoist (WBEZ)"
   },
+  "CHICAGOMAROON": {
+   "k": "CHICAGOMAROON",
+   "t": "CHICAGOMAROON",
+   "u": "",
+   "l": ""
+  },
   "CHIDEFENDER": {
    "k": "CHIDEFENDER",
    "t": "CHIDEFENDER",
@@ -8836,6 +9520,12 @@
   "CULTURETRIP": {
    "k": "CULTURETRIP",
    "t": "CULTURETRIP",
+   "u": "",
+   "l": ""
+  },
+  "DISTILLERYTRAIL": {
+   "k": "DISTILLERYTRAIL",
+   "t": "DISTILLERYTRAIL",
    "u": "",
    "l": ""
   },
@@ -8935,6 +9625,12 @@
    "u": "",
    "l": ""
   },
+  "LANSINGJOURNAL": {
+   "k": "LANSINGJOURNAL",
+   "t": "LANSINGJOURNAL",
+   "u": "",
+   "l": ""
+  },
   "MICHELIN": {
    "k": "MICHELIN",
    "t": "MICHELIN Guide Chicago (stars + Bib Gourmand)",
@@ -8950,6 +9646,12 @@
   "NAGRANT": {
    "k": "NAGRANT",
    "t": "NAGRANT",
+   "u": "",
+   "l": ""
+  },
+  "NATIONALHELLENICMUSEUM": {
+   "k": "NATIONALHELLENICMUSEUM",
+   "t": "NATIONALHELLENICMUSEUM",
    "u": "",
    "l": ""
   },
@@ -8986,6 +9688,12 @@
   "OKAYAFRICA": {
    "k": "OKAYAFRICA",
    "t": "OKAYAFRICA",
+   "u": "",
+   "l": ""
+  },
+  "ONMILWAUKEE": {
+   "k": "ONMILWAUKEE",
+   "t": "ONMILWAUKEE",
    "u": "",
    "l": ""
   },
@@ -9049,6 +9757,12 @@
    "u": "",
    "l": ""
   },
+  "SHAWLOCAL": {
+   "k": "SHAWLOCAL",
+   "t": "SHAWLOCAL",
+   "u": "",
+   "l": ""
+  },
   "SHEPHERDEXPRESS": {
    "k": "SHEPHERDEXPRESS",
    "t": "SHEPHERDEXPRESS",
@@ -9109,9 +9823,27 @@
    "u": "",
    "l": ""
   },
+  "UCHICAGOMAG": {
+   "k": "UCHICAGOMAG",
+   "t": "UCHICAGOMAG",
+   "u": "",
+   "l": ""
+  },
+  "VEGNEWS": {
+   "k": "VEGNEWS",
+   "t": "VEGNEWS",
+   "u": "",
+   "l": ""
+  },
   "VISITNORTHSHORE": {
    "k": "VISITNORTHSHORE",
    "t": "VISITNORTHSHORE",
+   "u": "",
+   "l": ""
+  },
+  "VISITOAKPARK": {
+   "k": "VISITOAKPARK",
+   "t": "VISITOAKPARK",
    "u": "",
    "l": ""
   },
@@ -9130,6 +9862,12 @@
   "WGN": {
    "k": "WGN",
    "t": "WGN",
+   "u": "",
+   "l": ""
+  },
+  "WHISKEYWASH": {
+   "k": "WHISKEYWASH",
+   "t": "WHISKEYWASH",
    "u": "",
    "l": ""
   },

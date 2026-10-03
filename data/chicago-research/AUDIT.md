@@ -198,3 +198,17 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
   Piece Brewery, Spinning J. Addresses filled for Honey 1 (746 E 43rd), Pearl's Place (3901 S Michigan), Longman & Eagle (2657 N Kedzie), Simone's (960 W 18th).
 - CREATORS_W2.json: Keith Lee → Amici-Chicago; rejected a one-off viral TikTok (Taco-Bout-Joy's) and two unvetted coffee blogs.
 - Held single-source: Resi's Bierstube, Laschet's Inn (Chicago Bar Project only), The Map Room, Ann Sather (relocating to 3042 N Broadway, fall 2026 — CBS).
+
+## 2026-10-03 (session 4 / wave 3) · batch 5 (≈170 searches cumulative)
+- Sights +13 (6 pinned via Wikipedia/published coords): Roberts Temple COGIC (NPS — Till national monument), Muddy Waters House, Palmisano Park,
+  Emmett Till & Mamie Till-Mobley House, Sherman Park, Davis Square Park, Bubbly Creek (headwaters coord, med), Burr Oak Cemetery (SUB),
+  R. W. Evans House (FLW), Walter Burley Griffin Place District (med), Big Marsh Park, Dan Ryan Woods, A. Philip Randolph Pullman Porter Museum.
+- Food & drink +16: Jimmy's Woodlawn Tap, Daisy's Po'Boy & Tavern, Ramova Grill & Taproom, Soul Veg City, Peach's on 47th, Chi Cafe, Nine Bar (behind
+  Moon Palace), Kopp's (Greenfield), FEW Spirits, Autre Monde (past Bib), Gayety's (Lansing), Birrieria Reyes de Ocotlan, Lindy's & Gertie's (Archer
+  original), Huck Finn Donuts.
+- Fix: removed a duplicate I had created ("ISAC Museum (…)" duplicated the existing "Institute for the Study of Ancient Cultures Museum") from SIGHTS_W10,
+  geo/_geoout_w15s.json and data/geocodes.json. Lesson: `_chi_has.py` substring checks miss renamed institutions — also grep the old name.
+- MEASURED & DROPPED: Vesecky's Bakery (closed 2023, non-notable); Oak Woods Cemetery (Wikipedia coord rounded to the minute — too coarse; held);
+  Five Holy Martyrs, Graue Mill, St. Procopius (2nd credible source missing); Aurelio's Homewood original + Nancy's Harwood Heights original (which branch
+  is the original still operating is unclear); Apachee Grill, Don Jose Tamaleria (Nagrant only).
+- Build: 401 researched / 227 rendered; 4 gates PASS; validate + test PASS.
