@@ -329,3 +329,15 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   Lutong Pinoy (17048 W Dixie Hwy). Two Chefs (South Miami): no Apple listing found → re-check. Havana Café of the Everglades: Apple
   "temporarily closed".
 - **Build:** 185 → 229 pinned; sourcecheck/geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
+
+## 2026-10-03 (session 5 · wave 4 PINS) · batch 3 — long tail
+- **Pins (26, `geo/_geoout_x3.json`):** 25 food (CGCG 11 incl. Chug's Diner t1; SDADE 5; NMIA 3; LHAV 3; FTL 3; WYN 2) + Calle Ocho Walk of
+  Fame (**med** — Apple point on a linear sidewalk feature). Sights generally come back from Apple as bare place-ids (0/9 in two
+  sight-only queries: Black Police Precinct, Ichimura garden, Superblue, Broward Center, Jungle Queen, Young At Art, Clyde Butcher,
+  Skunk Ape, Miccosukee Village) → left UNVERIFIED.
+- **Rejected mismatches:** Midorie (Apple's only listing is 851 NE 79th St, Upper East Side — our sources put it in Coconut Grove; held
+  for an address re-check), Piman Bouk (Apple coordinate is the *bakery* at 46 NE 62nd St, not the restaurant at 5921 NE 2nd Ave),
+  Versailles Bakery (only the restaurant's pin surfaced).
+- **Status leads (not changed — no press confirmation yet):** Sapore di Mare (one Apple listing "permanently closed"), Golden Rule Seafood
+  and Chefs on the Run (no Apple listing).
+- **Build:** 229 → 255 pinned; 4 gates + validate + npm test green.
