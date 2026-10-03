@@ -114027,11 +114027,11 @@
    },
    "Big Eu'es BBQ": {
     "address": "1730 Portage Trail, Cuyahoga Falls, OH 44223",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.1465877,
+    "lng": -81.5038055,
+    "source": "W5 2026-10-03 listing pin via WebSearch: usarestaurants.info/…/cuyahoga-falls/297161-big-eues-bbq.htm (1730 Portage Trail; ~110 m from Shawarma Brothers' Waze pin at 1808, consistent)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "W5 2026-10-03: Akron Life Best of the City 2025 Best Barbecue winner; current hours listed (usarestaurants/Foursquare)",
     "statusChecked": "2026-10-03"
@@ -114082,11 +114082,11 @@
    },
    "Sojourner Truth Legacy Plaza": {
     "address": "37 N High St, Akron, OH 44308",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.085896,
+    "lng": -81.514781,
+    "source": "W5 2026-10-03: Atlas Obscura 'Site of Sojourner Truth's Ain't I a Woman Speech' published coordinates 41.085896,-81.514781 (37 N High St)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "W5 2026-10-03: dedicated May 29 2024 (AP/WYSU); public plaza",
     "statusChecked": "2026-10-03"
@@ -114236,11 +114236,11 @@
    },
    "Diamond Deli": {
     "address": "378 S Main St, Akron, OH 44311",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.0757871,
+    "lng": -81.5229529,
+    "source": "W5 2026-10-03 listing pin via WebSearch: usarestaurants.info/…/akron/467484-diamond-deli.htm (378 S Main St)",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "W5 2026-10-03: Akron Life Best of the City 2025 Best Deli winner; Mon–Fri 9–3",
     "statusChecked": "2026-10-03"
@@ -114290,14 +114290,91 @@
     "statusChecked": "2026-10-03"
    },
    "Kenmore Boulevard Historic District": {
-    "address": "Kenmore Blvd between 12th St SW and 17th St SW, Akron, OH 44314",
+    "address": "Kenmore Blvd (12th–17th St SW; pin at Lay's Guitar Shop, 974 Kenmore Blvd), Akron, OH 44314",
+    "lat": 41.0431649,
+    "lng": -81.5589119,
+    "source": "W5 2026-10-03 anchor place pin inside the district via WebSearch: waze.com/live-map/directions/us/oh/akron/lays-guitar-shop (Google place ChIJyzTNx9LVMIgRlyhczhpssYk, 974 Kenmore Blvd)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "W5 2026-10-03: Signal Akron district-signage story",
+    "statusChecked": "2026-10-03"
+   },
+   "Dough Co. Doughnuts & Coffee": {
+    "address": "4742 Hills and Dales Rd NW, Canton, OH 44708",
+    "lat": 40.83301,
+    "lng": -81.433142,
+    "source": "W5 2026-10-03 listing pin via WebSearch: usarestaurants.info/…/jackson-township/canton/dough-co-doughnuts-coffee-330-915-8053.htm (address matches)",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "W5 2026-10-03: Akron Life 330 Flavor Awards 2026 (Jan 2026)",
+    "statusChecked": "2026-10-03"
+   },
+   "Fronimo's Downtown": {
+    "address": "315 Cleveland Ave NW, Canton, OH 44702",
+    "lat": 40.8005518,
+    "lng": -81.3762429,
+    "source": "W5 2026-10-03 listing pin via WebSearch: usarestaurants.info/…/canton/fronimos-downtown-234-360-8665.htm; Foursquare venue at 315 Cleveland Ave NW",
+    "verified": "2026-10-03",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "W5 2026-10-03: Canton Repository downtown dining guide + Cleveland Magazine Canton guide (current)",
+    "statusChecked": "2026-10-03"
+   },
+   "Shawarma Brothers": {
+    "address": "1808 Portage Trail, Cuyahoga Falls, OH 44223",
+    "lat": 41.1470323,
+    "lng": -81.5045492,
+    "source": "W5 2026-10-03 place pin via WebSearch: waze.com/live-map/directions/us/oh/cuyahoga-falls/shawarma-brothers (Google place ChIJeTYRWe0nMYgRqnhuwcNgIA8)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "W5 2026-10-03: USA TODAY Network ratings roundup + Cleveland Magazine current guide",
+    "statusChecked": "2026-10-03"
+   },
+   "Leather Helmet Grill": {
+    "address": "621 Market Ave N, Canton, OH 44702",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "W5 2026-10-03: Signal Akron district-signage story",
+    "statusSource": "W5 2026-10-03: Canton Repository review; Downtown Canton Restaurant Week participant",
+    "statusChecked": "2026-10-03"
+   },
+   "Summit Lake Nature Center & Summit Lake Trail": {
+    "address": "411 Ira Ave, Akron, OH 44301",
+    "lat": 41.0544168,
+    "lng": -81.5434312,
+    "source": "W5 2026-10-03 place pin via WebSearch: waze.com/live-map/directions/us/oh/akron/summit-lake-nature-center (Google place ChIJJ4qaoXbWMIgRkeSW79J93U8)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "W5 2026-10-03: Summit Metro Parks current programs (Summit Lake Float, farmers market)",
+    "statusChecked": "2026-10-03"
+   },
+   "E.J. Thomas Performing Arts Hall": {
+    "address": "198 Hill St, Akron, OH 44325",
+    "lat": 41.0786,
+    "lng": -81.5151,
+    "source": "W5 2026-10-03: Wikipedia 'E. J. Thomas Hall' coordinates 41°04′43″N 81°30′54″W",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "W5 2026-10-03: Playhouse Square venue page (current season)",
+    "statusChecked": "2026-10-03"
+   },
+   "Western Reserve Academy": {
+    "address": "115 College St, Hudson, OH 44236",
+    "lat": 41.248685,
+    "lng": -81.435494,
+    "source": "W5 2026-10-03: Wikipedia 'Western Reserve Academy' coordinates 41.248685,-81.435494",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "W5 2026-10-03: operating school; historic campus viewable from Hudson's streets",
     "statusChecked": "2026-10-03"
    }
   }

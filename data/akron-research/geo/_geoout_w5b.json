@@ -32,10 +32,10 @@
 {
 "n": "Diamond Deli",
 "address": "378 S Main St, Akron, OH 44311",
-"lat": null,
-"lng": null,
-"confidence": "unverified",
-"geoSource": "no place pin surfaced via WebSearch (Waze/usarestaurants/foursquare) — held for geocode-helper.html",
+"lat": 41.0757871,
+"lng": -81.5229529,
+"confidence": "med",
+"geoSource": "W5 2026-10-03 listing pin via WebSearch: usarestaurants.info/…/akron/467484-diamond-deli.htm (378 S Main St)",
 "status": "open",
 "statusSource": "W5 2026-10-03: Akron Life Best of the City 2025 Best Deli winner; Mon–Fri 9–3"
 },
@@ -81,11 +81,11 @@
 },
 {
 "n": "Kenmore Boulevard Historic District",
-"address": "Kenmore Blvd between 12th St SW and 17th St SW, Akron, OH 44314",
-"lat": null,
-"lng": null,
-"confidence": "unverified",
-"geoSource": "district — no published NRHP coordinate surfaced in search; held for geocode-helper.html (anchor on Kenmore Blvd & 15th St SW)",
+"address": "Kenmore Blvd (12th–17th St SW; pin at Lay's Guitar Shop, 974 Kenmore Blvd), Akron, OH 44314",
+"lat": 41.0431649,
+"lng": -81.5589119,
+"confidence": "med",
+"geoSource": "W5 2026-10-03 anchor place pin inside the district via WebSearch: waze.com/live-map/directions/us/oh/akron/lays-guitar-shop (Google place ChIJyzTNx9LVMIgRlyhczhpssYk, 974 Kenmore Blvd)",
 "status": "open",
 "statusSource": "W5 2026-10-03: Signal Akron district-signage story"
 }
