@@ -1,0 +1,69 @@
+{
+ "sights": [
+  {
+   "t": 2,
+   "a": "MASS",
+   "k": "ENT",
+   "n": "Lions Lincoln Theatre",
+   "address": "156 Lincoln Way E, Massillon, OH 44646",
+   "w": "Massillon's 1915 movie palace (Guy Tilden design), saved from demolition by the Massillon Lions Club in 1982 and run by volunteers as a 684-seat performing-arts and classic-film house. Heritage Ohio feature; Cinema Treasures history; Clio entry.",
+   "sources": [
+    [
+     "HERITAGEOHIO",
+     "https://www.heritageohio.org/?p=7321"
+    ],
+    [
+     "CINEMATREASURES",
+     "https://www.cinematreasures.org/theaters/36783"
+    ],
+    [
+     "CLIO",
+     "https://www.theclio.com/entry/26623"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CANT",
+   "k": "SHOP",
+   "g": [
+    "MUS",
+    "SHOP"
+   ],
+   "n": "Canton Arts District",
+   "address": "Cleveland Ave NW to Market Ave N, 6th St NE to Tuscarawas St, downtown Canton, OH 44702",
+   "w": "Downtown Canton's arts district — galleries, artist studios, live-music venues and large outdoor sculptures/murals — and home of First Friday, the monthly street party that draws thousands. Ohio Magazine ('Creative Outlet'), Akron Life First Friday guide, Visit Canton.",
+   "sources": [
+    [
+     "OHIOMAG",
+     "https://ohiomagazine.com/travel/article/creative-outlet"
+    ],
+    [
+     "AKRONLIFE",
+     "https://www.akronlife.com/arts/330-area-blog/celebrate-first-friday-in-downtown-canton/"
+    ],
+    [
+     "VISITCANTON",
+     "https://www.visitcanton.com/blog/canton-first-friday-find-out-whats-going-on"
+    ]
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "key": "HERITAGEOHIO",
+   "name": "Heritage Ohio",
+   "url": "https://www.heritageohio.org/"
+  },
+  {
+   "key": "CINEMATREASURES",
+   "name": "Cinema Treasures",
+   "url": "https://cinematreasures.org/"
+  },
+  {
+   "key": "CLIO",
+   "name": "Clio (Marshall University)",
+   "url": "https://www.theclio.com/"
+  }
+ ]
+}

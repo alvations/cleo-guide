@@ -535,3 +535,107 @@ SOURCES_USG(+2+3)/CREATORS_USG(+2+3)/SIGHTS embedded sources. **Running total = 
   Relish myVillage closures; Kovan Scrambled Egg Rice relocation to Blk 335 Ave 7) -> register USG as a
   Singapore town (region->folder) -> rebuild-city -> gates (sourcecheck/geocheck/statuscheck). HELD single-
   credible leads above await a 2nd source for any wave 4.
+
+### Balestier (BLS) — W1 discovery, PARTIAL (2026-10-02)
+Canon-first food pass on Balestier Road + Whampoa Makan Place. **13 food kept** (`FOOD_BALESTIER.json`; t1=6,
+t2=6, t3=1; 0 closed), each >=2 credible (Eatbook/SethLui/MTC/DFD/HGW/TimeOut/TSL/WW/CityNomads/Traveller) or
+Michelin Bib; Roots(NHB) Balestier Food Trail used as institutional corroboration. 0 sights, 0 geocoded.
+**Stopped early: the session-wide WebSearch cap (200/200) was hit after 22 BLS searches** — no fabrication;
+HELD single-source list + MEASURED/DROPPED + next steps in `_note_BALESTIER.md`. Sources: `SOURCES_BALESTIER.json`
+(new outlets CITYNOMADS, TRAVELLERAU); creators: `CREATORS_BALESTIER.json` (ieatishootipost x3 attaches).
+
+
+### Punggol (PGL) — WAVE 1 discovery (PARTIAL, 2026-10-02)
+Area code **PGL** (slug `punggol`, target ~93). Files: `FOOD_PUNGGOL.json` (5), `SIGHTS_PUNGGOL.json` (4 + 10 source rows),
+`SOURCES_PUNGGOL.json` (8 outlets), `CREATORS_PUNGGOL.json` (0 creators / 4 rejected), pass detail in `_note_PUNGGOL.md`.
+- **KEPT 9** (all >=2 credible or lone Michelin; dedup vs dataset = 0 collisions): food t1 Kwang Kee Teochew Fish Porridge
+  (One Punggol; Michelin Bib brand + Eatbook + Her World), Singapore Fried Hokkien Mee (Punggol Coast; Bib; SethLui/Eatbook/
+  Mothership/Honeycombers/AsiaOne); t2 99 South Buona Vista Braised Duck, Botak Cantonese Porridge, Lim Bo Rojak. Sights t1 Coney
+  Island Park (Wikipedia/NParks/Little Day Out/City Nomads/TSL), Punggol Beach Massacre Site (Roots/SG101/NHB/Wikipedia); t2 Punggol
+  Point Park (Wikipedia/Time Out/TSL); t3 Waterway Point (TSL/Eatbook).
+- **Channel mix:** institutional 3 · editorial 9 · notable-travel 3 · viral creators 0 (pass not reached) · local 0.
+- **DEDUP:** Punggol Park, Kampong Lorong Buangkok, Lorong Halus Wetland, Ponggol Nasi Lemak already under USG.
+- **HELD** (single credible / merit unmeasured / status unknown): Matilda House, Punggol Heritage Trail, Waterway Park + Sunrise/Jewel
+  bridges, Promenade Nature Walk/Jetty, No.25 Minced Meat Noodles, Hi Leskmi Nasi Lemak, Souperb!, Hock Hai / Pin Wei / Whampoa Fried
+  Oyster (attribution unclear), Ponggol Seafood, Izakaya 95, Whisk & Paddle, + Eatbook 30-best leads (see note). Chains dropped.
+- **Closures:** 0 found; status of all 9 still to be recorded at the geocode stage.
+- **Geocode: 0/9.** **BLOCKED:** the session WebSearch cap (200/200, shared by all concurrent agents) was exhausted ~17 searches in;
+  WebSearch is the only allowed channel, so geocoding/status/discovery cannot continue. Nothing fabricated; page not live.
+
+### Novena & Newton (NVN) — WAVE 1 (2026-10-02, NOVENA agent; halted by WebSearch cap)
+- Discovery: ~14 WebSearch queries (Newton FC Bib list, Eatbook/SethLui/Women's Weekly Newton guides, Novena/Velocity/
+  Goldhill round-ups) before the session-wide 200/200 cap. **Kept 6** (`FOOD_NOVENA.json` 5 + `SIGHTS_NOVENA.json` 1):
+  Heng Carrot Cake, Kwee Heng Duck Noodle, Kwang Kee Teochew Fish Porridge (MICHELIN Bib), Newton Old Signboard 25
+  Hokkien Prawn Noodle, Bee Heng Satay BBQ Prawn & Otah (renamed from Bee Heng Popiah 2023), Newton Food Centre (sight, Roots/NHB).
+- Channels: Michelin 3 · Roots/NHB 1 · Eatbook 5 · SethLui 2 · Women's Weekly 2 · MTC 1 · creators ieatishootipost 2 / Ordinary Patrons 1.
+  Unconfirmed citations removed before write (Tatler, a WW and an Eatbook cite whose text was not seen naming the stall).
+- HELD single-source (15) + DROPPED (328 Katong Laksa, out of scope): listed in `_note_NOVENA.md`.
+- Geocode: 6 pins via the existing sourced Newton FC building place pin (Google !3d1.3119888!4d103.8395742) — 1 high, 5 med
+  (stall-in-building). Status: all open (2025 Bib list / 2024-25 guides). Closures 0. `geo/_geoout_novena_w1.json`.
+- Build: geocheck PASS · statuscheck CONSISTENT · buildcheck PASS; sourcecheck FAIL = 46 pre-existing non-NVN single-source
+  (GATE 1 drops). Page renders 10 (6 new + 4 pre-existing). Density 6/55 → NEED +49. **Not live.**
+
+### Holland Village (HLV) — wave 1 (2026-10-02, agent HOLLANDV; truncated by the shared WebSearch cap)
+- **Sources/discovery:** 27 WebSearch calls (Seth Lui / Eatbook / Women's Weekly / Her World / HGW / Time Out
+  hawker-centre guides; Michelin Guide listings; ieatishootipost, Miss Tam Chiak, Ordinary Patrons, SG Food on Foot)
+  before the session cap (200/200, shared by all concurrent agents) stopped search — retry confirmed.
+- **Kept 13** (10 food + 3 sights), all >=2 credible or lone Michelin: Ghim Moh MFC (Chuan Kee Bib, Ghim Moh Chwee
+  Kueh, Ghim Moh Carrot Cake, Hin Fried Hor Fun, Heavens appam, **Guan Kee Fried Kway Teow — CLOSED** 28 Nov 2023),
+  Holland Drive MFC (New Lucky Claypot Rice Bib 2024/25, Cheng Heng Kway Chap, Shima's Kitchen, Hakka Noodle), sights
+  Ghim Moh MFC (t1), Holland Village MFC, Holland Drive MFC. Channel mix: Michelin 3 · editorial 13 · creators/blogs 5
+  · viral video 0 · local 0. Yelp/TripAdvisor/Google/Burpple = 0.
+- **Held/dropped:** 9 entries in `CREATORS_HOLLANDV.json` rejected[] (single-source, status-unconfirmed, or
+  per-stall attribution unconfirmed). **Geocode:** 5 med (Holland Drive MFC registry pin reused, stall-within-centre),
+  8 UNVERIFIED (no pin obtainable — helper queue). **Build:** holland-village.html 7 pins, greyed (not live);
+  geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate/test PASS. Density 13/55 (NEED +42).
+  Full detail: `_note_HOLLANDV.md`.
+
+### 4-town relaunch session (PGL/BLS/NVN/HLV) — W2 (2026-10-02; one session, own WebSearch budget)
+- **Searches:** ~118 discovery (log: `_sg4_searchlog.md`) + 52 by 4 background geocode agents. Method lesson: EXTENDED-mode list
+  queries (3-6 two-source places/call) and DOMAIN-FILTERED queries (`allowed_domains` = credible outlets → exact attribution) beat
+  standard queries (~1 place/call). Straitstimes/cntraveler/tatler are refused by the search API as allowed_domains.
+- **Discovered (density.py):** HLV 56/55 **OK → LIVE** (33 pins) · BLS 55/55 **OK, held from go-live** (5 pins — hawker buildings
+  unpinnable via search) · NVN 35/55 · PGL 35/93. (True counts after density.py stopped double-counting sg_worklist.json — first
+  reported 57/61/43/42 were inflated.) Later additions: HLV Le Bon Funk, Frankie & Fern's, Fireplace by Bedrock, Bao Er (HV); BLS Cafe de
+  Hong Kong, Lotus Vegetarian, House of Tau Sar Piah — CLOSED (paused indefinitely 23 Apr 2025), Balestier Conservation Area, Shaw Plaza.
+- **Fact-check / merit:** every kept place >=2 credible or lone Michelin (helper `_sg4_add.py` asserts it). Women's Weekly + Her World
+  treated as one syndicated voice. Mall chains dropped as padding (One Holland Village, Velocity, United Square). Mademoiselle Tang
+  dropped (lukewarm review).
+- **Closures flagged (kept):** Miao Sin Popiah & Carrot Cake (26 Feb 2026), Ponggol Seafood (2 May 2024), Old Police Academy (2005);
+  noted-not-added: Thambi Magazine Store (5 May 2024), Da Chang Jin CCF (gone per DFD). Balestier Market closure reversed (to ~2027).
+- **Geocode:** pins from Wikipedia coords (Goodwood Park, Old Police Academy, Waterway Park, Matilda House, Coney Island, Punggol Point,
+  Waterway Point, Sun Yat Sen Hall, Burmese temple, Novena Church, Punggol Regional Library→One Punggol, Guan Kee→Ghim Moh MFC, Jalan
+  Ampas, Art Deco shophouses) + reused registry building pins (Newton FC, Holland Drive MFC). UNVERIFIED for the helper: Whampoa Makan
+  Place, Balestier Market, Balestier Plaza, Balestier Rd shops, Holland Village MFC, Lorong Mambong/One Holland Village, Punggol Coast HC,
+  Punggol Settlement, Scotts Rd restaurants, Goldhill/Square 2.
+- **Gates (build 3):** geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck FAIL only on the 46 pre-existing
+  single-source places in other towns (0 in these 4) · validate DATA OK · npm test ALL PASS.
+- Per-town detail: `_note_HOLLANDV.md`, `_note_BALESTIER.md`, `_note_NOVENA.md`, `_note_PUNGGOL.md` (W2 sections).
+
+- **FINAL (end of session): HLV 57/55 OK (LIVE) · BLS 56/55 OK (go-live held for pins) · NVN 37/55 (NEED +18) · PGL 35/93 (NEED +58).** Late adds: NVN Baan Ying, Banelé; BLS Niu Dian (VIIO @ Balestier); HLV Niu Dian (HV).
+
+## 2026-10-03 — PGL + NVN W3 (PGL+NVN session)
+- Discovery: PGL +15 (9 food, 6 sights), NVN +10 (9 food, 1 sight). Channels: institutional/official (Wikipedia, NParks, JTC, MUIS, HDB, MND, NHB/Roots, MICHELIN_EDITORIAL) 9; editorial (Eatbook, Seth Lui, Women's Weekly, Honeycombers, Time Out, City Nomads, Makansutra, Tatler, The Peak, Frommer's, Monocle, Dezeen, designboom, Vulcan Post) 21; blogs/creators (ieatishootipost attach, SGFoodOnFoot, live2makan, Ordinary Patrons, 2bearbear, ladyironchef) 8.
+- Closure: Sixth Floor Oyster Cake (Northshore Plaza) — CLOSED after 28 Sep 2025 (Seth Lui).
+- Geocode: 12 pinned (4 high: Bukit Brown, Masjid Al-Islah, Oasis Terraces + building reuse; 8 med building-reuse), 13 UNVERIFIED (Punggol Coast HC, Northshore, Scotts Rd bungalows, Balmoral Plaza, Keng Lee Rd, 2 linear trails). Street centroids (Punggol Way) rejected.
+- Gates after rebuild: geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck FAIL only on 46 pre-existing single-source places elsewhere (none PGL/NVN). validate + test ALL PASS.
+- Density: PGL 50/93 (NEED +43), NVN 47/55 (NEED +8). Rendered: punggol.html 23, newton-novena.html 29. Full held/dropped lists: _note_PUNGGOL.md / _note_NOVENA.md W3.
+- **W3 close (same day):** NVN +6 more (Cairnhill CA, Tan Chin Tuan Mansion, The Line, Waterfall, L'Espresso, Guan Kee) → **53/55**, 35 pinned. PGL net 0 more: +3 (Hee Hee Hee, SJ Sickander Ammal, Warabimochi Kamakura) and −3 **attribution correction** (75 Ah Balling, One Soy, You Fu re-HELD after domain-restricted checks failed to confirm their second source) → **50/93**, 24 pinned. Gates unchanged (geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck FAIL only on 46 pre-existing non-PGL/NVN single-source places). Lesson logged in _note_PUNGGOL.md: confirm 2nd sources with `allowed_domains` before filing.
+
+## 2026-10-03 — PGL + NVN W4 (wave-3 relaunch session), batch 1
+- NVN: +4 food (Soon Wah, Newton Tian Xiang, R&B Express, Hong Kong Cha Kee), −1 duplicate (Bee Heng Popiah W3 = Bee Heng Satay W1) → **56/55 OK**; 37 pinned.
+- PGL: +5 food (219 Sarawak Kolo Mee, Fat Po, Seoul Good, House of Seafood, Downstairs) +3 sights (Punggol East Container Park, Treelodge@Punggol, Waterway Terraces) → **58/93 (NEED +35)**; 25 pinned.
+- Channels: editorial 13 (Eatbook, Seth Lui, DFD, MTC, TSL, Honeycombers, HGW, Tatler Asia, Sassy Mama, Little Day Out), institutional/ref 2 (Wikipedia, HDB), architecture media 2 (designboom, RTF), creators 0 (none vetted for Punggol).
+- Gates: geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck FAIL only on the 46 pre-existing single-source places elsewhere (none PGL/NVN). validate DATA OK · npm test ALL PASS.
+- Held/dropped detail: _note_PUNGGOL.md / _note_NOVENA.md "W4".
+
+## 2026-10-03 — PGL + NVN W4 batch 2
+- PGL +2 food (75 Ah Balling One Punggol, Xiang Chi Mian) → 60/93; pins 25→29. NVN pins 37→42 (density 56/55 OK).
+- New geocode method: OneMap (SLA) building search-result URLs via WebSearch allowed_domains onemap.gov.sg — 5 buildings resolved (Northshore Plaza I, Waterway Terraces I, Royal Square at Novena, Goldhill Plaza, Balmoral Plaza); partial index, see _note_* for misses.
+- Gates: geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck 46 pre-existing (none PGL/NVN) · validate OK · npm test ALL PASS.
+
+## 2026-10-03 — PGL + NVN W4 close
+- PGL +3 (Selera Sumang, Satay Sumang — HHWT second source confirmed by domain query; Hai Bin Prawning sight) → **63/93 (NEED +30)**, 29 pinned. NVN **56/55 OK → LIVE** (newton-novena added to LIVE_SLUGS), 42 pinned.
+- W4 channel mix (PGL+NVN, 25 places): editorial 21 (Eatbook, Seth Lui, DFD, MTC, TSL, Honeycombers, Time Out, HGW, WW, Tatler Asia, Sassy Mama, Little Day Out, HomeTeamNS), halal creator/platform 2 (Have Halal Will Travel), institutional/reference 2 (Wikipedia, HDB), architecture 2 (designboom, RTF). Viral creators: 0 vetted for Punggol (creator query run; none qualified).
+- Closures: none new. Status notes: Botak Cantonese Porridge continues under 2nd gen; Bee Heng (Newton) popiah discontinued 2023 (dup record removed).
+- Gates: geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck 46 pre-existing elsewhere · validate DATA OK · npm test ALL PASS (Singapore/index 7 live links).

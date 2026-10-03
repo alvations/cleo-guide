@@ -65,6 +65,20 @@ const PAGE_FOR = {
   'ghent': path.join(__dirname, '..', 'cities', 'ghent.html'),
   'brussels': path.join(__dirname, '..', 'cities', 'brussels.html'),
   'bruges': path.join(__dirname, '..', 'cities', 'bruges.html'),
+  'tokyo': path.join(__dirname, '..', 'cities', 'tokyo.html'),
+  'kyoto': path.join(__dirname, '..', 'cities', 'kyoto.html'),
+  'osaka': path.join(__dirname, '..', 'cities', 'osaka.html'),
+  'okinawa': path.join(__dirname, '..', 'cities', 'okinawa.html'),
+  'hokkaido': path.join(__dirname, '..', 'cities', 'hokkaido.html'),
+  'akron-oh': path.join(__dirname, '..', 'cities', 'akron.html'),
+  'chicago-il': path.join(__dirname, '..', 'cities', 'chicago.html'),
+  'harrisburg-pa': path.join(__dirname, '..', 'cities', 'harrisburg.html'),
+  'madison-wi': path.join(__dirname, '..', 'cities', 'madison.html'),
+  'miami-fl': path.join(__dirname, '..', 'cities', 'miami.html'),
+  'orlando-fl': path.join(__dirname, '..', 'cities', 'orlando.html'),
+  'indianapolis-in': path.join(__dirname, '..', 'cities', 'indianapolis.html'),
+  'liege': path.join(__dirname, '..', 'cities', 'liege.html'),
+  'philadelphia-pa': path.join(__dirname, '..', 'cities', 'philadelphia.html'),
 };
 // Cities built from a normalized dataset (source arrays live here pre-build) — used by --sourcecheck.
 const DATASET_FOR = {
@@ -86,6 +100,20 @@ const DATASET_FOR = {
   'ghent': path.join(__dirname, '..', 'data', 'ghent.dataset.json'),
   'brussels': path.join(__dirname, '..', 'data', 'brussels.dataset.json'),
   'bruges': path.join(__dirname, '..', 'data', 'bruges.dataset.json'),
+  'tokyo': path.join(__dirname, '..', 'data', 'tokyo.dataset.json'),
+  'kyoto': path.join(__dirname, '..', 'data', 'kyoto.dataset.json'),
+  'osaka': path.join(__dirname, '..', 'data', 'osaka.dataset.json'),
+  'okinawa': path.join(__dirname, '..', 'data', 'okinawa.dataset.json'),
+  'hokkaido': path.join(__dirname, '..', 'data', 'hokkaido.dataset.json'),
+  'akron-oh': path.join(__dirname, '..', 'data', 'akron.dataset.json'),
+  'chicago-il': path.join(__dirname, '..', 'data', 'chicago.dataset.json'),
+  'harrisburg-pa': path.join(__dirname, '..', 'data', 'harrisburg.dataset.json'),
+  'madison-wi': path.join(__dirname, '..', 'data', 'madison.dataset.json'),
+  'miami-fl': path.join(__dirname, '..', 'data', 'miami.dataset.json'),
+  'orlando-fl': path.join(__dirname, '..', 'data', 'orlando.dataset.json'),
+  'indianapolis-in': path.join(__dirname, '..', 'data', 'indianapolis.dataset.json'),
+  'liege': path.join(__dirname, '..', 'data', 'liege.dataset.json'),
+  'philadelphia-pa': path.join(__dirname, '..', 'data', 'philadelphia.dataset.json'),
 };
 
 function loadGeocodes() {
@@ -559,11 +587,11 @@ function sourcecheck(key) {
     return;
   }
   if (!fs.existsSync(ds)) { console.log('No dataset at ' + ds); return; }
-  const OPEN_ONLY = new Set(['YELP', 'TRIPADVISOR', 'OPENTABLE', 'GOOGLE', 'GOOGLEMAPS']);
+  const OPEN_ONLY = new Set(['YELP', 'TRIPADVISOR', 'OPENTABLE', 'GOOGLE', 'GOOGLEMAPS', 'TABELOG', 'RETTY']);
   // A lone institutional authority (Michelin / James Beard / Gault&Millau / UNESCO / NPS / Smithsonian)
   // is sufficient on its own; a lone editorial source still needs a 2nd. Keep in sync with
   // tools/sourcecheck.py + build-*.py (build-saarland.py counts GAULTMILLAU + UNESCO as lone authorities).
-  const ELITE_SOLO = new Set(['MICHELIN', 'MICHELIN_BIB', 'MICHELIN_STAR', 'MICHELIN_GREEN', 'JAMESBEARD', 'GAULTMILLAU', 'UNESCO', 'NPS', 'SMITHSONIAN']);
+  const ELITE_SOLO = new Set(['MICHELIN', 'MICHELIN_BIB', 'MICHELIN_STAR', 'MICHELIN_GREEN', 'JAMESBEARD', 'GAULTMILLAU', 'UNESCO', 'NPS', 'SMITHSONIAN', 'MICHELINJP', 'BUNKACHO']);
   const data = JSON.parse(fs.readFileSync(ds, 'utf8'));
   const recs = (data.P || []).concat(data.F || []);
   const credSet = r => new Set((r.s || []).map(t => t[0]).filter(k => !OPEN_ONLY.has(k)));

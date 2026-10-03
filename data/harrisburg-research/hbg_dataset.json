@@ -1,0 +1,5978 @@
+{
+ "areas": [
+  {
+   "id": "HBG",
+   "n": "Harrisburg & the West Shore (Midtown, Camp Hill, Mechanicsburg)"
+  },
+  {
+   "id": "HER",
+   "n": "Hershey & Derry Township (Hummelstown, Middletown, Palmyra)"
+  },
+  {
+   "id": "CAR",
+   "n": "Carlisle & the Cumberland Valley (Boiling Springs, Shippensburg)"
+  },
+  {
+   "id": "YORK",
+   "n": "York & York County (Hanover, the factory-tour trail)"
+  },
+  {
+   "id": "LAN",
+   "n": "Lancaster city (Central Market, Penn Square, the Gallery Row)"
+  },
+  {
+   "id": "AMISH",
+   "n": "Lancaster County Amish country (Intercourse, Bird-in-Hand, Strasburg, Ephrata, Lititz)"
+  },
+  {
+   "id": "GBG",
+   "n": "Gettysburg & Adams County (the day-trip edge)"
+  }
+ ],
+ "ac": {
+  "HBG": "#C0504D",
+  "HER": "#8B5A2B",
+  "CAR": "#9BBB59",
+  "YORK": "#41729F",
+  "LAN": "#E8973A",
+  "AMISH": "#8064A2",
+  "GBG": "#4BACC6"
+ },
+ "cuisines": [
+  {
+   "id": "PADUTCH",
+   "n": "Pennsylvania Dutch & Smorgasbords"
+  },
+  {
+   "id": "BAKE",
+   "n": "Bakeries, Shoofly & Whoopie Pies"
+  },
+  {
+   "id": "PRETZ",
+   "n": "Pretzels, Chips & Snack Factories"
+  },
+  {
+   "id": "SWEET",
+   "n": "Chocolate, Candy & Ice Cream"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets"
+  },
+  {
+   "id": "FARM",
+   "n": "Farms, Orchards & U-Pick"
+  },
+  {
+   "id": "DINER",
+   "n": "Diners & Breakfast"
+  },
+  {
+   "id": "US",
+   "n": "American & New American"
+  },
+  {
+   "id": "BREW",
+   "n": "Breweries, Wineries & Distilleries"
+  },
+  {
+   "id": "ITAL",
+   "n": "Italian & Pizza"
+  },
+  {
+   "id": "BBQ",
+   "n": "BBQ & Smokehouse"
+  },
+  {
+   "id": "MEX",
+   "n": "Mexican, Puerto Rican & Latin"
+  },
+  {
+   "id": "ASIAN",
+   "n": "Asian"
+  },
+  {
+   "id": "MED",
+   "n": "Mediterranean, Middle Eastern & African"
+  },
+  {
+   "id": "CAFE",
+   "n": "Coffee & Cafés"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Local Favorite"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "CIVIL",
+   "n": "Civil War & Gettysburg"
+  },
+  {
+   "id": "AMISH",
+   "n": "Amish & Plain Country"
+  },
+  {
+   "id": "FACT",
+   "n": "Factory Tours & Makers"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "HIST",
+   "n": "History & Heritage"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks, Gardens & Nature"
+  },
+  {
+   "id": "OUTDOOR",
+   "n": "Hikes, Trails & Outdoors"
+  },
+  {
+   "id": "RAIL",
+   "n": "Railroads & Trolleys"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "HBG",
+   "n": "Pennsylvania State Capitol",
+   "ad": "501 N 3rd St, Harrisburg, PA 17120",
+   "w": "Joseph Huston's 1906 Beaux-Arts capitol, its dome modeled on St. Peter's — Theodore Roosevelt called it the handsomest he'd seen. Moravian tile floors by Henry Mercer, Violet Oakley and Edwin Austin Abbey murals; free 30-minute guided tours every half hour on weekdays.",
+   "k": "ICON",
+   "g": [
+    "ICON",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pennsylvania_State_Capitol"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/things-to-do/arts-and-museums/state-capitol/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/pennsylvania-state-capitol"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HBG",
+   "n": "National Civil War Museum",
+   "ad": "1 Lincoln Cir, Harrisburg, PA 17103",
+   "w": "Hilltop museum in Reservoir Park that tells the whole war — causes, both armies, the home front and aftermath — evenhandedly, without picking sides; one of the largest Civil War collections in the country.",
+   "k": "MUS",
+   "g": [
+    "ICON",
+    "CIVIL",
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/National_Civil_War_Museum"
+    ],
+    [
+     "VISITPA",
+     "https://www.visitpa.com/national-civil-war-museum"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://discoverlancaster.com/directory/the-national-civil-war-museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "State Museum of Pennsylvania",
+   "ad": "300 North St, Harrisburg, PA 17120",
+   "w": "The Commonwealth's own museum beside the Capitol, run by the PA Historical and Museum Commission: four floors from mastodons and Native Pennsylvania to Peter Rothermel's huge 'Battle of Gettysburg: Pickett's Charge' painting, plus a 70-seat digital planetarium.",
+   "k": "MUS",
+   "g": [
+    "CIVIL",
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/State_Museum_of_Pennsylvania"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://discoverlancaster.com/directory/state-museum-of-pennsylvania"
+    ],
+    [
+     "CLIO",
+     "https://theclio.com/tour/460/1"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HER",
+   "n": "Hersheypark",
+   "ad": "100 W Hersheypark Dr, Hershey, PA 17033",
+   "w": "Milton Hershey's 1906 employee picnic ground grown into one of the country's great amusement parks — 15 roller coasters including Candymonium, plus ZooAmerica and The Boardwalk water park — with the scent of the chocolate plant drifting over the midway.",
+   "k": "ICON",
+   "g": [
+    "ICON",
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hersheypark"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/?p=48250"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HER",
+   "n": "The Hershey Story",
+   "ad": "63 W Chocolate Ave, Hershey, PA 17033",
+   "w": "The museum of Milton Hershey's town and company on Chocolate Avenue (opened 2009) — and its Chocolate Lab, where you temper, pour and decorate your own bar; the tasting of world drinking chocolates is the sleeper hit.",
+   "k": "MUS",
+   "g": [
+    "ICON",
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Hershey_Story"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/things-to-do/arts-and-museums/hershey-story-museum"
+    ],
+    [
+     "CPBJ",
+     "https://www.cpbj.com/free-admission-to-hershey-story-museum-hershey-gardens-this-weekend"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GBG",
+   "n": "Gettysburg National Military Park Museum & Visitor Center",
+   "ad": "1195 Baltimore Pike, Gettysburg, PA 17325",
+   "w": "Start here: the NPS museum, the film 'A New Birth of Freedom,' and Paul Philippoteaux's 1884 Gettysburg Cyclorama — a 377-foot painting-in-the-round of Pickett's Charge. Book a Licensed Battlefield Guide for the 6,000-acre field outside.",
+   "k": "ICON",
+   "g": [
+    "ICON",
+    "CIVIL",
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/gett/planyourvisit/visitorcenters.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Gettysburg_Museum_and_Visitor_Center"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GBG",
+   "n": "Gettysburg National Cemetery (Soldiers' National Cemetery)",
+   "ad": "97 Taneytown Rd, Gettysburg, PA 17325",
+   "w": "Where Lincoln delivered the Gettysburg Address at its dedication on November 19, 1863; the semicircular rows of Union dead radiate around the Soldiers' National Monument. Evidence suggests the speakers' platform actually stood just over the fence in Evergreen Cemetery.",
+   "k": "ICON",
+   "g": [
+    "CIVIL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Gettysburg_National_Cemetery"
+    ],
+    [
+     "HALLOWEDGROUND",
+     "https://www.hallowedground.org/site-locations/soldiers-national-cemetery/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GBG",
+   "n": "Little Round Top",
+   "ad": "Sykes Ave, Gettysburg National Military Park, PA 17325",
+   "w": "The rocky hill whose defense by the 20th Maine and others on July 2, 1863 anchored the Union left; reopened in June 2024 after a $12.9M rehabilitation restoring its 1863 look, with new trails and the best view over the Valley of Death and Devil's Den.",
+   "k": "CIVIL",
+   "g": [
+    "CIVIL",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/gett/learn/historyculture/little-round-top.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Little_Round_Top"
+    ],
+    [
+     "EMERGINGCW",
+     "https://emergingcivilwar.com/2024/06/26/gettysburgs-little-round-top-reopens/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GBG",
+   "n": "Eisenhower National Historic Site",
+   "ad": "1195 Baltimore Pike, Gettysburg, PA 17325 (shuttle from the Visitor Center)",
+   "w": "Dwight and Mamie Eisenhower's farm beside the battlefield — weekend White House in the 1950s, where he hosted Khrushchev and de Gaulle, and their only permanent home. Reached by NPS shuttle from the Museum & Visitor Center.",
+   "k": "HIST",
+   "g": [
+    "ICON",
+    "CIVIL",
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Eisenhower_National_Historic_Site"
+    ],
+    [
+     "NPS",
+     "https://www.nps.gov/parkhistory/online_books/presidents/site52.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GBG",
+   "n": "David Wills House",
+   "ad": "8 Lincoln Square, Gettysburg, PA 17325",
+   "w": "The 1816 Lincoln Square home of attorney David Wills, who organized the post-battle cleanup and the national cemetery — and where Lincoln slept and finished the Gettysburg Address on November 18, 1863.",
+   "k": "CIVIL",
+   "g": [
+    "CIVIL"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://home.nps.gov/places/david-wills-house.htm"
+    ],
+    [
+     "HALLOWEDGROUND",
+     "https://www.hallowedground.org/site-locations/david-wills-house/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Strasburg Rail Road",
+   "ad": "301 Gap Rd, Ronks, PA 17572",
+   "w": "America's oldest continuously operating short-line railroad (chartered 1832): steam trains pull restored wooden coaches 45 minutes through Amish farmland to Paradise and back — the classic Lancaster County ride.",
+   "k": "RAIL",
+   "g": [
+    "ICON",
+    "AMISH",
+    "RAIL",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://assets.atlasobscura.com/places/strasburg-rail-road"
+    ],
+    [
+     "RAILFANGUIDES",
+     "https://www.railfanguides.us/pa/strasburg"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Railroad Museum of Pennsylvania",
+   "ad": "300 Gap Rd, Ronks, PA 17572",
+   "w": "The Commonwealth's railroad museum, across the road from the Strasburg Rail Road: more than 100 historic locomotives and cars, many from the Pennsylvania Railroad, under one vast roof.",
+   "k": "RAIL",
+   "g": [
+    "ICON",
+    "MUS",
+    "HIST",
+    "RAIL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Railroad_Museum_of_Pennsylvania"
+    ],
+    [
+     "RAILFANGUIDES",
+     "https://www.railfanguides.us/pa/strasburg"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Ephrata Cloister",
+   "ad": "632 W Main St, Ephrata, PA 17522",
+   "w": "The medieval-looking 1730s timber buildings of Conrad Beissel's celibate German Seventh Day Baptist community — famous for its a cappella music, Fraktur calligraphy and printing press. Now a PHMC historic site and National Historic Landmark.",
+   "k": "HIST",
+   "g": [
+    "ICON",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ephrata_Cloister"
+    ],
+    [
+     "PHMC",
+     "https://www.pa.gov/agencies/phmc/historic-sites-and-museums/pahistory2go/ephrata-cloister"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Landis Valley Village & Farm Museum",
+   "ad": "2451 Kissel Hill Rd, Lancaster, PA 17601",
+   "w": "A 100-acre living-history crossroads village of Pennsylvania German rural life, founded on the Landis brothers' collection; costumed interpreters, heirloom-seed gardens and 18th–19th-century trades.",
+   "k": "HIST",
+   "g": [
+    "ICON",
+    "MUS",
+    "HIST",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Landis_Valley_Museum"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://discoverlancaster.com/directory/landis-valley-village-farm-museum"
+    ],
+    [
+     "PAHERITAGE",
+     "https://paheritage.org/resources/trails-of-history/trails-of-history-sites.html/title/landis-valley-village-and-farm-museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LAN",
+   "n": "Wheatland (James Buchanan House)",
+   "ad": "1120 Marietta Ave, Lancaster, PA 17603",
+   "w": "The 1828 Federal-style home of James Buchanan, the 15th president, who ran his 1856 campaign from its library; guided tours from the adjacent LancasterHistory campus.",
+   "k": "HIST",
+   "g": [
+    "ICON",
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wheatland_(James_Buchanan_House)"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/visiting-wheatland-president-james-buchanan"
+    ],
+    [
+     "NPS",
+     "https://www.nps.gov/parkhistory/online_books/presidents/site54.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "Kitchen Kettle Village",
+   "ad": "3529 Old Philadelphia Pike, Intercourse, PA 17534",
+   "w": "A 65-year-old village of 40-plus shops and eateries in Intercourse grown around its Jam & Relish Kitchen — sample pepper jam, watch fudge being rolled, shop local quilts and pottery. Closed Sundays.",
+   "k": "AMISH",
+   "g": [
+    "AMISH",
+    "FACT"
+   ],
+   "s": [
+    [
+     "DISCOVERLANC",
+     "https://discoverlancaster.com/directory/kitchen-kettle-village-specialty-baskets"
+    ],
+    [
+     "LANCASTERPA",
+     "https://lancasterpa.com/blog/lancaster-county-fun/15-kitchen-kettle-village/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "The Amish Farm and House",
+   "ad": "2395 Covered Bridge Dr, Lancaster, PA 17602",
+   "w": "Opened in 1955 as the first Amish-focused visitor attraction in the US: guided tours of an 1805 farmhouse on a nearly 300-year-old farm, plus a one-room schoolhouse and bus tours of the back roads.",
+   "k": "AMISH",
+   "g": [
+    "AMISH"
+   ],
+   "s": [
+    [
+     "DISCOVERLANC",
+     "https://discoverlancaster.com/directory/amish-farm-and-house-attractions"
+    ],
+    [
+     "CBS21",
+     "https://local21news.com/community/go-local/the-amish-farm-and-house"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "Hunsecker's Mill Covered Bridge",
+   "ad": "Hunsecker Rd over the Conestoga River, Manheim Township, PA",
+   "w": "At 180 feet, the longest single-span covered bridge in Lancaster County (1843, rebuilt after Hurricane Agnes); its horizontal floorboards hum underfoot as you cross.",
+   "k": "AMISH",
+   "g": [
+    "AMISH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hunsecker%27s_Mill_Covered_Bridge"
+    ],
+    [
+     "COVEREDBRIDGES",
+     "https://coveredbridges.net/pennsylvania-bridges/hunsecker-mill"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YORK",
+   "n": "Colonial Complex & Colonial Courthouse (York County History Center)",
+   "ad": "157 W Market St, York, PA 17401",
+   "w": "Where the Continental Congress, fleeing British-occupied Philadelphia, met in the winter of 1777–78 and adopted the Articles of Confederation — making York, by local reckoning, America's first capital. A bicentennial replica courthouse holds an original printing of the Articles, beside the 1741 Golden Plough Tavern and the General Gates House.",
+   "k": "HIST",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://home.nps.gov/articles/000/revitalized-colonial-complex-at-york-county-s-history-center.htm"
+    ],
+    [
+     "VISITPA",
+     "https://www.visitpa.com/blog/post/york-pa-where-americas-founders-kept-the-revolution-alive/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Golden_Plough_Tavern"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YORK",
+   "n": "Harley-Davidson Vehicle Operations Factory Tour",
+   "ad": "1425 Eden Rd, York, PA 17402",
+   "w": "Free hour-long weekday tours of the plant that builds Harley's Touring, Softail, CVO and Trike models — from frames and fuel tanks to the roll-test line where every bike is run before shipping; starts in the Vaughn L. Beals Tour Center. First come, first served; no weekend tours.",
+   "k": "FACT",
+   "g": [
+    "FACT",
+    "OUTDOOR",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITPA",
+     "https://visitpa.com/article/harley-davidson-factory-tour"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/harley-davidson-factory-tour-york"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAR",
+   "n": "U.S. Army Heritage and Education Center",
+   "ad": "950 Soldiers Dr, Carlisle, PA 17013",
+   "w": "The Army's own history museum beside the Army War College: the Soldier Experience Gallery runs from the Revolution to Afghanistan, and the outdoor Army Heritage Trail has a WWI trench, Civil War cabins and Cold War vehicles. Free.",
+   "k": "MUS",
+   "g": [
+    "CIVIL",
+    "MUS",
+    "HIST",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "BATTLEFIELDS",
+     "https://www.battlefields.org/visit/heritage-sites/us-army-heritage-and-education-center"
+    ],
+    [
+     "STRIPES",
+     "https://stripes.com/branches/army/2024-10-31/us-army-heritage-center-foundation-funds-2025-plans-15689681.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAR",
+   "n": "Appalachian Trail Museum",
+   "ad": "1120 Pine Grove Rd, Gardners, PA 17324",
+   "w": "The first museum devoted to hiking, in a 200-year-old gristmill at Pine Grove Furnace State Park — near the AT's symbolic halfway point, where thru-hikers sign in and celebrate.",
+   "k": "OUTDOOR",
+   "g": [
+    "MUS",
+    "PARK",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "SPOTLIGHTPA",
+     "https://www.spotlightpa.org/news/2025/06/appalachian-trail-ice-cream-challenge-half-gallon-thru-hikers/"
+    ],
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/blog/post/half-gallon-challenge/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HER",
+   "n": "Hershey's Chocolate World",
+   "ad": "101 Chocolate World Way, Hershey, PA 17033",
+   "w": "The Hershey Company's free visitor center: a simulated factory-tour ride from cocoa bean to wrapped bar (with a sample), plus paid extras — design-your-own candy bar, the HERSHEY'S Unwrapped tasting show — and the world's largest Hershey store.",
+   "k": "FACT",
+   "g": [
+    "ICON",
+    "FACT",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hershey%27s_Chocolate_World"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/listings/hersheys-chocolate-world-attraction/1540/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HER",
+   "n": "Hershey Gardens & Butterfly Atrium",
+   "ad": "170 Hotel Rd, Hershey, PA 17033",
+   "w": "Milton Hershey's 1937 rose garden grown to 23 acres of themed gardens on the hill by The Hotel Hershey, plus one of the country's few indoor tropical butterfly atriums, with 500-plus butterflies year-round.",
+   "k": "PARK",
+   "g": [
+    "ICON",
+    "PARK"
+   ],
+   "s": [
+    [
+     "PSUEXT",
+     "https://extension.psu.edu/great-greenhouses-of-pennsylvania-hershey-gardens"
+    ],
+    [
+     "CPBJ",
+     "https://www.cpbj.com/free-admission-to-hershey-story-museum-hershey-gardens-this-weekend"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Chickies Rock Overlook",
+   "ad": "Chickies Rock County Park, PA-441, Columbia, PA 17512",
+   "w": "A 1-mile out-and-back on an old trolley grade to a quartzite cliff 200 feet above the Susquehanna — the classic river panorama of Lancaster County, in a 400-acre county park.",
+   "k": "OUTDOOR",
+   "g": [
+    "PARK",
+    "OUTDOOR",
+    "RAIL"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/chickies-rock-in-lancaster-county-pa"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chickies_Ridge"
+    ],
+    [
+     "SUSQGREENWAY",
+     "https://susquehannagreenway.org/parks/breezyview-overlook/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HER",
+   "n": "Indian Echo Caverns",
+   "ad": "368 Middletown Rd, Hummelstown, PA 17036",
+   "w": "Show cave on the Swatara Creek bluff between Hershey and Hummelstown, open to visitors since 1929; the 45-minute tour passes the Indian Ballroom and tells of William Wilson, the 'Pennsylvania Hermit' who lived here for 19 years.",
+   "k": "FAM",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Indian_Echo_Caverns"
+    ],
+    [
+     "PABUCKETLIST",
+     "https://pabucketlist.com/?p=18460"
+    ],
+    [
+     "ROADSIDEAMERICA",
+     "https://www.roadsideamerica.com/story/2203"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YORK",
+   "n": "Haines Shoe House",
+   "ad": "197 Shoe House Rd, York, PA 17406",
+   "w": "A 25-foot-tall, 48-foot-long house shaped like a work boot, built in 1948 by 'Shoe Wizard' Mahlon Haines to advertise his shoe stores — a Route 30 roadside icon with a PA historical marker; tours and ice cream in season.",
+   "k": "ODD",
+   "g": [
+    "HIST",
+    "ODD"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Haines_Shoe_House"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://atlasobscura.com/places/shoe-house"
+    ],
+    [
+     "CPBJ",
+     "https://www.cpbj.com/haines-shoe-house-markets-ice-cream-history"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Fort Hunter Mansion and Park",
+   "ad": "5300 N Front St, Harrisburg, PA 17110",
+   "w": "A Federal-style stone mansion (1814) on the site of a French and Indian War fort, in a 40-acre Dauphin County riverside park with a covered bridge, gardens and a tavern museum six miles up the Susquehanna from downtown.",
+   "k": "HIST",
+   "g": [
+    "AMISH",
+    "MUS",
+    "HIST",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Archibald_McAllister_House"
+    ],
+    [
+     "SUSQGREENWAY",
+     "https://susquehannagreenway.org/parks/fort-hunter-park/"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/blog/post/harrisburg-history-mansions/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAR",
+   "n": "Carlisle Indian School Cemetery",
+   "ad": "530 E North St, Carlisle, PA 17013",
+   "w": "The Carlisle Barracks post cemetery where at least 180 Native American students of the Carlisle Indian Industrial School (1879–1918), the federal boarding school that became the model for forced assimilation, are buried; the Army has returned dozens of children's remains to their tribes since 2017. A place of reflection, on an active Army post.",
+   "k": "HIST",
+   "g": [
+    "FAM"
+   ],
+   "s": [
+    [
+     "GPB",
+     "https://www.gpb.org/node/642506"
+    ],
+    [
+     "ARMYWARCOLLEGE",
+     "https://www.armywarcollege.edu/ciis/docs/Archival Research Report - July 2017.pdf"
+    ],
+    [
+     "DICKINSON",
+     "https://carlisleindian.dickinson.edu/sites/default/files/docs-pages/4967%20Carlisle%20Indian%20School%20Cemetery%20Geophysical%20Survey%20Report.compressed.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LAN",
+   "n": "Fulton Theatre",
+   "ad": "12 N Prince St, Lancaster, PA 17603",
+   "w": "Built in 1852 on the foundations of the jail where the Conestoga were massacred in 1763, the 'Grand Old Lady of Prince Street' is among the oldest continuously operating theaters in the US and a National Historic Landmark; Mark Twain lectured here.",
+   "k": "HIST",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fulton_Opera_House"
+    ],
+    [
+     "LANCASTERHISTORY",
+     "https://www.lancasterhistory.org/?p=12121"
+    ],
+    [
+     "LANCASTERPA",
+     "https://lancasterpa.com/things-to-do/fulton-theatre/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HBG",
+   "n": "Walnut Street Bridge & City Island",
+   "ad": "Walnut St at Front St, Harrisburg, PA 17101",
+   "w": "The 1890 'People's Bridge,' a wrought-iron truss now open only to walkers and cyclists, carries you from Riverfront Park across the Susquehanna to City Island — home of the Senators' ballpark, a riverboat, beach and the best skyline view of the Capitol dome.",
+   "k": "PARK",
+   "g": [
+    "HIST",
+    "PARK",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Walnut_Street_Bridge_(Harrisburg,_Pennsylvania)"
+    ],
+    [
+     "HBGCITY",
+     "https://harrisburgpa.gov/?p=22670"
+    ],
+    [
+     "SUSQGREENWAY",
+     "https://susquehannagreenway.org/?p=562"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Rockville Bridge",
+   "ad": "Susquehanna River between Rockville and Marysville, PA",
+   "w": "The longest stone-masonry arch railroad viaduct ever built: 48 arches and 3,820 feet across the Susquehanna, completed by the Pennsylvania Railroad in 1902 and still carrying Norfolk Southern freights and Amtrak's Pennsylvanian. Best seen from the Marysville or Fort Hunter river banks.",
+   "k": "RAIL",
+   "g": [
+    "HIST",
+    "OUTDOOR",
+    "RAIL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rockville_Bridge"
+    ],
+    [
+     "ASCE",
+     "https://asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/rockville-stone-arch-bridge"
+    ],
+    [
+     "RAILFANGUIDES",
+     "https://www.railfanguides.us/pa/rockville"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HER",
+   "n": "ZooAmerica North American Wildlife Park",
+   "ad": "30 Park Ave, Hershey, PA 17033",
+   "w": "An 11-acre walk-through zoo of 200 animals from five regions of North America — black bears, wolves, bald eagles — begun in 1910 as Milton Hershey's private animal collection; entry included with Hersheypark.",
+   "k": "FAM",
+   "g": [
+    "ICON",
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/ZooAmerica"
+    ],
+    [
+     "VISITPA",
+     "https://www.visitpa.com/region/dutch-country-roads/zooamerica-north-american-wildlife-park"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/listings/zooamerica-north-american-wildlife-park/1541/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GBG",
+   "n": "Seminary Ridge Museum",
+   "ad": "111 Seminary Ridge, Gettysburg, PA 17325",
+   "w": "In 1832 Schmucker Hall of the Lutheran seminary, whose cupola Gen. John Buford used to watch the Confederates arrive on July 1, 1863; the museum covers the first day's fight, the building's use as a field hospital, and faith and freedom in the war — with guided cupola climbs.",
+   "k": "CIVIL",
+   "g": [
+    "CIVIL",
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Schmucker_Hall"
+    ],
+    [
+     "CPBJ",
+     "https://www.cpbj.com/15m-seminary-ridge-museum-on-track-for-gettysburg-battle-anniversary"
+    ],
+    [
+     "ELCA",
+     "https://www.elca.org/news-and-events/7594"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GBG",
+   "n": "High Water Mark & the Angle (Pickett's Charge)",
+   "ad": "Hancock Ave, Cemetery Ridge, Gettysburg National Military Park, PA 17325",
+   "w": "The copse of trees and stone wall on Cemetery Ridge where Pickett's Charge broke on July 3, 1863 — the deepest Confederate penetration of the Union line, marked by the 1892 High Water Mark of the Rebellion monument. Walk the mile across the open field from the Virginia Memorial to feel the scale.",
+   "k": "CIVIL",
+   "g": [
+    "CIVIL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/High_Water_Mark_of_the_Rebellion_Monument"
+    ],
+    [
+     "GETTYSBURGDAILY",
+     "https://www.gettysburgdaily.com/?p=201"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAR",
+   "n": "Pine Grove Furnace State Park",
+   "ad": "1100 Pine Grove Rd, Gardners, PA 17324",
+   "w": "A 696-acre DCNR park around the ruins of an 18th-century iron furnace in the Mountain Creek valley — the Appalachian Trail's symbolic halfway point, with Fuller and Laurel lakes for swimming and paddling, the AT Museum and the half-gallon ice cream challenge store.",
+   "k": "OUTDOOR",
+   "g": [
+    "MUS",
+    "PARK",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pine_Grove_Furnace_State_Park"
+    ],
+    [
+     "DCNR",
+     "https://dcnr.pa.gov/StateParks/FindAPark/PineGroveFurnaceStatePark/Pages/History.aspx"
+    ],
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/blog/post/half-gallon-challenge/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAR",
+   "n": "Boiling Springs & Children's Lake",
+   "ad": "Front St, Boiling Springs, PA 17007",
+   "w": "National Register village around a 7-acre lake fed by 30 natural springs, dammed in the 1750s to power an ironworks; the Appalachian Trail runs along its shore, making this one of Pennsylvania's five designated AT communities — and a celebrated trout stream (the Yellow Breeches) runs below.",
+   "k": "OUTDOOR",
+   "g": [
+    "HIST",
+    "OUTDOOR",
+    "FAM"
+   ],
+   "s": [
+    [
+     "VISITPA",
+     "https://www.visitpa.com/region/dutch-country-roads/boiling-springs"
+    ],
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/blog/post/5-hidden-gems-self-guided-walking-tours/"
+    ],
+    [
+     "PAFISHBOAT",
+     "https://www.fishandboat.com/About-Us/Angler-and-Boater/Angler-and-Boater-2024/Documents/MayJune2024_childrenslake.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LAN",
+   "n": "Thaddeus Stevens & Lydia Hamilton Smith Center",
+   "ad": "13-15 E Vine St, Lancaster, PA 17602",
+   "w": "LancasterHistory's new museum (opened May 2026) in the restored home and law office of abolitionist congressman Thaddeus Stevens and the property of Lydia Hamilton Smith, the Black businesswoman who ran his household — including the modified cistern that is on the NPS Underground Railroad Network to Freedom. Tue–Sat.",
+   "k": "HIST",
+   "g": [
+    "CIVIL",
+    "MUS",
+    "HIST",
+    "RAIL"
+   ],
+   "s": [
+    [
+     "LANCASTERHISTORY",
+     "https://www.lancasterhistory.org/places/stevens-smith/"
+    ],
+    [
+     "FANDM",
+     "https://www.fandm.edu/stories/college-celebrates-opening-of-lancaster-thaddeus-stevens-lydia-smith-center.html"
+    ],
+    [
+     "SMITHSONIAN",
+     "https://www.smithsonianmag.com/history/america-just-now-learning-love-thaddeus-stevens-best-hated-man-us-history-180983235/"
+    ],
+    [
+     "LCMAG",
+     "https://lancastercountymag.com/?p=271811"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Demuth Museum",
+   "ad": "120 E King St, Lancaster, PA 17602",
+   "w": "The home and studio of Precisionist painter Charles Demuth (1883–1935), with the world's largest Demuth collection, his mother's garden, and the family's 1770 tobacco shop next door — America's oldest.",
+   "k": "MUS",
+   "g": [
+    "MUS",
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Demuth_Museum"
+    ],
+    [
+     "ARTISTSHOMES",
+     "https://artistshomes.org/node/117"
+    ],
+    [
+     "LANCASTERPA",
+     "https://lancasterpa.com/things-to-do/demuth-museum/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Historic Rock Ford",
+   "ad": "881 Rock Ford Rd, Lancaster, PA 17602",
+   "w": "The 1794 Georgian mansion of Gen. Edward Hand, Washington's adjutant general, on the Conestoga River in Lancaster County Central Park — remarkably intact, with original woodwork and period furnishings.",
+   "k": "HIST",
+   "g": [
+    "HIST",
+    "PARK",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Rock_Ford"
+    ],
+    [
+     "LANCASTERPA",
+     "https://lancasterpa.com/things-to-do/historic-rock-ford/"
+    ],
+    [
+     "CLIO",
+     "https://theclio.com/entry/34556"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Penn Square & Soldiers and Sailors Monument",
+   "ad": "Penn Square (King & Queen Sts), Lancaster, PA 17603",
+   "w": "Lancaster's central square, site of the colonial courthouse where the Continental Congress met for one day in 1777; the 43-foot Gothic Revival Civil War monument (1874) stands at its heart beside Central Market.",
+   "k": "HIST",
+   "g": [
+    "ICON",
+    "CIVIL",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Soldiers_and_Sailors_Monument_(Lancaster,_Pennsylvania)"
+    ],
+    [
+     "LANCASTERHISTORY",
+     "https://www.lancasterhistory.org/?p=16542"
+    ],
+    [
+     "CLIO",
+     "https://www.theclio.com/web/entry?id=15457"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Lancaster Science Factory",
+   "ad": "454 New Holland Ave, Lancaster, PA 17602",
+   "w": "Hands-on science center with 70-plus interactive exhibits aimed at kids 6 to 14 — build, test and tinker; a reliable rainy-day stop in the city.",
+   "k": "FAM",
+   "g": [
+    "FACT",
+    "MUS",
+    "FAM"
+   ],
+   "s": [
+    [
+     "LANCASTERPA",
+     "https://lancasterpa.com/things-to-do/lancaster-science-factory/"
+    ],
+    [
+     "CPBJ",
+     "https://www.cpbj.com/lancaster-science-factory-celebrates-10-years-plans-expansion"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "National Watch & Clock Museum",
+   "ad": "514 Poplar St, Columbia, PA 17512",
+   "w": "The largest horological collection in North America, run by the National Association of Watch and Clock Collectors in the Susquehanna river town of Columbia — sundials and tower clocks to wristwatches, plus a working watchmaker's shop.",
+   "k": "MUS",
+   "g": [
+    "FACT",
+    "MUS",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "SMITHSONIAN",
+     "https://www.smithsonianmag.com/museumday/venues/museum/national-watch-clock-museum-MFB/"
+    ],
+    [
+     "JOURNALOFANTIQUES",
+     "https://journalofantiques.com/museums-exhibits/the-national-watch-clock-museum/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "Dutch Wonderland",
+   "ad": "2249 Lincoln Hwy E, Lancaster, PA 17602",
+   "w": "A 48-acre 'Kingdom for Kids' amusement park behind a stone castle façade that potato farmer Earl Clark built before opening it in 1963 — gentle coasters and rides scaled for young children.",
+   "k": "FAM",
+   "g": [
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Dutch_Wonderland"
+    ],
+    [
+     "BLOOLOOP",
+     "https://blooloop.com/uncategorised/in-depth/amusement-parks-dutch-wonderland-a-potted-history/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Susquehanna Art Museum",
+   "ad": "1401 N 3rd St, Harrisburg, PA 17102",
+   "w": "Midtown's contemporary art museum, opened in its purpose-built home (wrapped around a 1916 bank vault) in 2015, with rotating exhibitions — steps from Broad Street Market.",
+   "k": "MUS",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Susquehanna_Art_Museum"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/trails/harrisburg-arts-district/museums-galleries/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Whitaker Center for Science and the Arts",
+   "ad": "222 Market St, Harrisburg, PA 17101",
+   "w": "Downtown Harrisburg's science center, Sunoco Performance Theater and digital cinema under one roof — the region's go-to hands-on museum for families.",
+   "k": "FAM",
+   "g": [
+    "MUS",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Whitaker_Center_for_Science_and_the_Arts"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/trails/harrisburg-arts-district/museums-galleries/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "John Harris–Simon Cameron Mansion",
+   "ad": "219 S Front St, Harrisburg, PA 17104",
+   "w": "Built in 1766 by city founder John Harris Jr. and later the home of Lincoln's first Secretary of War, Simon Cameron — one of Harrisburg's oldest buildings and a National Historic Landmark, run as a museum by the Historical Society of Dauphin County.",
+   "k": "HIST",
+   "g": [
+    "CIVIL",
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Simon_Cameron_House"
+    ],
+    [
+     "DAUPHINHIST",
+     "https://dauphincountyhistory.org/directions/"
+    ],
+    [
+     "NPS",
+     "https://npgallery.nps.gov/NRHP/GetAsset/NHLS/73001620_text"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YORK",
+   "n": "Codorus State Park & Lake Marburg",
+   "ad": "2600 Smith Station Rd, Hanover, PA 17331",
+   "w": "3,500-acre DCNR park around 1,275-acre Lake Marburg — the reservoir that drowned the village of Marburg in 1966 — with kayaking, sailing, fishing and trails near Hanover.",
+   "k": "OUTDOOR",
+   "g": [
+    "PARK",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Codorus_State_Park"
+    ],
+    [
+     "DCNR",
+     "https://dcnr.pa.gov/StateParks/FindAPark/CodorusStatePark"
+    ],
+    [
+     "MIDATLDAYTRIPS",
+     "https://midatlanticdaytrips.com/2021/04/kayaking-lake-marburg-in-codorus-state-park/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YORK",
+   "n": "York County Heritage Rail Trail",
+   "ad": "Trailhead at Colonial Courthouse, W Market St, York, PA 17401",
+   "w": "A 21-mile National Recreation Trail on the Northern Central Railway corridor from downtown York to the Mason–Dixon line, passing Hanover Junction station, where Lincoln changed trains on the way to deliver the Gettysburg Address.",
+   "k": "OUTDOOR",
+   "g": [
+    "CIVIL",
+    "HIST",
+    "OUTDOOR",
+    "RAIL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/York_County_Heritage_Rail_Trail"
+    ],
+    [
+     "WITF",
+     "https://witf.org/2019/04/26/smart_talk_road_trip_goes_to_the_york_heritage_rail_trail_at_hanover_junction_station/"
+    ],
+    [
+     "BAYJOURNAL",
+     "https://www.bayjournal.com/travel/torrey-c-brown-york-heritage-rail-trail/article_90563f5d-9218-5699-abe9-d72f09352c7b.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GBG",
+   "n": "Devil's Den",
+   "ad": "Crawford Ave, Gettysburg National Military Park, PA 17325",
+   "w": "The boulder-strewn south end of Houck's Ridge, fought over on July 2, 1863 and later the lair of Confederate sharpshooters — and the scene of Alexander Gardner's famous staged 'sharpshooter' photograph. Scramble the rocks for the view up to Little Round Top.",
+   "k": "CIVIL",
+   "g": [
+    "CIVIL",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Devil%27s_Den"
+    ],
+    [
+     "NPS",
+     "https://nps.gov/places/devil-s-den.htm"
+    ],
+    [
+     "BATTLEFIELDS",
+     "https://www.battlefields.org/visit/heritage-sites/devils-den-witness-tree"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GBG",
+   "n": "Shriver House Museum",
+   "ad": "309 Baltimore St, Gettysburg, PA 17325",
+   "w": "The 1860 home of George and Hettie Shriver and their two small daughters, told by guides in period dress: the battle from the civilians' side, the Confederate sharpshooters' nest in the attic where at least two soldiers died, and George's saloon in the cellar.",
+   "k": "CIVIL",
+   "g": [
+    "CIVIL",
+    "MUS",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "DESTGETTYSBURG",
+     "https://destinationgettysburg.com/members/shriver-house-museum-the-civilian-experience/"
+    ],
+    [
+     "BATTLEFIELDS",
+     "https://battlefields.org/visit/heritage-sites/shriver-house-museum"
+    ],
+    [
+     "HALLOWEDGROUND",
+     "https://www.hallowedground.org/site-locations/shriver-house-museum/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GBG",
+   "n": "Culp's Hill Observation Tower",
+   "ad": "Slocum Ave, Gettysburg National Military Park, PA 17325",
+   "w": "An 1896 60-foot iron battlefield-commission tower atop the wooded hill that anchored the Union right — seven flights up for a view over the whole field toward Cemetery Hill.",
+   "k": "CIVIL",
+   "g": [
+    "CIVIL"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/places/culps-hill-observation-tower.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Gettysburg_Battlefield_observation_towers"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GBG",
+   "n": "Gettysburg Lincoln Railroad Station",
+   "ad": "35 Carlisle St, Gettysburg, PA 17325",
+   "w": "The 1858 depot where Abraham Lincoln arrived on November 18, 1863, the day before the Gettysburg Address; a field hospital during the battle, now a small NPS-owned museum run by the Gettysburg Foundation.",
+   "k": "CIVIL",
+   "g": [
+    "CIVIL",
+    "MUS",
+    "RAIL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Gettysburg_station"
+    ],
+    [
+     "HALLOWEDGROUND",
+     "https://www.hallowedground.org/site-locations/historic-gettysburg-train-station/"
+    ],
+    [
+     "BLUEGRAY",
+     "https://www.blueandgrayeducation.org/2019/05/a-walking-tour-of-gettysburg/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HER",
+   "n": "AACA Museum",
+   "ad": "161 Museum Dr, Hershey, PA 17033",
+   "w": "A Smithsonian affiliate with three floors of cars, buses and motorcycles from the 1890s to the 1980s set in period dioramas, plus the Tucker automobile collection — Hershey is the antique-car world's capital each October.",
+   "k": "MUS",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/AACA_Museum"
+    ],
+    [
+     "PABUCKETLIST",
+     "https://pabucketlist.com/?p=22243"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HER",
+   "n": "Middletown & Hummelstown Railroad",
+   "ad": "136 Brown St, Middletown, PA 17057",
+   "w": "Heritage shortline running 11-mile round-trip excursions (steam and diesel, 1920s Lackawanna coaches) from Middletown's 1891 freight station along Swatara Creek and the old Union Canal, with narration.",
+   "k": "RAIL",
+   "g": [
+    "CIVIL",
+    "HIST",
+    "RAIL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Middletown_and_Hummelstown_Railroad"
+    ],
+    [
+     "VISITPA",
+     "https://visitpa.com/region/dutch-country-roads/middletown-hummelstown-railroad-company"
+    ],
+    [
+     "CBS21",
+     "https://local21news.com/local-shows/destination-vacation/middletown-hummelstown-railroad"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HER",
+   "n": "Mount Gretna",
+   "ad": "Mount Gretna, PA 17064",
+   "w": "A wooded 1890s Chautauqua and camp-meeting colony of tiny cottages on a lake between Hershey and Lancaster — summer theater at the Gretna Playhouse, a famous outdoor art show, music in the Tabernacle, and the 1895 Jigger Shop.",
+   "k": "ODD",
+   "g": [
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "SPOTLIGHTPA",
+     "https://www.spotlightpa.org/news/2026/07/mount-gretna-things-to-do-itinerary-daytrip-pennsylvania-local/"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2017/07/06/adorable-pennsylvania-lake-town-new-weekend-hideaway"
+    ],
+    [
+     "VISITLEBANONVALLEY",
+     "https://visitlebanonvalley.com/wonderful-walkable-mount-gretna/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Middle Creek Wildlife Management Area",
+   "ad": "100 Museum Rd, Stevens, PA 17578",
+   "w": "A 6,000-acre Game Commission refuge on the Lancaster–Lebanon line where, each February–March, tens to hundreds of thousands of snow geese and tundra swans stop on their way back to the Arctic — one of the great wildlife spectacles in the East. Check the PGC migration update before you go.",
+   "k": "PARK",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "PAGOV",
+     "https://pa.gov/agencies/pgc/about-us/contact-information/offices-and-regions/middle-creek-wildlife-management-area/snow-goose-and-waterfowl-migration-update.html"
+    ],
+    [
+     "WITF",
+     "https://witf.org/2023/01/25/how-to-see-the-snow-goose-migration-at-middle-creek-in-lancaster-county"
+    ],
+    [
+     "PHILLYINQ",
+     "https://www.inquirer.com/science/climate/middle-creek-snow-geese-declining-20240301.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "1719 Hans Herr House",
+   "ad": "1849 Hans Herr Dr, Willow Street, PA 17584",
+   "w": "Built in 1719 of sandstone in medieval Germanic style, the oldest dwelling in Lancaster County and the oldest Mennonite meetinghouse in America; museum of Mennonite settler life with a Native American longhouse on the grounds.",
+   "k": "HIST",
+   "g": [
+    "AMISH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hans_Herr_House"
+    ],
+    [
+     "CLIO",
+     "https://theclio.com/entry/119113"
+    ],
+    [
+     "UNCHARTEDLANC",
+     "https://unchartedlancaster.com/2025/09/17/1719-herr-house-the-oldest-mennonite-meetinghouse-in-america"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Sight & Sound Theatres",
+   "ad": "300 Hartman Bridge Rd, Ronks, PA 17572",
+   "w": "The 2,000-seat home of Bible epics staged on a 300-foot wraparound stage with four-story sets, live animals and animatronics — Lancaster County's biggest draw by attendance, with more than a million visitors a year across its two theaters.",
+   "k": "FAM",
+   "g": [
+    "ICON"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sight_%26_Sound_Theatres"
+    ],
+    [
+     "RELIGIONNEWS",
+     "https://religionnews.com/?p=30776"
+    ],
+    [
+     "LIVEDESIGN",
+     "https://www.livedesignonline.com/theatre/12-ton-led-video-screen-sight-sound-s-jesus"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "Wolf Sanctuary of PA",
+   "ad": "465 Speedwell Forge Rd, Lititz, PA 17543",
+   "w": "Non-profit refuge for 50-plus rescued gray wolves and wolf-dogs, founded by the Darlington family four decades ago; see them only on a reserved guided tour — the monthly Full Moon Tours are the ones to book.",
+   "k": "FAM",
+   "g": [
+    "FAM"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/?p=30063"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://discoverlancaster.com/directory/wolf-sanctuary-of-pa"
+    ],
+    [
+     "ROADSIDEAMERICA",
+     "https://www.roadsideamerica.com/tip/42201"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAR",
+   "n": "Kings Gap Environmental Education Center",
+   "ad": "500 Kings Gap Rd, Carlisle, PA 17015",
+   "w": "A 2,531-acre DCNR forest on South Mountain crowned by the 32-room Italian-villa Cameron-Masland Mansion, with 25-plus miles of trails and a mountaintop view over the Cumberland Valley.",
+   "k": "OUTDOOR",
+   "g": [
+    "HIST",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "DCNR",
+     "https://dcnr.pa.gov/StateParks/FindAPark/KingsGapEnvironmentalEducationCenter"
+    ],
+    [
+     "DICKINSON",
+     "https://greatercarlisleproject.dickinson.edu/listing/kings-gap-environmental-education-center/"
+    ],
+    [
+     "PABUCKETLIST",
+     "https://pabucketlist.com/?p=27296"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAR",
+   "n": "Carlisle Fairgrounds (Carlisle Events car shows)",
+   "ad": "1000 Bryn Mawr Rd, Carlisle, PA 17013",
+   "w": "Home of Carlisle Events and the largest collector-car shows in the country — Spring and Fall Carlisle swap meets with 8,000-plus vendor spaces and a 2,000-car corral, plus the Ford, GM, Chrysler, Truck, Import and Corvette Nationals through the summer.",
+   "k": "ODD",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Carlisle_Fairgrounds"
+    ],
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/blog/post/start-your-engines-car-show-season-in-the-cumberland-valley/"
+    ],
+    [
+     "CPBJ",
+     "https://www.cpbj.com/spring-carlisle"
+    ],
+    [
+     "OLDCARSWEEKLY",
+     "https://www.oldcarsweekly.com/news/carlisle-events-winter-autofest"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Downtown Lititz & Moravian Church Square",
+   "ad": "8 Church Square, Lititz, PA 17543",
+   "w": "Budget Travel readers' 'Coolest Small Town in America' (2013): a 1756 Moravian settlement whose Church Square ensemble — the white-belfried church, Brothers' and Sisters' Houses, God's Acre cemetery — anchors a Main Street of cafés and shops, plus Lititz Springs Park and the Sturgis pretzel bakery.",
+   "k": "HIST",
+   "g": [
+    "FACT",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lititz_Moravian_Historic_District"
+    ],
+    [
+     "CPBJ",
+     "https://www.cpbj.com/lititz-voted-americas-coolest-small-town"
+    ],
+    [
+     "FOXNEWS",
+     "https://www.foxnews.com/travel/americas-coolest-small-towns-2013"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YORK",
+   "n": "York Barbell Weightlifting Museum & Hall of Fame",
+   "ad": "York Barbell HQ, Board Rd (I-83 exit 24), York, PA 17406",
+   "w": "Free 8,000-sq-ft museum of the strength sports in the headquarters of York Barbell — the company that made York 'Muscletown USA' — with strongman lore, Olympic lifting history and a 7.5-ft bronze of founder Bob Hoffman out front.",
+   "k": "ODD",
+   "g": [
+    "MUS",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/York_Barbell"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/directory/york-barbell-weightlifting-museum-hall-of-fame/"
+    ],
+    [
+     "ROADSIDEAMERICA",
+     "https://www.roadsideamerica.com/story/10960"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "Pinnacle Overlook",
+   "ad": "127 Pinnacle Rd W, Holtwood, PA 17532",
+   "w": "A bluff nearly 400 feet above the Susquehanna just north of Holtwood Dam — the river gorge's grandest view, with bald eagles riding the thermals; since 2022 part of Susquehannock State Park, with 2.5 miles of trails.",
+   "k": "OUTDOOR",
+   "g": [
+    "PARK",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/pinnacle-overlook-lancaster-county"
+    ],
+    [
+     "DCNR",
+     "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/susquehannock-state-park/pinnacle-overlook.html"
+    ],
+    [
+     "CPBJ",
+     "https://www.cpbj.com/ppl-land-transferred-to-conservancy-now-part-of-state-park-system"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YORK",
+   "n": "Samuel S. Lewis State Park (Mount Pisgah)",
+   "ad": "6000 Mount Pisgah Rd, York, PA 17406",
+   "w": "An 85-acre hilltop park on 885-foot Mount Pisgah near Wrightsville, with a sweeping overlook of the Susquehanna winding toward the Chesapeake — a favorite kite-flying and stargazing spot.",
+   "k": "OUTDOOR",
+   "g": [
+    "PARK",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mount_Pisgah_(York_County,_Pennsylvania)"
+    ],
+    [
+     "DCNR",
+     "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/samuel-s-lewis-state-park"
+    ],
+    [
+     "SUSQGREENWAY",
+     "https://susquehannagreenway.org/parks/samuel-s-lewis-state-park/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YORK",
+   "n": "Ma & Pa Railroad Heritage Village",
+   "ad": "Muddy Creek Forks, Airville, PA 17302",
+   "w": "The preserved railroad hamlet of Muddy Creek Forks on the old Maryland & Pennsylvania ('Ma & Pa') line — general store, mill and grain elevator, with seasonal motor-car and train rides through the Muddy Creek valley.",
+   "k": "RAIL",
+   "g": [
+    "HIST",
+    "PARK",
+    "RAIL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Muddy_Creek_Forks_Historic_District"
+    ],
+    [
+     "LCMAG",
+     "https://lcm.engleonline.com/?p=11743"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Midtown Scholar Bookstore",
+   "ad": "1302 N 3rd St, Harrisburg, PA 17102",
+   "w": "A celebrated independent bookstore of new and used books sprawling through a renovated 1920s theater at Third and Verbeke, across from Broad Street Market — café, author events, and a Publishers Weekly-featured stop on the US Book Show.",
+   "k": "ODD",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/midtown-scholar-bookstore"
+    ],
+    [
+     "PUBLISHERSWEEKLY",
+     "https://www.publishersweekly.com/pw/print/20230515/92294-u-s-book-show-2023-midtown-scholar.html"
+    ],
+    [
+     "SHELFAWARENESS",
+     "https://shelf-awareness.com/theshelf/2019-04-09/midtown_scholar_acquires_book_collection_new_store.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Pride of the Susquehanna Riverboat",
+   "ad": "City Island, Harrisburg, PA 17101",
+   "w": "Paddlewheel riverboat cruising the Susquehanna from City Island in season — the easy way to see the Capitol dome and the river bridges from the water.",
+   "k": "FAM",
+   "g": [
+    "HIST",
+    "PARK",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/things-to-do/family-fun/pride-of-the-susquehanna"
+    ],
+    [
+     "CPBJ",
+     "https://www.cpbj.com/pride-of-the-susquehanna-riverboat-cruises"
+    ],
+    [
+     "MIDATLDAYTRIPS",
+     "https://midatlanticdaytrips.com/2022/11/pride-of-the-susquehanna/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Ned Smith Center for Nature and Art",
+   "ad": "176 Water Company Rd, Millersburg, PA 17061",
+   "w": "Gallery and 500-acre trail preserve honoring Millersburg-born wildlife artist Ned Smith, 30 minutes up the Susquehanna from Harrisburg — with an observatory for public star nights.",
+   "k": "MUS",
+   "g": [
+    "MUS",
+    "PARK",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "VISITHERSHEY",
+     "https://visithersheyharrisburg.org/trails/adventure-trail/hiking/ned-smith-center/"
+    ],
+    [
+     "HERALDSTANDARD",
+     "https://www.heraldstandard.com/sports/2026/jun/12/nature-through-art/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GBG",
+   "n": "Jennie Wade House",
+   "ad": "548 Baltimore St, Gettysburg, PA 17325",
+   "w": "Where 20-year-old Mary Virginia 'Jennie' Wade, baking bread for Union soldiers on July 3, 1863, was struck by a stray bullet — the only civilian killed in the battle. The bullet holes in the door remain; now a museum.",
+   "k": "CIVIL",
+   "g": [
+    "CIVIL",
+    "MUS",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/jennie-wade-house"
+    ],
+    [
+     "BATTLEFIELDS",
+     "https://www.battlefields.org/visit/heritage-sites/jennie-wade-house-museum"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/?p=49003"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Aaron & Jessica's Buggy Rides",
+   "ad": "3121 Old Philadelphia Pike, Bird-in-Hand, PA 17505",
+   "w": "Owned and driven by Plain people (Amish, Brethren and Mennonite), with some twenty routes along working farm lanes — some stopping inside an Amish home or barn — and drivers who welcome questions about Plain life.",
+   "k": "AMISH",
+   "g": [
+    "AMISH",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "AMISHAMERICA",
+     "https://amishamerica.com/?p=99092"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://discoverlancaster.com/blog/where-to-ride-a-horse-buggy-in-lancaster-county-pa"
+    ],
+    [
+     "LANCASTERPA",
+     "https://lancasterpa.com/?p=15316"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HER",
+   "n": "Cornwall Iron Furnace",
+   "ad": "Rexmont Rd & Boyd St, Cornwall, PA 17016",
+   "w": "A complete charcoal-era ironworks — furnace stack, blast machinery and ironmaster's village — that made iron from 1742 to 1883, including cannon for the Revolution; a PHMC-run National Historic Landmark.",
+   "k": "HIST",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cornwall_Iron_Furnace"
+    ],
+    [
+     "INVENTIONTECH",
+     "https://www.inventionandtech.com/landmark_landing/80153"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HER",
+   "n": "Union Canal Tunnel Park",
+   "ad": "Union Canal Tunnel Park, Lebanon, PA 17046",
+   "w": "The oldest existing transportation tunnel in the United States: 729 feet hand-cut through slate in 1825–27 for the Union Canal linking Middletown to Reading; walk through it, or ride summer boat tours, off the Lebanon Valley Rail Trail.",
+   "k": "HIST",
+   "g": [
+    "CIVIL",
+    "PARK",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "ASCE",
+     "https://www.asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/union-canal-tunnel"
+    ],
+    [
+     "ABC27",
+     "https://www.abc27.com/digital-originals/did-you-know-pennsylvania-is-home-to-the-oldest-existing-transportation-tunnel-in-the-united-states/amp/"
+    ],
+    [
+     "LEBANONHIST",
+     "https://lebanoncountyhistory.org/canal-tunnel"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Lancaster Museum of Art",
+   "ad": "135 N Lime St, Lancaster, PA 17602",
+   "w": "Contemporary regional art in the 1846 Grubb Mansion — the most intact Greek Revival townhouse in Lancaster County — beside Musser Park.",
+   "k": "MUS",
+   "g": [
+    "MUS",
+    "HIST",
+    "PARK"
+   ],
+   "s": [
+    [
+     "DISCOVERLANC",
+     "https://discoverlancaster.com/directory/lancaster-museum-of-art"
+    ],
+    [
+     "LANCASTERPA",
+     "https://lancasterpa.com/things-to-do/lancaster-museum-of-art/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YORK",
+   "n": "Indian Steps Museum",
+   "ad": "205 Indian Steps Rd, Airville, PA 17302",
+   "w": "Judge John Vandersloot's 1908–12 Arts-and-Crafts cabin above the Susquehanna, built as a memorial and museum to Native American culture, with thousands of artifacts set into its walls.",
+   "k": "MUS",
+   "g": [
+    "MUS",
+    "ODD"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Indian_Steps_Cabin"
+    ],
+    [
+     "VISITPA",
+     "https://www.visitpa.com/region/dutch-country-roads/indian-steps-museum"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/indian-steps-museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YORK",
+   "n": "Columbia–Wrightsville Bridge & Zimmerman Center",
+   "ad": "Zimmerman Center, 1706 Long Level Rd, Wrightsville, PA 17368",
+   "w": "Where Union militia burned the mile-long covered bridge on June 28, 1863 to stop Confederates crossing the Susquehanna — the farthest east Lee's army reached. Today's 1930 concrete-arch bridge is an ASCE landmark; the riverside Zimmerman Center is the visitor station for the Captain John Smith Chesapeake National Historic Trail.",
+   "k": "CIVIL",
+   "g": [
+    "CIVIL",
+    "AMISH",
+    "HIST",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "ASCE",
+     "https://www.asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/columbia-wrightsville-bridge"
+    ],
+    [
+     "NPS",
+     "https://www.nps.gov/articles/susquehanna-celebration.htm"
+    ],
+    [
+     "PAEATS",
+     "https://www.paeats.org/feature/small-town-adventures-wrightsville-pa/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Riverfront Park & Holocaust Memorial",
+   "ad": "Front St & Sayford St, Harrisburg, PA 17102",
+   "w": "Harrisburg's 1912 City Beautiful riverfront — miles of Susquehanna promenade, steps and gardens along Front Street — named one of America's Great Public Spaces by the American Planning Association; the Holocaust Memorial for the Commonwealth (1994) stands at Sayford Street.",
+   "k": "PARK",
+   "g": [
+    "PARK",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Riverfront_Park_(Harrisburg)"
+    ],
+    [
+     "APA",
+     "https://pittsburghparks.org/great-public-spaces-in-pennsylvania-detailed-by-planning-professionals/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "Choo Choo Barn",
+   "ad": "226 Gap Rd, Strasburg, PA 17579",
+   "w": "A 1,700-sq-ft model railroad of Lancaster County in miniature — 22 operating trains and 150-plus hand-built animations, including tiny Dutch Wonderland and Strasburg Rail Road — grown from the Groff family's 1945 Christmas layout and open to the public since 1961.",
+   "k": "FAM",
+   "g": [
+    "ICON",
+    "RAIL",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Choo_Choo_Barn"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/trip-ideas/road-trip/watch-the-simple-pleasures-roll-by-in-traincentric-strasburg-pa/"
+    ],
+    [
+     "VISITPA",
+     "https://visitpa.com/pa-museums/choo-choo-barn-traintown-usa"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HER",
+   "n": "The Hotel Hershey",
+   "ad": "100 Hotel Rd, Hershey, PA 17033",
+   "w": "Milton Hershey's Depression-era (1933) Mediterranean-style grand hotel on Pat's Hill above the chocolate factory — famous for its circular dining room, built so no guest would be seated in a corner ('if you don't tip well, they put you in a corner'). A Historic Hotels of America member.",
+   "k": "HIST",
+   "g": [
+    "FACT",
+    "HIST"
+   ],
+   "s": [
+    [
+     "HERSHEYARCHIVES",
+     "https://hersheyarchives.org/?p=7410"
+    ],
+    [
+     "HISTORICHOTELS",
+     "https://www.historichotels.org/us/hotels-resorts/the-hotel-hershey/history"
+    ],
+    [
+     "SAHARCHIPEDIA",
+     "https://sah-archipedia.org/node/17971"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YORK",
+   "n": "Hanover Junction Railroad Station",
+   "ad": "PA Route 616, Hanover Junction (North Codorus Twp), PA 17362",
+   "w": "The restored junction depot on the Heritage Rail Trail where Lincoln changed trains en route to deliver the Gettysburg Address in November 1863; small museum of Civil War images and station history.",
+   "k": "CIVIL",
+   "g": [
+    "CIVIL",
+    "MUS",
+    "HIST",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hanover_Junction_Railroad_Station"
+    ],
+    [
+     "WITF",
+     "https://witf.org/2019/04/26/smart_talk_road_trip_goes_to_the_york_heritage_rail_trail_at_hanover_junction_station/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Long's Park",
+   "ad": "1441 Harrisburg Pike, Lancaster, PA 17603",
+   "w": "Lancaster's 80-acre city park at Route 30 and Harrisburg Pike — free Sunday-evening Summer Music Series in the amphitheater since 1962, and the juried Labor Day Art Festival (200-plus exhibitors) since 1979.",
+   "k": "PARK",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CPBJ",
+     "https://www.cpbj.com/longs-park-art-festival-3"
+    ],
+    [
+     "LANCASTERPA",
+     "https://lancasterpa.com/blog/happenings/longs-park-summer-music-series-june-dates/"
+    ],
+    [
+     "LANCASTERFARMING",
+     "https://www.lancasterfarming.com/live-music-returns-to-longs-park-as-a-way-to-move-forward-after-hiatus/article_227035a8-7004-54ac-a371-648fddf5a9f6.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "North Museum of Nature and Science",
+   "ad": "400 College Ave, Lancaster, PA 17603",
+   "w": "Franklin & Marshall-linked natural-science museum — 360,000 specimens, planetarium shows and a live-animal room on three floors.",
+   "k": "MUS",
+   "g": [
+    "MUS",
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/directory/north-museum-of-nature-and-science/"
+    ],
+    [
+     "VISITPA",
+     "https://www.visitpa.com/blog/post/best-things-do-lancaster-pa/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "LAN",
+   "n": "Hands-on House Children's Museum",
+   "ad": "721 Landis Valley Rd, Lancaster, PA 17601",
+   "w": "Interactive children's museum for ages 2–10 — farm, grocery store, machine shop and a STEM lab with a robotic arm.",
+   "k": "FAM",
+   "g": [
+    "MUS",
+    "FAM"
+   ],
+   "s": [
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/blog/top-family-attractions-in-lancaster-pa/"
+    ],
+    [
+     "LNP",
+     "https://lancasteronline.com/visitlancaster/kid-approved-museums-in-lancaster-county-where-to-go-for-hands-on-family-fun/article_11bec96b-8e21-4e64-be54-8e045384d1d4.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Gallery Row (100 block of N Prince St)",
+   "ad": "100 block N Prince St, Lancaster, PA 17603",
+   "w": "Lancaster's designated arts district — galleries, studios and makers along North Prince Street, busiest on First Fridays.",
+   "k": "ICON",
+   "g": [
+    "FACT",
+    "MUS"
+   ],
+   "s": [
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/directory/gallery-row/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/lancaster-city-guide"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "LAN",
+   "n": "Penn Medicine Park (Clipper Magazine Stadium)",
+   "ad": "650 N Prince St, Lancaster, PA 17603",
+   "w": "Home of the Lancaster Stormers since 2005 (renamed from Clipper Magazine Stadium in 2025) — fans' pick for best independent ballpark of the year.",
+   "k": "FAM",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/blog/penn-medicine-park/"
+    ],
+    [
+     "LNP",
+     "https://lancasteronline.com/sports/clipper-magazine-stadium-wins-online-fan-vote-as-best-independent-ballpark-of-the-year/article_c62cc75e-c84b-11ea-98a9-c3f79702cc1e.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Dauphin Narrows Statue of Liberty",
+   "ad": "Susquehanna River, Dauphin Narrows (visible from US-22/322), Dauphin, PA 17018",
+   "w": "A 25-foot Lady Liberty on a river piling — a 1986 patriotic prank, blown down in 1992 and replaced in metal by helicopter in 1997.",
+   "k": "ODD",
+   "g": [
+    "OUTDOOR",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/mini-statue-of-liberty-harrisburg"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/trails/adventure-trail/kayaking/susquehanna-river-statue-of-liberty-adventure/"
+    ],
+    [
+     "VISITPA",
+     "https://www.visitpa.com/blog/post/roadside-attractions-pennsylvania/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "HBG",
+   "n": "Wildwood Park",
+   "ad": "100 Wildwood Way, Harrisburg, PA 17110",
+   "w": "90 acres of trails, wetlands and a free nature center around Wildwood Lake, inside the city limits.",
+   "k": "PARK",
+   "g": [
+    "PARK",
+    "OUTDOOR",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/things-to-do/family-fun/free-things-to-do/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/free-things-to-do-in-harrrisburg-pa"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "HBG",
+   "n": "Pennsylvania National Fire Museum",
+   "ad": "1820 N 4th St, Harrisburg, PA 17102",
+   "w": "Firefighting history from hand-pulled hose carts to engines, in the 1899 Victorian Reily Hose Co. No. 10 firehouse. Volunteer-run — limited hours.",
+   "k": "MUS",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/visiting-pennsylvania-fire-museum"
+    ],
+    [
+     "WITF",
+     "https://www.witf.org/2025/05/28/the-historian-behind-harrisburgs-fire-museum/"
+    ],
+    [
+     "FOX43",
+     "https://www.fox43.com/article/news/local/pa-national-fire-museum-cut-hours-amid-dwindling-volunteer/521-ec902471-6b1c-44c9-a824-1a73080e1054"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "HBG",
+   "n": "Pennsylvania Governor's Residence",
+   "ad": "2035 N Front St, Harrisburg, PA 17102",
+   "w": "The governor's riverfront home — free guided tours Tue/Thu in spring and fall, self-guided in December, and a fixture of the Candlelight House Tour since 1980.",
+   "k": "HIST",
+   "g": [
+    "PARK",
+    "OUTDOOR",
+    "FREE"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/free-things-to-do-in-harrrisburg-pa"
+    ],
+    [
+     "THEBURG",
+     "https://theburgnews.com/news/governors-residence-will-remain-on-historic-home-tour-despite-arson-attack"
+    ],
+    [
+     "WITF",
+     "https://www.witf.org/2024/10/30/historic-harrisburg-association-candlelight-house-tour-takes-place-december-8/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YORK",
+   "n": "York County History Center Museum",
+   "ad": "N Pershing Ave (former Met-Ed steam plant), York, PA 17401",
+   "w": "The $30 million history museum opened August 2024 in a renovated 19th-century steam plant — interactive History Makers Tower, 1,000+ photos and 300 years of archives.",
+   "k": "MUS",
+   "g": [
+    "FACT",
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITPA",
+     "https://www.visitpa.com/blog/post/interactive-museum-opens-york-county-history-center/"
+    ],
+    [
+     "WITF",
+     "https://www.witf.org/2024/07/03/new-museum-york-county-history-center/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/york-county-history-center-museum"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "YORK",
+   "n": "Gifford Pinchot State Park",
+   "ad": "2200 Rosstown Rd, Lewisberry, PA 17339",
+   "w": "2,338-acre northern York County park around 340-acre Pinchot Lake — hiking, boating and disc golf.",
+   "k": "PARK",
+   "g": [
+    "PARK",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "DCNR",
+     "https://www.dcnr.pa.gov/StateParks/FindAPark/GiffordPinchotStatePark/Pages/default.aspx"
+    ],
+    [
+     "EXPLOREYORK",
+     "https://yorkpa.org/blog/post/where-to-take-a-hike-in-york-county"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAR",
+   "n": "Cumberland County Historical Society Museum",
+   "ad": "21 N Pitt St, Carlisle, PA 17013",
+   "w": "Award-winning 16-gallery museum of 250 years of county history, with notable galleries on the Carlisle Indian Industrial School and folk art.",
+   "k": "MUS",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/listing/cumberland-county-historical-society/792/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/things-to-do-near-dickinson-college"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAR",
+   "n": "Dickinson College & The Trout Gallery",
+   "ad": "240 W High St, Carlisle, PA 17013",
+   "w": "Chartered in 1783 by Benjamin Rush — the first college founded after U.S. independence; its Trout Gallery art museum hosts rotating exhibits.",
+   "k": "HIST",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/blog/post/carlisle-a-historic-small-town/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/things-to-do-near-dickinson-college"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "YORK",
+   "n": "Fire Museum of York County",
+   "ad": "757 W Market St, York, PA 17401",
+   "w": "200+ years of firefighting history in a 1903 firehouse, run by the York County History Center.",
+   "k": "MUS",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/fire-museum-of-york-county"
+    ],
+    [
+     "EXPLOREYORK",
+     "https://www.yorkpa.org/things-to-do/museums-history-heritage/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YORK",
+   "n": "Agricultural & Industrial Museum",
+   "ad": "217 W Princess St, York, PA 17401",
+   "w": "Two floors in a former factory complex on 300 years of York County farming, manufacturing and transportation — climb aboard the big machines.",
+   "k": "MUS",
+   "g": [
+    "FACT",
+    "MUS"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/downtown-york-pennsylvania-itinerary"
+    ],
+    [
+     "EXPLOREYORK",
+     "https://www.yorkpa.org/listing/york-county-history-center-agricultural-%26-industrial-museum-(aim)/697/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "LAN",
+   "n": "Holy Trinity Lutheran Church",
+   "ad": "31 S Duke St, Lancaster, PA 17602",
+   "w": "The oldest church still in use in Lancaster city (congregation 1729, built 1761–66); its Washington-era steeple was once the tallest point west of Philadelphia. Sanctuary tours with First Friday lectures.",
+   "k": "HIST",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "LNP",
+     "https://lancasteronline.com/news/local/lutherans-noisy-lottery-fundraiser-for-steeple-drove-early-methodist-to/article_a74a8760-531b-11e8-8db6-473ec0b8bfca.html"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/blog/black-history-month/"
+    ],
+    [
+     "LANCASTERHISTORY",
+     "https://www.lancasterhistory.org/finding-aids/trinity-lutheran-church-of-lancaster-collection-1905-1930/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Pennsylvania Farm Show Complex",
+   "ad": "2300 N Cameron St, Harrisburg, PA 17110",
+   "w": "24-acre home of the nation's largest indoor agricultural exposition each January — half a million visitors, a butter sculpture and 20,000 Dairymen's milkshakes a day.",
+   "k": "ICON",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/events/pa-farm-show/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/pennsylvania-farm-show"
+    ],
+    [
+     "VISITPA",
+     "https://www.visitpa.com/blog/post/whats-new-pennsylvania-farm-show/"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Dutch Haven Shoo-Fly Pie Bakery",
+   "ad": "2857A Lincoln Hwy E, Ronks, PA 17572",
+   "w": "Lancaster County's first tourist attraction (1946) and 'the place that made shoo-fly pie famous' — it began serving the molasses-and-crumb pie to Route 30 travelers and shipping it nationwide in the 1950s; TIME once called it America's best. Also a sprawling Amish-country gift shop under the landmark windmill. Order: Wet-bottom shoofly pie from the original 1946 recipe, served warm with whipped cream.",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "PHILLYINQ",
+     "https://www.inquirer.com/news/pennsylvania/lancaster-county-dutch-haven-shoofly-pie-bakery-20230125.html"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/lancaster-county/restaurants/local-favorites/"
+    ],
+    [
+     "LANCASTERPA",
+     "https://lancasterpa.com/blog/lancaster-county-fun/5-dutch-haven/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Shady Maple Smorgasbord",
+   "ad": "129 Toddy Dr, East Earl, PA 17519",
+   "w": "The largest buffet in North America: 200 feet of Pennsylvania Dutch cooking serving some 1.2 million diners a year, voted best buffet in the US by USA Today 10Best readers (2024). A pilgrimage in itself — go hungry, go early. Order: PA Dutch smorgasbord — chicken pot pie, schnitz un knepp, carved ham, buttered noodles and a dessert bar of shoofly and whoopie pies.",
+   "cz": [
+    "PADUTCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shady_Maple_Smorgasbord"
+    ],
+    [
+     "WFMZ",
+     "https://www.wfmz.com/news/area/berks/southern-berks-county/east-earl-restaurant-takes-top-spot-among-buffets-in-us/article_c0b32aba-adde-41d3-8025-255e98da707f.html"
+    ],
+    [
+     "AMISHAMERICA",
+     "https://amishamerica.com/lancaster-county-10-amish-pa-dutch-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Miller's Smorgasbord",
+   "ad": "2811 Lincoln Hwy E, Ronks, PA 17572",
+   "w": "A Lancaster County institution since 1929, when it began as a chicken-and-waffles stop for Route 30 motorists; placed third in USA Today 10Best's readers' poll for best buffet. The more traditional, sit-and-linger smorgasbord counterpart to Shady Maple's scale. Order: Chicken & waffles (the dish that started it in 1929) and the traditional PA Dutch smorgasbord with shoofly pie.",
+   "cz": [
+    "PADUTCH"
+   ],
+   "s": [
+    [
+     "USATODAY",
+     "https://www.aol.com/two-central-pa-buffets-voted-164605273.html"
+    ],
+    [
+     "AMISHAMERICA",
+     "https://amishamerica.com/lancaster-county-10-amish-pa-dutch-restaurants/"
+    ],
+    [
+     "LANCASTERPA",
+     "https://lancasterpa.com/restaurants/smorgasbord-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Julius Sturgis Pretzel Bakery",
+   "ad": "219 E Main St, Lititz, PA 17543",
+   "w": "America's first commercial pretzel bakery, opened in 1861 in an 18th-century Lititz house; the original ovens are still here and every tour ends with you twisting your own. The birthplace of the hard pretzel in the US. Order: Hand-twisted soft and hard pretzels — and a hands-on twisting lesson.",
+   "cz": [
+    "PRETZ",
+    "BAKE"
+   ],
+   "s": [
+    [
+     "DISCOVERLANC",
+     "https://discoverlancaster.com/blog/10-places-to-get-pretzels-in-lancaster-pa"
+    ],
+    [
+     "6ABC",
+     "https://6abc.com/videoClip/19602521/"
+    ],
+    [
+     "CHOWHOUND",
+     "https://chowhound.com/1676210/pennsylvania-bakery-pretzel-history"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LAN",
+   "n": "Lancaster Central Market",
+   "ad": "23 N Market St, Lancaster, PA 17603",
+   "w": "Recognized as the oldest continuously operating public farmers market in the US (est. 1730), in an 1889 Romanesque Revival market house off Penn Square. 60-plus standholders; open Tue, Fri and Sat mornings only — go early. Order: Stall-hop the PA Dutch canon — shoofly and whoopie pies, sweet bologna, chow-chow — plus pierogi, empanadas and soul food.",
+   "cz": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/directory/lancaster-central-market/"
+    ],
+    [
+     "TASTINGTABLE",
+     "https://tastingtable.com/1756510/oldest-farmers-market-us-lancaster-central"
+    ],
+    [
+     "LANCASTERPA",
+     "https://lancasterpa.com/shopping/central-market/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HBG",
+   "n": "Broad Street Market",
+   "ad": "1233 N 3rd St, Harrisburg, PA 17102",
+   "w": "Founded in 1860 (it fed Union soldiers at Camp Curtin) and among the oldest continuously operating market houses in the US; on the National Register since 1974. Midtown Harrisburg's anchor, run by the non-profit Broad Street Market Alliance. Thu–Sat only. Order: Pennsylvania Dutch stands alongside the city's international food counters — eat your way through both brick and stone market houses.",
+   "cz": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "HISTORICHBG",
+     "https://historicharrisburg.org/2025/01/10/broad-street-market/"
+    ],
+    [
+     "CLIO",
+     "https://theclio.com/entry/47595"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YORK",
+   "n": "Central Market York",
+   "ad": "34 W Philadelphia St, York, PA 17401",
+   "w": "Downtown York's 1888 John Dempwolf market house, a Romanesque Revival landmark on the National Register since 1978, in continuous operation since it opened; 50-plus vendors, some trading here for more than 70 years. Order: Generations-old stands — Henry's Ham, J. L. Miller Meats, Hartman's Fruit Farm — plus a food-hall's worth of lunch counters.",
+   "cz": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITPA",
+     "https://visitPA.com/region/dutch-country-roads/central-market"
+    ],
+    [
+     "CLIO",
+     "https://theclio.com/entry/17652"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HER",
+   "n": "Seltzer's Smokehouse Meats",
+   "ad": "209 N Railroad St, Palmyra, PA 17078",
+   "w": "Smoking Lebanon bologna since 1902, four generations on; the outlet store and museum lead to hairnet tours of the original wooden smokehouses where a smokemaster tends the fire around the clock. The definitive taste of this region's signature cold cut, minutes from Hershey. Order: Lebanon bologna — all-beef, hardwood-smoked for three days in wooden smokehouses — sliced to taste in the outlet.",
+   "cz": [
+    "PRETZ",
+    "PADUTCH"
+   ],
+   "s": [
+    [
+     "SPOTLIGHTPA",
+     "https://www.spotlightpa.org/news/2025/06/lebanon-bologna-pronunciation-seltzers-smokehouse-palmyra-pennsylvania/"
+    ],
+    [
+     "LEBTOWN",
+     "https://lebtown.com/2026/01/07/a-four-generation-120-year-family-tradition-keeps-on-smokin-in-palmyra/"
+    ],
+    [
+     "6ABC",
+     "https://6abc.com/videoClip/17973675/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YORK",
+   "n": "Utz Snacks Factory Tour & Outlet",
+   "ad": "900 High St, Hanover, PA 17331",
+   "w": "The glass-walled observation gallery above Utz's Hanover plant shows potatoes going from truck to fryer to bag, then deposits you in the factory outlet — the signature stop in the 'Snack Food Capital of the World.' Order: Fresh-off-the-line Utz potato chips after the free self-guided Chip Trip.",
+   "cz": [
+    "PRETZ"
+   ],
+   "s": [
+    [
+     "NPR",
+     "https://www.npr.org/sections/thesalt/2019/04/29/706921280/how-the-pennsylvania-dutch-turned-a-rural-town-into-a-snack-food-empire"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/things-to-do/travel/2024/09/30/york-to-fork-exploring-southern-pennsylvanias-snack-factories/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YORK",
+   "n": "Snyder's of Hanover Factory Store",
+   "ad": "1350 York St, Hanover, PA 17331",
+   "w": "The factory store of what was once the country's best-selling pretzel brand, born in Hanover's Pennsylvania Dutch snack belt in 1909. Order: Snyder's of Hanover pretzels — sourdough hards, pretzel pieces and chocolate-covered — at factory-store prices.",
+   "cz": [
+    "PRETZ"
+   ],
+   "s": [
+    [
+     "NPR",
+     "https://www.npr.org/sections/thesalt/2019/04/29/706921280/how-the-pennsylvania-dutch-turned-a-rural-town-into-a-snack-food-empire"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/things-to-do/travel/2024/09/30/york-to-fork-exploring-southern-pennsylvanias-snack-factories/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "Lapp Valley Farm Creamery",
+   "ad": "244 Mentzer Rd, New Holland, PA 17557",
+   "w": "Working dairy farm whose butterfat-rich small-batch ice cream is a can't-miss Amish-country dessert stop; chosen as the launch site of Pennsylvania's 2026 Scooped Ice Cream Trail. Order: Small-batch ice cream from the farm's own Jersey herd in a fresh waffle cone.",
+   "cz": [
+    "SWEET",
+    "FARM"
+   ],
+   "s": [
+    [
+     "VISITPA",
+     "https://www.visitpa.com/article/26-pa-creameries-satisfy-your-sweet-tooth"
+    ],
+    [
+     "PAGOV",
+     "https://www.pa.gov/agencies/pda/newsroom/shapiro-administration-celebrates-scooped-ice-cream-trail-2026-k"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "Fox Meadows Creamery",
+   "ad": "193 Crooked Ln, Ephrata, PA 17522",
+   "w": "Family dairy farm turned creamery making hand-crafted ice cream from its own milk; ranked near the top of Lancaster's ice cream surveys. Order: On-farm ice cream in flavors like meadow tea sorbet, monkey bread and brown-butter almond brickle.",
+   "cz": [
+    "SWEET"
+   ],
+   "s": [
+    [
+     "VISITPA",
+     "https://www.visitpa.com/article/26-pa-creameries-satisfy-your-sweet-tooth"
+    ],
+    [
+     "LANCASTERPA",
+     "https://lancasterpa.com/blog/experiences/top-5-ice-cream-shoppes-in-lancaster-county/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LAN",
+   "n": "Horse Inn",
+   "ad": "540 E Fulton St, Lancaster, PA 17602",
+   "w": "Lancaster city's oldest continuously operating restaurant: a mid-1800s carriage house whose loft became a 1920s speakeasy. Horse stalls are dining nooks, wagon wheels the chandeliers, and the original entrance still hides down an unnamed alley. Order: Tenderloin tips on toast — the Shaub family's Prohibition-era speakeasy dish, still on the menu.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "ISLANDS",
+     "https://www.islands.com/2105769/horse-inn-lancaster-pennsylvania-oldest-restaurant-historic-gem-vintage-charm-seasonal-bites"
+    ],
+    [
+     "LCMAG",
+     "https://lancastercountymag.com/continuing-a-lancaster-tradition/"
+    ],
+    [
+     "UNCHARTEDLANC",
+     "https://unchartedlancaster.com/2026/02/26/the-horse-inn-lancaster-citys-oldest-continuously-operating-restaurant/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Bird-in-Hand Bakery & Cafe",
+   "ad": "2715 Old Philadelphia Pike, Bird-in-Hand, PA 17505",
+   "w": "The Smucker family's scratch bakery in the village of Bird-in-Hand; its shoofly pie (a light-syrup, never-bitter take on the molasses classic) starred in Al Roker's 'Family Style' episode on the history of American pie. Whoopie-pie samplers by the dozen. Order: Grandma Smucker's wet-bottom shoofly pie and jumbo whoopie pies, baked from scratch.",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "MASHED",
+     "https://www.mashed.com/2031678/best-pie-pennsylvania-bird-in-hand-bakery-cafe/"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/directory/bird-in-hand-bakery-cafe-cakes/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/lancaster-county/restaurants/local-favorites/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GBG",
+   "n": "Dobbin House Tavern",
+   "ad": "89 Steinwehr Ave, Gettysburg, PA 17325",
+   "w": "Gettysburg's oldest building (1776), Rev. Alexander Dobbin's home and later an Underground Railroad station, now a National Register-listed restaurant: candlelit fine dining upstairs, the cellar Springhouse Tavern with its springs and fireplaces below. Order: Colonial fare by candlelight — French onion soup in an iron kettle in the Springhouse Tavern.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "DESTGETTYSBURG",
+     "https://destinationgettysburg.com/historic-dining-gettysburg/"
+    ],
+    [
+     "TASTINGTABLE",
+     "https://www.tastingtable.com/2199112/bars-restaurants-civil-war-connection/"
+    ],
+    [
+     "BLUEGRAY",
+     "https://blueandgrayeducation.org/?p=10972"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GBG",
+   "n": "Farnsworth House Inn",
+   "ad": "401 Baltimore St, Gettysburg, PA 17325",
+   "w": "An 1810/1833 house whose south wall still carries more than 100 bullet holes from the battle (Confederate sharpshooters used its garret); dine in the Meade and Lee rooms or the casual Sweney's Tavern. Order: Civil War-era plates — game pie, peanut soup and spoon bread — served by period-dressed staff.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "DESTGETTYSBURG",
+     "https://destinationgettysburg.com/historic-dining-gettysburg/"
+    ],
+    [
+     "TASTINGTABLE",
+     "https://www.tastingtable.com/2199112/bars-restaurants-civil-war-connection/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAR",
+   "n": "Pine Grove Furnace General Store",
+   "ad": "Pine Grove Furnace State Park, Gardners, PA 17324",
+   "w": "The little store across from the Appalachian Trail Museum where, for 40-plus years, thru-hikers reaching the trail's symbolic halfway point have tried to finish a half-gallon of ice cream; finishers earn a commemorative wooden spoon. Order: The Half Gallon Challenge — a half-gallon of ice cream in one sitting, the AT thru-hiker's midpoint rite.",
+   "cz": [
+    "SWEET"
+   ],
+   "s": [
+    [
+     "SPOTLIGHTPA",
+     "https://www.spotlightpa.org/news/2025/06/appalachian-trail-ice-cream-challenge-half-gallon-thru-hikers/"
+    ],
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/blog/post/half-gallon-challenge/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Green Dragon Farmers Market & Auction",
+   "ad": "955 N State St, Ephrata, PA 17522",
+   "w": "A 60-acre Friday institution since 1932 — one of the largest and oldest farmers markets on the East Coast, with 400-plus vendors, a livestock and hay auction, and Amish and Mennonite stands. Voted the No. 2 farmers market in the US by USA Today readers (2021). Order: Friday-only feast: PA Dutch baked goods, sweet bologna and fresh-cut fries across 400 stands and an auction.",
+   "cz": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "DISCOVERLANC",
+     "https://discoverlancaster.com/blog/market-towns-lancaster-pa"
+    ],
+    [
+     "LANCASTERPA",
+     "https://lancasterpa.com/?p=932"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "Root's Country Market & Auction",
+   "ad": "705 Graystone Rd, Manheim, PA 17545",
+   "w": "Lancaster County's Tuesday market since the 1920s — older than Green Dragon — with 200-plus vendors, a produce auction and antiques; open year-round. Order: Tuesday market-day eating — fresh produce, baked goods and PA Dutch deli across 200 vendors.",
+   "cz": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "DISCOVERLANC",
+     "https://discoverlancaster.com/blog/farmers-markets-in-lancaster-pa"
+    ],
+    [
+     "LANCASTERPA",
+     "https://lancasterpa.com/?p=932"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "Bird-in-Hand Farmers Market",
+   "ad": "2710 Old Philadelphia Pike, Bird-in-Hand, PA 17505",
+   "w": "Family-run indoor market of three-plus decades in the village of Bird-in-Hand — the easy, compact place to shop the county's pretzels, jams, fudge and baked goods. Order: Hand-rolled PA Dutch pretzels, jams and jellies, and Amish baked goods.",
+   "cz": [
+    "MKT",
+    "PRETZ"
+   ],
+   "s": [
+    [
+     "DISCOVERLANC",
+     "https://discoverlancaster.com/blog/farmers-markets-in-lancaster-pa"
+    ],
+    [
+     "LANCASTERPA",
+     "https://lancasterpa.com/?p=932"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GBG",
+   "n": "Hollabaugh Bros. Fruit Farm & Market",
+   "ad": "545 Carlisle Rd, Biglerville, PA 17307",
+   "w": "A 500-acre third-generation family farm (since 1955) in the Adams County fruit belt — Pennsylvania's largest apple-growing county; year-round market on PA 34 and a stop on Destination Gettysburg's Crop Hop trail. Order: Pick-your-own apples and blueberries, then cider donuts and fruit pies from the farm market.",
+   "cz": [
+    "FARM"
+   ],
+   "s": [
+    [
+     "DESTGETTYSBURG",
+     "https://destinationgettysburg.com/things-to-do-2/agriculture/"
+    ],
+    [
+     "MIDATLDAYTRIPS",
+     "https://midatlanticdaytrips.com/2023/12/hollabaugh-bros-farm/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LAN",
+   "n": "Luca",
+   "ad": "436 W James St, Lancaster, PA 17603",
+   "w": "Chef Nathan Flaim's acclaimed Italian restaurant, a 2026 James Beard Award finalist for Best Chef: Mid-Atlantic — the city's highest national culinary honor in years. Order: Wood-fired Neapolitan-leaning pizzas and handmade pasta from local Lancaster County produce.",
+   "cz": [
+    "ITAL"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.paeats.org/?p=137753"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HBG",
+   "n": "The Millworks",
+   "ad": "340 Verbeke St, Harrisburg, PA 17102",
+   "w": "Midtown Harrisburg's 'Art. Food. Music.' hub since 2015, built from the reclaimed timber of the old Stokes Millwork: a farm-to-table restaurant, brewery and rooftop biergarten over two floors of working artist studios. Named to OpenTable's Top 100 Hot Spot Restaurants in America. Order: Farm-to-table plates and house-brewed beer in the rooftop biergarten.",
+   "cz": [
+    "US",
+    "BREW"
+   ],
+   "s": [
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/blog/post/the-millworks-a-midtown-must/"
+    ],
+    [
+     "PAEATS",
+     "https://www.paeats.org/?p=31453"
+    ],
+    [
+     "CPBJ",
+     "https://www.cpbj.com/the-millworks-makes-top-100-opentable-list-3"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YORK",
+   "n": "Martin's Potato Chips",
+   "ad": "5847 Lincoln Hwy W, Thomasville, PA 17364",
+   "w": "York County family chipmaker in Thomasville since the 1940s; free 45-minute tours run Tuesday mornings by reservation — pair it with Utz and Snyder's in nearby Hanover for the full 'Snack Food Capital' circuit. Order: Kettle-style Martin's potato chips, fresh from the free Tuesday factory tour.",
+   "cz": [
+    "PRETZ"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/martins-potato-chip-factory-tour"
+    ],
+    [
+     "PAEATS",
+     "https://www.paeats.org/feature/pennsylvania-potato-chips-trail"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Spring House Brewing Company",
+   "ad": "209 Hazel St, Lancaster, PA 17603",
+   "w": "Lancaster's inventive brewery, best known for its dessert stouts and pumpkin ales; the taproom is just outside downtown with a second tasting room on West King Street. Order: Award-winning chocolate peanut-butter stout and the brewery's pumpkin ale.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/lancaster-breweries"
+    ],
+    [
+     "LCMAG",
+     "https://lancastercountymag.com/?p=9404"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HER",
+   "n": "The Hershey Pantry",
+   "ad": "801 E Chocolate Ave, Hershey, PA 17033",
+   "w": "Tiny scratch kitchen on Chocolate Avenue voted Central Pennsylvania's best breakfast by Harrisburg Magazine readers for some two decades running; no reservations, so lines form early. Order: Stuffed French toast, baked oatmeal and giant cinnamon rolls from the scratch bakery.",
+   "cz": [
+    "DINER"
+   ],
+   "s": [
+    [
+     "TASTINGTABLE",
+     "https://www.tastingtable.com/2243385/eateries-must-try-hersheys-chocolate-avenue-pennsylvania/"
+    ],
+    [
+     "CPBJ",
+     "https://www.cpbj.com/12-breakfast-spots-for-when-the-kids-have-you-up-extra-early"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://digital-editions.todaymediacustom.com/VHH/files/basic-html/page13.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HER",
+   "n": "The Jigger Shop",
+   "ad": "202 Gettysburg Ave, Mount Gretna, PA 17064",
+   "w": "Mount Gretna's seasonal ice-cream parlor, a Chautauqua tradition since 1895; its spring opening day is local news. Order: Sundaes and hand-dipped ice cream at Mount Gretna's 1895 parlor.",
+   "cz": [
+    "SWEET"
+   ],
+   "s": [
+    [
+     "LEBTOWN",
+     "https://lebtown.com/2024/05/06/season-opening-of-mount-gretnas-historic-jigger-shop-set-for-may-11/"
+    ],
+    [
+     "SPOTLIGHTPA",
+     "https://www.spotlightpa.org/news/2026/07/mount-gretna-things-to-do-itinerary-daytrip-pennsylvania-local/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YORK",
+   "n": "York City Pretzel Company",
+   "ad": "39 W Market St, York, PA 17401",
+   "w": "Community-founded (2014) small-batch pretzel bakery on West Market Street in downtown York; it has since bought the Intercourse Pretzel Factory in Lancaster County. Order: Hand-twisted Bavarian-style soft pretzels, plus seasoned 'Revolutionary Pretzels' hard pieces.",
+   "cz": [
+    "PRETZ",
+    "BAKE"
+   ],
+   "s": [
+    [
+     "CPBJ",
+     "https://www.cpbj.com/york-city-pretzel-twists-together-entrepreneurship-city-love"
+    ],
+    [
+     "PAEATS",
+     "https://www.paeats.org/?p=23349"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HER",
+   "n": "Tröegs Independent Brewing",
+   "ad": "200 Hersheypark Dr, Hershey, PA 17033",
+   "w": "The Trogner brothers' brewery, moved from Harrisburg to a 90,000-sq-ft Hershey plant in 2011; its one-hour tour (with tastings) was voted the No. 1 brewery tour in America by USA Today readers. Big tasting room and beer garden with a full view of the brewhouse. Order: Troegenator Double Bock, Perpetual IPA and the cult holiday Mad Elf, on tap where they're brewed.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tr%C3%B6egs"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/things-to-do/grown-up-fun/troegs-independent-brewing/"
+    ],
+    [
+     "USATODAY",
+     "https://www.aol.com/tr-egs-voted-top-brewery-195324755.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Bube's Brewery & Catacombs",
+   "ad": "102 N Market St, Mount Joy, PA 17552",
+   "w": "Alois Bube's 1876 brewery in Mount Joy — on the National Register and believed to be the only intact 19th-century lager-era brewery in the US; eat in the stone aging cellars, the biergarten or the Victorian hotel bar. Order: House-brewed beer and fine dining 43 feet underground in the lager-aging Catacombs.",
+   "cz": [
+    "BREW",
+    "US"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://assets.atlasobscura.com/places/bubes-brewery-and-catacombs"
+    ],
+    [
+     "CHOWHOUND",
+     "https://www.chowhound.com/1694739/pennsylvania-restaurant-catacombs"
+    ],
+    [
+     "WITF",
+     "https://witf.org/2017/10/11/smart_talk_road_trip_to_bubes_brewery_in_mt_joy"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Cabalar Meat Co.",
+   "ad": "501 W Lemon St (West End Market), Lancaster, PA 17603",
+   "w": "Chef Steve and pastry chef Lianne Cabalar's whole-animal butcher shop and lunch counter (2018), breaking down local pasture-raised animals in front of you on North Queen Street. Order: Whole-animal-butcher burgers and sandwiches — Lancaster County Magazine readers' favorite burger.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "LCMAG",
+     "https://www.lancastercountymag.com/cabalar/"
+    ],
+    [
+     "PAEATS",
+     "https://www.paeats.org/?p=102899"
+    ],
+    [
+     "LNP",
+     "https://lancasteronline.com/business/local_business/cabalar-sets-opening-date-for-restaurant-in-west-end-market-were-stoked/article_ce42672c-5b5a-11ef-9aef-d74c9f43ecb2.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Lancaster Brewing Company",
+   "ad": "302 N Plum St, Lancaster, PA 17602",
+   "w": "Opened in 1995 in the National Register-listed McGovern tobacco warehouse at Plum and Walnut — the first brewery to operate in Lancaster in some 40 years, in a county that brewed 7% of America's beer in 1810. Order: House beers from a brewery that has made 200-plus styles since 1995, with a full brewpub menu.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lancaster_Brewing_Company"
+    ],
+    [
+     "LCMAG",
+     "https://www.lancastercountymag.com/the-state-of-brewing-in-lancaster-county/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/lancaster-breweries"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAR",
+   "n": "Market Cross Pub & Brewery",
+   "ad": "113 N Hanover St, Carlisle, PA 17013",
+   "w": "A three-decade staple of downtown Carlisle and an anchor of the Cumberland Valley Beer Trail — English-style pub brewing its own beers on site. Order: House-brewed ales with traditional English pub fare.",
+   "cz": [
+    "BREW",
+    "US"
+   ],
+   "s": [
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/food/restaurants/downtown-carlisle-restaurants"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/?p=54090"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAR",
+   "n": "Hamilton Restaurant",
+   "ad": "55 W High St, Carlisle, PA 17013",
+   "w": "Downtown Carlisle diner on the old 'Greek Row,' widely regarded as the town's oldest continuously operating restaurant; Greek immigrant Charles Kollas created the Hot-Chee Dog here in 1938, and it now has its own historical marker. Winner of the 2023 Cumberland Valley Meal Madness bracket. Order: The Hot-Chee Dog — grilled dog, American cheese, house chili, yellow mustard and diced onions, served since 1938.",
+   "cz": [
+    "DINER",
+    "US"
+   ],
+   "s": [
+    [
+     "AMAZINGAMERICA",
+     "https://wjla.com/amazing-america/more-than-just-a-chili-dog-hamilton-restaurants-hot-chee-dog-is-a-pennsylvania-legend"
+    ],
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/blog/post/must-try-restaurants-meal-madness-final-8/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "Kreider Farms Dairy Tour",
+   "ad": "1467 Lancaster Rd, Manheim, PA 17545",
+   "w": "A 90-year-old working dairy: May–October trolley tours through the 'Moo-ternity' barn and calving corner, the rotary 'Cowrousel' milking parlor and a 100-foot silo observation tower. Order: Farm-fresh chocolate milk and batch-churned Kreider Farms ice cream at the end of the dairy tour.",
+   "cz": [
+    "SWEET",
+    "FARM"
+   ],
+   "s": [
+    [
+     "LANCASTERFARMING",
+     "https://www.lancasterfarming.com/farming-news/ag-business/at-90-years-kreider-farms-churns-up-more-ice-cream/article_cad5a90c-c290-4127-b02a-41f70164a2e2.html"
+    ],
+    [
+     "PAEATS",
+     "https://www.paeats.org/?p=137686"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://nxtbook.com/discoverlancaster/getawayguide/2024/index.php?startid=11"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GBG",
+   "n": "Adams County Winery",
+   "ad": "251 Peach Tree Rd, Orrtanna, PA 17353",
+   "w": "Pennsylvania's fifth-oldest operating winery and a ten-time 'Best Winery' in the Gettysburg's Greatest readers' awards, in a bank barn in the fruit belt west of town; tasting room also on Gettysburg's square. Order: Fruit and grape wines from Adams County orchards — the Gettysburg area's original winery (1975).",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "PAWINE",
+     "https://pennsylvaniawine.com/about/press/adams-county-winery-celebrating-50-years-in-business"
+    ],
+    [
+     "DESTGETTYSBURG",
+     "https://www.destinationgettysburg.com/uploads/files/Adams County Winery.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GBG",
+   "n": "Mason Dixon Distillery",
+   "ad": "331 E Water St, Gettysburg, PA 17325",
+   "w": "Gettysburg distillery (2016) in a former factory; named Pennsylvania Vodka Distillery of the Year at the 2018 New York International Spirits Competition and a Gettysburg's Greatest winner. Order: Award-winning vodka, rums and corn whiskey distilled in Gettysburg.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "DESTGETTYSBURG",
+     "https://www.destinationgettysburg.com/uploads/files/Mason Dixon Distillery.pdf"
+    ],
+    [
+     "CELEBRATEGBG",
+     "https://digital.graphcompubs.com/article/11th+Annual+Gettysburg%E2%80%99s+Greatest+Awards/2823632/420288/article.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "1700 Degrees Steakhouse",
+   "ad": "1 N 2nd St (Hilton Harrisburg), Harrisburg, PA 17101",
+   "w": "Downtown steakhouse in the Hilton Harrisburg, named the best steakhouse in Pennsylvania by Mashed (2025), weighing reviews, accolades and recommendations. Order: New York strip and truffle-lobster mac 'n' cheese.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MASHED",
+     "https://www.aol.com/articles/one-best-steakhouses-pennsylvania-according-100300894.html"
+    ],
+    [
+     "ABC27",
+     "https://www.abc27.com/local-news/harrisburg-steakhouse-named-best-in-pennsylvania-by-mashed/amp/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YORK",
+   "n": "Viet Thai Cafe",
+   "ad": "2535 E Market St, York, PA 17402",
+   "w": "Two-decade family kitchen in a York strip mall cooking Thai, Laotian and Vietnamese food — one of only three Pennsylvania restaurants on USA Today's 2024 Restaurants of the Year list. Order: Pho, house noodle soup and beef massaman curry.",
+   "k": "Closed Sundays.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "PHILLYINQ",
+     "https://www.inquirer.com/food/usa-today-best-restaurants-philadelphia-2024.html"
+    ],
+    [
+     "YDR",
+     "https://www.aol.com/7-york-county-restaurants-wish-102318928.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YORK",
+   "n": "Tutoni's",
+   "ad": "108 N George St, York, PA 17401",
+   "w": "Downtown York's Old-World Italian dining room — house-made pasta, soups and sauces, a Wine Spectator Award of Excellence (2025) and a speakeasy tapas bar upstairs. Order: Made-from-scratch pasta (short-rib gnocchi) and the upstairs speakeasy tapas bar.",
+   "cz": [
+    "ITAL",
+    "BREW"
+   ],
+   "s": [
+    [
+     "PAEATS",
+     "https://paeats.org/?p=102471"
+    ],
+    [
+     "WINESPECTATOR",
+     "https://www.winespectator.com/restaurants/5989/tutoni's"
+    ],
+    [
+     "YDR",
+     "https://www.aol.com/best-things-ate-york-county-100406293.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Hershey Farm Restaurant",
+   "ad": "240 Hartman Bridge Rd, Ronks, PA 17572",
+   "w": "Strasburg-area PA Dutch smorgasbord and bakery, home of Lancaster's Whoopie Pie Festival; its whoopie pies topped LNP's blind taste test of county favorites. Order: Whoopie pies from the on-site bakery (top of LNP's county taste test) and the Grand Smorgasbord.",
+   "cz": [
+    "PADUTCH",
+    "BAKE"
+   ],
+   "s": [
+    [
+     "LNP",
+     "https://lancasteronline.com/features/taste-testers-critique-county-favorites-whoopie-pies/article_0c7b6d38-546a-5307-b8a7-289f26348803.html"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/blog/lancaster-county-whoopie-pie/"
+    ],
+    [
+     "CPBJ",
+     "https://www.cpbj.com/whoopie-pie-festival-3"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HER",
+   "n": "Fenicci's of Hershey",
+   "ad": "102 W Chocolate Ave, Hershey, PA 17033",
+   "w": "Hershey's oldest free-standing restaurant (since 1935) and the first in town to serve pizza (1947) — old family sauce recipes on Chocolate Avenue. Order: House meatballs, lasagna and the upside-down pizza.",
+   "cz": [
+    "ITAL"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/restaurants-in-hershey-pa"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/listings/feniccis-of-hershey/2179/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HER",
+   "n": "The Chocolate Avenue Grill",
+   "ad": "114 W Chocolate Ave, Hershey, PA 17033",
+   "w": "Unpretentious, broad-menu grill in downtown Hershey that a local guide and the visitor bureau both send people to — burgers to lobster, with chocolate desserts to finish. Order: Burgers, Reubens and chocolate desserts.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/restaurants-in-hershey-pa"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/listings/the-chocolate-avenue-grill/619/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAR",
+   "n": "Helena's Chocolate Café & Creperie",
+   "ad": "North Hanover St, Carlisle, PA 17013",
+   "w": "Downtown Carlisle crêperie-chocolatier with super-sized crepes, house gelato and handmade chocolates, profiled behind the scenes by PA Eats. Order: Banana & Nutella crepe, French macarons and handmade European chocolates.",
+   "cz": [
+    "CAFE",
+    "SWEET"
+   ],
+   "s": [
+    [
+     "PAEATS",
+     "https://www.paeats.org/feature/helenas-cafe-carlisle-pa/"
+    ],
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/blog/post/palate-pleasing-cuisine-in-carlisle/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HBG",
+   "n": "Pizza Boy Brewing Co.",
+   "ad": "2240 Millennium Way, Enola, PA 17025",
+   "w": "West Shore brewery grown out of Al's of Hampden pizza shop — industrial setting, but routinely named the region's best beer, with around 100 drafts. Order: Barrel-aged and one-off beers from 100-ish taps, with pies from Al's of Hampden.",
+   "cz": [
+    "BREW",
+    "ITAL"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/breweries-near-harrisburg-pennsylvania"
+    ],
+    [
+     "PAEATS",
+     "https://www.paeats.org/news/2016/cross-susquehanna-pies-beer-als-hampden-pizza-boy-brewing/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Ever Grain Brewing Co.",
+   "ad": "4444 Carlisle Pike, Camp Hill, PA 17011",
+   "w": "Camp Hill warehouse brewery (2016) known for hazy IPAs and stouts, board games and a window into the kitchen next door. Order: Joose juicy IPA and Dark Necessity imperial stout.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/breweries-near-harrisburg-pennsylvania"
+    ],
+    [
+     "THEBURG",
+     "https://theburgnews.com/food/ever-grain-brewing-company-carlisle-pike"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LAN",
+   "n": "Passerine",
+   "ad": "114 N Prince St, Lancaster, PA 17603",
+   "w": "French-inspired New American spot (opened 2024) cooking the county's farm bounty; named to the New York Times' 50 favorite restaurants in America and Craig LaBan's 2026 Lancaster list. Order: Seasonal small plates — seared scallops with summer corn, the 25-layer zucchini–goat ricotta crêpe cake.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "NYTIMES",
+     "https://wnep.com/article/news/local/best-restaurant-new-york-times-pennsylvania-passerine-fet-fisk-little-walters/521-cbf11a8a-6e7f-4f2b-9a8b-768494bb12f4"
+    ],
+    [
+     "PHILLYINQ",
+     "https://www.inquirer.com/food/a/lancaster-dining-best-restaurants-craig-laban-20260502.html"
+    ],
+    [
+     "LCMAG",
+     "https://lcm.engleonline.com/?p=266804"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LAN",
+   "n": "Chellas Arepa Kitchen",
+   "ad": "325 N Queen St, Lancaster, PA 17603",
+   "w": "Food truck turned downtown restaurant (2025) — Lancaster County Magazine's #1 food truck, then #1 new restaurant, and on Craig LaBan's 2026 Lancaster list. Order: Arepas and Peruvian–Venezuelan plates.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "PHILLYINQ",
+     "https://www.inquirer.com/food/a/lancaster-dining-best-restaurants-craig-laban-20260502.html"
+    ],
+    [
+     "LCMAG",
+     "https://lancastercountymag.com/the-best-of-lancaster-2025/"
+    ],
+    [
+     "LNP",
+     "https://lancasteronline.com/business/whats_in_store/chellas-arepa-kitchen-expands-with-opening-of-lancaster-city-restaurant/article_84074cc0-d8ed-11ef-9558-bb1a0fb0f830.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Rice & Noodles",
+   "ad": "1238 Lititz Pike, Lancaster, PA 17601",
+   "w": "Third-generation Vietnamese family kitchen on Lititz Pike — spring rolls, banh mi and homemade desserts; on Craig LaBan's 2026 Lancaster list. Order: Spring rolls, banh mi and house French macarons.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "PHILLYINQ",
+     "https://www.inquirer.com/food/a/lancaster-dining-best-restaurants-craig-laban-20260502.html"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/blog/international-dining-lancaster-pa/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Pizzeria LUCA",
+   "ad": "1200 Christopher Pl, Lancaster, PA 17601",
+   "w": "Casual wood-fired pizza offshoot of James Beard-nominated LUCA — #2 pizza in Lancaster County Magazine's Best of Lancaster 2025 and on Craig LaBan's 2026 list.",
+   "cz": [
+    "ITAL"
+   ],
+   "s": [
+    [
+     "PHILLYINQ",
+     "https://www.inquirer.com/food/a/lancaster-dining-best-restaurants-craig-laban-20260502.html"
+    ],
+    [
+     "LCMAG",
+     "https://lancastercountymag.com/the-best-of-lancaster-2025/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LAN",
+   "n": "The Belvedere Inn",
+   "ad": "402 N Queen St, Lancaster, PA 17603",
+   "w": "Victorian-mansion dining room voted #1 dinner restaurant in Lancaster County Magazine's Best of Lancaster 2025; on OpenTable's Top 100 romantic restaurants. Order: Fine dining downstairs, rooftop patio and piano bar.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "LCMAG",
+     "https://lancastercountymag.com/the-best-of-lancaster-2025/"
+    ],
+    [
+     "LNP",
+     "https://lancasteronline.com/features/entertainment/belvedere-inn-named-a-top-romantic-restaurant-by-cosmopolitan-opentable/article_2ae5b64f-c954-4f21-bcf9-e30d712c898b.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Himalayan Curry & Grill",
+   "ad": "22 E Orange St, Lancaster, PA 17602",
+   "w": "Tiny downtown Nepalese–Indian locals' favourite (reserve — few tables), reviewed by LNP's IncognEATo. Order: Nepalese momos and curries.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "LNP",
+     "https://lancasteronline.com/news/local/we-secretly-dined-at-himalayan-curry-and-grill-heres-a-review-for-our-incogneato-series/article_5d7ca44e-464f-11e7-8b74-ab93e25c5774.html"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/blog/international-dining-lancaster-pa/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HBG",
+   "n": "Little Amps Coffee Roasters",
+   "ad": "1836 Green St, Harrisburg, PA 17102",
+   "w": "Harrisburg's home-grown roaster (2010, founded by a rock drummer) — Uptown flagship plus downtown State St and Strawberry Square outposts; its barista won a national best-espresso contest. Order: House-roasted espresso (Best Espresso in America contest winner, 2018).",
+   "cz": [
+    "CAFE"
+   ],
+   "s": [
+    [
+     "PAEATS",
+     "https://www.paeats.org/news/2018/little-amps-coffee-harrisburg-espresso/"
+    ],
+    [
+     "THEBURG",
+     "https://theburgnews.com/food/rocker-roaster-amps-set-crank-coffee-quality-11"
+    ],
+    [
+     "FOX43",
+     "https://www.fox43.com/article/news/community/phoenix-harrisburg-coffee-shops-partner-broad-street-market-little-amps-roasters-elementary-co/521-2d51b65a-c675-42ae-9970-2ab5b5b3ba94"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Elementary Coffee Co.",
+   "ad": "256 North St, Harrisburg, PA 17101",
+   "w": "Andrea Grove-Musselman's roaster, born at the Broad Street Market in 2014, now a café in a renovated Capitol-district building (and back at the market after the 2023 fire). Order: Small-batch roasts sweetened only with natural sweeteners and spices.",
+   "cz": [
+    "CAFE"
+   ],
+   "s": [
+    [
+     "THEBURG",
+     "https://theburgnews.com/news/its-elementary-harrisburg-roaster-debuts-coffee-shop-remarkable-renovation-in-capitol-district"
+    ],
+    [
+     "PAEATS",
+     "https://www.paeats.org/feature/andrea-grove-musselman-elementary-coffee/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GBG",
+   "n": "Mr. G's Ice Cream",
+   "ad": "404 Baltimore St, Gettysburg, PA 17325",
+   "w": "Sixteen flavours made on the premises in the 1819 Twin Sycamores House on Baltimore Street — the town's classic after-battlefield scoop. Order: Homemade ice cream — chocolate peanut butter soft-serve sundae, butter pecan, root beer floats.",
+   "cz": [
+    "SWEET"
+   ],
+   "s": [
+    [
+     "DESTGETTYSBURG",
+     "https://destinationgettysburg.com/listings/mr-gs-ice-cream/"
+    ],
+    [
+     "TRAVELAWAITS",
+     "https://www.travelawaits.com/2471251/eating-and-drinking-in-gettysburg/"
+    ],
+    [
+     "PAEATS",
+     "https://www.paeats.org/news/2016/satisfy-sweet-tooth-6-gettysburg-ice-cream-shops/"
+    ],
+    [
+     "GBGTIMES",
+     "https://www.gettysburgtimes.com/news/local/article_52ddcd99-12d7-5e86-87b0-9cce75d1e1f8.html"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GBG",
+   "n": "Garryowen Irish Pub",
+   "ad": "126 Chambersburg St, Gettysburg, PA 17325",
+   "w": "Gettysburg's only Irish-owned pub — trad music sessions and Irish home cooking a block off Lincoln Square. Order: Shepherd's pie, bangers and mash and the Ulster fry.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "DESTGETTYSBURG",
+     "https://destinationgettysburg.com/members/garryowen-irish-pub/?group=groups"
+    ],
+    [
+     "TRAVELAWAITS",
+     "https://www.travelawaits.com/2471251/eating-and-drinking-in-gettysburg/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GBG",
+   "n": "Lincoln Diner",
+   "ad": "32 Carlisle St, Gettysburg, PA 17325",
+   "w": "Old-school 1950s-style diner off Lincoln Square where tourists, Gettysburg College students and locals share the counter. Order: All-day diner breakfast and the cake case.",
+   "cz": [
+    "DINER"
+   ],
+   "s": [
+    [
+     "DESTGETTYSBURG",
+     "https://destinationgettysburg.com/places-to-eat/gettysburg-dining"
+    ],
+    [
+     "PAEATS",
+     "https://www.paeats.org/news/2016/6-old-faithful-restaurants-visit-gettysburg/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GBG",
+   "n": "Hickory Bridge Farm Restaurant",
+   "ad": "96 Hickory Bridge Rd, Orrtanna, PA 17353",
+   "w": "A 160-year-old barn in the Adams County apple country west of Gettysburg serving made-from-scratch family-style farm dinners with a touch of PA Dutch. Order: Family-style fried chicken, baked ham, corn and apple crisp in the barn.",
+   "k": "Dinners Fri–Sun; reservations.",
+   "cz": [
+    "PADUTCH",
+    "FARM"
+   ],
+   "s": [
+    [
+     "DESTGETTYSBURG",
+     "https://destinationgettysburg.com/historic-dining-gettysburg/"
+    ],
+    [
+     "TRAVELAWAITS",
+     "https://www.travelawaits.com/2471251/eating-and-drinking-in-gettysburg/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GBG",
+   "n": "Gettysburg Baking Company",
+   "ad": "17 Lincoln Square, Gettysburg, PA 17325",
+   "w": "Small downtown bakery-café for old-fashioned hand pies and extra-gooey pecan sticky buns before the battlefield. Order: Pecan sticky buns, hand pies and café au lait.",
+   "k": "Closed Mondays.",
+   "cz": [
+    "BAKE",
+    "CAFE"
+   ],
+   "s": [
+    [
+     "TRAVELAWAITS",
+     "https://www.travelawaits.com/2471251/eating-and-drinking-in-gettysburg/"
+    ],
+    [
+     "DESTGETTYSBURG",
+     "https://destinationgettysburg.com/places-to-eat/dessert-treats/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GBG",
+   "n": "Hunt's Battlefield Fries & Cafe — CLOSED",
+   "ad": "Steinwehr Ave, Gettysburg, PA 17325",
+   "w": "Counter-service fry shop by the battlefield visitor strip, famous for its fresh-cut fries and burgers. Order: Fresh-cut battlefield fries and messy sandwiches.",
+   "closed": true,
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "TRAVELAWAITS",
+     "https://www.travelawaits.com/2471251/eating-and-drinking-in-gettysburg/"
+    ],
+    [
+     "DESTGETTYSBURG",
+     "https://destinationgettysburg.com/places-to-eat/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Stoll & Wolfe Distillery",
+   "ad": "35 N Cedar St, Lititz, PA 17543",
+   "w": "Revival of Lancaster County rye distilling, founded 2016 with Dick Stoll, last distiller of the old Michter's plant; tasting room a block off Main Street, Lititz. On Craig LaBan's 2026 Lancaster list. Order: Pennsylvania rye whiskey (Wine Enthusiast 94 — the highest-scoring PA whiskey).",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "PHILLYINQ",
+     "https://www.inquirer.com/food/a/lancaster-dining-best-restaurants-craig-laban-20260502.html"
+    ],
+    [
+     "CPBJ",
+     "https://www.cpbj.com/whiskey-distillery-could-start-blending-in-lititz-within-the-year-2"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YORK",
+   "n": "Hamir's Indian Fusion",
+   "ad": "24 S George St, York, PA 17401",
+   "w": "Self-taught chef's downtown York dining room — named to USA Today's Restaurants of the Year list, the York Daily Record's pick for York's best. Order: Signature curries with fusion twists and plated desserts.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "USATODAY",
+     "https://www.yahoo.com/lifestyle/articles/usa-today-named-top-restaurants-100158016.html"
+    ],
+    [
+     "YDR",
+     "https://www.aol.com/7-york-county-restaurants-wish-102318928.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YORK",
+   "n": "Wyndridge Farm",
+   "ad": "885 S Pleasant Ave, Dallastown, PA 17313",
+   "w": "Working farm south of York with a cidery, brewery and seasonal farm-sourced restaurant — brick-oven pizzas and house-made ice cream. Order: Hard ciders, house beer and brick-oven pizza on the farm.",
+   "cz": [
+    "BREW",
+    "ITAL"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/breweries-in-york-pa"
+    ],
+    [
+     "PAEATS",
+     "https://www.paeats.org/feature/incredible-ice-cream-in-york-county/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YORK",
+   "n": "Collusion Tap Works",
+   "ad": "105 S Howard St, York, PA 17401",
+   "w": "Brewery-restaurant hidden on a back alley in York's Royal Square, run by the Barnes family; eclectic, ever-changing tap list. Order: Rotating farmhouse ales and stouts (650+ recipes since 2016).",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/breweries-in-york-pa"
+    ],
+    [
+     "LNP",
+     "https://lancasteronline.com/features/food/acquaint-yourself-with-collusion-tap-works-a-york-county-brewery/article_386ac526-9bf2-11e6-a2ae-d75d80eb3def.html"
+    ],
+    [
+     "YORKDISPATCH",
+     "https://www.yorkdispatch.com/picture-gallery/news/2021/10/13/brewing-chimerical-dreams-collusion-tap-works/8437644002/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YORK",
+   "n": "Perrydell Farm Dairy",
+   "ad": "90 Indian Rock Dam Rd, York, PA 17403",
+   "w": "Century family dairy farm that bottles its own hormone-free milk and churns it into ice cream at the farm store — 30 flavours in the case at a time. Order: Farm-made ice cream from its own herd's milk (250 rotating flavours).",
+   "cz": [
+    "SWEET",
+    "FARM"
+   ],
+   "s": [
+    [
+     "PAEATS",
+     "https://www.paeats.org/feature/incredible-ice-cream-in-york-county/"
+    ],
+    [
+     "FOX43",
+     "https://www.fox43.com/article/entertainment/perrydell-farm-and-dairy-wandering-weatherman/521-b5dcca97-9fc5-43c7-ad30-c0f1660810df"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YORK",
+   "n": "John Wright Restaurant",
+   "ad": "234 N Front St, Wrightsville, PA 17368",
+   "w": "Riverside restaurant in an old Wrightsville warehouse across from Columbia — 60–70% of ingredients from local farms, with a patio over the Susquehanna. Order: Farm-sourced comfort food and house-made ice cream on the Susquehanna patio.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "PAEATS",
+     "https://www.paeats.org/feature/incredible-ice-cream-in-york-county/"
+    ],
+    [
+     "LNP",
+     "https://lancasteronline.com/features/john-wright-restaurant-chef-showed-early-dedication-to-culinary-career-chain-experience-valuable/article_ed4f3c2a-b322-11e9-a81d-3b1e0e183169.html"
+    ],
+    [
+     "CPBJ",
+     "https://www.cpbj.com/foundry-forging-reinvention-of-york-county-borough-2/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HER",
+   "n": "Alfred's Victorian",
+   "ad": "38 N Union St, Middletown, PA 17057",
+   "w": "Pellegrini family's restaurant in a restored brownstone mansion in Middletown, serving since 1970 — reviewed by WITF's Phantom Diner. Order: Italian classics and seafood, or Saturday Victorian tea.",
+   "k": "Dinner Fri–Sat; Saturday luncheon/tea.",
+   "cz": [
+    "ITAL",
+    "US"
+   ],
+   "s": [
+    [
+     "WITF",
+     "https://www.witf.org/2022/12/01/the-phantom-diner-reviews-alfreds-victorian-transport-yourself-to-the-victorian-era-and-enjoy-a-delightful-meal/"
+    ],
+    [
+     "PAEATS",
+     "https://www.paeats.org/news/2014/eat-hersheyharrisburg-region/"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/listings/alfreds-victorian-restaurant/1056/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Note Bistro & Wine Bar",
+   "ad": "1530 N 2nd St, Harrisburg, PA 17102",
+   "w": "Midtown neighbourhood bistro in a repurposed 1910 Victorian home, with sidewalk tables on Second Street. Order: European-inspired bistro plates and an Old World wine list.",
+   "cz": [
+    "BREW",
+    "US"
+   ],
+   "s": [
+    [
+     "PAEATS",
+     "https://www.paeats.org/feature/12-restaurants-bars-you-need-to-visit-in-harrisburg-this-holiday-season/"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/harrisburg/midtown/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HER",
+   "n": "Snitz Creek Brewery Palmyra",
+   "ad": "2701 Horseshoe Pike, Palmyra, PA 17078",
+   "w": "Lebanon Valley craft-beer favourite's Palmyra brewpub (2023) in the Leed's Corner building, between Hershey and Lebanon. Order: Award-winning house brews with homemade pizzas.",
+   "cz": [
+    "BREW",
+    "ITAL"
+   ],
+   "s": [
+    [
+     "LEBTOWN",
+     "https://lebtown.com/2024/07/26/we-saved-you-a-bite-snitz-creek-brewery-palmyra-lebanon-valley-food-critics/"
+    ],
+    [
+     "ABC27",
+     "https://www.abc27.com/local-business/snitz-creek-brewery-officially-opens-newest-lebanon-county-location/"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://visithersheyharrisburg.org/things-to-do/beer-trails/breweries"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LAN",
+   "n": "Hammond's Pretzel Bakery",
+   "ad": "716 S West End Ave, Lancaster, PA 17603",
+   "w": "Hand-twisting sourdough pretzels in Lancaster since 1931 from a five-generation family recipe — billed as the oldest continuously family-operated hand-made pretzel bakery in America. Order: Hand-rolled sourdough hard pretzels.",
+   "cz": [
+    "PRETZ",
+    "BAKE"
+   ],
+   "s": [
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/directory/hammonds-pretzel-bakery/"
+    ],
+    [
+     "LNP",
+     "https://lancasteronline.com/features/food/lancaster-made-take-a-look-at-behind-the-scenes-of-hammonds-pretzel-factory/article_551fa3da-44d8-11e9-85ad-0f85ca1dc124.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAR",
+   "n": "Fay's Country Kitchen",
+   "ad": "203 S Hanover St, Carlisle, PA 17013",
+   "w": "Carlisle breakfast staple for 30+ years with a pancake for everyone; a perennial reader-vote runner-up for best breakfast. Order: Pancakes — Hawaiian, peanut-butter cup, peach buckwheat.",
+   "k": "Cash only.",
+   "cz": [
+    "DINER"
+   ],
+   "s": [
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/blog/post/top-10-spots-for-breakfast/"
+    ],
+    [
+     "SENTINEL",
+     "https://cumberlink.com/news/local/article_b65d235f-39ea-41b1-ab4e-21028f941984.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAR",
+   "n": "Redd's Smokehouse BBQ",
+   "ad": "109 N Hanover St, Carlisle, PA 17013",
+   "w": "Southern-style smokehouse in downtown Carlisle — voted Best BBQ in The Sentinel's 2026 Best of Cumberland County. Order: Loaded beef brisket sandwich with peppers, onions and pepper-jack.",
+   "cz": [
+    "BBQ"
+   ],
+   "s": [
+    [
+     "SENTINEL",
+     "https://cumberlink.com/news/local/article_b65d235f-39ea-41b1-ab4e-21028f941984.html"
+    ],
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/food/restaurants/downtown-carlisle-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAR",
+   "n": "Little Mexico Tacos",
+   "ad": "Carlisle, PA 17013",
+   "w": "Tiny taco stand with outdoor-only seating that entered Cumberland Valley's 2026 Meal Madness bracket as a wild card — and won it. Order: Mulitas, tacos and loaded nachos.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/listing/little-mexico-tacos/3691/"
+    ],
+    [
+     "SENTINEL",
+     "https://cumberlink.com/news/local/business/article_9f682175-eb9b-405c-9e3d-5a70251033a8.html"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CAR",
+   "n": "Pitt Street Station",
+   "ad": "10 N Pitt St, Carlisle, PA 17013",
+   "w": "Downtown Carlisle bar-restaurant featured among readers' best restaurants in The Sentinel's 2025 Best of Cumberland County. Order: Pub fare in a converted Carlisle station.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "SENTINEL",
+     "https://cumberlink.com/life-entertainment/local/food-drink/article_bd1cf8ce-13f0-4a45-9ab5-529ff6f65545.html"
+    ],
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/listing/pitt-street-station/3721/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Valley Bistro",
+   "ad": "4520 Valley Rd, Enola, PA 17025",
+   "w": "West Shore bistro that has won Cumberland Valley's Meal Madness bracket twice and was a 2026 reader-vote finalist for best breakfast/brunch. Order: Brunch and bistro plates.",
+   "cz": [
+    "US",
+    "DINER"
+   ],
+   "s": [
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/blog/post/must-try-restaurants-meal-madness-final-8/"
+    ],
+    [
+     "SENTINEL",
+     "https://cumberlink.com/news/local/article_b65d235f-39ea-41b1-ab4e-21028f941984.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Greystone Public House",
+   "ad": "2120 Colonial Rd, Harrisburg, PA 17112",
+   "w": "Colonial Park gastropub in a historic stone building, recommended by PA Eats and the Hershey–Harrisburg visitor bureau. Order: Gastropub plates and craft beer in a stone building.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "PAEATS",
+     "https://www.paeats.org/?p=63723"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/listings/greystone-public-house/10028/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Cavolo Pizzeria Bar",
+   "ad": "54 N Broad St, Lititz, PA 17543",
+   "w": "Chef Max Fanton's wood-fired pizzeria bar off Lititz's square (2024), already on Craig LaBan's 2026 list of Lancaster County's best. Order: Wood-fired pizzas and small plates with Italian wines.",
+   "cz": [
+    "ITAL"
+   ],
+   "s": [
+    [
+     "PHILLYINQ",
+     "https://www.inquirer.com/food/a/lancaster-dining-best-restaurants-craig-laban-20260502.html"
+    ],
+    [
+     "LNP",
+     "https://lancasteronline.com/business/whats_in_store/cavolo-pizzeria-bar-opens-in-downtown-lititz/article_7a34b581-4604-48a8-a9ca-a30cc162381b.html"
+    ],
+    [
+     "LCMAG",
+     "https://lancastercountymag.com/chef-max-fanton-fanning-the-flames/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "Rise Bake Shoppe",
+   "ad": "740 E Main St, Mount Joy, PA 17552",
+   "w": "Mount Joy bake shop voted #1 bakery in Lancaster County Magazine's Best of Lancaster 2025. Order: Cupcakes, cookies and cakes (Chocolate Perfection, Cloud 9).",
+   "k": "Closed Sundays.",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "LCMAG",
+     "https://lancastercountymag.com/the-best-of-lancaster-2025/"
+    ],
+    [
+     "LNP",
+     "https://lancasteronline.com/business/local_business/mom-and-daughter-venture-sprouts-in-mount-joy/article_fe6851e0-68ff-11ed-9f99-ab9b98f1b960.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AMISH",
+   "n": "Plain & Fancy Farm",
+   "ad": "3121 Old Philadelphia Pike, Bird-in-Hand, PA 17505",
+   "w": "Lancaster County's original family-style restaurant: big bowls passed round the table like at an Amish gathering. Order: Amish Farm Feast — fried chicken, PA Dutch chicken pot pie with homemade noodles, chow-chow, pepper cabbage.",
+   "cz": [
+    "PADUTCH"
+   ],
+   "s": [
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/blog/pa-dutch-dishes-lancaster/"
+    ],
+    [
+     "AMISHAMERICA",
+     "https://amishamerica.com/lancaster-county-10-amish-pa-dutch-restaurants/"
+    ],
+    [
+     "LNP",
+     "https://lancasteronline.com/news/local/plain-fancy-hopes-for-new-customers-year-round-sales-with/article_c763258a-374b-11e7-82da-e7c942c712e7.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "Dienner's Country Restaurant",
+   "ad": "2855 Lincoln Hwy E, Ronks, PA 17572",
+   "w": "Roadside Route 30 favourite for consistently good, low-priced PA Dutch cooking — buffet or à la carte. Order: PA Dutch buffet with chicken pot pie, at roadside prices.",
+   "cz": [
+    "PADUTCH"
+   ],
+   "s": [
+    [
+     "AMISHAMERICA",
+     "https://amishamerica.com/lancaster-county-10-amish-pa-dutch-restaurants/"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/blog/pa-dutch-dishes-lancaster/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "AMISH",
+   "n": "Katie's Kitchen",
+   "ad": "Ronks, PA 17572",
+   "w": "Small Amish-owned and -run restaurant serving homestyle PA Dutch plates with classic Amish desserts. Order: Roast beef, chicken pot pie, shoofly and whoopie pies.",
+   "cz": [
+    "PADUTCH"
+   ],
+   "s": [
+    [
+     "AMISHAMERICA",
+     "https://amishamerica.com/lancaster-county-10-amish-pa-dutch-restaurants/"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/blog/pa-dutch-dishes-lancaster/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HER",
+   "n": "Desserts Etc.",
+   "ad": "840 E Chocolate Ave, Hershey, PA 17033",
+   "w": "The Hershey Pantry's sister bakery-café on East Chocolate Avenue, one of Tasting Table's six must-try Chocolate Avenue eateries. Order: Cupcakes, cookies and quiche from the Pantry's bakery.",
+   "cz": [
+    "BAKE",
+    "SWEET"
+   ],
+   "s": [
+    [
+     "TASTINGTABLE",
+     "https://www.tastingtable.com/2243385/eateries-must-try-hersheys-chocolate-avenue-pennsylvania/"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/hershey/things-to-do-on-chocolate-ave/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "HER",
+   "n": "Hershey Social Restaurant + Bar",
+   "ad": "27 W Chocolate Ave, Hershey, PA 17033",
+   "w": "Downtown Hershey's newest bar-restaurant (replacing Houlihan's, 2026) with darts and trivia — on Tasting Table's Chocolate Avenue list. Order: Smash burgers, signature-sauce wings and cocktails.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "TASTINGTABLE",
+     "https://www.tastingtable.com/2243385/eateries-must-try-hersheys-chocolate-avenue-pennsylvania/"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/listings/hershey-social-restaurant-+-bar/2244/"
+    ],
+    [
+     "FOX43",
+     "https://www.fox43.com/article/news/local/dauphin-county/hershey-houlihans-closing-hershey-social-restaurant-bar-reopening-spring-2026/521-fbb8ea1f-67ee-42af-b3c7-49532cff9e0f"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HER",
+   "n": "Porch & Pantry",
+   "ad": "Mount Gretna, PA 17064",
+   "w": "Breakfast-and-brunch café under the tall trees of Mount Gretna's chautauqua — porch or cozy indoor seating. Order: Grilled sticky buns, omelets and grain bowls on the porch.",
+   "k": "Wed–Sun, 8am–1pm.",
+   "cz": [
+    "DINER"
+   ],
+   "s": [
+    [
+     "VISITPA",
+     "https://www.visitpa.com/article/great-american-getaway-guide-mount-gretna"
+    ],
+    [
+     "LEBTOWN",
+     "https://lebtown.com/2024/08/22/breakfast-wars-season-1-porch-pantry-lebanon-valley-food-critics/"
+    ],
+    [
+     "VISITLEBANONVALLEY",
+     "https://visitlebanonvalley.com/business/porch-and-pantry/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HER",
+   "n": "Mount Gretna Hideaway",
+   "ad": "40 Boulevard Ave, Mount Gretna, PA 17064",
+   "w": "Rustic Mount Gretna tavern with a forest-view deck; its lobster bisque placed second in the Lebanon Valley Food Critics' soup contest. Order: Lobster bisque (#2 in LebTown's Soup Wars) and wings on the deck.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "LEBTOWN",
+     "https://lebtown.com/2023/11/28/soup-wars-mount-gretna-hideaway-lebanon-valley-food-critics/"
+    ],
+    [
+     "VISITPA",
+     "https://www.visitpa.com/article/great-american-getaway-guide-mount-gretna"
+    ],
+    [
+     "VISITLEBANONVALLEY",
+     "https://visitlebanonvalley.com/business/the-hideaway/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HBG",
+   "n": "Raising the Bar Bakery",
+   "ad": "1507 N 3rd St, Harrisburg, PA 17102",
+   "w": "Scratch bakery that grew up inside the Broad Street Market and now bakes croissants and breads in Midtown's old Carpets and Draperies building. Order: Seasonal croissants, rustic breads and dessert bars.",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "THEBURG",
+     "https://theburgnews.com/business/sweet-space-harrisburg-bakery-raising-the-bar-serves-up-scratch-made-treats-at-a-new-second-location"
+    ],
+    [
+     "PAEATS",
+     "https://www.paeats.org/feature/raising-the-bar-bakery/"
+    ],
+    [
+     "VISITPA",
+     "https://www.visitpa.com/blog/post/great-american-getaway-guide-harrisburg/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Queen's BBQ & Southern Cuisine",
+   "ad": "912 N 3rd St, Harrisburg, PA 17102",
+   "w": "Family barbecue and Southern kitchen in Midtown — pulled pork, ribs, brisket and soul-food sides. Order: Pulled pork sandwich with coleslaw and mac and cheese.",
+   "cz": [
+    "BBQ",
+    "US"
+   ],
+   "s": [
+    [
+     "THEBURG",
+     "https://theburgnews.com/food/love-on-a-bun-at-queens-the-barbecue-is-tender-so-are-the-people"
+    ],
+    [
+     "FOX43",
+     "https://www.fox43.com/article/news/local/dauphin-county/local-business-owners-doing-different-kind-of-good-despite-hardships-harrisburg-queens-bbq-and-southern-cuisine/521-f42908e0-5d04-4470-9ae2-53d4574c072c"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/listings/queen%E2%80%99s-bbq-&-southern-cuisine/8613/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HBG",
+   "n": "Isabelle's Southern Cuisine",
+   "ad": "306 Reily St, Harrisburg, PA 17102",
+   "w": "Kim Ross's Midtown soul-food restaurant cooking her grandmother Isabelle's recipes — Visit PA's pick for Harrisburg Sunday brunch. Order: Isabelle's chicken & waffles, fried fish & grits.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "THEBURG",
+     "https://theburgnews.com/news/isabelles-southern-cuisine-set-to-open-serving-up-family-inspired-comfort-food"
+    ],
+    [
+     "VISITPA",
+     "https://www.visitpa.com/blog/post/great-american-getaway-guide-harrisburg/"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/harrisburg/midtown/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GBG",
+   "n": "Battlefield Brew Works & Spirits of Gettysburg",
+   "ad": "248 Hunterstown Rd, Gettysburg, PA 17325",
+   "w": "Pennsylvania's first combined brewery-distillery, in the c.1848 brick-end barn of the W.H. Monfort Farm — one of the largest Confederate field hospitals after the battle (1,300+ wounded). Order: Rotating lagers, IPAs and stouts plus house spirits (Lincoln Lager).",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "VISITPA",
+     "https://www.visitpa.com/blog/post/repurposed-historical-hot-spots/"
+    ],
+    [
+     "PAEATS",
+     "https://www.paeats.org/news/2016/exploring-gettysburgs-craft-beer-scene/"
+    ],
+    [
+     "GBGTIMES",
+     "https://www.gettysburgtimes.com/life_entertainment/local/article_d7e905e5-877c-5c42-aa42-b46989cb804b.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LAN",
+   "n": "Issei Noodle & Hi-Fi Izakaya",
+   "ad": "W Orange St, Lancaster, PA 17603",
+   "w": "Donna and André Pham's family noodle house (Japanese, Thai and Laotian roots) — André trained in Tokyo and makes noodles in-house on an imported machine; moved in 2024 to a bigger Orange Street space with the attached Hi-Fi Izakaya bar. LNP calls its gyoza the best in the county. Order: House-made ramen noodles, handmade gyoza and mochi doughnuts.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "PHILLYINQ",
+     "https://www.inquirer.com/food/a/lancaster-dining-best-restaurants-craig-laban-20260502.html"
+    ],
+    [
+     "LNP",
+     "https://lancasteronline.com/visitlancaster/hidden-gems-of-lancaster-countys-dining-scene/article_de5e76ba-ce42-11ed-8f01-db7f1efec0f7.html"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/where-to-eat/downtown-dining/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LAN",
+   "n": "Southern Market",
+   "ad": "100 S Queen St, Lancaster, PA 17603",
+   "w": "The 1888 Southern Market building, reinvented in 2022 as a food hall of independent, internationally minded stalls a block from Penn Square. Order: International stalls — Latin, Moroccan, Vietnamese and more — under one 1888 roof.",
+   "cz": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "PHILLYINQ",
+     "https://www.inquirer.com/food/a/lancaster-dining-best-restaurants-craig-laban-20260502.html"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/where-to-eat/downtown-dining/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Proof",
+   "ad": "30 N Queen St, Lancaster, PA 17603",
+   "w": "Speakeasy-style cocktail bar down a metal stair below street level — stone walls, live jazz, and food LNP rates worth the trip on its own. Order: Craft cocktails and upscale small plates with live jazz.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "LNP",
+     "https://lancasteronline.com/visitlancaster/these-4-bars-offer-lancaster-cocktail-drinkers-a-taste-of-the-speakeasy-vibe/article_b1831c68-6c49-11ee-b5c9-7bd9f2fadb7e.html"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/where-to-eat/downtown-dining/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Tellus360",
+   "ad": "24 E King St, Lancaster, PA 17602",
+   "w": "Irish-rooted multi-level pub and music venue off Penn Square whose summer rooftop garden is a Lancaster institution; host of the VeloCity cocktail contest. Order: Pints and cocktails on the garden rooftop.",
+   "cz": [
+    "US",
+    "BREW"
+   ],
+   "s": [
+    [
+     "LNP",
+     "https://lancasteronline.com/visitlancaster/these-4-bars-offer-lancaster-cocktail-drinkers-a-taste-of-the-speakeasy-vibe/article_b1831c68-6c49-11ee-b5c9-7bd9f2fadb7e.html"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/blog/outdoor-dining-in-lancaster-pa/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Annie Bailey's Irish Public House",
+   "ad": "28 E King St, Lancaster, PA 17602",
+   "w": "Downtown Irish pub with one of the city's best decks (Discover Lancaster) and an LNP readers' pick for cocktails — the Conway Social Club speakeasy hides behind a green unmarked door inside. Order: Irish pub fare on the deck; cocktails at the hidden Conway Social Club.",
+   "cz": [
+    "US",
+    "BREW"
+   ],
+   "s": [
+    [
+     "LNP",
+     "https://lancasteronline.com/features/readers-pick-their-favorite-places-to-get-cocktails-in-lancaster-county/article_cdbe4d26-d71f-11e9-ad59-1bfb64e3438c.html"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/blog/outdoor-dining-in-lancaster-pa/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LAN",
+   "n": "Passenger Coffee",
+   "ad": "7 W King St, Lancaster, PA 17603",
+   "w": "Lancaster roaster named Pennsylvania's best coffee shop by Food & Wine in 2018, 2019 and 2022 — the Inquirer's first stop on a Lancaster weekend. Order: Pour-overs and espresso from its own roastery.",
+   "cz": [
+    "CAFE"
+   ],
+   "s": [
+    [
+     "LNP",
+     "https://lancasteronline.com/features/food/passenger-coffee-named-best-coffee-shop-in-pennsylvania-by-food-wine-magazine/article_63d39fba-a3aa-11ec-9a2b-f76eb39bd121.html"
+    ],
+    [
+     "PHILLYINQ",
+     "https://www.inquirer.com/life/lancaster-pa-weekend-getaway-passenger-coffee-luca-restaurants-shopping-hiking-field-trip-20260509.html"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/coffee-shops-lancaster-pa"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "LAN",
+   "n": "Prince Street Cafe",
+   "ad": "15 N Prince St, Lancaster, PA 17603",
+   "w": "The downtown hub café on Prince Street, pouring Passenger Coffee with a soup-and-sandwich menu. Order: African peanut soup with bottomless Passenger house brew.",
+   "cz": [
+    "CAFE"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/coffee-shops-lancaster-pa"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/blog/lancaster-pa-coffee-shops-cafes/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "LAN",
+   "n": "Square One Coffee Roasters",
+   "ad": "145 N Duke St, Lancaster, PA 17602",
+   "w": "Family-run, award-winning micro-roaster whose baristas have competed at the U.S. Barista Championship. Order: Fair-trade micro-roasted espresso.",
+   "cz": [
+    "CAFE"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/coffee-shops-lancaster-pa"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/blog/lancaster-pa-coffee-shops-cafes/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Josephine's Downtown",
+   "ad": "50 W Grant St, Lancaster, PA 17603",
+   "w": "Old-Hollywood supper club (blue-velvet banquettes) cooking continental French-American food; on OpenTable's 2025 Top 100 Romantic Restaurants in America. Order: Seared scallops, duck breast and prime beef tenderloin.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "LNP",
+     "https://lancasteronline.com/features/food/lancaster-city-restaurant-is-one-of-the-most-romantic-in-us-according-to-opentable-list/article_1644c1e4-df56-11ef-b565-b7b773bd3dd9.html"
+    ],
+    [
+     "LCMAG",
+     "https://lancastercountymag.com/josephines-downtown-classic-cuisine-an-elegant-atmosphere/"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/blog/fine-dining-lancaster-pa/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Thistle Finch Distillery",
+   "ad": "417 W Grant St, Lancaster, PA 17603",
+   "w": "Lancaster's oldest operating distillery, in a historic tobacco warehouse — spirits from local grain, tasting room and the Burley Bar restaurant. Order: Straight Rye and Market Alley Gin; cocktails at the Burley Bar.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/directory/thistle-finch-distillery/"
+    ],
+    [
+     "LNP",
+     "https://lancasteronline.com/features/food/spring-house-brewing-company-and-thistle-finch-distillery-team-up-for-a-citywide-special-heres/article_074ab12e-b05d-11ec-845f-d308de06ce0e.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HBG",
+   "n": "The Jackson House",
+   "ad": "1004 N 6th St, Harrisburg, PA 17102",
+   "w": "Midtown burger counter making what FOX43 calls arguably the city's best burger and cheesesteak since 1982 — a Visit Hershey & Harrisburg 'uniquely Harrisburg' pick. Order: Charbroiled half-pound burger with house Jackson Sauce; cheesesteaks.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "FOX43",
+     "https://www.fox43.com/article/news/local/contests/matt-vs-food-harrisburg-fox43s-matt-maisel-picks-his-capital-city-food-faves/521-57d417b4-7ad1-41a1-9597-cfb9046c0dd3"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/harrisburg/uniquely-harrisburg/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Alvaro Bread and Pastry Shoppe",
+   "ad": "236 Peffer St, Harrisburg, PA 17102",
+   "w": "Midtown Italian bakery run since 2005 by Sal and Lina Alvaro, immigrants from Italy — FOX43's pick for the area's best Italian food. Order: Cannoli, sfogliatelle, Italian breads and lunch plates.",
+   "cz": [
+    "ITAL",
+    "BAKE"
+   ],
+   "s": [
+    [
+     "FOX43",
+     "https://www.fox43.com/article/news/local/contests/matt-vs-food-harrisburg-fox43s-matt-maisel-picks-his-capital-city-food-faves/521-57d417b4-7ad1-41a1-9597-cfb9046c0dd3"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/listings/alvaro-bread-and-pastry-shoppe/7289/"
+    ],
+    [
+     "THEBURG",
+     "https://theburgnews.com/food/treat-yourself-in-harrisburg-bakeries-seem-to-flourish-while-other-businesses-struggle-we-wondered-why"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Anna Rose Bakery & Coffee Shop",
+   "ad": "100 N 2nd St, Harrisburg, PA 17101",
+   "w": "Downtown bakery known for made-to-order cake doughnuts, pecan bars and iced cupcakes — FOX43's Harrisburg breakfast pick; under baker-owners Riley and Zach Madar, and where Gov. Shapiro held a 2026 downtown press stop.",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "FOX43",
+     "https://www.fox43.com/article/news/local/contests/matt-vs-food-harrisburg-fox43s-matt-maisel-picks-his-capital-city-food-faves/521-57d417b4-7ad1-41a1-9597-cfb9046c0dd3"
+    ],
+    [
+     "THEBURG",
+     "https://theburgnews.com/food/treat-yourself-in-harrisburg-bakeries-seem-to-flourish-while-other-businesses-struggle-we-wondered-why"
+    ],
+    [
+     "THEBURG",
+     "https://theburgnews.com/news/harrisburg-couple-takes-over-ownership-of-downtowns-anna-rose-bakery"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "High Dive",
+   "ad": "N 3rd St, Midtown, Harrisburg, PA 17102",
+   "w": "Millworks owner's cocktail-forward 'dive' in Midtown — TheBurg's Bartender's Choice feature and a Visit Hershey & Harrisburg cool-cocktails pick. Order: High-end cocktails, incl. the spirit-free Zombie.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "THEBURG",
+     "https://theburgnews.com/food/bartenders-choice-take-a-high-dive-into-high-end-cocktails"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/things-to-do/grown-up-fun/cool-cocktails/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "The Watershed Pub",
+   "ad": "2129 Market St, Camp Hill, PA 17011",
+   "w": "First pub in Camp Hill since Prohibition (The Sentinel), in a renovated 1830s building with a wraparound front porch. Order: Pub fare and local drafts on the wraparound porch.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "SENTINEL",
+     "https://cumberlink.com/entertainment/local-scene/discerning-diner-watershed-pub-makes-history-as-first-pub-in-camp-hill-since-prohibition/article_9bd0ed57-88ec-559a-944e-df3e16d06914.html"
+    ],
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/blog/post/a-full-day-on-the-west-shore/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HBG",
+   "n": "Mount Everest Nepali & Indian Cuisine",
+   "ad": "Strawberry Square, Harrisburg, PA 17101",
+   "w": "Downtown's Nepali kitchen in Strawberry Square — momo and wood-grilled sekuwa from the Lama family (Khana, Hershey); a taste of the 47,000-strong Bhutanese-Nepali community of central PA. Order: Momo dumplings and wood-fired sekuwa.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "THEBURG",
+     "https://theburgnews.com/food/peak-of-flavor-mount-everest-nepali-indian-cuisine-debuts-downtown"
+    ],
+    [
+     "ABC27",
+     "https://www.abc27.com/local-news/nepali-indian-eatery-announces-grand-opening-in-dauphin-co/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "HBG",
+   "n": "Bacco Pizzeria & Wine Bar",
+   "ad": "20 N 2nd St, Harrisburg, PA 17101",
+   "w": "Restaurant Row pizzeria-wine bar built for downtown's grown-up crowd (TheBurg); a Visit Hershey & Harrisburg cocktail pick. Order: Rustic pizzas with a deep wine list and cocktails.",
+   "cz": [
+    "ITAL",
+    "BREW"
+   ],
+   "s": [
+    [
+     "THEBURG",
+     "https://theburgnews.com/business/adult-oasis-bacco-aims-meet-nightlife-maturing-downtown-clientele"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/things-to-do/grown-up-fun/cool-cocktails/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YORK",
+   "n": "Gift Horse Brewing Company",
+   "ad": "117 N George St, York, PA 17401",
+   "w": "One of downtown York's anchor businesses — two bars, a beer garden with live music every weekend and pub food from Happy Camper Eats & Treats. Order: Twelve house beers on tap, smash burgers in the beer garden.",
+   "cz": [
+    "BREW",
+    "US"
+   ],
+   "s": [
+    [
+     "EXPLOREYORK",
+     "https://www.yorkpa.org/listing/gift-horse-brewing-company/1764/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/downtown-york-pennsylvania-itinerary"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YORK",
+   "n": "Mudhook Brewing Company",
+   "ad": "34 N Cherry Ln, York, PA 17401",
+   "w": "Downtown York brewpub that Uncovering PA singles out as much for its food as its beer; on Explore York's Beer Lovers Guide. Order: House beers with a full kitchen menu.",
+   "cz": [
+    "BREW",
+    "US"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/downtown-york-pennsylvania-itinerary"
+    ],
+    [
+     "EXPLOREYORK",
+     "https://www.yorkpa.org/dine-drink/wine-beer-spirits/beer-lovers-guide/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "YORK",
+   "n": "Liquid Hero Brewery",
+   "ad": "50 E North St, York, PA 17401",
+   "w": "York craft brewery with superhero-named beers, on Explore York's Beer Lovers Guide and Uncovering PA's downtown itinerary. Order: Comic-book-themed craft beers.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/downtown-york-pennsylvania-itinerary"
+    ],
+    [
+     "EXPLOREYORK",
+     "https://www.yorkpa.org/dine-drink/wine-beer-spirits/beer-lovers-guide/"
+    ],
+    [
+     "FOX43",
+     "https://www.fox43.com/article/life/food/york-restaurant-week-2025-participating-restaurants/521-1c27681b-1e2c-4718-85aa-c8514f320b68"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YORK",
+   "n": "Graham Rooftop Lounge at the Yorktowne Hotel",
+   "ad": "48 E Market St, York, PA 17401",
+   "w": "Rooftop bar on the 14-story Yorktowne Hotel — the 1925 Renaissance Revival 'Cornerstone of York', gut-rehabbed and reopened in 2023 and inducted into Historic Hotels of America in 2026. Order: Cocktails with skyline views atop the 1925 Yorktowne Hotel.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "VISITPA",
+     "https://www.visitpa.com/blog/post/rooftop-restaurants-and-bars-pa/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/downtown-york-pennsylvania-itinerary"
+    ],
+    [
+     "HISTORICHOTELS",
+     "https://www.historichotels.org/us/hotels-resorts/the-yorktowne-hotel-tapestry-collection-by-hilton/history.php"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "YORK",
+   "n": "Green Bean Roasting Company",
+   "ad": "100 S Beaver St, York, PA 17401",
+   "w": "Downtown York roaster-café on South Beaver Street, a mainstay of Explore York's annual coffee crawl. Order: Fresh-roasted single-origin coffee.",
+   "cz": [
+    "CAFE"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/downtown-york-pennsylvania-itinerary"
+    ],
+    [
+     "FOX43",
+     "https://www.fox43.com/article/money/business/small-business/coffee-crawl-explore-york-b-leighs-belmont-bean-company-green-bean-roasting-grounding-specialty-joe-streat-cafe/521-81a472ff-be65-46e6-8082-1456541a922b"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CAR",
+   "n": "Caffe 101",
+   "ad": "101 Front St, Boiling Springs, PA 17007",
+   "w": "Table-service café in the heart of Boiling Springs, across from Children's Lake on the Appalachian Trail — a Sentinel Discerning Diner pick. Order: Café breakfasts and a Mexican-leaning menu facing Children's Lake.",
+   "cz": [
+    "CAFE",
+    "MEX"
+   ],
+   "s": [
+    [
+     "SENTINEL",
+     "https://cumberlink.com/entertainment/local-scene/article_65550895-cb39-5c11-b317-945f10af3176.html"
+    ],
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/towns/boiling-springs/restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAR",
+   "n": "Desperate Times Brewery",
+   "ad": "1201 Carlisle Springs Rd, Carlisle, PA 17013",
+   "w": "Award-winning Carlisle brewery (US Open Beer Championship and Great American Beer Festival medals) — 12 taps, full kitchen and outdoor biergarten on the Cumberland Valley Beer Trail. Order: Prohibition-themed medal-winning beers with a full menu in the biergarten.",
+   "cz": [
+    "BREW",
+    "US"
+   ],
+   "s": [
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/listing/desperate-times-brewery/3069/"
+    ],
+    [
+     "SENTINEL",
+     "https://cumberlink.com/news/local/closer_look/something-s-brewing-old-favorites-newcomers-shape-microbrew-scene-in/article_f78dc1f1-7554-5a37-b1d4-6a7c82e12444.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAR",
+   "n": "Molly Pitcher Brewing Company",
+   "ad": "139 W High St, Carlisle, PA 17013",
+   "w": "Downtown Carlisle brewpub named for the Revolutionary heroine buried in town — 20 taps and a full menu. Order: Black Currant Wheat from 20 rotating taps.",
+   "cz": [
+    "BREW",
+    "US"
+   ],
+   "s": [
+    [
+     "VISITCUMBERLAND",
+     "https://www.visitcumberlandvalley.com/blog/post/beer-trail-favorites/"
+    ],
+    [
+     "SENTINEL",
+     "https://cumberlink.com/news/local/closer_look/something-s-brewing-old-favorites-newcomers-shape-microbrew-scene-in/article_f78dc1f1-7554-5a37-b1d4-6a7c82e12444.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "The Strasburg Creamery",
+   "ad": "1 W Main St, Strasburg, PA 17579",
+   "w": "Old-fashioned ice cream parlor at Strasburg's crossroads, a fixture of LNP's hand-dipped ice cream lists and the county ice cream trail. Order: Homemade ice cream — 140 rotating flavors, fresh waffle cones.",
+   "cz": [
+    "SWEET"
+   ],
+   "s": [
+    [
+     "LNP",
+     "https://lancasteronline.com/features/food/places-to-get-amazing-hand-dipped-ice-cream-in-lancaster/article_db36d6e8-fa84-11e4-bd29-6754012a48bf.html"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/blog/amish-experiences-lancaster-pa/"
+    ],
+    [
+     "LCMAG",
+     "https://www.lancastercountymag.com/lancaster-is-for-ice-cream-lovers/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "Countryside Road-Stand",
+   "ad": "2966 Stumptown Rd, Ronks, PA 17572",
+   "w": "Amish-owned and -run roadside stand — baked goods, canned goods, homemade birch beer and quilts. Order: Homemade birch & root beer, soft pretzels, apple butter and noodles.",
+   "k": "Closed Sundays.",
+   "cz": [
+    "FARM",
+    "PADUTCH"
+   ],
+   "s": [
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/directory/countryside-road-stand/"
+    ],
+    [
+     "AMISHAMERICA",
+     "https://amishamerica.com/amish-quilts-lancaster-county/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AMISH",
+   "n": "Wilbur Chocolate Store",
+   "ad": "45 N Broad St, Lititz, PA 17543",
+   "w": "Retail store and candy kitchen keeping Lititz's Wilbur Buds tradition going after the historic chocolate plant closed in 2016. Order: Wilbur Buds — the 1894 Lititz chocolate drop.",
+   "cz": [
+    "SWEET"
+   ],
+   "s": [
+    [
+     "LNP",
+     "https://lancasteronline.com/business/local_business/wilbur-chocolate-unveils-new-retail-store-in-downtown-lititz/article_ab453712-8c01-11e6-b29b-dfaaa561f396.html"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/directory/wilbur-chocolate-store/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YORK",
+   "n": "Brown's Orchards & Farm Market",
+   "ad": "8892 Susquehanna Trail S, Loganville, PA 17342",
+   "w": "Family farm market since 1948 — 41,000 trees, a 29,000-sq-ft market with full bakery, café and hand-dipped Hershey's ice cream; ranked among the nation's best apple orchards (abc27). Order: Apple dumplings, cider donuts, award-winning cider and fresh pies.",
+   "cz": [
+    "FARM",
+    "BAKE"
+   ],
+   "s": [
+    [
+     "WITF",
+     "https://www.witf.org/2018/08/11/a_grieving_widow_helps_browns_orchards_move_forward_in_york_county/"
+    ],
+    [
+     "VISITPA",
+     "https://www.visitpa.com/blog/post/de-stress-thanksgiving-prep-22-spots-buy-delicious-pies-pa/"
+    ],
+    [
+     "ABC27",
+     "https://www.abc27.com/news/central-pennsylvania-apple-orchard-ranked-among-nations-best-study-says/"
+    ],
+    [
+     "EXPLOREYORK",
+     "https://www.yorkpa.org/listing/browns-orchards-&-farm-market/5440/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "YORK",
+   "n": "Stony Run Brew House",
+   "ad": "E Market St, York, PA 17402",
+   "w": "East York brewhouse about 4.5 miles from downtown, praised by Uncovering PA for inventive, well-balanced beers. Order: Tropical smoothie IPA and crème brûlée imperial stout.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/breweries-in-york-pa"
+    ],
+    [
+     "EXPLOREYORK",
+     "https://www.yorkpa.org/dine-drink/wine-beer-spirits/beer-lovers-guide/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LAN",
+   "n": "Lombardo's",
+   "ad": "216 Harrisburg Ave, Lancaster, PA 17603",
+   "w": "Family-run Italian restaurant opened in 1946, reopened after a $2M renovation in 2020 and expanded with an $8M deli and bistro next door. Order: Old-school Italian since 1946; the new deli & bistro next door.",
+   "cz": [
+    "ITAL"
+   ],
+   "s": [
+    [
+     "LNP",
+     "https://lancasteronline.com/business/local_business/lombardos-restaurant-reopens-in-lancaster-city-after-2m-plus-renovation/article_76c601c4-29e1-11eb-87f3-73a55a35d995.html"
+    ],
+    [
+     "DISCOVERLANC",
+     "https://www.discoverlancaster.com/blog/historic-restaurants-in-lancaster-pa/"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "ABC27": {
+   "k": "ABC27 WHTM",
+   "t": "abc27 WHTM (Harrisburg)",
+   "u": "https://www.abc27.com/",
+   "l": "abc27 WHTM (Harrisburg)"
+  },
+  "AMISHAMERICA": {
+   "k": "AMISHAMERICA",
+   "t": "Amish America (Erik Wesner)",
+   "u": "https://amishamerica.com",
+   "l": "Amish America (Erik Wesner)"
+  },
+  "APA": {
+   "k": "APA",
+   "t": "American Planning Association — Great Places in America",
+   "u": "https://planning.org",
+   "l": "American Planning Association — Great Places in America"
+  },
+  "ARMYWARCOLLEGE": {
+   "k": "ARMYWARCOLLEGE",
+   "t": "U.S. Army War College (Carlisle Barracks)",
+   "u": "https://www.armywarcollege.edu",
+   "l": "U.S. Army War College (Carlisle Barracks)"
+  },
+  "ARTISTSHOMES": {
+   "k": "ARTISTSHOMES",
+   "t": "Historic Artists' Homes & Studios (National Trust program)",
+   "u": "https://artistshomes.org",
+   "l": "Historic Artists' Homes & Studios (National Trust program)"
+  },
+  "ASCE": {
+   "k": "ASCE",
+   "t": "American Society of Civil Engineers — Historic Landmarks",
+   "u": "https://asce.org",
+   "l": "American Society of Civil Engineers — Historic Landmarks"
+  },
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com/",
+   "l": "Atlas Obscura"
+  },
+  "BATTLEFIELDS": {
+   "k": "BATTLEFIELDS",
+   "t": "American Battlefield Trust",
+   "u": "https://www.battlefields.org",
+   "l": "American Battlefield Trust"
+  },
+  "BAYJOURNAL": {
+   "k": "BAYJOURNAL",
+   "t": "Bay Journal",
+   "u": "https://www.bayjournal.com",
+   "l": "Bay Journal"
+  },
+  "BLOOLOOP": {
+   "k": "BLOOLOOP",
+   "t": "Blooloop",
+   "u": "https://blooloop.com",
+   "l": "Blooloop"
+  },
+  "BLUEGRAY": {
+   "k": "BLUEGRAY",
+   "t": "Blue & Gray Education Society",
+   "u": "https://blueandgrayeducation.org",
+   "l": "Blue & Gray Education Society"
+  },
+  "CBS21": {
+   "k": "CBS21",
+   "t": "CBS21 WHP (Harrisburg)",
+   "u": "https://local21news.com/",
+   "l": "CBS21 WHP (Harrisburg)"
+  },
+  "CLIO": {
+   "k": "CLIO",
+   "t": "Clio (Marshall University)",
+   "u": "https://theclio.com",
+   "l": "Clio (Marshall University)"
+  },
+  "COVEREDBRIDGES": {
+   "k": "COVEREDBRIDGES",
+   "t": "Covered Bridges of Pennsylvania (coveredbridges.net)",
+   "u": "https://coveredbridges.net",
+   "l": "Covered Bridges of Pennsylvania (coveredbridges.net)"
+  },
+  "CPBJ": {
+   "k": "CPBJ",
+   "t": "Central Penn Business Journal",
+   "u": "https://www.cpbj.com",
+   "l": "Central Penn Business Journal"
+  },
+  "DAUPHINHIST": {
+   "k": "DAUPHINHIST",
+   "t": "Historical Society of Dauphin County",
+   "u": "https://dauphincountyhistory.org",
+   "l": "Historical Society of Dauphin County"
+  },
+  "DCNR": {
+   "k": "PA DCNR (PARKS)",
+   "t": "PA DCNR — Pennsylvania State Parks",
+   "u": "https://www.dcnr.pa.gov/",
+   "l": "PA DCNR — Pennsylvania State Parks"
+  },
+  "DESTGETTYSBURG": {
+   "k": "DESTINATION GETTYSBURG",
+   "t": "Destination Gettysburg (Adams County CVB)",
+   "u": "https://www.destinationgettysburg.com/",
+   "l": "Destination Gettysburg (Adams County CVB)"
+  },
+  "DICKINSON": {
+   "k": "DICKINSON",
+   "t": "Carlisle Indian School Digital Resource Center (Dickinson College)",
+   "u": "https://carlisleindian.dickinson.edu",
+   "l": "Carlisle Indian School Digital Resource Center (Dickinson College)"
+  },
+  "DISCOVERLANC": {
+   "k": "DISCOVER LANCASTER",
+   "t": "Discover Lancaster (Lancaster County CVB)",
+   "u": "https://www.discoverlancaster.com/",
+   "l": "Discover Lancaster (Lancaster County CVB)"
+  },
+  "ELCA": {
+   "k": "ELCA",
+   "t": "Evangelical Lutheran Church in America",
+   "u": "https://www.elca.org",
+   "l": "Evangelical Lutheran Church in America"
+  },
+  "EMERGINGCW": {
+   "k": "EMERGINGCW",
+   "t": "Emerging Civil War",
+   "u": "https://emergingcivilwar.com",
+   "l": "Emerging Civil War"
+  },
+  "EXPLOREYORK": {
+   "k": "EXPLORE YORK",
+   "t": "Explore York (York County CVB)",
+   "u": "https://www.yorkpa.org/",
+   "l": "Explore York (York County CVB)"
+  },
+  "FANDM": {
+   "k": "FANDM",
+   "t": "Franklin & Marshall College",
+   "u": "https://www.fandm.edu",
+   "l": "Franklin & Marshall College"
+  },
+  "FOX43": {
+   "k": "FOX43",
+   "t": "FOX43 WPMT (York)",
+   "u": "https://www.fox43.com/",
+   "l": "FOX43 WPMT (York)"
+  },
+  "FOXNEWS": {
+   "k": "FOXNEWS",
+   "t": "Fox News Travel",
+   "u": "https://www.foxnews.com/travel",
+   "l": "Fox News Travel"
+  },
+  "FROMMERS": {
+   "k": "FROMMERS",
+   "t": "Frommer's",
+   "u": "https://www.frommers.com",
+   "l": "Frommer's"
+  },
+  "GETTYSBURGDAILY": {
+   "k": "GETTYSBURGDAILY",
+   "t": "Gettysburg Daily",
+   "u": "https://www.gettysburgdaily.com",
+   "l": "Gettysburg Daily"
+  },
+  "GPB": {
+   "k": "GPB",
+   "t": "Georgia Public Broadcasting (PBS/NPR member)",
+   "u": "https://www.gpb.org",
+   "l": "Georgia Public Broadcasting (PBS/NPR member)"
+  },
+  "HALLOWEDGROUND": {
+   "k": "HALLOWEDGROUND",
+   "t": "Journey Through Hallowed Ground National Heritage Area",
+   "u": "https://www.hallowedground.org",
+   "l": "Journey Through Hallowed Ground National Heritage Area"
+  },
+  "HBGCITY": {
+   "k": "HBGCITY",
+   "t": "City of Harrisburg (official)",
+   "u": "https://harrisburgpa.gov",
+   "l": "City of Harrisburg (official)"
+  },
+  "HERALDSTANDARD": {
+   "k": "HERALDSTANDARD",
+   "t": "Herald-Standard",
+   "u": "https://www.heraldstandard.com",
+   "l": "Herald-Standard"
+  },
+  "HERSHEYARCHIVES": {
+   "k": "HERSHEYARCHIVES",
+   "t": "Hershey Community Archives",
+   "u": "https://hersheyarchives.org",
+   "l": "Hershey Community Archives"
+  },
+  "HISTORICHOTELS": {
+   "k": "HISTORICHOTELS",
+   "t": "Historic Hotels of America (National Trust)",
+   "u": "https://www.historichotels.org",
+   "l": "Historic Hotels of America (National Trust)"
+  },
+  "INVENTIONTECH": {
+   "k": "INVENTIONTECH",
+   "t": "Invention & Technology (American Heritage) — Landmarks",
+   "u": "https://www.inventionandtech.com",
+   "l": "Invention & Technology (American Heritage) — Landmarks"
+  },
+  "JOURNALOFANTIQUES": {
+   "k": "JOURNALOFANTIQUES",
+   "t": "Journal of Antiques & Collectibles",
+   "u": "https://journalofantiques.com",
+   "l": "Journal of Antiques & Collectibles"
+  },
+  "LANCASTERFARMING": {
+   "k": "LANCASTERFARMING",
+   "t": "Lancaster Farming",
+   "u": "https://www.lancasterfarming.com",
+   "l": "Lancaster Farming"
+  },
+  "LANCASTERHISTORY": {
+   "k": "LANCASTERHISTORY",
+   "t": "LancasterHistory",
+   "u": "https://www.lancasterhistory.org",
+   "l": "LancasterHistory"
+  },
+  "LANCASTERPA": {
+   "k": "LANCASTERPA",
+   "t": "LancasterPA.com",
+   "u": "https://lancasterpa.com",
+   "l": "LancasterPA.com"
+  },
+  "LCMAG": {
+   "k": "LCMAG",
+   "t": "Lancaster County Magazine",
+   "u": "https://lancastercountymag.com",
+   "l": "Lancaster County Magazine"
+  },
+  "LEBANONHIST": {
+   "k": "LEBANONHIST",
+   "t": "Lebanon County Historical Society",
+   "u": "https://lebanoncountyhistory.org",
+   "l": "Lebanon County Historical Society"
+  },
+  "LIVEDESIGN": {
+   "k": "LIVEDESIGN",
+   "t": "Live Design",
+   "u": "https://www.livedesignonline.com",
+   "l": "Live Design"
+  },
+  "LNP": {
+   "k": "LANCASTERONLINE / LNP",
+   "t": "LancasterOnline / LNP (Lancaster daily of record)",
+   "u": "https://lancasteronline.com/",
+   "l": "LancasterOnline / LNP (Lancaster daily of record)"
+  },
+  "MIDATLDAYTRIPS": {
+   "k": "MIDATLDAYTRIPS",
+   "t": "Mid-Atlantic Day Trips",
+   "u": "https://midatlanticdaytrips.com",
+   "l": "Mid-Atlantic Day Trips"
+  },
+  "NPS": {
+   "k": "NATIONAL PARK SERVICE",
+   "t": "National Park Service",
+   "u": "https://www.nps.gov/",
+   "l": "National Park Service"
+  },
+  "OLDCARSWEEKLY": {
+   "k": "OLDCARSWEEKLY",
+   "t": "Old Cars Weekly",
+   "u": "https://www.oldcarsweekly.com",
+   "l": "Old Cars Weekly"
+  },
+  "PABUCKETLIST": {
+   "k": "PABUCKETLIST",
+   "t": "PA Bucket List",
+   "u": "https://pabucketlist.com",
+   "l": "PA Bucket List"
+  },
+  "PAEATS": {
+   "k": "PAEATS",
+   "t": "PA Eats",
+   "u": "https://www.paeats.org",
+   "l": "PA Eats"
+  },
+  "PAFISHBOAT": {
+   "k": "PAFISHBOAT",
+   "t": "PA Fish & Boat Commission",
+   "u": "https://www.fishandboat.com",
+   "l": "PA Fish & Boat Commission"
+  },
+  "PAGOV": {
+   "k": "PAGOV",
+   "t": "Commonwealth of Pennsylvania (PA Dept. of Agriculture)",
+   "u": "https://www.pa.gov",
+   "l": "Commonwealth of Pennsylvania (PA Dept. of Agriculture)"
+  },
+  "PAHERITAGE": {
+   "k": "PAHERITAGE",
+   "t": "PA Heritage / Trails of History (PHMC)",
+   "u": "https://paheritage.org",
+   "l": "PA Heritage / Trails of History (PHMC)"
+  },
+  "PHILLYINQ": {
+   "k": "PHILLYINQ",
+   "t": "The Philadelphia Inquirer",
+   "u": "https://www.inquirer.com",
+   "l": "The Philadelphia Inquirer"
+  },
+  "PHMC": {
+   "k": "PA HISTORICAL & MUSEUM COMM.",
+   "t": "PA Historical & Museum Commission",
+   "u": "https://www.phmc.pa.gov/",
+   "l": "PA Historical & Museum Commission"
+  },
+  "PSUEXT": {
+   "k": "PSUEXT",
+   "t": "Penn State Extension",
+   "u": "https://extension.psu.edu",
+   "l": "Penn State Extension"
+  },
+  "PUBLISHERSWEEKLY": {
+   "k": "PUBLISHERSWEEKLY",
+   "t": "Publishers Weekly",
+   "u": "https://www.publishersweekly.com",
+   "l": "Publishers Weekly"
+  },
+  "RAILFANGUIDES": {
+   "k": "RAILFANGUIDES",
+   "t": "Railfan Guides",
+   "u": "https://www.railfanguides.us",
+   "l": "Railfan Guides"
+  },
+  "RELIGIONNEWS": {
+   "k": "RELIGIONNEWS",
+   "t": "Religion News Service",
+   "u": "https://religionnews.com",
+   "l": "Religion News Service"
+  },
+  "ROADSIDEAMERICA": {
+   "k": "ROADSIDEAMERICA",
+   "t": "Roadside America",
+   "u": "https://www.roadsideamerica.com",
+   "l": "Roadside America"
+  },
+  "SAHARCHIPEDIA": {
+   "k": "SAHARCHIPEDIA",
+   "t": "SAH Archipedia (Society of Architectural Historians)",
+   "u": "https://sah-archipedia.org",
+   "l": "SAH Archipedia (Society of Architectural Historians)"
+  },
+  "SHELFAWARENESS": {
+   "k": "SHELFAWARENESS",
+   "t": "Shelf Awareness",
+   "u": "https://shelf-awareness.com",
+   "l": "Shelf Awareness"
+  },
+  "SMITHSONIAN": {
+   "k": "SMITHSONIAN",
+   "t": "Smithsonian / Smithsonian Magazine",
+   "u": "https://www.smithsonianmag.com/",
+   "l": "Smithsonian / Smithsonian Magazine"
+  },
+  "SPOTLIGHTPA": {
+   "k": "SPOTLIGHTPA",
+   "t": "Spotlight PA",
+   "u": "https://www.spotlightpa.org",
+   "l": "Spotlight PA"
+  },
+  "STRIPES": {
+   "k": "STRIPES",
+   "t": "Stars and Stripes",
+   "u": "https://stripes.com",
+   "l": "Stars and Stripes"
+  },
+  "SUSQGREENWAY": {
+   "k": "SUSQGREENWAY",
+   "t": "Susquehanna Greenway Partnership",
+   "u": "https://susquehannagreenway.org",
+   "l": "Susquehanna Greenway Partnership"
+  },
+  "THEBURG": {
+   "k": "THEBURG",
+   "t": "TheBurg (Harrisburg civic magazine)",
+   "u": "https://theburgnews.com/",
+   "l": "TheBurg (Harrisburg civic magazine)"
+  },
+  "UNCHARTEDLANC": {
+   "k": "UNCHARTEDLANC",
+   "t": "Uncharted Lancaster",
+   "u": "https://unchartedlancaster.com",
+   "l": "Uncharted Lancaster"
+  },
+  "UNCOVERINGPA": {
+   "k": "UNCOVERING PA",
+   "t": "Uncovering PA (Jim Cheney)",
+   "u": "https://uncoveringpa.com/",
+   "l": "Uncovering PA (Jim Cheney)"
+  },
+  "VISITCUMBERLAND": {
+   "k": "VISIT CUMBERLAND VALLEY",
+   "t": "Visit Cumberland Valley",
+   "u": "https://visitcumberlandvalley.com/",
+   "l": "Visit Cumberland Valley"
+  },
+  "VISITHERSHEY": {
+   "k": "VISIT HERSHEY & HARRISBURG",
+   "t": "Visit Hershey & Harrisburg (Hershey Harrisburg Regional Visitors Bureau)",
+   "u": "https://www.visithersheyharrisburg.org/",
+   "l": "Visit Hershey & Harrisburg (Hershey Harrisburg Regional Visitors Bureau)"
+  },
+  "VISITLEBANONVALLEY": {
+   "k": "VISITLEBANONVALLEY",
+   "t": "Visit Lebanon Valley",
+   "u": "https://visitlebanonvalley.com",
+   "l": "Visit Lebanon Valley"
+  },
+  "VISITPA": {
+   "k": "VISIT PA",
+   "t": "Visit PA (state tourism office)",
+   "u": "https://www.visitpa.com/",
+   "l": "Visit PA (state tourism office)"
+  },
+  "WASHINGTONIAN": {
+   "k": "WASHINGTONIAN",
+   "t": "Washingtonian",
+   "u": "https://www.washingtonian.com",
+   "l": "Washingtonian"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia"
+  },
+  "WITF": {
+   "k": "WITF",
+   "t": "WITF (Harrisburg public media — NPR/PBS)",
+   "u": "https://www.witf.org/",
+   "l": "WITF (Harrisburg public media — NPR/PBS)"
+  }
+ },
+ "FS": {
+  "6ABC": {
+   "k": "6ABC",
+   "t": "6abc Action News (WPVI, Philadelphia ABC O&O)",
+   "u": "https://6abc.com",
+   "l": "6abc Action News (WPVI, Philadelphia ABC O&O)"
+  },
+  "ABC27": {
+   "k": "ABC27 WHTM",
+   "t": "abc27 WHTM (Harrisburg)",
+   "u": "https://www.abc27.com/",
+   "l": "abc27 WHTM (Harrisburg)"
+  },
+  "AMAZINGAMERICA": {
+   "k": "AMAZINGAMERICA",
+   "t": "Amazing America (Sinclair Broadcast Group)",
+   "u": "https://wjla.com/amazing-america",
+   "l": "Amazing America (Sinclair Broadcast Group)"
+  },
+  "AMISHAMERICA": {
+   "k": "AMISHAMERICA",
+   "t": "Amish America (Erik Wesner)",
+   "u": "https://amishamerica.com",
+   "l": "Amish America (Erik Wesner)"
+  },
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com/",
+   "l": "Atlas Obscura"
+  },
+  "BLUEGRAY": {
+   "k": "BLUEGRAY",
+   "t": "Blue & Gray Education Society",
+   "u": "https://blueandgrayeducation.org",
+   "l": "Blue & Gray Education Society"
+  },
+  "CELEBRATEGBG": {
+   "k": "CELEBRATEGBG",
+   "t": "Celebrate Gettysburg magazine — Gettysburg's Greatest awards",
+   "u": "https://digital.graphcompubs.com",
+   "l": "Celebrate Gettysburg magazine — Gettysburg's Greatest awards"
+  },
+  "CHOWHOUND": {
+   "k": "CHOWHOUND",
+   "t": "Chowhound",
+   "u": "https://chowhound.com",
+   "l": "Chowhound"
+  },
+  "CLIO": {
+   "k": "CLIO",
+   "t": "Clio (Marshall University)",
+   "u": "https://theclio.com",
+   "l": "Clio (Marshall University)"
+  },
+  "CPBJ": {
+   "k": "CPBJ",
+   "t": "Central Penn Business Journal",
+   "u": "https://www.cpbj.com",
+   "l": "Central Penn Business Journal"
+  },
+  "DESTGETTYSBURG": {
+   "k": "DESTINATION GETTYSBURG",
+   "t": "Destination Gettysburg (Adams County CVB)",
+   "u": "https://www.destinationgettysburg.com/",
+   "l": "Destination Gettysburg (Adams County CVB)"
+  },
+  "DISCOVERLANC": {
+   "k": "DISCOVER LANCASTER",
+   "t": "Discover Lancaster (Lancaster County CVB)",
+   "u": "https://www.discoverlancaster.com/",
+   "l": "Discover Lancaster (Lancaster County CVB)"
+  },
+  "EXPLOREYORK": {
+   "k": "EXPLORE YORK",
+   "t": "Explore York (York County CVB)",
+   "u": "https://www.yorkpa.org/",
+   "l": "Explore York (York County CVB)"
+  },
+  "FOX43": {
+   "k": "FOX43",
+   "t": "FOX43 WPMT (York)",
+   "u": "https://www.fox43.com/",
+   "l": "FOX43 WPMT (York)"
+  },
+  "FROMMERS": {
+   "k": "FROMMERS",
+   "t": "Frommer's",
+   "u": "https://www.frommers.com",
+   "l": "Frommer's"
+  },
+  "GBGTIMES": {
+   "k": "GBGTIMES",
+   "t": "Gettysburg Times",
+   "u": "https://www.gettysburgtimes.com",
+   "l": "Gettysburg Times"
+  },
+  "HISTORICHBG": {
+   "k": "HISTORICHBG",
+   "t": "Historic Harrisburg Association",
+   "u": "https://historicharrisburg.org",
+   "l": "Historic Harrisburg Association"
+  },
+  "HISTORICHOTELS": {
+   "k": "HISTORICHOTELS",
+   "t": "Historic Hotels of America (National Trust)",
+   "u": "https://www.historichotels.org",
+   "l": "Historic Hotels of America (National Trust)"
+  },
+  "ISLANDS": {
+   "k": "ISLANDS",
+   "t": "Islands",
+   "u": "https://www.islands.com",
+   "l": "Islands"
+  },
+  "JAMESBEARD": {
+   "k": "JAMES BEARD",
+   "t": "James Beard Foundation",
+   "u": "https://www.jamesbeard.org/",
+   "l": "James Beard Foundation"
+  },
+  "LANCASTERFARMING": {
+   "k": "LANCASTERFARMING",
+   "t": "Lancaster Farming",
+   "u": "https://www.lancasterfarming.com",
+   "l": "Lancaster Farming"
+  },
+  "LANCASTERPA": {
+   "k": "LANCASTERPA",
+   "t": "LancasterPA.com",
+   "u": "https://lancasterpa.com",
+   "l": "LancasterPA.com"
+  },
+  "LCMAG": {
+   "k": "LCMAG",
+   "t": "Lancaster County Magazine",
+   "u": "https://lancastercountymag.com",
+   "l": "Lancaster County Magazine"
+  },
+  "LEBTOWN": {
+   "k": "LEBTOWN",
+   "t": "LebTown",
+   "u": "https://lebtown.com",
+   "l": "LebTown"
+  },
+  "LNP": {
+   "k": "LANCASTERONLINE / LNP",
+   "t": "LancasterOnline / LNP (Lancaster daily of record)",
+   "u": "https://lancasteronline.com/",
+   "l": "LancasterOnline / LNP (Lancaster daily of record)"
+  },
+  "MASHED": {
+   "k": "MASHED",
+   "t": "Mashed",
+   "u": "https://www.mashed.com",
+   "l": "Mashed"
+  },
+  "MIDATLDAYTRIPS": {
+   "k": "MIDATLDAYTRIPS",
+   "t": "Mid-Atlantic Day Trips",
+   "u": "https://midatlanticdaytrips.com",
+   "l": "Mid-Atlantic Day Trips"
+  },
+  "NOVAMAG": {
+   "k": "NOVAMAG",
+   "t": "Northern Virginia Magazine",
+   "u": "https://northernvirginiamag.com",
+   "l": "Northern Virginia Magazine"
+  },
+  "NPR": {
+   "k": "NPR",
+   "t": "NPR (The Salt)",
+   "u": "https://www.npr.org",
+   "l": "NPR (The Salt)"
+  },
+  "NYTIMES": {
+   "k": "NEW YORK TIMES",
+   "t": "The New York Times",
+   "u": "https://www.nytimes.com/",
+   "l": "The New York Times"
+  },
+  "PAEATS": {
+   "k": "PAEATS",
+   "t": "PA Eats",
+   "u": "https://www.paeats.org",
+   "l": "PA Eats"
+  },
+  "PAGOV": {
+   "k": "PAGOV",
+   "t": "Commonwealth of Pennsylvania (PA Dept. of Agriculture)",
+   "u": "https://www.pa.gov",
+   "l": "Commonwealth of Pennsylvania (PA Dept. of Agriculture)"
+  },
+  "PAWINE": {
+   "k": "PAWINE",
+   "t": "Pennsylvania Winery Association",
+   "u": "https://pennsylvaniawine.com",
+   "l": "Pennsylvania Winery Association"
+  },
+  "PHILLYINQ": {
+   "k": "PHILLYINQ",
+   "t": "The Philadelphia Inquirer",
+   "u": "https://www.inquirer.com",
+   "l": "The Philadelphia Inquirer"
+  },
+  "SENTINEL": {
+   "k": "SENTINEL",
+   "t": "The Sentinel (Carlisle) / cumberlink.com",
+   "u": "https://cumberlink.com",
+   "l": "The Sentinel (Carlisle) / cumberlink.com"
+  },
+  "SPOTLIGHTPA": {
+   "k": "SPOTLIGHTPA",
+   "t": "Spotlight PA",
+   "u": "https://www.spotlightpa.org",
+   "l": "Spotlight PA"
+  },
+  "TASTINGTABLE": {
+   "k": "TASTINGTABLE",
+   "t": "Tasting Table",
+   "u": "https://www.tastingtable.com",
+   "l": "Tasting Table"
+  },
+  "THEBURG": {
+   "k": "THEBURG",
+   "t": "TheBurg (Harrisburg civic magazine)",
+   "u": "https://theburgnews.com/",
+   "l": "TheBurg (Harrisburg civic magazine)"
+  },
+  "TRAVELAWAITS": {
+   "k": "TRAVELAWAITS",
+   "t": "TravelAwaits",
+   "u": "https://www.travelawaits.com",
+   "l": "TravelAwaits"
+  },
+  "UNCHARTEDLANC": {
+   "k": "UNCHARTEDLANC",
+   "t": "Uncharted Lancaster",
+   "u": "https://unchartedlancaster.com",
+   "l": "Uncharted Lancaster"
+  },
+  "UNCOVERINGPA": {
+   "k": "UNCOVERING PA",
+   "t": "Uncovering PA (Jim Cheney)",
+   "u": "https://uncoveringpa.com/",
+   "l": "Uncovering PA (Jim Cheney)"
+  },
+  "USATODAY": {
+   "k": "USA TODAY 10BEST",
+   "t": "USA Today 10Best",
+   "u": "https://www.10best.usatoday.com/",
+   "l": "USA Today 10Best"
+  },
+  "VISITCUMBERLAND": {
+   "k": "VISIT CUMBERLAND VALLEY",
+   "t": "Visit Cumberland Valley",
+   "u": "https://visitcumberlandvalley.com/",
+   "l": "Visit Cumberland Valley"
+  },
+  "VISITHERSHEY": {
+   "k": "VISIT HERSHEY & HARRISBURG",
+   "t": "Visit Hershey & Harrisburg (Hershey Harrisburg Regional Visitors Bureau)",
+   "u": "https://www.visithersheyharrisburg.org/",
+   "l": "Visit Hershey & Harrisburg (Hershey Harrisburg Regional Visitors Bureau)"
+  },
+  "VISITLEBANONVALLEY": {
+   "k": "VISITLEBANONVALLEY",
+   "t": "Visit Lebanon Valley",
+   "u": "https://visitlebanonvalley.com",
+   "l": "Visit Lebanon Valley"
+  },
+  "VISITPA": {
+   "k": "VISIT PA",
+   "t": "Visit PA (state tourism office)",
+   "u": "https://www.visitpa.com/",
+   "l": "Visit PA (state tourism office)"
+  },
+  "WFMZ": {
+   "k": "WFMZ",
+   "t": "WFMZ-TV 69 News",
+   "u": "https://www.wfmz.com",
+   "l": "WFMZ-TV 69 News"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia"
+  },
+  "WINESPECTATOR": {
+   "k": "WINESPECTATOR",
+   "t": "Wine Spectator Restaurant Awards",
+   "u": "https://www.winespectator.com/restaurants",
+   "l": "Wine Spectator Restaurant Awards"
+  },
+  "WITF": {
+   "k": "WITF",
+   "t": "WITF (Harrisburg public media — NPR/PBS)",
+   "u": "https://www.witf.org/",
+   "l": "WITF (Harrisburg public media — NPR/PBS)"
+  },
+  "YDR": {
+   "k": "YORK DAILY RECORD",
+   "t": "York Daily Record",
+   "u": "https://www.ydr.com/",
+   "l": "York Daily Record"
+  },
+  "YORKDISPATCH": {
+   "k": "YORK DISPATCH",
+   "t": "The York Dispatch",
+   "u": "https://www.yorkdispatch.com/",
+   "l": "The York Dispatch"
+  }
+ }
+}

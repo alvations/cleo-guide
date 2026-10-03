@@ -1,0 +1,55 @@
+[
+ {
+  "n": "Wildlife Express Train",
+  "address": "Harambe Station, Africa, Disney's Animal Kingdom, Bay Lake, FL",
+  "status": "open",
+  "statusSource": "Reopened 2026-05-26 per WDWMagic attraction page (https://wdwmagic.com/attractions/wildlife-express.htm)",
+  "lat": 28.35972,
+  "lng": -81.59111,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Wildlife_Express_Train): 28.35972,-81.59111",
+  "note": ""
+ },
+ {
+  "n": "Millennium Falcon: Smugglers Run",
+  "address": "Black Spire Outpost, Star Wars: Galaxy's Edge, Disney's Hollywood Studios, Lake Buena Vista, FL",
+  "status": "open",
+  "statusSource": "https://www.wdwinfo.com/disney-world/hollywood-studios/millennium-falcon-smugglers-run.htm (operating attraction)",
+  "lat": null,
+  "lng": null,
+  "confidence": "UNVERIFIED",
+  "note": "Wikipedia article's coordinate is Disneyland's twin (33.81,-117.92) — rejected; Galaxy's Edge land centroid also rejected"
+ },
+ {
+  "n": "Central Florida Railroad Museum",
+  "address": "101 S Boyd St, Winter Garden, FL",
+  "status": "open",
+  "statusSource": "https://www.cfrhs.org/home (current opening hours Tue–Sat)",
+  "lat": 28.5648,
+  "lng": -81.5866,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Central_Florida_Railroad_Museum): 28.5648,-81.5866",
+  "note": ""
+ },
+ {
+  "n": "Q's Crackin' Crab & Seafood Kitchen",
+  "address": "5240 N Atlantic Ave, Unit 100, Cocoa Beach, FL",
+  "status": "open",
+  "statusSource": "Featured as operating in Chowhound (https://www.chowhound.com/2105592/florida-seafood-platters-big-portions-qs-crackin-crab) and Space Coast Living Best of 2026",
+  "lat": null,
+  "lng": null,
+  "confidence": "UNVERIFIED",
+  "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+ },
+ {
+  "n": "Rollins Museum of Art",
+  "address": "1000 Holt Ave, Rollins College, Winter Park, FL",
+  "status": "open",
+  "statusSource": "https://rollins.edu/rma/index.html (2025 season, free admission)",
+  "lat": 28.59234,
+  "lng": -81.34862,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Rollins_Museum_of_Art): 28.59234,-81.34862",
+  "note": ""
+ }
+]

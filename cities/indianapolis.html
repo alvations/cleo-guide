@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Indianapolis field guide — 70 sights and 86 places to eat across Indianapolis, Speedway, the north suburbs and the south side, each traceable to its source (IndyStar, Indianapolis Monthly, Indianapolis Business Journal, WFYI, Visit Indy, James Beard, NPS, Atlas Obscura), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<title>Indianapolis Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · Indianapolis &amp; Central Indiana, sourced</p>
+  <h1>Indianapolis<span class="thin">the Speedway, Mass Ave, the Cultural Trail &amp; a deep immigrant table</span></h1>
+  <p class="standfirst">70 sights and 86 places to eat across <strong>Indianapolis</strong> &mdash; downtown and Monument Circle, Mass Ave, Fountain Square, Broad Ripple, Irvington, the <strong>Speedway</strong> &mdash; plus the north suburbs and the south side. Each is traceable to the source that named it. Indy’s canon is its own: the breaded <strong>pork tenderloin</strong> sandwich, <strong>sugar cream pie</strong>, St. Elmo’s fiery <strong>shrimp cocktail</strong>, Shapiro’s deli, fried biscuits &amp; apple butter, the <strong>Burmese/Chin</strong> kitchens of the south side and the International Marketplace’s global corridor. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#E8973A"></i>Downtown & Wholesale District</span>
+  <span><i style="background:#C0504D"></i>Mass Ave, Lockerbie & the Old Northside</span>
+  <span><i style="background:#8064A2"></i>Fountain Square, Fletcher Place & the near south</span>
+  <span><i style="background:#4F81BD"></i>Midtown</span>
+  <span><i style="background:#9BBB59"></i>Broad Ripple, Meridian-Kessler & SoBro</span>
+  <span><i style="background:#4BACC6"></i>Speedway & the westside</span>
+  <span><i style="background:#D4A017"></i>Irvington & the east side</span>
+  <span><i style="background:#7E8FC4"></i>North suburbs</span>
+  <span><i style="background:#A6588C"></i>South side</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="tenderloin, sugar cream pie, Speedway, Mass Ave…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-10-02</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across IndyStar, Indianapolis Monthly, the Indianapolis Business Journal, WFYI, Mirror Indy, Visit Indy, James Beard, NPS, Indiana DNR, Atlas Obscura and official sites. Every coordinate is verified into data/geocodes.json and every place status-checked. Newly-added spots still pending a verified place pin are held back until they have one.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "BACKPACKER":{k:"BACKPACKER",t:"Backpacker magazine",u:"https://www.backpacker.com/",l:"Backpacker magazine"},
+  "CLIO":{k:"CLIO",t:"Clio (Marshall University)",u:"https://theclio.com/",l:"Clio (Marshall University)"},
+  "CURRENT":{k:"CURRENT",t:"Current Publishing (Current in Carmel/Fishers/Noblesville)",u:"https://www.youarecurrent.com/",l:"Current Publishing (Current in Carmel/Fishers/Noblesville)"},
+  "DOWNTOWNINDY":{k:"DOWNTOWNINDY",t:"Downtown Indy, Inc.",u:"https://downtownindy.org/",l:"Downtown Indy, Inc."},
+  "EXARC":{k:"EXARC",t:"EXARC",u:"https://exarc.net/",l:"EXARC"},
+  "HAMILTONCOUNTY":{k:"VISIT HAMILTON COUNTY",t:"VISIT HAMILTON COUNTY",u:"",l:""},
+  "IBJ":{k:"INDIANAPOLIS BUSINESS JOURNAL",t:"INDIANAPOLIS BUSINESS JOURNAL",u:"",l:""},
+  "INDIANAHISTORY":{k:"INDIANA HISTORICAL SOCIETY",t:"Indiana Historical Society / Indiana Historical Bureau",u:"https://indianahistory.org/",l:"Indiana Historical Society / Indiana Historical Bureau"},
+  "INDYARTS":{k:"INDYARTS",t:"Arts Council of Indianapolis (Indy Arts Guide)",u:"https://indyarts.org/",l:"Arts Council of Indianapolis (Indy Arts Guide)"},
+  "INDYENCYCLOPEDIA":{k:"INDYENCYCLOPEDIA",t:"The Encyclopedia of Indianapolis (IUPUI/Polis Center)",u:"https://indyencyclopedia.org/",l:"The Encyclopedia of Indianapolis (IUPUI/Polis Center)"},
+  "INDYMONTHLY":{k:"INDIANAPOLIS MONTHLY",t:"INDIANAPOLIS MONTHLY",u:"",l:""},
+  "INDYPL":{k:"INDYPL",t:"Indianapolis Public Library",u:"https://www.indypl.org/",l:"Indianapolis Public Library"},
+  "INDYTODAY":{k:"INDYTODAY",t:"Indy Today (6AM City)",u:"https://indytoday.6amcity.com/",l:"Indy Today (6AM City)"},
+  "IPM":{k:"IPM",t:"Indiana Public Media",u:"https://www.ipm.org/",l:"Indiana Public Media"},
+  "LIVINGNEWDEAL":{k:"LIVINGNEWDEAL",t:"The Living New Deal (UC Berkeley)",u:"https://livingnewdeal.org/",l:"The Living New Deal (UC Berkeley)"},
+  "LOC":{k:"LOC",t:"Library of Congress (HABS/HAER)",u:"https://www.loc.gov/",l:"Library of Congress (HABS/HAER)"},
+  "NPS":{k:"NATIONAL PARK SVC",t:"NATIONAL PARK SVC",u:"",l:""},
+  "NUVO":{k:"NUVO",t:"NUVO",u:"",l:""},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
+  "POLIS":{k:"POLIS",t:"Polis Center (Indiana University Indianapolis)",u:"https://polis.indianapolis.iu.edu/",l:"Polis Center (Indiana University Indianapolis)"},
+  "ROADSIDEAMERICA":{k:"ROADSIDE AMERICA",t:"Roadside America",u:"https://www.roadsideamerica.com/",l:"Roadside America"},
+  "SAHARCHIPEDIA":{k:"SAHARCHIPEDIA",t:"SAH Archipedia (Society of Architectural Historians)",u:"https://sah-archipedia.org/",l:"SAH Archipedia (Society of Architectural Historians)"},
+  "STRUCTURAE":{k:"STRUCTURAE",t:"Structurae",u:"https://structurae.net/",l:"Structurae"},
+  "TCLF":{k:"TCLF",t:"The Cultural Landscape Foundation",u:"https://www.tclf.org/",l:"The Cultural Landscape Foundation"},
+  "THEREPORTER":{k:"THEREPORTER",t:"The Reporter (Hamilton County)",u:"https://readthereporter.com/",l:"The Reporter (Hamilton County)"},
+  "TIMEOUT":{k:"TIMEOUT",t:"Time Out",u:"https://www.timeout.com/",l:"Time Out"},
+  "TRAILLINK":{k:"TRAILLINK",t:"TrailLink (Rails-to-Trails Conservancy)",u:"https://www.traillink.com/",l:"TrailLink (Rails-to-Trails Conservancy)"},
+  "VISITINDIANA":{k:"VISITINDIANA",t:"Visit Indiana (Indiana Destination Development Corp.)",u:"https://visitindiana.com/",l:"Visit Indiana (Indiana Destination Development Corp.)"},
+  "VISITINDY":{k:"VISIT INDY",t:"VISIT INDY",u:"",l:""},
+  "WFYI":{k:"WFYI",t:"WFYI",u:"",l:""},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"WIKIPEDIA",u:"",l:""},
+  "WISH":{k:"WISH-TV 8",t:"WISH-TV 8",u:"",l:""},
+  "WRTV":{k:"WRTV",t:"WRTV 6 (ABC Indianapolis)",u:"https://www.wrtv.com/",l:"WRTV 6 (ABC Indianapolis)"}
+};
+
+const AREAS = [
+  {id:"DTN",n:"Downtown & Wholesale District (Monument Circle, White River State Park, Indiana Ave)",c:"#E8973A"},
+  {id:"MASS",n:"Mass Ave, Lockerbie & the Old Northside",c:"#C0504D"},
+  {id:"FSQ",n:"Fountain Square, Fletcher Place & the near south",c:"#8064A2"},
+  {id:"MID",n:"Midtown (Newfields, Children's Museum, Crown Hill, Butler)",c:"#4F81BD"},
+  {id:"BRIP",n:"Broad Ripple, Meridian-Kessler & SoBro",c:"#9BBB59"},
+  {id:"WEST",n:"Speedway & the westside (International Marketplace)",c:"#4BACC6"},
+  {id:"EAST",n:"Irvington & the east side",c:"#D4A017"},
+  {id:"NORTH",n:"North suburbs (Carmel, Fishers, Zionsville, Noblesville, Westfield)",c:"#7E8FC4"},
+  {id:"SOUTH",n:"South side (Greenwood, Beech Grove, Southport — 'Chindianapolis')",c:"#A6588C"}
+];
+
+const P = [
+{t:1,a:"DTN",n:"Soldiers' and Sailors' Monument",ad:"Monument Circle, Indianapolis, IN",la:39.76833,ln:-86.15806,w:"The 284-ft neoclassical monument on Monument Circle, dedicated 1902 — the city's signature structure and literal centre of the original Mile Square plan. Free; observation deck and the Civil War museum below.",k:"Monument Circle",g:["ICON","MUS","PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Soldiers%27_and_Sailors%27_Monument_(Indianapolis)"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/?p=14539"],["INDYARTS","https://indyarts.org/public-art/soldiers-and-sailors-monument/"]]},
+{t:1,a:"DTN",n:"Indiana World War Memorial Plaza",ad:"Indiana World War Memorial Plaza (N Meridian St), Indianapolis, IN",la:39.77361,ln:-86.15694,w:"Five city blocks of memorials — the stepped-pyramid Indiana War Memorial (free military museum + Shrine Room), the Obelisk and the American Legion Mall. One of the largest memorial plazas in the US; free.",g:["ICON","MUS","ARCH","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indiana_World_War_Memorial_Plaza"],["VISITINDY","https://www.visitindy.com/directory/indiana-war-memorial-plaza-historic-district/"],["TCLF","https://tclf.org/indiana-war-memorials-historic-district"]]},
+{t:1,a:"WEST",n:"Indianapolis Motor Speedway Museum",ad:"4750 W 16th St, Indianapolis, IN 46222",la:39.79030,ln:-86.23360,w:"Inside the oval: Indy 500-winning cars, the Borg-Warner Trophy and the grounds tour that ends kissing the Yard of Bricks. The essential racing stop.",k:"Speedway",g:["ICON","RACE","MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indianapolis_Motor_Speedway_Museum"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/indianapolis-motor-speedway-hall-of-fame-museum/"]]},
+{t:1,a:"WEST",n:"Indianapolis Motor Speedway",ad:"W 16th St (museum entrance at 4750 W 16th St), Speedway, IN",la:39.79833,ln:-86.23278,w:"The Brickyard (1909), home of the Indianapolis 500 — a National Historic Landmark with the Pagoda scoring tower, Gasoline Alley and the original yard of bricks at the start/finish line.",k:"Speedway",g:["ICON","RACE","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indianapolis_Motor_Speedway"],["NPS","https://npgallery.nps.gov/NRHP/GetAsset/NHLS/75000044_text"],["TCLF","https://www.tclf.org/landscapes/indianapolis-motor-speedway"]]},
+{t:1,a:"MID",n:"The Children's Museum of Indianapolis",ad:"3000 N Meridian St, Indianapolis, IN 46208",la:39.81060,ln:-86.15803,w:"The world's largest children's museum (1925) — dinosaurs bursting out of the façade, the Chihuly Fireworks of Glass tower, an 1890s carousel. Over a million visitors a year.",g:["ICON","MUS","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/The_Children%27s_Museum_of_Indianapolis"],["SAHARCHIPEDIA","https://sah-archipedia.org/node/12992"],["DOWNTOWNINDY","https://downtownindy.org/go/the-childrens-museum-of-indianapolis-1"]]},
+{t:1,a:"MID",n:"Newfields (Indianapolis Museum of Art)",ad:"4000 Michigan Rd, Indianapolis, IN",la:39.82583,ln:-86.18556,w:"152-acre campus: the encyclopedic Indianapolis Museum of Art (1883, 54,000 works), Lilly House, the gardens and the 100-acre Fairbanks Art & Nature Park; Robert Indiana's LOVE lives here.",k:"Newfields",g:["ICON","MUS","PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indianapolis_Museum_of_Art"],["IBJ","https://www.ibj.com/articles/65024-update-art-museum-names-campus-with-big-changes-on-drawing-board"],["DOWNTOWNINDY","https://downtownindy.org/go/newfields"]]},
+{t:1,a:"DTN",n:"Indiana Statehouse",ad:"200 W Washington St, Indianapolis, IN 46204",la:39.76861,ln:-86.16278,w:"The 1888 Renaissance Revival capitol with a stained-glass rotunda dome; free self-guided and guided tours on weekdays.",g:["ICON","ARCH","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indiana_Statehouse"],["SAHARCHIPEDIA","https://sah-archipedia.org/node/12973"]]},
+{t:1,a:"DTN",n:"Eiteljorg Museum",ad:"White River State Park, Indianapolis, IN",la:39.76830,ln:-86.16780,w:"Museum of American Indians and Western Art (1989) in White River State Park — Native contemporary art plus Western painting and sculpture.",g:["MUS","PARK","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Eiteljorg_Museum_of_American_Indians_and_Western_Art"],["CLIO","https://theclio.com/entry/17451"]]},
+{t:2,a:"DTN",n:"Indiana State Museum",ad:"650 W Washington St, Indianapolis, IN 46204",la:39.76893,ln:-86.16998,w:"The state's history-and-science museum on the canal in White River State Park, with an IMAX theatre and a sculpture in every Indiana county's limestone on the façade.",g:["MUS","PARK","ARCH","ENT"],s:[["DOWNTOWNINDY","https://downtownindy.org/go/indiana-state-museum-and-historic-sites"],["WIKIPEDIA","https://en.wikipedia.org/wiki/White_River_State_Park"]]},
+{t:1,a:"MID",n:"Crown Hill Cemetery & Riley's Tomb",ad:"Crown Hill Cemetery, Dr. Martin Luther King Jr. St between 32nd & 42nd Sts, Indianapolis, IN",la:39.81982,ln:-86.17729,w:"555-acre cemetery and arboretum, third-largest non-government cemetery in the US; follow the white line to James Whitcomb Riley's tomb on the summit, one of the highest points in Marion County. John Dillinger and Benjamin Harrison are here too.",k:"Crown Hill",g:["ICON","PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/James_Whitcomb_Riley"],["INDYPL","https://blog.indypl.org/kids/james-whitcomb-riley/"]]},
+{t:1,a:"DTN",n:"White River State Park",ad:"White River State Park, Indianapolis, IN",la:39.76667,ln:-86.16972,w:"267-acre urban state park on both banks of the White River — the Central Canal walk, the zoo, Eiteljorg, Indiana State Museum, Victory Field and the old Washington Street bridge for walking.",g:["MUS","PARK","ENT","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/White_River_State_Park"],["TCLF","https://www.tclf.org/white-river-state-park"],["OFFICIAL","https://whiteriverstatepark.org/history/"]]},
+{t:1,a:"DTN",n:"Indianapolis Zoo",ad:"White River State Park, Indianapolis, IN",la:39.76694,ln:-86.17694,w:"Zoo, aquarium and White River Gardens in White River State Park — dolphins, the Bicentennial orangutan centre, and the first triple-accredited zoo in the US.",g:["PARK","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indianapolis_Zoo"],["POLIS","https://polis.indianapolis.iu.edu/indianapolis-zoo"]]},
+{t:2,a:"DTN",n:"Indianapolis Union Station",ad:"39 Jackson Place, Indianapolis, IN",la:39.75720,ln:-86.15647,w:"The 1888 Romanesque Revival head-house of the world's first union station, with its barrel-vaulted Grand Hall and rose window.",g:["ARCH","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indianapolis_Union_Station"],["NPS","https://www.nps.gov/Nr/travel/indianapolis/unionstation.htm"]]},
+{t:2,a:"DTN",n:"Indianapolis City Market",ad:"222 E Market St, Indianapolis, IN",la:39.76861,ln:-86.15333,w:"Public market since 1821 in its 1886 D.A. Bohlen & Son hall (NRHP) — now a food hall; the catacombs of the old Tomlinson Hall lie underneath.",g:["ENT","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indianapolis_City_Market"],["LOC","https://www.loc.gov/item/in0432"],["VISITINDIANA","https://visitindiana.com/blog/index.php/2016/01/31/indys-modern-city-market-with-a-history/"]]},
+{t:1,a:"DTN",n:"Scottish Rite Cathedral",ad:"650 N Meridian St, Indianapolis, IN 46204",la:39.77613,ln:-86.15799,w:"The 1929 Tudor-Gothic Masonic cathedral — the largest Scottish Rite building anywhere, with a 54-bell carillon tower; guided tours.",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Scottish_Rite_Cathedral_(Indianapolis)"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/scottish-rite-cathedral/"],["SAHARCHIPEDIA","https://sah-archipedia.org/node/12988"]]},
+{t:1,a:"DTN",n:"Madam Walker Legacy Center",ad:"617 Indiana Ave, Indianapolis, IN",la:39.77597,ln:-86.16708,w:"The 1927 Madam C.J. Walker Building (NHL) on historic Indiana Avenue — her company HQ and Art Deco theatre, the heart of Black Indianapolis jazz and culture; reopened 2020 after a $15M restoration.",g:["ARCH","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Madam_Walker_Legacy_Center"],["IPM","https://www.ipm.org/show/journeyindiana/2026-02-26/walkers-legacy-inside-a-historic-theatre-the-hub-of-black-culture-in-indianapolis"],["WISH","https://wishtv.com/?p=1114137"]]},
+{t:1,a:"MASS",n:"The Athenaeum (Das Deutsche Haus)",ad:"401 E Michigan St, Indianapolis, IN",la:39.77333,ln:-86.15028,w:"The 1893-98 Vonnegut & Bohn German-American clubhouse — the most ornate building of German Indianapolis, still home to the Rathskeller (1894) and its biergarten.",k:"Lockerbie",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Athen%C3%A6um_(Das_Deutsche_Haus)"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/?p=1059"],["INDIANAHISTORY","https://discoverindianahistory.org/items/show/46"]]},
+{t:1,a:"NORTH",n:"Conner Prairie",ad:"13400 Allisonville Rd, Fishers, IN",la:39.98453,ln:-86.02886,w:"Smithsonian-affiliate living-history museum around William Conner's 1823 house — an 1836 prairie town, Lenape camp and the 1859 balloon voyage.",k:"Fishers",g:["MUS","ARCH","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Conner_Prairie"],["OFFICIAL","https://fishersin.gov/fishers-history-conner-prairie/"],["EXARC","https://exarc.net/venues/conner-prairie-us"]]},
+{t:1,a:"MASS",n:"Benjamin Harrison Presidential Site",ad:"1230 N Delaware St, Indianapolis, IN 46202",la:39.78397,ln:-86.15416,w:"The 23rd president's 16-room 1875 Italianate home (NHL 1964) — he ran the 1888 Front Porch Campaign from its porch and died upstairs in 1901. Guided tours.",k:"Old Northside",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Benjamin_Harrison_Presidential_Site"],["NPS","https://www.nps.gov/parkhistory/online_books/presidents/site21.htm"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/benjamin-harrison-presidential-site/"]]},
+{t:1,a:"MASS",n:"James Whitcomb Riley Museum Home",ad:"528 Lockerbie St, Indianapolis, IN",la:39.77194,ln:-86.14778,w:"The 1872 Lockerbie Square house where the 'Hoosier Poet' lived as a paying guest from 1893 until 1916 — preserved as he left it (NHL 1962), on the cobbled heart of Indy's oldest neighbourhood.",k:"Lockerbie",g:["MUS","PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/James_Whitcomb_Riley_Museum_Home"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/james-whitcomb-riley-home"],["SAHARCHIPEDIA","https://sah-archipedia.org/node/12971"]]},
+{t:1,a:"SOUTH",n:"Garfield Park & Conservatory",ad:"2505 Conservatory Dr, Indianapolis, IN 46203",la:39.73208,ln:-86.14202,w:"Indianapolis' oldest city park (128 acres, NRHP) — George Kessler's 1916 Sunken Garden with fountains, and the 1954 aluminium-framed conservatory, the first of its kind in the US.",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Garfield_Park_(Indianapolis)"],["NPS","https://www.nps.gov/NR/travel/indianapolis/garfieldpark.htm"],["OFFICIAL","https://parks.indy.gov/facilities/garfield-park-conservatory-sunken-garden/"]]},
+{t:1,a:"FSQ",n:"Fountain Square Theatre Building",ad:"Fountain Square Theatre Building, Shelby St at Virginia Ave, Fountain Square, Indianapolis, IN",la:39.75210,ln:-86.13960,w:"1928 theatre block anchoring Fountain Square — a hotel, rooftop, and the Midwest's only duckpin bowling (Atomic Bowl's 1950s lanes, Action Duckpin's 1930s ones).",k:"Fountain Square",g:["ARCH","ENT","ODD"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Fountain_Square_Theatre"],["NPS","https://www.nps.gov/nr/Travel/indianapolis/vaave.htm"],["ROADSIDEAMERICA","https://origin.roadsideamerica.com/tip/8074"]]},
+{t:1,a:"MID",n:"Hinkle Fieldhouse",ad:"510 W 49th St, Indianapolis, IN",la:39.84361,ln:-86.16722,w:"Butler's 1928 fieldhouse (NHL), once the largest basketball arena in the US — where Milan beat Muncie Central in 1954, the game that became 'Hoosiers'.",k:"Butler",g:["ARCH","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Hinkle_Fieldhouse"],["SAHARCHIPEDIA","https://sah-archipedia.org/node/12986"],["OFFICIAL","https://butlersports.com/sports/2016/5/19/information-facilities-hinkle-fieldhouse.aspx"]]},
+{t:1,a:"WEST",n:"Eagle Creek Park",ad:"7840 W 56th St, Indianapolis, IN",la:39.85500,ln:-86.29750,w:"One of the largest city parks in the US — a reservoir, nature centre, bird sanctuary, beach and trails on the northwest side.",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Eagle_Creek_Park"],["VISITINDIANA","https://visitindiana.in.gov/blog/post/eagle-creek-park/"],["VISITINDY","https://www.visitindy.com/directory/eagle-creek-trail/"]]},
+{t:2,a:"WEST",n:"Indiana Medical History Museum",ad:"3045 W Vermont St, Indianapolis, IN 46222",la:39.77000,ln:-86.21333,w:"The 1895 Old Pathology Building of Central State Hospital — the oldest surviving pathology lab in the US, with its teaching amphitheatre and specimen collection intact.",g:["MUS","ARCH","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indiana_Medical_History_Museum"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/indiana-medical-history-museum/"],["VISITINDIANA","https://visitindiana.in.gov/blog/post/medical-museum/"]]},
+{t:1,a:"EAST",n:"Irvington Historic District & Bona Thompson Center",ad:"5350 E University Ave, Indianapolis, IN",la:39.76650,ln:-86.07680,w:"Butler University's first campus village (1875-1928) of curving streets and Victorian houses; the 1903 Bona Thompson Memorial Center holds the Irvington Historical Society. Famous for its October Halloween festival.",k:"Irvington",g:["MUS","ARCH","ENT","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Irvington_Historic_District_(Indianapolis)"],["NPS","https://www.nps.gov/nr/Travel/indianapolis/irvington.htm"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/bona-thompson-center/"]]},
+{t:2,a:"EAST",n:"Fort Harrison State Park",ad:"Fort Harrison State Park, Lawrence (Marion County), IN",la:39.86700,ln:-86.01700,w:"1,700 acres of the former Fort Benjamin Harrison along Fall Creek — trails, a saddle barn and the historic officers' homes; run by Indiana DNR.",g:["PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Fort_Harrison_State_Park"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/?p=2071"],["CURRENT","https://www.youarecurrent.com/2022/08/29/city-centerpiece-forts-history-amenities-a-major-draw-for-lawrence/"]]},
+{t:1,a:"NORTH",n:"Hamilton County Courthouse Square",ad:"Courthouse Square (Logan, 8th, 9th & Conner Sts), Noblesville, IN",la:40.04583,ln:-86.01417,w:"1870s Second Empire courthouse and sheriff's residence/jail (NRHP) at the centre of Noblesville's historic square — where Klan Grand Dragon D.C. Stephenson was convicted of murder in 1925, breaking the Indiana Klan.",k:"Noblesville",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Hamilton_County_Courthouse_Square"],["NPS","https://npgallery.nps.gov/GetAsset/d8626401-6673-4cc5-b04b-fe7f1e18d34c"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/noblesville/"]]},
+{t:1,a:"BRIP",n:"Indy Art Center & ARTSPARK",ad:"Indy Art Center, White River at Broad Ripple Village, Indianapolis, IN",la:39.87781,ln:-86.14364,w:"Michael Graves-designed art centre (1996) on the White River with studios, galleries and the 9.5-acre ARTSPARK sculpture garden; hosts the long-running Broad Ripple Art Fair.",k:"Broad Ripple",g:["MUS","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indy_Art_Center"],["NUVO","https://www.nuvo.net/townnews/art/celebrating-fifty-years-of-a-fine-idea-oneamerica-broad-ripple-art-fair-may-14-and/article_1ad0ea54-c5a9-11ec-a2ee-cb3cf2aed114.html"],["OFFICIAL","https://indyartcenter.org/about-us/"]]},
+{t:1,a:"BRIP",n:"Broad Ripple Village",ad:"Broad Ripple Village (White River, Evanston Ave, Kessler Blvd & Meridian St), Indianapolis, IN",la:39.86667,ln:-86.14167,w:"The 1837 canal town six miles north of downtown, annexed in 1922 and now a designated cultural district — bars, the Central Canal towpath and the Monon Trail crossing.",k:"Broad Ripple",g:["PARK","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Broad_Ripple_Village,_Indianapolis"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/broad-ripple/"],["POLIS","https://polis.indianapolis.iu.edu/?p=21"]]},
+{t:2,a:"BRIP",n:"Holliday Park & The Ruins",ad:"6363 Spring Mill Rd, Indianapolis, IN 46260",la:39.87111,ln:-86.16128,w:"Riverside park whose 'Ruins' reassemble Karl Bitter's 'Races of Man' statues from New York's first skyscraper, the St. Paul Building — restored and reopened; nature centre and trails.",g:["RACE","PARK"],s:[["TCLF","https://www.tclf.org/holliday-park"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/holliday-park/"],["IPM","https://www.ipm.org/show/theinbox/2019-03-12/revived-ruins-in-indys-holliday-park"],["OFFICIAL","https://parks.indy.gov/?p=1062"]]},
+{t:2,a:"MID",n:"Holcomb Observatory & Planetarium",ad:"4600 Sunset Ave, Indianapolis, IN",la:39.84139,ln:-86.17139,w:"Butler's 1954 observatory with a 38-inch Cassegrain reflector — the largest telescope in Indiana open to the public; planetarium shows and public viewing nights.",k:"Butler",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Holcomb_Observatory_and_Planetarium"],["INDIANAHISTORY","https://digital.library.in.gov/Record/PALNI_BldgsGrnds-2798"]]},
+{t:1,a:"DTN",n:"Lucas Oil Stadium",ad:"500 S Capitol Ave, Indianapolis, IN",la:39.76006,ln:-86.16381,w:"Retractable-roof home of the Colts (2008) and of the NFL Combine, Final Fours and Big Ten title games.",g:["ARCH","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Lucas_Oil_Stadium"],["STRUCTURAE","https://structurae.net/de/bauwerke/lucas-oil-stadium"]]},
+{t:2,a:"DTN",n:"Gainbridge Fieldhouse",ad:"125 S Pennsylvania St, Indianapolis, IN",la:39.76389,ln:-86.15556,w:"The Pacers' and Fever's retro-styled 1999 fieldhouse, built to evoke Indiana high-school gyms.",g:["ARCH","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Gainbridge_Fieldhouse"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/?p=58658"]]},
+{t:2,a:"DTN",n:"Central Library",ad:"40 E St. Clair St, Indianapolis, IN",la:39.77833,ln:-86.15667,w:"Paul Cret's 1917 Beaux-Arts library on the War Memorial axis, joined to a six-storey glass atrium (2007); free, with the Vonnegut-era reading rooms.",g:["ICON","MUS","ARCH","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Central_Library_(Indianapolis)"],["INDYPL","https://indypl.org/locations/central-library"],["NPS","https://npgallery.nps.gov/GetAsset/1356a2c9-be38-44cb-b774-c35c71f3d021"]]},
+{t:1,a:"MASS",n:"Landmark for Peace Memorial",ad:"Dr. Martin Luther King Jr. Park, 1702 N Broadway St, Indianapolis, IN",la:39.79077,ln:-86.14637,w:"Where Robert F. Kennedy broke the news of Martin Luther King Jr.'s assassination to a crowd on April 4, 1968 — Greg Perry's 1994 sculpture shows the two men reaching toward each other. Dedicated by President Clinton in 1995.",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Landmark_for_Peace_Memorial"],["INDYARTS","https://indyarts.org/?p=9278"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/kennedy-king-national-commemorative-site/"],["VISITINDY","https://www.visitindy.com/directory/dr-martin-luther-king-jr-park-landmark-for-peace-memorial/"]]},
+{t:1,a:"DTN",n:"Indianapolis Cultural Trail",ad:"Downtown loop (Alabama St / Mass Ave / Virginia Ave / Indiana Ave), Indianapolis, IN",la:39.77686,ln:-86.16094,w:"8-mile brick-and-stone bike/walk trail linking the downtown cultural districts with public art along the way — a $63M model for US urban trails. Pin marks a central point on the loop.",g:["ICON","PARK","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indianapolis_Cultural_Trail"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/indianapolis-cultural-trail/"],["IBJ","https://www.ibj.com/articles/41145-defining-the-indianapolis-cultural-trail"]]},
+{t:2,a:"DTN",n:"Christ Church Cathedral",ad:"131 Monument Circle, Indianapolis, IN",la:39.76917,ln:-86.15750,w:"William Tinsley's 1857 English Gothic Revival church — the oldest building on Monument Circle.",g:["ICON","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Christ_Church_Cathedral_(Indianapolis)"],["NPS","https://www.nps.gov/Nr/travel/indianapolis/christchurch.html"],["SAHARCHIPEDIA","https://sah-archipedia.org/node/12970"]]},
+{t:1,a:"DTN",n:"Crispus Attucks Museum",ad:"1140 Dr. Martin Luther King Jr. St, Indianapolis, IN",la:39.78306,ln:-86.17000,w:"Inside Crispus Attucks High School — Indiana's segregated Black high school, whose Oscar Robertson-led team won the 1955 state title — four galleries of African American history from the Underground Railroad to the Tuskegee Airmen.",g:["MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Crispus_Attucks_Museum"],["WISH","https://www.wishtv.com/community/celebrating-black-history/celebrating-black-history-crispus-attucks-museum/"],["VISITINDIANA","https://visitindiana.in.gov/basketball/locations/crispus-attucks-museum/"]]},
+{t:2,a:"NORTH",n:"The Palladium (Center for the Performing Arts)",ad:"Center for the Performing Arts, Carmel, IN",la:39.96990,ln:-86.13030,w:"Carmel's 1,500-seat Palladium concert hall (2011), a Palladian domed hall at the heart of the Carmel City Center arts campus.",k:"Carmel",g:["ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/The_Palladium_at_the_Center_for_the_Performing_Arts"],["INDYMONTHLY","https://www.indianapolismonthly.com/arts-and-culture/the-sound-of-money-the-palladium-rises-up-in-carmel/"],["HAMILTONCOUNTY","https://www.visithamiltoncounty.com/things-to-do/arts-and-theater/center-of-performing-arts/"]]},
+{t:2,a:"NORTH",n:"Coxhall Gardens",ad:"11677 Towne Rd, Carmel, IN 46032",la:39.95866,ln:-86.19761,w:"125-acre Hamilton County park at 116th & Towne with formal gardens, a carillon bell tower and a historic Woodward-era house.",k:"Carmel",g:["PARK","ARCH","ENT"],s:[["HAMILTONCOUNTY","https://www.visithamiltoncounty.com/blog/stories/post/a-guide-to-coxhall-gardens-in-carmel-indiana/"],["CURRENT","https://youarecurrent.com/type/gallery/page/129/"]]},
+{t:1,a:"MASS",n:"Mass Ave Cultural Arts District",ad:"Massachusetts Ave, Delaware St to I-65, Indianapolis, IN",la:39.77500,ln:-86.14861,w:"One of the four diagonal avenues of the 1821 plan: theatres, galleries, bars and the Mass Ave commercial historic district (NRHP 1982) — the city's main walking-and-eating strip.",k:"Mass Ave",g:["ARCH","ENT","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Mass_Ave_Cultural_Arts_District"],["NPS","https://www.nps.gov/nr/travel/indianapolis/massave.htm"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/massachusetts-avenue/"],["TCLF","https://tclf.org/massachusetts-avenue-commercial-district"]]},
+{t:2,a:"NORTH",n:"Potter's Covered Bridge",ad:"Potter's Bridge Park, Noblesville, IN",la:40.07250,ln:-86.00056,w:"1871 Howe-truss covered bridge, 260 ft over the White River — the only surviving covered bridge in Hamilton County, now pedestrian-only in its own park.",k:"Noblesville",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Potter%27s_Covered_Bridge"],["INDIANAHISTORY","https://www.in.gov/history/state-historical-markers/find-a-marker/potters-covered-bridge/"],["NPS","https://npgallery.nps.gov/AssetDetail/82cc5e62-04b3-42fc-9b33-6e94602c42bb"]]},
+{t:2,a:"MID",n:"Indiana State Fairgrounds & Corteva Coliseum",ad:"1202 E 38th St, Indianapolis, IN",la:39.82750,ln:-86.13500,w:"Home of the Indiana State Fair every August (since 1892 on this site); the 1939 WPA-era Coliseum hosted the Beatles in 1964.",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Corteva_Coliseum"],["LIVINGNEWDEAL","https://livingnewdeal.org/sites/isf-coliseum-indianapolis/"]]},
+{t:2,a:"MASS",n:"Morris-Butler House",ad:"1204 N Park Ave, Indianapolis, IN",la:39.78328,ln:-86.14794,w:"D.A. Bohlen's c.1864 Second Empire mansion in the Old Northside, restored by Indiana Landmarks as a Victorian house museum.",k:"Old Northside",g:["MUS","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Morris%E2%80%93Butler_House"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/?p=1813"],["OFFICIAL","https://www.indianalandmarks.org/morris-butler-house/"]]},
+{t:2,a:"SOUTH",n:"Old Town Greenwood",ad:"W Main St & S Madison Ave, Greenwood, IN",la:39.61389,ln:-86.10972,w:"Greenwood's NRHP commercial historic district (25 buildings on W Main St / S Madison Ave) — the walkable old town of the south suburbs, ringed by the Chin/Burmese restaurants of 'Little Burma'.",k:"Greenwood",g:["ARCH","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Greenwood_Commercial_Historic_District"],["NPS","https://npgallery.nps.gov/AssetDetail/NRIS/100001059"],["IBJ","https://www.ibj.com/articles/60309-greenwood-works-to-get-neighborhood-on-national-register"]]},
+{t:2,a:"MASS",n:"Old National Centre (Murat Shrine)",ad:"502 N New Jersey St, Indianapolis, IN",la:39.77417,ln:-86.15111,w:"The 1909 Murat Shrine temple, a Moorish-Revival fantasy of minarets and terra cotta — the oldest stage house in Indianapolis, now a concert venue.",k:"Mass Ave",g:["ARCH","ENT","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Old_National_Centre"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/?p=14445"],["SAHARCHIPEDIA","https://archipediavm.upress.virginia.edu/buildings/01-097-0050"]]},
+{t:2,a:"DTN",n:"Victory Field",ad:"White River State Park, Indianapolis, IN",la:39.76500,ln:-86.16833,w:"The Indianapolis Indians' 1996 ballpark with its lawn seating and skyline view over the outfield — one of the best-loved minor-league parks in the US.",g:["PARK","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Victory_Field"],["VISITINDY","https://www.visitindy.com/directory/victory-field-located-in-white-river-state-park"],["OFFICIAL","https://whiteriverstatepark.org/venue/victory-field"]]},
+{t:2,a:"FSQ",n:"Holy Rosary Church & Italian Street Festival",ad:"520 Stevens St, Indianapolis, IN",la:39.75803,ln:-86.14879,w:"The 1909 church of Indy's Sicilian and Calabrian immigrants; its Italian Street Festival (since 1934) draws ~40,000 people each June for 25+ Italian dishes and a procession.",g:["ARCH"],s:[["INDYENCYCLOPEDIA","https://indyencyclopedia.org/?p=74526"],["WRTV","https://www.wrtv.com/news/local-news/holy-rosarys-italian-street-festival-returns-for-41st-year"],["WISH","https://wishtv.com/indy-style/italian-street-festival-returns-to-indy-with-more-than-25-italian-dishes"],["CLIO","https://theclio.com/entry/133857"]]},
+{t:1,a:"MASS",n:"Monon Trail (10th Street trailhead)",ad:"Monon Trail at E 10th St, Indianapolis, IN",la:39.78142,ln:-86.14011,w:"The 28.5-mile rail-trail on the old Monon Railroad, from 10th Street up through Broad Ripple and Carmel to Sheridan — Indy's busiest trail and the spine of the north side.",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Monon_Trail"],["TRAILLINK","https://www.traillink.com/trail/monon-trail"],["BACKPACKER","https://www.backpacker.com/trips/indianapolis-in-monon-rail-trail/?scope=anon"]]},
+{t:2,a:"MASS",n:"Indiana Landmarks Center",ad:"1201 Central Ave, Indianapolis, IN 46202",la:39.78332,ln:-86.14896,w:"The 1891 Romanesque Central Avenue Methodist Church, rescued and reopened in 2011 as the headquarters of Indiana Landmarks — the Cook Theater sanctuary keeps its stained glass.",k:"Old Northside",g:["ARCH","ENT"],s:[["INDYENCYCLOPEDIA","https://indyencyclopedia.org/?p=2107"],["IPM","https://indianapublicmedia.org/momentofindianahistory/life-indianapolis-landmark"],["OFFICIAL","https://www.indianalandmarks.org/our-historic-sites/indiana-landmarks-center-campus/"]]},
+{t:1,a:"WEST",n:"International Marketplace (Lafayette Square)",ad:"Lafayette Rd & W 38th St, Indianapolis, IN",la:39.82778,ln:-86.23278,w:"The 12-block Lafayette Road corridor (34th-46th Sts) around the former Lafayette Square Mall — 80+ restaurants and ~700 immigrant-owned businesses; the New York Times called it the place in Indianapolis where 'the world comes to eat'. The mall itself closed in 2022 and is being redeveloped.",k:"International Marketplace",g:["SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Lafayette_Square_Mall"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/international-marketplace-coalition/"],["VISITINDIANA","https://visitindiana.in.gov/blog/post/international-marketplace-indy/"],["WRTV","https://www.wrtv.com/lifestyle/food/take-a-tour-of-indianapolis-international-marketplace-full-of-global-cuisine"]]},
+{t:2,a:"DTN",n:"Hilbert Circle Theatre",ad:"45 Monument Circle, Indianapolis, IN",la:39.76806,ln:-86.15722,w:"A 1916 'deluxe movie palace' on Monument Circle, restored as home of the Indianapolis Symphony Orchestra (1,660 seats).",k:"Monument Circle",g:["ICON","ARCH","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Hilbert_Circle_Theatre"],["OFFICIAL","https://www.indianapolissymphony.org/visit/hilbert-circle-theatre/history/"],["POLIS","https://polis.indianapolis.iu.edu/?p=4234"]]},
+{t:2,a:"DTN",n:"Stutz Building",ad:"10th St & Capitol Ave, Indianapolis, IN",la:39.78167,ln:-86.16194,w:"The 1914 Stutz Motor Car factory (home of the Bearcat), five connected four-storey buildings now full of artist studios — the Stutz Artists Association's open-studio nights fill the halls.",g:["ARCH","ENT"],s:[["INDYENCYCLOPEDIA","https://indyencyclopedia.org/stutz-business-and-art-center/"],["SAHARCHIPEDIA","https://sah-archipedia.org/node/12982"],["INDYTODAY","https://indytoday.6amcity.com/historic-stutz-building-reimagined-indianapolis-in?_amp=true"]]},
+{t:2,a:"MASS",n:"Bottleworks District & The Garage Food Hall",ad:"Bottleworks District (Mass Ave & College Ave), Indianapolis, IN",la:39.77970,ln:-86.14360,w:"The 1931 Art Deco Coca-Cola bottling plant reborn (2018-) as a hotel, cinema and The Garage food hall with ~18 vendors.",k:"Mass Ave",g:["ENT","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Bottleworks_District"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/bottleworks-district/"],["WFYI","https://wfyi.org/news/articles/garage-food-hall-opens-at-bw-district"],["TIMEOUT","https://www.timeout.com/usa/news/this-1930s-coca-cola-bottling-plant-has-been-reimagined-as-a-foodie-hotel-032921"]]},
+{t:2,a:"NORTH",n:"Museum of Miniature Houses",ad:"111 E Main St, Carmel, IN 46032",la:39.97833,ln:-86.12583,w:"Small, beloved museum of dollhouses and miniature rooms in Carmel's Arts & Design District, open 25+ years.",k:"Carmel",g:["MUS","ARCH","SHOP"],s:[["IPM","https://indianapublicmedia.org/theweeklyspecial/miniature-museum-houses"],["OFFICIAL","https://carmelartsanddesign.com/directory/museum-of-miniature-houses/"]]},
+{t:2,a:"DTN",n:"NCAA Hall of Champions",ad:"White River State Park, Indianapolis, IN",la:39.76716,ln:-86.16916,w:"Michael Graves-designed NCAA headquarters and museum (2000) covering all 24 college sports, with a 1930s-style hardwood court upstairs.",g:["MUS","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/NCAA_Hall_of_Champions"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/ncaa-headquarters-and-hall-of-champions/"],["OFFICIAL","https://michaelgraves.com/project/ncaa-headquarters-and-hall-of-champions/"]]},
+{t:1,a:"EAST",n:"Woodruff Place",ad:"Woodruff Place (Cross, West, Middle & East Drives), Indianapolis, IN",la:39.77778,ln:-86.12847,w:"James O. Woodruff's 1870s garden suburb a mile east of downtown — esplanade drives with nine multi-tiered cast-iron fountains (the Cross Drive ones are the city's oldest) and Mott Iron Works statuary. NRHP 1972.",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Woodruff_Place,_Indianapolis"],["NPS","https://www.nps.gov/Nr/travel/indianapolis/woodruffplace.htm"],["TCLF","https://www.tclf.org/landscapes/woodruff-place"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/woodruff-place/"]]},
+{t:2,a:"MID",n:"Clowes Memorial Hall",ad:"4602 Sunset Ave, Indianapolis, IN",la:39.84028,ln:-86.16972,w:"Butler University's 1963 Brutalist performing-arts hall by Evans Woollen III and John Johansen — touring Broadway and the city's big concerts.",k:"Butler",g:["ARCH","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Clowes_Memorial_Hall"],["SAHARCHIPEDIA","https://sah-archipedia.org/node/12990"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/?p=1275"]]},
+{t:2,a:"NORTH",n:"Grand Park Sports Campus",ad:"19000 Grand Park Blvd, Westfield, IN",la:40.05800,ln:-86.14895,w:"Westfield's 400-acre youth-sports campus (2014) — and every summer the Indianapolis Colts' training camp, free to watch.",k:"Westfield",g:["PARK","ENT","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Grand_Park_(Indiana)"],["HAMILTONCOUNTY","https://www.visithamiltoncounty.com/sports/grand-park/"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/grand-park/"]]},
+{t:2,a:"WEST",n:"Major Taylor Velodrome",ad:"Cold Spring Rd, immediately north of the Marian University campus, Indianapolis, IN",la:39.82144,ln:-86.19936,w:"Outdoor concrete velodrome (1982, 28° banked turns) named for 1899 world cycling champion Major Taylor — the first publicly funded building in Indianapolis named for an African American; Thursday-night racing April-Sept, plus BMX and MTB trails at the Indy Cycloplex.",g:["RACE","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Major_Taylor_Velodrome"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/marshall-w-major-taylor/"]]},
+{t:3,a:"WEST",n:"Allison Mansion (Riverdale)",ad:"3200 Cold Spring Rd, Indianapolis, IN",la:39.80611,ln:-86.20139,w:"Arts & Crafts estate (1911-14) of Speedway co-founder James A. Allison — sunken conservatory, white-marble aviary, Moravian tiles; since 1936 the heart of Marian University and on the NRHP (1970).",g:["ICON","RACE","PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Allison_Mansion"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/marian-college-mansions/"]]},
+{t:2,a:"EAST",n:"Arsenal Technical High School (U.S. Arsenal)",ad:"1500 E Michigan St, Indianapolis, IN",la:39.77778,ln:-86.13306,w:"A Civil War U.S. Arsenal (1864-1903) turned high school in 1912 — the oldest military installation in central Indiana, with the 1864 Arsenal building and barracks still in school use on a 76-acre NRHP campus.",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Arsenal_Technical_High_School"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/u-s-arsenal/"]]},
+{t:2,a:"FSQ",n:"Fletcher Place Historic District",ad:"Fletcher Place (between Virginia Ave, East St and I-65/70), Indianapolis, IN",la:39.75750,ln:-86.14611,w:"40-acre NRHP district (1982) of Irish and German worker cottages and Italianate/Queen Anne rows (Briggs Flats 1893, Fletcher Place Methodist) — now the restaurant strip of Bluebeard, Iaria's and Milktooth.",k:"Fletcher Place",g:["ARCH","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Fletcher_Place"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/fletcher-place/"]]},
+{t:2,a:"MID",n:"Riverside Park",ad:"Riverside Regional Park (near northwest side, along the White River), Indianapolis, IN",la:39.80498,ln:-86.19349,w:"Opened 1899 as one of the largest municipal parks in the US (953 acres on the White River), laid out by J. Clyde Power and George Kessler with two landmark bridges — the anchor of the NRHP-listed Indianapolis Park and Boulevard System.",g:["PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Riverside_Park_(Indianapolis)"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/riverside-park/"]]},
+{t:3,a:"MID",n:"Holcomb Gardens (Butler University)",ad:"Butler University campus, Indianapolis, IN",la:39.84270,ln:-86.17130,w:"James Irving Holcomb's botanical garden at Butler — garden house, Holcomb Lake (1950) and classical statuary — a free stroll beside Holcomb Observatory.",k:"Butler",g:["PARK","ARCH","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Holcomb_Gardens"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/james-irving-holcomb/"]]},
+{t:2,a:"SOUTH",n:"Hannah House",ad:"3801 Madison Ave, Indianapolis, IN",la:39.71139,ln:-86.14333,w:"1858 Italianate brick mansion of Alexander Hannah on Madison Ave — NRHP-listed, linked by legend to the Underground Railroad and billed as one of Indiana's most haunted houses.",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Hanna%E2%80%93Ochler%E2%80%93Elder_House"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/hannah-house/"]]},
+{t:3,a:"SOUTH",n:"University of Indianapolis",ad:"1400 E Hanna Ave, Indianapolis, IN",la:39.70972,ln:-86.13514,w:"Methodist-founded (1902) university on land donated by William Elder — a 50-acre campus straddling the University Heights and Carson Heights neighbourhoods.",k:"University Heights",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/University_of_Indianapolis"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/hannah-house/"]]},
+{t:3,a:"SOUTH",n:"Southeastway Park",ad:"5624 S Carroll Rd, Indianapolis, IN",la:39.68766,ln:-85.95798,w:"188-acre Indy Parks nature park in the far southeast corner of Marion County — 80 acres of forest, Buck Creek, a prairie preserve and a 2.5-mile paved trail.",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Southeastway_Park"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/parks-and-greenspaces/"]]},
+{t:3,a:"MID",n:"Herron–Morton Place Historic District",ad:"16th–22nd Sts between Pennsylvania St and Central Ave, Indianapolis, IN",la:39.79278,ln:-86.15250,w:"NRHP district of stately late-19th/early-20th-century houses on the grounds of Civil War Camp Morton and the old Herron art school — Indianapolis Monthly 'Hot Neighborhoods'.",k:"Herron-Morton Place",g:["ARCH","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Herron%E2%80%93Morton_Place_Historic_District"],["INDYMONTHLY","https://www.indianapolismonthly.com/arts-and-culture/circle-city/hot-neighborhoods-herron-morton-place/"]]}
+];
+
+const FS = {
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"ATLAS OBSCURA",u:"",l:""},
+  "AXIOS":{k:"AXIOS",t:"Axios Indianapolis",u:"https://www.axios.com/local/indianapolis",l:"Axios Indianapolis"},
+  "BREWERMAG":{k:"BREWERMAG",t:"The Brewer Magazine",u:"https://thebrewermagazine.com/",l:"The Brewer Magazine"},
+  "CHEAPISM":{k:"CHEAPISM",t:"Cheapism (syndicated via AOL)",u:"https://www.cheapism.com/",l:"Cheapism (syndicated via AOL)"},
+  "CULINARYCROSSROADS":{k:"CULINARYCROSSROADS",t:"Culinary Crossroads (Indiana food history blog)",u:"https://culinarycrossroads.org/",l:"Culinary Crossroads (Indiana food history blog)"},
+  "CURRENT":{k:"CURRENT",t:"Current Publishing (Current in Carmel/Fishers/Noblesville)",u:"https://www.youarecurrent.com/",l:"Current Publishing (Current in Carmel/Fishers/Noblesville)"},
+  "DAILYJOURNAL":{k:"DAILYJOURNAL",t:"Daily Journal (Johnson County, Franklin/Greenwood)",u:"https://dailyjournal.net/",l:"Daily Journal (Johnson County, Franklin/Greenwood)"},
+  "DOWNTOWNINDY":{k:"DOWNTOWNINDY",t:"Downtown Indy, Inc.",u:"https://downtownindy.org/",l:"Downtown Indy, Inc."},
+  "EDIBLEINDY":{k:"EDIBLEINDY",t:"Edible Indy",u:"https://edibleindy.ediblecommunities.com/",l:"Edible Indy"},
+  "FOODNETWORK":{k:"FOODNETWORK",t:"Food Network",u:"https://www.foodnetwork.com/",l:"Food Network"},
+  "FOX59":{k:"FOX59",t:"FOX59",u:"",l:""},
+  "FOXNEWS":{k:"FOXNEWS",t:"Fox News (Lifestyle)",u:"https://www.foxnews.com/food-drink",l:"Fox News (Lifestyle)"},
+  "HAMILTONCOUNTY":{k:"VISIT HAMILTON COUNTY",t:"VISIT HAMILTON COUNTY",u:"",l:""},
+  "IBJ":{k:"INDIANAPOLIS BUSINESS JOURNAL",t:"INDIANAPOLIS BUSINESS JOURNAL",u:"",l:""},
+  "IMBIBE":{k:"IMBIBE",t:"Imbibe Magazine",u:"https://imbibemagazine.com/",l:"Imbibe Magazine"},
+  "INDIANAHISTORY":{k:"INDIANA HISTORICAL SOCIETY",t:"Indiana Historical Society / Indiana Historical Bureau",u:"https://indianahistory.org/",l:"Indiana Historical Society / Indiana Historical Bureau"},
+  "INDYENCYCLOPEDIA":{k:"INDYENCYCLOPEDIA",t:"The Encyclopedia of Indianapolis (IUPUI/Polis Center)",u:"https://indyencyclopedia.org/",l:"The Encyclopedia of Indianapolis (IUPUI/Polis Center)"},
+  "INDYMONTHLY":{k:"INDIANAPOLIS MONTHLY",t:"INDIANAPOLIS MONTHLY",u:"",l:""},
+  "INDYTODAY":{k:"INDYTODAY",t:"Indy Today (6AM City)",u:"https://indytoday.6amcity.com/",l:"Indy Today (6AM City)"},
+  "INFATUATION":{k:"INFATUATION",t:"The Infatuation (Indianapolis)",u:"https://www.theinfatuation.com/indianapolis",l:"The Infatuation (Indianapolis)"},
+  "INSIDEINDIANABUSINESS":{k:"INSIDEINDIANABUSINESS",t:"Inside Indiana Business",u:"https://www.insideindianabusiness.com/",l:"Inside Indiana Business"},
+  "JAMESBEARD":{k:"JAMES BEARD",t:"JAMES BEARD",u:"",l:""},
+  "JAZZJOURNALISTS":{k:"JAZZJOURNALISTS",t:"Jazz Journalists Association",u:"https://news.jazzjournalists.org/",l:"Jazz Journalists Association"},
+  "MIRROR":{k:"MIRROR INDY",t:"Mirror Indy",u:"https://mirrorindy.org/",l:"Mirror Indy"},
+  "NUVO":{k:"NUVO",t:"NUVO",u:"",l:""},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
+  "PUNCHDRINK":{k:"PUNCHDRINK",t:"PUNCH",u:"https://punchdrink.com/",l:"PUNCH"},
+  "ROADFOOD":{k:"ROADFOOD",t:"Roadfood (Jane & Michael Stern)",u:"https://roadfood.com/",l:"Roadfood (Jane & Michael Stern)"},
+  "TASTINGTABLE":{k:"TASTINGTABLE",t:"Tasting Table",u:"https://www.tastingtable.com/",l:"Tasting Table"},
+  "THETAKEOUT":{k:"THETAKEOUT",t:"The Takeout",u:"https://thetakeout.com/",l:"The Takeout"},
+  "TOWNEPOST":{k:"TOWNEPOST",t:"Towne Post Network (central-Indiana neighbourhood magazines)",u:"https://townepost.com/",l:"Towne Post Network (central-Indiana neighbourhood magazines)"},
+  "VISITINDIANA":{k:"VISITINDIANA",t:"Visit Indiana (Indiana Destination Development Corp.)",u:"https://visitindiana.com/",l:"Visit Indiana (Indiana Destination Development Corp.)"},
+  "VISITINDY":{k:"VISIT INDY",t:"VISIT INDY",u:"",l:""},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"WIKIPEDIA",u:"",l:""},
+  "WISH":{k:"WISH-TV 8",t:"WISH-TV 8",u:"",l:""},
+  "WORLDS50BEST":{k:"WORLDS50BEST",t:"The World's 50 Best Discovery",u:"https://www.theworlds50best.com/discovery/",l:"The World's 50 Best Discovery"},
+  "WRTV":{k:"WRTV",t:"WRTV 6 (ABC Indianapolis)",u:"https://www.wrtv.com/",l:"WRTV 6 (ABC Indianapolis)"},
+  "WTHR":{k:"WTHR 13",t:"WTHR 13",u:"",l:""}
+};
+
+const CUISINES = [
+  {id:"HOOS",n:"Hoosier Classics (tenderloin, fried chicken, biscuits & apple butter)"},
+  {id:"STEAK",n:"Steakhouses & Fine Dining"},
+  {id:"US",n:"American & New American"},
+  {id:"DELI",n:"Delis, Sandwiches & Diners"},
+  {id:"SOUL",n:"Soul, BBQ & Southern"},
+  {id:"ITAL",n:"Pizza & Italian"},
+  {id:"BURMA",n:"Burmese & Chin"},
+  {id:"ASIAN",n:"Asian"},
+  {id:"MEX",n:"Mexican & Latin"},
+  {id:"MED",n:"Mediterranean, Middle Eastern & African"},
+  {id:"PIE",n:"Sugar Cream Pie, Bakeries & Sweets"},
+  {id:"BREW",n:"Breweries, Bars & Cocktails"},
+  {id:"COF",n:"Coffee & Cafés"},
+  {id:"VIRAL",n:"Viral / Social"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"RACE",n:"Racing & the Speedway"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"PARK",n:"Parks, Trails & Gardens"},
+  {id:"ARCH",n:"Architecture, Monuments & History"},
+  {id:"ENT",n:"Sports, Music & Entertainment"},
+  {id:"SHOP",n:"Markets & Districts"},
+  {id:"FAM",n:"Family & Kids"},
+  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"DTN",n:"St. Elmo Steak House",ad:"127 S Illinois St, Indianapolis, IN 46225",cz:["STEAK"],la:39.76482,ln:-86.15964,w:"Order: The fiery shrimp cocktail (horseradish-loaded sauce, on the menu since 1947) and dry-aged USDA Prime steaks. Indianapolis' defining restaurant, in the Wholesale District since 1902 — bow-tied career servers, dark-panelled rooms, one of the city's great bourbon lists, and the only James Beard Award ever won in Indy (America's Classics, 2012). On Indianapolis Monthly's 2026 Best Restaurants.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/St._Elmo_Steak_House"],["INDYMONTHLY","https://indianapolismonthly.com/best-restaurants/best-restaurants-2026-st-elmo-steak-house-wisanggeni-pawon/"],["AXIOS","https://www.axios.com/local/indianapolis/2026/07/15/30-over-30-st-elmo-steak-houses-history-of-hosting"],["TASTINGTABLE","https://www.tastingtable.com/1457397/st-elmo-steak-house-indianapolis-history"],["INDYTODAY","https://indytoday.6amcity.com/food/a-history-of-james-beard-winners-and-semifinalists-in-indy"]]},
+{t:1,a:"DTN",n:"Shapiro's Delicatessen",ad:"808 S Meridian St, Indianapolis, IN 46225",cz:["DELI"],la:39.75620,ln:-86.15959,w:"Order: Corned beef on house rye, the Reuben, potato latkes, matzo ball soup. Kosher-style deli-cafeteria opened as a grocery by Louis and Rebecca Shapiro in 1905, on South Meridian since 1912 — one of the few surviving Jewish delis in the Midwest. Order at the counter; carry your tray.",s:[["ROADFOOD","https://roadfood.com/?p=17062"],["NUVO","https://www.nuvo.net/food/annual-manual-2019-historic-indy-dining/article_f47493c0-0ead-11e9-8794-5382f21e5f90.html"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/shapiro-s/"],["VISITINDY","https://www.visitindy.com/directory/shapiros-delicatessen/"]]},
+{t:1,a:"WEST",n:"Workingman's Friend",ad:"234 N Belmont Ave, Indianapolis, IN 46222",cz:["HOOS","US"],la:39.76952,ln:-86.19708,w:"Order: The smash double cheeseburger and the breaded pork tenderloin. Haughville tavern opened in 1918 by Macedonian immigrant Louis Stamatkin and still run by his family — named for the tabs he let striking workers run. Thrillist (2015) and Food & Wine (2022) rated its burger Indiana's best. Cash only, 21+.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/The_Workingman%27s_Friend"],["INDYMONTHLY","https://www.indianapolismonthly.com/drinks/old-fashioneds-well-worn-well-loved-dives/"],["WISH","https://wishtv.com/?p=945952"],["FOX59","https://digital-release.fox59.com/morning-news/indys-best/the-workingmans-friend-named-indys-best-burger"]]},
+{t:1,a:"WEST",n:"Mug-n-Bun",ad:"5211 W 10th St, Speedway, IN",cz:["HOOS","US"],la:39.77970,ln:-86.24880,w:"Order: House-brewed root beer in a frosted mug, the pork tenderloin, hand-cut onion rings. Speedway's carhop drive-in since 1956 (a Frostop until 1964) a mile from the track — Indy's oldest continuously operating drive-in, with root beer brewed on site to Morris May's sweeter recipe.",k:"Speedway",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Mug-n-Bun"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/mug-n-bun/"],["ROADFOOD","https://roadfood.com/?p=17198"],["VISITINDIANA","https://visitindiana.in.gov/blog/post/the-greatest-spectacle-in-drive-ins/"]]},
+{t:1,a:"DTN",n:"Slippery Noodle Inn",ad:"372 S Meridian St, Indianapolis, IN",cz:["BREW","SOUL"],la:39.76167,ln:-86.15861,w:"Order: Live blues on two stages nightly, with bar food. Indiana's oldest continuously operating bar (1850, the Tremont House) — an Underground Railroad stop, Prohibition brewery and brothel before becoming the city's great blues bar; 1890 tin ceiling and century-old oak bar.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Slippery_Noodle_Inn"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/slippery-noodle-inn/"],["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/slippery-noodle-haunted-history/"]]},
+{t:1,a:"WEST",n:"Long's Bakery",ad:"1453 N Tremont St, Indianapolis, IN 46222",cz:["PIE"],la:39.78760,ln:-86.20070,w:"Order: Hot glazed yeast donuts (Carl Long's lighter dough, 1955). Westside donut counter Carl and Mildred Long opened in 1955; the line for hot glazed is an Indy ritual, and the third generation still runs it. On Indianapolis Monthly's 25 Essential Eats of Indy.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Long%27s_Bakery"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/longs-bakery/"],["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/the-25-essential-eats-of-indy/"],["INDIANAHISTORY","https://indianahistory.org/blog/producing-desire-the-heritage-of-doughnut-shops/"]]},
+{t:1,a:"BRIP",n:"Hollyhock Hill",ad:"8110 N College Ave, Indianapolis, IN",cz:["HOOS"],la:39.90496,ln:-86.14692,w:"Order: Skillet-fried chicken family style (lard, tri-flour mix) with biscuits, mashed potatoes, green beans and corn. Family-style fried-chicken dinners since 1928 — one of the last of its kind and Indiana's second-oldest restaurant; new owner Kelly Haney kept the 90-year-old recipe.",s:[["ROADFOOD","https://roadfood.com/?p=17648"],["FOODNETWORK","https://www.foodnetwork.com/restaurants/in/indianapolis/hollyhock-hill-restaurant"],["IBJ","https://www.ibj.com/articles/61835-hollyhock-hill-one-of-citys-oldest-eateries-changes-ownership"]]},
+{t:2,a:"BRIP",n:"Red Key Tavern",ad:"5170 N College Ave, Indianapolis, IN 46205",cz:["BREW","HOOS"],la:39.84677,ln:-86.14610,w:"Order: Cold beer and a burger at Kurt Vonnegut's neighbourhood bar (1933 jukebox-and-booths tavern). Meridian-Kessler tavern since 1933 (the Red Key from 1935), famous for its house rules and as a Vonnegut haunt; a Piggly Wiggly before that.",s:[["INDYENCYCLOPEDIA","https://indyencyclopedia.org/red-key-tavern/"],["INDYMONTHLY","https://www.indianapolismonthly.com/news-opinion/a-night-at-the-red-key-tavern/"],["NUVO","https://www.nuvo.net/food/the-red-key-tavern-turns-65/article_51e1d264-adb0-502d-9f37-7523568b511f.html"],["PUNCHDRINK","https://punchdrink.com/articles/kurt-vonnegut-in-indianapolis-bars-indy/"]]},
+{t:2,a:"EAST",n:"Historic Steer-In",ad:"5130 E 10th St, Indianapolis, IN",cz:["DELI","US"],la:39.78180,ln:-86.08240,w:"Order: Carhop burgers and the tenderloin at a 1960 drive-in. Drive-in on the edge of Irvington since the 1930s (Laughner's Steer-In from 1960); Guy Fieri visited twice on Diners, Drive-Ins & Dives (2011, 2025).",k:"Irvington",s:[["INDYENCYCLOPEDIA","https://indyencyclopedia.org/steer-in/"],["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/the-historic-steer-in-brings-back-the-carhop/"],["INDYTODAY","https://indytoday.6amcity.com/food/diners-drive-ins-dives-indianapolis"]]},
+{t:2,a:"FSQ",n:"Iaria's Italian Restaurant",ad:"317 S College Ave, Indianapolis, IN 46202",cz:["ITAL"],la:39.76194,ln:-86.14571,w:"Order: Red-sauce pasta and meatballs. The Iaria family's Holy Rosary institution — a 1916 Italian grocery that became the restaurant, in this building since 1954.",s:[["DOWNTOWNINDY","https://downtownindy.org/go/iarias-italian-restaurant"],["IBJ","https://www.ibj.com/articles/longtime-restaurant-operator-nick-iaria-dead-at-75"]]},
+{t:1,a:"MASS",n:"The Rathskeller",ad:"401 E Michigan St, Indianapolis, IN",cz:["BREW"],la:39.77333,ln:-86.15028,w:"Order: Schnitzel, sauerbraten, ochsenschwanz suppe; the biergarten in summer. Indianapolis' oldest restaurant still operating (1894), in the cellar and biergarten of the Athenaeum — German food and a Kellerbar beer list.",k:"Lockerbie",s:[["VISITINDY","https://www.visitindy.com/directory/the-rathskeller/"],["THETAKEOUT","https://thetakeout.com/1737075/indiana-bavarian-rathskeller-restaurant"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Athen%C3%A6um_(Das_Deutsche_Haus)"]]},
+{t:1,a:"MASS",n:"Tinker Street",ad:"402 E 16th St, Indianapolis, IN 46202",cz:["US"],la:39.78861,ln:-86.15041,w:"Order: Seasonal small plates and the wine list in a 16th Street urban cottage. Tom Main's restaurant and wine bar between Herron-Morton Place and the Old Northside; Main was a James Beard Outstanding Restaurateur semifinalist (2025, 2026). An Indianapolis Monthly Best Restaurant.",k:"Old Northside",s:[["JAMESBEARD","https://www.jamesbeard.org/stories/james-beard-award-semifinalists-2026"],["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/indiana-nabs-seven-james-beard-nominations/"],["WISH","https://wishtv.com/?p=1002185"],["VISITINDY","https://www.visitindy.com/directory/tinker-street-restaurant-wine-bar/"]]},
+{t:1,a:"MASS",n:"Vida",ad:"601 E New York St, Indianapolis, IN",cz:["STEAK"],la:39.77090,ln:-86.14706,w:"Order: The chef's tasting menu with wine pairings. Lockerbie Square fine dining — the city's only AAA Four Diamond restaurant per WRTV. James Beard semifinalists: chef Thomas Melvin (Best Chef: Great Lakes, 2022) and GM/wine director Jared May (beverage/bar service, 2025 & 2026).",k:"Lockerbie",s:[["JAMESBEARD","https://www.jamesbeard.org/stories/the-2025-james-beard-award-semifinalists"],["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/indiana-nabs-seven-james-beard-nominations/"],["WRTV","https://www.wrtv.com/lifestyle/food/meet-indianapolis-only-four-diamond-restaurant-vida"],["DOWNTOWNINDY","https://downtownindy.org/go/vida"]]},
+{t:1,a:"FSQ",n:"Bluebeard",ad:"653 Virginia Ave, Indianapolis, IN",cz:["US"],la:39.75756,ln:-86.14579,w:"Order: The daily-changing New American menu with bread from sister bakery Amelia's. Fletcher Place gastropub in a 1924 warehouse, named for Kurt Vonnegut's 12th novel; Indy's most James Beard-recognised restaurant (Abbi Merriss, Best Chef: Great Lakes semifinalist 2023). Now led by chef Alan Sternberg.",k:"Fletcher Place",s:[["JAMESBEARD","https://indytoday.6amcity.com/food/a-history-of-james-beard-winners-and-semifinalists-in-indy"],["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/best-restaurants-2024-bluebeard/"],["IBJ","https://www.ibj.com/articles/bluebeard-chef-abbi-merriss-to-be-succeeded-by-alan-sternberg"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Abbi_Merriss"]]},
+{t:1,a:"EAST",n:"Beholder",ad:"1844 E 10th St, Indianapolis, IN",cz:["US"],la:39.78160,ln:-86.12687,w:"Order: Jonathan Brooks' seasonal dinner menu. Jonathan Brooks' (Milktooth) dinner restaurant in Windsor Park, opened 2018; Brooks was a James Beard Best Chef: Great Lakes semifinalist in 2025.",s:[["JAMESBEARD","https://www.jamesbeard.org/stories/the-2025-james-beard-award-semifinalists"],["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/reviews/review-beholder/"],["IBJ","https://www.ibj.com/blogs/property-lines/69222-milktooth-chef-jonathan-brooks-opens-beholder-restaurant"]]},
+{t:1,a:"NORTH",n:"9th Street Bistro",ad:"56 S 9th St, Noblesville, IN",cz:["US"],la:40.04506,ln:-86.01330,w:"Order: Samir Mohammad's globally inspired small menu. Tiny Noblesville bistro opened 2021 by Samir and Rachel Mohammad; Samir was a James Beard Best Chef: Great Lakes semifinalist (2023). On Indianapolis Monthly's Best Restaurants 2025 and 2026.",k:"Noblesville",s:[["JAMESBEARD","https://indytoday.6amcity.com/food/a-history-of-james-beard-winners-and-semifinalists-in-indy"],["INDYMONTHLY","https://www.indianapolismonthly.com/best-restaurants/best-restaurants-2025-9th-street-bistro-bluebeard/"],["CURRENT","https://www.youarecurrent.com/2022/02/07/labor-of-love-couple-own-and-operate-new-noblesville-restaurant-9th-street-bistro/"]]},
+{t:1,a:"EAST",n:"His Place Eatery",ad:"6916 E 30th St, Indianapolis, IN",cz:["SOUL"],la:39.81138,ln:-86.04691,w:"Order: Fried chicken and waffles, hickory rib tips, bourbon creamed corn, collards. James and Shawn Jones' soul food since 2009 (at 30th & Shadeland since 2012; second branch on W 86th St) — on Guy Fieri's Diners, Drive-Ins & Dives and Indianapolis Monthly's 2026 Best Restaurants.",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/best-restaurants-2026-commission-row-his-place-eatery/"],["WTHR","https://wthr.com/article/life/food/his-place-eatery-guy-fieri-diners-drive-ins-dives-food-network-soul-food-indianapolis-indiana/531-f8caa555-b01d-4f2e-aae7-0aec12445ddd"],["WRTV","https://www.wrtv.com/lifestyle/black-history-month/his-place-eatery-brings-soul-food-with-a-twist-to-indianapolis"]]},
+{t:1,a:"BRIP",n:"Plump's Last Shot",ad:"6416 Cornell Ave, Indianapolis, IN",cz:["HOOS"],la:39.87314,ln:-86.14266,w:"Order: The oversized breaded pork tenderloin. Broad Ripple sports bar run since 1995 by Bobby Plump — whose last-second shot won Milan's 1954 title, the story behind 'Hoosiers' — and now his son Jonathan; its tenderloin has been named Indiana's best.",k:"Broad Ripple",s:[["ROADFOOD","https://roadfood.com/?p=17633"],["FOXNEWS","https://foxnews.com/lifestyle/hoops-hero-who-inspired-hoosiers-now-serves-legendarily-large-indiana-style-fried-pork-sandwiches.amp"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Bobby_Plump"]]},
+{t:1,a:"WEST",n:"Che Chori",ad:"3124 W 16th St, Indianapolis, IN",cz:["MEX"],la:39.78815,ln:-86.21170,w:"Order: Choripán (Argentine chorizo, chimichurri), empanadas, milanesas. Marcos Perera's westside Argentine counter near the Speedway — on Diners, Drive-Ins & Dives (Aug 2024) and Indianapolis Monthly's 2025 Best Restaurants.",s:[["MIRROR","https://mirrorindy.org/indy-westside-che-chori-diners-drive-ins-dives-guy-fieri/"],["WRTV","https://wrtv.com/news/local-news/local-argentinian-restaurant-chechori-to-appear-on-food-networks-diners-drive-ins-and-dives"],["INDYTODAY","https://indytoday.6amcity.com/culture/diners-drive-ins-and-dives-che-chori"],["WISH","https://wishtv.com/?p=1201100"]]},
+{t:1,a:"BRIP",n:"Pots & Pans Pie Co.",ad:"4915 N College Ave, Indianapolis, IN",cz:["PIE"],la:39.84334,ln:-86.14546,w:"Order: The Sugar Crème Brûlée Pie — a torched-top take on Hoosier sugar cream pie. Clarissa Morley's pie shop (farmers markets from 2016, storefront 2018) — the best place for sugar cream pie in the city today; on Indianapolis Monthly's 2025 Best Restaurants.",k:"Meridian-Kessler",g:["SHOP"],s:[["INDYTODAY","https://indytoday.6amcity.com/food/where-to-buy-the-perfect-pie-around-indianapolis"],["WRTV","https://www.wrtv.com/?p=2639852"],["FOX59","https://digital-release.fox59.com/indiana-news/indianapolis-bakery-named-best-place-for-pie-in-the-state"]]},
+{t:1,a:"BRIP",n:"Oakleys Bistro",ad:"1464 W 86th St, Indianapolis, IN",cz:["STEAK","US"],la:39.91402,ln:-86.18521,w:"Order: Steven Oakley's seasonal New American menu. Northside bistro Steven Oakley opened in 2002; Oakley was a James Beard Best Chef semifinalist four times (2008, 2011, 2018, 2019). Indianapolis Monthly Best Restaurant (2025).",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/four-james-beard-foundation-semifinalist-nominations-for-indianapolis/"],["IBJ","https://www.ibj.com/articles/72702-three-from-indianapolis-named-james-beard-semifinalists"],["VISITINDY","https://www.visitindy.com/directory/oakleys-bistro/"],["WRTV","https://www.wrtv.com/?p=2639852"]]},
+{t:1,a:"DTN",n:"Sun King Brewing",ad:"135 N College Ave, Indianapolis, IN",cz:["BREW"],la:39.76903,ln:-86.14482,w:"Order: Sunlight Cream Ale and Osiris Pale Ale in the production-floor taproom. Indianapolis' largest brewery (2009) in the Cole-Noble district by Lockerbie — all-ages taproom with 25+ taps and tours.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Sun_King_Brewing"],["DOWNTOWNINDY","https://downtownindy.org/go/sun-king-brewing-co"],["IBJ","https://www.ibj.com/articles/49082-sun-king-plans-8-8m-brewery-tasting-room-in-fishers"]]},
+{t:2,a:"EAST",n:"King Dough",ad:"452 N Highland Ave, Indianapolis, IN 46202",cz:["ITAL"],la:39.77393,ln:-86.13743,w:"Order: Wood-fired sourdough pies, the hot-honey pizza. Wood-oven sourdough pizza in a rehabbed Holy Cross building on the near east side — an Indianapolis Monthly Best Restaurant.",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/review-king-dough/"],["IBJ","https://www.ibj.com/blogs/property-lines/71353-king-dough-restaurant-coming-to-long-vacant-holy-cross-property"],["WISH","https://wishtv.com/?p=1002185"]]},
+{t:2,a:"WEST",n:"Saigon Restaurant (Pho Saigon)",ad:"4760 W 38th St, Indianapolis, IN",cz:["ASIAN"],la:39.82438,ln:-86.23969,w:"Order: Pho with a medium-bodied, gently spiced broth; hu tieu noodle soups. One of the longest-running Asian kitchens in the city, on the International Marketplace's 38th Street edge — Indianapolis Monthly's top-five pho and a fixture of every Indy pho guide.",g:["SHOP"],s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/top-five-phos/"],["INDYTODAY","https://indytoday.6amcity.com/food/pho-restaurants-indianapolis"],["WRTV","https://www.wrtv.com/entertainment/inside-indy/food/where-to-eat-pho-in-indianapolis"],["NUVO","https://www.nuvo.net/food/a-return-to-saigon/article_5a9efdfc-9451-11e8-9c36-bbc24a5dde51.html"]]},
+{t:2,a:"NORTH",n:"Four Day Ray Brewing",ad:"11671 Lantern Rd, Fishers, IN",cz:["BREW","HOOS"],la:39.95818,ln:-86.01370,w:"Order: The massive breaded tenderloin and house beers. Fishers brewpub whose scratch kitchen anchors Hamilton County's Tenderloin Tuesdays — Axios followed the tenderloin trail here in 2025.",k:"Fishers",s:[["AXIOS","https://www.axios.com/local/indianapolis/2025/10/27/taking-the-tenderloin-trail-to-four-day-ray"],["FOX59","https://digital-release.fox59.com/instagram/foodie-spotlight-four-day-ray"],["OFFICIAL","https://fishersin.gov/four-day-ray-brewing/"]]},
+{t:2,a:"BRIP",n:"The Jazz Kitchen",ad:"5377 N College Ave, Indianapolis, IN 46220",cz:["BREW","SOUL"],la:39.85084,ln:-86.14558,w:"Order: Dinner with a live jazz set. Jazz club and restaurant at 54th & College since 1994 — Indy's flagship jazz room, keeping the Indiana Avenue tradition alive.",k:"SoBro",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Jazz_Kitchen"],["INDYENCYCLOPEDIA","https://indyencyclopedia.org/jazz-kitchen/"],["IBJ","https://www.ibj.com/articles/47915-indy-s-musical-roots-remain-alive-at-jazz-kitchen"],["VISITINDY","https://www.visitindy.com/directory/the-jazz-kitchen/"]]},
+{t:1,a:"MASS",n:"Kountry Kitchen Soul Food Place",ad:"1831 N College Ave, Indianapolis, IN",cz:["SOUL"],la:39.79197,ln:-86.14453,w:"Order: Fried chicken, smothered pork chops, greens and mac and cheese. Near-northside soul food landmark — Barack Obama lunched here on the 2008 campaign and Shaquille O'Neal called it the best soul food ever. Rebuilt on its original site after a 2020 fire, with the 910 North event hall.",s:[["IBJ","https://www.ibj.com/articles/kountry-kitchen-owners-break-ground-for-new-restaurant-at-original-site"],["FOX59","https://digital-release.fox59.com/news/shaquille-oneal-dubs-indys-kountry-kitchen-the-best-soul-food-spot-ever"],["WISH","https://wishtv.com/?p=755630"],["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/the-feed-kountry-kitchen-west-coast-nook-and-more/"]]},
+{t:1,a:"DTN",n:"Julieta Taco Shop",ad:"1060 N Capitol Ave, Suite 1-103 (Stutz courtyard), Indianapolis, IN",cz:["MEX"],la:39.78167,ln:-86.16194,w:"Order: Al pastor and carnitas on nixtamalized corn tortillas; the broccolini taco. Counter-service taqueria tucked into the Stutz building courtyard (Esteban Rosas & Gabriel Sañudo) — fresh masa tortillas, rotating tacos, lunch only. Named Indiana's best hole-in-the-wall taco joint (Cheapism) and on a national top-100 taco list.",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/restaurants-2024/best-restaurants-2024-julieta-taco-shop/"],["FOX59","https://digital-release.fox59.com/indiana-news/delicioso-2-indy-taco-spots-land-in-national-top-100-list"],["CHEAPISM","https://www.aol.com/finance/best-hole-wall-taco-joint-140000228.html"]]},
+{t:1,a:"MASS",n:"Coat Check Coffee",ad:"401 E Michigan St (The Athenaeum), Indianapolis, IN",cz:["COF","PIE"],la:39.77333,ln:-86.15028,w:"Order: Pistachio latte (house pistachio orgeat, rose water, lemon peel); currywurst croissant. Three-level café in the Athenaeum's old coat-check rooms — grand staircase, stained glass, German-leaning pastries; its pistachio latte is a cult order among Indy coffee people.",k:"Lockerbie",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/indys-most-buzzworthy-coffee/"],["AXIOS","https://www.axios.com/local/indianapolis/2023/04/07/indianapolis-coffee-shops-remote-work"]]},
+{t:1,a:"WEST",n:"Guggman Haus Brewing Co.",ad:"1701 Gent Ave, Indianapolis, IN",cz:["BREW"],la:39.79053,ln:-86.18246,w:"Order: German-style lagers and 15+ house beers with a walk-up kitchen in the beer garden. Family-run near-westside microbrewery on a site steeped in racing history, with a year-round beer garden — voted Indy's Best Brewery (FOX59, 2022) and named among the city's leading breweries by Axios.",s:[["FOX59","https://fox59.com/morning-news/indys-best/guggman-haus-brewing-co-wins-indys-best-brewery/"],["AXIOS","https://www.axios.com/local/indianapolis/2023/10/10/indianapolis-brewery-tour-best-craft-beer"],["IBJ","https://www.ibj.com/blogs/property-lines/74046-guggman-haus-brewing-co-opens-on-near-west-side"]]},
+{t:2,a:"FSQ",n:"Metazoa Brewing Co.",ad:"140 S College Ave, Indianapolis, IN",cz:["BREW"],la:39.76421,ln:-86.14594,w:"Dog-friendly brewery with its own dog park off South College Ave that gives 5% of profits to animal and wildlife groups; its Hoppopotamus IPA is on taps all over town. Indianapolis Monthly Best New Breweries.",k:"Fletcher Place",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/drinks/best-new-breweries-metazoa/"],["AXIOS","https://www.axios.com/local/indianapolis/2023/10/10/indianapolis-brewery-tour-best-craft-beer"],["DOWNTOWNINDY","https://downtownindy.org/go/metazoa-brewing-company"]]},
+{t:1,a:"EAST",n:"Strange Bird",ad:"128 S Audubon Rd, Indianapolis, IN 46219",cz:["BREW","ASIAN","US"],la:39.76803,ln:-86.07086,w:"Order: Tiki rum cocktails, oysters, scratch ramen; fried shiitakes with black-vinegar honey. Irvington rum-and-oyster bar (2019) from the Warner brothers with Love Handle's Benedyks — woven walls, hanging plants, deep rum list, oysters and house ramen. Indianapolis Monthly Best Restaurants 2026; Imbibe's where-to-drink-in-Indianapolis pick.",k:"Irvington",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/reviews/review-strange-bird/"],["WISH","https://wishtv.com/gr8comeback/gr8-comeback-strange-bird-tiki-bar-comes-to-irvington"],["IMBIBE","https://imbibemagazine.com/?p=92839"]]},
+{t:2,a:"FSQ",n:"Monti Aperitivo & Cucina",ad:"1110 Shelby St, Indianapolis, IN",cz:["ITAL","BREW"],la:39.75190,ln:-86.14000,w:"Order: Spritzes and vermouth; house focaccia and scratch pasta. Fountain Square aperitivo bar and trattoria modelled on Rome's Monti district (from Bovaconti Coffee's Minda Balcius; chef Francesco Settanni) — vermouth-forward bar, focaccia, scratch pasta, gelato. Indianapolis Monthly Best Restaurants 2026.",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/the-best-restaurants-of-2026/"],["VISITINDY","https://www.visitindy.com/directory/monti-aperitivo-cucina/"]]},
+{t:3,a:"WEST",n:"Al-Rayan Restaurant & Bakery",ad:"4857 W 38th St, Indianapolis, IN",cz:["MED","PIE"],la:39.82307,ln:-86.24268,w:"Order: Arabian Peninsula (Yemeni) plates and its own bakery breads. International Marketplace restaurant-bakery cooking the food of the Arabian Peninsula — a stop on WRTV's tour of the 80-restaurant Lafayette Rd/38th St corridor and on Visit Indiana's International Marketplace guide.",k:"International Marketplace",g:["SHOP"],s:[["WRTV","https://www.wrtv.com/lifestyle/food/take-a-tour-of-indianapolis-international-marketplace-full-of-global-cuisine"],["VISITINDIANA","https://visitindiana.in.gov/blog/post/international-marketplace-indy/"]]},
+{t:2,a:"WEST",n:"King Wok",ad:"4150 Lafayette Rd, Indianapolis, IN",cz:["ASIAN"],la:39.83011,ln:-86.24181,w:"Order: Pho with a light, pristine broth; made-to-order stir-fries and noodle dishes. Lafayette Road Vietnamese long applauded by Indy pho devotees — Indianapolis Monthly's 'Star Player' in its Top Five Phos, and first on WRTV's where-to-eat-pho list.",k:"International Marketplace",g:["SHOP"],s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/top-five-phos/"],["WRTV","https://www.wrtv.com/entertainment/inside-indy/food/where-to-eat-pho-in-indianapolis"]]},
+{t:3,a:"SOUTH",n:"Egg Roll #1 (Pho #1)",ad:"4540 S Emerson Ave, Indianapolis, IN",cz:["ASIAN"],la:39.70104,ln:-86.08337,w:"Order: Egg rolls and pho. Southeast-side Vietnamese counter on Emerson Ave — an Indianapolis Monthly 'Cheap Eats' pick and on WRTV's where-to-eat-pho list.",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/cheap-eats-24-wallet-friendly-indy-restaurants/"],["WRTV","https://www.wrtv.com/entertainment/inside-indy/food/where-to-eat-pho-in-indianapolis"]]},
+{t:2,a:"FSQ",n:"The Commodore",ad:"1107 Prospect St (Fountain Square Theatre Building), Indianapolis, IN",cz:["BREW"],la:39.75210,ln:-86.13960,w:"Order: Clarified milk punches. Signless speakeasy lounge inside the rambling 1928 Fountain Square Theatre Building — leather sofas, dim light and top-notch cocktails (Imbibe; Indianapolis Monthly's pandemic-era cocktail-bar openings).",k:"Fountain Square",s:[["IMBIBE","https://imbibemagazine.com/where-to-drink-in-indianapolis/"],["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/four-indy-cocktail-bars-that-opened-their-doors-during-the-pandemic/"]]},
+{t:2,a:"MID",n:"Tinker Coffee — The Firehouse",ad:"5555 N Illinois St, Indianapolis, IN",cz:["COF"],la:39.85367,ln:-86.15916,w:"Order: House-roasted Tinker coffee by day; beer, wine and low-ABV cocktails with shareables after 4 pm. Indy roaster Tinker Coffee's café in Butler-Tarkington's 1932 Station 16 firehouse (ex-Chalet) — the Market Street café menu in the morning, a casual dinner-and-drinks room from 4 pm.",k:"Butler-Tarkington",g:["SHOP"],s:[["IBJ","https://www.ibj.com/articles/tinker-coffee-to-open-butler-tarkington-cafe-in-former-firehouse"],["AXIOS","https://www.axios.com/local/indianapolis/2024/10/29/tinker-coffee-butler-tarkington-cafe"],["WISH","https://wishtv.com/?p=1312547"]]},
+{t:2,a:"MID",n:"The Melody Inn",ad:"3826 N Illinois St, Indianapolis, IN",cz:["BREW"],la:39.82558,ln:-86.15947,w:"Order: Cheap beer and Saturday Punk Rock Night (since 2000). Butler-Tarkington dive that opened as a piano bar in 1935 (original floor, metalwork and back-bar mirror) — home of Punk Rock Night, the world's longest-running weekly punk showcase; 7,000+ acts since 2001.",k:"Butler-Tarkington",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Melody_Inn_(nightclub)"],["INDYMONTHLY","https://www.indianapolismonthly.com/best-bars/no-24-melody-inn/"],["IBJ","https://www.ibj.com/articles/22348-owners-enjoy-melody-inn-s-niche-as-well-worn-music-venue"]]},
+{t:2,a:"MID",n:"Hoagies & Hops (Chilly Water Taproom)",ad:"4155 Boulevard Pl, Indianapolis, IN",cz:["DELI","BREW"],la:39.83202,ln:-86.16385,w:"Order: Philly cheesesteak on South Jersey Liscio's rolls; hoagies with Chilly Water beer. Kristina Mazza's Southeast-Pennsylvania sandwich shop (2015) sharing a roof with Chilly Water's Butler-Tarkington taproom — imported South Jersey bread, Pennsylvania Dutch meats and sides.",k:"Butler-Tarkington",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/lifestyle/street-savvy-butler-tarkington/"],["WISH","https://wishtv.com/?p=885538"],["EDIBLEINDY","https://edibleindy.ediblecommunities.com/guide/hoagies-hops"]]},
+{t:2,a:"SOUTH",n:"Oaken Barrel Brewing Co.",ad:"50 N Airport Pkwy, Suite L, Greenwood, IN 46143",cz:["BREW"],la:39.61564,ln:-86.09050,w:"Order: Oaktoberfest (2016 Brewers' Cup gold, European Amber Lager). Indiana's second-oldest craft brewery (1994) — a Greenwood brewpub with family room, two bars and patio; celebrated 30 years on 4 July 2024.",k:"Greenwood",s:[["WRTV","https://www.wrtv.com/open/oaken-barrels-kwang-casey-on-beer-owning-the-states-second-oldest-brewery-aapi-heritage-month"],["NUVO","https://www.nuvo.net/beerbuzz/in-2024-indianas-craft-breweries-are-celebrating-momentous-anniversaries/article_a1125310-3fae-11ef-9b04-9f52ebcaaf37.html"]]},
+{t:1,a:"NORTH",n:"Field Brewing",ad:"303 E Main St, Westfield, IN",cz:["BREW","US"],la:40.04252,ln:-86.12478,w:"Order: Crispy lamb ribs with chimichurri; maple-bacon Brussels sprouts; house beers. Westfield's chef-driven brewpub (2018) — ex-Cerulean/Bluebeard chef Alan Sternberg, twice a James Beard Rising Chef nominee, runs the kitchen beside the Dikos family's house brews. Indianapolis Monthly Best Restaurants 2026.",k:"Westfield",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/reviews/review-field-brewing"],["CURRENT","https://www.youarecurrent.com/?p=168517"],["TOWNEPOST","https://townepost.com/indiana/westfield/field-brewing/"]]},
+{t:2,a:"NORTH",n:"Bub's Burgers & Ice Cream",ad:"210 W Main St, Carmel, IN 46032",cz:["US","PIE"],la:39.97854,ln:-86.13001,w:"Order: The Big Ugly — a one-pound fully loaded burger (Man v. Food challenge). Carmel Arts & Design District burger joint whose one-pound 'Big Ugly' earned a Man v. Food challenge (Adam Richman tapped out on the third) and a wall of fame for finishers; house ice cream too.",k:"Carmel",s:[["IBJ","https://www.ibj.com/articles/22040-eateries-cash-in-on-tv-appearance"],["VISITINDIANA","https://visitindiana.in.gov/blog/post/bubs-burgers-ice-cream/"]]},
+{t:1,a:"MASS",n:"Goose the Market",ad:"2503 N Delaware St, Indianapolis, IN 46205",cz:["DELI"],la:39.80318,ln:-86.15296,w:"Order: The Batali — Smoking Goose coppa, soppressata and capocollo with provolone and giardiniera. Chris Eley's butcher-and-charcuterie market in Herron-Morton Place, birthplace of Smoking Goose Meatery (2011); its Batali sandwich is one of Indianapolis Monthly's 25 Essential Eats and Bon Appétit ranked it among the top ten sandwich shops in the US.",k:"Herron-Morton Place",g:["SHOP"],s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/the-25-essential-eats-of-indy/"],["CURRENT","https://www.youarecurrent.com/?p=197240"],["NUVO","https://www.nuvo.net/food/indys-table-a-look-behind-the-scenes-at-goose-the-market/article_03e2b2d7-a49f-520d-91b9-348d1dadc2da.amp.html"],["VISITINDY","https://www.visitindy.com/directory/goose-the-market/"]]},
+{t:2,a:"BRIP",n:"Broad Ripple Brewpub",ad:"842 E 65th St, Indianapolis, IN 46220",cz:["BREW"],la:39.87360,ln:-86.14285,w:"Order: English-style house ales; pub fare in a converted auto-parts store. Indiana's first brewpub (opened 14 Nov 1990 by Englishman John Hill) and the state's oldest operating brewery — the place that spurred Indiana's craft-beer industry; 35th birthday in 2025.",k:"Broad Ripple",s:[["VISITINDIANA","https://visitindiana.in.gov/blog/post/indianas-first-brewpub-is-celebrating-a-big-birthday-in-2025/"],["NUVO","https://www.nuvo.net/beerbuzz/cheers-to-30-years-how-broad-ripple-brew-pub-spurred-indiana-s-craft-beer-industry/article_ac00312a-25bd-11eb-ba3e-9b370d710a91.html"],["BREWERMAG","https://thebrewermagazine.com/the-early-changes-that-indianas-1st-brewpub-had-to-make-to-thrive/"]]},
+{t:1,a:"BRIP",n:"Fernando's Mexican & Brazilian Cuisine",ad:"834 E 64th St, Indianapolis, IN",cz:["MEX"],la:39.87263,ln:-86.14316,w:"Order: Feijoada (weekends), Sinaloa tacos, crawfish quesadilla, caipirinhas. Broad Ripple Latin kitchen from Cristiano Rodrigues (Brazil) and Elizabeth Fernandez (Mexico), named for their son — the Brazilian dishes are Rodrigues's mother's recipes, and she runs the kitchen. Indianapolis Monthly Best Restaurants 2024, 2025 and 2026; a second location opened on Mass Ave.",k:"Broad Ripple",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/best-restaurants/best-restaurants-2025-fernandos-julieta/"],["IBJ","https://www.ibj.com/articles/fernandos-mexican-brazilian-cuisine-to-add-mass-ave-location"],["TOWNEPOST","https://townepost.com/indiana/north-indy/a-cross-culture-success/"]]},
+{t:2,a:"BRIP",n:"Delicia",ad:"5215 N College Ave, Indianapolis, IN",cz:["MEX"],la:39.84738,ln:-86.14528,w:"Order: Ancho-peach glazed pork medallions; barbacoa with cilantro-lime crema; sancocho amuse-bouche. SoBro New Latin restaurant from the Northside Social group in a converted video store — Caribbean, Cuban and Dominican-inflected seafood and sauced meats; rave reviews from both Indianapolis Monthly and the IBJ.",k:"SoBro",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/mas-appeal-a-review-of-delicia/"],["IBJ","https://www.ibj.com/articles/41813-dining-delicia-lives-up-to-the-name"],["AXIOS","https://www.axios.com/local/indianapolis/2026/08/24/best-devour-summerfest-menus-every-budget-downtown-carmel-broad-ripple"]]},
+{t:2,a:"EAST",n:"Jockamo Upper Crust Pizza",ad:"5646 E Washington St, Indianapolis, IN",cz:["ITAL"],la:39.77093,ln:-86.07069,w:"Order: Extra-crisp crust pies like the Slaughterhouse Five; weekend huevos rancheros pizza. Mick McGrath's Irvington pizzeria (2007) that helped revive the neighbourhood — extra-crisp crusts and offbeat combos; Thrillist named it Indiana's best pizzeria and Reader's Digest's state pick followed (FOX59).",k:"Irvington",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/eat-sheet-jockamos-upper-crust-mug/"],["FOX59","https://digital-release.fox59.com/indiana-news/this-is-the-best-pizza-in-indiana-according-to-readers-digest/amp"],["TOWNEPOST","https://townepost.com/indiana/geist/jockamo-upper-crust-pizza-inspires-loyalty-customers-staff/"]]},
+{t:2,a:"FSQ",n:"Hotel Tango Distillery",ad:"702 Virginia Ave, Indianapolis, IN 46203",cz:["BREW"],la:39.75753,ln:-86.14487,w:"Order: Its own house-distilled spirits, poured in tasting-room cocktails. Fletcher Place micro-distillery — the first service-disabled, combat-veteran-owned artisan distillery in the US — with a tasting room pouring its own spirits; one of the openings that turned Fletcher Place into a food-and-drink district.",k:"Fletcher Place",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/drinks/hotel-tango/"],["IBJ","https://www.ibj.com/property-lines-scott-olson/47048-micro-distillery-opening-in-fletcher-place-neighborhood"],["VISITINDY","https://www.visitindy.com/listing/hotel-tango-distillery/233862/"]]},
+{t:1,a:"DTN",n:"Harry & Izzy's",ad:"153 S Illinois St, Indianapolis, IN",cz:["US","STEAK"],la:39.76453,ln:-86.15985,w:"Order: St. Elmo's shrimp cocktail (the fiery horseradish sauce) and steaks in a less formal room. St. Elmo's sister restaurant and next-door neighbour (1997) — an upscale American grill that shares St. Elmo's famous shrimp cocktail and steaks with a broader menu around a lively bar. On Indianapolis Monthly's Swoon List.",k:"Wholesale District",s:[["DOWNTOWNINDY","https://downtownindy.org/go/harry-and-izzys"],["VISITINDY","https://www.visitindy.com/directory/harry-izzys/"],["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/swoon-list-harry-izzys-the-loft-at-traders-point-and-more/"],["WTHR","https://www.wthr.com/article/news/local/harry-and-izzys-open/531-b3538cc5-947d-4d81-abda-3928a4ecafee"]]},
+{t:2,a:"DTN",n:"1933 Lounge by St. Elmo",ad:"127 S Illinois St (2nd floor of St. Elmo Steak House), Indianapolis, IN",cz:["BREW","STEAK"],la:39.76482,ln:-86.15964,w:"Order: St. Elmo shrimp cocktail and filet sliders with Prohibition-era cocktails. St. Elmo's upstairs lounge, named for the year Prohibition ended — brick walls, an 1898 back bar, the famous shrimp cocktail and filet sliders with classic cocktails. Indianapolis Monthly's No. 5 best bar.",k:"Wholesale District",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/drinks/no-5-1933-lounge/"],["FOX59","https://fox59.com/morning-news/where-is-sherman/where-is-sherman-1933-lounge-by-st-elmo/"],["VISITINDY","https://www.visitindy.com/blog/post/hidden-gems-five-speakeasies-to-visit-in-indianapolis-2/"]]},
+{t:1,a:"DTN",n:"Prime 47",ad:"47 S Pennsylvania St (Majestic Building), Indianapolis, IN",cz:["STEAK"],la:39.76586,ln:-86.15606,w:"Order: Wet-aged prime filet with horseradish–bleu cheese crust; Cajun New York strip. Locally owned steakhouse in the Romanesque Revival Majestic Building, named for its street number — Indianapolis Monthly's 'Indy's Great Steakhouses' pick; WISH has called it Indy's No. 1 steakhouse.",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/indys-great-steakhouses-prime-47/"],["WISH","https://wishtv.com/lifestylelive/prime-47-indys-1-steakhouse/"]]},
+{t:2,a:"DTN",n:"The Eagle's Nest",ad:"Hyatt Regency Indianapolis (rooftop), 1 S Capitol Ave, Indianapolis, IN",cz:["US","STEAK"],la:39.76631,ln:-86.16143,w:"Order: Steaks and seafood in Indiana's only revolving rooftop dining room. Rotating restaurant atop the 22-storey Hyatt Regency since 1977 — one of fewer than two dozen revolving rooftop restaurants left in North America; 360° views of downtown.",s:[["IBJ","https://www.ibj.com/articles/25865-eagle-s-nest-is-a-survivor-among-rooftop-eateries"],["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/mini-review-the-eagles-nest/"],["WRTV","https://www.wrtv.com/news/local-news/5-best-places-for-a-rooftop-view-of-indy"]]},
+{t:2,a:"DTN",n:"Nesso Italian Kitchen",ad:"339 S Delaware St (The Alexander hotel), Indianapolis, IN",cz:["ITAL"],la:39.76180,ln:-86.15451,w:"Order: Coastal Italian pastas (clams-and-broccolini linguine); regional Italian wine list. Coastal-Italian dining room in The Alexander hotel from Cunningham Restaurant Group — scratch pasta and one of Indiana's deepest Italian wine lists (Wine Spectator Award of Excellence 2025).",k:"CityWay",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/reviews/our-review-nesso-coastal-italia/"],["FOX59","https://fox59.com/morning-news/eating-around-indy/nesso-features-fresh-coastal-italian-in-this-weeks-foodie-spotlight/"],["WISH","https://www.wishtv.com/lifestyle/all-indiana/indianapolis-patio-menu-nesso/"]]},
+{t:2,a:"DTN",n:"Taxman CityWay",ad:"310 S Delaware St (CityWay), Indianapolis, IN",cz:["BREW"],la:39.76291,ln:-86.15480,w:"Order: Belgian-style frites and Liège waffles with Taxman's Belgian-style house beers. Taxman Brewing's downtown gastropub and beer garden in an 1800s livery building in CityWay — Indiana-beef burgers, Belgian frites, 20 house drafts.",k:"CityWay",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/introducing-taxman-cityway/"],["IBJ","https://www.ibj.com/articles/71174-taxman-brewing-to-open-restaurantbar-in-historic-downtown-building"],["VISITINDY","https://www.visitindy.com/directory/taxman-cityway/"]]},
+{t:2,a:"DTN",n:"Iozzo's Garden of Italy",ad:"946 S Meridian St, Indianapolis, IN",cz:["ITAL"],la:39.75425,ln:-86.15932,w:"Order: Family-recipe red-sauce Italian (meatballs, lasagna) from a 1930 lineage. Revival (2009) of Indianapolis's first full-service Italian restaurant, opened by Santora 'Fred' Iozzo in 1930 — his great-granddaughter cooks the family recipes in a near-south-side room by Lucas Oil Stadium.",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/the-feed-6/new-restaurants-closures-indianapolis-may/"],["WISH","https://www.wishtv.com/gr8comeback/gr8-comeback-iozzos-garden-of-italy-continues-90-year-tradition-in-downtown-indianapolis/"],["FOX59","https://fox59.com/news/foodie-spotlight-iozzos-garden-of-italy-brings-traditional-recipes-old-world-style-to-circle-city/"]]},
+{t:2,a:"DTN",n:"Spoke & Steele",ad:"123 S Illinois St (Le Méridien), Indianapolis, IN",cz:["US"],la:39.76509,ln:-86.15979,w:"Order: Dry-aged Duroc pork chop; the Spoke Burger; barrel-aged cocktails. Le Méridien's racing-themed, mid-century-modern restaurant and bar — Midwestern comfort food done ambitiously, with barrel-aged cocktails at a brass-edged bar.",k:"Wholesale District",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/cool-comfort-review-spoke-steele/"],["FOX59","https://fox59.com/instagram/foodie-spotlight-spoke-steele/"],["WISH","https://www.wishtv.com/news/chef-greg-hardesty-cooks-up-his-famous-spoke-burger/"],["EDIBLEINDY","https://edibleindy.ediblecommunities.com/eat/le-m-ridien-and-spoke-steele-where-class-meets-comfort"]]},
+{t:2,a:"DTN",n:"The Hulman",ad:"Hotel Indy, 141 E Washington St, Indianapolis, IN",cz:["US","ITAL"],la:39.76667,ln:-86.15475,w:"Order: House pastas (short-rib spaccatelli); tableside king-crab bisque. Hotel Indy's 52-seat restaurant named for the Hulman family of the Speedway — chef Patrick Russ (ex-Next, Chicago) makes the pastas and sausages in house; Indianapolis Monthly 3 stars.",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/hotel-indys-driving-force-is-the-hulman/"],["WISH","https://www.wishtv.com/lifestyle/lifestylelive/the-hulman-at-hotel-indy-showcases-restaurants-amazing-food-connection-to-ims-museum/"],["IBJ","https://www.ibj.com/articles/hulman-new-downtown-restaurant"]]},
+{t:3,a:"DTN",n:"Cannon Ball Rooftop Lounge",ad:"Hotel Indy (6th floor), 141 E Washington St, Indianapolis, IN",cz:["BREW"],la:39.76667,ln:-86.15475,w:"Order: Indy-inspired cocktails and Midwest bites on an open-air rooftop. Sixth-floor open-air rooftop bar at Hotel Indy named for racer Erwin 'Cannon Ball' Baker — a slight Art Deco feel and some of the best downtown skyline views.",s:[["VISITINDY","https://www.visitindy.com/directory/cannon-ball-rooftop-lounge-at-hotel-indy/"],["AXIOS","https://www.axios.com/local/indianapolis/2025/04/11/astrea-intercontinental-hotel-indy-rooftop-bar-lineup"],["INDYMONTHLY","https://www.indianapolismonthly.com/lifestyle/5-things-we-love-about-hotel-indy/"]]},
+{t:1,a:"MASS",n:"Bazbeaux Pizza",ad:"329 Massachusetts Ave, Indianapolis, IN",cz:["ITAL"],la:39.77145,ln:-86.15360,w:"Order: Quattro Formaggi pie; thin crust with pine nuts, prosciutto and a mozzarella–provolone–pecorino blend. Indy's pizza institution since 1986 (Broad Ripple), on Mass Ave since 1989 — 'consistently local pizza lovers' favorite', with a string of Best of Indy titles; named Indiana's best family pizza joint.",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/restaurant-guide/pizza-1/bazbeaux/"],["IBJ","https://www.ibj.com/articles/58933-morris-eating-bazbeaux-pizza-never-gets-old"],["WISH","https://www.wishtv.com/lifestylelive/bazbeaux-pizza-celebrates-30-years-in-indy/"],["FOX59","https://fox59.com/indiana-news/indianapolis-institution-named-best-family-pizza-joint-in-the-state/"]]},
+{t:2,a:"MASS",n:"Bru Burger Bar",ad:"410 Massachusetts Ave, Indianapolis, IN",cz:["US"],la:39.77327,ln:-86.15211,w:"Order: Three-meat (sirloin, chuck, brisket) burger; the Bru Burger with taleggio and tomato jam. Mass Ave burger bar from Cunningham Restaurant Group — Reader's Digest named it Indiana's best burger; Indianapolis Monthly Best of Indy No. 9.",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/best-of-indy/no-9-bru-burger-bar/"],["FOX59","https://fox59.com/indiana-news/readers-digest-names-bru-burger-the-best-burger-in-indiana/"],["IBJ","https://www.ibj.com/articles/31809-dining-et-tu-bru"],["WISH","https://www.wishtv.com/focus-on-food/focus-on-food-stories/indianapolis-best-burger-restaurants-march-2025/"]]},
+{t:2,a:"MASS",n:"Bakersfield Mass Ave",ad:"334 Massachusetts Ave, Indianapolis, IN",cz:["MEX"],la:39.77198,ln:-86.15359,w:"Order: Achiote-braised pork tacos; 100 tequilas and bourbons. Late-night taco-tequila-whiskey bar of timbers, barrels and Edison bulbs — on Indianapolis Monthly's 25 Best Tacos list.",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/the-25-best-tacos-in-indianapolis/"],["WISH","https://www.wishtv.com/lifestyle/bakersfield-cinco-de-mayo-event/"],["VISITINDY","https://www.visitindy.com/neighborhoods/mass-ave/"]]},
+{t:2,a:"MASS",n:"St. Joseph Brewery & Public House",ad:"540 N College Ave, Indianapolis, IN",cz:["BREW"],la:39.77495,ln:-86.14564,w:"Order: Confessional IPA brewed where the pulpit stood. Brewpub inside a 135-year-old former Catholic church — a bar built from old pews and floor joists, the brewhouse where the altar was, award-winning Confessional IPA.",k:"St. Joseph",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/making-amens-review-st-joseph-brewery-public-house/"],["WISH","https://www.wishtv.com/news/bibles-traded-for-beers-at-st-josephs-brewery/"],["VISITINDY","https://www.visitindy.com/directory/st-joseph-brewery-public-house/"]]},
+{t:1,a:"SOUTH",n:"Napoli Villa",ad:"758 Main St, Beech Grove, IN",cz:["ITAL"],la:39.72179,ln:-86.09079,w:"Order: Three generations of family-recipe Italian (lasagna, veal, house sauce). Family-run Italian dining room founded in 1960 by military chef Guerino and on Beech Grove's Main Street since 1962 — one of Indianapolis's best locally owned Italian restaurants.",k:"Beech Grove",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/lifestyle/beech-grove-main-street-attractions/"],["WRTV","https://www.wrtv.com/open/were-open-indy-napoli-villa-open-in-beech-grove-since-1962"],["VISITINDY","https://www.visitindy.com/directory/napoli-villa/"]]},
+{t:1,a:"SOUTH",n:"The Suds",ad:"350 Market Plaza, Greenwood, IN",cz:["US"],la:39.61129,ln:-86.11085,w:"Order: Root beer floats, coney dogs and burgers from carhops. 1957 Dog 'n Suds drive-in (The Suds since 1973) keeping its '50s look and menu — open April to October, with Saturday cruise-ins of 200–300 classic cars; Car Craft named it a top-five US drive-in.",k:"Greenwood",s:[["IBJ","https://www.ibj.com/property-lines-scott-olson/1548-car-enthusiasts-saving-the-suds"],["DAILYJOURNAL","https://dailyjournal.net/?p=1805917"],["VISITINDIANA","https://visitindiana.in.gov/blog/post/indiana-drive-in-restaurants/"]]},
+{t:2,a:"SOUTH",n:"Burmese Restaurant",ad:"7040 Madison Ave, Indianapolis, IN",cz:["BURMA"],la:39.66402,ln:-86.12726,w:"Order: Laphet thoke (tea-leaf salad); mee goreng. Little-Burma counter on the Madison Ave corridor — tea-leaf salad and a light, flavorful Malaysian-style mee goreng; an Indianapolis Monthly Swoon List and best-appetizers pick.",k:"Little Burma",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/swoon-list-kountry-kitchen-burmese-restaurant/"],["CULINARYCROSSROADS","https://culinarycrossroads.org/welcome-to-little-burma-a-bit-of-asia-in-central-indiana/"]]},
+{t:2,a:"SOUTH",n:"Kimu Restaurant",ad:"1280 US Hwy 31 N, Greenwood, IN",cz:["BURMA"],la:39.63480,ln:-86.12707,w:"Greenwood Burmese kitchen serving Burmese breakfast, curries and pork with pickled mango to the south side's Chin and Burmese community.",k:"Greenwood",s:[["VISITINDY","https://www.visitindy.com/directory/kimu-restaurant/"],["CULINARYCROSSROADS","https://culinarycrossroads.org/welcome-to-little-burma-finding-authentic-flavors-of-asia-in-central-indiana/"]]},
+{t:2,a:"SOUTH",n:"Revery",ad:"299 W Main St, Greenwood, IN",cz:["US"],la:39.61357,ln:-86.10948,w:"Order: Bone marrow, pig tails and poutine; meatloaf reworked; Bar Rev cocktails in back. Progressive American gastropub that 'put Greenwood on the culinary map' in 2014 — ex-Mesh chefs cooking Indiana-raised meat in a historic Old Town building, with the dapper-divey Bar Rev behind. Indianapolis Monthly Best Restaurants 2018 / 25 Best (No. 24).",k:"Old Town Greenwood",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/revery-2018/"],["DAILYJOURNAL","https://dailyjournal.net/2025/10/09/greenwood-plans-designated-outdoor-refreshment-area-in-old-town/"],["VISITINDY","https://www.visitindy.com/directory/revery/"]]},
+{t:2,a:"SOUTH",n:"Brozinni Pizzeria",ad:"8810 S Emerson Ave, Ste 240, Indianapolis, IN",cz:["ITAL"],la:39.63896,ln:-86.08398,w:"Order: Fold-able New York–style slices; pan-baked Grandma pie; garlic knots. South-side New York–style pizzeria — fermented house dough, slices to fold like a New Yorker and a puffy Grandma pie. Indianapolis Monthly Best Restaurants 2025 and 25 Essential Eats.",k:"Southport",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/restaurant-guide/pizza-1/brozinni-pizzeria/"],["WTHR","https://www.wthr.com/article/news/local/brozinni-pizzeria-coming-to-speedway-indoor-karting-indiana-new-york-style-new-location/531-41319735-876c-47d3-bda1-2e0ef0980c2c"],["IBJ","https://www.ibj.com/articles/29187-inside-dish-pizzeria-novices-hit-their-stride-watch-sales-rise"],["WISH","https://www.wishtv.com/news/local-news/25-indy-pizza-joints-to-add-into-rotation-which-style-reigns-supreme/"]]},
+{t:2,a:"MID",n:"Tea's Me Cafe",ad:"3967 N Illinois St, Indianapolis, IN",cz:["COF"],la:39.82699,ln:-86.15887,w:"Order: Loose-leaf teas and breakfast; First Friday spoken word. Indy's premier tea bar for serious tea drinkers, owned by WNBA great and Fever legend Tamika Catchings — breakfast hours and a First Friday spoken-word series.",k:"Butler-Tarkington",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/teas_me_revist/"],["VISITINDY","https://www.visitindy.com/directory/teas-me-cafe-butler-tarkington/"]]},
+{t:1,a:"NORTH",n:"Anthony's Chophouse",ad:"201 W Main St, Carmel, IN",cz:["STEAK"],la:39.97823,ln:-86.12996,w:"Order: Single-sourced Greeley, Colorado corn-fed steaks; the original Glass Chimney bar. Glass-walled 9,000 sq ft Carmel steakhouse from the Ritz Charles family, white tablecloths and green velvet, with the bar salvaged from the beloved Glass Chimney. Indianapolis Monthly Best New Restaurants 2019; 'Face of Steaks' 2025.",k:"Carmel",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/reviews/review-anthonys-chophouse/"],["CURRENT","https://youarecurrent.com/2024/06/10/anthonys-chophouse-offers-lunch/"],["HAMILTONCOUNTY","https://www.visithamiltoncounty.com/cities/carmel/restaurants/"]]},
+{t:2,a:"NORTH",n:"Cheeky Bastards",ad:"11210 Fall Creek Rd, Indianapolis (Fishers), IN",cz:["US"],la:39.93487,ln:-85.95127,w:"Order: Fish and chips with house tartar; Yorkshire eggs; scones with clotted cream. British pub-and-tea-room near Geist doing the standards properly — fish and chips, Yorkshire eggs, cream tea. Indianapolis Monthly Best Restaurants 2024 & 2025.",k:"Geist",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/best-restaurants-2024-cheeky-bastards/"],["FOX59","https://fox59.com/indy-now/indy-restaurant-news-fishers-westfield/"]]},
+{t:2,a:"EAST",n:"The Med",ad:"5614 E Washington St, Indianapolis, IN",cz:["MED"],la:39.77095,ln:-86.07156,w:"Order: Falafel (Axios: some of Indy's best), gyros, baked lamb, spanakopita. Greek-Mediterranean kitchen in the old Legend Classic Irvington Cafe space — Axios rates its falafel among the city's best.",k:"Irvington",s:[["AXIOS","https://www.axios.com/local/indianapolis/2023/09/25/meatless-monday-the-med-irvington-indianapolis"],["WISH","https://www.wishtv.com/news/tasty-takeout-the-med-in-irvington/"],["IBJ","https://www.ibj.com/articles/mediterranean-restaurant-planned-for-former-site-of-the-legend-cafe-in-irvington"]]},
+{t:3,a:"EAST",n:"Rock-Cola 50s Cafe",ad:"5730 Brookville Rd, Indianapolis, IN",cz:["US","DELI"],la:39.75921,ln:-86.06882,w:"Order: Burgers, onion rings, flavored Cokes and cinnamon shakes. 900 sq ft checkered-floor '50s diner in a 1961 Peppy Grill building — a handful of booths and counter stools facing the flat-top. WRTV historic restaurants that still hold up; IM Cheap Eats.",s:[["WRTV","https://www.wrtv.com/lifestyle/food/7-historic-indianapolis-restaurants-that-have-stood-the-test-of-time"],["INDYMONTHLY","https://www.indianapolismonthly.com/restaurant-guide/diner-1/rock-cola-50s-cafe/"],["WISH","https://www.wishtv.com/news/dick-wolfsie-stops-by-rock-cola-50s-cafe/"],["VISITINDY","https://www.visitindy.com/directory/rock-cola-cafe/"]]},
+{t:1,a:"FSQ",n:"La Margarita",ad:"501 Virginia Ave, Indianapolis, IN",cz:["MEX"],la:39.75960,ln:-86.14792,w:"Order: Tacos and margaritas. Fountain Square's beloved family Mexican spot, which closed unexpectedly in early 2025 and rose again in July 2025 on Virginia Ave in Fletcher Place (ground floor of the Slate apartments).",k:"Fletcher Place",s:[["AXIOS","https://www.axios.com/local/indianapolis/2025/05/07/la-margarita-finds-new-home-in-fletcher-place"],["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/the-feed-6/the-feed-kan-kan-king-dough-la-margarita-reopens/"],["IBJ","https://www.ibj.com/articles/la-margarita-restaurant-to-move-to-factory-arts-district"]]},
+{t:2,a:"FSQ",n:"Siam Square",ad:"936 Virginia Ave, Indianapolis, IN",cz:["ASIAN"],la:39.75437,ln:-86.14186,w:"Order: Thai curries and noodle dishes. Ed Rudisell's locally owned Thai restaurant in historic Fountain Square, long rated one of Indy's best ethnic restaurants.",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/restaurant-guide/thai-1/siam-square/"],["IBJ","https://www.ibj.com/articles/2479-dining-iphone-app-leads-us-to-siam-square"],["VISITINDY","https://www.visitindy.com/directory/siam-square/"]]},
+{t:2,a:"WEST",n:"Dawson's on Main",ad:"1464 Main St, Speedway, IN",cz:["US","HOOS"],la:39.78614,ln:-86.24125,w:"Order: Breaded pork tenderloin (outsells everything else four to one). Speedway Main Street grill (Hill family, 2006) a few blocks from the Speedway — its Hoosier breaded tenderloin is the runaway best seller; a race-week institution.",k:"Speedway",s:[["WTHR","https://www.wthr.com/article/news/local/whats-cooking-dawsons-on-main/531-3bddb929-4a4d-441f-b6b6-97ce729a3981"],["FOX59","https://fox59.com/video/wheres-sherman-dawsons-on-main/8675118/"],["WISH","https://www.wishtv.com/sports/indy-500/10-off-track-escapes-for-local-flavor-on-speedways-main-street/"]]},
+{t:1,a:"BRIP",n:"Petite Chou Bistro & Champagne Bar",ad:"823 Westfield Blvd, Indianapolis, IN",cz:["US"],la:39.87049,ln:-86.14392,w:"Order: Crêpes, broken-yolk sandwich, the grilled cheese Axios calls perfect; Champagne by the glass. Martha Hoover's (6× James Beard semifinalist restaurateur) French neighbourhood bistro and Champagne bar in Broad Ripple — Zagat/Travel + Leisure top-10 US spots for iconic French food.",k:"Broad Ripple",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/petite-chou/"],["VISITINDY","https://www.visitindy.com/directory/petite-chou-bistro-champagne-bar/"],["FOX59","https://fox59.com/news/foodie-spotlight-petite-chou-bistro-and-champagne-bar/"],["AXIOS","https://www.axios.com/local/indianapolis/2024/11/18/grilled-cheese-petite-chou"]]},
+{t:1,a:"BRIP",n:"Mama Carolla's Old Italian Restaurant",ad:"1031 E 54th St, Indianapolis, IN",cz:["ITAL"],la:39.85086,ln:-86.14085,w:"Order: Homemade meatballs, steamed mussels, lasagna. Italian institution in a 1920s stucco house with a romantic terrace on 54th Street — Indianapolis Monthly 25 Essential Eats and FOX59's 'one of Indy's best'.",k:"SoBro",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/swoon-list-mama-carollas-hilltop-tavern-and-more/"],["VISITINDY","https://www.visitindy.com/directory/mama-carollas-old-italian-restaurant/"],["FOX59","https://fox59.com/news/foodie-spotlight-great-menu-exquisite-atmosphere-make-mama-carollas-one-of-indys-best/"],["WISH","https://www.wishtv.com/news/celebrate-national-lasagna-day-at-these-8-local-pasta-pushers/"]]},
+{t:2,a:"BRIP",n:"Twenty Tap",ad:"5406 N College Ave, Indianapolis, IN",cz:["US"],la:39.85130,ln:-86.14609,w:"Order: 40+ regional craft taps incl. house Twenty Below beers; soy-glazed pork belly, poutine. SoBro craft-beer pub with a 40-plus regional tap rotation and its owner's own Twenty Below brewery beers; reopened after a 2023 fire.",k:"SoBro",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/restaurant-guide/brewpub-1/twenty-tap/"],["VISITINDY","https://www.visitindy.com/directory/twenty-tap-twenty-below-brewing/"],["WISH","https://www.wishtv.com/news/twenty-tap-to-reopen-six-months-after-fire/"]]},
+{t:2,a:"BRIP",n:"Marrakesh Moroccan Cuisine and Bar",ad:"4923 N College Ave, Indianapolis, IN",cz:["MED","US"],la:39.84345,ln:-86.14548,w:"Order: Shrimp pil pil with chermoula; lamb shank tagine with apricots and almonds. French-Moroccan dining room and cocktail lounge in the old Sinking Ship dive bar (fall 2025) — Casablanca-born, French-trained chef Aziz Mountassar; its lamb tagine is already among the city's best lamb dishes (Indianapolis Monthly).",k:"Meridian-Kessler",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/marrakeshs-fills-space-on-college-avenue-with-french-moroccan-cuisine/"],["AXIOS","https://www.axios.com/local/indianapolis/2025/03/26/marrakesh-moroccan-restaurant-coming-soon-to-former-sinking-ship-location"],["VISITINDY","https://www.visitindy.com/directory/marrakesh-moroccan-cuisine-and-bar/"]]},
+{t:2,a:"MID",n:"Illinois Street Food Emporium",ad:"5550 N Illinois St, Indianapolis, IN",cz:["DELI","PIE"],la:39.85331,ln:-86.15977,w:"Order: Deli sandwiches and bakery case, Butler-Tarkington since 1979. Butler-Tarkington bakery-deli-café and community hangout since 1979 — taken over in August 2025 by a lifelong regular determined to keep it as it was.",k:"Butler-Tarkington",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/the-feed-6/illinois-street-food-emporium-sold-ocean-world-social-cantina/"],["WRTV","https://www.wrtv.com/news/local-news/in-your-community/north-side-indy/from-customer-to-owner-illinois-street-food-emporium-continues-legacy-under-lifelong-regular"],["WISH","https://www.wishtv.com/lifestyle/indy-food-emporium-tradition/"],["FOX59","https://fox59.com/morning-news/where-is-sherman/where-is-sherman-illinois-street-food-emporium/"]]},
+{t:2,a:"FSQ",n:"Kuma's Corner",ad:"1127 Prospect St, Indianapolis, IN",cz:["US"],la:39.75218,ln:-86.13878,w:"Order: Metal-band-named burgers and craft beer. Chicago's heavy-metal burger bar on the corner of Morris and Prospect — its first location outside Chicago; reopened after a fire.",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/restaurant-guide/burgers-1/kumas-corner/"],["IBJ","https://www.ibj.com/articles/54732-dining-at-the-intersection-of-meat-and-music-sits-kumas-corner"],["WISH","https://www.wishtv.com/news/local-news/kumas-corner-burger-restaurant-to-reopen-friday-after-october-fire/"],["WRTV","https://www.wrtv.com/open/kumas-corner-in-indy-is-keeping-it-rolling-following-temporary-closure-due-to-fire"]]},
+{t:2,a:"FSQ",n:"Easy Rider Diner",ad:"1043 Virginia Ave, Indianapolis, IN",cz:["US","DELI"],la:39.75259,ln:-86.14079,w:"Order: Southwest-leaning brunch plates and vegan brunch options. Scruffy rock-star diner from Hi-Fi/MOKB's Josh Baker in the historic G.C. Murphy Building, next to the Hi-Fi music venue — morning-to-night brunch with Southwestern flavours.",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/reviews/easy-rider-is-fountain-squares-latest-scruffy-rock-star-diner/"],["AXIOS","https://www.axios.com/local/indianapolis/2023/09/18/meatless-monday-easy-rider-fountain-square"],["WTHR","https://www.wthr.com/article/news/local/good-news/tell-us-your-good-news-easy-rider-diner-fountain-square-indianapolis/531-a1213cc6-df64-4f70-9c0b-3afa1cd1c03f"],["IBJ","https://www.ibj.com/articles/owners-of-hi-fi-music-venue-will-open-fountain-square-diner"]]},
+{t:3,a:"DTN",n:"Doc Crow's Southern Smokehouse and Raw Bar",ad:"130 S Pennsylvania St (Hyatt Place), Indianapolis, IN",cz:["SOUL","US"],la:39.76465,ln:-86.15666,w:"Order: House-rubbed smokehouse barbecue, raw-bar oysters, 750+ bourbons. Louisville's 16-year-old smokehouse-and-raw-bar opened its first Indiana outpost (May 2025) in the Hyatt Place across from Gainbridge Fieldhouse, in the old Pier 48 space — dry-rubbed barbecue and one of downtown's deepest bourbon walls.",k:"Wholesale District",s:[["INDYMONTHLY","https://www.indianapolismonthly.com/food-and-drinks/dining/the-feed-doc-crows-southern-smokehouse-and-raw-bar-opens-downtown/"],["WISH","https://www.wishtv.com/lifestyle/doc-crows-southern-smokehouse-indianapolis/"],["FOX59","https://fox59.com/indiana-news/kentucky-based-barbecue-restaurant-opening-downtown-indianapolis-location/"],["IBJ","https://www.ibj.com/articles/bbq-and-seafood-restaurant-expected-to-open-in-hyatt-place-hyatt-house-hotel"]]},
+{t:2,a:"FSQ",n:"Dugout Bar",ad:"621 Virginia Ave, Indianapolis, IN 46203",cz:["US","BREW"],la:39.75825,ln:-86.14644,w:"Order: Fried bologna sandwich and cheap domestics. Fletcher Place's 1954 neighbourhood bar on Virginia Ave's restaurant row — where the chefs and servers drink after their shifts; named Indiana's best dive bar.",s:[["WRTV","https://www.wrtv.com/lifestyle/food/food-on-the-flye-dugout-bars-fried-bologna-sandwich-is-calling-your-name"],["INDYMONTHLY","https://www.indianapolismonthly.com/featured/neighborhood-bars-south-side-of-indianapolis/"],["INDYTODAY","https://indytoday.6amcity.com/six-dive-bars-indianapolis-in"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('ind_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('ind_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('ind_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('ind_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Indianapolis IN')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {DTN:'#E8973A',MASS:'#C0504D',FSQ:'#8064A2',MID:'#4F81BD',BRIP:'#9BBB59',WEST:'#4BACC6',EAST:'#D4A017',NORTH:'#7E8FC4',SOUTH:'#A6588C'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([39.833,-86.1308],10);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle area labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Downtown", 39.7678, -86.1604], ["Mass Ave", 39.7795, -86.149], ["Fountain Square", 39.7564, -86.1437], ["Midtown", 39.8294, -86.1655], ["Broad Ripple", 39.8661, -86.1479], ["Speedway", 39.803, -86.2261], ["Irvington", 39.7839, -86.0859], ["North suburbs", 40.0004, -86.0776], ["South side", 39.6658, -86.1009]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('indianapolis-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('indianapolis-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('indianapolis-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. Indianapolis’s canon is its own: the breaded <b>pork tenderloin</b> sandwich, <b>sugar cream pie</b> (the Hoosier pie), <b>St. Elmo</b>’s horseradish-fired shrimp cocktail, <b>Shapiro’s</b> deli, persimmon pudding, fried biscuits &amp; apple butter, the <b>Burmese &amp; Chin</b> kitchens of the south side and the <b>International Marketplace</b>’s global corridor, sourced to IndyStar, Indianapolis Monthly and the IBJ. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
+  + '<span>Every place is traceable to a credible source — IndyStar, Indianapolis Monthly, the Indianapolis Business Journal, WFYI, Mirror Indy, Visit Indy, James Beard, NPS, Indiana DNR, Atlas Obscura and official sites — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 156 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+</body>
+</html>

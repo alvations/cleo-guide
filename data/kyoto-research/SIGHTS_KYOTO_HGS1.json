@@ -1,0 +1,247 @@
+{
+ "sources": [
+  {
+   "key": "JAPANGUIDE",
+   "name": "japan-guide.com",
+   "url": "https://www.japan-guide.com/"
+  },
+  {
+   "key": "KYOTOTOURISM",
+   "name": "Kyoto City Official Travel Guide",
+   "url": "https://kyoto.travel/"
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia",
+   "url": "https://en.wikipedia.org/"
+  },
+  {
+   "key": "UNESCO",
+   "name": "UNESCO World Heritage — Historic Monuments of Ancient Kyoto",
+   "url": "https://whc.unesco.org/en/list/688"
+  }
+ ],
+ "sights": [
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Kiyomizu-dera",
+   "address": "Kiyomizu, Higashiyama-ku, Kyoto, Japan",
+   "w": "Eastern Kyoto's hillside temple, famous for the wooden terrace with a view over the city; part of the UNESCO 'Historic Monuments of Ancient Kyoto'.",
+   "k": "06:00–18:00 (to 18:30 Jul–Aug); 500 yen",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "VIEW"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3901.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Higashiyama District (Sannenzaka & Ninenzaka)",
+   "address": "Higashiyama-ku, Kyoto, Japan",
+   "w": "One of Kyoto's best-preserved historic districts — narrow lanes, wooden buildings and merchant shops on the 20–30 minute walk from Kiyomizu-dera to Yasaka Shrine.",
+   "g": [
+    "ICON",
+    "CASTLE",
+    "MKT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3959.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Yasaka Shrine (Yasaka-jinja)",
+   "address": "Gionmachi, Higashiyama-ku, Kyoto, Japan",
+   "w": "Gion's great shrine, home of the Gion Matsuri every July for over a thousand years; busiest at cherry-blossom time beside Maruyama Park.",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3903.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Maruyama Park",
+   "address": "Higashiyama-ku, Kyoto, Japan",
+   "w": "Public park next to Yasaka Shrine; in early April Kyoto's most popular (and most crowded) hanami spot under the weeping cherry.",
+   "g": [
+    "NATURE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3925.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Gion & Hanamikoji",
+   "address": "Gion, Higashiyama-ku, Kyoto, Japan",
+   "w": "Kyoto's most famous geisha district, between Yasaka Shrine and the Kamo River — ochaya teahouses where geiko and maiko entertain.",
+   "g": [
+    "ICON",
+    "NIGHT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3902.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Kōdai-ji",
+   "address": "Shimogawara-chō, Higashiyama-ku, Kyoto, Japan",
+   "w": "Founded 1606 by Nene in memory of Toyotomi Hideyoshi; a tsukiyama pond garden of man-made hills, pine and maple. Its sub-temple Entoku-in adds two more Zen gardens.",
+   "g": [
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3927.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/K%C5%8Ddai-ji"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/travel-inspiration/how-to-avoid-the-crowds-while-accessing-kiyomizu-temple-and-higashiyama-areas/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Chion-in",
+   "address": "Higashiyama-ku, Kyoto, Japan",
+   "w": "Head temple of the Jōdo (Pure Land) sect; its Sanmon, 24 m tall and 50 m wide, is the largest wooden temple gate in Japan (early 1600s).",
+   "g": [
+    "TEMPLE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3928.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/ru/shrine_temple/151"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Shōren-in",
+   "address": "Awataguchi, Higashiyama-ku, Kyoto, Japan",
+   "w": "Tendai monzeki temple whose head priests were traditionally imperial; houses the National Treasure painting of the Blue Cetaka (Ao Fudō) and a garden attributed to Sōami.",
+   "g": [
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3954.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://prev.kyoto.travel/it/shrine_temple/160"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Kennin-ji",
+   "address": "Komatsu-chō (south of Gion), Higashiyama-ku, Kyoto, Japan",
+   "w": "Founded 1202 — the oldest Zen temple in Kyoto, ranked third of the city's five great Zen temples, just south of Gion.",
+   "g": [
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3973.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Hōkan-ji (Yasaka Pagoda)",
+   "address": "Yasaka, Higashiyama-ku, Kyoto, Japan",
+   "w": "The five-storey Yasaka Pagoda rising over the Higashiyama lanes on the walk up to Kiyomizu-dera.",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "VIEW"
+   ],
+   "sources": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/destinations/hokanji-templeyasaka-pagoda/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Yasaka_Pagoda"
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,237 @@
+{
+ "outlets": [
+  {
+   "key": "MICHELIN",
+   "name": "MICHELIN Guide Florida (Miami)",
+   "type": "guide",
+   "rank": 1,
+   "url": "https://guide.michelin.com/us/en/florida/miami/restaurants",
+   "credible": "International culinary authority; the Florida guide (since 2022) covers Miami/Fort Lauderdale with stars, Bib Gourmand and Recommended. A single distinction is institutional ground truth."
+  },
+  {
+   "key": "MICHELIN_BIB",
+   "name": "MICHELIN Bib Gourmand (Florida)",
+   "type": "guide",
+   "rank": 1,
+   "url": "https://guide.michelin.com/us/en/florida/miami/restaurants/bib-gourmand",
+   "credible": "Michelin's good-value distinction; institutional."
+  },
+  {
+   "key": "MICHELIN_STAR",
+   "name": "MICHELIN Star (Florida)",
+   "type": "guide",
+   "rank": 1,
+   "url": "https://guide.michelin.com/us/en/florida/miami/restaurants/1-star-michelin",
+   "credible": "Michelin star; institutional."
+  },
+  {
+   "key": "JAMESBEARD",
+   "name": "James Beard Foundation Awards",
+   "type": "award",
+   "rank": 1,
+   "url": "https://www.jamesbeard.org/awards",
+   "credible": "National culinary authority; Miami/Fort Lauderdale winners, nominees, semifinalists and America's Classics."
+  },
+  {
+   "key": "NPS",
+   "name": "National Park Service",
+   "type": "official",
+   "rank": 1,
+   "url": "https://www.nps.gov/ever/",
+   "credible": "Federal operator of Everglades NP, Biscayne NP and Big Cypress National Preserve — institutional ground truth for sites it runs."
+  },
+  {
+   "key": "MIAMIHERALD",
+   "name": "Miami Herald",
+   "type": "daily",
+   "rank": 1,
+   "url": "https://www.miamiherald.com",
+   "credible": "South Florida's daily of record since 1903; bylined food critics and local news (openings/closings)."
+  },
+  {
+   "key": "MIAMINEWTIMES",
+   "name": "Miami New Times (incl. Best of Miami)",
+   "type": "alt-weekly",
+   "rank": 1,
+   "url": "https://www.miaminewtimes.com",
+   "credible": "Miami's alt-weekly of record; annual Best of Miami awards are the city's long-running critics' benchmark."
+  },
+  {
+   "key": "SUNSENTINEL",
+   "name": "South Florida Sun Sentinel",
+   "type": "daily",
+   "rank": 1,
+   "url": "https://www.sun-sentinel.com",
+   "credible": "Broward's daily of record; bylined restaurant coverage for Fort Lauderdale/Hollywood."
+  },
+  {
+   "key": "EATERMIAMI",
+   "name": "Eater Miami",
+   "type": "digital",
+   "rank": 2,
+   "url": "https://miami.eater.com",
+   "credible": "Bylined Miami food news, Eater 38 essentials and heatmaps."
+  },
+  {
+   "key": "INFATUATION",
+   "name": "The Infatuation (Miami)",
+   "type": "digital",
+   "rank": 2,
+   "url": "https://www.theinfatuation.com/miami",
+   "credible": "National restaurant guide with a bylined Miami desk; rated reviews and guides."
+  },
+  {
+   "key": "WLRN",
+   "name": "WLRN (South Florida public media)",
+   "type": "public-media",
+   "rank": 2,
+   "url": "https://www.wlrn.org",
+   "credible": "NPR member station for Miami-Dade/Broward; bylined culture, food and environment (Everglades) reporting."
+  },
+  {
+   "key": "TIMEOUT",
+   "name": "Time Out Miami",
+   "type": "travel",
+   "rank": 2,
+   "url": "https://www.timeout.com/miami",
+   "credible": "International city guide with a bylined Miami desk."
+  },
+  {
+   "key": "GMCVB",
+   "name": "Greater Miami Convention & Visitors Bureau (miamiandbeaches.com)",
+   "type": "tourism",
+   "rank": 2,
+   "url": "https://www.miamiandbeaches.com",
+   "credible": "Official tourism board for Miami-Dade; attractions and neighbourhood guides."
+  },
+  {
+   "key": "VISITLAUDERDALE",
+   "name": "Visit Lauderdale (Greater Fort Lauderdale CVB)",
+   "type": "tourism",
+   "rank": 2,
+   "url": "https://www.visitlauderdale.com",
+   "credible": "Official tourism board for Broward County."
+  },
+  {
+   "key": "FLSTATEPARKS",
+   "name": "Florida State Parks",
+   "type": "official",
+   "rank": 2,
+   "url": "https://www.floridastateparks.org",
+   "credible": "State operator of Bill Baggs Cape Florida, Oleta River, Hugh Taylor Birch, The Barnacle etc. Official, needs a 2nd source."
+  },
+  {
+   "key": "MIAMIDADE",
+   "name": "Miami-Dade County Parks",
+   "type": "official",
+   "rank": 2,
+   "url": "https://www.miamidade.gov/parks",
+   "credible": "County operator of Crandon, Matheson Hammock, Deering Estate, Zoo Miami etc."
+  },
+  {
+   "key": "ATLASOBSCURA",
+   "name": "Atlas Obscura",
+   "type": "travel",
+   "rank": 2,
+   "url": "https://www.atlasobscura.com/things-to-do/miami-florida",
+   "credible": "Curated oddities catalogue; editorially reviewed entries."
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia",
+   "type": "reference",
+   "rank": 3,
+   "url": "https://en.wikipedia.org",
+   "credible": "Notability + published coordinates (corroboration, not a lone recommender)."
+  },
+  {
+   "key": "OFFICIAL",
+   "name": "Official site",
+   "type": "official",
+   "rank": 3,
+   "url": "",
+   "credible": "The place's own site — confirms facts/status; never a lone recommender."
+  },
+  {
+   "key": "CNTRAVELER",
+   "name": "Condé Nast Traveler",
+   "type": "travel",
+   "rank": 2,
+   "url": "https://www.cntraveler.com",
+   "credible": "National travel magazine; bylined Miami guides."
+  },
+  {
+   "key": "USATODAY",
+   "name": "USA Today 10Best",
+   "type": "travel",
+   "rank": 3,
+   "url": "https://10best.usatoday.com",
+   "credible": "Readers' Choice votes + editor picks; corroborating popularity."
+  },
+  {
+   "key": "LOCAL10",
+   "name": "WPLG Local 10",
+   "type": "tv",
+   "rank": 2,
+   "url": "https://www.local10.com",
+   "credible": "Miami ABC affiliate; local news incl. openings/closings."
+  },
+  {
+   "key": "NBC6",
+   "name": "NBC 6 South Florida",
+   "type": "tv",
+   "rank": 2,
+   "url": "https://www.nbcmiami.com",
+   "credible": "Miami NBC affiliate; local features."
+  },
+  {
+   "key": "CBSMIAMI",
+   "name": "CBS News Miami",
+   "type": "tv",
+   "rank": 2,
+   "url": "https://www.cbsnews.com/miami",
+   "credible": "Miami CBS affiliate; local features."
+  },
+  {
+   "key": "NYT",
+   "name": "The New York Times",
+   "type": "daily",
+   "rank": 1,
+   "url": "https://www.nytimes.com",
+   "credible": "National paper of record; 36 Hours, restaurant list."
+  },
+  {
+   "key": "FOODWINE",
+   "name": "Food & Wine",
+   "type": "magazine",
+   "rank": 2,
+   "url": "https://www.foodandwine.com",
+   "credible": "National food magazine; Best New Chefs, city guides."
+  },
+  {
+   "key": "TASTINGTABLE",
+   "name": "Tasting Table",
+   "type": "digital",
+   "rank": 3,
+   "url": "https://www.tastingtable.com",
+   "credible": "National food site; corroborating."
+  },
+  {
+   "key": "MIAMIMAG",
+   "name": "Miami Magazine / Ocean Drive",
+   "type": "magazine",
+   "rank": 2,
+   "url": "https://miamimagazine.com",
+   "credible": "City magazines; bylined local guides."
+  },
+  {
+   "key": "VISITFLORIDA",
+   "name": "Visit Florida",
+   "type": "tourism",
+   "rank": 3,
+   "url": "https://www.visitflorida.com",
+   "credible": "State tourism board; corroborating."
+  }
+ ],
+ "creators": []
+}

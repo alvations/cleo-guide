@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Akron, Kent &amp; Canton field guide — 68 sights and 82 places to eat across Summit, Portage and Stark counties, each traceable to its source (Akron Beacon Journal, Canton Repository, Record-Courier, Signal Akron, James Beard, NPS, Atlas Obscura), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<title>Akron, Kent &amp; Canton Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · Summit, Portage &amp; Stark counties, sourced</p>
+  <h1>Akron · Kent · Canton<span class="thin">rubber, football, Barberton chicken &amp; the Galley Boy</span></h1>
+  <p class="standfirst">68 sights and 82 places to eat across <strong>Akron</strong>, the north-Summit towns up toward the Cuyahoga line (Cuyahoga Falls, Stow, Hudson), <strong>Kent</strong> &amp; Portage County, Barberton and Wadsworth, and <strong>Canton</strong>, North Canton &amp; Massillon. Each is traceable to the source that named it. The canon is its own: Serbian-style <strong>Barberton chicken</strong> with hot rice, the <strong>Swenson’s Galley Boy</strong>, Strickland’s frozen custard, Taggart’s <strong>Bittner</strong>, Bender’s Tavern and North Hill’s Nepali &amp; Bhutanese kitchens — plus the Pro Football Hall of Fame, Stan Hywet, the McKinley memorial and the May 4 site at Kent State. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#E8973A"></i>Akron</span>
+  <span><i style="background:#4F81BD"></i>Cuyahoga Falls, Stow, Hudson & North Summit</span>
+  <span><i style="background:#9BBB59"></i>Kent & Portage County</span>
+  <span><i style="background:#C0504D"></i>Barberton, Norton, Wadsworth & Green</span>
+  <span><i style="background:#8064A2"></i>Canton, North Canton & eastern Stark</span>
+  <span><i style="background:#4BACC6"></i>Massillon & southern Stark</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="Galley Boy, Barberton chicken, Hall of Fame…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-10-02</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across the Akron Beacon Journal, the Canton Repository, the Record-Courier, Signal Akron, Akron Life, Ideastream/WKSU, James Beard, NPS, Summit Metro Parks, Atlas Obscura and official sites. Every coordinate is verified into data/geocodes.json and every place status-checked. Places already on the neighbouring maps (Cuyahoga Valley National Park, Blossom, Hale Farm, two Barberton chicken houses) live there, not here. Newly-added spots pending a final coordinate pass appear once pinned.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "AASLH":{k:"AASLH",t:"American Association for State and Local History",u:"https://aaslh.org/",l:"American Association for State and Local History"},
+  "AKRONLIFE":{k:"AKRON LIFE",t:"Akron Life",u:"https://www.akronlife.com/",l:"Akron Life"},
+  "AP":{k:"AP",t:"Associated Press",u:"https://apnews.com/",l:"Associated Press"},
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"ATLAS OBSCURA",u:"",l:""},
+  "BALLPARKGUIDE":{k:"BALLPARKGUIDE",t:"The Ballpark Guide",u:"https://www.theballparkguide.com/",l:"The Ballpark Guide"},
+  "BARBERTONLIBRARY":{k:"BARBERTONLIBRARY",t:"Barberton Public Library — local history",u:"https://barbertonlibrary.org/barbertonhistory",l:"Barberton Public Library — local history"},
+  "BEACONJOURNAL":{k:"AKRON BEACON JOURNAL",t:"Akron Beacon Journal",u:"https://www.beaconjournal.com/",l:"Akron Beacon Journal"},
+  "CANJOURNAL":{k:"CANJOURNAL",t:"CAN Journal (Collective Arts Network)",u:"https://canjournal.org/",l:"CAN Journal (Collective Arts Network)"},
+  "CANTONREP":{k:"CANTON REPOSITORY",t:"The Canton Repository",u:"https://www.cantonrep.com/",l:"The Canton Repository"},
+  "CINEMATREASURES":{k:"CINEMATREASURES",t:"Cinema Treasures",u:"https://cinematreasures.org/",l:"Cinema Treasures"},
+  "CLEMAG":{k:"CLEVELAND MAGAZINE",t:"Cleveland Magazine",u:"https://clevelandmagazine.com/",l:"Cleveland Magazine"},
+  "CLEVELANDHISTORICAL":{k:"CLEVELANDHISTORICAL",t:"Cleveland Historical (CSU)",u:"https://clevelandhistorical.org/",l:"Cleveland Historical (CSU)"},
+  "CLEVELANDLAWLIB":{k:"CLEVELANDLAWLIB",t:"Cleveland Law Library",u:"https://clevelandlawlibrary.org/",l:"Cleveland Law Library"},
+  "CLIO":{k:"CLIO",t:"Clio (Marshall University)",u:"https://www.theclio.com/",l:"Clio (Marshall University)"},
+  "COURTNEWSOHIO":{k:"COURTNEWSOHIO",t:"Court News Ohio (Supreme Court of Ohio)",u:"https://courtnewsohio.gov/",l:"Court News Ohio (Supreme Court of Ohio)"},
+  "DEZEEN":{k:"DEZEEN",t:"Dezeen",u:"https://www.dezeen.com/",l:"Dezeen"},
+  "DOCOMOMO":{k:"DOCOMOMO",t:"Docomomo US",u:"https://docomomo-us.org/",l:"Docomomo US"},
+  "ECH":{k:"ECH",t:"Encyclopedia of Cleveland History (CWRU)",u:"https://case.edu/ech/",l:"Encyclopedia of Cleveland History (CWRU)"},
+  "FARMANDDAIRY":{k:"FARMANDDAIRY",t:"Farm and Dairy",u:"https://www.farmanddairy.com/",l:"Farm and Dairy"},
+  "HERITAGEOHIO":{k:"HERITAGEOHIO",t:"Heritage Ohio",u:"https://www.heritageohio.org/",l:"Heritage Ohio"},
+  "HMDB":{k:"HMDB",t:"Historical Marker Database",u:"https://www.hmdb.org/",l:"Historical Marker Database"},
+  "IDEASTREAM":{k:"IDEASTREAM / WKSU",t:"Ideastream Public Media (WKSU)",u:"https://www.ideastream.org/",l:"Ideastream Public Media (WKSU)"},
+  "ISLANDS":{k:"ISLANDS",t:"Islands",u:"https://www.islands.com/",l:"Islands"},
+  "KENTWIRED":{k:"KENTWIRED",t:"KentWired / The Kent Stater",u:"https://kentwired.com/",l:"KentWired / The Kent Stater"},
+  "KSU":{k:"KENT STATE UNIV.",t:"Kent State University",u:"https://www.kent.edu/",l:"Kent State University"},
+  "LANDSCAPEARCH":{k:"LANDSCAPEARCH",t:"Landscape Architecture Magazine",u:"https://landscapearchitecturemagazine.org/",l:"Landscape Architecture Magazine"},
+  "LIVINGNEWDEAL":{k:"LIVINGNEWDEAL",t:"The Living New Deal",u:"https://livingnewdeal.org/",l:"The Living New Deal"},
+  "MENTALFLOSS":{k:"MENTALFLOSS",t:"Mental Floss",u:"https://mentalfloss.com/",l:"Mental Floss"},
+  "NEWS5":{k:"NEWS5",t:"News 5 Cleveland (WEWS)",u:"https://www.news5cleveland.com/",l:"News 5 Cleveland (WEWS)"},
+  "NPS":{k:"NATIONAL PARK SVC",t:"NATIONAL PARK SVC",u:"",l:""},
+  "ODNR":{k:"OHIO DNR",t:"OHIO DNR",u:"",l:""},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
+  "OHIOERIECANALWAY":{k:"OHIOERIECANALWAY",t:"Ohio & Erie Canalway (National Heritage Area)",u:"https://www.ohioanderiecanalway.com/",l:"Ohio & Erie Canalway (National Heritage Area)"},
+  "OHIOMAG":{k:"OHIO MAGAZINE",t:"Ohio Magazine",u:"https://www.ohiomagazine.com/",l:"Ohio Magazine"},
+  "PATCH":{k:"PATCH",t:"Patch",u:"https://patch.com/",l:"Patch"},
+  "PBS":{k:"PBS",t:"PBS (Western Reserve PBS)",u:"https://www.pbs.org/",l:"PBS (Western Reserve PBS)"},
+  "PLAYHOUSESQUARE":{k:"PLAYHOUSESQUARE",t:"Playhouse Square",u:"https://playhousesquare.org/",l:"Playhouse Square"},
+  "PORTAGER":{k:"PORTAGER",t:"The Portager",u:"https://theportager.com/",l:"The Portager"},
+  "REMARKABLEOHIO":{k:"REMARKABLEOHIO",t:"Remarkable Ohio (Ohio History Connection markers)",u:"https://remarkableohio.org/",l:"Remarkable Ohio (Ohio History Connection markers)"},
+  "ROADSIDEAMERICA":{k:"ROADSIDEAMERICA",t:"Roadside America",u:"https://www.roadsideamerica.com/",l:"Roadside America"},
+  "SAHARCHIPEDIA":{k:"SAHARCHIPEDIA",t:"SAH Archipedia",u:"https://sah-archipedia.org/",l:"SAH Archipedia"},
+  "SCENE":{k:"SCENE MAGAZINE",t:"Scene (Northeast Ohio alt-weekly)",u:"https://www.clevescene.com/",l:"Scene (Northeast Ohio alt-weekly)"},
+  "SIGNALAKRON":{k:"SIGNAL AKRON",t:"Signal Akron",u:"https://signalakron.org/",l:"Signal Akron"},
+  "SMITHSONIAN":{k:"SMITHSONIAN",t:"Smithsonian Magazine Museum Day venues",u:"https://www.smithsonianmag.com/museumday/",l:"Smithsonian Magazine Museum Day venues"},
+  "SPECTRUM":{k:"SPECTRUM",t:"Spectrum News 1 Ohio",u:"https://spectrumnews1.com/oh/",l:"Spectrum News 1 Ohio"},
+  "STADIUMJOURNEY":{k:"STADIUMJOURNEY",t:"Stadium Journey",u:"https://www.stadiumjourney.com/",l:"Stadium Journey"},
+  "STARKPARKS":{k:"STARKPARKS",t:"Stark Parks",u:"https://starkparks.com/",l:"Stark Parks"},
+  "STRONGTOWNS":{k:"STRONGTOWNS",t:"Strong Towns",u:"https://strongtowns.org/",l:"Strong Towns"},
+  "SUMMITHISTORY":{k:"SUMMITHISTORY",t:"Summit County Historical Society",u:"https://www.summithistory.org/",l:"Summit County Historical Society"},
+  "SUMMITMETRO":{k:"SUMMIT METRO PARKS",t:"SUMMIT METRO PARKS",u:"",l:""},
+  "TREKOHIO":{k:"TREKOHIO",t:"Trek Ohio",u:"https://trekohio.com/",l:"Trek Ohio"},
+  "TWINSBURG200":{k:"TWINSBURG200",t:"Twinsburg Bicentennial (city history project)",u:"https://twinsburg200.com/",l:"Twinsburg Bicentennial (city history project)"},
+  "VINTAGEAVIATION":{k:"VINTAGEAVIATION",t:"Vintage Aviation News",u:"https://vintageaviationnews.com/",l:"Vintage Aviation News"},
+  "VISITAKRON":{k:"AKRON/SUMMIT CVB",t:"Akron/Summit CVB",u:"https://visitakron-summit.org/",l:"Akron/Summit CVB"},
+  "VISITCANTON":{k:"VISIT CANTON",t:"Visit Canton / Stark County CVB",u:"https://www.visitcanton.com/",l:"Visit Canton / Stark County CVB"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org",l:"Wikipedia"},
+  "WKYC":{k:"WKYC 3",t:"WKYC Channel 3",u:"https://www.wkyc.com/",l:"WKYC Channel 3"}
+};
+
+const AREAS = [
+  {id:"AKR",n:"Akron (Downtown, Highland Square, North Hill & Firestone Park)",c:"#E8973A"},
+  {id:"NSUM",n:"Cuyahoga Falls, Stow, Hudson & North Summit",c:"#4F81BD"},
+  {id:"KENT",n:"Kent & Portage County (Kent State, Ravenna, Aurora)",c:"#9BBB59"},
+  {id:"BARB",n:"Barberton, Norton, Wadsworth & Green",c:"#C0504D"},
+  {id:"CANT",n:"Canton, North Canton & eastern Stark",c:"#8064A2"},
+  {id:"MASS",n:"Massillon & southern Stark",c:"#4BACC6"}
+];
+
+const P = [
+{t:1,a:"AKR",n:"Stan Hywet Hall & Gardens",ad:"714 N Portage Path, Akron, OH 44303",la:41.11861,ln:-81.55139,w:"The 65-room Tudor Revival country estate Goodyear co-founder F.A. Seiberling built in 1912–15, with 70 acres of Warren Manning landscapes and an English garden — Akron's grandest house, a National Historic Landmark and the place Alcoholics Anonymous was born (Henrietta Seiberling introduced Bill W. to Dr. Bob in the Gate Lodge, 1935).",k:"ARCH",g:["ICON","PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Stan_Hywet_Hall_and_Gardens"],["HMDB","https://www.hmdb.org/m.asp?m=223866"],["OHIOERIECANALWAY","https://www.ohioanderiecanalway.com/plan/listings/stan-hywet-hall-gardens/"],["AKRONLIFE","https://www.akronlife.com/events/vintage-days-at-stan-hywet/"]]},
+{t:1,a:"CANT",n:"Pro Football Hall of Fame",ad:"2121 George Halas Dr NW, Canton, OH 44708",la:40.82111,ln:-81.39778,w:"The shrine of American football, opened 1963 in the city where the NFL (as the APFA) was founded at Ralph Hay's Hupmobile showroom in 1920 — busts of every enshrinee in the Hall of Fame Gallery, the Lombardi trophies, and the August enshrinement week that takes over Canton.",k:"MUS",g:["ICON","MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Pro_Football_Hall_of_Fame"],["OFFICIAL","https://profootballhof.com/about"],["CLEVELANDLAWLIB","https://clevelandlawlibrary.org/Public/Misc/virtual_display/football.html"]]},
+{t:1,a:"CANT",n:"First Ladies National Historic Site",ad:"205 Market Ave S, Canton, OH 44702",la:40.79667,ln:-81.37528,w:"NPS site in downtown Canton telling the stories of America's First Ladies: the education & research center in the 1895 City National Bank building and, a block south, the Saxton McKinley House (331 Market Ave S), Ida Saxton McKinley's family home where William and Ida lived.",k:"MUS",g:["ICON","ARCH","SHOP","FAM"],s:[["NPS","https://www.nps.gov/fila/planyourvisit/directions.htm"],["WIKIPEDIA","https://en.wikipedia.org/wiki/First_Ladies_National_Historic_Site"]]},
+{t:1,a:"CANT",n:"McKinley National Memorial",ad:"800 McKinley Monument Dr NW, Canton, OH 44708",la:40.80667,ln:-81.39250,w:"The domed granite mausoleum (1907) on a hill above Canton where the assassinated 25th president, Ida and their two daughters are entombed — 108 steps up, with a view over the city.",k:"ICON",g:["ICON"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/McKinley_National_Memorial"],["NPS","https://www.nps.gov/places/william-mckinley-tomb.htm"],["OHIOMAG","https://www.ohiomagazine.com/ohio-life/article/visit-the-william-mckinley-national-memorial-in-canton"]]},
+{t:2,a:"CANT",n:"McKinley Presidential Library & Museum",ad:"800 McKinley Monument Dr NW, Canton, OH 44708",la:40.80641,ln:-81.39252,w:"Stark County Historical Society's museum at the foot of the McKinley Memorial: the largest McKinley collection anywhere, a walk-through 'Street of Shops', the Discover World science hall and a planetarium.",k:"MUS",g:["ICON","MUS","ARCH","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/William_McKinley_Presidential_Library_and_Museum"],["OHIOERIECANALWAY","https://www.ohioanderiecanalway.com/plan/listings/mckinley-presidential-library-museum/"],["OFFICIAL","https://mcklib.org/content/mckinley-sites-0"]]},
+{t:1,a:"AKR",n:"Akron Art Museum",ad:"1 S High St, Akron, OH 44308",la:41.08424,ln:-81.51526,w:"Akron's art museum: the 1899 Renaissance Revival former post office joined to Coop Himmelb(l)au's 2007 'Roof Cloud' steel-and-glass Knight Building — modern and contemporary American art, free admission.",k:"MUS",g:["MUS","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Akron_Art_Museum"],["ECH","https://case.edu/ech/articles/a/akron-art-museum"],["DEZEEN","https://www.dezeen.com/2007/07/23/akron-art-museum-by-coop-himmelblau/amp/"]]},
+{t:1,a:"KENT",n:"May 4 Visitors Center (Kent State May 4 Site)",ad:"300 Midway Dr (Taylor Hall), Kent, OH 44242",la:41.15015,ln:-81.34402,w:"Kent State's museum of the May 4, 1970 shootings, when Ohio National Guardsmen killed four students and wounded nine during an anti-war protest — in Taylor Hall beside the 18-acre National Historic Landmark site, with the outdoor walking tour, Prentice Hall lot markers and the Don Drumm 'Solar Totem' bullet hole.",k:"MUS",g:["ICON","MUS","ARCH","ODD"],s:[["OFFICIAL","https://www.kent.edu/may4visitorscenter/history-center"],["ATLASOBSCURA","https://www.atlasobscura.com/places/kent-state-may-4-visitors-center"],["AASLH","https://aaslh.org/?p=57805"]]},
+{t:1,a:"AKR",n:"Derby Downs (All-American Soap Box Derby)",ad:"789 Derby Downs, Akron, OH 44306",la:41.03811,ln:-81.45757,w:"The WPA-built 1936 hill track in southeast Akron where kids in gravity-powered cars have raced the All-American Soap Box Derby world championship every July since 1946.",k:"ICON",g:["ICON","ENT","FAM"],s:[["VISITAKRON","https://visitakron-summit.org/what-to-do/spectator-sports/firstenergy-all-american-soap-box-derby/"],["SPECTRUM","https://spectrumnews1.com/oh/columbus/news/2026/07/16/all-american-soap-box-derby--derby-downs--akron-"],["OFFICIAL","https://soapboxderby.org/race-programs/all-american.aspx"]]},
+{t:1,a:"AKR",n:"Akron Zoo",ad:"500 Edgewood Ave, Akron, OH 44307",la:41.08005,ln:-81.54143,w:"Compact, well-loved accredited zoo on Perkins Park in west Akron — Komodo dragons, snow leopards, Grizzly Ridge and the Journey to Madagascar building.",k:"FAM",g:["PARK","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Akron_Zoo"],["AKRONLIFE","https://www.akronlife.com/education/cultivatingculture_artmuseumzoolibrary/"]]},
+{t:1,a:"NSUM",n:"Gorge Metro Park",ad:"1160 Front St, Cuyahoga Falls, OH 44221",la:41.12439,ln:-81.50381,w:"Summit Metro Parks' gorge of the Cuyahoga River at the falls the city is named for — the Gorge Trail along sandstone ledges to Mary Campbell Cave ('Old Maid's Kitchen'), where a captive 1759 girl was held, below the High Level Bridge.",k:"PARK",g:["PARK"],s:[["SUMMITMETRO","https://www.Summitmetroparks.org/gorge-metro-park.aspx"],["AKRONLIFE","https://www.akronlife.com/arts/the-legendary-story-of-the-gorge-metro-park/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Mary_Campbell_Cave"]]},
+{t:2,a:"KENT",n:"Goodyear Wingfoot Lake Airship Hangar",ad:"Wingfoot Lake, Suffield Township, OH 44260",la:41.00950,ln:-81.35789,w:"Built 1917, the oldest airship base in the world and still the home port of the Goodyear Blimp — 'the Kitty Hawk of lighter-than-air.' No public tours; watch the airships launch from the viewing lot or from across the water at Wingfoot Lake State Park.",k:"ODD",g:["ICON","PARK","ODD"],s:[["ROADSIDEAMERICA","https://www.roadsideamerica.com/tip/6370"],["HMDB","https://www.hmdb.org/m.asp?m=122743"],["OFFICIAL","https://www.goodyearblimp.com/behind-the-scenes/airship-bases.html"],["BEACONJOURNAL","https://www.aol.com/goodyear-blimp-birthplace-honored-part-145614274.html"]]},
+{t:1,a:"AKR",n:"Akron Civic Theatre",ad:"182 S Main St, Akron, OH 44308",la:41.08403,ln:-81.52036,w:"John Eberson's 1929 Loew's atmospheric movie palace — a Moorish courtyard under a domed ceiling of twinkling stars and drifting clouds — restored and still Akron's main stage for touring shows and concerts.",k:"ARCH",g:["ARCH","ENT"],s:[["HERITAGEOHIO","https://heritageohio.org/annual-awards/akron-civic-theatre/"],["NPS","https://www.nps.gov/nr/travel/ohioeriecanal/loe.htm"],["CINEMATREASURES","https://cinematreasures.org/theaters/330"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Akron_Civic_Theatre"]]},
+{t:2,a:"CANT",n:"Canton Palace Theatre",ad:"605 Market Ave N, Canton, OH 44702",la:40.80222,ln:-81.37361,w:"Canton's 1926 John Eberson atmospheric theatre (National Register), with a Spanish-courtyard auditorium under a starry sky ceiling and its original Kilgen theatre organ — films, concerts and the Canton Symphony's pops.",k:"ARCH",g:["ARCH","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Palace_Theatre_(Canton,_Ohio)"],["NPS","https://npgallery.nps.gov/AssetDetail/NRIS/79001949"],["HERITAGEOHIO","https://www.heritageohio.org/?p=7836"],["AKRONLIFE","https://www.akronlife.com/locations/canton-palace-theatre/"]]},
+{t:2,a:"CANT",n:"Hoover Historical Center",ad:"1875 E Maple St, North Canton, OH 44720",la:40.87539,ln:-81.37004,w:"The Hoover family farmhouse in North Canton, now Walsh University's museum of the company that made 'hoover' a verb — free guided tours through a collection of antique vacuum cleaners and the town's company history.",k:"ODD",g:["MUS","ARCH","FAM","ODD"],s:[["OFFICIAL","https://www.walsh.edu/hhc"],["SCENE","https://www.clevescene.com/arts/called-on-the-carpet-1472638/"],["ROADSIDEAMERICA","https://www.roadsideamerica.com/tip/1003"]]},
+{t:1,a:"KENT",n:"Nelson-Kennedy Ledges State Park",ad:"12440 OH-282, Garrettsville, OH 44231",la:41.32617,ln:-81.03871,w:"Small state park of Sharon-conglomerate ledges in northeast Portage County — squeeze-through crevices (Fat Man's Peril, Devil's Icebox), Cascade and Minnehaha falls, and a newer glass-bottom overlook.",k:"PARK",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Nelson-Kennedy_Ledges_State_Park"],["TREKOHIO","https://trekohio.com/2013/06/05/nelson-kennedy-ledges-state-park/"],["ISLANDS","https://www.islands.com/1873141/ohio-outdoor-glass-bottom-bridge-overlooking-waterfall/"]]},
+{t:1,a:"MASS",n:"Paul Brown Museum",ad:"121 Lincoln Way E (inside the Massillon Museum), Massillon, OH 44646",la:40.79667,ln:-81.52163,w:"Massillon's shrine to 'Tigertown' football — a 30-foot timeline of Massillon Tiger history from 1891, the early pro Massillon Tigers, and Paul Brown, who coached here before Ohio State, the Browns and the Bengals. Paul Brown Tiger Stadium, Ohio's largest high-school field, is across town.",k:"MUS",g:["MUS","ENT"],s:[["VISITCANTON","https://www.visitcanton.com/directory/paul-brown-museum/"],["OFFICIAL","https://massillontigers.com/booster-club/library-football-history/"],["FARMANDDAIRY","https://www.farmanddairy.com/?p=3147"],["OHIOMAG","https://www.ohiomagazine.com/ohio-life/article/paul-brown-museum-massillon"]]},
+{t:1,a:"MASS",n:"Spring Hill Historic Home",ad:"1401 Springhill Ln NE, Massillon, OH 44646",la:40.81213,ln:-81.50610,w:"1820s farmhouse of Quakers Thomas and Charity Rotch, a verified NPS Network to Freedom Underground Railroad station — with the secret staircase used to move freedom seekers through the house.",k:"ARCH",g:["ARCH","FAM"],s:[["OFFICIAL","https://springhillhistorichome.org/?p=126"],["OHIOERIECANALWAY","https://www.ohioanderiecanalway.com/plan/listings/spring-hill-historic-home/"],["SPECTRUM","https://spectrumnews1.com/oh/columbus/news/2024/02/20/ohio-underground-railroad-stop-"]]},
+{t:2,a:"AKR",n:"Goodyear Airdock",ad:"1210 Massillon Rd, Akron, OH 44306",la:41.03194,ln:-81.47083,w:"The 1929 airship hangar beside Akron Fulton airport — at completion the largest building in the world without interior supports, big enough to make its own indoor weather; it built the Navy's Akron and Macon. Seen from outside (private).",k:"ODD",g:["ICON","ODD"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Goodyear_Airdock"],["ATLASOBSCURA","https://www.atlasobscura.com/things-to-do/akron-ohio"],["DOCOMOMO","https://docomomo-us.org/register/goodyear-airdock"]]},
+{t:1,a:"NSUM",n:"Hudson Historic District & Village Green",ad:"Main St (OH-91) & Aurora St, Hudson, OH 44236",la:41.24361,ln:-81.44194,w:"A New England village transplanted to the Western Reserve: Greek Revival and Federal houses around the green and James Ellsworth's 1912 clock tower, with Western Reserve Academy ('the Yale of the West') and its 1838 Loomis Observatory a short walk away.",k:"ARCH",g:["ARCH","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Hudson_Historic_District_(Ohio)"],["SUMMITHISTORY","https://www.summithistory.org/Hudson"],["SAHARCHIPEDIA","https://sah-archipedia.org/node/79094"]]},
+{t:2,a:"AKR",n:"Cascade Locks Park & Mustill Store",ad:"Cascade Locks Park, N Howard St, Akron, OH 44308",la:41.09142,ln:-81.51797,w:"The staircase of seven Ohio & Erie Canal locks that lifted boats 70 ft to the Akron Summit, the canal's highest point; the restored c.1847 Mustill Store at Lock 15 is now a seasonal canal museum on the Towpath Trail.",k:"ARCH",g:["MUS","PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Cascade_Locks_Historic_District"],["VISITAKRON","https://visitakron-summit.org/what-to-do/attractions-points-of-interest/mustill-store-and-cascade-locks-park-association/"],["HMDB","https://www.hmdb.org/m.asp?m=142834"],["AKRONLIFE","https://www.akronlife.com/education/passage-way"]]},
+{t:2,a:"AKR",n:"Perkins Stone Mansion & John Brown House",ad:"550 Copley Rd, Akron, OH 44320",la:41.08500,ln:-81.54167,w:"Summit County Historical Society's two houses on Akron's west side: Col. Simon Perkins's 1837 Greek Revival stone mansion, and across the road the c.1830 house abolitionist John Brown rented from Perkins in 1844–54 while they ran a sheep and wool partnership.",k:"ARCH",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Summit_County_Historical_Society_of_Akron,_Ohio"],["OFFICIAL","https://www.summithistory.org/perkins-stone-mansion"],["VISITAKRON","https://visitakron-summit.org/what-to-do/attractions-points-of-interest/the-summit-county-historical-society-of-akron-oh/"]]},
+{t:2,a:"AKR",n:"Glendale Steps",ad:"Glendale Ave & S Walnut St, Akron, OH 44302",la:41.08559,ln:-81.52310,w:"242 hand-dressed sandstone steps the WPA laid in 1936–37 up a 200-ft slope — Gertrude Seiberling's idea, designed by Warren Manning — a Depression-era monument in a city the rubber layoffs hit hard.",k:"ODD",g:["ODD"],s:[["ATLASOBSCURA","https://www.atlasobscura.com/places/the-glendale-steps"],["REMARKABLEOHIO","https://remarkableohio.org/marker/36-77-glendale-steps/"],["SIGNALAKRON","https://signalakron.org/glendale-steps-preservation-with-community-visioning/"],["LIVINGNEWDEAL","https://livingnewdeal.org/projects/glendale-steps-akron-oh/"]]},
+{t:2,a:"AKR",n:"F.A. Seiberling Nature Realm",ad:"1828 Smith Rd, Akron, OH 44313",la:41.13904,ln:-81.57451,w:"Summit Metro Parks' nature-study preserve on land Goodyear founder F.A. Seiberling owned — the park district's first nature center, a rock garden, ponds and a suspension bridge over the ravine.",k:"PARK",g:["ICON","PARK","SHOP"],s:[["SUMMITMETRO","https://summitmetroparks.org/parks-trails/f-a-seiberling-nature-realm"],["TREKOHIO","https://trekohio.com/summit/"]]},
+{t:1,a:"AKR",n:"Dr. Bob's Home (birthplace of Alcoholics Anonymous)",ad:"855 Ardmore Ave, Akron, OH 44302",la:41.09583,ln:-81.54889,w:"The 1914 house where Dr. Bob Smith and Bill Wilson worked out AA's principles and recruited its first members in 1935 — a National Historic Landmark (2012) kept as a museum and a pilgrimage site for the millions in 12-step recovery.",k:"ARCH",g:["MUS","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Dr._Robert_Smith_House"],["NPS","https://www.nps.gov/places/dr-bobs-home.htm"],["VISITAKRON","https://visitakron-summit.org/what-to-do/attractions-points-of-interest/dr-bob-s-home/"],["AKRONLIFE","https://www.akronlife.com/education/drbob/"]]},
+{t:2,a:"AKR",n:"7 17 Credit Union Park (Akron RubberDucks)",ad:"300 S Main St, Akron, OH 44308",la:41.07792,ln:-81.52220,w:"Downtown's 1997 HOK-designed ballpark (Canal Park until 2025), home of the Double-A Akron RubberDucks (Guardians affiliate), with the Ohio & Erie Canal running behind the left-field wall.",k:"ENT",g:["PARK","ARCH","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/7_17_Credit_Union_Park"],["STADIUMJOURNEY","https://www.stadiumjourney.com/stadiums/717cu-park-akron-rubberducks"],["BALLPARKGUIDE","https://www.theballparkguide.com/?p=3468"]]},
+{t:2,a:"AKR",n:"Quaker Square",ad:"135 S Broadway St, Akron, OH 44308",la:41.08111,ln:-81.51500,w:"Ferdinand Schumacher's oat mills became Quaker Oats; its 36 120-ft concrete grain silos (1932) were later turned into a hotel with perfectly round rooms — now University of Akron dorms, with the complex slated for a hotel revival.",k:"ODD",g:["ARCH","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Quaker_Square"],["SIGNALAKRON","https://signalakron.org/peek-inside-akrons-quaker-square-and-take-a-walk-back-in-time/"],["SPECTRUM","https://spectrumnews1.com/oh/columbus/news/2025/10/16/former-quaker-oats-dorm-resident-remembers-stay-in-historic-downtown-akron-building"]]},
+{t:2,a:"AKR",n:"Glendale Cemetery & Civil War Memorial Chapel",ad:"150 Glendale Ave, Akron, OH 44302",la:41.08477,ln:-81.52817,w:"Akron's 1839 rural garden cemetery (88 acres, National Register) — rubber barons and founders in a wooded ravine, and the restored 1876 Gothic Revival chapel the GAR's Buckley Post built for Summit County's Civil War dead.",k:"ARCH",g:["PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Glendale_Cemetery"],["NPS","https://www.nps.gov/nr/travel/ohioeriecanal/GLE.htm"],["AKRONLIFE","https://www.akronlife.com/arts/glendale-cemetery/"]]},
+{t:2,a:"CANT",n:"Canton Museum of Art",ad:"1001 Market Ave N, Canton, OH 44702",la:40.80650,ln:-81.37310,w:"Stark County's art museum in the Canton Cultural Center, strongest in 19th–20th-century American works on paper and contemporary ceramics — on Cleveland Magazine's Canton must-go list.",k:"MUS",g:["MUS"],s:[["OHIOERIECANALWAY","https://www.ohioanderiecanalway.com/plan/listings/canton-museum-of-art/"],["CLEMAG","https://clevelandmagazine.com/articles/a-clevelander-s-guide-to-canton-21-must-go-spots/"],["OFFICIAL","https://cantonart.org/sites/default/files/2025_CMA_Fact_Sheet.pdf"]]},
+{t:2,a:"CANT",n:"Quail Hollow Park",ad:"13480 Congress Lake Ave, Hartville, OH 44632",la:40.97861,ln:-81.31222,w:"The H.B. Stewart family's 1929 manor house and 700 acres of meadow, woods and gardens near Hartville — a state park from 1975, run by Stark Parks since 2016, with manor tours on summer Sundays.",k:"PARK",g:["PARK","ARCH","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Quail_Hollow_State_Park"],["STARKPARKS","https://starkparks.com/?p=480"],["FARMANDDAIRY","https://farmanddairy.com/?p=718616"],["ISLANDS","https://www.islands.com/2156671/quail-hollow-state-park-between-akron-youngstown-ohio-scenic-state-park-hiking-camping-gardens/"]]},
+{t:1,a:"MASS",n:"Massillon Museum (MassMu)",ad:"121 Lincoln Way E, Massillon, OH 44646",la:40.79667,ln:-81.52163,w:"Downtown Massillon's art-and-history museum, best known for the Immel Circus — a hand-carved miniature circus lot filling 100 sq ft, ringed with real circus posters and costumes — plus Paul Brown and Tigertown football collections.",k:"MUS",g:["MUS"],s:[["OFFICIAL","https://www.massillonmuseum.org/about-art-museum/museum-faqs"],["VISITCANTON","https://www.visitcanton.com/directory/massillon-museum/"],["AKRONLIFE","https://www.akronlife.com/events/massmu-s-immel-circus-gallery-reopening/"],["CANTONREP","https://www.aol.com/articles/brown-bag-lunch-massmu-focus-105117131.html"],["HMDB","https://www.hmdb.org/m.asp?m=269469"]]},
+{t:1,a:"KENT",n:"Kent Dam & Kent Industrial District",ad:"Cuyahoga River at downtown Kent, OH 44240",la:41.15306,ln:-81.36028,w:"Completed in 1836, the arched Kent Dam is the oldest masonry dam in Ohio and the only one tied to a canal lock (the Pennsylvania & Ohio Canal); bypassed in 2004 to free the river, it was kept because Kent loves it — the waterfall centrepiece of a riverside park and the old mill district.",k:"ARCH",g:["PARK","ARCH","SHOP","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Kent_Industrial_District"],["CLEVELANDHISTORICAL","https://clevelandhistorical.org/items/show/277"],["OFFICIAL","https://www.kentohio.gov/our-government/plans-reports-and-studies/dam-restoration-project/"]]},
+{t:2,a:"NSUM",n:"Tallmadge Circle & First Congregational Church",ad:"115 Tallmadge Circle, Tallmadge, OH 44278",la:41.10106,ln:-81.44146,w:"A white Federal-style church (1821–25) standing alone inside the town's eight-spoke traffic circle — the Western Reserve's most photographed meetinghouse, which marked its bicentennial in 2025.",k:"ARCH",g:["ARCH"],s:[["SAHARCHIPEDIA","https://sah-archipedia.org/node/16920"],["IDEASTREAM","https://www.ideastream.org/community/2025-10-29/historic-tallmadge-church-celebrates-bicentennial"],["SUMMITHISTORY","https://summithistory.org/node/82"]]},
+{t:2,a:"BARB",n:"Portage Lakes State Park",ad:"Portage Lakes, Coventry Township, OH 44319",la:40.96917,ln:-81.55694,w:"Eight glacial and canal-feeder lakes (2,000+ acres of water) south of Akron, built as reservoirs for the Ohio & Erie Canal — boating, swimming beach, fishing and the Turkeyfoot Lake trails.",k:"PARK",g:["PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Portage_Lakes_State_Park"],["HMDB","https://www.hmdb.org/m.asp?m=142749"],["OFFICIAL","https://coventrytownship.com/?p=142"]]},
+{t:1,a:"BARB",n:"Anna-Dean Farm Barns (O.C. Barber)",ad:"Anna-Dean Farm, Barberton, OH 44203",la:41.00722,ln:-81.59361,w:"Match king O.C. Barber's 3,500-acre model farm (1909–20), meant as a prototype for scientific agriculture; the surviving National Register barns — Barn No. 1, the Colt Barn, Piggery, Creamery and Machine Barn — are the town founder's monument and the Barberton Historical Society's tour.",k:"ARCH",g:["ARCH","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Anna%E2%80%93Dean_Farm"],["REMARKABLEOHIO","https://remarkableohio.org/marker/10-77-anna-dean-farm-barn-no-1/"],["OFFICIAL","https://www.cityofbarberton.com/life/the-buildings-of-o-c-barber/"]]},
+{t:2,a:"BARB",n:"Akron Fossils & Science Center",ad:"2080 S Cleveland-Massillon Rd, Copley, OH 44321",la:41.08200,ln:-81.64400,w:"Small hands-on natural-history museum in Copley — fossils, live reptiles and a mini 'Dino Dig' — with nature trails out back.",k:"FAM",g:["MUS","PARK","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Akron_Fossils_%26_Science_Center"],["AKRONLIFE","https://www.akronlife.com/events/akron-fossils-science-center-online-auction-carnival-fundraiser/"],["PATCH","https://patch.com/ohio/fairlawn-bath/akron-fossils-science-center-science-bash-0"]]},
+{t:2,a:"NSUM",n:"Twins Days Festival (Glen Chamberlin Park)",ad:"Glen Chamberlin Park, 10260 Ravenna Rd, Twinsburg, OH 44087",la:41.31960,ln:-81.45871,w:"Every first full weekend of August since 1976, ~2,000 sets of twins converge on Twinsburg — the world's largest gathering of twins, in the town named for Moses and Aaron Wilcox, the identical twins who bought it in 1819.",k:"ODD",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Twins_Days"],["OHIOMAG","https://www.ohiomagazine.com/travel/article/twins-days-twinsburg"],["MENTALFLOSS","https://mentalfloss.com/article/82676/twinsburg-ohio-home-worlds-largest-twin-festival"],["BEACONJOURNAL","https://www.aol.com/skunks-potatoes-small-town-festivals-100250489.html"]]},
+{t:2,a:"NSUM",n:"Liberty Park & Twinsburg Ledges",ad:"9999 Liberty Rd, Twinsburg, OH 44087",la:41.33218,ln:-81.41179,w:"Summit Metro Parks' largest natural area (3,000+ acres): the Twinsburg Ledges' conglomerate cliffs and glacial slump blocks, and an accessible nature center with live native animals.",k:"PARK",g:["PARK","ARCH"],s:[["SUMMITMETRO","https://www.summitmetroparks.org/news-and-publications/news-updates/celebrate-the-history-of-liberty-park/"],["TREKOHIO","https://trekohio.com/2014/04/06/liberty-park-ledges-trail/"],["TWINSBURG200","https://twinsburg200.com/?p=1219"]]},
+{t:2,a:"MASS",n:"Paul Brown Tiger Stadium",ad:"1 Paul E Brown Dr SE, Massillon, OH 44646",la:40.79290,ln:-81.50281,w:"The WPA-era 1939 home of the Massillon Tigers — one of the winningest high-school programs in America — renamed in 1976 for Paul Brown, who coached here before Ohio State and the pros; 16,600 seats on Friday nights in Tigertown.",k:"ENT",g:["ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Paul_Brown_Tiger_Stadium"],["LIVINGNEWDEAL","https://livingnewdeal.org/sites/paul-brown-tiger-stadium-massillon-oh/"],["OFFICIAL","https://massillontigers.com/facilities/paul-brown-tiger-stadium/"]]},
+{t:2,a:"KENT",n:"Brady's Leap Park",ad:"229 Gougler Ave, Kent, OH 44240",la:41.15558,ln:-81.35982,w:"The narrow Cuyahoga gorge where, around 1780, frontier scout Capt. Samuel Brady is said to have leapt 21 feet across the river to escape capture — Kent's founding legend, now a small city park with a marker.",k:"PARK",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Kent,_Ohio"],["OFFICIAL","https://kentohio.gov/culture-community/kent-parks-and-recreation/parks/brady-s-leap-park"],["KENTWIRED","https://kentwired.com/74623/uncategorized/famous-leap-made-kent-man-a-legend-marked-historical-sight"]]},
+{t:2,a:"KENT",n:"The Kent Stage",ad:"175 E Main St, Kent, OH 44240",la:41.15392,ln:-81.35662,w:"A 1927 movie house (Portage County's first talkie, The Jazz Singer, 1928) reborn in 2002 as a 642-seat folk-and-roots concert hall — ~150 shows a year and home of the Kent Folk Festival; KentWired readers' Best Local Music 2026.",k:"ENT",g:["ARCH","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Kent_Stage"],["KENTWIRED","https://kentstater.com/141040/best-of-kent/bok-26-best-local-music/"]]},
+{t:2,a:"CANT",n:"Sippo Lake Park",ad:"5300 Tyner St NW (East Sippo entrance), Perry Township, OH",la:40.80517,ln:-81.45635,w:"A 300-acre Stark Parks lake park in Perry Township, bought in 1977 with a federal block grant covering Sippo Lake and 100 surrounding acres, with hiking, biking, fishing and boating. Stark Parks recently added an accessible kayak and canoe launch.",k:"PARK",g:["PARK","ARCH"],s:[["STARKPARKS","https://starkparks.com/parks/sippo-lake-park"],["TREKOHIO","https://trekohio.com/stark/"],["CANTONREP","https://www.aol.com/kayak-canoe-launch-ramp-sippo-202315252.html"]]},
+{t:1,a:"CANT",n:"Glamorgan Castle",ad:"1025 S Union Ave, Alliance, OH 44601",la:40.91130,ln:-81.10891,w:"Alliance's castle: a three-storey mansion built 1904–09 for Col. William Henry Morgan of the Morgan Engineering Co. and named for his father's birthplace in Wales. Listed on the National Register of Historic Places in 1972. Restoration plans were in the news recently.",k:"ARCH",g:["ARCH"],s:[["NPS","https://npgallery.nps.gov/NRHP/AssetDetail/c524f4fa-62a8-4ab7-b49d-38ef89cc8470"],["VISITCANTON","https://visitcanton.com/directory/glamorgan-castle"],["NEWS5","https://www.news5cleveland.com/news/local-news/plans-in-works-to-restore-and-transform-glamorgan-castle-in-alliance"]]},
+{t:2,a:"BARB",n:"Lake Anna Park",ad:"Lake Anna Park, downtown Barberton, OH",la:41.01499,ln:-81.61052,w:"A 21-acre park around a spring-fed 10-acre glacial lake at the heart of downtown Barberton, named by city founder O.C. Barber after his only daughter, Anna Laura. It has a bandstand gazebo for summer concerts, the city War Memorial, and a statue of Barber.",k:"PARK",g:["PARK","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Lake_Anna_Park"],["BARBERTONLIBRARY","https://barbertonlibrary.org/barbertonhistory"],["OHIOERIECANALWAY","https://www.ohioanderiecanalway.com/media/1334/welcometomagiccityquest2018.pdf"]]},
+{t:2,a:"AKR",n:"Hower House Museum",ad:"60 Fir Hill, Akron, OH 44304",la:41.07956,ln:-81.50778,w:"28-room Second Empire Italianate mansion (1871) of 'Father of Akron Industry' John Henry Hower, designed by Akron Plan architect Jacob Snyder; deeded to the University of Akron in 1970 and on the National Register (1973). Open for tours with the Hower family's world-travel collections.",k:"ARCH",g:["MUS","ARCH","FAM"],s:[["OFFICIAL","https://www.uakron.edu/howerhousemuseum/"],["NPS","https://www.nps.gov/NR/travel/ohioeriecanal/how.HTM"],["SMITHSONIAN","https://www.smithsonianmag.com/museumday/venues/museum/hower-house-museum/"]]},
+{t:2,a:"AKR",n:"Lock 3 Park",ad:"200 S Main St, Akron, OH 44308",la:41.08000,ln:-81.52118,w:"Downtown Akron's civic park on the Ohio & Erie Canal, reopened in November 2024 after a $17.5M rebuild with a performance pavilion, gardens and winter ice-skating ribbon; home of the Akron Children's Museum. Free.",k:"PARK",g:["MUS","PARK","ARCH","FAM"],s:[["IDEASTREAM","https://www.ideastream.org/community/2024-11-26/what-to-expect-from-downtown-akrons-newly-renovated-lock-3"],["BEACONJOURNAL","https://www.aol.com/pavilion-trees-gardens-ice-skating-100534031.html"],["NEWS5","https://www.news5cleveland.com/news/local-news/akron-canton-news/akron-celebrates-groundbreaking-for-major-renovation-and-upgrades-to-lock-3"]]},
+{t:2,a:"AKR",n:"Sand Run Metro Park",ad:"1300 Sand Run Rd (Sand Run Pkwy), Akron, OH 44313",la:41.13500,ln:-81.56787,w:"995-acre Summit Metro Park opened in 1929 along the Sand Run Parkway ford, with 1930s Civilian Conservation Corps shelters and the Mingo Trail through oak-beech woods into the Seiberling Nature Realm. Free.",k:"PARK",g:["PARK","FREE"],s:[["SUMMITMETRO","https://www.Summitmetroparks.org/MetroParks/media/pdfs/maps/MAP_Sand-Run_WEB.pdf"],["VISITAKRON","https://www.visitakron-summit.org/things-to-do/outdoor-recreation/biking-hiking-trails/"]]},
+{t:1,a:"AKR",n:"Sojourner Truth Legacy Plaza",ad:"37 N High St, Akron, OH 44308",la:41.08590,ln:-81.51478,w:"Where Sojourner Truth gave her 'Ain't I a Woman?' speech at the 1851 Ohio Women's Rights Convention (Old Stone Church site). A plaza and statue were dedicated on the speech's anniversary, May 29, 2024, beside the 1981 Ohio Historical Marker. Free.",k:"ARCH",g:["ARCH","ODD","FREE"],s:[["ATLASOBSCURA","https://www.atlasobscura.com/places/site-of-sojourner-truths-aint-i-woman-speech"],["REMARKABLEOHIO","https://remarkableohio.org/marker/6-77-site-of-sojourner-truths-speech-on-womens-rights/"],["AP","https://abc17news.com/ap-national/2024/05/30/plaza-dedicated-at-the-site-where-sojourner-truth-gave-her-1851-aint-i-a-woman-speech/"],["WKYC","https://wkyc.com/video/news/local/akron/statue-of-civil-rights-icon-sojourner-truth-unveiled-in-akron/95-9371e8ef-760c-4a55-a97f-29e29e9ce34d"]]},
+{t:2,a:"CANT",n:"MAPS Air Museum",ad:"2260 International Pkwy, North Canton, OH 44720",la:40.91694,ln:-81.45444,w:"Military Aviation Preservation Society's working museum (est. 1990) on the west side of Akron-Canton Airport: 60+ historic aircraft, many restored by volunteers, in two galleries with an archive. One of Cleveland Magazine's 21 must-go spots in Canton.",k:"MUS",g:["MUS","PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/MAPS_Air_Museum"],["CLEMAG","https://clevelandmagazine.com/articles/a-clevelander-s-guide-to-canton-21-must-go-spots/"],["VINTAGEAVIATION","https://vintageaviationnews.com/aviation-museum-news/the-maps-air-museum-a-center-of-aviation-history-for-northeast-ohio.html"]]},
+{t:2,a:"CANT",n:"Hartville MarketPlace & Flea Market",ad:"1289 Edison St NW, Hartville, OH 44632",la:40.97539,ln:-81.36086,w:"Grown from a 1939 livestock auction into a 12-acre market: two covered pavilions, up to 800 outdoor vendors in season and a two-storey indoor MarketPlace of 110+ shops, drawing about a million visitors a year (Mon/Thu/Fri/Sat).",k:"SHOP",g:["SHOP"],s:[["VISITCANTON","https://visitcanton.com/blog/six-secrets-hartville-marketplace-flea-market"],["KENTWIRED","https://kentstater.com/69361/uncategorized/hartville-marketplace-buzzes-with-business"]]},
+{t:2,a:"CANT",n:"Tom Benson Hall of Fame Stadium (Hall of Fame Village)",ad:"1835 Harrison Ave NW, Canton, OH 44708",la:40.82000,ln:-81.39800,w:"The ~23,000-seat stadium beside the Pro Football Hall of Fame that hosts the NFL Hall of Fame Game and Enshrinement, and the OHSAA state football finals through 2026 — centrepiece of the Hall of Fame Village campus.",k:"ENT",g:["ICON","MUS","ENT","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Tom_Benson_Hall_of_Fame_Stadium"],["VISITCANTON","https://www.visitcanton.com/directory/tom-benson-hall-of-fame-stadium/"],["CANTONREP","https://www.aol.com/ohsaa-keep-state-football-finals-192420948.html"]]},
+{t:2,a:"MASS",n:"The Wilderness Center",ad:"9877 Alabama Ave SW, Wilmot, OH 44689",la:40.67250,ln:-81.64170,w:"Nonprofit nature center founded 1964 on 1,600+ acres: 10 miles of trails through forest and prairie, Wilderness Lake, an observation tower, bird-viewing room and astronomy building. Free every day of the year.",k:"PARK",g:["PARK","ARCH","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/The_Wilderness_Center_(Ohio)"],["VISITCANTON","https://visitcanton.com/directory/the-wilderness-center"]]},
+{t:2,a:"MASS",n:"Lock 4 Park (Ohio & Erie Canal)",ad:"6600 Erie Ave NW, Canal Fulton, OH 44614",la:40.87761,ln:-81.58320,w:"Stark County's last fully intact Ohio & Erie Canal lock (stone, 1827; in use to 1913) on the Congressman Ralph Regula Towpath Trail north of Canal Fulton, with the old mill raceway and a fishing dock. Free.",k:"ARCH",g:["PARK","ARCH","ENT","FREE"],s:[["HMDB","https://www.hmdb.org/m.asp?m=68688"],["OHIOERIECANALWAY","https://www.ohioanderiecanalway.com/plan/listings/lock-4-park/"],["STARKPARKS","https://starkparks.com/parks_and_trails/starkparks_parks_and_trails_congressman_ralph_regula_towpath_trail.php"]]},
+{t:2,a:"BARB",n:"Silver Creek Metro Park",ad:"5000 Hametown Rd, Norton, OH 44203",la:40.99625,ln:-81.68426,w:"Summit Metro Parks' former Harter Dairy Farm (Civil War-era barn) with a spring-fed 50-acre lake, swimming beach, boat rentals, disc golf and bridle trails. Free.",k:"PARK",g:["PARK","FAM","FREE"],s:[["SUMMITMETRO","https://www.summitmetroparks.org/silver-creek-metro-park/"],["SIGNALAKRON","https://signalakron.org/akron-things-to-do-fall-festivals-events-from-oktoberfest-to-halloween-2026/"]]},
+{t:2,a:"NSUM",n:"Deep Lock Quarry Metro Park",ad:"5779 Riverview Rd, Peninsula, OH 44264",la:41.22993,ln:-81.55498,w:"73-acre Summit Metro Park (not an NPS unit) south of Peninsula: Berea-sandstone quarries opened in 1825 for the Ohio & Erie Canal, cast-off millstones from Ferdinand Schumacher's oat mills (later Quaker Oats) and the canal's deepest lock, on the 1.4-mile Quarry Trail. Free.",k:"PARK",g:["PARK","ARCH","FREE"],s:[["SUMMITMETRO","https://www.Summitmetroparks.org/deep-lock-quarry-metro-park.aspx"],["NPS","https://www.nps.gov/places/000/deep-lock-quarry-panel.htm"],["AKRONLIFE","https://www.akronlife.com/arts/330-area-blog/landmark-adventures-in-the-330/"],["TREKOHIO","https://trekohio.com/2015/07/09/deep-lock-quarry-metro-park/"]]},
+{t:2,a:"NSUM",n:"Boston Mills / Brandywine Ski Resorts",ad:"7100 Riverview Rd, Peninsula, OH 44264",la:41.26393,ln:-81.56611,w:"Northeast Ohio's ski hills since 1963 — two once-rival resorts in the Cuyahoga Valley, combined in 1990 and run by Vail Resorts since 2019: 18 trails and 11 chairlifts.",k:"ENT",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Boston_Mills/Brandywine_Ski_Resorts"],["NEWS5","https://www.news5cleveland.com/news/local-news/oh-summit/boston-mills-and-brandywine-announce-opening-date"],["WKYC","https://wkyc.com/article/life/boston-mills-brandywine-open-slopes-this-weekend/95-9a9be244-f2bf-4058-9674-c221db9bd192"]]},
+{t:2,a:"CANT",n:"Haines House Underground Railroad Museum",ad:"186 W Market St, Alliance, OH 44601",la:40.92081,ln:-81.10972,w:"1830s home of abolitionists Ridgeway and Sarah Haines, a station on the Underground Railroad — freedom-seekers hid in the attic. National Register (1974); restored by the Alliance Area Preservation Society and one of 15 stops on Ohio's Underground Railroad Trail. Tours first weekend monthly, Feb–Nov.",k:"ARCH",g:["MUS","PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Haines_House_(Alliance,_Ohio)"],["CANTONREP","https://www.aol.com/news/ohio-historical-underground-railroad-trail-094623011.html"],["IDEASTREAM","https://www.wosu.org/2023-09-18/local-historians-hope-ohios-new-underground-railroad-trail-will-help-bring-patrons-back-to-museums"],["VISITCANTON","https://www.visitcanton.com/directory/haines-house-underground-railroad-museum/"]]},
+{t:2,a:"CANT",n:"Stark County Courthouse",ad:"115 Central Plaza N, Canton, OH 44702",la:40.79886,ln:-81.37504,w:"George F. Hammond's 1895 Beaux-Arts courthouse wrapped around the 1870s building, its clock tower crowned by four trumpeting angels, the 'Trumpeters of Justice'. Where young William McKinley began his law career. Free to view.",k:"ARCH",g:["ICON","ARCH","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Stark_County_Courthouse_(Ohio)"],["PBS","https://www.pbs.org/video/stark-county-courthouse-200-years-of-history-hiyqc4"],["IDEASTREAM","https://www.wosu.org/wksu-stories/2017-07-09/stark-county-courthouse-celebrates-200-years-with-tours-plays-and-a-ball"],["COURTNEWSOHIO","https://courtnewsohio.gov/happening/2026/StarkCoSOJ_060926.asp"]]},
+{t:2,a:"KENT",n:"West Branch State Park",ad:"5708 Esworthy Rd, Ravenna, OH 44266",la:41.14311,ln:-81.10815,w:"5,000+ acres around the 2,650-acre Michael J. Kirwan Reservoir (Army Corps, 1965; state park since 1966): beach, boating, camping and about 12 miles of single-track mountain-bike loops.",k:"PARK",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/West_Branch_State_Park"],["ODNR","https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/parks/parkmaps/westbranchmountainbikemap.pdf"]]},
+{t:2,a:"AKR",n:"Kenmore Boulevard Historic District",ad:"Kenmore Blvd (12th–17th St SW; pin at Lay's Guitar Shop, 974 Kenmore Blvd), Akron, OH 44314",la:41.04316,ln:-81.55891,w:"Main street of the former city of Kenmore (annexed 1929), the first Akron neighbourhood business district on the National Register (2019): intact streetcar-era storefronts, live-music venues, recording studios and Lay's Guitar Shop (50+ years).",k:"SHOP",g:["ARCH","SHOP"],s:[["SIGNALAKRON","https://signalakron.org/new-signs-welcome-visitors-to-the-kenmore-boulevard-historic-district/"],["SIGNALAKRON","https://signalakron.org/kenmore-once-its-own-city-near-akron-is-undergoing-a-reimagining/"],["STRONGTOWNS","https://strongtowns.org/journal/2018/6/18/music-future-past-akron-kenmore"]]},
+{t:2,a:"AKR",n:"Summit Lake Nature Center & Summit Lake Trail",ad:"411 Ira Ave, Akron, OH 44301",la:41.05442,ln:-81.54343,w:"Summit Metro Parks' urban nature center on Summit Lake — the Ohio & Erie Canal's high point — born of the Knight/Kresge-backed Reimagining the Civic Commons program, with the 2.75-mile Summit Lake Trail looping the lake onto the Towpath. Free.",k:"PARK",g:["PARK","ARCH","FREE"],s:[["SUMMITMETRO","https://www.summitmetroparks.org/nature-centers/summit-lake-nature-center/"],["SPECTRUM","https://spectrumnews1.com/oh/columbus/news/2022/10/20/groundbreaking-for-akron-s-summit-lake-trail-another-milestone"],["LANDSCAPEARCH","https://landscapearchitecturemagazine.org/2020/10/a-lake-and-a-long-history"],["SIGNALAKRON","https://signalakron.org/redevelopment-projects-in-akron-reimagine-civic-commons/"]]},
+{t:2,a:"AKR",n:"E.J. Thomas Performing Arts Hall",ad:"198 Hill St, Akron, OH 44325",la:41.07860,ln:-81.51510,w:"The University of Akron's 2,955-seat hall (1973, opened with a Carlos Chávez world premiere), home of the Akron Symphony and Broadway tours presented with Playhouse Square.",k:"ENT",g:["ARCH","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/E._J._Thomas_Hall"],["OFFICIAL","https://www.uakron.edu/im/news/ej-thomas-performing-arts-hall-showcases-the-arts-in-akron-for-50-years"],["PLAYHOUSESQUARE","https://playhousesquare.org/venues/detail/ej-thomas-hall"]]},
+{t:2,a:"NSUM",n:"Western Reserve Academy",ad:"115 College St, Hudson, OH 44236",la:41.24869,ln:-81.43549,w:"Founded 1826 as Western Reserve College — the 'Yale of the West' — on a New England-style campus whose 1836 chapel is on the National Register; the 58-acre historic campus anchors Hudson's village green.",k:"ARCH",g:["ARCH","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Western_Reserve_Academy"],["NPS","https://npgallery.nps.gov/NRHP/GetAsset/NRHP/64000613_text"],["CLEMAG","https://clevelandmagazine.com/articles/private-schools-western-reserve-academy/"]]},
+{t:2,a:"KENT",n:"Cooperrider-Kent Bog State Nature Preserve",ad:"1028 Meloy Rd, Kent, OH 44240",la:41.12944,ln:-81.35361,w:"Ice-age kettle bog with Ohio's largest stand of tamarack trees, seen from a half-mile boardwalk loop; an ODNR state nature preserve expanded with local partners. Free.",k:"PARK",g:["PARK","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Cooperrider-Kent_Bog_State_Nature_Preserve"],["FARMANDDAIRY","https://www.farmanddairy.com/?p=804026"],["KENTWIRED","https://kentwired.com/76426/uncategorized/bog-provides-green-sights-among-kents-construction"]]},
+{t:3,a:"AKR",n:"Firestone Metro Park",ad:"2620 Harrington Rd, Akron, OH 44319",la:41.01500,ln:-81.51778,w:"258-acre Summit Metro Parks unit begun with a 1949 gift from Firestone Tire & Rubber: wetlands and marshy meadows along the Tuscarawas River and the old canal-feeder Tuscarawas Race, a sledding hill and 175+ recorded bird species.",k:"PARK",g:["PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Summit_Metro_Parks"],["AKRONLIFE","https://www.akronlife.com/locations/firestone-metro-park/"],["SIGNALAKRON","https://signalakron.org/natural-beauty-infuses-life-in-akron-southernmost-neighborhood-coventry-crossing/"]]},
+{t:3,a:"CANT",n:"Canton Classic Car Museum",ad:"123 6th St SW, Canton, OH 44702",la:40.79536,ln:-81.37678,w:"Downtown Canton car museum founded in 1978: an unrestored 1937 Ahrens-Fox fire truck, a 1922 Holmes Victoria built in Canton, plus vintage advertising and toys. Picked in Akron Life's '6 Things to Do in Canton This Summer'; listed by Visit Canton.",k:"MUS",g:["MUS"],s:[["AKRONLIFE","https://www.akronlife.com/arts/330-area-blog/6%C2%A0things-to-do-in-canton-this-summer/"],["VISITCANTON","https://www.visitcanton.com/things-to-do/museums-history/?page=2"]]},
+{t:3,a:"CANT",n:"Jackson Bog State Nature Preserve",ad:"7984 Fulton Dr NW, Massillon, OH 44646",la:40.85847,ln:-81.50341,w:"58-acre state nature preserve (1980) in Jackson Township — really a calcium-rich, spring-fed fen — with a boardwalk through wetland meadows holding 20+ plants rare in Ohio, including carnivorous species that bloom in summer. Free, dawn to dusk.",k:"PARK",g:["PARK","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Jackson_Bog_State_Nature_Preserve"],["ODNR","https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/jackson-bog-state-nature-preserve"],["VISITCANTON","https://www.visitcanton.com/directory/jackson-bog-state-nature-preserve/"]]},
+{t:3,a:"AKR",n:"Goodyear Theater",ad:"1201 E Market St, Akron, OH 44305",la:41.06597,ln:-81.48177,w:"Goodyear Tire & Rubber's 1920 company hall (1,686-seat auditorium, gym, classrooms) on the old East End campus, reopened in 2016 as a 1,450-seat concert theater anchoring the East End redevelopment. NRHP-listed as Goodyear Hall; covered by Ideastream and Akron Life.",k:"ENT",g:["ICON","ARCH","ENT"],s:[["IDEASTREAM","https://www.ideastream.org/news/arts-culture/2016-09-22/the-new-sound-of-the-old-goodyear-theater-could-transform-east-akron"],["AKRONLIFE","https://www.akronlife.com/education/everlasting-entertainment/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Goodyear_Hall-Ohio_Savings_and_Trust_Company"]]},
+{t:2,a:"MASS",n:"Lions Lincoln Theatre",ad:"156 Lincoln Way E, Massillon, OH 44646",la:40.79745,ln:-81.52125,w:"Massillon's 1915 movie palace (Guy Tilden design), saved from demolition by the Massillon Lions Club in 1982 and run by volunteers as a 684-seat performing-arts and classic-film house. Heritage Ohio feature; Cinema Treasures history; Clio entry.",k:"ENT",g:["ARCH","ENT"],s:[["HERITAGEOHIO","https://www.heritageohio.org/?p=7321"],["CINEMATREASURES","https://www.cinematreasures.org/theaters/36783"],["CLIO","https://www.theclio.com/entry/26623"]]}
+];
+
+const FS = {
+  "AKRONLIFE":{k:"AKRON LIFE",t:"Akron Life",u:"https://www.akronlife.com/",l:"Akron Life"},
+  "BEACONJOURNAL":{k:"AKRON BEACON JOURNAL",t:"Akron Beacon Journal",u:"https://www.beaconjournal.com/",l:"Akron Beacon Journal"},
+  "CANTONREP":{k:"CANTON REPOSITORY",t:"The Canton Repository",u:"https://www.cantonrep.com/",l:"The Canton Repository"},
+  "CLEMAG":{k:"CLEVELAND MAGAZINE",t:"Cleveland Magazine",u:"https://clevelandmagazine.com/",l:"Cleveland Magazine"},
+  "CLEVELAND19":{k:"CLEVELAND19",t:"Cleveland 19 News (WOIO)",u:"https://www.cleveland19.com/",l:"Cleveland 19 News (WOIO)"},
+  "CLEVELANDJEWISHNEWS":{k:"CLEVELANDJEWISHNEWS",t:"Cleveland Jewish News",u:"https://www.clevelandjewishnews.com/",l:"Cleveland Jewish News"},
+  "IDEASTREAM":{k:"IDEASTREAM / WKSU",t:"Ideastream Public Media (WKSU)",u:"https://www.ideastream.org/",l:"Ideastream Public Media (WKSU)"},
+  "KENTWIRED":{k:"KENTWIRED",t:"KentWired / The Kent Stater",u:"https://kentwired.com/",l:"KentWired / The Kent Stater"},
+  "KSU":{k:"KENT STATE UNIV.",t:"Kent State University",u:"https://www.kent.edu/",l:"Kent State University"},
+  "MAHONINGMATTERS":{k:"MAHONINGMATTERS",t:"Mahoning Matters",u:"https://www.mahoningmatters.com/",l:"Mahoning Matters"},
+  "MEATPOULTRY":{k:"MEATPOULTRY",t:"Meat+Poultry",u:"https://www.meatpoultry.com/",l:"Meat+Poultry"},
+  "MEDINAGAZETTE":{k:"MEDINAGAZETTE",t:"The Medina Gazette",u:"https://medina-gazette.com/",l:"The Medina Gazette"},
+  "NEWS5":{k:"NEWS5",t:"News 5 Cleveland (WEWS)",u:"https://www.news5cleveland.com/",l:"News 5 Cleveland (WEWS)"},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
+  "OHIOMAG":{k:"OHIO MAGAZINE",t:"Ohio Magazine",u:"https://www.ohiomagazine.com/",l:"Ohio Magazine"},
+  "PITTMAG":{k:"PITTMAG",t:"Pittsburgh Magazine",u:"https://www.pittsburghmagazine.com/",l:"Pittsburgh Magazine"},
+  "PORTAGER":{k:"PORTAGER",t:"The Portager",u:"https://theportager.com/",l:"The Portager"},
+  "RECORDCOURIER":{k:"RECORD-COURIER",t:"Record-Courier (Kent/Ravenna)",u:"https://www.record-courier.com/",l:"Record-Courier (Kent/Ravenna)"},
+  "ROADFOOD":{k:"ROADFOOD",t:"Roadfood",u:"https://roadfood.com/",l:"Roadfood"},
+  "SCENE":{k:"SCENE MAGAZINE",t:"Scene (Northeast Ohio alt-weekly)",u:"https://www.clevescene.com/",l:"Scene (Northeast Ohio alt-weekly)"},
+  "SIGNALAKRON":{k:"SIGNAL AKRON",t:"Signal Akron",u:"https://signalakron.org/",l:"Signal Akron"},
+  "TAKEOUT":{k:"THE TAKEOUT",t:"The Takeout — 'Get Schooled By Barberton Fried Chicken'",u:"https://thetakeout.com/barberton-fried-chicken-ohio-hopocan-belgrade-lard-1840822213/",l:"The Takeout — 'Get Schooled By Barberton Fried Chicken'"},
+  "USATODAY":{k:"USATODAY",t:"USA TODAY (Bars/Restaurants of the Year)",u:"https://www.usatoday.com/",l:"USA TODAY (Bars/Restaurants of the Year)"},
+  "VISITAKRON":{k:"AKRON/SUMMIT CVB",t:"Akron/Summit CVB",u:"https://visitakron-summit.org/",l:"Akron/Summit CVB"},
+  "VISITCANTON":{k:"VISIT CANTON",t:"Visit Canton / Stark County CVB",u:"https://www.visitcanton.com/",l:"Visit Canton / Stark County CVB"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org",l:"Wikipedia"},
+  "WINESPECTATOR":{k:"WINESPECTATOR",t:"Wine Spectator Restaurant Awards",u:"https://www.winespectator.com/restaurants",l:"Wine Spectator Restaurant Awards"},
+  "WKYC":{k:"WKYC 3",t:"WKYC Channel 3",u:"https://www.wkyc.com/",l:"WKYC Channel 3"}
+};
+
+const CUISINES = [
+  {id:"CHIX",n:"Barberton Chicken & Fried Chicken"},
+  {id:"BURG",n:"Burgers, Drive-ins & Diners"},
+  {id:"US",n:"American & New American"},
+  {id:"ITAL",n:"Italian & Pizza"},
+  {id:"HIMAL",n:"Nepali, Bhutanese & South Asian"},
+  {id:"ASIAN",n:"East & Southeast Asian"},
+  {id:"EURO",n:"Serbian, Hungarian & Eastern European"},
+  {id:"MED",n:"Greek, Lebanese & Middle Eastern"},
+  {id:"MEX",n:"Mexican & Latin"},
+  {id:"SOUL",n:"BBQ, Soul & Southern"},
+  {id:"ICE",n:"Frozen Custard, Ice Cream & Sweets"},
+  {id:"BREW",n:"Breweries, Wineries & Bars"},
+  {id:"COF",n:"Coffee & Cafés"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"PARK",n:"Parks, Gardens & Trails"},
+  {id:"ARCH",n:"Architecture & History"},
+  {id:"ENT",n:"Sports, Music & Entertainment"},
+  {id:"SHOP",n:"Markets & Districts"},
+  {id:"FAM",n:"Family & Kids"},
+  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"AKR",n:"Swensons Drive-In (original, Wallhaven)",ad:"40 S Hawkins Ave, Akron, OH 44313",cz:["BURG"],la:41.10859,ln:-81.56967,w:"Pop Swenson started selling burgers from his station wagon at Buchtel High in 1933 and opened this South Hawkins drive-in in 1934; it's still the flagship of Akron's signature burger, the Galley Boy, run to your car by sprinting curb-hops. Signal Akron readers' Best Burger 2025; Beacon Journal readers' bracket winner 2026; Reader's Digest's best burger in Ohio.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Swensons"],["SIGNALAKRON","https://signalakron.org/signal-akron-best-of-city-2025-winner-burger-swensons/"],["OHIOMAG","https://www.ohiomagazine.com/food-drink/article/how-swensons-drive-in-shaped-akron-food-culture"],["BEACONJOURNAL","https://www.aol.com/news/readers-crown-best-place-burger-100055478.html"],["CLEVELANDJEWISHNEWS","https://www.clevelandjewishnews.com/features/nosh/swenson-s-drive-in-named-best-burger-in-ohio/article_8af44c66-3ee4-11ef-9f52-cf3f38af25b7.html"],["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/classic%C2%A0330-dishes/"]]},
+{t:1,a:"AKR",n:"Strickland's Frozen Custard (original, Triplett Blvd)",ad:"1809 Triplett Blvd, Akron, OH 44306",cz:["ICE"],la:41.04363,ln:-81.46223,w:"Bill and Florence Strickland opened this walk-up stand in 1936 on the same spot it still occupies; Bill, an Akron Pure Milk man, built his own batch freezer to keep air out of the custard. A spring-to-fall Akron ritual and a WKYC top-15 Northeast Ohio ice cream pick.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Strickland%27s_Frozen_Custard"],["WKYC","https://wkyc.com/article/life/food/cleveland-ice-cream-shops-top-15-northeast-ohio-best-mitchells-honey-hut-handels-east-coast-custard/95-52fd8996-e197-44af-aee3-586b7d397cae"]]},
+{t:1,a:"CANT",n:"Bender's Tavern",ad:"137 Court Ave SW, Canton, OH 44702",cz:["US"],la:40.79816,ln:-81.37601,w:"Canton's oldest restaurant (1902), in the Jacob family since 1932 — it survived Prohibition and a 1988 fire, and George Halas and Jim Thorpe dined here the week the NFL was formed in 1920. On the Canton Repository foodie panel's 11 best in Stark County.",s:[["OHIOMAG","https://www.ohiomagazine.com/food-drink/article/bender-s-tavern"],["AKRONLIFE","https://www.akronlife.com/dining/tried-and-true"],["CANTONREP","https://www.aol.com/eat-way-stark-county-11-104555508.html"],["CLEMAG","https://clevelandmagazine.com/articles/a-clevelander-s-guide-to-canton-21-must-go-spots/"]]},
+{t:1,a:"AKR",n:"Luigi's Restaurant",ad:"105 N Main St, Akron, OH 44308",cz:["ITAL"],la:41.08795,ln:-81.51536,w:"Downtown Akron's Italian landmark since 1949 (Ciriello family), its brick entry papered with signed celebrity photos and a line out the door late at night. Signal Akron readers' Best Pizza 2025; No. 1 pizza and No. 1 Italian in Akron Life's 2026 330 Flavor Awards.",s:[["SIGNALAKRON","https://signalakron.org/signal-akron-best-of-city-2025-winner-pizza-luigis/"],["AKRONLIFE","https://www.akronlife.com/dining/330-flavor-awards-winners-2026/"],["SCENE","https://www.clevescene.com/food-drink/classic-eats-luigis-3763625/"],["OHIOMAG","https://www.ohiomagazine.com/travel/article/rubber-city-revival"]]},
+{t:1,a:"AKR",n:"Diamond Grille",ad:"77 W Market St, Akron, OH 44308",cz:["US"],la:41.08668,ln:-81.52022,w:"Akron's frozen-in-time 1935 steakhouse — neon sign, phone booth, Sputnik chandeliers — and the haunt of tour pros like Tiger Woods during Firestone weeks. No. 1 Best Restaurant in the 330 (with sister Kingfish), Akron Life 330 Flavor Awards 2026.",s:[["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/diamond-grille/"],["OHIOMAG","https://www.ohiomagazine.com/travel/article/akron-shop-eat-see"],["BEACONJOURNAL","https://www.yahoo.com/entertainment/akrons-legendary-diamond-grille-serves-100323777.html"]]},
+{t:1,a:"KENT",n:"Ray's Place",ad:"135 Franklin Ave, Kent, OH 44240",cz:["BURG","US"],la:41.15296,ln:-81.35887,w:"Downtown Kent's bar-and-grill since 1937 and the town's standing answer to 'where should we eat': Best Restaurant in Portage County in Akron Life's 2026 Flavor Awards and a perennial KentWired Best of Kent winner.",s:[["AKRONLIFE","https://www.akronlife.com/food-and-dining/Flavor-blog/eating-your-way-through-kent/"],["KENTWIRED","https://kentwired.com/118059/best-of-kent-2024/bok-24-best-restaurant/"],["OFFICIAL","https://www.raysplacekent.com/"],["KSU","https://www.kent.edu/today/news/downtown-kent-landmark-celebrates-85-years-beer-and-gerties-chili"],["SCENE","https://www.clevescene.com/arts/30-great-destination-restaurants-worth-the-drive-from-cleveland-38342120/"],["AKRONLIFE","https://www.akronlife.com/dining/330-flavor-awards-winners-2026/"]]},
+{t:2,a:"AKR",n:"Parasson's Italian Restaurant",ad:"959 E Waterloo Rd, Akron, OH 44306",cz:["ITAL"],la:41.02995,ln:-81.49284,w:"The Parasson family's restaurant traces to 1940s downtown Akron and Tonyo's Pizza in Barberton; the Beacon Journal calls a visit 'a trip to the past' and Akron Life readers ranked it No. 2 Italian in the 330 (2026).",s:[["BEACONJOURNAL","https://www.aol.com/visit-parassons-italian-restaurant-akron-110702600.html"],["AKRONLIFE","https://www.akronlife.com/dining/330-flavor-awards-winners-2026/"],["WKYC","https://www.wkyc.com/article/news/local/akron/parassons-akron-dining-room-reopen-closing-italian-restaurants-stow-barberton/95-970bea34-bf99-4f6f-8b62-4304e5ab0d0f"]]},
+{t:2,a:"AKR",n:"Bob's Hamburg",ad:"1351 East Ave, Akron, OH 44307",cz:["BURG"],la:41.06326,ln:-81.55425,w:"Akron's first hamburger joint (1931, Bob Holbrook), still using its original grill and fridge — a tiny counter that Ideastream calls the place that stays the same while restaurants come and go.",s:[["IDEASTREAM","https://www.ideastream.org/news/arts-culture/2018-11-16/state-of-the-arts-as-restaurants-come-and-go-bobs-hamburg-stays-the-same"],["NEWS5","https://www.news5cleveland.com/were-open/iconic-akron-restaurant-accommodating-truck-drivers-during-pandemic-offering-special-discount"],["BEACONJOURNAL","https://www.yahoo.com/entertainment/national-cheeseburger-day-try-akron-100700732.html"]]},
+{t:1,a:"CANT",n:"Basil Asian Bistro",ad:"585 Market Ave N, Canton, OH 44702",cz:["ASIAN"],la:40.80185,ln:-81.37372,w:"The Ly family's downtown Canton bistro, nearly three decades in — first-named on the Canton Repository foodie panel's 11 best Stark County restaurants and on Cleveland Magazine's Canton must-go list.",s:[["CANTONREP","https://www.aol.com/eat-way-stark-county-11-104555508.html"],["CLEMAG","https://clevelandmagazine.com/articles/a-clevelander-s-guide-to-canton-21-must-go-spots/"],["VISITCANTON","https://www.visitcanton.com/blog/international-cuisine-in-stark-county/"]]},
+{t:1,a:"CANT",n:"Gervasi Vineyard (The Bistro)",ad:"1700 55th St NE, Canton, OH 44721",cz:["BREW","ITAL"],la:40.85752,ln:-81.35155,w:"A 55-acre Tuscan-style winery resort on Canton's north side — 30-plus wines, three restaurants, villas and a spa; The Bistro made the Canton Repository panel's 11 best in Stark County.",s:[["CANTONREP","https://www.aol.com/eat-way-stark-county-11-104555508.html"],["CLEMAG","https://clevelandmagazine.com/articles/grape-escapes-taste-of-italy/"],["PITTMAG","https://www.pittsburghmagazine.com/gervasi-vineyard-resort-spa/"]]},
+{t:2,a:"CANT",n:"Hartville Kitchen Restaurant & Bakery",ad:"1015 Edison St NW, Hartville, OH 44632",cz:["US","ICE"],la:40.97198,ln:-81.36026,w:"Hartville's Amish-country family restaurant and bakery since 1966 — nostalgic, scratch-made, and on the Canton Repository panel's 11 best in Stark County.",s:[["CANTONREP","https://www.aol.com/eat-way-stark-county-11-104555508.html"],["VISITCANTON","https://www.visitcanton.com/directory/hartville-kitchen-restaurant-bakery/"]]},
+{t:2,a:"AKR",n:"The Lockview",ad:"207 S Main St, Akron, OH 44308",cz:["BREW","BURG"],la:41.07978,ln:-81.51966,w:"A former indie-music venue on Main St near the University of Akron turned the area's best-loved craft-beer bar, with a grilled-cheese menu to match.",s:[["OHIOMAG","https://www.ohiomagazine.com/travel/article/rubber-city-revival"],["AKRONLIFE","https://www.akronlife.com/dining/beer-buzz/"]]},
+{t:2,a:"AKR",n:"Mr. Zub's Deli & Bar",ad:"795 W Market St, Akron, OH 44303",cz:["BURG"],la:41.09651,ln:-81.54271,w:"Highland Square's movie-themed deli and bar, on Cleveland Magazine's Highland Square must-visit list and Akron Life's stuffed-sandwich roundup.",s:[["CLEMAG","https://clevelandmagazine.com/articles/here-are-the-12-highland-square-spots-you-must-visit-now/"],["AKRONLIFE","https://www.akronlife.com/dining/stuffed/"]]},
+{t:1,a:"NSUM",n:"Blue Door Cafe & Bakery",ad:"1970 State Rd, Cuyahoga Falls, OH 44223",cz:["ICE","US"],la:41.13417,ln:-81.50890,w:"Marine-veteran pastry chef Michael Bruno's 2009 café — No. 6 on Yelp's national Top 100 Brunch Spots (2024, per WKYC) and a Cleveland Magazine, Scene and Akron Life favorite.",s:[["AKRONLIFE","https://www.akronlife.com/dining/blue-door/"],["SCENE","https://www.clevescene.com/food-drink/fresh-off-his-recent-hells-kitchen-success-chef-alejandro-najar-finds-a-home-at-the-blue-door-cafe-in-cuyahoga-falls-41724960/"],["WKYC","https://www.wkyc.com/article/entertainment/dining/blue-door-cafe-and-bakery-cuyahoga-falls-yelp-top-brunch-sports-2024/95-1594d4d8-1b75-4b77-bbde-0f8851c928b4"],["CLEMAG","https://clevelandmagazine.com/articles/cuyahoga-falls-18-best-restaurants-and-bars-dining-guide/"]]},
+{t:2,a:"NSUM",n:"Tiki Underground",ad:"1832 Front St, Cuyahoga Falls, OH 44221",cz:["BREW"],la:41.13052,ln:-81.48413,w:"A shipwreck-themed tiki bar behind a carved cedar door, moved from Hudson to Front St in 2022.",s:[["OHIOMAG","https://www.ohiomagazine.com/food-drink/article/tiki-underground-fires-up-great-cocktails-in-cuyahoga-falls"],["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/island-vacation/"],["CLEMAG","https://clevelandmagazine.com/articles/cuyahoga-falls-18-best-restaurants-and-bars-dining-guide/"]]},
+{t:2,a:"NSUM",n:"Beau's on the River",ad:"1989 Front St (Sheraton Suites), Cuyahoga Falls, OH 44221",cz:["US"],la:41.13258,ln:-81.48250,w:"Chef Beau Schmidt's riverside dining room in the Sheraton Suites; Schmidt was Akron Life readers' 2026 Best Chef and Best Restaurateur.",s:[["CLEMAG","https://clevelandmagazine.com/articles/cuyahoga-falls-18-best-restaurants-and-bars-dining-guide/"],["AKRONLIFE","https://www.akronlife.com/dining/330-flavor-awards-winners-2026/"]]},
+{t:2,a:"KENT",n:"Lucci's Place",ad:"405 E Main St, Kent, OH 44240",cz:["ITAL"],la:41.15423,ln:-81.35217,w:"Kent's slice shop for 30-plus years — KentWired Best of Kent pizza four years running and the Plain Dealer's Best Pizza in Portage County (2016).",s:[["KENTWIRED","https://kentstater.com/128123/best-of-kent-2025/bok-25-best-pizza"],["AKRONLIFE","https://www.akronlife.com/food-and-dining/Flavor-blog/eating-your-way-through-kent/"]]},
+{t:2,a:"MASS",n:"Chloe's Diner",ad:"112 1st St NE, Massillon, OH 44646",cz:["BURG"],la:40.79788,ln:-81.52205,w:"A converted Massillon service station packed with owner Jeff Doll's classic cars, motorcycles and neon — part diner, part museum; an Ohio Magazine road-trip pick and on the Canton Repository panel's 11 best in Stark County.",s:[["OHIOMAG","https://www.ohiomagazine.com/food-drink/article/chloe-s-diner"],["CANTONREP","https://sports.yahoo.com/burgers-fries-classic-cars-chloes-085501478.html"],["VISITCANTON","https://www.visitcanton.com/blog/stark11-11-top-breakfast-spots-in-stark-county/"]]},
+{t:2,a:"NSUM",n:"Darby's on 59",ad:"2764 Front St, Cuyahoga Falls, OH 44221",cz:["US"],la:41.14777,ln:-81.47080,w:"Cuyahoga Falls gastropub on Akron Life's 20 Best Restaurants for 2026 and Cleveland Magazine's Falls best list.",s:[["AKRONLIFE","https://www.akronlife.com/dining/akron-restaurant-search/20-best-restaurants-for-2026/"],["CLEMAG","https://clevelandmagazine.com/articles/cuyahoga-falls-18-best-restaurants-and-bars-dining-guide/"]]},
+{t:2,a:"CANT",n:"Table Six Kitchen + Bar",ad:"6113 Whipple Ave NW, North Canton, OH 44720",cz:["US"],la:40.87008,ln:-81.42275,w:"'Always busy and consistently good' — on the Canton Repository panel's 11 best Stark County restaurants and Akron Life's Winning Eats in Canton.",s:[["CANTONREP","https://www.aol.com/eat-way-stark-county-11-104555508.html"],["AKRONLIFE","https://www.akronlife.com/dining/winning-eats-in-canton/"]]},
+{t:2,a:"AKR",n:"Good Company (Akron)",ad:"60 S Maple St, Akron, OH 44302",cz:["BURG","US"],la:41.08671,ln:-81.52480,w:"The nostalgic burger-and-shake bar's Akron outpost, opened March 2024 in the old Spotted Owl space — on Akron Life's 20 Best Restaurants for 2026 and Cleveland Magazine's Akron picks.",s:[["AKRONLIFE","https://www.akronlife.com/dining/good-company/"],["CLEMAG","https://clevelandmagazine.com/articles/good-company-opens-today-in-akron/"],["BEACONJOURNAL","https://www.aol.com/good-company-akron-elevates-casual-110629488.html"]]},
+{t:2,a:"AKR",n:"Ken Stewart's Grille",ad:"1970 W Market St, Akron, OH 44313",cz:["US"],la:41.11333,ln:-81.57873,w:"Restaurateur Ken Stewart's flagship — Signal Akron readers' Best Fine Dining and one of Akron Life's 20 Best Restaurants for 2026.",s:[["SIGNALAKRON","https://signalakron.org/akron-best-of-the-city-fine-dining-ken-stewarts-grille/"],["AKRONLIFE","https://www.akronlife.com/dining/akron-restaurant-search/20-best-restaurants-for-2026/"]]},
+{t:1,a:"BARB",n:"Belgrade Gardens",ad:"401 E State St, Barberton, OH",cz:["CHIX","EURO"],la:41.01919,ln:-81.57952,w:"The 1933 birthplace of Barberton chicken: Serbian immigrants Mike and Smilka Topalsky fried chicken in lard and served it with fresh-cut fries, slaw and a tomato-rice 'hot sauce' descended from Serbian djuvece — the plate every Barberton chicken house since has copied.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Barberton_chicken"],["TAKEOUT","https://thetakeout.com/barberton-fried-chicken-ohio-hopocan-belgrade-lard-1840822213/"],["CLEMAG","https://clevelandmagazine.com/food-drink/fried-chicken-is-barberton's-defining-food"],["SCENE","Scene — Barberton-style chicken classics (carried from data/cleveland-research/barberton-chicken.json)"]]},
+{t:2,a:"AKR",n:"Papa Joe's Iacomini's",ad:"1561 Akron Peninsula Rd, Akron, OH",cz:["ITAL"],la:41.13758,ln:-81.54680,w:"The Iacomini family's Merriman Valley dining room, open since 1932 — Akron's celebration-dinner standby. Signal Akron readers voted it the city's best restaurant in 2026.",s:[["SIGNALAKRON","https://signalakron.org/akron-2026-best-of-the-city-winners-food-favorites-restaurants-coffee-pizza-more/"],["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/classic%C2%A0330-dishes/"]]},
+{t:3,a:"AKR",n:"Thirsty Dog Brewing Co. Taphouse",ad:"587 Grant St, Akron, OH",cz:["BREW"],la:41.06717,ln:-81.51743,w:"A Summit Brew Path mainstay brewing regional classics like Labrador Lager; the Sour Haus is up the street at 529 Grant St.",s:[["OHIOMAG","https://www.ohiomagazine.com/travel/cities/article/akron-beer-sampler"],["VISITAKRON","https://www.visitakron-summit.org/summit-brew-path/official-stops"]]},
+{t:3,a:"AKR",n:"Lock 15 Brewing Co.",ad:"21 W North St, Akron, OH",cz:["BREW","US"],la:41.09135,ln:-81.51721,w:"North Hill brewpub that Signal Akron readers voted best bar/brewery in both 2025 and 2026; an official Summit Brew Path stop.",s:[["SIGNALAKRON","https://signalakron.org/signal-akron-best-of-city-2025-winner-bar-brewery-lock-15-brewing/"],["VISITAKRON","https://www.visitakron-summit.org/summit-brew-path/official-stops"]]},
+{t:3,a:"AKR",n:"Sweet Mary's Bakery",ad:"76 E Mill St, Akron, OH 44308",cz:["ICE"],la:41.08203,ln:-81.51631,w:"A small downtown bakery, four chairs at a low orange counter facing the window, with cases of macarons, cheesecakes, croissants and scones. Signal Akron readers voted it Best Bakery in 2025 and again in 2026, and Akron Life readers picked it in Best of the City 2024.",s:[["SIGNALAKRON","https://signalakron.org/akron-best-of-the-city-food-favorites-bakery-sweet-marys/"],["SIGNALAKRON","https://signalakron.org/signal-akron-best-of-city-2025-winner-bakery-sweet-marys/"],["AKRONLIFE","https://www.akronlife.com/arts/330-area-blog/best-of-the-city-2024-readers-picks/"]]},
+{t:2,a:"KENT",n:"Mike's Place",ad:"1700 S Water St, Kent, OH 44240",cz:["US","SOUL"],la:41.13400,ln:-81.35453,w:"Kent's oddball institution: a huge, joke-filled menu (Jedi Jan's Sandwich of Meta Perversion and the like), large portions, award-winning barbecue and kitschy decor. Kent State students voted it Best Restaurant in Best of Kent 2025. Scene ('We Like Mike') and Ideastream's 'Beyond the Dish' have both covered it.",s:[["KENTWIRED","https://kentstater.com/128235/best-of-kent-2025/bok-25-best-restaurant/"],["SCENE","https://www.clevescene.com/food-drink/we-like-mike-1478024"],["IDEASTREAM","https://www.ideastream.org/programs/applause/beyond-the-dish-mikes-place"],["AKRONLIFE","https://www.akronlife.com/locations/mike%E2%80%99s-place/"]]},
+{t:2,a:"KENT",n:"The River Merchant",ad:"911 N Mantua St, Kent, OH",cz:["US"],la:41.16128,ln:-81.35810,w:"A small upscale New American room beside the Cuyahoga just outside downtown Kent, with a wine market of more than 350 bottles and craft beers. It is on Akron Life's 20 Best Restaurants for 2026 and won Best Date Spot in Best of Kent 2025.",g:["SHOP"],s:[["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/river-merchant-kent/"],["AKRONLIFE","https://www.akronlife.com/dining/akron-restaurant-search/20-best-restaurants-for-2026/"],["KENTWIRED","https://kentstater.com/127980/best-of-kent-2025/bok-25-best-date-spot/"]]},
+{t:3,a:"KENT",n:"Laziza",ad:"195 E Erie St, Kent, OH",cz:["MED"],la:41.15287,ln:-81.35658,w:"A two-storey downtown Kent kitchen whose Lebanese entrées the Beacon Journal's Local Flavor column called 'fragrant, spicy pleasures'. It has a 4.5 rating from 500-plus OpenTable reviews (a popularity measure only) and has since added a craft-American menu alongside the Lebanese one.",s:[["BEACONJOURNAL","https://www.yahoo.com/entertainment/local-flavor-lazizas-lebanese-entrees-110156903.html"],["KENTWIRED","https://kentwired.com/8866/uncategorized/gift-guide-laziza"]]},
+{t:2,a:"NSUM",n:"Flury's Cafe",ad:"2202 Front St, Cuyahoga Falls, OH 44221",cz:["BURG"],la:41.13643,ln:-81.48299,w:"Lee and Bertie Flury opened this breakfast café in 1966. Kimberly White bought it in 1994 and moved it from Sackett Avenue to a downtown Front Street corner in 2015. Signal Akron's 'Taste This' featured its croissant breakfast sandwich, and it appears in Roadfood and Scene's all-day breakfast round-up. Open Wednesday to Sunday mornings.",s:[["SIGNALAKRON","https://signalakron.org/bite-into-this-croissant-breakfast-sandwich-in-cuyahoga-falls-served-with-savory-jam/"],["ROADFOOD","https://roadfood.com/?p=28025"],["SCENE","https://www.clevescene.com/cleveland/10-greater-cleveland-all-day-breakfast-joints-you-should-try/Slideshow/4317427/4317917"]]},
+{t:2,a:"NSUM",n:"Szalay's Farm Market",ad:"4563 Riverview Rd, Peninsula, OH",cz:["US"],la:41.20087,ln:-81.57307,w:"A third-generation family sweet-corn farm in the Cuyahoga Valley that has grown corn for more than 90 years. Its market sells corn by the dozen, and outdoor stands roast it with sandwiches, lemonade and sundaes. Weekends bring music, and autumn brings a corn maze. Signal Akron and Akron Life both send readers here for local sweet corn. Seasonal.",g:["SHOP"],s:[["SIGNALAKRON","https://signalakron.org/aw-shucks-heres-where-to-find-ohio-sweet-corn-in-akron-grafs-szalays/"],["AKRONLIFE","https://www.akronlife.com/dining/making-summer-sweeter"],["CLEVELAND19","https://www.cleveland19.com/story/38686751/szalays-sweet-corn-is-ready-so-thats-whats-for-dinner-until-october/"]]},
+{t:2,a:"BARB",n:"Kingfish Seafood",ad:"115 Montrose West Ave, Copley, OH 44321",cz:["US"],la:41.13286,ln:-81.65296,w:"Hospitality Restaurants' East Coast-style seafood house in Montrose, behind a lighthouse tower and with a New England summer-home dining room. It won Best Restaurant in Akron Life's 2026 330 Flavor Awards and was praised in Cleveland Magazine's review.",s:[["AKRONLIFE","https://www.akronlife.com/dining/330-flavor-awards-winners-2026/"],["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/kingfish-fine-dining/"],["CLEMAG","https://clevelandmagazine.com/food-drink/restaurant-reviews/articles/kingfish-hooks-us-with-an-east-coast-inspired-menu"]]},
+{t:2,a:"BARB",n:"The Twisted Olive",ad:"5430 Massillon Rd, Green, OH 44720",cz:["ITAL"],la:40.91308,ln:-81.46546,w:"An Italian-American restaurant and pub in Green's Southgate Park, with a sprawling deck and covered patio over two ponds. It was the only Ohio restaurant on OpenTable's 2022 list of America's 100 best for outdoor dining, as reported by WKYC, and it is on Akron Life's 20 Best Restaurants for 2026.",s:[["AKRONLIFE","https://www.akronlife.com/dining/akron-restaurant-search/20-best-restaurants-for-2026/"],["WKYC","https://www.wkyc.com/article/life/food/twisted-olive-restaurant-north-canton-100-best-restaurants-outdoor-dining-america-opentable/95-0966c27d-c224-4e4e-9fb4-7536b1a15e60"],["OHIOMAG","https://www.ohiomagazine.com/food-drink/restaurants/Details/the-twisted-olive"]]},
+{t:2,a:"CANT",n:"Papa Gyros (Cleveland Ave)",ad:"2045 Cleveland Ave NW, Canton, OH 44709",cz:["MED"],la:40.82048,ln:-81.38222,w:"A Greek-rooted Stark County mini-chain, serving oversized gyros and Mediterranean plates since 2001, with three Stark locations (this one on Cleveland Ave NW, plus Everhard Rd/Belden Village and Alliance). Picked by the Canton Repository's foodie panel among 11 Stark County favorites; Akron Life's Flavor blog called it the 'papa of all gyros.'",s:[["CANTONREP","https://www.aol.com/eat-way-stark-county-11-104555508.html"],["AKRONLIFE","https://www.akronlife.com/blogs/flavor/papa-of-all-gyros/"],["VISITCANTON","https://visitcanton.com/directory/papa-gyros-canton"]]},
+{t:2,a:"CANT",n:"Lucca",ad:"228 4th St NW, Canton, OH 44702",cz:["ITAL"],la:40.80072,ln:-81.37553,w:"A downtown Canton Tuscan-inspired kitchen using local ingredients: hand-made pastas, Prime steak, seafood. Chosen by the Canton Repository's foodie panel as one of 11 Stark County restaurants to eat your way through, and featured by Visit Canton among downtown's dining anchors.",s:[["CANTONREP","https://www.aol.com/eat-way-stark-county-11-104555508.html"],["VISITCANTON","https://www.visitcanton.com/things-to-do/neighborhoods/downtown-canton/downtown-canton-dining/"]]},
+{t:3,a:"CANT",n:"Lucia's Steakhouse",ad:"4769 Belpar St NW, Canton, OH 44718",cz:["US","ITAL"],la:40.85310,ln:-81.43803,w:"A family-owned Belden Village steakhouse whose lineage goes back to the 1940s, when it was The Hob Nob. Akron Life's 'Winning Eats in Canton' singled out its filet and its Italian-style veal; Visit Canton lists it for 'the best steaks in town.'",s:[["AKRONLIFE","https://www.akronlife.com/dining/winning-eats-in-canton/"],["VISITCANTON","https://www.visitcanton.com/directory/lucias-steakhouse/"]]},
+{t:2,a:"CANT",n:"Walkie Talkie Espresso & Coffee",ad:"504 15th St NW, Canton, OH 44703",cz:["COF"],la:40.81430,ln:-81.37676,w:"Lindsey King's 2019 coffee shop in a repurposed gas station, a bright orange-and-white building in Canton's Logan neighborhood about five minutes from the Pro Football Hall of Fame. Ohio Magazine and Akron Life (twice) have featured it, and Cleveland Magazine put it among Canton's 21 must-go spots.",s:[["OHIOMAG","https://www.ohiomagazine.com/food-drink/article/walkie-talkie-espresso-coffee-canton"],["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/walkie-talkie-espresso-coffee/"],["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/sip-quirky-brews-at-walkie-talkie/"],["CLEMAG","https://clevelandmagazine.com/articles/a-clevelander-s-guide-to-canton-21-must-go-spots/"]]},
+{t:2,a:"CANT",n:"Mike's Pizza & Deli Ohio (Fourth Street Collective)",ad:"328 Walnut Ave NE, Canton, OH 44702",cz:["ITAL","BURG","BREW"],la:40.79997,ln:-81.37194,w:"A downtown Canton shared space: Deli Ohio's window-lined sandwich shop by day, Mike's Pizza's New York-style pies by night, with The Woodshop brewery bar from UnHitched Brewing's Adam Longacre. The Canton Repository picked Mike's among 15 must-visit eateries for Hall of Fame visitors and Deli Ohio among its 10 Stark lunch spots. Ohio Magazine's '12 Reasons to Visit Canton' sends readers here.",s:[["CANTONREP","https://www.aol.com/whats-dinner-hof-visitors-pick-091647417.html"],["CANTONREP","https://news.yahoo.com/great-lunch-spot-hard-try-092341499.html"],["OHIOMAG","https://www.ohiomagazine.com/travel/article/12-reason-to-visit-canton-this-summer"],["VISITCANTON","https://visitcanton.com/directory/deli-ohio"]]},
+{t:3,a:"MASS",n:"Canal Boat Lounge",ad:"119 S Canal St, Canal Fulton, OH 44614",cz:["BURG","BREW"],la:40.88926,ln:-81.59773,w:"A family-owned neighborhood bar and grill since 1994, just off the Ohio & Erie Canal Towpath Trail in Canal Fulton. Ohio Magazine picked it as one of three just-off-the-trail bars, a stop for cyclists and St. Helena III canal-boat riders. Visit Canton includes it in its Canal Fulton must-dos.",s:[["OHIOMAG","https://ohiomagazine.com/food-drink/article/3-just-off-the-trail-breweries-and-bars-in-ohio"],["VISITCANTON","https://www.visitcanton.com/blog/stark11-11-must-do-experiences-in-canal-fulton-come-spend-the-day-with-us/"]]},
+{t:2,a:"KENT",n:"Brimfield Bread Oven",ad:"3956 State Route 43, Kent, OH 44240",cz:["ICE"],la:41.09724,ln:-81.34575,w:"Northeast Ohio's first wood-fired bakery, a European-style shop in Brimfield run by Jud and Genevieve Smith since January 2016, baking 'on a curve' as the 54-square-foot brick oven cools. Named among Cleveland Magazine's best bakeries, featured on WKYC's Behind the Menu, and on Cleveland Scene's list of destination restaurants worth the drive. Marked its 10th anniversary in January 2026.",s:[["CLEMAG","https://clevelandmagazine.com/food-drink/best-bakeries-brimfield-bread-oven"],["WKYC","https://www.wkyc.com/article/entertainment/television/programs/whats-new/behind-the-menu-brimfield-bread-oven/95-59215431-524f-4f85-9255-20dbf8d866a5"],["SCENE","https://www.clevescene.com/arts/30-great-destination-restaurants-worth-the-drive-from-cleveland-38342120/"]]},
+{t:2,a:"KENT",n:"Scribbles Coffee Co.",ad:"237 N Water St, Kent, OH 44240",cz:["COF"],la:41.15543,ln:-81.35807,w:"A downtown Kent coffeehouse since 2007 with house-roasted organic beans and a board-game library, a Kent State student haunt. Readers voted it Best Coffee in Kent in the student paper's Best of Kent polls in 2023, 2024 and 2026, and it appears in Cleveland Magazine's coffee guide and Akron Life's coffee features.",s:[["KENTWIRED","https://kentstater.com/140906/best-of-kent/bok-26-best-coffee/"],["CLEMAG","https://clevelandmagazine.com/articles/cleveland-coffee-guide-34-shops-and-cafes-we-love/"],["AKRONLIFE","https://www.akronlife.com/arts/330-area-blog/bean-buzz/"]]},
+{t:1,a:"NSUM",n:"Russo's",ad:"4895 State Rd, Peninsula, OH 44264",cz:["ITAL","SOUL"],la:41.20224,ln:-81.49580,w:"Chef-owner David Russo's Italian-Cajun roadhouse, opened August 2002 on State Road (a Peninsula address, though the building is in Cuyahoga Falls), with the bar wrapped around the hot line. Russo spent 13 years in Louisiana kitchens under Paul Prudhomme and Emeril Lagasse. Reviewed by Cleveland Magazine ('Down South') and Cleveland Scene ('Russo's on the Rise'), featured by Akron Life, and listed among Akron Life's 2026 330 Flavor Awards results.",s:[["CLEMAG","https://clevelandmagazine.com/articles/down-south-russos/"],["SCENE","https://www.clevescene.com/food-drink/russos-on-the-rise-1480965/"],["AKRONLIFE","https://www.akronlife.com/dining/russos/"]]},
+{t:1,a:"AKR",n:"Saffron Patch",ad:"1238 Weathervane Ln, Akron, OH 44313",cz:["HIMAL"],la:41.13611,ln:-81.55310,w:"Family-owned North Indian kitchen in the Merriman Valley since 1997. Signal Akron readers' Best Ethnic/International Food in both 2025 and 2026, and a 330 Flavor Awards Best Indian winner; Akron Life features it in its Merriman Valley guide.",s:[["SIGNALAKRON","https://signalakron.org/akron-best-of-the-city-food-favorites-ethnic-international-saffron-patch/"],["SIGNALAKRON","https://signalakron.org/best-ethnic-food-saffron-patch-serves-up-authentic-indian-food-in-akron-merriman-valley/"],["AKRONLIFE","https://www.akronlife.com/arts/explore-merriman-valley/"]]},
+{t:1,a:"AKR",n:"DeCheco's Pizzeria",ad:"2075 S Main St, Akron, OH 44301",cz:["ITAL"],la:41.03037,ln:-81.52667,w:"Family-run Firestone Park pizzeria since 1993. Won the Akron Beacon Journal's 2025 best-pizza-in-Akron reader bracket (nearly 4,000 votes) and Signal Akron's 2026 Best Pizza after two years as runner-up. Second shop at 1581 Canton Rd, Ellet.",s:[["SIGNALAKRON","https://signalakron.org/akron-best-of-the-city-food-favorites-pizza-dechecos/"],["BEACONJOURNAL","https://www.yahoo.com/lifestyle/readers-spoken-heres-winner-best-100446527.html"],["BEACONJOURNAL","https://www.yahoo.com/entertainment/dechecos-pizzeria-serves-fun-sizzling-100155812.html"]]},
+{t:2,a:"AKR",n:"Ido Bar & Grill",ad:"1537 S Main St, Akron, OH 44301",cz:["BURG","US"],la:41.04506,ln:-81.52702,w:"Firestone Park tavern that has been an Akron tradition since World War II. Signal Akron readers' Best Burger 2026, and an Akron Life Burger Week pick.",s:[["SIGNALAKRON","https://signalakron.org/best-burger-ido-bar-grill-dazzles-with-old-school-charm-and-taste/"],["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/burger-week-ido-bar-and-grille/"]]},
+{t:2,a:"AKR",n:"The Eye Opener",ad:"1688 W Market St, Akron, OH 44313",cz:["BURG"],la:41.10963,ln:-81.57008,w:"Wallhaven breakfast-and-brunch spot, one of the first in town to pour cocktails with breakfast. Signal Akron readers' Best Breakfast 2025; profiled by Akron Life.",s:[["SIGNALAKRON","https://signalakron.org/signal-akron-best-of-city-2025-winner-breakfast-the-eye-opener/"],["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/the-eye-opener/"]]},
+{t:3,a:"AKR",n:"750ml Wine Bar & Boutique",ad:"2287 W Market St, Akron, OH 44313",cz:["BREW"],la:41.11829,ln:-81.58827,w:"Part wine shop, part wine bar and restaurant in Pilgrim Square on the Akron–Fairlawn line. Signal Akron readers' Best Date Night 2025; Akron Life listing.",s:[["SIGNALAKRON","https://signalakron.org/signal-akron-best-of-city-2025-winner-date-night-750ml/"],["AKRONLIFE","https://www.akronlife.com/locations/750ml-wine-bar-boutique/"]]},
+{t:1,a:"CANT",n:"Grapes in a Glass",ad:"575 Market Ave N, Canton, OH 44702",cz:["BREW"],la:40.80187,ln:-81.37395,w:"Downtown Canton wine bar — the only Stark County establishment with a Wine Spectator award: its 10th recognition and 5th Best of Award of Excellence (2026), one of 16 in Ohio (Canton Repository).",s:[["WINESPECTATOR","https://www.winespectator.com/restaurants/4010/grapes-in-a-glass"],["CANTONREP","https://www.aol.com/articles/canton-grapes-glass-earns-10th-100704000.html"]]},
+{t:1,a:"CANT",n:"Sylvester's North End Grille",ad:"4305 Portage St NW, North Canton, OH 44720",cz:["ITAL"],la:40.88183,ln:-81.42777,w:"Jackson Township Italian grille voted Best Restaurant in Stark County in Akron Life's 2026 330 Flavor Awards (#1 in the 330 in 2022). Reopened after an 18-month closure caused by a car crash into the kitchen (Canton Repository).",s:[["AKRONLIFE","https://www.akronlife.com/dining/330-flavor-awards-winners-2026/"],["CANTONREP","https://finance.yahoo.com/news/makes-happy-sylvesters-reopens-car-213306876.html"]]},
+{t:1,a:"BARB",n:"Pav's Creamery (Portage Lakes original)",ad:"3769 Manchester Rd, Akron, OH 44319",cz:["ICE"],la:40.99720,ln:-81.55691,w:"Portage Lakes ice-cream stand since 1969, now with shops in Green, North Canton, Bath and Cuyahoga Falls. Akron Life readers' Best Ice Cream (2023, 2025); on Ohio Magazine's roadside ice-cream stands list; Cleveland Magazine on its boozy shakes.",s:[["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/the-330-s-best-ice-cream-pav-s-creamery/"],["OHIOMAG","https://www.ohiomagazine.com/food-drink/article/16-roadside-ice-cream-stands-in-ohio-to-visit-this-summer"],["CLEMAG","https://clevelandmagazine.com/articles/pavs-creamery-helps-us-chill-out-with-its-boozy-adult-shakes/"]]},
+{t:3,a:"NSUM",n:"Butcher & Sprout",ad:"1846 Front St, Cuyahoga Falls, OH 44221",cz:["US","BURG"],la:41.13078,ln:-81.48399,w:"Farm-to-table casual restaurant in the Watermark Village block on Front Street, partnered with The Farmer's Rail. In Cleveland Magazine's Cuyahoga Falls best-restaurants-and-bars guide and profiled by Akron Life ('Go Green at Butcher & Sprout').",s:[["CLEMAG","https://clevelandmagazine.com/articles/cuyahoga-falls-18-best-restaurants-and-bars-dining-guide/"],["AKRONLIFE","https://www.akronlife.com/dining/go-green-at-butcher-sprout/"]]},
+{t:2,a:"BARB",n:"Hodge's Cafe",ad:"897 Wooster Rd W, Barberton, OH 44203",cz:["BURG","US"],la:41.01111,ln:-81.62228,w:"Barberton tavern since 1975 (Bill 'Hodge' Hodgkinson; now run by his daughter). Roadfood calls its hand-formed half-pound burgers a standard of hamburger excellence; the Akron Beacon Journal's National Cheeseburger Day picks note it has been voted Best Burger in Barberton for 30 years running.",s:[["ROADFOOD","https://roadfood.com/?p=3038483"],["BEACONJOURNAL","https://www.yahoo.com/entertainment/national-cheeseburger-day-try-akron-100700732.html"]]},
+{t:2,a:"BARB",n:"Sunrise Social",ad:"3875 Massillon Rd, Uniontown, OH 44685",cz:["BURG","US"],la:40.95794,ln:-81.46458,w:"Bright Green-township brunch café. One of the Akron Beacon Journal's '8 restaurants we recommend when asked where should I eat in Akron' and profiled by Akron Life ('Get next-level breakfast and brunch at Sunrise Social').",s:[["BEACONJOURNAL","https://www.yahoo.com/entertainment/8-restaurants-recommend-asked-where-110102456.html"],["AKRONLIFE","https://www.akronlife.com/dining/get-next-level-breakfast-and-brunch-at-sunrise-social/"]]},
+{t:1,a:"MASS",n:"Amish Door Restaurant & Village",ad:"1210 Winesburg St, Wilmot, OH 44689",cz:["US","ICE"],la:40.65521,ln:-81.63887,w:"Opened 1977 as a 48-seat restaurant and grown into a village with a bakery (watch the bakers through a window), inn and market — Stark County's gateway to Amish Country. Featured in Ohio Magazine's Amish Country food guides and by Visit Canton.",g:["SHOP"],s:[["OHIOMAG","https://www.ohiomagazine.com/travel/amish-country/article/4-surprising-food-finds-in-Ohio-amish-country"],["VISITCANTON","https://visitcanton.com/directory/amish-door-restaurant-village"]]},
+{t:3,a:"CANT",n:"Wild Thyme Eatery",ad:"2226 Cleveland Ave NW, Canton, OH 44709",cz:["MED"],la:40.82287,ln:-81.38290,w:"Opened 2022 by an Armenian family who came to Canton from Georgia in 2005 — the only Armenian/Georgian kitchen in the region. Picked in Akron Life's '6 newer spots to eat in Canton' and Visit Canton's international-cuisine guide.",s:[["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/6-newer-spots-to-eat-in-canton/"],["VISITCANTON","https://www.visitcanton.com/blog/international-cuisine-in-stark-county/"]]},
+{t:3,a:"NSUM",n:"Spicy Sombreros",ad:"4976 Darrow Rd, Stow, OH 44224",cz:["MEX"],la:41.20071,ln:-81.44110,w:"Stow Mexican restaurant. An Akron Beacon Journal Local Flavor pick (twice, incl. its 2025 'restaurants Taylor Swift and Travis Kelce should try' list) and Akron Life Best of the City 2024 readers' pick for Best Patio Dining.",s:[["BEACONJOURNAL","https://www.yahoo.com/entertainment/articles/akron-area-restaurants-taylor-swift-151201464.html"],["AKRONLIFE","https://www.akronlife.com/arts/330-area-blog/best-of-the-city-2024-readers-picks/"]]},
+{t:2,a:"KENT",n:"Bistro on Main",ad:"1313 W Main St, Kent, OH 44240",cz:["US","SOUL"],la:41.15312,ln:-81.39058,w:"Kent bistro on West Main at the Stow line, run by brothers Aaron (chef) and Jason Ruggles. Reviewed by Akron Life ('A Good Bistro on Main') and recommended by the Akron Beacon Journal's Local Flavor team in 2025.",s:[["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/a-good-bistro-on-main/"],["BEACONJOURNAL","https://www.yahoo.com/entertainment/articles/akron-area-restaurants-taylor-swift-151201464.html"]]},
+{t:2,a:"NSUM",n:"Tip Top Restaurant & Catering",ad:"3428 Darrow Rd, Stow, OH 44224",cz:["BURG"],la:41.15833,ln:-81.44038,w:"Stow family restaurant voted Best Breakfast (#1) in Akron Life's Best of the City 2025 readers' picks and reviewed by the Akron Beacon Journal ('Tip Top Restaurant in Stow offers tip-top homestyle meals').",s:[["AKRONLIFE","https://www.akronlife.com/arts/best-of-the-city-2025/"],["BEACONJOURNAL","https://www.yahoo.com/entertainment/tip-top-restaurant-stow-offers-111220972.html"]]},
+{t:2,a:"NSUM",n:"Big Eu'es BBQ",ad:"1730 Portage Trail, Cuyahoga Falls, OH 44223",cz:["SOUL"],la:41.14659,ln:-81.50381,w:"Opened 2016 by culinary-school grad Eugene Wilson and named for his father. Voted Best Barbecue (#1) in Akron Life's Best of the City 2025, profiled in Akron Life ('Family Style') and by WKYC.",s:[["AKRONLIFE","https://www.akronlife.com/arts/best-of-the-city-2025/"],["AKRONLIFE","https://www.akronlife.com/food-and-dining/family-style/"],["WKYC","https://wkyc.com/article/life/food/big-eues-bbq/95-5139211c-3b06-4233-9b14-8bb0dd66ba07"]]},
+{t:3,a:"AKR",n:"Nervous Dog Coffee Bar (West Market)",ad:"1530 W Market St, Akron, OH 44313",cz:["COF"],la:41.10717,ln:-81.56488,w:"Akron roaster-café since 2006 (spun off from Coco's Cafe), with a moody bar-like room on West Market. Signal Akron Best of the City coffee/tea winner and Akron Life Best of the City 2025 Best Coffeehouse (#1).",g:["SHOP"],s:[["SIGNALAKRON","https://signalakron.org/akron-best-coffee-tea-nervous-dog-coffee-bar/"],["AKRONLIFE","https://www.akronlife.com/arts/best-of-the-city-2025/"]]},
+{t:3,a:"MASS",n:"Miller-Doan Tavern",ad:"122 Cherry St E, Canal Fulton, OH 44614",cz:["US","BURG"],la:40.88980,ln:-81.59759,w:"Neighbourhood tavern in historic Canal Fulton with a patio and a family-tree wall tracing the Miller and Doan families. The Canton Repository's review called its patty melt one of the best in a long time; listed by Visit Canton.",s:[["CANTONREP","https://www.yahoo.com/lifestyle/review-miller-doan-tavern-friendly-091610508.html"],["VISITCANTON","https://www.visitcanton.com/directory/miller-doan-tavern/"]]},
+{t:3,a:"AKR",n:"Diamond Deli",ad:"378 S Main St, Akron, OH 44311",cz:["BURG"],la:41.07579,ln:-81.52295,w:"Downtown Akron deli feeding office workers and University of Akron students. Voted Best Deli (#1) in Akron Life's Best of the City 2025 and in the Akron Beacon Journal's downtown weekday-lunch guide. Measured: 4.7 stars on 279 reviews, #6 in a USA TODAY Network ratings roundup of Ohio restaurants.",s:[["AKRONLIFE","https://www.akronlife.com/arts/best-of-the-city-2025/"],["BEACONJOURNAL","https://finance.yahoo.com/news/looking-sit-down-restaurant-where-104540740.html"],["BEACONJOURNAL","https://www.yahoo.com/entertainment/10-best-restaurants-found-ohio-111040189.html"]]},
+{t:3,a:"CANT",n:"Dough Co. Doughnuts & Coffee",ad:"4742 Hills and Dales Rd NW, Canton, OH 44708",cz:["ICE","COF"],la:40.83301,ln:-81.43314,w:"Family-owned Jackson Township doughnut shop. One of Cleveland Magazine's 21 must-go spots in Canton and ranked in Akron Life's 2026 330 Flavor Awards Best Doughnuts (reader vote).",s:[["CLEMAG","https://clevelandmagazine.com/articles/a-clevelander-s-guide-to-canton-21-must-go-spots/"],["AKRONLIFE","https://www.akronlife.com/dining/330-flavor-awards-winners-2026/"]]},
+{t:3,a:"CANT",n:"Fronimo's Downtown",ad:"315 Cleveland Ave NW, Canton, OH 44702",cz:["US"],la:40.80055,ln:-81.37624,w:"Downtown Canton bistro with a formal room but a casual, buzzy feel. On Cleveland Magazine's 21 must-go spots in Canton and the Canton Repository's 'Eat your way through downtown Canton' guide.",s:[["CLEMAG","https://clevelandmagazine.com/articles/a-clevelander-s-guide-to-canton-21-must-go-spots/"],["CANTONREP","https://finance.yahoo.com/news/eat-way-downtown-canton-best-091332536.html"]]},
+{t:2,a:"NSUM",n:"Shawarma Brothers",ad:"1808 Portage Trail, Cuyahoga Falls, OH 44223",cz:["MED"],la:41.14703,ln:-81.50455,w:"Sibling-run Middle Eastern carryout opened 2017 ('where east meets west'). Profiled by Akron Life ('Middle Ground'), in Cleveland Magazine's Cuyahoga Falls best-restaurants guide, and measured as Ohio's #2-rated restaurant (4.8 stars, 250+ reviews) in a USA TODAY Network ratings roundup.",s:[["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/middle-ground/"],["CLEMAG","https://clevelandmagazine.com/food-drink/cuyahoga-falls-best-restaurants-dining-guide"],["BEACONJOURNAL","https://www.yahoo.com/entertainment/10-best-restaurants-found-ohio-111040189.html"]]},
+{t:2,a:"NSUM",n:"Michael Angelo's Winery",ad:"5515 Broadview Rd, Richfield, OH 44286",cz:["BREW","ITAL"],la:41.27629,ln:-81.68301,w:"Hybrid winery-eatery opened in 2018 by baker-winemaker Michael Angelo Ciocca and his brother Matt, with a big, lively patio. Named in Cleveland Magazine's Northeast Ohio's Best Wineries and voted the region's top winery in its 2026 readers' poll; on the Beacon Journal's 2025 Greater Akron outdoor-dining list and WKYC's NE Ohio wineries feature.",s:[["CLEMAG","https://clevelandmagazine.com/articles/northeast-ohios-best-wineries/"],["CLEMAG","https://clevelandmagazine.com/articles/clevelands-best-restaurants-of-2026-as-voted-by-our-readers/"],["BEACONJOURNAL","https://www.yahoo.com/lifestyle/articles/cheers-outdoor-dining-14-greater-100110353.html"],["WKYC","https://www.wkyc.com/article/entertainment/television/programs/whats-new/cheers-to-great-wine-and-scenic-grounds-at-ne-ohio-wineries/95-4cb9d864-e424-47df-935b-1a5a6f1ffe04"]]},
+{t:3,a:"NSUM",n:"HiHO Brewing Co.",ad:"1707 Front St, Cuyahoga Falls, OH 44221",cz:["BREW"],la:41.12821,ln:-81.48504,w:"Cuyahoga Falls' first brewery (2017), in a 1920s car dealership on Front Street with a taproom over the Cuyahoga. In Cleveland Magazine's beer guide and '12 Must-Go Places in Cuyahoga Falls', and voted Best Cuyahoga Falls Hot Spot by Akron Life readers.",s:[["CLEMAG","https://clevelandmagazine.com/articles/beer-guide-hiho-brewing-co/"],["CLEMAG","https://clevelandmagazine.com/in-the-cle/12-must-go-places-in-cuyahoga-falls"],["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/craft-breweries-and-cocktails-in-cuyahoga-falls/"]]},
+{t:3,a:"NSUM",n:"Blue Canyon Kitchen & Tavern",ad:"8960 Wilcox Dr, Twinsburg, OH 44087",cz:["US"],la:41.31284,ln:-81.45560,w:"Chef Brandt Evans' ridge-top restaurant built like a national-park lodge, with views over miles of woodland. Reviewed by Cleveland Magazine ('Red-hot and Blue') and Cleveland Scene; its rock-waterfall patio is on the Beacon Journal's 2025 Greater Akron outdoor-dining list.",s:[["CLEMAG","https://clevelandmagazine.com/articles/red-hot-and-blue-blue-canyon-kitchen-tavern/"],["SCENE","https://www.clevescene.com/food-drink/nature-calls-1488369"],["BEACONJOURNAL","https://www.yahoo.com/lifestyle/articles/cheers-outdoor-dining-14-greater-100110353.html"]]},
+{t:2,a:"KENT",n:"Joe's Barbecue",ad:"1299 Tallmadge Rd, Kent, OH 44240",cz:["SOUL"],la:41.10025,ln:-81.34663,w:"Austin-trained Joe Menendez's roadside smoker at Route 43 and Tallmadge Road in Brimfield, open Friday-Sunday until it sells out (600-800 lb a day). Cleveland Scene (Douglas Trattner) calls it some of the best barbecue in the region; in Cleveland Magazine's best-bites coverage and the Beacon Journal.",s:[["SCENE","https://www.clevescene.com/?p=267174"],["CLEMAG","https://clevelandmagazine.com/articles/best-things-we-ate-this-month-li-wah-joes-barbecue-and-more/"],["BEACONJOURNAL","https://www.aol.com/where-joes-barbecue-food-truck-100927127.html"]]},
+{t:2,a:"AKR",n:"Frank's Place on Market",ad:"549 W Market St, Akron, OH 44303",cz:["BURG","US"],la:41.09320,ln:-81.53499,w:"Highland Square neighborhood bar-restaurant around a horseshoe bar, its walls a museum of T-shirts from Akron landmarks and businesses; founder Frank Horvath retired after 30 years and the new owners kept the traditions. Signal Akron Best of the City 2026 Best Burger winner (the West Market Classic on a Massoli's bun) and a Beacon Journal Local Flavor pick.",g:["SHOP"],s:[["SIGNALAKRON","https://signalakron.org/akron-best-of-the-city-food-favorites-burger-franks-place-on-market/"],["BEACONJOURNAL","https://finance.yahoo.com/news/local-flavor-franks-place-market-110125155.html"]]},
+{t:3,a:"CANT",n:"The Bistro of Oakwood",ad:"2664 Easton St NE, Canton, OH 44721",cz:["US"],la:40.87146,ln:-81.33198,w:"Upscale-casual Plain Township bistro (2014) with house-made desserts. The Canton Repository's review says it 'shines' and it's on the Repository's Stark County patio round-up; listed by Visit Canton.",s:[["CANTONREP","https://www.aol.com/review-bistro-oakwood-plain-township-103810237.html"],["CANTONREP","https://www.yahoo.com/news/patio-season-more-30-check-092203558.html"],["VISITCANTON","https://www.visitcanton.com/directory/the-bistro-of-oakwood/"]]},
+{t:3,a:"BARB",n:"Beau's Grille",ad:"3180 W Market St, Fairlawn, OH 44333",cz:["US"],la:41.13081,ln:-81.61635,w:"Chef Beau Schmidt's long-running grill in the Hilton Akron/Fairlawn, with a covered 70-seat terrace. Profiled repeatedly by Akron Life ('Well Grilled Beau', 'Slice of Home', past Best of the City patio wins) and on the Beacon Journal's 2025 Greater Akron outdoor-dining list.",s:[["AKRONLIFE","https://www.akronlife.com/dining/well-grilled-beau/"],["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/slice-of-home/"],["BEACONJOURNAL","https://www.yahoo.com/lifestyle/articles/cheers-outdoor-dining-14-greater-100110353.html"]]},
+{t:3,a:"BARB",n:"35° Brix",ad:"3875 Massillon Rd, Uniontown, OH 44685",cz:["US","BREW"],la:40.95590,ln:-81.46491,w:"French-American restaurant and wine bar in Green's Heritage Crossing plaza, named for the sugar level of ice wine. In Akron Life's 'Gourmet Food in the City of Green' and on the Canton Repository's Stark-area patio round-up.",s:[["AKRONLIFE","https://www.akronlife.com/dining/gourmet-food-in-the-city-of-green/"],["CANTONREP","https://www.yahoo.com/news/patio-season-more-30-check-092203558.html"]]},
+{t:3,a:"MASS",n:"Sisters Century House",ad:"123 S Canal St, Canal Fulton, OH 44614",cz:["BURG"],la:40.88916,ln:-81.59987,w:"Family-run breakfast-and-lunch room in Canal Fulton's historic district, overlooking the Ohio & Erie Canal where the St. Helena III canal boat launches; once voted Stark County's best breakfast. In Akron Life's 'Crossroads: Canal Fulton' and Visit Canton's Stark11 Canal Fulton must-dos.",s:[["AKRONLIFE","https://www.akronlife.com/arts/crossroads-canal-fulton/"],["VISITCANTON","https://www.visitcanton.com/directory/sisters-century-house-restaurant/"]]},
+{t:1,a:"NSUM",n:"Dean Martin's Lanning's",ad:"826 N Cleveland-Massillon Rd, Akron, OH 44333",cz:["US"],la:41.15789,ln:-81.63666,w:"Bath Township's special-occasion steakhouse over Yellow Creek (opened 1970); bought in 2020, renovated (~$2M) and relaunched as Dean Martin's Lanning's with tuxedoed service and a dress code. Cleveland Magazine: 'a classic Akron restaurant reimagined'; Akron Life feature on the transformation; Wine Spectator Award of Excellence (2022).",s:[["CLEMAG","https://clevelandmagazine.com/food-drink/dean-martin-s-lanning-s-is-a-classic-akron-restaurant-reimagined"],["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/experience-luxury-dining-reimagined-at-lanning-s-an-iconic-r/"]]},
+{t:2,a:"NSUM",n:"Moe's Restaurant",ad:"2385 Front St, Cuyahoga Falls, OH 44221",cz:["US"],la:41.13983,ln:-81.48044,w:"Moe Schneider's from-scratch restaurant (1998) in a former Front Street supermarket — a fine-dining room plus a tavern side. On Cleveland Magazine's 'Cuyahoga Falls' 18 Best Restaurants and Bars' (fresh seafood, lamb, unique appetizers) and written up by Akron Life ('There's Moe to Come').",g:["SHOP"],s:[["CLEMAG","https://clevelandmagazine.com/articles/cuyahoga-falls-18-best-restaurants-and-bars-dining-guide/"],["AKRONLIFE","https://www.akronlife.com/dining/Flavor-blog/theres-moe-to-come/"]]},
+{t:2,a:"NSUM",n:"El Mesón (Cuyahoga Falls)",ad:"657 Portage Trail, Cuyahoga Falls, OH 44221",cz:["MEX"],la:41.13979,ln:-81.49110,w:"Family Mexican kitchen with an open patio on Portage Trail. On Cleveland Magazine's Cuyahoga Falls best-restaurants guide (which singles out the chori pollo fajitas) and voted 2nd Best Mexican Restaurant in Akron Life's 2026 330 Flavor Awards.",s:[["CLEMAG","https://clevelandmagazine.com/articles/cuyahoga-falls-18-best-restaurants-and-bars-dining-guide/"],["AKRONLIFE","https://www.akronlife.com/dining/330-flavor-awards-winners-2026/"]]},
+{t:2,a:"CANT",n:"Sparta Steakhouse & Lounge",ad:"1101 12th St NW, Canton, OH 44703",cz:["US","MED"],la:40.80965,ln:-81.38272,w:"Family-run Canton steakhouse with 60+ years behind it, now cooking weekly-changing Greek, Italian and international specials around the traditional steaks. Voted 2nd Best Steakhouse in Akron Life's 2026 330 Flavor Awards; listed by Visit Canton.",s:[["AKRONLIFE","https://www.akronlife.com/dining/330-flavor-awards-winners-2026/"],["VISITCANTON","https://www.visitcanton.com/directory/sparta-steakhouse-lounge/"]]},
+{t:2,a:"CANT",n:"Fromage du Monde",ad:"340 4th St NW, Canton, OH 44702",cz:["US","BREW"],la:40.80093,ln:-81.37652,w:"Downtown Canton's artisan cheese house — world cheeses cut to order, dine-in flights, a deli counter and grazing boards. One of the Canton Repository's picks in 'Eat your way through downtown Canton'; listed by Visit Canton.",s:[["CANTONREP","https://www.yahoo.com/news/eat-way-downtown-canton-best-091332536.html"],["VISITCANTON","https://visitcanton.com/directory/fromage-du-monde"]]},
+{t:1,a:"KENT",n:"Over Easy at the Depot",ad:"152 Franklin Ave, Kent, OH 44240",cz:["BURG"],la:41.15306,ln:-81.35917,w:"Kent's breakfast institution, now in the 1875 Atlantic & Great Western depot above the Cuyahoga (two-hour Sunday waits). Kent Stater Best of Kent 2026 — first place, Best Breakfast; Ohio Magazine Best Hometowns (Kent); News 5 and The Portager covered the move into the depot.",s:[["KENTWIRED","https://kentstater.com/140887/best-of-kent/bok-26-best-breakfast/"],["OHIOMAG","https://www.ohiomagazine.com/ohio-life/article/best-hometowns-2022-kent"],["NEWS5","https://www.news5cleveland.com/news/local-news/oh-portage/kent-train-depot-to-house-downtown-favorite-over-easy-morning-cafe"],["PORTAGER","https://theportager.com/kent-favorite-over-easy-will-move-into-the-kent-train-depot-this-winter"]]},
+{t:2,a:"BARB",n:"Great Oaks Tavern",ad:"210 Great Oaks Trail, Wadsworth, OH 44281",cz:["US","SOUL"],la:41.04948,ln:-81.73363,w:"Board-game tavern in a former Wadsworth bowling alley. The Akron Beacon Journal's Local Flavor review ('great fun in Wadsworth') praised the depth of flavor; the Medina Gazette covered its opening.",s:[["BEACONJOURNAL","https://www.yahoo.com/entertainment/local-flavor-great-oaks-tavern-170019814.html"],["MEDINAGAZETTE","https://medina-gazette.com/news/213767/board-game-bar-coming-to-wadsworth/"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('akr_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('akr_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('akr_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('akr_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Akron OH')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {AKR:'#E8973A',NSUM:'#4F81BD',KENT:'#9BBB59',BARB:'#C0504D',CANT:'#8064A2',MASS:'#4BACC6'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([41.0205,-81.4912],10);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle area labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Akron", 41.0823, -81.5294], ["Cuyahoga Falls", 41.1879, -81.4969], ["Kent", 41.1464, -81.3255], ["Barberton", 41.0169, -81.589], ["Canton", 40.843, -81.3727], ["Massillon", 40.8056, -81.5629]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('akron-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('akron-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('akron-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. The region’s canon is its own: Serbian-immigrant <b>Barberton chicken</b> (lard-fried, with hot rice and vinegar slaw), the <b>Swenson’s Galley Boy</b> and its curb-hops, <b>Strickland’s</b> frozen custard, Canton’s <b>Taggart’s Bittner</b> and <b>Bender’s Tavern</b>, Akron’s old <b>Italian</b> houses, and North Hill’s <b>Nepali &amp; Bhutanese</b> table, sourced to the Akron Beacon Journal, Canton Repository and Signal Akron. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
+  + '<span>Every place is traceable to at least two credible sources (or one institution — James Beard, NPS) — the Akron Beacon Journal, Canton Repository, Record-Courier, Signal Akron, Akron Life, regional magazines and TV, Summit Metro Parks, Atlas Obscura, vetted creators and official sites — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 150 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+</body>
+</html>

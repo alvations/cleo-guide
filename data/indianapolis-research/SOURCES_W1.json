@@ -1,0 +1,284 @@
+{
+ "outlets": [
+  {
+   "key": "INDYENCYCLOPEDIA",
+   "name": "The Encyclopedia of Indianapolis (IUPUI/Polis Center)",
+   "type": "editorial",
+   "rank": 1,
+   "url": "https://indyencyclopedia.org/",
+   "credible": "Scholarly city encyclopedia (Indiana University Indianapolis, Polis Center) with bylined entries on landmarks and long-running restaurants."
+  },
+  {
+   "key": "AXIOS",
+   "name": "Axios Indianapolis",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.axios.com/local/indianapolis",
+   "credible": "Local desk of the national newsroom; bylined food/history features (tenderloin trail, St. Elmo 30-over-30)."
+  },
+  {
+   "key": "INDYTODAY",
+   "name": "Indy Today (6AM City)",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://indytoday.6amcity.com/",
+   "credible": "Daily local newsletter/newsroom; James Beard history and DDD round-ups. Corroborating."
+  },
+  {
+   "key": "ROADFOOD",
+   "name": "Roadfood (Jane & Michael Stern)",
+   "type": "editorial",
+   "rank": 1,
+   "url": "https://roadfood.com/",
+   "credible": "National authority on regional American food since 1977; 'Memorable / One of the Best' ratings."
+  },
+  {
+   "key": "TASTINGTABLE",
+   "name": "Tasting Table",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.tastingtable.com/",
+   "credible": "National food media brand; bylined restaurant history features. Corroborating."
+  },
+  {
+   "key": "THETAKEOUT",
+   "name": "The Takeout",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://thetakeout.com/",
+   "credible": "National food site; corroborating only."
+  },
+  {
+   "key": "FOODNETWORK",
+   "name": "Food Network",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.foodnetwork.com/",
+   "credible": "National food TV (Diners, Drive-Ins & Dives etc.); one corroborating source."
+  },
+  {
+   "key": "PUNCHDRINK",
+   "name": "PUNCH",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://punchdrink.com/",
+   "credible": "National drinks magazine; bylined bar features."
+  },
+  {
+   "key": "WRTV",
+   "name": "WRTV 6 (ABC Indianapolis)",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.wrtv.com/",
+   "credible": "Indianapolis broadcast newsroom."
+  },
+  {
+   "key": "IPM",
+   "name": "Indiana Public Media",
+   "type": "editorial",
+   "rank": 1,
+   "url": "https://www.ipm.org/",
+   "credible": "Indiana University public broadcaster (NPR/PBS)."
+  },
+  {
+   "key": "EDIBLEINDY",
+   "name": "Edible Indy",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://edibleindy.ediblecommunities.com/",
+   "credible": "Local food magazine (Edible Communities network)."
+  },
+  {
+   "key": "CURRENT",
+   "name": "Current Publishing (Current in Carmel/Fishers/Noblesville)",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.youarecurrent.com/",
+   "credible": "Hamilton County community newspapers; bylined local features."
+  },
+  {
+   "key": "CULINARYCROSSROADS",
+   "name": "Culinary Crossroads (Indiana food history blog)",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://culinarycrossroads.org/",
+   "credible": "Bylined Indiana food-culture site (Little Burma features). Corroborating only."
+  },
+  {
+   "key": "DOWNTOWNINDY",
+   "name": "Downtown Indy, Inc.",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://downtownindy.org/",
+   "credible": "Downtown improvement district's official directory; existence/open-check + corroboration."
+  },
+  {
+   "key": "VISITINDIANA",
+   "name": "Visit Indiana (Indiana Destination Development Corp.)",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://visitindiana.com/",
+   "credible": "State tourism office; vetted features."
+  },
+  {
+   "key": "INDIANAHISTORY",
+   "name": "Indiana Historical Society / Indiana Historical Bureau",
+   "type": "editorial",
+   "rank": 1,
+   "url": "https://indianahistory.org/",
+   "credible": "State historical society + historical bureau (markers, Discover Indiana History)."
+  },
+  {
+   "key": "SAHARCHIPEDIA",
+   "name": "SAH Archipedia (Society of Architectural Historians)",
+   "type": "editorial",
+   "rank": 1,
+   "url": "https://sah-archipedia.org/",
+   "credible": "Scholarly architectural encyclopedia of US buildings."
+  },
+  {
+   "key": "TCLF",
+   "name": "The Cultural Landscape Foundation",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.tclf.org/",
+   "credible": "National landscape-heritage nonprofit."
+  },
+  {
+   "key": "LOC",
+   "name": "Library of Congress (HABS/HAER)",
+   "type": "institutional",
+   "rank": 1,
+   "url": "https://www.loc.gov/",
+   "credible": "Federal library; Historic American Buildings Survey record."
+  },
+  {
+   "key": "INDYARTS",
+   "name": "Arts Council of Indianapolis (Indy Arts Guide)",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://indyarts.org/",
+   "credible": "City arts council public-art registry."
+  },
+  {
+   "key": "INDYPL",
+   "name": "Indianapolis Public Library",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.indypl.org/",
+   "credible": "Public library local-history blog."
+  },
+  {
+   "key": "POLIS",
+   "name": "Polis Center (Indiana University Indianapolis)",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://polis.indianapolis.iu.edu/",
+   "credible": "University research centre, city history."
+  },
+  {
+   "key": "CLIO",
+   "name": "Clio (Marshall University)",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://theclio.com/",
+   "credible": "Academic historical-site guide; corroborating."
+  },
+  {
+   "key": "EXARC",
+   "name": "EXARC",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://exarc.net/",
+   "credible": "International archaeological open-air museum network; corroborating."
+  },
+  {
+   "key": "ROADSIDEAMERICA",
+   "name": "Roadside America",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.roadsideamerica.com/",
+   "credible": "Long-running national guide to oddities."
+  },
+  {
+   "key": "FOXNEWS",
+   "name": "Fox News (Lifestyle)",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://www.foxnews.com/food-drink",
+   "credible": "National news desk lifestyle/food feature; corroborating only."
+  },
+  {
+   "key": "STRUCTURAE",
+   "name": "Structurae",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://structurae.net/",
+   "credible": "International structures database; corroborating for buildings."
+  },
+  {
+   "key": "INFATUATION",
+   "name": "The Infatuation (Indianapolis)",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.theinfatuation.com/indianapolis",
+   "credible": "National restaurant-review desk with bylined Indy reviews."
+  },
+  {
+   "key": "TRAILLINK",
+   "name": "TrailLink (Rails-to-Trails Conservancy)",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.traillink.com/",
+   "credible": "National rail-trail nonprofit's trail guide."
+  },
+  {
+   "key": "BACKPACKER",
+   "name": "Backpacker magazine",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://www.backpacker.com/",
+   "credible": "National outdoor magazine; corroborating."
+  },
+  {
+   "key": "LIVINGNEWDEAL",
+   "name": "The Living New Deal (UC Berkeley)",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://livingnewdeal.org/",
+   "credible": "Academic registry of New Deal public works."
+  },
+  {
+   "key": "THEREPORTER",
+   "name": "The Reporter (Hamilton County)",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://readthereporter.com/",
+   "credible": "Hamilton County community news."
+  },
+  {
+   "key": "TIMEOUT",
+   "name": "Time Out",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.timeout.com/",
+   "credible": "National/international city-guide media; corroborating."
+  },
+  {
+   "key": "JAZZJOURNALISTS",
+   "name": "Jazz Journalists Association",
+   "type": "editorial",
+   "rank": 3,
+   "url": "https://news.jazzjournalists.org/",
+   "credible": "Professional association's bylined jazz-venue reporting."
+  },
+  {
+   "key": "MIRROR",
+   "name": "Mirror Indy",
+   "type": "editorial",
+   "rank": 1,
+   "url": "https://mirrorindy.org/",
+   "credible": "Nonprofit Indianapolis newsroom."
+  }
+ ]
+}

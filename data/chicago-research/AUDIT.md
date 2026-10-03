@@ -1,0 +1,344 @@
+# Chicago — audit ledger (append-only)
+
+Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit trail). One dated section per stage per wave.
+
+## 2026-10-02 · Stage 0 — Scope & taxonomy
+- **Region:** the City of Chicago (77 community areas grouped NYC-borough-style into 7 city areas) + the inner
+  suburbs/North Shore (`SUB`) + day trips (`DAY`: Indiana Dunes, Starved Rock, Milwaukee, lake shore).
+- **Why this split:** Chicago's own "sides" (Loop / North / Northwest / West / South / Southwest / Far South)
+  are how locals and every outlet (Block Club, Chicago Magazine, Eater maps) carve the city — the analogue of
+  NYC's boroughs. Tiers are graded within each side, so the Far South (Pullman, Beverly) never drowns under the Loop.
+- **Areas + targets:** see `_AGENT_BRIEF.md` and `RESUME.md` (sum ≈ 510, New-York density).
+- **Cuisine taxonomy (23):** Chicago canon first — PZ (deep-dish/tavern/stuffed), BEEF (Italian beef &
+  sandwiches), DOG (hot dogs, Maxwell Street Polish, burgers), CHX (mild sauce/Harold's, BBQ rib tips, soul) —
+  then US, DELI, IT, MEX, PR (jibarito, Caribbean & Latin), CN, VN (Argyle & SE Asian), KR, JP, IN (Devon),
+  ME, EEU (Polish/Ukrainian), EU (Swedish/German), AF, SEAF, BAR, COF, DES (Rainbow Cone, Garrett), VIRAL.
+- **Collections (16):** MUS, PARK, ICON, ARCH, **FLW** (Frank Lloyd Wright & Prairie School), MKT, ARTS
+  (blues/jazz/theater/comedy), **SPORT**, WATER, FAM, ODD, FREE, ROOF, SPEAK, POP, **MURAL**.
+
+## 2026-10-02 · Stage 1 — Discover sources (wave 1) — BLOCKED by the shared WebSearch cap
+- Source palette registered from the editorial-of-record set (SOURCES_BASE.json → data/sources.json `chicago-il`,
+  23 outlets each with a `credible` rationale): Michelin, James Beard, NPS, UNESCO (FLW listing), Tribune,
+  Sun-Times, Chicago Magazine, Eater Chicago, Infatuation, Block Club, WTTW, WBEZ, Reader, Time Out, Choose Chicago,
+  Atlas Obscura, Chicago Architecture Center, Chicago Park District, Chicagoist, NYT, Thrillist, Wikipedia, official sites.
+  These are registered as the palette to search; no place yet rests on any of them.
+- Searches run: 3 (a Wikipedia-coordinate probe for Wrigley Field; a batch-coordinate probe for 5 Museum-Campus/Loop
+  landmarks — batching does NOT return coords, one search per pin is needed; an Al's #1 Italian Beef pin probe —
+  latlong.net OSM POIs DO surface decimal pins for Chicago restaurants, a useful channel for the geocode stage).
+- 4th search onward refused: "this session has used its web search budget (200 of 200 WebSearch calls)". The cap is
+  per session and shared by all ~16 concurrent city agents; it was exhausted before this agent's discovery began.
+- **Channel counts this wave:** editorial 0 · creators 0 · travel sites 0 · local 0 — no places extracted.
+- **Places added: 0.** Nothing added from memory (hard rule). Partial leads → `_PENDING_LEADS.md`.
+
+## 2026-10-02 (session 2) · Stages 1–6 — waves W1 (food canon), W2 (Michelin/JB), S1–S2 (sights)
+- **Sources discovered/used:** Infatuation (Italian beef, deep dish, hot dogs, jibarito, old-school, wings guides),
+  Time Out Chicago (28 best pizza, 24 best hot dogs, 46 attractions, 28 museums), Chowhound (8 best tavern pizza),
+  Chicago Magazine "Iconic Eats" (July 2021, 50 dishes — full list captured, used as 1 source each),
+  ABC7 Hungry Hound (Steve Dolinsky, 31 essential beefs), NBC5 beef ranking, Michelin 2025 stars + Bib list,
+  James Beard America's Classics (Lem's 2025, Sun Wah 2018, Berghoff, Calumet Fisheries), WBEZ, Choose Chicago
+  (bucket list, museum campus, blues, architecture, Hyde Park), Chicago Architecture Center, UNESCO (FLW listing),
+  NPS (Pullman, Indiana Dunes), ILDNR (Starved Rock), Wikipedia (landmark facts + coordinates).
+- **Channel counts:** editorial/travel 44 places · institutional lone (Michelin/JB/UNESCO/NPS) 14 + co-sourced ·
+  local press (Block Club, WBEZ) 3 · creators 0 so far (Keith Lee's Chicago picks found via Fox32/NBC — Soul Prime,
+  Cleo's, Sharks, Uncle Remus, Harold's — pending a 2nd credible each).
+- **Held single-source (not added):** Tony's Italian Beef, Carm's (Infatuation only); Papa's Cache Sabroso,
+  Jibaritos y Más (Infatuation only); Uncle Remus, Uncle John's, Harold's (location not pinned down);
+  Paulie Gee's, Robert's Pizza (Time Out only); Daley's, Walnut Room, Valois (Infatuation only);
+  Chicago Mag Iconic Eats singles (Kaufman's, Dinkel's, Express Grill, Edzo's, La Chaparrita, J.P. Graziano,
+  Ricobene's, Nhu Lan, Garrett, Greek Islands, Girl & the Goat, Avec, Lao Sze Chuan, Carnitas Uruapan, Brown
+  Sugar Bakery, Chiu Quon, Mario's Italian Lemonade, Original Rainbow Cone, etc.) — need a 2nd source.
+- **MEASURED & DROPPED:** none dropped on merit yet; every added place is on ≥2 curated best-of lists or holds
+  an institutional award.
+- **Closures:** none found (geocode agents checked status; weakest evidence = current listing, no closure news).
+- **Geocode:** 72 verified (70 high — Wikipedia/latlong POI; 2 med), 28 UNVERIFIED held by the gate.
+  Boka/Galit coords came from an unapproved aggregator → demoted to UNVERIFIED. Redhot Ranch's Wikipedia pin is
+  the Bridgeport store, not the Armitage one listed → not used. Address corrections: Milly's (1005 W Argyle,
+  Uptown → NORTH), Pizz'amici (1215 W Grand), Feld (2018 W Chicago Ave), Boonie's, Sochi, Tortello, Mirra, Nadu,
+  Taqueria Chingón (817 W Fulton Market). Pat's Pizza address conflict (638 W Diversey vs Time Out's 2679 N
+  Lincoln) left UNVERIFIED.
+- **Build:** tools/build-chicago.py now hides an area with zero pinned places (SW) instead of failing the
+  tier-1 assert; areas with pins still must carry a tier-1. Gates: sourcecheck/geocheck/statuscheck/buildcheck
+  PASS; npm run validate + npm test PASS.
+
+## 2026-10-02 (session 2) · waves S3–S8 + W5–W9 (sights everywhere, more Michelin/Iconic-Eats food, creators)
+- **Method:** Wikipedia coordinate batches (4 names/query) → pins; one themed 2nd-source query per batch
+  (Choose Chicago listings/neighbourhood guides, Time Out listings, CAC "Buildings of Chicago", WTTW "Most Beautiful
+  Places"/South Side guides, Atlas Obscura, Visit Milwaukee, Travel Wisconsin, NPS, Block Club).
+- **Added:** 86 sights (Loop architecture & public art, Hyde Park/Bronzeville, West Side churches & Jensen parks,
+  SW (Stock Yard Gate, Marquette Park MLK memorial, Balzekas, McKinley Park), Far South (Ridge Historic District,
+  Wolf Lake), suburbs (Oak Park FLW/Hemingway/Pleasant Home, Evanston, Skokie, Wheaton, Naperville, Batavia,
+  Brookfield, Glencoe, Highland Park), day trips (Milwaukee ×6, Racine SC Johnson, Yerkes, Dunes/Mount Baldy,
+  Michigan City, Starved Rock, Matthiessen), music rooms, beaches) + 19 food (Iconic Eats + Wikipedia-pinned:
+  Girl & the Goat, Avec, Greek Islands, Kaufman's, Gino's East, Mr. Beef, Wieners Circle; Michelin: Oriole, Atelier,
+  Sepia, Next, Elske, Kumiko, North Pond, Frontera, Lou Mitchell's, EL Ideas, Daisies, Irazu).
+- **Creators:** CREATORS_W1.json — Dave Portnoy (One Bite scores for Vito & Nick's 8.1, Pequod's 7.4, via a radio-site
+  roundup), Keith Lee (Chicago tour per Fox32: Lou Malnati's; Soul Prime/Cleo's/Sharks/Uncle Remus/Harold's pending a
+  2nd credible). Channel mix now: editorial/travel ≈150 · institutional ≈35 · local press (WTTW/Block Club) ≈15 ·
+  creators 3 attaches.
+- **Closures / status:** Uptown Theatre flagged `— CLOSED` (shuttered since 1981, CAC). Obama Presidential Center
+  confirmed open (2026-06-19, WTTW/Block Club). Held back for stale-location risk: Ann Sather (relocating per Time Out
+  Apr 2026), Maxwell Street Depot (forced to move per Time Out May 2026).
+- **MEASURED & DROPPED:** Calumet Park (2nd source did not actually name it); Golden Nugget Pancake House (multi-location,
+  Wikipedia pin's branch unclear); Café Brauer (now a private-events venue); Givins Castle, Indiana Dunes State Park,
+  Douglass Park (Wikipedia coords only to 0.1′/1′ — too coarse to pin).
+- **Build:** 175 rendered; gates PASS; Chicago card live on index.html; CITIES.md row updated.
+
+## 2026-10-02 (session 2) · W10–W11 + close-out
+- +6 Wikipedia-pinned food (Cariño, Mako, Sifr, Roeser's Bakery, Ceres Cafe, Goose Island Fulton taproom) and +10 sights
+  (Pilgrim Baptist ruins, Chicago Bee Building, Smart Museum, Heller House, Goodman, Chicago Shakespeare, Civic Opera
+  House, Symphony Center, St. Michael's Old Town, Rosehill Cemetery).
+- Key hygiene: Cariño's star and Mako's recognition are cited via Time Out / Choose Chicago articles, so they carry
+  TIMEOUT / CHOOSECHI keys (ordinary sources), not MICHELIN_STAR.
+- Dropped/held: Lizzadro Museum, Charles Gates Dawes House, Big Chicks, Longman & Eagle, Porto (closed 2023 per
+  Wikipedia), Green Door Tavern, Indian Boundary Park, Madonna della Strada — single source or no pin.
+- Final: 220 researched / 191 rendered; gates PASS; validate + test PASS.
+
+## 2026-10-02 (session 3) · W12 food & drink batch A (§2b food first)
+- Searches: Chinatown, Pilsen/Little Village tacos, Keith Lee picks, Michelin Bib 2024/2025 lists, cocktail/dive/brewery/coffee,
+  Devon, Argyle, Eater 38, Tribune/Chicago Mag lists (≈27).
+- Added 30 (FOOD_W12.json): 21 on a lone Michelin Bib (2024 ceremony page; key MICHELIN_BIB = award only), Eater-38 co-sourced
+  (Lula, Mi Tocaya, Smoque, Superkhana, Luella's), tacos (Carnitas Uruapan, La Chaparrita — Infatuation + Chicago Mag Iconic Eats
+  + ABC7), bars (Violet Hour — JB Outstanding Bar Program 2015 via JBF winners page + Sun-Times; Three Dots — NBC5 World's 50 Best
+  Bars + Time Out; Rainbo Club, Old Town Ale House — Punch + Chicagoist/Time Out/Infatuation), Soul Prime (Keith Lee creator via
+  AfroTech + Chicago Defender), Lao Sze Chuan (Infatuation + Chicago Mag).
+- Eater 38 cited via a listchallenges reproduction of the list (Eater page itself not surfaced) — corroborating only, never alone.
+- Held single-source: MingHin, Cleo's Southern Cuisine (branch unclear), Lost Lake, Milk Room, Half Acre, Revolution, Intelligentsia,
+  Metric, Tank Noodle, Nhu Lan, Sabri Nihari, Ghareeb Nawaz, Usmania, Huaraches Doña Chio, Taqueria Belen, Bayan Ko, Rose Mary,
+  Hermosa, Community Tavern. Dropped: Harold's/Sharks (chains — branch not identifiable), Peninsula hotel blog (not credible).
+- Channel mix: institutional 21 · editorial/travel 8 · creator 1 (Keith Lee).
+
+## 2026-10-02 (session 3) · W12b–W14 food & drink
+- W12b (+21): Michelin venue/area pages (lone MICHELIN/MICHELIN_BIB — Andros Taverna, Momotaro, Omakase Yume, Home Bistro, Dove's,
+  etta, Virtue, Yao Yao, Dolo, Daguan, MingHin, Maple & Ash, Tzuco, Michael Jordan's, Les Nomades, Warlord, Sol de Mexico) + bars
+  (Lost Lake, Milk Room, Best Intentions, Hopleaf — Time Out Bar Awards + NBC5 50 Best / Chicagoist / Paste).
+- W13 (+13): Papa's Cache Sabroso (jibarito), Smak-Tak, Kasia's Deli (pierogi), bakeries (Lost Larson, Loaf Lounge, Hewn, Bang Bang —
+  Time Out + Infatuation guides), Brown Sugar Bakery, Josephine's (Resy + Chowhound), Do-Rite + Old Fashioned Donuts (Axios 2026 +
+  NBC5), Ricobene's (South Side Weekly + DNAinfo + Chicago Mag), Chiu Quon (Time Out + Infatuation + WTTW).
+- W14 (+14): Taxim, Athena (Greek guides), Cho Sun Ok, San Soo Gab San, Parachute (Korean), Au Cheval, Kuma's Corner (burgers), Mario's
+  Italian Lemonade, Tufano's (JB America's Classics 2008), Tryzub, Sticky Rice, TAC Quick (Time Out Thai list + Infatuation), Akahoshi
+  Ramen (Bon Appétit + NYT 25-best via NBC5), Brindille (2015 JB award via Sun-Times + NYT 25-best).
+- Key hygiene: NYT / Bon Appétit recognition reported by NBC5 carries NYT / BONAPPETIT keys with the NBC URL as evidence; JB award
+  cited via a Choose Chicago page (Tufano's) is a JB award (America's Classics) → JAMESBEARD.
+- Geocode W12a (agent, 50 searches): 4 high + 2 med kept; 9 aggregator (frankiapp-type) coords DEMOTED to UNVERIFIED per the session-2
+  precedent; closures found: Dear Margaret (fire, Oct 2025, Time Out) and The Violet Hour (closed 27 Jun 2025) → flagged CLOSED, kept.
+  Luella's moved (Lincoln Sq → 4114 N Kedzie, Albany Park, brunch only) → record updated, area NW. Area fixes: Ghin Khao WEST, Munno
+  NORTH, Nella SOUTH (Hyde Park), Perilla NW (River West).
+- Backlog pins (agent, ~60 searches): 7 accepted (Al's, Gene & Georgetti, Boka, Galit, Middle Brow, Taqueria Chingón, Rainbow Cone);
+  Tortello/Sochi listing-site coords rejected. Jim's Original: forced off 1250 S Union by UIC (30 Jun 2026), moving to 551 W 18th St
+  (fall 2026) per Sun-Times/Fox32/WGN → address + note updated, stays unpinned.
+- Held single-source: Andy's Thai Kitchen, Old Lviv, Shokolad, Noon O Kabab, Taste of Lebanon, Zaytune, Asador Bastian, Al Bawadi
+  (possibly closed), Doughnut Vault, Beacon, Pompei, Conte di Savoia, J.P. Graziano, Tony's, Carm's, Phil's, Candlelite, Marie's,
+  La Bomba, Pearl's Place, St. Rest, Sweet Mandy B's, Svea, Mr. Greek Gyros, Queen Mary, Nine Bar, Lemon, Sportsman's Club, Delilah's.
+- Density after W14: food 152 / 298 discovered (51%); per-area food share LOOP 48% · NORTH 56% · NW 82% · WEST 50% · SOUTH 34% ·
+  SW 43% · FAR 63% · SUB 21% · DAY 0%.
+
+## 2026-10-02 (session 3) · build, closures, close-out
+- Geocode W12b/W13 (agent, cut off by the 200 cap after 13 records): +5 high pins (Hopleaf, Virtue, Momotaro, Omakase Yume — Apple Maps place
+  links; Ricobene's — latlong.net). 20 records returned with memory-only addresses + "unchecked" status → **removed** from _geoout_w13.json
+  and from data/geocodes.json (never ship a memory address); they stay UNVERIFIED for session 4.
+- Closures: Les Nomades (closed Oct 2025, Time Out + Wikipedia) → kept flagged CLOSED (notable). **MEASURED & DROPPED** (closed, only basis
+  for inclusion was a stale Michelin listing): Home Bistro (moved to Cleveland), etta (Bucktown, closed Oct 2025), Daguan Noodle (Yelp CLOSED
+  Sept 2026, single status source). Dear Margaret, The Violet Hour kept flagged CLOSED.
+- Build: 295 researched / 209 rendered (146 sights + 63 food); sourcecheck 298→295 PASS (43 lone institutional), geocheck PASS,
+  statuscheck CONSISTENT, buildcheck PASS; npm run validate DATA OK; npm test ALL PASS.
+- Food share: 149/295 = 50.5% overall (≥50% met overall); per area still below 50% in LOOP (48%), SOUTH (32%), SUB (21%), DAY (0%).
+- Channel mix (session 3, 75 places): institutional (Michelin/JB) ≈40 · editorial/travel (Infatuation, Time Out, Chicago Mag, Tribune/
+  Sun-Times, NBC5/ABC7, Axios, Punch, Paste, Resy, Tasting Table, Chowhound) ≈33 · local press (Block Club/DNAinfo/South Side Weekly/
+  Gozamos/WBEZ) ≈6 · creators: Keith Lee (Soul Prime), Ramen Lord/Mike Satinover is the chef (Akahoshi) — creator channel remains thin.
+- Searches: 200/200 session cap reached (main ≈75; geocode agents ≈125). Lesson: geocode agents spent ~60% of the budget for ~35% pin
+  yield — next session cap them at ~30 searches and spend the rest on discovery (discovery is what moves density).
+
+## 2026-10-03 (session 4 / wave 3) · W15–W17 batch 1 (food first: SOUTH, SW, FAR, WEST, SUB, DAY)
+- Searches so far ≈47. Sources: Infatuation/Time Out reviews + neighbourhood guides, Chicagoist, Saveur Pilsen guide, ABC7 Hungry Hound,
+  Steve Dolinsky (stevedolinsky.com — The Hungry Hound, ABC7 food reporter; key HUNGRYHOUND), Wednesday Journal, NBC5 Food Guy, Choose Chicago
+  South Side + Little Village guides, DNAinfo, South Side Weekly, Roadfood, CNN Travel, Chicago Mag, Texas Monthly, Restaurant Business Top-100,
+  Travel Wisconsin, Milwaukee Record, Shepherd Express, Wikipedia.
+- Added 21 (FOOD_W15 = 12, FOOD_W16 = 3, FOOD_W17 = 6): Phil's Pizza, Tony's Italian Beef, Top-Notch Beefburger, Edzo's, Don Pedro Carnitas,
+  Freddy's Pizza (Cicero), Kouklas (Niles; NYT best-restaurants list via Time Out + NBC5), Chef's Special Cocktail Bar (lone Michelin Bib),
+  Valois, Yassa, Honey 1 BBQ, Pearl's Place, Lexington Betty Smokehouse, Asian Cuisine Express, El Milagro, Pizzeria Uno, Harry Caray's,
+  Gibsons, Frank's Diner (Kenosha, Wikipedia pin), Leon's Frozen Custard, Solly's Grille.
+- Creators: Keith Lee 2023 tour (Matador/TravelNoire: Cleo's Southern Cuisine his only 10/10 — address/branch still to confirm); Portnoy One
+  Bite Chicago scores (radio-site roundup: Dino's 7.4, Barnaby's 7.8, Giordano's 8.4) — creator-only, held.
+- Geocode: Phil's latlong.net POI 'phil-s-pizza-571446' (41.7301,-87.7806) is a different Phil's at 79th/Harlem — REJECTED. Restaurant pins
+  remain mostly UNVERIFIED (address + status recorded in geo/_geoout_w15.json). Frank's Diner pinned from Wikipedia.
+- Held single-source: Frangella Italian Market (ABC7), Hecky's BBQ (Resy), Taco Diablo, Bennison's, Original Soul Vegetarian, Dino's,
+  Barnaby's, 3 Floyds (brewpub closed 2020, taproom reopening — status unclear), O&H Danish Bakery (address of the flagship unconfirmed).
+- Build: 316 researched / 210 rendered; sourcecheck/geocheck/statuscheck/buildcheck PASS; validate + test PASS.
+
+## 2026-10-03 (session 4 / wave 3) · batch 2 (≈92 searches cumulative)
+- Added 23 food & drink + 3 sights: Hecky's, Walker Bros (Wilmette original), Russell's Barbecue (1930), Svea, MacArthur's, Carm's, Simone's,
+  Simon's Tavern, Café Colao, Big Star, Half Acre Balmoral, Carol's Pub, L&L Tavern (Wikipedia pin), Lou Malnati's Lincolnwood (Wikipedia-article
+  coord via latitude.to, med — re-verify), Huaraches Doña Chio, Taqueria El Asadero, FitzGerald's (Berwyn, NRHP 2025), The Publican, Italian Village,
+  Monteverde; sights ISAC Museum + Washington Park (Wikipedia pins), Charles Gates Dawes House (HMDB marker coord, med; NPS NHL record).
+- Pins this batch: L&L Tavern (Wikipedia), Solly's Grille (latlong.net POI), Lou Malnati's Lincolnwood (med). Aggregator coords (frankiapp/thatch for
+  Lula Cafe) REJECTED per precedent. Pequod's / Vito & Nick's: no POI coordinate surfaced → stay UNVERIFIED.
+- MEASURED & DROPPED: Revolution Brewing Logan Square brewpub — CLOSED 14 Dec 2024 (NBC5/CBS) and not notable enough to keep as a closed pin;
+  Taqueria Los Comales (Infatuation 7.0, chain of 3 — padding); Devon Ave Pakistani spots (only forum/blog-comment sources found); Tank Noodle /
+  Nhu Lan (Hoodline/Yelp-derived only); Gene's Sausage Shop (rooftop-directory only); Al Bawadi, Albasha, Nile (Bridgeview — Time Out guide undated,
+  2nd credible missing); Skylark (attribution in Time Out list not confirmed).
+- Creator channel: Portnoy One Bite (scores via radio-site roundups) and Keith Lee (Matador/TravelNoire) — only corroborating; Cleo's still held.
+- Build: 339 researched / 216 rendered; 4 gates PASS; validate + test PASS.
+
+## 2026-10-03 (session 4 / wave 3) · batch 3 (≈120 searches cumulative)
+- Food & drink +14: Daley's (oldest restaurant, 1892 — moved to 6257 S Cottage Grove 2019, POAH), Maria's Packaged Goods & Kimski, Horse Thief Hollow,
+  Dat Donut, Janson's Drive-In (status unchecked — Beverly Review Jan 2025 not read), Longman & Eagle (address pending), Jibaritos y Más, Spacca Napoli
+  (50 Top Pizza), Miller's Pub, J.P. Graziano, Garrett Popcorn (Michigan Ave), Ethiopian Diamond, 5 Rabanitos.
+- Sights +7: Pilsen Historic District + Garfield Park Fieldhouse (pinned, med), Holy Cross (Back of the Yards), Nativity BVM Lithuanian church,
+  The Plant, Hotel Florence, Greenstone Church (unpinned — no published coord surfaced).
+- MEASURED & DROPPED / held: Mixteco Grill (Time Out lists it CLOSED — dropped, not notable enough to pin closed); Uncle John's BBQ original (closed
+  2013); Medici on 57th (only student-press sources — held); Qing Xiang Yuan, HaiSous, La Catedral, Pompei, Portillo's River North, Exchequer,
+  Cork & Kerry, La Cecina, Rosangela's, Marz, Whiner — 1 credible source each, held; St. Adalbert (parish closed 2019; status details unverified — held).
+- Build: 359 researched / 218 rendered; 4 gates PASS; validate + test PASS.
+
+## 2026-10-03 (session 4 / wave 3) · batch 4 (≈140 searches cumulative)
+- Sights +6 (4 pinned): Steppenwolf (Wikipedia coord via latitude.to), Old Town School of Folk Music (med), Couch Tomb (Atlas Obscura; marker coord, med),
+  Arthur Heurtley House (Wikipedia), St. Valentine's Day Massacre site + Paseo Boricua flags (unpinned).
+- Food & drink +12: Amici-Chicago (Keith Lee visit, Fox32 — creator channel), Home Run Inn original (31st St), Bob Chinn's Crab House, Hackney's on Harms,
+  Sweet Mandy B's, Murphy's Bleachers (status unchecked), Southport Lanes — CLOSED (2020, Block Club; notable → kept flagged), Paulie Gee's Logan Square,
+  Piece Brewery, Spinning J. Addresses filled for Honey 1 (746 E 43rd), Pearl's Place (3901 S Michigan), Longman & Eagle (2657 N Kedzie), Simone's (960 W 18th).
+- CREATORS_W2.json: Keith Lee → Amici-Chicago; rejected a one-off viral TikTok (Taco-Bout-Joy's) and two unvetted coffee blogs.
+- Held single-source: Resi's Bierstube, Laschet's Inn (Chicago Bar Project only), The Map Room, Ann Sather (relocating to 3042 N Broadway, fall 2026 — CBS).
+
+## 2026-10-03 (session 4 / wave 3) · batch 5 (≈170 searches cumulative)
+- Sights +13 (6 pinned via Wikipedia/published coords): Roberts Temple COGIC (NPS — Till national monument), Muddy Waters House, Palmisano Park,
+  Emmett Till & Mamie Till-Mobley House, Sherman Park, Davis Square Park, Bubbly Creek (headwaters coord, med), Burr Oak Cemetery (SUB),
+  R. W. Evans House (FLW), Walter Burley Griffin Place District (med), Big Marsh Park, Dan Ryan Woods, A. Philip Randolph Pullman Porter Museum.
+- Food & drink +16: Jimmy's Woodlawn Tap, Daisy's Po'Boy & Tavern, Ramova Grill & Taproom, Soul Veg City, Peach's on 47th, Chi Cafe, Nine Bar (behind
+  Moon Palace), Kopp's (Greenfield), FEW Spirits, Autre Monde (past Bib), Gayety's (Lansing), Birrieria Reyes de Ocotlan, Lindy's & Gertie's (Archer
+  original), Huck Finn Donuts.
+- Fix: removed a duplicate I had created ("ISAC Museum (…)" duplicated the existing "Institute for the Study of Ancient Cultures Museum") from SIGHTS_W10,
+  geo/_geoout_w15s.json and data/geocodes.json. Lesson: `_chi_has.py` substring checks miss renamed institutions — also grep the old name.
+- MEASURED & DROPPED: Vesecky's Bakery (closed 2023, non-notable); Oak Woods Cemetery (Wikipedia coord rounded to the minute — too coarse; held);
+  Five Holy Martyrs, Graue Mill, St. Procopius (2nd credible source missing); Aurelio's Homewood original + Nancy's Harwood Heights original (which branch
+  is the original still operating is unclear); Apachee Grill, Don Jose Tamaleria (Nagrant only).
+- Build: 401 researched / 227 rendered; 4 gates PASS; validate + test PASS.
+
+## 2026-10-03 (session 4 / wave 3) · batch 6 + close-out (≈190 searches total, no sub-agents)
+- Food & drink +14: Cafe Jumping Bean, Dusek's Board & Beer — CLOSED (Michelin star 2016; closed 31 Dec 2023 per Wikipedia — notable, kept flagged),
+  Gale Street Inn (reopened, WGN), Chief O'Neill's, Bennison's Bakery, Temperance Beer, Mader's, Sobelman's, Gilles Frozen Custard, Exchequer, Cindy's
+  Rooftop (Time Out No. 1 rooftop restaurant 2025), LH Rooftop, Sabri Nihari, Tank Noodle (Infatuation + Tasting Table — promoted from the held list).
+- Status/pins: FitzGerald's pinned (HMDB/Wikipedia coord, med); Murphy's Bleachers confirmed operating (2026-season event listings); Janson's — owner died
+  Dec 2024, operating status still unconfirmed (kept 'unchecked', unpinned).
+- Held: Ann Sather (closed on Belmont; reopening Oct 2026 at 3042 N Broadway — add once open), Rosebud Taylor St (reopening, date unclear), Red Apple
+  (Milwaukee Ave branch CLOSED per Time Out; Norwood Park branch unverified), Staropolska (conflicting addresses), Hemmingway's Bistro.
+- Channel mix (session 4, 120 places): editorial/travel (Time Out, Infatuation, Chicago Mag, Tasting Table, Saveur, CNN, Condé Nast via search) ≈70 ·
+  local press (Block Club, DNAinfo, South Side Weekly, Chicagoist, WTTW/WBEZ, Wednesday Journal, Austin Weekly, Lansing Journal, Medill, Patch,
+  Milwaukee Record/OnMilwaukee) ≈45 · institutional (NPS, City landmarks, Michelin Bib, Wikipedia-NRHP) ≈25 · critics/creators (Steve Dolinsky,
+  Michael Nagrant, Chicago Bar Project, Keith Lee) ≈20 (places carry 2–4 sources, so channels overlap).
+- Final build: 415 researched / 228 rendered (160 sights + 68 food); food 58% overall; DAY now OK; sourcecheck/geocheck/statuscheck/buildcheck PASS;
+  npm run validate DATA OK; npm test ALL PASS.
+
+## 2026-10-03 (session 5 / wave 4) · batch 1 (≈34 searches)
+- Pin pass on unpinned restaurants first (latlong.net 3-name query, mapcarta 3-name query, Wikipedia 4-name query): latlong/mapcarta returned
+  no coordinates (0/6); Wikipedia pinned Harry Caray's (via its NRHP building, Chicago Varnish Company Building) and Roberts Temple COGIC.
+  Hotel Florence: engine returned the Pullman district point → REJECTED (cross-contaminated). Lesson re-confirmed: restaurant pins
+  don't surface here; spend pin searches on Wikipedia-article places.
+- Sights +16 (all pinned; SIGHTS_W11.json, geo/_geoout_w18.json): NW — St. Nicholas Ukrainian Catholic Cathedral, Logan Square Boulevards
+  District (med), National Museum of Puerto Rican Arts and Culture, The Robey (Northwest Tower), St. Stanislaus Kostka, Wicker Park District (med),
+  Bohemian National Cemetery (med); NORTH — Alta Vista Terrace, Essanay Studios, Francis J. Dewes House (med); SUB — Riverside Olmsted village
+  (NHL, med), Avery Coonley House + Ward Willits House (FLW NHLs); LOOP — Shedd Aquarium (Wikidata P625), Millennium Park (med), Driehaus Museum (med).
+  Gap noted: Shedd Aquarium and Millennium Park were missing from 4 earlier waves.
+- Food & drink +8 (FOOD_W18.json, unpinned): Mariscos San Pedro, HaiSous (promoted from held), Panadería Nuevo León, La Luna (Pilsen), Pompei on
+  Taylor (promoted), Chez Joël, Taco Diablo (promoted), Tomate Fresh Kitchen.
+- Held single-source: Sts. Volodymyr & Olha (Wikipedia only), Fourth Presbyterian (Wikipedia only), Bob's Pizza + Kristoffer's (Time Out only),
+  Cerdito Muerto (Infatuation only), Joy Yee Evanston (Time Out only), Burl Evanston (Chicago Mag hottest list only), Sweet Maple Cafe (dish not sourced),
+  St. Ignatius College Prep building (pin ok, merit thin — not added).
+- Build: 439 researched / 246 rendered (177 sights + 69 food); 4 gates PASS; validate DATA OK; npm test ALL PASS.
+
+## 2026-10-03 (session 5 / wave 4) · batch 2 (≈84 searches cumulative)
+- **New pin channel — Apple Maps place links.** A `maps.apple.com`-restricted query naming 3 restaurants (name + street, or full street address)
+  returns Apple place links; ~45% of them carry `address=…&coordinate=<lat>,<lng>` (or `ll=`) — a place pin, not a viewport. Accepted only when the
+  link's address matches the record (or the link is a query-pin and the grid sanity check passes). Place-id-only links (no coordinate) are not used.
+  21 searches → 29 restaurant pins (Pequod's, Johnnie's, Vito & Nick's, George's, Kie-Gol-Lanee, Tortello, Mirra, Bloom, Lardon, Lula, Nella, Perilla,
+  Pleasant House, Smoque, Carnitas Uruapan, La Chaparrita, Old Town Ale House, Yao Yao, Dolo, Top-Notch, Don Pedro, Honey 1, Lexington Betty,
+  Asian Cuisine Express, Gibsons, Xocome…). All grid-checked (note field). Yield fell to ~1/search on the later batches.
+- Closures / status found by the pin pass: **Edzo's Burger Shop — CLOSED** (last service 21 Dec 2024, Evanston RoundTable + WTTW Check Please;
+  notable → kept flagged, tier → 3); **Milly's Pizza in the Pan** Uptown original closed → record moved to the operating West Town shop
+  (925 N Ashland, Infatuation) and area → NW; Valois confirmed open (Block Club, June 2026); George's Deep Dish confirmed open (status was 'unknown').
+  Pat's Pizza: Time Out shows 2679 N Lincoln Ave vs record 638 W Diversey — conflict, left 'unknown' + unpinned.
+- Discovery +9: SOUTH food — Cleo's Southern Cuisine (promoted; INF 8.1 + Time Out + Dolinsky + Keith Lee 10/10), Bronzeville Winery, Medici on 57th
+  (promoted), Qing Xiang Yuan (promoted), Hing Kee; SW — Xocome Antojeria (INF 9.4 + Hungry Hound + Fooditor; Apple pin); SOUTH sights (pinned) —
+  Pui Tak Center, Quinn Chapel AME, Ebenezer Missionary Baptist Church. Status/address filled: Chi Cafe (2160 S Archer, open), Nine Bar (216 W Cermak, open).
+- Held single-source: Go 4 Food, Triple Crown (Time Out only); El Solazo (Infatuation 7.3 only), Tio Luis Tacos, New Archview (South Side Weekly only);
+  Joy Yee (Time Out only).
+- New source key FOODITOR registered with a rationale.
+- Build: 448 researched / 275 rendered (180 sights + 95 food); 4 gates PASS; validate DATA OK; npm test ALL PASS.
+
+## 2026-10-03 (session 5 / wave 4) · batch 3 (≈105 searches cumulative)
+- Sights +17 (all pinned, Wikipedia + ≥1 of Choose Chicago / Time Out / CAC / WTTW / City landmarks / Atlas Obscura): WEST — Site of the Great
+  Chicago Fire (Pillar of Fire); NORTH — Lincoln Park (med), Andersonville Commercial District (med), Edgewater Beach Apartments, Bryn Mawr Avenue
+  Historic District (med; landmarked Sept 2026); FAR — Givins Beverly Castle, Calumet Park & Beach (med); LOOP — Old St. Patrick's, Marquette Building,
+  Carbide & Carbon Building, Clarke House Museum, Chicago Architecture Center, Second Presbyterian, Chicago Temple (med).
+- Food & drink +7: WEST — Lucido's Tacos; FAR — Sanders BBQ Supply Co. (NYT 2025 top-50, Banchet 2026), Justice of the Pies, Open Outcry Brewing,
+  Ware Ranch Steak House; SW — Marz Community Brewing (Apple pin), Gorditas La Tia Susy. Pin: Mariscos San Pedro (Apple).
+- MEASURED & DROPPED: Whiner Beer Co. — CLOSED 29 Mar 2026 (Time Out) and never on the map → not added; Nuevo Leon restaurant + Mi Tierra
+  (WTTW Check Please lists both closed — not added); Chatham Village / Pullman clock-tower coords (community centroid / arc-minute only) rejected;
+  Pritzker Military Museum (Wikipedia now places it in Kenosha) not added; Somos Monos Cerveceria (Block Club only) held.
+- New source key BEVERLYREVIEW registered with a rationale.
+- Build: 469 researched / 291 rendered (194 sights + 97 food); 4 gates PASS; validate + npm test PASS. LOOP now OK (110/110) but its food share
+  dipped to 49% → next LOOP adds must be food.
+
+## 2026-10-03 (session 5 / wave 4) · batch 4 (≈139 searches cumulative)
+- Sights +12 (pinned): NW — Villa District (med), Copernicus Center (Gateway Theatre), Intuit Art Museum, Ukrainian Village District (med);
+  SUB — Frank Lloyd Wright Historic District Oak Park (med), Block Museum of Art, Oak Park Conservatory; WEST — Jackson Boulevard District (med),
+  Austin Town Hall; NORTH — Argyle Street / Asia on Argyle (med). (Two more counted in batch 3's file.)
+- Food & drink +17: NORTH — Ghareeb Nawaz (Apple pin), Hema's Kitchen (status 'unchecked' — no 2025-26 confirmation, not on Apple Maps),
+  Uru-Swati (Block Club Sept 2026), Phở 777, Hai Yen; SUB — Babygold Barbecue, Katy's Dumpling House (Oak Park), One Lake Brewing; WEST — Soul Food
+  Lounge, Soulé (North Lawndale), Bob's Pizza + Kristoffer's (both promoted from held); SOUTH — JM Seafood, Han 202, Zaytune.
+- Address hygiene: addresses I had typed for W11 sights without a source echoing them (St. Nicholas, Robey, NMPRAC, Coonley, Pui Tak, Quinn Chapel,
+  Ebenezer, Marquette, Carbide & Carbon, Second Presbyterian, Chicago Temple, Ukrainian Village, FLW district) were coarsened to the sourced
+  street/locality (Tokyo W3 lesson); St. Stanislaus Kostka corrected to 1327 N Noble St (Choose Chicago).
+- MEASURED & DROPPED / held: Cocoa Chili (added then removed — not on Apple Maps, latest source 2021, dish unspecific); Cerdito Muerto (Infatuation
+  only); Bundoo Khan (Infatuation only); Ba Le, DaNang Kitchen (Choose Chicago only); Nana Bridgeport (Time Out only); Congress Theater (closed for
+  restoration until 2027); Holy Trinity Polish Mission (Wikipedia only); Wabash Avenue YMCA (pin found, 2nd source not yet); La Cecina, Taqueria
+  San Julian, Sputnik Coffee (one credible each); SW Arab/Palestinian 63rd St corridor — no credible list found.
+
+## 2026-10-03 (session 5 / wave 4) · batch 5 + close-out (≈167 searches total, no sub-agents)
+- Food & drink +3: FAR — Mabe's Deli; SW — La Cecina (promoted: Time Out + Chicago Reader); (Solazo added then removed — no named dish).
+- Sights +2: FAR — Pullman Market Hall (NPS place page, unpinned); NW — Polish Triangle (Wikipedia pin).
+- Pins (Apple Maps): Half Acre Balmoral, The Publican, Dat Donut, Spacca Napoli, 5 Rabanitos, Sweet Mandy B's, Birrieria Reyes de Ocotlan,
+  Cafe Jumping Bean, HaiSous, Kopp's, Lost Larson, Au Cheval, Taxim; Greenstone Church (HMDB marker, med). Addresses filled from Apple
+  listings: Kasia's Deli, Tryzub, Cho Sun Ok, Au Cheval, Taxim, Babygold (6615 Roosevelt), One Lake (1 Lake St).
+- **Parachute — CLOSED** (23 Mar 2024; Block Club + Sun-Times; ex-Michelin star, JBF 2019) — notable → kept flagged, pinned at 3500 N Elston.
+- Channel mix (session 5, 83 new places): editorial/travel (Time Out, Infatuation, Chicago Mag, Choose Chicago, Atlas Obscura, CAC, Enjoy
+  Illinois, Visit Oak Park) ≈60 · local press (Block Club, WTTW, WBEZ, Sun-Times, Wednesday Journal, Beverly Review, Evanston RoundTable,
+  South Side Weekly, Chicago Reader) ≈30 · institutional (NPS/NHL, City of Chicago landmarks, Park District, FLW Trust) ≈25 · critics/creators
+  (Steve Dolinsky/Hungry Hound, Fooditor, Keith Lee via Block Club) ≈5 (places carry 2–4 sources, channels overlap).
+  Creator query this wave: Keith Lee's Chicago picks (Block Club 2024) → Cleo's corroborated; no new creator vetted.
+- Final build: 498 researched / 318 rendered (206 sights + 112 food); 59% food overall; LOOP/NORTH/SOUTH/DAY OK; 4 gates PASS
+  (statuscheck: 2 places without a closure check); npm run validate DATA OK; npm test ALL PASS.
+
+## 2026-10-03 (session 5 / wave 4) · resume after usage-limit reset (≈174 searches total)
+- Orchestrator asked to resume; wave 4 had already closed out, so the remaining budget went on the NEED tail.
+- +4 promoted from the held list: Burl (Chicago Mag + Evanston RoundTable; 2545 Prairie Ave via Apple listing), Joy Yee Noodles Evanston
+  (Time Out + Evanston RoundTable), Cerdito Muerto (Infatuation + Chicago Mag Nov 2025 + Time Out); new sight Little Village Arch
+  (City landmark report + Choose Chicago + Block Club + WTTW; unpinned, Apple place-id only). SUB now OK.
+- SW source exhaustion (documented): Taqueria San Julian, Sputnik Coffee, Somos Monos, El Solazo/Solazo (no named dish), Tio Luis, New Archview,
+  63rd St Arab corridor — searched Time Out / Infatuation / Chicago Mag / Reader / South Side Weekly / WTTW / ABC7; none reached 2 credible + dish.
+- Build: 502 researched / 318 rendered; 4 gates PASS; validate + test PASS.
+
+## 2026-10-03 (session 6 / wave 5 — finishing pass) · discovery (≈14 searches)
+- Task: close the last NEED (NW +1, FAR +1, WEST +1, SW +5) then an Apple-Maps pin pass on the unpinned.
+- SW new angles (Archer Heights / Garfield Ridge / Clearing / West Lawn Polish + Lithuanian, Brighton Park / Gage Park / Back of the Yards Mexican):
+  - **Weber's Bakery** (Garfield Ridge, since 1930) — Time Out + NBC Chicago (Business Insider "best bakery in Illinois"); Apple listing live → KEEP.
+  - **Pticek & Son Bakery** (Garfield Ridge, 1943; paczki) — ABC7 Paczki Day 2024 + WTTW paczki report → KEEP (not on Apple search; pin pending).
+  - **Paco's Tacos (Archer original)** (Brighton Park) — WGN News taco poll + City Cast Chicago best tacos (+ Nagrant guide context) → KEEP.
+  - **La Internacional** (Back of the Yards, 4556 S Ashland per Apple) — Infatuation + Axios Chicago Nov 2025 + City Cast → KEEP.
+  - **Taquerías Atotonilco** (Gage Park, 5656 S Kedzie; founded 1972) — South Side Weekly feature + City Cast → KEEP.
+  - MEASURED & DROPPED / held: Bobak's Sausage (Archer retail store CLOSED 2015 — Sun-Times; never added); Racine Bakery (Lithuanian-Polish,
+    6216 S Archer — Chicagoist 2007 only → held); Grand Duke's (Lithuanian, Summit = SUB, not needed); Apachee Grill / Don Jose (Nagrant only, still held);
+    Bree Thai, Taqueria El Palenque (SEO/aggregator only).
+- NW: **The Map Room** (Bucktown beer bar) — Infatuation + Time Out. WEST: **Ferrara Bakery** (Little Italy since 1908; cannoli) — WBEZ 2024 + ABC7.
+  FAR: **Cork & Kerry** (Beverly Irish pub since 1988) — Time Out + Chicago Magazine.
+- New outlet key CITYCAST (SOURCES_W19.json, rationale recorded). All 8 → FOOD_W19.json (food & drink; LOOP/SW food share unchanged ≥50%).
+- density.py: **every area OK — 510 researched** (SW 25/25, NW 80/80, WEST 50/50, FAR 30/30).
+
+## 2026-10-03 (session 6 / W19) · pin pass + build
+- Two pin sub-agents (LOOP/NORTH/NW and SOUTH/SW/WEST/FAR/SUB/DAY), 45 searches each. Accepted only coordinates appearing verbatim for the named place at
+  the matching street number; grid-sanity checked. A: 19 (7 Apple high, 7 Waze high, 5 usarestaurants med). B: 30 (17 high, 13 med).
+- Rejected: Purple Pig (Waze address point #1200), Margie's Apple pin (Montrose store, not 1960 N Western), Milly's (search summary put it at 3409 N Broadway),
+  Kasia's (approximate), Daley's (Foursquare 809 E 63rd St ≠ record) — address checks queued.
+- Med notes: Pearl's Place = Waze's Amber Inn record at the same 3901 S Michigan building; La Internacional = "La Internacional Supermercado" record.
+- Status: Birrieria Zaragoza TEMPORARILY closed (Michelin listing + Apple) → kept open with flag (precedent: Osaka/Youngstown temporary closures).
+- Build: 510 researched / 367 rendered (206 sights + 161 food); sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT (3 without closure check) ·
+  buildcheck PASS; npm run validate DATA OK; npm test ALL PASS.

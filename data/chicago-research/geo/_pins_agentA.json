@@ -1,0 +1,173 @@
+[
+ {
+  "n": "Cabra",
+  "lat": 41.8858811,
+  "lng": -87.6491082,
+  "geoSource": "https://maps.apple.com/place?address=200+N+Green+St%2C+Chicago%2C+IL++60607%2C+United+States&coordinate=41.8858811%2C-87.6491082&name=Cabra&place-id=I9104E0439D03EE8F&_provider=9902 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: matches 200 N / ~800 W (Green St) grid",
+  "address": "200 N Green St, Chicago, IL 60607"
+ },
+ {
+  "n": "Monteverde",
+  "lat": 41.881863,
+  "lng": -87.6530314,
+  "geoSource": "https://maps.apple.com/place?address=1020+W+Madison+St%2C+Chicago%2C+IL++60607%2C+United+States&coordinate=41.881863%2C-87.6530314&name=Monteverde&place-id=I5EB151E3D72E537&_provider=9902 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: matches Madison St (0 N/S) at ~1020 W grid",
+  "address": "1020 W Madison St, Chicago, IL 60607"
+ },
+ {
+  "n": "Byron's Hot Dogs",
+  "lat": 41.9543277,
+  "lng": -87.6552866,
+  "geoSource": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/631268-byrons-hotdogs.htm — usarestaurants.info listing (address matches record; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "note": "sanity: matches Irving Park Rd (4000 N) at ~1017 W grid",
+  "address": "1017 W Irving Park Rd, Chicago, IL 60613"
+ },
+ {
+  "n": "Huaraches Doña Chio",
+  "lat": 41.9907102,
+  "lng": -87.66948,
+  "geoSource": "https://maps.apple.com/place?address=1547+W+Elmdale+Ave%2C+Chicago%2C+IL++60660%2C+United+States&coordinate=41.9907102%2C-87.66948&name=Huaraches+Do%C3%B1a+Chio&place-id=I926858B4994CB78A&_provider=9902 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: matches Elmdale (~6000 N) at ~1547 W grid",
+  "address": "1547 W Elmdale Ave, Chicago, IL 60660"
+ },
+ {
+  "n": "Twin Anchors Restaurant & Tavern",
+  "lat": 41.9127041,
+  "lng": -87.6383405,
+  "geoSource": "https://maps.apple.com/place?+Tavern=&_provider=9902&address=1655+N+Sedgwick+St%2C+Chicago%2C+IL++60614%2C+United+States&coordinate=41.9127041%2C-87.6383405&name=Twin+Anchors+Restaurant+&place-id=IB8007E7041EB27F4 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: matches 1655 N / Sedgwick (~400 W) grid",
+  "address": "1655 N Sedgwick St, Chicago, IL 60614"
+ },
+ {
+  "n": "Akahoshi Ramen",
+  "lat": 41.9240333,
+  "lng": -87.6975864,
+  "geoSource": "https://maps.apple.com/place?address=2340+N+California+Ave%2C+Unit+B%2C+Chicago%2C+IL++60647%2C+United+States&coordinate=41.9240333%2C-87.6975864&name=Akahoshi+Ramen&place-id=I41B000A4DD5B4D20&_provider=9902 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: matches 2340 N / California (2800 W) grid",
+  "address": "2340 N California Ave, Unit B, Chicago, IL 60647"
+ },
+ {
+  "n": "Paulie Gee's Logan Square",
+  "lat": 41.9258984,
+  "lng": -87.7018052,
+  "geoSource": "https://maps.apple.com/place?query=Paulie+Gee%27s+Logan+Square&coordinate=41.9258984%2C-87.7018052&place-id=I6EC28A38C324E7CD&_provider=9902 — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: matches 2451 N Milwaukee diagonal (~2950 W at 2450 N) grid; URL carries name only, single Logan Square location",
+  "address": "2451 N Milwaukee Ave, Chicago, IL 60647"
+ },
+ {
+  "n": "Tryzub Ukrainian Kitchen",
+  "lat": 41.8957128,
+  "lng": -87.682153,
+  "geoSource": "https://maps.apple.com/place?q=Tryzub+Ukrainian+Kitchen&ll=41.8957128%2C-87.682153&auid=3096076931492020440&lsp=9902&address=2201+W+Chicago+Ave%2C+Chicago%2C+IL+60622%2C+United+States — Apple Maps place pin (address matches record; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: matches Chicago Ave (800 N) at 2201 W grid",
+  "address": "2201 W Chicago Ave, Chicago, IL 60622"
+ },
+ {
+  "n": "Miller's Pub",
+  "lat": 41.879798373,
+  "lng": -87.626277982,
+  "geoSource": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/millers-pub-312-263-4988.htm — usarestaurants.info listing (address matches record; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "note": "sanity: matches 134 S (just N of Adams 200 S) on Wabash (~-87.626) grid; Waze place record also exists at same address",
+  "address": "134 S Wabash Ave, Chicago, IL 60603"
+ },
+ {
+  "n": "Exchequer Restaurant & Pub",
+  "lat": 41.878820764,
+  "lng": -87.626287268,
+  "geoSource": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/17513-exchequer-restaurant-pub.htm — usarestaurants.info listing (address matches record; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "note": "sanity: matches 226 S (just S of Adams 200 S) on Wabash (~-87.626) grid; Waze place record also exists at same address",
+  "address": "226 S Wabash Ave, Chicago, IL 60604"
+ },
+ {
+  "n": "Pizzeria Uno",
+  "lat": 41.8923043,
+  "lng": -87.626929,
+  "geoSource": "https://www.waze.com/live-map/directions/us/il/chicago/pizzeria-uno?to=place.ChIJ_2NJoa0sDogR4g520LwywQ4 — Waze place record (name+address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: matches Ohio St (600 N) at 29 E (just E of State) grid",
+  "address": "29 E Ohio St, Chicago, IL 60611"
+ },
+ {
+  "n": "Margie's Candies",
+  "lat": 41.917458089,
+  "lng": -87.687634738,
+  "geoSource": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/431130-margies-candies.htm — usarestaurants.info listing (address matches record; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "note": "sanity: matches 1960 N (just S of Armitage 2000 N) on Western (2400 W) grid; Waze place record also exists at same address",
+  "address": "1960 N Western Ave, Chicago, IL 60647"
+ },
+ {
+  "n": "Hai Yen",
+  "lat": 41.9731313,
+  "lng": -87.6572447,
+  "geoSource": "https://usarestaurants.info/explore/united-states/illinois/cook-county/chicago/637040-hai-yen-restaurant.htm — usarestaurants.info listing (address matches record; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "note": "sanity: matches Argyle (5000 N) at 1055 W grid",
+  "address": "1055 W Argyle St, Chicago, IL 60640"
+ },
+ {
+  "n": "Jibaritos y Más",
+  "lat": 41.924840423,
+  "lng": -87.712314679,
+  "geoSource": "https://www.waze.com/live-map/directions/jibaritos-y-mas-w-fullerton-ave-3400-chicago?to=place.w.178454947.1784483936.4324306 — Waze place record (name+address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: matches Fullerton (2400 N) at 3400 W (Kimball) grid",
+  "address": "3400 W Fullerton Ave, Chicago, IL 60647"
+ },
+ {
+  "n": "The Map Room",
+  "lat": 41.917605242,
+  "lng": -87.679946778,
+  "geoSource": "https://www.waze.com/live-map/directions/map-room-n-hoyne-ave-1949-chicago?to=place.w.178454947.1784680544.1424506 — Waze place record (name+address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: matches 1949 N (just S of Armitage 2000 N) on Hoyne (2100 W) grid",
+  "address": "1949 N Hoyne Ave, Chicago, IL 60647"
+ },
+ {
+  "n": "Redhot Ranch (Bucktown)",
+  "lat": 41.9174304,
+  "lng": -87.6891506,
+  "geoSource": "https://www.waze.com/live-map/directions/united-states/illinois/chicago/redhot-ranch?to=place.ChIJ-5FyW9LTD4gRl2s45F883dE — Waze place record (name+address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: matches Armitage (2000 N) at 2449 W grid",
+  "address": "2449 W Armitage Ave, Chicago, IL 60647"
+ },
+ {
+  "n": "Murphy's Bleachers",
+  "lat": 41.948927948,
+  "lng": -87.654278498,
+  "geoSource": "https://www.waze.com/live-map/directions/murphys-bleachers-north-sheffield-ave-3655-chicago?to=place.w.178454947.1784877155.4034405 — Waze place record (name+address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: matches 3655 N (just S of Waveland 3700 N) on Sheffield (1000 W) grid",
+  "address": "3655 N Sheffield Ave, Chicago, IL 60613"
+ },
+ {
+  "n": "Café Colao",
+  "lat": 41.9032546,
+  "lng": -87.6935205,
+  "geoSource": "https://www.waze.com/live-map/directions/us/il/chicago/cafe-colao?to=place.ChIJVwNwO6nSD4gRW_mVhpN4_RY — Waze place record (name+address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: matches Division (1200 N) at 2638 W grid",
+  "address": "2638 W Division St, Chicago, IL 60622"
+ },
+ {
+  "n": "Andros Taverna",
+  "lat": 41.9273607,
+  "lng": -87.7048376,
+  "geoSource": "https://www.waze.com/live-map/directions/us/il/chicago/andros-taverna?to=place.ChIJWfaiPh_ND4gRaRT5k6Wp24g — Waze place record (name+address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: matches 2542 N on Milwaukee diagonal near Logan Sq (~3050 W) grid",
+  "address": "2542 N Milwaukee Ave, Chicago, IL 60647"
+ }
+]

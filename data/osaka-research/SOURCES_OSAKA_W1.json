@@ -1,0 +1,40 @@
+{
+ "outlets": [
+  {
+   "key": "MICHELIN_BIB",
+   "name": "MICHELIN Guide Japan 2026 — Osaka region Bib Gourmand",
+   "url": "https://guide.michelin.com/us/en/osaka-region/restaurants/bib-gourmand",
+   "credible": "Institutional authority (Michelin) — lone-solo per the gate; venue pages also carry the place's lat/lng"
+  },
+  {
+   "key": "MICHELIN",
+   "name": "MICHELIN Guide Japan — Osaka region selection",
+   "url": "https://guide.michelin.com/us/en/osaka-region/restaurants",
+   "credible": "Institutional authority (Michelin Selected)"
+  },
+  {
+   "key": "JAPANGUIDE",
+   "name": "japan-guide.com — Osaka",
+   "url": "https://www.japan-guide.com/e/e2157.html",
+   "credible": "Japan's longest-running English travel reference (since 1996), staff-researched, dated pages"
+  },
+  {
+   "key": "OSAKAINFO",
+   "name": "OSAKA-INFO (Osaka Convention & Tourism Bureau)",
+   "url": "https://osaka-info.jp/en/",
+   "credible": "Official tourism body for Osaka"
+  },
+  {
+   "key": "TIMEOUT",
+   "name": "Time Out Osaka",
+   "url": "https://www.timeout.com/osaka",
+   "credible": "International city-guide editorial with an Osaka desk"
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia",
+   "url": "https://en.wikipedia.org/",
+   "credible": "Landmark notability + published infobox coordinates (sights only)"
+  }
+ ]
+}

@@ -1,0 +1,236 @@
+{
+ "outlets": [
+  {
+   "key": "LNP",
+   "name": "LancasterOnline / LNP (Lancaster daily of record)",
+   "type": "daily newspaper",
+   "url": "https://lancasteronline.com/",
+   "credible": "Lancaster County's daily newspaper of record (LNP, est. 1794 lineage); bylined food & dining critics and a long-running local news desk.",
+   "rank": 1
+  },
+  {
+   "key": "PENNLIVE",
+   "name": "PennLive / The Patriot-News (Harrisburg)",
+   "type": "daily newspaper",
+   "url": "https://www.pennlive.com/",
+   "credible": "Central PA's largest news site and the Harrisburg Patriot-News; bylined food/travel features and Best-of lists for the whole capital region.",
+   "rank": 1
+  },
+  {
+   "key": "YDR",
+   "name": "York Daily Record",
+   "type": "daily newspaper",
+   "url": "https://www.ydr.com/",
+   "credible": "York County's daily of record (Gannett); local food, history and closures coverage.",
+   "rank": 1
+  },
+  {
+   "key": "YORKDISPATCH",
+   "name": "The York Dispatch",
+   "type": "daily newspaper",
+   "url": "https://www.yorkdispatch.com/",
+   "credible": "York's second daily (since 1876); local news and dining coverage.",
+   "rank": 2
+  },
+  {
+   "key": "WITF",
+   "name": "WITF (Harrisburg public media — NPR/PBS)",
+   "type": "public media",
+   "url": "https://www.witf.org/",
+   "credible": "Central PA's NPR/PBS member station; reported features on regional food, history and culture.",
+   "rank": 1
+  },
+  {
+   "key": "WGAL",
+   "name": "WGAL 8 (NBC, Lancaster/Harrisburg)",
+   "type": "local tv",
+   "url": "https://www.wgal.com/",
+   "credible": "The Susquehanna Valley's NBC affiliate; local news and Susquehanna Valley food segments.",
+   "rank": 2
+  },
+  {
+   "key": "ABC27",
+   "name": "abc27 WHTM (Harrisburg)",
+   "type": "local tv",
+   "url": "https://www.abc27.com/",
+   "credible": "Harrisburg ABC affiliate; local news, closures and food features.",
+   "rank": 2
+  },
+  {
+   "key": "FOX43",
+   "name": "FOX43 WPMT (York)",
+   "type": "local tv",
+   "url": "https://www.fox43.com/",
+   "credible": "York-based FOX affiliate; local news and food segments across South-Central PA.",
+   "rank": 2
+  },
+  {
+   "key": "CBS21",
+   "name": "CBS21 WHP (Harrisburg)",
+   "type": "local tv",
+   "url": "https://local21news.com/",
+   "credible": "Harrisburg CBS affiliate; local news coverage.",
+   "rank": 2
+  },
+  {
+   "key": "THEBURG",
+   "name": "TheBurg (Harrisburg civic magazine)",
+   "type": "city magazine",
+   "url": "https://theburgnews.com/",
+   "credible": "Harrisburg's free monthly civic/community magazine; bylined coverage of Midtown, Broad Street Market and local businesses.",
+   "rank": 2
+  },
+  {
+   "key": "FLY",
+   "name": "Fly Magazine (Lancaster)",
+   "type": "city magazine",
+   "url": "https://flymagazine.net/",
+   "credible": "Lancaster's long-running arts/culture/dining magazine.",
+   "rank": 3
+  },
+  {
+   "key": "DISCOVERLANC",
+   "name": "Discover Lancaster (Lancaster County CVB)",
+   "type": "tourism board",
+   "url": "https://www.discoverlancaster.com/",
+   "credible": "Official Lancaster County convention & visitors bureau.",
+   "rank": 2
+  },
+  {
+   "key": "VISITHERSHEY",
+   "name": "Visit Hershey & Harrisburg (Hershey Harrisburg Regional Visitors Bureau)",
+   "type": "tourism board",
+   "url": "https://www.visithersheyharrisburg.org/",
+   "credible": "Official visitors bureau for Dauphin County / Hershey / Harrisburg.",
+   "rank": 2
+  },
+  {
+   "key": "EXPLOREYORK",
+   "name": "Explore York (York County CVB)",
+   "type": "tourism board",
+   "url": "https://www.yorkpa.org/",
+   "credible": "Official York County visitors bureau; runs the Factory Tour Capital program.",
+   "rank": 2
+  },
+  {
+   "key": "DESTGETTYSBURG",
+   "name": "Destination Gettysburg (Adams County CVB)",
+   "type": "tourism board",
+   "url": "https://www.destinationgettysburg.com/",
+   "credible": "Official Adams County/Gettysburg visitors bureau.",
+   "rank": 2
+  },
+  {
+   "key": "VISITCUMBERLAND",
+   "name": "Visit Cumberland Valley",
+   "type": "tourism board",
+   "url": "https://visitcumberlandvalley.com/",
+   "credible": "Official Cumberland County visitors bureau (Carlisle, Boiling Springs, Shippensburg).",
+   "rank": 2
+  },
+  {
+   "key": "NPS",
+   "name": "National Park Service",
+   "type": "institutional",
+   "url": "https://www.nps.gov/",
+   "credible": "Federal operator of Gettysburg NMP, Eisenhower NHS and Appalachian NST — lone authority for sites it operates.",
+   "rank": 1
+  },
+  {
+   "key": "SMITHSONIAN",
+   "name": "Smithsonian / Smithsonian Magazine",
+   "type": "institutional",
+   "url": "https://www.smithsonianmag.com/",
+   "credible": "Smithsonian Institution and its magazine.",
+   "rank": 1
+  },
+  {
+   "key": "JAMESBEARD",
+   "name": "James Beard Foundation",
+   "type": "institutional",
+   "url": "https://www.jamesbeard.org/",
+   "credible": "National culinary awards body — award/semifinalist recognition is a lone authority.",
+   "rank": 1
+  },
+  {
+   "key": "DCNR",
+   "name": "PA DCNR — Pennsylvania State Parks",
+   "type": "state agency",
+   "url": "https://www.dcnr.pa.gov/",
+   "credible": "Official operator of PA state parks/forests.",
+   "rank": 2
+  },
+  {
+   "key": "PHMC",
+   "name": "PA Historical & Museum Commission",
+   "type": "state agency",
+   "url": "https://www.phmc.pa.gov/",
+   "credible": "Operates the State Museum, Landis Valley, Ephrata Cloister, Railroad Museum of PA, Cornwall Iron Furnace.",
+   "rank": 2
+  },
+  {
+   "key": "VISITPA",
+   "name": "Visit PA (state tourism office)",
+   "type": "state tourism",
+   "url": "https://www.visitpa.com/",
+   "credible": "Official Pennsylvania tourism office.",
+   "rank": 3
+  },
+  {
+   "key": "UNCOVERINGPA",
+   "name": "Uncovering PA (Jim Cheney)",
+   "type": "travel writer",
+   "url": "https://uncoveringpa.com/",
+   "credible": "Established PA travel writer who has visited all 67 counties; bylined first-hand reviews, widely cited by PA media.",
+   "rank": 2
+  },
+  {
+   "key": "ATLASOBSCURA",
+   "name": "Atlas Obscura",
+   "type": "travel site",
+   "url": "https://www.atlasobscura.com/",
+   "credible": "Curated catalogue of oddities/hidden gems with editorial review.",
+   "rank": 2
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia",
+   "type": "reference",
+   "url": "https://en.wikipedia.org/",
+   "credible": "Notability + published coordinates (sights only; corroborating).",
+   "rank": 3
+  },
+  {
+   "key": "USATODAY",
+   "name": "USA Today 10Best",
+   "type": "national",
+   "url": "https://www.10best.usatoday.com/",
+   "credible": "National press readers'-choice awards (expert-nominated, reader-voted).",
+   "rank": 3
+  },
+  {
+   "key": "TRAVELLEISURE",
+   "name": "Travel + Leisure",
+   "type": "national travel magazine",
+   "url": "https://www.travelandleisure.com/",
+   "credible": "National travel magazine of record.",
+   "rank": 2
+  },
+  {
+   "key": "FOODNETWORK",
+   "name": "Food Network",
+   "type": "national",
+   "url": "https://www.foodnetwork.com/",
+   "credible": "National food TV/editorial (Diners, Drive-Ins and Dives etc.).",
+   "rank": 2
+  },
+  {
+   "key": "NYTIMES",
+   "name": "The New York Times",
+   "type": "national newspaper",
+   "url": "https://www.nytimes.com/",
+   "credible": "National newspaper of record; travel and food desks.",
+   "rank": 1
+  }
+ ]
+}

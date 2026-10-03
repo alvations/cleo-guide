@@ -1,0 +1,36 @@
+{
+ "outlets": [
+  {
+   "key": "GAZETTEXTRA",
+   "name": "The Gazette (Janesville)",
+   "type": "editorial",
+   "rank": 2,
+   "url": "https://www.gazettextra.com",
+   "credible": "South-central Wisconsin daily; bylined dining review."
+  },
+  {
+   "key": "FITCHBURGHIST",
+   "name": "Fitchburg Historical Society",
+   "type": "institutional",
+   "rank": 2,
+   "url": "https://fitchburghistory.org",
+   "credible": "Local historical society; documented business history."
+  },
+  {
+   "key": "UWMUSIC",
+   "name": "UW–Madison Mead Witter School of Music",
+   "type": "institutional",
+   "rank": 3,
+   "url": "https://music.wisc.edu",
+   "credible": "University department that plays and maintains the carillon (corroboration of facts, not merit)."
+  },
+  {
+   "key": "TRAINS",
+   "name": "Trains magazine (Trains.com)",
+   "type": "editorial",
+   "rank": 1,
+   "url": "https://trains.com",
+   "credible": "National railroading magazine of record; bylined museum profile."
+  }
+ ]
+}
