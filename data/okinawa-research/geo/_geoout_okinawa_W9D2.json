@@ -34,5 +34,13 @@
   "geoSource": "Tried: extended 'かめしまパン 二中前店 那覇市松尾 住所 緯度 経度'. It returned the address Izumizaki 2-1-1 (Yahoo Loco g-BfVA_7FMRqU, Tabirai), but no coordinate was printed. Next: navitime poi or the Yahoo Loco page coordinate.",
   "status": "open",
   "statusSource": "Tabirai column 0004750 and the Yahoo Loco listing give hours 6:00-19:30, closed Sundays; Ryukyu Shimpo 1667553 (recent '高校前メシ' series) describes it trading (2026-10)"
+ },
+ {
+  "n": "Okinawa Soba Senmonten Charu Soba, Sakaemachi (沖縄そば専門店 ちゃるそば)",
+  "address": "388-1 Asato (Sakaemachi Market), Naha, Okinawa 902-0067, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Tried: extended 'ちゃるそば 那覇市安里 栄町市場 住所 緯度 経度'. It returned the address Asato 388-1 (Hotpepper J001153037, ekiten 7163678, navitime poi 01125-J001153037), but no coordinate was printed. Next: read the navitime poi coordinate.",
+  "status": "open",
+  "statusSource": "Okinawa Times 1818682 (recent feature) and Hotpepper J001153037 list it operating; active Instagram @charusoba_sakaemachi (2026-10)"
  }
 ]

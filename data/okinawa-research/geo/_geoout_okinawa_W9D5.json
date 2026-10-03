@@ -64,5 +64,43 @@
   "geoSource": "W9D5 extended '島そば一番地 石垣市 住所 緯度 経度' — summary printed 24.340669629,124.156330526 (sources returned: NAVITIME poi 02301-1800167, 4travel, gnavi, official shimasoba-yaeyama.jp); consistent with Aza-Ishigaki near the port, ~7 min walk per summary. Aggregator → low.",
   "status": "open",
   "statusSource": "Official site shimasoba-yaeyama.jp/ishigaki live 2026-10"
+ },
+ {
+  "n": "Café Tēdun Shidamē-kan, Taketomi Island (カフェ てぇーどぅん しだめー館)",
+  "address": "沖縄県八重山郡竹富町字竹富361",
+  "lat": 24.329324,
+  "lng": 124.083539,
+  "confidence": "low",
+  "geoSource": "W9D5 extended 'かふぇ て～どぅん しだめー館 竹富島 住所 緯度 経度' — summary printed 24.32932408,124.08353854 (sources returned: rurubu spot 80043572, mapple 47011254, painusima.com/212, tabelog 47001896, official sidame-kan.com); consistent with Taketomi village centre by Nagomi-no-tō. Aggregator → low.",
+  "status": "open",
+  "statusSource": "Official site sidame-kan.com and Taketomi Town Tourism Association painusima.com/212 live 2026-10 (hours 11:00-14:30, 18:30-20:00 LO)"
+ },
+ {
+  "n": "Yaeyama Soba-dokoro Komatsu, Ishigaki — CLOSED (八重山そば処 小松)",
+  "address": "沖縄県石垣市新川2460-1",
+  "confidence": "UNVERIFIED",
+  "geoSource": "No coordinate surfaced in W9D5 search (Retty/ishigakilog/Ryukyu Shimpo pages only); not pinned.",
+  "status": "closed",
+  "statusSource": "ishigakilog.com/komatsu/ article title marks it 【閉店】 (closed). Only a blog signal, so the orchestrator should re-verify; the Tabirai column is still live."
+ },
+ {
+  "n": "Ikehara Shuzō awamori distillery, Ishigaki (池原酒造)",
+  "address": "沖縄県石垣市大川175",
+  "lat": 24.339666,
+  "lng": 124.158279,
+  "confidence": "low",
+  "geoSource": "W9D5 extended '池原酒造 白百合 石垣市大川175 緯度 経度' — summary printed 24.339666,124.158279 (sources returned: NAVITIME poi 00004-47160900001, tabiiro, official shirayuri-ikehara.com); consistent with Ōkawa, central Ishigaki town. Could not confirm the printing page → low.",
+  "status": "open",
+  "statusSource": "Official site shirayuri-ikehara.com/help/about and X @shirayurikehara live 2026-10"
+ },
+ {
+  "n": "Cape Nishi-hennazaki, Karimata (西平安名崎)",
+  "address": "沖縄県宮古島市平良狩俣",
+  "lat": 24.91028,
+  "lng": 125.255,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 西平安名岬 infobox coordinates N24°54'37\" E125°15'18\" (24.91028,125.25500), via W9D5 extended search",
+  "status": "open",
+  "statusSource": "Miyakojima Tourism Association pages miyako-island.net beach_spot_024 and miyako-guide.net spots-889 live 2026-10 (public cape, free)"
  }
 ]
