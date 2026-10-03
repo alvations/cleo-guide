@@ -227,3 +227,20 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
   Michael Nagrant, Chicago Bar Project, Keith Lee) ≈20 (places carry 2–4 sources, so channels overlap).
 - Final build: 415 researched / 228 rendered (160 sights + 68 food); food 58% overall; DAY now OK; sourcecheck/geocheck/statuscheck/buildcheck PASS;
   npm run validate DATA OK; npm test ALL PASS.
+
+## 2026-10-03 (session 5 / wave 4) · batch 1 (≈34 searches)
+- Pin pass on unpinned restaurants first (latlong.net 3-name query, mapcarta 3-name query, Wikipedia 4-name query): latlong/mapcarta returned
+  no coordinates (0/6); Wikipedia pinned Harry Caray's (via its NRHP building, Chicago Varnish Company Building) and Roberts Temple COGIC.
+  Hotel Florence: engine returned the Pullman district point → REJECTED (cross-contaminated). Lesson re-confirmed: restaurant pins
+  don't surface here; spend pin searches on Wikipedia-article places.
+- Sights +16 (all pinned; SIGHTS_W11.json, geo/_geoout_w18.json): NW — St. Nicholas Ukrainian Catholic Cathedral, Logan Square Boulevards
+  District (med), National Museum of Puerto Rican Arts and Culture, The Robey (Northwest Tower), St. Stanislaus Kostka, Wicker Park District (med),
+  Bohemian National Cemetery (med); NORTH — Alta Vista Terrace, Essanay Studios, Francis J. Dewes House (med); SUB — Riverside Olmsted village
+  (NHL, med), Avery Coonley House + Ward Willits House (FLW NHLs); LOOP — Shedd Aquarium (Wikidata P625), Millennium Park (med), Driehaus Museum (med).
+  Gap noted: Shedd Aquarium and Millennium Park were missing from 4 earlier waves.
+- Food & drink +8 (FOOD_W18.json, unpinned): Mariscos San Pedro, HaiSous (promoted from held), Panadería Nuevo León, La Luna (Pilsen), Pompei on
+  Taylor (promoted), Chez Joël, Taco Diablo (promoted), Tomate Fresh Kitchen.
+- Held single-source: Sts. Volodymyr & Olha (Wikipedia only), Fourth Presbyterian (Wikipedia only), Bob's Pizza + Kristoffer's (Time Out only),
+  Cerdito Muerto (Infatuation only), Joy Yee Evanston (Time Out only), Burl Evanston (Chicago Mag hottest list only), Sweet Maple Cafe (dish not sourced),
+  St. Ignatius College Prep building (pin ok, merit thin — not added).
+- Build: 439 researched / 246 rendered (177 sights + 69 food); 4 gates PASS; validate DATA OK; npm test ALL PASS.
