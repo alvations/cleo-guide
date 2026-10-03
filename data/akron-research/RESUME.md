@@ -20,7 +20,15 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md**. Rebuild: `python3 
 ## State
 - 2026-10-02 scaffold: consolidate.py (6 areas, Akron-Canton cuisine taxonomy), brief, build-akron.py.
 
-## In-flight wave — resume here (W3b+, after W3a on 2026-10-03)
+## In-flight wave — resume here (W4, after W3b on 2026-10-03)
+- **W3b DONE 2026-10-03** (NSUM+KENT, 38 searches): +7 food — Russo's, McArthur's Brew House, Rosewood Grill (NSUM);
+  Brimfield Bread Oven, Scribbles Coffee, Café Toscano, Garrett's Mill (KENT); Amelia's + Ray's Place got extra sources.
+  record-courier.com also 400s as an allowed_domain. Held/new leads listed in AUDIT W3b. Gaps: Stow, Tallmadge,
+  Macedonia, Bath, Richfield, Ravenna, Streetsboro, Mantua — nothing met the bar yet.
+- **Next session (fresh WebSearch budget):** (1) geocode backlog 76 — run all food through tools/geocode-helper.html;
+  sights Glamorgan Castle, Sippo Lake, Lake Anna, Seiberling, St. Helena III, Canton Museum of Art, Five Oaks, Liberty
+  Park, Brady's Leap, Twins Days, Hoover (conflict). (2) W4 AKR food+sights (+23), CANT (+22), NSUM (+19), KENT (+14),
+  BARB (+12), MASS (+10).
 - **W3a DONE 2026-10-03** (CANT+MASS, 42 searches): +7 food (Social at the Stone House, Canal Boat Lounge, Papa Gyros,
   Lucca, Lucia's Steakhouse, Walkie Talkie Espresso, Mike's Pizza & Deli) + 3 sights (Glamorgan Castle, Sippo Lake Park,
   Lake Anna Park) — all UNVERIFIED pins. 91 Wood Fired Oven dropped (listings only). Canton Repository is not
@@ -57,3 +65,5 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md**. Rebuild: `python3 
   NSUM 13/35 · KENT 12/30 · MASS 8/20 · BARB 7/20 (93/210).
 - 2026-10-03 W3a: **103 places (58 food / 45 sights), 34 pinned**; 4 gates green. AKR 37 · CANT 23 · NSUM 13 · KENT 12 ·
   MASS 10 · BARB 8 (103/210).
+- 2026-10-03 W3b: **110 places (65 food 59% / 45 sights), 34 pinned**; 4 gates green. AKR 37 · CANT 23 · NSUM 16 · KENT 16 ·
+  MASS 10 · BARB 8 (110/210). Session WebSearch use ≈161 (W2a 34 + W2b ≤45 + W3a 42 + W3b 38 + 1) — stopped short of the cap.
