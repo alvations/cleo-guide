@@ -38,5 +38,25 @@
   "geoSource": "W6 2026-10-03: usarestaurants.info 141436-sisters-century-house-restaurant (name + address match)",
   "status": "open",
   "statusSource": "W6 2026-10-03: Visit Canton directory with current hours (Mon-Fri 7:30-2, Sat-Sun 7:30-12)"
+ },
+ {
+  "n": "Goodyear Theater",
+  "address": "1201 E Market St, Akron, OH 44305",
+  "lat": 41.06597291,
+  "lng": -81.481770885,
+  "confidence": "high",
+  "geoSource": "W6 2026-10-03 place pin via WebSearch: waze.com live-map place.w.182518171.1825312779.2863896 'Goodyear Theater, 1201 E Market St'",
+  "status": "open",
+  "statusSource": "W6 2026-10-03: operating venue (Elevation Group-managed); surfaced in Signal Akron 2026 events-guide search; no closure news"
+ },
+ {
+  "n": "The Nightlight Cinema",
+  "address": "30 N High St, Akron, OH 44308",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no place pin surfaced (Foursquare address only) — held for geocode-helper.html",
+  "status": "open",
+  "statusSource": "W6 2026-10-03: Akron Life holiday-screenings piece; Signal Akron Oscar screenings"
  }
 ]

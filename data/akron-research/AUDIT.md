@@ -537,3 +537,12 @@ New source keys: MAHONINGMATTERS, BARBERTONLIBRARY (SOURCES_W3A.json).
   shares 129 N Canal St with Sully's — status unknown), Lager & Vine Hudson (ABJ business story + Scene directory), Downtown 140 Hudson (status),
   Taste Asia Stow (ABJ openings slideshow only), Country Cones Canton (Visit Canton only), Kozmo's / Top of the Viaduct Massillon (listings).
 - Gates: sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. ≈146 WebSearch.
+
+## 2026-10-03 W6 · batch 4 — AKR venues + pin pass (SIGHTS_W6B, geo/_geoout_w6c)
+- **Added sights (AKR):** The Nightlight Cinema (Signal + Akron Life + Scene; nonprofit art-house, 30 N High St), Goodyear Theater (Ideastream +
+  Akron Life + Wikipedia NRHP Goodyear Hall; Waze place pin high).
+- **Not added:** Tinkers Creek State Park (Wikipedia + ODNR) — now operated by Summit Metro Parks as part of Liberty Park, which is already on the
+  map (Liberty Park & Twinsburg Ledges) → duplicate. Eagle Creek SNP (ODNR only, no coords) — padding.
+- **Pin pass:** Waze/usarestaurants retries for Green Valley, Vue, Hartville Chocolate Factory, Joey's Kendal Tavern → no place records
+  (usarestaurants 'Kendall House Inc' at Massillon not confirmed as the same business). W6 UNVERIFIED now 13 → geocode-helper.html backlog.
+- Gates: sourcecheck PASS (191) · geocheck PASS (141 on page) · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. ≈159 WebSearch.
