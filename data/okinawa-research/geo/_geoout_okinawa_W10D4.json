@@ -26,5 +26,71 @@
   "geoSource": "ja.wikipedia 水納島 (沖縄県本部町) infobox: 北緯26度38分50秒 東経127度49分04秒 = 26.64722,127.81778 (island point)",
   "status": "open",
   "statusSource": "OCVB okinawastory.jp about/around_area/minna + spot/600006147 (Minna Beach) current listings"
+ },
+ {
+  "n": "Kin Kannon-ji Temple, Kin (金武観音寺)",
+  "address": "222 Kin, Kin-chō, Okinawa",
+  "lat": 26.4553194,
+  "lng": 127.92145,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 金武観音寺 infobox: 北緯26度27分19.15秒 東経127度55分17.22秒 (26.4553194,127.9214500)",
+  "status": "open",
+  "statusSource": "Kin town tourism visitkintown.jp spot/nisshu + spot/kannonji-fukugi current listings"
+ },
+ {
+  "n": "Nyatiya Cave 'Sennin-gama', Ie Island (ニャティヤ洞)",
+  "address": "Kawahira, Ie-son, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Extended search 'ニャティヤ洞 伊江村 住所 緯度 経度' returned rurubu/4travel/iejima.org/OCVB pages with address 伊江村川平 only; no coordinate printed",
+  "status": "open",
+  "statusSource": "Ie village office iejima.org/document/2015011000091 + OCVB spot/20440904 (見学自由)"
+ },
+ {
+  "n": "Ōgimi Shīkwāsā Park (大宜味シークヮーサーパーク)",
+  "address": "1424-1 Tsuha, Ōgimi-son, Okinawa 905-1318",
+  "lat": 26.648332,
+  "lng": 128.088392,
+  "confidence": "low",
+  "geoSource": "Extended search '大宜味シークヮーサーパーク 住所 緯度 経度' — aggregator listing (jalan/churatown/timesclub set) printed 26.648332,128.088392 with address 大宜味村津波1424-1 (matches); NAVITIME poi 02301-pn0002194 exists (〒905-1318). Low = aggregator point",
+  "status": "open",
+  "statusSource": "Official site shikuwasa-park.com (年中無休) + OCVB 600012109"
+ },
+ {
+  "n": "Ōgimi Village Bashōfu Hall, Kijoka (大宜味村立芭蕉布会館)",
+  "address": "454 Kijoka, Ōgimi-son, Okinawa 905-1303",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Extended search '大宜味村立芭蕉布会館 喜如嘉454 緯度 経度' returned jalan/cotrip/OCVB 20020200/NAVITIME poi 02301-1800090/village site pages confirming address but no coordinate in results",
+  "status": "open",
+  "statusSource": "Ōgimi village site vill.ogimi.okinawa.jp bashofu page + OCVB spot/20020200 (開館 10:00–17:00)"
+ },
+ {
+  "n": "GATE1, Kin (ゲート1)",
+  "address": "4257 Kin, Kin-chō, Okinawa",
+  "lat": 26.453992,
+  "lng": 127.91641,
+  "confidence": "low",
+  "geoSource": "Extended search 'ゲート1 金武町 金武4257 タコライス 緯度 経度' — aggregator/blog listing (tabelog 47000151 / oki-raku.net) printed 26.453992440802594,127.9164104494873 with address 金武町金武4257 (matches); ~100 m from Stripes King Tacos GPS 26.453284,127.917277, consistent with Gate 1 frontage",
+  "status": "open",
+  "statusSource": "visitkintown.jp/en/spot/gate1 (open 10:00–21:30) + Stripes Kin Town article"
+ },
+ {
+  "n": "Bookcafe Okinawa Rail, Kunigami (ブックカフェ オキナワレイル)",
+  "address": "2040-107 Ōho-shagahara, Okuma, Kunigami-son, Okinawa 905-1412",
+  "lat": 26.726905,
+  "lng": 128.208641,
+  "confidence": "low",
+  "geoSource": "Extended search 'ブックカフェ オキナワレイル 国頭村奥間 2040-107 緯度 経度' — aggregator listings (tabelog 47019552 / NAVITIME poi 02022-1278475 set) printed 26.726905139916955,128.20864080087733 and a second 26.726986,128.208481 (~20 m apart), address 国頭村奥間大保謝原2040-107 matches",
+  "status": "open",
+  "statusSource": "Official site okinawarail.com + Tabirai column 0009480 (hours 11:30–18:00, closed Mon–Tue)"
+ },
+ {
+  "n": "Fukuji Dam & Lake Fukujō, Higashi (福地ダム・福上湖)",
+  "address": "Fukuji River, Higashi-son, Okinawa",
+  "lat": 26.64694,
+  "lng": 128.17444,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia 福地ダム infobox: 北緯26度38分49秒 東経128度10分28秒 (26.64694,128.17444) — dam point",
+  "status": "open",
+  "statusSource": "OCVB news/local/4509 (Fukuji Dam 50th-anniversary premium tour) + yambaru3-kanko.com/higashison/308"
  }
 ]

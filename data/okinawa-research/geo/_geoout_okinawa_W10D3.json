@@ -1,0 +1,88 @@
+[
+ {
+  "n": "Ryukyu Glass Village, Itoman (琉球ガラス村)",
+  "address": "沖縄県糸満市福地169",
+  "lat": 26.098152,
+  "lng": 127.676487,
+  "confidence": "med",
+  "geoSource": "Stripes Okinawa 'Glass Act…' / ryukyu-glass-village article printed 'WORKSHOP Think Think (inside the village 26.098152, 127.676487)' — a point inside the village complex",
+  "status": "open",
+  "statusSource": "Rurubu spot 80042881 (9:30-17:30, no holidays) + Stripes article, checked 2026-10-03"
+ },
+ {
+  "n": "Do~me Gohan Café, Ryukyu Glass Village, Itoman (土～夢ごはんカフェ)",
+  "address": "沖縄県糸満市福地169",
+  "lat": 26.098152,
+  "lng": 127.676487,
+  "confidence": "low",
+  "geoSource": "Stripes Okinawa printed GPS 26.098152,127.676487 for Workshop Think Think inside Ryukyu Glass Village; Stripes says the café is 'right next to the workshop' — neighbouring-venue point, not the café's own pin",
+  "status": "open",
+  "statusSource": "Stripes okinawa-itoman-cafe (hours 11-17, closed Wed) + JAL Skyward crew page, checked 2026-10-03"
+ },
+ {
+  "n": "Inamine Hiyashimono Senmon Oshokujidokoro, Itoman (いなみね冷し物専門 お食事処)",
+  "address": "沖縄県糸満市字糸満1486-3",
+  "lat": 26.12597,
+  "lng": 127.671757,
+  "confidence": "low",
+  "geoSource": "Extended search 'いなみね冷し物専門お食事処 沖縄県糸満市糸満1486-3 緯度 経度' returned listing coordinate 26.125969924985089,127.67175664871239 among aggregator listings (hotpepper strJ001159637, ekiten 6041854, tabetime 40033882; exact page not pinpointed); consistent with Itoman 1486-3",
+  "status": "open",
+  "statusSource": "Rurubu spot 80042896 (11:00-18:30, closed Tue) + current listings, checked 2026-10-03"
+ },
+ {
+  "n": "Yonabaru-ya, Yonabaru (与那原家)",
+  "address": "沖縄県島尻郡与那原町与那原1040 〒901-1303",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Extended '<name> <address> 緯度 経度' search returned the official access page okinawasoba.jp/access/ (address + phone only) and address-level mapion/NAVITIME pages — no venue coordinate",
+  "status": "open",
+  "statusSource": "Official site okinawasoba.jp ('昭和60年創業', current access page) + ITmedia Netorabo poll, checked 2026-10-03"
+ },
+ {
+  "n": "Cafe Lodge, Tamagusuku Kakihana, Nanjō (カフェ ロッジ)",
+  "address": "沖縄県南城市玉城垣花8-1",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Extended '<name> 南城市玉城垣花8-1 緯度 経度' search: rurubu 80043081, Yahoo map place _TP4mA55aQ2, OCVB 600011761 surfaced but no coordinate printed; Stripes GPS search missed",
+  "status": "open",
+  "statusSource": "kankou-nanjo eat/66 + OCVB 600011761 (Wed/Thu 11:30-16:00, Sat/Sun 11:30-17:00), checked 2026-10-03"
+ },
+ {
+  "n": "Okinawa Soba Kōganeya, Haebaru (沖縄そば こがね家)",
+  "address": "沖縄県島尻郡南風原町兼城756",
+  "confidence": "UNVERIFIED",
+  "geoSource": "No pin search spent (budget); address from Okinawa Times 1489489 search summary — street number to re-check",
+  "status": "open",
+  "statusSource": "Okinawa Times 1489489 + Ryukyu Shimpo 5061950 (opened Sept 2024, current coverage), checked 2026-10-03"
+ },
+ {
+  "n": "Shokudō Karika, Mibaru Beach, Nanjō (食堂かりか)",
+  "address": "沖縄県南城市玉城百名 新原ビーチ",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Stripes GPS search (#28) missed; no venue coordinate surfaced",
+  "status": "open",
+  "statusSource": "cotrip 280912 / aumo (hours 10:00-20:30, closed Wed, seasonal), checked 2026-10-03"
+ },
+ {
+  "n": "Umibudō Farm Umin-chi, Itoman (海ぶどう農園 海ん道)",
+  "address": "沖縄県糸満市真栄里1931",
+  "confidence": "UNVERIFIED",
+  "geoSource": "No pin search spent (budget)",
+  "status": "open",
+  "statusSource": "Ryukyu Shimpo region 4097678 + 2025 PR TIMES releases on its sea-grape menus + OCVB course 600013268, checked 2026-10-03"
+ },
+ {
+  "n": "Itoman Ichiba Itomāru, Itoman (糸満市場いとま～る)",
+  "address": "沖縄県糸満市糸満",
+  "confidence": "UNVERIFIED",
+  "geoSource": "No pin search spent; street number not captured",
+  "status": "open",
+  "statusSource": "OCVB course 600013268 (current) + Mapple original 270824, checked 2026-10-03"
+ },
+ {
+  "n": "JA Farmers Market Itoman Umanchu Ichiba, Michi-no-Eki Itoman (ファーマーズマーケットいとまん うまんちゅ市場)",
+  "address": "沖縄県糸満市西崎町 道の駅いとまん内",
+  "confidence": "UNVERIFIED",
+  "geoSource": "No pin search spent; sits inside Michi-no-Eki Itoman (dataset already pins the Osakana Center / Poké Lid there — orchestrator may reuse that complex point at med)",
+  "status": "open",
+  "statusSource": "Okinawa Times 1702425 (16 million visitors, 2025) + Mapple spot 47011494 (9:00-19:00), checked 2026-10-03"
+ }
+]
