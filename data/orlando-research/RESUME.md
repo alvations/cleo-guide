@@ -24,38 +24,40 @@ Run protocol: `docs/RUN-2026-10-02.md` (shared lock, commit+push every batch, §
 - `EAST` East Orlando / UCF / Oviedo ~10
 - `SPACE` Space Coast ~25
 
-## State (session 5 / wave 4, 2026-10-03)
-- **LIVE**: `cities/orlando.html` — **186 sights + 40 food = 226 on the map** (5 restaurant pins via the new aggregator-pin technique); **all 4 gates PASS** (sourcecheck now PASS — the 9 held
-  single-source were corroborated); npm validate + test green; card, CITIES row, AGENT-PROMPTS run log refreshed.
-- **471 researched (263 food + 208 sights) — food share 55.8%**.
-- Per area (food+sights / target): CWALK 8+2/10 OK · DAK 9+12/22 · DHS 10+10/20 OK · DSP 19+6/25 OK · DTO 21+16/50 · EAST 8+2/10 OK ·
-  EPCOT 16+19/35 OK · EPIC 9+11/20 OK · IDR 19+15/45 · IOA 8+11/20 · KISS 14+13/35 · MILLS 45+10/60 · MK 14+19/30 OK · SPACE 10+13/25 ·
-  SPRNG 15+12/30 · USF 9+11/20 OK · WEST 7+8/15 OK · WPK 22+18/45.
-  NEED: DTO +13 · IDR +11 · KISS +8 · MILLS +5 (sights) · WPK +5 · SPRNG +3 · SPACE +2 · DAK +1 · IOA +1.
-- **245 UNVERIFIED** (mostly street-address restaurants + park counter-service): MILLS 42, DTO 22, WPK 22, IDR 18, DSP 17, KISS 16, SPRNG 14 …
-  WebSearch cannot pin them (probed again W4: Mapcarta/Wikipedia return only land/park centroids) → `tools/geocode-helper.html`.
-- Session 5 files: FOOD/SIGHTS/SOURCES_W4{A,B,C,L}.json, geo/_geoout_w4{a,b,c,l}.json, logs `_W4_log_W4{A,B,C,L}.md`, worker brief
-  `_W4_WORKER_BRIEF.md`, names list `_orl_existing_names.txt` (regenerate from orl_dataset.json before a new wave).
-- Search budget: ≈187 used this session (lead 29 + workers 158).
+## State (session 6 / wave 5 PINS, 2026-10-03)
+- **LIVE**: `cities/orlando.html` — **192 sights + 136 food = 328 on the map** (was 226); **all 4 gates PASS**; npm validate + test green;
+  card, CITIES row, AGENT-PROMPTS run log refreshed.
+- **483 researched (270 food + 213 sights) — food share 55.9%**. 155 still unpinned (mostly in-park counter-service + 2024-26 openings).
+- Pins per area (pinned/discovered): CWALK 2/10 · DAK 12/21 · DHS 12/20 · DSP 8/25 · DTO 30/40 · EAST 7/10 · EPCOT 29/35 · EPIC 11/20 ·
+  IDR 31/37 · IOA 9/19 · KISS 23/31 · MILLS 39/55 · MK 23/33 · SPACE 18/23 · SPRNG 24/28 · USF 9/20 · WEST 12/15 · WPK 29/41.
+- Density: 9/18 OK. NEED: DTO +10 · IDR +8 · MILLS +5 (sights) · KISS +4 · WPK +4 · SPACE +2 · SPRNG +2 · DAK +1 · IOA +1.
+- **Pin channel that works for Orlando:** WebSearch `allowed_domains:["restaurantguru.com"]`, query `<Name> <street/neighbourhood> <City>
+  coordinates`, ONE place per search → the summary quotes the RG page's lat/lng + street address (~70% hit for venues >=2 yrs old;
+  2024-26 openings mostly absent). Accept only when the street address matches → **med**. Apple Maps (`maps.apple.com`) returned the
+  `coordinate=` variant only 1/8 here (Orlando listings are bare `place-id=`). Wanderlog/Foursquare add little. Food-hall vendors:
+  pin at the host building via a vendor's listing (med, noted). In-park restaurants: NO channel works (no own coordinate anywhere).
+- Session 6 files: FOOD_W5A.json, SIGHTS_W5A.json, SOURCES_W5A.json, geo/_geoout_w5pin.json (102 pins), helper `_orl_pin.py`
+  (env `ORL_PIN_OUT`, optional corrected address). Search budget: ≈200 used (≈150 pinning, ≈40 discovery/corroboration, ≈10 status).
 
 ## In-flight wave
 - (none — wave 4 closed cleanly)
 
-## Next actions (ordered) — wave 5 plan
-1. **Restaurant pins** (250 UNVERIFIED) are the gap between discovered (471) and rendered (221). NEW technique (docs/RESEARCH-LOG.md,
-   Liège W4, ≈85% hit): WebSearch `allowed_domains:["restaurantguru.com","foursquare.com","wanderlog.com","viamichelin.com"]` +
-   `<name> <street> Orlando coordinates`, ONE place per search; accept only when the returned address matches the record. Spend the
-   W5 budget here first (biggest render win), then `tools/geocode-helper.html` for the rest. Mapcarta/Wikipedia = dead end for restaurants.
-2. **Held leads** (one search each for a 2nd credible source): Tropico Mofongo, Susana's Cafe, Sol de Borinquen (KISS); Vault 5421 (IDR);
-   Parea, The Osprey (WPK); Nona Blue (KISS); Fishlips, Rusty's (SPACE); Neighbors Taqueria, Mister O1; Walala (Michelin Rec. — decide area).
-3. **NEED areas**: DTO +13 (Wall Street Plaza bars, Thornton Park cafés, Parramore, Church St; sights: Orlando City Hall has a coord),
-   IDR +11 (Restaurant Row/Sand Lake — Michelin Rec., Dr Phillips bars), KISS +8 (Puerto Rican canon via Sentinel/Spectrum 13),
-   MILLS +5 SIGHTS, WPK +5, SPRNG +3, SPACE +2, DAK +1, IOA +1.
-4. **Re-checks:** Tennessee Truffle, Willie's Pinchos, Canvas, Nikki's Place, La Cava del Tequila, The Smiling Bison (undated open status);
-   Jurassic Park River Adventure (reopens 2026-11-20), Finnegan's (late 2026); Cocoa Beach Pier needs a press 2nd source.
-5. **Creator channel**: 4 waves of creator queries found no vetted Orlando YouTube/TikTok creator — try named creators directly
-   (e.g. "Orlando foodie" YouTube channel with subscriber count) rather than generic queries.
-6. Each wave: `flock … python3 tools/rebuild-city.py orlando-fl --build` → 4 gates → npm validate/test → `_orl_golive.py` → `_orl_push.sh`.
+## Next actions (ordered) — wave 6 plan
+1. **Pins (155 left):** restaurantguru channel for the remaining street-address places that failed once — retry with RG-only domain and
+   the RG title phrasing ("<Name>, <City> - Restaurant menu"): Pho 88, Zymarium, Will's Pub, The Monroe, Sushi Saint, City Food Hall,
+   Hideaway, Courtesy, AVA, Francesco's, Nile, Taverna Opa, Kabooki (E Colonial), Shin Jung, Ivanhoe Park Brewing, Moon Wok, Bar Kada,
+   The Chapman, Persimmon Hollow, Wondermade, Carib Brewery, Q's Crackin' Crab, Osteria Ester, June, Sparrow, Reyes, Kappo Tsan.
+   In-park restaurants (≈60, MK/EPCOT/DHS/DAK/DSP/USF/IOA/EPIC/CWALK) → `tools/geocode-helper.html` only.
+2. **Re-checks:** El Cilantrillo (Kissimmee, RG "may be permanently closed"); The Strand (807 N Mills — Apple shows Side Chik at 811);
+   Taste of Chengdu (RG = 2030 W Colonial vs record 856 New Broad St); Vines Grille (7585 vs 7533 W Sand Lake); Swine & Sons location;
+   Tennessee Truffle/Canvas/Nikki's/La Cava/Smiling Bison undated status; Jurassic Park River Adventure (reopens 2026-11-20).
+3. **NEED areas:** DTO +10 (Wall St Plaza/Church St bars, Parramore, Burton's, Anthony's — need a 2nd credible source each; Tinker Building
+   needs a 2nd source), IDR +8 (Primo by Melissa Kelly — Michelin, no RG listing; Restaurant Row), MILLS +5 SIGHTS (Loch Haven Park,
+   Orlando Repertory Theatre, Orlando Fire Museum — find own coords), KISS +4 (Tropico Mofongo needs a non-OW 2nd source; Gastro
+   Obscura trail stops Daddy Ninja, Pa'Paraguana, La Mexicana, Mi Llano Grill), WPK +4 (Chuan Fu — Michelin), SPACE +2, SPRNG +2
+   (Stetson University Campus HD), DAK +1, IOA +1 (Pteranodon Flyers — Wikipedia gave only the park coord).
+4. **Creator channel**: still no vetted Orlando creator — try named creators directly.
+5. Each wave: `flock … python3 tools/rebuild-city.py orlando-fl --build` → 4 gates → npm validate/test → `_orl_golive.py` → `_orl_push.sh`.
 
 ## Commands
 ```bash
