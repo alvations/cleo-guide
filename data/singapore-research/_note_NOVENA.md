@@ -11,7 +11,7 @@ Goodwood Park, Orange Grove, Monk's Hill, Istana Negara) — Newton Food Centre,
 Velocity / United Sq / Goldhill, Chancery Lane, Cairnhill/Scotts edge. Balestier Road = BLS agent (excluded).
 
 ## In-flight wave
-- none (W1 closed early — see State).
+- **W3 (2026-10-03, PGL+NVN session)** — files FOOD_NOVENA3.json, SIGHTS_NOVENA3.json, SOURCES_NOVENA3.json, CREATORS_NOVENA3.json, geo/_geoout_novena_w4.json. Queries: 2nd-source the HELD list, Newton/Cairnhill/Thomson food canon, creator pass, sights (Kampong Java Park, Newton Circus, Chancery Lane), Scotts Rd + Goldhill geocodes.
 
 ## State (2026-10-02)
 - **W1 DONE (partial — halted by the session WebSearch cap: 200/200 used across the shared run after ~14 NOVENA queries).**

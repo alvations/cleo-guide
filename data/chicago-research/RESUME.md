@@ -43,7 +43,12 @@
   (+ all of FOOD_W14.json, never geocoded).
 
 ## In-flight wave
-(none — session 3 closed cleanly at the search cap.)
+**W3 / session 4 (2026-10-03)** — food & drink first in SUB, SOUTH, WEST, SW, FAR (+DAY); then pin the 86 unpinned.
+- Files it will write: `FOOD_W15.json` (SUB/SW/FAR food), `FOOD_W16.json` (SOUTH/WEST food), `FOOD_W17.json` (NORTH/NW/LOOP/DAY),
+  `SIGHTS_W10.json`, `CREATORS_W2.json`, `geo/_geoout_w15.json` (pins for new + backlog).
+- Queries: corroborate the held single-source list in AUDIT.md first (Tony's, Carm's, J.P. Graziano, Phil's, Candlelite, Marie's,
+  Pearl's Place, St. Rest, Nine Bar, Svea, Sweet Mandy B's…), suburban lists (Hungry Hound, Chicago Mag suburbs), Pilsen/Little
+  Village, Beverly/Chatham, creator queries (Portnoy One Bite, Keith Lee, YouTube food tours), Milwaukee/Lake Geneva food.
 
 ## Next actions (ordered)
 0. **Session-4 plan (next wave):** (a) geocode + status agent for the 20 unchecked + FOOD_W14 (34 places; accepted pin sources:
