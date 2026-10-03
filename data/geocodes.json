@@ -108687,15 +108687,14 @@
    },
    "The Robin Room": {
     "address": "821 E Johnson St, Madison, WI 53703",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 43.0835825,
+    "lng": -89.3770756,
+    "source": "https://maps.apple.com/place?name=The+Robin+Room&coordinate=43.0835825%2C-89.3770756&place-id=IE28888798B0DD81D",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "City Cast Madison cocktail + coziest-spots lists (2025–26); Imbibe guide",
-    "statusChecked": "2026-10-03",
-    "note": "W4: no place-pin coordinate surfaced via WebSearch — queue for tools/geocode-helper.html"
+    "statusChecked": "2026-10-03"
    },
    "Heritage Tavern": {
     "address": "131 E Mifflin St, Madison, WI 53703",
@@ -109021,6 +109020,61 @@
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "Cap Times (Nov 2025) refers to it as operating while its chef opened Osteria Novella",
+    "statusChecked": "2026-10-03"
+   },
+   "Wisconsin Brewing Company": {
+    "address": "1079 American Way, Verona, WI 53593",
+    "lat": 42.968946254007,
+    "lng": -89.508981769274,
+    "source": "https://www.waze.com/live-map/directions/wisconsin-brewing-company-american-way-1079-verona?to=place.w.177275310.1772687561.409344",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Taproom with seasonal Friday concerts (Experience Wisconsin; Waze live place 2026)",
+    "statusChecked": "2026-10-03"
+   },
+   "Taqueria Guadalajara": {
+    "address": "1033 S Park St, Madison, WI 53715",
+    "lat": 43.055572509,
+    "lng": -89.397407531,
+    "source": "https://www.waze.com/live-map/directions/taqueria-guadalajara-s-park-st-1033-madison?to=place.w.177340847.1773408466.3531518",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Isthmus readers' Mad Faves (current City Guide)",
+    "statusChecked": "2026-10-03"
+   },
+   "Puempel's Olde Tavern": {
+    "address": "18 6th Ave, New Glarus, WI 53574",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Travel Wisconsin listing (2026)",
+    "statusChecked": "2026-10-03"
+   },
+   "Viking Brew Pub": {
+    "address": "211 E Main St, Stoughton, WI 53589",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Travel Wisconsin listing (2026)",
+    "statusChecked": "2026-10-03"
+   },
+   "North Hall (University of Wisconsin)": {
+    "address": "Bascom Hill, UW–Madison campus, Madison, WI 53706",
+    "lat": 43.0756806,
+    "lng": -89.4029583,
+    "source": "https://en.wikipedia.org/wiki/North_Hall_(University_of_Wisconsin) (43°4′32.45″N 89°24′10.65″W) / wikidata Q7055524",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "In use as a UW building (Wikipedia)",
     "statusChecked": "2026-10-03"
    }
   },

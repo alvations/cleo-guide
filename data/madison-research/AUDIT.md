@@ -294,3 +294,17 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
   pinned or added), Skål Public House (student paper + 2015 'Burbs vote only), Paoli Schoolhouse (OpenTable only),
   Spring Green General Store (WSJ: owner selling after 33 years — status unclear), Driftless Depot (Isthmus only),
   Eloura / Rokuaji / The Perch (2026 openings, too new), Schumacher Farm Park (Travel Wisconsin + own site only).
+
+### W6 batch c
+- **Searches:** ~25 (session ~160).
+- **Food (FOOD_W6c.json, 4):** Wisconsin Brewing Company (MVF; Isthmus + Experience Wisconsin; Waze pin high),
+  Taqueria Guadalajara (WEST; Isthmus + Cap Times + Daily Cardinal + Mad Faves; Waze pin high), Puempel's Olde Tavern
+  (TRIP; OnMilwaukee + Travel Wisconsin; UNVERIFIED pin), Viking Brew Pub (DANE t3; Isthmus + Travel Wisconsin; UNVERIFIED).
+- **Sights (SIGHTS_W6c.json, 1):** North Hall (UW; NHL — NPS + Wikipedia; Wikipedia pin high).
+- **Pin upgrade:** The Robin Room — Apple Maps `coordinate=` (high).
+- **Status checks:** Tempest Oyster Bar — absent from an Apple street query, so checked: still taking reservations
+  (OpenTable/Tock, 2026) → stays open. Fresco (MMoCA rooftop) — Cap Times: rooftop now hosts Tall Grass / dome pop-ups →
+  not added (closed). Liliana's (Fitchburg) — closed 2022 (WKOW) → not added.
+- **Held:** Mediterranean Cafe (Isthmus + Badger Herald, but no 2026 status evidence), Popolo (Mineral Point; Isthmus
+  only), My Sister's Kitchen (it is in Mazomanie, Isthmus only), Tapas Rias / Fuji (Isthmus only), Tumbled Rock Brewery,
+  Little Village Cafe, Jen's Alpine Cafe (Baraboo; climbing-guide blog only), Wisconsin Field House (NRHP only).
