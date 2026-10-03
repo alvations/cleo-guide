@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Philadelphia field guide — 149 sights and 21 places to eat across Philadelphia, the Main Line, South Jersey and the Brandywine / Valley Forge day trips, each traceable to its source (Michelin, James Beard, the Philadelphia Inquirer, Philadelphia Magazine, Eater Philly, The Infatuation, the National Park Service), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Philadelphia field guide — 150 sights and 29 places to eat across Philadelphia, the Main Line, South Jersey and the Brandywine / Valley Forge day trips, each traceable to its source (Michelin, James Beard, the Philadelphia Inquirer, Philadelphia Magazine, Eater Philly, The Infatuation, the National Park Service), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
 <title>Philadelphia Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Philadelphia, the Main Line, South Jersey &amp; the Brandywine, sourced</p>
   <h1>Philadelphia<span class="thin">Independence Hall, the mural city &amp; the sandwich capital</span></h1>
-  <p class="standfirst">149 sights and 21 places to eat from Old City out to the Main Line, Camden and the Brandywine Valley, each traceable to the source that named it. Independence Hall, the Liberty Bell and the Art Museum steps anchor the map; the food runs on what Philadelphia is famous for &mdash; the cheesesteak and the roast pork Italian, the hoagie, tomato pie, soft pretzels, water ice and scrapple, Reading Terminal and the Italian Market, the Mexican and Vietnamese kitchens of South Philly, and a Michelin and James Beard bench. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">150 sights and 29 places to eat from Old City out to the Main Line, Camden and the Brandywine Valley, each traceable to the source that named it. Independence Hall, the Liberty Bell and the Art Museum steps anchor the map; the food runs on what Philadelphia is famous for &mdash; the cheesesteak and the roast pork Italian, the hoagie, tomato pie, soft pretzels, water ice and scrapple, Reading Terminal and the Italian Market, the Mexican and Vietnamese kitchens of South Philly, and a Michelin and James Beard bench. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -312,6 +312,7 @@
 <script>
 
 const S = {
+  "6ABC":{k:"6ABC ACTION NEWS",t:"6ABC ACTION NEWS",u:"",l:""},
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura — Philadelphia",u:"https://www.atlasobscura.com/things-to-do/philadelphia-pennsylvania",l:"Atlas Obscura — Philadelphia"},
   "BILLYPENN":{k:"BILLY PENN / WHYY",t:"BILLY PENN / WHYY",u:"",l:""},
   "FAIRMOUNTPARK":{k:"PHILA. PARKS & REC",t:"Fairmount Park Conservancy",u:"https://myphillypark.org/",l:"Fairmount Park Conservancy"},
@@ -325,9 +326,11 @@ const S = {
   "NORTHEASTTIMES":{k:"NORTHEASTTIMES",t:"Northeast Times",u:"https://northeasttimes.com/",l:"Northeast Times"},
   "NPS":{k:"NATIONAL PARK SVC",t:"National Park Service — Independence NHP",u:"https://www.nps.gov/inde/",l:"National Park Service — Independence NHP"},
   "PHILAGOV":{k:"PHILAGOV",t:"City of Philadelphia (phila.gov)",u:"https://www.phila.gov/",l:"City of Philadelphia (phila.gov)"},
+  "PHILLYHISTORY":{k:"PHILLYHISTORY",t:"PHILLYHISTORY",u:"",l:""},
   "PHILLYMAG":{k:"PHILADELPHIA MAGAZINE",t:"PHILADELPHIA MAGAZINE",u:"",l:""},
   "RUTGERSCAMDEN":{k:"RUTGERSCAMDEN",t:"Rutgers University–Camden: Explore Camden",u:"https://camden.rutgers.edu/discover-camden/explore-camden/have-fun-in-around-camden",l:"Rutgers University–Camden: Explore Camden"},
   "SJMAGAZINE":{k:"SJMAGAZINE",t:"SJ Magazine",u:"https://sjmagazine.net/",l:"SJ Magazine"},
+  "SMITHSONIAN":{k:"SMITHSONIAN",t:"SMITHSONIAN",u:"",l:""},
   "UNCOVERINGPA":{k:"UNCOVERINGPA",t:"Uncovering PA (Jim Cheney)",u:"https://uncoveringpa.com/",l:"Uncovering PA (Jim Cheney)"},
   "UNESCO":{k:"UNESCO",t:"UNESCO",u:"",l:""},
   "VALLEYFORGE":{k:"VALLEY FORGE TOURISM",t:"Valley Forge Tourism & Convention Board (Montco)",u:"https://www.valleyforge.org/",l:"Valley Forge Tourism & Convention Board (Montco)"},
@@ -335,6 +338,7 @@ const S = {
   "VISITDELAWARE":{k:"VISITDELAWARE",t:"Visit Delaware (Delaware Tourism Office)",u:"https://www.visitdelaware.com/",l:"Visit Delaware (Delaware Tourism Office)"},
   "VISITNJ":{k:"VISITNJ",t:"VISITNJ",u:"",l:""},
   "VISITPHILLY":{k:"VISIT PHILADELPHIA",t:"Visit Philadelphia",u:"https://www.visitphilly.com/",l:"Visit Philadelphia"},
+  "WHYY":{k:"WHYY",t:"WHYY",u:"",l:""},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"}
 };
 
@@ -500,14 +504,18 @@ const P = [
 {t:2,a:"DAY",n:"John James Audubon Center at Mill Grove",ad:"1201 Pawlings Rd, Audubon, PA 19403",la:40.12306,ln:-75.44417,w:"Audubon's 18th-century American home with a 2019 museum of art and conservation; free grounds with 175+ bird species, trails and Saturday bird walks (Valley Forge Tourism).",k:"nature",g:["ICON","HIST","MUS","ARCH"],s:[["VALLEYFORGE","https://www.valleyforge.org/blog/post/audubon-center-for-art-and-conservation-opening-june-2019/"],["VISITPHILLY","https://www.visitphilly.com/articles/philadelphia/off-the-beaten-path-museums-attractions/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Mill_Grove"]]},
 {t:3,a:"DAY",n:"Newlin Grist Mill",ad:"219 Cheyney Rd, Glen Mills, PA 19342",la:39.89028,ln:-75.50611,w:"Working 1704 grist mill in a 160-acre park with 8+ miles of woodland and meadow trails (Main Line Today parks & hiking guides).",k:"historic",g:["HIST","PARK"],s:[["MAINLINETODAY","https://mainlinetoday.com/things-to-do/go-hiking/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Newlin_Mill_Complex"]]},
 {t:2,a:"DAY",n:"Baldwin's Book Barn",ad:"865 Lenape Rd, West Chester, PA 19382",la:39.93760,ln:-75.61190,w:"Used and rare bookshop since 1946 — 300,000+ items on five floors of a two-century-old stone barn, named by Architectural Digest among the world's most beloved independent bookstores (Visit Philly hidden gems).",k:"shop",g:["ODD"],s:[["VISITPHILLY","https://www.visitphilly.com/articles/philadelphia/phillys-hidden-gems/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Baldwin's_Book_Barn"]]},
-{t:2,a:"SJ",n:"Pomona Hall & Camden County Historical Society",ad:"1900 Park Blvd, Camden, NJ 08103",la:39.93083,ln:-75.09444,w:"The Cooper family's 18th-century home plus the Camden County History Museum and African American History Room; Pomona Hall tours by reservation (Visit NJ; Inquirer).",k:"historic",g:["HIST","MUS"],s:[["VISITNJ","https://visitnj.org/nj-historic-sites-memorials/camden-county-historical-society"],["INQUIRER","https://www.inquirer.com/philly/news/new_jersey/20160515_Renovated_historical_society_expands_its_story.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Pomona_Hall"]]}
+{t:2,a:"SJ",n:"Pomona Hall & Camden County Historical Society",ad:"1900 Park Blvd, Camden, NJ 08103",la:39.93083,ln:-75.09444,w:"The Cooper family's 18th-century home plus the Camden County History Museum and African American History Room; Pomona Hall tours by reservation (Visit NJ; Inquirer).",k:"historic",g:["HIST","MUS"],s:[["VISITNJ","https://visitnj.org/nj-historic-sites-memorials/camden-county-historical-society"],["INQUIRER","https://www.inquirer.com/philly/news/new_jersey/20160515_Renovated_historical_society_expands_its_story.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Pomona_Hall"]]},
+{t:2,a:"SPH",n:"Sparks Shot Tower",ad:"129-131 Carpenter St, Philadelphia, PA 19147",la:39.93480,ln:-75.14630,w:"142-ft brick shot tower completed on July 4, 1808 — one of the first in the US, dripping molten lead into musket balls for the War of 1812; now ringed by the city's Shot Tower Playground in Queen Village.",k:"landmark",g:["ARCH","PARK","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Sparks_Shot_Tower"],["INQUIRER","https://www.inquirer.com/news/philadelphia/shot-tower-south-philly-recreation-20230907.html"],["PHILLYHISTORY","https://blog.phillyhistory.org/index.php/2008/01/from-musket-balls-to-basketballs-the-sparks-shot-tower"]]}
 ];
 
 const FS = {
   "6ABC":{k:"6ABC ACTION NEWS",t:"6ABC ACTION NEWS",u:"",l:""},
   "BILLYPENN":{k:"BILLY PENN / WHYY",t:"BILLY PENN / WHYY",u:"",l:""},
   "CBSPHILLY":{k:"CBS PHILADELPHIA",t:"CBS PHILADELPHIA",u:"",l:""},
+  "CHESTNUTHILLLOCAL":{k:"CHESTNUTHILLLOCAL",t:"CHESTNUTHILLLOCAL",u:"",l:""},
+  "EATERPHILLY":{k:"EATER PHILLY",t:"EATER PHILLY",u:"",l:""},
   "FOODREPUBLIC":{k:"FOODREPUBLIC",t:"FOODREPUBLIC",u:"",l:""},
+  "HOPCULTURE":{k:"HOPCULTURE",t:"HOPCULTURE",u:"",l:""},
   "INFATUATION":{k:"THE INFATUATION",t:"THE INFATUATION",u:"",l:""},
   "INQUIRER":{k:"PHILADELPHIA INQUIRER",t:"PHILADELPHIA INQUIRER",u:"",l:""},
   "JAMESBEARD":{k:"JAMES BEARD",t:"JAMES BEARD",u:"",l:""},
@@ -517,16 +525,19 @@ const FS = {
   "MICHELIN_BIB":{k:"MICHELIN BIB GOURMAND",t:"MICHELIN BIB GOURMAND",u:"",l:""},
   "MICHELIN_REC":{k:"MICHELIN RECOMMENDED",t:"MICHELIN RECOMMENDED",u:"",l:""},
   "MICHELIN_STAR":{k:"MICHELIN STAR",t:"MICHELIN STAR",u:"",l:""},
+  "NBC10":{k:"NBC10",t:"NBC10",u:"",l:""},
   "NJMONTHLY":{k:"NEW JERSEY MONTHLY",t:"New Jersey Monthly",u:"https://njmonthly.com/",l:"New Jersey Monthly"},
   "NORTHEASTTIMES":{k:"NORTHEASTTIMES",t:"Northeast Times",u:"https://northeasttimes.com/",l:"Northeast Times"},
   "NYT":{k:"NEW YORK TIMES",t:"NEW YORK TIMES",u:"",l:""},
   "PHILLYMAG":{k:"PHILADELPHIA MAGAZINE",t:"PHILADELPHIA MAGAZINE",u:"",l:""},
+  "PHILLYNEIGHBORHOODS":{k:"PHILLYNEIGHBORHOODS",t:"PHILLYNEIGHBORHOODS",u:"",l:""},
   "PHILLYVOICE":{k:"PHILLYVOICE",t:"PHILLYVOICE",u:"",l:""},
   "PORTNOY":{k:"ONE BITE (PORTNOY)",t:"ONE BITE (PORTNOY)",u:"",l:""},
   "SJMAGAZINE":{k:"SJMAGAZINE",t:"SJ Magazine",u:"https://sjmagazine.net/",l:"SJ Magazine"},
   "TIMEOUT":{k:"TIME OUT",t:"TIME OUT",u:"",l:""},
   "VISITBUCKS":{k:"VISIT BUCKS COUNTY",t:"Visit Bucks County",u:"https://www.visitbuckscounty.com/",l:"Visit Bucks County"},
   "VISITPHILLY":{k:"VISIT PHILADELPHIA",t:"Visit Philadelphia",u:"https://www.visitphilly.com/",l:"Visit Philadelphia"},
+  "WHYY":{k:"WHYY",t:"WHYY",u:"",l:""},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"}
 };
 
@@ -580,17 +591,25 @@ const F = [
 {t:1,a:"SPH",n:"Pat's King of Steaks",ad:"1237 E Passyunk Ave, Philadelphia, PA 19147",cz:["CHS"],la:39.93318,ln:-75.15924,w:"Where the cheesesteak began: hot-dog vendor Pat Olivieri started selling thin-sliced steak on a roll here in the 1930s (cheese came in the '40s). Measured honestly: it is the historic origin and a 24-hour 9th-and-Passyunk spectacle rather than critics' best steak — go for the history, go to Angelo's/Dalessandro's/John's for the sandwich.",s:[["CBSPHILLY","https://www.cbsnews.com/philadelphia/news/philadelphia-cheesesteaks-history-pats-genos-angelos-jims/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Cheesesteak"]]},
 {t:2,a:"SPH",n:"Geno's Steaks",ad:"1219 S 9th St, Philadelphia, PA 19147",cz:["CHS"],la:39.93370,ln:-75.15890,w:"Pat's neon-lit rival across the 9th-and-Passyunk intersection since 1966, also open 24/7 — part of the city's most famous food rivalry; kept as an icon, not as a critics' pick.",s:[["CBSPHILLY","https://www.cbsnews.com/philadelphia/news/philadelphia-cheesesteaks-history-pats-genos-angelos-jims/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Cheesesteak"]]},
 {t:2,a:"CC",n:"Jim's South St.",ad:"400 South St, Philadelphia, PA 19147",cz:["CHS"],la:39.94156,ln:-75.14926,w:"Jim's (founded 1939 in West Philly) opened its Art Deco South Street shop on July 5, 1976 — the line on 4th and South is a South Street landmark.",s:[["CBSPHILLY","https://www.cbsnews.com/philadelphia/news/philadelphia-cheesesteaks-history-pats-genos-angelos-jims/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Cheesesteak"]]},
+{t:2,a:"SPH",n:"Tony Luke's",ad:"39 E Oregon Ave, Philadelphia, PA 19148",cz:["CHS"],la:39.91444,ln:-75.14889,w:"The original East Oregon Avenue stand under the I-95 overpass; Craig LaBan's 2002 cheesesteak survey rated it among the city's best.",s:[["INQUIRER","https://inquirer.com/philly/news/breaking/20080404_After_45_cheesesteaks__the_best_were____.html"],["CBSPHILLY","https://www.cbsnews.com/philadelphia/news/philadelphia-cheesesteaks-history-pats-genos-angelos-jims/"]]},
 {t:1,a:"SPH",n:"South Philly Barbacoa",ad:"1134 S 9th St, Philadelphia, PA 19147",cz:["MEX"],la:39.93534,ln:-75.15878,w:"Cristina Martinez's weekend barbacoa counter on South 9th Street; Martinez won the 2022 James Beard Best Chef: Mid-Atlantic. Weekends only, early, until the lamb runs out. Now operates from the Casa Mexico building at 1134 S 9th St (the two merged).",s:[["JAMESBEARD","https://www.visitphilly.com/features/philadelphias-cristina-martinez-named-best-chef-in-the-mid-atlantic-region-at-2022-james-beard-awards/"],["TIMEOUT","https://www.timeout.com/philadelphia/restaurants/barbacoa-south-philly"],["VISITPHILLY","https://www.visitphilly.com/articles/philadelphia/the-best-tacos-taquerias-and-taco-trucks-in-philadelphia/"]]},
 {t:2,a:"NW",n:"Valley Green Inn",ad:"7 Valley Green Rd, Philadelphia, PA 19128",cz:["US"],la:40.06139,ln:-75.22244,w:"An 1850 roadhouse deep in the Wissahickon on Forbidden Drive, the only restaurant inside the park — hikers in trail gear welcome.",s:[["VISITPHILLY","https://www.visitphilly.com/things-to-do/food-drink/valley-green-inn/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Valley_Green_Inn"]]},
 {t:1,a:"CC",n:"Friday Saturday Sunday",ad:"261 S 21st St, Philadelphia, PA 19103",cz:["US"],la:39.94894,ln:-75.17601,w:"One MICHELIN Star in the inaugural 2025 Michelin Guide Northeast Cities (Philadelphia) selection. Also the 2023 James Beard Outstanding Restaurant winner; its upstairs Lover's Bar was a 2025 JBF Outstanding Bar semifinalist.",s:[["MICHELIN_STAR","https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"],["BILLYPENN","https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"],["JAMESBEARD","https://www.visitphilly.com/articles/philadelphia/guide-to-philadelphias-james-beard-award-honored-restaurants/"]]},
 {t:1,a:"CC",n:"Her Place Supper Club",ad:"1740 Sansom St, Philadelphia, PA 19103",cz:["US"],la:39.95080,ln:-75.17020,w:"One MICHELIN Star in the inaugural 2025 Michelin Guide Northeast Cities (Philadelphia) selection. Amanda Shulman's tiny reservation-only supper club; Shulman was a 2025 James Beard Best Chef Mid-Atlantic semifinalist.",s:[["MICHELIN_STAR","https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"],["BILLYPENN","https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"]]},
+{t:1,a:"CC",n:"Provenance",ad:"408 S 2nd St, Philadelphia, PA 19147",cz:["US"],la:39.94290,ln:-75.14550,w:"One MICHELIN Star in the inaugural 2025 Michelin Guide Northeast Cities (Philadelphia) selection. An intimate tasting-menu room, one of only three Philadelphia restaurants starred in the first guide.",s:[["MICHELIN_STAR","https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"],["BILLYPENN","https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"]]},
 {t:1,a:"NW",n:"Dalessandro's Steaks",ad:"600 Wendover St, Philadelphia, PA 19128",cz:["CHS"],la:40.02953,ln:-75.20600,w:"Michelin Bib Gourmand (2025, inaugural Philadelphia selection) — strong food at good value. The Roxborough corner shop famous for finely chopped beef; won the Inquirer's 2023 best-cheesesteak reader bracket (~23% of the vote) and made Craig LaBan's 2002 top ten.",s:[["MICHELIN_BIB","https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"],["BILLYPENN","https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"],["INQUIRER","https://inquirer.com/food/inq2/best-philly-cheesesteak-winner-dalessandros-20230404.html"]]},
 {t:1,a:"SPH",n:"El Chingón",ad:"1524 S 10th St, Philadelphia, PA 19147",cz:["MEX"],la:39.93014,ln:-75.16153,w:"Michelin Bib Gourmand (2025, inaugural Philadelphia selection) — strong food at good value. Juan Carlos Aparicio's Pueblan spot in Passyunk Square; Aparicio was a 2025 James Beard Best Chef Mid-Atlantic semifinalist.",s:[["MICHELIN_BIB","https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"],["BILLYPENN","https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"],["6ABC","https://6abc.com/15826947"]]},
 {t:1,a:"FISH",n:"Kalaya",ad:"4 W Palmer St, Philadelphia, PA 19125",cz:["SEA"],la:39.97564,ln:-75.13308,w:"Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Nok Suntaranon's Fishtown Thai restaurant; she won the 2023 James Beard Best Chef Mid-Atlantic and Kalaya was a 2025 Outstanding Restaurant semifinalist.",s:[["MICHELIN_REC","https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"],["BILLYPENN","https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"]]},
 {t:1,a:"SPH",n:"Mish Mish",ad:"1046 Tasker St, Philadelphia, PA 19148",cz:["ME"],la:39.92965,ln:-75.16302,w:"Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide.",s:[["MICHELIN_REC","https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"],["BILLYPENN","https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"]]},
+{t:1,a:"CC",n:"Vedge",ad:"1221 Locust St, Philadelphia, PA 19107",cz:["US"],la:39.94790,ln:-75.16130,w:"Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Rich Landau and Kate Jacoby's vegan restaurant in a Locust Street mansion.",s:[["MICHELIN_REC","https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"],["BILLYPENN","https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"]]},
 {t:1,a:"CC",n:"Zahav",ad:"237 St James Pl, Philadelphia, PA 19106",cz:["ME"],la:39.94631,ln:-75.14538,w:"Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Michael Solomonov and Steve Cook's Society Hill Israeli restaurant, the 2019 James Beard Outstanding Restaurant winner.",s:[["MICHELIN_REC","https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"],["BILLYPENN","https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"]]},
+{t:2,a:"FISH",n:"Joe's Steaks + Soda Shop",ad:"6030 Torresdale Ave, Philadelphia, PA 19135",cz:["CHS"],la:40.01844,ln:-75.05808,w:"Around since the 1940s (the old Chink's) — retro soda-fountain cheesesteaks; Craig LaBan rated the original among his 2002 favourites.",s:[["VISITPHILLY","https://www.visitphilly.com/articles/philadelphia/best-restaurants-philadelphia-fishtown/"],["INQUIRER","https://inquirer.com/philly/news/breaking/20080404_After_45_cheesesteaks__the_best_were____.html"]]},
 {t:1,a:"CC",n:"McGillin's Olde Ale House",ad:"1310 Drury St, Philadelphia, PA 19107",cz:["BREW"],la:39.95022,ln:-75.16258,w:"Open since 1860 — the city's oldest continuously operating pub; Visit Philly listing and an Infatuation classic ('the entire city's favourite place to day drink').",s:[["VISITPHILLY","https://www.visitphilly.com/things-to-do/food-drink/mcgillins-olde-ale-house/"],["INFATUATION","https://www.theinfatuation.com/philadelphia/guides/philadelphia-classic-restaurants"]]},
+{t:1,a:"DAY",n:"Talula's Table",ad:"102 W State St, Kennett Square, PA 19348",cz:["US"],la:39.84667,ln:-75.71181,w:"Aimee Olexy's Kennett Square market-café by day, a one-table tasting menu by night booked about a year ahead (Inquirer; Main Line Today; Philly Mag Best of Philly).",g:["MKT"],s:[["INQUIRER","https://www.inquirer.com/food/restaurants/talulas-table/"],["MAINLINETODAY","https://mainlinetoday.com/food/the-one-year-wait-for-talulas-table-worth-every-last-course/"],["PHILLYMAG","https://www.phillymag.com/best-of-philly-archive/talulas-table/"]]},
+{t:2,a:"DAY",n:"Sly Fox Brewing Company",ad:"331 Circle of Progress Dr, Pottstown, PA 19464",cz:["BREW"],la:40.24972,ln:-75.64028,w:"One of the region's original craft breweries (1995), with tasting rooms in Pottstown, Phoenixville and Malvern (Main Line Today; Visit Philly essential breweries).",s:[["MAINLINETODAY","https://mainlinetoday.com/restaurant/sly-fox-brewing-company/"],["VISITPHILLY","https://www.visitphilly.com/articles/philadelphia/essential-craft-breweries-of-greater-philadelphia/"]]},
 {t:1,a:"NPH",n:"Max's Steaks",ad:"3653 Germantown Ave, Philadelphia, PA 19140",cz:["CHS"],la:40.00898,ln:-75.15057,w:"The Germantown & Erie cheesesteak shop with 'the largest drink in Philly' bar next door, made famous by the Creed movies; a sale after three decades was in the works in Jan 2026 (Inquirer; Visit Philly Cheesesteak 101; Billy Penn).",s:[["INQUIRER","https://www.inquirer.com/food/restaurants/maxs-steaks-sold-philadelphia-rocky-20260112.html"],["VISITPHILLY","https://www.visitphilly.com/media-center/press-releases/cheesesteak-101-a-primer-on-the-who-what-where-whiz-of-philly-cheesesteaks/"],["BILLYPENN","https://billypenn.com/2019/11/10/cheesesteak-destination-maxs-steaks-shut-down-by-philly-health-department/"]]},
+{t:1,a:"CC",n:"Barclay Prime",ad:"237 S 18th St, Philadelphia, PA 19103",cz:["US","CHS"],la:39.94853,ln:-75.17075,w:"Rittenhouse boutique steakhouse — LaBan's gold standard for dry-aged rib-eye and home of the famous luxury cheesesteak; Infatuation 'city's best steakhouse'; Philly Mag Best of Philly.",s:[["INQUIRER","https://www.inquirer.com/food/most-expensive-cheesesteak-barclay-prime-shays-live-casino-20250418.html"],["INFATUATION","https://www.theinfatuation.com/philadelphia/reviews/barclay-prime"],["PHILLYMAG","https://www.phillymag.com/best-of-philly-archive/barclay-prime/"]]},
+{t:1,a:"NE",n:"Steve's Prince of Steaks",ad:"7200 Bustleton Ave, Philadelphia, PA 19149",cz:["CHS"],la:40.04562,ln:-75.06092,w:"The Northeast's diner-style cheesesteak royalty (now four shops) — on the Inquirer's 23 best cheesesteaks and the Northeast Times 2026 best list. HELD lead cleared.",s:[["INQUIRER","https://www.inquirer.com/food/best-cheesesteaks-philadelphia.html"],["NORTHEASTTIMES","https://northeasttimes.com/2026/07/27/6-of-the-best-cheesesteak-spots-in-northeast-philadelphia-right-now/"]]},
 {t:1,a:"FISH",n:"Meetinghouse",ad:"2331 E Cumberland St, Philadelphia, PA 19125",cz:["BREW","US"],la:39.98040,ln:-75.12300,w:"Kensington tavern (2023) named to the New York Times' 2025 list of the best restaurants in America (Inquirer; PhillyVoice); has its own Wikipedia article.",s:[["NYT","https://www.inquirer.com/food/philly-restaurants-nyt-best-mawn-meetinghouse-2025-20250909.html"],["PHILLYVOICE","https://www.phillyvoice.com/mawn-meetinghouse-best-restaurants-new-york-times/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Meetinghouse_(restaurant)"]]}
 ];
 
@@ -616,7 +635,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([39.9536,-75.1631],10);
+  map = L.map('map',{scrollWheelZoom:false}).setView([39.9534,-75.163],10);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -700,7 +719,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Center City", 39.9521, -75.1579], ["South Philly", 39.9184, -75.1663], ["Fishtown", 39.974, -75.1284], ["University City", 39.9375, -75.2091], ["North Philly", 39.9835, -75.191], ["Northwest", 40.045, -75.1945], ["Northeast Philly", 40.0623, -75.0401], ["The Main Line", 40.0893, -75.1706], ["South Jersey", 39.9272, -75.0901], ["Brandywine", 40.1216, -75.3148]];
+const LABELS=[["Center City", 39.9518, -75.158], ["South Philly", 39.9192, -75.1641], ["Fishtown", 39.9851, -75.1108], ["University City", 39.9375, -75.2091], ["North Philly", 39.9835, -75.191], ["Northwest", 40.045, -75.1945], ["Northeast Philly", 40.0595, -75.0435], ["The Main Line", 40.0893, -75.1706], ["South Jersey", 39.9272, -75.0901], ["Brandywine", 40.116, -75.3426]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1039,7 +1058,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 170 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 179 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
