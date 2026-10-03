@@ -221,3 +221,16 @@
 62-63 Michelin 2026 Florida Bib + stars pages — every Miami Michelin place already in; NAOE not confirmed starred in 2026 (held)
 64 GMCVB/TO downtown history (Gesù, Freedom Tower, Ichimura Garden TO 1101 MacArthur Cswy) → Gesù added
 65 Wikipedia coords Miami Tower, Wagner House/Fort Dallas (Lummus Park HD) — held (no 2nd source confirmed)
+66 CREATOR query: YouTube Miami food tours (Mark Wiens / Best Ever Food Review / Strictly Dumpling) — no Miami episode surfaced
+67 CREATOR query: Josiah Eats picks → NT "Miami's top influencers dish hidden gems" (picks not in snippet); led to GMCVB + NT hidden-gem lists
+68 GMCVB hidden gem eateries (L.C. Roti, Mangrove, Pronto, Aoko, Gangnam, 5 Esquinas, Kojin 2.0, Taco Time, Green Chicken)
+69 NT 15 hidden gems (Babe's, Brewing Buddha, Butcher Shop & Deli, Don Maguey, El Carajo, Enriqueta's, Golden Rule, Guadalajara, Happy Wine, Mary's Coin Laundry, Matsuri, Mi Rinconcito, Big Tomato, Pauloluigi, Shaddai)
+70 Inf/TO: L.C. Roti, Golden Rule, Pauloluigi reviews; Mary's Coin Laundry (Inf, location not confirmed → held)
+71 Inf/TO/NT: S&N Vegetables (Inf+TO), Mangrove (NT Best Caribbean 2024) → 5 added
+72 Inf/TO: El Carajo (Inf+TO), Don Maguey (Inf mole), Happy Wine (Inf, page unclear → held), Matsuri not found → held
+73 GMCVB/TO LHAV sights: Bay of Pigs Museum (GMCVB+TO), Cubaocho, El Titan de Bronze (GMCVB only → held), Cuban Diaspora museum (TO)
+74 GMCVB/TO WYN sights: de la Cruz, Moore Building, Superblue, Locust Projects, Dot Fiftyone (held), Haitian Heritage Museum
+75 TO/Wikipedia URLs: Moore, de la Cruz (CLOSED 2024 after Rosa de la Cruz's death → non-notable closure, DROP), Superblue, Locust, Cubaocho (TO Little Havana guide)
+76 Wikipedia coords: Haitian Heritage Museum, Cuban Diaspora museum (high); Superblue none
+77 Status: Superblue 2026 programme
+78 Status: Cuban Diaspora museum 2026, Locust Projects 2026; Cubaocho none found (unpinned, status pending)

@@ -186,3 +186,18 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   Over Miami, Amelia Earhart Park, Jungle Island, LHCC, NSU Art Museum, Cauley Square, Gesù) — CLAUDE.md 4a.
 - **Michelin check:** every 2026 Miami-area Bib Gourmand / star already in the dataset (2 searches).
 - **Gates:** all 4 green, 0 unchecked; validate DATA OK; test ALL PASS.
+
+## 2026-10-03 (session 4) · batch 4 — hidden gems (creator lead) + LHAV/WYN sights
+- **Creator channel:** YouTube query (Mark Wiens / Best Ever Food Review / Strictly Dumpling Miami) → no Miami episode; Josiah Eats
+  query → NT "Miami's top influencers dish their favorite hidden gems" (picks not in snippet) — used as a pointer to the GMCVB
+  and NT hidden-gem lists. Creator-attached places this batch: 0 (no findable creator piece naming a new place).
+- **Added (16):** food 7 — L.C. Roti Shop (NMIA t1), Golden Rule Seafood (SDADE), Pauloluigi (CGCG), El Carajo (CGCG t1),
+  S&N Vegetables (LHAV pan con bistec), Don Maguey (LHAV), Mangrove (DTB). Sights 7 — Bay of Pigs Museum, American Museum of the
+  Cuban Diaspora (high pin), Cubaocho (LHAV); Moore Building, Superblue, Locust Projects, Haitian Heritage Museum (high pin) (WYN).
+- **MEASURED & DROPPED:** de la Cruz Collection — permanently CLOSED 2024 (Wikipedia; after Rosa de la Cruz's death) → dropped
+  as a non-notable closure rather than a live suggestion.
+- **Held:** Mary's Coin Laundry (Inf + NT, location unconfirmed), Matsuri, Happy Wine, Babe's, Butcher Shop & Deli, Guadalajara,
+  Big Tomato, Brewing Buddha (NT only); Pronto, Aoko, Gangnam, 5 Esquinas, Taco Time, Green Chicken (GMCVB only);
+  El Titan de Bronze, Dot Fiftyone (GMCVB only).
+- **Gates:** all green, 0 unchecked; validate DATA OK; test ALL PASS. Density: CGCG 52 · DTB 42 · FTL 60 · GLADE 34 · LHAV 48 ·
+  MBCH 49 · NMIA 31 · SDADE 43 · WYN 55.
