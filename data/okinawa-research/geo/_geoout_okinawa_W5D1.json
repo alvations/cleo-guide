@@ -8,5 +8,65 @@
   "geoSource": "Japanese Wikipedia 'シュガーローフの戦い' infobox coordinates N26°13'20.5\" E127°41'46.1\" (26.222361,127.696139), consistent with address Omoromachi 1-6",
   "status": "open",
   "statusSource": "Naha City history archive spot 153 (public park, current page) https://www.rekishi-archive.city.naha.okinawa.jp/spot/153"
+ },
+ {
+  "n": "Tomari Iyumachi Fish Market (泊いゆまち)",
+  "address": "1-1-18 Minatomachi, Naha, Okinawa",
+  "lat": 26.230121,
+  "lng": 127.680135,
+  "confidence": "med",
+  "geoSource": "NAVITIME POI page 泊いゆまち https://www.navitime.co.jp/poi?spot=02043-6394 printed 26.230121,127.680135 (management office POI 00011-080748033 printed 26.229773,127.680322 — consistent); address 港町1-1-18",
+  "status": "open",
+  "statusSource": "Naha City 'Shimin no Tomo' Oct 2022 feature + Visit Okinawa Fresh Seafood Markets page (current)"
+ },
+ {
+  "n": "Great Akagi Trees of Shuri Kinjō (首里金城の大アカギ)",
+  "address": "3-18 Shuri Kinjō-chō, Naha, Okinawa (Uchikanagusuku-utaki precinct)",
+  "lat": 26.215887,
+  "lng": 127.716012,
+  "confidence": "med",
+  "geoSource": "tabi-mag.jp/on0016 '内金城嶽の大アカギ' info block printed 緯度・経度 26.215887, 127.716012 (as surfaced in WebSearch summary); consistent with 首里金城町3-18 south of Shuri Castle",
+  "status": "open",
+  "statusSource": "Okinawa Story (OCVB) spot 30000022 + Bunka Isan Online 162758 (designated natural monument, open precinct)"
+ },
+ {
+  "n": "Pork Tamago Onigiri Honten, Makishi (ポークたまごおにぎり本店)",
+  "address": "2-8-35 Matsuo, Naha, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "navitime coordinate search blocked by session WebSearch cap; no coordinate surfaced",
+  "status": "open",
+  "statusSource": "rurubu article 15699 / funliday listing with current hours 7:00-17:30, closed Wed"
+ },
+ {
+  "n": "Fujiya Tomari Honten (富士家 泊本店)",
+  "address": "2-10-9 Tomari, Naha, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "'富士家 泊本店 navitime 緯度 経度' (extended) — no venue coordinate surfaced",
+  "status": "open",
+  "statusSource": "Tabirai column 0006190 + Mapple listing (current hours: Oct-Jun 11-19, Jul-Sep 11-20, open daily)"
+ },
+ {
+  "n": "Kokusai-dōri Yatai-mura (国際通り屋台村)",
+  "address": "Kokusai-dōri, Makishi, Naha, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "'国際通り屋台村 navitime 緯度 経度' (extended) — only API docs returned",
+  "status": "open",
+  "statusSource": "Okinawa Traveler feature 0074_sp (stalls open from 11:00) + GLTJP 13966"
+ },
+ {
+  "n": "Arakaki Kashiten, Shuri Samukawa (新垣菓子店 首里寒川店)",
+  "address": "Shuri Samukawa-chō, Naha, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "not searched (cap); street number not surfaced",
+  "status": "open",
+  "statusSource": "rurubu spot 80042578 (current listing)"
+ },
+ {
+  "n": "Ryūkyū Ryōri Nuchigafū (琉球料理 ぬちがふぅ)",
+  "address": "Tsuboya, Naha, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "not searched (cap)",
+  "status": "open",
+  "statusSource": "Okinawa Prefecture certified Ryūkyū-cuisine restaurant list (current, FY2023+) + Lonely Planet Naha restaurants"
  }
 ]
