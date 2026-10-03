@@ -415,3 +415,43 @@ New source keys: MAHONINGMATTERS, BARBERTONLIBRARY (SOURCES_W3A.json).
   Miller-Doan Tavern (Repository review only); West Side Bakery, El Fogon, El Mesón (330 Flavor Awards only).
 - **Lead:** Crave — Apple + Foursquare list 156 S Main St; our record says 57 E Market St — verify move before pinning.
 - Session WebSearch ≈ 176 (pins ≈ 98, discovery ≈ 62, new-place pins/details ≈ 16).
+
+## 2026-10-03 W5 · batch 1 — sights-first discovery + food (FOOD_W5, SIGHTS_W5, geo/_geoout_w5)
+- **Sources mined:** Akron Beacon Journal via Yahoo/AOL ("8 restaurants we recommend when asked 'Where should I eat in Akron?'",
+  the 2025 Local Flavor "restaurants Taylor Swift and Travis Kelce should try" list, National Cheeseburger Day picks, Tip Top review,
+  Cuyahoga Falls newest-downtown review), Akron Life Best of the City 2025 readers' picks + 2024 picks, Signal Akron Best of the City,
+  Roadfood, Ohio Magazine Amish Country guides, Cleveland Magazine "A Clevelander's Guide to Canton: 21 Must-Go Spots", Visit Canton,
+  Summit Metro Parks, Stark Parks, Wikipedia, Atlas Obscura, Remarkable Ohio, AP. Creator query: none new surfaced this batch.
+- **Added sights (14):** AKR Hower House Museum, Lock 3 Park, Sand Run Metro Park, Sojourner Truth Legacy Plaza (t1), Summit Artspace
+  (reopened Mar 2026) · CANT MAPS Air Museum, Hartville MarketPlace & Flea Market, Tom Benson HOF Stadium · MASS The Wilderness Center,
+  Lock 4 Park · BARB Silver Creek Metro Park (Summit Metro Parks + Signal Akron) · KENT Kent State University Museum · NSUM Deep Lock
+  Quarry Metro Park (a Summit Metro Parks unit inside the CVNP boundary — not the NPS park pin on cleveland.html, so kept),
+  Boston Mills/Brandywine (not on cleveland.html — grep 0).
+- **Added food (11):** BARB Menches Bros. (t1; hamburger-invention family, Ideastream + Akron Life + News 5), Hodge's Cafe (Roadfood + ABJ),
+  Sunrise Social (ABJ recommend list + Akron Life) · MASS Amish Door (Ohio Magazine + Visit Canton) · CANT Wild Thyme Eatery (Armenian/
+  Georgian; Akron Life + Visit Canton) · NSUM Boss ChickNBeer (promoted from held — address confirmed 1791 Front St by Scene opening
+  story; Scene + ABJ + CLEMAG), Spicy Sombreros (ABJ ×2 + Akron Life 2024 vote), Tip Top (Akron Life Best Breakfast 2025 + ABJ review),
+  Big Eu'es BBQ (Akron Life Best BBQ 2025 + feature + WKYC) · KENT Bistro on Main (promoted: Akron Life review + ABJ 2025) ·
+  AKR Nervous Dog Coffee Bar W Market (Signal Akron + Akron Life 2025 Best Coffeehouse).
+- **Pins:** 19 of 25 (high 13 · med 6). UNVERIFIED: Menches, Boss ChickNBeer (only a bare address point), Big Eu'es, Sojourner Truth
+  plaza, Summit Artspace, KSU Museum.
+- **Held / rejected:** Akron Children's Museum (inside Lock 3 — folded into the Lock 3 card; no own pin) · Canton Classic Car Museum (CVB +
+  Canalway listings only) · Ohio Military Museum (address conflict Massillon vs Green) · Tremont Coffee (5-shop local chain; location
+  ambiguous — 28 vs 215 Erie St N Massillon; Repository + CLEMAG) · Hartville Chocolate Factory (Akron Life vote + CVB only) · Heggy's Nut
+  Shop, Walther's Twin Tavern (CVB only) · Al's Corner Barberton (Roadfood only; address unconfirmed) · Showcase Meats, Garretts Mill Diner,
+  Guido's Ravenna, Johnny's Diner, Marie's Patisserie (ABJ only) · Munroe Falls / Furnace Run Metro Parks (agency page only; padding).
+  **Rejected:** Skyway Drive-In Fairlawn (CLOSED — Scene "Ends its 74-year run"); Meow Bao (closed per Signal Akron).
+- Gates: sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. ≈82 WebSearch.
+
+## 2026-10-03 W5 · batch 2 (FOOD_W5B, SIGHTS_W5B, geo/_geoout_w5b)
+- **Added food (4):** MASS Cast Iron Bar & Grille (Repository review + Visit Canton Stark11 Canal Fulton pick), Miller-Doan Tavern (Repository
+  review + Visit Canton; promoted from W4 held) · KENT Maddalena's Italian Ristorante (opened Jul 2025; Akron Life + The Portager) ·
+  AKR Diamond Deli (Akron Life Best Deli 2025 + ABJ downtown-lunch guide).
+- **Added sights (5):** CANT Haines House Underground Railroad Museum (Wikipedia/NRHP + Repository + WOSU + Visit Canton), Stark County
+  Courthouse (Wikipedia + PBS + WKSU + Court News Ohio) · KENT West Branch State Park (Wikipedia + ODNR), Towner's Woods (Portage Park District
+  + The Portager + Akron Life) · AKR Kenmore Boulevard Historic District (NRHP 2019; Signal Akron ×2 + Strong Towns).
+- **Pins:** 4 of 9 high. UNVERIFIED: Cast Iron, Maddalena's, Diamond Deli, Towner's Woods, Kenmore Blvd.
+- **Held:** Kraus' Pizza Massillon (CVB + menu sites only), Kozmo's Grille / Top of the Viaduct / Bugsy's (Visit Canton only), Victorio's
+  Pizza Alliance (NYT readers' list claim not confirmed), Jilly's Music Room (Akron Life vote + Scene listing), Tiffany's Bakery, Taste of
+  Bangkok, Kasai (Akron Life vote only), Canton Arts District (no pin anchor), Starflyer (still no named beer), Muskellunge (no address),
+  Hiram/Garfield sites (house private; no single visitable pin).
