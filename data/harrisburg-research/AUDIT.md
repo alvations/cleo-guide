@@ -66,3 +66,36 @@
 - **Address note:** addresses for Shady Maple, Miller's, Bird-in-Hand Bakery, Green Dragon, Utz confirmed by search
   results; Snyder's, Lapp Valley, Fox Meadows, Root's, Hollabaugh, Luca, Millworks, Martin's, Spring House,
   Harley-Davidson are discovery-stage addresses to confirm in the helper geocode pass.
+
+## Stage 2–7 — waves W3/W4/W5 + go-live (2026-10-03, same session)
+- ~72 further searches (total ≈170 this session). Same method: sights via one combined source+pin search; food via
+  outlet- or dish-specific queries (generic "best restaurants <city>" = SEO farms — abandoned).
+- **Added:** W3 food (Hershey Pantry, Jigger Shop, York City Pretzel Co., Tröegs) · W4 (Stevens & Smith Center,
+  Demuth, Rock Ford, Penn Square monument, Science Factory, Watch & Clock Museum, Dutch Wonderland, Bube's, Hershey/
+  Harrisburg/York/Gettysburg sights, Cabalar, Lancaster Brewing) · W5 (Carlisle Fairgrounds, Hamilton Restaurant
+  Hot-Chee dog, Market Cross, Kings Gap, Lititz Church Square, York Barbell, Pinnacle Overlook, Mount Pisgah,
+  Ma & Pa village, Midtown Scholar, Pride of the Susquehanna, Ned Smith Center, Jennie Wade House, Aaron & Jessica's,
+  Adams County Winery, Mason Dixon Distillery, Kreider Farms, Cornwall Iron Furnace, Union Canal Tunnel).
+- **Totals:** 111 discovered (37 food + 74 sights), sourcecheck PASS 111/111 (1 lone JB authority — Luca).
+- **Channel mix (W3–W5 adds, 49 places):** editorial of record 12 · tourism boards/official 17 · travel sites 9 ·
+  Wikipedia + heritage/landmark bodies 10 · awards 1 (USA Today 10Best reader vote — Tröegs) · creators 0.
+- **MEASURED & DROPPED / HELD:** Good 'N Plenty — now one source says "closed, victim of Covid" vs live delivery
+  listings → still held pending a dated news/official status. Wilbur Chocolate Lititz store — plant closed 2016,
+  retail status unclear → held. Turkey Hill Experience (Columbia) — a 2024 InPark piece reports a NEW attraction;
+  the Columbia address is stale → held. Hotel Hershey (Wikipedia only), PA National Fire Museum (Wikipedia only),
+  Wildwood Park (Greenway only), Hanover Shoe Farms (Wikipedia only), Colonel Denning SP / Hellenic Kouzina /
+  Watershed Pub / Mt Airy Orchards (Visit Cumberland Valley only), Norbu / Awash Ethiopian (one outlet each), Jackson
+  House (SEO-only sources), Belvedere Inn (Lancaster County Magazine only — two LCM pieces = one outlet),
+  Countryside Road Stand (LancasterPA only), Abe's Buggy Rides (Discover Lancaster only), Progress Grill / Greystone
+  Public House (PA Eats only). Craig LaBan 2026 Lancaster piece: not retrievable → dead end.
+- **Creators (CREATORS_W5.json):** Peter Santenello and Shane Uriot held — no place-naming piece / unverified scale.
+- **Geocode:** 49 verified pins (Wikipedia infobox, DCNR/official GPS, HMDB marker for Jennie Wade = med). Fulton
+  Theatre pin DOWNGRADED to UNVERIFIED (the 40.038000,-76.308194 snippet was returned for both the Fulton and the
+  Penn Square monument). 62 UNVERIFIED → helper backlog (docs/GEOCODE-BACKLOG.md).
+- **Discovery-stage addresses to confirm in the helper pass (from memory/partial snippets):** Dutch Wonderland,
+  Middletown & Hummelstown RR (Brown St), Adams County Winery (Peach Tree Rd), Mason Dixon Distillery (E Water St),
+  Lancaster Brewing (N Plum St), Spring House (Hazel St), Millworks (Verbeke St), Sight & Sound (Hartman Bridge Rd),
+  Middle Creek (Museum Rd), Snyder's, Lapp Valley, Fox Meadows, Root's, Hollabaugh, Luca, Martin's, Harley-Davidson.
+- **Build:** 49 pins on page; --sourcecheck PASS · --geocheck PASS · --statuscheck CONSISTENT · --buildcheck PASS ·
+  npm validate DATA OK · npm test ALL PASS. **index.html card relinked LIVE** (49 mapped / 111 researched);
+  docs/CITIES.md row added.

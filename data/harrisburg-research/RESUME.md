@@ -25,19 +25,27 @@ Total ~216.
 
 ## State
 - 2026-10-02 scaffold (consolidate.py, build-harrisburg.py, brief, 29-outlet palette). W1 blocked by budget.
-- **2026-10-03 W1+W2 (relaunch):** 25 food + 37 sights = 62 discovered (all ≥2 credible); 31 pinned; page
-  `cities/harrisburg.html` BUILT, all 4 gates green, npm validate/test pass. Card on index.html still "being built"
-  (only 31 pins — relink live once ~100 pins). 43 new outlets registered with rationale (SOURCES_W1.json).
-- Density (discovered): AMISH 18/40 · CAR 6/20 · GBG 10/22 · HBG 8/38 · HER 7/24 · LAN 6/38 · YORK 7/34.
+- **2026-10-03 (one session, ~170 searches): W1–W5 done, LIVE.** 111 discovered (37 food + 74 sights, all ≥2
+  credible); 49 pinned and rendered on `cities/harrisburg.html`; all 4 gates green; npm validate/test pass;
+  index.html card LIVE; docs/CITIES.md row added; 54 new outlets registered with rationale (SOURCES_W1.json).
+- Density (discovered / target): AMISH 29/40 · CAR 10/20 · GBG 17/22 · HBG 14/38 · HER 15/24 · LAN 13/38 · YORK 13/34.
+- Pinned on page: 49 of 111 — 62 UNVERIFIED (mostly restaurants; WebSearch rarely surfaces restaurant place-pins).
 
 ## In-flight wave
-- none. NEXT (ordered): (1) W3 Harrisburg/York food (dish- and outlet-specific queries — PennLive/TheBurg/YDR/FOX43
-  "best <dish>"; Bhutanese/Nepali momo; York City Pretzel Co; Central Family; Cafe 1500…), (2) W4 Lancaster city food
-  + sights (LancasterHistory, Demuth Museum, Lancaster Science Factory, Penn Square/Soldiers & Sailors, Rock Ford),
-  (3) AMISH sights (Sight & Sound needs 2nd source, Intercourse, Bird-in-Hand village, Lititz, Mount Joy Bube's,
-  Columbia National Watch & Clock Museum, Marietta, Dutch Wonderland), (4) HER/CAR/GBG fill, (5) W5 creators,
-  (6) helper geocode of `geo/_geoout_w6pending.json` (31 UNVERIFIED), (7) go live on index.html card.
-- Held/single-source list + rejected sources: see AUDIT.md 2026-10-03 section.
+- none. NEXT (ordered):
+  1. **Helper geocode** of the 62 UNVERIFIED (docs/GEOCODE-BACKLOG.md → tools/geocode-helper.html), confirming the
+     discovery-stage addresses listed in AUDIT.md 2026-10-03 W3–W5 section. Biggest single lift for the map.
+  2. **HBG food** (2/~19): outlet-specific — TheBurg, PennLive "best of", Harrisburg Magazine Simply the Best;
+     Broad Street Market stands; Bhutanese/Nepali (Mount Everest, Momo Hunt — need 2 sources); Progress Grill,
+     Greystone Public House (PA Eats + 1 more); Jackson House (needs non-SEO source).
+  3. **LAN food + sights** (13/38): Belvedere Inn (2nd outlet), Norbu, Awash, Long's Horseradish/Central Market
+     stands, Lancaster Museum of Art, Long's Park, Lancaster Cathedral; LNP "Best of Lancaster"; Fly Magazine.
+  4. **YORK** (13/34): YDR/YorkMix/York Dispatch lists; Hanover (Hanover Shoe Farms 2nd source); Wrightsville
+     (Zimmerman Center); Indian Steps Museum; York County History Center Smalls campus museum; Roburrito's.
+  5. HER/CAR/AMISH fill (Hotel Hershey 2nd source; Colonel Denning; Hammond's Pretzel 2nd source; Good 'N Plenty
+     status; Intercourse Pretzel Factory; Countryside Road Stand; Strasburg Creamery; Choo Choo Barn).
+  6. Creators: find a Lancaster-place-naming piece for Santenello; verify Uriot scale.
+- Held/single-source + rejected sources: AUDIT.md 2026-10-03 sections.
 
 ## Files
 - `FOOD_*.json` / `SIGHTS_*.json` — research records by wave tag. `geo/_geoout_*.json` — geocode results.

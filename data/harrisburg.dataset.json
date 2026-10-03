@@ -1960,6 +1960,54 @@
      "https://lancasterpa.com/?p=15316"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "HER",
+   "n": "Cornwall Iron Furnace",
+   "ad": "Rexmont Rd & Boyd St, Cornwall, PA 17016",
+   "w": "A complete charcoal-era ironworks — furnace stack, blast machinery and ironmaster's village — that made iron from 1742 to 1883, including cannon for the Revolution; a PHMC-run National Historic Landmark.",
+   "k": "HIST",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cornwall_Iron_Furnace"
+    ],
+    [
+     "INVENTIONTECH",
+     "https://www.inventionandtech.com/landmark_landing/80153"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HER",
+   "n": "Union Canal Tunnel Park",
+   "ad": "Union Canal Tunnel Park, Lebanon, PA 17046",
+   "w": "The oldest existing transportation tunnel in the United States: 729 feet hand-cut through slate in 1825–27 for the Union Canal linking Middletown to Reading; walk through it, or ride summer boat tours, off the Lebanon Valley Rail Trail.",
+   "k": "HIST",
+   "g": [
+    "CIVIL",
+    "PARK",
+    "OUTDOOR"
+   ],
+   "s": [
+    [
+     "ASCE",
+     "https://www.asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/union-canal-tunnel"
+    ],
+    [
+     "ABC27",
+     "https://www.abc27.com/digital-originals/did-you-know-pennsylvania-is-home-to-the-oldest-existing-transportation-tunnel-in-the-united-states/amp/"
+    ],
+    [
+     "LEBANONHIST",
+     "https://lebanoncountyhistory.org/canal-tunnel"
+    ]
+   ]
   }
  ],
  "F": [
@@ -2549,6 +2597,51 @@
    ]
   },
   {
+   "t": 2,
+   "a": "YORK",
+   "n": "York City Pretzel Company",
+   "ad": "39 W Market St, York, PA 17401",
+   "w": "Community-founded (2014) small-batch pretzel bakery on West Market Street in downtown York; it has since bought the Intercourse Pretzel Factory in Lancaster County. Order: Hand-twisted Bavarian-style soft pretzels, plus seasoned 'Revolutionary Pretzels' hard pieces.",
+   "cz": [
+    "PRETZ",
+    "BAKE"
+   ],
+   "s": [
+    [
+     "CPBJ",
+     "https://www.cpbj.com/york-city-pretzel-twists-together-entrepreneurship-city-love"
+    ],
+    [
+     "PAEATS",
+     "https://www.paeats.org/?p=23349"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HER",
+   "n": "Tröegs Independent Brewing",
+   "ad": "200 Hersheypark Dr, Hershey, PA 17033",
+   "w": "The Trogner brothers' brewery, moved from Harrisburg to a 90,000-sq-ft Hershey plant in 2011; its one-hour tour (with tastings) was voted the No. 1 brewery tour in America by USA Today readers. Big tasting room and beer garden with a full view of the brewhouse. Order: Troegenator Double Bock, Perpetual IPA and the cult holiday Mad Elf, on tap where they're brewed.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tr%C3%B6egs"
+    ],
+    [
+     "VISITHERSHEY",
+     "https://www.visithersheyharrisburg.org/things-to-do/grown-up-fun/troegs-independent-brewing/"
+    ],
+    [
+     "USATODAY",
+     "https://www.aol.com/tr-egs-voted-top-brewery-195324755.html"
+    ]
+   ]
+  },
+  {
    "t": 1,
    "a": "AMISH",
    "n": "Bube's Brewery & Catacombs",
@@ -2726,6 +2819,12 @@
   }
  ],
  "S": {
+  "ABC27": {
+   "k": "ABC27 WHTM",
+   "t": "abc27 WHTM (Harrisburg)",
+   "u": "https://www.abc27.com/",
+   "l": "abc27 WHTM (Harrisburg)"
+  },
   "AMISHAMERICA": {
    "k": "AMISHAMERICA",
    "t": "Amish America (Erik Wesner)",
@@ -2854,9 +2953,9 @@
   },
   "FOXNEWS": {
    "k": "FOXNEWS",
-   "t": "FOXNEWS",
-   "u": "",
-   "l": ""
+   "t": "Fox News Travel",
+   "u": "https://www.foxnews.com/travel",
+   "l": "Fox News Travel"
   },
   "GETTYSBURGDAILY": {
    "k": "GETTYSBURGDAILY",
@@ -2884,7 +2983,13 @@
   },
   "HERALDSTANDARD": {
    "k": "HERALDSTANDARD",
-   "t": "HERALDSTANDARD",
+   "t": "Herald-Standard",
+   "u": "https://www.heraldstandard.com",
+   "l": "Herald-Standard"
+  },
+  "INVENTIONTECH": {
+   "k": "INVENTIONTECH",
+   "t": "INVENTIONTECH",
    "u": "",
    "l": ""
   },
@@ -2912,6 +3017,12 @@
    "u": "https://lancastercountymag.com",
    "l": "Lancaster County Magazine"
   },
+  "LEBANONHIST": {
+   "k": "LEBANONHIST",
+   "t": "LEBANONHIST",
+   "u": "",
+   "l": ""
+  },
   "LIVEDESIGN": {
    "k": "LIVEDESIGN",
    "t": "Live Design",
@@ -2932,9 +3043,9 @@
   },
   "OLDCARSWEEKLY": {
    "k": "OLDCARSWEEKLY",
-   "t": "OLDCARSWEEKLY",
-   "u": "",
-   "l": ""
+   "t": "Old Cars Weekly",
+   "u": "https://www.oldcarsweekly.com",
+   "l": "Old Cars Weekly"
   },
   "PABUCKETLIST": {
    "k": "PABUCKETLIST",
@@ -2980,9 +3091,9 @@
   },
   "PUBLISHERSWEEKLY": {
    "k": "PUBLISHERSWEEKLY",
-   "t": "PUBLISHERSWEEKLY",
-   "u": "",
-   "l": ""
+   "t": "Publishers Weekly",
+   "u": "https://www.publishersweekly.com",
+   "l": "Publishers Weekly"
   },
   "RAILFANGUIDES": {
    "k": "RAILFANGUIDES",
@@ -3004,9 +3115,9 @@
   },
   "SHELFAWARENESS": {
    "k": "SHELFAWARENESS",
-   "t": "SHELFAWARENESS",
-   "u": "",
-   "l": ""
+   "t": "Shelf Awareness",
+   "u": "https://shelf-awareness.com",
+   "l": "Shelf Awareness"
   },
   "SMITHSONIAN": {
    "k": "SMITHSONIAN",
@@ -3096,9 +3207,9 @@
   },
   "AMAZINGAMERICA": {
    "k": "AMAZINGAMERICA",
-   "t": "AMAZINGAMERICA",
-   "u": "",
-   "l": ""
+   "t": "Amazing America (Sinclair Broadcast Group)",
+   "u": "https://wjla.com/amazing-america",
+   "l": "Amazing America (Sinclair Broadcast Group)"
   },
   "AMISHAMERICA": {
    "k": "AMISHAMERICA",
@@ -3120,9 +3231,9 @@
   },
   "CELEBRATEGBG": {
    "k": "CELEBRATEGBG",
-   "t": "CELEBRATEGBG",
-   "u": "",
-   "l": ""
+   "t": "Celebrate Gettysburg magazine — Gettysburg's Greatest awards",
+   "u": "https://digital.graphcompubs.com",
+   "l": "Celebrate Gettysburg magazine — Gettysburg's Greatest awards"
   },
   "CHOWHOUND": {
    "k": "CHOWHOUND",
@@ -3180,9 +3291,9 @@
   },
   "LANCASTERFARMING": {
    "k": "LANCASTERFARMING",
-   "t": "LANCASTERFARMING",
-   "u": "",
-   "l": ""
+   "t": "Lancaster Farming",
+   "u": "https://www.lancasterfarming.com",
+   "l": "Lancaster Farming"
   },
   "LANCASTERPA": {
    "k": "LANCASTERPA",
@@ -3240,9 +3351,9 @@
   },
   "PAWINE": {
    "k": "PAWINE",
-   "t": "PAWINE",
-   "u": "",
-   "l": ""
+   "t": "Pennsylvania Winery Association",
+   "u": "https://pennsylvaniawine.com",
+   "l": "Pennsylvania Winery Association"
   },
   "PHILLYINQ": {
    "k": "PHILLYINQ",
