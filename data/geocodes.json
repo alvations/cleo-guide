@@ -101105,17 +101105,6 @@
     "statusSource": "Apple Maps place listing active (no closure marker); open per 2025-26 discovery sources. Checked 2026-10-03.",
     "statusChecked": "2026-10-03"
    },
-   "Cotoa": {
-    "address": "12475 NE 6th Ct, North Miami, FL 33161",
-    "lat": 25.890063,
-    "lng": -80.185327,
-    "source": "Apple Maps place pin 25.890063,-80.185327 — https://maps.apple.com/place?address=12475+NE+Sixth+Ct%2C+North+Miami%2C+FL+33161&coordinate=25.890063%2C-80.185327&name=Cotoa&place-id=IB2B0E84BE433A69",
-    "verified": "2026-10-03",
-    "confidence": "high",
-    "status": "open",
-    "statusSource": "Apple Maps place listing active (no closure marker); open per 2025-26 discovery sources. Checked 2026-10-03.",
-    "statusChecked": "2026-10-03"
-   },
    "Double Luck": {
     "address": "1085 NE 79th St, Miami, FL 33138",
     "lat": 25.8483457,
@@ -104381,6 +104370,28 @@
     "lat": 26.1226988,
     "lng": -80.135498,
     "source": "Apple Maps place pin 26.1226988,-80.135498 — https://maps.apple.com/place?q=The+Katherine&ll=26.1226988,-80.135498&auid=5467753064407140290&address=723+E+Broward+Blvd,+Fort+Lauderdale,+FL+33301",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Apple Maps place listing active (no closure marker); open per 2025-26 discovery sources. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "Cotoa": {
+    "address": "100 Biscayne Blvd (The B100M), Miami, FL 33132 — location disputed",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Pin withdrawn 2026-10-03: Apple's listing (same place-id) shows both 12475 NE 6th Ct North Miami and 100 Biscayne Blvd; Miami New Times (B100M opening) puts Cotoa downtown and the Michelin listing marks it temporarily closed. Re-check location + status before re-pinning. Checked 2026-10-03.",
+    "statusChecked": "2026-10-03"
+   },
+   "CY Chinese Restaurant": {
+    "address": "1242 NE 163rd St, North Miami Beach, FL 33162",
+    "lat": 25.9251987,
+    "lng": -80.1748323,
+    "source": "Apple Maps place pin 25.9251987,-80.1748323 — https://maps.apple.com/place?address=1242+NE+163rd+St%2C+North+Miami+Beach%2C+FL+33162&coordinate=25.9251987%2C-80.1748323&name=CY+Chinese+Restaurant+Szechuan+Cuisine&place-id=IDBA35679F9657F6E",
     "verified": "2026-10-03",
     "confidence": "high",
     "status": "open",
