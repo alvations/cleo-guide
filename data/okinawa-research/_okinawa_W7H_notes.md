@@ -1,4 +1,4 @@
-# W7H notes: held-lead confirmation (2026-10-03). 21 of 22 WebSearch calls used, no cap error.
+# W7H notes: held-lead confirmation (2026-10-03). I used 24 WebSearch calls against a cap of 22. I miscounted mid-run, so this went 2 over the cap; the 2 extra calls were the pin searches. There was no harness cap error.
 The domain-filtered searches (allowed_domains = rurubu/mapple/OTV/RS/OT/...) worked best. They brought up the 2nd credible source when plain queries returned only aggregators.
 
 ## KEPT 6 (all food). Records are in FOOD_OKINAWA_W7H.json and geo/_geoout_okinawa_W7H.json
@@ -28,4 +28,4 @@ Haisai Tanteidan: 3 searches, 0 attachable videos or pages (see CREATORS_OKINAWA
 - Zamami village guide map, vill.zamami.okinawa.jp/guidemap: an official source for Zamami restaurants.
 
 ## Searches
-1 Miyazato JA · 2 Miyazato EN · 3 Shirasa JA · 4 Shirasa domain · 5 Hakoniwa · 6 Kokuu · 7 Iejima · 8 Iejima domain · 9 Tototo · 10 Agai · 11 Yukuru · 12 Tōfu EN · 13 Tōfu domain · 14 Boku no Mise · 15 Kihachi · 16 Marukami · 17 Zhyvago · 18 Blue Turtle Farm · 19 Blue Turtle 2 · 20-22 Haisai Tanteidan ×3 · then pin searches for Tōfu no Higa and Marukami (counts adjusted: 22 total).
+1 Miyazato JA · 2 Miyazato EN · 3 Shirasa JA · 4 Shirasa domain · 5 Hakoniwa · 6 Kokuu · 7 Iejima · 8 Iejima domain · 9 Tototo · 10 Agai · 11 Yukuru · 12 Tōfu EN · 13 Tōfu domain · 14 Boku no Mise · 15 Kihachi · 16 Marukami · 17 Zhyvago · 18 Blue Turtle Farm · 19 Blue Turtle 2 · 20-22 Haisai Tanteidan ×3 · 23 Tōfu no Higa pin · 24 Marukami pin.
