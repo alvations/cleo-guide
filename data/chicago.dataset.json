@@ -7995,6 +7995,50 @@
    ]
   },
   {
+   "t": 2,
+   "a": "SUB",
+   "n": "Bennison's Bakery",
+   "ad": "1000 Davis St, Evanston, IL 60201",
+   "w": "Evanston's European-style bakery since 1938 — ~700 customers a day for strudel, Danish and Fat Tuesday pączki.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "MEDILL",
+     "https://news.medill.northwestern.edu/chicago/?p=55954"
+    ],
+    [
+     "TIMEOUT",
+     "https://timeout.com/chicago/things-to-do/evanston-residents-tell-us-their-favorite-spots-in-the-city"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUB",
+   "n": "Temperance Beer Co.",
+   "ad": "Evanston, IL",
+   "w": "Evanston's first craft brewery (2013), cheekily named for the dry town's temperance history.",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "WBEZ",
+     "https://www.wbez.org/culture/2013/12/19/evanstons-first-craft-brewery-is-temperance-in-name-only"
+    ],
+    [
+     "BREWBOUND",
+     "https://www.brewbound.com/news/temperance-beer-company-to-open-tap-room-december-20"
+    ],
+    [
+     "EVANSTONROUNDTABLE",
+     "https://evanstonroundtable.com/2022/04/26/temperance-beer-company-brews-up-local-business-partnerships-and-community-support%EF%BF%BC/"
+    ]
+   ]
+  },
+  {
    "t": 1,
    "a": "FAR",
    "n": "Lexington Betty Smokehouse",
@@ -8432,6 +8476,56 @@
     [
      "ABC7",
      "https://abc7chicago.com/archive/7911523"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Cafe Jumping Bean",
+   "ad": "1439 W 18th St, Chicago, IL 60608",
+   "w": "One of Pilsen's first coffeehouse-galleries (1994), opened by Eleazar Delgado in an old barber shop at 18th & Bishop — a neighbourhood living room for artists.",
+   "cz": [
+    "COF"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/reviews/cafe-jumping-bean"
+    ],
+    [
+     "CHICAGOIST",
+     "https://chicagoist.com/2014/01/04/pilsens_cafe_jumping_bean_celebrate.php"
+    ],
+    [
+     "SOUTHSIDEWEEKLY",
+     "https://southsideweekly.com/the-jumping-bean/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Dusek's Board & Beer — CLOSED",
+   "ad": "Thalia Hall, S Allport St at 18th St, Pilsen, Chicago",
+   "w": "CLOSED 31 Dec 2023: the Thalia Hall gastropub that won a Michelin star (2016) and helped revive Pilsen's 1892 hall; Thalia Hall's music room carries on.",
+   "closed": true,
+   "cz": [
+    "BAR",
+    "US"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Dusek%27s_Board_%26_Beer"
+    ],
+    [
+     "DNAINFO",
+     "https://www.dnainfo.com/chicago/20130927/pilsen/duseks-board-beer-opens-at-thalia-hall"
+    ],
+    [
+     "CHICAGOIST",
+     "https://chicagoist.com/2013/10/02/restaurant_news_duseks_board_and_be.php"
     ]
    ]
   },
@@ -9176,6 +9270,246 @@
      "https://www.timeout.com/chicago/restaurants/spinning-j-bakery-soda-fountain"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Gale Street Inn",
+   "ad": "Milwaukee Ave at Gale St (SW corner), Jefferson Park, Chicago",
+   "w": "Jefferson Park's oldest tavern-ribhouse (1963), by the Blue Line terminal — closed abruptly, then officially reopened (WGN).",
+   "cz": [
+    "CHX",
+    "US"
+   ],
+   "s": [
+    [
+     "CHIBARPROJECT",
+     "https://chibarproject.com/reviews/galestreet/"
+    ],
+    [
+     "WGN",
+     "https://wgntv.com/news/chicago-news/iconic-gale-street-inn-officially-reopens-in-chicagos-jefferson-park/amp/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Chief O'Neill's Pub & Restaurant",
+   "ad": "",
+   "w": "Avondale Irish pub (1999) named for Chicago's Irish-music-collecting police chief Francis O'Neill — the only Chicago pick in a national top-50 Irish bars list.",
+   "cz": [
+    "EU",
+    "BAR"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://timeout.com/chicago/bars/chief-oneills-pub"
+    ],
+    [
+     "DNAINFO",
+     "https://www.dnainfo.com/chicago/20170322/avondale/chief-oneills-st-patricks-day-best-top-50-irish-bar-united-states-yelp-travel-leisure/"
+    ],
+    [
+     "CHIBARPROJECT",
+     "https://chibarproject.com/reviews/chief"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Mader's Restaurant",
+   "ad": "Old World Third Street, downtown Milwaukee, WI",
+   "w": "Milwaukee's German restaurant since 1902 — a tavern turned Prohibition-era kitchen, still family-run on Old World Third Street.",
+   "cz": [
+    "EU"
+   ],
+   "s": [
+    [
+     "MILWAUKEERECORD",
+     "https://milwaukeerecord.com/food-drink/mandatory-milwaukee-maders-has-been-a-downtown-dining-staple-since-1902/"
+    ],
+    [
+     "ONMILWAUKEE",
+     "https://onmilwaukee.com/articles/maders-spelunking"
+    ],
+    [
+     "URBANMILWAUKEE",
+     "https://urbanmilwaukee.com/?p=27999"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Sobelman's Pub & Grill",
+   "ad": "W St. Paul Ave, Milwaukee, WI",
+   "w": "Milwaukee pub famous for its absurdly garnished bloody marys (a whole fried chicken on top) and some of the city's most popular burgers.",
+   "cz": [
+    "DOG",
+    "BAR"
+   ],
+   "s": [
+    [
+     "TMJ4",
+     "https://www.tmj4.com/news/local-news/were-open-sobelmans-pub-and-grill-has-some-of-the-most-popular-burgers-in-town"
+    ],
+    [
+     "FOXNEWS",
+     "https://www.foxnews.com/food-drink/milwaukee-pub-creates-50-bloody-mary-with-a-whole-fried-chicken"
+    ],
+    [
+     "NPR",
+     "https://www.npr.org/2012/12/12/167029249/the-last-word-in-business"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Gilles Frozen Custard",
+   "ad": "7515 W Bluemound Rd, Milwaukee, WI",
+   "w": "Milwaukee's first and Wisconsin's oldest frozen-custard stand (1938), built by Paul Gilles after he saw the lines at Chicago's 1933 World's Fair.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "CBS58",
+     "https://cbs58.com/news/its-a-legacy-gilles-frozen-custard-stand-celebrates-85-years"
+    ],
+    [
+     "ONMILWAUKEE",
+     "https://onmilwaukee.com/articles/gillesoldest"
+    ],
+    [
+     "TRAVELWISCONSIN",
+     "https://www.travelwisconsin.com/food-drink/restaurants/gilles-frozen-custard-milwaukee"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Exchequer Restaurant & Pub",
+   "ad": "226 S Wabash Ave, Chicago, IL 60604",
+   "w": "Family-run Loop pub since 1969 in a reputed Capone-era speakeasy — a less-crowded deep-dish alternative a block from Miller's Pub.",
+   "cz": [
+    "PZ",
+    "BAR"
+   ],
+   "g": [
+    "SPEAK"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://theinfatuation.com/chicago/reviews/exchequer-restaurant-and-pub"
+    ],
+    [
+     "CHIBARPROJECT",
+     "https://chibarproject.com/reviews/exchequer/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/bars/exchequer-restaurant-pub"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Cindy's Rooftop",
+   "ad": "13th floor, Chicago Athletic Association hotel, S Michigan Ave, Chicago",
+   "w": "The rooftop bar-restaurant of the 1893 Chicago Athletic Association — named Chicago's No. 1 rooftop restaurant by Time Out (2025), with a sweeping view of Millennium Park.",
+   "cz": [
+    "BAR",
+    "US"
+   ],
+   "g": [
+    "ROOF",
+    "SPEAK"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/news/chicago-has-a-new-no-1-rooftop-restaurant-according-to-time-out-082725"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/food-drink/chicago-rooftop-bars-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "LH Rooftop (LondonHouse)",
+   "ad": "21st–22nd floors, LondonHouse hotel, Michigan Ave at Wacker Dr, Chicago",
+   "w": "Indoor-outdoor rooftop bar on the 21st–22nd floors of the LondonHouse — one of the best vantage points on the Chicago River's architecture.",
+   "cz": [
+    "BAR"
+   ],
+   "g": [
+    "ROOF",
+    "SPEAK"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/bars/rooftop-bars-the-best-outdoor-drinking-patios-in-chicago"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/food-drink/chicagos-all-season-rooftop-bars-and-lounges/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Sabri Nihari",
+   "ad": "W Devon Ave, West Ridge, Chicago",
+   "w": "Devon Avenue's Pakistani standard-bearer since 1996 — Time Out says its namesake nihari will make you consider moving to Devon.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://theinfatuation.com/chicago/reviews/sabri-nihari"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/Sabri-Nihari"
+    ],
+    [
+     "CHICAGOIST",
+     "https://chicagoist.com/2006/10/20/north_side_restaurant_review_sabri_nehari.php"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Tank Noodle",
+   "ad": "4953 N Broadway, Chicago, IL 60640",
+   "w": "Argyle's Little Saigon anchor by the Red Line — the city's go-to pho house with a phone-book-length Vietnamese menu.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://theinfatuation.com/chicago/reviews/tank-noodle"
+    ],
+    [
+     "TASTINGTABLE",
+     "https://tastingtable.com/684927/argyle-street-secrets-revealed-by-chefs"
+    ]
+   ]
   }
  ],
  "S": {
@@ -9463,6 +9797,18 @@
    "u": "",
    "l": ""
   },
+  "BREWBOUND": {
+   "k": "BREWBOUND",
+   "t": "BREWBOUND",
+   "u": "",
+   "l": ""
+  },
+  "CBS58": {
+   "k": "CBS58",
+   "t": "CBS58",
+   "u": "",
+   "l": ""
+  },
   "CHIBARPROJECT": {
    "k": "CHIBARPROJECT",
    "t": "CHIBARPROJECT",
@@ -9547,6 +9893,12 @@
    "u": "",
    "l": ""
   },
+  "EVANSTONROUNDTABLE": {
+   "k": "EVANSTONROUNDTABLE",
+   "t": "EVANSTONROUNDTABLE",
+   "u": "",
+   "l": ""
+  },
   "FATHOM": {
    "k": "FATHOM",
    "t": "FATHOM",
@@ -9568,6 +9920,12 @@
   "FOX32": {
    "k": "FOX32",
    "t": "FOX32",
+   "u": "",
+   "l": ""
+  },
+  "FOXNEWS": {
+   "k": "FOXNEWS",
+   "t": "FOXNEWS",
    "u": "",
    "l": ""
   },
@@ -9631,6 +9989,12 @@
    "u": "",
    "l": ""
   },
+  "MEDILL": {
+   "k": "MEDILL",
+   "t": "MEDILL",
+   "u": "",
+   "l": ""
+  },
   "MICHELIN": {
    "k": "MICHELIN",
    "t": "MICHELIN Guide Chicago (stars + Bib Gourmand)",
@@ -9664,6 +10028,12 @@
   "NODEPRESSION": {
    "k": "NODEPRESSION",
    "t": "NODEPRESSION",
+   "u": "",
+   "l": ""
+  },
+  "NPR": {
+   "k": "NPR",
+   "t": "NPR",
    "u": "",
    "l": ""
   },
@@ -9811,6 +10181,12 @@
    "u": "https://www.timeout.com/chicago",
    "l": "Time Out Chicago"
   },
+  "TMJ4": {
+   "k": "TMJ4",
+   "t": "TMJ4",
+   "u": "",
+   "l": ""
+  },
   "TRAVELWISCONSIN": {
    "k": "TRAVELWISCONSIN",
    "t": "TRAVELWISCONSIN",
@@ -9826,6 +10202,12 @@
   "UCHICAGOMAG": {
    "k": "UCHICAGOMAG",
    "t": "UCHICAGOMAG",
+   "u": "",
+   "l": ""
+  },
+  "URBANMILWAUKEE": {
+   "k": "URBANMILWAUKEE",
+   "t": "URBANMILWAUKEE",
    "u": "",
    "l": ""
   },

@@ -212,3 +212,18 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
   Five Holy Martyrs, Graue Mill, St. Procopius (2nd credible source missing); Aurelio's Homewood original + Nancy's Harwood Heights original (which branch
   is the original still operating is unclear); Apachee Grill, Don Jose Tamaleria (Nagrant only).
 - Build: 401 researched / 227 rendered; 4 gates PASS; validate + test PASS.
+
+## 2026-10-03 (session 4 / wave 3) · batch 6 + close-out (≈190 searches total, no sub-agents)
+- Food & drink +14: Cafe Jumping Bean, Dusek's Board & Beer — CLOSED (Michelin star 2016; closed 31 Dec 2023 per Wikipedia — notable, kept flagged),
+  Gale Street Inn (reopened, WGN), Chief O'Neill's, Bennison's Bakery, Temperance Beer, Mader's, Sobelman's, Gilles Frozen Custard, Exchequer, Cindy's
+  Rooftop (Time Out No. 1 rooftop restaurant 2025), LH Rooftop, Sabri Nihari, Tank Noodle (Infatuation + Tasting Table — promoted from the held list).
+- Status/pins: FitzGerald's pinned (HMDB/Wikipedia coord, med); Murphy's Bleachers confirmed operating (2026-season event listings); Janson's — owner died
+  Dec 2024, operating status still unconfirmed (kept 'unchecked', unpinned).
+- Held: Ann Sather (closed on Belmont; reopening Oct 2026 at 3042 N Broadway — add once open), Rosebud Taylor St (reopening, date unclear), Red Apple
+  (Milwaukee Ave branch CLOSED per Time Out; Norwood Park branch unverified), Staropolska (conflicting addresses), Hemmingway's Bistro.
+- Channel mix (session 4, 120 places): editorial/travel (Time Out, Infatuation, Chicago Mag, Tasting Table, Saveur, CNN, Condé Nast via search) ≈70 ·
+  local press (Block Club, DNAinfo, South Side Weekly, Chicagoist, WTTW/WBEZ, Wednesday Journal, Austin Weekly, Lansing Journal, Medill, Patch,
+  Milwaukee Record/OnMilwaukee) ≈45 · institutional (NPS, City landmarks, Michelin Bib, Wikipedia-NRHP) ≈25 · critics/creators (Steve Dolinsky,
+  Michael Nagrant, Chicago Bar Project, Keith Lee) ≈20 (places carry 2–4 sources, so channels overlap).
+- Final build: 415 researched / 228 rendered (160 sights + 68 food); food 58% overall; DAY now OK; sourcecheck/geocheck/statuscheck/buildcheck PASS;
+  npm run validate DATA OK; npm test ALL PASS.

@@ -61651,11 +61651,11 @@
    },
    "FitzGerald's Nightclub": {
     "address": "6615 Roosevelt Rd, Berwyn, IL 60402",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.8652,
+    "lng": -87.7897,
+    "source": "Published coordinate 41°51.912′N 87°47.382′W (HMDB marker m=272029 / Wikipedia, WebSearch 2026-10-03); grid-check Roosevelt Rd (1200 S) at 6615 W",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "https://chicago.suntimes.com/entertainment-culture/2025/05/09/fitzgeralds-berwyn-club-music-venue-chicago (Sun-Times May 2025 — operating, NRHP listing)",
     "statusChecked": "2026-10-03",
@@ -61779,7 +61779,7 @@
     "status": "unchecked",
     "statusSource": "",
     "statusChecked": "2026-10-03",
-    "note": "FAR | status needs a 2025-26 check (Beverly Review Jan 2025 article not read)"
+    "note": "FAR | status needs a 2025-26 check (Beverly Review Jan 2025 article not read) | owner Joe Janson died Dec 2024 (Beverly Review) — operating status after that unconfirmed"
    },
    "Longman & Eagle": {
     "address": "2657 N Kedzie Ave, Chicago, IL 60647",
@@ -62028,10 +62028,10 @@
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
-    "status": "unchecked",
-    "statusSource": "",
+    "status": "open",
+    "statusSource": "https://ma.to/event/yankees-vs-cubs-at-murphys-31-jul-2026 (2026-season event listing at the bar) + https://www.choosechicago.com/blog/tours-attractions/things-to-do-in-wrigleyville/",
     "statusChecked": "2026-10-03",
-    "note": "NORTH | status needs a 2025-26 check (owner Beth Murphy died; bar presumed operating)"
+    "note": "NORTH"
    },
    "Southport Lanes — CLOSED": {
     "address": "Southport Ave at Henderson St, Lakeview, Chicago",
@@ -62476,6 +62476,174 @@
     "statusSource": "https://home.nps.gov/thingstodo/explore-the-national-a-philip-randolph-pullman-porter-museum.htm (NPS, updated Jan 2026)",
     "statusChecked": "2026-10-03",
     "note": "FAR"
+   },
+   "Cafe Jumping Bean": {
+    "address": "1439 W 18th St, Chicago, IL 60608",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://whatnow.com/?p=341559 (third location coming to Pilsen — operating and expanding) + Infatuation listing",
+    "statusChecked": "2026-10-03",
+    "note": "WEST"
+   },
+   "Dusek's Board & Beer — CLOSED": {
+    "address": "Thalia Hall, S Allport St at 18th St, Pilsen, Chicago",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "closed",
+    "statusSource": "https://en.wikipedia.org/wiki/Dusek%27s_Board_%26_Beer (closed December 31, 2023)",
+    "statusChecked": "2026-10-03",
+    "note": "WEST"
+   },
+   "Gale Street Inn": {
+    "address": "Milwaukee Ave at Gale St (SW corner), Jefferson Park, Chicago",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://wgntv.com/news/chicago-news/iconic-gale-street-inn-officially-reopens-in-chicagos-jefferson-park/amp/ (WGN — officially reopened after an abrupt closure)",
+    "statusChecked": "2026-10-03",
+    "note": "NW | street number pending"
+   },
+   "Chief O'Neill's Pub & Restaurant": {
+    "address": "",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unchecked",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "NW | address + status pending"
+   },
+   "Bennison's Bakery": {
+    "address": "1000 Davis St, Evanston, IL 60201",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://news.medill.northwestern.edu/chicago/?p=55954 (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "SUB"
+   },
+   "Temperance Beer Co.": {
+    "address": "Evanston, IL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.VisitChicagoNorthShore.com/TemperanceBeer?v=926 (CVB listing, current) + Evanston RoundTable 2022",
+    "statusChecked": "2026-10-03",
+    "note": "SUB | street address pending"
+   },
+   "Mader's Restaurant": {
+    "address": "Old World Third Street, downtown Milwaukee, WI",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://onmilwaukee.com/articles/maders-spelunking (OnMilwaukee Oct 2021) + Milwaukee Record 'Mandatory Milwaukee'; no closure reported",
+    "statusChecked": "2026-10-03",
+    "note": "DAY | street number pending"
+   },
+   "Sobelman's Pub & Grill": {
+    "address": "W St. Paul Ave, Milwaukee, WI",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "unchecked",
+    "statusSource": "",
+    "statusChecked": "2026-10-03",
+    "note": "DAY | street number + 2025-26 status pending"
+   },
+   "Gilles Frozen Custard": {
+    "address": "7515 W Bluemound Rd, Milwaukee, WI",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://cbs58.com/news/its-a-legacy-gilles-frozen-custard-stand-celebrates-85-years (CBS58 — 85th anniversary, 2023; operating) + Travel Wisconsin listing",
+    "statusChecked": "2026-10-03",
+    "note": "DAY"
+   },
+   "Exchequer Restaurant & Pub": {
+    "address": "226 S Wabash Ave, Chicago, IL 60604",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://theinfatuation.com/chicago/reviews/exchequer-restaurant-and-pub (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "LOOP"
+   },
+   "Cindy's Rooftop": {
+    "address": "13th floor, Chicago Athletic Association hotel, S Michigan Ave, Chicago",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/news/chicago-has-a-new-no-1-rooftop-restaurant-according-to-time-out-082725 (Time Out Aug 2025 — operating)",
+    "statusChecked": "2026-10-03",
+    "note": "LOOP | street number pending"
+   },
+   "LH Rooftop (LondonHouse)": {
+    "address": "21st–22nd floors, LondonHouse hotel, Michigan Ave at Wacker Dr, Chicago",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/chicago/bars/rooftop-bars-the-best-outdoor-drinking-patios-in-chicago (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "LOOP | street number pending"
+   },
+   "Sabri Nihari": {
+    "address": "W Devon Ave, West Ridge, Chicago",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://theinfatuation.com/chicago/reviews/sabri-nihari (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH | street number pending"
+   },
+   "Tank Noodle": {
+    "address": "4953 N Broadway, Chicago, IL 60640",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://theinfatuation.com/chicago/reviews/tank-noodle (current listing, search 2026-10-03; no closure reported)",
+    "statusChecked": "2026-10-03",
+    "note": "NORTH"
    }
   },
   "philadelphia-pa": {

@@ -10,10 +10,10 @@ for f in glob.glob('data/chicago-research/[FS]*_*.json'):
 h=open('cities/chicago.html').read()
 P=h[h.index('const P = ['):].split('\n];')[0].count('{t:'); F=h[h.index('const F = ['):].split('\n];')[0].count('{t:')
 s=open('index.html').read()
-s=re.sub(r'(<!-- CARD:chicago-il -->.*?<p class="stat">)[^<]*(</p>)', lambda m:m.group(1)+f'{P} sights · {F} food on the map ({n} researched) · updated 2026-10-02'+m.group(2), s, flags=re.S)
+s=re.sub(r'(<!-- CARD:chicago-il -->.*?<p class="stat">)[^<]*(</p>)', lambda m:m.group(1)+f'{P} sights · {F} food on the map ({n} researched) · updated 2026-10-03'+m.group(2), s, flags=re.S)
 open('index.html','w').write(s)
 c=open('docs/CITIES.md').read()
-c=re.sub(r'(\| `data/chicago-research/` \| )\d+( \| \*\*live \(growing\)\*\* 2026-10-02 · )\d+ researched / \d+ pinned \(\d+ sights \+ \d+ food\)', lambda m:m.group(1)+str(P+F)+m.group(2)+f'{n} researched / {P+F} pinned ({P} sights + {F} food)', c)
+c=re.sub(r'(\| `data/chicago-research/` \| )\d+( \| \*\*live \(growing\)\*\* )\d{4}-\d\d-\d\d( · )\d+ researched / \d+ pinned \(\d+ sights \+ \d+ food\)', lambda m:m.group(1)+str(P+F)+m.group(2)+'2026-10-03'+m.group(3)+f'{n} researched / {P+F} pinned ({P} sights + {F} food)', c)
 open('docs/CITIES.md','w').write(c)
 print('counts', n, P, F)
 PY

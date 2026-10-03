@@ -41,16 +41,37 @@
   have NO address/status check yet: MingHin, Maple & Ash, Tzuco, Michael Jordan's, Warlord, Sol de Mexico, Lost Lake, Milk Room, Papa's Cache,
   Smak-Tak, Kasia's, Lost Larson, Loaf Lounge, Hewn, Bang Bang, Brown Sugar, Josephine's, Do-Rite, Old Fashioned Donuts, Chiu Quon
   (+ all of FOOD_W14.json, never geocoded).
+- 2026-10-03 (session 4 / wave 3, FINAL): **415 researched (241 food & drink = 58%), 228 rendered (160 sights + 68 food)**; 4 gates +
+  validate + test green; card + CITIES.md + AGENT-PROMPTS run-log refreshed. ~190 searches, no sub-agents.
+  Per area (food+sights / target, density.py): LOOP 54+46=100/110 · NORTH 45+28=73/85 · NW 55+11=66/80 · WEST 21+12=33/50 · SOUTH 23+26=49/60 ·
+  SW 6+10=16/25 · FAR 11+10=21/30 · SUB 19+18=37/50 · DAY 7+13=20/20 **OK**.
+  New files: FOOD_W15.json (SUB/SW/FAR/SOUTH food, 30), FOOD_W16.json (WEST/SOUTH, 20), FOOD_W17.json (NORTH/NW/LOOP/DAY, 42),
+  SIGHTS_W10.json (27), CREATORS_W2.json; geo/_geoout_w15.json (food rows: address + status, 5 pinned) and geo/_geoout_w15s.json (sights, 14 pinned);
+  lead ledger _chi_w15_leads.md; helpers _chi_batch.py (records + geo rows in one go), _chi_geo_add.py, _chi_has.py (dup check — also grep old names!).
+  **187 unpinned** (UNVERIFIED in docs/GEOCODE-BACKLOG.md): nearly all restaurants — WebSearch surfaces no Wikipedia/latlong POI/Apple place pin for them;
+  aggregator coords (frankiapp/thatch/mapstr) are rejected per precedent.
+  **Status still unchecked (11):** Janson's Drive-In (owner died Dec 2024), Piece, Spinning J, Peach's on 47th, Chi Cafe, Nine Bar, FEW Spirits,
+  Lindy's & Gertie's (Archer), Chief O'Neill's, Sobelman's, The Plant. **Street number pending:** Simon's Tavern, J.P. Graziano, Garrett (Michigan Ave),
+  Bob Chinn's, Jimmy's Woodlawn Tap, Ramova Grill, Gayety's, Gale Street Inn, Temperance, Mader's, Cindy's, LH Rooftop, Sabri Nihari, Piece, Spinning J,
+  Chief O'Neill's, Chi Cafe, Nine Bar.
 
 ## In-flight wave
-**W3 / session 4 (2026-10-03)** — food & drink first in SUB, SOUTH, WEST, SW, FAR (+DAY); then pin the 86 unpinned.
-- Files it will write: `FOOD_W15.json` (SUB/SW/FAR food), `FOOD_W16.json` (SOUTH/WEST food), `FOOD_W17.json` (NORTH/NW/LOOP/DAY),
-  `SIGHTS_W10.json`, `CREATORS_W2.json`, `geo/_geoout_w15.json` (pins for new + backlog).
-- Queries: corroborate the held single-source list in AUDIT.md first (Tony's, Carm's, J.P. Graziano, Phil's, Candlelite, Marie's,
-  Pearl's Place, St. Rest, Nine Bar, Svea, Sweet Mandy B's…), suburban lists (Hungry Hound, Chicago Mag suburbs), Pilsen/Little
-  Village, Beverly/Chatham, creator queries (Portnoy One Bite, Keith Lee, YouTube food tours), Milwaukee/Lake Geneva food.
+(none — session 4 closed cleanly at the search budget.)
 
 ## Next actions (ordered)
+**Session-5 plan (next wave):**
+  (a) PINS are now the main gap (187 unpinned, 228 rendered of 415): run `tools/geocode-helper.html` on the UNVERIFIED list, or a pin pass that tries
+      Wikipedia/Wikidata first, then latlong.net POI / Apple Maps place links (accept only these + Google !3d!4d); grid-check every coordinate.
+  (b) Close the 11 unchecked statuses + 18 street numbers above (batch 3 names per query: "<name> <neighbourhood> address hours 2026").
+  (c) Discovery for the remaining NEED: WEST +17 (Little Italy — Pompei/Rosebud reopening, Conte di Savoia; Pilsen — HaiSous, La Mejikana, Cerdito Muerto;
+      Little Village — La Catedral, Nuevo Leon; Garfield Park/Austin), NW +14 (sights: Logan Square boulevards, Wicker Park district, Northwest Tower;
+      food: Map Room, Staropolska, Red Apple Norwood Park, Resi's/Laschet's 2nd source), SUB +13 (Oak Park/Evanston/Berwyn — Hemmingway's, Kinderhook,
+      Graue Mill + Elmhurst Art Museum sights), NORTH +12 (Ann Sather reopens Oct 2026 at 3042 N Broadway; Gene's Sausage; Devon — Ghareeb Nawaz/Usmania),
+      SOUTH +11 (Qing Xiang Yuan 2nd source; Medici 2nd source; Bronzeville Winery; Oak Woods Cemetery precise coord), LOOP +10 (Portillo's River
+      North 2nd source; Xoco; Time Out Market), SW +9 (Nagrant's Apachee Grill/Don Jose 2nd source; Marz, Whiner; Five Holy Martyrs), FAR +9 (Cork & Kerry 2nd source,
+      Pullman sights; Hegewisch; Rosangela's → SUB).
+  (d) Re-verify (4b) the med pins: Lou Malnati's Lincolnwood, Old Town School, Couch Tomb, Garfield Park Fieldhouse, Pilsen HD, Griffin Place,
+      FitzGerald's, Dawes House, Bubbly Creek.
 0. **Session-4 plan (next wave):** (a) geocode + status agent for the 20 unchecked + FOOD_W14 (34 places; accepted pin sources:
    latlong.net POI, Wikipedia, Apple Maps place links, Atlas Obscura, OSM/mapcarta, Google !3d!4d — NOT frankiapp-type aggregators);
    (b) food discovery for the thin areas: SUB (Lou Malnati's Lincolnwood, Edzo's, Scatchell's, Bob Chinn's, Al Bawadi, Oak Park/Evanston/
