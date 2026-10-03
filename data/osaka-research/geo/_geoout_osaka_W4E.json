@@ -1,0 +1,62 @@
+[
+ {
+  "n": "RODDA group (ロッダグループ)",
+  "address": "1-23-9 Chiyozaki, Nishi-ku, Osaka",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "address from Tabelog listing https://tabelog.com/osaka/A2701/A270401/27056190/ ; no place-pin coordinate obtained",
+  "status": "open",
+  "statusSource": "Tabelog Asia/Ethnic Hyakumeiten 2026 listing (active) https://tabelog.com/osaka/A2701/A270401/rank/ (checked 2026-10-03)"
+ },
+ {
+  "n": "Osaka municipal ferries (Tempozan & Taishō crossings)",
+  "address": "3-2-25 Chikkō, Minato-ku, Osaka (Tempozan landing)",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "landing addresses from ja.wikipedia 大阪市の公営渡船 https://ja.wikipedia.org/wiki/%E5%A4%A7%E9%98%AA%E5%B8%82%E3%81%AE%E5%85%AC%E5%96%B6%E6%B8%A1%E8%88%B9 ; no coordinate",
+  "status": "open",
+  "statusSource": "OSAKA-INFO Tempozan Ferry Landing https://osaka-info.jp/experience/en/osaka/spot/613 (checked 2026-10-03)"
+ },
+ {
+  "n": "Osaka Nanko Bird Sanctuary (大阪南港野鳥園)",
+  "address": "Nankō-kita, Suminoe-ku, Osaka",
+  "lat": 34.634833,
+  "lng": 135.399694,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia infobox 座標 https://ja.wikipedia.org/wiki/%E5%A4%A7%E9%98%AA%E5%8D%97%E6%B8%AF%E9%87%8E%E9%B3%A5%E5%9C%92",
+  "status": "open",
+  "statusSource": "japan-guide Osaka Bay Area (hours 9-17, closed Wed) https://www.japan-guide.com/e/e4010.html (checked 2026-10-03)"
+ },
+ {
+  "n": "ATC — Asia & Pacific Trade Center",
+  "address": "Nankō-kita, Suminoe-ku, Osaka",
+  "lat": 34.638222,
+  "lng": 135.411361,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia infobox 座標 https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%B8%E3%82%A2%E5%A4%AA%E5%B9%B3%E6%B4%8B%E3%83%88%E3%83%AC%E3%83%BC%E3%83%89%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC",
+  "status": "open",
+  "statusSource": "OSAKA-INFO EXPERIENCE spot 439 https://osaka-info.jp/experience/en/osaka/spot/439 (checked 2026-10-03)"
+ },
+ {
+  "n": "Santa Maria cruise (Osaka Port)",
+  "address": "Kaiyūkan West Pier, Kaigandori, Minato-ku, Osaka",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "pier described in ja.wikipedia 大阪水上バス; no coordinate",
+  "status": "open",
+  "statusSource": "OSAKA-INFO https://osaka-info.jp/en/spot/osaka-bay-cruise-santa-maria2022/ (checked 2026-10-03)"
+ },
+ {
+  "n": "LEGOLAND Discovery Center Osaka",
+  "address": "1-1-10 Kaigandori, Minato-ku, Osaka 552-0022",
+  "lat": 34.655806,
+  "lng": 135.430167,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia infobox 座標 https://ja.wikipedia.org/wiki/%E3%83%AC%E3%82%B4%E3%83%A9%E3%83%B3%E3%83%89%E3%83%BB%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AB%E3%83%90%E3%83%AA%E3%83%BC%E3%83%BB%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E5%A4%A7%E9%98%AA",
+  "status": "open",
+  "statusSource": "OSAKA-INFO spot page with current hours/price https://osaka-info.jp/en/spot/legoland-discovery-center-osaka/ (checked 2026-10-03)"
+ }
+]
