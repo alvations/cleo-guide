@@ -135,3 +135,24 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   (main ≈ 95 logged + ≈ 30 tool sub-searches; subagents 29 + 18 + 16 + 12 + 10 = 85).
 - **Build 3:** sourcecheck 357 PASS (42 lone authority); geocheck PASS; statuscheck CONSISTENT (1 closed on page, 0 unchecked);
   buildcheck PASS; `npm run validate` DATA OK; `npm test` ALL PASS. Card: 92 sights · 12 food on the map (357 researched, 66%).
+
+## 2026-10-03 (session 4) · wave F6/S7 batch 1 + geocode w9
+- **Sources (channel mix):** GMCVB (Pinecrest Gardens, Amelia Earhart Park, Jungle Island, Bayside, LHCC venue pages), Time Out
+  Miami venue pages (Gold Coast RR, Wings Over Miami, Pinecrest Gardens, Taquiza, Papi Steak, CJ's, Abbalé via 24 best SB),
+  Wikipedia (sight 2nd source + coords), AFAR (LHCC), Miami New Times (Milly's, Black Point Ocean Grill, Papi Steak, CJ's),
+  Infatuation reviews (Milly's, Black Point, Taquiza 8.2, Abbalé 7.7). Creator query: none yet this batch.
+- **Added (13):** sights 7 — Gold Coast Railroad Museum, Wings Over Miami, Pinecrest Gardens (SDADE); Amelia Earhart Park (LHAV);
+  Bayside Marketplace, Jungle Island (DTB); Little Haiti Cultural Complex (WYN). Food 6 — Milly's Empanada Factory, Black Point
+  Ocean Grill (SDADE); Papi Steak, CJ's Crab Shack, Abbalé, Taquiza (MBCH).
+- **MEASURED & DROPPED:** Kissaki South Beach (Infatuation: permanently closed, non-notable → drop); Casa Isola (Infatuation 6.7,
+  "fusion misses the mark"); Carbone (Infatuation: "average to above average", overpriced); Byblos ("see and be seen").
+- **Held single-source:** Gesu Church, Bay of Pigs Museum (1821 SW 9th St), Black Point Marina, Larry & Penny Thompson Park
+  (Wikipedia only); Cubaocho (GMCVB only); Two Chefs, Café Pastis, Dr. Limón (NT Best Ceviche 2024), Babe's Meat & Counter,
+  Big Pink, Las Olas Cafe, Neya (one outlet each so far).
+- **Geocode w9:** 11 high Wikipedia pins — 6 sights (Gold Coast RR, Wings Over Miami, Pinecrest Gardens, Bayside, Jungle Island)
+  + 5 RESTAURANTS (Versailles, Mai-Kai, Cap's Place, L'Atelier Robuchon, Rustic Inn). LHCC, Amelia Earhart → UNVERIFIED
+  (Wikipedia printed only neighbourhood centroids / no coords). Google `!3d!4d` probe for a restaurant returned nothing (again).
+- **Lesson (tooling):** a geoout row WITHOUT status fields overwrote an existing `statusSource` with '' during merge (Versailles,
+  L'Atelier, Bayside became "status UNVERIFIED"). Fix applied in data: every w9 row now carries status+statusSource.
+  Rule for Miami geo files: never write a coordinate row without status — copy the prior status if unchanged.
+- **Gates:** sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate DATA OK · test ALL PASS.

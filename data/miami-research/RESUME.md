@@ -24,7 +24,10 @@ South Dade belt (SDADE) → the two national parks + the Tamiami Trail (GLADE). 
 municipality/neighbourhood (address).
 
 ## In-flight wave
-- none (session 3 ended cleanly: discovery wave F5/S6 + geocode w4–w8 finished, built, pushed).
+- **Session 4 / wave F6+S7 (2026-10-03)** — files: FOOD_F6.json, SIGHTS_S7.json, CREATORS_F6.json, SOURCES_S4.json,
+  geo/_geoout_w9*.json. Plan: promote held leads (_PENDING_LEADS.md) with one corroborating list-query each; sights in
+  LHAV/WYN/SDADE/DTB/NMIA; food in GLADE; restaurant-pin probes (Wikipedia coords for restaurants with articles).
+  Log every call in _miami_searchlog.md (§ session 4).
 
 ## State
 - 2026-10-02 session 3 FINAL — 357 discovered (234 food & drink = 66%) → 104 pinned (92 sights + 12 food); 4 gates + validate + test green.

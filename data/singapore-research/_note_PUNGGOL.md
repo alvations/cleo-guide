@@ -1,7 +1,7 @@
 # Punggol (PGL): wave notes
 
 ## In-flight wave
-None. W1 stopped early (see below). Next is W2, which needs WebSearch budget.
+**W3 (2026-10-03, PGL+NVN session)** — files FOOD_PUNGGOL3.json, SIGHTS_PUNGGOL3.json, SOURCES_PUNGGOL3.json, CREATORS_PUNGGOL3.json, geo/_geoout_punggol_w4.json. Queries: Oasis Terraces / Punggol Plaza / Northshore / Sumang+Edgefield coffeeshops (Eatbook/SethLui/DFD/MTC), Punggol Coast Mall, creator pass (TikTok/YouTube), heritage sights, Punggol Coast HC + Settlement geocodes.
 
 ## W1 (2026-10-02): discovery, cut short by the WebSearch budget
 **Outcome.** 9 places discovered (5 food + 4 sights) against a target of ~93 (`python3 tools/density.py singapore --area PGL`).
