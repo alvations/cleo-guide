@@ -96,4 +96,13 @@ F(3,"TKC",["SWEET","HOKKAIDO"],"milk jam — farm milk and Hokkaido sugar only �
   [("MAPPLE",MP+"spot/1011886/"),("RURUBU","https://rurubu.jp/andmore/article/14076")],
   status=O,ssrc="MAPPLE spot page (Apr–Dec 10:30–17:00, current)")
 
+S(3,"DHOKU","Snow Crystal Museum, Asahikawa (雪の美術館)","Minamigaoka 3-chōme 1-1, Asahikawa, Hokkaido, Japan",
+  "A Byzantine-style hilltop museum in the Hokkaido Traditional Arts & Crafts Village devoted to snow and ice — snow-crystal photographs, an ice corridor and a 200-seat music hall.",
+  [("MAPPLE",MP+"article/43014/"),("WIKIPEDIA_JA",JA+"%E9%9B%AA%E3%81%AE%E7%BE%8E%E8%A1%93%E9%A4%A8")],
+  43.771722,142.308472,"high","ja.wikipedia 雪の美術館 infobox (北緯43度46分18.2秒 東経142度18分30.5秒) via WebSearch; matches 北海道伝統美術工芸村 infobox (43.771833,142.3085)",O,"MAPPLE 'Asahikawa three famous spots' article (described as operating; no closure found — hours not confirmed)",g=["MUS"])
+S(3,"DHOKU","Hokkaido Ice Pavilion, Kamikawa (北海道アイスパビリオン)","Kamikawa, Kamikawa District, Hokkaido, Japan",
+  "An ice 'museum' on the way to Sōunkyō kept at −20 °C year-round to recreate Japan's record low (−41 °C, Asahikawa 1902) — walk-through halls of 1,000 tonnes of ice walls built up over 25 years.",
+  [("HOKKAIDOTOURISM",VH+"spot/detail_11445.html"),("MAPPLE",MP+"spot/1001400/")],
+  status=O,ssrc="visit-hokkaido.jp spot 11445 (current)",g=["MUS"])
+
 emit("W90", OUTLETS)
