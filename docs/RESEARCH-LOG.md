@@ -522,3 +522,10 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - **OneMap building pins through WebSearch:** `allowed_domains:["onemap.gov.sg"]` + "<BUILDING NAME> - OneMap" returns `onemap.gov.sg/?lat=..&lng=..` result URLs (SLA building points). Resolved Northshore Plaza I, Waterway Terraces I, Royal Square at Novena, Goldhill Plaza, Balmoral Plaza. Misses: Punggol Coast HC, The Punggol Settlement, Tebing Lane, Square 2, Goldhill Centre, Scotts Rd numbers (partial index).
 - **Have Halal Will Travel** is the richest second channel for heartland halal stalls (Selera Sumang, Satay Sumang); confirm each name with a domain-restricted query before filing.
 - **Dead end:** Punggol's credible editorial is shallow beyond the hawker-centre guides; old Settlement/Tebing Lane listings (2015–18) cannot be status-checked by search.
+- 2026-10-03 (Liège W4 + Hokkaido G06): **restaurant place-pins that WebSearch "couldn't" surface** — Belgium:
+  `allowed_domains:["restaurantguru.com","foursquare.com","wanderlog.com","viamichelin.com"]` + `<name> <street> <city>
+  coordinates`, one place per search, ≈85 % hit. **Japan: `allowed_domains:["navitime.co.jp"]` + `<店名1> / <店名2> / <店名3>
+  緯度 経度`** — the NAVITIME POI pages print 緯度経度 + street address, ≈2.4 pins per search (RestaurantGuru/Wanderlog are
+  useless for Japanese shops). Always match the returned address/branch to the record; never convert NAVITIME route-URL
+  lon/lat parameters (Tokyo-datum milliseconds — ~300 m off). Wikidata points for campus-wide/area sights can be the city
+  centroid — reject.
