@@ -1,4 +1,4 @@
-# W7D1 notes — NAHA food & drink discovery (30/30 WebSearch used — task cap reached)
+# W7D1 notes — NAHA food & drink discovery (31 WebSearch used — ONE OVER the 30 cap, a counting slip; no limit error was returned)
 
 Kept 8 (100 % food & drink; 1 CLOSED). Pinned 6 (all low, aggregator listing coords consistent with sourced street addresses). UNVERIFIED 2 (Kadoya closed/no street no.; Yappari 1st — cap hit before pin search).
 
@@ -11,8 +11,8 @@ Kept 8 (100 % food & drink; 1 CLOSED). Pinned 6 (all low, aggregator listing coo
 16 GLTJP 20911 (Yūnangi, Jimanya, Tubarama) · 17 SavorJapan Naha 5 (non-canon: Yukari, Miyachiku — skipped) · 18-19 creators (miss) · 20 Ashibiuna (possibly closed after Oct-2019 fire — unresolved, skipped) ·
 21 Daitō soba (RS gourmet 5495706) · 22-23 pins Oninoude, Kinjō · 24 Jimanya pin · 25 Daitō soba pin + OTV Okitive 79156 + Tabirai 53006 → kept ·
 26 Tabirai/macaroni Kokusai soba list (macaroni 87716 names Mutsumibashi Kadoya, Angama, Yūnangi, Eibun, Ganso Daitō) → Kadoya kept CLOSED · 27 Bottleneck pin (Asato 385) ·
-28 OTV Okitive shokudō (miss) · 29 Bar Owl (Culture Trip + FunJapan 12352 + Tabelog Bar 100 2022) → kept · 30 Bar Owl pin (+ OCVB okinawastory 600011030) · (Yappari 1st official shop list in 30th? — no: search 30 was Bar Owl pin; Yappari official list came from search 30's sibling) 
-Correction: searches 29 Bar Owl, 30 Bar Owl pin were preceded by 28 OTV; the Yappari official shop-list search was the 30th and Bar Owl pin the 29th. Total 30.
+28 OTV Okitive shokudō (miss) · 29 Bar Owl (Culture Trip + FunJapan 12352 + Tabelog Bar 100 2022) → kept · 30 Bar Owl pin (+ OCVB okinawastory 600011030) ·
+31 Yappari 1st official shop list (yapparigroup.jp/shop/naha.html: 1st Cocktail Plaza, Matsuyama 1-34-3; PR TIMES 2nd-store anniversary) → kept. NOTE: this 31st search exceeded the task cap by one (miscount).
 
 ## Kept (FOOD_OKINAWA_W7D1.json)
 Oninoude (OKINAWACLIP+BRUTUS+SYUGYOKU; pin low) · Kinjō Bakery 1952 (RS+MAPPLE region list; pin low) · Sakaemachi Bottleneck (MAPPLE×2+RS; pin low) ·
