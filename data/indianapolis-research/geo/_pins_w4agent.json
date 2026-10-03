@@ -1,0 +1,101 @@
+[
+ {
+  "n": "9th Street Bistro",
+  "lat": 40.045057,
+  "lng": -86.0132957,
+  "geoSource": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/hamilton-county/noblesville-township/noblesville/9th-street-bistro-317-774-5065.htm (WebSearch 2026-10-03)",
+  "confidence": "med",
+  "note": "sanity: downtown Noblesville, just W of the courthouse square (~40.045,-86.009) on S 9th St",
+  "address": "56 S 9th St, Noblesville, IN"
+ },
+ {
+  "n": "Corridor",
+  "lat": 39.8514626,
+  "lng": -86.1386101,
+  "geoSource": "Waze live-map place record https://www.waze.com/live-map/directions/us/in/indianapolis/civvies?to=place.ChIJFZL15stTa4gRiGJwJOZhkc0 (address match 1134 E 54th St; Waze lists the venue under the name civvies; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "note": "sanity: SoBro 54th St strip just E of College Ave (~39.851,-86.141); exact street-number match but place record carries a different venue name",
+  "address": "1134 E 54th St, Indianapolis, IN 46220"
+ },
+ {
+  "n": "Egg Roll #1 (Pho #1)",
+  "lat": 39.7010404,
+  "lng": -86.0833665,
+  "geoSource": "Waze live-map place record https://www.waze.com/live-map/directions/us/in/indianapolis/egg-roll-number-1?to=place.ChIJ7Q6wl9pEa4gRcb60zPYxdvY (name + address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: on S Emerson Ave (~-86.083) in the 4500 S block near Beech Grove/Perry Twp line",
+  "address": "4540 S Emerson Ave, Indianapolis, IN"
+ },
+ {
+  "n": "Oaken Barrel Brewing Co.",
+  "lat": 39.615638075,
+  "lng": -86.090502556,
+  "geoSource": "Waze live-map place record https://www.waze.com/live-map/directions/oaken-barrel-airport-pkwy-50-greenwood?to=place.w.179503500.1795100538.1302518 (name + address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: Greenwood east side on Airport Pkwy near US-31/Main St (~39.61,-86.09)",
+  "address": "50 Airport Pkwy, Greenwood, IN"
+ },
+ {
+  "n": "Field Brewing",
+  "lat": 40.0425243,
+  "lng": -86.1247759,
+  "geoSource": "Waze live-map place record https://www.waze.com/live-map/directions/us/in/westfield/field-brewing?to=place.ChIJ79YhDPOvFIgRFCNadrTh4bk (name + address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: downtown Westfield, E Main St just E of US-31/Union St (~40.043,-86.127)",
+  "address": "303 E Main St, Westfield, IN 46074"
+ },
+ {
+  "n": "Bub's Burgers & Ice Cream",
+  "lat": 39.9785443,
+  "lng": -86.1300139,
+  "geoSource": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/hamilton-county/clay-township/carmel/215639-bubs-burgers-ice-cream.htm (WebSearch 2026-10-03)",
+  "confidence": "med",
+  "note": "sanity: Carmel Main St (~39.978) a few hundred m W of Rangeline Rd (~-86.127), Arts & Design District",
+  "address": "210 W Main St, Carmel, IN 46032"
+ },
+ {
+  "n": "Broad Ripple Brewpub",
+  "lat": 39.873601452,
+  "lng": -86.142851879,
+  "geoSource": "Waze live-map place record https://www.waze.com/live-map/directions/broad-ripple-brewpub-e-65th-st-840-indianapolis?to=place.w.179503503.1794772883.530657 (name match; Waze shows 840 E 65th St vs 842; WebSearch 2026-10-03)",
+  "confidence": "med",
+  "note": "sanity: Broad Ripple, E 65th St just E of College Ave (~39.873,-86.144)",
+  "address": "840 E 65th St, Indianapolis, IN"
+ },
+ {
+  "n": "Fernando's Mexican & Brazilian Cuisine",
+  "lat": 39.8726304,
+  "lng": -86.1431629,
+  "geoSource": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/marion-county/washington-township/indianapolis/fernando-s-mexican-brazilian-cuisine-317-377-4779.htm (WebSearch 2026-10-03)",
+  "confidence": "med",
+  "note": "sanity: Broad Ripple, E 64th St one block S of the Brewpub (~39.8726,-86.143)",
+  "address": "834 E 64th St, Indianapolis, IN"
+ },
+ {
+  "n": "Delicia",
+  "lat": 39.8473778,
+  "lng": -86.1452797,
+  "geoSource": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/marion-county/washington-township/indianapolis/453562-delicia.htm (WebSearch 2026-10-03)",
+  "confidence": "med",
+  "note": "sanity: N College Ave (~-86.145) just N of 52nd St (~39.846)",
+  "address": "5215 N College Ave, Indianapolis, IN"
+ },
+ {
+  "n": "Jockamo Upper Crust Pizza",
+  "lat": 39.770932688,
+  "lng": -86.070693015,
+  "geoSource": "Waze live-map place record https://www.waze.com/live-map/directions/jockamo-pizza-e-washington-st-5646-indianapolis?to=place.w.179503502.1795231625.2142910 (name + address match; WebSearch 2026-10-03)",
+  "confidence": "high",
+  "note": "sanity: Irvington, E Washington St (~39.771) at 5600 E (~-86.07)",
+  "address": "5646 E Washington St, Indianapolis, IN"
+ },
+ {
+  "n": "Kimu Restaurant",
+  "lat": 39.6347968,
+  "lng": -86.1270672,
+  "geoSource": "usarestaurants.info listing https://usarestaurants.info/explore/united-states/indiana/johnson-county/pleasant-township/greenwood/399466-kimu-restaurant.htm (WebSearch 2026-10-03)",
+  "confidence": "med",
+  "note": "sanity: on US-31 (~-86.127) in north Greenwood (~39.635)",
+  "address": "1280 US-31, Greenwood, IN 46142"
+ }
+]

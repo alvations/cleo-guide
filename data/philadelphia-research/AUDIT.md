@@ -407,3 +407,17 @@ corroborating Angelo's only) · Wikipedia (2 sights). Searches: ~122 main thread
   closure/status news).
 - **Gates (final build):** sourcecheck PASS 518 · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test
   ALL PASS. density.py: every area OK (unchanged). Hub card, CITIES.md row, AGENT-PROMPTS run-log row, RESUME (State W6 + W7 plan) updated.
+
+## 2026-10-03 (W7 · PINS ONLY, session_01847XyVQRMAQiVAHDWpaEmS) · batch A
+- **Channel switch:** Apple re-phrasings were exhausted in W6, so W7 uses the **aggregator technique**: one place per WebSearch,
+  `"<Name> <street address> Philadelphia GPS coordinates"` with `allowed_domains` restaurantguru / wanderlog / sirved / restaurantji / menupix
+  (listings carry the place's lat/lng; ~65% hit rate on tier-1s). Waze (`place.ChIJ…`) used where it surfaced (Dim Sum Garden, Amma's → high).
+  Every coordinate was checked against the record's street number/block (cross-street sanity) before it was written; aggregator pins are `med`.
+  Writer: `_pinw.py philadelphia-pa <tag>` (refuses unknown/pinned names, out-of-bbox points; never flips a CLOSED status).
+- **+34 pins** (`geo/_geoout_w7a.json`): Dim Sum Garden, Amma's, Monk's Cafe, Forsythia, Bolo, Nan Zhou, High Street Philly, Tequilas,
+  Han Dynasty (Old City — listings disagree 123 vs 110 Chestnut; both on the same block, med), Iannelli's, John's Water Ice, Hardena, Termini
+  Bros., Isgro, Mike's BBQ, Antonio's Deli, Blue Corn, Bomb Bomb Bar, Farina Di Vita, Southwark, Machine Shop, Sulimay's, Czerw's, Johnny
+  Brenda's, Emmett, R&D, Cantina La Martina, Dahlak, Kilimandjaro, The Dining Car, Georgian Bread, Gaeta's, Freddy & Tony's, Tierra Colombiana.
+- **No coordinate surfaced:** The Franklin Fountain, Vietnam Restaurant, La Jefa, Ogawa, Sarcone's Bakery/Deli, Di Bruno (9th St), Pop's,
+  Pho 75, Philadelphia Brewing Co, Amy's Pastelillos, Amá, Emilia, Denise's Delicacies. Status: none of these listings showed a closure marker.
+- **Build:** 276 → **310 on map**. sourcecheck PASS 518 · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
