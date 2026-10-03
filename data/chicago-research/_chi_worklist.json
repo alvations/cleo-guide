@@ -520,6 +520,16 @@
 "a": "NORTH"
 },
 {
+"n": "Pullman Market Hall",
+"addr": "11159 S Champlain Ave, Chicago, IL 60628",
+"a": "FAR"
+},
+{
+"n": "Polish Triangle (Polonia Triangle)",
+"addr": "Division St / Milwaukee Ave / Ashland Ave, Wicker Park–Noble Square, Chicago",
+"a": "NW"
+},
+{
 "n": "Chicago Botanic Garden",
 "addr": "1000 Lake Cook Rd, Glencoe, IL 60022",
 "a": "SUB"
@@ -1706,12 +1716,12 @@
 },
 {
 "n": "Kasia's Deli",
-"addr": "",
+"addr": "2101 W Chicago Ave, Chicago, IL 60622",
 "a": "NW"
 },
 {
 "n": "Lost Larson",
-"addr": "",
+"addr": "5318 N Clark St, Chicago, IL 60640",
 "a": "NORTH"
 },
 {
@@ -1761,7 +1771,7 @@
 },
 {
 "n": "Taxim",
-"addr": "",
+"addr": "1558 N Milwaukee Ave, Chicago, IL 60622",
 "a": "NW"
 },
 {
@@ -1771,7 +1781,7 @@
 },
 {
 "n": "Cho Sun Ok",
-"addr": "",
+"addr": "4200 N Lincoln Ave, Chicago, IL 60618",
 "a": "NORTH"
 },
 {
@@ -1780,13 +1790,13 @@
 "a": "NORTH"
 },
 {
-"n": "Parachute",
-"addr": "",
+"n": "Parachute — CLOSED",
+"addr": "3500 N Elston Ave, Chicago, IL 60618",
 "a": "NW"
 },
 {
 "n": "Au Cheval",
-"addr": "",
+"addr": "800 W Randolph St, Chicago, IL 60607",
 "a": "LOOP"
 },
 {
@@ -2468,5 +2478,15 @@
 "n": "Zaytune Mediterranean Grill",
 "addr": "Bridgeport, Chicago, IL 60608",
 "a": "SOUTH"
+},
+{
+"n": "Mabe's Deli",
+"addr": "312 E 75th St, Chicago, IL 60619",
+"a": "FAR"
+},
+{
+"n": "La Cecina",
+"addr": "W 47th St, Back of the Yards, Chicago, IL 60609",
+"a": "SW"
 }
 ]
