@@ -83,3 +83,9 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
   (One Punggol operator change 2026). Push with `data/singapore-research/_sg4_push.sh` (auto-resolves the generated GEOCODE-BACKLOG conflict).
 
 - **FINAL (end of session): HLV 57/55 OK (LIVE) · BLS 56/55 OK (go-live held for pins) · NVN 37/55 (NEED +18) · PGL 35/93 (NEED +58).** Late adds: NVN Baan Ying, Banelé; BLS Niu Dian (VIIO @ Balestier); HLV Niu Dian (HV).
+
+## PGL + NVN W3 (2026-10-03) — checkpoint
+- **State:** PGL 50/93 (NEED +43; 23 pinned) · NVN 47/55 (NEED +8; 29 pinned). Details + held lists: `_note_PUNGGOL.md` / `_note_NOVENA.md` "W3".
+- **In-flight wave:** see the notes' `## In-flight wave` (W3 continues in the same session until the budget is spent).
+- **Next:** (1) helper-geocode Punggol Coast HC (84 Punggol Way S829911) + The Punggol Settlement + Northshore Plaza + Scotts Rd 27/35 + Balmoral Plaza — unlocks ~25 PGL/NVN pins; (2) NVN +8 from the held list (Carousel award source, Mun Zuk, Cairnhill conservation, Smiths-style Balmoral/Newton picks); (3) PGL +43: Punggol Settlement/Tebing Lane status pass, Waterway Point/Punggol Plaza, Sumang/Edgefield coffeeshops, creator pass.
+- **Commands:** `python3 tools/density.py singapore` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py singapore --build --geo-only "_geoout_*_w4.json"`

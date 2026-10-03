@@ -4,7 +4,7 @@
    "t": 1,
    "a": "SDADE",
    "n": "Gold Coast Railroad Museum",
-   "address": "12450 SW 152nd St, Miami, FL",
+   "address": "SW 152nd St (across from Zoo Miami), Miami, FL",
    "w": "50-acre rail museum across from Zoo Miami — home of the Ferdinand Magellan, the armoured presidential Pullman used by FDR, Truman, Eisenhower and Reagan; train rides and Florida's largest public model railroad.",
    "sources": [
     [
@@ -22,7 +22,7 @@
    "t": 2,
    "a": "SDADE",
    "n": "Wings Over Miami Air Museum",
-   "address": "Miami Executive Airport (Kendall-Tamiami), 14710 SW 128th St, Miami, FL",
+   "address": "Miami Executive Airport (Kendall-Tamiami), Miami, FL",
    "w": "'Living' aviation museum at the Kendall-Tamiami airport — warbirds that still fly, including a B-26 from the Bay of Pigs invasion.",
    "sources": [
     [
@@ -62,7 +62,7 @@
    "t": 2,
    "a": "LHAV",
    "n": "Amelia Earhart Park",
-   "address": "401 E 65th St, Hialeah, FL",
+   "address": "Hialeah, FL (unincorporated Miami-Dade, north of Hialeah)",
    "w": "515-acre Hialeah park on the old naval air station Earhart flew from — five lakes, the Miami Watersports Complex wakeboard cable, farm village and mountain-bike trails.",
    "sources": [
     [
@@ -98,7 +98,7 @@
    "t": 2,
    "a": "DTB",
    "n": "Jungle Island",
-   "address": "Watson Island, 1111 Parrot Jungle Trail, Miami, FL",
+   "address": "Watson Island, Miami, FL",
    "w": "18-acre tropical zoological park on Watson Island — the successor to Parrot Jungle, with sloths, lemurs, flamingos and macaws.",
    "sources": [
     [
@@ -120,7 +120,7 @@
    "t": 1,
    "a": "WYN",
    "n": "Little Haiti Cultural Complex",
-   "address": "212 NE 59th Terrace, Miami, FL",
+   "address": "Little Haiti, Miami, FL",
    "w": "Haitian arts centre with galleries, a 300-seat theatre, the Saturday Caribbean Marketplace and the monthly Big Night in Little Haiti Kreyòl concerts.",
    "sources": [
     [
@@ -138,7 +138,7 @@
    "t": 1,
    "a": "FTL",
    "n": "NSU Art Museum Fort Lauderdale",
-   "address": "1 E Las Olas Blvd, Fort Lauderdale, FL",
+   "address": "Las Olas Blvd, Fort Lauderdale, FL",
    "w": "Broward's flagship art museum on Las Olas — 7,500+ works incl. the largest US collection of CoBrA art and William Glackens; free first Thursdays.",
    "sources": [
     [
@@ -166,6 +166,82 @@
     [
      "WIKIPEDIA",
      "https://en.wikipedia.org/wiki/Young_at_Art_Museum"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 1,
+   "a": "SDADE",
+   "n": "Cauley Square Historic Village",
+   "address": "Old Dixie Hwy, Goulds (Miami), FL",
+   "w": "10-acre turn-of-the-century railroad workers' village in Goulds — tropical gardens, antique shops, galleries, tearoom and an aviary.",
+   "sources": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/l/attractions/cauley-square-historic-village/1988"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cauley_Square"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "Black Point Park & Marina",
+   "address": "24775 SW 87th Ave, Cutler Bay, FL",
+   "w": "County marina on Biscayne Bay — gateway to Biscayne NP's keys, with the Biscayne Trail loop and a 1.5-mile jetty walk.",
+   "sources": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/l/outdoor-experiences/black-point-park-and-marina/2916"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Black_Point_Marina"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "Larry and Penny Thompson Park",
+   "address": "12451 SW 184th St, Miami, FL",
+   "w": "270 acres of pineland next to Zoo Miami — the county's biggest campground, a swimming lake with a seasonal beach and water slide, bridle trails.",
+   "sources": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/l/outdoor-experiences/larry-and-penny-thompson-park/2970"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Larry_and_Penny_Thompson_Memorial_Park"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/location/larry-and-penny-thompson-park-6411918/"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "DTB",
+   "n": "Gesù Church",
+   "address": "NE 2nd St, Downtown Miami, FL",
+   "w": "Miami's oldest institution still on its original site — the 1924 Mediterranean Revival Jesuit church designed by Owen Williams of Palm Beach.",
+   "sources": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/history-and-heritage/downtown-miami-s-historic-center"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Gesu_Church_(Miami,_Florida)"
     ]
    ],
    "closed": false
