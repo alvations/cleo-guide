@@ -1,6 +1,6 @@
 [
  {
-  "n": "Tony Luke's",
+  "n": "Tony & Nick's Steaks (formerly Tony Luke's)",
   "address": "39 E Oregon Ave, Philadelphia, PA 19148",
   "lat": 39.914444,
   "lng": -75.148889,
@@ -45,13 +45,13 @@
  },
  {
   "n": "Joe's Steaks + Soda Shop",
-  "address": "6030 Torresdale Ave, Philadelphia, PA 19135",
-  "lat": 40.018443,
-  "lng": -75.058081,
-  "geoSource": "Wikipedia infobox coordinates 40.018443, -75.058081 (https://en.wikipedia.org/wiki/Joe's_Steaks_+_Soda_Shop), read via WebSearch summary; standalone shop",
-  "confidence": "med",
+  "address": "1 W Girard Ave, Philadelphia, PA 19123",
+  "lat": null,
+  "lng": null,
+  "geoSource": "UNVERIFIED",
+  "confidence": "unverified",
   "status": "NONE",
   "statusSource": "",
-  "note": ""
+  "note": "W5 correction: the Wikipedia point 40.018443,-75.058081 is the Torresdale Ave original, CLOSED Sept 2022 (Inquirer 2022-07-01; PhillyVoice). Live shop = Fishtown, 1 W Girard Ave (Star News Philly 2022-07-07; Philly Mag) — needs a place pin (geocode-helper)."
  }
 ]
