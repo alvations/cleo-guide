@@ -56,5 +56,41 @@
   "geoSource": "Only the street address (座間味村座間味165, 4Gamer 2025-08-01) surfaced. One aggregator blog ties it to the Ao no Yukuru-kan visitor centre, but that is unconfirmed, so no venue coordinate was taken.",
   "status": "open",
   "statusSource": "4Gamer 20250801026 (installation early Aug 2025) + Ryukyu Shimpo 4505121"
+ },
+ {
+  "n": "Poké Lid — Mantine & Remoraid, Ishigaki Port Remote Island Terminal (ポケふた マンタイン×テッポウオ 石垣港離島ターミナル)",
+  "address": "1 Misaki-chō, Ishigaki, Okinawa, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "The lid's position near the terminal comes only from blogs (omoide.blog; one aggregator says Southern Gate Bridge instead). No terminal or lid coordinate surfaced in 2 searches.",
+  "status": "open",
+  "statusSource": "Yaeyama Mainichi 38284 (unveiled 2022-03-11) + OCVB Poké Lid page (current trail)"
+ },
+ {
+  "n": "Poké Lid — Arcanine, Tenbusu Plaza, Kokusai-dōri (ポケふた ウインディ てんぶす広場)",
+  "address": "Tenbusu Plaza (Tenbusu Naha), 3-2 Makishi, Naha, Okinawa, Japan",
+  "lat": 26.216215,
+  "lng": 127.689129,
+  "confidence": "med",
+  "geoSource": "Host-venue point. NAVITIME POI 02301-1803108 (てんぶす那覇 building) printed 26.216215,127.689129; the plaza is the forecourt of this building. Ryukyu Shimpo 5307113 says any move would be within the Tenbusu plaza if a suitable spot is found, so the point stays valid at venue level.",
+  "status": "open",
+  "statusSource": "Ryukyu Shimpo 5307113 + Jprime 41941 (May 2026: relocation under consideration, preferably inside the Tenbusu plaza). No completed move was found in a search on 2026-10-03, so the card keeps its 'check before going' line."
+ },
+ {
+  "n": "Nishi-sanbashi West Pier, Taketomi Island (西桟橋)",
+  "address": "207 Taketomi, Taketomi Town, Okinawa 907-1101, Japan",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Two searches (wikipedia 座標 and navitime 緯度経度) returned the address 竹富207 but no printed coordinate",
+  "status": "open",
+  "statusSource": "Taketomi tourism taketomi-shimajikan.okinawa/spot/15072 + Bunka Isan Online 185123 (current pages; a public pier, no closure)"
+ },
+ {
+  "n": "Poké Lid — Tauros & Katsuren Castle, Ishikawa Sports Grounds, Uruma (ポケふた ケンタロス×勝連城跡 石川運動広場)",
+  "address": "Entrance of Ishikawa Sports Grounds (石川運動広場), 2316 Ishikawa, Uruma, Okinawa, Japan",
+  "lat": 26.436561,
+  "lng": 127.826456,
+  "confidence": "med",
+  "geoSource": "Host-venue point. WebSearch extended 2026-10-03 ('石川運動広場', Uruma portal uruma-portal.okinawa/archives/739 plus the NAVITIME sports-facility listing) printed 石川運動広場, うるま市石川2316, 26.436561,127.826456. ADDRESS CORRECTION: the record's 石川石崎1-2 is the Ishikawa Gymnasium (26.426552,127.829684, NAVITIME 00011-080690463), about 1.1 km south and a different facility. Ryukyu Shimpo 1342954 puts the lid at the 運動広場 entrance.",
+  "status": "open",
+  "statusSource": "Ryukyu Shimpo 1342954 (installation) + OCVB Poké Lid page (current trail)"
  }
 ]

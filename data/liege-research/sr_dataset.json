@@ -1494,6 +1494,32 @@
      "https://www-lonelyplanet-com-57e2.imagizer.com/belgium/wallonia/liege/entertainment/le-forum/a/poi-ent/1600663/358717"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "LIE",
+   "n": "Théâtre de Liège (Émulation)",
+   "ad": "Place du Vingt-Août 16, 4000 Liège, Belgium",
+   "w": "Liège's main playhouse in the neoclassical Société libre d'Émulation building (Julien Koenig, 1934–39; the 1779 society's first hall was burned in the 1914 reprisals) — classified 1998, rebuilt by Pierre Hebbelinck & Pierre de Wit and reopened Oct 2013 with a 557-seat hall, bar and the Baci restaurant.",
+   "g": [
+    "ARCH",
+    "CULT",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "VISITLIEGE",
+     "https://visitezliege.be/en/offre/theatre-de-liege"
+    ],
+    [
+     "LALIBRE",
+     "https://www.lalibre.be/regions/liege/le-theatre-de-liege-inaugure-apres-deux-ans-de-travaux-5249620f35703eef3a0ab689"
+    ],
+    [
+     "LAVENIR",
+     "https://www.lavenir.net/regions/2013/09/30/liege-retrouve-enfin-son-theatre-Y7EMYJDWENCRHMFCJCXOZXS7PU/"
+    ]
+   ]
   }
  ],
  "F": [
@@ -1744,7 +1770,7 @@
    "t": 3,
    "a": "LIER",
    "n": "La Maison Thaï",
-   "ad": "Ouffet, Belgium",
+   "ad": "Grand'Place 2, 4590 Ouffet, Belgium",
    "w": "Michelin Bib Gourmand since 2025 — Thai cooking in the Condroz village of Ouffet.",
    "cz": [
     "FINE",
@@ -1827,9 +1853,10 @@
   {
    "t": 2,
    "a": "LIER",
-   "n": "Qualia",
+   "n": "Qualia — CLOSED",
    "ad": "Avenue Peltzer 41, 4800 Verviers, Belgium",
-   "w": "Gault&Millau-listed gastronomic table on Avenue Peltzer in Verviers' villa quarter.",
+   "w": "Gault&Millau-listed (13.5/20, Nov 2023) gastronomic table in the little Château Peltzer, Verviers — CLOSED August 2024 (Paris Match).",
+   "closed": true,
    "cz": [
     "FINE"
    ],
@@ -1838,6 +1865,10 @@
     [
      "GAULTMILLAU",
      "https://www.gaultmillau.be/en/restaurants/qualia-verviers"
+    ],
+    [
+     "PARISMATCHBE",
+     "https://www.parismatch.be/lifestyle/food/2024/10/08/ce-restaurant-entre-dans-le-gault-millau-il-y-a-moins-dun-an-ferme-ses-portes-GLK74DESCBECRNXVRBVBEZQUME/"
     ]
    ]
   },
@@ -1915,7 +1946,7 @@
    "t": 2,
    "a": "LIER",
    "n": "L'Epicurien",
-   "ad": "Rue des Xhawirs 15, 4650 Herve, Belgium",
+   "ad": "Rue des Martyrs 15, 4650 Herve, Belgium",
    "w": "Gault&Millau-listed table in Herve, capital of the cheese country.",
    "cz": [
     "FINE"
@@ -1925,6 +1956,10 @@
     [
      "GAULTMILLAU",
      "https://www.gaultmillau.be/en/restaurants/lepicurien-herve"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/gb/en/liege/herve/restaurant/l-epicurien550101"
     ]
    ]
   },
@@ -1949,7 +1984,7 @@
    "t": 2,
    "a": "LIER",
    "n": "Un air de famille",
-   "ad": "Theux, Belgium",
+   "ad": "Place du Perron 36, 4910 Theux, Belgium",
    "w": "Gault&Millau-listed: in an elegant natural-stone building, chefs Sami Chebil and Deniz Bâg mix tradition and modernity with precise, balanced plates.",
    "cz": [
     "FINE"
@@ -1966,7 +2001,7 @@
    "t": 3,
    "a": "LIER",
    "n": "Table Rase",
-   "ad": "Theux, Belgium",
+   "ad": "Avenue René Lange 18, 4910 Theux, Belgium",
    "w": "Gault&Millau-listed family restaurant in Theux, warm welcome and accessible cooking.",
    "cz": [
     "FINE"
@@ -1983,7 +2018,7 @@
    "t": 3,
    "a": "LIER",
    "n": "Le Basilic",
-   "ad": "Chaudfontaine, Belgium",
+   "ad": "Rue de Chèvremont 91, 4050 Chaudfontaine, Belgium",
    "w": "Gault&Millau-listed restaurant near the basilica of Chèvremont in Chaudfontaine.",
    "cz": [
     "FINE"
@@ -2000,7 +2035,7 @@
    "t": 3,
    "a": "LIER",
    "n": "Hexa-Gone",
-   "ad": "Herstal, Belgium",
+   "ad": "1ère Avenue 66, 4040 Herstal, Belgium",
    "w": "Gault&Millau-listed cocktail bar-restaurant in Herstal — bold creations and tapas.",
    "cz": [
     "FINE"
@@ -2017,7 +2052,7 @@
    "t": 2,
    "a": "LIER",
    "n": "Antoine",
-   "ad": "Eupen, Belgium",
+   "ad": "Stendrich 21, 4700 Eupen, Belgium",
    "w": "Gault&Millau-listed: chef Mirko Radermeker's inventive cooking of local products with international accents, in Eupen.",
    "cz": [
     "FINE"
@@ -2034,7 +2069,7 @@
    "t": 3,
    "a": "LIER",
    "n": "Couleur Rouge",
-   "ad": "Eupen, Belgium",
+   "ad": "Gospertstraße 22, 4700 Eupen, Belgium",
    "w": "Gault&Millau-listed fusion kitchen in Eupen — French classics lightened with Asian notes.",
    "cz": [
     "FINE"
@@ -2051,7 +2086,7 @@
    "t": 2,
    "a": "LIER",
    "n": "L'Air de Rien",
-   "ad": "Fontin, Esneux, Belgium",
+   "ad": "Place du Vieux Tilleul 14 (Fontin), 4130 Esneux, Belgium",
    "w": "Gault&Millau-listed: a renovated farmhouse in the Ourthe valley cooking local artisans' produce over a wood fire.",
    "cz": [
     "FINE"
@@ -2068,7 +2103,7 @@
    "t": 2,
    "a": "LIER",
    "n": "L'Olivier des Sens",
-   "ad": "Tilff, Esneux, Belgium",
+   "ad": "Avenue Laboulle 18 (Tilff), 4130 Esneux, Belgium",
    "w": "Gault&Millau-listed: Narbonne-born chef Manuel Béjar brings the French south to Tilff on the Ourthe.",
    "cz": [
     "FINE"
@@ -2085,7 +2120,7 @@
    "t": 3,
    "a": "LIER",
    "n": "La Table Toquée",
-   "ad": "Tilff, Esneux, Belgium",
+   "ad": "Avenue des Ardennes 107 (Tilff), 4130 Esneux, Belgium",
    "w": "Gault&Millau-listed warm restaurant in Tilff.",
    "cz": [
     "FINE"
@@ -2102,7 +2137,7 @@
    "t": 3,
    "a": "LIER",
    "n": "Le Coq en Pâte",
-   "ad": "Aywaille, Belgium",
+   "ad": "Place Joseph Thiry 41, 4920 Aywaille, Belgium",
    "w": "Gault&Millau-listed elegant Italian restaurant on Aywaille's square.",
    "cz": [
     "FINE",
@@ -2120,7 +2155,7 @@
    "t": 2,
    "a": "LIER",
    "n": "Le Cadre Culinaire",
-   "ad": "Huy, Belgium",
+   "ad": "Rue des Rôtisseurs 4, 4500 Huy, Belgium",
    "w": "Gault&Millau-listed: Grégory Baruthio Muller's seasonal French cooking with a southern lilt, in Huy.",
    "cz": [
     "FINE"
@@ -2137,7 +2172,7 @@
    "t": 3,
    "a": "LIER",
    "n": "La Table de Maxou",
-   "ad": "Huy, Belgium",
+   "ad": "Route de Hamoir 87, 4500 Huy, Belgium",
    "w": "Gault&Millau-listed — an original Italian-meets-Vietnamese kitchen in Huy.",
    "cz": [
     "FINE",
@@ -2155,7 +2190,7 @@
    "t": 2,
    "a": "LIER",
    "n": "BASTA!",
-   "ad": "Wanze, Belgium",
+   "ad": "Chaussée de Tirlemont 118, 4520 Wanze, Belgium",
    "w": "Gault&Millau-listed (and Michelin Bib Gourmand) Italian with Sicilian accents and an open kitchen, in Wanze.",
    "cz": [
     "FINE",
@@ -2177,7 +2212,7 @@
    "t": 1,
    "a": "LIER",
    "n": "Pollen",
-   "ad": "Domaine de Naxhelet, Wanze, Belgium",
+   "ad": "Rue Naxhelet 1 (Domaine de Naxhelet), 4520 Wanze, Belgium",
    "w": "Gault&Millau-listed table of the Naxhelet estate — chef François Durand cooks from the estate's own vegetable garden.",
    "cz": [
     "FINE"
@@ -2194,7 +2229,7 @@
    "t": 3,
    "a": "LIER",
    "n": "Au Cheval Blanc",
-   "ad": "Waimes, Belgium",
+   "ad": "Rue du Centre 20, 4950 Waimes, Belgium",
    "w": "Gault&Millau-listed countryside bistro with a mountain-chalet feel in Waimes, near the Hautes Fagnes.",
    "cz": [
     "FINE"
@@ -2211,7 +2246,7 @@
    "t": 2,
    "a": "LIER",
    "n": "Cyrano",
-   "ad": "Hôtel Ravel, Waimes, Belgium",
+   "ad": "Rue de la Gare 23 (Hôtel Ravel), 4950 Waimes, Belgium",
    "w": "Gault&Millau-listed intimate restaurant in the Hôtel Ravel — reservation only.",
    "cz": [
     "FINE"
@@ -2228,7 +2263,7 @@
    "t": 2,
    "a": "LIER",
    "n": "La Menuiserie",
-   "ad": "Waimes, Belgium",
+   "ad": "Champagne 12, 4950 Waimes, Belgium",
    "w": "Gault&Millau-listed: chef David Simons cooks local produce and garden vegetables in Waimes.",
    "cz": [
     "FINE"
@@ -2995,8 +3030,8 @@
    "t": 3,
    "a": "LIE",
    "n": "Danieli",
-   "ad": "Liège, Belgium",
-   "w": "Gault&Millau-listed, accessible restaurant where the main product takes centre stage, often cooked over the barbecue.",
+   "ad": "Rue Hors-Château 46, 4000 Liège, Belgium",
+   "w": "Gault&Millau-listed, accessible restaurant where the main product takes centre stage, often cooked over the barbecue. Revived by Yann Stroobant (ex-Cabale) at the 1987 Hors-Château address (Le Fooding).",
    "cz": [
     "FINE"
    ],
@@ -3005,6 +3040,10 @@
     [
      "GAULTMILLAU",
      "https://www.gaultmillau.be/en/restaurants/danieli-liege"
+    ],
+    [
+     "LEFOODING",
+     "https://lefooding.com/en/restaurants/danieli"
     ]
    ]
   },
@@ -3422,6 +3461,104 @@
      "https://www.visitezliege.be/fr/offre/la-mairie"
     ]
    ]
+  },
+  {
+   "t": 1,
+   "a": "LIE",
+   "n": "Magma",
+   "ad": "Rue Porte aux Oies 43, 4020 Liège, Belgium",
+   "w": "Michelin Bib Gourmand (2024) in Outremeuse — chef Tom Foguenne's farm-to-table cooking from local organic producers with a natural-wine list; one of two Liège Bibs announced in 2024.",
+   "cz": [
+    "FINE",
+    "BEL",
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/liege/liege/restaurant/magma-1204665"
+    ],
+    [
+     "RTBF",
+     "https://www.rtbf.be/article/deux-restaurants-liegeois-decrochent-le-bib-gourmand-dans-le-guide-michelin-2024-11328891"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LIE",
+   "n": "La Grand Poste",
+   "ad": "Quai sur Meuse 19, 4000 Liège, Belgium",
+   "w": "The 1901 neo-Gothic central post office on the Meuse, reopened in Sept 2023 after four years' renovation as Liège's first food market — seven independent counters, a bar pouring beers brewed on site, coworking and the ULiège journalism campus upstairs.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "ELLE",
+     "https://www.elle.be/fr/341353-la-cite-ardente-inaugure-son-tout-premier-food-market.html"
+    ],
+    [
+     "BRUSSELSTIMES",
+     "https://brusselstimes.com/900812/hidden-belgium-la-grande-poste"
+    ],
+    [
+     "RTBF",
+     "https://www.rtbf.be/article/decouvrir-liege-et-ses-talents-11199112"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LIE",
+   "n": "Utamu Coffee'n Pastries",
+   "ad": "Rue du Palais 2, 4000 Liège, Belgium",
+   "w": "Specialty coffee bar by the Prince-Bishops' Palace serving only East-African coffees with Belgian pastries given an African twist; named among Belgium's ten best specialty cafés in the European Coffee Trip awards.",
+   "cz": [
+    "CAFE",
+    "SWEET",
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "EUROCOFFEETRIP",
+     "https://europeancoffeetrip.com/cafe/utamucoffeenpastries-liege/"
+    ],
+    [
+     "ELLE",
+     "https://www.elle.be/fr/?p=158789"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "LIE",
+   "n": "Constantin Café",
+   "ad": "Rue des Mineurs 21, 4000 Liège, Belgium",
+   "w": "Tiny high-ceilinged coffee bar opened 2022 in the Hors-Château quarter, styled like a brutalist antique shop by Volga's co-founder; pours Wide Awake (one of Belgium's best roasters) single origins.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "LEFOODING",
+     "https://lefooding.com/en/shops/constantin-cafe"
+    ],
+    [
+     "VISITLIEGE",
+     "https://www.visitezliege.be/en/offre/constantin-cafe-0"
+    ],
+    [
+     "ELLE",
+     "https://www.elle.be/fr/?p=158789"
+    ]
+   ]
   }
  ],
  "S": {
@@ -3615,15 +3752,21 @@
   },
   "ELLE": {
    "k": "ELLE",
-   "t": "ELLE",
-   "u": "",
-   "l": ""
+   "t": "ELLE Belgique (lifestyle/food editorial)",
+   "u": "https://www.elle.be",
+   "l": "ELLE Belgique (lifestyle/food editorial)"
   },
   "ERICBOSCHMAN": {
    "k": "ERICBOSCHMAN",
    "t": "Eric Boschman (sommelier, RTBF/Moustique columnist)",
    "u": "https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710",
    "l": "Eric Boschman (sommelier, RTBF/Moustique columnist)"
+  },
+  "EUROCOFFEETRIP": {
+   "k": "EUROCOFFEETRIP",
+   "t": "European Coffee Trip (specialty-coffee guide + annual European Coffee Trip Awards)",
+   "u": "https://europeancoffeetrip.com",
+   "l": "European Coffee Trip (specialty-coffee guide + annual European Coffee Trip Awards)"
   },
   "EUROPEANBARGUIDE": {
    "k": "EUROPEANBARGUIDE",
@@ -3678,6 +3821,12 @@
    "t": "LAVENIR",
    "u": "",
    "l": ""
+  },
+  "LEFOODING": {
+   "k": "LEFOODING",
+   "t": "Le Fooding (French restaurant/bar guide of record, Belgian edition)",
+   "u": "https://lefooding.com",
+   "l": "Le Fooding (French restaurant/bar guide of record, Belgian edition)"
   },
   "LONELYPLANET": {
    "k": "LONELY PLANET",
