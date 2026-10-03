@@ -40165,6 +40165,39 @@
     "status": "open",
     "statusSource": "Women's Weekly Punggol Coast guide (2025, opened Jul 2025)",
     "statusChecked": "2026-10-03"
+   },
+   "Hai Bin Prawning (Tebing Lane)": {
+    "address": "6 Tebing Lane #01-04, Singapore 828835",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Time Out venue page (open 24 hours) + TheSmartLocal prawning guide",
+    "statusChecked": "2026-10-03"
+   },
+   "Selera Sumang Nasi Padang (Punggol Walk)": {
+    "address": "Foodgle Hub, Punggol Walk, Singapore",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Have Halal Will Travel nasi sambal goreng guide (current) + Seth Lui review",
+    "statusChecked": "2026-10-03"
+   },
+   "Satay Sumang (Sumang Walk)": {
+    "address": "218 Sumang Walk #01-10, Singapore 820218",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Have Halal Will Travel halal satay guide (hours 3pm-10pm, closed Mon)",
+    "statusChecked": "2026-10-03"
    }
   },
   "state-college-pa": {
@@ -108294,13 +108327,13 @@
    },
    "Goodyear Wingfoot Lake Airship Hangar": {
     "address": "Wingfoot Lake, Suffield Township, OH 44260",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.0095,
+    "lng": -81.357889,
+    "source": "Wikipedia infobox (Wingfoot Lake Airship Hangar) 41°00′34.2″N 81°21′28.4″W",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
-    "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported",
+    "statusSource": "W2b 2026-10-03: active Goodyear blimp base per Wikipedia/goodyearblimp.com airship-bases page; no closure reported",
     "statusChecked": "2026-10-03"
    },
    "Akron Civic Theatre": {
@@ -108333,7 +108366,7 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported",
+    "statusSource": "W2b 2026-10-03: Walsh University operates it (walsh.edu/hhc); no closure reported",
     "statusChecked": "2026-10-03"
    },
    "Nelson-Kennedy Ledges State Park": {
@@ -108348,14 +108381,14 @@
     "statusChecked": "2026-10-03"
    },
    "Paul Brown Museum": {
-    "address": "Lincoln Way E, Massillon, OH 44646",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "121 Lincoln Way E (inside the Massillon Museum), Massillon, OH 44646",
+    "lat": 40.796667,
+    "lng": -81.521633,
+    "source": "Co-located in the Massillon Museum (Visit Canton + Ohio Magazine: permanent space in MassMu, 121 Lincoln Way E) → MassMu pin, HMDB marker 269469 40° 47.8′N 81° 31.298′W",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported",
+    "statusSource": "W2b 2026-10-03: Paul Brown Museum exhibitions 2025 (massillontigers.com / MassMu events); open",
     "statusChecked": "2026-10-03"
    },
    "St. Helena III Canal Boat (Canal Fulton)": {
@@ -108366,18 +108399,18 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported",
+    "statusSource": "W2b 2026-10-03: current 2025/2026 coverage in cited sources; no closure reported",
     "statusChecked": "2026-10-03"
    },
    "Spring Hill Historic Home": {
     "address": "1401 Springhill Ln NE, Massillon, OH 44646",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 40.81213,
+    "lng": -81.5061,
+    "source": "Wikipedia infobox (Spring Hill Historic Home) 40°48′44″N 81°30′22″W",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
-    "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported",
+    "statusSource": "W2b 2026-10-03: springhillhistorichome.org educator guide uploaded 2026-03; open",
     "statusChecked": "2026-10-03"
    },
    "Goodyear Airdock": {
@@ -108436,14 +108469,14 @@
     "statusChecked": "2026-10-03"
    },
    "F.A. Seiberling Nature Realm": {
-    "address": "828 Smith Rd, Akron, OH 44313",
+    "address": "1828 Smith Rd, Akron, OH 44313",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported",
+    "statusSource": "W2b 2026-10-03: Summit Metro Parks listing current; no closure reported",
     "statusChecked": "2026-10-03"
    },
    "Dr. Bob's Home (birthplace of Alcoholics Anonymous)": {
@@ -108498,7 +108531,7 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported",
+    "statusSource": "W2b 2026-10-03: current 2025/2026 coverage in cited sources; no closure reported",
     "statusChecked": "2026-10-03"
    },
    "Quail Hollow Park": {
@@ -108536,13 +108569,13 @@
    },
    "Tallmadge Circle & First Congregational Church": {
     "address": "115 Tallmadge Circle, Tallmadge, OH 44278",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.101061,
+    "lng": -81.441455,
+    "source": "Remarkable Ohio marker 9-77 (Old Town Hall and Academy), south end of the Tallmadge town square on the Circle: 41.1010610,-81.4414550 — on the Circle, not the church door",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported",
+    "statusSource": "W2b 2026-10-03: Ideastream 2025-10-29: historic Tallmadge church celebrates bicentennial; open",
     "statusChecked": "2026-10-03"
    },
    "Portage Lakes State Park": {
@@ -108575,7 +108608,7 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported",
+    "statusSource": "W2b 2026-10-03: current 2025/2026 coverage in cited sources; no closure reported",
     "statusChecked": "2026-10-03"
    },
    "Akron Fossils & Science Center": {
@@ -108590,14 +108623,14 @@
     "statusChecked": "2026-10-03"
    },
    "Twins Days Festival (Glen Chamberlin Park)": {
-    "address": "Glen Chamberlin Park, Twinsburg, OH 44087",
+    "address": "Glen Chamberlin Park, 10260 Ravenna Rd, Twinsburg, OH 44087",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported",
+    "statusSource": "W2b 2026-10-03: WYSU 2025-07-29: Twins Days hits 50; annual festival",
     "statusChecked": "2026-10-03"
    },
    "Liberty Park & Twinsburg Ledges": {
@@ -108608,7 +108641,7 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported",
+    "statusSource": "W2b 2026-10-03: current 2025/2026 coverage in cited sources; no closure reported",
     "statusChecked": "2026-10-03"
    },
    "Swensons Drive-In (original, Wallhaven)": {
@@ -109015,18 +109048,18 @@
     "verified": "2026-10-03",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported",
+    "statusSource": "W2b 2026-10-03: current 2025/2026 coverage in cited sources; no closure reported",
     "statusChecked": "2026-10-03"
    },
    "The Kent Stage": {
     "address": "175 E Main St, Kent, OH 44240",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 41.1539222,
+    "lng": -81.3566194,
+    "source": "Wikipedia infobox (Kent Stage) 41°9′14.12″N 81°21′23.83″W",
     "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
-    "statusSource": "W1b 2026-10-03: current 2025/2026 coverage in cited sources (WebSearch); no closure reported",
+    "statusSource": "W2b 2026-10-03: 2025/2026 event listings (Akron Life, AXS); open",
     "statusChecked": "2026-10-03"
    },
    "New Era Restaurant": {
@@ -109071,6 +109104,127 @@
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "Signal Akron 2026 Best of the City — best bar/brewery",
+    "statusChecked": "2026-10-03"
+   },
+   "Momo House": {
+    "address": "1548 Home Ave, Akron, OH",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "W2b 2026-10-03: Signal Akron 'Taste This' (Tue–Sun 11–10, dated 2024) + operating listings surfaced 2026; no closure reported — thin 2025/26 evidence, re-check in closure pass",
+    "statusChecked": "2026-10-03"
+   },
+   "Sweet Mary's Bakery": {
+    "address": "76 E Mill St, Akron, OH 44308",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "W2b 2026-10-03: Signal Akron Best of the City 2026 bakery winner (repeat of 2025); open",
+    "statusChecked": "2026-10-03"
+   },
+   "Angel Falls Coffee Company": {
+    "address": "792 W Market St, Akron, OH 44303",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "W2b 2026-10-03: Signal Akron Best of the City 2025 coffee winner; open",
+    "statusChecked": "2026-10-03"
+   },
+   "Mike's Place": {
+    "address": "1700 S Water St, Kent, OH 44240",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "W2b 2026-10-03: KentWired Best of Kent 2025 Best Restaurant (first); open daily per listing",
+    "statusChecked": "2026-10-03"
+   },
+   "Taco Tontos": {
+    "address": "123 Franklin Ave, Kent, OH",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "W2b 2026-10-03: KentWired Best of Kent 2026 Mexican Food (first); open",
+    "statusChecked": "2026-10-03"
+   },
+   "The River Merchant": {
+    "address": "911 N Mantua St, Kent, OH",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "W2b 2026-10-03: Akron Life 20 Best Restaurants for 2026; open",
+    "statusChecked": "2026-10-03"
+   },
+   "Laziza": {
+    "address": "195 E Erie St, Kent, OH",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "W2b 2026-10-03: OpenTable reviews dated Feb–Mar 2026 (open-check only); open",
+    "statusChecked": "2026-10-03"
+   },
+   "Flury's Cafe": {
+    "address": "2202 Front St, Cuyahoga Falls, OH 44221",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "W2b 2026-10-03: Signal Akron 'Taste This' (open Wed–Sun 8–2); no closure reported",
+    "statusChecked": "2026-10-03"
+   },
+   "Szalay's Farm Market": {
+    "address": "4563 Riverview Rd, Peninsula, OH",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "W2b 2026-10-03: Signal Akron sweet-corn guide; seasonal (Jul–Oct); no closure reported",
+    "statusChecked": "2026-10-03"
+   },
+   "Kingfish Seafood": {
+    "address": "115 Montrose West Ave, Copley, OH 44321",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "W2b 2026-10-03: Akron Life 330 Flavor Awards 2026 Best Restaurant; open",
+    "statusChecked": "2026-10-03"
+   },
+   "The Twisted Olive": {
+    "address": "5430 Massillon Rd, Green, OH 44720",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "W2b 2026-10-03: Akron Life 20 Best Restaurants for 2026; open",
     "statusChecked": "2026-10-03"
    }
   }

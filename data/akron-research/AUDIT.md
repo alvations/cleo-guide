@@ -30,7 +30,6 @@
 - Tooling fix (lesson → code): `tools/density.py` listed only areas that already had records, so 5 of 6 empty
   areas were invisible; it now reports every RESUME-targeted area (0-count areas show NEED +N).
 
-<<<<<<< HEAD
 ## 2026-10-03 · W2a food AKR+BARB
 Budget: 34 WebSearch calls (cap 40; one, a `allowed_domains=[cleveland.com]` call, was rejected by the API as
 not crawlable — counted anyway). WebFetch not used (policy). Nothing from memory: every address/dish/status
@@ -105,7 +104,7 @@ Total: 34 WebSearch calls (incl. the rejected cleveland.com call), under the 40 
 
 **Channel mix:** reader votes 2 (Signal Akron BOTC, Akron Life Flavor/BOTC) · editorial 4 (Akron Life, Scene, Ohio Magazine, Signal features) · TV 1 (WKYC) · reference 1 (Wikipedia) · CVB 1 (corroborating) · creators 0.
 **Geocoding:** 1 search spent; no attributable place-pin coordinate surfaced → all 10 UNVERIFIED in `geo/_geoout_w2a.json` (for the browser helper). **BARB yield low (1)**: Barberton/Wadsworth/Green coverage is mostly Akron Life alone — the next BARB wave should target Beacon Journal (via AOL syndication), Cleveland Magazine and Scene directly.
-=======
+
 ## 2026-10-03 · W1b — first full wave (food canon + sights backbone) · Stages 1–6
 - Fresh session WebSearch budget; ~156 calls used (discovery ~120, address/status/geocode ~36). WebFetch not used
   (policy). Gannett domains (beaconjournal.com, cantonrep.com) refuse the crawler → Beacon Journal / Repository stories
@@ -131,7 +130,6 @@ Total: 34 WebSearch calls (incl. the rejected cleveland.com call), under the 40 
   History, News 5 Cleveland) — still fires on a real template leak.
 - **Build:** `rebuild-city.py akron-oh --build` → 29 pins; sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT ·
   buildcheck PASS; `npm run validate` + `npm test` green. Index card relinked live; CITIES.md row updated.
->>>>>>> c3fcb6aa458070449328f0dcf111a9baa672cce7
 
 ## 2026-10-03 · W2a ↔ W1b reconciliation
 - W2a (above) ran in parallel with W1b (two sessions on the same branch). Merged on pull: 6 W2a places were already in
@@ -139,3 +137,106 @@ Total: 34 WebSearch calls (incl. the rejected cleveland.com call), under the 40 
   other 4 duplicates added nothing new. W2a now holds only the 4 genuinely new/promoted places: New Era Restaurant,
   Papa Joe's Iacomini's (was held — OpenTable only; now Signal Akron + Akron Life), Thirsty Dog Taphouse (was held —
   Akron Life only; now Ohio Magazine + Visit Akron-Summit), Lock 15 Brewing (was held — Signal only; now + Visit Akron).
+
+## 2026-10-03 · W2b pins + promotions + KENT/NSUM food
+Budget: **43 WebSearch calls** (cap 45). Two were rejected by the API for a blocked domain in `allowed_domains`
+(`beaconjournal.com`, `record-courier.com`) and are counted. WebFetch not used (policy). Nothing from memory.
+Note: KentWired's Best of Kent pages now resolve on **kentstater.com** (same student paper), cited under KENTWIRED.
+Housekeeping: committed merge-conflict markers (`<<<<<<< HEAD` / `=======` / `>>>>>>>`) between the W2a and W1b
+sections of this file were removed. Both sections were kept intact.
+
+**Queries (in order)**
+1. `Wingfoot Lake Airship Hangar Suffield Ohio coordinates wikipedia` → Wikipedia infobox 41°00′34.2″N 81°21′28.4″W. **Pinned high.**
+2. `Hoover Historical Center North Canton coordinates wikipedia Boyhood Home` → 40.8752990,-81.3699230 (alongside Remarkable Ohio 9-76 / trek.zone), plus a conflicting 40°52′40″N 81°22′14″W (~280 m off). **Pinned med (flagged for re-verify).**
+3. `Spring Hill Historic Home Massillon coordinates wikipedia` → Wikipedia 40.81213,-81.50610. **Pinned high.**
+4. `Five Oaks Massillon NRHP coordinates wikipedia` → NRIS 73001535, 210 4th St NE. No coordinate.
+5. `"Five Oaks" Massillon "210 4th" coordinates` → no coordinate. Dead end.
+6. `F.A. Seiberling Nature Realm Akron coordinates Smith Road` → **address correction 828 → 1828 Smith Rd** (Canalway / Visit Akron-Summit). No coordinate.
+7. `St. Helena III canal boat Canal Fulton hmdb` → HMDB markers for other Canal Fulton sites (Public Square, Heritage Park) and none at the 123 Tuscarawas St dock. Not used.
+8. `Paul Brown Museum Massillon address Lincoln Way East hmdb` → 121 Lincoln Way E.
+9. `"Paul Brown Museum" Massillon … address 2025` → Visit Canton + **Ohio Magazine**: a permanent space *inside the Massillon Museum*, 121 Lincoln Way E. Address fixed. Pinned med to MassMu's HMDB 269469 coordinate (same building). Ohio Magazine added to the record's sources.
+10. `Canton Museum of Art … coordinates` → Wikipedia article surfaced, but no coordinate in the snippet.
+11. `First Congregational Church Tallmadge wikipedia coordinates` → no article coordinates. Ideastream 2025-10-29 bicentennial (status).
+12. `Kent Stage … coordinates` → Wikipedia infobox 41°9′14.12″N 81°21′23.83″W. **Pinned high.**
+13. `Brady's Leap … hmdb coordinates` → only the Kent Bicentennial marker (a relief referencing Brady's Leap). No coordinate.
+14. `"Tallmadge Church" OR "Old Town Hall" … remarkableohio` → Remarkable Ohio 9-77 (Old Town Hall & Academy, south end of the Circle) 41.1010610,-81.4414550. **Pinned med** (on the Circle, not the church door).
+15. `Liberty Park Twinsburg … coordinates` → addresses only (9999 / 9385 Liberty Rd). No coordinate.
+16. `Glen Chamberlin Park Twinsburg mapcarta` → venue address 10260 Ravenna Rd (mapcarta 22657278). The coordinate was not exposed. Address updated.
+17. (rejected 400: beaconjournal.com in allowed_domains)
+18. North Hill Nepali, domain-filtered → Signal "Taste This: chicken momo at Momo House". Akron Life North Hill (Ben Gage) profile. Nepali Kitchen at 399 E Cuyahoga Falls Ave. Royal Palace, 134 E Tallmadge Ave, is an **event venue/ballroom** → rejected.
+19. `"Nepali Kitchen" OR "Momo House"` (akronlife/signal) → Nepali Kitchen dishes (chicken tikka, veg thukpa, bhatura) and "one of Akron's favorites in ethnic/international food". **The outlet for that line could not be pinned down** → Nepali Kitchen still held.
+20. (rejected 400: record-courier.com in allowed_domains)
+21. Kent `"Mike's Place" OR "River Merchant" OR "Wild Goats"` → Scene "We Like Mike", Ideastream "Beyond the Dish: Mike's Place", Akron Life River Merchant feature (911 N Mantua St), Wild Goats 319 W Main St (Akron Life; no status).
+22. Kent `"Taco Tontos" OR "Laziza" OR "Over Easy" OR "Bricco"` → Scene First Look Taco Tonto's, Akron Life listing (123 Franklin Ave), Laziza 195 E Erie St, Over Easy 152 Franklin Ave (Yahoo listing only), Bricco (KentWired COVID mention only).
+23. `KentWired Best of Kent 2026 winners` (kentwired.com) → mostly old years. Lucci's (already in), Guys Pizza recognition (year unclear), Over Easy nominations.
+24. `"Flury's Cafe" OR "River Brasserie" OR "Richfield Brewing"` → Signal Flury's croissant sandwich. River Brasserie 2291 Riverfront Pkwy (Akron Life *listing*). Richfield Brewing 3871 Broadview Rd (Akron Life ×2 = one outlet).
+25. `Flury's Cafe Front Street … address` → **2202 Front St**, Cuyahoga Falls 44221. Signal Taste This (Wed–Sun 8–2). **Roadfood**, Scene all-day breakfast slideshow, Akron Life breakfast blog.
+26. `Akron "Sweet Mary's" OR "Angel Falls Coffee" OR "Saffron Patch" OR "Missing Falls"` → Akron Life Angel Falls feature (since 1996), Akron Life Missing Falls feature, Akron Life BOTC 2024 readers' picks (Sweet Mary's), Saffron Patch Akron Life *listing*.
+27. `Signal Akron best of the city Sweet Mary's Saffron Patch Missing Falls dish` → Sweet Mary's Best Bakery 2026 (repeat of 2025; macarons, cheesecakes). Saffron Patch Best Ethnic 2026 (chicken makhani, samosas). Missing Falls: no named beer.
+28. `best restaurants Hudson Ohio downtown` → Cleveland Magazine "Downtown 140" (140 N Main St), Flip Side, Dave's Cosmic Subs, Hudson's (Scene listings).
+29. `"Downtown 140" Hudson 2025 OR 2026` → Trip.com Sept 2026 listing only (open-check). **Held**: no named dish, single editorial outlet.
+30. `Taco Tontos Kent Franklin Ave 2025 OR 2026 burrito` → **Kent Stater BOK '26 and BOK '25 Best Mexican (first)**, BOK '24 first. **Cleveland Magazine taco guide** (black bean & sweet potato taco).
+31. `Best of Kent 2026 BOK 26` (kentstater.com) → Over Easy at the Depot best breakfast (year attribution unclear). Mike's Place "best restaurant" (old link). Nut House Pub best new business.
+32. `Szalay's Farm Peninsula sweet corn` → **4563 Riverview Rd, Peninsula**. Signal "Aw shucks", Akron Life "Making Summer Sweeter", Cleveland 19.
+33. `"River Merchant" Kent OR "Laziza" Kent review` → **Kent Stater BOK '25 Best date spot: The River Merchant** (Szechuan short rib, prime rib cheesesteak). **Beacon Journal Local Flavor (via Yahoo): Laziza's Lebanese entrées.**
+34. `Laziza Kent Erie Street … 2025 OR 2026` → OpenTable reviews Feb–Mar 2026 (open-check), 4.5/537 (measurement). KentWired gift guide.
+35. `Stow OR Tallmadge OR Munroe Falls best restaurant readers favorite` → only Akron Life 2013/2014 lists. Too old, not used.
+36. `"Local Flavor" Beacon Journal Hudson OR Stow …` (yahoo/aol) → Garretts Mill Diner (Stow), Lager & Vine (Hudson) and others: one outlet each. Leads only.
+37. `Momo House 1548 Home Ave … OR Nepali Kitchen 399 E Cuyahoga Falls Ave … 2026` → both addresses. No dated 2025/26 article (Uber Eats/SEO only).
+38. `"Momo House" Akron` (akronlife.com) → confirms the Akron Life North Hill (Ben Gage) piece names Momo House (momos, chow mein, fried rice). **Momo House promoted.**
+39. `Wild Goats Cafe Kent closed OR reopen 2025` → only UK Kent results. Wasted. **Status still unverified → held.**
+40. `"Mike's Place" Kent 1700 S Water St 2025` → **Kent Stater BOK '25 Best Restaurant (first)**. Spectrum News. Dishes (Hog Wild Horseshoe, Mother Clucker, Reuben).
+41. `"Twisted Olive" Green OR "Kingfish" Akron review` → **WKYC** (OpenTable 100 best outdoor dining 2022), **Ohio Magazine** listing, **Cleveland Magazine review "Kingfish Hooks Us"** (grilled bigeye tuna).
+42. `Kingfish seafood restaurant Akron address` → **115 Montrose West Ave, Copley 44321** (Akron Life listing + "Kingfish fine dining" blog).
+43. `Akron Sweet Mary's / Angel Falls / Saffron Patch addresses` → Sweet Mary's 76 E Mill St 44308. Angel Falls 792 W Market St 44303. **Saffron Patch's address was not confirmed** (1238 Weathervane Ln returned as *Spice of India*) → Saffron Patch held.
+
+**Kept: 11 new food** (sourcecheck PASS, all ≥2 independent credible outlets)
+- AKR t2 **Momo House** (1548 Home Ave, Nepali; chicken momo): SIGNALAKRON + AKRONLIFE. *First North Hill Nepali kitchen; the HIMAL gap is now partly filled.* Status evidence is thin (Signal July 2024 hours; nothing dated 2025/26 surfaced) → re-check in the closure pass.
+- AKR t3 **Sweet Mary's Bakery** (76 E Mill St; macarons, cheesecakes): SIGNALAKRON (2025+2026 vote) + AKRONLIFE (BOTC 2024).
+- AKR t3 **Angel Falls Coffee Company** (792 W Market St; house roasts since 1996): SIGNALAKRON (2025 vote) + AKRONLIFE feature.
+- KENT t2 **Mike's Place** (1700 S Water St): KENTWIRED (BOK '25 Best Restaurant) + SCENE + IDEASTREAM + AKRONLIFE.
+- KENT t2 **Taco Tontos** (123 Franklin Ave; black bean & sweet potato taco): KENTWIRED (BOK '24/'25/'26 Best Mexican) + CLEMAG + SCENE + AKRONLIFE.
+- KENT t2 **The River Merchant** (911 N Mantua St; Szechuan short rib): AKRONLIFE (feature + 20 Best 2026) + KENTWIRED (BOK '25 date spot).
+- KENT t3 **Laziza** (195 E Erie St; Lebanese entrées, chicken shawarma): BEACONJOURNAL (Local Flavor via Yahoo) + KENTWIRED. OpenTable 4.5/537 measured only.
+- NSUM t2 **Flury's Cafe** (2202 Front St, Cuyahoga Falls; croissant breakfast sandwich): SIGNALAKRON + ROADFOOD + SCENE.
+- NSUM t2 **Szalay's Farm Market** (4563 Riverview Rd, Peninsula; roasted sweet corn, seasonal): SIGNALAKRON + AKRONLIFE + CLEVELAND19. Not on cleveland.html. A business, not a CVNP landmark, so the dedup rule does not apply.
+- BARB t2 **Kingfish Seafood** (115 Montrose West Ave, Copley; grilled bigeye tuna): AKRONLIFE (Flavor 2026 Best Restaurant) + CLEMAG review.
+- BARB t2 **The Twisted Olive** (5430 Massillon Rd, Green; wood-fired pizza): AKRONLIFE (20 Best 2026) + WKYC + OHIOMAG.
+Promoted from the held list: Momo House, Sweet Mary's, Angel Falls, Mike's Place, River Merchant, Flury's, Kingfish, Twisted Olive. New: Taco Tontos, Laziza, Szalay's.
+Amelia's by The Farmer's Rail was already in the dataset (W1b), so it was not re-added.
+
+**Still held**
+- Nepali Kitchen (399 E Cuyahoga Falls Ave): the second outlet could not be attributed with confidence. Royal Palace: an event venue, rejected.
+- Saffron Patch: two Signal votes plus an Akron Life listing, but its **address is unconfirmed**.
+- Missing Falls Brewery: Akron Life feature + Visit Akron, but **no named beer**.
+- Richfield Brewing (Akron Life only). River Brasserie (CLEMAG + Akron Life *listing* only).
+- Wild Goats Café: status still unverified. Belleria, Guys Pizza, Over Easy at the Depot, Bricco: KentWired only.
+- Downtown 140 / Flip Side (Hudson): one editorial outlet, no dish. Garretts Mill Diner (Stow), Lager & Vine (Hudson): Beacon Journal only.
+- Ken Stewart's Grille was already in the dataset with a dish; no action needed.
+
+**Pins (sights)**: 6 added. Wingfoot Lake hangar, Spring Hill and Kent Stage are high (Wikipedia infobox). Hoover Historical Center, Tallmadge Circle and Paul Brown Museum are med (search-result coordinate with a conflict; Remarkable Ohio 9-77; co-located MassMu HMDB 269469).
+Still UNVERIFIED: F.A. Seiberling Nature Realm (address fixed to 1828 Smith Rd), Twins Days (venue address 10260 Ravenna Rd), St. Helena III, Canton Museum of Art, Five Oaks, Liberty Park, Brady's Leap. All 11 new food are unverified too (geocode-helper).
+**Build:** `rebuild-city.py akron-oh --build` → 93 places, **35 pins** (was 29). sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · check-escapes PASS. `npm run validate` + `npm test` green.
+Tooling: `tools/build-akron.py` Cleveland-leak exemption widened for the outlet name "Cleveland 19" (it still fires on a real template leak).
+Density: AKR 37/60 · CANT 16/45 · NSUM 13/35 · KENT 12/30 · MASS 8/20 · BARB 7/20.
+
+## 2026-10-03 · W2b pins + promotions + KENT/NSUM food
+(Written by the orchestrator: the W2b agent hit an API rate limit after writing its JSON outputs but before
+writing this section, so its per-query log is lost; outcomes below are reconstructed from its files.)
+- **Promoted held leads → kept (11 food, FOOD_W2B.json):** AKR Momo House (Signal Akron + Akron Life; North Hill
+  Nepali; partly closes the HIMAL gap), Sweet Mary's Bakery, Angel Falls Coffee (Signal + Akron Life) · KENT Mike's
+  Place (KentWired + Scene + Ideastream + Akron Life), Taco Tontos (KentWired + Cleveland Magazine + Scene + Akron Life),
+  The River Merchant (Akron Life + KentWired), Laziza (Beacon Journal + KentWired) · NSUM Flury's Cafe (Signal +
+  Roadfood + Scene), Szalay's Farm Market (Signal + Akron Life + Cleveland 19; not on cleveland.html) · BARB Kingfish
+  Seafood (Akron Life + Cleveland Magazine), The Twisted Olive (Akron Life + WKYC + Ohio Magazine).
+- New source keys: SOURCES_W2B.json (CLEVELAND19 + 1). build-akron.py Cleveland-leak exemption extended to the
+  outlet name "Cleveland 19" (a TV station, not template data).
+- **Sight fixes (SIGHTS_W1B.json):** Paul Brown Museum address = 121 Lincoln Way E inside the Massillon Museum (+OHIOMAG);
+  F.A. Seiberling Nature Realm = 1828 Smith Rd (not 828); Twins Days venue = Glen Chamberlin Park, 10260 Ravenna Rd.
+- **Pins added (5):** Wingfoot Lake hangar, Spring Hill, The Kent Stage (Wikipedia infobox, high) · Tallmadge Circle
+  & church (Remarkable Ohio marker 9-77 on the Circle, med) · Paul Brown Museum (HMdb marker 269469 at MassMu, med).
+- **Held pin:** Hoover Historical Center — the two search coordinates disagree by ~280 m → set UNVERIFIED in
+  geocodes.json (CLAUDE.md 4b: a conflicted pin is not shipped) until a place pin resolves it.
+- Still unpinned sights: Seiberling Nature Realm, Twins Days, St. Helena III, Canton Museum of Art, Five Oaks,
+  Liberty Park, Brady's Leap, Hoover. All 11 W2b food → browser geocode-helper queue.
+- Search count unknown (≤45 cap).
