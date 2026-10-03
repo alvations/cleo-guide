@@ -306,7 +306,7 @@
 },
 {
 "n": "St. Nicholas Ukrainian Catholic Cathedral",
-"addr": "2238 W Rice St, Chicago, IL 60622",
+"addr": "Ukrainian Village, Chicago, IL 60622 (street number pending re-verify)",
 "a": "NW"
 },
 {
@@ -316,17 +316,17 @@
 },
 {
 "n": "National Museum of Puerto Rican Arts and Culture",
-"addr": "3015 W Division St, Chicago, IL 60622",
+"addr": "Humboldt Park (1895 park stables), Chicago, IL 60622",
 "a": "NW"
 },
 {
 "n": "The Robey (Northwest Tower)",
-"addr": "2018 W North Ave, Chicago, IL 60647",
+"addr": "Milwaukee / North / Damen six-way intersection, Wicker Park, Chicago",
 "a": "NW"
 },
 {
 "n": "St. Stanislaus Kostka Church",
-"addr": "1351 W Evergreen Ave, Chicago, IL 60642",
+"addr": "1327 N Noble St, Chicago, IL 60642",
 "a": "NW"
 },
 {
@@ -361,7 +361,7 @@
 },
 {
 "n": "Avery Coonley House (Frank Lloyd Wright)",
-"addr": "Scottswood Rd, Riverside, IL 60546",
+"addr": "Riverside, IL 60546 (private residence)",
 "a": "SUB"
 },
 {
@@ -386,17 +386,17 @@
 },
 {
 "n": "Pui Tak Center",
-"addr": "2216 S Wentworth Ave, Chicago, IL 60616",
+"addr": "S Wentworth Ave, Chinatown, Chicago, IL 60616",
 "a": "SOUTH"
 },
 {
 "n": "Quinn Chapel A.M.E. Church",
-"addr": "2401 S Wabash Ave, Chicago, IL 60616",
+"addr": "S Wabash Ave, Bronzeville (Near South Side), Chicago",
 "a": "SOUTH"
 },
 {
 "n": "Ebenezer Missionary Baptist Church",
-"addr": "4501 S Vincennes Ave, Chicago, IL 60653",
+"addr": "Bronzeville, Chicago, IL 60653",
 "a": "SOUTH"
 },
 {
@@ -441,12 +441,12 @@
 },
 {
 "n": "Marquette Building",
-"addr": "140 S Dearborn St, Chicago, IL 60603",
+"addr": "S Dearborn St at W Adams St, the Loop, Chicago",
 "a": "LOOP"
 },
 {
 "n": "Carbide & Carbon Building",
-"addr": "230 N Michigan Ave, Chicago, IL 60601",
+"addr": "N Michigan Ave, the Loop, Chicago (Pendry Chicago hotel)",
 "a": "LOOP"
 },
 {
@@ -461,13 +461,63 @@
 },
 {
 "n": "Second Presbyterian Church",
-"addr": "1936 S Michigan Ave, Chicago, IL 60616",
+"addr": "S Michigan Ave, Prairie Avenue district, Chicago",
 "a": "LOOP"
 },
 {
 "n": "Chicago Temple (Sky Chapel)",
-"addr": "77 W Washington St, Chicago, IL 60602",
+"addr": "W Washington St, the Loop, Chicago",
 "a": "LOOP"
+},
+{
+"n": "Villa District",
+"addr": "Irving Park — blocks around Avers & Hamlin Aves north of Addison St, Chicago",
+"a": "NW"
+},
+{
+"n": "Copernicus Center (Gateway Theatre)",
+"addr": "5216 W Lawrence Ave, Chicago, IL 60630",
+"a": "NW"
+},
+{
+"n": "Intuit Art Museum",
+"addr": "756 N Milwaukee Ave, Chicago, IL 60642",
+"a": "NW"
+},
+{
+"n": "Ukrainian Village District",
+"addr": "Ukrainian Village, Chicago (Chicago Landmark district)",
+"a": "NW"
+},
+{
+"n": "Frank Lloyd Wright Historic District (Oak Park)",
+"addr": "Oak Park, IL 60302 (historic district)",
+"a": "SUB"
+},
+{
+"n": "Block Museum of Art (Northwestern)",
+"addr": "40 Arts Circle Dr, Evanston, IL 60208",
+"a": "SUB"
+},
+{
+"n": "Oak Park Conservatory",
+"addr": "615 Garfield St, Oak Park, IL 60304",
+"a": "SUB"
+},
+{
+"n": "Jackson Boulevard District",
+"addr": "W Jackson Blvd between Laflin St and Ashland Ave, Near West Side, Chicago",
+"a": "WEST"
+},
+{
+"n": "Austin Town Hall",
+"addr": "5610 W Lake St, Chicago, IL 60644",
+"a": "WEST"
+},
+{
+"n": "Argyle Street (Asia on Argyle)",
+"addr": "W Argyle St between Broadway and Sheridan Rd, Uptown, Chicago",
+"a": "NORTH"
 },
 {
 "n": "Chicago Botanic Garden",
@@ -2343,5 +2393,80 @@
 "n": "Gorditas La Tia Susy",
 "addr": "3500 S Western Ave, Chicago, IL 60609",
 "a": "SW"
+},
+{
+"n": "Ghareeb Nawaz",
+"addr": "2032 W Devon Ave, Chicago, IL 60659",
+"a": "NORTH"
+},
+{
+"n": "Hema's Kitchen",
+"addr": "2439 W Devon Ave, Chicago, IL 60659",
+"a": "NORTH"
+},
+{
+"n": "Uru-Swati",
+"addr": "2629 W Devon Ave, Chicago, IL 60659",
+"a": "NORTH"
+},
+{
+"n": "Babygold Barbecue",
+"addr": "6615 Roosevelt Rd (at FitzGerald's), Berwyn, IL 60402",
+"a": "SUB"
+},
+{
+"n": "Katy's Dumpling House (Oak Park)",
+"addr": "Oak Park, IL",
+"a": "SUB"
+},
+{
+"n": "One Lake Brewing",
+"addr": "1 Lake St, Oak Park, IL 60302",
+"a": "SUB"
+},
+{
+"n": "Soul Food Lounge",
+"addr": "3804 W 16th St, Chicago, IL 60623",
+"a": "WEST"
+},
+{
+"n": "Soulé (North Lawndale)",
+"addr": "3615 W Roosevelt Rd, Chicago, IL 60624",
+"a": "WEST"
+},
+{
+"n": "Bob's Pizza (Pilsen)",
+"addr": "1659 W 21st St, Chicago, IL 60608",
+"a": "WEST"
+},
+{
+"n": "Kristoffer's Cafe & Bakery",
+"addr": "Pilsen, Chicago, IL 60608",
+"a": "WEST"
+},
+{
+"n": "Phở 777",
+"addr": "W Argyle St, Uptown (Asia on Argyle), Chicago",
+"a": "NORTH"
+},
+{
+"n": "Hai Yen",
+"addr": "1055 W Argyle St, Chicago, IL 60640",
+"a": "NORTH"
+},
+{
+"n": "JM Seafood",
+"addr": "3312 S Halsted St, Chicago, IL 60608",
+"a": "SOUTH"
+},
+{
+"n": "Han 202",
+"addr": "605 W 31st St, Chicago, IL 60616",
+"a": "SOUTH"
+},
+{
+"n": "Zaytune Mediterranean Grill",
+"addr": "Bridgeport, Chicago, IL 60608",
+"a": "SOUTH"
 }
 ]

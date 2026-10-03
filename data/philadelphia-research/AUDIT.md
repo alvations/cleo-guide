@@ -332,3 +332,41 @@ validate DATA OK; npm test ALL PASS. density.py: every area OK; food share ≥50
 food/travel sites (Infatuation ~30, Visit Philly ~22, Time Out 1, Food & Wine 1, Craft Beer & Brewing 1, Atlas Obscura 1) · regional
 (Main Line Today ~14, Visit Bucks 3, Chestnut Hill Local 2, Northeast Times 1) · local TV (6abc ~10, CBS 1) · creators 1 (Mark Wiens,
 corroborating Angelo's only) · Wikipedia (2 sights). Searches: ~122 main thread + 44 background pin agent.
+
+## 2026-10-03 (W6 · PINS, session_01DsVQh4xSMpquswxCXqQqid) · batch 1 — Apple Maps place pins, tier-1 first
+- **Channel:** `WebSearch` with `allowed_domains:["maps.apple.com"]` (technique from Miami W4). Queries of 3 "Name street-address"
+  items (address-style beat "Name + cuisine + neighbourhood" here); results whose URL carries `coordinate=`/`ll=` give Apple's own
+  place pin. New helpers: `_phi_pin.py` (asserts name ∈ dataset, not already pinned, Philly-region bbox) and `_phi_pinurl.py` (parses
+  coordinate + address from the Apple URL and refuses a **high** pin when the URL's street number ≠ the record's). Output
+  `geo/_geoout_w6a.json`. Bare `place-id=` URLs carry no coordinate → left UNVERIFIED (never inferred).
+- **Pins (49 · 48 high, 1 med):** CC — Dizengoff, Vernick Food & Drink, Vetri Cucina, Fork, Almanac, Oyster House, Butcher and Singer,
+  Nom Wah Tea Parlor, Shane Confectionery, Amada, Middle Child, My Loup, Sang Kee Peking Duck House, Parc, Double Knot · SPH — Gabriella's
+  Vietnam, Ba Le Bakery, Angelo's Pizzeria, Famous 4th Street Delicatessen, Fiorella, Royal Sushi & Izakaya, Ralph's, Dante & Luigi's,
+  Le Virtù, Cosmi's Deli, Ricci's Hoagies, Mawn, Little Fish, Kampar, Sao, Ambra · FISH — Suraya, Pizzeria Beddia, Laser Wolf, Wm.
+  Mulherin's Sons, Castellino's, Pietramala, Middle Child Clubhouse, Fiore, Càphê Roasters, Bastia (**med** — Apple query-listing URL has
+  no street address; point at Susquehanna & Belgrade = Hotel Anna & Bel) · UCW — Abyssinia, Doro Bet · NW — The Nile Cafe · NE —
+  Marinucci's Deli, China Gourmet · NPH — Down North Pizza · SJ — Corinne's Place · DAY — Andiario.
+  Status for each: Apple listing active (no closure marker) + 2025–26 discovery sources.
+- **Held / leads:** Paesano's — Apple lists "Paesano's Philly Style" at 943 S 9th St (record: 1017 S 9th St) → not pinned; address
+  re-check. Han Dynasty (Old City) — an Infatuation snippet says 110 Chestnut vs record 123 Chestnut → not pinned. Franklin Fountain —
+  only the sibling Franklin Ice Cream Bar (112 Market) surfaced with a coordinate → not used.
+- **Build:** 182 → 231 on map (151 sights + 80 food). sourcecheck PASS 518 · geocheck PASS · statuscheck CONSISTENT (7 closed; 9 on-page
+  unchecked) · buildcheck PASS · validate DATA OK · npm test ALL PASS. ~33 WebSearch calls so far.
+
+## 2026-10-03 (W6 · PINS) · batch 2 — Apple Maps pins, tier-2 across areas + 1 closure
+- **Pins (29, `geo/_geoout_w6b.json` · 28 high, 1 med):** CC — Sonny's Famous Steaks, K'Far, Bud & Marilyn's, Little Nonna's (**med** —
+  Apple's coordinate is identical to sibling Bud & Marilyn's at the same 1234 Locust St address, i.e. an address-level point), EMei,
+  Barbuzzo, Morimoto · FISH — Del Rossi's, Murph's Bar, Café La Maude, Standard Tap, Pizza Shackamaxon, Tulip Pasta & Wine Bar · SPH —
+  River Twice, Roxanne, Barcelona Wine Bar (East Passyunk), Café y Chocolate, Heavy Metal Sausage Co., Mighty Bread Co., Tesiny, Bob &
+  Barbara's · UCW — Renata's Kitchen, Booker's, Cleo Bagels · NE — Giannone's Steaks, Northeast Sandwich Co., Café Carmela · NPH — Sid
+  Booker's Shrimp Corner · NW — Uncle Bobbie's.
+- **CLOSED (flagged, kept):** Manakeesh Cafe Bakery & Grill (4420 Walnut St) — West Philly Local: permanently closed after 15 years, last
+  day 17 Feb 2026 (rent); cloud-kitchen only while it seeks a new site; Apple listing "permanently closed". It was never on the map.
+  Helper `_phi_close.py` (renames the research record "— CLOSED", writes `geo/_geoout_w6s.json`).
+- **Status leads (not changed — no press confirmation yet):** Buna Cafe (5121 Baltimore Ave) — Apple listing shows "permanently closed".
+- **Address mismatches (not pinned):** Goldie — Apple's coordinate listing is 1526 Sansom St (record 1911 Sansom); Holmesburg Bakery —
+  Apple says 7935 Frankford Ave (record 7933; no coordinate surfaced anyway); Bell's Market — 8336 vs 8330 Bustleton.
+- **Yield note:** suburban (MAIN/SJ/DAY) and Germantown/Chestnut Hill listings come back almost entirely as bare `place-id=` URLs
+  (≈1 coordinate per 6 names) vs ≈1 per 2 in Center City / South Philly / Fishtown.
+- **Build:** 231 → 260 on map (151 sights + 109 food). 4 gates PASS (statuscheck CONSISTENT, 8 closed flagged, 9 on-page unchecked);
+  validate DATA OK; npm test ALL PASS. ~70 WebSearch calls so far.
