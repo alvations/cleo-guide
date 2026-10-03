@@ -1379,7 +1379,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - ÔMO by Jônt
 
 ## osaka
-- registry entries: **372** · verified pins: **290** (high 277 · med 13 · low 0)
+- registry entries: **376** · verified pins: **294** (high 281 · med 13 · low 0)
 - ⚠️ **UNVERIFIED** in registry (82) — held by the gate, need the helper:
     - 551 Hōrai Honten (Namba)
     - Aizuya Honten (Tamade)

@@ -42,16 +42,54 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
 - `allowed_domains:["japan-guide.com"]` / `["osaka-info.jp"]` area queries → sight lists (source 1).
 
 ## In-flight wave
-- **W4 (session 4, 2026-10-03)** — 6 background workers (~28 searches each) + main. Files `FOOD/SIGHTS_OSAKA_W4{A..F}.json`,
-  `geo/_geoout_osaka_W4{A..F}.json`, `CREATORS_OSAKA_W4*.json`. A=MINAM food · B=anime wave + MINAM/KITA sights ·
-  C=TNJ+EAST · D=SOUTH · E=BAY · F=KNSAI+NORTH food. If relaunched: check which tag files exist, rerun only missing tags.
+- none — W4 closed (session 4, ~185 searches: 6 workers × 28 + main ~17).
 
 - 2026-10-02 **W3 (session 3)** — 7 parallel workers + main, **200/200 searches**. **319 discovered (114 sights + 205
   food = 64% food), 266 rendered (104 + 162)**; 4 gates PASS; validate + npm test PASS; ANIME 10 (was 0).
   Discovered per area vs target: KITA 95/80 OK · CHUO 55/45 OK · MINAM 47/95 · TNJ 28/55 · KNSAI 26/40 · NORTH 22/35 ·
   EAST 18/35 · SOUTH 17/40 · BAY 11/35. Files W3A–W3G, W3M (+CREATORS_OSAKA_W3, _held_W3C, geo W3A–W3G, W3M).
 
+- 2026-10-03 **W4 (session 4)** — 6 workers (A MINAM food · B anime+sights · C TNJ/EAST · D SOUTH · E BAY · F KNSAI/NORTH)
+  + main (W4M Michelin). **372 discovered (140 sights + 232 food = 62% food), 290 rendered (120 + 170)**; ANIME 16 (+6);
+  4 gates PASS; validate + npm test PASS. Per area vs target: KITA 100/80 OK · CHUO 56/45 OK · KNSAI 38/40 (+2) ·
+  MINAM 57/95 (+38) · TNJ 34/55 (+21) · BAY 18/35 (+17) · EAST 19/35 (+16) · SOUTH 27/40 (+13) · NORTH 23/35 (+12).
+  Yield ≈ 0.3 places/search — the English editorial channel is exhausted for the outer areas; held leads in `_held_W4.json`.
+
+## Next actions (W5 plan — supersedes W4/W3 lists where they overlap)
+1. **Switch channel for the outer areas: Japanese-language queries.** `<区/市> 百名店 2025` (Tabelog Hyakumeiten selection
+   pages, `TABELOG100`) paired with OSAKA-INFO `local_journey` / ward-official pages / Kobe Shimbun / Lmaga editorial.
+   Every `_held_W4.json` BAY item already holds TABELOG100 (Aabel Curry, Yasubei, Sōjuen, Hige to Boin) — one OSAKA-INFO
+   or Time Out hit each makes them pass. Same for EAST (Minzokumura, Yamada Shōten, Tachinomi Shomin) and TNJ (Tengu, Rainbow Buddha, Yosozake).
+2. **MINAM (+38):** held GLTJP/SAVORJAPAN/TIMEOUT singles (Kuromon Sanpei, Maguroya Kurogin, Tokisushi, Hatsuse, Hozenji Sanpei,
+   Yakiton Center); resolve the Botejyu lineage; Michelin leads with pins but no dish (Ajikitcho Horieten, tamanegi) need a dish.
+3. **SOUTH (+13):** Sakai tourism names (Sankai Ryori Nishino, Hikari, Iwashibune, Nakai Grill, Obaian, Sakai-Tohji Knife Museum)
+   + OSAKA-INFO "Sakai Gourmet Recommended by Locals" (detail530) → pair with SAKAITCB. **NORTH (+12):** Minoo momiji tempura
+   (Momotaro/Kōsendō/Kajikasō) need a 2nd; Takatsuki/Ibaraki/Hirakata via 百名店. **KNSAI (+2):** Himeji oden, Kobe sobameshi, Akashiyaki.
+4. **Pins:** 82 discovered-but-unrendered (MINAM 28) → `tools/geocode-helper.html` / Google `!3d!4d`. W4A five have status
+   `unknown` → closure check. Re-pin Abe no Seimei (med, parent-shrine coord), Super Nintendo World (park coord), Nijigen no Mori.
+5. Anime held (OSAKA-INFO only): Jump Shop, Donguri Republic Namba, Kiddy Land Umeda, Animate Cafe Nipponbashi; Mandarake (wiki only).
+
 ## Search log`.
+
+- 2026-10-03 **W4 (session 4)** — 6 workers (A MINAM food · B anime+sights · C TNJ/EAST · D SOUTH · E BAY · F KNSAI/NORTH)
+  + main (W4M Michelin). **372 discovered (140 sights + 232 food = 62% food), 290 rendered (120 + 170)**; ANIME 16 (+6);
+  4 gates PASS; validate + npm test PASS. Per area vs target: KITA 100/80 OK · CHUO 56/45 OK · KNSAI 38/40 (+2) ·
+  MINAM 57/95 (+38) · TNJ 34/55 (+21) · BAY 18/35 (+17) · EAST 19/35 (+16) · SOUTH 27/40 (+13) · NORTH 23/35 (+12).
+  Yield ≈ 0.3 places/search — the English editorial channel is exhausted for the outer areas; held leads in `_held_W4.json`.
+
+## Next actions (W5 plan — supersedes W4/W3 lists where they overlap)
+1. **Switch channel for the outer areas: Japanese-language queries.** `<区/市> 百名店 2025` (Tabelog Hyakumeiten selection
+   pages, `TABELOG100`) paired with OSAKA-INFO `local_journey` / ward-official pages / Kobe Shimbun / Lmaga editorial.
+   Every `_held_W4.json` BAY item already holds TABELOG100 (Aabel Curry, Yasubei, Sōjuen, Hige to Boin) — one OSAKA-INFO
+   or Time Out hit each makes them pass. Same for EAST (Minzokumura, Yamada Shōten, Tachinomi Shomin) and TNJ (Tengu, Rainbow Buddha, Yosozake).
+2. **MINAM (+38):** held GLTJP/SAVORJAPAN/TIMEOUT singles (Kuromon Sanpei, Maguroya Kurogin, Tokisushi, Hatsuse, Hozenji Sanpei,
+   Yakiton Center); resolve the Botejyu lineage; Michelin leads with pins but no dish (Ajikitcho Horieten, tamanegi) need a dish.
+3. **SOUTH (+13):** Sakai tourism names (Sankai Ryori Nishino, Hikari, Iwashibune, Nakai Grill, Obaian, Sakai-Tohji Knife Museum)
+   + OSAKA-INFO "Sakai Gourmet Recommended by Locals" (detail530) → pair with SAKAITCB. **NORTH (+12):** Minoo momiji tempura
+   (Momotaro/Kōsendō/Kajikasō) need a 2nd; Takatsuki/Ibaraki/Hirakata via 百名店. **KNSAI (+2):** Himeji oden, Kobe sobameshi, Akashiyaki.
+4. **Pins:** 82 discovered-but-unrendered (MINAM 28) → `tools/geocode-helper.html` / Google `!3d!4d`. W4A five have status
+   `unknown` → closure check. Re-pin Abe no Seimei (med, parent-shrine coord), Super Nintendo World (park coord), Nijigen no Mori.
+5. Anime held (OSAKA-INFO only): Jump Shop, Donguri Republic Namba, Kiddy Land Umeda, Animate Cafe Nipponbashi; Mandarake (wiki only).
 
 ## Search log
 - session 2 searches used: ~202 (main ~90 + G1 13 + S1 29 + M1 45 + M2 25). Multi-name queries that MISS fan out into 4-5 sub-searches — batch only names known to be on the target domain.
