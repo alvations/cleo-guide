@@ -311,3 +311,37 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
 - **Session end:** WebSearch budget hit (200/200) during the Lucky's 1313 pin query. Jordan's Big 10 Pub (usarestaurants
   coordinate found) and Lucky's 1313 held — their second outlets weren't confirmed by name in a fetched result, so not
   added (attribution must be exact). Next-wave plan in RESUME.md "Next (ordered) — W7".
+
+## W7 (2026-10-03, fresh session — wave 4 of the orchestrator run; aim: finish density)
+- **Searches:** ~120 (≈70 discovery/fact-check, ≈50 geocode). Creator query: State Trunk Tour (registered creator) used as a
+  corroborating source for Minhas; no new creator vetted this wave.
+- **Food (FOOD_W7a.json, 18):** UW — Mediterranean Cafe (Badger Herald 2025 + Isthmus + Travel WI), Jordan's Big 10 Pub
+  (City Cast tailgate + OnMilwaukee + Madison Mag), Lucky's 1313 Brew Pub (Isthmus + City Cast), Fabiola's Spaghetti House &
+  Deli (Madison Mag + City Cast + Isthmus), **Himal Chuli — CLOSED** (first Nepali restaurant in the U.S., 1986; closed Dec 2025 —
+  Daily Cardinal Jan 2026 + Badger Herald). WEST — Sa-Bai Thong (Isthmus Mad Faves + Destination Madison + Travel WI), Everly
+  (Cap Times review + Travel WI; 4.4/~900 ratings), Swagat (Best of Madison 2024 South Asian gold + Cap Times strip-mall list),
+  Gates & Brovi (Travel WI fish-fry guide + WSJ + Cap Times). MVF — Bavaria Sausage (Fitchburg Historical Society + Travel WI),
+  Hop Haus Verona (Isthmus + Verona Press), Villa Dolce (Isthmus + Visit Middleton), Zafferano (Cap Times + City Cast + Badger
+  Herald). DANE — **Mariner's Inn — CLOSED** (1966–Aug 29 2025; Cap Times + Janesville Gazette), Brix Cider (Isthmus + Brava +
+  Travel WI). CAP — The Coopers Tavern (Isthmus + Destination Madison + Travel WI), **Paisan's — CLOSED** (Cap Times 'a sad end' +
+  Madison Mag + On Wisconsin). TRIP — Minhas Craft Brewery (Wikipedia + State Trunk Tour + Tasting Table).
+- **Sights (SIGHTS_W7a.json, 11):** Carillon Tower (WHS + UW School of Music), Union South & the Sett (UW News + WMTV 2026),
+  Elver Park (City of Madison + Destination Madison), Owen Conservation Park (City of Madison + Isthmus), Mendota County Park
+  (Destination Madison + Dane County), Prairie Moraine County Park (Dane County + Verona Press + Destination Madison), Schumacher
+  Farm Park (Dane County + Travel WI), Gates of Heaven Synagogue (Wikipedia + Madison365 + WHS NRHP), Tenney Park & Lock (Isthmus +
+  City of Madison + Dane County), Swiss Historical Village (Travel WI + WHS), Mid-Continent Railway Museum (Trains + Clio + Wikipedia).
+- **New outlets (SOURCES_W7.json, registered):** GAZETTEXTRA, FITCHBURGHIST, UWMUSIC (facts only), TRAINS.
+- **Pins (geo/_geoout_w7.json): +16** — Waze place records high (Sa-Bai Thong, Everly, Gates & Brovi, Elver, Owen, Prairie
+  Moraine), Wikipedia high (Gates of Heaven, Minhas), official-site GPS high (Mid-Continent), usarestaurants/same-address Waze med
+  (Jordan's, Swagat, Hop Haus, Brix, Coopers), Wikipedia district/infobox med (Tenney Park, Union South).
+  UNVERIFIED (13 of the 29): Mediterranean Cafe, Lucky's 1313, Fabiola's (Apple returns bare place-id, Waze no record),
+  Bavaria Sausage, Villa Dolce, Zafferano (Waze only has the Wyndham Garden hotel at 2969 Cahill Main), Carillon Tower, Mendota CP,
+  Schumacher Farm Park, Swiss Historical Village, and the three closed places. Re-tried 4 W6 misses (Villa Tap, State St Brats,
+  Fosdal, Glarner Stube) with the Waze/usarestaurants query — 0/4; old misses are exhausted for WebSearch → geocode-helper.
+- **Measured & held:** Chaat Cafe (Isthmus + Cap Times, but the only address — 705 S Gammon Rd — is a data-broker listing and
+  there is no 2026 open evidence), Tapas Rias (Isthmus only), Toro y Pampa (opened Jan 2026 — too new), Restaurant Muramoto
+  (Isthmus only), Cafe Hollander (Milwaukee chain outpost; mixed), Eno Vino (Best Wine Bar claim only from its own copy),
+  Kohl Center (Wikipedia only), Muir Knoll (UW preserve page only), Tumbled Rock Brewery (WMTV opening story only), Popolo
+  (Travel WI only), Lucky's Bar & Grille 1421 Regent (the old site — superseded by Lucky's 1313).
+- **Density after W7:** CAP 38/38 · UW 30/30 · EAST 33/32 · WEST 30/30 · MVF 25/25 · DANE 25/25 · TRIP 30/30 — **every area OK**.
+  211 researched (135 food = 64% / 76 sights).
