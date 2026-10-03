@@ -517,3 +517,8 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - Never type a street address from memory while writing a geocode record — use the sourced locality (rule 4a);
   caught and fixed four times this run before merge.
 
+
+## 2026-10-03 — Singapore PGL + NVN W4: OneMap pins, Have Halal Will Travel
+- **OneMap building pins through WebSearch:** `allowed_domains:["onemap.gov.sg"]` + "<BUILDING NAME> - OneMap" returns `onemap.gov.sg/?lat=..&lng=..` result URLs (SLA building points). Resolved Northshore Plaza I, Waterway Terraces I, Royal Square at Novena, Goldhill Plaza, Balmoral Plaza. Misses: Punggol Coast HC, The Punggol Settlement, Tebing Lane, Square 2, Goldhill Centre, Scotts Rd numbers (partial index).
+- **Have Halal Will Travel** is the richest second channel for heartland halal stalls (Selera Sumang, Satay Sumang); confirm each name with a domain-restricted query before filing.
+- **Dead end:** Punggol's credible editorial is shallow beyond the hawker-centre guides; old Settlement/Tebing Lane listings (2015–18) cannot be status-checked by search.
