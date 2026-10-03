@@ -97,3 +97,9 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 - **New geocode route:** OneMap building points via `WebSearch allowed_domains:["onemap.gov.sg"]` + the building's OneMap name ("NORTHSHORE PLAZA I - OneMap") — the result URL carries the SLA building lat/lng. Partial index; HDB block numbers sometimes resolve ("199C PUNGGOL FIELD").
 - **Next:** (1) helper-geocode Punggol Coast HC / The Punggol Settlement / Tebing Lane / Sumang & Edgefield coffeeshops (~+30 PGL pins) and the 14 NVN UNVERIFIED; (2) PGL +30 via Have Halal Will Travel × Seth Lui/Eatbook intersections + Settlement status pass; (3) re-check One Punggol stalls after the 2026 operator change.
 - **Commands:** `python3 tools/density.py singapore` · `flock -w 3600 .git/cleo-shared.lock bash -c 'python3 tools/geo-merge.py singapore --only "_geoout_*_w5.json" && python3 tools/rebuild-city.py singapore --build'`
+
+## BLS + PGL gap-fill (2026-10-03) — checkpoint
+- **State (closed):** BLS 56/55 · **49 pins** · 77% food · **LIVE**. PGL 65/93 (NEED +28) · **48 pins** · 74% food · **LIVE with stated gap**. Details: `_note_BALESTIER.md` W5 / `_note_PUNGGOL.md` W6 / AUDIT.md.
+- **In-flight wave:** none.
+- **New pin routes (Singapore):** `allowed_domains:["streetdirectory.com"]` + "<street address> <postcode> latitude longitude" (address points + business listings; calibrated ~17 m vs OSM) — the best SG channel so far; `allowed_domains:["mapcarta.com"]` + "<name> map latitude longitude" (OSM ways/nodes).
+- **Next:** (1) Punggol Coast HC point (helper) → +18 PGL pins; (2) street addresses for 5 address-less BLS food records; (3) apply the streetdirectory route to the remaining SG/NVN UNVERIFIED backlog.
