@@ -256,3 +256,20 @@ agent, ≤50 searches → geo/_geoout_w5_pinA.json). The rest stay UNVERIFIED fo
 - MEASURED & DROPPED: Aksum (4630 Baltimore Ave) — permanently closed (Infatuation), non-notable → dropped. Kabobeesh (4201 Chestnut)
   — Inquirer page + 2011 Philly Mag only, delivery listing closed 2022, current status unclear → HELD.
 - New outlets: FOODANDWINE, PHILLYTRIB (SOURCES_W5.json). NPH now 33/30 OK (food 17/33 = 52% — over the §2b bar for the first time).
+**Pin pass A (background agent, 44 searches) → geo/_geoout_w5_pinA.json (34 records):** 0 high · 3 med · 31 UNVERIFIED.
+Med = Wikipedia coordinates of the host building: Vernick Fish (Comcast Technology Center 39.9549,-75.1704), Walnut Street Cafe
+(FMC Tower 39.952114,-75.18351; the page's rougher 39.957,-75.182 point lies north of Walnut and was rejected), Talula's Garden (Ayer
+Building 39.94726,-75.15354). Di Bruno Bros. NOT pinned to the Italian Market's Wikipedia point (a street-length market — a centroid).
+Shane Confectionery / Philadelphia Brewing Co. / Tired Hands have articles but no coordinates surfaced. CLOSURE: Tired Hands Brewing
+Company, 16 Ardmore Ave — renamed Ardmore Brewing Co. (spring 2025), private events only, no public hours (Inquirer 2026-02-20) →
+status closed, kept flagged; the Fermentaria (35 Cricket Terrace) added as the live Tired Hands entry. **Verdict: WebSearch pinning
+for restaurants is exhausted (3/34 this wave, 8/56 in W4) — remaining restaurant pins need tools/geocode-helper.html.**
+**Batch 2 (DAY + MAIN):**
+- DAY: Victory Brewing (Downingtown) (Visit Philly 15 essential breweries + Time Out + Wikipedia), Free Will Brewing (Perkasie)
+  (Visit Philly + Inquirer + Visit Bucks), Levante Brewing (Visit Philly + Philly Mag + Inquirer). DAY now 35/35 OK (food 11/35 = 31%).
+- MAIN: Carlino's Market (MLT Best Deli 2026 + Inquirer 2026 + 6abc), The Bakery House (MLT Best Bakery 2026 + Philly Mag Best of Philly
+  + Inquirer suburban bakeries), Minella's Diner (MLT Best Diner 2026 vote + PhillyVoice), Teikoku (MLT Best Japanese/Sushi 2026 + Philly
+  Mag), Tired Hands Fermentaria (Inquirer 2025 + Main Line Today + Visit Philly + LaBan best brewpubs).
+- MEASURED & DROPPED: Kennett Brewing Co. (closed, ~9 yrs in), Iron Hill West Chester (closed — becoming Magerk's, Inquirer 2026-05),
+  Inn at Phillips Mill (2590 N River Rd listed for sale/redevelopment — not presented), Aksum. HELD single-outlet: The Hawke, Hamilton's
+  Grill Room, Lambertville Station (NJ Monthly only); Osushi (MLT only); Locust Lane, Will's + Bill's, Bald Birds, Animated (Inquirer only).
