@@ -13599,6 +13599,22 @@
           "rank": 3,
           "verified": true,
           "credible": "Independent ballpark guide."
+        },
+        {
+          "key": "ROADFOOD",
+          "name": "Roadfood",
+          "type": "national food guide",
+          "rank": 2,
+          "verified": true,
+          "credible": "Long-running national guide to regional, local eateries; edited reviews of hometown institutions."
+        },
+        {
+          "key": "CLEVELAND19",
+          "name": "Cleveland 19 News (WOIO)",
+          "type": "local TV news",
+          "rank": 3,
+          "verified": true,
+          "credible": "Northeast Ohio TV newsroom; local news/food coverage (corroborating only)."
         }
       ],
       "creators": []
@@ -15898,6 +15914,78 @@
           "rank": 3,
           "verified": true,
           "credible": "US national public radio news organization of record"
+        },
+        {
+          "key": "HISTORYCENTER",
+          "name": "Orange County Regional History Center (Reflections of Central Florida)",
+          "type": "museum / institutional",
+          "rank": 3,
+          "verified": true,
+          "credible": "Smithsonian-affiliate county history museum; publishes researched local-history articles"
+        },
+        {
+          "key": "CULTURETRIP",
+          "name": "Culture Trip",
+          "type": "travel publisher",
+          "rank": 3,
+          "verified": true,
+          "credible": "Large international travel-editorial publisher with named writers; corroborating only"
+        },
+        {
+          "key": "FLHERITAGE",
+          "name": "Florida Division of Historical Resources - Florida Historical Marker Program",
+          "type": "state institutional",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official State of Florida historical-marker registry"
+        },
+        {
+          "key": "UCFRICHES",
+          "name": "UCF RICHES Mosaic Interface (Regional Initiative for Collecting the History, Experiences and Stories)",
+          "type": "academic archive",
+          "rank": 3,
+          "verified": true,
+          "credible": "University of Central Florida public-history digital archive with curated exhibits"
+        },
+        {
+          "key": "VISITSPACECOAST",
+          "name": "Visit Space Coast (Florida's Space Coast Office of Tourism)",
+          "type": "official tourism board",
+          "rank": 3,
+          "verified": true,
+          "credible": "Brevard County's official tourism office; curated dining guides (like VISITORLANDO)"
+        },
+        {
+          "key": "DIRONA",
+          "name": "Distinguished Restaurants of North America (DiRoNA)",
+          "type": "award",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running North American fine-dining award program with anonymous inspections; Award of Excellence"
+        },
+        {
+          "key": "FRLA",
+          "name": "Florida Restaurant & Lodging Association",
+          "type": "industry association/press",
+          "rank": 3,
+          "verified": true,
+          "credible": "Statewide restaurant trade association; reported Emeril Lagasse's Emeril's Florida TV features"
+        },
+        {
+          "key": "FLORIDAHIKES",
+          "name": "Florida Hikes! (Sandra Friend & John Keatley)",
+          "type": "guidebook author/blog",
+          "rank": 3,
+          "verified": true,
+          "credible": "Run by Sandra Friend, author of 30+ Florida hiking guidebooks and Florida Trail Association mainstay; first-hand trail reports"
+        },
+        {
+          "key": "CHOWHOUND",
+          "name": "Chowhound",
+          "type": "national food media",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running national food outlet (Static Media) with staff-written dining features; one corroborating source"
         }
       ],
       "creators": [

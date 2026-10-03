@@ -108,5 +108,35 @@
   "geoSource": "OneMap (Singapore Land Authority) building search result for 'WATERWAY TERRACES I' — onemap.gov.sg/?lat=1.40800694944027&lng=103.899074357998 (1.40800694944027,103.899074357998); unit within building → med; WebSearch 2026-10-03",
   "status": "open",
   "statusSource": "Stacked Homes estate review (occupied HDB estate)"
+ },
+ {
+  "n": "Hai Bin Prawning (Tebing Lane)",
+  "address": "6 Tebing Lane #01-04, Singapore 828835",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — Tebing Lane unit, no published place pin readable via WebSearch; queued for helper",
+  "status": "open",
+  "statusSource": "Time Out venue page (open 24 hours) + TheSmartLocal prawning guide"
+ },
+ {
+  "n": "Selera Sumang Nasi Padang (Punggol Walk)",
+  "address": "Foodgle Hub, Punggol Walk, Singapore",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — coffeeshop block not confirmed (Foodgle at 308C Punggol Walk is likely but unconfirmed); queued for helper",
+  "status": "open",
+  "statusSource": "Have Halal Will Travel nasi sambal goreng guide (current) + Seth Lui review"
+ },
+ {
+  "n": "Satay Sumang (Sumang Walk)",
+  "address": "218 Sumang Walk #01-10, Singapore 820218",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — HDB block 218 Sumang Walk; no published place pin read; queued for helper",
+  "status": "open",
+  "statusSource": "Have Halal Will Travel halal satay guide (hours 3pm-10pm, closed Mon)"
  }
 ]
