@@ -1,11 +1,97 @@
-{"sources":[],"sights":[
- {"t":2,"a":"AKR","k":"PARK","n":"Summit Lake Nature Center & Summit Lake Trail","address":"411 Ira Ave, Akron, OH 44301",
-  "w":"Summit Metro Parks' urban nature center on Summit Lake — the Ohio & Erie Canal's high point — born of the Knight/Kresge-backed Reimagining the Civic Commons program, with the 2.75-mile Summit Lake Trail looping the lake onto the Towpath. Free.",
-  "sources":[["SUMMITMETRO","https://www.summitmetroparks.org/nature-centers/summit-lake-nature-center/"],["SPECTRUM","https://spectrumnews1.com/oh/columbus/news/2022/10/20/groundbreaking-for-akron-s-summit-lake-trail-another-milestone"],["LANDSCAPEARCH","https://landscapearchitecturemagazine.org/2020/10/a-lake-and-a-long-history"],["SIGNALAKRON","https://signalakron.org/redevelopment-projects-in-akron-reimagine-civic-commons/"]]},
- {"t":2,"a":"AKR","k":"ENT","n":"E.J. Thomas Performing Arts Hall","address":"198 Hill St, Akron, OH 44325",
-  "w":"The University of Akron's 2,955-seat hall (1973, opened with a Carlos Chávez world premiere), home of the Akron Symphony and Broadway tours presented with Playhouse Square.",
-  "sources":[["WIKIPEDIA","https://en.wikipedia.org/wiki/E._J._Thomas_Hall"],["OFFICIAL","https://www.uakron.edu/im/news/ej-thomas-performing-arts-hall-showcases-the-arts-in-akron-for-50-years"],["PLAYHOUSESQUARE","https://playhousesquare.org/venues/detail/ej-thomas-hall"]]},
- {"t":2,"a":"NSUM","k":"ARCH","n":"Western Reserve Academy","address":"115 College St, Hudson, OH 44236",
-  "w":"Founded 1826 as Western Reserve College — the 'Yale of the West' — on a New England-style campus whose 1836 chapel is on the National Register; the 58-acre historic campus anchors Hudson's village green.",
-  "sources":[["WIKIPEDIA","https://en.wikipedia.org/wiki/Western_Reserve_Academy"],["NPS","https://npgallery.nps.gov/NRHP/GetAsset/NRHP/64000613_text"],["CLEMAG","https://clevelandmagazine.com/articles/private-schools-western-reserve-academy/"]]}
-]}
+{
+ "sources": [],
+ "sights": [
+  {
+   "t": 2,
+   "a": "AKR",
+   "k": "PARK",
+   "n": "Summit Lake Nature Center & Summit Lake Trail",
+   "address": "411 Ira Ave, Akron, OH 44301",
+   "w": "Summit Metro Parks' urban nature center on Summit Lake — the Ohio & Erie Canal's high point — born of the Knight/Kresge-backed Reimagining the Civic Commons program, with the 2.75-mile Summit Lake Trail looping the lake onto the Towpath. Free.",
+   "sources": [
+    [
+     "SUMMITMETRO",
+     "https://www.summitmetroparks.org/nature-centers/summit-lake-nature-center/"
+    ],
+    [
+     "SPECTRUM",
+     "https://spectrumnews1.com/oh/columbus/news/2022/10/20/groundbreaking-for-akron-s-summit-lake-trail-another-milestone"
+    ],
+    [
+     "LANDSCAPEARCH",
+     "https://landscapearchitecturemagazine.org/2020/10/a-lake-and-a-long-history"
+    ],
+    [
+     "SIGNALAKRON",
+     "https://signalakron.org/redevelopment-projects-in-akron-reimagine-civic-commons/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AKR",
+   "k": "ENT",
+   "n": "E.J. Thomas Performing Arts Hall",
+   "address": "198 Hill St, Akron, OH 44325",
+   "w": "The University of Akron's 2,955-seat hall (1973, opened with a Carlos Chávez world premiere), home of the Akron Symphony and Broadway tours presented with Playhouse Square.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/E._J._Thomas_Hall"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.uakron.edu/im/news/ej-thomas-performing-arts-hall-showcases-the-arts-in-akron-for-50-years"
+    ],
+    [
+     "PLAYHOUSESQUARE",
+     "https://playhousesquare.org/venues/detail/ej-thomas-hall"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NSUM",
+   "k": "ARCH",
+   "n": "Western Reserve Academy",
+   "address": "115 College St, Hudson, OH 44236",
+   "w": "Founded 1826 as Western Reserve College — the 'Yale of the West' — on a New England-style campus whose 1836 chapel is on the National Register; the 58-acre historic campus anchors Hudson's village green.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Western_Reserve_Academy"
+    ],
+    [
+     "NPS",
+     "https://npgallery.nps.gov/NRHP/GetAsset/NRHP/64000613_text"
+    ],
+    [
+     "CLEMAG",
+     "https://clevelandmagazine.com/articles/private-schools-western-reserve-academy/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KENT",
+   "k": "PARK",
+   "n": "Cooperrider-Kent Bog State Nature Preserve",
+   "address": "1028 Meloy Rd, Kent, OH 44240",
+   "w": "Ice-age kettle bog with Ohio's largest stand of tamarack trees, seen from a half-mile boardwalk loop; an ODNR state nature preserve expanded with local partners. Free.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cooperrider-Kent_Bog_State_Nature_Preserve"
+    ],
+    [
+     "FARMANDDAIRY",
+     "https://www.farmanddairy.com/?p=804026"
+    ],
+    [
+     "KENTWIRED",
+     "https://kentwired.com/76426/uncategorized/bog-provides-green-sights-among-kents-construction"
+    ]
+   ]
+  }
+ ]
+}

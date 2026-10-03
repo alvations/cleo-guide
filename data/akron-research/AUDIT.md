@@ -469,3 +469,8 @@ New source keys: MAHONINGMATTERS, BARBERTONLIBRARY (SOURCES_W3A.json).
   + Akron Life listing, but 545 W Tuscarawas shows as Al's Quality Meats "now closed" on Foursquare — status unresolved), Munroe Falls / Hudson
   Springs / Silver Springs parks (agency pages only), Front Street Cuyahoga Falls district (no place anchor), Good Grief Hudson (ABJ only).
 - Still UNVERIFIED from W5: Menches, Boss ChickNBeer, Summit Artspace, KSU Museum, Cast Iron, Maddalena's, Towner's Woods, Leather Helmet.
+- **Batch 4 (close):** + KENT Cooperrider-Kent Bog State Nature Preserve (Wikipedia + Farm and Dairy/ODNR + KentWired; Wikipedia coords).
+  Franklin Hotel Bar (Kent) — building now Acorn Corner with Buffalo Wild Wings anchor; bar not confirmed operating → dropped from held list.
+  Loyal Oak (Norton) tavern claim not supported → not added.
+- **W5 totals:** +27 sights, +23 food → 166 places (98 food, 59%; every area ≥50% food), 128 pinned (38 UNVERIFIED). Closures surfaced: Skyway
+  Drive-In (Scene), Meow Bao (Signal) — neither added. ≈185 WebSearch this session (beaconjournal.com 400s as an allowed_domain).

@@ -15,7 +15,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Take One — CLOSED
 
 ## akron-oh
-- registry entries: **166** · verified pins: **127** (high 84 · med 43 · low 0)
+- registry entries: **167** · verified pins: **128** (high 85 · med 43 · low 0)
 - ⚠️ **UNVERIFIED** in registry (39) — held by the gate, need the helper:
     - 91 Wood Fired Oven
     - Amelia's by the Farmer's Rail
