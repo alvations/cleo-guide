@@ -18,7 +18,7 @@ F(3,"NSK",["INT"],"Yōtei-sanroku Beer (house craft beer brewed with Yōtei spri
   "Villa Lupicia Restaurant, Kabayama (ヴィラ ルピシア レストラン)",
   "Kabayama 58-5, Kutchan, Abuta District, Hokkaido, Japan",
   "Tea house Lupicia's glass-walled restaurant in Hirafu-Kabayama, serving modern European cooking with a Japanese touch and its own Yōtei-foothills beer, poured at a summer beer garden too.",
-  [("RURUBU",RU+"80001386"),("NISEKOTOURISM",NT+"news/article/lupicia-beer-garden-2024/")],
+  [("RURUBU",RU+"80001386"),("NISEKOTOURISM",NT+"news/article/lupicia-beer-garden-2024/"),("HOKKAIDOTOURISM","https://www.visit-hokkaido.jp/hokkaido-ni-yoishirete/other/")],
   status=O,ssrc="niseko-ta.jp Lupicia Beer Garden 2024 notice")
 F(3,"NSK",["HOKKAIDO","MKT"],"Rankoshi rice (Shiribetsu-river paddies) and local pickles — celery kimchi, melon nuka-zuke",
   "Michi-no-eki Rankoshi Furusato-no-Oka (道の駅 らんこし・ふるさとの丘)",
@@ -85,5 +85,10 @@ F(3,"OTARU",["HOKKAIDO","MKT"],"kaisendon of boiled tarabagani, house-cured ikur
   "A seafood wholesaler's own diner on the ground floor of Denuki Kōji: crab, home-marinated salmon roe and scallop bowls, open daily 11:00–20:00.",
   [("RURUBU",RU+"80000660"),("MAPPLE",MP+"1015654/"),("OTARUTOURISM","https://otaru.gr.jp/shop/%E6%BE%A4%E5%B4%8E%E6%B0%B4%E7%94%A3%E3%80%80%E6%B5%B7%E9%AE%AE%E9%A3%9F%E5%A0%82")],
   status=O,ssrc="rurubu&more spot page (11:00–20:00 daily — current)")
+
+S(3,"NSK","Kyōgoku Onsen (京極温泉)","Kawanishi 68, Kyōgoku, Abuta District, Hokkaido, Japan",
+  "Day-bathing house a short walk from Fukidashi Park: an outdoor bath framing the full ridgeline of Mt Yōtei (adults ¥600).",
+  [("MAPPLE","https://www.mapple.net/pref/01399/spot/"),("WIKIPEDIA_JA",JA+"京極温泉")],
+  status=O,ssrc="mapple listing (10:00–20:30, current)",g=["ONSEN"])
 
 emit("W89")
