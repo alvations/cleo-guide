@@ -124,7 +124,7 @@
   "n": "Jurassic Park River Adventure",
   "address": "Jurassic Park, Universal Islands of Adventure, 6000 Universal Blvd, Orlando, FL",
   "status": "open",
-  "statusSource": "https://en.wikipedia.org/wiki/Jurassic_Park:_The_Ride (listed as operating)",
+  "statusSource": "Operating attraction, TEMPORARILY closed for refurbishment until 2026-11-20 per TouringPlans (https://touringplans.com/islands-of-adventure/attractions/our-ratings); not a permanent closure",
   "lat": null,
   "lng": null,
   "confidence": "UNVERIFIED",
@@ -161,16 +161,6 @@
   "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
  },
  {
-  "n": "Pizza Predattoria",
-  "address": "Jurassic Park, Universal Islands of Adventure, 6000 Universal Blvd, Orlando, FL",
-  "status": "open",
-  "statusSource": "Recommended as open in https://allears.net/reviews/pizza-predattoria-all-day/",
-  "lat": null,
-  "lng": null,
-  "confidence": "UNVERIFIED",
-  "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
- },
- {
   "n": "Illumination's Minion Cafe",
   "address": "Minion Land, Universal Studios Florida, 6000 Universal Blvd, Orlando, FL",
   "status": "open",
@@ -194,7 +184,7 @@
   "n": "Finnegan's Bar & Grill",
   "address": "Production Central / New York, Universal Studios Florida, 6000 Universal Blvd, Orlando, FL",
   "status": "open",
-  "statusSource": "Recommended as open in https://orlandoinformer.com/universal/finnegans-bar-grill/",
+  "statusSource": "TEMPORARILY closed for refurbishment since 2026-01-12, reopening late 2026 per AllEars (https://allears.net/reviews/finnegans-bar-grill-all-day/); not a permanent closure",
   "lat": null,
   "lng": null,
   "confidence": "UNVERIFIED",
@@ -339,6 +329,57 @@
   "address": "Downtown Sanford, FL",
   "status": "open",
   "statusSource": "Recommended as open in https://www.orlandoweekly.com/orlando/20-essential-sanford-restaurants-you-probably-shouldve-tried-by-now/Slideshow/30946809",
+  "lat": null,
+  "lng": null,
+  "confidence": "UNVERIFIED",
+  "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+ },
+ {
+  "n": "The Hangry Bison (Winter Garden)",
+  "address": "The Exchange, Winter Garden, FL",
+  "status": "open",
+  "statusSource": "Recommended as open in https://www.orlandoweekly.com/best-of/the-best-restaurant-in-every-part-of-orlando-according-to-our-readers/",
+  "lat": null,
+  "lng": null,
+  "confidence": "UNVERIFIED",
+  "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+ },
+ {
+  "n": "Mirchi Indian Street Food",
+  "address": "1021 S. Dillard St., Winter Garden, FL",
+  "status": "open",
+  "statusSource": "Recommended as open in https://www.orlandoweekly.com/food-drink/mirchi-indian-street-food-fuses-flamboyance-with-flavor-and-straight-fire-39712456/",
+  "lat": null,
+  "lng": null,
+  "confidence": "UNVERIFIED",
+  "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+ },
+ {
+  "n": "Tibet-Butler Preserve",
+  "address": "Windermere area (Orange County), FL",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Tibet-Butler_Preserve (listed as operating)",
+  "lat": 28.4425,
+  "lng": -81.54167,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Tibet-Butler_Preserve): 28.4425,-81.54167",
+  "note": ""
+ },
+ {
+  "n": "Oakland Nature Preserve",
+  "address": "Oakland (Lake Apopka shore), FL",
+  "status": "open",
+  "statusSource": "https://floridahikes.com/oakland-nature-preserve/ (listed as operating)",
+  "lat": null,
+  "lng": null,
+  "confidence": "UNVERIFIED",
+  "note": "no published coordinate surfaced; needs a place-pin pass"
+ },
+ {
+  "n": "The Town House Restaurant (Oviedo)",
+  "address": "139 N Central Ave, Oviedo, FL",
+  "status": "open",
+  "statusSource": "Recommended as open in https://www.orlandoweekly.com/food-drink/29-classic-orlando-restaurants-that-have-been-around-for-25-years-or-longer/",
   "lat": null,
   "lng": null,
   "confidence": "UNVERIFIED",

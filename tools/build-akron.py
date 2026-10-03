@@ -195,7 +195,7 @@ _leakseg = new[new.index("const S = {"):new.index("const AC =")]
 # This region borders Cuyahoga County: legit outlet names (Cleveland Magazine, cleveland.com, the
 # Cleveland Orchestra at Blossom, Canton's Cleveland Ave) may appear. Exempt those; still fire on a
 # genuine template-data leak (a Cleveland engine place or a "Cleveland, OH" address city).
-_ok = r"Cleveland (?:Ave(?:nue)?|Magazine|Scene|Plain Dealer|Orchestra|Clinic|Browns|Metroparks|Museum of Natural History|Botanical|Guardians|Jewish News|Historical|Law Library)|Cleveland\.com|Cleveland-Akron|Akron-Cleveland|Cleveland-Massillon|Encyclopedia of Cleveland History|News 5 Cleveland"
+_ok = r"Cleveland (?:Ave(?:nue)?|Magazine|Scene|Plain Dealer|Orchestra|Clinic|Browns|Metroparks|Museum of Natural History|Botanical|Guardians|Jewish News|Historical|Law Library)|Cleveland\.com|Cleveland-Akron|Akron-Cleveland|Cleveland-Massillon|Encyclopedia of Cleveland History|News 5 Cleveland|Cleveland 19"
 assert "Cleveland" not in re.sub(_ok, "", _leakseg), "Cleveland leaked into data"
 # A must-see per area is ideal, but a sparse new corridor area (e.g. the wine belt before its tier-1
 # winery is geocoded) shouldn't fail the build — warn instead so the map still ships what's verified.
