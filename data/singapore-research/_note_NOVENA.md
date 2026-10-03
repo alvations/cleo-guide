@@ -11,7 +11,7 @@ Goodwood Park, Orange Grove, Monk's Hill, Istana Negara) — Newton Food Centre,
 Velocity / United Sq / Goldhill, Chancery Lane, Cairnhill/Scotts edge. Balestier Road = BLS agent (excluded).
 
 ## In-flight wave
-- **W4 (2026-10-03, PGL+NVN wave-3 relaunch session)** — files FOOD_NOVENA4.json, SIGHTS_NOVENA4.json, SOURCES_NOVENA4.json, geo/_geoout_novena_w5.json. Queries: 2nd-source the W3 held list (domain-restricted), Settlement/Tebing Lane status pass, Sumang/Edgefield/Punggol Field coffeeshops, Waterway Point/Punggol Plaza non-chain, creator pass, Punggol sights; NVN Goodwood Deli/Carousel/Mun Zuk; pin Punggol Coast HC / Settlement / Northshore.
+(none — W4 closed 2026-10-03)
 
 ## State (2026-10-02)
 - **W1 DONE (partial — halted by the session WebSearch cap: 200/200 used across the shared run after ~14 NOVENA queries).**
@@ -92,3 +92,8 @@ Velocity / United Sq / Goldhill, Chancery Lane, Cairnhill/Scotts edge. Balestier
 - **Decided:** Goodwood Park "The Deli" Durian Fiesta (Time Out + The Peak + City Nomads + Eatbook) is the same durian-dessert programme already carried by the Goodwood Coffee Lounge record → NOT added as a separate place (de-dup).
 - **Held:** Carousel (only OpenTable/TripAdvisor surfaced the AsiaOne Hall of Fame claim), Mun Zuk (Eatbook only), Mangiano by CC (MTC + DFD but Novena address not confirmable), Kitchenette Goldhill (Seth Lui 2016 list; status unknown).
 - **Go-live:** density OK; still needs the helper to pin AMI / Chef Chan's / Chui Huay Lim / Smiths / Banelé / Hong Kong Cha Kee before relinking (37 pins now).
+- **Batch 2 (pins):** OneMap building points (WebSearch `allowed_domains:["onemap.gov.sg"]`): Royal Square at Novena 1.320476,103.8432528 → Baan Ying; Goldhill Plaza 1.3185189,103.8429045 → Da Luca, Craftsmen; Balmoral Plaza 1.3164396,103.8354876 → Waffletown, Smiths. → **42 pinned** (P8 F34; was 37). Not indexed: Square 2, Goldhill Centre, Novena Regency, Chancery Court, 27/33/35 Scotts Rd, Chui Huay Lim Club → still helper.
+
+### W4 close (2026-10-03)
+- **Final:** NVN 45 food + 11 sights = **56 / 55 OK**; food share 80%; **42 pinned** (P8 F34). **LIVE** — `newton-novena` added to LIVE_SLUGS in tools/build-singapore-pages.py (≥40 pins + density OK + 4 gates green).
+- **Next:** helper-pin the 14 UNVERIFIED (Square 2 ×3, Goldhill Centre ×2, 27/29/33/35 Scotts Rd ×6, Chui Huay Lim Club, Chancery Court, Novena Regency); 2nd-source Carousel / Mun Zuk / Mangiano.

@@ -38,5 +38,55 @@
   "geoSource": "UNVERIFIED — no published place pin for the Goldhill Shopping Centre unit readable via WebSearch; queued for tools/geocode-helper.html",
   "status": "open",
   "statusSource": "HungryGoWhere (rebranded Hong Kong Cha Kee, trading) + Seth Lui opening piece (Feb 2023)"
+ },
+ {
+  "n": "Baan Ying (Royal Square at Novena)",
+  "address": "Royal Square at Novena, 103 Irrawaddy Road #02-07, Singapore",
+  "lat": 1.320476,
+  "lng": 103.8432528,
+  "confidence": "med",
+  "geoSource": "OneMap (Singapore Land Authority) building search result for 'ROYAL SQUARE AT NOVENA' — onemap.gov.sg/?lat=1.320476&lng=103.8432528 (1.320476,103.8432528); unit within building → med; WebSearch 2026-10-03",
+  "status": "open",
+  "statusSource": "open per the W2 discovery sources (FOOD_NOVENA2.json, 2026-10-02)"
+ },
+ {
+  "n": "Da Luca Italian Restaurant",
+  "address": "Goldhill Plaza, 1 Goldhill Plaza, Singapore 308899",
+  "lat": 1.3185189,
+  "lng": 103.8429045,
+  "confidence": "med",
+  "geoSource": "OneMap (Singapore Land Authority) building search result for 'GOLDHILL PLAZA' — onemap.gov.sg/?lat=1.3185189&lng=103.8429045 (1.3185189,103.8429045); unit within building → med; WebSearch 2026-10-03",
+  "status": "open",
+  "statusSource": "open per the W2 discovery sources (FOOD_NOVENA2.json, 2026-10-02)"
+ },
+ {
+  "n": "Craftsmen Specialty Coffee (Novena)",
+  "address": "173 Thomson Road, Goldhill Plaza, Singapore 308899",
+  "lat": 1.3185189,
+  "lng": 103.8429045,
+  "confidence": "med",
+  "geoSource": "OneMap (Singapore Land Authority) building search result for 'GOLDHILL PLAZA' — onemap.gov.sg/?lat=1.3185189&lng=103.8429045 (1.3185189,103.8429045); unit within building → med; WebSearch 2026-10-03",
+  "status": "open",
+  "statusSource": "open per the W2 discovery sources (FOOD_NOVENA2.json, 2026-10-02); Seth Lui Novena/Thomson guide"
+ },
+ {
+  "n": "Waffletown (Balmoral Plaza)",
+  "address": "Balmoral Plaza, 271 Bukit Timah Road, Singapore 259708",
+  "lat": 1.3164396,
+  "lng": 103.8354876,
+  "confidence": "med",
+  "geoSource": "OneMap (Singapore Land Authority) building search result for 'BALMORAL PLAZA' — onemap.gov.sg/?lat=1.3164396&lng=103.8354876 (1.3164396,103.8354876); unit within building → med; WebSearch 2026-10-03",
+  "status": "open",
+  "statusSource": "open per the W2 discovery sources (FOOD_NOVENA2.json, 2026-10-02)"
+ },
+ {
+  "n": "Smiths Authentic British Fish and Chips (Balmoral Plaza)",
+  "address": "Balmoral Plaza, 271 Bukit Timah Road #01-02, Singapore 259708",
+  "lat": 1.3164396,
+  "lng": 103.8354876,
+  "confidence": "med",
+  "geoSource": "OneMap (Singapore Land Authority) building search result for 'BALMORAL PLAZA' — onemap.gov.sg/?lat=1.3164396&lng=103.8354876 (1.3164396,103.8354876); unit within building → med; WebSearch 2026-10-03",
+  "status": "open",
+  "statusSource": "Eatbook / Seth Lui / Time Out listings (current); no closure report"
  }
 ]

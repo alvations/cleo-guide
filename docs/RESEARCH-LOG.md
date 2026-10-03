@@ -517,3 +517,23 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - Never type a street address from memory while writing a geocode record — use the sourced locality (rule 4a);
   caught and fixed four times this run before merge.
 
+
+## 2026-10-03 — Singapore PGL + NVN W4: OneMap pins, Have Halal Will Travel
+- **OneMap building pins through WebSearch:** `allowed_domains:["onemap.gov.sg"]` + "<BUILDING NAME> - OneMap" returns `onemap.gov.sg/?lat=..&lng=..` result URLs (SLA building points). Resolved Northshore Plaza I, Waterway Terraces I, Royal Square at Novena, Goldhill Plaza, Balmoral Plaza. Misses: Punggol Coast HC, The Punggol Settlement, Tebing Lane, Square 2, Goldhill Centre, Scotts Rd numbers (partial index).
+- **Have Halal Will Travel** is the richest second channel for heartland halal stalls (Selera Sumang, Satay Sumang); confirm each name with a domain-restricted query before filing.
+- **Dead end:** Punggol's credible editorial is shallow beyond the hawker-centre guides; old Settlement/Tebing Lane listings (2015–18) cannot be status-checked by search.
+- 2026-10-03 (Liège W4 + Hokkaido G06): **restaurant place-pins that WebSearch "couldn't" surface** — Belgium:
+  `allowed_domains:["restaurantguru.com","foursquare.com","wanderlog.com","viamichelin.com"]` + `<name> <street> <city>
+  coordinates`, one place per search, ≈85 % hit. **Japan: `allowed_domains:["navitime.co.jp"]` + `<店名1> / <店名2> / <店名3>
+  緯度 経度`** — the NAVITIME POI pages print 緯度経度 + street address, ≈2.4 pins per search (RestaurantGuru/Wanderlog are
+  useless for Japanese shops). Always match the returned address/branch to the record; never convert NAVITIME route-URL
+  lon/lat parameters (Tokyo-datum milliseconds — ~300 m off). Wikidata points for campus-wide/area sights can be the city
+  centroid — reject.
+
+
+### 2026-10-03 · Orlando W4 — pin probe & wiki-coordinate traps
+- OSM mirrors (Mapcarta) via WebSearch return no decimals in snippets; Wikipedia queries for restaurants return only park/land
+  centroids — street-address restaurant pins remain helper-only (3rd wave confirming).
+- Wikipedia articles for cloned attractions can carry the TWIN's coordinate (Smugglers Run → Disneyland 33.81,-117.92): always
+  sanity-check a theme-park coord against the park's own bbox before using it.
+- A Yelp-derived local-TV neighbourhood guide (ClickOrlando 2019 "top spots") is Yelp in disguise → counts 0 for the ≥2 gate.

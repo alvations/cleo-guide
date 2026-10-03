@@ -329,3 +329,35 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   Lutong Pinoy (17048 W Dixie Hwy). Two Chefs (South Miami): no Apple listing found → re-check. Havana Café of the Everglades: Apple
   "temporarily closed".
 - **Build:** 185 → 229 pinned; sourcecheck/geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
+
+## 2026-10-03 (session 5 · wave 4 PINS) · batch 3 — long tail
+- **Pins (26, `geo/_geoout_x3.json`):** 25 food (CGCG 11 incl. Chug's Diner t1; SDADE 5; NMIA 3; LHAV 3; FTL 3; WYN 2) + Calle Ocho Walk of
+  Fame (**med** — Apple point on a linear sidewalk feature). Sights generally come back from Apple as bare place-ids (0/9 in two
+  sight-only queries: Black Police Precinct, Ichimura garden, Superblue, Broward Center, Jungle Queen, Young At Art, Clyde Butcher,
+  Skunk Ape, Miccosukee Village) → left UNVERIFIED.
+- **Rejected mismatches:** Midorie (Apple's only listing is 851 NE 79th St, Upper East Side — our sources put it in Coconut Grove; held
+  for an address re-check), Piman Bouk (Apple coordinate is the *bakery* at 46 NE 62nd St, not the restaurant at 5921 NE 2nd Ave),
+  Versailles Bakery (only the restaurant's pin surfaced).
+- **Status leads (not changed — no press confirmation yet):** Sapore di Mare (one Apple listing "permanently closed"), Golden Rule Seafood
+  and Chefs on the Run (no Apple listing).
+- **Build:** 229 → 255 pinned; 4 gates + validate + npm test green.
+
+## 2026-10-03 (session 5 · wave 4 PINS) · batch 4 + wave close
+- **Pins (6, `geo/_geoout_x4.json`):** retries of bare-place-id listings with re-phrased queries (cuisine/descriptor added) surfaced the
+  coordinate variant for Broken Shaker, Yambo, Tropical Chinese, Frankie's Pizza, The Katherine; + Fritanga Caña Brava (2795 NW 7th St).
+- **Status checks:** Funky Buddha (Oakland Park) — no closure found, listing active Nov 2025 → stays open (unpinned). Tropical Acres — only the
+  2011 fire / 2012 reopening surfaced, no closure → stays open (unpinned).
+- **Session 5 totals:** 136 → **261 pinned** (+125: 120 food, 5 sights incl. Rubell, ICA, Museum of Graffiti, Little Haiti Cultural Complex,
+  Calle Ocho Walk of Fame). On-page confidence: 213 high · 46 med · 2 low. 7 newly CLOSED flagged (none had been on the map), Knaus Berry
+  Farm address corrected. ≈150 WebSearch calls (≈130 geocoding at maps.apple.com, ≈12 closure/status, ≈8 probes of other channels —
+  google.com `!3d!4d`, mapcarta, latlong/findlatitudeandlongitude, untappd: none returned usable restaurant pins).
+- **Gates (final build):** sourcecheck 509 PASS · geocheck PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate DATA OK ·
+  npm test ALL PASS. Hub card, CITIES.md row, AGENT-PROMPTS run-log row and RESUME next-wave plan updated.
+
+## 2026-10-03 (session 5) · batch 5 — orchestrator resume
+- **Pin +1:** CY Chinese Restaurant (1242 NE 163rd St, Apple place pin; `geo/_geoout_x5.json`).
+- **Pin withdrawn:** Cotoa — the same Apple place-id now resolves to 100 Biscayne Blvd (The B100M, downtown) as well as 12475 NE 6th Ct;
+  Miami New Times (B100M opening) puts Cotoa downtown and the Michelin listing shows "temporarily closed". Row removed from `_geoout_x2.json`,
+  registry entry reset to UNVERIFIED (`geo/_geoout_x5s.json`); re-check location + status before re-pinning (area may be DTB, not NMIA).
+- 3 more retry queries (Steve's Pizza, Panya Thai, Perl, Farofa, Basilic, Chéen-Huaye, Shiver's, Fox's Lounge, Redland Market Village) gave
+  only bare place-ids — the long tail is now ~0.3 pins/search with this channel. Net pinned: 261. Gates + validate + test green.

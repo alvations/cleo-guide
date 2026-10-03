@@ -333,28 +333,6 @@
   ]
  },
  {
-  "t": 3,
-  "a": "IOA",
-  "cz": [
-   "Italian"
-  ],
-  "dish": "Meat-lovers pizza; the \"brookie\" (brownie-cookie)",
-  "n": "Pizza Predattoria",
-  "address": "Jurassic Park, Universal Islands of Adventure, 6000 Universal Blvd, Orlando, FL",
-  "w": "Jurassic Park-themed pizzeria; AllEars reviewers 8.3/10 (brookie called a brilliant development in desserts); TouringPlans dining guide.",
-  "closed": false,
-  "sources": [
-   [
-    "ALLEARS",
-    "https://allears.net/reviews/pizza-predattoria-all-day/"
-   ],
-   [
-    "TOURINGPLANS",
-    "https://touringplans.com/islands-of-adventure/dining/pizza-predattoria"
-   ]
-  ]
- },
- {
   "t": 2,
   "a": "USF",
   "cz": [
@@ -465,7 +443,7 @@
   "cz": [
    "Jamaican"
   ],
-  "dish": "Jerk chicken; live reggae",
+  "dish": "Reggae Jamaican jerk chicken with rice & peas and plantains; oxtail stew",
   "n": "Bob Marley – A Tribute to Freedom",
   "address": "Universal CityWalk, 6000 Universal Blvd, Orlando, FL",
   "w": "Jamaican kitchen in a replica of Marley's Kingston home with an open-air courtyard and live reggae nightly; Orlando Informer calls it one of the best-kept secrets at Universal Orlando; listed by Orlando Weekly and TouringPlans.",
@@ -482,6 +460,10 @@
    [
     "TOURINGPLANS",
     "https://touringplans.com/universal-citywalk/dining/bob-marley-tribute-to-freedom"
+   ],
+   [
+    "ALLEARS",
+    "https://allears.net/uor/dining/menu/bob-marley-a-tribute-to-freedom/all-day/"
    ]
   ]
  },
@@ -609,6 +591,97 @@
    [
     "VISITSPACECOAST",
     "https://www.visitspacecoast.com/profile/titusville/restaurants/playalinda-brewing-company/"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SPRNG",
+  "cz": [
+   "Gastropub",
+   "American"
+  ],
+  "dish": "Bison burger; duck-lover's pizza; shaved-beef sandwich on smoked salt-caraway roll",
+  "n": "The Smiling Bison",
+  "address": "Downtown Sanford, FL",
+  "w": "Upscale beer-friendly gastropub known for bison burgers; on Orlando Weekly's 20 essential Sanford restaurants and named by Orlando Magazine's Sanford neighborhood guide.",
+  "closed": false,
+  "sources": [
+   [
+    "ORLANDOWEEKLY",
+    "https://www.orlandoweekly.com/orlando/20-essential-sanford-restaurants-you-probably-shouldve-tried-by-now/Slideshow/30946809"
+   ],
+   [
+    "ORLANDOMAG",
+    "https://www.orlandomagazine.com/9-great-orlando-area-neighborhoods-sanford/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "WEST",
+  "cz": [
+   "American",
+   "Burgers"
+  ],
+  "dish": "Bison/beef burgers with bourbon flights",
+  "n": "The Hangry Bison (Winter Garden)",
+  "address": "The Exchange, Winter Garden, FL",
+  "w": "Orlando Weekly readers' Best Winter Garden Restaurant 2025; the burgers-bourbon-beer concept won the 2019 Orlando Sentinel Foodie Award for Orlando's Best Burger and Best Brunch Cocktail at Brunch in the Park 2026; Orange Observer covered its Winter Garden expansion.",
+  "closed": false,
+  "sources": [
+   [
+    "ORLANDOWEEKLY",
+    "https://www.orlandoweekly.com/best-of/the-best-restaurant-in-every-part-of-orlando-according-to-our-readers/"
+   ],
+   [
+    "ORANGEOBSERVER",
+    "https://www.orangeobserver.com/news/2020/jun/24/winter-parks-hangry-bison-to-expand-to-winter-garden/"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "WEST",
+  "cz": [
+   "Indian"
+  ],
+  "dish": "Chicken 65",
+  "n": "Mirchi Indian Street Food",
+  "address": "1021 S. Dillard St., Winter Garden, FL",
+  "w": "Orlando Weekly review: fuses flamboyance with flavor and straight fire — \"the chicken 65... is the best $9 you'll spend on chicken anywhere\"; from the owners of Cilantro Indian Cuisine (Orange Observer).",
+  "closed": false,
+  "sources": [
+   [
+    "ORLANDOWEEKLY",
+    "https://www.orlandoweekly.com/food-drink/mirchi-indian-street-food-fuses-flamboyance-with-flavor-and-straight-fire-39712456/"
+   ],
+   [
+    "ORANGEOBSERVER",
+    "https://www.orangeobserver.com/news/2024/oct/02/new-indian-street-food-concept-coming-to-winter-garden/"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "EAST",
+  "cz": [
+   "Southern",
+   "American"
+  ],
+  "dish": "Biscuits and gravy; blueberry pancakes (breakfast all day)",
+  "n": "The Town House Restaurant (Oviedo)",
+  "address": "139 N Central Ave, Oviedo, FL",
+  "w": "Family-run Oviedo diner serving since the 1950s with an award-winning breakfast; on Orlando Weekly's list of classic Orlando-area restaurants open 25+ years; a local landmark.",
+  "closed": false,
+  "sources": [
+   [
+    "ORLANDOWEEKLY",
+    "https://www.orlandoweekly.com/food-drink/29-classic-orlando-restaurants-that-have-been-around-for-25-years-or-longer/"
+   ],
+   [
+    "OFFICIAL",
+    "https://www.oviedotownhouse.com/fan-reviews"
    ]
   ]
  }

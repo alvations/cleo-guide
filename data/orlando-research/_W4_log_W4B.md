@@ -21,7 +21,7 @@ Beacham Theatre | DTO | WIKIPEDIA+HISTORYCENTER(new outlet) | PINNED 28.543,-81.
 City Food Hall (Ivanhoe Village) | DTO | ORLANDOWEEKLY+BUNGALOWER | no | Taglish, Chez Les Copains, Ramen Takagi inside
 DROP Little Saigon (Mills 50) — historic (oldest VN restaurant, 1980s) but critics note quality has flagged; Mills is food-heavy; held for lead's judgment (SCOTTJOSEPH listing)
 Will's Pub | MILLS | ORLANDOWEEKLY (Best Live Music Venue 2025)+CULTURETRIP(new outlet) | no |
-The Plaza Live | MILLS | WIKIPEDIA+ORLANDOWEEKLY+CLICKORLANDO | no (wiki coords not surfaced) |
+The Plaza Live | MILLS | WIKIPEDIA+ORLANDOWEEKLY+CLICKORLANDO | PINNED 28.5487,-81.3513 (The_Plaza_Live wiki) |
 Orlando Shakespeare Theater (Lowndes Shakespeare Center) | MILLS | WIKIPEDIA+ORLANDOWEEKLY (Best Theater Co 2024) | no |
 Casa Feliz (Barbour House) | WPK | WIKIPEDIA+VISITFLORIDA+OFFICIAL | PINNED 28.602667,-81.351056 (Robert_Bruce_Barbour_House wiki)
 Waterhouse Residence Museum | WPK | WIKIPEDIA+OFFICIAL | PINNED 28.62083,-81.36722 (William_H._Waterhouse_House wiki) |
@@ -34,6 +34,9 @@ HELD Orlando Health/Amtrak station (1926 Mission-style) — WIKIPEDIA coords 28.
 DROP Rogers Building — Wikipedia coord 28.54278,-81.37056 looks ~700 m east of 37-39 S Magnolia Ave; suspect, not used
 Nikki's Place | DTO | ORLANDOWEEKLY+WMFE(Scott Joseph) | no | Parramore 1949 landmark; status via buyblack.org Feb-2026 list (weak - lead may want a 2nd status check); address 742 Carter St per OW (ClickOrlando/Hoodline print 5742)
 Orlando Health/Amtrak Station (1926 ACL depot) | MILLS (SoDo) | WIKIPEDIA+FLHERITAGE(new outlet)+BUNGALOWER | PINNED 28.52590,-81.38130 (Orlando_Health/Amtrak_station wiki) | supersedes HELD line above
-Kappy's Subs | WPK (Maitland) | ORLANDOWEEKLY(2025 finalist)+FOX35+CLICKORLANDO | no | ADDRESS NOT surfaced — only 'Maitland'; needs street address before geocode.
+Kappy's Subs | WPK (Maitland) | ORLANDOWEEKLY(2025 finalist)+FOX35+CLICKORLANDO | no | address 501 N Orlando Ave (Orlando Weekly listing)
 HELD Parea Greek Taverna (Maitland) — only Orlando Weekly review; need 2nd
 HELD The Osprey (Baldwin Park) / Seito Sushi Baldwin Park — OW 2025 finalists only
+Winter Park History Museum | WPK | WIKIPEDIA+OFFICIAL | PINNED 28.59574,-81.35218 (Winter_Park_Historical_Museum wiki) | supersedes HELD line
+St. James Cathedral (Orlando) | DTO | WIKIPEDIA+UCFRICHES(new outlet) | no — a coord 28.5451184,-81.3786515 surfaced in a search whose results did not clearly include the cathedral's own article; left UNVERIFIED (lead can confirm against the article)
+SEARCHES USED: 54 of 55

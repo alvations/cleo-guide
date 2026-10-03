@@ -24,39 +24,37 @@ Run protocol: `docs/RUN-2026-10-02.md` (shared lock, commit+push every batch, §
 - `EAST` East Orlando / UCF / Oviedo ~10
 - `SPACE` Space Coast ~25
 
-## State (session 4 / wave 3, 2026-10-03)
-- **LIVE**: `cities/orlando.html` — **157 sights + 35 food on the map**; 4 gates OK (sourcecheck FAILs only on 9 HELD single-source,
-  dropped by the build); npm validate + test green; card `CARD:orlando-fl`, CITIES row, AGENT-PROMPTS run-log row refreshed.
-- **390 researched (213 food + 177 sights) — food share 54.6%** (session 3: 46%).
-- Per area (food+sights / target): CWALK 5+2/10 · DAK 8+11/22 · DHS 8+9/20 · DSP 18+6/25 · DTO 17+13/50 · EAST 7+2/10 · EPCOT 11+19/35 ·
-  EPIC 8+11/20 · IDR 13+11/45 · IOA 5+8/20 · KISS 9+11/35 · MILLS 42+6/60 · MK 14+19/30 OK · SPACE 5+13/25 · SPRNG 14+9/30 · USF 6+8/20 ·
-  WEST 5+5/15 · WPK 18+14/45.  NEED: IDR +21 · DTO +20 · KISS +15 · WPK +13 · MILLS +12 · IOA +7 · SPACE +7 · SPRNG +7 · USF +6 ·
-  EPCOT +5 · WEST +5 · CWALK/DAK/DHS +3 · DSP/EAST/EPIC +1.
-- Food-share per area below 50%: DAK, DHS, DTO(57%✓)… check density.py — sights-heavy: EPCOT 37%, EPIC 42%, IOA 38%, USF 43%, KISS 45%,
-  SPACE 28%, WEST 50%, EAST 78%✓; MILLS is food-heavy (88%) → its remaining +12 should be sights (Audubon Park, Ivanhoe Village, Lake Druid).
-- ~190 UNVERIFIED (mostly street-address restaurants + park counter-service): addresses in geo/_geoout_*.json → geocode-helper.
-- Session 4 files: FOOD/SIGHTS/SOURCES_W3{A,B,C,D,L}.json, CREATORS_W3{A,D}.json, geo/_geoout_w3{a,b,c,d,l,pin,bldg}.json;
-  helpers `_orl_pin.py` (lead pin writer; copies status from research geo), `_orl_lib.py`, `_orl_addsrc.py`, `_orl_golive.py`, `_orl_push.sh`.
-- Search budget: ≈176 used this session (lead 29 + workers 147).
+## State (session 5 / wave 4, 2026-10-03)
+- **LIVE**: `cities/orlando.html` — **186 sights + 40 food = 226 on the map** (5 restaurant pins via the new aggregator-pin technique); **all 4 gates PASS** (sourcecheck now PASS — the 9 held
+  single-source were corroborated); npm validate + test green; card, CITIES row, AGENT-PROMPTS run log refreshed.
+- **471 researched (263 food + 208 sights) — food share 55.8%**.
+- Per area (food+sights / target): CWALK 8+2/10 OK · DAK 9+12/22 · DHS 10+10/20 OK · DSP 19+6/25 OK · DTO 21+16/50 · EAST 8+2/10 OK ·
+  EPCOT 16+19/35 OK · EPIC 9+11/20 OK · IDR 19+15/45 · IOA 8+11/20 · KISS 14+13/35 · MILLS 45+10/60 · MK 14+19/30 OK · SPACE 10+13/25 ·
+  SPRNG 15+12/30 · USF 9+11/20 OK · WEST 7+8/15 OK · WPK 22+18/45.
+  NEED: DTO +13 · IDR +11 · KISS +8 · MILLS +5 (sights) · WPK +5 · SPRNG +3 · SPACE +2 · DAK +1 · IOA +1.
+- **245 UNVERIFIED** (mostly street-address restaurants + park counter-service): MILLS 42, DTO 22, WPK 22, IDR 18, DSP 17, KISS 16, SPRNG 14 …
+  WebSearch cannot pin them (probed again W4: Mapcarta/Wikipedia return only land/park centroids) → `tools/geocode-helper.html`.
+- Session 5 files: FOOD/SIGHTS/SOURCES_W4{A,B,C,L}.json, geo/_geoout_w4{a,b,c,l}.json, logs `_W4_log_W4{A,B,C,L}.md`, worker brief
+  `_W4_WORKER_BRIEF.md`, names list `_orl_existing_names.txt` (regenerate from orl_dataset.json before a new wave).
+- Search budget: ≈187 used this session (lead 29 + workers 158).
 
 ## In-flight wave
-- **W4 (session 5, 2026-10-03)**: step 1 corroborate-or-drop the 9 single-source (Randall Knife Museum, Entertainment McDonald's, Global Convergence, Dr. Phillips House, Osceola Courthouse, Gaylord Palms, Race Through NY, Cocoa Beach Pier, Space View Park) via `_orl_addsrc.py`; step 2 pin held restaurants → `geo/_geoout_w4pin.json`; step 3 NEED areas → `FOOD_W4*/SIGHTS_W4*`. Step 1 DONE (commit c127796, sourcecheck PASS). Step 2: WebSearch pin probe = dead end (logged). Step 3 running: workers W4A (IDR+KISS), W4B (DTO+MILLS+WPK), W4C (parks+SPACE/SPRNG/WEST/EAST) per `_W4_WORKER_BRIEF.md`; logs `_W4_log_<TAG>.md`.
+- (none — wave 4 closed cleanly)
 
-## Next actions (ordered) — wave 4 plan
-1. **Pins for restaurants** remain the gap (35 of 213 food pinned): run `tools/geocode-helper.html` over the UNVERIFIED list
-   (`python3 tools/geocode-status.py` → docs/GEOCODE-BACKLOG.md, Orlando section). WebSearch only works for venues with their own
-   Wikipedia article (`allowed_domains:["en.wikipedia.org"]`, 3 names per query with "coordinates °N °W") and for building-level
-   pins (restaurants inside a pavilion/resort that already has a Wikipedia coord). Never land/district/lake/city points.
-2. **Corroborate held single-source** (list in AUDIT.md session 4) — one search per 2–3 names (cheapest density wins: Restaurant Row,
-   Winter Park, Kissimmee Latin, Sanford, Space Coast).
-3. **IDR +21 / DTO +20 / KISS +15** — IDR: Restaurant Row steakhouses & Sand Lake Michelin Recommended, Volcano Bay? (CWALK),
-   Madame Tussauds/SEA LIFE, Museum of Illusions, SeaWorld rides (Mako, Manta, Ice Breaker — Wikipedia coords exist), Gatorland? (check);
-   DTO: Lake Ivanhoe, Thornton Park, Wall Street Plaza, Cafe Linger, The Wellborn, Ember, Bites & Bubbles, Parramore; KISS: Lake Toho /
-   Kissimmee Lakefront Park, Forever Florida, Reptile World, Puerto Rican canon (needs a credible 2nd outlet — try Orlando Sentinel /
-   Experience Kissimmee + Visit Florida).
-4. **Park sights to balance food** (EPCOT/EPIC/IOA/USF food<50%): add park food first — Connections Eatery, La Cava del Tequila, Schwab's,
-   Duff Brewery, Mel's (needs 2nd), TODAY Cafe (needs 2nd); IOA Thunder Falls replacement when open (2027).
-5. **Re-checks:** Finnegan's (reopen late 2026?), Shin Jung (post-fire), Tennessee Truffle, Hanamizuki, Willie's Pinchos.
+## Next actions (ordered) — wave 5 plan
+1. **Restaurant pins** (250 UNVERIFIED) are the gap between discovered (471) and rendered (221). NEW technique (docs/RESEARCH-LOG.md,
+   Liège W4, ≈85% hit): WebSearch `allowed_domains:["restaurantguru.com","foursquare.com","wanderlog.com","viamichelin.com"]` +
+   `<name> <street> Orlando coordinates`, ONE place per search; accept only when the returned address matches the record. Spend the
+   W5 budget here first (biggest render win), then `tools/geocode-helper.html` for the rest. Mapcarta/Wikipedia = dead end for restaurants.
+2. **Held leads** (one search each for a 2nd credible source): Tropico Mofongo, Susana's Cafe, Sol de Borinquen (KISS); Vault 5421 (IDR);
+   Parea, The Osprey (WPK); Nona Blue (KISS); Fishlips, Rusty's (SPACE); Neighbors Taqueria, Mister O1; Walala (Michelin Rec. — decide area).
+3. **NEED areas**: DTO +13 (Wall Street Plaza bars, Thornton Park cafés, Parramore, Church St; sights: Orlando City Hall has a coord),
+   IDR +11 (Restaurant Row/Sand Lake — Michelin Rec., Dr Phillips bars), KISS +8 (Puerto Rican canon via Sentinel/Spectrum 13),
+   MILLS +5 SIGHTS, WPK +5, SPRNG +3, SPACE +2, DAK +1, IOA +1.
+4. **Re-checks:** Tennessee Truffle, Willie's Pinchos, Canvas, Nikki's Place, La Cava del Tequila, The Smiling Bison (undated open status);
+   Jurassic Park River Adventure (reopens 2026-11-20), Finnegan's (late 2026); Cocoa Beach Pier needs a press 2nd source.
+5. **Creator channel**: 4 waves of creator queries found no vetted Orlando YouTube/TikTok creator — try named creators directly
+   (e.g. "Orlando foodie" YouTube channel with subscriber count) rather than generic queries.
 6. Each wave: `flock … python3 tools/rebuild-city.py orlando-fl --build` → 4 gates → npm validate/test → `_orl_golive.py` → `_orl_push.sh`.
 
 ## Commands
@@ -70,5 +68,5 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
   `CREATORS_<tag>.json` · `geo/_geoout_<tag>.json`.
 
 ## Acceptance checklist
-- [ ] every area at target (density.py OK)  - [ ] --sourcecheck/--geocheck/--statuscheck/--buildcheck green
+- [ ] every area at target (density.py OK)  - [x] --sourcecheck/--geocheck/--statuscheck/--buildcheck green
 - [x] npm run validate + npm test green       - [x] index card live with real counts; CITIES.md row

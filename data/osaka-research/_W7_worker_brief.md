@@ -38,3 +38,10 @@
   accept only if the spot page's name + address match → confidence "med", geoSource with the exact URL. Spend ~30% of your
   cap pinning your own new places this way.
 - Only cite URLs that appeared in YOUR search results — never construct or guess a URL (two round-1 records were held for this).
+
+## W7 round 3 (K/L/M) — closing the last gaps (after round 2: 477 discovered)
+- Gaps: MINAM +3 · EAST +5 · BAY +3 · NORTH +3 · SOUTH +5 · TNJ +1. `_osaka_names.txt` refreshed (477).
+- Food first (pairing method from round 2). **Sight fallback is allowed** once food leads are exhausted: a sight on a lone
+  institution (`BUNKACHO` — National Treasure / Important Cultural Property / Special Historic Site / Scenic Beauty; `UNESCO`)
+  or ≥2 credible (ja.wikipedia + OSAKA-INFO/japan-guide/Rurubu/Mapple). Sights are also the cheapest pins (ja.wikipedia 座標).
+- Time Out 東大阪27選 (Kawachi) single-key names are listed in `_note_W7H.md` — pair them.
