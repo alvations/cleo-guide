@@ -42,7 +42,10 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
 - `allowed_domains:["japan-guide.com"]` / `["osaka-info.jp"]` area queries → sight lists (source 1).
 
 ## In-flight wave
-- none — W5 closed (session 5; workers 171 searches + main).
+- **W6 (session 6, 2026-10-03)** — workers W6A (EAST+BAY, held promotions), W6B (MINAM via Metro NiNE/Lmaga/Kansai Walker),
+  W6C (TNJ/SOUTH/NORTH/KNSAI), W6D (★ANIME all areas), W6G (geocoder for `_unrendered_W6.json`, 101 places) + main.
+  Files: FOOD_/SIGHTS_/SOURCES_/CREATORS_OSAKA_W6{A,B,C,D}.json, geo/_geoout_osaka_W6{A,B,C,D,G}.json. Brief `_W6_worker_brief.md`.
+  If relaunched mid-wave: consolidate whatever W6* files exist (rebuild-city), then continue from the W6 plan below.
 
 - 2026-10-03 **W5 (session 5)** — 6 workers (A BAY · B EAST · C TNJ · D MINAM+anime · E SOUTH/NORTH/KNSAI · G geocoder) + main.
   **398 discovered (151 sights + 247 food = 62% food), 297 rendered (126 + 171)**; ANIME 21 (+5: Kinopio's Café, Mandarake Grand
