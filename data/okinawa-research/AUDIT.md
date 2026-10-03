@@ -283,3 +283,35 @@ Per-agent logs `_okinawa_W8*_notes.md` hold every query, kept/dropped/held lead 
   CONSISTENT (0 unchecked) · buildcheck PASS; `npm run validate` DATA OK; `npm test` ALL PASS. Pins 295 → 344. Food share 227/418 = 54 %.
   **ANIME 22 found / 15 pinned** (unpinned: Ryūtan lid, Kinjō Tetsuo/Shōfūen, Azama Sun Sun, Sugar Road, Zamami lid, Ishigaki lid, West Pier).
 - **Creators:** ~10 searches across agents — 0 kept (rejections in `CREATORS_OKINAWA_W8*.json`).
+
+## 2026-10-03 — W9 (session_012LmRFpCmy9XHMHT66hkzS3; 7 bg agents, ~190 of ~200 searches; rules `_okinawa_w9_agentrules.md`)
+Per-agent logs `_okinawa_W9*_notes.md` hold every query, kept/dropped/held lead and source; summary:
+- **Discovery (+33 → 451; 26 food & drink = 79 % of additions):** W9D1 Chūbu food +6 (Taishū Shokudō Mickey, Sam's Anchor Inn Ginowan [1970 first
+  branch], Maeda Soba Enobi, Subaya Yūbaru Menkata, Ippe Coppe, Okinawa Soba-dokoro Minami — 3 held leads paired; new key URASOENAVI).
+  W9D2 Naha food +5 (Hiikiya shellfish sakaba, Hoshi no Shizuku kokutō zenzai, Kameshima Pan Nichūmae, Charu Soba, Teshiraji Soba [held paired]).
+  W9D3 Hokubu +8 (Marutaka Soba [held paired], Anettai Chaya, BLOOM HOUSE, CASA SOL; JUNGLIA Okinawa, Ta-taki Falls, Kuina no Mori,
+  OKINAWA Fruits Land; new keys NAGOKANKO, YAMBARU3KANKO). W9D4 Nanbu +3 (Taco Rice Café Kijimunā, Oyaji no Maguro — Umikaji Terrace;
+  Hawaiian Pancake Cafe KOA) / KRM +1 (Restaurant Namiji, Kume prawns). W9D5 MYK +6 (Koshibaru Shokudō, Cafe Uesuya [moved to 下里43],
+  Miyanohana, Miyako Jinja, Imgya Marine Garden, Cape Nishi-hennazaki) / YAEYA +3 (Shima Soba Ichiban-chi, Shidamē-kan [held paired],
+  Ikehara Shuzō; new key ISHIGAKIKEIZAI). W9A anime +1 (Chiikawa Restaurant Okinawa, PARCO CITY Urasoe — RS + KAI-YOU + Mynavi + AnimeAnime).
+- **Orchestrator fact-check (removed, held):** Māsā no Mise (Tokashiki — OT cite inferred, tuna-bowl dish unconfirmed), Ikema Shuzō (2nd source
+  = prefecture link list), Okinawa Jiryōri Hateruma (JNTO cite inferred; confirm search aggregators only), Yaeyama Soba-dokoro Komatsu — CLOSED
+  (closure from one blog title; non-notable closed → drop). KOA's Stripes cite confirmed by a site-limited search. Kojasobaya: "古謝本店 closed"
+  signal not confirmed (rurubu 80042987 current hours) → stays open.
+- **Held (single-source):** Chūbu — Kawaraya, Shirahamaya, Yomitanzan Soba, Sobe, Cocoroar Cafe, Churuge Soba; Naha — Naha Soba Kinjō, Kugani
+  zenzai, Stand Suehiro, Senbero-ya, BOULANGERIE BZ, Chonchon, Kingetsu Soba (moved); Hokubu — Tototo, Uppama, Miyazato, Ichifuji, British Wine &
+  Tea Shop; Nanbu/KRM — Kōganeya, Tenten, Iibaru-ya, Kihachi, Restaurant Ryū, Māsā no Mise; MYK/YAEYA — Ikema Shuzō, Eifuku "Tony Soba",
+  Tōrin-ji/Gongen-dō (needs BUNKACHO URL), Kato Soba, Mengatē; anime — Gushikawa Soba Ai-chan, Animate Naha, Mangasouko.
+- **Koza post-war steak houses:** still a stated gap — no surviving house with ≥2 credible sources (W8D1 + W9D1, ~10 searches).
+- **Closures:** none new written.
+- **Geocode:** W9G +6 low (Nakijin Soba, Player's Cafe, Yappari Steak 1st — ≥2 listings agree within 12 m; Boku no Mise Ojisan, Zhyvago,
+  Shima Gourmet ROCO — single unattributed listing → re-verify). **Apple Maps `allowed_domains` channel: 0 coordinates in ~10 tries across agents**
+  (Okinawa results are `place?place-id=`/`auid=` URLs with no `coordinate=`/`ll=`); NAVITIME/MapFan also 0 this wave. W9A: West Pier high
+  (ja.wiki), Azama Sun Sun low. Address corrections (W9G notes): Hateruma Shuzōsho 波照間156; Kokusen Awamori → どなん酒造.
+  Discovery agents pinned ~22 of 33 (high 4, med 3 incl. Stripes GPS / host-mall ja.wiki point for Chiikawa, rest low).
+- **Build + gates:** `rebuild-city.py okinawa --build` → sourcecheck PASS (451) · geocheck PASS (high 124 · med 76 · low 178) · statuscheck
+  CONSISTENT · buildcheck PASS; `npm run validate` DATA OK; `npm test` ALL PASS. Pins 344 → 378. Food share 253/451 = 56 %.
+  **ANIME 23 found / 18 pinned** (unpinned: Ryūtan lid, Kinjō Tetsuo/Shōfūen, Sugar Road, Zamami lid, Ishigaki lid).
+- **Channel mix (kept):** regional press (RS/OT/OTV) ~12 · Japanese travel media (Tabirai/Mapple/Rurubu/Okinawa CLIP/KozaWeb/Smart Magazine/
+  cotrip) ~16 · official/municipal tourism (OCVB, Nago, Yanbaru, Urasoe, Kumejima, Taketomi) ~7 · national/anime press (KAI-YOU, Mynavi,
+  AnimeAnime, JSS) ~4 · English (Stripes, Feel Japan) ~3 · creators 0 (~7 searches, all rejected).
