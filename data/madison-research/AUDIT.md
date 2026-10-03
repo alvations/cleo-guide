@@ -156,3 +156,38 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
 - **Channel mix (batch):** editorial 15/15 · reader vote (MadMag/UpNorth) 9 · local-rec (City Cast) 9 · creators 0.
 - **Build + gates:** 87 researched; sourcecheck PASS 87 · geocheck PASS · statuscheck CONSISTENT (Esquire flagged)
   · buildcheck PASS · validate DATA OK · test ALL PASS. 34 UNVERIFIED (all restaurants).
+
+### W4 batch 2 — JB semis, MVF food, held sights re-sourced + Wikipedia pins
+- **Pin channel found:** single-name queries with `allowed_domains` = en.wikipedia.org + wikidata.org return the
+  infobox coordinate (APT, Fess Hotel, Veterans Museum, Stoughton Opera House, Chalet of the Golden Fleece: 5/6;
+  Pheasant Branch has no article → UNVERIFIED; Ishnala → only the state-park centroid, rejected).
+- **Food (FOOD_W4b.json, 6):** Babcock Hall Dairy Store (UW t1), CocoVaa (EAST; JB semi 2024), Imaginary Factory
+  (EAST; JB semi 2026), Pasture and Plenty (WEST; JB semi 2024), Capital Brewery (MVF t1; State Trunk Tour 2026),
+  Clasen's European Bakery (MVF).
+- **Sights (SIGHTS_W4a.json, 7):** American Players Theatre (TRIP t1, high), Trollway (DANE t1), Pheasant Branch
+  Conservancy (MVF t1), Wisconsin Veterans Museum (CAP; OPEN — replacement planned, no closure date), MMoCA (CAP, 2nd
+  source = Destination Madison free list), Stoughton Opera House (DANE, med — two points returned), Chalet of the
+  Golden Fleece (TRIP, high).
+- **Held:** Wisconsin Brewing Co. (Experience WI only), Imperial Garden (Travel WI only), Matz Farmstead Ruins,
+  Sid Boyum sculptures, Forest Products Lab (Atlas Obscura only), Norwegian Heritage Center/Livsreise and UW Geology
+  Museum (Destination Madison only) — next wave.
+- **Build + gates:** 100 researched (59 food = 59% / 41 sights), 59 pinned; 4 gates PASS; validate + test green.
+  Card + CITIES.md refreshed via `_mad_card.py`.
+
+### W4 batch 3 — Best of Madison 2026 × second outlets; effigy-mound sights
+- **Key source:** Madison Magazine **Best of Madison 2026** full winners list (49 food & drink categories) —
+  counted as ONE outlet (MADMAG) per place; every addition pairs it with a second outlet (City Cast, UpNorthNews,
+  Time Out, Cap Times, Travel WI, WMTV/WHS).
+- **Food (FOOD_W4c.json, 12):** Lombardino's (WEST t1, est. 1952), Working Draft (EAST), Rex's Innkeeper & Maple
+  Tree Supper Club (DANE), Player's Sports Bar (EAST), New Glarus Brewing (TRIP t1; Wikipedia pin high), Greenbush
+  Bakery (WEST), Stella's Bakery (CAP t1, farmers'-market spicy cheese bread), Marigold Kitchen (CAP), Tip Top
+  Tavern (EAST), Driftless Glen Distillery (TRIP t1), The Del-Bar (TRIP t1; James Dresser/Wright-school building).
+- **Sights (SIGHTS_W4b.json, 6):** Burrows Park, Elmside Park, Vilas Circle Bear and Observatory Hill effigy mounds
+  (OnMilwaukee mounds feature + Wikipedia/NRHP; all pinned high), Edgewood College Mound Group (no coordinate in
+  the article summary → UNVERIFIED), UW Geology Museum (Destination Madison free list + Wikipedia; high).
+- **Rule 4a:** addresses kept to what sources state (street names/localities); a remembered APT road name was
+  removed before merge.
+- **Held (one outlet so far):** Cento, Osteria Novella, Bar Corallini, Tempest, Eno Vino, Toot & Kate's, Banzo,
+  La Taguara, Gail Ambrosius, Candinas, Hook's Cheese, Green Owl, Sa Bai Thong, Swagat, Stone Porch, Karben4,
+  Vintage, Delta Beer Lab (area unclear — south side), Mickey's Tavern, Heritage Tavern.
+- **Build + gates:** 118 researched (71 food = 60% / 47 sights), 65 pinned; 4 gates PASS; validate + test green.

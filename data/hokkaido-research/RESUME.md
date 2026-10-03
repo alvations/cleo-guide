@@ -38,13 +38,16 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
 - 2026-10-03 **session 5** (≈178 searches; 5 bg discovery agents W88–W92 + G05 pins + W93 promotions) → **509 discovered (54% food), 274 rendered**
   (212 sights + 62 food), ANIME/pop 30, all 4 gates + validate + test green. Discovered vs target: SPR 128/130 · OTARU 51/50 · DONAN 78/75 ·
   DHOKU 65/60 · DOTO 56/55 · TKC 37/35 · IBURI 41/40 · NSK 34/35 · SOYA 20/20. 235 UNVERIFIED held (restaurants).
+- 2026-10-03 **session 6** (≈85 searches): W94 (+5: SPR 3 sights, NSK 2 food) + G06 (118 restaurant pins via NAVITIME POI)
+  → **514 discovered (53.5% food), 396 rendered** (217 sights + 179 food), ANIME 31 tagged / 26 on map, all 4 gates + validate + test green.
+  **Every area at target** (SPR 131/130 · NSK 36/35 · …). 118 UNVERIFIED held.
 - Commands: `python3 tools/density.py hokkaido` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py hokkaido --build`.
 
 ## In-flight wave
-- none (session 5 build B1-s5 committed).
+- none (session 6 W94 + G06 committed).
 
 ## Search ledger
-- session 1: ~14 · session 2: ≈188 · session 3: ≈178 (me ~151 + W40 agent 15 + W60 agent 12) · session 4 ≈141 · session 5 ≈178.
+- session 1: ~14 · session 2: ≈188 · session 3: ≈178 (me ~151 + W40 agent 15 + W60 agent 12) · session 4 ≈141 · session 5 ≈178 · session 6 ≈85 (shared with Liège W4).
 
 ## What works (session 3 lessons — reuse)
 - **Pinned food & drink = michi-no-eki + breweries/markets with ja.wikipedia infoboxes**: `"<A> 座標; <B> 座標; <C> 座標"`
@@ -59,18 +62,16 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
 - Dead ends: guide.michelin.com (no Hokkaido venue pages), Michelin 2017 Bib list, Tabelog 百名店 lists, Time Out "10 things to eat",
   SAVOR JAPAN (Gurunavi), visit-hokkaido dish pages (no shop names), corporate plants' wiki coords.
 
-## Next-wave plan (session 6)
-1. **Close the last two:** SPR +2 (promote one of: hirihiri 2-gō — needs a mapple/sapporo.travel *spot* page; Pokke / Ramu no Ie / Bunjūrō — need a
-   non-rurubu outlet; Shirakaba Sansō / Yoshiyama Shōten — confirm the same branch in both outlets) · NSK +1 (Graubünden, Restaurant Yukiniwa —
-   need niseko-ta.jp / visit-hokkaido spot page; Hirafu restaurants held in `_note_W89.md`).
-2. **Restaurant pins (biggest lever, 235 UNVERIFIED):** confirmed again in G05 — WebSearch cannot surface shop coords. Run `tools/geocode-helper.html`
-   over `docs/GEOCODE-BACKLOG.md` (hokkaido) in a browser. Re-verify MnE Otofuke (moved 2022) pin.
-3. **Second anime tie-in sources** for single-sourced overlays (Morning Market, Kanemori — DIME only; Beer Museum — WARAKU only); leads: Ghost of
-   Yōtei × niseko-ta.jp official page (video game — pop-culture overlay on Mt Yōtei), Gokoku Shrine (Golden Kamuy), Animate/Mandarake Sapporo.
-4. **Creators:** every s5 creator query dead-ended; try named channels directly (Paolo fromTOKYO Hokkaido, Abroad in Japan Hokkaido, Only in Japan
-   Sapporo, Sapporo-based Japanese YouTubers) and attach to existing places.
-5. Keep food ≥50% (now 54%).
+## Next-wave plan (session 7)
+1. **Pin the last 118 UNVERIFIED with the G06 NAVITIME technique** (`_g06_worklist.txt` minus `geo/_geoout_hokkaido_g06.json`):
+   `<name1> / <name2> / <name3> 緯度 経度` with `allowed_domains:["navitime.co.jp"]`, then `python3 _g06_pins.py` (pipe format;
+   checks the name exists). Match NAVITIME's address/branch to the record before writing; never use route-URL lon/lat params
+   (Tokyo datum). ≈50 searches should clear most of them. Remaining misses → `tools/geocode-helper.html`.
+2. ANIME: second credible source for Mandarake/Animate Sapporo (e.g. a Matcha / japan-guide / Time Out otaku feature) and the
+   single-sourced overlays (Morning Market, Kanemori — DIME; Beer Museum — WARAKU); Ghost of Yōtei × Niseko official page.
+3. Re-verify `med` pins (all G06 pins are `med`); closure re-check on long-running restaurants (statusChecked dates).
+4. Optional depth beyond target (food ≥50 % holds): held leads in AUDIT (hirihiri 2-gō, Suginome, Hirafu restaurants).
 
 ## Acceptance
-- [ ] every area ≥ target (SPR 128/130, NSK 34/35) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
+- [x] every area ≥ target (session 6) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
 - [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] Japan hub card live · [x] CITIES.md row

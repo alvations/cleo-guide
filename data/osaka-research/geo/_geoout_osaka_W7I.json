@@ -1,0 +1,52 @@
+[
+ {
+  "n": "Tane-yoshi (種よし, Ura-Tennōji)",
+  "address": "15-13 Horikoshi-chō, Tennōji-ku, Osaka",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "MapFan query returned only the Horikoshi-chō address index, no spot page for the shop",
+  "status": "open",
+  "statusSource": "metronine.osaka spot page lists current hours (Tue–Sun, closed Mon) https://metronine.osaka/en/spot-details/?spot_id=16348691005221"
+ },
+ {
+  "n": "Asahi Beer Museum (アサヒビール ミュージアム, Suita Brewery)",
+  "address": "1-45 Nishinoshō-chō, Suita-shi, Osaka",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no MapFan spot page or ja.wikipedia 座標 surfaced for the Suita brewery",
+  "status": "open",
+  "statusSource": "Walkerplus spot page (GW 2026 listing) gives current reservation-only hours 9:30–15:00 https://www.walkerplus.com/spot/ar0727s578988/ ; opened 2022-04-25 per Time Out"
+ },
+ {
+  "n": "Takatsuki Shiitake Center (高槻しいたけセンター)",
+  "address": "Takatsuki-shi (near 森林センター前 bus stop), Osaka",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no MapFan spot page surfaced; street address not shown in results",
+  "status": "open",
+  "statusSource": "Rurubu 2026 shiitake-picking round-up https://rurubu.jp/andmore/article/4118 + OSAKA-INFO spot page hours https://osaka-info.jp/spot/takatsuki-shiitake-center/"
+ },
+ {
+  "n": "Mentetsu (麺哲, Toyonaka)",
+  "address": "Toyonaka-shi, Osaka",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no MapFan spot page surfaced; street address not shown",
+  "status": "open",
+  "statusSource": "selected in Tabelog Ramen OSAKA Hyakumeiten 2025 https://award.tabelog.com/hyakumeiten/ramen_osaka/2025 (no closure news found)"
+ },
+ {
+  "n": "Ōmiya Honten (近江屋本店, Shinsekai kushikatsu)",
+  "address": "2-3-18 Ebisu-higashi, Naniwa-ku, Osaka",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "MapFan returned a '近江屋' spot (https://mapfan.com/spots/S54HH,J,CT7PP0) whose address was not shown — not accepted",
+  "status": "open",
+  "statusSource": "Rurubu spot page with current hours 12:00–20:30, closed Thu https://rurubu.jp/andmore/spot/80027982"
+ }
+]

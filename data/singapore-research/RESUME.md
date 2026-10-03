@@ -89,3 +89,11 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 - **In-flight wave:** none.
 - **Next:** (1) helper-geocode Punggol Coast HC (84 Punggol Way S829911) + The Punggol Settlement + Northshore Plaza + Scotts Rd 27/35 + Balmoral Plaza — unlocks ~25 PGL/NVN pins; (2) NVN +8 from the held list (Carousel award source, Mun Zuk, Cairnhill conservation, Smiths-style Balmoral/Newton picks); (3) PGL +43: Punggol Settlement/Tebing Lane status pass, Waterway Point/Punggol Plaza, Sumang/Edgefield coffeeshops, creator pass.
 - **Commands:** `python3 tools/density.py singapore` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py singapore --build --geo-only "_geoout_*_w4.json"`
+
+## PGL + NVN W4 (2026-10-03, wave-3 relaunch session) — checkpoint
+- **State (W4 closed):** NVN **56/55 OK — LIVE** (42 pinned; 80% food) · PGL **63/93 (NEED +30)** (29 pinned; 73% food; greyed). Details + held lists: `_note_NOVENA.md` / `_note_PUNGGOL.md` "W4".
+- **Files:** FOOD_NOVENA4, FOOD_PUNGGOL4, SIGHTS_PUNGGOL4, SOURCES_PUNGGOL4 (SASSYMAMA, RTF, HOMETEAMNS), geo/_geoout_{novena,punggol}_w5.json.
+- **In-flight wave:** none.
+- **New geocode route:** OneMap building points via `WebSearch allowed_domains:["onemap.gov.sg"]` + the building's OneMap name ("NORTHSHORE PLAZA I - OneMap") — the result URL carries the SLA building lat/lng. Partial index; HDB block numbers sometimes resolve ("199C PUNGGOL FIELD").
+- **Next:** (1) helper-geocode Punggol Coast HC / The Punggol Settlement / Tebing Lane / Sumang & Edgefield coffeeshops (~+30 PGL pins) and the 14 NVN UNVERIFIED; (2) PGL +30 via Have Halal Will Travel × Seth Lui/Eatbook intersections + Settlement status pass; (3) re-check One Punggol stalls after the 2026 operator change.
+- **Commands:** `python3 tools/density.py singapore` · `flock -w 3600 .git/cleo-shared.lock bash -c 'python3 tools/geo-merge.py singapore --only "_geoout_*_w5.json" && python3 tools/rebuild-city.py singapore --build'`

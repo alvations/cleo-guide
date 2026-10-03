@@ -315,3 +315,29 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   2025) — re-check before pinning.
 - **Build:** 136 → 185 pinned. sourcecheck 509 PASS · geocheck PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate
   DATA OK · npm test ALL PASS.
+
+## 2026-10-03 (session 5 · wave 4 PINS) · batch 2 — Apple Maps pins, tier-1 first
+- **Pins (44, `geo/_geoout_x2.json`):** 41 high + 2 med (Laspada's — Apple lists 233 Commercial Blvd, our sources 4346 Seagrape Dr = same
+  corner storefront; Bar Kaiju — pin of host building The Citadel, 8300 NE 2nd Ave) + Little Haiti Cultural Complex (sight; was UNVERIFIED).
+  Lesson: "Name + neighbourhood" queries (no street number) return coordinate-bearing Apple URLs as often as full-address ones, so
+  vague-address records are pinnable too; each URL's own address was checked against the record (rejected: Pack Supermarket's
+  15327 NW 7th Ave branch, Drinking Pig's 845 NE 151st St listing — different branches).
+- **Closures / moves (`geo/_geoout_x2s.json`):** Jaguar Sun CLOSED (Aug 2024 — Axios + NT; Apple "permanently closed"). Knaus Berry Farm
+  MOVED: sold 2025, reopened 22 Dec 2025 at 16790 SW 177th Ave (WLRN, Florida Rambler, NT) — FOOD_F5 address + blurb corrected; old site
+  closed; not yet pinned at the new farm.
+- **Held, status unresolved (Apple shows a closure marker, no press found):** Kush (Wynwood, 2003 N Miami Ave), Taquiza (1351 Collins),
+  Lutong Pinoy (17048 W Dixie Hwy). Two Chefs (South Miami): no Apple listing found → re-check. Havana Café of the Everglades: Apple
+  "temporarily closed".
+- **Build:** 185 → 229 pinned; sourcecheck/geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
+
+## 2026-10-03 (session 5 · wave 4 PINS) · batch 3 — long tail
+- **Pins (26, `geo/_geoout_x3.json`):** 25 food (CGCG 11 incl. Chug's Diner t1; SDADE 5; NMIA 3; LHAV 3; FTL 3; WYN 2) + Calle Ocho Walk of
+  Fame (**med** — Apple point on a linear sidewalk feature). Sights generally come back from Apple as bare place-ids (0/9 in two
+  sight-only queries: Black Police Precinct, Ichimura garden, Superblue, Broward Center, Jungle Queen, Young At Art, Clyde Butcher,
+  Skunk Ape, Miccosukee Village) → left UNVERIFIED.
+- **Rejected mismatches:** Midorie (Apple's only listing is 851 NE 79th St, Upper East Side — our sources put it in Coconut Grove; held
+  for an address re-check), Piman Bouk (Apple coordinate is the *bakery* at 46 NE 62nd St, not the restaurant at 5921 NE 2nd Ave),
+  Versailles Bakery (only the restaurant's pin surfaced).
+- **Status leads (not changed — no press confirmation yet):** Sapore di Mare (one Apple listing "permanently closed"), Golden Rule Seafood
+  and Chefs on the Run (no Apple listing).
+- **Build:** 229 → 255 pinned; 4 gates + validate + npm test green.

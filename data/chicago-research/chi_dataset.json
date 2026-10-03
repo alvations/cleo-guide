@@ -2067,6 +2067,91 @@
    ]
   },
   {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Pui Tak Center",
+   "ad": "2216 S Wentworth Ave, Chicago, IL 60616",
+   "w": "The 1928 On Leong Merchants Association building — pagoda towers, green tile roofs and terracotta, Chinatown's signature landmark (Chicago Landmark 1993).",
+   "k": "architecture landmark chinatown",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pui_Tak_Center"
+    ],
+    [
+     "WTTW",
+     "https://www.wttw.com/most-beautiful-places-in-chicago/dramatic-architecture/pui-tak-center"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/pui-tak-center"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Quinn Chapel A.M.E. Church",
+   "ad": "2401 S Wabash Ave, Chicago, IL 60616",
+   "w": "Home of Chicago's oldest Black congregation (1844), an Underground Railroad station; its 1892 sanctuary still stands at Bronzeville's northern edge (Chicago Landmark).",
+   "k": "church black history landmark",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Quinn_Chapel_AME_Church_(Chicago)"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/quinn-chapel-a-m-e-church/"
+    ],
+    [
+     "WTTW",
+     "https://www.wttw.com/dusable-to-obama/quinn-chapel"
+    ],
+    [
+     "WBEZ",
+     "https://www.wbez.org/reset-with-sasha-ann-simons/2024/04/29/the-quinn-chapel-ame-church-whats-that-building"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Ebenezer Missionary Baptist Church",
+   "ad": "4501 S Vincennes Ave, Chicago, IL 60653",
+   "w": "Birthplace of gospel music — Thomas A. Dorsey's 1931 choir here launched Mahalia Jackson and a new American sound (Chicago Landmark 2011).",
+   "k": "church music history landmark",
+   "g": [
+    "ARCH",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ebenezer_Missionary_Baptist_Church_(Chicago)"
+    ],
+    [
+     "CITYCHI",
+     "http://webapps1.chicago.gov/landmarksweb/web/landmarkdetails.htm?lanId=13328"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/chicago-music/your-guide-to-gospel-music-in-chicago/"
+    ],
+    [
+     "WTTW",
+     "https://news.wttw.com/2022/09/08/historic-ebenezer-missionary-baptist-church-line-receive-900k-landmark-grant-city"
+    ]
+   ]
+  },
+  {
    "t": 1,
    "a": "SUB",
    "n": "Chicago Botanic Garden",
@@ -4863,10 +4948,10 @@
   },
   {
    "t": 1,
-   "a": "NORTH",
+   "a": "NW",
    "n": "Milly's Pizza in the Pan",
-   "ad": "1005 W Argyle St, Chicago, IL 60640",
-   "w": "Pandemic-born Uptown pan-pizza shop in the Pequod's lineage — #2 on Time Out's citywide pizza ranking and on the Infatuation deep-dish list.",
+   "ad": "925 N Ashland Ave, Chicago, IL 60622",
+   "w": "Pandemic-born pan-pizza shop in the Pequod's lineage — #2 on Time Out's citywide pizza ranking and on the Infatuation deep-dish list; the Uptown (Argyle) original has closed, it now bakes in West Town and Lakeview.",
    "cz": [
     "PZ"
    ],
@@ -7828,11 +7913,12 @@
    ]
   },
   {
-   "t": 1,
+   "t": 3,
    "a": "SUB",
-   "n": "Edzo's Burger Shop",
+   "n": "Edzo's Burger Shop — CLOSED",
    "ad": "1571 Sherman Ave, Evanston, IL 60201",
-   "w": "Evanston's old-school burger counter (2009) — the North Shore's burger benchmark on Infatuation's and Time Out's Evanston lists.",
+   "w": "Evanston's old-school burger counter (2009) — the North Shore's burger benchmark on Infatuation's and Time Out's Evanston lists — CLOSED: last service 21 Dec 2024 after 15 years (Evanston RoundTable); owner may reopen elsewhere.",
+   "closed": true,
    "cz": [
     "DOG"
    ],
@@ -7844,6 +7930,10 @@
     [
      "INFATUATION",
      "https://www.theinfatuation.com/chicago/reviews/edzos-burger-shop"
+    ],
+    [
+     "EVANSTONROUNDTABLE",
+     "https://evanstonroundtable.com/2024/12/22/at-this-time-edzos-last-supper/"
     ]
    ]
   },
@@ -8808,7 +8898,7 @@
    "t": 2,
    "a": "SOUTH",
    "n": "Chi Cafe",
-   "ad": "Chinatown, Chicago",
+   "ad": "2160 S Archer Ave, Chicago, IL 60616",
    "w": "Chinatown's Hong Kong-style café for the late-night crowd — open till 4am most nights, 24 hours on weekends.",
    "cz": [
     "CN"
@@ -8828,7 +8918,7 @@
    "t": 1,
    "a": "SOUTH",
    "n": "Nine Bar (behind Moon Palace)",
-   "ad": "Cermak Rd, Chinatown, Chicago (behind Moon Palace Express)",
+   "ad": "216 W Cermak Rd, Chicago, IL 60616",
    "w": "Chinatown's first speakeasy, a moody Blade Runner-esque lounge hidden behind Moon Palace Express — the family's restaurant still serves its soup dumplings up front.",
    "cz": [
     "BAR",
@@ -10105,6 +10195,148 @@
      "https://www.timeout.com/chicago/restaurants/the-best-restaurants-in-evanston"
     ]
    ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Cleo's Southern Cuisine",
+   "ad": "4248 S Cottage Grove Ave, Chicago, IL 60653",
+   "w": "Chef Kristen Harper's Creole-leaning Bronzeville soul-food counter — some of Chicago's best wings and fried chicken; Keith Lee's only 10/10 on his 2023 Chicago tour.",
+   "cz": [
+    "CHX"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/reviews/cleos-southern-cuisine"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/cleos-southern-cuisine"
+    ],
+    [
+     "HUNGRYHOUND",
+     "https://stevedolinsky.com/cleos-southern-cuisine-in-bronzeville"
+    ],
+    [
+     "KEITHLEE",
+     "https://blockclubchicago.org/2024/01/05/heres-what-tiktoks-keith-lee-ate-on-his-visit-to-chicago/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Bronzeville Winery",
+   "ad": "S Cottage Grove Ave at E 44th St, Bronzeville, Chicago, IL 60653",
+   "w": "Black-owned wine bar-restaurant from the Silver Room's owner — art-hung room, DJs and live music, a list that champions minority-owned producers.",
+   "cz": [
+    "US",
+    "BAR"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/reviews/bronzeville-winery"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/bronzeville-winery"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/september-2022/local-libations/"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/dining/restaurants-on-chicagos-south-side/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SOUTH",
+   "n": "Medici on 57th",
+   "ad": "1327 E 57th St, Chicago, IL 60637",
+   "w": "The 'Med' — UChicago's hangout since 1963, booths carved with students' poetry and political rants; a breakfast-to-late menu.",
+   "cz": [
+    "US",
+    "DELI"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/reviews/medici-on-57th"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/medici-on-57th"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Qing Xiang Yuan Dumplings",
+   "ad": "2002 S Wentworth Ave, Chicago, IL 60616",
+   "w": "Chinatown's dumpling specialist, risen from a Richland Center basement stand — ~40 fillings in three cooking styles, more varieties than anywhere in Chicago.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/qing-xiang-yuan-dumplings"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/reviews/qing-xiang-yuan-dumpling"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Hing Kee Restaurant",
+   "ad": "2140 S Archer Ave, Chicago, IL 60616",
+   "w": "Chinatown's soup-dumpling specialist — xiaolongbao made fresh daily in full view of the dining room.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/reviews/hing-kee-restaurant"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/hing-kee"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SW",
+   "n": "Xocome Antojeria",
+   "ad": "5200 S Archer Ave, Unit 8, Chicago, IL 60632",
+   "w": "Family-run Archer Heights counter where scratch masa is the star — tlacoyos, picaditas, sopes and giant quesadillas (Infatuation 9.4).",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/reviews/xocome-antojeria"
+    ],
+    [
+     "HUNGRYHOUND",
+     "https://abc7chicago.com/hungry-hound-mexican-independence-day-restaurants-chicago/5537358/"
+    ],
+    [
+     "FOODITOR",
+     "https://fooditor.com/restaurant/xocome-antojeria/"
+    ]
+   ]
   }
  ],
  "S": {
@@ -10509,6 +10741,12 @@
   "FINEDININGLOVERS": {
    "k": "FINEDININGLOVERS",
    "t": "FINEDININGLOVERS",
+   "u": "",
+   "l": ""
+  },
+  "FOODITOR": {
+   "k": "FOODITOR",
+   "t": "FOODITOR",
    "u": "",
    "l": ""
   },
