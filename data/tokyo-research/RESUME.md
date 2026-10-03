@@ -139,6 +139,10 @@ if nothing clears the bar. Then rebuild → gates → validate/test → `_tokyo_
 6. Re-run `python3 tools/rebuild-city.py tokyo --build` (under the lock) → 4 gates → `cd tools && npm run validate && npm test`
    → `python3 data/tokyo-research/_tokyo_golive.py` (under the lock) → commit + push.
 
+## 2026-10-03 P1 (pins only)
+- 47 NAVITIME/Apple place pins → **488 / 552 on map**; Tofuya Ukai flagged CLOSED (Mar 2026). 63 held — see AUDIT P1 for
+  the rejected-mismatch list; next: Apple `maps.apple.com` one-name queries for the bars/cafés NAVITIME doesn't index.
+
 ## Next actions (standing)
 1. Discovery waves per area (canon first) → `python3 tools/density.py tokyo` → iterate on every `NEED +N`.
 2. Geocode waves → `geo/_geoout_tokyo_*.json` → `flock /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py tokyo --build`.
