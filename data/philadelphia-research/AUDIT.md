@@ -273,3 +273,32 @@ for restaurants is exhausted (3/34 this wave, 8/56 in W4) — remaining restaura
 - MEASURED & DROPPED: Kennett Brewing Co. (closed, ~9 yrs in), Iron Hill West Chester (closed — becoming Magerk's, Inquirer 2026-05),
   Inn at Phillips Mill (2590 N River Rd listed for sale/redevelopment — not presented), Aksum. HELD single-outlet: The Hawke, Hamilton's
   Grill Room, Lambertville Station (NJ Monthly only); Osushi (MLT only); Locust Lane, Will's + Bill's, Bald Birds, Animated (Inquirer only).
+**Batch 3 (FISH) — built.** Boricua #2 (Philly Mag Best of Philly + Inquirer + Infatuation), Amy's Pastelillos (Esquire best new 2024 via
+PhillyVoice + Infatuation + Philly Mag + Inquirer 2026), St. Oner's (Inquirer + Philly Mag + PhillyVoice; open per Inquirer 2026-02),
+Café Tinto Fishtown (Infatuation + Inquirer 2026 hot-dog map + 6abc), Elma (LaBan 2024 + Infatuation), Pizza Shackamaxon (Philly Mag BoP
++ Visit Philly + Infatuation), Tulip Pasta & Wine Bar (LaBan review + Infatuation); sight Liberty Lands Park (Temple Philadelphia
+Neighborhoods + Project for Public Spaces [new key PPS] + PhillyVoice). FISH 56/55 OK.
+Build: rebuild-city --build → sourcecheck PASS 485/485 · geocheck PASS · statuscheck CONSISTENT (6 closed flagged incl. Tired Hands
+Brewing Company — CLOSED; 14 on-page places with no closure check) · buildcheck PASS; page 183 on map; npm validate DATA OK, npm test ALL PASS.
+Push race with other agents: docs/GEOCODE-BACKLOG.md (generated) conflicted twice → resolved by regenerating (tools/geocode-status.py);
+helper data/philadelphia-research/_phi_push.sh now does pull→regen-backlog-on-conflict→push with retry.
+**Batch 4 (NW + SPH + CC):**
+- NW (Infatuation Germantown & Mount Airy 20 × second outlet): Salam Cafe (Philly Mag Best of Philly Best Ethiopian), Downtime Bakery
+  (Inquirer ×2 + PhillyVoice + Chestnut Hill Local), Doho (Inquirer + 6abc + Chestnut Hill Local), Tranzilli's Real Italian Water Ice
+  (Inquirer + Visit Philly best water ice), Hot Clucks (Inquirer halal hot chicken). HELD: Zion's Cuisine (Infatuation + 6abc crime story
+  — mention, no address number), Tyemeka's (Infatuation only), Das Good Cafe (Inquirer only).
+- SPH: Bok Bar (Inquirer rooftops 2025 + Infatuation + Visit Philly), Café Ynez + Sidecar Bar & Grille (Philly Mag + Visit Philly Graduate
+  Hospital guide), Schmaltz (Inquirer 2026 + Infatuation), Griddle & Rice (Philly Mag + Inquirer + Infatuation), Lillian's (Inquirer 2026 +
+  Infatuation hit list). CC: Grace Tavern (reopened Sept 2025 — Inquirer + Philly Mag + Infatuation).
+**Batch 5 (NE + CC + creator):** NE: Holmesburg Bakery (Philly Mag NE guide + Infatuation + Northeast Times; since 1900), Four Seasons
+Diner (Infatuation review + best-diners guide; 6abc). CC: Barbuzzo (Visit Philly + Philly Mag BoP Best Dessert + Inquirer), Little Nonna's
+(Infatuation + Philly Mag BoP + Visit Philly + Thrillist via PhillyVoice), Morimoto (HELD lead cleared — Inquirer + Infatuation + Philly
+Mag BoP Best Japanese + Visit Philly). NE 25/25 OK, CC 126/125 OK.
+- Creator query (§2a): Mark Wiens — Taste Tour USA S1 E15–16 Philadelphia (Tubi) → CREATORS_W5.json, attached to Angelo's Pizzeria (Part 2
+  names it); Part 1 names no restaurant → rejected. Creator channel contributes 0 new places this wave (corroboration only).
+- Lipkin's Bakery: closed on Castor Ave 2022, merged into Lipkin's Best (Overbrook Park) — address not surfaced → HELD. Passage (10783
+  Bustleton) — summary could not be attributed to a specific outlet → still HELD. Seorabol Olney closed 2025-06-25 (not in dataset).
+- Note: Gou's address (5734 Old 2nd St) came from a search summary; Seorabol's Olney strip mall was at 2nd & Grange — confirm the unit
+  number before pinning (geocode-helper).
+- Dish-line hygiene: every W5 `dish` was re-checked against the cited text; memory-only dish names (e.g. mofongo, longsilog, butter
+  cake) were removed before commit.

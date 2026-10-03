@@ -1,7 +1,7 @@
 [
  {
   "n": "Gold Coast Railroad Museum",
-  "address": "12450 SW 152nd St, Miami, FL",
+  "address": "SW 152nd St (across from Zoo Miami), Miami, FL",
   "lat": 25.6172,
   "lng": -80.4007,
   "confidence": "high",
@@ -11,7 +11,7 @@
  },
  {
   "n": "Wings Over Miami Air Museum",
-  "address": "Miami Executive Airport, 14710 SW 128th St, Miami, FL",
+  "address": "Miami Executive Airport (Kendall-Tamiami), Miami, FL",
   "lat": 25.64813,
   "lng": -80.432394,
   "confidence": "high",
@@ -41,7 +41,7 @@
  },
  {
   "n": "Jungle Island",
-  "address": "1111 Parrot Jungle Trail, Watson Island, Miami, FL",
+  "address": "Watson Island, Miami, FL",
   "lat": 25.7861,
   "lng": -80.1742,
   "confidence": "high",
@@ -51,7 +51,7 @@
  },
  {
   "n": "Little Haiti Cultural Complex",
-  "address": "212 NE 59th Terrace, Miami, FL",
+  "address": "Little Haiti, Miami, FL",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -61,7 +61,7 @@
  },
  {
   "n": "Amelia Earhart Park",
-  "address": "401 E 65th St, Hialeah, FL",
+  "address": "Hialeah, FL (unincorporated Miami-Dade, north of Hialeah)",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -121,7 +121,7 @@
  },
  {
   "n": "NSU Art Museum Fort Lauderdale",
-  "address": "1 E Las Olas Blvd, Fort Lauderdale, FL",
+  "address": "Las Olas Blvd, Fort Lauderdale, FL",
   "lat": 26.11963,
   "lng": -80.14288,
   "confidence": "high",
@@ -138,5 +138,105 @@
   "geoSource": "UNVERIFIED — Wikipedia prints 26.112624,-80.311202 (the former Davie building); Visit Lauderdale says the museum is now inside Broward Mall, Plantation → rejected, needs a place pin",
   "status": "open",
   "statusSource": "Visit Lauderdale listing: open Wed–Sun 10am–6pm inside Broward Mall (https://www.visitlauderdale.com/listing/young-at-art-museum/18071/). Checked 2026-10-03."
+ },
+ {
+  "n": "Cauley Square Historic Village",
+  "address": "Old Dixie Hwy, Goulds (Miami), FL",
+  "lat": 25.55889,
+  "lng": -80.39111,
+  "confidence": "high",
+  "geoSource": "Wikipedia 'Cauley Square' https://en.wikipedia.org/wiki/Cauley_Square printed 25°33′32″N 80°23′28″W (25.55889, -80.39111)",
+  "status": "open",
+  "statusSource": "GMCVB current attraction listing (https://www.miamiandbeaches.com/l/attractions/cauley-square-historic-village/1988) and 'Explore South Dade' page; no closure report found. Checked 2026-10-03."
+ },
+ {
+  "n": "Black Point Park & Marina",
+  "address": "24775 SW 87th Ave, Cutler Bay, FL",
+  "lat": 25.5398083,
+  "lng": -80.3295417,
+  "confidence": "high",
+  "geoSource": "Wikipedia 'Black Point Marina' https://en.wikipedia.org/wiki/Black_Point_Marina printed 25°32′23.31″N 80°19′46.35″W (25.5398083, -80.3295417)",
+  "status": "open",
+  "statusSource": "Miami-Dade County Parks official page (https://www.miamidade.gov/global/recreation/park/black-point-park-and-marina.page) — operating marina, kayak rentals. Checked 2026-10-03."
+ },
+ {
+  "n": "Larry and Penny Thompson Park",
+  "address": "12451 SW 184th St, Miami, FL",
+  "lat": 25.59861,
+  "lng": -80.39861,
+  "confidence": "high",
+  "geoSource": "Wikipedia 'Larry and Penny Thompson Memorial Park' https://en.wikipedia.org/wiki/Larry_and_Penny_Thompson_Memorial_Park printed 25°35′55″N 80°23′55″W (25.59861, -80.39861)",
+  "status": "open",
+  "statusSource": "Miami-Dade County Parks official page (https://www.miamidade.gov/global/recreation/park/larry-and-penny-thompson-park.page); campground bookable (Campendium). Checked 2026-10-03."
+ },
+ {
+  "n": "Gesù Church",
+  "address": "NE 2nd St, Downtown Miami, FL",
+  "lat": 25.77583,
+  "lng": -80.19167,
+  "confidence": "high",
+  "geoSource": "Wikipedia 'Gesu Church (Miami)' https://en.wikipedia.org/wiki/Gesu_Church_(Miami,_Florida) printed 25°46′33″N 80°11′30″W (25.77583, -80.19167)",
+  "status": "open",
+  "statusSource": "Active Catholic parish; GMCVB 'Downtown Miami's Historic Center' (current) describes it as the oldest institution still on its original site. Checked 2026-10-03."
+ },
+ {
+  "n": "American Museum of the Cuban Diaspora",
+  "address": "1200 Coral Way, Miami, FL",
+  "lat": 25.7508,
+  "lng": -80.2143,
+  "confidence": "high",
+  "geoSource": "Wikipedia 'American Museum of the Cuban Diaspora' https://en.wikipedia.org/wiki/American_Museum_of_the_Cuban_Diaspora printed 25°45′03″N 80°12′51″W (25.7508, -80.2143)",
+  "status": "open",
+  "statusSource": "Museum site thecuban.org: 'Selgas: Essential' 7 Nov 2025–28 Jan 2026; Diario las Américas 24 Jul 2026 on the FACE oral-history project arriving at the museum. Checked 2026-10-03."
+ },
+ {
+  "n": "Haitian Heritage Museum",
+  "address": "4141 NE 2nd Ave #105C, Miami (Design District), FL",
+  "lat": 25.81472,
+  "lng": -80.19028,
+  "confidence": "high",
+  "geoSource": "Wikipedia 'Haitian Heritage Museum' https://en.wikipedia.org/wiki/Haitian_Heritage_Museum printed 25°48′53″N 80°11′25″W (25.81472, -80.19028) with address 4141 NE 2 Ave #105C",
+  "status": "open",
+  "statusSource": "GMCVB museums page (current): open Tue–Fri 10am–5pm. Checked 2026-10-03."
+ },
+ {
+  "n": "Bay of Pigs Museum (Brigade 2506)",
+  "address": "1821 SW 9th St, Little Havana, Miami, FL",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — Wikipedia gives the address (1821 SW 9th St) but no coordinates surfaced",
+  "status": "open",
+  "statusSource": "GMCVB current listing (https://www.miamiandbeaches.com/l/arts-and-culture/bay-of-pigs-brigade-2506-museum/52808) and Time Out venue page. Checked 2026-10-03."
+ },
+ {
+  "n": "Superblue Miami",
+  "address": "Allapattah (opposite the Rubell Museum), Miami, FL",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — Wikipedia printed no coordinates for the Miami venue",
+  "status": "open",
+  "statusSource": "Exhibitions running 1 Nov 2025–31 Jan 2026 and a 2026 programme calendar (ticketfairy/artrabbit listings). Checked 2026-10-03."
+ },
+ {
+  "n": "Locust Projects",
+  "address": "Little River, Miami, FL",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Edison Peñafiel exhibition 14 Nov 2026–13 Feb 2027 (Ocula press release); 25th anniversary (Diario las Américas, Jul 2026). Checked 2026-10-03."
+ },
+ {
+  "n": "The Moore Building",
+  "address": "Miami Design District, Miami, FL",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "GMCVB Design District arts page (current): Elastika on view, Torno Subito operating inside. Checked 2026-10-03."
  }
 ]
