@@ -292,3 +292,27 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
   only); Bundoo Khan (Infatuation only); Ba Le, DaNang Kitchen (Choose Chicago only); Nana Bridgeport (Time Out only); Congress Theater (closed for
   restoration until 2027); Holy Trinity Polish Mission (Wikipedia only); Wabash Avenue YMCA (pin found, 2nd source not yet); La Cecina, Taqueria
   San Julian, Sputnik Coffee (one credible each); SW Arab/Palestinian 63rd St corridor — no credible list found.
+
+## 2026-10-03 (session 5 / wave 4) · batch 5 + close-out (≈167 searches total, no sub-agents)
+- Food & drink +3: FAR — Mabe's Deli; SW — La Cecina (promoted: Time Out + Chicago Reader); (Solazo added then removed — no named dish).
+- Sights +2: FAR — Pullman Market Hall (NPS place page, unpinned); NW — Polish Triangle (Wikipedia pin).
+- Pins (Apple Maps): Half Acre Balmoral, The Publican, Dat Donut, Spacca Napoli, 5 Rabanitos, Sweet Mandy B's, Birrieria Reyes de Ocotlan,
+  Cafe Jumping Bean, HaiSous, Kopp's, Lost Larson, Au Cheval, Taxim; Greenstone Church (HMDB marker, med). Addresses filled from Apple
+  listings: Kasia's Deli, Tryzub, Cho Sun Ok, Au Cheval, Taxim, Babygold (6615 Roosevelt), One Lake (1 Lake St).
+- **Parachute — CLOSED** (23 Mar 2024; Block Club + Sun-Times; ex-Michelin star, JBF 2019) — notable → kept flagged, pinned at 3500 N Elston.
+- Channel mix (session 5, 83 new places): editorial/travel (Time Out, Infatuation, Chicago Mag, Choose Chicago, Atlas Obscura, CAC, Enjoy
+  Illinois, Visit Oak Park) ≈60 · local press (Block Club, WTTW, WBEZ, Sun-Times, Wednesday Journal, Beverly Review, Evanston RoundTable,
+  South Side Weekly, Chicago Reader) ≈30 · institutional (NPS/NHL, City of Chicago landmarks, Park District, FLW Trust) ≈25 · critics/creators
+  (Steve Dolinsky/Hungry Hound, Fooditor, Keith Lee via Block Club) ≈5 (places carry 2–4 sources, channels overlap).
+  Creator query this wave: Keith Lee's Chicago picks (Block Club 2024) → Cleo's corroborated; no new creator vetted.
+- Final build: 498 researched / 318 rendered (206 sights + 112 food); 59% food overall; LOOP/NORTH/SOUTH/DAY OK; 4 gates PASS
+  (statuscheck: 2 places without a closure check); npm run validate DATA OK; npm test ALL PASS.
+
+## 2026-10-03 (session 5 / wave 4) · resume after usage-limit reset (≈174 searches total)
+- Orchestrator asked to resume; wave 4 had already closed out, so the remaining budget went on the NEED tail.
+- +4 promoted from the held list: Burl (Chicago Mag + Evanston RoundTable; 2545 Prairie Ave via Apple listing), Joy Yee Noodles Evanston
+  (Time Out + Evanston RoundTable), Cerdito Muerto (Infatuation + Chicago Mag Nov 2025 + Time Out); new sight Little Village Arch
+  (City landmark report + Choose Chicago + Block Club + WTTW; unpinned, Apple place-id only). SUB now OK.
+- SW source exhaustion (documented): Taqueria San Julian, Sputnik Coffee, Somos Monos, El Solazo/Solazo (no named dish), Tio Luis, New Archview,
+  63rd St Arab corridor — searched Time Out / Infatuation / Chicago Mag / Reader / South Side Weekly / WTTW / ABC7; none reached 2 credible + dish.
+- Build: 502 researched / 318 rendered; 4 gates PASS; validate + test PASS.

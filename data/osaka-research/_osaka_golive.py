@@ -23,7 +23,7 @@ open(I, 'w').write(r.replace(seg, seg2))
 C = 'docs/CITIES.md'; c = open(C).read()
 row = ('| Osaka (JP) | `cities/osaka.html` (linked from the Japan hub) | `data/osaka.dataset.json` | `data/osaka-research/` | %s | live · 9 areas: KITA, MINAM, CHUO, TNJ, EAST, BAY, SOUTH, NORTH, KNSAI (Kansai day trips; Nara is on the Kyoto map). '
        '**%s rendered** (%s sights + %s food); every place ≥2 credible or lone Michelin/UNESCO; pins from Michelin venue pages, en/ja Wikipedia infoboxes and MapFan spot pages (med). '
-       '**499 discovered — every area at density target (W7, 2026-10-03)**, 63%% food, ANIME 34; ~134 discovered places still UNVERIFIED (shop pins → geocode-helper). Continue from `data/osaka-research/RESUME.md`. '
+       '**499 discovered — every area at density target (W7, 2026-10-03)**, 63%% food, ANIME 34; ~130 discovered places still UNVERIFIED (shop pins → geocode-helper). Continue from `data/osaka-research/RESUME.md`. '
        'Rebuild: `python3 tools/rebuild-city.py osaka --build`. |') % (n, n, s, f)
 lines = c.split('\n'); idx = [i for i, l in enumerate(lines) if l.startswith('| Osaka')]
 if idx:

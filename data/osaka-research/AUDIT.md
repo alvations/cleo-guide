@@ -327,3 +327,11 @@ KNSAI 29% (12/42) — the outer areas' food channel is source-exhausted for two-
 Kotobukiya Nipponbashi; Expo Tower of the Sun gained an anime note). ~525 searches across 12 workers + main. Channel mix (W7): Michelin 2 ·
 Tabelog100 ~14 · editorial ~60 (Rurubu, Mapple, Time Out, Walkerplus/Ramen Walker, Lmaga, Osaka Metro, TV Tokyo, Savor Japan, JAL) ·
 official/municipal ~15 (OSAKA-INFO, OSAKACITY, SAKAITCB) · BUNKACHO 4 · Wikipedia ~14 · creators 3 (corroborating).
+
+## 2026-10-03 — W7N MapFan pin pass 3 (50 searches)
+4 med pins (Saijō Gōshi/Amanozake 長野町12-18, KIX Sky View, Nakasone Seinikuten 平尾3-23-5, Okonomiyaki Sanpei Shinsaibashi 心斎橋筋2-2-10).
+Yield 0.08/search — MapFan has no spot pages for most newer shops; **channel exhausted** for the remaining ~130. Rejected: Sobakiri Tenshō
+(MapFan 岡東町19-1 = old address; current 岡南町10-30), Ōmiya (別館 only), Chingu/Kainantei/Sora (branch mismatch/ambiguous). Candidates
+needing one address/coordinate confirmation: Tsunechan (MapFan 34.5654961,135.4734859, street no. unseen), Jungle Nipponbashi (page
+S44W,J,27RTY matches 3-4-16, coords unseen). **Final W7 build: 499 discovered, 369 rendered (159 sights + 210 food)**, ANIME 34, 4 gates PASS,
+validate + npm test PASS, all 9 areas OK.

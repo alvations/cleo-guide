@@ -547,3 +547,11 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - Held-lead promotion: OR-queries with several shop names return nothing; one name per search against a DIFFERENT outlet
   (Rurubu/Mapple spot pages with editorial text, Ramen Walker articles) is what promotes single-source leads.
 - Main review must re-check any 2nd-source URL a worker did not see in its own results (2 guessed/unconfirmed URLs held this wave).
+
+## 2026-10-03 — Chicago wave 4 (session 5)
+- Pin channel found: `allowed_domains:["maps.apple.com"]` + 3 names with street addresses → Apple place links with `coordinate=` (place pin).
+  ~1.3 pins/search; yield falls when names are generic (chains, "Pizzeria Uno") or the listing has only a place-id. latlong.net and mapcarta
+  3-name queries returned no coordinates (0/6) — dead end here.
+- Wikipedia 4-name coordinate queries still pin landmarks reliably; summariser can cross-contaminate (Hotel Florence got the Pullman district
+  point → rejected). Pair every batch with one Choose Chicago / Time Out / CAC / WTTW / City-landmarks corroboration query.
+- Address hygiene: never type a street number the search results didn't echo — coarsen to the sourced street/locality (13 W11 sights fixed).
