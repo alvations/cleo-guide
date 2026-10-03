@@ -290,3 +290,15 @@ helper data/philadelphia-research/_phi_push.sh now does pull→regen-backlog-on-
 - SPH: Bok Bar (Inquirer rooftops 2025 + Infatuation + Visit Philly), Café Ynez + Sidecar Bar & Grille (Philly Mag + Visit Philly Graduate
   Hospital guide), Schmaltz (Inquirer 2026 + Infatuation), Griddle & Rice (Philly Mag + Inquirer + Infatuation), Lillian's (Inquirer 2026 +
   Infatuation hit list). CC: Grace Tavern (reopened Sept 2025 — Inquirer + Philly Mag + Infatuation).
+**Batch 5 (NE + CC + creator):** NE: Holmesburg Bakery (Philly Mag NE guide + Infatuation + Northeast Times; since 1900), Four Seasons
+Diner (Infatuation review + best-diners guide; 6abc). CC: Barbuzzo (Visit Philly + Philly Mag BoP Best Dessert + Inquirer), Little Nonna's
+(Infatuation + Philly Mag BoP + Visit Philly + Thrillist via PhillyVoice), Morimoto (HELD lead cleared — Inquirer + Infatuation + Philly
+Mag BoP Best Japanese + Visit Philly). NE 25/25 OK, CC 126/125 OK.
+- Creator query (§2a): Mark Wiens — Taste Tour USA S1 E15–16 Philadelphia (Tubi) → CREATORS_W5.json, attached to Angelo's Pizzeria (Part 2
+  names it); Part 1 names no restaurant → rejected. Creator channel contributes 0 new places this wave (corroboration only).
+- Lipkin's Bakery: closed on Castor Ave 2022, merged into Lipkin's Best (Overbrook Park) — address not surfaced → HELD. Passage (10783
+  Bustleton) — summary could not be attributed to a specific outlet → still HELD. Seorabol Olney closed 2025-06-25 (not in dataset).
+- Note: Gou's address (5734 Old 2nd St) came from a search summary; Seorabol's Olney strip mall was at 2nd & Grange — confirm the unit
+  number before pinning (geocode-helper).
+- Dish-line hygiene: every W5 `dish` was re-checked against the cited text; memory-only dish names (e.g. mofongo, longsilog, butter
+  cake) were removed before commit.

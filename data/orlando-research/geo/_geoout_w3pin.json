@@ -229,5 +229,115 @@
   "confidence": "med",
   "geoSource": "Wikipedia published coordinates of the host building (Germany Pavilion at Epcot, https://en.wikipedia.org/wiki/Germany_Pavilion_at_Epcot): 28.36806,-81.54694",
   "note": "building-level pin: restaurant is inside/part of this pavilion; not a park centroid"
+ },
+ {
+  "n": "Jiko – The Cooking Place",
+  "address": "Jambo House, Disney's Animal Kingdom Lodge, Lake Buena Vista, FL 32830",
+  "status": "open",
+  "statusSource": "Recommended as open in https://touringplans.com/blog/your-top-rated-disney-world-resort-restaurants/",
+  "lat": 28.353637,
+  "lng": -81.602756,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates of the host building (Disney's Animal Kingdom Lodge (Jambo House), https://en.wikipedia.org/wiki/Disney%27s_Animal_Kingdom_Lodge): 28.353637,-81.602756",
+  "note": "building-level pin: restaurant is inside Jambo House"
+ },
+ {
+  "n": "Boma – Flavors of Africa",
+  "address": "Jambo House, Disney's Animal Kingdom Lodge, Lake Buena Vista, FL 32830",
+  "status": "open",
+  "statusSource": "Recommended as open in https://www.frommers.com/destinations/walt-disney-world/restaurants/bomaflavors-of-africa/",
+  "lat": 28.353637,
+  "lng": -81.602756,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates of the host building (Disney's Animal Kingdom Lodge (Jambo House), https://en.wikipedia.org/wiki/Disney%27s_Animal_Kingdom_Lodge): 28.353637,-81.602756",
+  "note": "building-level pin: restaurant is inside Jambo House"
+ },
+ {
+  "n": "Toledo – Tapas, Steak & Seafood",
+  "address": "16th floor (rooftop), Gran Destino Tower, Disney's Coronado Springs Resort, Lake Buena Vista, FL 32830",
+  "status": "open",
+  "statusSource": "Recommended as open in https://guide.michelin.com/us/en/florida/orlando/restaurant/toledo",
+  "lat": 28.36386,
+  "lng": -81.57365,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates of the host building (Disney's Coronado Springs Resort (Gran Destino Tower), https://en.wikipedia.org/wiki/Disney%27s_Coronado_Springs_Resort): 28.36386,-81.57365",
+  "note": "building-level pin (registry record for Gran Destino Tower, med)"
+ },
+ {
+  "n": "ICON Park & The Wheel",
+  "address": "8375 International Dr, Orlando, FL 32819",
+  "status": "open",
+  "statusSource": "https://www.visitorlando.com/listing/icon-park%C2%AE/39868/ (listed as operating)",
+  "lat": 28.4432,
+  "lng": -81.4693,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Icon_Park): 28°26′36″N 81°28′09″W",
+  "note": "via WebSearch 2026-10-03"
+ },
+ {
+  "n": "Discovery Cove",
+  "address": "SeaWorld Orlando resort complex, Orlando, FL",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Discovery_Cove (listed as operating)",
+  "lat": 28.4054167,
+  "lng": -81.46167,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Discovery_Cove): 28°24′19.50″N 81°27′42″W",
+  "note": "via WebSearch 2026-10-03"
+ },
+ {
+  "n": "Enzian Theater",
+  "address": "1300 S Orlando Ave, Maitland, FL 32751",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Enzian_Theater (listed as operating)",
+  "lat": 28.616335,
+  "lng": -81.365357,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Enzian_Theater): 28°36′59″N 81°21′55″W",
+  "note": "via WebSearch 2026-10-03"
+ },
+ {
+  "n": "Annie Russell Theatre",
+  "address": "Rollins College campus, Winter Park, FL 32789",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Annie_Russell_Theatre (listed as operating)",
+  "lat": 28.5925,
+  "lng": -81.34806,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Annie_Russell_Theatre): 28°35′33″N 81°20′53″W",
+  "note": "via WebSearch 2026-10-03"
+ },
+ {
+  "n": "WonderWorks Orlando",
+  "address": "Pointe Orlando, International Drive, Orlando, FL",
+  "status": "open",
+  "statusSource": "https://www.fodors.com/world/north-america/usa/florida/orlando/neighborhoods/international-drive-area/things-to-do/sights (listed as operating)",
+  "lat": 28.4325,
+  "lng": -81.47028,
+  "confidence": "low",
+  "geoSource": "WebSearch 2026-10-03 summary, likely the Pointe Orlando Wikipedia point (https://en.wikipedia.org/wiki/Pointe_Orlando): 28°25′57″N 81°28′13″W",
+  "note": "adjacent-complex point, not WonderWorks own → low, re-verify"
+ },
+ {
+  "n": "Hannibal Square Heritage Center",
+  "address": "New England Ave between Virginia and Pennsylvania Aves, Winter Park, FL 32789",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Hannibal_Square_Heritage_Center (listed as operating)",
+  "lat": 28.5957,
+  "lng": -81.3576,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Hannibal_Square_Heritage_Center): 28°35′45″N 81°21′27″W",
+  "note": "via WebSearch 2026-10-03"
+ },
+ {
+  "n": "Shingle Creek Regional Park",
+  "address": "4266 W Vine St, Kissimmee, FL 34741",
+  "status": "open",
+  "statusSource": "https://www.osceola.org/Community/Parks-and-Public-Lands/Find-a-Park-or-Facility/Shingle-Creek-Regional-Park (listed as operating)",
+  "lat": 28.302983,
+  "lng": -81.450933,
+  "confidence": "med",
+  "geoSource": "HMDB marker at the park (https://www.hmdb.org/m.asp?m=267654 — Shingle Creek Regional Park & Trail): 28° 18.179′ N, 81° 27.056′ W",
+  "note": "marker inside the park (via WebSearch 2026-10-03)"
  }
 ]
