@@ -49,7 +49,13 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
   session limit (~125 searches). Density: CAP 30/38 · EAST 28/32 · TRIP 22/30 · DANE 17/25 · WEST 16/30 · UW 14/30 ·
   MVF 9/25.
 
-## Next (ordered) — W5
+- **2026-10-03 W5 (same session, after the limit reset)** — +19 (134 → 153 researched: 96 food = 63% / 57 sights),
+  74 pinned. Files: FOOD_W5a–b.json, SIGHTS_W5a–b.json, SOURCES_W5.json, geo/_geoout_w5.json (pins),
+  geo/_geoout_w5u.json (UNVERIFIED + status). Density: CAP 33/38 · EAST 31/32 · TRIP 25/30 · DANE 18/25 · WEST 17/30 ·
+  UW 18/30 · MVF 11/25. W5 items done from the list below: UW Bascom/Ingersoll/Lakeshore; TRIP Wright trail + Al. Ringling
+  + Tower Hill; MVF Stone Porch + Imperial Garden; Lake Wingra.
+
+## Next (ordered) — W6 (W5 list below still applies where not done)
 1. **Pins:** ~69 UNVERIFIED (all of geo/_geoout_w2_unverified.json + geo/_geoout_w4a.json) → `tools/geocode-helper.html`.
    WebSearch does NOT surface restaurant coordinates any more (0/10 in W4). For anything with a Wikipedia/Wikidata
    article use `allowed_domains: [en.wikipedia.org, wikidata.org]` + "<name> coordinates" (5/6 hit in W4).
