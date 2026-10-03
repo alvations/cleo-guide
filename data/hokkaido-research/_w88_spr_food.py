@@ -43,5 +43,15 @@ F(2,"SPR",["SAKE","HOKKAIDO"],"Hokkaido-only sake flights (~300 local sake, shō
 F(2,"SPR",["SUSHI","HOKKAIDO"],"Nemuro-direct seasonal kaiten-zushi","Kaiten-zushi Nemuro Hanamaru, JR Tower Stellar Place (回転寿司 根室花まる JRタワーステラプレイス店)",
   "Sapporo Stellar Place Center 6F, Kita 5-jō Nishi 2-chōme, Chuo-ku, Sapporo, Hokkaido, Japan",
   "Sapporo Station branch of the Nemuro conveyor-belt chain, with fish shipped direct from Nemuro. Locals rank it among the city's best kaiten-zushi, and the queues are long.",
-  [("RURUBU",RU+"spot/80000125"),("MAPPLE",MP+"spot/1012355/"),("SAPPOROTRAVEL",ST+"en/feature/special-feature-locals-guide-to-best-conveyer-belt-sushi-in-sapporo/")],status=O,ssrc="rurubu spot page (11:00–23:00, irregular holidays)")
+  [("RURUBU",RU+"spot/80000125"),("MAPPLE",MP+"spot/1012355/"),("SAPPOROTRAVEL",ST+"en/feature/special-feature-locals-guide-to-best-conveyer-belt-sushi-in-sapporo/")],43.06806,141.35167,"high","ja.wikipedia 札幌ステラプレイス infobox (北緯43度04分05秒 東経141度21分06秒) via WebSearch: the shop is a 6F tenant of this building",
+  status=O,ssrc="rurubu spot page (11:00–23:00, irregular holidays)")
+# ---------------- soup curry / café ----------------
+F(2,"SPR",["HOKKAIDO"],"wafū-dashi soup curry (8 kinds of dried bonito & mackerel flakes + spiced pork 'jan')","Soup Curry TREASURE (スープカレー トレジャー)",
+  "Asuka Bldg 1F, Minami 2-jō Nishi 1-chōme 8-2, Chuo-ku, Sapporo, Hokkaido, Japan 〒060-0062",
+  "Sister shop of GARAKU. Its soup curry uses a Japanese stock made from eight kinds of dried fish flakes, finished with a secret paste of minced pork and spices. Three minutes' walk from Ōdōri Station.",
+  [("RURUBU",RU+"spot/80049632"),("GOODLUCKTRIP","https://www.gltjp.com/en/directory/item/13957/")],status=O,ssrc="GoodLuckTrip directory (lunch 11:30–15:30, dinner 17:00–21:00, irregular holidays)")
+F(3,"SPR",["CAFE"],"house-roasted coffee and sweets in a Meiji-era Sapporo-stone and red-brick room","Kotobuki Coffee, M's Nijō Yokochō (寿珈琲)",
+  "M's Nijō Yokochō 1F, Minami 2-jō Higashi 1-chōme 1-6, Chuo-ku, Sapporo, Hokkaido, Japan",
+  "A retro coffee house next to Nijō Market that roasts its own beans. The room keeps its Meiji-era Sapporo soft-stone and red-brick walls, and it stays open until midnight on weekdays.",
+  [("SAPPOROTRAVEL",ST+"gourmet/shop/shop_646/"),("MAPPLE",MP+"original/327874/")],status=O,ssrc="sapporo.travel shop page (weekdays 9:00–24:00, Sun/hol 10:00–20:00)")
 emit("W88")
