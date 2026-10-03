@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Chicago field guide — 146 sights and 64 places to eat across the Loop, the North, Northwest, West, South and Far South Sides, the suburbs and day trips, each traceable to its source (Michelin, James Beard, the Chicago Tribune, Sun-Times, Chicago Magazine, Eater Chicago, Block Club Chicago, WTTW, the National Park Service), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Chicago field guide — 149 sights and 67 places to eat across the Loop, the North, Northwest, West, South and Far South Sides, the suburbs and day trips, each traceable to its source (Michelin, James Beard, the Chicago Tribune, Sun-Times, Chicago Magazine, Eater Chicago, Block Club Chicago, WTTW, the National Park Service), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
 <title>Chicago Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · the Loop, the neighborhoods &amp; Chicagoland, sourced</p>
   <h1>Chicago<span class="thin">deep-dish to tavern-cut, the Loop to Pullman</span></h1>
-  <p class="standfirst">146 sights and 64 places to eat from the Loop out through the North, West and South Sides to the suburbs and the Indiana Dunes, each traceable to the source that named it. The architecture &mdash; the Rookery, Robie House, the river and the lakefront &mdash; anchors the map; the food runs on what Chicago does that nowhere else does: deep-dish and tavern-cut thin crust, Italian beef, the dragged-through-the-garden hot dog and the Maxwell Street Polish, the jibarito, mild-sauce chicken, the Rainbow Cone, and the immigrant corridors of Pilsen, Chinatown, Devon Avenue, Argyle and Little Village. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">149 sights and 67 places to eat from the Loop out through the North, West and South Sides to the suburbs and the Indiana Dunes, each traceable to the source that named it. The architecture &mdash; the Rookery, Robie House, the river and the lakefront &mdash; anchors the map; the food runs on what Chicago does that nowhere else does: deep-dish and tavern-cut thin crust, Italian beef, the dragged-through-the-garden hot dog and the Maxwell Street Polish, the jibarito, mild-sauce chicken, the Rainbow Cone, and the immigrant corridors of Pilsen, Chinatown, Devon Avenue, Argyle and Little Village. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -316,13 +316,17 @@ const S = {
   "CAC":{k:"CHICAGO ARCHITECTURE CTR",t:"Chicago Architecture Center",u:"https://www.architecture.org/",l:"Chicago Architecture Center"},
   "CHOOSECHI":{k:"CHOOSE CHICAGO",t:"Choose Chicago (official CVB)",u:"https://www.choosechicago.com/",l:"Choose Chicago (official CVB)"},
   "FLWTRUST":{k:"FLW TRUST",t:"FLW TRUST",u:"",l:""},
+  "HMDB":{k:"HMDB",t:"HMDB",u:"",l:""},
   "ILDNR":{k:"ILLINOIS DNR",t:"ILLINOIS DNR",u:"",l:""},
   "INFATUATION":{k:"INFATUATION",t:"The Infatuation Chicago",u:"https://www.theinfatuation.com/chicago",l:"The Infatuation Chicago"},
   "NPS":{k:"NATIONAL PARK SVC",t:"National Park Service",u:"https://www.nps.gov/",l:"National Park Service"},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"The place's own official site",u:"",l:"The place's own official site"},
+  "TCLF":{k:"TCLF",t:"TCLF",u:"",l:""},
   "TIMEOUT":{k:"TIME OUT CHICAGO",t:"Time Out Chicago",u:"https://www.timeout.com/chicago",l:"Time Out Chicago"},
   "TRAVELWI":{k:"TRAVELWI",t:"TRAVELWI",u:"",l:""},
   "UNESCO":{k:"UNESCO",t:"UNESCO World Heritage — The 20th-Century Architecture of Frank Lloyd Wright",u:"https://whc.unesco.org/en/list/1496/",l:"UNESCO World Heritage — The 20th-Century Architecture of Frank Lloyd Wright"},
   "VISITMKE":{k:"VISIT MILWAUKEE",t:"VISIT MILWAUKEE",u:"",l:""},
+  "VISITNORTHSHORE":{k:"VISITNORTHSHORE",t:"VISITNORTHSHORE",u:"",l:""},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"},
   "WTTW":{k:"WTTW",t:"WTTW (Chicago PBS) — incl. Geoffrey Baer architecture tours, Check, Please!",u:"https://news.wttw.com/",l:"WTTW (Chicago PBS) — incl. Geoffrey Baer architecture tours, Check, Please!"}
 };
@@ -373,6 +377,9 @@ const P = [
 {t:2,a:"LOOP",n:"Andy's Jazz Club",ad:"11 E Hubbard St, Chicago, IL 60611",la:41.88990,ln:-87.62740,w:"One of the city's best-known jazz rooms, two blocks off the Mag Mile, with nightly sets and jam sessions.",k:"jazz club music",g:["ARTS"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/chicago-music/explore-chicago-blues/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Andy's_Jazz_Club"]]},
 {t:1,a:"NORTH",n:"Green Mill Cocktail Lounge",ad:"4802 N Broadway, Chicago, IL 60640",la:41.96920,ln:-87.65990,w:"Uptown's 1907 former Capone-era speakeasy, one of the oldest continuously operating jazz clubs in the country; home of the Uptown Poetry Slam.",k:"jazz club speakeasy cocktail bar music",g:["SPEAK","ARTS"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/chicago-music/explore-chicago-blues/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Green_Mill_Cocktail_Lounge"]]},
 {t:1,a:"NORTH",n:"The Second City",ad:"1616 N Wells St, Chicago, IL 60614",la:41.91151,ln:-87.63506,w:"Old Town's improv theatre (1959) that launched Belushi, Murray, Fey, Colbert and Carell.",k:"comedy theater improv",g:["ARTS"],s:[["CHOOSECHI","https://www.choosechicago.com/blog/music/live-music-concerts-chicago/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/The_Second_City"]]},
+{t:1,a:"SOUTH",n:"ISAC Museum (Institute for the Study of Ancient Cultures)",ad:"University of Chicago campus, Hyde Park (per Wikipedia)",la:41.78944,ln:-87.59778,w:"The University of Chicago's free museum of the ancient Near East (ex-Oriental Institute) — a 40-ton Assyrian lamassu, Egyptian mummies, Persepolis reliefs.",k:"museum",g:["MUS","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Institute_for_the_Study_of_Ancient_Cultures"],["OFFICIAL","https://architecture.uchicago.edu/locations/institute-for-the-study-of-ancient-cultures/"]]},
+{t:2,a:"SOUTH",n:"Washington Park",ad:"Washington Park community area, Chicago (per Wikipedia)",la:41.79583,ln:-87.61111,w:"Olmsted & Vaux's 372-acre South Side park, home of Lorado Taft's 'Fountain of Time' and the DuSable museum.",k:"park",g:["MUS","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Washington_Park_(Chicago_park)"],["TCLF","https://www.tclf.org/washington-park-chicago"]]},
+{t:2,a:"SUB",n:"Charles Gates Dawes House",ad:"Evanston lakefront, IL (per NPS NHL record)",la:42.04295,ln:-87.67373,w:"Château-style 1894 lakefront mansion of Nobel laureate and US Vice President Charles G. Dawes — a National Historic Landmark run by the Evanston History Center.",k:"house historic landmark",g:["ARCH","WATER"],s:[["NPS","https://npgallery.nps.gov/NRHP/GetAsset/NHLS/76000706_text"],["VISITNORTHSHORE","https://www.visitchicagonorthshore.com/Museums"],["HMDB","https://www.hmdb.org/m.asp?m=139208"]]},
 {t:1,a:"SUB",n:"Chicago Botanic Garden",ad:"1000 Lake Cook Rd, Glencoe, IL 60022",la:42.14833,ln:-87.79000,w:"385 acres on nine islands in the Cook County Forest Preserves at Glencoe — 24 gardens, prairies and greenhouses; the winter Orchid Show.",k:"botanic garden park",g:["PARK","ARCH"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/parks-outdoors/chicago-conservatories-and-winter-gardens/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Chicago_Botanic_Garden"]]},
 {t:1,a:"SUB",n:"Brookfield Zoo",ad:"8400 31st St, Brookfield, IL 60513",la:41.83267,ln:-87.83346,w:"The 216-acre Chicago Zoological Park in Brookfield — polar bears, the Seven Seas dolphins, Tropic World.",k:"zoo family",g:["PARK","SPORT","FAM"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/tours-and-attractions/discover-nearby-sights-and-attractions/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Brookfield_Zoo"]]},
 {t:1,a:"NW",n:"The 606 (Bloomingdale Trail)",ad:"1805 N Ridgeway Ave, Chicago, IL 60647",la:41.91380,ln:-87.70200,w:"The 2.7-mile elevated rail-trail through Logan Square, Humboldt Park, Wicker Park and Bucktown. Free.",k:"trail park free",g:["PARK","FREE"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/The_606"]]},
@@ -491,10 +498,14 @@ const P = [
 const FS = {
   "AAA":{k:"AAA",t:"AAA",u:"",l:""},
   "ABC7":{k:"ABC7 CHICAGO",t:"ABC7 CHICAGO",u:"",l:""},
+  "AFAR":{k:"AFAR",t:"AFAR",u:"",l:""},
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura — Chicago",u:"https://www.atlasobscura.com/things-to-do/chicago-illinois",l:"Atlas Obscura — Chicago"},
+  "AUDACY":{k:"AUDACY",t:"AUDACY",u:"",l:""},
+  "AUSTINWEEKLY":{k:"AUSTINWEEKLY",t:"AUSTINWEEKLY",u:"",l:""},
   "AXIOS":{k:"AXIOS",t:"AXIOS",u:"",l:""},
   "BLOCKCLUB":{k:"BLOCK CLUB CHICAGO",t:"Block Club Chicago",u:"https://blockclubchicago.org/",l:"Block Club Chicago"},
   "BONAPPETIT":{k:"BON APPÉTIT",t:"BON APPÉTIT",u:"",l:""},
+  "CHIBARPROJECT":{k:"CHIBARPROJECT",t:"CHIBARPROJECT",u:"",l:""},
   "CHICAGOIST":{k:"CHICAGOIST",t:"Chicagoist (WBEZ)",u:"https://chicagoist.com/",l:"Chicagoist (WBEZ)"},
   "CHIDEFENDER":{k:"CHIDEFENDER",t:"CHIDEFENDER",u:"",l:""},
   "CHIMAG":{k:"CHICAGO MAGAZINE",t:"Chicago Magazine (Best New Restaurants, 50 Best Things to Eat, Best Pizza)",u:"https://www.chicagomag.com/",l:"Chicago Magazine (Best New Restaurants, 50 Best Things to Eat, Best Pizza)"},
@@ -502,8 +513,13 @@ const FS = {
   "CHOWHOUND":{k:"CHOWHOUND",t:"CHOWHOUND",u:"",l:""},
   "CNN":{k:"CNN",t:"CNN",u:"",l:""},
   "CULINARYHISTORIANS":{k:"CULINARYHISTORIANS",t:"CULINARYHISTORIANS",u:"",l:""},
+  "CULTURETRIP":{k:"CULTURETRIP",t:"CULTURETRIP",u:"",l:""},
   "DNAINFO":{k:"DNAINFO",t:"DNAINFO",u:"",l:""},
   "EATERCHI":{k:"EATER CHICAGO",t:"Eater Chicago",u:"https://chicago.eater.com/",l:"Eater Chicago"},
+  "ENJOYILLINOIS":{k:"ENJOYILLINOIS",t:"ENJOYILLINOIS",u:"",l:""},
+  "FATHOM":{k:"FATHOM",t:"FATHOM",u:"",l:""},
+  "FSR":{k:"FSR",t:"FSR",u:"",l:""},
+  "GAYOT":{k:"GAYOT",t:"GAYOT",u:"",l:""},
   "GOZAMOS":{k:"GOZAMOS",t:"GOZAMOS",u:"",l:""},
   "HUNGRYHOUND":{k:"HUNGRYHOUND",t:"HUNGRYHOUND",u:"",l:""},
   "INFATUATION":{k:"INFATUATION",t:"The Infatuation Chicago",u:"https://www.theinfatuation.com/chicago",l:"The Infatuation Chicago"},
@@ -511,10 +527,14 @@ const FS = {
   "KEITHLEE":{k:"KEITHLEE",t:"KEITHLEE",u:"",l:""},
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide Chicago (stars + Bib Gourmand)",u:"https://guide.michelin.com/us/en/illinois/chicago",l:"MICHELIN Guide Chicago (stars + Bib Gourmand)"},
   "MILWAUKEERECORD":{k:"MILWAUKEERECORD",t:"MILWAUKEERECORD",u:"",l:""},
+  "NAGRANT":{k:"NAGRANT",t:"NAGRANT",u:"",l:""},
   "NBC5":{k:"NBC 5 CHICAGO",t:"NBC 5 CHICAGO",u:"",l:""},
+  "NODEPRESSION":{k:"NODEPRESSION",t:"NODEPRESSION",u:"",l:""},
+  "NRN":{k:"NRN",t:"NRN",u:"",l:""},
   "NYT":{k:"NYT",t:"The New York Times",u:"https://www.nytimes.com/",l:"The New York Times"},
   "PASTE":{k:"PASTE",t:"PASTE",u:"",l:""},
   "PORTNOY":{k:"PORTNOY",t:"PORTNOY",u:"",l:""},
+  "PRESERVATIONCHI":{k:"PRESERVATIONCHI",t:"PRESERVATIONCHI",u:"",l:""},
   "PUNCH":{k:"PUNCH",t:"PUNCH",u:"",l:""},
   "RESTAURANTBUSINESS":{k:"RESTAURANTBUSINESS",t:"RESTAURANTBUSINESS",u:"",l:""},
   "RESY":{k:"RESY",t:"RESY",u:"",l:""},
@@ -530,6 +550,7 @@ const FS = {
   "TIMEOUT":{k:"TIME OUT CHICAGO",t:"Time Out Chicago",u:"https://www.timeout.com/chicago",l:"Time Out Chicago"},
   "TRAVELWISCONSIN":{k:"TRAVELWISCONSIN",t:"TRAVELWISCONSIN",u:"",l:""},
   "UCHICAGO":{k:"UCHICAGO",t:"UCHICAGO",u:"",l:""},
+  "VISITNORTHSHORE":{k:"VISITNORTHSHORE",t:"VISITNORTHSHORE",u:"",l:""},
   "WBEZ":{k:"WBEZ",t:"WBEZ Chicago (NPR)",u:"https://www.wbez.org/",l:"WBEZ Chicago (NPR)"},
   "WEDNESDAYJOURNAL":{k:"WEDNESDAYJOURNAL",t:"WEDNESDAYJOURNAL",u:"",l:""},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"},
@@ -645,7 +666,10 @@ const F = [
 {t:1,a:"SOUTH",n:"Virtue",ad:"1462 E 53rd St, Chicago, IL 60615",cz:["CHX"],la:41.79969,ln:-87.58931,w:"Chef Erick Williams's Hyde Park Southern restaurant within view of the University of Chicago — Michelin Bib Gourmand 2025; Eater Chicago 38.",s:[["MICHELIN","https://guide.michelin.com/us/en/illinois/chicago/restaurant/virtue"],["EATERCHI","https://voices.uchicago.edu/fiftythird/2022/01/13/hyde-parks-jade-court-and-virtue-selected-for-eater-chicagos-38-essential-restaurants-list"]]},
 {t:1,a:"NORTH",n:"Hopleaf",ad:"5148 N Clark St, Chicago, IL 60640",cz:["BAR","EU"],la:41.97583,ln:-87.66855,w:"Andersonville Belgian beer bar — Time Out Chicago's Best Beer Bar; a fixture of Chicago craft-beer guides.",s:[["TIMEOUT","https://www.timeout.com/chicago/bars/time-out-chicagos-bar-awards"],["PASTE","https://www.pastemagazine.com/drink/craft-beer/the-craft-beer-guide-to-chicago"]]},
 {t:1,a:"SOUTH",n:"Ricobene's",ad:"252 W 26th St, Chicago, IL 60616",cz:["BEEF","IT"],la:41.84576,ln:-87.63395,w:"Bridgeport Italian institution since 1946 whose 1976 breaded steak sandwich Bourdain featured on Parts Unknown.",s:[["SSWEEKLY","https://southsideweekly.com/best-breaded-steak-sandwich-ricobenes/"],["DNAINFO","https://www.dnainfo.com/chicago/20160701/bridgeport/ricobenes-breaded-steak-sandwich-turns-40-this-year"],["CHIMAG","https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"]]},
-{t:1,a:"DAY",n:"Frank's Diner (Kenosha)",ad:"downtown Kenosha, WI (per Wikipedia)",cz:["US"],la:42.58361,ln:-87.81750,w:"One of America's oldest continuously operating lunch-car diners (1926), hauled to Kenosha by six horses — on the National Register.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Franks_Diner"],["ATLASOBSCURA","https://assets.atlasobscura.com/places/franks-diner"],["TRAVELWISCONSIN","https://www.travelwisconsin.com/food-drink/restaurants/franks-diner"]]}
+{t:1,a:"SUB",n:"Lou Malnati's Pizzeria (Lincolnwood)",ad:"6649 N Lincoln Ave, Lincolnwood, IL 60712",cz:["PZ"],la:42.00317,ln:-87.73383,w:"The 1971 original of Lou Malnati's — where the family's buttercrust deep dish began, before it became Chicago's best-known deep-dish name.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Lou_Malnati%27s_Pizzeria"],["ENJOYILLINOIS","https://enjoyillinois.com/explore/listing/lou-malnatis-pizzeria-lincolnwood"]]},
+{t:1,a:"DAY",n:"Frank's Diner (Kenosha)",ad:"downtown Kenosha, WI (per Wikipedia)",cz:["US"],la:42.58361,ln:-87.81750,w:"One of America's oldest continuously operating lunch-car diners (1926), hauled to Kenosha by six horses — on the National Register.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Franks_Diner"],["ATLASOBSCURA","https://assets.atlasobscura.com/places/franks-diner"],["TRAVELWISCONSIN","https://www.travelwisconsin.com/food-drink/restaurants/franks-diner"]]},
+{t:1,a:"DAY",n:"Solly's Grille",ad:"4629 N Port Washington Rd, Glendale, WI 53212",cz:["DOG"],la:43.10034,ln:-87.91755,w:"Glendale diner (1936) thought to have created the Wisconsin butter burger.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Solly%27s_Grille"],["ROADFOOD","https://roadfood.com/?p=3035539"],["SHEPHERDEXPRESS","https://shepherdexpress.com/food/dining-preview/famous-buttery-burgers-solly-s-grille/"]]},
+{t:2,a:"NORTH",n:"L&L Tavern",ad:"3207 N Clark St, Chicago, IL 60657",cz:["BAR"],la:41.94035,ln:-87.65024,w:"Lakeview dive at Clark & Belmont since the 1950s — Irish whiskey selection, a dark lore, and a stop on Anthony Bourdain's The Layover.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/L%26L_Tavern"],["TIMEOUT","https://timeout.com/chicago/bars/l-l-tavern"],["CHIBARPROJECT","https://chibarproject.com/reviews/l-and-l/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -670,7 +694,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([41.8864,-87.6434],10);
+  map = L.map('map',{scrollWheelZoom:false}).setView([41.8865,-87.6437],10);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -754,7 +778,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["The Loop", 41.8832, -87.6306], ["North Side (Lincoln Park", 41.9461, -87.6522], ["Northwest Side (Wicker Park", 41.9152, -87.6921], ["West Side (Pilsen", 41.8714, -87.6783], ["South Side (Chinatown", 41.8074, -87.6077], ["Southwest Side (Back of the Yards", 41.7966, -87.6884], ["Far South (Pullman", 41.7045, -87.6076], ["Suburbs", 41.9415, -87.8686], ["Day Trips (Indiana Dunes", 42.4144, -87.8988]];
+const LABELS=[["The Loop", 41.8832, -87.6306], ["North Side (Lincoln Park", 41.9459, -87.6522], ["Northwest Side (Wicker Park", 41.9152, -87.6921], ["West Side (Pilsen", 41.8714, -87.6783], ["South Side (Chinatown", 41.8063, -87.6075], ["Southwest Side (Back of the Yards", 41.7966, -87.6884], ["Far South (Pullman", 41.7045, -87.6076], ["Suburbs", 41.9501, -87.8513], ["Day Trips (Indiana Dunes", 42.4601, -87.9]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1093,7 +1117,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 210 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 216 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

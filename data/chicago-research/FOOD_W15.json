@@ -210,6 +210,10 @@
    [
     "CNN",
     "https://amp.cnn.com/cnn/travel/article/chicago-south-side-things-to-do"
+   ],
+   [
+    "TIMEOUT",
+    "https://timeout.com/chicago/restaurants/valois-restaurant"
    ]
   ]
  },
@@ -280,6 +284,155 @@
    [
     "CHOOSECHI",
     "https://www.choosechicago.com/blog/dining/restaurants-on-chicagos-south-side/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "SUB",
+  "n": "Hecky's Barbecue",
+  "address": "1902 Green Bay Rd, Evanston, IL 60201",
+  "cz": [
+   "Barbecue"
+  ],
+  "dish": "The 'Mutt' — rib tips, hot link and wings on fries, house sauce",
+  "w": "Evanston barbecue institution of the late Hecky Powell — the North Shore's rib-tip and sauce benchmark (Axios rib-tip Food Fight).",
+  "closed": false,
+  "sources": [
+   [
+    "AXIOS",
+    "https://www.axios.com/local/chicago/2023/01/26/best-chicago-bbq-rip-tips"
+   ],
+   [
+    "CHIMAG",
+    "https://www.chicagomag.com/?p=11149"
+   ],
+   [
+    "VISITNORTHSHORE",
+    "https://www.visitchicagonorthshore.com/heckysbarbecue"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "SUB",
+  "n": "Walker Bros. Original Pancake House (Wilmette)",
+  "address": "153 Green Bay Rd, Wilmette, IL 60091",
+  "cz": [
+   "American"
+  ],
+  "dish": "The baked apple pancake — caramelized cinnamon-sugar apples",
+  "w": "The 1960 Wilmette original of the North Shore pancake family (in Ordinary People) — Zagat's 'best breakfast, bar none'.",
+  "closed": false,
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/chicago/restaurants/walker-bros-original-pancake-house"
+   ],
+   [
+    "GAYOT",
+    "https://www.gayot.com/restaurants/awards/walker-bros-original-pancake-house-wilmette-il-60091_5ch99208-01.html"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://wikipedia.com/wiki/Walker_Bros."
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SUB",
+  "n": "Russell's Barbecue",
+  "address": "1621 Thatcher Ave, Elmwood Park, IL 60707",
+  "cz": [
+   "Barbecue"
+  ],
+  "dish": "Barbecue beef and pork sandwiches, ribs, 14-hour brisket",
+  "w": "Opened 1930 — the oldest continuously operating barbecue restaurant in the Chicago area, on Thatcher Avenue since the 1940s.",
+  "closed": false,
+  "sources": [
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Russell%27s_Barbecue"
+   ],
+   [
+    "WEDNESDAYJOURNAL",
+    "https://www.oakpark.com/2023/11/06/russells-secret-is-in-the-sauce-and-in-your-memories/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "NORTH",
+  "n": "Svea Restaurant",
+  "address": "5236 N Clark St, Chicago, IL 60640",
+  "cz": [
+   "Swedish"
+  ],
+  "dish": "Swedish pancakes with lingonberries, falukorv, meatballs with gravy",
+  "w": "Andersonville's tiny Swedish breakfast room with Viking art — the last of the neighbourhood's old Swedish diners.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/chicago/reviews/svea"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/chicago/restaurants/svea"
+   ],
+   [
+    "ENJOYILLINOIS",
+    "https://it.enjoyillinois.com/explore/listing/svea-restaurant"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "SUB",
+  "n": "Lou Malnati's Pizzeria (Lincolnwood)",
+  "address": "6649 N Lincoln Ave, Lincolnwood, IL 60712",
+  "cz": [
+   "Pizza"
+  ],
+  "dish": "Deep dish on the buttercrust with the Malnati Chicago Classic sausage patty",
+  "w": "The 1971 original of Lou Malnati's — where the family's buttercrust deep dish began, before it became Chicago's best-known deep-dish name.",
+  "closed": false,
+  "sources": [
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Lou_Malnati%27s_Pizzeria"
+   ],
+   [
+    "ENJOYILLINOIS",
+    "https://enjoyillinois.com/explore/listing/lou-malnatis-pizzeria-lincolnwood"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "SUB",
+  "n": "FitzGerald's Nightclub",
+  "address": "6615 Roosevelt Rd, Berwyn, IL 60402",
+  "cz": [
+   "Bar",
+   "Blues Club"
+  ],
+  "dish": "Roots-music shows with a tavern bar; American Music Festival every July 4th weekend",
+  "w": "Berwyn roots-music club and tavern (FitzGerald family since 1980, a music hall since the 1930s) — in 2025 the first Illinois music venue on the National Register.",
+  "closed": false,
+  "sources": [
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/FitzGerald%27s_Nightclub"
+   ],
+   [
+    "WTTW",
+    "https://news.wttw.com/2025/01/17/fitzgerald-s-owner-what-makes-berwyn-nightclub-historic-al-capone-s-gang-local-community"
+   ],
+   [
+    "SUNTIMES",
+    "https://chicago.suntimes.com/entertainment-culture/2025/05/09/fitzgeralds-berwyn-club-music-venue-chicago"
    ]
   ]
  }
