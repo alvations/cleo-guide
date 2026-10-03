@@ -12818,6 +12818,118 @@
           "rank": 3,
           "verified": true,
           "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "NIPPONCOM",
+          "name": "nippon.com (Nippon Communications Foundation)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Multilingual Japan news/feature site of the Nippon Communications Foundation; bylined staff and contributor features; one ordinary editorial source"
+        },
+        {
+          "key": "RURUBU",
+          "name": "Rurubu (るるぶ, JTB Publishing)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "JTB Publishing's long-running guidebook brand (Japan's best-selling domestic travel guide series); editor-researched spot pages; one ordinary editorial source"
+        },
+        {
+          "key": "INSIDEKYOTO",
+          "name": "Inside Kyoto (Chris Rowthorn)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Bylined guide by Chris Rowthorn (long-time Lonely Planet Japan author), sister site of Inside Osaka; covers Kobe day trips; one ordinary editorial source"
+        },
+        {
+          "key": "WAKAYAMATOURISM",
+          "name": "Visit Wakayama (Wakayama Prefecture tourism federation)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official prefectural tourism body"
+        },
+        {
+          "key": "ARIMATOURISM",
+          "name": "Arima Onsen Tourism Association",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official local tourism association for Arima Onsen"
+        },
+        {
+          "key": "SAKAITCB",
+          "name": "Sakai Tourist & Convention Bureau (sakai-tcb.or.jp)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Sakai City tourism bureau — municipal official tourism, like OSAKAINFO"
+        },
+        {
+          "key": "KOBENP",
+          "name": "Kobe Shimbun",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Hyōgo's regional daily newspaper of record"
+        },
+        {
+          "key": "KUMANICHI",
+          "name": "Kumamoto Nichinichi Shimbun (Kyodo News wire)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Regional daily carrying a Kyodo News wire story (national news agency)"
+        },
+        {
+          "key": "VISITHYOGO",
+          "name": "HYOGO! Tourism Guide / Visit Hyogo",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Hyōgo prefectural tourism"
+        },
+        {
+          "key": "JNTO",
+          "name": "JNTO — Japan National Tourism Organization (japan.travel)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "National official tourism body"
+        },
+        {
+          "key": "GLTJP",
+          "name": "GOOD LUCK TRIP (gltjp.com)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "inbound travel guide published by JTB Publishing (Japan's largest guidebook publisher, Rurubu); editorial directory + feature articles"
+        },
+        {
+          "key": "OFFICIAL",
+          "name": "OFFICIAL",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "SAVORJAPAN",
+          "name": "SAVORJAPAN",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "TABELOG100",
+          "name": "TABELOG100",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
       "creators": [
@@ -12830,6 +12942,26 @@
           "scale": "~11M YouTube subscribers",
           "niche": "street food / food travel",
           "credible": "one of the most-followed food-travel creators worldwide; long-running blog with specific named-venue Osaka posts (food guide, Kushikatsu Daruma, Kuromon, Harukoma)"
+        },
+        {
+          "key": "INSIDEOSAKA",
+          "name": "Inside Osaka",
+          "platform": "blog",
+          "handle": "insideosaka.com",
+          "url": "https://insideosaka.com/",
+          "scale": "long-running English Osaka travel guide (already a credible key)",
+          "niche": "Osaka travel",
+          "credible": true
+        },
+        {
+          "key": "CREATOR_RAMENADVENTURES",
+          "name": "Ramen Adventures (Brian MacDuckston)",
+          "platform": "blog + YouTube",
+          "handle": "ramenadventures.com",
+          "url": "https://ramenadventures.com/listing/mentokokoro-seven-osaka/",
+          "scale": "long-running English-language ramen authority in Japan; author of Ramen at Home; runs Osaka ramen-school course",
+          "niche": "ramen",
+          "credible": "yes — specific venue listing pages"
         }
       ]
     },
