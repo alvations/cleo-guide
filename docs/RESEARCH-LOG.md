@@ -516,4 +516,10 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
   nothing useful — don't. After two misses, queue the place UNVERIFIED for tools/geocode-helper.html.
 - Never type a street address from memory while writing a geocode record — use the sourced locality (rule 4a);
   caught and fixed four times this run before merge.
-
+- 2026-10-03 (Liège W4 + Hokkaido G06): **restaurant place-pins that WebSearch "couldn't" surface** — Belgium:
+  `allowed_domains:["restaurantguru.com","foursquare.com","wanderlog.com","viamichelin.com"]` + `<name> <street> <city>
+  coordinates`, one place per search, ≈85 % hit. **Japan: `allowed_domains:["navitime.co.jp"]` + `<店名1> / <店名2> / <店名3>
+  緯度 経度`** — the NAVITIME POI pages print 緯度経度 + street address, ≈2.4 pins per search (RestaurantGuru/Wanderlog are
+  useless for Japanese shops). Always match the returned address/branch to the record; never convert NAVITIME route-URL
+  lon/lat parameters (Tokyo-datum milliseconds — ~300 m off). Wikidata points for campus-wide/area sights can be the city
+  centroid — reject.

@@ -6071,6 +6071,81 @@
      "https://ja.wikipedia.org/wiki/札幌市青少年科学館"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "SPR",
+   "n": "Asahiyama Memorial Park (旭山記念公園)",
+   "ad": "Chūō-ku, Sapporo, Hokkaido, Japan (between Mt Moiwa and Maruyama)",
+   "w": "A hillside park between Mt Moiwa and Maruyama built for Sapporo's centenary — its lookout at 137.5 m takes in the whole grid of the city and is one of Sapporo's classic free night-view spots.",
+   "g": [
+    "PARK",
+    "VIEW",
+    "FREE",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/旭山記念公園"
+    ],
+    [
+     "SAPPOROTRAVEL",
+     "https://www.sapporo.travel/find/nature-and-parks/asahiyama-memorial-park/"
+    ],
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80000132"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SPR",
+   "n": "Sapporo Shiryōkan — former Sapporo Court of Appeals (札幌市資料館)",
+   "ad": "Chūō-ku, Sapporo, Hokkaido, Japan (west end of Ōdōri Park)",
+   "w": "The former Sapporo Court of Appeals building at the west end of Ōdōri Park, now the city's Shiryōkan (archive museum).",
+   "g": [
+    "ARCH",
+    "MUS",
+    "FREE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/札幌市資料館"
+    ],
+    [
+     "SAPPOROTRAVEL",
+     "https://www.sapporo.travel/en/spot/facility/shiryokan/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SPR",
+   "n": "Kotoni Tondenhei Village Barracks Site (琴似屯田兵村兵屋跡)",
+   "ad": "Kotoni, Nishi-ku, Sapporo, Hokkaido, Japan",
+   "w": "The barracks-house site of the Kotoni tondenhei (farmer-soldier) village — the settlers who laid the groundwork of the town — designated a National Historic Site, with a 'Road of Pioneering History' (開拓の歴史の道) board mapping the tondenhei relics around it.",
+   "g": [
+    "HIST",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "BUNKACHO",
+     "https://online.bunka.go.jp/heritages/search/item_137554:1"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/琴似屯田兵村兵屋跡"
+    ],
+    [
+     "HOKKAIDOSHIMBUN",
+     "https://www.hokkaido-np.co.jp/article/998057/"
+    ]
+   ]
   }
  ],
  "F": [
@@ -12466,6 +12541,50 @@
      "https://www.town.kutchan.hokkaido.jp/file/contents/708/50789/kutchanmiyagecatalog.pdf"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "NSK",
+   "n": "Graubünden, Hirafu (おやつとサンドイッチのお店 グラウビュンデン)",
+   "ad": "Niseko Hirafu 5-jō 4-chōme 2-6, Kutchan, Abuta District, Hokkaido, Japan",
+   "w": "A sweets-and-sandwich café in Hirafu village known for its house sandwiches and seasonal-fruit cakes; listed in Kutchan's official town specialty catalogue.",
+   "cz": [
+    "HOKKAIDO",
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80001385"
+    ],
+    [
+     "KUTCHANTOWN",
+     "https://www.town.kutchan.hokkaido.jp/file/contents/708/50789/kutchanmiyagecatalog.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NSK",
+   "n": "Sushi Hanayoshi, Niseko (鮨 花吉)",
+   "ad": "Fujimi 65, Niseko-chō, Abuta District, Hokkaido, Japan",
+   "w": "Counter sushi in Niseko town where chef Yoshioka buys from the local bays each morning — the omakase runs from sashimi to hairy crab and chawanmushi; dinner only, booking essential.",
+   "cz": [
+    "HOKKAIDO",
+    "SUSHI"
+   ],
+   "g": [],
+   "s": [
+    [
+     "NISEKOTOURISM",
+     "https://www.niseko-ta.jp/resorts-eat/7543/"
+    ],
+    [
+     "POWDERLIFE",
+     "https://www.powderlife.com/blog/hanayoshi-sushi/"
+    ]
+   ]
   }
  ],
  "S": {
@@ -12956,6 +13075,12 @@
    "t": "Otaru Tourism Association (otaru.gr.jp)",
    "u": "https://otaru.gr.jp/",
    "l": "Otaru Tourism Association (otaru.gr.jp)"
+  },
+  "POWDERLIFE": {
+   "k": "POWDERLIFE",
+   "t": "Powderlife Magazine (Niseko's English-language local magazine)",
+   "u": "https://www.powderlife.com",
+   "l": "Powderlife Magazine (Niseko's English-language local magazine)"
   },
   "RAMENADVENTURES": {
    "k": "RAMENADVENTURES",

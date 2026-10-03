@@ -6,7 +6,10 @@
 import json, os, sys
 D=os.path.dirname(os.path.abspath(__file__)); P=os.path.join(D,"geo","_geoout_hokkaido_g06.json")
 G=json.load(open(os.path.join(D,"..","geocodes.json")))["cities"]["hokkaido"]
+import glob
 names={x["n"] for k in ("P","F") for x in json.load(open(os.path.join(D,"..","hokkaido.dataset.json")))[k]}
+for f in glob.glob(os.path.join(D,"FOOD_HOKKAIDO_*.json"))+glob.glob(os.path.join(D,"SIGHTS_HOKKAIDO_*.json")):
+    j=json.load(open(f)); names|={x["n"] for x in (j["sights"] if isinstance(j,dict) else j)}
 out=json.load(open(P)) if os.path.exists(P) else []; have={x["n"] for x in out}; n0=len(out)
 for line in sys.stdin:
     line=line.strip()

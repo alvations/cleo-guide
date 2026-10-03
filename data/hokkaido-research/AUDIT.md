@@ -364,3 +364,29 @@ Full per-wave detail (queries, channel mix, MEASURED & DROPPED, held singles) in
 - **Build B1-s5:** `rebuild-city.py hokkaido --build` → **509 discovered (273 food = 54%), 274 rendered (212 sights + 62 food)**, 235 UNVERIFIED
   held. sourcecheck PASS 509 (1 lone authority) · geocheck PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate DATA OK ·
   npm test ALL PASS. geocodes.json diff touches only `hokkaido` (435→509). Density: 7/9 OK; SPR 128/130, NSK 34/35. Searches ≈178.
+
+## 2026-10-03 — session 6: W94 (close SPR/NSK) + G06 restaurant pins (~85 searches of the session's ~185; Liège took the rest)
+**W94 discovery (`_w94_spr_nsk.py` → SIGHTS/FOOD/SOURCES_HOKKAIDO_W94.json):** +5 — SPR: Asahiyama Memorial Park
+(ja.wiki + sapporo.travel + rurubu; pin ja.wiki infobox, high), Sapporo Shiryōkan / former Court of Appeals (ja.wiki +
+sapporo.travel; high), Kotoni Tondenhei Village Barracks Site (National Historic Site — bunka.go.jp Cultural Heritage
+Online = BUNKACHO lone authority, + ja.wiki + Hokkaido Shimbun; high). NSK: Graubünden, Hirafu (rurubu 80001385 + Kutchan
+town specialty catalogue — promotes the W89 held single), Sushi Hanayoshi (niseko-ta.jp + Powderlife — new outlet POWDERLIFE,
+Niseko's English local magazine). Food 2/5 this wave (SPR and NSK already ≥50 % food).
+**Self-check:** three W94 descriptions first drafted with details not in the search results (a building year, a manga
+gallery, a street number) — rewritten to the sourced facts before commit (the stray 'manga' would also have auto-tagged
+ANIME via ANIME_KW). ANIME layer: two anime queries (Mandarake/Animate Sapporo; Anime Tourism 88 2026 Hokkaido) — store
+listings only (NAVITIME/official), no second credible source → none added. ANIME tagged 31 (26 on the map with the ★ note).
+**MEASURED & held:** hirihiri 2-gō (rurubu + jalan user rankings only), Suginome (rurubu spot + rurubu article = one outlet),
+Mandarake Sapporo (directory only), Yukiniwa (no source found), Acorn/Masonry/Yamanchu (ski-operator blog only).
+**G06 pins (`_g06_pins.py` → geo/_geoout_hokkaido_g06.json, 118 records, all `med`):** NEW TECHNIQUE — WebSearch with
+`allowed_domains:["navitime.co.jp"]` and 3 Japanese shop names per query + `緯度 経度` → the NAVITIME POI pages
+(navitime.co.jp/poi?spot=…) print the venue's 緯度経度 and street address in the summary; ~2.4 pins per search. Every
+pin's NAVITIME address was matched against the record's sourced address/branch before writing; mismatches skipped
+(Rojiura Curry SAMURAI — Hiragishi branch returned for Sakura; Royce' — Cacao & Chocolate Town returned for the airport
+Chocolate World; robata in Kushiro — a different robata returned; Sawasaki Suisan — only the Denuki Kōji complex point).
+Coordinates derived from NAVITIME route-URL parameters were NOT used (Tokyo-datum milliseconds — Milk Kōbō, Kyōdōgakusha
+skipped). One address typed from memory (Asari honten street number) caught and replaced by the sourced postcode locality.
+**Build:** sourcecheck PASS 514/514 · geocheck PASS — **396 on the map** (217 sights + 179 food; was 274) · statuscheck
+CONSISTENT (0 closed) · buildcheck PASS · validate DATA OK · npm test ALL PASS.
+**Density: every area OK** — SPR 131/130, OTARU 51/50, NSK 36/35, DONAN 78/75, IBURI 41/40, DHOKU 65/60, TKC 37/35,
+DOTO 56/55, SOYA 20/20. 514 discovered, food 275 = 53.5 %. 118 UNVERIFIED held (mostly restaurants; NAVITIME batches next).
