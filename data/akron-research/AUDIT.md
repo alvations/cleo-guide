@@ -559,3 +559,40 @@ New source keys: MAHONINGMATTERS, BARBERTONLIBRARY (SOURCES_W3A.json).
   Massillon reviews, Akron Life Canal Fulton; V-Li's (status), Lions Lincoln Theatre, Kozmo's single-outlet. KENT (28/30) — KentWired BOK,
   Portager, Akron Life Kent guide; Over Easy (status), Tree City, Henry Wahner's, Water Street Tavern single-outlet. AKR (59/60).
 - **W6 totals:** +17 food, +10 sights → 193 places (115 food = 60%; every area ≥50% food), 141 pinned (52 UNVERIFIED). ≈170 WebSearch.
+
+## 2026-10-03 W7 · batch 1 — close the NEED areas (FOOD_W7, SIGHTS_W7, geo/_geoout_w7)
+- **Sources mined:** Akron Life 330 Flavor Awards 2026 (county + category winners), Akron Life '9 Massillon places', 'Craft
+  breweries/4 places to drink in Cuyahoga Falls'; Signal Akron Best of the City 2026 (bakery/coffee runners-up); Cleveland Magazine
+  'Cuyahoga Falls' 18 Best Restaurants and Bars', '12 Must-Go Cuyahoga Falls', speakeasy round-up, Lanning's feature; Canton Repository via
+  Yahoo/AOL ('Eat your way through downtown Canton', '6 coffee roasters', College Inn review, Desert Inn ownership, Samantha's Grill
+  closing, Athens closing); ABJ via Yahoo (Great Oaks Tavern Local Flavor, Barberton Community Spotlight, TUSK, Coffee Pot, Wink's);
+  Ohio Magazine (Best Hometowns 2022 Kent, Craft Beer Guide, Creative Outlet / Canton Arts District); Kent Stater Best of Kent '25/'26;
+  The Portager; News 5; Heritage Ohio; Cinema Treasures; Medina Gazette; WKYC. **Creator query:** "YouTube food vlogger Canton Ohio best
+  places to eat 2025" → only SEO tag pages, no verifiable creator — none added.
+- **Added food (12):** AKR West Side Bakery (Signal Akron 2026 Best Bakery #2 + feature; Akron Life) · NSUM Dean Martin's Lanning's (Bath;
+  CLEMAG + Akron Life; Wine Spectator 2022), Moe's Restaurant (CLEMAG Falls 18 + Akron Life), El Mesón (CLEMAG Falls 18 — chori pollo fajitas
+  + Akron Life 2026 Best Mexican #2) · CANT Sparta Steakhouse & Lounge (Akron Life 2026 Best Steakhouse #2 + Visit Canton), Fromage du Monde
+  (Repository downtown guide + Visit Canton; promoted from W4 held), Muskellunge Brewing (Akron Life + Repository + Visit Canton; address now
+  confirmed 425 5th St NW, named beers — promoted from W5 held) · KENT Over Easy at the Depot (promoted: Kent Stater BOK '26 #1 Best Breakfast
+  = dated status, + Ohio Magazine + News 5 + Portager), North Water Brewing (Kent Stater BOK '25 Best Brewery + Ohio Magazine + Portager;
+  2026 events = status) · MASS Tremont Coffee Massillon roastery (Repository roasters list + Visit Canton; flagship resolved = 215 Erie St N,
+  the largest shop where beans are roasted — Foursquare's 28 Erie St is a stale listing) · BARB Great Oaks Tavern Wadsworth (ABJ Local
+  Flavor review + Medina Gazette; promoted from W5 held), Ignite Brewing Barberton (Ohio Magazine Craft Beer Guide + WKYC; promoted).
+- **Added sights (2):** MASS Lions Lincoln Theatre (Heritage Ohio + Cinema Treasures + Clio; promoted from W6 held) · CANT Canton Arts District
+  (Ohio Magazine + Akron Life + Visit Canton; district — no single place anchor, so UNVERIFIED rather than a padded pin).
+- **Pins:** 8 of 14 (high 5: Moe's, Sparta, Great Oaks, Lions Lincoln [Waze places], Over Easy [Wikipedia depot coords]; med 3: Lanning's,
+  El Mesón, Fromage [usarestaurants]). UNVERIFIED: West Side Bakery, Muskellunge, North Water, Tremont, Ignite, Canton Arts District.
+- **Fixes:** Desert Inn address confirmed **204 12th St NW** (Repository via AOL, new Shaheen-family ownership — open). **Al's Corner
+  (Barberton) RESOLVED: closed** — its space at W Tuscarawas is now TUSK diner (ABJ via Yahoo 'TUSK a vintage-inspired spot … formerly
+  housed Al's Corner') → dropped from held.
+- **Closures surfaced (not added):** Samantha's Grill at Oakwood Square (Repository 'closes'); Athens Restaurant Canton (closed Dec 24 2025,
+  Repository); The Coffee Pot Barberton (closed Jan 2026 — Cleveland 19/News 5; new owners renovating, no reopening date); Ohio Brewing Co.
+  Cuyahoga Falls (sold Dec 2024, rebrand pending — not added).
+- **Rejected / held:** Crave Cantina (measured 3.5★/218 and menu changed to American fare per Yahoo Local — fails the merit bar; dropped
+  from held) · Kraus' Pizza (9-shop franchise; listings only) · Wink's Drive-In (3.8★; city site only) · Angie's Italian Barberton (ABJ +
+  city spotlight; no merit measure) · Vaccaro's Trattoria (Bath — Akron Life ×2 only; OpenTable 4.8★/1,522 measured — needs a 2nd outlet) ·
+  Tree City Coffee (KentWired + KSU; no dated status) · Bent Tree Coffee, Battleground Taproom (Kent; one outlet each) · Ocelot Café Richfield
+  (ABJ only) · Downtown 140 Hudson (Akron Life + Scene, no current status) · Leo's Italian Social (chain) · Tozzi's on 12th (event venue,
+  for sale) · Samantha's (5-shop chain) · College Inn Alliance (Repository review only) · Dog Daze, Starflyer, Arcadia Grille (one outlet).
+- Gates: sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate + npm test PASS. ≈108 WebSearch.
+  Density AKR 60/60 · NSUM 34/35 · KENT 30/30 · BARB 19/20 · CANT 44/45 · MASS 20/20 (207/210).
