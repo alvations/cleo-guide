@@ -39,6 +39,9 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
   Per area (discovered): CAP 15/38 · UW 7/30 · EAST 14/32 · WEST 8/30 · MVF 2/25 · DANE 5/25 · TRIP 10/30.
 - **2026-10-03 W2c** — +3 food +8 sights → 64 researched (33 food / 31 sights), 49 on the page; 15 UNVERIFIED
   (restaurants). Discovered per area: CAP 16/38 · UW 9/30 · EAST 15/32 · WEST 7+/30 · MVF 3/25 · DANE 6/25 · TRIP 8+/30.
+- **2026-10-03 W3a** — +5 food +3 sights, creator pass (State Trunk Tour accepted) → 72 researched (38 food /
+  34 sights), 53 on the page; 19 UNVERIFIED (restaurants). Density: CAP 18/38 · UW 10/30 · EAST 16/32 · WEST 7/30 ·
+  MVF 4/25 · DANE 7/25 · TRIP 10/30.
 
 ## Next (ordered) — W3
 1. **Pins first:** run `tools/geocode-helper.html` (or a fresh session) on the 15 UNVERIFIED restaurants in
@@ -62,7 +65,7 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
    `flock … python3 tools/rebuild-city.py madison-wi --build` → 4 gates → relink CARD:madison-wi, CITIES.md row.
 
 ## In-flight wave
-- (none — W2a/W2b/W2c closed; resume from Next — W3)
+- (none — W3a closed; resume from 'Next (ordered) — W3')
 - ~~W2 plan~~ — finish _PENDING_LEADS food → FOOD_W2.json; canon queries
   (Infatuation, farmers' market, Babcock, cheese shops, brats, Hmong, custard, New Glarus) → FOOD_W2*.json;
   sights per area → SIGHTS_W2.json; geocodes → geo/_geoout_w2*.json; build + gates; relink CARD:madison-wi.

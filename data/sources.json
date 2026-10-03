@@ -16791,9 +16791,86 @@
           "rank": 3,
           "verified": true,
           "credible": "UW alumni association; campus features."
+        },
+        {
+          "key": "UWNEWS",
+          "name": "UW–Madison News",
+          "type": "institutional",
+          "rank": 3,
+          "verified": true,
+          "credible": "University news office."
+        },
+        {
+          "key": "FOX6",
+          "name": "FOX6 Milwaukee",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Milwaukee broadcast newsroom."
+        },
+        {
+          "key": "PLANETWARE",
+          "name": "PlanetWare",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Bylined travel-guide site (since 1990s)."
+        },
+        {
+          "key": "STATETRUNKTOUR",
+          "name": "State Trunk Tour",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Wisconsin travel creator (see CREATORS_W3)."
+        },
+        {
+          "key": "AFAR",
+          "name": "AFAR magazine",
+          "type": "editorial",
+          "rank": 1,
+          "verified": true,
+          "credible": "National travel magazine."
+        },
+        {
+          "key": "WIDOA",
+          "name": "Wisconsin Dept. of Administration",
+          "type": "institutional",
+          "rank": 3,
+          "verified": true,
+          "credible": "State agency managing the Executive Residence."
+        },
+        {
+          "key": "ARCHITECTMAG",
+          "name": "Architect magazine (AIA)",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "The AIA's journal; bylined building features."
         }
       ],
-      "creators": []
+      "creators": [
+        {
+          "key": "STATETRUNKTOUR",
+          "name": "State Trunk Tour (Kevin Mack)",
+          "platform": "web/TV/YouTube",
+          "handle": "statetrunktour",
+          "url": "https://statetrunktour.com/",
+          "scale": "long-running Wisconsin travel show and site (2008–); syndicated WTMJ travel segments",
+          "niche": "Wisconsin road-trip food & attractions",
+          "credible": "Established Wisconsin travel creator with a findable, dated guide (Wisconsin pasty shops, Aug 2026). One corroborating source, never institutional."
+        },
+        {
+          "key": "WICHEESEPLEASE",
+          "name": "Wisconsin Cheese Please (Sam Buschman)",
+          "platform": "web/Instagram/TikTok/Facebook",
+          "handle": "wisconsincheeseplease",
+          "url": "https://milwaukeerecord.com/food-drink/meet-the-curd-connoisseur-behind-wisconsin-cheese-please/",
+          "scale": "follower count not verified; press-profiled by Milwaukee Record and The Takeout; 130+ establishments rated",
+          "niche": "cheese curds",
+          "credible": "PENDING — press-profiled 'curdfluencer' but follower scale unverified and no Madison-specific rating found yet; not attached to any place."
+        }
+      ]
     },
     "tokyo": {
       "name": "tokyo",

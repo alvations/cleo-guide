@@ -507,3 +507,13 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
   `"A"; "B"; "C"` query restricted to inquirer.com/phillymag.com/6abc.com/visitphilly.com for the second outlet.
 - Suburban day-trip food (DAY) is best sourced via the Inquirer's town guides (Kennett Square, New Hope, Doylestown) × Main Line Today /
   Visit Bucks County, and Visit Philly's 15-essential-breweries list.
+
+### 2026-10-03 — Madison W2/W3 (geocoding channel yields)
+- Wikipedia/NRHP infobox coordinates: ~90% hit when the query is "<name> Wikipedia coordinates" — the reliable
+  pin channel for sights, state parks, NHLs and NRHP-listed restaurants (Quivey's Grove = John Mann House).
+- latlong.net POI records for restaurants: ~50% hit, and only with `"<name>" <street address> GPS coordinates
+  latitude` (or `latlong.net poi "<name>" <city> restaurant map`). `allowed_domains:["latlong.net"]` returns
+  nothing useful — don't. After two misses, queue the place UNVERIFIED for tools/geocode-helper.html.
+- Never type a street address from memory while writing a geocode record — use the sourced locality (rule 4a);
+  caught and fixed four times this run before merge.
+

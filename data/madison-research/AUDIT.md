@@ -118,3 +118,20 @@ Pipeline contract: docs/PIPELINE.md. Run protocol: docs/RUN-2026-10-02.md. One d
 - **Build + gates:** 49 on the page (31 sights + 18 food) of 64 researched; 15 UNVERIFIED (all restaurants).
   sourcecheck PASS 64/64 · geocheck PASS (high 32 · med 17 · low 0) · statuscheck CONSISTENT · buildcheck PASS ·
   npm validate DATA OK · npm test ALL PASS. Card + CITIES.md counts refreshed.
+
+## 2026-10-03 · W3a — creators + thin-area food + CAP/EAST sights
+- **Searches:** ~13 (session total ~150).
+- **Creator pass (CREATORS_W3.json):** State Trunk Tour (Kevin Mack — long-running Wisconsin travel show/site;
+  dated 2026 pasty-shop guide) ACCEPTED and attached to Red Rooster Cafe. Wisconsin Cheese Please (Sam Buschman,
+  press-profiled by Milwaukee Record/The Takeout) PENDING — follower scale unverified, no Madison rating found.
+  Rejected: Curd Queen (scale unverifiable), Portnoy (no Madison reviews). AFAR's 2024 Madison food feature found
+  but its snippet names no places (registered as an outlet, unused).
+- **Food (FOOD_W3a.json, 5):** Der Rathskeller (UW t1 — first public-university beer, 1933; pinned at the Memorial
+  Union building, med), Fosdal Home Bakery (DANE — Norwegian rosettes/krumkake), Hubbard Avenue Diner (MVF —
+  Munch Madness pie winner), Glarner Stube (TRIP t1 — Swiss), Red Rooster Cafe (TRIP — Cornish pasties).
+  Held: Gates & Brovi (only Travel Wisconsin found ×2 — one outlet), Hmong Kitchen / Hmong Legacy Market (only
+  608today + aggregator), New Glarus Hotel restaurant (one source).
+- **Sights (SIGHTS_W3a.json, 3):** Wisconsin Governor's Mansion, Madison Children's Museum, Orpheum Theater.
+  Held: Tenney Park–Yahara Parkway (NRHP; no coordinate surfaced).
+- **Build + gates:** 53 on the page (34 sights + 19 food) of 72 researched; 19 UNVERIFIED (all restaurants).
+  sourcecheck PASS 72/72 · geocheck PASS (high 35 · med 18 · low 0) · statuscheck CONSISTENT · buildcheck PASS.
