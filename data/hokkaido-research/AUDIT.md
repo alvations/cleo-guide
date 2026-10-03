@@ -331,3 +331,36 @@ Full per-wave detail (queries, channel mix, MEASURED & DROPPED, held singles) in
 - **W87 promote held singles:** Sukiyaki Asari Honten (rurubu + hakodate.travel) — kept, UNVERIFIED pin. Still held: Misuzu coffee Daimon
   (rurubu spot only + a generic mapple list), Snaffle's (mapple only), Tenkin (honten vs 4-jō vs Ramen Village branch ambiguous),
   Hanatokachi / Iso-chan (no outlet page found).
+
+## 2026-10-03 — session 5 · W88–W92 + G05 (background subagents, brief `_hk_s5_brief.md`, ≤30 searches each) + W93 + build B1-s5
+Full per-wave detail (queries, channel mix, MEASURED & DROPPED, held singles) in `_note_W88.md` … `_note_W92.md`, `_note_G05.md`.
+- **W88 SPR food (30 searches):** +11, all food/drink — 5 ramen (Ame wa Yasashiku No.2, Hachinoki, Mitsubaki, Bon no Kaze, Tetsuya), soup curry
+  TREASURE, Nemuro Hanamaru Stellar Place (high pin via host), BAR Kamada, the bar nano.femto (W82 hold **promoted** — rurubu 10242 + mapple),
+  Shiawase no Recipe (shime parfait), Kotobuki Coffee. ~20 held (branch mismatch or one outlet: Shirakaba Sansō, Yoshiyama Shōten, craft taprooms…).
+- **W89 NSK+OTARU (30):** NSK +8 (PRATIVO, Villa Lupicia, MnE Rankoshi, Makkarina [W83 hold promoted], Makkari Onsen, Yōtei Nature Park & Spring,
+  Iwaonupuri, Kyōgoku Onsen) · OTARU +6 food (Yoichi LOOP [Gault&Millau], Fuji-zushi Shakotan, Otaru Nihonbashi, Rinyū Asaichi, Denuki Kōji,
+  Sawazaki Suisan). 2 high pins. Caveat: Fuji-zushi and Kyōgoku Onsen cite a mapple list page (not spot page) as one of their two.
+  PRATIVO vs Milk Kōbō checked: distinct venues on the Takahashi farm (restaurant vs dairy shop) — both kept.
+- **W90 DHOKU+TKC (26):** +13 DHOKU / +5 TKC (14 food: Dokushaku Sanshirō shinkoyaki [Kodoku no Gurume — TVTOKYO_KODOKU key], Junpei ebi-don,
+  Kumagera [held s3, promoted], Tomita Melon House, Furano Jam-en, Michizakura sake, Himawari ramen, Kibana no Mori, Campana Rokkatei,
+  Kyōdō Gakusha, Tokachi-mura, MnE Otofuke [med — station moved 2022, re-verify pin], Butahage, Shinmura Farm). Held: Kasui, Rancho El Paso.
+- **W91 DONAN+DOTO+IBURI (28):** +11 / +9 / +5 (18 food). 8 pinned. New outlet keys NEMUROTOURISM, SHIRETOKOTOURISM, SHIRAOITOURISM, ALLABOUT.
+- **W92 anime/pop-culture (29):** +2 Kita no Kuni kara (Fuji TV drama — pop culture, labelled as such) sights (Rokugō no Mori pinned) + 13 overlays:
+  Detective Conan *The Million-dollar Pentagram* (2024, Hakodate: Goryōkaku, Mt Hakodate, Morning Market, Kanemori, Goryōkaku Tower, Hachimanzaka),
+  Love Live! Sunshine!! (Lucky Pierrot Bay Area), Golden Kamuy (Shiroi Koibito Park collab, Sapporo Beer Museum, Otaru Museum exhibition, Otaru Canal),
+  Pokéfuta (Jōzankei), Snow Miku (Ōdōri). Some overlays carry a single anime source (DIME/WARAKU — national magazines); the base records are
+  ≥2-sourced, so the gate is unaffected — decision: accept the anime note as an annotation, flagged here for a 2nd tie-in source next wave.
+  Held/dropped: Former NYK Otaru, Yūbari Coal Museum, Gokoku Shrine, Kitami 'Dosanko Gal', Animate/Mandarake Sapporo (no 2 credible tie-ins).
+- **G05 pins (22):** 0 of 160 restaurants pinnable (company articles carry no coords; `!3d!4d` probe failed twice → stopped). 5 sight pins
+  (Wakkanai Fukukō Market, Ikeda Wine Castle, Tokachi Hills, Ueno Farm high; Pokémon Center Sapporo med via Daimaru). Okushiba/Ichiryūan W80
+  med pins confirmed (Hokuren Bldg B1; neighbouring Hokunō Bldg ~65 m, same block).
+- **W93 orchestrator (13 searches):** promoted Curry Shokudō Kokoro Honten (sapporo.travel + rurubu), Jingisukan Yōyōtei Sapporo Honten (rurubu +
+  mapple spot), Sapporo Salmon Museum + Sapporo Science Center (rurubu/mapple/sapporo.travel + ja.wikipedia pins — W85 holds), Niseko Curry Koya
+  (rurubu + Kutchan Town souvenir catalogue; new key KUTCHANTOWN). Held: hirihiri 2-gō (mapple list page only), Pokke / Ramu no Ie / Bunjūrō
+  (rurubu only), Restaurant Yukiniwa (mapple + a municipal shop list — mention, not merit), Graubünden (rurubu + agency blogs only).
+- **Channel mix (s5 second sources):** guidebook editorial (RURUBU, MAPPLE) ~45% · official tourism/municipal ~30% · encyclopedic pins ~10% ·
+  travel/press media (Time Out, Gault&Millau, DIME, Mynavi, Famitsu, Anime!Anime!, Hokkaido Shimbun, TV Tokyo) ~12% · creators ~3% (Ramen
+  Adventures only; every new creator query dead-ended — candidates in CREATORS_*_W88–W91 `rejected`).
+- **Build B1-s5:** `rebuild-city.py hokkaido --build` → **509 discovered (273 food = 54%), 274 rendered (212 sights + 62 food)**, 235 UNVERIFIED
+  held. sourcecheck PASS 509 (1 lone authority) · geocheck PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate DATA OK ·
+  npm test ALL PASS. geocodes.json diff touches only `hokkaido` (435→509). Density: 7/9 OK; SPR 128/130, NSK 34/35. Searches ≈178.

@@ -35,16 +35,16 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
   W82–W84 discovery, W85–W87 (sights + promotions), G04 pin → **435 discovered (50% food), 252 rendered** (194 sights + 58 food), ANIME 18,
   all 4 gates + validate + test green (build B2). 183 UNVERIFIED held (restaurants).
   Discovered vs target: SPR 114/130 · OTARU 45/50 · DONAN 66/75 · DHOKU 50/60 · DOTO 47/55 · TKC 32/35 · IBURI 36/40 · NSK 25/35 · SOYA 20/20 OK.
+- 2026-10-03 **session 5** (≈178 searches; 5 bg discovery agents W88–W92 + G05 pins + W93 promotions) → **509 discovered (54% food), 274 rendered**
+  (212 sights + 62 food), ANIME/pop 30, all 4 gates + validate + test green. Discovered vs target: SPR 128/130 · OTARU 51/50 · DONAN 78/75 ·
+  DHOKU 65/60 · DOTO 56/55 · TKC 37/35 · IBURI 41/40 · NSK 34/35 · SOYA 20/20. 235 UNVERIFIED held (restaurants).
 - Commands: `python3 tools/density.py hokkaido` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py hokkaido --build`.
 
 ## In-flight wave
-- **session 5 (2026-10-03)** — background subagents (brief `_hk_s5_brief.md`, ≤30 searches each): W88 SPR food · W89 NSK+OTARU ·
-  W90 DHOKU+TKC · W91 DONAN+DOTO+IBURI · W92 anime (Golden Kamuy, Silver Spoon, Love Live! Sunshine!!, Pokémon, Animate/Mandarake) ·
-  G05 restaurant pins (`_hk_unpinned.txt`). Each writes `_w<NN>_*.py` + `_note_W<NN>.md`; a relaunched orchestrator re-runs any
-  finished script, reviews the notes, then builds (B1 s5). Unfinished agents → re-launch with the same wave tag.
+- none (session 5 build B1-s5 committed).
 
 ## Search ledger
-- session 1: ~14 · session 2: ≈188 · session 3: ≈178 (me ~151 + W40 agent 15 + W60 agent 12).
+- session 1: ~14 · session 2: ≈188 · session 3: ≈178 (me ~151 + W40 agent 15 + W60 agent 12) · session 4 ≈141 · session 5 ≈178.
 
 ## What works (session 3 lessons — reuse)
 - **Pinned food & drink = michi-no-eki + breweries/markets with ja.wikipedia infoboxes**: `"<A> 座標; <B> 座標; <C> 座標"`
@@ -59,19 +59,18 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
 - Dead ends: guide.michelin.com (no Hokkaido venue pages), Michelin 2017 Bib list, Tabelog 百名店 lists, Time Out "10 things to eat",
   SAVOR JAPAN (Gurunavi), visit-hokkaido dish pages (no shop names), corporate plants' wiki coords.
 
-## Next-wave plan (session 5)
-1. **Restaurant pins (biggest lever, 183 UNVERIFIED → map):** WebSearch cannot surface shop coordinates (re-confirmed s4: mapion/OSM/
-   `!3d`/緯度経度 all fail). Run `tools/geocode-helper.html` over `docs/GEOCODE-BACKLOG.md` (hokkaido) in a browser — addresses are sourced.
-   Remaining WebSearch-reachable pins: host-landmark coords only (see `_note_W80.md` for what was tried; re-verify Okushiba/Ichiryūan lot 1-1 vs 1-3).
-2. **Gaps by area (discovered):** SPR +16 · NSK +10 · DHOKU +10 · DONAN +9 · DOTO +8 · OTARU +5 · IBURI +4 · TKC +3. Pinnable-first:
-   ja.wikipedia 3-name coord queries for sights + michi-no-eki/breweries/wineries; restaurants via rurubu+mapple 2-in-1 queries.
-3. **Promote held singles** (one more exact outlet page each): W82 held 4 (Hotei, nano.femto, Kakizaki, Shakotan Blue), Misuzu coffee
-   Daimon, Snaffle's, Tenkin (branch), Katsuyamadate, Snow Crystal Museum, Sapporo Science Center, Hoshioki Falls, Salmon Museum,
-   Makkarina, Kumagera, Shiraoi-beef shops, Kyōdō Gakusha, Tokachino Fromage, Wakoto, Sumikai (see `_note_W8x.md`).
-4. **Anime wave 3:** Animate/Mandarake Sapporo (need editorial), Kitami 'Dosanko Gal', Hokkaido Gokoku Shrine (Golden Kamuy), Snow Miku events;
-   give Sabō Kikuizumi a pin (host: Motomachi building).
-5. Keep food ≥50% (now 50.1%): every new sight should be matched by a food place in the same area.
+## Next-wave plan (session 6)
+1. **Close the last two:** SPR +2 (promote one of: hirihiri 2-gō — needs a mapple/sapporo.travel *spot* page; Pokke / Ramu no Ie / Bunjūrō — need a
+   non-rurubu outlet; Shirakaba Sansō / Yoshiyama Shōten — confirm the same branch in both outlets) · NSK +1 (Graubünden, Restaurant Yukiniwa —
+   need niseko-ta.jp / visit-hokkaido spot page; Hirafu restaurants held in `_note_W89.md`).
+2. **Restaurant pins (biggest lever, 235 UNVERIFIED):** confirmed again in G05 — WebSearch cannot surface shop coords. Run `tools/geocode-helper.html`
+   over `docs/GEOCODE-BACKLOG.md` (hokkaido) in a browser. Re-verify MnE Otofuke (moved 2022) pin.
+3. **Second anime tie-in sources** for single-sourced overlays (Morning Market, Kanemori — DIME only; Beer Museum — WARAKU only); leads: Ghost of
+   Yōtei × niseko-ta.jp official page (video game — pop-culture overlay on Mt Yōtei), Gokoku Shrine (Golden Kamuy), Animate/Mandarake Sapporo.
+4. **Creators:** every s5 creator query dead-ended; try named channels directly (Paolo fromTOKYO Hokkaido, Abroad in Japan Hokkaido, Only in Japan
+   Sapporo, Sapporo-based Japanese YouTubers) and attach to existing places.
+5. Keep food ≥50% (now 54%).
 
 ## Acceptance
-- [ ] every area ≥ target · [ ] sourcecheck PASS · [ ] geocheck PASS · [ ] statuscheck CONSISTENT, 0 unchecked
-- [ ] buildcheck PASS · [ ] `npm run validate && npm test` green · [ ] Japan hub card live · [ ] CITIES.md row
+- [ ] every area ≥ target (SPR 128/130, NSK 34/35) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
+- [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] Japan hub card live · [x] CITIES.md row
