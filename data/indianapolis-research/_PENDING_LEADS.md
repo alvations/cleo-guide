@@ -1,32 +1,23 @@
-# Indianapolis — pending leads (W1, truncated by the WebSearch session budget, 2026-10-02)
+# Indianapolis — pending leads (after W1, 2026-10-03)
 
-Vetted SOURCE leads surfaced by W1's 5 searches before the shared budget hit 200/200. These are leads to
-MEASURE and corroborate in the next wave — none is yet a record (no addresses verified, no coordinates).
+W1 consumed the 2026-10-02 leads (Turchetti's, Daredevil Hall*, Four Day Ray, 9th Street Bistro, Bluebeard,
+Macizo, Vida, Tinker Street, Freeland's — all now records except *). Remaining leads, each needing the noted step:
 
-## Source URLs found (credible)
-- Indianapolis Monthly — tenderloin guide: https://www.indianapolismonthly.com/food-and-drinks/the-best-spots-for-satisfying-indianas-unhealthy-obsession-the-pork-tenderloin/
-  (names Turchetti's Delicatessen "Triple P", Daredevil Hall, Mayberry Cafe [Danville — out of region])
-- Indianapolis Monthly — "No. 50: Pick a Favorite Pork Tenderloin Sandwich": https://www.indianapolismonthly.com/food-and-drinks/dining/no-50-pick-a-favorite-pork-tenderloin-sandwich/
-- Axios Indianapolis — tenderloin trail / Four Day Ray (Fishers): https://www.axios.com/local/indianapolis/2025/10/27/taking-the-tenderloin-trail-to-four-day-ray
-- Indianapolis Monthly Best Restaurants 2025 index: https://www.indianapolismonthly.com/best-restaurants-of-2025/
-  installments: https://www.indianapolismonthly.com/best-restaurants/best-restaurants-2025-9th-street-bistro-bluebeard/ ·
-  https://www.indianapolismonthly.com/best-restaurants/best-restaurants-2025-fernandos-julieta/
-  (named: 9th Street Bistro [Noblesville], Bluebeard [Fletcher Place], Fernando's [Broad Ripple + Mass Ave], Borage, Julieta)
-- Indianapolis Monthly Best Restaurants 2026 (installment "Freeland's–Macizo"): https://www.indianapolismonthly.com/category/best-restaurants/
-- James Beard 2026 semifinalists: https://www.jamesbeard.org/stories/james-beard-award-semifinalists-2026 +
-  Indianapolis Monthly "Indiana Nabs Seven James Beard Nominations": https://www.indianapolismonthly.com/food-and-drinks/indiana-nabs-seven-james-beard-nominations/
-  (Macizo — Luz & Omar Gonzalez, Best Chef: Great Lakes; Tom Main — Tinker Street & Freeland's, Outstanding
-  Restaurateur; Jared May — Vida, Outstanding Professional in Bar Service)
+## Need a 2nd credible outlet (Indianapolis Monthly Best Restaurants 2025/2026 only)
+- Borage — 1609 N Lynhurst Dr (near IMS) · Serliana — InterContinental Indianapolis, 2nd floor · Corridor ·
+  Julieta · Fernando's Mexican & Brazilian (Broad Ripple + Mass Ave) · Magdalena — 1127 Shelby St (FSQ) ·
+  Good Omen · Open Kitchen · The Flatiron · Cheeky Bastards · Field Brewing (Westfield) · Tuscan Table ·
+  Brozinni Pizzeria · Daredevil Hall (IM tenderloin guide)
+- Bazbeaux — 333 Massachusetts Ave (+ Broad Ripple original, 1986) — one outlet so far
+- Metazoa Brewing (S College Ave) · Fountain Square Brewing (1301 Barth Ave) · Upland FSQ taproom — Axios only
 
-## Places already at the bar (lone JB institution + IM) — need address + status + geocode
-- Macizo (JB 2026 semifinalist + IM Best Restaurants 2026)
-- Vida (JB 2026 semifinalist, bar service) — Lockerbie/Mass Ave
-- Tinker Street / Freeland's (JB 2026 restaurateur semifinalist — Tom Main) — confirm the restaurant itself is the honoree's
-## Single-source so far (need a 2nd credible)
-- Turchetti's Delicatessen (IM) · Daredevil Hall (IM) · Four Day Ray (Axios) · 9th Street Bistro / Bluebeard /
-  Fernando's / Borage / Julieta (IM Best Restaurants 2025) · C.R. Heroes Family Pub (Life in Indy — unvetted, lead only)
+## Need status / address resolution
+- Wisanggeni Pawon — IM 2026 places it "on a corner in Irvington"; Visit Indy/IM 2024 give 2450 E 71st St
+- Kimu Burmese — 1280 US 31 N, Greenwood (NUVO, Culinary Crossroads, NYT mention) — no 2025/26 open check
+- Cafe Patachou (49th & Penn original, 1989; Martha Hoover 6× JB semifinalist) — IM "big change" note unread
+- Bub's Burgers & Ice Cream (Carmel; Big Ugly) — no street address found
+- J'Adore (Youssef Boudarine, JB 2025 pastry semifinalist) — pop-ups only, no fixed address found
 
-## Rejected / not counted
-- lifeinindy.com top-10 tenderloin list — lifestyle site, authorship/following not yet vetted → lead only.
-- cozymeal.com "37 best restaurants" — booking-platform SEO listicle → rejected (D1).
-- community.internxt.com / employment.montecitofire.com / unearththevoyage.com — SEO/content-farm pages → rejected.
+## Lead only (sources too weak so far)
+- Al-Rayan (4857 W 38th St; Yemeni) · Mi Mi Asian / Imbi (Greenwood Burmese) · King Wok, Sizzling Wok Hai
+  (Lafayette Rd pho, IM older list) · The Tamale Place (DDD) · Mama Carolla's · Lincoln Square Pancake House
