@@ -230,3 +230,12 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
 - **Held:** Sim Sim Cafe, Sichuan Fish, Guayacan, Paseo Catracho, Old's Havana (Inf only); Jarana, Chayhana Oasis, Casa D'Angelo
   Aventura, Fish Fish, Petit Rouge, Doggi's, La Latina, Charlie's, Pisco y Nazca (NT only).
 - **Totals:** 448 researched (296 food & drink = 66%) → 124 pinned (107 sights + 17 food). Hub card, CITIES.md row, run-log row updated.
+
+## 2026-10-03 (session 4) · batch 8 — SDADE, MBCH, DTB architecture
+- **Added (11):** SDADE food 2 — Babe's Meat & Counter (t1; NT Best Burger 2025 + TO + Inf), Jamrock Cuisine (NT Best Jamaican
+  2018 + Inf); SDADE sight 1 — Homestead Historic Downtown District (GMCVB + Wikipedia). MBCH food 3 — Josh's Deli, Las Vacas Gordas,
+  The Joyce; MBCH sight 1 — Fontainebleau (high pin). DTB sights 2 — Alfred I. duPont Building, Ingraham Building (high pins).
+- **Not added:** Seminole Theatre (only one outlet once the Wikipedia link turned out to be an unrelated 'Seminole Cafe and Hotel'
+  article — coordinate discarded); Miami-Dade County Courthouse (current public-access status unverified); Miami Beach Post Office,
+  Faena Hotel (Wikipedia only); Florida Pioneer Museum, Town Hall Museum (GMCVB only).
+- **Gates:** all green, 0 unchecked; validate DATA OK; test ALL PASS.

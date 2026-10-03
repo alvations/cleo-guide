@@ -266,3 +266,12 @@
 108 Inf/TO Little Havana Central American (Pinolandia, Paseo Catracho, Antigua Guatemala, Mi Ranchito, Inf fritangas guide)
 109 NT/TO Hialeah/Doral held (Doggi's NT Best Arepa 2021, La Latina NT 2024, Charlie's, Pisco y Nazca — NT only)
 110 NT for Inf LH names → Pinolandia, Yambo, El Atlacatl added; Guayacan, Paseo Catracho, Old's Havana held
+111 NT/TO SDADE Inf-only (Jamrock NT Best Jamaican 2018; Babe's NT Best Burger 2025 + TO review; Yafa, Ifra's not found)
+112 Inf/TO NT-only (Butcher Shop & Deli, Guadalajara, Café Bonjour, Big Tomato) — nothing
+113 GMCVB Homestead historic treasures (Seminole Theatre, Florida Pioneer Museum, Town Hall Museum, Historic Downtown) → Homestead Historic Downtown District added (GMCVB + Wikipedia). Seminole Theatre NOT added separately: the Wikipedia coord in search 55 could not be tied to a Seminole Theatre article (a 'Seminole Cafe and Hotel' link surfaced instead) → no 2nd outlet
+114 NT 16 best South Beach 2026 (Las' Lap, Carbone, Aviv, Joe's, Mila, Lucali, Macchialina, Stubborn Seed, Prime 112, The Joyce, Blue Ribbon, Call Me Gaby, Milos, Lido, LT, Puerto Sagua)
+115 Surfside/North Beach (Inf 20 best North Beach; NT five Surfside spots: Surf Club, Le Sirenuse, Ezio's, 26 Sushi, Josh's Deli, Katana, Las Vacas Gordas, Café Ragazzi)
+116 Inf/TO: Josh's Deli (Inf+TO), Las Vacas Gordas (TO+Inf NB guide), The Joyce (Inf+NT) → 3 added
+117 Wikipedia coords: Fontainebleau (high) → added (GMCVB + Wikipedia); Faena Hotel, Miami Beach Post Office (Wikipedia only) held
+118 GMCVB downtown architecture (duPont Building, Ingraham, County Courthouse)
+119 Wikipedia coords duPont, Ingraham, Courthouse (high) → 2 added; Courthouse NOT added (current public-access status unverified — needs a fresh status source before it can be a live suggestion)
