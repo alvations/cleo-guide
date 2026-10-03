@@ -42,10 +42,25 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
 - `allowed_domains:["japan-guide.com"]` / `["osaka-info.jp"]` area queries → sight lists (source 1).
 
 ## In-flight wave
-- **W6 (session 6, 2026-10-03)** — workers W6A (EAST+BAY, held promotions), W6B (MINAM via Metro NiNE/Lmaga/Kansai Walker),
-  W6C (TNJ/SOUTH/NORTH/KNSAI), W6D (★ANIME all areas), W6G (geocoder for `_unrendered_W6.json`, 101 places) + main.
-  Files: FOOD_/SIGHTS_/SOURCES_/CREATORS_OSAKA_W6{A,B,C,D}.json, geo/_geoout_osaka_W6{A,B,C,D,G}.json. Brief `_W6_worker_brief.md`.
-  If relaunched mid-wave: consolidate whatever W6* files exist (rebuild-city), then continue from the W6 plan below.
+- none — W6 closed (session 6; workers 178 searches + main 2).
+
+- 2026-10-03 **W6 (session 6)** — 5 workers (A EAST+BAY · B MINAM · C TNJ/SOUTH/NORTH/KNSAI · D ★anime · G geocoder) + main.
+  **436 discovered (166 sights + 270 food = 62% food), 309 rendered (136 + 173)**; **ANIME 30** (+9); 4 gates PASS; validate + npm test
+  PASS. Per area vs target: KITA 102/80 OK · CHUO 56/45 OK · KNSAI 42/40 OK · MINAM 78/95 (+17) · EAST 24/35 (+11) · BAY 26/35 (+9) ·
+  TNJ 47/55 (+8) · SOUTH 32/40 (+8) · NORTH 29/35 (+6). Yield ≈ 0.21/search. Geocoder 0/101 — WebSearch cannot pin the shop backlog.
+  Held leads: `_held_W6.json` (+ per-worker `_note_W6*.md`).
+
+## Next actions (W7 plan — supersedes the older lists below where they overlap)
+1. **Pins are the bottleneck: 127 discovered-but-unrendered** (MINAM 44). Do NOT spend WebSearch on them again (W5G + W6G ≈ 0.2 pins/search);
+   run `tools/geocode-helper.html` in a browser session, or a session with a geocoding channel, over the `lat:null` list
+   (regenerate like `_unrendered_W6.json`). Mashino Ken: confirm current address before re-pinning.
+2. **Promote `_held_W6.json`** — two-key leads that only lack a dish (Itamae Yakiniku Itto, Shimmachi Adachi, PRESTAU, Ajikitcho,
+   tamanegi, Sushi Enishi) are cheapest: one dish-surfacing search each. Then TIMEOUT singles (Hozenji Sanpei, Akaoni, Umineko,
+   Derailleur, Yosozake, Otis Blue, Tentomo) via Lmaga / Walkerplus / Mapple (newly accepted key) Japanese queries.
+3. **MINAM (+17):** Tabelog 百名店 2025 MINAM picks in `_note_W6B.md` + Michelin Dec-2025 additions + Adomachi Namba 2005 ranking (TVTOKYO)
+   paired with Mapple/Walkerplus. **EAST (+11)/BAY (+9):** Mapple area lists (Tsuruhashi, Kyōbashi, Taishō) for the single-source
+   cluster. **NORTH (+6):** Mapple/Lmaga for the Ramen Hyakumeiten singles. **SOUTH/TNJ (+8 each):** Time Out JP 南大阪20選 singles + Mapple.
+4. Status re-checks: Kijimunā no Mori (address conflict), Rokukakutei, Kaiyodo Hobby Land; re-confirm the Amako Sōbē JATA88 credit.
 
 - 2026-10-03 **W5 (session 5)** — 6 workers (A BAY · B EAST · C TNJ · D MINAM+anime · E SOUTH/NORTH/KNSAI · G geocoder) + main.
   **398 discovered (151 sights + 247 food = 62% food), 297 rendered (126 + 171)**; ANIME 21 (+5: Kinopio's Café, Mandarake Grand
@@ -162,5 +177,5 @@ npm run validate && npm test` · `flock … python3 data/osaka-research/_osaka_g
 commit then `flock … data/osaka-research/_osaka_sync.sh`.
 
 ## Acceptance
-- [ ] every area ≥ target (KITA only) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
+- [ ] every area ≥ target (KITA, CHUO, KNSAI OK; 6 to go) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
 - [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] Japan hub card live · [x] CITIES.md row
