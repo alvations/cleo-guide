@@ -390,3 +390,15 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   Loretta & The Butcher, Chayhana Oasis, Breadman Bakery.
 - **No coordinate surfaced:** Le Bouchon du Grove, Biscayne Bay Brewing, Ukiah, Julia & Henry's, Topkapi (Hürrem Hammam).
 - **Build:** 290 → **315 on map**. 4 gates PASS/CONSISTENT · validate DATA OK · npm test ALL PASS.
+
+## 2026-10-03 (W6 · PINS ONLY) · batch C + wave close
+- **+10 pins** (`geo/_geoout_w6c.json`): Flanigan's Coconut Grove (2721 Bird Ave), Taurus (3540 Main Hwy), El Carajo (2465 SW 17th Ave),
+  Jack's Old Fashioned Hamburger House (4201 N Federal Hwy, Oakland Park), Billy's Stone Crab (400 N Ocean Dr, Hollywood), Coopertown, City
+  Seafood, Joanie's Blue Crab Cafe, Triad Seafood, Havana Café of the Everglades (191 Smallwood Dr) — **status set UNKNOWN**: Apple showed
+  "temporarily closed" in W5, aggregator listings (as "HavAnnA Cafe") active, no press confirming reopening; the session's search budget ran
+  out before a status search. Everglades City/Chokoloskee pins sit ~60 km from the GLADE centroid by design (west edge of the area).
+- **Not pinned:** Las Arepas de Maria (Doral Yard; no coordinate), Camellia Street Grill (listing 202 Camellia St W, no coordinate).
+- **W6 totals:** 261 → **325 on map** (+64 food: 124 sights + 201 food) · confidence 214 high / 109 med / 2 low · ≈100 WebSearch calls
+  (all aggregator-domain except 1 Waze; session budget then exhausted).
+- **Gates (final build):** sourcecheck PASS 509 · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
+  Hub card, CITIES.md row, AGENT-PROMPTS run-log row, RESUME (State W6 + next plan) updated.
