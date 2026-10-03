@@ -224,3 +224,7 @@
   return only park or land centroids (rejected). Confirms the wave-3 dead end — street restaurants stay UNVERIFIED for
   `tools/geocode-helper.html` (189 unpinned: MILLS 37, DTO 17, WPK 17, DSP 16, SPRNG 13, IDR 12, KISS 10, MK 10 …).
 - Build: sourcecheck **PASS** (was FAIL on 9) · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · test PASS.
+- Status re-checks (3 searches, lead): **Shin Jung** — reopened 2021 after the 2019 fire (Orlando Weekly) and now carries a Michelin Guide
+  Florida listing page (guide.michelin.com …/orlando/restaurant/shin-jung) → open; MICHELIN source added. **The Tennessee Truffle** — only
+  undated listings (AAA, Tasty Chomps 2019) surfaced; kept, re-check next wave. **Willie's Pinchos** — DDD/Food Network + FOX 35 lists,
+  no 2025–26 closure report; kept, re-check next wave.
