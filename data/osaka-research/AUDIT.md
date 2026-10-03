@@ -220,3 +220,11 @@ geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate + npm tes
 **Channel mix W5:** Michelin 0 · Tabelog100 5 · editorial ~45 · official/municipal ~15 · Wikipedia ~10 · creators 2 (Ramen Adventures).
 **Yield:** ≈ 0.15 places/search (26 places / ~175 searches) — the outer areas are near single-source exhaustion on the WebSearch
 channel; most shops have exactly one credible editorial mention. Searches: workers 171 + main ~5.
+**W5M (main, ~18 searches incl. reviews):** promotion attempts, 0 cleared — Kajikasō (Lmaga 2024/11/862200 compares Kōsendō vs
+Momotaro only; Lmaga is a usable 3rd source for those two), Tachinomi Shomin (no 2nd key in Lmaga/Walkerplus/OSAKA-INFO), Taishō
+Okinawan cluster (Walkerplus 107265 + osaka-info `local_journey/stopby-osaka/little-okinawa` — whether the latter names Omoro/Usupare
+is unconfirmed, next wave should check it), Ryukyu Shimpo entry-819474 says Osaka "Sōkiya" (ソーキ家, Takushi Tsutomu) got a Michelin
+listing for Okinawan cuisine — no Michelin venue page found, held. Jump Shop / Donguri / Kiddy Land Umeda: only OSAKA-INFO + a
+japan-guide forum (0) → held; Metro NiNE spot pages exist for Gashapon Department Store HEP FIVE (1 key). Ikuno Koreatown: OSAKA-INFO
+/ Metro NiNE pages name no individual shops. Sawashi Shoten: the reading of 沢志 (possibly Okinawan "Takushi") is unconfirmed —
+re-check and rename if a source gives the reading. Session total ≈ 190/200 searches.

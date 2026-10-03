@@ -121,7 +121,7 @@
   "t": 1,
   "a": "DAY",
   "n": "Solly's Grille",
-  "address": "Glendale, WI (per Wikipedia)",
+  "address": "4629 N Port Washington Rd, Glendale, WI 53212",
   "cz": [
    "Burgers"
   ],
@@ -140,6 +140,285 @@
    [
     "SHEPHERDEXPRESS",
     "https://shepherdexpress.com/food/dining-preview/famous-buttery-burgers-solly-s-grille/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "NORTH",
+  "n": "Simon's Tavern",
+  "address": "N Clark St just north of Foster Ave, Andersonville, Chicago",
+  "cz": [
+   "Bar",
+   "Swedish"
+  ],
+  "dish": "House-made Swedish glögg under the martini-sipping-herring sign",
+  "w": "The 'Anchor of Andersonville' since 1934 — founded by Swedish immigrant Simon Lundberg over his Prohibition-era No Name Club speakeasy.",
+  "closed": false,
+  "sources": [
+   [
+    "BLOCKCLUB",
+    "https://blockclubchicago.org/2024/05/22/simons-tavern-celebrates-90-years-as-andersonvilles-bar/"
+   ],
+   [
+    "PUNCH",
+    "https://punchdrink.com/venues/simons-tavern/"
+   ],
+   [
+    "CHIBARPROJECT",
+    "https://chibarproject.com/reviews/simons/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "NW",
+  "n": "Café Colao",
+  "address": "2638 W Division St, Chicago, IL 60622",
+  "cz": [
+   "Puerto Rican",
+   "Bakery"
+  ],
+  "dish": "Guava-and-cream-cheese pastries, café con leche, pressed medianoches",
+  "w": "Puerto Rican-owned bakery-café on Paseo Boricua a block from Humboldt Park — some of the city's best Puerto Rican coffee and pastries.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/chicago/reviews/cafe-colao"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/chicago/restaurants/cafe-colao"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "NW",
+  "n": "Big Star",
+  "address": "1531 N Damen Ave, Chicago, IL 60622",
+  "cz": [
+   "Mexican",
+   "Bar"
+  ],
+  "dish": "Al pastor tacos on house tortillas and a deep bourbon list",
+  "w": "Paul Kahan's honky-tonk taco and whiskey bar at the Damen-Milwaukee crossroads of Wicker Park, with its packed summer patio.",
+  "closed": false,
+  "sources": [
+   [
+    "CHOOSECHI",
+    "https://www.choosechicago.com/listing/big-star-wicker-park/"
+   ],
+   [
+    "AFAR",
+    "https://www.afar.com/places/big-star-chicago"
+   ],
+   [
+    "FATHOM",
+    "https://fathomaway.com/chicago-restaurants-big-star-publican/"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "NORTH",
+  "n": "Half Acre Balmoral",
+  "address": "2050 W Balmoral Ave, Chicago, IL 60625",
+  "cz": [
+   "Brewery"
+  ],
+  "dish": "Daisy Cutter pale ale and fresh IPAs at the brewery taproom",
+  "w": "The big Balmoral brewery and taproom (2017) of Half Acre, a staple of Chicago craft brewing since 2006.",
+  "closed": false,
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://timeout.com/chicago/bars/half-acre-brewery-balmoral"
+   ],
+   [
+    "CHICAGOIST",
+    "https://chicagoist.com/2017/08/31/half_acres_massive_new_brewery_and.php"
+   ],
+   [
+    "PASTE",
+    "https://www.pastemagazine.com/drink/craft-beer/the-craft-beer-guide-to-chicago"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "NORTH",
+  "n": "Carol's Pub",
+  "address": "4659 N Clark St, Chicago, IL 60640",
+  "cz": [
+   "Bar"
+  ],
+  "dish": "Live country bands, pool, cheap beer and hot sandwiches",
+  "w": "Uptown's late-night honky-tonk — one of Chicago's last straight-up country bars, closed in 2016 and revived in 2018.",
+  "closed": false,
+  "sources": [
+   [
+    "BLOCKCLUB",
+    "https://blockclubchicago.org/2018/12/21/carols-pub-back-from-the-dead-is-now-open-with-country-bands-and-hot-sandwiches/"
+   ],
+   [
+    "TIMEOUT",
+    "https://timeout.com/chicago/bars/carols-pub"
+   ],
+   [
+    "NODEPRESSION",
+    "https://nodepression.org/left-for-dead-chicagos-carols-pub-reopens-and-reclaims-its-niche/"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "NORTH",
+  "n": "L&L Tavern",
+  "address": "3207 N Clark St, Chicago, IL 60657",
+  "cz": [
+   "Dive Bar"
+  ],
+  "dish": "Irish whiskey shots and cheap beer",
+  "w": "Lakeview dive at Clark & Belmont since the 1950s — Irish whiskey selection, a dark lore, and a stop on Anthony Bourdain's The Layover.",
+  "closed": false,
+  "sources": [
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/L%26L_Tavern"
+   ],
+   [
+    "TIMEOUT",
+    "https://timeout.com/chicago/bars/l-l-tavern"
+   ],
+   [
+    "CHIBARPROJECT",
+    "https://chibarproject.com/reviews/l-and-l/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "NORTH",
+  "n": "Huaraches Doña Chio",
+  "address": "1547 W Elmdale Ave, Chicago, IL 60660",
+  "cz": [
+   "Mexican"
+  ],
+  "dish": "Chicken tinga huarache on hand-patted masa",
+  "w": "Six-table Edgewater counter where masa is patted and griddled to order — called the best huaraches in Chicago. Cash only.",
+  "closed": false,
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/chicago/restaurants/huaraches-donya-chio"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/chicago/reviews/huaraches-dona-chio"
+   ],
+   [
+    "NAGRANT",
+    "https://www.michaelnagrant.com/reviews/huarache-glory"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "NORTH",
+  "n": "Taqueria El Asadero",
+  "address": "2213 W Montrose Ave, Chicago, IL 60618",
+  "cz": [
+   "Mexican"
+  ],
+  "dish": "Carne asada tacos with fiery salsa verde",
+  "w": "Cash-only North Center taqueria — 'some of the freshest tacos in town' (Time Out); the Infatuation rates its carne asada 8.1.",
+  "closed": false,
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/chicago/restaurants/taqueria-el-asadero"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/chicago/reviews/taqueria-el-asadaro"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "LOOP",
+  "n": "The Publican",
+  "address": "837 W Fulton Market, Chicago, IL 60607",
+  "cz": [
+   "American",
+   "Oysters"
+  ],
+  "dish": "Heritage pork chop, a 20–30-variety oyster list, Belgian-leaning beer",
+  "w": "Paul Kahan's 2008 Fulton Market beer hall of pork, oysters and beer — the restaurant that helped turn the meatpacking district into a dining destination.",
+  "closed": false,
+  "sources": [
+   [
+    "CHOOSECHI",
+    "https://choosechicago.com/listing/the-publican"
+   ],
+   [
+    "NRN",
+    "https://www.nrn.com/menu-trends/on-the-menu-the-publican"
+   ],
+   [
+    "NAGRANT",
+    "https://www.michaelnagrant.com/wp-content/uploads/2011/10/PublicanCSJan09.pdf"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "LOOP",
+  "n": "Italian Village",
+  "address": "71 W Monroe St, Chicago, IL 60603",
+  "cz": [
+   "Italian"
+  ],
+  "dish": "Old-school Tuscan-American pastas and veal in a twinkle-lit 'village' dining room",
+  "w": "Chicago's oldest Italian restaurant (1927), opened by Lucca-born Alfredo Capitanini and run by the fourth generation — a pre-opera Loop institution.",
+  "closed": false,
+  "sources": [
+   [
+    "TASTINGTABLE",
+    "https://tastingtable.com/1606786/oldest-italian-restaurant-chicago-history"
+   ],
+   [
+    "PRESERVATIONCHI",
+    "https://www.preservationchicago.org/chicago-legacy-business-italian-village-celebrates-98-years-with-blast-from-the-past-menu/"
+   ],
+   [
+    "AUDACY",
+    "https://www.audacy.com/us99/news/local/iconic-italian-village-restaurant-marking-97-years"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "LOOP",
+  "n": "Monteverde",
+  "address": "1020 W Madison St, Chicago, IL 60607",
+  "cz": [
+   "Italian",
+   "Pasta"
+  ],
+  "dish": "Hand-rolled pastas from the open pastificio counter (cacio whey pepe, ragù alla Napoletana)",
+  "w": "James Beard-winning chef Sarah Grueneberg's West Loop pasta house (2015), with sheets rolled and hung daily in view of the counter.",
+  "closed": false,
+  "sources": [
+   [
+    "FSR",
+    "https://www.fsrmagazine.com/chef-profiles/magic-behind-sarah-gruenebergs-chicago-pasta-kingdom"
+   ],
+   [
+    "CHICAGOIST",
+    "https://chicagoist.com/2015/11/16/first_look_italian_home_cooking_wit.php"
    ]
   ]
  }
