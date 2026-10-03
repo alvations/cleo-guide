@@ -112294,6 +112294,39 @@
     "status": "open",
     "statusSource": "W4 2026-10-03: Akron Life 2025 Best Ice Cream; seasonal stand",
     "statusChecked": "2026-10-03"
+   },
+   "Missing Mountain Brewing Co.": {
+    "address": "2811 Front St, Cuyahoga Falls, OH 44221",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "W4 2026-10-03: Cleveland Magazine Cuyahoga Falls guide + current Cleveland Scene event listing",
+    "statusChecked": "2026-10-03"
+   },
+   "Butcher & Sprout": {
+    "address": "1846 Front St, Cuyahoga Falls, OH 44221",
+    "lat": 41.130783,
+    "lng": -81.4839859,
+    "source": "W4 2026-10-03 place pin via WebSearch: waze.com/live-map/directions/us/oh/cuyahoga-falls/butcher-and-sprout (Google place ChIJ93akk8QnMYgRbSvFQmEn5xQ)",
+    "verified": "2026-10-03",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "W4 2026-10-03: in Cleveland Magazine's current Cuyahoga Falls dining guide; Waze/usarestaurants active listing",
+    "statusChecked": "2026-10-03"
+   },
+   "The Lake House Kitchen + Bar": {
+    "address": "7508 State Route 43, Kent, OH 44240",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-03",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "W4 2026-10-03: Akron Life 330 Flavor Awards 2026 winner (Jan 2026); current hours listed",
+    "statusChecked": "2026-10-03"
    }
   }
  }

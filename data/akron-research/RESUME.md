@@ -20,7 +20,21 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md**. Rebuild: `python3 
 ## State
 - 2026-10-02 scaffold: consolidate.py (6 areas, Akron-Canton cuisine taxonomy), brief, build-akron.py.
 
-## In-flight wave — resume here (W4, after W3b on 2026-10-03)
+## In-flight wave — resume here (W5, after W4 on 2026-10-03)
+- **W4 DONE 2026-10-03:** pins 34 → **94** (60 new place pins via Waze/usarestaurants — Apple Maps returned no `coordinate=`
+  URLs for Ohio; technique in AUDIT W4 batch 1) + **14 food** (124 places, 79 food 64%). All 4 gates green, validate + test PASS.
+- **Next session (W5):** (1) pins for the 30 UNVERIFIED — try the Waze query once more with name variants, else
+  `tools/geocode-helper.html`: Taggart's, Fred's Diner, Cilantro, Hoppin' Frog, Bombay Sitar, Bocca Grande, Angel Falls, Taco
+  Tontos, Social at the Stone House, Rosewood Grill, Café Toscano, McArthur's, Farmer's Rail, Amelia's, Village Inn, New Era,
+  Mustard Seed, Momo House, Garrett's Mill, George's Lounge, Muggswigz, Sully's, Missing Mountain, Lake House; sights Five Oaks,
+  St. Helena III, Hoover (conflict). (2) Fix: Crave address (156 S Main St?), Desert Inn (12th St NW vs NE), Wally Waffle
+  Downtown status. (3) Discovery still NEED: AKR +18, CANT +18, NSUM +17, KENT +13, BARB +11, MASS +9 — promote held leads in
+  AUDIT W4 batch 2 with a 2nd outlet (Boss ChickNBeer address; Vue/Bistro of Green; Tremont; Zakee; Arcadia/Fromage need merit),
+  mine CLEMAG "These Cuyahoga Falls speakeasy cocktail bars", KentWired Best of Kent 2026, Akron Life Best of the City 2025 list,
+  Visit Canton Stark11 lists + Repository for corroboration; sights (Hower House, Akron Children's Museum, Summit Artspace,
+  Sand Run/Firestone Metro Parks, Ohio Society of Military History, Canton Classic Car Museum).
+
+## Previous wave notes (W4 plan, after W3b)
 - **W3b DONE 2026-10-03** (NSUM+KENT, 38 searches): +7 food — Russo's, McArthur's Brew House, Rosewood Grill (NSUM);
   Brimfield Bread Oven, Scribbles Coffee, Café Toscano, Garrett's Mill (KENT); Amelia's + Ray's Place got extra sources.
   record-courier.com also 400s as an allowed_domain. Held/new leads listed in AUDIT W3b. Gaps: Stow, Tallmadge,
@@ -67,3 +81,5 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md**. Rebuild: `python3 
   MASS 10 · BARB 8 (103/210).
 - 2026-10-03 W3b: **110 places (65 food 59% / 45 sights), 34 pinned**; 4 gates green. AKR 37 · CANT 23 · NSUM 16 · KENT 16 ·
   MASS 10 · BARB 8 (110/210). Session WebSearch use ≈161 (W2a 34 + W2b ≤45 + W3a 42 + W3b 38 + 1) — stopped short of the cap.
+- 2026-10-03 W4: **124 places (79 food 64% / 45 sights), 94 pinned**; 4 gates green. AKR 42 · CANT 27 · NSUM 18 · KENT 17 ·
+  MASS 11 · BARB 9 (124/210). ≈176 WebSearch.
