@@ -20,7 +20,11 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md**. Rebuild: `python3 
 ## State
 - 2026-10-02 scaffold: consolidate.py (6 areas, Akron-Canton cuisine taxonomy), brief, build-akron.py.
 
-## In-flight wave — resume here (W5, after W4 on 2026-10-03)
+## In-flight wave — resume here (W5 in progress, 2026-10-03)
+- **W5 batch 1 DONE:** +14 sights +11 food → 149 places, 113 pinned. AKR 48 · CANT 31 · NSUM 24 · KENT 19 · MASS 14 · BARB 13.
+  NEED AKR +12, CANT +14, NSUM +11, KENT +11, BARB +7, MASS +6. Held leads in AUDIT W5 batch 1.
+
+## Previous wave plan (W5 as written after W4)
 - **W4 DONE 2026-10-03:** pins 34 → **94** (60 new place pins via Waze/usarestaurants — Apple Maps returned no `coordinate=`
   URLs for Ohio; technique in AUDIT W4 batch 1) + **14 food** (124 places, 79 food 64%). All 4 gates green, validate + test PASS.
 - **Next session (W5):** (1) pins for the 30 UNVERIFIED — try the Waze query once more with name variants, else
@@ -83,3 +87,4 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md**. Rebuild: `python3 
   MASS 10 · BARB 8 (110/210). Session WebSearch use ≈161 (W2a 34 + W2b ≤45 + W3a 42 + W3b 38 + 1) — stopped short of the cap.
 - 2026-10-03 W4: **124 places (79 food 64% / 45 sights), 94 pinned**; 4 gates green. AKR 42 · CANT 27 · NSUM 18 · KENT 17 ·
   MASS 11 · BARB 9 (124/210). ≈176 WebSearch.
+- 2026-10-03 W5 batch 1: **149 places, 113 pinned**; 4 gates green.
