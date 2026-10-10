@@ -210,3 +210,5 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   is a collection (Japan anime); food signatures are already the tile line, so no publisher ★ anywhere. Test: every
   signature item is a platform canon part or an open record of the page. **PLT note:** Youngstown's canon splits
   "Brier Hill pizza" into "Brier Hill · pizza" (`guide.tileLine.parts`). Gates PASS.
+
+- 2026-10-10 10:45Z · orchestrator · Owner request: add switchable view styles for Round 3. The owner's site melon-seek was copied for reference (`design/reference/melon-seek/`, from source commit 15ed02b) to study its map / chart / insight modes. The view-styles design lane (session_01L6JkDa7v56jUKxQFqx7zXx) is producing the study, specs, mockups and build plan for Gallery, Atlas, Guidebook and Insights in `design/beta/views/`. New owner naming rule recorded in BETA-PROGRAM.md rule 6: no third-party brand or style is named in new work. Removed one brand reference from W2-BRIEFS.

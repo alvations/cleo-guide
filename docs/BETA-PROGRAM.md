@@ -44,8 +44,12 @@ Inputs (read before doing anything):
    enhancement. No `document.write`. Wrap every `localStorage` call in try/catch.
 5. **Maps:** OpenStreetMap and Esri tiles only. Never Google or any key-required tile host; `tools/check-google.py`
    must pass on beta.
-6. **No third-party brand copying:** take the feel from Airbnb, Marriott and Booking, never a name, logo, wordmark
-   or trade dress.
+6. **No third-party brand copying or naming:** take the feel of the leading hotel, experience and booking products,
+   but never a name, logo, wordmark or trade dress. **Owner rule (2026-10-10):** from Round 3 on, no third-party travel,
+   hotel, review or guidebook brand or style may be named, referenced or alluded to anywhere in new work: docs, briefs,
+   code, comments, CSS class names, commit messages, filenames or UI copy. Use our own names (Gallery, Atlas, Guidebook,
+   Insights). Source attributions are exempt: a place recommended by a named publication still credits it on its card.
+   Earlier research and evaluation docs predate this rule and keep their citations as evidence.
 7. `cd tools && npm run validate && npm test` must pass before every commit. The QA harness must show 0 FAIL on
    beta, mobile (390×844) and desktop (1440×900).
 8. "Backend" means **no server**. GitHub Pages is static. Platform work means:
@@ -141,3 +145,17 @@ never routes around the policy.
 - `docs/AGENT-LEDGER.md` (every session).
 
 Keep all research docs; add new research under `design/research-2026-10/` when a round needs it.
+
+## Round 3 — view styles (owner request, 2026-10-10)
+
+Today every city page is map-centred. From Round 3 a city page offers switchable **view styles** over the same full
+record set, shareable through the URL hash. The owner's own site melon-seek is the reference for its map, chart and
+insight modes; a snapshot is in `design/reference/melon-seek/`.
+
+- **Gallery** — art- and image-led experience cards with category rows.
+- **Atlas** — our map-centred view, with a ranked-list bottom tray.
+- **Guidebook** — editorial area chapters.
+- **Insights** — charts of the data.
+
+A view may page its results only if every place stays reachable: page navigation, an "all N places" total, show-all,
+and search and filters that reach every record. The study, specs, mockups and build plan go in `design/beta/views/`.
