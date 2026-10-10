@@ -168,3 +168,10 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   Harness now probes FE-A's contract hooks with real pin taps, and handles occluded-text contrast.
   **QA sign-off: NO for M1.** Blocking: B-06 map 37 % < 40 % (QA-15), B-07 Esc (QA-19), B-16 Wheeling 1.95 (QA-20).
   Evidence: `qa/beta-metrics.{json,md}`, `qa/beta-metrics-all.md`, `qa/beta-harness-summary.json`, `qa/beta-shots/`.
+- 2026-10-10 · **Platform** · Wave 2 slice 1 · session_01PCNcUkfa5S1N1BKGzZA4xx · `8104ff6` + `1b049cb` · ROUND-1 gaps **#10, #5 (data), #8 (data)**.
+  - New `tools/beta/lib/guide.js` → `data/places/<page>.json` `guide`, `data/guide.json`, `row.guide`; schema in RFC §12 (R-20…R-23).
+  - **★ signature** is now the city's food canon or pop culture, never a publisher: 60 pages carry one (Cleveland "Only in Cleveland" 18 — Polish Boy · corned beef · Barberton chicken; Pittsburgh 22 — pierogi · fish sandwich · Primanti sandwich; NYC slice · bagel · pastrami; Japan keeps ★ Anime). Dish words print only when a canon record names them (gated). `foodOrder` = canon-first cuisine rail order (fixes QA-16 once FE-A reads it). `tileLine` for hub tiles ("Polish Boy · corned beef · <top landmark>").
+  - **Day plans**: 164 area plans (4–6 open, verified-pin stops, ≤ 3 km legs, ≤ 12 km, one food stop), 135 areas skipped with a stated reason; D-14 label. **Recently closed**: every closed record, newest check first. `pv.src/verified/ss` added to the per-page JSON (FE-A W1 request).
+  - core.js: `Cleo.guide(key)`, `Cleo.geo.{km,fmt,ll}` (Near me needs nothing else; position never stored).
+  - **FE-A:** read `info`/`row.guide` (build time) for the ★ tile (`signature.ids` lens), rail order (`foodOrder`), "Your day" (`days.plans[AREA]`), Recently closed (`closed`). **FE-B:** `data/guide.json` / `row.guide.tileLine` for hub tiles and cross-city rail counts.
+  - validate + npm test + beta:check PASS.
