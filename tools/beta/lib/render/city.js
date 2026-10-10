@@ -95,7 +95,6 @@ const BY_NAME = [[/sushi/i, 'sushi'], [/ramen|noodle|pho|laksa|soba|udon/i, 'noo
 const glyphFor = (id, n, food) => GLYPH[id] || (BY_NAME.find(([re]) => re.test(n || '')) || [])[1] || (food ? 'forkknife' : 'compass');
 const { motifSvg, photoFor, figureHtml } = require('../../imagery');   // imagery lane hooks
 const ico = n => `<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg>`;
-const PLATE = 5;                                  // most native glyphs a card plate sets vertically without clipping
 const tier = (t, cls = '') => TIER[t] ? `<a class="tier t${t}${cls}" href="#how-we-choose"><i class="tg t${t}" aria-hidden="true"></i><span>${TIER[t]}</span></a>` : '';
 
 /* ---- stated gaps: verbatim from the page's own method notes (never a keyword tag on a place) ---- */
@@ -132,19 +131,15 @@ function card(r, num, ctx) {
     : `${tier(r.t)} <span class="in">within ${where}</span>`;
   // Recommended by: every publisher is a chip that opens its source view (M1-10); CSS shows three, then "+N".
   const ids = (r.src || []).filter(s => s !== 'guide');
-  // the separating comma lives INSIDE each chip (CSS ::after), so it hugs the name and wraps with it (QA-18)
+  // literal ', ' stays for screen readers / copy; DES's cleo.css 15.3 glues a drawn comma to each name (QA-18)
   const chips = ids.map(id => { const s = srcById[id] || { name: id }; return `<button type="button" class="src${s.authority ? ' auth' : ''}" data-src="${esc(id)}">${esc(s.name.split(' · ')[0])}</button>`; });
-  let rec = chips.slice(0, 3).join(' ');
-  if (chips.length > 3) rec += ` <span class="more">+${chips.length - 3}</span><span class="rest"> ${chips.slice(3).join(' ')}</span>`;
-  if ((r.src || []).includes('guide')) rec += (rec ? ' ' : '') + '<span class="added">Added by the guide (general knowledge)</span>';
-  // native script is printed ONCE (ROUND-1 #4): ≤ PLATE glyphs → the vertical plate shows it and the title keeps it for
-  // screen readers + search only; longer → the plate shows an initial and the native name is a line under the title.
-  const nat = r.nat && r.n.includes(`(${r.nat})`) ? r.nat : '';
-  const onPlate = nat && [...nat].length <= PLATE;
-  const [pre, post] = nat ? r.n.split(`(${nat})`) : [r.n, ''], sp = /\s$/.test(pre) ? ' ' : '';
-  const nm = !nat ? esc(r.n) : onPlate ? `${esc(pre.trimEnd())}<i class="vh">${sp}(${esc(nat)})</i>${esc(post)}`
-    : post.trim() ? esc(r.n)                                                    // native mid-name: leave the name as written
-      : `${esc(pre.trimEnd())}${sp}<span class="nat"${ctx.lang ? ` lang="${ctx.lang}"` : ''}>(${esc(nat)})</span>`;
+  let rec = chips.slice(0, 3).join(', ');
+  if (chips.length > 3) rec += ` <span class="more">+${chips.length - 3}</span><span class="rest">, ${chips.slice(3).join(', ')}</span>`;
+  if ((r.src || []).includes('guide')) rec += (rec ? ', ' : '') + '<span class="added">Added by the guide (general knowledge)</span>';
+  // native script is printed ONCE (ROUND-1 #4): a trailing native aside is wrapped as .nat; the client sets it on the
+  // plate (≤ 7 glyphs) and DES's cleo.css then hides the title copy visually (kept for screen readers + search).
+  const nat = r.nat && r.n.endsWith(`(${r.nat})`) ? r.nat : '';
+  const nm = nat ? `${esc(r.n.slice(0, -nat.length - 2).trimEnd())} <span class="nat"${ctx.lang ? ` lang="${ctx.lang}"` : ''}>(${esc(nat)})</span>` : esc(r.n);
   const kText = String(r.k || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   const isNote = kText.split(' ').length >= 8 && /[.!?…](\s|$)/.test(kText);     // VOICE.md rule 4 (D-16)
   const attrs = [`data-k="${r.kind === 'food' ? 'f' : 's'}"`, `data-t="${r.t}"`, `data-a="${esc(r.a)}"`, `data-n="${num}"`, `data-gl="${gl}"`,
@@ -175,27 +170,6 @@ function interests(recs, page) {
     const n = recs.filter(r => ids.some(x => x === 'k:f' ? r.kind === 'food' : x[1] === ':' ? r.g.includes(x.slice(2)) : r.cz.includes(x.slice(3)))).length;
     return n ? [id, label, n, ids] : null;
   }).filter(Boolean);
-}
-
-/* ---- "Your day" (M2-06): per area, 4–6 OPEN places with a VERIFIED pin (high/med), from the guide's own order.
- * Start at the area's first pick; add the nearest of the top picks within 4 km (at least one place to eat when the
- * area has one, at most two); nearest-next order. Fewer than 4 → no day for that area (stated, never padded). ---- */
-const km = (a, b) => { const R = 6371, r = Math.PI / 180, dLa = (b.la - a.la) * r, dLn = (b.ln - a.ln) * r;
-  const h = Math.sin(dLa / 2) ** 2 + Math.cos(a.la * r) * Math.cos(b.la * r) * Math.sin(dLn / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)); };
-function dayPlan(list) {
-  const pool = orderArea(list).filter(r => !r.closed && r.la != null && /^(high|med)/.test((r.pv || {}).pin || '')).slice(0, 16);
-  if (pool.length < 4) return null;
-  const out = [pool[0]], rest = pool.slice(1).filter(r => km(pool[0], r) <= 4);
-  const nFood = () => out.filter(r => r.kind === 'food').length, anyFood = rest.some(r => r.kind === 'food');
-  while (out.length < 6 && rest.length) {
-    const last = out[out.length - 1];
-    let c = rest.filter(r => !(r.kind === 'food' && nFood() >= 2));
-    if (anyFood && !nFood() && out.length >= 3) c = c.filter(r => r.kind === 'food');
-    if (!c.length) break;
-    c.sort((x, y) => km(last, x) - km(last, y));
-    out.push(c[0]); rest.splice(rest.indexOf(c[0]), 1);
-  }
-  return out.length >= 4 ? out.map(r => r.id) : null;
 }
 
 /* ---- JSON-LD: open places only (D-21) ---- */
@@ -238,8 +212,8 @@ function render(row, recs, ctx) {
   }
 
   /* -- day plans per area (platform's index when it ships one: row.dayPlans {AREA: [ids]}) -- */
-  const days = {};
-  for (const a of areas) { const d = (row.dayPlans && row.dayPlans[a.id]) || dayPlan(recs.filter(r => r.a === a.id)); if (d) days[a.id] = d; }
+  const G = row.guide || {}, gd = G.days || {}, days = {};                    // platform lib/guide.js (RFC §12, R-20…R-23)
+  for (const a of areas) { const pl = (gd.plans || {})[a.id]; if (pl && pl.ids && pl.ids.length) days[a.id] = pl.ids; }
 
   /* -- collections: ★ signature first, Must see, the page's collections, two sources, the dish rail, stated gaps -- */
   const cats = page.CATS || [], cuis = page.CUISINES || [];
@@ -249,12 +223,16 @@ function render(row, recs, ctx) {
   const namedSrc = srcList.filter(s => s.id !== 'guide');
   star.forEach(c => tiles.push({ cls: 'sig', key: 'c', id: c.id, t: c.n.replace(/^★\s*/, ''), n: cnt(r => r.g.includes(c.id)), g: glyphFor(c.id, c.n), badge: 1 }));
   // no ★ collection in the data: the guide's own signature is the publisher it was built on (most-cited source)
-  if (!star.length && namedSrc[0]) tiles.push({ cls: 'sig', key: 'src', id: namedSrc[0].id, t: namedSrc[0].name, n: namedSrc[0].n, g: 'star4', badge: 1, k: 'Everything recommended by' });
+  const sig = !star.length && G.signature && G.signature.n ? G.signature : null;   // no ★ collection: the city's canon / pop culture
+  if (sig && sig.kind === 'collection' && sig.c && cats.some(c => c.id === sig.c[0])) {
+    const c = cats.find(x => x.id === sig.c[0]); tiles.push({ cls: 'sig', key: 'c', id: c.id, t: c.n, n: cnt(r => r.g.includes(c.id)), g: glyphFor(c.id, c.n), badge: 1, d: sig.line });
+  } else if (sig) tiles.push({ cls: 'sig', key: 'sig', id: '1', t: sig.title, n: sig.ids.length, g: sig.kind === 'food' ? glyphFor((sig.cz || [])[0], sig.title, true) : 'star4', badge: 1, d: sig.line });
   const nT1 = cnt(r => r.t === 1 && !r.closed);
   if (nT1) tiles.push({ cls: '', key: 't', id: '1', t: 'Must see', n: nT1, tg: 1 });
-  cats.filter(c => !/^★/.test(c.n)).forEach(c => { const n = cnt(r => r.g.includes(c.id)); if (n) tiles.push({ cls: '', key: 'c', id: c.id, t: c.n, n, g: glyphFor(c.id, c.n), only: recs.every(r => !r.g.includes(c.id) || r.kind === 'sight') ? 's' : '' }); });
-  namedSrc.slice(star.length ? 0 : 1, star.length ? 2 : 3).forEach(s => tiles.push({ cls: 'src-t', key: 'src', id: s.id, t: s.name, n: s.n, k: 'Everything recommended by' }));
-  cuis.forEach(c => { const n = cnt(r => r.cz.includes(c.id)); if (n) tiles.push({ cls: '', key: 'cz', id: c.id, t: c.n, n, g: glyphFor(c.id, c.n, true), only: 'f' }); });
+  cats.filter(c => !/^★/.test(c.n) && !tiles.some(t => t.key === 'c' && t.id === c.id)).forEach(c => { const n = cnt(r => r.g.includes(c.id)); if (n) tiles.push({ cls: '', key: 'c', id: c.id, t: c.n, n, g: glyphFor(c.id, c.n), only: recs.every(r => !r.g.includes(c.id) || r.kind === 'sight') ? 's' : '' }); });
+  namedSrc.slice(0, 2).forEach(s => tiles.push({ cls: 'src-t', key: 'src', id: s.id, t: s.name, n: s.n, k: 'Everything recommended by' }));
+  const fo = G.foodOrder || [], fRank = c => { const i = fo.indexOf(c.id); return i < 0 ? 1e3 : i; };
+  cuis.slice().sort((x, y) => fRank(x) - fRank(y)).forEach(c => { const n = cnt(r => r.cz.includes(c.id)); if (n) tiles.push({ cls: '', key: 'cz', id: c.id, t: c.n, n, g: glyphFor(c.id, c.n, true), only: 'f' }); });
   const missing = cats.concat(cuis).filter(c => cnt(r => r.g.includes(c.id) || r.cz.includes(c.id)) && !tiles.some(t => t.id === c.id && t.key !== 'src'));
   if (missing.length) throw new Error(`${row.beta}: collection rail would drop ${missing.map(c => c.id)}`);   // M1-02: no silent drop
   // home modules (M2-11, M2-05, M2-06, M3-02, M2-10) — only from fields that exist; they sit right after ★ in the rail
@@ -272,7 +250,7 @@ function render(row, recs, ctx) {
   const tileHtml = t => `<button type="button" class="rail-i${t.cls ? ' ' + t.cls : ''}" data-${t.key}="${esc(t.id)}"${t.only ? ` data-only="${t.only}"` : ''} aria-pressed="false">` +
     (t.tg ? '<i class="tg t1 g" aria-hidden="true"></i>' : t.g ? `<svg class="g ico" aria-hidden="true"><use href="#i-${t.g}"/></svg>` : '') +
     (t.badge ? '<span class="k">★ Signature</span>' : t.k ? `<span class="k">${esc(t.k)}</span>` : '') +
-    `<span class="t">${esc(t.t.split(' · ')[0])}</span><span class="n${t.n === 1 ? ' one' : ''}">${t.n}</span></button>`;
+    `<span class="t">${esc(t.t.split(' · ')[0])}</span>${t.d ? `<span class="d">${esc(t.d)}</span>` : ''}<span class="n${t.n === 1 ? ' one' : ''}">${t.n}</span></button>`;
   const gapHtml = gaps.map((g, i) => `<button type="button" class="rail-i gap" data-gap="${i}" data-only="f" aria-pressed="false"><svg class="g ico" aria-hidden="true"><use href="#i-info"/></svg><span class="k">Stated gap</span><span class="t">${esc(g.cz.length ? (cuis.find(c => c.id === g.cz[0]) || {}).n : g.title)}</span></button>`);
 
   /* -- area chapters -- */
@@ -318,7 +296,10 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     pd: provDates, prov: Object.fromEntries(Object.entries(prov).map(([id, p]) => [id, (p.pc || '-').charAt(0).toLowerCase() + (p.pv ? provDates.indexOf(p.pv) : '') + (p.ss ? '|' + p.ss : '')])),
     gaps: gaps.map(g => [g.title, g.text, g.cz]),
     fy: interests(recs, page),                                  // [id, label, n, ['c:ID' | 'cz:ID' | 'k:f']]
-    days,                                                       // {AREA: [place ids in walking order]}
+    days,                                                       // {AREA: [place ids in walking order]} — platform guide.days.plans
+    dl: gd.label || '', dsk: gd.skipped || {},                  // D-14 label; per-area reason when no day is planned
+    sig: sig && sig.kind !== 'collection' ? { t: sig.title, line: sig.line || '', why: sig.why || '', ids: sig.ids, dishes: (sig.dishes || []).map(x => [x.t, x.n]) } : null,
+    co: (G.closed || []).map(x => x.id),                        // Recently closed: newest status check first (R-23)
     // area locator art (lib/art.js): [src, w, h, pad, minLat, minLng, maxLat, maxLng, kx, ky] → the sheet's inset
     art: Object.fromEntries(Object.entries((row.art && row.art.areas) || {}).map(([a, x]) => [a, [up + x.src, x.w, x.h, x.proj.pad].concat(x.proj.box, [+x.proj.kx.toFixed(4), +x.proj.ky.toFixed(4)])])),
   };
