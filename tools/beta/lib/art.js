@@ -57,7 +57,7 @@ function svg(w, h, title, desc, body) {
 }
 
 /** City schematic of every verified pin. Returns {svg, proj, drawn, beyond} or null when nothing is verified. */
-function cityMap(name, recs, colors, { w = 640, h = 480, pad = 18 } = {}) {
+function cityMap(name, recs, colors, { w = 640, h = 480, pad = 18, edges = true, scale = 1 } = {}) {
   const pts = recs.filter(isVerifiedPin);
   if (!pts.length) return null;
   // Frame: inner 92% of pins, padded 12%, so outliers (day trips) don't collapse the city.
@@ -70,15 +70,15 @@ function cityMap(name, recs, colors, { w = 640, h = 480, pad = 18 } = {}) {
   const dots = pts.map(p => {
     let [x, y] = xy(P, p.la, p.ln);
     const out = x < pad / 2 || y < pad / 2 || x > w - pad / 2 || y > h - pad / 2;
-    if (out) { beyond++; x = Math.min(w - 4, Math.max(4, x)); y = Math.min(h - 4, Math.max(4, y)); }
+    if (out) { beyond++; if (!edges) return ''; x = Math.min(w - 4, Math.max(4, x)); y = Math.min(h - 4, Math.max(4, y)); }
     const c = p.closed ? MUTED : colors[p.a] || MUTED;
-    const rad = out ? 2.5 : p.t === 1 && !p.closed ? 4 : 2.8;
+    const rad = r1((out ? 2.5 : p.t === 1 && !p.closed ? 4 : 2.8) * scale);
     return p.closed || out
       ? `<circle cx="${x}" cy="${y}" r="${rad}" fill="none" stroke="${c}" stroke-width="1.2"/>`
       : `<circle cx="${x}" cy="${y}" r="${rad}" fill="${c}" fill-opacity=".85"/>`;
   });
   const desc = `${pts.length} verified pins of ${recs.length} places, coloured by area` +
-    (beyond ? `; ${beyond} lie beyond this frame (day trips and outskirts) and are drawn at its edge` : '') +
+    (beyond ? `; ${beyond} lie beyond this frame (day trips and outskirts)${edges ? ' and are drawn at its edge' : ' and are not drawn here'}` : '') +
     '. Drawn from the guide’s own coordinates; not a street map.';
   return { svg: svg(w, h, `${name} — schematic of verified pins`, desc, `<g>${dots.join('')}</g>`), proj: P, drawn: pts.length, beyond };
 }

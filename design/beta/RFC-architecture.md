@@ -290,11 +290,23 @@ Any schema change bumps the version, with a one-shot migration in `core.js`.
 ### 5.3 Progressive rendering, with every place reachable
 
 - **Wave 0** server-renders every card. Each `section.area` carries `content-visibility:auto` with an intrinsic size, so off-screen areas cost no layout or paint. Tokyo then has **6,610 elements** (live Tokyo: about 7,400), 639 KB raw and 121 KB gzip.
-- **M3-06** sets a budget of ≤ 3,000 initial nodes on New York. The plan:
-  - The generator renders the cards of the first two areas plus every area header (with counts).
-  - The remaining areas' cards go into `<template data-area="X">`.
-  - `city.js` stamps a template when its area nears the viewport (IntersectionObserver), and **stamps everything** before any filter, search, deep link, source view or print.
-  - A `<noscript>` link points to `?all` (a server-rendered "all places" variant of the same page).
+- **M3-06, as built in Wave 2 (R-24, supersedes the `<template>` + `?all` plan).** A static host cannot serve a `?all`
+  variant, and `<template>` content is invisible with JS off. So [`lib/chunk.js`](../../tools/beta/lib/chunk.js) keeps the
+  first **32 cards** live and wraps every later card, inside its own `ol.pls`, in
+  `<noscript data-cleo-defer data-n="k" style="display:contents">` chunks of ≤ 40:
+  - **JS on:** the parser reads `<noscript>` as raw text (one node per chunk). `Cleo.defer` (core.js) stamps a chunk when the
+    card before it nears the viewport (IntersectionObserver, 1,200 px margin; a spacer holds the estimated height), and
+    stamps **everything** first on any route/deep link/area anchor on load, hashchange, `cleo:route`, lens or tray or
+    source-chip or map-toggle click, focus in the filter box, Ctrl/⌘-F, and `beforeprint`. No IntersectionObserver (old
+    browsers, jsdom) → everything at once. Each stamp emits `cleo:stamped {cards}` synchronously; `city.js` adopts them.
+  - **JS off:** `<noscript>` renders, so every card shows as before.
+  - **Map:** every pin is drawn at mount — unstamped places from `Cleo.defer.peek()` (attribute stubs parsed from the
+    chunk's start tags); clicking such a pin stamps its chunk (`Cleo.defer.stampFor(id)`).
+  - **Safety:** the build chunks only when `client/city.js` carries the `cleo:stamped` hook, and `chunk()` throws if the
+    card-id multiset changes. The count gate reads the same `li.pl` start tags either way.
+  - **Measured** (Chromium, off-origin blocked, after load): Tokyo 1,730 nodes mobile / 2,747 desktop with all 488 pins
+    (was 11,650); NYC 1,634 / 2,695 (was 12,669); after FE-A W2 merged. Scroll-to-end, every deep link, the filter box, pin clicks, Ctrl-F and
+    JS-off all reach 488/488 and 508/508.
 - **Reachability gate.** `test-beta.js` and `beta:metrics` (M0-04) assert that every live record is reachable through "All", scroll, filter, search and deep link. Templates count only once stamped.
 
 ### 5.4 Map (R-08)
@@ -385,6 +397,14 @@ Mirror pages link without `#p=` (`deepLinks:0`) until they migrate.
 - **Per-city image.** `og:image` uses `beta/assets/og/<pageKey>.png` when that file exists, else the shared `assets/og-cover.png`.
 - **Rendering.** `npm run beta:og` (Wave 1, platform) will render 1200×630 PNGs (≤ 300 KB) with the pre-installed Chromium. The source is an HTML template built from the design tokens plus page data: name, native script, counts, and a pin scatter drawn from verified coordinates. The images are typographic and map-art, with no photos.
 - **Why it is separate from `npm run beta`.** Chromium may be absent in CI, and PNG bytes are not deterministic across renderers.
+- **Built in Wave 2** ([`tools/beta/og.js`](../../tools/beta/og.js), `npm run beta:og`, then `npm run beta`): 84 place-page
+  cards (`assets/og/<fileKey>.png`) + 6 live-country cards (`assets/og/country-<key>.png`, used by FE-B's hubs). Each card =
+  the city's own token skin (paper, accent bar, motif wash), Bodoni name + native script, the ★ signature line from
+  `lib/guide.js`, computed facts (places, sights, food, last status check, closed kept), and the verified-pin scatter
+  (`art.cityMap` with `edges:false` — outliers are counted in the caption, not drawn). Fonts are inlined as data URIs and
+  every non-data request is aborted, so nothing leaves the machine. Gate (`test-beta.js`): every PNG is 1200×630 and
+  ≤ 300 KB, and every page with a card points `og:image` at it. Without Chromium the script exits 0 and pages keep
+  `og-cover.png`.
 
 ### 6.6 Saved lists and day plans (client-side)
 
@@ -483,10 +503,10 @@ Each migrated city joins this test through a fixture list (Wave 1: the D-27 pilo
 |---|---|---|
 | City page, raw | ≤ 800 KB | 639 KB |
 | City page, gzip | ≤ 160 KB | 121 KB (live: 91 KB; beta adds JSON-LD of about 160 KB raw) |
-| Landing, raw | ≤ 80 KB | 19 KB |
-| Client JS total, raw (excluding Leaflet) | ≤ 40 KB | 20 KB |
+| Landing | ≤ 24 KB gzip, ≤ 120 KB raw (W2; W0 was 80 KB raw) | 19 KB (W2: 16 KB gzip / 81 KB raw) |
+| Client JS loaded by any one page (excluding Leaflet) | ≤ 32 KB gzip (FE-A's W2 per-page rule, ratified by platform; W0 was 40 KB raw site-wide, W1 64 KB raw) | 20 KB |
 | Search index, gzip, lazy | ≤ 250 KB | 206 KB |
-| Initial DOM, largest page (M3-06; QA metrics) | ≤ 3,000 nodes | 6,610 on Tokyo. Over budget; the plan is in §5.3. |
+| Initial DOM, largest page (M3-06; QA metrics) | ≤ 3,000 nodes | W2: Tokyo 1,730 mobile / 2,747 desktop with all 488 pins (was 11,650); NYC 1,634 / 2,695 (was 12,669). §5.3. |
 | Render-blocking third-party in `<head>` | 0 | 0 (system fonts; Leaflet CSS loads with the map) |
 | First card painted, NYC, 4× CPU (QA) | ≤ 1.0 s | measured in Wave 1 |
 

@@ -229,7 +229,7 @@ console.log('\n== DATA: computed counts, source index, map art (every place page
 const TOKYO = 'cities/tokyo.html';
 const live = extractPage(rd(TOKYO));
 const total = live.P.length + live.F.length;
-function boot({ leaflet = false, storage = 'ok', hash = '', page = TOKYO } = {}) {
+function boot({ leaflet = false, storage = 'ok', hash = '', page = TOKYO, io = false } = {}) {
   // Inline the page's own same-origin scripts (what a browser would fetch from beta/); every other
   // request is impossible in this harness, i.e. the network — and any CDN — is gone.
   let html = rd('beta/' + page).replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z]+\.js)\?v=[^"]*" defer><\/script>/g,
@@ -243,6 +243,8 @@ function boot({ leaflet = false, storage = 'ok', hash = '', page = TOKYO } = {})
       if (proto && !proto.createSVGRect) proto.createSVGRect = () => ({ x: 0, y: 0, width: 0, height: 0 });
       w.Element.prototype.scrollIntoView = function () {};
       if (storage === 'throws') Object.defineProperty(w, 'localStorage', { get() { throw new Error('SecurityError: storage disabled'); } });
+      // a do-nothing IntersectionObserver: nothing ever scrolls into view, so only lazy-render triggers can stamp
+      if (io) w.IntersectionObserver = class { constructor(cb) { this.cb = cb; } observe() {} unobserve() {} disconnect() {} };
       w.addEventListener('error', e => errs.push('ERR ' + (e.message || e.error)));
     },
   });
@@ -306,6 +308,25 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
     chk('rail tile count == result count', +rb.querySelector('.n').textContent, shown(d));
     chk('no js errors after interaction', errs, e => e.length === 0);
   }
+  console.log('\n== PROGRESSIVE RENDERING (M3-06): deferred cards stay reachable ==');
+  {
+    const html = rd('beta/' + TOKYO);
+    const liveTags = (html.replace(/<noscript data-cleo-defer[\s\S]*?<\/noscript>/g, '').match(/<li class="pl[ "]/g) || []).length;
+    chk('Tokyo ships ≤ 32 live cards, the rest in <noscript data-cleo-defer> (still in the HTML)', [liveTags, (html.match(/<li class="pl[ "]/g) || []).length].join(), `32,${total}`);
+    const { w, d, errs } = boot({ io: true });
+    await sleep(300);
+    chk('with JS: initial cards are the live 32', d.querySelectorAll('li.pl').length, 32);
+    chk('every deferred place still has a map stub (pin) via Cleo.defer.peek()', w.Cleo.defer.peek().filter(x => x.getAttribute('data-ll')).length + d.querySelectorAll('li.pl[data-ll]').length, total);
+    chk('every area section stays visible while its cards are deferred', [...d.querySelectorAll('section.area')].filter(s => s.hidden).length, 0);
+    const lastId = [...html.matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"/g)].pop()[1];
+    chk('a pin on an unstamped place stamps its chunk (stampFor)', !!w.Cleo.defer.stampFor(lastId) && !!d.getElementById('p-' + lastId), true);
+    d.querySelector('button[data-mode="food"]').click(); await sleep(30);
+    chk('any lens stamps every card first; food mode shows exactly the food', [d.querySelectorAll('li.pl').length, shown(d)].join(), `${total},${live.F.length}`);
+    chk('no js errors (lazy)', errs, e => e.length === 0);
+    const b2 = boot({ io: true, hash: '#p=' + lastId }); await sleep(300);
+    const tg = b2.d.getElementById('p-' + lastId);
+    chk('deep link on load to a deferred place lands', !!tg && !tg.hidden && tg.classList.contains('is-target') && b2.d.querySelectorAll('li.pl').length === total, true);
+  }
   console.log('\n== MAP: vendored Leaflet present ==');
   {
     const { d, errs } = boot({ leaflet: true });
@@ -337,12 +358,14 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
   }
   chk('city pages over 800 KB raw / 160 KB gzip', over, a => a.length === 0);
   console.log(`        (largest: ${biggest[0]} ${biggest[1]} KB raw, ${biggest[2]} KB gzip)`);
-  chk('landing ≤ 80 KB raw', KB(size('index.html')), n => n <= 80);
+  // Platform W2 (RFC §7.5): W0 set 80 KB raw when the landing was 19 KB; W2 adds the cross-city rail, country heroes and
+  // inline motif art. What a first visit pays is the gzip transfer: ≤ 24 KB gzip, with a ≤ 120 KB raw backstop.
+  chk('landing ≤ 24 KB gzip / ≤ 120 KB raw', [KB(gz('index.html')), KB(size('index.html'))].join('/'), v => { const [g, r] = v.split('/').map(Number); return g <= 24 && r <= 120; });
   // FE-A W1 (2026-10-10): raised 40 → 64 KB raw (≈ 18 KB gzip) — 40 was set in Wave 0 before the city sheet, tray, map
   // sync and FE-B's search/states existed. PLT to ratify, or replace with a minify step / gzip budget (docs/BETA-LOG.md).
   // FE-A W2 (2026-10-10): the budget is now what ONE page loads (that is what a visitor pays), gzip ≤ 32 KB, raw shown
   // for reference. A site-wide sum grew with every page kind (saved, day, for-you) without any page getting heavier
-  // to load. PLT to ratify, or replace with a minify step (docs/BETA-LOG.md).
+  // to load. Ratified by platform W2 (RFC §7.5): per-page gzip is the budget.
   let jsMax = ['', 0, 0];
   for (const p of generated) {
     const fsP = path.join(BETA, p); if (!fs.existsSync(fsP)) continue;
@@ -351,6 +374,12 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
     if (z > jsMax[2]) jsMax = [p, KB(raw), z];
   }
   chk(`client JS loaded by any one page ≤ 32 KB gzip (heaviest: ${jsMax[0]}, ${jsMax[1]} KB raw)`, KB(jsMax[2]), n => n <= 32);
+  // per-page share cards (B-36, npm run beta:og): 1200×630 PNG ≤ 300 KB, and every page that has one points og:image at it
+  const OGD = path.join(BETA, 'assets/og'), ogs = fs.existsSync(OGD) ? fs.readdirSync(OGD).filter(f => f.endsWith('.png')) : [];
+  const ogBad = ogs.filter(f => { const b = fs.readFileSync(path.join(OGD, f)); return b.readUInt32BE(16) !== 1200 || b.readUInt32BE(20) !== 630 || b.length > 300 * 1024; });
+  const ogUnused = manifest.pages.filter(p => p.kind === 'city' && ogs.includes(p.key.replace(/\//g, '--') + '.png'))
+    .filter(p => !rd('beta/' + p.beta).includes(`/assets/og/${p.key.replace(/\//g, '--')}.png"`)).map(p => p.beta);
+  chk(`share cards: ${ogs.length} PNGs are 1200×630 ≤ 300 KB, and their pages use them`, ogBad.concat(ogUnused), a => a.length === 0);
   chk('search index ≤ 250 KB gzip (lazy)', KB(gz('data/search.json')), n => n <= 250);
 
   console.log(failures ? `\n>>> FAIL — ${failures} beta check(s) failed` : '\n>>> PASS — beta: counts == live, reproducible, guarded, renders with no CDN');

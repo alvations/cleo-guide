@@ -226,6 +226,11 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   Night shots: `w2-night-landing-tiles-d.jpg`, `w2-night-hub-japan-d.jpg`; all `w2-*` re-shot. Gates PASS.
   **FE-B backlog status (for PM):** M2-12 review · M2-09 review (guides group + keyboard nav) · M2-02 hub share review ·
   QA-13 plural fixed · ROUND-1 gap #3 review (signature lines, compositions, editorial rail, country hero).
+- 2026-10-10 · **Platform** · Wave 2 slice 2 · session_01PCNcUkfa5S1N1BKGzZA4xx · `ac0eccf` · ROUND-1 gap **#9 (DOM)**, M3-06, QA-10.
+  - `tools/beta/lib/chunk.js` + `Cleo.defer` (core.js): first 40 cards live, the rest in `<noscript data-cleo-defer>` chunks — raw text with JS on, real cards with JS off. Stamped as they near the viewport; **everything** is stamped before any route/deep link, lens, tray, source chip, map toggle, filter focus, Ctrl/⌘-F or print. Map pins for unstamped places come from start-tag stubs (`Cleo.defer.peek()`); a pin click stamps its chunk. RFC §5.3 rewritten (R-24).
+  - **Measured** (Chromium, after load): Tokyo **1,765** mobile / **2,782** desktop incl. all 488 pins (was 11,650); NYC **1,716 / 2,773** (was 12,669); Okinawa 1,896 / 2,787; Hokkaido 1,789 / 2,654. Scroll-to-end, every deep link, filter box, pin click, Ctrl-F and JS-off all reach 488/488 (Tokyo) and 508/508 (NYC); 0 page errors.
+  - **FE-A (coordinated hook, please keep when you edit city.js):** `on(d, 'cleo:stamped', …)` adopts new cards into `cards/byId/text`; `mountMap` draws `cards.concat(Cleo.defer.peek())`; empty-area test counts `noscript[data-cleo-defer]`. The build only chunks while `client/city.js` contains `cleo:stamped`, so dropping the hook degrades to all-live, never to lost cards. New lens buttons: add `data-cleo-day` / `data-cleo-near` (already in the stamp-all list) or call `Cleo.defer.all()` first.
+  - Budget ratified: client JS **≤ 40 KB gzip / ≤ 128 KB raw** (now 20 / 60). New jsdom tests (lazy boot with a null IntersectionObserver). Screenshots: `design/beta/eval/w2/platform/lazy-tokyo-{m,d}.jpg`, `lazy-tokyo-m-scrolled-area2.jpg`, JS-off `lazy-tokyo-{m,d}-nojs-area2.jpg`.
 - 2026-10-10 · UI/UX (designer) · **Wave 2 push 1** · session_01PCNcUkfa5S1N1BKGzZA4xx · ROUND-1 gap #4 (CSS side) + skins + tile compositions + motion layer.
   - **Fixed (CSS, `design/beta/css/contract.css` §15 → `cleo.css`):** vertical native plates **fit, never clip** (cover is a size container; glyphs scale with its height, 5–7 glyph names wrap into 2 columns); card Save is an icon-only 44 px heart (word kept in DOM at 14 px, clipped; FE-A's aria-label unchanged) so the plate gets the full cover; sheet **Close sits in its own header row**, never on the plate; sheet plate = inset card in the area colour + city motif; the **black glyph is styled** (area-ink line art); sheet body in **Figtree 17/1.62**; section labels Figtree; **"Recommended by" commas glued** to the name (QA-18; literal ", " text kept for SR/copy at 0 px), label inline on phones; **Bodoni macrons**: display text below hero size capped at `opsz 28` (Bodoni Moda's macron is a hairline that vanishes above opsz ≈ 32 — "My ojin"); rail on desktop fades its last 150 px behind the arrows (no clipped "Castles, Pa…"), tighter tile padding; landing country pills on solid paper, `top:0` on landing (was a grey veil + 68 px gap).
   - **Luxury + fun:** skins.py now emits `--motif-ink` (the city motif in ink for light grounds: seigaiha on Tokyo plates, swell on Cleveland…) and a decorative second accent `--city-2` per skin (indigo/vermilion, rust/lake, patina/saffron…; never text or actions — D-06 unchanged; contrast.py 344 pairs, 0 below). Plates and tile bars carry the two-accent edge. **Hub tiles: 4 compositions** cycle (night glow · accent field · diagonal split · horizon glow), each in the city's own skin — no two neighbours alike. Motion (all behind `prefers-reduced-motion: no-preference`, no opacity on content): scroll-linked card rise, sheet slide-up/side-in, save ring pulse, glyph bob on card hover, tier star turn, signature-tile sheen, tile constellation twinkle, press scale. Editorial: italic Didone dek on mastheads, drop initial + old-style figures on collection intros.
@@ -268,6 +273,34 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **DES hooks adopted:** the native aside is `<span class="nat" lang>` (cleo.css 15.x hides it when the plate shows it, and the plate takes ≤ 7 glyphs with `.long` for 5–7). "Recommended by" keeps the literal ", " (15.3 draws the glued comma). The sheet's Close is a direct child again (15.4 header space). My plate, comma and sheet-geometry rules are removed from `fe-a.css`, and the locator inset now sits above DES's glyph. The source "All N picks" buttons are ≥ 44 px.
   - Gates: validate, npm test (all suites incl. test-fe-a), beta:check PASS once rebased on origin's landing fix.
 - 2026-10-10 · imagery · W2 follow-up to the orchestrator note · checked rule 6: no third-party brand names in `tools/beta/imagery/**`, `beta/assets/img/**`, my IMAGERY.md section or my commits; one comment that alluded to a specific venue's design reworded (draw.js). Added "For the Round 3 Gallery view" to `design/beta/IMAGERY.md`: crop and tone guidance for card and row-cover sizes, plus an offer to add portrait recipes.
+- 2026-10-10 · **PM** · M1 acceptance + Wave 2 / Round 3 planning · session_017mbzpE8dtjevPVLcXB6TEK · head `10615ab2`.
+  - **M1 acceptance** (`BETA-BACKLOG.md` → "M1 acceptance"), judged on QA run 3 and DES REVIEW-W1: **16 accepted**,
+    **3 in re-test** (M1-04 / B-06, M1-05 / B-07, M1-11 / B-16, all against FE-A `0f0f7b6e`), and **3 rejected**:
+    - M1-03: Cleveland food rail not canon-first (QA-16).
+    - M1-16: the axe-core criterion has never been measured.
+    - M1-22: rollout rows still fail.
+
+    Seven M1 deploy blockers are listed with owning lanes: FE-A ×3, QA (axe), FE-B (QA-22, QA-23), and the landing budget.
+    QA-defect statuses were updated from runs 2–3.
+  - **Wave 2:** every ROUND-1 top-10 gap is mapped to items, reusing M2-03/04/05/06/08/10/11/12 and M3-01/02/03/06, with
+    new M2-13…M2-19. Each has acceptance criteria, an owning lane and its status at head. Main open items: M2-18 (FE-A
+    city rail still falls back to a publisher ★, `render/city.js:251`), M3-06 (DOM 11.6 k vs 3 k) and M2-08 (one shared OG
+    image).
+  - **Round 3:** new milestone M4-01…M4-09 (switcher, `view=` hash, paging with page numbers + "all N" + Show all,
+    Gallery, Atlas, Guidebook, Insights, sheet n-of-N, per-view QA). These are placeholders until
+    `design/beta/views/PLAN.md` lands. Benchmark rows B-46…B-49 added.
+  - **Decisions:** D-32 neutral naming (rule 6), D-33 view styles as lenses, D-34 one day-plan computation (164 vs 170
+    today), D-35 no criterion waived.
+  - Added a **Round 2 exit criteria** section (7 conditions) to the backlog.
+  - Merge update: FE-A `a62d45cd` landed while this entry was being written. M1-03, M2-18, QA-16 and QA-21 move to
+    re-test or review, M2-06 is reconciled (D-34 met), and the landing budget is fixed by `51acdad6`. M1 now stands at 16
+    accepted, 4 in re-test and 2 rejected (M1-16 axe, M1-22 rollout).
+  - Checks: validate OK; `npm test` all PASS on the merged head.
+- 2026-10-10 · **Platform** · Wave 2 slice 3 · session_01PCNcUkfa5S1N1BKGzZA4xx · `e1676a12` · ROUND-1 gap **#9 (share)**, B-36, C #27.
+  - `tools/beta/og.js` → `npm run beta:og`: **90 share cards** — 84 place pages (`beta/assets/og/<fileKey>.png`) + 6 live countries (`country-<key>.png`, picked up by FE-B's hubs). City token skin + accent bar + motif wash, Bodoni name + native script, ★ signature line (Tokyo "Anime, Manga & Pop Culture — Edomae sushi · soba · tempura"; Cleveland "Only in Cleveland — Polish Boy · corned beef · Barberton chicken"), computed facts, and the verified-pin scatter. No photos, fonts inlined, all network aborted. 6.7 MB total, largest < 120 KB.
+  - Gate: every PNG 1200×630 ≤ 300 KB and its page's `og:image` points at it. RFC §6.5 updated. Re-run `npm run beta:og` after data changes (not part of `npm run beta`: needs Chromium; PNG bytes aren't reproducible).
+  - **FE-B:** the landing still uses `og-cover.png`; `assets/og/country-us.png` exists if you want the US card there.
+  - Cards: `beta/assets/og/tokyo.png`, `cleveland.png`, `pittsburgh.png`, `country-japan.png`, `country-us.png`. validate + npm test + beta:check PASS.
 - 2026-10-10 · UI/UX (designer) · **Wave 2 push 3 + review** · session_01PCNcUkfa5S1N1BKGzZA4xx · `design/beta/REVIEW-W2.md` (per-gap verdicts at 390×844 + 1440×900, `design/beta/eval/w2/designer/rev-*.jpg`).
   - **Verdicts:** #2 ✅ · #3 ✅ · #4 ✅ · #5 ✅ · #8 ✅ · #10 ✅ (FE-A slice 2) · #1 ◐ mostly closed (motifs + compositions; photos blocked) · #6 ◐+ · #7 ◐+ · #9 ✕ (Tokyo DOM 12,092 / NYC 11,684; no per-city OG yet). Estimated A ≈ 74–78.
   - **Ownership race resolved:** FE-A slice 2 and my push 3 each yielded plate-fit / commas / sheet geometry to the other, so one merge had neither (plates clipped, "Wikipedia ," back, black glyph). **Restored in cleo.css §15.2–15.4 — designer owns them**; FE-A owns `.loc` (glyph hides when present) and `.peek-c`.
