@@ -81,6 +81,7 @@ measured miss is **B-03 = 15 on Tokyo and New York** (FE-A A9). "Same league" on
 
 | # | Defect | Row | Fix |
 |---|---|---|---|
+| B5 | Pass 1c: the night toggle added one more control above the first card (Tokyo B-03 = 16). On mobile the crumb truncates the current city ("Tok…"). On desktop "Destinations" appears twice (in the crumb and in the nav). Suggestion: on phones, put the theme toggle in the footer or tab bar and drop the current-page crumb. | B-03, M1-18 | render/shell.js |
 | B1 | `data-city` is only on `<main>`. The site bar gets the skin through an `html:has()` fallback, which works in current Chromium and Safari but not in older browsers. | B-24 | `data-city` on `<html>` |
 | B2 | Destination tiles have no data-derived signature line (★ collection or dish canon), and there is no country switcher on the landing. | M1-17 | landing / hub renderer |
 | B3 | No night-edition toggle (tokens follow the OS only). | M1-15 | `<button class="theme-toggle">` → `html[data-theme]` |
@@ -112,8 +113,10 @@ measured miss is **B-03 = 15 on Tokyo and New York** (FE-A A9). "Same league" on
 
 ### Design — open
 
-- **D12** Collection glyphs on rail tiles: the glyph set exists (`svgkit.py ICONS`) but is not shipped to beta. Next pass
-  will ship them as `.g` masks (like `.tg`). FE-A then adds `<i class="g" data-g="torii">`.
+- **D12 — fixed (pass 1c):** collection glyphs are shipped as CSS masks generated from `svgkit.py` plus 5 new
+  original glyphs (wave, train, flag, plane, frame). `design/beta/glyphs.json` maps 57 collection ids to 31 glyphs.
+  Every `.rail-i[data-c]` tile shows its glyph with no markup change. Japan pages get the torii for TEMPLE; other
+  cities get the lantern. Cuisine tiles get fork-and-knife. `.g[data-g]` works anywhere.
 - **D13** Vietnamese letters U+1EA0–1EF1 (ạ, ả, ấ…) are outside the Bodoni/Figtree latin-ext subsets and fall back to
   the system serif and sans. A Vietnamese subset is not offered for Bodoni Moda. Stated, not hidden (UX-23).
 

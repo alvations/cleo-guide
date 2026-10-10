@@ -162,6 +162,14 @@ main > .masthead { margin-inline: calc(var(--gutter) * -1); padding: 18px var(--
 .rail-i.sig .n { color: color-mix(in srgb, var(--city-on) 84%, transparent); }
 .rail-i.sig[aria-current], .rail-i.sig[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--city); }
 .rail-i .g, .rail-i .ico { width: 22px; height: 22px; margin-bottom: 4px; }
+/* every collection tile carries its glyph with no markup change (glyphs.json → --g); FE-A's own .g child replaces it */
+.rail-i:not(.rail-all) { padding-right: 40px; }
+.rail-i:not(.rail-all)::after { content: ""; position: absolute; top: 11px; right: 11px; width: 22px; height: 22px; background: var(--ink-2);
+  -webkit-mask: var(--g, var(--g-star4)) center / contain no-repeat; mask: var(--g, var(--g-star4)) center / contain no-repeat; }
+.rail-i.sig::after { background: var(--city-on); width: 26px; height: 26px; }
+.rail-i:has(.g, .ico)::after { display: none; }
+@media (hover: hover) { .rail-i:hover::after { animation: bob var(--dur-4) var(--ease-spring); } }
+.rail-i:active::after, .rail-i[aria-pressed="true"]::after { animation: bob var(--dur-4) var(--ease-spring); }
 @media (hover: hover) { .rail-i:hover .g, .rail-i:hover .ico { animation: bob var(--dur-4) var(--ease-spring); } }
 .rail-i:active .g, .rail-i:active .ico, .rail-i[aria-pressed="true"] .g { animation: bob var(--dur-4) var(--ease-spring); }   /* glyph responds to tap (M1-14) */
 @media (min-width: 900px) { .rail-i { min-height: 76px; min-width: 132px; font-size: 17px; } .rail-i.sig { min-width: 232px; min-height: 92px; font-size: 22px; } }
