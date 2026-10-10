@@ -75,13 +75,13 @@ measured miss is **B-03 = 15 on Tokyo and New York** (FE-A A9). "Same league" on
 | A6 | The tier glyph is a CSS fallback: not yet a link to How we choose, and it does not say "within {area}". | B-11, B-26 | `<a class="tier t1" href="…how-we-choose.html"><i class="tg t1"></i><span>Must see</span></a>` |
 | A7 | No detail sheet and no filter tray yet. Toolbar = modes + filter + "Showing all N". | B-17, B-10 | M1-12, M1-07 |
 | A8 | Copy: "1 areas" (Chinatown). The eyebrow repeats the area name that the section heading already shows. Inside an area section, drop the area from the eyebrow (keep the dish/collection). | M1-11 | render/city.js |
-| A9 | **B-03 fails at 15 on Tokyo and NYC on mobile** since the breadcrumb landed. The four visible area pills are the cheapest controls to give back: M1-07 already makes "Area" one toolbar control (pills → tray / Area select), which takes the count to about 12. On desktop, 32 controls sit above the first card versus 16 in the mockup. | B-03, M1-07 | render/city.js toolbar |
+| A9 | (B-03 now passes at 14 after FE-B `2252f7a`, with no slack. The area-pill → Area control in M1-07 is still wanted for headroom.) Was: **B-03 fails at 15 on Tokyo and NYC on mobile** since the breadcrumb landed. The four visible area pills are the cheapest controls to give back: M1-07 already makes "Area" one toolbar control (pills → tray / Area select), which takes the count to about 12. On desktop, 32 controls sit above the first card versus 16 in the mockup. | B-03, M1-07 | render/city.js toolbar |
 
 ### FE-B (hubs, nav, search) — open
 
 | # | Defect | Row | Fix |
 |---|---|---|---|
-| B5 | Pass 1c: the night toggle added one more control above the first card (Tokyo B-03 = 16). On mobile the crumb truncates the current city ("Tok…"). On desktop "Destinations" appears twice (in the crumb and in the nav). Suggestion: on phones, put the theme toggle in the footer or tab bar and drop the current-page crumb. | B-03, M1-18 | render/shell.js |
+| ~~B5~~ | **Fixed in FE-B `2252f7a`.** Mobile B-03 re-measured: Tokyo 14, NYC 14, Wheeling 13, Cleveland 12, Chinatown 11. All pass. Was: pass 1c: the night toggle added one more control above the first card (Tokyo B-03 = 16). On mobile the crumb truncates the current city ("Tok…"). On desktop "Destinations" appears twice (in the crumb and in the nav). Suggestion: on phones, put the theme toggle in the footer or tab bar and drop the current-page crumb. | B-03, M1-18 | render/shell.js |
 | B1 | `data-city` is only on `<main>`. The site bar gets the skin through an `html:has()` fallback, which works in current Chromium and Safari but not in older browsers. | B-24 | `data-city` on `<html>` |
 | B2 | Destination tiles have no data-derived signature line (★ collection or dish canon), and there is no country switcher on the landing. | M1-17 | landing / hub renderer |
 | B3 | No night-edition toggle (tokens follow the OS only). | M1-15 | `<button class="theme-toggle">` → `html[data-theme]` |

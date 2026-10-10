@@ -54,7 +54,7 @@
  "tokyo-m": {
   "overflowX": 0,
   "firstCardScreens": 0.81,
-  "controlsAboveFirstCard": 16,
+  "controlsAboveFirstCard": 14,
   "cardsPerScreen": 3,
   "cards": 488,
   "closed": 1,
@@ -72,7 +72,7 @@
   "minFontPx": 13,
   "minFontEl": "span.n",
   "accent": "#C23A1C",
-  "textNodes": 4993,
+  "textNodes": 4992,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -81,7 +81,7 @@
  "tokyo-d": {
   "overflowX": 0,
   "firstCardScreens": 0.69,
-  "controlsAboveFirstCard": 32,
+  "controlsAboveFirstCard": 31,
   "cardsPerScreen": 6,
   "cards": 488,
   "closed": 1,
@@ -101,7 +101,7 @@
   "minFontPx": 12,
   "minFontEl": "small.",
   "accent": "#C23A1C",
-  "textNodes": 4987,
+  "textNodes": 4986,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -110,7 +110,7 @@
  "cleveland-m": {
   "overflowX": 0,
   "firstCardScreens": 0.69,
-  "controlsAboveFirstCard": 14,
+  "controlsAboveFirstCard": 12,
   "cardsPerScreen": 2,
   "cards": 194,
   "closed": 13,
@@ -128,7 +128,7 @@
   "minFontPx": 13,
   "minFontEl": "span.n",
   "accent": "#1F5E8A",
-  "textNodes": 1722,
+  "textNodes": 1721,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -137,7 +137,7 @@
  "cleveland-d": {
   "overflowX": 0,
   "firstCardScreens": 0.62,
-  "controlsAboveFirstCard": 25,
+  "controlsAboveFirstCard": 24,
   "cardsPerScreen": 2,
   "cards": 194,
   "closed": 13,
@@ -157,7 +157,7 @@
   "minFontPx": 12,
   "minFontEl": "small.",
   "accent": "#1F5E8A",
-  "textNodes": 1716,
+  "textNodes": 1715,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -166,7 +166,7 @@
  "newyork-m": {
   "overflowX": 0,
   "firstCardScreens": 0.7,
-  "controlsAboveFirstCard": 16,
+  "controlsAboveFirstCard": 14,
   "cardsPerScreen": 3,
   "cards": 508,
   "closed": 0,
@@ -184,7 +184,7 @@
   "minFontPx": 13,
   "minFontEl": "span.n",
   "accent": "#9A5B00",
-  "textNodes": 4492,
+  "textNodes": 4491,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -193,7 +193,7 @@
  "newyork-d": {
   "overflowX": 0,
   "firstCardScreens": 0.63,
-  "controlsAboveFirstCard": 25,
+  "controlsAboveFirstCard": 24,
   "cardsPerScreen": 4,
   "cards": 508,
   "closed": 0,
@@ -213,7 +213,7 @@
   "minFontPx": 12,
   "minFontEl": "small.",
   "accent": "#9A5B00",
-  "textNodes": 4486,
+  "textNodes": 4485,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -222,7 +222,7 @@
  "chinatown-m": {
   "overflowX": 0,
   "firstCardScreens": 0.72,
-  "controlsAboveFirstCard": 13,
+  "controlsAboveFirstCard": 11,
   "cardsPerScreen": 3,
   "cards": 16,
   "closed": 0,
@@ -240,7 +240,7 @@
   "minFontPx": 13,
   "minFontEl": "span.n",
   "accent": "#8A3F86",
-  "textNodes": 249,
+  "textNodes": 248,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -249,7 +249,7 @@
  "chinatown-d": {
   "overflowX": 0,
   "firstCardScreens": 0.67,
-  "controlsAboveFirstCard": 20,
+  "controlsAboveFirstCard": 19,
   "cardsPerScreen": 6,
   "cards": 16,
   "closed": 0,
@@ -269,7 +269,7 @@
   "minFontPx": 12,
   "minFontEl": "small.",
   "accent": "#8A3F86",
-  "textNodes": 243,
+  "textNodes": 242,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -278,7 +278,7 @@
  "wheeling-m": {
   "overflowX": 0,
   "firstCardScreens": 0.77,
-  "controlsAboveFirstCard": 15,
+  "controlsAboveFirstCard": 13,
   "cardsPerScreen": 2,
   "cards": 35,
   "closed": 1,
@@ -296,7 +296,7 @@
   "minFontPx": 13,
   "minFontEl": "span.n",
   "accent": "#4E6B22",
-  "textNodes": 488,
+  "textNodes": 487,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -305,7 +305,7 @@
  "wheeling-d": {
   "overflowX": 0,
   "firstCardScreens": 0.67,
-  "controlsAboveFirstCard": 24,
+  "controlsAboveFirstCard": 23,
   "cardsPerScreen": 4,
   "cards": 35,
   "closed": 1,
@@ -325,7 +325,7 @@
   "minFontPx": 12,
   "minFontEl": "small.",
   "accent": "#4E6B22",
-  "textNodes": 482,
+  "textNodes": 481,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
