@@ -210,11 +210,12 @@ open/closed status), `docs/CITIES.md` (one row per city), `docs/AGENT-PROMPTS.md
 | `session_01DikCXL6tk8dNedSxwn21wC` | Beta W0 — PM: backlog, decisions, benchmark | 2026-10-10 07:50 | completed, archived | docs/BETA-BACKLOG.md (M0–M3 + deferred), BETA-DECISIONS.md, BETA-BENCHMARK.md |
 | `session_01UR6QG8sr2pzx4NkkPUNqit` | Beta W0 — Designer: "Constellation" design system | 2026-10-10 07:50 | completed, archived | design/beta/ (system, tokens, imagery, voice, specs, 10 mockups, 42 screenshots, AA proof) |
 | `session_01LVXQewVSi3PVAFKQGdh8oA` | Beta W0 — Tech lead: RFC + generator skeleton | 2026-10-10 07:51 | completed, archived | design/beta/RFC-architecture.md; tools/beta/ builds 84 pages / 8,458 places; beta count==live + no-CDN test in npm test |
-| `session_01KAFFdmZ5muds2a5TrCSdWU` | Beta W1 — Platform | 2026-10-10 08:24 | running | — |
-| `session_01R6c55ZTducLNVYMSqkvfQg` | Beta W1 — Frontend A (city page) | 2026-10-10 08:24 | running | — |
-| `session_014JhcXcscGR7FMd9eAE6XqE` | Beta W1 — Frontend B (landing/hubs/nav) | 2026-10-10 08:24 | running | — |
-| `session_018MKc8Cm9yRKwLoMQ5mFB7b` | Beta W1 — Designer (visuals + review) | 2026-10-10 08:24 | running | — |
+| `session_01KAFFdmZ5muds2a5TrCSdWU` | Beta W1 — Platform | 2026-10-10 08:24 | completed, archived | platform W1: map art, computed counts, SW fonts, source pages; beta count==live |
+| `session_01R6c55ZTducLNVYMSqkvfQg` | Beta W1 — Frontend A (city page) | 2026-10-10 08:24 | completed, archived | FE-A W1 (ab80b44): all M1 city-page items in review; 5 pilots meet M1-01 |
+| `session_014JhcXcscGR7FMd9eAE6XqE` | Beta W1 — Frontend B (landing/hubs/nav) | 2026-10-10 08:24 | completed, archived | FE-B W1: landing/hubs/header/method/states; shell CSS moved to designer stylesheet |
+| `session_018MKc8Cm9yRKwLoMQ5mFB7b` | Beta W1 — Designer (visuals + review) | 2026-10-10 08:24 | completed, archived | designer W1: visuals + REVIEW-W1 pass 2 (M1 not yet met) |
 | `session_01YbxdsQm4VmtpnaPTjvc2ZS` | Beta W1 — QA | 2026-10-10 08:24 | running | — |
+| `session_01WsdxZRnnS31JkzUY9Shvh7` | Beta Round 1 — independent evaluator | 2026-10-10 09:52 | running | — |
 | `session_01PCNcUkfa5S1N1BKGzZA4xx` | Release: deploy work branch → Pages (PR #3) | 2026-10-10 07:00 | completed | Merged as ca70e53 — Singapore gap-fill + QA fixes + Singapore engine rebuild live; gates/validate/test/qa (0 FAIL) green; 0 places removed (docs/DEPLOY-2026-10-10.md) |
 
 ### Cross-city pin and top-up passes (5 sessions)

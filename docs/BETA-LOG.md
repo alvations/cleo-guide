@@ -157,3 +157,4 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   comma spacing). Harness refinements: on-screen contrast via `elementsFromPoint`, ancestor focus ring, load vs stress
   errors, `.masthead`, split heuristic. **QA sign-off: NO for M1** (B-06/07/09/10/17 unbuilt; B-23; B-03 = 15).
   Evidence: `qa/beta-metrics.{json,md}`, `qa/beta-metrics-all.md`, `qa/beta-harness-summary.json`, `qa/beta-shots/`.
+- 2026-10-10 09:53 · orchestrator · W1: platform, FE-A (ab80b44), FE-B, designer done + archived (all commits beta-scope since ca70e53). QA still finishing sign-off. **Round 1 evaluation launched**: session_01WsdxZRnnS31JkzUY9Shvh7 → design/beta/eval/ROUND-1.md. Imagery: upload.wikimedia.org / commons.wikimedia.org denied by environment network policy (403, 09:24Z); owner informed how to allow.
