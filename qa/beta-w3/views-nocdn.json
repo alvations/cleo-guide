@@ -1,0 +1,229 @@
+{
+ "head": "150d4cf9",
+ "checks": [
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=gallery mobile: view applied",
+   "status": "PENDING",
+   "evidence": null
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=gallery mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 488,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=gallery mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=gallery mobile: switcher present",
+   "status": "PENDING",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=gallery desktop: view applied",
+   "status": "PENDING",
+   "evidence": null
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=gallery desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 488,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=gallery desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=gallery desktop: switcher present",
+   "status": "PENDING",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=atlas mobile: view applied",
+   "status": "PENDING",
+   "evidence": null
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=atlas mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 488,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=atlas mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=atlas mobile: switcher present",
+   "status": "PENDING",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=atlas desktop: view applied",
+   "status": "PENDING",
+   "evidence": null
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=atlas desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 488,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=atlas desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=atlas desktop: switcher present",
+   "status": "PENDING",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=guidebook mobile: view applied",
+   "status": "PENDING",
+   "evidence": null
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=guidebook mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 488,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=guidebook mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=guidebook mobile: switcher present",
+   "status": "PENDING",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=guidebook desktop: view applied",
+   "status": "PENDING",
+   "evidence": null
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=guidebook desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 488,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=guidebook desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=guidebook desktop: switcher present",
+   "status": "PENDING",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=insights mobile: view applied",
+   "status": "PENDING",
+   "evidence": null
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=insights mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 488,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=insights mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=insights mobile: switcher present",
+   "status": "PENDING",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=insights desktop: view applied",
+   "status": "PENDING",
+   "evidence": null
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=insights desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 488,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=insights desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html #view=insights desktop: switcher present",
+   "status": "PENDING",
+   "evidence": []
+  }
+ ]
+}
