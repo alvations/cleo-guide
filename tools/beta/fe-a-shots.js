@@ -40,7 +40,18 @@ const W3 = [
   { id: 'sheet-atlas', url: 'beta/cities/tokyo.html#view=atlas&p=kanda-myojin', wait: 900 },
   { id: 'guidebook', url: 'beta/cities/tokyo.html#view=guidebook', wait: 1200 },
 ];
-const SETS = process.argv.includes('--w3') ? W3 : [
+// W5 (ROUND-4 #2/#3): the default page (Gallery), its lead card and rows, a lens link (→ Atlas), Atlas, the masthead line
+const W5 = [
+  { id: 'tokyo', url: 'beta/cities/tokyo.html' },
+  { id: 'tokyo-rows', url: 'beta/cities/tokyo.html', scroll: 1, wait: 500 },
+  { id: 'cleveland', url: 'beta/cleveland.html' },
+  { id: 'chinatown', url: 'beta/Singapore/chinatown.html' },
+  { id: 'newyork', url: 'beta/cities/newyork.html' },
+  { id: 'lens-link', url: 'beta/cities/tokyo.html#c=ANIME', wait: 600 },
+  { id: 'atlas', url: 'beta/cities/tokyo.html#view=atlas', wait: 900 },
+  { id: 'showall', url: 'beta/cleveland.html#all=1', scroll: 3, wait: 500 },
+];
+const SETS = process.argv.includes('--w5') ? W5 : process.argv.includes('--w3') ? W3 : [
   { id: 'tokyo', url: 'beta/cities/tokyo.html' },
   { id: 'tokyo-s1', url: 'beta/cities/tokyo.html', scroll: 1 },
   { id: 'cleveland', url: 'beta/cleveland.html' },
@@ -69,7 +80,7 @@ async function measure(page) {
       if (r.top > innerHeight * 3) continue;
       if (r.width < 43.5 || r.height < 43.5) small.push(`${el.tagName.toLowerCase()}.${el.className && el.className.baseVal === undefined ? el.className : ''} "${(el.textContent || el.getAttribute('aria-label') || '').trim().slice(0, 30)}" ${Math.round(r.width)}×${Math.round(r.height)}`);
     }
-    const first = document.querySelector('li.pl:not([hidden])');
+    const first = document.querySelector('li.gc[data-id], li.pl:not([hidden]):not(.pg-off)');   // W5: the Gallery lead card counts
     const ft = first ? first.getBoundingClientRect().top + scrollY : null;
     const ctl = [...document.querySelectorAll('a[href], button, input, select')].filter(vis).filter(el => { const r = el.getBoundingClientRect(); return r.top + scrollY < ft && r.left < innerWidth && r.right > 0 && !el.closest('[data-cleo-shell="topbar"], .sitebar, .skip'); }).length;
     const mp = document.querySelector('.mappane'), mr = mp && vis(mp) ? mp.getBoundingClientRect() : null;

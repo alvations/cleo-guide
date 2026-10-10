@@ -1,7 +1,4 @@
-/* views.js (FE-A, W3 A-01…A-03): the view switcher + registry (SPEC §2.4), the Gallery pager (§2.3) and the Atlas
- * tray detents (§3.2). A view is a lens and a layout over the SAME li.pl set — nothing here removes a card.
- * Precedence: #view= in the hash → Cleo.store 'view' → Gallery. FE-B plugs Guidebook / Insights in through
- * Cleo.views.register(name, {mount(host, api), unmount(host)}); their files load on first switch. */
+/* views.js (FE-A): view switcher + registry (SPEC §2.4), Gallery pager (§2.3), Atlas tray (§3.2). Nothing removes a card. */
 (() => {
   'use strict';
   const Cleo = window.Cleo || {}, C = Cleo.city, d = document, html = d.documentElement;
@@ -16,9 +13,11 @@
   const isRoute = h => !h || h === '#' || h.indexOf('=') >= 0;          // #p-x / #area-X are anchors, not routes: keep the view
   let cur = ok(at(html, 'data-view')) ? at(html, 'data-view') : DEF;
 
-  // every route the page writes keeps the current view (a lens tap never drops you back to Gallery); default omitted
+  // no view= → the implied view (#day= or a lens → Atlas, the unpaged list; else the default); writes keep the view
+  const LENS = ((Cleo.lens && Cleo.lens.KEYS) || ['mode', 'a', 't', 'c', 'cz', 'src', 'closed', 'q']).concat(['sig', 'gap']);
+  const implied = r => (r.day || LENS.some(k => r[k])) && ok('atlas') ? 'atlas' : DEF;
   const href0 = Cleo.route.href.bind(Cleo.route);
-  Cleo.route.href = o => { o = Object.assign({}, o || {}); if (o.view === undefined && cur !== DEF) o = Object.assign({ view: cur }, o); if (o.view === DEF) delete o.view; return href0(o); };
+  Cleo.route.href = o => { o = Object.assign({}, o || {}); const v = o.view || cur; delete o.view; if (v !== implied(o)) o = Object.assign({ view: v }, o); return href0(o); };
 
   const api = Cleo.views = {
     names: avail.slice(), current: () => cur, label: v => NAME[v] || v,
@@ -43,8 +42,7 @@
 
     if (v === 'insights') grow();
   }
-  // ROUND-3 #5: Insights bar charts grow once, on their first time in view (DES CSS keys on svg.bars-in). Bars are drawn
-  // at full size first, so with no JS, no observer or reduced motion nothing is ever hidden.
+  // ROUND-3 #5: Insights bars grow once in view (svg.bars-in); drawn full size first, so nothing is ever hidden
   function grow() {
     if (!host || !window.IntersectionObserver || !(C.moves && C.moves())) return;
     const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; io.unobserve(e.target); e.target.classList.add('bars-in'); }), { threshold: 0.25 });
@@ -90,8 +88,7 @@
       if (h === '#') { try { history.pushState(null, '', location.pathname + location.search); } catch (x) {} }
       else location.hash = h;
     };
-    // W4 (#5, DES ask): a reader's switch cross-fades through a view transition where the browser has one and motion is
-    // allowed; otherwise (and under reduced motion, which every QA harness uses) the switch stays synchronous.
+    // W4 #5: cross-fade via a view transition when motion is allowed; synchronous otherwise
     if (d.startViewTransition && C.moves && C.moves()) { try { d.startViewTransition(go); return; } catch (x) {} }
     go();
   });
@@ -104,15 +101,14 @@
   }, true);
   const fromHash = () => {
     if (!isRoute(location.hash)) return cur;
-    const r = Cleo.route.parse(); if (!r.view) return r.day && ok('atlas') ? 'atlas' : DEF;   // #day= implies Atlas
+    const r = Cleo.route.parse(); if (!r.view) return implied(r);   // #day= or a lens implies Atlas
     if (!ok(r.view)) { delete r.view; try { history.replaceState(null, '', href0(r) === '#' ? location.pathname + location.search : href0(r)); } catch (e) {} return DEF; }
     return r.view;
   };
   const onHash = () => { const v = fromHash(); if (v !== cur) show(v, {}); else page(); };
   on(window, 'hashchange', onHash); on(window, 'popstate', onHash);
 
-  /* ---------------- Gallery pager (SPEC §2.3): 24 / 48 per page, numbers, the "all N" line, show-all. Only the
-   * Gallery grid pages; lenses, search, #p= and print always run on the full set (print stamps + un-pages). ---------- */
+  /* ---- Gallery pager (SPEC §2.3): 24 / 48 per page; lenses, search, #p= and print use the full set ---- */
   const grid = $('#cleo-grid'), size = () => (!window.matchMedia || matchMedia('(min-width: 640px)').matches ? 48 : 24);
   let pager = null;
   const setPg = o => { const r = Cleo.route.parse(); delete r.p; delete r.pg; delete r.all; Object.assign(r, o); C.go(r); if (grid) grid.scrollIntoView({ block: 'start' }); };
@@ -135,8 +131,7 @@
       else if (r.p && (r.pg || pg > 1)) { const q = Cleo.route.parse(); if (pg > 1) q.pg = String(pg); else delete q.pg; try { history.replaceState(history.state, '', Cleo.route.href(q)); } catch (e) {} }
     }
     const a = all ? 0 : (pg - 1) * per, b = all ? N : Math.min(N, a + per);
-    // page 1 may reach past the live cards: those stay deferred (platform M3-06 stamps them as they near the viewport),
-    // so keep their area sections in the layout for the watcher; cleo:stamped re-pages the new cards
+    // page 1 may reach past the live cards (still deferred): keep their sections in layout; cleo:stamped re-pages
     const keep = new Set(pend && b > live.length ? Cleo.defer.peek().slice(0, b - live.length).map(x => x.getAttribute('data-a')) : []);
     qa('li.pl').forEach(c => c.classList.remove('pg-off'));
     live.forEach((c, i) => { if (i < a || i >= b) c.classList.add('pg-off'); });
@@ -166,9 +161,7 @@
   on(window, 'afterprint', () => page());
   if (window.matchMedia) { const mq = matchMedia('(min-width: 640px)'); const f = () => page(); if (mq.addEventListener) mq.addEventListener('change', f); else if (mq.addListener) mq.addListener(f); }
 
-  /* ---------------- Atlas (SPEC §3.2): desktop = the split (list ‖ sticky map ≥ 40 %); phone = a full-bleed map under
-   * a bottom tray with peek / half / full detents. The handle cycles them (keyboard), a swipe moves one step, and
-   * Esc / Back go down one. The tray holds the toolbar and every row; #map=1 maps to the peek detent. ---------- */
+  /* ---- Atlas (SPEC §3.2): desktop split; phone map under a tray with peek / half / full detents (#map=1 = peek) ---- */
   const DET = ['peek', 'half', 'full'], tb = $('[data-cleo-toolbar]'), rail = $('#cleo-rail');
   let grab = null, moved = [], det = 'peek', pushedDet = 0;
   const mobile = () => !C.desk();
@@ -233,14 +226,14 @@
   const q0 = window.CleoViewQueue; if (q0 && q0.splice) q0.splice(0).forEach(x => api.register(x[0], x[1]));
   window.CleoViewQueue = { push: x => api.register(x[0], x[1]) };
 
-  // first paint: the head script already set html[data-view]; a stored preference is written into the hash so Back,
-  // shares and lens links all carry it. A #day= link opens Atlas (it needs the map) unless view= says otherwise.
+  // first paint: the head script set html[data-view]; a stored preference is written into the hash (Back, shares)
   if (nav) nav.hidden = false;
   const r0 = Cleo.route.parse(), hv = isRoute(location.hash) && r0.view;
-  let v0 = hv && ok(hv) ? hv : r0.day ? 'atlas' : ok(store.get('view', '')) && isRoute(location.hash) ? store.get('view', '') : cur;
+  const im = implied(r0), sv = store.get('view', '');
+  let v0 = hv && ok(hv) ? hv : im !== DEF ? im : !isRoute(location.hash) ? cur : ok(sv) ? sv : DEF;
   if (hv && !ok(hv)) v0 = DEF;
   cur = v0; fromHash();
-  // a #day= link stays untouched (it implies Atlas)
-  if (v0 !== DEF && !hv && !r0.day && isRoute(location.hash)) { const r = Cleo.route.parse(); r.view = v0; try { history.replaceState(null, '', href0(r)); } catch (e) {} }
+  // a #day= / lens link stays untouched (it implies Atlas)
+  if (v0 !== im && !hv && isRoute(location.hash)) { const r = Cleo.route.parse(); r.view = v0; try { history.replaceState(null, '', href0(r)); } catch (e) {} }
   show(v0, { first: 1 });
 })();

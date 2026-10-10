@@ -29,7 +29,7 @@
     const nat = r.nat && r.n.slice(-r.nat.length - 2) === '(' + r.nat + ')' ? r.nat : '', g = Array.from(nat);
     const nm = nat ? r.n.slice(0, -nat.length - 2).trim() : r.n.replace(/\s*[—–-]+\s*CLOSED\b.*$/i, ''), col = ((info.areas || {})[r.a] || {}).c;
     const plate = g.length && g.length <= 4 && CJK.test(nat) ? '<span class="plate v"' + (info.lang ? ' lang="' + info.lang + '"' : '') + '>' + esc(nat) + '</span>'
-      : '<span class="plate i">' + esc((nm.replace(/^(The|La|Le|El|Il|Der|Die|Das)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || ['·'])[0]) + '</span>';
+      : '<span class="plate i" data-i="' + esc((nm.replace(/^(The|La|Le|El|Il|Der|Die|Das)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || ['·'])[0]) + '"></span>';
     const ids = (r.src || []).filter(x => x !== 'guide'), chips = ids.slice(0, 2).map(x => '<button type="button" class="src" data-src="' + esc(x) + '">' + esc(((info.src || {})[x] || [x])[0]) + '</button>').join(', ');
     return '<li class="gc' + (r.closed ? ' gc--closed' : '') + '" data-id="' + esc(r.id) + '"><a class="gc-a" href="#p-' + esc(r.id) + '"><span class="cover' + (r.closed ? ' closed' : '') + '" data-gl="' + esc(att(r.id, 'data-gl') || 'compass') + '" data-t="' + (r.t || 3) + '" data-comp="' + ((i || 0) % 5) + '"' + (col ? ' style="--ac:' + col + '"' : '') + ' aria-hidden="true">' +
       artOf(r.a, ringOf(r), r) + plate + '<span class="gl"><svg class="ico"><use href="#i-' + esc(att(r.id, 'data-gl') || 'compass') + '"/></svg></span></span>' +
@@ -77,8 +77,16 @@
       const o = rowsOf(j); pending.push.apply(pending, o.rows); lead = o.lead;
       if ('IntersectionObserver' in window) io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; io.unobserve(e.target); watch(stampRow()); }), { rootMargin: '200px 0px' });
       watch(stampRow());
-      const mh = $('.masthead');
-      if (lead && mh && !$('.g-lead-card', mh)) { mh.insertAdjacentHTML('beforeend', '<ol class="g-lead-card vw view-gallery">' + gcard(lead, 1) + '</ol>'); hearts(mh); }
+      // the lead card: floats in the hero on desktop; on phones and tablets it is the first card under the hero, so a
+      // real place card (cover, name, Recommended by, heart) sits inside the first screen (ROUND-4 #2, B-01)
+      const mh = $('.masthead'), slot = $('#cleo-lead');
+      if (lead && mh && !$('.g-lead-card')) {
+        const ol = d.createElement('ol'); ol.className = 'g-lead-card vw view-gallery'; ol.setAttribute('aria-label', 'Start with'); ol.innerHTML = gcard(lead, 1);
+        const mq = window.matchMedia && matchMedia('(min-width: 1024px)');
+        const place = () => { const host = !slot || (mq && mq.matches) ? mh : slot; if (ol.parentNode !== host) host.appendChild(ol); };
+        place(); if (mq) { if (mq.addEventListener) mq.addEventListener('change', place); else if (mq.addListener) mq.addListener(place); }
+        html.classList.add('g-lead-on'); hearts(ol);
+      }
     }).catch(() => { started = 0; });
   }
 

@@ -220,7 +220,7 @@ function boot(page, { hash = '', storage = 'ok', io = false, views = false } = {
   {
     const page = 'cities/tokyo.html', j = pd('tokyo'), id = j.places[0].id, a0 = j.areas[0].id;
     let b = boot(page, { hash: '#view=bogus' }); await sleep(250);
-    chk('#view=bogus → dropped (default), URL rewritten, no error', [b.w.location.hash, b.w.Cleo.route.parse().view || null, b.w.Cleo.view.current(), b.errs.length], v => v[0] === '' && v[1] === null && v[2] === 'atlas' && v[3] === 0);   // W3: default Atlas (QA-29/31)
+    chk('#view=bogus → dropped (default), URL rewritten, no error', [b.w.location.hash, b.w.Cleo.route.parse().view || null, b.w.Cleo.view.current(), b.errs.length], v => v[0] === '' && v[1] === null && v[2] === 'gallery' && v[3] === 0);   // W5: default Gallery (ROUND-4 #2, FE-A)
     b = boot(page, { hash: `#view=atlas&p=${id}` }); await sleep(250);
     chk('#view=atlas&p=x keeps both (the sheet opens over Atlas)', JSON.stringify(b.w.Cleo.route.parse()), JSON.stringify({ view: 'atlas', p: id }));
     chk('… and the hash is not rewritten', b.w.location.hash, `#view=atlas&p=${id}`);
@@ -234,7 +234,7 @@ function boot(page, { hash = '', storage = 'ok', io = false, views = false } = {
     b = boot('saved.html', { hash: '#list=tokyo:' + id + ',x;kyoto:y' }); await sleep(200);
     chk('#list= untouched (codec round-trip)', JSON.stringify([b.w.location.hash, b.w.Cleo.listCodec.encode(b.w.Cleo.listCodec.decode(b.w.Cleo.route.parse().list))]), JSON.stringify(['#list=tokyo:' + id + ',x;kyoto:y', 'tokyo:' + id + ',x;kyoto:y']));
     b = boot(page, { storage: 'throws' }); await sleep(150);
-    chk('Cleo.view.current() with storage throwing → default, no error', [b.w.Cleo.view.current(), b.errs.length], v => v[0] === 'atlas' && v[1] === 0);   // W3: default Atlas (QA-29/31)
+    chk('Cleo.view.current() with storage throwing → default, no error', [b.w.Cleo.view.current(), b.errs.length], v => v[0] === 'gallery' && v[1] === 0);   // W5: default Gallery (ROUND-4 #2, FE-A)
   }
 
   // ── 5. P-04 reachability per view ─────────────────────────────────────────────

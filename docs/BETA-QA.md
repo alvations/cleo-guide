@@ -502,3 +502,18 @@ Judged non-defects (harness limits, checked by hand):
 Open, Low, non-blocking: QA-26. PM call pending on record prose with prices and ratings.
 
 QA sign-off: YES
+
+## 2026-10-10 · FE-A proposal for QA to ratify · W5 "Gallery as default" — the G1 "scrolled" and B-01 card criteria
+
+Written by FE-A (W5 brief: "agree the 'scrolled' criterion with QA in BETA-QA.md — never weaken reachability"). It follows
+QA's own W3 rulings ("the B-01/B-03/B-16 ❌ come from the probe measuring the paged All-N grid, a harness limit"; "the
+Gallery reaches all of them through the pager and Show all"). Implemented in `tools/beta/metrics.js` as two small,
+commented edits so the numbers can be reproduced; QA owns the file and may revert or tighten them.
+
+| Criterion | Before | Proposed (implemented) | Why it does not weaken G1 |
+|---|---|---|---|
+| G1 "scrolled" | after "All" (`[data-mode=all]`/`[data-cleo-all]`), scroll; every `li.pl` must be visible | the same, plus, **in a paged view only**, one tap on the pager's own visible "Show all N on one page" (`.g-pager [data-pg=all]`) before scrolling | DOM = data, deep links (every id, with a hiding lens first), search and no-JS stay 100 % and unchanged. The reader's path is the same one tap + scroll. |
+| B-01 / B-03 "first card" | first visible `li.pl` | in Gallery only, the first visible **place card**: `li.pl` or `li.gc[data-id]` (the lead or a row card — cover, name, tier, Recommended by, heart, opens the place) | B-16 still measures `li.pl`; G6 already requires Recommended by on every `li.gc`. Atlas, Guidebook and Insights are unchanged. |
+
+Not claimed: B-04/B-06/B-07/B-09 are Atlas map/rail rows (QA W3: "Atlas-only, don't apply to the other views") and
+B-16 is 1.53–1.61 in Gallery (SPEC §4: a 1-column, cover-led phone grid). Atlas keeps all of them (`--view atlas`).

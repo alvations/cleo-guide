@@ -165,7 +165,7 @@
     const p = $('.pl-cover', c); if (!p || p.firstChild) return;
     const na = $('.pl-n .nat', c), g0 = Array.from(na ? na.textContent.replace(/^\s*\(|\)\s*$/g, '') : ''), g = g0.length <= 7 ? g0 : [], nm = $('.pl-n', c).textContent.replace(/\s*[—–-]+\s*CLOSED\b.*$/i, '');
     p.innerHTML = (g.length ? '<span class="pl-vert' + (g.length > 4 ? ' long' : '') + '"' + (info.lang ? ' lang="' + info.lang + '"' : '') + '>' + esc(g.join('')) + '</span>'
-      : '<span class="pl-ini">' + esc((nm.replace(/^(The|La|Le|El|Il|Der|Die|Das)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || ['·'])[0]) + '</span>') +
+      : '<span class="pl-ini" data-i="' + esc((nm.replace(/^(The|La|Le|El|Il|Der|Die|Das)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || ['·'])[0]) + '"></span>') +
       '<svg class="pl-glyph"><use href="#i-' + at(c, 'data-gl') + '"/></svg>';
   };
   const paint = () => {
