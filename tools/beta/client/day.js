@@ -24,31 +24,31 @@
   C.dayRank = function (c) { var i = stops(C.S.day).indexOf(C.pid(c)); return i < 0 ? 999 : i; };
   C.lens.day = function (n, nA, all) {
     var a = C.S.day, ids = stops(a), name = C.label('a', a), other = Object.keys(DAYS).filter(function (x) { return x !== a; });
-    var more = other.length ? '<p class="sm">More days: ' + other.map(function (x) { return '<a href="#day=' + encodeURIComponent(x) + '">' + esc(C.label('a', x)) + '</a>'; }).join(' · ') + '</p>' : '';
-    if (ids.length < 2) return '<div class="day"><span class="eyebrow">Your day</span><h2>No day in ' + esc(name) + ' yet</h2><p class="honest">The guide plans a day only where it has at least four open places with a verified pin close together, and doesn’t pad one' + ((info.dsk || {})[a] ? ' — here: ' + esc(info.dsk[a]) : '') + '. Add places from their sheet with “Add to your day”.</p><div class="row">' + all + '</div>' + more + '</div>';
+    var more = other.length ? '<p class="sm more">More days: ' + other.map(function (x) { return '<a href="#day=' + encodeURIComponent(x) + '">' + esc(C.label('a', x)) + '</a>'; }).join(' · ') + '</p>' : '';
+    if (ids.length < 2) return '<section class="day"><header><span class="eyebrow">Your day</span><h2>No day in ' + esc(name) + ' yet</h2></header><p class="caveat">The guide plans a day only where it has at least four open places with a verified pin close together, and doesn’t pad one' + ((info.dsk || {})[a] ? ' — here: ' + esc(info.dsk[a]) : '') + '. Add places from their sheet with “Add to your day”.</p><div class="sharebar">' + all + '</div>' + more + '</section>';
     var pts = ids.map(ll), tot = 0, legs = pts.map(function (p, i) { var v = i ? km(pts[i - 1], p) : 0; tot += v; return v; });
     var food = ids.filter(function (id) { return C.byId[id].getAttribute('data-k') === 'f'; }).length;
     var row = function (id, i) {
       var c = C.byId[id], nm = C.name(c), f = c.getAttribute('data-k') === 'f';
-      return '<li><span class="no" aria-hidden="true">' + (i + 1) + '</span><a class="stop" href="#p-' + esc(id) + '">' + esc(nm) + '<span class="sm">' + (f ? 'eat & drink' : 'sight') + '</span></a><span class="ops">' +
+      return '<li class="stop"><span class="n" aria-hidden="true">' + (i + 1) + '</span><a class="go" href="#p-' + esc(id) + '"><span class="vh">Stop ' + (i + 1) + ': </span>' + esc(nm) + '<span class="sm">' + (f ? 'eat & drink' : 'sight') + '</span></a><span class="ops">' +
         '<button type="button" class="btn btn-ghost" data-dy="up" data-i="' + i + '" aria-label="Move ' + esc(nm) + ' earlier"' + (i ? '' : ' disabled') + '>' + icon('up') + '</button>' +
         '<button type="button" class="btn btn-ghost" data-dy="down" data-i="' + i + '" aria-label="Move ' + esc(nm) + ' later"' + (i < ids.length - 1 ? '' : ' disabled') + '>' + icon('down') + '</button>' +
         '<button type="button" class="btn btn-ghost" data-dy="rm" data-i="' + i + '" aria-label="Remove ' + esc(nm) + ' from your day">' + icon('close') + '</button></span>' +
-        (i < ids.length - 1 ? '<span class="leg">' + fmt(legs[i + 1]) + ' to the next stop, straight-line</span>' : '') + '</li>';
+        (i < ids.length - 1 ? '<p class="leg">' + fmt(legs[i + 1]) + ' straight-line to stop ' + (i + 2) + '</p>' : '') + '</li>';
     };
     var g = 'https://www.google.com/maps/dir/?api=1&amp;travelmode=walking&amp;origin=' + pts[0].join(',') + '&amp;destination=' + pts[pts.length - 1].join(',') +
       (pts.length > 2 ? '&amp;waypoints=' + encodeURIComponent(pts.slice(1, -1).map(function (p) { return p.join(','); }).join('|')) : '');
-    return '<div class="day"><span class="eyebrow">Your day · ' + esc(info.name) + '</span><h2>A day in ' + esc(name) + '</h2>' +
-      '<div class="tot"><span><b>' + ids.length + '</b>stops</span><span><b>' + fmt(tot) + '</b>straight-line total</span><span><b>' + food + '</b>' + (food === 1 ? 'place to eat' : 'places to eat') + '</span></div>' +
-      '<p class="honest">' + (edited(a) ? 'Your version of the guide’s day. ' : 'Built from the guide’s own picks: open places with a verified pin, close together. ') +
-      esc(info.dl || 'Suggested by the guide from sourced picks — check hours before you go. Distances are straight-line, not walking routes.') + '</p>' +
-      '<ol>' + ids.map(row).join('') + '</ol>' +
-      '<div class="row"><button type="button" class="btn btn-primary" data-dy="share">' + icon('share') + '<span>Share this day</span></button>' +
-      '<a class="btn btn-ghost" href="' + g + '"' + NT + '>' + icon('directions') + '<span>Route in Google Maps</span></a>' +
+    // DES 15.10 (d): header → .daysum → .caveat → .sharebar → ol.stops (compact rows; the cards follow below, in stop order)
+    return '<section class="day" aria-labelledby="day-h"><header><span class="eyebrow">Your day · ' + esc(info.name) + '</span><h2 id="day-h">A day in ' + esc(name) + '</h2></header>' +
+      '<div class="daysum"><div><b>' + ids.length + '</b><span>stops</span></div><div><b>' + fmt(tot) + '</b><span>straight-line total</span></div><div><b>' + food + '</b><span>' + (food === 1 ? 'place to eat' : 'places to eat') + '</span></div></div>' +
+      '<p class="caveat">' + (edited(a) ? 'Your version of the guide’s day. ' : '') + esc(info.dl || 'Suggested by the guide from sourced picks — check hours before you go. Distances are straight-line, not walking routes.') + '</p>' +
+      '<div class="sharebar"><button type="button" class="btn btn-primary" data-dy="share">' + icon('share') + '<span>Share this day</span></button>' +
+      '<a class="btn btn-ghost" href="' + g + '"' + NT + '>' + icon('directions') + '<span>Open in maps</span></a>' +
       '<button type="button" class="btn btn-ghost" data-dy="kml">Export KML</button>' +
       '<button type="button" class="btn btn-ghost" data-dy="save">' + icon('heart') + '<span>Save all</span></button>' +
       '<button type="button" class="btn btn-ghost map-only" data-cleo-map="">' + icon('map') + '<span>Map</span></button>' +
-      (edited(a) ? '<button type="button" class="btn btn-quiet" data-dy="reset">Reset to the guide’s day</button>' : '') + all + '</div>' + more + '</div>';
+      (edited(a) ? '<button type="button" class="btn btn-quiet" data-dy="reset">Reset to the guide’s day</button>' : '') + all + '</div>' +
+      '<ol class="stops">' + ids.map(row).join('') + '</ol>' + more + '</section>';
   };
   // route on the map: dashed line in stop order + numbered stops; fitted when the day opens
   var drawn = '';
@@ -59,7 +59,7 @@
     if (!C.S.day || !map || !L) { drawn = ''; return; }
     var ids = stops(C.S.day); if (ids.length < 2) return;
     var pts = ids.map(ll), accent = (getComputedStyle(d.getElementById('main')).getPropertyValue('--city') || '').trim() || '#C23A1C';
-    layer = L.layerGroup([L.polyline(pts, { color: accent, weight: 3, opacity: 0.9, dashArray: '6 7', interactive: false })].concat(pts.map(function (p, i) {
+    layer = L.layerGroup([L.polyline(pts, { className: 'day-route', color: accent, weight: 3.5, opacity: 0.95, dashArray: '1 9', lineCap: 'round', interactive: false })].concat(pts.map(function (p, i) {
       return L.circleMarker(p, { radius: 9, weight: 2, color: '#fff', fillColor: accent, fillOpacity: 1 })
         .bindTooltip(String(i + 1), { permanent: true, direction: 'center', className: 'pin-n day', opacity: 1 })
         .on('click', function () { C.go({ day: C.S.day, p: ids[i] }); });

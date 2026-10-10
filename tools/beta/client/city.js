@@ -30,6 +30,14 @@
   const nameOf = c => { const a = $('.pl-n a', c); if (!a) return ''; const x = a.cloneNode(true); if (c.querySelector('.pl-vert')) $$('.nat', x).forEach(v => v.remove()); return x.textContent.trim(); };
   const C = Cleo.city = { name: nameOf, byId, info, key, pid, been, desk, esc, icon, trap, cards, S, lens: {}, after: [], rank: null, why: null, dist: null };
   $$('[data-cleo-rail],[data-cleo-toolbar]').forEach(el => { el.hidden = false; });
+  // For you / Near me (foryou.js) and Your day (day.js) load on first use — a tap, a stored interest or a #day= route
+  const need = C.need = (n, cb) => {
+    if (n === 'foryou' ? C.fy : C.day) { if (cb) cb(); return; }
+    const q = need.q[n] = need.q[n] || []; q.push(cb); if (q.length > 1) return;
+    const s = d.createElement('script'); s.src = (Cleo.root || '../') + 'assets/js/' + n + '.js?v=' + ((info.js || {})[n] || ''); s.async = true;
+    s.onload = () => q.splice(0).forEach(f => f && f()); d.head.appendChild(s);
+  };
+  need.q = {};
   const rail = $('#cleo-rail'), shown = $('#cleo-shown'), lens = $('#cleo-lens'), applied = $('[data-cleo-applied]'), fi = $('#cleo-filter'), split = $('.split');
   const shown0 = shown ? shown.innerHTML : '';
   const go = C.go = (r, rep) => Cleo.route.go(r, rep);
@@ -42,9 +50,9 @@
     if ((b = t.closest('button[data-mode]'))) { const r = cur(); r.mode = at(b, 'data-mode') === 'all' ? '' : at(b, 'data-mode'); go(r); }
     else if ((b = t.closest('[data-cleo-all]'))) { S.q = ''; if (fi) fi.value = ''; go({}); }
     else if ((b = t.closest('[data-cleo-mine]'))) go(S.mine ? {} : { mine: '1' });
-    else if ((b = t.closest('[data-cleo-foryou]'))) { if (C.fy) C.fy.open(b); }
-    else if ((b = t.closest('[data-cleo-near]'))) { if (C.near) C.near(b); }
-    else if ((b = t.closest('[data-cleo-day]'))) { if (C.day) C.day.open(at(b, 'data-cleo-day')); }
+    else if ((b = t.closest('[data-cleo-foryou]'))) need('foryou', () => C.fy.open(b));
+    else if ((b = t.closest('[data-cleo-near]'))) need('foryou', () => C.near(b));
+    else if ((b = t.closest('[data-cleo-day]'))) need('day', () => C.day.open(at(b, 'data-cleo-day')));
     else if ((b = t.closest('.rail-i'))) { const k = RAIL.filter(x => b.hasAttribute('data-' + x))[0], o = {}; if (k && S[k] !== at(b, 'data-' + k)) o[k] = at(b, 'data-' + k); go(o); }
     else if ((b = t.closest('.pl-s button.src'))) { e.preventDefault(); go({ src: at(b, 'data-src') }); }
     else if ((b = t.closest('[data-rail]'))) rail.scrollBy({ left: +at(b, 'data-rail') * rail.clientWidth * 0.8, behavior: 'smooth' });
@@ -79,10 +87,11 @@
       if (li.some((x, i) => ol.children[i] !== x)) li.forEach(x => ol.appendChild(x));
     });
     cards.forEach(c => { const v = visible(c); c.hidden = !v; if (v) { n++; areas[at(c, 'data-a')] = 1; }
+      // DES 15.10 hooks on the eyebrow: .pl-why (For you) and .pl-dist (Near me)
       const y = C.why && C.why(c), w = $('.pl-why', c);
-      if (y) { if (!w) $('.pl-n', c).insertAdjacentHTML('afterend', '<p class="pl-why"></p>'); $('.pl-why', c).innerHTML = icon('spark') + '<span>' + esc(y) + '</span>'; } else if (w) w.remove();
-      const dk = $('.pl-km', c), dv = C.dist && C.dist[pid(c)];
-      if (dv != null) { if (!dk) $('.pl-e', c).insertAdjacentHTML('beforeend', ' <span class="pl-km"></span>'); $('.pl-km', c).textContent = '· ' + (dv < 1 ? Math.round(dv * 1000 / 10) * 10 + ' m' : dv.toFixed(1) + ' km') + ' away'; } else if (dk) dk.remove();
+      if (y) { if (!w) $('.pl-e', c).insertAdjacentHTML('beforeend', ' <span class="pl-why"></span>'); $('.pl-why', c).textContent = y; } else if (w) w.remove();
+      const dk = $('.pl-dist', c), dv = C.dist && C.dist[pid(c)];
+      if (dv != null) { if (!dk) $('.pl-e', c).insertAdjacentHTML('beforeend', ' <span class="pl-dist"></span>'); $('.pl-dist', c).textContent = (dv < 1 ? Math.round(dv * 100) * 10 + ' m' : dv.toFixed(1) + ' km') + ' away'; } else if (dk) dk.remove();
     });
     sections.forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden]),noscript[data-cleo-defer]'); });
     if (sections.length > 1) {   // Near me: the nearest area comes first; otherwise the guide's area order
@@ -108,7 +117,7 @@
     } else if (lk === 'gap') { const g = (info.gaps || [])[+S.gap] || ['', '']; h = gap('<p class="d3">' + esc(g[0]) + '</p><p>“' + esc(g[1]) + '”</p>') + '<div class="row">' + all + '</div>'; }
     else if (lk) h = '<h2>' + esc(label(lk, S[lk])) + '</h2><p>' + pl(n) + ' across ' + ar(nA) + (lk === 't' ? ', graded within each area' : '') + ' — numbered to match the map.</p>' +
       (lk === 'cz' ? (info.gaps || []).filter(x => x[2].indexOf(S.cz) >= 0).map(x => gap('<p>“' + esc(x[1]) + '”</p>')).join('') : '') + '<div class="row">' + all + '</div>';
-    if (lens) { lens.innerHTML = h; lens.hidden = !h; }
+    if (lens) { lens.innerHTML = h; lens.hidden = !h; lens.classList.toggle('is-day', lk === 'day'); }
     const chips = act.filter(k => k !== 'day').concat(S.q ? ['q'] : []);
     if (applied) applied.innerHTML = chips.map(k => { const l = esc(label(k, k === 'q' ? S.q : S[k])); return '<button class="chip-x" data-unset="' + k + '" aria-label="Remove ' + l + '">' + l + icon('close') + '</button>'; }).join('') +
       (chips.length > 1 ? '<button class="clear" data-cleo-all>Clear all</button>' : '');
@@ -127,6 +136,7 @@
   const onRoute = C.onRoute = () => {
     const r = Cleo.route.parse(), mm = /^#p-(.+)$/.exec(location.hash);
     if (mm && byId[decodeURIComponent(mm[1])]) r.p = decodeURIComponent(mm[1]);
+    if (r.day && !C.day) need('day', () => C.apply());
     S.mode = r.mode === 'sights' || r.mode === 'food' ? r.mode : 'all';
     LENS.forEach(k => { S[k] = r[k] || ''; }); S.sort = r.sort || '';
     if (r.q !== undefined) { S.q = r.q; if (fi) fi.value = r.q; }
@@ -168,7 +178,7 @@
       btn.setAttribute('aria-pressed', String(o)); btn.textContent = o ? 'Saved' : 'Save'; btn.setAttribute('aria-label', (o ? 'Saved: ' : 'Save ') + $('.pl-n', c).textContent);
       if (b[ref] && !st) c.insertAdjacentHTML('beforeend', '<span class="stamp">Been<br>there</span>'); else if (!b[ref] && st) c.removeChild(st);
     });
-    const mine = $('[data-cleo-mine]'), nm = cards.filter(c => s[key + '/' + pid(c)]).length;
+    const mine = $('[data-cleo-mine]'), nm = Object.keys(s).filter(r => r.slice(0, r.lastIndexOf('/')) === key).length;
     if (mine) { mine.hidden = !nm && !S.mine; $('[data-cleo-mine-n]', mine).textContent = nm; $('[data-cleo-mine-n]', mine).className = 'n' + (nm === 1 ? ' one' : ''); }
   };
   on(d, 'cleo:saved', () => { paint(); if (S.mine) apply(); });
@@ -207,7 +217,8 @@
     if (k === 'base') C.setBase(v); else if (k) P[k] = P[k] === v && k !== 'sort' && k !== 'been' ? '' : v;
     else if (a === 'clear') TK.forEach(x => { P[x] = ''; });
     else if (a === 'x') { T.close(); return; }
-    else if (a === 'go') { const r = {}; if (S.mode !== 'all') r.mode = S.mode; TK.forEach(x => { if (P[x]) r[x] = P[x]; }); T.close(true, () => go(r)); return; }
+    else if (a === 'go') { const r = {}; if (S.mode !== 'all') r.mode = S.mode; TK.forEach(x => { if (P[x]) r[x] = P[x]; });
+      T.close(true, () => { go(r); if (r.sort === 'near' && !C.dist) need('foryou', () => C.near()); }); return; }
     tpaint();
   });
   if (tray) trap(tray, () => T.close());
@@ -298,5 +309,6 @@
 
   paint();
   onRoute();
+  if ((store.get('interests', []) || []).length) need('foryou');
   if (desk()) { if (window.requestIdleCallback) requestIdleCallback(() => loadMap(), { timeout: 1500 }); else setTimeout(loadMap, 300); }
 })();

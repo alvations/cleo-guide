@@ -15,30 +15,35 @@
       return k === 'k' ? c.getAttribute('data-k') === v : has(c, k === 'c' ? 'data-g' : 'data-cz', v); });
   };
   var why = function (c) { return c.hasAttribute('data-closed') ? [] : FY.filter(function (f) { return on.indexOf(f[0]) >= 0 && hit(c, f[3]); }); };
+  var GL = { history: 'castle', food: 'bowl', pop: 'tv', outdoors: 'mountain', art: 'columns' };   // picker glyphs (city sprite)
   var names = function (l) { return l.map(function (f) { return f[1]; }).join(' · '); };
 
   function set(list) {
     on = valid(list); store.set('interests', on);
     C.rank = on.length ? function (c) { return -why(c).length; } : null;
-    C.why = on.length ? function (c) { var w = why(c); if (!w.length || C.S.day) return '';
-      return 'First because: ' + names(w) + (c.getAttribute('data-t') === '1' ? ' · Must see in ' + C.label('a', c.getAttribute('data-a')) : ''); } : null;
+    C.why = on.length ? function (c) { var w = why(c); return !w.length || C.S.day ? '' : 'First because: ' + names(w); } : null;
     var t = d.querySelector('[data-cleo-foryou]');
     if (t) { t.setAttribute('aria-pressed', String(!!on.length));
       t.querySelector('.d').textContent = on.length ? names(FY.filter(function (f) { return on.indexOf(f[0]) >= 0; })) + ' first' : 'Tell it what you love'; }
     C.apply();
   }
-  // one visible line above the list while it is on (one control: Change)
+  // DES 15.10 .because: one line above the list while it is on (one control: Change); and the Near me note
+  var line = function (id, cls) { var el = d.getElementById(id); if (!el) { d.getElementById('cleo-shown').insertAdjacentHTML('beforebegin', '<p class="' + cls + '" id="' + id + '" hidden></p>'); el = d.getElementById(id); } return el; };
   C.after.push(function () {
-    var el = d.getElementById('cleo-fyline'), sh = d.getElementById('cleo-shown');
-    if (!on.length || C.S.day) { if (el) el.hidden = true; return; }
-    if (!el) { sh.insertAdjacentHTML('beforebegin', '<p class="shown" id="cleo-fyline"></p>'); el = d.getElementById('cleo-fyline'); }
-    el.hidden = false;
-    el.innerHTML = icon('spark') + ' Your guide puts <b>' + esc(names(FY.filter(function (f) { return on.indexOf(f[0]) >= 0; }))) + '</b> first in every area — all ' + C.cards.length +
-      ' places are still here, numbers still match the map. <button type="button" class="btn btn-quiet" data-cleo-foryou>Change</button>';
+    var el = line('cleo-fyline', 'because'), ch = FY.filter(function (f) { return on.indexOf(f[0]) >= 0; });
+    el.hidden = !on.length || !!C.S.day;
+    if (!el.hidden) {
+      var n = C.cards.filter(function (c) { return why(c).length; }).length;
+      el.innerHTML = '<span><b>First because you picked ' + esc(ch.map(function (f) { return f[1]; }).join(' and ')) + ':</b> ' + n + ' places from those collections move up in their area. <span class="n">All ' + C.info.total + ' are still here.</span></span>' +
+        '<button type="button" data-cleo-foryou>Change</button>';
+    }
+    var nn = line('cleo-nearline', 'shown device-note');
+    nn.hidden = !(C.dist && C.S.sort === 'near');
+    if (!nn.hidden) nn.innerHTML = '<b>Nearest first.</b> Using your location for this visit only — never stored or sent. <button type="button" class="btn btn-quiet" data-cleo-near>Turn off</button>';
   });
 
   function paint() {
-    [].forEach.call(host.querySelectorAll('.pill[data-i]'), function (b) { b.setAttribute('aria-pressed', String(pick.indexOf(b.getAttribute('data-i')) >= 0)); });
+    [].forEach.call(host.querySelectorAll('[data-i]'), function (b) { b.setAttribute('aria-pressed', String(pick.indexOf(b.getAttribute('data-i')) >= 0)); });
   }
   function close() { if (host.hidden) return; host.hidden = true; host.innerHTML = ''; d.body.style.overflow = ''; if (opener && opener.focus) opener.focus(); }
   C.fy = {
@@ -51,18 +56,19 @@
       };
       host.innerHTML = '<div class="tray fy" role="dialog" aria-modal="true" aria-labelledby="fy-h"><header><h2 id="fy-h">Your guide · ' + esc(C.info.name) + '</h2>' +
         '<button type="button" class="btn btn-icon" data-fy="x" aria-label="Close">' + icon('close') + '</button></header><div class="scroll">' +
-        '<p class="d3">Who’s showing you around?</p><p class="intro">Tell your guide what you’re into. It puts those places first in every area — all ' + C.cards.length +
-        ' places stay in the list and on the map.</p><fieldset><legend>I’m into…</legend><div class="opts">' +
-        FY.map(function (f) { return '<button type="button" class="pill" data-i="' + esc(f[0]) + '" aria-pressed="false"><span>' + esc(f[1]) + '<span class="s">' + esc(sub(f)) + '</span></span><span class="n">' + f[2] + '</span></button>'; }).join('') +
-        '</div></fieldset><p class="sm">Remembered on this device only. No account, nothing sent anywhere.</p></div>' +
+        '<p class="d3">Who’s showing you around?</p><p class="intro">Tell your guide what you’re into. It puts those places first in every area — all ' + C.info.total +
+        ' places stay in the list and on the map.</p><fieldset><legend>I’m into…</legend>' +
+        '<ul class="interests">' + FY.map(function (f) { return '<li><button type="button" class="interest" data-i="' + esc(f[0]) + '" aria-pressed="false"><span class="glyph">' + icon(GL[f[0]] || 'spark') + '</span>' +
+          '<span><b>' + esc(f[1]) + '</b><span class="d">' + f[2] + ' of ' + C.info.total + ' ' + esc(C.info.name) + ' places' + (sub(f) ? ' · ' + esc(sub(f)) : '') + '</span></span><span class="tick" aria-hidden="true"></span></button></li>'; }).join('') + '</ul>' +
+        '</fieldset><p class="sm">Remembered on this device only. No account, nothing sent anywhere.</p></div>' +
         '<footer><button type="button" class="btn btn-quiet" data-fy="reset">Reset</button><button type="button" class="btn btn-primary" data-fy="go">Show me ' + esc(C.info.name) + ' my way</button></footer></div>';
       host.hidden = false; d.body.style.overflow = 'hidden'; paint();
-      var f = host.querySelector('.pill'); (f || host.querySelector('[data-fy="x"]')).focus();
+      var f = host.querySelector('[data-i]'); (f || host.querySelector('[data-fy="x"]')).focus();
     }
   };
   C.trap(host, close);
   host.addEventListener('click', function (e) {
-    var t = e.target, b = t.closest && t.closest('[data-fy],.pill');
+    var t = e.target, b = t.closest && t.closest('[data-fy],[data-i]');
     if (t === host) { close(); return; } if (!b) return;
     var i = b.getAttribute('data-i'), a = b.getAttribute('data-fy');
     if (i) { var k = pick.indexOf(i); if (k >= 0) pick.splice(k, 1); else pick.push(i); paint(); }
@@ -73,12 +79,13 @@
 
   /* ---- Near me (M3-02) ---- */
   var R = Math.PI / 180, km = function (a, b, c, e) { var h = Math.pow(Math.sin((c - a) * R / 2), 2) + Math.cos(a * R) * Math.cos(c * R) * Math.pow(Math.sin((e - b) * R / 2), 2); return 12742 * Math.asin(Math.sqrt(h)); };
-  var toast = function (m) { if (Cleo.emit) Cleo.emit('cleo:toast', m); }, want = false;
+  var toast = function (m) { if (Cleo.emit) Cleo.emit('cleo:toast', m); };
   var tile = function (p) { var t = d.querySelector('[data-cleo-near]'); if (t) { t.setAttribute('aria-pressed', String(p)); t.removeAttribute('aria-busy'); } };
   C.near = function (b) {
     if (C.dist && b && b.hasAttribute('data-cleo-near')) { C.dist = null; tile(false); var r0 = Cleo.route.parse(); if (r0.sort === 'near') delete r0.sort; C.go(r0); C.apply(); return; }
     if (!navigator.geolocation) { toast('This browser can’t share a location. Every place is still listed.'); return; }
     var t = d.querySelector('[data-cleo-near]'); if (t) t.setAttribute('aria-busy', 'true');
+    if (Cleo.defer) Cleo.defer.all();                                // every place needs its distance (M3-06 progressive render)
     navigator.geolocation.getCurrentPosition(function (pos) {
       var la = pos.coords.latitude, ln = pos.coords.longitude, dist = {}, min = 1e9;
       C.cards.forEach(function (c) { var ll = (c.getAttribute('data-ll') || '').split(','); if (ll.length === 2) { var v = km(la, ln, +ll[0], +ll[1]); dist[C.pid(c)] = v; if (v < min) min = v; } });
@@ -90,8 +97,6 @@
       toast(err && err.code === 1 ? 'Location is off for this site, so nothing changed. Every place is still listed.' : 'We couldn’t get your location. Every place is still listed.');
     }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 });
   };
-  d.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('.pill[data-f="sort"][data-v="near"]')) want = true; });
-  C.after.push(function () { if (want && C.S.sort === 'near' && !C.dist) { want = false; C.near(); } });
 
   if (on.length) set(on);
 })();

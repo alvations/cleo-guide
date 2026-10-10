@@ -6,7 +6,7 @@
  * No account, no network calls beyond this site's own datasets. */
 (function () {
   'use strict';
-  var Cleo = window.Cleo || {}, d = document, box = d.getElementById('saved');
+  var Cleo = window.Cleo || {}, d = document, box = d.getElementById('cleo-saved');
   if (!box || !Cleo.saved || !Cleo.store) return;
   var st = Cleo.store, NT = ' rel="noopener" target="_blank"';
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
@@ -39,46 +39,51 @@
   }
   var ll = function (p) { return p && p.la != null ? p.la + ',' + p.ln : ''; };
 
+  // the normal place card (.pl, DES contract) — cover plate, eyebrow, name, write-up, Recommended by, Save; + list actions
   function card(ref, i, S) {
     var k = pg(ref), id = idOf(ref), D = data[k], p = D && D.by[id];
     if (!p) return '';
     var closed = /\bclosed\b/i.test((p.pv || {}).status || '') || / [—–-]+ CLOSED\b/.test(p.n);
-    var nat = p.nat && p.n.indexOf('(' + p.nat + ')') >= 0 ? p.nat : '', base = nat ? p.n.replace(' (' + nat + ')', '').replace('(' + nat + ')', '') : p.n;
+    var nat = p.nat && p.n.slice(-p.nat.length - 2) === '(' + p.nat + ')' ? p.nat : '', base = nat ? p.n.slice(0, -nat.length - 2).trim() : p.n;
     var g = Array.from(nat || ''), area = D.ar[p.a] || '', col = /^#/.test(D.col[p.a] || '') ? D.col[p.a] : 'var(--city)';
     var srcs = (p.src || []).filter(function (x) { return x !== 'guide'; }).map(function (x) { return D.src[x] || x; });
     var href = D.href + '#p=' + encodeURIComponent(id), saved = Cleo.saved.has(ref), b = !!been()[ref], pos = ll(p);
     var inL = lists().map(function (l) { return '<label><input type="checkbox" data-sl="' + esc(l.id) + '" data-ref="' + esc(ref) + '"' + (l.r.indexOf(ref) >= 0 ? ' checked' : '') + '>' + esc(l.n) + '</label>'; }).join('');
-    var tier = closed ? 'Closed since it was saved — kept for the record' + ((p.pv || {}).checked ? ', checked ' + esc(p.pv.checked) : '')
-      : '<span class="t' + p.t + '">' + ['', 'Must see', 'Worth the detour', 'Deep cut'][p.t] + '</span> · ' + esc(area) + ' · ' + esc(D.name);
-    return '<li class="sv-c' + (closed ? ' closed' : '') + '" id="sv-' + esc(k.replace(/\//g, '--') + '-' + id) + '" style="--area:' + esc(col) + '"><div class="sv-cv" aria-hidden="true"><span class="no">' + (i + 1) + '</span>' +
-      (g.length && g.length <= 6 ? '<span class="v">' + esc(g.join('')) + '</span>' : '<span class="i">' + esc((base.replace(/^(The|La|Le|El|Il)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || ['·'])[0]) + '</span>') + '</div>' +
-      '<div class="sv-b"><p class="sv-e">' + tier + '</p><h3 class="sv-n"><a href="' + esc(href) + '">' + esc(base) + (nat ? '<span class="nat">' + esc(nat) + '</span>' : '') + '</a></h3>' +
-      (p.w ? '<p class="sv-w">' + esc(p.w) + '</p>' : '') +
-      '<p class="sv-s"><b>Recommended by</b> ' + (srcs.length ? esc(srcs.slice(0, 3).join(', ')) + (srcs.length > 3 ? ' +' + (srcs.length - 3) : '') : 'Added by the guide (general knowledge)') + '</p>' +
+    var eye = closed ? 'Closed since it was saved — kept for the record' + ((p.pv || {}).checked ? ', checked ' + esc(p.pv.checked) : '')
+      : '<span class="tier t' + p.t + '">' + ['', 'Must see', 'Worth the detour', 'Deep cut'][p.t] + '</span> <span class="in">· ' + esc(area) + ' · ' + esc(D.name) + '</span>';
+    return '<li class="pl' + (closed ? ' pl--closed' : '') + '" id="sv-' + esc(k.replace(/\//g, '--') + '-' + id) + '" data-t="' + p.t + '"' + (closed ? ' data-closed' : '') + ' style="--area:' + esc(col) + '">' +
+      '<div class="pl-cover" aria-hidden="true">' + (g.length && g.length <= 7 ? '<span class="pl-vert' + (g.length > 4 ? ' long' : '') + '">' + esc(g.join('')) + '</span>'
+        : '<span class="pl-ini">' + esc((base.replace(/^(The|La|Le|El|Il)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || ['·'])[0]) + '</span>') + '</div>' +
+      '<p class="pl-e"><span class="pl-num" aria-label="Number ' + (i + 1) + ' on the map">' + (i + 1) + '</span> ' + eye + '</p>' +
+      '<h3 class="pl-n"><a href="' + esc(href) + '">' + esc(base) + (nat ? ' <span class="nat">(' + esc(nat) + ')</span>' : '') + '</a></h3>' +
+      (p.w ? '<p class="pl-w">' + esc(p.w) + '</p>' : '') +
+      '<p class="pl-s"><span class="lbl">Recommended by</span> <span>' + (srcs.length ? esc(srcs.slice(0, 3).join(', ')) + (srcs.length > 3 ? ' +' + (srcs.length - 3) : '') : 'Added by the guide (general knowledge)') + '</span></p>' +
+      (S.shared ? '' : '<p class="pl-x"><button type="button" class="pl-save" data-sv="save" data-ref="' + esc(ref) + '" aria-pressed="' + saved + '" aria-label="' + (saved ? 'Saved: ' : 'Save ') + esc(base) + '">' + (saved ? 'Saved' : 'Save') + '</button></p>') +
       '<div class="sv-x">' + (S.shared ? '' :
-        '<button type="button" class="btn btn-ghost" data-sv="save" data-ref="' + esc(ref) + '" aria-pressed="' + saved + '">' + ico('heart') + (saved ? 'Saved' : 'Save') + '</button>' +
         '<details><summary class="btn btn-ghost">' + ico('list') + 'Lists</summary><div class="pop">' + (inL || '<span class="sm">No named lists yet — make one with “New list”.</span>') + '</div></details>' +
         '<button type="button" class="btn btn-ghost" data-sv="been" data-ref="' + esc(ref) + '" aria-pressed="' + b + '">' + ico('stamp') + (b ? 'Been there ✓' : 'Been there') + '</button>') +
       (pos ? '<details><summary class="btn btn-ghost">' + ico('directions') + 'Open in maps</summary><div class="pop">' +
         '<a class="btn btn-quiet" href="https://maps.apple.com/?daddr=' + pos + '"' + NT + '>Apple Maps</a><a class="btn btn-quiet" href="https://www.google.com/maps/search/?api=1&amp;query=' + pos + '"' + NT + '>Google Maps</a>' +
-        '<a class="btn btn-quiet" href="https://www.openstreetmap.org/?mlat=' + p.la + '&amp;mlon=' + p.ln + '#map=17/' + p.la + '/' + p.ln + '"' + NT + '>OpenStreetMap</a></div></details>' : '') + '</div></div>' +
-      (b ? '<span class="sv-stamp" aria-label="Been there">BEEN<br>THERE</span>' : '') + '</li>';
+        '<a class="btn btn-quiet" href="https://www.openstreetmap.org/?mlat=' + p.la + '&amp;mlon=' + p.ln + '#map=17/' + p.la + '/' + p.ln + '"' + NT + '>OpenStreetMap</a></div></details>' : '') + '</div>' +
+      (b ? '<span class="stamp">Been<br>there</span>' : '') + '</li>';
   }
 
   function paint() {
     var S = state(), ls = lists(), s = Cleo.saved.all(), b = been();
     var keys = S.refs.map(pg).filter(function (k, i, a) { return k && a.indexOf(k) === i; });
-    var tabs = S.shared ? '' : '<nav class="sv-tabs" aria-label="Your lists">' +
+    var tabs = S.shared ? '' : '<nav class="sv-tabs listtabs" aria-label="Your lists">' +
       [['all', 'All saved', Object.keys(s).length], ['been', 'Been there', Object.keys(b).length]].concat(ls.map(function (l) { return [l.id, l.n, l.r.length]; }))
-        .map(function (t) { return '<a class="pill" href="#v=' + encodeURIComponent(t[0]) + '" aria-current="' + (S.v === t[0]) + '">' + esc(t[1]) + '<span class="n">' + t[2] + '</span></a>'; }).join('') +
-      '<button type="button" class="pill" data-sv="new">' + ico('plus') + 'New list</button></nav>';
-    var acts = '<div class="sv-acts">' + (S.shared ? '<button type="button" class="btn btn-primary" data-sv="copy">' + ico('copy') + 'Save a copy</button>'
-      : '<button type="button" class="btn btn-primary" data-sv="share"' + (S.refs.length ? '' : ' disabled') + '>' + ico('share') + 'Share this list</button>') +
+        .map(function (t) { return '<button type="button" class="pill" data-sv="tab" data-v="' + esc(t[0]) + '" aria-pressed="' + (S.v === t[0]) + '">' + esc(t[1]) + '<span class="n">' + t[2] + '</span></button>'; }).join('') +
+      '<button type="button" class="pill new" data-sv="new">' + ico('plus') + 'New list</button></nav>';
+    var acts = (S.list ? '<div class="listmenu"><button type="button" class="btn btn-ghost" data-sv="rename">' + ico('edit') + 'Rename</button><button type="button" class="btn btn-quiet danger" data-sv="delete">Delete list</button></div>' : '') +
+      '<div class="sv-acts exportbar"><span class="lbl">Take it with you</span>' + (S.shared ? ''
+      : '<button type="button" class="btn btn-primary" data-sv="share"' + (S.refs.length ? '' : ' disabled') + '>' + ico('share') + 'Share link</button>') +
       (S.refs.length ? '<details class="exp"><summary class="btn btn-ghost">' + ico('download') + 'Export</summary><div class="pop"><button type="button" class="btn btn-quiet" data-sv="kml">KML (Google Earth, My Maps)</button>' +
         '<button type="button" class="btn btn-quiet" data-sv="geojson">GeoJSON</button>' + (S.shared ? '' : '<button type="button" class="btn btn-quiet" data-sv="json">Backup of all lists (JSON)</button>') + '</div></details>' : '') +
       (S.shared ? '' : '<button type="button" class="btn btn-ghost" data-sv="pick">Import backup</button><input type="file" accept="application/json,.json" data-sv="import" hidden>') +
-      (S.list ? '<button type="button" class="btn btn-ghost" data-sv="rename">' + ico('edit') + 'Rename</button><button type="button" class="btn btn-quiet" data-sv="delete">Delete list</button>' : '') + '</div>';
-    var head = S.shared ? '<div class="sv-banner"><span class="eyebrow">Shared with you · read-only</span><h2>' + esc(S.name) + '</h2><p>' + S.refs.length + ' places, sent as a link — nothing was stored on a server. Save a copy to keep it on this device.</p></div>' : '';
+      '</div>';
+    var head = S.shared ? '<div class="sv-banner banner shared"><span class="eyebrow">Shared with you</span><h2>' + esc(S.name) + '</h2><p>A shared list of ' + S.refs.length + ' places — read only. It came as a link; nothing was stored on a server.</p>' +
+      '<p><button type="button" class="btn" data-sv="copy">' + ico('copy') + 'Save a copy</button></p></div>' : '<div class="listhead"><span class="eyebrow">' + (S.list ? 'Your list' : 'Saved') + '</span><h2 class="d2">' + esc(S.name) + '</h2><p class="device-note">' + S.refs.length + (S.refs.length === 1 ? ' place' : ' places') + ' · saved on this device only — no account needed.</p></div>';
     box.innerHTML = '<div class="sv-top">' + head + tabs + acts + '<div id="sv-form"></div></div><div class="sv-split"><div class="sv-map" id="sv-map" role="img" aria-label="Map of the places in this list"><p class="note">The map appears when it can load. Every place is listed either way.</p></div><div id="sv-body"><p>Loading ' + S.refs.length + ' places…</p></div></div>';
     if (!S.refs.length) {
       d.getElementById('sv-body').innerHTML = '<div class="sv-empty"><h2>' + (S.v === 'been' ? 'No “been there” stamps yet' : S.list ? 'This list is empty' : 'Nothing saved yet') + '</h2><p>' +
@@ -91,13 +96,13 @@
       view = S.refs.filter(function (r) { return gone.indexOf(r) < 0; });
       var html = keys.map(function (k) {
         var D = data[k], rs = view.filter(function (r) { return pg(r) === k; }); if (!D || !rs.length) return '';
-        return '<section class="sv-city"><h2><a href="' + esc(D.href) + '">' + esc(D.name) + '</a><span class="sm">' + rs.length + (rs.length === 1 ? ' place' : ' places') + '</span></h2><ol class="sv-list">' +
-          rs.map(function (r) { return card(r, n++, S); }).join('') + '</ol></section>';
+        return '<section class="sv-city"><h2><a href="' + esc(D.href) + '">' + esc(D.name) + '</a><span class="sm">' + rs.length + (rs.length === 1 ? ' place' : ' places') + '</span></h2><ul class="saved-cards">' +
+          rs.map(function (r) { return card(r, n++, S); }).join('') + '</ul></section>';
       }).join('');
       // order the map numbers the same way the cards are numbered (grouped by city)
       view = [].concat.apply([], keys.map(function (k) { return view.filter(function (r) { return pg(r) === k; }); }));
-      if (gone.length) html += '<p class="sv-gone">' + gone.length + (gone.length === 1 ? ' saved place is' : ' saved places are') + ' no longer listed in a guide (' + esc(gone.map(idOf).join(', ')) + '). ' +
-        (S.shared ? 'The link may be older than the guide.' : '<button type="button" class="btn btn-quiet" data-sv="forget">Remove from this list</button>') + '</p>';
+      if (gone.length) html += '<ul class="saved-cards"><li class="gone">' + gone.length + (gone.length === 1 ? ' saved place is' : ' saved places are') + ' no longer listed in a guide (' + esc(gone.map(idOf).join(', ')) + '). ' +
+        (S.shared ? 'The link may be older than the guide.' : '<button type="button" class="btn btn-quiet" data-sv="forget">Remove from this list</button>') + '</li></ul>';
       d.getElementById('sv-body').innerHTML = html; drawMap();
     }, function () { d.getElementById('sv-body').innerHTML = '<p>' + S.refs.length + ' saved places. The guides’ data couldn’t load to show them; try again when online.</p>'; });
   }
@@ -142,7 +147,8 @@
   d.addEventListener('click', function (e) {
     var b = e.target.closest && e.target.closest('[data-sv]'); if (!b || b.tagName === 'INPUT') return;
     var k = b.getAttribute('data-sv'), S = state(), ref = b.getAttribute('data-ref'), ls = lists(), name = S.name;
-    if (k === 'save') { Cleo.saved.toggle(ref); }
+    if (k === 'tab') location.hash = '#v=' + encodeURIComponent(b.getAttribute('data-v'));
+    else if (k === 'save') { Cleo.saved.toggle(ref); }
     else if (k === 'been') { var bb = been(); if (bb[ref]) delete bb[ref]; else bb[ref] = 1; st.set('been', bb); paint(); }
     else if (k === 'share') Cleo.share(name + ' — Cleo', location.href.split('#')[0] + '#list=' + Cleo.listCodec.encode(S.refs) + '&n=' + encodeURIComponent(S.v === 'all' ? 'My Cleo list' : name));
     else if (k === 'copy') { var nl = { id: uid(), n: name, r: S.refs.slice() }; setLists(ls.concat([nl])); Cleo.saved.add(S.refs); location.hash = '#v=' + nl.id; toast('Saved a copy: “' + name + '”, ' + S.refs.length + ' places.'); }
