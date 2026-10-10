@@ -39,7 +39,7 @@ PAL = {
 # W2: a SECOND, decorative accent per skin (plate edge gradient, rule ornaments, tile glow). Never used for text or
 # actions, so it carries no contrast duty; the one-accent rule for actions (D-06) is unchanged.
 CITY2 = {  # light, dark
-  'vermilion': ('#1E3A6B', '#8FA8E0'),   # indigo against vermilion (ukiyo-e pairing)
+  'vermilion': ('#1E3A6B', '#8FA8E0'),   # indigo against vermilion (classic woodblock-print pairing)
   'moss':      ('#B5832A', '#E2B865'),   # autumn ginkgo
   'neon':      ('#2A6CB0', '#7DB4F0'),   # electric blue
   'lagoon':    ('#E07A5F', '#F2A48C'),   # coral
