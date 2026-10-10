@@ -653,3 +653,5 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - Top-10 gaps by lane: `design/beta/eval/ROUND-4.md`. Screenshots: `design/beta/eval/r4/`.
 - 2026-10-10 · **QA** · W4 full pass · session_015bFMDrayu1fp3qp2cKD3xm
   - **QA sign-off: YES on `8aa6fdf41f7651a29fe6f23a9f35cb48c279834b`** (clean pinned worktree). W4 probe `tools/beta/qa/w4.js` 45/45: Atlas default (consistent with FE-A's revert), switcher glyph, diacritics, cover variety, reduced motion, lazy Guidebook (Tokyo DOM 2,730), Tokyo ≈0.43 MB gzip, What changed on all 84 pages, hreflang, bars ≥24 px. Regressions: views.js 319/320 (record-prose INFO), W2 217/218 (QA-26). Details: BETA-QA.md → "Wave 4"; evidence `qa/beta-w4/`.
+
+- 2026-10-10 17:39Z · orchestrator · Round 4: 83.4 overall (A74 B85 C96 D89). QA W4 signed off YES on 8aa6fdf4, deployed via PR alvations/cleo-guide#6 (merge 5a323aec). The R4 evaluator is archived. Wrote `design/beta/eval/W5-BRIEFS.md` for the final round: three lanes (fe-a, designer, platform-feb), with QA continuing.
