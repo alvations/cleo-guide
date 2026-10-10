@@ -200,8 +200,8 @@ ${siteBar({ depth: 0, current: 'other', rel: 'accessibility.html' })}
   </ul>
   <h2 class="d2" id="contact">Tell us about a barrier</h2>
   <p>If something on Cleo is hard to use, please <a href="${esc(issue)}">open an issue on GitHub</a> with the page and what happened. You don't need to know the technical cause — “I couldn't reach the Close button with the keyboard on the Tokyo page” is exactly the kind of report we need.</p>
-  <p><a class="btn btn-primary" href="${esc(issue)}">Report an accessibility problem</a> <a class="btn btn-ghost" href="how-we-choose.html">How we choose places</a></p>
 </div>
+<div class="wrap" style="padding-bottom:32px"><p><a class="btn btn-primary" href="${esc(issue)}">Report an accessibility problem</a> <a class="btn btn-ghost" href="how-we-choose.html">How we choose places</a></p></div>
 </main>
 ${footer({ depth: 0, tabbar: true, current: 'other' })}
 </body>

@@ -30,7 +30,7 @@ const SETS = [
   { id: 'method', url: 'beta/how-we-choose.html' },
   { id: 'accessibility', url: 'beta/accessibility.html' },
   { id: 'landing-themes', url: 'beta/index.html', anchor: 'themes' },
-  { id: 'hub-us', url: 'beta/index.html', anchor: 'united-states' },
+  { id: 'hub-us', url: 'beta/index.html', anchor: 'us' },
   { id: 'hub-belgium', url: 'beta/Belgium/index.html' },
   { id: 'search-guides', url: 'beta/index.html?q=kyoto' },
   { id: 'archive', url: 'beta/Singapore/singapore-old.html' },
