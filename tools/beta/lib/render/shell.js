@@ -57,10 +57,6 @@ function styles(depth) {
 }
 
 
-/* B5 shell rules (2252f7a) not yet in design/beta/css/contract.css — DES: fold §3b, then delete this. */
-const B5_CSS = '@media(max-width:899px){.topbar .crumbs .c0,.topbar .crumbs .c0+.sep{display:inline-flex}.topbar .crumbs a~.sep,.topbar .crumbs a~.here{display:none}.topbar .crumbs a::before{content:"\\2039";margin-right:4px}[data-cleo-shell=topbar] .theme-toggle{display:none}}' +
-  '.footer .theme-toggle{color:var(--on-night);width:auto;padding:0 12px;border-radius:999px;gap:8px;display:inline-flex}';
-
 // ---------------------------------------------------------------- icons (inline sprite, no network)
 const ICONS = {
   search: '<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',
@@ -116,7 +112,6 @@ function siteBar({ depth, current, rel, onNight = false }) {
   const up = '../'.repeat(depth);
   const cur = k => current === k ? ' aria-current="page"' : '';
   return `${sprite()}<a class="skip" href="#main">Skip to content</a>
-<style>${B5_CSS}</style>
 <header class="topbar${onNight ? ' on-night' : ''}" data-cleo-shell="topbar"><div class="wrap">
   <a class="brand" href="${up}index.html" aria-label="Cleo — all destinations">${MARK}<b>cleo</b><small>field guides</small></a>
   ${crumbs(rel, up)}
