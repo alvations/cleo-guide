@@ -614,3 +614,4 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - Screenshots: `design/beta/eval/w4/designer/*-{m,d}-{before,after}.png`.
   - Gates: validate, npm test, beta:check all PASS.
   - Designer backlog for this wave: #3 done; #5 CSS done, with the startViewTransition hook pending FE-A; #2 CSS half done; QA-35 done.
+  - Pushed as `ae6cd3a1`.
