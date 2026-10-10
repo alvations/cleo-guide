@@ -229,7 +229,7 @@ console.log('\n== DATA: computed counts, source index, map art (every place page
 const TOKYO = 'cities/tokyo.html';
 const live = extractPage(rd(TOKYO));
 const total = live.P.length + live.F.length;
-function boot({ leaflet = false, storage = 'ok', hash = '', page = TOKYO } = {}) {
+function boot({ leaflet = false, storage = 'ok', hash = '', page = TOKYO, io = false } = {}) {
   // Inline the page's own same-origin scripts (what a browser would fetch from beta/); every other
   // request is impossible in this harness, i.e. the network — and any CDN — is gone.
   let html = rd('beta/' + page).replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z]+\.js)\?v=[^"]*" defer><\/script>/g,
@@ -243,6 +243,8 @@ function boot({ leaflet = false, storage = 'ok', hash = '', page = TOKYO } = {})
       if (proto && !proto.createSVGRect) proto.createSVGRect = () => ({ x: 0, y: 0, width: 0, height: 0 });
       w.Element.prototype.scrollIntoView = function () {};
       if (storage === 'throws') Object.defineProperty(w, 'localStorage', { get() { throw new Error('SecurityError: storage disabled'); } });
+      // a do-nothing IntersectionObserver: nothing ever scrolls into view, so only lazy-render triggers can stamp
+      if (io) w.IntersectionObserver = class { constructor(cb) { this.cb = cb; } observe() {} unobserve() {} disconnect() {} };
       w.addEventListener('error', e => errs.push('ERR ' + (e.message || e.error)));
     },
   });
@@ -306,6 +308,25 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
     chk('rail tile count == result count', +rb.querySelector('.n').textContent, shown(d));
     chk('no js errors after interaction', errs, e => e.length === 0);
   }
+  console.log('\n== PROGRESSIVE RENDERING (M3-06): deferred cards stay reachable ==');
+  {
+    const html = rd('beta/' + TOKYO);
+    const liveTags = (html.replace(/<noscript data-cleo-defer[\s\S]*?<\/noscript>/g, '').match(/<li class="pl[ "]/g) || []).length;
+    chk('Tokyo ships ≤ 40 live cards, the rest in <noscript data-cleo-defer> (still in the HTML)', [liveTags, (html.match(/<li class="pl[ "]/g) || []).length].join(), `40,${total}`);
+    const { w, d, errs } = boot({ io: true });
+    await sleep(300);
+    chk('with JS: initial cards are the live 40', d.querySelectorAll('li.pl').length, 40);
+    chk('every deferred place still has a map stub (pin) via Cleo.defer.peek()', w.Cleo.defer.peek().filter(x => x.getAttribute('data-ll')).length + d.querySelectorAll('li.pl[data-ll]').length, total);
+    chk('every area section stays visible while its cards are deferred', [...d.querySelectorAll('section.area')].filter(s => s.hidden).length, 0);
+    const lastId = [...html.matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"/g)].pop()[1];
+    chk('a pin on an unstamped place stamps its chunk (stampFor)', !!w.Cleo.defer.stampFor(lastId) && !!d.getElementById('p-' + lastId), true);
+    d.querySelector('button[data-mode="food"]').click(); await sleep(30);
+    chk('any lens stamps every card first; food mode shows exactly the food', [d.querySelectorAll('li.pl').length, shown(d)].join(), `${total},${live.F.length}`);
+    chk('no js errors (lazy)', errs, e => e.length === 0);
+    const b2 = boot({ io: true, hash: '#p=' + lastId }); await sleep(300);
+    const tg = b2.d.getElementById('p-' + lastId);
+    chk('deep link on load to a deferred place lands', !!tg && !tg.hidden && tg.classList.contains('is-target') && b2.d.querySelectorAll('li.pl').length === total, true);
+  }
   console.log('\n== MAP: vendored Leaflet present ==');
   {
     const { d, errs } = boot({ leaflet: true });
@@ -338,9 +359,11 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
   chk('city pages over 800 KB raw / 160 KB gzip', over, a => a.length === 0);
   console.log(`        (largest: ${biggest[0]} ${biggest[1]} KB raw, ${biggest[2]} KB gzip)`);
   chk('landing ≤ 80 KB raw', KB(size('index.html')), n => n <= 80);
-  // FE-A W1 (2026-10-10): raised 40 → 64 KB raw (≈ 18 KB gzip) — 40 was set in Wave 0 before the city sheet, tray, map
-  // sync and FE-B's search/states existed. PLT to ratify, or replace with a minify step / gzip budget (docs/BETA-LOG.md).
-  chk('client JS total ≤ 64 KB raw', KB(fs.readdirSync(path.join(BETA, 'assets/js')).reduce((s, f) => s + size('assets/js/' + f), 0)), n => n <= 64);
+  // Platform W2 ratification (RFC §7.5): the budget is what crosses the wire — ≤ 40 KB gzip for all client JS together
+  // (no minify step: the shipped files stay readable), with a ≤ 128 KB raw backstop on parse cost. W1 was 40 → 64 KB raw.
+  const jsFiles = fs.readdirSync(path.join(BETA, 'assets/js')).sort();
+  const jsGz = KB(zlib.gzipSync(Buffer.concat(jsFiles.map(f => fs.readFileSync(path.join(BETA, 'assets/js', f)))), { level: 9 }).length);
+  chk('client JS total ≤ 40 KB gzip / ≤ 128 KB raw', [jsGz, KB(jsFiles.reduce((s, f) => s + size('assets/js/' + f), 0))].join('/'), v => { const [g, r] = v.split('/').map(Number); return g <= 40 && r <= 128; });
   chk('search index ≤ 250 KB gzip (lazy)', KB(gz('data/search.json')), n => n <= 250);
 
   console.log(failures ? `\n>>> FAIL — ${failures} beta check(s) failed` : '\n>>> PASS — beta: counts == live, reproducible, guarded, renders with no CDN');

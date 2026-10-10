@@ -67,7 +67,7 @@
       if (li.some((x, i) => ol.children[i] !== x)) li.forEach(x => ol.appendChild(x));
     });
     cards.forEach(c => { const v = visible(c); c.hidden = !v; if (v) { n++; areas[at(c, 'data-a')] = 1; } });
-    sections.forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden])'); });
+    sections.forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden]),noscript[data-cleo-defer]'); });
     const nA = Object.keys(areas).length, act = LENS.filter(k => S[k] && k !== 'gap'), all = '<button class="btn btn-primary" data-cleo-all>Show all ' + tot + '</button>';
     const gap = t => '<div class="gap"><span class="eyebrow">Stated gap</span>' + t + '</div>';
     if (shown) shown.innerHTML = n === tot ? shown0 : n ? 'Showing <b>' + n + '</b> of ' + tot + ' places in ' + ar(nA) + '. Ordered by tier, then by number of named sources.'
@@ -142,6 +142,10 @@
     });
   };
   on(d, 'cleo:saved', paint);
+  // Platform hook (M3-06): later cards arrive from Cleo.defer (core.js) as their area nears the viewport, or all at
+  // once before any lens/route. Adopt them so every lens, count and pin sees every place; stubs' pins become cards.
+  on(d, 'cleo:stamped', e => { ((e.detail || {}).cards || []).forEach(c => { if (byId[pid(c)] === c) return; cards.push(c); byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
+    $$('section.area').forEach(s => { if (sections.indexOf(s) < 0) sections.push(s); }); paint(); });
 
   const tray = $('#cleo-tray'), TK = ['a', 't', 'src', 'c', 'cz', 'sort', 'been'];
   let P = {}, opener = null, pushed = 0, after = null;
@@ -214,10 +218,12 @@
     bases.satellite = L.tileLayer(E + 'World_Imagery/MapServer/tile/{z}/{y}/{x}', ea);
     const b0 = bases[store.get('base', 'street')] || bases.street; b0.addTo(map);
     if (Cleo.watchTiles) Cleo.watchTiles(b0, () => { Cleo.mapFallback(el, map); map = null; });
-    cards.forEach(c => {
+    // every place gets its pin, stamped or not (unstamped = a start-tag stub from Cleo.defer.peek(); click stamps it)
+    cards.concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => {
       const ll = (at(c, 'data-ll') || '').split(','); if (ll.length !== 2) return;
-      const k = markers[pid(c)] = L.circleMarker([+ll[0], +ll[1]], style(c)).addTo(map);
-      k.bindTooltip(at(c, 'data-n'), { permanent: true, direction: 'center', className: 'pin-n', opacity: 1 }); k.on('click', () => pin(c));
+      const k = markers[pid(c)] = L.circleMarker([+ll[0], +ll[1]], style(c)).addTo(map), id = pid(c);
+      k.bindTooltip(at(c, 'data-n'), { permanent: true, direction: 'center', className: 'pin-n', opacity: 1 });
+      k.on('click', () => { const r = byId[id] || (Cleo.defer && Cleo.defer.stampFor(id)); if (r) pin(r); });
     });
     const zl = () => el.classList.toggle('zoom-lo', map.getZoom() < 14); map.on('zoomend', zl); zl();
     syncMarkers(); return true;
