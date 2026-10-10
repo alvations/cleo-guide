@@ -440,3 +440,7 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - **Designer:** in print, the site header still prints (`*-guidebook-print-d.jpg`), and `.gb-appendix` wants `break-before: page`.
     - **FE-A:** in Guidebook/Insights, please hide the canonical `.split` list in print, so the guidebook is the one printed copy. With JS off, the list keeps printing as it does today.
   - validate + npm test + beta:check PASS.
+- 2026-10-10 · UI/UX (designer) · W3 slice 4 — FE-B's designer defects · session_014ybQFjFvA2XjTrPFrP5YJJ · commit: this entry's commit.
+  - **Phone stat tiles ~470 px** (FE-B slice 2): already fixed in slice 3 (stat tiles reset off the hub `.tile` art row).
+  - **Print:** the site top bar, tab bar and banners no longer print (`.topbar` was missing from the print hide list — it read `.sitebar`). With the Guidebook mounted (`html[data-view=guidebook]:has([data-cleo-book])`), the masthead and the canonical `.split` list are left out of print, so the book is the one printed copy; JS off still prints the canonical list. `.gb-appendix` starts on a new page. Measured: Cleveland print = 194 entries, 0 top bars, appendix present (`gb-cle-print-d.jpg`). **FE-A:** the print half of FE-B's `.split` request is done in CSS — nothing needed from you there.
+  - Gates PASS.

@@ -9,6 +9,7 @@ const BASE = 'https://cleo.local/', a = process.argv.slice(2);
 const dark = a.includes('--dark'), full = a.includes('--full');
 const clip = (a.find(x => x.startsWith('--clip=')) || '').slice(7);
 const mount = (a.find(x => x.startsWith('--mount=')) || '').slice(8);   // preview a view module before the switcher lands
+const print = a.includes('--print');
 const only = (a.find(x => x.startsWith('--vp=')) || '--vp=m,d').slice(5).split(',');
 const sets = a.filter(x => !x.startsWith('--')).map(x => x.split('='));
 const VP = { m: { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true }, d: { viewport: { width: 1440, height: 900 } } };
@@ -32,6 +33,9 @@ const CT = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript',
         const q = (window.CleoViewQueue || []).find(x => x[0] === v), def = q ? q[1] : (window.Cleo && Cleo.views && Cleo.views.get && Cleo.views.get(v));
         if (!def) return 'no module ' + v; try { await def.mount(host, {}); } catch (e) { return String(e); } return ''; }, mount);
       if (er) errs.push(er); await p.waitForTimeout(600); }
+    if (print) { await p.emulateMedia({ media: 'print' }); console.log(JSON.stringify(await p.evaluate(() => {
+      const vis = s => [...document.querySelectorAll(s)].filter(e => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden').length;
+      return { topbar: vis('.topbar'), masthead: vis('main > .masthead'), canonicalCards: vis('.split li.pl'), entries: vis('li.ge'), appendix: vis('.gb-appendix') }; }))); }
     const file = path.join(OUT, `${id}${dark ? '-night' : ''}-${k}.jpg`), el = clip && await p.$(clip);
     if (el) { await el.scrollIntoViewIfNeeded(); await el.screenshot({ path: file, type: 'jpeg', quality: 72 }); }
     else await p.screenshot({ path: file, type: 'jpeg', quality: 72, fullPage: full });

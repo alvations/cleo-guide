@@ -1332,7 +1332,7 @@ html .sv-map .note, html .map-note { background: var(--surface); color: var(--in
 
 /* ---------- 14. Print: the guide on paper — every place, no chrome ---------- */
 @media print {
-  .sitebar, .toolbar, .rail, .areanav, .mappane, .pl-x, .skip { display: none !important; }
+  .sitebar, .topbar, .tabbar, .banners, .toolbar, .rail, .areanav, .mappane, .pl-x, .skip { display: none !important; }   /* .topbar: FE-B W3 print defect */
   .masthead, .sitefoot { background: none !important; color: #000 !important; }
   .masthead::before, .masthead::after { display: none; }
   .masthead h1, .masthead .stats, .masthead .dek, .sitefoot * { color: #000 !important; }
@@ -1824,6 +1824,10 @@ html[data-view="atlas"] .pl-num { box-shadow: 0 0 0 2px var(--area-c, var(--line
 @media print {
   nav.views[data-cleo-views], :is(.vw, [data-cleo-book], [data-cleo-insights]) .pager, :is(.vw, [data-cleo-book], [data-cleo-insights]) .heart, :is(.vw, [data-cleo-book], [data-cleo-insights]) .dbar, :is(.vw, [data-cleo-book], [data-cleo-insights]) .tbl summary { display: none !important; }
   :is(.view-guidebook, [data-cleo-book]) .toc { display: none !important; }
+  /* the mounted guidebook is the one printed copy: its own cover replaces the masthead, and the canonical list (same
+     places, already printed as entries) is left out — only when the book is actually mounted, so JS-off still prints it */
+  html[data-view="guidebook"]:has([data-cleo-book]) :is(main > .masthead, .split, .lens, .shown) { display: none !important; }
+  .gb-appendix { break-before: page; }
   :is(.view-guidebook, [data-cleo-book]) .ch:first-of-type { break-before: auto; }
   :is(.view-guidebook, [data-cleo-book]) .ge, :is(.view-guidebook, [data-cleo-book]) .facts-box { break-inside: avoid; }
   :is(.vw, [data-cleo-book], [data-cleo-insights]) .src { border: 0; padding: 0; min-height: 0; background: none; color: #000; }
