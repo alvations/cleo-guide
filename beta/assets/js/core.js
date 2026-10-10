@@ -278,7 +278,30 @@
   document.addEventListener('DOMContentLoaded', paintCount);
 
   /* ---- offline: register the service worker on http(s) only ---- */
+  /* "Keep this page offline": the page + every same-origin file it loaded (CSS, JS, fonts, art) + its dataset. Runs
+   * once the worker is active on every visit (the first page of a visit loads before the worker controls it), and on
+   * demand via Cleo.offline.save(). Resolves {n, ok} from the worker, or rejects when there is no worker. */
+  Cleo.offline = {
+    urls: function () {
+      var o = location.origin, out = [location.href.split('#')[0]], main = document.getElementById('main'), key = main && main.getAttribute('data-city');
+      try { (performance.getEntriesByType('resource') || []).forEach(function (r) { if (r.name.indexOf(o) === 0) out.push(r.name); }); } catch (e) {}
+      if (key) out.push(Cleo.root + 'data/places/' + key.replace(/\//g, '--') + '.json');
+      return out.filter(function (u, i) { return out.indexOf(u) === i; });
+    },
+    save: function () {
+      if (!('serviceWorker' in navigator) || !navigator.serviceWorker.controller && !navigator.serviceWorker.ready) return Promise.reject(new Error('no service worker'));
+      return navigator.serviceWorker.ready.then(function (reg) {
+        return new Promise(function (ok) {
+          var t = setTimeout(function () { ok({ n: 0, ok: 0, timeout: true }); }, 15000);
+          navigator.serviceWorker.addEventListener('message', function h(e) { if (e.data && e.data.type === 'cached') { clearTimeout(t); navigator.serviceWorker.removeEventListener('message', h); emit('cleo:offline', e.data); ok(e.data); } });
+          reg.active.postMessage({ type: 'cache', urls: Cleo.offline.urls() });
+        });
+      });
+    }
+  };
   if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol) && Cleo.root) {
-    window.addEventListener('load', function () { navigator.serviceWorker.register(Cleo.root + 'sw.js').catch(function () {}); });
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register(Cleo.root + 'sw.js').then(function () { return Cleo.offline.save(); }).catch(function () {});
+    });
   }
 })();
