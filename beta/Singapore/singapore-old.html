@@ -22,13 +22,12 @@
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/tokens.css?v=29fb7d6e7f">
-<link rel="stylesheet" href="../assets/cleo.css?v=dfba4ef5d8">
+<link rel="stylesheet" href="../assets/cleo.css?v=1339696ba8">
 
 
 <script src="../assets/js/core.js?v=760b61dc92" defer></script>
 <style>
 .tile .art .dots{stroke:var(--dot,var(--on-night))}
-.tile.c-night .art{background:var(--motif,none),radial-gradient(130% 160% at 100% 0,color-mix(in srgb,var(--city) 40%,transparent),transparent 62%),var(--night)}
 .tile.c-night .art .dots{stroke:var(--on-night)}.tile.c-night .art .dots.t1{stroke:var(--gilt-soft)}
 .tile.c-wash .art{background:var(--motif,none),linear-gradient(160deg,var(--city-wash),var(--surface));color:var(--ink)}
 .tile.c-wash .art .native,.tile.c-wash .art .ini{color:var(--city-ink)}
@@ -88,7 +87,9 @@
 .results .grp.guides ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0}
 .results a.is-kb,.results a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 .results mark{background:var(--gilt-soft);color:var(--ink);border-radius:2px}
-</style>
+
+.motif{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%;z-index:-1;pointer-events:none}
+.theme-main{position:relative;isolation:isolate}.chero .sky .motif{object-fit:contain;object-position:100% 100%;z-index:0}</style>
 </head>
 <body class="has-tabbar">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol><symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.3l1.4 3 3.2.3-2.4 2.2.7 3.1L12 14.3l-2.9 1.6.7-3.1-2.4-2.2 3.2-.3z"/></symbol><symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-star4" viewBox="0 0 24 24"><path d="M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1-2.1 7.4-2.1-7.4L2.5 12l7.4-2.1z"/></symbol><symbol id="i-offline" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M7.6 7.6A5 5 0 0 0 7 9.5 4 4 0 0 0 7 17.5h10M10 5a5 5 0 0 1 6.9 3.5h.6a3.5 3.5 0 0 1 2.4 6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.2"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.2"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M6 12v7h12v-7"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.4a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.4"/></symbol></defs></svg><a class="skip" href="#main">Skip to content</a>

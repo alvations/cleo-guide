@@ -456,8 +456,9 @@ html[data-cleo-page="landing"] main > .masthead:first-child h1, .masthead.hero h
 
 /* 15.1 Bodoni macrons. Bodoni Moda draws the macron as a hairline that thins away above opsz ≈ 32 ("Kanda My ojin" at
    desktop sizes). Display text below hero size is capped at opsz 28 — still Didone contrast, macrons always visible.
-   The landing hero (English copy, no macrons) and h1 city names (none carry macrons — checked) keep auto optical size. */
-:is(h2, h3, .d2, .d3, .pl-n, .rail-i, .dest-n, .tile-n, .lens h2, .section-t, .stops, .card h3, .detail h2, .area-h) { font-variation-settings: "opsz" 28; }
+   The landing hero (English copy, no macrons) and h1 city names (none carry macrons — checked) keep auto optical size;
+   small Didone (rail titles, < 20 px) keeps auto too, so its hairlines stay sturdy. Hub/city mastheads' "known for" line is capped. */
+:is(h2, h3, .d2, .d3, .pl-n, .dest-n, .tile-n, .lens h2, .stops, .card h3, .detail h2, .area-h, .masthead .why, .masthead .dek, .hero .why) { font-variation-settings: "opsz" 28; }
 
 /* 15.2 Card cover. Icon-only heart (44 × 44; the word stays in the DOM, clipped, and in FE-A's aria-label),
    so the native plate gets the full cover height again and never needs to start below the button. */
@@ -483,6 +484,12 @@ html .pl::before {
 html .pl[data-closed]::before { background: repeating-linear-gradient(135deg, transparent 0 9px, color-mix(in srgb, var(--ink) 9%, transparent) 9px 10px), var(--sand); }
 /* when FE-A wraps the native name (<span class="nat">) the plate already shows it: keep it for search/SR, hide it visually */
 .pl:has(.pl-vert) .pl-n .nat { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* upstreamed from FE-A's inline GLUE (W1 ask) so the card renders the same anywhere the stylesheet is linked */
+.pl-e .in { font-weight: 500; color: var(--ink-3); }
+.pl-e .pl-num { display: inline-grid; vertical-align: 1px; margin-right: 4px; }
+.pl-s .src { position: relative; z-index: 2; display: inline-flex; align-items: center; min-height: var(--tap); min-width: var(--tap); border: 0; background: none; border-radius: 0;
+  font-weight: 600; color: var(--ink); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 4px; cursor: pointer; }
 
 /* 15.3 "Recommended by" (QA-18): no space before commas, no stray comma on its own line. The literal ", " text nodes stay
    in the DOM (screen readers, copy-paste) but render at 0; each source draws its own comma, glued to its name. */
@@ -534,11 +541,7 @@ html .srclist .go { text-align: left; font-weight: 600; color: var(--ink); line-
 
 /* 15.6 Landing / hub: the country switcher sits on solid paper with a hairline (was a grey veil over the tiles) */
 html .stickypills { background: var(--paper); box-shadow: 0 1px 0 var(--line); margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); }
-/* distinct tile compositions (gap #1/#3 — "no two navy tiles alike"): four grounds cycle through the grid, each tinted by
-   that city's own skin and second accent; FE-B's per-city motif art (imagery lane) layers on top when present. */
-.dest:nth-child(4n+2) .tile .art { background: var(--motif), radial-gradient(120% 140% at 0 100%, color-mix(in srgb, var(--city-2) 55%, transparent), transparent 60%), color-mix(in srgb, var(--city) 82%, var(--night)); }
-.dest:nth-child(4n+3) .tile .art { background: var(--motif), linear-gradient(118deg, var(--night) 0 54%, color-mix(in srgb, var(--city) 62%, var(--night)) 54.2%); }
-.dest:nth-child(4n) .tile .art { background: var(--motif), radial-gradient(80% 130% at 50% 125%, color-mix(in srgb, var(--city-2) 65%, transparent), transparent 70%), var(--night-2); }
+/* tile compositions are FE-B's (.tile.c-night/.c-wash/.c-city/.c-paper, render/hub.js); the bar carries the second accent */
 .tile .art .bar { background: linear-gradient(90deg, var(--city) 0 72%, var(--city-2) 72%); }
 html[data-cleo-page="landing"] .stickypills { top: 0; }   /* the landing top bar rides the hero (absolute), so nothing sits above the pills */
 
@@ -591,6 +594,100 @@ html[data-cleo-page="landing"] .stickypills { top: 0; }   /* the landing top bar
 .lens > p:first-of-type::first-letter { float: left; font: 500 52px/.86 var(--font-display); font-style: normal; margin: 4px 8px 0 0; color: var(--city-ink); }
 .masthead .dek { font-style: italic; font-family: var(--font-display); }
 .area > h2 .area-c, .area-c { font-variant-numeric: tabular-nums; }
+
+/* 15.10 Wave 2 components for FE-A — markup contract in design/beta/specs/W2-components.md, live sheet in
+   design/beta/mockups/w2-components.html. Class names below are the contract; tokens only, AA in light + night. */
+/* (a) mobile pin sheet: the peek detent shows the plate (name, tier, save) and the actions only — ≤ 40 % of the screen,
+   so the map stays visible (ROUND-1 #6); .full (FE-A's grow) shows the whole card. */
+@media (max-width: 1023px) {
+  html .poi-sheet:not(.full) .pl > :not(.pl-cover):not(.pl-e):not(.pl-n):not(.pl-x) { display: none; }
+  html .poi-sheet:not(.full) .pl { padding-bottom: 0; }
+  html .poi-sheet:not(.full) { max-height: 40vh; overflow: hidden; }
+  html .poi-sheet.full { max-height: calc(100% - 12px); overflow: auto; }
+}
+html .sharebar .btn { min-height: var(--tap); }   /* was 40 px on phones (B-20) */
+
+/* (b) "For you" — the interest picker reorders, never hides. Picker = .interests grid of the library .interest buttons
+   (in a .sheet.picker or inline); the result line .because sits above the list; promoted cards carry .pl-why. */
+.interests { display: grid; gap: 10px; grid-template-columns: minmax(0, 1fr); margin: 0; padding: 0; list-style: none; }
+@media (min-width: 640px) { .interests { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.interest { width: 100%; text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-m); color: var(--ink); }
+.interest .glyph .g { width: 30px; height: 30px; }
+.interest[aria-pressed="true"] .tick::after { content: "✓"; font: 700 14px/1 var(--font-ui); }
+.because { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 10px 0 4px; padding: 12px 16px; border-radius: var(--r-m);
+  background: var(--city-wash); color: var(--ink); font-size: 14.5px; line-height: 1.45; }
+.because::before { content: ""; width: 20px; height: 20px; flex: none; background: var(--city-ink); -webkit-mask: var(--g-star4) center / contain no-repeat; mask: var(--g-star4) center / contain no-repeat; }
+.because b { font-weight: 650; }
+.because .n { color: var(--ink-2); }
+.because button, .because a { margin-left: auto; min-height: var(--tap); padding: 0 14px; border-radius: var(--r-pill); border: 1px solid var(--line-strong); background: var(--surface); font-weight: 650; text-decoration: none; display: inline-flex; align-items: center; }
+.pl-why { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; padding: 2px 8px; border-radius: var(--r-pill); background: var(--surface);
+  color: var(--city-ink); font: 650 12px/1.4 var(--font-ui); vertical-align: 1px; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--city) 40%, transparent); }
+
+/* (c) home modules (M2-11): Your list · ★ Signature · Free to visit — three doors above the rail on the city page */
+.modules { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 1fr); gap: 10px; overflow-x: auto; scrollbar-width: none; margin: 12px 0 0; padding: 2px 0 6px; }
+.modules::-webkit-scrollbar { display: none; }
+.mod { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 4px 12px; align-items: center; min-height: 84px; padding: 12px 14px;
+  border-radius: var(--r-m); border: 1px solid var(--line); background: var(--surface); color: var(--ink); text-decoration: none; text-align: left; box-shadow: var(--e-1); }
+.mod .g { grid-row: span 2; width: 44px; height: 44px; padding: 10px; border-radius: 12px; background: var(--city-wash); color: var(--city-ink); -webkit-mask: none; mask: none; }
+.mod .g::before { content: ""; display: block; width: 100%; height: 100%; background: currentColor; -webkit-mask: var(--g, var(--g-star4)) center / contain no-repeat; mask: var(--g, var(--g-star4)) center / contain no-repeat; }
+.mod b { font: 500 19px/1.15 var(--font-display); font-variation-settings: "opsz" 28; }
+.mod span { font-size: 13px; color: var(--ink-3); }
+.mod.sig { background: var(--city); color: var(--city-on); border-color: transparent; }
+.mod.sig .g { background: color-mix(in srgb, var(--city-on) 18%, transparent); color: var(--city-on); }
+.mod.sig span { color: color-mix(in srgb, var(--city-on) 86%, transparent); }
+.mod:hover { box-shadow: var(--e-2); }
+
+/* (d) "Your day" (M2-06): .day wraps summary → caveat → actions → ol.stops; stops reuse the card in .row density.
+   Map: FE-A draws the route as L.polyline(..., {className: 'day-route'}) and numbered stop pins .pin-n.day. */
+.day { display: grid; gap: 14px; margin: 12px 0 0; padding: 18px; border-radius: var(--r-l); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--e-1); }
+.day > header { display: grid; gap: 4px; }
+.day > header .eyebrow { font: 650 13px/1.3 var(--font-ui); color: var(--city-ink); }
+.day > header h2 { margin: 0; font: 500 30px/1.1 var(--font-display); }
+.daysum b { font-variant-numeric: lining-nums tabular-nums; font-variation-settings: "opsz" 28; }
+.stops { counter-reset: stop; }
+.stop { padding-bottom: 0; }
+.stop .n { background: var(--city); color: var(--city-on); font: 700 15px/1 var(--font-ui); box-shadow: 0 0 0 4px var(--surface); }
+.stop .pl { margin: 0; }
+.stop .leg { margin: 8px 0 12px; font: 500 13px/1.3 var(--font-ui); color: var(--ink-2); }
+.stop .leg::before { content: ""; width: 16px; height: 16px; flex: none; background: var(--ink-3); -webkit-mask: var(--g-route, var(--g-star4)) center / contain no-repeat; mask: var(--g-route, var(--g-star4)) center / contain no-repeat; }
+.day .total { font: 500 15px/1.4 var(--font-ui); color: var(--ink-2); }
+.leaflet-overlay-pane path.day-route { stroke: var(--city); stroke-width: 3.5; stroke-dasharray: 1 9; stroke-linecap: round; fill: none; }
+.pin-n.day { background: var(--city); color: var(--city-on); min-width: 26px; height: 26px; border-radius: 13px; font-size: 13px; line-height: 22px; }
+
+/* (e) Saved page (mockups/saved.html, M2-03/04): named lists, Been-there stamps, export, shared read-only view */
+.saved-page .listhead h1 { margin: 0; }
+.listtabs .pill .n { color: var(--ink-3); font-weight: 500; margin-left: 4px; }
+.listtabs .pill[aria-pressed="true"] .n { color: color-mix(in srgb, var(--paper) 75%, transparent); }
+.listtabs .new { border-style: dashed; }
+.listmenu { display: inline-flex; gap: 6px; }
+.listmenu .btn { min-height: var(--tap); }
+.listmenu .danger { color: var(--closed); }
+.exportbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-radius: var(--r-m); background: var(--sand); }
+.exportbar .lbl { font: 650 13px/1.3 var(--font-ui); color: var(--ink-2); margin-right: 4px; }
+.banner.shared { background: var(--night); color: var(--on-night); }
+.banner.shared .btn { background: var(--on-night); color: var(--night); }
+.saved-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 640px) { .saved-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.saved-cards .gone { padding: 14px 16px; border: 1px dashed var(--line-strong); border-radius: var(--r-m); color: var(--ink-2); }
+.pl .stamp, .card .stamp { transform: rotate(-8deg); border: 2px solid currentColor; border-radius: 8px; padding: 4px 6px; background: color-mix(in srgb, var(--surface) 80%, transparent); text-align: center; }
+
+/* (f) Near me (M3-02): opt-in toggle, distance on cards; position never stored */
+.nearme[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.pl-dist { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; font: 650 12.5px/1.4 var(--font-ui); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.pl-dist::before { content: ""; width: 12px; height: 12px; background: currentColor; -webkit-mask: var(--g-pin, var(--g-star4)) center / contain no-repeat; mask: var(--g-pin, var(--g-star4)) center / contain no-repeat; }
+
+/* (g) sheet locator inset (ROUND-1 #1/#6): the area's own pins with this place lit — drawn by FE-A from data-ll or
+   platform's assets/art/<page>/<AREA>.svg; sits bottom-left of the sheet plate in place of the generic glyph */
+.detail .hero-plate .locator { position: absolute; left: 16px; bottom: 14px; width: 116px; height: 86px; padding: 6px; border-radius: 12px;
+  background: color-mix(in srgb, var(--surface) 82%, transparent); box-shadow: var(--e-1); }
+.detail .hero-plate .locator svg, .detail .hero-plate .locator img { width: 100%; height: 100%; }
+.detail .hero-plate .locator circle { fill: color-mix(in srgb, var(--area, var(--city)) 55%, var(--ink-3)); }
+.detail .hero-plate .locator .me { fill: var(--city); stroke: var(--surface); stroke-width: 2; }
+.detail .hero-plate:has(.locator) .pl-glyph { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .detail .hero-plate .locator .me { animation: w2-pulse 1.8s var(--ease-out) infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes w2-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.35); } }
+}
 
 /* ---------- 13. Motion: nothing moves under reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
