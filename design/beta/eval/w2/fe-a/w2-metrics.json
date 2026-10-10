@@ -27,7 +27,7 @@
  },
  "cleveland-m": {
   "overflowX": 0,
-  "firstCardTop": 700.859375,
+  "firstCardTop": 679.859375,
   "controlsAboveFirstCard": 9,
   "mapWidthPct": null,
   "poiPct": null,
@@ -40,7 +40,7 @@
  },
  "cleveland-food-m": {
   "overflowX": 0,
-  "firstCardTop": 749.359375,
+  "firstCardTop": 728.359375,
   "controlsAboveFirstCard": 9,
   "mapWidthPct": null,
   "poiPct": null,
@@ -53,7 +53,7 @@
  },
  "pittsburgh-m": {
   "overflowX": 0,
-  "firstCardTop": 722.703125,
+  "firstCardTop": 732.5,
   "controlsAboveFirstCard": 9,
   "mapWidthPct": null,
   "poiPct": null,
@@ -79,7 +79,7 @@
  },
  "sheet-cle-m": {
   "overflowX": 0,
-  "firstCardTop": 700.859375,
+  "firstCardTop": 679.859375,
   "controlsAboveFirstCard": 9,
   "mapWidthPct": null,
   "poiPct": null,
@@ -118,27 +118,27 @@
  },
  "day-m": {
   "overflowX": 0,
-  "firstCardTop": 1926.734375,
-  "controlsAboveFirstCard": 49,
+  "firstCardTop": 1753.71875,
+  "controlsAboveFirstCard": 32,
   "mapWidthPct": null,
   "poiPct": null,
   "tapUnder44": 0,
   "tapUnder44List": [],
-  "uppercasePct": 0.3,
-  "dom": 12240,
+  "uppercasePct": 0,
+  "dom": 12241,
   "jsErrors": [],
   "offOriginAborted": 0
  },
  "day-cle-m": {
   "overflowX": 0,
-  "firstCardTop": 2006.375,
-  "controlsAboveFirstCard": 42,
+  "firstCardTop": 1716.609375,
+  "controlsAboveFirstCard": 25,
   "mapWidthPct": null,
   "poiPct": null,
   "tapUnder44": 0,
   "tapUnder44List": [],
-  "uppercasePct": 0.4,
-  "dom": 4806,
+  "uppercasePct": 0,
+  "dom": 4807,
   "jsErrors": [],
   "offOriginAborted": 0
  },
@@ -253,7 +253,7 @@
  },
  "cleveland-d": {
   "overflowX": 0,
-  "firstCardTop": 499.453125,
+  "firstCardTop": 514.640625,
   "controlsAboveFirstCard": 18,
   "mapWidthPct": 44,
   "poiPct": null,
@@ -269,7 +269,7 @@
  },
  "cleveland-food-d": {
   "overflowX": 0,
-  "firstCardTop": 527.703125,
+  "firstCardTop": 542.890625,
   "controlsAboveFirstCard": 19,
   "mapWidthPct": 44,
   "poiPct": null,
@@ -285,7 +285,7 @@
  },
  "pittsburgh-d": {
   "overflowX": 0,
-  "firstCardTop": 559.640625,
+  "firstCardTop": 514.640625,
   "controlsAboveFirstCard": 17,
   "mapWidthPct": 44,
   "poiPct": null,
@@ -317,7 +317,7 @@
  },
  "sheet-cle-d": {
   "overflowX": 0,
-  "firstCardTop": 499.453125,
+  "firstCardTop": 514.640625,
   "controlsAboveFirstCard": 17,
   "mapWidthPct": 44,
   "poiPct": null,
@@ -327,7 +327,7 @@
    "a. \"OpenStreetMap\" 87×30"
   ],
   "uppercasePct": 0,
-  "dom": 5254,
+  "dom": 5258,
   "jsErrors": [],
   "offOriginAborted": 0
  },
@@ -365,8 +365,8 @@
  },
  "day-d": {
   "overflowX": 0,
-  "firstCardTop": 1432.546875,
-  "controlsAboveFirstCard": 59,
+  "firstCardTop": 1434.046875,
+  "controlsAboveFirstCard": 42,
   "mapWidthPct": 44,
   "poiPct": null,
   "tapUnder44": 2,
@@ -374,15 +374,15 @@
    "a. \"Leaflet\" 52×30",
    "a. \"OpenStreetMap\" 87×30"
   ],
-  "uppercasePct": 0.3,
-  "dom": 12788,
+  "uppercasePct": 0,
+  "dom": 12789,
   "jsErrors": [],
   "offOriginAborted": 0
  },
  "day-cle-d": {
   "overflowX": 0,
-  "firstCardTop": 1365.28125,
-  "controlsAboveFirstCard": 51,
+  "firstCardTop": 1358.09375,
+  "controlsAboveFirstCard": 34,
   "mapWidthPct": 44,
   "poiPct": null,
   "tapUnder44": 2,
@@ -390,8 +390,8 @@
    "a. \"Leaflet\" 52×30",
    "a. \"OpenStreetMap\" 87×30"
   ],
-  "uppercasePct": 0.4,
-  "dom": 4876,
+  "uppercasePct": 0,
+  "dom": 4877,
   "jsErrors": [],
   "offOriginAborted": 0
  },

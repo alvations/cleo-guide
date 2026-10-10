@@ -237,11 +237,20 @@
   // the map follows the reading (ROUND-1 #6): fit to the area in view, fly to the open sheet's place, numbers on the
   // focused area's pins at every zoom; a user who pans or zooms keeps control for 8 s
   const still = () => !window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let focusA = '', userAt = 0, auto = 0;
+  let focusA = '', userAt = 0, auto = 0; const stub = {};   // unstamped cards (Cleo.defer.peek) that already have a pin
   const fly = ll => { if (!map) return; auto = Date.now(); if (still()) map.setView(ll, Math.max(map.getZoom(), 15)); else map.flyTo(ll, Math.max(map.getZoom(), 15), { duration: 0.6 }); };
-  const focusPins = () => { if (!map) return; const many = cards.filter(c => !c.hidden).length;
-    cards.forEach(c => { const k = markers[pid(c)], t = k && k.getTooltip && k.getTooltip(), el = t && t.getElement && t.getElement();
-      if (el) el.classList.toggle('foc', !c.hidden && (many <= 40 || at(c, 'data-a') === focusA)); }); };
+  // numbers: the focused area's at every zoom, all at ≥ 14; then declutter (DES REVIEW-W2 #6) — a label that would
+  // overlap one already shown is hidden (its pin stays), focused area first, guide order within. Writes, then reads.
+  const focusPins = () => { if (!map) return; const all = Object.keys(markers).map(id => byId[id] || stub[id]).filter(Boolean);
+    const many = all.filter(c => !c.hidden).length, lo = map.getZoom() < 14, els = [];
+    all.forEach(c => { const k = markers[pid(c)], t = k && k.getTooltip && k.getTooltip(), el = t && t.getElement && t.getElement(); if (!el) return;
+      const f = !c.hidden && (many <= 40 || at(c, 'data-a') === focusA); el.classList.toggle('foc', f); el.classList.remove('clash');
+      if (!c.hidden && (f || !lo)) els.push([f ? 0 : 1, el]); });
+    els.sort((x, y) => x[0] - y[0]);
+    const seen = [], hide = [];
+    els.forEach(([, el]) => { const r = el.getBoundingClientRect(); if (!r.width) return;
+      if (seen.some(q => r.left < q.right - 2 && r.right > q.left + 2 && r.top < q.bottom - 2 && r.bottom > q.top + 2)) hide.push(el); else seen.push(r); });
+    hide.forEach(el => el.classList.add('clash')); };
   C.after.push(focusPins);
   const follow = a => {
     if (!a || a === focusA) return; focusA = a; focusPins();
@@ -289,11 +298,12 @@
     // every place gets its pin, stamped or not (unstamped = a start-tag stub from Cleo.defer.peek(); click stamps it)
     cards.concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => {
       const ll = (at(c, 'data-ll') || '').split(','); if (ll.length !== 2) return;
-      const k = markers[pid(c)] = L.circleMarker([+ll[0], +ll[1]], style(c)).addTo(map), id = pid(c);
+      const k = markers[pid(c)] = L.circleMarker([+ll[0], +ll[1]], style(c)).addTo(map), id = pid(c); if (c.stub) stub[id] = c;
       k.bindTooltip(at(c, 'data-n'), { permanent: true, direction: 'center', className: 'pin-n', opacity: 1 });
       k.on('click', () => { const r = byId[id] || (Cleo.defer && Cleo.defer.stampFor(id)); if (r) pin(r); });
     });
-    const zl = () => el.classList.toggle('zoom-lo', map.getZoom() < 14); map.on('zoomend', zl); zl();
+    const zl = () => { el.classList.toggle('zoom-lo', map.getZoom() < 14); focusPins(); }; map.on('zoomend', zl); zl();
+    let fr = 0; map.on('moveend', () => { cancelAnimationFrame(fr); fr = requestAnimationFrame(focusPins); });   // labels settle after a fly
     map.on('dragstart', () => { userAt = Date.now(); }); map.on('zoomstart', () => { if (Date.now() - auto > 1500) userAt = Date.now(); });
     syncMarkers(); C.after.forEach(f => f()); const a0 = focusA; focusA = ''; follow(a0 || at(sections[0] || main, 'data-area')); return true;
   };
