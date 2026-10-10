@@ -135,3 +135,14 @@ promise visible: *every star is a place someone credible recommended and we pinn
 4. Add its row to `CREDITS.json` → `credits` (author exactly as credited; `sourceUrl` = the Commons file page;
    `modified` if you cropped — BY-SA stays BY-SA).
 5. `cd tools && npm run beta && npm test`. A failing row names the exact problem.
+
+### For the Round 3 Gallery view (card and row-cover sizes)
+
+Every motif is a 480×200 frame whose subject sits in the middle band, so it crops cleanly as a cover:
+- **Wide row covers (≥ 2:1):** `object-fit: cover; object-position: 50% 100%`, as the hub tiles already do.
+- **Cards (3:2 to 1:1):** the same cover crop keeps the centre third. Side accents (a sun, a gate) may fall outside, but
+  the horizon line and the pattern always fill the card. Use `.ink.svg` on light card grounds.
+- **Below about 120 px tall:** only the pattern and the horizon read. Pair the cover with the title rather than relying
+  on the art.
+If Gallery needs portrait covers, the imagery lane will add a square/portrait recipe per key to `motifs.js`. That is
+the same vocabulary and needs no new pipeline.

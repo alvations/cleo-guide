@@ -27,7 +27,7 @@ function render(reg, ctx) {
 ${hub ? `<a class="more" href="${esc(hub)}">All ${esc(c.name)} ${icon('chevr', 'ico sm')}</a>` : ''}</div>
 ${c.blurb ? `<p class="blurb">${esc(c.blurb)}</p>` : ''}
 <ul class="tiles hub2" aria-label="${esc(c.name)} guides">
-${main.map((r, i) => cityTile(r, i, { cap: 24 }))   /* lighter art keeps the landing ≤ 80 KB */.join('\n')}
+${main.map((r, i) => cityTile(r, i, { cap: 16 }))   /* lighter star-field (the imagery motif carries the art) keeps the landing ≤ 80 KB */.join('\n')}
 </ul>
 ${more.length ? `<h3 class="more-h d3" style="margin-top:20px">More in ${esc(c.name)}</h3>\n<ul class="morelist">\n${more.map(r => moreRow(r)).join('\n')}\n</ul>` : ''}
 </section>`;

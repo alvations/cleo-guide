@@ -1026,8 +1026,9 @@ html[data-cleo-page="landing"] main > .masthead:first-child h1, .masthead.hero h
 
 /* 15.1 Bodoni macrons. Bodoni Moda draws the macron as a hairline that thins away above opsz ≈ 32 ("Kanda My ojin" at
    desktop sizes). Display text below hero size is capped at opsz 28 — still Didone contrast, macrons always visible.
-   The landing hero (English copy, no macrons) and h1 city names (none carry macrons — checked) keep auto optical size. */
-:is(h2, h3, .d2, .d3, .pl-n, .rail-i, .dest-n, .tile-n, .lens h2, .section-t, .stops, .card h3, .detail h2, .area-h) { font-variation-settings: "opsz" 28; }
+   The landing hero (English copy, no macrons) and h1 city names (none carry macrons — checked) keep auto optical size;
+   small Didone (rail titles, < 20 px) keeps auto too, so its hairlines stay sturdy. Hub/city mastheads' "known for" line is capped. */
+:is(h2, h3, .d2, .d3, .pl-n, .dest-n, .tile-n, .lens h2, .stops, .card h3, .detail h2, .area-h, .masthead .why, .masthead .dek, .hero .why) { font-variation-settings: "opsz" 28; }
 
 /* 15.2 Card cover. Icon-only heart (44 × 44; the word stays in the DOM, clipped, and in FE-A's aria-label),
    so the native plate gets the full cover height again and never needs to start below the button. */
@@ -1053,6 +1054,12 @@ html .pl::before {
 html .pl[data-closed]::before { background: repeating-linear-gradient(135deg, transparent 0 9px, color-mix(in srgb, var(--ink) 9%, transparent) 9px 10px), var(--sand); }
 /* when FE-A wraps the native name (<span class="nat">) the plate already shows it: keep it for search/SR, hide it visually */
 .pl:has(.pl-vert) .pl-n .nat { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* upstreamed from FE-A's inline GLUE (W1 ask) so the card renders the same anywhere the stylesheet is linked */
+.pl-e .in { font-weight: 500; color: var(--ink-3); }
+.pl-e .pl-num { display: inline-grid; vertical-align: 1px; margin-right: 4px; }
+.pl-s .src { position: relative; z-index: 2; display: inline-flex; align-items: center; min-height: var(--tap); min-width: var(--tap); border: 0; background: none; border-radius: 0;
+  font-weight: 600; color: var(--ink); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 4px; cursor: pointer; }
 
 /* 15.3 "Recommended by" (QA-18): no space before commas, no stray comma on its own line. The literal ", " text nodes stay
    in the DOM (screen readers, copy-paste) but render at 0; each source draws its own comma, glued to its name. */
@@ -1104,11 +1111,7 @@ html .srclist .go { text-align: left; font-weight: 600; color: var(--ink); line-
 
 /* 15.6 Landing / hub: the country switcher sits on solid paper with a hairline (was a grey veil over the tiles) */
 html .stickypills { background: var(--paper); box-shadow: 0 1px 0 var(--line); margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); }
-/* distinct tile compositions (gap #1/#3 — "no two navy tiles alike"): four grounds cycle through the grid, each tinted by
-   that city's own skin and second accent; FE-B's per-city motif art (imagery lane) layers on top when present. */
-.dest:nth-child(4n+2) .tile .art { background: var(--motif), radial-gradient(120% 140% at 0 100%, color-mix(in srgb, var(--city-2) 55%, transparent), transparent 60%), color-mix(in srgb, var(--city) 82%, var(--night)); }
-.dest:nth-child(4n+3) .tile .art { background: var(--motif), linear-gradient(118deg, var(--night) 0 54%, color-mix(in srgb, var(--city) 62%, var(--night)) 54.2%); }
-.dest:nth-child(4n) .tile .art { background: var(--motif), radial-gradient(80% 130% at 50% 125%, color-mix(in srgb, var(--city-2) 65%, transparent), transparent 70%), var(--night-2); }
+/* tile compositions are FE-B's (.tile.c-night/.c-wash/.c-city/.c-paper, render/hub.js); the bar carries the second accent */
 .tile .art .bar { background: linear-gradient(90deg, var(--city) 0 72%, var(--city-2) 72%); }
 html[data-cleo-page="landing"] .stickypills { top: 0; }   /* the landing top bar rides the hero (absolute), so nothing sits above the pills */
 
@@ -1162,6 +1165,100 @@ html[data-cleo-page="landing"] .stickypills { top: 0; }   /* the landing top bar
 .masthead .dek { font-style: italic; font-family: var(--font-display); }
 .area > h2 .area-c, .area-c { font-variant-numeric: tabular-nums; }
 
+/* 15.10 Wave 2 components for FE-A — markup contract in design/beta/specs/W2-components.md, live sheet in
+   design/beta/mockups/w2-components.html. Class names below are the contract; tokens only, AA in light + night. */
+/* (a) mobile pin sheet: the peek detent shows the plate (name, tier, save) and the actions only — ≤ 40 % of the screen,
+   so the map stays visible (ROUND-1 #6); .full (FE-A's grow) shows the whole card. */
+@media (max-width: 1023px) {
+  html .poi-sheet:not(.full) .pl > :not(.pl-cover):not(.pl-e):not(.pl-n):not(.pl-x) { display: none; }
+  html .poi-sheet:not(.full) .pl { padding-bottom: 0; }
+  html .poi-sheet:not(.full) { max-height: 40vh; overflow: hidden; }
+  html .poi-sheet.full { max-height: calc(100% - 12px); overflow: auto; }
+}
+html .sharebar .btn { min-height: var(--tap); }   /* was 40 px on phones (B-20) */
+
+/* (b) "For you" — the interest picker reorders, never hides. Picker = .interests grid of the library .interest buttons
+   (in a .sheet.picker or inline); the result line .because sits above the list; promoted cards carry .pl-why. */
+.interests { display: grid; gap: 10px; grid-template-columns: minmax(0, 1fr); margin: 0; padding: 0; list-style: none; }
+@media (min-width: 640px) { .interests { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.interest { width: 100%; text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-m); color: var(--ink); }
+.interest .glyph .g { width: 30px; height: 30px; }
+.interest[aria-pressed="true"] .tick::after { content: "✓"; font: 700 14px/1 var(--font-ui); }
+.because { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 10px 0 4px; padding: 12px 16px; border-radius: var(--r-m);
+  background: var(--city-wash); color: var(--ink); font-size: 14.5px; line-height: 1.45; }
+.because::before { content: ""; width: 20px; height: 20px; flex: none; background: var(--city-ink); -webkit-mask: var(--g-star4) center / contain no-repeat; mask: var(--g-star4) center / contain no-repeat; }
+.because b { font-weight: 650; }
+.because .n { color: var(--ink-2); }
+.because button, .because a { margin-left: auto; min-height: var(--tap); padding: 0 14px; border-radius: var(--r-pill); border: 1px solid var(--line-strong); background: var(--surface); font-weight: 650; text-decoration: none; display: inline-flex; align-items: center; }
+.pl-why { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; padding: 2px 8px; border-radius: var(--r-pill); background: var(--surface);
+  color: var(--city-ink); font: 650 12px/1.4 var(--font-ui); vertical-align: 1px; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--city) 40%, transparent); }
+
+/* (c) home modules (M2-11): Your list · ★ Signature · Free to visit — three doors above the rail on the city page */
+.modules { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 1fr); gap: 10px; overflow-x: auto; scrollbar-width: none; margin: 12px 0 0; padding: 2px 0 6px; }
+.modules::-webkit-scrollbar { display: none; }
+.mod { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 4px 12px; align-items: center; min-height: 84px; padding: 12px 14px;
+  border-radius: var(--r-m); border: 1px solid var(--line); background: var(--surface); color: var(--ink); text-decoration: none; text-align: left; box-shadow: var(--e-1); }
+.mod .g { grid-row: span 2; width: 44px; height: 44px; padding: 10px; border-radius: 12px; background: var(--city-wash); color: var(--city-ink); -webkit-mask: none; mask: none; }
+.mod .g::before { content: ""; display: block; width: 100%; height: 100%; background: currentColor; -webkit-mask: var(--g, var(--g-star4)) center / contain no-repeat; mask: var(--g, var(--g-star4)) center / contain no-repeat; }
+.mod b { font: 500 19px/1.15 var(--font-display); font-variation-settings: "opsz" 28; }
+.mod span { font-size: 13px; color: var(--ink-3); }
+.mod.sig { background: var(--city); color: var(--city-on); border-color: transparent; }
+.mod.sig .g { background: color-mix(in srgb, var(--city-on) 18%, transparent); color: var(--city-on); }
+.mod.sig span { color: color-mix(in srgb, var(--city-on) 86%, transparent); }
+.mod:hover { box-shadow: var(--e-2); }
+
+/* (d) "Your day" (M2-06): .day wraps summary → caveat → actions → ol.stops; stops reuse the card in .row density.
+   Map: FE-A draws the route as L.polyline(..., {className: 'day-route'}) and numbered stop pins .pin-n.day. */
+.day { display: grid; gap: 14px; margin: 12px 0 0; padding: 18px; border-radius: var(--r-l); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--e-1); }
+.day > header { display: grid; gap: 4px; }
+.day > header .eyebrow { font: 650 13px/1.3 var(--font-ui); color: var(--city-ink); }
+.day > header h2 { margin: 0; font: 500 30px/1.1 var(--font-display); }
+.daysum b { font-variant-numeric: lining-nums tabular-nums; font-variation-settings: "opsz" 28; }
+.stops { counter-reset: stop; }
+.stop { padding-bottom: 0; }
+.stop .n { background: var(--city); color: var(--city-on); font: 700 15px/1 var(--font-ui); box-shadow: 0 0 0 4px var(--surface); }
+.stop .pl { margin: 0; }
+.stop .leg { margin: 8px 0 12px; font: 500 13px/1.3 var(--font-ui); color: var(--ink-2); }
+.stop .leg::before { content: ""; width: 16px; height: 16px; flex: none; background: var(--ink-3); -webkit-mask: var(--g-route, var(--g-star4)) center / contain no-repeat; mask: var(--g-route, var(--g-star4)) center / contain no-repeat; }
+.day .total { font: 500 15px/1.4 var(--font-ui); color: var(--ink-2); }
+.leaflet-overlay-pane path.day-route { stroke: var(--city); stroke-width: 3.5; stroke-dasharray: 1 9; stroke-linecap: round; fill: none; }
+.pin-n.day { background: var(--city); color: var(--city-on); min-width: 26px; height: 26px; border-radius: 13px; font-size: 13px; line-height: 22px; }
+
+/* (e) Saved page (mockups/saved.html, M2-03/04): named lists, Been-there stamps, export, shared read-only view */
+.saved-page .listhead h1 { margin: 0; }
+.listtabs .pill .n { color: var(--ink-3); font-weight: 500; margin-left: 4px; }
+.listtabs .pill[aria-pressed="true"] .n { color: color-mix(in srgb, var(--paper) 75%, transparent); }
+.listtabs .new { border-style: dashed; }
+.listmenu { display: inline-flex; gap: 6px; }
+.listmenu .btn { min-height: var(--tap); }
+.listmenu .danger { color: var(--closed); }
+.exportbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 14px; border-radius: var(--r-m); background: var(--sand); }
+.exportbar .lbl { font: 650 13px/1.3 var(--font-ui); color: var(--ink-2); margin-right: 4px; }
+.banner.shared { background: var(--night); color: var(--on-night); }
+.banner.shared .btn { background: var(--on-night); color: var(--night); }
+.saved-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 640px) { .saved-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.saved-cards .gone { padding: 14px 16px; border: 1px dashed var(--line-strong); border-radius: var(--r-m); color: var(--ink-2); }
+.pl .stamp, .card .stamp { transform: rotate(-8deg); border: 2px solid currentColor; border-radius: 8px; padding: 4px 6px; background: color-mix(in srgb, var(--surface) 80%, transparent); text-align: center; }
+
+/* (f) Near me (M3-02): opt-in toggle, distance on cards; position never stored */
+.nearme[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.pl-dist { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; font: 650 12.5px/1.4 var(--font-ui); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.pl-dist::before { content: ""; width: 12px; height: 12px; background: currentColor; -webkit-mask: var(--g-pin, var(--g-star4)) center / contain no-repeat; mask: var(--g-pin, var(--g-star4)) center / contain no-repeat; }
+
+/* (g) sheet locator inset (ROUND-1 #1/#6): the area's own pins with this place lit — drawn by FE-A from data-ll or
+   platform's assets/art/<page>/<AREA>.svg; sits bottom-left of the sheet plate in place of the generic glyph */
+.detail .hero-plate .locator { position: absolute; left: 16px; bottom: 14px; width: 116px; height: 86px; padding: 6px; border-radius: 12px;
+  background: color-mix(in srgb, var(--surface) 82%, transparent); box-shadow: var(--e-1); }
+.detail .hero-plate .locator svg, .detail .hero-plate .locator img { width: 100%; height: 100%; }
+.detail .hero-plate .locator circle { fill: color-mix(in srgb, var(--area, var(--city)) 55%, var(--ink-3)); }
+.detail .hero-plate .locator .me { fill: var(--city); stroke: var(--surface); stroke-width: 2; }
+.detail .hero-plate:has(.locator) .pl-glyph { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .detail .hero-plate .locator .me { animation: w2-pulse 1.8s var(--ease-out) infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes w2-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.35); } }
+}
+
 /* ---------- 13. Motion: nothing moves under reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
@@ -1179,22 +1276,28 @@ html[data-cleo-page="landing"] .stickypills { top: 0; }   /* the landing top bar
 }
 
 /* ---------- collection glyphs (generated by build-css.py from svgkit.py ICONS + glyphs.json) ---------- */
-:root { --g-awning: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l2-5h14l2 5'/%3E%3Cpath d='M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0'/%3E%3Cpath d='M5 12v8.5h14V12M10 20.5v-5h4v5'/%3E%3C/svg%3E"); --g-bottle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 2.5h4v3l1.5 2.5v13.5h-7V8L10 5.5z'/%3E%3Cpath d='M8.5 12.5h7'/%3E%3C/svg%3E"); --g-bubble: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4.5h16v11.5H10.5L5.5 20v-4H4z'/%3E%3Cpath d='M12 6.8l1.1 2.4 2.6.3-1.9 1.7.5 2.5-2.3-1.3-2.3 1.3.5-2.5-1.9-1.7 2.6-.3z'/%3E%3C/svg%3E"); --g-castle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 21V10.5h3V8h2v2.5h5V8h2v2.5h3V21z'/%3E%3Cpath d='M10 21v-3.5a2 2 0 0 1 4 0V21M12 3.5V8M12 3.5l3 1.3-3 1.2'/%3E%3C/svg%3E"); --g-columns: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l9-5 9 5M5.5 9.5v8M9.8 9.5v8M14.2 9.5v8M18.5 9.5v8M3 20.5h18'/%3E%3C/svg%3E"); --g-flag: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 21V3.5M5 4h12l-2.5 4L17 12H5'/%3E%3C/svg%3E"); --g-forkknife: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 3v7.5M5 3v5a2 2 0 0 0 4 0V3M7 10.5V21M17 21V3c-2 1.4-3 4-3 8h3'/%3E%3C/svg%3E"); --g-frame: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3.5' y='4.5' width='17' height='15' rx='1'/%3E%3Cpath d='M6.5 16.5l4-5 3 3.5 2-2.2 2 3.7'/%3E%3Ccircle cx='15.5' cy='8.5' r='1.3'/%3E%3C/svg%3E"); --g-guide: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='3.6'/%3E%3Cpath d='M4.5 20.5c1.3-3.8 4.2-5.6 7.5-5.6s6.2 1.8 7.5 5.6'/%3E%3Cpath d='M17.5 3.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z'/%3E%3C/svg%3E"); --g-lantern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2v2.2M9.2 4.2h5.6M9.2 19.8h5.6M12 19.8V22'/%3E%3Cpath d='M8.3 6.2h7.4a3.8 3.8 0 0 1 0 11.6H8.3a3.8 3.8 0 0 1 0-11.6z'/%3E%3Cpath d='M5 10.2h14M5 13.8h14'/%3E%3C/svg%3E"); --g-leaf: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 19.5C5 11 10 5 19.5 4.5 19.5 14 14 19 5.5 19.5'/%3E%3Cpath d='M5 19.5l8.5-8.5'/%3E%3C/svg%3E"); --g-moon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z'/%3E%3Cpath d='M17 4l.5 1.3 1.3.5-1.3.5L17 7.6l-.5-1.3-1.3-.5 1.3-.5z'/%3E%3C/svg%3E"); --g-mountain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 20l6.5-11.5 4 6.5 2.5-3.5 6 8.5z'/%3E%3Cpath d='M7.4 11.3l1.6 1.2 1.7-1'/%3E%3C/svg%3E"); --g-plane: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 4.5L3 11l7 2.5 2.5 7z'/%3E%3Cpath d='M10 13.5l4-4'/%3E%3C/svg%3E"); --g-stamp: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8.5'/%3E%3Cpath d='M8.5 12.2l2.3 2.3 4.7-4.8'/%3E%3C/svg%3E"); --g-star4: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1-2.1 7.4-2.1-7.4L2.5 12l7.4-2.1z'/%3E%3C/svg%3E"); --g-steam: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 14.5c0 3.2 3.8 5.5 8.5 5.5s8.5-2.3 8.5-5.5z'/%3E%3Cpath d='M8.5 11c-1.2-1.6 1.2-2.6 0-4.4M12 11c-1.2-1.6 1.2-2.6 0-4.4M15.5 11c-1.2-1.6 1.2-2.6 0-4.4'/%3E%3C/svg%3E"); --g-ticket: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 7h17v3a2 2 0 0 0 0 4v3h-17v-3a2 2 0 0 0 0-4z'/%3E%3Cpath d='M14.5 7.5v1.5M14.5 11.2v1.6M14.5 15v1.5'/%3E%3C/svg%3E"); --g-torii: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 5.2c4.5 1.3 13.5 1.3 18 0M5 9.5h14M7 6v15M17 6v15M12 9.5V6.6'/%3E%3C/svg%3E"); --g-tower: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2v3M8.5 21L12 5l3.5 16M9.3 15h5.4M7 21h10M10.2 10h3.6'/%3E%3C/svg%3E"); --g-train: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='3' width='14' height='14' rx='3'/%3E%3Cpath d='M5 10h14M8.5 21l2-4M15.5 21l-2-4'/%3E%3Ccircle cx='9' cy='13.5' r='.9'/%3E%3Ccircle cx='15' cy='13.5' r='.9'/%3E%3C/svg%3E"); --g-tv: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='6.5' width='18' height='13' rx='2'/%3E%3Cpath d='M8 3l4 3.5L16 3'/%3E%3C/svg%3E"); --g-wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 8.5c2.4 0 2.4-2 4.75-2S9.6 8.5 12 8.5s2.4-2 4.75-2 2.35 2 4.75 2M2.5 13.5c2.4 0 2.4-2 4.75-2s2.35 2 4.75 2 2.4-2 4.75-2 2.35 2 4.75 2M2.5 18.5c2.4 0 2.4-2 4.75-2s2.35 2 4.75 2 2.4-2 4.75-2 2.35 2 4.75 2'/%3E%3C/svg%3E"); }
+:root { --g-awning: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l2-5h14l2 5'/%3E%3Cpath d='M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0'/%3E%3Cpath d='M5 12v8.5h14V12M10 20.5v-5h4v5'/%3E%3C/svg%3E"); --g-bottle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 2.5h4v3l1.5 2.5v13.5h-7V8L10 5.5z'/%3E%3Cpath d='M8.5 12.5h7'/%3E%3C/svg%3E"); --g-bowl: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 11.5h18a9 9 0 0 1-18 0z'/%3E%3Cpath d='M9 20.5h6M13.5 3l6.5 7M9.5 3.5l6.5 7'/%3E%3C/svg%3E"); --g-bubble: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4.5h16v11.5H10.5L5.5 20v-4H4z'/%3E%3Cpath d='M12 6.8l1.1 2.4 2.6.3-1.9 1.7.5 2.5-2.3-1.3-2.3 1.3.5-2.5-1.9-1.7 2.6-.3z'/%3E%3C/svg%3E"); --g-castle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 21V10.5h3V8h2v2.5h5V8h2v2.5h3V21z'/%3E%3Cpath d='M10 21v-3.5a2 2 0 0 1 4 0V21M12 3.5V8M12 3.5l3 1.3-3 1.2'/%3E%3C/svg%3E"); --g-columns: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l9-5 9 5M5.5 9.5v8M9.8 9.5v8M14.2 9.5v8M18.5 9.5v8M3 20.5h18'/%3E%3C/svg%3E"); --g-compass: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M15.5 8.5l-2 5-5 2 2-5z'/%3E%3C/svg%3E"); --g-day: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3.5' y='5' width='17' height='15.5' rx='2.5'/%3E%3Cpath d='M3.5 10h17M8 3v4M16 3v4'/%3E%3Ccircle cx='12' cy='15' r='1.4'/%3E%3C/svg%3E"); --g-flag: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 21V3.5M5 4h12l-2.5 4L17 12H5'/%3E%3C/svg%3E"); --g-forkknife: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 3v7.5M5 3v5a2 2 0 0 0 4 0V3M7 10.5V21M17 21V3c-2 1.4-3 4-3 8h3'/%3E%3C/svg%3E"); --g-frame: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3.5' y='4.5' width='17' height='15' rx='1'/%3E%3Cpath d='M6.5 16.5l4-5 3 3.5 2-2.2 2 3.7'/%3E%3Ccircle cx='15.5' cy='8.5' r='1.3'/%3E%3C/svg%3E"); --g-guide: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='3.6'/%3E%3Cpath d='M4.5 20.5c1.3-3.8 4.2-5.6 7.5-5.6s6.2 1.8 7.5 5.6'/%3E%3Cpath d='M17.5 3.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z'/%3E%3C/svg%3E"); --g-heart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z'/%3E%3C/svg%3E"); --g-lantern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2v2.2M9.2 4.2h5.6M9.2 19.8h5.6M12 19.8V22'/%3E%3Cpath d='M8.3 6.2h7.4a3.8 3.8 0 0 1 0 11.6H8.3a3.8 3.8 0 0 1 0-11.6z'/%3E%3Cpath d='M5 10.2h14M5 13.8h14'/%3E%3C/svg%3E"); --g-leaf: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 19.5C5 11 10 5 19.5 4.5 19.5 14 14 19 5.5 19.5'/%3E%3Cpath d='M5 19.5l8.5-8.5'/%3E%3C/svg%3E"); --g-moon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z'/%3E%3Cpath d='M17 4l.5 1.3 1.3.5-1.3.5L17 7.6l-.5-1.3-1.3-.5 1.3-.5z'/%3E%3C/svg%3E"); --g-mountain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 20l6.5-11.5 4 6.5 2.5-3.5 6 8.5z'/%3E%3Cpath d='M7.4 11.3l1.6 1.2 1.7-1'/%3E%3C/svg%3E"); --g-pin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 21s-7-6.2-7-11.4a7 7 0 0 1 14 0C19 14.8 12 21 12 21z'/%3E%3Ccircle cx='12' cy='9.6' r='2.4'/%3E%3C/svg%3E"); --g-plane: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 4.5L3 11l7 2.5 2.5 7z'/%3E%3Cpath d='M10 13.5l4-4'/%3E%3C/svg%3E"); --g-route: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='6' cy='18.5' r='2'/%3E%3Ccircle cx='18' cy='5.5' r='2'/%3E%3Cpath d='M8 18.5h7.5a3.3 3.3 0 0 0 0-6.6h-7a3.3 3.3 0 0 1 0-6.6H16'/%3E%3C/svg%3E"); --g-stamp: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8.5'/%3E%3Cpath d='M8.5 12.2l2.3 2.3 4.7-4.8'/%3E%3C/svg%3E"); --g-star4: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1-2.1 7.4-2.1-7.4L2.5 12l7.4-2.1z'/%3E%3C/svg%3E"); --g-steam: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 14.5c0 3.2 3.8 5.5 8.5 5.5s8.5-2.3 8.5-5.5z'/%3E%3Cpath d='M8.5 11c-1.2-1.6 1.2-2.6 0-4.4M12 11c-1.2-1.6 1.2-2.6 0-4.4M15.5 11c-1.2-1.6 1.2-2.6 0-4.4'/%3E%3C/svg%3E"); --g-ticket: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 7h17v3a2 2 0 0 0 0 4v3h-17v-3a2 2 0 0 0 0-4z'/%3E%3Cpath d='M14.5 7.5v1.5M14.5 11.2v1.6M14.5 15v1.5'/%3E%3C/svg%3E"); --g-torii: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 5.2c4.5 1.3 13.5 1.3 18 0M5 9.5h14M7 6v15M17 6v15M12 9.5V6.6'/%3E%3C/svg%3E"); --g-tower: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2v3M8.5 21L12 5l3.5 16M9.3 15h5.4M7 21h10M10.2 10h3.6'/%3E%3C/svg%3E"); --g-train: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='3' width='14' height='14' rx='3'/%3E%3Cpath d='M5 10h14M8.5 21l2-4M15.5 21l-2-4'/%3E%3Ccircle cx='9' cy='13.5' r='.9'/%3E%3Ccircle cx='15' cy='13.5' r='.9'/%3E%3C/svg%3E"); --g-tv: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='6.5' width='18' height='13' rx='2'/%3E%3Cpath d='M8 3l4 3.5L16 3'/%3E%3C/svg%3E"); --g-wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 8.5c2.4 0 2.4-2 4.75-2S9.6 8.5 12 8.5s2.4-2 4.75-2 2.35 2 4.75 2M2.5 13.5c2.4 0 2.4-2 4.75-2s2.35 2 4.75 2 2.4-2 4.75-2 2.35 2 4.75 2M2.5 18.5c2.4 0 2.4-2 4.75-2s2.35 2 4.75 2 2.4-2 4.75-2 2.35 2 4.75 2'/%3E%3C/svg%3E"); }
 .g { display: inline-block; width: 22px; height: 22px; flex: none; background: currentColor; -webkit-mask: var(--g, var(--g-star4)) center / contain no-repeat; mask: var(--g, var(--g-star4)) center / contain no-repeat; }
 .g[data-g="awning"] { --g: var(--g-awning); }
 .g[data-g="bottle"] { --g: var(--g-bottle); }
+.g[data-g="bowl"] { --g: var(--g-bowl); }
 .g[data-g="bubble"] { --g: var(--g-bubble); }
 .g[data-g="castle"] { --g: var(--g-castle); }
 .g[data-g="columns"] { --g: var(--g-columns); }
+.g[data-g="compass"] { --g: var(--g-compass); }
+.g[data-g="day"] { --g: var(--g-day); }
 .g[data-g="flag"] { --g: var(--g-flag); }
 .g[data-g="forkknife"] { --g: var(--g-forkknife); }
 .g[data-g="frame"] { --g: var(--g-frame); }
 .g[data-g="guide"] { --g: var(--g-guide); }
+.g[data-g="heart"] { --g: var(--g-heart); }
 .g[data-g="lantern"] { --g: var(--g-lantern); }
 .g[data-g="leaf"] { --g: var(--g-leaf); }
 .g[data-g="moon"] { --g: var(--g-moon); }
 .g[data-g="mountain"] { --g: var(--g-mountain); }
+.g[data-g="pin"] { --g: var(--g-pin); }
 .g[data-g="plane"] { --g: var(--g-plane); }
+.g[data-g="route"] { --g: var(--g-route); }
 .g[data-g="stamp"] { --g: var(--g-stamp); }
 .g[data-g="star4"] { --g: var(--g-star4); }
 .g[data-g="steam"] { --g: var(--g-steam); }

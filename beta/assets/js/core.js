@@ -176,6 +176,99 @@
     emit('cleo:tiles-failed', {});
   };
 
+  /* ---- progressive rendering (M3-06; tools/beta/lib/chunk.js): later cards ship inside
+   * <noscript data-cleo-defer> — raw text while JS runs, real HTML when it doesn't. Stamp a chunk as its list
+   * nears the viewport, and stamp EVERYTHING before anything that must see every place: a route/deep link, a
+   * lens, the tray, the filter box, a source chip, the map toggle, find-in-page, print. Each stamp emits
+   * `cleo:stamped` {cards} synchronously, so page scripts adopt the new cards before their own handlers run. ---- */
+  var D = Cleo.defer = {
+    pending: function () { return [].slice.call(document.querySelectorAll('noscript[data-cleo-defer]')); },
+    stamp: function (ns) {
+      if (!ns || !ns.parentNode) return [];
+      var t = document.createElement('template'), ol = ns.parentNode;
+      t.innerHTML = ns.children && ns.children.length ? ns.innerHTML : ns.textContent;   // scripting off in this parser → already elements
+      var cards = [].slice.call(t.content.querySelectorAll('li.pl'));
+      ol.insertBefore(t.content, ns); ol.removeChild(ns);
+      var gap = ol.querySelector('.cleo-defer-gap');
+      if (gap) { var left = 0; [].forEach.call(ol.querySelectorAll('noscript[data-cleo-defer]'), function (x) { left += +x.getAttribute('data-n') || 0; });
+        if (left) gap.style.height = Math.round(left * (+gap.getAttribute('data-est') || 0)) + 'px'; else ol.removeChild(gap); }
+      if (cards.length) emit('cleo:stamped', { cards: cards });
+      return cards;
+    },
+    all: function () { var out = []; D.pending().forEach(function (ns) { out = out.concat(D.stamp(ns)); }); if (io) { io.disconnect(); io = null; } return out; },
+    /** Stamp the chunk holding place `id` (a map pin of a not-yet-stamped card). Returns the card or null. */
+    stampFor: function (id) {
+      var el = document.getElementById('p-' + id); if (el) return el;
+      var hit = D.pending().filter(function (ns) { return ns.textContent.indexOf('id="p-' + id + '"') >= 0 || ns.innerHTML.indexOf('id="p-' + id + '"') >= 0; })[0];
+      if (hit) D.stamp(hit);
+      return document.getElementById('p-' + id);
+    },
+    /** Lightweight stand-ins for unstamped cards, parsed from their start tags only: {id, getAttribute, hasAttribute}.
+     *  Enough to draw a map pin (data-ll, data-n, data-a, data-t, data-closed) without building the card. */
+    peek: function () {
+      var out = [];
+      D.pending().forEach(function (ns) {
+        var src = ns.children && ns.children.length ? ns.innerHTML : ns.textContent, re = /<li class="pl[ "][^>]*>/g, m;
+        while ((m = re.exec(src))) {
+          var at = {}, a = /([a-z-]+)(?:="([^"]*)")?/g, x, tag = m[0].slice(3, -1);
+          while ((x = a.exec(tag))) at[x[1]] = x[2] === undefined ? '' : x[2].replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+          out.push({ id: at.id, stub: true, getAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k) ? this._a[k] : null; },
+            hasAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k); }, _a: at });
+        }
+      });
+      return out;
+    }
+  };
+  var io = null;
+  function deferInit() {
+    var list = D.pending(); if (!list.length) return;
+    var h = location.hash;
+    // anything addressed by the URL (a place, a lens, an area anchor) needs every card now; so does a browser
+    // without IntersectionObserver (and jsdom) — degrade to "all cards", never to "some cards"
+    if ((h && h !== '#') || !('IntersectionObserver' in window)) {
+      D.all();
+      if (h && h !== '#') emit('cleo:route', {});     // page scripts that already routed (inline/jsdom order) route again
+      return;
+    }
+    // hold each deferred list's height so the scrollbar and anchors don't jump while it is unstamped
+    var live = document.querySelector('ol.pls'), cards = live ? live.querySelectorAll(':scope > li.pl') : [];
+    var est = cards.length && live.offsetHeight ? live.offsetHeight / cards.length : 0;
+    // watch the card just before each list's next chunk (or the list itself when it has no live card); when it
+    // nears the viewport, stamp that one chunk and move the watch to the new last card
+    var watch = function (ol) {
+      var ns = ol.querySelector('noscript[data-cleo-defer]'); if (!ns || !io) return;
+      var t = ns.previousElementSibling || ol; t._cleoNext = ns; io.observe(t);
+    };
+    io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting || !io) return;
+        io.unobserve(e.target);
+        var ns = e.target._cleoNext, ol = ns && ns.parentNode; e.target._cleoNext = null;
+        if (ol) { D.stamp(ns); watch(ol); }
+      });
+    }, { rootMargin: '1200px 0px' });
+    list.forEach(function (ns) {
+      var ol = ns.parentNode; if (ol.getAttribute('data-cleo-deferred')) return;
+      ol.setAttribute('data-cleo-deferred', '1');
+      if (est) {                                    // a spacer (not min-height: grid rows would stretch to fill it)
+        var n = 0; [].forEach.call(ol.querySelectorAll('noscript[data-cleo-defer]'), function (x) { n += +x.getAttribute('data-n') || 0; });
+        var g = document.createElement('div'); g.className = 'cleo-defer-gap'; g.setAttribute('aria-hidden', 'true'); g.setAttribute('data-est', est.toFixed(1));
+        g.style.cssText = 'grid-column:1/-1;margin:0;padding:0;border:0;height:' + Math.round(n * est) + 'px';
+        ol.appendChild(g);
+      }
+      watch(ol);
+    });
+    var allNow = function () { if (D.pending().length) D.all(); };
+    window.addEventListener('hashchange', allNow);                 // registered before any page script's listener
+    document.addEventListener('cleo:route', allNow);
+    window.addEventListener('beforeprint', allNow);
+    var NEEDS_ALL = '[data-mode],[data-cleo-all],.rail-i,.pl-s button.src,[data-cleo-tray],[data-cleo-map],[data-unset],[data-tr],[data-cleo-day],[data-cleo-near],[data-cleo-foryou],[data-cleo-mine]';
+    document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest(NEEDS_ALL)) allNow(); }, true);
+    document.addEventListener('focusin', function (e) { if (e.target.matches && e.target.matches('#cleo-filter,main input[type=search]')) allNow(); }, true);
+    document.addEventListener('keydown', function (e) { if ((e.ctrlKey || e.metaKey) && (e.key === 'f' || e.key === 'F' || e.key === 'g')) allNow(); }, true);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', deferInit); else deferInit();
+
   /* ---- saved counter in the site bar ---- */
   function paintCount() {
     var n = Cleo.saved.count();

@@ -85,6 +85,15 @@ Baselines are from UX §7 (live/beta Cleveland and Tokyo, Salon Tokyo). "Leader"
 | B-44 | Largest page (NYC): first card ≤ 1.0 s at 4× CPU throttle; initial DOM ≤ 3,000 nodes; reachability 100% | **Pass** | QA D4, D5 |
 | B-45 | Reduced motion respected on every animation | **Pass** | Airbnb accessibility (P9) |
 
+### M4 — Round 3 view styles (added by D-33, 2026-10-10)
+
+| # | Benchmark | Target | Pattern |
+|---|---|---|---|
+| B-46 | View switcher: 4 labelled views; switching keeps filters, search, open sheet and count | **Yes**; controls above first card still ≤ 14 | Segmented view control over one record set |
+| B-47 | `view=` in the hash: default omitted, validated, round-trips with every other key | **Pass** (round-trip test, every view × lens) | Shareable view state |
+| B-48 | Every view reaches every record: scroll/Show all, deep link, search, filter, print, JS-off | **100 %** per view on 84/84 pages; paged views show page numbers, "all N places" and Show all | Rule 1 (keep every place) |
+| B-49 | Insights charts account for 100 % of records (closed/unpinned footnoted), act as filters, chart only data fields | **Yes**; 0 rating/price/popularity fields | Captioned hand-built charts |
+
 ## 3. Teardown-matrix target
 
 The UX §3 matrix scored our beta ✕ or ◐ on all 12 columns. **Done** = the beta row reads ● on every column we can

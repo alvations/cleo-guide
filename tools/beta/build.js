@@ -23,6 +23,7 @@ const { pageSources, siteSources } = require('./lib/sources');
 const art = require('./lib/art');
 const imagery = require('./imagery');                              // imagery lane: motifs, photo manifest, credit gate
 const { guide } = require('./lib/guide');
+const { chunk } = require('./lib/chunk');
 const { assertCityPage, assertHubPage, assertPage } = require('./lib/guards');
 const { swSource } = require('./lib/sw');
 const { BETA_BASE } = require('./lib/render/common');
@@ -162,6 +163,8 @@ emit('data/search.json', JSON.stringify({ _generated: 'tools/beta/build.js — d
 
 // ---------------------------------------------------------------- pages
 const ctx = { assetsV, betaBase: BETA_BASE, feaCss: `assets/fe-a.css?v=${feaV}` };
+const LAZY_OK = /cleo:stamped/.test(fs.readFileSync(path.join(CLIENT, 'city.js'), 'utf8'));
+const CHUNK = { initial: 32, size: 40 };            // first 32 cards live; later ones in 40-card <noscript> chunks
 shell.setSite(reg, assetsV);
 const totals = Object.fromEntries(cityRows.map(r => [r.key, r.stats.total]));
 for (const r of reg.rows.filter(r => r.gen === 'new')) {
@@ -179,6 +182,9 @@ for (const r of reg.rows.filter(r => r.gen === 'new')) {
     const center = m ? [+m[1], +m[2], +m[3]] : pts.length ? [med(pts.map(p => p.la)), med(pts.map(p => p.ln)), 11] : [0, 0, 2];
     const og = fs.existsSync(path.join(BETA, 'assets', 'og', r.fileKey + '.png')) ? `${BETA_BASE}/assets/og/${r.fileKey}.png` : null;
     html = city.render(r, r.recs, Object.assign({ center, ogImage: og }, ctx));
+    // Progressive rendering (M3-06): only when the page client adopts stamped cards (the `cleo:stamped` hook) —
+    // otherwise a rewrite of city.js could silently strand deferred cards, so we ship every card live instead.
+    if (LAZY_OK) { const c = chunk(html, CHUNK); html = c.html; r.chunk = { live: c.live, deferred: c.deferred, chunks: c.chunks }; }
     errors.push(...assertCityPage(r, html, r.recs).map(e => r.beta + ': ' + e));
   } else if (r.kind === 'country-hub' || r.kind === 'archive-hub') {
     const h = (r.kind === 'archive-hub' ? hub.renderArchive : hub.renderCountry)(r, reg, ctx);

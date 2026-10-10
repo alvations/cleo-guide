@@ -12,7 +12,7 @@
   cards.forEach(c => { byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
   const has = (c, a, v) => (' ' + (at(c, a) || '') + ' ').indexOf(' ' + v + ' ') >= 0;
   const desk = () => !window.matchMedia || matchMedia('(min-width: 1024px)').matches;
-  const LENS = ['c', 'cz', 't', 'src', 'a', 'been', 'gap', 'closed', 'mine', 'day'], RAIL = ['c', 'cz', 't', 'src', 'gap', 'closed'], S = { mode: 'all', q: '', sort: '' };
+  const LENS = ['sig', 'c', 'cz', 't', 'src', 'a', 'been', 'gap', 'closed', 'mine', 'day'], RAIL = ['sig', 'c', 'cz', 't', 'src', 'gap', 'closed'], S = { mode: 'all', q: '', sort: '' };
   const store = Cleo.store || { get: (k, x) => x, set: () => {} };
   const been = { all: () => { const b = store.get('been', {}); return b && typeof b === 'object' ? b : {}; },
     toggle(r) { const b = been.all(); if (b[r]) delete b[r]; else b[r] = 1; store.set('been', b); paint(); return !!b[r]; } };
@@ -27,14 +27,14 @@
   });
   // hooks for foryou.js / day.js: rank(card) → sort key (lower first) and why(card) → 'First because' text; lens[k](n) → html;
   // after[] run once per apply (map overlays); dist {id: km} while Near me is on (never stored)
-  const nameOf = c => { const a = $('.pl-n a', c); if (!a) return ''; const x = a.cloneNode(true); $$('.vh', x).forEach(v => v.remove()); return x.textContent.trim(); };
+  const nameOf = c => { const a = $('.pl-n a', c); if (!a) return ''; const x = a.cloneNode(true); if (c.querySelector('.pl-vert')) $$('.nat', x).forEach(v => v.remove()); return x.textContent.trim(); };
   const C = Cleo.city = { name: nameOf, byId, info, key, pid, been, desk, esc, icon, trap, cards, S, lens: {}, after: [], rank: null, why: null, dist: null };
   $$('[data-cleo-rail],[data-cleo-toolbar]').forEach(el => { el.hidden = false; });
   const rail = $('#cleo-rail'), shown = $('#cleo-shown'), lens = $('#cleo-lens'), applied = $('[data-cleo-applied]'), fi = $('#cleo-filter'), split = $('.split');
   const shown0 = shown ? shown.innerHTML : '';
   const go = C.go = (r, rep) => Cleo.route.go(r, rep);
   const cur = () => { const r = {}; if (S.mode !== 'all') r.mode = S.mode; LENS.concat('sort').forEach(k => { if (S[k]) r[k] = S[k]; }); return r; };
-  const label = C.label = (k, v) => k === 't' ? ['', 'Must see', 'Worth the detour', 'Deep cut'][v] : k === 'src' ? ((info.src || {})[v] || [v])[0] : k === 'closed' ? 'Recently closed' : k === 'mine' ? 'Your list'
+  const label = C.label = (k, v) => k === 'sig' ? (info.sig || {}).t || 'Signature' : k === 't' ? ['', 'Must see', 'Worth the detour', 'Deep cut'][v] : k === 'src' ? ((info.src || {})[v] || [v])[0] : k === 'closed' ? 'Recently closed' : k === 'mine' ? 'Your list'
     : k === 'a' ? ((info.areas || {})[v] || {}).n || v : k === 'been' ? (v === 'hide' ? 'Hide been there' : 'Only been there') : k === 'q' ? '“' + v + '”' : (info.cats || {})[v] || v;
 
   on(d, 'click', e => {
@@ -61,6 +61,7 @@
     if ((S.c && !has(c, 'data-g', S.c)) || (S.cz && !has(c, 'data-cz', S.cz)) || (S.src && !has(c, 'data-src', S.src))) return false;
     if ((S.t && (at(c, 'data-t') !== S.t || c.hasAttribute('data-closed'))) || (S.a && at(c, 'data-a') !== S.a)) return false;
     if (S.been) { const b = !!been.all()[key + '/' + pid(c)]; if (S.been === 'hide' ? b : !b) return false; }
+    if (S.sig && !(info.sig && info.sig.ids.indexOf(pid(c)) >= 0)) return false;
     if ((S.closed && !c.hasAttribute('data-closed')) || (S.mine && !(Cleo.saved && Cleo.saved.has(key + '/' + pid(c)))) || (S.day && C.inDay && !C.inDay(pid(c)))) return false;
     return !S.q || fold(S.q).split(/\s+/).every(w => !w || text[pid(c)].indexOf(w) >= 0);
   };
@@ -68,11 +69,12 @@
   const nsrc = x => (at(x, 'data-src') || '').split(' ').length, num = x => +at(x, 'data-n');
   const far = x => C.dist && C.dist[pid(x)] != null ? C.dist[pid(x)] : 1e9;
   const apply = () => {
+    if (Cleo.defer && (C.rank || S.day || S.sort)) Cleo.defer.all();   // a reorder must see every card (M3-06)
     let n = 0; const areas = {}, tot = cards.length;
     $$('ol.pls').forEach(ol => {
       const base = S.sort === 'az' ? (x, y) => $('.pl-n', x).textContent.localeCompare($('.pl-n', y).textContent)
         : S.sort === 'src' ? (x, y) => nsrc(y) - nsrc(x) || num(x) - num(y) : S.sort === 'near' && C.dist ? (x, y) => far(x) - far(y) || num(x) - num(y) : (x, y) => num(x) - num(y);
-      const rk = S.day && C.dayRank ? C.dayRank : C.rank;
+      const rk = S.day && C.dayRank ? C.dayRank : S.closed && info.co ? x => { const i = info.co.indexOf(pid(x)); return i < 0 ? 999 : i; } : C.rank;
       const li = $$('li.pl', ol).sort(rk ? (x, y) => rk(x) - rk(y) || base(x, y) : base);
       if (li.some((x, i) => ol.children[i] !== x)) li.forEach(x => ol.appendChild(x));
     });
@@ -82,19 +84,21 @@
       const dk = $('.pl-km', c), dv = C.dist && C.dist[pid(c)];
       if (dv != null) { if (!dk) $('.pl-e', c).insertAdjacentHTML('beforeend', ' <span class="pl-km"></span>'); $('.pl-km', c).textContent = '· ' + (dv < 1 ? Math.round(dv * 1000 / 10) * 10 + ' m' : dv.toFixed(1) + ' km') + ' away'; } else if (dk) dk.remove();
     });
-    sections.forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden])'); });
+    sections.forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden]),noscript[data-cleo-defer]'); });
     if (sections.length > 1) {   // Near me: the nearest area comes first; otherwise the guide's area order
       const ord = sections.slice().sort((x, y) => S.sort === 'near' && C.dist ? Math.min.apply(0, $$('li.pl', x).map(far)) - Math.min.apply(0, $$('li.pl', y).map(far)) : 0);
       if (ord.some((x, i) => x !== $$('section.area')[i])) { const how = $('#how-we-choose'); ord.forEach(x => how.parentNode.insertBefore(x, how)); }
     }
-    const nA = Object.keys(areas).length, act = LENS.filter(k => S[k] && k !== 'gap'), all = '<button class="btn btn-primary" data-cleo-all>Show all ' + tot + '</button>';
+    const nA = Object.keys(areas).length, act = LENS.filter(k => S[k] && k !== 'gap' && k !== 'day'), all = '<button class="btn btn-primary" data-cleo-all>Show all ' + tot + '</button>';
     const gap = t => '<div class="gap"><span class="eyebrow">Stated gap</span>' + t + '</div>';
     if (shown) shown.innerHTML = n === tot ? shown0 : n ? 'Showing <b>' + n + '</b> of ' + tot + ' places in ' + ar(nA) + '. Ordered by tier, then by number of named sources.'
       : '<b>No places match.</b> Filters never hide places for good. <button class="btn btn-quiet" data-cleo-all>Clear filters (' + tot + ' places)</button>';
-    const lk = ['day', 'src', 'gap', 'closed', 'mine', 'c', 'cz', 't', 'a'].filter(k => S[k])[0];
+    const lk = ['day', 'sig', 'src', 'gap', 'closed', 'mine', 'c', 'cz', 't', 'a'].filter(k => S[k])[0];
     let h = '';
     if (C.lens[lk]) h = C.lens[lk](n, nA, all);
-    else if (lk === 'closed') h = '<h2>Recently closed — kept for the record (' + n + ')</h2><p>Closed places stay on the guide, flagged, with the source and date of the closure check — so a pin never reads as “go here today”. </p><div class="row">' + all + '</div>';
+    else if (lk === 'closed') h = '<h2>Recently closed — kept for the record (' + n + ')</h2><p>Closed places stay on the guide, flagged, with the source and date of the closure check — so a pin never reads as “go here today”. Newest check first.</p><div class="row">' + all + '</div>';
+    else if (lk === 'sig' && info.sig) h = '<span class="eyebrow">★ Signature · ' + esc(info.sig.why || '') + '</span><h2>' + esc(info.sig.t) + ' (' + n + ')</h2>' +
+      (info.sig.dishes.length ? '<p>' + info.sig.dishes.map(x => '<b>' + esc(x[0]) + '</b> ' + x[1]).join(' · ') + '</p>' : '') + '<p>' + pl(n) + ' across ' + ar(nA) + ' — numbered to match the map.</p><div class="row">' + all + '</div>';
     else if (lk === 'mine') h = '<h2>Your list in ' + esc(info.name) + ' (' + n + ')</h2><p>Saved on this device. <a href="' + (Cleo.root || '../') + 'saved.html">All your lists</a></p><div class="row">' + all + '</div>';
     else if (lk === 'src') {
       const s = (info.src || {})[S.src] || [S.src, n, 0, '', ''];
@@ -112,7 +116,7 @@
     $$('button[data-mode]').forEach(b => b.setAttribute('aria-pressed', String(at(b, 'data-mode') === S.mode)));
     if (rail) rail.setAttribute('data-view', S.mode);
     $$('.rail-i').forEach(a => {
-      const p = a.hasAttribute('data-cleo-all') ? !act.length && !S.gap && S.mode === 'all' && !S.q : RAIL.some(k => S[k] && at(a, 'data-' + k) === S[k]);
+      const p = a.hasAttribute('data-cleo-all') ? !act.length && !S.gap && !S.day && S.mode === 'all' && !S.q : RAIL.some(k => S[k] && at(a, 'data-' + k) === S[k]);
       a.setAttribute('aria-pressed', String(p)); if (p) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
     });
     syncMarkers(); C.after.forEach(f => f());
@@ -149,8 +153,8 @@
   // never clips); otherwise a Didone initial. The native is printed once: the build drops it from the visible title.
   const cover = c => {
     const p = $('.pl-cover', c); if (!p || p.firstChild) return;
-    const vh = $('.pl-n .vh', c), g = Array.from(vh ? vh.textContent.replace(/^\s*\(|\)\s*$/g, '') : ''), nm = $('.pl-n', c).textContent.replace(/\s*[—–-]+\s*CLOSED\b.*$/i, '');
-    p.innerHTML = (g.length ? '<span class="pl-vert" style="--n:' + g.length + '"' + (info.lang ? ' lang="' + info.lang + '"' : '') + '>' + esc(g.join('')) + '</span>'
+    const na = $('.pl-n .nat', c), g0 = Array.from(na ? na.textContent.replace(/^\s*\(|\)\s*$/g, '') : ''), g = g0.length <= 7 ? g0 : [], nm = $('.pl-n', c).textContent.replace(/\s*[—–-]+\s*CLOSED\b.*$/i, '');
+    p.innerHTML = (g.length ? '<span class="pl-vert' + (g.length > 4 ? ' long' : '') + '"' + (info.lang ? ' lang="' + info.lang + '"' : '') + '>' + esc(g.join('')) + '</span>'
       : '<span class="pl-ini">' + esc((nm.replace(/^(The|La|Le|El|Il|Der|Die|Das)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || ['·'])[0]) + '</span>') +
       '<svg class="pl-glyph"><use href="#i-' + at(c, 'data-gl') + '"/></svg>';
   };
@@ -168,6 +172,10 @@
     if (mine) { mine.hidden = !nm && !S.mine; $('[data-cleo-mine-n]', mine).textContent = nm; $('[data-cleo-mine-n]', mine).className = 'n' + (nm === 1 ? ' one' : ''); }
   };
   on(d, 'cleo:saved', () => { paint(); if (S.mine) apply(); });
+  // Platform hook (M3-06): later cards arrive from Cleo.defer (core.js) as their area nears the viewport, or all at
+  // once before any lens/route. Adopt them so every lens, count and pin sees every place; stubs' pins become cards.
+  on(d, 'cleo:stamped', e => { ((e.detail || {}).cards || []).forEach(c => { if (byId[pid(c)] === c) return; cards.push(c); byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
+    $$('section.area').forEach(s => { if (sections.indexOf(s) < 0) sections.push(s); }); paint(); });
 
   const tray = $('#cleo-tray'), TK = ['a', 't', 'src', 'c', 'cz', 'sort', 'been'];
   let P = {}, opener = null, pushed = 0, after = null;
@@ -266,10 +274,12 @@
     bases.satellite = L.tileLayer(E + 'World_Imagery/MapServer/tile/{z}/{y}/{x}', ea);
     const b0 = bases[store.get('base', 'street')] || bases.street; b0.addTo(map);
     if (Cleo.watchTiles) Cleo.watchTiles(b0, () => { Cleo.mapFallback(el, map); map = null; });
-    cards.forEach(c => {
+    // every place gets its pin, stamped or not (unstamped = a start-tag stub from Cleo.defer.peek(); click stamps it)
+    cards.concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => {
       const ll = (at(c, 'data-ll') || '').split(','); if (ll.length !== 2) return;
-      const k = markers[pid(c)] = L.circleMarker([+ll[0], +ll[1]], style(c)).addTo(map);
-      k.bindTooltip(at(c, 'data-n'), { permanent: true, direction: 'center', className: 'pin-n', opacity: 1 }); k.on('click', () => pin(c));
+      const k = markers[pid(c)] = L.circleMarker([+ll[0], +ll[1]], style(c)).addTo(map), id = pid(c);
+      k.bindTooltip(at(c, 'data-n'), { permanent: true, direction: 'center', className: 'pin-n', opacity: 1 });
+      k.on('click', () => { const r = byId[id] || (Cleo.defer && Cleo.defer.stampFor(id)); if (r) pin(r); });
     });
     const zl = () => el.classList.toggle('zoom-lo', map.getZoom() < 14); map.on('zoomend', zl); zl();
     map.on('dragstart', () => { userAt = Date.now(); }); map.on('zoomstart', () => { if (Date.now() - auto > 1500) userAt = Date.now(); });
