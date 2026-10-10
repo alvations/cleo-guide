@@ -459,3 +459,13 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - designer: QA-24 footer link underline, QA-25 saved-night contrast;
   - FE-B: QA-22 Vietnam hub fold, QA-23 404 contrast, QA-28 rail link counts.
   QA W3 (session_015bFMDrayu1fp3qp2cKD3xm) launched. It re-tests those blockers first and signs off a specific SHA for deploy, then builds the W3 view harness.
+- 2026-10-10 · **FE-B** · Wave 3 slice 3 · session_01KLBRpRabpnEHiyU3gKvKjv · **ROUND-2 gap #4 (landing wanderlust), FE-B half** + a slice-1 fix · commit: this entry's commit.
+  - **Editorial rail** on the landing, right under the designer's hero panorama: "Signatures across the guides", `nav.rail.editorial > a.rail-i.sig` per the designer's hook, **one ★ per live country, all from the guides' own data**.
+    - The rule: for each country, the ★ signature title shared by the most places across its guides, counting a city once even when the regional archive mirrors it.
+    - The tiles today: Japan "Anime, Manga & Pop Culture" 116 across 5 guides · Singapore "The hawker canon" 269 across 20 · Belgium "Belgian classics" 163 across 4 · Vietnam 43 across 3 · Germany "Aachen classics" 63 · US "San Francisco classics" 39.
+    - Each tile opens the guide holding most of them with its ★ lens on (`#c=ANIME` or `#sig=1`). There is no copy beyond titles, counts and city names.
+    - Scoped glue CSS sits in `FEB_CSS`, so DES can upstream it.
+  - **US share card on the landing:** `og:image` → `assets/og/country-us.png`.
+  - **Fix:** slice 1's hub-link CSS was spliced after `</html>` in the hub template, so it showed as text at the foot of every country hub. It's now inside `FEB_CSS`, and a gate checks that nothing follows `</html>` on the landing and hubs.
+  - **Gate** (test-views-b): 6 tiles for 6 live countries, each count ≤ the guides' signature sum and > 0, links resolve; landing share card = US card. Landing 15.8 KB gzip (budget 24).
+  - Screenshots: `design/beta/eval/w3/fe-b/landing-editorial[-s1]-{m,d}.jpg`. City-view shots were re-shot after the merge (metrics in `views-b-metrics.json`). validate + npm test + beta:check PASS.

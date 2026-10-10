@@ -1,4 +1,26 @@
 {
+ "hub-japan-m": {
+  "links": 10,
+  "minTarget": 44,
+  "errors": []
+ },
+ "hub-japan-d": {
+  "links": 10,
+  "minTarget": 44,
+  "errors": []
+ },
+ "landing-editorial-m": {
+  "tiles": 6,
+  "railTop": 507,
+  "minTarget": 231.140625,
+  "errors": []
+ },
+ "landing-editorial-d": {
+  "tiles": 6,
+  "railTop": 524,
+  "minTarget": 231.140625,
+  "errors": []
+ },
  "tokyo-guidebook-m": {
   "entries": 488,
   "index": 0,
@@ -31,33 +53,6 @@
    "Error: Invalid LatLng object: (NaN, NaN)",
    "Error: Invalid LatLng object: (NaN, NaN)",
    "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
    "Error: Invalid LatLng object: (NaN, NaN)"
   ]
  },
@@ -68,6 +63,10 @@
   "minChartPx": 12,
   "barLinks": 366,
   "errors": [
+   "Error: Invalid LatLng object: (NaN, NaN)",
+   "Error: Invalid LatLng object: (NaN, NaN)",
+   "Error: Invalid LatLng object: (NaN, NaN)",
+   "Error: Invalid LatLng object: (NaN, NaN)",
    "Error: Invalid LatLng object: (NaN, NaN)",
    "Error: Invalid LatLng object: (NaN, NaN)",
    "Error: Invalid LatLng object: (NaN, NaN)",
@@ -156,12 +155,6 @@
    "Error: Invalid LatLng object: (NaN, NaN)",
    "Error: Invalid LatLng object: (NaN, NaN)",
    "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
-   "Error: Invalid LatLng object: (NaN, NaN)",
    "Error: Invalid LatLng object: (NaN, NaN)"
   ]
  },
@@ -205,17 +198,9 @@
    "Error: Invalid LatLng object: (NaN, NaN)",
    "Error: Invalid LatLng object: (NaN, NaN)",
    "Error: Invalid LatLng object: (NaN, NaN)",
+   "Error: Invalid LatLng object: (NaN, NaN)",
+   "Error: Invalid LatLng object: (NaN, NaN)",
    "Error: Invalid LatLng object: (NaN, NaN)"
   ]
- },
- "hub-japan-m": {
-  "links": 10,
-  "minTarget": 43,
-  "errors": []
- },
- "hub-japan-d": {
-  "links": 10,
-  "minTarget": 19,
-  "errors": []
  }
 }
