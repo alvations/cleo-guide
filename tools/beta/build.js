@@ -21,6 +21,7 @@ const { normalise, nativeOf } = require('./lib/model');
 const stats = require('./lib/stats');
 const { pageSources, siteSources } = require('./lib/sources');
 const art = require('./lib/art');
+const imagery = require('./imagery');                              // imagery lane: motifs, photo manifest, credit gate
 const { guide } = require('./lib/guide');
 const { chunk } = require('./lib/chunk');
 const { assertCityPage, assertHubPage, assertPage } = require('./lib/guards');
@@ -116,6 +117,9 @@ for (const r of cityRows) {
   }
   if (r.stats.verifiedPins && !r.art.map) errors.push(`${r.live}: ${r.stats.verifiedPins} verified pins but no map art`);
 }
+
+// ---------------------------------------------------------------- imagery (lane: imagery) — original motifs + credit-gated photos
+imagery.build({ reg, cityRows, emit, errors, sha, betaDir: BETA });
 
 // ---------------------------------------------------------------- data indexes
 const pageHref = r => r.beta;                     // beta-root-relative
