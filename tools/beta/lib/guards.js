@@ -26,6 +26,8 @@ function assertCityPage(row, html, recs) {
     const miss = want.filter(n => !names.includes(n)).slice(0, 3), extra = names.filter(n => !want.includes(n)).slice(0, 3);
     errs.push(`place names differ from live (missing ${JSON.stringify(miss)}, extra ${JSON.stringify(extra)})`);
   }
+  const badHref = [...html.matchAll(/<p class="pl-s">[\s\S]*?<\/p>/g)].flatMap(m => [...m[0].matchAll(/href="([^"]*)"/g)].map(h => h[1])).filter(h => !/^https?:\/\//.test(h));
+  if (badHref.length) errs.push(`"Recommended by" links that are not http(s): ${badHref.slice(0, 3).join(', ')}`);
   const ld = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(html);
   const open = recs.filter(r => !r.closed).length;
   if (!ld) errs.push('no JSON-LD');
