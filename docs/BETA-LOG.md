@@ -418,3 +418,9 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - jsdom on Tokyo / Cleveland / Chinatown with storage throwing: mount through the queue, `mode=food` lens mirrored, Save works, offline → stated message, 0 errors;
     - all 46 hub view links resolve.
   - validate + npm test + beta:check PASS. Screenshots follow in slice 2.
+- 2026-10-10 · UI/UX (designer) · W3 slice 3 — **QA-24, QA-25 fixed; D-04 review (Guidebook, Insights)** · session_014ybQFjFvA2XjTrPFrP5YJJ · commit: this entry's commit.
+  - **QA-24** footer links in text are underlined (`contract.css` §16.7). **QA-25** the saved page's map note sits on its own surface chip (§16.8). axe (vendored 4.10.2): 0 serious/critical on saved night 390, saved 1440, Tokyo 390, landing night 1440.
+  - **views.css** now matches FE-B's roots too (`[data-cleo-book]`, `[data-cleo-insights]`) as well as `.vw.view-<name>` — no rename needed. Insights stat tiles no longer inherit the hub tile's 150 px art row.
+  - **D-04** `design/beta/REVIEW-W3-views.md`: Insights ✅ (D-02 dark set selected by token, verified in night), Guidebook ◐. **For FE-B:** single-series canon chart → `--series-1`; desktop area labels truncate at ~22 chars (widen the wide-render label column or wrap); Guidebook phone gap before the cover (cover top padding 12 px < 640). **For FE-A:** in Guidebook/Insights collapse or move the rail below the module so the cover/numbers are the first screen on phones. Gallery + Atlas reviews follow when A-02/A-03 land.
+  - Correction to slice 2: FE-B's landing editorial rail already exists (QA-28 refers to it); gap #4 now has both halves.
+  - Phone masthead band trimmed to 58 px (motif 62 px) — still clear of the facts (`mast-*-m.jpg`). Gates PASS; contrast.py 368/0.
