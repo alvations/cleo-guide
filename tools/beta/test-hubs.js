@@ -139,7 +139,7 @@ console.log('\n== W2: signature lines from data, distinct tiles, themes computed
       const p = m && manifest.pages.find(x => x.beta === m[1]);
       if (!p) { wrongT.push('bad href ' + a.getAttribute('href')); continue; }
       const field = m[2] === 'c' ? 'g' : 'cz', id = decodeURIComponent(m[3]);
-      const n = names[p.key].places.filter(x => !x.closed && (x[field] || []).includes(id)).length;
+      const n = names[p.key].places.filter(x => (x[field] || []).includes(id)).length;   // what the lens opens, closed included (QA-28)
       const shown = +a.querySelector('b').textContent.replace(/,/g, '');
       if (n !== shown) wrongT.push(`${p.key} ${id} ${shown}≠${n}`);
     }

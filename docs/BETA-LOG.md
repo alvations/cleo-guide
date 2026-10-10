@@ -418,6 +418,12 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - jsdom on Tokyo / Cleveland / Chinatown with storage throwing: mount through the queue, `mode=food` lens mirrored, Save works, offline → stated message, 0 errors;
     - all 46 hub view links resolve.
   - validate + npm test + beta:check PASS. Screenshots follow in slice 2.
+- 2026-10-10 · UI/UX (designer) · W3 slice 3 — **QA-24, QA-25 fixed; D-04 review (Guidebook, Insights)** · session_014ybQFjFvA2XjTrPFrP5YJJ · commit: this entry's commit.
+  - **QA-24** footer links in text are underlined (`contract.css` §16.7). **QA-25** the saved page's map note sits on its own surface chip (§16.8). axe (vendored 4.10.2): 0 serious/critical on saved night 390, saved 1440, Tokyo 390, landing night 1440.
+  - **views.css** now matches FE-B's roots too (`[data-cleo-book]`, `[data-cleo-insights]`) as well as `.vw.view-<name>` — no rename needed. Insights stat tiles no longer inherit the hub tile's 150 px art row.
+  - **D-04** `design/beta/REVIEW-W3-views.md`: Insights ✅ (D-02 dark set selected by token, verified in night), Guidebook ◐. **For FE-B:** single-series canon chart → `--series-1`; desktop area labels truncate at ~22 chars (widen the wide-render label column or wrap); Guidebook phone gap before the cover (cover top padding 12 px < 640). **For FE-A:** in Guidebook/Insights collapse or move the rail below the module so the cover/numbers are the first screen on phones. Gallery + Atlas reviews follow when A-02/A-03 land.
+  - Correction to slice 2: FE-B's landing editorial rail already exists (QA-28 refers to it); gap #4 now has both halves.
+  - Phone masthead band trimmed to 58 px (motif 62 px) — still clear of the facts (`mast-*-m.jpg`). Gates PASS; contrast.py 368/0.
 - 2026-10-10 · **FE-B** · Wave 3 slice 2 · session_01KLBRpRabpnEHiyU3gKvKjv · B-01/B-02/B-03 measured in Chromium + the designer's views.css hooks · commit: this entry's commit.
   - **Hooks adopted:** module hosts get `vw view-guidebook` / `vw view-insights` on mount (removed on unmount), Save is `.heart.ge-save`, and the rank badge sits outside the name link.
   - **Insights chart text:** the browser redraws each chart at its card's measured content width, so 1 viewBox unit = 1 px. **Min chart text is 12 px at 390 and 1440** on Tokyo and Cleveland (was 10.7 / 11.1).
@@ -434,6 +440,10 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - **Designer:** in print, the site header still prints (`*-guidebook-print-d.jpg`), and `.gb-appendix` wants `break-before: page`.
     - **FE-A:** in Guidebook/Insights, please hide the canonical `.split` list in print, so the guidebook is the one printed copy. With JS off, the list keeps printing as it does today.
   - validate + npm test + beta:check PASS.
+- 2026-10-10 · UI/UX (designer) · W3 slice 4 — FE-B's designer defects · session_014ybQFjFvA2XjTrPFrP5YJJ · commit: this entry's commit.
+  - **Phone stat tiles ~470 px** (FE-B slice 2): already fixed in slice 3 (stat tiles reset off the hub `.tile` art row).
+  - **Print:** the site top bar, tab bar and banners no longer print (`.topbar` was missing from the print hide list — it read `.sitebar`). With the Guidebook mounted (`html[data-view=guidebook]:has([data-cleo-book])`), the masthead and the canonical `.split` list are left out of print, so the book is the one printed copy; JS off still prints the canonical list. `.gb-appendix` starts on a new page. Measured: Cleveland print = 194 entries, 0 top bars, appendix present (`gb-cle-print-d.jpg`). **FE-A:** the print half of FE-B's `.split` request is done in CSS — nothing needed from you there.
+  - Gates PASS.
 - 2026-10-10 · **Platform** · Wave 3 slice 1 · session_01S3eYSS1qPYEHJVXBeyRLYH · commit: this entry's commit · **P-01, P-02, P-03, P-06 landed; P-04 gate live; ROUND-2 gap #6.** RFC §4.2 + new §13 (R-26…R-32), §9.1 W3 owner rows.
   - **For FE-A / FE-B (the API to build on):**
     - **P-01 rank + triad.** Every place in `data/places/<page>.json` has `rank` (1…n in its area), `of` (n) and `k3` (`sight`/`food`/`pop`); the JSON's `order` is the view order (area order, then rank). Every `li.pl` carries `data-rank`, plus `data-k3="pop"` only for pop places — read the triad with `Cleo.k3(card)`. Identical to the mockup generator on Tokyo + Cleveland.
@@ -464,6 +474,42 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **P-05 measured** (jsdom, view mounted, `test-views.js` report): Tokyo Guidebook **12,363** nodes · Insights **4,760**; NYC Guidebook **9,420** · Insights **3,746** (target ≤ 3,000; the page itself is ~1.7 k). **FE-B:** please render Guidebook chapters through `Cleo.chunks(host, chapterHtml[], {initial: 1, ids: chapterIds[]})` and the Insights "All N places" index + the second (360) chart render the same way (or render one chart width at a time); your `[data-cleo-print]` button can call `Cleo.defer.all()`. **FE-A:** the same for Gallery rails/pages and Atlas rows.
   - **P-04** now also loads the view modules that exist, mounts each view as the registry would and requires every place in the view's own surface (Guidebook `#gb-<id>`, Insights `li.ixi`): 6 pilots × Guidebook/Insights PASS. Gallery/Atlas selectors (`[data-id]`) adopt FE-A's markup when it lands — tell me the per-place selector.
   - **FE-B note answered:** `guide.areas[A].tiers` (W2) counts all records by tier; the W3 `insights.tiers` rows count **open places only** (`of` = open), matching the spec — use `insights.tiers` for the ladder.
+- 2026-10-10 · **FE-B** · Wave 3 slice 4 · session_01KLBRpRabpnEHiyU3gKvKjv · QA blockers **QA-22, QA-23, QA-28** + adopts platform **P-01/P-02/P-03** · commit: this entry's commit.
+  - **QA-28 (rail counts):** "Collections across the guides" now counts what the lens opens, closed places included and flagged. All 7 mismatches agree, e.g. Tokyo ANIME 37, Antwerp BEER 19. The test-hubs chip check follows the same rule.
+  - **QA-22 (Vietnam hub B-05):**
+    - A hub with fewer than 2 headline cities now promotes its next guides to tiles, up to 4. Vietnam shows 3 tiles.
+    - `beta:metrics --only Vietnam/index` → **B-05 ✅ 2**.
+    - Screenshot: `design/beta/eval/w3/fe-b/qa22-vietnam-hub-m.jpg`.
+  - **QA-23 (404 tab labels 2.86:1):** the short 404 page let the translucent tab bar sit over the dark footer. `main` now fills the viewport, and `beta:metrics --only 404` → **B-23 ✅ light 0/0 · night 0/0**.
+  - **P-03:**
+    - Insights now draws every chart from the platform `insights` block, and its notes become the footnotes.
+    - The gate checks that the block is the source on all 84 pages, and that it agrees with `guide.areas` and with an independent recount of the records. Per-area counts, closures and tiers are equal. Only tie order and one 0.1 km spread rounding differ.
+  - **P-01 / P-02:**
+    - The guidebook uses `p.rank` / `p.k3`.
+    - Its lens mirror asks `Cleo.lens.match` on `Cleo.defer.peek()` stubs for cards not yet stamped, so the guidebook no longer forces a full stamp.
+    - It stays clean under the "no second predicate" grep gate.
+  - **Not done / for others:** QA-24 (footer underline) and QA-25 are designer/FE-A. The Insights `.tile` phone height and print header issues are still with the designer. The `#view=` switch and loading my modules wait on FE-A A-01.
+  - validate + npm test + beta:check PASS.
+- 2026-10-10 · **Platform** · Wave 3 slice 3 · session_01S3eYSS1qPYEHJVXBeyRLYH · commit: this entry's commit · **ROUND-2 gap #9 (C #34 "what changed")**. RFC §13 R-34.
+  - `tools/beta/lib/changes.js`: per place page, dated events from the data only (closures with their status source, status-check days, pin-verification days) → `changes` + `feed` in `data/places/<page>.json`, Atom `beta/feeds/<page>.xml` (84) linked from each city page's head, site feed `beta/feeds/all.xml` (70 dated closures + check days), `beta/data/changes.json` summary. Deterministic (no git history).
+  - **FE-B / FE-A:** a "What changed" link (footer or method page) can point at `feeds/<page>.xml`; `data/changes.json` → `last` is the newest dated event per page for a hub/landing "updated" line.
+  - Gate in `test-views.js`: closures == closed places with a status date; checked counts == records with a check; feed entries == events; absolute links. validate + npm test + beta:check PASS.
+- 2026-10-10 · **FE-B** · Wave 3 slice 5 (lane done for this wave) · session_01KLBRpRabpnEHiyU3gKvKjv · DES REVIEW-W3 fixes + status · commit: this entry's commit.
+  - **DES review, Insights:**
+    - The single-series canon chart now uses `--series-1`.
+    - The wide render's area-label column is 200 px (30 characters) whenever the card allows. Cleveland's labels read in full, except "Suburbs, Metroparks & Day Tri…", which keeps its full name in `<title>`.
+    - Chart text is still 12 px minimum.
+    - Screenshots re-shot in `design/beta/eval/w3/fe-b/`.
+  - **DES review, Guidebook (back to DES):** the cover's 36 px top padding is `views.css` `.view-guidebook .gcover`. Please drop it to 12 px under 640 px. FE-B ships no CSS for the views.
+  - **FE-B lane status (PLAN §3):**
+    - **B-01** Guidebook → **review**.
+    - **B-02** Insights → **review**: drawn from P-03, 7 charts plus the index.
+    - **B-03** print + sources appendix → **review**: print hooks are on DES's views.css V9; Chromium print media shows 488/488 entries and every cited URL.
+    - **B-04** hub links → **review**.
+    - All four become live once FE-A's A-01 registry loads `assets/js/{guidebook,insights}.js` and drains `CleoViewQueue`.
+    - ROUND-2 **gap #4** FE-B half (editorial rail + US share card) → **review**.
+    - **QA-22 / QA-23 / QA-28** → **fixed, QA to re-test**.
+  - **Open, not FE-B:** FE-A must stop map errors while the map pane is hidden, and collapse the rail and toolbar above the Guidebook and Insights on phones.
   - validate + npm test + beta:check PASS.
 - 2026-10-10 · **FE-A** · Wave 3 slice 1 · session_012ryUPpieJjoKFXA2se7HsV · PLAN A-01…A-05 + ROUND-2 gap #2 items + QA-27 · commit: this entry's commit.
   - **Registry hook — live (FE-B):** `tools/beta/client/views.js` exposes `Cleo.views = {names, current(), label(v), get(name), register(name, {mount(host, ctx), unmount(host)}), show(v), host(), shareUrl(id?)}`. It drains `window.CleoViewQueue` at boot and replaces it with a `{push}` shim, so either load order works. `guidebook.js` / `insights.js` load on the **first switch** (`info.js.guidebook|insights` versions; their buttons appear only when the files exist in `ctx.assetsV`). `mount` gets the `#cleo-view` host and `ctx = {key, file, city, total, go, view}`. A failed module load falls back to Gallery.

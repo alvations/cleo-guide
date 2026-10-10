@@ -86,6 +86,30 @@ chk('citations total == Σ src.length', bad.cites, a => a.length === 0);
 chk('no pop-culture data → pop: null (absent, not 0)', bad.pop, a => a.length === 0);
 chk('pages without pop-culture data still carry insights', cityRows.filter(r => !pd(r.key).guide.popCulture).length, n => n > 0);
 
+// ── 2b. what changed (ROUND-2 gap #9): dated events only, one Atom feed per page + the site feed ─────────────
+console.log('\n== WHAT CHANGED: feeds from dated provenance ==');
+{
+  const cb = [], chg = JSON.parse(rd('beta/data/changes.json'));
+  for (const row of cityRows) {
+    const j = pd(row.key), C = j.changes || [], f = 'beta/' + (j.feed || '');
+    const closedDated = j.places.filter(p => p.closed && p.pv && p.pv.checked).map(p => p.id).sort();
+    const checked = j.places.filter(p => p.pv && p.pv.checked).length;
+    const xmlS = fs.existsSync(path.join(ROOT, f)) ? rd(f) : '';
+    const entries = (xmlS.match(/<entry>/g) || []).length, links = [...xmlS.matchAll(/<link href="([^"]+)"/g)].map(m => m[1]);
+    const sorted = C.every((e, i) => !i || C[i - 1].d >= e.d);
+    const page = rd('beta/' + row.beta);
+    if (C.filter(e => e.kind === 'closed').map(e => e.id).sort().join() !== closedDated.join()) cb.push(row.key + ' closed');
+    else if (C.filter(e => e.kind === 'checked').reduce((t, e) => t + e.n, 0) !== checked) cb.push(row.key + ' checked');
+    else if (!sorted || C.some(e => !/^\d{4}-\d{2}-\d{2}$/.test(e.d))) cb.push(row.key + ' dates');
+    else if (entries !== C.length || links.some(h => !/^https:\/\//.test(h))) cb.push(row.key + ' feed');
+    else if (!page.includes(`type="application/atom+xml"`) || !(chg.pages.find(x => x.key === row.key) || {}).feed) cb.push(row.key + ' link');
+  }
+  chk('every page: closures, status checks and pin days all dated from data; feed entries == events; links absolute', cb, a => a.length === 0);
+  const all = rd('beta/feeds/all.xml');
+  chk('site feed: every closure on record with a status date is in it', (all.match(/has closed — kept for the record/g) || []).length,
+    cityRows.reduce((t, r) => t + pd(r.key).places.filter(p => p.closed && p.pv && p.pv.checked).length, 0));
+}
+
 // ── 4. one predicate ───────────────────────────────────────────────────────────
 console.log('\n== ONE LENS PREDICATE (P-02) ==');
 {
