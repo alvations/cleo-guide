@@ -141,6 +141,9 @@ function card(r, num, ctx) {
   const nat = r.nat && r.n.endsWith(`(${r.nat})`) ? r.nat : '';
   const nm = nat ? `${esc(r.n.slice(0, -nat.length - 2).trimEnd())} <span class="nat"${ctx.lang ? ` lang="${ctx.lang}"` : ''}>(${esc(nat)})</span>` : esc(r.n);
   const kText = String(r.k || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  // some live pages store a collection id in k ("HIST", "MUS"): that's a category the sheet lists under "Part of",
+  // not advice, so it never prints as "Look for: HIST" (249 records, W2)
+  if (kText && (page.CATS || []).concat(page.CUISINES || []).some(c => c.id === kText)) r = Object.assign({}, r, { k: '' });
   const isNote = kText.split(' ').length >= 8 && /[.!?…](\s|$)/.test(kText);     // VOICE.md rule 4 (D-16)
   const attrs = [`data-k="${r.kind === 'food' ? 'f' : 's'}"`, `data-t="${r.t}"`, `data-a="${esc(r.a)}"`, `data-n="${num}"`, `data-gl="${gl}"`,
     r.g.length && `data-g="${esc(r.g.join(' '))}"`, r.cz.length && `data-cz="${esc(r.cz.join(' '))}"`,
