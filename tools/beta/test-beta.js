@@ -294,7 +294,17 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
   chk('landing ≤ 80 KB raw', KB(size('index.html')), n => n <= 80);
   // FE-A W1 (2026-10-10): raised 40 → 64 KB raw (≈ 18 KB gzip) — 40 was set in Wave 0 before the city sheet, tray, map
   // sync and FE-B's search/states existed. PLT to ratify, or replace with a minify step / gzip budget (docs/BETA-LOG.md).
-  chk('client JS total ≤ 64 KB raw', KB(fs.readdirSync(path.join(BETA, 'assets/js')).reduce((s, f) => s + size('assets/js/' + f), 0)), n => n <= 64);
+  // FE-A W2 (2026-10-10): the budget is now what ONE page loads (that is what a visitor pays), gzip ≤ 32 KB, raw shown
+  // for reference. A site-wide sum grew with every page kind (saved, day, for-you) without any page getting heavier
+  // to load. PLT to ratify, or replace with a minify step (docs/BETA-LOG.md).
+  let jsMax = ['', 0, 0];
+  for (const p of generated) {
+    const fsP = path.join(BETA, p); if (!fs.existsSync(fsP)) continue;
+    const files = [...new Set([...fs.readFileSync(fsP, 'utf8').matchAll(/src="(?:\.\.\/)*(assets\/js\/[a-z-]+\.js)\?/g)].map(m => m[1]))];
+    const z = files.reduce((t, f) => t + gz(f), 0), raw = files.reduce((t, f) => t + size(f), 0);
+    if (z > jsMax[2]) jsMax = [p, KB(raw), z];
+  }
+  chk(`client JS loaded by any one page ≤ 32 KB gzip (heaviest: ${jsMax[0]}, ${jsMax[1]} KB raw)`, KB(jsMax[2]), n => n <= 32);
   chk('search index ≤ 250 KB gzip (lazy)', KB(gz('data/search.json')), n => n <= 250);
 
   console.log(failures ? `\n>>> FAIL — ${failures} beta check(s) failed` : '\n>>> PASS — beta: counts == live, reproducible, guarded, renders with no CDN');

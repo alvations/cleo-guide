@@ -4,20 +4,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Your list · Cleo</title>
-<meta name="description" content="Places you saved on this device, from every Cleo guide.">
+<title>Your lists · Cleo</title>
+<meta name="description" content="Places you saved on this device, from every Cleo guide — named lists, been-there stamps, a map, and export to your maps app.">
 <link rel="canonical" href="https://alvations.github.io/cleo-guide/beta/saved.html">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#F7F4EE">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Cleo">
-<meta property="og:title" content="Your list · Cleo">
-<meta property="og:description" content="Places you saved on this device, from every Cleo guide.">
+<meta property="og:title" content="Your lists · Cleo">
+<meta property="og:description" content="Places you saved on this device, from every Cleo guide — named lists, been-there stamps, a map, and export to your maps app.">
 <meta property="og:url" content="https://alvations.github.io/cleo-guide/beta/saved.html">
 <meta property="og:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Your list · Cleo">
-<meta name="twitter:description" content="Places you saved on this device, from every Cleo guide.">
+<meta name="twitter:title" content="Your lists · Cleo">
+<meta name="twitter:description" content="Places you saved on this device, from every Cleo guide — named lists, been-there stamps, a map, and export to your maps app.">
 <meta name="twitter:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
@@ -26,8 +26,10 @@
 
 
 <script src="assets/js/core.js?v=b24c87df9e" defer></script>
+<link rel="stylesheet" href="assets/fe-a.css?v=152e13505d">
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><path d="M12 3v12M7.5 7.5L12 3l4.5 4.5"/><path d="M5 12.5V20h14v-7.5"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5"/><path d="M5 19.5h14"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/></symbol><symbol id="i-directions" viewBox="0 0 24 24"><path d="M12 2.8l9.2 9.2-9.2 9.2L2.8 12z"/><path d="M9 14.5v-2.5a1.5 1.5 0 0 1 1.5-1.5h4.5M13 8.5l2 2-2 2"/></symbol><symbol id="i-stamp" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.3 2.3 4.7-4.8"/></symbol><symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></symbol></svg>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol><symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.3l1.4 3 3.2.3-2.4 2.2.7 3.1L12 14.3l-2.9 1.6.7-3.1-2.4-2.2 3.2-.3z"/></symbol><symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-star4" viewBox="0 0 24 24"><path d="M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1-2.1 7.4-2.1-7.4L2.5 12l7.4-2.1z"/></symbol><symbol id="i-offline" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M7.6 7.6A5 5 0 0 0 7 9.5 4 4 0 0 0 7 17.5h10M10 5a5 5 0 0 1 6.9 3.5h.6a3.5 3.5 0 0 1 2.4 6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.2"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.2"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.4a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.4"/></symbol></defs></svg><a class="skip" href="#main">Skip to content</a>
 <header class="topbar" data-cleo-shell="topbar"><div class="wrap">
   <a class="brand" href="index.html" aria-label="Cleo — all destinations"><svg class="mark" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4.2l1.75 6.05L19.8 12l-6.05 1.75L12 19.8l-1.75-6.05L4.2 12l6.05-1.75z"/></svg><b>cleo</b><small>field guides</small></a>
@@ -42,8 +44,8 @@
 </div></header>
 <div class="banners" data-cleo-banners aria-live="polite"></div>
 <main id="main">
-<header class="masthead"><h1>Your list</h1><p class="stats">Saved on this device only — no account, nothing leaves your browser unless you share the link.</p></header>
-<section id="saved" aria-live="polite"><p>Your saved places appear here once the page script runs.</p></section>
+<header class="masthead"><p class="eyebrow">Saved</p><h1>Your lists</h1><p class="stats">Saved on this device only — no account, nothing leaves your browser unless you share a link or export a file.</p></header>
+<section id="saved" aria-live="polite"><p>Your saved places appear here once the page script runs. Every guide works without it.</p></section>
 </main>
 
 <footer class="footer" role="contentinfo"><div class="wrap">
@@ -59,6 +61,6 @@
 
 <script src="assets/js/states.js?v=938d68f2cf" defer></script>
 <script src="assets/js/search.js?v=83def4d1ff" defer></script>
-<script src="assets/js/saved.js?v=b842191640" defer></script>
+<script src="assets/js/saved.js?v=e510a0225f" defer></script>
 </body>
 </html>

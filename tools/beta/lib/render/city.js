@@ -70,6 +70,11 @@ const ICONS = {
   tv: '<rect x="3" y="6.5" width="18" height="13" rx="2"/><path d="M8 3l4 3.5L16 3"/>',
   dumpling: '<path d="M3 15.5C3 11 7 7.5 12 7.5s9 3.5 9 8z"/><path d="M7 10c.5 1 1 1.6 1 2.6M12 7.5v3.6M17 10c-.5 1-1 1.6-1 2.6"/>',
   sandwich: '<path d="M3 11.5a9 5.5 0 0 1 18 0z"/><path d="M2.5 14.5h19M4 17.5h16a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/>',
+  route: '<circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18h7.3a3.5 3.5 0 0 0 0-7h-7a3.5 3.5 0 0 1 0-7h7.3"/>',
+  locate: '<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>',
+  spark: '<path d="M11 3.5l1.9 5.6 5.6 1.9-5.6 1.9L11 18.5l-1.9-5.6L3.5 11l5.6-1.9z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/>',
+  up: '<path d="M12 19V5M6.5 10.5L12 5l5.5 5.5"/>', down: '<path d="M12 5v14M6.5 13.5L12 19l5.5-5.5"/>',
+  archive: '<path d="M3.5 4.5h17v4h-17zM5 8.5v11h14v-11M9.5 12.5h5"/>',
 };
 // collection / cuisine id → generic glyph (by the collection's subject, never a picture of a venue). Name keywords
 // pick a glyph for ids the designer's table doesn't list; this chooses an ICON only — it never tags a place.
@@ -89,6 +94,7 @@ const BY_NAME = [[/sushi/i, 'sushi'], [/ramen|noodle|pho|laksa|soba|udon/i, 'noo
   [/history|heritage|castle|palace/i, 'castle'], [/free/i, 'ticket'], [/screen|tv|film|pop/i, 'tv']];
 const glyphFor = (id, n, food) => GLYPH[id] || (BY_NAME.find(([re]) => re.test(n || '')) || [])[1] || (food ? 'forkknife' : 'compass');
 const ico = n => `<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+const PLATE = 5;                                  // most native glyphs a card plate sets vertically without clipping
 const tier = (t, cls = '') => TIER[t] ? `<a class="tier t${t}${cls}" href="#how-we-choose"><i class="tg t${t}" aria-hidden="true"></i><span>${TIER[t]}</span></a>` : '';
 
 /* ---- stated gaps: verbatim from the page's own method notes (never a keyword tag on a place) ---- */
@@ -125,10 +131,19 @@ function card(r, num, ctx) {
     : `${tier(r.t)} <span class="in">within ${where}</span>`;
   // Recommended by: every publisher is a chip that opens its source view (M1-10); CSS shows three, then "+N".
   const ids = (r.src || []).filter(s => s !== 'guide');
+  // the separating comma lives INSIDE each chip (CSS ::after), so it hugs the name and wraps with it (QA-18)
   const chips = ids.map(id => { const s = srcById[id] || { name: id }; return `<button type="button" class="src${s.authority ? ' auth' : ''}" data-src="${esc(id)}">${esc(s.name.split(' · ')[0])}</button>`; });
-  let rec = chips.slice(0, 3).join(', ');
-  if (chips.length > 3) rec += ` <span class="more">+${chips.length - 3}</span><span class="rest">, ${chips.slice(3).join(', ')}</span>`;
-  if ((r.src || []).includes('guide')) rec += (rec ? ', ' : '') + '<span class="added">Added by the guide (general knowledge)</span>';
+  let rec = chips.slice(0, 3).join(' ');
+  if (chips.length > 3) rec += ` <span class="more">+${chips.length - 3}</span><span class="rest"> ${chips.slice(3).join(' ')}</span>`;
+  if ((r.src || []).includes('guide')) rec += (rec ? ' ' : '') + '<span class="added">Added by the guide (general knowledge)</span>';
+  // native script is printed ONCE (ROUND-1 #4): ≤ PLATE glyphs → the vertical plate shows it and the title keeps it for
+  // screen readers + search only; longer → the plate shows an initial and the native name is a line under the title.
+  const nat = r.nat && r.n.includes(`(${r.nat})`) ? r.nat : '';
+  const onPlate = nat && [...nat].length <= PLATE;
+  const [pre, post] = nat ? r.n.split(`(${nat})`) : [r.n, ''], sp = /\s$/.test(pre) ? ' ' : '';
+  const nm = !nat ? esc(r.n) : onPlate ? `${esc(pre.trimEnd())}<i class="vh">${sp}(${esc(nat)})</i>${esc(post)}`
+    : post.trim() ? esc(r.n)                                                    // native mid-name: leave the name as written
+      : `${esc(pre.trimEnd())}${sp}<span class="nat"${ctx.lang ? ` lang="${ctx.lang}"` : ''}>(${esc(nat)})</span>`;
   const kText = String(r.k || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   const isNote = kText.split(' ').length >= 8 && /[.!?…](\s|$)/.test(kText);     // VOICE.md rule 4 (D-16)
   const attrs = [`data-k="${r.kind === 'food' ? 'f' : 's'}"`, `data-t="${r.t}"`, `data-a="${esc(r.a)}"`, `data-n="${num}"`, `data-gl="${gl}"`,
@@ -137,10 +152,49 @@ function card(r, num, ctx) {
     r.la != null && `data-ll="${r.la},${r.ln}"`, pv.checked && `data-checked="${esc(pv.checked)}"`, r.closed && 'data-closed', r.warn && 'data-warn'].filter(Boolean).join(' ');
   return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>
 <p class="pl-e">${r.closed ? `${eyebrow} <span class="pl-num" aria-label="Map pin ${num}">${num}</span>` : `<span class="pl-num" aria-label="Map pin ${num}">${num}</span> ${eyebrow}`}</p>
-<h3 class="pl-n"><a href="#p-${esc(r.id)}">${esc(r.n)}</a></h3>
+<h3 class="pl-n"><a href="#p-${esc(r.id)}">${nm}</a></h3>
 ${r.w ? `<p class="pl-w">${prose(r.w)}</p>` : ''}${r.k ? `<p class="pl-k${isNote ? ' note' : ''}"><span class="lbl">${isNote ? 'Your guide’s note' : 'Look for'}</span> ${prose(r.k)}</p>` : ''}${r.ad ? `<p class="pl-ad">${esc(r.ad)}</p>` : ''}
 <p class="pl-s"><span class="lbl">Recommended by</span> ${rec}</p>
 <p class="pl-x" hidden></p></li>`;
+}
+
+/* ---- "For you" (M2-05): interests → collection / cuisine IDS only (Wenwen rule: never a dish or name keyword).
+ * Effect is a reorder within each area; the record set never changes (test-fe-a.js). 'k:f' = every food record. ---- */
+const INTERESTS = [
+  ['history', 'History & landmarks', ['ICON', 'UNESCO', 'HIST', 'ARCH', 'CASTLE', 'TEMPLE', 'MON', 'GOV', 'HERITAGE', 'CIVIL', 'AVIATION', 'MARITIME', 'RAIL', 'FLW', 'DECO', 'CAMPUS'], []],
+  ['food', 'Food & drink', [], [], 1],
+  ['pop', 'Pop culture', ['ANIME', 'POP', 'ODD', 'ENT', 'ARTS', 'SPORT', 'SHOW', 'RACE', 'RIDE'], ['TV', 'VIRAL']],
+  ['outdoors', 'Outdoors', ['PARK', 'GARDEN', 'NATURE', 'OUTDOOR', 'VIEW', 'ROOF', 'WATER', 'RIVER', 'BEACH', 'LAKES', 'WILD', 'BOAT', 'SPRNG', 'CANAL', 'ONSEN', 'SPA'], []],
+  ['art', 'Art & museums', ['MUS', 'ART', 'MURAL', 'CRAFT', 'GLASS'], []],
+];
+function interests(recs, page) {
+  const has = new Set((page.CATS || []).map(c => 'c:' + c.id).concat((page.CUISINES || []).map(c => 'cz:' + c.id)));
+  return INTERESTS.map(([id, label, cs, czs, food]) => {
+    const ids = (food ? ['k:f'] : []).concat(cs.map(x => 'c:' + x), czs.map(x => 'cz:' + x)).filter(x => x === 'k:f' || has.has(x));
+    const n = recs.filter(r => ids.some(x => x === 'k:f' ? r.kind === 'food' : x[1] === ':' ? r.g.includes(x.slice(2)) : r.cz.includes(x.slice(3)))).length;
+    return n ? [id, label, n, ids] : null;
+  }).filter(Boolean);
+}
+
+/* ---- "Your day" (M2-06): per area, 4–6 OPEN places with a VERIFIED pin (high/med), from the guide's own order.
+ * Start at the area's first pick; add the nearest of the top picks within 4 km (at least one place to eat when the
+ * area has one, at most two); nearest-next order. Fewer than 4 → no day for that area (stated, never padded). ---- */
+const km = (a, b) => { const R = 6371, r = Math.PI / 180, dLa = (b.la - a.la) * r, dLn = (b.ln - a.ln) * r;
+  const h = Math.sin(dLa / 2) ** 2 + Math.cos(a.la * r) * Math.cos(b.la * r) * Math.sin(dLn / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)); };
+function dayPlan(list) {
+  const pool = orderArea(list).filter(r => !r.closed && r.la != null && /^(high|med)/.test((r.pv || {}).pin || '')).slice(0, 16);
+  if (pool.length < 4) return null;
+  const out = [pool[0]], rest = pool.slice(1).filter(r => km(pool[0], r) <= 4);
+  const nFood = () => out.filter(r => r.kind === 'food').length, anyFood = rest.some(r => r.kind === 'food');
+  while (out.length < 6 && rest.length) {
+    const last = out[out.length - 1];
+    let c = rest.filter(r => !(r.kind === 'food' && nFood() >= 2));
+    if (anyFood && !nFood() && out.length >= 3) c = c.filter(r => r.kind === 'food');
+    if (!c.length) break;
+    c.sort((x, y) => km(last, x) - km(last, y));
+    out.push(c[0]); rest.splice(rest.indexOf(c[0]), 1);
+  }
+  return out.length >= 4 ? out.map(r => r.id) : null;
 }
 
 /* ---- JSON-LD: open places only (D-21) ---- */
@@ -159,40 +213,7 @@ function jsonLd(row, recs, title) {
 }
 
 /* ---- page-level glue (FE-A): city-page mechanics cleo.css doesn't define yet — to be upstreamed by DES ---- */
-const GLUE = `
-.rail-i .n::after{content:" places"}.rail-i .n.one::after{content:" place"}.rail-i .k{font:500 12px/1.2 var(--font-ui);opacity:.85}
-.rail-i.src-t{background:var(--night);color:var(--on-night);border-color:transparent}.rail-i.src-t .n{color:var(--on-night-2)}
-.rail-i.gap{background:transparent;border:1.5px dashed var(--line-strong);box-shadow:none}
-.rail[data-view=sights] [data-only=f],.rail[data-view=food] [data-only=s]{display:none}.rail[data-view=food] [data-cz],.rail[data-view=food] .gap{order:-1}@media (max-width:639px){.pls .pl:focus-within:not(:has(:focus-visible)):not(.is-target):not(:target) .pl-w{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}}
-.railbar[hidden]{display:none}@media (max-width:899px){.railbar{display:none}}
-.toolbar .btn{flex:none}.toolbar .tb-n:not(:empty){min-width:20px;height:20px;border-radius:10px;background:var(--ink);color:var(--paper);font-size:12px;display:inline-grid;place-items:center;padding:0 5px}
-@media (max-width:1023px){.toolbar .area-btn{display:none}.toolbar .lbl{display:none}.toolbar .btn-ghost{width:var(--tap);padding:0}}
-@media (min-width:1024px){.toolbar .map-toggle{display:none}}
-.applied{display:flex;flex-wrap:wrap;gap:6px;width:100%}.applied:empty{display:none}.applied .chip-x{min-height:var(--tap)}.applied .clear{min-height:var(--tap)}
-.lens{margin:12px 0 4px;padding:16px 18px;border-radius:var(--r-m);background:var(--city-wash);display:grid;gap:6px}.lens h2{margin:0;font:500 24px/1.15 var(--font-display)}.lens p{margin:0;color:var(--ink-2)}.lens .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}.lens .gap{background:var(--surface)}
-.listpane>.shown{padding:8px 0 0}.shown a{color:var(--ink-2)}
-.area-end{margin:12px 0 0}@media (min-width:1024px){.area-end{display:none}}.shown:empty{display:none}
-.railbar{position:relative;height:0;margin:0;z-index:4}.railbar .btn{position:absolute;top:-78px;box-shadow:var(--e-2);background:var(--surface)}.railbar [data-rail="-1"]{right:2px}.railbar [data-rail="1"]{right:-50px}
-@media (min-width:1024px){main>.masthead{padding-top:10px;padding-bottom:10px}.masthead .title{display:flex;align-items:baseline;gap:6px 20px;flex-wrap:wrap}.masthead .dek{-webkit-line-clamp:1;margin:0}.masthead .facts{max-width:none;margin-top:4px}
-.area:first-of-type>h2{margin-top:0;padding-top:2px}.rail-i{max-width:none}.rail-i .t{white-space:nowrap}.rail-i.sig{max-width:340px}.rail-i.sig .t{white-space:normal}.split .pls{grid-template-columns:minmax(0,1fr)}.rail{margin-top:10px}.pls{align-items:start}.pl::before,.pl:has(.pl-cover)::before{min-height:88px}.toolbar{padding:6px 0 4px}.pl-w{padding-top:8px}.pl-k:has(.lbl){margin-top:8px}
-.pls .pl:not(.is-target):not(:has(:focus-visible)) .pl-w{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.pl-s .lbl{display:inline;margin-right:4px}.masthead .eyebrow{display:none}}
-.pl-e .in{font-weight:500;color:var(--ink-3)}.pl-e .pl-num{display:inline-grid;vertical-align:1px;margin-right:4px}
-.pl-s .src{position:relative;z-index:2;display:inline-flex;align-items:center;justify-content:center;min-height:var(--tap);min-width:var(--tap);padding:0 4px;border:0;background:none;font-weight:600;color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:4px;cursor:pointer}
-.pl-s .src:hover{color:var(--city-ink);text-decoration-color:var(--city)}.pl-s .src.auth::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gilt);margin-right:5px}
-.pl-s .rest{display:none}.pl-s .more{color:var(--ink-3);padding:0 4px}.pl-s .added{display:inline-block;padding:4px 8px;margin:4px 0;border:1px dashed var(--line-strong);border-radius:var(--r-pill);color:var(--ink-2)}
-.pl-cover .pl-vert{top:58px;max-height:calc(100% - 66px)}.pl-cover .pl-glyph{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.overlay[hidden]{display:none}.overlay .sheet{width:100%;max-height:92vh;overflow:auto;overscroll-behavior:contain}.overlay .tray{width:100%}
-@media (min-width:1024px){.overlay.side{background:transparent;pointer-events:none;justify-content:flex-start;align-items:stretch;top:var(--bar-h)}.overlay.side .sheet{pointer-events:auto;width:min(560px,52vw);max-height:none;border-radius:0 var(--r-l) var(--r-l) 0;box-shadow:var(--e-4)}}
-.sheet .grab{display:block;border:0;padding:0}.detail .hero-plate{height:150px}.detail .hero-plate .pl-vert{position:absolute;right:28px;top:18px;writing-mode:vertical-rl;font:600 42px/1 var(--font-native);letter-spacing:.1em}.detail .hero-plate .pl-ini{position:absolute;right:26px;top:-8px;font:italic 500 150px/1 var(--font-display);color:color-mix(in srgb,var(--area) 60%,transparent)}.detail .hero-plate .pl-glyph{position:absolute;left:22px;bottom:16px;width:30px;height:30px}
-.detail h2{margin:0}.detail .pills{display:flex;flex-wrap:wrap;gap:8px}.srclist li{grid-template-columns:36px minmax(0,1fr)}.srclist .acts{grid-column:2;display:flex;gap:14px;flex-wrap:wrap}.srclist .go{background:none;border:0;padding:0;cursor:pointer}.srclist a.out{display:inline-flex;align-items:center;gap:4px;min-height:var(--tap);font-size:13.5px;font-weight:650;color:var(--ink-2)}
-.sheet .actions{grid-template-columns:repeat(3,1fr)}.sheet .actions .btn{padding:0 10px}.tray .scroll{max-height:calc(88vh - 140px)}.tray footer .btn-primary{width:100%}
-.mappane .poi-sheet{z-index:700}.poi-sheet .pl{margin:0 var(--gutter) 10px}.poi-sheet .grab{display:block;border:0;padding:0;cursor:pointer}.mapclose{display:none}
-@media (max-width:1023px){.split[data-view=map] .mapclose{display:inline-flex;position:absolute;z-index:690;top:12px;right:12px;box-shadow:var(--e-2)}}
-.pin-n{background:var(--ink);color:var(--paper);border:2px solid var(--surface);border-radius:12px;min-width:22px;height:22px;padding:0 5px;font:700 12px/18px var(--font-ui);text-align:center;box-shadow:none}.pin-n::before{display:none}.pin-n.sel{background:var(--city);color:var(--city-on)}.zoom-lo .pin-n{display:none}
-.map-note{position:absolute;left:12px;right:12px;top:12px;z-index:500;margin:0}
-.howto{margin:40px 0 0;padding:22px;border-radius:var(--r-l);background:var(--surface);border:1px solid var(--line)}.howto h2{margin:0 0 8px}.howto dl{display:grid;gap:4px;margin:12px 0}.howto dd{margin:0 0 8px 24px;color:var(--ink-2)}
-.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:900;background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:var(--r-pill)}
-`.replace(/\n/g, '');
+// page-level glue (FE-A) lives in ./fe-a.css → beta/assets/fe-a.css (shared, cached; DES upstreams into cleo.css)
 
 /* ---- render ---- */
 function render(row, recs, ctx) {
@@ -215,6 +236,10 @@ function render(row, recs, ctx) {
     if (g) prov[r.id] = { pc: g.confidence || '', pv: g.verified || '', ss: r.closed ? g.statusSource || '' : '' };
   }
 
+  /* -- day plans per area (platform's index when it ships one: row.dayPlans {AREA: [ids]}) -- */
+  const days = {};
+  for (const a of areas) { const d = (row.dayPlans && row.dayPlans[a.id]) || dayPlan(recs.filter(r => r.a === a.id)); if (d) days[a.id] = d; }
+
   /* -- collections: ★ signature first, Must see, the page's collections, two sources, the dish rail, stated gaps -- */
   const cats = page.CATS || [], cuis = page.CUISINES || [];
   const cnt = f => recs.filter(f).length;
@@ -231,6 +256,17 @@ function render(row, recs, ctx) {
   cuis.forEach(c => { const n = cnt(r => r.cz.includes(c.id)); if (n) tiles.push({ cls: '', key: 'cz', id: c.id, t: c.n, n, g: glyphFor(c.id, c.n, true), only: 'f' }); });
   const missing = cats.concat(cuis).filter(c => cnt(r => r.g.includes(c.id) || r.cz.includes(c.id)) && !tiles.some(t => t.id === c.id && t.key !== 'src'));
   if (missing.length) throw new Error(`${row.beta}: collection rail would drop ${missing.map(c => c.id)}`);   // M1-02: no silent drop
+  // home modules (M2-11, M2-05, M2-06, M3-02, M2-10) — only from fields that exist; they sit right after ★ in the rail
+  const firstDay = areas.find(a => days[a.id]);
+  const mods = [`<button type="button" class="rail-i mod fy" data-cleo-foryou aria-haspopup="dialog"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg><span class="k">Your guide</span><span class="t">For you</span><span class="d">Tell it what you love</span></button>`];
+  if (firstDay) mods.push(`<button type="button" class="rail-i mod" data-cleo-day=""><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg><span class="k">Your day</span><span class="t">A day in ${esc(areaSplit(firstDay.n)[0])}</span><span class="d">${days[firstDay.id].length} stops · ${Object.keys(days).length === 1 ? '1 area' : Object.keys(days).length + ' areas'} planned</span></button>`);
+  const iFree = tiles.findIndex(t => t.key === 'c' && t.id === 'FREE');
+  const free = iFree >= 0 ? tiles.splice(iFree, 1)[0] : null;
+  if (free) free.cls = 'mod';
+  mods.push(`<button type="button" class="rail-i mod mine" data-cleo-mine aria-pressed="false" hidden><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg><span class="k">Your list</span><span class="t">Saved here</span><span class="n" data-cleo-mine-n>0</span></button>`);
+  if (recs.some(r => r.la != null)) mods.push(`<button type="button" class="rail-i mod" data-cleo-near aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-locate"/></svg><span class="k">Near me</span><span class="t">Nearest first</span><span class="d">Asks once · never stored</span></button>`);
+  const nClosed = cnt(r => r.closed);
+  const closedTile = nClosed ? `<button type="button" class="rail-i gap" data-closed="1" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-archive"/></svg><span class="k">Kept for the record</span><span class="t">Recently closed</span><span class="n${nClosed === 1 ? ' one' : ''}">${nClosed}</span></button>` : '';
   const gaps = statedGaps(page);
   const tileHtml = t => `<button type="button" class="rail-i${t.cls ? ' ' + t.cls : ''}" data-${t.key}="${esc(t.id)}"${t.only ? ` data-only="${t.only}"` : ''} aria-pressed="false">` +
     (t.tg ? '<i class="tg t1 g" aria-hidden="true"></i>' : t.g ? `<svg class="g ico" aria-hidden="true"><use href="#i-${t.g}"/></svg>` : '') +
@@ -239,7 +275,8 @@ function render(row, recs, ctx) {
   const gapHtml = gaps.map((g, i) => `<button type="button" class="rail-i gap" data-gap="${i}" data-only="f" aria-pressed="false"><svg class="g ico" aria-hidden="true"><use href="#i-info"/></svg><span class="k">Stated gap</span><span class="t">${esc(g.cz.length ? (cuis.find(c => c.id === g.cz[0]) || {}).n : g.title)}</span></button>`);
 
   /* -- area chapters -- */
-  const cardCtx = { page, srcById, areaName, prov };
+  const lang = { japan: 'ja', singapore: 'zh' }[row.country] || '';
+  const cardCtx = { page, srcById, areaName, prov, lang };
   let placed = 0;
   const chapter = (a, list, i, total) => {
     const [head1, hoods] = a ? areaSplit(a.n) : ['Elsewhere', ''];
@@ -252,8 +289,7 @@ ${hoods ? `<p class="area-sub">${esc(hoods)}</p>` : ''}
 <ol class="pls">
 ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
 </ol>
-<p class="area-end"><button type="button" class="btn btn-ghost" data-cleo-map="${a ? esc(a.id) : ''}">${ico('map')}<span>See these ${list.length} on the map</span></button></p>
-</ol>
+<p class="area-end">${a && days[a.id] ? `<button type="button" class="btn btn-ghost" data-cleo-day="${esc(a.id)}">${ico('route')}<span>Your day here · ${days[a.id].length} stops</span></button>` : ''}<button type="button" class="btn btn-ghost" data-cleo-map="${a ? esc(a.id) : ''}">${ico('map')}<span>See these ${list.length} on the map</span></button></p>
 </section>`;
   };
   const orphan = recs.filter(r => !areas.some(a => a.id === r.a));
@@ -264,20 +300,26 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   const cardsHtml = sections.join('\n');
 
   /* -- sprite: only the glyphs this page uses -- */
-  const used = new Set(['map', 'list', 'sliders', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4']);
+  const used = new Set(['map', 'list', 'sliders', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive']);
   tiles.forEach(t => t.g && used.add(t.g));
   for (const mm of cardsHtml.matchAll(/data-gl="([a-z0-9-]+)"/g)) used.add(mm[1]);
   const sprite = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">${[...used].filter(k => ICONS[k]).sort().map(k => `<symbol id="i-${k}" viewBox="0 0 24 24">${ICONS[k]}</symbol>`).join('')}</svg>`;
 
   const mapArt = row.art && row.art.map ? Object.assign({ alt: `Schematic of ${row.art.map.drawn} verified pins in ${name}, coloured by area` }, row.art.map) : null;
+  const provDates = [...new Set(Object.values(prov).map(p => p.pv).filter(Boolean))].sort();
   const blob = {
-    v: 2, key: row.key, name, center: ctx.center, total: recs.length, file: row.fileKey, lang: { japan: 'ja', singapore: 'zh' }[row.country] || '',
+    v: 2, key: row.key, name, center: ctx.center, total: recs.length, file: row.fileKey, lang,
     areas: Object.fromEntries(areasAll.map(a => [a.id, { n: areaSplit(a.n)[0], c: colors[a.id] && /^#/.test(colors[a.id]) ? colors[a.id] : null }])),
     // M1-10 publisher index (lib/sources.js): [name, n, numbered entries | 0, authority | '', publisher URL, list title]
     src: Object.fromEntries(srcList.map(s => { const e = (s.entries || []).find(x => /^https?:/.test(x.url)) || {}; return [s.id, [s.name.split(' · ')[0], s.n, s.numbered || 0, s.authority || '', e.url || '', srcList.length && s.numbered && e.title && e.title !== e.title.toUpperCase() ? e.title : '']]; })),
     cats: Object.fromEntries(cats.concat(cuis).map(c => [c.id, c.n.replace(/^★\s*/, '')])),
-    prov: Object.fromEntries(Object.entries(prov).map(([id, p]) => [id, p.ss ? [p.pc, p.pv, p.ss] : [p.pc, p.pv]])),
+    // pin provenance, compact (W2, page weight): id → "<h|m|l><index into pd>[|status source]"; sheet.js expands it
+    pd: provDates, prov: Object.fromEntries(Object.entries(prov).map(([id, p]) => [id, (p.pc || '-').charAt(0).toLowerCase() + (p.pv ? provDates.indexOf(p.pv) : '') + (p.ss ? '|' + p.ss : '')])),
     gaps: gaps.map(g => [g.title, g.text, g.cz]),
+    fy: interests(recs, page),                                  // [id, label, n, ['c:ID' | 'cz:ID' | 'k:f']]
+    days,                                                       // {AREA: [place ids in walking order]}
+    // area locator art (lib/art.js): [src, w, h, pad, minLat, minLng, maxLat, maxLng, kx, ky] → the sheet's inset
+    art: Object.fromEntries(Object.entries((row.art && row.art.areas) || {}).map(([a, x]) => [a, [up + x.src, x.w, x.h, x.proj.pad].concat(x.proj.box, [+x.proj.kx.toFixed(4), +x.proj.ky.toFixed(4)])])),
   };
 
   /* -- filter tray (M1-07), server-rendered so it costs no client JS; city.js only opens it and applies it -- */
@@ -290,7 +332,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     fs('src', 'Recommended by', srcList.map(x => pill('src', x.id, x.name, x.n)).join('')) +
     fs('c', 'Collection', cats.filter(c => cnt(r => r.g.includes(c.id))).map(c => pill('c', c.id, c.n.replace(/^★\s*/, ''), cnt(r => r.g.includes(c.id)))).join('')) +
     fs('cz', 'Cuisine', cuis.filter(c => cnt(r => r.cz.includes(c.id))).map(c => pill('cz', c.id, c.n, cnt(r => r.cz.includes(c.id)))).join('')) +
-    fs('sort', 'Sort within each area', pill('sort', '', 'Guide’s order (tier, then sources)') + pill('sort', 'src', 'Most sources first') + pill('sort', 'az', 'A–Z')) +
+    fs('sort', 'Sort within each area', pill('sort', '', 'Guide’s order (tier, then sources)') + pill('sort', 'src', 'Most sources first') + pill('sort', 'az', 'A–Z') + pill('sort', 'near', 'Nearest to me')) +
     fs('been', 'Been there', pill('been', '', 'Show all') + pill('been', 'hide', 'Hide been there') + pill('been', 'only', 'Only been there')) +
     fs('base', 'Map style', pill('base', 'street', 'Street') + pill('base', 'light', 'Light') + pill('base', 'satellite', 'Satellite')) +
     `</div><footer><button type="button" class="btn btn-quiet" data-tr="clear">Clear all</button><button type="button" class="btn btn-primary" data-tr="go">Show ${recs.length} places</button></footer></div></div>`;
@@ -298,7 +340,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   const title = `${name} — ${recs.length} sourced places · Cleo`;
   const desc = `${name}: ${nS} sights and ${nF} places to eat and drink, every one traceable to the source that recommended it, pinned and status-checked.`;
   const headHtml = head({ page: 'city', title, description: desc, rel: row.beta, depth, ogImage: ctx.ogImage, jsonld: jsonLd(row, recs, title), assetsV: ctx.assetsV, from: row.live })
-    .replace('</head>', `<style>${GLUE}</style>\n</head>`);
+    .replace('</head>', `<link rel="stylesheet" href="${up}${ctx.feaCss}">\n</head>`);
   const country = COUNTRIES.find(c => c.key === row.country) || {};
   const facts = `<b>${plural(recs.length, 'place')}</b> · ${plural(st.areas || areas.length, 'area')} · every one sourced, pinned and status-checked${st.lastChecked ? ` · last checked <time class="nw">${esc(st.lastChecked)}</time>` : ''}${st.closed ? ` · ${st.closed} closed, kept for the record` : ''}. Ordered by tier, then by number of named sources. <a href="#how-we-choose">How we choose</a>`;
   const seg = `<div class="modes" role="group" aria-label="Show"><button type="button" data-mode="all" aria-pressed="true">All <span class="n">${recs.length}</span></button>` +
@@ -315,8 +357,10 @@ ${siteBar({ depth, current: 'city', rel: row.beta })}
   <p class="facts">${facts}</p>
 </header>
 <nav class="rail" id="cleo-rail" aria-label="Collections" data-cleo-rail data-view="all" hidden>
-${tiles.map(tileHtml).join('\n')}
-${gapHtml.join('\n')}
+${tiles.filter(t => t.cls === 'sig').map(tileHtml).join('\n')}
+${mods.join('\n')}${free ? '\n' + tileHtml(free) : ''}
+${tiles.filter(t => t.cls !== 'sig').map(tileHtml).join('\n')}
+${gapHtml.join('\n')}${closedTile ? '\n' + closedTile : ''}
 <button type="button" class="rail-i rail-all" data-cleo-all aria-pressed="false"><span class="t">Show all</span><span class="n">${recs.length}</span></button>
 </nav>
 <div class="railbar" data-cleo-rail hidden><button type="button" class="btn btn-icon btn-ghost" data-rail="-1" aria-label="Previous collections">${ico('chev-l')}</button><button type="button" class="btn btn-icon btn-ghost" data-rail="1" aria-label="Next collections">${ico('chev-r')}</button></div>
@@ -349,12 +393,15 @@ ${cardsHtml}
 </div>
 ${m.standfirst ? `<section class="about" aria-label="About this guide"><p>${esc(m.standfirst.replace(/\s*Switch modes below[\s\S]*$/, ''))}</p></section>` : ''}
 <div class="overlay" id="cleo-sheet" hidden></div>
+<div class="overlay" id="cleo-fy" hidden></div>
 ${trayHtml}
 </main>
 ${footer({ depth, liveRel: row.live, notes: page.notes })}
 <script type="application/json" id="cleo-city">${jsonInline(blob)}</script>
 <script src="${up}assets/js/city.js?v=${ctx.assetsV.city}" defer></script>
 <script src="${up}assets/js/sheet.js?v=${ctx.assetsV.sheet}" defer></script>
+<script src="${up}assets/js/foryou.js?v=${ctx.assetsV.foryou}" defer></script>
+<script src="${up}assets/js/day.js?v=${ctx.assetsV.day}" defer></script>
 </body>
 </html>
 `;
