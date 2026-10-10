@@ -2,6 +2,7 @@
 """Assemble beta/assets/cleo.css — the ONE stylesheet every generated beta page links (after tokens.css).
     cleo.css = beta/assets/constellation.css (component library, UX-20)
              + design/beta/css/contract.css (RFC §5.5 markup adapter + the M1 visual layer: glyphs, covers, skins, type)
+             + design/beta/css/views.css (W3 view styles: switcher, Gallery, Atlas, Guidebook, Insights, charts, print)
 Edit those sources, never cleo.css. Then `cd tools && npm run beta` re-versions the CSS in every page.
     python3 design/beta/tools/build-css.py [--check]"""
 import os, sys
@@ -39,6 +40,8 @@ gl += [', '.join(f'.rail-i[data-c="{c}"]' for c in sorted(ids)) + f' {{ --g: var
 gl.append(', '.join(f'main[data-city="{k}"] .rail-i[data-c="TEMPLE"]' for k in gcfg['japan']) + ' { --g: var(--g-torii); }')
 gl.append('.rail-i[data-cz] { --g: var(--g-forkknife); }')
 out += '\n' + '\n'.join(gl) + '\n'
+# W3 view styles (PLAN D-01): design/beta/css/views.css, bundled here so every page keeps ONE cached stylesheet
+out += '\n' + open(os.path.join(R, 'design', 'beta', 'css', 'views.css')).read()
 # masthead art: one rule per city that has platform's verified-pin schematic (beta/assets/art/<key with / → -->/map.svg)
 ART = os.path.join(R, 'beta', 'assets', 'art')
 keys = sorted(d for d in (os.listdir(ART) if os.path.isdir(ART) else []) if os.path.exists(os.path.join(ART, d, 'map.svg')))
