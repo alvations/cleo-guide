@@ -374,6 +374,12 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
     if (z > jsMax[2]) jsMax = [p, KB(raw), z];
   }
   chk(`client JS loaded by any one page ≤ 32 KB gzip (heaviest: ${jsMax[0]}, ${jsMax[1]} KB raw)`, KB(jsMax[2]), n => n <= 32);
+  // per-page share cards (B-36, npm run beta:og): 1200×630 PNG ≤ 300 KB, and every page that has one points og:image at it
+  const OGD = path.join(BETA, 'assets/og'), ogs = fs.existsSync(OGD) ? fs.readdirSync(OGD).filter(f => f.endsWith('.png')) : [];
+  const ogBad = ogs.filter(f => { const b = fs.readFileSync(path.join(OGD, f)); return b.readUInt32BE(16) !== 1200 || b.readUInt32BE(20) !== 630 || b.length > 300 * 1024; });
+  const ogUnused = manifest.pages.filter(p => p.kind === 'city' && ogs.includes(p.key.replace(/\//g, '--') + '.png'))
+    .filter(p => !rd('beta/' + p.beta).includes(`/assets/og/${p.key.replace(/\//g, '--')}.png"`)).map(p => p.beta);
+  chk(`share cards: ${ogs.length} PNGs are 1200×630 ≤ 300 KB, and their pages use them`, ogBad.concat(ogUnused), a => a.length === 0);
   chk('search index ≤ 250 KB gzip (lazy)', KB(gz('data/search.json')), n => n <= 250);
 
   console.log(failures ? `\n>>> FAIL — ${failures} beta check(s) failed` : '\n>>> PASS — beta: counts == live, reproducible, guarded, renders with no CDN');

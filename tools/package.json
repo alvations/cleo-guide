@@ -13,6 +13,7 @@
     "qa": "node qa-site.js --shots",
     "beta": "node beta/build.js",
     "beta:check": "node beta/build.js --check",
+    "beta:og": "node beta/og.js",
     "test:beta": "node beta/test-beta.js",
     "beta:metrics": "node beta/metrics.js",
     "beta:metrics:all": "node beta/metrics.js --all",
