@@ -167,3 +167,23 @@ Filed for the owner / data sessions. **Not implemented in beta.**
 | LP-04 | A field marking whether `k` is prose or keywords (beta uses a documented display heuristic until then). | M1-12 voice accuracy |
 | LP-05 | Native-script names where missing (Japan, Singapore Chinese/Malay/Tamil, Belgium FR/NL). | M1-11 covers, M3-03 |
 | LP-06 | Expand pop-culture ★ records beyond Japan (film/TV, music) through the normal gates. | M1-02 ★ rails in US cities |
+
+---
+
+## QA defects
+
+Appended by the QA lane (rows only). Evidence and screenshots: [`BETA-QA.md`](BETA-QA.md) (section date in **Found**).
+
+| ID | Sev | Defect | Benchmark | Lane | Found | Status |
+|---|---|---|---|---|---|---|
+| QA-01 | Blocker | Night theme unreadable on new-engine pages: tokens flip ink to light, `cleo.css` keeps light surfaces (Tokyo 2,783 AA fails at 1.05:1; hub 86) | B-23, D-03 | DES | 2026-10-10 r1 | todo |
+| QA-02 | High | Tap targets < 44 px: Tokyo 416 (source links, area-jump links), hub 1 | B-20, M1-16 | FE-A, FE-B | 2026-10-10 r1 | todo |
+| QA-03 | High | Source names render in data caps → uppercase share 21 % on Tokyo; M1-10 wants sentence case | B-19, M1-10 | FE-A | 2026-10-10 r1 | todo |
+| QA-04 | High | 24 on-screen controls above first card on Tokyo mobile (13 area links + duplicate All row) | B-03, M1-01 | FE-A | 2026-10-10 r1 | todo |
+| QA-05 | High | City M1 interactions missing: hover→pin, numbered pins + ordering line, mobile Map toggle, detail sheet + focus trap, Filters tray | B-06, B-07, B-09, B-10, B-17 | FE-A | 2026-10-10 r1 | todo |
+| QA-06 | High | 4 of 5 city pilots (Cleveland, NYC, Chinatown, Wheeling) still legacy mirror | D-27, M1-22 | PLT, FE-A | 2026-10-10 r1 | todo |
+| QA-07 | Med | Constellation fonts not applied (system-ui + Georgia); `constellation.css` unlinked; form controls fall back to Arial (3 families) | B-18, M0-01 | DES, FE-A | 2026-10-10 r1 | todo |
+| QA-08 | Med | Header search placeholder truncated on mobile ("Search pla") | M1-18 | FE-B | 2026-10-10 r1 | todo |
+| QA-09 | Med | Country hubs still legacy (4 fail B-05); no `beta/Japan/index.html` | B-05, M1-17 | FE-B | 2026-10-10 r1 | todo |
+| QA-10 | Low | Tokyo initial DOM 7,170 nodes / 830 KB; NYC mirror FCP 956 ms at 4× CPU | B-44, RFC §7.5 | PLT | 2026-10-10 r1 | todo |
+| QA-11 | Low | Legacy mirror light-theme contrast (4.23:1 labels) + 8.5 px badges; fixed by migration, not patching | B-21, B-23 | PLT | 2026-10-10 r1 | todo |

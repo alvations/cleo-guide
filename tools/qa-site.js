@@ -55,7 +55,8 @@ const VIEWPORTS = {
 // Representative sample screenshotted with --shots (failing pages are always shot).
 const SAMPLE = ['index.html', 'cleveland.html', 'cities/youngstown.html', 'cities/newyork.html',
   'Singapore/index.html', 'Singapore/tiong-bahru.html', 'Vietnam/index.html', 'Japan/index.html',
-  'Belgium/index.html', 'Germany/index.html', 'beta/index.html', 'versions/v1-shortlist/guide.html'];
+  'Belgium/index.html', 'Germany/index.html', 'beta/index.html', 'versions/v1-shortlist/guide.html',
+  'beta/cleveland.html', 'beta/cities/tokyo.html', 'beta/cities/newyork.html', 'beta/Singapore/chinatown.html', 'beta/cities/wheeling.html'];
 
 // ---------- discovery ----------
 function walk(dir, acc = []) {
@@ -232,6 +233,7 @@ const BLOCKED_NET = /net::ERR_|Failed to load resource|ERR_BLOCKED|ERR_FAILED|ER
 const KEY_TILE_HOSTS = /cartocdn|googleapis\.com\/maps|mt\d?\.google|khms|mapbox|thunderforest|stadiamaps/;
 const PNG1 = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=', 'base64');
 const LEAF_DIR = path.dirname(require.resolve('leaflet/dist/leaflet.js'));
+const betaContract = require('./beta/qa/contract.js');   // beta engine pages (QA lane, M0-04)
 
 async function runPage(browser, base, rel, vpName, mode) {
   const ctx = await browser.newContext({ ...VIEWPORTS[vpName], serviceWorkers: 'block' });
@@ -275,6 +277,7 @@ async function runPage(browser, base, rel, vpName, mode) {
   try {
     Object.assign(res, await page.evaluate(PROBE));
     if (mode === 'offline' && res.engine) res.interact = await engineChecks(page);
+    if (mode === 'offline') res.beta = await page.evaluate(betaContract.PROBE);
     if (mode === 'leaflet') res.map = await mapChecks(page, tileHosts);
     res.postErrors = errors.length;
   } catch (e) { res.probeErr = String(e.message || e).slice(0, 200); }
@@ -308,6 +311,7 @@ function grade(r) {
     if (r.hasMap && r.map.mounted && !r.map.markers) warns.push('map mounted with 0 markers');
     for (const b of r.map.bases) if (b.hosts.some(h => KEY_TILE_HOSTS.test(h))) fails.push('key-required tile host on base ' + b.base);
   }
+  betaContract.grade(r.page, r.beta, r.viewport, fails, warns);
   return { status: fails.length ? 'FAIL' : warns.length ? 'WARN' : 'PASS', fails, warns };
 }
 

@@ -31,3 +31,17 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     errors, 0 overflow, first Tokyo card at 714 px on 390×844.
 - 2026-10-10 · UI/UX (lead designer) · session_01PCNcUkfa5S1N1BKGzZA4xx · Wave 0 design system **"Constellation"** — every city drawn as the star-map of its verified pins; Salon IA kept, visual layer replaced. Delivered: `design/beta/DESIGN-SYSTEM.md` + `tokens.css` (light/night, 8 city skins; WCAG AA 284/284 pairs, `CONTRAST.md`), `beta/assets/tokens.css` + `beta/assets/constellation.css` (component contract), `IMAGERY.md`, `VOICE.md`, `specs/README.md` (9 page specs + benchmark comparison + scorecard), `DECISIONS.md` (UX-01…UX-19), 10 generated mockups on real records (`design/beta/mockups/`, Tokyo 488/488 and Cleveland 194/194 places rendered, asserted), 42 screenshots at 390×844 and 1440×900 (`design/beta/screenshots/`, 4.1 MB, `metrics.json`). Measured: first card at 0.73–0.79 screens on mobile with 14 on-screen controls above it; overflowX 0 everywhere; renders with all off-origin requests blocked. Aligned to PM backlog M0-01/M0-05/M0-06/M1-01/M1-05/M2-05/M2-11. Live site untouched. Commit: see git log for this entry.
 - 2026-10-10 08:24 · orchestrator · Wave 0 verified (no live paths touched; validate + test incl. beta count==live + no-CDN PASS); W0 sessions archived. **Build wave 1 (M1) launched:** platform session_01KAFFdmZ5muds2a5TrCSdWU, FE-A session_01R6c55ZTducLNVYMSqkvfQg, FE-B session_014JhcXcscGR7FMd9eAE6XqE, designer session_018MKc8Cm9yRKwLoMQ5mFB7b, QA session_01YbxdsQm4VmtpnaPTjvc2ZS.
+- 2026-10-10 · QA · Build wave 1 run 1 · session_01PCNcUkfa5S1N1BKGzZA4xx · M0-04, M1-21 (+ M1-22 baseline).
+  - **Harness:** `tools/beta/metrics.js` (`npm run beta:metrics`, `beta:metrics:all`, `--regrade`) measures every M1 row on the
+    pilot set at 390×844 / 1440×900 (+360 overflow) with off-origin blocked: screens-to-first-card, masthead, controls above
+    the first card, rail, hub cards, split-view sync, map toggle + sheet (Close/Esc/Back/focus trap), floaters, tray, closed
+    tier, cards/screen, fonts (declared + CDP rendered), uppercase %, tap < 44, smallest text, overflow, AA contrast light +
+    night, focus visibility, landmarks, reachability (scroll, every deep link, search, JS off), attribution, no-CDN, perf
+    (bytes, DOM, FCP, FCP 4× CPU). `tools/beta/qa/contract.js` hooked into `qa-site.js` (beta engine contract FAILs);
+    `tools/beta/qa/test-contract.js` added to `npm test`. `npm run qa:beta` script.
+  - **Result:** validate + test PASS; harness 91 beta pages / 273 loads, **0 FAIL**; beta == live on 84/84; Tokyo
+    reachability 488/488 (deep links 488/488). Tokyo scores 14/24 M1 rows, the hub 8/10, and the mirror pilots 5–7/23.
+    11 defects QA-01…QA-11 filed in `BETA-BACKLOG.md` → "QA defects". **Blocker QA-01:** the night theme is unreadable
+    (`qa/beta-shots/cities__tokyo.night.mobile.jpg`).
+  - **QA sign-off: NO for M1** (see `docs/BETA-QA.md`). Evidence: `qa/beta-metrics.{json,md}`, `qa/beta-metrics-all.md`,
+    `qa/beta-harness-summary.json`, `qa/beta-shots/`. Commit: see git log for this entry.
