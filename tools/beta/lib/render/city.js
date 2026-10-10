@@ -7,7 +7,7 @@
  * the cards (and a compact geo index) — it never needs a second copy of the content.
  */
 const { esc, prose } = require('../html');
-const { sourceLabel, TIER } = require('../model');
+const { sourceLabel, sourceHref, TIER } = require('../model');
 const { head, siteBar, footer, BETA_BASE } = require('./common');
 
 const shortArea = n => String(n || '').split(/\s+[(—–]\s*|\s+\(/)[0].trim();
@@ -30,8 +30,9 @@ function card(r, page) {
   const eyebrow = [r.closed ? 'Closed — kept for the record' : TIER[r.t], r.kind === 'food' && czN[0], area && shortArea(area.n)]
     .filter(Boolean).map(esc).join(' · ');
   const srcs = r.s.map(([k, u]) => {
-    const label = esc(sourceLabel(reg, k));
-    return u ? `<a href="${esc(u)}" rel="noopener">${label}</a>` : label;
+    const label = esc(sourceLabel(reg, k)), h = sourceHref(reg, k, u);   // platform: never a relative/broken href
+    const note = h.note ? ` title="${esc(h.note)}"` : '';
+    return h.href ? `<a href="${esc(h.href)}" rel="noopener"${note}>${label}</a>` : note ? `<span${note}>${label}</span>` : label;
   }).join(', ');
   // BETA-DECISIONS D-16: "Your guide's note" only when k reads as prose (sentence punctuation, > 6 words).
   const kText = String(r.k || '').replace(/<[^>]+>/g, ' ').trim();
@@ -39,7 +40,7 @@ function card(r, page) {
   const know = r.k ? `<p class="pl-k"><span class="lbl">${isProse ? 'Your guide’s note' : 'Look for'}</span> ${prose(r.k)}</p>` : '';
   const ll = r.la != null && r.ln != null ? ` data-ll="${r.la},${r.ln}"` : '';
   const checked = r.pv && r.pv.checked ? ` data-checked="${esc(r.pv.checked)}"` : '';
-  return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" data-k="${r.kind === 'food' ? 'f' : 's'}" data-t="${r.t}" data-a="${esc(r.a)}"${r.g.length ? ` data-g="${esc(r.g.join(' '))}"` : ''}${r.cz.length ? ` data-cz="${esc(r.cz.join(' '))}"` : ''}${ll}${checked}${r.closed ? ' data-closed' : ''}>
+  return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" data-k="${r.kind === 'food' ? 'f' : 's'}" data-t="${r.t}" data-a="${esc(r.a)}"${r.g.length ? ` data-g="${esc(r.g.join(' '))}"` : ''}${r.cz.length ? ` data-cz="${esc(r.cz.join(' '))}"` : ''}${r.src && r.src.length ? ` data-src="${esc(r.src.join(' '))}"` : ''}${ll}${checked}${r.closed ? ' data-closed' : ''}>
 <p class="pl-e">${eyebrow}</p>
 <h3 class="pl-n"><a href="#p-${esc(r.id)}">${esc(r.n)}</a></h3>
 ${r.w ? `<p class="pl-w">${prose(r.w)}</p>` : ''}${know}
@@ -75,6 +76,9 @@ function render(row, recs, ctx) {
   const title = `${name} — ${recs.length} sourced places · Cleo`;
   const desc = `${name}: ${nS} sights and ${nF} places to eat and drink, every one traceable to the source that recommended it, pinned and status-checked.`;
   const depth = row.beta.split('/').length - 1;
+  const up = '../'.repeat(depth);
+  // M1-06 / M1-13 (platform): the no-network map is a build-time schematic of verified pins (lib/art.js).
+  const mapArt = row.art && row.art.map ? Object.assign({ alt: `Schematic of ${row.art.map.drawn} verified pins in ${name}, coloured by area` }, row.art.map) : null;
 
   const coll = [
     ...(page.CATS || []).map(c => ({ key: 'c', id: c.id, n: c.n, count: recs.filter(r => r.g.includes(c.id)).length })),
@@ -103,11 +107,14 @@ ${orphan.map(r => card(r, page)).join('\n')}
   const geo = {
     v: 1, key: row.key, name, center: ctx.center,
     areas: Object.fromEntries((page.AREAS || []).map(a => [a.id, { n: shortArea(a.n), c: a.c || (page.AC || {})[a.id] || null }])),
+    // M1-10 (platform): publisher index for "Everything {source} recommends here (n)" — ids match li[data-src].
+    // [name, n, numbered entries | 0, text authority mark | ''].
+    src: row.sources ? Object.fromEntries(row.sources.list.map(x => [x.id, [x.name, x.n, x.numbered || 0, x.authority || '']])) : {},
   };
 
   return `${head({ page: 'city', title, description: desc, rel: row.beta, depth, ogImage: ctx.ogImage, jsonld: jsonLd(row, recs, title), assetsV: ctx.assetsV, from: row.live })}
 <body>
-${siteBar({ depth, current: 'city' })}
+${siteBar({ depth, current: 'city', rel: row.beta })}
 <main id="main" data-city="${esc(row.key)}">
 <header class="masthead">
   <p class="eyebrow">${esc(m.eyebrow || '')}</p>
@@ -128,7 +135,9 @@ ${areas.map(a => `  <a href="#area-${esc(a.id)}">${esc(shortArea(a.n))}</a>`).jo
 ${sections.join('\n')}
 </div>
 <aside class="mappane" aria-label="Map">
-  <div id="cleo-map" class="map"><p class="map-fallback">The map appears when it can load. Every place is listed here either way.</p></div>
+  <div id="cleo-map" class="map"${mapArt ? ` data-art="${esc(up + mapArt.src)}" data-art-alt="${esc(mapArt.alt)}"` : ''}>${mapArt
+    ? `<figure class="map-art map-fallback"><img src="${esc(up + mapArt.src)}" width="${mapArt.w}" height="${mapArt.h}" alt="${esc(mapArt.alt)}" decoding="async" style="max-width:100%;height:auto"><figcaption>The map appears when it can load. Every place is listed here either way.</figcaption></figure>`
+    : '<p class="map-fallback">The map appears when it can load. Every place is listed here either way.</p>'}</div>
 </aside>
 </div>
 ${m.standfirst ? `<section class="about" aria-label="About this guide"><p>${esc(m.standfirst.replace(/\s*Switch modes below[\s\S]*$/, ''))}</p></section>` : ''}

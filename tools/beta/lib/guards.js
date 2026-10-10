@@ -26,11 +26,26 @@ function assertCityPage(row, html, recs) {
     const miss = want.filter(n => !names.includes(n)).slice(0, 3), extra = names.filter(n => !want.includes(n)).slice(0, 3);
     errs.push(`place names differ from live (missing ${JSON.stringify(miss)}, extra ${JSON.stringify(extra)})`);
   }
+  const badHref = [...html.matchAll(/<p class="pl-s">[\s\S]*?<\/p>/g)].flatMap(m => [...m[0].matchAll(/href="([^"]*)"/g)].map(h => h[1])).filter(h => !/^https?:\/\//.test(h));
+  if (badHref.length) errs.push(`"Recommended by" links that are not http(s): ${badHref.slice(0, 3).join(', ')}`);
   const ld = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(html);
   const open = recs.filter(r => !r.closed).length;
   if (!ld) errs.push('no JSON-LD');
   else { const n = JSON.parse(ld[1]).itemListElement.length; if (n !== open) errs.push(`JSON-LD lists ${n}, expected ${open} open places`); }
   return errs;
+}
+
+/** Hub/landing gate (M1-20, M1-22): every expected place page is carded exactly once, with its computed count. */
+function assertHubPage(rel, html, expect, totals) {
+  const errs = [];
+  const cards = [...html.matchAll(/<li class="dest" data-page="([^"]+)"[\s\S]*?<span class="dest-c">([\d,]+) places/g)].map(m => [m[1], +m[2].replace(/,/g, '')]);
+  const keys = cards.map(c => c[0]);
+  const missing = expect.filter(k => !keys.includes(k)), dup = keys.filter((k, i) => keys.indexOf(k) !== i);
+  if (missing.length) errs.push(`hub is missing ${missing.length} page(s): ${missing.slice(0, 5).join(', ')}`);
+  if (dup.length) errs.push(`hub cards a page twice: ${dup.slice(0, 5).join(', ')}`);
+  const wrong = cards.filter(([k, n]) => totals[k] !== n);
+  if (wrong.length) errs.push(`hub counts differ from the page: ${wrong.slice(0, 5).map(([k, n]) => `${k} ${n}≠${totals[k]}`).join(', ')}`);
+  return errs.map(e => rel + ': ' + e);
 }
 
 function assertPage(rel, html) {
@@ -42,4 +57,4 @@ function assertPage(rel, html) {
   return errs.map(e => rel + ': ' + e);
 }
 
-module.exports = { assertCityPage, assertPage, countAttr };
+module.exports = { assertCityPage, assertHubPage, assertPage, countAttr };

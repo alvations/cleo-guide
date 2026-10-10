@@ -1,0 +1,508 @@
+{
+ "hub-m": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 0,
+  "smallSample": [],
+  "fontFamilies": [
+   "system-ui",
+   "Georgia"
+  ],
+  "uppercaseShare": 0.004,
+  "minFontPx": 14,
+  "minFontEl": "span.country-c",
+  "accent": "#3B3A8F",
+  "textNodes": 235,
+  "blockedHosts": [],
+  "jsErrors": []
+ },
+ "hub-d": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 0,
+  "smallSample": [],
+  "fontFamilies": [
+   "system-ui",
+   "Georgia"
+  ],
+  "uppercaseShare": 0.004,
+  "minFontPx": 14,
+  "minFontEl": "span.country-c",
+  "accent": "#3B3A8F",
+  "textNodes": 235,
+  "blockedHosts": [],
+  "jsErrors": []
+ },
+ "tokyo-m": {
+  "overflowX": 0,
+  "firstCardScreens": 0.85,
+  "controlsAboveFirstCard": 24,
+  "cardsPerScreen": 3,
+  "cards": 488,
+  "closed": 1,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 400,
+  "smallTargets": 1306,
+  "smallSample": [
+   "a. 77×32",
+   "a. 58×32",
+   "a. 67×32",
+   "a. 78×32",
+   "a. 76×32",
+   "a. 55×32"
+  ],
+  "fontFamilies": [
+   "system-ui",
+   "Georgia",
+   "Arial",
+   "Lucida Console",
+   "Helvetica Neue"
+  ],
+  "uppercaseShare": 0.191,
+  "minFontPx": 13,
+  "minFontEl": "span.n",
+  "accent": "#C23A1C",
+  "textNodes": 4972,
+  "blockedHosts": [
+   "tile.openstreetmap.org"
+  ],
+  "jsErrors": []
+ },
+ "tokyo-d": {
+  "overflowX": 0,
+  "firstCardScreens": 0.62,
+  "controlsAboveFirstCard": 32,
+  "cardsPerScreen": 4,
+  "cards": 488,
+  "closed": 1,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 400,
+  "smallTargets": 1489,
+  "smallSample": [
+   "a. 77×32",
+   "a. 58×32",
+   "a. 67×32",
+   "a. 78×32",
+   "a. 76×32",
+   "a. 55×32"
+  ],
+  "fontFamilies": [
+   "system-ui",
+   "Georgia",
+   "Arial",
+   "Lucida Console",
+   "Helvetica Neue"
+  ],
+  "uppercaseShare": 0.191,
+  "minFontPx": 13,
+  "minFontEl": "span.n",
+  "accent": "#C23A1C",
+  "textNodes": 4972,
+  "blockedHosts": [
+   "tile.openstreetmap.org"
+  ],
+  "jsErrors": []
+ },
+ "cleveland-m": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 525,
+  "smallSample": [
+   "a.cleo-brand 137×30",
+   "input. 350×40",
+   "button.chip 109×29",
+   "button.chip 125×29",
+   "button.chip 74×29",
+   "button.chip 127×29"
+  ],
+  "fontFamilies": [
+   "Fraunces",
+   "Archivo",
+   "Instrument Serif",
+   "Newsreader",
+   "Archivo Black"
+  ],
+  "uppercaseShare": 0.474,
+  "minFontPx": 9,
+  "minFontEl": "span.tierbadge.t1",
+  "accent": "",
+  "textNodes": 2018,
+  "blockedHosts": [
+   "cdnjs.cloudflare.com",
+   "fonts.googleapis.com",
+   "unpkg.com"
+  ],
+  "jsErrors": []
+ },
+ "cleveland-d": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 534,
+  "smallSample": [
+   "a.cleo-brand 137×30",
+   "button.modebtn 459×42",
+   "button.modebtn 459×42",
+   "input. 420×40",
+   "button.chip 109×29",
+   "button.chip 125×29"
+  ],
+  "fontFamilies": [
+   "Fraunces",
+   "Archivo",
+   "Instrument Serif",
+   "Newsreader",
+   "Archivo Black"
+  ],
+  "uppercaseShare": 0.474,
+  "minFontPx": 9,
+  "minFontEl": "span.tierbadge.t1",
+  "accent": "",
+  "textNodes": 2018,
+  "blockedHosts": [
+   "cdnjs.cloudflare.com",
+   "fonts.googleapis.com",
+   "unpkg.com"
+  ],
+  "jsErrors": []
+ },
+ "newyork-m": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 857,
+  "smallSample": [
+   "a.cleo-brand 137×30",
+   "input. 350×40",
+   "button.chip 109×29",
+   "button.chip 125×29",
+   "button.chip 49×29",
+   "button.chip 183×29"
+  ],
+  "fontFamilies": [
+   "Fraunces",
+   "Archivo",
+   "Instrument Serif",
+   "Newsreader",
+   "Archivo Black"
+  ],
+  "uppercaseShare": 0.592,
+  "minFontPx": 8.5,
+  "minFontEl": "span.czbadge",
+  "accent": "",
+  "textNodes": 3536,
+  "blockedHosts": [
+   "cdnjs.cloudflare.com",
+   "fonts.googleapis.com",
+   "unpkg.com"
+  ],
+  "jsErrors": []
+ },
+ "newyork-d": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 859,
+  "smallSample": [
+   "a.cleo-brand 137×30",
+   "button.modebtn 459×42",
+   "button.modebtn 459×42",
+   "input. 420×40",
+   "button.chip 109×29",
+   "button.chip 125×29"
+  ],
+  "fontFamilies": [
+   "Fraunces",
+   "Archivo",
+   "Instrument Serif",
+   "Newsreader",
+   "Archivo Black"
+  ],
+  "uppercaseShare": 0.592,
+  "minFontPx": 8.5,
+  "minFontEl": "span.czbadge",
+  "accent": "",
+  "textNodes": 3536,
+  "blockedHosts": [
+   "cdnjs.cloudflare.com",
+   "fonts.googleapis.com",
+   "unpkg.com"
+  ],
+  "jsErrors": []
+ },
+ "chinatown-m": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 75,
+  "smallSample": [
+   "a.cleo-brand 137×30",
+   "input. 350×40",
+   "button.chip 109×29",
+   "button.chip 116×29",
+   "button.chip 63×29",
+   "button.chip 52×29"
+  ],
+  "fontFamilies": [
+   "Fraunces",
+   "Archivo",
+   "Instrument Serif",
+   "Newsreader",
+   "Archivo Black"
+  ],
+  "uppercaseShare": 0.584,
+  "minFontPx": 8.5,
+  "minFontEl": "span.czbadge",
+  "accent": "",
+  "textNodes": 245,
+  "blockedHosts": [
+   "cdnjs.cloudflare.com",
+   "fonts.googleapis.com",
+   "unpkg.com"
+  ],
+  "jsErrors": []
+ },
+ "chinatown-d": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 77,
+  "smallSample": [
+   "a.cleo-brand 137×30",
+   "button.modebtn 459×42",
+   "button.modebtn 459×42",
+   "input. 420×40",
+   "button.chip 109×29",
+   "button.chip 116×29"
+  ],
+  "fontFamilies": [
+   "Fraunces",
+   "Archivo",
+   "Instrument Serif",
+   "Newsreader",
+   "Archivo Black"
+  ],
+  "uppercaseShare": 0.588,
+  "minFontPx": 8.5,
+  "minFontEl": "span.czbadge",
+  "accent": "",
+  "textNodes": 245,
+  "blockedHosts": [
+   "cdnjs.cloudflare.com",
+   "fonts.googleapis.com",
+   "unpkg.com"
+  ],
+  "jsErrors": []
+ },
+ "wheeling-m": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 252,
+  "smallSample": [
+   "a.cleo-brand 137×30",
+   "input. 350×40",
+   "button.chip 109×29",
+   "button.chip 60×29",
+   "button.chip 136×29",
+   "button.chip 135×29"
+  ],
+  "fontFamilies": [
+   "Fraunces",
+   "Archivo",
+   "Instrument Serif",
+   "Newsreader",
+   "Archivo Black"
+  ],
+  "uppercaseShare": 0.557,
+  "minFontPx": 8.5,
+  "minFontEl": "span.czbadge",
+  "accent": "",
+  "textNodes": 857,
+  "blockedHosts": [
+   "cdnjs.cloudflare.com",
+   "fonts.googleapis.com",
+   "unpkg.com"
+  ],
+  "jsErrors": []
+ },
+ "wheeling-d": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 256,
+  "smallSample": [
+   "a.cleo-brand 137×30",
+   "button.modebtn 459×42",
+   "button.modebtn 459×42",
+   "input. 420×40",
+   "button.chip 109×29",
+   "button.chip 60×29"
+  ],
+  "fontFamilies": [
+   "Fraunces",
+   "Archivo",
+   "Instrument Serif",
+   "Newsreader",
+   "Archivo Black"
+  ],
+  "uppercaseShare": 0.558,
+  "minFontPx": 8.5,
+  "minFontEl": "span.czbadge",
+  "accent": "",
+  "textNodes": 857,
+  "blockedHosts": [
+   "cdnjs.cloudflare.com",
+   "fonts.googleapis.com",
+   "unpkg.com"
+  ],
+  "jsErrors": []
+ },
+ "japan-hub-m": {
+  "missing": true
+ },
+ "japan-hub-d": {
+  "missing": true
+ },
+ "singapore-hub-m": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 1,
+  "smallSample": [
+   "a.cleo-brand 137×30"
+  ],
+  "fontFamilies": [
+   "Fraunces",
+   "Archivo",
+   "Instrument Serif",
+   "Newsreader",
+   "Archivo Black"
+  ],
+  "uppercaseShare": 0.463,
+  "minFontPx": 8.5,
+  "minFontEl": "span.ptier.ptier-district",
+  "accent": "",
+  "textNodes": 121,
+  "blockedHosts": [
+   "fonts.googleapis.com"
+  ],
+  "jsErrors": []
+ },
+ "singapore-hub-d": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 1,
+  "smallSample": [
+   "a.cleo-brand 137×30"
+  ],
+  "fontFamilies": [
+   "Fraunces",
+   "Archivo",
+   "Instrument Serif",
+   "Newsreader",
+   "Archivo Black"
+  ],
+  "uppercaseShare": 0.471,
+  "minFontPx": 8.5,
+  "minFontEl": "span.ptier.ptier-district",
+  "accent": "",
+  "textNodes": 121,
+  "blockedHosts": [
+   "fonts.googleapis.com"
+  ],
+  "jsErrors": []
+ }
+}

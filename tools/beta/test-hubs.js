@@ -1,0 +1,189 @@
+#!/usr/bin/env node
+'use strict';
+/**
+ * tools/beta/test-hubs.js — FE-B gate (landing, country hubs, shell, method page, states), wired into `npm test`.
+ *
+ *  1. REACH (M1-17): every place page of a live country is linked from the landing AND from its country hub;
+ *     every tile's count == its live page's count; every hub lists only live-country pages.
+ *  2. SHELL (M1-18): the same top bar component on every generated page (structure snapshot), ≤ 1 per page,
+ *     skip link → #main, landmarks header/nav/main/footer, breadcrumb names the page's country.
+ *  3. METHOD (M1-09): how-we-choose.html carries the computed totals and every rule section; linked from footer.
+ *  4. STATES (M1-19, jsdom): 0 results, index failed, offline, storage blocked, unknown page — copy per VOICE.md.
+ *  5. VOICE lint on FE-B pages (no urgency words).
+ */
+const fs = require('fs');
+const path = require('path');
+const { JSDOM } = require('jsdom');
+
+const ROOT = path.resolve(__dirname, '..', '..');
+const BETA = path.join(ROOT, 'beta');
+const rd = p => fs.readFileSync(path.join(BETA, p), 'utf8');
+let failures = 0;
+const chk = (name, got, want) => {
+  const ok = typeof want === 'function' ? want(got) : got === want;
+  console.log(`  ${ok ? 'PASS' : 'FAIL'}  ${name} = ${JSON.stringify(got).slice(0, 300)}`);
+  if (!ok) failures++;
+};
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const manifest = JSON.parse(rd('data/manifest.json'));
+const countries = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'countries.json'), 'utf8')).countries;
+const liveC = new Set(countries.filter(c => c.live).map(c => c.key));
+const cityPages = manifest.pages.filter(p => p.kind === 'city');
+const count = p => p.counts.P + p.counts.F;
+const doc = html => new JSDOM(html).window.document;
+const hrefsFrom = (rel, d) => new Set([...d.querySelectorAll('a[href]')].map(a => path.posix.normalize(path.posix.join(path.posix.dirname(rel), a.getAttribute('href').split('#')[0].split('?')[0]))));
+
+// ── 1. reach ───────────────────────────────────────────────────────────────
+console.log('\n== REACH: every live city from the landing and its hub; counts computed ==');
+{
+  const land = doc(rd('index.html'));
+  const L = hrefsFrom('index.html', land);
+  chk('live-country place pages not linked from the landing', cityPages.filter(p => liveC.has(p.country) && !L.has(p.beta)).map(p => p.beta), a => a.length === 0);
+  const hubs = manifest.pages.filter(p => p.kind === 'country-hub' && p.gen === 'new');
+  chk('country hubs generated', hubs.map(h => h.beta), a => a.length >= 5 && a.includes('Japan/index.html'));
+  const missing = [], wrong = [], foreign = [];
+  for (const h of hubs) {
+    const d = doc(rd(h.beta)), H = hrefsFrom(h.beta, d);
+    for (const p of cityPages.filter(p => p.country === h.country)) if (!H.has(p.beta)) missing.push(`${h.beta} → ${p.beta}`);
+    for (const li of d.querySelectorAll('li.dest')) {
+      const p = cityPages.find(x => x.key === li.dataset.page);
+      if (!p) { foreign.push(li.dataset.page); continue; }
+      if (p.country !== h.country) foreign.push(`${h.beta}: ${p.key}`);
+      const n = +((li.querySelector('.dest-c') || {}).textContent || '').replace(/[^\d].*$/s, '');
+      if (n !== count(p)) wrong.push(`${h.beta}: ${p.key} ${n} != ${count(p)}`);
+    }
+    if (!L.has(h.beta)) missing.push(`index.html → ${h.beta}`);
+  }
+  chk('hub → city links missing', missing, a => a.length === 0);
+  chk('hub tiles whose count != live page', wrong, a => a.length === 0);
+  chk('hub tiles from another country', foreign, a => a.length === 0);
+  const tiles = [...land.querySelectorAll('li.dest')];
+  chk('landing tiles with a signature or canon line where data has one', tiles.filter(li => li.querySelector('.tile') && !li.querySelector('.star, .canon')).length, n => n <= tiles.length * 0.2);
+  chk('landing pills == live countries, countries.json order', [...land.querySelectorAll('.countries a')].map(a => a.getAttribute('href').slice(1)).join(), countries.filter(c => c.live).sort((a, b) => a.order - b.order).map(c => c.key).join());
+}
+
+// ── 2. shell ───────────────────────────────────────────────────────────────
+console.log('\n== SHELL: one top bar component on every generated page ==');
+{
+  const shape = el => el.tagName.toLowerCase() + '.' + [...el.classList].filter(c => c !== 'on-night').sort().join('.') +
+    (el.children.length ? '[' + [...el.children].filter(c => !c.matches('nav.crumbs')).map(shape).join(',') + ']' : '');
+  const shapes = {}, problems = [];
+  for (const rel of manifest.generated) {
+    const d = doc(rd(rel));
+    const bars = d.querySelectorAll('[data-cleo-shell="topbar"]');
+    if (bars.length !== 1) { problems.push(`${rel}: ${bars.length} top bars`); continue; }
+    (shapes[shape(bars[0])] = shapes[shape(bars[0])] || []).push(rel);
+    if (!d.querySelector('a.skip[href="#main"]') || !d.getElementById('main')) problems.push(`${rel}: skip link`);
+    for (const s of ['header', 'nav', 'main', 'footer']) if (!d.querySelector(s)) problems.push(`${rel}: no <${s}>`);
+    if (!bars[0].querySelector('a[href$="saved.html"]')) problems.push(`${rel}: no "Your list" entry`);
+    const brand = bars[0].querySelector('a.brand'); if (!brand || !/index\.html$/.test(brand.getAttribute('href'))) problems.push(`${rel}: wordmark not → landing`);
+    const p = manifest.pages.find(x => x.beta === rel);
+    if (p && p.kind === 'city' && liveC.has(p.country)) {
+      const c = countries.find(x => x.key === p.country);
+      const crumbs = bars[0].querySelector('nav.crumbs');
+      if (!crumbs || !crumbs.textContent.includes(c.name)) problems.push(`${rel}: breadcrumb lacks ${c.name}`);
+    }
+  }
+  chk('top bar shapes across generated pages', Object.keys(shapes).length, 1);
+  chk('shell problems', problems, a => a.length === 0);
+}
+
+// ── 3. method page ─────────────────────────────────────────────────────────
+console.log('\n== METHOD: computed, complete, linked ==');
+{
+  const h = rd('how-we-choose.html');
+  const total = cityPages.reduce((s, p) => s + count(p), 0);
+  chk('method page shows the computed place total', h.includes(total.toLocaleString('en-US')), true);
+  chk('method sections present', ['merit', 'sources', 'tiers', 'pins', 'closures', 'gaps', 'added'].filter(id => !h.includes(`id="${id}"`)), a => a.length === 0);
+  chk('method copy: ≥2 sources, lone Michelin/JBF, Yelp/TripAdvisor never recommender', [/at least two credible sources/, /Michelin or James Beard/, /Yelp and TripAdvisor never count as the recommender/, /Closed places stay, flagged/, /Added by the guide \(general knowledge\)/].filter(r => !r.test(h)).map(String), a => a.length === 0);
+  chk('generated pages whose footer does not link the method page', manifest.generated.filter(r => !/<footer[\s\S]*how-we-choose\.html/.test(rd(r))), a => a.length === 0);
+}
+
+// ── 5. voice lint ──────────────────────────────────────────────────────────
+console.log('\n== VOICE: urgency lint on FE-B pages ==');
+{
+  const LINT = /trending|popular now|only \d+ left|hurry|selling fast|book now|don't miss out|limited time|best-selling/i;
+  const mine = ['index.html', 'how-we-choose.html', '404.html'].concat(manifest.pages.filter(p => p.kind === 'country-hub' && p.gen === 'new').map(p => p.beta));
+  chk('FE-B pages with an urgency word', mine.filter(r => LINT.test(doc(rd(r)).body.textContent)), a => a.length === 0);
+}
+
+// ── 4. states, in jsdom ────────────────────────────────────────────────────
+async function load(rel, { url, storageThrows = false, fetchFails = false } = {}) {
+  const html = rd(rel).replace(/<script src="([^"]+)"( defer)?><\/script>/g, (m, src) => {
+    const p = path.join(BETA, path.posix.dirname(rel), src.split('?')[0]);
+    return fs.existsSync(p) ? `<script>${fs.readFileSync(p, 'utf8').replace(/<\/script/g, '<\\/script')}</script>` : '';
+  });
+  const errors = [];
+  const dom = new JSDOM(html, { url: url || 'https://cleo.local/beta/' + rel, runScripts: 'dangerously', pretendToBeVisual: true,
+    beforeParse(w) {
+      w.addEventListener('error', e => errors.push(String(e.message)));
+      if (storageThrows) Object.defineProperty(w, 'localStorage', { get() { throw new Error('blocked'); } });
+      w.fetch = () => fetchFails ? Promise.reject(new Error('offline'))
+        : Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(rd('data/search.json'))) });
+      w.Element.prototype.scrollIntoView = function () {};
+    } });
+  await sleep(60);
+  dom.window.document.dispatchEvent(new dom.window.Event('DOMContentLoaded'));
+  await sleep(250);
+  return { w: dom.window, d: dom.window.document, errors };
+}
+
+(async () => {
+  console.log('\n== STATES (jsdom): copy per VOICE.md ==');
+  const total = cityPages.reduce((s, p) => s + count(p), 0).toLocaleString('en-US');
+  {
+    const { d, errors } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=zzqxv' });
+    const st = d.querySelector('[data-cleo-state="no-results"]');
+    chk('0 results: state shown', !!st, true);
+    chk('0 results: copy', st && /No places match “zzqxv”\./.test(st.textContent) && st.textContent.includes(`all ${total} places`), true);
+    chk('0 results: destinations still listed', d.querySelectorAll('li.dest').length, n => n > 50);
+    st && st.querySelector('[data-cleo-clear]').click(); await sleep(20);
+    chk('0 results: "Clear search" clears', d.getElementById('results').hidden, true);
+    chk('landing JS errors', errors, a => a.length === 0);
+  }
+  {
+    const { d } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=senso-ji' });
+    const a = [...d.querySelectorAll('#results li a')];
+    chk('search: accent-folded "senso-ji" finds Sensō-ji with a #p= deep link', a.some(x => /Sensō-ji/.test(x.textContent) && /tokyo\.html#p=senso-ji/.test(x.getAttribute('href'))), true);
+  }
+  {
+    const { d } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=a', });
+    const shown = d.querySelectorAll('#results li').length, head = d.querySelector('#results h2').textContent;
+    chk('search: every match reachable (folded groups expand to all)', (() => { d.querySelectorAll('[data-cleo-more]').forEach(b => b.click()); return d.querySelectorAll('#results li:not([hidden])').length === shown && head.startsWith(String(shown)); })(), true);
+  }
+  {
+    const { d } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=ramen', fetchFails: true });
+    chk('index failed: state shown, guides still listed', !!d.querySelector('[data-cleo-state="index-failed"]') && d.querySelectorAll('li.dest').length > 50, true);
+  }
+  {
+    const { w, d } = await load('Japan/index.html');
+    w.dispatchEvent(new w.Event('offline')); await sleep(10);
+    const b = d.querySelector('[data-cleo-banner="offline"]');
+    chk('offline: banner copy', b && b.textContent.includes('You’re offline — the guide still works.'), true);
+    w.dispatchEvent(new w.Event('online')); await sleep(10);
+    chk('offline: banner clears when back online', !d.querySelector('[data-cleo-banner="offline"]'), true);
+  }
+  {
+    const { d, errors } = await load('saved.html', { storageThrows: true });
+    const b = d.querySelector('[data-cleo-banner="storage"]');
+    chk('storage blocked: banner copy on Your list', b && b.textContent.includes('Storage is blocked here, so saves last until you close the tab.'), true);
+    chk('storage blocked: no JS errors', errors, a => a.length === 0);
+  }
+  {
+    const { d } = await load('how-we-choose.html');
+    d.querySelector('[data-cleo-search-open]').click(); await sleep(10);
+    const inp = d.getElementById('cleo-pq');
+    chk('header search: panel opens on a non-landing page', !!inp && !inp.closest('[hidden]'), true);
+    inp.value = 'kinkaku'; inp.dispatchEvent(new d.defaultView.Event('input')); await sleep(250);
+    chk('header search: results grouped by guide', d.querySelectorAll('.searchpanel .grp').length, n => n >= 1);
+    inp.dispatchEvent(new d.defaultView.KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); await sleep(10);
+    chk('header search: Esc closes', d.querySelector('.searchpanel').hidden, true);
+  }
+  {
+    const d = doc(rd('404.html'));
+    const st = d.querySelector('[data-cleo-state="unknown-page"]');
+    chk('unknown page: copy + way on', st && /We couldn't find that page\./.test(st.textContent) && !!st.querySelector('a[href="index.html#destinations"]'), true);
+  }
+  console.log(failures ? `\n>>> FAIL — ${failures} FE-B check(s) failed` : '\n>>> PASS — FE-B: every city reachable, one shell, method computed, states worded');
+  process.exit(failures ? 1 : 0);
+})();

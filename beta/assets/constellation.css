@@ -84,7 +84,7 @@ em.it, .it { font-style: italic; }
 .on-night .top-actions .btn-icon:hover { background: rgba(255,255,255,.1); }
 .count-dot { position: relative; }
 .count-dot[data-n]::after { content: attr(data-n); position: absolute; top: 6px; right: 4px; min-width: 18px; height: 18px;
-  border-radius: 9px; background: var(--city); color: var(--city-on); font-size: 11px; font-weight: 700; display: grid; place-items: center; padding: 0 4px; }
+  border-radius: 9px; background: var(--city); color: var(--city-on); font-size: 12px; font-weight: 700; display: grid; place-items: center; padding: 0 4px; }
 @media (min-width: 900px) { .topnav { display: flex; } .brand small { display: inline; } }
 
 /* ---------- Mobile tab bar ---------- */
@@ -93,7 +93,7 @@ em.it, .it { font-style: italic; }
   backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--line);
   display: grid; grid-template-columns: repeat(4, 1fr); }
 .tabbar a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none;
-  font-size: 11.5px; font-weight: 600; color: var(--ink-3); min-height: var(--tap); }
+  font-size: 12px; font-weight: 600; color: var(--ink-3); min-height: var(--tap); }
 .tabbar a[aria-current="page"] { color: var(--ink); }
 .tabbar a[aria-current="page"] .ico { color: var(--city); stroke-width: 2.1; }
 body.has-tabbar { padding-bottom: calc(var(--tab-h) + 8px); }
@@ -173,7 +173,7 @@ body.has-tabbar { padding-bottom: calc(var(--tab-h) + 8px); }
 .coll.sig .glyph { background: rgba(255,255,255,.16); color: var(--city-on); }
 .coll.sig .t { font-size: 22px; }
 .coll.sig .n { color: color-mix(in srgb, var(--city-on) 82%, transparent); }
-.coll.sig .badge { position: absolute; top: 14px; right: 14px; font-size: 11.5px; font-weight: 700; letter-spacing: .04em;
+.coll.sig .badge { position: absolute; top: 14px; right: 14px; font-size: 12px; font-weight: 700; letter-spacing: .04em;
   padding: 4px 8px; border-radius: var(--r-pill); background: rgba(255,255,255,.18); color: var(--city-on); }
 .coll.sig .sky { position: absolute; inset: 0; opacity: .35; pointer-events: none; }
 .coll.by-src { background: var(--night); color: var(--on-night); border-color: transparent; }
@@ -399,7 +399,7 @@ body.has-tabbar { padding-bottom: calc(var(--tab-h) + 8px); }
 .map-chip { position: absolute; top: 12px; left: 12px; z-index: 2; display: flex; gap: 6px; flex-wrap: wrap; max-width: calc(100% - 80px); }
 .map-chip .pill { min-height: 36px; background: var(--surface); box-shadow: var(--e-1); border-color: var(--line); font-size: 13.5px; }
 .map-chip .pill[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.map-credit { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; font-size: 11px; color: var(--ink-3); padding: 4px 10px;
+.map-credit { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; font-size: 12px; color: var(--ink-3); padding: 4px 10px;
   background: color-mix(in srgb, var(--surface) 82%, transparent); }
 .map-legend { position: absolute; left: 12px; bottom: 30px; z-index: 2; background: var(--surface); border-radius: var(--r-s); box-shadow: var(--e-1);
   padding: 8px 10px; display: grid; gap: 4px; font-size: 12px; }
@@ -543,10 +543,10 @@ body.has-tabbar { padding-bottom: calc(var(--tab-h) + 8px); }
 @media (min-width: 900px) { .overlay { align-items: center; justify-content: center; } }
 
 /* Credits (imagery & map art) */
-.credit { font-size: 11.5px; color: var(--ink-3); line-height: 1.4; }
+.credit { font-size: 12px; color: var(--ink-3); line-height: 1.4; }
 .credit a { color: var(--ink-2); }
 figure.photo { margin: 0; position: relative; border-radius: var(--r-m); overflow: hidden; background: var(--sand); }
-figure.photo figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 10px; font-size: 11px; color: #fff;
+figure.photo figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 6px 10px; font-size: 12px; color: #fff;
   background: linear-gradient(transparent, rgba(0,0,0,.65)); }
 
 /* map art at the real aspect per breakpoint */
