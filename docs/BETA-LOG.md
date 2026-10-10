@@ -588,3 +588,29 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **QA sign-off: YES on `83c51890`** (clean pinned worktree). QA-33: focus 30/30. QA-32: hearts and chips 44 px; what remains is exempt text links. QA-34: map 35/35. Atlas 24/24, gates green. New Low QA-35 (FE-B/DES: Guidebook appendix URL links 36 px wide). Details: BETA-QA.md → "W3 re-test".
 
 - 2026-10-10 16:07Z · orchestrator · DEPLOYED Round 3. QA W3 re-test signed YES on `83c51890` (e12c71ce). PR alvations/cleo-guide#5 merged it into the Pages branch (merge `b0ad208c`). Open Low items: QA-26, QA-35. The PM decision on record prose with prices and ratings is pending with the owner.
+
+- 2026-10-10 · **W4 designer + imagery** · ROUND-3 gaps #3, #5 (CSS) and #2 (CSS half), plus QA-35 · session_01PCNcUkfa5S1N1BKGzZA4xx · [REVIEW-W4](../design/beta/REVIEW-W4.md)
+  - **#3 Gallery covers.** 28 original kind motifs, one per `data-gl` (shrine gate, noodle bowl, portico…; generic subjects, never a venue). They come from `tools/beta/imagery/kinds.js` → `beta/assets/img/motifs/kinds/` and are painted as masks in the area colour.
+    - Plate colour by tier: must see is deep, with a top bar; deep cut gets an outlined initial.
+    - Crop/zoom by pin: compositions 1 and 3 zoom the area art around the pin.
+    - Five compositions keyed on `data-comp` = position among the cards on screen, mod 5. No two neighbours match at 1, 2 or 4 columns.
+    - The vertical plate is CJK-only, with a `:lang` CSS backstop.
+  - **#5 motion.** Every effect answers a tap or a scroll, none runs on load, and all are off under reduced motion:
+    - the heart/stamp pops now play only on the tap (W3 popped every saved heart at load), plus `.ge-save` and the sheet's "Been there";
+    - rail-door and card press;
+    - sheet rise;
+    - view-switch cross-fade, gated on the switcher holding focus;
+    - Insights bars grow on a scroll-driven `view()` timeline.
+  - **#2 CSS.**
+    - Gallery hero: the title's descender clears the kicker, and the pin sky is masked under the text.
+    - Guidebook lead and stat lines always wrap.
+    - The Insights date breaks at a word ("status checked / to 2026-10-03").
+  - **QA-35 fixed.** The `.urls` list spans the source row. Tokyo at 390 px: 952 links, all 326 × 44–48 px.
+  - **FE-A file touched (allowed by the brief).** `client/gallery.js` gets a cover markup hook only: `data-comp`, `data-t` and `data-gl` on covers, `--rx/--ry` on the art box, and a CJK test for the plate.
+  - **Asks.**
+    - FE-A: wrap the view switch in `document.startViewTransition` (the CSS is ready).
+    - FE-B: wrap the Insights "Closed, kept" date in `<time class="nw">`.
+  - **Housekeeping.** Back-ported the W3 fix lane's hand edits from `cleo.css` into `design/beta/css/views.css`, so `build-css.py --check` is in sync again.
+  - Screenshots: `design/beta/eval/w4/designer/*-{m,d}-{before,after}.png`.
+  - Gates: validate, npm test, beta:check all PASS.
+  - Designer backlog for this wave: #3 done; #5 CSS done, with the startViewTransition hook pending FE-A; #2 CSS half done; QA-35 done.
