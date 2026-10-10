@@ -124,8 +124,10 @@
     return out.join('') + '</svg>';
   }
   var sum = function (v) { return Object.keys(v).reduce(function (s, k) { return s + v[k]; }, 0); };
+  // two renders (wide / narrow); the browser re-renders both at the card's measured width so 1 viewBox unit = 1 px
+  var SIZE = { W: 640, Wn: 320 };
   var both = function (fn, args) {
-    return '<div class="cw">' + fn.apply(null, args.concat([640, 168, false])) + '</div><div class="cn">' + fn.apply(null, args.concat([360, 104, true])) + '</div>';
+    return '<div class="cw">' + fn.apply(null, args.concat([SIZE.W, SIZE.W < 480 ? 104 : 168, SIZE.W < 480])) + '</div><div class="cn">' + fn.apply(null, args.concat([SIZE.Wn, 104, true])) + '</div>';
   };
   function stacked(rows, series, head, link, uid, asPct) {
     var legend = '<ul class="legend">' + series.map(function (s) { return '<li><i style="background:' + s.c + '"></i>' + esc(s.name) + '</li>'; }).join('') + '</ul>';
@@ -142,7 +144,8 @@
   };
 
   /* ---- the whole view as an HTML string ---- */
-  function render(d) {
+  function render(d, opt) {
+    SIZE = { W: (opt && opt.W) || 640, Wn: (opt && opt.Wn) || 320 };
     var I = d.insights && d.insights.N === d.places.length && d.insights.kind ? d.insights : numbers(d), T = I.tiles, N = I.N, name = d.name;
     var gal = function (o) { var r = { view: 'gallery' }; Object.keys(o).forEach(function (k) { r[k] = o[k]; }); return href(r); };
     var A = I.areas, srcName = {};
@@ -212,16 +215,21 @@
   function mount(el, ctx) {
     host = el; ctx = ctx || {};
     var C = window.Cleo || {}, main = document.getElementById('main'), key = ctx.key || (main && main.getAttribute('data-city'));
-    el.setAttribute('aria-busy', 'true');
+    el.classList.add('vw', 'view-insights'); el.setAttribute('aria-busy', 'true');
     return C.pageData(ctx.file || key).then(function (d) {
       if (host !== el) return;
-      var r = render(d); el.innerHTML = r.html; el.removeAttribute('aria-busy'); return r;
+      var r = render(d); el.innerHTML = r.html; el.removeAttribute('aria-busy');
+      // chart text stays at its CSS size (≥ 12 px): redraw at the card's real content width, once
+      var c = el.querySelector('.icard'), cs = c && getComputedStyle(c);
+      var w = c ? Math.floor(c.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)) : 0;
+      if (w > 200) { var nw = matchMedia('(max-width: 639px)').matches; r = render(d, nw ? { Wn: w } : { W: w }); el.innerHTML = r.html; }
+      return r;
     }, function () {
       if (host !== el) return;
       el.removeAttribute('aria-busy');
       el.innerHTML = '<p class="state" data-cleo-state="view-failed">The numbers couldn’t load just now. Every place is still in the list — switch to another view, or try again when you’re back online.</p>';
     });
   }
-  function unmount() { if (host) host.innerHTML = ''; host = null; }
+  function unmount() { if (host) { host.innerHTML = ''; host.classList.remove('view-insights'); } host = null; }
   return { numbers: numbers, render: render, mount: mount, unmount: unmount };
 });

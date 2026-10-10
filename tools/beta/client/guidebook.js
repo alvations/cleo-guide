@@ -92,12 +92,12 @@
       return '<button type="button" class="src' + (s === 'guide' ? ' added' : '') + '" data-src="' + esc(s) + '">' + esc(srcShort(M, s)) + '</button>';
     }).join('<span class="sep">, </span>');
     return '<li class="ge" id="gb-' + esc(p.id) + '" data-id="' + esc(p.id) + '" data-a="' + esc(p.a) + '" data-k3="' + x.k3 + '" data-rank="' + x.rank + '"' + (x.open ? '' : ' data-closed') + '>' +
-      '<h4><a href="#p=' + encodeURIComponent(p.id) + '" data-cleo-entry><span class="rk" title="No. ' + x.rank + ' of ' + x.of + ' in ' + esc(shortArea((M.d.areas.filter(function (a) { return a.id === p.a; })[0] || {}).n || p.a)) + '">' + x.rank + '</span>' + esc(x.name) +
+      '<h4><span class="rk" title="No. ' + x.rank + ' of ' + x.of + ' in ' + esc(shortArea((M.d.areas.filter(function (a) { return a.id === p.a; })[0] || {}).n || p.a)) + '">' + x.rank + '</span><a href="#p=' + encodeURIComponent(p.id) + '" data-cleo-entry>' + esc(x.name) +
       (p.nat ? ' <span class="nat"' + (M.lang ? ' lang="' + M.lang + '"' : '') + '>' + esc(p.nat) + '</span>' : '') + '</a></h4>' +
       '<p class="ge-m">' + tier + (p.ad ? '<span class="ad">' + esc(p.ad) + '</span>' : '') + '</p>' +
       (p.w ? '<p class="ge-w">' + esc(p.w) + '</p>' : '') + (p.k ? '<p class="gk">Look for: ' + esc(p.k) + '</p>' : '') +
       '<p class="recby"><span>Recommended by</span> ' + rec + '</p>' +
-      '<button type="button" class="ge-save" data-cleo-ref="' + esc(ref) + '" aria-pressed="false" aria-label="Save ' + esc(x.name) + '">Save</button></li>';
+      '<button type="button" class="heart ge-save" data-cleo-ref="' + esc(ref) + '" aria-pressed="false" aria-label="Save ' + esc(x.name) + '">Save</button></li>';
   }
 
   /* ---- the whole guidebook as an HTML string (no DOM needed: node renders the same thing for the gates) ---- */
@@ -207,7 +207,7 @@
   function mount(el, ctx) {
     host = el; ctx = ctx || {};
     var C = window.Cleo || {}, main = document.getElementById('main'), key = ctx.key || (main && main.getAttribute('data-city'));
-    el.setAttribute('aria-busy', 'true');
+    el.classList.add('vw', 'view-guidebook'); el.setAttribute('aria-busy', 'true');
     return C.pageData(ctx.file || key).then(function (d) {
       if (host !== el) return;
       var r = render(d, { root: C.root || '' });
@@ -240,7 +240,7 @@
     });
   }
   function printAll() { var C = window.Cleo || {}; if (C.defer) C.defer.all(); if (host) syncLens(host); window.print(); }
-  function unmount() { off.splice(0).forEach(function (f) { f(); }); if (host) host.innerHTML = ''; host = null; }
+  function unmount() { off.splice(0).forEach(function (f) { f(); }); if (host) { host.innerHTML = ''; host.classList.remove('view-guidebook'); } host = null; }
 
   return { model: model, render: render, intro: intro, TEMPLATE: TEMPLATE, mount: mount, unmount: unmount, sourceUrls: sourceUrls, shortArea: shortArea };
 });

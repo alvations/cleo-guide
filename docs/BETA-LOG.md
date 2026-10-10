@@ -424,3 +424,19 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **D-04** `design/beta/REVIEW-W3-views.md`: Insights ✅ (D-02 dark set selected by token, verified in night), Guidebook ◐. **For FE-B:** single-series canon chart → `--series-1`; desktop area labels truncate at ~22 chars (widen the wide-render label column or wrap); Guidebook phone gap before the cover (cover top padding 12 px < 640). **For FE-A:** in Guidebook/Insights collapse or move the rail below the module so the cover/numbers are the first screen on phones. Gallery + Atlas reviews follow when A-02/A-03 land.
   - Correction to slice 2: FE-B's landing editorial rail already exists (QA-28 refers to it); gap #4 now has both halves.
   - Phone masthead band trimmed to 58 px (motif 62 px) — still clear of the facts (`mast-*-m.jpg`). Gates PASS; contrast.py 368/0.
+- 2026-10-10 · **FE-B** · Wave 3 slice 2 · session_01KLBRpRabpnEHiyU3gKvKjv · B-01/B-02/B-03 measured in Chromium + the designer's views.css hooks · commit: this entry's commit.
+  - **Hooks adopted:** module hosts get `vw view-guidebook` / `vw view-insights` on mount (removed on unmount), Save is `.heart.ge-save`, and the rank badge sits outside the name link.
+  - **Insights chart text:** the browser redraws each chart at its card's measured content width, so 1 viewBox unit = 1 px. **Min chart text is 12 px at 390 and 1440** on Tokyo and Cleveland (was 10.7 / 11.1).
+  - **Measured** (`tools/beta/views-b-shots.js`, off-origin aborted, CSS = designer views.css):
+    - entries / index == N (Tokyo 488, Cleveland 194);
+    - 366 / 124 focusable bar links;
+    - print media: all 488 / 194 entries visible, TOC + Save hidden, appendix 951 source URLs ≥ 935 distinct record-cited URLs (Tokyo);
+    - 0 JS errors from my modules.
+    - Metrics: `design/beta/eval/w3/fe-b/views-b-metrics.json`.
+  - **Screenshots** `design/beta/eval/w3/fe-b/{tokyo,cleveland}-{guidebook,insights}[-s1|-s2]-{m,d}.jpg`, `*-guidebook-print[-sources]-d.jpg`, `hub-japan-viewlinks-{m,d}.jpg`. The harness mounts through `CleoViewQueue` the same way the registry will.
+  - **Defects filed:**
+    - **FE-A:** with `html[data-view=guidebook|insights]` (views.css hides `.mappane`), the city page's map code throws "Invalid LatLng object: (NaN, NaN)" about 38 times at 1440 on Cleveland and Tokyo. It reproduces with no FE-B code, just by setting the attribute. Guard fitBounds/setView while the map has 0 size, and call `invalidateSize()` on the switch back to Atlas.
+    - **Designer:** on phones the global hub `.tile` rule (tall aspect) leaks into `.view-insights .tile`, so the stat tiles are about 470 px tall (`cleveland-insights-m.jpg`). Scope the hub rule or rename the stat tile, and I'll follow.
+    - **Designer:** in print, the site header still prints (`*-guidebook-print-d.jpg`), and `.gb-appendix` wants `break-before: page`.
+    - **FE-A:** in Guidebook/Insights, please hide the canonical `.split` list in print, so the guidebook is the one printed copy. With JS off, the list keeps printing as it does today.
+  - validate + npm test + beta:check PASS.
