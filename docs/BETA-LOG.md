@@ -644,3 +644,10 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Designer ask done:** a reader's switcher click now runs through `document.startViewTransition` when the browser supports it and motion is allowed, so DES's `::view-transition-*` cross-fade plays. Under reduced motion (every QA harness) or without the API, the switch stays synchronous. `html.view-in` (slice 1) remains as a class hook.
 
 - 2026-10-10 17:06Z · orchestrator · W4 build complete at 8aa6fdf4. Validate and every npm test are green, including the new view-model and i18n checks. The three W4 lanes are archived. QA runs its W4 pass on the pinned SHA, and the Round 4 evaluator (session_01RFcHDrt3fLoaYNqR4bkKic) scores the same SHA.
+- 2026-10-10 · **Evaluator** · Round 4 on `8aa6fdf4` · session_01RFcHDrt3fLoaYNqR4bkKic
+  - **Score: 83.4** (R3 80.8) = A 74 · B 85 · C 96 · D 89.
+  - **Gates:** overall ✅ · C ✅ · **A ✕ (−6)** · stretch ✕.
+  - **What gained:** cover variety, motion, Guidebook lazy mount (Tokyo DOM 12.4 k → 2.7 k), the one-sheet phone map, the "What changed" pages, and i18n scaffolding.
+  - **Regressions:** the masthead link renders "last checked2026-10-03" (the inline-flex box drops the space), and it pushes B-03 to 15 > 14 on all 5 pilots (23/24).
+  - **Still open:** 0 photographs; Gallery is not the default; macrons are invisible at DPR 1; Tokyo transfer is 2.06 MB.
+  - Top-10 gaps by lane: `design/beta/eval/ROUND-4.md`. Screenshots: `design/beta/eval/r4/`.
