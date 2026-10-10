@@ -157,3 +157,4 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   comma spacing). Harness refinements: on-screen contrast via `elementsFromPoint`, ancestor focus ring, load vs stress
   errors, `.masthead`, split heuristic. **QA sign-off: NO for M1** (B-06/07/09/10/17 unbuilt; B-23; B-03 = 15).
   Evidence: `qa/beta-metrics.{json,md}`, `qa/beta-metrics-all.md`, `qa/beta-harness-summary.json`, `qa/beta-shots/`.
+- 2026-10-10 · Evaluator · Round 1 · session_01PCNcUkfa5S1N1BKGzZA4xx · Scored R0 `ca70e53` → R1 `65e93e9`: A 32→60, B 25→74, C 30→66, D 40→72, **overall 31.1→66.5; goal not met** (needs ≥80, A≥80, C≥80). Top gaps: imagery/hub sameness, "for you", hub wanderlust, card/sheet polish, day plans. Note: `beta:metrics` misses FE-A sheet/tray/toggle (false ❌). `design/beta/eval/ROUND-1.md`, `design/beta/eval/r1/`.
