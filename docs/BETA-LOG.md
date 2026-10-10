@@ -267,6 +267,7 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **#8 Recently closed** lens is ordered by `guide.closed` (newest check first; test).
   - **DES hooks adopted:** the native aside is `<span class="nat" lang>` (cleo.css 15.x hides it when the plate shows it, and the plate takes ≤ 7 glyphs with `.long` for 5–7). "Recommended by" keeps the literal ", " (15.3 draws the glued comma). The sheet's Close is a direct child again (15.4 header space). My plate, comma and sheet-geometry rules are removed from `fe-a.css`, and the locator inset now sits above DES's glyph. The source "All N picks" buttons are ≥ 44 px.
   - Gates: validate, npm test (all suites incl. test-fe-a), beta:check PASS once rebased on origin's landing fix.
+- 2026-10-10 · imagery · W2 follow-up to the orchestrator note · checked rule 6: no third-party brand names in `tools/beta/imagery/**`, `beta/assets/img/**`, my IMAGERY.md section or my commits; one comment that alluded to a specific venue's design reworded (draw.js). Added "For the Round 3 Gallery view" to `design/beta/IMAGERY.md`: crop and tone guidance for card and row-cover sizes, plus an offer to add portrait recipes.
 - 2026-10-10 · **PM** · M1 acceptance + Wave 2 / Round 3 planning · session_017mbzpE8dtjevPVLcXB6TEK · head `10615ab2`.
   - **M1 acceptance** (`BETA-BACKLOG.md` → "M1 acceptance"), judged on QA run 3 and DES REVIEW-W1: **16 accepted**,
     **3 in re-test** (M1-04 / B-06, M1-05 / B-07, M1-11 / B-16, all against FE-A `0f0f7b6e`), and **3 rejected**:
@@ -286,4 +287,7 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Decisions:** D-32 neutral naming (rule 6), D-33 view styles as lenses, D-34 one day-plan computation (164 vs 170
     today), D-35 no criterion waived.
   - Added a **Round 2 exit criteria** section (7 conditions) to the backlog.
-  - Checks: validate OK; `npm test` green except `landing ≤ 80 KB raw = 81`, which the imagery lane is fixing.
+  - Merge update: FE-A `a62d45cd` landed while this entry was being written. M1-03, M2-18, QA-16 and QA-21 move to
+    re-test or review, M2-06 is reconciled (D-34 met), and the landing budget is fixed by `51acdad6`. M1 now stands at 16
+    accepted, 4 in re-test and 2 rejected (M1-16 axe, M1-22 rollout).
+  - Checks: validate OK; `npm test` all PASS on the merged head.
