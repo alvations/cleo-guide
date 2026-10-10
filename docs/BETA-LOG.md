@@ -474,6 +474,21 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **P-05 measured** (jsdom, view mounted, `test-views.js` report): Tokyo Guidebook **12,363** nodes · Insights **4,760**; NYC Guidebook **9,420** · Insights **3,746** (target ≤ 3,000; the page itself is ~1.7 k). **FE-B:** please render Guidebook chapters through `Cleo.chunks(host, chapterHtml[], {initial: 1, ids: chapterIds[]})` and the Insights "All N places" index + the second (360) chart render the same way (or render one chart width at a time); your `[data-cleo-print]` button can call `Cleo.defer.all()`. **FE-A:** the same for Gallery rails/pages and Atlas rows.
   - **P-04** now also loads the view modules that exist, mounts each view as the registry would and requires every place in the view's own surface (Guidebook `#gb-<id>`, Insights `li.ixi`): 6 pilots × Guidebook/Insights PASS. Gallery/Atlas selectors (`[data-id]`) adopt FE-A's markup when it lands — tell me the per-place selector.
   - **FE-B note answered:** `guide.areas[A].tiers` (W2) counts all records by tier; the W3 `insights.tiers` rows count **open places only** (`of` = open), matching the spec — use `insights.tiers` for the ladder.
+- 2026-10-10 · **FE-B** · Wave 3 slice 4 · session_01KLBRpRabpnEHiyU3gKvKjv · QA blockers **QA-22, QA-23, QA-28** + adopts platform **P-01/P-02/P-03** · commit: this entry's commit.
+  - **QA-28 (rail counts):** "Collections across the guides" now counts what the lens opens, closed places included and flagged. All 7 mismatches agree, e.g. Tokyo ANIME 37, Antwerp BEER 19. The test-hubs chip check follows the same rule.
+  - **QA-22 (Vietnam hub B-05):**
+    - A hub with fewer than 2 headline cities now promotes its next guides to tiles, up to 4. Vietnam shows 3 tiles.
+    - `beta:metrics --only Vietnam/index` → **B-05 ✅ 2**.
+    - Screenshot: `design/beta/eval/w3/fe-b/qa22-vietnam-hub-m.jpg`.
+  - **QA-23 (404 tab labels 2.86:1):** the short 404 page let the translucent tab bar sit over the dark footer. `main` now fills the viewport, and `beta:metrics --only 404` → **B-23 ✅ light 0/0 · night 0/0**.
+  - **P-03:**
+    - Insights now draws every chart from the platform `insights` block, and its notes become the footnotes.
+    - The gate checks that the block is the source on all 84 pages, and that it agrees with `guide.areas` and with an independent recount of the records. Per-area counts, closures and tiers are equal. Only tie order and one 0.1 km spread rounding differ.
+  - **P-01 / P-02:**
+    - The guidebook uses `p.rank` / `p.k3`.
+    - Its lens mirror asks `Cleo.lens.match` on `Cleo.defer.peek()` stubs for cards not yet stamped, so the guidebook no longer forces a full stamp.
+    - It stays clean under the "no second predicate" grep gate.
+  - **Not done / for others:** QA-24 (footer underline) and QA-25 are designer/FE-A. The Insights `.tile` phone height and print header issues are still with the designer. The `#view=` switch and loading my modules wait on FE-A A-01.
   - validate + npm test + beta:check PASS.
 - 2026-10-10 · **Platform** · Wave 3 slice 3 · session_01S3eYSS1qPYEHJVXBeyRLYH · commit: this entry's commit · **ROUND-2 gap #9 (C #34 "what changed")**. RFC §13 R-34.
   - `tools/beta/lib/changes.js`: per place page, dated events from the data only (closures with their status source, status-check days, pin-verification days) → `changes` + `feed` in `data/places/<page>.json`, Atom `beta/feeds/<page>.xml` (84) linked from each city page's head, site feed `beta/feeds/all.xml` (70 dated closures + check days), `beta/data/changes.json` summary. Deterministic (no git history).
