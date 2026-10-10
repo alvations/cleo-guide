@@ -444,3 +444,8 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Gap #6 (weight after first tap):** a route that is only `p`/`view`/`map` now stamps just the target's chunk (load + hashchange); lenses still stamp all. Chromium: Tokyo 390 load 1,735 → card tap **1,898** nodes (R2: 12–13.6 k); NYC 1,642 → 2,016; desktop Tokyo 2,927 / NYC 3,095. Core's route listeners now register when core.js runs (before page scripts), which also fixes a typed `#mode=` hash after a sheet not filtering newly stamped cards. `design/beta/eval/w3/platform/w3-gap6-dom.txt`, `w3-sheet-dom-{tokyo,newyork}-{m,d}.jpg`.
   - **Budget note:** `data-rank` on every card put Okinawa (425 cards) at 809 KB raw, so the raw city-page budget is 820 KB (was 800); gzip stays 160 KB (Okinawa 152).
   - Next: P-05 (template chunks per view, ≤ 3,000 initial DOM in every view) once FE-A's registry + views land; RFC §9.1 rows for the new view files are in.
+
+- 2026-10-10 12:53Z · orchestrator · QA W2 signed off NO on aa7cafcf. Gates and features pass; the small a11y/UX blockers were routed to the W3 lanes:
+  - designer: QA-24 footer link underline, QA-25 saved-night contrast;
+  - FE-B: QA-22 Vietnam hub fold, QA-23 404 contrast, QA-28 rail link counts.
+  QA W3 (session_015bFMDrayu1fp3qp2cKD3xm) launched. It re-tests those blockers first and signs off a specific SHA for deploy, then builds the W3 view harness.
