@@ -33,6 +33,19 @@ function assertCityPage(row, html, recs) {
   return errs;
 }
 
+/** Hub/landing gate (M1-20, M1-22): every expected place page is carded exactly once, with its computed count. */
+function assertHubPage(rel, html, expect, totals) {
+  const errs = [];
+  const cards = [...html.matchAll(/<li class="dest" data-page="([^"]+)"[\s\S]*?<span class="dest-c">([\d,]+) places/g)].map(m => [m[1], +m[2].replace(/,/g, '')]);
+  const keys = cards.map(c => c[0]);
+  const missing = expect.filter(k => !keys.includes(k)), dup = keys.filter((k, i) => keys.indexOf(k) !== i);
+  if (missing.length) errs.push(`hub is missing ${missing.length} page(s): ${missing.slice(0, 5).join(', ')}`);
+  if (dup.length) errs.push(`hub cards a page twice: ${dup.slice(0, 5).join(', ')}`);
+  const wrong = cards.filter(([k, n]) => totals[k] !== n);
+  if (wrong.length) errs.push(`hub counts differ from the page: ${wrong.slice(0, 5).map(([k, n]) => `${k} ${n}≠${totals[k]}`).join(', ')}`);
+  return errs.map(e => rel + ': ' + e);
+}
+
 function assertPage(rel, html) {
   const errs = [];
   if (/document\.write/.test(html)) errs.push('document.write present');
@@ -42,4 +55,4 @@ function assertPage(rel, html) {
   return errs.map(e => rel + ': ' + e);
 }
 
-module.exports = { assertCityPage, assertPage, countAttr };
+module.exports = { assertCityPage, assertHubPage, assertPage, countAttr };

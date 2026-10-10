@@ -21,12 +21,13 @@ const { normalise, nativeOf } = require('./lib/model');
 const stats = require('./lib/stats');
 const { pageSources, siteSources } = require('./lib/sources');
 const art = require('./lib/art');
-const { assertCityPage, assertPage } = require('./lib/guards');
+const { assertCityPage, assertHubPage, assertPage } = require('./lib/guards');
 const { swSource } = require('./lib/sw');
 const { BETA_BASE } = require('./lib/render/common');
 const city = require('./lib/render/city');
 const landing = require('./lib/render/landing');
 const saved = require('./lib/render/saved');
+const hub = require('./lib/render/hub');
 
 const BETA = path.join(ROOT, 'beta');
 const args = new Set(process.argv.slice(2));
@@ -139,9 +140,14 @@ emit('data/search.json', JSON.stringify({ _generated: 'tools/beta/build.js — d
 
 // ---------------------------------------------------------------- pages
 const ctx = { assetsV, betaBase: BETA_BASE };
+const totals = Object.fromEntries(cityRows.map(r => [r.key, r.stats.total]));
 for (const r of reg.rows.filter(r => r.gen === 'new')) {
   let html;
-  if (r.kind === 'landing') html = landing.render(reg, ctx);
+  if (r.kind === 'landing') {
+    html = landing.render(reg, ctx);
+    const expect = reg.countries.filter(c => c.live).flatMap(c => c.pages.all.map(x => x.key));
+    errors.push(...assertHubPage(r.beta, html, [...new Set(expect)], totals));
+  }
   else if (r.kind === 'city') {
     const live = fs.readFileSync(path.join(ROOT, r.live), 'utf8');
     const m = /setView\(\[\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*\]\s*,\s*(\d+)\s*\)/.exec(live);
@@ -151,6 +157,10 @@ for (const r of reg.rows.filter(r => r.gen === 'new')) {
     const og = fs.existsSync(path.join(BETA, 'assets', 'og', r.fileKey + '.png')) ? `${BETA_BASE}/assets/og/${r.fileKey}.png` : null;
     html = city.render(r, r.recs, Object.assign({ center, ogImage: og }, ctx));
     errors.push(...assertCityPage(r, html, r.recs).map(e => r.beta + ': ' + e));
+  } else if (r.kind === 'country-hub' || r.kind === 'archive-hub') {
+    const h = (r.kind === 'archive-hub' ? hub.renderArchive : hub.renderCountry)(r, reg, ctx);
+    html = h.html;
+    errors.push(...assertHubPage(r.beta, html, h.expect, totals));
   } else { errors.push(`${r.live}: no beta renderer for kind '${r.kind}' yet`); continue; }
   errors.push(...assertPage(r.beta, html));
   emit(r.beta, html);

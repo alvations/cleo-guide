@@ -90,16 +90,25 @@ chk('document.write', g.docwrite, a => a.length === 0);
 chk('third-party <script src> on new-engine pages', g.cdnScript, a => a.length === 0);
 chk('literal escapes in visible text (new-engine pages)', g.leak, a => a.length === 0);
 
-// ── 3b. landing counts are computed, never typed ────────────────────────────
-console.log('\n== LANDING: every live city listed, counts == page ==');
+// ── 3b. hubs: page set == live, counts computed, never typed (M1-20, M1-22) ─────────
+console.log('\n== ROLLOUT + HUBS: beta page set == live, every hub count == its page ==');
 {
-  const h = rd('beta/index.html');
-  const cards = [...h.matchAll(/<li class="dest" data-page="([^"]+)"[\s\S]*?<span class="dest-c">(\d+) places/g)].map(m => [m[1], +m[2]]);
+  chk('live pages not on the new engine', manifest.pages.filter(p => p.gen !== 'new').map(p => p.live), a => a.length === 0);
+  chk('live pages with no beta file', manifest.pages.filter(p => !fs.existsSync(path.join(BETA, p.beta))).map(p => p.live), a => a.length === 0);
+  const liveHtml = manifest.pages.map(p => p.beta).concat(['saved.html']).sort();
+  chk('beta HTML set == live page set (+ saved.html)', htmls.map(p => path.relative(BETA, p).split(path.sep).join('/')).sort().join(), liveHtml.join());
   const byKey = Object.fromEntries(manifest.pages.filter(p => p.counts).map(p => [p.key, p.counts.P + p.counts.F]));
-  const liveC = new Set(JSON.parse(rd('data/countries.json')).countries.filter(c => c.live).map(c => c.key));
-  chk('place pages of live countries missing from the landing', manifest.pages.filter(p => p.kind === 'city' && liveC.has(p.country) && !cards.some(([k]) => k === p.key)).map(p => p.key), a => a.length === 0);
-  chk('cards whose count != live page', cards.filter(([k, n]) => byKey[k] !== n), a => a.length === 0);
-  chk('cards linking to a missing beta page', [...h.matchAll(/<li class="dest"[^>]*>\s*<a href="([^"]+)"/g)].map(m => m[1]).filter(p => !fs.existsSync(path.join(BETA, p))), a => a.length === 0);
+  const cardsOf = h => [...h.matchAll(/<li class="dest" data-page="([^"]+)"[\s\S]*?<span class="dest-c">([\d,]+) places/g)].map(m => [m[1], +m[2].replace(/,/g, '')]);
+  const liveC = JSON.parse(rd('data/countries.json')).countries.filter(c => c.live);
+  const hubs = [['index.html', manifest.pages.filter(p => p.kind === 'city' && liveC.some(c => c.key === p.country)).map(p => p.key)]]
+    .concat(liveC.filter(c => c.hub && c.hub !== 'index.html').map(c => [c.hub, manifest.pages.filter(p => p.kind === 'city' && p.country === c.key).map(p => p.key)]))
+    .concat([['Singapore/singapore-old.html', manifest.pages.filter(p => p.kind === 'city' && /^(Singapore|Vietnam)\//.test(p.live)).map(p => p.key)]]);
+  for (const [hub, want] of hubs) {
+    const h = rd('beta/' + hub), cards = cardsOf(h), dir = path.posix.dirname(hub);
+    chk(`${hub}: place pages of this hub not carded`, want.filter(k => !cards.some(([c]) => c === k)), a => a.length === 0);
+    chk(`${hub}: cards whose count != the page`, cards.filter(([k, n]) => byKey[k] !== n), a => a.length === 0);
+    chk(`${hub}: cards linking to a missing beta page`, [...h.matchAll(/<li class="dest"[^>]*>\s*<a href="([^"]+)"/g)].map(m => m[1]).filter(p => !fs.existsSync(path.join(BETA, dir, p))), a => a.length === 0);
+  }
 }
 
 // ── 3c. numbers are computed (M1-20), sources navigable (M1-10), art from verified pins (M1-13) ──
@@ -161,15 +170,15 @@ console.log('\n== DATA: computed counts, source index, map art (every place page
 const TOKYO = 'cities/tokyo.html';
 const live = extractPage(rd(TOKYO));
 const total = live.P.length + live.F.length;
-function boot({ leaflet = false, storage = 'ok', hash = '' } = {}) {
+function boot({ leaflet = false, storage = 'ok', hash = '', page = TOKYO } = {}) {
   // Inline the page's own same-origin scripts (what a browser would fetch from beta/); every other
   // request is impossible in this harness, i.e. the network — and any CDN — is gone.
-  let html = rd('beta/' + TOKYO).replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z]+\.js)\?v=[^"]*" defer><\/script>/g,
-    (m, src) => '<script>' + fs.readFileSync(path.join(BETA, 'cities', src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
+  let html = rd('beta/' + page).replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z]+\.js)\?v=[^"]*" defer><\/script>/g,
+    (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
   if (leaflet) html = html.replace('</head>', '<script>' + fs.readFileSync(path.join(BETA, 'assets/vendor/leaflet/leaflet.js'), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script></head>');
   const errs = [];
   const dom = new JSDOM(html, {
-    runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + TOKYO + hash,
+    runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + page + hash,
     beforeParse(w) {
       const proto = w.SVGSVGElement && w.SVGSVGElement.prototype;
       if (proto && !proto.createSVGRect) proto.createSVGRect = () => ({ x: 0, y: 0, width: 0, height: 0 });
@@ -184,6 +193,20 @@ function boot({ leaflet = false, storage = 'ok', hash = '' } = {}) {
 const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
 
 (async () => {
+  // Pilot set (BETA-DECISIONS D-27) — every page also passes the count gate; these also render in jsdom.
+  console.log('\n== NO-CDN RENDER: pilot set, network gone, map absent, storage throwing ==');
+  for (const page of ['cleveland.html', 'cities/newyork.html', 'Singapore/chinatown.html', 'cities/wheeling.html']) {
+    const L = extractPage(rd(page)), n = L.P.length + L.F.length;
+    const { d, errs } = boot({ storage: 'throws', page });
+    await sleep(300);
+    const cards = [...d.querySelectorAll('li.pl')];
+    const vis = cards.filter(li => !li.hidden).length;
+    const noSrc = cards.filter(li => { const x = li.querySelector('.pl-s'); return !x || !x.textContent.replace('Recommended by', '').trim(); }).length;
+    const closedOk = cards.filter(li => li.hasAttribute('data-closed')).length === L.P.concat(L.F).filter(r => r.closed || /[—–-]+\s*CLOSED\b/i.test(r.n)).length;
+    chk(`${page}: ${n} places rendered + visible, all sourced, closed kept, 0 errors`,
+      [cards.length, vis, noSrc, closedOk, errs.length], [n, n, 0, true, 0].join() === [cards.length, vis, noSrc, closedOk, errs.length].join() ? (() => true) : (() => false));
+  }
+
   console.log('\n== NO-CDN RENDER: Tokyo, network gone, map absent, storage throwing ==');
   {
     const { w, d, errs } = boot({ storage: 'throws' });
@@ -193,7 +216,7 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
     chk('cards missing a "Recommended by" line', [...d.querySelectorAll('li.pl')].filter(li => {
       const s = li.querySelector('.pl-s'); return !s || !s.textContent.replace('Recommended by', '').trim(); }).length, 0);
     const closed = [...d.querySelectorAll('li.pl[data-closed]')];
-    chk('closed places kept', closed.length, live.P.concat(live.F).filter(r => r.closed || /CLOSED/.test(r.n)).length);
+    chk('closed places kept', closed.length, live.P.concat(live.F).filter(r => r.closed || /[—–-]+\s*CLOSED\b/i.test(r.n)).length);
     chk('closed places flagged, none tier-badged', closed.every(li => /^Closed — kept for the record/.test(li.querySelector('.pl-e').textContent)), true);
     chk('stated gaps carried (method notes)', [...d.querySelectorAll('.method .note h3')].map(e => e.textContent).includes('What is thin, and why'), true);
     chk('toolbar enhanced', d.querySelector('[data-cleo-toolbar]').hidden, false);
@@ -239,10 +262,15 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
   const size = p => fs.statSync(path.join(BETA, p)).size;
   const gz = p => zlib.gzipSync(fs.readFileSync(path.join(BETA, p))).length;
   const KB = n => Math.round(n / 1024);
-  for (const p of manifest.generated.filter(p => p.startsWith('cities/'))) {
-    chk(`${p} ≤ 800 KB raw`, KB(size(p)), n => n <= 800);
-    chk(`${p} ≤ 160 KB gzip`, KB(gz(p)), n => n <= 160);
+  const over = [];
+  let biggest = ['', 0, 0];
+  for (const p of manifest.pages.filter(p => p.kind === 'city').map(p => p.beta)) {
+    const raw = KB(size(p)), z = KB(gz(p));
+    if (raw > 800 || z > 160) over.push(`${p} ${raw}/${z} KB`);
+    if (raw > biggest[1]) biggest = [p, raw, z];
   }
+  chk('city pages over 800 KB raw / 160 KB gzip', over, a => a.length === 0);
+  console.log(`        (largest: ${biggest[0]} ${biggest[1]} KB raw, ${biggest[2]} KB gzip)`);
   chk('landing ≤ 80 KB raw', KB(size('index.html')), n => n <= 80);
   chk('client JS total ≤ 40 KB raw', KB(fs.readdirSync(path.join(BETA, 'assets/js')).reduce((s, f) => s + size('assets/js/' + f), 0)), n => n <= 40);
   chk('search index ≤ 250 KB gzip (lazy)', KB(gz('data/search.json')), n => n <= 250);
