@@ -3,8 +3,15 @@
  "_doc": "Written by tools/beta/build.js. `generated` pages are owned by the new beta generator; tools/beta-restyle.py must skip them. `pages` maps every live page to its beta source.",
  "generated": [
   "index.html",
+  "Japan/index.html",
+  "Germany/index.html",
+  "Belgium/index.html",
   "cities/tokyo.html",
-  "saved.html"
+  "Singapore/index.html",
+  "Vietnam/index.html",
+  "saved.html",
+  "how-we-choose.html",
+  "404.html"
  ],
  "pages": [
   {
@@ -33,7 +40,7 @@
    "beta": "Japan/index.html",
    "key": "japan/index",
    "kind": "country-hub",
-   "gen": "none",
+   "gen": "new",
    "country": "japan",
    "counts": null
   },
@@ -42,7 +49,7 @@
    "beta": "Germany/index.html",
    "key": "germany/index",
    "kind": "country-hub",
-   "gen": "mirror",
+   "gen": "new",
    "country": "germany",
    "counts": null
   },
@@ -51,7 +58,7 @@
    "beta": "Belgium/index.html",
    "key": "belgium/index",
    "kind": "country-hub",
-   "gen": "mirror",
+   "gen": "new",
    "country": "belgium",
    "counts": null
   },
@@ -672,7 +679,7 @@
    "beta": "Singapore/index.html",
    "key": "singapore/index",
    "kind": "country-hub",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": null
   },
@@ -1074,7 +1081,7 @@
    "beta": "Vietnam/index.html",
    "key": "vietnam/index",
    "kind": "country-hub",
-   "gen": "mirror",
+   "gen": "new",
    "country": "vietnam",
    "counts": null
   }

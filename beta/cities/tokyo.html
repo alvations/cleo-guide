@@ -28,18 +28,19 @@
 <script src="../assets/js/core.js?v=f9ffb6adc0" defer></script>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="sitebar" role="banner">
-  <a class="brand" href="../index.html" aria-label="Cleo — all destinations">CLEO</a>
-  <form class="sitesearch" role="search" action="../index.html" method="get" data-cleo-search>
-    <label class="vh" for="cleo-q">Search every place</label>
-    <input id="cleo-q" name="q" type="search" placeholder="Search places, dishes, cities" autocomplete="off">
-  </form>
-  <nav class="sitenav" aria-label="Site">
-    <a href="../index.html#destinations">Destinations</a>
-    <a href="../saved.html" data-cleo-saved-link>Saved <span class="count" data-cleo-saved-count></span></a>
-  </nav>
-</header>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol><symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.3l1.4 3 3.2.3-2.4 2.2.7 3.1L12 14.3l-2.9 1.6.7-3.1-2.4-2.2 3.2-.3z"/></symbol><symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-star4" viewBox="0 0 24 24"><path d="M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1-2.1 7.4-2.1-7.4L2.5 12l7.4-2.1z"/></symbol><symbol id="i-offline" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M7.6 7.6A5 5 0 0 0 7 9.5 4 4 0 0 0 7 17.5h10M10 5a5 5 0 0 1 6.9 3.5h.6a3.5 3.5 0 0 1 2.4 6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.2"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.2"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.4a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.4"/></symbol></defs></svg><a class="skip" href="#main">Skip to content</a>
+<style>[data-cleo-shell=topbar]{position:sticky;top:0;z-index:40;height:var(--bar-h,60px)}:where([data-cleo-shell=topbar]){background:var(--paper,var(--bg,#F7F4EE));border-bottom:1px solid var(--line,#DDD6CA)}[data-cleo-shell=topbar]>.wrap{height:100%;display:flex;align-items:center;gap:12px;max-width:var(--maxw,1360px);margin:0 auto;padding:0 var(--gutter,16px);border:0;position:static;background:none}[data-cleo-shell=topbar] .brand{display:inline-flex;align-items:center;gap:8px;text-decoration:none;min-height:44px;letter-spacing:0;font:inherit}[data-cleo-shell=topbar] .brand b{font:italic 500 27px/1 var(--font-display,Georgia,serif)}[data-cleo-shell=topbar] .brand small,[data-cleo-shell=topbar] .topnav{display:none}[data-cleo-shell=topbar] .spacer{flex:1}[data-cleo-shell=topbar] .top-actions{display:flex;gap:4px}[data-cleo-shell=topbar] .btn-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%}[data-cleo-shell=topbar] svg{flex:none}.topbar .crumbs{display:flex;align-items:center;min-width:0;overflow:hidden;white-space:nowrap;font-size:14px;color:var(--ink-3)}.topbar .crumbs a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px;border-radius:999px;text-decoration:none;color:var(--ink-2);font-weight:600}.topbar .crumbs a:hover{background:var(--sand)}.topbar .crumbs .here{padding:0 8px;color:var(--ink);font-weight:650;overflow:hidden;text-overflow:ellipsis}.topbar .crumbs .sep{color:var(--ink-3)}.on-night .crumbs a,.on-night .crumbs .here{color:var(--on-night)}@media(max-width:639px){.topbar .crumbs .c0,.topbar .crumbs .c0+.sep{display:none}.topbar .brand b{font-size:24px}}@media(min-width:900px){.topbar .crumbs{margin-left:8px}}[data-cleo-shell=topbar] .ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}[data-cleo-shell=topbar] .crumbs a{white-space:nowrap}[data-cleo-shell=topbar] .crumbs{flex:0 1 auto}@media(min-width:900px){[data-cleo-shell=topbar] .topnav{display:flex}[data-cleo-shell=topbar] .brand small{display:inline}}</style>
+<header class="topbar" data-cleo-shell="topbar"><div class="wrap sitebar">
+  <a class="brand" href="../index.html" aria-label="Cleo — all destinations"><svg class="mark" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4.2l1.75 6.05L19.8 12l-6.05 1.75L12 19.8l-1.75-6.05L4.2 12l6.05-1.75z"/></svg><b>cleo</b><small>field guides</small></a>
+  <nav class="crumbs" aria-label="Breadcrumb"><a class="c0" href="../index.html">Destinations</a><span class="sep" aria-hidden="true">›</span><a class="c1" href="../Japan/index.html">Japan</a><span class="sep" aria-hidden="true">›</span><span class="here" aria-current="page">Tokyo</span></nav>
+  <nav class="topnav" aria-label="Primary"><a href="../index.html#destinations">Destinations</a><a href="../how-we-choose.html">How we choose</a></nav>
+  <span class="spacer"></span>
+  <div class="top-actions">
+    <a class="btn btn-icon" href="../index.html#search" aria-label="Search every place" data-cleo-search-open><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-search"/></svg></a>
+    <a class="btn btn-icon count-dot" href="../saved.html" aria-label="Your list" data-cleo-saved-link><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg><span class="vh" data-cleo-saved-count></span></a>
+  </div>
+</div></header>
+<div class="banners" data-cleo-banners aria-live="polite"></div>
 <main id="main" data-city="tokyo">
 <header class="masthead">
   <p class="eyebrow">Field guide · Tokyo (東京), sourced</p>
@@ -4087,15 +4088,25 @@
 </div>
 <section class="about" aria-label="About this guide"><p>263 sights and 225 places to eat across Tokyo, organised the way Tokyoites think about the city — the big special wards (Chiyoda, Chūō, Minato, Shinjuku, Shibuya, Taitō, Sumida-Kōtō) as their own areas, the rest by the old compass terms Jōnan, Jōsai, Jōhoku and Jōtō, then the Tama hills and the Kantō day-trip ring (Kamakura, Hakone, Nikkō, Kawagoe, Fuji Five Lakes, Yokohama). The food list starts from what is Tokyo&#39;s own — Kanda soba, Edomae sushi and unagi, monjayaki, dozeu loach, yōshoku omurice, tonkatsu and shōyu ramen — with the Michelin bench and century-old shinise beside each other. Every place is traceable to its source.</p></section>
 </main>
-<footer class="sitefoot" role="contentinfo">
-  <section class="method" aria-labelledby="method-h"><h2 id="method-h">How this guide was made</h2>
+<section class="method wrap section" aria-labelledby="method-h"><h2 id="method-h" class="d2">How this guide was made</h2>
 <div class="note"><h3>How the cuisine filters were policed</h3><p>Every food card names a specific dish — a label alone doesn’t qualify. A cuisine tag names the kitchen’s own tradition, never one dish it serves. Tabelog and Retty scores may measure popularity but never count as a source.</p></div>
 <div class="note"><h3>Web-searched in Japanese and English, fact-checked</h3><p>Every place is traceable to two credible sources, or a lone Michelin / UNESCO / Agency for Cultural Affairs designation — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor/Tabelog never count toward the two-source bar.</p></div>
 <div class="note"><h3>Why the areas look the way they do</h3><p>Tokyo has no boroughs; its 23 special wards (tokubetsu-ku) are the equivalent. The seven densest get their own area; the other sixteen are grouped by the long-standing compass terms Jōnan (south: Shinagawa, Meguro, Ōta), Jōsai (west: Setagaya, Nakano, Suginami), Jōhoku (north: Toshima, Bunkyō, Kita, Arakawa, Itabashi, Nerima) and Jōtō (east: Katsushika, Edogawa, Adachi). Every place is filed by the ward its address names.</p></div>
 <div class="note"><h3>What is thin, and why</h3><p>Pins come only from published coordinates (Michelin venue pages, Wikipedia/Wikidata) — never from a map viewport or a ward centroid — so some well-sourced restaurants wait off the map until a place pin is found. The Tama and Kantō food lists are thin for that reason; it is stated here rather than filled with weaker picks.</p></div>
 </section>
-  <p class="colophon">Cleo beta — every place is carried from <a href="https://alvations.github.io/cleo-guide/cities/tokyo.html">the current live guide</a>, with its sources. Map tiles: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>; Esri. <a href="../index.html">All destinations</a>.</p>
-</footer>
+<footer class="footer sitefoot" role="contentinfo"><div class="wrap">
+  <div class="cols">
+    <div><a class="brand" href="../index.html" aria-label="Cleo — all destinations"><svg class="mark" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4.2l1.75 6.05L19.8 12l-6.05 1.75L12 19.8l-1.75-6.05L4.2 12l6.05-1.75z"/></svg><b>cleo</b></a>
+      <p>8,458 places across 84 guides — every one traceable to the source that recommended it, pinned and status-checked.</p></div>
+    <div><h4>Destinations</h4><ul><li><a href="../index.html#us">United States</a></li><li><a href="../Singapore/index.html">Singapore</a></li><li><a href="../Vietnam/index.html">Vietnam</a></li><li><a href="../Germany/index.html">Germany</a></li><li><a href="../Belgium/index.html">Belgium</a></li><li><a href="../Japan/index.html">Japan</a></li></ul></div>
+    <div><h4>The method</h4><ul><li><a href="../how-we-choose.html">How we choose</a></li><li><a href="../how-we-choose.html#closures">Closed places</a></li><li><a href="../how-we-choose.html#pins">Pins</a></li></ul></div>
+    <div><h4>Yours</h4><ul><li><a href="../saved.html">Your list</a></li><li><a href="../index.html#search">Search</a></li></ul></div>
+  </div>
+  <p class="legal colophon">Cleo beta — every place is carried from <a href="https://alvations.github.io/cleo-guide/cities/tokyo.html">the current live guide</a>, with its sources. Map tiles: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>; Esri. No ratings, prices or hours are shown because they aren't in our data — check before you go.</p>
+</div></footer>
+
+<script src="../assets/js/states.js?v=15449045ee" defer></script>
+<script src="../assets/js/search.js?v=83def4d1ff" defer></script>
 <script type="application/json" id="cleo-city">{"v":1,"key":"tokyo","name":"Tokyo","center":[35.6302,139.6441,11],"areas":{"CYD":{"n":"Chiyoda-ku","c":"#E8B04B"},"CHUO":{"n":"Chūō-ku","c":"#D9534F"},"MNT":{"n":"Minato-ku","c":"#5B8DEF"},"SJK":{"n":"Shinjuku-ku","c":"#C05780"},"SBY":{"n":"Shibuya-ku","c":"#9B5DE5"},"TAITO":{"n":"Taitō-ku","c":"#E07A5F"},"SMKT":{"n":"Sumida-ku \u0026 Kōtō-ku","c":"#00A6A6"},"JONAN":{"n":"Jōnan","c":"#3D9970"},"JOSAI":{"n":"Jōsai","c":"#7D8C38"},"JHOKU":{"n":"Jōhoku","c":"#B5651D"},"JOTO":{"n":"Jōtō","c":"#6A8CAF"},"TAMA":{"n":"Tama area","c":"#A6588C"},"KANTO":{"n":"Kantō day trips","c":"#D4A017"}}}</script>
 <script src="../assets/js/city.js?v=dd27c73650" defer></script>
 </body>

@@ -107,7 +107,7 @@ ${orphan.map(r => card(r, page)).join('\n')}
 
   return `${head({ page: 'city', title, description: desc, rel: row.beta, depth, ogImage: ctx.ogImage, jsonld: jsonLd(row, recs, title), assetsV: ctx.assetsV, from: row.live })}
 <body>
-${siteBar({ depth, current: 'city' })}
+${siteBar({ depth, current: 'city', rel: row.beta })}
 <main id="main" data-city="${esc(row.key)}">
 <header class="masthead">
   <p class="eyebrow">${esc(m.eyebrow || '')}</p>

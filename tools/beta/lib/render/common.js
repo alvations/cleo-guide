@@ -11,7 +11,7 @@ const { esc, jsonInline } = require('../html');
 const LIVE_BASE = 'https://alvations.github.io/cleo-guide';
 const BETA_BASE = LIVE_BASE + '/beta';
 
-function head({ page, title, description, rel, depth, ogImage, jsonld, assetsV, preload = [], from = 'data' }) {
+function head({ page, title, description, rel, depth, ogImage, jsonld, assetsV, preload = [], from = 'data', css = null }) {
   const up = '../'.repeat(depth);
   const url = BETA_BASE + '/' + rel.replace(/(^|\/)index\.html$/, '$1');
   const img = ogImage || BETA_BASE + '/assets/og-cover.png';
@@ -38,7 +38,7 @@ function head({ page, title, description, rel, depth, ogImage, jsonld, assetsV, 
 <meta name="twitter:image" content="${esc(img)}">
 <link rel="manifest" href="${up}manifest.webmanifest">
 <link rel="icon" href="${up}assets/icon.svg" type="image/svg+xml">
-${assetsV.tokens ? `<link rel="stylesheet" href="${up}assets/tokens.css?v=${assetsV.tokens}">\n` : ''}<link rel="stylesheet" href="${up}assets/cleo.css?v=${assetsV.css}">
+${assetsV.tokens ? `<link rel="stylesheet" href="${up}assets/tokens.css?v=${assetsV.tokens}">\n` : ''}${css ? css.join('\n') /* Constellation pages (FE-B shell.styles) */ : `<link rel="stylesheet" href="${up}assets/cleo.css?v=${assetsV.css}">`}
 ${preload.join('\n')}
 ${jsonld ? '<script type="application/ld+json">' + jsonInline(jsonld) + '</script>' : ''}
 <script src="${up}assets/js/core.js?v=${assetsV.core}" defer></script>
@@ -46,6 +46,6 @@ ${jsonld ? '<script type="application/ld+json">' + jsonInline(jsonld) + '</scrip
 }
 
 // The visible shell (site bar, footer) is lane FE-B's: see render/shell.js. Re-exported for one import site.
-const { siteBar, footer } = require('./shell');
+const { siteBar, footer, styles } = require('./shell');
 
-module.exports = { head, siteBar, footer, LIVE_BASE, BETA_BASE };
+module.exports = { head, siteBar, footer, styles, LIVE_BASE, BETA_BASE };

@@ -2,6 +2,7 @@
   "_doc": "Live pages the NEW beta generator owns (tools/beta/build.js). Add a live path here when its lane migrates it off the legacy re-skin (tools/beta-restyle.py, which then skips it automatically). Each kind needs a renderer in tools/beta/lib/render/. See design/beta/RFC-architecture.md §3.4.",
   "new": [
     "index.html",
-    "cities/tokyo.html"
+    "cities/tokyo.html",
+    "Japan/index.html", "Singapore/index.html", "Vietnam/index.html", "Germany/index.html", "Belgium/index.html"
   ]
 }
