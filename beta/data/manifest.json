@@ -3,11 +3,95 @@
  "_doc": "Written by tools/beta/build.js. `generated` pages are owned by the new beta generator; tools/beta-restyle.py must skip them. `pages` maps every live page to its beta source.",
  "generated": [
   "index.html",
+  "cleveland.html",
   "Japan/index.html",
   "Germany/index.html",
   "Belgium/index.html",
+  "cities/aachen.html",
+  "cities/akron.html",
+  "cities/antwerp.html",
+  "cities/bruges.html",
+  "cities/brussels.html",
+  "cities/chicago.html",
+  "cities/cincinnati.html",
+  "cities/columbus.html",
+  "cities/dayton.html",
+  "cities/erie.html",
+  "cities/ghent.html",
+  "cities/harrisburg.html",
+  "cities/hokkaido.html",
+  "cities/indianapolis.html",
+  "cities/kyoto.html",
+  "cities/liege.html",
+  "cities/madison.html",
+  "cities/miami.html",
+  "cities/newyork.html",
+  "cities/okinawa.html",
+  "cities/orlando.html",
+  "cities/osaka.html",
+  "cities/philadelphia.html",
+  "cities/pittsburgh.html",
+  "cities/rhineland.html",
+  "cities/saarland.html",
+  "cities/sanfrancisco.html",
+  "cities/siliconvalley.html",
+  "cities/statecollege.html",
   "cities/tokyo.html",
+  "cities/washingtondc.html",
+  "cities/wheeling.html",
+  "cities/youngstown.html",
+  "Singapore/ang-mo-kio.html",
+  "Singapore/bagan.html",
+  "Singapore/balestier.html",
+  "Singapore/bali.html",
+  "Singapore/bangkok.html",
+  "Singapore/bedok.html",
+  "Singapore/bishan.html",
+  "Singapore/bukit-timah.html",
+  "Singapore/cebu.html",
+  "Singapore/changi.html",
+  "Singapore/chiang-mai.html",
+  "Singapore/chinatown.html",
+  "Singapore/civic-district.html",
+  "Singapore/dempsey-hill.html",
+  "Singapore/geylang.html",
+  "Singapore/hanoi.html",
+  "Singapore/hoi-an.html",
+  "Singapore/holland-village.html",
   "Singapore/index.html",
+  "Singapore/ipoh.html",
+  "Singapore/jakarta.html",
+  "Singapore/jalan-besar.html",
+  "Singapore/jurong.html",
+  "Singapore/kampong-glam.html",
+  "Singapore/katong-joo-chiat.html",
+  "Singapore/kuala-lumpur.html",
+  "Singapore/little-india.html",
+  "Singapore/luang-prabang.html",
+  "Singapore/malacca.html",
+  "Singapore/mandai.html",
+  "Singapore/manila.html",
+  "Singapore/marina-bay.html",
+  "Singapore/marine-parade.html",
+  "Singapore/newton-novena.html",
+  "Singapore/old-airport-road.html",
+  "Singapore/penang.html",
+  "Singapore/phnom-penh.html",
+  "Singapore/potong-pasir-macpherson.html",
+  "Singapore/punggol.html",
+  "Singapore/queenstown.html",
+  "Singapore/siem-reap.html",
+  "Singapore/singapore-old.html",
+  "Singapore/southern-ridges.html",
+  "Singapore/tiong-bahru.html",
+  "Singapore/toa-payoh.html",
+  "Singapore/upper-serangoon.html",
+  "Singapore/upper-thomson.html",
+  "Singapore/yangon.html",
+  "Singapore/yogyakarta.html",
+  "Vietnam/hanoi.html",
+  "Vietnam/ho-chi-minh-city.html",
+  "Vietnam/hoi-an.html",
   "Vietnam/index.html",
   "saved.html",
   "how-we-choose.html",
@@ -28,7 +112,7 @@
    "beta": "cleveland.html",
    "key": "cleveland",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 148,
@@ -67,7 +151,7 @@
    "beta": "cities/aachen.html",
    "key": "aachen",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "germany",
    "counts": {
     "P": 113,
@@ -79,7 +163,7 @@
    "beta": "cities/akron.html",
    "key": "akron",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 68,
@@ -91,7 +175,7 @@
    "beta": "cities/antwerp.html",
    "key": "antwerp",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "belgium",
    "counts": {
     "P": 59,
@@ -103,7 +187,7 @@
    "beta": "cities/bruges.html",
    "key": "bruges",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "belgium",
    "counts": {
     "P": 63,
@@ -115,7 +199,7 @@
    "beta": "cities/brussels.html",
    "key": "brussels",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "belgium",
    "counts": {
     "P": 71,
@@ -127,7 +211,7 @@
    "beta": "cities/chicago.html",
    "key": "chicago",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 206,
@@ -139,7 +223,7 @@
    "beta": "cities/cincinnati.html",
    "key": "cincinnati",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 68,
@@ -151,7 +235,7 @@
    "beta": "cities/columbus.html",
    "key": "columbus",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 62,
@@ -163,7 +247,7 @@
    "beta": "cities/dayton.html",
    "key": "dayton",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 55,
@@ -175,7 +259,7 @@
    "beta": "cities/erie.html",
    "key": "erie",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 41,
@@ -187,7 +271,7 @@
    "beta": "cities/ghent.html",
    "key": "ghent",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "belgium",
    "counts": {
     "P": 53,
@@ -199,7 +283,7 @@
    "beta": "cities/harrisburg.html",
    "key": "harrisburg",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 77,
@@ -211,7 +295,7 @@
    "beta": "cities/hokkaido.html",
    "key": "hokkaido",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "japan",
    "counts": {
     "P": 228,
@@ -223,7 +307,7 @@
    "beta": "cities/indianapolis.html",
    "key": "indianapolis",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 70,
@@ -235,7 +319,7 @@
    "beta": "cities/kyoto.html",
    "key": "kyoto",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "japan",
    "counts": {
     "P": 215,
@@ -247,7 +331,7 @@
    "beta": "cities/liege.html",
    "key": "liege",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "belgium",
    "counts": {
     "P": 59,
@@ -259,7 +343,7 @@
    "beta": "cities/madison.html",
    "key": "madison",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 66,
@@ -271,7 +355,7 @@
    "beta": "cities/miami.html",
    "key": "miami",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 124,
@@ -283,7 +367,7 @@
    "beta": "cities/newyork.html",
    "key": "newyork",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 219,
@@ -295,7 +379,7 @@
    "beta": "cities/okinawa.html",
    "key": "okinawa",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "japan",
    "counts": {
     "P": 191,
@@ -307,7 +391,7 @@
    "beta": "cities/orlando.html",
    "key": "orlando",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 208,
@@ -319,7 +403,7 @@
    "beta": "cities/osaka.html",
    "key": "osaka",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "japan",
    "counts": {
     "P": 159,
@@ -331,7 +415,7 @@
    "beta": "cities/philadelphia.html",
    "key": "philadelphia",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 165,
@@ -343,7 +427,7 @@
    "beta": "cities/pittsburgh.html",
    "key": "pittsburgh",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 111,
@@ -355,7 +439,7 @@
    "beta": "cities/rhineland.html",
    "key": "rhineland",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "germany",
    "counts": {
     "P": 155,
@@ -367,7 +451,7 @@
    "beta": "cities/saarland.html",
    "key": "saarland",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "germany",
    "counts": {
     "P": 183,
@@ -379,7 +463,7 @@
    "beta": "cities/sanfrancisco.html",
    "key": "sanfrancisco",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 204,
@@ -391,7 +475,7 @@
    "beta": "cities/siliconvalley.html",
    "key": "siliconvalley",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 108,
@@ -403,7 +487,7 @@
    "beta": "cities/statecollege.html",
    "key": "statecollege",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 34,
@@ -427,7 +511,7 @@
    "beta": "cities/washingtondc.html",
    "key": "washingtondc",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 75,
@@ -439,7 +523,7 @@
    "beta": "cities/wheeling.html",
    "key": "wheeling",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 28,
@@ -451,7 +535,7 @@
    "beta": "cities/youngstown.html",
    "key": "youngstown",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "us",
    "counts": {
     "P": 40,
@@ -463,7 +547,7 @@
    "beta": "Singapore/ang-mo-kio.html",
    "key": "singapore/ang-mo-kio",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 20,
@@ -475,7 +559,7 @@
    "beta": "Singapore/bagan.html",
    "key": "singapore/bagan",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "indochina",
    "counts": {
     "P": 1,
@@ -487,7 +571,7 @@
    "beta": "Singapore/balestier.html",
    "key": "singapore/balestier",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 12,
@@ -499,7 +583,7 @@
    "beta": "Singapore/bali.html",
    "key": "singapore/bali",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "indonesia",
    "counts": {
     "P": 3,
@@ -511,7 +595,7 @@
    "beta": "Singapore/bangkok.html",
    "key": "singapore/bangkok",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "thailand",
    "counts": {
     "P": 4,
@@ -523,7 +607,7 @@
    "beta": "Singapore/bedok.html",
    "key": "singapore/bedok",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 0,
@@ -535,7 +619,7 @@
    "beta": "Singapore/bishan.html",
    "key": "singapore/bishan",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 10,
@@ -547,7 +631,7 @@
    "beta": "Singapore/bukit-timah.html",
    "key": "singapore/bukit-timah",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 2,
@@ -559,7 +643,7 @@
    "beta": "Singapore/cebu.html",
    "key": "singapore/cebu",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "philippines",
    "counts": {
     "P": 1,
@@ -571,7 +655,7 @@
    "beta": "Singapore/changi.html",
    "key": "singapore/changi",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 2,
@@ -583,7 +667,7 @@
    "beta": "Singapore/chiang-mai.html",
    "key": "singapore/chiang-mai",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "thailand",
    "counts": {
     "P": 2,
@@ -595,7 +679,7 @@
    "beta": "Singapore/chinatown.html",
    "key": "singapore/chinatown",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 4,
@@ -607,7 +691,7 @@
    "beta": "Singapore/civic-district.html",
    "key": "singapore/civic-district",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 5,
@@ -619,7 +703,7 @@
    "beta": "Singapore/dempsey-hill.html",
    "key": "singapore/dempsey-hill",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 0,
@@ -631,7 +715,7 @@
    "beta": "Singapore/geylang.html",
    "key": "singapore/geylang",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 1,
@@ -643,7 +727,7 @@
    "beta": "Singapore/hanoi.html",
    "key": "singapore/hanoi",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "vietnam",
    "counts": {
     "P": 2,
@@ -655,7 +739,7 @@
    "beta": "Singapore/hoi-an.html",
    "key": "singapore/hoi-an",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "vietnam",
    "counts": {
     "P": 1,
@@ -667,7 +751,7 @@
    "beta": "Singapore/holland-village.html",
    "key": "singapore/holland-village",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 3,
@@ -688,7 +772,7 @@
    "beta": "Singapore/ipoh.html",
    "key": "singapore/ipoh",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "malaysia",
    "counts": {
     "P": 0,
@@ -700,7 +784,7 @@
    "beta": "Singapore/jakarta.html",
    "key": "singapore/jakarta",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "indonesia",
    "counts": {
     "P": 1,
@@ -712,7 +796,7 @@
    "beta": "Singapore/jalan-besar.html",
    "key": "singapore/jalan-besar",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 0,
@@ -724,7 +808,7 @@
    "beta": "Singapore/jurong.html",
    "key": "singapore/jurong",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 0,
@@ -736,7 +820,7 @@
    "beta": "Singapore/kampong-glam.html",
    "key": "singapore/kampong-glam",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 1,
@@ -748,7 +832,7 @@
    "beta": "Singapore/katong-joo-chiat.html",
    "key": "singapore/katong-joo-chiat",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 1,
@@ -760,7 +844,7 @@
    "beta": "Singapore/kuala-lumpur.html",
    "key": "singapore/kuala-lumpur",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "malaysia",
    "counts": {
     "P": 2,
@@ -772,7 +856,7 @@
    "beta": "Singapore/little-india.html",
    "key": "singapore/little-india",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 2,
@@ -784,7 +868,7 @@
    "beta": "Singapore/luang-prabang.html",
    "key": "singapore/luang-prabang",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "indochina",
    "counts": {
     "P": 2,
@@ -796,7 +880,7 @@
    "beta": "Singapore/malacca.html",
    "key": "singapore/malacca",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "malaysia",
    "counts": {
     "P": 1,
@@ -808,7 +892,7 @@
    "beta": "Singapore/mandai.html",
    "key": "singapore/mandai",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 3,
@@ -820,7 +904,7 @@
    "beta": "Singapore/manila.html",
    "key": "singapore/manila",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "philippines",
    "counts": {
     "P": 3,
@@ -832,7 +916,7 @@
    "beta": "Singapore/marina-bay.html",
    "key": "singapore/marina-bay",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 6,
@@ -844,7 +928,7 @@
    "beta": "Singapore/marine-parade.html",
    "key": "singapore/marine-parade",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 1,
@@ -856,7 +940,7 @@
    "beta": "Singapore/newton-novena.html",
    "key": "singapore/newton-novena",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 8,
@@ -868,7 +952,7 @@
    "beta": "Singapore/old-airport-road.html",
    "key": "singapore/old-airport-road",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 0,
@@ -880,7 +964,7 @@
    "beta": "Singapore/penang.html",
    "key": "singapore/penang",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "malaysia",
    "counts": {
     "P": 3,
@@ -892,7 +976,7 @@
    "beta": "Singapore/phnom-penh.html",
    "key": "singapore/phnom-penh",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "indochina",
    "counts": {
     "P": 1,
@@ -904,7 +988,7 @@
    "beta": "Singapore/potong-pasir-macpherson.html",
    "key": "singapore/potong-pasir-macpherson",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 15,
@@ -916,7 +1000,7 @@
    "beta": "Singapore/punggol.html",
    "key": "singapore/punggol",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 15,
@@ -928,7 +1012,7 @@
    "beta": "Singapore/queenstown.html",
    "key": "singapore/queenstown",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 0,
@@ -940,7 +1024,7 @@
    "beta": "Singapore/siem-reap.html",
    "key": "singapore/siem-reap",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "indochina",
    "counts": {
     "P": 2,
@@ -952,7 +1036,7 @@
    "beta": "Singapore/singapore-old.html",
    "key": "singapore/singapore-old",
    "kind": "archive-hub",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": null
   },
@@ -961,7 +1045,7 @@
    "beta": "Singapore/southern-ridges.html",
    "key": "singapore/southern-ridges",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 2,
@@ -973,7 +1057,7 @@
    "beta": "Singapore/tiong-bahru.html",
    "key": "singapore/tiong-bahru",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 0,
@@ -985,7 +1069,7 @@
    "beta": "Singapore/toa-payoh.html",
    "key": "singapore/toa-payoh",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 14,
@@ -997,7 +1081,7 @@
    "beta": "Singapore/upper-serangoon.html",
    "key": "singapore/upper-serangoon",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 18,
@@ -1009,7 +1093,7 @@
    "beta": "Singapore/upper-thomson.html",
    "key": "singapore/upper-thomson",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "singapore",
    "counts": {
     "P": 1,
@@ -1021,7 +1105,7 @@
    "beta": "Singapore/yangon.html",
    "key": "singapore/yangon",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "indochina",
    "counts": {
     "P": 1,
@@ -1033,7 +1117,7 @@
    "beta": "Singapore/yogyakarta.html",
    "key": "singapore/yogyakarta",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "indonesia",
    "counts": {
     "P": 2,
@@ -1045,7 +1129,7 @@
    "beta": "Vietnam/hanoi.html",
    "key": "vietnam/hanoi",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "vietnam",
    "counts": {
     "P": 2,
@@ -1057,7 +1141,7 @@
    "beta": "Vietnam/ho-chi-minh-city.html",
    "key": "vietnam/ho-chi-minh-city",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "vietnam",
    "counts": {
     "P": 105,
@@ -1069,7 +1153,7 @@
    "beta": "Vietnam/hoi-an.html",
    "key": "vietnam/hoi-an",
    "kind": "city",
-   "gen": "mirror",
+   "gen": "new",
    "country": "vietnam",
    "counts": {
     "P": 1,

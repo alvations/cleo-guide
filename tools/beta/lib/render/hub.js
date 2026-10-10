@@ -8,6 +8,7 @@
 const { esc } = require('../html');
 const { head, siteBar, footer, styles } = require('./common');
 const { site, icon } = require('./shell');
+const { fmt, sumStats } = require('../stats');
 
 // ---------------------------------------------------------------- per-city facts (all derived from data)
 const SKINS = ['vermilion', 'lake', 'moss', 'neon', 'lagoon', 'glacier', 'saffron', 'plum'];
@@ -37,9 +38,11 @@ function facts(row) {
   recs.forEach(x => (x.cz || []).forEach(z => { cz[z] = (cz[z] || 0) + 1; }));
   const czName = Object.fromEntries((d.CUISINES || []).map(c => [c.id, c.n]));
   const canon = Object.entries(cz).filter(([k]) => czName[k]).sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1)).slice(0, 3).map(([k]) => czName[k]);
-  const checked = recs.map(x => x.pv && x.pv.checked).filter(Boolean).sort().pop() || '';
+  const st = row.stats || null;                                       // platform stats (lib/stats.js) when present
+  const checked = st ? st.lastChecked || '' : recs.map(x => x.pv && x.pv.checked).filter(Boolean).sort().pop() || '';
   const areas = (d.AREAS || []).filter(a => recs.some(x => x.a === a.id)).length;
-  return { n, P: row.counts.P, F: row.counts.F, star, canon, checked, areas, native: nativeName(d.meta), name: d.meta.h1Main || row.key,
+  return { n: st ? st.total : n, P: st ? st.sights : row.counts.P, F: st ? st.food : row.counts.F, star, canon, checked, areas,
+    native: row.nat || nativeName(d.meta), name: row.name || d.meta.h1Main || row.key,
     closed: recs.filter(x => x.closed).length };
 }
 
@@ -82,18 +85,19 @@ function cityTile(row, i, { up = '', art = true, lg = false } = {}) {
   return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}" class="tile${lg ? ' lg' : ''}${sk.cls}"${sk.attr}>
 <span class="art">${art ? starfield(row.recs || []) : ''}${f.native ? `<span class="native">${esc(f.native)}</span>` : ''}<span class="bar"></span></span>
 <span class="txt"><h3>${esc(f.name)}</h3>
-<span class="counts"><span class="dest-c">${f.n} places<span class="hide-m"> · ${f.P} sights · ${f.F} to eat &amp; drink</span></span></span>
+<span class="counts"><span class="dest-c">${fmt(f.n)} places<span class="hide-m"> · ${fmt(f.P)} sights · ${fmt(f.F)} to eat &amp; drink</span></span></span>
 ${sig}</span></a></li>`;
 }
 
 /** Compact row for pages a country lists beyond its headline cities (thin towns): name + count, no art. */
 function moreRow(row, up = '') {
   const f = facts(row);
-  return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}"><span class="dest-n">${esc(f.name)}</span><span class="dest-c">${f.n} places</span></a></li>`;
+  return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}"><span class="dest-n">${esc(f.name)}</span><span class="dest-c">${fmt(f.n)} places</span></a></li>`;
 }
 
 /** Split a country's place pages into the hub's headline cities and the rest, in the live hub's order. */
 function countryPages(c, reg) {
+  if (c.pages && c.pages.all) return { main: c.pages.linked, more: c.pages.more, all: c.pages.all };
   const byLive = Object.fromEntries(reg.rows.map(r => [r.live, r]));
   const cities = reg.rows.filter(r => r.kind === 'city');
   const main = c.cityPages.map(p => byLive[p]).filter(r => r && r.kind === 'city');
@@ -102,13 +106,30 @@ function countryPages(c, reg) {
 }
 
 // ---------------------------------------------------------------- country hub page
-function render(row, reg, ctx) {
-  const c = reg.countries.find(x => x.key === row.country) || {};
+/** A live country's hub. Returns { html, expect } — guards.assertHubPage checks every expected page is carded once. */
+function renderCountry(row, reg, ctx) {
+  const c = reg.countries.find(x => x.hub === row.live) || reg.countries.find(x => x.key === row.country);
+  if (!c) throw new Error(`${row.live}: no data/countries.json entry has this hub`);
   const { main, more, all } = countryPages(c, reg);
+  return { html: render(row, reg, ctx, { c, main, more, all }), expect: all.map(r => r.key) };
+}
+
+/** The Southeast Asia archive: every SEA place page, grouped by data/countries.json region, live or not. */
+function renderArchive(row, reg, ctx) {
+  const sea = reg.rows.filter(r => r.kind === 'city' && /^(Singapore|Vietnam)\//.test(r.live));
+  const groups = reg.countries.filter(c => c.kind === 'engine').sort((a, b) => a.order - b.order)
+    .map(c => ({ c, pages: sea.filter(r => r.country === c.key) })).filter(g => g.pages.length);
+  const rest = sea.filter(r => !groups.some(g => g.pages.includes(r)));
+  if (rest.length) groups.push({ c: { key: 'other', name: 'Elsewhere in the region' }, pages: rest });
+  const all = groups.flatMap(g => g.pages);
+  const c = { key: 'sea', name: 'Southeast Asia', blurb: 'The archived regional index: every Singapore town and every regional preview, including countries not yet live.' };
+  return { html: render(row, reg, ctx, { c, main: [], more: [], all, groups }), expect: all.map(r => r.key) };
+}
+
+function render(row, reg, ctx, { c, main, more, all, groups }) {
   const depth = row.beta.split('/').length - 1, up = '../'.repeat(depth);
-  const n = all.reduce((s, r) => s + r.counts.P + r.counts.F, 0);
-  const P = all.reduce((s, r) => s + r.counts.P, 0), F = all.reduce((s, r) => s + r.counts.F, 0);
-  const checked = all.map(r => facts(r).checked).filter(Boolean).sort().pop();
+  const S = sumStats(all);                                           // computed (lib/stats.js), never re-typed
+  const n = S.total, P = S.sights, F = S.food, checked = S.lastChecked;
   const others = site().countries.filter(x => x.key !== c.key);
   const title = `${c.name} — ${all.length} sourced guides · Cleo`;
   const desc = `${n.toLocaleString('en-US')} places across ${all.length} ${c.name} guides — each recommended by named sources, pinned and status-checked.`;
@@ -118,13 +139,14 @@ ${siteBar({ depth, current: 'hub', rel: row.beta })}
 <main id="main">
 <section class="masthead" aria-labelledby="cn"><div class="inner">
   <h1 class="title d1" id="cn">${esc(c.name)}</h1>
-  <p class="facts"><b>${all.length} ${all.length === 1 ? 'guide' : 'guides'} · ${n.toLocaleString('en-US')} places</b> · ${P.toLocaleString('en-US')} sights · ${F.toLocaleString('en-US')} to eat &amp; drink${checked ? ` · status last checked ${esc(checked)}` : ''}. <a href="${up}how-we-choose.html">How we choose</a></p>
+  <p class="facts"><b>${all.length} ${all.length === 1 ? 'guide' : 'guides'} · ${fmt(n)} places</b> · ${fmt(P)} sights · ${fmt(F)} to eat &amp; drink${checked ? ` · status last checked ${esc(checked)}` : ''}. <a href="${up}how-we-choose.html">How we choose</a></p>
   ${c.blurb ? `<p class="facts">${esc(c.blurb)}</p>` : ''}
 </div><span class="accentbar"></span></section>
 <div class="wrap section" id="destinations">
-  <ul class="tiles hub2" aria-label="${esc(c.name)} guides">
+${groups ? groups.map(g => `<section class="csec" id="${esc(g.c.key)}" aria-labelledby="g-${esc(g.c.key)}"><div class="rail-head"><h2 class="d2" id="g-${esc(g.c.key)}">${esc(g.c.name)}<span class="n">${g.pages.length} ${g.pages.length === 1 ? 'guide' : 'guides'}${g.c.live === false ? ' · preview' : ''}</span></h2></div>
+<ul class="morelist">\n${g.pages.map(r => moreRow(r, up)).join('\n')}\n</ul></section>`).join('\n') : `  <ul class="tiles hub2" aria-label="${esc(c.name)} guides">
 ${main.map((r, i) => cityTile(r, i, { up })).join('\n')}
-  </ul>
+  </ul>`}
 ${more.length ? `<h2 class="d3" style="margin-top:28px">More in ${esc(c.name)}</h2>\n<ul class="morelist">\n${more.map(r => moreRow(r, up)).join('\n')}\n</ul>` : ''}
 </div>
 <section class="wrap section" aria-labelledby="else-h"><h2 class="d2" id="else-h">Elsewhere in Cleo</h2>
@@ -136,4 +158,4 @@ ${footer({ depth, tabbar: true, current: 'hub' })}
 `;
 }
 
-module.exports = { render, cityTile, moreRow, facts, skin, starfield, countryPages, nativeName };
+module.exports = { renderCountry, renderArchive, cityTile, moreRow, facts, skin, starfield, countryPages, nativeName };

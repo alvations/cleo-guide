@@ -28,6 +28,7 @@ const SETS = [
   { id: 'hub-japan', url: 'beta/Japan/index.html' },
   { id: 'hub-singapore', url: 'beta/Singapore/index.html' },
   { id: 'method', url: 'beta/how-we-choose.html' },
+  { id: 'archive', url: 'beta/Singapore/singapore-old.html' },
   { id: 'search', url: 'beta/index.html?q=ramen' },
   { id: 'state-no-results', url: 'beta/index.html?q=zzqxv' },
   { id: 'state-offline', url: 'beta/Japan/index.html', offline: true },

@@ -137,6 +137,7 @@
       'Satellite': L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: 'Tiles &copy; Esri' })
     };
     bases.Street.addTo(map);
+    if (Cleo.watchTiles) Cleo.watchTiles(bases.Street, function () { Cleo.mapFallback(el, map); });   // M1-06
     L.control.layers(bases, null, { collapsed: true }).addTo(map);
     cards.forEach(function (c) {
       var ll = (c.getAttribute('data-ll') || '').split(','); if (ll.length !== 2) return;
