@@ -605,7 +605,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 code, kbd, samp, pre { font-family: var(--font-ui); }   /* M1-15: two families only */
 ::selection { background: color-mix(in srgb, var(--city) 26%, transparent); }
 main { display: block; max-width: none; margin: 0; padding: 0 var(--gutter); background: var(--paper); }   /* bands go full-bleed */
-main > :not(.masthead):not(.rail) { max-width: calc(var(--maxw) - 2 * var(--gutter)); margin-inline: auto; }
+main:not(.feb) > :not(.masthead):not(.rail) { max-width: calc(var(--maxw) - 2 * var(--gutter)); margin-inline: auto; }
 :root { --bleed: max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter))); }
 :root:has(main[data-city^="singapore/"]), :root:has(main[data-city^="vietnam/"]) { background: var(--paper); }
 body:has(main[data-city]) { background: var(--paper); }
@@ -650,46 +650,74 @@ a.tier:hover span { text-decoration: underline; text-underline-offset: 3px; }
 .tg-legend .tg { width: 18px; height: 18px; }
 .tg-legend li:first-child .tg { color: var(--gilt); }
 
-/* ---------- 3. Site bar (FE-B shell: .sitebar / .brand / .sitesearch / .sitenav) ---------- */
-.sitebar { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; gap: 10px; min-height: var(--bar-h);
-  padding: 0 var(--bleed);
-  background: color-mix(in srgb, var(--paper) 90%, transparent); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px);
-  border-bottom: 1px solid var(--line); }
-.sitebar .brand { display: inline-flex; align-items: center; gap: 7px; min-height: var(--tap); text-decoration: none; flex: none;
-  font: italic 500 27px/1 var(--font-display); letter-spacing: -.02em; text-transform: lowercase; color: var(--ink); }
-.sitebar .brand::before { content: ""; width: 20px; height: 20px; background: var(--city); -webkit-mask: var(--mark) center / contain no-repeat; mask: var(--mark) center / contain no-repeat; }
-.sitesearch { flex: 1; min-width: 0; max-width: 520px; margin-left: auto; }
-.sitesearch input, #cleo-q { width: 100%; min-height: var(--tap); padding: 0 14px 0 40px; border: 1px solid var(--line-strong); border-radius: var(--r-pill);
-  background: var(--surface) no-repeat 14px 50% / 18px; font-size: 16px; color: var(--ink); appearance: none; -webkit-appearance: none; }
-.sitesearch { position: relative; }
-.sitesearch::before { content: ""; position: absolute; left: 14px; top: 50%; width: 18px; height: 18px; margin-top: -9px; background: var(--ink-3); pointer-events: none;
-  -webkit-mask: var(--ico-search) center / contain no-repeat; mask: var(--ico-search) center / contain no-repeat; }
-.sitesearch input::placeholder { color: var(--ink-3); }
-.sitenav { display: flex; gap: 2px; flex: none; }
-.sitenav a { display: inline-flex; align-items: center; gap: 6px; min-height: var(--tap); min-width: var(--tap); justify-content: center; padding: 0 12px;
-  border-radius: var(--r-pill); text-decoration: none; font-weight: var(--fw-ui-strong); font-size: 15px; color: var(--ink-2); }
-.sitenav a:hover { background: var(--sand); color: var(--ink); }
-.sitenav a[aria-current="page"] { background: var(--sand); color: var(--ink); }
-.sitenav .count:not(:empty) { min-width: 20px; height: 20px; border-radius: 10px; padding: 0 6px; display: inline-grid; place-items: center;
-  background: var(--city); color: var(--city-on); font-size: 12px; font-weight: 700; margin: 0; }
-@media (max-width: 899px) {
-  /* mobile: brand · search icon-field · saved. "Destinations" is the brand's job (it links to the hub). */
-  .sitebar { gap: 6px; }
-  .sitenav a[href$="#destinations"] { display: none; }
-  .sitenav a[data-cleo-saved-link] { display: inline-block; position: relative; overflow: hidden; white-space: nowrap; text-indent: var(--tap); padding: 0; width: var(--tap); height: var(--tap); }
-  .sitenav a[data-cleo-saved-link]::before { content: ""; position: absolute; left: 11px; top: 11px; width: 22px; height: 22px; background: currentColor; -webkit-mask: var(--ico-heart) center / contain no-repeat; mask: var(--ico-heart) center / contain no-repeat; }
-  .sitenav a[data-cleo-saved-link] .count:not(:empty) { position: absolute; right: 0; top: 2px; text-indent: 0; }
-  html[data-cleo-page="city"] .sitesearch { flex: none; width: var(--tap); max-width: var(--tap); margin-left: auto; }   /* city: the in-guide filter is the search */
-  html[data-cleo-page="city"] .sitesearch input { padding: 0; color: transparent; background: transparent; border-color: transparent; cursor: pointer; }
-  html[data-cleo-page="city"] .sitesearch input::placeholder { color: transparent; }
-  html[data-cleo-page="city"] .sitesearch input:focus { position: absolute; right: 0; width: calc(100vw - 2 * var(--gutter) - 56px); padding: 0 14px 0 40px;
-    color: var(--ink); background: var(--surface); border-color: var(--ink); z-index: 2; }
-  html[data-cleo-page="city"] .sitesearch::before { z-index: 3; left: 13px; background: var(--ink-2); }
-}
+/* ---------- 3b. FE-B shell: top bar, crumbs, hub tiles, search panel, banners, method page (folded from render/shell.js TOPBAR_CSS + SHELL_CSS, W1) ---------- */
+[data-cleo-shell=topbar]{position:sticky;top:0;z-index:40;height:var(--bar-h,60px)}
+:where([data-cleo-shell=topbar]){background:var(--paper,var(--bg,#F7F4EE));border-bottom:1px solid var(--line,#DDD6CA)}
+[data-cleo-shell=topbar]>.wrap{height:100%;display:flex;align-items:center;gap:12px;max-width:var(--maxw,1360px);margin:0 auto;padding:0 var(--gutter,16px);border:0;position:static;background:none}
+[data-cleo-shell=topbar] .brand{display:inline-flex;align-items:center;gap:8px;text-decoration:none;min-height:44px;letter-spacing:0;font:inherit}
+[data-cleo-shell=topbar] .brand b{font:italic 500 27px/1 var(--font-display,Georgia,serif)}
+[data-cleo-shell=topbar] .brand small,[data-cleo-shell=topbar] .topnav{display:none}
+[data-cleo-shell=topbar] .spacer{flex:1}[data-cleo-shell=topbar] .top-actions{display:flex;gap:4px}
+[data-cleo-shell=topbar] .btn-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%}
+[data-cleo-shell=topbar] svg{flex:none}
+.topbar .crumbs{display:flex;align-items:center;min-width:0;overflow:hidden;white-space:nowrap;font-size:14px;color:var(--ink-3)}
+.topbar .crumbs a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px;border-radius:999px;text-decoration:none;color:var(--ink-2);font-weight:600}
+.topbar .crumbs a:hover{background:var(--sand)}
+.topbar .crumbs .here{padding:0 8px;color:var(--ink);font-weight:650;overflow:hidden;text-overflow:ellipsis}
+.topbar .crumbs .sep{color:var(--ink-3)}
+.on-night .crumbs a,.on-night .crumbs .here{color:var(--on-night)}
+@media(max-width:639px){.topbar .crumbs .c0,.topbar .crumbs .c0+.sep{display:none}.topbar .brand b{font-size:24px}}
+@media(min-width:900px){.topbar .crumbs{margin-left:8px}}
+[data-cleo-shell=topbar] .ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+[data-cleo-shell=topbar] .crumbs a{white-space:nowrap}[data-cleo-shell=topbar] .crumbs{flex:0 1 auto}
+@media(min-width:900px){[data-cleo-shell=topbar] .topnav{display:flex}[data-cleo-shell=topbar] .brand small{display:inline}}
+.topnav a.on{color:var(--ink);background:var(--sand)}
+.tiles.hub2{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media(min-width:640px){.tiles.hub2{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}}
+@media(min-width:1100px){.tiles.hub2{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.tiles.hub2 .tile{grid-template-rows:84px auto}.tiles.hub2 .tile .txt{padding:10px 12px 12px;gap:3px}
+.tiles.hub2 .tile .txt h3{font-size:20px}.tiles.hub2 .tile .art .native{font-size:18px;right:10px;top:8px}
+.tiles.hub2 .tile .canon{font-size:13px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+@media(min-width:640px){.tiles.hub2 .tile{grid-template-rows:120px auto}.tiles.hub2 .tile .txt h3{font-size:24px}}
+.tile .art .dots{stroke:var(--on-night);stroke-linecap:round;fill:none}
+.tile .art .dots.t1{stroke:var(--gilt-soft)}
+.tile .dest-c{display:block}
+.dest a.tile::before{content:none}.dest a.tile>*{padding-inline:0}.dest a.tile>:last-child{padding-bottom:0}.tile .dest-c{padding:0;grid-row:auto;align-self:auto}
+.tile .art{background:var(--motif,none),radial-gradient(130% 160% at 100% 0,color-mix(in srgb,var(--city) 40%,transparent),transparent 62%),var(--night)}
+.feb .search input,.searchpanel .search input{border:0;background:transparent;box-shadow:none;padding:0 4px;border-radius:0}
+@media(min-width:900px){.feb .hero .d-hero{font-size:64px}.feb .hero .inner{padding-top:calc(var(--bar-h) + 40px);padding-bottom:36px}}
+html[data-cleo-page] main.feb{padding:0;max-width:none}html[data-cleo-page] main.feb>*{max-width:none;margin-inline:0}
+html[data-cleo-page] main.feb>.masthead{padding:0}html[data-cleo-page] main.feb>.wrap{max-width:var(--maxw);margin-inline:auto}
+ul.tiles{list-style:none;margin:0;padding:0}ul.tiles>li{display:grid;min-width:0}
+.footer a{min-width:var(--tap)}.banner .btn-icon{min-height:var(--tap);width:var(--tap)}
+.searchpanel input::-webkit-search-cancel-button{display:none}
+.morelist{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr))}
+.morelist a{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:var(--tap);padding:8px 14px;border:1px solid var(--line);border-radius:var(--r-m);background:var(--surface);text-decoration:none}
+.morelist .dest-n{font-weight:650}.morelist .dest-c{font-size:13px;color:var(--ink-3);white-space:nowrap}
+.csec{scroll-margin-top:calc(var(--bar-h) + 8px)}.csec+.csec{margin-top:36px}
+.csec .rail-head .d2 .n{font:500 15px/1 var(--font-ui);color:var(--ink-3);margin-left:8px}
+.csec .blurb{color:var(--ink-2);margin:-4px 0 14px;max-width:70ch;font-size:15px}
+.hero .search{margin-top:6px}.hero .inner{padding-bottom:22px}
+@media(max-width:639px){.hero .d-hero{font-size:34px}.hero .sub{font-size:15px;margin:8px 0 14px}.hero .kicker{margin-bottom:6px}.hero .inner{padding-top:calc(var(--bar-h) + 6px);padding-bottom:16px}.hero .search{min-height:50px}}
+.stickypills{position:sticky;top:var(--bar-h);z-index:30;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:8px 0}
+.searchpanel{position:fixed;left:0;right:0;top:var(--bar-h);z-index:50;max-height:calc(100vh - var(--bar-h));overflow:auto;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:var(--e-2);padding:12px 0 16px}
+.results{margin:16px 0}.results h2{margin:0 0 6px}.results .grp{margin:14px 0 0}.results .grp h3{margin:0 0 4px;font:650 15px/1.3 var(--font-ui)}
+.results ol{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.results li a{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;min-height:var(--tap);padding:6px 12px;border-radius:var(--r-s);background:var(--surface);border:1px solid var(--line);text-decoration:none}
+.results li a:hover{border-color:var(--ink)}.results .meta{font-size:13px;color:var(--ink-3)}
+.results .state{margin-top:8px}
+.banners{position:sticky;top:var(--bar-h);z-index:35}.banners .banner{border-radius:0;justify-content:center}
+.stats:not(p){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;margin:18px 0}
+@media(min-width:900px){.stats:not(p){grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stats:not(p) div{background:var(--surface);padding:14px 16px}.stats:not(p) b{display:block;font:500 28px/1.1 var(--font-display)}.stats:not(p) span{font-size:13.5px;color:var(--ink-3)}
+.prose{max-width:68ch}.prose h2{margin:36px 0 8px}.prose p,.prose li{color:var(--ink-2)}.prose li{margin:6px 0}
+.prose a{color:var(--ink);text-underline-offset:3px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0}
+.ladder{display:grid;gap:10px;margin:12px 0}.ladder div{display:flex;gap:12px;align-items:baseline}
 
 /* ---------- 4. Masthead: the night-sky band (city / hub). Motif = the city skin (M1-14) ---------- */
 .masthead { position: relative; isolation: isolate; color: var(--on-night); background: var(--motif), var(--night); overflow: hidden; }
-main > .masthead { margin-inline: calc(var(--gutter) * -1); padding: 18px var(--bleed) 20px; }
+main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: 18px var(--bleed) 20px; }
 /* the city's own constellation: platform's verified-pin schematic (assets/art/<key>/map.svg) as the night sky, right side,
    faded under the text. Rules per city are generated into cleo.css by build-css.py ("masthead art"). */
 .masthead::before { content: ""; position: absolute; inset: -6% -4% -6% 34%; z-index: -2; background: none center / contain no-repeat; opacity: .92;
@@ -949,24 +977,24 @@ html[data-cleo-page="landing"] main > .masthead:first-child h1, .masthead.hero h
 .country > p { color: var(--ink-2); margin: 4px 0 0; max-width: 64ch; }
 .dests { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
 @media (max-width: 639px) { .dests { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } }
-.dest a { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: 84px auto 1fr; height: 100%; overflow: hidden; isolation: isolate; border-radius: var(--r-l);
+.dest a:not(.tile) { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: 84px auto 1fr; height: 100%; overflow: hidden; isolation: isolate; border-radius: var(--r-l);
   background: var(--surface); border: 1px solid var(--line); text-decoration: none; color: var(--ink); box-shadow: var(--e-1);
   transition: transform var(--dur-2) var(--ease-out), box-shadow var(--dur-2); }
-.dest a:hover { transform: translateY(-3px); box-shadow: var(--e-2); }
-.dest a::before { content: ""; grid-row: 1; background: var(--motif), radial-gradient(130% 160% at 100% 0, color-mix(in srgb, var(--city) 45%, transparent), transparent 62%), var(--night);
+.dest a:not(.tile):hover { transform: translateY(-3px); box-shadow: var(--e-2); }
+.dest a:not(.tile)::before { content: ""; grid-row: 1; background: var(--motif), radial-gradient(130% 160% at 100% 0, color-mix(in srgb, var(--city) 45%, transparent), transparent 62%), var(--night);
   box-shadow: inset 0 -3px 0 var(--city); }
-.dest a > *, .dest a::before, .dest a::after { grid-column: 1; min-width: 0; }
-.dest a::after { content: ""; grid-row: 1; background: none right 10px center / auto 88% no-repeat; opacity: .9; pointer-events: none;   /* the city's pin constellation (build-css.py) */
+.dest a:not(.tile) > *, .dest a:not(.tile)::before, .dest a:not(.tile)::after { grid-column: 1; min-width: 0; }
+.dest a:not(.tile)::after { content: ""; grid-row: 1; background: none right 10px center / auto 88% no-repeat; opacity: .9; pointer-events: none;   /* the city's pin constellation (build-css.py) */
   -webkit-mask: linear-gradient(90deg, transparent 15%, #000 60%); mask: linear-gradient(90deg, transparent 15%, #000 60%); }
 .dest-nat { grid-row: 1; justify-self: end; align-self: start; padding-top: 10px; z-index: 1; font: 500 20px/1 var(--font-native); color: var(--on-night); letter-spacing: .06em;
   text-shadow: 0 1px 8px var(--night); }
-.dest a > * { padding-inline: 14px; }
+.dest a:not(.tile) > * { padding-inline: 14px; }
 .dest-n { grid-row: 1; align-self: end; padding-bottom: 10px; font: 500 24px/1.05 var(--font-display); color: var(--on-night); letter-spacing: -.01em; }
 .dest-d { grid-row: 2; font-size: 14px; color: var(--ink-2); padding-top: 10px; line-height: 1.4; }
 .dest-c { grid-row: 3; align-self: end; font-size: 13px; color: var(--ink-3); padding: 6px 14px 14px; }
 .dest-c b, .dest-c strong { color: var(--ink); }
-.dest a > :last-child { padding-bottom: 14px; }
-@media (max-width: 639px) { .dest a { grid-template-rows: 72px auto 1fr; border-radius: var(--r-m); } .dest-n { font-size: 20px; } .dest-d { font-size: 13.5px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; } }
+.dest a:not(.tile) > :last-child { padding-bottom: 14px; }
+@media (max-width: 639px) { .dest a:not(.tile) { grid-template-rows: 72px auto 1fr; border-radius: var(--r-m); } .dest-n { font-size: 20px; } .dest-d { font-size: 13.5px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; } }
 .hits { list-style: none; padding: 0; margin: 12px 0; display: grid; gap: 2px; }
 .hits li { margin: 0; }
 .hits a { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; min-height: 52px; padding: 8px 12px; border-radius: var(--r-s); text-decoration: none; }
@@ -1044,87 +1072,87 @@ main[data-city="tokyo"] .rail-i[data-c="TEMPLE"], main[data-city="kyoto"] .rail-
 .rail-i[data-cz] { --g: var(--g-forkknife); }
 
 /* ---------- masthead art (generated by build-css.py from beta/assets/art/*/map.svg — platform lib/art.js) ---------- */
-main[data-city="aachen"] > .masthead::before, .dest[data-page="aachen"] a::after { background-image: url("art/aachen/map.svg"); }
-main[data-city="akron"] > .masthead::before, .dest[data-page="akron"] a::after { background-image: url("art/akron/map.svg"); }
-main[data-city="antwerp"] > .masthead::before, .dest[data-page="antwerp"] a::after { background-image: url("art/antwerp/map.svg"); }
-main[data-city="bruges"] > .masthead::before, .dest[data-page="bruges"] a::after { background-image: url("art/bruges/map.svg"); }
-main[data-city="brussels"] > .masthead::before, .dest[data-page="brussels"] a::after { background-image: url("art/brussels/map.svg"); }
-main[data-city="chicago"] > .masthead::before, .dest[data-page="chicago"] a::after { background-image: url("art/chicago/map.svg"); }
-main[data-city="cincinnati"] > .masthead::before, .dest[data-page="cincinnati"] a::after { background-image: url("art/cincinnati/map.svg"); }
-main[data-city="cleveland"] > .masthead::before, .dest[data-page="cleveland"] a::after { background-image: url("art/cleveland/map.svg"); }
-main[data-city="columbus"] > .masthead::before, .dest[data-page="columbus"] a::after { background-image: url("art/columbus/map.svg"); }
-main[data-city="dayton"] > .masthead::before, .dest[data-page="dayton"] a::after { background-image: url("art/dayton/map.svg"); }
-main[data-city="erie"] > .masthead::before, .dest[data-page="erie"] a::after { background-image: url("art/erie/map.svg"); }
-main[data-city="ghent"] > .masthead::before, .dest[data-page="ghent"] a::after { background-image: url("art/ghent/map.svg"); }
-main[data-city="harrisburg"] > .masthead::before, .dest[data-page="harrisburg"] a::after { background-image: url("art/harrisburg/map.svg"); }
-main[data-city="hokkaido"] > .masthead::before, .dest[data-page="hokkaido"] a::after { background-image: url("art/hokkaido/map.svg"); }
-main[data-city="indianapolis"] > .masthead::before, .dest[data-page="indianapolis"] a::after { background-image: url("art/indianapolis/map.svg"); }
-main[data-city="kyoto"] > .masthead::before, .dest[data-page="kyoto"] a::after { background-image: url("art/kyoto/map.svg"); }
-main[data-city="liege"] > .masthead::before, .dest[data-page="liege"] a::after { background-image: url("art/liege/map.svg"); }
-main[data-city="madison"] > .masthead::before, .dest[data-page="madison"] a::after { background-image: url("art/madison/map.svg"); }
-main[data-city="miami"] > .masthead::before, .dest[data-page="miami"] a::after { background-image: url("art/miami/map.svg"); }
-main[data-city="newyork"] > .masthead::before, .dest[data-page="newyork"] a::after { background-image: url("art/newyork/map.svg"); }
-main[data-city="okinawa"] > .masthead::before, .dest[data-page="okinawa"] a::after { background-image: url("art/okinawa/map.svg"); }
-main[data-city="orlando"] > .masthead::before, .dest[data-page="orlando"] a::after { background-image: url("art/orlando/map.svg"); }
-main[data-city="osaka"] > .masthead::before, .dest[data-page="osaka"] a::after { background-image: url("art/osaka/map.svg"); }
-main[data-city="philadelphia"] > .masthead::before, .dest[data-page="philadelphia"] a::after { background-image: url("art/philadelphia/map.svg"); }
-main[data-city="pittsburgh"] > .masthead::before, .dest[data-page="pittsburgh"] a::after { background-image: url("art/pittsburgh/map.svg"); }
-main[data-city="rhineland"] > .masthead::before, .dest[data-page="rhineland"] a::after { background-image: url("art/rhineland/map.svg"); }
-main[data-city="saarland"] > .masthead::before, .dest[data-page="saarland"] a::after { background-image: url("art/saarland/map.svg"); }
-main[data-city="sanfrancisco"] > .masthead::before, .dest[data-page="sanfrancisco"] a::after { background-image: url("art/sanfrancisco/map.svg"); }
-main[data-city="siliconvalley"] > .masthead::before, .dest[data-page="siliconvalley"] a::after { background-image: url("art/siliconvalley/map.svg"); }
-main[data-city="singapore/ang-mo-kio"] > .masthead::before, .dest[data-page="singapore/ang-mo-kio"] a::after { background-image: url("art/singapore--ang-mo-kio/map.svg"); }
-main[data-city="singapore/bagan"] > .masthead::before, .dest[data-page="singapore/bagan"] a::after { background-image: url("art/singapore--bagan/map.svg"); }
-main[data-city="singapore/balestier"] > .masthead::before, .dest[data-page="singapore/balestier"] a::after { background-image: url("art/singapore--balestier/map.svg"); }
-main[data-city="singapore/bali"] > .masthead::before, .dest[data-page="singapore/bali"] a::after { background-image: url("art/singapore--bali/map.svg"); }
-main[data-city="singapore/bangkok"] > .masthead::before, .dest[data-page="singapore/bangkok"] a::after { background-image: url("art/singapore--bangkok/map.svg"); }
-main[data-city="singapore/bedok"] > .masthead::before, .dest[data-page="singapore/bedok"] a::after { background-image: url("art/singapore--bedok/map.svg"); }
-main[data-city="singapore/bishan"] > .masthead::before, .dest[data-page="singapore/bishan"] a::after { background-image: url("art/singapore--bishan/map.svg"); }
-main[data-city="singapore/bukit-timah"] > .masthead::before, .dest[data-page="singapore/bukit-timah"] a::after { background-image: url("art/singapore--bukit-timah/map.svg"); }
-main[data-city="singapore/cebu"] > .masthead::before, .dest[data-page="singapore/cebu"] a::after { background-image: url("art/singapore--cebu/map.svg"); }
-main[data-city="singapore/changi"] > .masthead::before, .dest[data-page="singapore/changi"] a::after { background-image: url("art/singapore--changi/map.svg"); }
-main[data-city="singapore/chiang-mai"] > .masthead::before, .dest[data-page="singapore/chiang-mai"] a::after { background-image: url("art/singapore--chiang-mai/map.svg"); }
-main[data-city="singapore/chinatown"] > .masthead::before, .dest[data-page="singapore/chinatown"] a::after { background-image: url("art/singapore--chinatown/map.svg"); }
-main[data-city="singapore/civic-district"] > .masthead::before, .dest[data-page="singapore/civic-district"] a::after { background-image: url("art/singapore--civic-district/map.svg"); }
-main[data-city="singapore/dempsey-hill"] > .masthead::before, .dest[data-page="singapore/dempsey-hill"] a::after { background-image: url("art/singapore--dempsey-hill/map.svg"); }
-main[data-city="singapore/geylang"] > .masthead::before, .dest[data-page="singapore/geylang"] a::after { background-image: url("art/singapore--geylang/map.svg"); }
-main[data-city="singapore/hanoi"] > .masthead::before, .dest[data-page="singapore/hanoi"] a::after { background-image: url("art/singapore--hanoi/map.svg"); }
-main[data-city="singapore/hoi-an"] > .masthead::before, .dest[data-page="singapore/hoi-an"] a::after { background-image: url("art/singapore--hoi-an/map.svg"); }
-main[data-city="singapore/holland-village"] > .masthead::before, .dest[data-page="singapore/holland-village"] a::after { background-image: url("art/singapore--holland-village/map.svg"); }
-main[data-city="singapore/ipoh"] > .masthead::before, .dest[data-page="singapore/ipoh"] a::after { background-image: url("art/singapore--ipoh/map.svg"); }
-main[data-city="singapore/jakarta"] > .masthead::before, .dest[data-page="singapore/jakarta"] a::after { background-image: url("art/singapore--jakarta/map.svg"); }
-main[data-city="singapore/jalan-besar"] > .masthead::before, .dest[data-page="singapore/jalan-besar"] a::after { background-image: url("art/singapore--jalan-besar/map.svg"); }
-main[data-city="singapore/jurong"] > .masthead::before, .dest[data-page="singapore/jurong"] a::after { background-image: url("art/singapore--jurong/map.svg"); }
-main[data-city="singapore/kampong-glam"] > .masthead::before, .dest[data-page="singapore/kampong-glam"] a::after { background-image: url("art/singapore--kampong-glam/map.svg"); }
-main[data-city="singapore/katong-joo-chiat"] > .masthead::before, .dest[data-page="singapore/katong-joo-chiat"] a::after { background-image: url("art/singapore--katong-joo-chiat/map.svg"); }
-main[data-city="singapore/kuala-lumpur"] > .masthead::before, .dest[data-page="singapore/kuala-lumpur"] a::after { background-image: url("art/singapore--kuala-lumpur/map.svg"); }
-main[data-city="singapore/little-india"] > .masthead::before, .dest[data-page="singapore/little-india"] a::after { background-image: url("art/singapore--little-india/map.svg"); }
-main[data-city="singapore/luang-prabang"] > .masthead::before, .dest[data-page="singapore/luang-prabang"] a::after { background-image: url("art/singapore--luang-prabang/map.svg"); }
-main[data-city="singapore/malacca"] > .masthead::before, .dest[data-page="singapore/malacca"] a::after { background-image: url("art/singapore--malacca/map.svg"); }
-main[data-city="singapore/mandai"] > .masthead::before, .dest[data-page="singapore/mandai"] a::after { background-image: url("art/singapore--mandai/map.svg"); }
-main[data-city="singapore/manila"] > .masthead::before, .dest[data-page="singapore/manila"] a::after { background-image: url("art/singapore--manila/map.svg"); }
-main[data-city="singapore/marina-bay"] > .masthead::before, .dest[data-page="singapore/marina-bay"] a::after { background-image: url("art/singapore--marina-bay/map.svg"); }
-main[data-city="singapore/marine-parade"] > .masthead::before, .dest[data-page="singapore/marine-parade"] a::after { background-image: url("art/singapore--marine-parade/map.svg"); }
-main[data-city="singapore/newton-novena"] > .masthead::before, .dest[data-page="singapore/newton-novena"] a::after { background-image: url("art/singapore--newton-novena/map.svg"); }
-main[data-city="singapore/old-airport-road"] > .masthead::before, .dest[data-page="singapore/old-airport-road"] a::after { background-image: url("art/singapore--old-airport-road/map.svg"); }
-main[data-city="singapore/penang"] > .masthead::before, .dest[data-page="singapore/penang"] a::after { background-image: url("art/singapore--penang/map.svg"); }
-main[data-city="singapore/phnom-penh"] > .masthead::before, .dest[data-page="singapore/phnom-penh"] a::after { background-image: url("art/singapore--phnom-penh/map.svg"); }
-main[data-city="singapore/potong-pasir-macpherson"] > .masthead::before, .dest[data-page="singapore/potong-pasir-macpherson"] a::after { background-image: url("art/singapore--potong-pasir-macpherson/map.svg"); }
-main[data-city="singapore/punggol"] > .masthead::before, .dest[data-page="singapore/punggol"] a::after { background-image: url("art/singapore--punggol/map.svg"); }
-main[data-city="singapore/queenstown"] > .masthead::before, .dest[data-page="singapore/queenstown"] a::after { background-image: url("art/singapore--queenstown/map.svg"); }
-main[data-city="singapore/siem-reap"] > .masthead::before, .dest[data-page="singapore/siem-reap"] a::after { background-image: url("art/singapore--siem-reap/map.svg"); }
-main[data-city="singapore/southern-ridges"] > .masthead::before, .dest[data-page="singapore/southern-ridges"] a::after { background-image: url("art/singapore--southern-ridges/map.svg"); }
-main[data-city="singapore/tiong-bahru"] > .masthead::before, .dest[data-page="singapore/tiong-bahru"] a::after { background-image: url("art/singapore--tiong-bahru/map.svg"); }
-main[data-city="singapore/toa-payoh"] > .masthead::before, .dest[data-page="singapore/toa-payoh"] a::after { background-image: url("art/singapore--toa-payoh/map.svg"); }
-main[data-city="singapore/upper-serangoon"] > .masthead::before, .dest[data-page="singapore/upper-serangoon"] a::after { background-image: url("art/singapore--upper-serangoon/map.svg"); }
-main[data-city="singapore/upper-thomson"] > .masthead::before, .dest[data-page="singapore/upper-thomson"] a::after { background-image: url("art/singapore--upper-thomson/map.svg"); }
-main[data-city="singapore/yangon"] > .masthead::before, .dest[data-page="singapore/yangon"] a::after { background-image: url("art/singapore--yangon/map.svg"); }
-main[data-city="singapore/yogyakarta"] > .masthead::before, .dest[data-page="singapore/yogyakarta"] a::after { background-image: url("art/singapore--yogyakarta/map.svg"); }
-main[data-city="statecollege"] > .masthead::before, .dest[data-page="statecollege"] a::after { background-image: url("art/statecollege/map.svg"); }
-main[data-city="tokyo"] > .masthead::before, .dest[data-page="tokyo"] a::after { background-image: url("art/tokyo/map.svg"); }
-main[data-city="vietnam/hanoi"] > .masthead::before, .dest[data-page="vietnam/hanoi"] a::after { background-image: url("art/vietnam--hanoi/map.svg"); }
-main[data-city="vietnam/ho-chi-minh-city"] > .masthead::before, .dest[data-page="vietnam/ho-chi-minh-city"] a::after { background-image: url("art/vietnam--ho-chi-minh-city/map.svg"); }
-main[data-city="vietnam/hoi-an"] > .masthead::before, .dest[data-page="vietnam/hoi-an"] a::after { background-image: url("art/vietnam--hoi-an/map.svg"); }
-main[data-city="washingtondc"] > .masthead::before, .dest[data-page="washingtondc"] a::after { background-image: url("art/washingtondc/map.svg"); }
-main[data-city="wheeling"] > .masthead::before, .dest[data-page="wheeling"] a::after { background-image: url("art/wheeling/map.svg"); }
-main[data-city="youngstown"] > .masthead::before, .dest[data-page="youngstown"] a::after { background-image: url("art/youngstown/map.svg"); }
+main[data-city="aachen"] > .masthead::before, .dest[data-page="aachen"] a:not(.tile)::after { background-image: url("art/aachen/map.svg"); }
+main[data-city="akron"] > .masthead::before, .dest[data-page="akron"] a:not(.tile)::after { background-image: url("art/akron/map.svg"); }
+main[data-city="antwerp"] > .masthead::before, .dest[data-page="antwerp"] a:not(.tile)::after { background-image: url("art/antwerp/map.svg"); }
+main[data-city="bruges"] > .masthead::before, .dest[data-page="bruges"] a:not(.tile)::after { background-image: url("art/bruges/map.svg"); }
+main[data-city="brussels"] > .masthead::before, .dest[data-page="brussels"] a:not(.tile)::after { background-image: url("art/brussels/map.svg"); }
+main[data-city="chicago"] > .masthead::before, .dest[data-page="chicago"] a:not(.tile)::after { background-image: url("art/chicago/map.svg"); }
+main[data-city="cincinnati"] > .masthead::before, .dest[data-page="cincinnati"] a:not(.tile)::after { background-image: url("art/cincinnati/map.svg"); }
+main[data-city="cleveland"] > .masthead::before, .dest[data-page="cleveland"] a:not(.tile)::after { background-image: url("art/cleveland/map.svg"); }
+main[data-city="columbus"] > .masthead::before, .dest[data-page="columbus"] a:not(.tile)::after { background-image: url("art/columbus/map.svg"); }
+main[data-city="dayton"] > .masthead::before, .dest[data-page="dayton"] a:not(.tile)::after { background-image: url("art/dayton/map.svg"); }
+main[data-city="erie"] > .masthead::before, .dest[data-page="erie"] a:not(.tile)::after { background-image: url("art/erie/map.svg"); }
+main[data-city="ghent"] > .masthead::before, .dest[data-page="ghent"] a:not(.tile)::after { background-image: url("art/ghent/map.svg"); }
+main[data-city="harrisburg"] > .masthead::before, .dest[data-page="harrisburg"] a:not(.tile)::after { background-image: url("art/harrisburg/map.svg"); }
+main[data-city="hokkaido"] > .masthead::before, .dest[data-page="hokkaido"] a:not(.tile)::after { background-image: url("art/hokkaido/map.svg"); }
+main[data-city="indianapolis"] > .masthead::before, .dest[data-page="indianapolis"] a:not(.tile)::after { background-image: url("art/indianapolis/map.svg"); }
+main[data-city="kyoto"] > .masthead::before, .dest[data-page="kyoto"] a:not(.tile)::after { background-image: url("art/kyoto/map.svg"); }
+main[data-city="liege"] > .masthead::before, .dest[data-page="liege"] a:not(.tile)::after { background-image: url("art/liege/map.svg"); }
+main[data-city="madison"] > .masthead::before, .dest[data-page="madison"] a:not(.tile)::after { background-image: url("art/madison/map.svg"); }
+main[data-city="miami"] > .masthead::before, .dest[data-page="miami"] a:not(.tile)::after { background-image: url("art/miami/map.svg"); }
+main[data-city="newyork"] > .masthead::before, .dest[data-page="newyork"] a:not(.tile)::after { background-image: url("art/newyork/map.svg"); }
+main[data-city="okinawa"] > .masthead::before, .dest[data-page="okinawa"] a:not(.tile)::after { background-image: url("art/okinawa/map.svg"); }
+main[data-city="orlando"] > .masthead::before, .dest[data-page="orlando"] a:not(.tile)::after { background-image: url("art/orlando/map.svg"); }
+main[data-city="osaka"] > .masthead::before, .dest[data-page="osaka"] a:not(.tile)::after { background-image: url("art/osaka/map.svg"); }
+main[data-city="philadelphia"] > .masthead::before, .dest[data-page="philadelphia"] a:not(.tile)::after { background-image: url("art/philadelphia/map.svg"); }
+main[data-city="pittsburgh"] > .masthead::before, .dest[data-page="pittsburgh"] a:not(.tile)::after { background-image: url("art/pittsburgh/map.svg"); }
+main[data-city="rhineland"] > .masthead::before, .dest[data-page="rhineland"] a:not(.tile)::after { background-image: url("art/rhineland/map.svg"); }
+main[data-city="saarland"] > .masthead::before, .dest[data-page="saarland"] a:not(.tile)::after { background-image: url("art/saarland/map.svg"); }
+main[data-city="sanfrancisco"] > .masthead::before, .dest[data-page="sanfrancisco"] a:not(.tile)::after { background-image: url("art/sanfrancisco/map.svg"); }
+main[data-city="siliconvalley"] > .masthead::before, .dest[data-page="siliconvalley"] a:not(.tile)::after { background-image: url("art/siliconvalley/map.svg"); }
+main[data-city="singapore/ang-mo-kio"] > .masthead::before, .dest[data-page="singapore/ang-mo-kio"] a:not(.tile)::after { background-image: url("art/singapore--ang-mo-kio/map.svg"); }
+main[data-city="singapore/bagan"] > .masthead::before, .dest[data-page="singapore/bagan"] a:not(.tile)::after { background-image: url("art/singapore--bagan/map.svg"); }
+main[data-city="singapore/balestier"] > .masthead::before, .dest[data-page="singapore/balestier"] a:not(.tile)::after { background-image: url("art/singapore--balestier/map.svg"); }
+main[data-city="singapore/bali"] > .masthead::before, .dest[data-page="singapore/bali"] a:not(.tile)::after { background-image: url("art/singapore--bali/map.svg"); }
+main[data-city="singapore/bangkok"] > .masthead::before, .dest[data-page="singapore/bangkok"] a:not(.tile)::after { background-image: url("art/singapore--bangkok/map.svg"); }
+main[data-city="singapore/bedok"] > .masthead::before, .dest[data-page="singapore/bedok"] a:not(.tile)::after { background-image: url("art/singapore--bedok/map.svg"); }
+main[data-city="singapore/bishan"] > .masthead::before, .dest[data-page="singapore/bishan"] a:not(.tile)::after { background-image: url("art/singapore--bishan/map.svg"); }
+main[data-city="singapore/bukit-timah"] > .masthead::before, .dest[data-page="singapore/bukit-timah"] a:not(.tile)::after { background-image: url("art/singapore--bukit-timah/map.svg"); }
+main[data-city="singapore/cebu"] > .masthead::before, .dest[data-page="singapore/cebu"] a:not(.tile)::after { background-image: url("art/singapore--cebu/map.svg"); }
+main[data-city="singapore/changi"] > .masthead::before, .dest[data-page="singapore/changi"] a:not(.tile)::after { background-image: url("art/singapore--changi/map.svg"); }
+main[data-city="singapore/chiang-mai"] > .masthead::before, .dest[data-page="singapore/chiang-mai"] a:not(.tile)::after { background-image: url("art/singapore--chiang-mai/map.svg"); }
+main[data-city="singapore/chinatown"] > .masthead::before, .dest[data-page="singapore/chinatown"] a:not(.tile)::after { background-image: url("art/singapore--chinatown/map.svg"); }
+main[data-city="singapore/civic-district"] > .masthead::before, .dest[data-page="singapore/civic-district"] a:not(.tile)::after { background-image: url("art/singapore--civic-district/map.svg"); }
+main[data-city="singapore/dempsey-hill"] > .masthead::before, .dest[data-page="singapore/dempsey-hill"] a:not(.tile)::after { background-image: url("art/singapore--dempsey-hill/map.svg"); }
+main[data-city="singapore/geylang"] > .masthead::before, .dest[data-page="singapore/geylang"] a:not(.tile)::after { background-image: url("art/singapore--geylang/map.svg"); }
+main[data-city="singapore/hanoi"] > .masthead::before, .dest[data-page="singapore/hanoi"] a:not(.tile)::after { background-image: url("art/singapore--hanoi/map.svg"); }
+main[data-city="singapore/hoi-an"] > .masthead::before, .dest[data-page="singapore/hoi-an"] a:not(.tile)::after { background-image: url("art/singapore--hoi-an/map.svg"); }
+main[data-city="singapore/holland-village"] > .masthead::before, .dest[data-page="singapore/holland-village"] a:not(.tile)::after { background-image: url("art/singapore--holland-village/map.svg"); }
+main[data-city="singapore/ipoh"] > .masthead::before, .dest[data-page="singapore/ipoh"] a:not(.tile)::after { background-image: url("art/singapore--ipoh/map.svg"); }
+main[data-city="singapore/jakarta"] > .masthead::before, .dest[data-page="singapore/jakarta"] a:not(.tile)::after { background-image: url("art/singapore--jakarta/map.svg"); }
+main[data-city="singapore/jalan-besar"] > .masthead::before, .dest[data-page="singapore/jalan-besar"] a:not(.tile)::after { background-image: url("art/singapore--jalan-besar/map.svg"); }
+main[data-city="singapore/jurong"] > .masthead::before, .dest[data-page="singapore/jurong"] a:not(.tile)::after { background-image: url("art/singapore--jurong/map.svg"); }
+main[data-city="singapore/kampong-glam"] > .masthead::before, .dest[data-page="singapore/kampong-glam"] a:not(.tile)::after { background-image: url("art/singapore--kampong-glam/map.svg"); }
+main[data-city="singapore/katong-joo-chiat"] > .masthead::before, .dest[data-page="singapore/katong-joo-chiat"] a:not(.tile)::after { background-image: url("art/singapore--katong-joo-chiat/map.svg"); }
+main[data-city="singapore/kuala-lumpur"] > .masthead::before, .dest[data-page="singapore/kuala-lumpur"] a:not(.tile)::after { background-image: url("art/singapore--kuala-lumpur/map.svg"); }
+main[data-city="singapore/little-india"] > .masthead::before, .dest[data-page="singapore/little-india"] a:not(.tile)::after { background-image: url("art/singapore--little-india/map.svg"); }
+main[data-city="singapore/luang-prabang"] > .masthead::before, .dest[data-page="singapore/luang-prabang"] a:not(.tile)::after { background-image: url("art/singapore--luang-prabang/map.svg"); }
+main[data-city="singapore/malacca"] > .masthead::before, .dest[data-page="singapore/malacca"] a:not(.tile)::after { background-image: url("art/singapore--malacca/map.svg"); }
+main[data-city="singapore/mandai"] > .masthead::before, .dest[data-page="singapore/mandai"] a:not(.tile)::after { background-image: url("art/singapore--mandai/map.svg"); }
+main[data-city="singapore/manila"] > .masthead::before, .dest[data-page="singapore/manila"] a:not(.tile)::after { background-image: url("art/singapore--manila/map.svg"); }
+main[data-city="singapore/marina-bay"] > .masthead::before, .dest[data-page="singapore/marina-bay"] a:not(.tile)::after { background-image: url("art/singapore--marina-bay/map.svg"); }
+main[data-city="singapore/marine-parade"] > .masthead::before, .dest[data-page="singapore/marine-parade"] a:not(.tile)::after { background-image: url("art/singapore--marine-parade/map.svg"); }
+main[data-city="singapore/newton-novena"] > .masthead::before, .dest[data-page="singapore/newton-novena"] a:not(.tile)::after { background-image: url("art/singapore--newton-novena/map.svg"); }
+main[data-city="singapore/old-airport-road"] > .masthead::before, .dest[data-page="singapore/old-airport-road"] a:not(.tile)::after { background-image: url("art/singapore--old-airport-road/map.svg"); }
+main[data-city="singapore/penang"] > .masthead::before, .dest[data-page="singapore/penang"] a:not(.tile)::after { background-image: url("art/singapore--penang/map.svg"); }
+main[data-city="singapore/phnom-penh"] > .masthead::before, .dest[data-page="singapore/phnom-penh"] a:not(.tile)::after { background-image: url("art/singapore--phnom-penh/map.svg"); }
+main[data-city="singapore/potong-pasir-macpherson"] > .masthead::before, .dest[data-page="singapore/potong-pasir-macpherson"] a:not(.tile)::after { background-image: url("art/singapore--potong-pasir-macpherson/map.svg"); }
+main[data-city="singapore/punggol"] > .masthead::before, .dest[data-page="singapore/punggol"] a:not(.tile)::after { background-image: url("art/singapore--punggol/map.svg"); }
+main[data-city="singapore/queenstown"] > .masthead::before, .dest[data-page="singapore/queenstown"] a:not(.tile)::after { background-image: url("art/singapore--queenstown/map.svg"); }
+main[data-city="singapore/siem-reap"] > .masthead::before, .dest[data-page="singapore/siem-reap"] a:not(.tile)::after { background-image: url("art/singapore--siem-reap/map.svg"); }
+main[data-city="singapore/southern-ridges"] > .masthead::before, .dest[data-page="singapore/southern-ridges"] a:not(.tile)::after { background-image: url("art/singapore--southern-ridges/map.svg"); }
+main[data-city="singapore/tiong-bahru"] > .masthead::before, .dest[data-page="singapore/tiong-bahru"] a:not(.tile)::after { background-image: url("art/singapore--tiong-bahru/map.svg"); }
+main[data-city="singapore/toa-payoh"] > .masthead::before, .dest[data-page="singapore/toa-payoh"] a:not(.tile)::after { background-image: url("art/singapore--toa-payoh/map.svg"); }
+main[data-city="singapore/upper-serangoon"] > .masthead::before, .dest[data-page="singapore/upper-serangoon"] a:not(.tile)::after { background-image: url("art/singapore--upper-serangoon/map.svg"); }
+main[data-city="singapore/upper-thomson"] > .masthead::before, .dest[data-page="singapore/upper-thomson"] a:not(.tile)::after { background-image: url("art/singapore--upper-thomson/map.svg"); }
+main[data-city="singapore/yangon"] > .masthead::before, .dest[data-page="singapore/yangon"] a:not(.tile)::after { background-image: url("art/singapore--yangon/map.svg"); }
+main[data-city="singapore/yogyakarta"] > .masthead::before, .dest[data-page="singapore/yogyakarta"] a:not(.tile)::after { background-image: url("art/singapore--yogyakarta/map.svg"); }
+main[data-city="statecollege"] > .masthead::before, .dest[data-page="statecollege"] a:not(.tile)::after { background-image: url("art/statecollege/map.svg"); }
+main[data-city="tokyo"] > .masthead::before, .dest[data-page="tokyo"] a:not(.tile)::after { background-image: url("art/tokyo/map.svg"); }
+main[data-city="vietnam/hanoi"] > .masthead::before, .dest[data-page="vietnam/hanoi"] a:not(.tile)::after { background-image: url("art/vietnam--hanoi/map.svg"); }
+main[data-city="vietnam/ho-chi-minh-city"] > .masthead::before, .dest[data-page="vietnam/ho-chi-minh-city"] a:not(.tile)::after { background-image: url("art/vietnam--ho-chi-minh-city/map.svg"); }
+main[data-city="vietnam/hoi-an"] > .masthead::before, .dest[data-page="vietnam/hoi-an"] a:not(.tile)::after { background-image: url("art/vietnam--hoi-an/map.svg"); }
+main[data-city="washingtondc"] > .masthead::before, .dest[data-page="washingtondc"] a:not(.tile)::after { background-image: url("art/washingtondc/map.svg"); }
+main[data-city="wheeling"] > .masthead::before, .dest[data-page="wheeling"] a:not(.tile)::after { background-image: url("art/wheeling/map.svg"); }
+main[data-city="youngstown"] > .masthead::before, .dest[data-page="youngstown"] a:not(.tile)::after { background-image: url("art/youngstown/map.svg"); }
