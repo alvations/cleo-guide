@@ -255,7 +255,8 @@ const PROBE = () => {
     const px = parseFloat(cs.fontSize);
     if (px < minPx && !el.closest('.vh, .sr-only')) { minPx = px; minEl = desc(el); }
     if (fontSample.length < 400) fontSample.push(el);
-    // contrast
+    // contrast (WCAG 1.4.3 exempts text in an inactive UI component: a disabled control is not graded)
+    if (el.closest('button:disabled, input:disabled, select:disabled, [aria-disabled="true"]')) continue;
     const fg = parseRGB(cs.color); if (!fg) continue;
     const { bg, unknown } = bgOf(el);
     if (unknown) { contrastUnknown++; continue; }
