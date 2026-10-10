@@ -120,6 +120,46 @@ measured miss is **B-03 = 15 on Tokyo and New York** (FE-A A9). "Same league" on
 - **D13** Vietnamese letters U+1EA0–1EF1 (ạ, ả, ấ…) are outside the Bodoni/Figtree latin-ext subsets and fall back to
   the system serif and sans. A Vietnamese subset is not offered for Bodoni Moda. Stated, not hidden (UX-23).
 
+
+## Pass 2 — 2026-10-10 09:40 UTC (head after QA `4850d7b`, FE-B `c24c870`)
+
+Checked with my harness and **QA's `npm run beta:metrics`** (pilot set, light and night, all off-origin requests blocked).
+FE-A has pushed nothing since pass 1, so A1–A8 are unchanged.
+
+| Row | Landing | Cleveland | Tokyo | New York | Chinatown | Wheeling |
+|---|---|---|---|---|---|---|
+| B-01 first card | — | 0.69 ✅ | 0.81 ✅ | 0.70 ✅ | 0.72 ✅ | 0.77 ✅ |
+| B-03 ≤ 14 | — | 13 ✅ | **15 ❌** | **15 ❌** | 12 ✅ | 14 ✅ |
+| B-16 cards/screen | — | 2.32 ✅ | 2.56 ✅ | 2.35 ✅ | 2.46 ✅ | 2.04 ✅ |
+| B-18 families | 2 ✅ | 2 ✅ | 2 + CJK ✅ | 2 ✅ | 2 ✅ | 2 ✅ |
+| B-19 upper | 0 % ✅ | 0 % ✅ | 0.3 % ✅ | 0.1 % ✅ | 0 % ✅ | 7.3 % ✅ |
+| B-20 / B-21 / B-22 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **B-23 contrast, light + night** | **✅ (was 25 fails)** | **✅ (was 3)** | **✅ (was 5)** | **✅ (was 3)** | **✅ (was 2)** | **✅ (was 3)** |
+| B-12 closed with glyph | — | 0/13 ✅ | 0/1 ✅ | 0/0 ✅ | 0/0 ✅ | 0/1 ✅ |
+| G4 0 JS errors | ✅ | ❌ 416 | ❌ 1002 | ❌ 1042 | ❌ 48 | ❌ 105 |
+
+**Fixed in CSS this pass (design):**
+- **QA-01 (night unreadable): resolved.** QA's night contrast is 0 failures on every pilot. Its report predates
+  `cd1eaf5`, the first commit that shipped the real stylesheet.
+- **QA-07 (font system): resolved** since `cd1eaf5`. Self-hosted Bodoni Moda + Figtree, with form controls set to `font: inherit`.
+- Method notes (`.method h2/h3`) were on-night ink on light paper, at 1.03–1.09:1 on every city page. They now use ink on
+  paper, and keep on-night only inside a night footer.
+- Landing "More in Singapore" list: `.dest-n` used on-night ink on white (1.16:1). The card-style destination rules
+  are now scoped to `.dests`.
+- Landing night edition: the hero's italic word used `--gilt-soft`, which goes dark at night (1.48:1). It now uses light gilt.
+- The on-night top bar now paints its own night ground, so the brand never depends on what sits behind it.
+
+**New defect — FE-A / platform:**
+- **A10 (blocker, G4).** With Leaflet mounted (desktop, tiles stubbed by QA), every city page throws hundreds of
+  `Cannot read properties of undefined (reading 'appendChild' | 'intersects')` errors. That points to markers being
+  added before or after the map's renderer exists, or a `circleMarker` on a removed map. It is not CSS: the map
+  container has its size at mount. Evidence: `qa/beta-metrics.json` → `desktop.errors`. My own harness aborts the
+  tile requests, so it does not reach this path, which is why pass 1 showed 0 errors.
+
+**Verdict (pass 2).** Look: same league on all 8 pages, unchanged. M1: still **not yet**. All design rows pass except
+B-03 on Tokyo and NYC (FE-A A9). The rest of M1 waits on FE-A (sheet, tray, map toggle, numbers, glyph link, area
+colours) and the A10 JS errors.
+
 ## Next review
 
 Next pass after FE-A lands A1–A6 (or in about 45 minutes): the same harness, plus the sheet, tray and map toggle states.
