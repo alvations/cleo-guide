@@ -86,9 +86,15 @@
     store.set('view', v);
     const r = Cleo.route.parse(); delete r.pg; delete r.all; r.view = v;
     const h = Cleo.route.href(r);
-    show(v, { user: 1 });                                          // first, so the hashchange below sees no change to undo
-    if (h === '#') { try { history.pushState(null, '', location.pathname + location.search); } catch (x) {} }
-    else location.hash = h;
+    const go = () => {
+      show(v, { user: 1 });                                        // first, so the hashchange below sees no change to undo
+      if (h === '#') { try { history.pushState(null, '', location.pathname + location.search); } catch (x) {} }
+      else location.hash = h;
+    };
+    // W4 (#5, DES ask): a reader's switch cross-fades through a view transition where the browser has one and motion is
+    // allowed; otherwise (and under reduced motion, which every QA harness uses) the switch stays synchronous.
+    if (d.startViewTransition && C.moves && C.moves()) { try { d.startViewTransition(go); return; } catch (x) {} }
+    go();
   });
   // the map lives in Atlas: outside it, a map button ("Map", "See these n on the map") is a switch to Atlas
   d.addEventListener('click', e => {
