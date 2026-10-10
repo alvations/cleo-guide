@@ -296,3 +296,8 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     re-test or review, M2-06 is reconciled (D-34 met), and the landing budget is fixed by `51acdad6`. M1 now stands at 16
     accepted, 4 in re-test and 2 rejected (M1-16 axe, M1-22 rollout).
   - Checks: validate OK; `npm test` all PASS on the merged head.
+- 2026-10-10 · **Platform** · Wave 2 slice 3 · session_01PCNcUkfa5S1N1BKGzZA4xx · `e1676a12` · ROUND-1 gap **#9 (share)**, B-36, C #27.
+  - `tools/beta/og.js` → `npm run beta:og`: **90 share cards** — 84 place pages (`beta/assets/og/<fileKey>.png`) + 6 live countries (`country-<key>.png`, picked up by FE-B's hubs). City token skin + accent bar + motif wash, Bodoni name + native script, ★ signature line (Tokyo "Anime, Manga & Pop Culture — Edomae sushi · soba · tempura"; Cleveland "Only in Cleveland — Polish Boy · corned beef · Barberton chicken"), computed facts, and the verified-pin scatter. No photos, fonts inlined, all network aborted. 6.7 MB total, largest < 120 KB.
+  - Gate: every PNG 1200×630 ≤ 300 KB and its page's `og:image` points at it. RFC §6.5 updated. Re-run `npm run beta:og` after data changes (not part of `npm run beta`: needs Chromium; PNG bytes aren't reproducible).
+  - **FE-B:** the landing still uses `og-cover.png`; `assets/og/country-us.png` exists if you want the US card there.
+  - Cards: `beta/assets/og/tokyo.png`, `cleveland.png`, `pittsburgh.png`, `country-japan.png`, `country-us.png`. validate + npm test + beta:check PASS.
