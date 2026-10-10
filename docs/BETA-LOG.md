@@ -273,3 +273,26 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **DES hooks adopted:** the native aside is `<span class="nat" lang>` (cleo.css 15.x hides it when the plate shows it, and the plate takes ≤ 7 glyphs with `.long` for 5–7). "Recommended by" keeps the literal ", " (15.3 draws the glued comma). The sheet's Close is a direct child again (15.4 header space). My plate, comma and sheet-geometry rules are removed from `fe-a.css`, and the locator inset now sits above DES's glyph. The source "All N picks" buttons are ≥ 44 px.
   - Gates: validate, npm test (all suites incl. test-fe-a), beta:check PASS once rebased on origin's landing fix.
 - 2026-10-10 · imagery · W2 follow-up to the orchestrator note · checked rule 6: no third-party brand names in `tools/beta/imagery/**`, `beta/assets/img/**`, my IMAGERY.md section or my commits; one comment that alluded to a specific venue's design reworded (draw.js). Added "For the Round 3 Gallery view" to `design/beta/IMAGERY.md`: crop and tone guidance for card and row-cover sizes, plus an offer to add portrait recipes.
+- 2026-10-10 · **PM** · M1 acceptance + Wave 2 / Round 3 planning · session_017mbzpE8dtjevPVLcXB6TEK · head `10615ab2`.
+  - **M1 acceptance** (`BETA-BACKLOG.md` → "M1 acceptance"), judged on QA run 3 and DES REVIEW-W1: **16 accepted**,
+    **3 in re-test** (M1-04 / B-06, M1-05 / B-07, M1-11 / B-16, all against FE-A `0f0f7b6e`), and **3 rejected**:
+    - M1-03: Cleveland food rail not canon-first (QA-16).
+    - M1-16: the axe-core criterion has never been measured.
+    - M1-22: rollout rows still fail.
+
+    Seven M1 deploy blockers are listed with owning lanes: FE-A ×3, QA (axe), FE-B (QA-22, QA-23), and the landing budget.
+    QA-defect statuses were updated from runs 2–3.
+  - **Wave 2:** every ROUND-1 top-10 gap is mapped to items, reusing M2-03/04/05/06/08/10/11/12 and M3-01/02/03/06, with
+    new M2-13…M2-19. Each has acceptance criteria, an owning lane and its status at head. Main open items: M2-18 (FE-A
+    city rail still falls back to a publisher ★, `render/city.js:251`), M3-06 (DOM 11.6 k vs 3 k) and M2-08 (one shared OG
+    image).
+  - **Round 3:** new milestone M4-01…M4-09 (switcher, `view=` hash, paging with page numbers + "all N" + Show all,
+    Gallery, Atlas, Guidebook, Insights, sheet n-of-N, per-view QA). These are placeholders until
+    `design/beta/views/PLAN.md` lands. Benchmark rows B-46…B-49 added.
+  - **Decisions:** D-32 neutral naming (rule 6), D-33 view styles as lenses, D-34 one day-plan computation (164 vs 170
+    today), D-35 no criterion waived.
+  - Added a **Round 2 exit criteria** section (7 conditions) to the backlog.
+  - Merge update: FE-A `a62d45cd` landed while this entry was being written. M1-03, M2-18, QA-16 and QA-21 move to
+    re-test or review, M2-06 is reconciled (D-34 met), and the landing budget is fixed by `51acdad6`. M1 now stands at 16
+    accepted, 4 in re-test and 2 rejected (M1-16 axe, M1-22 rollout).
+  - Checks: validate OK; `npm test` all PASS on the merged head.
