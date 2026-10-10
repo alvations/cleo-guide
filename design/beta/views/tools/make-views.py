@@ -616,11 +616,16 @@ def insights(page):
     c6 = card_chart('tier', 'The tier ladder per area', 'Open places by tier. Tiers are graded within each area, so every area has its own must-sees.',
                     hbar_stack(trows, tser, 'Area', lambda a, t: f'{G}&amp;a={a}&amp;t={t}', 'tier'),
                     f'{len(cl)} closed places carry no tier and are counted in the closures card instead.')
+    idx = ''.join(f'<section class="ix"><h3 class="d3"><i style="background:{page.colors.get(a, "#888")}"></i>{e(page.area_short(a))} <span class="meta">{len(lst)}</span></h3><ul>' +
+                  ''.join(f'<li {data_attrs(p)} class="ixi"><a href="{page.key}-guidebook.html#p-{e(p["id"])}">{e(p["dn_lat"])}</a>{"" if p["open"] else " <span class=\"flag closed\">Closed</span>"}</li>' for p in lst) +
+                  '</ul></section>' for a, lst in page.by_area.items() if lst)
+    index_ = f'<section class="icard ixall" aria-labelledby="ix-t"><h2 class="d3" id="ix-t">All {page.N} places</h2><p class="sub">Every place the charts count, by area in rank order. Each opens its entry.</p><div class="ixg">{idx}</div></section>'
     body = (head(page, 'insights', f'{page.name} · Insights — cleo beta mockup') + topbar(page, 'insights') +
             f'''<main id="main" class="ins" data-city="{page.key}"><div class="wrap">
 <header class="ins-h"><h1 class="d2">{e(page.name)} in numbers</h1>{countline(page)}
 <p class="sub">Every number below is computed from the {page.N} places in this guide. Every chart accounts for all of them, and every bar opens those places in the Gallery.</p></header>
-{tiles_h}<div class="igrid">{c1}{c2}{c3}{c3b}{c4}{c5}{c6}</div></div></main>''' + foot(page))
+{tiles_h}<div class="igrid">{c1}{c2}{c3}{c3b}{c4}{c5}{c6}</div>{index_}</div></main>''' + foot(page))
+    assert body.count('class="ixi"') == page.N, 'insights index lost records'
     return body
 
 

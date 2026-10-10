@@ -237,13 +237,13 @@ function render(row, recs, ctx) {
   if (missing.length) throw new Error(`${row.beta}: collection rail would drop ${missing.map(c => c.id)}`);   // M1-02: no silent drop
   // home modules (M2-11, M2-05, M2-06, M3-02, M2-10) — only from fields that exist; they sit right after ★ in the rail
   const firstDay = areas.find(a => days[a.id]);
-  const mods = [`<button type="button" class="rail-i mod fy" data-cleo-foryou aria-haspopup="dialog"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg><span class="k">Your guide</span><span class="t">For you</span><span class="d">Tell it what you love</span></button>`];
-  if (firstDay) mods.push(`<button type="button" class="rail-i mod" data-cleo-day=""><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg><span class="k">Your day</span><span class="t">A day in ${esc(areaSplit(firstDay.n)[0])}</span><span class="d">${days[firstDay.id].length} stops · ${Object.keys(days).length === 1 ? '1 area' : Object.keys(days).length + ' areas'} planned</span></button>`);
+  const mods = [`<button type="button" class="rail-i door fy" data-cleo-foryou aria-haspopup="dialog"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg><span class="k">Your guide</span><span class="t">For you</span><span class="d">Tell it what you love</span></button>`];
+  if (firstDay) mods.push(`<button type="button" class="rail-i door" data-cleo-day=""><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg><span class="k">Your day</span><span class="t">A day in ${esc(areaSplit(firstDay.n)[0])}</span><span class="d">${days[firstDay.id].length} stops · ${Object.keys(days).length === 1 ? '1 area' : Object.keys(days).length + ' areas'} planned</span></button>`);
   const iFree = tiles.findIndex(t => t.key === 'c' && t.id === 'FREE');
   const free = iFree >= 0 ? tiles.splice(iFree, 1)[0] : null;
-  if (free) free.cls = 'mod';
-  mods.push(`<button type="button" class="rail-i mod mine" data-cleo-mine aria-pressed="false" hidden><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg><span class="k">Your list</span><span class="t">Saved here</span><span class="n" data-cleo-mine-n>0</span></button>`);
-  if (recs.some(r => r.la != null)) mods.push(`<button type="button" class="rail-i mod" data-cleo-near aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-locate"/></svg><span class="k">Near me</span><span class="t">Nearest first</span><span class="d">Asks once · never stored</span></button>`);
+  if (free) free.cls = 'door';
+  mods.push(`<button type="button" class="rail-i door mine" data-cleo-mine aria-pressed="false" hidden><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg><span class="k">Your list</span><span class="t">Saved here</span><span class="n" data-cleo-mine-n>0</span></button>`);
+  if (recs.some(r => r.la != null)) mods.push(`<button type="button" class="rail-i door" data-cleo-near aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-locate"/></svg><span class="k">Near me</span><span class="t">Nearest first</span><span class="d">Asks once · never stored</span></button>`);
   const nClosed = cnt(r => r.closed);
   const closedTile = nClosed ? `<button type="button" class="rail-i gap" data-closed="1" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-archive"/></svg><span class="k">Kept for the record</span><span class="t">Recently closed</span><span class="n${nClosed === 1 ? ' one' : ''}">${nClosed}</span></button>` : '';
   const gaps = statedGaps(page);
@@ -279,7 +279,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   const cardsHtml = sections.join('\n');
 
   /* -- sprite: only the glyphs this page uses -- */
-  const used = new Set(['map', 'list', 'sliders', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive']);
+  const used = new Set(['map', 'list', 'sliders', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive', 'castle', 'bowl', 'tv', 'mountain', 'columns']);
   tiles.forEach(t => t.g && used.add(t.g));
   for (const mm of cardsHtml.matchAll(/data-gl="([a-z0-9-]+)"/g)) used.add(mm[1]);
   const sprite = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">${[...used].filter(k => ICONS[k]).sort().map(k => `<symbol id="i-${k}" viewBox="0 0 24 24">${ICONS[k]}</symbol>`).join('')}</svg>`;
@@ -297,6 +297,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     gaps: gaps.map(g => [g.title, g.text, g.cz]),
     fy: interests(recs, page),                                  // [id, label, n, ['c:ID' | 'cz:ID' | 'k:f']]
     days,                                                       // {AREA: [place ids in walking order]} — platform guide.days.plans
+    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day },  // loaded on first use by city.js (C.need), precached by the SW
     dl: gd.label || '', dsk: gd.skipped || {},                  // D-14 label; per-area reason when no day is planned
     sig: sig && sig.kind !== 'collection' ? { t: sig.title, line: sig.line || '', why: sig.why || '', ids: sig.ids, dishes: (sig.dishes || []).map(x => [x.t, x.n]) } : null,
     co: (G.closed || []).map(x => x.id),                        // Recently closed: newest status check first (R-23)
@@ -382,8 +383,6 @@ ${footer({ depth, liveRel: row.live, notes: page.notes })}
 <script type="application/json" id="cleo-city">${jsonInline(blob)}</script>
 <script src="${up}assets/js/city.js?v=${ctx.assetsV.city}" defer></script>
 <script src="${up}assets/js/sheet.js?v=${ctx.assetsV.sheet}" defer></script>
-<script src="${up}assets/js/foryou.js?v=${ctx.assetsV.foryou}" defer></script>
-<script src="${up}assets/js/day.js?v=${ctx.assetsV.day}" defer></script>
 </body>
 </html>
 `;

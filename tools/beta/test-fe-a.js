@@ -24,6 +24,8 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 function boot(page, { hash = '', storage = 'ok', mobile = false, geo = null, seed = null } = {}) {
   let html = fs.readFileSync(path.join(BETA, page), 'utf8').replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
     (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
+  // foryou.js / day.js load on first use (C.need); jsdom fetches nothing, so the harness inlines them like a browser would
+  if (/data-cleo-page="city"/.test(html)) html = html.replace('</body>', ['foryou', 'day'].map(n => '<script>' + fs.readFileSync(path.join(BETA, 'assets/js', n + '.js'), 'utf8') + '</script>').join('') + '</body>');
   const errs = [];
   const dom = new JSDOM(html, {
     runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + page + hash,
@@ -54,9 +56,10 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     const info = JSON.parse(d.getElementById('cleo-city').textContent);
     const known = new Set(['k:f'].concat(data.collections.map(c => 'c:' + c.id), data.cuisines.map(c => 'cz:' + c.id)));
     chk(`${page}: every interest maps to collection/cuisine ids that exist (no keywords)`, (info.fy || []).length > 0 && info.fy.every(f => f[3].length && f[3].every(x => known.has(x))), (info.fy || []).map(f => f[0]));
+    if (w.Cleo.defer) w.Cleo.defer.all();                          // progressive render (M3-06): compare the full record set
     const before = ids(d).sort(), o0 = order(d).join();
     d.querySelector('[data-cleo-foryou]').click(); await sleep(10);
-    [...d.querySelectorAll('#cleo-fy .pill')].slice(-2).forEach(b => b.click());
+    [...d.querySelectorAll('#cleo-fy .interest')].slice(-2).forEach(b => b.click());
     d.querySelector('[data-fy="go"]').click(); await sleep(30);
     const after = ids(d).sort();
     chk(`${page}: same ${before.length} places before and after`, before.join() === after.join(), [before.length, after.length]);
@@ -122,10 +125,10 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     await sleep(100);
     const n0 = ids(d).length;
     d.querySelector('[data-cleo-near]').click(); await sleep(40);
-    const km = [...d.querySelectorAll('li.pl .pl-km')];
+    const km = [...d.querySelectorAll('li.pl .pl-dist')];
     chk('distance on every pinned card', km.length === d.querySelectorAll('li.pl[data-ll]').length, km.length);
     const first = d.querySelector('section.area li.pl');
-    chk('nearest place comes first', /^· \d+ m away$/.test(first.querySelector('.pl-km').textContent), first.querySelector('.pl-km').textContent);
+    chk('nearest place comes first', /^\d+ m away$/.test(first.querySelector('.pl-dist').textContent), first.querySelector('.pl-dist').textContent);
     chk('record set unchanged', ids(d).length === n0);
     let stored = ''; try { for (let i = 0; i < w.localStorage.length; i++) stored += w.localStorage.getItem(w.localStorage.key(i)); } catch (e) {}
     chk('position never stored', !/35\.71|139\.79/.test(stored));
@@ -148,8 +151,8 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
   {
     const { d, w, errs } = boot('saved.html', { hash: '#list=tokyo:senso-ji,kanda-myojin,no-such-place&n=Weekend' });
     await sleep(300);
-    chk('two known places render as cards', d.querySelectorAll('.sv-c').length === 2, d.querySelectorAll('.sv-c').length);
-    chk('unknown id reported, not dropped', /no-such-place/.test((d.querySelector('.sv-gone') || {}).textContent || ''));
+    chk('two known places render as cards', d.querySelectorAll('.saved-cards li.pl').length === 2, d.querySelectorAll('.saved-cards li.pl').length);
+    chk('unknown id reported, not dropped', /no-such-place/.test((d.querySelector('.saved-cards .gone') || {}).textContent || ''));
     chk('read-only: no save buttons, a Save a copy button', !d.querySelector('[data-sv="save"]') && !!d.querySelector('[data-sv="copy"]'));
     d.querySelector('[data-sv="copy"]').click(); await sleep(300);
     const lists = w.Cleo.store.get('lists', []);
