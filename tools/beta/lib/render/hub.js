@@ -9,6 +9,7 @@ const { esc } = require('../html');
 const { head, siteBar, footer, styles } = require('./common');
 const { site, icon } = require('./shell');
 const { fmt, sumStats } = require('../stats');
+const { motifSvg } = require('../../imagery');                   // imagery lane: per-city / per-country motif art
 
 // ---------------------------------------------------------------- per-city facts (all derived from data)
 const SKINS = ['vermilion', 'lake', 'moss', 'neon', 'lagoon', 'glacier', 'saffron', 'plum'];
@@ -83,7 +84,7 @@ function cityTile(row, i, { up = '', art = true, lg = false } = {}) {
     ? `<span class="star">${icon('star4', 'ico sm')}${esc(f.star.name)} · ${f.star.n}</span>`
     : f.canon.length ? `<span class="canon">${f.canon.map(c => `<span>${esc(c)}</span>`).join('')}</span>` : '';
   return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}" class="tile${lg ? ' lg' : ''}${sk.cls}"${sk.attr}>
-<span class="art">${art ? starfield(row.recs || []) : ''}${f.native ? `<span class="native">${esc(f.native)}</span>` : ''}<span class="bar"></span></span>
+<span class="art">${motifSvg(row.imagery && row.imagery.motif, up)}${art ? starfield(row.recs || []) : ''}${f.native ? `<span class="native">${esc(f.native)}</span>` : ''}<span class="bar"></span></span>
 <span class="txt"><h3>${esc(f.name)}</h3>
 <span class="counts"><span class="dest-c">${fmt(f.n)} places<span class="hide-m"> · ${fmt(f.P)} sights · ${fmt(f.F)} to eat &amp; drink</span></span></span>
 ${sig}</span></a></li>`;
@@ -137,7 +138,7 @@ function render(row, reg, ctx, { c, main, more, all, groups }) {
 <body class="has-tabbar">
 ${siteBar({ depth, current: 'hub', rel: row.beta })}
 <main id="main" class="feb">
-<section class="masthead" aria-labelledby="cn"><div class="inner">
+<section class="masthead" aria-labelledby="cn">${motifSvg(c.imagery && c.imagery.motif, up, { fit: 'xMaxYMax meet', style: 'position:absolute;inset:0;width:100%;height:100%;z-index:-3;opacity:.55;-webkit-mask-image:linear-gradient(90deg,transparent 30%,#000 65%);mask-image:linear-gradient(90deg,transparent 30%,#000 65%)' })}<div class="inner">
   <h1 class="title d1" id="cn">${esc(c.name)}</h1>
   <p class="facts"><b>${all.length} ${all.length === 1 ? 'guide' : 'guides'} · ${fmt(n)} places</b> · ${fmt(P)} sights · ${fmt(F)} to eat &amp; drink${checked ? ` · status last checked ${esc(checked)}` : ''}. <a href="${up}how-we-choose.html">How we choose</a></p>
   ${c.blurb ? `<p class="facts">${esc(c.blurb)}</p>` : ''}

@@ -68,3 +68,66 @@ promise visible: *every star is a place someone credible recommended and we pinn
   itself is platform's `lib/art.js`. **C**: tier glyphs shipped (`beta/assets/glyphs/`, `.tg`).
 - **D stays gated**: no photograph on any beta page; `beta/assets/` holds no raster venue image (`og-cover.png` is the
   generic brand card). Commons waits for LP-02.
+
+## Wave 2 — imagery lane (2026-10-10): original motifs now, photos the moment the owner drops them in
+
+> Lane: imagery · owns `beta/assets/img/**` and `tools/beta/imagery/**` · closes ROUND-1 gap #1 as far as the
+> network policy allows. Wikimedia hosts and WebFetch are **blocked** here; nothing was fetched and nothing routes
+> around that.
+
+### C+. Original motif art — shipped
+
+- **What:** an original SVG illustration for **every place page (84), every country (11) and 18 collection subjects**
+  (food canon, landmarks, pop culture, outdoors, art, temples, history, views, markets, night, water, free, family,
+  oddities, onsen, sport, craft, campus). Each is a faint repeating ground + a line-art horizon + one accent stroke in
+  the city's skin colour, e.g. Tokyo = wave scales + a generic skyline + a shrine gate + a rising sun; Cleveland = lake
+  swell + a truss bridge + a lakefront skyline; Pittsburgh = two rivers + two steel arches; Bruges = stepped gables +
+  canal + boat; Chinatown SG = encaustic tiles + shophouse terrace + lanterns.
+- **Honest by construction:** subjects are generic (a pagoda, a truss bridge), never a drawing of a specific venue;
+  every file's `<desc>` says so. No raster, no external reference, no script (tested).
+- **Made by code:** `tools/beta/imagery/draw.js` (vocabulary) + `motifs.js` (recipes, seeded per key, so a build
+  is deterministic and no two cities share a line). Accents are parsed from `beta/assets/tokens.css` skins, so a skin
+  change re-colours the art.
+- **Two tones:** `<name>.svg` for the night ground (tiles, mastheads); `<name>.ink.svg` for paper (rail covers), which
+  flips to cream under `prefers-color-scheme: dark`. 226 files, ≤ 6 KB each, loaded as images (0 bytes inline).
+- **Where it shows now:** every hub/landing city tile (under the pin star-field), every country hub hero, every city
+  masthead (right-anchored, masked away from the text). Collection covers are in the index for FE-A's rail.
+- **How to use it (FE lanes):** `require('tools/beta/imagery').motifSvg(row.imagery.motif, up, {fit, style, tone})`
+  returns a decorative `<svg><image href>` layer. Model: `row.imagery.motif`, `country.imagery.motif`,
+  `reg.imagery.collections[kind]` + `reg.imagery.collectionKind(id, name)`; static index
+  `beta/assets/img/motifs/index.json`. **Do not** put the URLs in a CSS custom property (`--motif:url(…)`): Chromium
+  resolves such a url() against the stylesheet, other browsers against the page.
+
+| Hub (Japan, desktop) | Landing tiles | Contact sheet (every motif, night + ink) |
+|---|---|---|
+| ![](eval/w2/imagery/hub-japan-d.jpg) | ![](eval/w2/imagery/landing-d.jpg) | ![](eval/w2/imagery/motif-sheet.jpg) |
+
+### D. The photo path — wired, waiting for files
+
+1. **Manifest (the shopping list).** `tools/beta/imagery/manifest.js` reads `data/geocodes.json` read-only through
+   the beta model and writes `beta/assets/img/manifest.json`: every beta record whose verified-coordinate source cites
+   a Wikipedia article — `{page, id, name, kind, status, country, lang, title, url, cite, match, qid, eligible}`.
+   Today: **3,465 records** (1,278 with an exact article URL, 746 with the title written, 1,441 "Wikipedia" without a
+   title); **2,901 eligible** for a photo. Not eligible: 23 closed, 85 in Vietnam (no freedom of panorama), 456 food
+   places. `match: related` flags an article that may be a containing place (a hawker centre for a stall).
+2. **Credits.** `beta/assets/img/CREDITS.json` (owner-edited, never generated) — schema in the file:
+   `{file, record:{page,id}, title?, depicts, author, sourceUrl, licence, licenceUrl, modified?, width?, height?}`.
+3. **Build hook.** `imagery.build()` (called once from `tools/beta/build.js`) gates every photo; a card renders
+   `<figure class="photo pl-photo">` with a visible TASL `<figcaption>` **only** when the local file exists under
+   `beta/assets/img/photos/` **and** its credit row is complete. Otherwise the card keeps its plate and the page its motif.
+4. **Refusals (build and `npm test`):** a photo file without a credit row; a credit whose file is missing; any missing
+   TASL field; a non-https source/licence URL; a licence that is not CC0 / PD / CC BY / CC BY-SA (NC and ND refused);
+   a record not on its page; a **closed** place (never a "go here today" photo); any place in **Vietnam**.
+   Test: `tools/beta/imagery/test-imagery.js` (in `npm test`).
+
+### Dropping in photos (owner)
+
+1. Pick a row from `beta/assets/img/manifest.json` with `eligible: true` (prefer `cite: url`, `match: same`).
+2. Open the article, then its lead image's Commons file page. Check: it shows **this** place; the licence is CC0, PD,
+   CC BY or CC BY-SA; no identifiable people; freedom of panorama holds for the country (US/JP: buildings yes, modern
+   public art no; SG: no 2D works; DE/BE: permanent works in public places).
+3. Save a ~960 px-wide copy (≤ 120 KB, `.webp`/`.jpg`/`.png`) as `beta/assets/img/photos/<page>--<id>-960.webp`
+   (`/` in a page key becomes `--`).
+4. Add its row to `CREDITS.json` → `credits` (author exactly as credited; `sourceUrl` = the Commons file page;
+   `modified` if you cropped — BY-SA stays BY-SA).
+5. `cd tools && npm run beta && npm test`. A failing row names the exact problem.
