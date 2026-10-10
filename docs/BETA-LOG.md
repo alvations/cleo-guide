@@ -116,3 +116,10 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     (`qa/beta-shots/cities__tokyo.night.mobile.jpg`).
   - **QA sign-off: NO for M1** (see `docs/BETA-QA.md`). Evidence: `qa/beta-metrics.{json,md}`, `qa/beta-metrics-all.md`,
     `qa/beta-harness-summary.json`, `qa/beta-shots/`. Commit: see git log for this entry.
+- 2026-10-10 · QA · Build wave 1 run 2 · session_01PCNcUkfa5S1N1BKGzZA4xx · M1-21, M1-22. Measured `b953141` (all 94 beta
+  pages on the new engine). Harness 94 pages / 282 loads **all PASS**; G1 reachability 84/84; beta == live everywhere.
+  Pilots score 17–18/24 M1 rows (run 1: Tokyo 14). QA-01 night blocker **fixed**; QA-02/03/06/07/08/09/11 fixed; QA-04 partly fixed.
+  New: QA-12…QA-18 (method headings and hub list names invisible, map 37 %, Cleveland rail order, Leaflet stress errors,
+  comma spacing). Harness refinements: on-screen contrast via `elementsFromPoint`, ancestor focus ring, load vs stress
+  errors, `.masthead`, split heuristic. **QA sign-off: NO for M1** (B-06/07/09/10/17 unbuilt; B-23; B-03 = 15).
+  Evidence: `qa/beta-metrics.{json,md}`, `qa/beta-metrics-all.md`, `qa/beta-harness-summary.json`, `qa/beta-shots/`.

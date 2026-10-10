@@ -119,3 +119,95 @@ engine, and even Tokyo fails B-03, B-06, B-07, B-09, B-10, B-17, B-18, B-19, B-2
 unreadable) blocks any deploy by itself, since it hits every OS-dark-mode visitor. The hard gates do hold: counts,
 reachability, attribution, closed-flagging, no-CDN render, storage and tiles. The beta is safe as data, but it isn't
 yet M1.
+
+---
+
+## 2026-10-10 · QA · Build wave 1 run 2 · session_01PCNcUkfa5S1N1BKGzZA4xx
+
+**State measured:** `b953141` (origin after FE-B/DES/PLT wave-1 merges). **All 94 beta pages now come from the new
+engine** (`npm run beta`: 581 files checked, 94 pages, 84 place pages, 8,458 places, beta == live).
+
+**Harness changes this run:** contrast now samples what's actually painted under on-screen text (`elementsFromPoint`),
+so a light header over a dark hero isn't a false failure. Focus counts a ring drawn on a close ancestor (`.pl:has(a:focus-visible)`).
+Load errors (G4) are split from errors raised by the machine-speed deep-link loop (reported as info). Masthead is
+measured on `.masthead`, not the shell header. The split-view check is now "map to the right of the cards"; run 2's
+Chinatown `split false` was a harness false negative (the screenshot shows a correct split).
+
+### Gates
+
+| Gate | Result | Evidence |
+|---|---|---|
+| G1 counts | **PASS**: generator, `test-beta.js` 84/84, `test-contract.js` **94/94 generated pages**, harness contract | `npm test` |
+| G1 reachability | **PASS on 84/84 place pages**: scroll, every deep link, search sample and JS-off all reach every record (Tokyo 488, NYC 508, Cleveland 194, Chinatown 16, Wheeling 35) | `qa/beta-metrics-all.md` |
+| G2 validate + test | **PASS** (incl. FE-B `test-hubs.js`, QA `test-contract.js`) | console |
+| G3 harness | **PASS**: 94 pages, 282 loads, **282 PASS, 0 WARN, 0 FAIL** | `qa/beta-harness-summary.json` |
+| G4 no-CDN | **PASS 94/94**, 0 load errors, 0 local 404 | metrics |
+| G6 attribution / closed | **PASS 84/84** (Cleveland 13 closed, all flagged, none tiered) | metrics, contract |
+| G8 storage | **PASS** | `test-contract.js` |
+| Tiles | **PASS 84/84**: OSM only by default, Esri on switch | metrics |
+
+### M1 criteria × pilot page
+
+| Criterion (target) | hub | `cleveland` | `tokyo` | `newyork` | `chinatown` | `wheeling` | All 94 pages |
+|---|---|---|---|---|---|---|---|
+| B-01 first card ≤ 1.0 screen | — | ✅ 0.69 | ✅ 0.81 | ✅ 0.70 | ✅ 0.72 | ✅ 0.77 | 84/84 |
+| B-02 masthead ≤ 506 px | — | ✅ 235 | ✅ 256 | ✅ 235 | ✅ 235 | ✅ 256 | 84/84 |
+| B-03 controls above ≤ 14 | — | ✅ 13 | ❌ **15** | ❌ **15** | ✅ 12 | ✅ 14 | 77/84 |
+| B-04 rail first screen | — | ✅ | ✅ ★ first | ✅ | ✅ | ✅ | 84/84 |
+| B-05 hub cards above fold ≥ 2 | ✅ 2 | — | — | — | — | — | 7/7 hubs |
+| B-06 split + sticky + sync | — | ❌ map 37 %, hover→pin ✗ | ❌ same | ❌ same | ❌ same | ❌ same | 0/84 |
+| B-07 map toggle + sheet | — | ❌ none | ❌ | ❌ | ❌ | ❌ | 0/84 |
+| B-08 floaters = 0 | — | ✅ | ✅ | ✅ | ✅ | ✅ | 84/84 |
+| B-09 numbered pins + ordering | — | ❌ | ❌ | ❌ | ❌ | ❌ | 0/84 |
+| B-10 tray + Show N | — | ❌ | ❌ | ❌ | ❌ | ❌ | 0/84 |
+| B-12 closed with tier = 0 | — | ✅ 0/13 | ✅ 0/1 | ✅ | ✅ | ✅ 0/1 | 84/84 |
+| B-16 cards/screen ≥ 2 | — | ✅ 2.32 | ✅ 2.56 | ✅ 2.35 | ✅ 2.46 | ✅ 2.04 | 84/84 |
+| B-17 sheet content + trap | — | ❌ | ❌ | ❌ | ❌ | ❌ | 0/84 |
+| B-18 ≤ 2 families | ✅ Bodoni Moda + Figtree | ✅ | ✅ | ✅ | ✅ | ✅ | 94/94 |
+| B-19 uppercase < 15 % | ✅ 0 % | ✅ 0 % | ✅ 0.3 % | ✅ 0.1 % | ✅ 0 % | ✅ 7.3 % | 94/94 |
+| B-20 targets < 44 = 0 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 94/94 |
+| B-21 smallest ≥ 12 px | ✅ 12 | ✅ 13 | ✅ 13 | ✅ 13 | ✅ 13 | ✅ 13 | 94/94 |
+| B-22 overflow 0 (360/390) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 94/94 |
+| B-23 AA light / night | ❌ 24 / 1 | ❌ 3 / 0 | ❌ 5 / 0 | ❌ 3 / 0 | ❌ 2 / 0 | ❌ 3 / 0 | 5/94 |
+| M1-16 focus visible | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 94/94 |
+| M1-16 landmarks, skip, names | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 94/94 |
+| Perf KB · DOM · FCP · FCP 4×¹ | 369 · 1,036 · 496 · 1,008 | 766 · 2,568 · 376 · 816 | 1,280 · **7,266** · 764 · 1,020 | 1,141 · **7,034** · 752 · 1,120 | 489 · 420 · 416 · 872 | 527 · 729 · 348 · 536 | — |
+| **Score** | 9/10 | 18/24 | 17/24 | 17/24 | 18/24 | 18/24 | |
+
+¹ FCP measured with 3 pages in parallel on a shared container, so it's noisy (Tokyo was 412 ms at 4× in a quieter run). Transfer
+now includes the two web fonts and `contract.css`.
+
+**Run 1 → run 2:** the hub went 8/10 → 9/10 and Tokyo 14/24 → 17/24. The four mirror pilots went from 5–7/23 to 17–18/24. QA-01 (night unreadable) is **fixed**:
+night contrast is 0 failures on all city pilots (1 on the hub). QA-02, QA-03, QA-06, QA-07, QA-08, QA-09 and QA-11 are **fixed** (re-measured
+above). QA-04 is **partly fixed** (15 on Tokyo/NYC, target 14). QA-05 is **open** (no sheet, tray, hover sync or numbered pins). QA-10 is open (DOM 7.3 k).
+
+### Count asserts (beta == live)
+
+Generator `PASS — 581 checked: 94 pages, 84 place pages, 8,458 places (beta == live)`; `test-beta.js` 84/84;
+`test-contract.js` 94/94 generated pages, each city page one card per live record with the sight/food split, unique ids,
+100 % attribution, closed flagged and tier-free; harness contract on every load. **0 records lost.**
+
+### New defects (run 2)
+
+| ID | Sev | Defect | Evidence | Lane |
+|---|---|---|---|---|
+| QA-12 | High | **Method section headings are invisible on every city page** (light theme): "How this guide was made" (`h2#method-h`, 1.09:1) and each note's `h3` (1.01–1.03:1) are cream text on the cream page. The styles look meant for a dark band that isn't rendered. 168 + 244 failures across 84 pages. | `qa/beta-shots/cities__tokyo.method.mobile.jpg` | DES (`cleo.css` / `contract.css`) |
+| QA-13 | High | **Hub "More in {country}" list: names are invisible** (`span.dest-n` 1.16:1, cream on white cards; 128 failures) and the counts read **"1 places"**. Masthead also reads "1 areas" on single-area towns (Chinatown). | hub mobile scroll; `qa/beta-metrics.json` → `contrastFailList` | FE-B (hub), FE-A (masthead plural) |
+| QA-14 | Med | **Night hero: italic "know" is 1.48:1** (dark olive on navy). | `qa/beta-shots/index.night.mobile.jpg` | DES |
+| QA-15 | Med | **Desktop map is 37 % wide** (M1-04 needs ≥ 40 %) and card hover/focus doesn't highlight its pin (pin → card works). | metrics `sync` | FE-A |
+| QA-16 | Med | **Cleveland rail leads with "Vietnamese 4 · Singaporean 1"**; the city-unique "Unique American 18" comes 5th, and no sight collection appears in the rail. This goes against the editorial rule (food starts from what's unique to the city) and M1-02/M1-03. | `beta/cleveland.html` rail order | FE-A (order); PLT if collections are missing from the extract |
+| QA-17 | Low | Leaflet throws `_leaflet_pos`/`appendChild` errors, about 2 per place, when every deep link fires back-to-back at machine speed (marker removal during a `setView` animation). **Not reproduced at human speed** (5 click → filter → all sequences at 150 ms: 0 errors). Guard: `map.stop()` before re-filtering, or `setView(..., {animate:false})`. | metrics info row; repro script in this log | FE-A |
+| QA-18 | Low | "Recommended by" links render with a space before each comma ("Michelin Guide , Daniel Food Diary ,"). | `qa/beta-shots/Singapore__chinatown.desktop.jpg` | FE-A |
+
+### QA sign-off: **NO for M1**
+
+Reasons. Every hard gate holds on all 94 pages: counts, reachability, attribution, closed-flagging, no-CDN, storage,
+tiles and harness 0 FAIL. The type, tap-target, uppercase, overflow, first-screen and rail rows now pass everywhere.
+M1 is still not met, because these rows fail on every pilot:
+- **B-06** (hover → pin sync, map ≥ 40 %), **B-07** (mobile map toggle and sheet), **B-09** (numbered pins and ordering
+  line), **B-10** (filter tray) and **B-17** (detail sheet): the QA-05 interactions FE-A hasn't shipped.
+- **B-23**: QA-12 (method headings invisible on every city page) and QA-13 (hub list names invisible) are user-visible
+  readability failures.
+- **B-03**: Tokyo and New York show 15 controls above the first card (target 14).
+
+QA would sign YES once B-06/07/09/10/17 measure green on the pilot set, B-23 is 0 in both themes, and B-03 ≤ 14.

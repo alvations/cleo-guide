@@ -187,3 +187,10 @@ Appended by the QA lane (rows only). Evidence and screenshots: [`BETA-QA.md`](BE
 | QA-09 | Med | Country hubs still legacy (4 fail B-05); no `beta/Japan/index.html` | B-05, M1-17 | FE-B | 2026-10-10 r1 | todo |
 | QA-10 | Low | Tokyo initial DOM 7,170 nodes / 830 KB; NYC mirror FCP 956 ms at 4× CPU | B-44, RFC §7.5 | PLT | 2026-10-10 r1 | todo |
 | QA-11 | Low | Legacy mirror light-theme contrast (4.23:1 labels) + 8.5 px badges; fixed by migration, not patching | B-21, B-23 | PLT | 2026-10-10 r1 | todo |
+| QA-12 | High | Method section headings invisible on every city page (h2 1.09:1, note h3 ~1.02:1, cream on cream) | B-23 | DES | 2026-10-10 r2 | todo |
+| QA-13 | High | Hub "More in {country}" names invisible (1.16:1) + "1 places"; masthead "1 areas" | B-23, M1-17, M1-20 | FE-B, FE-A | 2026-10-10 r2 | todo |
+| QA-14 | Med | Night hero italic "know" 1.48:1 | B-23 | DES | 2026-10-10 r2 | todo |
+| QA-15 | Med | Desktop map 37 % (< 40 %); card hover/focus doesn't highlight pin | B-06, M1-04 | FE-A | 2026-10-10 r2 | todo |
+| QA-16 | Med | Cleveland rail leads with Vietnamese/Singaporean; city-unique food 5th; no sight collections in rail | M1-02, M1-03, editorial | FE-A, PLT | 2026-10-10 r2 | todo |
+| QA-17 | Low | Leaflet `_leaflet_pos` errors under machine-speed deep-link loop (not at human speed) | G4 (robustness) | FE-A | 2026-10-10 r2 | todo |
+| QA-18 | Low | Space before commas in "Recommended by" source lists | M1-10 polish | FE-A | 2026-10-10 r2 | todo |

@@ -178,7 +178,8 @@ const PROBE = () => {
   const firstTop = first ? absTop(first) : null;
 
   // masthead
-  const mastEl = document.querySelector('.masthead, [data-cleo-masthead], header.hero, .hero, header:not(.sitebar)');
+  // priority order (querySelector with a list returns the first in DOM order, which is the shell header)
+  const mastEl = ['.masthead', '[data-cleo-masthead]', 'header.hero', '.hero'].map(q => document.querySelector(q)).find(Boolean);
   const mastBottom = mastEl && vis(mastEl) ? Math.round(mastEl.getBoundingClientRect().bottom + scrollY) : null;
 
   // interactive controls
@@ -207,6 +208,18 @@ const PROBE = () => {
   const blend = (top, bot) => { const a = top[3]; return [top[0] * a + bot[0] * (1 - a), top[1] * a + bot[1] * (1 - a), top[2] * a + bot[2] * (1 - a), 1]; };
   const bgOf = el => {
     const stack = []; let e = el, unknown = false;
+    // on screen: use what is actually painted under the text (catches overlays such as a header over a hero band)
+    const r = el.getBoundingClientRect(), cx = r.left + Math.min(r.width / 2, 8), cy = r.top + r.height / 2;
+    if (cx >= 0 && cy >= 0 && cx < vw && cy < vh) {
+      for (const u of document.elementsFromPoint(cx, cy)) {
+        if (u !== el && el.contains(u)) continue;
+        const cs = getComputedStyle(u);
+        if (cs.backgroundImage && cs.backgroundImage !== 'none') { unknown = true; break; }
+        const c = parseRGB(cs.backgroundColor);
+        if (c && c[3] > 0) { stack.push(c); if (c[3] >= 1) break; }
+      }
+      e = null;
+    }
     while (e && e.nodeType === 1) {
       const cs = getComputedStyle(e);
       if (cs.backgroundImage && cs.backgroundImage !== 'none') { unknown = true; }
@@ -359,8 +372,9 @@ async function focusWalk(page, n = 30) {
     const r = await page.evaluate(() => {
       const el = document.activeElement; if (!el || el === document.body) return null;
       if (el.closest('.leaflet-container')) return { skip: true };
-      const cs = getComputedStyle(el);
-      const ring = (cs.outlineStyle !== 'none' && parseFloat(cs.outlineWidth) > 0) || (cs.boxShadow && cs.boxShadow !== 'none');
+      // the ring may sit on the element or on a close ancestor (e.g. `.pl:has(a:focus-visible)` draws it on the card)
+      const has = e => { const cs = getComputedStyle(e); return (cs.outlineStyle !== 'none' && parseFloat(cs.outlineWidth) > 0) || (cs.boxShadow && cs.boxShadow !== 'none'); };
+      let ring = false; for (let e = el, k = 0; e && k < 4 && !ring; e = e.parentElement, k++) ring = has(e);
       const d = el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + ' "' + (el.textContent || el.getAttribute('aria-label') || '').trim().slice(0, 24) + '"';
       return { ring, d };
     });
@@ -451,7 +465,9 @@ async function mapSync(page) {
     if (mapEl) {
       const b = mapEl.getBoundingClientRect(); r.mapWidthPct = Math.round(100 * b.width / innerWidth);
       const lb = list && list.getBoundingClientRect();
-      r.split = !!lb && b.width > 0 && Math.abs(b.top - lb.top) < 400 && b.left > lb.left + 100;
+      const fc = [...document.querySelectorAll('li.pl')].find(c => c.getBoundingClientRect().height > 0);
+      const fr = fc && fc.getBoundingClientRect();
+      r.split = !!fr && b.width > 0 && b.left >= fr.right - 2 && b.left > innerWidth * 0.4;   // map to the right of the cards
       window.scrollTo(0, 2500); await new Promise(x => setTimeout(x, 120));
       const b2 = mapEl.getBoundingClientRect(); r.sticky = b2.top < innerHeight && b2.bottom > 0 && b2.height > 200;
       window.scrollTo(0, 0); await new Promise(x => setTimeout(x, 120));
@@ -596,12 +612,14 @@ async function measure(browser, base, rel) {
       v.fonts = await renderedFonts(s.page).catch(e => ({ err: String(e).slice(0, 120) }));
       v.focus = await focusWalk(s.page).catch(e => ({ err: String(e).slice(0, 120) }));
       v.overlap = await overlapScan(s.page).catch(e => ({ err: String(e).slice(0, 120) }));
+      v.errorsLoad = s.st.errors.length;   // errors before the reachability stress loop (G4 grades these)
       if (vp === 'desktop' && v.cards && !v.legacy) {
         v.reach = await reachability(s.page, exp).catch(e => ({ err: String(e).slice(0, 160) }));
         v.tray = await trayFlow(s.page).catch(e => ({ err: String(e).slice(0, 120) }));
       }
     } catch (e) { v.probeErr = String(e.message || e).slice(0, 200); }
-    v.errors = s.st.errors; v.local404 = s.st.local404; v.bytes = s.st.bytes; v.offOriginBlocked = s.st.offOrigin;
+    v.errorsStress = s.st.errors.length - (v.errorsLoad || 0);
+    v.errors = s.st.errors.slice(0, v.errorsLoad == null ? undefined : v.errorsLoad); v.stressErrorSample = [...new Set(s.st.errors.slice(v.errorsLoad || 0).map(e => e.slice(0, 120)))].slice(0, 3); v.local404 = s.st.local404; v.bytes = s.st.bytes; v.offOriginBlocked = s.st.offOrigin;
     await s.ctx.close();
 
     // night theme contrast
@@ -690,6 +708,7 @@ function grade(m) {
     `${mo.landmarks ? Object.entries(mo.landmarks).filter(([, v]) => !v).map(([k]) => 'no ' + k).join(' ') || 'landmarks ok' : ''} · skip ${mo.skipLink} · unnamed ${mo.unnamedControls}`);
   rows['G4 no-CDN render, 0 JS errors'] = P(!mo.loadErr && !de.loadErr && !(mo.errors || []).length && !(de.errors || []).length && !(mo.local404 || []).length && (city ? mo.cards > 0 : mo.textNodes > 3),
     `errors ${(mo.errors || []).length + (de.errors || []).length} · 404 ${(mo.local404 || []).length} · off-origin blocked ${mo.offOriginBlocked + de.offOriginBlocked}`);
+  if (city) rows['Stress: JS errors, every deep link at machine speed (info)'] = P(null, (de.errorsStress || 0) + ' errors' + (de.stressErrorSample && de.stressErrorSample.length ? ' — ' + de.stressErrorSample[0] : ''));
   rows['Tiles OSM/Esri only'] = P(!mo.tileHosts && !de.tileHosts ? null : (mo.tileHostsOk !== false && de.tileHostsOk !== false), [...new Set([...(mo.tileHosts || []), ...(de.tileHosts || [])])].join(', ') || 'no tiles requested');
   rows['Perf: bytes / DOM / FCP / FCP 4×'] = P(null, `${Math.round((de.bytes || 0) / 1024)} KB · ${de.domNodes} nodes · ${de.fcp} ms · ${m.cpu4x && m.cpu4x.fcp} ms`);
   const vals = Object.values(rows).filter(r => r.pass !== null);
