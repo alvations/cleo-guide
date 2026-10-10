@@ -116,3 +116,4 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     (`qa/beta-shots/cities__tokyo.night.mobile.jpg`).
   - **QA sign-off: NO for M1** (see `docs/BETA-QA.md`). Evidence: `qa/beta-metrics.{json,md}`, `qa/beta-metrics-all.md`,
     `qa/beta-harness-summary.json`, `qa/beta-shots/`. Commit: see git log for this entry.
+- 2026-10-10 09:45 · UI/UX (designer) · Wave 1 review pass 2 · session_018MKc8Cm9yRKwLoMQ5mFB7b · Ran QA's `beta:metrics` plus my harness. **B-23 contrast now passes in light and night on every pilot**: fixed method-note ink, the Singapore more-list names, the hero italic word at night, and the on-night top-bar ground. QA-01 and QA-07 are resolved by the shipped stylesheet. New FE-A/platform blocker **A10**: hundreds of Leaflet pageerrors (appendChild/intersects) on every city page in QA's tiles-stubbed desktop run (G4). B-03 is still 15 on Tokyo/NYC (A9). REVIEW-W1 pass 2 section.

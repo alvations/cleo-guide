@@ -72,7 +72,7 @@
   "minFontPx": 13,
   "minFontEl": "span.n",
   "accent": "#C23A1C",
-  "textNodes": 4992,
+  "textNodes": 4991,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -101,7 +101,7 @@
   "minFontPx": 12,
   "minFontEl": "small.",
   "accent": "#C23A1C",
-  "textNodes": 4986,
+  "textNodes": 4985,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -110,7 +110,7 @@
  "cleveland-m": {
   "overflowX": 0,
   "firstCardScreens": 0.69,
-  "controlsAboveFirstCard": 12,
+  "controlsAboveFirstCard": 13,
   "cardsPerScreen": 2,
   "cards": 194,
   "closed": 13,
@@ -128,7 +128,7 @@
   "minFontPx": 13,
   "minFontEl": "span.n",
   "accent": "#1F5E8A",
-  "textNodes": 1721,
+  "textNodes": 1720,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -157,7 +157,7 @@
   "minFontPx": 12,
   "minFontEl": "small.",
   "accent": "#1F5E8A",
-  "textNodes": 1715,
+  "textNodes": 1714,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -184,7 +184,7 @@
   "minFontPx": 13,
   "minFontEl": "span.n",
   "accent": "#9A5B00",
-  "textNodes": 4491,
+  "textNodes": 4490,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -213,7 +213,7 @@
   "minFontPx": 12,
   "minFontEl": "small.",
   "accent": "#9A5B00",
-  "textNodes": 4485,
+  "textNodes": 4484,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -222,7 +222,7 @@
  "chinatown-m": {
   "overflowX": 0,
   "firstCardScreens": 0.72,
-  "controlsAboveFirstCard": 11,
+  "controlsAboveFirstCard": 12,
   "cardsPerScreen": 3,
   "cards": 16,
   "closed": 0,
@@ -240,7 +240,7 @@
   "minFontPx": 13,
   "minFontEl": "span.n",
   "accent": "#8A3F86",
-  "textNodes": 248,
+  "textNodes": 247,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -269,7 +269,7 @@
   "minFontPx": 12,
   "minFontEl": "small.",
   "accent": "#8A3F86",
-  "textNodes": 242,
+  "textNodes": 241,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -278,7 +278,7 @@
  "wheeling-m": {
   "overflowX": 0,
   "firstCardScreens": 0.77,
-  "controlsAboveFirstCard": 13,
+  "controlsAboveFirstCard": 14,
   "cardsPerScreen": 2,
   "cards": 35,
   "closed": 1,
@@ -296,7 +296,7 @@
   "minFontPx": 13,
   "minFontEl": "span.n",
   "accent": "#4E6B22",
-  "textNodes": 487,
+  "textNodes": 486,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -325,7 +325,7 @@
   "minFontPx": 12,
   "minFontEl": "small.",
   "accent": "#4E6B22",
-  "textNodes": 481,
+  "textNodes": 480,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -353,7 +353,7 @@
   "minFontPx": 12,
   "minFontEl": "span.",
   "accent": "#3B3A8F",
-  "textNodes": 73,
+  "textNodes": 71,
   "blockedHosts": [],
   "jsErrors": []
  },
@@ -379,7 +379,7 @@
   "minFontPx": 12,
   "minFontEl": "small.",
   "accent": "#3B3A8F",
-  "textNodes": 73,
+  "textNodes": 71,
   "blockedHosts": [],
   "jsErrors": []
  },
@@ -404,7 +404,7 @@
   "minFontPx": 12,
   "minFontEl": "span.",
   "accent": "#3B3A8F",
-  "textNodes": 143,
+  "textNodes": 141,
   "blockedHosts": [],
   "jsErrors": []
  },
@@ -429,7 +429,7 @@
   "minFontPx": 12,
   "minFontEl": "small.",
   "accent": "#3B3A8F",
-  "textNodes": 143,
+  "textNodes": 141,
   "blockedHosts": [],
   "jsErrors": []
  },
@@ -448,13 +448,14 @@
   "smallSample": [],
   "fontFamilies": [
    "Figtree",
-   "Bodoni Moda"
+   "Bodoni Moda",
+   "Noto Serif JP"
   ],
-  "uppercaseShare": 0.004,
-  "minFontPx": 13,
-  "minFontEl": "span.dest-c",
+  "uppercaseShare": 0,
+  "minFontPx": 12,
+  "minFontEl": "span.",
   "accent": "#3B3A8F",
-  "textNodes": 235,
+  "textNodes": 383,
   "blockedHosts": [],
   "jsErrors": []
  },
@@ -473,20 +474,21 @@
   "smallSample": [],
   "fontFamilies": [
    "Figtree",
-   "Bodoni Moda"
+   "Bodoni Moda",
+   "Noto Serif JP"
   ],
-  "uppercaseShare": 0.004,
-  "minFontPx": 13,
-  "minFontEl": "span.dest-c",
+  "uppercaseShare": 0,
+  "minFontPx": 12,
+  "minFontEl": "small.",
   "accent": "#3B3A8F",
-  "textNodes": 235,
+  "textNodes": 383,
   "blockedHosts": [],
   "jsErrors": []
  },
  "tokyo-m-dark": {
   "overflowX": 0,
-  "firstCardScreens": 0.79,
-  "controlsAboveFirstCard": 14,
+  "firstCardScreens": 0.81,
+  "controlsAboveFirstCard": 15,
   "cardsPerScreen": 3,
   "cards": 488,
   "closed": 1,
@@ -500,11 +502,11 @@
    "Figtree",
    "Bodoni Moda"
   ],
-  "uppercaseShare": 0.191,
+  "uppercaseShare": 0.002,
   "minFontPx": 13,
   "minFontEl": "span.n",
   "accent": "#FF7A57",
-  "textNodes": 4972,
+  "textNodes": 4991,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -512,8 +514,8 @@
  },
  "tokyo-d-dark": {
   "overflowX": 0,
-  "firstCardScreens": 0.7,
-  "controlsAboveFirstCard": 29,
+  "firstCardScreens": 0.69,
+  "controlsAboveFirstCard": 31,
   "cardsPerScreen": 6,
   "cards": 488,
   "closed": 1,
@@ -529,11 +531,11 @@
    "Figtree",
    "Bodoni Moda"
   ],
-  "uppercaseShare": 0.191,
-  "minFontPx": 13,
-  "minFontEl": "span.n",
+  "uppercaseShare": 0.002,
+  "minFontPx": 12,
+  "minFontEl": "small.",
   "accent": "#FF7A57",
-  "textNodes": 4966,
+  "textNodes": 4985,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -542,7 +544,7 @@
  "chinatown-m-dark": {
   "overflowX": 0,
   "firstCardScreens": 0.72,
-  "controlsAboveFirstCard": 11,
+  "controlsAboveFirstCard": 12,
   "cardsPerScreen": 3,
   "cards": 16,
   "closed": 0,
@@ -556,11 +558,11 @@
    "Figtree",
    "Bodoni Moda"
   ],
-  "uppercaseShare": 0.013,
+  "uppercaseShare": 0,
   "minFontPx": 13,
   "minFontEl": "span.n",
   "accent": "#E3A3DC",
-  "textNodes": 228,
+  "textNodes": 247,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
@@ -568,8 +570,8 @@
  },
  "chinatown-d-dark": {
   "overflowX": 0,
-  "firstCardScreens": 0.68,
-  "controlsAboveFirstCard": 17,
+  "firstCardScreens": 0.67,
+  "controlsAboveFirstCard": 19,
   "cardsPerScreen": 6,
   "cards": 16,
   "closed": 0,
@@ -585,11 +587,11 @@
    "Figtree",
    "Bodoni Moda"
   ],
-  "uppercaseShare": 0.014,
-  "minFontPx": 13,
-  "minFontEl": "span.n",
+  "uppercaseShare": 0,
+  "minFontPx": 12,
+  "minFontEl": "small.",
   "accent": "#E3A3DC",
-  "textNodes": 222,
+  "textNodes": 241,
   "blockedHosts": [
    "tile.openstreetmap.org"
   ],
