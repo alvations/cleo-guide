@@ -377,6 +377,14 @@ Mirror pages link without `#p=` (`deepLinks:0`) until they migrate.
 - **Cache name.** It is `cleo-<hash of asset versions + generated pages>`, so a new build retires old caches on `activate`.
 - **Offline city packs (M3-01).** A visited city page is cached on visit. "Save this city for offline" will add the page and its `data/places/<key>.json` explicitly.
 - **Tiles.** The OSM tile policy forbids bulk prefetch, so tile caching is restricted to tiles the user already viewed, behind a capped runtime cache. That arrives in M3 and is off in Wave 0.
+- **Offline reload, as built in Wave 2 (B-40).** The first page of a visit loads before the worker controls it, so once
+  the worker is active `core.js` posts `{type:'cache', urls}` — the page, every same-origin file it loaded
+  (`performance` resource entries: CSS, JS, fonts, art) and its `data/places/<page>.json` — and the worker caches them
+  (`Cleo.offline.save()` does the same on demand, for a "Save this city for offline" button; it emits `cleo:offline`).
+  A navigation to a page never visited redirects to the cached landing at its own URL (the landing shows FE-B's offline
+  banner) instead of serving landing bytes at a city URL. Evidence: `npm run beta:offline`
+  ([`tools/beta/offline-check.js`](../../tools/beta/offline-check.js)) — the server is killed, not emulated offline —
+  Tokyo 488/488 and Cleveland 194/194 at 390 and 1440, deep link, saved page, unvisited city → landing + banner, 0 errors.
 - **Content works without the SW** (tested: jsdom has no SW).
 - **Manifest.** `beta/manifest.webmanifest` holds name, `start_url`, `scope` and an SVG icon. The designer owns the icon art in `tools/beta/static/icon.svg`.
 
@@ -504,7 +512,7 @@ Each migrated city joins this test through a fixture list (Wave 1: the D-27 pilo
 | City page, raw | ≤ 800 KB | 639 KB |
 | City page, gzip | ≤ 160 KB | 121 KB (live: 91 KB; beta adds JSON-LD of about 160 KB raw) |
 | Landing | ≤ 24 KB gzip, ≤ 120 KB raw (W2; W0 was 80 KB raw) | 19 KB (W2: 16 KB gzip / 81 KB raw) |
-| Client JS loaded by any one page (excluding Leaflet) | ≤ 32 KB gzip (FE-A's W2 per-page rule, ratified by platform; W0 was 40 KB raw site-wide, W1 64 KB raw) | 20 KB |
+| Client JS loaded by any one page (excluding Leaflet) | ≤ 40 KB gzip (FE-A's W2 per-page rule at 32, raised by platform when core.js took on lazy rendering + offline; all `defer`; W0 was 40 KB raw site-wide, W1 64 KB raw) | 20 KB (W2: 33 KB gzip, Cleveland) |
 | Search index, gzip, lazy | ≤ 250 KB | 206 KB |
 | Initial DOM, largest page (M3-06; QA metrics) | ≤ 3,000 nodes | W2: Tokyo 1,730 mobile / 2,747 desktop with all 488 pins (was 11,650); NYC 1,634 / 2,695 (was 12,669). §5.3. |
 | Render-blocking third-party in `<head>` | 0 | 0 (system fonts; Leaflet CSS loads with the map) |

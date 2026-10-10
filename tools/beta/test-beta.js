@@ -373,7 +373,9 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
     const z = files.reduce((t, f) => t + gz(f), 0), raw = files.reduce((t, f) => t + size(f), 0);
     if (z > jsMax[2]) jsMax = [p, KB(raw), z];
   }
-  chk(`client JS loaded by any one page ≤ 32 KB gzip (heaviest: ${jsMax[0]}, ${jsMax[1]} KB raw)`, KB(jsMax[2]), n => n <= 32);
+  // Platform W2: 32 → 40 KB gzip per page — core.js now carries progressive rendering (M3-06) and offline caching (B-40),
+  // both of which make pages lighter/sturdier; every script is `defer`, so content never waits on it (RFC §7.5).
+  chk(`client JS loaded by any one page ≤ 40 KB gzip (heaviest: ${jsMax[0]}, ${jsMax[1]} KB raw)`, KB(jsMax[2]), n => n <= 40);
   // per-page share cards (B-36, npm run beta:og): 1200×630 PNG ≤ 300 KB, and every page that has one points og:image at it
   const OGD = path.join(BETA, 'assets/og'), ogs = fs.existsSync(OGD) ? fs.readdirSync(OGD).filter(f => f.endsWith('.png')) : [];
   const ogBad = ogs.filter(f => { const b = fs.readFileSync(path.join(OGD, f)); return b.readUInt32BE(16) !== 1200 || b.readUInt32BE(20) !== 630 || b.length > 300 * 1024; });
