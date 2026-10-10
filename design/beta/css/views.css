@@ -55,6 +55,42 @@ html[data-view="gallery"] .split .pls { grid-template-columns: minmax(0, 1fr); g
 /* Atlas rank badge on the canonical card = the numbered pin (area-colour ring) */
 html[data-view="atlas"] .pl-num { box-shadow: 0 0 0 2px var(--area-c, var(--line-strong)); }
 
+/* ---------- V1c. Gallery, as built by FE-A (W3 review): grid cover on top, compact phone hero, row heads ----------
+   The canonical li.pl card becomes a cover-led Gallery card: a 4:3 cover block (area tint + pin art + ringed pin +
+   vertical plate + glyph) on top, then eyebrow, Didone name in ink, 2-line write-up, Recommended by. "Look for" and the
+   address stay on the experience page (the sheet); nothing about the place is hidden there. */
+html[data-view="gallery"] .split .pl::before { grid-row: 1; }
+html[data-view="gallery"] .split .pl-cover { grid-row: 1; aspect-ratio: 4 / 3; height: auto; min-height: 0; }
+html[data-view="gallery"] .split .pl-cover .g-art { width: 74%; top: auto; bottom: 10%; right: 3%; transform: none; }
+html[data-view="gallery"] .split .pl > .pl-e { grid-row: 2; padding-top: 12px; }
+html[data-view="gallery"] .split .pl > .pl-n { grid-row: 3; font-size: 21px; line-height: 1.2; padding-top: 2px; padding-bottom: 4px; color: var(--ink); }
+html[data-view="gallery"] .split .pl > .pl-w { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+html[data-view="gallery"] .split .pl > :is(.pl-k, .pl-ad) { display: none; }
+html[data-view="gallery"] .split .pl-cover .pl-vert { top: 12px; left: 14px; right: auto; bottom: 12px; opacity: 1; color: color-mix(in srgb, var(--area-c) 45%, var(--ink)); }   /* AA on the tinted cover */
+html[data-view="gallery"] .split .pl-cover .pl-ini { left: 12px; right: auto; top: 6px; font-size: min(112px, 56cqh); color: color-mix(in srgb, var(--area-c) 45%, var(--ink)); }
+html[data-view="gallery"] .split .pl[data-closed] .pl-cover .pl-ini { color: color-mix(in srgb, var(--ink) 30%, transparent); }
+:is(.vw) .cover { display: block; width: 100%; }   /* covers are spans: aspect-ratio needs a block box; size containment needs a width */
+html[data-view="gallery"] main > .masthead .dek { display: none; }
+/* the cover's .plate is a type plate, not the component library's .plate card face (tint, 5 px edge, overflow hidden) */
+html :is(.vw) .cover .plate { height: auto; min-height: 0; background: none; overflow: visible; isolation: auto; padding: 0; }
+html :is(.vw) .cover .plate::before { content: none; }
+html :is(.vw) .gc-a { display: grid; grid-template-columns: minmax(0, 1fr); }   /* the italic lead (tile line) below says it; the dek collided with the kicker */
+/* the night hero: one sky (FE-A's g-sky draws the verified pins at full size, so the platform's ::before art steps back),
+   calmer behind the text, and on phones ≈ 0.8 screen instead of 1.7 */
+html[data-view="gallery"] main > .masthead::before { display: none; }
+html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,.35) 0 30%, #000 62%); mask-image: linear-gradient(90deg, rgba(0,0,0,.35) 0 30%, #000 62%); }
+@media (max-width: 639px) {
+  html[data-view="gallery"] main > .masthead { min-height: 0; padding-top: 20px; padding-bottom: 20px; }
+  html[data-view="gallery"] main > .masthead > .motif { display: none; }
+  html[data-view="gallery"] main > .masthead .facts { font-size: 13.5px; line-height: 1.5; }
+  html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-gradient(180deg, #000 0 20%, rgba(0,0,0,.3) 55%); mask-image: linear-gradient(180deg, #000 0 20%, rgba(0,0,0,.3) 55%); }
+  html[data-view="gallery"] .g-lead { font-size: 19px; margin-top: 6px; }
+  html[data-view="gallery"] .g-acts { margin-top: 12px; gap: 8px; }
+  html[data-view="gallery"] .g-acts .btn { padding: 0 16px; font-size: 15px; }
+  .vw .row-h { flex-wrap: wrap; align-items: center; }
+  .vw .row-h .d2 { font-size: 24px; }
+}
+
 /* ---------- V3b. D-03 cover rules (Gallery): tint, edge, pin art, ringed pin, plates per breakpoint, glyph chip ---------- */
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover { --ac: var(--area-c, var(--city)); container-type: size; }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .me { background: var(--city); border-color: var(--surface); box-shadow: 0 0 0 2px var(--city), 0 0 0 6px color-mix(in srgb, var(--city) 22%, transparent); }

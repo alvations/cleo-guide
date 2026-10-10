@@ -754,6 +754,12 @@ html[data-cleo-page="landing"] main > .hero::before { content: ""; position: abs
 /* 16.8 QA-25 (saved page, night): the map note sat on the light map/tile ground at 1.37:1 — it gets its own surface chip */
 html .sv-map .note, html .map-note { background: var(--surface); color: var(--ink-2); padding: 6px 10px; border-radius: 10px; box-shadow: var(--e-1); }
 
+/* 16.9 QA-30 (night contrast on place pages): the map fallback's "Try again" was an unstyled button — browser-grey
+   face under night ink. It is a real control: surface pill, ink text, 44 px, in both themes. */
+.map-retry { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 16px; margin-left: 6px; border-radius: var(--r-pill);
+  border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); font: 600 14px var(--font-ui); cursor: pointer; }
+.map-retry:hover { border-color: var(--ink); }
+
 /* ---------- 13. Motion: nothing moves under reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

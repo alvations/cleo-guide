@@ -11,8 +11,8 @@
 |---|---|---|---|
 | Guidebook | FE-B | Module landed (slice 1); previewed by mounting `guidebook.js` into a `.vw.view-guidebook` host | ◐ **Good** — reads as a field guide; 2 defects below |
 | Insights | FE-B | Module landed (slice 1); previewed the same way | ✅ **Ship** after 2 small fixes; charts meet the D-02 rules in light and night |
-| Gallery | FE-A | Not landed yet (A-03) — styles are ready in `views.css` (`.ghero .row .rail .gc .cover .pager`) | pending |
-| Atlas | FE-A | Not landed yet (A-02) — page-level 46 / 54 split + rank ring ready | pending |
+| Gallery | FE-A | Landed (FE-A W3 slices 1–2); reviewed on the live head | ◐ → ✅ after this round's designer fixes (below); 3 asks for FE-A |
+| Atlas | FE-A | Landed; reviewed on the live head | ✅ **Ship** — 46 / 54 split, map + tray detents on phones |
 
 ## Insights — `ins-cle-{m,d}.jpg`, `ins-cle-chart-night-d.jpg`
 
@@ -37,6 +37,37 @@
   (the lenses still apply), so the cover is the first screen.
 - **For FE-B:** the contents chip bar leaves ~90 px of empty paper before the cover on phones (sticky bar margin + cover
   padding); drop the cover's top padding to 12 px under 640 px.
+
+## Gallery — `gal-tokyo-{m,d}.jpg`, `gal-cle-d.jpg`, `gal-grid-{m,d}.jpg`, `gal-rows-{m,d}.jpg`
+
+- ✅ Rows in SPEC order with Didone titles, computed subtitles and "See all n"; the night hero draws the city's verified
+  pins at full size; the pager, the "all N" line and show-all are present.
+- **Fixed here (DES, `views.css` V1c):**
+  - **Grid cards are cover-led** (FE-A's ask): a 4:3 cover on top (area tint, pin art, ringed pin, vertical plate or
+    Didone initial, glyph), then eyebrow, name in ink at 21 px, a 2-line write-up and Recommended by. "Look for" and the
+    address stay on the experience page.
+  - **Lead card cover was blank (0 px wide)**: size containment on a shrink-wrapped card. Covers now take the card's
+    width, and the lead card stacks cover over text.
+  - **Cover plates collided with the component library's `.plate`** (tint, 5 px edge, overflow hidden), so initials
+    showed as clipped slivers in a stripe. Reset inside views.
+  - **Phone hero went from ≈ 1.7 screens to ≈ 0.9**: the min-height is dropped on phones, the dek is hidden (the italic
+    lead already says it; on desktop it collided with the kicker), the facts are set at 13.5 px, and the platform's
+    duplicate masthead art steps back behind FE-A's sky. The sky is masked behind the text.
+  - Phone row heads wrap, with titles at 24 px, so "See all" no longer squeezes them to 3 lines.
+  - The grid's vertical plates were < 4.5:1 on the tint in light mode (axe, 13 nodes); they now use a darker area mix.
+- **For FE-A:** (1) the lead card and rows still print the place's English name without its macron where the record has
+  one (`Kanda Myojin` vs the button's `Kanda Myōjin`); use the same name field everywhere. (2) Tokyo's row cards ship 12
+  per rail on phones; consider 8 on phones to keep the DOM well under budget after the first scroll. (3) With
+  off-origin tiles blocked, the Atlas map shows the pin art only (expected); the "Try again" control is now styled
+  (QA-30).
+
+## Atlas — `atlas-tokyo-{m,d}.jpg`
+
+- ✅ The desktop split is 46 / 54 with area chips in the toolbar, rank badges and the numbered pins. On phones it's a
+  full-bleed map with a tray, and the toolbar and chips sit in the tray head. Pin labels take the area colour (`--ac`).
+- **QA-30 (night contrast on every place page)** was the map fallback's unstyled "Try again" button (a browser-grey
+  face under night ink). It is now a styled 44 px pill. axe night: 0 serious/critical on Cleveland Atlas 1440, Cleveland
+  Gallery 1440, Tokyo Gallery 390 and 1440, and Chinatown 390.
 
 ## Cross-view (designer, this wave)
 
