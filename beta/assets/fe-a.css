@@ -64,3 +64,8 @@
 .sharebar{display:flex;flex-wrap:wrap;gap:8px}.sharebar .btn{gap:6px}.day .more{margin:0}.device-note{color:var(--ink-2)}.device-note .btn{min-height:var(--tap)}
 @media (min-width:1024px){.day .map-only{display:none}}
 .banner.shared p{color:color-mix(in srgb,var(--on-night) 86%,transparent)}.banner.shared .eyebrow{color:var(--on-night)}.banner.shared .btn{min-height:var(--tap)}
+.area>.pls{clear:right}
+/* QA-20 (B-16): sources flow inline at ~26 px per line while each keeps a 44 px tap box (padding, pulled back by margin) */
+html .pls .pl-s .src,html .poi-sheet .pl-s .src{display:inline-block;min-height:0;line-height:26px;padding:9px 0;margin:-9px 10px -9px 0;vertical-align:baseline}
+html .pls .pl-s{padding-top:10px;padding-bottom:6px}
+@media (max-width:639px){.pls .pl-e .in{display:inline-block;max-width:calc(100% - 150px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:bottom}}

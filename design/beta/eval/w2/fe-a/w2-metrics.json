@@ -41,7 +41,7 @@
  "cleveland-food-m": {
   "overflowX": 0,
   "firstCardTop": 749.359375,
-  "controlsAboveFirstCard": 10,
+  "controlsAboveFirstCard": 9,
   "mapWidthPct": null,
   "poiPct": null,
   "tapUnder44": 0,
@@ -205,13 +205,12 @@
  },
  "saved-shared-m": {
   "overflowX": 0,
-  "firstCardTop": 798.109375,
+  "firstCardTop": 806.109375,
   "controlsAboveFirstCard": 8,
   "mapWidthPct": null,
   "poiPct": null,
-  "tapUnder44": 3,
+  "tapUnder44": 2,
   "tapUnder44List": [
-   "button.btn \"Save a copy\" 128×36",
    "a. \"Leaflet\" 52×30",
    "a. \"OpenStreetMap\" 87×30"
   ],
@@ -254,7 +253,7 @@
  },
  "cleveland-d": {
   "overflowX": 0,
-  "firstCardTop": 499.046875,
+  "firstCardTop": 499.453125,
   "controlsAboveFirstCard": 18,
   "mapWidthPct": 44,
   "poiPct": null,
@@ -270,7 +269,7 @@
  },
  "cleveland-food-d": {
   "overflowX": 0,
-  "firstCardTop": 527.296875,
+  "firstCardTop": 527.703125,
   "controlsAboveFirstCard": 19,
   "mapWidthPct": 44,
   "poiPct": null,
@@ -318,8 +317,8 @@
  },
  "sheet-cle-d": {
   "overflowX": 0,
-  "firstCardTop": 499.046875,
-  "controlsAboveFirstCard": 10,
+  "firstCardTop": 499.453125,
+  "controlsAboveFirstCard": 17,
   "mapWidthPct": 44,
   "poiPct": null,
   "tapUnder44": 2,
@@ -328,7 +327,7 @@
    "a. \"OpenStreetMap\" 87×30"
   ],
   "uppercasePct": 0,
-  "dom": 5258,
+  "dom": 5254,
   "jsErrors": [],
   "offOriginAborted": 0
  },
@@ -382,7 +381,7 @@
  },
  "day-cle-d": {
   "overflowX": 0,
-  "firstCardTop": 1364.875,
+  "firstCardTop": 1365.28125,
   "controlsAboveFirstCard": 51,
   "mapWidthPct": 44,
   "poiPct": null,
@@ -430,13 +429,12 @@
  },
  "saved-shared-d": {
   "overflowX": 0,
-  "firstCardTop": 535.140625,
+  "firstCardTop": 543.140625,
   "controlsAboveFirstCard": 6,
   "mapWidthPct": null,
   "poiPct": null,
-  "tapUnder44": 3,
+  "tapUnder44": 2,
   "tapUnder44List": [
-   "button.btn \"Save a copy\" 128×36",
    "a. \"Leaflet\" 52×30",
    "a. \"OpenStreetMap\" 87×30"
   ],
