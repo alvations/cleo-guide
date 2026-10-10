@@ -93,6 +93,7 @@ const BY_NAME = [[/sushi/i, 'sushi'], [/ramen|noodle|pho|laksa|soba|udon/i, 'noo
   [/temple|shrine|mosque|church/i, 'torii'], [/market|shop|hawker/i, 'awning'], [/view|skyline|tower/i, 'tower'], [/night/i, 'moon'],
   [/history|heritage|castle|palace/i, 'castle'], [/free/i, 'ticket'], [/screen|tv|film|pop/i, 'tv']];
 const glyphFor = (id, n, food) => GLYPH[id] || (BY_NAME.find(([re]) => re.test(n || '')) || [])[1] || (food ? 'forkknife' : 'compass');
+const { motifSvg, photoFor, figureHtml } = require('../../imagery');   // imagery lane hooks
 const ico = n => `<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg>`;
 const PLATE = 5;                                  // most native glyphs a card plate sets vertically without clipping
 const tier = (t, cls = '') => TIER[t] ? `<a class="tier t${t}${cls}" href="#how-we-choose"><i class="tg t${t}" aria-hidden="true"></i><span>${TIER[t]}</span></a>` : '';
@@ -150,7 +151,7 @@ function card(r, num, ctx) {
     r.g.length && `data-g="${esc(r.g.join(' '))}"`, r.cz.length && `data-cz="${esc(r.cz.join(' '))}"`,
     r.src && r.src.length && `data-src="${esc(r.src.join(' '))}"`,
     r.la != null && `data-ll="${r.la},${r.ln}"`, pv.checked && `data-checked="${esc(pv.checked)}"`, r.closed && 'data-closed', r.warn && 'data-warn'].filter(Boolean).join(' ');
-  return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>
+  return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${(ph => ph ? figureHtml(ph, ctx.up || '', 'photo pl-photo') : '')(ctx.photo && ctx.photo(r))}
 <p class="pl-e">${r.closed ? `${eyebrow} <span class="pl-num" aria-label="Map pin ${num}">${num}</span>` : `<span class="pl-num" aria-label="Map pin ${num}">${num}</span> ${eyebrow}`}</p>
 <h3 class="pl-n"><a href="#p-${esc(r.id)}">${nm}</a></h3>
 ${r.w ? `<p class="pl-w">${prose(r.w)}</p>` : ''}${r.k ? `<p class="pl-k${isNote ? ' note' : ''}"><span class="lbl">${isNote ? 'Your guide’s note' : 'Look for'}</span> ${prose(r.k)}</p>` : ''}${r.ad ? `<p class="pl-ad">${esc(r.ad)}</p>` : ''}
@@ -276,7 +277,7 @@ function render(row, recs, ctx) {
 
   /* -- area chapters -- */
   const lang = { japan: 'ja', singapore: 'zh' }[row.country] || '';
-  const cardCtx = { page, srcById, areaName, prov, lang };
+  const cardCtx = { page, srcById, areaName, prov, lang, up, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
   let placed = 0;
   const chapter = (a, list, i, total) => {
     const [head1, hoods] = a ? areaSplit(a.n) : ['Elsewhere', ''];
@@ -351,7 +352,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
 ${sprite}
 ${siteBar({ depth, current: 'city', rel: row.beta })}
 <main id="main" data-city="${esc(row.key)}">
-<header class="masthead">
+<header class="masthead">${motifSvg(row.imagery && row.imagery.motif, up, { fit: 'xMaxYMax meet', style: 'position:absolute;inset:0;width:100%;height:100%;z-index:-3;opacity:.42;-webkit-mask-image:linear-gradient(90deg,transparent 35%,#000 75%);mask-image:linear-gradient(90deg,transparent 35%,#000 75%)' })}
   <p class="eyebrow">${esc(country.name || m.eyebrow || '')}</p>
   <div class="title"><h1>${esc(name)}${row.nat ? ` <span class="native">${esc(row.nat)}</span>` : ''}</h1>${m.h1Thin ? `<p class="dek">${esc(m.h1Thin)}</p>` : ''}</div>
   <p class="facts">${facts}</p>

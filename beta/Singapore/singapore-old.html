@@ -5,30 +5,93 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Southeast Asia — 50 sourced guides · Cleo</title>
-<meta name="description" content="820 places across 50 Southeast Asia guides — each recommended by named sources, pinned and status-checked.">
+<meta name="description" content="820 places across 50 Southeast Asia guides. Each recommended by named sources, pinned and status-checked.">
 <link rel="canonical" href="https://alvations.github.io/cleo-guide/beta/Singapore/singapore-old.html">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#F7F4EE">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Cleo">
 <meta property="og:title" content="Southeast Asia — 50 sourced guides · Cleo">
-<meta property="og:description" content="820 places across 50 Southeast Asia guides — each recommended by named sources, pinned and status-checked.">
+<meta property="og:description" content="820 places across 50 Southeast Asia guides. Each recommended by named sources, pinned and status-checked.">
 <meta property="og:url" content="https://alvations.github.io/cleo-guide/beta/Singapore/singapore-old.html">
 <meta property="og:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Southeast Asia — 50 sourced guides · Cleo">
-<meta name="twitter:description" content="820 places across 50 Southeast Asia guides — each recommended by named sources, pinned and status-checked.">
+<meta name="twitter:description" content="820 places across 50 Southeast Asia guides. Each recommended by named sources, pinned and status-checked.">
 <meta name="twitter:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/tokens.css?v=741d6ede05">
-<link rel="stylesheet" href="../assets/cleo.css?v=faa2f02022">
+<link rel="stylesheet" href="../assets/tokens.css?v=29fb7d6e7f">
+<link rel="stylesheet" href="../assets/cleo.css?v=dfba4ef5d8">
 
 
-<script src="../assets/js/core.js?v=b24c87df9e" defer></script>
+<script src="../assets/js/core.js?v=760b61dc92" defer></script>
+<style>
+.tile .art .dots{stroke:var(--dot,var(--on-night))}
+.tile.c-night .art{background:var(--motif,none),radial-gradient(130% 160% at 100% 0,color-mix(in srgb,var(--city) 40%,transparent),transparent 62%),var(--night)}
+.tile.c-night .art .dots{stroke:var(--on-night)}.tile.c-night .art .dots.t1{stroke:var(--gilt-soft)}
+.tile.c-wash .art{background:var(--motif,none),linear-gradient(160deg,var(--city-wash),var(--surface));color:var(--ink)}
+.tile.c-wash .art .native,.tile.c-wash .art .ini{color:var(--city-ink)}
+.tile.c-wash .art .dots,.tile.c-paper .art .dots{stroke:var(--dot,var(--city-ink))}.tile.c-wash .art .dots.t1,.tile.c-paper .art .dots.t1{stroke:var(--ink)}
+.tile.c-city .art{background:var(--motif,none),radial-gradient(120% 140% at 0 100%,color-mix(in srgb,var(--night) 35%,transparent),transparent 60%),var(--city);color:var(--city-on)}
+.tile.c-city .art .dots{stroke:var(--city-on);stroke-opacity:.9}.tile.c-city .art .dots.t1{stroke:var(--city-on)}
+.tile.c-city .art .native,.tile.c-city .art .ini{color:var(--city-on)}.tile.c-city .art .bar{background:var(--night)}
+.tile.c-paper .art{background:var(--motif,none),repeating-radial-gradient(circle at 70% 120%,transparent 0 13px,color-mix(in srgb,var(--city) 16%,transparent) 13px 14px),var(--sand);color:var(--ink)}
+.tile.c-paper .art .native,.tile.c-paper .art .ini{color:var(--ink)}
+.tile .art .ini{position:absolute;right:14px;bottom:6px;font:italic 500 84px/1 var(--font-display);opacity:.9;color:var(--on-night)}
+.tile .art .native{color:var(--on-night)}
+.tiles.hub2 .tile .art .ini{font-size:52px;bottom:4px}
+.tile .sigline{font-size:13.5px;line-height:1.35;color:var(--ink-2);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.tile .sigline span+span::before{content:" · ";color:var(--ink-3)}
+.tile .star{font-size:12.5px}
+.tile:hover .art svg,.tile:focus-visible .art svg{transform:scale(1.04)}.tile .art svg{transition:transform .5s var(--ease,ease)}
+@media (prefers-reduced-motion:reduce){.tile .art svg{transition:none}.tile:hover .art svg{transform:none}}
+.chero{position:relative;background:var(--night);color:var(--on-night);overflow:hidden;isolation:isolate}
+.chero .sky{position:absolute;inset:0;z-index:-1;background:var(--motif,none)}
+.chero .sky svg{position:absolute;inset:0;width:100%;height:100%}
+.chero .sky .dots{stroke:var(--on-night);stroke-linecap:round;fill:none;stroke-opacity:.9}.chero .sky .dots.t1{stroke:var(--gilt-soft)}
+.chero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--night) 0,color-mix(in srgb,var(--night) 70%,transparent) 55%,transparent)}
+.chero .inner{max-width:var(--maxw);margin:0 auto;padding:28px var(--gutter) 26px}
+.chero .kicker{color:var(--on-night-2);font-size:15px;margin:0 0 6px}
+.chero h1{margin:0;color:var(--on-night)}
+.chero .why{font:italic 500 21px/1.3 var(--font-display);color:var(--on-night);margin:10px 0 0;max-width:40ch}
+.chero .why .l span+span::before{content:" · ";font-style:normal;color:var(--on-night-2)}
+.chero .facts{color:var(--on-night-2);font-size:15px;margin:12px 0 0;max-width:60ch}
+.chero .facts b{color:var(--on-night);font-weight:650}.chero .facts a{color:var(--on-night)}
+.chero .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chero .btn{min-height:var(--tap)}
+.chero .btn-ghost{color:var(--on-night);border-color:color-mix(in srgb,var(--on-night) 45%,transparent);background:transparent}
+.chero .accentbar{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--city,var(--gilt-soft))}
+@media(max-width:639px){.chero .blurb-c{display:none}.chero .sky{opacity:.45}.chero .why{font-size:19px}.chero .inner{padding:20px var(--gutter) 22px}.chero h1{font-size:44px}}
+@media(min-width:900px){.chero .inner{padding:44px var(--gutter) 40px}.chero .why{font-size:26px}}
+.share-note{font-size:14px;color:var(--on-night-2);align-self:center}
+.themes .theme-rail{list-style:none;margin:12px 0 0;padding:2px 2px 10px;display:grid;grid-auto-flow:column;grid-auto-columns:min(74%,290px);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}
+@media(min-width:1100px){.themes .theme-rail{grid-auto-columns:calc((100% - 36px)/4)}}
+.themes .rail-head .n{display:block;margin-top:4px;font:450 14px/1.3 var(--font-ui);color:var(--ink-3);letter-spacing:0}
+@media(min-width:900px){.themes .rail-head .n{display:inline;margin-left:12px}}
+.theme-main{min-height:170px}
+.theme{scroll-snap-align:start;display:grid;grid-template-rows:1fr auto;border-radius:var(--r-l);overflow:hidden;background:var(--surface);border:1px solid var(--line)}
+.theme-main{display:grid;gap:4px;align-content:end;min-height:150px;padding:16px;text-decoration:none;color:var(--on-night);background:var(--motif,none),var(--night)}
+.theme.t-1 .theme-main{background:var(--motif,none),linear-gradient(150deg,var(--night-2),var(--night))}
+.theme.t-2 .theme-main{background:var(--motif,none),repeating-linear-gradient(135deg,transparent 0 10px,color-mix(in srgb,var(--on-night) 6%,transparent) 10px 11px),var(--night)}
+.theme.t-3 .theme-main{background:var(--motif,none),radial-gradient(120% 120% at 100% 0,var(--night-2),var(--night) 70%)}
+.theme-n{font:500 44px/1 var(--font-display);color:var(--gilt-soft)}
+.theme-t{font:500 23px/1.15 var(--font-display);color:var(--on-night)}
+.theme-w{font-size:13.5px;line-height:1.35;color:var(--on-night-2)}
+.theme-c{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 12px}
+.theme-c a{display:inline-flex;align-items:center;gap:5px;min-height:var(--tap);padding:0 12px;border:1px solid var(--line-strong);border-radius:var(--r-pill);font-size:13.5px;text-decoration:none;color:var(--ink)}
+.theme-c a b{font-weight:650;color:var(--ink-2)}
+.theme-c .more-n{font-size:13px;color:var(--ink-3);align-self:center;padding:0 4px}
+.theme-main:hover .theme-t{text-decoration:underline;text-underline-offset:4px}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .tile.c-night .art .dots.t1,:root:not([data-theme=light]) .chero .sky .dots.t1{stroke:var(--gilt)}:root:not([data-theme=light]) .theme-n{color:var(--gilt)}:root:not([data-theme=light]) .tile.c-wash .art .dots,:root:not([data-theme=light]) .tile.c-paper .art .dots{stroke:var(--city-ink)}:root:not([data-theme=light]) .tile.c-wash .art .dots.t1,:root:not([data-theme=light]) .tile.c-paper .art .dots.t1{stroke:var(--ink)}}
+:root[data-theme=dark] .tile.c-night .art .dots.t1,:root[data-theme=dark] .chero .sky .dots.t1{stroke:var(--gilt)}:root[data-theme=dark] .theme-n{color:var(--gilt)}:root[data-theme=dark] .tile.c-wash .art .dots,:root[data-theme=dark] .tile.c-paper .art .dots{stroke:var(--city-ink)}:root[data-theme=dark] .tile.c-wash .art .dots.t1,:root[data-theme=dark] .tile.c-paper .art .dots.t1{stroke:var(--ink)}
+.results .grp.guides ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0}
+.results a.is-kb,.results a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.results mark{background:var(--gilt-soft);color:var(--ink);border-radius:2px}
+</style>
 </head>
 <body class="has-tabbar">
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol><symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.3l1.4 3 3.2.3-2.4 2.2.7 3.1L12 14.3l-2.9 1.6.7-3.1-2.4-2.2 3.2-.3z"/></symbol><symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-star4" viewBox="0 0 24 24"><path d="M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1-2.1 7.4-2.1-7.4L2.5 12l7.4-2.1z"/></symbol><symbol id="i-offline" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M7.6 7.6A5 5 0 0 0 7 9.5 4 4 0 0 0 7 17.5h10M10 5a5 5 0 0 1 6.9 3.5h.6a3.5 3.5 0 0 1 2.4 6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.2"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.2"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.4a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.4"/></symbol></defs></svg><a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol><symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.3l1.4 3 3.2.3-2.4 2.2.7 3.1L12 14.3l-2.9 1.6.7-3.1-2.4-2.2 3.2-.3z"/></symbol><symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-star4" viewBox="0 0 24 24"><path d="M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1-2.1 7.4-2.1-7.4L2.5 12l7.4-2.1z"/></symbol><symbol id="i-offline" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M7.6 7.6A5 5 0 0 0 7 9.5 4 4 0 0 0 7 17.5h10M10 5a5 5 0 0 1 6.9 3.5h.6a3.5 3.5 0 0 1 2.4 6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.2"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.2"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M6 12v7h12v-7"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.4a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.4"/></symbol></defs></svg><a class="skip" href="#main">Skip to content</a>
 <header class="topbar" data-cleo-shell="topbar"><div class="wrap">
   <a class="brand" href="../index.html" aria-label="Cleo — all destinations"><svg class="mark" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4.2l1.75 6.05L19.8 12l-6.05 1.75L12 19.8l-1.75-6.05L4.2 12l6.05-1.75z"/></svg><b>cleo</b><small>field guides</small></a>
   <nav class="crumbs" aria-label="Breadcrumb"><a class="c0" href="../Singapore/index.html">Singapore</a><span class="sep" aria-hidden="true">›</span><span class="here" aria-current="page">singapore/singapore-old</span></nav>
@@ -42,17 +105,20 @@
 </div></header>
 <div class="banners" data-cleo-banners aria-live="polite"></div>
 <main id="main" class="feb">
-<section class="masthead" aria-labelledby="cn"><div class="inner">
+<section class="chero masthead" aria-labelledby="cn"><div class="sky" aria-hidden="true"><svg viewBox="0 0 900 360" preserveAspectRatio="xMaxYMid meet" aria-hidden="true" focusable="false"><path class="dots" stroke-width="3" stroke-opacity=".75" d="M440 341h0M494 183h0M474 190h0M497 185h0M489 178h0M489 176h0M491 178h0M497 184h0M485 166h0M503 182h0M489 177h0M490 173h0M490 175h0M489 173h0M493 173h0M495 183h0M498 181h0M394 284h0M385 124h0M442 130h0M439 341h0M498 170h0M504 181h0"/><path class="dots t1" stroke-width="4.8" d="M441 340h0M442 340h0M442 341h0M443 341h0M441 341h0M444 341h0M442 342h0M441 342h0M443 342h0M443 340h0M518 88h0M490 177h0M490 176h0M491 177h0M491 176h0M481 168h0M485 184h0M493 175h0M492 175h0M489 172h0M481 166h0M496 182h0M505 180h0M488 175h0M492 174h0M501 164h0M502 174h0M489 213h0M487 172h0M405 309h0M405 308h0M404 310h0M414 326h0M382 270h0M384 125h0M385 125h0M413 18h0M410 21h0M460 163h0M442 131h0"/></svg></div><div class="inner">
+  <p class="kicker">Archive · drawn from 803 verified pins</p>
   <h1 class="title d1" id="cn">Southeast Asia</h1>
-  <p class="facts"><b>50 guides · 820 places</b> · 286 sights · 534 to eat &amp; drink · status last checked 2026-10-03. <a href="../how-we-choose.html">How we choose</a></p>
-  <p class="facts">The archived regional index: every Singapore town and every regional preview, including countries not yet live.</p>
+  
+  <p class="facts"><b>50 guides · 820 places</b> · 286 sights · 534 to eat &amp; drink · status last checked 2026-10-03.</p>
+  <p class="facts blurb-c">The archived regional index: every Singapore town and every regional preview, including countries not yet live.</p>
+  <div class="acts"><button type="button" class="btn btn-ghost" data-cleo-share data-title="Southeast Asia — 50 sourced guides · Cleo" data-url="https://alvations.github.io/cleo-guide/beta/Singapore/singapore-old.html" hidden><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-share"/></svg>Share Southeast Asia</button><a class="btn btn-ghost" href="../how-we-choose.html">How we choose</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>
 </div><span class="accentbar"></span></section>
 <div class="wrap section" id="destinations">
 <section class="csec" id="singapore" aria-labelledby="g-singapore"><div class="rail-head"><h2 class="d2" id="g-singapore">Singapore<span class="n">29 guides</span></h2></div>
 <ul class="morelist">
 <li class="dest" data-page="singapore/ang-mo-kio" data-gen="new"><a href="../Singapore/ang-mo-kio.html"><span class="dest-n">Ang Mo Kio</span><span class="dest-c">87 places</span></a></li>
 <li class="dest" data-page="singapore/balestier" data-gen="new"><a href="../Singapore/balestier.html"><span class="dest-n">Balestier</span><span class="dest-c">49 places</span></a></li>
-<li class="dest" data-page="singapore/bedok" data-gen="new"><a href="../Singapore/bedok.html"><span class="dest-n">Bedok</span><span class="dest-c">1 places</span></a></li>
+<li class="dest" data-page="singapore/bedok" data-gen="new"><a href="../Singapore/bedok.html"><span class="dest-n">Bedok</span><span class="dest-c">1 place</span></a></li>
 <li class="dest" data-page="singapore/bishan" data-gen="new"><a href="../Singapore/bishan.html"><span class="dest-n">Bishan</span><span class="dest-c">43 places</span></a></li>
 <li class="dest" data-page="singapore/bukit-timah" data-gen="new"><a href="../Singapore/bukit-timah.html"><span class="dest-n">Bukit Timah</span><span class="dest-c">3 places</span></a></li>
 <li class="dest" data-page="singapore/changi" data-gen="new"><a href="../Singapore/changi.html"><span class="dest-n">Changi</span><span class="dest-c">2 places</span></a></li>
@@ -90,7 +156,7 @@
 </ul></section>
 <section class="csec" id="malaysia" aria-labelledby="g-malaysia"><div class="rail-head"><h2 class="d2" id="g-malaysia">Malaysia<span class="n">4 guides · preview</span></h2></div>
 <ul class="morelist">
-<li class="dest" data-page="singapore/ipoh" data-gen="new"><a href="../Singapore/ipoh.html"><span class="dest-n">Ipoh</span><span class="dest-c">1 places</span></a></li>
+<li class="dest" data-page="singapore/ipoh" data-gen="new"><a href="../Singapore/ipoh.html"><span class="dest-n">Ipoh</span><span class="dest-c">1 place</span></a></li>
 <li class="dest" data-page="singapore/kuala-lumpur" data-gen="new"><a href="../Singapore/kuala-lumpur.html"><span class="dest-n">Kuala Lumpur</span><span class="dest-c">3 places</span></a></li>
 <li class="dest" data-page="singapore/malacca" data-gen="new"><a href="../Singapore/malacca.html"><span class="dest-n">Malacca</span><span class="dest-c">2 places</span></a></li>
 <li class="dest" data-page="singapore/penang" data-gen="new"><a href="../Singapore/penang.html"><span class="dest-n">Penang (George Town)</span><span class="dest-c">6 places</span></a></li>
@@ -103,7 +169,7 @@
 <section class="csec" id="indonesia" aria-labelledby="g-indonesia"><div class="rail-head"><h2 class="d2" id="g-indonesia">Indonesia<span class="n">3 guides · preview</span></h2></div>
 <ul class="morelist">
 <li class="dest" data-page="singapore/bali" data-gen="new"><a href="../Singapore/bali.html"><span class="dest-n">Bali</span><span class="dest-c">3 places</span></a></li>
-<li class="dest" data-page="singapore/jakarta" data-gen="new"><a href="../Singapore/jakarta.html"><span class="dest-n">Jakarta</span><span class="dest-c">1 places</span></a></li>
+<li class="dest" data-page="singapore/jakarta" data-gen="new"><a href="../Singapore/jakarta.html"><span class="dest-n">Jakarta</span><span class="dest-c">1 place</span></a></li>
 <li class="dest" data-page="singapore/yogyakarta" data-gen="new"><a href="../Singapore/yogyakarta.html"><span class="dest-n">Yogyakarta</span><span class="dest-c">2 places</span></a></li>
 </ul></section>
 <section class="csec" id="philippines" aria-labelledby="g-philippines"><div class="rail-head"><h2 class="d2" id="g-philippines">Philippines<span class="n">2 guides · preview</span></h2></div>
@@ -113,14 +179,15 @@
 </ul></section>
 <section class="csec" id="indochina" aria-labelledby="g-indochina"><div class="rail-head"><h2 class="d2" id="g-indochina">Cambodia, Laos &amp; Myanmar<span class="n">5 guides · preview</span></h2></div>
 <ul class="morelist">
-<li class="dest" data-page="singapore/bagan" data-gen="new"><a href="../Singapore/bagan.html"><span class="dest-n">Bagan</span><span class="dest-c">1 places</span></a></li>
+<li class="dest" data-page="singapore/bagan" data-gen="new"><a href="../Singapore/bagan.html"><span class="dest-n">Bagan</span><span class="dest-c">1 place</span></a></li>
 <li class="dest" data-page="singapore/luang-prabang" data-gen="new"><a href="../Singapore/luang-prabang.html"><span class="dest-n">Luang Prabang</span><span class="dest-c">2 places</span></a></li>
-<li class="dest" data-page="singapore/phnom-penh" data-gen="new"><a href="../Singapore/phnom-penh.html"><span class="dest-n">Phnom Penh</span><span class="dest-c">1 places</span></a></li>
+<li class="dest" data-page="singapore/phnom-penh" data-gen="new"><a href="../Singapore/phnom-penh.html"><span class="dest-n">Phnom Penh</span><span class="dest-c">1 place</span></a></li>
 <li class="dest" data-page="singapore/siem-reap" data-gen="new"><a href="../Singapore/siem-reap.html"><span class="dest-n">Siem Reap (Angkor)</span><span class="dest-c">2 places</span></a></li>
-<li class="dest" data-page="singapore/yangon" data-gen="new"><a href="../Singapore/yangon.html"><span class="dest-n">Yangon</span><span class="dest-c">1 places</span></a></li>
+<li class="dest" data-page="singapore/yangon" data-gen="new"><a href="../Singapore/yangon.html"><span class="dest-n">Yangon</span><span class="dest-c">1 place</span></a></li>
 </ul></section>
 
 </div>
+
 <section class="wrap section" aria-labelledby="else-h"><h2 class="d2" id="else-h">Elsewhere in Cleo</h2>
 <div class="countries" style="margin-top:12px"><a class="pill" href="../index.html#us">United States <span class="n">4,144</span></a><a class="pill" href="../Singapore/index.html">Singapore <span class="n">598</span></a><a class="pill" href="../Vietnam/index.html">Vietnam <span class="n">183</span></a><a class="pill" href="../Germany/index.html">Germany <span class="n">751</span></a><a class="pill" href="../Belgium/index.html">Belgium <span class="n">651</span></a><a class="pill" href="../Japan/index.html">Japan <span class="n">2,092</span></a></div></section>
 </main>
@@ -130,7 +197,7 @@
     <div><a class="brand" href="../index.html" aria-label="Cleo — all destinations"><svg class="mark" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4.2l1.75 6.05L19.8 12l-6.05 1.75L12 19.8l-1.75-6.05L4.2 12l6.05-1.75z"/></svg><b>cleo</b></a>
       <p>8,458 places across 84 guides — every one traceable to the source that recommended it, pinned and status-checked.</p></div>
     <div><h4>Destinations</h4><ul><li><a href="../index.html#us">United States</a></li><li><a href="../Singapore/index.html">Singapore</a></li><li><a href="../Vietnam/index.html">Vietnam</a></li><li><a href="../Germany/index.html">Germany</a></li><li><a href="../Belgium/index.html">Belgium</a></li><li><a href="../Japan/index.html">Japan</a></li></ul></div>
-    <div><h4>The method</h4><ul><li><a href="../how-we-choose.html">How we choose</a></li><li><a href="../how-we-choose.html#closures">Closed places</a></li><li><a href="../how-we-choose.html#pins">Pins</a></li></ul></div>
+    <div><h4>The method</h4><ul><li><a href="../how-we-choose.html">How we choose</a></li><li><a href="../how-we-choose.html#closures">Closed places</a></li><li><a href="../how-we-choose.html#pins">Pins</a></li><li><a href="../accessibility.html">Accessibility</a></li></ul></div>
     <div><h4>Yours</h4><ul><li><a href="../saved.html">Your list</a></li><li><a href="../index.html#search">Search</a></li><li><button type="button" class="btn theme-toggle" aria-pressed="false" data-cleo-theme hidden><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg><span>Night edition</span></button></li></ul></div>
   </div>
   <p class="legal colophon">Cleo beta — every place is carried from <a href="https://alvations.github.io/cleo-guide/">the current live guides</a>, with its sources. Map tiles: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>; Esri. No ratings, prices or hours are shown because they aren't in our data — check before you go.</p>
@@ -142,6 +209,6 @@
 <a href="../how-we-choose.html"><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seal"/></svg><span>Method</span></a>
 </nav>
 <script src="../assets/js/states.js?v=938d68f2cf" defer></script>
-<script src="../assets/js/search.js?v=83def4d1ff" defer></script>
+<script src="../assets/js/search.js?v=3eb9582ecc" defer></script>
 </body>
 </html>

@@ -70,6 +70,7 @@ const ICONS = {
   alert: '<path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.2"/>',
   info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.2"/>',
   moon: '<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>',
+  share: '<path d="M12 15V4M8 8l4-4 4 4"/><path d="M6 12v7h12v-7"/>',
   pin: '<path d="M12 21s-7-6.2-7-11.4a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.4"/>',
 };
 const sprite = () => `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>${
@@ -82,7 +83,7 @@ const MARK = '<svg class="mark" width="22" height="22" viewBox="0 0 24 24" aria-
 /** Trail for a beta page: Destinations › {country} › {page}. Root and saved/method pages are one level. */
 function trail(rel) {
   if (!rel || rel === 'index.html') return [];
-  const fixed = { 'saved.html': 'Your list', 'how-we-choose.html': 'How we choose', '404.html': 'Page not found' };
+  const fixed = { 'saved.html': 'Your list', 'how-we-choose.html': 'How we choose', 'accessibility.html': 'Accessibility', '404.html': 'Page not found' };
   const out = [{ name: 'Destinations', href: 'index.html' }];
   if (fixed[rel]) return out.concat({ name: fixed[rel] });
   const pg = SITE.pages[rel];
@@ -155,7 +156,7 @@ function footer({ depth, liveRel, notes = [], tabbar = false, current }) {
     <div><a class="brand" href="${up}index.html" aria-label="Cleo — all destinations">${MARK}<b>cleo</b></a>
       <p>${T.places.toLocaleString('en-US')} places across ${T.guides} guides — every one traceable to the source that recommended it, pinned and status-checked.</p></div>
     <div><h4>Destinations</h4><ul>${SITE.countries.map(c => `<li><a href="${up}${esc(c.href)}">${esc(c.name)}</a></li>`).join('')}</ul></div>
-    <div><h4>The method</h4><ul><li><a href="${up}how-we-choose.html">How we choose</a></li><li><a href="${up}how-we-choose.html#closures">Closed places</a></li><li><a href="${up}how-we-choose.html#pins">Pins</a></li></ul></div>
+    <div><h4>The method</h4><ul><li><a href="${up}how-we-choose.html">How we choose</a></li><li><a href="${up}how-we-choose.html#closures">Closed places</a></li><li><a href="${up}how-we-choose.html#pins">Pins</a></li><li><a href="${up}accessibility.html">Accessibility</a></li></ul></div>
     <div><h4>Yours</h4><ul><li><a href="${up}saved.html">Your list</a></li><li><a href="${up}index.html#search">Search</a></li><li><button type="button" class="btn theme-toggle" aria-pressed="false" data-cleo-theme hidden>${icon('moon')}<span>Night edition</span></button></li></ul></div>
   </div>
   <p class="legal colophon">Cleo beta — every place is carried from ${live}, with its sources. Map tiles: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>; Esri. No ratings, prices or hours are shown because they aren't in our data — check before you go.</p>

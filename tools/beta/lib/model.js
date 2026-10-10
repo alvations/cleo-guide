@@ -72,6 +72,9 @@ function normalise(row) {
       if (g.statusChecked) rec.pv.checked = g.statusChecked;
       if (g.status) rec.pv.status = g.status;
       if (g.confidence) rec.pv.pin = g.confidence;
+      if (g.source) rec.pv.src = g.source;                         // pin source + date (sheet "Pinned to the door: …")
+      if (g.verified) rec.pv.verified = g.verified;
+      if (closed && g.statusSource) rec.pv.ss = g.statusSource;    // why we say it closed
     }
     recs.push(rec);
   };

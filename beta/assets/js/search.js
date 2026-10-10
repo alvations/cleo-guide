@@ -17,13 +17,20 @@
   Cleo.renderHits = function (el, data, q, onClear) {
     var hits = Cleo.search(data, q), groups = [], by = {};
     hits.forEach(function (h) { var k = h.it[0]; if (!by[k]) { by[k] = { pg: h.pg, hits: [] }; groups.push(by[k]); } by[k].hits.push(h); });
-    if (!hits.length) {
+    var gq = Cleo.fold ? Cleo.fold(q).split(/\s+/).filter(Boolean) : [];
+    var guides = gq.length ? data.pages.filter(function (pg) { var h = Cleo.fold(pg[1] + ' ' + pg[3]); return gq.every(function (t) { return h.indexOf(t) >= 0; }); }) : [];
+    var gHtml = guides.length ? '<section class="grp guides"><h3>' + (guides.length === 1 ? 'Guide' : guides.length + ' guides') + '</h3><ol>' +
+      guides.slice(0, 12).map(function (pg) { return '<li><a class="pill" href="' + esc((Cleo.root || '') + pg[2]) + '">' + esc(pg[1]) + '</a></li>'; }).join('') + '</ol></section>' : '';
+    if (!hits.length && guides.length) {
+      el.innerHTML = '<h2 class="d3">' + guides.length + ' ' + (guides.length === 1 ? 'guide' : 'guides') + ' for “' + esc(q) + '”</h2>' + gHtml;
+    } else if (!hits.length) {
       el.innerHTML = '<div class="state" data-cleo-state="no-results"><h3>No places match “' + esc(q) + '”.</h3>' +
         '<p>Search looks at place names, areas and guide names across all ' + total(data) + ' places. Try a city, a neighbourhood or a dish.</p>' +
         '<button type="button" class="btn btn-ghost" data-cleo-clear>Clear search · see all ' + total(data) + ' places</button></div>';
     } else {
       el.innerHTML = '<h2 class="d3">' + hits.length + ' ' + (hits.length === 1 ? 'place' : 'places') + ' for “' + esc(q) + '”' +
         ' <span class="sm muted">in ' + groups.length + ' ' + (groups.length === 1 ? 'guide' : 'guides') + '</span></h2>' +
+        gHtml +
         groups.map(function (g, gi) {
           return '<section class="grp"><h3>' + esc(g.pg[1]) + ' <span class="sm muted">' + g.hits.length + '</span></h3><ol>' +
             g.hits.map(function (h, i) {
@@ -51,6 +58,36 @@
     el.innerHTML = '<div class="state" data-cleo-state="index-failed"><h3>Search couldn’t load.</h3>' +
       '<p>It needs the site index, which isn’t reachable right now. Every guide is still listed and every page works.</p></div>';
   };
+
+  /** Arrow keys move through result links; ArrowDown from the input enters the list, Escape/ArrowUp at the top returns. */
+  Cleo.kbNav = function (input, out) {
+    var links = function () { return Array.prototype.filter.call(out.querySelectorAll('a[href], button'), function (a) { return !a.closest('[hidden]'); }); };
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown') { var l = links(); if (l.length) { e.preventDefault(); l[0].focus(); } }
+    });
+    out.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp' && e.key !== 'Escape') return;
+      var l = links(), i = l.indexOf(document.activeElement);
+      if (i < 0) return;
+      e.preventDefault();
+      if (e.key === 'Escape' || (e.key === 'ArrowUp' && i === 0)) { if (e.key === 'Escape') e.stopPropagation(); input.focus(); return; }
+      var n = l[e.key === 'ArrowDown' ? Math.min(l.length - 1, i + 1) : i - 1];
+      if (n) n.focus();
+    });
+  };
+
+  /* ---- share (hubs, landing): Web Share where available, else copy the link with a visible "Link copied" ---- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-cleo-share]'), function (b) { b.hidden = false; });
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('[data-cleo-share]') : null;
+    if (!b) return;
+    var url = b.getAttribute('data-url') || location.href, title = b.getAttribute('data-title') || document.title;
+    var note = b.parentNode && b.parentNode.querySelector('[data-cleo-share-note]');
+    var say = function (t) { if (note) note.textContent = t; };
+    if (navigator.share) { navigator.share({ title: title, url: url }).catch(function () {}); return; }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(function () { say('Link copied'); }, function () { say(url); });
+    else say(url);
+  });
 
   /* ---- the top bar's search panel ---- */
   var panel = null, lastFocus = null;
@@ -81,6 +118,7 @@
           function () { Cleo.indexFailed(out); });
       };
       input.addEventListener('input', function () { clearTimeout(t); t = setTimeout(run, 120); });
+      Cleo.kbNav(input, out);
       panel.querySelector('form').addEventListener('submit', function (e) { e.preventDefault(); run(); });
       panel.querySelector('[data-cleo-panel-close]').addEventListener('click', close);
       panel.addEventListener('keydown', function (e) { if (e.key === 'Escape') { e.preventDefault(); close(); } });
