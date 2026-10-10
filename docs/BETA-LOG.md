@@ -248,3 +248,10 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Measured (Playwright, 390×844 @2x / 1440×900, tiles stubbed, off-origin aborted):** Tokyo first card 716 px (m) / 516 (d); controls above first card 9 (m); desktop map 44 % of viewport; pin peek 39 %; 0 JS errors on 30 flows; overflowX 0; uppercase ≤ 0.4 %; < 44 px targets only Leaflet's own attribution links. Pages ≤ 800 KB (Okinawa 792 KB).
   - **Screenshots:** `design/beta/eval/w2/fe-a/w2-{tokyo,tokyo-s1,cleveland,cleveland-food,pittsburgh,sheet,sheet-cle,foryou,foryou-on,day,day-cle,map,map-pin,near,saved,saved-shared}-{m,d}.jpg` (map/map-pin mobile only); before: `before-*.jpg`; numbers `w2-metrics.json`.
   - **Merge note (FE-A):** origin `aa7b3cc` already fails one budget in `test-beta.js`: **landing ≤ 80 KB raw = 81** (`beta/index.html` 83,167 bytes, byte-identical before and after this merge). It's FE-B's page, so FE-A didn't touch it. **FE-B/PLT:** trim the landing or re-set that budget. Everything else is green on the merged tree (validate, npm test incl. `test-fe-a.js`, beta:check).
+
+- 2026-10-10 10:55Z · orchestrator · Check-in.
+  - QA W1 archived with M1 sign-off NO: B-06, B-07 and B-16 are open and covered by FE-A W2 (0f0f7b6e).
+  - FE-B W2 archived (…59366c1).
+  - The view-styles lane pushed its melon-seek study (9f245b9e).
+  - Head checks: validate green, tests green except `landing ≤ 80 KB = 81`, which the imagery lane is trimming. No-brand scan is clean.
+  - PM session launched (session_017mbzpE8dtjevPVLcXB6TEK) for M1 acceptance, the W2/R3 backlog and the Round 2 exit criteria.
