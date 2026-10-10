@@ -22,9 +22,11 @@ const { esc } = require('../html');
 const { head, siteBar, footer, styles, BETA_BASE } = require('./common');
 const { site, icon } = require('./shell');
 const { fmt, sumStats } = require('../stats');
+const { t, tn } = require('../i18n');                // W5 gap #7: every hub/tile string comes from the catalogue
 
 const BETA = path.resolve(__dirname, '..', '..', '..', '..', 'beta');
-const plural = (n, one, many = one + 's') => `${fmt(n)} ${n === 1 ? one : many}`;
+/** Counted phrase from the catalogue: plural('hub.places', 3) → "3 places"; the `.one` variant for 1. Escaped. */
+const plural = (key, n) => esc(n === 1 ? tn(key, 1) : t(key, { n: fmt(n) }));
 
 // ---------------------------------------------------------------- skins
 const SKINS = ['vermilion', 'lake', 'moss', 'neon', 'lagoon', 'glacier', 'saffron', 'plum'];
@@ -147,20 +149,20 @@ function cityTile(row, i, { up = '', art = true, lg = false, cap = 44, views = f
   return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}" class="tile c-${comp}${lg ? ' lg' : ''}${sk.cls}"${sk.attr}>
 <span class="art">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}${art ? starfield(row.recs || [], { cap, colors: comp === 'night' ? null : row.colors }) : ''}${f.native ? `<span class="native">${esc(f.native)}</span>` : `<span class="ini" aria-hidden="true">${ini}</span>`}<span class="bar"></span></span>
 <span class="txt"><h3>${esc(f.name)}</h3>
-<span class="counts"><span class="dest-c">${plural(f.n, 'place')}<span class="hide-m"> · ${fmt(f.P)} sights · ${fmt(f.F)} to eat &amp; drink</span></span></span>
+<span class="counts"><span class="dest-c">${plural('hub.places', f.n)}<span class="hide-m"> · ${esc(t('hub.sights', { n: fmt(f.P) }))} · ${esc(t('hub.food', { n: fmt(f.F) }))}</span></span></span>
 ${sig}${star}${canon}</span></a>${views && row.gen === 'new' ? viewLinks(row, up) : ''}</li>`;
 }
 
 /** W3 B-04: open the city in a named view. Real anchors (#view= is a route the city page's switcher reads). */
-const VIEW_LINKS = [['guidebook', 'Read as a guidebook'], ['insights', 'See it in numbers']];
+const VIEW_LINKS = ['guidebook', 'insights'];
 function viewLinks(row, up = '') {
-  return `<p class="dest-views">${VIEW_LINKS.map(([v, t]) => `<a href="${up}${esc(row.beta)}#view=${v}" data-view-link="${v}">${t}<span class="vh"> — ${esc(facts(row).name)}</span></a>`).join('')}</p>`;
+  return `<p class="dest-views">${VIEW_LINKS.map(v => `<a href="${up}${esc(row.beta)}#view=${v}" data-view-link="${v}">${esc(t('hub.view.' + v))}<span class="vh"> — ${esc(facts(row).name)}</span></a>`).join('')}</p>`;
 }
 
 /** Compact row for pages a country lists beyond its headline cities (thin towns): name + count, no art. */
 function moreRow(row, up = '') {
   const f = facts(row);
-  return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}"><span class="dest-n">${esc(f.name)}</span><span class="dest-c">${plural(f.n, 'place')}</span></a></li>`;
+  return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}"><span class="dest-n">${esc(f.name)}</span><span class="dest-c">${plural('hub.places', f.n)}</span></a></li>`;
 }
 
 /** Split a country's place pages into the hub's headline cities and the rest, in the live hub's order. */
@@ -177,26 +179,27 @@ function countryPages(c, reg) {
 /**
  * Cross-city collections. `by` = 'g' (collection ids) or 'cz' (cuisine ids); `label` guards the id's meaning on each
  * page (a page whose collection with that id is named otherwise is not counted). Titles and lines are the guide's
- * editorial voice; every count, city and link is computed. A theme with < 5 open places is not shown.
+ * editorial voice, on the catalogue as theme.<key>.t / .l (W5 gap #7); every count, city and link is computed. A theme
+ * with < 5 open places is not shown.
  */
 const THEMES = [
-  { key: 'anime', by: 'g', id: 'ANIME', label: /anime/i, title: 'Anime pilgrimage', line: 'Real streets and shrines from the manga and screen canon', glyph: 'star4' },
-  { key: 'hawker', by: 'cz', id: 'HAWKER', label: /hawker/i, title: 'The hawker canon', line: 'Stalls the city argues about, town by town', glyph: 'seal' },
-  { key: 'temples', by: 'g', id: 'TEMPLE', label: /temple|shrine/i, title: 'Temples & shrines', line: 'From Kyoto’s great halls to neighbourhood shrines', glyph: 'compass' },
-  { key: 'ramen', by: 'cz', id: 'RAMEN', label: /ramen/i, title: 'Ramen counters', line: 'Bowls named by the people who queue for them', glyph: 'seal' },
-  { key: 'fine', by: 'cz', id: 'FINE', label: /michelin|fine/i, title: 'Michelin & fine dining', line: 'Starred and bib-gourmand tables, each with its source', glyph: 'star4' },
-  { key: 'unesco', by: 'g', id: 'UNESCO', label: /unesco/i, title: 'World Heritage', line: 'UNESCO-listed sites, pinned to the door', glyph: 'pin' },
-  { key: 'onsen', by: 'g', id: 'ONSEN', label: /onsen|sent/i, title: 'Onsen & sentō', line: 'Hot springs and neighbourhood bathhouses', glyph: 'compass' },
-  { key: 'beer', by: 'cz', id: 'BEER', label: /beer|brauhaus|k[öo]lsch/i, title: 'Beer halls & brewers', line: 'Trappist taps, Kölsch and the brown cafés that pour them', glyph: 'seal' },
-  { key: 'flw', by: 'g', id: 'FLW', label: /frank lloyd wright/i, title: 'Frank Lloyd Wright', line: 'Prairie School houses and the buildings that made him', glyph: 'pin' },
-  { key: 'free', by: 'g', id: 'FREE', label: /free/i, title: 'Free to visit', line: 'Museums, parks and landmarks that cost nothing', glyph: 'pin' },
+  { key: 'anime', by: 'g', id: 'ANIME', label: /anime/i, glyph: 'star4' },
+  { key: 'hawker', by: 'cz', id: 'HAWKER', label: /hawker/i, glyph: 'seal' },
+  { key: 'temples', by: 'g', id: 'TEMPLE', label: /temple|shrine/i, glyph: 'compass' },
+  { key: 'ramen', by: 'cz', id: 'RAMEN', label: /ramen/i, glyph: 'seal' },
+  { key: 'fine', by: 'cz', id: 'FINE', label: /michelin|fine/i, glyph: 'star4' },
+  { key: 'unesco', by: 'g', id: 'UNESCO', label: /unesco/i, glyph: 'pin' },
+  { key: 'onsen', by: 'g', id: 'ONSEN', label: /onsen|sent/i, glyph: 'compass' },
+  { key: 'beer', by: 'cz', id: 'BEER', label: /beer|brauhaus|k[öo]lsch/i, glyph: 'seal' },
+  { key: 'flw', by: 'g', id: 'FLW', label: /frank lloyd wright/i, glyph: 'pin' },
+  { key: 'free', by: 'g', id: 'FREE', label: /free/i, glyph: 'pin' },
 ];
 
 /** Computed theme rows: [{ ...theme, n, cities:[{row, n, href}], countries:Set }], largest city first. */
 function themes(reg, { country = null, min = 5 } = {}) {
   const live = new Set(reg.countries.filter(c => c.live).map(c => c.key));
   const rows = reg.rows.filter(r => r.kind === 'city' && live.has(r.country) && (!country || r.country === country));
-  return THEMES.map(t => {
+  return THEMES.map(th => Object.assign({ title: t(`theme.${th.key}.t`), line: t(`theme.${th.key}.l`) }, th)).map(t => {
     const cities = [];
     for (const r of rows) {
       const list = t.by === 'g' ? r.data.CATS || [] : r.data.CUISINES || [];
@@ -212,25 +215,25 @@ function themes(reg, { country = null, min = 5 } = {}) {
 }
 
 /** Where a theme is: "across Japan", "in Singapore", "across 4 countries". */
-function whereLine(t, reg) {
-  const names = t.countries.map(k => (reg.countries.find(c => c.key === k) || {}).name || k);
-  if (names.length === 1) return t.cities.length > 1 ? `across ${names[0]}` : `in ${t.cities[0].row.name}`;
-  return `across ${names.length} countries`;
+function whereLine(th, reg) {
+  const names = th.countries.map(k => (reg.countries.find(c => c.key === k) || {}).name || k);
+  if (names.length === 1) return th.cities.length > 1 ? t('hub.where.across', { name: names[0] }) : t('hub.where.in', { city: th.cities[0].row.name });
+  return t('hub.where.countries', { n: names.length });
 }
 
 /** The editorial rail (landing + hubs). Tiles are figures with real links; chips link straight to each city's view. */
-function themeRail(reg, { up = '', country = null, heading = 'Collections across the guides', id = 'themes', sub = '' } = {}) {
+function themeRail(reg, { up = '', country = null, heading = t('hub.themes.h'), id = 'themes', sub = '' } = {}) {
   const ts = themes(reg, { country });
   if (!ts.length) return '';
-  const tile = (t, i) => {
-    const top = t.cities.slice(0, 4), rest = t.cities.length - top.length;
-    const mf = motif('collections/' + t.key);
+  const tile = (th, i) => {
+    const top = th.cities.slice(0, 4), rest = th.cities.length - top.length;
+    const mf = motif('collections/' + th.key);
     return `<li class="theme t-${i % 4}">
-<a class="theme-main" href="${up}${esc(t.cities[0].href)}">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}<span class="theme-n">${fmt(t.n)}</span><span class="theme-t">${esc(t.title)}</span><span class="theme-w">${esc(t.line)} · ${esc(whereLine(t, reg))}</span></a>
-<span class="theme-c">${top.map(c => `<a href="${up}${esc(c.href)}">${esc(c.row.name)} <b>${fmt(c.n)}</b></a>`).join('')}${rest > 0 ? `<span class="more-n">+${rest} more ${rest === 1 ? 'guide' : 'guides'}</span>` : ''}</span></li>`;
+<a class="theme-main" href="${up}${esc(th.cities[0].href)}">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}<span class="theme-n">${fmt(th.n)}</span><span class="theme-t">${esc(th.title)}</span><span class="theme-w">${esc(th.line)} · ${esc(whereLine(th, reg))}</span></a>
+<span class="theme-c">${top.map(c => `<a href="${up}${esc(c.href)}">${esc(c.row.name)} <b>${fmt(c.n)}</b></a>`).join('')}${rest > 0 ? `<span class="more-n">${esc(tn('hub.themes.more', rest))}</span>` : ''}</span></li>`;
   };
   return `<section class="themes section" id="${esc(id)}" aria-labelledby="${esc(id)}-h">
-<div class="rail-head"><h2 class="d2" id="${esc(id)}-h">${esc(heading)}<span class="n">${ts.length} collections · counts from the guides</span></h2></div>
+<div class="rail-head"><h2 class="d2" id="${esc(id)}-h">${esc(heading)}<span class="n">${esc(t('hub.themes.n', { n: ts.length }))}</span></h2></div>
 ${sub ? `<p class="blurb">${esc(sub)}</p>` : ''}
 <ul class="theme-rail" aria-label="${esc(heading)}">
 ${ts.map(tile).join('\n')}
@@ -334,9 +337,9 @@ function renderArchive(row, reg, ctx) {
   const groups = reg.countries.filter(c => c.kind === 'engine').sort((a, b) => a.order - b.order)
     .map(c => ({ c, pages: sea.filter(r => r.country === c.key) })).filter(g => g.pages.length);
   const rest = sea.filter(r => !groups.some(g => g.pages.includes(r)));
-  if (rest.length) groups.push({ c: { key: 'other', name: 'Elsewhere in the region' }, pages: rest });
+  if (rest.length) groups.push({ c: { key: 'other', name: t('hub.archive.other') }, pages: rest });
   const all = groups.flatMap(g => g.pages);
-  const c = { key: 'sea', name: 'Southeast Asia', blurb: 'The archived regional index: every Singapore town and every regional preview, including countries not yet live.' };
+  const c = { key: 'sea', name: t('hub.archive.name'), blurb: t('hub.archive.blurb') };
   return { html: render(row, reg, ctx, { c, main: [], more: [], all, groups }), expect: all.map(r => r.key) };
 }
 
@@ -365,35 +368,35 @@ function render(row, reg, ctx, { c, main, more, all, groups }) {
   const S = sumStats(all);                                           // computed (lib/stats.js), never re-typed
   const n = S.total, P = S.sights, F = S.food, checked = S.lastChecked;
   const others = site().countries.filter(x => x.key !== c.key);
-  const title = `${c.name} — ${all.length} sourced guides · Cleo`;
+  const title = t('hub.title', { country: c.name, n: all.length });
   const sig = groups ? [] : countrySignature(all);
-  const desc = `${n.toLocaleString('en-US')} places across ${all.length} ${c.name} guides${sig.length ? ` — ${sig.map(s => s.name).join(', ')} and more` : ''}. Each recommended by named sources, pinned and status-checked.`;
+  const desc = t('hub.desc', { places: n.toLocaleString('en-US'), n: all.length, country: c.name, known: sig.length ? t('hub.desc.known', { names: sig.map(s => s.name).join(', ') }) : '' });
   const sky = starfield(all.flatMap(r => r.recs || []), { W: 900, H: 360, cap: 900, trim: 0.01, pad: 30, stroke: 3 })
     .replace('preserveAspectRatio="xMidYMid slice"', 'preserveAspectRatio="xMaxYMid meet"');
   const mf = motif(c.key);
-  const rail = groups ? '' : themeRail(reg, { up, country: c.key, heading: `Collections in ${c.name}`, id: 'themes' });
+  const rail = groups ? '' : themeRail(reg, { up, country: c.key, heading: t('hub.themes.country', { country: c.name }), id: 'themes' });
   const shareUrl = BETA_BASE + '/' + row.beta.replace(/index\.html$/, '');
   return `${head({ page: 'hub', title, description: desc, rel: row.beta, depth, assetsV: ctx.assetsV, css: styles(depth), ogImage: ogFor(c.key), from: `data/countries.json + every ${c.name} place page` }).replace('</head>', `<style>${FEB_CSS}</style>\n</head>`)}
 <body class="has-tabbar">
 ${siteBar({ depth, current: 'hub', rel: row.beta })}
 <main id="main" class="feb">
 <section class="chero masthead" aria-labelledby="cn"><div class="sky" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" decoding="async">` : ''}${sky}</div><div class="inner">
-  <p class="kicker">${groups ? 'Archive' : 'Country guide'} · drawn from ${plural(all.reduce((s, r) => s + (r.recs || []).filter(x => x.la != null && !x.closed && (!x.pv || x.pv.pin !== 'low')).length, 0), 'verified pin')}</p>
+  <p class="kicker">${esc(t(groups ? 'hub.kicker.archive' : 'hub.kicker'))} · ${esc(t('hub.drawn')).replace('{pins}', plural('hub.pins', all.reduce((s, r) => s + (r.recs || []).filter(x => x.la != null && !x.closed && (!x.pv || x.pv.pin !== 'low')).length, 0)))}</p>
   <h1 class="title d1" id="cn">${esc(c.name)}</h1>
-  ${sig.length ? `<p class="why"><span class="vh">Known for: </span><span class="l">${sig.map(s => `<span>${esc(s.name)}</span>`).join('')}</span></p>` : ''}
-  <p class="facts"><b>${plural(all.length, 'guide')} · ${plural(n, 'place')}</b> · ${fmt(P)} sights · ${fmt(F)} to eat &amp; drink${checked ? ` · status last checked ${esc(checked)}` : ''}.</p>
+  ${sig.length ? `<p class="why"><span class="vh">${esc(t('hub.known'))} </span><span class="l">${sig.map(s => `<span>${esc(s.name)}</span>`).join('')}</span></p>` : ''}
+  <p class="facts"><b>${plural('hub.guides', all.length)} · ${plural('hub.places', n)}</b> · ${esc(t('hub.sights', { n: fmt(P) }))} · ${esc(t('hub.food', { n: fmt(F) }))}${checked ? ` · ${esc(t('hub.checked', { d: checked }))}` : ''}.</p>
   ${c.blurb ? `<p class="facts blurb-c">${esc(c.blurb)}</p>` : ''}
-  <div class="acts"><button type="button" class="btn btn-ghost" data-cleo-share data-title="${esc(title)}" data-url="${esc(shareUrl)}" hidden>${icon('share', 'ico sm')}Share ${esc(c.name)}</button><a class="btn btn-ghost" href="${up}how-we-choose.html">How we choose</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>
+  <div class="acts"><button type="button" class="btn btn-ghost" data-cleo-share data-title="${esc(title)}" data-url="${esc(shareUrl)}" hidden>${icon('share', 'ico sm')}${esc(t('hub.share', { country: c.name }))}</button><a class="btn btn-ghost" href="${up}how-we-choose.html">${esc(t('shell.nav.method'))}</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>
 </div><span class="accentbar"></span></section>
 <div class="wrap section" id="destinations">
-${groups ? groups.map(g => `<section class="csec" id="${esc(g.c.key)}" aria-labelledby="g-${esc(g.c.key)}"><div class="rail-head"><h2 class="d2" id="g-${esc(g.c.key)}">${esc(g.c.name)}<span class="n">${plural(g.pages.length, 'guide')}${g.c.live === false ? ' · preview' : ''}</span></h2></div>
-<ul class="morelist">\n${g.pages.map(r => moreRow(r, up)).join('\n')}\n</ul></section>`).join('\n') : `  <ul class="tiles hub2" aria-label="${esc(c.name)} guides">
+${groups ? groups.map(g => `<section class="csec" id="${esc(g.c.key)}" aria-labelledby="g-${esc(g.c.key)}"><div class="rail-head"><h2 class="d2" id="g-${esc(g.c.key)}">${esc(g.c.name)}<span class="n">${plural('hub.guides', g.pages.length)}${g.c.live === false ? ` · ${esc(t('hub.preview'))}` : ''}</span></h2></div>
+<ul class="morelist">\n${g.pages.map(r => moreRow(r, up)).join('\n')}\n</ul></section>`).join('\n') : `  <ul class="tiles hub2" aria-label="${esc(t('hub.guides.label', { country: c.name }))}">
 ${main.map((r, i) => cityTile(r, i, { up, views: true })).join('\n')}
   </ul>`}
-${more.length ? `<h2 class="d3" style="margin-top:28px">More in ${esc(c.name)}</h2>\n<ul class="morelist">\n${more.map(r => moreRow(r, up)).join('\n')}\n</ul>` : ''}
+${more.length ? `<h2 class="d3" style="margin-top:28px">${esc(t('hub.more', { country: c.name }))}</h2>\n<ul class="morelist">\n${more.map(r => moreRow(r, up)).join('\n')}\n</ul>` : ''}
 </div>
 ${rail ? `<div class="wrap">${rail}</div>` : ''}
-<section class="wrap section" aria-labelledby="else-h"><h2 class="d2" id="else-h">Elsewhere in Cleo</h2>
+<section class="wrap section" aria-labelledby="else-h"><h2 class="d2" id="else-h">${esc(t('hub.else'))}</h2>
 <div class="countries" style="margin-top:12px">${others.map(o => `<a class="pill" href="${up}${esc(o.href)}">${esc(o.name)} <span class="n">${o.places.toLocaleString('en-US')}</span></a>`).join('')}</div></section>
 </main>
 ${footer({ depth, tabbar: true, current: 'hub' })}
