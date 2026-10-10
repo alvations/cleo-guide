@@ -599,3 +599,36 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 :is(.view-guidebook, [data-cleo-book]) .srclist .urls { grid-column: 1 / -1; }   /* the source row is a 2-col grid: the URL list spans it */
 :is(.view-guidebook, [data-cleo-book]) .urls li { display: block; min-width: 0; max-width: 100%; padding: 0; }
 :is(.view-guidebook, [data-cleo-book]) .urls a { display: flex; width: 100%; min-width: 0; word-break: break-all; overflow-wrap: anywhere; }
+
+/* ---------- V11. W5 macrons at DPR 1 (ROUND-4 gap #4) ----------
+   Bodoni Moda draws the macron as one hairline whose weight follows the optical-size axis. Measured at DPR 1
+   (design/beta/tools/macron-check.js; REVIEW-W5 §1): at opsz 28 — the W2 cap — and at auto it lands between pixel rows
+   and vanishes on "Myōjin", "Jōnan", "Kyūshū" at 16, 19 and 24 px; at opsz 11 it still drops out at 15–17 px italic.
+   opsz 6 (the font's caption master) gives a macron at least one full pixel row at every size from 15 to 36 px, light
+   and night, and keeps the Didone build; weight 460 makes up for the caption master's wider, darker set. So every
+   Bodoni line from 15 to 36 px — names, area titles, section titles, deks, notes, leads — uses opsz 6. The large
+   city names keep auto optical size; build-css.py caps them at opsz 14 on the Japan pages (they carry the macrons).
+   Declared last, after every `font:` shorthand in V1–V10 (a shorthand resets font-variation-settings). */
+html :is(h2, h3, h4, .d2, .d3, .pl-n, .dest-n, .tile-n, .lens h2, .lens > p:first-of-type, .stops, .card h3, .detail h2, .area-h, .area-n,
+  .masthead .why, .masthead .dek, .hero .why, .pl-k.note p, .pl-k .note-t, .about p, .method h2, .modules .mod b, .day > header h2,
+  #saved h2, #saved li a, .leaflet-popup-content b, .leaflet-popup-content strong,
+  .view-gallery .ghero .lead, .view-gallery .ghero-card b, .view-gallery .gc-n, .view-gallery .note, .view-gallery .near b,
+  .view-atlas .ar-n, :is(.view-guidebook, [data-cleo-book]) :is(.gcover .lead, .ch-intro, .ge h4, .gk)) {
+  font-variation-settings: "opsz" 6; font-optical-sizing: none;
+}
+html :is(.pl-n, .area-n, .dest-n, .tile-n, .view-gallery .gc-n, .view-gallery .ghero-card b, .view-gallery .near b, .view-atlas .ar-n,
+  :is(.view-guidebook, [data-cleo-book]) .ge h4, #saved li a) { font-weight: 460; }
+/* the phone dek: italic at 14 px in the secondary night ink kept the macron below one full-contrast pixel row; 15 px in the
+   primary night ink holds it (macron-check: 0 → visible). Desktop is already 16 px (contract.css 16.1). */
+html .masthead .dek { color: var(--on-night); }
+@media (max-width: 899px) { html .masthead .dek { font-size: 15px; } }
+
+/* ---------- V12. W5 masthead in-sentence links (ROUND-4 gap #3, the CSS half) ----------
+   contract.css §5 made every masthead link an inline-flex 44 px box. Inside the stat sentence that box ate the space
+   before it ("last checked2026-10-03": a flex container drops its leading white space) and stretched one line box, so
+   the paragraph's line gaps went uneven. Prose links are inline again; the 44 px target comes from vertical padding,
+   which grows the link's hit box (and its bounding box) without changing the line box. */
+html .masthead :is(.facts, .stats, .dek, .why) a:not(.btn) {
+  display: inline; min-height: 0; padding-block: calc((var(--tap) - 1.2em) / 2);
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
