@@ -116,10 +116,14 @@
     return I;
   }
 
-  /* ---- chart primitives: one axis, 2 px gaps, rounded ends, value labels, <title> on every mark. Bars are 24 px tall so
-   * every bar link meets the 24 px target minimum (W4, ROUND-3 gap #7); "Show as a table" is the 44 px fallback. ---- */
+  /* ---- chart primitives: one axis, 2 px gaps, rounded ends, value labels, <title> on every mark. Bars stay 24 px tall,
+   * but every row is 44 px and every link carries a transparent 44 px hit rect (W5, ROUND-4 gap #8): a plain bar row is
+   * one link over its whole label + bar; a stacked row's label is a link to the whole row and each segment is 44 px
+   * tall. "Show as a table" stays as the fallback. ---- */
+  var RH = 44, BY = 10;
+  var hit = function (x, y, w) { return '<rect class="hit" x="' + x.toFixed(1) + '" y="' + y + '" width="' + Math.max(w, 1).toFixed(1) + '" height="' + RH + '" style="fill:transparent;stroke:none"/>'; };
   function stackSvg(rows, series, link, uid, asPct, W, LW, narrow) {
-    var RH = 32, G = 2, span0 = W - LW - 44;
+    var G = 2, span0 = W - LW - 44;
     var mx = Math.max.apply(null, rows.map(function (r) { return sum(r.v); }).concat(1));
     var out = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + (rows.length * RH + 26) + '" role="img" aria-labelledby="' + uid + '-t ' + uid + '-d">'];
     [0, .25, .5, .75, 1].forEach(function (t) {
@@ -127,12 +131,14 @@
       out.push('<line class="grid" x1="' + x + '" x2="' + x + '" y1="0" y2="' + rows.length * RH + '"/><text class="ax" x="' + x + '" y="' + (rows.length * RH + 16) + '" text-anchor="middle">' + (asPct ? Math.round(t * 100) + '%' : Math.round(t * mx)) + '</text>');
     });
     rows.forEach(function (r, i) {
-      var y = i * RH + 4, tot = sum(r.v) || 1, x = LW, span = span0 * (asPct ? 1 : tot / mx);
-      out.push('<text class="lb" x="' + (LW - 10) + '" y="' + (y + 16) + '" text-anchor="end">' + esc(clip(r.label, narrow ? 15 : LW >= 200 ? 30 : 24)) + '</text>');
+      var y0 = i * RH, y = y0 + BY, tot = sum(r.v) || 1, x = LW, span = span0 * (asPct ? 1 : tot / mx);
+      var lb = '<text class="lb" x="' + (LW - 10) + '" y="' + (y + 16) + '" text-anchor="end">' + esc(clip(r.label, narrow ? 15 : LW >= 200 ? 30 : 24)) + '</text>';
+      // the whole-guide row ("All of …") has no lens to apply, so its label stays text
+      out.push(r.key ? '<a href="' + esc(link(r.key, '')) + '" aria-label="' + esc(r.label + ' · all ' + sum(r.v)) + '">' + hit(0, y0, LW - 4) + lb + '</a>' : lb);
       series.forEach(function (s) {
         var n = r.v[s.id] || 0; if (!n) return;
         var w = span * n / tot;
-        out.push('<a href="' + esc(link(r.key, s.id)) + '" aria-label="' + esc(r.label + ' · ' + s.name + ': ' + n) + '"><rect class="bar" x="' + x.toFixed(1) + '" y="' + y + '" width="' + Math.max(w - G, 1).toFixed(1) + '" height="24" rx="3" style="fill:' + s.c + '">' +
+        out.push('<a href="' + esc(link(r.key, s.id)) + '" aria-label="' + esc(r.label + ' · ' + s.name + ': ' + n) + '">' + hit(x, y0, w - G) + '<rect class="bar" x="' + x.toFixed(1) + '" y="' + y + '" width="' + Math.max(w - G, 1).toFixed(1) + '" height="24" rx="3" style="fill:' + s.c + '">' +
           '<title>' + esc(r.label + ' · ' + s.name + ': ' + n + ' of ' + tot + ' (' + pct(n, tot) + '%)') + '</title></rect></a>');
         x += w;
       });
@@ -141,30 +147,39 @@
     return out.join('') + '</svg>';
   }
   function barSvg(rows, link, uid, unit, W, LW, narrow) {
-    var RH = 32, mx = Math.max.apply(null, rows.map(function (r) { return r.n; }).concat(0)) || 1;
-    var out = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + (rows.length * RH + 6) + '" role="img" aria-labelledby="' + uid + '-t ' + uid + '-d">'];
+    var mx = Math.max.apply(null, rows.map(function (r) { return r.n; }).concat(0)) || 1;
+    var out = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + (rows.length * RH + 2) + '" role="img" aria-labelledby="' + uid + '-t ' + uid + '-d">'];
     rows.forEach(function (r, i) {
-      var y = i * RH + 4, w = (W - LW - 70) * r.n / mx;
-      out.push('<text class="lb" x="' + (LW - 10) + '" y="' + (y + 16) + '" text-anchor="end">' + esc(clip(r.label, narrow ? 15 : LW >= 200 ? 30 : 24)) + '</text>' +
-        '<a href="' + esc(link(r.key)) + '" aria-label="' + esc(r.label + ': ' + r.n + unit) + '"><rect class="bar" x="' + LW + '" y="' + y + '" width="' + Math.max(w, 2).toFixed(1) + '" height="24" rx="3" style="fill:' + r.c + '"><title>' + esc(r.label + ': ' + r.n + unit) + '</title></rect></a>' +
+      var y0 = i * RH, y = y0 + BY, w = (W - LW - 70) * r.n / mx;
+      out.push('<a href="' + esc(link(r.key)) + '" aria-label="' + esc(r.label + ': ' + r.n + unit) + '">' + hit(0, y0, LW + Math.max(w, 2) + 4) +
+        '<text class="lb" x="' + (LW - 10) + '" y="' + (y + 16) + '" text-anchor="end">' + esc(clip(r.label, narrow ? 15 : LW >= 200 ? 30 : 24)) + '</text>' +
+        '<rect class="bar" x="' + LW + '" y="' + y + '" width="' + Math.max(w, 2).toFixed(1) + '" height="24" rx="3" style="fill:' + r.c + '"><title>' + esc(r.label + ': ' + r.n + unit) + '</title></rect></a>' +
         '<text class="vl" x="' + (LW + w + 6).toFixed(1) + '" y="' + (y + 16) + '">' + r.n + esc(unit) + '</text>');
     });
     return out.join('') + '</svg>';
   }
   var sum = function (v) { return Object.keys(v).reduce(function (s, k) { return s + v[k]; }, 0); };
   // two renders (wide / narrow); the browser re-renders both at the card's measured width so 1 viewBox unit = 1 px
-  var SIZE = { W: 640, Wn: 320 };
+  // in the browser (opt.only) just the render CSS shows is drawn, and table bodies (opt.lazyTables) are built when their
+  // <details> opens — the same numbers, about 1,100 fewer nodes on Tokyo (W5, ROUND-4 gap #5: ≤ 3 k nodes)
+  var SIZE = { W: 640, Wn: 320 }, ONLY = '', TBL = null;
   var both = function (fn, args) {
-    return '<div class="cw">' + fn.apply(null, args.concat([SIZE.W, SIZE.W < 480 ? 104 : SIZE.W < 560 ? 168 : 200, SIZE.W < 480])) + '</div><div class="cn">' + fn.apply(null, args.concat([SIZE.Wn, 104, true])) + '</div>';
+    return (ONLY !== 'n' ? '<div class="cw">' + fn.apply(null, args.concat([SIZE.W, SIZE.W < 480 ? 104 : SIZE.W < 560 ? 168 : 200, SIZE.W < 480])) + '</div>' : '') +
+      (ONLY !== 'w' ? '<div class="cn">' + fn.apply(null, args.concat([SIZE.Wn, 104, true])) + '</div>' : '');
+  };
+  var details = function (summary, table) {
+    if (!TBL) return '<details class="tbl"><summary>' + summary + '</summary>' + table + '</details>';
+    TBL.push(table);
+    return '<details class="tbl" data-tbl="' + (TBL.length - 1) + '"><summary>' + summary + '</summary></details>';
   };
   function stacked(rows, series, head, link, uid, asPct) {
     var legend = '<ul class="legend">' + series.map(function (s) { return '<li><i style="background:' + s.c + '"></i>' + esc(s.name) + '</li>'; }).join('') + '</ul>';
-    var table = '<details class="tbl"><summary>Show as a table</summary><table><thead><tr><th scope="col">' + esc(head) + '</th>' + series.map(function (s) { return '<th scope="col">' + esc(s.name) + '</th>'; }).join('') + '<th scope="col">Total</th></tr></thead><tbody>' +
-      rows.map(function (r) { return '<tr><th scope="row">' + esc(r.label) + '</th>' + series.map(function (s) { return '<td>' + (r.v[s.id] || 0) + '</td>'; }).join('') + '<td>' + sum(r.v) + '</td></tr>'; }).join('') + '</tbody></table></details>';
+    var table = details('Show as a table', '<table><thead><tr><th scope="col">' + esc(head) + '</th>' + series.map(function (s) { return '<th scope="col">' + esc(s.name) + '</th>'; }).join('') + '<th scope="col">Total</th></tr></thead><tbody>' +
+      rows.map(function (r) { return '<tr><th scope="row">' + esc(r.label) + '</th>' + series.map(function (s) { return '<td>' + (r.v[s.id] || 0) + '</td>'; }).join('') + '<td>' + sum(r.v) + '</td></tr>'; }).join('') + '</tbody></table>');
     return legend + both(stackSvg, [rows, series, link, uid, asPct]) + table;
   }
   function bars(rows, link, uid, unit) {
-    var table = '<details class="tbl"><summary>Show as a table</summary><table><tbody>' + rows.map(function (r) { return '<tr><th scope="row">' + esc(r.label) + '</th><td>' + r.n + esc(unit) + '</td></tr>'; }).join('') + '</tbody></table></details>';
+    var table = details('Show as a table', '<table><tbody>' + rows.map(function (r) { return '<tr><th scope="row">' + esc(r.label) + '</th><td>' + r.n + esc(unit) + '</td></tr>'; }).join('') + '</tbody></table>');
     return both(barSvg, [rows, link, uid, unit]) + table;
   }
   var card = function (uid, title, sub, body, foot) {
@@ -173,14 +188,14 @@
 
   /* ---- the whole view as an HTML string ---- */
   function render(d, opt) {
-    SIZE = { W: (opt && opt.W) || 640, Wn: (opt && opt.Wn) || 320 };
+    SIZE = { W: (opt && opt.W) || 640, Wn: (opt && opt.Wn) || 320 }; ONLY = (opt && opt.only) || ''; TBL = opt && opt.lazyTables ? [] : null;
     var I = fromPlatform(d) || numbers(d), T = I.tiles, N = I.N, name = d.name, NO = I.notes || {};
     var note = function (k, mine) { return NO[k] || mine; };
     var gal = function (o) { var r = { view: 'gallery' }; Object.keys(o).forEach(function (k) { r[k] = o[k]; }); return href(r); };
     var A = I.areas, srcName = {};
     (d.sourceIndex || []).forEach(function (s) { srcName[s.id] = s.id === 'guide' ? 'Added by the guide' : String(s.name).split(/\s+[·—(]\s*/)[0].slice(0, 34); });
     var tiles = [['Places', T.places, 'in ' + plural(T.areas, 'area')], ['Sights', T.sights, pct(T.sights, N) + '% of the guide'], ['Eat & drink', T.food, pct(T.food, N) + '% of the guide'],
-      ['Pop culture', T.pop == null ? '—' : T.pop, T.pop == null ? 'no pop-culture collection in this city’s data' : 'sights on the pop-culture trail'],
+      ['Pop culture (trail)', T.pop == null ? '—' : T.pop, T.pop == null ? 'no pop-culture collection in this city’s data' : 'sights on the pop-culture trail'],
       ['Named sources', T.sources, plural(T.citations, 'citation')], ['Closed, kept', T.closed, T.lastChecked ? 'status checked to ' + T.lastChecked : 'kept for the record']];
     var tilesH = '<div class="tiles">' + tiles.map(function (t) { return '<div class="tile"><span class="tl">' + esc(t[0]) + '</span><b>' + esc(t[1]) + '</b><span class="ts">' + esc(t[2]) + '</span></div>'; }).join('') + '</div>';
 
@@ -189,12 +204,12 @@
     var kq = function (k) { return k === 'food' ? { mode: 'food' } : k === 'pop' ? { c: I.popC } : { mode: 'sights' }; };
     var kRows = [{ label: 'All of ' + name, key: '', v: I.kind.whole }].concat(A.map(function (a) { return { label: a.name, key: a.id, v: I.kind.perArea[a.id] }; }));
     var c1 = card('mix', 'What each area is for', 'Share of sights, places to eat and pop-culture places, per area. All ' + N + ' places counted once; tap a bar to open those places.',
-      stacked(kRows, ks, 'Area', function (a, k) { var o = kq(k); if (a) o.a = a; return gal(o); }, 'mix', true),
+      stacked(kRows, ks, 'Area', function (a, k) { var o = k ? kq(k) : {}; if (a) o.a = a; return gal(o); }, 'mix', true),
       note('mix', T.pop == null ? 'This city has no pop-culture collection in its data, so the third segment is absent rather than zero-filled.' : 'Pop culture = places in the city’s pop-culture collections; a place counts in one segment only.'));
     // 2 · who recommends each area
     var ss = I.src.top.map(function (s, i) { return { id: s, name: srcName[s] || s, c: SER[i] }; }).concat([{ id: '_o', name: 'Other sources', c: OTHER }]);
     var c2 = card('src', 'Who recommends each area', 'Citations per area by source: the ' + I.src.top.length + ' most-cited sources, then all others. A place named by three sources counts three times (' + T.citations + ' citations over ' + N + ' places).',
-      stacked(A.map(function (a) { return { label: a.name, key: a.id, v: I.src.perArea[a.id] }; }), ss, 'Area', function (a, s) { var o = { a: a }; if (s !== '_o') o.src = s; return gal(o); }, 'src', true),
+      stacked(A.map(function (a) { return { label: a.name, key: a.id, v: I.src.perArea[a.id] }; }), ss, 'Area', function (a, s) { var o = { a: a }; if (s && s !== '_o') o.src = s; return gal(o); }, 'src', true),
       note('src', I.src.all + ' sources in all. “Added by the guide” marks general-knowledge additions and is never relabelled as sourced.'));
     // 3 · where the places are
     var c3 = card('den', 'Where the places are', 'Places per area, ' + N + ' in all (bars use each area’s map colour). Tap to open the area.',
@@ -209,8 +224,8 @@
     var months = Object.keys(I.months).sort();
     var c5 = card('cls', 'Closures, kept for the record', T.closed + ' of ' + N + ' places have closed. They stay in every view, flagged, and never carry a tier.',
       (cl.length ? bars(cl.map(function (a) { return { label: a.name, key: a.id, n: I.closed[a.id], c: CLOSED }; }), function (a) { return gal({ a: a, closed: '1' }); }, 'cls', '') : '<p class="empty">No closures on record.</p>') +
-      '<details class="tbl"><summary>When each place’s status was last checked</summary><table><thead><tr><th scope="col">Month</th><th scope="col">Places</th></tr></thead><tbody>' +
-      months.map(function (m) { return '<tr><th scope="row">' + esc(m) + '</th><td>' + I.months[m] + '</td></tr>'; }).join('') + '</tbody></table></details>',
+      details('When each place’s status was last checked', '<table><thead><tr><th scope="col">Month</th><th scope="col">Places</th></tr></thead><tbody>' +
+      months.map(function (m) { return '<tr><th scope="row">' + esc(m) + '</th><td>' + I.months[m] + '</td></tr>'; }).join('') + '</tbody></table>'),
       note('cls', 'Every one of the ' + N + ' places is counted in the status-check table.'));
     // 6 · the signature canon
     var cn = I.canon;
@@ -237,7 +252,8 @@
       tilesH + '<div class="igrid">' + c1 + c2 + c3 + c4 + c5 + c6 + c7 + '</div>' +
       '<section class="icard ixall" aria-labelledby="ix-t"><h2 class="d3" id="ix-t">All ' + N + ' places</h2><p class="sub">Every place the charts count, by area in rank order. Each opens its entry.</p><div class="ixg">';
     // `lazy` (W4 gap #6): the same page with the index body empty; mount() streams its area sections in on approach
-    return { html: top + idx + '</div></section></div>', lazy: top + '</div></section></div>', parts: parts, numbers: I, index: nIdx };
+    var tables = TBL; TBL = null; ONLY = '';
+    return { html: top + idx + '</div></section></div>', lazy: top + '</div></section></div>', parts: parts, numbers: I, index: nIdx, tables: tables };
   }
 
   /* ---- browser ---- */
@@ -248,15 +264,30 @@
     el.classList.add('vw', 'view-insights'); el.setAttribute('aria-busy', 'true');
     return C.pageData(ctx.file || key).then(function (d) {
       if (host !== el) return;
-      var r = render(d); el.innerHTML = r.html; el.removeAttribute('aria-busy');
+      // draw only the render CSS shows, with table bodies built on open; the index starts empty when C.chunks streams it
+      var nw = !!(window.matchMedia && matchMedia('(max-width: 639px)').matches), o = { only: nw ? 'n' : 'w', lazyTables: true };
+      var r = render(d, o), lazy = !!C.chunks;
+      el.innerHTML = lazy ? r.lazy : r.html; el.removeAttribute('aria-busy');
       // chart text stays at its CSS size (≥ 12 px): redraw at the card's real content width, once
       var c = el.querySelector('.icard'), cs = c && getComputedStyle(c);
       var w = c ? Math.floor(c.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)) : 0;
-      if (w > 200) { var nw = matchMedia('(max-width: 639px)').matches; r = render(d, nw ? { Wn: w } : { W: w }); el.innerHTML = r.html; }
+      if (w > 200) { o[nw ? 'Wn' : 'W'] = w; r = render(d, o); el.innerHTML = lazy ? r.lazy : r.html; }
+      el.insTables = r.tables || [];
+      if (!el.fillTables) {   // one listener per host, reading the latest render's tables
+        var fill = function (dt) { var k = dt.getAttribute('data-tbl'); if (k != null && !dt.querySelector('table') && el.insTables[+k]) dt.insertAdjacentHTML('beforeend', el.insTables[+k]); };
+        el.addEventListener('toggle', function (e) { if (e.target && e.target.open) fill(e.target); }, true);
+        el.fillTables = function () { [].forEach.call(el.querySelectorAll('details[data-tbl]'), fill); };
+      }
+      window.addEventListener('beforeprint', el.fillTables);
+      // one render is drawn, so crossing the 640 px breakpoint (rotation, resize) redraws the other one
+      if (window.matchMedia && !el.insMq) {
+        el.insMq = matchMedia('(max-width: 639px)');
+        var redraw = function () { if (host === el) { if (ix) { ix.cancel(); ix = null; } mount(el, ctx); } };
+        if (el.insMq.addEventListener) el.insMq.addEventListener('change', redraw); else if (el.insMq.addListener) el.insMq.addListener(redraw);
+      }
       // the "All N places" index is the heaviest part: mount it area by area as it nears the viewport, and all of it
       // on Cleo.defer.all() (lens, search, print) — the charts above stay complete (W4, ROUND-3 gap #6)
-      var g = C.chunks && el.querySelector('.ixg');
-      if (g) { el.innerHTML = r.lazy; g = el.querySelector('.ixg'); ix = C.chunks(g, r.parts, { initial: 0, est: 900 }); }
+      if (lazy) ix = C.chunks(el.querySelector('.ixg'), r.parts, { initial: 0, est: 900 });
       return r;
     }, function () {
       if (host !== el) return;
@@ -264,6 +295,6 @@
       el.innerHTML = '<p class="state" data-cleo-state="view-failed">The numbers couldn’t load just now. Every place is still in the list — switch to another view, or try again when you’re back online.</p>';
     });
   }
-  function unmount() { if (ix) { ix.cancel(); ix = null; } if (host) { host.innerHTML = ''; host.classList.remove('view-insights'); } host = null; }
+  function unmount() { if (ix) { ix.cancel(); ix = null; } if (host) { if (host.fillTables) window.removeEventListener('beforeprint', host.fillTables); host.innerHTML = ''; host.classList.remove('view-insights'); } host = null; }
   return { numbers: numbers, fromPlatform: fromPlatform, render: render, mount: mount, unmount: unmount };
 });
