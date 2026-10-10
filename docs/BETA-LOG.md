@@ -11,4 +11,22 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   and `docs/BETA-BENCHMARK.md` (hard gates G1–G8, measured rows B-01…B-45, teardown-matrix target, must/should/could
   coverage, finish line). Pilot set: Cleveland, Tokyo, New York, Singapore Chinatown, Wheeling, hub. No code or
   screenshots this wave.
+- 2026-10-10 · platform (tech lead) · Wave 0 · session_01LVXQewVSi3PVAFKQGdh8oA · commit `efded94`.
+  - **RFC:** `design/beta/RFC-architecture.md` (M0-02). Source of truth = the records embedded in each built live
+    page (datasets are pre-gate: Tokyo dataset 552 vs 488 on the page); stable name-based place ids; every place
+    server-rendered, JS as lenses; hash routes; per-page JSON + lazy search index; SW/PWA; JSON-LD (open places
+    only, D-21); OG plan; imagery plan (LP-02); guards; budgets; wave plan + lane file ownership; full 91-page map.
+  - **Generator:** `tools/beta/` (`npm run beta`, `npm run beta:check`). Builds `beta/index.html` (new landing),
+    `beta/cities/tokyo.html` (488/488 places), `beta/saved.html`, `beta/data/places/*.json` (84 pages, 8,458 places),
+    `beta/data/search.json` (206 KB gzip), `beta/sw.js`, `beta/manifest.webmanifest`, vendored Leaflet 1.9.4.
+    Write gate: counts + sight/food split + name multiset + unique ids + JSON-LD == open, refuses on mismatch
+    (self-tested). `tools/beta-restyle.py` now skips pages in `beta/data/manifest.json`; all other beta pages stay
+    the legacy mirror until migrated via `tools/beta/pages.json`.
+  - **Tests:** `tools/beta/test-beta.js` in `npm test` — beta == live counts on all 84 place pages, reproducible
+    build, map-surface/escape guards on all 91 beta pages, landing counts, jsdom no-CDN render of Tokyo (storage
+    throwing, lenses, deep links, vendored map). `npm run validate` + `npm test` PASS.
+  - **QA harness** (`node tools/qa-site.js --only beta/`): first run FAILed Tokyo on `#c=` hash links (read as
+    anchors) → rail made of buttons, titles link `#p-<id>` anchors; re-run **91 pages, 273 loads, 0 FAIL**. New pages
+    PASS except Tokyo mobile WARN "tap targets <40px ×13" (area-nav links; FE-A/DES). Chromium spot check: 0 JS
+    errors, 0 overflow, first Tokyo card at 714 px on 390×844.
 - 2026-10-10 · UI/UX (lead designer) · session_01PCNcUkfa5S1N1BKGzZA4xx · Wave 0 design system **"Constellation"** — every city drawn as the star-map of its verified pins; Salon IA kept, visual layer replaced. Delivered: `design/beta/DESIGN-SYSTEM.md` + `tokens.css` (light/night, 8 city skins; WCAG AA 284/284 pairs, `CONTRAST.md`), `beta/assets/tokens.css` + `beta/assets/constellation.css` (component contract), `IMAGERY.md`, `VOICE.md`, `specs/README.md` (9 page specs + benchmark comparison + scorecard), `DECISIONS.md` (UX-01…UX-19), 10 generated mockups on real records (`design/beta/mockups/`, Tokyo 488/488 and Cleveland 194/194 places rendered, asserted), 42 screenshots at 390×844 and 1440×900 (`design/beta/screenshots/`, 4.1 MB, `metrics.json`). Measured: first card at 0.73–0.79 screens on mobile with 14 on-screen controls above it; overflowX 0 everywhere; renders with all off-origin requests blocked. Aligned to PM backlog M0-01/M0-05/M0-06/M1-01/M1-05/M2-05/M2-11. Live site untouched. Commit: see git log for this entry.

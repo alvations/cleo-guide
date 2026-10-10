@@ -1,5 +1,11 @@
 # Cleo — beta (restyled site)
 
+> **2026-10-10 — a new generator is replacing this re-skin page by page.** `tools/beta/build.js`
+> (`cd tools && npm run beta`) generates beta pages from the records the live pages render, with a count +
+> name gate. Pages it owns are listed in `beta/data/manifest.json` (Wave 0: `index.html`, `cities/tokyo.html`,
+> `saved.html`); `tools/beta-restyle.py` skips those and still mirrors everything else, as described below.
+> Architecture: [`design/beta/RFC-architecture.md`](../design/beta/RFC-architecture.md).
+
 A full, reproducible re-skin of the whole cleo-guide site under one brand, **Cleo**, deployed to
 `beta/` so it is reachable at `https://alvations.github.io/cleo-guide/beta/` **without touching any
 live page**. Content, maps, map navigation, data arrays and place counts are byte-for-byte the live

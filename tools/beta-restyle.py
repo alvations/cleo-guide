@@ -536,10 +536,23 @@ def verify(rel_path, src, out):
     return problems
 
 # ---------------------------------------------------------------- driver
+def generated_by_new_engine():
+    """Pages the new beta generator (tools/beta/build.js) owns — never overwrite them with a re-skin.
+    Read from beta/data/manifest.json, which that generator writes. See design/beta/RFC-architecture.md."""
+    p = os.path.join(BETA, "data", "manifest.json")
+    if not os.path.exists(p):
+        return set()
+    import json
+    return set(json.load(open(p, encoding="utf-8")).get("generated", []))
+
 def main():
     check_only = "--check" in sys.argv
     mirror = mirror_rel_paths()
-    mirror_set = set(mirror)
+    mirror_set = set(mirror)           # link rewriting still sees every page (new-engine pages live at the same paths)
+    owned = generated_by_new_engine()
+    if owned:
+        print(">>> skipping %d page(s) owned by tools/beta/build.js: %s" % (len(owned & mirror_set), ", ".join(sorted(owned & mirror_set))))
+    mirror = [r for r in mirror if r not in owned]
     if "--only" in sys.argv:   # regenerate a subset (link rewriting still sees the full mirror set)
         sub = sys.argv[sys.argv.index("--only") + 1]
         mirror = [r for r in mirror if sub in r]
