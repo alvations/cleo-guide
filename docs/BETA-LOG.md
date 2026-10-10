@@ -555,3 +555,8 @@ Append-only. One entry per session per wave: date, lane, session id, what change
 - 2026-10-10 · **QA** · W3 full pass on `83aa1a28` · session_015bFMDrayu1fp3qp2cKD3xm
   - **QA sign-off: NO**, with 3 small blockers: **QA-33** (DES+FE-B: Insights chart links have no visible focus, 13/30), **QA-32** (FE-B+DES: Guidebook hearts 30 px and source chips 26 px), **QA-34** (FE-A: Chinatown phone pin tap opens no sheet, a W2 M2-13 regression).
   - Passing: gates ✅; Q-02 no-CDN + storage blocked 160/160; Q-03 deep links 210/210; Q-04 honesty 0 hits; P-04 reachability in every view; Atlas 24/24 on every pilot (QA-29/30/31 fixed); overflow and contrast 0 in every view. Details and evidence: BETA-QA.md → "Wave 3", `qa/beta-w3/`.
+
+- 2026-10-10 15:06Z · orchestrator · W3 build complete at 83aa1a28. FE-A and the designer are archived.
+  - QA W3 is running its full views pass on 83aa1a28.
+  - The Round 3 evaluator (session_01VDFVuQ72NNS18uAcxwDEou) is scoring 83aa1a28 in parallel.
+  - Deploy happens once QA signs off YES on a SHA.
