@@ -557,3 +557,15 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - QA W3 is running its full views pass on 83aa1a28.
   - The Round 3 evaluator (session_01VDFVuQ72NNS18uAcxwDEou) is scoring 83aa1a28 in parallel.
   - Deploy happens once QA signs off YES on a SHA.
+
+- 2026-10-10 · **evaluator** · Round 3 scored on `83aa1a28` · session_01VDFVuQ72NNS18uAcxwDEou · [ROUND-3](../design/beta/eval/ROUND-3.md)
+  - **80.8 overall (R2 78.5): A 71 · B 84 · C 91 · D 88.** The overall gate is met (≥ 80), and so is C. **A is still 9 short, so the goal is not met.** The 90 stretch is not met.
+  - **Moved the scores:** the four views add real layout and editorial range (Gallery grid, Guidebook chapters, Insights). The landing now has hero art and a Signatures rail. Atom feeds give C #34 ◐. QA's B-40 sign-off gives C #28 ✅. Insights shows sourcing as data (D).
+  - **Held A back:**
+    - 0 photographs;
+    - near-identical Gallery covers within an area;
+    - Atlas is still the default;
+    - new polish defects: macron loss ("Kanda Myojin", "Jonan"), Guidebook clips text on phones, the Gallery switcher uses the heart glyph, the phone map stacks two sheets.
+  - **B is flat:** Tokyo Guidebook mounts 12.4 k nodes. Tokyo transfer is 2.16 MB. Guidebook hearts are 30 px and source buttons 26 px. Insights bar links are 18 px.
+  - Top-10 gaps are mapped to lanes in ROUND-3. Gap 1 is photographs, an owner action. Screenshots: `design/beta/eval/r3/`. Default-view `beta:metrics`: 24/24 ×5, landing 10/10.
+  - Gates PASS on `83aa1a28`: validate, npm test, beta:check.
