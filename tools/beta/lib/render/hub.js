@@ -136,7 +136,7 @@ const COMPS = ['night', 'wash', 'city', 'paper'];
  * One city tile. Markup contract kept for test-beta.js / guards: li.dest[data-page] > a[href] first, and ".dest-c"
  * starting with the computed place count.
  */
-function cityTile(row, i, { up = '', art = true, lg = false, cap = 44 } = {}) {
+function cityTile(row, i, { up = '', art = true, lg = false, cap = 44, views = false } = {}) {
   const f = facts(row), sk = skin(row, i), comp = COMPS[i % COMPS.length];
   const mf = motif(row.key);   // night drawing: cleo.css (designer W2) paints every tile composition on a dark ground; use motif(key, 'ink') on a light one
   const sig = f.sig.length ? `<span class="sigline">${f.sig.map(x => `<span>${esc(x.name)}</span>`).join('')}</span>` : '';
@@ -147,7 +147,13 @@ function cityTile(row, i, { up = '', art = true, lg = false, cap = 44 } = {}) {
 <span class="art">${mf ? `<img class="motif" src="${up}${mf}" alt="">` : ''}${art ? starfield(row.recs || [], { cap, colors: comp === 'night' ? null : row.colors }) : ''}${f.native ? `<span class="native">${esc(f.native)}</span>` : `<span class="ini" aria-hidden="true">${ini}</span>`}<span class="bar"></span></span>
 <span class="txt"><h3>${esc(f.name)}</h3>
 <span class="counts"><span class="dest-c">${plural(f.n, 'place')}<span class="hide-m"> · ${fmt(f.P)} sights · ${fmt(f.F)} to eat &amp; drink</span></span></span>
-${sig}${star}${canon}</span></a></li>`;
+${sig}${star}${canon}</span></a>${views && row.gen === 'new' ? viewLinks(row, up) : ''}</li>`;
+}
+
+/** W3 B-04: open the city in a named view. Real anchors (#view= is a route the city page's switcher reads). */
+const VIEW_LINKS = [['guidebook', 'Read as a guidebook'], ['insights', 'See it in numbers']];
+function viewLinks(row, up = '') {
+  return `<p class="dest-views">${VIEW_LINKS.map(([v, t]) => `<a href="${up}${esc(row.beta)}#view=${v}" data-view-link="${v}">${t}<span class="vh"> — ${esc(facts(row).name)}</span></a>`).join('')}</p>`;
 }
 
 /** Compact row for pages a country lists beyond its headline cities (thin towns): name + count, no art. */
@@ -366,7 +372,7 @@ ${siteBar({ depth, current: 'hub', rel: row.beta })}
 <div class="wrap section" id="destinations">
 ${groups ? groups.map(g => `<section class="csec" id="${esc(g.c.key)}" aria-labelledby="g-${esc(g.c.key)}"><div class="rail-head"><h2 class="d2" id="g-${esc(g.c.key)}">${esc(g.c.name)}<span class="n">${plural(g.pages.length, 'guide')}${g.c.live === false ? ' · preview' : ''}</span></h2></div>
 <ul class="morelist">\n${g.pages.map(r => moreRow(r, up)).join('\n')}\n</ul></section>`).join('\n') : `  <ul class="tiles hub2" aria-label="${esc(c.name)} guides">
-${main.map((r, i) => cityTile(r, i, { up })).join('\n')}
+${main.map((r, i) => cityTile(r, i, { up, views: true })).join('\n')}
   </ul>`}
 ${more.length ? `<h2 class="d3" style="margin-top:28px">More in ${esc(c.name)}</h2>\n<ul class="morelist">\n${more.map(r => moreRow(r, up)).join('\n')}\n</ul>` : ''}
 </div>
@@ -377,6 +383,9 @@ ${rail ? `<div class="wrap">${rail}</div>` : ''}
 ${footer({ depth, tabbar: true, current: 'hub' })}
 </body>
 </html>
+/* W3 B-04: "Read as a guidebook" / "See it in numbers" under each hub tile (44 px targets) */
+li.dest>.dest-views{display:flex;flex-wrap:wrap;gap:0 16px;margin:4px 2px 0;font-size:14px}
+li.dest>.dest-views a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink-2,inherit);text-underline-offset:3px}
 `;
 }
 

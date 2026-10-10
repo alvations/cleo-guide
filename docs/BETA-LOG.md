@@ -378,3 +378,22 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - QA W3 is deferred until the QA W2 sign-off finishes. The weekly usage limit is at warning, so 4 lanes run instead of 5.
   - Deploying W2 will use the SHA that QA W2 signs off, not the moving head.
   - BETA-CHANGELOG now has Rounds 1–2.
+- 2026-10-10 · **FE-B** · Wave 3 slice 1 · session_01KLBRpRabpnEHiyU3gKvKjv · PLAN B-01, B-02, B-03 (appendix), B-04 · commit: this entry's commit.
+  - **View modules** `tools/beta/client/guidebook.js` and `client/insights.js` (shipped as `assets/js/{guidebook,insights}.js`, SW-precached). They draw from `Cleo.pageData(key)` on mount, so they add **0 nodes to the initial DOM** (P-05). They also load in node, so the gates render them straight from `data/places/*.json`.
+  - **Registry contract (for FE-A A-01):** each module calls `Cleo.views.register(name, {title, mount(host, ctx), unmount()})` when `Cleo.views` exists at load. Otherwise it pushes `[name, def]` onto `window.CleoViewQueue`, so **views.js should drain `CleoViewQueue` when it boots**. `mount` returns a Promise; `ctx.key`/`ctx.file` are optional (it falls back to `main[data-city]`). **Load them on first switch** like `C.need` does (`assets/js/guidebook.js?v=…`; please add `guidebook`/`insights` to the blob's `js` versions).
+  - **Guidebook:** cover (chapters · places, native name, tile line, computed facts, ★ line), contents (`nav.toc` + `[data-cleo-print]`), one `article.ch#gb-area-<ID>` per area, intro from a fixed template, sections Top picks / See / Eat / Pop culture / Kept for the record, `li.ge#gb-<id>` entries (rank, tier or closed flag, address, `w`, "Look for", Recommended by as `button.src[data-src]`, Save via `Cleo.saved`), and a sticky `aside.facts-box` with the area art. Lenses: **no second predicate**. Each entry mirrors its canonical `li.pl#p-<id>` `hidden` state through a MutationObserver, and the count line reads "n of all N places" with a Show all button.
+  - **B-03 sources appendix** (`section.gb-appendix#gb-sources`): every source of the page with its record count and every URL any record cites (by position or domain, with an "Other pages the records cite" list for the rest), then the method notes verbatim. "Print this guide" stamps every deferred chunk first. **Designer:** print CSS hooks are `.bk .toc .ch .gs .gl .ge .facts-box .gb-appendix .ge-save .src`. The class names match the mockup's `views.css`.
+  - **Insights:** 6 stat tiles, 7 chart cards (inline SVG, two renders `.cw` 640 / `.cn` 360, `<title>` + `aria-label` on every bar, legend, value labels, "Show as a table", footnote on what isn't counted), and the "All N places" index (`li.ixi` → `#view=insights&p=<id>`). Bars link `#view=gallery&a=…&mode|c|cz|src|t|closed=…`, and spread links to `#view=atlas&a=`. Colours are `var(--series-1…6, fallback)` / `--series-other` / `--closed`, so **designer D-02 tokens drive dark mode**. It uses platform's P-03 `insights` block when present, otherwise the same rules computed from the records.
+  - **For platform (P-03):** `guide.areas[A].tiers` counts **closed places too**. The spec's tier ladder counts open places only. My gate compares `n / sights / food / closed` and tiers + closed == n.
+  - **B-04:** country-hub tiles get "Read as a guidebook" and "See it in numbers" (`a[data-view-link]` → `<city>.html#view=…`, 44 px). The landing is left alone (80 KB budget). These links only switch once FE-A's `#view=` routing lands.
+  - **Gate** `tools/beta/test-views-b.js` (run by test-hubs.js inside `npm test`):
+    - all 84 pages: guidebook entries == N, each place exactly once, in rank order, no empty section, closed entries carry no tier;
+    - the intro holds only template words, numbers and data names;
+    - the appendix carries every source and every cited URL;
+    - every chart sums to its denominator, and the numbers match `guide.areas`;
+    - pop-culture with no data → null and the gap is stated;
+    - the index holds N places, with no script or CDN;
+    - honesty grep;
+    - jsdom on Tokyo / Cleveland / Chinatown with storage throwing: mount through the queue, `mode=food` lens mirrored, Save works, offline → stated message, 0 errors;
+    - all 46 hub view links resolve.
+  - validate + npm test + beta:check PASS. Screenshots follow in slice 2.
