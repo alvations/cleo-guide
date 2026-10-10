@@ -84,6 +84,10 @@ for (const f of fs.readdirSync(CLIENT).filter(f => f.endsWith('.js')).sort()) {
 const cssPath = path.join(BETA, 'assets', 'cleo.css');            // owned by the designer lane; we only version it
 if (!fs.existsSync(cssPath)) errors.push('beta/assets/cleo.css missing (designer-owned stylesheet)');
 else assetsV.css = sha(fs.readFileSync(cssPath));
+// FE-A page CSS (W2): city + saved mechanics cleo.css doesn't define yet, cached once instead of inlined per page.
+// Source owned by FE-A (tools/beta/lib/render/fe-a.css); DES upstreams rules into cleo.css over time.
+const feaCss = fs.readFileSync(path.join(__dirname, 'lib', 'render', 'fe-a.css'));
+emit('assets/fe-a.css', feaCss); const feaV = sha(feaCss);
 const tokPath = path.join(BETA, 'assets', 'tokens.css');          // optional design tokens (designer, M0-01)
 if (fs.existsSync(tokPath)) assetsV.tokens = sha(fs.readFileSync(tokPath));
 emit('assets/icon.svg', fs.readFileSync(path.join(__dirname, 'static', 'icon.svg')));
@@ -158,9 +162,9 @@ emit('data/guide.json', JSON.stringify({ _generated: 'tools/beta/build.js — do
 emit('data/search.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1, fields: { pages: ['key', 'name', 'href', 'country', 'deepLinks'], items: ['page', 'id', 'name', 'kind', 'tier', 'closed', 'area'] }, pages: searchPages, items: searchItems }));
 
 // ---------------------------------------------------------------- pages
-const ctx = { assetsV, betaBase: BETA_BASE };
+const ctx = { assetsV, betaBase: BETA_BASE, feaCss: `assets/fe-a.css?v=${feaV}` };
 const LAZY_OK = /cleo:stamped/.test(fs.readFileSync(path.join(CLIENT, 'city.js'), 'utf8'));
-const CHUNK = { initial: 40, size: 40 };            // first 40 cards live; later ones in 40-card <noscript> chunks
+const CHUNK = { initial: 32, size: 40 };            // first 32 cards live; later ones in 40-card <noscript> chunks
 shell.setSite(reg, assetsV);
 const totals = Object.fromEntries(cityRows.map(r => [r.key, r.stats.total]));
 for (const r of reg.rows.filter(r => r.gen === 'new')) {
@@ -212,12 +216,12 @@ emit('data/manifest.json', JSON.stringify({
 // Self-hosted fonts (designer, beta/assets/fonts) are precached so offline type matches online type.
 const FONTS = path.join(BETA, 'assets', 'fonts');
 const fontFiles = fs.existsSync(FONTS) ? fs.readdirSync(FONTS).filter(f => f.endsWith('.woff2')).sort().map(f => './assets/fonts/' + f) : [];
-const shellFiles = ['./index.html', './saved.html', './manifest.webmanifest', './assets/icon.svg', `./assets/cleo.css?v=${assetsV.css}`]
+const shellFiles = ['./index.html', './saved.html', './manifest.webmanifest', './assets/icon.svg', `./assets/cleo.css?v=${assetsV.css}`, `./${ctx.feaCss}`]
   .concat(fontFiles)
   .concat(assetsV.tokens ? [`./assets/tokens.css?v=${assetsV.tokens}`] : [])
   .concat(['./how-we-choose.html'])                                 // FE-B method page, offline too
   .concat(Object.keys(assetsV).filter(k => k !== 'css' && k !== 'tokens').sort().map(k => `./assets/js/${k}.js?v=${assetsV[k]}`));
-const version = sha(JSON.stringify(assetsV) + generated.join() + fontFiles.join());
+const version = sha(JSON.stringify(assetsV) + feaV + generated.join() + fontFiles.join());
 emit('sw.js', swSource(version, shellFiles));
 
 // ---------------------------------------------------------------- gate, then write (or check)

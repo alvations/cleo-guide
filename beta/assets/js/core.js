@@ -262,7 +262,7 @@
     window.addEventListener('hashchange', allNow);                 // registered before any page script's listener
     document.addEventListener('cleo:route', allNow);
     window.addEventListener('beforeprint', allNow);
-    var NEEDS_ALL = '[data-mode],[data-cleo-all],.rail-i,.pl-s button.src,[data-cleo-tray],[data-cleo-map],[data-unset],[data-tr],[data-cleo-day],[data-cleo-near]';
+    var NEEDS_ALL = '[data-mode],[data-cleo-all],.rail-i,.pl-s button.src,[data-cleo-tray],[data-cleo-map],[data-unset],[data-tr],[data-cleo-day],[data-cleo-near],[data-cleo-foryou],[data-cleo-mine]';
     document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest(NEEDS_ALL)) allNow(); }, true);
     document.addEventListener('focusin', function (e) { if (e.target.matches && e.target.matches('#cleo-filter,main input[type=search]')) allNow(); }, true);
     document.addEventListener('keydown', function (e) { if ((e.ctrlKey || e.metaKey) && (e.key === 'f' || e.key === 'F' || e.key === 'g')) allNow(); }, true);

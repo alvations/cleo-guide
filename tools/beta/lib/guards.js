@@ -20,7 +20,7 @@ function assertCityPage(row, html, recs) {
   if (k.s !== row.counts.P || k.f !== row.counts.F) errs.push(`sights/food ${k.s}/${k.f} != live ${row.counts.P}/${row.counts.F}`);
   // Same places, not just the same number: the multiset of names must equal the live page's.
   const { decode } = require('./extract');
-  const names = [...html.matchAll(/<h3 class="pl-n"><a [^>]*>([\s\S]*?)<\/a><\/h3>/g)].map(m => decode(m[1])).sort();
+  const names = [...html.matchAll(/<h3 class="pl-n"><a [^>]*>([\s\S]*?)<\/a><\/h3>/g)].map(m => decode(m[1].replace(/<[^>]+>/g, ''))).sort();   // FE-A W2: the title may wrap its native aside in spans
   const want = row.data.P.concat(row.data.F).map(r => r.n).sort();
   if (names.length !== want.length || names.some((n, i) => n !== want[i])) {
     const miss = want.filter(n => !names.includes(n)).slice(0, 3), extra = names.filter(n => !want.includes(n)).slice(0, 3);
