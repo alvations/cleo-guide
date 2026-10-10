@@ -224,7 +224,11 @@ open/closed status), `docs/CITIES.md` (one row per city), `docs/AGENT-PROMPTS.md
 | `session_01L6JkDa7v56jUKxQFqx7zXx` | Beta R3 prep — view styles study + specs | 2026-10-10 10:43 | completed, archived | design/beta/views/: STUDY (melon-seek), SPEC, mockups + 49 screenshots, PLAN (W3 lane split) for Gallery/Atlas/Guidebook/Insights |
 | `session_017mbzpE8dtjevPVLcXB6TEK` | Beta PM — M1 acceptance + W2/W3 backlog | 2026-10-10 10:53 | completed, archived | M1: 16/22 accepted, 4 await QA re-measure, 2 rejected; W2 + R3 items; Round 2 exit criteria (4380fb4a, 0e4da869) |
 | `session_012XtSjToyAdhBzVDZmhPP1u` | Beta W2 — QA sign-off | 2026-10-10 11:52 | running | — |
-| `session_01Ra23HLYrb9qZ7mzrw5gRpz` | Beta Round 2 — independent evaluator | 2026-10-10 11:52 | running | — |
+| `session_01Ra23HLYrb9qZ7mzrw5gRpz` | Beta Round 2 — independent evaluator | 2026-10-10 11:52 | completed, archived | design/beta/eval/ROUND-2.md: R2 78.5 (A67 B84 C89 D86); A < 80 without photos |
+| `session_01S3eYSS1qPYEHJVXBeyRLYH` | Beta W3 — Platform (view model) | 2026-10-10 12:20 | running | — |
+| `session_012ryUPpieJjoKFXA2se7HsV` | Beta W3 — Frontend A (switcher, Atlas, Gallery) | 2026-10-10 12:20 | running | — |
+| `session_01KLBRpRabpnEHiyU3gKvKjv` | Beta W3 — Frontend B (Guidebook, Insights) | 2026-10-10 12:20 | running | — |
+| `session_014ybQFjFvA2XjTrPFrP5YJJ` | Beta W3 — Designer (views.css + polish) | 2026-10-10 12:20 | running | — |
 | `session_01PCNcUkfa5S1N1BKGzZA4xx` | Release: deploy work branch → Pages (PR #3) | 2026-10-10 07:00 | completed | Merged as ca70e53 — Singapore gap-fill + QA fixes + Singapore engine rebuild live; gates/validate/test/qa (0 FAIL) green; 0 places removed (docs/DEPLOY-2026-10-10.md) |
 
 ### Cross-city pin and top-up passes (5 sessions)

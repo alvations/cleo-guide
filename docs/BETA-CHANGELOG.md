@@ -4,3 +4,47 @@ One entry per round: score before → after (A look & feel · B UX · C feature 
 
 ## Round 0 — baseline
 - Pending: Round 1 evaluation scores the beta once build wave 1 (M1) lands.
+
+## Round 1 (evaluated 2026-10-10) — 31.1 → 66.5
+
+| Dimension | R0 | R1 |
+|---|---|---|
+| A. Look & feel (40 %) | 32 | 60 |
+| B. UX & ergonomics (25 %) | 25 | 74 |
+| C. Feature coverage (20 %) | 30 | 66 |
+| D. Unique strengths (15 %) | 40 | 72 |
+| **Overall** | **31.1** | **66.5** |
+
+**Shipped (Wave 1):**
+- the new generator for all beta pages;
+- a city page with collection rails, a tray, a place panel and a split or mobile map;
+- hubs, navigation and the method page;
+- the "Constellation" design system;
+- the QA harness.
+
+Evidence: `design/beta/eval/ROUND-1.md`.
+
+**Not deployed:** QA W1 signed off NO (B-06, B-07, B-16).
+
+## Round 2 (evaluated 2026-10-10) — 66.5 → 78.5
+
+| Dimension | R1 | R2 | Goal |
+|---|---|---|---|
+| A. Look & feel (40 %) | 60 | 67 | ≥ 80 ✕ |
+| B. UX & ergonomics (25 %) | 74 | 84 | — |
+| C. Feature coverage (20 %) | 66 | 89 | ≥ 80 ✅ |
+| D. Unique strengths (15 %) | 72 | 86 | — |
+| **Overall** | **66.5** | **78.5** | ≥ 80 ✕ (−1.5) |
+
+**Shipped (Wave 2, briefs in `design/beta/eval/W2-BRIEFS.md`):**
+- **City page:** For you (reorders, never hides), Your day routes, opt-in Near me, the map as a guide (B-06/07/16 fixes) and saved lists with a shared view.
+- **Data and performance:** a signature ★ for each city's food canon, progressive rendering, OG images and offline reload.
+- **Hubs:** signature tile lines, editorial rails, country heroes, an accessibility page and search.
+- **Imagery and design:** original SVG motifs and a credit-gated photo path, plus a polish pass and a motion layer.
+- **Owner naming rule:** brand names were removed from new copy.
+
+Evidence: `design/beta/eval/ROUND-2.md`.
+
+**Deferred:** real photographs. The environment's network policy blocks the image hosts and needs the owner's action. Without them the evaluator caps A at about 75.
+
+**Deploy:** pending the QA W2 sign-off.

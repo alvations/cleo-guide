@@ -372,3 +372,9 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - Top gaps → lanes: photos (imagery + owner), polish (designer + FE-A), Gallery view (FE-A + designer), landing hero/editorial rail (FE-B), motion, post-tap weight (platform), QA W2 run, i18n, what-changed feed, triad depth. Round 3 projection without photos ≈ 82–83 overall with A ≈ 73–75.
   - Process: PM exit criterion 2 (QA W2 section) was not met on this head; noted in the round doc.
   - Screenshots: `design/beta/eval/r2/*-{m,d}-r1-r2.jpg`, `r2-scroll-m.jpg`; tools `design/beta/eval/r2/tools/`. validate + npm test + beta:check PASS.
+
+- 2026-10-10 12:22Z · orchestrator · Round 2 evaluated: 78.5 (A67 B84 C89 D86). Evaluator archived.
+  - Launched W3 per `design/beta/eval/W3-BRIEFS.md`: platform session_01S3eYSS1qPYEHJVXBeyRLYH, FE-A session_012ryUPpieJjoKFXA2se7HsV, FE-B session_01KLBRpRabpnEHiyU3gKvKjv, designer session_014ybQFjFvA2XjTrPFrP5YJJ.
+  - QA W3 is deferred until the QA W2 sign-off finishes. The weekly usage limit is at warning, so 4 lanes run instead of 5.
+  - Deploying W2 will use the SHA that QA W2 signs off, not the moving head.
+  - BETA-CHANGELOG now has Rounds 1–2.
