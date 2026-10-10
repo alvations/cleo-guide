@@ -146,7 +146,8 @@
     $$('li.pl.is-target').forEach(c => { if (c !== tg) c.classList.remove('is-target'); });
     const mob = !!r.map && !desk();
     if (split) { if (mob) split.setAttribute('data-view', 'map'); else split.removeAttribute('data-view'); }
-    if (mob) loadMap(() => { map.invalidateSize(); if (r.map !== '1' || (focusA && !S.day)) fitArea(r.map !== '1' ? r.map : focusA); }); else closePoi();
+    // the fit waits a frame: the Atlas tray (views.js) settles on this same route change, and overMap() measures it
+    if (mob) loadMap(() => { map.invalidateSize(); if (r.map !== '1' || (focusA && !S.day)) { const a = r.map !== '1' ? r.map : focusA; requestAnimationFrame(() => { if (map) { map.invalidateSize(); fitArea(a); } }); } }); else closePoi();
     if (tg) {
       tg.classList.add('is-target');
       if (r.p !== lastP || !(Cleo.sheet && Cleo.sheet.isOpen())) {
@@ -262,7 +263,14 @@
   if (window.IntersectionObserver) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) follow(at(e.target, 'data-area')); }), { rootMargin: '-35% 0px -55% 0px' }); sections.forEach(x => io.observe(x)); }
   C.map = () => map; C.markers = markers; C.loadMap = cb => loadMap(cb);
   const el0 = () => d.getElementById('cleo-map') || main;
-  const fitArea = a => { if (map && !map.getSize().x) return; const ll = cards.filter(c => at(c, 'data-a') === a && markers[pid(c)]).map(c => markers[pid(c)].getLatLng()); if (ll.length) map.fitBounds(window.L.latLngBounds(ll), { padding: [40, 40], maxZoom: 16 }); };
+  // QA-34: on phones the Atlas tray (bottom) and the view switcher (top) float over the full-bleed map, so a fit that
+  // ignores them parks pins underneath, where a tap hits the tray instead of the pin. Fit inside the uncovered band.
+  const overMap = () => { const m = el0().getBoundingClientRect(), lp = $('.listpane'), nv = $('[data-cleo-views]'); let t = 0, b = 0;
+    if (!desk() && d.documentElement.classList.contains('atlas-m')) {
+      if (lp && lp.offsetHeight) b = Math.max(0, m.bottom - lp.getBoundingClientRect().top);
+      if (nv && nv.offsetHeight) t = Math.max(0, nv.getBoundingClientRect().bottom - m.top); }
+    return { paddingTopLeft: [40, 40 + t], paddingBottomRight: [40, 40 + b] }; };
+  const fitArea = a => { if (map && !map.getSize().x) return; const ll = cards.filter(c => at(c, 'data-a') === a && markers[pid(c)]).map(c => markers[pid(c)].getLatLng()); if (ll.length) map.fitBounds(window.L.latLngBounds(ll), Object.assign(overMap(), { maxZoom: 16 })); };
   const closePoi = () => { if (poi && !poi.hidden) { poi.hidden = true; poi.innerHTML = ''; } };
   // pin → peek sheet: a compact summary (≤ 40 % of the screen, so the map stays visible); the grabber expands it to the full card
   const peekName = c => { const a = $('.pl-n a', c), x = a && a.cloneNode(true); if (!x) return ''; $$('.nat', x).forEach(v => v.remove()); return x.textContent.trim(); };   // ROUND-2 #2: no "(native)" in the peek title

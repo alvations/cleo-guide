@@ -1531,7 +1531,9 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .chart rect.bar { stroke: var(--chart-gap); stroke-width: 2px; paint-order: stroke; }   /* the 2 px surface gap between segments */
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .chart .grid { stroke: var(--chart-grid); }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .chart a { outline: none; }
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .chart a:focus-visible rect { stroke: var(--focus); stroke-width: 3px; }
+/* QA-33: chart bar links get a real keyboard ring: --focus outline on the link (AA on surface in light and night) plus a focus stroke on the bar, painted over the fill */
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .chart a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .chart a:focus-visible rect { stroke: var(--focus); stroke-width: 3px; paint-order: fill; }
 
 /* ---------- V2. Shared primitives inside a view root (.vw) — ported from the mockups, scoped so they never restyle the live page ---------- */
 *,:is(.vw, [data-cleo-book], [data-cleo-insights]) *::before,:is(.vw, [data-cleo-book], [data-cleo-insights]) *::after{box-sizing:border-box}
@@ -1786,6 +1788,17 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 :is(.view-guidebook, [data-cleo-book]) .ge .rk{width:24px;height:24px;font-size:11px;border-width:1.5px;--ac:var(--line-strong);flex:none;transform:translateY(3px)}
 :is(.view-guidebook, [data-cleo-book]) .ge-m{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 4px;font-size:13px;color:var(--ink-3)}
 :is(.view-guidebook, [data-cleo-book]) .ge p{margin:0 0 4px;font-size:15px}
+/* QA-32: 44 px hit areas in the Guidebook, like the card chrome. The heart is a real 44 × 44 pill; a source chip keeps its
+   26 px pill look (padding box + inset ring) inside a 44 px box made of transparent border, with the extra height taken
+   back by negative margins so the line box does not grow. */
+:is(.view-guidebook, [data-cleo-book]) .ge-save{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;margin:2px 0 0;padding:0 16px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);font:600 14px var(--font-ui);cursor:pointer}
+:is(.view-guidebook, [data-cleo-book]) .ge-save:hover{border-color:var(--ink)}
+:is(.view-guidebook, [data-cleo-book]) .ge-save[aria-pressed="true"]{background:var(--city);border-color:var(--city);color:var(--city-on)}
+:is(.view-guidebook, [data-cleo-book]) .recby .src{min-height:44px;min-width:44px;border:9px solid transparent;border-left-width:0;border-right-width:0;margin:-9px 0;background-clip:padding-box;box-shadow:none;cursor:pointer;vertical-align:middle;line-height:1.2;box-sizing:border-box}
+:is(.view-guidebook, [data-cleo-book]) .recby .src.added{border:9px solid transparent;border-left-width:0;border-right-width:0;box-shadow:inset 0 0 0 1px var(--line-strong);background:transparent}
+:is(.view-guidebook, [data-cleo-book]) .recby .src:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+:is(.view-guidebook, [data-cleo-book]) .recby{line-height:1.9}
+:is(.view-guidebook, [data-cleo-book]) .urls a{display:inline-flex;align-items:center;min-height:44px;overflow-wrap:anywhere}
 :is(.view-guidebook, [data-cleo-book]) .gk{display:block;font:italic 400 15px var(--font-display);color:var(--ink-2)}
 @media print{:is(.view-guidebook, [data-cleo-book]) .top,:is(.view-guidebook, [data-cleo-book]) .toc,:is(.view-guidebook, [data-cleo-book]) .tools,:is(.view-guidebook, [data-cleo-book]) .foot,:is(.view-guidebook, [data-cleo-book]) .heart,:is(.view-guidebook, [data-cleo-book]) .dbar{display:none!important}
 .view-guidebook{background:#fff;color:#000;font-size:11pt}
@@ -1821,7 +1834,8 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 :is(.view-insights, [data-cleo-insights]) .chart .ax{font:12px var(--font-ui);fill:var(--ink-3)}
 :is(.view-insights, [data-cleo-insights]) .chart .lb{font:13px var(--font-ui);fill:var(--ink-2)}
 :is(.view-insights, [data-cleo-insights]) .chart .vl{font:600 12px var(--font-ui);fill:var(--ink)}
-:is(.view-insights, [data-cleo-insights]) .chart a:focus-visible rect,:is(.view-insights, [data-cleo-insights]) .chart a:hover rect{stroke:var(--ink);stroke-width:1.5}
+:is(.view-insights, [data-cleo-insights]) .chart a:hover rect{stroke:var(--ink);stroke-width:1.5}
+:is(.view-insights, [data-cleo-insights]) .chart a:focus-visible rect{stroke:var(--focus);stroke-width:3px;paint-order:fill}
 :is(.view-insights, [data-cleo-insights]) .legend{display:flex;flex-wrap:wrap;gap:6px 14px;list-style:none;margin:10px 0 0;padding:0;font-size:13px;color:var(--ink-2)}
 :is(.view-insights, [data-cleo-insights]) .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px}
 :is(.view-insights, [data-cleo-insights]) .fn{font-size:12.5px;color:var(--ink-3);margin:10px 0 0}
