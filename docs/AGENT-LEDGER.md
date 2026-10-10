@@ -207,6 +207,14 @@ open/closed status), `docs/CITIES.md` (one row per city), `docs/AGENT-PROMPTS.md
 | `session_019QAQ3MipXWViRJ9Jq6JD6J` | Deploy Singapore gap-fill + QA fixes | 2026-10-10 07:18 | completed, archived | PR #3 merged (`ca70e53`); QA 0 FAIL / 183 pages; no places cut (docs/DEPLOY-2026-10-10.md) |
 | `session_015r1bMC2Lesp6qpxFUiDRkK` | Research — competitive UI/UX teardown | 2026-10-10 07:17 | completed, archived | design/research-2026-10/ux-competitive/README.md (45 products, 377 cited URLs) |
 | `session_01BZUiWtox2hQpyUwGWN6EmC` | Research — SWOT / what are we missing | 2026-10-10 07:17 | completed, archived | design/research-2026-10/swot/README.md (≥20 competitors, 367 cited URLs) |
+| `session_01DikCXL6tk8dNedSxwn21wC` | Beta W0 — PM: backlog, decisions, benchmark | 2026-10-10 07:50 | completed, archived | docs/BETA-BACKLOG.md (M0–M3 + deferred), BETA-DECISIONS.md, BETA-BENCHMARK.md |
+| `session_01UR6QG8sr2pzx4NkkPUNqit` | Beta W0 — Designer: "Constellation" design system | 2026-10-10 07:50 | completed, archived | design/beta/ (system, tokens, imagery, voice, specs, 10 mockups, 42 screenshots, AA proof) |
+| `session_01LVXQewVSi3PVAFKQGdh8oA` | Beta W0 — Tech lead: RFC + generator skeleton | 2026-10-10 07:51 | completed, archived | design/beta/RFC-architecture.md; tools/beta/ builds 84 pages / 8,458 places; beta count==live + no-CDN test in npm test |
+| `session_01KAFFdmZ5muds2a5TrCSdWU` | Beta W1 — Platform | 2026-10-10 08:24 | running | — |
+| `session_01R6c55ZTducLNVYMSqkvfQg` | Beta W1 — Frontend A (city page) | 2026-10-10 08:24 | running | — |
+| `session_014JhcXcscGR7FMd9eAE6XqE` | Beta W1 — Frontend B (landing/hubs/nav) | 2026-10-10 08:24 | running | — |
+| `session_018MKc8Cm9yRKwLoMQ5mFB7b` | Beta W1 — Designer (visuals + review) | 2026-10-10 08:24 | running | — |
+| `session_01YbxdsQm4VmtpnaPTjvc2ZS` | Beta W1 — QA | 2026-10-10 08:24 | running | — |
 | `session_01PCNcUkfa5S1N1BKGzZA4xx` | Release: deploy work branch → Pages (PR #3) | 2026-10-10 07:00 | completed | Merged as ca70e53 — Singapore gap-fill + QA fixes + Singapore engine rebuild live; gates/validate/test/qa (0 FAIL) green; 0 places removed (docs/DEPLOY-2026-10-10.md) |
 
 ### Cross-city pin and top-up passes (5 sessions)
