@@ -297,6 +297,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     gaps: gaps.map(g => [g.title, g.text, g.cz]),
     fy: interests(recs, page),                                  // [id, label, n, ['c:ID' | 'cz:ID' | 'k:f']]
     days,                                                       // {AREA: [place ids in walking order]} — platform guide.days.plans
+    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day },  // loaded on first use by city.js (C.need), precached by the SW
     dl: gd.label || '', dsk: gd.skipped || {},                  // D-14 label; per-area reason when no day is planned
     sig: sig && sig.kind !== 'collection' ? { t: sig.title, line: sig.line || '', why: sig.why || '', ids: sig.ids, dishes: (sig.dishes || []).map(x => [x.t, x.n]) } : null,
     co: (G.closed || []).map(x => x.id),                        // Recently closed: newest status check first (R-23)
@@ -382,8 +383,6 @@ ${footer({ depth, liveRel: row.live, notes: page.notes })}
 <script type="application/json" id="cleo-city">${jsonInline(blob)}</script>
 <script src="${up}assets/js/city.js?v=${ctx.assetsV.city}" defer></script>
 <script src="${up}assets/js/sheet.js?v=${ctx.assetsV.sheet}" defer></script>
-<script src="${up}assets/js/foryou.js?v=${ctx.assetsV.foryou}" defer></script>
-<script src="${up}assets/js/day.js?v=${ctx.assetsV.day}" defer></script>
 </body>
 </html>
 `;

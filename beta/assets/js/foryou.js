@@ -35,7 +35,7 @@
     el.hidden = !on.length || !!C.S.day;
     if (!el.hidden) {
       var n = C.cards.filter(function (c) { return why(c).length; }).length;
-      el.innerHTML = '<span><b>First because you picked ' + esc(ch.map(function (f) { return f[1]; }).join(' and ')) + ':</b> ' + n + ' places from those collections move up in their area. <span class="n">All ' + C.cards.length + ' are still here.</span></span>' +
+      el.innerHTML = '<span><b>First because you picked ' + esc(ch.map(function (f) { return f[1]; }).join(' and ')) + ':</b> ' + n + ' places from those collections move up in their area. <span class="n">All ' + C.info.total + ' are still here.</span></span>' +
         '<button type="button" data-cleo-foryou>Change</button>';
     }
     var nn = line('cleo-nearline', 'shown device-note');
@@ -57,10 +57,10 @@
       };
       host.innerHTML = '<div class="tray fy" role="dialog" aria-modal="true" aria-labelledby="fy-h"><header><h2 id="fy-h">Your guide · ' + esc(C.info.name) + '</h2>' +
         '<button type="button" class="btn btn-icon" data-fy="x" aria-label="Close">' + icon('close') + '</button></header><div class="scroll">' +
-        '<p class="d3">Who’s showing you around?</p><p class="intro">Tell your guide what you’re into. It puts those places first in every area — all ' + C.cards.length +
+        '<p class="d3">Who’s showing you around?</p><p class="intro">Tell your guide what you’re into. It puts those places first in every area — all ' + C.info.total +
         ' places stay in the list and on the map.</p><fieldset><legend>I’m into…</legend>' +
         '<ul class="interests">' + FY.map(function (f) { return '<li><button type="button" class="interest" data-i="' + esc(f[0]) + '" aria-pressed="false"><span class="glyph">' + icon(GL[f[0]] || 'spark') + '</span>' +
-          '<span><b>' + esc(f[1]) + '</b><span class="d">' + f[2] + ' of ' + C.cards.length + ' ' + esc(C.info.name) + ' places' + (sub(f) ? ' · ' + esc(sub(f)) : '') + '</span></span><span class="tick" aria-hidden="true"></span></button></li>'; }).join('') + '</ul>' +
+          '<span><b>' + esc(f[1]) + '</b><span class="d">' + f[2] + ' of ' + C.info.total + ' ' + esc(C.info.name) + ' places' + (sub(f) ? ' · ' + esc(sub(f)) : '') + '</span></span><span class="tick" aria-hidden="true"></span></button></li>'; }).join('') + '</ul>' +
         '</fieldset><p class="sm">Remembered on this device only. No account, nothing sent anywhere.</p></div>' +
         '<footer><button type="button" class="btn btn-quiet" data-fy="reset">Reset</button><button type="button" class="btn btn-primary" data-fy="go">Show me ' + esc(C.info.name) + ' my way</button></footer></div>';
       host.hidden = false; d.body.style.overflow = 'hidden'; paint();
@@ -80,12 +80,13 @@
 
   /* ---- Near me (M3-02) ---- */
   var R = Math.PI / 180, km = function (a, b, c, e) { var h = Math.pow(Math.sin((c - a) * R / 2), 2) + Math.cos(a * R) * Math.cos(c * R) * Math.pow(Math.sin((e - b) * R / 2), 2); return 12742 * Math.asin(Math.sqrt(h)); };
-  var toast = function (m) { if (Cleo.emit) Cleo.emit('cleo:toast', m); }, want = false;
+  var toast = function (m) { if (Cleo.emit) Cleo.emit('cleo:toast', m); };
   var tile = function (p) { var t = d.querySelector('[data-cleo-near]'); if (t) { t.setAttribute('aria-pressed', String(p)); t.removeAttribute('aria-busy'); } };
   C.near = function (b) {
     if (C.dist && b && b.hasAttribute('data-cleo-near')) { C.dist = null; tile(false); var r0 = Cleo.route.parse(); if (r0.sort === 'near') delete r0.sort; C.go(r0); C.apply(); return; }
     if (!navigator.geolocation) { toast('This browser can’t share a location. Every place is still listed.'); return; }
     var t = d.querySelector('[data-cleo-near]'); if (t) t.setAttribute('aria-busy', 'true');
+    if (Cleo.defer) Cleo.defer.all();                                // every place needs its distance (M3-06 progressive render)
     navigator.geolocation.getCurrentPosition(function (pos) {
       var la = pos.coords.latitude, ln = pos.coords.longitude, dist = {}, min = 1e9;
       C.cards.forEach(function (c) { var ll = (c.getAttribute('data-ll') || '').split(','); if (ll.length === 2) { var v = km(la, ln, +ll[0], +ll[1]); dist[C.pid(c)] = v; if (v < min) min = v; } });
@@ -97,8 +98,6 @@
       toast(err && err.code === 1 ? 'Location is off for this site, so nothing changed. Every place is still listed.' : 'We couldn’t get your location. Every place is still listed.');
     }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 });
   };
-  d.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('.pill[data-f="sort"][data-v="near"]')) want = true; });
-  C.after.push(function () { if (want && C.S.sort === 'near' && !C.dist) { want = false; C.near(); } });
 
   if (on.length) set(on);
 })();

@@ -63,4 +63,4 @@
 .stop .leg{grid-column:2/-1;display:flex;gap:6px;align-items:center;margin:-4px 0 6px!important}.stop .ops{display:flex}.stop .ops .btn{width:var(--tap);min-width:var(--tap);padding:0}.stop .ops .btn[disabled]{opacity:.3}
 .sharebar{display:flex;flex-wrap:wrap;gap:8px}.sharebar .btn{gap:6px}.day .more{margin:0}.device-note{color:var(--ink-2)}.device-note .btn{min-height:var(--tap)}
 @media (min-width:1024px){.day .map-only{display:none}}
-.banner.shared p{color:color-mix(in srgb,var(--on-night) 86%,transparent)}.banner.shared .eyebrow{color:var(--on-night)}
+.banner.shared p{color:color-mix(in srgb,var(--on-night) 86%,transparent)}.banner.shared .eyebrow{color:var(--on-night)}.banner.shared .btn{min-height:var(--tap)}

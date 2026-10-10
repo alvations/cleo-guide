@@ -31,6 +31,14 @@
   const nameOf = c => { const a = $('.pl-n a', c); if (!a) return ''; const x = a.cloneNode(true); if (c.querySelector('.pl-vert')) $$('.nat', x).forEach(v => v.remove()); return x.textContent.trim(); };
   const C = Cleo.city = { name: nameOf, byId, info, key, pid, been, desk, esc, icon, trap, cards, S, lens: {}, after: [], rank: null, why: null, dist: null };
   $$('[data-cleo-rail],[data-cleo-toolbar]').forEach(el => { el.hidden = false; });
+  // For you / Near me (foryou.js) and Your day (day.js) load on first use — a tap, a stored interest or a #day= route
+  const need = C.need = (n, cb) => {
+    if (n === 'foryou' ? C.fy : C.day) { if (cb) cb(); return; }
+    const q = need.q[n] = need.q[n] || []; q.push(cb); if (q.length > 1) return;
+    const s = d.createElement('script'); s.src = (Cleo.root || '../') + 'assets/js/' + n + '.js?v=' + ((info.js || {})[n] || ''); s.async = true;
+    s.onload = () => q.splice(0).forEach(f => f && f()); d.head.appendChild(s);
+  };
+  need.q = {};
   const rail = $('#cleo-rail'), shown = $('#cleo-shown'), lens = $('#cleo-lens'), applied = $('[data-cleo-applied]'), fi = $('#cleo-filter'), split = $('.split');
   const shown0 = shown ? shown.innerHTML : '';
   const go = C.go = (r, rep) => Cleo.route.go(r, rep);
@@ -43,9 +51,9 @@
     if ((b = t.closest('button[data-mode]'))) { const r = cur(); r.mode = at(b, 'data-mode') === 'all' ? '' : at(b, 'data-mode'); go(r); }
     else if ((b = t.closest('[data-cleo-all]'))) { S.q = ''; if (fi) fi.value = ''; go({}); }
     else if ((b = t.closest('[data-cleo-mine]'))) go(S.mine ? {} : { mine: '1' });
-    else if ((b = t.closest('[data-cleo-foryou]'))) { if (C.fy) C.fy.open(b); }
-    else if ((b = t.closest('[data-cleo-near]'))) { if (C.near) C.near(b); }
-    else if ((b = t.closest('[data-cleo-day]'))) { if (C.day) C.day.open(at(b, 'data-cleo-day')); }
+    else if ((b = t.closest('[data-cleo-foryou]'))) need('foryou', () => C.fy.open(b));
+    else if ((b = t.closest('[data-cleo-near]'))) need('foryou', () => C.near(b));
+    else if ((b = t.closest('[data-cleo-day]'))) need('day', () => C.day.open(at(b, 'data-cleo-day')));
     else if ((b = t.closest('.rail-i'))) { const k = RAIL.filter(x => b.hasAttribute('data-' + x))[0], o = {}; if (k && S[k] !== at(b, 'data-' + k)) o[k] = at(b, 'data-' + k); go(o); }
     else if ((b = t.closest('.pl-s button.src'))) { e.preventDefault(); go({ src: at(b, 'data-src') }); }
     else if ((b = t.closest('[data-rail]'))) rail.scrollBy({ left: +at(b, 'data-rail') * rail.clientWidth * 0.8, behavior: 'smooth' });
@@ -70,6 +78,7 @@
   const nsrc = x => (at(x, 'data-src') || '').split(' ').length, num = x => +at(x, 'data-n');
   const far = x => C.dist && C.dist[pid(x)] != null ? C.dist[pid(x)] : 1e9;
   const apply = () => {
+    if (Cleo.defer && (C.rank || S.day || S.sort)) Cleo.defer.all();   // a reorder must see every card (M3-06)
     let n = 0; const areas = {}, tot = cards.length;
     $$('ol.pls').forEach(ol => {
       const base = S.sort === 'az' ? (x, y) => $('.pl-n', x).textContent.localeCompare($('.pl-n', y).textContent)
@@ -85,7 +94,7 @@
       const dk = $('.pl-dist', c), dv = C.dist && C.dist[pid(c)];
       if (dv != null) { if (!dk) $('.pl-e', c).insertAdjacentHTML('beforeend', ' <span class="pl-dist"></span>'); $('.pl-dist', c).textContent = (dv < 1 ? Math.round(dv * 100) * 10 + ' m' : dv.toFixed(1) + ' km') + ' away'; } else if (dk) dk.remove();
     });
-    sections.forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden])'); });
+    sections.forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden]),noscript[data-cleo-defer]'); });
     if (sections.length > 1) {   // Near me: the nearest area comes first; otherwise the guide's area order
       const ord = sections.slice().sort((x, y) => S.sort === 'near' && C.dist ? Math.min.apply(0, $$('li.pl', x).map(far)) - Math.min.apply(0, $$('li.pl', y).map(far)) : 0);
       if (ord.some((x, i) => x !== $$('section.area')[i])) { const how = $('#how-we-choose'); ord.forEach(x => how.parentNode.insertBefore(x, how)); }
@@ -128,6 +137,7 @@
   const onRoute = C.onRoute = () => {
     const r = Cleo.route.parse(), mm = /^#p-(.+)$/.exec(location.hash);
     if (mm && byId[decodeURIComponent(mm[1])]) r.p = decodeURIComponent(mm[1]);
+    if (r.day && !C.day) need('day', () => C.apply());
     S.mode = r.mode === 'sights' || r.mode === 'food' ? r.mode : 'all';
     LENS.forEach(k => { S[k] = r[k] || ''; }); S.sort = r.sort || '';
     if (r.q !== undefined) { S.q = r.q; if (fi) fi.value = r.q; }
@@ -169,10 +179,14 @@
       btn.setAttribute('aria-pressed', String(o)); btn.textContent = o ? 'Saved' : 'Save'; btn.setAttribute('aria-label', (o ? 'Saved: ' : 'Save ') + $('.pl-n', c).textContent);
       if (b[ref] && !st) c.insertAdjacentHTML('beforeend', '<span class="stamp">Been<br>there</span>'); else if (!b[ref] && st) c.removeChild(st);
     });
-    const mine = $('[data-cleo-mine]'), nm = cards.filter(c => s[key + '/' + pid(c)]).length;
+    const mine = $('[data-cleo-mine]'), nm = Object.keys(s).filter(r => r.slice(0, r.lastIndexOf('/')) === key).length;
     if (mine) { mine.hidden = !nm && !S.mine; $('[data-cleo-mine-n]', mine).textContent = nm; $('[data-cleo-mine-n]', mine).className = 'n' + (nm === 1 ? ' one' : ''); }
   };
   on(d, 'cleo:saved', () => { paint(); if (S.mine) apply(); });
+  // Platform hook (M3-06): later cards arrive from Cleo.defer (core.js) as their area nears the viewport, or all at
+  // once before any lens/route. Adopt them so every lens, count and pin sees every place; stubs' pins become cards.
+  on(d, 'cleo:stamped', e => { ((e.detail || {}).cards || []).forEach(c => { if (byId[pid(c)] === c) return; cards.push(c); byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
+    $$('section.area').forEach(s => { if (sections.indexOf(s) < 0) sections.push(s); }); paint(); });
 
   const tray = $('#cleo-tray'), TK = ['a', 't', 'src', 'c', 'cz', 'sort', 'been'];
   let P = {}, opener = null, pushed = 0, after = null;
@@ -204,7 +218,8 @@
     if (k === 'base') C.setBase(v); else if (k) P[k] = P[k] === v && k !== 'sort' && k !== 'been' ? '' : v;
     else if (a === 'clear') TK.forEach(x => { P[x] = ''; });
     else if (a === 'x') { T.close(); return; }
-    else if (a === 'go') { const r = {}; if (S.mode !== 'all') r.mode = S.mode; TK.forEach(x => { if (P[x]) r[x] = P[x]; }); T.close(true, () => go(r)); return; }
+    else if (a === 'go') { const r = {}; if (S.mode !== 'all') r.mode = S.mode; TK.forEach(x => { if (P[x]) r[x] = P[x]; });
+      T.close(true, () => { go(r); if (r.sort === 'near' && !C.dist) need('foryou', () => C.near()); }); return; }
     tpaint();
   });
   if (tray) trap(tray, () => T.close());
@@ -271,10 +286,12 @@
     bases.satellite = L.tileLayer(E + 'World_Imagery/MapServer/tile/{z}/{y}/{x}', ea);
     const b0 = bases[store.get('base', 'street')] || bases.street; b0.addTo(map);
     if (Cleo.watchTiles) Cleo.watchTiles(b0, () => { Cleo.mapFallback(el, map); map = null; });
-    cards.forEach(c => {
+    // every place gets its pin, stamped or not (unstamped = a start-tag stub from Cleo.defer.peek(); click stamps it)
+    cards.concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => {
       const ll = (at(c, 'data-ll') || '').split(','); if (ll.length !== 2) return;
-      const k = markers[pid(c)] = L.circleMarker([+ll[0], +ll[1]], style(c)).addTo(map);
-      k.bindTooltip(at(c, 'data-n'), { permanent: true, direction: 'center', className: 'pin-n', opacity: 1 }); k.on('click', () => pin(c));
+      const k = markers[pid(c)] = L.circleMarker([+ll[0], +ll[1]], style(c)).addTo(map), id = pid(c);
+      k.bindTooltip(at(c, 'data-n'), { permanent: true, direction: 'center', className: 'pin-n', opacity: 1 });
+      k.on('click', () => { const r = byId[id] || (Cleo.defer && Cleo.defer.stampFor(id)); if (r) pin(r); });
     });
     const zl = () => el.classList.toggle('zoom-lo', map.getZoom() < 14); map.on('zoomend', zl); zl();
     map.on('dragstart', () => { userAt = Date.now(); }); map.on('zoomstart', () => { if (Date.now() - auto > 1500) userAt = Date.now(); });
@@ -293,5 +310,6 @@
 
   paint();
   onRoute();
+  if ((store.get('interests', []) || []).length) need('foryou');
   if (desk()) { if (window.requestIdleCallback) requestIdleCallback(() => loadMap(), { timeout: 1500 }); else setTimeout(loadMap, 300); }
 })();

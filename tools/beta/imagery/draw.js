@@ -329,7 +329,7 @@ const art = {
     for (let i = 0; i < 6; i++) { d += `M${P(cx - w, y)}V${r1(y - 12 * s)}H${r1(cx + w)}V${r1(y)}`; for (let x = cx - w + 6 * s; x < cx + w; x += 9 * s) d += `M${P(x, y - 3 * s)}v${r1(-6 * s)}`; y -= 12 * s; w -= 5.5 * s; }
     return d + `M${P(cx - w - 4 * s, y)}Q${P(cx, y - 18 * s, cx + w + 4 * s, y)}M${P(cx, y - 9 * s)}v${r1(-8 * s)}M${P(cx - 50 * s, base)}H${r1(cx + 50 * s)}`;
   },
-  /** Supertree-style canopy columns are a specific venue's design — so instead a generic rainforest canopy. */
+  /** A generic rainforest canopy (trunks + rounded crowns). */
   canopy(seed, base = 170) {
     const R = rng(seed + 'can'); let d = '';
     for (let x = -10; x < W + 20; x += 26 + R() * 20) { const h = 60 + R() * 70, r = 18 + R() * 14; d += `M${r1(x)} ${base}V${r1(base - h)}M${r1(x - r)} ${r1(base - h + 6)}Q${P(x - r * .5, base - h - r * .9, x, base - h - r * .4)}Q${P(x + r * .5, base - h - r * .9, x + r, base - h + 6)}`; }

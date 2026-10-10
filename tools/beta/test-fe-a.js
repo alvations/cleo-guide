@@ -24,6 +24,8 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 function boot(page, { hash = '', storage = 'ok', mobile = false, geo = null, seed = null } = {}) {
   let html = fs.readFileSync(path.join(BETA, page), 'utf8').replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
     (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
+  // foryou.js / day.js load on first use (C.need); jsdom fetches nothing, so the harness inlines them like a browser would
+  if (/data-cleo-page="city"/.test(html)) html = html.replace('</body>', ['foryou', 'day'].map(n => '<script>' + fs.readFileSync(path.join(BETA, 'assets/js', n + '.js'), 'utf8') + '</script>').join('') + '</body>');
   const errs = [];
   const dom = new JSDOM(html, {
     runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + page + hash,
@@ -54,6 +56,7 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     const info = JSON.parse(d.getElementById('cleo-city').textContent);
     const known = new Set(['k:f'].concat(data.collections.map(c => 'c:' + c.id), data.cuisines.map(c => 'cz:' + c.id)));
     chk(`${page}: every interest maps to collection/cuisine ids that exist (no keywords)`, (info.fy || []).length > 0 && info.fy.every(f => f[3].length && f[3].every(x => known.has(x))), (info.fy || []).map(f => f[0]));
+    if (w.Cleo.defer) w.Cleo.defer.all();                          // progressive render (M3-06): compare the full record set
     const before = ids(d).sort(), o0 = order(d).join();
     d.querySelector('[data-cleo-foryou]').click(); await sleep(10);
     [...d.querySelectorAll('#cleo-fy .interest')].slice(-2).forEach(b => b.click());
