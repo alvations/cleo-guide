@@ -195,6 +195,9 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     chk('live region announces the view', /Atlas view, \d/.test(d.getElementById('cleo-view-live').textContent));
     chk('no js errors', errs.length === 0, errs.slice(0, 2));
 
+    ({ d, w, errs } = boot(page, { mobile: true })); await sleep(100);
+    d.querySelector('.map-toggle[data-cleo-map]').click(); await sleep(40);
+    chk('outside Atlas the map button switches to Atlas (the map lives there)', view() === 'atlas' && /view=atlas/.test(w.location.hash) && errs.length === 0, [view(), w.location.hash, errs.slice(0, 1)]);
     ({ d, w, errs } = boot(page, { hash: '#view=bogus' })); await sleep(100);
     chk('#view=bogus → Gallery, the bad key dropped, no error', view() === 'gallery' && !/view=/.test(w.location.hash) && errs.length === 0, [view(), w.location.hash]);
     ({ d, w, errs } = boot(page, { hash: '#view=atlas&p=kanda-myojin' })); await sleep(150);

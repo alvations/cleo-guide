@@ -75,6 +75,13 @@
     if (h === '#') { try { history.pushState(null, '', location.pathname + location.search); } catch (x) {} }
     else location.hash = h;
   });
+  // the map lives in Atlas: outside it, a map button ("Map", "See these n on the map") is a switch to Atlas
+  d.addEventListener('click', e => {
+    const b = cur !== 'atlas' && e.target.closest && e.target.closest('[data-cleo-map]'); if (!b || !ok('atlas')) return;
+    e.preventDefault(); e.stopPropagation(); store.set('view', 'atlas');
+    const r = Cleo.route.parse(), a = at(b, 'data-cleo-map'); delete r.pg; delete r.all; delete r.p; r.view = 'atlas'; if (a) r.map = a; else delete r.map;
+    show('atlas', { user: 1 }); location.hash = Cleo.route.href(r);
+  }, true);
   const fromHash = () => {
     if (!isRoute(location.hash)) return cur;
     const r = Cleo.route.parse(); if (!r.view) return r.day && ok('atlas') ? 'atlas' : DEF;   // #day= implies Atlas
