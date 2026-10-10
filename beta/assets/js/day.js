@@ -26,7 +26,7 @@
   C.lens.day = function (n, nA, all) {
     var a = C.S.day, ids = stops(a), name = C.label('a', a), other = Object.keys(DAYS).filter(function (x) { return x !== a; });
     var more = other.length ? '<p class="sm">More days: ' + other.map(function (x) { return '<a href="#day=' + encodeURIComponent(x) + '">' + esc(C.label('a', x)) + '</a>'; }).join(' · ') + '</p>' : '';
-    if (ids.length < 2) return '<div class="day"><span class="eyebrow">Your day</span><h2>No day in ' + esc(name) + ' yet</h2><p class="honest">The guide plans a day only where it has at least four open places with a verified pin close together, and doesn’t pad one. Add places from their sheet with “Add to your day”.</p><div class="row">' + all + '</div>' + more + '</div>';
+    if (ids.length < 2) return '<div class="day"><span class="eyebrow">Your day</span><h2>No day in ' + esc(name) + ' yet</h2><p class="honest">The guide plans a day only where it has at least four open places with a verified pin close together, and doesn’t pad one' + ((info.dsk || {})[a] ? ' — here: ' + esc(info.dsk[a]) : '') + '. Add places from their sheet with “Add to your day”.</p><div class="row">' + all + '</div>' + more + '</div>';
     var pts = ids.map(ll), tot = 0, legs = pts.map(function (p, i) { var v = i ? km(pts[i - 1], p) : 0; tot += v; return v; });
     var food = ids.filter(function (id) { return C.byId[id].getAttribute('data-k') === 'f'; }).length;
     var row = function (id, i) {
@@ -41,8 +41,8 @@
       (pts.length > 2 ? '&amp;waypoints=' + encodeURIComponent(pts.slice(1, -1).map(function (p) { return p.join(','); }).join('|')) : '');
     return '<div class="day"><span class="eyebrow">Your day · ' + esc(info.name) + '</span><h2>A day in ' + esc(name) + '</h2>' +
       '<div class="tot"><span><b>' + ids.length + '</b>stops</span><span><b>' + fmt(tot) + '</b>straight-line total</span><span><b>' + food + '</b>' + (food === 1 ? 'place to eat' : 'places to eat') + '</span></div>' +
-      '<p class="honest">' + (edited(a) ? 'Your version of the guide’s day.' : 'Suggested by the guide from its own sourced picks: open places with a verified pin, nearest next.') +
-      ' Distances are straight lines, not walking routes. Hours and prices aren’t in our data — check each place before you go.</p>' +
+      '<p class="honest">' + (edited(a) ? 'Your version of the guide’s day. ' : 'Built from the guide’s own picks: open places with a verified pin, close together. ') +
+      esc(info.dl || 'Suggested by the guide from sourced picks — check hours before you go. Distances are straight-line, not walking routes.') + '</p>' +
       '<ol>' + ids.map(row).join('') + '</ol>' +
       '<div class="row"><button type="button" class="btn btn-primary" data-dy="share">' + icon('share') + '<span>Share this day</span></button>' +
       '<a class="btn btn-ghost" href="' + g + '"' + NT + '>' + icon('directions') + '<span>Route in Google Maps</span></a>' +

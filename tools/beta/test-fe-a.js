@@ -66,6 +66,28 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     chk(`${page}: no js errors`, errs.length === 0, errs.slice(0, 2));
   }
 
+  console.log('\n== ★ SIGNATURE = city canon / pop culture, never a publisher; food rail canon-first ==');
+  for (const page of ['cleveland.html', 'cities/pittsburgh.html', 'cities/newyork.html']) {
+    const { d, w, errs } = boot(page);
+    await sleep(100);
+    const sig = d.querySelector('.rail-i.sig'), info = JSON.parse(d.getElementById('cleo-city').textContent);
+    chk(`${page}: ★ tile is the canon (data-sig), not a publisher (data-src)`, !!sig && sig.hasAttribute('data-sig') && !sig.hasAttribute('data-src'), sig && sig.querySelector('.t').textContent);
+    sig.click(); await sleep(30);
+    chk(`${page}: ★ lens shows exactly its ${info.sig.ids.length} records`, ids(d).sort().join() === info.sig.ids.map(x => 'p-' + x).sort().join(), ids(d).length);
+    const data = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places', page.replace(/^cities\//, '').replace(/\.html$/, '') + '.json'), 'utf8'));
+    const firstCz = (d.querySelector('.rail-i[data-cz]') || {}).getAttribute && d.querySelector('.rail-i[data-cz]').getAttribute('data-cz');
+    chk(`${page}: food rail starts with the canon (${data.guide.foodOrder[0]})`, firstCz === data.guide.foodOrder.filter(id => data.places.some(p => (p.cz || []).includes(id)))[0], firstCz);
+    chk(`${page}: no js errors`, errs.length === 0, errs.slice(0, 2));
+  }
+  {
+    const { d, w } = boot('cleveland.html'); await sleep(100);
+    const info = JSON.parse(d.getElementById('cleo-city').textContent);
+    w.location.hash = '#closed=1'; await sleep(30);
+    const shown = ids(d);
+    chk('Recently closed lens: every closed record, flagged, newest check first within each area', shown.length === d.querySelectorAll('li.pl[data-closed]').length &&
+      [...d.querySelectorAll('ol.pls')].every(ol => { const o = [...ol.querySelectorAll('li.pl:not([hidden])')].map(li => info.co.indexOf(li.id.slice(2))); return o.every((x, i) => !i || x >= o[i - 1]); }), shown.length);
+  }
+
   console.log('\n== YOUR DAY: open + verified pins only, 4–6 stops ==');
   let planned = 0, badStops = [];
   for (const f of fs.readdirSync(path.join(BETA, 'data/places'))) {

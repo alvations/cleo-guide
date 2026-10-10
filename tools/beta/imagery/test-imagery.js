@@ -102,10 +102,10 @@ for (const [rel, body] of Object.entries(files)) {
   const p = path.join(BETA, rel);
   if (!fs.existsSync(p) || fs.readFileSync(p, 'utf8') !== body) { ok(false, `beta/${rel} is stale — run npm run beta`); break; }
 }
-// generated pages carry the art (FE-B layers it as --motif on the tile; FE-A/hub hooks use motifSvg's <image>)
+// generated pages carry the art (FE-B layers an <img class="motif">; city mastheads use motifSvg's <image>)
 const landing = fs.readFileSync(path.join(BETA, 'index.html'), 'utf8');
-const tiles = landing.match(/<li class="dest"[^>]*><a [^>]*class="tile[^>]*>/g) || [];
-const refOf = t => (/(?:--motif:url\('|<image href=")([^'"?]+)/.exec(t) || [])[1];
+const tiles = landing.match(/<li class="dest"[^>]*><a [^>]*class="tile[\s\S]*?<\/li>/g) || [];
+const refOf = t => (/(?:<img class="motif" src="|<image href=")([^'"?]+)/.exec(t) || [])[1];
 ok(tiles.length > 0 && tiles.every(t => refOf(t) && fs.existsSync(path.join(BETA, refOf(t)))), `every landing city tile references an existing motif (${tiles.length})`);
 const tk = fs.readFileSync(path.join(BETA, 'cities', 'tokyo.html'), 'utf8');
 ok(/<header class="masthead"><svg class="motif"[^>]*><image href="\.\.\/assets\/img\/motifs\/tokyo\.svg\?v=/.test(tk), 'Tokyo masthead carries the Tokyo motif');
