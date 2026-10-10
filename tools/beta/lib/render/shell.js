@@ -53,84 +53,13 @@ const assetV = (k, file) => (SITE.assetsV && SITE.assetsV[k]) || ver(file);
  *  (in place of the Wave 0 baseline cleo.css, whose selectors clash with Constellation's — DES UX-20). */
 function styles(depth) {
   const up = '../'.repeat(depth);
-  return [`<link rel="stylesheet" href="${up}assets/cleo.css?v=${assetV('css', path.join(ROOT, 'beta', 'assets', 'cleo.css'))}">`,
-    `<style>${SHELL_CSS}</style>`];
+  return [`<link rel="stylesheet" href="${up}assets/cleo.css?v=${assetV('css', path.join(ROOT, 'beta', 'assets', 'cleo.css'))}">`];
 }
 
-/* The top bar's own layout, emitted with the bar itself so it is the same ≤ 64 px component on every page —
- * including pages still on the Wave 0 baseline sheet (cleo.css). Same values as Constellation's .topbar. */
-const TOPBAR_CSS = [
-  '[data-cleo-shell=topbar]{position:sticky;top:0;z-index:40;height:var(--bar-h,60px)}',
-  ':where([data-cleo-shell=topbar]){background:var(--paper,var(--bg,#F7F4EE));border-bottom:1px solid var(--line,#DDD6CA)}',
-  '[data-cleo-shell=topbar]>.wrap{height:100%;display:flex;align-items:center;gap:12px;max-width:var(--maxw,1360px);margin:0 auto;padding:0 var(--gutter,16px);border:0;position:static;background:none}',
-  '[data-cleo-shell=topbar] .brand{display:inline-flex;align-items:center;gap:8px;text-decoration:none;min-height:44px;letter-spacing:0;font:inherit}',
-  '[data-cleo-shell=topbar] .brand b{font:italic 500 27px/1 var(--font-display,Georgia,serif)}',
-  '[data-cleo-shell=topbar] .brand small,[data-cleo-shell=topbar] .topnav{display:none}',
-  '[data-cleo-shell=topbar] .spacer{flex:1}[data-cleo-shell=topbar] .top-actions{display:flex;gap:4px}',
-  '[data-cleo-shell=topbar] .btn-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%}',
-  '[data-cleo-shell=topbar] svg{flex:none}',
-  '.topbar .crumbs{display:flex;align-items:center;min-width:0;overflow:hidden;white-space:nowrap;font-size:14px;color:var(--ink-3)}',
-  '.topbar .crumbs a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px;border-radius:999px;text-decoration:none;color:var(--ink-2);font-weight:600}',
-  '.topbar .crumbs a:hover{background:var(--sand)}',
-  '.topbar .crumbs .here{padding:0 8px;color:var(--ink);font-weight:650;overflow:hidden;text-overflow:ellipsis}',
-  '.topbar .crumbs .sep{color:var(--ink-3)}',
-  '.on-night .crumbs a,.on-night .crumbs .here{color:var(--on-night)}',
-  '@media(max-width:899px){.topbar .crumbs a~.sep,.topbar .crumbs a~.here{display:none}.topbar .crumbs a::before{content:"‹";margin-right:4px}[data-cleo-shell=topbar] .theme-toggle{display:none}}',
-  '@media(max-width:639px){.topbar .brand b{font-size:24px}}',
-  '.footer .theme-toggle{color:var(--on-night);width:auto;padding:0 12px;border-radius:999px;gap:8px;display:inline-flex}',
-  '@media(min-width:900px){.topbar .crumbs{margin-left:8px}}',
-  '[data-cleo-shell=topbar] .ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}',
-  '[data-cleo-shell=topbar] .crumbs a{white-space:nowrap}[data-cleo-shell=topbar] .crumbs{flex:0 1 auto}',
-  '@media(min-width:900px){[data-cleo-shell=topbar] .topnav{display:flex}[data-cleo-shell=topbar] .brand small{display:inline}}',
-].join('');
 
-/* Layout rules the Constellation sheet does not cover yet (breadcrumb in the top bar, mobile 2-up hub tiles,
- * search panel, banners). Tokens only. DES: fold into constellation.css and delete this block. */
-const SHELL_CSS = [
-  '.topnav a.on{color:var(--ink);background:var(--sand)}',
-  '.tiles.hub2{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}',
-  '@media(min-width:640px){.tiles.hub2{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}}',
-  '@media(min-width:1100px){.tiles.hub2{grid-template-columns:repeat(4,minmax(0,1fr))}}',
-  '.tiles.hub2 .tile{grid-template-rows:84px auto}.tiles.hub2 .tile .txt{padding:10px 12px 12px;gap:3px}',
-  '.tiles.hub2 .tile .txt h3{font-size:20px}.tiles.hub2 .tile .art .native{font-size:18px;right:10px;top:8px}',
-  '.tiles.hub2 .tile .canon{font-size:13px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}',
-  '@media(min-width:640px){.tiles.hub2 .tile{grid-template-rows:120px auto}.tiles.hub2 .tile .txt h3{font-size:24px}}',
-  '.tile .art .dots{stroke:var(--on-night);stroke-linecap:round;fill:none}',
-  '.tile .art .dots.t1{stroke:var(--gilt-soft)}',
-  '.tile .dest-c{display:block}',
-  '.dest a.tile::before{content:none}.dest a.tile>*{padding-inline:0}.dest a.tile>:last-child{padding-bottom:0}.tile .dest-c{padding:0;grid-row:auto;align-self:auto}',
-  '.tile .art{background:var(--motif,none),radial-gradient(130% 160% at 100% 0,color-mix(in srgb,var(--city) 40%,transparent),transparent 62%),var(--night)}',
-  '.feb .search input,.searchpanel .search input{border:0;background:transparent;box-shadow:none;padding:0 4px;border-radius:0}',
-  '@media(min-width:900px){.feb .hero .d-hero{font-size:64px}.feb .hero .inner{padding-top:calc(var(--bar-h) + 40px);padding-bottom:36px}}',
-  'html[data-cleo-page] main.feb{padding:0;max-width:none}html[data-cleo-page] main.feb>*{max-width:none;margin-inline:0}',
-  'html[data-cleo-page] main.feb>.masthead{padding:0}html[data-cleo-page] main.feb>.wrap{max-width:var(--maxw);margin-inline:auto}',
-  'ul.tiles{list-style:none;margin:0;padding:0}ul.tiles>li{display:grid;min-width:0}',
-  '.footer a{min-width:var(--tap)}.banner .btn-icon{min-height:var(--tap);width:var(--tap)}',
-  '.searchpanel input::-webkit-search-cancel-button{display:none}',
-  '.morelist{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr))}',
-  '.morelist a{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:var(--tap);padding:8px 14px;border:1px solid var(--line);border-radius:var(--r-m);background:var(--surface);text-decoration:none}',
-  '.morelist .dest-n{font-weight:650}.morelist .dest-c{font-size:13px;color:var(--ink-3);white-space:nowrap}',
-  '.csec{scroll-margin-top:calc(var(--bar-h) + 8px)}.csec+.csec{margin-top:36px}',
-  '.csec .rail-head .d2 .n{font:500 15px/1 var(--font-ui);color:var(--ink-3);margin-left:8px}',
-  '.csec .blurb{color:var(--ink-2);margin:-4px 0 14px;max-width:70ch;font-size:15px}',
-  '.hero .search{margin-top:6px}.hero .inner{padding-bottom:22px}',
-  '@media(max-width:639px){.hero .d-hero{font-size:34px}.hero .sub{font-size:15px;margin:8px 0 14px}.hero .kicker{margin-bottom:6px}.hero .inner{padding-top:calc(var(--bar-h) + 6px);padding-bottom:16px}.hero .search{min-height:50px}}',
-  '.stickypills{position:sticky;top:var(--bar-h);z-index:30;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:8px 0}',
-  '.searchpanel{position:fixed;left:0;right:0;top:var(--bar-h);z-index:50;max-height:calc(100vh - var(--bar-h));overflow:auto;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:var(--e-2);padding:12px 0 16px}',
-  '.results{margin:16px 0}.results h2{margin:0 0 6px}.results .grp{margin:14px 0 0}.results .grp h3{margin:0 0 4px;font:650 15px/1.3 var(--font-ui)}',
-  '.results ol{list-style:none;margin:0;padding:0;display:grid;gap:4px}',
-  '.results li a{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;min-height:var(--tap);padding:6px 12px;border-radius:var(--r-s);background:var(--surface);border:1px solid var(--line);text-decoration:none}',
-  '.results li a:hover{border-color:var(--ink)}.results .meta{font-size:13px;color:var(--ink-3)}',
-  '.results .state{margin-top:8px}',
-  '.banners{position:sticky;top:var(--bar-h);z-index:35}.banners .banner{border-radius:0;justify-content:center}',
-  '.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;margin:18px 0}',
-  '@media(min-width:900px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}',
-  '.stats div{background:var(--surface);padding:14px 16px}.stats b{display:block;font:500 28px/1.1 var(--font-display)}.stats span{font-size:13.5px;color:var(--ink-3)}',
-  '.prose{max-width:68ch}.prose h2{margin:36px 0 8px}.prose p,.prose li{color:var(--ink-2)}.prose li{margin:6px 0}',
-  '.prose a{color:var(--ink);text-underline-offset:3px}',
-  '.toc{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0}',
-  '.ladder{display:grid;gap:10px;margin:12px 0}.ladder div{display:flex;gap:12px;align-items:baseline}',
-].join('');
+/* B5 shell rules (2252f7a) not yet in design/beta/css/contract.css — DES: fold §3b, then delete this. */
+const B5_CSS = '@media(max-width:899px){.topbar .crumbs .c0,.topbar .crumbs .c0+.sep{display:inline-flex}.topbar .crumbs a~.sep,.topbar .crumbs a~.here{display:none}.topbar .crumbs a::before{content:"\\2039";margin-right:4px}[data-cleo-shell=topbar] .theme-toggle{display:none}}' +
+  '.footer .theme-toggle{color:var(--on-night);width:auto;padding:0 12px;border-radius:999px;gap:8px;display:inline-flex}';
 
 // ---------------------------------------------------------------- icons (inline sprite, no network)
 const ICONS = {
@@ -187,7 +116,7 @@ function siteBar({ depth, current, rel, onNight = false }) {
   const up = '../'.repeat(depth);
   const cur = k => current === k ? ' aria-current="page"' : '';
   return `${sprite()}<a class="skip" href="#main">Skip to content</a>
-<style>${TOPBAR_CSS}</style>
+<style>${B5_CSS}</style>
 <header class="topbar${onNight ? ' on-night' : ''}" data-cleo-shell="topbar"><div class="wrap">
   <a class="brand" href="${up}index.html" aria-label="Cleo — all destinations">${MARK}<b>cleo</b><small>field guides</small></a>
   ${crumbs(rel, up)}
