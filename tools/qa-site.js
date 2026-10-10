@@ -67,8 +67,9 @@ function walk(dir, acc = []) {
   }
   return acc;
 }
-// tools/*.html are dev helpers/templates, not site pages.
-const PAGES = walk(ROOT).filter(p => !p.startsWith('tools/')).filter(p => p.includes(ONLY)).sort();
+// tools/*.html are dev helpers/templates, not site pages; design/** are UX proposals/prototypes
+// (unlinked from the site, audited by their own harness in design/ux-2026-10/tools/).
+const PAGES = walk(ROOT).filter(p => !p.startsWith('tools/') && !p.startsWith('design/')).filter(p => p.includes(ONLY)).sort();
 
 // ---------- static server ----------
 const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css',
