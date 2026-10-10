@@ -136,7 +136,7 @@ function render(row, reg, ctx, { c, main, more, all, groups }) {
   return `${head({ page: 'hub', title, description: desc, rel: row.beta, depth, assetsV: ctx.assetsV, css: styles(depth), from: `data/countries.json + every ${c.name} place page` })}
 <body class="has-tabbar">
 ${siteBar({ depth, current: 'hub', rel: row.beta })}
-<main id="main">
+<main id="main" class="feb">
 <section class="masthead" aria-labelledby="cn"><div class="inner">
   <h1 class="title d1" id="cn">${esc(c.name)}</h1>
   <p class="facts"><b>${all.length} ${all.length === 1 ? 'guide' : 'guides'} · ${fmt(n)} places</b> · ${fmt(P)} sights · ${fmt(F)} to eat &amp; drink${checked ? ` · status last checked ${esc(checked)}` : ''}. <a href="${up}how-we-choose.html">How we choose</a></p>

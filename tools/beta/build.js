@@ -82,8 +82,6 @@ if (!fs.existsSync(cssPath)) errors.push('beta/assets/cleo.css missing (designer
 else assetsV.css = sha(fs.readFileSync(cssPath));
 const tokPath = path.join(BETA, 'assets', 'tokens.css');          // optional design tokens (designer, M0-01)
 if (fs.existsSync(tokPath)) assetsV.tokens = sha(fs.readFileSync(tokPath));
-const conPath = path.join(BETA, 'assets', 'constellation.css');  // Constellation components (designer, UX-20)
-if (fs.existsSync(conPath)) assetsV.constellation = sha(fs.readFileSync(conPath));
 emit('assets/icon.svg', fs.readFileSync(path.join(__dirname, 'static', 'icon.svg')));
 
 // Leaflet, vendored from the pinned npm package (tools/package.json) so the map never needs a CDN.
@@ -191,8 +189,8 @@ emit('data/manifest.json', JSON.stringify({
 
 const shellFiles = ['./index.html', './saved.html', './manifest.webmanifest', './assets/icon.svg', `./assets/cleo.css?v=${assetsV.css}`]
   .concat(assetsV.tokens ? [`./assets/tokens.css?v=${assetsV.tokens}`] : [])
-  .concat(assetsV.constellation ? ['./how-we-choose.html', `./assets/constellation.css?v=${assetsV.constellation}`] : [])
-  .concat(Object.keys(assetsV).filter(k => k !== 'css' && k !== 'tokens' && k !== 'constellation').sort().map(k => `./assets/js/${k}.js?v=${assetsV[k]}`));
+  .concat(['./how-we-choose.html'])                                 // FE-B method page, offline too
+  .concat(Object.keys(assetsV).filter(k => k !== 'css' && k !== 'tokens').sort().map(k => `./assets/js/${k}.js?v=${assetsV[k]}`));
 const version = sha(JSON.stringify(assetsV) + generated.join());
 emit('sw.js', swSource(version, shellFiles));
 

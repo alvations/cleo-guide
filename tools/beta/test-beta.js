@@ -146,7 +146,11 @@ console.log('\n== DATA: computed counts, source index, map art (every place page
     }
     // Any count phrase a generated page prints matches the computed stats (live prose drifts).
     if (generated.has(row.beta)) {
-      const vis = rd('beta/' + row.beta).replace(/<script[\s\S]*?<\/script>/g, '');
+      const html = rd('beta/' + row.beta);
+      const tally = {};
+      for (const m of html.matchAll(/<li class="pl[ "][^>]*\sdata-src="([^"]+)"/g)) for (const id of m[1].split(' ')) tally[id] = (tally[id] || 0) + 1;
+      for (const x of j.sourceIndex) if (tally[x.id] !== x.n) bad.src.push(`${row.beta}: cards citing ${x.id} ${tally[x.id]} != ${x.n}`);
+      const vis = html.replace(/<script[\s\S]*?<\/script>/g, '');
       for (const m of vis.matchAll(PROSE_COUNT)) {
         const [a, b] = m[0].match(/\d[\d,]*/g).map(x => +x.replace(/,/g, ''));
         if (a !== st.sights || b !== st.food) bad.prose.push(`${row.beta}: "${m[0]}" != ${st.sights}/${st.food}`);

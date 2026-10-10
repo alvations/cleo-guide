@@ -79,4 +79,20 @@ function sourceLabel(reg, key) {
   return s.l && s.l.length <= 48 ? s.l : s.k || s.t || key;
 }
 
-module.exports = { normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };
+/**
+ * Where a card's source name should link. Live refs (`s: [[key, ref]]`) are not always URLs: numbered list
+ * entries ("#16"), bare domains ("nycgovparks.org/parks/…"), wiki slugs, or a prose note ("Best Latin
+ * Restaurant 2025"). An http(s) ref links as is; a scheme-less domain path gets https://; anything else
+ * links to the registry entry's own URL. Returns {href|null, note|null} — the note is the non-URL ref,
+ * kept for a tooltip so no text is lost. Never a relative or in-page href.
+ */
+function sourceHref(reg, key, ref) {
+  const r = String(ref || '').trim();
+  const e = (reg || {})[key] || {};
+  const regUrl = /^https?:\/\//i.test(e.u || '') ? e.u : null;
+  if (/^https?:\/\/\S+$/i.test(r)) return { href: r, note: null };
+  if (/^(?:www\.)?[a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,}(?:\/\S*)?$/i.test(r)) return { href: 'https://' + r, note: null };
+  return { href: regUrl, note: r || null };
+}
+
+module.exports = { sourceHref, normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };

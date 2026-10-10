@@ -53,7 +53,7 @@ function methodPage(reg, ctx) {
   return `${head({ page: 'method', title, description: desc, rel: 'how-we-choose.html', depth: 0, assetsV: ctx.assetsV, css: styles(0), from: 'every live place page (computed stats)' })}
 <body class="has-tabbar">
 ${siteBar({ depth: 0, current: 'method', rel: 'how-we-choose.html' })}
-<main id="main">
+<main id="main" class="feb">
 <section class="masthead" aria-labelledby="mh"><div class="inner">
   <h1 class="title d1" id="mh">How we choose</h1>
   <p class="facts">Every place on every Cleo map is there because someone credible recommended it — and you can see who. Here is the whole method, with the numbers as they stand today.</p>
@@ -122,7 +122,7 @@ function notFound(reg, ctx) {
   return `${head({ page: 'notfound', title: 'Page not found · Cleo', description: 'We couldn\'t find that page. Every Cleo guide is still listed.', rel: '404.html', depth: 0, assetsV: ctx.assetsV, css: styles(0) })}
 <body class="has-tabbar">
 ${siteBar({ depth: 0, current: 'other', rel: '404.html' })}
-<main id="main"><div class="wrap section">
+<main id="main" class="feb"><div class="wrap section">
 <div class="state" data-cleo-state="unknown-page">
   ${icon('compass', 'ico lg')}
   <h1 class="d2">We couldn't find that page.</h1>

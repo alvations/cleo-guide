@@ -1,0 +1,432 @@
+{
+ "hub-m": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 0,
+  "smallSample": [],
+  "fontFamilies": [
+   "Figtree",
+   "Bodoni Moda"
+  ],
+  "uppercaseShare": 0.004,
+  "minFontPx": 13,
+  "minFontEl": "span.dest-c",
+  "accent": "#3B3A8F",
+  "textNodes": 235,
+  "blockedHosts": [],
+  "jsErrors": []
+ },
+ "hub-d": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 0,
+  "smallSample": [],
+  "fontFamilies": [
+   "Figtree",
+   "Bodoni Moda"
+  ],
+  "uppercaseShare": 0.004,
+  "minFontPx": 13,
+  "minFontEl": "span.dest-c",
+  "accent": "#3B3A8F",
+  "textNodes": 235,
+  "blockedHosts": [],
+  "jsErrors": []
+ },
+ "tokyo-m": {
+  "overflowX": 0,
+  "firstCardScreens": 0.79,
+  "controlsAboveFirstCard": 14,
+  "cardsPerScreen": 3,
+  "cards": 488,
+  "closed": 1,
+  "glyphCards": 487,
+  "closedWithGlyph": 0,
+  "coverCards": 400,
+  "coverSample": 400,
+  "smallTargets": 0,
+  "smallSample": [],
+  "fontFamilies": [
+   "Figtree",
+   "Bodoni Moda"
+  ],
+  "uppercaseShare": 0.191,
+  "minFontPx": 13,
+  "minFontEl": "span.n",
+  "accent": "#C23A1C",
+  "textNodes": 4972,
+  "blockedHosts": [
+   "tile.openstreetmap.org"
+  ],
+  "jsErrors": []
+ },
+ "tokyo-d": {
+  "overflowX": 0,
+  "firstCardScreens": 0.7,
+  "controlsAboveFirstCard": 29,
+  "cardsPerScreen": 6,
+  "cards": 488,
+  "closed": 1,
+  "glyphCards": 487,
+  "closedWithGlyph": 0,
+  "coverCards": 400,
+  "coverSample": 400,
+  "smallTargets": 1,
+  "smallSample": [
+   "button.map-retry 73×26"
+  ],
+  "fontFamilies": [
+   "Figtree",
+   "Bodoni Moda"
+  ],
+  "uppercaseShare": 0.191,
+  "minFontPx": 13,
+  "minFontEl": "span.n",
+  "accent": "#C23A1C",
+  "textNodes": 4966,
+  "blockedHosts": [
+   "tile.openstreetmap.org"
+  ],
+  "jsErrors": []
+ },
+ "cleveland-m": {
+  "overflowX": 0,
+  "firstCardScreens": 0.69,
+  "controlsAboveFirstCard": 13,
+  "cardsPerScreen": 2,
+  "cards": 194,
+  "closed": 13,
+  "glyphCards": 181,
+  "closedWithGlyph": 0,
+  "coverCards": 194,
+  "coverSample": 194,
+  "smallTargets": 0,
+  "smallSample": [],
+  "fontFamilies": [
+   "Figtree",
+   "Bodoni Moda"
+  ],
+  "uppercaseShare": 0.007,
+  "minFontPx": 13,
+  "minFontEl": "span.n",
+  "accent": "#1F5E8A",
+  "textNodes": 1676,
+  "blockedHosts": [
+   "tile.openstreetmap.org"
+  ],
+  "jsErrors": []
+ },
+ "cleveland-d": {
+  "overflowX": 0,
+  "firstCardScreens": 0.66,
+  "controlsAboveFirstCard": 22,
+  "cardsPerScreen": 2,
+  "cards": 194,
+  "closed": 13,
+  "glyphCards": 181,
+  "closedWithGlyph": 0,
+  "coverCards": 194,
+  "coverSample": 194,
+  "smallTargets": 1,
+  "smallSample": [
+   "button.map-retry 69×24"
+  ],
+  "fontFamilies": [
+   "Figtree",
+   "Bodoni Moda"
+  ],
+  "uppercaseShare": 0.007,
+  "minFontPx": 13,
+  "minFontEl": "span.n",
+  "accent": "#1F5E8A",
+  "textNodes": 1670,
+  "blockedHosts": [
+   "tile.openstreetmap.org"
+  ],
+  "jsErrors": []
+ },
+ "newyork-m": {
+  "overflowX": 0,
+  "firstCardScreens": 0.7,
+  "controlsAboveFirstCard": 14,
+  "cardsPerScreen": 3,
+  "cards": 508,
+  "closed": 0,
+  "glyphCards": 508,
+  "closedWithGlyph": 0,
+  "coverCards": 400,
+  "coverSample": 400,
+  "smallTargets": 0,
+  "smallSample": [],
+  "fontFamilies": [
+   "Figtree",
+   "Bodoni Moda"
+  ],
+  "uppercaseShare": 0.009,
+  "minFontPx": 13,
+  "minFontEl": "span.n",
+  "accent": "#9A5B00",
+  "textNodes": 4152,
+  "blockedHosts": [
+   "tile.openstreetmap.org"
+  ],
+  "jsErrors": []
+ },
+ "newyork-d": {
+  "overflowX": 0,
+  "firstCardScreens": 0.66,
+  "controlsAboveFirstCard": 22,
+  "cardsPerScreen": 6,
+  "cards": 508,
+  "closed": 0,
+  "glyphCards": 508,
+  "closedWithGlyph": 0,
+  "coverCards": 400,
+  "coverSample": 400,
+  "smallTargets": 1,
+  "smallSample": [
+   "button.map-retry 69×24"
+  ],
+  "fontFamilies": [
+   "Figtree",
+   "Bodoni Moda"
+  ],
+  "uppercaseShare": 0.009,
+  "minFontPx": 13,
+  "minFontEl": "span.n",
+  "accent": "#9A5B00",
+  "textNodes": 4146,
+  "blockedHosts": [
+   "tile.openstreetmap.org"
+  ],
+  "jsErrors": []
+ },
+ "chinatown-m": {
+  "overflowX": 0,
+  "firstCardScreens": 0.72,
+  "controlsAboveFirstCard": 11,
+  "cardsPerScreen": 3,
+  "cards": 16,
+  "closed": 0,
+  "glyphCards": 16,
+  "closedWithGlyph": 0,
+  "coverCards": 16,
+  "coverSample": 16,
+  "smallTargets": 0,
+  "smallSample": [],
+  "fontFamilies": [
+   "Figtree",
+   "Bodoni Moda"
+  ],
+  "uppercaseShare": 0.013,
+  "minFontPx": 13,
+  "minFontEl": "span.n",
+  "accent": "#8A3F86",
+  "textNodes": 228,
+  "blockedHosts": [
+   "tile.openstreetmap.org"
+  ],
+  "jsErrors": []
+ },
+ "chinatown-d": {
+  "overflowX": 0,
+  "firstCardScreens": 0.68,
+  "controlsAboveFirstCard": 17,
+  "cardsPerScreen": 6,
+  "cards": 16,
+  "closed": 0,
+  "glyphCards": 16,
+  "closedWithGlyph": 0,
+  "coverCards": 16,
+  "coverSample": 16,
+  "smallTargets": 1,
+  "smallSample": [
+   "button.map-retry 69×24"
+  ],
+  "fontFamilies": [
+   "Figtree",
+   "Bodoni Moda"
+  ],
+  "uppercaseShare": 0.014,
+  "minFontPx": 13,
+  "minFontEl": "span.n",
+  "accent": "#8A3F86",
+  "textNodes": 222,
+  "blockedHosts": [
+   "tile.openstreetmap.org"
+  ],
+  "jsErrors": []
+ },
+ "wheeling-m": {
+  "overflowX": 0,
+  "firstCardScreens": 0.77,
+  "controlsAboveFirstCard": 13,
+  "cardsPerScreen": 2,
+  "cards": 35,
+  "closed": 1,
+  "glyphCards": 34,
+  "closedWithGlyph": 0,
+  "coverCards": 35,
+  "coverSample": 35,
+  "smallTargets": 0,
+  "smallSample": [],
+  "fontFamilies": [
+   "Figtree",
+   "Bodoni Moda"
+  ],
+  "uppercaseShare": 0.062,
+  "minFontPx": 13,
+  "minFontEl": "span.n",
+  "accent": "#4E6B22",
+  "textNodes": 467,
+  "blockedHosts": [
+   "tile.openstreetmap.org"
+  ],
+  "jsErrors": []
+ },
+ "wheeling-d": {
+  "overflowX": 0,
+  "firstCardScreens": 0.7,
+  "controlsAboveFirstCard": 21,
+  "cardsPerScreen": 4,
+  "cards": 35,
+  "closed": 1,
+  "glyphCards": 34,
+  "closedWithGlyph": 0,
+  "coverCards": 35,
+  "coverSample": 35,
+  "smallTargets": 1,
+  "smallSample": [
+   "button.map-retry 73×26"
+  ],
+  "fontFamilies": [
+   "Figtree",
+   "Bodoni Moda"
+  ],
+  "uppercaseShare": 0.063,
+  "minFontPx": 13,
+  "minFontEl": "span.n",
+  "accent": "#4E6B22",
+  "textNodes": 461,
+  "blockedHosts": [
+   "tile.openstreetmap.org"
+  ],
+  "jsErrors": []
+ },
+ "japan-hub-m": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 0,
+  "smallSample": [],
+  "fontFamilies": [
+   "Figtree",
+   "Bodoni Moda"
+  ],
+  "uppercaseShare": 0.03,
+  "minFontPx": 13,
+  "minFontEl": "span.dest-c",
+  "accent": "#3B3A8F",
+  "textNodes": 33,
+  "blockedHosts": [],
+  "jsErrors": []
+ },
+ "japan-hub-d": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 0,
+  "smallSample": [],
+  "fontFamilies": [
+   "Figtree",
+   "Bodoni Moda"
+  ],
+  "uppercaseShare": 0.03,
+  "minFontPx": 13,
+  "minFontEl": "span.dest-c",
+  "accent": "#3B3A8F",
+  "textNodes": 33,
+  "blockedHosts": [],
+  "jsErrors": []
+ },
+ "singapore-hub-m": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 0,
+  "smallSample": [],
+  "fontFamilies": [
+   "Figtree",
+   "Bodoni Moda"
+  ],
+  "uppercaseShare": 0.01,
+  "minFontPx": 13,
+  "minFontEl": "span.dest-c",
+  "accent": "#3B3A8F",
+  "textNodes": 101,
+  "blockedHosts": [],
+  "jsErrors": []
+ },
+ "singapore-hub-d": {
+  "overflowX": 0,
+  "firstCardScreens": null,
+  "controlsAboveFirstCard": null,
+  "cardsPerScreen": 0,
+  "cards": 0,
+  "closed": 0,
+  "glyphCards": 0,
+  "closedWithGlyph": 0,
+  "coverCards": 0,
+  "coverSample": 0,
+  "smallTargets": 0,
+  "smallSample": [],
+  "fontFamilies": [
+   "Figtree",
+   "Bodoni Moda"
+  ],
+  "uppercaseShare": 0.01,
+  "minFontPx": 13,
+  "minFontEl": "span.dest-c",
+  "accent": "#3B3A8F",
+  "textNodes": 101,
+  "blockedHosts": [],
+  "jsErrors": []
+ }
+}

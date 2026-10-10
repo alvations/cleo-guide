@@ -53,7 +53,7 @@ const assetV = (k, file) => (SITE.assetsV && SITE.assetsV[k]) || ver(file);
  *  (in place of the Wave 0 baseline cleo.css, whose selectors clash with Constellation's — DES UX-20). */
 function styles(depth) {
   const up = '../'.repeat(depth);
-  return [`<link rel="stylesheet" href="${up}assets/constellation.css?v=${assetV('constellation', path.join(ROOT, 'beta', 'assets', 'constellation.css'))}">`,
+  return [`<link rel="stylesheet" href="${up}assets/cleo.css?v=${assetV('css', path.join(ROOT, 'beta', 'assets', 'cleo.css'))}">`,
     `<style>${SHELL_CSS}</style>`];
 }
 
@@ -96,6 +96,12 @@ const SHELL_CSS = [
   '.tile .art .dots{stroke:var(--on-night);stroke-linecap:round;fill:none}',
   '.tile .art .dots.t1{stroke:var(--gilt-soft)}',
   '.tile .dest-c{display:block}',
+  '.dest a.tile::before{content:none}.dest a.tile>*{padding-inline:0}.dest a.tile>:last-child{padding-bottom:0}.tile .dest-c{padding:0;grid-row:auto;align-self:auto}',
+  '.tile .art{background:var(--motif,none),radial-gradient(130% 160% at 100% 0,color-mix(in srgb,var(--city) 40%,transparent),transparent 62%),var(--night)}',
+  '.feb .search input,.searchpanel .search input{border:0;background:transparent;box-shadow:none;padding:0 4px;border-radius:0}',
+  '@media(min-width:900px){.feb .hero .d-hero{font-size:64px}.feb .hero .inner{padding-top:calc(var(--bar-h) + 40px);padding-bottom:36px}}',
+  'html[data-cleo-page] main.feb{padding:0;max-width:none}html[data-cleo-page] main.feb>*{max-width:none;margin-inline:0}',
+  'html[data-cleo-page] main.feb>.masthead{padding:0}html[data-cleo-page] main.feb>.wrap{max-width:var(--maxw);margin-inline:auto}',
   'ul.tiles{list-style:none;margin:0;padding:0}ul.tiles>li{display:grid;min-width:0}',
   '.footer a{min-width:var(--tap)}.banner .btn-icon{min-height:var(--tap);width:var(--tap)}',
   '.searchpanel input::-webkit-search-cancel-button{display:none}',
@@ -178,7 +184,7 @@ function siteBar({ depth, current, rel, onNight = false }) {
   const cur = k => current === k ? ' aria-current="page"' : '';
   return `${sprite()}<a class="skip" href="#main">Skip to content</a>
 <style>${TOPBAR_CSS}</style>
-<header class="topbar${onNight ? ' on-night' : ''}" data-cleo-shell="topbar"><div class="wrap sitebar">
+<header class="topbar${onNight ? ' on-night' : ''}" data-cleo-shell="topbar"><div class="wrap">
   <a class="brand" href="${up}index.html" aria-label="Cleo — all destinations">${MARK}<b>cleo</b><small>field guides</small></a>
   ${crumbs(rel, up)}
   <nav class="topnav" aria-label="Primary"><a href="${up}index.html#destinations"${cur('landing')}>Destinations</a><a href="${up}how-we-choose.html"${cur('method')}>How we choose</a></nav>
@@ -215,7 +221,7 @@ function footer({ depth, liveRel, notes = [], tabbar = false, current }) {
   const T = SITE.totals;
   const v = f => assetV(f.replace(/\.js$/, ''), path.join(__dirname, '..', '..', 'client', f));
   return `${noteHtml ? `<section class="method wrap section" aria-labelledby="method-h"><h2 id="method-h" class="d2">How this guide was made</h2>\n${noteHtml}\n</section>` : ''}
-<footer class="footer sitefoot" role="contentinfo"><div class="wrap">
+<footer class="footer" role="contentinfo"><div class="wrap">
   <div class="cols">
     <div><a class="brand" href="${up}index.html" aria-label="Cleo — all destinations">${MARK}<b>cleo</b></a>
       <p>${T.places.toLocaleString('en-US')} places across ${T.guides} guides — every one traceable to the source that recommended it, pinned and status-checked.</p></div>

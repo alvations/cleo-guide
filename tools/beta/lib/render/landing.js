@@ -42,7 +42,7 @@ ${more.length ? `<h3 class="more-h d3" style="margin-top:20px">More in ${esc(c.n
       potentialAction: { '@type': 'SearchAction', target: ctx.betaBase + '/?q={q}', 'query-input': 'required name=q' } } })}
 <body class="has-tabbar">
 ${siteBar({ depth: 0, current: 'landing', rel: 'index.html', onNight: true })}
-<main id="main">
+<main id="main" class="feb">
 <section class="hero" aria-labelledby="hero-h"><div class="inner">
   <p class="kicker">Field guides with receipts</p>
   <h1 class="d-hero" id="hero-h">Go where the people who <em>know</em> would go.</h1>

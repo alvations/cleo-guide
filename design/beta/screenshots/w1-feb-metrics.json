@@ -21,8 +21,8 @@
  "landing-s1-m": {
   "overflowX": 0,
   "headerH": 60,
-  "tilesFullyAboveFold": 6,
-  "tilesNameAboveFold": 8,
+  "tilesFullyAboveFold": 4,
+  "tilesNameAboveFold": 4,
   "tapTargetsUnder44": 0,
   "tapTargetsUnder44List": [],
   "controlsWithoutName": 0,
@@ -179,20 +179,10 @@
   "headerH": 60,
   "tilesFullyAboveFold": 0,
   "tilesNameAboveFold": 0,
-  "tapTargetsUnder44": 12,
+  "tapTargetsUnder44": 2,
   "tapTargetsUnder44List": [
-   "button.btn btn-quiet btn-icon \"Dismiss\" 36×29",
-   "a. \"United States\" 89×17",
-   "a. \"Singapore\" 67×17",
-   "a. \"Vietnam\" 54×17",
-   "a. \"Germany\" 60×17",
-   "a. \"Belgium\" 53×17",
-   "a. \"Japan\" 41×17",
-   "a. \"How we choose\" 106×17",
-   "a. \"Closed places\" 93×17",
-   "a. \"Pins\" 28×17",
-   "a. \"Your list\" 53×17",
-   "a. \"Search\" 46×17"
+   "a. \"Japan\" 38×44",
+   "a. \"Pins\" 26×44"
   ],
   "controlsWithoutName": 0,
   "landmarks": [
@@ -253,20 +243,10 @@
   "headerH": 60,
   "tilesFullyAboveFold": 0,
   "tilesNameAboveFold": 0,
-  "tapTargetsUnder44": 324,
+  "tapTargetsUnder44": 2,
   "tapTargetsUnder44List": [
-   "a. \"Chiyoda-ku\" 77×32",
-   "a. \"Chūō-ku\" 58×32",
-   "a. \"Minato-ku\" 67×32",
-   "a. \"Shinjuku-ku\" 78×32",
-   "a. \"Shibuya-ku\" 76×32",
-   "a. \"Taitō-ku\" 55×32",
-   "a. \"Sumida-ku & Kōtō-ku\" 141×32",
-   "a. \"Jōnan\" 41×32",
-   "a. \"Jōsai\" 35×32",
-   "a. \"Jōhoku\" 49×32",
-   "a. \"Jōtō\" 29×32",
-   "a. \"Tama area\" 69×32"
+   "a. \"Japan\" 38×44",
+   "a. \"Pins\" 26×44"
   ],
   "controlsWithoutName": 0,
   "landmarks": [
@@ -278,7 +258,7 @@
   "skipLink": true,
   "states": [],
   "jsErrors": [],
-  "offOriginAborted": 6
+  "offOriginAborted": 1
  },
  "landing-d": {
   "overflowX": 0,
@@ -302,8 +282,8 @@
  "landing-s1-d": {
   "overflowX": 0,
   "headerH": 68,
-  "tilesFullyAboveFold": 8,
-  "tilesNameAboveFold": 16,
+  "tilesFullyAboveFold": 4,
+  "tilesNameAboveFold": 8,
   "tapTargetsUnder44": 0,
   "tapTargetsUnder44List": [],
   "controlsWithoutName": 0,
@@ -416,8 +396,8 @@
  "state-no-results-d": {
   "overflowX": 0,
   "headerH": 68,
-  "tilesFullyAboveFold": 4,
-  "tilesNameAboveFold": 8,
+  "tilesFullyAboveFold": 0,
+  "tilesNameAboveFold": 4,
   "tapTargetsUnder44": 0,
   "tapTargetsUnder44List": [],
   "controlsWithoutName": 0,
@@ -460,20 +440,10 @@
   "headerH": 68,
   "tilesFullyAboveFold": 0,
   "tilesNameAboveFold": 0,
-  "tapTargetsUnder44": 14,
+  "tapTargetsUnder44": 2,
   "tapTargetsUnder44List": [
-   "a. \"Destinations\" 93×24",
-   "a. \"How we choose\" 121×24",
-   "button.btn btn-quiet btn-icon \"Dismiss\" 36×29",
-   "a. \"United States\" 89×17",
-   "a. \"Singapore\" 67×17",
-   "a. \"Vietnam\" 54×17",
-   "a. \"Germany\" 60×17",
-   "a. \"Belgium\" 53×17",
-   "a. \"Japan\" 41×17",
-   "a. \"How we choose\" 106×17",
-   "a. \"Closed places\" 93×17",
-   "a. \"Pins\" 28×17"
+   "a. \"Japan\" 38×44",
+   "a. \"Pins\" 26×44"
   ],
   "controlsWithoutName": 0,
   "landmarks": [
@@ -534,20 +504,11 @@
   "headerH": 68,
   "tilesFullyAboveFold": 0,
   "tilesNameAboveFold": 0,
-  "tapTargetsUnder44": 509,
+  "tapTargetsUnder44": 3,
   "tapTargetsUnder44List": [
-   "a. \"Destinations\" 93×24",
-   "a. \"How we choose\" 121×24",
-   "a. \"Chiyoda-ku\" 77×32",
-   "a. \"Chūō-ku\" 58×32",
-   "a. \"Minato-ku\" 67×32",
-   "a. \"Shinjuku-ku\" 78×32",
-   "a. \"Shibuya-ku\" 76×32",
-   "a. \"Taitō-ku\" 55×32",
-   "a. \"Sumida-ku & Kōtō-ku\" 141×32",
-   "a. \"Jōnan\" 41×32",
-   "a. \"Jōsai\" 35×32",
-   "a. \"Jōhoku\" 49×32"
+   "button.map-retry \"Try again\" 69×24",
+   "a. \"Japan\" 38×44",
+   "a. \"Pins\" 26×44"
   ],
   "controlsWithoutName": 0,
   "landmarks": [
