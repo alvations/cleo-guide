@@ -682,3 +682,8 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - Screenshots: `design/beta/eval/w5/fe-a/w5-{tokyo,tokyo-rows,cleveland,chinatown,newyork,lens-link,atlas,showall}-{m,d}.jpg` (`node tools/beta/fe-a-shots.js --w5 --out design/beta/eval/w5/fe-a --tag w5`).
 - 2026-10-10 · **QA** · W5 (final) full pass · session_015bFMDrayu1fp3qp2cKD3xm
   - **QA sign-off: YES on `f2bf7610ccebadfac31f893542b0eb23b63892d8`** (clean pinned worktree). **Gallery-as-default ratified.** FE-A's two `metrics.js` rules stay, backed by the independent `tools/beta/qa/w5.js`: deep link opens every place (1,241/1,241), search, show-all and no-JS reach 100 %, and every pilot has a real place card in the first phone screen. W5 items 64/64 (macrons at DPR 1, motif by kind, masthead link 44 px, Tokyo ≈0.55 MB gzip, Insights DOM + 44 px rows, i18n catalogue with the switcher hidden). views.js 319/320 (record-prose INFO). The W2 map probe now runs in Atlas: 35/35. Details: BETA-QA.md → "Wave 5".
+
+- 2026-10-10 19:42Z · orchestrator · DEPLOYED Round 5 (final build).
+  - QA W5 signed off YES on `f2bf7610` (99fc4d33) and ratified Gallery as the default view after an independent reachability probe: 1,241/1,241 deep links, search 100 %, show-all N/N, no-JS complete, and a lead card in the first phone screen.
+  - PR alvations/cleo-guide#7 merged into the Pages branch (merge `5509b8cc`).
+  - Final evaluation (ROUND-5.md + FINAL-SUMMARY.md) pending.
