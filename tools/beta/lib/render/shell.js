@@ -75,7 +75,9 @@ const TOPBAR_CSS = [
   '.topbar .crumbs .here{padding:0 8px;color:var(--ink);font-weight:650;overflow:hidden;text-overflow:ellipsis}',
   '.topbar .crumbs .sep{color:var(--ink-3)}',
   '.on-night .crumbs a,.on-night .crumbs .here{color:var(--on-night)}',
-  '@media(max-width:639px){.topbar .crumbs .c0,.topbar .crumbs .c0+.sep{display:none}.topbar .brand b{font-size:24px}}',
+  '@media(max-width:899px){.topbar .crumbs a~.sep,.topbar .crumbs a~.here{display:none}.topbar .crumbs a::before{content:"‹";margin-right:4px}[data-cleo-shell=topbar] .theme-toggle{display:none}}',
+  '@media(max-width:639px){.topbar .brand b{font-size:24px}}',
+  '.footer .theme-toggle{color:var(--on-night);width:auto;padding:0 12px;border-radius:999px;gap:8px;display:inline-flex}',
   '@media(min-width:900px){.topbar .crumbs{margin-left:8px}}',
   '[data-cleo-shell=topbar] .ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}',
   '[data-cleo-shell=topbar] .crumbs a{white-space:nowrap}[data-cleo-shell=topbar] .crumbs{flex:0 1 auto}',
@@ -167,7 +169,8 @@ function trail(rel) {
 }
 
 function crumbs(rel, up) {
-  const t = trail(rel);
+  // The root ("Destinations") is the wordmark's and the nav's job, so the visible trail starts at the country.
+  const t = trail(rel).slice(1);
   if (!t.length) return '';
   return `<nav class="crumbs" aria-label="Breadcrumb">${t.map((c, i) => (i ? '<span class="sep" aria-hidden="true">›</span>' : '') +
     (c.href ? `<a class="c${i}" href="${up}${esc(c.href)}">${esc(c.name)}</a>` : `<span class="here" aria-current="page">${esc(c.name)}</span>`)).join('')}</nav>`;
@@ -229,7 +232,7 @@ function footer({ depth, liveRel, notes = [], tabbar = false, current }) {
       <p>${T.places.toLocaleString('en-US')} places across ${T.guides} guides — every one traceable to the source that recommended it, pinned and status-checked.</p></div>
     <div><h4>Destinations</h4><ul>${SITE.countries.map(c => `<li><a href="${up}${esc(c.href)}">${esc(c.name)}</a></li>`).join('')}</ul></div>
     <div><h4>The method</h4><ul><li><a href="${up}how-we-choose.html">How we choose</a></li><li><a href="${up}how-we-choose.html#closures">Closed places</a></li><li><a href="${up}how-we-choose.html#pins">Pins</a></li></ul></div>
-    <div><h4>Yours</h4><ul><li><a href="${up}saved.html">Your list</a></li><li><a href="${up}index.html#search">Search</a></li></ul></div>
+    <div><h4>Yours</h4><ul><li><a href="${up}saved.html">Your list</a></li><li><a href="${up}index.html#search">Search</a></li><li><button type="button" class="btn theme-toggle" aria-pressed="false" data-cleo-theme hidden>${icon('moon')}<span>Night edition</span></button></li></ul></div>
   </div>
   <p class="legal colophon">Cleo beta — every place is carried from ${live}, with its sources. Map tiles: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>; Esri. No ratings, prices or hours are shown because they aren't in our data — check before you go.</p>
 </div></footer>
