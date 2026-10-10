@@ -5,8 +5,8 @@
 (() => {
   'use strict';
   const Cleo = window.Cleo || {}, C = Cleo.city, d = document, html = d.documentElement;
-  if (!C || !Cleo.route) return;
-  const $ = (s, el) => (el || d).querySelector(s), $$ = (s, el) => [].slice.call((el || d).querySelectorAll(s));
+  if (!C || !Cleo.route || Cleo.views) return;                  // once per page, even if the file is evaluated twice
+  const $ = (s, el) => (el || d).querySelector(s), qa = (s, el) => [].slice.call((el || d).querySelectorAll(s));
   const at = (el, a) => el.getAttribute(a), on = (el, ev, f) => el && el.addEventListener(ev, f);
   const info = C.info, DEF = 'gallery', NAME = { gallery: 'Gallery', atlas: 'Atlas', guidebook: 'Guidebook', insights: 'Insights' };
   const avail = (info.views || ['gallery', 'atlas']).filter(v => NAME[v]), store = Cleo.store || { get: (k, x) => x, set: () => {} };
@@ -31,6 +31,7 @@
       return location.href.split('#')[0] + href0(o); }
   };
 
+  const need = n => { if (need[n]) return; need[n] = 1; const s = d.createElement('script'); s.src = (Cleo.root || '../') + 'assets/js/' + n + '.js?v=' + ((info.js || {})[n] || ''); s.async = true; d.head.appendChild(s); };
   const loadMod = (v, cb) => {
     if (reg[v]) { cb(); return; }
     const s = d.createElement('script'); s.src = (Cleo.root || '../') + 'assets/js/' + v + '.js?v=' + ((info.js || {})[v] || ''); s.async = true;
@@ -42,14 +43,14 @@
   }
   function unmount(v) { const m = reg[v]; if (m && m.on) { m.on = 0; try { m.unmount && m.unmount(host); } catch (e) {} } if (host && !(reg[cur] && reg[cur].on)) host.hidden = true; }
 
-  function paintNav() { if (!nav) return; $$('button[data-view]', nav).forEach(b => b.setAttribute('aria-pressed', String(at(b, 'data-view') === cur))); }
+  function paintNav() { if (!nav) return; qa('button[data-view]', nav).forEach(b => b.setAttribute('aria-pressed', String(at(b, 'data-view') === cur))); }
   function show(v, o) {
     if (!ok(v)) v = DEF;
     const prev = cur, changed = v !== prev || o.first;
     if (v !== prev) { mem[prev] = window.scrollY || 0; unmount(prev); }
     cur = v; html.setAttribute('data-view', v); C.view = v; paintNav();
-    if (Cleo.defer && (v === 'guidebook' || v === 'insights')) Cleo.defer.all();   // those views must see every place
     if (v === 'atlas') atlasIn(); else atlasOut();
+    if (v === 'gallery' && !C.gallery) need('gallery');            // the Gallery extras (rows, covers) load on first use
     if (!NAME[v] || v === 'gallery' || v === 'atlas') { if (host) host.hidden = true; }
     else loadMod(v, () => { if (cur === v) mount(v); });
     page();
@@ -75,7 +76,7 @@
   });
   const fromHash = () => {
     if (!isRoute(location.hash)) return cur;
-    const r = Cleo.route.parse(); if (!r.view) return DEF;
+    const r = Cleo.route.parse(); if (!r.view) return r.day && ok('atlas') ? 'atlas' : DEF;   // #day= implies Atlas
     if (!ok(r.view)) { delete r.view; try { history.replaceState(null, '', href0(r) === '#' ? location.pathname + location.search : href0(r)); } catch (e) {} return DEF; }
     return r.view;
   };
@@ -88,19 +89,19 @@
   let pager = null;
   const setPg = o => { const r = Cleo.route.parse(); delete r.p; delete r.pg; delete r.all; Object.assign(r, o); C.go(r); if (grid) grid.scrollIntoView({ block: 'start' }); };
   function page() {
-    const cards = $$('li.pl'), secs = $$('section.area');
+    const cards = qa('li.pl'), secs = qa('section.area');
     if (cur !== 'gallery') { cards.forEach(c => c.classList.remove('pg-off')); secs.forEach(s => s.classList.remove('pg-empty')); if (pager) pager.hidden = true; return; }
     const r = Cleo.route.parse(), all = r.all === '1', per = size(), lensOn = cards.some(c => c.hidden);
     let pend = Cleo.defer ? Cleo.defer.peek().length : 0;
     let pg = Math.max(1, parseInt(r.pg, 10) || 1);
     if (pend && (all || pg > 1 || lensOn)) { Cleo.defer.all(); pend = 0; if (lensOn) { C.apply(); return; } }   // re-apply: new cards must meet the lens
-    const live = $$('li.pl').filter(c => !c.hidden), N = live.length + pend, pages = Math.max(1, Math.ceil(N / per));
+    const live = qa('li.pl').filter(c => !c.hidden), N = live.length + pend, pages = Math.max(1, Math.ceil(N / per));
     if (pg > pages) pg = pages;
     const a = all ? 0 : (pg - 1) * per, b = all ? N : Math.min(N, a + per);
     // page 1 may reach past the live cards: those stay deferred (platform M3-06 stamps them as they near the viewport),
     // so keep their area sections in the layout for the watcher; cleo:stamped re-pages the new cards
     const keep = new Set(pend && b > live.length ? Cleo.defer.peek().slice(0, b - live.length).map(x => x.getAttribute('data-a')) : []);
-    $$('li.pl').forEach(c => c.classList.remove('pg-off'));
+    qa('li.pl').forEach(c => c.classList.remove('pg-off'));
     live.forEach((c, i) => { if (i < a || i >= b) c.classList.add('pg-off'); });
     secs.forEach(s => s.classList.toggle('pg-empty', !s.querySelector('li.pl:not([hidden]):not(.pg-off)') && !keep.has(at(s, 'data-area'))));
     if (!pager) { pager = d.createElement('nav'); pager.className = 'pager g-pager vw view-gallery'; pager.setAttribute('aria-label', 'Pages of places');
@@ -124,7 +125,7 @@
   }
   C.after.push(page);
   on(d, 'cleo:stamped', () => { if (cur === 'gallery') requestAnimationFrame(page); });
-  on(window, 'beforeprint', () => { if (Cleo.defer) Cleo.defer.all(); $$('li.pl.pg-off').forEach(c => c.classList.remove('pg-off')); $$('.pg-empty').forEach(s => s.classList.remove('pg-empty')); });
+  on(window, 'beforeprint', () => { if (Cleo.defer) Cleo.defer.all(); qa('li.pl.pg-off').forEach(c => c.classList.remove('pg-off')); qa('.pg-empty').forEach(s => s.classList.remove('pg-empty')); });
   on(window, 'afterprint', () => page());
   if (window.matchMedia) { const mq = matchMedia('(min-width: 640px)'); const f = () => page(); if (mq.addEventListener) mq.addEventListener('change', f); else if (mq.addListener) mq.addListener(f); }
 
@@ -174,7 +175,7 @@
   // places without a verified pin are listed, never dropped (R-17): a floating badge on the Atlas map says so
   function nopin() {
     const mp = $('.mappane'); if (!mp) return;
-    const n = $$('li.pl').filter(c => !c.hasAttribute('data-ll')).length + (Cleo.defer ? Cleo.defer.peek().filter(c => !c.hasAttribute('data-ll')).length : 0);
+    const n = qa('li.pl').filter(c => !c.hasAttribute('data-ll')).length + (Cleo.defer ? Cleo.defer.peek().filter(c => !c.hasAttribute('data-ll')).length : 0);
     let b = $('.nopin', mp); if (!n) { if (b) b.remove(); return; }
     if (!b) { b = d.createElement('p'); b.className = 'nopin'; mp.appendChild(b); }
     b.textContent = n + ' without a verified pin · listed below';
@@ -182,15 +183,15 @@
 
   // area chips (Atlas tray head): one tap = the area lens, a second tap clears it. Drawn here from the blob + card attrs.
   const chips = $('.area-chips');
-  if (chips) { const n = {}; $$('li.pl').concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => { const a = c.getAttribute('data-a'); n[a] = (n[a] || 0) + 1; });
-    chips.innerHTML = $$('section.area[data-area]').map(s => at(s, 'data-area')).filter(a => n[a]).map(a => { const x = (info.areas || {})[a] || {};
+  if (chips) { const n = {}; qa('li.pl').concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => { const a = c.getAttribute('data-a'); n[a] = (n[a] || 0) + 1; });
+    chips.innerHTML = qa('section.area[data-area]').map(s => at(s, 'data-area')).filter(a => n[a]).map(a => { const x = (info.areas || {})[a] || {};
       return '<button type="button" class="chip" data-cleo-area="' + C.esc(a) + '" aria-pressed="false"' + (x.c ? ' style="--area:' + x.c + '"' : '') + '><i aria-hidden="true"></i>' + C.esc(x.n || a) + ' <span class="n">' + n[a] + '</span></button>'; }).join(''); }
   on(d, 'click', e => { const b = e.target.closest && e.target.closest('[data-cleo-area]'); if (!b) return;
     const r = Cleo.route.parse(), a = at(b, 'data-cleo-area'); delete r.p; delete r.pg; delete r.all; if (r.a === a) delete r.a; else r.a = a; C.go(r); });
-  C.after.push(() => { const a = Cleo.route.parse().a || ''; $$('[data-cleo-area]').forEach(b => b.setAttribute('aria-pressed', String(at(b, 'data-cleo-area') === a))); });
+  C.after.push(() => { const a = Cleo.route.parse().a || ''; qa('[data-cleo-area]').forEach(b => b.setAttribute('aria-pressed', String(at(b, 'data-cleo-area') === a))); });
 
   // FE-B's modules may load before this file: they queue [name, def] on window.CleoViewQueue
-  (window.CleoViewQueue || []).splice(0).forEach(x => api.register(x[0], x[1]));
+  const q0 = window.CleoViewQueue; if (q0 && q0.splice) q0.splice(0).forEach(x => api.register(x[0], x[1]));
   window.CleoViewQueue = { push: x => api.register(x[0], x[1]) };
 
   // first paint: the head script already set html[data-view]; a stored preference is written into the hash so Back,
@@ -200,6 +201,7 @@
   let v0 = hv && ok(hv) ? hv : r0.day ? 'atlas' : ok(store.get('view', '')) && isRoute(location.hash) ? store.get('view', '') : cur;
   if (hv && !ok(hv)) v0 = DEF;
   cur = v0; fromHash();
-  if (v0 !== DEF && !hv && isRoute(location.hash)) { const r = Cleo.route.parse(); r.view = v0; try { history.replaceState(null, '', href0(r)); } catch (e) {} }
+  // a #day= link stays untouched (it implies Atlas)
+  if (v0 !== DEF && !hv && !r0.day && isRoute(location.hash)) { const r = Cleo.route.parse(); r.view = v0; try { history.replaceState(null, '', href0(r)); } catch (e) {} }
   show(v0, { first: 1 });
 })();

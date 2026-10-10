@@ -301,7 +301,20 @@ const FEB_CSS = `
 .results mark{background:var(--gilt-soft);color:var(--ink);border-radius:2px}
 
 .motif{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%;z-index:-1;pointer-events:none}
-.theme-main{position:relative;isolation:isolate}.chero .sky .motif{object-fit:contain;object-position:100% 100%;z-index:0}`;
+.theme-main{position:relative;isolation:isolate}.chero .sky .motif{object-fit:contain;object-position:100% 100%;z-index:0}
+/* ROUND-2 gap #4 (FE-B half): landing editorial rail — compact ★ tiles that scroll sideways; designer's .rail-i.sig skin */
+.editorial-s .rail-head h2 .n{margin-left:12px;font:500 15px/1.3 var(--font-ui);color:var(--ink-3)}
+html .rail.editorial{display:flex;flex-wrap:nowrap;gap:12px;overflow-x:auto;scroll-snap-type:x proximity;padding:4px 2px 14px;margin:0;grid-template-rows:none;height:auto}
+html .rail.editorial .rail-i{flex:0 0 min(80vw,300px);align-content:start;height:auto;min-height:0;aspect-ratio:auto;scroll-snap-align:start;text-decoration:none;color:var(--city-on,var(--on-night));display:grid;grid-template-columns:22px 1fr auto;gap:2px 10px;align-items:start;padding:14px 16px;border-radius:16px;font-size:inherit}
+html .rail.editorial .rail-i .g{grid-row:1/span 3;margin:2px 0 0}
+html .rail.editorial .rail-i .k{grid-column:2;font:600 12px/1.3 var(--font-ui);letter-spacing:.02em;opacity:.9}
+html .rail.editorial .rail-i .t{grid-column:2;font:500 21px/1.15 var(--font-display)}
+html .rail.editorial .rail-i .d{grid-column:2;font:13px/1.4 var(--font-ui);opacity:.9}
+html .rail.editorial .rail-i .n{grid-column:3;grid-row:1/span 2;font:500 26px/1 var(--font-display);color:inherit}
+/* W3 B-04: "Read as a guidebook" / "See it in numbers" under each hub tile (44 px targets) */
+li.dest>.dest-views{display:flex;flex-wrap:wrap;gap:0 16px;margin:4px 2px 0;font-size:14px}
+li.dest>.dest-views a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink-2,inherit);text-underline-offset:3px}
+`;
 
 // ---------------------------------------------------------------- country hub page
 /** A live country's hub. Returns { html, expect } — guards.assertHubPage checks every expected page is carded once. */
@@ -383,11 +396,8 @@ ${rail ? `<div class="wrap">${rail}</div>` : ''}
 ${footer({ depth, tabbar: true, current: 'hub' })}
 </body>
 </html>
-/* W3 B-04: "Read as a guidebook" / "See it in numbers" under each hub tile (44 px targets) */
-li.dest>.dest-views{display:flex;flex-wrap:wrap;gap:0 16px;margin:4px 2px 0;font-size:14px}
-li.dest>.dest-views a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink-2,inherit);text-underline-offset:3px}
 `;
 }
 
-module.exports = { renderCountry, renderArchive, cityTile, moreRow, facts, skin, starfield, countryPages, nativeName,
+module.exports = { ogFor, renderCountry, renderArchive, cityTile, moreRow, facts, skin, starfield, countryPages, nativeName,
   signature, shortName, themes, themeRail, THEMES, FEB_CSS, motif };

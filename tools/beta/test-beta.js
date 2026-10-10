@@ -337,7 +337,15 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
     chk('no js errors (lazy)', errs, e => e.length === 0);
     const b2 = boot({ io: true, hash: '#p=' + lastId }); await sleep(300);
     const tg = b2.d.getElementById('p-' + lastId);
-    chk('deep link on load to a deferred place lands', !!tg && !tg.hidden && tg.classList.contains('is-target') && b2.d.querySelectorAll('li.pl').length === total, true);
+    const nDom = b2.d.querySelectorAll('li.pl').length;
+    chk('deep link on load to a deferred place lands, stamping only its chunk (R-32, gap #6)', !!tg && !tg.hidden && tg.classList.contains('is-target') && nDom < total && nDom <= 32 + 40, true);
+    const mid = [...html.matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"/g)][200][1];
+    b2.w.location.hash = '#p=' + mid; await sleep(60);
+    const tm = b2.d.getElementById('p-' + mid);
+    chk('a second place link (hashchange) stamps one more chunk, not the page', !!tm && !tm.hidden && b2.d.querySelectorAll('li.pl').length < total, true);
+    b2.w.location.hash = '#mode=food'; await sleep(60);
+    chk('… and a lens after it still stamps every card', [b2.d.querySelectorAll('li.pl').length, shown(b2.d)].join(), `${total},${live.F.length}`);
+    chk('no js errors (place-only stamping)', b2.errs, e => e.length === 0);
   }
   console.log('\n== MAP: vendored Leaflet present ==');
   {
@@ -365,10 +373,11 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
   let biggest = ['', 0, 0];
   for (const p of manifest.pages.filter(p => p.kind === 'city').map(p => p.beta)) {
     const raw = KB(size(p)), z = KB(gz(p));
-    if (raw > 800 || z > 160) over.push(`${p} ${raw}/${z} KB`);
+    // raw 820 (was 800, W3): every card now carries its view rank (data-rank, P-01); transfer (gzip) budget unchanged
+    if (raw > 820 || z > 160) over.push(`${p} ${raw}/${z} KB`);
     if (raw > biggest[1]) biggest = [p, raw, z];
   }
-  chk('city pages over 800 KB raw / 160 KB gzip', over, a => a.length === 0);
+  chk('city pages over 820 KB raw / 160 KB gzip', over, a => a.length === 0);
   console.log(`        (largest: ${biggest[0]} ${biggest[1]} KB raw, ${biggest[2]} KB gzip)`);
   // Platform W2 (RFC §7.5): W0 set 80 KB raw when the landing was 19 KB; W2 adds the cross-city rail, country heroes and
   // inline motif art. What a first visit pays is the gzip transfer: ≤ 24 KB gzip, with a ≤ 120 KB raw backstop.

@@ -6,8 +6,9 @@
 (() => {
   'use strict';
   const Cleo = window.Cleo || {}, C = Cleo.city, d = document, html = d.documentElement;
-  if (!C) return;
-  const $ = (s, el) => (el || d).querySelector(s), $$ = (s, el) => [].slice.call((el || d).querySelectorAll(s));
+  if (!C || C.gallery) return;
+  C.gallery = 1;
+  const $ = (s, el) => (el || d).querySelector(s), qa = (s, el) => [].slice.call((el || d).querySelectorAll(s));
   const at = (el, a) => el.getAttribute(a), on = (el, ev, f) => el && el.addEventListener(ev, f);
   const info = C.info, rowsHost = $('#cleo-rows-host'), grid = $('#cleo-grid'), isG = () => at(html, 'data-view') === 'gallery';
   let io = null, started = 0;
@@ -80,7 +81,7 @@
 
   // hearts on row / lead cards: the same Cleo.saved.toggle(ref) as every card (SPEC §2.5)
   const hearts = root => { const s = Cleo.saved ? Cleo.saved.all() : {};
-    $$('button.gc-save', root).forEach(b => { const o = !!s[C.key + '/' + at(b, 'data-ref')]; b.setAttribute('aria-pressed', String(o)); b.setAttribute('aria-label', (o ? 'Saved: ' : 'Save ') + b.getAttribute('aria-label').replace(/^(Saved: |Save )/, '')); }); };
+    qa('button.gc-save', root).forEach(b => { const o = !!s[C.key + '/' + at(b, 'data-ref')]; b.setAttribute('aria-pressed', String(o)); b.setAttribute('aria-label', (o ? 'Saved: ' : 'Save ') + b.getAttribute('aria-label').replace(/^(Saved: |Save )/, '')); }); };
   on(d, 'cleo:saved', () => hearts(d));
   on(d, 'click', e => {
     const t = e.target; let b;
@@ -97,7 +98,7 @@
   };
   const paint = () => {
     if (!isG()) return; start();
-    $$('li.pl:not([hidden]):not(.pg-off)').forEach(cover);
+    qa('li.pl:not([hidden]):not(.pg-off)').forEach(cover);
     html.classList.toggle('lens-on', C.cards.some(c => c.hidden));   // a lens is on: the grid answers it, the rows step aside
   };
   on(d, 'cleo:paged', paint); on(d, 'cleo:view', paint); C.after.push(paint);

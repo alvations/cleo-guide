@@ -11,7 +11,6 @@
   let info = {}; try { info = JSON.parse(d.getElementById('cleo-city').textContent); } catch (e) {}
   const fold = Cleo.fold || (s => String(s || '').toLowerCase());
   cards.forEach(c => { byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
-  const has = (c, a, v) => (' ' + (at(c, a) || '') + ' ').indexOf(' ' + v + ' ') >= 0;
   const desk = () => !window.matchMedia || matchMedia('(min-width: 1024px)').matches;
   const LENS = ['sig', 'c', 'cz', 't', 'src', 'a', 'been', 'gap', 'closed', 'mine', 'day'], RAIL = ['sig', 'c', 'cz', 't', 'src', 'gap', 'closed'], S = { mode: 'all', q: '', sort: '' };
   const store = Cleo.store || { get: (k, x) => x, set: () => {} };
@@ -64,14 +63,12 @@
   });
   let tq; on(fi, 'input', () => { clearTimeout(tq); tq = setTimeout(() => { S.q = fi.value; apply(); }, 120); });
 
+  // THE lens predicate is platform's Cleo.lens.match (P-02: one predicate in every view); the page-only lenses follow
   const visible = c => {
-    const k = at(c, 'data-k');
-    if ((S.mode === 'sights' && k !== 's') || (S.mode === 'food' && k !== 'f')) return false;
-    if ((S.c && !has(c, 'data-g', S.c)) || (S.cz && !has(c, 'data-cz', S.cz)) || (S.src && !has(c, 'data-src', S.src))) return false;
-    if ((S.t && (at(c, 'data-t') !== S.t || c.hasAttribute('data-closed'))) || (S.a && at(c, 'data-a') !== S.a)) return false;
+    if (!Cleo.lens.match(c, { mode: S.mode === 'all' ? '' : S.mode, a: S.a, t: S.t, c: S.c, cz: S.cz, src: S.src, closed: S.closed })) return false;
     if (S.been) { const b = !!been.all()[key + '/' + pid(c)]; if (S.been === 'hide' ? b : !b) return false; }
     if (S.sig && !(info.sig && info.sig.ids.indexOf(pid(c)) >= 0)) return false;
-    if ((S.closed && !c.hasAttribute('data-closed')) || (S.mine && !(Cleo.saved && Cleo.saved.has(key + '/' + pid(c)))) || (S.day && C.inDay && !C.inDay(pid(c)))) return false;
+    if ((S.mine && !(Cleo.saved && Cleo.saved.has(key + '/' + pid(c)))) || (S.day && C.inDay && !C.inDay(pid(c)))) return false;
     return !S.q || fold(S.q).split(/\s+/).every(w => !w || text[pid(c)].indexOf(w) >= 0);
   };
   const count = o => { const sv = {}; let n = 0; for (const k in o) { sv[k] = S[k]; S[k] = o[k]; } cards.forEach(c => { if (visible(c)) n++; }); Object.assign(S, sv); return n; };

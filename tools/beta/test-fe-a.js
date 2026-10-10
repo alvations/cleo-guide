@@ -24,8 +24,8 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 function boot(page, { hash = '', storage = 'ok', mobile = false, geo = null, seed = null } = {}) {
   let html = fs.readFileSync(path.join(BETA, page), 'utf8').replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
     (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
-  // foryou.js / day.js load on first use (C.need); jsdom fetches nothing, so the harness inlines them like a browser would
-  if (/data-cleo-page="city"/.test(html)) html = html.replace('</body>', ['foryou', 'day'].map(n => '<script>' + fs.readFileSync(path.join(BETA, 'assets/js', n + '.js'), 'utf8') + '</script>').join('') + '</body>');
+  // foryou.js / day.js / gallery.js load on first use (C.need / views.js); jsdom fetches nothing, so the harness inlines them like a browser would
+  if (/data-cleo-page="city"/.test(html)) html = html.replace('</body>', () => ['foryou', 'day', 'gallery'].map(n => '<script>' + fs.readFileSync(path.join(BETA, 'assets/js', n + '.js'), 'utf8') + '</script>').join('') + '</body>');
   const errs = [];
   const dom = new JSDOM(html, {
     runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + page + hash,

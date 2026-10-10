@@ -172,6 +172,25 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
   }
   chk(`hubs: view links resolve to generated city pages and real views (${nLinks})`, nLinks > 0 && !badL.length, badL.slice(0, 3));
 
+  // ---- 6 · landing editorial rail (ROUND-2 gap #4): one ★ per live country, counts from the guides, links resolve
+  {
+    const h = fs.readFileSync(path.join(BETA, 'index.html'), 'utf8');
+    const rail = (/<nav class="rail editorial"[\s\S]*?<\/nav>/.exec(h) || [''])[0];
+    const tiles = [...rail.matchAll(/<a class="rail-i sig" href="([^"#]+)#(sig=1|c=[A-Z_-]+)">[\s\S]*?<span class="t">([^<]*)<\/span>[\s\S]*?<span class="n">([\d,]+)<\/span><\/a>/g)];
+    const live = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/countries.json'), 'utf8')).countries.filter(c => c.live).length;
+    const guide = JSON.parse(fs.readFileSync(path.join(BETA, 'data/guide.json'), 'utf8')).pages;
+    const badT = tiles.filter(([, href, , t, n]) => {
+      if (!fs.existsSync(path.join(BETA, href))) return true;
+      const title = t.replace(/&amp;/g, '&'), seen = new Set();
+      const tot = guide.filter(g => g.signature && g.signature.title === title && !seen.has(g.name) && seen.add(g.name)).reduce((a, g) => a + g.signature.n, 0);
+      return +n.replace(/,/g, '') > tot || +n.replace(/,/g, '') <= 0;
+    });
+    chk(`landing: editorial rail has one ★ tile per live country (${tiles.length}/${live}), counts from the guides, links resolve`, tiles.length === live && !badT.length, badT.map(x => x[3]));
+    const tails = ['index.html'].concat(hubs).filter(hp => !/<\/html>\s*$/.test(fs.readFileSync(path.join(BETA, hp), 'utf8')));
+    chk('landing + hubs: nothing after </html>', !tails.length, tails);
+    chk('landing: share card is the US country card', /og:image" content="[^"]*\/assets\/og\/country-us\.png"/.test(h));
+  }
+
   console.log(failures ? `\n>>> FAIL — ${failures} FE-B view check(s) failed` : '\n>>> PASS — FE-B views: Guidebook + Insights hold every place, numbers add up, hub links resolve');
   process.exitCode = failures ? 1 : 0;
 })();
