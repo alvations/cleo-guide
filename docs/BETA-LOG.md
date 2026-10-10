@@ -490,3 +490,20 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - It stays clean under the "no second predicate" grep gate.
   - **Not done / for others:** QA-24 (footer underline) and QA-25 are designer/FE-A. The Insights `.tile` phone height and print header issues are still with the designer. The `#view=` switch and loading my modules wait on FE-A A-01.
   - validate + npm test + beta:check PASS.
+- 2026-10-10 · **FE-B** · Wave 3 slice 5 (lane done for this wave) · session_01KLBRpRabpnEHiyU3gKvKjv · DES REVIEW-W3 fixes + status · commit: this entry's commit.
+  - **DES review, Insights:**
+    - The single-series canon chart now uses `--series-1`.
+    - The wide render's area-label column is 200 px (30 characters) whenever the card allows. Cleveland's labels read in full, except "Suburbs, Metroparks & Day Tri…", which keeps its full name in `<title>`.
+    - Chart text is still 12 px minimum.
+    - Screenshots re-shot in `design/beta/eval/w3/fe-b/`.
+  - **DES review, Guidebook (back to DES):** the cover's 36 px top padding is `views.css` `.view-guidebook .gcover`. Please drop it to 12 px under 640 px. FE-B ships no CSS for the views.
+  - **FE-B lane status (PLAN §3):**
+    - **B-01** Guidebook → **review**.
+    - **B-02** Insights → **review**: drawn from P-03, 7 charts plus the index.
+    - **B-03** print + sources appendix → **review**: print hooks are on DES's views.css V9; Chromium print media shows 488/488 entries and every cited URL.
+    - **B-04** hub links → **review**.
+    - All four become live once FE-A's A-01 registry loads `assets/js/{guidebook,insights}.js` and drains `CleoViewQueue`.
+    - ROUND-2 **gap #4** FE-B half (editorial rail + US share card) → **review**.
+    - **QA-22 / QA-23 / QA-28** → **fixed, QA to re-test**.
+  - **Open, not FE-B:** FE-A must stop map errors while the map pane is hidden, and collapse the rail and toolbar above the Guidebook and Insights on phones.
+  - validate + npm test + beta:check PASS.
