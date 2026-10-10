@@ -101,9 +101,13 @@ console.log('\n== ONE LENS PREDICATE (P-02) ==');
 }
 
 // ── jsdom harness (same rules as test-beta.js: no network, scripts inlined) ──────
-function boot(page, { hash = '', storage = 'ok', io = false } = {}) {
-  const html = rd('beta/' + page).replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
+const VIEW_JS = ['views', 'gallery', 'guidebook', 'insights'].filter(f => fs.existsSync(path.join(__dirname, 'client', f + '.js')));
+function boot(page, { hash = '', storage = 'ok', io = false, views = false } = {}) {
+  let html = rd('beta/' + page).replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
     (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
+  // views: the lane view modules too (until FE-A's registry loads them on first switch), with fetch served from disk
+  if (views) html = html.replace('</body>', VIEW_JS.filter(f => !html.includes(`assets/js/${f}.js`) || f !== 'views')
+    .map(f => '<script>' + fs.readFileSync(path.join(__dirname, 'client', f + '.js'), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>').join('') + '</body>');
   const errs = [];
   const dom = new JSDOM(html, {
     runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + page + hash,
@@ -114,6 +118,11 @@ function boot(page, { hash = '', storage = 'ok', io = false } = {}) {
       w.scrollTo = () => {};
       if (storage === 'throws') Object.defineProperty(w, 'localStorage', { get() { throw new Error('SecurityError: storage disabled'); } });
       if (io) w.IntersectionObserver = class { observe() {} unobserve() {} disconnect() {} };
+      if (views) {
+        w.matchMedia = w.matchMedia || (() => ({ matches: false, addListener() {}, removeListener() {} }));
+        w.fetch = u => { const f = path.join(BETA, /data\/places\//.test(u) ? 'data/places/' + u.split('data/places/')[1] : new URL(u, w.location.href).pathname.replace(/^\/beta\//, ''));
+          return fs.existsSync(f) ? Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(fs.readFileSync(f, 'utf8'))) }) : Promise.resolve({ ok: false, status: 404 }); };
+      }
       w.addEventListener('error', e => errs.push('ERR ' + (e.message || e.error)));
     },
   });
@@ -157,6 +166,32 @@ function boot(page, { hash = '', storage = 'ok', io = false } = {}) {
     chk('0 JS errors', errs, e => e.length === 0);
   }
 
+  console.log('\n== VIEW CHUNKS (P-05): Cleo.chunks ==');
+  {
+    const parts = ['a', 'b', 'c', 'd'].map((x, i) => `<i data-x="${x}" id="ck-${i}"></i>`), ids = [['p0'], ['p1'], ['p2'], ['p3']];
+    let b = boot('cities/wheeling.html', { io: true }); await sleep(150);
+    let host = b.d.createElement('div'); b.d.body.appendChild(host);
+    const ev = []; b.d.addEventListener('cleo:view-stamped', e => ev.push([e.detail.from, e.detail.to]));
+    const ck = b.w.Cleo.chunks(host, parts, { initial: 1, ids });
+    chk('initial part only (IO present, nothing near)', [host.querySelectorAll('i').length, ck.left(), b.w.Cleo.chunks.pending()].join(), '1,3,1');
+    ck.reach('p2');
+    chk('reach(id) stamps up to its part, in order', [...host.querySelectorAll('i')].map(x => x.getAttribute('data-x')).join(''), 'abc');
+    b.w.location.hash = '#view=guidebook'; await sleep(30);
+    chk('a view switch (quiet route) stamps nothing more', host.querySelectorAll('i').length, 3);
+    b.w.Cleo.defer.all();
+    chk('Cleo.defer.all() flushes view chunks; gap removed; events from/to', [host.querySelectorAll('i').length, host.querySelectorAll('.cleo-defer-gap').length, b.w.Cleo.chunks.pending(), JSON.stringify(ev)].join('|'), '4|0|0|[[0,1],[1,3],[3,4]]');
+    host.innerHTML = ''; b.w.Cleo.chunks(host, parts, { initial: 1 });
+    b.w.dispatchEvent(new b.w.Event('beforeprint'));
+    chk('beforeprint flushes view chunks', host.querySelectorAll('i').length, 4);
+    host.innerHTML = ''; b.w.Cleo.chunks(host, parts, { initial: 1 });
+    b.w.location.hash = '#mode=food'; await sleep(30);
+    chk('a lens route flushes view chunks', host.querySelectorAll('i').length, 4);
+    chk('0 JS errors', b.errs, e => e.length === 0);
+    b = boot('cities/wheeling.html'); await sleep(150);
+    host = b.d.createElement('div'); b.d.body.appendChild(host); b.w.Cleo.chunks(host, parts, { initial: 1 });
+    chk('no IntersectionObserver → every part at once', host.querySelectorAll('i').length, 4);
+  }
+
   console.log('\n== ROUTE KEY REGISTRY (P-06) ==');
   {
     const page = 'cities/tokyo.html', j = pd('tokyo'), id = j.places[0].id, a0 = j.areas[0].id;
@@ -181,13 +216,13 @@ function boot(page, { hash = '', storage = 'ok', io = false } = {}) {
   // ── 5. P-04 reachability per view ─────────────────────────────────────────────
   console.log('\n== REACHABILITY PER VIEW (P-04): every place, every pilot, every view ==');
   const PILOTS = ['cities/tokyo.html', 'cleveland.html', 'cities/newyork.html', 'Singapore/chinatown.html', 'cities/wheeling.html', 'cities/okinawa.html'];
-  const VIEWS = ['gallery', 'atlas', 'guidebook', 'insights'];
+  const VIEWS = ['gallery', 'atlas', 'guidebook', 'insights'], dom = [];
   for (const page of PILOTS) {
     const row = cityRows.find(r => r.beta === page);
     if (!row) { chk(`${page}: pilot is a generated place page`, false, true); continue; }
     const j = pd(row.key), ids = j.places.map(p => p.id), N = ids.length, res = [];
     for (const view of VIEWS) {
-      const miss = { scroll: 0, p: 0, q: 0, print: 0 }; let errs = 0;
+      const miss = { scroll: 0, p: 0, q: 0, print: 0, view: 0 }; let errs = 0;
       // one boot per (pilot, view), IntersectionObserver present (cards deferred) and storage throwing.
       // #p=: the first, the last, every 61st and up to 3 closed places land on a visible card in this view
       const sample = [...new Set([ids[0], ids[N - 1]].concat(ids.filter((_, i) => i % 61 === 30), j.places.filter(p => p.closed).map(p => p.id).slice(0, 3)))];
@@ -206,11 +241,31 @@ function boot(page, { hash = '', storage = 'ok', io = false } = {}) {
       b.w.Cleo.lens.apply(cards, { mode: 'food' }); b.w.dispatchEvent(new b.w.Event('beforeprint'));
       const inDom = new Set([...b.d.querySelectorAll('li.pl')].map(c => c.id.slice(2)));
       miss.print = ids.filter(id => !inDom.has(id)).length;
+      // the view's own surface (once its module exists): mount it as the registry would, then every place must be in it
+      if (VIEW_JS.length) {
+        const v = boot(page, { hash: `#view=${view}`, io: true, storage: 'throws', views: true }); await sleep(150);
+        const C = v.w.Cleo, q = v.w.CleoViewQueue || [], def = C.views && C.views.get ? C.views.get(view) : (q.find(x => x[0] === view) || [])[1];
+        let host = v.d.querySelector(`[data-cleo-view-host="${view}"], .view-${view}`);
+        if (def && !host && !(C.views && C.views.get)) { host = v.d.createElement('div'); v.d.getElementById('main').appendChild(host); await def.mount(host, {}); }
+        else if (def) await sleep(400);
+        if (def && host) {
+          const n0 = v.d.getElementsByTagName('*').length;
+          if (/tokyo|newyork/.test(page)) dom.push(`${page.split('/').pop()} ${view} ${n0}`);
+          C.defer.all();
+          const sel = { guidebook: id => `#gb-${id}`, insights: id => `li.ixi a[href$="p=${id}"]`, gallery: id => `[data-id="${id}"], #g-${id}`, atlas: id => `[data-id="${id}"], #a-${id}` }[view];
+          miss.view = ids.filter(id => !host.querySelector(sel(id)) && !v.d.querySelector(sel(id))).length;
+        } else miss.view = def ? 'no host' : 0;          // not built yet: the canonical list above carries the view
+        errs += v.errs.length; v.w.close();
+      }
       errs += b.errs.length; b.w.close();
       res.push([view, miss, errs]);
-      chk(`${page} · ${view}: ${N} places by scroll, #p= (${sample.length} sampled), q=, print; 0 errors`, [miss, errs], v => !v[0].scroll && !v[0].p && !v[0].q && !v[0].print && !v[1]);
+      chk(`${page} · ${view}: ${N} places by scroll, #p= (${sample.length} sampled), q=, print; 0 errors`, [miss, errs], v => !v[0].scroll && !v[0].p && !v[0].q && !v[0].print && !v[0].view && !v[1]);
     }
   }
+
+  // P-05 target: Tokyo / NYC initial DOM ≤ 3,000 in every view (reported; enforced once FE-A's registry mounts the views)
+  console.log('\n== P-05 initial DOM with the view mounted (target ≤ 3,000; jsdom, report only) ==');
+  dom.forEach(x => { const n = +x.split(' ').pop(); console.log(`  ${n <= 3000 ? 'OK  ' : 'WARN'}  ${x}`); });
 
   console.log(failures ? `\n>>> FAIL — ${failures} view-model check(s) failed` : '\n>>> PASS — view model: rank, triad, insights, lens, order, routes, reachability per view');
   process.exit(failures ? 1 : 0);
