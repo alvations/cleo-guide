@@ -1,11 +1,267 @@
 {
- "head": "150d4cf9",
+ "head": "83aa1a28",
  "checks": [
   {
    "group": "nocdn",
+   "name": "cleveland.html #view=gallery mobile: view applied",
+   "status": "PASS",
+   "evidence": "gallery"
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=gallery mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 194,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=gallery mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=gallery mobile: switcher → atlas with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "pressed": "atlas",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=gallery desktop: view applied",
+   "status": "PASS",
+   "evidence": "gallery"
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=gallery desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 194,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=gallery desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=gallery desktop: switcher → atlas with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "pressed": "atlas",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=atlas mobile: view applied",
+   "status": "PASS",
+   "evidence": "atlas"
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=atlas mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 194,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=atlas mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=atlas mobile: switcher → guidebook with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "pressed": "guidebook",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=atlas desktop: view applied",
+   "status": "PASS",
+   "evidence": "atlas"
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=atlas desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 194,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=atlas desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=atlas desktop: switcher → guidebook with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "pressed": "guidebook",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=guidebook mobile: view applied",
+   "status": "PASS",
+   "evidence": "guidebook"
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=guidebook mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 194,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=guidebook mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=guidebook mobile: switcher → insights with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "pressed": "insights",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=guidebook desktop: view applied",
+   "status": "PASS",
+   "evidence": "guidebook"
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=guidebook desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 194,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=guidebook desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=guidebook desktop: switcher → insights with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "pressed": "insights",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=insights mobile: view applied",
+   "status": "PASS",
+   "evidence": "insights"
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=insights mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 194,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=insights mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=insights mobile: switcher → gallery with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "pressed": "gallery",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=insights desktop: view applied",
+   "status": "PASS",
+   "evidence": "insights"
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=insights desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 194,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=insights desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html #view=insights desktop: switcher → gallery with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "pressed": "gallery",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
    "name": "cities/tokyo.html #view=gallery mobile: view applied",
-   "status": "PENDING",
-   "evidence": null
+   "status": "PASS",
+   "evidence": "gallery"
   },
   {
    "group": "nocdn",
@@ -25,15 +281,19 @@
   },
   {
    "group": "nocdn",
-   "name": "cities/tokyo.html #view=gallery mobile: switcher present",
-   "status": "PENDING",
-   "evidence": []
+   "name": "cities/tokyo.html #view=gallery mobile: switcher → atlas with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "pressed": "atlas",
+    "err": []
+   }
   },
   {
    "group": "nocdn",
    "name": "cities/tokyo.html #view=gallery desktop: view applied",
-   "status": "PENDING",
-   "evidence": null
+   "status": "PASS",
+   "evidence": "gallery"
   },
   {
    "group": "nocdn",
@@ -53,15 +313,19 @@
   },
   {
    "group": "nocdn",
-   "name": "cities/tokyo.html #view=gallery desktop: switcher present",
-   "status": "PENDING",
-   "evidence": []
+   "name": "cities/tokyo.html #view=gallery desktop: switcher → atlas with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "pressed": "atlas",
+    "err": []
+   }
   },
   {
    "group": "nocdn",
    "name": "cities/tokyo.html #view=atlas mobile: view applied",
-   "status": "PENDING",
-   "evidence": null
+   "status": "PASS",
+   "evidence": "atlas"
   },
   {
    "group": "nocdn",
@@ -81,15 +345,19 @@
   },
   {
    "group": "nocdn",
-   "name": "cities/tokyo.html #view=atlas mobile: switcher present",
-   "status": "PENDING",
-   "evidence": []
+   "name": "cities/tokyo.html #view=atlas mobile: switcher → guidebook with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "pressed": "guidebook",
+    "err": []
+   }
   },
   {
    "group": "nocdn",
    "name": "cities/tokyo.html #view=atlas desktop: view applied",
-   "status": "PENDING",
-   "evidence": null
+   "status": "PASS",
+   "evidence": "atlas"
   },
   {
    "group": "nocdn",
@@ -109,15 +377,19 @@
   },
   {
    "group": "nocdn",
-   "name": "cities/tokyo.html #view=atlas desktop: switcher present",
-   "status": "PENDING",
-   "evidence": []
+   "name": "cities/tokyo.html #view=atlas desktop: switcher → guidebook with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "pressed": "guidebook",
+    "err": []
+   }
   },
   {
    "group": "nocdn",
    "name": "cities/tokyo.html #view=guidebook mobile: view applied",
-   "status": "PENDING",
-   "evidence": null
+   "status": "PASS",
+   "evidence": "guidebook"
   },
   {
    "group": "nocdn",
@@ -137,15 +409,19 @@
   },
   {
    "group": "nocdn",
-   "name": "cities/tokyo.html #view=guidebook mobile: switcher present",
-   "status": "PENDING",
-   "evidence": []
+   "name": "cities/tokyo.html #view=guidebook mobile: switcher → insights with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "pressed": "insights",
+    "err": []
+   }
   },
   {
    "group": "nocdn",
    "name": "cities/tokyo.html #view=guidebook desktop: view applied",
-   "status": "PENDING",
-   "evidence": null
+   "status": "PASS",
+   "evidence": "guidebook"
   },
   {
    "group": "nocdn",
@@ -165,15 +441,19 @@
   },
   {
    "group": "nocdn",
-   "name": "cities/tokyo.html #view=guidebook desktop: switcher present",
-   "status": "PENDING",
-   "evidence": []
+   "name": "cities/tokyo.html #view=guidebook desktop: switcher → insights with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "pressed": "insights",
+    "err": []
+   }
   },
   {
    "group": "nocdn",
    "name": "cities/tokyo.html #view=insights mobile: view applied",
-   "status": "PENDING",
-   "evidence": null
+   "status": "PASS",
+   "evidence": "insights"
   },
   {
    "group": "nocdn",
@@ -193,15 +473,19 @@
   },
   {
    "group": "nocdn",
-   "name": "cities/tokyo.html #view=insights mobile: switcher present",
-   "status": "PENDING",
-   "evidence": []
+   "name": "cities/tokyo.html #view=insights mobile: switcher → gallery with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "pressed": "gallery",
+    "err": []
+   }
   },
   {
    "group": "nocdn",
    "name": "cities/tokyo.html #view=insights desktop: view applied",
-   "status": "PENDING",
-   "evidence": null
+   "status": "PASS",
+   "evidence": "insights"
   },
   {
    "group": "nocdn",
@@ -221,9 +505,781 @@
   },
   {
    "group": "nocdn",
-   "name": "cities/tokyo.html #view=insights desktop: switcher present",
-   "status": "PENDING",
+   "name": "cities/tokyo.html #view=insights desktop: switcher → gallery with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "pressed": "gallery",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=gallery mobile: view applied",
+   "status": "PASS",
+   "evidence": "gallery"
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=gallery mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 508,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=gallery mobile: 0 JS errors",
+   "status": "PASS",
    "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=gallery mobile: switcher → atlas with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "pressed": "atlas",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=gallery desktop: view applied",
+   "status": "PASS",
+   "evidence": "gallery"
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=gallery desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 508,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=gallery desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=gallery desktop: switcher → atlas with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "pressed": "atlas",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=atlas mobile: view applied",
+   "status": "PASS",
+   "evidence": "atlas"
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=atlas mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 508,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=atlas mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=atlas mobile: switcher → guidebook with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "pressed": "guidebook",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=atlas desktop: view applied",
+   "status": "PASS",
+   "evidence": "atlas"
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=atlas desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 508,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=atlas desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=atlas desktop: switcher → guidebook with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "pressed": "guidebook",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=guidebook mobile: view applied",
+   "status": "PASS",
+   "evidence": "guidebook"
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=guidebook mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 508,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=guidebook mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=guidebook mobile: switcher → insights with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "pressed": "insights",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=guidebook desktop: view applied",
+   "status": "PASS",
+   "evidence": "guidebook"
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=guidebook desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 508,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=guidebook desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=guidebook desktop: switcher → insights with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "pressed": "insights",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=insights mobile: view applied",
+   "status": "PASS",
+   "evidence": "insights"
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=insights mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 508,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=insights mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=insights mobile: switcher → gallery with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "pressed": "gallery",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=insights desktop: view applied",
+   "status": "PASS",
+   "evidence": "insights"
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=insights desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 508,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=insights desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html #view=insights desktop: switcher → gallery with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "pressed": "gallery",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=gallery mobile: view applied",
+   "status": "PASS",
+   "evidence": "gallery"
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=gallery mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 16,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=gallery mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=gallery mobile: switcher → atlas with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "pressed": "atlas",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=gallery desktop: view applied",
+   "status": "PASS",
+   "evidence": "gallery"
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=gallery desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 16,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=gallery desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=gallery desktop: switcher → atlas with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "pressed": "atlas",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=atlas mobile: view applied",
+   "status": "PASS",
+   "evidence": "atlas"
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=atlas mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 16,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=atlas mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=atlas mobile: switcher → guidebook with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "pressed": "guidebook",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=atlas desktop: view applied",
+   "status": "PASS",
+   "evidence": "atlas"
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=atlas desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 16,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=atlas desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=atlas desktop: switcher → guidebook with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "pressed": "guidebook",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=guidebook mobile: view applied",
+   "status": "PASS",
+   "evidence": "guidebook"
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=guidebook mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 16,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=guidebook mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=guidebook mobile: switcher → insights with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "pressed": "insights",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=guidebook desktop: view applied",
+   "status": "PASS",
+   "evidence": "guidebook"
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=guidebook desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 16,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=guidebook desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=guidebook desktop: switcher → insights with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "pressed": "insights",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=insights mobile: view applied",
+   "status": "PASS",
+   "evidence": "insights"
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=insights mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 16,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=insights mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=insights mobile: switcher → gallery with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "pressed": "gallery",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=insights desktop: view applied",
+   "status": "PASS",
+   "evidence": "insights"
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=insights desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 16,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=insights desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html #view=insights desktop: switcher → gallery with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "pressed": "gallery",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=gallery mobile: view applied",
+   "status": "PASS",
+   "evidence": "gallery"
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=gallery mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 35,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=gallery mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=gallery mobile: switcher → atlas with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "pressed": "atlas",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=gallery desktop: view applied",
+   "status": "PASS",
+   "evidence": "gallery"
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=gallery desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 35,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=gallery desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=gallery desktop: switcher → atlas with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "pressed": "atlas",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=atlas mobile: view applied",
+   "status": "PASS",
+   "evidence": "atlas"
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=atlas mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 35,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=atlas mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=atlas mobile: switcher → guidebook with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "pressed": "guidebook",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=atlas desktop: view applied",
+   "status": "PASS",
+   "evidence": "atlas"
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=atlas desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 35,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=atlas desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=atlas desktop: switcher → guidebook with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "pressed": "guidebook",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=guidebook mobile: view applied",
+   "status": "PASS",
+   "evidence": "guidebook"
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=guidebook mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 35,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=guidebook mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=guidebook mobile: switcher → insights with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "pressed": "insights",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=guidebook desktop: view applied",
+   "status": "PASS",
+   "evidence": "guidebook"
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=guidebook desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 35,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=guidebook desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=guidebook desktop: switcher → insights with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "pressed": "insights",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=insights mobile: view applied",
+   "status": "PASS",
+   "evidence": "insights"
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=insights mobile: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 35,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=insights mobile: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=insights mobile: switcher → gallery with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "pressed": "gallery",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=insights desktop: view applied",
+   "status": "PASS",
+   "evidence": "insights"
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=insights desktop: every place in the DOM",
+   "status": "PASS",
+   "evidence": {
+    "n": 35,
+    "missing": 0,
+    "e": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=insights desktop: 0 JS errors",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html #view=insights desktop: switcher → gallery with no storage",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "pressed": "gallery",
+    "err": []
+   }
   }
  ]
 }
