@@ -287,6 +287,8 @@ const FEB_CSS = `
 .theme-c a b{font-weight:650;color:var(--ink-2)}
 .theme-c .more-n{font-size:13px;color:var(--ink-3);align-self:center;padding:0 4px}
 .theme-main:hover .theme-t{text-decoration:underline;text-underline-offset:4px}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .tile.c-night .art .dots.t1,:root:not([data-theme=light]) .chero .sky .dots.t1{stroke:var(--gilt)}:root:not([data-theme=light]) .theme-n{color:var(--gilt)}:root:not([data-theme=light]) .tile.c-wash .art .dots,:root:not([data-theme=light]) .tile.c-paper .art .dots{stroke:var(--city-ink)}:root:not([data-theme=light]) .tile.c-wash .art .dots.t1,:root:not([data-theme=light]) .tile.c-paper .art .dots.t1{stroke:var(--ink)}}
+:root[data-theme=dark] .tile.c-night .art .dots.t1,:root[data-theme=dark] .chero .sky .dots.t1{stroke:var(--gilt)}:root[data-theme=dark] .theme-n{color:var(--gilt)}:root[data-theme=dark] .tile.c-wash .art .dots,:root[data-theme=dark] .tile.c-paper .art .dots{stroke:var(--city-ink)}:root[data-theme=dark] .tile.c-wash .art .dots.t1,:root[data-theme=dark] .tile.c-paper .art .dots.t1{stroke:var(--ink)}
 .results .grp.guides ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0}
 .results a.is-kb,.results a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 .results mark{background:var(--gilt-soft);color:var(--ink);border-radius:2px}
