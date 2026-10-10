@@ -10,7 +10,7 @@ is typography, our own map art, or a generic glyph that never pretends to be a v
 
 | Tier | What | Where | Status |
 |---|---|---|---|
-| **A. Typographic plates** | Native script set vertically (浅草寺), or a Bodoni italic initial, on the area's colour (15 % tint) with a 5 px area edge | every card, the detail hero, hub tiles (native city name) | **Ship now** (in mockups) |
+| **A. Typographic plates** | Native script set vertically (浅草寺), or a Bodoni italic initial, on the area's colour (15 % tint) with a 5 px area edge | every card, the detail hero, hub tiles (native city name) | **Shipped W1** — CSS cover on every generated card (M1-11) |
 | **B. Map art from verified pins** | City **constellations** (one star per sourced coordinate; brighter = must-see; lines = minimum spanning tree of each area's must-sees), area silhouettes, per-card locators, route lines, offline map washes | mastheads, hero feature card, signature tiles, area heads, plates, day plan, offline map | **Ship now** |
 | **C. Original glyphs** | 26 collection/dish glyphs drawn in-house (torii, ramen bowl, dango, lantern, sandwich…) | plates, rail tiles, pills, picker | **Ship now**; a commissioned illustrator set per city is a later "should" (owned outright, no imitation of any brand's style) |
 | **D. Wikimedia Commons photographs** | Landmarks only (temples, museums, monuments, parks) | detail hero first, then cards | **Later — blocked on LP-02** (`data/images.json` registry + gate) |
@@ -60,3 +60,11 @@ grey "photo goes here" boxes pretending to be imagery).
 Louis Vuitton City Guides, Wallpaper* and Herb Lester build admired guide brands on colour, type and illustrated maps
 (research §6). Our constellations are a signature no competitor can copy without our data, and they make the trust
 promise visible: *every star is a place someone credible recommended and we pinned to the door.*
+
+## Wave 1 status (2026-10-10)
+
+- **A shipped** on generated pages: every card's cover is the area-colour field + the name in Bodoni Moda (+ native plate
+  when FE-A adds `.pl-cover`). **B styled**: the no-tiles map ground and `.mapart` classes are in `cleo.css`; the SVG
+  itself is platform's `lib/art.js`. **C**: tier glyphs shipped (`beta/assets/glyphs/`, `.tg`).
+- **D stays gated**: no photograph on any beta page; `beta/assets/` holds no raster venue image (`og-cover.png` is the
+  generic brand card). Commons waits for LP-02.

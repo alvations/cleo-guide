@@ -31,3 +31,17 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     errors, 0 overflow, first Tokyo card at 714 px on 390×844.
 - 2026-10-10 · UI/UX (lead designer) · session_01PCNcUkfa5S1N1BKGzZA4xx · Wave 0 design system **"Constellation"** — every city drawn as the star-map of its verified pins; Salon IA kept, visual layer replaced. Delivered: `design/beta/DESIGN-SYSTEM.md` + `tokens.css` (light/night, 8 city skins; WCAG AA 284/284 pairs, `CONTRAST.md`), `beta/assets/tokens.css` + `beta/assets/constellation.css` (component contract), `IMAGERY.md`, `VOICE.md`, `specs/README.md` (9 page specs + benchmark comparison + scorecard), `DECISIONS.md` (UX-01…UX-19), 10 generated mockups on real records (`design/beta/mockups/`, Tokyo 488/488 and Cleveland 194/194 places rendered, asserted), 42 screenshots at 390×844 and 1440×900 (`design/beta/screenshots/`, 4.1 MB, `metrics.json`). Measured: first card at 0.73–0.79 screens on mobile with 14 on-screen controls above it; overflowX 0 everywhere; renders with all off-origin requests blocked. Aligned to PM backlog M0-01/M0-05/M0-06/M1-01/M1-05/M2-05/M2-11. Live site untouched. Commit: see git log for this entry.
 - 2026-10-10 08:24 · orchestrator · Wave 0 verified (no live paths touched; validate + test incl. beta count==live + no-CDN PASS); W0 sessions archived. **Build wave 1 (M1) launched:** platform session_01KAFFdmZ5muds2a5TrCSdWU, FE-A session_01R6c55ZTducLNVYMSqkvfQg, FE-B session_014JhcXcscGR7FMd9eAE6XqE, designer session_018MKc8Cm9yRKwLoMQ5mFB7b, QA session_01YbxdsQm4VmtpnaPTjvc2ZS.
+- 2026-10-10 · UI/UX (designer) · Wave 1 · session_018MKc8Cm9yRKwLoMQ5mFB7b · **M1-08, M1-11, M1-13, M1-14, M1-15 (visual side) shipped on every generated page.**
+  - `beta/assets/cleo.css` is now the real stylesheet: assembled by `design/beta/tools/build-css.py` from the
+    Constellation library + `design/beta/css/contract.css` (RFC §5.5 markup → night-sky masthead, collection tiles,
+    segmented modes, area pills, cover cards, map schematic framing, night footer). UX-21…UX-25 in `design/beta/DECISIONS.md`.
+  - **M1-08** tier ladder as one `.tg` class (CSS mask, `currentColor`) for card · sheet · Leaflet pin, plus
+    `beta/assets/glyphs/tier-{1,2,3}.svg` + sprite; fallback glyph keyed on `li.pl[data-t]`; closed records never get one.
+  - **M1-11/13** typographic cover on every card (area field + Bodoni name), no raster image anywhere; Commons still gated.
+  - **M1-14** skins are data: `design/beta/skins.json` → `skins.py` (10 skins; SG = orchid, VN = jade pastel regional skins;
+    a CSS-only motif per skin; hub tiles skinned via `data-page`). Contrast **344/344 AA**.
+  - **M1-15** Bodoni Moda + Figtree self-hosted in `beta/assets/fonts/` (OFL); 2 families rendered on every pilot.
+  - Review harness `design/beta/tools/review.js` (no-CDN, 390×844 + 1440×900). Pilot metrics (mobile): first card
+    0.69–0.79 screens, controls above first card 11–14, glyph on 100 % of open cards, 0 closed with glyph, cover 100 %,
+    2 font families, min text 13 px, overflow 0, small targets 0. Screenshots `design/beta/screenshots/review-w1/`
+    (before: `review-w1-baseline/`). Hooks for FE lanes: `design/beta/specs/M1-visual.md`.
