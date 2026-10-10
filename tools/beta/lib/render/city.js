@@ -94,7 +94,7 @@ const BY_NAME = [[/sushi/i, 'sushi'], [/ramen|noodle|pho|laksa|soba|udon/i, 'noo
   [/temple|shrine|mosque|church/i, 'torii'], [/market|shop|hawker/i, 'awning'], [/view|skyline|tower/i, 'tower'], [/night/i, 'moon'],
   [/history|heritage|castle|palace/i, 'castle'], [/free/i, 'ticket'], [/screen|tv|film|pop/i, 'tv']];
 const glyphFor = (id, n, food) => GLYPH[id] || (BY_NAME.find(([re]) => re.test(n || '')) || [])[1] || (food ? 'forkknife' : 'compass');
-const { motifSvg, photoFor, figureHtml } = require('../../imagery');   // imagery lane hooks
+const { motifSvg, motifOf, photoFor, figureHtml } = require('../../imagery');   // imagery lane hooks
 const ico = n => `<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg>`;
 const tier = (t, cls = '') => TIER[t] ? `<a class="tier t${t}${cls}" href="#how-we-choose"><i class="tg t${t}" aria-hidden="true"></i><span>${TIER[t]}</span></a>` : '';
 
@@ -149,7 +149,8 @@ function card(r, num, ctx) {
   // not advice, so it never prints as "Look for: HIST" (249 records, W2)
   if (kText && (page.CATS || []).concat(page.CUISINES || []).some(c => c.id === kText)) r = Object.assign({}, r, { k: '' });
   const isNote = kText.split(' ').length >= 8 && /[.!?…](\s|$)/.test(kText);     // VOICE.md rule 4 (D-16)
-  const attrs = [`data-k="${r.kind === 'food' ? 'f' : 's'}"`, `data-t="${r.t}"`, `data-a="${esc(r.a)}"`, `data-n="${num}"`, `data-gl="${gl}"`,
+  const attrs = [`data-k="${r.kind === 'food' ? 'f' : 's'}"`, `data-t="${r.t}"`, `data-a="${esc(r.a)}"`, `data-n="${num}"`, `data-gl="${gl}"`, `data-m="${motifOf(r, gl)}"`,   // data-m: cover motif by kind id (imagery, ROUND-4 #6)
+   
     r.g.length && `data-g="${esc(r.g.join(' '))}"`, r.cz.length && `data-cz="${esc(r.cz.join(' '))}"`,
     r.src && r.src.length && `data-src="${esc(r.src.join(' '))}"`,
     r.la != null && `data-ll="${r.la},${r.ln}"`, pv.checked && `data-checked="${esc(pv.checked)}"`, r.closed && 'data-closed', r.warn && 'data-warn'].filter(Boolean).join(' ');
@@ -299,14 +300,15 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     `<p class="g-kick">A guide in ${plural(st.areas || areas.length, 'area')} · every place recommended by name</p>` +
     `${G.tileLine && G.tileLine.text ? `<p class="g-lead">${esc(G.tileLine.text)}</p>` : ''}<p class="g-acts"><a class="btn btn-primary" href="#cleo-grid" data-g-browse>Browse all ${plural(recs.length, 'place')}</a>` +
     `${leadR ? `<a class="btn btn-ghost" href="#p-${esc(leadR.id)}">Start with ${esc(leadR.nat && leadR.n.endsWith(`(${leadR.nat})`) ? leadR.n.slice(0, -leadR.nat.length - 2).trimEnd() : leadR.n)}</a>` : ''}</p></div>`;
-  // default view: Atlas (the W2 list + map) until the paged Gallery passes QA's G1 deep-link gate (QA-29/31, orchestrator)
-  const DV = 'atlas';
+  // default view: Gallery (SPEC §2.4), flipped in W5 once G1 and the phone first screen passed (ROUND-4 #2). A link with
+  // #day= or a lens and no view= still opens Atlas, the unpaged list (views.js implied(), mirrored in the head script)
+  const DV = 'gallery';
   const VIEWS = ['gallery', 'atlas'].concat(['guidebook', 'insights'].filter(v => ctx.assetsV[v]));
   const VLBL = { gallery: ['Gallery', 'grid'], atlas: ['Atlas', 'map'], guidebook: ['Guidebook', 'list'], insights: ['Insights', 'sliders'] };
   const switcher = `<nav class="views" data-cleo-views role="group" aria-label="View" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === DV}">${ico(VLBL[v][1])}<span>${VLBL[v][0]}</span></button>`).join('')}</nav>`;
   const areaChips = areas.length > 1 ? '<div class="area-chips" role="group" aria-label="Areas" data-cleo-toolbar hidden></div>' : '';   // views.js draws the chips (page weight)
   // the view is set before first paint (SPEC §2.4): hash, then the stored preference (try/catch), then Gallery
-  const viewHead = `<script>(function(){var v=${JSON.stringify(VIEWS)},h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)day=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}` +
+  const viewHead = `<script>(function(){var v=${JSON.stringify(VIEWS)},h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)(?:day|mode|a|t|c|cz|src|closed|q|sig|gap)=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}` +
     `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'${DV}';document.documentElement.setAttribute('data-view',x)})()</script>`;
 
   /* -- sprite: only the glyphs this page uses -- */
@@ -357,7 +359,9 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   const headHtml = head({ page: 'city', title, description: desc, rel: row.beta, depth, ogImage: ctx.ogImage, jsonld: jsonLd(row, recs, title), assetsV: ctx.assetsV, from: row.live })
     .replace('</head>', `<link rel="stylesheet" href="${up}${ctx.feaCss}">\n${viewHead}\n</head>`);
   const country = COUNTRIES.find(c => c.key === row.country) || {};
-  const facts = `<b>${plural(recs.length, 'place')}</b> · ${plural(st.areas || areas.length, 'area')} · every one sourced, pinned and status-checked${st.lastChecked ? ` · last checked <time class="nw">${esc(st.lastChecked)}</time>` : ''}${st.closed ? ` · ${st.closed} closed, kept for the record` : ''}. Ordered by tier, then by number of named sources. <a href="#how-we-choose">How we choose</a>`;
+  // ROUND-4 #3: phones keep one short line (count · areas · last checked · closed); the method sentence and its "How we
+  // choose" link sit in .long (≥ 900 px), so the What-changed link is the only masthead link before the first card
+  const facts = `<b>${plural(recs.length, 'place')}</b> · ${plural(st.areas || areas.length, 'area')}<span class="long"> · every one sourced, pinned and status-checked</span>${st.lastChecked ? ` · last checked <time class="nw">${esc(st.lastChecked)}</time>` : ''}${st.closed ? ` · ${st.closed} closed<span class="long">, kept for the record</span>` : ''}<span class="long">. Ordered by tier, then by number of named sources. <a href="#how-we-choose">How we choose</a></span>`;
   const seg = `<div class="modes" role="group" aria-label="Show"><button type="button" data-mode="all" aria-pressed="true">All <span class="n">${recs.length}</span></button>` +
     (nS && nF ? `<button type="button" data-mode="sights" aria-pressed="false">Sights <span class="n">${nS}</span></button><button type="button" data-mode="food" aria-pressed="false">Eat &amp; drink <span class="n">${nF}</span></button>` : '') + '</div>';
 
@@ -374,6 +378,7 @@ ${switcher}
   <p class="facts">${facts}</p>
 ${heroHtml}
 </header>
+<div class="g-lead-slot vw view-gallery" id="cleo-lead"><p class="g-lead-k">Start with</p></div>
 <div class="g-rows vw view-gallery" id="cleo-rows-host"></div>
 <nav class="rail" id="cleo-rail" aria-label="Collections" data-cleo-rail data-view="all" hidden>
 ${tiles.filter(t => t.cls === 'sig').map(tileHtml).join('\n')}

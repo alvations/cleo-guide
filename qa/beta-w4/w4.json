@@ -1,0 +1,442 @@
+{
+ "head": "8aa6fdf4",
+ "checks": [
+  {
+   "group": "default",
+   "name": "mobile: Atlas is the default (no hash, no stored preference)",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "def": "atlas",
+    "glyph": "#i-grid",
+    "hreflang": [
+     "en",
+     "x-default"
+    ],
+    "langSwitch": 0
+   }
+  },
+  {
+   "group": "glyph",
+   "name": "mobile: Gallery switcher glyph is not the heart",
+   "ok": true,
+   "evidence": "#i-grid"
+  },
+  {
+   "group": "i18n",
+   "name": "hreflang en + x-default; no language switcher shown",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "def": "atlas",
+    "glyph": "#i-grid",
+    "hreflang": [
+     "en",
+     "x-default"
+    ],
+    "langSwitch": 0
+   }
+  },
+  {
+   "group": "weight",
+   "name": "Tokyo default view transfer (gzip est.) < 2.0 MB",
+   "ok": true,
+   "evidence": {
+    "gzipMB": 0.43,
+    "rawMB": 1.45
+   }
+  },
+  {
+   "group": "default",
+   "name": "mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "default",
+   "name": "desktop: Atlas is the default (no hash, no stored preference)",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "def": "atlas",
+    "glyph": "#i-grid",
+    "hreflang": [
+     "en",
+     "x-default"
+    ],
+    "langSwitch": 0
+   }
+  },
+  {
+   "group": "glyph",
+   "name": "desktop: Gallery switcher glyph is not the heart",
+   "ok": true,
+   "evidence": "#i-grid"
+  },
+  {
+   "group": "default",
+   "name": "desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "names",
+   "name": "atlas: \"Kanda Myōjin\" shown, folded spelling never",
+   "ok": true,
+   "evidence": {
+    "accented": 2,
+    "folded": 0,
+    "err": []
+   }
+  },
+  {
+   "group": "names",
+   "name": "sheet: \"Kanda Myōjin\" shown, folded spelling never",
+   "ok": true,
+   "evidence": {
+    "accented": 3,
+    "folded": 0,
+    "err": []
+   }
+  },
+  {
+   "group": "names",
+   "name": "guidebook: \"Kanda Myōjin\" shown, folded spelling never",
+   "ok": true,
+   "evidence": {
+    "accented": 3,
+    "folded": 0,
+    "err": []
+   }
+  },
+  {
+   "group": "names",
+   "name": "gallery: \"Kanda Myōjin\" shown, folded spelling never",
+   "ok": true,
+   "evidence": {
+    "accented": 6,
+    "folded": 0,
+    "err": []
+   }
+  },
+  {
+   "group": "names",
+   "name": "unaccented search q=myojin finds Kanda Myōjin",
+   "ok": true,
+   "evidence": {
+    "shown": true,
+    "n": 2
+   }
+  },
+  {
+   "group": "names",
+   "name": "hero carries \"Jōnan · Jōsai · Jōhoku\"-style long vowels (no folded \"Jonan\")",
+   "ok": true,
+   "evidence": {
+    "jonan": true
+   }
+  },
+  {
+   "group": "covers",
+   "name": "desktop: no two neighbouring grid covers share a composition",
+   "ok": true,
+   "evidence": {
+    "grid": 32,
+    "adjSame": 0,
+    "rowCovers": 62,
+    "motifs": 20
+   }
+  },
+  {
+   "group": "covers",
+   "name": "desktop: row covers use more than one motif",
+   "ok": true,
+   "evidence": {
+    "grid": 32,
+    "adjSame": 0,
+    "rowCovers": 62,
+    "motifs": 20
+   }
+  },
+  {
+   "group": "covers",
+   "name": "desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "covers",
+   "name": "mobile: no two neighbouring grid covers share a composition",
+   "ok": true,
+   "evidence": {
+    "grid": 24,
+    "adjSame": 0,
+    "rowCovers": 62,
+    "motifs": 20
+   }
+  },
+  {
+   "group": "covers",
+   "name": "mobile: row covers use more than one motif",
+   "ok": true,
+   "evidence": {
+    "grid": 24,
+    "adjSame": 0,
+    "rowCovers": 62,
+    "motifs": 20
+   }
+  },
+  {
+   "group": "covers",
+   "name": "mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "motion",
+   "name": "reduced motion: nothing animates on save or view switch",
+   "ok": true,
+   "evidence": {
+    "afterSave": [],
+    "afterSwitch": []
+   }
+  },
+  {
+   "group": "motion",
+   "name": "reduced motion: nothing autoplays",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "motion",
+   "name": "reduced: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "motion",
+   "name": "motion on: micro-interactions run (informational) and nothing autoplays",
+   "ok": true,
+   "evidence": {
+    "autoplay": [],
+    "afterSave": [
+     "w3-pop@ico"
+    ],
+    "afterSwitch": [
+     "vw-in@g-rows vw view-gallery",
+     "vw-in@pager g-pager vw view-gallery"
+    ]
+   }
+  },
+  {
+   "group": "motion",
+   "name": "motion: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "lazy",
+   "name": "mobile: Tokyo Guidebook initial DOM ≤ 3,000",
+   "ok": true,
+   "evidence": {
+    "dom": 2730,
+    "toc": 13,
+    "chapters": 13,
+    "entries": 43
+   }
+  },
+  {
+   "group": "lazy",
+   "name": "mobile: contents lists every chapter (13)",
+   "ok": true,
+   "evidence": {
+    "dom": 2730,
+    "toc": 13,
+    "chapters": 13,
+    "entries": 43
+   }
+  },
+  {
+   "group": "lazy",
+   "name": "mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "lazy",
+   "name": "mobile: deep link to the last place of the last chapter (yoshimuraya)",
+   "ok": true,
+   "evidence": {
+    "mounted": true,
+    "sheet": "All 488 places46 of 71 in this Guidebook view吉村家Mu"
+   }
+  },
+  {
+   "group": "lazy",
+   "name": "desktop: Tokyo Guidebook initial DOM ≤ 3,000",
+   "ok": true,
+   "evidence": {
+    "dom": 2730,
+    "toc": 13,
+    "chapters": 13,
+    "entries": 43
+   }
+  },
+  {
+   "group": "lazy",
+   "name": "desktop: contents lists every chapter (13)",
+   "ok": true,
+   "evidence": {
+    "dom": 2730,
+    "toc": 13,
+    "chapters": 13,
+    "entries": 43
+   }
+  },
+  {
+   "group": "lazy",
+   "name": "desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "lazy",
+   "name": "desktop: deep link to the last place of the last chapter (yoshimuraya)",
+   "ok": true,
+   "evidence": {
+    "mounted": true,
+    "sheet": "All 488 places46 of 71 in this Guidebook view吉村家Mu"
+   }
+  },
+  {
+   "group": "changes",
+   "name": "every place page (84) links \"last checked\" to an existing What changed page",
+   "ok": true,
+   "evidence": {
+    "linked": 84,
+    "missing": []
+   }
+  },
+  {
+   "group": "changes",
+   "name": "changes/tokyo.html mobile light: renders, 0 errors, axe 0 serious/critical, honest",
+   "ok": true,
+   "evidence": {
+    "len": 1262,
+    "errs": [],
+    "axe": [],
+    "honesty": []
+   }
+  },
+  {
+   "group": "changes",
+   "name": "changes/tokyo.html desktop light: renders, 0 errors, axe 0 serious/critical, honest",
+   "ok": true,
+   "evidence": {
+    "len": 1269,
+    "errs": [],
+    "axe": [],
+    "honesty": []
+   }
+  },
+  {
+   "group": "changes",
+   "name": "changes/tokyo.html desktop dark: renders, 0 errors, axe 0 serious/critical, honest",
+   "ok": true,
+   "evidence": {
+    "len": 1269,
+    "errs": [],
+    "axe": [],
+    "honesty": []
+   }
+  },
+  {
+   "group": "changes",
+   "name": "changes/cleveland.html mobile light: renders, 0 errors, axe 0 serious/critical, honest",
+   "ok": true,
+   "evidence": {
+    "len": 3610,
+    "errs": [],
+    "axe": [],
+    "honesty": []
+   }
+  },
+  {
+   "group": "changes",
+   "name": "changes/cleveland.html desktop light: renders, 0 errors, axe 0 serious/critical, honest",
+   "ok": true,
+   "evidence": {
+    "len": 3617,
+    "errs": [],
+    "axe": [],
+    "honesty": []
+   }
+  },
+  {
+   "group": "changes",
+   "name": "changes/cleveland.html desktop dark: renders, 0 errors, axe 0 serious/critical, honest",
+   "ok": true,
+   "evidence": {
+    "len": 3617,
+    "errs": [],
+    "axe": [],
+    "honesty": []
+   }
+  },
+  {
+   "group": "changes",
+   "name": "changes/wheeling.html mobile light: renders, 0 errors, axe 0 serious/critical, honest",
+   "ok": true,
+   "evidence": {
+    "len": 1134,
+    "errs": [],
+    "axe": [],
+    "honesty": []
+   }
+  },
+  {
+   "group": "changes",
+   "name": "changes/wheeling.html desktop light: renders, 0 errors, axe 0 serious/critical, honest",
+   "ok": true,
+   "evidence": {
+    "len": 1141,
+    "errs": [],
+    "axe": [],
+    "honesty": []
+   }
+  },
+  {
+   "group": "changes",
+   "name": "changes/wheeling.html desktop dark: renders, 0 errors, axe 0 serious/critical, honest",
+   "ok": true,
+   "evidence": {
+    "len": 1141,
+    "errs": [],
+    "axe": [],
+    "honesty": []
+   }
+  },
+  {
+   "group": "bars",
+   "name": "cleveland.html: Insights bar links ≥ 24 px tall, table fallback present",
+   "ok": true,
+   "evidence": {
+    "links": 62,
+    "min": 24,
+    "under24": 0,
+    "table": true
+   }
+  },
+  {
+   "group": "bars",
+   "name": "cities/tokyo.html: Insights bar links ≥ 24 px tall, table fallback present",
+   "ok": true,
+   "evidence": {
+    "links": 183,
+    "min": 24,
+    "under24": 0,
+    "table": true
+   }
+  }
+ ]
+}

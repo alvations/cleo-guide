@@ -166,7 +166,7 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     const page = 'cities/tokyo.html', N = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places/tokyo.json'), 'utf8')).places.length;
     let { d, w, errs } = boot(page); await sleep(150);
     const view = () => d.documentElement.getAttribute('data-view');
-    chk('default view is Atlas (QA-29/31), switcher revealed with Gallery + Atlas', view() === 'atlas' && !d.querySelector('[data-cleo-views]').hidden &&
+    chk('default view is Gallery (W5, ROUND-4 #2), switcher revealed with Gallery + Atlas', view() === 'gallery' && !d.querySelector('[data-cleo-views]').hidden &&
       ['gallery', 'atlas'].every(v => d.querySelector(`[data-cleo-views] button[data-view="${v}"]`)), view());
     ({ d, w, errs } = boot(page, { hash: '#view=gallery' })); await sleep(150);
     if (w.Cleo.defer) w.Cleo.defer.all(); await sleep(30);
@@ -189,10 +189,10 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     chk('search spans every page (a last-page record found by name, on page 1 of the matches)', !deep.hidden && !deep.classList.contains('pg-off'), nm);
     fi.value = ''; fi.dispatchEvent(new w.Event('input')); await sleep(200);
     d.querySelector('[data-cleo-views] button[data-view="atlas"]').click(); await sleep(30);
-    chk('switch → Atlas: html[data-view], hash view=atlas, every card unpaged', view() === 'atlas' && !/view=/.test(w.location.hash) && d.querySelectorAll('li.pl.pg-off').length === 0, w.location.hash);   // Atlas is the default: no view= key
+    chk('switch → Atlas: html[data-view], hash view=atlas, every card unpaged', view() === 'atlas' && /view=atlas/.test(w.location.hash) && d.querySelectorAll('li.pl.pg-off').length === 0, w.location.hash);   // Gallery is the default: Atlas writes view=
     chk('…remembered', w.Cleo.store.get('view') === 'atlas');
     d.querySelector('button[data-mode="sights"]').click(); await sleep(30);
-    chk('a lens keeps the view (Atlas stays; no stray view= key)', view() === 'atlas' && !/view=/.test(w.location.hash) && /mode=sights/.test(w.location.hash), w.location.hash);
+    chk('a lens keeps the view (Atlas stays; a lens implies Atlas, so no view= key)', view() === 'atlas' && !/view=/.test(w.location.hash) && /mode=sights/.test(w.location.hash), w.location.hash);
     chk('live region announces the view', /Atlas view, \d/.test(d.getElementById('cleo-view-live').textContent));
     chk('no js errors', errs.length === 0, errs.slice(0, 2));
 
@@ -210,17 +210,25 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     chk('Gallery #area-<A> anchor shows that area', !lastA.classList.contains('pg-empty') && !!lastA.querySelector('li.pl:not(.pg-off):not([hidden])'), lastA.id);
     chk('no js errors', errs.length === 0, errs.slice(0, 2));
     ({ d, w, errs } = boot(page, { hash: '#view=bogus' })); await sleep(100);
-    chk('#view=bogus → the default (Atlas), the bad key dropped, no error', view() === 'atlas' && !/view=/.test(w.location.hash) && errs.length === 0, [view(), w.location.hash]);
+    chk('#view=bogus → the default (Gallery), the bad key dropped, no error', view() === 'gallery' && !/view=/.test(w.location.hash) && errs.length === 0, [view(), w.location.hash]);
+    // W5: a lens link with no view= (hub / landing rails) opens Atlas, the unpaged list, so the promised count shows
+    ({ d, w, errs } = boot(page, { hash: '#c=ANIME' })); await sleep(120);
+    chk('#c=… with no view= opens Atlas (a lens implies the unpaged list)', view() === 'atlas' && d.querySelectorAll('li.pl.pg-off').length === 0 && errs.length === 0, [view(), w.location.hash]);
+    ({ d, w, errs } = boot(page)); await sleep(120);
+    d.querySelector('button[data-mode="sights"]').click(); await sleep(30);
+    chk('in the default Gallery a lens tap keeps Gallery (view=gallery written, since a lens alone implies Atlas)', view() === 'gallery' && /view=gallery/.test(w.location.hash) && /mode=sights/.test(w.location.hash), w.location.hash);
+    w.Cleo.route.go({ p: 'kanda-myojin' }); await sleep(60);
+    chk('…and a deep link from there stays in Gallery with no view= key', view() === 'gallery' && !/view=/.test(w.location.hash), w.location.hash);
     ({ d, w, errs } = boot(page, { hash: '#view=atlas&p=kanda-myojin' })); await sleep(150);
     const sh = d.getElementById('cleo-sheet');
     chk('#view=atlas&p=x opens the sheet over Atlas', view() === 'atlas' && !sh.hidden && /Kanda/.test(sh.textContent));
-    ({ d, w, errs } = boot(page, { seed: { view: 'gallery' } })); await sleep(100);
-    chk('stored preference → Gallery, written into the hash', view() === 'gallery' && /view=gallery/.test(w.location.hash), w.location.hash);
-    ({ d, w, errs } = boot(page, { seed: { view: 'gallery' }, hash: '#view=atlas' })); await sleep(100);
-    chk('an explicit view= beats the stored preference (shared links)', view() === 'atlas');
+    ({ d, w, errs } = boot(page, { seed: { view: 'atlas' } })); await sleep(100);
+    chk('stored preference → Atlas, written into the hash', view() === 'atlas' && /view=atlas/.test(w.location.hash), w.location.hash);
+    ({ d, w, errs } = boot(page, { seed: { view: 'atlas' }, hash: '#view=gallery' })); await sleep(100);
+    chk('an explicit view= beats the stored preference (shared links)', view() === 'gallery');
     ({ d, w, errs } = boot(page, { storage: 'throws' })); await sleep(100);
-    d.querySelector('[data-cleo-views] button[data-view="gallery"]').click(); await sleep(30);
-    chk('storage blocked: switching still works, no error', view() === 'gallery' && errs.length === 0, errs.slice(0, 2));
+    d.querySelector('[data-cleo-views] button[data-view="atlas"]').click(); await sleep(30);
+    chk('storage blocked: switching still works, no error', view() === 'atlas' && errs.length === 0, errs.slice(0, 2));
 
     ({ d, w, errs } = boot(page, { hash: '#view=gallery&c=ANIME' })); await sleep(150);
     const set = [...d.querySelectorAll('li.pl:not([hidden])')];

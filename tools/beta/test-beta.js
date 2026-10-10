@@ -335,12 +335,14 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
     d.querySelector('button[data-mode="food"]').click(); await sleep(30);
     chk('any lens stamps every card first; food mode shows exactly the food', [d.querySelectorAll('li.pl').length, shown(d)].join(), `${total},${live.F.length}`);
     chk('no js errors (lazy)', errs, e => e.length === 0);
-    const b2 = boot({ io: true, hash: '#p=' + lastId }); await sleep(300);
+    // W5 (FE-A, coordinated): Gallery is the default now and its pager stamps every card for a deep link (the true page
+    // order, QA-29); R-32 place-only stamping is the Atlas path, so it is measured there
+    const b2 = boot({ io: true, hash: '#view=atlas&p=' + lastId }); await sleep(300);
     const tg = b2.d.getElementById('p-' + lastId);
     const nDom = b2.d.querySelectorAll('li.pl').length;
     chk('deep link on load to a deferred place lands, stamping only its chunk (R-32, gap #6)', !!tg && !tg.hidden && tg.classList.contains('is-target') && nDom < total && nDom <= 32 + 40, true);
     const mid = [...html.matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"/g)][200][1];
-    b2.w.location.hash = '#p=' + mid; await sleep(60);
+    b2.w.location.hash = '#view=atlas&p=' + mid; await sleep(60);
     const tm = b2.d.getElementById('p-' + mid);
     chk('a second place link (hashchange) stamps one more chunk, not the page', !!tm && !tm.hidden && b2.d.querySelectorAll('li.pl').length < total, true);
     b2.w.location.hash = '#mode=food'; await sleep(60);

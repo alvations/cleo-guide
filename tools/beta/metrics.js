@@ -177,7 +177,10 @@ const PROBE = () => {
   const legacyCards = allCards.length ? [] : [...document.querySelectorAll('#list .entry, .entry')];
   const cards = allCards.length ? allCards : legacyCards;
   const visCards = cards.filter(vis);
-  const first = visCards[0] || null;
+  // W5 (FE-A ↔ QA, BETA-QA.md "Gallery as default"): in the Gallery the first place card may be the lead or a row card
+  // (li.gc[data-id]: cover, name, Recommended by, heart, opens the place) — the paged All-N grid comes after the rows
+  const placeCards = de.getAttribute('data-view') === 'gallery' ? [...document.querySelectorAll('li.gc[data-id]')].filter(vis) : [];
+  const first = visCards.concat(placeCards).sort((a, b) => absTop(a) - absTop(b))[0] || null;
   const firstTop = first ? absTop(first) : null;
 
   // masthead
@@ -421,6 +424,8 @@ async function reachability(page, exp) {
     const vis = el => { const r = el.getBoundingClientRect(); const cs = getComputedStyle(el); return r.height > 0 && cs.display !== 'none' && cs.visibility !== 'hidden' && !el.closest('[hidden]'); };
     const all = document.querySelector('[data-mode="all"], [data-cleo-all]'); if (all) all.click();
     await new Promise(r => setTimeout(r, 150));
+    // W5 (BETA-QA.md "Gallery as default"): a paged view's own "Show all N on one page" is part of "All" — one tap, then scroll
+    const sa = document.querySelector('.g-pager [data-pg="all"]'); if (sa && vis(sa)) { sa.click(); await new Promise(r => setTimeout(r, 250)); }
     const H = document.documentElement.scrollHeight;
     for (let y = 0; y < H; y += innerHeight * 2) { window.scrollTo(0, y); await new Promise(r => requestAnimationFrame(() => r())); }
     window.scrollTo(0, 0);

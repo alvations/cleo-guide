@@ -117,7 +117,9 @@ for (const r of cityRows) {
   r.art = { map: null, areas: {} };
   const dir = `assets/art/${r.fileKey}/`;
   const cm = art.cityMap(r.name, r.recs, colors);
-  if (cm) { emit(dir + 'map.svg', cm.svg); r.art.map = { src: `${dir}map.svg?v=${sha(cm.svg)}`, w: cm.proj.w, h: cm.proj.h, proj: cm.proj, drawn: cm.drawn, beyond: cm.beyond }; }
+  // W5 gap #5: the same URL the masthead CSS rule loads (cleo.css `url("art/<key>/map.svg")`), so the page fetches the
+  // schematic once, not twice. Cache freshness: the service worker's cache name changes per build and drops old caches.
+  if (cm) { emit(dir + 'map.svg', cm.svg); r.art.map = { src: `${dir}map.svg`, v: sha(cm.svg), w: cm.proj.w, h: cm.proj.h, proj: cm.proj, drawn: cm.drawn, beyond: cm.beyond }; }
   for (const a of page.AREAS || []) {
     const aa = art.areaArt(a.n, colors[a.id], r.recs.filter(x => x.a === a.id));
     if (!aa) continue;
@@ -261,7 +263,7 @@ const shellFiles = ['./index.html', './saved.html', './manifest.webmanifest', '.
   .concat(assetsV.tokens ? [`./assets/tokens.css?v=${assetsV.tokens}`] : [])
   .concat(['./how-we-choose.html'])                                 // FE-B method page, offline too
   .concat(Object.keys(assetsV).filter(k => k !== 'css' && k !== 'tokens').sort().map(k => `./assets/js/${k}.js?v=${assetsV[k]}`));
-const version = sha(JSON.stringify(assetsV) + feaV + generated.join() + fontFiles.join());
+const version = sha(JSON.stringify(assetsV) + feaV + generated.join() + fontFiles.join() + cityRows.map(r => r.art && r.art.map ? r.art.map.v : '').join());
 emit('sw.js', swSource(version, shellFiles));
 
 // ---------------------------------------------------------------- gate, then write (or check)

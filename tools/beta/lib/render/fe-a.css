@@ -155,3 +155,33 @@ html.atlas-m[data-view=atlas] .area-chips{display:flex;gap:6px;overflow-x:auto;p
 /* phones: the switcher collapses to the current view; tapping it opens all four (QA-31 · B-03 ≤ 14 controls) */
 @media (max-width:639px){html nav.views[data-cleo-views][role=group]:not(.open){grid-template-columns:1fr;display:grid}html nav.views[data-cleo-views]:not(.open) button[aria-pressed=false]{display:none}
   html nav.views[data-cleo-views] button[aria-pressed=true]::before{content:"View: ";font-weight:400;color:var(--ink-3)}html nav.views[data-cleo-views]:not(.open) button[aria-pressed=true]::after{content:"▾";margin-left:6px;color:var(--ink-3)}}
+/* ROUND-4 #3: masthead prose links stay inline (the inline-flex 44 px box swallowed the space before the date and
+   opened uneven line gaps); the 44 px hit area comes from block padding, which never changes an inline line box */
+.masthead .facts a:not(.btn){display:inline;min-height:0;padding:12px 0;margin:0}
+/* decorative cover initials are generated content (aria-hidden art; an outlined Deep-cut initial is no text to read) */
+html .pl-ini[data-i]::after,html .cover .plate.i[data-i]::after{content:attr(data-i)}
+/* ROUND-4 #2: phones + tablets — a compact hero, then the lead place as a real card inside the first screen
+   (cover, eyebrow, name, Recommended by, heart). Desktop keeps it floating in the hero (above). */
+.g-lead-slot{display:none}
+@media (max-width:1023px){
+html[data-view=gallery].g-lead-on .g-lead-slot{display:block;max-width:var(--maxw);margin:0 auto;padding:10px var(--gutter) 0}
+html[data-view=gallery] .g-lead-slot .g-lead-k{margin:0 0 6px;font:600 12.5px/1.2 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+html[data-view=gallery] .g-lead-slot .g-lead-card{display:block;margin:0;padding:0}
+html[data-view=gallery] .g-lead-slot .gc{position:relative;width:auto;max-width:none;flex:none;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:20px;padding:10px 10px 6px;box-shadow:var(--e-2)}
+html[data-view=gallery] .g-lead-slot .gc-a{display:grid;grid-template-columns:108px minmax(0,1fr);gap:4px 14px;align-items:start;text-decoration:none;color:inherit}
+html[data-view=gallery] .g-lead-slot .gc .cover{width:108px;height:136px;aspect-ratio:auto;border-radius:14px;margin:0}
+html[data-view=gallery] .g-lead-slot .gc-b{display:grid;gap:4px}html[data-view=gallery] .g-lead-slot .gc .pl-e{display:block;padding-right:40px}html[data-view=gallery] .g-lead-slot .gc .pl-e .tg{display:inline-block;vertical-align:-2px;margin-right:6px}
+html[data-view=gallery] .g-lead-slot .cover .plate.v{font-size:20px;max-height:none}html[data-view=gallery] .g-lead-slot .cover .plate.i{font-size:64px}
+html[data-view=gallery] .g-lead-slot .gc-n{font-size:21px;line-height:1.12}
+html[data-view=gallery] .g-lead-slot .gc-w{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:14px;color:var(--ink-2)}
+html[data-view=gallery] .g-lead-slot .gc .pl-s{margin:6px 0 0}
+html[data-view=gallery] .g-lead-slot .gc .heart{position:absolute;top:6px;right:6px}
+html[data-view=gallery].g-lead-on .g-acts .btn-ghost{display:none}
+}
+@media (max-width:639px){
+html[data-view=gallery] .masthead{min-height:0;padding-top:18px;padding-bottom:18px}
+html[data-view=gallery] .masthead h1{font-size:clamp(44px,13vw,60px)}
+html[data-view=gallery] .g-acts{margin-top:12px}
+html[data-view=gallery] .masthead .facts{margin-top:10px}
+html[data-view=gallery] .g-row .row-h{flex-wrap:nowrap;align-items:end;margin-top:22px}html[data-view=gallery] .g-row .row-h>div{min-width:0}
+}

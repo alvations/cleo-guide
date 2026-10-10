@@ -73,3 +73,25 @@ Evidence: `design/beta/eval/ROUND-3.md`.
 **Deployed 2026-10-10 16:06Z:** PR alvations/cleo-guide#5 merged the QA-signed SHA `83c51890` into the Pages branch (merge `b0ad208c`). The live site is untouched.
 
 **Next, Wave 4:** look & feel only (A 71 → ≥ 80): Gallery cover variety, motion, polish, Gallery as default view, Guidebook weight, i18n scaffolding and a "What changed" page. Photos remain an owner action.
+
+## Round 4 (evaluated 2026-10-10) — 80.8 → 83.4
+
+| Dimension | R3 | R4 | Goal |
+|---|---|---|---|
+| A. Look & feel (40 %) | 71 | 74 | ≥ 80 ✕ |
+| B. UX & ergonomics (25 %) | 84 | 85 | — |
+| C. Feature coverage (20 %) | 91 | 96 | ≥ 80 ✅ |
+| D. Unique strengths (15 %) | 88 | 89 | — |
+| **Overall** | **80.8** | **83.4** | ≥ 80 ✅ |
+
+**Shipped:** Wave 4, briefs in `design/beta/eval/W4-BRIEFS.md`.
+- **Gallery covers:** covers now vary (category motifs, tier plates, no two neighbours alike).
+- **Motion:** a motion layer that is safe under reduced-motion.
+- **Text and navigation:** diacritic names and a new switcher glyph.
+- **Performance:** a lighter Tokyo page and a lazy Guidebook.
+- **New pages:** 84 "What changed" pages and i18n scaffolding.
+- **Gallery-as-default reverted:** it failed the reachability and first-screen gates.
+
+Evidence: `design/beta/eval/ROUND-4.md`.
+
+**Deployed 2026-10-10 17:38Z:** PR alvations/cleo-guide#6 merged the QA-signed `8aa6fdf4` into the Pages branch (merge `5a323aec`). The live site is untouched.

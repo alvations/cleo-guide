@@ -127,7 +127,7 @@
   /* ---- views (SPEC §2.4): the names, the default, and which one this URL/visitor gets. The switcher, the
    * registry and remembering a choice are FE-A's (client/views.js); this is only the shared precedence. ---- */
   Cleo.view = {
-    VIEWS: VIEWS, DEFAULT: 'atlas',   // W3 (QA-29/31): Atlas until the paged Gallery passes G1; FE-A views.js reads the page's info.dv
+    VIEWS: VIEWS, DEFAULT: 'gallery',   // W5 (ROUND-4 #2): Gallery, flipped by FE-A once G1 passed; FE-A views.js reads the page's info.dv
     /** hash `view=` → the stored preference → the default. Never throws (store is try/catch). */
     current: function () {
       var h = Cleo.route.parse().view; if (h) return h;
