@@ -360,6 +360,24 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **#2** `.because` is in since slice 3. **#4** the source wrap is tightened (slice 4). **#7** saved cards use the normal `.pl` card with cover plate since slice 3; numbering runs across the whole list, and the native name is a `.nat` line (no "Gardens皇居東御苑" glue).
   - Gates: validate, npm test (all suites), beta:check PASS; 30 flows, 0 JS errors; screenshots re-shot.
 - 2026-10-10 · **FE-A** · rule-6 sweep (orchestrator note) · city "How we choose" box no longer names review brands ("review-aggregator star ratings never count as the recommender"). FE-A sources, CSS classes and slices 1–5 contain no other third-party brand or style names. Directions deep links and source chips are functional or exempt. **Round 3 readiness:** cards (`li.pl`), the sheet (`Cleo.sheet`), lenses/route state (`Cleo.route`, `C.S`), For you (`C.rank`/`C.why`), day (`C.lens.day`, `C.dayRank`) and saved state (`Cleo.saved`, store `lists`/`been`/`days`) are independent of the split/map layout, so a view style can reuse them. Gates PASS.
+
+- 2026-10-10 11:55Z · orchestrator · W2 build lanes finished.
+  - Archived: platform and FE-A. The head (764dc97b) passes all gates.
+  - Launched the QA W2 sign-off (session_012XtSjToyAdhBzVDZmhPP1u) and the Round 2 evaluator (session_01Ra23HLYrb9qZ7mzrw5gRpz), per the PM's Round 2 exit criteria.
+  - Wrote `design/beta/eval/W3-BRIEFS.md` from views/PLAN.md. The W3 squad launches once ROUND-2.md lands.
+- 2026-10-10 · **Evaluator** · Round 2 · session_01PCNcUkfa5S1N1BKGzZA4xx · head `764dc97b` vs R1 `65e93e9` · [`design/beta/eval/ROUND-2.md`](../design/beta/eval/ROUND-2.md).
+  - **Score 66.5 → 78.5** (A 60 → 67 · B 74 → 84 · C 66 → 89 · D 72 → 86). Goal (≥ 80, A ≥ 80, C ≥ 80) **not met**: C passes; A is the blocker (0 photos, unchanged landing hero, polish residue, little motion).
+  - C table re-scored on the same 35 rows: ✅ 30 · ◐ 2 (#28 offline awaits QA B-40, #35 delight) · ✕ 3 (#6 photos, #30 i18n, #34 what changed).
+  - Measured: `beta:metrics` 24/24 on all 5 city pilots + 10/10 landing; initial DOM Tokyo 1,739 / NYC 1,646 (but 12–13.6 k after any sheet or lens opens); map 44 %; peek 39 %; 0 JS errors on 36 flows. New defects: italic hero drops macrons, hero motif behind facts on phones, day "More days" links 17 px, desktop pin labels uncoloured, mobile peek prints the native name, repeated US bridge drawings. QA harness: B-12 reads "0 of 0 closed" (deferred cards).
+  - Top gaps → lanes: photos (imagery + owner), polish (designer + FE-A), Gallery view (FE-A + designer), landing hero/editorial rail (FE-B), motion, post-tap weight (platform), QA W2 run, i18n, what-changed feed, triad depth. Round 3 projection without photos ≈ 82–83 overall with A ≈ 73–75.
+  - Process: PM exit criterion 2 (QA W2 section) was not met on this head; noted in the round doc.
+  - Screenshots: `design/beta/eval/r2/*-{m,d}-r1-r2.jpg`, `r2-scroll-m.jpg`; tools `design/beta/eval/r2/tools/`. validate + npm test + beta:check PASS.
+
+- 2026-10-10 12:22Z · orchestrator · Round 2 evaluated: 78.5 (A67 B84 C89 D86). Evaluator archived.
+  - Launched W3 per `design/beta/eval/W3-BRIEFS.md`: platform session_01S3eYSS1qPYEHJVXBeyRLYH, FE-A session_012ryUPpieJjoKFXA2se7HsV, FE-B session_01KLBRpRabpnEHiyU3gKvKjv, designer session_014ybQFjFvA2XjTrPFrP5YJJ.
+  - QA W3 is deferred until the QA W2 sign-off finishes. The weekly usage limit is at warning, so 4 lanes run instead of 5.
+  - Deploying W2 will use the SHA that QA W2 signs off, not the moving head.
+  - BETA-CHANGELOG now has Rounds 1–2.
 - 2026-10-10 · **QA** · Wave 2 run (Round 2 exit criterion 2) · session_012XtSjToyAdhBzVDZmhPP1u · measured `764dc97b` · commit: this entry's commit.
   - New `tools/beta/qa/w2.js` (`npm run beta:qa:w2`, 218 checks on every W2 feature) + vendored offline axe-core 4.10.2 (`tools/beta/qa/vendor/`) — M1 blocker 5 closed (axe now runs). `metrics.js`: disabled controls skipped for contrast (WCAG 1.4.3 inactive-component exemption; it was a false failure on the empty saved page). `tools/package.json`: +1 script line.
   - Gates G1/G3/G4/G6/G8 100 % / 0 FAIL on 95 pages (84 place pages, 8,458 places, beta == live); storage-throwing render 84/84; offline reload signed (B-40) on all 5 pilots.
