@@ -25,7 +25,7 @@ map pin decluttering, saved-page covers, day-plan plates.
 | 6 | Map as guide | **◐+** | Map 44 % of 1440 desktop; flies to the area in view and to the open sheet; numbered pins in focus area; mobile peek ≈ 38 % with summary + Close/Open (`rev-map-m`); sheet locator inset from verified pins (`rev-sheet-m`). | FE-A: **numbered pins overlap** at city zoom (Tokyo desktop + mobile: "38/33/31…" stacked) — declutter: numbers only for the focused area *and* collision-hide labels (or cluster) below zoom 14 (P14). |
 | 7 | Saved page | **◐+** | Tabs (All saved · Been there · lists), New list / Rename / Delete, Share, Export, Import, map of saved, read-only shared view with Save a copy (`rev-saved-d`, `fe-a/w2-saved-shared-m`). | FE-A: cards have no plates/covers (spec asked for covers); native name glued "Gardens皇居東御苑" (needs a space or `.nat` line); map numbers restart per city ("1" twice) — number across the list or label by city colour. |
 | 8 | Static features | **✅** | Near me opt-in (never stored), Recently closed lens, `accessibility.html`. | — |
-| 9 | Weight & sharing | **✕ (not yet)** | DOM at load: **Tokyo 12,092 · NYC 11,684** nodes (budget 3,000); `beta/assets/og/` empty (shared OG cover). | Platform. |
+| 9 | Weight & sharing | **✅ (late merge)** | Platform chunking: initial DOM **Tokyo 1,734 · NYC 1,635 · Cleveland 1,284** nodes (budget 3,000; 32 cards first, the rest on demand); `beta/assets/og/` holds 90 per-page 1200×630 cards. Sheet and cards render unchanged after chunking (0 JS errors in my captures). | QA: confirm offline reload (B-40) and that search/filters reach every chunked record. |
 | 10 | ★ = canon not publisher | **✅** | Platform `guide.signature` → hub tiles (FE-B) and, since FE-A slice 2, the city ★ tile (Cleveland "Only in Cleveland · Polish Boy · corned beef · Barberton chicken" 18); canon-first food rail. (`rev-cleveland-m` predates FE-A slice 2.) | — |
 
 ## Luxury + fun layer (designer, this wave)
@@ -70,6 +70,5 @@ when it is present) and the peek summary `.peek-c`.
 
 - **FE-A:** pin-label declutter (#6); saved covers + native spacing + numbering (#7);
   day spine through leg text, mini plates, sentence-case eyebrow (#5); tighter source-chip wrap (#4); use `.because` (#2).
-- **PLT:** OG images (#9); DOM ≤ 3,000 (#9).
 - **Imagery:** keep masthead motifs clear of the facts text on phones.
 - **Upstreaming:** FEB_CSS / fe-a.css stay lane-owned this wave (they are still moving); designer folds them into cleo.css in W3.
