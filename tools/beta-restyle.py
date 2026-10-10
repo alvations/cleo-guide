@@ -18,6 +18,7 @@ and that the P / F record counts are unchanged, refusing to write on any mismatc
 Usage:
   python3 tools/beta-restyle.py            # regenerate all of beta/
   python3 tools/beta-restyle.py --check    # verify an existing beta/ against sources (no write)
+  python3 tools/beta-restyle.py --only cities/youngstown.html   # regenerate just matching pages
 """
 import os, re, sys, glob, html
 
@@ -539,6 +540,9 @@ def main():
     check_only = "--check" in sys.argv
     mirror = mirror_rel_paths()
     mirror_set = set(mirror)
+    if "--only" in sys.argv:   # regenerate a subset (link rewriting still sees the full mirror set)
+        sub = sys.argv[sys.argv.index("--only") + 1]
+        mirror = [r for r in mirror if sub in r]
     n_ok = n_map = 0
     failures = []
     for rel in mirror:

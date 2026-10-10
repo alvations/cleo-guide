@@ -11708,9 +11708,10 @@
   {
    "t": 2,
    "a": "BLS",
-   "n": "Ah Hui Big Prawn Noodle (Balestier Food Centre)",
+   "n": "Ah Hui Big Prawn Noodle (Balestier Food Centre) — CLOSED",
    "ad": "Balestier Market & Food Centre, #01-13, 411 Balestier Road, Singapore 329930",
    "w": "Aromatic, umami-rich prawn noodle soup — a slightly sweet, garlicky prawn stock, firm big prawns and optional tender pork ribs ($5) — the headline stall of Balestier's heritage market building in both Seth Lui's and Women's Weekly's Balestier Food Centre guides.",
+   "closed": true,
    "cz": [
     "CHINESE",
     "HAWKER"
@@ -22889,6 +22890,53 @@
     [
      "HAVEHALALWILLTRAVEL",
      "https://www.havehalalwilltravel.com/halal-satay-singapore"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "PGL",
+   "n": "You Fu Ban Mian & Pao Fan (Punggol Coast)",
+   "ad": "#02-K61 Punggol Coast Hawker Centre, 84 Punggol Way, Singapore 829911",
+   "w": "Ban mian and pao fan stall picked in Seth Lui's 10 must-try Punggol Coast Hawker Centre stalls and profiled in Little Day Out's 40-stall guide — handmade noodles and pao fan share a broth cooked for hours.",
+   "cz": [
+    "CHINESE",
+    "HAWKER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "SETHLUI",
+     "https://sethlui.com/punggol-coast-hawker-centre-food-guide-singapore/"
+    ],
+    [
+     "LITTLEDAYOUT",
+     "https://www.littledayout.com/punggol-coast-hawker-centre-food-stalls/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "PGL",
+   "n": "One Soy (Punggol Coast)",
+   "ad": "#02-K88 Punggol Coast Hawker Centre, 84 Punggol Way, Singapore 829911",
+   "w": "Soy-drinks and beancurd-dessert stall named in Seth Lui's 10 must-try Punggol Coast stalls and Women's Weekly's best Punggol Coast Hawker Centre food — rich, lightly creamy fresh soy milk with pick-your-sugar toppings.",
+   "cz": [
+    "HAWKER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "SETHLUI",
+     "https://sethlui.com/punggol-coast-hawker-centre-food-guide-singapore/"
+    ],
+    [
+     "WOMENSWEEKLY",
+     "https://www.womensweekly.com.sg/food/best-punggol-coast-hawker-centre-food"
     ]
    ]
   },

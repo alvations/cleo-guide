@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A day with your guide — Tokyo (prototype)</title>
+<meta name="description" content="PROTOTYPE · 2026-10 UX proposal. A day assembled from the guide's own sourced records.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&amp;display=swap">
+<link rel="stylesheet" href="salon.css">
+<script src="data/tokyo.js"></script>
+<script src="guide.js"></script>
+<style>
+  .ihead{padding-top:var(--s6);padding-bottom:var(--s4)}
+  .ihead h1{font:300 clamp(44px,7vw,92px)/.92 var(--display);font-variation-settings:"opsz" 72;letter-spacing:-.025em;margin:10px 0 0}
+  .ihead h1 em{color:var(--gilt)}
+  .ihead .lede{font:italic 400 var(--fs-xl)/1.35 var(--display);color:var(--ink-2);margin:12px 0 0;max-width:44ch}
+  .ibar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:var(--s4)}
+  .timeline{list-style:none;margin:var(--s4) 0 0;padding:0;position:relative}
+  .timeline::before{content:"";position:absolute;left:21px;top:10px;bottom:10px;width:1px;background:repeating-linear-gradient(var(--gilt-soft) 0 4px,transparent 4px 9px)}
+  .stop{position:relative;padding-left:60px;margin-bottom:var(--s5)}
+  .stop .num{position:absolute;left:0;top:0;width:43px;height:43px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--paper);font:400 20px/1 var(--display);box-shadow:0 0 0 5px var(--paper)}
+  .stop .when{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:6px 0 10px}
+  .stop .when b{font:500 22px/1 var(--display)}
+  .stop .when span{font-size:var(--fs-sm);color:var(--ink-2)}
+  .stop .leg{font-size:12.5px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+  .stop .swap{margin-top:8px}
+  .gap{padding:14px 16px;border:1px dashed var(--hair-2);border-radius:var(--r-md);color:var(--ink-2);font-size:var(--fs-sm)}
+  .honest{background:var(--paper-2);border-radius:var(--r-md);padding:14px 16px;font-size:var(--fs-sm);color:var(--ink-2);margin-top:var(--s5)}
+  .imap{height:min(70vh,640px)}
+  @media (max-width:1023px){.mapcol{display:block;position:relative;top:auto;height:auto;margin:var(--s4) 0}.imap{height:340px}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="mark" href="hub.html" data-icon="mark">Cleo</a>
+  <nav class="crumbs" aria-label="Breadcrumb"><span aria-hidden="true">·</span><a href="hub.html?country=japan">Japan</a><span aria-hidden="true">/</span><a href="tokyo.html">Tokyo</a><span aria-hidden="true">/</span><span>A day</span></nav>
+  <span class="sp"></span>
+  <a class="btn" href="tokyo.html" data-icon="list">All places</a>
+  <button class="iconbtn" data-theme-toggle aria-label="Switch to night-out mode"></button>
+</div></header>
+<main class="wrap">
+  <section class="ihead">
+    <p class="eyebrow">A day with your guide · Tokyo</p>
+    <h1 id="ititle">A day in <em>…</em></h1>
+    <p class="lede" id="ilede"></p>
+    <div class="ibar">
+      <label class="sr" for="iarea">Area</label><select class="chip" id="iarea"></select>
+      <span class="vr"></span>
+      <span id="iprefs" class="ibar" style="margin:0"></span>
+    </div>
+  </section>
+  <div class="split">
+    <section class="listcol"><ol class="timeline" id="tl"></ol>
+      <p class="honest">Assembled from this guide’s own records — every stop keeps who recommended it. Distances are straight-line between sourced pins (real walks run longer); opening hours aren’t in the dataset yet, so confirm each stop before you go. Closed places are never scheduled.</p></section>
+    <aside class="mapcol" aria-label="Route map"><div id="imap" class="imap"></div></aside>
+  </div>
+</main>
+<footer class="foot"><div class="wrap"><p><span class="proto">Prototype</span> · 2026-10 UX proposal · real Tokyo records, geocode-gated.</p></div></footer>
+<script>
+(function () {
+  const C = window.Cleo, R = C.R, M = C.M, esc = C.esc, Q = new URLSearchParams(location.search);
+  const has = (r, set, key) => r[key].some(x => set.includes(x));
+  const SLOTS = [
+    { k: 'Morning', hint: 'a landmark while it’s quiet', ok: r => r.kind === 'sight' && (has(r, ['TEMPLE', 'CASTLE', 'GARDEN', 'UNESCO', 'ICON', 'ARCH', 'HIST'], 'g')) },
+    { k: 'Lunch', hint: 'what the city is known for', ok: r => r.kind === 'food' && has(r, ['RAMEN', 'NOODLE', 'TEMPURA', 'SUSHI', 'TEISHOKU', 'KONAMON', 'BEEF', 'DOG', 'PZ', 'DELI', 'MEX', 'MKT'], 'cz') },
+    { k: 'Afternoon', hint: '', ok: r => r.kind === 'sight' && (C.S.prefs && (C.S.prefs.interests || []).includes('pop') ? has(r, ['ANIME', 'POP', 'ARTS', 'MURAL'], 'g') : has(r, ['MUS', 'MKT', 'GARDEN', 'VIEW', 'ARCH'], 'g')) },
+    { k: 'Tea & a pause', hint: 'kissaten, wagashi, a sweet', ok: r => r.kind === 'food' && has(r, ['SWEET', 'CAFE', 'COF', 'DES'], 'cz') },
+    { k: 'Golden hour', hint: 'a view or a stroll', ok: r => r.kind === 'sight' && has(r, ['VIEW', 'NATURE', 'PARK', 'WATER', 'NIGHT', 'ROOF'], 'g') },
+    { k: 'Dinner & after dark', hint: 'counter, izakaya or a proper bar', ok: r => r.kind === 'food' && has(r, ['IZAKAYA', 'SAKE', 'BAR', 'KAISEKI', 'WAGYU', 'FINE', 'SUSHI'], 'cz') },
+  ];
+  const areaIds = M.areas.map(a => a.id);
+  let area = Q.get('area') && areaIds.includes(Q.get('area')) ? Q.get('area') : 'TAITO';
+  const start = Q.get('start') != null ? +Q.get('start') : null;
+  let swaps = {};
+  function plan() {
+    const pool = R.filter(r => r.a === area && !r.closed);
+    const used = new Set(), out = [];
+    let prev = null;
+    SLOTS.forEach((s, i) => {
+      let cand = pool.filter(r => !used.has(r.id) && s.ok(r));
+      if (i === 0 && start != null && R[start] && R[start].a === area && !R[start].closed) cand = [R[start]].concat(cand.filter(r => r.id !== start));
+      const scored = cand.map(r => [r, C.personal(r) + (i === 0 && r.t === 1 ? 2.5 : 0) - (prev ? C.km(prev, r) * 1.1 : 0)]).sort((a, b) => b[1] - a[1]).map(x => x[0]);
+      if (i === 0 && start != null && cand[0] && cand[0].id === start) scored.unshift(...scored.splice(scored.indexOf(cand[0]), 1));
+      const pick = scored.length ? scored[(swaps[i] || 0) % scored.length] : null;
+      out.push({ slot: s, r: pick, alt: scored.length, leg: pick && prev ? C.km(prev, pick) : null });
+      if (pick) { used.add(pick.id); prev = pick; }
+    });
+    return out;
+  }
+  let mapApi;
+  function render() {
+    const nm = C.shortArea(area);
+    document.getElementById('ititle').innerHTML = `A day in <em>${esc(nm)}</em>`;
+    document.getElementById('ilede').textContent = C.areaSub(area) ? `${C.areaSub(area)} — six stops, walked in order.` : 'Six stops, walked in order.';
+    document.getElementById('iarea').innerHTML = M.areas.map(a => `<option value="${a.id}"${a.id === area ? ' selected' : ''}>${esc(C.shortArea(a.id))} · ${R.filter(r => r.a === a.id).length} places</option>`).join('');
+    const p = C.S.prefs;
+    document.getElementById('iprefs').innerHTML = p ? `<span class="chip" aria-pressed="true">${C.I.spark}Curated: ${esc([...(p.interests || []), p.vibe].filter(Boolean).join(' · '))}</span>` : `<a class="chip" href="tokyo.html?concierge=1">${C.I.bell}Tell your guide what you love</a>`;
+    const days = plan();
+    let n = 0, totalKm = 0;
+    document.getElementById('tl').innerHTML = days.map((d, i) => {
+      if (!d.r) return `<li class="stop"><span class="num" aria-hidden="true">–</span><div class="when"><b>${d.slot.k}</b></div><p class="gap">Nothing in ${esc(nm)} fits this slot in the guide — a gap stated, not filled.</p></li>`;
+      n++; if (d.leg) totalKm += d.leg;
+      const walk = d.leg != null ? `<span class="leg">${C.fmtKm(d.leg)} from the last stop · ~${Math.max(1, Math.round(d.leg / 4.5 * 60))} min straight-line walk</span>` : '<span class="leg">Start here</span>';
+      return `<li class="stop"><span class="num" aria-hidden="true">${n}</span><div class="when"><b>${d.slot.k}</b>${d.slot.hint ? `<span>${d.slot.hint}</span>` : ''}</div>
+        ${C.cardHtml(d.r, { noFy: false })}
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px">${walk}${d.alt > 1 ? `<button class="btn swap" data-swap="${i}" style="min-height:38px">Swap · ${d.alt - 1} other option${d.alt > 2 ? 's' : ''}</button>` : ''}</div></li>`;
+    }).join('');
+    const route = days.filter(d => d.r).map(d => d.r);
+    mapApi.set(route, { route, focus: route });
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    mapApi = C.SchemMap(document.getElementById('imap'), { legend: false, onPick: id => { location.href = 'tokyo.html?open=1#place-' + id; } });
+    render(); C.themeBtn();
+    document.getElementById('iarea').addEventListener('change', e => { area = e.target.value; swaps = {}; render(); });
+    document.addEventListener('click', e => {
+      const s = e.target.closest('[data-swap]'); if (s) { const i = +s.dataset.swap; swaps[i] = (swaps[i] || 0) + 1; render(); return; }
+      if (e.target.closest('[data-theme-toggle]')) { const d = !C.isDark(); C.applyTheme(d ? 'dark' : 'light'); C.store.set('theme', d ? 'dark' : 'light'); C.themeBtn(); mapApi.redraw(); }
+      const sv = e.target.closest('[data-save]'); if (sv) { const id = +sv.dataset.save; const set = C.S.saved; set.has(id) ? set.delete(id) : set.add(id); C.store.set('saved.' + M.key, [...set]); sv.setAttribute('aria-pressed', set.has(id)); C.toast(set.has(id) ? 'Saved' : 'Removed'); return; }
+      const sh = e.target.closest('[data-show],[data-open]'); if (sh) { e.preventDefault(); location.href = 'tokyo.html'; }
+    });
+  });
+})();
+</script>
+</body>
+</html>

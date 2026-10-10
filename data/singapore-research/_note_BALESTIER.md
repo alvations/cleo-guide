@@ -101,3 +101,10 @@ still needs a formal statuscheck in the geocode wave. Closures found: 0.
 > fix: HLV 56/55 OK (live) · BLS 55/55 OK (go-live held for pins) · NVN 35/55 (NEED +20) · PGL 35/93 (NEED +58).**
 
 - **FINAL (end of session): HLV 57/55 OK (LIVE) · BLS 56/55 OK (go-live held for pins) · NVN 37/55 (NEED +18) · PGL 35/93 (NEED +58).** Late adds: NVN Baan Ying, Banelé; BLS Niu Dian (VIIO @ Balestier); HLV Niu Dian (HV).
+
+## W5 (2026-10-03, gap-fill session) — PINNED → LIVE
+- **Root cause of 5 pins:** every unrendered BLS record lacked a coordinate in data/geocodes.json (UNVERIFIED / no entry) — no gate failures.
+- **Pinned 44** (geo/_geoout_balestier_w5.json): Whampoa Makan Place + 19 stalls (Wikidata Q107804009 = enwiki coord, med); Balestier Market + 5 stalls (streetdirectory 411 Balestier Rd); Balestier Plaza ×2 (OSM W328531477); Bee Kia (OSM Balestier Hill SC); Niu Dian (OSM VIIO); Tanjong Rhu Pau (OSM node); Loong Fatt, Whampoa Keng, Kai Juan, Loy Kee, Lam Yeo, Balestier BKT, Goh Chor Tua Pek Kong, Balestier Point, Ceylon SC (streetdirectory listings); Xin Mei Xiang (586 address point); Zhongshan Park, Shaw Plaza (OSM); Whampoa Dragon Fountain (Wikipedia).
+- **Closure:** Ah Hui Big Prawn Noodle — CLOSED (last day 13 Jul 2023). **Page: 49 pins** (was 5) · 56/55 places · 77% food · **LIVE** (`balestier` in LIVE_SLUGS).
+- **Still unpinned (7):** Wicked Good (status unconfirmed), Lotus Vegetarian, Cafe de Hong Kong, Kim Bak Chor Mee, Sweetlands, Sing Hon Loong (no street address), House of Tau Sar Piah — CLOSED, Balestier Conservation Area (linear).
+- **Next:** street addresses for the 5 address-less food records (each place's own socials), then streetdirectory pin; re-check Wicked Good.

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style tiles — three directions (prototype)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&amp;family=Unbounded:wght@400..800&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;family=Cormorant+Garamond:ital,wght@0,400..700;1,400..600&amp;family=Manrope:wght@400..800&amp;display=swap">
+<script src="data/tokyo.js"></script>
+<style>
+  body{margin:0;background:#E9E6E0;font-family:system-ui,sans-serif;padding:24px}
+  .tile{width:1240px;margin:0 auto 32px;border-radius:20px;overflow:hidden;display:grid;grid-template-columns:420px 1fr;min-height:760px;box-shadow:0 30px 60px -30px rgba(0,0,0,.35)}
+  .tile .l{padding:36px}
+  .tile .r{padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-content:start}
+  .sw{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}
+  .sw div{border-radius:10px;height:64px;padding:8px;font:600 10.5px/1.25 ui-monospace,monospace;display:flex;flex-direction:column;justify-content:flex-end}
+  .cr{font:600 11px/1.6 ui-monospace,monospace;opacity:.85}
+  .tok{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:10px}
+  .tok td{padding:4px 0;border-bottom:1px solid currentColor;border-color:rgba(127,127,127,.25)}
+  .tok td:first-child{opacity:.7;width:38%}
+  .lab{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin:20px 0 6px;opacity:.8}
+
+  /* ── A · Salon (recommended) ─────────────────────────────────── */
+  #a{background:#FBF8F2;color:#1D1B18;font-family:Figtree,sans-serif}
+  #a .l{background:#F4EEE3}
+  #a h2{font:300 64px/.95 Newsreader,serif;font-variation-settings:"opsz" 72;letter-spacing:-.02em;margin:10px 0}
+  #a h2 em{color:#7D5F28}
+  #a .mood{font:italic 400 20px/1.35 Newsreader,serif;color:#5C564D}
+  #a .eb{font:700 11.5px Figtree;letter-spacing:.18em;text-transform:uppercase;color:#7D5F28}
+  #a .rec{display:inline-block;background:#7D5F28;color:#FBF8F2;font:700 11px Figtree;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px;border-radius:99px}
+  #a .card{background:#fff;border:1px solid rgba(29,27,24,.12);border-radius:16px;padding:18px;box-shadow:0 2px 6px rgba(29,27,24,.08),0 18px 40px -12px rgba(29,27,24,.22)}
+  #a .card h3{font:450 26px/1.1 Newsreader,serif;margin:8px 0 2px}
+  #a .card .why{font:400 17px/1.5 Newsreader,serif}
+  #a .top{display:flex;gap:8px;font:600 11.5px Figtree;letter-spacing:.12em;text-transform:uppercase;color:#5C564D}
+  #a .top b{margin-left:auto;color:#7D5F28}
+  #a .src{display:inline-block;background:#F4EEE3;border-radius:99px;padding:6px 10px;font:600 12.5px Figtree;margin:2px}
+  #a .night{background:#121016;color:#F2ECE2;border-radius:16px;padding:18px}
+  #a .night h3{font:450 26px/1.1 Newsreader,serif;margin:6px 0}
+  #a .night .eb{color:#DDBF84}
+  #a .night .pop{display:inline-block;background:#26172E;color:#D9A6F2;font:700 11px Figtree;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:99px}
+  #a .gap{border:1px dashed rgba(29,27,24,.3);border-radius:16px;padding:18px;font-size:14.5px;color:#5C564D}
+  #a .gap b{display:block;font:450 21px Newsreader,serif;color:#1D1B18;margin-bottom:4px}
+  #a .closed{border-radius:16px;padding:18px;background:repeating-linear-gradient(135deg,#F4EEE3 0 10px,#fff 10px 20px);border:1px solid rgba(29,27,24,.12)}
+  #a .closed .tag{background:#A8321F;color:#fff;font:700 11px Figtree;letter-spacing:.12em;text-transform:uppercase;padding:5px 8px;border-radius:6px}
+  #a .closed h3{font:450 22px Newsreader,serif;color:#5C564D;margin:10px 0 4px}
+  #a .btns{display:flex;gap:8px;flex-wrap:wrap}
+  #a .btn{border-radius:99px;padding:12px 18px;font:600 14px Figtree;border:1px solid rgba(29,27,24,.22);background:#fff}
+  #a .btn.p{background:#1D1B18;color:#FBF8F2}
+
+  /* ── B · Midnight Arcade ─────────────────────────────────────── */
+  #b{background:#0E0B1A;color:#F4F1FF;font-family:"DM Sans",sans-serif}
+  #b .l{background:linear-gradient(160deg,#1A1530,#0E0B1A)}
+  #b h2{font:800 50px/.98 Unbounded,sans-serif;letter-spacing:-.02em;margin:10px 0}
+  #b h2 em{font-style:normal;color:#FF4FB8;text-shadow:0 0 24px rgba(255,79,184,.45)}
+  #b .mood{font-size:18px;color:#B9B2D6}
+  #b .eb{font:700 11.5px "DM Sans";letter-spacing:.2em;text-transform:uppercase;color:#D7FF5A}
+  #b .card{background:#1A1530;border:1px solid #2E2650;border-radius:22px;padding:18px;position:relative}
+  #b .card h3{font:700 22px/1.15 Unbounded,sans-serif;margin:10px 0 4px}
+  #b .card .why{font-size:16px;line-height:1.5;color:#E3DEF7}
+  #b .stk{display:inline-block;transform:rotate(-3deg);background:#D7FF5A;color:#0E0B1A;font:800 11px Unbounded;padding:7px 10px;border-radius:8px;text-transform:uppercase}
+  #b .stk.m{background:#FF4FB8;color:#0E0B1A;transform:rotate(2deg)}
+  #b .src{display:inline-block;border:1px solid #49E0E6;color:#49E0E6;border-radius:99px;padding:5px 10px;font:700 12.5px "DM Sans";margin:2px}
+  #b .light{background:#FFF8F0;color:#1B1530;border-radius:22px;padding:18px}
+  #b .light h3{font:700 22px Unbounded;margin:8px 0}
+  #b .light .stk{background:#C2187A;color:#fff}
+  #b .btn{border-radius:14px;padding:12px 18px;font:700 14px "DM Sans";border:0;background:#FF4FB8;color:#0E0B1A;box-shadow:0 0 0 2px #0E0B1A,0 0 0 4px #FF4FB8}
+  #b .btn.g{background:transparent;color:#F4F1FF;box-shadow:inset 0 0 0 1.5px #B9B2D6}
+
+  /* ── C · Maison Atelier ──────────────────────────────────────── */
+  #c{background:#FFFFFF;color:#0B0B0B;font-family:Manrope,sans-serif}
+  #c .l{background:#EDE8E1}
+  #c h2{font:500 72px/.9 "Cormorant Garamond",serif;letter-spacing:-.01em;margin:10px 0;text-transform:uppercase}
+  #c h2 em{font-style:italic;text-transform:none;color:#9E1B1B}
+  #c .mood{font:italic 500 21px/1.35 "Cormorant Garamond",serif;color:#4A4A4A}
+  #c .eb{font:700 10.5px Manrope;letter-spacing:.32em;text-transform:uppercase}
+  #c .card{border-top:1.5px solid #0B0B0B;padding:16px 0 0;display:grid;grid-template-columns:64px 1fr;gap:14px}
+  #c .card .no{font:400 56px/1 "Cormorant Garamond",serif}
+  #c .card h3{font:600 30px/1 "Cormorant Garamond",serif;margin:0 0 6px}
+  #c .card .why{font-size:14.5px;line-height:1.6;color:#2A2A2A}
+  #c .src{display:inline-block;font:700 10.5px Manrope;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid #0B0B0B;margin:4px 10px 0 0;padding-bottom:2px}
+  #c .t1{font:700 10.5px Manrope;letter-spacing:.24em;text-transform:uppercase;color:#9E1B1B}
+  #c .dark{background:#0B0B0B;color:#F5F2EC;padding:20px}
+  #c .dark h3{font:600 30px "Cormorant Garamond",serif;margin:6px 0}
+  #c .dark .t1{color:#E06A5A}
+  #c .btn{border:1.5px solid #0B0B0B;padding:12px 20px;font:700 11px Manrope;letter-spacing:.24em;text-transform:uppercase;background:#fff}
+  #c .btn.p{background:#0B0B0B;color:#fff}
+</style>
+</head>
+<body>
+<section class="tile" id="a">
+  <div class="l">
+    <span class="rec">Recommended</span>
+    <p class="eb" style="margin-top:18px">Direction A</p>
+    <h2>Salon <em>&amp;</em> Night&nbsp;out</h2>
+    <p class="mood">The grand-hotel writing desk at golden hour: ivory paper, ink, a gilt hairline — then the same house after dark, with one neon-plum wink for the pop-culture moments.</p>
+    <p class="lab">Palette · light / night</p>
+    <div class="sw" data-pal="#FBF8F2,#1D1B18,#7D5F28,#2E6A58|#F4EEE3,#5C564D,#A8321F,#7B3FA0|#121016,#F2ECE2,#DDBF84,#86CDB5|#1E1B24,#B9B1A4,#FF8A73,#D9A6F2"></div>
+    <p class="cr" data-cr="#1D1B18/#FBF8F2,#5C564D/#FBF8F2,#7D5F28/#FBF8F2,#2E6A58/#FFFFFF,#A8321F/#FFFFFF,#7B3FA0/#F0E5F6,#F2ECE2/#121016,#B9B1A4/#1E1B24,#DDBF84/#1E1B24,#D9A6F2/#26172E"></p>
+    <table class="tok"><tr><td>Display</td><td>Newsreader 300–450, opsz 72 · italics for the guide’s voice</td></tr><tr><td>UI / labels</td><td>Figtree 500–700 · tracked caps for eyebrows</td></tr><tr><td>Radius</td><td>10 · 16 · 24 · pill</td></tr><tr><td>Shadow</td><td>soft two-layer, warm-ink tinted</td></tr><tr><td>Motion</td><td>140 / 260 / 420 ms · cubic-bezier(.2,.7,.2,1) · lift 2px</td></tr><tr><td>Icons</td><td>1.5px line glyphs, gilt; compass-rose mark</td></tr></table>
+  </div>
+  <div class="r">
+    <div class="card" data-sample="a"></div>
+    <div style="display:grid;gap:14px;align-content:start">
+      <div class="night" data-night></div>
+      <div class="btns"><span class="btn p">Curate my Tokyo</span><span class="btn">Just browse</span></div>
+    </div>
+    <div class="closed" data-closed></div>
+    <div class="gap"><b>A gap, stated</b>“Middle Eastern — you asked specifically about Persian; there is no Persian restaurant in Cleveland with that reputation, so I have said so on the card rather than padding the list.” <br><small style="opacity:.8">— verbatim from cleveland.html; the pattern every city keeps</small></div>
+  </div>
+</section>
+
+<section class="tile" id="b">
+  <div class="l">
+    <p class="eb">Direction B</p>
+    <h2>Midnight <em>Arcade</em></h2>
+    <p class="mood">Shibuya at 1 a.m.: a marquee glow, sticker-bomb badges, chunky wide type. Maximum fun, nightlife-first — luxury carried by restraint in layout, not in colour.</p>
+    <p class="lab">Palette · night / day</p>
+    <div class="sw" data-pal="#0E0B1A,#F4F1FF,#FF4FB8,#D7FF5A|#1A1530,#B9B2D6,#49E0E6,#2E2650|#FFF8F0,#1B1530,#C2187A,#0B7C83|#FFFFFF,#4B4466,#6B2FD6,#E9E2F7"></div>
+    <p class="cr" data-cr="#F4F1FF/#0E0B1A,#B9B2D6/#1A1530,#FF4FB8/#1A1530,#D7FF5A/#0E0B1A,#49E0E6/#1A1530,#1B1530/#FFF8F0,#C2187A/#FFF8F0,#0B7C83/#FFF8F0"></p>
+    <table class="tok"><tr><td>Display</td><td>Unbounded 700–800</td></tr><tr><td>UI / body</td><td>DM Sans 400–700</td></tr><tr><td>Radius</td><td>14 · 22 · pill; stickers rotate ±3°</td></tr><tr><td>Shadow</td><td>neon glow rings instead of drop shadows</td></tr><tr><td>Motion</td><td>springy 320ms overshoot · marquee shimmer</td></tr><tr><td>Icons</td><td>chunky 2px glyphs, filled on active</td></tr></table>
+  </div>
+  <div class="r">
+    <div class="card" data-sample="b"></div>
+    <div style="display:grid;gap:14px;align-content:start"><div class="light" data-light></div><div><span class="btn">Curate my Tokyo</span> &nbsp; <span class="btn g">Just browse</span></div></div>
+  </div>
+</section>
+
+<section class="tile" id="c">
+  <div class="l">
+    <p class="eb">Direction C</p>
+    <h2>Maison <em>Atelier</em></h2>
+    <p class="mood">A couture lookbook: stark white, black hairlines, oversized numerals, one lacquer-red stitch. The most “high fashion”; the least warm.</p>
+    <p class="lab">Palette · light / dark</p>
+    <div class="sw" data-pal="#FFFFFF,#0B0B0B,#9E1B1B,#EDE8E1|#F7F5F2,#4A4A4A,#2A2A2A,#C9C2B8|#0B0B0B,#F5F2EC,#E06A5A,#1C1C1C|#141414,#A8A39B,#D9CFC0,#333333"></div>
+    <p class="cr" data-cr="#0B0B0B/#FFFFFF,#4A4A4A/#FFFFFF,#9E1B1B/#FFFFFF,#F5F2EC/#0B0B0B,#E06A5A/#0B0B0B,#A8A39B/#141414"></p>
+    <table class="tok"><tr><td>Display</td><td>Cormorant Garamond 500–600, caps</td></tr><tr><td>UI / body</td><td>Manrope 500–700, wide tracking</td></tr><tr><td>Radius</td><td>0 — square, editorial</td></tr><tr><td>Shadow</td><td>none · hairline rules carry structure</td></tr><tr><td>Motion</td><td>slow 500ms fades · no bounce</td></tr><tr><td>Icons</td><td>none — numerals &amp; words only</td></tr></table>
+  </div>
+  <div class="r">
+    <div class="card" data-sample="c"></div>
+    <div class="dark" data-dark></div>
+    <div style="grid-column:1/-1"><span class="btn p">Curate my Tokyo</span> &nbsp; <span class="btn">Just browse</span></div>
+  </div>
+</section>
+<script>
+(function () {
+  const R = window.CLEO_CITY.recs, esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const senso = R.find(r => /Sensō-ji/.test(r.n)), anime = R.find(r => /Nakano Broadway/.test(r.n)) || R.find(r => r.g.includes('ANIME'));
+  const food = R.find(r => r.kind === 'food' && r.cz.includes('RAMEN') && r.t === 1) || R.find(r => r.kind === 'food');
+  const closed = R.find(r => r.closed);
+  const srcs = (r, cls) => r.s.map(s => `<span class="src">${esc(s[0])}</span>`).join('');
+  document.querySelector('[data-sample="a"]').innerHTML = `<div class="top"><span>● Taitō-ku · Sight</span><b>✸ Must see</b></div><h3>${esc(senso.n)}</h3><div style="color:#5C564D">${esc(senso.jp)}</div><p class="why">${esc(senso.w)}</p><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#5C564D;margin-bottom:4px">Recommended by</div>${srcs(senso)}`;
+  document.querySelector('[data-night]').innerHTML = `<span class="eb" style="font:700 11px Figtree;letter-spacing:.16em;text-transform:uppercase">Night out · ${esc(anime.a === 'JOSAI' ? 'Jōsai' : '')}</span> <span class="pop">✦ For you · pop culture</span><h3>${esc(anime.n)}</h3><p style="font:400 16px/1.5 Newsreader,serif;color:#B9B1A4;margin:0">${esc(anime.w)}</p>`;
+  document.querySelector('[data-closed]').innerHTML = `<span class="tag">Closed</span><h3>${esc(closed.n)}</h3><p style="margin:0;color:#A8321F;font-weight:600;font-size:14px">Permanently closed — kept for the record, never as a suggestion.</p><p style="margin:6px 0 0;font-size:13px;color:#5C564D">${esc(closed.statusSource || '')}</p>`;
+  document.querySelector('[data-sample="b"]').innerHTML = `<span class="stk">Must see</span> <span class="stk m">✦ for you</span><h3>${esc(senso.n)}</h3><p class="why">${esc(senso.w)}</p><div style="font:700 11px 'DM Sans';letter-spacing:.14em;text-transform:uppercase;color:#B9B2D6;margin:8px 0 4px">Recommended by</div>${srcs(senso)}`;
+  document.querySelector('[data-light]').innerHTML = `<span class="stk">Must eat</span><h3>${esc(food.n)}</h3><p style="margin:0;font-size:15px;line-height:1.5">${esc(food.w)}</p>`;
+  document.querySelector('[data-sample="c"]').innerHTML = `<span class="no">01</span><div><span class="t1">Must see · Taitō-ku</span><h3>${esc(senso.n)}</h3><p class="why">${esc(senso.w)}</p>${senso.s.map(s => `<span class="src">${esc(s[0])}</span>`).join('')}</div>`;
+  document.querySelector('[data-dark]').innerHTML = `<span class="t1">Must eat</span><h3>${esc(food.n)}</h3><p style="margin:0;font-size:14px;line-height:1.6;color:#A8A39B">${esc(food.w)}</p>`;
+  // swatches + live WCAG contrast
+  const L = h => { const v = [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16) / 255).map(c => c <= .03928 ? c / 12.92 : Math.pow((c + .055) / 1.055, 2.4)); return .2126 * v[0] + .7152 * v[1] + .0722 * v[2]; };
+  const cr = (a, b) => { const x = L(a), y = L(b); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
+  document.querySelectorAll('[data-pal]').forEach(el => { el.innerHTML = el.dataset.pal.split('|').join(',').split(',').map(h => `<div style="background:${h};color:${L(h) > .4 ? '#111' : '#fff'};border:1px solid rgba(127,127,127,.25)">${h}</div>`).join(''); });
+  document.querySelectorAll('[data-cr]').forEach(el => { el.innerHTML = 'WCAG (text/bg): ' + el.dataset.cr.split(',').map(p => { const [a, b] = p.split('/'); const v = cr(a, b); return `<span style="white-space:nowrap">${a}/${b} <b>${v.toFixed(1)}</b>${v >= 4.5 ? ' AA' : v >= 3 ? ' AA-large' : ' ✗'}</span>`; }).join(' · '); });
+})();
+</script>
+</body>
+</html>

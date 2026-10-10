@@ -196,6 +196,10 @@ const CUISINES = [
   {id:"FARM",n:"Farms & U-Pick"}
 ];
 
+// Collections (cross-cutting themes). Empty -> the engine hides the filter; it
+// must still be declared or the engine throws (CATS is not defined) and no list renders.
+const CATS = [];
+
 const F = [
 {t:1,a:"DT",cz:["IT","PZ"],n:"Cassese's MVR",ad:"410 N Walnut St",la:41.1039,ln:-80.6519,
  w:"Open since 1927. The dish is a Brier Hill 'Smoky Hollow' pizza — tomato, bell peppers and grated romano — eaten beside the bocce courts out back. As Youngstown as it gets.",
@@ -386,11 +390,11 @@ rep('<h1>Cleveland<span class="thin">the complete odd &amp; overlooked</span></h
 rep('<p class="standfirst">143 sights and 40 places to eat, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; food lives on its own map so it never clutters the sightseeing one. Tick the box on anything to build your own list, then export it to Google or Apple Maps.</p>',
     '<p class="standfirst">%d sights and %d places to eat, drink &amp; shop across the Mahoning Valley, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; the same map, filters, trip builder and exports as the Cleveland guide. Tick anything to build your own list, then export it to Google or Apple Maps.</p>' % (nP, nF))
 rep('<p style="font-family:\'JetBrains Mono\',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>',
-    '<p style="font-family:\'JetBrains Mono\',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-09 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a> · <a href="youngstown-beta.html" style="color:var(--bone-dim);text-decoration:none;">Google-Maps beta ↗</a></p>')
+    '<p style="font-family:\'JetBrains Mono\',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-09 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>')
 
 # footer
 rep('Compiled August 2026 · <strong>last verified 2026-08-08</strong>. Map tiles © OpenStreetMap contributors.<br>\n  <span style="opacity:.8">Refresh check (Aug 2026, via the pipeline): Sokolowski\'s University Inn confirmed still closed (kept, flagged); West Side Market open amid a $70M renovation, produce arcade reopened Jan 2026; newly opened since build — Rock &amp; Roll Hall of Fame expansion, Cleveland Metroparks Zoo Primate Forest, Irishtown Bend Park. Findings logged in data/sources.json.</span><br><br>',
-    'Compiled August 2026 · <strong>last verified 2026-08-09</strong>. Map tiles © OpenStreetMap contributors.<br>\n  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (see data/sources.json and docs/SOURCES.md). Coordinates are approximate pending a places-API pass; confirm addresses and hours before a drive. A Google-Maps rendering of the same guide is kept as a <a href="youngstown-beta.html">beta</a>.</span><br><br>')
+    'Compiled August 2026 · <strong>last verified 2026-08-09</strong>. Map tiles © OpenStreetMap contributors.<br>\n  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (see data/sources.json and docs/SOURCES.md). Coordinates are approximate pending a places-API pass; confirm addresses and hours before a drive.</span><br><br>')
 
 # Cleveland-specific sources appendix -> Youngstown
 YT_APPENDIX = (
