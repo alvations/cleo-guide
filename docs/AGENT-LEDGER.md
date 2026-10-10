@@ -204,6 +204,9 @@ open/closed status), `docs/CITIES.md` (one row per city), `docs/AGENT-PROMPTS.md
 | `session_01DpemyawneXmB7YPoPQhDWv` | Singapore gap-fill — Balestier pins + Punggol | 2026-10-03 09:55 | completed, archived | Balestier pins 5→49, Punggol 29→48 (places 63→65); both LIVE; 0 places removed |
 | `session_011cSHJwH2jx8M9RXKJBJ6Ds` | Site-wide QA, mobile + desktop | 2026-10-03 09:56 | completed, archived | 160 pages × 3 loads, 0 FAIL after fixes (Youngstown empty-list bug, dead links, raw-URL chips, hub copy); D1–D8 deferred; 0 places removed — docs/QA-2026-10-03.md |
 | `session_019cuMgwoxChA7ZDeYk9WCji` | UI/UX redesign proposals for owner review | 2026-10-03 10:02 | completed, archived | design/ux-2026-10/README.md — 3 directions, Salon & Night out recommended, prototypes + 61 screenshots, roadmap, 8 decisions |
+| `session_019QAQ3MipXWViRJ9Jq6JD6J` | Deploy Singapore gap-fill + QA fixes | 2026-10-10 07:18 | completed, archived | PR #3 merged (`ca70e53`); QA 0 FAIL / 183 pages; no places cut (docs/DEPLOY-2026-10-10.md) |
+| `session_015r1bMC2Lesp6qpxFUiDRkK` | Research — competitive UI/UX teardown | 2026-10-10 07:17 | completed, archived | design/research-2026-10/ux-competitive/README.md (45 products, 377 cited URLs) |
+| `session_01BZUiWtox2hQpyUwGWN6EmC` | Research — SWOT / what are we missing | 2026-10-10 07:17 | completed, archived | design/research-2026-10/swot/README.md (≥20 competitors, 367 cited URLs) |
 | `session_01PCNcUkfa5S1N1BKGzZA4xx` | Release: deploy work branch → Pages (PR #3) | 2026-10-10 07:00 | completed | Merged as ca70e53 — Singapore gap-fill + QA fixes + Singapore engine rebuild live; gates/validate/test/qa (0 FAIL) green; 0 places removed (docs/DEPLOY-2026-10-10.md) |
 
 ### Cross-city pin and top-up passes (5 sessions)
