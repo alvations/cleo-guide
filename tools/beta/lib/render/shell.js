@@ -14,6 +14,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { esc } = require('../html');
+const { t, reviewed, locale } = require('../i18n');   // W4 gap #8: every shell string comes from the catalogue
 const LIVE_BASE = 'https://alvations.github.io/cleo-guide';
 const ROOT = path.resolve(__dirname, '..', '..', '..', '..');
 
@@ -83,8 +84,8 @@ const MARK = '<svg class="mark" width="22" height="22" viewBox="0 0 24 24" aria-
 /** Trail for a beta page: Destinations › {country} › {page}. Root and saved/method pages are one level. */
 function trail(rel) {
   if (!rel || rel === 'index.html') return [];
-  const fixed = { 'saved.html': 'Your list', 'how-we-choose.html': 'How we choose', 'accessibility.html': 'Accessibility', '404.html': 'Page not found' };
-  const out = [{ name: 'Destinations', href: 'index.html' }];
+  const fixed = { 'saved.html': t('page.saved'), 'how-we-choose.html': t('page.method'), 'accessibility.html': t('page.accessibility'), '404.html': t('page.notfound') };
+  const out = [{ name: t('shell.nav.destinations'), href: 'index.html' }];
   if (fixed[rel]) return out.concat({ name: fixed[rel] });
   const pg = SITE.pages[rel];
   if (!pg) return out;
@@ -96,10 +97,18 @@ function trail(rel) {
 
 function crumbs(rel, up) {
   // The root ("Destinations") is the wordmark's and the nav's job, so the visible trail starts at the country.
-  const t = trail(rel).slice(1);
-  if (!t.length) return '';
-  return `<nav class="crumbs" aria-label="Breadcrumb">${t.map((c, i) => (i ? '<span class="sep" aria-hidden="true">›</span>' : '') +
+  const tr = trail(rel).slice(1);
+  if (!tr.length) return '';
+  return `<nav class="crumbs" aria-label="${t('shell.crumbs.label')}">${tr.map((c, i) => (i ? '<span class="sep" aria-hidden="true">›</span>' : '') +
     (c.href ? `<a class="c${i}" href="${up}${esc(c.href)}">${esc(c.name)}</a>` : `<span class="here" aria-current="page">${esc(c.name)}</span>`)).join('')}</nav>`;
+}
+
+// ---------------------------------------------------------------- locale switcher (M3-03)
+/** Rendered only once a second REVIEWED locale exists (tools/beta/i18n/*.json "reviewed": true). Until then: nothing. */
+function localeSwitch() {
+  const locs = reviewed();
+  if (locs.length < 2) return '';
+  return `<nav class="locales" aria-label="${t('shell.locale.label')}">${locs.map(l => `<button type="button" class="btn btn-quiet" data-cleo-locale="${esc(l.locale)}" lang="${esc(l.locale)}" aria-pressed="${l.locale === locale()}">${esc(l.name)}</button>`).join('')}</nav>`;
 }
 
 // ---------------------------------------------------------------- top bar
@@ -112,16 +121,16 @@ function crumbs(rel, up) {
 function siteBar({ depth, current, rel, onNight = false }) {
   const up = '../'.repeat(depth);
   const cur = k => current === k ? ' aria-current="page"' : '';
-  return `${sprite()}<a class="skip" href="#main">Skip to content</a>
+  return `${sprite()}<a class="skip" href="#main">${t('shell.skip')}</a>
 <header class="topbar${onNight ? ' on-night' : ''}" data-cleo-shell="topbar"><div class="wrap">
-  <a class="brand" href="${up}index.html" aria-label="Cleo — all destinations">${MARK}<b>cleo</b><small>field guides</small></a>
+  <a class="brand" href="${up}index.html" aria-label="${t('shell.brand.label')}">${MARK}<b>${t('shell.brand.word')}</b><small>${t('shell.brand.tag')}</small></a>
   ${crumbs(rel, up)}
-  <nav class="topnav" aria-label="Primary"><a href="${up}index.html#destinations"${cur('landing')}>Destinations</a><a href="${up}how-we-choose.html"${cur('method')}>How we choose</a></nav>
+  <nav class="topnav" aria-label="${t('shell.nav.label')}"><a href="${up}index.html#destinations"${cur('landing')}>${t('shell.nav.destinations')}</a><a href="${up}how-we-choose.html"${cur('method')}>${t('shell.nav.method')}</a></nav>${localeSwitch()}
   <span class="spacer"></span>
   <div class="top-actions">
-    <button type="button" class="btn btn-icon theme-toggle" aria-pressed="false" aria-label="Night edition" data-cleo-theme hidden>${icon('moon')}</button>
-    <a class="btn btn-icon" href="${up}index.html#search" aria-label="Search every place" data-cleo-search-open>${icon('search')}</a>
-    <a class="btn btn-icon count-dot" href="${up}saved.html" aria-label="Your list" data-cleo-saved-link${cur('saved')}>${icon('heart')}<span class="vh" data-cleo-saved-count></span></a>
+    <button type="button" class="btn btn-icon theme-toggle" aria-pressed="false" aria-label="${t('shell.night')}" data-cleo-theme hidden>${icon('moon')}</button>
+    <a class="btn btn-icon" href="${up}index.html#search" aria-label="${t('shell.search')}" data-cleo-search-open>${icon('search')}</a>
+    <a class="btn btn-icon count-dot" href="${up}saved.html" aria-label="${t('shell.saved')}" data-cleo-saved-link${cur('saved')}>${icon('heart')}<span class="vh" data-cleo-saved-count></span></a>
   </div>
 </div></header>
 <div class="banners" data-cleo-banners aria-live="polite"></div>`;
@@ -131,11 +140,11 @@ function siteBar({ depth, current, rel, onNight = false }) {
 function tabBar({ depth, current }) {
   const up = '../'.repeat(depth);
   const cur = k => current === k ? ' aria-current="page"' : '';
-  return `<nav class="tabbar" aria-label="Sections">
-<a href="${up}index.html"${cur('landing')}>${icon('compass')}<span>Explore</span></a>
-<a href="${up}index.html#search" data-cleo-search-open>${icon('search')}<span>Search</span></a>
-<a href="${up}saved.html"${cur('saved')}>${icon('heart')}<span>Your list</span></a>
-<a href="${up}how-we-choose.html"${cur('method')}>${icon('seal')}<span>Method</span></a>
+  return `<nav class="tabbar" aria-label="${t('shell.tab.label')}">
+<a href="${up}index.html"${cur('landing')}>${icon('compass')}<span>${t('shell.tab.explore')}</span></a>
+<a href="${up}index.html#search" data-cleo-search-open>${icon('search')}<span>${t('shell.tab.search')}</span></a>
+<a href="${up}saved.html"${cur('saved')}>${icon('heart')}<span>${t('shell.tab.saved')}</span></a>
+<a href="${up}how-we-choose.html"${cur('method')}>${icon('seal')}<span>${t('shell.tab.method')}</span></a>
 </nav>`;
 }
 
@@ -146,24 +155,24 @@ function tabBar({ depth, current }) {
  */
 function footer({ depth, liveRel, notes = [], tabbar = false, current }) {
   const up = '../'.repeat(depth);
-  const live = liveRel ? `<a href="${LIVE_BASE}/${esc(liveRel)}">the current live guide</a>` : `<a href="${LIVE_BASE}/">the current live guides</a>`;
+  const live = liveRel ? `<a href="${LIVE_BASE}/${esc(liveRel)}">${t('foot.live.one')}</a>` : `<a href="${LIVE_BASE}/">${t('foot.live.all')}</a>`;
   const noteHtml = notes.map(n => `<div class="note"><h3>${esc(n.title || n.k)}</h3><p>${esc(n.body)}</p></div>`).join('\n');
   const T = SITE.totals;
   const v = f => assetV(f.replace(/\.js$/, ''), path.join(__dirname, '..', '..', 'client', f));
-  return `${noteHtml ? `<section class="method wrap section" aria-labelledby="method-h"><h2 id="method-h" class="d2">How this guide was made</h2>\n${noteHtml}\n</section>` : ''}
+  return `${noteHtml ? `<section class="method wrap section" aria-labelledby="method-h"><h2 id="method-h" class="d2">${t('foot.method.h')}</h2>\n${noteHtml}\n</section>` : ''}
 <footer class="footer" role="contentinfo"><div class="wrap">
   <div class="cols">
-    <div><a class="brand" href="${up}index.html" aria-label="Cleo — all destinations">${MARK}<b>cleo</b></a>
-      <p>${T.places.toLocaleString('en-US')} places across ${T.guides} guides — every one traceable to the source that recommended it, pinned and status-checked.</p></div>
-    <div><h4>Destinations</h4><ul>${SITE.countries.map(c => `<li><a href="${up}${esc(c.href)}">${esc(c.name)}</a></li>`).join('')}</ul></div>
-    <div><h4>The method</h4><ul><li><a href="${up}how-we-choose.html">How we choose</a></li><li><a href="${up}how-we-choose.html#closures">Closed places</a></li><li><a href="${up}how-we-choose.html#pins">Pins</a></li><li><a href="${up}accessibility.html">Accessibility</a></li></ul></div>
-    <div><h4>Yours</h4><ul><li><a href="${up}saved.html">Your list</a></li><li><a href="${up}index.html#search">Search</a></li><li><button type="button" class="btn theme-toggle" aria-pressed="false" data-cleo-theme hidden>${icon('moon')}<span>Night edition</span></button></li></ul></div>
+    <div><a class="brand" href="${up}index.html" aria-label="${t('shell.brand.label')}">${MARK}<b>${t('shell.brand.word')}</b></a>
+      <p>${t('foot.about', { places: T.places.toLocaleString('en-US'), guides: T.guides })}</p></div>
+    <div><h4>${t('foot.destinations')}</h4><ul>${SITE.countries.map(c => `<li><a href="${up}${esc(c.href)}">${esc(c.name)}</a></li>`).join('')}</ul></div>
+    <div><h4>${t('foot.method')}</h4><ul><li><a href="${up}how-we-choose.html">${t('foot.method.how')}</a></li><li><a href="${up}how-we-choose.html#closures">${t('foot.method.closures')}</a></li><li><a href="${up}how-we-choose.html#pins">${t('foot.method.pins')}</a></li><li><a href="${up}accessibility.html">${t('foot.method.a11y')}</a></li></ul></div>
+    <div><h4>${t('foot.yours')}</h4><ul><li><a href="${up}saved.html">${t('foot.yours.saved')}</a></li><li><a href="${up}index.html#search">${t('foot.yours.search')}</a></li><li><button type="button" class="btn theme-toggle" aria-pressed="false" data-cleo-theme hidden>${icon('moon')}<span>${t('shell.night')}</span></button></li></ul></div>
   </div>
-  <p class="legal colophon">Cleo beta — every place is carried from ${live}, with its sources. Map tiles: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>; Esri. No ratings, prices or hours are shown because they aren't in our data — check before you go.</p>
+  <p class="legal colophon">${t('foot.colophon', { live, osm: `<a href="https://www.openstreetmap.org/copyright">${t('foot.osm')}</a>` })}</p>
 </div></footer>
 ${tabbar ? tabBar({ depth, current }) : ''}
 <script src="${up}assets/js/states.js?v=${v('states.js')}" defer></script>
 <script src="${up}assets/js/search.js?v=${v('search.js')}" defer></script>`;
 }
 
-module.exports = { siteBar, footer, tabBar, styles, setSite, site, trail, icon, MARK, LIVE_BASE };
+module.exports = { localeSwitch, siteBar, footer, tabBar, styles, setSite, site, trail, icon, MARK, LIVE_BASE };

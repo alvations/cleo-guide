@@ -14,6 +14,7 @@
  * Art = map art from the city's own open, pinned places (IMAGERY.md B), in one of four compositions so no two
  * neighbouring tiles look alike; an original motif from the imagery lane (beta/assets/img/motifs/<key>.svg) is layered
  * in as an <img class="motif"> (never a url() in --motif: browsers disagree on its base URL) when the file exists and silently skipped when it doesn't. No photos.
+ * Card motifs load lazily and decode off the main thread (W4 gap #6: landing FCP at 4× CPU); the hero's decodes async.
  */
 const fs = require('fs');
 const path = require('path');
@@ -144,7 +145,7 @@ function cityTile(row, i, { up = '', art = true, lg = false, cap = 44, views = f
   const canon = !sig && f.canon.length ? `<span class="canon">${f.canon.map(c => `<span>${esc(c)}</span>`).join('')}</span>` : '';
   const ini = esc((f.name.match(/[A-Za-zÀ-ɏ]/) || ['·'])[0]);
   return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}" class="tile c-${comp}${lg ? ' lg' : ''}${sk.cls}"${sk.attr}>
-<span class="art">${mf ? `<img class="motif" src="${up}${mf}" alt="">` : ''}${art ? starfield(row.recs || [], { cap, colors: comp === 'night' ? null : row.colors }) : ''}${f.native ? `<span class="native">${esc(f.native)}</span>` : `<span class="ini" aria-hidden="true">${ini}</span>`}<span class="bar"></span></span>
+<span class="art">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}${art ? starfield(row.recs || [], { cap, colors: comp === 'night' ? null : row.colors }) : ''}${f.native ? `<span class="native">${esc(f.native)}</span>` : `<span class="ini" aria-hidden="true">${ini}</span>`}<span class="bar"></span></span>
 <span class="txt"><h3>${esc(f.name)}</h3>
 <span class="counts"><span class="dest-c">${plural(f.n, 'place')}<span class="hide-m"> · ${fmt(f.P)} sights · ${fmt(f.F)} to eat &amp; drink</span></span></span>
 ${sig}${star}${canon}</span></a>${views && row.gen === 'new' ? viewLinks(row, up) : ''}</li>`;
@@ -225,7 +226,7 @@ function themeRail(reg, { up = '', country = null, heading = 'Collections across
     const top = t.cities.slice(0, 4), rest = t.cities.length - top.length;
     const mf = motif('collections/' + t.key);
     return `<li class="theme t-${i % 4}">
-<a class="theme-main" href="${up}${esc(t.cities[0].href)}">${mf ? `<img class="motif" src="${up}${mf}" alt="">` : ''}<span class="theme-n">${fmt(t.n)}</span><span class="theme-t">${esc(t.title)}</span><span class="theme-w">${esc(t.line)} · ${esc(whereLine(t, reg))}</span></a>
+<a class="theme-main" href="${up}${esc(t.cities[0].href)}">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}<span class="theme-n">${fmt(t.n)}</span><span class="theme-t">${esc(t.title)}</span><span class="theme-w">${esc(t.line)} · ${esc(whereLine(t, reg))}</span></a>
 <span class="theme-c">${top.map(c => `<a href="${up}${esc(c.href)}">${esc(c.row.name)} <b>${fmt(c.n)}</b></a>`).join('')}${rest > 0 ? `<span class="more-n">+${rest} more ${rest === 1 ? 'guide' : 'guides'}</span>` : ''}</span></li>`;
   };
   return `<section class="themes section" id="${esc(id)}" aria-labelledby="${esc(id)}-h">
@@ -376,7 +377,7 @@ function render(row, reg, ctx, { c, main, more, all, groups }) {
 <body class="has-tabbar">
 ${siteBar({ depth, current: 'hub', rel: row.beta })}
 <main id="main" class="feb">
-<section class="chero masthead" aria-labelledby="cn"><div class="sky" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="">` : ''}${sky}</div><div class="inner">
+<section class="chero masthead" aria-labelledby="cn"><div class="sky" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" decoding="async">` : ''}${sky}</div><div class="inner">
   <p class="kicker">${groups ? 'Archive' : 'Country guide'} · drawn from ${plural(all.reduce((s, r) => s + (r.recs || []).filter(x => x.la != null && !x.closed && (!x.pv || x.pv.pin !== 'low')).length, 0), 'verified pin')}</p>
   <h1 class="title d1" id="cn">${esc(c.name)}</h1>
   ${sig.length ? `<p class="why"><span class="vh">Known for: </span><span class="l">${sig.map(s => `<span>${esc(s.name)}</span>`).join('')}</span></p>` : ''}

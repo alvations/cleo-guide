@@ -105,7 +105,7 @@
     opt = opt || {};
     var M = model(d), st = d.stats || {}, g = d.guide || {}, up = opt.root || '';
     var canon = {}; ((g.canon && g.canon.ids) || []).forEach(function (id) { canon[id] = 1; });
-    var A = M.areas.length, chapters = [], toc = [], count = 0;
+    var A = M.areas.length, chapters = [], toc = [], count = 0, parts = [];
     M.areas.forEach(function (a, n) {
       var lst = M.by[a.id], op = lst.filter(function (x) { return x.open; }), ac = M.color(a.id);
       var top = op.filter(function (x) { return x.p.t === 1; });
@@ -128,9 +128,13 @@
         '<dt>Closed, kept</dt><dd>' + gone.length + '</dd>' + (cited ? '<dt>Most-cited source</dt><dd>' + esc(srcShort(M, cited[0])) + ' (' + cited[1] + ')</dd>' : '') +
         '<dt>Pins verified</dt><dd>' + pinned + ' of ' + lst.length + '</dd>' + (checked ? '<dt>Status checked</dt><dd>to <time>' + esc(checked) + '</time></dd>' : '') + '</dl></aside>';
       var hd = hoods(a.n);
-      chapters.push('<article class="ch" id="gb-area-' + esc(a.id) + '" data-area="' + esc(a.id) + '" aria-labelledby="gb-ch-' + esc(a.id) + '" style="--ac:' + esc(ac) + '">' +
+      // a chapter = shell (header, always mounted) + body (intro, sections, facts) — the body mounts on approach (gap #6)
+      var shell = '<article class="ch" id="gb-area-' + esc(a.id) + '" data-area="' + esc(a.id) + '" aria-labelledby="gb-ch-' + esc(a.id) + '" style="--ac:' + esc(ac) + '">' +
         '<header class="ch-h"><p class="eyebrow">Chapter ' + (n + 1) + ' of ' + A + '</p><h2 id="gb-ch-' + esc(a.id) + '" class="d1" tabindex="-1">' + esc(shortArea(a.n)) + '</h2>' + (hd ? '<p class="hoods">' + esc(hd) + '</p>' : '') + '</header>' +
-        '<div class="ch-g"><div class="ch-main"><p class="ch-intro">' + esc(intro(M, a, lst)) + '</p>' + secs.join('') + '</div>' + side + '</div></article>');
+        '<div class="ch-g" data-gb-body="' + esc(a.id) + '">';
+      var body = '<div class="ch-main"><p class="ch-intro">' + esc(intro(M, a, lst)) + '</p>' + secs.join('') + '</div>' + side;
+      parts.push({ id: a.id, shell: shell, body: body, n: lst.length });
+      chapters.push(shell + body + '</div></article>');
       toc.push('<li><a href="#gb-area-' + esc(a.id) + '" data-gb-ch="' + esc(a.id) + '"><span class="n">' + (n + 1) + '</span><span class="t">' + esc(shortArea(a.n)) + '</span><span class="meta">' + lst.length + '</span></a></li>');
     });
     if (count !== M.N) throw new Error('guidebook lost records: ' + count + ' != ' + M.N);
@@ -141,11 +145,14 @@
       '<p class="gfacts">' + [plural(st.sights || 0, 'sight'), plural(st.food || 0, 'place') + ' to eat and drink', plural(st.sources || 0, 'named source'),
         (st.verifiedPins || 0) + ' of ' + (st.pins || 0) + ' pins verified'].concat(st.lastChecked ? ['status checked to ' + st.lastChecked] : []).map(esc).join(' · ') + '</p>' +
       (sig ? '<p class="gsig">★ ' + esc(sig.title) + ': ' + plural(sig.n, 'place') + ', marked through the chapters.</p>' : '') + '</header>';
-    var html = '<div class="bk" data-cleo-book>' +
+    var nav = '<div class="bk" data-cleo-book>' +
       '<nav class="toc" aria-label="Chapters"><p class="eyebrow">Contents</p><ol>' + toc.join('') + '</ol>' +
       '<button type="button" class="btn btn-ghost" data-cleo-print>Print this guide</button></nav>' +
-      '<div class="bk-main">' + cover + chapters.join('') + appendix(M) + '</div></div>';
-    return { html: html, entries: count, model: M };
+      '<div class="bk-main">' + cover;
+    var app = appendix(M);
+    // `lazy`: the same book, contents + chapter shells first; mount() fills each body (and the appendix) on approach
+    var lazy = nav + parts.map(function (c) { return c.shell + '</div></article>'; }).join('') + '<div data-gb-appendix></div></div></div>';
+    return { html: nav + chapters.join('') + app + '</div></div>', lazy: lazy, parts: parts, appendix: app, entries: count, model: M };
   }
 
   /* ---- sources appendix (B-03): every source of the page with its URLs and record count, then the method notes ---- */
@@ -185,7 +192,7 @@
   }
 
   /* ---- browser: mount / unmount into the host FE-A's registry hands us ---- */
-  var host = null, off = [];
+  var host = null, off = [], book = null;
   function syncSaved(el) {
     var C = window.Cleo; if (!C || !C.saved) return;
     [].forEach.call(el.querySelectorAll('[data-cleo-ref]'), function (b) { b.setAttribute('aria-pressed', C.saved.has(b.getAttribute('data-cleo-ref')) ? 'true' : 'false'); });
@@ -194,29 +201,46 @@
   // already hid or showed (including its own sig / been / mine / day lenses). A card still in a deferred chunk is asked
   // through the one shared predicate, Cleo.lens.match, on its attribute stub — so a lens never forces a stamp here.
   function syncLens(el) {
-    var d = document, C = window.Cleo || {}, shown = 0, all = 0, stubs = null;
+    var d = document, C = window.Cleo || {}, shown = 0, all = 0, stubs = null, hid = {};
     var route = C.route && C.lens ? C.lens.pick(C.route.parse()) : null;
-    [].forEach.call(el.querySelectorAll('li.ge'), function (li) {
-      var id = li.getAttribute('data-id'), c = d.getElementById('p-' + id); all++;
+    // decide every place from the model (chapters not mounted yet still count and hide), then mirror onto what's mounted
+    (book ? book.order : []).forEach(function (x) {
+      var id = x.p.id, c = d.getElementById('p-' + id), h; all++;
       if (!c && route && C.defer) {
-        if (!stubs) { stubs = {}; C.defer.peek().forEach(function (x) { stubs[x.id.replace(/^p-/, '')] = x; }); }
-        li.hidden = !!stubs[id] && !C.lens.match(stubs[id], route);
-      } else li.hidden = !!(c && c.hidden);
-      if (!li.hidden) shown++;
+        if (!stubs) { stubs = {}; C.defer.peek().forEach(function (s) { stubs[s.id.replace(/^p-/, '')] = s; }); }
+        h = !!stubs[id] && !C.lens.match(stubs[id], route);
+      } else h = !!(c && c.hidden);
+      hid[id] = h; if (!h) shown++;
     });
+    [].forEach.call(el.querySelectorAll('li.ge'), function (li) { li.hidden = !!hid[li.getAttribute('data-id')]; });
     [].forEach.call(el.querySelectorAll('section.gs'), function (s) { s.hidden = !s.querySelector('li.ge:not([hidden])'); });
-    [].forEach.call(el.querySelectorAll('article.ch'), function (a) { a.hidden = !a.querySelector('li.ge:not([hidden])'); });
+    [].forEach.call(el.querySelectorAll('article.ch'), function (a) {
+      a.hidden = !(book.by[a.getAttribute('data-area')] || []).some(function (x) { return !hid[x.p.id]; });
+    });
     var line = el.querySelector('[data-gb-count]');
     if (line) line.innerHTML = shown === all ? '<b>All ' + all + ' places</b>' : '<b>' + shown + ' of all ' + all + ' places</b> match this lens. <button type="button" class="btn btn-quiet" data-cleo-all>Show all ' + all + '</button>';
   }
+  /* Lazy chapters (ROUND-3 gap #6): each chapter body is its own Cleo.chunks part (platform view chunks), so it mounts
+   * as it nears the viewport, on a contents click or deep link (open()), and with everything else on Cleo.defer.all()
+   * (lens, search, print, find-in-page). The contents and every chapter heading are in the DOM from the start. */
+  var lazy = {};
+  function open(aid) { var c = lazy[aid]; if (c) c.all(); }
+  function areaOf(id) { var hit = null; (book ? book.order : []).some(function (x) { if (x.p.id === id) { hit = x.p.a; return true; } }); return hit; }
   function mount(el, ctx) {
     host = el; ctx = ctx || {};
     var C = window.Cleo || {}, main = document.getElementById('main'), key = ctx.key || (main && main.getAttribute('data-city'));
     el.classList.add('vw', 'view-guidebook'); el.setAttribute('aria-busy', 'true');
     return C.pageData(ctx.file || key).then(function (d) {
       if (host !== el) return;
-      var r = render(d, { root: C.root || '' });
-      el.innerHTML = '<p class="count" data-gb-count></p>' + r.html;
+      var r = render(d, { root: C.root || '' }); book = r.model; lazy = {};
+      if (C.chunks) {
+        el.innerHTML = '<p class="count" data-gb-count></p>' + r.lazy;
+        r.parts.forEach(function (c) {
+          var b = el.querySelector('[data-gb-body="' + c.id + '"]');
+          if (b) lazy[c.id] = C.chunks(b, [c.body], { initial: 0, est: 260 + c.n * 150 });
+        });
+        var ap = el.querySelector('[data-gb-appendix]'); if (ap) lazy[''] = C.chunks(ap, [r.appendix], { initial: 0, est: 1200 });
+      } else el.innerHTML = '<p class="count" data-gb-count></p>' + r.html;
       el.removeAttribute('aria-busy');
       syncSaved(el); syncLens(el);
       var on = function (t, ev, f) { t.addEventListener(ev, f); off.push(function () { t.removeEventListener(ev, f); }); };
@@ -224,7 +248,7 @@
         var b = e.target.closest('[data-cleo-print]'); if (b) { printAll(); return; }
         if ((b = e.target.closest('[data-cleo-ref]')) && C.saved) { C.saved.toggle(b.getAttribute('data-cleo-ref')); syncSaved(el); return; }
         if ((b = e.target.closest('button.src[data-src]')) && C.route) { e.preventDefault(); var r0 = C.route.parse(); C.route.go({ view: r0.view || 'guidebook', src: b.getAttribute('data-src') }); return; }
-        if ((b = e.target.closest('a[data-gb-ch]'))) { e.preventDefault(); var h = document.getElementById('gb-ch-' + b.getAttribute('data-gb-ch')); if (h) { h.scrollIntoView({ block: 'start' }); h.focus({ preventScroll: true }); } }
+        if ((b = e.target.closest('a[data-gb-ch]'))) { e.preventDefault(); open(b.getAttribute('data-gb-ch')); var h = document.getElementById('gb-ch-' + b.getAttribute('data-gb-ch')); if (h) { h.scrollIntoView({ block: 'start' }); h.focus({ preventScroll: true }); } }
       });
       on(document, 'cleo:saved', function () { syncSaved(el); });
       // the city page sets `hidden` on its cards when a lens changes; follow those attribute flips (coalesced)
@@ -234,9 +258,10 @@
         mo.observe(main, { subtree: true, attributes: true, attributeFilter: ['hidden'] }); off.push(function () { mo.disconnect(); });
       }
       on(document, 'cleo:stamped', later); on(window, 'hashchange', later);
+      on(document, 'cleo:view-stamped', function (e) { var h = e.detail && e.detail.host; if (h && el.contains(h)) { syncSaved(h); later(); } });
       on(window, 'beforeprint', function () { if (C.defer) C.defer.all(); });
       var r1 = C.route ? C.route.parse() : {};
-      if (r1.p) { var li = document.getElementById('gb-' + r1.p); if (li) li.scrollIntoView({ block: 'center' }); }
+      if (r1.p) { open(areaOf(r1.p)); var li = document.getElementById('gb-' + r1.p); if (li) li.scrollIntoView({ block: 'center' }); }
       return r;
     }, function () {
       if (host !== el) return;
@@ -245,7 +270,7 @@
     });
   }
   function printAll() { var C = window.Cleo || {}; if (C.defer) C.defer.all(); if (host) syncLens(host); window.print(); }
-  function unmount() { off.splice(0).forEach(function (f) { f(); }); if (host) { host.innerHTML = ''; host.classList.remove('view-guidebook'); } host = null; }
+  function unmount() { off.splice(0).forEach(function (f) { f(); }); Object.keys(lazy).forEach(function (k) { lazy[k].cancel(); }); lazy = {}; book = null; if (host) { host.innerHTML = ''; host.classList.remove('view-guidebook'); } host = null; }
 
   return { model: model, render: render, intro: intro, TEMPLATE: TEMPLATE, mount: mount, unmount: unmount, sourceUrls: sourceUrls, shortArea: shortArea };
 });
