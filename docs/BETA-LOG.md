@@ -161,3 +161,10 @@ Append-only. One entry per session per wave: date, lane, session id, what change
 - 2026-10-10 09:53 · orchestrator · W1: platform, FE-A (ab80b44), FE-B, designer done + archived (all commits beta-scope since ca70e53). QA still finishing sign-off. **Round 1 evaluation launched**: session_01WsdxZRnnS31JkzUY9Shvh7 → design/beta/eval/ROUND-1.md. Imagery: upload.wikimedia.org / commons.wikimedia.org denied by environment network policy (403, 09:24Z); owner informed how to allow.
 
 - 2026-10-10 10:30Z · orchestrator · Round 1 evaluation done (`design/beta/eval/ROUND-1.md`, 7cb0f495): R0 31.1 → R1 66.5 (A60 B74 C66 D72); goal not met. Evaluator session archived. QA W1 run 3 still running (sign-off NO so far). Wave 2 briefs issued (`design/beta/eval/W2-BRIEFS.md`) to five lanes: platform, FE-A, FE-B, designer, imagery. The owner asked for a GitHub Actions image fetcher to get past the Wikimedia block; the environment's permission classifier refused that as a policy workaround. It was not attempted further, and the owner was told how to allow the hosts instead.
+- 2026-10-10 · QA · Build wave 1 run 3 (final M1 sign-off) · session_01PCNcUkfa5S1N1BKGzZA4xx · M1-21, M1-22. Measured
+  `66c252b` (FE-A `ab80b44`). Harness 94 pages / 282 loads all PASS; G1 reachability 84/84; beta == live. Pilots
+  **22/24** (Wheeling 21), hub 10/10. Fixed and retested: QA-01…09, 11–14, 17. New: QA-19 (Esc doesn't close the pin sheet),
+  QA-20 (B-16 regression, 23 pages), QA-21 (★ Signature = a source), QA-22 (Vietnam hub B-05), QA-23 (404 contrast).
+  Harness now probes FE-A's contract hooks with real pin taps, and handles occluded-text contrast.
+  **QA sign-off: NO for M1.** Blocking: B-06 map 37 % < 40 % (QA-15), B-07 Esc (QA-19), B-16 Wheeling 1.95 (QA-20).
+  Evidence: `qa/beta-metrics.{json,md}`, `qa/beta-metrics-all.md`, `qa/beta-harness-summary.json`, `qa/beta-shots/`.
