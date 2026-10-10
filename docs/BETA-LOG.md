@@ -360,3 +360,8 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **#2** `.because` is in since slice 3. **#4** the source wrap is tightened (slice 4). **#7** saved cards use the normal `.pl` card with cover plate since slice 3; numbering runs across the whole list, and the native name is a `.nat` line (no "Gardens皇居東御苑" glue).
   - Gates: validate, npm test (all suites), beta:check PASS; 30 flows, 0 JS errors; screenshots re-shot.
 - 2026-10-10 · **FE-A** · rule-6 sweep (orchestrator note) · city "How we choose" box no longer names review brands ("review-aggregator star ratings never count as the recommender"). FE-A sources, CSS classes and slices 1–5 contain no other third-party brand or style names. Directions deep links and source chips are functional or exempt. **Round 3 readiness:** cards (`li.pl`), the sheet (`Cleo.sheet`), lenses/route state (`Cleo.route`, `C.S`), For you (`C.rank`/`C.why`), day (`C.lens.day`, `C.dayRank`) and saved state (`Cleo.saved`, store `lists`/`been`/`days`) are independent of the split/map layout, so a view style can reuse them. Gates PASS.
+
+- 2026-10-10 11:55Z · orchestrator · W2 build lanes finished.
+  - Archived: platform and FE-A. The head (764dc97b) passes all gates.
+  - Launched the QA W2 sign-off (session_012XtSjToyAdhBzVDZmhPP1u) and the Round 2 evaluator (session_01Ra23HLYrb9qZ7mzrw5gRpz), per the PM's Round 2 exit criteria.
+  - Wrote `design/beta/eval/W3-BRIEFS.md` from views/PLAN.md. The W3 squad launches once ROUND-2.md lands.
