@@ -230,7 +230,10 @@ open/closed status), `docs/CITIES.md` (one row per city), `docs/AGENT-PROMPTS.md
 | `session_01TPCWCMYD2HDRMEduEtaw9P` | Beta W4 — Designer + imagery art | 2026-10-10 15:58 | completed, archived | Gallery cover variety (category motifs, tier plates), motion layer (reduced-motion safe), polish, QA-35; REVIEW-W4.md |
 | `session_01USgyuciPDwi5u5NZbAKy9j` | Beta W4 — Frontend A (names, Gallery default, motion hooks) | 2026-10-10 15:58 | completed, archived | Diacritic names, switcher glyph, motion hooks; Gallery-default reverted (G1/B-01 failed) — Atlas stays default |
 | `session_01SHBuxbUqfVuvUcP4rf8pqU` | Beta W4 — Platform + FE-B (weight, i18n, what-changed) | 2026-10-10 15:58 | completed, archived | Tokyo HTML 804→734 KB, lazy Guidebook, 84 'What changed' pages, i18n scaffolding + pseudo-locale test |
-| `session_01RFcHDrt3fLoaYNqR4bkKic` | Beta Round 4 — independent evaluator | 2026-10-10 17:05 | running | — |
+| `session_01RFcHDrt3fLoaYNqR4bkKic` | Beta Round 4 — independent evaluator | 2026-10-10 17:05 | completed, archived | ROUND-4.md: 83.4 (A74 B85 C96 D89) |
+| `session_01YS8agL566hD64bibs8SKRv` | Beta W5 — Frontend A (Gallery default, masthead) | 2026-10-10 17:37 | running | — |
+| `session_01WavQGwxxNxbSKFB5MtRPiz` | Beta W5 — Designer (macrons, motifs, polish) | 2026-10-10 17:37 | running | — |
+| `session_01Mfpe7U19wfAn8WH8zKYyJE` | Beta W5 — Platform + FE-B (weight, Insights targets) | 2026-10-10 17:37 | running | — |
 | `session_01Ra23HLYrb9qZ7mzrw5gRpz` | Beta Round 2 — independent evaluator | 2026-10-10 11:52 | completed, archived | design/beta/eval/ROUND-2.md: R2 78.5 (A67 B84 C89 D86); A < 80 without photos |
 | `session_01S3eYSS1qPYEHJVXBeyRLYH` | Beta W3 — Platform (view model) | 2026-10-10 12:20 | completed, archived | P-01…P-06 (rank/kind3, lens/order, insights block, reachability gate, template chunks, route registry); R2 gaps #6, #9; #8 (i18n) not started |
 | `session_012ryUPpieJjoKFXA2se7HsV` | Beta W3 — Frontend A (switcher, Atlas, Gallery) | 2026-10-10 12:20 | completed, archived | View switcher + registry, Atlas (default), Gallery with pager that keeps every place reachable; QA-29/30/31 fixed (83aa1a28) |
