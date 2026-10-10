@@ -47,4 +47,4 @@ Evidence: `design/beta/eval/ROUND-2.md`.
 
 **Deferred:** real photographs. The environment's network policy blocks the image hosts and needs the owner's action. Without them the evaluator caps A at about 75.
 
-**Deploy:** pending the QA W2 sign-off.
+**Deployed 2026-10-10 14:03Z:** PR alvations/cleo-guide#4 merged the QA-signed SHA `c2a221bd` (QA W2 re-test sign-off: YES) into the Pages branch `claude/cleveland-page-creation-pant4l` (merge `a1a8f327`). The live site is untouched. Live at https://alvations.github.io/cleo-guide/beta/.

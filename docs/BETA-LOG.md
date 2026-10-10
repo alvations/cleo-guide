@@ -534,3 +534,8 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **W2 re-test: QA sign-off YES on `c2a221bd`.** QA-22, QA-23, QA-24, QA-25 and QA-28 are all green, and validate/test/beta:check are green. Pilots score 24/24. Details: BETA-QA.md → "W2 re-test".
   - **Do not deploy `498629e1`+** (FE-A view registry in progress). On the default Gallery, G1 hard-fails because deep links reach 48/N (QA-29, FE-A), night contrast fails on place pages (QA-30), the W2 list/map metrics regress (QA-31), and the rail counts regress under paging.
   - W3 harness (Q-01…Q-04): `metrics.js --view <v>` (Q-01); `npm run beta:qa:views` = `tools/beta/qa/views.js` (Q-02: no-CDN + storage throwing per view, Q-03: deep-link matrix + pref ≠ link + Back/Forward, Q-04: mounted-view honesty). Views report PENDING until registered. **Q-04 offline gate `tools/beta/qa/test-honesty.js` is now in `npm test`**: 0 hits in view copy across 94 pages + 84×guidebook/insights. INFO for the PM: 269 places' record prose (live data) carries price/rating wording (e.g. "4.7 stars", "$2"), and the Guidebook shows it verbatim. QA did not edit this data; it needs a PM call.
+
+- 2026-10-10 14:03Z · orchestrator · DEPLOYED Rounds 1–2.
+  - Branch `beta-deploy-r2` was pinned to the QA-signed `c2a221bd`. PR alvations/cleo-guide#4 merged it into the Pages branch (merge `a1a8f327`).
+  - The diff touches only beta-scope paths plus the audit docs, the QA harness and the melon-seek reference copy. No live-site files changed.
+  - The current dev head is NOT deployable per QA: QA-29 (Gallery-default paging breaks G1 deep links), QA-30 (night contrast on place pages), QA-31 (W2 list/map metric regressions) and a returning rail-count mismatch. All four belong to FE-A W3.
