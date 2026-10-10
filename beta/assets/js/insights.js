@@ -128,7 +128,7 @@
     });
     rows.forEach(function (r, i) {
       var y = i * RH + 6, tot = sum(r.v) || 1, x = LW, span = span0 * (asPct ? 1 : tot / mx);
-      out.push('<text class="lb" x="' + (LW - 10) + '" y="' + (y + 13) + '" text-anchor="end">' + esc(clip(r.label, narrow ? 15 : 24)) + '</text>');
+      out.push('<text class="lb" x="' + (LW - 10) + '" y="' + (y + 13) + '" text-anchor="end">' + esc(clip(r.label, narrow ? 15 : LW >= 200 ? 30 : 24)) + '</text>');
       series.forEach(function (s) {
         var n = r.v[s.id] || 0; if (!n) return;
         var w = span * n / tot;
@@ -145,7 +145,7 @@
     var out = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + (rows.length * RH + 6) + '" role="img" aria-labelledby="' + uid + '-t ' + uid + '-d">'];
     rows.forEach(function (r, i) {
       var y = i * RH + 4, w = (W - LW - 70) * r.n / mx;
-      out.push('<text class="lb" x="' + (LW - 10) + '" y="' + (y + 13) + '" text-anchor="end">' + esc(clip(r.label, narrow ? 15 : 24)) + '</text>' +
+      out.push('<text class="lb" x="' + (LW - 10) + '" y="' + (y + 13) + '" text-anchor="end">' + esc(clip(r.label, narrow ? 15 : LW >= 200 ? 30 : 24)) + '</text>' +
         '<a href="' + esc(link(r.key)) + '" aria-label="' + esc(r.label + ': ' + r.n + unit) + '"><rect class="bar" x="' + LW + '" y="' + y + '" width="' + Math.max(w, 2).toFixed(1) + '" height="18" rx="3" style="fill:' + r.c + '"><title>' + esc(r.label + ': ' + r.n + unit) + '</title></rect></a>' +
         '<text class="vl" x="' + (LW + w + 6).toFixed(1) + '" y="' + (y + 13) + '">' + r.n + esc(unit) + '</text>');
     });
@@ -155,7 +155,7 @@
   // two renders (wide / narrow); the browser re-renders both at the card's measured width so 1 viewBox unit = 1 px
   var SIZE = { W: 640, Wn: 320 };
   var both = function (fn, args) {
-    return '<div class="cw">' + fn.apply(null, args.concat([SIZE.W, SIZE.W < 480 ? 104 : 168, SIZE.W < 480])) + '</div><div class="cn">' + fn.apply(null, args.concat([SIZE.Wn, 104, true])) + '</div>';
+    return '<div class="cw">' + fn.apply(null, args.concat([SIZE.W, SIZE.W < 480 ? 104 : SIZE.W < 560 ? 168 : 200, SIZE.W < 480])) + '</div><div class="cn">' + fn.apply(null, args.concat([SIZE.Wn, 104, true])) + '</div>';
   };
   function stacked(rows, series, head, link, uid, asPct) {
     var legend = '<ul class="legend">' + series.map(function (s) { return '<li><i style="background:' + s.c + '"></i>' + esc(s.name) + '</li>'; }).join('') + '</ul>';
@@ -215,7 +215,7 @@
     // 6 · the signature canon
     var cn = I.canon;
     var c6 = cn ? card('can', 'The signature canon: ' + cn.title, cn.n + ' places in the canon’s cuisines (' + cn.open + ' open). Bars count places whose own write-up names the dish.',
-      bars(cn.dishes.map(function (x) { return { label: x.t, key: x.t, n: x.n, c: SER[1] }; }), function () { return gal({ cz: (cn.cz || [])[0] }); }, 'can', ''),
+      bars(cn.dishes.map(function (x) { return { label: x.t, key: x.t, n: x.n, c: SER[0] }; }), function () { return gal({ cz: (cn.cz || [])[0] }); }, 'can', ''),
       note('can', cn.named + ' of ' + cn.n + ' canon places name one of these dishes; the rest serve the canon cuisine without naming a dish, so they are not counted here.'))
       : card('can', 'The signature canon', 'This city has no named-dish canon in its data yet.', '<p class="empty">Stated, not filled.</p>');
     // 7 · the tier ladder

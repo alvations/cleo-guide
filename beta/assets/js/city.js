@@ -11,7 +11,6 @@
   let info = {}; try { info = JSON.parse(d.getElementById('cleo-city').textContent); } catch (e) {}
   const fold = Cleo.fold || (s => String(s || '').toLowerCase());
   cards.forEach(c => { byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
-  const has = (c, a, v) => (' ' + (at(c, a) || '') + ' ').indexOf(' ' + v + ' ') >= 0;
   const desk = () => !window.matchMedia || matchMedia('(min-width: 1024px)').matches;
   const LENS = ['sig', 'c', 'cz', 't', 'src', 'a', 'been', 'gap', 'closed', 'mine', 'day'], RAIL = ['sig', 'c', 'cz', 't', 'src', 'gap', 'closed'], S = { mode: 'all', q: '', sort: '' };
   const store = Cleo.store || { get: (k, x) => x, set: () => {} };
@@ -64,14 +63,12 @@
   });
   let tq; on(fi, 'input', () => { clearTimeout(tq); tq = setTimeout(() => { S.q = fi.value; apply(); }, 120); });
 
+  // THE lens predicate is platform's Cleo.lens.match (P-02: one predicate in every view); the page-only lenses follow
   const visible = c => {
-    const k = at(c, 'data-k');
-    if ((S.mode === 'sights' && k !== 's') || (S.mode === 'food' && k !== 'f')) return false;
-    if ((S.c && !has(c, 'data-g', S.c)) || (S.cz && !has(c, 'data-cz', S.cz)) || (S.src && !has(c, 'data-src', S.src))) return false;
-    if ((S.t && (at(c, 'data-t') !== S.t || c.hasAttribute('data-closed'))) || (S.a && at(c, 'data-a') !== S.a)) return false;
+    if (!Cleo.lens.match(c, { mode: S.mode === 'all' ? '' : S.mode, a: S.a, t: S.t, c: S.c, cz: S.cz, src: S.src, closed: S.closed })) return false;
     if (S.been) { const b = !!been.all()[key + '/' + pid(c)]; if (S.been === 'hide' ? b : !b) return false; }
     if (S.sig && !(info.sig && info.sig.ids.indexOf(pid(c)) >= 0)) return false;
-    if ((S.closed && !c.hasAttribute('data-closed')) || (S.mine && !(Cleo.saved && Cleo.saved.has(key + '/' + pid(c)))) || (S.day && C.inDay && !C.inDay(pid(c)))) return false;
+    if ((S.mine && !(Cleo.saved && Cleo.saved.has(key + '/' + pid(c)))) || (S.day && C.inDay && !C.inDay(pid(c)))) return false;
     return !S.q || fold(S.q).split(/\s+/).every(w => !w || text[pid(c)].indexOf(w) >= 0);
   };
   const count = o => { const sv = {}; let n = 0; for (const k in o) { sv[k] = S[k]; S[k] = o[k]; } cards.forEach(c => { if (visible(c)) n++; }); Object.assign(S, sv); return n; };
@@ -126,7 +123,9 @@
     $$('button[data-mode]').forEach(b => b.setAttribute('aria-pressed', String(at(b, 'data-mode') === S.mode)));
     if (rail) rail.setAttribute('data-view', S.mode);
     $$('.rail-i').forEach(a => {
-      const p = a.hasAttribute('data-cleo-all') ? !act.length && !S.gap && !S.day && S.mode === 'all' && !S.q : RAIL.some(k => S[k] && at(a, 'data-' + k) === S[k]);
+      // doors keep their own state (QA-27: For you stays pressed after a reload restores stored interests)
+      const p = a.hasAttribute('data-cleo-all') ? !act.length && !S.gap && !S.day && S.mode === 'all' && !S.q : a.hasAttribute('data-cleo-foryou') ? !!C.rank
+        : a.hasAttribute('data-cleo-mine') ? !!S.mine : a.hasAttribute('data-cleo-near') ? S.sort === 'near' && !!C.dist : RAIL.some(k => S[k] && at(a, 'data-' + k) === S[k]);
       a.setAttribute('aria-pressed', String(p)); if (p) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
     });
     syncMarkers(); C.after.forEach(f => f());
@@ -238,7 +237,7 @@
   // focused area's pins at every zoom; a user who pans or zooms keeps control for 8 s
   const still = () => !window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches;
   let focusA = '', userAt = 0, auto = 0; const stub = {};   // unstamped cards (Cleo.defer.peek) that already have a pin
-  const fly = ll => { if (!map) return; auto = Date.now(); if (still()) map.setView(ll, Math.max(map.getZoom(), 15)); else map.flyTo(ll, Math.max(map.getZoom(), 15), { duration: 0.6 }); };
+  const fly = ll => { if (!map || !map.getSize().x) return; auto = Date.now(); if (still()) map.setView(ll, Math.max(map.getZoom(), 15)); else map.flyTo(ll, Math.max(map.getZoom(), 15), { duration: 0.6 }); };
   // numbers: the focused area's at every zoom, all at ≥ 14; then declutter (DES REVIEW-W2 #6) — a label that would
   // overlap one already shown is hidden (its pin stays), focused area first, guide order within. Writes, then reads.
   const focusPins = () => { if (!map) return; const all = Object.keys(markers).map(id => byId[id] || stub[id]).filter(Boolean);
@@ -255,22 +254,25 @@
   const follow = a => {
     if (!a || a === focusA) return; focusA = a; focusPins();
     if (!map || !desk() || (Cleo.sheet && Cleo.sheet.isOpen()) || S.day || Date.now() - userAt < 8000) return;
+    if (!map.getSize().x || !el0().offsetWidth) return;   // W3: the map is hidden outside Atlas — never fit a 0-size map (NaN LatLng)
     const ll = cards.filter(c => !c.hidden && at(c, 'data-a') === a && markers[pid(c)]).map(c => markers[pid(c)].getLatLng());
     if (!ll.length) return; auto = Date.now();
     map.flyToBounds(window.L.latLngBounds(ll), { padding: [36, 36], maxZoom: 15, duration: still() ? 0 : 0.6, animate: !still() });
   };
   if (window.IntersectionObserver) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) follow(at(e.target, 'data-area')); }), { rootMargin: '-35% 0px -55% 0px' }); sections.forEach(x => io.observe(x)); }
   C.map = () => map; C.markers = markers; C.loadMap = cb => loadMap(cb);
-  const fitArea = a => { const ll = cards.filter(c => at(c, 'data-a') === a && markers[pid(c)]).map(c => markers[pid(c)].getLatLng()); if (ll.length) map.fitBounds(window.L.latLngBounds(ll), { padding: [40, 40], maxZoom: 16 }); };
+  const el0 = () => d.getElementById('cleo-map') || main;
+  const fitArea = a => { if (map && !map.getSize().x) return; const ll = cards.filter(c => at(c, 'data-a') === a && markers[pid(c)]).map(c => markers[pid(c)].getLatLng()); if (ll.length) map.fitBounds(window.L.latLngBounds(ll), { padding: [40, 40], maxZoom: 16 }); };
   const closePoi = () => { if (poi && !poi.hidden) { poi.hidden = true; poi.innerHTML = ''; } };
   // pin → peek sheet: a compact summary (≤ 40 % of the screen, so the map stays visible); the grabber expands it to the full card
+  const peekName = c => { const a = $('.pl-n a', c), x = a && a.cloneNode(true); if (!x) return ''; $$('.nat', x).forEach(v => v.remove()); return x.textContent.trim(); };   // ROUND-2 #2: no "(native)" in the peek title
   const openPoi = c => {
     const cp = c.cloneNode(true); cp.removeAttribute('id'); cp.hidden = false; cp.classList.remove('is-target'); $$('[id]', cp).forEach(x => x.removeAttribute('id'));
     poiFrom = d.activeElement;
     const w = $('.pl-w', c);
     poi.innerHTML = '<button class="grab" data-poi="grow" aria-label="Show the whole card" aria-expanded="false"></button><div class="hdr"><span class="sm">' + esc(label('a', at(c, 'data-a'))) +
       ' · pin ' + at(c, 'data-n') + '</span><button class="btn btn-icon" data-poi="x" aria-label="Close">' + icon('close') + '</button></div>' +
-      '<div class="peek-c"><p class="pl-e">' + $('.pl-e', c).innerHTML + '</p><h3 class="pk-n">' + esc($('.pl-n', c).textContent) + '</h3>' + (w ? '<p class="pk-w">' + esc(w.textContent) + '</p>' : '') + '</div>';
+      '<div class="peek-c"><p class="pl-e">' + $('.pl-e', c).innerHTML + '</p><h3 class="pk-n">' + esc(peekName(c)) + '</h3>' + (w ? '<p class="pk-w">' + esc(w.textContent) + '</p>' : '') + '</div>';
     cp.classList.add('pk-full'); poi.appendChild(cp);
     poi.insertAdjacentHTML('beforeend', '<div class="row-actions"><button class="btn btn-ghost" data-poi="x">Close</button><a class="btn btn-primary" href="#p-' + pid(c) + '">Open</a></div>');
     poi.classList.remove('full'); poi.hidden = false; $('[data-poi="x"]', poi).focus();
@@ -300,6 +302,7 @@
       const ll = (at(c, 'data-ll') || '').split(','); if (ll.length !== 2) return;
       const k = markers[pid(c)] = L.circleMarker([+ll[0], +ll[1]], style(c)).addTo(map), id = pid(c); if (c.stub) stub[id] = c;
       k.bindTooltip(at(c, 'data-n'), { permanent: true, direction: 'center', className: 'pin-n', opacity: 1 });
+      const te = k.getTooltip().getElement && k.getTooltip().getElement(), ac = ((info.areas || {})[at(c, 'data-a')] || {}).c; if (te && ac) { te.style.setProperty('--ac', ac); te.style.setProperty('--area', ac); }   // ROUND-2 #2: area-coloured labels
       k.on('click', () => { const r = byId[id] || (Cleo.defer && Cleo.defer.stampFor(id)); if (r) pin(r); });
     });
     const zl = () => { el.classList.toggle('zoom-lo', map.getZoom() < 14); focusPins(); }; map.on('zoomend', zl); zl();
@@ -321,5 +324,6 @@
   paint();
   onRoute();
   if ((store.get('interests', []) || []).length) need('foryou');
-  if (desk()) { if (window.requestIdleCallback) requestIdleCallback(() => loadMap(), { timeout: 1500 }); else setTimeout(loadMap, 300); }
+  // W3: the map belongs to Atlas (views.js mounts it on switch); Gallery / Guidebook / Insights don't build ~1k pin nodes
+  if (desk() && /^(atlas|)$/.test(d.documentElement.getAttribute('data-view') || '')) { if (window.requestIdleCallback) requestIdleCallback(() => loadMap(), { timeout: 1500 }); else setTimeout(loadMap, 300); }
 })();

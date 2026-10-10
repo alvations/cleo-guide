@@ -26,7 +26,8 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Yogyakarta — 2 sourced places · Cleo","url":"https://alvations.github.io/cleo-guide/beta/Singapore/yogyakarta.html","numberOfItems":2,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"TouristAttraction","name":"Borobudur","url":"https://alvations.github.io/cleo-guide/beta/Singapore/yogyakarta.html#p=borobudur","address":"Magelang Regency (near Yogyakarta), Central Java, Indonesia","geo":{"@type":"GeoCoordinates","latitude":-7.608,"longitude":110.204}}},{"@type":"ListItem","position":2,"item":{"@type":"TouristAttraction","name":"Prambanan","url":"https://alvations.github.io/cleo-guide/beta/Singapore/yogyakarta.html#p=prambanan","address":"Sleman (Yogyakarta–Central Java border), Indonesia","geo":{"@type":"GeoCoordinates","latitude":-7.75222,"longitude":110.49167}}}]}</script>
 <script src="../assets/js/core.js?v=3504a798b8" defer></script>
-<link rel="stylesheet" href="../assets/fe-a.css?v=5ca6e7f1c2">
+<link rel="stylesheet" href="../assets/fe-a.css?v=8c22e1f34b">
+<script>(function(){var v=["gallery","atlas","guidebook","insights"],h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)day=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'gallery';document.documentElement.setAttribute('data-view',x)})()</script>
 <link rel="alternate" type="application/atom+xml" title="Yogyakarta — what changed" href="../feeds/singapore--yogyakarta.xml">
 </head>
 <body>
@@ -45,11 +46,15 @@
 </div></header>
 <div class="banners" data-cleo-banners aria-live="polite"></div>
 <main id="main" data-city="singapore/yogyakarta">
+<nav class="views" data-cleo-views role="group" aria-label="View" hidden><button type="button" data-view="gallery" aria-pressed="true"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg><span>Gallery</span></button><button type="button" data-view="atlas" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-map"/></svg><span>Atlas</span></button><button type="button" data-view="guidebook" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-list"/></svg><span>Guidebook</span></button><button type="button" data-view="insights" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-sliders"/></svg><span>Insights</span></button></nav>
+<p class="vh" id="cleo-view-live" aria-live="polite"></p>
 <header class="masthead"><svg class="motif" viewBox="0 0 480 200" preserveAspectRatio="xMaxYMax meet" aria-hidden="true" focusable="false" style="position:absolute;inset:0;width:100%;height:100%;z-index:-3;opacity:.42;-webkit-mask-image:linear-gradient(90deg,transparent 35%,#000 75%);mask-image:linear-gradient(90deg,transparent 35%,#000 75%)"><image href="../assets/img/motifs/singapore--yogyakarta.svg?v=1941d43c51" width="480" height="200" preserveAspectRatio="xMaxYMax meet"/></svg>
   <p class="eyebrow">Indonesia</p>
   <div class="title"><h1>Yogyakarta</h1><p class="dek">Indonesia — sights &amp; local food, sourced</p></div>
   <p class="facts"><b>2 places</b> · 1 area · every one sourced, pinned and status-checked · last checked <time class="nw">2026-09-02</time>. Ordered by tier, then by number of named sources. <a href="#how-we-choose">How we choose</a></p>
+<div class="g-hero-x" aria-hidden="false"><img class="g-sky" src="../assets/art/singapore--yogyakarta/hero.svg?v=c51f2350ef" alt="" width="1200" height="600" decoding="async"><p class="g-kick">A guide in 1 area · every place recommended by name</p><p class="g-lead">Borobudur</p><p class="g-acts"><a class="btn btn-primary" href="#cleo-grid" data-g-browse>Browse all 2 places</a><a class="btn btn-ghost" href="#p-borobudur">Start with Borobudur</a></p></div>
 </header>
+<div class="g-rows vw view-gallery" id="cleo-rows-host"></div>
 <nav class="rail" id="cleo-rail" aria-label="Collections" data-cleo-rail data-view="all" hidden>
 
 <button type="button" class="rail-i door fy" data-cleo-foryou aria-haspopup="dialog"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg><span class="k">Your guide</span><span class="t">For you</span><span class="d">Tell it what you love</span></button>
@@ -72,9 +77,11 @@
 <button type="button" class="btn btn-ghost" data-cleo-tray="" aria-haspopup="dialog" aria-label="Filters"><svg class="ico" aria-hidden="true"><use href="#i-sliders"/></svg><span class="lbl">Filters</span><span class="tb-n" data-cleo-nf></span></button>
 <button type="button" class="btn btn-primary map-toggle" data-cleo-map="" aria-label="Show the map"><svg class="ico" aria-hidden="true"><use href="#i-map"/></svg></button>
 <div class="applied" data-cleo-applied></div>
+
 </div>
+<div class="view-host" id="cleo-view" hidden></div>
 <div class="split">
-<div class="listpane">
+<div class="listpane" id="cleo-grid">
 <div class="lens" id="cleo-lens" aria-live="polite" hidden></div>
 <p class="shown" id="cleo-shown" aria-live="polite"></p>
 <section class="area" id="area-YOGYAKARTA" data-area="YOGYAKARTA" aria-labelledby="ah-YOGYAKARTA" style="--area:#BCA7E6">
@@ -129,8 +136,9 @@
 
 <script src="../assets/js/states.js?v=938d68f2cf" defer></script>
 <script src="../assets/js/search.js?v=3eb9582ecc" defer></script>
-<script type="application/json" id="cleo-city">{"v":2,"key":"singapore/yogyakarta","name":"Yogyakarta","center":[-7.608,110.49167,11],"total":2,"file":"singapore--yogyakarta","lang":"","areas":{"YOGYAKARTA":{"n":"Yogyakarta","c":"#BCA7E6"}},"src":{"unesco":["UNESCO World Heritage",2,0,"","https://whc.unesco.org/",""],"wikipedia":["Wikipedia",2,0,"","https://www.wikipedia.org/",""]},"cats":{"ICON":"Iconic \u0026 Must-See","HERITAGE":"Heritage \u0026 Culture","TEMPLE":"Temples, Mosques \u0026 Shrines","MKT":"Markets \u0026 Hawker Centres","PARK":"Parks, Gardens \u0026 Nature","MUS":"Museums \u0026 Galleries","VIEW":"Views \u0026 Skyline","ARCH":"Architecture \u0026 Landmarks","FAM":"Family \u0026 Kids","ODD":"Oddities \u0026 Hidden Gems","FREE":"Free to Visit","CHICKENRICE":"Hainanese Chicken Rice","LAKSA":"Laksa \u0026 Curry Noodles","NOODLE":"Wok Noodles (Char Kway Teow, Hokkien Mee, Bak Chor Mee)","BKT":"Bak Kut Teh \u0026 Soups","HAWKER":"Hawker \u0026 Zi Char","MALAY":"Malay \u0026 Nasi Padang","INDIAN":"Indian \u0026 Roti Prata","CHINESE":"Chinese, Dim Sum \u0026 Teochew","SEAFOOD":"Chilli Crab \u0026 Seafood","THAI":"Thai","VIET":"Vietnamese","INDO":"Indonesian, Satay \u0026 Rendang","FILIPINO":"Filipino","KHMER":"Khmer (Cambodian)","LAO":"Lao","BURMESE":"Burmese","PERANAKAN":"Peranakan / Nyonya","KOPI":"Kaya Toast, Kopitiam \u0026 Breakfast","DESSERT":"Chendol, Kueh \u0026 Durian","CAFE":"Cafés \u0026 Modern","VIRAL":"Viral / Social"},"pd":["2026-09-02"],"prov":{"borobudur":"h0","prambanan":"h0"},"gaps":[],"fy":[["history","History \u0026 landmarks",2,["c:ICON","c:ARCH","c:TEMPLE","c:HERITAGE"]]],"days":{},"js":{"foryou":"1a86ee216a","day":"f4ae246a7e"},"dl":"Suggested by the guide from sourced picks — check hours before you go. Distances are straight-line, not walking routes.","dsk":{"YOGYAKARTA":"only 2 open places with a verified pin"},"sig":null,"co":[],"art":{"YOGYAKARTA":["../assets/art/singapore--yogyakarta/YOGYAKARTA.svg?v=d6fe5024a8",320,200,14,-7.75222,110.204,-7.596145,110.49167,1015.052,1024.2398]}}</script>
-<script src="../assets/js/city.js?v=d502a8dc86" defer></script>
-<script src="../assets/js/sheet.js?v=52d56332cc" defer></script>
+<script type="application/json" id="cleo-city">{"v":2,"key":"singapore/yogyakarta","name":"Yogyakarta","center":[-7.608,110.49167,11],"total":2,"file":"singapore--yogyakarta","lang":"","areas":{"YOGYAKARTA":{"n":"Yogyakarta","c":"#BCA7E6"}},"src":{"unesco":["UNESCO World Heritage",2,0,"","https://whc.unesco.org/",""],"wikipedia":["Wikipedia",2,0,"","https://www.wikipedia.org/",""]},"cats":{"ICON":"Iconic \u0026 Must-See","HERITAGE":"Heritage \u0026 Culture","TEMPLE":"Temples, Mosques \u0026 Shrines","MKT":"Markets \u0026 Hawker Centres","PARK":"Parks, Gardens \u0026 Nature","MUS":"Museums \u0026 Galleries","VIEW":"Views \u0026 Skyline","ARCH":"Architecture \u0026 Landmarks","FAM":"Family \u0026 Kids","ODD":"Oddities \u0026 Hidden Gems","FREE":"Free to Visit","CHICKENRICE":"Hainanese Chicken Rice","LAKSA":"Laksa \u0026 Curry Noodles","NOODLE":"Wok Noodles (Char Kway Teow, Hokkien Mee, Bak Chor Mee)","BKT":"Bak Kut Teh \u0026 Soups","HAWKER":"Hawker \u0026 Zi Char","MALAY":"Malay \u0026 Nasi Padang","INDIAN":"Indian \u0026 Roti Prata","CHINESE":"Chinese, Dim Sum \u0026 Teochew","SEAFOOD":"Chilli Crab \u0026 Seafood","THAI":"Thai","VIET":"Vietnamese","INDO":"Indonesian, Satay \u0026 Rendang","FILIPINO":"Filipino","KHMER":"Khmer (Cambodian)","LAO":"Lao","BURMESE":"Burmese","PERANAKAN":"Peranakan / Nyonya","KOPI":"Kaya Toast, Kopitiam \u0026 Breakfast","DESSERT":"Chendol, Kueh \u0026 Durian","CAFE":"Cafés \u0026 Modern","VIRAL":"Viral / Social"},"pd":["2026-09-02"],"prov":{"borobudur":"h0","prambanan":"h0"},"gaps":[],"fy":[["history","History \u0026 landmarks",2,["c:ICON","c:ARCH","c:TEMPLE","c:HERITAGE"]]],"days":{},"js":{"foryou":"1a86ee216a","day":"f4ae246a7e","gallery":"ceb3ef0e70","guidebook":"6ead0b0bd1","insights":"30ff81ed67"},"views":["gallery","atlas","guidebook","insights"],"dl":"Suggested by the guide from sourced picks — check hours before you go. Distances are straight-line, not walking routes.","dsk":{"YOGYAKARTA":"only 2 open places with a verified pin"},"sig":null,"co":[],"art":{"YOGYAKARTA":["../assets/art/singapore--yogyakarta/YOGYAKARTA.svg?v=d6fe5024a8",320,200,14,-7.75222,110.204,-7.596145,110.49167,1015.052,1024.2398]}}</script>
+<script src="../assets/js/city.js?v=9dcf2ea78d" defer></script>
+<script src="../assets/js/sheet.js?v=eb1e4b619a" defer></script>
+<script src="../assets/js/views.js?v=d8ce64ac85" defer></script>
 </body>
 </html>
