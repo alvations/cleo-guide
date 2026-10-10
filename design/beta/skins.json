@@ -1,0 +1,15 @@
+{
+  "_doc": "City → skin assignment (M1-14, DESIGN-SYSTEM §3.3). Source of truth for the [data-city] skin selectors in design/beta/tokens.css — regenerate with `python3 design/beta/tools/skins.py` (also copies tokens.css to beta/assets/). Keys are the generator's page keys (beta/data/manifest.json). A key ending in '/*' is a prefix (regional skin). Cities not listed get the neutral default skin.",
+  "skins": {
+    "vermilion": ["tokyo", "sanfrancisco", "cincinnati", "liege", "indianapolis"],
+    "moss":      ["kyoto", "akron", "youngstown", "wheeling", "aachen"],
+    "neon":      ["osaka", "miami", "orlando"],
+    "lagoon":    ["okinawa", "madison", "erie"],
+    "glacier":   ["hokkaido", "siliconvalley", "washingtondc", "harrisburg", "statecollege", "antwerp"],
+    "lake":      ["cleveland", "philadelphia", "dayton", "bruges"],
+    "saffron":   ["newyork", "pittsburgh", "rhineland", "brussels"],
+    "plum":      ["chicago", "columbus", "saarland", "ghent"],
+    "orchid":    ["singapore/*"],
+    "jade":      ["vietnam/*"]
+  }
+}

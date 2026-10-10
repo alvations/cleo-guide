@@ -1,0 +1,21 @@
+{
+  "_doc": "Collection id (CATS.id in the page data, emitted as data-c on .rail-i) → original glyph name (design/beta/tools/svgkit.py ICONS + NEW in build-css.py). build-css.py turns this into CSS so every rail tile shows a glyph with no markup change; ids not listed get the four-point star. Japan pages use the torii for TEMPLE; elsewhere it is the lantern (a torii is Shinto-specific).",
+  "collections": {
+    "MUS": "columns", "ARCH": "columns", "HIST": "columns", "HERITAGE": "columns", "GOV": "columns", "CIVIL": "columns",
+    "MON": "columns", "UNESCO": "columns", "DECO": "columns", "CAMPUS": "columns",
+    "ICON": "tower", "VIEW": "tower", "ROOF": "tower", "TECH": "tower", "FACT": "tower",
+    "TEMPLE": "lantern", "CASTLE": "castle",
+    "PARK": "leaf", "GARDEN": "leaf", "WILD": "leaf", "FLW": "leaf", "AMISH": "leaf",
+    "NATURE": "mountain", "OUTDOOR": "mountain",
+    "WATER": "wave", "RIVER": "wave", "CANAL": "wave", "BEACH": "wave", "LAKES": "wave", "BOAT": "wave", "MARITIME": "wave",
+    "NIGHT": "moon", "BAR": "moon", "SPEAK": "bottle",
+    "MKT": "awning", "SHOP": "awning", "CRAFT": "awning", "GLASS": "awning",
+    "FREE": "stamp", "FAM": "guide", "ODD": "bubble",
+    "ENT": "ticket", "SHOW": "ticket", "ARTS": "ticket", "RIDE": "ticket",
+    "ART": "frame", "MURAL": "frame",
+    "POP": "tv", "ANIME": "tv",
+    "ONSEN": "steam", "SPA": "steam", "SPRNG": "steam",
+    "SPORT": "flag", "RACE": "flag", "RAIL": "train", "AVIATION": "plane", "SPACE": "plane"
+  },
+  "japan": ["tokyo", "kyoto", "osaka", "okinawa", "hokkaido"]
+}

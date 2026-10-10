@@ -1,0 +1,1178 @@
+{
+ "v": 1,
+ "_doc": "Written by tools/beta/build.js. `generated` pages are owned by the new beta generator; tools/beta-restyle.py must skip them. `pages` maps every live page to its beta source.",
+ "generated": [
+  "index.html",
+  "cleveland.html",
+  "Japan/index.html",
+  "Germany/index.html",
+  "Belgium/index.html",
+  "cities/aachen.html",
+  "cities/akron.html",
+  "cities/antwerp.html",
+  "cities/bruges.html",
+  "cities/brussels.html",
+  "cities/chicago.html",
+  "cities/cincinnati.html",
+  "cities/columbus.html",
+  "cities/dayton.html",
+  "cities/erie.html",
+  "cities/ghent.html",
+  "cities/harrisburg.html",
+  "cities/hokkaido.html",
+  "cities/indianapolis.html",
+  "cities/kyoto.html",
+  "cities/liege.html",
+  "cities/madison.html",
+  "cities/miami.html",
+  "cities/newyork.html",
+  "cities/okinawa.html",
+  "cities/orlando.html",
+  "cities/osaka.html",
+  "cities/philadelphia.html",
+  "cities/pittsburgh.html",
+  "cities/rhineland.html",
+  "cities/saarland.html",
+  "cities/sanfrancisco.html",
+  "cities/siliconvalley.html",
+  "cities/statecollege.html",
+  "cities/tokyo.html",
+  "cities/washingtondc.html",
+  "cities/wheeling.html",
+  "cities/youngstown.html",
+  "Singapore/ang-mo-kio.html",
+  "Singapore/bagan.html",
+  "Singapore/balestier.html",
+  "Singapore/bali.html",
+  "Singapore/bangkok.html",
+  "Singapore/bedok.html",
+  "Singapore/bishan.html",
+  "Singapore/bukit-timah.html",
+  "Singapore/cebu.html",
+  "Singapore/changi.html",
+  "Singapore/chiang-mai.html",
+  "Singapore/chinatown.html",
+  "Singapore/civic-district.html",
+  "Singapore/dempsey-hill.html",
+  "Singapore/geylang.html",
+  "Singapore/hanoi.html",
+  "Singapore/hoi-an.html",
+  "Singapore/holland-village.html",
+  "Singapore/index.html",
+  "Singapore/ipoh.html",
+  "Singapore/jakarta.html",
+  "Singapore/jalan-besar.html",
+  "Singapore/jurong.html",
+  "Singapore/kampong-glam.html",
+  "Singapore/katong-joo-chiat.html",
+  "Singapore/kuala-lumpur.html",
+  "Singapore/little-india.html",
+  "Singapore/luang-prabang.html",
+  "Singapore/malacca.html",
+  "Singapore/mandai.html",
+  "Singapore/manila.html",
+  "Singapore/marina-bay.html",
+  "Singapore/marine-parade.html",
+  "Singapore/newton-novena.html",
+  "Singapore/old-airport-road.html",
+  "Singapore/penang.html",
+  "Singapore/phnom-penh.html",
+  "Singapore/potong-pasir-macpherson.html",
+  "Singapore/punggol.html",
+  "Singapore/queenstown.html",
+  "Singapore/siem-reap.html",
+  "Singapore/singapore-old.html",
+  "Singapore/southern-ridges.html",
+  "Singapore/tiong-bahru.html",
+  "Singapore/toa-payoh.html",
+  "Singapore/upper-serangoon.html",
+  "Singapore/upper-thomson.html",
+  "Singapore/yangon.html",
+  "Singapore/yogyakarta.html",
+  "Vietnam/hanoi.html",
+  "Vietnam/ho-chi-minh-city.html",
+  "Vietnam/hoi-an.html",
+  "Vietnam/index.html",
+  "saved.html",
+  "how-we-choose.html",
+  "accessibility.html",
+  "404.html"
+ ],
+ "pages": [
+  {
+   "live": "index.html",
+   "beta": "index.html",
+   "key": "index",
+   "kind": "landing",
+   "gen": "new",
+   "country": null,
+   "counts": null
+  },
+  {
+   "live": "cleveland.html",
+   "beta": "cleveland.html",
+   "key": "cleveland",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 148,
+    "F": 46
+   }
+  },
+  {
+   "live": "Japan/index.html",
+   "beta": "Japan/index.html",
+   "key": "japan/index",
+   "kind": "country-hub",
+   "gen": "new",
+   "country": "japan",
+   "counts": null
+  },
+  {
+   "live": "Germany/index.html",
+   "beta": "Germany/index.html",
+   "key": "germany/index",
+   "kind": "country-hub",
+   "gen": "new",
+   "country": "germany",
+   "counts": null
+  },
+  {
+   "live": "Belgium/index.html",
+   "beta": "Belgium/index.html",
+   "key": "belgium/index",
+   "kind": "country-hub",
+   "gen": "new",
+   "country": "belgium",
+   "counts": null
+  },
+  {
+   "live": "cities/aachen.html",
+   "beta": "cities/aachen.html",
+   "key": "aachen",
+   "kind": "city",
+   "gen": "new",
+   "country": "germany",
+   "counts": {
+    "P": 113,
+    "F": 90
+   }
+  },
+  {
+   "live": "cities/akron.html",
+   "beta": "cities/akron.html",
+   "key": "akron",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 68,
+    "F": 82
+   }
+  },
+  {
+   "live": "cities/antwerp.html",
+   "beta": "cities/antwerp.html",
+   "key": "antwerp",
+   "kind": "city",
+   "gen": "new",
+   "country": "belgium",
+   "counts": {
+    "P": 59,
+    "F": 78
+   }
+  },
+  {
+   "live": "cities/bruges.html",
+   "beta": "cities/bruges.html",
+   "key": "bruges",
+   "kind": "city",
+   "gen": "new",
+   "country": "belgium",
+   "counts": {
+    "P": 63,
+    "F": 60
+   }
+  },
+  {
+   "live": "cities/brussels.html",
+   "beta": "cities/brussels.html",
+   "key": "brussels",
+   "kind": "city",
+   "gen": "new",
+   "country": "belgium",
+   "counts": {
+    "P": 71,
+    "F": 68
+   }
+  },
+  {
+   "live": "cities/chicago.html",
+   "beta": "cities/chicago.html",
+   "key": "chicago",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 206,
+    "F": 161
+   }
+  },
+  {
+   "live": "cities/cincinnati.html",
+   "beta": "cities/cincinnati.html",
+   "key": "cincinnati",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 68,
+    "F": 41
+   }
+  },
+  {
+   "live": "cities/columbus.html",
+   "beta": "cities/columbus.html",
+   "key": "columbus",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 62,
+    "F": 24
+   }
+  },
+  {
+   "live": "cities/dayton.html",
+   "beta": "cities/dayton.html",
+   "key": "dayton",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 55,
+    "F": 19
+   }
+  },
+  {
+   "live": "cities/erie.html",
+   "beta": "cities/erie.html",
+   "key": "erie",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 41,
+    "F": 18
+   }
+  },
+  {
+   "live": "cities/ghent.html",
+   "beta": "cities/ghent.html",
+   "key": "ghent",
+   "kind": "city",
+   "gen": "new",
+   "country": "belgium",
+   "counts": {
+    "P": 53,
+    "F": 55
+   }
+  },
+  {
+   "live": "cities/harrisburg.html",
+   "beta": "cities/harrisburg.html",
+   "key": "harrisburg",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 77,
+    "F": 94
+   }
+  },
+  {
+   "live": "cities/hokkaido.html",
+   "beta": "cities/hokkaido.html",
+   "key": "hokkaido",
+   "kind": "city",
+   "gen": "new",
+   "country": "japan",
+   "counts": {
+    "P": 228,
+    "F": 184
+   }
+  },
+  {
+   "live": "cities/indianapolis.html",
+   "beta": "cities/indianapolis.html",
+   "key": "indianapolis",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 70,
+    "F": 86
+   }
+  },
+  {
+   "live": "cities/kyoto.html",
+   "beta": "cities/kyoto.html",
+   "key": "kyoto",
+   "kind": "city",
+   "gen": "new",
+   "country": "japan",
+   "counts": {
+    "P": 215,
+    "F": 183
+   }
+  },
+  {
+   "live": "cities/liege.html",
+   "beta": "cities/liege.html",
+   "key": "liege",
+   "kind": "city",
+   "gen": "new",
+   "country": "belgium",
+   "counts": {
+    "P": 59,
+    "F": 85
+   }
+  },
+  {
+   "live": "cities/madison.html",
+   "beta": "cities/madison.html",
+   "key": "madison",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 66,
+    "F": 90
+   }
+  },
+  {
+   "live": "cities/miami.html",
+   "beta": "cities/miami.html",
+   "key": "miami",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 124,
+    "F": 201
+   }
+  },
+  {
+   "live": "cities/newyork.html",
+   "beta": "cities/newyork.html",
+   "key": "newyork",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 219,
+    "F": 289
+   }
+  },
+  {
+   "live": "cities/okinawa.html",
+   "beta": "cities/okinawa.html",
+   "key": "okinawa",
+   "kind": "city",
+   "gen": "new",
+   "country": "japan",
+   "counts": {
+    "P": 191,
+    "F": 234
+   }
+  },
+  {
+   "live": "cities/orlando.html",
+   "beta": "cities/orlando.html",
+   "key": "orlando",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 208,
+    "F": 179
+   }
+  },
+  {
+   "live": "cities/osaka.html",
+   "beta": "cities/osaka.html",
+   "key": "osaka",
+   "kind": "city",
+   "gen": "new",
+   "country": "japan",
+   "counts": {
+    "P": 159,
+    "F": 210
+   }
+  },
+  {
+   "live": "cities/philadelphia.html",
+   "beta": "cities/philadelphia.html",
+   "key": "philadelphia",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 165,
+    "F": 198
+   }
+  },
+  {
+   "live": "cities/pittsburgh.html",
+   "beta": "cities/pittsburgh.html",
+   "key": "pittsburgh",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 111,
+    "F": 101
+   }
+  },
+  {
+   "live": "cities/rhineland.html",
+   "beta": "cities/rhineland.html",
+   "key": "rhineland",
+   "kind": "city",
+   "gen": "new",
+   "country": "germany",
+   "counts": {
+    "P": 155,
+    "F": 106
+   }
+  },
+  {
+   "live": "cities/saarland.html",
+   "beta": "cities/saarland.html",
+   "key": "saarland",
+   "kind": "city",
+   "gen": "new",
+   "country": "germany",
+   "counts": {
+    "P": 183,
+    "F": 104
+   }
+  },
+  {
+   "live": "cities/sanfrancisco.html",
+   "beta": "cities/sanfrancisco.html",
+   "key": "sanfrancisco",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 204,
+    "F": 192
+   }
+  },
+  {
+   "live": "cities/siliconvalley.html",
+   "beta": "cities/siliconvalley.html",
+   "key": "siliconvalley",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 108,
+    "F": 44
+   }
+  },
+  {
+   "live": "cities/statecollege.html",
+   "beta": "cities/statecollege.html",
+   "key": "statecollege",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 34,
+    "F": 14
+   }
+  },
+  {
+   "live": "cities/tokyo.html",
+   "beta": "cities/tokyo.html",
+   "key": "tokyo",
+   "kind": "city",
+   "gen": "new",
+   "country": "japan",
+   "counts": {
+    "P": 263,
+    "F": 225
+   }
+  },
+  {
+   "live": "cities/washingtondc.html",
+   "beta": "cities/washingtondc.html",
+   "key": "washingtondc",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 75,
+    "F": 59
+   }
+  },
+  {
+   "live": "cities/wheeling.html",
+   "beta": "cities/wheeling.html",
+   "key": "wheeling",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 28,
+    "F": 7
+   }
+  },
+  {
+   "live": "cities/youngstown.html",
+   "beta": "cities/youngstown.html",
+   "key": "youngstown",
+   "kind": "city",
+   "gen": "new",
+   "country": "us",
+   "counts": {
+    "P": 40,
+    "F": 22
+   }
+  },
+  {
+   "live": "Singapore/ang-mo-kio.html",
+   "beta": "Singapore/ang-mo-kio.html",
+   "key": "singapore/ang-mo-kio",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 20,
+    "F": 67
+   }
+  },
+  {
+   "live": "Singapore/bagan.html",
+   "beta": "Singapore/bagan.html",
+   "key": "singapore/bagan",
+   "kind": "city",
+   "gen": "new",
+   "country": "indochina",
+   "counts": {
+    "P": 1,
+    "F": 0
+   }
+  },
+  {
+   "live": "Singapore/balestier.html",
+   "beta": "Singapore/balestier.html",
+   "key": "singapore/balestier",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 12,
+    "F": 37
+   }
+  },
+  {
+   "live": "Singapore/bali.html",
+   "beta": "Singapore/bali.html",
+   "key": "singapore/bali",
+   "kind": "city",
+   "gen": "new",
+   "country": "indonesia",
+   "counts": {
+    "P": 3,
+    "F": 0
+   }
+  },
+  {
+   "live": "Singapore/bangkok.html",
+   "beta": "Singapore/bangkok.html",
+   "key": "singapore/bangkok",
+   "kind": "city",
+   "gen": "new",
+   "country": "thailand",
+   "counts": {
+    "P": 4,
+    "F": 2
+   }
+  },
+  {
+   "live": "Singapore/bedok.html",
+   "beta": "Singapore/bedok.html",
+   "key": "singapore/bedok",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 0,
+    "F": 1
+   }
+  },
+  {
+   "live": "Singapore/bishan.html",
+   "beta": "Singapore/bishan.html",
+   "key": "singapore/bishan",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 10,
+    "F": 33
+   }
+  },
+  {
+   "live": "Singapore/bukit-timah.html",
+   "beta": "Singapore/bukit-timah.html",
+   "key": "singapore/bukit-timah",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 2,
+    "F": 1
+   }
+  },
+  {
+   "live": "Singapore/cebu.html",
+   "beta": "Singapore/cebu.html",
+   "key": "singapore/cebu",
+   "kind": "city",
+   "gen": "new",
+   "country": "philippines",
+   "counts": {
+    "P": 1,
+    "F": 1
+   }
+  },
+  {
+   "live": "Singapore/changi.html",
+   "beta": "Singapore/changi.html",
+   "key": "singapore/changi",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 2,
+    "F": 0
+   }
+  },
+  {
+   "live": "Singapore/chiang-mai.html",
+   "beta": "Singapore/chiang-mai.html",
+   "key": "singapore/chiang-mai",
+   "kind": "city",
+   "gen": "new",
+   "country": "thailand",
+   "counts": {
+    "P": 2,
+    "F": 1
+   }
+  },
+  {
+   "live": "Singapore/chinatown.html",
+   "beta": "Singapore/chinatown.html",
+   "key": "singapore/chinatown",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 4,
+    "F": 12
+   }
+  },
+  {
+   "live": "Singapore/civic-district.html",
+   "beta": "Singapore/civic-district.html",
+   "key": "singapore/civic-district",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 5,
+    "F": 1
+   }
+  },
+  {
+   "live": "Singapore/dempsey-hill.html",
+   "beta": "Singapore/dempsey-hill.html",
+   "key": "singapore/dempsey-hill",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 0,
+    "F": 2
+   }
+  },
+  {
+   "live": "Singapore/geylang.html",
+   "beta": "Singapore/geylang.html",
+   "key": "singapore/geylang",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 1,
+    "F": 1
+   }
+  },
+  {
+   "live": "Singapore/hanoi.html",
+   "beta": "Singapore/hanoi.html",
+   "key": "singapore/hanoi",
+   "kind": "city",
+   "gen": "new",
+   "country": "vietnam",
+   "counts": {
+    "P": 2,
+    "F": 2
+   }
+  },
+  {
+   "live": "Singapore/hoi-an.html",
+   "beta": "Singapore/hoi-an.html",
+   "key": "singapore/hoi-an",
+   "kind": "city",
+   "gen": "new",
+   "country": "vietnam",
+   "counts": {
+    "P": 1,
+    "F": 1
+   }
+  },
+  {
+   "live": "Singapore/holland-village.html",
+   "beta": "Singapore/holland-village.html",
+   "key": "singapore/holland-village",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 3,
+    "F": 30
+   }
+  },
+  {
+   "live": "Singapore/index.html",
+   "beta": "Singapore/index.html",
+   "key": "singapore/index",
+   "kind": "country-hub",
+   "gen": "new",
+   "country": "singapore",
+   "counts": null
+  },
+  {
+   "live": "Singapore/ipoh.html",
+   "beta": "Singapore/ipoh.html",
+   "key": "singapore/ipoh",
+   "kind": "city",
+   "gen": "new",
+   "country": "malaysia",
+   "counts": {
+    "P": 0,
+    "F": 1
+   }
+  },
+  {
+   "live": "Singapore/jakarta.html",
+   "beta": "Singapore/jakarta.html",
+   "key": "singapore/jakarta",
+   "kind": "city",
+   "gen": "new",
+   "country": "indonesia",
+   "counts": {
+    "P": 1,
+    "F": 0
+   }
+  },
+  {
+   "live": "Singapore/jalan-besar.html",
+   "beta": "Singapore/jalan-besar.html",
+   "key": "singapore/jalan-besar",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 0,
+    "F": 6
+   }
+  },
+  {
+   "live": "Singapore/jurong.html",
+   "beta": "Singapore/jurong.html",
+   "key": "singapore/jurong",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 0,
+    "F": 3
+   }
+  },
+  {
+   "live": "Singapore/kampong-glam.html",
+   "beta": "Singapore/kampong-glam.html",
+   "key": "singapore/kampong-glam",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 1,
+    "F": 2
+   }
+  },
+  {
+   "live": "Singapore/katong-joo-chiat.html",
+   "beta": "Singapore/katong-joo-chiat.html",
+   "key": "singapore/katong-joo-chiat",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 1,
+    "F": 6
+   }
+  },
+  {
+   "live": "Singapore/kuala-lumpur.html",
+   "beta": "Singapore/kuala-lumpur.html",
+   "key": "singapore/kuala-lumpur",
+   "kind": "city",
+   "gen": "new",
+   "country": "malaysia",
+   "counts": {
+    "P": 2,
+    "F": 1
+   }
+  },
+  {
+   "live": "Singapore/little-india.html",
+   "beta": "Singapore/little-india.html",
+   "key": "singapore/little-india",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 2,
+    "F": 3
+   }
+  },
+  {
+   "live": "Singapore/luang-prabang.html",
+   "beta": "Singapore/luang-prabang.html",
+   "key": "singapore/luang-prabang",
+   "kind": "city",
+   "gen": "new",
+   "country": "indochina",
+   "counts": {
+    "P": 2,
+    "F": 0
+   }
+  },
+  {
+   "live": "Singapore/malacca.html",
+   "beta": "Singapore/malacca.html",
+   "key": "singapore/malacca",
+   "kind": "city",
+   "gen": "new",
+   "country": "malaysia",
+   "counts": {
+    "P": 1,
+    "F": 1
+   }
+  },
+  {
+   "live": "Singapore/mandai.html",
+   "beta": "Singapore/mandai.html",
+   "key": "singapore/mandai",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 3,
+    "F": 0
+   }
+  },
+  {
+   "live": "Singapore/manila.html",
+   "beta": "Singapore/manila.html",
+   "key": "singapore/manila",
+   "kind": "city",
+   "gen": "new",
+   "country": "philippines",
+   "counts": {
+    "P": 3,
+    "F": 0
+   }
+  },
+  {
+   "live": "Singapore/marina-bay.html",
+   "beta": "Singapore/marina-bay.html",
+   "key": "singapore/marina-bay",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 6,
+    "F": 0
+   }
+  },
+  {
+   "live": "Singapore/marine-parade.html",
+   "beta": "Singapore/marine-parade.html",
+   "key": "singapore/marine-parade",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 1,
+    "F": 1
+   }
+  },
+  {
+   "live": "Singapore/newton-novena.html",
+   "beta": "Singapore/newton-novena.html",
+   "key": "singapore/newton-novena",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 8,
+    "F": 34
+   }
+  },
+  {
+   "live": "Singapore/old-airport-road.html",
+   "beta": "Singapore/old-airport-road.html",
+   "key": "singapore/old-airport-road",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 0,
+    "F": 4
+   }
+  },
+  {
+   "live": "Singapore/penang.html",
+   "beta": "Singapore/penang.html",
+   "key": "singapore/penang",
+   "kind": "city",
+   "gen": "new",
+   "country": "malaysia",
+   "counts": {
+    "P": 3,
+    "F": 3
+   }
+  },
+  {
+   "live": "Singapore/phnom-penh.html",
+   "beta": "Singapore/phnom-penh.html",
+   "key": "singapore/phnom-penh",
+   "kind": "city",
+   "gen": "new",
+   "country": "indochina",
+   "counts": {
+    "P": 1,
+    "F": 0
+   }
+  },
+  {
+   "live": "Singapore/potong-pasir-macpherson.html",
+   "beta": "Singapore/potong-pasir-macpherson.html",
+   "key": "singapore/potong-pasir-macpherson",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 15,
+    "F": 45
+   }
+  },
+  {
+   "live": "Singapore/punggol.html",
+   "beta": "Singapore/punggol.html",
+   "key": "singapore/punggol",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 15,
+    "F": 33
+   }
+  },
+  {
+   "live": "Singapore/queenstown.html",
+   "beta": "Singapore/queenstown.html",
+   "key": "singapore/queenstown",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 0,
+    "F": 4
+   }
+  },
+  {
+   "live": "Singapore/siem-reap.html",
+   "beta": "Singapore/siem-reap.html",
+   "key": "singapore/siem-reap",
+   "kind": "city",
+   "gen": "new",
+   "country": "indochina",
+   "counts": {
+    "P": 2,
+    "F": 0
+   }
+  },
+  {
+   "live": "Singapore/singapore-old.html",
+   "beta": "Singapore/singapore-old.html",
+   "key": "singapore/singapore-old",
+   "kind": "archive-hub",
+   "gen": "new",
+   "country": "singapore",
+   "counts": null
+  },
+  {
+   "live": "Singapore/southern-ridges.html",
+   "beta": "Singapore/southern-ridges.html",
+   "key": "singapore/southern-ridges",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 2,
+    "F": 0
+   }
+  },
+  {
+   "live": "Singapore/tiong-bahru.html",
+   "beta": "Singapore/tiong-bahru.html",
+   "key": "singapore/tiong-bahru",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 0,
+    "F": 3
+   }
+  },
+  {
+   "live": "Singapore/toa-payoh.html",
+   "beta": "Singapore/toa-payoh.html",
+   "key": "singapore/toa-payoh",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 14,
+    "F": 41
+   }
+  },
+  {
+   "live": "Singapore/upper-serangoon.html",
+   "beta": "Singapore/upper-serangoon.html",
+   "key": "singapore/upper-serangoon",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 18,
+    "F": 81
+   }
+  },
+  {
+   "live": "Singapore/upper-thomson.html",
+   "beta": "Singapore/upper-thomson.html",
+   "key": "singapore/upper-thomson",
+   "kind": "city",
+   "gen": "new",
+   "country": "singapore",
+   "counts": {
+    "P": 1,
+    "F": 1
+   }
+  },
+  {
+   "live": "Singapore/yangon.html",
+   "beta": "Singapore/yangon.html",
+   "key": "singapore/yangon",
+   "kind": "city",
+   "gen": "new",
+   "country": "indochina",
+   "counts": {
+    "P": 1,
+    "F": 0
+   }
+  },
+  {
+   "live": "Singapore/yogyakarta.html",
+   "beta": "Singapore/yogyakarta.html",
+   "key": "singapore/yogyakarta",
+   "kind": "city",
+   "gen": "new",
+   "country": "indonesia",
+   "counts": {
+    "P": 2,
+    "F": 0
+   }
+  },
+  {
+   "live": "Vietnam/hanoi.html",
+   "beta": "Vietnam/hanoi.html",
+   "key": "vietnam/hanoi",
+   "kind": "city",
+   "gen": "new",
+   "country": "vietnam",
+   "counts": {
+    "P": 2,
+    "F": 2
+   }
+  },
+  {
+   "live": "Vietnam/ho-chi-minh-city.html",
+   "beta": "Vietnam/ho-chi-minh-city.html",
+   "key": "vietnam/ho-chi-minh-city",
+   "kind": "city",
+   "gen": "new",
+   "country": "vietnam",
+   "counts": {
+    "P": 105,
+    "F": 66
+   }
+  },
+  {
+   "live": "Vietnam/hoi-an.html",
+   "beta": "Vietnam/hoi-an.html",
+   "key": "vietnam/hoi-an",
+   "kind": "city",
+   "gen": "new",
+   "country": "vietnam",
+   "counts": {
+    "P": 1,
+    "F": 1
+   }
+  },
+  {
+   "live": "Vietnam/index.html",
+   "beta": "Vietnam/index.html",
+   "key": "vietnam/index",
+   "kind": "country-hub",
+   "gen": "new",
+   "country": "vietnam",
+   "counts": null
+  }
+ ],
+ "totals": {
+  "pages": 84,
+  "places": 8458
+ }
+}

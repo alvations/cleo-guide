@@ -204,6 +204,33 @@ open/closed status), `docs/CITIES.md` (one row per city), `docs/AGENT-PROMPTS.md
 | `session_01DpemyawneXmB7YPoPQhDWv` | Singapore gap-fill — Balestier pins + Punggol | 2026-10-03 09:55 | completed, archived | Balestier pins 5→49, Punggol 29→48 (places 63→65); both LIVE; 0 places removed |
 | `session_011cSHJwH2jx8M9RXKJBJ6Ds` | Site-wide QA, mobile + desktop | 2026-10-03 09:56 | completed, archived | 160 pages × 3 loads, 0 FAIL after fixes (Youngstown empty-list bug, dead links, raw-URL chips, hub copy); D1–D8 deferred; 0 places removed — docs/QA-2026-10-03.md |
 | `session_019cuMgwoxChA7ZDeYk9WCji` | UI/UX redesign proposals for owner review | 2026-10-03 10:02 | completed, archived | design/ux-2026-10/README.md — 3 directions, Salon & Night out recommended, prototypes + 61 screenshots, roadmap, 8 decisions |
+| `session_019QAQ3MipXWViRJ9Jq6JD6J` | Deploy Singapore gap-fill + QA fixes | 2026-10-10 07:18 | completed, archived | PR #3 merged (`ca70e53`); QA 0 FAIL / 183 pages; no places cut (docs/DEPLOY-2026-10-10.md) |
+| `session_015r1bMC2Lesp6qpxFUiDRkK` | Research — competitive UI/UX teardown | 2026-10-10 07:17 | completed, archived | design/research-2026-10/ux-competitive/README.md (45 products, 377 cited URLs) |
+| `session_01BZUiWtox2hQpyUwGWN6EmC` | Research — SWOT / what are we missing | 2026-10-10 07:17 | completed, archived | design/research-2026-10/swot/README.md (≥20 competitors, 367 cited URLs) |
+| `session_01DikCXL6tk8dNedSxwn21wC` | Beta W0 — PM: backlog, decisions, benchmark | 2026-10-10 07:50 | completed, archived | docs/BETA-BACKLOG.md (M0–M3 + deferred), BETA-DECISIONS.md, BETA-BENCHMARK.md |
+| `session_01UR6QG8sr2pzx4NkkPUNqit` | Beta W0 — Designer: "Constellation" design system | 2026-10-10 07:50 | completed, archived | design/beta/ (system, tokens, imagery, voice, specs, 10 mockups, 42 screenshots, AA proof) |
+| `session_01LVXQewVSi3PVAFKQGdh8oA` | Beta W0 — Tech lead: RFC + generator skeleton | 2026-10-10 07:51 | completed, archived | design/beta/RFC-architecture.md; tools/beta/ builds 84 pages / 8,458 places; beta count==live + no-CDN test in npm test |
+| `session_01KAFFdmZ5muds2a5TrCSdWU` | Beta W1 — Platform | 2026-10-10 08:24 | completed, archived | platform W1: map art, computed counts, SW fonts, source pages; beta count==live |
+| `session_01R6c55ZTducLNVYMSqkvfQg` | Beta W1 — Frontend A (city page) | 2026-10-10 08:24 | completed, archived | FE-A W1 (ab80b44): all M1 city-page items in review; 5 pilots meet M1-01 |
+| `session_014JhcXcscGR7FMd9eAE6XqE` | Beta W1 — Frontend B (landing/hubs/nav) | 2026-10-10 08:24 | completed, archived | FE-B W1: landing/hubs/header/method/states; shell CSS moved to designer stylesheet |
+| `session_018MKc8Cm9yRKwLoMQ5mFB7b` | Beta W1 — Designer (visuals + review) | 2026-10-10 08:24 | completed, archived | designer W1: visuals + REVIEW-W1 pass 2 (M1 not yet met) |
+| `session_01YbxdsQm4VmtpnaPTjvc2ZS` | Beta W1 — QA | 2026-10-10 08:24 | completed, archived | BETA-QA.md W1 runs 1–3: M1 sign-off NO (B-06 map width, B-07 Esc close, B-16 wheel fit → FE-A W2) |
+| `session_01WsdxZRnnS31JkzUY9Shvh7` | Beta Round 1 — independent evaluator | 2026-10-10 09:52 | completed, archived | design/beta/eval/ROUND-1.md (7cb0f495): R0 31.1 → R1 66.5 (A60 B74 C66 D72); top-10 gaps |
+| `session_01SivcGydMp7JHeiCWiLQWyd` | Beta W2 — Platform | 2026-10-10 10:20 | completed, archived | Signature ★ canon, day-plan index, progressive rendering, OG images, offline reload, per-area aggregates for Insights |
+| `session_019rg1KReCntQnVer8Lq7VfP` | Beta W2 — Frontend A (city + saved) | 2026-10-10 10:20 | completed, archived | For you, Your day, Near me, map as guide (B-06/07/16 fixes), saved lists + shared view, polish; brand-neutral copy (…5d8a678) |
+| `session_01Uw8kyZKduvy2VTdhJQa5L4` | Beta W2 — Frontend B (hubs + landing) | 2026-10-10 10:20 | completed, archived | FE-B W2 (…59366c1): signature tile lines, editorial rails, country heroes, accessibility page, search; no-brand check clean |
+| `session_01XAYpThZZnydYCxCkEcCatZ` | Beta W2 — Designer | 2026-10-10 10:20 | completed, archived | W2 polish (plates, sheet type, commas, macron), distinct hub tiles, motion layer, REVIEW-W2; brand-neutral |
+| `session_01QpPRccdD4iJMa6P4jSUboV` | Beta W2 — Imagery / content art | 2026-10-10 10:20 | completed, archived | Original SVG motifs per city/country/collection; credit-gated photo path + manifest; landing back under 80 KB (043077e) |
+| `session_01L6JkDa7v56jUKxQFqx7zXx` | Beta R3 prep — view styles study + specs | 2026-10-10 10:43 | completed, archived | design/beta/views/: STUDY (melon-seek), SPEC, mockups + 49 screenshots, PLAN (W3 lane split) for Gallery/Atlas/Guidebook/Insights |
+| `session_017mbzpE8dtjevPVLcXB6TEK` | Beta PM — M1 acceptance + W2/W3 backlog | 2026-10-10 10:53 | completed, archived | M1: 16/22 accepted, 4 await QA re-measure, 2 rejected; W2 + R3 items; Round 2 exit criteria (4380fb4a, 0e4da869) |
+| `session_012XtSjToyAdhBzVDZmhPP1u` | Beta W2 — QA sign-off | 2026-10-10 11:52 | completed, archived | BETA-QA W2 on aa7cafcf: gates and features pass; sign-off NO on QA-22/23/24/25/28 (routed to W3 designer + FE-B) |
+| `session_015bFMDrayu1fp3qp2cKD3xm` | Beta W3 — QA (views harness + W2 re-test) | 2026-10-10 12:52 | running | — |
+| `session_01Ra23HLYrb9qZ7mzrw5gRpz` | Beta Round 2 — independent evaluator | 2026-10-10 11:52 | completed, archived | design/beta/eval/ROUND-2.md: R2 78.5 (A67 B84 C89 D86); A < 80 without photos |
+| `session_01S3eYSS1qPYEHJVXBeyRLYH` | Beta W3 — Platform (view model) | 2026-10-10 12:20 | running | — |
+| `session_012ryUPpieJjoKFXA2se7HsV` | Beta W3 — Frontend A (switcher, Atlas, Gallery) | 2026-10-10 12:20 | running | — |
+| `session_01KLBRpRabpnEHiyU3gKvKjv` | Beta W3 — Frontend B (Guidebook, Insights) | 2026-10-10 12:20 | running | — |
+| `session_014ybQFjFvA2XjTrPFrP5YJJ` | Beta W3 — Designer (views.css + polish) | 2026-10-10 12:20 | running | — |
+| `session_01PCNcUkfa5S1N1BKGzZA4xx` | Release: deploy work branch → Pages (PR #3) | 2026-10-10 07:00 | completed | Merged as ca70e53 — Singapore gap-fill + QA fixes + Singapore engine rebuild live; gates/validate/test/qa (0 FAIL) green; 0 places removed (docs/DEPLOY-2026-10-10.md) |
 
 ### Cross-city pin and top-up passes (5 sessions)
 
