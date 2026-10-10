@@ -46,7 +46,7 @@
       by[a.id] = lst.map(function (x) {
         var p = x.p, nm = String(p.n).replace(/\s*[—–-]+\s*CLOSED\s*$/i, '');
         if (p.nat && nm.slice(-(p.nat.length + 2)) === '(' + p.nat + ')') nm = nm.slice(0, -(p.nat.length + 2)).trim();
-        return { p: p, rank: x.rank, of: lst.length, open: !p.closed, name: nm, k3: p.kind === 'food' ? 'food' : isPop(p) ? 'pop' : 'sight' };
+        return { p: p, rank: x.rank, of: lst.length, open: !p.closed, name: nm, k3: p.k3 || (p.kind === 'food' ? 'food' : isPop(p) ? 'pop' : 'sight') };
       });
       order = order.concat(by[a.id]);
     });
@@ -190,14 +190,19 @@
     var C = window.Cleo; if (!C || !C.saved) return;
     [].forEach.call(el.querySelectorAll('[data-cleo-ref]'), function (b) { b.setAttribute('aria-pressed', C.saved.has(b.getAttribute('data-cleo-ref')) ? 'true' : 'false'); });
   }
-  // Lenses: no second predicate here. Each entry mirrors its canonical card (li.pl#p-<id>), which the city page's one
-  // lens predicate (Cleo.lens when platform ships it) already hid or showed.
+  // Lenses: no second predicate here. Each entry mirrors its canonical card (li.pl#p-<id>), which the city page's lens
+  // already hid or showed (including its own sig / been / mine / day lenses). A card still in a deferred chunk is asked
+  // through the one shared predicate, Cleo.lens.match, on its attribute stub — so a lens never forces a stamp here.
   function syncLens(el) {
-    var d = document, shown = 0, all = 0;
-    if (window.Cleo && Cleo.defer && Cleo.defer.pending().length && /(^|&)(mode|c|cz|src|q|a|t|closed|mine|sig|been)=/.test(location.hash.slice(1))) Cleo.defer.all();
+    var d = document, C = window.Cleo || {}, shown = 0, all = 0, stubs = null;
+    var route = C.route && C.lens ? C.lens.pick(C.route.parse()) : null;
     [].forEach.call(el.querySelectorAll('li.ge'), function (li) {
-      var c = d.getElementById('p-' + li.getAttribute('data-id')); all++;
-      li.hidden = !!(c && c.hidden); if (!li.hidden) shown++;
+      var id = li.getAttribute('data-id'), c = d.getElementById('p-' + id); all++;
+      if (!c && route && C.defer) {
+        if (!stubs) { stubs = {}; C.defer.peek().forEach(function (x) { stubs[x.id.replace(/^p-/, '')] = x; }); }
+        li.hidden = !!stubs[id] && !C.lens.match(stubs[id], route);
+      } else li.hidden = !!(c && c.hidden);
+      if (!li.hidden) shown++;
     });
     [].forEach.call(el.querySelectorAll('section.gs'), function (s) { s.hidden = !s.querySelector('li.ge:not([hidden])'); });
     [].forEach.call(el.querySelectorAll('article.ch'), function (a) { a.hidden = !a.querySelector('li.ge:not([hidden])'); });

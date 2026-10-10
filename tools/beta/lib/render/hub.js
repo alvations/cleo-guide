@@ -201,7 +201,7 @@ function themes(reg, { country = null, min = 5 } = {}) {
       const list = t.by === 'g' ? r.data.CATS || [] : r.data.CUISINES || [];
       const def = list.find(c => c.id === t.id);
       if (!def || !t.label.test(def.n)) continue;
-      const n = (r.recs || []).filter(x => !x.closed && (x[t.by] || []).includes(t.id)).length;
+      const n = (r.recs || []).filter(x => (x[t.by] || []).includes(t.id)).length;   // what the lens opens: closed places included, flagged (QA-28)
       if (n) cities.push({ row: r, n, href: `${r.beta}#${t.by === 'g' ? 'c' : 'cz'}=${encodeURIComponent(t.id)}` });
     }
     cities.sort((a, b) => b.n - a.n || (a.row.name < b.row.name ? -1 : 1));
@@ -321,7 +321,9 @@ li.dest>.dest-views a{display:inline-flex;align-items:center;min-height:44px;col
 function renderCountry(row, reg, ctx) {
   const c = reg.countries.find(x => x.hub === row.live) || reg.countries.find(x => x.key === row.country);
   if (!c) throw new Error(`${row.live}: no data/countries.json entry has this hub`);
-  const { main, more, all } = countryPages(c, reg);
+  let { main, more, all } = countryPages(c, reg);
+  // QA-22 (B-05 ≥ 2 city cards above the fold): a hub with one headline city promotes its next guides to tiles
+  if (main.length < 2 && more.length) { const k = Math.min(all.length, 4) - main.length; main = main.concat(more.slice(0, k)); more = more.slice(k); }
   return { html: render(row, reg, ctx, { c, main, more, all }), expect: all.map(r => r.key) };
 }
 

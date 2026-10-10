@@ -72,6 +72,10 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
       && s(X.months) === N && X.areas.reduce((t, a) => t + s(X.src.perArea[a.id]), 0) === X.tiles.citations
       && X.tiles.citations === d.places.reduce((t, p) => t + p.src.length, 0) && X.tiles.sights + X.tiles.food === N;
     if (!ok) bad.sums.push(f);
+    if (X.from !== 'platform' || !d.insights) bad.plat.push(f + ' (not drawn from the P-03 insights block)');
+    const own = I.numbers(d);   // independent recount from the records: the block and the records must agree
+    if (JSON.stringify(Object.values(own.perArea)) !== JSON.stringify(X.areas.map(a => X.perArea[a.id])) || own.tiles.closed !== X.tiles.closed
+      || X.areas.some(a => s(own.tiers[a.id]) !== s(X.tiers[a.id]) || own.closed[a.id] !== X.closed[a.id])) bad.plat.push(f + ' (block != records)');
     const GA = (d.guide || {}).areas || {};
     for (const a of X.areas) {
       const g = GA[a.id]; if (!g) continue;
@@ -97,7 +101,7 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
   chk('guidebook: intro = template words + numbers + data names only', !bad.intro.length, bad.intro);
   chk('guidebook: appendix lists every source and every cited URL', !bad.src.length, bad.src);
   chk('insights: every chart sums to its denominator', !bad.sums.length, bad.sums);
-  chk('insights: per-area numbers == platform guide.areas', !bad.plat.length, bad.plat);
+  chk('insights: drawn from the P-03 block; it agrees with guide.areas and a recount of the records', !bad.plat.length, bad.plat);
   chk('insights: no pop-culture data → absent (null + stated), not 0', !bad.pop.length, bad.pop);
   chk('insights: index lists N names; no script/CDN in the view', !bad.idx.length, bad.idx);
   chk('honesty: no price / rating / booking / hours strings in either view', !bad.honest.length, bad.honest);

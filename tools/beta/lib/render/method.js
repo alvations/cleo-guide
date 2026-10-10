@@ -146,7 +146,7 @@ function notFound(reg, ctx) {
   return `${head({ page: 'notfound', title: 'Page not found · Cleo', description: 'We couldn\'t find that page. Every Cleo guide is still listed.', rel: '404.html', depth: 0, assetsV: ctx.assetsV, css: styles(0) })}
 <body class="has-tabbar">
 ${siteBar({ depth: 0, current: 'other', rel: '404.html' })}
-<main id="main" class="feb"><div class="wrap section">
+<main id="main" class="feb" style="min-height:calc(100svh - 64px)"><div class="wrap section">
 <div class="state" data-cleo-state="unknown-page">
   ${icon('compass', 'ico lg')}
   <h1 class="d2">We couldn't find that page.</h1>

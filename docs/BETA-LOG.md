@@ -459,3 +459,19 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Fix:** slice 1's hub-link CSS was spliced after `</html>` in the hub template, so it showed as text at the foot of every country hub. It's now inside `FEB_CSS`, and a gate checks that nothing follows `</html>` on the landing and hubs.
   - **Gate** (test-views-b): 6 tiles for 6 live countries, each count ≤ the guides' signature sum and > 0, links resolve; landing share card = US card. Landing 15.8 KB gzip (budget 24).
   - Screenshots: `design/beta/eval/w3/fe-b/landing-editorial[-s1]-{m,d}.jpg`. City-view shots were re-shot after the merge (metrics in `views-b-metrics.json`). validate + npm test + beta:check PASS.
+- 2026-10-10 · **FE-B** · Wave 3 slice 4 · session_01KLBRpRabpnEHiyU3gKvKjv · QA blockers **QA-22, QA-23, QA-28** + adopts platform **P-01/P-02/P-03** · commit: this entry's commit.
+  - **QA-28 (rail counts):** "Collections across the guides" now counts what the lens opens, closed places included and flagged. All 7 mismatches agree, e.g. Tokyo ANIME 37, Antwerp BEER 19. The test-hubs chip check follows the same rule.
+  - **QA-22 (Vietnam hub B-05):**
+    - A hub with fewer than 2 headline cities now promotes its next guides to tiles, up to 4. Vietnam shows 3 tiles.
+    - `beta:metrics --only Vietnam/index` → **B-05 ✅ 2**.
+    - Screenshot: `design/beta/eval/w3/fe-b/qa22-vietnam-hub-m.jpg`.
+  - **QA-23 (404 tab labels 2.86:1):** the short 404 page let the translucent tab bar sit over the dark footer. `main` now fills the viewport, and `beta:metrics --only 404` → **B-23 ✅ light 0/0 · night 0/0**.
+  - **P-03:**
+    - Insights now draws every chart from the platform `insights` block, and its notes become the footnotes.
+    - The gate checks that the block is the source on all 84 pages, and that it agrees with `guide.areas` and with an independent recount of the records. Per-area counts, closures and tiers are equal. Only tie order and one 0.1 km spread rounding differ.
+  - **P-01 / P-02:**
+    - The guidebook uses `p.rank` / `p.k3`.
+    - Its lens mirror asks `Cleo.lens.match` on `Cleo.defer.peek()` stubs for cards not yet stamped, so the guidebook no longer forces a full stamp.
+    - It stays clean under the "no second predicate" grep gate.
+  - **Not done / for others:** QA-24 (footer underline) and QA-25 are designer/FE-A. The Insights `.tile` phone height and print header issues are still with the designer. The `#view=` switch and loading my modules wait on FE-A A-01.
+  - validate + npm test + beta:check PASS.

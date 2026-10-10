@@ -89,6 +89,33 @@
     return I;
   }
 
+  /* ---- the platform's P-03 block (RFC §13) mapped onto the same shape; its notes become the footnotes ---- */
+  function fromPlatform(d) {
+    var P = d.insights;
+    if (!P || P.N !== d.places.length || !P.mix || !P.tiers) return null;
+    var I = numbers(d), byA = function (rows) { var o = {}; (rows || []).forEach(function (r) { if (r.a) o[r.a] = r; }); return o; };
+    var counts = function (r, keys) { var o = {}; keys.forEach(function (k) { if (r && r[k]) o[k] = r[k]; }); return o; };
+    var ser = P.mix.series || ['sight', 'food'], mx = byA(P.mix.rows), sr = byA(P.sources.rows), pa = byA(P.perArea.rows), sp = byA(P.spread.rows), cl = byA(P.closed.rows), ti = byA(P.tiers.rows);
+    I.tiles = P.tiles;
+    I.kind.whole = counts(P.mix.rows.filter(function (r) { return !r.a; })[0], ser);
+    I.src.top = P.sources.top.slice(); I.src.all = P.sources.nSources;
+    I.spreadPins = P.spread.of; I.spread = {}; I.months = {};
+    (P.closed.months || []).forEach(function (m) { I.months[m.m] = m.n; });
+    I.areas.forEach(function (a) {
+      var id = a.id;
+      I.kind.perArea[id] = counts(mx[id], ser);
+      I.src.perArea[id] = counts(sr[id], P.sources.top); if (sr[id] && sr[id]._other) I.src.perArea[id]._o = sr[id]._other;
+      I.perArea[id] = (pa[id] || {}).n || 0;
+      if (sp[id] && sp[id].km != null) I.spread[id] = sp[id].km;
+      I.closed[id] = (cl[id] || {}).n || 0;
+      I.tiers[id] = counts(ti[id], ['1', '2', '3']);
+    });
+    I.canon = P.canon && P.canon.rows && P.canon.rows.length ? { title: P.canon.title, cz: P.canon.cz, n: P.canon.of, open: P.canon.open, named: P.canon.named, dishes: P.canon.rows.map(function (x) { return { t: x.t, n: x.n }; }) } : null;
+    I.notes = { mix: P.mix.note, src: P.sources.note, den: P.perArea.note, spr: P.spread.note, cls: P.closed.note, can: P.canon && P.canon.note, tier: P.tiers.note };
+    I.from = 'platform';
+    return I;
+  }
+
   /* ---- chart primitives: one axis, 2 px gaps, rounded ends, value labels, <title> on every mark ---- */
   function stackSvg(rows, series, link, uid, asPct, W, LW, narrow) {
     var RH = 30, G = 2, span0 = W - LW - 44;
@@ -146,7 +173,8 @@
   /* ---- the whole view as an HTML string ---- */
   function render(d, opt) {
     SIZE = { W: (opt && opt.W) || 640, Wn: (opt && opt.Wn) || 320 };
-    var I = d.insights && d.insights.N === d.places.length && d.insights.kind ? d.insights : numbers(d), T = I.tiles, N = I.N, name = d.name;
+    var I = fromPlatform(d) || numbers(d), T = I.tiles, N = I.N, name = d.name, NO = I.notes || {};
+    var note = function (k, mine) { return NO[k] || mine; };
     var gal = function (o) { var r = { view: 'gallery' }; Object.keys(o).forEach(function (k) { r[k] = o[k]; }); return href(r); };
     var A = I.areas, srcName = {};
     (d.sourceIndex || []).forEach(function (s) { srcName[s.id] = s.id === 'guide' ? 'Added by the guide' : String(s.name).split(/\s+[·—(]\s*/)[0].slice(0, 34); });
@@ -161,20 +189,20 @@
     var kRows = [{ label: 'All of ' + name, key: '', v: I.kind.whole }].concat(A.map(function (a) { return { label: a.name, key: a.id, v: I.kind.perArea[a.id] }; }));
     var c1 = card('mix', 'What each area is for', 'Share of sights, places to eat and pop-culture places, per area. All ' + N + ' places counted once; tap a bar to open those places.',
       stacked(kRows, ks, 'Area', function (a, k) { var o = kq(k); if (a) o.a = a; return gal(o); }, 'mix', true),
-      T.pop == null ? 'This city has no pop-culture collection in its data, so the third segment is absent rather than zero-filled.' : 'Pop culture = sights in the city’s pop-culture collections; a place counts in one segment only, so Sights here excludes them.');
+      note('mix', T.pop == null ? 'This city has no pop-culture collection in its data, so the third segment is absent rather than zero-filled.' : 'Pop culture = places in the city’s pop-culture collections; a place counts in one segment only.'));
     // 2 · who recommends each area
     var ss = I.src.top.map(function (s, i) { return { id: s, name: srcName[s] || s, c: SER[i] }; }).concat([{ id: '_o', name: 'Other sources', c: OTHER }]);
     var c2 = card('src', 'Who recommends each area', 'Citations per area by source: the ' + I.src.top.length + ' most-cited sources, then all others. A place named by three sources counts three times (' + T.citations + ' citations over ' + N + ' places).',
       stacked(A.map(function (a) { return { label: a.name, key: a.id, v: I.src.perArea[a.id] }; }), ss, 'Area', function (a, s) { var o = { a: a }; if (s !== '_o') o.src = s; return gal(o); }, 'src', true),
-      I.src.all + ' sources in all. “Added by the guide” marks general-knowledge additions and is never relabelled as sourced.');
+      note('src', I.src.all + ' sources in all. “Added by the guide” marks general-knowledge additions and is never relabelled as sourced.'));
     // 3 · where the places are
     var c3 = card('den', 'Where the places are', 'Places per area, ' + N + ' in all (bars use each area’s map colour). Tap to open the area.',
-      bars(A.map(function (a) { return { label: a.name, key: a.id, n: I.perArea[a.id], c: a.c }; }), function (a) { return gal({ a: a }); }, 'den', ''));
+      bars(A.map(function (a) { return { label: a.name, key: a.id, n: I.perArea[a.id], c: a.c }; }), function (a) { return gal({ a: a }); }, 'den', ''), note('den', ''));
     // 4 · how far you walk
     var spr = A.filter(function (a) { return I.spread[a.id] != null; });
     var c4 = card('spr', 'How far you walk', 'Median straight-line distance from each area’s middle pin to its open, verified pins. Small = a walkable cluster.',
       spr.length ? bars(spr.map(function (a) { return { label: a.name, key: a.id, n: I.spread[a.id], c: a.c }; }), function (a) { return href({ view: 'atlas', a: a }); }, 'spr', ' km') : '<p class="empty">Not enough verified pins to measure.</p>',
-      'Computed from ' + I.spreadPins + ' open places with a verified pin; straight-line, not walking routes.' + (spr.length < A.length ? ' Areas with fewer than 2 such pins are absent rather than zero-filled.' : ''));
+      note('spr', 'Computed from ' + I.spreadPins + ' open places with a verified pin; straight-line, not walking routes.' + (spr.length < A.length ? ' Areas with fewer than 2 such pins are absent rather than zero-filled.' : '')));
     // 5 · closures
     var cl = A.filter(function (a) { return I.closed[a.id]; });
     var months = Object.keys(I.months).sort();
@@ -182,18 +210,18 @@
       (cl.length ? bars(cl.map(function (a) { return { label: a.name, key: a.id, n: I.closed[a.id], c: CLOSED }; }), function (a) { return gal({ a: a, closed: '1' }); }, 'cls', '') : '<p class="empty">No closures on record.</p>') +
       '<details class="tbl"><summary>When each place’s status was last checked</summary><table><thead><tr><th scope="col">Month</th><th scope="col">Places</th></tr></thead><tbody>' +
       months.map(function (m) { return '<tr><th scope="row">' + esc(m) + '</th><td>' + I.months[m] + '</td></tr>'; }).join('') + '</tbody></table></details>',
-      'Every one of the ' + N + ' places is counted in the status-check table.');
+      note('cls', 'Every one of the ' + N + ' places is counted in the status-check table.'));
     // 6 · the signature canon
     var cn = I.canon;
     var c6 = cn ? card('can', 'The signature canon: ' + cn.title, cn.n + ' places in the canon’s cuisines (' + cn.open + ' open). Bars count places whose own write-up names the dish.',
       bars(cn.dishes.map(function (x) { return { label: x.t, key: x.t, n: x.n, c: SER[1] }; }), function () { return gal({ cz: (cn.cz || [])[0] }); }, 'can', ''),
-      cn.named + ' of ' + cn.n + ' canon places name one of these dishes; the rest serve the canon cuisine without naming a dish, so they are not counted here.')
+      note('can', cn.named + ' of ' + cn.n + ' canon places name one of these dishes; the rest serve the canon cuisine without naming a dish, so they are not counted here.'))
       : card('can', 'The signature canon', 'This city has no named-dish canon in its data yet.', '<p class="empty">Stated, not filled.</p>');
     // 7 · the tier ladder
     var ts = [{ id: '1', name: TIER[1], c: SER[5] }, { id: '2', name: TIER[2], c: SER[0] }, { id: '3', name: TIER[3], c: OTHER }];
     var c7 = card('tier', 'The tier ladder per area', 'Open places by tier (' + (N - T.closed) + ' of ' + N + '). Tiers are graded within each area, so every area has its own must-sees.',
       stacked(A.map(function (a) { return { label: a.name, key: a.id, v: I.tiers[a.id] }; }), ts, 'Area', function (a, t) { return gal({ a: a, t: t }); }, 'tier', false),
-      T.closed + ' closed places carry no tier and are counted in the closures card instead.');
+      note('tier', T.closed + ' closed places carry no tier and are counted in the closures card instead.'));
     // the "All N places" index
     var byId = {}; d.places.forEach(function (p) { byId[p.id] = p; });
     var idx = A.map(function (a) {
@@ -231,5 +259,5 @@
     });
   }
   function unmount() { if (host) { host.innerHTML = ''; host.classList.remove('view-insights'); } host = null; }
-  return { numbers: numbers, render: render, mount: mount, unmount: unmount };
+  return { numbers: numbers, fromPlatform: fromPlatform, render: render, mount: mount, unmount: unmount };
 });
