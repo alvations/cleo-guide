@@ -225,7 +225,11 @@ open/closed status), `docs/CITIES.md` (one row per city), `docs/AGENT-PROMPTS.md
 | `session_017mbzpE8dtjevPVLcXB6TEK` | Beta PM — M1 acceptance + W2/W3 backlog | 2026-10-10 10:53 | completed, archived | M1: 16/22 accepted, 4 await QA re-measure, 2 rejected; W2 + R3 items; Round 2 exit criteria (4380fb4a, 0e4da869) |
 | `session_012XtSjToyAdhBzVDZmhPP1u` | Beta W2 — QA sign-off | 2026-10-10 11:52 | completed, archived | BETA-QA W2 on aa7cafcf: gates and features pass; sign-off NO on QA-22/23/24/25/28 (routed to W3 designer + FE-B) |
 | `session_015bFMDrayu1fp3qp2cKD3xm` | Beta W3 — QA (views harness + W2 re-test) | 2026-10-10 12:52 | running | — |
-| `session_01VDFVuQ72NNS18uAcxwDEou` | Beta Round 3 — independent evaluator | 2026-10-10 15:05 | running | — |
+| `session_01VDFVuQ72NNS18uAcxwDEou` | Beta Round 3 — independent evaluator | 2026-10-10 15:05 | completed, archived | design/beta/eval/ROUND-3.md: R3 80.8 (A71 B84 C91 D88) |
+| `session_013p6wtCFUuNa7M5yALNp5JE` | Beta W3 — fix lane (QA-32/33/34) | 2026-10-10 15:18 | completed, archived | b5a95f6c: Guidebook 44 px targets, Insights focus ring, phone pin → sheet; QA re-signed YES on 83c51890 → deployed PR #5 |
+| `session_01TPCWCMYD2HDRMEduEtaw9P` | Beta W4 — Designer + imagery art | 2026-10-10 15:58 | running | — |
+| `session_01USgyuciPDwi5u5NZbAKy9j` | Beta W4 — Frontend A (names, Gallery default, motion hooks) | 2026-10-10 15:58 | running | — |
+| `session_01SHBuxbUqfVuvUcP4rf8pqU` | Beta W4 — Platform + FE-B (weight, i18n, what-changed) | 2026-10-10 15:58 | running | — |
 | `session_01Ra23HLYrb9qZ7mzrw5gRpz` | Beta Round 2 — independent evaluator | 2026-10-10 11:52 | completed, archived | design/beta/eval/ROUND-2.md: R2 78.5 (A67 B84 C89 D86); A < 80 without photos |
 | `session_01S3eYSS1qPYEHJVXBeyRLYH` | Beta W3 — Platform (view model) | 2026-10-10 12:20 | completed, archived | P-01…P-06 (rank/kind3, lens/order, insights block, reachability gate, template chunks, route registry); R2 gaps #6, #9; #8 (i18n) not started |
 | `session_012ryUPpieJjoKFXA2se7HsV` | Beta W3 — Frontend A (switcher, Atlas, Gallery) | 2026-10-10 12:20 | completed, archived | View switcher + registry, Atlas (default), Gallery with pager that keeps every place reachable; QA-29/30/31 fixed (83aa1a28) |
