@@ -58,7 +58,7 @@ Goal: overall ≥ 80 with A ≥ 80 and C ≥ 80. Stretch: 90.
   - The landing and hub strings are on the catalogue.
   - **Cost:** the default view got heavier (Tokyo 2.06 → 3.03 MB; FCP at 4× 396 → 1,124 ms). On phones, the map is now one
     tap further away.
-  - QA signed W5 off YES on `f2bf7610` and ratified the Gallery reachability criteria. It is not deployed yet.
+  - QA signed W5 off YES on `f2bf7610` and ratified the Gallery reachability criteria. Deployed via PR #7 (merge `5509b8cc`).
 
 ## Competitor feature rows (C)
 
@@ -103,10 +103,9 @@ signature motion moment and B at 88 or more.
 
 ## Recommended next step
 
-**Ship W5 (QA signed it off YES), then have the owner fetch the landmark photographs. No further polish wave until then.**
+**W5 is shipped. Next, have the owner fetch the landmark photographs. Apart from the one small fix in step 1, no further polish wave until then.**
 
-1. Deploy `f2bf7610`, which QA has signed off, through the beta-only PR as in earlier rounds. Then make one small fix head that
-   defers the places JSON and opens the map in one tap from the Gallery (ROUND-5 gaps #2 and #3).
+1. W5 is deployed (PR #7). Next, make one small fix head that defers the places JSON and opens the map in one tap from the Gallery (ROUND-5 gaps #2 and #3).
 2. The owner runs the photo manifest on an unrestricted machine, commits the files and `CREDITS.json` rows, and re-runs
    `npm run beta` and `beta:check`. The credit gate refuses any photo without a licence row.
 3. Re-score once (a Round 6) on that head with this same rubric. Expected: A ≈ 85, overall ≈ 88. Only then decide whether a
