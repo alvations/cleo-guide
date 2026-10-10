@@ -552,3 +552,8 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **QA-31:** phones open Atlas **list-first**, as in W2. The detent tray now lives over the full-screen map (Map / `#map=`, starting at peek, "List" closes it), and the area chips only show there. The switcher is no longer sticky (B-08 floaters). **Under 640 px it collapses to one "View: Atlas ▾" button** that opens all four (`aria-expanded`), which keeps B-03 ≤ 14.
   - **Measured** with QA's `tools/beta/metrics.js` (the W2 harness behind QA-29…31) on this tree: **24/24 on Cleveland, Tokyo, NYC, Chinatown and Wheeling, and 10/10 on the landing**. G1 passes everywhere (deep 194/194, 488/488, 508/508…), and B-23 night is 0/0. Tables: `design/beta/eval/w3/fe-a/qa29-31-metrics-default.md`, `qa29-metrics-gallery.md`.
   - Tests: `test-fe-a.js` W3 block, 31 checks. New: Atlas default; Gallery `#p=` to a last-page place, `#p-` anchor and `#area-` anchor all land on a shown card; stored Gallery preference; an explicit `view=` beats it. validate + npm test + beta:check PASS.
+
+- 2026-10-10 15:06Z · orchestrator · W3 build complete at 83aa1a28. FE-A and the designer are archived.
+  - QA W3 is running its full views pass on 83aa1a28.
+  - The Round 3 evaluator (session_01VDFVuQ72NNS18uAcxwDEou) is scoring 83aa1a28 in parallel.
+  - Deploy happens once QA signs off YES on a SHA.
