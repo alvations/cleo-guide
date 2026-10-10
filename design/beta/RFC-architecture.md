@@ -397,6 +397,14 @@ Mirror pages link without `#p=` (`deepLinks:0`) until they migrate.
 - **Per-city image.** `og:image` uses `beta/assets/og/<pageKey>.png` when that file exists, else the shared `assets/og-cover.png`.
 - **Rendering.** `npm run beta:og` (Wave 1, platform) will render 1200×630 PNGs (≤ 300 KB) with the pre-installed Chromium. The source is an HTML template built from the design tokens plus page data: name, native script, counts, and a pin scatter drawn from verified coordinates. The images are typographic and map-art, with no photos.
 - **Why it is separate from `npm run beta`.** Chromium may be absent in CI, and PNG bytes are not deterministic across renderers.
+- **Built in Wave 2** ([`tools/beta/og.js`](../../tools/beta/og.js), `npm run beta:og`, then `npm run beta`): 84 place-page
+  cards (`assets/og/<fileKey>.png`) + 6 live-country cards (`assets/og/country-<key>.png`, used by FE-B's hubs). Each card =
+  the city's own token skin (paper, accent bar, motif wash), Bodoni name + native script, the ★ signature line from
+  `lib/guide.js`, computed facts (places, sights, food, last status check, closed kept), and the verified-pin scatter
+  (`art.cityMap` with `edges:false` — outliers are counted in the caption, not drawn). Fonts are inlined as data URIs and
+  every non-data request is aborted, so nothing leaves the machine. Gate (`test-beta.js`): every PNG is 1200×630 and
+  ≤ 300 KB, and every page with a card points `og:image` at it. Without Chromium the script exits 0 and pages keep
+  `og-cover.png`.
 
 ### 6.6 Saved lists and day plans (client-side)
 

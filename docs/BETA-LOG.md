@@ -296,6 +296,27 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     re-test or review, M2-06 is reconciled (D-34 met), and the landing budget is fixed by `51acdad6`. M1 now stands at 16
     accepted, 4 in re-test and 2 rejected (M1-16 axe, M1-22 rollout).
   - Checks: validate OK; `npm test` all PASS on the merged head.
+- 2026-10-10 · **Platform** · Wave 2 slice 3 · session_01PCNcUkfa5S1N1BKGzZA4xx · `e1676a12` · ROUND-1 gap **#9 (share)**, B-36, C #27.
+  - `tools/beta/og.js` → `npm run beta:og`: **90 share cards** — 84 place pages (`beta/assets/og/<fileKey>.png`) + 6 live countries (`country-<key>.png`, picked up by FE-B's hubs). City token skin + accent bar + motif wash, Bodoni name + native script, ★ signature line (Tokyo "Anime, Manga & Pop Culture — Edomae sushi · soba · tempura"; Cleveland "Only in Cleveland — Polish Boy · corned beef · Barberton chicken"), computed facts, and the verified-pin scatter. No photos, fonts inlined, all network aborted. 6.7 MB total, largest < 120 KB.
+  - Gate: every PNG 1200×630 ≤ 300 KB and its page's `og:image` points at it. RFC §6.5 updated. Re-run `npm run beta:og` after data changes (not part of `npm run beta`: needs Chromium; PNG bytes aren't reproducible).
+  - **FE-B:** the landing still uses `og-cover.png`; `assets/og/country-us.png` exists if you want the US card there.
+  - Cards: `beta/assets/og/tokyo.png`, `cleveland.png`, `pittsburgh.png`, `country-japan.png`, `country-us.png`. validate + npm test + beta:check PASS.
+- 2026-10-10 · **view-styles design lane** · Round 3 preparation (Gallery · Atlas · Guidebook · Insights) · beta scope `design/beta/views/**` only.
+  - **Study** (`design/beta/views/STUDY.md`): the switcher, URL-hash state, map / chart / insight views, filters, detail drawer, density and paging, with 19 Playwright screenshots of the melon-seek snapshot in offline mock mode (`views/study/`, hashes in `study/hashes.json`). Commit `820f3c3`.
+  - **Spec** (`views/SPEC.md`):
+    - one record set and one lens predicate set for every view;
+    - a `view=` hash key (default Gallery; precedence hash → `Cleo.store` preference → default; share writes `view=` explicitly);
+    - paging only in the Gallery grid, with page numbers, an "all N" total and show-all;
+    - per-view mobile and desktop layouts;
+    - how the views share the sheet ("n of N in this view"), the tray and saved lists.
+  - **Mockups** (`views/mockups/`, built by `views/tools/make-views.py` from `beta/data/places/{tokyo,cleveland}.json` read-only, with count asserts per view: 488 / 194):
+    - Gallery, its experience page, Atlas, Guidebook (with print) and Insights (7 inline-SVG charts with a validated palette, table views and an all-places index);
+    - 49 screenshots at 390×844 and 1440×900 in `views/screenshots/` (`views/tools/views-shots.js`, off-origin aborted). Commit `ea125b6`.
+  - **Plan** (`views/PLAN.md`):
+    - Platform P-01…P-06, FE-A A-01…A-05, FE-B B-01…B-04 (proposal: FE-B owns Guidebook and Insights as view modules), designer D-01…D-04 and QA Q-01…Q-04;
+    - every item has acceptance criteria and is mapped to the PM's M4-01…M4-09.
+  - Note: one `npm test` run returned non-zero just before `ea125b6` was committed. Three reruns on the same tree and on the merged head were all green, and no FAIL line could be reproduced. Logged here for QA, as a possible flake.
+  - Naming rule 6: no third-party brand appears in these docs, code, class names, file names or commits. Source labels on mockup cards are data-rendered attribution.
 - 2026-10-10 · **FE-A (city + saved)** · Wave 2 slice 3 · adopts DES `specs/W2-components.md` markup (cleo.css 15.10) · commit: this entry's commit.
   - **For you:** the picker is now `ul.interests > li > button.interest` (`.glyph` with an id-mapped glyph, `b`, `span.d` "N of M {city} places · collections", `.tick`). The result line is `p.because` ("First because you picked {a} and {b}: N places … All {total} are still here." + Change). Each lifted card gets a `.pl-why` pill at the end of `.pl-e`. Mapping is unchanged (ids only).
   - **Home modules:** these stay **in the rail** (as `.rail-i.door`, renamed from `.mod` so they don't collide with DES `.mod`), right after ★: For you · Your day · Near me · Free to visit · Your list. A separate `div.modules` row above the rail would add 3 on-screen controls above the first card (B-03 ≤ 14), so I didn't build one. **DES/PM:** if you want the `.modules` row anyway, say so and I'll move it below the first area as the spec allows.
