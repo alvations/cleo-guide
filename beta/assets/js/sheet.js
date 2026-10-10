@@ -46,7 +46,7 @@
     // area order, then rank), and "No. r of n in {area}". Previous / next wrap at the ends.
     var set = [].slice.call(d.querySelectorAll('li.pl')).filter(function (x) { return !x.hidden; }), i = set.indexOf(c), nIn = d.querySelectorAll('li.pl[data-a="' + a + '"]').length;
     if (i < 0) { set = [c]; i = 0; }
-    var pv1 = set[(i - 1 + set.length) % set.length], nx1 = set[(i + 1) % set.length], vw = d.documentElement.getAttribute('data-view') || 'gallery', vname = vw.charAt(0).toUpperCase() + vw.slice(1);   // set before paint, so right even before views.js runs
+    var pv1 = set[(i - 1 + set.length) % set.length], nx1 = set[(i + 1) % set.length], vw = d.documentElement.getAttribute('data-view') || 'atlas', vname = vw.charAt(0).toUpperCase() + vw.slice(1);   // set before paint, so right even before views.js runs
     var navRow = '<div class="sh-nav"><button class="btn btn-quiet" data-sh="all">' + icon('chev-l') + '<span>All ' + info.total + ' places</span></button><span class="sm" data-sh-pos>' + (i + 1) + ' of ' + set.length + ' in this ' + esc(vname) + ' view</span>' +
       (set.length > 1 ? '<span class="pn"><button class="btn btn-icon btn-ghost" data-sh="go" data-to="' + esc(C.pid(pv1)) + '" aria-label="Previous: ' + esc(C.name(pv1)) + '">' + icon('chev-l') + '</button>' +
         '<button class="btn btn-icon btn-ghost" data-sh="go" data-to="' + esc(C.pid(nx1)) + '" aria-label="Next: ' + esc(C.name(nx1)) + '">' + icon('chev-r') + '</button></span>' : '') + '</div>';

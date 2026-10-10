@@ -298,13 +298,15 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     `<p class="g-kick">A guide in ${plural(st.areas || areas.length, 'area')} · every place recommended by name</p>` +
     `${G.tileLine && G.tileLine.text ? `<p class="g-lead">${esc(G.tileLine.text)}</p>` : ''}<p class="g-acts"><a class="btn btn-primary" href="#cleo-grid" data-g-browse>Browse all ${plural(recs.length, 'place')}</a>` +
     `${leadR ? `<a class="btn btn-ghost" href="#p-${esc(leadR.id)}">Start with ${esc(leadR.nat && leadR.n.endsWith(`(${leadR.nat})`) ? leadR.n.slice(0, -leadR.nat.length - 2).trimEnd() : leadR.n)}</a>` : ''}</p></div>`;
+  // default view: Atlas (the W2 list + map) until the paged Gallery passes QA's G1 deep-link gate (QA-29/31, orchestrator)
+  const DV = 'atlas';
   const VIEWS = ['gallery', 'atlas'].concat(['guidebook', 'insights'].filter(v => ctx.assetsV[v]));
   const VLBL = { gallery: ['Gallery', 'heart'], atlas: ['Atlas', 'map'], guidebook: ['Guidebook', 'list'], insights: ['Insights', 'sliders'] };
-  const switcher = `<nav class="views" data-cleo-views role="group" aria-label="View" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === 'gallery'}">${ico(VLBL[v][1])}<span>${VLBL[v][0]}</span></button>`).join('')}</nav>`;
+  const switcher = `<nav class="views" data-cleo-views role="group" aria-label="View" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === DV}">${ico(VLBL[v][1])}<span>${VLBL[v][0]}</span></button>`).join('')}</nav>`;
   const areaChips = areas.length > 1 ? '<div class="area-chips" role="group" aria-label="Areas" data-cleo-toolbar hidden></div>' : '';   // views.js draws the chips (page weight)
   // the view is set before first paint (SPEC §2.4): hash, then the stored preference (try/catch), then Gallery
   const viewHead = `<script>(function(){var v=${JSON.stringify(VIEWS)},h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)day=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}` +
-    `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'gallery';document.documentElement.setAttribute('data-view',x)})()</script>`;
+    `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'${DV}';document.documentElement.setAttribute('data-view',x)})()</script>`;
 
   /* -- sprite: only the glyphs this page uses -- */
   const used = new Set(['map', 'list', 'sliders', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive', 'castle', 'bowl', 'tv', 'mountain', 'columns']);
@@ -326,7 +328,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     fy: interests(recs, page),                                  // [id, label, n, ['c:ID' | 'cz:ID' | 'k:f']]
     days,                                                       // {AREA: [place ids in walking order]} — platform guide.days.plans
     js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, gallery: ctx.assetsV.gallery, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights },  // loaded on first use (C.need / views.js), precached by the SW
-    views: VIEWS,                                               // W3: the views this page offers (FE-B's modules join when their files exist)
+    views: VIEWS, dv: DV,                                               // W3: the views this page offers (FE-B's modules join when their files exist)
     dl: gd.label || '', dsk: gd.skipped || {},                  // D-14 label; per-area reason when no day is planned
     sig: sig && sig.kind !== 'collection' ? { t: sig.title, line: sig.line || '', why: sig.why || '', ids: sig.ids, dishes: (sig.dishes || []).map(x => [x.t, x.n]) } : null,
     co: (G.closed || []).map(x => x.id),                        // Recently closed: newest status check first (R-23)

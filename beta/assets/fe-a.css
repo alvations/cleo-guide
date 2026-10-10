@@ -73,7 +73,7 @@ html .pls .pl-s{padding-top:10px;padding-bottom:6px}
 .day>header .eyebrow,.lens .eyebrow{text-transform:none;letter-spacing:.01em}
 .day:not(.editing) .stop .ops{display:none}.day [data-dy=edit][aria-pressed=true]{background:var(--ink);color:var(--paper)}
 /* ---- W3 views (FE-A A-01…A-05): structural base keyed on html[data-view]; DES layers the look in views.css ---- */
-.views{display:flex;gap:4px;margin:8px auto 0;max-width:var(--maxw);padding:4px;background:var(--surface,#fff);border:1px solid var(--line);border-radius:var(--r-pill);position:sticky;top:calc(var(--bar-h) + 6px);z-index:30;box-shadow:var(--e-1)}
+.views{display:flex;gap:4px;margin:8px auto 0;max-width:var(--maxw);padding:4px;background:var(--surface,#fff);border:1px solid var(--line);border-radius:var(--r-pill);position:relative;z-index:30}
 .views[hidden]{display:none}.views button{flex:1;min-height:var(--tap);display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;background:none;border-radius:var(--r-pill);font:inherit;font-size:14px;color:var(--ink-2);cursor:pointer}
 .views button[aria-pressed=true]{background:var(--ink);color:var(--paper,#fff);font-weight:600}.views button:focus-visible{outline:3px solid var(--focus);outline-offset:1px}
 @media (max-width:399px){.views .ico{display:none}}
@@ -110,7 +110,7 @@ html[data-view=gallery] .pl-cover .g-art{display:block}
 .pg-n button[aria-current=page]{background:var(--ink);color:var(--paper,#fff);border-color:var(--ink);font-weight:600}.pg-n button:disabled{opacity:.4;cursor:default}.pg-n .gap{padding:0 4px;color:var(--ink-3)}
 .pg-line{margin:0;color:var(--ink-2);font-size:var(--fs-sm)}.pager p{margin:0}
 /* area chips (Atlas tray head; Gallery toolbar) */
-html[data-view=atlas] .area-chips{display:flex;gap:6px;overflow-x:auto;padding:4px 0;flex:1 0 100%}
+html.atlas-m[data-view=atlas] .area-chips{display:flex;gap:6px;overflow-x:auto;padding:4px 0;flex:1 0 100%}
 .area-chips .chip{flex:0 0 auto;min-height:var(--tap);display:inline-flex;align-items:center;gap:6px;padding:0 12px;border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface,#fff);font:inherit;font-size:13.5px;cursor:pointer}
 .area-chips .chip i{width:10px;height:10px;border-radius:50%;background:var(--area,var(--city))}.area-chips .chip .n{color:var(--ink-3)}.area-chips .chip[aria-pressed=true]{background:var(--ink);color:var(--paper,#fff)}.area-chips .chip[aria-pressed=true] .n{color:inherit}
 /* Atlas: desktop split ≥ 40 % map (list 46 ‖ map 54); phone: full-bleed map + a bottom tray with detents */
@@ -122,7 +122,7 @@ html[data-view=atlas] .area-chips{display:flex;gap:6px;overflow-x:auto;padding:4
   html.atlas-m[data-view=atlas] .about,html.atlas-m[data-view=atlas] .site-footer,html.atlas-m[data-view=atlas] footer{display:none}
   html.atlas-m[data-view=atlas] .split .mappane{display:block;position:fixed;z-index:20;inset:var(--bar-h) 0 0 0;height:auto;padding:0;background:var(--sand)}
   html.atlas-m[data-view=atlas] .split .mappane .map,html.atlas-m[data-view=atlas] #cleo-map{border-radius:0;border:0;min-height:0;height:100%}
-  html.atlas-m[data-view=atlas] .mapclose{display:none!important}
+  html.atlas-m[data-view=atlas] .mapclose{display:inline-flex;position:fixed;z-index:30;top:calc(var(--bar-h) + 64px);right:12px;box-shadow:var(--e-2)}
   html.atlas-m[data-view=atlas] .listpane{position:fixed;z-index:25;left:0;right:0;bottom:0;height:52vh;overflow-y:auto;overscroll-behavior:contain;background:var(--paper,#fff);border-radius:var(--r-l) var(--r-l) 0 0;box-shadow:var(--e-3);padding:0 var(--gutter) 24px;transition:height var(--dur-2,.2s) var(--ease-out,ease)}
   html.atlas-m[data-view=atlas] .split[data-detent=peek] .listpane{height:150px;overflow:hidden}
   html.atlas-m[data-view=atlas] .split[data-detent=full] .listpane{height:calc(100vh - var(--bar-h) - 56px)}
@@ -148,3 +148,8 @@ html[data-view=atlas] .area-chips{display:flex;gap:6px;overflow-x:auto;padding:4
 @media print{html[data-view=guidebook] .split,html[data-view=insights] .split,html[data-view] .g-rows,html[data-view] .pager,.views{display:none!important}html[data-view=gallery] .pl.pg-off,html[data-view=gallery] section.area.pg-empty{display:revert!important}}
 /* DES REVIEW-W3: Guidebook / Insights phones — the module's cover is the first screen (rail hidden above; masthead compact) */
 @media (max-width:639px){html[data-view=guidebook] .masthead,html[data-view=insights] .masthead{min-height:0;padding-bottom:6px}html[data-view=guidebook] .masthead :is(.facts,.dek,.eyebrow,svg),html[data-view=insights] .masthead :is(.facts,.dek,.eyebrow,svg){display:none}html[data-view=guidebook] .masthead h1,html[data-view=insights] .masthead h1{font-size:28px}}
+/* QA-30: the hero's primary action on the night sky, both themes (was 1:1 in night mode) */
+.g-acts .btn-primary,.g-acts .btn-primary:hover{background:var(--on-night);color:var(--night);border-color:var(--on-night)}
+/* phones: the switcher collapses to the current view; tapping it opens all four (QA-31 · B-03 ≤ 14 controls) */
+@media (max-width:639px){html nav.views[data-cleo-views][role=group]:not(.open){grid-template-columns:1fr;display:grid}html nav.views[data-cleo-views]:not(.open) button[aria-pressed=false]{display:none}
+  html nav.views[data-cleo-views] button[aria-pressed=true]::before{content:"View: ";font-weight:400;color:var(--ink-3)}html nav.views[data-cleo-views]:not(.open) button[aria-pressed=true]::after{content:"▾";margin-left:6px;color:var(--ink-3)}}

@@ -9,7 +9,7 @@
   if (!C || !Cleo.route || Cleo.views) return;                  // once per page, even if the file is evaluated twice
   const $ = (s, el) => (el || d).querySelector(s), qa = (s, el) => [].slice.call((el || d).querySelectorAll(s));
   const at = (el, a) => el.getAttribute(a), on = (el, ev, f) => el && el.addEventListener(ev, f);
-  const info = C.info, DEF = 'gallery', NAME = { gallery: 'Gallery', atlas: 'Atlas', guidebook: 'Guidebook', insights: 'Insights' };
+  const info = C.info, DEF = info.dv || 'atlas', NAME = { gallery: 'Gallery', atlas: 'Atlas', guidebook: 'Guidebook', insights: 'Insights' };
   const avail = (info.views || ['gallery', 'atlas']).filter(v => NAME[v]), store = Cleo.store || { get: (k, x) => x, set: () => {} };
   const nav = $('[data-cleo-views]'), host = $('#cleo-view'), live = $('#cleo-view-live'), split = $('.split'), lp = $('.listpane');
   const reg = {}, mem = {}, pl = n => n.toLocaleString('en-US') + (n === 1 ? ' place' : ' places');
@@ -44,7 +44,7 @@
   }
   function unmount(v) { const m = reg[v]; if (m && m.on) { m.on = 0; try { m.unmount && m.unmount(host); } catch (e) {} } if (host && !(reg[cur] && reg[cur].on)) host.hidden = true; }
 
-  function paintNav() { if (!nav) return; qa('button[data-view]', nav).forEach(b => b.setAttribute('aria-pressed', String(at(b, 'data-view') === cur))); }
+  function paintNav() { if (!nav) return; qa('button[data-view]', nav).forEach(b => { const p = at(b, 'data-view') === cur; b.setAttribute('aria-pressed', String(p)); if (p) b.setAttribute('aria-expanded', String(nav.classList.contains('open'))); else b.removeAttribute('aria-expanded'); }); }
   function show(v, o) {
     if (!ok(v)) v = DEF;
     const prev = cur, changed = v !== prev || o.first;
@@ -67,7 +67,10 @@
   // switcher: one history entry per switch (Back returns to the previous view); lenses, the open sheet and saved state stay
   on(nav, 'click', e => {
     const b = e.target.closest && e.target.closest('button[data-view]'); if (!b) return;
-    const v = at(b, 'data-view'); if (v === cur) return;
+    const v = at(b, 'data-view');
+    // phones (< 640 px): the switcher is one "current view" button that opens the four (B-03 controls budget)
+    if (v === cur) { if (window.matchMedia && matchMedia('(max-width: 639px)').matches) { const o = !nav.classList.contains('open'); nav.classList.toggle('open', o); b.setAttribute('aria-expanded', String(o)); } return; }
+    nav.classList.remove('open');
     store.set('view', v);
     const r = Cleo.route.parse(); delete r.pg; delete r.all; r.view = v;
     const h = Cleo.route.href(r);
@@ -102,9 +105,18 @@
     const r = Cleo.route.parse(), all = r.all === '1', per = size(), lensOn = cards.some(c => c.hidden);
     let pend = Cleo.defer ? Cleo.defer.peek().length : 0;
     let pg = Math.max(1, parseInt(r.pg, 10) || 1);
-    if (pend && (all || pg > 1 || lensOn)) { Cleo.defer.all(); pend = 0; if (lensOn) { C.apply(); return; } }   // re-apply: new cards must meet the lens
+    const deep = !!r.p || /^#(p|area)-/.test(location.hash);          // an addressed place / area needs the true view order
+    if (pend && (all || pg > 1 || lensOn || deep)) { Cleo.defer.all(); pend = 0; if (lensOn) { C.apply(); return; } }   // re-apply: new cards must meet the lens
     const live = qa('li.pl').filter(c => !c.hidden), N = live.length + pend, pages = Math.max(1, Math.ceil(N / per));
     if (pg > pages) pg = pages;
+    // QA-29 (G1): a deep link or anchor always lands — #p=<id>, #p-<id> or #area-<A> on another page moves the pager there
+    const h = location.hash, mp = /^#p-(.+)$/.exec(h), ma = /^#area-(.+)$/.exec(h), tid = r.p || (mp && decodeURIComponent(mp[1]));
+    const tg = tid ? d.getElementById('p-' + tid) : ma ? $('li.pl:not([hidden])', d.getElementById('area-' + decodeURIComponent(ma[1])) || d.createElement('i')) : null, ti = tg ? live.indexOf(tg) : -1;
+    if (!all && ti >= 0 && (ti < (pg - 1) * per || ti >= pg * per)) {
+      pg = Math.floor(ti / per) + 1;
+      if (!tid) requestAnimationFrame(() => { const s = tg.closest('section.area'); if (s) s.scrollIntoView({ block: 'start' }); });
+      else if (r.p && (r.pg || pg > 1)) { const q = Cleo.route.parse(); if (pg > 1) q.pg = String(pg); else delete q.pg; try { history.replaceState(history.state, '', Cleo.route.href(q)); } catch (e) {} }
+    }
     const a = all ? 0 : (pg - 1) * per, b = all ? N : Math.min(N, a + per);
     // page 1 may reach past the live cards: those stay deferred (platform M3-06 stamps them as they near the viewport),
     // so keep their area sections in the layout for the watcher; cleo:stamped re-pages the new cards
@@ -141,7 +153,7 @@
    * a bottom tray with peek / half / full detents. The handle cycles them (keyboard), a swipe moves one step, and
    * Esc / Back go down one. The tray holds the toolbar and every row; #map=1 maps to the peek detent. ---------- */
   const DET = ['peek', 'half', 'full'], tb = $('[data-cleo-toolbar]'), rail = $('#cleo-rail');
-  let grab = null, moved = [], det = 'half', pushedDet = 0;
+  let grab = null, moved = [], det = 'peek', pushedDet = 0;
   const mobile = () => !C.desk();
   const setDet = (v, push) => {
     det = v; if (split) split.setAttribute('data-detent', v);
@@ -152,6 +164,8 @@
   function atlasIn() {
     if (!split) return;
     html.classList.toggle('atlas-m', mobile());
+    // phones: list first (the W2 page, QA-31); the tray detents live over the map, opened by Map / #map=
+    if (mobile() && !Cleo.route.parse().map) { atlasOut(); return; }
     if (!mobile()) { atlasOut(true); if (C.loadMap) C.loadMap(() => { const m = C.map(); if (m) setTimeout(() => { try { m.invalidateSize(); } catch (e) {} }, 0); }); return; }
     if (!grab) {
       const th = d.createElement('div'); th.className = 'tray-head';
@@ -165,7 +179,7 @@
     const th = $('.tray-head', lp);
     [tb, rail].forEach(el => { if (el && el.parentNode !== th) { moved.push([el, el.parentNode, el.nextSibling]); th.appendChild(el); } });
     if (C.loadMap) C.loadMap(() => { const m = C.map(); if (m) m.invalidateSize(); });
-    setDet(Cleo.route.parse().map ? 'peek' : det);
+    setDet(det);
     nopin();
   }
   function atlasOut(keep) {
@@ -178,7 +192,7 @@
     if ((Cleo.sheet && Cleo.sheet.isOpen()) || $('.overlay:not([hidden])') || ($('#cleo-poi') && !$('#cleo-poi').hidden)) return;
     setDet(det === 'full' ? 'half' : 'peek'); });
   on(window, 'popstate', () => { if (pushedDet) { pushedDet = 0; if (cur === 'atlas' && det === 'full') setDet('half'); } });
-  on(window, 'hashchange', () => { if (cur === 'atlas' && mobile() && Cleo.route.parse().map) setDet('peek'); });
+  on(window, 'hashchange', () => { if (cur === 'atlas' && mobile()) { const inMap = html.classList.contains('atlas-m'); if (!!Cleo.route.parse().map !== inMap) { if (!inMap) det = 'peek'; atlasIn(); } } });
   if (window.matchMedia) { const mq = matchMedia('(min-width: 1024px)'); const f = () => { if (cur === 'atlas') atlasIn(); }; if (mq.addEventListener) mq.addEventListener('change', f); else if (mq.addListener) mq.addListener(f); }
   // places without a verified pin are listed, never dropped (R-17): a floating badge on the Atlas map says so
   function nopin() {
