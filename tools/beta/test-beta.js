@@ -341,7 +341,7 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
   }
   console.log('\n== MAP: vendored Leaflet present ==');
   {
-    const { d, errs } = boot({ leaflet: true });
+    const { d, errs } = boot({ leaflet: true, hash: '#view=atlas' });   // W3: the map belongs to Atlas (FE-A views.js); Gallery builds no pins
     await sleep(700);
     const withLL = d.querySelectorAll('li.pl[data-ll]').length;
     chk('leaflet mounted', !!d.querySelector('#cleo-map .leaflet-pane'), true);

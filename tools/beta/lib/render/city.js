@@ -117,13 +117,16 @@ const named = r => (r.src || []).filter(s => s !== 'guide').length;
 const orderArea = list => list.map((r, i) => [r, i]).sort(([x, i], [y, j]) =>
   (x.closed ? 1 : 0) - (y.closed ? 1 : 0) || x.t - y.t || named(y) - named(x) || i - j).map(p => p[0]);
 
+const glyphOf = (r, page) => { const czN = r.cz.map(id => ((page.CUISINES || []).find(c => c.id === id) || {}).n).filter(Boolean);
+  return r.kind === 'food' ? glyphFor(r.cz[0], czN[0], true) : glyphFor(r.g.find(g => g !== 'ICON' && g !== 'FREE') || r.g[0], '', false); };
+
 /* ---- the card (M1-11): cover → eyebrow (tier · area · dish · pin no.) → name → write-up → note → address → Recommended by → save ---- */
 function card(r, num, ctx) {
   const { page, srcById, areaName } = ctx;
   const aName = areaName(r.a);
   const czN = r.cz.map(id => ((page.CUISINES || []).find(c => c.id === id) || {}).n).filter(Boolean);
   const dish = r.kind === 'food' && czN[0] ? czN[0].split(/ & |, | \(/)[0] : '';
-  const gl = r.kind === 'food' ? glyphFor(r.cz[0], czN[0], true) : glyphFor(r.g.find(g => g !== 'ICON' && g !== 'FREE') || r.g[0], '', false);
+  const gl = glyphOf(r, page);
   const pv = r.pv || {}, prov = ctx.prov[r.id] || {};
   const where = [aName, dish].filter(Boolean).map(esc).join(' · ');
   const eyebrow = r.closed
@@ -281,6 +284,28 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   if (placed !== recs.length) throw new Error(`${row.beta}: rendered ${placed} of ${recs.length} places`);
   const cardsHtml = sections.join('\n');
 
+  /* -- Gallery hero (W3 A-03): "Start with {lead}" = the first open must-see of the ★ signature, else the first must-see.
+   *    The category rows are chosen and drawn client-side from the page JSON (gallery.js): 0 bytes, 0 initial nodes. -- */
+  const byArea = new Map(), ordered = [];
+  areas.forEach(a => byArea.set(a.id, orderArea(recs.filter(r => r.a === a.id))));
+  byArea.forEach(l => ordered.push(...l)); ordered.push(...orderArea(orphan));
+  const inC = id => ordered.filter(r => r.g.includes(id));
+  const sigT = tiles.find(t => t.cls === 'sig');
+  const leadR = (sig && sig.ids ? sig.ids.map(id => recs.find(r => r.id === id)) : sigT && sigT.key === 'c' ? inC(sigT.id) : []).find(r => r && r.t === 1 && !r.closed)
+    || ordered.find(r => r.t === 1 && !r.closed) || ordered.find(r => !r.closed) || ordered[0];
+  const heroArt = row.art && row.art.hero;
+  const heroHtml = `<div class="g-hero-x" aria-hidden="false">${heroArt ? `<img class="g-sky" src="${esc(up + heroArt.src)}" alt="" width="${heroArt.w}" height="${heroArt.h}" decoding="async">` : ''}` +
+    `<p class="g-kick">A guide in ${plural(st.areas || areas.length, 'area')} · every place recommended by name</p>` +
+    `${G.tileLine && G.tileLine.text ? `<p class="g-lead">${esc(G.tileLine.text)}</p>` : ''}<p class="g-acts"><a class="btn btn-primary" href="#cleo-grid" data-g-browse>Browse all ${plural(recs.length, 'place')}</a>` +
+    `${leadR ? `<a class="btn btn-ghost" href="#p-${esc(leadR.id)}">Start with ${esc(leadR.nat && leadR.n.endsWith(`(${leadR.nat})`) ? leadR.n.slice(0, -leadR.nat.length - 2).trimEnd() : leadR.n)}</a>` : ''}</p></div>`;
+  const VIEWS = ['gallery', 'atlas'].concat(['guidebook', 'insights'].filter(v => ctx.assetsV[v]));
+  const VLBL = { gallery: ['Gallery', 'heart'], atlas: ['Atlas', 'map'], guidebook: ['Guidebook', 'list'], insights: ['Insights', 'sliders'] };
+  const switcher = `<nav class="views" data-cleo-views role="group" aria-label="View" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === 'gallery'}">${ico(VLBL[v][1])}<span>${VLBL[v][0]}</span></button>`).join('')}</nav>`;
+  const areaChips = areas.length > 1 ? '<div class="area-chips" role="group" aria-label="Areas" data-cleo-toolbar hidden></div>' : '';   // views.js draws the chips (page weight)
+  // the view is set before first paint (SPEC §2.4): hash, then the stored preference (try/catch), then Gallery
+  const viewHead = `<script>(function(){var v=${JSON.stringify(VIEWS)},h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)day=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}` +
+    `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'gallery';document.documentElement.setAttribute('data-view',x)})()</script>`;
+
   /* -- sprite: only the glyphs this page uses -- */
   const used = new Set(['map', 'list', 'sliders', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive', 'castle', 'bowl', 'tv', 'mountain', 'columns']);
   tiles.forEach(t => t.g && used.add(t.g));
@@ -300,7 +325,8 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     gaps: gaps.map(g => [g.title, g.text, g.cz]),
     fy: interests(recs, page),                                  // [id, label, n, ['c:ID' | 'cz:ID' | 'k:f']]
     days,                                                       // {AREA: [place ids in walking order]} — platform guide.days.plans
-    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day },  // loaded on first use by city.js (C.need), precached by the SW
+    js: { foryou: ctx.assetsV.foryou, day: ctx.assetsV.day, guidebook: ctx.assetsV.guidebook, insights: ctx.assetsV.insights },  // loaded on first use (C.need / views.js), precached by the SW
+    views: VIEWS,                                               // W3: the views this page offers (FE-B's modules join when their files exist)
     dl: gd.label || '', dsk: gd.skipped || {},                  // D-14 label; per-area reason when no day is planned
     sig: sig && sig.kind !== 'collection' ? { t: sig.title, line: sig.line || '', why: sig.why || '', ids: sig.ids, dishes: (sig.dishes || []).map(x => [x.t, x.n]) } : null,
     co: (G.closed || []).map(x => x.id),                        // Recently closed: newest status check first (R-23)
@@ -326,7 +352,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   const title = `${name} — ${recs.length} sourced places · Cleo`;
   const desc = `${name}: ${nS} sights and ${nF} places to eat and drink, every one traceable to the source that recommended it, pinned and status-checked.`;
   const headHtml = head({ page: 'city', title, description: desc, rel: row.beta, depth, ogImage: ctx.ogImage, jsonld: jsonLd(row, recs, title), assetsV: ctx.assetsV, from: row.live })
-    .replace('</head>', `<link rel="stylesheet" href="${up}${ctx.feaCss}">\n</head>`);
+    .replace('</head>', `<link rel="stylesheet" href="${up}${ctx.feaCss}">\n${viewHead}\n</head>`);
   const country = COUNTRIES.find(c => c.key === row.country) || {};
   const facts = `<b>${plural(recs.length, 'place')}</b> · ${plural(st.areas || areas.length, 'area')} · every one sourced, pinned and status-checked${st.lastChecked ? ` · last checked <time class="nw">${esc(st.lastChecked)}</time>` : ''}${st.closed ? ` · ${st.closed} closed, kept for the record` : ''}. Ordered by tier, then by number of named sources. <a href="#how-we-choose">How we choose</a>`;
   const seg = `<div class="modes" role="group" aria-label="Show"><button type="button" data-mode="all" aria-pressed="true">All <span class="n">${recs.length}</span></button>` +
@@ -337,11 +363,15 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
 ${sprite}
 ${siteBar({ depth, current: 'city', rel: row.beta })}
 <main id="main" data-city="${esc(row.key)}">
+${switcher}
+<p class="vh" id="cleo-view-live" aria-live="polite"></p>
 <header class="masthead">${motifSvg(row.imagery && row.imagery.motif, up, { fit: 'xMaxYMax meet', style: 'position:absolute;inset:0;width:100%;height:100%;z-index:-3;opacity:.42;-webkit-mask-image:linear-gradient(90deg,transparent 35%,#000 75%);mask-image:linear-gradient(90deg,transparent 35%,#000 75%)' })}
   <p class="eyebrow">${esc(country.name || m.eyebrow || '')}</p>
   <div class="title"><h1>${esc(name)}${row.nat ? ` <span class="native">${esc(row.nat)}</span>` : ''}</h1>${m.h1Thin ? `<p class="dek">${esc(m.h1Thin)}</p>` : ''}</div>
   <p class="facts">${facts}</p>
+${heroHtml}
 </header>
+<div class="g-rows vw view-gallery" id="cleo-rows-host"></div>
 <nav class="rail" id="cleo-rail" aria-label="Collections" data-cleo-rail data-view="all" hidden>
 ${tiles.filter(t => t.cls === 'sig').map(tileHtml).join('\n')}
 ${mods.join('\n')}${free ? '\n' + tileHtml(free) : ''}
@@ -357,9 +387,11 @@ ${seg}
 <button type="button" class="btn btn-ghost" data-cleo-tray="" aria-haspopup="dialog" aria-label="Filters">${ico('sliders')}<span class="lbl">Filters</span><span class="tb-n" data-cleo-nf></span></button>
 <button type="button" class="btn btn-primary map-toggle" data-cleo-map="" aria-label="Show the map">${ico('map')}</button>
 <div class="applied" data-cleo-applied></div>
+${areaChips}
 </div>
+<div class="view-host" id="cleo-view" hidden></div>
 <div class="split">
-<div class="listpane">
+<div class="listpane" id="cleo-grid">
 <div class="lens" id="cleo-lens" aria-live="polite" hidden></div>
 <p class="shown" id="cleo-shown" aria-live="polite"></p>
 ${cardsHtml}
@@ -386,6 +418,8 @@ ${footer({ depth, liveRel: row.live, notes: page.notes })}
 <script type="application/json" id="cleo-city">${jsonInline(blob)}</script>
 <script src="${up}assets/js/city.js?v=${ctx.assetsV.city}" defer></script>
 <script src="${up}assets/js/sheet.js?v=${ctx.assetsV.sheet}" defer></script>
+<script src="${up}assets/js/views.js?v=${ctx.assetsV.views}" defer></script>
+<script src="${up}assets/js/gallery.js?v=${ctx.assetsV.gallery}" defer></script>
 </body>
 </html>
 `;
