@@ -62,9 +62,9 @@ function shortName(n) {
 const rank = (a, b) => (b.src || []).length - (a.src || []).length || (b.s || []).length - (a.s || []).length;
 /** Up to three of the city's most-recommended open must-sees: 2 sights + 1 place to eat (record order breaks ties). */
 function signature(row) {
-  if (Array.isArray(row.signature) && row.signature.length) {                 // platform hook (gap #10)
-    return row.signature.slice(0, 3).map(x => typeof x === 'string' ? { name: x } : { name: x.name || x.n, id: x.id });
-  }
+  // Platform's build-time tile line (lib/guide.js, gap #10): the city's food canon + its landmark, e.g.
+  // "Polish Boy · corned beef · Haserot Angel". Topped up from the records below when it is shorter than three.
+  const head = row.guide && row.guide.tileLine ? row.guide.tileLine.parts.map(t => ({ name: shortName(t), from: 'canon' })) : [];
   const recs = (row.recs || []).filter(x => !x.closed);
   const best = kind => {
     for (const t of [1, 2]) { const a = recs.filter(x => x.kind === kind && x.t === t); if (a.length) return a.slice().sort(rank); }
@@ -74,13 +74,15 @@ function signature(row) {
   const out = S.slice(0, F.length ? 2 : 3).concat(F.slice(0, 1));
   for (const x of S.slice(2).concat(F.slice(1))) { if (out.length >= 3) break; if (!out.includes(x)) out.push(x); }
   const seen = new Set();
-  return out.map(x => ({ name: shortName(x.n), id: x.id, kind: x.kind })).filter(x => x.name && !seen.has(x.name) && seen.add(x.name));
+  return head.concat(out.map(x => ({ name: shortName(x.n), id: x.id, kind: x.kind })))
+    .filter(x => x.name && !seen.has(x.name.toLowerCase()) && seen.add(x.name.toLowerCase())).slice(0, 3);
 }
 
 function facts(row) {
   const recs = row.recs || [];
   const d = row.data;
-  const star = (d.CATS || []).filter(c => /★/.test(c.n)).map(c => ({ id: c.id, name: c.n.replace(/★\s*/, ''), n: recs.filter(x => (x.g || []).includes(c.id)).length }))
+  const gs = row.guide && row.guide.signature;
+  const star = gs && gs.kind === 'collection' && gs.n ? { id: (gs.c || [])[0], name: gs.title, n: gs.n } : gs ? null : (d.CATS || []).filter(c => /★/.test(c.n)).map(c => ({ id: c.id, name: c.n.replace(/★\s*/, ''), n: recs.filter(x => (x.g || []).includes(c.id)).length }))
     .filter(c => c.n > 0)[0] || null;
   const cz = {};
   recs.forEach(x => (x.cz || []).forEach(z => { cz[z] = (cz[z] || 0) + 1; }));

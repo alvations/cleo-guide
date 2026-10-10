@@ -161,6 +161,20 @@ Append-only. One entry per session per wave: date, lane, session id, what change
 - 2026-10-10 09:53 · orchestrator · W1: platform, FE-A (ab80b44), FE-B, designer done + archived (all commits beta-scope since ca70e53). QA still finishing sign-off. **Round 1 evaluation launched**: session_01WsdxZRnnS31JkzUY9Shvh7 → design/beta/eval/ROUND-1.md. Imagery: upload.wikimedia.org / commons.wikimedia.org denied by environment network policy (403, 09:24Z); owner informed how to allow.
 
 - 2026-10-10 10:30Z · orchestrator · Round 1 evaluation done (`design/beta/eval/ROUND-1.md`, 7cb0f495): R0 31.1 → R1 66.5 (A60 B74 C66 D72); goal not met. Evaluator session archived. QA W1 run 3 still running (sign-off NO so far). Wave 2 briefs issued (`design/beta/eval/W2-BRIEFS.md`) to five lanes: platform, FE-A, FE-B, designer, imagery. The owner asked for a GitHub Actions image fetcher to get past the Wikimedia block; the environment's permission classifier refused that as a policy workaround. It was not attempted further, and the owner was told how to allow the hosts instead.
+- 2026-10-10 · QA · Build wave 1 run 3 (final M1 sign-off) · session_01PCNcUkfa5S1N1BKGzZA4xx · M1-21, M1-22. Measured
+  `66c252b` (FE-A `ab80b44`). Harness 94 pages / 282 loads all PASS; G1 reachability 84/84; beta == live. Pilots
+  **22/24** (Wheeling 21), hub 10/10. Fixed and retested: QA-01…09, 11–14, 17. New: QA-19 (Esc doesn't close the pin sheet),
+  QA-20 (B-16 regression, 23 pages), QA-21 (★ Signature = a source), QA-22 (Vietnam hub B-05), QA-23 (404 contrast).
+  Harness now probes FE-A's contract hooks with real pin taps, and handles occluded-text contrast.
+  **QA sign-off: NO for M1.** Blocking: B-06 map 37 % < 40 % (QA-15), B-07 Esc (QA-19), B-16 Wheeling 1.95 (QA-20).
+  Evidence: `qa/beta-metrics.{json,md}`, `qa/beta-metrics-all.md`, `qa/beta-harness-summary.json`, `qa/beta-shots/`.
+- 2026-10-10 · **Platform** · Wave 2 slice 1 · session_01PCNcUkfa5S1N1BKGzZA4xx · `8104ff6` + `1b049cb` · ROUND-1 gaps **#10, #5 (data), #8 (data)**.
+  - New `tools/beta/lib/guide.js` → `data/places/<page>.json` `guide`, `data/guide.json`, `row.guide`; schema in RFC §12 (R-20…R-23).
+  - **★ signature** is now the city's food canon or pop culture, never a publisher: 60 pages carry one (Cleveland "Only in Cleveland" 18 — Polish Boy · corned beef · Barberton chicken; Pittsburgh 22 — pierogi · fish sandwich · Primanti sandwich; NYC slice · bagel · pastrami; Japan keeps ★ Anime). Dish words print only when a canon record names them (gated). `foodOrder` = canon-first cuisine rail order (fixes QA-16 once FE-A reads it). `tileLine` for hub tiles ("Polish Boy · corned beef · <top landmark>").
+  - **Day plans**: 164 area plans (4–6 open, verified-pin stops, ≤ 3 km legs, ≤ 12 km, one food stop), 135 areas skipped with a stated reason; D-14 label. **Recently closed**: every closed record, newest check first. `pv.src/verified/ss` added to the per-page JSON (FE-A W1 request).
+  - core.js: `Cleo.guide(key)`, `Cleo.geo.{km,fmt,ll}` (Near me needs nothing else; position never stored).
+  - **FE-A:** read `info`/`row.guide` (build time) for the ★ tile (`signature.ids` lens), rail order (`foodOrder`), "Your day" (`days.plans[AREA]`), Recently closed (`closed`). **FE-B:** `data/guide.json` / `row.guide.tileLine` for hub tiles and cross-city rail counts.
+  - validate + npm test + beta:check PASS.
 - 2026-10-10 · **FE-B** · Wave 2 slice 1 · session_01Uw8kyZKduvy2VTdhJQa5L4 · ROUND-1 gaps #3, #8 (M2-12), search, share/OG.
   - **Wanderlust (gap #3):** hub/landing tile line is now the city's **signature** — its most-recommended open must-sees
     (2 sights + 1 place to eat, ranked by distinct named publishers; e.g. Cleveland "Haserot Angel · West Side Market ·
@@ -189,3 +203,10 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - Landing 77 KB (≤ 80 budget: landing tiles draw ≤ 24 pins). validate + npm test + beta:check PASS.
   - Screenshots: `design/beta/eval/w2/fe-b/w2-*-{m,d}.jpg` (landing, landing-themes, hub-japan, hub-singapore, hub-belgium,
     accessibility, method, search-guides, states) vs `before-*`; metrics `w2-metrics.json` (0 overflow, 0 targets < 44 on FE-B pages, 0 JS errors).
+- 2026-10-10 · **FE-B** · Wave 2 slice 2 · session_01Uw8kyZKduvy2VTdhJQa5L4 · merged platform W2 (8104ff6) and switched tiles to its
+  `guide.tileLine` (gap #3 + #10): Cleveland "Polish Boy · corned beef · Haserot Angel", Pittsburgh "pierogi · fish sandwich ·
+  Point State Park", NYC "slice · bagel · Empire State Building", Chinatown "chicken rice · laksa · Sri Mariamman Temple";
+  topped up from the most-recommended records where the line is short (Wheeling). ★ line = platform `guide.signature` when it
+  is a collection (Japan anime); food signatures are already the tile line, so no publisher ★ anywhere. Test: every
+  signature item is a platform canon part or an open record of the page. **PLT note:** Youngstown's canon splits
+  "Brier Hill pizza" into "Brier Hill · pizza" (`guide.tileLine.parts`). Gates PASS.

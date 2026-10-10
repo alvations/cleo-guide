@@ -108,6 +108,7 @@ console.log('\n== W2: signature lines from data, distinct tiles, themes computed
     const j = JSON.parse(rd(`data/places/${p.key.replace(/\//g, '--')}.json`));
     names[p.key] = j;
   }
+  const guideIdx = Object.fromEntries(JSON.parse(rd('data/guide.json')).pages.map(p => [p.key, p]));
   const land = doc(rd('index.html'));
   const tiles = [...land.querySelectorAll('li.dest')].filter(li => li.querySelector('.tile'));
   // every item on a signature line names a real, open record of that page (prefix of its name)
@@ -116,10 +117,11 @@ console.log('\n== W2: signature lines from data, distinct tiles, themes computed
     const j = names[li.dataset.page]; if (!j) continue;
     for (const s of li.querySelectorAll('.sigline > span')) {
       const t = s.textContent.trim();
-      if (!j.places.some(x => !x.closed && x.n.startsWith(t))) bad.push(`${li.dataset.page}: ${t}`);
+      const g = guideIdx[li.dataset.page], canonParts = g && g.tileLine ? g.tileLine.split(' · ') : [];
+      if (!j.places.some(x => !x.closed && x.n.startsWith(t)) && !canonParts.some(c => c.startsWith(t))) bad.push(`${li.dataset.page}: ${t}`);
     }
   }
-  chk('signature items that are not an open record of the page', bad, a => a.length === 0);
+  chk('signature items that are neither the platform canon line nor an open record of the page', bad, a => a.length === 0);
   chk('tiles with a signature line', tiles.filter(li => li.querySelector('.sigline')).length, n => n >= tiles.length * 0.8);
   chk('tiles carrying a bare category label line instead', tiles.filter(li => li.querySelector('.canon') && li.querySelector('.sigline')).length, 0);
   // no two neighbouring tiles share composition AND skin

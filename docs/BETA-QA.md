@@ -211,3 +211,85 @@ M1 is still not met, because these rows fail on every pilot:
 - **B-03**: Tokyo and New York show 15 controls above the first card (target 14).
 
 QA would sign YES once B-06/07/09/10/17 measure green on the pilot set, B-23 is 0 in both themes, and B-03 ≤ 14.
+
+---
+
+## 2026-10-10 · QA · Build wave 1 run 3 (final M1 sign-off) · session_01PCNcUkfa5S1N1BKGzZA4xx
+
+**State measured:** `66c252b` (FE-A `ab80b44` city page: rail, tray, sheet, source views, split/mobile map; DES review pass 2;
+W1 lanes archived). No beta or `tools/beta` change since, up to `7510539`.
+
+**Harness changes:** the probes now use FE-A's contract hooks (`.map-toggle`, `[data-cleo-tray]`, `.tray`, `[data-tr=go]`,
+`li.pl.is-focus`, `.leaflet-tooltip.pin-n`). Pins are tapped with real pointer events. B-07 measures map toggle → pin
+sheet (Close, Esc, Back). B-17 measures card → detail sheet (content, focus trap, Esc, Back, focus restored). Text covered
+by another element (e.g. the rail's arrow buttons) is skipped for contrast instead of failing.
+
+### Gates — all PASS
+
+| Gate | Result |
+|---|---|
+| G1 counts | generator 582 files / 94 pages / 8,458 places beta == live; `test-beta.js` 84/84; `test-contract.js` 94/94 |
+| G1 reachability | **84/84 place pages**: scroll, every deep link (e.g. Tokyo 488/488, NYC 508/508), search sample, JS off |
+| G2 | `npm run validate` DATA OK; `npm test` ALL PASS |
+| G3 harness | **94 pages, 282 loads, 282 PASS** (0 WARN, 0 FAIL) — `qa/beta-harness-summary.json` |
+| G4 no-CDN | 94/94, 0 load errors, 0 local 404; machine-speed deep-link stress now **0 errors** (QA-17 fixed) |
+| G6 | 84/84: attribution 100 %, Cleveland's 13 closed places all flagged, none tiered |
+| G8 storage · tiles | PASS · OSM/Esri only on 84/84 |
+
+### M1 criteria × pilot page
+
+| Criterion | hub | cleveland | tokyo | newyork | chinatown | wheeling | All pages |
+|---|---|---|---|---|---|---|---|
+| B-01 first card ≤ 1.0 | — | ✅ 0.79 | ✅ 0.85 | ✅ 0.78 | ✅ 0.75 | ✅ 0.83 | 84/84 |
+| B-02 masthead ≤ 506 px | — | ✅ 294 | ✅ 314 | ✅ 293 | ✅ 293 | ✅ 294 | 84/84 |
+| B-03 controls above ≤ 14 | — | ✅ 14 | ✅ 14 | ✅ 14 | ✅ 14 | ✅ 14 | 84/84 |
+| B-04 rail, ★ first | — | ✅ | ✅ | ✅ | ✅ | ✅ | 84/84 |
+| B-05 hub cards above fold | ✅ 2 | — | — | — | — | — | 5/7 (❌ Vietnam hub 1, archived `singapore-old` 0) |
+| B-06 split + sticky + 2-way sync, map ≥ 40 % | — | ❌ **map 37 %** (split ✓ sticky ✓ hover→pin ✓ pin→card ✓) | ❌ same | ❌ same | ❌ same | ❌ same | 0/84 |
+| B-07 map toggle + pin sheet: Close, Esc, Back | — | ❌ **Esc doesn't close** (toggle 44×44 ✓, full map ✓, Close ✓, Back ✓) | ❌ same | ❌ same | ❌ same | ❌ same | 0/84 |
+| B-08 floaters = 0 | — | ✅ | ✅ | ✅ | ✅ | ✅ | 84/84 |
+| B-09 numbered pins + ordering line | — | ✅ 194 | ✅ 488 | ✅ 508 | ✅ 16 | ✅ 35 | 84/84 |
+| B-10 tray + "Show N places" | — | ✅ Show 194 | ✅ Show 488 | ✅ Show 508 | ✅ Show 16 | ✅ Show 35 | 84/84 |
+| B-12 closed tiered = 0 | — | ✅ 0/13 | ✅ 0/1 | ✅ | ✅ | ✅ 0/1 | 84/84 |
+| B-16 cards / screen ≥ 2 | — | ✅ 2.11 | ✅ 2.33 | ✅ 2.22 | ✅ 2.38 | ❌ **1.95** | 61/84 |
+| B-17 detail sheet: content, trap, Esc, Back, focus restore | — | ✅ | ✅ | ✅ | ✅ | ✅ | 84/84 |
+| B-18 ≤ 2 families | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 94/94 |
+| B-19 uppercase < 15 % | ✅ 0 % | ✅ 0 % | ✅ 0.3 % | ✅ 0.1 % | ✅ 0 % | ✅ 6 % | 94/94 |
+| B-20 targets < 44 = 0 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 94/94 |
+| B-21 ≥ 12 px | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 94/94 |
+| B-22 overflow 0 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 94/94 |
+| B-23 AA light + night | ✅ 0/0 | ✅ 0/0 | ✅ 0/0 | ✅ 0/0 | ✅ 0/0 | ✅ 0/0 | 93/94 (❌ `404.html`) |
+| M1-16 focus · landmarks · names | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 94/94 |
+| Perf KB · DOM · FCP · FCP 4× | 355 · 1,036 · 248 · 428 | 1,004 · 5,023 · 372 · 572 | 1,812 · **11,650** · 288 · 472 | 1,602 · **11,616** · 388 · 544 | 557 · 872 · 384 · – | 638 · 1,405 · 240 · 480 | — |
+| **Score** | **10/10** | **22/24** | **22/24** | **22/24** | **22/24** | **21/24** | |
+
+**Trend:** Tokyo went 14 → 17 → **22**/24 across runs 1–3; the mirror pilots went 5–7 → 17–18 → **21–22**. Retested and fixed:
+QA-01…QA-09, QA-11, QA-12 (method headings), QA-13 (hub list names), QA-14, QA-17. Still open: QA-10 (DOM grew to 11.6 k on
+Tokyo/NYC once sheets and tray landed; budget ≤ 3,000 is M3-06), QA-15 (map 37 %), QA-16, QA-18.
+
+### New defects (run 3)
+
+| ID | Sev | Defect | Evidence | Lane |
+|---|---|---|---|---|
+| QA-19 | High | **Esc doesn't close the map pin sheet** (`.poi-sheet`) on mobile or desktop, even with focus on its Close button. Back and Close work. M1-05 needs Esc. | metrics `sheetFlow.pinSheet.escCloses=false` on every page; hand repro (2× Esc, sheet stays, `#map=1`) | FE-A |
+| QA-20 | Med | **B-16 regression: 23 pages under 2 cards per mobile screen** (Wheeling 1.95, Cebu 1.6, Changi 1.63, Geylang 1.64…). Cards grew when "Recommended by" links became 44 px block targets, one per line (also visible in the pin sheet). | `qa/beta-metrics-all.md`; `qa/beta-shots/cities__wheeling.mobile.jpg` | FE-A + DES (inline 44 px hit area without stacking) |
+| QA-21 | Med | **"★ Signature" tile is a source, not a signature collection** where a city has no ★ collection: Wheeling's is "Wikipedia (notability / …)", Bangkok's "Tourism Authority of Thailand", NYC's "NYC Tourism + Conventions". M1-02 wants ★ to mean a signature collection (anime, city-unique dishes, Must see). Labelling an encyclopedia or a tourism board as the city's signature misreads the editorial rule. | rail first tile per page (metrics `railFirst`); `qa/beta-shots/Singapore__bangkok.rail.desktop.jpg` | DES + FE-A (rail ordering rule) |
+| QA-22 | Med | **Vietnam hub shows 1 city card above the fold** (B-05 needs ≥ 2). The archived `Singapore/singapore-old.html` shows 0; QA treats it as out of M1 scope unless the PM says otherwise. | metrics | FE-B |
+| QA-23 | Low | `404.html` bottom tab labels (Explore / Search / Your list) are 2.86:1. | metrics `contrastFailList` | FE-B |
+
+### QA sign-off: **NO for M1**
+
+Hard gates G1–G4, G6 and G8 hold on all 94 beta pages. The harness is at 282/282 PASS, every place is reachable, and no
+record is lost. 19 of the 21 M1 rows QA measures pass on every pilot. M1 still needs every row on every pilot page, and
+two fail on all five city pilots:
+
+1. **B-06**: the desktop map is 37 % of the viewport; M1-04 needs ≥ 40 % (QA-15). Sync itself works both ways.
+2. **B-07**: Esc doesn't close the map pin sheet (QA-19).
+
+A third fails on one pilot:
+
+3. **B-16**: Wheeling shows 1.95 cards per mobile screen, and 23 pages overall are under 2 (QA-20).
+
+All three are small, local FE-A/DES fixes. QA will re-sign at **YES** once `npm run beta:metrics` shows B-06, B-07 and
+B-16 green on the pilot set with the gates unchanged. QA-21 and QA-22 should land before the M1-22 rollout is
+accepted, but they don't block the pilot sign-off.

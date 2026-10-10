@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-10T09:39:40.771Z",
+ "generated": "2026-10-10T10:13:09.194Z",
  "viewports": {
   "mobile": "390x844@3 touch",
   "desktop": "1440x900",
@@ -35,31 +35,10 @@
     "upperPct": 0,
     "minFontPx": 12,
     "minFontEl": "span \"Explore\"",
-    "contrastChecked": 326,
-    "contrastUnknown": 5,
-    "contrastFails": 24,
-    "contrastFailList": [
-     "span.dest-n \"Bedok\" 1.16:1 <4.5",
-     "span.dest-n \"Bukit Timah\" 1.16:1 <4.5",
-     "span.dest-n \"Changi\" 1.16:1 <4.5",
-     "span.dest-n \"Chinatown & CBD\" 1.16:1 <4.5",
-     "span.dest-n \"Civic District\" 1.16:1 <4.5",
-     "span.dest-n \"Dempsey Hill\" 1.16:1 <4.5",
-     "span.dest-n \"Geylang\" 1.16:1 <4.5",
-     "span.dest-n \"Jalan Besar & Lavender\" 1.16:1 <4.5",
-     "span.dest-n \"Jurong\" 1.16:1 <4.5",
-     "span.dest-n \"Kampong Glam\" 1.16:1 <4.5",
-     "span.dest-n \"Katong & Joo Chiat\" 1.16:1 <4.5",
-     "span.dest-n \"Little India\" 1.16:1 <4.5",
-     "span.dest-n \"Mandai\" 1.16:1 <4.5",
-     "span.dest-n \"Marina Bay\" 1.16:1 <4.5",
-     "span.dest-n \"Marine Parade & East Coa\" 1.16:1 <4.5",
-     "span.dest-n \"Old Airport Road\" 1.16:1 <4.5",
-     "span.dest-n \"Queenstown & Redhill\" 1.16:1 <4.5",
-     "span.dest-n \"Southern Ridges\" 1.16:1 <4.5",
-     "span.dest-n \"Tiong Bahru\" 1.16:1 <4.5",
-     "span.dest-n \"Upper Thomson & MacRitch\" 1.16:1 <4.5"
-    ],
+    "contrastChecked": 319,
+    "contrastUnknown": 12,
+    "contrastFails": 0,
+    "contrastFailList": [],
     "floaters": [
      "div.stickypills \"United StatesSingaporeVi\"",
      "nav.tabbar \"Explore Search Your list\""
@@ -88,19 +67,19 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 1036,
-    "fcp": 260,
+    "fcp": 228,
     "fontSampleN": 331,
     "fontsDeclared": {
-     "Bodoni Moda": 84,
-     "Figtree": 345,
+     "Bodoni Moda": 60,
+     "Figtree": 369,
      "Noto Serif JP": 5
     },
     "hasMapEl": false,
     "shot": "qa/beta-shots/index.mobile.jpg",
     "fonts": {
      "all": {
-      "Bodoni Moda": 945,
-      "Figtree Light": 5723,
+      "Bodoni Moda": 653,
+      "Figtree Light": 6015,
       "Inter Medium": 2,
       "IPAGothic": 11
      },
@@ -126,14 +105,12 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 377825,
+    "bytes": 364185,
     "offOriginBlocked": 0,
     "night": {
-     "contrastChecked": 326,
-     "contrastFails": 1,
-     "contrastFailList": [
-      "em \"know\" 1.48:1 <3"
-     ]
+     "contrastChecked": 319,
+     "contrastFails": 0,
+     "contrastFailList": []
     }
    },
    "desktop": {
@@ -162,29 +139,8 @@
     "minFontEl": "small \"field guides\"",
     "contrastChecked": 371,
     "contrastUnknown": 5,
-    "contrastFails": 24,
-    "contrastFailList": [
-     "span.dest-n \"Bedok\" 1.16:1 <3",
-     "span.dest-n \"Bukit Timah\" 1.16:1 <3",
-     "span.dest-n \"Changi\" 1.16:1 <3",
-     "span.dest-n \"Chinatown & CBD\" 1.16:1 <3",
-     "span.dest-n \"Civic District\" 1.16:1 <3",
-     "span.dest-n \"Dempsey Hill\" 1.16:1 <3",
-     "span.dest-n \"Geylang\" 1.16:1 <3",
-     "span.dest-n \"Jalan Besar & Lavender\" 1.16:1 <3",
-     "span.dest-n \"Jurong\" 1.16:1 <3",
-     "span.dest-n \"Kampong Glam\" 1.16:1 <3",
-     "span.dest-n \"Katong & Joo Chiat\" 1.16:1 <3",
-     "span.dest-n \"Little India\" 1.16:1 <3",
-     "span.dest-n \"Mandai\" 1.16:1 <3",
-     "span.dest-n \"Marina Bay\" 1.16:1 <3",
-     "span.dest-n \"Marine Parade & East Coa\" 1.16:1 <3",
-     "span.dest-n \"Old Airport Road\" 1.16:1 <3",
-     "span.dest-n \"Queenstown & Redhill\" 1.16:1 <3",
-     "span.dest-n \"Southern Ridges\" 1.16:1 <3",
-     "span.dest-n \"Tiong Bahru\" 1.16:1 <3",
-     "span.dest-n \"Upper Thomson & MacRitch\" 1.16:1 <3"
-    ],
+    "contrastFails": 0,
+    "contrastFailList": [],
     "floaters": [
      "div.stickypills \"United StatesSingaporeVi\""
     ],
@@ -212,19 +168,19 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 1036,
-    "fcp": 496,
+    "fcp": 248,
     "fontSampleN": 376,
     "fontsDeclared": {
-     "Bodoni Moda": 84,
-     "Figtree": 391,
+     "Bodoni Moda": 60,
+     "Figtree": 415,
      "Noto Serif JP": 5
     },
     "hasMapEl": false,
     "shot": "qa/beta-shots/index.desktop.jpg",
     "fonts": {
      "all": {
-      "Bodoni Moda": 945,
-      "Figtree Light": 8675,
+      "Bodoni Moda": 660,
+      "Figtree Light": 8963,
       "Inter Medium": 2,
       "IPAGothic": 11
      },
@@ -250,14 +206,12 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 377825,
+    "bytes": 364185,
     "offOriginBlocked": 0,
     "night": {
      "contrastChecked": 371,
-     "contrastFails": 1,
-     "contrastFailList": [
-      "em \"know\" 1.48:1 <3"
-     ]
+     "contrastFails": 0,
+     "contrastFailList": []
     }
    },
    "narrow": {
@@ -269,9 +223,9 @@
     "text": 6702
    },
    "cpu4x": {
-    "fcp": 1008,
-    "dcl": 943,
-    "loadMs": 1663
+    "fcp": 428,
+    "dcl": 402,
+    "loadMs": 651
    },
    "verdict": {
     "rows": {
@@ -300,8 +254,8 @@
       "val": "390:0 360:0"
      },
      "B-23 contrast AA light + night": {
-      "pass": false,
-      "val": "light 24/24 · night 1/1 (mobile/desktop)"
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
      },
      "M1-16 focus visible": {
       "pass": true,
@@ -321,10 +275,10 @@
      },
      "Perf: bytes / DOM / FCP / FCP 4×": {
       "pass": null,
-      "val": "369 KB · 1036 nodes · 496 ms · 1008 ms"
+      "val": "356 KB · 1036 nodes · 248 ms · 428 ms"
      }
     },
-    "passed": 9,
+    "passed": 10,
     "total": 10,
     "hardFail": []
    }
@@ -348,51 +302,48 @@
     "cards": 194,
     "cardsVisible": 194,
     "legacy": false,
-    "firstCardTop": 578,
-    "screensToFirstCard": 0.69,
-    "mastheadPx": 235,
-    "controlsAbove": 13,
-    "controlsAboveOnScreen": 13,
+    "firstCardTop": 669,
+    "screensToFirstCard": 0.79,
+    "mastheadPx": 294,
+    "controlsAbove": 14,
+    "controlsAboveOnScreen": 14,
     "controlsAboveList": [
      "a.brand \"cleofield guides\"",
      "a.c0 \"United States\"",
      "a.btn.btn-icon",
      "a.btn.btn-icon",
-     "button.rail-i.rail-all \"All 194\"",
-     "button.rail-i \"Vietnamese 4\"",
-     "button.rail-i \"Singaporean 1\"",
+     "a \"How we choose\"",
+     "button.rail-i.sig \"★ SignatureNews 5 Clevel\"",
+     "button.rail-i \"Must see47\"",
+     "button.rail-i.src-t \"Everything recommended b\"",
      "button \"All 194\"",
      "button \"Sights 148\"",
      "button \"Eat & drink 46\"",
      "input#cleo-filter",
-     "a \"Downtown & The Flats\"",
-     "a \"University Circle & East\""
+     "button.btn.btn-ghost \"Filters\"",
+     "button.btn.btn-primary"
     ],
     "tapSmall": 0,
     "tapSmallKinds": {},
     "tapSmallList": [],
-    "textNodes": 1661,
+    "textNodes": 2050,
     "upperNodes": 0,
     "upperPct": 0,
-    "minFontPx": 13,
-    "minFontEl": "p.pl-e \"Must see · Downtown & Th\"",
-    "contrastChecked": 1642,
-    "contrastUnknown": 4,
-    "contrastFails": 3,
-    "contrastFailList": [
-     "h2#method-h.d2 \"How this guide was made\" 1.09:1 <3",
-     "h3 \"How the cuisine filters \" 1.03:1 <4.5",
-     "h3 \"What the web turned up\" 1.03:1 <4.5"
-    ],
+    "minFontPx": 12,
+    "minFontEl": "span.k \"★ Signature\"",
+    "contrastChecked": 1834,
+    "contrastUnknown": 8,
+    "contrastFails": 0,
+    "contrastFailList": [],
     "floaters": [],
     "railVisible": true,
-    "railTop": 249,
+    "railTop": 308,
     "railOnFirstScreen": true,
     "railItems": 3,
-    "railFirst": "All 194",
+    "railFirst": "★ SignatureNews 5 Cleveland103",
     "cityCardsAbove": 0,
-    "cardMedianH": 363,
-    "cardsPerScreen": 2.32,
+    "cardMedianH": 400,
+    "cardsPerScreen": 2.11,
     "noAttribution": 0,
     "noAttributionIds": [],
     "closed": 13,
@@ -408,23 +359,25 @@
     "skipLink": true,
     "unnamedControls": 0,
     "unnamedList": [],
-    "domNodes": 2806,
-    "fcp": 280,
+    "domNodes": 4594,
+    "fcp": 284,
     "fontSampleN": 400,
     "fontsDeclared": {
-     "Bodoni Moda": 248,
-     "Figtree": 757
+     "Bodoni Moda": 277,
+     "Figtree": 911
     },
     "hasMapEl": true,
     "shot": "qa/beta-shots/cleveland.mobile.jpg",
     "fonts": {
      "all": {
-      "Bodoni Moda": 1188,
-      "Figtree Light": 16814
+      "Bodoni Moda": 1080,
+      "Figtree Light": 14350,
+      "Inter Medium": 1
      },
      "primary": [
       "Figtree Light",
-      "Bodoni Moda"
+      "Bodoni Moda",
+      "Inter Medium"
      ],
      "fallback": []
     },
@@ -442,18 +395,58 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 769265,
-    "offOriginBlocked": 1,
+    "bytes": 691288,
+    "offOriginBlocked": 0,
     "night": {
-     "contrastChecked": 1642,
+     "contrastChecked": 1834,
      "contrastFails": 0,
      "contrastFailList": []
     },
     "sheetFlow": {
-     "toggle": null,
-     "sheet": {
-      "via": "card",
-      "sheet": false
+     "toggle": {
+      "w": 44,
+      "h": 44,
+      "name": "Show the map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": {
+      "cls": "poi-sheet",
+      "h": 634,
+      "closeVisible": true,
+      "modal": false,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": false,
+       "pin": false,
+       "status": false,
+       "save": true,
+       "share": false
+      },
+      "escCloses": false,
+      "backCloses": true,
+      "stayedOnPage": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
      }
     },
     "tileHosts": [
@@ -471,9 +464,9 @@
     "cards": 194,
     "cardsVisible": 194,
     "legacy": false,
-    "firstCardTop": 561,
-    "screensToFirstCard": 0.62,
-    "mastheadPx": 249,
+    "firstCardTop": 453,
+    "screensToFirstCard": 0.5,
+    "mastheadPx": 221,
     "controlsAbove": 24,
     "controlsAboveOnScreen": 24,
     "controlsAboveList": [
@@ -484,52 +477,48 @@
      "button.btn.btn-icon",
      "a.btn.btn-icon",
      "a.btn.btn-icon",
-     "button.rail-i.rail-all \"All 194\"",
-     "button.rail-i \"Vietnamese 4\"",
-     "button.rail-i \"Singaporean 1\"",
-     "button.rail-i \"Southeast Asian 3\"",
-     "button.rail-i \"Chinese 7\"",
-     "button.rail-i \"Unique American 18\"",
-     "button.rail-i \"European 7\"",
-     "button.rail-i \"Latin American 3\"",
-     "button.rail-i \"Middle Eastern 2\"",
+     "a \"How we choose\"",
+     "button.rail-i.sig \"★ SignatureNews 5 Clevel\"",
+     "button.rail-i \"Must see47\"",
+     "button.rail-i.src-t \"Everything recommended b\"",
+     "button.rail-i.src-t \"Everything recommended b\"",
+     "button.rail-i \"Vietnamese4\"",
+     "button.rail-i \"Singaporean1\"",
+     "button.rail-i \"Southeast Asian3\"",
+     "button.rail-i \"Chinese7\"",
+     "button.btn.btn-icon",
+     "button.btn.btn-icon",
      "button \"All 194\"",
      "button \"Sights 148\"",
      "button \"Eat & drink 46\"",
      "input#cleo-filter",
-     "a \"Downtown & The Flats\"",
-     "a \"University Circle & East\"",
-     "a \"West Side, Ohio City & T\"",
-     "a \"Suburbs, Metroparks & Da\""
+     "button.btn.btn-ghost \"Area\"",
+     "button.btn.btn-ghost \"Filters\""
     ],
     "tapSmall": 0,
     "tapSmallKinds": {},
     "tapSmallList": [],
-    "textNodes": 1673,
+    "textNodes": 2057,
     "upperNodes": 0,
     "upperPct": 0,
     "minFontPx": 12,
     "minFontEl": "small \"field guides\"",
-    "contrastChecked": 1654,
-    "contrastUnknown": 4,
-    "contrastFails": 3,
-    "contrastFailList": [
-     "h2#method-h.d2 \"How this guide was made\" 1.09:1 <3",
-     "h3 \"How the cuisine filters \" 1.03:1 <4.5",
-     "h3 \"What the web turned up\" 1.03:1 <4.5"
-    ],
+    "contrastChecked": 1836,
+    "contrastUnknown": 13,
+    "contrastFails": 0,
+    "contrastFailList": [],
     "floaters": [
      "div.toolbar \"All 194Sights 148Eat & d\"",
-     "aside.mappane \"The map couldn’t load. T\""
+     "aside.mappane \"List 1234567891011121314\""
     ],
     "railVisible": true,
-    "railTop": 263,
+    "railTop": 231,
     "railOnFirstScreen": true,
-    "railItems": 9,
-    "railFirst": "All 194",
+    "railItems": 8,
+    "railFirst": "★ SignatureNews 5 Cleveland103",
     "cityCardsAbove": 0,
-    "cardMedianH": 437,
-    "cardsPerScreen": 2.06,
+    "cardMedianH": 325,
+    "cardsPerScreen": 2.77,
     "noAttribution": 0,
     "noAttributionIds": [],
     "closed": 13,
@@ -545,23 +534,25 @@
     "skipLink": true,
     "unnamedControls": 0,
     "unnamedList": [],
-    "domNodes": 2568,
-    "fcp": 376,
+    "domNodes": 5023,
+    "fcp": 372,
     "fontSampleN": 400,
     "fontsDeclared": {
-     "Bodoni Moda": 259,
-     "Figtree": 757
+     "Bodoni Moda": 284,
+     "Figtree": 910
     },
     "hasMapEl": true,
     "shot": "qa/beta-shots/cleveland.desktop.jpg",
     "fonts": {
      "all": {
-      "Bodoni Moda": 1254,
-      "Figtree Light": 16565
+      "Bodoni Moda": 1129,
+      "Figtree Light": 14544,
+      "Inter Medium": 1
      },
      "primary": [
       "Figtree Light",
-      "Bodoni Moda"
+      "Bodoni Moda",
+      "Inter Medium"
      ],
      "fallback": []
     },
@@ -571,13 +562,13 @@
     },
     "overlap": {
      "positions": 20,
-     "hits": 10,
+     "hits": 7,
      "where": [
-      "toolbar over Jesse Owens Statue",
-      "toolbar over USS Cod Submarine Memorial",
-      "toolbar over Skidmark Garage — CLOSED",
-      "toolbar over Lolly the Trolley — closed",
-      "toolbar over Quintana's Speakeasy"
+      "toolbar over Wendy Park & the monarch migra",
+      "toolbar over Mabel's BBQ",
+      "toolbar over Mini Guardians of Traffic",
+      "toolbar over Wade Memorial Chapel",
+      "toolbar over Lake View Cemetery Dam"
      ]
     },
     "errorsLoad": 0,
@@ -599,20 +590,33 @@
      }
     },
     "tray": {
-     "button": false
+     "button": true,
+     "tray": true,
+     "showN": "Show 194 places",
+     "groups": [
+      "AreaDowntown & The F",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byNews 5",
+      "Recommended by",
+      "CuisineVietnamese 4S",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are",
+      "Been thereShow allHi",
+      "Been there"
+     ],
+     "escCloses": false
     },
-    "errorsStress": 416,
+    "errorsStress": 0,
     "errors": [],
-    "stressErrorSample": [
-     "pageerror: Cannot read properties of undefined (reading 'appendChild')",
-     "pageerror: Cannot read properties of undefined (reading 'intersects')",
-     "pageerror: Cannot set properties of undefined (setting '_leaflet_pos')"
-    ],
+    "stressErrorSample": [],
     "local404": [],
-    "bytes": 784619,
+    "bytes": 1028331,
     "offOriginBlocked": 12,
     "night": {
-     "contrastChecked": 1654,
+     "contrastChecked": 1836,
      "contrastFails": 0,
      "contrastFailList": []
     },
@@ -623,14 +627,15 @@
      "sticky": true,
      "markers": 194,
      "pinned": 194,
-     "markerNumbers": 0,
-     "hoverHighlights": false,
+     "markerNumbers": 194,
+     "pinLabels": 194,
+     "hoverHighlights": true,
      "pinClick": {
       "cardHighlighted": true,
       "cardInView": true,
       "sheet": false
      },
-     "orderingStated": false
+     "orderingStated": true
     },
     "tileHosts": [
      "tile.openstreetmap.org"
@@ -643,50 +648,50 @@
    },
    "noJs": {
     "cards": 194,
-    "text": 19750
+    "text": 20349
    },
    "cpu4x": {
-    "fcp": 816,
-    "dcl": 826,
-    "loadMs": 1218
+    "fcp": 572,
+    "dcl": 590,
+    "loadMs": 1003
    },
    "verdict": {
     "rows": {
      "B-01 screens to first card ≤1.0": {
       "pass": true,
-      "val": 0.69
+      "val": 0.79
      },
      "B-02 masthead ≤0.6 screen": {
       "pass": true,
-      "val": 235
+      "val": 294
      },
      "B-03 controls above first card ≤14": {
       "pass": true,
-      "val": "13 on-screen / 13 total"
+      "val": "14 on-screen / 14 total"
      },
      "B-04 rail on first screen": {
       "pass": true,
-      "val": "top 249, 3 tiles, first \"All 194\""
+      "val": "top 308, 3 tiles, first \"★ SignatureNews 5 Cleveland103\""
      },
      "B-06 split view + sticky map + sync": {
       "pass": false,
-      "val": "split true, sticky true, map 37%, hover→pin false, pin→card true"
+      "val": "split true, sticky true, map 37%, hover→pin true, pin→card true"
      },
      "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
       "pass": false,
-      "val": "toggle none, full map false, sheet false"
+      "val": "toggle 44×44, full map true, pin sheet close true, esc false, back true"
      },
      "B-08 floaters over titles = 0": {
       "pass": true,
       "val": 0
      },
      "B-09 pin numbers == card numbers": {
-      "pass": false,
-      "val": "numbered pins 0, ordering stated false"
+      "pass": true,
+      "val": "numbered pins 194 (pin-n labels 194), ordering stated true"
      },
      "B-10 filter tray + \"Show N places\"": {
-      "pass": false,
-      "val": "no Filters control"
+      "pass": true,
+      "val": "Show 194 places"
      },
      "B-12 closed with tier glyph = 0": {
       "pass": true,
@@ -694,11 +699,11 @@
      },
      "B-16 cards per mobile screen ≥2": {
       "pass": true,
-      "val": 2.32
+      "val": 2.11
      },
      "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
-      "pass": false,
-      "val": "no sheet"
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
      },
      "G1 reachability 100% (scroll, deep link, search, no-JS)": {
       "pass": true,
@@ -710,11 +715,11 @@
      },
      "B-18 font families ≤2 (+CJK)": {
       "pass": true,
-      "val": "declared: Bodoni Moda, Figtree · rendered here: Figtree Light, Bodoni Moda"
+      "val": "declared: Bodoni Moda, Figtree · rendered here: Figtree Light, Bodoni Moda, Inter Medium"
      },
      "B-19 uppercase text nodes <15%": {
       "pass": true,
-      "val": "0% (0/1661)"
+      "val": "0% (0/2050)"
      },
      "B-20 tap targets <44 = 0 (mobile)": {
       "pass": true,
@@ -722,15 +727,15 @@
      },
      "B-21 smallest text ≥12px": {
       "pass": true,
-      "val": "13px p.pl-e \"Must see · Downtown & Th\""
+      "val": "12px span.k \"★ Signature\""
      },
      "B-22 overflow 0 at 360 + 390": {
       "pass": true,
       "val": "390:0 360:0"
      },
      "B-23 contrast AA light + night": {
-      "pass": false,
-      "val": "light 3/3 · night 0/0 (mobile/desktop)"
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
      },
      "M1-16 focus visible": {
       "pass": true,
@@ -742,11 +747,11 @@
      },
      "G4 no-CDN render, 0 JS errors": {
       "pass": true,
-      "val": "errors 0 · 404 0 · off-origin blocked 13"
+      "val": "errors 0 · 404 0 · off-origin blocked 12"
      },
      "Stress: JS errors, every deep link at machine speed (info)": {
       "pass": null,
-      "val": "416 errors — pageerror: Cannot read properties of undefined (reading 'appendChild')"
+      "val": "0 errors"
      },
      "Tiles OSM/Esri only": {
       "pass": true,
@@ -754,10 +759,10 @@
      },
      "Perf: bytes / DOM / FCP / FCP 4×": {
       "pass": null,
-      "val": "766 KB · 2568 nodes · 376 ms · 816 ms"
+      "val": "1004 KB · 5023 nodes · 372 ms · 572 ms"
      }
     },
-    "passed": 18,
+    "passed": 22,
     "total": 24,
     "hardFail": []
    }
@@ -781,55 +786,48 @@
     "cards": 488,
     "cardsVisible": 488,
     "legacy": false,
-    "firstCardTop": 688,
-    "screensToFirstCard": 0.81,
-    "mastheadPx": 256,
-    "controlsAbove": 15,
-    "controlsAboveOnScreen": 15,
+    "firstCardTop": 716,
+    "screensToFirstCard": 0.85,
+    "mastheadPx": 314,
+    "controlsAbove": 14,
+    "controlsAboveOnScreen": 14,
     "controlsAboveList": [
      "a.brand \"cleofield guides\"",
      "a.c0 \"Japan\"",
      "a.btn.btn-icon",
      "a.btn.btn-icon",
-     "button.rail-i.rail-all \"All 488\"",
-     "button.rail-i \"★ Anime, Manga & Pop Cul\"",
-     "button.rail-i \"Iconic & Must-See 44\"",
+     "a \"How we choose\"",
+     "button.rail-i.sig \"★ SignatureAnime, Manga \"",
+     "button.rail-i \"Must see177\"",
+     "button.rail-i \"Iconic & Must-See44\"",
      "button \"All 488\"",
      "button \"Sights 263\"",
      "button \"Eat & drink 225\"",
      "input#cleo-filter",
-     "a \"Chiyoda-ku\"",
-     "a \"Chūō-ku\"",
-     "a \"Minato-ku\"",
-     "a \"Shinjuku-ku\""
+     "button.btn.btn-ghost \"Filters\"",
+     "button.btn.btn-primary"
     ],
     "tapSmall": 0,
     "tapSmallKinds": {},
     "tapSmallList": [],
-    "textNodes": 4507,
-    "upperNodes": 12,
+    "textNodes": 5501,
+    "upperNodes": 14,
     "upperPct": 0.3,
-    "minFontPx": 13,
-    "minFontEl": "p.pl-e \"Must see · Chiyoda-ku\"",
-    "contrastChecked": 4501,
-    "contrastUnknown": 4,
-    "contrastFails": 5,
-    "contrastFailList": [
-     "h2#method-h.d2 \"How this guide was made\" 1.09:1 <3",
-     "h3 \"How the cuisine filters \" 1.03:1 <4.5",
-     "h3 \"Web-searched in Japanese\" 1.03:1 <4.5",
-     "h3 \"Why the areas look the w\" 1.03:1 <4.5",
-     "h3 \"What is thin, and why\" 1.03:1 <4.5"
-    ],
+    "minFontPx": 12,
+    "minFontEl": "span.k \"★ Signature\"",
+    "contrastChecked": 5002,
+    "contrastUnknown": 9,
+    "contrastFails": 0,
+    "contrastFailList": [],
     "floaters": [],
     "railVisible": true,
-    "railTop": 270,
+    "railTop": 328,
     "railOnFirstScreen": true,
     "railItems": 3,
-    "railFirst": "All 488",
+    "railFirst": "★ SignatureAnime, Manga & Pop Culture37",
     "cityCardsAbove": 0,
-    "cardMedianH": 330,
-    "cardsPerScreen": 2.56,
+    "cardMedianH": 362,
+    "cardsPerScreen": 2.33,
     "noAttribution": 0,
     "noAttributionIds": [],
     "closed": 1,
@@ -845,32 +843,29 @@
     "skipLink": true,
     "unnamedControls": 0,
     "unnamedList": [],
-    "domNodes": 7255,
-    "fcp": 424,
+    "domNodes": 11646,
+    "fcp": 336,
     "fontSampleN": 400,
     "fontsDeclared": {
-     "Bodoni Moda": 537,
-     "Figtree": 1859
+     "Bodoni Moda": 536,
+     "Figtree": 2315,
+     "Noto Serif JP": 30
     },
     "hasMapEl": true,
     "shot": "qa/beta-shots/cities__tokyo.mobile.jpg",
     "fonts": {
      "all": {
-      "Bodoni Moda": 1048,
-      "Figtree Light": 13285,
-      "IPAGothic": 9,
-      "Inter": 1,
-      "WenQuanYi Zen Hei": 232,
-      "Inter Medium": 3,
-      "Inter SemiBold": 4
+      "Bodoni Moda": 857,
+      "Figtree Light": 10968,
+      "IPAGothic": 175,
+      "Inter Medium": 4,
+      "WenQuanYi Zen Hei": 188
      },
      "primary": [
       "Figtree Light",
       "Bodoni Moda",
       "IPAGothic",
-      "Inter SemiBold",
-      "Inter Medium",
-      "Inter"
+      "Inter Medium"
      ],
      "fallback": [
       "WenQuanYi Zen Hei"
@@ -890,18 +885,58 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 1273794,
-    "offOriginBlocked": 1,
+    "bytes": 1262445,
+    "offOriginBlocked": 0,
     "night": {
-     "contrastChecked": 4501,
+     "contrastChecked": 5002,
      "contrastFails": 0,
      "contrastFailList": []
     },
     "sheetFlow": {
-     "toggle": null,
-     "sheet": {
-      "via": "card",
-      "sheet": false
+     "toggle": {
+      "w": 44,
+      "h": 44,
+      "name": "Show the map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": {
+      "cls": "poi-sheet",
+      "h": 520,
+      "closeVisible": true,
+      "modal": false,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": false,
+       "pin": false,
+       "status": false,
+       "save": true,
+       "share": false
+      },
+      "escCloses": false,
+      "backCloses": true,
+      "stayedOnPage": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
      }
     },
     "tileHosts": [
@@ -919,11 +954,11 @@
     "cards": 488,
     "cardsVisible": 488,
     "legacy": false,
-    "firstCardTop": 621,
-    "screensToFirstCard": 0.69,
-    "mastheadPx": 249,
-    "controlsAbove": 31,
-    "controlsAboveOnScreen": 31,
+    "firstCardTop": 516,
+    "screensToFirstCard": 0.57,
+    "mastheadPx": 221,
+    "controlsAbove": 22,
+    "controlsAboveOnScreen": 22,
     "controlsAboveList": [
      "a.brand \"cleofield guides\"",
      "a.c0 \"Japan\"",
@@ -932,61 +967,46 @@
      "button.btn.btn-icon",
      "a.btn.btn-icon",
      "a.btn.btn-icon",
-     "button.rail-i.rail-all \"All 488\"",
-     "button.rail-i \"★ Anime, Manga & Pop Cul\"",
-     "button.rail-i \"Iconic & Must-See 44\"",
-     "button.rail-i \"UNESCO World Heritage 5\"",
-     "button.rail-i \"Temples & Shrines 79\"",
+     "a \"How we choose\"",
+     "button.rail-i.sig \"★ SignatureAnime, Manga \"",
+     "button.rail-i \"Must see177\"",
+     "button.rail-i \"Iconic & Must-See44\"",
+     "button.rail-i \"UNESCO World Heritage5\"",
+     "button.rail-i \"Temples & Shrines79\"",
      "button.rail-i \"Castles, Palaces & Histo\"",
-     "button.rail-i \"Gardens & Teahouses 49\"",
+     "button.btn.btn-icon",
+     "button.btn.btn-icon",
      "button \"All 488\"",
      "button \"Sights 263\"",
      "button \"Eat & drink 225\"",
      "input#cleo-filter",
-     "a \"Chiyoda-ku\"",
-     "a \"Chūō-ku\"",
-     "a \"Minato-ku\"",
-     "a \"Shinjuku-ku\"",
-     "a \"Shibuya-ku\"",
-     "a \"Taitō-ku\"",
-     "a \"Sumida-ku & Kōtō-ku\"",
-     "a \"Jōnan\"",
-     "a \"Jōsai\"",
-     "a \"Jōhoku\"",
-     "a \"Jōtō\"",
-     "a \"Tama area\"",
-     "a \"Kantō day trips\""
+     "button.btn.btn-ghost \"Area\"",
+     "button.btn.btn-ghost \"Filters\""
     ],
     "tapSmall": 0,
     "tapSmallKinds": {},
     "tapSmallList": [],
-    "textNodes": 4524,
-    "upperNodes": 12,
+    "textNodes": 5497,
+    "upperNodes": 14,
     "upperPct": 0.3,
     "minFontPx": 12,
     "minFontEl": "small \"field guides\"",
-    "contrastChecked": 4517,
-    "contrastUnknown": 5,
-    "contrastFails": 5,
-    "contrastFailList": [
-     "h2#method-h.d2 \"How this guide was made\" 1.09:1 <3",
-     "h3 \"How the cuisine filters \" 1.03:1 <4.5",
-     "h3 \"Web-searched in Japanese\" 1.03:1 <4.5",
-     "h3 \"Why the areas look the w\" 1.03:1 <4.5",
-     "h3 \"What is thin, and why\" 1.03:1 <4.5"
-    ],
+    "contrastChecked": 4993,
+    "contrastUnknown": 14,
+    "contrastFails": 0,
+    "contrastFailList": [],
     "floaters": [
      "div.toolbar \"All 488Sights 263Eat & d\"",
-     "aside.mappane \"+− Street Light Satellit\""
+     "aside.mappane \"List The map couldn’t lo\""
     ],
     "railVisible": true,
-    "railTop": 263,
+    "railTop": 231,
     "railOnFirstScreen": true,
-    "railItems": 7,
-    "railFirst": "All 488",
+    "railItems": 6,
+    "railFirst": "★ SignatureAnime, Manga & Pop Culture37",
     "cityCardsAbove": 0,
-    "cardMedianH": 394,
-    "cardsPerScreen": 2.29,
+    "cardMedianH": 262,
+    "cardsPerScreen": 3.44,
     "noAttribution": 0,
     "noAttributionIds": [],
     "closed": 1,
@@ -1002,32 +1022,29 @@
     "skipLink": true,
     "unnamedControls": 0,
     "unnamedList": [],
-    "domNodes": 7266,
-    "fcp": 764,
+    "domNodes": 11650,
+    "fcp": 288,
     "fontSampleN": 400,
     "fontsDeclared": {
-     "Bodoni Moda": 544,
-     "Figtree": 1868
+     "Bodoni Moda": 542,
+     "Figtree": 2305,
+     "Noto Serif JP": 29
     },
     "hasMapEl": true,
     "shot": "qa/beta-shots/cities__tokyo.desktop.jpg",
     "fonts": {
      "all": {
-      "Bodoni Moda": 1102,
-      "Figtree Light": 12611,
-      "IPAGothic": 9,
-      "Inter": 1,
-      "WenQuanYi Zen Hei": 223,
-      "Inter Medium": 3,
-      "Inter SemiBold": 4
+      "Bodoni Moda": 955,
+      "Figtree Light": 10824,
+      "IPAGothic": 172,
+      "Inter Medium": 4,
+      "WenQuanYi Zen Hei": 188
      },
      "primary": [
       "Figtree Light",
       "Bodoni Moda",
       "IPAGothic",
-      "Inter SemiBold",
-      "Inter Medium",
-      "Inter"
+      "Inter Medium"
      ],
      "fallback": [
       "WenQuanYi Zen Hei"
@@ -1039,13 +1056,13 @@
     },
     "overlap": {
      "positions": 20,
-     "hits": 12,
+     "hits": 8,
      "where": [
-      "toolbar over Virtù, Four Seasons Hotel Toky",
-      "toolbar over Super Potato Akihabara (スーパーポテ",
-      "toolbar over Biriyani Osawa",
-      "toolbar over Kutan, Shintomi",
-      "toolbar over Suitengū (水天宮)"
+      "toolbar over Isegen (いせ源)",
+      "toolbar over Sézanne",
+      "toolbar over Kitanomaru Park (北の丸公園)",
+      "toolbar over Sushi Yoshitake (鮨よしたけ)",
+      "toolbar over Yaesu Unagi Hashimoto"
      ]
     },
     "errorsLoad": 0,
@@ -1067,20 +1084,33 @@
      }
     },
     "tray": {
-     "button": false
+     "button": true,
+     "tray": true,
+     "showN": "Show 488 places",
+     "groups": [
+      "AreaChiyoda-ku 43Chū",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionAnime, Man",
+      "Collection",
+      "CuisineSushi & Kaise",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
     },
-    "errorsStress": 1002,
+    "errorsStress": 0,
     "errors": [],
-    "stressErrorSample": [
-     "pageerror: Cannot read properties of undefined (reading 'appendChild')",
-     "pageerror: Cannot read properties of undefined (reading 'intersects')",
-     "pageerror: Cannot set properties of undefined (setting '_leaflet_pos')"
-    ],
+    "stressErrorSample": [],
     "local404": [],
-    "bytes": 1310327,
+    "bytes": 1855989,
     "offOriginBlocked": 12,
     "night": {
-     "contrastChecked": 4518,
+     "contrastChecked": 4993,
      "contrastFails": 0,
      "contrastFailList": []
     },
@@ -1091,14 +1121,15 @@
      "sticky": true,
      "markers": 488,
      "pinned": 488,
-     "markerNumbers": 0,
-     "hoverHighlights": false,
+     "markerNumbers": 488,
+     "pinLabels": 488,
+     "hoverHighlights": true,
      "pinClick": {
       "cardHighlighted": true,
       "cardInView": true,
       "sheet": false
      },
-     "orderingStated": false
+     "orderingStated": true
     },
     "tileHosts": [
      "tile.openstreetmap.org"
@@ -1111,50 +1142,50 @@
    },
    "noJs": {
     "cards": 488,
-    "text": 17767
+    "text": 18589
    },
    "cpu4x": {
-    "fcp": 1020,
-    "dcl": 1388,
-    "loadMs": 2052
+    "fcp": 472,
+    "dcl": 1510,
+    "loadMs": 1910
    },
    "verdict": {
     "rows": {
      "B-01 screens to first card ≤1.0": {
       "pass": true,
-      "val": 0.81
+      "val": 0.85
      },
      "B-02 masthead ≤0.6 screen": {
       "pass": true,
-      "val": 256
+      "val": 314
      },
      "B-03 controls above first card ≤14": {
-      "pass": false,
-      "val": "15 on-screen / 15 total"
+      "pass": true,
+      "val": "14 on-screen / 14 total"
      },
      "B-04 rail on first screen": {
       "pass": true,
-      "val": "top 270, 3 tiles, first \"All 488\""
+      "val": "top 328, 3 tiles, first \"★ SignatureAnime, Manga & Pop Culture37\""
      },
      "B-06 split view + sticky map + sync": {
       "pass": false,
-      "val": "split true, sticky true, map 37%, hover→pin false, pin→card true"
+      "val": "split true, sticky true, map 37%, hover→pin true, pin→card true"
      },
      "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
       "pass": false,
-      "val": "toggle none, full map false, sheet false"
+      "val": "toggle 44×44, full map true, pin sheet close true, esc false, back true"
      },
      "B-08 floaters over titles = 0": {
       "pass": true,
       "val": 0
      },
      "B-09 pin numbers == card numbers": {
-      "pass": false,
-      "val": "numbered pins 0, ordering stated false"
+      "pass": true,
+      "val": "numbered pins 488 (pin-n labels 488), ordering stated true"
      },
      "B-10 filter tray + \"Show N places\"": {
-      "pass": false,
-      "val": "no Filters control"
+      "pass": true,
+      "val": "Show 488 places"
      },
      "B-12 closed with tier glyph = 0": {
       "pass": true,
@@ -1162,11 +1193,11 @@
      },
      "B-16 cards per mobile screen ≥2": {
       "pass": true,
-      "val": 2.56
+      "val": 2.33
      },
      "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
-      "pass": false,
-      "val": "no sheet"
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
      },
      "G1 reachability 100% (scroll, deep link, search, no-JS)": {
       "pass": true,
@@ -1178,11 +1209,11 @@
      },
      "B-18 font families ≤2 (+CJK)": {
       "pass": true,
-      "val": "declared: Bodoni Moda, Figtree · rendered here: Figtree Light, Bodoni Moda, IPAGothic, Inter SemiBold, Inter Medium, Inter"
+      "val": "declared: Bodoni Moda, Figtree · rendered here: Figtree Light, Bodoni Moda, IPAGothic, Inter Medium"
      },
      "B-19 uppercase text nodes <15%": {
       "pass": true,
-      "val": "0.3% (12/4507)"
+      "val": "0.3% (14/5501)"
      },
      "B-20 tap targets <44 = 0 (mobile)": {
       "pass": true,
@@ -1190,15 +1221,15 @@
      },
      "B-21 smallest text ≥12px": {
       "pass": true,
-      "val": "13px p.pl-e \"Must see · Chiyoda-ku\""
+      "val": "12px span.k \"★ Signature\""
      },
      "B-22 overflow 0 at 360 + 390": {
       "pass": true,
       "val": "390:0 360:0"
      },
      "B-23 contrast AA light + night": {
-      "pass": false,
-      "val": "light 5/5 · night 0/0 (mobile/desktop)"
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
      },
      "M1-16 focus visible": {
       "pass": true,
@@ -1210,11 +1241,11 @@
      },
      "G4 no-CDN render, 0 JS errors": {
       "pass": true,
-      "val": "errors 0 · 404 0 · off-origin blocked 13"
+      "val": "errors 0 · 404 0 · off-origin blocked 12"
      },
      "Stress: JS errors, every deep link at machine speed (info)": {
       "pass": null,
-      "val": "1002 errors — pageerror: Cannot read properties of undefined (reading 'appendChild')"
+      "val": "0 errors"
      },
      "Tiles OSM/Esri only": {
       "pass": true,
@@ -1222,10 +1253,10 @@
      },
      "Perf: bytes / DOM / FCP / FCP 4×": {
       "pass": null,
-      "val": "1280 KB · 7266 nodes · 764 ms · 1020 ms"
+      "val": "1812 KB · 11650 nodes · 288 ms · 472 ms"
      }
     },
-    "passed": 17,
+    "passed": 22,
     "total": 24,
     "hardFail": []
    }
@@ -1249,53 +1280,48 @@
     "cards": 508,
     "cardsVisible": 508,
     "legacy": false,
-    "firstCardTop": 591,
-    "screensToFirstCard": 0.7,
-    "mastheadPx": 235,
-    "controlsAbove": 15,
-    "controlsAboveOnScreen": 15,
+    "firstCardTop": 659,
+    "screensToFirstCard": 0.78,
+    "mastheadPx": 293,
+    "controlsAbove": 14,
+    "controlsAboveOnScreen": 14,
     "controlsAboveList": [
      "a.brand \"cleofield guides\"",
      "a.c0 \"United States\"",
      "a.btn.btn-icon",
      "a.btn.btn-icon",
-     "button.rail-i.rail-all \"All 508\"",
-     "button.rail-i \"Museums & Galleries 70\"",
-     "button.rail-i \"Parks & Gardens 79\"",
+     "a \"How we choose\"",
+     "button.rail-i.sig \"★ SignatureNYC Tourism +\"",
+     "button.rail-i \"Must see97\"",
+     "button.rail-i \"Museums & Galleries70\"",
      "button \"All 508\"",
      "button \"Sights 219\"",
      "button \"Eat & drink 289\"",
      "input#cleo-filter",
-     "a \"Manhattan\"",
-     "a \"Brooklyn\"",
-     "a \"Queens\"",
-     "a \"The Bronx\""
+     "button.btn.btn-ghost \"Filters\"",
+     "button.btn.btn-primary"
     ],
     "tapSmall": 0,
     "tapSmallKinds": {},
     "tapSmallList": [],
-    "textNodes": 4234,
+    "textNodes": 5264,
     "upperNodes": 3,
     "upperPct": 0.1,
-    "minFontPx": 13,
-    "minFontEl": "p.pl-e \"Must see · Manhattan\"",
-    "contrastChecked": 4228,
-    "contrastUnknown": 4,
-    "contrastFails": 3,
-    "contrastFailList": [
-     "h2#method-h.d2 \"How this guide was made\" 1.09:1 <3",
-     "h3 \"How the cuisine filters \" 1.02:1 <4.5",
-     "h3 \"Web-searched and fact-ch\" 1.02:1 <4.5"
-    ],
+    "minFontPx": 12,
+    "minFontEl": "span.k \"★ Signature\"",
+    "contrastChecked": 4749,
+    "contrastUnknown": 9,
+    "contrastFails": 0,
+    "contrastFailList": [],
     "floaters": [],
     "railVisible": true,
-    "railTop": 249,
+    "railTop": 307,
     "railOnFirstScreen": true,
     "railItems": 3,
-    "railFirst": "All 508",
+    "railFirst": "★ SignatureNYC Tourism + Conventions (of",
     "cityCardsAbove": 0,
-    "cardMedianH": 359,
-    "cardsPerScreen": 2.35,
+    "cardMedianH": 381,
+    "cardsPerScreen": 2.22,
     "noAttribution": 0,
     "noAttributionIds": [],
     "closed": 0,
@@ -1311,23 +1337,25 @@
     "skipLink": true,
     "unnamedControls": 0,
     "unnamedList": [],
-    "domNodes": 7023,
-    "fcp": 580,
+    "domNodes": 11612,
+    "fcp": 284,
     "fontSampleN": 400,
     "fontsDeclared": {
-     "Bodoni Moda": 558,
-     "Figtree": 1525
+     "Bodoni Moda": 584,
+     "Figtree": 2050
     },
     "hasMapEl": true,
     "shot": "qa/beta-shots/cities__newyork.mobile.jpg",
     "fonts": {
      "all": {
-      "Bodoni Moda": 782,
-      "Figtree Light": 11767
+      "Bodoni Moda": 724,
+      "Figtree Light": 9637,
+      "Inter Medium": 1
      },
      "primary": [
       "Figtree Light",
-      "Bodoni Moda"
+      "Bodoni Moda",
+      "Inter Medium"
      ],
      "fallback": []
     },
@@ -1345,18 +1373,58 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 1130818,
-    "offOriginBlocked": 1,
+    "bytes": 1160339,
+    "offOriginBlocked": 0,
     "night": {
-     "contrastChecked": 4228,
+     "contrastChecked": 4749,
      "contrastFails": 0,
      "contrastFailList": []
     },
     "sheetFlow": {
-     "toggle": null,
-     "sheet": {
-      "via": "card",
-      "sheet": false
+     "toggle": {
+      "w": 44,
+      "h": 44,
+      "name": "Show the map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": {
+      "cls": "poi-sheet",
+      "h": 540,
+      "closeVisible": true,
+      "modal": false,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": false,
+       "pin": false,
+       "status": false,
+       "save": true,
+       "share": false
+      },
+      "escCloses": false,
+      "backCloses": true,
+      "stayedOnPage": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
      }
     },
     "tileHosts": [
@@ -1374,11 +1442,11 @@
     "cards": 508,
     "cardsVisible": 508,
     "legacy": false,
-    "firstCardTop": 564,
-    "screensToFirstCard": 0.63,
-    "mastheadPx": 249,
-    "controlsAbove": 24,
-    "controlsAboveOnScreen": 24,
+    "firstCardTop": 479,
+    "screensToFirstCard": 0.53,
+    "mastheadPx": 221,
+    "controlsAbove": 22,
+    "controlsAboveOnScreen": 22,
     "controlsAboveList": [
      "a.brand \"cleofield guides\"",
      "a.c0 \"United States\"",
@@ -1387,52 +1455,46 @@
      "button.btn.btn-icon",
      "a.btn.btn-icon",
      "a.btn.btn-icon",
-     "button.rail-i.rail-all \"All 508\"",
-     "button.rail-i \"Museums & Galleries 70\"",
-     "button.rail-i \"Parks & Gardens 79\"",
+     "a \"How we choose\"",
+     "button.rail-i.sig \"★ SignatureNYC Tourism +\"",
+     "button.rail-i \"Must see97\"",
+     "button.rail-i \"Museums & Galleries70\"",
+     "button.rail-i \"Parks & Gardens79\"",
      "button.rail-i \"Iconic Landmarks & Views\"",
-     "button.rail-i \"Architecture & History 1\"",
-     "button.rail-i \"Markets & Food Halls 23\"",
-     "button.rail-i \"Performing Arts & Music \"",
+     "button.rail-i \"Architecture & History11\"",
+     "button.btn.btn-icon",
+     "button.btn.btn-icon",
      "button \"All 508\"",
      "button \"Sights 219\"",
      "button \"Eat & drink 289\"",
      "input#cleo-filter",
-     "a \"Manhattan\"",
-     "a \"Brooklyn\"",
-     "a \"Queens\"",
-     "a \"The Bronx\"",
-     "a \"Staten Island\"",
-     "a \"Day Trips\""
+     "button.btn.btn-ghost \"Area\"",
+     "button.btn.btn-ghost \"Filters\""
     ],
     "tapSmall": 0,
     "tapSmallKinds": {},
     "tapSmallList": [],
-    "textNodes": 4244,
+    "textNodes": 5267,
     "upperNodes": 3,
     "upperPct": 0.1,
     "minFontPx": 12,
     "minFontEl": "small \"field guides\"",
-    "contrastChecked": 4238,
-    "contrastUnknown": 4,
-    "contrastFails": 3,
-    "contrastFailList": [
-     "h2#method-h.d2 \"How this guide was made\" 1.09:1 <3",
-     "h3 \"How the cuisine filters \" 1.02:1 <4.5",
-     "h3 \"Web-searched and fact-ch\" 1.02:1 <4.5"
-    ],
+    "contrastChecked": 4748,
+    "contrastUnknown": 13,
+    "contrastFails": 0,
+    "contrastFailList": [],
     "floaters": [
      "div.toolbar \"All 508Sights 219Eat & d\"",
-     "aside.mappane \"+− Street Light Satellit\""
+     "aside.mappane \"List The map couldn’t lo\""
     ],
     "railVisible": true,
-    "railTop": 263,
+    "railTop": 231,
     "railOnFirstScreen": true,
-    "railItems": 7,
-    "railFirst": "All 508",
+    "railItems": 6,
+    "railFirst": "★ SignatureNYC Tourism + Conventions (of",
     "cityCardsAbove": 0,
-    "cardMedianH": 371,
-    "cardsPerScreen": 2.42,
+    "cardMedianH": 325,
+    "cardsPerScreen": 2.77,
     "noAttribution": 0,
     "noAttributionIds": [],
     "closed": 0,
@@ -1448,23 +1510,25 @@
     "skipLink": true,
     "unnamedControls": 0,
     "unnamedList": [],
-    "domNodes": 7034,
-    "fcp": 752,
+    "domNodes": 11616,
+    "fcp": 388,
     "fontSampleN": 400,
     "fontsDeclared": {
-     "Bodoni Moda": 565,
-     "Figtree": 1527
+     "Bodoni Moda": 589,
+     "Figtree": 2047
     },
     "hasMapEl": true,
     "shot": "qa/beta-shots/cities__newyork.desktop.jpg",
     "fonts": {
      "all": {
-      "Bodoni Moda": 851,
-      "Figtree Light": 11319
+      "Bodoni Moda": 803,
+      "Figtree Light": 9513,
+      "Inter Medium": 1
      },
      "primary": [
       "Figtree Light",
-      "Bodoni Moda"
+      "Bodoni Moda",
+      "Inter Medium"
      ],
      "fallback": []
     },
@@ -1474,13 +1538,12 @@
     },
     "overlap": {
      "positions": 20,
-     "hits": 20,
+     "hits": 4,
      "where": [
-      "toolbar over American Museum of Natural His",
-      "toolbar over Apollo Theater",
       "toolbar over Fraunces Tavern Museum",
-      "toolbar over Museum at Eldridge Street",
-      "toolbar over Daily News Building (Daily Pla"
+      "toolbar over Men in Black HQ (Battery Vent ",
+      "toolbar over Padi D'NYC",
+      "toolbar over The Bushwick Collective"
      ]
     },
     "errorsLoad": 0,
@@ -1502,20 +1565,33 @@
      }
     },
     "tray": {
-     "button": false
+     "button": true,
+     "tray": true,
+     "showN": "Show 508 places",
+     "groups": [
+      "AreaManhattan 264Bro",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byNYC To",
+      "Recommended by",
+      "CollectionMuseums & ",
+      "Collection",
+      "CuisinePizza 23Itali",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
     },
-    "errorsStress": 1042,
+    "errorsStress": 0,
     "errors": [],
-    "stressErrorSample": [
-     "pageerror: Cannot read properties of undefined (reading 'appendChild')",
-     "pageerror: Cannot read properties of undefined (reading 'intersects')",
-     "pageerror: Cannot set properties of undefined (setting '_leaflet_pos')"
-    ],
+    "stressErrorSample": [],
     "local404": [],
-    "bytes": 1168789,
+    "bytes": 1641374,
     "offOriginBlocked": 12,
     "night": {
-     "contrastChecked": 4238,
+     "contrastChecked": 4748,
      "contrastFails": 0,
      "contrastFailList": []
     },
@@ -1526,14 +1602,15 @@
      "sticky": true,
      "markers": 508,
      "pinned": 508,
-     "markerNumbers": 0,
-     "hoverHighlights": false,
+     "markerNumbers": 508,
+     "pinLabels": 508,
+     "hoverHighlights": true,
      "pinClick": {
       "cardHighlighted": true,
       "cardInView": true,
       "sheet": false
      },
-     "orderingStated": false
+     "orderingStated": true
     },
     "tileHosts": [
      "tile.openstreetmap.org"
@@ -1546,50 +1623,50 @@
    },
    "noJs": {
     "cards": 508,
-    "text": 72506
+    "text": 74779
    },
    "cpu4x": {
-    "fcp": 1120,
-    "dcl": 1056,
-    "loadMs": 1787
+    "fcp": 544,
+    "dcl": 2143,
+    "loadMs": 2997
    },
    "verdict": {
     "rows": {
      "B-01 screens to first card ≤1.0": {
       "pass": true,
-      "val": 0.7
+      "val": 0.78
      },
      "B-02 masthead ≤0.6 screen": {
       "pass": true,
-      "val": 235
+      "val": 293
      },
      "B-03 controls above first card ≤14": {
-      "pass": false,
-      "val": "15 on-screen / 15 total"
+      "pass": true,
+      "val": "14 on-screen / 14 total"
      },
      "B-04 rail on first screen": {
       "pass": true,
-      "val": "top 249, 3 tiles, first \"All 508\""
+      "val": "top 307, 3 tiles, first \"★ SignatureNYC Tourism + Conventions (of\""
      },
      "B-06 split view + sticky map + sync": {
       "pass": false,
-      "val": "split true, sticky true, map 37%, hover→pin false, pin→card true"
+      "val": "split true, sticky true, map 37%, hover→pin true, pin→card true"
      },
      "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
       "pass": false,
-      "val": "toggle none, full map false, sheet false"
+      "val": "toggle 44×44, full map true, pin sheet close true, esc false, back true"
      },
      "B-08 floaters over titles = 0": {
       "pass": true,
       "val": 0
      },
      "B-09 pin numbers == card numbers": {
-      "pass": false,
-      "val": "numbered pins 0, ordering stated false"
+      "pass": true,
+      "val": "numbered pins 508 (pin-n labels 508), ordering stated true"
      },
      "B-10 filter tray + \"Show N places\"": {
-      "pass": false,
-      "val": "no Filters control"
+      "pass": true,
+      "val": "Show 508 places"
      },
      "B-12 closed with tier glyph = 0": {
       "pass": true,
@@ -1597,11 +1674,11 @@
      },
      "B-16 cards per mobile screen ≥2": {
       "pass": true,
-      "val": 2.35
+      "val": 2.22
      },
      "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
-      "pass": false,
-      "val": "no sheet"
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
      },
      "G1 reachability 100% (scroll, deep link, search, no-JS)": {
       "pass": true,
@@ -1613,11 +1690,11 @@
      },
      "B-18 font families ≤2 (+CJK)": {
       "pass": true,
-      "val": "declared: Bodoni Moda, Figtree · rendered here: Figtree Light, Bodoni Moda"
+      "val": "declared: Bodoni Moda, Figtree · rendered here: Figtree Light, Bodoni Moda, Inter Medium"
      },
      "B-19 uppercase text nodes <15%": {
       "pass": true,
-      "val": "0.1% (3/4234)"
+      "val": "0.1% (3/5264)"
      },
      "B-20 tap targets <44 = 0 (mobile)": {
       "pass": true,
@@ -1625,15 +1702,15 @@
      },
      "B-21 smallest text ≥12px": {
       "pass": true,
-      "val": "13px p.pl-e \"Must see · Manhattan\""
+      "val": "12px span.k \"★ Signature\""
      },
      "B-22 overflow 0 at 360 + 390": {
       "pass": true,
       "val": "390:0 360:0"
      },
      "B-23 contrast AA light + night": {
-      "pass": false,
-      "val": "light 3/3 · night 0/0 (mobile/desktop)"
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
      },
      "M1-16 focus visible": {
       "pass": true,
@@ -1645,11 +1722,11 @@
      },
      "G4 no-CDN render, 0 JS errors": {
       "pass": true,
-      "val": "errors 0 · 404 0 · off-origin blocked 13"
+      "val": "errors 0 · 404 0 · off-origin blocked 12"
      },
      "Stress: JS errors, every deep link at machine speed (info)": {
       "pass": null,
-      "val": "1042 errors — pageerror: Cannot read properties of undefined (reading 'appendChild')"
+      "val": "0 errors"
      },
      "Tiles OSM/Esri only": {
       "pass": true,
@@ -1657,10 +1734,10 @@
      },
      "Perf: bytes / DOM / FCP / FCP 4×": {
       "pass": null,
-      "val": "1141 KB · 7034 nodes · 752 ms · 1120 ms"
+      "val": "1603 KB · 11616 nodes · 388 ms · 544 ms"
      }
     },
-    "passed": 17,
+    "passed": 22,
     "total": 24,
     "hardFail": []
    }
@@ -1684,49 +1761,48 @@
     "cards": 16,
     "cardsVisible": 16,
     "legacy": false,
-    "firstCardTop": 609,
-    "screensToFirstCard": 0.72,
-    "mastheadPx": 235,
-    "controlsAbove": 12,
-    "controlsAboveOnScreen": 12,
+    "firstCardTop": 632,
+    "screensToFirstCard": 0.75,
+    "mastheadPx": 293,
+    "controlsAbove": 14,
+    "controlsAboveOnScreen": 14,
     "controlsAboveList": [
      "a.brand \"cleofield guides\"",
      "a.c0 \"Singapore\"",
      "a.btn.btn-icon",
      "a.btn.btn-icon",
-     "button.rail-i.rail-all \"All 16\"",
-     "button.rail-i \"Heritage & Culture 1\"",
-     "button.rail-i \"Temples, Mosques & Shrin\"",
+     "a \"How we choose\"",
+     "button.rail-i.sig \"★ SignatureDaniel Food D\"",
+     "button.rail-i \"Must see6\"",
+     "button.rail-i \"Heritage & Culture1\"",
      "button \"All 16\"",
      "button \"Sights 4\"",
      "button \"Eat & drink 12\"",
      "input#cleo-filter",
-     "a \"Chinatown & CBD\""
+     "button.btn.btn-ghost \"Filters\"",
+     "button.btn.btn-primary"
     ],
     "tapSmall": 0,
     "tapSmallKinds": {},
     "tapSmallList": [],
-    "textNodes": 180,
+    "textNodes": 225,
     "upperNodes": 0,
     "upperPct": 0,
-    "minFontPx": 13,
-    "minFontEl": "p.pl-e \"Must see · Hainanese Chi\"",
-    "contrastChecked": 174,
-    "contrastUnknown": 4,
-    "contrastFails": 2,
-    "contrastFailList": [
-     "h2#method-h.d2 \"How this guide was made\" 1.10:1 <3",
-     "h3 \"Web-searched & fact-chec\" 1.02:1 <4.5"
-    ],
+    "minFontPx": 12,
+    "minFontEl": "span.k \"★ Signature\"",
+    "contrastChecked": 197,
+    "contrastUnknown": 9,
+    "contrastFails": 0,
+    "contrastFailList": [],
     "floaters": [],
     "railVisible": true,
-    "railTop": 249,
+    "railTop": 307,
     "railOnFirstScreen": true,
     "railItems": 3,
-    "railFirst": "All 16",
+    "railFirst": "★ SignatureDaniel Food Diary5",
     "cityCardsAbove": 0,
-    "cardMedianH": 343,
-    "cardsPerScreen": 2.46,
+    "cardMedianH": 354,
+    "cardsPerScreen": 2.38,
     "noAttribution": 0,
     "noAttributionIds": [],
     "closed": 0,
@@ -1742,23 +1818,25 @@
     "skipLink": true,
     "unnamedControls": 0,
     "unnamedList": [],
-    "domNodes": 480,
-    "fcp": 268,
-    "fontSampleN": 178,
+    "domNodes": 868,
+    "fcp": 304,
+    "fontSampleN": 222,
     "fontsDeclared": {
-     "Bodoni Moda": 43,
-     "Figtree": 229
+     "Bodoni Moda": 62,
+     "Figtree": 273
     },
     "hasMapEl": true,
     "shot": "qa/beta-shots/Singapore__chinatown.mobile.jpg",
     "fonts": {
      "all": {
-      "Bodoni Moda": 1006,
-      "Figtree Light": 4732
+      "Bodoni Moda": 1031,
+      "Figtree Light": 5329,
+      "Inter Medium": 1
      },
      "primary": [
       "Figtree Light",
-      "Bodoni Moda"
+      "Bodoni Moda",
+      "Inter Medium"
      ],
      "fallback": []
     },
@@ -1776,18 +1854,58 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 498998,
-    "offOriginBlocked": 1,
+    "bytes": 386080,
+    "offOriginBlocked": 0,
     "night": {
-     "contrastChecked": 174,
+     "contrastChecked": 197,
      "contrastFails": 0,
      "contrastFailList": []
     },
     "sheetFlow": {
-     "toggle": null,
-     "sheet": {
-      "via": "card",
-      "sheet": false
+     "toggle": {
+      "w": 44,
+      "h": 44,
+      "name": "Show the map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": {
+      "cls": "poi-sheet",
+      "h": 571,
+      "closeVisible": true,
+      "modal": false,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": false,
+       "pin": false,
+       "status": false,
+       "save": true,
+       "share": false
+      },
+      "escCloses": false,
+      "backCloses": true,
+      "stayedOnPage": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
      }
     },
     "tileHosts": [
@@ -1805,11 +1923,11 @@
     "cards": 16,
     "cardsVisible": 16,
     "legacy": false,
-    "firstCardTop": 603,
-    "screensToFirstCard": 0.67,
-    "mastheadPx": 249,
-    "controlsAbove": 19,
-    "controlsAboveOnScreen": 19,
+    "firstCardTop": 453,
+    "screensToFirstCard": 0.5,
+    "mastheadPx": 221,
+    "controlsAbove": 23,
+    "controlsAboveOnScreen": 23,
     "controlsAboveList": [
      "a.brand \"cleofield guides\"",
      "a.c0 \"Singapore\"",
@@ -1818,46 +1936,47 @@
      "button.btn.btn-icon",
      "a.btn.btn-icon",
      "a.btn.btn-icon",
-     "button.rail-i.rail-all \"All 16\"",
-     "button.rail-i \"Heritage & Culture 1\"",
+     "a \"How we choose\"",
+     "button.rail-i.sig \"★ SignatureDaniel Food D\"",
+     "button.rail-i \"Must see6\"",
+     "button.rail-i \"Heritage & Culture1\"",
      "button.rail-i \"Temples, Mosques & Shrin\"",
-     "button.rail-i \"Museums & Galleries 2\"",
-     "button.rail-i \"Views & Skyline 1\"",
+     "button.rail-i \"Museums & Galleries2\"",
+     "button.rail-i \"Views & Skyline1\"",
      "button.rail-i \"Architecture & Landmarks\"",
-     "button.rail-i \"Hainanese Chicken Rice 2\"",
+     "button.btn.btn-icon",
+     "button.btn.btn-icon",
      "button \"All 16\"",
      "button \"Sights 4\"",
      "button \"Eat & drink 12\"",
      "input#cleo-filter",
-     "a \"Chinatown & CBD\""
+     "button.btn.btn-ghost \"Area\"",
+     "button.btn.btn-ghost \"Filters\""
     ],
     "tapSmall": 0,
     "tapSmallKinds": {},
     "tapSmallList": [],
-    "textNodes": 188,
+    "textNodes": 233,
     "upperNodes": 0,
     "upperPct": 0,
     "minFontPx": 12,
     "minFontEl": "small \"field guides\"",
-    "contrastChecked": 182,
-    "contrastUnknown": 4,
-    "contrastFails": 2,
-    "contrastFailList": [
-     "h2#method-h.d2 \"How this guide was made\" 1.10:1 <3",
-     "h3 \"Web-searched & fact-chec\" 1.02:1 <4.5"
-    ],
+    "contrastChecked": 201,
+    "contrastUnknown": 13,
+    "contrastFails": 0,
+    "contrastFailList": [],
     "floaters": [
      "div.toolbar \"All 16Sights 4Eat & drin\"",
-     "aside.mappane \"The map couldn’t load. T\""
+     "aside.mappane \"List The map couldn’t lo\""
     ],
     "railVisible": true,
-    "railTop": 263,
+    "railTop": 231,
     "railOnFirstScreen": true,
     "railItems": 7,
-    "railFirst": "All 16",
+    "railFirst": "★ SignatureDaniel Food Diary5",
     "cityCardsAbove": 0,
-    "cardMedianH": 354,
-    "cardsPerScreen": 2.54,
+    "cardMedianH": 262,
+    "cardsPerScreen": 3.44,
     "noAttribution": 0,
     "noAttributionIds": [],
     "closed": 0,
@@ -1873,23 +1992,25 @@
     "skipLink": true,
     "unnamedControls": 0,
     "unnamedList": [],
-    "domNodes": 420,
-    "fcp": 416,
-    "fontSampleN": 186,
+    "domNodes": 872,
+    "fcp": 384,
+    "fontSampleN": 230,
     "fontsDeclared": {
-     "Bodoni Moda": 51,
-     "Figtree": 236
+     "Bodoni Moda": 70,
+     "Figtree": 281
     },
     "hasMapEl": true,
     "shot": "qa/beta-shots/Singapore__chinatown.desktop.jpg",
     "fonts": {
      "all": {
-      "Bodoni Moda": 1093,
-      "Figtree Light": 4791
+      "Bodoni Moda": 1137,
+      "Figtree Light": 5408,
+      "Inter Medium": 1
      },
      "primary": [
       "Figtree Light",
-      "Bodoni Moda"
+      "Bodoni Moda",
+      "Inter Medium"
      ],
      "fallback": []
     },
@@ -1899,13 +2020,12 @@
     },
     "overlap": {
      "positions": 20,
-     "hits": 14,
+     "hits": 4,
      "where": [
-      "toolbar over Tian Tian Hainanese Chicken Ri",
-      "toolbar over Song Fa Bak Kut Teh",
-      "toolbar over JUMBO Seafood (Riverside Point",
-      "toolbar over Sri Mariamman Temple",
-      "toolbar over Buddha Tooth Relic Temple & Mu"
+      "toolbar over Chinatown Heritage Centre",
+      "toolbar over Nai Ek Roll Noodle (Nai Ek Kua",
+      "toolbar over Ah Tai Hainanese Chicken Rice",
+      "toolbar over Tai Wah Pork Noodle"
      ]
     },
     "errorsLoad": 0,
@@ -1927,38 +2047,52 @@
      }
     },
     "tray": {
-     "button": false
+     "button": true,
+     "tray": true,
+     "showN": "Show 16 places",
+     "groups": [
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byDaniel",
+      "Recommended by",
+      "CollectionHeritage &",
+      "Collection",
+      "CuisineHainanese Chi",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are",
+      "Been thereShow allHi",
+      "Been there"
+     ],
+     "escCloses": false
     },
-    "errorsStress": 48,
+    "errorsStress": 0,
     "errors": [],
-    "stressErrorSample": [
-     "pageerror: Cannot read properties of undefined (reading 'appendChild')",
-     "pageerror: Cannot read properties of undefined (reading 'intersects')",
-     "pageerror: Cannot read properties of undefined (reading '_leaflet_pos')"
-    ],
+    "stressErrorSample": [],
     "local404": [],
-    "bytes": 501247,
+    "bytes": 570457,
     "offOriginBlocked": 12,
     "night": {
-     "contrastChecked": 182,
+     "contrastChecked": 201,
      "contrastFails": 0,
      "contrastFailList": []
     },
     "sync": {
      "mounted": true,
      "mapWidthPct": 37,
-     "split": false,
+     "split": true,
      "sticky": true,
      "markers": 16,
      "pinned": 16,
-     "markerNumbers": 0,
-     "hoverHighlights": false,
+     "markerNumbers": 16,
+     "pinLabels": 16,
+     "hoverHighlights": true,
      "pinClick": {
       "cardHighlighted": true,
       "cardInView": true,
       "sheet": false
      },
-     "orderingStated": false
+     "orderingStated": true
     },
     "tileHosts": [
      "tile.openstreetmap.org"
@@ -1971,50 +2105,50 @@
    },
    "noJs": {
     "cards": 16,
-    "text": 5890
+    "text": 6623
    },
    "cpu4x": {
-    "fcp": 872,
-    "dcl": 833,
-    "loadMs": 1108
+    "fcp": null,
+    "dcl": 216,
+    "loadMs": 763
    },
    "verdict": {
     "rows": {
      "B-01 screens to first card ≤1.0": {
       "pass": true,
-      "val": 0.72
+      "val": 0.75
      },
      "B-02 masthead ≤0.6 screen": {
       "pass": true,
-      "val": 235
+      "val": 293
      },
      "B-03 controls above first card ≤14": {
       "pass": true,
-      "val": "12 on-screen / 12 total"
+      "val": "14 on-screen / 14 total"
      },
      "B-04 rail on first screen": {
       "pass": true,
-      "val": "top 249, 3 tiles, first \"All 16\""
+      "val": "top 307, 3 tiles, first \"★ SignatureDaniel Food Diary5\""
      },
      "B-06 split view + sticky map + sync": {
       "pass": false,
-      "val": "split false, sticky true, map 37%, hover→pin false, pin→card true"
+      "val": "split true, sticky true, map 37%, hover→pin true, pin→card true"
      },
      "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
       "pass": false,
-      "val": "toggle none, full map false, sheet false"
+      "val": "toggle 44×44, full map true, pin sheet close true, esc false, back true"
      },
      "B-08 floaters over titles = 0": {
       "pass": true,
       "val": 0
      },
      "B-09 pin numbers == card numbers": {
-      "pass": false,
-      "val": "numbered pins 0, ordering stated false"
+      "pass": true,
+      "val": "numbered pins 16 (pin-n labels 16), ordering stated true"
      },
      "B-10 filter tray + \"Show N places\"": {
-      "pass": false,
-      "val": "no Filters control"
+      "pass": true,
+      "val": "Show 16 places"
      },
      "B-12 closed with tier glyph = 0": {
       "pass": true,
@@ -2022,11 +2156,11 @@
      },
      "B-16 cards per mobile screen ≥2": {
       "pass": true,
-      "val": 2.46
+      "val": 2.38
      },
      "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
-      "pass": false,
-      "val": "no sheet"
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
      },
      "G1 reachability 100% (scroll, deep link, search, no-JS)": {
       "pass": true,
@@ -2038,11 +2172,11 @@
      },
      "B-18 font families ≤2 (+CJK)": {
       "pass": true,
-      "val": "declared: Bodoni Moda, Figtree · rendered here: Figtree Light, Bodoni Moda"
+      "val": "declared: Bodoni Moda, Figtree · rendered here: Figtree Light, Bodoni Moda, Inter Medium"
      },
      "B-19 uppercase text nodes <15%": {
       "pass": true,
-      "val": "0% (0/180)"
+      "val": "0% (0/225)"
      },
      "B-20 tap targets <44 = 0 (mobile)": {
       "pass": true,
@@ -2050,15 +2184,15 @@
      },
      "B-21 smallest text ≥12px": {
       "pass": true,
-      "val": "13px p.pl-e \"Must see · Hainanese Chi\""
+      "val": "12px span.k \"★ Signature\""
      },
      "B-22 overflow 0 at 360 + 390": {
       "pass": true,
       "val": "390:0 360:0"
      },
      "B-23 contrast AA light + night": {
-      "pass": false,
-      "val": "light 2/2 · night 0/0 (mobile/desktop)"
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
      },
      "M1-16 focus visible": {
       "pass": true,
@@ -2070,11 +2204,11 @@
      },
      "G4 no-CDN render, 0 JS errors": {
       "pass": true,
-      "val": "errors 0 · 404 0 · off-origin blocked 13"
+      "val": "errors 0 · 404 0 · off-origin blocked 12"
      },
      "Stress: JS errors, every deep link at machine speed (info)": {
       "pass": null,
-      "val": "48 errors — pageerror: Cannot read properties of undefined (reading 'appendChild')"
+      "val": "0 errors"
      },
      "Tiles OSM/Esri only": {
       "pass": true,
@@ -2082,10 +2216,10 @@
      },
      "Perf: bytes / DOM / FCP / FCP 4×": {
       "pass": null,
-      "val": "489 KB · 420 nodes · 416 ms · 872 ms"
+      "val": "557 KB · 872 nodes · 384 ms · null ms"
      }
     },
-    "passed": 18,
+    "passed": 22,
     "total": 24,
     "hardFail": []
    }
@@ -2109,9 +2243,9 @@
     "cards": 35,
     "cardsVisible": 35,
     "legacy": false,
-    "firstCardTop": 648,
-    "screensToFirstCard": 0.77,
-    "mastheadPx": 256,
+    "firstCardTop": 698,
+    "screensToFirstCard": 0.83,
+    "mastheadPx": 294,
     "controlsAbove": 14,
     "controlsAboveOnScreen": 14,
     "controlsAboveList": [
@@ -2119,42 +2253,38 @@
      "a.c0 \"United States\"",
      "a.btn.btn-icon",
      "a.btn.btn-icon",
-     "button.rail-i.rail-all \"All 35\"",
-     "button.rail-i \"Iconic & Must-See 7\"",
-     "button.rail-i \"History & National Road \"",
+     "a \"How we choose\"",
+     "button.rail-i.sig \"★ SignatureWikipedia (no\"",
+     "button.rail-i \"Must see18\"",
+     "button.rail-i \"Iconic & Must-See7\"",
      "button \"All 35\"",
      "button \"Sights 28\"",
      "button \"Eat & drink 7\"",
      "input#cleo-filter",
-     "a \"Wheeling, WV\"",
-     "a \"Washington, PA\"",
-     "a \"Ohio Valley\""
+     "button.btn.btn-ghost \"Filters\"",
+     "button.btn.btn-primary"
     ],
     "tapSmall": 0,
     "tapSmallKinds": {},
     "tapSmallList": [],
-    "textNodes": 400,
+    "textNodes": 487,
     "upperNodes": 29,
-    "upperPct": 7.3,
-    "minFontPx": 13,
-    "minFontEl": "p.pl-e \"Must see · Wheeling, WV\"",
-    "contrastChecked": 394,
-    "contrastUnknown": 4,
-    "contrastFails": 3,
-    "contrastFailList": [
-     "h2#method-h.d2 \"How this guide was made\" 1.09:1 <3",
-     "h3 \"How the cuisine filters \" 1.01:1 <4.5",
-     "h3 \"Web-searched and fact-ch\" 1.01:1 <4.5"
-    ],
+    "upperPct": 6,
+    "minFontPx": 12,
+    "minFontEl": "span.k \"★ Signature\"",
+    "contrastChecked": 441,
+    "contrastUnknown": 8,
+    "contrastFails": 0,
+    "contrastFailList": [],
     "floaters": [],
     "railVisible": true,
-    "railTop": 270,
+    "railTop": 308,
     "railOnFirstScreen": true,
     "railItems": 3,
-    "railFirst": "All 35",
+    "railFirst": "★ SignatureWikipedia (notability / histo",
     "cityCardsAbove": 0,
-    "cardMedianH": 413,
-    "cardsPerScreen": 2.04,
+    "cardMedianH": 433,
+    "cardsPerScreen": 1.95,
     "noAttribution": 0,
     "noAttributionIds": [],
     "closed": 1,
@@ -2170,23 +2300,25 @@
     "skipLink": true,
     "unnamedControls": 0,
     "unnamedList": [],
-    "domNodes": 808,
-    "fcp": 268,
-    "fontSampleN": 398,
+    "domNodes": 1401,
+    "fcp": 276,
+    "fontSampleN": 400,
     "fontsDeclared": {
-     "Bodoni Moda": 86,
-     "Figtree": 491
+     "Bodoni Moda": 109,
+     "Figtree": 509
     },
     "hasMapEl": true,
     "shot": "qa/beta-shots/cities__wheeling.mobile.jpg",
     "fonts": {
      "all": {
-      "Bodoni Moda": 1744,
-      "Figtree Light": 5360
+      "Bodoni Moda": 371,
+      "Figtree Light": 4920,
+      "Inter Medium": 1
      },
      "primary": [
       "Figtree Light",
-      "Bodoni Moda"
+      "Bodoni Moda",
+      "Inter Medium"
      ],
      "fallback": []
     },
@@ -2204,18 +2336,58 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 535861,
-    "offOriginBlocked": 1,
+    "bytes": 434164,
+    "offOriginBlocked": 0,
     "night": {
-     "contrastChecked": 394,
+     "contrastChecked": 441,
      "contrastFails": 0,
      "contrastFailList": []
     },
     "sheetFlow": {
-     "toggle": null,
-     "sheet": {
-      "via": "card",
-      "sheet": false
+     "toggle": {
+      "w": 44,
+      "h": 44,
+      "name": "Show the map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": {
+      "cls": "poi-sheet",
+      "h": 597,
+      "closeVisible": true,
+      "modal": false,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": false,
+       "pin": false,
+       "status": false,
+       "save": true,
+       "share": false
+      },
+      "escCloses": false,
+      "backCloses": true,
+      "stayedOnPage": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
      }
     },
     "tileHosts": [
@@ -2233,11 +2405,11 @@
     "cards": 35,
     "cardsVisible": 35,
     "legacy": false,
-    "firstCardTop": 601,
-    "screensToFirstCard": 0.67,
-    "mastheadPx": 249,
-    "controlsAbove": 23,
-    "controlsAboveOnScreen": 23,
+    "firstCardTop": 516,
+    "screensToFirstCard": 0.57,
+    "mastheadPx": 221,
+    "controlsAbove": 22,
+    "controlsAboveOnScreen": 22,
     "controlsAboveList": [
      "a.brand \"cleofield guides\"",
      "a.c0 \"United States\"",
@@ -2246,51 +2418,46 @@
      "button.btn.btn-icon",
      "a.btn.btn-icon",
      "a.btn.btn-icon",
-     "button.rail-i.rail-all \"All 35\"",
-     "button.rail-i \"Iconic & Must-See 7\"",
-     "button.rail-i \"History & National Road \"",
-     "button.rail-i \"Bridges & Architecture 1\"",
-     "button.rail-i \"Museums & Galleries 11\"",
-     "button.rail-i \"Glass, Pottery & Craft 5\"",
-     "button.rail-i \"Parks & Outdoors 10\"",
+     "a \"How we choose\"",
+     "button.rail-i.sig \"★ SignatureWikipedia (no\"",
+     "button.rail-i \"Must see18\"",
+     "button.rail-i \"Iconic & Must-See7\"",
+     "button.rail-i \"History & National Road1\"",
+     "button.rail-i \"Bridges & Architecture10\"",
+     "button.rail-i \"Museums & Galleries11\"",
+     "button.btn.btn-icon",
+     "button.btn.btn-icon",
      "button \"All 35\"",
      "button \"Sights 28\"",
      "button \"Eat & drink 7\"",
      "input#cleo-filter",
-     "a \"Wheeling, WV\"",
-     "a \"Washington, PA\"",
-     "a \"Ohio Valley\"",
-     "a \"Cambridge & Guernsey Cou\"",
-     "a \"Zanesville & the Nationa\""
+     "button.btn.btn-ghost \"Area\"",
+     "button.btn.btn-ghost \"Filters\""
     ],
     "tapSmall": 0,
     "tapSmallKinds": {},
     "tapSmallList": [],
-    "textNodes": 410,
+    "textNodes": 491,
     "upperNodes": 29,
-    "upperPct": 7.1,
+    "upperPct": 5.9,
     "minFontPx": 12,
     "minFontEl": "small \"field guides\"",
-    "contrastChecked": 404,
-    "contrastUnknown": 4,
-    "contrastFails": 3,
-    "contrastFailList": [
-     "h2#method-h.d2 \"How this guide was made\" 1.09:1 <3",
-     "h3 \"How the cuisine filters \" 1.01:1 <4.5",
-     "h3 \"Web-searched and fact-ch\" 1.01:1 <4.5"
-    ],
+    "contrastChecked": 440,
+    "contrastUnknown": 13,
+    "contrastFails": 0,
+    "contrastFailList": [],
     "floaters": [
      "div.toolbar \"All 35Sights 28Eat & dri\"",
-     "aside.mappane \"The map couldn’t load. T\""
+     "aside.mappane \"List The map couldn’t lo\""
     ],
     "railVisible": true,
-    "railTop": 263,
+    "railTop": 231,
     "railOnFirstScreen": true,
-    "railItems": 7,
-    "railFirst": "All 35",
+    "railItems": 6,
+    "railFirst": "★ SignatureWikipedia (notability / histo",
     "cityCardsAbove": 0,
-    "cardMedianH": 489,
-    "cardsPerScreen": 1.84,
+    "cardMedianH": 325,
+    "cardsPerScreen": 2.77,
     "noAttribution": 0,
     "noAttributionIds": [],
     "closed": 1,
@@ -2306,23 +2473,25 @@
     "skipLink": true,
     "unnamedControls": 0,
     "unnamedList": [],
-    "domNodes": 729,
-    "fcp": 348,
+    "domNodes": 1405,
+    "fcp": 240,
     "fontSampleN": 400,
     "fontsDeclared": {
-     "Bodoni Moda": 94,
-     "Figtree": 494
+     "Bodoni Moda": 115,
+     "Figtree": 506
     },
     "hasMapEl": true,
     "shot": "qa/beta-shots/cities__wheeling.desktop.jpg",
     "fonts": {
      "all": {
-      "Bodoni Moda": 1844,
-      "Figtree Light": 5188
+      "Bodoni Moda": 462,
+      "Figtree Light": 5036,
+      "Inter Medium": 1
      },
      "primary": [
       "Figtree Light",
-      "Bodoni Moda"
+      "Bodoni Moda",
+      "Inter Medium"
      ],
      "fallback": []
     },
@@ -2332,13 +2501,13 @@
     },
     "overlap": {
      "positions": 20,
-     "hits": 26,
+     "hits": 6,
      "where": [
-      "toolbar over Wheeling Suspension Bridge",
-      "toolbar over West Virginia Independence Hal",
       "toolbar over Centre Market Historic Distric",
-      "toolbar over Figaretti's Restaurant",
-      "toolbar over Oglebay Resort & Park"
+      "toolbar over Oglebay Resort & Park",
+      "toolbar over Meadowcroft Rockshelter & Hist",
+      "toolbar over LeMoyne House",
+      "toolbar over Great Stone Viaduct"
      ]
     },
     "errorsLoad": 0,
@@ -2360,20 +2529,33 @@
      }
     },
     "tray": {
-     "button": false
+     "button": true,
+     "tray": true,
+     "showN": "Show 35 places",
+     "groups": [
+      "AreaWheeling, WV 11W",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionIconic & M",
+      "Collection",
+      "CuisineItalian & Piz",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
     },
-    "errorsStress": 105,
+    "errorsStress": 0,
     "errors": [],
-    "stressErrorSample": [
-     "pageerror: Cannot read properties of undefined (reading 'appendChild')",
-     "pageerror: Cannot read properties of undefined (reading 'intersects')",
-     "pageerror: Cannot set properties of undefined (setting '_leaflet_pos')"
-    ],
+    "stressErrorSample": [],
     "local404": [],
-    "bytes": 539395,
+    "bytes": 653698,
     "offOriginBlocked": 12,
     "night": {
-     "contrastChecked": 404,
+     "contrastChecked": 440,
      "contrastFails": 0,
      "contrastFailList": []
     },
@@ -2384,14 +2566,15 @@
      "sticky": true,
      "markers": 35,
      "pinned": 35,
-     "markerNumbers": 0,
-     "hoverHighlights": false,
+     "markerNumbers": 35,
+     "pinLabels": 35,
+     "hoverHighlights": true,
      "pinClick": {
       "cardHighlighted": true,
       "cardInView": true,
       "sheet": false
      },
-     "orderingStated": false
+     "orderingStated": true
     },
     "tileHosts": [
      "tile.openstreetmap.org"
@@ -2404,22 +2587,22 @@
    },
    "noJs": {
     "cards": 35,
-    "text": 7262
+    "text": 8030
    },
    "cpu4x": {
-    "fcp": 536,
-    "dcl": 528,
-    "loadMs": 772
+    "fcp": 480,
+    "dcl": 565,
+    "loadMs": 844
    },
    "verdict": {
     "rows": {
      "B-01 screens to first card ≤1.0": {
       "pass": true,
-      "val": 0.77
+      "val": 0.83
      },
      "B-02 masthead ≤0.6 screen": {
       "pass": true,
-      "val": 256
+      "val": 294
      },
      "B-03 controls above first card ≤14": {
       "pass": true,
@@ -2427,39 +2610,39 @@
      },
      "B-04 rail on first screen": {
       "pass": true,
-      "val": "top 270, 3 tiles, first \"All 35\""
+      "val": "top 308, 3 tiles, first \"★ SignatureWikipedia (notability / histo\""
      },
      "B-06 split view + sticky map + sync": {
       "pass": false,
-      "val": "split true, sticky true, map 37%, hover→pin false, pin→card true"
+      "val": "split true, sticky true, map 37%, hover→pin true, pin→card true"
      },
      "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
       "pass": false,
-      "val": "toggle none, full map false, sheet false"
+      "val": "toggle 44×44, full map true, pin sheet close true, esc false, back true"
      },
      "B-08 floaters over titles = 0": {
       "pass": true,
       "val": 0
      },
      "B-09 pin numbers == card numbers": {
-      "pass": false,
-      "val": "numbered pins 0, ordering stated false"
+      "pass": true,
+      "val": "numbered pins 35 (pin-n labels 35), ordering stated true"
      },
      "B-10 filter tray + \"Show N places\"": {
-      "pass": false,
-      "val": "no Filters control"
+      "pass": true,
+      "val": "Show 35 places"
      },
      "B-12 closed with tier glyph = 0": {
       "pass": true,
       "val": "0 of 1 closed"
      },
      "B-16 cards per mobile screen ≥2": {
-      "pass": true,
-      "val": 2.04
+      "pass": false,
+      "val": 1.95
      },
      "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
-      "pass": false,
-      "val": "no sheet"
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
      },
      "G1 reachability 100% (scroll, deep link, search, no-JS)": {
       "pass": true,
@@ -2471,11 +2654,11 @@
      },
      "B-18 font families ≤2 (+CJK)": {
       "pass": true,
-      "val": "declared: Bodoni Moda, Figtree · rendered here: Figtree Light, Bodoni Moda"
+      "val": "declared: Bodoni Moda, Figtree · rendered here: Figtree Light, Bodoni Moda, Inter Medium"
      },
      "B-19 uppercase text nodes <15%": {
       "pass": true,
-      "val": "7.3% (29/400)"
+      "val": "6% (29/487)"
      },
      "B-20 tap targets <44 = 0 (mobile)": {
       "pass": true,
@@ -2483,15 +2666,15 @@
      },
      "B-21 smallest text ≥12px": {
       "pass": true,
-      "val": "13px p.pl-e \"Must see · Wheeling, WV\""
+      "val": "12px span.k \"★ Signature\""
      },
      "B-22 overflow 0 at 360 + 390": {
       "pass": true,
       "val": "390:0 360:0"
      },
      "B-23 contrast AA light + night": {
-      "pass": false,
-      "val": "light 3/3 · night 0/0 (mobile/desktop)"
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
      },
      "M1-16 focus visible": {
       "pass": true,
@@ -2503,11 +2686,11 @@
      },
      "G4 no-CDN render, 0 JS errors": {
       "pass": true,
-      "val": "errors 0 · 404 0 · off-origin blocked 13"
+      "val": "errors 0 · 404 0 · off-origin blocked 12"
      },
      "Stress: JS errors, every deep link at machine speed (info)": {
       "pass": null,
-      "val": "105 errors — pageerror: Cannot read properties of undefined (reading 'appendChild')"
+      "val": "0 errors"
      },
      "Tiles OSM/Esri only": {
       "pass": true,
@@ -2515,10 +2698,10 @@
      },
      "Perf: bytes / DOM / FCP / FCP 4×": {
       "pass": null,
-      "val": "527 KB · 729 nodes · 348 ms · 536 ms"
+      "val": "638 KB · 1405 nodes · 240 ms · 480 ms"
      }
     },
-    "passed": 18,
+    "passed": 21,
     "total": 24,
     "hardFail": []
    }
