@@ -161,3 +161,31 @@ Append-only. One entry per session per wave: date, lane, session id, what change
 - 2026-10-10 09:53 · orchestrator · W1: platform, FE-A (ab80b44), FE-B, designer done + archived (all commits beta-scope since ca70e53). QA still finishing sign-off. **Round 1 evaluation launched**: session_01WsdxZRnnS31JkzUY9Shvh7 → design/beta/eval/ROUND-1.md. Imagery: upload.wikimedia.org / commons.wikimedia.org denied by environment network policy (403, 09:24Z); owner informed how to allow.
 
 - 2026-10-10 10:30Z · orchestrator · Round 1 evaluation done (`design/beta/eval/ROUND-1.md`, 7cb0f495): R0 31.1 → R1 66.5 (A60 B74 C66 D72); goal not met. Evaluator session archived. QA W1 run 3 still running (sign-off NO so far). Wave 2 briefs issued (`design/beta/eval/W2-BRIEFS.md`) to five lanes: platform, FE-A, FE-B, designer, imagery. The owner asked for a GitHub Actions image fetcher to get past the Wikimedia block; the environment's permission classifier refused that as a policy workaround. It was not attempted further, and the owner was told how to allow the hosts instead.
+- 2026-10-10 · **FE-B** · Wave 2 slice 1 · session_01Uw8kyZKduvy2VTdhJQa5L4 · ROUND-1 gaps #3, #8 (M2-12), search, share/OG.
+  - **Wanderlust (gap #3):** hub/landing tile line is now the city's **signature** — its most-recommended open must-sees
+    (2 sights + 1 place to eat, ranked by distinct named publishers; e.g. Cleveland "Haserot Angel · West Side Market ·
+    Superior Phở", Kyoto "Nishiki Market · Pontochō · Kagizen Yoshifusa"), not cuisine labels. `row.signature` from
+    platform (gap #10 canon) wins when present. **Four tile compositions** (night / wash / city / paper) rotate with the
+    skins, dots coloured by the city's own area palette, Didone initial where no native script — test: no two
+    neighbouring tiles alike. **Cross-city editorial rail** on the landing ("Collections across the guides": Anime
+    pilgrimage 115 · Hawker canon 148 · Temples & shrines · Ramen · Michelin & fine dining · World Heritage · Onsen ·
+    Beer halls · Frank Lloyd Wright · Free to visit) — keyed on collection/cuisine **ids** (label only guards id meaning),
+    counts recomputed in `test-hubs.js` from `data/places/*.json`, chips deep-link `#c=`/`#cz=`. **Country hero** on
+    every hub: the country drawn from its verified pins, a "known for" line (top must-sees, one per city), stats, Share,
+    and the country's collection rail under the tiles.
+  - **Imagery hooks (for the imagery lane):** a tile/hero/theme sets `--motif:url(…)` when
+    `beta/assets/img/motifs/<pageKey with / → -->.svg`, `<countryKey>.svg` or `collections/<themeKey>.svg` exists
+    (theme keys: anime, hawker, temples, ramen, fine, unesco, onsen, beer, flw, free); absent → the skin's pattern.
+  - **OG/share:** hub `og:image` = `beta/assets/og/<countryKey>.png` (or `country-<key>.png`) when platform renders it;
+    Share button (Web Share, else copy + "Link copied") on every hub hero (`[data-cleo-share]`, handled in search.js).
+  - **Search:** guide-name matches shown as a "Guide(s)" group above places; ArrowDown/Up move through results, Esc
+    returns to the input (hero + header panel); tests added.
+  - **M2-12:** new `beta/accessibility.html` (WCAG 2.2 AA commitment, how it's measured, 5 stated known gaps, GitHub
+    issue contact), footer-linked on every page, breadcrumb "Accessibility". Method page: per-country table (guides,
+    places, high-confidence pins %, closed kept) + link to accessibility.
+  - **QA-13 (FE-B part):** "1 places" → "1 place" (hub/landing/more rows). One-line coordinated change to the
+    platform-owned `lib/guards.js` + `test-beta.js` card regex (`places?\b`) so the gate accepts the singular — **PLT please ratify**.
+  - **DES:** new FE-B glue CSS is inline (`FEB_CSS` in `render/hub.js`, `PAGE_CSS` in `render/method.js`) — please upstream into `cleo.css`.
+  - Landing 77 KB (≤ 80 budget: landing tiles draw ≤ 24 pins). validate + npm test + beta:check PASS.
+  - Screenshots: `design/beta/eval/w2/fe-b/w2-*-{m,d}.jpg` (landing, landing-themes, hub-japan, hub-singapore, hub-belgium,
+    accessibility, method, search-guides, states) vs `before-*`; metrics `w2-metrics.json` (0 overflow, 0 targets < 44 on FE-B pages, 0 JS errors).

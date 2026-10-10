@@ -5,19 +5,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Japan — 5 sourced guides · Cleo</title>
-<meta name="description" content="2,092 places across 5 Japan guides — each recommended by named sources, pinned and status-checked.">
+<meta name="description" content="2,092 places across 5 Japan guides — Goryōkaku, Mandarake Grand Chaos, Menya Itto and more. Each recommended by named sources, pinned and status-checked.">
 <link rel="canonical" href="https://alvations.github.io/cleo-guide/beta/Japan/">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#F7F4EE">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Cleo">
 <meta property="og:title" content="Japan — 5 sourced guides · Cleo">
-<meta property="og:description" content="2,092 places across 5 Japan guides — each recommended by named sources, pinned and status-checked.">
+<meta property="og:description" content="2,092 places across 5 Japan guides — Goryōkaku, Mandarake Grand Chaos, Menya Itto and more. Each recommended by named sources, pinned and status-checked.">
 <meta property="og:url" content="https://alvations.github.io/cleo-guide/beta/Japan/">
 <meta property="og:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Japan — 5 sourced guides · Cleo">
-<meta name="twitter:description" content="2,092 places across 5 Japan guides — each recommended by named sources, pinned and status-checked.">
+<meta name="twitter:description" content="2,092 places across 5 Japan guides — Goryōkaku, Mandarake Grand Chaos, Menya Itto and more. Each recommended by named sources, pinned and status-checked.">
 <meta name="twitter:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
@@ -26,9 +26,69 @@
 
 
 <script src="../assets/js/core.js?v=b24c87df9e" defer></script>
+<style>
+.tile .art .dots{stroke:var(--dot,var(--on-night))}
+.tile.c-night .art .dots{stroke:var(--on-night)}.tile.c-night .art .dots.t1{stroke:var(--gilt-soft)}
+.tile.c-wash .art{background:var(--motif,none),linear-gradient(160deg,var(--city-wash),var(--surface));color:var(--ink)}
+.tile.c-wash .art .native,.tile.c-wash .art .ini{color:var(--city-ink)}
+.tile.c-wash .art .dots,.tile.c-paper .art .dots{stroke:var(--dot,var(--city-ink))}.tile.c-wash .art .dots.t1,.tile.c-paper .art .dots.t1{stroke:var(--ink)}
+.tile.c-city .art{background:var(--motif,none),radial-gradient(120% 140% at 0 100%,color-mix(in srgb,var(--night) 35%,transparent),transparent 60%),var(--city);color:var(--city-on)}
+.tile.c-city .art .dots{stroke:var(--city-on);stroke-opacity:.9}.tile.c-city .art .dots.t1{stroke:var(--city-on)}
+.tile.c-city .art .native,.tile.c-city .art .ini{color:var(--city-on)}.tile.c-city .art .bar{background:var(--night)}
+.tile.c-paper .art{background:var(--motif,none),repeating-radial-gradient(circle at 70% 120%,transparent 0 13px,color-mix(in srgb,var(--city) 16%,transparent) 13px 14px),var(--sand);color:var(--ink)}
+.tile.c-paper .art .native,.tile.c-paper .art .ini{color:var(--ink)}
+.tile .art .ini{position:absolute;right:14px;bottom:6px;font:italic 500 84px/1 var(--font-display);opacity:.9;color:var(--on-night)}
+.tile .art .native{color:var(--on-night)}
+.tiles.hub2 .tile .art .ini{font-size:52px;bottom:4px}
+.tile .sigline{font-size:13.5px;line-height:1.35;color:var(--ink-2);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.tile .sigline span+span::before{content:" · ";color:var(--ink-3)}
+.tile .star{font-size:12.5px}
+.tile:hover .art svg,.tile:focus-visible .art svg{transform:scale(1.04)}.tile .art svg{transition:transform .5s var(--ease,ease)}
+@media (prefers-reduced-motion:reduce){.tile .art svg{transition:none}.tile:hover .art svg{transform:none}}
+.chero{position:relative;background:var(--night);color:var(--on-night);overflow:hidden;isolation:isolate}
+.chero .sky{position:absolute;inset:0;z-index:-1;background:var(--motif,none)}
+.chero .sky svg{position:absolute;inset:0;width:100%;height:100%}
+.chero .sky .dots{stroke:var(--on-night);stroke-linecap:round;fill:none;stroke-opacity:.9}.chero .sky .dots.t1{stroke:var(--gilt-soft)}
+.chero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--night) 0,color-mix(in srgb,var(--night) 70%,transparent) 55%,transparent)}
+.chero .inner{max-width:var(--maxw);margin:0 auto;padding:28px var(--gutter) 26px}
+.chero .kicker{color:var(--on-night-2);font-size:15px;margin:0 0 6px}
+.chero h1{margin:0;color:var(--on-night)}
+.chero .why{font:italic 500 21px/1.3 var(--font-display);color:var(--on-night);margin:10px 0 0;max-width:40ch}
+.chero .why .l span+span::before{content:" · ";font-style:normal;color:var(--on-night-2)}
+.chero .facts{color:var(--on-night-2);font-size:15px;margin:12px 0 0;max-width:60ch}
+.chero .facts b{color:var(--on-night);font-weight:650}.chero .facts a{color:var(--on-night)}
+.chero .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chero .btn{min-height:var(--tap)}
+.chero .btn-ghost{color:var(--on-night);border-color:color-mix(in srgb,var(--on-night) 45%,transparent);background:transparent}
+.chero .accentbar{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--city,var(--gilt-soft))}
+@media(max-width:639px){.chero .blurb-c{display:none}.chero .sky{opacity:.45}.chero .why{font-size:19px}.chero .inner{padding:20px var(--gutter) 22px}.chero h1{font-size:44px}}
+@media(min-width:900px){.chero .inner{padding:44px var(--gutter) 40px}.chero .why{font-size:26px}}
+.share-note{font-size:14px;color:var(--on-night-2);align-self:center}
+.themes .theme-rail{list-style:none;margin:12px 0 0;padding:2px 2px 10px;display:grid;grid-auto-flow:column;grid-auto-columns:min(74%,290px);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}
+@media(min-width:1100px){.themes .theme-rail{grid-auto-columns:calc((100% - 36px)/4)}}
+.themes .rail-head .n{display:block;margin-top:4px;font:450 14px/1.3 var(--font-ui);color:var(--ink-3);letter-spacing:0}
+@media(min-width:900px){.themes .rail-head .n{display:inline;margin-left:12px}}
+.theme-main{min-height:170px}
+.theme{scroll-snap-align:start;display:grid;grid-template-rows:1fr auto;border-radius:var(--r-l);overflow:hidden;background:var(--surface);border:1px solid var(--line)}
+.theme-main{display:grid;gap:4px;align-content:end;min-height:150px;padding:16px;text-decoration:none;color:var(--on-night);background:var(--motif,none),var(--night)}
+.theme.t-1 .theme-main{background:var(--motif,none),linear-gradient(150deg,var(--night-2),var(--night))}
+.theme.t-2 .theme-main{background:var(--motif,none),repeating-linear-gradient(135deg,transparent 0 10px,color-mix(in srgb,var(--on-night) 6%,transparent) 10px 11px),var(--night)}
+.theme.t-3 .theme-main{background:var(--motif,none),radial-gradient(120% 120% at 100% 0,var(--night-2),var(--night) 70%)}
+.theme-n{font:500 44px/1 var(--font-display);color:var(--gilt-soft)}
+.theme-t{font:500 23px/1.15 var(--font-display);color:var(--on-night)}
+.theme-w{font-size:13.5px;line-height:1.35;color:var(--on-night-2)}
+.theme-c{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 12px}
+.theme-c a{display:inline-flex;align-items:center;gap:5px;min-height:var(--tap);padding:0 12px;border:1px solid var(--line-strong);border-radius:var(--r-pill);font-size:13.5px;text-decoration:none;color:var(--ink)}
+.theme-c a b{font-weight:650;color:var(--ink-2)}
+.theme-c .more-n{font-size:13px;color:var(--ink-3);align-self:center;padding:0 4px}
+.theme-main:hover .theme-t{text-decoration:underline;text-underline-offset:4px}
+.results .grp.guides ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0}
+.results a.is-kb,.results a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.results mark{background:var(--gilt-soft);color:var(--ink);border-radius:2px}
+</style>
 </head>
 <body class="has-tabbar">
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol><symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.3l1.4 3 3.2.3-2.4 2.2.7 3.1L12 14.3l-2.9 1.6.7-3.1-2.4-2.2 3.2-.3z"/></symbol><symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-star4" viewBox="0 0 24 24"><path d="M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1-2.1 7.4-2.1-7.4L2.5 12l7.4-2.1z"/></symbol><symbol id="i-offline" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M7.6 7.6A5 5 0 0 0 7 9.5 4 4 0 0 0 7 17.5h10M10 5a5 5 0 0 1 6.9 3.5h.6a3.5 3.5 0 0 1 2.4 6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.2"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.2"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.4a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.4"/></symbol></defs></svg><a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol><symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.3l1.4 3 3.2.3-2.4 2.2.7 3.1L12 14.3l-2.9 1.6.7-3.1-2.4-2.2 3.2-.3z"/></symbol><symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-star4" viewBox="0 0 24 24"><path d="M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1-2.1 7.4-2.1-7.4L2.5 12l7.4-2.1z"/></symbol><symbol id="i-offline" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M7.6 7.6A5 5 0 0 0 7 9.5 4 4 0 0 0 7 17.5h10M10 5a5 5 0 0 1 6.9 3.5h.6a3.5 3.5 0 0 1 2.4 6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.2"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.2"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M6 12v7h12v-7"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.4a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.4"/></symbol></defs></svg><a class="skip" href="#main">Skip to content</a>
 <header class="topbar" data-cleo-shell="topbar"><div class="wrap">
   <a class="brand" href="../index.html" aria-label="Cleo — all destinations"><svg class="mark" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4.2l1.75 6.05L19.8 12l-6.05 1.75L12 19.8l-1.75-6.05L4.2 12l6.05-1.75z"/></svg><b>cleo</b><small>field guides</small></a>
   <nav class="crumbs" aria-label="Breadcrumb"><span class="here" aria-current="page">Japan</span></nav>
@@ -42,41 +102,70 @@
 </div></header>
 <div class="banners" data-cleo-banners aria-live="polite"></div>
 <main id="main" class="feb">
-<section class="masthead" aria-labelledby="cn"><div class="inner">
+<section class="chero masthead" aria-labelledby="cn"><div class="sky" aria-hidden="true"><svg viewBox="0 0 900 360" preserveAspectRatio="xMaxYMid meet" aria-hidden="true" focusable="false"><path class="dots" stroke-width="3" stroke-opacity=".75" d="M526 157h0M524 158h0M520 139h0M512 160h0M521 153h0M519 156h0M515 154h0M523 158h0M523 161h0M525 155h0M516 164h0M518 157h0M520 157h0M521 157h0M515 155h0M522 158h0M524 159h0M522 155h0M471 168h0M471 172h0"/><path class="dots t1" stroke-width="4.8" d="M524 156h0M525 156h0M524 157h0M525 157h0M523 156h0M523 157h0M522 156h0M517 157h0M521 162h0M522 162h0M522 139h0M526 155h0M514 164h0M515 164h0M521 163h0M521 139h0M511 159h0M521 152h0M521 156h0M523 160h0M523 155h0M524 155h0M522 159h0M526 156h0M522 157h0M519 157h0M522 160h0M517 154h0M470 169h0M470 168h0M470 167h0M462 158h0M463 157h0M472 168h0M471 167h0M468 167h0M471 166h0M470 166h0M469 167h0M468 163h0M469 168h0M471 173h0M470 174h0M471 169h0M471 170h0M472 175h0M470 164h0M470 170h0M465 173h0M466 174h0M466 175h0M467 171h0M455 170h0M463 171h0M468 181h0M466 173h0M467 173h0M467 174h0M464 171h0M468 177h0M468 173h0M469 169h0M466 171h0M466 172h0M465 177h0M462 180h0M466 170h0M360 313h0M362 313h0M361 311h0M363 305h0M360 315h0M362 305h0M362 308h0M355 313h0M361 314h0M361 309h0M327 337h0M367 304h0M368 302h0M363 311h0M325 336h0M360 312h0M327 335h0M330 337h0M326 336h0M349 311h0M364 305h0M325 335h0M363 314h0M359 313h0M347 310h0M361 312h0M363 309h0M361 313h0M364 306h0M364 307h0M359 314h0M546 35h0M547 34h0M541 32h0M539 33h0M538 56h0M537 56h0M546 43h0M543 44h0M539 43h0M562 23h0M563 28h0M584 28h0M585 19h0M588 34h0M537 52h0M571 29h0M570 31h0M571 41h0M539 39h0M561 29h0M533 30h0M537 38h0M541 53h0M583 29h0M546 34h0M571 37h0M549 36h0M547 35h0M561 23h0M541 33h0M587 36h0M560 23h0M588 36h0M560 30h0M542 33h0M543 38h0M550 42h0M537 53h0M539 52h0M586 19h0"/></svg></div><div class="inner">
+  <p class="kicker">Country guide · drawn from 1,893 verified pins</p>
   <h1 class="title d1" id="cn">Japan</h1>
-  <p class="facts"><b>5 guides · 2,092 places</b> · 1,056 sights · 1,036 to eat &amp; drink · status last checked 2026-10-03. <a href="../how-we-choose.html">How we choose</a></p>
-  <p class="facts">Five maps — Tokyo ward by ward, Kyoto, Osaka, Okinawa and Hokkaido — each driven to New York density.</p>
+  <p class="why"><span class="vh">Known for: </span><span class="l"><span>Goryōkaku</span><span>Mandarake Grand Chaos</span><span>Menya Itto</span></span></p>
+  <p class="facts"><b>5 guides · 2,092 places</b> · 1,056 sights · 1,036 to eat &amp; drink · status last checked 2026-10-03.</p>
+  <p class="facts blurb-c">Five maps — Tokyo ward by ward, Kyoto, Osaka, Okinawa and Hokkaido — each driven to New York density.</p>
+  <div class="acts"><button type="button" class="btn btn-ghost" data-cleo-share data-title="Japan — 5 sourced guides · Cleo" data-url="https://alvations.github.io/cleo-guide/beta/Japan/" hidden><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-share"/></svg>Share Japan</button><a class="btn btn-ghost" href="../how-we-choose.html">How we choose</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>
 </div><span class="accentbar"></span></section>
 <div class="wrap section" id="destinations">
   <ul class="tiles hub2" aria-label="Japan guides">
-<li class="dest" data-page="tokyo" data-gen="new"><a href="../cities/tokyo.html" class="tile" data-city="tokyo">
-<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots t1" stroke-width="3.6" d="M216 43h0M209 39h0M221 34h0M220 46h0M223 36h0M235 26h0M225 24h0M222 28h0M233 37h0M235 47h0M217 23h0M188 59h0M193 44h0M190 39h0M188 49h0M211 15h0M212 32h0M221 53h0M224 45h0M218 59h0M211 60h0M231 65h0M227 69h0M171 30h0M172 58h0M210 60h0M126 37h0M127 35h0M189 60h0M196 58h0M225 26h0M197 18h0M163 66h0M201 33h0M223 55h0M98 26h0M188 68h0M224 29h0M188 39h0M190 52h0M188 54h0M197 48h0M207 59h0M190 53h0"/></svg><span class="native">東京</span><span class="bar"></span></span>
+<li class="dest" data-page="tokyo" data-gen="new"><a href="../cities/tokyo.html" class="tile c-night" data-city="tokyo">
+<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots t1" stroke-width="3.5" d="M216 43h0M209 39h0M221 34h0M220 46h0M223 36h0M235 26h0M225 24h0M222 28h0M233 37h0M235 47h0M217 23h0M188 59h0M193 44h0M190 39h0M188 49h0M211 15h0M212 32h0M221 53h0M224 45h0M218 59h0M211 60h0M231 65h0M227 69h0M171 30h0M172 58h0M210 60h0M126 37h0M127 35h0M189 60h0M196 58h0M225 26h0M197 18h0M163 66h0M201 33h0M223 55h0M98 26h0M188 68h0M224 29h0M188 39h0M190 52h0M188 54h0M197 48h0M207 59h0M190 53h0"/></svg><span class="native">東京</span><span class="bar"></span></span>
 <span class="txt"><h3>Tokyo</h3>
 <span class="counts"><span class="dest-c">488 places<span class="hide-m"> · 263 sights · 225 to eat &amp; drink</span></span></span>
-<span class="star"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-star4"/></svg>Anime, Manga &amp; Pop Culture · 37</span></span></a></li>
-<li class="dest" data-page="kyoto" data-gen="new"><a href="../cities/kyoto.html" class="tile" data-city="kyoto">
-<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots t1" stroke-width="3.6" d="M166 57h0M163 29h0M164 28h0M161 33h0M158 34h0M161 28h0M164 39h0M162 48h0M166 32h0M166 31h0M165 30h0M164 30h0M166 30h0M166 29h0M164 36h0M164 34h0M158 19h0M156 23h0M144 27h0M153 25h0M169 24h0M168 27h0M169 27h0M166 26h0M151 35h0M162 24h0M160 15h0M164 21h0M159 35h0M174 43h0M171 58h0M145 15h0M146 32h0M144 26h0M155 21h0M153 22h0M159 33h0M159 27h0M162 34h0M166 28h0M160 23h0"/></svg><span class="native">京都</span><span class="bar"></span></span>
+<span class="sigline"><span>Shibamata Taishakuten</span><span>Edo-Tokyo Museum</span><span>Menya Itto</span></span><span class="star"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-star4"/></svg>Anime, Manga &amp; Pop Culture · 37</span></span></a></li>
+<li class="dest" data-page="kyoto" data-gen="new"><a href="../cities/kyoto.html" class="tile c-wash" data-city="kyoto">
+<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots t1" style="--dot:#00A6A6" stroke-width="3.5" d="M166 57h0M171 58h0"/><path class="dots t1" style="--dot:#3D9970" stroke-width="3.5" d="M144 27h0M153 25h0M151 35h0M146 32h0M144 26h0M153 22h0"/><path class="dots t1" style="--dot:#5B8DEF" stroke-width="3.5" d="M158 19h0M156 23h0M162 24h0M160 15h0M155 21h0M160 23h0"/><path class="dots t1" style="--dot:#7D8C38" stroke-width="3.5" d="M145 15h0"/><path class="dots t1" style="--dot:#9B5DE5" stroke-width="3.5" d="M169 24h0M168 27h0M169 27h0M166 26h0M164 21h0"/><path class="dots t1" style="--dot:#D9534F" stroke-width="3.5" d="M166 32h0M166 31h0M165 30h0M164 30h0M166 30h0M166 29h0M164 36h0M164 34h0M166 28h0"/><path class="dots t1" style="--dot:#E07A5F" stroke-width="3.5" d="M164 39h0M162 48h0M159 35h0M174 43h0"/><path class="dots t1" style="--dot:#E8B04B" stroke-width="3.5" d="M163 29h0M164 28h0M161 33h0M158 34h0M161 28h0M159 33h0M159 27h0M162 34h0"/></svg><span class="native">京都</span><span class="bar"></span></span>
 <span class="txt"><h3>Kyoto</h3>
 <span class="counts"><span class="dest-c">398 places<span class="hide-m"> · 215 sights · 183 to eat &amp; drink</span></span></span>
-<span class="star"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-star4"/></svg>Anime, Manga &amp; Pop Culture · 9</span></span></a></li>
-<li class="dest" data-page="osaka" data-gen="new"><a href="../cities/osaka.html" class="tile" data-city="osaka">
-<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots t1" stroke-width="3.6" d="M173 65h0M171 70h0M192 86h0M190 106h0M191 49h0M203 56h0M195 64h0M197 65h0M197 70h0M200 70h0M196 64h0M206 67h0M199 73h0M194 51h0M203 53h0M172 64h0M197 68h0M201 64h0M195 23h0M193 56h0M197 62h0M196 52h0M198 46h0M195 65h0M193 62h0M195 53h0M195 62h0M201 66h0M192 27h0M196 54h0M195 55h0M196 57h0M193 57h0M194 56h0M194 63h0M197 71h0M185 101h0M195 52h0"/></svg><span class="native">大阪</span><span class="bar"></span></span>
+<span class="sigline"><span>Nishiki Market</span><span>Pontochō</span><span>Kagizen Yoshifusa</span></span><span class="star"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-star4"/></svg>Anime, Manga &amp; Pop Culture · 9</span></span></a></li>
+<li class="dest" data-page="osaka" data-gen="new"><a href="../cities/osaka.html" class="tile c-city" data-city="osaka">
+<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots t1" style="--dot:#00A6A6" stroke-width="3.5" d="M173 65h0M171 70h0M172 64h0"/><path class="dots t1" style="--dot:#3D9970" stroke-width="3.5" d="M192 86h0M190 106h0M185 101h0"/><path class="dots t1" style="--dot:#5B8DEF" stroke-width="3.5" d="M191 49h0M194 51h0M196 52h0M198 46h0M195 53h0M195 52h0"/><path class="dots t1" style="--dot:#7D8C38" stroke-width="3.5" d="M195 23h0M192 27h0"/><path class="dots t1" style="--dot:#9B5DE5" stroke-width="3.5" d="M206 67h0M203 53h0"/><path class="dots t1" style="--dot:#D9534F" stroke-width="3.5" d="M195 64h0M197 65h0M196 64h0M197 68h0M197 62h0M195 65h0M193 62h0M195 62h0M194 63h0"/><path class="dots t1" style="--dot:#E07A5F" stroke-width="3.5" d="M197 70h0M200 70h0M199 73h0M201 66h0M197 71h0"/><path class="dots t1" style="--dot:#E8B04B" stroke-width="3.5" d="M203 56h0M201 64h0M193 56h0M196 54h0M195 55h0M196 57h0M193 57h0M194 56h0"/></svg><span class="native">大阪</span><span class="bar"></span></span>
 <span class="txt"><h3>Osaka</h3>
 <span class="counts"><span class="dest-c">369 places<span class="hide-m"> · 159 sights · 210 to eat &amp; drink</span></span></span>
-<span class="star"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-star4"/></svg>Anime, Manga &amp; Pop Culture · 24</span></span></a></li>
-<li class="dest" data-page="okinawa" data-gen="new"><a href="../cities/okinawa.html" class="tile" data-city="okinawa">
-<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots t1" stroke-width="3.6" d="M222 30h0M222 31h0M221 31h0M226 32h0M225 28h0M222 35h0M221 35h0M220 32h0M227 18h0M206 30h0M223 34h0M223 22h0M130 92h0M223 26h0M225 25h0M230 26h0M125 88h0M221 30h0M130 88h0M137 93h0M129 89h0M190 25h0M224 21h0M208 32h0M225 26h0M223 29h0M222 29h0M225 27h0M228 33h0M219 32h0M186 24h0M126 89h0M224 28h0M229 21h0M223 28h0M223 31h0M231 12h0M223 27h0M220 31h0"/></svg><span class="native">沖縄</span><span class="bar"></span></span>
+<span class="sigline"><span>Mandarake Grand Chaos</span><span>Super Nintendo World</span><span>Hokkyokusei Shinsaibashi Honten</span></span><span class="star"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-star4"/></svg>Anime, Manga &amp; Pop Culture · 24</span></span></a></li>
+<li class="dest" data-page="okinawa" data-gen="new"><a href="../cities/okinawa.html" class="tile c-paper" data-city="okinawa">
+<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots t1" style="--dot:#00A6A6" stroke-width="3.5" d="M229 19h0M226 21h0M230 12h0M231 21h0M233 13h0"/><path class="dots t1" style="--dot:#3D9970" stroke-width="3.5" d="M228 33h0M224 36h0M223 36h0M222 32h0M225 34h0M230 33h0M221 33h0M225 31h0"/><path class="dots t1" style="--dot:#5B8DEF" stroke-width="3.5" d="M227 28h0M225 23h0M225 27h0M227 26h0M232 26h0M227 27h0M224 29h0M226 28h0M225 28h0"/><path class="dots t1" style="--dot:#9B5DE5" stroke-width="3.5" d="M208 31h0M192 26h0M188 24h0"/><path class="dots t1" style="--dot:#D9534F" stroke-width="3.5" d="M224 31h0M223 31h0M223 30h0"/><path class="dots t1" style="--dot:#E07A5F" stroke-width="3.5" d="M88 105h0"/><path class="dots t1" style="--dot:#E8B04B" stroke-width="3.5" d="M131 93h0M126 89h0M131 89h0M138 94h0M130 90h0M127 90h0"/></svg><span class="native">沖縄</span><span class="bar"></span></span>
 <span class="txt"><h3>Okinawa</h3>
 <span class="counts"><span class="dest-c">425 places<span class="hide-m"> · 191 sights · 234 to eat &amp; drink</span></span></span>
-<span class="star"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-star4"/></svg>Anime, Manga &amp; Pop Culture · 18</span></span></a></li>
-<li class="dest" data-page="hokkaido" data-gen="new"><a href="../cities/hokkaido.html" class="tile" data-city="hokkaido">
-<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots t1" stroke-width="3.6" d="M123 53h0M126 50h0M122 55h0M122 53h0M112 47h0M106 48h0M105 107h0M124 74h0M117 77h0M108 73h0M158 23h0M163 35h0M209 36h0M213 12h0M181 38h0M178 44h0M180 69h0M106 63h0M157 38h0M110 101h0M209 37h0M123 52h0M180 59h0M129 56h0M124 54h0M104 107h0M156 22h0M181 59h0M218 56h0M124 53h0M155 23h0"/></svg><span class="native">北海道</span><span class="bar"></span></span>
+<span class="sigline"><span>Shikinaen Royal Garden</span><span>Tamaudun Royal Mausoleum</span><span>Jimmy&#39;s Ōyama</span></span><span class="star"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-star4"/></svg>Anime, Manga &amp; Pop Culture · 18</span></span></a></li>
+<li class="dest" data-page="hokkaido" data-gen="new"><a href="../cities/hokkaido.html" class="tile c-night" data-city="hokkaido">
+<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots t1" stroke-width="3.5" d="M123 53h0M126 50h0M122 55h0M122 53h0M112 47h0M106 48h0M105 107h0M124 74h0M117 77h0M108 73h0M158 23h0M163 35h0M209 36h0M213 12h0M181 38h0M178 44h0M180 69h0M106 63h0M157 38h0M110 101h0M209 37h0M123 52h0M180 59h0M129 56h0M124 54h0M104 107h0M156 22h0M181 59h0M218 56h0M124 53h0M155 23h0"/></svg><span class="native">北海道</span><span class="bar"></span></span>
 <span class="txt"><h3>Hokkaido</h3>
 <span class="counts"><span class="dest-c">412 places<span class="hide-m"> · 228 sights · 184 to eat &amp; drink</span></span></span>
-<span class="star"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-star4"/></svg>Anime, Manga &amp; Pop Culture · 28</span></span></a></li>
+<span class="sigline"><span>Goryōkaku</span><span>Mount Hakodate</span><span>Menya Saimi</span></span><span class="star"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-star4"/></svg>Anime, Manga &amp; Pop Culture · 28</span></span></a></li>
   </ul>
 
 </div>
+<div class="wrap"><section class="themes section" id="themes" aria-labelledby="themes-h">
+<div class="rail-head"><h2 class="d2" id="themes-h">Collections in Japan<span class="n">7 collections · counts from the guides</span></h2></div>
+
+<ul class="theme-rail" aria-label="Collections in Japan">
+<li class="theme t-0">
+<a class="theme-main" href="../cities/tokyo.html#c=ANIME"><span class="theme-n">115</span><span class="theme-t">Anime pilgrimage</span><span class="theme-w">Real streets and shrines from the manga and screen canon · across Japan</span></a>
+<span class="theme-c"><a href="../cities/tokyo.html#c=ANIME">Tokyo <b>36</b></a><a href="../cities/hokkaido.html#c=ANIME">Hokkaido <b>28</b></a><a href="../cities/osaka.html#c=ANIME">Osaka <b>24</b></a><a href="../cities/okinawa.html#c=ANIME">Okinawa <b>18</b></a><span class="more-n">+1 more guide</span></span></li>
+<li class="theme t-1">
+<a class="theme-main" href="../cities/kyoto.html#c=TEMPLE"><span class="theme-n">315</span><span class="theme-t">Temples &amp; shrines</span><span class="theme-w">From Kyoto’s great halls to neighbourhood shrines · across Japan</span></a>
+<span class="theme-c"><a href="../cities/kyoto.html#c=TEMPLE">Kyoto <b>158</b></a><a href="../cities/tokyo.html#c=TEMPLE">Tokyo <b>79</b></a><a href="../cities/osaka.html#c=TEMPLE">Osaka <b>42</b></a><a href="../cities/okinawa.html#c=TEMPLE">Okinawa <b>26</b></a><span class="more-n">+1 more guide</span></span></li>
+<li class="theme t-2">
+<a class="theme-main" href="../cities/hokkaido.html#cz=RAMEN"><span class="theme-n">89</span><span class="theme-t">Ramen counters</span><span class="theme-w">Bowls named by the people who queue for them · across Japan</span></a>
+<span class="theme-c"><a href="../cities/hokkaido.html#cz=RAMEN">Hokkaido <b>33</b></a><a href="../cities/tokyo.html#cz=RAMEN">Tokyo <b>33</b></a><a href="../cities/kyoto.html#cz=RAMEN">Kyoto <b>13</b></a><a href="../cities/osaka.html#cz=RAMEN">Osaka <b>9</b></a><span class="more-n">+1 more guide</span></span></li>
+<li class="theme t-3">
+<a class="theme-main" href="../cities/kyoto.html#cz=FINE"><span class="theme-n">139</span><span class="theme-t">Michelin &amp; fine dining</span><span class="theme-w">Starred and bib-gourmand tables, each with its source · across Japan</span></a>
+<span class="theme-c"><a href="../cities/kyoto.html#cz=FINE">Kyoto <b>52</b></a><a href="../cities/tokyo.html#cz=FINE">Tokyo <b>52</b></a><a href="../cities/osaka.html#cz=FINE">Osaka <b>34</b></a><a href="../cities/hokkaido.html#cz=FINE">Hokkaido <b>1</b></a></span></li>
+<li class="theme t-0">
+<a class="theme-main" href="../cities/okinawa.html#c=UNESCO"><span class="theme-n">78</span><span class="theme-t">World Heritage</span><span class="theme-w">UNESCO-listed sites, pinned to the door · across Japan</span></a>
+<span class="theme-c"><a href="../cities/okinawa.html#c=UNESCO">Okinawa <b>29</b></a><a href="../cities/kyoto.html#c=UNESCO">Kyoto <b>26</b></a><a href="../cities/hokkaido.html#c=UNESCO">Hokkaido <b>12</b></a><a href="../cities/osaka.html#c=UNESCO">Osaka <b>6</b></a><span class="more-n">+1 more guide</span></span></li>
+<li class="theme t-1">
+<a class="theme-main" href="../cities/hokkaido.html#c=ONSEN"><span class="theme-n">53</span><span class="theme-t">Onsen &amp; sentō</span><span class="theme-w">Hot springs and neighbourhood bathhouses · across Japan</span></a>
+<span class="theme-c"><a href="../cities/hokkaido.html#c=ONSEN">Hokkaido <b>29</b></a><a href="../cities/tokyo.html#c=ONSEN">Tokyo <b>12</b></a><a href="../cities/kyoto.html#c=ONSEN">Kyoto <b>5</b></a><a href="../cities/osaka.html#c=ONSEN">Osaka <b>5</b></a><span class="more-n">+1 more guide</span></span></li>
+<li class="theme t-2">
+<a class="theme-main" href="../cities/tokyo.html#c=FREE"><span class="theme-n">427</span><span class="theme-t">Free to visit</span><span class="theme-w">Museums, parks and landmarks that cost nothing · across Japan</span></a>
+<span class="theme-c"><a href="../cities/tokyo.html#c=FREE">Tokyo <b>125</b></a><a href="../cities/okinawa.html#c=FREE">Okinawa <b>108</b></a><a href="../cities/hokkaido.html#c=FREE">Hokkaido <b>82</b></a><a href="../cities/kyoto.html#c=FREE">Kyoto <b>56</b></a><span class="more-n">+1 more guide</span></span></li>
+</ul></section></div>
 <section class="wrap section" aria-labelledby="else-h"><h2 class="d2" id="else-h">Elsewhere in Cleo</h2>
 <div class="countries" style="margin-top:12px"><a class="pill" href="../index.html#us">United States <span class="n">4,144</span></a><a class="pill" href="../Singapore/index.html">Singapore <span class="n">598</span></a><a class="pill" href="../Vietnam/index.html">Vietnam <span class="n">183</span></a><a class="pill" href="../Germany/index.html">Germany <span class="n">751</span></a><a class="pill" href="../Belgium/index.html">Belgium <span class="n">651</span></a></div></section>
 </main>
@@ -86,7 +175,7 @@
     <div><a class="brand" href="../index.html" aria-label="Cleo — all destinations"><svg class="mark" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4.2l1.75 6.05L19.8 12l-6.05 1.75L12 19.8l-1.75-6.05L4.2 12l6.05-1.75z"/></svg><b>cleo</b></a>
       <p>8,458 places across 84 guides — every one traceable to the source that recommended it, pinned and status-checked.</p></div>
     <div><h4>Destinations</h4><ul><li><a href="../index.html#us">United States</a></li><li><a href="../Singapore/index.html">Singapore</a></li><li><a href="../Vietnam/index.html">Vietnam</a></li><li><a href="../Germany/index.html">Germany</a></li><li><a href="../Belgium/index.html">Belgium</a></li><li><a href="../Japan/index.html">Japan</a></li></ul></div>
-    <div><h4>The method</h4><ul><li><a href="../how-we-choose.html">How we choose</a></li><li><a href="../how-we-choose.html#closures">Closed places</a></li><li><a href="../how-we-choose.html#pins">Pins</a></li></ul></div>
+    <div><h4>The method</h4><ul><li><a href="../how-we-choose.html">How we choose</a></li><li><a href="../how-we-choose.html#closures">Closed places</a></li><li><a href="../how-we-choose.html#pins">Pins</a></li><li><a href="../accessibility.html">Accessibility</a></li></ul></div>
     <div><h4>Yours</h4><ul><li><a href="../saved.html">Your list</a></li><li><a href="../index.html#search">Search</a></li><li><button type="button" class="btn theme-toggle" aria-pressed="false" data-cleo-theme hidden><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg><span>Night edition</span></button></li></ul></div>
   </div>
   <p class="legal colophon">Cleo beta — every place is carried from <a href="https://alvations.github.io/cleo-guide/">the current live guides</a>, with its sources. Map tiles: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>; Esri. No ratings, prices or hours are shown because they aren't in our data — check before you go.</p>
@@ -98,6 +187,6 @@
 <a href="../how-we-choose.html"><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seal"/></svg><span>Method</span></a>
 </nav>
 <script src="../assets/js/states.js?v=938d68f2cf" defer></script>
-<script src="../assets/js/search.js?v=83def4d1ff" defer></script>
+<script src="../assets/js/search.js?v=3eb9582ecc" defer></script>
 </body>
 </html>

@@ -8,6 +8,13 @@ const { esc } = require('../html');
 const { head, siteBar, footer, styles } = require('./common');
 const { icon, site } = require('./shell');
 
+const PAGE_CSS = `
+.tablewrap{overflow-x:auto;margin:16px 0 8px}.ctable{border-collapse:collapse;width:100%;min-width:520px;font-size:15px}
+.ctable caption{text-align:left;padding-bottom:6px}.ctable th,.ctable td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left}
+.ctable td{font-variant-numeric:tabular-nums}.ctable thead th{font-size:13.5px;color:var(--ink-3);font-weight:650}
+.a11y-list{display:grid;gap:10px;padding:0;list-style:none}.a11y-list li{border:1px solid var(--line);border-radius:var(--r-m);padding:12px 14px;background:var(--surface)}
+.a11y-list li b{display:block;margin-bottom:2px}.gapstate{font-size:13px;font-weight:650;color:var(--warn,var(--ink-2))}
+`;
 const TIER_SVG = {
   1: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle class="s" cx="12" cy="12" r="10.6" fill="none" stroke-width="1.5"/><path class="f" d="M12 4.2l1.75 6.05L19.8 12l-6.05 1.75L12 19.8l-1.75-6.05L4.2 12l6.05-1.75z"/></svg>',
   2: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle class="s" cx="12" cy="12" r="10.6" fill="none" stroke-width="1.5"/><path class="s" d="M12 4.2l1.75 6.05L19.8 12l-6.05 1.75L12 19.8l-1.75-6.05L4.2 12l6.05-1.75z" fill="none" stroke-width="1.4" stroke-linejoin="round"/><circle class="f" cx="12" cy="12" r="1.5"/></svg>',
@@ -44,13 +51,28 @@ function stats(reg) {
   };
 }
 
+
+/** Per-country figures for the method page (every number computed from the records). */
+function countryTable(reg) {
+  const n = v => v.toLocaleString('en-US');
+  const rows = reg.countries.filter(c => c.live).sort((a, b) => a.order - b.order).map(c => {
+    const recs = reg.rows.filter(r => r.kind === 'city' && r.country === c.key).flatMap(r => r.recs || []);
+    const g = reg.rows.filter(r => r.kind === 'city' && r.country === c.key).length;
+    const hi = recs.filter(x => x.pv && x.pv.pin === 'high').length;
+    return { name: c.name, g, n: recs.length, hi, pct: recs.length ? Math.round(100 * hi / recs.length) : 0, closed: recs.filter(x => x.closed).length };
+  }).filter(r => r.n);
+  return `<div class="tablewrap"><table class="ctable"><caption class="sm muted">By country, as built</caption>
+<thead><tr><th scope="col">Country</th><th scope="col">Guides</th><th scope="col">Places</th><th scope="col">Pins at high confidence</th><th scope="col">Closed, kept</th></tr></thead>
+<tbody>${rows.map(r => `<tr><th scope="row">${esc(r.name)}</th><td>${r.g}</td><td>${n(r.n)}</td><td>${n(r.hi)} (${r.pct} %)</td><td>${n(r.closed)}</td></tr>`).join('')}</tbody></table></div>`;
+}
+
 function methodPage(reg, ctx) {
   const s = stats(reg);
   const n = v => v.toLocaleString('en-US');
   const title = 'How we choose · Cleo';
   const desc = `How ${n(s.places)} places got onto Cleo's maps: named sources, a merit bar, tiers graded within each area, pins checked to the door and closures checked against a source.`;
   const toc = [['merit', 'The merit bar'], ['sources', 'Sources'], ['tiers', 'Tiers'], ['pins', 'Pins'], ['closures', 'Closed places'], ['gaps', 'Stated gaps'], ['added', 'Added by the guide']];
-  return `${head({ page: 'method', title, description: desc, rel: 'how-we-choose.html', depth: 0, assetsV: ctx.assetsV, css: styles(0), from: 'every live place page (computed stats)' })}
+  return `${head({ page: 'method', title, description: desc, rel: 'how-we-choose.html', depth: 0, assetsV: ctx.assetsV, css: styles(0), from: 'every live place page (computed stats)' }).replace('</head>', `<style>${PAGE_CSS}</style>\n</head>`)}
 <body class="has-tabbar">
 ${siteBar({ depth: 0, current: 'method', rel: 'how-we-choose.html' })}
 <main id="main" class="feb">
@@ -66,6 +88,7 @@ ${siteBar({ depth: 0, current: 'method', rel: 'how-we-choose.html' })}
     <div role="listitem"><b>${n(s.closed)}</b><span>closed places kept, flagged</span></div>
   </div>
   <p class="sm muted">${n(s.checked)} of ${n(s.places)} places carry a recorded status check${s.last ? `; the most recent was ${esc(s.last)}` : ''}. Computed from the guides when this page was built.</p>
+  ${countryTable(reg)}
   <nav class="toc" aria-label="On this page">${toc.map(([id, t]) => `<a class="pill" href="#${id}">${t}</a>`).join('')}</nav>
   <div class="prose">
   <h2 class="d2" id="merit">The merit bar</h2>
@@ -108,6 +131,7 @@ ${siteBar({ depth: 0, current: 'method', rel: 'how-we-choose.html' })}
 
   <h2 class="d2" id="not">What we don't show</h2>
   <p>No star ratings, review counts, prices or opening hours — they aren't in our data, and we don't guess. Check hours before you go.</p>
+  <p>How the site itself is built for every reader — keyboard, screen reader, low vision, no network — is on the <a href="accessibility.html">accessibility page</a>.</p>
   </div>
 </div>
 </main>
@@ -136,7 +160,56 @@ ${footer({ depth: 0, tabbar: true, current: 'other' })}
 `;
 }
 
+/** beta/accessibility.html (M2-12): the commitment, what is measured, the known gaps, and how to report one. */
+function accessibilityPage(reg, ctx) {
+  const T = site().totals;
+  const issue = 'https://github.com/alvations/cleo-guide/issues/new?labels=accessibility&title=' + encodeURIComponent('Accessibility: ');
+  const title = 'Accessibility · Cleo';
+  const desc = 'What Cleo commits to for every reader: WCAG 2.2 AA, measured on every build, with the known gaps stated and a way to report one.';
+  const li = (b, t) => `<li><b>${b}</b>${t}</li>`;
+  return `${head({ page: 'method', title, description: desc, rel: 'accessibility.html', depth: 0, assetsV: ctx.assetsV, css: styles(0), from: 'docs/BETA-QA.md (latest run) + design/beta/eval/ROUND-1.md' }).replace('</head>', `<style>${PAGE_CSS}</style>\n</head>`)}
+<body class="has-tabbar">
+${siteBar({ depth: 0, current: 'other', rel: 'accessibility.html' })}
+<main id="main" class="feb">
+<section class="masthead" aria-labelledby="ah"><div class="inner">
+  <h1 class="title d1" id="ah">Accessibility</h1>
+  <p class="facts">A guide is only useful if you can read it. Cleo aims to meet <b>WCAG 2.2 level AA</b> on every page, for every one of its ${T.places.toLocaleString('en-US')} places — and to say plainly where it doesn't yet.</p>
+</div><span class="accentbar"></span></section>
+<div class="wrap section prose">
+  <h2 class="d2" id="commit">What we commit to</h2>
+  <ul class="a11y-list">
+    ${li('Everything is readable without the map.', 'Every place is in the list as text — name, write-up, address, who recommends it, open or closed. The map is an extra; if it fails to load, nothing is lost.')}
+    ${li('Everything is readable without a network or script.', 'Pages are plain HTML with system-font fallbacks; search, saving and filters add to it but are never needed to read a guide.')}
+    ${li('Contrast at AA, in both editions.', 'Text and controls meet the AA contrast minimums in the day edition and the night edition. Colour is never the only signal: closed places say “Closed” in words, tiers have a name next to the glyph.')}
+    ${li('Targets you can hit.', 'Every button and link outside running prose is at least 44 by 44 pixels.')}
+    ${li('Keyboard all the way.', 'A skip link goes straight to the content; focus is always visible; dialogs (place details, filters, search) keep focus inside, close with Esc or Back, and return focus to where you were. In search results, the arrow keys move between results.')}
+    ${li('Landmarks and names.', 'Each page has a header, navigation, main content and footer; every control has an accessible name.')}
+    ${li('Motion only if you want it.', 'With “reduce motion” set on your device, nothing animates.')}
+    ${li('Storage is optional.', 'If your browser blocks storage, your list still works for the session and the page tells you so.')}
+  </ul>
+  <h2 class="d2" id="measured">How it is measured</h2>
+  <p>Each build is checked by an automated harness at a phone size (390 × 844) and a desktop size (1440 × 900) across every page: contrast in both editions, tap-target size, overflow, visible focus, landmarks, skip link, accessible names, and that every place can be reached by scrolling, by deep link, by search and with scripts off. The latest results are kept in the project's QA log alongside the evidence.</p>
+  <h2 class="d2" id="gaps">Known gaps</h2>
+  <p>These are open today. We list them instead of claiming conformance we haven't measured.</p>
+  <ul class="a11y-list">
+    ${li('Map pins are not a keyboard list.', 'Pins on the map can be reached with a pointer; with a keyboard or screen reader, use the list, which carries every place the map shows, in the same order and numbering.')}
+    ${li('The biggest guides are long pages.', 'Tokyo and New York hold close to 500 places each on one page, which can be slow to move through with a screen reader. Use the area links, the filters or search to jump. Lighter progressive loading is being built.')}
+    ${li('Native-script names are not yet language-tagged.', 'Names such as 浅草寺 are shown beside the English name but are not yet marked as Japanese, so some screen readers may mispronounce them.')}
+    ${li('English only.', 'The interface is in English. Place names stay in their own script.')}
+    ${li('Not yet audited by a person.', 'The checks above are automated. A manual audit with assistive-technology users has not been done yet.')}
+  </ul>
+  <h2 class="d2" id="contact">Tell us about a barrier</h2>
+  <p>If something on Cleo is hard to use, please <a href="${esc(issue)}">open an issue on GitHub</a> with the page and what happened. You don't need to know the technical cause — “I couldn't reach the Close button with the keyboard on the Tokyo page” is exactly the kind of report we need.</p>
+  <p><a class="btn btn-primary" href="${esc(issue)}">Report an accessibility problem</a> <a class="btn btn-ghost" href="how-we-choose.html">How we choose places</a></p>
+</div>
+</main>
+${footer({ depth: 0, tabbar: true, current: 'other' })}
+</body>
+</html>
+`;
+}
+
 /** Pages this module owns, keyed by beta-relative path. */
-const pages = (reg, ctx) => ({ 'how-we-choose.html': methodPage(reg, ctx), '404.html': notFound(reg, ctx) });
+const pages = (reg, ctx) => ({ 'how-we-choose.html': methodPage(reg, ctx), 'accessibility.html': accessibilityPage(reg, ctx), '404.html': notFound(reg, ctx) });
 
 module.exports = { pages, stats, TIER_SVG };

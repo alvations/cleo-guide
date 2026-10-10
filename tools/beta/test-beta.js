@@ -99,7 +99,7 @@ console.log('\n== ROLLOUT + HUBS: beta page set == live, every hub count == its 
   const liveHtml = manifest.pages.map(p => p.beta).concat(manifest.generated.filter(g => !manifest.pages.some(p => p.beta === g))).sort();
   chk('beta HTML set == live page set (+ generator-declared beta-only pages)', htmls.map(p => path.relative(BETA, p).split(path.sep).join('/')).sort().join(), liveHtml.join());
   const byKey = Object.fromEntries(manifest.pages.filter(p => p.counts).map(p => [p.key, p.counts.P + p.counts.F]));
-  const cardsOf = h => [...h.matchAll(/<li class="dest" data-page="([^"]+)"[\s\S]*?<span class="dest-c">([\d,]+) places/g)].map(m => [m[1], +m[2].replace(/,/g, '')]);
+  const cardsOf = h => [...h.matchAll(/<li class="dest" data-page="([^"]+)"[\s\S]*?<span class="dest-c">([\d,]+) places?\b/g)].map(m => [m[1], +m[2].replace(/,/g, '')]);
   const liveC = JSON.parse(rd('data/countries.json')).countries.filter(c => c.live);
   const hubs = [['index.html', manifest.pages.filter(p => p.kind === 'city' && liveC.some(c => c.key === p.country)).map(p => p.key)]]
     .concat(liveC.filter(c => c.hub && c.hub !== 'index.html').map(c => [c.hub, manifest.pages.filter(p => p.kind === 'city' && p.country === c.key).map(p => p.key)]))
