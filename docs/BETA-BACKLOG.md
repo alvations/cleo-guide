@@ -194,3 +194,8 @@ Appended by the QA lane (rows only). Evidence and screenshots: [`BETA-QA.md`](BE
 | QA-16 | Med | Cleveland rail leads with Vietnamese/Singaporean; city-unique food 5th; no sight collections in rail | M1-02, M1-03, editorial | FE-A, PLT | 2026-10-10 r2 | todo |
 | QA-17 | Low | Leaflet `_leaflet_pos` errors under machine-speed deep-link loop (not at human speed) | G4 (robustness) | FE-A | 2026-10-10 r2 | todo |
 | QA-18 | Low | Space before commas in "Recommended by" source lists | M1-10 polish | FE-A | 2026-10-10 r2 | todo |
+| QA-19 | High | Esc doesn't close the map pin sheet (`.poi-sheet`); Close + Back work | B-07, M1-05 | FE-A | 2026-10-10 r3 | todo |
+| QA-20 | Med | B-16 regression: 23 pages < 2 cards/screen (Wheeling 1.95) after source links became stacked 44 px blocks | B-16 | FE-A, DES | 2026-10-10 r3 | todo |
+| QA-21 | Med | "★ Signature" rail tile is a source (Wikipedia, tourism boards) where a city lacks a ★ collection | M1-02, editorial | DES, FE-A | 2026-10-10 r3 | todo |
+| QA-22 | Med | Vietnam hub: 1 city card above the fold (archived singapore-old: 0) | B-05, M1-17 | FE-B | 2026-10-10 r3 | todo |
+| QA-23 | Low | 404 page tab labels 2.86:1 | B-23 | FE-B | 2026-10-10 r3 | todo |
