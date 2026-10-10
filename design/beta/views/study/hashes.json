@@ -1,0 +1,41 @@
+{
+ "chart": {
+  "m": "#c=anthropic",
+  "d": "#c=anthropic"
+ },
+ "chart-ranges": {
+  "m": "#c=anthropic&v=ranges",
+  "d": "#c=anthropic&v=ranges"
+ },
+ "map": {
+  "m": "#c=anthropic&m=map",
+  "d": "#c=anthropic&m=map"
+ },
+ "insights": {
+  "m": "#c=anthropic&m=insights",
+  "d": "#c=anthropic&m=insights"
+ },
+ "filtered": {
+  "m": "#c=anthropic&d=Engineering&r=remote",
+  "d": "#c=anthropic&d=Engineering&r=remote"
+ },
+ "filters-open": {
+  "m": "#c=anthropic",
+  "d": "#c=anthropic"
+ },
+ "detail": {
+  "m": "#c=anthropic&job=anthropic%3A4262867",
+  "d": "#c=anthropic&job=anthropic%3A4262867"
+ },
+ "insights-panel": {
+  "m": "#c=anthropic&m=insights",
+  "d": "#c=anthropic&m=insights"
+ },
+ "paging": {
+  "m": "#c=anthropic",
+  "d": "#c=anthropic"
+ },
+ "results-sheet": {
+  "m": "#c=anthropic"
+ }
+}
