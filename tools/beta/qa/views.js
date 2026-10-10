@@ -120,6 +120,14 @@ const STATE = () => {
 };
 // what the lens should show, computed from the record set with THE predicate (P-02)
 const LENS_N = o => { if (Cleo.defer && Cleo.defer.all) Cleo.defer.all(); return [...document.querySelectorAll('li.pl')].filter(c => Cleo.lens.match(c, o)).length; };
+// phones show the switcher as a disclosure (only the current view's button, aria-expanded): open it first
+async function switchTo(page, v) {
+  const btn = page.locator(`[data-cleo-views] button[data-view="${v}"]`).first();
+  if (!(await btn.count())) return false;
+  if (!(await btn.isVisible())) { const cur = page.locator('[data-cleo-views] button[aria-pressed="true"]').first(); if (await cur.count()) { await cur.click(); await page.waitForTimeout(250); } }
+  if (!(await btn.isVisible())) return false;
+  await btn.click(); await page.waitForTimeout(500); return true;
+}
 const viewOk = (s, v) => s.view === v ? true : (s.registered || s.switcher.length ? false : null);
 
 async function nocdn() {
@@ -138,9 +146,7 @@ async function nocdn() {
       if (vp === 'mobile' && rel === 'cities/tokyo.html') await shot(page, `nocdn-${v}-m`);
       // the switcher works with no storage: switch to the next view, html[data-view] + aria-pressed follow
       const next = VIEWS[(VIEWS.indexOf(v) + 1) % VIEWS.length];
-      const btn = page.locator(`[data-cleo-views] button[data-view="${next}"]`).first();
-      if (await btn.count() && await btn.isVisible()) {
-        await btn.click(); await page.waitForTimeout(500);
+      if (await switchTo(page, next)) {
         const s2 = await page.evaluate(STATE);
         check('nocdn', tag + ': switcher → ' + next + ' with no storage', s2.view === next && s2.pressed === next && !st.errors.length, { view: s2.view, pressed: s2.pressed, err: st.errors.slice(0, 2) });
       } else check('nocdn', tag + ': switcher present', applied === null ? null : false, s.switcher);
@@ -181,9 +187,7 @@ async function links() {
     // a switch is one history entry: gallery → atlas → Back → Forward
     for (const vp of ['mobile', 'desktop']) {
       const { ctx, page, st } = await open(rel, vp, { hash: '#view=gallery' });
-      const btn = page.locator('[data-cleo-views] button[data-view="atlas"]').first();
-      if (!(await btn.count()) || !(await btn.isVisible())) { check('links', `${rel} ${vp} Back/Forward across a switch`, null, 'no switcher yet'); await ctx.close(); continue; }
-      await btn.click(); await page.waitForTimeout(400);
+      if (!(await switchTo(page, 'atlas'))) { check('links', `${rel} ${vp} Back/Forward across a switch`, null, 'no switcher yet'); await ctx.close(); continue; }
       const a = (await page.evaluate(STATE)).view;
       await page.goBack(); await page.waitForTimeout(400); const b = (await page.evaluate(STATE)).view;
       await page.goForward(); await page.waitForTimeout(400); const c = (await page.evaluate(STATE)).view;

@@ -1,0 +1,767 @@
+{
+ "head": "83aa1a28",
+ "checks": [
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=gallery (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=gallery&p=imperial-palace-east-gardens (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=gallery&a=CYD (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "shown": 43,
+    "want": 43,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=gallery&a=CYD&p=imperial-palace-east-gardens (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 43,
+    "want": 43,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=gallery&t=1 (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "shown": 177,
+    "want": 177,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=gallery&t=1&p=imperial-palace-east-gardens (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 177,
+    "want": 177,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=gallery&q=Imperial (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "shown": 6,
+    "want": 6,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=gallery&q=Imperial&p=imperial-palace-east-gardens (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 6,
+    "want": 6,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=gallery&pg=2",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "hash": "#view=gallery&pg=2"
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=gallery&all=1",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "hash": "#view=gallery&all=1"
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=atlas (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=atlas&p=imperial-palace-east-gardens (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=atlas&a=CYD (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "shown": 43,
+    "want": 43,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=atlas&a=CYD&p=imperial-palace-east-gardens (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 43,
+    "want": 43,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=atlas&t=1 (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "shown": 177,
+    "want": 177,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=atlas&t=1&p=imperial-palace-east-gardens (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 177,
+    "want": 177,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=atlas&q=Imperial (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "shown": 6,
+    "want": 6,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=atlas&q=Imperial&p=imperial-palace-east-gardens (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 6,
+    "want": 6,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=guidebook (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=guidebook&p=imperial-palace-east-gardens (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=guidebook&a=CYD (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "shown": 43,
+    "want": 43,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=guidebook&a=CYD&p=imperial-palace-east-gardens (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 43,
+    "want": 43,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=guidebook&t=1 (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "shown": 177,
+    "want": 177,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=guidebook&t=1&p=imperial-palace-east-gardens (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 177,
+    "want": 177,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=guidebook&q=Imperial (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "shown": 6,
+    "want": 6,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=guidebook&q=Imperial&p=imperial-palace-east-gardens (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 6,
+    "want": 6,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=insights (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=insights&p=imperial-palace-east-gardens (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=insights&a=CYD (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "shown": 43,
+    "want": 43,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=insights&a=CYD&p=imperial-palace-east-gardens (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 43,
+    "want": 43,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=insights&t=1 (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "shown": 177,
+    "want": 177,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=insights&t=1&p=imperial-palace-east-gardens (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 177,
+    "want": 177,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=insights&q=Imperial (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "shown": 6,
+    "want": 6,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile #view=insights&q=Imperial&p=imperial-palace-east-gardens (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 6,
+    "want": 6,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=gallery (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=gallery&p=imperial-palace-east-gardens (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=gallery&a=CYD (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "shown": 43,
+    "want": 43,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=gallery&a=CYD&p=imperial-palace-east-gardens (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 43,
+    "want": 43,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=gallery&t=1 (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "shown": 177,
+    "want": 177,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=gallery&t=1&p=imperial-palace-east-gardens (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 177,
+    "want": 177,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=gallery&q=Imperial (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "shown": 6,
+    "want": 6,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=gallery&q=Imperial&p=imperial-palace-east-gardens (pref guidebook)",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 6,
+    "want": 6,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=gallery&pg=2",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "hash": "#view=gallery&pg=2"
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=gallery&all=1",
+   "status": "PASS",
+   "evidence": {
+    "view": "gallery",
+    "hash": "#view=gallery&all=1"
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=atlas (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=atlas&p=imperial-palace-east-gardens (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=atlas&a=CYD (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "shown": 43,
+    "want": 43,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=atlas&a=CYD&p=imperial-palace-east-gardens (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 43,
+    "want": 43,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=atlas&t=1 (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "shown": 177,
+    "want": 177,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=atlas&t=1&p=imperial-palace-east-gardens (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 177,
+    "want": 177,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=atlas&q=Imperial (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "shown": 6,
+    "want": 6,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=atlas&q=Imperial&p=imperial-palace-east-gardens (pref insights)",
+   "status": "PASS",
+   "evidence": {
+    "view": "atlas",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 6,
+    "want": 6,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=guidebook (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=guidebook&p=imperial-palace-east-gardens (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=guidebook&a=CYD (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "shown": 43,
+    "want": 43,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=guidebook&a=CYD&p=imperial-palace-east-gardens (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 43,
+    "want": 43,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=guidebook&t=1 (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "shown": 177,
+    "want": 177,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=guidebook&t=1&p=imperial-palace-east-gardens (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 177,
+    "want": 177,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=guidebook&q=Imperial (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "shown": 6,
+    "want": 6,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=guidebook&q=Imperial&p=imperial-palace-east-gardens (pref gallery)",
+   "status": "PASS",
+   "evidence": {
+    "view": "guidebook",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 6,
+    "want": 6,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=insights (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=insights&p=imperial-palace-east-gardens (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=insights&a=CYD (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "shown": 43,
+    "want": 43,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=insights&a=CYD&p=imperial-palace-east-gardens (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 43,
+    "want": 43,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=insights&t=1 (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "shown": 177,
+    "want": 177,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=insights&t=1&p=imperial-palace-east-gardens (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 177,
+    "want": 177,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=insights&q=Imperial (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "shown": 6,
+    "want": 6,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop #view=insights&q=Imperial&p=imperial-palace-east-gardens (pref atlas)",
+   "status": "PASS",
+   "evidence": {
+    "view": "insights",
+    "sheet": "Imperial Palace East Gardens (皇居東御苑)",
+    "shown": 6,
+    "want": 6,
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html mobile Back/Forward across a switch",
+   "status": "PASS",
+   "evidence": {
+    "a": "atlas",
+    "b": "gallery",
+    "c": "atlas",
+    "err": []
+   }
+  },
+  {
+   "group": "links",
+   "name": "cities/tokyo.html desktop Back/Forward across a switch",
+   "status": "PASS",
+   "evidence": {
+    "a": "atlas",
+    "b": "gallery",
+    "c": "atlas",
+    "err": []
+   }
+  }
+ ]
+}

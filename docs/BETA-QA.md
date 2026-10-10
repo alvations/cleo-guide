@@ -417,3 +417,31 @@ Evidence: `qa/beta-w2-retest-c2a221bd-{a11y-hubs.json,pilots.md,Vietnam_index.md
 These are W3 work-in-progress defects. They do not block the W2 deploy of `c2a221bd`.
 
 QA sign-off: YES
+
+## 2026-10-10 · QA · Wave 3 (views) full pass · session_015bFMDrayu1fp3qp2cKD3xm
+
+**Tested SHA: `83aa1a28`**, checked out clean in a separate worktree. All W3 lanes reported done (platform, FE-B, designer `982c3ba7`, FE-A `83aa1a28`).
+
+Gates: `npm run validate` ✅, `npm test` ✅ (P-04 reachability per view and the Q-04 honesty gate included), `npm run beta:check` ✅ (95 pages, 8,458 places, beta == live).
+
+| Item | Run | Result |
+|---|---|---|
+| Q-01 per-view metrics | `metrics.js --view {atlas,gallery,guidebook,insights}`, 6 pilots × 390/360/1440 → `qa/beta-w3/beta-w3-metrics-*.md` | **Atlas** (default) 24/24 on every pilot, so the W2 page metrics hold (QA-29/30/31 fixed). In every view: B-22 overflow 0 at 360 and 390, and B-23 contrast 0/0 light and night. **Gallery:** the first rail card sits on the first phone screen (checked by screenshot). The B-01/B-03/B-16 ❌ come from the probe measuring the paged All-N grid, a harness limit, not a defect. ❌ **QA-32:** Guidebook B-20, 598 (Cleveland) / 2,801 (Tokyo) small targets. ❌ **QA-33:** Insights M1-16 focus visible 13/30 and 12/30, plus B-20 62/188. The map/rail rows (B-04, B-06, B-07, B-09) are Atlas-only and don't apply to the other views. |
+| G1 reachability, every view | `test-views.js` P-04 in npm test (scroll, `#p=`, `q=`, print DOM) + `views.js` | ✅ every place on every pilot in every view. The Gallery reaches all of them through the pager and Show all (`#p=` 194/194, 488/488). The metrics G1 row reads 0/N in Guidebook and Insights because it probes `li.pl` only; P-04 covers those views. |
+| Q-02 no-CDN + storage blocked | `views.js --only nocdn`: Leaflet, tiles and fonts blocked and `localStorage`/`sessionStorage` throwing, 5 pilots × 4 views × 2 viewports | ✅ **160/160**. The view is applied, every place id is in the DOM, there are 0 JS errors, and the switcher switches (phone disclosure + aria-pressed) with no storage. |
+| Q-03 deep-link matrix | `views.js --only links`: #view × #p × lens (a, t, q) × pg/all, receiver's stored preference ≠ the link, Back/Forward | ✅ 140 + 70 cases. The sender's view wins over the stored preference, the lens counts equal `Cleo.lens`, `#p=` opens the sheet in every view, and one switch is one history entry. |
+| Q-04 honesty | `test-honesty.js` (npm test) + mounted views with the sheet open | ✅ 0 hits in view copy. INFO (PM): record prose from the live data carries prices and ratings (269 places, e.g. Cleveland golf "Around $13 for nine holes", shown verbatim in the Guidebook). It is data, not view copy, and needs a PM call. |
+| W2 regression | `beta:qa:w2` (full) | 216/218. ❌ **QA-34:** Chinatown phone map, a pin tap opens no sheet (2/2 runs; it was 36 % in W2). ❌ QA-26 (Low, carried over). |
+
+### New defects (W3)
+
+| ID | Sev | What | Evidence | Lane |
+|---|---|---|---|---|
+| QA-32 | Med | **Guidebook tap targets.** Save hearts `.ge-save` are 30 px tall (194 on Cleveland), source chips `.recby .src` are 26 px (229), and the `.urls` links are under 44 px. Hearts and chips should match the 44 px card chrome. The entry-name links in `h4` are text links (exempt). | `beta-w3-metrics-guidebook.md` B-20 | FE-B (guidebook markup) + DES (views.css) |
+| QA-33 | Med | **Insights keyboard focus.** Tab walk: 13/30 focus stops have no visible focus ring. These are the SVG chart bar links (`<a>` around `rect.bar`), which also measure 18 px tall. Add a `:focus-visible` outline on the bar or link. The 18 px height is acceptable *only* because "Show as a table" and the index give equivalent 44 px targets; keep both. | `beta-w3-metrics-insights.md` M1-16, B-20 | DES (views.css) + FE-B |
+| QA-34 | Med | **Chinatown phone map: a pin tap opens no sheet** (M2-13 peek detent). Other pilots pass. It was 36 % in W2, so this regresses with FE-A slice 3 (list-first phones). | `qa/beta-w3/w2-map-83aa1a28.json` | FE-A |
+
+Harness notes: `views.js` opens the phone switcher disclosure before switching (fixed in this commit). Per-view metrics evidence: `qa/beta-w3/`.
+
+QA sign-off: NO
+Blockers: **QA-33** (keyboard focus not visible on Insights chart links: M1-16 a11y on a new view) · **QA-32** (Guidebook hearts and source chips under 44 px: Q-01 B-20 per view) · **QA-34** (Chinatown phone pin sheet regression: W2 M2-13). All three are small. Every other W3 criterion passes on `83aa1a28`: Q-02 160/160, Q-03 210/210, Q-04 0 hits, P-04 reachability in every view, Atlas 24/24 on every pilot. QA re-signs YES once `metrics.js --view guidebook|insights` (B-20, focus) and `beta:qa:w2 --only map` show these three green with the gates unchanged.

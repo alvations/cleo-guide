@@ -552,6 +552,9 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **QA-31:** phones open Atlas **list-first**, as in W2. The detent tray now lives over the full-screen map (Map / `#map=`, starting at peek, "List" closes it), and the area chips only show there. The switcher is no longer sticky (B-08 floaters). **Under 640 px it collapses to one "View: Atlas ▾" button** that opens all four (`aria-expanded`), which keeps B-03 ≤ 14.
   - **Measured** with QA's `tools/beta/metrics.js` (the W2 harness behind QA-29…31) on this tree: **24/24 on Cleveland, Tokyo, NYC, Chinatown and Wheeling, and 10/10 on the landing**. G1 passes everywhere (deep 194/194, 488/488, 508/508…), and B-23 night is 0/0. Tables: `design/beta/eval/w3/fe-a/qa29-31-metrics-default.md`, `qa29-metrics-gallery.md`.
   - Tests: `test-fe-a.js` W3 block, 31 checks. New: Atlas default; Gallery `#p=` to a last-page place, `#p-` anchor and `#area-` anchor all land on a shown card; stored Gallery preference; an explicit `view=` beats it. validate + npm test + beta:check PASS.
+- 2026-10-10 · **QA** · W3 full pass on `83aa1a28` · session_015bFMDrayu1fp3qp2cKD3xm
+  - **QA sign-off: NO**, with 3 small blockers: **QA-33** (DES+FE-B: Insights chart links have no visible focus, 13/30), **QA-32** (FE-B+DES: Guidebook hearts 30 px and source chips 26 px), **QA-34** (FE-A: Chinatown phone pin tap opens no sheet, a W2 M2-13 regression).
+  - Passing: gates ✅; Q-02 no-CDN + storage blocked 160/160; Q-03 deep links 210/210; Q-04 honesty 0 hits; P-04 reachability in every view; Atlas 24/24 on every pilot (QA-29/30/31 fixed); overflow and contrast 0 in every view. Details and evidence: BETA-QA.md → "Wave 3", `qa/beta-w3/`.
 
 - 2026-10-10 15:06Z · orchestrator · W3 build complete at 83aa1a28. FE-A and the designer are archived.
   - QA W3 is running its full views pass on 83aa1a28.
