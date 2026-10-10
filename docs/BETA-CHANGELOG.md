@@ -95,3 +95,31 @@ Evidence: `design/beta/eval/ROUND-3.md`.
 Evidence: `design/beta/eval/ROUND-4.md`.
 
 **Deployed 2026-10-10 17:38Z:** PR alvations/cleo-guide#6 merged the QA-signed `8aa6fdf4` into the Pages branch (merge `5a323aec`). The live site is untouched.
+
+## Round 5, the final build round (evaluated 2026-10-10): 83.4 → 84.5
+
+| Dimension | R0 | R1 | R2 | R3 | R4 | **R5** | Goal |
+|---|---|---|---|---|---|---|---|
+| A. Look & feel (40 %) | 32 | 60 | 67 | 71 | 74 | **76** | ≥ 80 ✕ |
+| B. UX & ergonomics (25 %) | 25 | 74 | 84 | 84 | 85 | **86** | — |
+| C. Feature coverage (20 %) | 30 | 66 | 89 | 91 | 96 | **96** | ≥ 80 ✅ |
+| D. Unique strengths (15 %) | 40 | 72 | 86 | 88 | 89 | **89** | — |
+| **Overall** | **31.1** | **66.5** | **78.5** | **80.8** | **83.4** | **84.5** | ≥ 80 ✅ |
+
+**Shipped (Wave 5, briefs in `design/beta/eval/W5-BRIEFS.md`):**
+- Gallery is the default view. QA ratified it with an independent reachability probe: 1,241/1,241 deep links, 100 % search, show-all, no-JS, and a lead card in the first phone screen.
+- Macrons are visible at DPR 1.
+- Each cover motif is keyed on the place's kind id.
+- The masthead link is fixed.
+- The Insights index is lazy and has 44 px rows.
+- The i18n catalogue now covers the landing page and hubs.
+
+Evidence: `design/beta/eval/ROUND-5.md`. Whole-program summary: `design/beta/eval/FINAL-SUMMARY.md`.
+
+**Deployed 2026-10-10 19:42Z:** PR alvations/cleo-guide#7 merged the QA-signed `f2bf7610` into the Pages branch (merge `5509b8cc`). The live site is untouched.
+
+**Verdict after 5 rounds:** the overall goal (≥ 80) and the feature goal (C ≥ 80) are met. The look-and-feel goal (A ≥ 80) is **not** met: A is 76.
+- The evaluator caps A for a guide with no photographs, and the environment's network policy blocks the licensed image hosts. Fetching the photo manifest (`beta/assets/img/manifest.json`) needs the owner, and the evaluator projects A ≈ 85 and overall ≈ 88 once photos land.
+- Feature coverage: 33 of 35 rows are shipped. #30 (multilingual) is partial while it waits for an owner-reviewed locale.
+
+**Follow-up in progress:** one fix lane for ROUND-5 gaps #2 and #3. Making Gallery the default raised Tokyo's initial transfer to 3.03 MB and its FCP to 1.1 s, and it put the map two taps away on phones. The fix targets ≤ 2.0 MB, FCP ≤ 1.0 s, and a one-tap map. It needs a QA re-sign before deploy.
