@@ -215,7 +215,12 @@ open/closed status), `docs/CITIES.md` (one row per city), `docs/AGENT-PROMPTS.md
 | `session_014JhcXcscGR7FMd9eAE6XqE` | Beta W1 — Frontend B (landing/hubs/nav) | 2026-10-10 08:24 | completed, archived | FE-B W1: landing/hubs/header/method/states; shell CSS moved to designer stylesheet |
 | `session_018MKc8Cm9yRKwLoMQ5mFB7b` | Beta W1 — Designer (visuals + review) | 2026-10-10 08:24 | completed, archived | designer W1: visuals + REVIEW-W1 pass 2 (M1 not yet met) |
 | `session_01YbxdsQm4VmtpnaPTjvc2ZS` | Beta W1 — QA | 2026-10-10 08:24 | running | — |
-| `session_01WsdxZRnnS31JkzUY9Shvh7` | Beta Round 1 — independent evaluator | 2026-10-10 09:52 | running | — |
+| `session_01WsdxZRnnS31JkzUY9Shvh7` | Beta Round 1 — independent evaluator | 2026-10-10 09:52 | completed, archived | design/beta/eval/ROUND-1.md (7cb0f495): R0 31.1 → R1 66.5 (A60 B74 C66 D72); top-10 gaps |
+| `session_01SivcGydMp7JHeiCWiLQWyd` | Beta W2 — Platform | 2026-10-10 10:20 | running | — |
+| `session_019rg1KReCntQnVer8Lq7VfP` | Beta W2 — Frontend A (city + saved) | 2026-10-10 10:20 | running | — |
+| `session_01Uw8kyZKduvy2VTdhJQa5L4` | Beta W2 — Frontend B (hubs + landing) | 2026-10-10 10:20 | running | — |
+| `session_01XAYpThZZnydYCxCkEcCatZ` | Beta W2 — Designer | 2026-10-10 10:20 | running | — |
+| `session_01QpPRccdD4iJMa6P4jSUboV` | Beta W2 — Imagery / content art | 2026-10-10 10:20 | running | — |
 | `session_01PCNcUkfa5S1N1BKGzZA4xx` | Release: deploy work branch → Pages (PR #3) | 2026-10-10 07:00 | completed | Merged as ca70e53 — Singapore gap-fill + QA fixes + Singapore engine rebuild live; gates/validate/test/qa (0 FAIL) green; 0 places removed (docs/DEPLOY-2026-10-10.md) |
 
 ### Cross-city pin and top-up passes (5 sessions)
