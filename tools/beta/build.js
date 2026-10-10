@@ -118,7 +118,17 @@ for (const r of cityRows) {
     if (!aa) continue;
     const f = `${dir}${a.id.replace(/[^A-Za-z0-9_-]/g, '_')}.svg`;
     emit(f, aa.svg); r.art.areas[a.id] = { src: `${f}?v=${sha(aa.svg)}`, w: aa.proj.w, h: aa.proj.h, proj: aa.proj, drawn: aa.drawn };
+    // W2 hero scale (gaps #1/#6): soft silhouette at 960×540, and the day plan's numbered straight-line route on it
+    const recsA = r.recs.filter(x => x.a === a.id), base = f.replace(/\.svg$/, '');
+    const ah = art.areaHero(a.n, colors[a.id], recsA);
+    if (ah) { emit(base + '.hero.svg', ah.svg); r.art.areas[a.id].hero = { src: `${base}.hero.svg?v=${sha(ah.svg)}`, w: ah.proj.w, h: ah.proj.h, proj: ah.proj }; }
+    const plan = r.guide && r.guide.days.plans[a.id];
+    const ad = plan && art.areaHero(a.n, colors[a.id], recsA, plan);
+    if (ad && ad.stops) { emit(base + '.day.svg', ad.svg); r.art.areas[a.id].day = { src: `${base}.day.svg?v=${sha(ad.svg)}`, w: ad.proj.w, h: ad.proj.h, proj: ad.proj, stops: ad.stops }; }
+    else if (plan) errors.push(`${r.live}: day plan ${a.id} has a stop with no verified pin to draw`);
   }
+  const hero = art.cityHero(r.name, r.recs, colors, Object.fromEntries((page.AREAS || []).map(a => [a.id, a.n])));
+  if (hero) { emit(dir + 'hero.svg', hero.svg); r.art.hero = { src: `${dir}hero.svg?v=${sha(hero.svg)}`, w: hero.proj.w, h: hero.proj.h, proj: hero.proj, drawn: hero.drawn, beyond: hero.beyond, labels: hero.labels }; }
   if (r.stats.verifiedPins && !r.art.map) errors.push(`${r.live}: ${r.stats.verifiedPins} verified pins but no map art`);
 }
 

@@ -100,6 +100,16 @@ console.log('\n== GUIDE DATA: signature, canon order, day plans, recently closed
   chk(`day plans: 4–6 open, verified-pin stops in one area, straight-line legs (${nPlans} plans)`, gBad.day, a => a.length === 0 && nPlans > 100);
   chk('"Recently closed" lists every closed place', gBad.closed, a => a.length === 0);
   chk('data/guide.json agrees with the per-page guide', gBad.idx, a => a.length === 0);
+  // map art at hero scale (W2): a city hero + an area silhouette per drawn area + a route drawing for every day plan
+  const artBad = [];
+  for (const row of manifest.pages.filter(p => p.kind === 'city')) {
+    const f = row.key.replace(/\//g, '--'), j = JSON.parse(rd(`beta/data/places/${f}.json`)), A = j.art || {};
+    const ex = src => src && fs.existsSync(path.join(BETA, src.split('?')[0]));
+    if (A.map && !ex(A.hero && A.hero.src)) artBad.push(row.key + ' hero');
+    for (const [a, x] of Object.entries(A.areas || {})) if (!ex(x.hero && x.hero.src)) artBad.push(`${row.key}#${a} silhouette`);
+    for (const [a, p] of Object.entries(j.guide.days.plans)) { const d = (A.areas[a] || {}).day; if (!d || !ex(d.src) || d.stops.length !== p.ids.length) artBad.push(`${row.key}#${a} day route`); }
+  }
+  chk('hero map art: city hero, area silhouettes and every day plan\'s route drawn from verified pins', artBad, a => a.length === 0);
 }
 
 // ── 2. reproducible from data ───────────────────────────────────────────────

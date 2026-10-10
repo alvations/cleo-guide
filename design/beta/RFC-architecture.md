@@ -621,6 +621,13 @@ hubs and the landing).
 }
 ```
 
+Map art at hero scale (R-25, gaps #1/#6; `lib/art.js`, same verified-pins-only rule, no geography):
+`assets/art/<page>/hero.svg` (1200×600: every area as a soft Catmull-Rom silhouette of its own pins, tier-1 pins ringed,
+closed hollow; `art.hero.labels[AREA] = [x, y, n, name]` are label anchors so a page can set area names in its own
+fonts), `<AREA>.hero.svg` (960×540 silhouette) and `<AREA>.day.svg` (the day plan's numbered stops joined by straight
+dashed legs — they are straight-line distances — framed on the stops, the rest of the area as context;
+`art.areas[A].day.stops` = badge coordinates). All in `data/places/<page>.json` → `art`; gated in test-beta.js.
+
 Client helpers in `core.js`: `Cleo.guide(key)` (promise of the above), `Cleo.geo.km(a, b)` (haversine; `{la,ln}` or
 `[lat,lng]`), `Cleo.geo.fmt(km)` ("0.4 km straight-line"; under 0.1 → "next door"), `Cleo.geo.ll(card)` (reads
 `data-ll`). Near me (M3-02) needs nothing else: every card carries `data-ll`, and the position never leaves the client.
