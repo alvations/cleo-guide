@@ -54,6 +54,40 @@ function build({ reg, cityRows, emit, errors, sha, betaDir }) {
   return reg.imagery;
 }
 
+/**
+ * The Gallery cover motif for a record (ROUND-4 gap #6): keyed on the place's KIND — its collection ids (sights) or
+ * cuisine ids (food), in the record's own order — never on the card glyph, a name or description keywords (Wenwen
+ * rule). Theme ids (pop culture, free, iconic, family…) say why a place is listed, not what it is, so the first
+ * kind id wins and a theme only decides when the record has no kind id. 'worship' is resolved per country in CSS
+ * (a shrine gate in Japan, a generic spire elsewhere — the gate is Shinto-specific). Returns a file key in
+ * beta/assets/img/motifs/kinds/ (or 'worship'), or '' to let the renderer fall back to the glyph.
+ */
+const MOTIF_KIND = {
+  TEMPLE: 'worship', SHRINE: 'worship', Temple: 'worship', Church: 'worship', Mosque: 'worship',
+  MUS: 'columns', MUSEUM: 'columns', ARCH: 'columns', Architecture: 'columns', GOV: 'columns', CIVIL: 'columns', CAMPUS: 'columns',
+  School: 'columns', DECO: 'columns', FLW: 'columns', MON: 'columns', Monument: 'columns', National: 'columns',
+  CASTLE: 'castle', HIST: 'castle', HISTORY: 'castle', HERITAGE: 'castle', Heritage: 'castle', Landmark: 'castle',
+  PARK: 'leaf', Park: 'leaf', GARDEN: 'leaf', OUTDOOR: 'leaf', OUT: 'leaf', WILD: 'leaf', Recreation: 'leaf', Trail: 'leaf', Walk: 'leaf',
+  NATURE: 'mountain', Nature: 'mountain', WINTER: 'mountain',
+  WATER: 'waves', RIVER: 'waves', CANAL: 'waves', LAKES: 'waves', Lake: 'waves', BEACH: 'waves', BOAT: 'waves', MARITIME: 'waves', Wetland: 'waves',
+  ONSEN: 'steam', SPA: 'steam', SPRNG: 'steam', SPRING: 'steam',
+  MKT: 'awning', MARKET: 'awning', Market: 'awning', SHOP: 'awning', Shopping: 'awning', Mall: 'awning', Hawker: 'awning', CRAFT: 'awning', GLASS: 'awning',
+  VIEW: 'tower', ROOF: 'tower', RIDE: 'wheel',
+  SPEAK: 'bottle', BAR: 'bottle', BREW: 'bottle',
+};
+const MOTIF_THEME = {
+  ANIME: 'bubble', POP: 'bubble', TV: 'tv', VIRAL: 'tv', NIGHT: 'moon', UNESCO: 'globe', SPACE: 'globe',
+  FREE: 'ticket', ENT: 'ticket', ARTS: 'ticket', ART: 'ticket', FAM: 'ticket', FAMILY: 'ticket', SHOW: 'ticket', SPORT: 'ticket', Sports: 'ticket', RACE: 'ticket',
+};
+function motifOf(rec, glyph = '') {
+  if (!rec) return glyph;
+  if (rec.kind === 'food') return glyph;                 // food glyphs already key on the first cuisine id
+  const g = rec.g || [];
+  for (const id of g) if (MOTIF_KIND[id]) return MOTIF_KIND[id];
+  for (const id of g) if (MOTIF_THEME[id]) return MOTIF_THEME[id];
+  return glyph;
+}
+
 const attr = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 /**
  * The motif as a decorative layer: an inline <svg> wrapping <image href> (the href resolves against the PAGE in every
@@ -74,4 +108,4 @@ function photoFor(row, rec) {
   return row.imagery.photos[rec.id] || null;
 }
 
-module.exports = { build, motifSvg, photoFor, figureHtml: photos.figureHtml, collectionKind };
+module.exports = { build, motifSvg, motifOf, MOTIF_KIND, MOTIF_THEME, photoFor, figureHtml: photos.figureHtml, collectionKind };

@@ -43,6 +43,10 @@ const KINDS = {
   ticket: ['a torn ticket with a star', S('M12 20h72v10a6 6 0 0 0 0 12v10H12V42a6 6 0 0 0 0-12ZM64 22v4M64 30v4M64 38v4M64 46v4M24 30h28M24 38h20M24 46h24M74 32l2 4 4 .5-3 3 .8 4-3.8-2-3.8 2 .8-4-3-3 4-.5Z') + F('M64 20h20v10a6 6 0 0 0 0 12v10H64Z', .16)],
   moon: ['a crescent moon over rooftops', S('M54 8a22 22 0 1 0 18 34 18 18 0 0 1-18-34ZM78 12v6M75 15h6M84 30v4M82 32h4M4 66V54h10v-6h10v18M30 66V50h12v16M48 66V56h8v-6h10v16M72 66V52h12v14M2 66h92') + F('M54 8a22 22 0 1 0 18 34 18 18 0 0 1-18-34Z', .3)],
   steam: ['a hot-spring bath with rising steam', S('M16 46c0-6 64-6 64 0 0 10-14 16-32 16S16 56 16 46ZM34 38c-6-6 6-10 0-18s4-12 0-16M48 38c-6-6 6-10 0-18s4-12 0-16M62 38c-6-6 6-10 0-18s4-12 0-16M8 66h80') + F('M16 46c0-6 64-6 64 0 0 10-14 16-32 16S16 56 16 46Z', .2)],
+  // W5 (ROUND-4 gap #6): kinds the motif map needed that no glyph covered
+  waves: ['rolling waves under a low sun with a small sail', S('M4 44c8-6 14-6 22 0s14 6 22 0 14-6 22 0 14 6 22 0M4 54c8-6 14-6 22 0s14 6 22 0 14-6 22 0 14 6 22 0M4 64c8-6 14-6 22 0s14 6 22 0 14-6 22 0 14 6 22 0M60 36V12l14 22ZM56 38h22') + C(26, 24, 8) + F('M60 36V12l14 22Z', .26) + F('M18 24a8 8 0 0 1 16 0Z', .2)],
+  spire: ['a gabled hall with a spire and an arched door', S('M48 4v8M44 8h8M48 12l-8 16h16ZM40 28v8h16v-8M24 64V42l24-14 24 14v22M44 64V54a4 4 0 0 1 8 0v10M30 48h6v8h-6ZM60 48h6v8h-6ZM10 64h76') + F('M24 42l24-14 24 14Z', .18) + F('M48 12l-8 16h16Z', .3)],
+  wheel: ['an observation wheel on a stand', C(48, 32, 24) + C(48, 32, 4) + S('M48 8v48M24 32h48M31 15l34 34M65 15L31 49M40 56l8-24 8 24M30 66h36') + C(48, 8, 2.5, .4) + C(72, 32, 2.5, .4) + C(48, 56, 2.5, .4) + C(24, 32, 2.5, .4) + C(31, 15, 2.5, .4) + C(65, 15, 2.5, .4) + C(65, 49, 2.5, .4) + C(31, 49, 2.5, .4)],
   tv: ['a television with a star on screen', S('M20 18h56a6 6 0 0 1 6 6v28a6 6 0 0 1-6 6H20a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6ZM38 6l10 12 10-12M34 64h28M48 58v6M48 28l2.5 5.5 6 .7-4.5 4 1.2 6-5.2-3-5.2 3 1.2-6-4.5-4 6-.7Z') + F('M20 18h56a6 6 0 0 1 6 6v28a6 6 0 0 1-6 6H20a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6Z', .1)],
 };
 
