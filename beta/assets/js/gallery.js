@@ -18,18 +18,22 @@
   // visit): no rows — the All N grid below still holds every place.
   const esc = C.esc, TIER = ['', 'Must see', 'Worth the detour', 'Deep cut'], attrs = {};
   const att = (id, k) => { if (!attrs[id]) { const c = C.byId[id] || (Cleo.defer && Cleo.defer.peek().filter(x => x.id === 'p-' + id)[0]); attrs[id] = c || { getAttribute: () => null }; } return attrs[id].getAttribute(k); };
-  const ringOf = r => { const a = (info.art || {})[r.a]; if (!a || r.la == null || r.closed) return '';
+  // the pin's spot on its area art, in % of the art box (null: closed / no art / off the art)
+  const posOf = r => { const a = (info.art || {})[r.a]; if (!a || r.la == null || r.closed) return null;
     const x = a[3] + (r.ln - a[5]) * a[8], y = a[3] + (a[6] - r.la) * a[9];
-    return x >= 0 && y >= 0 && x <= a[1] && y <= a[2] ? '<i class="g-ring me" style="left:' + (100 * x / a[1]).toFixed(1) + '%;top:' + (100 * y / a[2]).toFixed(1) + '%"></i>' : ''; };
-  const artOf = (aid, ring) => { const a = (info.art || {})[aid]; return a ? '<span class="g-art pinart" style="aspect-ratio:' + a[1] + '/' + a[2] + '"><img src="' + esc(a[0]) + '" alt="" width="' + a[1] + '" height="' + a[2] + '" loading="lazy" decoding="async">' + ring + '</span>' : ''; };
-  const gcard = r => {
+    return x >= 0 && y >= 0 && x <= a[1] && y <= a[2] ? [(100 * x / a[1]).toFixed(1), (100 * y / a[2]).toFixed(1)] : null; };
+  const ringOf = r => { const p = posOf(r); return p ? '<i class="g-ring me" style="left:' + p[0] + '%;top:' + p[1] + '%"></i>' : ''; };
+  // W4 designer hook (ROUND-3 #3): --rx/--ry = the pin, so a cover composition can crop and zoom the art around it
+  const artOf = (aid, ring, r) => { const a = (info.art || {})[aid], p = r && posOf(r); return a ? '<span class="g-art pinart" style="aspect-ratio:' + a[1] + '/' + a[2] + (p ? ';--rx:' + p[0] + '%;--ry:' + p[1] + '%' : '') + '"><img src="' + esc(a[0]) + '" alt="" width="' + a[1] + '" height="' + a[2] + '" loading="lazy" decoding="async">' + ring + '</span>' : ''; };
+  const CJK = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af\uf900-\ufaff]/;
+  const gcard = (r, i) => {
     const nat = r.nat && r.n.slice(-r.nat.length - 2) === '(' + r.nat + ')' ? r.nat : '', g = Array.from(nat);
     const nm = nat ? r.n.slice(0, -nat.length - 2).trim() : r.n.replace(/\s*[—–-]+\s*CLOSED\b.*$/i, ''), col = ((info.areas || {})[r.a] || {}).c;
-    const plate = g.length && g.length <= 4 ? '<span class="plate v"' + (info.lang ? ' lang="' + info.lang + '"' : '') + '>' + esc(nat) + '</span>'
+    const plate = g.length && g.length <= 4 && CJK.test(nat) ? '<span class="plate v"' + (info.lang ? ' lang="' + info.lang + '"' : '') + '>' + esc(nat) + '</span>'
       : '<span class="plate i">' + esc((nm.replace(/^(The|La|Le|El|Il|Der|Die|Das)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || ['·'])[0]) + '</span>';
     const ids = (r.src || []).filter(x => x !== 'guide'), chips = ids.slice(0, 2).map(x => '<button type="button" class="src" data-src="' + esc(x) + '">' + esc(((info.src || {})[x] || [x])[0]) + '</button>').join(', ');
-    return '<li class="gc' + (r.closed ? ' gc--closed' : '') + '" data-id="' + esc(r.id) + '"><a class="gc-a" href="#p-' + esc(r.id) + '"><span class="cover' + (r.closed ? ' closed' : '') + '"' + (col ? ' style="--ac:' + col + '"' : '') + ' aria-hidden="true">' +
-      artOf(r.a, ringOf(r)) + plate + '<span class="gl"><svg class="ico"><use href="#i-' + esc(att(r.id, 'data-gl') || 'compass') + '"/></svg></span></span>' +
+    return '<li class="gc' + (r.closed ? ' gc--closed' : '') + '" data-id="' + esc(r.id) + '"><a class="gc-a" href="#p-' + esc(r.id) + '"><span class="cover' + (r.closed ? ' closed' : '') + '" data-gl="' + esc(att(r.id, 'data-gl') || 'compass') + '" data-t="' + (r.t || 3) + '" data-comp="' + ((i || 0) % 5) + '"' + (col ? ' style="--ac:' + col + '"' : '') + ' aria-hidden="true">' +
+      artOf(r.a, ringOf(r), r) + plate + '<span class="gl"><svg class="ico"><use href="#i-' + esc(att(r.id, 'data-gl') || 'compass') + '"/></svg></span></span>' +
       '<span class="gc-b"><span class="pl-e">' + (r.closed ? 'Closed · kept for the record' : (TIER[r.t] ? '<i class="tg t' + r.t + '" aria-hidden="true"></i><span class="vh">' + TIER[r.t] + ' · </span>' : '') + esc(C.label('a', r.a)) + ' · ' + (r.kind === 'food' ? 'Eat &amp; drink' : 'See')) + '</span>' +
       '<span class="gc-n">' + esc(nm) + '</span>' + (r.w ? '<span class="gc-w">' + esc(String(r.w).replace(/<[^>]+>/g, '')) + '</span>' : '') + '</span></a>' +
       '<p class="pl-s"><span class="lbl">Recommended by</span> ' + (chips || '<span class="added">Added by the guide (general knowledge)</span>') + (ids.length > 2 ? ' <span class="more">+' + (ids.length - 2) + '</span>' : '') + '</p>' +
@@ -64,7 +68,7 @@
   const pending = [];
   const rowHtml = (x, i) => '<section class="row g-row" aria-labelledby="gr-' + i + '"><header class="row-h"><div><h2 class="d2" id="gr-' + i + '">' + (x[4] ? '<span aria-hidden="true">★</span> ' : '') + esc(x[0]) + '</h2>' +
     '<p class="sub">' + esc(x[1]) + '</p></div><button type="button" class="btn btn-ghost" data-g-see="' + esc(x[2]) + '" data-v="' + esc(x[3]) + '">See all ' + x[5] + '</button></header>' +
-    '<ol class="rail g-rail">' + x[6].map(gcard).join('') + '</ol></section>';
+    '<ol class="rail g-rail">' + x[6].map((r, k) => gcard(r, k)).join('') + '</ol></section>';
   let nRow = 0;
   const stampRow = () => { const x = pending.shift(); if (!x) return null; rowsHost.insertAdjacentHTML('beforeend', rowHtml(x, nRow++)); hearts(rowsHost); return rowsHost.lastElementChild; };
   const watch = el => { if (!el || !pending.length) return; if (!io) { while (pending.length) stampRow(); return; } io.observe(el); };
@@ -75,7 +79,7 @@
       if ('IntersectionObserver' in window) io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; io.unobserve(e.target); watch(stampRow()); }), { rootMargin: '200px 0px' });
       watch(stampRow());
       const mh = $('.masthead');
-      if (lead && mh && !$('.g-lead-card', mh)) { mh.insertAdjacentHTML('beforeend', '<ol class="g-lead-card vw view-gallery">' + gcard(lead) + '</ol>'); hearts(mh); }
+      if (lead && mh && !$('.g-lead-card', mh)) { mh.insertAdjacentHTML('beforeend', '<ol class="g-lead-card vw view-gallery">' + gcard(lead, 1) + '</ol>'); hearts(mh); }
     }).catch(() => { started = 0; });
   }
 
@@ -91,10 +95,12 @@
   });
 
   // covers on the grid's current page: area pin art + this place ringed (one cached SVG per area)
-  const cover = c => {
-    const p = $('.pl-cover', c), ll = (at(c, 'data-ll') || '').split(','); if (!p || $('.g-art', p)) return;
+  // data-comp: the composition, by position among the cards on screen, so no two neighbours share one (5 > 4 columns)
+  const cover = (c, i) => {
+    const p = $('.pl-cover', c), ll = (at(c, 'data-ll') || '').split(','); if (!p) return;
+    p.setAttribute('data-comp', String(i % 5)); if ($('.g-art', p)) return;
     const r = { a: at(c, 'data-a'), la: ll.length === 2 ? +ll[0] : null, ln: +ll[1], closed: c.hasAttribute('data-closed') };
-    p.insertAdjacentHTML('afterbegin', artOf(r.a, ringOf(r)));
+    p.insertAdjacentHTML('afterbegin', artOf(r.a, ringOf(r), r));
   };
   const paint = () => {
     if (!isG()) return; start();

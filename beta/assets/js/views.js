@@ -41,6 +41,17 @@
   function mount(v) {
     const m = reg[v]; if (!m || m.on) return;
     m.on = 1; if (host) { host.hidden = false; try { m.mount && m.mount(host, { key: C.key, file: info.file, city: C, total: info.total, go: C.go, view: v }); } catch (e) { if (window.console) console.error(e); } }
+
+    if (v === 'insights') grow();
+  }
+  // ROUND-3 #5: Insights bar charts grow once, on their first time in view (DES CSS keys on svg.bars-in). Bars are drawn
+  // at full size first, so with no JS, no observer or reduced motion nothing is ever hidden.
+  function grow() {
+    if (!host || !window.IntersectionObserver || !(C.moves && C.moves())) return;
+    const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; io.unobserve(e.target); e.target.classList.add('bars-in'); }), { threshold: 0.25 });
+    const look = () => { const s = qa('svg', host).filter(x => x.querySelector('.bar') && !x.hasAttribute('data-grown')); s.forEach(x => { x.setAttribute('data-grown', ''); io.observe(x); }); return s.length; };
+    if (look() || !window.MutationObserver) return;
+    const mo = new MutationObserver(() => { if (look()) mo.disconnect(); }); mo.observe(host, { childList: true, subtree: true }); setTimeout(() => mo.disconnect(), 10000);
   }
   function unmount(v) { const m = reg[v]; if (m && m.on) { m.on = 0; try { m.unmount && m.unmount(host); } catch (e) {} } if (host && !(reg[cur] && reg[cur].on)) host.hidden = true; }
 
@@ -56,6 +67,7 @@
     else loadMod(v, () => { if (cur === v) mount(v); });
     page();
     if (changed && !o.first) {
+      if (C.beat) C.beat(html, 'view-in', 360);                      // ROUND-3 #5: cross-fade hook on a real switch (DES CSS)
       requestAnimationFrame(() => { try { window.scrollTo(0, mem[v] || 0); } catch (e) {} });
       if (live) live.textContent = NAME[v] + ' view, ' + pl(info.total);
       const h = v === 'gallery' || v === 'atlas' ? $('#main h1') : host && $('h1,h2', host);
@@ -74,9 +86,15 @@
     store.set('view', v);
     const r = Cleo.route.parse(); delete r.pg; delete r.all; r.view = v;
     const h = Cleo.route.href(r);
-    show(v, { user: 1 });                                          // first, so the hashchange below sees no change to undo
-    if (h === '#') { try { history.pushState(null, '', location.pathname + location.search); } catch (x) {} }
-    else location.hash = h;
+    const go = () => {
+      show(v, { user: 1 });                                        // first, so the hashchange below sees no change to undo
+      if (h === '#') { try { history.pushState(null, '', location.pathname + location.search); } catch (x) {} }
+      else location.hash = h;
+    };
+    // W4 (#5, DES ask): a reader's switch cross-fades through a view transition where the browser has one and motion is
+    // allowed; otherwise (and under reduced motion, which every QA harness uses) the switch stays synchronous.
+    if (d.startViewTransition && C.moves && C.moves()) { try { d.startViewTransition(go); return; } catch (x) {} }
+    go();
   });
   // the map lives in Atlas: outside it, a map button ("Map", "See these n on the map") is a switch to Atlas
   d.addEventListener('click', e => {
@@ -183,7 +201,7 @@
     nopin();
   }
   function atlasOut(keep) {
-    html.classList.remove('atlas-m');
+    html.classList.remove('atlas-m'); if (lp) lp.removeAttribute('inert');   // a pin sheet's inert tray never outlives the phone map
     moved.splice(0).reverse().forEach(([el, par, nx]) => { if (nx && nx.parentNode === par) par.insertBefore(el, nx); else par.appendChild(el); });
     if (split && !keep) split.removeAttribute('data-detent');
     if (cur === 'atlas' && split) nopin();

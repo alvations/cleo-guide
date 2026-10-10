@@ -20,6 +20,7 @@ const path = require('path');
 const { buildMotifs, collectionKind } = require('./motifs');
 const { buildManifest } = require('./manifest');
 const photos = require('./photos');
+const { buildKinds } = require('./kinds');
 
 function build({ reg, cityRows, emit, errors, sha, betaDir }) {
   const tokPath = path.join(betaDir, 'assets', 'tokens.css');
@@ -38,6 +39,9 @@ function build({ reg, cityRows, emit, errors, sha, betaDir }) {
     pages: Object.fromEntries(cityRows.map(r => [r.key, r.imagery.motif])),
     countries: Object.fromEntries(reg.countries.filter(c => c.imagery).map(c => [c.key, c.imagery.motif])),
     collections, themes, collectionIds: require('./motifs').COLLECTION_ID }, null, 1));
+
+  // per-kind Gallery cover motifs (ROUND-3 gap #3): mask art, painted by views.css § V10 via build-css.py rules
+  for (const [rel, body] of Object.entries(buildKinds())) emit(rel, body);
 
   emit('assets/img/manifest.json', JSON.stringify(buildManifest(cityRows, reg.geo), null, 1));
 

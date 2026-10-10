@@ -239,6 +239,40 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     chk('no js errors', errs.length === 0, errs.slice(0, 2));
   }
 
+  console.log('\n== W4: one name field with diacritics, Gallery glyph, one sheet on the phone map, motion hooks (ROUND-3 #2, #5) ==');
+  {
+    const page = 'cities/tokyo.html', html = fs.readFileSync(path.join(BETA, page), 'utf8');
+    const ds = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/tokyo.dataset.json'), 'utf8'));
+    const live = new Set(); (function walk(o) { if (Array.isArray(o)) o.forEach(walk); else if (o && typeof o === 'object') { if (typeof o.n === 'string') live.add(o.n); Object.values(o).forEach(walk); } })(ds);
+    const pj = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places/tokyo.json'), 'utf8')).places;
+    const lost = pj.filter(r => !live.has(r.n) && !live.has(r.n.replace(/\s*[—–-]+\s*CLOSED\b.*$/, ''))), macron = pj.filter(r => /[\u0100-\u024f]/.test(r.n)).length;
+    chk('every place name is the dataset name verbatim, diacritics kept (one name field)', macron > 20 && lost.length === 0, { macron, lost: lost.slice(0, 3).map(r => r.n) });
+    chk('Kanda Myōjin: card, lead CTA and JSON-LD all carry the macron', /Kanda Myōjin <span class="nat"/.test(html) && /Start with Kanda Myōjin/.test(html) && /"name":"Kanda Myōjin/.test(html) && !/Kanda Myojin/.test(html));
+    chk('hero dek keeps Jōnan · Jōsai · Jōhoku', /Jōnan · Jōsai · Jōhoku/.test(html));
+    const gb = (html.match(/<button type="button" data-view="gallery"[^>]*>.*?<\/button>/) || [''])[0];
+    chk('Gallery switcher glyph is the grid, not the Saved heart', /#i-grid/.test(gb) && !/#i-heart/.test(gb) && /<symbol id="i-grid"/.test(html), gb.slice(0, 120));
+
+    let { d, w, errs } = boot(page, { hash: '#view=atlas&map=1', mobile: true }); await sleep(150);
+    const poi = d.getElementById('cleo-poi'), lp = d.querySelector('.listpane'), c0 = d.querySelector('li.pl[data-ll]');
+    w.Cleo.city.openPoi(c0); await sleep(10);
+    if (!poi.hidden) {
+      chk('phone map: a pin sheet sends the tray away (one sheet, html.poi-on, tray inert)', d.documentElement.classList.contains('poi-on') && lp.hasAttribute('inert'));
+      poi.querySelector('[data-poi="x"]').click(); await sleep(20);
+      chk('phone map: closing the pin sheet brings the tray back', !d.documentElement.classList.contains('poi-on') && !lp.hasAttribute('inert'));
+    } else chk('phone map: the pin sheet opens', false);
+
+    ({ d, w, errs } = boot(page, { hash: '#view=atlas' })); await sleep(150);
+    const sv = d.querySelector('li.pl button.pl-save'); sv.click(); await sleep(10);
+    chk('motion: a save that turns on gets .pop for one beat', sv.classList.contains('pop'));
+    d.querySelector('[data-cleo-views] button[data-view="gallery"]').click(); await sleep(10);
+    chk('motion: a view switch adds html.view-in', d.documentElement.classList.contains('view-in'));
+    let rm = boot(page, { hash: '#view=atlas' }); rm.w.matchMedia = q => ({ matches: /reduce|min-width/.test(q), addListener() {}, removeListener() {} }); await sleep(150);
+    const sv2 = rm.d.querySelector('li.pl button.pl-save'); sv2.click(); await sleep(10);
+    rm.d.querySelector('[data-cleo-views] button[data-view="gallery"]').click(); await sleep(10);
+    chk('motion: reduced motion adds no class at all', !sv2.classList.contains('pop') && !rm.d.documentElement.classList.contains('view-in'));
+    chk('no js errors', errs.length === 0 && rm.errs.length === 0, errs.concat(rm.errs).slice(0, 2));
+  }
+
   console.log(failures ? `\n>>> FAIL — ${failures} FE-A check(s) failed` : '\n>>> PASS — FE-A: for-you reorders only, days honest, near-me in memory, pin sheet Esc, shared lists, views (switcher, pager, Atlas, sheet n of N)');
   process.exit(failures ? 1 : 0);
 })();

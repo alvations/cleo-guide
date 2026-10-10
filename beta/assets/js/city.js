@@ -271,7 +271,10 @@
       if (nv && nv.offsetHeight) t = Math.max(0, nv.getBoundingClientRect().bottom - m.top); }
     return { paddingTopLeft: [40, 40 + t], paddingBottomRight: [40, 40 + b] }; };
   const fitArea = a => { if (map && !map.getSize().x) return; const ll = cards.filter(c => at(c, 'data-a') === a && markers[pid(c)]).map(c => markers[pid(c)].getLatLng()); if (ll.length) map.fitBounds(window.L.latLngBounds(ll), Object.assign(overMap(), { maxZoom: 16 })); };
-  const closePoi = () => { if (poi && !poi.hidden) { poi.hidden = true; poi.innerHTML = ''; } };
+  // ROUND-3 #2: one sheet on the phone map: while a pin sheet is up, the Atlas tray steps aside (html.poi-on), and it
+  // comes back when the sheet closes. Nothing is removed: the tray keeps every row, only hidden from view meanwhile.
+  const poiOn = v => { d.documentElement.classList.toggle('poi-on', v); const lp = $('.listpane'); if (lp && !desk()) { if (v && d.documentElement.classList.contains('atlas-m')) lp.setAttribute('inert', ''); else lp.removeAttribute('inert'); } };
+  const closePoi = () => { if (poi && !poi.hidden) { poi.hidden = true; poi.innerHTML = ''; poiOn(false); } };
   // pin → peek sheet: a compact summary (≤ 40 % of the screen, so the map stays visible); the grabber expands it to the full card
   const peekName = c => { const a = $('.pl-n a', c), x = a && a.cloneNode(true); if (!x) return ''; $$('.nat', x).forEach(v => v.remove()); return x.textContent.trim(); };   // ROUND-2 #2: no "(native)" in the peek title
   const openPoi = c => {
@@ -283,7 +286,7 @@
       '<div class="peek-c"><p class="pl-e">' + $('.pl-e', c).innerHTML + '</p><h3 class="pk-n">' + esc(peekName(c)) + '</h3>' + (w ? '<p class="pk-w">' + esc(w.textContent) + '</p>' : '') + '</div>';
     cp.classList.add('pk-full'); poi.appendChild(cp);
     poi.insertAdjacentHTML('beforeend', '<div class="row-actions"><button class="btn btn-ghost" data-poi="x">Close</button><a class="btn btn-primary" href="#p-' + pid(c) + '">Open</a></div>');
-    poi.classList.remove('full'); poi.hidden = false; $('[data-poi="x"]', poi).focus();
+    poi.classList.remove('full'); poi.hidden = false; poiOn(true); $('[data-poi="x"]', poi).focus();
     if (map && markers[pid(c)]) { map.panTo(markers[pid(c)].getLatLng(), { animate: false }); map.panBy([0, poi.offsetHeight / 2], { animate: false }); }
   };
   let poiFrom = null;
@@ -330,6 +333,17 @@
   };
 
   paint();
+  // ROUND-3 #5 motion hooks (FE-A JS half; DES owns the CSS). Classes only, added for one beat and only when the
+  // reader allows motion: .pop on a save / been control that just turned on, .stamp-in on a fresh stamp, .is-press on
+  // a rail door while pressed. Nothing autoplays; under prefers-reduced-motion no class is ever added.
+  const moves = C.moves = () => !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const beat = C.beat = (el, cls, ms) => { if (!el || !moves()) return; el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); setTimeout(() => el.classList.remove(cls), ms || 600); };
+  on(d, 'click', e => { const b = e.target.closest && e.target.closest('button.pl-save,button.gc-save,button.ge-save,[data-sh="save"],[data-sh="been"]'); if (!b) return;
+    setTimeout(() => { if (at(b, 'aria-pressed') === 'true') beat(b, 'pop', 600);
+      const li = b.closest('li.pl'), st = li && $('.stamp', li); if (st && at(b, 'data-sh') === 'been') beat(st, 'stamp-in', 700); }, 0); });
+  on(d, 'pointerdown', e => { const r = moves() && e.target.closest && e.target.closest('.rail-i,.door'); if (!r) return; r.classList.add('is-press');
+    const up = () => { r.classList.remove('is-press'); ['pointerup', 'pointercancel', 'pointerleave'].forEach(k => r.removeEventListener(k, up)); };
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(k => r.addEventListener(k, up)); });
   onRoute();
   if ((store.get('interests', []) || []).length) need('foryou');
   // W3: the map belongs to Atlas (views.js mounts it on switch); Gallery / Guidebook / Insights don't build ~1k pin nodes

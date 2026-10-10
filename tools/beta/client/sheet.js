@@ -124,7 +124,7 @@
     isOpen: function () { return !host.hidden; },
     open: function (c) {
       if (Cleo.tray) Cleo.tray.close(true);
-      card = c; byNav = navs > 0; host.innerHTML = build(c); host.hidden = false; host.classList.toggle('side', C.desk());
+      card = c; byNav = navs > 0; host.innerHTML = build(c); host.hidden = false; host.classList.toggle('side', C.desk()); if (C.beat) C.beat(host, 'sh-in', 450);   // ROUND-3 #5: the sheet rises (DES CSS; off under reduced motion)
       if (!C.desk()) d.body.style.overflow = 'hidden';
       q('[data-sh="x"]', host).focus({ preventScroll: true }); deep(c); if (C.onSheet) C.onSheet(c);
     },
