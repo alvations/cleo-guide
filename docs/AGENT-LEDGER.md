@@ -219,10 +219,10 @@ open/closed status), `docs/CITIES.md` (one row per city), `docs/AGENT-PROMPTS.md
 | `session_01SivcGydMp7JHeiCWiLQWyd` | Beta W2 — Platform | 2026-10-10 10:20 | running | — |
 | `session_019rg1KReCntQnVer8Lq7VfP` | Beta W2 — Frontend A (city + saved) | 2026-10-10 10:20 | running | — |
 | `session_01Uw8kyZKduvy2VTdhJQa5L4` | Beta W2 — Frontend B (hubs + landing) | 2026-10-10 10:20 | completed, archived | FE-B W2 (…59366c1): signature tile lines, editorial rails, country heroes, accessibility page, search; no-brand check clean |
-| `session_01XAYpThZZnydYCxCkEcCatZ` | Beta W2 — Designer | 2026-10-10 10:20 | running | — |
-| `session_01QpPRccdD4iJMa6P4jSUboV` | Beta W2 — Imagery / content art | 2026-10-10 10:20 | running | — |
-| `session_01L6JkDa7v56jUKxQFqx7zXx` | Beta R3 prep — view styles study + specs | 2026-10-10 10:43 | running | — |
-| `session_017mbzpE8dtjevPVLcXB6TEK` | Beta PM — M1 acceptance + W2/W3 backlog | 2026-10-10 10:53 | running | — |
+| `session_01XAYpThZZnydYCxCkEcCatZ` | Beta W2 — Designer | 2026-10-10 10:20 | completed, archived | W2 polish (plates, sheet type, commas, macron), distinct hub tiles, motion layer, REVIEW-W2; brand-neutral |
+| `session_01QpPRccdD4iJMa6P4jSUboV` | Beta W2 — Imagery / content art | 2026-10-10 10:20 | completed, archived | Original SVG motifs per city/country/collection; credit-gated photo path + manifest; landing back under 80 KB (043077e) |
+| `session_01L6JkDa7v56jUKxQFqx7zXx` | Beta R3 prep — view styles study + specs | 2026-10-10 10:43 | completed, archived | design/beta/views/: STUDY (melon-seek), SPEC, mockups + 49 screenshots, PLAN (W3 lane split) for Gallery/Atlas/Guidebook/Insights |
+| `session_017mbzpE8dtjevPVLcXB6TEK` | Beta PM — M1 acceptance + W2/W3 backlog | 2026-10-10 10:53 | completed, archived | M1: 16/22 accepted, 4 await QA re-measure, 2 rejected; W2 + R3 items; Round 2 exit criteria (4380fb4a, 0e4da869) |
 | `session_01PCNcUkfa5S1N1BKGzZA4xx` | Release: deploy work branch → Pages (PR #3) | 2026-10-10 07:00 | completed | Merged as ca70e53 — Singapore gap-fill + QA fixes + Singapore engine rebuild live; gates/validate/test/qa (0 FAIL) green; 0 places removed (docs/DEPLOY-2026-10-10.md) |
 
 ### Cross-city pin and top-up passes (5 sessions)

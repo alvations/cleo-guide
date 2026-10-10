@@ -334,3 +334,9 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **For FE-A:** declutter numbered pins at dense zoom (labels overlap on Tokyo, both viewports); saved cards without plates + "Gardens皇居東御苑" needs a space/`.nat` line + map numbers restart per city; day: dotted spine runs through leg text, stops as text rows (use `.stop` + mini card), "YOUR DAY · TOKYO" caps-only eyebrow; long 2nd source wraps to its own 44 px line (tall gap). **Imagery:** masthead motif behind the facts text on phones.
   - Metrics (pilots, qa/ restored): B-20 0 · B-21 12 px · B-23 0/0 light+night ×6 · B-03 13 · B-19 ≤ 5.9 % · G4 0 errors · B-16 ✅ ×4, Wheeling 1.99. validate + npm test + beta:check PASS.
 - 2026-10-10 · UI/UX (designer) · W2 push 4 · session_01PCNcUkfa5S1N1BKGzZA4xx · FE-A's sheet now emits the spec's `.locator` (15.10 g), which I had dropped while yielding to `.loc` → the locator painted full-size black dots over the plate. **Restored `.detail .hero-plate .locator` (cleo.css §15.10 g)**; generic glyph hides when a locator is present. Final head checked at both viewports: 0 JS errors, uppercase ≤ 1.5 %. `rev-sheet-m.jpg` re-shot. Gates PASS.
+
+- 2026-10-10 11:30Z · orchestrator · Check-in.
+  - Archived: designer W2, imagery W2, view-styles R3 prep and PM.
+  - Head is fully green (validate, every test, every beta check including landing ≤ 80 KB). No-brand scan is clean apart from the exempt source chips.
+  - Still running: platform W2 (slice 4, offline reload) and FE-A W2 (gating its final commit).
+  - Next: QA W2 and the Round 2 evaluator, per the PM's "Round 2 exit criteria" in BETA-BACKLOG.
