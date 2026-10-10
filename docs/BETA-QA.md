@@ -14,6 +14,7 @@
 | `npm run qa:beta` (`qa-site.js --only beta/ --shots`) | Site harness on every beta page: mobile offline, desktop offline, desktop + map. Now also runs **`beta/qa/contract.js`** on engine pages (`<html data-cleo-page>`): count != live, missing attribution, closed unflagged or tiered = **FAIL**; targets < 44 px = WARN | `qa/partial/summary.json` |
 | `npm run beta:metrics` (`beta/metrics.js`) | Every M1 acceptance metric on the pilot set, 390×844 DPR3 touch + 1440×900 (+ 360 px overflow), **all off-origin requests blocked** | `qa/beta-metrics.json` + `.md`, `qa/beta-shots/` |
 | `npm run beta:metrics:all` | Same on every beta page (M1-22); `node beta/metrics.js --regrade <json>` re-grades a saved run | `qa/beta-metrics-all.json` (not committed, 1.4 MB) + `qa/beta-metrics-all.md` |
+| `npm run beta:qa:w2` (`beta/qa/w2.js`, W2) | The Wave 2 features against their acceptance criteria: For you, Your day, Near me, the map as a guide, saved lists and the shared view, ★, the DOM budget, OG cards, hub tile lines, motifs and the editorial rail, the storage-blocked render on every place page. It also runs **axe-core 4.10** (vendored at `beta/qa/vendor/`, offline, MPL-2.0) on hubs, pilots, saved, accessibility, method and 404, light and night. Use `--only foryou,day,…` to run a subset. | `qa/beta-w2/w2.json` + `qa/beta-w2/*.jpg` |
 
 Metric definitions (`tools/beta/metrics.js` header has the full list):
 - **Screens to first card** = top of the first visible `li.pl` ÷ viewport height. **Masthead** = bottom of `.masthead`.
@@ -293,3 +294,101 @@ A third fails on one pilot:
 All three are small, local FE-A/DES fixes. QA will re-sign at **YES** once `npm run beta:metrics` shows B-06, B-07 and
 B-16 green on the pilot set with the gates unchanged. QA-21 and QA-22 should land before the M1-22 rollout is
 accepted, but they don't block the pilot sign-off.
+
+---
+
+## 2026-10-10 · QA · Wave 2 (Round 2 exit run) · session_012XtSjToyAdhBzVDZmhPP1u
+
+**State measured:** `764dc97b` (FE-A W2 slices 1–5 and the rule-6 sweep, platform W2 slices 1–6, FE-B W2, DES W2 pushes 2–4,
+imagery W2). Real Chromium (preinstalled), every off-origin request blocked, 390×844 and 1440×900.
+
+**Harness changes (QA-owned):**
+- **New `tools/beta/qa/w2.js`** (`npm run beta:qa:w2`): 218 checks on the W2 features (see "How QA measures").
+  **axe-core 4.10.2 is vendored** at `tools/beta/qa/vendor/axe.min.js` (MPL-2.0, licence alongside) and runs offline.
+  This closes M1 blocker 5 ("the axe check has never run").
+- **`metrics.js` contrast fix (a false failure, not a weaker check):** B-23 graded the **disabled** "Share link" button on an
+  empty `saved.html` (opacity .45 by design) at 1.11:1. WCAG 1.4.3 exempts text in an inactive UI component, so disabled
+  controls (`:disabled`, `aria-disabled=true`) are now skipped. Every enabled control is still graded. With a populated list
+  the same button is cream on ink and legible (`qa/beta-w2/saved-m.jpg`). `saved.html` was re-measured with the fix and spliced
+  into the all-pages run. The run was then regraded (`--regrade`) without re-measuring the other 94 pages.
+- **Two of my own W2 probe checks were wrong; I fixed them before grading.** (1) The tile-line check read the Singapore hub's
+  compact "more towns" `ul.morelist` rows as tiles. Those rows have no tile and no line by design, so the check now reads only
+  `.tile` rows. (2) The adjacency check compared the last tile of one country's list with the first tile of the next section,
+  so it now compares neighbours within one `ul.tiles` only. Neither change loosens what is asserted about real tiles.
+
+### Gates
+
+| Gate | Result |
+|---|---|
+| G2 | `npm run validate` DATA OK · `npm test` ALL PASS (incl. `test-beta`, `test-hubs`, `test-contract`, `test-imagery`, `test-fe-a`) · `npm run beta:check` PASS: 95 pages, 84 place pages, **8,458 places, beta == live** |
+| G1 counts + reachability | **84/84** place pages: data == DOM == scrolled == every deep link == JS-off; search sample 100 %. Tokyo 488/488, NYC 508/508, Cleveland 194/194 |
+| G3 / G4 no-CDN | **95/95** pages render with all off-origin requests blocked: 0 JS errors, 0 local 404, machine-speed deep-link stress 0 errors |
+| G6 attribution · closed | 84/84: "Recommended by" on 100 % of cards; Cleveland's closed places all flagged, none tiered (B-12 84/84) |
+| G8 storage · tiles | **Storage throwing on every place page: 84/84 render every card, 0 errors** (w2 `storage`); saved page and shared view render with storage throwing. Tiles OSM/Esri only 84/84 |
+| Offline reload (B-40, M3-01) | `npm run beta:offline` on all 5 city pilots at 390 and 1440, with the server killed: Tokyo 488/488, Cleveland 194/194, NYC 508/508, Chinatown 16/16, Wheeling 35/35; deep link ✓, saved ✓, unvisited page → landing + banner, 0 errors. **QA signs B-40.** Shots `qa/beta-w2/offline/` |
+| Counts == live | equal on every page (generator assert + `test-contract` + metrics G1) |
+
+### M1 blockers and the 4 items awaiting re-measure
+
+| Item | Benchmark | Pilots (cle · tokyo · nyc · chinatown · wheeling) | All pages | Verdict |
+|---|---|---|---|---|
+| M1-04 / QA-15 desktop map | B-06 ≥ 40 % | **44 %** on all 5 · split, sticky, hover→pin, pin→card ✓ | 84/84 | ✅ fixed |
+| M1-05 / QA-19 Esc closes the pin sheet | B-07 | Esc ✓ Close ✓ Back ✓ toggle 44×44 on all 5 | 84/84 | ✅ fixed |
+| M1-11 / QA-20 cards per mobile screen | B-16 ≥ 2 | 2.26 · 2.47 · 2.35 · 2.71 · **2.58** (Wheeling was 1.95) | **83/84** (❌ `Singapore/cebu` 1.98) | ✅ on pilots; 1 page off-pilot |
+| M1-03 / QA-16 city-unique food first | editorial rule | Cleveland ★ = "Only in Cleveland · Polish Boy · corned beef · Barberton chicken" (18); the lens opens on those 18; first food chip "Unique American 18"; the Persian gap is stated verbatim | — | ✅ fixed |
+| M1-16 / B-23 axe 0 serious/critical | M1 blocker 5 | **fails**: footer link-in-text-block on every page (QA-24) | 0/13 page types clean | ❌ QA-24 |
+| QA-21 ★ = a publisher | M2-18 | ★ is a canon lens (55 pages) or a collection (5); **never a publisher on 84/84**; the 24 pages with no ★ data show no ★ tile | 84/84 | ✅ fixed |
+| QA-18 commas | M1-10 | 0 "Name ," occurrences in 95 pages | 95/95 | ✅ fixed |
+
+Pilot scores from `npm run beta:metrics`: **hub 10/10 and every city pilot 24/24** (`qa/beta-metrics.md`, shots `qa/beta-shots/`).
+All pages: `qa/beta-metrics-all.md`. Every row passes except B-05 on the Vietnam hub (1, QA-22) and the archived `singapore-old` (0),
+B-23 on `404.html` (QA-23) and `saved.html` night (QA-25), and B-16 on Cebu (1.98).
+
+### Wave 2 features × acceptance criteria (`qa/beta-w2/w2.json`: 184/218 PASS)
+
+| Item | What was driven | Result | Evidence |
+|---|---|---|---|
+| M2-05 For you | All 5 pilots: pick every interest. Tokyo and Cleveland also run with storage throwing. | ✅ Same id set and same per-area counts before and after (e.g. Tokyo 488 = 488), 0 cards hidden, "First because…" line and `.pl-why` pills present. Picker offers ≤ 5 interests. `INTERESTS` keys on ids only. Works with storage throwing. The choice persists across reloads (cards still lifted, line shown). ❌ **QA-27**: after a reload the rail tile reads `aria-pressed="false"` while the lens is on. | `foryou-picker-m`, `foryou-on-m`, `foryou-reload-m` |
+| M2-06 Your day | Cleveland, Tokyo, NYC and Wheeling × 2 viewports | ✅ 4–6 stops, all open with a verified pin and in one area. Every leg says "straight-line". Total and honest label shown. A shared `#day=A&s=` link (order reversed) reproduces the stops in that order. The plans come from `guide.days.plans` (one computation). | `day-tokyo-m`, `day-tokyo-d` |
+| M3-02 Near me | Tokyo, geolocation granted (a test point), then denied | ✅ Distance on all 488 pinned cards, nearest first, "never stored or sent" note. The position appears **nowhere** in localStorage, sessionStorage, cookies, IndexedDB, the URL or any request URL. A reload drops the distances. Denied → nothing changes and a calm message shows. | `near-tokyo-m` |
+| M2-13 map as a guide | 5 pilots × 2 viewports | ✅ Map 44 %. Opening a sheet puts its place in view on the map. Numbered pins drawn. Mobile pin peek ≤ 40 %. Esc closes. Sheet locator inset present. 0 JS errors. | `map-sheet-tokyo-d`, `map-peek-tokyo-m`, `sheet-locator-tokyo-m` |
+| M2-03 saved + shared view | Save 3 places from the sheet, then exercise the saved page | ✅ 3 covered cards and a map. Create, rename and delete a list (the places stay saved). Been there stamp. KML, GeoJSON and JSON export, share and import controls. "Open in maps" on each card. A shared link is read-only (no new, rename or delete) with Save a copy, which creates a named list. **An unknown id is reported, not dropped.** Renders with storage throwing. ❌ **QA-25**: the night map note is 1.38:1. | `saved-m`, `saved-shared-d`, `saved-nostorage-m`, `saved-empty-d-m` |
+| M2-18 ★ signature | static, all 84 pages, plus the Cleveland lens | ✅ (see the M1 table above) | `sig-cleveland-m` |
+| M3-06 progressive rendering | Tokyo and NYC × 2 viewports | ✅ Initial DOM **Tokyo 1,735 / 2,752 · NYC 1,642 / 2,699** (≤ 3,000; was 11.6 k). Every place is reachable by stamp-all, scroll, deep link, search and JS-off (G1 84/84). Largest desktop DOM site-wide: Orlando 2,754. | `w2.json` `dom` |
+| M2-08 share images | static, 95 pages | ✅ Every `og:image` is a local 1200×630 PNG ≤ 300 KB. 84 distinct place cards. | `beta/assets/og/` |
+| M2-16 hubs + landing | static and driven | ✅ 67 hub tiles carry signature lines, no category labels. 14 compositions, and no two neighbouring tiles in a list match. ❌ **QA-28**: 7 of 38 editorial-rail deep links open on more cards than they promise (closed places count in the lens but not in the rail). ❌ QA-22: Vietnam hub B-05. | `landing-rail-d`, `hub-japan-m` |
+| M2-14 motifs | static and `test-imagery` | ✅ Every motif a hub tile references exists. Each is ≤ 6 KB (largest 5.9 KB). Every file says it is original, generic art. | — |
+| M2-15 credit-gated photos | end to end in a throwaway worktree (deleted afterwards; nothing committed) | ✅ An **uncredited** file makes the build refuse. **CC BY-NC** is refused. A **closed place** is refused. A complete TASL row renders `figure.pl-photo` with the visible credit and licence links. With 0 files the layout is unchanged. Nothing was fetched. | `photo*.log` (scratch) |
+| M2-12 accessibility page | axe, plus a link check | ✅ It exists and is linked from all 95 pages. It carries the same footer defect (QA-24). | `accessibility-m` |
+| Keyboard | Tokyo desktop | ✅ The first Tab reaches the skip link. Enter on a card opens the sheet with focus inside, and Esc closes it and returns focus to the card. The For you picker traps focus, and Esc returns focus to its tile. Focus is visible on 30/30 on every page (M1-16f 190/190). | `w2.json` `a11y` |
+
+### axe-core results (serious/critical; moderate in the notes)
+
+| Rule | Impact | Where | Defect |
+|---|---|---|---|
+| `link-in-text-block` | serious | footer colophon on **every** beta page ("the current live guide", "OpenStreetMap contributors": cream links at 1.74:1 against the surrounding text, with no underline) | QA-24 |
+| `color-contrast` | serious | `saved.html` night: map placeholder `.note`, #d2cabe on #ecebf7, 1.37:1 | QA-25 |
+| `scrollable-region-focusable` | serious | `how-we-choose.html` mobile: `.tablewrap` scrolls but can't be focused | QA-26 |
+| `heading-order` | moderate | 21 page/viewport runs | not blocking |
+
+### New defects (W2 run)
+
+The PM copies these rows into the `BETA-BACKLOG.md` QA table (QA edits only its own files this wave).
+
+| ID | Sev | Defect | Evidence | Lane |
+|---|---|---|---|---|
+| QA-24 | High | Footer colophon links are told apart from the text by colour alone (axe `link-in-text-block`, serious; WCAG 1.4.1) on every beta page. Fix: underline the links in `.footer .legal`. | `w2.json` a11y, every page type | DES (`cleo.css` `.footer a`) |
+| QA-25 | Med | `saved.html` night: the map placeholder note is 1.37:1 (night ink on a light wash). B-23 fails on saved night. | `qa/beta-w2/saved-empty-d-m.jpg`; metrics `saved.html` night | DES + FE-A |
+| QA-26 | Low | `how-we-choose.html` comparison table scrolls horizontally on phones but has no keyboard focus (`tabindex=0` + `role=region` + label). | axe mobile | FE-B |
+| QA-27 | Low | For you rail tile keeps `aria-pressed="false"` after a reload restores stored interests (the lens is visibly on). | `foryou-reload-m.jpg`; 5/5 pilots | FE-A |
+| QA-28 | Low | Landing editorial rail: per-city counts leave out closed places, but the deep link opens the lens with them, flagged. 7 of 38 links differ: Tokyo ANIME 36 → 37, Punggol HAWKER 18 → 20, Liège FINE 58 → 59, Okinawa UNESCO 29 → 30, Rhineland BEER 23 → 24, Antwerp BEER 17 → 19, Saarland FREE 87 → 88. Fix: count what the lens shows, or label the count "open". | `w2.json` `railMismatch` | FE-B |
+| QA-20 (rest) | Low | `Singapore/cebu.html` 1.98 cards per mobile screen (off the pilot set) | `qa/beta-metrics-all.md` | FE-A + DES |
+
+Still open from earlier runs: **QA-22** (Vietnam hub B-05 = 1; archived `singapore-old` 0) and **QA-23** (`404.html` tab labels 2.86:1), both FE-B.
+
+### Round 2 exit criterion 2
+
+B-06, B-07 and B-16 were re-measured on this head and are **green on the pilot set**. `beta:metrics:all` was run. G1, G3, G4, G6 and G8 are at **100 % / 0 FAIL**. Every remaining ❌ is named with its owning lane below.
+
+QA sign-off: NO
+Blockers: **QA-24** (DES — axe serious on every page: footer links told apart by colour only; M1-16 needs 0 serious/critical) · **QA-25** (DES + FE-A — `saved.html` night contrast, B-23) · **QA-22** (FE-B — Vietnam hub B-05) · **QA-23** (FE-B — `404.html` contrast, B-23). The pilot rows B-06, B-07 and B-16 are fixed, and so are QA-16, QA-18, QA-19 and QA-21. QA-24 is a one-rule CSS fix. QA re-signs YES once `npm run beta:qa:w2 -- --only a11y` and `beta:metrics:all` show these four green with the gates unchanged.

@@ -1,0 +1,2529 @@
+{
+ "checks": [
+  {
+   "group": "foryou",
+   "name": "cleveland.html: picker offers ≤ 5 interests",
+   "ok": true,
+   "evidence": 2
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html: same record set (ids) after picking every interest",
+   "ok": true,
+   "evidence": [
+    194,
+    194,
+    194
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html: same per-area counts",
+   "ok": true
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html: no card hidden by the lens",
+   "ok": true,
+   "evidence": [
+    194,
+    194
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html: lifted cards say \"First because\"",
+   "ok": true,
+   "evidence": [
+    39,
+    "First because you picked Food & drink and Pop culture: 39 places from those collections mo"
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html: choice persists through Cleo.store (cards lifted + line shown after reload)",
+   "ok": true,
+   "evidence": {
+    "p": "false",
+    "d": "Food & drink · Pop culture first",
+    "why": 39,
+    "line": true
+   }
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html: rail tile aria-pressed reflects the restored choice",
+   "ok": false,
+   "evidence": "false"
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html [storage throws]: picker offers ≤ 5 interests",
+   "ok": true,
+   "evidence": 2
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html [storage throws]: same record set (ids) after picking every interest",
+   "ok": true,
+   "evidence": [
+    194,
+    194,
+    194
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html [storage throws]: same per-area counts",
+   "ok": true
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html [storage throws]: no card hidden by the lens",
+   "ok": true,
+   "evidence": [
+    194,
+    194
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html [storage throws]: lifted cards say \"First because\"",
+   "ok": true,
+   "evidence": [
+    39,
+    "First because you picked Food & drink and Pop culture: 39 places from those collections mo"
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cleveland.html [storage throws]: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html: picker offers ≤ 5 interests",
+   "ok": true,
+   "evidence": 5
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html: same record set (ids) after picking every interest",
+   "ok": true,
+   "evidence": [
+    488,
+    488,
+    488
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html: same per-area counts",
+   "ok": true
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html: no card hidden by the lens",
+   "ok": true,
+   "evidence": [
+    488,
+    488
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html: lifted cards say \"First because\"",
+   "ok": true,
+   "evidence": [
+    483,
+    "First because you picked History & landmarks and Food & drink and Pop culture and Outdoors"
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html: choice persists through Cleo.store (cards lifted + line shown after reload)",
+   "ok": true,
+   "evidence": {
+    "p": "false",
+    "d": "History & landmarks · Food & drink · Pop culture · Outdoors · Art & museums first",
+    "why": 483,
+    "line": true
+   }
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html: rail tile aria-pressed reflects the restored choice",
+   "ok": false,
+   "evidence": "false"
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html [storage throws]: picker offers ≤ 5 interests",
+   "ok": true,
+   "evidence": 5
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html [storage throws]: same record set (ids) after picking every interest",
+   "ok": true,
+   "evidence": [
+    488,
+    488,
+    488
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html [storage throws]: same per-area counts",
+   "ok": true
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html [storage throws]: no card hidden by the lens",
+   "ok": true,
+   "evidence": [
+    488,
+    488
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html [storage throws]: lifted cards say \"First because\"",
+   "ok": true,
+   "evidence": [
+    483,
+    "First because you picked History & landmarks and Food & drink and Pop culture and Outdoors"
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/tokyo.html [storage throws]: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "foryou",
+   "name": "cities/newyork.html: picker offers ≤ 5 interests",
+   "ok": true,
+   "evidence": 5
+  },
+  {
+   "group": "foryou",
+   "name": "cities/newyork.html: same record set (ids) after picking every interest",
+   "ok": true,
+   "evidence": [
+    508,
+    508,
+    508
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/newyork.html: same per-area counts",
+   "ok": true
+  },
+  {
+   "group": "foryou",
+   "name": "cities/newyork.html: no card hidden by the lens",
+   "ok": true,
+   "evidence": [
+    508,
+    508
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/newyork.html: lifted cards say \"First because\"",
+   "ok": true,
+   "evidence": [
+    502,
+    "First because you picked History & landmarks and Food & drink and Pop culture and Outdoors"
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/newyork.html: choice persists through Cleo.store (cards lifted + line shown after reload)",
+   "ok": true,
+   "evidence": {
+    "p": "false",
+    "d": "History & landmarks · Food & drink · Pop culture · Outdoors · Art & museums first",
+    "why": 502,
+    "line": true
+   }
+  },
+  {
+   "group": "foryou",
+   "name": "cities/newyork.html: rail tile aria-pressed reflects the restored choice",
+   "ok": false,
+   "evidence": "false"
+  },
+  {
+   "group": "foryou",
+   "name": "cities/newyork.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "foryou",
+   "name": "Singapore/chinatown.html: picker offers ≤ 5 interests",
+   "ok": true,
+   "evidence": 4
+  },
+  {
+   "group": "foryou",
+   "name": "Singapore/chinatown.html: same record set (ids) after picking every interest",
+   "ok": true,
+   "evidence": [
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "Singapore/chinatown.html: same per-area counts",
+   "ok": true
+  },
+  {
+   "group": "foryou",
+   "name": "Singapore/chinatown.html: no card hidden by the lens",
+   "ok": true,
+   "evidence": [
+    16,
+    16
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "Singapore/chinatown.html: lifted cards say \"First because\"",
+   "ok": true,
+   "evidence": [
+    16,
+    "First because you picked History & landmarks and Food & drink and Outdoors and Art & museu"
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "Singapore/chinatown.html: choice persists through Cleo.store (cards lifted + line shown after reload)",
+   "ok": true,
+   "evidence": {
+    "p": "false",
+    "d": "History & landmarks · Food & drink · Outdoors · Art & museums first",
+    "why": 16,
+    "line": true
+   }
+  },
+  {
+   "group": "foryou",
+   "name": "Singapore/chinatown.html: rail tile aria-pressed reflects the restored choice",
+   "ok": false,
+   "evidence": "false"
+  },
+  {
+   "group": "foryou",
+   "name": "Singapore/chinatown.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "foryou",
+   "name": "cities/wheeling.html: picker offers ≤ 5 interests",
+   "ok": true,
+   "evidence": 4
+  },
+  {
+   "group": "foryou",
+   "name": "cities/wheeling.html: same record set (ids) after picking every interest",
+   "ok": true,
+   "evidence": [
+    35,
+    35,
+    35
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/wheeling.html: same per-area counts",
+   "ok": true
+  },
+  {
+   "group": "foryou",
+   "name": "cities/wheeling.html: no card hidden by the lens",
+   "ok": true,
+   "evidence": [
+    35,
+    35
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/wheeling.html: lifted cards say \"First because\"",
+   "ok": true,
+   "evidence": [
+    34,
+    "First because you picked History & landmarks and Food & drink and Outdoors and Art & museu"
+   ]
+  },
+  {
+   "group": "foryou",
+   "name": "cities/wheeling.html: choice persists through Cleo.store (cards lifted + line shown after reload)",
+   "ok": true,
+   "evidence": {
+    "p": "false",
+    "d": "History & landmarks · Food & drink · Outdoors · Art & museums first",
+    "why": 34,
+    "line": true
+   }
+  },
+  {
+   "group": "foryou",
+   "name": "cities/wheeling.html: rail tile aria-pressed reflects the restored choice",
+   "ok": false,
+   "evidence": "false"
+  },
+  {
+   "group": "foryou",
+   "name": "cities/wheeling.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "foryou",
+   "name": "INTERESTS table maps to collection/cuisine ids, no dish keywords",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html mobile: 4–6 stops",
+   "ok": true,
+   "evidence": [
+    6,
+    "#day=DT"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html mobile: every stop open + verified pin, one area",
+   "ok": true,
+   "evidence": {
+    "ids": [
+     "chess-collection-cleveland-public-library-main-library",
+     "eastman-reading-garden",
+     "the-arcade-old-arcade",
+     "butcher-and-the-brewer",
+     "5th-street-arcades-and-euclid-arcade",
+     "slymans-restaurant-and-deli"
+    ],
+    "areas": [
+     "DT"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html mobile: every leg labelled straight-line",
+   "ok": true,
+   "evidence": [
+    "40 m straight-line to stop 2",
+    "190 m straight-line to stop 3"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html mobile: total + honest label",
+   "ok": true,
+   "evidence": [
+    "6stops2.5 kmstraight-line total1place to eat",
+    "Suggested by the guide from sourced picks — check hours before you go. Distances"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html: shared #day=A&s=ids link reproduces the stops in order",
+   "ok": true,
+   "evidence": {
+    "want": [
+     "slymans-restaurant-and-deli",
+     "5th-street-arcades-and-euclid-arcade",
+     "butcher-and-the-brewer",
+     "the-arcade-old-arcade",
+     "eastman-reading-garden",
+     "chess-collection-cleveland-public-library-main-library"
+    ],
+    "got": [
+     "slymans-restaurant-and-deli",
+     "5th-street-arcades-and-euclid-arcade",
+     "butcher-and-the-brewer",
+     "the-arcade-old-arcade",
+     "eastman-reading-garden",
+     "chess-collection-cleveland-public-library-main-library"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html desktop: 4–6 stops",
+   "ok": true,
+   "evidence": [
+    6,
+    "#day=DT"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html desktop: every stop open + verified pin, one area",
+   "ok": true,
+   "evidence": {
+    "ids": [
+     "chess-collection-cleveland-public-library-main-library",
+     "eastman-reading-garden",
+     "the-arcade-old-arcade",
+     "butcher-and-the-brewer",
+     "5th-street-arcades-and-euclid-arcade",
+     "slymans-restaurant-and-deli"
+    ],
+    "areas": [
+     "DT"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html desktop: every leg labelled straight-line",
+   "ok": true,
+   "evidence": [
+    "40 m straight-line to stop 2",
+    "190 m straight-line to stop 3"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html desktop: total + honest label",
+   "ok": true,
+   "evidence": [
+    "6stops2.5 kmstraight-line total1place to eat",
+    "Suggested by the guide from sourced picks — check hours before you go. Distances"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cleveland.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html mobile: 4–6 stops",
+   "ok": true,
+   "evidence": [
+    6,
+    "#day=CYD"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html mobile: every stop open + verified pin, one area",
+   "ok": true,
+   "evidence": {
+    "ids": [
+     "imperial-palace-east-gardens",
+     "national-museum-of-modern-art-tokyo-momat",
+     "kitanomaru-park",
+     "nippon-budokan",
+     "chidorigafuchi",
+     "isegen"
+    ],
+    "areas": [
+     "CYD"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html mobile: every leg labelled straight-line",
+   "ok": true,
+   "evidence": [
+    "420 m straight-line to stop 2",
+    "160 m straight-line to stop 3"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html mobile: total + honest label",
+   "ok": true,
+   "evidence": [
+    "6stops3.4 kmstraight-line total1place to eat",
+    "Suggested by the guide from sourced picks — check hours before you go. Distances"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html: shared #day=A&s=ids link reproduces the stops in order",
+   "ok": true,
+   "evidence": {
+    "want": [
+     "isegen",
+     "chidorigafuchi",
+     "nippon-budokan",
+     "kitanomaru-park",
+     "national-museum-of-modern-art-tokyo-momat",
+     "imperial-palace-east-gardens"
+    ],
+    "got": [
+     "isegen",
+     "chidorigafuchi",
+     "nippon-budokan",
+     "kitanomaru-park",
+     "national-museum-of-modern-art-tokyo-momat",
+     "imperial-palace-east-gardens"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html desktop: 4–6 stops",
+   "ok": true,
+   "evidence": [
+    6,
+    "#day=CYD"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html desktop: every stop open + verified pin, one area",
+   "ok": true,
+   "evidence": {
+    "ids": [
+     "imperial-palace-east-gardens",
+     "national-museum-of-modern-art-tokyo-momat",
+     "kitanomaru-park",
+     "nippon-budokan",
+     "chidorigafuchi",
+     "isegen"
+    ],
+    "areas": [
+     "CYD"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html desktop: every leg labelled straight-line",
+   "ok": true,
+   "evidence": [
+    "420 m straight-line to stop 2",
+    "160 m straight-line to stop 3"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html desktop: total + honest label",
+   "ok": true,
+   "evidence": [
+    "6stops3.4 kmstraight-line total1place to eat",
+    "Suggested by the guide from sourced picks — check hours before you go. Distances"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/tokyo.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html mobile: 4–6 stops",
+   "ok": true,
+   "evidence": [
+    6,
+    "#day=MAN"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html mobile: every stop open + verified pin, one area",
+   "ok": true,
+   "evidence": {
+    "ids": [
+     "the-metropolitan-museum-of-art",
+     "the-halal-guys",
+     "neue-galerie-new-york",
+     "solomon-r-guggenheim-museum",
+     "cooper-hewitt-smithsonian-design-museum",
+     "the-jewish-museum"
+    ],
+    "areas": [
+     "MAN"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html mobile: every leg labelled straight-line",
+   "ok": true,
+   "evidence": [
+    "2.4 km straight-line to stop 2",
+    "2.7 km straight-line to stop 3"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html mobile: total + honest label",
+   "ok": true,
+   "evidence": [
+    "6stops5.7 kmstraight-line total1place to eat",
+    "Suggested by the guide from sourced picks — check hours before you go. Distances"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html: shared #day=A&s=ids link reproduces the stops in order",
+   "ok": true,
+   "evidence": {
+    "want": [
+     "the-jewish-museum",
+     "cooper-hewitt-smithsonian-design-museum",
+     "solomon-r-guggenheim-museum",
+     "neue-galerie-new-york",
+     "the-halal-guys",
+     "the-metropolitan-museum-of-art"
+    ],
+    "got": [
+     "the-jewish-museum",
+     "cooper-hewitt-smithsonian-design-museum",
+     "solomon-r-guggenheim-museum",
+     "neue-galerie-new-york",
+     "the-halal-guys",
+     "the-metropolitan-museum-of-art"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html desktop: 4–6 stops",
+   "ok": true,
+   "evidence": [
+    6,
+    "#day=MAN"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html desktop: every stop open + verified pin, one area",
+   "ok": true,
+   "evidence": {
+    "ids": [
+     "the-metropolitan-museum-of-art",
+     "the-halal-guys",
+     "neue-galerie-new-york",
+     "solomon-r-guggenheim-museum",
+     "cooper-hewitt-smithsonian-design-museum",
+     "the-jewish-museum"
+    ],
+    "areas": [
+     "MAN"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html desktop: every leg labelled straight-line",
+   "ok": true,
+   "evidence": [
+    "2.4 km straight-line to stop 2",
+    "2.7 km straight-line to stop 3"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html desktop: total + honest label",
+   "ok": true,
+   "evidence": [
+    "6stops5.7 kmstraight-line total1place to eat",
+    "Suggested by the guide from sourced picks — check hours before you go. Distances"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/newyork.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html mobile: 4–6 stops",
+   "ok": true,
+   "evidence": [
+    6,
+    "#day=WHL"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html mobile: every stop open + verified pin, one area",
+   "ok": true,
+   "evidence": {
+    "ids": [
+     "wheeling-suspension-bridge",
+     "capitol-theatre",
+     "wheeling-heritage-trail",
+     "west-virginia-independence-hall",
+     "centre-market-historic-district",
+     "figarettis-restaurant"
+    ],
+    "areas": [
+     "WHL"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html mobile: every leg labelled straight-line",
+   "ok": true,
+   "evidence": [
+    "240 m straight-line to stop 2",
+    "490 m straight-line to stop 3"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html mobile: total + honest label",
+   "ok": true,
+   "evidence": [
+    "6stops4.3 kmstraight-line total1place to eat",
+    "Suggested by the guide from sourced picks — check hours before you go. Distances"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html: shared #day=A&s=ids link reproduces the stops in order",
+   "ok": true,
+   "evidence": {
+    "want": [
+     "figarettis-restaurant",
+     "centre-market-historic-district",
+     "west-virginia-independence-hall",
+     "wheeling-heritage-trail",
+     "capitol-theatre",
+     "wheeling-suspension-bridge"
+    ],
+    "got": [
+     "figarettis-restaurant",
+     "centre-market-historic-district",
+     "west-virginia-independence-hall",
+     "wheeling-heritage-trail",
+     "capitol-theatre",
+     "wheeling-suspension-bridge"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html desktop: 4–6 stops",
+   "ok": true,
+   "evidence": [
+    6,
+    "#day=WHL"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html desktop: every stop open + verified pin, one area",
+   "ok": true,
+   "evidence": {
+    "ids": [
+     "wheeling-suspension-bridge",
+     "capitol-theatre",
+     "wheeling-heritage-trail",
+     "west-virginia-independence-hall",
+     "centre-market-historic-district",
+     "figarettis-restaurant"
+    ],
+    "areas": [
+     "WHL"
+    ]
+   }
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html desktop: every leg labelled straight-line",
+   "ok": true,
+   "evidence": [
+    "240 m straight-line to stop 2",
+    "490 m straight-line to stop 3"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html desktop: total + honest label",
+   "ok": true,
+   "evidence": [
+    "6stops4.3 kmstraight-line total1place to eat",
+    "Suggested by the guide from sourced picks — check hours before you go. Distances"
+   ]
+  },
+  {
+   "group": "day",
+   "name": "cities/wheeling.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "day",
+   "name": "Cleveland day plans come from guide.days.plans (one computation, D-34)",
+   "ok": true,
+   "evidence": 3
+  },
+  {
+   "group": "near",
+   "name": "Tokyo: distance shown on every pinned card",
+   "ok": true,
+   "evidence": [
+    488,
+    488,
+    488
+   ]
+  },
+  {
+   "group": "near",
+   "name": "Tokyo: every place still listed",
+   "ok": true,
+   "evidence": 488
+  },
+  {
+   "group": "near",
+   "name": "Tokyo: nearest first + \"never stored\" note",
+   "ok": true,
+   "evidence": [
+    "40 m away",
+    "Nearest first. Using your location for this visit only — never stored or sent. T",
+    "#sort=near"
+   ]
+  },
+  {
+   "group": "near",
+   "name": "position never stored: localStorage/sessionStorage/cookie/IndexedDB/URL",
+   "ok": true,
+   "evidence": {
+    "ls": "{}",
+    "ss": "{}",
+    "cookie": "",
+    "idb": [],
+    "href": "cities/tokyo.html#sort=near"
+   }
+  },
+  {
+   "group": "near",
+   "name": "position never sent: no request URL carries it",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "near",
+   "name": "reload: distances gone (memory only)",
+   "ok": true,
+   "evidence": 0
+  },
+  {
+   "group": "near",
+   "name": "0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "near",
+   "name": "permission denied: every place listed, no distances, a calm message",
+   "ok": true,
+   "evidence": {
+    "n": 488,
+    "dist": 0,
+    "toast": "Location is off for this site, so nothing changed. Every place is still listed."
+   }
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html desktop: map ≥ 40 % of 1440",
+   "ok": true,
+   "evidence": "44 %"
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html desktop: open sheet → its place is in view on the map",
+   "ok": true,
+   "evidence": {
+    "id": "p-voinovich-bicentennial-park-and-cleveland-lighthouse-view",
+    "inView": true,
+    "offDeg": 0
+   }
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html desktop: numbered pins drawn",
+   "ok": true,
+   "evidence": 194
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html mobile: pin peek detent ≤ 40 % of the viewport",
+   "ok": true,
+   "evidence": "36 %"
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html mobile: Esc closes the pin sheet (QA-19)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html mobile: sheet has a locator inset",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "cities/tokyo.html desktop: map ≥ 40 % of 1440",
+   "ok": true,
+   "evidence": "44 %"
+  },
+  {
+   "group": "map",
+   "name": "cities/tokyo.html desktop: open sheet → its place is in view on the map",
+   "ok": true,
+   "evidence": {
+    "id": "p-maz-tokyo-garden-terrace-kioicho",
+    "inView": true,
+    "offDeg": 0
+   }
+  },
+  {
+   "group": "map",
+   "name": "cities/tokyo.html desktop: numbered pins drawn",
+   "ok": true,
+   "evidence": 488
+  },
+  {
+   "group": "map",
+   "name": "cities/tokyo.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "map",
+   "name": "cities/tokyo.html mobile: pin peek detent ≤ 40 % of the viewport",
+   "ok": true,
+   "evidence": "39 %"
+  },
+  {
+   "group": "map",
+   "name": "cities/tokyo.html mobile: Esc closes the pin sheet (QA-19)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "cities/tokyo.html mobile: sheet has a locator inset",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "cities/newyork.html desktop: map ≥ 40 % of 1440",
+   "ok": true,
+   "evidence": "44 %"
+  },
+  {
+   "group": "map",
+   "name": "cities/newyork.html desktop: open sheet → its place is in view on the map",
+   "ok": true,
+   "evidence": {
+    "id": "p-bethesda-terrace-and-fountain",
+    "inView": true,
+    "offDeg": 0
+   }
+  },
+  {
+   "group": "map",
+   "name": "cities/newyork.html desktop: numbered pins drawn",
+   "ok": true,
+   "evidence": 508
+  },
+  {
+   "group": "map",
+   "name": "cities/newyork.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "map",
+   "name": "cities/newyork.html mobile: pin peek detent ≤ 40 % of the viewport",
+   "ok": true,
+   "evidence": "36 %"
+  },
+  {
+   "group": "map",
+   "name": "cities/newyork.html mobile: Esc closes the pin sheet (QA-19)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "cities/newyork.html mobile: sheet has a locator inset",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "Singapore/chinatown.html desktop: map ≥ 40 % of 1440",
+   "ok": true,
+   "evidence": "44 %"
+  },
+  {
+   "group": "map",
+   "name": "Singapore/chinatown.html desktop: open sheet → its place is in view on the map",
+   "ok": true,
+   "evidence": {
+    "id": "p-nai-ek-roll-noodle-nai-ek-kuay-jub",
+    "inView": true,
+    "offDeg": 0
+   }
+  },
+  {
+   "group": "map",
+   "name": "Singapore/chinatown.html desktop: numbered pins drawn",
+   "ok": true,
+   "evidence": 16
+  },
+  {
+   "group": "map",
+   "name": "Singapore/chinatown.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "map",
+   "name": "Singapore/chinatown.html mobile: pin peek detent ≤ 40 % of the viewport",
+   "ok": true,
+   "evidence": "36 %"
+  },
+  {
+   "group": "map",
+   "name": "Singapore/chinatown.html mobile: Esc closes the pin sheet (QA-19)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "Singapore/chinatown.html mobile: sheet has a locator inset",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "cities/wheeling.html desktop: map ≥ 40 % of 1440",
+   "ok": true,
+   "evidence": "44 %"
+  },
+  {
+   "group": "map",
+   "name": "cities/wheeling.html desktop: open sheet → its place is in view on the map",
+   "ok": true,
+   "evidence": {
+    "id": "p-david-bradford-house",
+    "inView": true,
+    "offDeg": 0
+   }
+  },
+  {
+   "group": "map",
+   "name": "cities/wheeling.html desktop: numbered pins drawn",
+   "ok": true,
+   "evidence": 35
+  },
+  {
+   "group": "map",
+   "name": "cities/wheeling.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "map",
+   "name": "cities/wheeling.html mobile: pin peek detent ≤ 40 % of the viewport",
+   "ok": true,
+   "evidence": "36 %"
+  },
+  {
+   "group": "map",
+   "name": "cities/wheeling.html mobile: Esc closes the pin sheet (QA-19)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "cities/wheeling.html mobile: sheet has a locator inset",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "saved",
+   "name": "saved page shows the 3 places saved from the sheet",
+   "ok": true,
+   "evidence": 3
+  },
+  {
+   "group": "saved",
+   "name": "map of saved places",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "saved",
+   "name": "export KML/GeoJSON/JSON + share + import controls",
+   "ok": true,
+   "evidence": [
+    "kml",
+    "geojson",
+    "json",
+    "share",
+    "pick"
+   ]
+  },
+  {
+   "group": "saved",
+   "name": "\"Open in maps\" links on each card",
+   "ok": true,
+   "evidence": 9
+  },
+  {
+   "group": "saved",
+   "name": "create a named list",
+   "ok": true,
+   "evidence": [
+    "All saved3",
+    "Been there0",
+    "QA trip0",
+    "New list"
+   ]
+  },
+  {
+   "group": "saved",
+   "name": "rename the list",
+   "ok": true,
+   "evidence": [
+    "All saved3",
+    "Been there0",
+    "QA renamed0",
+    "New list"
+   ]
+  },
+  {
+   "group": "saved",
+   "name": "delete the list; the places stay saved",
+   "ok": true,
+   "evidence": {
+    "tabs": [
+     "All saved3",
+     "Been there0",
+     "New list"
+    ],
+    "cards": 3
+   }
+  },
+  {
+   "group": "saved",
+   "name": "Been there stamps a card",
+   "ok": true,
+   "evidence": {
+    "stamp": 1,
+    "tab": "Been there1"
+   }
+  },
+  {
+   "group": "saved",
+   "name": "shared view: read-only (no new/rename/delete) with Save a copy",
+   "ok": true,
+   "evidence": {
+    "cards": 2,
+    "gone": "1 saved place is no longer listed in a guide (no-such-place-qa). The link may be older than the guide.",
+    "copy": true,
+    "edit": 0
+   }
+  },
+  {
+   "group": "saved",
+   "name": "shared view: 2 known places shown, the unknown id reported",
+   "ok": true,
+   "evidence": "1 saved place is no longer listed in a guide (no-such-place-qa). The link may be older than the guide."
+  },
+  {
+   "group": "saved",
+   "name": "Save a copy creates a named list on this device",
+   "ok": true,
+   "evidence": {
+    "hash": "#v=lmv2d97hq",
+    "tabs": [
+     "All saved3",
+     "Been there0",
+     "Shared QA3",
+     "New list"
+    ]
+   }
+  },
+  {
+   "group": "saved",
+   "name": "storage throwing: shared view renders, 0 errors",
+   "ok": true,
+   "evidence": [
+    2,
+    []
+   ]
+  },
+  {
+   "group": "saved",
+   "name": "0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "sig",
+   "name": "★ never a publisher on 84 place pages",
+   "ok": true,
+   "evidence": {
+    "kinds": {
+     "canon": 55,
+     "collection": 5
+    },
+    "bad": []
+   }
+  },
+  {
+   "group": "sig",
+   "name": "pages with no ★ data show no ★ tile (not a substitute)",
+   "ok": true,
+   "evidence": {
+    "noStar": 24,
+    "eg": [
+     "cities/siliconvalley.html",
+     "cities/wheeling.html",
+     "Singapore/bagan.html",
+     "Singapore/bali.html"
+    ]
+   }
+  },
+  {
+   "group": "sig",
+   "name": "Cleveland ★ = its food canon (Polish Boy · corned beef · Barberton chicken)",
+   "ok": true,
+   "evidence": "★ Signature Only in Cleveland Polish Boy · corned beef · Barberton chicken 18"
+  },
+  {
+   "group": "sig",
+   "name": "Cleveland ★ lens opens on the canon places (18)",
+   "ok": true,
+   "evidence": {
+    "n": 18,
+    "first": [
+     "Slyman's Restaurant and Deli",
+     "Cordelia",
+     "Mabel's BBQ",
+     "Banter"
+    ],
+    "shown": "Showing 18 of 194 places in 4 areas. Ordered by tier, then by number of named sources."
+   }
+  },
+  {
+   "group": "dom",
+   "name": "cities/tokyo.html mobile: initial DOM ≤ 3,000 nodes",
+   "ok": true,
+   "evidence": 1735
+  },
+  {
+   "group": "dom",
+   "name": "cities/tokyo.html mobile: every place reachable after stamp-all",
+   "ok": true,
+   "evidence": [
+    488,
+    488
+   ]
+  },
+  {
+   "group": "dom",
+   "name": "cities/tokyo.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "dom",
+   "name": "cities/tokyo.html desktop: initial DOM ≤ 3,000 nodes",
+   "ok": true,
+   "evidence": 2752
+  },
+  {
+   "group": "dom",
+   "name": "cities/tokyo.html desktop: every place reachable after stamp-all",
+   "ok": true,
+   "evidence": [
+    488,
+    488
+   ]
+  },
+  {
+   "group": "dom",
+   "name": "cities/tokyo.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "dom",
+   "name": "cities/newyork.html mobile: initial DOM ≤ 3,000 nodes",
+   "ok": true,
+   "evidence": 1642
+  },
+  {
+   "group": "dom",
+   "name": "cities/newyork.html mobile: every place reachable after stamp-all",
+   "ok": true,
+   "evidence": [
+    508,
+    508
+   ]
+  },
+  {
+   "group": "dom",
+   "name": "cities/newyork.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "dom",
+   "name": "cities/newyork.html desktop: initial DOM ≤ 3,000 nodes",
+   "ok": true,
+   "evidence": 2699
+  },
+  {
+   "group": "dom",
+   "name": "cities/newyork.html desktop: every place reachable after stamp-all",
+   "ok": true,
+   "evidence": [
+    508,
+    508
+   ]
+  },
+  {
+   "group": "dom",
+   "name": "cities/newyork.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "og",
+   "name": "every og:image is a local 1200×630 PNG ≤ 300 KB (95 pages)",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "og",
+   "name": "each place page has its own share card",
+   "ok": true,
+   "evidence": [
+    84,
+    84
+   ]
+  },
+  {
+   "group": "hubs",
+   "name": "hub tile lines are signature lines, never category labels (67 tiles)",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "hubs",
+   "name": "every motif referenced by a hub tile exists",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "hubs",
+   "name": "≥ 4 tile compositions; no two neighbouring tiles share one",
+   "ok": true,
+   "evidence": {
+    "kinds": [
+     "c-night skin-vermilion",
+     "c-wash skin-lake",
+     "c-city skin-moss",
+     "c-paper skin-neon",
+     "c-night skin-lagoon",
+     "c-night",
+     "c-wash",
+     "c-city",
+     "c-paper",
+     "c-wash skin-glacier",
+     "c-paper skin-plum",
+     "c-paper skin-saffron",
+     "c-city skin-saffron",
+     "c-wash skin-plum"
+    ],
+    "adj": []
+   }
+  },
+  {
+   "group": "hubs",
+   "name": "landing editorial rail: 38 deep links open with the promised count",
+   "ok": false,
+   "evidence": [
+    {
+     "href": "cities/tokyo.html#c=ANIME",
+     "promised": 36,
+     "shown": 37,
+     "errors": []
+    },
+    {
+     "href": "Singapore/punggol.html#cz=HAWKER",
+     "promised": 18,
+     "shown": 20,
+     "errors": []
+    },
+    {
+     "href": "cities/liege.html#cz=FINE",
+     "promised": 58,
+     "shown": 59,
+     "errors": []
+    },
+    {
+     "href": "cities/okinawa.html#c=UNESCO",
+     "promised": 29,
+     "shown": 30,
+     "errors": []
+    },
+    {
+     "href": "cities/rhineland.html#cz=BEER",
+     "promised": 23,
+     "shown": 24,
+     "errors": []
+    },
+    {
+     "href": "cities/antwerp.html#cz=BEER",
+     "promised": 17,
+     "shown": 19,
+     "errors": []
+    }
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "index.html mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "index.html desktop light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "index.html desktop dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "Japan/index.html mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "Japan/index.html desktop light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "Japan/index.html desktop dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "Vietnam/index.html mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "Vietnam/index.html desktop light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "Vietnam/index.html desktop dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "cleveland.html mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "cleveland.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cleveland.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/tokyo.html mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "cities/tokyo.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/tokyo.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/newyork.html mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "cities/newyork.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/newyork.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Singapore/chinatown.html mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "Singapore/chinatown.html desktop light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "Singapore/chinatown.html desktop dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "cities/wheeling.html mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "cities/wheeling.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/wheeling.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "saved.html mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "saved.html desktop light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "saved.html desktop dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "color-contrast×1: .note — Element has insufficient color contrast of 1.37 (foreground color: #d2cabe, background color: #ecebf7, font size: 9.8pt (13px), font weight:",
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "accessibility.html mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "accessibility.html desktop light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "accessibility.html desktop dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "how-we-choose.html mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+    "scrollable-region-focusable×1: .tablewrap — Element should have focusable content"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "how-we-choose.html desktop light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "how-we-choose.html desktop dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "404.html mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "404.html desktop light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "404.html desktop dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "link-in-text-block×2: .legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "keyboard: first Tab is the skip link",
+   "ok": true,
+   "evidence": {
+    "t": "Skip to content",
+    "href": "#main"
+   }
+  },
+  {
+   "group": "a11y",
+   "name": "keyboard: Enter opens the sheet with focus inside; Esc closes and restores focus to the card",
+   "ok": true,
+   "evidence": {
+    "op": {
+     "open": true,
+     "inSheet": true
+    },
+    "back": {
+     "closed": true,
+     "focus": "p-imperial-palace-east-gardens"
+    }
+   }
+  },
+  {
+   "group": "a11y",
+   "name": "keyboard: For you picker traps focus, Esc closes and returns focus",
+   "ok": true,
+   "evidence": {
+    "fy": {
+     "inside": true
+    },
+    "fy2": {
+     "closed": true,
+     "back": true
+    }
+   }
+  },
+  {
+   "group": "a11y",
+   "name": "accessibility page linked from every beta page (95)",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "storage",
+   "name": "storage throws: every card renders, 0 JS errors (84 pages)",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "storage",
+   "name": "saved page renders with storage throwing",
+   "ok": true,
+   "evidence": "Skip to content\ncleo\nYour list\nStorage is blocked here, so saves last until you "
+  }
+ ],
+ "railMismatch": [
+  {
+   "href": "cities/tokyo.html#c=ANIME",
+   "promised": 36,
+   "shown": 37,
+   "errors": []
+  },
+  {
+   "href": "Singapore/punggol.html#cz=HAWKER",
+   "promised": 18,
+   "shown": 20,
+   "errors": []
+  },
+  {
+   "href": "cities/liege.html#cz=FINE",
+   "promised": 58,
+   "shown": 59,
+   "errors": []
+  },
+  {
+   "href": "cities/okinawa.html#c=UNESCO",
+   "promised": 29,
+   "shown": 30,
+   "errors": []
+  },
+  {
+   "href": "cities/rhineland.html#cz=BEER",
+   "promised": 23,
+   "shown": 24,
+   "errors": []
+  },
+  {
+   "href": "cities/antwerp.html#cz=BEER",
+   "promised": 17,
+   "shown": 19,
+   "errors": []
+  },
+  {
+   "href": "cities/saarland.html#c=FREE",
+   "promised": 87,
+   "shown": 88,
+   "errors": []
+  }
+ ],
+ "axe": [
+  {
+   "rel": "index.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "index.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "index.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "Japan/index.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "Japan/index.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "Japan/index.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "Vietnam/index.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "Vietnam/index.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "Vietnam/index.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": []
+  },
+  {
+   "rel": "cleveland.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": []
+  },
+  {
+   "rel": "cleveland.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": []
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": []
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": []
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": []
+  },
+  {
+   "rel": "cities/newyork.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": []
+  },
+  {
+   "rel": "cities/newyork.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": []
+  },
+  {
+   "rel": "cities/newyork.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": []
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": []
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": []
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": []
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": []
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": []
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": []
+  },
+  {
+   "rel": "saved.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "saved.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "saved.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "color-contrast",
+     "impact": "serious",
+     "n": 1,
+     "eg": [
+      ".note — Element has insufficient color contrast of 1.37 (foreground color: #d2cabe, background color: #ecebf7, font size: 9.8pt (13px), font weight:"
+     ]
+    },
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "accessibility.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "accessibility.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "accessibility.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "how-we-choose.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    },
+    {
+     "id": "scrollable-region-focusable",
+     "impact": "serious",
+     "n": 1,
+     "eg": [
+      ".tablewrap — Element should have focusable content"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "how-we-choose.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "how-we-choose.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "404.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "404.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "404.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "link-in-text-block",
+     "impact": "serious",
+     "n": 2,
+     "eg": [
+      ".legal > a:nth-child(1) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text",
+      ".legal > a:nth-child(2) — The link has insufficient color contrast of 1.74:1 with the surrounding text. (Minimum contrast is 3:1, link text: #f5eedf, surrounding text"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  }
+ ],
+ "summary": {
+  "checks": 218,
+  "pass": 184,
+  "fail": 34,
+  "at": "2026-10-10T12:30:31.330Z"
+ }
+}

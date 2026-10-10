@@ -686,6 +686,69 @@ html .sharebar .btn { min-height: var(--tap); }   /* was 40 px on phones (B-20) 
   @keyframes w2-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.35); } }
 }
 
+/* ==========================================================================
+   16. Wave 3 polish + delight (designer) — ROUND-2 gap #2 (polish residue) and gap #5 (motion, motion-safe)
+   ========================================================================== */
+/* 16.1 Italic hero line keeps its macrons ("Jōnan · Jōsai · Jōhoku", ROUND-2 A/typography). At ≈ 14 px the italic J's
+   swash, pulled closer by kerning, swallowed the hairline macron of the next ō at DPR 1. Fix: small optical size
+   (sturdier hairlines), weight 500, no kerning, 16 px on desktop. */
+.masthead .dek, .masthead .why, .hero .why { font-variation-settings: "opsz" 11; font-weight: 500; font-kerning: none; }
+@media (min-width: 900px) { html .masthead .dek { font-size: 16px; letter-spacing: .01em; } }   /* J + ō: kerning tucked the macron under the J swash */
+/* 16.2 Phones: the city motif (skyline line drawing) sits on the masthead's lower edge, clear of the facts text
+   (ROUND-2: "hero skyline motif runs through the facts text", Tokyo + Cleveland). The art is decoration; its inline
+   geometry comes from the generator, so these overrides need !important. */
+@media (max-width: 639px) {
+  main:not(.feb) > .masthead { padding-bottom: 80px; }
+  main > .masthead > .motif { top: auto !important; bottom: 0 !important; height: 72px !important;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 30%) !important; mask-image: linear-gradient(90deg, transparent 0, #000 30%) !important; }
+}
+/* 16.3 Day lens "More days" links were 17 px tall (B-20): each is a 44 px pill row */
+.day .more { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.day .more a { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 14px; border-radius: var(--r-pill); border: 1px solid var(--line-strong);
+  background: var(--surface); color: var(--ink); text-decoration: none; font-weight: 600; }
+.day .more a:hover { border-color: var(--ink); }
+/* 16.4 Desktop map labels carry their area colour (ROUND-2: "bare white number boxes"). FE-A hook: the tooltip element
+   gets style="--ac:<area hex>" (see BETA-LOG). Until then the label keeps today's ink box. */
+html .pin-n { border-color: var(--ac, var(--surface)); }
+html .pin-n:not(.sel):not(.day) { box-shadow: inset 0 -3px 0 var(--ac, transparent); }
+
+/* 16.5 Delight (gap #5). Tap feedback on save, been-there and collection doors; nothing autoplays, nothing on a
+   primary path runs > 400 ms, content opacity never animates, and the reduce block (§13) zeroes it all. */
+@keyframes w3-pop { 0% { transform: scale(1); } 35% { transform: scale(1.32); } 70% { transform: scale(.92); } 100% { transform: scale(1); } }
+@keyframes w3-stamp { 0% { transform: rotate(-14deg) scale(1.6); } 60% { transform: rotate(-6deg) scale(.94); } 100% { transform: rotate(-8deg) scale(1); } }
+@keyframes w3-door { 0% { transform: none; } 40% { transform: translateY(-3px) rotate(-8deg); } 100% { transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .pl-save[aria-pressed="true"]::before, .heart[aria-pressed="true"] .ico, .sv-heart[aria-pressed="true"]::before { animation: w3-pop 380ms var(--ease-spring, cubic-bezier(.34,1.56,.64,1)) 1; }
+  .stamp:not([hidden]) { animation: w3-stamp 360ms var(--ease-out) 1; }
+  .rail-i[aria-pressed="true"] > .g, .rail-i[aria-pressed="true"] > .ico { animation: w3-door 420ms var(--ease-spring, ease-out) 1; }
+  .rail-i.door:active > .ico { transform: scale(.9); transition: transform var(--dur-1) var(--ease-out); }
+  .pills .pill[aria-pressed="true"], .modes button[aria-pressed="true"] { animation: w3-pop 300ms var(--ease-out) 1; }
+  .pin-n.sel { animation: w3-pop 320ms var(--ease-out) 1; }
+}
+
+/* 16.6 Landing hero wanderlust (ROUND-2 gap #4, designer half): a night panorama of the six country motifs the imagery
+   lane already ships (generic subjects, original drawings, ~3 KB each, cached), set along the hero's lower edge and
+   faded out behind the text column, over a CSS star field. Decoration only (::before, aria-free); no new request
+   beyond the six motif SVGs; FE-B's editorial rail is the other half of the gap. */
+html[data-cleo-page="landing"] main > .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    url("img/motifs/us.svg") 0% 100% / auto 150px no-repeat, url("img/motifs/germany.svg") 20% 100% / auto 132px no-repeat,
+    url("img/motifs/belgium.svg") 40% 100% / auto 124px no-repeat, url("img/motifs/vietnam.svg") 60% 100% / auto 138px no-repeat,
+    url("img/motifs/singapore.svg") 80% 100% / auto 146px no-repeat, url("img/motifs/japan.svg") 100% 100% / auto 156px no-repeat,
+    radial-gradient(1.2px 1.2px at 12% 22%, rgba(245,238,223,.7), transparent 60%), radial-gradient(1px 1px at 31% 12%, rgba(245,238,223,.55), transparent 60%),
+    radial-gradient(1.4px 1.4px at 57% 18%, rgba(245,238,223,.7), transparent 60%), radial-gradient(1px 1px at 68% 34%, rgba(245,238,223,.5), transparent 60%),
+    radial-gradient(1.6px 1.6px at 83% 14%, rgba(245,238,223,.75), transparent 60%), radial-gradient(1px 1px at 92% 40%, rgba(245,238,223,.5), transparent 60%),
+    radial-gradient(1.2px 1.2px at 76% 52%, rgba(245,238,223,.55), transparent 60%), radial-gradient(1px 1px at 46% 44%, rgba(245,238,223,.45), transparent 60%),
+    radial-gradient(60% 80% at 85% 110%, color-mix(in srgb, var(--city, #C8574F) 22%, transparent), transparent 70%);
+  --hm: linear-gradient(180deg, #000 0 42%, transparent 60%, rgba(0,0,0,.55) 74%, #000 90%);   /* stars on top; the drawings' ground fades in, no hard tile edge */
+  -webkit-mask-image: var(--hm); mask-image: var(--hm); }
+@media (max-width: 639px) {
+  html[data-cleo-page="landing"] main > .hero .inner { padding-bottom: 96px; }
+  html[data-cleo-page="landing"] main > .hero::before { background-size: auto 78px, auto 70px, auto 66px, auto 72px, auto 76px, auto 82px, auto, auto, auto, auto, auto, auto, auto, auto, auto;
+    background-position: -20% 100%, 18% 100%, 42% 100%, 62% 100%, 86% 100%, 118% 100%, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+    --hm: linear-gradient(180deg, #000 0 74%, transparent 84%, rgba(0,0,0,.6) 91%, #000 97%); }
+}
+
 /* ---------- 13. Motion: nothing moves under reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
