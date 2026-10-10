@@ -53,8 +53,8 @@ async function mountView(p, view) {
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
   const browser = await chromium.launch();
-  const metrics = {};
-  for (const [key, url] of CITIES) {
+  let metrics = {}; try { metrics = JSON.parse(fs.readFileSync(path.join(OUT, 'views-b-metrics.json'), 'utf8')); } catch (e) {}   // --landing-only keeps the rest
+  for (const [key, url] of (process.argv.includes('--landing-only') ? [] : CITIES)) {
     for (const [vp, opt] of [['m', M], ['d', D]]) {
       for (const view of ['guidebook', 'insights']) {
         const errs = [], ctx = await browser.newContext(opt), p = await page(ctx, errs);
@@ -115,6 +115,19 @@ async function mountView(p, view) {
     await p.screenshot({ path: path.join(OUT, `hub-japan-viewlinks-${vp}.jpg`), type: 'jpeg', quality: 70 });
     metrics[`hub-japan-${vp}`] = { links: await p.evaluate(() => document.querySelectorAll('a[data-view-link]').length),
       minTarget: await p.evaluate(() => Math.min(...[...document.querySelectorAll('a[data-view-link]')].map(a => a.getBoundingClientRect().height))), errors: errs };
+    await ctx.close();
+  }
+  // landing editorial rail (ROUND-2 gap #4)
+  for (const [vp, opt] of [['m', M], ['d', D]]) {
+    const errs = [], ctx = await browser.newContext(opt), p = await page(ctx, errs);
+    await p.goto(BASE + 'beta/index.html', { waitUntil: 'load' }); await p.waitForTimeout(300);
+    await p.screenshot({ path: path.join(OUT, `landing-editorial-${vp}.jpg`), type: 'jpeg', quality: 70 });
+    const y = await p.evaluate(() => { const el = document.querySelector('nav.rail.editorial'); return el ? el.getBoundingClientRect().top + scrollY - 140 : 0; });
+    await p.evaluate(y => scrollTo({ top: y, behavior: 'instant' }), y); await p.waitForTimeout(300);
+    await p.screenshot({ path: path.join(OUT, `landing-editorial-s1-${vp}.jpg`), type: 'jpeg', quality: 70 });
+    metrics[`landing-editorial-${vp}`] = { tiles: await p.evaluate(() => document.querySelectorAll('nav.rail.editorial .rail-i').length),
+      railTop: await p.evaluate(() => Math.round(document.querySelector('nav.rail.editorial').getBoundingClientRect().top + scrollY)),
+      minTarget: await p.evaluate(() => Math.min(...[...document.querySelectorAll('nav.rail.editorial .rail-i')].map(a => a.getBoundingClientRect().height))), errors: errs };
     await ctx.close();
   }
   fs.writeFileSync(path.join(OUT, 'views-b-metrics.json'), JSON.stringify(metrics, null, 1));

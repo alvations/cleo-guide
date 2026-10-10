@@ -8,7 +8,7 @@
 const { esc } = require('../html');
 const { head, siteBar, footer, styles } = require('./common');
 const { icon } = require('./shell');
-const { cityTile, moreRow, countryPages, themeRail, FEB_CSS } = require('./hub');
+const { cityTile, moreRow, countryPages, themeRail, FEB_CSS, ogFor } = require('./hub');
 
 function render(reg, ctx) {
   const rows = reg.rows;
@@ -33,11 +33,34 @@ ${more.length ? `<h3 class="more-h d3" style="margin-top:20px">More in ${esc(c.n
 </section>`;
   });
 
+  // ROUND-2 gap #4 (FE-B half): one ★ signature per live country, from the guides' own data (lib/guide.js) — the
+  // signature shared by the most places across that country's pages. A tile opens the page holding most of them,
+  // with its ★ lens on. No copy beyond titles, place counts and city names.
+  const editorial = live.map(c => {
+    const groups = new Map();
+    const seen = new Set();                         // the SEA archive mirrors some pages under another folder: count a city once
+    for (const r of countryPages(c, reg).all.filter(r => !seen.has(r.name) && seen.add(r.name))) {
+      const sg = r.guide && r.guide.signature; if (!sg || !sg.n) continue;
+      const g = groups.get(sg.title) || { title: sg.title, n: 0, pages: [] };
+      g.n += sg.n; g.pages.push({ r, sg }); groups.set(sg.title, g);
+    }
+    const best = [...groups.values()].sort((a, b) => b.n - a.n || (a.title < b.title ? -1 : 1))[0];
+    if (!best) return null;
+    best.pages.sort((a, b) => b.sg.n - a.sg.n || (a.r.name < b.r.name ? -1 : 1));
+    const top = best.pages[0], lens = top.sg.kind === 'collection' && top.sg.c && top.sg.c[0] ? 'c=' + encodeURIComponent(top.sg.c[0]) : 'sig=1';
+    const where = best.pages.length > 1 ? `across ${best.pages.length} ${esc(c.name)} guides: ` + best.pages.slice(0, 3).map(x => `${esc(x.r.name)} ${x.sg.n}`).join(' · ') + (best.pages.length > 3 ? ' …' : '') : `in ${esc(top.r.name)}`;
+    return `<a class="rail-i sig" href="${esc(top.r.beta)}#${lens}">${icon(top.sg.kind === 'collection' ? 'star4' : 'forkknife', 'g ico')}<span class="k">★ ${esc(c.name)}</span><span class="t">${esc(best.title)}</span><span class="d">${where}</span><span class="n">${best.n.toLocaleString('en-US')}</span></a>`;
+  }).filter(Boolean);
+  const editorialHtml = editorial.length ? `<section class="section editorial-s" aria-labelledby="ed-h"><div class="rail-head"><h2 class="d2" id="ed-h">Signatures across the guides<span class="n">${editorial.length} countries · counts from the guides</span></h2></div>
+<nav class="rail editorial" aria-label="Signatures across the guides">
+${editorial.join('\n')}
+</nav></section>` : '';
+
   const archive = byLive['Singapore/singapore-old.html'];
   const nGuides = live.reduce((s, c) => s + countryPages(c, reg).all.length, 0);
   const title = 'Cleo — sourced city guides';
   const desc = `${total.toLocaleString('en-US')} places across ${places.length} guides in ${live.length} countries — every one traceable to the source that recommended it, pinned and status-checked.`;
-  return `${head({ page: 'landing', title, description: desc, rel: 'index.html', depth: 0, assetsV: ctx.assetsV, css: styles(0), from: 'data/countries.json + every live place page',
+  return `${head({ page: 'landing', title, description: desc, rel: 'index.html', depth: 0, assetsV: ctx.assetsV, css: styles(0), ogImage: ogFor('us') || undefined,   // the default (US) view's share card from: 'data/countries.json + every live place page',
     jsonld: { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Cleo', url: ctx.betaBase + '/',
       potentialAction: { '@type': 'SearchAction', target: ctx.betaBase + '/?q={q}', 'query-input': 'required name=q' } } }).replace('</head>', `<style>${FEB_CSS}</style>\n</head>`)}
 <body class="has-tabbar">
@@ -55,6 +78,7 @@ ${siteBar({ depth: 0, current: 'landing', rel: 'index.html', onNight: true })}
 </div></section>
 <div class="wrap">
 <section class="results" id="results" aria-live="polite" hidden></section>
+${editorialHtml}
 <div id="destinations" class="section">
 <div class="stickypills"><nav class="countries" aria-label="Countries">${live.map(c => `<a class="pill" href="#${esc(c.key)}">${esc(c.name)}</a>`).join('')}</nav></div>
 ${sections[0] || ''}
