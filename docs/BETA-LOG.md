@@ -490,6 +490,10 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - It stays clean under the "no second predicate" grep gate.
   - **Not done / for others:** QA-24 (footer underline) and QA-25 are designer/FE-A. The Insights `.tile` phone height and print header issues are still with the designer. The `#view=` switch and loading my modules wait on FE-A A-01.
   - validate + npm test + beta:check PASS.
+- 2026-10-10 · **Platform** · Wave 3 slice 3 · session_01S3eYSS1qPYEHJVXBeyRLYH · commit: this entry's commit · **ROUND-2 gap #9 (C #34 "what changed")**. RFC §13 R-34.
+  - `tools/beta/lib/changes.js`: per place page, dated events from the data only (closures with their status source, status-check days, pin-verification days) → `changes` + `feed` in `data/places/<page>.json`, Atom `beta/feeds/<page>.xml` (84) linked from each city page's head, site feed `beta/feeds/all.xml` (70 dated closures + check days), `beta/data/changes.json` summary. Deterministic (no git history).
+  - **FE-B / FE-A:** a "What changed" link (footer or method page) can point at `feeds/<page>.xml`; `data/changes.json` → `last` is the newest dated event per page for a hub/landing "updated" line.
+  - Gate in `test-views.js`: closures == closed places with a status date; checked counts == records with a check; feed entries == events; absolute links. validate + npm test + beta:check PASS.
 - 2026-10-10 · **FE-B** · Wave 3 slice 5 (lane done for this wave) · session_01KLBRpRabpnEHiyU3gKvKjv · DES REVIEW-W3 fixes + status · commit: this entry's commit.
   - **DES review, Insights:**
     - The single-series canon chart now uses `--series-1`.

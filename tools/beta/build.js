@@ -24,7 +24,8 @@ const art = require('./lib/art');
 const imagery = require('./imagery');                              // imagery lane: motifs, photo manifest, credit gate
 const { guide } = require('./lib/guide');
 const { chunk } = require('./lib/chunk');
-const views = require('./lib/views');                              // W3: rank, kind triad, insights (view-agnostic)
+const views = require('./lib/views');
+const changes = require('./lib/changes');                          // W3: "what changed" feeds from dated provenance (gap #9)                              // W3: rank, kind triad, insights (view-agnostic)
 const { assertCityPage, assertHubPage, assertPage } = require('./lib/guards');
 const { swSource } = require('./lib/sw');
 const { BETA_BASE } = require('./lib/render/common');
@@ -138,6 +139,12 @@ for (const r of cityRows) {
 // ---------------------------------------------------------------- imagery (lane: imagery) — original motifs + credit-gated photos
 imagery.build({ reg, cityRows, emit, errors, sha, betaDir: BETA });
 
+// ---------------------------------------------------------------- what changed (ROUND-2 gap #9, M3-07): Atom feeds
+const changeRows = changes.build(cityRows, emit);
+emit('data/changes.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
+  _doc: 'Per place page: its Atom feed, the newest dated event, closures and status checks on record. Events come only from dates in data/geocodes.json (status checks, closures with their source, pin verifications).',
+  pages: changeRows }));
+
 // ---------------------------------------------------------------- data indexes
 const pageHref = r => r.beta;                     // beta-root-relative
 const searchPages = [], searchItems = [];
@@ -159,6 +166,7 @@ for (const r of cityRows) {
     guide: r.guide,
     // W3 (platform → FE-A/FE-B): view order = area order then `rank` (also on every place); the Insights numbers. RFC §13.
     order: r.order.map(x => x.id), insights: r.insights,
+    changes: r.changes, feed: r.feed,                // "what changed": dated events newest first + the page's Atom feed
     places: r.recs,
   }));
 }
@@ -197,6 +205,7 @@ for (const r of reg.rows.filter(r => r.gen === 'new')) {
     const center = m ? [+m[1], +m[2], +m[3]] : pts.length ? [med(pts.map(p => p.la)), med(pts.map(p => p.ln)), 11] : [0, 0, 2];
     const og = fs.existsSync(path.join(BETA, 'assets', 'og', r.fileKey + '.png')) ? `${BETA_BASE}/assets/og/${r.fileKey}.png` : null;
     html = city.render(r, r.recs, Object.assign({ center, ogImage: og }, ctx));
+    html = html.replace('</head>', `<link rel="alternate" type="application/atom+xml" title="${r.name.replace(/[&<>"]/g, '')} — what changed" href="${'../'.repeat(r.beta.split('/').length - 1)}${r.feed}">\n</head>`);
     html = views.markCards(html, r.recs);          // W3 P-01: data-rank / data-k3 on every li.pl (throws on a miss)
     // Progressive rendering (M3-06): only when the page client adopts stamped cards (the `cleo:stamped` hook) —
     // otherwise a rewrite of city.js could silently strand deferred cards, so we ship every card live instead.
