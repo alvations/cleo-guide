@@ -56,6 +56,52 @@ chk('place pages checked', pages, n => n >= 80);
 chk('pages whose beta count != live', bad, b => b.length === 0);
 chk('search index items == live total', searchIdx.items.length, places);
 
+// ── 1b. guide data (W2 platform): ★ signature, food order, day plans, recently closed ───────────────────
+console.log('\n== GUIDE DATA: signature, canon order, day plans, recently closed ==');
+{
+  const { km, DAY, dishRe, canonFor, fold: gfold } = require('./lib/guide');
+  const gBad = { pub: [], dish: [], order: [], day: [], closed: [], idx: [] };
+  let nPlans = 0, nSig = 0;
+  const gIdx = JSON.parse(rd('beta/data/guide.json'));
+  for (const row of manifest.pages.filter(p => p.kind === 'city')) {
+    const j = JSON.parse(rd(`beta/data/places/${row.key.replace(/\//g, '--')}.json`)), g = j.guide, by = {};
+    j.places.forEach(p => { by[p.id] = p; });
+    const sig = g.signature;
+    if (sig) {
+      nSig++;
+      if (!['food', 'collection'].includes(sig.kind) || sig.src) gBad.pub.push(row.key);           // ★ is never a publisher
+      const set = j.places.filter(p => (sig.cz || []).some(id => p.cz.includes(id)) || (sig.c || []).some(id => p.g.includes(id)));
+      if (set.length !== sig.n || sig.ids.length !== sig.n || !sig.ids.every(id => by[id])) gBad.pub.push(row.key + ' n');
+    }
+    // a printed dish must be named by a record of the canon set (the match picks words, never tags places)
+    if (g.canon) for (const d of g.canon.dishes) {
+      const spec = ((canonFor({ key: row.key, country: row.country }) || {}).dishes || []).find(x => x.split('|')[0] === d.t), re = spec && dishRe(spec);
+      if (!re || !d.ids.length || d.ids.length !== d.n || !d.ids.every(id => g.canon.ids.includes(id) && re.test(gfold([by[id].n, by[id].w, by[id].k].join(' ')))))
+        gBad.dish.push(row.key + ':' + d.t);
+    }
+    const cz = (j.cuisines || []).map(c => c.id);
+    if (g.foodOrder.length !== cz.length || [...g.foodOrder].sort().join() !== [...cz].sort().join()) gBad.order.push(row.key);
+    for (const [a, p] of Object.entries(g.days.plans)) {
+      nPlans++;
+      const st = p.ids.map(id => by[id]);
+      const legs = st.slice(1).map((x, i) => Math.round(km(st[i], x) * 10) / 10);
+      if (st.length < DAY.minStops || st.length > DAY.maxStops || st.some(x => !x || x.closed || x.a !== a || x.la == null || !x.pv || !['high', 'med'].includes(x.pv.pin))
+        || legs.join() !== p.legs.join() || new Set(p.ids).size !== p.ids.length || !/straight-line/.test(g.days.label)) gBad.day.push(row.key + '#' + a);
+    }
+    const closed = j.places.filter(p => p.closed).map(p => p.id).sort();
+    if (g.closed.map(c => c.id).sort().join() !== closed.join()) gBad.closed.push(row.key);
+    const gi = gIdx.pages.find(x => x.key === row.key);
+    if (!gi || gi.closed !== closed.length || gi.days !== Object.keys(g.days.plans).length) gBad.idx.push(row.key);
+  }
+  chk('★ signature is a food canon or a collection, never a publisher; n == its places', gBad.pub, a => a.length === 0);
+  chk('pages with a ★ signature (food canon or pop culture)', nSig, n => n >= 60);
+  chk('canon dishes printed only when a canon record names them', gBad.dish, a => a.length === 0);
+  chk('food order is a permutation of the page cuisine ids', gBad.order, a => a.length === 0);
+  chk(`day plans: 4–6 open, verified-pin stops in one area, straight-line legs (${nPlans} plans)`, gBad.day, a => a.length === 0 && nPlans > 100);
+  chk('"Recently closed" lists every closed place', gBad.closed, a => a.length === 0);
+  chk('data/guide.json agrees with the per-page guide', gBad.idx, a => a.length === 0);
+}
+
 // ── 2. reproducible from data ───────────────────────────────────────────────
 console.log('\n== REPRODUCIBLE: fresh build == beta/ on disk ==');
 let rep = 'PASS';
@@ -99,7 +145,7 @@ console.log('\n== ROLLOUT + HUBS: beta page set == live, every hub count == its 
   const liveHtml = manifest.pages.map(p => p.beta).concat(manifest.generated.filter(g => !manifest.pages.some(p => p.beta === g))).sort();
   chk('beta HTML set == live page set (+ generator-declared beta-only pages)', htmls.map(p => path.relative(BETA, p).split(path.sep).join('/')).sort().join(), liveHtml.join());
   const byKey = Object.fromEntries(manifest.pages.filter(p => p.counts).map(p => [p.key, p.counts.P + p.counts.F]));
-  const cardsOf = h => [...h.matchAll(/<li class="dest" data-page="([^"]+)"[\s\S]*?<span class="dest-c">([\d,]+) places/g)].map(m => [m[1], +m[2].replace(/,/g, '')]);
+  const cardsOf = h => [...h.matchAll(/<li class="dest" data-page="([^"]+)"[\s\S]*?<span class="dest-c">([\d,]+) places?\b/g)].map(m => [m[1], +m[2].replace(/,/g, '')]);
   const liveC = JSON.parse(rd('data/countries.json')).countries.filter(c => c.live);
   const hubs = [['index.html', manifest.pages.filter(p => p.kind === 'city' && liveC.some(c => c.key === p.country)).map(p => p.key)]]
     .concat(liveC.filter(c => c.hub && c.hub !== 'index.html').map(c => [c.hub, manifest.pages.filter(p => p.kind === 'city' && p.country === c.key).map(p => p.key)]))

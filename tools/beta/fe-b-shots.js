@@ -28,6 +28,11 @@ const SETS = [
   { id: 'hub-japan', url: 'beta/Japan/index.html' },
   { id: 'hub-singapore', url: 'beta/Singapore/index.html' },
   { id: 'method', url: 'beta/how-we-choose.html' },
+  { id: 'accessibility', url: 'beta/accessibility.html' },
+  { id: 'landing-themes', url: 'beta/index.html', anchor: 'themes' },
+  { id: 'hub-us', url: 'beta/index.html', anchor: 'united-states' },
+  { id: 'hub-belgium', url: 'beta/Belgium/index.html' },
+  { id: 'search-guides', url: 'beta/index.html?q=kyoto' },
   { id: 'archive', url: 'beta/Singapore/singapore-old.html' },
   { id: 'search', url: 'beta/index.html?q=ramen' },
   { id: 'state-no-results', url: 'beta/index.html?q=zzqxv' },
@@ -95,6 +100,8 @@ async function measure(page) {
         await page.fill('#cleo-pq', s.openSearch);
         await page.waitForTimeout(500);
       }
+      if (s.anchor) await page.evaluate(id => { const e = document.getElementById(id); if (e) window.scrollTo({ top: e.getBoundingClientRect().top + scrollY - 70, behavior: 'instant' }); }, s.anchor);
+      if (s.anchor) await page.waitForTimeout(400);
       if (s.scroll) await page.evaluate(n => window.scrollTo(0, innerHeight * n), s.scroll);
       if (/q=/.test(s.url)) { await page.waitForTimeout(400); await page.evaluate(() => { const r = document.getElementById('results'); if (r) window.scrollTo(0, r.getBoundingClientRect().top + scrollY - 70); }); }
       await page.waitForTimeout(150);

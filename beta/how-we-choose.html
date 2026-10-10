@@ -25,10 +25,17 @@
 <link rel="stylesheet" href="assets/cleo.css?v=dfba4ef5d8">
 
 
-<script src="assets/js/core.js?v=b24c87df9e" defer></script>
+<script src="assets/js/core.js?v=760b61dc92" defer></script>
+<style>
+.tablewrap{overflow-x:auto;margin:16px 0 8px}.ctable{border-collapse:collapse;width:100%;min-width:520px;font-size:15px}
+.ctable caption{text-align:left;padding-bottom:6px}.ctable th,.ctable td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left}
+.ctable td{font-variant-numeric:tabular-nums}.ctable thead th{font-size:13.5px;color:var(--ink-3);font-weight:650}
+.a11y-list{display:grid;gap:10px;padding:0;list-style:none}.a11y-list li{border:1px solid var(--line);border-radius:var(--r-m);padding:12px 14px;background:var(--surface)}
+.a11y-list li b{display:block;margin-bottom:2px}.gapstate{font-size:13px;font-weight:650;color:var(--warn,var(--ink-2))}
+</style>
 </head>
 <body class="has-tabbar">
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol><symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.3l1.4 3 3.2.3-2.4 2.2.7 3.1L12 14.3l-2.9 1.6.7-3.1-2.4-2.2 3.2-.3z"/></symbol><symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-star4" viewBox="0 0 24 24"><path d="M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1-2.1 7.4-2.1-7.4L2.5 12l7.4-2.1z"/></symbol><symbol id="i-offline" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M7.6 7.6A5 5 0 0 0 7 9.5 4 4 0 0 0 7 17.5h10M10 5a5 5 0 0 1 6.9 3.5h.6a3.5 3.5 0 0 1 2.4 6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.2"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.2"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.4a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.4"/></symbol></defs></svg><a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol><symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.3l1.4 3 3.2.3-2.4 2.2.7 3.1L12 14.3l-2.9 1.6.7-3.1-2.4-2.2 3.2-.3z"/></symbol><symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-star4" viewBox="0 0 24 24"><path d="M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1-2.1 7.4-2.1-7.4L2.5 12l7.4-2.1z"/></symbol><symbol id="i-offline" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M7.6 7.6A5 5 0 0 0 7 9.5 4 4 0 0 0 7 17.5h10M10 5a5 5 0 0 1 6.9 3.5h.6a3.5 3.5 0 0 1 2.4 6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.2"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.2"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M6 12v7h12v-7"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.4a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.4"/></symbol></defs></svg><a class="skip" href="#main">Skip to content</a>
 <header class="topbar" data-cleo-shell="topbar"><div class="wrap">
   <a class="brand" href="index.html" aria-label="Cleo — all destinations"><svg class="mark" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4.2l1.75 6.05L19.8 12l-6.05 1.75L12 19.8l-1.75-6.05L4.2 12l6.05-1.75z"/></svg><b>cleo</b><small>field guides</small></a>
   <nav class="crumbs" aria-label="Breadcrumb"><span class="here" aria-current="page">How we choose</span></nav>
@@ -54,6 +61,9 @@
     <div role="listitem"><b>70</b><span>closed places kept, flagged</span></div>
   </div>
   <p class="sm muted">8,458 of 8,458 places carry a recorded status check; the most recent was 2026-10-03. Computed from the guides when this page was built.</p>
+  <div class="tablewrap"><table class="ctable"><caption class="sm muted">By country, as built</caption>
+<thead><tr><th scope="col">Country</th><th scope="col">Guides</th><th scope="col">Places</th><th scope="col">Pins at high confidence</th><th scope="col">Closed, kept</th></tr></thead>
+<tbody><tr><th scope="row">United States</th><td>21</td><td>4,144</td><td>2,944 (71 %)</td><td>40</td></tr><tr><th scope="row">Singapore</th><td>29</td><td>598</td><td>336 (56 %)</td><td>12</td></tr><tr><th scope="row">Vietnam</th><td>5</td><td>183</td><td>102 (56 %)</td><td>0</td></tr><tr><th scope="row">Germany</th><td>3</td><td>751</td><td>593 (79 %)</td><td>7</td></tr><tr><th scope="row">Belgium</th><td>5</td><td>651</td><td>509 (78 %)</td><td>7</td></tr><tr><th scope="row">Japan</th><td>5</td><td>2,092</td><td>1,384 (66 %)</td><td>4</td></tr></tbody></table></div>
   <nav class="toc" aria-label="On this page"><a class="pill" href="#merit">The merit bar</a><a class="pill" href="#sources">Sources</a><a class="pill" href="#tiers">Tiers</a><a class="pill" href="#pins">Pins</a><a class="pill" href="#closures">Closed places</a><a class="pill" href="#gaps">Stated gaps</a><a class="pill" href="#added">Added by the guide</a></nav>
   <div class="prose">
   <h2 class="d2" id="merit">The merit bar</h2>
@@ -96,6 +106,7 @@
 
   <h2 class="d2" id="not">What we don't show</h2>
   <p>No star ratings, review counts, prices or opening hours — they aren't in our data, and we don't guess. Check hours before you go.</p>
+  <p>How the site itself is built for every reader — keyboard, screen reader, low vision, no network — is on the <a href="accessibility.html">accessibility page</a>.</p>
   </div>
 </div>
 </main>
@@ -105,7 +116,7 @@
     <div><a class="brand" href="index.html" aria-label="Cleo — all destinations"><svg class="mark" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4.2l1.75 6.05L19.8 12l-6.05 1.75L12 19.8l-1.75-6.05L4.2 12l6.05-1.75z"/></svg><b>cleo</b></a>
       <p>8,458 places across 84 guides — every one traceable to the source that recommended it, pinned and status-checked.</p></div>
     <div><h4>Destinations</h4><ul><li><a href="index.html#us">United States</a></li><li><a href="Singapore/index.html">Singapore</a></li><li><a href="Vietnam/index.html">Vietnam</a></li><li><a href="Germany/index.html">Germany</a></li><li><a href="Belgium/index.html">Belgium</a></li><li><a href="Japan/index.html">Japan</a></li></ul></div>
-    <div><h4>The method</h4><ul><li><a href="how-we-choose.html">How we choose</a></li><li><a href="how-we-choose.html#closures">Closed places</a></li><li><a href="how-we-choose.html#pins">Pins</a></li></ul></div>
+    <div><h4>The method</h4><ul><li><a href="how-we-choose.html">How we choose</a></li><li><a href="how-we-choose.html#closures">Closed places</a></li><li><a href="how-we-choose.html#pins">Pins</a></li><li><a href="accessibility.html">Accessibility</a></li></ul></div>
     <div><h4>Yours</h4><ul><li><a href="saved.html">Your list</a></li><li><a href="index.html#search">Search</a></li><li><button type="button" class="btn theme-toggle" aria-pressed="false" data-cleo-theme hidden><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg><span>Night edition</span></button></li></ul></div>
   </div>
   <p class="legal colophon">Cleo beta — every place is carried from <a href="https://alvations.github.io/cleo-guide/">the current live guides</a>, with its sources. Map tiles: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>; Esri. No ratings, prices or hours are shown because they aren't in our data — check before you go.</p>
@@ -117,6 +128,6 @@
 <a href="how-we-choose.html" aria-current="page"><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seal"/></svg><span>Method</span></a>
 </nav>
 <script src="assets/js/states.js?v=938d68f2cf" defer></script>
-<script src="assets/js/search.js?v=83def4d1ff" defer></script>
+<script src="assets/js/search.js?v=3eb9582ecc" defer></script>
 </body>
 </html>

@@ -161,3 +161,61 @@ Append-only. One entry per session per wave: date, lane, session id, what change
 - 2026-10-10 09:53 · orchestrator · W1: platform, FE-A (ab80b44), FE-B, designer done + archived (all commits beta-scope since ca70e53). QA still finishing sign-off. **Round 1 evaluation launched**: session_01WsdxZRnnS31JkzUY9Shvh7 → design/beta/eval/ROUND-1.md. Imagery: upload.wikimedia.org / commons.wikimedia.org denied by environment network policy (403, 09:24Z); owner informed how to allow.
 
 - 2026-10-10 10:30Z · orchestrator · Round 1 evaluation done (`design/beta/eval/ROUND-1.md`, 7cb0f495): R0 31.1 → R1 66.5 (A60 B74 C66 D72); goal not met. Evaluator session archived. QA W1 run 3 still running (sign-off NO so far). Wave 2 briefs issued (`design/beta/eval/W2-BRIEFS.md`) to five lanes: platform, FE-A, FE-B, designer, imagery. The owner asked for a GitHub Actions image fetcher to get past the Wikimedia block; the environment's permission classifier refused that as a policy workaround. It was not attempted further, and the owner was told how to allow the hosts instead.
+- 2026-10-10 · QA · Build wave 1 run 3 (final M1 sign-off) · session_01PCNcUkfa5S1N1BKGzZA4xx · M1-21, M1-22. Measured
+  `66c252b` (FE-A `ab80b44`). Harness 94 pages / 282 loads all PASS; G1 reachability 84/84; beta == live. Pilots
+  **22/24** (Wheeling 21), hub 10/10. Fixed and retested: QA-01…09, 11–14, 17. New: QA-19 (Esc doesn't close the pin sheet),
+  QA-20 (B-16 regression, 23 pages), QA-21 (★ Signature = a source), QA-22 (Vietnam hub B-05), QA-23 (404 contrast).
+  Harness now probes FE-A's contract hooks with real pin taps, and handles occluded-text contrast.
+  **QA sign-off: NO for M1.** Blocking: B-06 map 37 % < 40 % (QA-15), B-07 Esc (QA-19), B-16 Wheeling 1.95 (QA-20).
+  Evidence: `qa/beta-metrics.{json,md}`, `qa/beta-metrics-all.md`, `qa/beta-harness-summary.json`, `qa/beta-shots/`.
+- 2026-10-10 · **Platform** · Wave 2 slice 1 · session_01PCNcUkfa5S1N1BKGzZA4xx · `8104ff6` + `1b049cb` · ROUND-1 gaps **#10, #5 (data), #8 (data)**.
+  - New `tools/beta/lib/guide.js` → `data/places/<page>.json` `guide`, `data/guide.json`, `row.guide`; schema in RFC §12 (R-20…R-23).
+  - **★ signature** is now the city's food canon or pop culture, never a publisher: 60 pages carry one (Cleveland "Only in Cleveland" 18 — Polish Boy · corned beef · Barberton chicken; Pittsburgh 22 — pierogi · fish sandwich · Primanti sandwich; NYC slice · bagel · pastrami; Japan keeps ★ Anime). Dish words print only when a canon record names them (gated). `foodOrder` = canon-first cuisine rail order (fixes QA-16 once FE-A reads it). `tileLine` for hub tiles ("Polish Boy · corned beef · <top landmark>").
+  - **Day plans**: 164 area plans (4–6 open, verified-pin stops, ≤ 3 km legs, ≤ 12 km, one food stop), 135 areas skipped with a stated reason; D-14 label. **Recently closed**: every closed record, newest check first. `pv.src/verified/ss` added to the per-page JSON (FE-A W1 request).
+  - core.js: `Cleo.guide(key)`, `Cleo.geo.{km,fmt,ll}` (Near me needs nothing else; position never stored).
+  - **FE-A:** read `info`/`row.guide` (build time) for the ★ tile (`signature.ids` lens), rail order (`foodOrder`), "Your day" (`days.plans[AREA]`), Recently closed (`closed`). **FE-B:** `data/guide.json` / `row.guide.tileLine` for hub tiles and cross-city rail counts.
+  - validate + npm test + beta:check PASS.
+- 2026-10-10 · **FE-B** · Wave 2 slice 1 · session_01Uw8kyZKduvy2VTdhJQa5L4 · ROUND-1 gaps #3, #8 (M2-12), search, share/OG.
+  - **Wanderlust (gap #3):** hub/landing tile line is now the city's **signature** — its most-recommended open must-sees
+    (2 sights + 1 place to eat, ranked by distinct named publishers; e.g. Cleveland "Haserot Angel · West Side Market ·
+    Superior Phở", Kyoto "Nishiki Market · Pontochō · Kagizen Yoshifusa"), not cuisine labels. `row.signature` from
+    platform (gap #10 canon) wins when present. **Four tile compositions** (night / wash / city / paper) rotate with the
+    skins, dots coloured by the city's own area palette, Didone initial where no native script — test: no two
+    neighbouring tiles alike. **Cross-city editorial rail** on the landing ("Collections across the guides": Anime
+    pilgrimage 115 · Hawker canon 148 · Temples & shrines · Ramen · Michelin & fine dining · World Heritage · Onsen ·
+    Beer halls · Frank Lloyd Wright · Free to visit) — keyed on collection/cuisine **ids** (label only guards id meaning),
+    counts recomputed in `test-hubs.js` from `data/places/*.json`, chips deep-link `#c=`/`#cz=`. **Country hero** on
+    every hub: the country drawn from its verified pins, a "known for" line (top must-sees, one per city), stats, Share,
+    and the country's collection rail under the tiles.
+  - **Imagery hooks (for the imagery lane):** a tile/hero/theme sets `--motif:url(…)` when
+    `beta/assets/img/motifs/<pageKey with / → -->.svg`, `<countryKey>.svg` or `collections/<themeKey>.svg` exists
+    (theme keys: anime, hawker, temples, ramen, fine, unesco, onsen, beer, flw, free); absent → the skin's pattern.
+  - **OG/share:** hub `og:image` = `beta/assets/og/<countryKey>.png` (or `country-<key>.png`) when platform renders it;
+    Share button (Web Share, else copy + "Link copied") on every hub hero (`[data-cleo-share]`, handled in search.js).
+  - **Search:** guide-name matches shown as a "Guide(s)" group above places; ArrowDown/Up move through results, Esc
+    returns to the input (hero + header panel); tests added.
+  - **M2-12:** new `beta/accessibility.html` (WCAG 2.2 AA commitment, how it's measured, 5 stated known gaps, GitHub
+    issue contact), footer-linked on every page, breadcrumb "Accessibility". Method page: per-country table (guides,
+    places, high-confidence pins %, closed kept) + link to accessibility.
+  - **QA-13 (FE-B part):** "1 places" → "1 place" (hub/landing/more rows). One-line coordinated change to the
+    platform-owned `lib/guards.js` + `test-beta.js` card regex (`places?\b`) so the gate accepts the singular — **PLT please ratify**.
+  - **DES:** new FE-B glue CSS is inline (`FEB_CSS` in `render/hub.js`, `PAGE_CSS` in `render/method.js`) — please upstream into `cleo.css`.
+  - Landing 77 KB (≤ 80 budget: landing tiles draw ≤ 24 pins). validate + npm test + beta:check PASS.
+  - Screenshots: `design/beta/eval/w2/fe-b/w2-*-{m,d}.jpg` (landing, landing-themes, hub-japan, hub-singapore, hub-belgium,
+    accessibility, method, search-guides, states) vs `before-*`; metrics `w2-metrics.json` (0 overflow, 0 targets < 44 on FE-B pages, 0 JS errors).
+- 2026-10-10 · **FE-B** · Wave 2 slice 2 · session_01Uw8kyZKduvy2VTdhJQa5L4 · merged platform W2 (8104ff6) and switched tiles to its
+  `guide.tileLine` (gap #3 + #10): Cleveland "Polish Boy · corned beef · Haserot Angel", Pittsburgh "pierogi · fish sandwich ·
+  Point State Park", NYC "slice · bagel · Empire State Building", Chinatown "chicken rice · laksa · Sri Mariamman Temple";
+  topped up from the most-recommended records where the line is short (Wheeling). ★ line = platform `guide.signature` when it
+  is a collection (Japan anime); food signatures are already the tile line, so no publisher ★ anywhere. Test: every
+  signature item is a platform canon part or an open record of the page. **PLT note:** Youngstown's canon splits
+  "Brier Hill pizza" into "Brier Hill · pizza" (`guide.tileLine.parts`). Gates PASS.
+
+- 2026-10-10 10:45Z · orchestrator · Owner request: add switchable view styles for Round 3. The owner's site melon-seek was copied for reference (`design/reference/melon-seek/`, from source commit 15ed02b) to study its map / chart / insight modes. The view-styles design lane (session_01L6JkDa7v56jUKxQFqx7zXx) is producing the study, specs, mockups and build plan for Gallery, Atlas, Guidebook and Insights in `design/beta/views/`. New owner naming rule recorded in BETA-PROGRAM.md rule 6: no third-party brand or style is named in new work. Removed one brand reference from W2-BRIEFS.
+- 2026-10-10 · UI/UX (designer) · **Wave 2 push 1** · session_01PCNcUkfa5S1N1BKGzZA4xx · ROUND-1 gap #4 (CSS side) + skins + tile compositions + motion layer.
+  - **Fixed (CSS, `design/beta/css/contract.css` §15 → `cleo.css`):** vertical native plates **fit, never clip** (cover is a size container; glyphs scale with its height, 5–7 glyph names wrap into 2 columns); card Save is an icon-only 44 px heart (word kept in DOM at 14 px, clipped; FE-A's aria-label unchanged) so the plate gets the full cover; sheet **Close sits in its own header row**, never on the plate; sheet plate = inset card in the area colour + city motif; the **black glyph is styled** (area-ink line art); sheet body in **Figtree 17/1.62**; section labels Figtree; **"Recommended by" commas glued** to the name (QA-18; literal ", " text kept for SR/copy at 0 px), label inline on phones; **Bodoni macrons**: display text below hero size capped at `opsz 28` (Bodoni Moda's macron is a hairline that vanishes above opsz ≈ 32 — "My ojin"); rail on desktop fades its last 150 px behind the arrows (no clipped "Castles, Pa…"), tighter tile padding; landing country pills on solid paper, `top:0` on landing (was a grey veil + 68 px gap).
+  - **Luxury + fun:** skins.py now emits `--motif-ink` (the city motif in ink for light grounds: seigaiha on Tokyo plates, swell on Cleveland…) and a decorative second accent `--city-2` per skin (indigo/vermilion, rust/lake, patina/saffron…; never text or actions — D-06 unchanged; contrast.py 344 pairs, 0 below). Plates and tile bars carry the two-accent edge. **Hub tiles: 4 compositions** cycle (night glow · accent field · diagonal split · horizon glow), each in the city's own skin — no two neighbours alike. Motion (all behind `prefers-reduced-motion: no-preference`, no opacity on content): scroll-linked card rise, sheet slide-up/side-in, save ring pulse, glyph bob on card hover, tier star turn, signature-tile sheen, tile constellation twinkle, press scale. Editorial: italic Didone dek on mastheads, drop initial + old-style figures on collection intros.
+  - **Saved page baseline** (until FE-A ships the mockup markup): no default browser button; numbered list cards in the city accent.
+  - **Metrics (`beta:metrics`, pilots; qa/ restored):** B-20 0 · B-21 ✅ 12 px · B-23 light+night 0/0 all six · B-03 14 · B-16 CLE 2.22 / Tokyo 2.33 / NYC 2.29 / Chinatown 2.35 / **Wheeling 1.99** (R1 1.95; long write-ups) · B-19 ≤ 6 %.
+  - **For FE-A (markup asks):** (1) wrap the native name in the card title as `<span class="nat" lang>` — CSS already hides it visually when the plate shows it (ROUND-1 "native printed twice"); (2) please move GLUE's `.detail .hero-plate*` / `.pl-cover .pl-vert` rules out of the inline `<style>` (contract.css §15 now owns them; I override with `html …` specificity meanwhile); (3) pin peek sheet still ~70 % tall (gap #6, ≤ 40 %).
+  - Screenshots: `design/beta/eval/w2/designer/r1-*.jpg` (before) → `w2a-*.jpg` (after): tokyo-m-s1, sheet-m/d, map-m, cleveland-d, landing-d-s1, saved-m, sheet-cle-m, tokyo-dark-m, chinatown-m-s1, tokyo-d, japan-d. Harness: `design/beta/tools/w2-shots.js`.

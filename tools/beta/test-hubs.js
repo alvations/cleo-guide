@@ -58,7 +58,7 @@ console.log('\n== REACH: every live city from the landing and its hub; counts co
   chk('hub tiles whose count != live page', wrong, a => a.length === 0);
   chk('hub tiles from another country', foreign, a => a.length === 0);
   const tiles = [...land.querySelectorAll('li.dest')];
-  chk('landing tiles with a signature or canon line where data has one', tiles.filter(li => li.querySelector('.tile') && !li.querySelector('.star, .canon')).length, n => n <= tiles.length * 0.2);
+  chk('landing tiles with a signature or canon line where data has one', tiles.filter(li => li.querySelector('.tile') && !li.querySelector('.star, .canon, .sigline')).length, n => n <= tiles.length * 0.2);
   chk('landing pills == live countries, countries.json order', [...land.querySelectorAll('.countries a')].map(a => a.getAttribute('href').slice(1)).join(), countries.filter(c => c.live).sort((a, b) => a.order - b.order).map(c => c.key).join());
 }
 
@@ -99,11 +99,63 @@ console.log('\n== METHOD: computed, complete, linked ==');
   chk('generated pages whose footer does not link the method page', manifest.generated.filter(r => !/<footer[\s\S]*how-we-choose\.html/.test(rd(r))), a => a.length === 0);
 }
 
+
+// ── 6. Wave 2: wanderlust (signature lines, compositions, editorial themes), accessibility, share ──────────
+console.log('\n== W2: signature lines from data, distinct tiles, themes computed, accessibility page ==');
+{
+  const names = {};                                                  // page key -> Set of record names (data)
+  for (const p of cityPages) {
+    const j = JSON.parse(rd(`data/places/${p.key.replace(/\//g, '--')}.json`));
+    names[p.key] = j;
+  }
+  const guideIdx = Object.fromEntries(JSON.parse(rd('data/guide.json')).pages.map(p => [p.key, p]));
+  const land = doc(rd('index.html'));
+  const tiles = [...land.querySelectorAll('li.dest')].filter(li => li.querySelector('.tile'));
+  // every item on a signature line names a real, open record of that page (prefix of its name)
+  const bad = [];
+  for (const li of tiles) {
+    const j = names[li.dataset.page]; if (!j) continue;
+    for (const s of li.querySelectorAll('.sigline > span')) {
+      const t = s.textContent.trim();
+      const g = guideIdx[li.dataset.page], canonParts = g && g.tileLine ? g.tileLine.split(' · ') : [];
+      if (!j.places.some(x => !x.closed && x.n.startsWith(t)) && !canonParts.some(c => c.startsWith(t))) bad.push(`${li.dataset.page}: ${t}`);
+    }
+  }
+  chk('signature items that are neither the platform canon line nor an open record of the page', bad, a => a.length === 0);
+  chk('tiles with a signature line', tiles.filter(li => li.querySelector('.sigline')).length, n => n >= tiles.length * 0.8);
+  chk('tiles carrying a bare category label line instead', tiles.filter(li => li.querySelector('.canon') && li.querySelector('.sigline')).length, 0);
+  // no two neighbouring tiles share composition AND skin
+  const sig = a => [...a.classList].filter(c => /^(c-|skin-)/.test(c)).sort().join(' ') + (a.getAttribute('data-city') || '');
+  const same = [];
+  for (const ul of land.querySelectorAll('ul.tiles')) { const a = [...ul.querySelectorAll('a.tile')]; a.forEach((x, i) => { if (i && sig(x) === sig(a[i - 1])) same.push(x.getAttribute('href')); }); }
+  chk('neighbouring tiles that look alike (same composition + skin)', same, a => a.length === 0);
+  // editorial themes: every count recomputed from the per-page datasets by id
+  const themes = [...land.querySelectorAll('#themes li.theme')];
+  chk('landing editorial themes', themes.length, n => n >= 4);
+  const wrongT = [];
+  for (const t of themes) {
+    for (const a of t.querySelectorAll('.theme-c a')) {
+      const m = /^(.*\.html)#(c|cz)=([^&]+)$/.exec(a.getAttribute('href'));
+      const p = m && manifest.pages.find(x => x.beta === m[1]);
+      if (!p) { wrongT.push('bad href ' + a.getAttribute('href')); continue; }
+      const field = m[2] === 'c' ? 'g' : 'cz', id = decodeURIComponent(m[3]);
+      const n = names[p.key].places.filter(x => !x.closed && (x[field] || []).includes(id)).length;
+      const shown = +a.querySelector('b').textContent.replace(/,/g, '');
+      if (n !== shown) wrongT.push(`${p.key} ${id} ${shown}≠${n}`);
+    }
+  }
+  chk('theme chips whose count differs from the data (ids, not keywords)', wrongT, a => a.length === 0);
+  chk('Japan hub: country hero + why-go line + share', (() => { const d = doc(rd('Japan/index.html')); return !!d.querySelector('.chero .why') && !!d.querySelector('[data-cleo-share]') && !!d.querySelector('.chero svg'); })(), true);
+  const a11y = rd('accessibility.html');
+  chk('accessibility.html: WCAG 2.2 AA, known gaps, GitHub issue contact', /WCAG 2\.2 level AA/.test(a11y) && /id="gaps"/.test(a11y) && /github\.com\/alvations\/cleo-guide\/issues\/new/.test(a11y), true);
+  chk('generated pages whose footer does not link accessibility.html', manifest.generated.filter(r => !/<footer[\s\S]*accessibility\.html/.test(rd(r))), a => a.length === 0);
+}
+
 // ── 5. voice lint ──────────────────────────────────────────────────────────
 console.log('\n== VOICE: urgency lint on FE-B pages ==');
 {
   const LINT = /trending|popular now|only \d+ left|hurry|selling fast|book now|don't miss out|limited time|best-selling/i;
-  const mine = ['index.html', 'how-we-choose.html', '404.html'].concat(manifest.pages.filter(p => p.kind === 'country-hub' && p.gen === 'new').map(p => p.beta));
+  const mine = ['index.html', 'how-we-choose.html', 'accessibility.html', '404.html'].concat(manifest.pages.filter(p => p.kind === 'country-hub' && p.gen === 'new').map(p => p.beta));
   chk('FE-B pages with an urgency word', mine.filter(r => LINT.test(doc(rd(r)).body.textContent)), a => a.length === 0);
 }
 
@@ -142,14 +194,18 @@ async function load(rel, { url, storageThrows = false, fetchFails = false } = {}
     chk('landing JS errors', errors, a => a.length === 0);
   }
   {
+    const { d: dk } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=kyoto' });
+    chk('search: guide names match too ("kyoto" → the Kyoto guide)', [...dk.querySelectorAll('#results .grp.guides a')].some(a => /kyoto\.html$/.test(a.getAttribute('href'))), true);
+  }
+  {
     const { d } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=senso-ji' });
     const a = [...d.querySelectorAll('#results li a')];
     chk('search: accent-folded "senso-ji" finds Sensō-ji with a #p= deep link', a.some(x => /Sensō-ji/.test(x.textContent) && /tokyo\.html#p=senso-ji/.test(x.getAttribute('href'))), true);
   }
   {
     const { d } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=a', });
-    const shown = d.querySelectorAll('#results li').length, head = d.querySelector('#results h2').textContent;
-    chk('search: every match reachable (folded groups expand to all)', (() => { d.querySelectorAll('[data-cleo-more]').forEach(b => b.click()); return d.querySelectorAll('#results li:not([hidden])').length === shown && head.startsWith(String(shown)); })(), true);
+    const shown = d.querySelectorAll('#results .grp:not(.guides) li').length, head = d.querySelector('#results h2').textContent;
+    chk('search: every match reachable (folded groups expand to all)', (() => { d.querySelectorAll('[data-cleo-more]').forEach(b => b.click()); return d.querySelectorAll('#results .grp:not(.guides) li:not([hidden])').length === shown && head.startsWith(String(shown)); })(), true);
   }
   {
     const { d } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=ramen', fetchFails: true });
@@ -174,8 +230,15 @@ async function load(rel, { url, storageThrows = false, fetchFails = false } = {}
     d.querySelector('[data-cleo-search-open]').click(); await sleep(10);
     const inp = d.getElementById('cleo-pq');
     chk('header search: panel opens on a non-landing page', !!inp && !inp.closest('[hidden]'), true);
-    inp.value = 'kinkaku'; inp.dispatchEvent(new d.defaultView.Event('input')); await sleep(250);
+    inp.value = 'temple'; inp.dispatchEvent(new d.defaultView.Event('input')); await sleep(250);
     chk('header search: results grouped by guide', d.querySelectorAll('.searchpanel .grp').length, n => n >= 1);
+    inp.dispatchEvent(new d.defaultView.KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true })); await sleep(5);
+    const first = d.querySelector('.searchpanel .results a');
+    chk('header search: ArrowDown moves into the results', d.activeElement === first, true);
+    first.dispatchEvent(new d.defaultView.KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true })); await sleep(5);
+    chk('header search: ArrowDown again moves to the next result', d.activeElement !== first && !!d.activeElement.closest('.searchpanel .results'), true);
+    d.activeElement.dispatchEvent(new d.defaultView.KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); await sleep(5);
+    chk('header search: Esc in results returns to the input', d.activeElement === inp, true);
     inp.dispatchEvent(new d.defaultView.KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); await sleep(10);
     chk('header search: Esc closes', d.querySelector('.searchpanel').hidden, true);
   }
