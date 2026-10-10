@@ -255,3 +255,23 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - The view-styles lane pushed its melon-seek study (9f245b9e).
   - Head checks: validate green, tests green except `landing ≤ 80 KB = 81`, which the imagery lane is trimming. No-brand scan is clean.
   - PM session launched (session_017mbzpE8dtjevPVLcXB6TEK) for M1 acceptance, the W2/R3 backlog and the Round 2 exit criteria.
+- 2026-10-10 · **PM** · M1 acceptance + Wave 2 / Round 3 planning · session_017mbzpE8dtjevPVLcXB6TEK · head `10615ab2`.
+  - **M1 acceptance** (`BETA-BACKLOG.md` → "M1 acceptance"), judged on QA run 3 and DES REVIEW-W1: **16 accepted**,
+    **3 in re-test** (M1-04 / B-06, M1-05 / B-07, M1-11 / B-16, all against FE-A `0f0f7b6e`), and **3 rejected**:
+    - M1-03: Cleveland food rail not canon-first (QA-16).
+    - M1-16: the axe-core criterion has never been measured.
+    - M1-22: rollout rows still fail.
+
+    Seven M1 deploy blockers are listed with owning lanes: FE-A ×3, QA (axe), FE-B (QA-22, QA-23), and the landing budget.
+    QA-defect statuses were updated from runs 2–3.
+  - **Wave 2:** every ROUND-1 top-10 gap is mapped to items, reusing M2-03/04/05/06/08/10/11/12 and M3-01/02/03/06, with
+    new M2-13…M2-19. Each has acceptance criteria, an owning lane and its status at head. Main open items: M2-18 (FE-A
+    city rail still falls back to a publisher ★, `render/city.js:251`), M3-06 (DOM 11.6 k vs 3 k) and M2-08 (one shared OG
+    image).
+  - **Round 3:** new milestone M4-01…M4-09 (switcher, `view=` hash, paging with page numbers + "all N" + Show all,
+    Gallery, Atlas, Guidebook, Insights, sheet n-of-N, per-view QA). These are placeholders until
+    `design/beta/views/PLAN.md` lands. Benchmark rows B-46…B-49 added.
+  - **Decisions:** D-32 neutral naming (rule 6), D-33 view styles as lenses, D-34 one day-plan computation (164 vs 170
+    today), D-35 no criterion waived.
+  - Added a **Round 2 exit criteria** section (7 conditions) to the backlog.
+  - Checks: validate OK; `npm test` green except `landing ≤ 80 KB raw = 81`, which the imagery lane is fixing.
