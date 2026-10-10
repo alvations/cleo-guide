@@ -1,0 +1,71 @@
+/* cleo.css — BASELINE placeholder written by the platform lane (Wave 0) so generated pages are usable.
+ * OWNER: the UI/UX designer lane (design/beta/). Replace freely; the generator only links and versions it.
+ * Contract the markup relies on is documented in design/beta/RFC-architecture.md §5 ("Markup contract"). */
+:root{--bg:#F7F4EE;--ink:#1D2326;--mute:#5E6669;--line:#DDD6CA;--accent:#8A5A1F;--card:#FFFFFF;
+  --serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans JP",sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 var(--sans)}
+a{color:inherit}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--bg);padding:8px 12px;z-index:10}
+.skip:focus{left:8px}
+.sitebar{position:sticky;top:0;z-index:5;display:flex;gap:12px;align-items:center;padding:8px 16px;background:var(--bg);border-bottom:1px solid var(--line)}
+.brand{font:700 18px/1 var(--serif);letter-spacing:.12em;text-decoration:none;min-height:44px;display:flex;align-items:center}
+.sitesearch{flex:1;min-width:0}
+.sitesearch input,#cleo-filter{width:100%;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:22px;font:inherit;background:var(--card)}
+.sitenav{display:flex;gap:12px}
+.sitenav a{min-height:44px;display:flex;align-items:center;text-decoration:none}
+.sitenav .count:not(:empty){margin-left:4px;font-size:12px;background:var(--ink);color:var(--bg);border-radius:10px;padding:0 6px}
+main{max-width:1440px;margin:0 auto;padding:0 16px}
+.masthead{padding:20px 0 8px}
+.masthead h1{font:600 clamp(32px,6vw,56px)/1.05 var(--serif);margin:4px 0}
+.eyebrow,.dek,.stats{margin:4px 0;color:var(--mute)}
+.rail{display:flex;gap:8px;overflow-x:auto;padding:8px 0;scrollbar-width:thin}
+.rail-i{flex:none;min-height:44px;display:flex;align-items:center;gap:6px;padding:0 14px;border:1px solid var(--line);border-radius:22px;background:var(--card);text-decoration:none;white-space:nowrap}
+.rail-i[aria-current]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.rail-i .n{color:var(--mute);font-size:13px}
+.rail-i[aria-current] .n{color:inherit}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px 0}
+.modes{display:flex;gap:4px}
+.modes button,.pl-save{min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:22px;background:var(--card);font:inherit;cursor:pointer}
+.modes button[aria-pressed="true"],.pl-save[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.toolbar #cleo-filter{flex:1;min-width:180px}
+.shown{width:100%;margin:0;color:var(--mute);font-size:14px}
+.split{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@media (min-width:1024px){.split{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.mappane{position:sticky;top:64px;height:calc(100vh - 80px)}}
+.mappane .map{height:100%;min-height:320px;border:1px solid var(--line);border-radius:12px;background:#E9E4DA;display:flex;align-items:center;justify-content:center}
+.map-fallback{color:var(--mute);padding:16px;text-align:center}
+.areanav{display:flex;flex-wrap:wrap;gap:4px 12px;padding:8px 0;font-size:14px}
+.areanav a{min-height:32px;display:inline-flex;align-items:center}
+.area{content-visibility:auto;contain-intrinsic-size:auto 1200px}
+.area h2{font:600 24px/1.2 var(--serif);margin:24px 0 4px;display:flex;gap:8px;align-items:baseline}
+.area-c{font:14px var(--sans);color:var(--mute)}
+.area-sub{margin:0 0 8px;color:var(--mute);font-size:14px}
+.pls{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.pl{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.pl.is-target{outline:3px solid var(--accent);outline-offset:2px}
+.pl--closed{opacity:.72}
+.pl-e{margin:0;font-size:13px;color:var(--mute)}
+.pl-n{font:600 20px/1.25 var(--serif);margin:2px 0 6px}
+.pl-n a{text-decoration:none}
+.pl-w,.pl-k,.pl-ad,.pl-s{margin:4px 0}
+.pl-ad{color:var(--mute);font-size:14px}
+.pl-s{font-size:14px}
+.lbl{font-size:13px;color:var(--mute);margin-right:4px}
+.pl-x{display:flex;gap:12px;align-items:center;margin:8px 0 0}
+.pl-map{min-height:44px;display:inline-flex;align-items:center}
+.about{margin:32px 0;color:var(--mute);max-width:72ch}
+.sitefoot{max-width:1440px;margin:40px auto 0;padding:16px;border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+.method h2{font:600 20px var(--serif);color:var(--ink)}
+.method h3{font-size:15px;margin:12px 0 2px;color:var(--ink)}
+.country{margin:24px 0}
+.country h2{font:600 28px/1.2 var(--serif);margin:0}
+.country-c{font:14px var(--sans);color:var(--mute)}
+.dests{list-style:none;padding:0;margin:12px 0;display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.dest a{display:flex;flex-direction:column;gap:4px;height:100%;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:12px;text-decoration:none}
+.dest-n{font:600 22px/1.2 var(--serif)}
+.dest-d,.dest-c,.hit-m{color:var(--mute);font-size:14px}
+.hits{padding-left:20px}
+.hits li{margin:6px 0}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}

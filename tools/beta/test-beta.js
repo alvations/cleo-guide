@@ -1,0 +1,197 @@
+#!/usr/bin/env node
+'use strict';
+/**
+ * tools/beta/test-beta.js — the beta gate, wired into `npm test`.
+ *
+ *  1. COUNTS: every beta page carries exactly its live page's places (new-engine pages: rendered cards;
+ *     legacy mirror pages: their P/F arrays), and the per-page JSON + search index agree with live.
+ *  2. REPRODUCIBLE: a fresh in-memory build equals beta/ on disk (`build.js --check`), so a live rebuild
+ *     that changes a city without regenerating beta fails here, not in production.
+ *  3. GUARDS: no key-required map surface (engine_guard lists), no document.write, no third-party script,
+ *     no literal escapes in visible text — on EVERY beta page, mirrors included.
+ *  4. NO-CDN RENDER (jsdom): the Tokyo page renders every place with the network gone and the map absent,
+ *     with localStorage throwing; filters are lenses; deep links land; with Leaflet present, markers draw.
+ *  5. BUDGETS: page weight, client JS, search index.
+ */
+const fs = require('fs');
+const path = require('path');
+const zlib = require('zlib');
+const { execFileSync } = require('child_process');
+const { JSDOM } = require('jsdom');
+const { extractPage } = require('./lib/extract');
+const { forbidden } = require('./lib/forbidden');
+
+const ROOT = path.resolve(__dirname, '..', '..');
+const BETA = path.join(ROOT, 'beta');
+const rd = p => fs.readFileSync(path.join(ROOT, p), 'utf8');
+let failures = 0;
+const chk = (name, got, want) => {
+  const ok = typeof want === 'function' ? want(got) : got === want;
+  console.log(`  ${ok ? 'PASS' : 'FAIL'}  ${name} = ${JSON.stringify(got)}`);
+  if (!ok) failures++;
+};
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+const manifest = JSON.parse(rd('beta/data/manifest.json'));
+const generated = new Set(manifest.generated);
+
+// ── 1. counts, every page ───────────────────────────────────────────────────
+console.log('\n== COUNTS: beta == live, every place page ==');
+let bad = [], pages = 0, places = 0;
+const searchIdx = JSON.parse(rd('beta/data/search.json'));
+for (const row of manifest.pages.filter(p => p.kind === 'city')) {
+  const live = extractPage(rd(row.live)); const want = { P: live.P.length, F: live.F.length };
+  pages++; places += want.P + want.F;
+  if (row.gen === 'none') { bad.push(`${row.live}: no beta page`); continue; }
+  const html = rd('beta/' + row.beta);
+  let got;
+  if (generated.has(row.beta)) {
+    got = { P: (html.match(/<li class="pl[ "][^>]*data-k="s"/g) || []).length, F: (html.match(/<li class="pl[ "][^>]*data-k="f"/g) || []).length };
+  } else { const b = extractPage(html); got = { P: b.P.length, F: b.F.length }; }
+  if (got.P !== want.P || got.F !== want.F) bad.push(`${row.beta}: beta ${got.P}+${got.F} != live ${want.P}+${want.F}`);
+  const j = JSON.parse(rd(`beta/data/places/${row.key.replace(/\//g, '--')}.json`));
+  if (j.places.length !== want.P + want.F) bad.push(`data/places/${row.key}: ${j.places.length} != live ${want.P + want.F}`);
+}
+chk('place pages checked', pages, n => n >= 80);
+chk('pages whose beta count != live', bad, b => b.length === 0);
+chk('search index items == live total', searchIdx.items.length, places);
+
+// ── 2. reproducible from data ───────────────────────────────────────────────
+console.log('\n== REPRODUCIBLE: fresh build == beta/ on disk ==');
+let rep = 'PASS';
+try { execFileSync(process.execPath, [path.join(__dirname, 'build.js'), '--check'], { stdio: 'pipe' }); }
+catch (e) { rep = String(e.stderr || e.stdout).trim().split('\n').slice(-4).join(' | '); }
+chk('build.js --check', rep, 'PASS');
+let refused = '';
+try { execFileSync(process.execPath, [path.join(__dirname, 'build.js'), '--check'], { stdio: 'pipe', env: Object.assign({}, process.env, { CLEO_BETA_SELFTEST_DROP: '1' }) }); }
+catch (e) { refused = String(e.stderr); }
+chk('count gate refuses a page that lost a place', /refused to write[\s\S]*records, live page has/.test(refused), true);
+
+// ── 3. guards on every beta page ────────────────────────────────────────────
+console.log('\n== GUARDS: every beta page (new engine + mirrors) ==');
+const walk = (d, acc = []) => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p, acc); else acc.push(p); } return acc; };
+const htmls = walk(BETA).filter(p => p.endsWith('.html'));
+const LEAK = /\\u[0-9a-fA-F]{4}|\\x[0-9a-fA-F]{2}|<\\\//;
+const g = { forbidden: [], docwrite: [], cdnScript: [], leak: [] };
+for (const p of htmls) {
+  const h = fs.readFileSync(p, 'utf8'), rel = path.relative(BETA, p);
+  if (forbidden(h).length) g.forbidden.push(rel + ' ' + forbidden(h));
+  if (/document\.write\s*\(/.test(h)) g.docwrite.push(rel);
+  if (generated.has(rel.split(path.sep).join('/'))) {
+    if (/<script[^>]+src="https?:/i.test(h)) g.cdnScript.push(rel);
+    const vis = h.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '');
+    if (LEAK.test(vis)) g.leak.push(rel);
+  }
+}
+for (const p of walk(path.join(BETA, 'assets', 'js'))) { const h = fs.readFileSync(p, 'utf8'); if (forbidden(h).length) g.forbidden.push(path.relative(BETA, p)); if (/document\.write\s*\(/.test(h)) g.docwrite.push(path.relative(BETA, p)); }
+chk('beta pages scanned', htmls.length, n => n >= 85);
+chk('key-required map surface (engine_guard lists)', g.forbidden, a => a.length === 0);
+chk('document.write', g.docwrite, a => a.length === 0);
+chk('third-party <script src> on new-engine pages', g.cdnScript, a => a.length === 0);
+chk('literal escapes in visible text (new-engine pages)', g.leak, a => a.length === 0);
+
+// ── 3b. landing counts are computed, never typed ────────────────────────────
+console.log('\n== LANDING: every live city listed, counts == page ==');
+{
+  const h = rd('beta/index.html');
+  const cards = [...h.matchAll(/<li class="dest" data-page="([^"]+)"[\s\S]*?<span class="dest-c">(\d+) places/g)].map(m => [m[1], +m[2]]);
+  const byKey = Object.fromEntries(manifest.pages.filter(p => p.counts).map(p => [p.key, p.counts.P + p.counts.F]));
+  const liveC = new Set(JSON.parse(rd('data/countries.json')).countries.filter(c => c.live).map(c => c.key));
+  chk('place pages of live countries missing from the landing', manifest.pages.filter(p => p.kind === 'city' && liveC.has(p.country) && !cards.some(([k]) => k === p.key)).map(p => p.key), a => a.length === 0);
+  chk('cards whose count != live page', cards.filter(([k, n]) => byKey[k] !== n), a => a.length === 0);
+  chk('cards linking to a missing beta page', [...h.matchAll(/<li class="dest"[^>]*>\s*<a href="([^"]+)"/g)].map(m => m[1]).filter(p => !fs.existsSync(path.join(BETA, p))), a => a.length === 0);
+}
+
+// ── 4. no-CDN render of the Tokyo page in jsdom ─────────────────────────────
+const TOKYO = 'cities/tokyo.html';
+const live = extractPage(rd(TOKYO));
+const total = live.P.length + live.F.length;
+function boot({ leaflet = false, storage = 'ok', hash = '' } = {}) {
+  // Inline the page's own same-origin scripts (what a browser would fetch from beta/); every other
+  // request is impossible in this harness, i.e. the network — and any CDN — is gone.
+  let html = rd('beta/' + TOKYO).replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z]+\.js)\?v=[^"]*" defer><\/script>/g,
+    (m, src) => '<script>' + fs.readFileSync(path.join(BETA, 'cities', src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
+  if (leaflet) html = html.replace('</head>', '<script>' + fs.readFileSync(path.join(BETA, 'assets/vendor/leaflet/leaflet.js'), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script></head>');
+  const errs = [];
+  const dom = new JSDOM(html, {
+    runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + TOKYO + hash,
+    beforeParse(w) {
+      const proto = w.SVGSVGElement && w.SVGSVGElement.prototype;
+      if (proto && !proto.createSVGRect) proto.createSVGRect = () => ({ x: 0, y: 0, width: 0, height: 0 });
+      w.Element.prototype.scrollIntoView = function () {};
+      if (storage === 'throws') Object.defineProperty(w, 'localStorage', { get() { throw new Error('SecurityError: storage disabled'); } });
+      w.addEventListener('error', e => errs.push('ERR ' + (e.message || e.error)));
+    },
+  });
+  dom.window.console.error = (...a) => errs.push('console.error: ' + a.join(' '));
+  return { w: dom.window, d: dom.window.document, errs };
+}
+const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
+
+(async () => {
+  console.log('\n== NO-CDN RENDER: Tokyo, network gone, map absent, storage throwing ==');
+  {
+    const { w, d, errs } = boot({ storage: 'throws' });
+    await sleep(400);
+    chk('every place rendered', d.querySelectorAll('li.pl').length, total);
+    chk('every place visible by default', shown(d), total);
+    chk('cards missing a "Recommended by" line', [...d.querySelectorAll('li.pl')].filter(li => {
+      const s = li.querySelector('.pl-s'); return !s || !s.textContent.replace('Recommended by', '').trim(); }).length, 0);
+    const closed = [...d.querySelectorAll('li.pl[data-closed]')];
+    chk('closed places kept', closed.length, live.P.concat(live.F).filter(r => r.closed || /CLOSED/.test(r.n)).length);
+    chk('closed places flagged, none tier-badged', closed.every(li => /^Closed — kept for the record/.test(li.querySelector('.pl-e').textContent)), true);
+    chk('stated gaps carried (method notes)', [...d.querySelectorAll('.method .note h3')].map(e => e.textContent).includes('What is thin, and why'), true);
+    chk('toolbar enhanced', d.querySelector('[data-cleo-toolbar]').hidden, false);
+    chk('map fallback note kept', /listed here either way/.test(d.getElementById('cleo-map').textContent), true);
+    const b = d.querySelector('li.pl .pl-save'); b.click();
+    chk('save works with storage throwing (in-memory)', d.querySelector('[data-cleo-saved-count]').textContent, '1');
+    chk('no js errors', errs, e => e.length === 0);
+
+    console.log('\n== FILTERS ARE LENSES ==');
+    w.location.hash = '#mode=food'; await sleep(30);
+    chk('food mode shows exactly the food', shown(d), live.F.length);
+    const c0 = (live.CATS || []).find(c => live.P.concat(live.F).some(r => (r.g || []).includes(c.id)));
+    w.location.hash = '#c=' + c0.id; await sleep(30);
+    chk(`collection ${c0.id} shows exactly its places`, shown(d), live.P.concat(live.F).filter(r => (r.g || []).includes(c0.id)).length);
+    d.querySelector('[data-cleo-all]').click(); await sleep(30);
+    chk('"All" brings every place back', shown(d), total);
+    const target = d.querySelectorAll('li.pl[data-k="f"]')[5];
+    w.location.hash = '#mode=sights&p=' + target.id.slice(2); await sleep(30);
+    chk('deep link to a hidden place lands (filters yield)', !target.hidden && target.classList.contains('is-target'), true);
+    const t2 = d.querySelectorAll('li.pl[data-k="s"]')[7];
+    w.location.hash = '#mode=food'; await sleep(30);
+    w.location.hash = '#p-' + t2.id.slice(2); await sleep(30);
+    chk('no-JS anchor link (#p-<id>) is also a deep link', !t2.hidden && t2.classList.contains('is-target'), true);
+    const rb = d.querySelector('.rail-i[data-cz]'); rb.click(); await sleep(30);
+    chk('rail button applies its cuisine lens', shown(d), live.F.filter(r => (r.cz || []).includes(rb.getAttribute('data-cz'))).length);
+    chk('rail tile count == result count', +rb.querySelector('.n').textContent, shown(d));
+    chk('no js errors after interaction', errs, e => e.length === 0);
+  }
+  console.log('\n== MAP: vendored Leaflet present ==');
+  {
+    const { d, errs } = boot({ leaflet: true });
+    await sleep(700);
+    const withLL = d.querySelectorAll('li.pl[data-ll]').length;
+    chk('leaflet mounted', !!d.querySelector('#cleo-map .leaflet-pane'), true);
+    chk('one marker per pinned place', d.querySelectorAll('#cleo-map .leaflet-overlay-pane path').length, withLL);
+    const hosts = [...new Set([...fs.readFileSync(path.join(BETA, 'assets/js/city.js'), 'utf8').matchAll(/tileLayer\('https:\/\/([^/']+)/g)].map(m => m[1]))];
+    chk('tile hosts in client (OSM/Esri only)', hosts, h => h.length > 0 && h.every(x => x === 'tile.openstreetmap.org' || x === 'server.arcgisonline.com'));
+    chk('no js errors', errs, e => e.length === 0);
+  }
+
+  // ── 5. budgets ────────────────────────────────────────────────────────────
+  console.log('\n== BUDGETS ==');
+  const size = p => fs.statSync(path.join(BETA, p)).size;
+  const gz = p => zlib.gzipSync(fs.readFileSync(path.join(BETA, p))).length;
+  const KB = n => Math.round(n / 1024);
+  for (const p of manifest.generated.filter(p => p.startsWith('cities/'))) {
+    chk(`${p} ≤ 800 KB raw`, KB(size(p)), n => n <= 800);
+    chk(`${p} ≤ 160 KB gzip`, KB(gz(p)), n => n <= 160);
+  }
+  chk('landing ≤ 80 KB raw', KB(size('index.html')), n => n <= 80);
+  chk('client JS total ≤ 40 KB raw', KB(fs.readdirSync(path.join(BETA, 'assets/js')).reduce((s, f) => s + size('assets/js/' + f), 0)), n => n <= 40);
+  chk('search index ≤ 250 KB gzip (lazy)', KB(gz('data/search.json')), n => n <= 250);
+
+  console.log(failures ? `\n>>> FAIL — ${failures} beta check(s) failed` : '\n>>> PASS — beta: counts == live, reproducible, guarded, renders with no CDN');
+  process.exit(failures ? 1 : 0);
+})();
