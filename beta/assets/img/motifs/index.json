@@ -1,0 +1,663 @@
+{
+ "_generated": "tools/beta/imagery/motifs.js — do not edit",
+ "v": 1,
+ "_doc": "Original SVG motifs (imagery lane). night = drawn for the night ground (tiles, mastheads); ink = for the paper ground, flips under prefers-color-scheme: dark. Generic subjects only — never a depiction of a venue. Render with imagery.motifSvg() (an inline <svg><image href> layer). Do not put these URLs in a CSS custom property: browsers disagree on its base URL.",
+ "pages": {
+  "cleveland": {
+   "night": "assets/img/motifs/cleveland.svg?v=3ae6121c28",
+   "ink": "assets/img/motifs/cleveland.ink.svg?v=d5f3527ffe",
+   "why": "lake-swell ground and rollers, a truss bridge line, a lakefront skyline"
+  },
+  "aachen": {
+   "night": "assets/img/motifs/aachen.svg?v=3098346fb1",
+   "ink": "assets/img/motifs/aachen.ink.svg?v=eadb6ff678",
+   "why": "hex ground, half-timbered houses, thermal-spring steam, an old-town spire"
+  },
+  "akron": {
+   "night": "assets/img/motifs/akron.svg?v=d6c30542ff",
+   "ink": "assets/img/motifs/akron.ink.svg?v=886e6caea3",
+   "why": "tyre-tread ground, factory stacks, hills, a generic airship"
+  },
+  "antwerp": {
+   "night": "assets/img/motifs/antwerp.svg?v=14d9d76951",
+   "ink": "assets/img/motifs/antwerp.ink.svg?v=43dadd8643",
+   "why": "cut-facet ground, a tall gothic spire, harbour cranes on the river, a barge"
+  },
+  "bruges": {
+   "night": "assets/img/motifs/bruges.svg?v=601d50e00d",
+   "ink": "assets/img/motifs/bruges.ink.svg?v=165b4c33ab",
+   "why": "brick ground, a stepped-gable terrace, a canal, a canal boat"
+  },
+  "brussels": {
+   "night": "assets/img/motifs/brussels.svg?v=0337ac7178",
+   "ink": "assets/img/motifs/brussels.ink.svg?v=56e9af1c82",
+   "why": "flower-tile ground, ornate gabled guild houses around a square, a town-hall spire"
+  },
+  "chicago": {
+   "night": "assets/img/motifs/chicago.svg?v=5889aa0324",
+   "ink": "assets/img/motifs/chicago.ink.svg?v=e761b68154",
+   "why": "grid ground, a tall lakefront skyline, a river walk, lake rollers"
+  },
+  "cincinnati": {
+   "night": "assets/img/motifs/cincinnati.svg?v=41602a9cf1",
+   "ink": "assets/img/motifs/cincinnati.ink.svg?v=6b2301f484",
+   "why": "river-wave ground, hills, a river skyline, a suspension bridge"
+  },
+  "columbus": {
+   "night": "assets/img/motifs/columbus.svg?v=fb79c253b9",
+   "ink": "assets/img/motifs/columbus.ink.svg?v=7d6fd3d02a",
+   "why": "grid ground, a riverfront skyline, a low arch bridge"
+  },
+  "dayton": {
+   "night": "assets/img/motifs/dayton.svg?v=d93c1f60d2",
+   "ink": "assets/img/motifs/dayton.ink.svg?v=ab868f73f7",
+   "why": "flight-path ground, cloud bands, farmland, a generic early biplane"
+  },
+  "erie": {
+   "night": "assets/img/motifs/erie.svg?v=862d34e23c",
+   "ink": "assets/img/motifs/erie.ink.svg?v=8ff4d26ed8",
+   "why": "lake-wave ground, rollers, a lighthouse, a low sun"
+  },
+  "ghent": {
+   "night": "assets/img/motifs/ghent.svg?v=df5055ef92",
+   "ink": "assets/img/motifs/ghent.ink.svg?v=df4fc52aaf",
+   "why": "diagonal ground, three towers in a row above the river, a stone bridge"
+  },
+  "harrisburg": {
+   "night": "assets/img/motifs/harrisburg.svg?v=be9e56983b",
+   "ink": "assets/img/motifs/harrisburg.ink.svg?v=c5f4fd40be",
+   "why": "diagonal ground, a domed capitol, a river, a stone-arch rail viaduct"
+  },
+  "hokkaido": {
+   "night": "assets/img/motifs/hokkaido.svg?v=9cd031764f",
+   "ink": "assets/img/motifs/hokkaido.ink.svg?v=1dfcde42e3",
+   "why": "snow-crystal ground, a snow-capped ridge, a lone volcanic cone"
+  },
+  "indianapolis": {
+   "night": "assets/img/motifs/indianapolis.svg?v=445efc1d7d",
+   "ink": "assets/img/motifs/indianapolis.ink.svg?v=1c54fc22e0",
+   "why": "checkered-flag ground, a downtown skyline, an oval race track"
+  },
+  "kyoto": {
+   "night": "assets/img/motifs/kyoto.svg?v=8ef08c2614",
+   "ink": "assets/img/motifs/kyoto.ink.svg?v=d501a21a69",
+   "why": "tortoise-shell ground, layered hills, a five-storey pagoda, maple leaves"
+  },
+  "liege": {
+   "night": "assets/img/motifs/liege.svg?v=b97678e152",
+   "ink": "assets/img/motifs/liege.ink.svg?v=5e0e895933",
+   "why": "stair-step ground, steep hillside houses, the river, a long stairway"
+  },
+  "madison": {
+   "night": "assets/img/motifs/madison.svg?v=1f92ff0d78",
+   "ink": "assets/img/motifs/madison.ink.svg?v=267c527884",
+   "why": "lake-wave ground, two lakes, a domed capitol on the isthmus"
+  },
+  "miami": {
+   "night": "assets/img/motifs/miami.svg?v=c6766af005",
+   "ink": "assets/img/motifs/miami.ink.svg?v=52e11c182f",
+   "why": "deco-chevron ground, palms, beachfront towers, a setting sun on the sea"
+  },
+  "newyork": {
+   "night": "assets/img/motifs/newyork.svg?v=96685cd9e8",
+   "ink": "assets/img/motifs/newyork.ink.svg?v=fc6112a5c6",
+   "why": "street-grid ground, a dense generic skyline, a suspension bridge"
+  },
+  "okinawa": {
+   "night": "assets/img/motifs/okinawa.svg?v=a5a86da18a",
+   "ink": "assets/img/motifs/okinawa.ink.svg?v=179f5013ad",
+   "why": "reef-wave ground, the sea, palms, a hibiscus bloom, a low sun"
+  },
+  "orlando": {
+   "night": "assets/img/motifs/orlando.svg?v=b4e39f6898",
+   "ink": "assets/img/motifs/orlando.ink.svg?v=1ccd824053",
+   "why": "confetti-dot ground, a roller-coaster loop, a palm, fireworks"
+  },
+  "osaka": {
+   "night": "assets/img/motifs/osaka.svg?v=17689583bb",
+   "ink": "assets/img/motifs/osaka.ink.svg?v=ef9baffd1c",
+   "why": "neon-dot ground, a canal-side skyline, a lantern string, a Ferris wheel"
+  },
+  "philadelphia": {
+   "night": "assets/img/motifs/philadelphia.svg?v=87f97ff2a0",
+   "ink": "assets/img/motifs/philadelphia.ink.svg?v=b7d9ba0e90",
+   "why": "brick-bond ground, a classical portico, a river, a suspension bridge"
+  },
+  "pittsburgh": {
+   "night": "assets/img/motifs/pittsburgh.svg?v=a8b464c2b4",
+   "ink": "assets/img/motifs/pittsburgh.ink.svg?v=bc4beb0b31",
+   "why": "hillside ground, two converging rivers, two steel arch bridges"
+  },
+  "rhineland": {
+   "night": "assets/img/motifs/rhineland.svg?v=13f45b3c5e",
+   "ink": "assets/img/motifs/rhineland.ink.svg?v=cb8e37016e",
+   "why": "river-wave ground, vineyard slopes, a castle silhouette, a river boat"
+  },
+  "saarland": {
+   "night": "assets/img/motifs/saarland.svg?v=2b0c93e599",
+   "ink": "assets/img/motifs/saarland.ink.svg?v=635657217b",
+   "why": "brick ground, an ironworks skyline, a looping river, wooded hills"
+  },
+  "sanfrancisco": {
+   "night": "assets/img/motifs/sanfrancisco.svg?v=c5da2e4e32",
+   "ink": "assets/img/motifs/sanfrancisco.ink.svg?v=3336962964",
+   "why": "fog bands over the bay, rolling hills, a suspension bridge"
+  },
+  "siliconvalley": {
+   "night": "assets/img/motifs/siliconvalley.svg?v=75326862d9",
+   "ink": "assets/img/motifs/siliconvalley.ink.svg?v=852d6d5394",
+   "why": "circuit-trace ground, orchard rows in perspective, foothills, a valley sun"
+  },
+  "statecollege": {
+   "night": "assets/img/motifs/statecollege.svg?v=ab1b031d85",
+   "ink": "assets/img/motifs/statecollege.ink.svg?v=138820aaf5",
+   "why": "campus-grid ground, a long ridge, farmland, a classical college portico"
+  },
+  "tokyo": {
+   "night": "assets/img/motifs/tokyo.svg?v=368868264e",
+   "ink": "assets/img/motifs/tokyo.ink.svg?v=41d8cc986d",
+   "why": "wave-scale ground, a generic high-rise skyline, a shrine gate, a rising sun"
+  },
+  "washingtondc": {
+   "night": "assets/img/motifs/washingtondc.svg?v=855cbc2faa",
+   "ink": "assets/img/motifs/washingtondc.ink.svg?v=60b41949d1",
+   "why": "avenue-diagonal ground, a generic domed capitol, an obelisk, a reflecting pool"
+  },
+  "wheeling": {
+   "night": "assets/img/motifs/wheeling.svg?v=cb4d433e89",
+   "ink": "assets/img/motifs/wheeling.ink.svg?v=1c002aeb74",
+   "why": "hill-hatch ground, Appalachian hills, a river, a long suspension bridge"
+  },
+  "youngstown": {
+   "night": "assets/img/motifs/youngstown.svg?v=bd1ce8e4a0",
+   "ink": "assets/img/motifs/youngstown.ink.svg?v=e51b4a7688",
+   "why": "brick ground, steel-mill stacks and sheds, the river"
+  },
+  "singapore/ang-mo-kio": {
+   "night": "assets/img/motifs/singapore--ang-mo-kio.svg?v=126c0e1975",
+   "ink": "assets/img/motifs/singapore--ang-mo-kio.ink.svg?v=49c0673205",
+   "why": "grid ground, public-housing slabs, a neighbourhood hawker awning"
+  },
+  "singapore/bagan": {
+   "night": "assets/img/motifs/singapore--bagan.svg?v=e1d2daa08b",
+   "ink": "assets/img/motifs/singapore--bagan.ink.svg?v=1112357541",
+   "why": "dot ground, plains of stupas, a hot-air balloon"
+  },
+  "singapore/balestier": {
+   "night": "assets/img/motifs/singapore--balestier.svg?v=6a1dbed1f1",
+   "ink": "assets/img/motifs/singapore--balestier.ink.svg?v=c651ffb00f",
+   "why": "tile ground, a shophouse terrace, a bowl"
+  },
+  "singapore/bali": {
+   "night": "assets/img/motifs/singapore--bali.svg?v=e521b31648",
+   "ink": "assets/img/motifs/singapore--bali.ink.svg?v=98a5e44e61",
+   "why": "wave ground, rice terraces, a volcano"
+  },
+  "singapore/bangkok": {
+   "night": "assets/img/motifs/singapore--bangkok.svg?v=56a15096da",
+   "ink": "assets/img/motifs/singapore--bangkok.ink.svg?v=e55d1cc8fc",
+   "why": "chevron ground, a river, a long-tail boat, a temple spire, towers"
+  },
+  "singapore/bedok": {
+   "night": "assets/img/motifs/singapore--bedok.svg?v=5135191058",
+   "ink": "assets/img/motifs/singapore--bedok.ink.svg?v=4b413f3c00",
+   "why": "wave ground, housing blocks by the sea, a bowl"
+  },
+  "singapore/bishan": {
+   "night": "assets/img/motifs/singapore--bishan.svg?v=98ae61c0e1",
+   "ink": "assets/img/motifs/singapore--bishan.ink.svg?v=1ae34977f5",
+   "why": "dot ground, housing blocks, a park river with leaves"
+  },
+  "singapore/bukit-timah": {
+   "night": "assets/img/motifs/singapore--bukit-timah.svg?v=e5beefdda8",
+   "ink": "assets/img/motifs/singapore--bukit-timah.ink.svg?v=7bdffcd374",
+   "why": "diagonal ground, a forested hill, a leaf"
+  },
+  "singapore/cebu": {
+   "night": "assets/img/motifs/singapore--cebu.svg?v=6cf35a3379",
+   "ink": "assets/img/motifs/singapore--cebu.ink.svg?v=fc3365a8c6",
+   "why": "wave ground, a palm shore, an outrigger boat"
+  },
+  "singapore/changi": {
+   "night": "assets/img/motifs/singapore--changi.svg?v=17dae0def6",
+   "ink": "assets/img/motifs/singapore--changi.ink.svg?v=d84feab188",
+   "why": "wave ground, the sea, a passing aircraft"
+  },
+  "singapore/chiang-mai": {
+   "night": "assets/img/motifs/singapore--chiang-mai.svg?v=75eb2158cf",
+   "ink": "assets/img/motifs/singapore--chiang-mai.ink.svg?v=8dd997dfd2",
+   "why": "dot ground, mountains, floating lanterns, a temple spire"
+  },
+  "singapore/chinatown": {
+   "night": "assets/img/motifs/singapore--chinatown.svg?v=2b7baed026",
+   "ink": "assets/img/motifs/singapore--chinatown.ink.svg?v=774fc00a21",
+   "why": "encaustic-tile ground, a shophouse terrace, a lantern string"
+  },
+  "singapore/civic-district": {
+   "night": "assets/img/motifs/singapore--civic-district.svg?v=01abc45d20",
+   "ink": "assets/img/motifs/singapore--civic-district.ink.svg?v=7b9d0a1787",
+   "why": "grid ground, a colonial portico, towers behind, the river"
+  },
+  "singapore/dempsey-hill": {
+   "night": "assets/img/motifs/singapore--dempsey-hill.svg?v=587c0bcd70",
+   "ink": "assets/img/motifs/singapore--dempsey-hill.ink.svg?v=b58c103e41",
+   "why": "leaf ground, rainforest canopy, a colonial barrack roof"
+  },
+  "singapore/geylang": {
+   "night": "assets/img/motifs/singapore--geylang.svg?v=2261f49e65",
+   "ink": "assets/img/motifs/singapore--geylang.ink.svg?v=41d955d1e1",
+   "why": "dot ground, shophouse lanes, lantern strings"
+  },
+  "singapore/hanoi": {
+   "night": "assets/img/motifs/singapore--hanoi.svg?v=55c78e9c11",
+   "ink": "assets/img/motifs/singapore--hanoi.ink.svg?v=c7bb685627",
+   "why": "tile ground, narrow tube houses, a lake, woven hats"
+  },
+  "singapore/hoi-an": {
+   "night": "assets/img/motifs/singapore--hoi-an.svg?v=ca57afb594",
+   "ink": "assets/img/motifs/singapore--hoi-an.ink.svg?v=2e14d3c127",
+   "why": "tile ground, an old-town terrace on the river, a lantern string"
+  },
+  "singapore/holland-village": {
+   "night": "assets/img/motifs/singapore--holland-village.svg?v=2c3f6e67bf",
+   "ink": "assets/img/motifs/singapore--holland-village.ink.svg?v=3de49037ea",
+   "why": "dot ground, a row of low shops, a café awning"
+  },
+  "singapore/ipoh": {
+   "night": "assets/img/motifs/singapore--ipoh.svg?v=b972f433b8",
+   "ink": "assets/img/motifs/singapore--ipoh.ink.svg?v=d849e28079",
+   "why": "diagonal ground, limestone hills, old shophouses"
+  },
+  "singapore/jakarta": {
+   "night": "assets/img/motifs/singapore--jakarta.svg?v=9c6276f8dd",
+   "ink": "assets/img/motifs/singapore--jakarta.ink.svg?v=feb373c59d",
+   "why": "grid ground, a dense skyline, the harbour"
+  },
+  "singapore/jalan-besar": {
+   "night": "assets/img/motifs/singapore--jalan-besar.svg?v=c48a7c1452",
+   "ink": "assets/img/motifs/singapore--jalan-besar.ink.svg?v=e170af4975",
+   "why": "brick ground, a long shophouse street"
+  },
+  "singapore/jurong": {
+   "night": "assets/img/motifs/singapore--jurong.svg?v=e481092ce6",
+   "ink": "assets/img/motifs/singapore--jurong.ink.svg?v=ff8f6886d8",
+   "why": "hex ground, an industrial edge, a garden of leaves and blooms"
+  },
+  "singapore/kampong-glam": {
+   "night": "assets/img/motifs/singapore--kampong-glam.svg?v=92d6a30ee1",
+   "ink": "assets/img/motifs/singapore--kampong-glam.ink.svg?v=ba7ada6546",
+   "why": "geometric ground, shophouses, a domed roofline and minaret"
+  },
+  "singapore/katong-joo-chiat": {
+   "night": "assets/img/motifs/singapore--katong-joo-chiat.svg?v=cd9ba6a3ff",
+   "ink": "assets/img/motifs/singapore--katong-joo-chiat.ink.svg?v=f8a45b04c8",
+   "why": "tile ground, a pastel shophouse terrace, a bloom"
+  },
+  "singapore/kuala-lumpur": {
+   "night": "assets/img/motifs/singapore--kuala-lumpur.svg?v=49a57bd66d",
+   "ink": "assets/img/motifs/singapore--kuala-lumpur.ink.svg?v=590c9f7821",
+   "why": "geometric ground, a spired skyline, a domed roofline"
+  },
+  "singapore/little-india": {
+   "night": "assets/img/motifs/singapore--little-india.svg?v=300b8158c9",
+   "ink": "assets/img/motifs/singapore--little-india.ink.svg?v=96be3937f0",
+   "why": "kolam-dot ground, shophouses, a stepped temple tower"
+  },
+  "singapore/luang-prabang": {
+   "night": "assets/img/motifs/singapore--luang-prabang.svg?v=a82cbebe82",
+   "ink": "assets/img/motifs/singapore--luang-prabang.ink.svg?v=fbec6b7191",
+   "why": "dot ground, river and hills, a slow boat, a temple roof"
+  },
+  "singapore/malacca": {
+   "night": "assets/img/motifs/singapore--malacca.svg?v=32079bc265",
+   "ink": "assets/img/motifs/singapore--malacca.ink.svg?v=482e933488",
+   "why": "tile ground, a riverside shophouse terrace, a river boat"
+  },
+  "singapore/mandai": {
+   "night": "assets/img/motifs/singapore--mandai.svg?v=8c8be8f2fd",
+   "ink": "assets/img/motifs/singapore--mandai.ink.svg?v=94935f1e1c",
+   "why": "leaf ground, rainforest canopy, broad leaves"
+  },
+  "singapore/manila": {
+   "night": "assets/img/motifs/singapore--manila.svg?v=25fde5bd9e",
+   "ink": "assets/img/motifs/singapore--manila.ink.svg?v=0d774b6175",
+   "why": "grid ground, a bayside skyline, a bay sunset"
+  },
+  "singapore/marina-bay": {
+   "night": "assets/img/motifs/singapore--marina-bay.svg?v=7de72c6c8d",
+   "ink": "assets/img/motifs/singapore--marina-bay.ink.svg?v=1dd47b1863",
+   "why": "bay-wave ground, a waterfront skyline, an observation wheel"
+  },
+  "singapore/marine-parade": {
+   "night": "assets/img/motifs/singapore--marine-parade.svg?v=690a9ebd24",
+   "ink": "assets/img/motifs/singapore--marine-parade.ink.svg?v=984463ade3",
+   "why": "wave ground, seafront blocks, a palm on the shore"
+  },
+  "singapore/newton-novena": {
+   "night": "assets/img/motifs/singapore--newton-novena.svg?v=bb332a7353",
+   "ink": "assets/img/motifs/singapore--newton-novena.ink.svg?v=9cc999f8d4",
+   "why": "grid ground, towers, a hawker awning, a bowl"
+  },
+  "singapore/old-airport-road": {
+   "night": "assets/img/motifs/singapore--old-airport-road.svg?v=24dc7ad564",
+   "ink": "assets/img/motifs/singapore--old-airport-road.ink.svg?v=bdd402408d",
+   "why": "dot ground, blocks, a big hawker awning, an old runway plane"
+  },
+  "singapore/penang": {
+   "night": "assets/img/motifs/singapore--penang.svg?v=46bdd35ade",
+   "ink": "assets/img/motifs/singapore--penang.ink.svg?v=6f3d7f8894",
+   "why": "tile ground, heritage shophouses, a hill, a hawker bowl"
+  },
+  "singapore/phnom-penh": {
+   "night": "assets/img/motifs/singapore--phnom-penh.svg?v=66e934909b",
+   "ink": "assets/img/motifs/singapore--phnom-penh.ink.svg?v=a0591dee6f",
+   "why": "chevron ground, a river confluence, a temple roof, a boat"
+  },
+  "singapore/potong-pasir-macpherson": {
+   "night": "assets/img/motifs/singapore--potong-pasir-macpherson.svg?v=d23886ff0f",
+   "ink": "assets/img/motifs/singapore--potong-pasir-macpherson.ink.svg?v=9e0f81f1b0",
+   "why": "chevron ground, estate blocks, a hawker-centre awning"
+  },
+  "singapore/punggol": {
+   "night": "assets/img/motifs/singapore--punggol.svg?v=0c83bbecbc",
+   "ink": "assets/img/motifs/singapore--punggol.ink.svg?v=741a1ce961",
+   "why": "waterway ground, new housing blocks, a footbridge over the waterway"
+  },
+  "singapore/queenstown": {
+   "night": "assets/img/motifs/singapore--queenstown.svg?v=15798a78ed",
+   "ink": "assets/img/motifs/singapore--queenstown.ink.svg?v=04fa0cc317",
+   "why": "grid ground, early estate blocks, a neighbourhood cinema box"
+  },
+  "singapore/siem-reap": {
+   "night": "assets/img/motifs/singapore--siem-reap.svg?v=14d19a5d5b",
+   "ink": "assets/img/motifs/singapore--siem-reap.ink.svg?v=dab05a5660",
+   "why": "dot ground, jungle canopy, a stepped temple tower, a moat"
+  },
+  "singapore/southern-ridges": {
+   "night": "assets/img/motifs/singapore--southern-ridges.svg?v=d357d76d24",
+   "ink": "assets/img/motifs/singapore--southern-ridges.ink.svg?v=dace40c92e",
+   "why": "leaf ground, forest canopy, a wavy walkway above the trees"
+  },
+  "singapore/tiong-bahru": {
+   "night": "assets/img/motifs/singapore--tiong-bahru.svg?v=4ef414420a",
+   "ink": "assets/img/motifs/singapore--tiong-bahru.ink.svg?v=1c5ee14722",
+   "why": "deco ground, low curved-corner flats, a market bowl"
+  },
+  "singapore/toa-payoh": {
+   "night": "assets/img/motifs/singapore--toa-payoh.svg?v=7d1762e7d1",
+   "ink": "assets/img/motifs/singapore--toa-payoh.ink.svg?v=5650842def",
+   "why": "tile ground, housing slabs, a playground-dragon curve"
+  },
+  "singapore/upper-serangoon": {
+   "night": "assets/img/motifs/singapore--upper-serangoon.svg?v=11780f77a6",
+   "ink": "assets/img/motifs/singapore--upper-serangoon.ink.svg?v=794e6afed8",
+   "why": "dot ground, blocks and shophouses, a steaming bowl"
+  },
+  "singapore/upper-thomson": {
+   "night": "assets/img/motifs/singapore--upper-thomson.svg?v=f4d5fe6602",
+   "ink": "assets/img/motifs/singapore--upper-thomson.ink.svg?v=4def34301d",
+   "why": "leaf ground, reservoir forest, a bowl"
+  },
+  "singapore/yangon": {
+   "night": "assets/img/motifs/singapore--yangon.svg?v=bf29bbffd8",
+   "ink": "assets/img/motifs/singapore--yangon.ink.svg?v=179f783bc1",
+   "why": "dot ground, low hills, a tall stupa spire"
+  },
+  "singapore/yogyakarta": {
+   "night": "assets/img/motifs/singapore--yogyakarta.svg?v=1941d43c51",
+   "ink": "assets/img/motifs/singapore--yogyakarta.ink.svg?v=ca6f802f98",
+   "why": "dot ground, terraces, a volcano, a stepped temple"
+  },
+  "vietnam/hanoi": {
+   "night": "assets/img/motifs/vietnam--hanoi.svg?v=409703306e",
+   "ink": "assets/img/motifs/vietnam--hanoi.ink.svg?v=8a4e4084bd",
+   "why": "dot ground, narrow tube houses, lanterns, woven hats"
+  },
+  "vietnam/ho-chi-minh-city": {
+   "night": "assets/img/motifs/vietnam--ho-chi-minh-city.svg?v=656a853cc4",
+   "ink": "assets/img/motifs/vietnam--ho-chi-minh-city.ink.svg?v=ba78816fd4",
+   "why": "tile ground, a riverside skyline, woven hats, a river boat"
+  },
+  "vietnam/hoi-an": {
+   "night": "assets/img/motifs/vietnam--hoi-an.svg?v=f538107f21",
+   "ink": "assets/img/motifs/vietnam--hoi-an.ink.svg?v=3f9482189e",
+   "why": "chevron ground, the old-town riverfront, lanterns, a boat"
+  }
+ },
+ "countries": {
+  "us": {
+   "night": "assets/img/motifs/us.svg?v=a0ff74ddf1",
+   "ink": "assets/img/motifs/us.ink.svg?v=7e54838222",
+   "why": "street-grid ground, a skyline, a truss bridge, mountains"
+  },
+  "singapore": {
+   "night": "assets/img/motifs/singapore.svg?v=f407d0e417",
+   "ink": "assets/img/motifs/singapore.ink.svg?v=23b257a085",
+   "why": "tile ground, shophouses meeting towers, an orchid-like bloom"
+  },
+  "vietnam": {
+   "night": "assets/img/motifs/vietnam.svg?v=ae2456376f",
+   "ink": "assets/img/motifs/vietnam.ink.svg?v=4204702342",
+   "why": "dot ground, terraces, woven hats, a river boat"
+  },
+  "germany": {
+   "night": "assets/img/motifs/germany.svg?v=4fdeab2954",
+   "ink": "assets/img/motifs/germany.ink.svg?v=1385f590b9",
+   "why": "hex ground, half-timbered houses, wooded hills, castle towers"
+  },
+  "belgium": {
+   "night": "assets/img/motifs/belgium.svg?v=ae01898a7b",
+   "ink": "assets/img/motifs/belgium.ink.svg?v=e27afb3956",
+   "why": "brick ground, a stepped-gable terrace, a belfry, a canal"
+  },
+  "japan": {
+   "night": "assets/img/motifs/japan.svg?v=a3a2626454",
+   "ink": "assets/img/motifs/japan.ink.svg?v=3634908558",
+   "why": "wave-scale ground, a volcanic cone, a shrine gate, a rising sun"
+  },
+  "malaysia": {
+   "night": "assets/img/motifs/malaysia.svg?v=29c3e19014",
+   "ink": "assets/img/motifs/malaysia.ink.svg?v=65c8925398",
+   "why": "geometric ground, rainforest, a domed roofline"
+  },
+  "thailand": {
+   "night": "assets/img/motifs/thailand.svg?v=a772edbf95",
+   "ink": "assets/img/motifs/thailand.ink.svg?v=3089254d3c",
+   "why": "chevron ground, a river, a temple spire, a boat"
+  },
+  "indonesia": {
+   "night": "assets/img/motifs/indonesia.svg?v=f7f27c3e95",
+   "ink": "assets/img/motifs/indonesia.ink.svg?v=4a6c126be5",
+   "why": "wave ground, rice terraces, a volcano"
+  },
+  "philippines": {
+   "night": "assets/img/motifs/philippines.svg?v=18c850c397",
+   "ink": "assets/img/motifs/philippines.ink.svg?v=e4cef9fbac",
+   "why": "wave ground, a palm shore, an outrigger boat"
+  },
+  "indochina": {
+   "night": "assets/img/motifs/indochina.svg?v=6bff96a48a",
+   "ink": "assets/img/motifs/indochina.ink.svg?v=4862a9ab9f",
+   "why": "dot ground, river and hills, a temple roof"
+  }
+ },
+ "collections": {
+  "food": {
+   "night": "assets/img/motifs/collections/food.svg?v=6484eeec59",
+   "ink": "assets/img/motifs/collections/food.ink.svg?v=05075d0d4c",
+   "why": "tile ground, a market awning, a bowl with chopsticks and steam"
+  },
+  "landmarks": {
+   "night": "assets/img/motifs/collections/landmarks.svg?v=156b183fbb",
+   "ink": "assets/img/motifs/collections/landmarks.ink.svg?v=eae95c4c20",
+   "why": "grid ground, a portico, towers and spires, a star"
+  },
+  "popculture": {
+   "night": "assets/img/motifs/collections/popculture.svg?v=7c482ff7b4",
+   "ink": "assets/img/motifs/collections/popculture.ink.svg?v=7cf99ceed8",
+   "why": "halftone-dot ground, a speech balloon with motion lines, a skyline"
+  },
+  "outdoors": {
+   "night": "assets/img/motifs/collections/outdoors.svg?v=2a9b821343",
+   "ink": "assets/img/motifs/collections/outdoors.ink.svg?v=9b46299f9c",
+   "why": "diagonal ground, peaks and hills, leaves"
+  },
+  "art": {
+   "night": "assets/img/motifs/collections/art.svg?v=faf1542fc8",
+   "ink": "assets/img/motifs/collections/art.ink.svg?v=cde279a223",
+   "why": "cross-hatch ground, a picture on an easel, a gallery portico"
+  },
+  "temples": {
+   "night": "assets/img/motifs/collections/temples.svg?v=07353d99e4",
+   "ink": "assets/img/motifs/collections/temples.ink.svg?v=6bc7f18aba",
+   "why": "wave-scale ground, a shrine gate, a pagoda"
+  },
+  "history": {
+   "night": "assets/img/motifs/collections/history.svg?v=a2d4b1537d",
+   "ink": "assets/img/motifs/collections/history.ink.svg?v=37ba73ae01",
+   "why": "brick ground, towers, belfries and spires"
+  },
+  "views": {
+   "night": "assets/img/motifs/collections/views.svg?v=ff46f9300f",
+   "ink": "assets/img/motifs/collections/views.ink.svg?v=0523c3d221",
+   "why": "grid ground, a skyline, a sun"
+  },
+  "markets": {
+   "night": "assets/img/motifs/collections/markets.svg?v=fcc7ecc84e",
+   "ink": "assets/img/motifs/collections/markets.ink.svg?v=b799f04225",
+   "why": "tile ground, two market awnings, a lantern string"
+  },
+  "night": {
+   "night": "assets/img/motifs/collections/night.svg?v=03416bf31f",
+   "ink": "assets/img/motifs/collections/night.ink.svg?v=8fdcfa90b3",
+   "why": "star-dot ground, a skyline, a crescent moon, lanterns"
+  },
+  "water": {
+   "night": "assets/img/motifs/collections/water.svg?v=fb5e866056",
+   "ink": "assets/img/motifs/collections/water.ink.svg?v=b3d0e1bf13",
+   "why": "wave ground, rollers, a boat, a lighthouse"
+  },
+  "free": {
+   "night": "assets/img/motifs/collections/free.svg?v=b2dea13dc4",
+   "ink": "assets/img/motifs/collections/free.ink.svg?v=fcd3205d31",
+   "why": "dot ground, a ticket with rays, hills"
+  },
+  "family": {
+   "night": "assets/img/motifs/collections/family.svg?v=737c58c2f4",
+   "ink": "assets/img/motifs/collections/family.ink.svg?v=5f202e8979",
+   "why": "chevron ground, a roller coaster, a Ferris wheel"
+  },
+  "oddities": {
+   "night": "assets/img/motifs/collections/oddities.svg?v=4f2e0684cb",
+   "ink": "assets/img/motifs/collections/oddities.ink.svg?v=e6d2dce596",
+   "why": "cross ground, a compass rose"
+  },
+  "onsen": {
+   "night": "assets/img/motifs/collections/onsen.svg?v=edf6b70ae3",
+   "ink": "assets/img/motifs/collections/onsen.ink.svg?v=ab27e1f08a",
+   "why": "wave-scale ground, mountains, a pool, rising steam"
+  },
+  "sport": {
+   "night": "assets/img/motifs/collections/sport.svg?v=f191bafb70",
+   "ink": "assets/img/motifs/collections/sport.ink.svg?v=0d33aca85f",
+   "why": "grid ground, an oval stadium, a burst of lights"
+  },
+  "craft": {
+   "night": "assets/img/motifs/collections/craft.svg?v=c4c3629be8",
+   "ink": "assets/img/motifs/collections/craft.ink.svg?v=fbe79a4672",
+   "why": "hex ground, a vase and a glass, hills"
+  },
+  "campus": {
+   "night": "assets/img/motifs/collections/campus.svg?v=d44ac794a0",
+   "ink": "assets/img/motifs/collections/campus.ink.svg?v=b9a50892b8",
+   "why": "grid ground, a college portico, a leaf"
+  }
+ },
+ "themes": {
+  "anime": {
+   "night": "assets/img/motifs/collections/anime.svg?v=7c482ff7b4",
+   "ink": "assets/img/motifs/collections/anime.ink.svg?v=7cf99ceed8",
+   "why": "halftone-dot ground, a speech balloon with motion lines, a skyline",
+   "subject": "popculture"
+  },
+  "hawker": {
+   "night": "assets/img/motifs/collections/hawker.svg?v=fcc7ecc84e",
+   "ink": "assets/img/motifs/collections/hawker.ink.svg?v=b799f04225",
+   "why": "tile ground, two market awnings, a lantern string",
+   "subject": "markets"
+  },
+  "ramen": {
+   "night": "assets/img/motifs/collections/ramen.svg?v=6484eeec59",
+   "ink": "assets/img/motifs/collections/ramen.ink.svg?v=05075d0d4c",
+   "why": "tile ground, a market awning, a bowl with chopsticks and steam",
+   "subject": "food"
+  },
+  "fine": {
+   "night": "assets/img/motifs/collections/fine.svg?v=6484eeec59",
+   "ink": "assets/img/motifs/collections/fine.ink.svg?v=05075d0d4c",
+   "why": "tile ground, a market awning, a bowl with chopsticks and steam",
+   "subject": "food"
+  },
+  "unesco": {
+   "night": "assets/img/motifs/collections/unesco.svg?v=156b183fbb",
+   "ink": "assets/img/motifs/collections/unesco.ink.svg?v=eae95c4c20",
+   "why": "grid ground, a portico, towers and spires, a star",
+   "subject": "landmarks"
+  },
+  "beer": {
+   "night": "assets/img/motifs/collections/beer.svg?v=03416bf31f",
+   "ink": "assets/img/motifs/collections/beer.ink.svg?v=8fdcfa90b3",
+   "why": "star-dot ground, a skyline, a crescent moon, lanterns",
+   "subject": "night"
+  },
+  "flw": {
+   "night": "assets/img/motifs/collections/flw.svg?v=156b183fbb",
+   "ink": "assets/img/motifs/collections/flw.ink.svg?v=eae95c4c20",
+   "why": "grid ground, a portico, towers and spires, a star",
+   "subject": "landmarks"
+  }
+ },
+ "collectionIds": {
+  "FREE": "free",
+  "MUS": "art",
+  "ART": "art",
+  "MURAL": "art",
+  "ARTS": "art",
+  "ICON": "landmarks",
+  "ODD": "oddities",
+  "FAM": "family",
+  "PARK": "outdoors",
+  "NATURE": "outdoors",
+  "OUTDOOR": "outdoors",
+  "GARDEN": "outdoors",
+  "LAKES": "outdoors",
+  "ARCH": "landmarks",
+  "HERITAGE": "history",
+  "HIST": "history",
+  "CASTLE": "history",
+  "UNESCO": "landmarks",
+  "TEMPLE": "temples",
+  "MKT": "markets",
+  "SHOP": "markets",
+  "VIEW": "views",
+  "ROOF": "views",
+  "NIGHT": "night",
+  "SPEAK": "night",
+  "ENT": "night",
+  "ANIME": "popculture",
+  "POP": "popculture",
+  "ONSEN": "onsen",
+  "SPA": "onsen",
+  "CANAL": "water",
+  "RIVER": "water",
+  "WATER": "water",
+  "MARITIME": "water",
+  "SPORT": "sport",
+  "RACE": "sport",
+  "CRAFT": "craft",
+  "GLASS": "craft",
+  "CAMPUS": "campus",
+  "TECH": "campus",
+  "FLW": "landmarks"
+ }
+}
