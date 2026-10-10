@@ -90,3 +90,54 @@ small, coordinated commits. Always `git pull --no-rebase` before pushing; never 
   the research's checklist, and the SWOT's must-have gaps are either shipped or explicitly deferred with a reason.
 - **Audit trail.** Every session appends to `docs/BETA-LOG.md`: date, lane, what changed, commit SHAs, screenshots.
   The orchestrator logs sessions in `docs/AGENT-LEDGER.md`.
+
+## Evaluation rounds — 5 rounds to ≥ 80–90 % (owner instruction, 2026-10-10)
+
+After each build wave completes, run an **evaluation round**, then launch the squad to close the gaps. Do **5 rounds**
+(more if the goal is not yet met). The goal: the beta reaches **≥ 80–90 % of the leaders' experience and feel**,
+including imagery, covers **all or most of the competitors' features** that fit our constraints, and adds our
+**unique features**.
+
+**Round loop**
+1. **Evaluate.** An independent evaluator session scores the beta.
+   - It uses Playwright at 390×844 and 1440×900 on the landing page, a country hub, Tokyo, Cleveland, a Singapore
+     town, a place detail, the map on mobile, saved lists and a day plan.
+   - It scores against `docs/BETA-BENCHMARK.md` and the research teardown (`design/research-2026-10/ux-competitive/`).
+   - It scores four dimensions, each 0–100, with evidence: screenshots, metrics, and the cited competitor pattern.
+     - **A. Look & feel** (weight 40 %): visual polish, imagery, typography, layout, motion, luxury plus fun, wanderlust.
+     - **B. UX & ergonomics** (25 %): first screen, discovery, map ↔ list, filters, detail, mobile, a11y, performance.
+     - **C. Competitor feature coverage** (20 %): the share of the teardown/SWOT feature matrix that applies to a
+       static, honest guide and is shipped. List each feature as shipped / partial / missing / out-of-scope (with reason).
+     - **D. Unique strengths** (15 %): sourced picks and attribution as navigation, verified pins, closure honesty, the
+       interest triad (landmarks × signature food × pop culture), the anime layer, "your guide" and day plans.
+   - **Overall similarity score** = the weighted sum. The goal is **≥ 80 %** overall, with A ≥ 80 % and C ≥ 80 %
+     (stretch: 90 %).
+   - Output: `design/beta/eval/ROUND-N.md`, with a scorecard, before/after screenshots versus the previous round, the
+     top 10 gaps ranked by score impact (each mapped to a lane), and a verdict.
+2. **Plan.** The PM turns the evaluator's gaps into the next wave's backlog items (`docs/BETA-BACKLOG.md`), each with
+   acceptance criteria.
+3. **Build.** The squad (platform, FE-A, FE-B, designer, QA, plus any other lane needed — e.g. an imagery/content lane)
+   implements the plan.
+4. **Ship.** QA signs off, the PM accepts, then a beta-only PR is merged into the Pages branch.
+5. **Changelog.** Append `docs/BETA-CHANGELOG.md` with the round number, the score before → after per dimension, what
+   shipped (backlog IDs, commits) and what was deferred.
+
+**Imagery.** Real imagery is part of the goal. Use licensed imagery only: Wikimedia Commons (CC BY / CC BY-SA / PD)
+or similarly licensed material. Show the credit and licence in the UI, and record each asset's source URL, author,
+licence and the record it depicts in `beta/assets/img/CREDITS.json`. A photo may appear on a place only when it truly
+depicts that place, typically landmarks and sights. Food places use illustration, typographic plates or map art unless
+a genuinely licensed photo of that venue exists. Never fabricate.
+
+If the environment's egress policy blocks downloading images, the imagery lane records that in the round doc and
+the changelog. It ships the strongest honest alternative and lists the asset manifest for the owner to fetch. It
+never routes around the policy.
+
+**Audit trail per round:**
+- `design/beta/eval/ROUND-N.md` (scorecard + evidence);
+- `docs/BETA-CHANGELOG.md`;
+- `docs/BETA-LOG.md`;
+- `docs/BETA-BACKLOG.md` status updates;
+- `docs/BETA-QA.md`;
+- `docs/AGENT-LEDGER.md` (every session).
+
+Keep all research docs; add new research under `design/research-2026-10/` when a round needs it.
