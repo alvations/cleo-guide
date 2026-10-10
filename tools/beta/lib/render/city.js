@@ -29,6 +29,7 @@ const plural = (n, w) => `${n.toLocaleString('en-US')} ${w}${n === 1 ? '' : 's'}
 const ICONS = {
   search: '<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',
   heart: '<path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/>',
+  grid: '<rect x="4" y="4" width="7" height="7" rx="1.2"/><rect x="13" y="4" width="7" height="7" rx="1.2"/><rect x="4" y="13" width="7" height="7" rx="1.2"/><rect x="13" y="13" width="7" height="7" rx="1.2"/>',
   map: '<path d="M3 6.5l6-2.5 6 2.5 6-2.5v13.5l-6 2.5-6-2.5-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/>',
   list: '<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/>',
   sliders: '<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/>',
@@ -301,7 +302,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   // default view: Atlas (the W2 list + map) until the paged Gallery passes QA's G1 deep-link gate (QA-29/31, orchestrator)
   const DV = 'atlas';
   const VIEWS = ['gallery', 'atlas'].concat(['guidebook', 'insights'].filter(v => ctx.assetsV[v]));
-  const VLBL = { gallery: ['Gallery', 'heart'], atlas: ['Atlas', 'map'], guidebook: ['Guidebook', 'list'], insights: ['Insights', 'sliders'] };
+  const VLBL = { gallery: ['Gallery', 'grid'], atlas: ['Atlas', 'map'], guidebook: ['Guidebook', 'list'], insights: ['Insights', 'sliders'] };
   const switcher = `<nav class="views" data-cleo-views role="group" aria-label="View" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === DV}">${ico(VLBL[v][1])}<span>${VLBL[v][0]}</span></button>`).join('')}</nav>`;
   const areaChips = areas.length > 1 ? '<div class="area-chips" role="group" aria-label="Areas" data-cleo-toolbar hidden></div>' : '';   // views.js draws the chips (page weight)
   // the view is set before first paint (SPEC §2.4): hash, then the stored preference (try/catch), then Gallery
@@ -309,7 +310,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'${DV}';document.documentElement.setAttribute('data-view',x)})()</script>`;
 
   /* -- sprite: only the glyphs this page uses -- */
-  const used = new Set(['map', 'list', 'sliders', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive', 'castle', 'bowl', 'tv', 'mountain', 'columns']);
+  const used = new Set(['grid', 'map', 'list', 'sliders', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive', 'castle', 'bowl', 'tv', 'mountain', 'columns']);
   tiles.forEach(t => t.g && used.add(t.g));
   for (const mm of cardsHtml.matchAll(/data-gl="([a-z0-9-]+)"/g)) used.add(mm[1]);
   const sprite = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">${[...used].filter(k => ICONS[k]).sort().map(k => `<symbol id="i-${k}" viewBox="0 0 24 24">${ICONS[k]}</symbol>`).join('')}</svg>`;

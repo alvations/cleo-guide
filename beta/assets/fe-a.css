@@ -132,6 +132,8 @@ html.atlas-m[data-view=atlas] .area-chips{display:flex;gap:6px;overflow-x:auto;p
   html.atlas-m[data-view=atlas] .tray-head .rail{margin-top:4px}
   html.atlas-m[data-view=atlas] .views{position:fixed;left:var(--gutter);right:var(--gutter);top:calc(var(--bar-h) + 8px);margin:0}
   html.atlas-m[data-view=atlas] .mappane .poi-sheet{z-index:40}
+  html.atlas-m.poi-on[data-view=atlas] .listpane{transform:translateY(105%);visibility:hidden;transition:transform var(--dur-2,.2s) var(--ease-out,ease),visibility 0s linear var(--dur-2,.2s)}
+  html.atlas-m[data-view=atlas] .listpane{transition:height var(--dur-2,.2s) var(--ease-out,ease),transform var(--dur-2,.2s) var(--ease-out,ease)}
 }
 @media (prefers-reduced-motion:reduce){.listpane{transition:none!important}}
 /* sheet additions (A-05) + the experience page (A-04, Gallery) */

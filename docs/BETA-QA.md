@@ -445,3 +445,22 @@ Harness notes: `views.js` opens the phone switcher disclosure before switching (
 
 QA sign-off: NO
 Blockers: **QA-33** (keyboard focus not visible on Insights chart links: M1-16 a11y on a new view) · **QA-32** (Guidebook hearts and source chips under 44 px: Q-01 B-20 per view) · **QA-34** (Chinatown phone pin sheet regression: W2 M2-13). All three are small. Every other W3 criterion passes on `83aa1a28`: Q-02 160/160, Q-03 210/210, Q-04 0 hits, P-04 reachability in every view, Atlas 24/24 on every pilot. QA re-signs YES once `metrics.js --view guidebook|insights` (B-20, focus) and `beta:qa:w2 --only map` show these three green with the gates unchanged.
+
+## 2026-10-10 · QA · W3 re-test (blockers QA-32, QA-33, QA-34) · session_015bFMDrayu1fp3qp2cKD3xm
+
+**Tested SHA: `83c51890`**, pinned in a clean worktree (Wave 4 lanes are pushing to the branch head). It carries the fix commit `b5a95f6c`.
+
+| Blocker | Re-test | Result |
+|---|---|---|
+| QA-33 Insights focus | `metrics.js --view insights`, 6 pilots | ✅ M1-16 focus visible **30/30** on every pilot (was 13/30) |
+| QA-32 Guidebook tap targets | `metrics.js --view guidebook` + a probe of what is left | ✅ hearts and source chips are now 44 px. The remaining B-20 count (Cleveland 175) is 155 `h4` entry-name text links (exempt, as ruled in W3) plus 20 appendix URL links (below) |
+| QA-34 Chinatown phone pin sheet | `beta:qa:w2 --only map` | ✅ **35/35**, pin tap → sheet on all 5 pilots |
+
+Insights' remaining B-20 count is the SVG chart bars (18 px), accepted in W3 because "Show as a table" and the index give 44 px equivalents, plus one index link at 41×44.
+Regression: Atlas (default) is 24/24 on every pilot. Overflow (B-22) and contrast (B-23) are 0 in all three views. `views.js --only nocdn` (Tokyo + Chinatown) is 64/64. Gates: validate ✅, `npm test` ✅, `beta:check` ✅.
+Evidence: `qa/beta-w3/retest-83c51890/`.
+
+New, Low, not blocking: **QA-35** (FE-B/DES). The Guidebook's sources appendix `.urls` links render 36 px wide × ~528 px tall on a 390 px phone (a URL wrapping in a squeezed column). The target is still ≥ 24 px both ways. Fix: `overflow-wrap:anywhere` on a full-width line.
+Still open, Low: QA-26. PM call pending: record prose with prices and ratings, shown verbatim in the Guidebook (see "Wave 3").
+
+QA sign-off: YES

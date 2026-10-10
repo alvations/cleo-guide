@@ -116,9 +116,10 @@
     return I;
   }
 
-  /* ---- chart primitives: one axis, 2 px gaps, rounded ends, value labels, <title> on every mark ---- */
+  /* ---- chart primitives: one axis, 2 px gaps, rounded ends, value labels, <title> on every mark. Bars are 24 px tall so
+   * every bar link meets the 24 px target minimum (W4, ROUND-3 gap #7); "Show as a table" is the 44 px fallback. ---- */
   function stackSvg(rows, series, link, uid, asPct, W, LW, narrow) {
-    var RH = 30, G = 2, span0 = W - LW - 44;
+    var RH = 32, G = 2, span0 = W - LW - 44;
     var mx = Math.max.apply(null, rows.map(function (r) { return sum(r.v); }).concat(1));
     var out = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + (rows.length * RH + 26) + '" role="img" aria-labelledby="' + uid + '-t ' + uid + '-d">'];
     [0, .25, .5, .75, 1].forEach(function (t) {
@@ -126,27 +127,27 @@
       out.push('<line class="grid" x1="' + x + '" x2="' + x + '" y1="0" y2="' + rows.length * RH + '"/><text class="ax" x="' + x + '" y="' + (rows.length * RH + 16) + '" text-anchor="middle">' + (asPct ? Math.round(t * 100) + '%' : Math.round(t * mx)) + '</text>');
     });
     rows.forEach(function (r, i) {
-      var y = i * RH + 6, tot = sum(r.v) || 1, x = LW, span = span0 * (asPct ? 1 : tot / mx);
-      out.push('<text class="lb" x="' + (LW - 10) + '" y="' + (y + 13) + '" text-anchor="end">' + esc(clip(r.label, narrow ? 15 : LW >= 200 ? 30 : 24)) + '</text>');
+      var y = i * RH + 4, tot = sum(r.v) || 1, x = LW, span = span0 * (asPct ? 1 : tot / mx);
+      out.push('<text class="lb" x="' + (LW - 10) + '" y="' + (y + 16) + '" text-anchor="end">' + esc(clip(r.label, narrow ? 15 : LW >= 200 ? 30 : 24)) + '</text>');
       series.forEach(function (s) {
         var n = r.v[s.id] || 0; if (!n) return;
         var w = span * n / tot;
-        out.push('<a href="' + esc(link(r.key, s.id)) + '" aria-label="' + esc(r.label + ' · ' + s.name + ': ' + n) + '"><rect class="bar" x="' + x.toFixed(1) + '" y="' + y + '" width="' + Math.max(w - G, 1).toFixed(1) + '" height="18" rx="3" style="fill:' + s.c + '">' +
+        out.push('<a href="' + esc(link(r.key, s.id)) + '" aria-label="' + esc(r.label + ' · ' + s.name + ': ' + n) + '"><rect class="bar" x="' + x.toFixed(1) + '" y="' + y + '" width="' + Math.max(w - G, 1).toFixed(1) + '" height="24" rx="3" style="fill:' + s.c + '">' +
           '<title>' + esc(r.label + ' · ' + s.name + ': ' + n + ' of ' + tot + ' (' + pct(n, tot) + '%)') + '</title></rect></a>');
         x += w;
       });
-      out.push('<text class="vl" x="' + (x + 6).toFixed(1) + '" y="' + (y + 13) + '">' + sum(r.v) + '</text>');
+      out.push('<text class="vl" x="' + (x + 6).toFixed(1) + '" y="' + (y + 16) + '">' + sum(r.v) + '</text>');
     });
     return out.join('') + '</svg>';
   }
   function barSvg(rows, link, uid, unit, W, LW, narrow) {
-    var RH = 28, mx = Math.max.apply(null, rows.map(function (r) { return r.n; }).concat(0)) || 1;
+    var RH = 32, mx = Math.max.apply(null, rows.map(function (r) { return r.n; }).concat(0)) || 1;
     var out = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + (rows.length * RH + 6) + '" role="img" aria-labelledby="' + uid + '-t ' + uid + '-d">'];
     rows.forEach(function (r, i) {
       var y = i * RH + 4, w = (W - LW - 70) * r.n / mx;
-      out.push('<text class="lb" x="' + (LW - 10) + '" y="' + (y + 13) + '" text-anchor="end">' + esc(clip(r.label, narrow ? 15 : LW >= 200 ? 30 : 24)) + '</text>' +
-        '<a href="' + esc(link(r.key)) + '" aria-label="' + esc(r.label + ': ' + r.n + unit) + '"><rect class="bar" x="' + LW + '" y="' + y + '" width="' + Math.max(w, 2).toFixed(1) + '" height="18" rx="3" style="fill:' + r.c + '"><title>' + esc(r.label + ': ' + r.n + unit) + '</title></rect></a>' +
-        '<text class="vl" x="' + (LW + w + 6).toFixed(1) + '" y="' + (y + 13) + '">' + r.n + esc(unit) + '</text>');
+      out.push('<text class="lb" x="' + (LW - 10) + '" y="' + (y + 16) + '" text-anchor="end">' + esc(clip(r.label, narrow ? 15 : LW >= 200 ? 30 : 24)) + '</text>' +
+        '<a href="' + esc(link(r.key)) + '" aria-label="' + esc(r.label + ': ' + r.n + unit) + '"><rect class="bar" x="' + LW + '" y="' + y + '" width="' + Math.max(w, 2).toFixed(1) + '" height="24" rx="3" style="fill:' + r.c + '"><title>' + esc(r.label + ': ' + r.n + unit) + '</title></rect></a>' +
+        '<text class="vl" x="' + (LW + w + 6).toFixed(1) + '" y="' + (y + 16) + '">' + r.n + esc(unit) + '</text>');
     });
     return out.join('') + '</svg>';
   }
@@ -224,22 +225,23 @@
       note('tier', T.closed + ' closed places carry no tier and are counted in the closures card instead.'));
     // the "All N places" index
     var byId = {}; d.places.forEach(function (p) { byId[p.id] = p; });
-    var idx = A.map(function (a) {
+    var parts = A.map(function (a) {
       var ids = I.order[a.id];
       return '<section class="ix"><h3 class="d3"><i style="background:' + esc(a.c) + '"></i>' + esc(a.name) + ' <span class="meta">' + ids.length + '</span></h3><ul>' +
         ids.map(function (id) { var p = byId[id]; return '<li class="ixi" data-id="' + esc(id) + '"><a href="' + esc(href({ view: 'insights', p: id })) + '">' + esc(String(p.n).replace(/\s*[—–-]+\s*CLOSED\s*$/i, '')) + '</a>' + (p.closed ? ' <span class="flag closed">Closed</span>' : '') + '</li>'; }).join('') + '</ul></section>';
-    }).join('');
+    }), idx = parts.join('');
     var nIdx = A.reduce(function (s, a) { return s + I.order[a.id].length; }, 0);
     if (nIdx !== N) throw new Error('insights index lost records: ' + nIdx + ' != ' + N);
-    var html = '<div class="ins" data-cleo-insights><header class="ins-h"><h1 class="d2" tabindex="-1">' + esc(name) + ' in numbers</h1>' +
+    var top = '<div class="ins" data-cleo-insights><header class="ins-h"><h1 class="d2" tabindex="-1">' + esc(name) + ' in numbers</h1>' +
       '<p class="sub">Every number below is computed from the ' + N + ' places in this guide. Every chart accounts for all of them, and every bar opens those places in the Gallery.</p></header>' +
       tilesH + '<div class="igrid">' + c1 + c2 + c3 + c4 + c5 + c6 + c7 + '</div>' +
-      '<section class="icard ixall" aria-labelledby="ix-t"><h2 class="d3" id="ix-t">All ' + N + ' places</h2><p class="sub">Every place the charts count, by area in rank order. Each opens its entry.</p><div class="ixg">' + idx + '</div></section></div>';
-    return { html: html, numbers: I, index: nIdx };
+      '<section class="icard ixall" aria-labelledby="ix-t"><h2 class="d3" id="ix-t">All ' + N + ' places</h2><p class="sub">Every place the charts count, by area in rank order. Each opens its entry.</p><div class="ixg">';
+    // `lazy` (W4 gap #6): the same page with the index body empty; mount() streams its area sections in on approach
+    return { html: top + idx + '</div></section></div>', lazy: top + '</div></section></div>', parts: parts, numbers: I, index: nIdx };
   }
 
   /* ---- browser ---- */
-  var host = null;
+  var host = null, ix = null;
   function mount(el, ctx) {
     host = el; ctx = ctx || {};
     var C = window.Cleo || {}, main = document.getElementById('main'), key = ctx.key || (main && main.getAttribute('data-city'));
@@ -251,6 +253,10 @@
       var c = el.querySelector('.icard'), cs = c && getComputedStyle(c);
       var w = c ? Math.floor(c.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)) : 0;
       if (w > 200) { var nw = matchMedia('(max-width: 639px)').matches; r = render(d, nw ? { Wn: w } : { W: w }); el.innerHTML = r.html; }
+      // the "All N places" index is the heaviest part: mount it area by area as it nears the viewport, and all of it
+      // on Cleo.defer.all() (lens, search, print) — the charts above stay complete (W4, ROUND-3 gap #6)
+      var g = C.chunks && el.querySelector('.ixg');
+      if (g) { el.innerHTML = r.lazy; g = el.querySelector('.ixg'); ix = C.chunks(g, r.parts, { initial: 0, est: 900 }); }
       return r;
     }, function () {
       if (host !== el) return;
@@ -258,6 +264,6 @@
       el.innerHTML = '<p class="state" data-cleo-state="view-failed">The numbers couldn’t load just now. Every place is still in the list — switch to another view, or try again when you’re back online.</p>';
     });
   }
-  function unmount() { if (host) { host.innerHTML = ''; host.classList.remove('view-insights'); } host = null; }
+  function unmount() { if (ix) { ix.cancel(); ix = null; } if (host) { host.innerHTML = ''; host.classList.remove('view-insights'); } host = null; }
   return { numbers: numbers, fromPlatform: fromPlatform, render: render, mount: mount, unmount: unmount };
 });

@@ -578,3 +578,67 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **QA-32:** the Guidebook `.ge-save` is now 44 px, and `.recby .src` is 44 px while keeping its 26 px pill look. `.urls` links are 44 px. On `metrics --view guidebook`, B-20 now lists only the `h4` entry-name text links, which are exempt. No hearts or chips remain. B-22 is 0 and B-23 is 0/0.
   - **QA-34 root cause:** the phone map fitted its pins to the whole pane, but the peek tray and the view switcher float over it. On Chinatown, pins landed under the tray, so a tap hit the toolbar. `fitArea` now pads by the measured covered band and waits a frame for the tray to settle. `beta:qa:w2 --only map`: **0 FAIL, and pin tap → sheet works on all 5 pilots at 390×844.**
   - Gates PASS: validate, npm test, beta:check (95 pages, 8,458 places).
+
+- 2026-10-10 16:00Z · orchestrator · Round 3 evaluated on 83aa1a28: 80.8 overall (A71 B84 C91 D88).
+  - The overall gate (≥ 80) is met; A ≥ 80 is not.
+  - The W3 fix lane pushed b5a95f6c (QA-32/33/34). QA W3 re-sign is pending.
+  - Wrote `design/beta/eval/W4-BRIEFS.md` from the ROUND-3 gaps. Launching three W4 lanes: designer+imagery, FE-A and platform+FE-B. QA stays in its existing session.
+  - Gap #1 (photos) still needs owner action.
+
+- 2026-10-10 · **PLATFORM + FE-B** · Wave 4 slice 1 · session_01SHBuxbUqfVuvUcP4rf8pqU · ROUND-3 gaps **#6, #7 residue, #8, #9** · commit: this entry's commit.
+  - **#6 Guidebook lazy chapters:** the contents and every chapter heading are in the DOM at mount. Each chapter body, and the sources appendix, is its own platform `Cleo.chunks` part (`initial: 0`). A part mounts as it nears the viewport, on a contents click or a `#p=` deep link (only that chapter), and all of them on `Cleo.defer.all()` (lens, search, print). The lens count line and chapter hiding now come from the model, so chapters that aren't mounted yet still count. **Tokyo Guidebook initial DOM: 12,431 → 2,725** (Chromium 1440 and 390). jsdom P-05: Tokyo 1,970, NYC 1,772. **P-04 reachability stays green** on all 6 pilots × 4 views. The Insights "All N places" index streams in by area the same way.
+  - **#6 weight:** (1) City JSON-LD `ItemList` is now in compact form (ListItem name + url) via `common.head()`. Address and geo stay on the card and in the page JSON. Tokyo HTML 804 → 734 KB. (2) The pin-source sentence `pv.src` moves to a sidecar `data/prov/<page>.json`, since no client reads it. Tokyo page JSON 479 → 433 KB. **Tokyo desktop metrics session: 1.67 MB measured** (traced per request). Worst case, if a sheet fetches the page JSON, is about 1.98 MB. The earlier 2.16 MB came from that fetch.
+  - **#6 landing FCP at 4× CPU: about 1.7 s → median 640 ms** (9 runs, 390×844, 280–1,088 ms). The cause was 44 eager hub motif `<img>`s decoding before first paint. Card motifs now use `loading="lazy" decoding="async"`, and the hero motif uses `decoding="async"` (`render/hub.js`).
+  - **#7 residue:** Insights bar links are now **24 px tall** (rows 32 px). "Show as a table" stays the 44 px fallback.
+  - **#8 multilingual scaffolding (M3-03):** the catalogue lives at `tools/beta/i18n/en.json` and is published at `beta/assets/i18n/en.json`. `lib/i18n.js` provides `t` / `tn` / `setLocale` / `reviewed`. The whole shell (top bar, breadcrumbs, tab bar, footer) and the new What-changed pages read their strings from it. `<html lang>` follows the locale. Every page carries `hreflang` en + x-default. The locale switcher (`shell.localeSwitch`) renders nothing until a second catalogue has `"reviewed": true`. The new gate **`tools/beta/test-i18n.js` is in `npm test`**: rendered in the pseudo-locale, the shell and the What-changed page show 0 English words, there are no dead keys, a missing key throws, no page ships a switcher, and all 179 pages carry hreflang. The gate caught one real bug before commit (a dropped quote in the breadcrumb `aria-label`). **Not yet on the catalogue:** landing, hub, method, Guidebook and Insights copy. This is the next M3-03 slice.
+  - **#9 What changed:** there is one human-readable page per place page, `beta/changes/<page>.html` (new `render/changes.js`). It draws on the same dated events as the Atom feed: closures with their status source, status-check days and pin-verification days, newest first, with a feed link. **The city masthead's "last checked" date now links to it.** That link is injected by `build.js` (platform), so FE-A's `city.js` is untouched. The build fails if a page with a check date loses the link. Generated pages: 95 → 179.
+  - **For the designer:** cleo.css requests `art/<key>/map.svg` without `?v=`, while the page also loads the versioned one. That is a duplicate fetch of about 36 KB per city page.
+  - **For FE-A:** no file of yours changed. The JSON-LD compaction happens in `common.head()`. Sheets that fetch the page JSON get the 46 KB lighter file. `pv.src` is in the `data/prov/<page>.json` sidecar if a sheet ever needs it.
+  - Screenshots: `design/beta/eval/w4/platform-feb/{gb-tokyo,gb-tokyo-ch9,ins-bars,changes-tokyo,masthead-link,landing}-{m,d}.jpg`.
+- 2026-10-10 · **QA** · W3 re-test · session_015bFMDrayu1fp3qp2cKD3xm
+  - **QA sign-off: YES on `83c51890`** (clean pinned worktree). QA-33: focus 30/30. QA-32: hearts and chips 44 px; what remains is exempt text links. QA-34: map 35/35. Atlas 24/24, gates green. New Low QA-35 (FE-B/DES: Guidebook appendix URL links 36 px wide). Details: BETA-QA.md → "W3 re-test".
+
+- 2026-10-10 16:07Z · orchestrator · DEPLOYED Round 3. QA W3 re-test signed YES on `83c51890` (e12c71ce). PR alvations/cleo-guide#5 merged it into the Pages branch (merge `b0ad208c`). Open Low items: QA-26, QA-35. The PM decision on record prose with prices and ratings is pending with the owner.
+
+- 2026-10-10 · **W4 designer + imagery** · ROUND-3 gaps #3, #5 (CSS) and #2 (CSS half), plus QA-35 · session_01PCNcUkfa5S1N1BKGzZA4xx · [REVIEW-W4](../design/beta/REVIEW-W4.md)
+  - **#3 Gallery covers.** 28 original kind motifs, one per `data-gl` (shrine gate, noodle bowl, portico…; generic subjects, never a venue). They come from `tools/beta/imagery/kinds.js` → `beta/assets/img/motifs/kinds/` and are painted as masks in the area colour.
+    - Plate colour by tier: must see is deep, with a top bar; deep cut gets an outlined initial.
+    - Crop/zoom by pin: compositions 1 and 3 zoom the area art around the pin.
+    - Five compositions keyed on `data-comp` = position among the cards on screen, mod 5. No two neighbours match at 1, 2 or 4 columns.
+    - The vertical plate is CJK-only, with a `:lang` CSS backstop.
+  - **#5 motion.** Every effect answers a tap or a scroll, none runs on load, and all are off under reduced motion:
+    - the heart/stamp pops now play only on the tap (W3 popped every saved heart at load), plus `.ge-save` and the sheet's "Been there";
+    - rail-door and card press;
+    - sheet rise;
+    - view-switch cross-fade, gated on the switcher holding focus;
+    - Insights bars grow on a scroll-driven `view()` timeline.
+  - **#2 CSS.**
+    - Gallery hero: the title's descender clears the kicker, and the pin sky is masked under the text.
+    - Guidebook lead and stat lines always wrap.
+    - The Insights date breaks at a word ("status checked / to 2026-10-03").
+  - **QA-35 fixed.** The `.urls` list spans the source row. Tokyo at 390 px: 952 links, all 326 × 44–48 px.
+  - **FE-A file touched (allowed by the brief).** `client/gallery.js` gets a cover markup hook only: `data-comp`, `data-t` and `data-gl` on covers, `--rx/--ry` on the art box, and a CJK test for the plate.
+  - **Asks.**
+    - FE-A: wrap the view switch in `document.startViewTransition` (the CSS is ready).
+    - FE-B: wrap the Insights "Closed, kept" date in `<time class="nw">`.
+  - **Housekeeping.** Back-ported the W3 fix lane's hand edits from `cleo.css` into `design/beta/css/views.css`, so `build-css.py --check` is in sync again.
+  - Screenshots: `design/beta/eval/w4/designer/*-{m,d}-{before,after}.png`.
+  - Gates: validate, npm test, beta:check all PASS.
+  - Designer backlog for this wave: #3 done; #5 CSS done, with the startViewTransition hook pending FE-A; #2 CSS half done; QA-35 done.
+  - Pushed as `ae6cd3a1`.
+
+- 2026-10-10 · **FE-A** · Wave 4 slice 1 · ROUND-3 gaps #2 (FE-A half) and #5 (JS hooks) · commit: this entry's commit.
+  - **One name field, diacritics:** checked first. Every surface already shows the dataset name verbatim: cards, Gallery covers and lead card, sheet title, pin peek, JSON-LD, hero dek "Jōnan · Jōsai · Jōhoku". A Playwright scan of all four views × 390/1440 plus the phone pin peek found 0 macron-less names. The evaluator's "Kanda Myojin" / "Jonan" is a **rendering** effect: Bodoni Moda's macron is a hairline that almost disappears at DPR 1, about 21 px (clear at DPR 2–3; the font has no `opsz` axis to thicken it). → **DES note:** a display-name CSS fix is yours (e.g. a heavier weight or a hairline stroke on `.gc-n`, `.dek`, `.d2`, `.pk-n`). Locked by a new test: every Tokyo place name equals the dataset `n` byte for byte (95 with Latin-ext diacritics), plus explicit checks for "Kanda Myōjin" (card, CTA, JSON-LD) and the hero dek.
+  - **Gallery switcher glyph:** now an original 2×2 `grid` symbol, no longer the Saved heart (`render/city.js` ICONS + VLBL).
+  - **Phone map, one sheet:** a pin tap now sets `html.poi-on`. The Atlas tray slides out (`translateY` + `visibility`, and `inert` so nothing behind it takes focus) and comes back when the pin sheet closes (Close, Esc or Open). `atlasOut` always clears `inert`, and no row is removed. Verified on Tokyo and Singapore Chinatown at 390×844: pin sheet 36–38 %, tray hidden, restored after close. Screenshots: `design/beta/eval/w4/fe-a/map-{tokyo,chinatown}-{tray,pin}-m.jpg`.
+  - **Motion hooks (#5), classes only, none added under `prefers-reduced-motion`.** → **DES:** style these. `button.pop` (600 ms) on a save/been control that just turned on (`.pl-save`, `.gc-save`, `.ge-save`, sheet `[data-sh=save|been]`). `.stamp.stamp-in` (700 ms) on a fresh "Been there" stamp. `.rail-i.is-press` / `.door.is-press` while pressed. `#cleo-sheet.sh-in` (450 ms) when the sheet opens. `html.view-in` (360 ms) on a real view switch, for the cross-fade. `svg.bars-in` (stays) on each Insights bar chart the first time it is ≥ 25 % in view; bars are full-size until then, so no-JS / no-IO shows everything. Helpers: `Cleo.city.moves()` and `Cleo.city.beat(el, cls, ms)`.
+  - Tests: `test-fe-a.js` W4 block, 10 checks (names, glyph, one sheet open/close, `.pop`, `view-in`, reduced motion adds nothing). validate + npm test + beta:check PASS (95 pages, 8,458 places).
+  - Screenshots `design/beta/eval/w4/fe-a/{switcher-gallery-d,switcher-gallery-m,name-sheet-d,map-*}.jpg`.
+  - Housekeeping: this session's clone had a stale, unrelated local history for the branch. It was moved aside to a local `backup-stale-local` branch and the checkout set to `origin`. Nothing was pushed from it.
+
+- 2026-10-10 · **FE-A** · Wave 4 slice 2 · gap #4 trial, plus the designer's view-transition ask · commit: this entry's commit.
+  - **Gap #4: Gallery stays one tap away; the default remains Atlas.** Trial: `DV` = gallery (plus platform's `Cleo.view.DEFAULT`), rebuilt, then `node beta/metrics.js` on the pilots. Both brief conditions failed, so the flip is reverted:
+    - **G1:** HARD-GATE FAIL on Cleveland, Tokyo and NYC. Deep 194/194 · 488/488 · 508/508 and search pass, but "scrolled 48" of N, because the Gallery pager shows 48 per page by design (SPEC §2.3).
+    - **B-01:** 2.43–2.65 screens to the first card on phones (≤ 1.0 needed). The hero and the signature rows sit above the first `li.pl`.
+    - Table: `design/beta/eval/w4/fe-a/dv-gallery-trial-metrics.md`. Flipping needs either QA to accept the pager as G1-reachable in the Gallery default (deep, search and no-JS already 100 %), or a Gallery layout that puts a place card in the first phone screen. That is a SPEC call for the PM/QA, not a silent FE change.
+  - **Designer ask done:** a reader's switcher click now runs through `document.startViewTransition` when the browser supports it and motion is allowed, so DES's `::view-transition-*` cross-fade plays. Under reduced motion (every QA harness) or without the API, the switch stays synchronous. `html.view-in` (slice 1) remains as a class hook.

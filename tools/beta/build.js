@@ -35,6 +35,7 @@ const saved = require('./lib/render/saved');
 const shell = require('./lib/render/shell');                       // FE-B: site context for header/footer
 const hub = require('./lib/render/hub');                           // FE-B: country hubs + SEA archive
 const method = require('./lib/render/method');                     // FE-B: how-we-choose.html, 404.html
+const changesPage = require('./lib/render/changes');               // W4 gap #9: human-readable "What changed" per page
 
 const BETA = path.join(ROOT, 'beta');
 const args = new Set(process.argv.slice(2));
@@ -139,6 +140,10 @@ for (const r of cityRows) {
 // ---------------------------------------------------------------- imagery (lane: imagery) — original motifs + credit-gated photos
 imagery.build({ reg, cityRows, emit, errors, sha, betaDir: BETA });
 
+// ---------------------------------------------------------------- UI string catalogues (M3-03, ROUND-3 gap #8)
+const i18n = require('./lib/i18n');
+for (const [rel, body] of i18n.files()) emit(rel, body);
+
 // ---------------------------------------------------------------- what changed (ROUND-2 gap #9, M3-07): Atom feeds
 const changeRows = changes.build(cityRows, emit);
 emit('data/changes.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
@@ -167,8 +172,13 @@ for (const r of cityRows) {
     // W3 (platform → FE-A/FE-B): view order = area order then `rank` (also on every place); the Insights numbers. RFC §13.
     order: r.order.map(x => x.id), insights: r.insights,
     changes: r.changes, feed: r.feed,                // "what changed": dated events newest first + the page's Atom feed
-    places: r.recs,
+    // W4 gap #6 (weight): the pin-source sentence (pv.src) moves to the provenance sidecar below; no client reads it
+    prov: `data/prov/${r.fileKey}.json`,
+    places: r.recs.map(x => (x.pv && x.pv.src ? Object.assign({}, x, { pv: Object.assign({}, x.pv, { src: undefined }) }) : x)),
   }));
+  emit(`data/prov/${r.fileKey}.json`, JSON.stringify({ _generated: 'tools/beta/build.js from data/geocodes.json — do not edit', v: 1, key: r.key,
+    _doc: 'Pin provenance per place id: the published coordinate each pin was read from (data/geocodes.json `source`). Split from the page JSON to keep views light; the page JSON keeps pv.pin / pv.checked / pv.status / pv.verified.',
+    pins: Object.fromEntries(r.recs.filter(x => x.pv && x.pv.src).map(x => [x.id, x.pv.src])) }));
 }
 const totalLive = cityRows.reduce((s, r) => s + r.counts.P + r.counts.F, 0);
 if (searchItems.length !== totalLive) errors.push(`search index ${searchItems.length} != live total ${totalLive}`);
@@ -206,6 +216,10 @@ for (const r of reg.rows.filter(r => r.gen === 'new')) {
     const og = fs.existsSync(path.join(BETA, 'assets', 'og', r.fileKey + '.png')) ? `${BETA_BASE}/assets/og/${r.fileKey}.png` : null;
     html = city.render(r, r.recs, Object.assign({ center, ogImage: og }, ctx));
     html = html.replace('</head>', `<link rel="alternate" type="application/atom+xml" title="${r.name.replace(/[&<>"]/g, '')} — what changed" href="${'../'.repeat(r.beta.split('/').length - 1)}${r.feed}">\n</head>`);
+    // W4 gap #9: the masthead's "last checked" date opens this page's human-readable "What changed" page
+    const chg = '../'.repeat(r.beta.split('/').length - 1) + changesPage.rel(r);
+    html = html.replace(/last checked (<time class="nw">[^<]*<\/time>)/, (m, t) => `<a href="${chg}" data-cleo-changes>last checked ${t}</a>`);
+    if (!html.includes('data-cleo-changes') && r.stats.lastChecked) errors.push(`${r.beta}: masthead "last checked" line not linked to its What changed page`);
     html = views.markCards(html, r.recs);          // W3 P-01: data-rank / data-k3 on every li.pl (throws on a miss)
     // Progressive rendering (M3-06): only when the page client adopts stamped cards (the `cleo:stamped` hook) —
     // otherwise a rewrite of city.js could silently strand deferred cards, so we ship every card live instead.
@@ -221,6 +235,7 @@ for (const r of reg.rows.filter(r => r.gen === 'new')) {
 }
 const savedHtml = saved.render(ctx); errors.push(...assertPage('saved.html', savedHtml)); emit('saved.html', savedHtml);
 const extraPages = method.pages(reg, ctx);                         // FE-B: { 'how-we-choose.html': html, '404.html': html }
+for (const r of cityRows) extraPages[changesPage.rel(r)] = changesPage.page(r, ctx);   // W4 gap #9
 for (const [rel, html] of Object.entries(extraPages)) { errors.push(...assertPage(rel, html)); emit(rel, html); }
 
 emit('manifest.webmanifest', JSON.stringify({
