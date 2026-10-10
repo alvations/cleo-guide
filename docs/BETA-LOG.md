@@ -72,3 +72,8 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **QA harness** (`node tools/qa-site.js --only beta/`): first post-rollout run 14 FAIL (broken source links on 7
     pages) → fixed (R-18) → **92 pages, 276 loads, 0 FAIL**, 84 WARN all "tap targets <40px" (FE-A/DES).
   - Speed: `npm run beta` ≈ 3 s, `beta:check` ≈ 3 s, `test:beta` ≈ 16 s. `npm run validate` + `npm test` PASS.
+- 2026-10-10 · platform · Wave 1 follow-up (designer feedback after `cd1eaf5`) · session_01PCNcUkfa5S1N1BKGzZA4xx ·
+  `sourceLabel()` now sentence-cases upper-case publisher keys/labels (WIKIPEDIA → Wikipedia, TIME OUT → Time Out;
+  UNESCO/JNTO/NHK kept); one `sentenceCase` in `lib/model.js` shared with `lib/sources.js`; new test: 0 upper-case
+  source names on cards across all 84 pages (B-19 / M1-10). SW precaches the six self-hosted `assets/fonts/*.woff2`
+  (cache name includes them). validate + test PASS.
