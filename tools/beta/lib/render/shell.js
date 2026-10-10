@@ -142,6 +142,7 @@ const ICONS = {
   offline: '<path d="M3 3l18 18"/><path d="M7.6 7.6A5 5 0 0 0 7 9.5 4 4 0 0 0 7 17.5h10M10 5a5 5 0 0 1 6.9 3.5h.6a3.5 3.5 0 0 1 2.4 6"/>',
   alert: '<path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.2"/>',
   info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.2"/>',
+  moon: '<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>',
   pin: '<path d="M12 21s-7-6.2-7-11.4a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.4"/>',
 };
 const sprite = () => `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>${
@@ -190,6 +191,7 @@ function siteBar({ depth, current, rel, onNight = false }) {
   <nav class="topnav" aria-label="Primary"><a href="${up}index.html#destinations"${cur('landing')}>Destinations</a><a href="${up}how-we-choose.html"${cur('method')}>How we choose</a></nav>
   <span class="spacer"></span>
   <div class="top-actions">
+    <button type="button" class="btn btn-icon theme-toggle" aria-pressed="false" aria-label="Night edition" data-cleo-theme hidden>${icon('moon')}</button>
     <a class="btn btn-icon" href="${up}index.html#search" aria-label="Search every place" data-cleo-search-open>${icon('search')}</a>
     <a class="btn btn-icon count-dot" href="${up}saved.html" aria-label="Your list" data-cleo-saved-link${cur('saved')}>${icon('heart')}<span class="vh" data-cleo-saved-count></span></a>
   </div>

@@ -95,3 +95,4 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   Verdict: **same league on look for all 8 reviewed pages; M1 not yet** (open: FE-A A1–A9 incl. **B-03 = 15** on
   Tokyo/NYC; FE-B B1–B4). Platform P1 (uppercase sources, B-19) and P2 (fonts in SW) fixed by platform `227b955`.
   QA harness on beta: 92 pages / 276 loads / 276 PASS. Screenshots `design/beta/screenshots/review-w1/` (+ `-dark`).
+- 2026-10-10 · FE-B · W1 follow-up · session_01PCNcUkfa5S1N1BKGzZA4xx · DES hook (b): night toggle `button.theme-toggle[aria-pressed]` in the shared top bar (JS-revealed, sets `html[data-theme]`, remembered via `Cleo.store` — try/catch). Hook (a) `html[data-city]` needs `head()` (platform, common.js) — requested, not done here. (c) header links keep accessible names (aria-label). validate + npm test PASS.

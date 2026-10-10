@@ -6,6 +6,18 @@
 (function () {
   'use strict';
   var Cleo = window.Cleo = window.Cleo || {};
+  /* night toggle (DES hook b): html[data-theme] = light|dark, remembered via Cleo.store (try/catch inside) */
+  var root = document.documentElement, tg = document.querySelector('[data-cleo-theme]');
+  var saved = Cleo.store ? Cleo.store.get('theme', null) : null;
+  if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+  function isDark() { var t = root.getAttribute('data-theme'); return t ? t === 'dark' : !!(window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches); }
+  if (tg) {
+    tg.hidden = false; tg.setAttribute('aria-pressed', String(isDark()));
+    tg.addEventListener('click', function () {
+      var t = isDark() ? 'light' : 'dark'; root.setAttribute('data-theme', t);
+      if (Cleo.store) Cleo.store.set('theme', t); tg.setAttribute('aria-pressed', String(t === 'dark'));
+    });
+  }
   var slot = document.querySelector('[data-cleo-banners]');
   if (!slot) return;
   var COPY = {
