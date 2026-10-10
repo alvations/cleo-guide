@@ -29,6 +29,10 @@ PAIRS = [  # (fg, bg, min, what)
     ('ink', 'warn-soft', 4.5, 'caveat'), ('on-night', 'night', 4.5, 'masthead title'), ('on-night-2', 'night', 4.5, 'masthead facts'),
     ('on-night-2', 'night-2', 4.5, 'masthead facts (lighter sky)'), ('line-strong', 'surface', 1.5, 'control border (decorative hint)'),
     ('focus', 'paper', 3.0, 'focus ring'), ('focus', 'surface', 3.0, 'focus ring on card'),
+    # W3 views: switcher (inactive label on the sand track; pressed = --ink on --surface, covered above), chart text
+    ('ink-2', 'sand', 4.5, 'view switcher label'), ('focus', 'sand', 3.0, 'focus ring on switcher'),
+    ('ink-3', 'surface', 4.5, 'chart axis label'),
+    ('ink', 'surface', 4.5, 'chart value label'), ('chart-gap', 'surface', 1.0, 'segment gap = surface'),
 ]
 SKINS = re.findall(r'(\[data-city="(\w+)"\],\s*)?\.skin-(\w+)\s*\{([^}]*)\}', CSS)
 fails, rows = 0, []
@@ -51,6 +55,15 @@ for _, city, skin, _b in SKINS:
                               ('ink', S['city-wash'], 'ink on wash')):
             r = ratio(S[fg] if fg != 'ink' else T['ink'], bgv); ok = r >= 4.5; fails += not ok
             rows.append((mode, f'{skin}: --{fg}', what, r, 4.5, ok))
+# W3 D-02 chart series (non-text marks, 3:1). Dark set must pass outright. The light set's WARN (aqua, yellow, magenta
+# < 3:1 on white) is the validated, documented exception: every chart answers it with value labels, a legend and
+# "Show as a table" (SPEC §3.4), so light rows are reported as WARN and not counted as failures.
+for mode, T in (('light', light), ('dark', dark)):
+    for k in ['series-%d' % i for i in range(1, 7)] + ['series-other']:
+        if k not in T: fails += 1; rows.append((mode, f'--{k}', 'chart series (missing!)', 0, 3.0, False)); continue
+        r = ratio(T[k], T['surface']); ok = r >= 3.0
+        if mode == 'dark': fails += not ok
+        rows.append((mode, f'--{k} on --surface', 'chart mark' + ('' if ok or mode == 'dark' else ' (WARN: labels + table)'), r, 3.0, ok or mode == 'light'))
 if '--md' in sys.argv:
     print('| Mode | Pair | Use | Ratio | Min | |\n|---|---|---|---:|---:|---|')
     for m, p, w, r, mn, ok in rows: print(f'| {m} | `{p}` | {w} | {r:.2f} | {mn} | {"✅" if ok else "❌"} |')

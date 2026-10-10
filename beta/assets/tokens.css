@@ -93,6 +93,13 @@
   --bar-h: 60px;        /* top bar */
   --tab-h: 64px;        /* mobile tab bar */
 
+  /* ---- Charts (W3 D-02, Insights view): categorical series in FIXED order — blue, orange, aqua, yellow, magenta, violet —
+     plus a neutral "Other". Validated with the dataviz method on #FFFFFF (light) and #1B1916 (dark): all checks PASS.
+     The light-surface contrast WARN is answered on every chart by value labels, a legend and "Show as a table".
+     Dark mode selects the dark set by token (below) — never an automatic flip/filter. */
+  --series-1:#2a78d6; --series-2:#eb6834; --series-3:#1baf7a; --series-4:#eda100; --series-5:#e87ba4; --series-6:#6250d6;
+  --series-other:#b4ada2; --chart-grid:#E6DFD3; --chart-gap:#FFFFFF;
+
   color-scheme: light;
 }
 
@@ -112,6 +119,7 @@
     --night:#090D18; --night-2:#121A2E;
     --gilt:#DDB65E; --gilt-soft:#3A2F17; --open:#7CC79C; --open-soft:#1D3327; --closed:#F09A85; --closed-soft:#3B211B;
     --warn:#F0BE5A; --warn-soft:#3A2D12; --focus:#8FB0FF;
+    --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70; --series-4:#c98500; --series-5:#d55181; --series-6:#9085e9; --series-other:#b4ada2; --chart-grid:#2F2B26; --chart-gap:#1B1916;
     --motif-ink: radial-gradient(rgba(255,255,255,.075) 1px, transparent 1.5px) 0 0 / 22px 22px;
     --e-1: 0 1px 2px rgba(0,0,0,.4); --e-2: 0 8px 24px rgba(0,0,0,.45); --e-3: 0 -10px 40px rgba(0,0,0,.55);
     color-scheme: dark;
@@ -123,6 +131,7 @@
   --night:#090D18; --night-2:#121A2E;
   --gilt:#DDB65E; --gilt-soft:#3A2F17; --open:#7CC79C; --open-soft:#1D3327; --closed:#F09A85; --closed-soft:#3B211B;
   --warn:#F0BE5A; --warn-soft:#3A2D12; --focus:#8FB0FF;
+  --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70; --series-4:#c98500; --series-5:#d55181; --series-6:#9085e9; --series-other:#b4ada2; --chart-grid:#2F2B26; --chart-gap:#1B1916;
   --motif-ink: radial-gradient(rgba(255,255,255,.075) 1px, transparent 1.5px) 0 0 / 22px 22px;
   --e-1: 0 1px 2px rgba(0,0,0,.4); --e-2: 0 8px 24px rgba(0,0,0,.45); --e-3: 0 -10px 40px rgba(0,0,0,.55);
   color-scheme: dark;
