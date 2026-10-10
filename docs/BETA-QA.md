@@ -392,3 +392,28 @@ B-06, B-07 and B-16 were re-measured on this head and are **green on the pilot s
 
 QA sign-off: NO
 Blockers: **QA-24** (DES — axe serious on every page: footer links told apart by colour only; M1-16 needs 0 serious/critical) · **QA-25** (DES + FE-A — `saved.html` night contrast, B-23) · **QA-22** (FE-B — Vietnam hub B-05) · **QA-23** (FE-B — `404.html` contrast, B-23). The pilot rows B-06, B-07 and B-16 are fixed, and so are QA-16, QA-18, QA-19 and QA-21. QA-24 is a one-rule CSS fix. QA re-signs YES once `npm run beta:qa:w2 -- --only a11y` and `beta:metrics:all` show these four green with the gates unchanged.
+
+## 2026-10-10 · QA · W2 re-test (blockers QA-22, QA-23, QA-24, QA-25, QA-28) · session_015bFMDrayu1fp3qp2cKD3xm
+
+**Tested SHA: `c2a221bd`** (full: `git rev-parse c2a221bd`), checked out clean in a separate worktree. It carries designer `432c01ce` (QA-24, QA-25) and FE-B `d71e3831` (QA-22, QA-23, QA-28), and it predates FE-A's view registry (`tools/beta/client/views.js`).
+
+| Blocker | Re-test | Result |
+|---|---|---|
+| QA-24 footer links told apart by colour only | `beta:qa:w2 --only a11y`: axe on hubs, pilots, saved, accessibility and method pages, light + night | ✅ no `link-in-text-block` on any page. 43/44 rows are 0 serious/critical. The one left is QA-26 (Low, `how-we-choose` `.tablewrap`), which was never a blocker. |
+| QA-25 `saved.html` night note 1.37:1 | axe saved (3 rows) + `metrics --only saved` | ✅ axe 0. B-23 light 0/0 · night 0/0 |
+| QA-22 Vietnam hub B-05 | `metrics --only Vietnam/index` | ✅ B-05 = 2. Score 10/10. |
+| QA-23 `404.html` tab labels 2.86:1 | `metrics --only 404` | ✅ B-23 light 0/0 · night 0/0. Score 9/9. |
+| QA-28 rail counts ≠ lens | `beta:qa:w2 --only hubs` | ✅ all 38 editorial-rail deep links open with the promised count |
+
+Gates on `c2a221bd`: `npm run validate` ✅, `npm test` ✅, `npm run beta:check` ✅ (95 pages, 8,458 places, beta == live). Pilot metrics (regression guard): landing 10/10, and Cleveland, Tokyo, NYC, Chinatown and Wheeling 24/24 each. G1, B-23 and every hard gate are green.
+Evidence: `qa/beta-w2-retest-c2a221bd-{a11y-hubs.json,pilots.md,Vietnam_index.md,404.md,saved.md}`.
+
+**Do not deploy the later head `498629e1`** (`c2a221bd` + FE-A's in-progress view registry + QA tooling). With Gallery as the default view, the pilots drop to 14–15/24: `qa/beta-w2-retest-pilots-498629e1.md`.
+- **QA-29 (High, FE-A):** G1 hard-gate FAIL on Cleveland and Tokyo, because the page opens on the paged Gallery and only 48 of N places are reached by scroll or `#p=` (Cleveland deep 48/194, Tokyo 48/488).
+- **QA-30 (Med, FE-A/DES):** B-23 night 1/1 on every place page.
+- **QA-31 (Med, FE-A):** the W2 page metrics (B-01–B-04, B-06–B-09) regress, because the default view is no longer the split list + map. Either the Atlas view keeps them, or the default view changes.
+- The landing rail links (`#c=TEMPLE` etc.) open 48 cards instead of the promised count under Gallery paging (QA-28 regresses).
+
+These are W3 work-in-progress defects. They do not block the W2 deploy of `c2a221bd`.
+
+QA sign-off: YES
