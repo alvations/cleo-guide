@@ -13,6 +13,10 @@
  * entry matches the place's name; a miss leaves the field absent, it never guesses.
  */
 
+const NATIVE = /\(([^()]*[^\x00-\x7F\u00C0-\u024F\u1E00-\u1EFF\u2000-\u206F][^()]*)\)/;
+/** Native-script aside of a name: "Sensō-ji (浅草寺)" → "浅草寺". Latin, incl. Vietnamese, is not "native script" here. */
+const nativeOf = s => { const m = NATIVE.exec(String(s || '')); return m ? m[1].trim() : null; };
+
 const CLOSED_RE = /\s*[—–-]+\s*CLOSED\b.*$/i;
 const baseName = n => n.replace(CLOSED_RE, '').trim();
 
@@ -47,6 +51,8 @@ function normalise(row) {
       la: typeof r.la === 'number' ? r.la : null, ln: typeof r.ln === 'number' ? r.ln : null,
       w: r.w || '', k: r.k || '', g: r.g || [], cz: r.cz || [], s: r.s || [],
     };
+    const nat = nativeOf(r.n);                                     // "Sensō-ji (浅草寺)" → cover's native line
+    if (nat) rec.nat = nat;
     if (closed) rec.closed = true;
     if (r.warn) rec.warn = r.warn;
     if (g) {
@@ -69,7 +75,8 @@ function sourceLabel(reg, key) {
   if (!s) return key;
   // Verbatim from the live registry. Some titles are uppercase keys ("GO TOKYO", "UNESCO"); case-folding them
   // would mangle acronyms, so presentation is the stylesheet's job, not the generator's.
-  return s.t || s.k || key;
+  // `l` is the entry's short label ("Atlas Obscura"); `t` is often an ARTICLE title, so it is not the name.
+  return s.l && s.l.length <= 48 ? s.l : s.k || s.t || key;
 }
 
-module.exports = { normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE };
+module.exports = { normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };

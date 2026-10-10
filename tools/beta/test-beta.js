@@ -102,6 +102,61 @@ console.log('\n== LANDING: every live city listed, counts == page ==');
   chk('cards linking to a missing beta page', [...h.matchAll(/<li class="dest"[^>]*>\s*<a href="([^"]+)"/g)].map(m => m[1]).filter(p => !fs.existsSync(path.join(BETA, p))), a => a.length === 0);
 }
 
+// ── 3c. numbers are computed (M1-20), sources navigable (M1-10), art from verified pins (M1-13) ──
+console.log('\n== DATA: computed counts, source index, map art (every place page) ==');
+{
+  const { PROSE_COUNT } = require('./lib/stats');
+  const VER = new Set(['high', 'med']);
+  const bad = { stats: [], prose: [], src: [], art: [], checked: [] };
+  for (const row of manifest.pages.filter(p => p.kind === 'city')) {
+    const j = JSON.parse(rd(`beta/data/places/${row.key.replace(/\//g, '--')}.json`));
+    const P = j.places, st = j.stats;
+    const sights = P.filter(p => p.kind === 'sight').length;
+    if (st.total !== P.length || st.sights !== sights || st.food !== P.length - sights || st.closed !== P.filter(p => p.closed).length)
+      bad.stats.push(row.key);
+    const maxChecked = P.map(p => p.pv && p.pv.checked).filter(Boolean).sort().pop() || null;
+    if (st.lastChecked !== maxChecked) bad.checked.push(`${row.key}: ${st.lastChecked} != ${maxChecked}`);
+    // Every record is attributed; every source's n is exactly the records citing it.
+    if (P.some(p => !p.src || !p.src.length)) bad.src.push(row.key + ': record with no source');
+    for (const s of j.sourceIndex) {
+      const n = P.filter(p => p.src.includes(s.id)).length;
+      if (n !== s.n || s.ids.length !== n) bad.src.push(`${row.key}/${s.id}: n ${s.n} != ${n}`);
+    }
+    // Art draws exactly the verified pins: one circle per verified record, nothing else.
+    const ver = P.filter(p => p.la != null && p.pv && VER.has(p.pv.pin));
+    if (ver.length) {
+      const f = path.join(BETA, j.art.map.src.split('?')[0]);
+      const circles = fs.existsSync(f) ? (fs.readFileSync(f, 'utf8').match(/<circle /g) || []).length : -1;
+      if (circles !== ver.length) bad.art.push(`${row.key}: map.svg ${circles} pins != ${ver.length} verified`);
+      for (const [a, x] of Object.entries(j.art.areas)) {
+        const want = ver.filter(p => p.a === a).length, fa = path.join(BETA, x.src.split('?')[0]);
+        const got = fs.existsSync(fa) ? (fs.readFileSync(fa, 'utf8').match(/<circle /g) || []).length : -1;
+        if (got !== want) bad.art.push(`${row.key}/${a}: ${got} != ${want}`);
+      }
+    }
+    // Any count phrase a generated page prints matches the computed stats (live prose drifts).
+    if (generated.has(row.beta)) {
+      const vis = rd('beta/' + row.beta).replace(/<script[\s\S]*?<\/script>/g, '');
+      for (const m of vis.matchAll(PROSE_COUNT)) {
+        const [a, b] = m[0].match(/\d[\d,]*/g).map(x => +x.replace(/,/g, ''));
+        if (a !== st.sights || b !== st.food) bad.prose.push(`${row.beta}: "${m[0]}" != ${st.sights}/${st.food}`);
+      }
+    }
+  }
+  chk('page stats == records', bad.stats, a => a.length === 0);
+  chk('last checked == max(statusChecked)', bad.checked, a => a.length === 0);
+  chk('count phrases on generated pages == computed', bad.prose, a => a.length === 0);
+  chk('source index: n == records citing; every record sourced', bad.src, a => a.length === 0);
+  chk('map art draws exactly the verified pins', bad.art, a => a.length === 0);
+  const cle = JSON.parse(rd('beta/data/places/cleveland.json')).sourceIndex;
+  const num = id => (cle.find(s => s.id === id) || {}).numbered;
+  chk('Cleveland source view: News 5 numbered entries (validator invariant)', num('news-5'), 100);
+  chk('Cleveland source view: There She Goes numbered entries (validator invariant)', num('there-she-goes'), 23);
+  const site = JSON.parse(rd('beta/data/sources.json')).sources;
+  chk('site source index covers every page citation', site.reduce((s, x) => s + x.n, 0),
+    manifest.pages.filter(p => p.kind === 'city').reduce((s, row) => s + JSON.parse(rd(`beta/data/places/${row.key.replace(/\//g, '--')}.json`)).sourceIndex.reduce((t, x) => t + x.n, 0), 0));
+}
+
 // ── 4. no-CDN render of the Tokyo page in jsdom ─────────────────────────────
 const TOKYO = 'cities/tokyo.html';
 const live = extractPage(rd(TOKYO));

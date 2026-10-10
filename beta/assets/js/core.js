@@ -117,6 +117,35 @@
     return out;
   };
 
+  /* ---- per-page dataset (beta/data/places/<fileKey>.json): sources index, art projections, stats ---- */
+  var pd = {};
+  Cleo.pageData = function (key) {
+    var f = String(key || '').replace(/\//g, '--');
+    if (!pd[f]) {
+      pd[f] = window.fetch ? fetch(Cleo.root + 'data/places/' + f + '.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        : Promise.reject(new Error('no fetch'));
+      pd[f].catch(function () { delete pd[f]; });
+    }
+    return pd[f];
+  };
+
+  /* ---- map art (build-time SVG from verified pins, tools/beta/lib/art.js): place a locator dot ----
+   * proj = {w,h,pad,box:[minLat,minLng,maxLat,maxLng],kx,ky}; returns [x,y] in the SVG's own units. */
+  Cleo.art = {
+    xy: function (proj, la, ln) {
+      return [proj.pad + (ln - proj.box[1]) * proj.kx, proj.pad + (proj.box[2] - la) * proj.ky];
+    }
+  };
+
+  /* ---- tiles: report a base layer that never loads (blocked network, tile host down) ----
+   * Calls onFail once when `n` tile errors arrive before any tile loads, so the page can keep the
+   * data-drawn schematic and say "Map tiles couldn't load" instead of showing a grey box. */
+  Cleo.watchTiles = function (layer, onFail, n) {
+    var errs = 0, ok = false, done = false; n = n || 4;
+    layer.on('tileload', function () { ok = true; });
+    layer.on('tileerror', function () { if (!ok && !done && ++errs >= n) { done = true; onFail(); } });
+  };
+
   /* ---- saved counter in the site bar ---- */
   function paintCount() {
     var n = Cleo.saved.count();
