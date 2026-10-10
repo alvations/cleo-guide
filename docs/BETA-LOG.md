@@ -572,3 +572,9 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **B is flat:** Tokyo Guidebook mounts 12.4 k nodes. Tokyo transfer is 2.16 MB. Guidebook hearts are 30 px and source buttons 26 px. Insights bar links are 18 px.
   - Top-10 gaps are mapped to lanes in ROUND-3. Gap 1 is photographs, an owner action. Screenshots: `design/beta/eval/r3/`. Default-view `beta:metrics`: 24/24 ×5, landing 10/10.
   - Gates PASS on `83aa1a28`: validate, npm test, beta:check.
+
+- 2026-10-10 · **W3 FIX** · QA-32/33/34 fixed in `b5a95f6c` (merged at `5d1abc37`) · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **QA-33:** an `outline:none` and a later 1.5 px ink stroke were hiding focus on the Insights chart bar links. They now get a 3 px `--focus` outline plus a focus stroke on the bar (AA in light and night). `metrics --view insights` M1-16 is **30/30 on every pilot** (was 13/30). The remaining B-20 items are the 18 px bars, accepted by QA because the table and index give 44 px equivalents.
+  - **QA-32:** the Guidebook `.ge-save` is now 44 px, and `.recby .src` is 44 px while keeping its 26 px pill look. `.urls` links are 44 px. On `metrics --view guidebook`, B-20 now lists only the `h4` entry-name text links, which are exempt. No hearts or chips remain. B-22 is 0 and B-23 is 0/0.
+  - **QA-34 root cause:** the phone map fitted its pins to the whole pane, but the peek tray and the view switcher float over it. On Chinatown, pins landed under the tray, so a tap hit the toolbar. `fitArea` now pads by the measured covered band and waits a frame for the tray to settle. `beta:qa:w2 --only map`: **0 FAIL, and pin tap → sheet works on all 5 pilots at 390×844.**
+  - Gates PASS: validate, npm test, beta:check (95 pages, 8,458 places).
