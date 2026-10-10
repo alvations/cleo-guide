@@ -39,8 +39,45 @@
   {
    "group": "hubs",
    "name": "landing editorial rail: 38 deep links open with the promised count",
-   "ok": true,
-   "evidence": []
+   "ok": false,
+   "evidence": [
+    {
+     "href": "cities/kyoto.html#c=TEMPLE",
+     "promised": 158,
+     "shown": 48,
+     "errors": []
+    },
+    {
+     "href": "cities/tokyo.html#c=TEMPLE",
+     "promised": 79,
+     "shown": 48,
+     "errors": []
+    },
+    {
+     "href": "Vietnam/ho-chi-minh-city.html#c=TEMPLE",
+     "promised": 52,
+     "shown": 48,
+     "errors": []
+    },
+    {
+     "href": "cities/liege.html#cz=FINE",
+     "promised": 59,
+     "shown": 48,
+     "errors": []
+    },
+    {
+     "href": "cities/kyoto.html#cz=FINE",
+     "promised": 52,
+     "shown": 48,
+     "errors": []
+    },
+    {
+     "href": "cities/tokyo.html#cz=FINE",
+     "promised": 52,
+     "shown": 48,
+     "errors": []
+    }
+   ]
   },
   {
    "group": "a11y",
@@ -305,7 +342,68 @@
    "evidence": []
   }
  ],
- "railMismatch": [],
+ "railMismatch": [
+  {
+   "href": "cities/kyoto.html#c=TEMPLE",
+   "promised": 158,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "cities/tokyo.html#c=TEMPLE",
+   "promised": 79,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "Vietnam/ho-chi-minh-city.html#c=TEMPLE",
+   "promised": 52,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "cities/liege.html#cz=FINE",
+   "promised": 59,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "cities/kyoto.html#cz=FINE",
+   "promised": 52,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "cities/tokyo.html#cz=FINE",
+   "promised": 52,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "cities/tokyo.html#c=FREE",
+   "promised": 125,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "cities/okinawa.html#c=FREE",
+   "promised": 108,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "cities/saarland.html#c=FREE",
+   "promised": 88,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "cities/hokkaido.html#c=FREE",
+   "promised": 82,
+   "shown": 48,
+   "errors": []
+  }
+ ],
  "axe": [
   {
    "rel": "index.html",
@@ -393,105 +491,135 @@
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": []
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
   },
   {
    "rel": "cleveland.html",
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": []
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
   },
   {
    "rel": "cleveland.html",
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": []
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
   },
   {
    "rel": "cities/tokyo.html",
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": []
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
   },
   {
    "rel": "cities/tokyo.html",
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": []
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
   },
   {
    "rel": "cities/tokyo.html",
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": []
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
   },
   {
    "rel": "cities/newyork.html",
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": []
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
   },
   {
    "rel": "cities/newyork.html",
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": []
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
   },
   {
    "rel": "cities/newyork.html",
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": []
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
   },
   {
    "rel": "Singapore/chinatown.html",
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": []
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
   },
   {
    "rel": "Singapore/chinatown.html",
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": []
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
   },
   {
    "rel": "Singapore/chinatown.html",
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": []
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
   },
   {
    "rel": "cities/wheeling.html",
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": []
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
   },
   {
    "rel": "cities/wheeling.html",
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": []
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
   },
   {
    "rel": "cities/wheeling.html",
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": []
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
   },
   {
    "rel": "saved.html",
@@ -613,8 +741,8 @@
  ],
  "summary": {
   "checks": 44,
-  "pass": 43,
-  "fail": 1,
-  "at": "2026-10-10T13:16:45.443Z"
+  "pass": 42,
+  "fail": 2,
+  "at": "2026-10-10T13:47:30.153Z"
  }
 }

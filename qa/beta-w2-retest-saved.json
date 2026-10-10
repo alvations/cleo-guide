@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-10T13:12:01.865Z",
+ "generated": "2026-10-10T13:45:24.467Z",
  "viewports": {
   "mobile": "390x844@3 touch",
   "desktop": "1440x900",
@@ -64,7 +64,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 207,
-    "fcp": 184,
+    "fcp": 168,
     "fontSampleN": 38,
     "fontsDeclared": {
      "Bodoni Moda": 5,
@@ -96,7 +96,7 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 603668,
+    "bytes": 613842,
     "offOriginBlocked": 0,
     "night": {
      "contrastChecked": 35,
@@ -159,7 +159,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 207,
-    "fcp": 172,
+    "fcp": 156,
     "fontSampleN": 41,
     "fontsDeclared": {
      "Bodoni Moda": 5,
@@ -191,7 +191,7 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 603668,
+    "bytes": 613842,
     "offOriginBlocked": 0,
     "night": {
      "contrastChecked": 38,
@@ -208,9 +208,9 @@
     "text": 734
    },
    "cpu4x": {
-    "fcp": 284,
-    "dcl": 283,
-    "loadMs": 460
+    "fcp": 308,
+    "dcl": 315,
+    "loadMs": 550
    },
    "verdict": {
     "rows": {
@@ -256,7 +256,7 @@
      },
      "Perf: bytes / DOM / FCP / FCP 4×": {
       "pass": null,
-      "val": "590 KB · 207 nodes · 172 ms · 284 ms"
+      "val": "599 KB · 207 nodes · 156 ms · 308 ms"
      }
     },
     "passed": 9,

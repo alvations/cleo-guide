@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-10T13:11:50.498Z",
+ "generated": "2026-10-10T13:45:13.331Z",
  "viewports": {
   "mobile": "390x844@3 touch",
   "desktop": "1440x900",
@@ -66,7 +66,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 316,
-    "fcp": 268,
+    "fcp": 192,
     "fontSampleN": 85,
     "fontsDeclared": {
      "Bodoni Moda": 19,
@@ -161,7 +161,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 316,
-    "fcp": 224,
+    "fcp": 212,
     "fontSampleN": 91,
     "fontsDeclared": {
      "Bodoni Moda": 19,
@@ -212,9 +212,9 @@
     "text": 1621
    },
    "cpu4x": {
-    "fcp": 464,
-    "dcl": 444,
-    "loadMs": 585
+    "fcp": 560,
+    "dcl": 532,
+    "loadMs": 650
    },
    "verdict": {
     "rows": {
@@ -264,7 +264,7 @@
      },
      "Perf: bytes / DOM / FCP / FCP 4×": {
       "pass": null,
-      "val": "438 KB · 316 nodes · 224 ms · 464 ms"
+      "val": "438 KB · 316 nodes · 212 ms · 560 ms"
      }
     },
     "passed": 10,
