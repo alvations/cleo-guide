@@ -578,3 +578,9 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **QA-32:** the Guidebook `.ge-save` is now 44 px, and `.recby .src` is 44 px while keeping its 26 px pill look. `.urls` links are 44 px. On `metrics --view guidebook`, B-20 now lists only the `h4` entry-name text links, which are exempt. No hearts or chips remain. B-22 is 0 and B-23 is 0/0.
   - **QA-34 root cause:** the phone map fitted its pins to the whole pane, but the peek tray and the view switcher float over it. On Chinatown, pins landed under the tray, so a tap hit the toolbar. `fitArea` now pads by the measured covered band and waits a frame for the tray to settle. `beta:qa:w2 --only map`: **0 FAIL, and pin tap → sheet works on all 5 pilots at 390×844.**
   - Gates PASS: validate, npm test, beta:check (95 pages, 8,458 places).
+
+- 2026-10-10 16:00Z · orchestrator · Round 3 evaluated on 83aa1a28: 80.8 overall (A71 B84 C91 D88).
+  - The overall gate (≥ 80) is met; A ≥ 80 is not.
+  - The W3 fix lane pushed b5a95f6c (QA-32/33/34). QA W3 re-sign is pending.
+  - Wrote `design/beta/eval/W4-BRIEFS.md` from the ROUND-3 gaps. Launching three W4 lanes: designer+imagery, FE-A and platform+FE-B. QA stays in its existing session.
+  - Gap #1 (photos) still needs owner action.
