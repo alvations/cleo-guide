@@ -63,9 +63,32 @@
     }
   };
 
-  /* ---- hash router: #p=<id>&c=<collection>&cz=<cuisine>&mode=sights|food&q=<text> ---- */
+  /* ---- hash router: k=v&k=v (RFC §4.2). KEYS is the registry of every documented route key; a key with a
+   * validator drops a value it rejects — parse() never returns it, and Cleo.route.clean() rewrites the URL with
+   * replaceState (no history entry, no error). Keys not in the registry pass through untouched. ---- */
+  var VIEWS = ['gallery', 'atlas', 'guidebook', 'insights'];
+  var ID = /^[A-Za-z0-9_.~-]{1,80}$/;
+  var areaOk = function (v) {                      // an area id of this page when the page says which exist
+    var el = document.getElementById('cleo-city'), info = null;
+    try { info = el && JSON.parse(el.textContent); } catch (e) {}
+    return ID.test(v) && (!info || !info.areas || Object.prototype.hasOwnProperty.call(info.areas, v));
+  };
   Cleo.route = {
-    parse: function () {
+    KEYS: {
+      p: ID, c: ID, cz: ID, src: ID, q: null, day: null, list: null, map: null,
+      mode: /^(sights|food)$/,
+      view: function (v) { return VIEWS.indexOf(v) >= 0; },
+      a: areaOk,
+      t: /^[123]$/,
+      closed: /^1$/,
+      pg: /^[1-9]\d{0,4}$/,
+      all: /^1$/
+    },
+    ok: function (k, v) {
+      var f = this.KEYS[k];
+      return !f ? true : typeof f === 'function' ? !!f(v) : f.test(v);
+    },
+    raw: function () {
       var h = location.hash.replace(/^#/, ''), o = {};
       if (!h || h.indexOf('=') < 0) return o;            // plain in-page anchors (#area-X) are not routes
       h.split('&').forEach(function (kv) {
@@ -73,6 +96,20 @@
         try { o[decodeURIComponent(kv.slice(0, i))] = decodeURIComponent(kv.slice(i + 1)); } catch (e) {}
       });
       return o;
+    },
+    parse: function () {
+      var o = this.raw(), out = {}, self = this;
+      Object.keys(o).forEach(function (k) { if (self.ok(k, o[k])) out[k] = o[k]; });
+      return out;
+    },
+    /** Drop rejected values from the URL in place (replaceState). Returns the dropped keys. */
+    clean: function () {
+      var o = this.raw(), bad = Object.keys(o).filter(function (k) { return !Cleo.route.ok(k, o[k]); });
+      if (bad.length && history.replaceState) {
+        var h = this.href(this.parse());
+        history.replaceState(history.state, '', h === '#' ? location.pathname + location.search : h);
+      }
+      return bad;
     },
     href: function (o) {
       var parts = []; Object.keys(o).forEach(function (k) { if (o[k] !== undefined && o[k] !== null && o[k] !== '') parts.push(encodeURIComponent(k) + '=' + encodeURIComponent(o[k])); });
@@ -83,6 +120,83 @@
       if (replace && history.replaceState) { history.replaceState(null, '', h === '#' ? location.pathname + location.search : h); emit('cleo:route', o); }
       else location.hash = h;
     }
+  };
+  Cleo.route.clean();
+  window.addEventListener('hashchange', function () { Cleo.route.clean(); });
+
+  /* ---- views (SPEC §2.4): the names, the default, and which one this URL/visitor gets. The switcher, the
+   * registry and remembering a choice are FE-A's (client/views.js); this is only the shared precedence. ---- */
+  Cleo.view = {
+    VIEWS: VIEWS, DEFAULT: 'gallery',
+    /** hash `view=` → the stored preference → the default. Never throws (store is try/catch). */
+    current: function () {
+      var h = Cleo.route.parse().view; if (h) return h;
+      var s = Cleo.store.get('view', null); return VIEWS.indexOf(s) >= 0 ? s : this.DEFAULT;
+    }
+  };
+
+  /* ---- lenses (SPEC §2.2, PLAN P-02): THE predicate every view uses — no second one anywhere. Reads only the
+   * li.pl data attributes (RFC §5.5), so it also works on Cleo.defer.peek() stubs (a stub matches q on its id, a slug of the name).
+   * Keys: mode, a, t, c, cz, src, closed, q. `t` excludes closed places (they carry no tier). q is accent-folded,
+   * every word must match the card's text. Unknown keys are ignored (page-specific lenses stay in the page). ---- */
+  var lensText = typeof WeakMap === 'function' ? new WeakMap() : null;
+  var hasWord = function (el, k, v) { return (' ' + (el.getAttribute(k) || '') + ' ').indexOf(' ' + v + ' ') >= 0; };
+  Cleo.lens = {
+    KEYS: ['mode', 'a', 't', 'c', 'cz', 'src', 'closed', 'q'],
+    text: function (el) {
+      var t = lensText && lensText.get(el); if (t === undefined || t === null) { t = fold(el.textContent); if (lensText) lensText.set(el, t); }
+      return t;
+    },
+    match: function (el, o) {
+      o = o || {};
+      var k = el.getAttribute('data-k'), closed = el.hasAttribute('data-closed');
+      if ((o.mode === 'sights' && k !== 's') || (o.mode === 'food' && k !== 'f')) return false;
+      if (o.a && el.getAttribute('data-a') !== o.a) return false;
+      if (o.t && (closed || el.getAttribute('data-t') !== String(o.t))) return false;
+      if (o.c && !hasWord(el, 'data-g', o.c)) return false;
+      if (o.cz && !hasWord(el, 'data-cz', o.cz)) return false;
+      if (o.src && !hasWord(el, 'data-src', o.src)) return false;
+      if (o.closed && !closed) return false;
+      if (o.q) { var hay = el.stub ? String(el.id || '').replace(/-/g, ' ') : Cleo.lens.text(el);   // a stub has only its id (a name slug)
+        var ws = fold(o.q).split(/\s+/); for (var i = 0; i < ws.length; i++) if (ws[i] && hay.indexOf(ws[i]) < 0) return false; }
+      return true;
+    },
+    /** Only the lens keys of a route object (drops p, view, pg, all…). */
+    pick: function (o) { var out = {}; (o = o || {}); Cleo.lens.KEYS.forEach(function (k) { if (o[k]) out[k] = o[k]; }); return out; },
+    on: function (o) { return Object.keys(Cleo.lens.pick(o)).length > 0; },
+    /** Apply: set `hidden` on every card (never removes a node). Returns the number shown. */
+    apply: function (cards, o) { var n = 0; [].forEach.call(cards, function (c) { var v = Cleo.lens.match(c, o); c.hidden = !v; if (v) n++; }); return n; }
+  };
+
+  /* ---- kind triad (SPEC §2.1, R-27): 'pop' is marked on the card; otherwise sight/food follow data-k ---- */
+  Cleo.k3 = function (el) { return el.getAttribute('data-k3') || (el.getAttribute('data-k') === 'f' ? 'food' : 'sight'); };
+
+  /* ---- view order (SPEC §2.1): area order (data), then rank within the area. Same order in every view and in the
+   * sheet's previous / next. `areas` = area ids in order (default: the page's #cleo-city areas, else first seen). ---- */
+  Cleo.order = function (cards, areas) {
+    var list = [].slice.call(cards);
+    if (!areas) { var el = document.getElementById('cleo-city'); try { areas = Object.keys(JSON.parse(el.textContent).areas || {}); } catch (e) { areas = []; } }
+    var ai = {}; areas.forEach(function (a, i) { ai[a] = i; });
+    var seen = areas.length;
+    list.forEach(function (c) { var a = c.getAttribute('data-a'); if (!(a in ai)) ai[a] = seen++; });
+    return list.map(function (c, i) { return [c, i]; }).sort(function (x, y) {
+      return (ai[x[0].getAttribute('data-a')] - ai[y[0].getAttribute('data-a')]) ||
+        ((+x[0].getAttribute('data-rank') || 1e9) - (+y[0].getAttribute('data-rank') || 1e9)) || (x[1] - y[1]);
+    }).map(function (x) { return x[0]; });
+  };
+
+  /* ---- the count line (SPEC §2.1): "All N places" with no lens, "n of all N places" with one. With `st` (the page's
+   * computed stats, R-15) and no lens, the long form: "All N places · S sights · F eat & drink · A areas · C closed,
+   * kept for the record · status checked to D". Numbers are always passed in, never counted here. ---- */
+  Cleo.countLine = function (n, N, st) {
+    var pl = function (x, w, ws) { return x + ' ' + (x === 1 ? w : ws || w + 's'); };
+    if (n !== N) return n + ' of all ' + pl(N, 'place');
+    if (!st) return 'All ' + pl(N, 'place');
+    var parts = ['All ' + pl(N, 'place'), pl(st.sights, 'sight'), st.food + ' eat & drink'];
+    if (st.areas) parts.push(pl(st.areas, 'area'));
+    if (st.closed) parts.push(st.closed + ' closed, kept for the record');
+    if (st.lastChecked) parts.push('status checked to ' + st.lastChecked);
+    return parts.join(' · ');
   };
 
   /* ---- share: Web Share where available, clipboard otherwise ---- */
@@ -220,14 +334,27 @@
     }
   };
   var io = null;
+  /** The URL addresses one place and nothing else (keys p / view / map, or a #p-<id> anchor). */
+  function placeOnly() {
+    var h = location.hash; if (/^#p-[A-Za-z0-9_.~-]+$/.test(h)) return true;
+    var r = Cleo.route.parse(), ks = Object.keys(r);
+    return !!r.p && ks.every(function (k) { return k === 'p' || k === 'view' || k === 'map'; });
+  }
+  function stampPlace() {
+    var m = /^#p-(.+)$/.exec(location.hash), id = m ? m[1] : Cleo.route.parse().p;
+    if (!D.stampFor(id)) D.all();                  // unknown id: let the page see everything (its "not found" path)
+  }
   function deferInit() {
     var list = D.pending(); if (!list.length) return;
     var h = location.hash;
-    // anything addressed by the URL (a place, a lens, an area anchor) needs every card now; so does a browser
-    // without IntersectionObserver (and jsdom) — degrade to "all cards", never to "some cards"
-    if ((h && h !== '#') || !('IntersectionObserver' in window)) {
+    // a browser without IntersectionObserver (and jsdom) gets every card — degrade to "all cards", never "some cards".
+    // A place link stamps its own chunk and the rest stay lazy (R-32); anything else in the URL (a lens, an area
+    // anchor) needs every card now.
+    if (!('IntersectionObserver' in window)) { D.all(); if (h && h !== '#') emit('cleo:route', {}); return; }
+    if (h && h !== '#' && placeOnly()) { stampPlace(); emit('cleo:route', {}); }
+    else if (h && h !== '#') {
       D.all();
-      if (h && h !== '#') emit('cleo:route', {});     // page scripts that already routed (inline/jsdom order) route again
+      emit('cleo:route', {});                          // page scripts that already routed (inline/jsdom order) route again
       return;
     }
     // hold each deferred list's height so the scrollbar and anchors don't jump while it is unstamped
@@ -247,8 +374,8 @@
         if (ol) { D.stamp(ns); watch(ol); }
       });
     }, { rootMargin: '1200px 0px' });
-    list.forEach(function (ns) {
-      var ol = ns.parentNode; if (ol.getAttribute('data-cleo-deferred')) return;
+    D.pending().forEach(function (ns) {                 // re-read: a place link may have stamped one chunk already
+      var ol = ns.parentNode; if (!ol || ol.getAttribute('data-cleo-deferred')) return;
       ol.setAttribute('data-cleo-deferred', '1');
       if (est) {                                    // a spacer (not min-height: grid rows would stretch to fill it)
         var n = 0; [].forEach.call(ol.querySelectorAll('noscript[data-cleo-defer]'), function (x) { n += +x.getAttribute('data-n') || 0; });
@@ -258,15 +385,19 @@
       }
       watch(ol);
     });
-    var allNow = function () { if (D.pending().length) D.all(); };
-    window.addEventListener('hashchange', allNow);                 // registered before any page script's listener
-    document.addEventListener('cleo:route', allNow);
     window.addEventListener('beforeprint', allNow);
     var NEEDS_ALL = '[data-mode],[data-cleo-all],.rail-i,.pl-s button.src,[data-cleo-tray],[data-cleo-map],[data-unset],[data-tr],[data-cleo-day],[data-cleo-near],[data-cleo-foryou],[data-cleo-mine]';
     document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest(NEEDS_ALL)) allNow(); }, true);
     document.addEventListener('focusin', function (e) { if (e.target.matches && e.target.matches('#cleo-filter,main input[type=search]')) allNow(); }, true);
     document.addEventListener('keydown', function (e) { if ((e.ctrlKey || e.metaKey) && (e.key === 'f' || e.key === 'F' || e.key === 'g')) allNow(); }, true);
   }
+  var allNow = function () { if (D.pending().length) D.all(); };
+  // a place link (card, pin, shared #p=, Back/Forward between sheets) needs only its own card (R-32, gap #6); anything
+  // else addressed by the URL needs every card. Registered when core.js runs — before any page script's listener — so
+  // stamped cards are adopted before the page routes.
+  var routed = function () { if (!D.pending().length) return; if (placeOnly()) stampPlace(); else allNow(); };
+  window.addEventListener('hashchange', routed);
+  document.addEventListener('cleo:route', routed);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', deferInit); else deferInit();
 
   /* ---- saved counter in the site bar ---- */

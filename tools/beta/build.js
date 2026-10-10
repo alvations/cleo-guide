@@ -24,6 +24,7 @@ const art = require('./lib/art');
 const imagery = require('./imagery');                              // imagery lane: motifs, photo manifest, credit gate
 const { guide } = require('./lib/guide');
 const { chunk } = require('./lib/chunk');
+const views = require('./lib/views');                              // W3: rank, kind triad, insights (view-agnostic)
 const { assertCityPage, assertHubPage, assertPage } = require('./lib/guards');
 const { swSource } = require('./lib/sw');
 const { BETA_BASE } = require('./lib/render/common');
@@ -51,6 +52,8 @@ for (const r of cityRows) {
   r.sources = pageSources(r, r.recs);             // stamps rec.src (publisher ids) — M1-10
   r.stats = stats.pageStats(r, r.recs);           // every number the page prints — M1-20
   r.guide = guide(r, r.recs);                     // ★ signature, canon-first food order, day plans, recently closed (W2)
+  r.order = views.stamp(r, r.recs);               // W3 P-01: rank/of/k3 on every record; the view order (area, then rank)
+  r.insights = views.insights(r, r.recs);         // W3 P-03: every number the Insights view draws
   const m = r.data.meta;
   r.name = m.h1Main || r.key;
   r.nat = nativeOf(m.eyebrow) || nativeOf(m.h1) || null;
@@ -154,6 +157,8 @@ for (const r of cityRows) {
     // W2 (platform → FE-A/FE-B): ★ signature (food canon / pop culture, never a publisher), canon-first cuisine order,
     // hub tile line, "Your day" per area, "Recently closed". Schema: design/beta/RFC-architecture.md §12.
     guide: r.guide,
+    // W3 (platform → FE-A/FE-B): view order = area order then `rank` (also on every place); the Insights numbers. RFC §13.
+    order: r.order.map(x => x.id), insights: r.insights,
     places: r.recs,
   }));
 }
@@ -192,6 +197,7 @@ for (const r of reg.rows.filter(r => r.gen === 'new')) {
     const center = m ? [+m[1], +m[2], +m[3]] : pts.length ? [med(pts.map(p => p.la)), med(pts.map(p => p.ln)), 11] : [0, 0, 2];
     const og = fs.existsSync(path.join(BETA, 'assets', 'og', r.fileKey + '.png')) ? `${BETA_BASE}/assets/og/${r.fileKey}.png` : null;
     html = city.render(r, r.recs, Object.assign({ center, ogImage: og }, ctx));
+    html = views.markCards(html, r.recs);          // W3 P-01: data-rank / data-k3 on every li.pl (throws on a miss)
     // Progressive rendering (M3-06): only when the page client adopts stamped cards (the `cleo:stamped` hook) —
     // otherwise a rewrite of city.js could silently strand deferred cards, so we ship every card live instead.
     if (LAZY_OK) { const c = chunk(html, CHUNK); html = c.html; r.chunk = { live: c.live, deferred: c.deferred, chunks: c.chunks }; }

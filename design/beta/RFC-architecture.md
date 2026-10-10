@@ -251,10 +251,18 @@ New pages keep the **same URL path** as the mirror page they replace, so links, 
 | `#src=<KEY>` | Source view (M1-10) | city (Wave 1) |
 | `#day=<AREA>[:<id>,<id>…]` | Day plan (M2-06) | city (Wave 2) |
 | `#area-<AREA>` | Plain in-page anchor to an area section | city |
+| `#view=gallery\|atlas\|guidebook\|insights` | View style (W3, SPEC §2.4). Omitted at the default (Gallery). Precedence: hash → `Cleo.store` `view` → default (`Cleo.view.current()`). | city (W3) |
+| `#a=<AREA>` | Area lens; must be one of the page's area ids | city (W3) |
+| `#t=1\|2\|3` | Tier lens; excludes closed places (they carry no tier) | city (W3) |
+| `#closed=1` | Closed places only ("Recently closed") | city (W3) |
+| `#pg=<n>` / `#all=1` | Gallery grid page (n ≥ 1) / every match on one page. Omitted at their defaults. Print, `#p=`, search and lenses ignore them. | city, Gallery (W3) |
 | `?q=<text>` | Site-wide search | landing |
 | `#list=<page>:<id>,<id>;<page>:<id>` | A shared list. The grammar lives in `Cleo.listCodec`. A 50-place list is about 1.3 k characters, which meets M2-04's ≤ 2,000. | saved |
 
-Route parameters combine with `&`, for example `#mode=food&p=isegen`. **Markup contract:** QA's link checker reads every `href="#x"` as an anchor that must exist. So JS-only actions (rail tiles, mode buttons, "All") are `<button>`s, and the only hash links in markup are real ids. Wave 0 hit exactly this: QA FAILed the Tokyo skeleton on `#c=` links until they became buttons.
+Route parameters combine with `&`, for example `#mode=food&p=isegen`. **Key registry (W3, P-06):** `Cleo.route.KEYS` in
+`core.js` validates `p c cz src mode view a t closed pg all` (and passes `q day list map` and any unregistered key through).
+`Cleo.route.parse()` never returns a rejected value, and `Cleo.route.clean()` (on load and every hashchange) rewrites the
+URL without it via `replaceState` — `#view=bogus` lands on the default with no error and no history entry. **Markup contract:** QA's link checker reads every `href="#x"` as an anchor that must exist. So JS-only actions (rail tiles, mode buttons, "All") are `<button>`s, and the only hash links in markup are real ids. Wave 0 hit exactly this: QA FAILed the Tokyo skeleton on `#c=` links until they became buttons.
 
 ## 5. Client architecture
 
@@ -545,6 +553,11 @@ Real-browser spot check (Chromium, off-origin blocked):
 | `tools/beta/lib/render/{landing,shell}.js`, new `render/{hub,method,accessibility}.js`, `tools/beta/client/landing.js`, new `client/search.js` | **FE-B** |
 | `beta/assets/*.css` (`cleo.css`, `tokens.css`), `design/beta/**` (except this RFC), `tools/beta/static/icon.svg` art | **Designer** |
 | `docs/BETA-QA.md`, `tools/beta/metrics.js`, new `tools/beta/qa/**`, `qa/beta-*` | **QA** |
+| **W3 view styles** (views/PLAN.md §0): `tools/beta/lib/views.js`, `tools/beta/test-views.js`, the `Cleo.lens` / `Cleo.order` / `Cleo.view` / `Cleo.countLine` / `Cleo.route.KEYS` parts of `client/core.js` | **Platform** |
+| W3: `tools/beta/client/views.js` (switcher, registry, pager), `tools/beta/client/gallery.js`, `tools/beta/lib/render/gallery.js` | **FE-A** |
+| W3: `tools/beta/client/{guidebook,insights}.js`, `tools/beta/lib/render/{guidebook,insights}.js` | **FE-B** |
+| W3: `beta/assets/views.css` | **Designer** |
+| W3: `tools/beta/qa/views.js` | **QA** |
 | `docs/BETA-BACKLOG.md`, `docs/BETA-DECISIONS.md`, `docs/BETA-BENCHMARK.md` | **PM** |
 | **Shared, coordinated:** `tools/beta/pages.json` (one line per migration), `tools/package.json` (scripts only), `tools/beta-restyle.py` (skip logic only; deleted at the end), `docs/BETA-LOG.md` (append-only) | each lane edits only its own line or row |
 
@@ -634,6 +647,36 @@ Client helpers in `core.js`: `Cleo.guide(key)` (promise of the above), `Cleo.geo
 `[lat,lng]`), `Cleo.geo.fmt(km)` ("0.4 km straight-line"; under 0.1 → "next door"), `Cleo.geo.ll(card)` (reads
 `data-ll`). Near me (M3-02) needs nothing else: every card carries `data-ll`, and the position never leaves the client.
 A plan's ids encode with `Cleo.listCodec` exactly like a list (`#day=<AREA>:<id>,…`).
+
+## 13. Wave 3 revision (platform, 2026-10-10) — the view-agnostic model for the four view styles
+
+Source: [`tools/beta/lib/views.js`](../../tools/beta/lib/views.js) (build time) and `client/core.js` (client), gated in
+[`tools/beta/test-views.js`](../../tools/beta/test-views.js) (`npm test`). Spec: [`views/SPEC.md`](views/SPEC.md) §2;
+plan: [`views/PLAN.md`](views/PLAN.md) §1.
+
+| # | Decision | Why |
+|---|---|---|
+| R-26 | **Rank in area (P-01).** Within each area: open first; then tier ascending; then the number of named sources (`src.length`) descending; then live order. Closed places last. Every place gets `rank` (1…n) and `of` (n); `data/places/<page>.json` → `order` is the **view order** (area order as in `areas`, then rank). Every `li.pl` carries `data-rank`, and `data-k3="pop"` where the triad differs from `data-k` (read it with `Cleo.k3(card)`), stamped by `views.markCards`, which throws unless every record is marked once. The raw city-page budget moved 800 → 820 KB for this (Okinawa, 425 cards); the gzip budget (160 KB) is unchanged. | One order in every view (Gallery grid, Atlas tray, Guidebook chapters, Insights index, the sheet's previous / next). Tested: ranks are a permutation of 1…n per area; rank 1 is open whenever the area has an open place; identical to the mockup generator on Tokyo and Cleveland. |
+| R-27 | **Kind triad (P-01).** `k3` = `food` for food; `pop` for a *sight* in a `guide.popCulture.c` collection; else `sight`. A place counts once. | Insights' "what each area is for" and the Guidebook's Pop culture section. |
+| R-28 | **`insights` block (P-03)** in the per-page JSON, computed from the records (below). Every series carries `of` (its denominator) and `note` (what it does not count). No pop-culture data → `pop: null` and the series list omits `pop` (the view says "absent", never 0). | Tested: every chart's rows sum to `of`; citations == Σ `src.length`; numbers equal the mockup generator's for Tokyo and Cleveland. |
+| R-29 | **One lens predicate (P-02).** `Cleo.lens.match(card, o)` over `mode a t c cz src closed q`, reading only RFC §5.5 attributes (so it also runs on `Cleo.defer.peek()` stubs, which match `q` on their id). `t` excludes closed places; `q` is accent-folded and every word must match. `Cleo.lens.apply(cards, o)` sets `hidden` and returns the count; `pick`/`on` read the lens keys out of a route. `Cleo.order(cards)` = view order. `Cleo.countLine(n, N, stats?)` = "All N places" / "n of all N places" (long form with stats). | No view re-implements filtering: `test-views.js` greps every client file except `core.js` (and `city.js`, until FE-A switches its `visible()` onto `Cleo.lens.match` and keeps only its page-specific keys: sig, been, mine, day, gap). |
+| R-30 | **Route key registry (P-06)** — see §4.2. `Cleo.view` = `{VIEWS, DEFAULT: 'gallery', current()}` (hash → store → default); the switcher, registry and remembering are FE-A's `client/views.js`. | Shared links reproduce what the sender saw; junk hashes never throw. |
+| R-32 | **A place link stamps one chunk, not the page (ROUND-2 gap #6).** A route whose only keys are `p`, `view` and `map` (a card or pin tap, a shared place link, Back/Forward between sheets) stamps just the target's chunk (`Cleo.defer.stampFor`), on load and on every hashchange. Any lens, `#area-` anchor, search, print or find-in-page still stamps everything first (§5.3). | Opening a sheet kept the DOM at 12–13.6 k nodes after the first tap (ROUND-2 B). Previous / next across unstamped places can use `Cleo.order(cards.concat(Cleo.defer.peek()))`: stubs carry `data-a` and `data-rank`. |
+| R-31 | **Reachability per view (P-04).** `test-views.js` loads every pilot (Tokyo, Cleveland, NYC, Chinatown SG, Wheeling, Okinawa) with `#view=` each of the four views and asserts every `<page>/<id>` is reachable by scroll (stamped), by `#p=` (sampled: first, last, every 37th, closed), by `q=` (its own name, via `Cleo.lens`) and in the print DOM (`beforeprint`). It runs on the shared city page today and tightens automatically as views register. | M4-03: paging or a view must never hide a place. |
+
+`insights` fields (per page; rows in area order, `a: ''` = the whole city):
+
+```js
+{ v: 1, N,
+  tiles:   { places, areas, sights /* incl. pop */, food, pop /* null = no data */, sources, citations, closed, lastChecked },
+  mix:     { series: ['sight','food','pop'?], of: N, rows: [{ a, n, sight, food, pop /* null when absent */ }], note },
+  sources: { top: [publisherId ×≤5], of: citations, nSources, rows: [{ a, n, <publisherId>: n…, _other }], note },
+  perArea: { of: N, rows: [{ a, n }], note },
+  spread:  { of /* open, verified-pin places */, rows: [{ a, km /* median straight-line from the area's median point */, n }], note },
+  closed:  { of, rows: [{ a, n }] /* areas with closures */, months: [{ m: 'YYYY-MM'|'unchecked', n }], monthsOf: N, note },
+  canon:   { title, cz, of /* canon places */, open, named, rows: [{ t /* dish */, n }], note } | null,
+  tiers:   { of /* open places */, rows: [{ a, n, 1, 2, 3 }], note } }
+```
 
 ## Appendix A — Live → beta page map (generated by `node tools/beta/build.js --list`, 2026-10-10)
 
