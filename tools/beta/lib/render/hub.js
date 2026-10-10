@@ -13,7 +13,7 @@
  *    label check only guards against an id meaning something else on another page.
  * Art = map art from the city's own open, pinned places (IMAGERY.md B), in one of four compositions so no two
  * neighbouring tiles look alike; an original motif from the imagery lane (beta/assets/img/motifs/<key>.svg) is layered
- * in when the file exists and silently skipped when it doesn't. No photos.
+ * in as an <img class="motif"> (never a url() in --motif: browsers disagree on its base URL) when the file exists and silently skipped when it doesn't. No photos.
  */
 const fs = require('fs');
 const path = require('path');
@@ -138,13 +138,13 @@ const COMPS = ['night', 'wash', 'city', 'paper'];
  */
 function cityTile(row, i, { up = '', art = true, lg = false, cap = 44 } = {}) {
   const f = facts(row), sk = skin(row, i), comp = COMPS[i % COMPS.length];
-  const mf = motif(row.key, comp === 'wash' || comp === 'paper' ? 'ink' : 'night');
+  const mf = motif(row.key);   // night drawing: cleo.css (designer W2) paints every tile composition on a dark ground; use motif(key, 'ink') on a light one
   const sig = f.sig.length ? `<span class="sigline">${f.sig.map(x => `<span>${esc(x.name)}</span>`).join('')}</span>` : '';
   const star = f.star ? `<span class="star">${icon('star4', 'ico sm')}${esc(f.star.name)} · ${fmt(f.star.n)}</span>` : '';
   const canon = !sig && f.canon.length ? `<span class="canon">${f.canon.map(c => `<span>${esc(c)}</span>`).join('')}</span>` : '';
   const ini = esc((f.name.match(/[A-Za-zÀ-ɏ]/) || ['·'])[0]);
-  return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}" class="tile c-${comp}${lg ? ' lg' : ''}${sk.cls}"${sk.attr}${mf ? ` style="--motif:url('${up}${mf}') center bottom / cover no-repeat"` : ''}>
-<span class="art">${art ? starfield(row.recs || [], { cap, colors: comp === 'night' ? null : row.colors }) : ''}${f.native ? `<span class="native">${esc(f.native)}</span>` : `<span class="ini" aria-hidden="true">${ini}</span>`}<span class="bar"></span></span>
+  return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}" class="tile c-${comp}${lg ? ' lg' : ''}${sk.cls}"${sk.attr}>
+<span class="art">${mf ? `<img class="motif" src="${up}${mf}" alt="">` : ''}${art ? starfield(row.recs || [], { cap, colors: comp === 'night' ? null : row.colors }) : ''}${f.native ? `<span class="native">${esc(f.native)}</span>` : `<span class="ini" aria-hidden="true">${ini}</span>`}<span class="bar"></span></span>
 <span class="txt"><h3>${esc(f.name)}</h3>
 <span class="counts"><span class="dest-c">${plural(f.n, 'place')}<span class="hide-m"> · ${fmt(f.P)} sights · ${fmt(f.F)} to eat &amp; drink</span></span></span>
 ${sig}${star}${canon}</span></a></li>`;
@@ -218,8 +218,8 @@ function themeRail(reg, { up = '', country = null, heading = 'Collections across
   const tile = (t, i) => {
     const top = t.cities.slice(0, 4), rest = t.cities.length - top.length;
     const mf = motif('collections/' + t.key);
-    return `<li class="theme t-${i % 4}"${mf ? ` style="--motif:url('${up}${mf}') center bottom / cover no-repeat"` : ''}>
-<a class="theme-main" href="${up}${esc(t.cities[0].href)}"><span class="theme-n">${fmt(t.n)}</span><span class="theme-t">${esc(t.title)}</span><span class="theme-w">${esc(t.line)} · ${esc(whereLine(t, reg))}</span></a>
+    return `<li class="theme t-${i % 4}">
+<a class="theme-main" href="${up}${esc(t.cities[0].href)}">${mf ? `<img class="motif" src="${up}${mf}" alt="">` : ''}<span class="theme-n">${fmt(t.n)}</span><span class="theme-t">${esc(t.title)}</span><span class="theme-w">${esc(t.line)} · ${esc(whereLine(t, reg))}</span></a>
 <span class="theme-c">${top.map(c => `<a href="${up}${esc(c.href)}">${esc(c.row.name)} <b>${fmt(c.n)}</b></a>`).join('')}${rest > 0 ? `<span class="more-n">+${rest} more ${rest === 1 ? 'guide' : 'guides'}</span>` : ''}</span></li>`;
   };
   return `<section class="themes section" id="${esc(id)}" aria-labelledby="${esc(id)}-h">
@@ -234,7 +234,6 @@ ${ts.map(tile).join('\n')}
 /** FE-B Wave 2 rules for tile compositions, the country hero and the editorial rail. Tokens only; AA in both themes. */
 const FEB_CSS = `
 .tile .art .dots{stroke:var(--dot,var(--on-night))}
-.tile.c-night .art{background:var(--motif,none),radial-gradient(130% 160% at 100% 0,color-mix(in srgb,var(--city) 40%,transparent),transparent 62%),var(--night)}
 .tile.c-night .art .dots{stroke:var(--on-night)}.tile.c-night .art .dots.t1{stroke:var(--gilt-soft)}
 .tile.c-wash .art{background:var(--motif,none),linear-gradient(160deg,var(--city-wash),var(--surface));color:var(--ink)}
 .tile.c-wash .art .native,.tile.c-wash .art .ini{color:var(--city-ink)}
@@ -294,7 +293,9 @@ const FEB_CSS = `
 .results .grp.guides ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0}
 .results a.is-kb,.results a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 .results mark{background:var(--gilt-soft);color:var(--ink);border-radius:2px}
-`;
+
+.motif{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%;z-index:-1;pointer-events:none}
+.theme-main{position:relative;isolation:isolate}.chero .sky .motif{object-fit:contain;object-position:100% 100%;z-index:0}`;
 
 // ---------------------------------------------------------------- country hub page
 /** A live country's hub. Returns { html, expect } — guards.assertHubPage checks every expected page is carded once. */
@@ -354,7 +355,7 @@ function render(row, reg, ctx, { c, main, more, all, groups }) {
 <body class="has-tabbar">
 ${siteBar({ depth, current: 'hub', rel: row.beta })}
 <main id="main" class="feb">
-<section class="chero masthead" aria-labelledby="cn"${mf ? ` style="--motif:url('${up}${mf}') right bottom / contain no-repeat"` : ''}><div class="sky" aria-hidden="true">${sky}</div><div class="inner">
+<section class="chero masthead" aria-labelledby="cn"><div class="sky" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="">` : ''}${sky}</div><div class="inner">
   <p class="kicker">${groups ? 'Archive' : 'Country guide'} · drawn from ${plural(all.reduce((s, r) => s + (r.recs || []).filter(x => x.la != null && !x.closed && (!x.pv || x.pv.pin !== 'low')).length, 0), 'verified pin')}</p>
   <h1 class="title d1" id="cn">${esc(c.name)}</h1>
   ${sig.length ? `<p class="why"><span class="vh">Known for: </span><span class="l">${sig.map(s => `<span>${esc(s.name)}</span>`).join('')}</span></p>` : ''}
