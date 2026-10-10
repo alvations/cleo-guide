@@ -1,0 +1,614 @@
+{
+ "head": "f2bf7610",
+ "checks": [
+  {
+   "group": "gallery",
+   "name": "cleveland.html mobile: default view is Gallery",
+   "ok": true,
+   "evidence": "gallery"
+  },
+  {
+   "group": "first",
+   "name": "cleveland.html phone: a real place card inside the first screen (name + Recommended by + opens)",
+   "ok": true,
+   "evidence": {
+    "first": {
+     "id": "slymans-restaurant-and-deli",
+     "top": 447,
+     "name": "Slyman's Restaurant and Deli",
+     "recby": true,
+     "opens": true
+    },
+    "inScreen": 13
+   }
+  },
+  {
+   "group": "showall",
+   "name": "cleveland.html mobile: \"Show all\" shows every record",
+   "ok": true,
+   "evidence": {
+    "shown": 194,
+    "N": 194,
+    "pager": 0
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cleveland.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "gallery",
+   "name": "cleveland.html desktop: default view is Gallery",
+   "ok": true,
+   "evidence": "gallery"
+  },
+  {
+   "group": "showall",
+   "name": "cleveland.html desktop: \"Show all\" shows every record",
+   "ok": true,
+   "evidence": {
+    "shown": 194,
+    "N": 194,
+    "pager": 0
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cleveland.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "deeplink",
+   "name": "cleveland.html: #p= opens the sheet for every one of 194 places, Gallery kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "search",
+   "name": "cleveland.html: filter by name shows the place (25 samples)",
+   "ok": true,
+   "evidence": {
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "nojs",
+   "name": "cleveland.html: JS off — every record listed and displayed",
+   "ok": true,
+   "evidence": {
+    "displayed": 194,
+    "N": 194,
+    "missing": 0
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cities/tokyo.html mobile: default view is Gallery",
+   "ok": true,
+   "evidence": "gallery"
+  },
+  {
+   "group": "first",
+   "name": "cities/tokyo.html phone: a real place card inside the first screen (name + Recommended by + opens)",
+   "ok": true,
+   "evidence": {
+    "first": {
+     "id": "kanda-myojin",
+     "top": 422,
+     "name": "Kanda Myōjin",
+     "recby": true,
+     "opens": true
+    },
+    "inScreen": 13
+   }
+  },
+  {
+   "group": "showall",
+   "name": "cities/tokyo.html mobile: \"Show all\" shows every record",
+   "ok": true,
+   "evidence": {
+    "shown": 488,
+    "N": 488,
+    "pager": 0
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cities/tokyo.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "gallery",
+   "name": "cities/tokyo.html desktop: default view is Gallery",
+   "ok": true,
+   "evidence": "gallery"
+  },
+  {
+   "group": "showall",
+   "name": "cities/tokyo.html desktop: \"Show all\" shows every record",
+   "ok": true,
+   "evidence": {
+    "shown": 488,
+    "N": 488,
+    "pager": 0
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cities/tokyo.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "deeplink",
+   "name": "cities/tokyo.html: #p= opens the sheet for every one of 488 places, Gallery kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "search",
+   "name": "cities/tokyo.html: filter by name shows the place (25 samples)",
+   "ok": true,
+   "evidence": {
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "nojs",
+   "name": "cities/tokyo.html: JS off — every record listed and displayed",
+   "ok": true,
+   "evidence": {
+    "displayed": 488,
+    "N": 488,
+    "missing": 0
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cities/newyork.html mobile: default view is Gallery",
+   "ok": true,
+   "evidence": "gallery"
+  },
+  {
+   "group": "first",
+   "name": "cities/newyork.html phone: a real place card inside the first screen (name + Recommended by + opens)",
+   "ok": true,
+   "evidence": {
+    "first": {
+     "id": "katzs-delicatessen",
+     "top": 422,
+     "name": "Katz's Delicatessen",
+     "recby": true,
+     "opens": true
+    },
+    "inScreen": 13
+   }
+  },
+  {
+   "group": "showall",
+   "name": "cities/newyork.html mobile: \"Show all\" shows every record",
+   "ok": true,
+   "evidence": {
+    "shown": 508,
+    "N": 508,
+    "pager": 0
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cities/newyork.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "gallery",
+   "name": "cities/newyork.html desktop: default view is Gallery",
+   "ok": true,
+   "evidence": "gallery"
+  },
+  {
+   "group": "showall",
+   "name": "cities/newyork.html desktop: \"Show all\" shows every record",
+   "ok": true,
+   "evidence": {
+    "shown": 508,
+    "N": 508,
+    "pager": 0
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cities/newyork.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "deeplink",
+   "name": "cities/newyork.html: #p= opens the sheet for every one of 508 places, Gallery kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "search",
+   "name": "cities/newyork.html: filter by name shows the place (25 samples)",
+   "ok": true,
+   "evidence": {
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "nojs",
+   "name": "cities/newyork.html: JS off — every record listed and displayed",
+   "ok": true,
+   "evidence": {
+    "displayed": 508,
+    "N": 508,
+    "missing": 0
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "Singapore/chinatown.html mobile: default view is Gallery",
+   "ok": true,
+   "evidence": "gallery"
+  },
+  {
+   "group": "first",
+   "name": "Singapore/chinatown.html phone: a real place card inside the first screen (name + Recommended by + opens)",
+   "ok": true,
+   "evidence": {
+    "first": {
+     "id": "tian-tian-hainanese-chicken-rice",
+     "top": 497,
+     "name": "Tian Tian Hainanese Chicken Rice",
+     "recby": true,
+     "opens": true
+    },
+    "inScreen": 1
+   }
+  },
+  {
+   "group": "showall",
+   "name": "Singapore/chinatown.html mobile: \"Show all\" shows every record",
+   "ok": true,
+   "evidence": {
+    "shown": 16,
+    "N": 16,
+    "pager": 0
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "Singapore/chinatown.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "gallery",
+   "name": "Singapore/chinatown.html desktop: default view is Gallery",
+   "ok": true,
+   "evidence": "gallery"
+  },
+  {
+   "group": "showall",
+   "name": "Singapore/chinatown.html desktop: \"Show all\" shows every record",
+   "ok": true,
+   "evidence": {
+    "shown": 16,
+    "N": 16,
+    "pager": 0
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "Singapore/chinatown.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "deeplink",
+   "name": "Singapore/chinatown.html: #p= opens the sheet for every one of 16 places, Gallery kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "search",
+   "name": "Singapore/chinatown.html: filter by name shows the place (16 samples)",
+   "ok": true,
+   "evidence": {
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "nojs",
+   "name": "Singapore/chinatown.html: JS off — every record listed and displayed",
+   "ok": true,
+   "evidence": {
+    "displayed": 16,
+    "N": 16,
+    "missing": 0
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cities/wheeling.html mobile: default view is Gallery",
+   "ok": true,
+   "evidence": "gallery"
+  },
+  {
+   "group": "first",
+   "name": "cities/wheeling.html phone: a real place card inside the first screen (name + Recommended by + opens)",
+   "ok": true,
+   "evidence": {
+    "first": {
+     "id": "wheeling-suspension-bridge",
+     "top": 422,
+     "name": "Wheeling Suspension Bridge",
+     "recby": true,
+     "opens": true
+    },
+    "inScreen": 13
+   }
+  },
+  {
+   "group": "showall",
+   "name": "cities/wheeling.html mobile: \"Show all\" shows every record",
+   "ok": true,
+   "evidence": {
+    "shown": 35,
+    "N": 35,
+    "pager": 0
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cities/wheeling.html mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "gallery",
+   "name": "cities/wheeling.html desktop: default view is Gallery",
+   "ok": true,
+   "evidence": "gallery"
+  },
+  {
+   "group": "showall",
+   "name": "cities/wheeling.html desktop: \"Show all\" shows every record",
+   "ok": true,
+   "evidence": {
+    "shown": 35,
+    "N": 35,
+    "pager": 0
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cities/wheeling.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "deeplink",
+   "name": "cities/wheeling.html: #p= opens the sheet for every one of 35 places, Gallery kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "search",
+   "name": "cities/wheeling.html: filter by name shows the place (25 samples)",
+   "ok": true,
+   "evidence": {
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "nojs",
+   "name": "cities/wheeling.html: JS off — every record listed and displayed",
+   "ok": true,
+   "evidence": {
+    "displayed": 35,
+    "N": 35,
+    "missing": 0
+   }
+  },
+  {
+   "group": "macron",
+   "name": "DPR 1, 18 px, display-name face (\"Bodoni Moda\"): \"ō\" draws its macron",
+   "ok": true,
+   "evidence": {
+    "font": {
+     "font": "\"Bodoni Moda\", \"Bodoni 72\", Didot, \"Bodoni MT\", \"Playfair Display\", Georgia, \"Times New Roman\", serif",
+     "weight": "460"
+    },
+    "bytesA": 413,
+    "bytesB": 728
+   }
+  },
+  {
+   "group": "macron",
+   "name": "DPR 1, 24 px, display-name face (\"Bodoni Moda\"): \"ō\" draws its macron",
+   "ok": true,
+   "evidence": {
+    "font": {
+     "font": "\"Bodoni Moda\", \"Bodoni 72\", Didot, \"Bodoni MT\", \"Playfair Display\", Georgia, \"Times New Roman\", serif",
+     "weight": "460"
+    },
+    "bytesA": 570,
+    "bytesB": 917
+   }
+  },
+  {
+   "group": "motif",
+   "name": "sight cards carry a motif keyed on collection ids (coverage, informational)",
+   "ok": true,
+   "evidence": {
+    "cleveland.html": {
+     "sights": 148,
+     "motif": 148,
+     "kindKeyed": 0,
+     "kinds": 1
+    },
+    "cities/tokyo.html": {
+     "sights": 263,
+     "motif": 263,
+     "kindKeyed": 94,
+     "kinds": 12
+    },
+    "cities/newyork.html": {
+     "sights": 219,
+     "motif": 219,
+     "kindKeyed": 23,
+     "kinds": 9
+    },
+    "Singapore/chinatown.html": {
+     "sights": 4,
+     "motif": 4,
+     "kindKeyed": 3,
+     "kinds": 2
+    },
+    "cities/wheeling.html": {
+     "sights": 28,
+     "motif": 28,
+     "kindKeyed": 1,
+     "kinds": 4
+    }
+   }
+  },
+  {
+   "group": "mast",
+   "name": "mobile: \"last checked\" link target ≥ 44 px tall",
+   "ok": true,
+   "evidence": {
+    "h": 44,
+    "w": 152,
+    "lh": "20.25px",
+    "display": "inline"
+   }
+  },
+  {
+   "group": "mast",
+   "name": "desktop: \"last checked\" link target ≥ 44 px tall",
+   "ok": true,
+   "evidence": {
+    "h": 44,
+    "w": 158,
+    "lh": "21px",
+    "display": "inline"
+   }
+  },
+  {
+   "group": "insights",
+   "name": "mobile: Tokyo Insights initial DOM ≤ 3,000",
+   "ok": true,
+   "evidence": {
+    "dom": 2908
+   }
+  },
+  {
+   "group": "insights",
+   "name": "mobile: every chart link has a ≥ 44 px hit area",
+   "ok": true,
+   "evidence": {
+    "dom": 2908,
+    "links": 222,
+    "under44": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "insights",
+   "name": "mobile: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "insights",
+   "name": "desktop: Tokyo Insights initial DOM ≤ 3,000",
+   "ok": true,
+   "evidence": {
+    "dom": 2908
+   }
+  },
+  {
+   "group": "insights",
+   "name": "desktop: every chart link has a ≥ 44 px hit area",
+   "ok": true,
+   "evidence": {
+    "dom": 2908,
+    "links": 222,
+    "under44": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "insights",
+   "name": "desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "weight",
+   "name": "Tokyo default (Gallery) transfer (gzip est.) < 2.0 MB",
+   "ok": true,
+   "evidence": {
+    "gzipMB": 0.55,
+    "rawMB": 1.9
+   }
+  },
+  {
+   "group": "weight",
+   "name": "no duplicate art/<key>/map.svg fetch (one map per page)",
+   "ok": true,
+   "evidence": {
+    "maps": [
+     "/beta/assets/art/tokyo/map.svg"
+    ],
+    "dupes": []
+   }
+  },
+  {
+   "group": "i18n",
+   "name": "catalogue present (en), no unreviewed locale shipped, hreflang en + x-default, no switcher shown",
+   "ok": true,
+   "evidence": {
+    "keys": 5,
+    "other": [],
+    "hreflang": [
+     "en",
+     "x-default"
+    ],
+    "sw": 0
+   }
+  }
+ ]
+}
