@@ -32,6 +32,18 @@ function slugify(name) {
   return s || 'p-' + fnv(baseName(name));
 }
 
+const ACRONYMS = new Set(['UNESCO', 'JNTO', 'NHK', 'USA', 'NYC', 'SF', 'DC', 'TV', 'BBC', 'PBS', 'KQED', 'WHYY', 'WAMU', 'WFYI', 'WTOP', 'KRON', 'KTVU', 'METI', 'ERIH', 'LVR', 'JTB', 'AAA', 'UCLA']);
+
+/** Upper-case publisher keys ("GO TOKYO", "TIME OUT") → sentence case; acronyms, short and vowel-less words kept (UNESCO, NHK, NPR). */
+function sentenceCase(k) {
+  return String(k).split(/(\s+|\/)/).map(w => {
+    if (!/[A-Z]/.test(w) || /[a-z]/.test(w)) return w;                 // separators, or already mixed case
+    const letters = w.replace(/[^A-Z]/g, '');
+    if (letters.length <= 2 || /\d/.test(w) || !/[AEIOUY]/.test(letters) || ACRONYMS.has(letters)) return w;
+    return w.charAt(0) + w.slice(1).toLowerCase();
+  }).join('');
+}
+
 const TIER = { 1: 'Must see', 2: 'Worth the detour', 3: 'Deep cut' };
 
 function normalise(row) {
@@ -76,7 +88,7 @@ function sourceLabel(reg, key) {
   // Verbatim from the live registry. Some titles are uppercase keys ("GO TOKYO", "UNESCO"); case-folding them
   // would mangle acronyms, so presentation is the stylesheet's job, not the generator's.
   // `l` is the entry's short label ("Atlas Obscura"); `t` is often an ARTICLE title, so it is not the name.
-  return s.l && s.l.length <= 48 ? s.l : s.k || s.t || key;
+  return sentenceCase(s.l && s.l.length <= 48 ? s.l : s.k || s.t || key);
 }
 
 /**
@@ -95,4 +107,4 @@ function sourceHref(reg, key, ref) {
   return { href: regUrl, note: r || null };
 }
 
-module.exports = { sourceHref, normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };
+module.exports = { sentenceCase, sourceHref, normalise, slugify, baseName, sourceLabel, TIER, CLOSED_RE, nativeOf };

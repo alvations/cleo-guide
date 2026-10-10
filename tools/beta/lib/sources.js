@@ -17,21 +17,10 @@
  *             the validator's invariant (News 5 = 100, There She Goes = 23), shown beside n
  *   authority 'Michelin' | 'James Beard' | 'National Park Service' | null — a TEXT mark, never a logo
  */
-const { slugify } = require('./model');
+const { slugify, sentenceCase } = require('./model');
 
 const GUIDE = 'guide';
 const GUIDE_NAME = 'Added by the guide (general knowledge)';
-const ACRONYMS = new Set(['UNESCO', 'JNTO', 'NHK', 'USA', 'NYC', 'SF', 'DC', 'TV', 'BBC', 'PBS', 'KQED', 'WHYY', 'WAMU', 'WFYI', 'WTOP', 'KRON', 'KTVU', 'METI', 'ERIH', 'LVR', 'JTB', 'AAA', 'UCLA']);
-
-function sentenceCase(k) {
-  return String(k).split(/(\s+|\/)/).map(w => {
-    if (!/[A-Z]/.test(w) || /[a-z]/.test(w)) return w;                 // separators, or already mixed case
-    const letters = w.replace(/[^A-Z]/g, '');
-    if (letters.length <= 2 || /\d/.test(w) || !/[AEIOUY]/.test(letters) || ACRONYMS.has(letters)) return w;
-    return w.charAt(0) + w.slice(1).toLowerCase();
-  }).join('');
-}
-
 function authorityOf(k) {
   const s = String(k).toUpperCase();
   if (/MICHELIN/.test(s)) return 'Michelin';
@@ -75,7 +64,7 @@ function pageSources(row, recs) {
   }
   const list = [...groups.values()].map(G => {
     const labels = [...G.labels].filter(l => l.length <= 48).sort((a, b) => a.length - b.length || (a < b ? -1 : 1));
-    const name = G.id === GUIDE ? GUIDE_NAME : labels[0] || sentenceCase(G.k);
+    const name = G.id === GUIDE ? GUIDE_NAME : sentenceCase(labels[0] || G.k);
     const entries = [...G.entries.values()];
     const domains = [...new Set(entries.map(e => host(e.url)).filter(Boolean))].sort();
     return {

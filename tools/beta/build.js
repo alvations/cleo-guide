@@ -187,11 +187,15 @@ emit('data/manifest.json', JSON.stringify({
   totals: { pages: cityRows.length, places: totalLive },
 }, null, 1));
 
+// Self-hosted fonts (designer, beta/assets/fonts) are precached so offline type matches online type.
+const FONTS = path.join(BETA, 'assets', 'fonts');
+const fontFiles = fs.existsSync(FONTS) ? fs.readdirSync(FONTS).filter(f => f.endsWith('.woff2')).sort().map(f => './assets/fonts/' + f) : [];
 const shellFiles = ['./index.html', './saved.html', './manifest.webmanifest', './assets/icon.svg', `./assets/cleo.css?v=${assetsV.css}`]
+  .concat(fontFiles)
   .concat(assetsV.tokens ? [`./assets/tokens.css?v=${assetsV.tokens}`] : [])
   .concat(['./how-we-choose.html'])                                 // FE-B method page, offline too
   .concat(Object.keys(assetsV).filter(k => k !== 'css' && k !== 'tokens').sort().map(k => `./assets/js/${k}.js?v=${assetsV[k]}`));
-const version = sha(JSON.stringify(assetsV) + generated.join());
+const version = sha(JSON.stringify(assetsV) + generated.join() + fontFiles.join());
 emit('sw.js', swSource(version, shellFiles));
 
 // ---------------------------------------------------------------- gate, then write (or check)

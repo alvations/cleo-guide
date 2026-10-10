@@ -311,12 +311,13 @@ Any schema change bumps the version, with a one-shot migration in `core.js`.
 |---|---|
 | `<html data-cleo-page="landing\|city\|saved\|hub">` | Page kind |
 | `main#main[data-city=<pageKey>]` | City key, used for saved refs |
-| `li.pl#p-<id>` | One per place. Attributes: `data-k="s\|f"`, `data-t`, `data-a`, `data-g`, `data-cz`, `data-ll="lat,lng"`, `data-checked`, `data-closed`. |
+| `li.pl#p-<id>` | One per place. Attributes: `data-k="s\|f"`, `data-t`, `data-a`, `data-g`, `data-cz`, `data-src` (publisher ids, W1), `data-ll="lat,lng"`, `data-checked`, `data-closed`. |
 | `.pl-e / .pl-n / .pl-w / .pl-k / .pl-ad / .pl-s / .pl-x` | Eyebrow, name, write-up, note, address, "Recommended by", actions. |
 | `section.area#area-<ID>[data-area]` | Area chapter |
 | `[data-cleo-rail]`, `[data-cleo-toolbar]` | Rendered `hidden`, revealed by JS. |
-| `#cleo-map`, `.map-fallback` | Map mount and its no-network text |
-| `script#cleo-city[type=application/json]` | `{v, key, name, center:[lat,lng,z], areas:{ID:{n,c}}}` |
+| `#cleo-map[data-art][data-art-alt]`, `.map-fallback` | Map mount. Its server-rendered content is `figure.map-art.map-fallback` (the verified-pin schematic, `assets/art/<page>/map.svg`) + the no-network line; `Cleo.mapFallback()` restores it when tiles fail (W1, M1-06). |
+| `script#cleo-city[type=application/json]` | `{v, key, name, center:[lat,lng,z], areas:{ID:{n,c}}, src:{id:[name, n, numbered, authority]}}` (`src` W1, M1-10) |
+| `li.dest[data-page]` › `.dest-c` | Hub/landing card; its leading "N places" is gated against the page's computed total (W1, M1-20) |
 | `.method .note` | The live page's method notes, including stated gaps, verbatim |
 
 These ids are not stable public API. The designer may restyle everything, but renames go through the platform lane, because the tests and the metrics harness key on them.
@@ -546,7 +547,25 @@ npm run validate && npm test   # before every commit (rule 1)
 
 ---
 
+## 11. Wave 1 revision (platform, 2026-10-10)
+
+| # | Decision | Why |
+|---|---|---|
+| R-15 | **Every count and date is computed** in `lib/stats.js` (`row.stats`, `country.stats`, `reg.stats`); renderers never count. `lastChecked` = max(`statusChecked`) of the page's records, else absent. Live prose's engine count phrase ("N sights and M places to eat") is **rewritten** from the computed numbers before rendering; the test fails if any generated page prints a phrase that disagrees. | Live prose drifts: Cleveland's standfirst says 143 + 40 while the page holds 148 + 46; the live SEA archive says Toa Payoh 14 + 42 for a 14 + 41 page (M1-20). |
+| R-16 | **A source = a publisher per page** (`k` of the live registry entry), id = slug of `k`, `ADD`/`FADD` → `guide`. `n` = records citing it (each once); `numbered` = distinct `#n` entries for numbered lists. Name = shortest live label `l` (≤ 48 chars), else `k` in sentence case with acronyms kept. Card labels use the same short label, never an article title (`t`). | Registry entries are per article (Cleveland has 12 Atlas Obscura entries). Cleveland's News 5 list has **100** numbered entries cited by **103** records (some entries name two places), so both numbers are carried: the source view shows n, the validator invariant (News 5 = 100, There She Goes = 23) is asserted on `numbered` (M1-10). |
+| R-17 | **Map art is drawn from verified pins only** = coordinates present and `data/geocodes.json` confidence `high`/`med` (8,220 of 8,458 places; Okinawa's 195 `low` pins are not drawn). No OSM geometry, so no credit is needed beside it. City schematic frame = 4th–96th percentile box (padded), outliers drawn as edge ticks and counted in `<desc>`. | M1-13, M1-06; honest about what we know, and day-trip rings don't collapse the city to a dot. |
+| R-18 | **"Recommended by" hrefs are always absolute http(s)** (`model.sourceHref`): live refs that are numbered entries, bare domains, wiki slugs or prose notes link to `https://<domain>` or the registry entry's URL, with the prose kept as a `title`. The build refuses any other href. | The first all-pages QA run FAILed 7 pages on exactly these (M1-22). |
+| R-19 | **Rollout = every live page in `pages.json`.** Country hubs and the SEA archive render through `render/hub.js` (platform skeleton, FE-B owns it). Every hub and the landing are gated: each expected page carded once, count == page. Beta HTML set == live page set + `saved.html` (test). | M1-22; fixes QA D7 lag; Japan's hub was missing from beta. |
+
+New platform modules: `lib/stats.js`, `lib/sources.js`, `lib/art.js`, `render/hub.js` (→ FE-B). New outputs:
+`beta/assets/art/<page>/{map,<AREA>}.svg`, `beta/data/sources.json`, and per-page JSON fields `stats`,
+`sourceIndex`, `art`, `colors`, `nat`, plus `nat`/`src` on every place. Client: `Cleo.pageData`, `Cleo.art.xy`,
+`Cleo.watchTiles`, `Cleo.mapFallback`. Clustering (M1-06) stays FE-A's client work; the density threshold is
+theirs to state.
+
 ## Appendix A — Live → beta page map (generated by `node tools/beta/build.js --list`, 2026-10-10)
+
+> **Superseded by R-19 (Wave 1):** every row below is now **new generator**; `--list` prints the current map.
 
 | Live page | Kind | Country | Places (sights + food) | Beta source | Beta generator |
 |---|---|---|---|---|---|

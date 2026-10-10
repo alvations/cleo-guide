@@ -161,6 +161,14 @@ console.log('\n== DATA: computed counts, source index, map art (every place page
   chk('last checked == max(statusChecked)', bad.checked, a => a.length === 0);
   chk('count phrases on generated pages == computed', bad.prose, a => a.length === 0);
   chk('source index: n == records citing; every record sourced', bad.src, a => a.length === 0);
+  // M1-10 / B-19: source names in sentence case — no shouting publisher keys on cards (acronyms excepted).
+  {
+    const { sentenceCase } = require('./lib/model');
+    const shout = new Set();
+    for (const p of manifest.pages.filter(p => p.kind === 'city')) for (const m of rd('beta/' + p.beta).matchAll(/<p class="pl-s">([\s\S]*?)<\/p>/g))
+      for (const t of m[1].replace(/<span class="lbl">[^<]*<\/span>/, '').replace(/<[^>]+>/g, '').split(', ')) if (t.trim() && sentenceCase(t.trim()) !== t.trim()) shout.add(t.trim());
+    chk('upper-case source names on cards', [...shout].slice(0, 5), a => a.length === 0);
+  }
   chk('map art draws exactly the verified pins', bad.art, a => a.length === 0);
   const cle = JSON.parse(rd('beta/data/places/cleveland.json')).sourceIndex;
   const num = id => (cle.find(s => s.id === id) || {}).numbered;
