@@ -17,6 +17,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { buildRegistry, ROOT } = require('./lib/registry');
+const { rowsOf: galleryRows } = require('./lib/gallery');
 const { normalise, nativeOf } = require('./lib/model');
 const stats = require('./lib/stats');
 const { pageSources, siteSources } = require('./lib/sources');
@@ -178,6 +179,9 @@ for (const r of cityRows) {
     prov: `data/prov/${r.fileKey}.json`,
     places: r.recs.map(x => (x.pv && x.pv.src ? Object.assign({}, x, { pv: Object.assign({}, x.pv, { src: undefined }) }) : x)),
   }));
+  // ROUND-5 gap #2: the Gallery's rows + lead card, chosen here so its first screen never waits on the page JSON
+  emit(`data/gallery/${r.fileKey}.json`, JSON.stringify(Object.assign({ _generated: 'tools/beta/build.js (lib/gallery.js) — do not edit', v: 1, key: r.key },
+    galleryRows({ areas: page.AREAS || [], collections: page.CATS || [], cuisines: page.CUISINES || [], guide: r.guide, places: r.recs }, r.name || page.meta.h1Main || r.key))));
   emit(`data/prov/${r.fileKey}.json`, JSON.stringify({ _generated: 'tools/beta/build.js from data/geocodes.json — do not edit', v: 1, key: r.key,
     _doc: 'Pin provenance per place id: the published coordinate each pin was read from (data/geocodes.json `source`). Split from the page JSON to keep views light; the page JSON keeps pv.pin / pv.checked / pv.status / pv.verified.',
     pins: Object.fromEntries(r.recs.filter(x => x.pv && x.pv.src).map(x => [x.id, x.pv.src])) }));

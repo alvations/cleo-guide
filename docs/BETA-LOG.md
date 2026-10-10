@@ -693,3 +693,18 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Regressed:** default-view weight (Tokyo 2.06 → 3.03 MB, New York 5.84 MB, FCP 4× 1,124 ms; Gallery fetches `data/places/<city>.json` at load). The phone map is 2 taps from Gallery ("Show the map" lands on the Atlas list). `#p=` deep link on a phone builds 12.8 k nodes.
   - **Still open:** 0 photographs (owner action; the A cap). The Cleveland lead card (Slyman's) ≠ its "Start with Larder…" button. (QA signed W5 YES and ratified the Gallery criteria in parallel, entry above.) Transfer figures are the harness's uncompressed bytes, the same basis as R4's 2.06 MB; QA's ≈0.55 MB is gzip on the wire.
   - Gates on `f2bf7610`: validate, test and beta:check green. 61 flows × 2 rounds, 0 JS errors. Screenshots, logs, metrics and probes: `design/beta/eval/r5/`.
+- 2026-10-10 · **Fix lane (R5 follow-up)** · ROUND-5 gaps #2 (default-view weight) and #3 (map from Gallery on phones) · FINAL-SUMMARY "Recommended next step" step 1
+  - **#2 weight.** Gallery no longer fetches `data/places/<page>.json` (Tokyo 423 KB) at load. Its rows and lead card are chosen at build time (`tools/beta/lib/gallery.js`, the same rules moved out of `client/gallery.js`) and written to `data/gallery/<page>.json` (Tokyo 23 KB, 12 slim records per row). The page JSON now loads only when a view or sheet asks for it. Cover art is read once per area and shared as one blob URL. Before this, a show-all on desktop Tokyo made 452 requests for the area SVGs (1.2 MB).
+  - **#3 map.** On phones, a map button outside Atlas ("Show the map", the day "Map") now writes `#view=atlas&map=1`, so the map opens in one tap. Desktop Atlas always shows the map, so its route is unchanged (`client/views.js`).
+  - **Measured.** Harness: `metrics.js --only cities/tokyo`, default view, same machine, uncompressed bytes.
+
+    | Page | Before | After |
+    |---|---|---|
+    | Tokyo, Gallery | 3,012 KB, FCP 300 ms, FCP 4× 372 ms, 20/24 | **1,932 KB**, FCP 276 ms, FCP 4× 564 ms, 21/24 |
+    | Tokyo, phone first load only (own probe) | 1,851 KB, FCP 4× 768 ms | **1,449 KB**, FCP 4× 408 ms |
+    | New York, Gallery | 5.84 MB (R5) | **1,678 KB**, FCP 4× 332 ms |
+    | Tokyo, Atlas | not measured | 2,012 KB, **24/24** |
+
+    The harness's FCP 4× figures move by a few hundred ms from run to run on this machine. The R5 figure of 1,124 ms came from another machine. Every after-figure is under 1.0 s.
+  - **Phone tap from Gallery.** Before: `#view=atlas`, list only, no map. After: `#view=atlas&map=1` with the map mounted.
+  - **Gates.** G1 488/488 on every path (scrolled, deep, search, no-JS), and New York 508/508. `qa/w5.js` passes 64/64. P-04 passes in `npm test`. `validate`, `test` and `beta:check` are green.
