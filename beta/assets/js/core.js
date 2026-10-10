@@ -129,6 +129,21 @@
     return pd[f];
   };
 
+  /* ---- "your guide" data (build-time, tools/beta/lib/guide.js): signature, foodOrder, days, closed ---- */
+  Cleo.guide = function (key) { return Cleo.pageData(key).then(function (d) { return d.guide; }); };
+
+  /* ---- distances (day-plan legs, opt-in Near me). Always straight-line (VOICE.md rule 9). The position a
+   * caller passes in is never stored or sent anywhere by this file. ---- */
+  Cleo.geo = {
+    km: function (a, b) {                              // a, b: {la, ln} or [lat, lng]
+      var A = a.length ? { la: a[0], ln: a[1] } : a, B = b.length ? { la: b[0], ln: b[1] } : b, t = Math.PI / 180;
+      var h = Math.pow(Math.sin((B.la - A.la) * t / 2), 2) + Math.cos(A.la * t) * Math.cos(B.la * t) * Math.pow(Math.sin((B.ln - A.ln) * t / 2), 2);
+      return 2 * 6371.0088 * Math.asin(Math.min(1, Math.sqrt(h)));
+    },
+    fmt: function (km) { return km < 0.1 ? 'next door (under 0.1 km straight-line)' : (km < 10 ? km.toFixed(1) : Math.round(km)) + ' km straight-line'; },
+    ll: function (el) { var v = (el && el.getAttribute('data-ll') || '').split(','); return v.length === 2 ? [+v[0], +v[1]] : null; }
+  };
+
   /* ---- map art (build-time SVG from verified pins, tools/beta/lib/art.js): place a locator dot ----
    * proj = {w,h,pad,box:[minLat,minLng,maxLat,maxLng],kx,ky}; returns [x,y] in the SVG's own units. */
   Cleo.art = {

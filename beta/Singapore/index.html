@@ -5,19 +5,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Singapore — 29 sourced guides · Cleo</title>
-<meta name="description" content="598 places across 29 Singapore guides — each recommended by named sources, pinned and status-checked.">
+<meta name="description" content="598 places across 29 Singapore guides — Coney Island Park, Ghim Moh Market &amp; Food Centre, Xi Xiang Feng Yong Tau Foo and more. Each recommended by named sources, pinned and status-checked.">
 <link rel="canonical" href="https://alvations.github.io/cleo-guide/beta/Singapore/">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#F7F4EE">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Cleo">
 <meta property="og:title" content="Singapore — 29 sourced guides · Cleo">
-<meta property="og:description" content="598 places across 29 Singapore guides — each recommended by named sources, pinned and status-checked.">
+<meta property="og:description" content="598 places across 29 Singapore guides — Coney Island Park, Ghim Moh Market &amp; Food Centre, Xi Xiang Feng Yong Tau Foo and more. Each recommended by named sources, pinned and status-checked.">
 <meta property="og:url" content="https://alvations.github.io/cleo-guide/beta/Singapore/">
 <meta property="og:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Singapore — 29 sourced guides · Cleo">
-<meta name="twitter:description" content="598 places across 29 Singapore guides — each recommended by named sources, pinned and status-checked.">
+<meta name="twitter:description" content="598 places across 29 Singapore guides — Coney Island Park, Ghim Moh Market &amp; Food Centre, Xi Xiang Feng Yong Tau Foo and more. Each recommended by named sources, pinned and status-checked.">
 <meta name="twitter:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
@@ -25,10 +25,70 @@
 <link rel="stylesheet" href="../assets/cleo.css?v=faa2f02022">
 
 
-<script src="../assets/js/core.js?v=b24c87df9e" defer></script>
+<script src="../assets/js/core.js?v=760b61dc92" defer></script>
+<style>
+.tile .art .dots{stroke:var(--dot,var(--on-night))}
+.tile.c-night .art .dots{stroke:var(--on-night)}.tile.c-night .art .dots.t1{stroke:var(--gilt-soft)}
+.tile.c-wash .art{background:var(--motif,none),linear-gradient(160deg,var(--city-wash),var(--surface));color:var(--ink)}
+.tile.c-wash .art .native,.tile.c-wash .art .ini{color:var(--city-ink)}
+.tile.c-wash .art .dots,.tile.c-paper .art .dots{stroke:var(--dot,var(--city-ink))}.tile.c-wash .art .dots.t1,.tile.c-paper .art .dots.t1{stroke:var(--ink)}
+.tile.c-city .art{background:var(--motif,none),radial-gradient(120% 140% at 0 100%,color-mix(in srgb,var(--night) 35%,transparent),transparent 60%),var(--city);color:var(--city-on)}
+.tile.c-city .art .dots{stroke:var(--city-on);stroke-opacity:.9}.tile.c-city .art .dots.t1{stroke:var(--city-on)}
+.tile.c-city .art .native,.tile.c-city .art .ini{color:var(--city-on)}.tile.c-city .art .bar{background:var(--night)}
+.tile.c-paper .art{background:var(--motif,none),repeating-radial-gradient(circle at 70% 120%,transparent 0 13px,color-mix(in srgb,var(--city) 16%,transparent) 13px 14px),var(--sand);color:var(--ink)}
+.tile.c-paper .art .native,.tile.c-paper .art .ini{color:var(--ink)}
+.tile .art .ini{position:absolute;right:14px;bottom:6px;font:italic 500 84px/1 var(--font-display);opacity:.9;color:var(--on-night)}
+.tile .art .native{color:var(--on-night)}
+.tiles.hub2 .tile .art .ini{font-size:52px;bottom:4px}
+.tile .sigline{font-size:13.5px;line-height:1.35;color:var(--ink-2);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.tile .sigline span+span::before{content:" · ";color:var(--ink-3)}
+.tile .star{font-size:12.5px}
+.tile:hover .art svg,.tile:focus-visible .art svg{transform:scale(1.04)}.tile .art svg{transition:transform .5s var(--ease,ease)}
+@media (prefers-reduced-motion:reduce){.tile .art svg{transition:none}.tile:hover .art svg{transform:none}}
+.chero{position:relative;background:var(--night);color:var(--on-night);overflow:hidden;isolation:isolate}
+.chero .sky{position:absolute;inset:0;z-index:-1;background:var(--motif,none)}
+.chero .sky svg{position:absolute;inset:0;width:100%;height:100%}
+.chero .sky .dots{stroke:var(--on-night);stroke-linecap:round;fill:none;stroke-opacity:.9}.chero .sky .dots.t1{stroke:var(--gilt-soft)}
+.chero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--night) 0,color-mix(in srgb,var(--night) 70%,transparent) 55%,transparent)}
+.chero .inner{max-width:var(--maxw);margin:0 auto;padding:28px var(--gutter) 26px}
+.chero .kicker{color:var(--on-night-2);font-size:15px;margin:0 0 6px}
+.chero h1{margin:0;color:var(--on-night)}
+.chero .why{font:italic 500 21px/1.3 var(--font-display);color:var(--on-night);margin:10px 0 0;max-width:40ch}
+.chero .why .l span+span::before{content:" · ";font-style:normal;color:var(--on-night-2)}
+.chero .facts{color:var(--on-night-2);font-size:15px;margin:12px 0 0;max-width:60ch}
+.chero .facts b{color:var(--on-night);font-weight:650}.chero .facts a{color:var(--on-night)}
+.chero .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chero .btn{min-height:var(--tap)}
+.chero .btn-ghost{color:var(--on-night);border-color:color-mix(in srgb,var(--on-night) 45%,transparent);background:transparent}
+.chero .accentbar{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--city,var(--gilt-soft))}
+@media(max-width:639px){.chero .blurb-c{display:none}.chero .sky{opacity:.45}.chero .why{font-size:19px}.chero .inner{padding:20px var(--gutter) 22px}.chero h1{font-size:44px}}
+@media(min-width:900px){.chero .inner{padding:44px var(--gutter) 40px}.chero .why{font-size:26px}}
+.share-note{font-size:14px;color:var(--on-night-2);align-self:center}
+.themes .theme-rail{list-style:none;margin:12px 0 0;padding:2px 2px 10px;display:grid;grid-auto-flow:column;grid-auto-columns:min(74%,290px);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}
+@media(min-width:1100px){.themes .theme-rail{grid-auto-columns:calc((100% - 36px)/4)}}
+.themes .rail-head .n{display:block;margin-top:4px;font:450 14px/1.3 var(--font-ui);color:var(--ink-3);letter-spacing:0}
+@media(min-width:900px){.themes .rail-head .n{display:inline;margin-left:12px}}
+.theme-main{min-height:170px}
+.theme{scroll-snap-align:start;display:grid;grid-template-rows:1fr auto;border-radius:var(--r-l);overflow:hidden;background:var(--surface);border:1px solid var(--line)}
+.theme-main{display:grid;gap:4px;align-content:end;min-height:150px;padding:16px;text-decoration:none;color:var(--on-night);background:var(--motif,none),var(--night)}
+.theme.t-1 .theme-main{background:var(--motif,none),linear-gradient(150deg,var(--night-2),var(--night))}
+.theme.t-2 .theme-main{background:var(--motif,none),repeating-linear-gradient(135deg,transparent 0 10px,color-mix(in srgb,var(--on-night) 6%,transparent) 10px 11px),var(--night)}
+.theme.t-3 .theme-main{background:var(--motif,none),radial-gradient(120% 120% at 100% 0,var(--night-2),var(--night) 70%)}
+.theme-n{font:500 44px/1 var(--font-display);color:var(--gilt-soft)}
+.theme-t{font:500 23px/1.15 var(--font-display);color:var(--on-night)}
+.theme-w{font-size:13.5px;line-height:1.35;color:var(--on-night-2)}
+.theme-c{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 12px}
+.theme-c a{display:inline-flex;align-items:center;gap:5px;min-height:var(--tap);padding:0 12px;border:1px solid var(--line-strong);border-radius:var(--r-pill);font-size:13.5px;text-decoration:none;color:var(--ink)}
+.theme-c a b{font-weight:650;color:var(--ink-2)}
+.theme-c .more-n{font-size:13px;color:var(--ink-3);align-self:center;padding:0 4px}
+.theme-main:hover .theme-t{text-decoration:underline;text-underline-offset:4px}
+.results .grp.guides ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0}
+.results a.is-kb,.results a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.results mark{background:var(--gilt-soft);color:var(--ink);border-radius:2px}
+</style>
 </head>
 <body class="has-tabbar">
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol><symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.3l1.4 3 3.2.3-2.4 2.2.7 3.1L12 14.3l-2.9 1.6.7-3.1-2.4-2.2 3.2-.3z"/></symbol><symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-star4" viewBox="0 0 24 24"><path d="M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1-2.1 7.4-2.1-7.4L2.5 12l7.4-2.1z"/></symbol><symbol id="i-offline" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M7.6 7.6A5 5 0 0 0 7 9.5 4 4 0 0 0 7 17.5h10M10 5a5 5 0 0 1 6.9 3.5h.6a3.5 3.5 0 0 1 2.4 6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.2"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.2"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.4a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.4"/></symbol></defs></svg><a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol><symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.3l1.4 3 3.2.3-2.4 2.2.7 3.1L12 14.3l-2.9 1.6.7-3.1-2.4-2.2 3.2-.3z"/></symbol><symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-star4" viewBox="0 0 24 24"><path d="M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1-2.1 7.4-2.1-7.4L2.5 12l7.4-2.1z"/></symbol><symbol id="i-offline" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M7.6 7.6A5 5 0 0 0 7 9.5 4 4 0 0 0 7 17.5h10M10 5a5 5 0 0 1 6.9 3.5h.6a3.5 3.5 0 0 1 2.4 6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.2"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.2"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M6 12v7h12v-7"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.4a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.4"/></symbol></defs></svg><a class="skip" href="#main">Skip to content</a>
 <header class="topbar" data-cleo-shell="topbar"><div class="wrap">
   <a class="brand" href="../index.html" aria-label="Cleo — all destinations"><svg class="mark" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4.2l1.75 6.05L19.8 12l-6.05 1.75L12 19.8l-1.75-6.05L4.2 12l6.05-1.75z"/></svg><b>cleo</b><small>field guides</small></a>
   <nav class="crumbs" aria-label="Breadcrumb"><span class="here" aria-current="page">Singapore</span></nav>
@@ -42,62 +102,65 @@
 </div></header>
 <div class="banners" data-cleo-banners aria-live="polite"></div>
 <main id="main" class="feb">
-<section class="masthead" aria-labelledby="cn"><div class="inner">
+<section class="chero masthead" aria-labelledby="cn"><div class="sky" aria-hidden="true"><svg viewBox="0 0 900 360" preserveAspectRatio="xMaxYMid meet" aria-hidden="true" focusable="false"><path class="dots" stroke-width="3" stroke-opacity=".75" d="M439 227h0M447 217h0M442 211h0M467 217h0M452 217h0M447 220h0M452 214h0M450 218h0M456 205h0M452 215h0M462 216h0M444 209h0M442 224h0M442 225h0M431 210h0M440 214h0M443 183h0M430 192h0M416 178h0M445 182h0M459 195h0M432 162h0M414 170h0M411 154h0M445 137h0M395 162h0M356 157h0M386 133h0M378 98h0M442 137h0M451 155h0M403 139h0M458 136h0M374 105h0M420 126h0M441 130h0M433 139h0M460 160h0M441 150h0M456 129h0M456 127h0M422 142h0M397 130h0M458 153h0M458 130h0M395 119h0M424 120h0M410 138h0M442 142h0M414 130h0M499 71h0M418 128h0M431 134h0M482 227h0M543 237h0M482 277h0M502 224h0M496 216h0M485 224h0M526 223h0M530 214h0M497 210h0M531 233h0M488 225h0M527 224h0M481 151h0M527 160h0M555 119h0M514 169h0M544 162h0M482 151h0M482 149h0M482 150h0M525 163h0M530 154h0M530 155h0M534 160h0M529 156h0M481 147h0M528 124h0M512 173h0M534 153h0M531 127h0M533 160h0M528 127h0M550 152h0M558 54h0M588 35h0M589 18h0M602 82h0M592 60h0M576 42h0M601 84h0M559 59h0M566 51h0M424 253h0M416 286h0M429 255h0M412 260h0M430 251h0M391 272h0M431 258h0M443 239h0M456 246h0M429 239h0M446 238h0M445 239h0M430 237h0M450 243h0M434 236h0M447 240h0M436 236h0M440 342h0M433 337h0M441 336h0M442 306h0M449 327h0M456 310h0M438 311h0M507 270h0M469 270h0M446 261h0M464 276h0M461 279h0M477 271h0M460 293h0M560 266h0M571 281h0M451 280h0M447 282h0M446 284h0M308 57h0M467 330h0M476 323h0M458 322h0M340 330h0M372 327h0M330 282h0M348 328h0M405 333h0M436 223h0M449 209h0M440 222h0M456 228h0M457 205h0M451 218h0M436 209h0M432 211h0M330 143h0M443 181h0M449 172h0M418 154h0M429 182h0M444 185h0M408 163h0M458 194h0M398 130h0M442 185h0M426 110h0M436 135h0M420 144h0M441 99h0M397 113h0M395 129h0M462 133h0M436 132h0M458 141h0M492 229h0M529 229h0M485 221h0M501 219h0M478 216h0M477 216h0M535 126h0M528 158h0M503 168h0M507 107h0M547 143h0M543 162h0M529 129h0M508 171h0M480 149h0M530 156h0M548 134h0M531 154h0M547 153h0M534 152h0M528 155h0M558 138h0M528 130h0M565 63h0M602 81h0M575 51h0M559 48h0M564 24h0M589 53h0M566 29h0M551 59h0M450 245h0M439 235h0M455 255h0M448 240h0M430 236h0M318 272h0M429 339h0M558 259h0M450 283h0"/><path class="dots t1" stroke-width="4.8" d="M462 218h0M463 228h0M460 209h0M433 210h0M462 217h0M441 211h0M413 156h0M351 157h0M445 184h0M421 165h0M406 143h0M424 126h0M430 126h0M438 131h0M420 125h0M424 110h0M415 139h0M415 170h0M498 75h0M461 140h0M397 132h0M485 222h0M500 206h0M493 221h0M527 232h0M527 236h0M491 231h0M498 206h0M557 128h0M512 170h0M484 149h0M511 105h0M484 151h0M522 124h0M538 173h0M529 161h0M534 184h0M548 117h0M612 44h0M568 33h0M567 46h0M421 270h0M429 248h0M408 279h0M383 214h0M438 233h0M438 232h0M452 248h0M448 237h0M450 242h0M428 237h0M451 244h0M444 239h0M301 273h0M313 279h0M367 263h0M363 242h0M435 338h0M432 341h0M436 332h0M440 324h0M433 324h0M450 320h0M444 322h0M353 285h0M350 288h0M475 287h0M466 293h0M465 291h0M571 271h0M569 286h0M578 281h0M562 270h0M566 276h0M451 275h0M316 57h0M302 61h0M480 334h0M469 339h0M456 329h0M528 279h0M288 335h0M402 197h0M373 73h0"/></svg></div><div class="inner">
+  <p class="kicker">Country guide · drawn from 584 verified pins</p>
   <h1 class="title d1" id="cn">Singapore</h1>
-  <p class="facts"><b>29 guides · 598 places</b> · 146 sights · 452 to eat &amp; drink · status last checked 2026-10-03. <a href="../how-we-choose.html">How we choose</a></p>
-  <p class="facts">The city-state, town by town — hawker food and landmarks, opening on Toa Payoh.</p>
+  <p class="why"><span class="vh">Known for: </span><span class="l"><span>Coney Island Park</span><span>Ghim Moh Market &amp; Food Centre</span><span>Xi Xiang Feng Yong Tau Foo</span></span></p>
+  <p class="facts"><b>29 guides · 598 places</b> · 146 sights · 452 to eat &amp; drink · status last checked 2026-10-03.</p>
+  <p class="facts blurb-c">The city-state, town by town — hawker food and landmarks, opening on Toa Payoh.</p>
+  <div class="acts"><button type="button" class="btn btn-ghost" data-cleo-share data-title="Singapore — 29 sourced guides · Cleo" data-url="https://alvations.github.io/cleo-guide/beta/Singapore/" hidden><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-share"/></svg>Share Singapore</button><a class="btn btn-ghost" href="../how-we-choose.html">How we choose</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>
 </div><span class="accentbar"></span></section>
 <div class="wrap section" id="destinations">
   <ul class="tiles hub2" aria-label="Singapore guides">
-<li class="dest" data-page="singapore/toa-payoh" data-gen="new"><a href="../Singapore/toa-payoh.html" class="tile skin-lagoon">
-<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" stroke-width="2.2" stroke-opacity=".7" d="M158 72h0M134 40h0M102 100h0M181 69h0M155 87h0M227 70h0M181 57h0M169 77h0M199 12h0M183 59h0M144 32h0M172 77h0M131 102h0M133 108h0M122 56h0M169 30h0M122 96h0M204 12h0M174 74h0"/><path class="dots t1" stroke-width="3.6" d="M220 30h0M92 36h0M228 68h0M130 40h0"/></svg><span class="bar"></span></span>
+<li class="dest" data-page="singapore/toa-payoh" data-gen="new"><a href="../Singapore/toa-payoh.html" class="tile c-night skin-lagoon">
+<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" stroke-width="2.2" stroke-opacity=".75" d="M158 72h0M134 40h0M181 69h0M155 87h0M227 70h0M181 57h0M169 77h0M199 12h0M183 59h0M144 32h0M131 102h0M133 108h0M122 56h0M102 100h0M169 30h0M122 96h0M204 12h0M174 74h0M103 33h0"/><path class="dots t1" stroke-width="3.5" d="M220 30h0M92 36h0M228 68h0M130 40h0"/></svg><span class="ini" aria-hidden="true">T</span><span class="bar"></span></span>
 <span class="txt"><h3>Toa Payoh</h3>
 <span class="counts"><span class="dest-c">55 places<span class="hide-m"> · 14 sights · 41 to eat &amp; drink</span></span></span>
-<span class="canon"><span>Wok Noodles (Char Kway Teow, Hokkien Mee, Bak Chor Mee)</span><span>Chinese, Dim Sum &amp; Teochew</span><span>Hawker &amp; Zi Char</span></span></span></a></li>
-<li class="dest" data-page="singapore/bishan" data-gen="new"><a href="../Singapore/bishan.html" class="tile skin-lagoon">
-<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" stroke-width="2.2" stroke-opacity=".7" d="M241 81h0M210 104h0M176 70h0M246 79h0M214 30h0M246 80h0M171 50h0M163 12h0M240 77h0M181 13h0M208 79h0M243 88h0M157 35h0M240 86h0"/><path class="dots t1" stroke-width="3.6" d="M168 16h0M247 85h0M188 39h0"/></svg><span class="bar"></span></span>
+<span class="sigline"><span>chicken rice</span><span>Hokkien mee</span><span>Toa Payoh Dragon Playground</span></span></span></a></li>
+<li class="dest" data-page="singapore/bishan" data-gen="new"><a href="../Singapore/bishan.html" class="tile c-wash skin-glacier">
+<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" style="--dot:#BCA7E6" stroke-width="2.2" stroke-opacity=".75" d="M241 81h0M210 104h0M176 70h0M246 79h0M214 30h0M246 80h0M171 50h0M163 12h0M240 77h0M181 13h0M208 79h0M243 88h0M157 35h0M240 86h0"/><path class="dots t1" style="--dot:#BCA7E6" stroke-width="3.5" d="M168 16h0M247 85h0M188 39h0"/></svg><span class="ini" aria-hidden="true">B</span><span class="bar"></span></span>
 <span class="txt"><h3>Bishan</h3>
 <span class="counts"><span class="dest-c">43 places<span class="hide-m"> · 10 sights · 33 to eat &amp; drink</span></span></span>
-<span class="canon"><span>Hawker &amp; Zi Char</span><span>Wok Noodles (Char Kway Teow, Hokkien Mee, Bak Chor Mee)</span><span>Chinese, Dim Sum &amp; Teochew</span></span></span></a></li>
-<li class="dest" data-page="singapore/ang-mo-kio" data-gen="new"><a href="../Singapore/ang-mo-kio.html" class="tile skin-lagoon">
-<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" stroke-width="2.2" stroke-opacity=".7" d="M200 72h0M192 72h0M103 77h0M228 70h0M142 48h0M189 57h0M171 78h0M190 101h0M223 55h0M224 49h0M148 84h0M90 57h0M228 108h0M229 57h0M152 34h0M119 75h0M193 83h0M128 56h0"/><path class="dots t1" stroke-width="3.6" d="M111 85h0M151 48h0M166 47h0M182 58h0M142 44h0M151 12h0M132 77h0M234 79h0M91 60h0"/></svg><span class="bar"></span></span>
+<span class="sigline"><span>chicken rice</span><span>char kway teow</span><span>Kong Meng San Phor Kark See Monastery</span></span></span></a></li>
+<li class="dest" data-page="singapore/ang-mo-kio" data-gen="new"><a href="../Singapore/ang-mo-kio.html" class="tile c-city skin-moss">
+<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" style="--dot:#BCA7E6" stroke-width="2.2" stroke-opacity=".75" d="M200 72h0M192 72h0M103 77h0M228 70h0M142 48h0M189 57h0M171 78h0M190 101h0M223 55h0M224 49h0M148 84h0M90 57h0M228 108h0M229 57h0M152 34h0M119 75h0M193 83h0M128 56h0"/><path class="dots t1" style="--dot:#BCA7E6" stroke-width="3.5" d="M111 85h0M151 48h0M166 47h0M182 58h0M142 44h0M151 12h0M132 77h0M234 79h0M91 60h0"/></svg><span class="ini" aria-hidden="true">A</span><span class="bar"></span></span>
 <span class="txt"><h3>Ang Mo Kio</h3>
 <span class="counts"><span class="dest-c">87 places<span class="hide-m"> · 20 sights · 67 to eat &amp; drink</span></span></span>
-<span class="canon"><span>Wok Noodles (Char Kway Teow, Hokkien Mee, Bak Chor Mee)</span><span>Cafés &amp; Modern</span><span>Hawker &amp; Zi Char</span></span></span></a></li>
-<li class="dest" data-page="singapore/potong-pasir-macpherson" data-gen="new"><a href="../Singapore/potong-pasir-macpherson.html" class="tile skin-lagoon">
-<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" stroke-width="2.2" stroke-opacity=".7" d="M87 78h0M147 70h0M131 43h0M93 70h0M224 65h0M114 90h0M134 25h0M105 72h0M229 69h0M225 65h0M116 83h0M233 83h0M94 60h0M145 53h0"/><path class="dots t1" stroke-width="3.6" d="M96 63h0M120 61h0M229 93h0M226 108h0M115 91h0M134 12h0"/></svg><span class="bar"></span></span>
+<span class="sigline"><span>chicken rice</span><span>laksa</span><span>Bishan-Ang Mo Kio Park</span></span></span></a></li>
+<li class="dest" data-page="singapore/potong-pasir-macpherson" data-gen="new"><a href="../Singapore/potong-pasir-macpherson.html" class="tile c-paper skin-plum">
+<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" style="--dot:#BCA7E6" stroke-width="2.2" stroke-opacity=".75" d="M87 78h0M147 70h0M131 43h0M93 70h0M224 65h0M114 90h0M134 25h0M105 72h0M229 69h0M225 65h0M116 83h0M233 83h0M94 60h0M145 53h0"/><path class="dots t1" style="--dot:#BCA7E6" stroke-width="3.5" d="M96 63h0M120 61h0M229 93h0M226 108h0M115 91h0M134 12h0"/></svg><span class="ini" aria-hidden="true">P</span><span class="bar"></span></span>
 <span class="txt"><h3>Potong Pasir &amp; MacPherson</h3>
 <span class="counts"><span class="dest-c">60 places<span class="hide-m"> · 15 sights · 45 to eat &amp; drink</span></span></span>
-<span class="canon"><span>Hawker &amp; Zi Char</span><span>Wok Noodles (Char Kway Teow, Hokkien Mee, Bak Chor Mee)</span><span>Cafés &amp; Modern</span></span></span></a></li>
-<li class="dest" data-page="singapore/upper-serangoon" data-gen="new"><a href="../Singapore/upper-serangoon.html" class="tile skin-lagoon">
-<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" stroke-width="2.2" stroke-opacity=".7" d="M95 65h0M186 82h0M160 101h0M218 86h0M97 65h0M98 61h0M96 62h0M182 89h0M192 72h0M191 74h0M191 73h0M199 83h0M188 74h0M94 57h0M188 13h0M198 68h0M193 17h0M197 83h0"/><path class="dots t1" stroke-width="3.6" d="M156 103h0M101 62h0M101 65h0M175 12h0M207 108h0M189 85h0"/></svg><span class="bar"></span></span>
+<span class="sigline"><span>chicken rice</span><span>laksa</span><span>Potong Pasir Sloping-Roof HDB</span></span></span></a></li>
+<li class="dest" data-page="singapore/upper-serangoon" data-gen="new"><a href="../Singapore/upper-serangoon.html" class="tile c-night skin-lagoon">
+<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" stroke-width="2.2" stroke-opacity=".75" d="M95 65h0M186 82h0M160 101h0M218 86h0M97 65h0M98 61h0M96 62h0M182 89h0M192 72h0M191 74h0M191 73h0M199 83h0M188 74h0M94 57h0M188 13h0M198 68h0M193 17h0M197 83h0"/><path class="dots t1" stroke-width="3.5" d="M156 103h0M101 62h0M101 65h0M175 12h0M207 108h0M189 85h0"/></svg><span class="ini" aria-hidden="true">U</span><span class="bar"></span></span>
 <span class="txt"><h3>Upper Serangoon</h3>
 <span class="counts"><span class="dest-c">99 places<span class="hide-m"> · 18 sights · 81 to eat &amp; drink</span></span></span>
-<span class="canon"><span>Hawker &amp; Zi Char</span><span>Wok Noodles (Char Kway Teow, Hokkien Mee, Bak Chor Mee)</span><span>Cafés &amp; Modern</span></span></span></a></li>
-<li class="dest" data-page="singapore/punggol" data-gen="new"><a href="../Singapore/punggol.html" class="tile skin-lagoon">
-<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" stroke-width="2.2" stroke-opacity=".7" d="M171 38h0M173 12h0M192 108h0M177 75h0M153 49h0M128 73h0M138 61h0M137 79h0M152 62h0M128 56h0M136 21h0M173 64h0M138 28h0M128 57h0"/><path class="dots t1" stroke-width="3.6" d="M142 34h0M140 54h0"/></svg><span class="bar"></span></span>
+<span class="sigline"><span>chicken rice</span><span>laksa</span><span>Hougang Tou Mu Kung</span></span></span></a></li>
+<li class="dest" data-page="singapore/punggol" data-gen="new"><a href="../Singapore/punggol.html" class="tile c-wash skin-glacier">
+<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" style="--dot:#BCA7E6" stroke-width="2.2" stroke-opacity=".75" d="M171 38h0M173 12h0M192 108h0M177 75h0M153 49h0M128 73h0M138 61h0M137 79h0M152 62h0M128 56h0M136 21h0M173 64h0M138 28h0M128 57h0"/><path class="dots t1" style="--dot:#BCA7E6" stroke-width="3.5" d="M142 34h0M140 54h0"/></svg><span class="ini" aria-hidden="true">P</span><span class="bar"></span></span>
 <span class="txt"><h3>Punggol</h3>
 <span class="counts"><span class="dest-c">48 places<span class="hide-m"> · 15 sights · 33 to eat &amp; drink</span></span></span>
-<span class="canon"><span>Hawker &amp; Zi Char</span><span>Chinese, Dim Sum &amp; Teochew</span><span>Cafés &amp; Modern</span></span></span></a></li>
-<li class="dest" data-page="singapore/newton-novena" data-gen="new"><a href="../Singapore/newton-novena.html" class="tile skin-lagoon">
-<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" stroke-width="2.2" stroke-opacity=".7" d="M212 12h0M228 21h0M166 39h0M92 82h0"/><path class="dots t1" stroke-width="3.6" d="M200 76h0M152 108h0"/></svg><span class="bar"></span></span>
+<span class="sigline"><span>laksa</span><span>bak chor mee</span><span>Coney Island Park</span></span></span></a></li>
+<li class="dest" data-page="singapore/newton-novena" data-gen="new"><a href="../Singapore/newton-novena.html" class="tile c-city skin-moss">
+<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" style="--dot:#BCA7E6" stroke-width="2.2" stroke-opacity=".75" d="M212 12h0M228 21h0M166 39h0M92 82h0"/><path class="dots t1" style="--dot:#BCA7E6" stroke-width="3.5" d="M200 76h0M152 108h0"/></svg><span class="ini" aria-hidden="true">N</span><span class="bar"></span></span>
 <span class="txt"><h3>Newton &amp; Novena</h3>
 <span class="counts"><span class="dest-c">42 places<span class="hide-m"> · 8 sights · 34 to eat &amp; drink</span></span></span>
-<span class="canon"><span>Hawker &amp; Zi Char</span><span>Chinese, Dim Sum &amp; Teochew</span><span>Malay &amp; Nasi Padang</span></span></span></a></li>
-<li class="dest" data-page="singapore/balestier" data-gen="new"><a href="../Singapore/balestier.html" class="tile skin-lagoon">
-<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" stroke-width="2.2" stroke-opacity=".7" d="M182 36h0M247 108h0M206 36h0M194 41h0M73 24h0M237 69h0M107 18h0M210 51h0M124 12h0M237 89h0M223 49h0M77 17h0"/><path class="dots t1" stroke-width="3.6" d="M218 25h0M233 65h0M242 82h0M190 40h0"/></svg><span class="bar"></span></span>
+<span class="sigline"><span>chicken rice</span><span>Hokkien mee</span><span>Newton Food Centre</span></span></span></a></li>
+<li class="dest" data-page="singapore/balestier" data-gen="new"><a href="../Singapore/balestier.html" class="tile c-paper skin-plum">
+<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" style="--dot:#BCA7E6" stroke-width="2.2" stroke-opacity=".75" d="M182 36h0M247 108h0M206 36h0M194 41h0M73 24h0M237 69h0M107 18h0M210 51h0M124 12h0M237 89h0M223 49h0M77 17h0"/><path class="dots t1" style="--dot:#BCA7E6" stroke-width="3.5" d="M218 25h0M233 65h0M242 82h0M190 40h0"/></svg><span class="ini" aria-hidden="true">B</span><span class="bar"></span></span>
 <span class="txt"><h3>Balestier</h3>
 <span class="counts"><span class="dest-c">49 places<span class="hide-m"> · 12 sights · 37 to eat &amp; drink</span></span></span>
-<span class="canon"><span>Chinese, Dim Sum &amp; Teochew</span><span>Hawker &amp; Zi Char</span><span>Chendol, Kueh &amp; Durian</span></span></span></a></li>
-<li class="dest" data-page="singapore/holland-village" data-gen="new"><a href="../Singapore/holland-village.html" class="tile skin-lagoon">
-<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots t1" stroke-width="3.6" d="M74 12h0M246 108h0"/></svg><span class="bar"></span></span>
+<span class="sigline"><span>chicken rice</span><span>laksa</span><span>Goh Chor Tua Pek Kong Temple</span></span></span></a></li>
+<li class="dest" data-page="singapore/holland-village" data-gen="new"><a href="../Singapore/holland-village.html" class="tile c-night skin-lagoon">
+<span class="art"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots t1" stroke-width="3.5" d="M74 12h0M246 108h0"/></svg><span class="ini" aria-hidden="true">H</span><span class="bar"></span></span>
 <span class="txt"><h3>Holland Village</h3>
 <span class="counts"><span class="dest-c">33 places<span class="hide-m"> · 3 sights · 30 to eat &amp; drink</span></span></span>
-<span class="canon"><span>Hawker &amp; Zi Char</span><span>Chinese, Dim Sum &amp; Teochew</span><span>Chendol, Kueh &amp; Durian</span></span></span></a></li>
+<span class="sigline"><span>chicken rice</span><span>char kway teow</span><span>Ghim Moh Market &amp; Food Centre</span></span></span></a></li>
   </ul>
 <h2 class="d3" style="margin-top:28px">More in Singapore</h2>
 <ul class="morelist">
-<li class="dest" data-page="singapore/bedok" data-gen="new"><a href="../Singapore/bedok.html"><span class="dest-n">Bedok</span><span class="dest-c">1 places</span></a></li>
+<li class="dest" data-page="singapore/bedok" data-gen="new"><a href="../Singapore/bedok.html"><span class="dest-n">Bedok</span><span class="dest-c">1 place</span></a></li>
 <li class="dest" data-page="singapore/bukit-timah" data-gen="new"><a href="../Singapore/bukit-timah.html"><span class="dest-n">Bukit Timah</span><span class="dest-c">3 places</span></a></li>
 <li class="dest" data-page="singapore/changi" data-gen="new"><a href="../Singapore/changi.html"><span class="dest-n">Changi</span><span class="dest-c">2 places</span></a></li>
 <li class="dest" data-page="singapore/chinatown" data-gen="new"><a href="../Singapore/chinatown.html"><span class="dest-n">Chinatown &amp; CBD</span><span class="dest-c">16 places</span></a></li>
@@ -119,6 +182,20 @@
 <li class="dest" data-page="singapore/upper-thomson" data-gen="new"><a href="../Singapore/upper-thomson.html"><span class="dest-n">Upper Thomson &amp; MacRitchie</span><span class="dest-c">2 places</span></a></li>
 </ul>
 </div>
+<div class="wrap"><section class="themes section" id="themes" aria-labelledby="themes-h">
+<div class="rail-head"><h2 class="d2" id="themes-h">Collections in Singapore<span class="n">3 collections · counts from the guides</span></h2></div>
+
+<ul class="theme-rail" aria-label="Collections in Singapore">
+<li class="theme t-0">
+<a class="theme-main" href="../Singapore/newton-novena.html#cz=HAWKER"><span class="theme-n">146</span><span class="theme-t">The hawker canon</span><span class="theme-w">Stalls the city argues about, town by town · across Singapore</span></a>
+<span class="theme-c"><a href="../Singapore/newton-novena.html#cz=HAWKER">Newton &amp; Novena <b>22</b></a><a href="../Singapore/upper-serangoon.html#cz=HAWKER">Upper Serangoon <b>21</b></a><a href="../Singapore/holland-village.html#cz=HAWKER">Holland Village <b>19</b></a><a href="../Singapore/punggol.html#cz=HAWKER">Punggol <b>18</b></a><span class="more-n">+14 more guides</span></span></li>
+<li class="theme t-1">
+<a class="theme-main" href="../Singapore/ang-mo-kio.html#c=TEMPLE"><span class="theme-n">51</span><span class="theme-t">Temples &amp; shrines</span><span class="theme-w">From Kyoto’s great halls to neighbourhood shrines · across Singapore</span></a>
+<span class="theme-c"><a href="../Singapore/ang-mo-kio.html#c=TEMPLE">Ang Mo Kio <b>10</b></a><a href="../Singapore/potong-pasir-macpherson.html#c=TEMPLE">Potong Pasir &amp; MacPherson <b>7</b></a><a href="../Singapore/upper-serangoon.html#c=TEMPLE">Upper Serangoon <b>7</b></a><a href="../Singapore/punggol.html#c=TEMPLE">Punggol <b>6</b></a><span class="more-n">+9 more guides</span></span></li>
+<li class="theme t-2">
+<a class="theme-main" href="../Singapore/ang-mo-kio.html#c=FREE"><span class="theme-n">53</span><span class="theme-t">Free to visit</span><span class="theme-w">Museums, parks and landmarks that cost nothing · across Singapore</span></a>
+<span class="theme-c"><a href="../Singapore/ang-mo-kio.html#c=FREE">Ang Mo Kio <b>19</b></a><a href="../Singapore/toa-payoh.html#c=FREE">Toa Payoh <b>10</b></a><a href="../Singapore/bishan.html#c=FREE">Bishan <b>8</b></a><a href="../Singapore/potong-pasir-macpherson.html#c=FREE">Potong Pasir &amp; MacPherson <b>6</b></a><span class="more-n">+4 more guides</span></span></li>
+</ul></section></div>
 <section class="wrap section" aria-labelledby="else-h"><h2 class="d2" id="else-h">Elsewhere in Cleo</h2>
 <div class="countries" style="margin-top:12px"><a class="pill" href="../index.html#us">United States <span class="n">4,144</span></a><a class="pill" href="../Vietnam/index.html">Vietnam <span class="n">183</span></a><a class="pill" href="../Germany/index.html">Germany <span class="n">751</span></a><a class="pill" href="../Belgium/index.html">Belgium <span class="n">651</span></a><a class="pill" href="../Japan/index.html">Japan <span class="n">2,092</span></a></div></section>
 </main>
@@ -128,7 +205,7 @@
     <div><a class="brand" href="../index.html" aria-label="Cleo — all destinations"><svg class="mark" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4.2l1.75 6.05L19.8 12l-6.05 1.75L12 19.8l-1.75-6.05L4.2 12l6.05-1.75z"/></svg><b>cleo</b></a>
       <p>8,458 places across 84 guides — every one traceable to the source that recommended it, pinned and status-checked.</p></div>
     <div><h4>Destinations</h4><ul><li><a href="../index.html#us">United States</a></li><li><a href="../Singapore/index.html">Singapore</a></li><li><a href="../Vietnam/index.html">Vietnam</a></li><li><a href="../Germany/index.html">Germany</a></li><li><a href="../Belgium/index.html">Belgium</a></li><li><a href="../Japan/index.html">Japan</a></li></ul></div>
-    <div><h4>The method</h4><ul><li><a href="../how-we-choose.html">How we choose</a></li><li><a href="../how-we-choose.html#closures">Closed places</a></li><li><a href="../how-we-choose.html#pins">Pins</a></li></ul></div>
+    <div><h4>The method</h4><ul><li><a href="../how-we-choose.html">How we choose</a></li><li><a href="../how-we-choose.html#closures">Closed places</a></li><li><a href="../how-we-choose.html#pins">Pins</a></li><li><a href="../accessibility.html">Accessibility</a></li></ul></div>
     <div><h4>Yours</h4><ul><li><a href="../saved.html">Your list</a></li><li><a href="../index.html#search">Search</a></li><li><button type="button" class="btn theme-toggle" aria-pressed="false" data-cleo-theme hidden><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg><span>Night edition</span></button></li></ul></div>
   </div>
   <p class="legal colophon">Cleo beta — every place is carried from <a href="https://alvations.github.io/cleo-guide/">the current live guides</a>, with its sources. Map tiles: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>; Esri. No ratings, prices or hours are shown because they aren't in our data — check before you go.</p>
@@ -140,6 +217,6 @@
 <a href="../how-we-choose.html"><svg class="ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seal"/></svg><span>Method</span></a>
 </nav>
 <script src="../assets/js/states.js?v=938d68f2cf" defer></script>
-<script src="../assets/js/search.js?v=83def4d1ff" defer></script>
+<script src="../assets/js/search.js?v=3eb9582ecc" defer></script>
 </body>
 </html>

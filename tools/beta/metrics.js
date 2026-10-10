@@ -211,7 +211,10 @@ const PROBE = () => {
     // on screen: use what is actually painted under the text (catches overlays such as a header over a hero band)
     const r = el.getBoundingClientRect(), cx = r.left + Math.min(r.width / 2, 8), cy = r.top + r.height / 2;
     if (cx >= 0 && cy >= 0 && cx < vw && cy < vh) {
-      for (const u of document.elementsFromPoint(cx, cy)) {
+      const pile = document.elementsFromPoint(cx, cy);
+      const top = pile.find(u => !(u !== el && el.contains(u)));
+      if (top && top !== el && !top.contains(el)) return { bg: null, unknown: true, occluded: true };   // covered (e.g. a rail arrow)
+      for (const u of pile) {
         if (u !== el && el.contains(u)) continue;
         const cs = getComputedStyle(u);
         if (cs.backgroundImage && cs.backgroundImage !== 'none') { unknown = true; break; }
@@ -475,7 +478,8 @@ async function mapSync(page) {
     const paths = () => [...document.querySelectorAll('.leaflet-overlay-pane path.leaflet-interactive, .leaflet-marker-icon')];
     r.markers = paths().length;
     r.pinned = document.querySelectorAll('li.pl[data-ll]').length;
-    r.markerNumbers = document.querySelectorAll('.leaflet-marker-icon').length ? [...document.querySelectorAll('.leaflet-marker-icon')].filter(m => /\d/.test(m.textContent)).length : 0;
+    r.markerNumbers = [...document.querySelectorAll('.leaflet-marker-icon, .leaflet-tooltip')].filter(m => /^\s*\d+\s*$/.test(m.textContent)).length;
+    r.pinLabels = document.querySelectorAll('.leaflet-tooltip.pin-n').length;
     // hover a card → some marker's style changes
     const snap = () => paths().map(p => (p.getAttribute('class') || '') + (p.getAttribute('stroke-width') || '') + (p.getAttribute('fill-opacity') || '') + (p.getAttribute('d') || '').length + (p.style.cssText || ''));
     const card = [...document.querySelectorAll('li.pl[data-ll]')].find(c => !c.closest('[hidden]'));
@@ -494,8 +498,8 @@ async function mapSync(page) {
       const p = ps[ps.length - 1];
       window.scrollTo(0, 0);
       p.dispatchEvent(new MouseEvent('click', { bubbles: true, clientX: 1, clientY: 1 }));
-      await new Promise(x => setTimeout(x, 500));
-      const t = document.querySelector('li.pl.is-target, li.pl[aria-current], li.pl.is-active');
+      await new Promise(x => setTimeout(x, 1200));   // cards scroll smoothly into view
+      const t = document.querySelector('li.pl.is-focus, li.pl.is-target, li.pl[aria-current], li.pl.is-active');
       const sheet = [...document.querySelectorAll('[role=dialog], .sheet, [data-cleo-sheet]')].find(d => d.getBoundingClientRect().height > 0 && !d.closest('[hidden]'));
       r.pinClick = { cardHighlighted: !!t, cardInView: !!t && (() => { const b = t.getBoundingClientRect(); return b.bottom > 0 && b.top < innerHeight; })(), sheet: !!sheet };
     }
@@ -504,65 +508,89 @@ async function mapSync(page) {
   });
 }
 
-// Mobile: Map toggle → full-screen map; pin/card → sheet with Close, Esc, Back; focus trap (B-07, B-17).
+// Mobile (B-07, B-17). Part A: Map toggle → full-screen map → pin → sheet with Close; Esc and Back close it.
+// Part B: tap a card title in the list → detail sheet: content, focus trap, Esc, Back, focus restored to the card.
+const SHEET_VIS = `(() => { window.__qaVis = d => !!d && d.getBoundingClientRect().height > 0 && !d.closest('[hidden]') && getComputedStyle(d).visibility !== 'hidden' && getComputedStyle(d).display !== 'none'; })()`;
+async function openSheetState(page) {
+  return page.evaluate(() => {
+    const d = [...document.querySelectorAll('[role=dialog], dialog[open], .sheet, [data-cleo-sheet]')].filter(x => !x.classList.contains('tray')).find(window.__qaVis);
+    if (!d) return null;
+    document.querySelectorAll('[data-qa-sheet]').forEach(x => x.removeAttribute('data-qa-sheet'));
+    d.setAttribute('data-qa-sheet', '1');
+    const close = [...d.querySelectorAll('button, a')].find(b => /close|done|×|✕/i.test((b.textContent || '') + ' ' + (b.getAttribute('aria-label') || '')) && window.__qaVis(b));
+    const txt = d.innerText;
+    return { cls: String(d.className).slice(0, 40), h: Math.round(d.getBoundingClientRect().height), closeVisible: !!close,
+      modal: d.getAttribute('aria-modal') === 'true' || d.tagName === 'DIALOG', grab: !!d.querySelector('.grab, [data-detent], [data-detents]'),
+      has: { sources: /recommended by/i.test(txt), directions: /directions|openstreetmap|apple maps/i.test(txt),
+        pin: /pinned|confidence/i.test(txt), status: /status checked|checked/i.test(txt), save: /\bsave/i.test(txt), share: /share/i.test(txt) } };
+  });
+}
+const sheetGone = page => page.evaluate(() => !window.__qaVis(document.querySelector('[data-qa-sheet]')));
 async function sheetFlow(page) {
   const r = {};
-  const findToggle = () => page.evaluate(() => {
-    const c = [...document.querySelectorAll('button, a, [role=button]')].find(b => {
-      const t = (b.textContent || b.getAttribute('aria-label') || '').trim();
-      const bx = b.getBoundingClientRect(); return /^(show )?map\b/i.test(t) && bx.height > 0 && !b.closest('[hidden], .leaflet-container');
-    });
-    if (!c) return null; c.setAttribute('data-qa-toggle', '1'); const b = c.getBoundingClientRect();
-    return { w: Math.round(b.width), h: Math.round(b.height), text: c.textContent.trim().slice(0, 30) };
+  await page.evaluate(SHEET_VIS);
+  r.toggle = await page.evaluate(() => {
+    const c = document.querySelector('.map-toggle, [data-cleo-map=""]') || [...document.querySelectorAll('button, a, [role=button]')].find(b =>
+      /^(show (the )?)?map\b/i.test((b.getAttribute('aria-label') || b.textContent || '').trim()) && window.__qaVis(b));
+    if (!c || !window.__qaVis(c)) return null;
+    c.setAttribute('data-qa-toggle', '1'); const b = c.getBoundingClientRect();
+    return { w: Math.round(b.width), h: Math.round(b.height), name: (c.getAttribute('aria-label') || c.textContent).trim().slice(0, 30) };
   });
-  r.toggle = await findToggle();
   if (r.toggle) {
     r.toggle.ok44 = r.toggle.w >= 44 && r.toggle.h >= 44;
     await page.click('[data-qa-toggle]', { timeout: 3000 }).catch(() => {});
-    await page.waitForTimeout(600);
+    await page.waitForTimeout(900);
     r.fullMap = await page.evaluate(() => { const m = document.querySelector('#cleo-map, .leaflet-container'); if (!m) return false; const b = m.getBoundingClientRect(); return b.height >= innerHeight * 0.7 && b.width >= innerWidth * 0.95; });
+    // a real tap on a visible pin
+    const pinSel = await page.evaluate(() => {
+      const ps = [...document.querySelectorAll('.leaflet-overlay-pane path.leaflet-interactive, .leaflet-marker-icon')].filter(p => { const b = p.getBoundingClientRect(); return b.width > 0 && b.top > 80 && b.bottom < innerHeight - 80 && b.left > 10 && b.right < innerWidth - 10; });
+      if (!ps.length) return false; ps[Math.floor(ps.length / 2)].setAttribute('data-qa-pin', '1'); return true;
+    });
+    if (pinSel) {
+      await page.click('[data-qa-pin]', { force: true, timeout: 3000 }).catch(() => {});
+      await page.waitForTimeout(600);
+      r.pinSheet = await openSheetState(page);
+      if (r.pinSheet) {
+        await page.keyboard.press('Escape'); await page.waitForTimeout(400);
+        r.pinSheet.escCloses = await sheetGone(page);
+        await page.click('[data-qa-pin]', { force: true, timeout: 3000 }).catch(() => {}); await page.waitForTimeout(600);
+        if (await openSheetState(page)) {
+          await page.goBack({ timeout: 3000 }).catch(() => {}); await page.waitForTimeout(500);
+          r.pinSheet.backCloses = await sheetGone(page);
+          r.pinSheet.stayedOnPage = /\/beta\//.test(page.url());
+        }
+      }
+    }
+    // back to the list (the toggle, a "List" button, or history)
+    await page.evaluate(() => { const l = [...document.querySelectorAll('button, a')].find(b => /^list\b/i.test((b.textContent || b.getAttribute('aria-label') || '').trim()) && window.__qaVis(b)); if (l) l.click(); });
+    await page.waitForTimeout(500);
   }
-  // open a sheet: click a marker if present, else the first card's name
-  const opened = await page.evaluate(async () => {
-    const vis = d => d.getBoundingClientRect().height > 0 && !d.closest('[hidden]') && getComputedStyle(d).visibility !== 'hidden';
-    const p = document.querySelector('.leaflet-overlay-pane path.leaflet-interactive, .leaflet-marker-icon');
-    let via = null;
-    if (p && vis(p)) { p.dispatchEvent(new MouseEvent('click', { bubbles: true, clientX: 1, clientY: 1 })); via = 'pin'; }
-    await new Promise(x => setTimeout(x, 400));
-    const find = () => [...document.querySelectorAll('[role=dialog], dialog[open], .sheet, [data-cleo-sheet]')].find(vis);
-    if (!find()) {
-      const n = [...document.querySelectorAll('li.pl .pl-n a, li.pl .pl-n button, li.pl')].find(vis);
-      if (n) { n.click(); via = 'card'; await new Promise(x => setTimeout(x, 400)); }
-    }
-    const d = find(); if (!d) return { via, sheet: false };
-    d.setAttribute('data-qa-sheet', '1');
-    const close = [...d.querySelectorAll('button, a')].find(b => /close|done|×|✕/i.test((b.textContent || '') + (b.getAttribute('aria-label') || '')) && vis(b));
-    const txt = d.innerText;
-    return { via, sheet: true, closeVisible: !!close, modal: d.getAttribute('aria-modal') === 'true' || d.tagName === 'DIALOG',
-      detents: d.getAttribute('data-detent') || d.getAttribute('data-detents') || null,
-      has: { sources: /recommended by/i.test(txt), directions: /directions|openstreetmap|apple maps/i.test(txt),
-        pin: /pinned|confidence/i.test(txt), status: /status checked|checked/i.test(txt), save: /save/i.test(txt), share: /share/i.test(txt) } };
+  // Part B: detail sheet from a card
+  await page.evaluate(() => window.scrollTo(0, 0));
+  const opened = await page.evaluate(() => {
+    const a = [...document.querySelectorAll('li.pl .pl-n a, li.pl .pl-n button')].find(window.__qaVis);
+    if (!a) return false; a.setAttribute('data-qa-card', '1'); return true;
   });
-  r.sheet = opened;
-  if (opened.sheet) {
-    // focus trap: 25 Tabs stay inside
-    let escaped = 0;
-    for (let i = 0; i < 25; i++) {
-      await page.keyboard.press('Tab');
-      const inside = await page.evaluate(() => { const d = document.querySelector('[data-qa-sheet]'); return !!d && d.contains(document.activeElement); });
-      if (!inside) escaped++;
-    }
-    r.sheet.focusTrapped = escaped === 0;
-    await page.keyboard.press('Escape'); await page.waitForTimeout(300);
-    r.sheet.escCloses = await page.evaluate(() => { const d = document.querySelector('[data-qa-sheet]'); return !d || d.getBoundingClientRect().height === 0 || !!d.closest('[hidden]') || getComputedStyle(d).visibility === 'hidden'; });
-    // Back: reopen then history.back()
-    await page.evaluate(() => { const n = document.querySelector('li.pl .pl-n a, li.pl .pl-n button'); if (n) n.click(); });
-    await page.waitForTimeout(400);
-    const reopened = await page.evaluate(() => { const d = document.querySelector('[data-qa-sheet]'); return !!d && d.getBoundingClientRect().height > 0 && !d.closest('[hidden]'); });
-    if (reopened) {
-      await page.goBack({ timeout: 3000 }).catch(() => {}); await page.waitForTimeout(400);
-      r.sheet.backCloses = await page.evaluate(() => { const d = document.querySelector('[data-qa-sheet]'); return !d || d.getBoundingClientRect().height === 0 || !!d.closest('[hidden]'); });
-      r.sheet.stayedOnPage = /\/beta\//.test(page.url());
+  if (opened) {
+    await page.click('[data-qa-card]', { timeout: 3000 }).catch(() => {});
+    await page.waitForTimeout(600);
+    r.detail = await openSheetState(page);
+    if (r.detail) {
+      let escaped = 0;
+      for (let i = 0; i < 25; i++) {
+        await page.keyboard.press('Tab');
+        if (!(await page.evaluate(() => { const d = document.querySelector('[data-qa-sheet]'); return !!d && d.contains(document.activeElement); }))) escaped++;
+      }
+      r.detail.focusTrapped = escaped === 0;
+      await page.keyboard.press('Escape'); await page.waitForTimeout(400);
+      r.detail.escCloses = await sheetGone(page);
+      r.detail.focusRestored = await page.evaluate(() => { const c = document.querySelector('[data-qa-card]'); const li = c && c.closest('li.pl'); return !!li && li.contains(document.activeElement); });
+      await page.click('[data-qa-card]', { timeout: 3000 }).catch(() => {}); await page.waitForTimeout(600);
+      if (await openSheetState(page)) {
+        await page.goBack({ timeout: 3000 }).catch(() => {}); await page.waitForTimeout(500);
+        r.detail.backCloses = await sheetGone(page);
+        r.detail.stayedOnPage = /\/beta\//.test(page.url());
+      }
     }
   }
   return r;
@@ -572,10 +600,10 @@ async function sheetFlow(page) {
 async function trayFlow(page) {
   return page.evaluate(async () => {
     const vis = d => d.getBoundingClientRect().height > 0 && !d.closest('[hidden]');
-    const b = [...document.querySelectorAll('button, [role=button]')].find(x => /^filters?\b/i.test((x.textContent || x.getAttribute('aria-label') || '').trim()) && vis(x));
+    const b = [...document.querySelectorAll('[data-cleo-tray=""], button, [role=button]')].find(x => /^filters?\b/i.test((x.getAttribute('aria-label') || x.textContent || '').trim()) && vis(x));
     if (!b) return { button: false };
     b.click(); await new Promise(x => setTimeout(x, 300));
-    const tray = [...document.querySelectorAll('[role=dialog], .tray, [data-cleo-tray]')].find(vis);
+    const tray = [...document.querySelectorAll('.tray, [role=dialog]')].find(d => vis(d) && d.tagName !== 'BUTTON');
     if (!tray) return { button: true, tray: false };
     const show = [...tray.querySelectorAll('button')].find(x => /show\s+\d+/i.test(x.textContent));
     const r = { button: true, tray: true, showN: show ? show.textContent.trim() : null,
@@ -678,15 +706,18 @@ function grade(m) {
     rows['B-04 rail on first screen'] = P(mo.railOnFirstScreen, mo.railVisible ? 'top ' + mo.railTop + ', ' + mo.railItems + ' tiles, first "' + mo.railFirst + '"' : 'no rail');
     rows['B-06 split view + sticky map + sync'] = de.sync ? F(de.sync.split && de.sync.sticky && de.sync.mapWidthPct >= 40 && de.sync.hoverHighlights && de.sync.pinClick && de.sync.pinClick.cardInView,
       `split ${de.sync.split}, sticky ${de.sync.sticky}, map ${de.sync.mapWidthPct}%, hover→pin ${de.sync.hoverHighlights}, pin→card ${de.sync.pinClick && de.sync.pinClick.cardInView}`) : P(false, 'map did not mount');
-    rows['B-07 mobile map toggle + sheet (Close, Esc, Back)'] = mo.sheetFlow ? F(mo.sheetFlow.toggle && mo.sheetFlow.toggle.ok44 && mo.sheetFlow.fullMap && mo.sheetFlow.sheet.sheet && mo.sheetFlow.sheet.closeVisible && mo.sheetFlow.sheet.escCloses && mo.sheetFlow.sheet.backCloses,
-      `toggle ${mo.sheetFlow.toggle ? mo.sheetFlow.toggle.w + '×' + mo.sheetFlow.toggle.h : 'none'}, full map ${!!mo.sheetFlow.fullMap}, sheet ${mo.sheetFlow.sheet.sheet}${mo.sheetFlow.sheet.sheet ? `, close ${mo.sheetFlow.sheet.closeVisible}, esc ${mo.sheetFlow.sheet.escCloses}, back ${mo.sheetFlow.sheet.backCloses}, trap ${mo.sheetFlow.sheet.focusTrapped}` : ''}`) : P(false, 'not measurable');
+    const sf = mo.sheetFlow || {}, ps = sf.pinSheet, dt = sf.detail;
+    rows['B-07 mobile map toggle + sheet (Close, Esc, Back)'] = F(sf.toggle && sf.toggle.ok44 && sf.fullMap && ps && ps.closeVisible && ps.escCloses && ps.backCloses && ps.stayedOnPage,
+      `toggle ${sf.toggle ? sf.toggle.w + '×' + sf.toggle.h : 'none'}, full map ${!!sf.fullMap}, pin sheet ${ps ? `close ${ps.closeVisible}, esc ${ps.escCloses}, back ${ps.backCloses}` : 'none'}`);
     rows['B-08 floaters over titles = 0'] = P(mo.overlap && mo.overlap.hits === 0, mo.overlap ? mo.overlap.hits : null);
-    rows['B-09 pin numbers == card numbers'] = de.sync ? P(de.sync.markerNumbers > 0 && de.sync.orderingStated, `numbered pins ${de.sync.markerNumbers}, ordering stated ${de.sync.orderingStated}`) : P(false, 'n/a');
+    rows['B-09 pin numbers == card numbers'] = de.sync ? P((de.sync.markerNumbers > 0 || de.sync.pinLabels > 0) && de.sync.orderingStated, `numbered pins ${de.sync.markerNumbers} (pin-n labels ${de.sync.pinLabels}), ordering stated ${de.sync.orderingStated}`) : P(false, 'n/a');
     rows['B-10 filter tray + "Show N places"'] = de.tray ? P(de.tray.tray && !!de.tray.showN, de.tray.tray ? de.tray.showN : (de.tray.button ? 'button, no tray' : 'no Filters control')) : P(false, 'n/a');
     rows['B-12 closed with tier glyph = 0'] = P(mo.closedWithTier === 0, mo.closedWithTier + ' of ' + mo.closed + ' closed');
     rows['B-16 cards per mobile screen ≥2'] = P(mo.cardsPerScreen != null && mo.cardsPerScreen >= 2, mo.cardsPerScreen);
-    rows['B-17 sheet content (sources, directions, pin, status, save, share, trap)'] = mo.sheetFlow && mo.sheetFlow.sheet.sheet
-      ? F(Object.values(mo.sheetFlow.sheet.has).every(Boolean) && mo.sheetFlow.sheet.focusTrapped, JSON.stringify(mo.sheetFlow.sheet.has)) : P(false, 'no sheet');
+    rows['B-17 sheet content (sources, directions, pin, status, save, share, trap)'] = dt
+      ? F(Object.values(dt.has).every(Boolean) && dt.focusTrapped && dt.escCloses && dt.backCloses && dt.closeVisible,
+        `missing: ${Object.entries(dt.has).filter(([, v]) => !v).map(([k]) => k).join(', ') || 'none'} · close ${dt.closeVisible} · trap ${dt.focusTrapped} · esc ${dt.escCloses} · back ${dt.backCloses} · focus restored ${dt.focusRestored}`)
+      : F(false, 'no detail sheet from a card');
     rows['G1 reachability 100% (scroll, deep link, search, no-JS)'] = de.reach ? F(m.expected && de.reach.dom === m.expected.total && de.reach.scrolled === de.reach.dom && de.reach.missing === 0 && de.reach.dup === 0
       && de.reach.deepLinks.ok === de.reach.deepLinks.n && de.reach.search.ok === de.reach.search.n && m.noJs && m.noJs.cards === m.expected.total,
       `data ${m.expected && m.expected.total} · DOM ${de.reach.dom} · scrolled ${de.reach.scrolled} · deep ${de.reach.deepLinks.ok}/${de.reach.deepLinks.n} · search ${de.reach.search.ok}/${de.reach.search.n} · no-JS ${m.noJs && m.noJs.cards}`)
