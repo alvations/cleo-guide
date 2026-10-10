@@ -1,0 +1,32 @@
+{
+ "v": 1,
+ "_doc": "Owner-edited (never generated). One row per photo file in beta/assets/img/photos/. A photo renders on a beta card ONLY when its file exists here AND its row is complete (TASL: title/depicts, author, source, licence + licence URL); the build refuses any photo without a complete row, any non-free licence (NC/ND), any closed place and any place in Vietnam (no freedom of panorama). Candidates: beta/assets/img/manifest.json. How-to: design/beta/IMAGERY.md (Dropping in photos).",
+ "schema": {
+  "file": "file name inside beta/assets/img/photos/ (e.g. \"tokyo--senso-ji-960.webp\")",
+  "record": "{ page: beta page key (e.g. \"tokyo\"), id: stable place id (e.g. \"senso-ji\") } — the place the photo depicts",
+  "title": "optional: the work's title as on its source page (defaults to depicts)",
+  "depicts": "what the photo shows, in words (\"Sensō-ji main hall from the Hōzōmon gate\")",
+  "author": "the creator exactly as the source credits them",
+  "sourceUrl": "https URL of the file's own page (e.g. its Wikimedia Commons file page)",
+  "licence": "short licence name: CC0 1.0 | Public domain | CC BY 4.0 | CC BY-SA 4.0 (… any version; NC/ND refused)",
+  "licenceUrl": "https URL of the licence deed",
+  "modified": "optional: what you changed (\"cropped\", \"resized\") — BY-SA adaptations stay BY-SA",
+  "width": "optional: pixel width (read from the file when omitted)",
+  "height": "optional: pixel height (read from the file when omitted)"
+ },
+ "example": {
+  "file": "tokyo--senso-ji-960.webp",
+  "record": {
+   "page": "tokyo",
+   "id": "senso-ji"
+  },
+  "title": "Sensō-ji Hondo",
+  "depicts": "Sensō-ji main hall seen from the Hōzōmon gate",
+  "author": "<creator exactly as credited on the file page>",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:<file name>",
+  "licence": "CC BY-SA 4.0",
+  "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "modified": "cropped to 3:2, resized to 960 px"
+ },
+ "credits": []
+}

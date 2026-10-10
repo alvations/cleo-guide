@@ -221,6 +221,7 @@ open/closed status), `docs/CITIES.md` (one row per city), `docs/AGENT-PROMPTS.md
 | `session_01Uw8kyZKduvy2VTdhJQa5L4` | Beta W2 — Frontend B (hubs + landing) | 2026-10-10 10:20 | running | — |
 | `session_01XAYpThZZnydYCxCkEcCatZ` | Beta W2 — Designer | 2026-10-10 10:20 | running | — |
 | `session_01QpPRccdD4iJMa6P4jSUboV` | Beta W2 — Imagery / content art | 2026-10-10 10:20 | running | — |
+| `session_01L6JkDa7v56jUKxQFqx7zXx` | Beta R3 prep — view styles study + specs | 2026-10-10 10:43 | running | — |
 | `session_01PCNcUkfa5S1N1BKGzZA4xx` | Release: deploy work branch → Pages (PR #3) | 2026-10-10 07:00 | completed | Merged as ca70e53 — Singapore gap-fill + QA fixes + Singapore engine rebuild live; gates/validate/test/qa (0 FAIL) green; 0 places removed (docs/DEPLOY-2026-10-10.md) |
 
 ### Cross-city pin and top-up passes (5 sessions)

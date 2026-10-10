@@ -21,13 +21,14 @@
 <meta name="twitter:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/tokens.css?v=741d6ede05">
-<link rel="stylesheet" href="../assets/cleo.css?v=faa2f02022">
+<link rel="stylesheet" href="../assets/tokens.css?v=29fb7d6e7f">
+<link rel="stylesheet" href="../assets/cleo.css?v=dfba4ef5d8">
 
 
 <script src="../assets/js/core.js?v=760b61dc92" defer></script>
 <style>
 .tile .art .dots{stroke:var(--dot,var(--on-night))}
+.tile.c-night .art{background:var(--motif,none),radial-gradient(130% 160% at 100% 0,color-mix(in srgb,var(--city) 40%,transparent),transparent 62%),var(--night)}
 .tile.c-night .art .dots{stroke:var(--on-night)}.tile.c-night .art .dots.t1{stroke:var(--gilt-soft)}
 .tile.c-wash .art{background:var(--motif,none),linear-gradient(160deg,var(--city-wash),var(--surface));color:var(--ink)}
 .tile.c-wash .art .native,.tile.c-wash .art .ini{color:var(--city-ink)}
@@ -82,6 +83,8 @@
 .theme-c a b{font-weight:650;color:var(--ink-2)}
 .theme-c .more-n{font-size:13px;color:var(--ink-3);align-self:center;padding:0 4px}
 .theme-main:hover .theme-t{text-decoration:underline;text-underline-offset:4px}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .tile.c-night .art .dots.t1,:root:not([data-theme=light]) .chero .sky .dots.t1{stroke:var(--gilt)}:root:not([data-theme=light]) .theme-n{color:var(--gilt)}:root:not([data-theme=light]) .tile.c-wash .art .dots,:root:not([data-theme=light]) .tile.c-paper .art .dots{stroke:var(--city-ink)}:root:not([data-theme=light]) .tile.c-wash .art .dots.t1,:root:not([data-theme=light]) .tile.c-paper .art .dots.t1{stroke:var(--ink)}}
+:root[data-theme=dark] .tile.c-night .art .dots.t1,:root[data-theme=dark] .chero .sky .dots.t1{stroke:var(--gilt)}:root[data-theme=dark] .theme-n{color:var(--gilt)}:root[data-theme=dark] .tile.c-wash .art .dots,:root[data-theme=dark] .tile.c-paper .art .dots{stroke:var(--city-ink)}:root[data-theme=dark] .tile.c-wash .art .dots.t1,:root[data-theme=dark] .tile.c-paper .art .dots.t1{stroke:var(--ink)}
 .results .grp.guides ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0}
 .results a.is-kb,.results a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 .results mark{background:var(--gilt-soft);color:var(--ink);border-radius:2px}

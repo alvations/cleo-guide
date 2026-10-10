@@ -1018,6 +1018,150 @@ html[data-cleo-page="landing"] main > .masthead:first-child h1, .masthead.hero h
 .theme-toggle { display: inline-grid; place-items: center; width: var(--tap); height: var(--tap); border-radius: 50%; border: 0; background: transparent; color: var(--ink-2); }
 .theme-toggle:hover { background: var(--sand); color: var(--ink); }
 
+/* ==========================================================================
+   15. Wave 2 polish (designer, 2026-10-10) — ROUND-1 gap #4 + the "luxury + fun" layer.
+   FE-A's page-inline GLUE <style> comes after this sheet, so overrides of GLUE rules carry an extra `html` type
+   selector (specificity +0,0,1) instead of !important. Markup asks for FE-A are in docs/BETA-LOG.md (designer W2).
+   ========================================================================== */
+
+/* 15.1 Bodoni macrons. Bodoni Moda draws the macron as a hairline that thins away above opsz ≈ 32 ("Kanda My ojin" at
+   desktop sizes). Display text below hero size is capped at opsz 28 — still Didone contrast, macrons always visible.
+   The landing hero (English copy, no macrons) and h1 city names (none carry macrons — checked) keep auto optical size. */
+:is(h2, h3, .d2, .d3, .pl-n, .rail-i, .dest-n, .tile-n, .lens h2, .section-t, .stops, .card h3, .detail h2, .area-h) { font-variation-settings: "opsz" 28; }
+
+/* 15.2 Card cover. Icon-only heart (44 × 44; the word stays in the DOM, clipped, and in FE-A's aria-label),
+   so the native plate gets the full cover height again and never needs to start below the button. */
+html .pl-x { top: 8px; right: 8px; }
+html .pl-save { width: var(--tap); padding: 0 0 0 12px; justify-content: flex-start; gap: 32px; overflow: hidden; white-space: nowrap; background: color-mix(in srgb, var(--surface) 94%, transparent); }  /* word clipped out of view, kept at 14 px (B-21) */
+html .pl-save::before { flex: none; width: 20px; height: 20px; }
+html .pl-e { padding-right: 60px; }
+/* vertical native plate: FIT, never clip (ROUND-1 #4). The cover is a size container; glyphs scale with its height and
+   wrap into a second column for 5–7 glyph names (.long). The name keeps clear of the plate's widest case. */
+html .pl-cover { container-type: size; }
+html .pl-cover .pl-vert { top: 14px; right: 62px; bottom: 14px; max-height: none; white-space: normal; overflow: visible; line-height: 1.04;
+  font-size: 22px; font-size: clamp(12px, calc((100cqh - 28px) / 4.4), 26px); letter-spacing: .04em; }
+html .pl-cover .pl-vert.long { font-size: 18px; font-size: clamp(12px, calc((100cqh - 28px) / 4.4), 21px); }
+html .pl-cover .pl-glyph { right: 18px; bottom: 14px; width: 24px; height: 24px; }
+html .pl:has(.pl-cover) .pl-n { padding-right: 96px; }
+html .pl:has(.pl-vert.long) .pl-n { padding-right: 112px; }
+/* the plate's field: the city's own motif in ink (skins.py --motif-ink) instead of generic dots, and a two-accent edge */
+html .pl::before {
+  background:
+    var(--motif-ink),
+    linear-gradient(180deg, var(--area-c) 0 70%, var(--city-2) 70%) 0 0 / 5px 100% no-repeat,
+    color-mix(in srgb, var(--area-c) 14%, var(--surface)); }
+html .pl[data-closed]::before { background: repeating-linear-gradient(135deg, transparent 0 9px, color-mix(in srgb, var(--ink) 9%, transparent) 9px 10px), var(--sand); }
+/* when FE-A wraps the native name (<span class="nat">) the plate already shows it: keep it for search/SR, hide it visually */
+.pl:has(.pl-vert) .pl-n .nat { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* 15.3 "Recommended by" (QA-18): no space before commas, no stray comma on its own line. The literal ", " text nodes stay
+   in the DOM (screen readers, copy-paste) but render at 0; each source draws its own comma, glued to its name. */
+html .pl-s { font-size: 0; line-height: 0; }
+html .pl-s > * { font-size: 13.5px; line-height: 1.3; }
+html .pl-s .lbl { font-size: 13px; margin-right: 6px; }
+html .pl-s .src { justify-content: flex-start; gap: 0; padding: 0; margin-right: 10px; text-align: left; line-height: 1.25; }
+html .pl-s .src:not(:last-child)::after { content: ","; display: inline-block; color: var(--ink-3); font-weight: 500; text-decoration: none; }
+html .pl-s .added { font-size: 12.5px; vertical-align: middle; }
+/* label inline on phones too: one flowing line "Recommended by Wikipedia, GO Tokyo, Time Out" (+ density, B-16) */
+html .pl-s .lbl { display: inline; }
+@media (max-width: 639px) { html .pl:has(.pl-cover)::before { min-height: 108px; } html .pl-n { padding-bottom: 12px; } html .pls { gap: 10px; } }
+
+/* 15.4 Detail sheet (gap #4): Close lives in its own header row, never on the plate; the plate is an inset card in the
+   area colour with the city motif; the generic glyph is styled (was an unstyled black fill); body copy in Figtree. */
+html .sheet.detail { padding-top: 0; }
+html .sheet.detail > .close { top: 10px; right: 12px; width: var(--tap); height: var(--tap); border-radius: 50%; z-index: 4; }
+html .detail .hero-plate { margin: 58px 16px 0; height: 168px; border-radius: var(--r-m);
+  background: var(--motif-ink), color-mix(in srgb, var(--area, var(--city)) 16%, var(--surface)); container-type: size; }
+html .detail .hero-plate::before { width: 6px; background: linear-gradient(180deg, var(--area, var(--city)) 0 70%, var(--city-2) 70%); }
+html .detail .hero-plate .pl-vert { top: 18px; right: 26px; bottom: 18px; max-height: none; white-space: normal; line-height: 1.04;
+  font-size: 30px; font-size: clamp(20px, calc((100cqh - 36px) / 4.4), 52px); color: color-mix(in srgb, var(--area, var(--city)) 45%, var(--ink)); }
+html .detail .hero-plate .pl-vert.long { font-size: 28px; font-size: clamp(18px, calc((100cqh - 36px) / 4.4), 44px); }
+html .detail .hero-plate .pl-ini { color: color-mix(in srgb, var(--area, var(--city)) 55%, transparent); }
+html .detail .hero-plate .pl-glyph { left: 22px; bottom: 18px; width: 36px; height: 36px; fill: none; stroke: color-mix(in srgb, var(--area, var(--city)) 60%, var(--ink));
+  stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+html .detail .content { padding-top: 18px; }
+html .detail .why { font: 400 17px/1.62 var(--font-ui); color: var(--ink-2); max-width: 62ch; }
+html .detail .why b, html .detail .why strong { color: var(--ink); font-weight: 650; }
+html .detail h2.d2 { font-size: 30px; line-height: 1.12; letter-spacing: -.01em; text-wrap: balance; }
+html .detail .section-t, html .detail h3.section-t { font: 650 14px/1.3 var(--font-ui); color: var(--ink-3); letter-spacing: .01em; margin: 0 0 8px; }
+html .detail .pills .pill { min-height: var(--tap); font-size: 14px; }
+html .srclist .go { text-align: left; font-weight: 600; color: var(--ink); line-height: 1.35; }
+@media (min-width: 1024px) {
+  html .detail .hero-plate { height: 200px; margin: 58px 24px 0; }
+  html .detail .content { padding-inline: 24px; }
+  html .detail h2.d2 { font-size: 34px; }
+}
+
+/* 15.5 Collection rail (desktop): no dead space, nothing clipped under the arrows — the last 140 px fade out behind them,
+   and the scroller ends with room so the final tile can be read clear of the buttons. */
+@media (min-width: 900px) {
+  html .rail { padding-inline-end: 132px; -webkit-mask: linear-gradient(90deg, #000 calc(100% - 150px), transparent calc(100% - 40px)); mask: linear-gradient(90deg, #000 calc(100% - 150px), transparent calc(100% - 40px)); }
+  html .rail-i { min-width: 0; padding: 12px 40px 12px 14px; }
+  html .rail-i.sig { min-width: 220px; padding-right: 48px; }
+  html .railbar [data-rail="-1"] { right: 2px; } html .railbar [data-rail="1"] { right: -50px; }
+}
+.rail-i.sig::after, .rail-i.sig .g { filter: drop-shadow(0 0 6px color-mix(in srgb, var(--city-on) 40%, transparent)); }
+
+/* 15.6 Landing / hub: the country switcher sits on solid paper with a hairline (was a grey veil over the tiles) */
+html .stickypills { background: var(--paper); box-shadow: 0 1px 0 var(--line); margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); }
+/* distinct tile compositions (gap #1/#3 — "no two navy tiles alike"): four grounds cycle through the grid, each tinted by
+   that city's own skin and second accent; FE-B's per-city motif art (imagery lane) layers on top when present. */
+.dest:nth-child(4n+2) .tile .art { background: var(--motif), radial-gradient(120% 140% at 0 100%, color-mix(in srgb, var(--city-2) 55%, transparent), transparent 60%), color-mix(in srgb, var(--city) 82%, var(--night)); }
+.dest:nth-child(4n+3) .tile .art { background: var(--motif), linear-gradient(118deg, var(--night) 0 54%, color-mix(in srgb, var(--city) 62%, var(--night)) 54.2%); }
+.dest:nth-child(4n) .tile .art { background: var(--motif), radial-gradient(80% 130% at 50% 125%, color-mix(in srgb, var(--city-2) 65%, transparent), transparent 70%), var(--night-2); }
+.tile .art .bar { background: linear-gradient(90deg, var(--city) 0 72%, var(--city-2) 72%); }
+html[data-cleo-page="landing"] .stickypills { top: 0; }   /* the landing top bar rides the hero (absolute), so nothing sits above the pills */
+
+/* 15.7 Saved page baseline (until FE-A ships the mockups/saved.html markup): no default browser controls, a designed list */
+#saved { margin-top: 20px; }
+#saved h2 { font: 500 28px/1.15 var(--font-display); margin: 28px 0 8px; display: flex; align-items: baseline; gap: 10px; }
+#saved h2::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--city); align-self: center; }
+#saved ol, #saved ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; counter-reset: sv; }
+#saved li { counter-increment: sv; display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 8px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-m); box-shadow: var(--e-1); }
+#saved li::before { content: counter(sv); flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--city-wash); color: var(--city-ink); font: 700 13px/1 var(--font-ui); }
+#saved li a { font: 500 18px/1.25 var(--font-display); text-decoration: none; color: var(--ink); min-height: var(--tap); display: inline-flex; align-items: center; }
+#saved li a:hover { color: var(--city-ink); }
+#saved > button, #saved p > button, #saved .shared button { display: inline-flex; align-items: center; gap: 8px; min-height: var(--tap); padding: 0 20px; border-radius: var(--r-pill);
+  border: 0; background: var(--ink); color: var(--paper); font: 650 15px/1 var(--font-ui); box-shadow: var(--e-1); }
+#saved > button:hover, #saved p > button:hover { background: var(--city); color: var(--city-on); }
+#saved > p { color: var(--ink-2); }
+
+/* 15.8 Motion — the "fun" layer. Every rule here sits behind prefers-reduced-motion: no-preference; the reduce block
+   (§13) also zeroes durations. Nothing animates opacity on content (contrast is measured on static frames), nothing on a
+   primary path runs > 300 ms, and none of it is needed to read or use the page. */
+@keyframes w2-rise { from { transform: translateY(18px) scale(.985); } to { transform: none; } }
+@keyframes w2-sheet-up { from { transform: translateY(40px); } to { transform: none; } }
+@keyframes w2-sheet-in { from { transform: translateX(-28px); } to { transform: none; } }
+@keyframes w2-ring { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--city) 55%, transparent); } 100% { box-shadow: 0 0 0 14px transparent; } }
+@keyframes w2-twinkle { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.35); } }
+@keyframes w2-sheen { from { background-position: -160% 0; } to { background-position: 260% 0; } }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .pls .pl { animation: w2-rise linear both; animation-timeline: view(); animation-range: entry 0% entry 60%; }
+  }
+  .overlay:not(.side) .sheet { animation: w2-sheet-up var(--dur-3) var(--ease-out); }
+  .overlay.side .sheet { animation: w2-sheet-in var(--dur-3) var(--ease-out); }
+  .pl-save[aria-pressed="true"] { animation: w2-ring 520ms var(--ease-out) 1; }
+  .pl:hover { transform: translateY(-2px); }
+  .pl:hover .pl-glyph { animation: bob var(--dur-4) var(--ease-spring); }
+  .pl[data-t="1"]:hover .tg.t1, .tier.t1:hover .tg { transform: rotate(45deg); transition: transform var(--dur-3) var(--ease-spring); }
+  .rail-i.sig { background-image: linear-gradient(105deg, transparent 40%, color-mix(in srgb, var(--city-on) 18%, transparent) 50%, transparent 60%); background-size: 220% 100%; background-repeat: no-repeat; background-position: -160% 0; }
+  .rail-i.sig:hover { animation: w2-sheen 900ms var(--ease-out) 1; }
+  .tile:hover .art svg { animation: w2-twinkle 1.6s ease-in-out infinite; }
+  .tile .art svg { transition: transform var(--dur-4) var(--ease-out); }
+  .tile:hover .art svg { transform: scale(1.06) translateY(-2px); }
+  .btn, .pill, .rail-i, .src { transition: transform var(--dur-1) var(--ease-out), background-color var(--dur-2), box-shadow var(--dur-2), color var(--dur-2); }
+  .btn:active, .pill:active, .rail-i:active { transform: scale(.97); }
+}
+
+/* 15.9 Editorial type scale — a magazine rhythm on the long-read surfaces (lens intro, About, method page): Didone lead,
+   old-style figures in running Bodoni, a two-line drop initial on the collection intro. No caps-only text (B-19). */
+.about p, .lens p, .method .note p { font-variant-numeric: oldstyle-nums proportional-nums; }
+.lens > p:first-of-type { font: italic 400 19px/1.45 var(--font-display); color: var(--ink); max-width: 62ch; }
+.lens > p:first-of-type::first-letter { float: left; font: 500 52px/.86 var(--font-display); font-style: normal; margin: 4px 8px 0 0; color: var(--city-ink); }
+.masthead .dek { font-style: italic; font-family: var(--font-display); }
+.area > h2 .area-c, .area-c { font-variant-numeric: tabular-nums; }
+
 /* ---------- 13. Motion: nothing moves under reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
