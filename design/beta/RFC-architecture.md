@@ -617,7 +617,9 @@ hubs and the landing).
   tileLine:  { text, parts, landmark: placeId } | null,   // up to 2 canon dishes + top open tier-1 landmark
   days: { label /* D-14 copy incl. "straight-line" */, rules: {maxStops, minStops, maxSights, maxLeg, maxTotal},
           plans: { AREA: { ids: [placeId], legs: [km], km, sights, food } }, skipped: { AREA: reason } },
-  closed: [{ id, checked }]                    // "Recently closed" collection, newest check first
+  closed: [{ id, checked }],                   // "Recently closed" collection, newest check first
+  areas: { AREA: { n, sights, food, pop, closed, open, tiers: {1,2,3}, pins, km2, perKm2, sources: [[publisherId, n]] } }
+                                               // per-area aggregates for the Round-3 Insights view (view-agnostic)
 }
 ```
 

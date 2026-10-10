@@ -210,11 +210,44 @@ function closedIndex(recs) {
     .map(({ r }) => ({ id: r.id, checked: (r.pv || {}).checked || null }));
 }
 
+/* ---- per-area aggregates (Round 3 "Insights" view; view-agnostic: counts only, computed from the records) ---- */
+function hullKm2(pts) {                                         // area of the convex hull of verified pins, equirectangular km
+  if (pts.length < 3) return 0;
+  const la0 = pts.reduce((s, p) => s + p.la, 0) / pts.length, kx = 111.32 * Math.cos(la0 * Math.PI / 180), ky = 110.57;
+  const q = [...new Map(pts.map(p => [p.ln + ',' + p.la, [p.ln * kx, p.la * ky]])).values()].sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  if (q.length < 3) return 0;
+  const cr = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]), lo = [], up = [];
+  for (const v of q) { while (lo.length >= 2 && cr(lo[lo.length - 2], lo[lo.length - 1], v) <= 0) lo.pop(); lo.push(v); }
+  for (const v of q.slice().reverse()) { while (up.length >= 2 && cr(up[up.length - 2], up[up.length - 1], v) <= 0) up.pop(); up.push(v); }
+  const h = lo.slice(0, -1).concat(up.slice(0, -1));
+  let a = 0; for (let i = 0; i < h.length; i++) { const [x1, y1] = h[i], [x2, y2] = h[(i + 1) % h.length]; a += x1 * y2 - x2 * y1; }
+  return Math.abs(a) / 2;
+}
+/**
+ * One row per area: {n, sights, food, pop, closed, open, tiers:{1,2,3}, pins, km2, perKm2, sources:[[publisherId, n]…]}.
+ * `pop` = records in the page's pop-culture collections (★/ANIME/POP). `km2` = hull of the area's verified pins (0 when
+ * fewer than 3), so `perKm2` is a density of the guide's picks, not of the city. Sources sorted by count, ids only.
+ */
+function areaInsights(row, recs, pc) {
+  const out = {}, popIds = new Set(pc ? pc.c : []);
+  for (const a of row.data.AREAS || []) {
+    const rs = recs.filter(r => r.a === a.id); if (!rs.length) continue;
+    const pins = rs.filter(isVerifiedPin), km2 = hullKm2(pins), src = {};
+    rs.forEach(r => (r.src || []).forEach(k => { src[k] = (src[k] || 0) + 1; }));
+    out[a.id] = { n: rs.length, sights: rs.filter(r => r.kind === 'sight').length, food: rs.filter(r => r.kind === 'food').length,
+      pop: rs.filter(r => r.g.some(g => popIds.has(g))).length, closed: rs.filter(r => r.closed).length, open: rs.filter(open).length,
+      tiers: { 1: rs.filter(r => r.t === 1).length, 2: rs.filter(r => r.t === 2).length, 3: rs.filter(r => r.t === 3).length },
+      pins: pins.length, km2: k1(km2), perKm2: km2 >= 0.05 ? k1(pins.length / km2) : null,
+      sources: Object.entries(src).sort((x, y) => y[1] - x[1] || (x[0] < y[0] ? -1 : 1)) };
+  }
+  return out;
+}
+
 /** Everything above, for one place page. Stored on the row (renderers) and in data/places/<page>.json. */
 function guide(row, recs) {
   const cn = canon(row, recs), pc = popCulture(row, recs);
   return { signature: signature(row, recs, cn, pc), canon: cn, popCulture: pc, foodOrder: foodOrder(row, recs, cn),
-    tileLine: tileLine(row, recs, cn), days: dayPlans(row, recs), closed: closedIndex(recs) };
+    tileLine: tileLine(row, recs, cn), days: dayPlans(row, recs), closed: closedIndex(recs), areas: areaInsights(row, recs, pc) };
 }
 
-module.exports = { dishRe, canonFor, fold, guide, signature, canon, popCulture, foodOrder, tileLine, dayPlans, closedIndex, km, CANON, DAY, DAY_LABEL };
+module.exports = { areaInsights, dishRe, canonFor, fold, guide, signature, canon, popCulture, foodOrder, tileLine, dayPlans, closedIndex, km, CANON, DAY, DAY_LABEL };

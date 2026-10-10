@@ -88,6 +88,8 @@ console.log('\n== GUIDE DATA: signature, canon order, day plans, recently closed
       if (st.length < DAY.minStops || st.length > DAY.maxStops || st.some(x => !x || x.closed || x.a !== a || x.la == null || !x.pv || !['high', 'med'].includes(x.pv.pin))
         || legs.join() !== p.legs.join() || new Set(p.ids).size !== p.ids.length || !/straight-line/.test(g.days.label)) gBad.day.push(row.key + '#' + a);
     }
+    const ai = g.areas || {}, sumA = Object.values(ai).reduce((t, x) => t + x.n, 0);
+    if (sumA !== j.places.filter(p => ai[p.a]).length || Object.values(ai).some(x => x.sights + x.food !== x.n || x.open + x.closed !== x.n)) gBad.idx.push(row.key + ' areas');
     const closed = j.places.filter(p => p.closed).map(p => p.id).sort();
     if (g.closed.map(c => c.id).sort().join() !== closed.join()) gBad.closed.push(row.key);
     const gi = gIdx.pages.find(x => x.key === row.key);
