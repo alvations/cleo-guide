@@ -221,6 +221,8 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
     chk('stated gaps carried (method notes)', [...d.querySelectorAll('.method .note h3')].map(e => e.textContent).includes('What is thin, and why'), true);
     chk('toolbar enhanced', d.querySelector('[data-cleo-toolbar]').hidden, false);
     chk('map fallback note kept', /listed here either way/.test(d.getElementById('cleo-map').textContent), true);
+    const artImg = d.querySelector('#cleo-map .map-art img');
+    chk('no-network map shows the verified-pin schematic (M1-06)', !!artImg && fs.existsSync(path.join(BETA, 'cities', artImg.getAttribute('src').split('?')[0])), true);
     const b = d.querySelector('li.pl .pl-save'); b.click();
     chk('save works with storage throwing (in-memory)', d.querySelector('[data-cleo-saved-count]').textContent, '1');
     chk('no js errors', errs, e => e.length === 0);
@@ -253,6 +255,11 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
     chk('leaflet mounted', !!d.querySelector('#cleo-map .leaflet-pane'), true);
     chk('one marker per pinned place', d.querySelectorAll('#cleo-map .leaflet-overlay-pane path').length, withLL);
     const hosts = [...new Set([...fs.readFileSync(path.join(BETA, 'assets/js/city.js'), 'utf8').matchAll(/tileLayer\('https:\/\/([^/']+)/g)].map(m => m[1]))];
+    // Tiles that never load (blocked network): after 4 errors the dead map gives way to the schematic + VOICE copy.
+    const W = d.defaultView, el = d.getElementById('cleo-map'), hs = {};
+    W.Cleo.watchTiles({ on: (ev, fn) => { hs[ev] = fn; } }, () => W.Cleo.mapFallback(el, null));
+    for (let i = 0; i < 4; i++) hs.tileerror();
+    chk('tiles failed → schematic + "The map couldn’t load" line', [el.getAttribute('data-tiles'), !!el.querySelector('.map-art img'), /map couldn’t load/.test(el.textContent)].join(), 'failed,true,true');
     chk('tile hosts in client (OSM/Esri only)', hosts, h => h.length > 0 && h.every(x => x === 'tile.openstreetmap.org' || x === 'server.arcgisonline.com'));
     chk('no js errors', errs, e => e.length === 0);
   }

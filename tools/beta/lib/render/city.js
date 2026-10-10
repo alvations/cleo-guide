@@ -75,6 +75,9 @@ function render(row, recs, ctx) {
   const title = `${name} — ${recs.length} sourced places · Cleo`;
   const desc = `${name}: ${nS} sights and ${nF} places to eat and drink, every one traceable to the source that recommended it, pinned and status-checked.`;
   const depth = row.beta.split('/').length - 1;
+  const up = '../'.repeat(depth);
+  // M1-06 / M1-13 (platform): the no-network map is a build-time schematic of verified pins (lib/art.js).
+  const mapArt = row.art && row.art.map ? Object.assign({ alt: `Schematic of ${row.art.map.drawn} verified pins in ${name}, coloured by area` }, row.art.map) : null;
 
   const coll = [
     ...(page.CATS || []).map(c => ({ key: 'c', id: c.id, n: c.n, count: recs.filter(r => r.g.includes(c.id)).length })),
@@ -128,7 +131,9 @@ ${areas.map(a => `  <a href="#area-${esc(a.id)}">${esc(shortArea(a.n))}</a>`).jo
 ${sections.join('\n')}
 </div>
 <aside class="mappane" aria-label="Map">
-  <div id="cleo-map" class="map"><p class="map-fallback">The map appears when it can load. Every place is listed here either way.</p></div>
+  <div id="cleo-map" class="map"${mapArt ? ` data-art="${esc(up + mapArt.src)}" data-art-alt="${esc(mapArt.alt)}"` : ''}>${mapArt
+    ? `<figure class="map-art map-fallback"><img src="${esc(up + mapArt.src)}" width="${mapArt.w}" height="${mapArt.h}" alt="${esc(mapArt.alt)}" decoding="async" style="max-width:100%;height:auto"><figcaption>The map appears when it can load. Every place is listed here either way.</figcaption></figure>`
+    : '<p class="map-fallback">The map appears when it can load. Every place is listed here either way.</p>'}</div>
 </aside>
 </div>
 ${m.standfirst ? `<section class="about" aria-label="About this guide"><p>${esc(m.standfirst.replace(/\s*Switch modes below[\s\S]*$/, ''))}</p></section>` : ''}

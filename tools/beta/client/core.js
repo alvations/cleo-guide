@@ -145,6 +145,21 @@
     layer.on('tileerror', function () { if (!ok && !done && ++errs >= n) { done = true; onFail(); } });
   };
 
+  /* ---- tiles failed: drop the dead map, show the build-time schematic + the VOICE.md copy ---- */
+  Cleo.mapFallback = function (el, map) {
+    try { if (map && map.remove) map.remove(); } catch (e) {}
+    var art = el.getAttribute('data-art'), alt = el.getAttribute('data-art-alt') || '';
+    el.innerHTML = (art ? '<figure class="map-art map-fallback"><img alt="" decoding="async" style="max-width:100%;height:auto"><figcaption></figcaption></figure>'
+      : '<div class="map-fallback"><p></p></div>');
+    var img = el.querySelector('img'); if (img) { img.src = art; img.alt = alt; }
+    var cap = el.querySelector('figcaption, p');
+    cap.innerHTML = '<strong>The map couldn\u2019t load.</strong> The list still has every place, address and source. ' +
+      'We\u2019re showing map art from our own pins until tiles return. <button type="button" class="map-retry">Try again</button>';
+    cap.querySelector('button').addEventListener('click', function () { location.reload(); });
+    el.setAttribute('data-tiles', 'failed');
+    emit('cleo:tiles-failed', {});
+  };
+
   /* ---- saved counter in the site bar ---- */
   function paintCount() {
     var n = Cleo.saved.count();
