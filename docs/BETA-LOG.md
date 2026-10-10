@@ -301,6 +301,22 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - Gate: every PNG 1200×630 ≤ 300 KB and its page's `og:image` points at it. RFC §6.5 updated. Re-run `npm run beta:og` after data changes (not part of `npm run beta`: needs Chromium; PNG bytes aren't reproducible).
   - **FE-B:** the landing still uses `og-cover.png`; `assets/og/country-us.png` exists if you want the US card there.
   - Cards: `beta/assets/og/tokyo.png`, `cleveland.png`, `pittsburgh.png`, `country-japan.png`, `country-us.png`. validate + npm test + beta:check PASS.
+- 2026-10-10 · **view-styles design lane** · Round 3 preparation (Gallery · Atlas · Guidebook · Insights) · beta scope `design/beta/views/**` only.
+  - **Study** (`design/beta/views/STUDY.md`): the switcher, URL-hash state, map / chart / insight views, filters, detail drawer, density and paging, with 19 Playwright screenshots of the melon-seek snapshot in offline mock mode (`views/study/`, hashes in `study/hashes.json`). Commit `820f3c3`.
+  - **Spec** (`views/SPEC.md`):
+    - one record set and one lens predicate set for every view;
+    - a `view=` hash key (default Gallery; precedence hash → `Cleo.store` preference → default; share writes `view=` explicitly);
+    - paging only in the Gallery grid, with page numbers, an "all N" total and show-all;
+    - per-view mobile and desktop layouts;
+    - how the views share the sheet ("n of N in this view"), the tray and saved lists.
+  - **Mockups** (`views/mockups/`, built by `views/tools/make-views.py` from `beta/data/places/{tokyo,cleveland}.json` read-only, with count asserts per view: 488 / 194):
+    - Gallery, its experience page, Atlas, Guidebook (with print) and Insights (7 inline-SVG charts with a validated palette, table views and an all-places index);
+    - 49 screenshots at 390×844 and 1440×900 in `views/screenshots/` (`views/tools/views-shots.js`, off-origin aborted). Commit `ea125b6`.
+  - **Plan** (`views/PLAN.md`):
+    - Platform P-01…P-06, FE-A A-01…A-05, FE-B B-01…B-04 (proposal: FE-B owns Guidebook and Insights as view modules), designer D-01…D-04 and QA Q-01…Q-04;
+    - every item has acceptance criteria and is mapped to the PM's M4-01…M4-09.
+  - Note: one `npm test` run returned non-zero just before `ea125b6` was committed. Three reruns on the same tree and on the merged head were all green, and no FAIL line could be reproduced. Logged here for QA, as a possible flake.
+  - Naming rule 6: no third-party brand appears in these docs, code, class names, file names or commits. Source labels on mockup cards are data-rendered attribution.
 - 2026-10-10 · UI/UX (designer) · **Wave 2 push 3 + review** · session_01PCNcUkfa5S1N1BKGzZA4xx · `design/beta/REVIEW-W2.md` (per-gap verdicts at 390×844 + 1440×900, `design/beta/eval/w2/designer/rev-*.jpg`).
   - **Verdicts:** #2 ✅ · #3 ✅ · #4 ✅ · #5 ✅ · #8 ✅ · #10 ✅ (FE-A slice 2) · #1 ◐ mostly closed (motifs + compositions; photos blocked) · #6 ◐+ · #7 ◐+ · #9 ✅ after platform's chunk/OG merge (Tokyo 1,734 / NYC 1,635 / Cleveland 1,284 initial nodes; 90 OG cards). Estimated A ≈ 74–78.
   - **Ownership race resolved:** FE-A slice 2 and my push 3 each yielded plate-fit / commas / sheet geometry to the other, so one merge had neither (plates clipped, "Wikipedia ," back, black glyph). **Restored in cleo.css §15.2–15.4 — designer owns them**; FE-A owns `.loc` (glyph hides when present) and `.peek-c`.
