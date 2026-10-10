@@ -28,9 +28,9 @@ function render(ctx) {
 <body>
 ${sprite}
 ${siteBar({ depth: 0, current: 'saved', rel: 'saved.html' })}
-<main id="main">
-<header class="masthead"><p class="eyebrow">Saved</p><h1>Your lists</h1><p class="stats">Saved on this device only — no account, nothing leaves your browser unless you share a link or export a file.</p></header>
-<section id="saved" aria-live="polite"><p>Your saved places appear here once the page script runs. Every guide works without it.</p></section>
+<main id="main" class="saved-page">
+<header class="masthead"><h1>Your lists</h1><p class="stats">Saved on this device only — no account, nothing leaves your browser unless you share a link or export a file.</p></header>
+<section id="cleo-saved" class="sv-root" aria-live="polite"><p>Your saved places appear here once the page script runs. Every guide works without it.</p></section>
 </main>
 ${footer({ depth: 0 })}
 <script src="assets/js/saved.js?v=${ctx.assetsV.saved}" defer></script>

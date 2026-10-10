@@ -32,16 +32,18 @@
       '<a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=' + ll + '"' + NT + '>Google Maps</a></div>' : '';
     var saved = Cleo.saved && Cleo.saved.has(C.key + '/' + id), been = !!C.been.all()[C.key + '/' + id];
     // header row keeps Close OFF the plate (ROUND-1 #4); the plate = area locator (verified pins) + native/initial + glyph
+    // DES 15.10 (g) sheet locator: the area's own pins (cards' data-ll, projected with the area art's frame) + this place lit
     var art = (info.art || {})[a], loc = '';
     if (art && ll && Cleo.art) {
-      var p = ll.split(','), xy = Cleo.art.xy({ pad: art[3], box: art.slice(4, 8), kx: art[8], ky: art[9] }, +p[0], +p[1]);
-      loc = '<figure class="loc" style="--ar:' + art[1] + '/' + art[2] + '"><img src="' + esc(art[0]) + '" alt="" decoding="async"><i style="left:' + (xy[0] / art[1] * 100).toFixed(1) + '%;top:' + (xy[1] / art[2] * 100).toFixed(1) + '%"></i>' +
-        '<figcaption>Where in ' + esc(C.label('a', a)) + '</figcaption></figure>';
+      var pr = { pad: art[3], box: art.slice(4, 8), kx: art[8], ky: art[9] }, dot = function (v, me) { var p = v.split(','), xy = Cleo.art.xy(pr, +p[0], +p[1]);
+        return xy[0] >= 0 && xy[1] >= 0 && xy[0] <= art[1] && xy[1] <= art[2] ? '<circle' + (me ? ' class="me" r="' + (art[1] / 22).toFixed(1) + '"' : ' r="' + (art[1] / 70).toFixed(1) + '"') + ' cx="' + xy[0].toFixed(1) + '" cy="' + xy[1].toFixed(1) + '"/>' : ''; };
+      loc = '<div class="locator"><svg viewBox="0 0 ' + art[1] + ' ' + art[2] + '" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Where it is in ' + esc(C.label('a', a)) + '">' +
+        [].map.call(d.querySelectorAll('li.pl[data-a="' + a + '"][data-ll]'), function (x) { return x === c ? '' : dot(x.getAttribute('data-ll')); }).join('') + dot(ll, 1) + '</svg></div>';
     }
     var inDay = C.day && C.day.has(id);
     return '<div class="sheet detail" role="dialog" aria-modal="true" aria-labelledby="sh-t"><span class="grab" aria-hidden="true"></span>' +
       '<button class="btn btn-icon close" data-sh="x" aria-label="Close">' + icon('close') + '</button>' +
-      '<div class="hero-plate" style="--area:' + esc(((info.areas || {})[a] || {}).c || 'var(--city)') + '" aria-hidden="true">' + loc + q('.pl-cover', c).innerHTML + '</div>' +
+      '<div class="hero-plate" style="--area:' + esc(((info.areas || {})[a] || {}).c || 'var(--city)') + '">' + loc + '<div aria-hidden="true">' + q('.pl-cover', c).innerHTML + '</div></div>' +
       '<div class="content"><div class="badges">' + (closed ? '<span class="status closed">Closed · kept for the record</span>' : tier ? tier.outerHTML.replace('class="tier', 'class="tier lg') : '') +
       '<span class="sm">in ' + esc(C.label('a', a)) + ' · pin ' + c.getAttribute('data-n') + '</span></div><h2 class="d2" id="sh-t">' + (q('.pl-vert', c) && q('.pl-n .nat', c) ? esc(C.name(c)) + ' <span class="vh">' + esc(q('.pl-n .nat', c).textContent) + '</span>' : q('.pl-n a', c).innerHTML) + '</h2>' +
       (w ? '<p class="why">' + w.innerHTML + '</p>' : '') +

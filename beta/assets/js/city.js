@@ -79,10 +79,11 @@
       if (li.some((x, i) => ol.children[i] !== x)) li.forEach(x => ol.appendChild(x));
     });
     cards.forEach(c => { const v = visible(c); c.hidden = !v; if (v) { n++; areas[at(c, 'data-a')] = 1; }
+      // DES 15.10 hooks on the eyebrow: .pl-why (For you) and .pl-dist (Near me)
       const y = C.why && C.why(c), w = $('.pl-why', c);
-      if (y) { if (!w) $('.pl-n', c).insertAdjacentHTML('afterend', '<p class="pl-why"></p>'); $('.pl-why', c).innerHTML = icon('spark') + '<span>' + esc(y) + '</span>'; } else if (w) w.remove();
-      const dk = $('.pl-km', c), dv = C.dist && C.dist[pid(c)];
-      if (dv != null) { if (!dk) $('.pl-e', c).insertAdjacentHTML('beforeend', ' <span class="pl-km"></span>'); $('.pl-km', c).textContent = '· ' + (dv < 1 ? Math.round(dv * 1000 / 10) * 10 + ' m' : dv.toFixed(1) + ' km') + ' away'; } else if (dk) dk.remove();
+      if (y) { if (!w) $('.pl-e', c).insertAdjacentHTML('beforeend', ' <span class="pl-why"></span>'); $('.pl-why', c).textContent = y; } else if (w) w.remove();
+      const dk = $('.pl-dist', c), dv = C.dist && C.dist[pid(c)];
+      if (dv != null) { if (!dk) $('.pl-e', c).insertAdjacentHTML('beforeend', ' <span class="pl-dist"></span>'); $('.pl-dist', c).textContent = (dv < 1 ? Math.round(dv * 100) * 10 + ' m' : dv.toFixed(1) + ' km') + ' away'; } else if (dk) dk.remove();
     });
     sections.forEach(s => { s.hidden = !s.querySelector('li.pl:not([hidden])'); });
     if (sections.length > 1) {   // Near me: the nearest area comes first; otherwise the guide's area order
@@ -108,7 +109,7 @@
     } else if (lk === 'gap') { const g = (info.gaps || [])[+S.gap] || ['', '']; h = gap('<p class="d3">' + esc(g[0]) + '</p><p>“' + esc(g[1]) + '”</p>') + '<div class="row">' + all + '</div>'; }
     else if (lk) h = '<h2>' + esc(label(lk, S[lk])) + '</h2><p>' + pl(n) + ' across ' + ar(nA) + (lk === 't' ? ', graded within each area' : '') + ' — numbered to match the map.</p>' +
       (lk === 'cz' ? (info.gaps || []).filter(x => x[2].indexOf(S.cz) >= 0).map(x => gap('<p>“' + esc(x[1]) + '”</p>')).join('') : '') + '<div class="row">' + all + '</div>';
-    if (lens) { lens.innerHTML = h; lens.hidden = !h; }
+    if (lens) { lens.innerHTML = h; lens.hidden = !h; lens.classList.toggle('is-day', lk === 'day'); }
     const chips = act.filter(k => k !== 'day').concat(S.q ? ['q'] : []);
     if (applied) applied.innerHTML = chips.map(k => { const l = esc(label(k, k === 'q' ? S.q : S[k])); return '<button class="chip-x" data-unset="' + k + '" aria-label="Remove ' + l + '">' + l + icon('close') + '</button>'; }).join('') +
       (chips.length > 1 ? '<button class="clear" data-cleo-all>Clear all</button>' : '');
