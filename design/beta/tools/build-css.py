@@ -24,7 +24,7 @@ NEW = {   # added W1, same 24-px grid, 1.75 stroke, round caps — generic, neve
 }
 G = dict(ICONS, **NEW)
 gcfg = json.load(open(os.path.join(R, 'design', 'beta', 'glyphs.json')))
-used = sorted(set(gcfg['collections'].values()) | {'torii', 'star4', 'forkknife'})
+used = sorted(set(gcfg['collections'].values()) | {'torii', 'star4', 'forkknife', 'route', 'pin', 'heart', 'day', 'compass', 'bowl', 'mountain', 'frame', 'columns'})   # W2: + UI glyphs for .mod/.leg/.pl-dist/.interest
 def uri(body):
     svg = ("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' "
            "stroke-linecap='round' stroke-linejoin='round'>" + body.replace('"', "'") + '</svg>')
