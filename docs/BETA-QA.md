@@ -553,3 +553,23 @@ Ratified as QA rules: in a paged view, one tap on the pager's own visible "Show 
 Open, Low: QA-26. PM call pending on record prose with prices and ratings.
 
 QA sign-off: YES
+
+## 2026-10-10 · QA · R5 follow-up re-test · session_015bFMDrayu1fp3qp2cKD3xm
+
+**Tested SHA: `63932912265fa83e23addc65c5f65b63112a7007`**, pinned in a clean worktree. `metrics.js` is unchanged since the W5 ruling.
+
+| Check | Result |
+|---|---|
+| Gates | validate ✅, `npm test` ✅ (P-04 reachability in every view), `beta:check` ✅ |
+| W5 probe `w5.js` | ✅ **64/64**. Deep link opens all 1,241 places, search, show-all and no-JS reach 100 %, and every pilot has a real place card in the first phone screen. |
+| G1, all four views | ✅ Gallery default and Atlas: G1 on every pilot (metrics). Guidebook and Insights: P-04 in npm test + `views.js` (319/320; the one is the known record-prose INFO). |
+| Atlas | ✅ **24/24** on every pilot |
+| Weight, default (Gallery) | ✅ Tokyo **1,932 KB** raw / ≈ 0.45 MB gzip (≤ 2.0 MB); New York 1,678 KB. One `map.svg` per page. |
+| FCP at 4× CPU, default | ✅ landing 968 ms, Cleveland 388, Tokyo 532, New York 420, Chinatown 580, Wheeling 356 (all ≤ 1.0 s) |
+| One tap to the map (phone) | ✅ from the Gallery, the map button opens `#view=atlas&map=1`: the map at 93 % of the screen, 488 pins on Tokyo, and Back returns to the Gallery. B-07 now passes on the default view too. |
+| Gallery JSON unavailable | ✅ with `data/gallery/*.json` blocked, the Gallery still shows every place (Tokyo 488, Chinatown 16) and 0 errors |
+| W2 harness | ✅ 217/218 (QA-26 Low). The map runs in Atlas: Chinatown 16 numbered pins, peek 36 %. |
+
+On the Gallery default, the rows still failing are the Atlas-only map/rail rows (B-04, B-06, B-09) and B-16, as ratified in W5. Open: QA-26 (Low); the PM call on record-prose prices/ratings.
+
+QA sign-off: YES

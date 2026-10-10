@@ -708,3 +708,5 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     The harness's FCP 4× figures move by a few hundred ms from run to run on this machine. The R5 figure of 1,124 ms came from another machine. Every after-figure is under 1.0 s.
   - **Phone tap from Gallery.** Before: `#view=atlas`, list only, no map. After: `#view=atlas&map=1` with the map mounted.
   - **Gates.** G1 488/488 on every path (scrolled, deep, search, no-JS), and New York 508/508. `qa/w5.js` passes 64/64. P-04 passes in `npm test`. `validate`, `test` and `beta:check` are green.
+- 2026-10-10 · **QA** · R5 follow-up re-test · session_015bFMDrayu1fp3qp2cKD3xm
+  - **QA sign-off: YES on `63932912265fa83e23addc65c5f65b63112a7007`** (clean pinned worktree): w5.js 64/64; G1 in all views; Atlas 24/24; Tokyo default 1,932 KB raw (≈0.45 MB gzip); FCP 4× ≤ 968 ms on every pilot + landing; one-tap phone map → #view=atlas&map=1 (Back returns to Gallery); Gallery holds every place with its JSON blocked; W2 217/218 (QA-26). Details: BETA-QA.md → "R5 follow-up re-test".
