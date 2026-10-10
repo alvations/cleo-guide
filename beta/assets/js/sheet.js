@@ -40,10 +40,10 @@
     }
     var inDay = C.day && C.day.has(id);
     return '<div class="sheet detail" role="dialog" aria-modal="true" aria-labelledby="sh-t"><span class="grab" aria-hidden="true"></span>' +
-      '<div class="sh-top"><span></span><span class="sm">' + esc(C.label('a', a)) + ' · pin ' + c.getAttribute('data-n') + '</span><button class="btn btn-icon close" data-sh="x" aria-label="Close">' + icon('close') + '</button></div>' +
+      '<button class="btn btn-icon close" data-sh="x" aria-label="Close">' + icon('close') + '</button>' +
       '<div class="hero-plate" style="--area:' + esc(((info.areas || {})[a] || {}).c || 'var(--city)') + '" aria-hidden="true">' + loc + q('.pl-cover', c).innerHTML + '</div>' +
       '<div class="content"><div class="badges">' + (closed ? '<span class="status closed">Closed · kept for the record</span>' : tier ? tier.outerHTML.replace('class="tier', 'class="tier lg') : '') +
-      '</div><h2 class="d2" id="sh-t">' + q('.pl-n a', c).innerHTML + '</h2>' +
+      '<span class="sm">in ' + esc(C.label('a', a)) + ' · pin ' + c.getAttribute('data-n') + '</span></div><h2 class="d2" id="sh-t">' + (q('.pl-vert', c) && q('.pl-n .nat', c) ? esc(C.name(c)) + ' <span class="vh">' + esc(q('.pl-n .nat', c).textContent) + '</span>' : q('.pl-n a', c).innerHTML) + '</h2>' +
       (w ? '<p class="why">' + w.innerHTML + '</p>' : '') +
       (closed ? '<p class="closed-note">Closed — kept for the record' + (pv[2] ? ' · per ' + esc(pv[2]) : '') + (chk ? ', checked ' + esc(chk) : '') + '</p>' : '') + note +
       (lenses.length ? '<div><h3 class="section-t">Part of</h3><div class="pills">' + lenses.map(function (x) { return '<button class="pill" data-sh="lens" data-f="' + x[0] + '" data-v="' + esc(x[1]) + '">' + esc(C.label(x[0], x[1])) + '</button>'; }).join('') + '</div></div>' : '') +

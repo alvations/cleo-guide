@@ -261,6 +261,12 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - Upstreamed FE-A GLUE basics (`.pl-e .pl-num`, `.pl-e .in`, `.pl-s .src` button reset) so cards render identically outside the city page.
   - **Status:** gap #4 CSS side → review; #7 saved spec → done (FE-A to build); #5/#2 visual spec → done (FE-A); #6 peek detent → review.
   - Screenshots: `design/beta/eval/w2/designer/w2-components-{m,d}.jpg`.
+- 2026-10-10 · **FE-A (city + saved)** · Wave 2 slice 2 · ROUND-1 gaps #10, #5, #8 (platform data), #4 (DES hooks) · commit: this entry's commit.
+  - **#10 ★ signature from platform `row.guide` (R-20):** with no ★ collection, the ★ tile is the city's **food canon** (`data-sig` lens over `guide.signature.ids`; dish line under the title, e.g. Cleveland "Only in Cleveland · Polish Boy · corned beef · Barberton chicken" 18, Pittsburgh "Pittsburgh classics", NYC "New York classics"). The lens prints the dishes with counts. **Publishers never take ★ any more**; they keep their source tiles. **Canon-first food rail** from `guide.foodOrder` (Cleveland starts with Unique American, which fixes **QA-16**). Tests: the ★ tile is the canon and not a publisher, the lens count equals its ids, the rail starts with the canon on Cleveland, Pittsburgh and NYC.
+  - **#5 Your day now reads `guide.days.plans`** (R-22; my build-time fallback is deleted, so there's one source of truth). It uses the platform's D-14 label and states the platform's `skipped` reason in an area with no day.
+  - **#8 Recently closed** lens is ordered by `guide.closed` (newest check first; test).
+  - **DES hooks adopted:** the native aside is `<span class="nat" lang>` (cleo.css 15.x hides it when the plate shows it, and the plate takes ≤ 7 glyphs with `.long` for 5–7). "Recommended by" keeps the literal ", " (15.3 draws the glued comma). The sheet's Close is a direct child again (15.4 header space). My plate, comma and sheet-geometry rules are removed from `fe-a.css`, and the locator inset now sits above DES's glyph. The source "All N picks" buttons are ≥ 44 px.
+  - Gates: validate, npm test (all suites incl. test-fe-a), beta:check PASS once rebased on origin's landing fix.
 - 2026-10-10 · **PM** · M1 acceptance + Wave 2 / Round 3 planning · session_017mbzpE8dtjevPVLcXB6TEK · head `10615ab2`.
   - **M1 acceptance** (`BETA-BACKLOG.md` → "M1 acceptance"), judged on QA run 3 and DES REVIEW-W1: **16 accepted**,
     **3 in re-test** (M1-04 / B-06, M1-05 / B-07, M1-11 / B-16, all against FE-A `0f0f7b6e`), and **3 rejected**:
