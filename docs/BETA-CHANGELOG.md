@@ -123,3 +123,20 @@ Evidence: `design/beta/eval/ROUND-5.md`. Whole-program summary: `design/beta/eva
 - Feature coverage: 33 of 35 rows are shipped. #30 (multilingual) is partial while it waits for an owner-reviewed locale.
 
 **Follow-up in progress:** one fix lane for ROUND-5 gaps #2 and #3. Making Gallery the default raised Tokyo's initial transfer to 3.03 MB and its FCP to 1.1 s, and it put the map two taps away on phones. The fix targets ≤ 2.0 MB, FCP ≤ 1.0 s, and a one-tap map. It needs a QA re-sign before deploy.
+
+## R5 follow-up (deployed 2026-10-10 21:10Z)
+
+PR alvations/cleo-guide#8 merged the QA-signed `63932912` (merge `9f54587d`). It fixes the two regressions that came with the Gallery default:
+
+| Page | Before | After |
+|---|---|---|
+| Tokyo (default view) | 3,012 KB | 1,932 KB |
+| New York | 5.8 MB | 1.7 MB |
+
+- First contentful paint at 4× CPU is now at most 1 s on every pilot.
+- On phones, the map opens in one tap from Gallery.
+
+**Program closed.** Every agent session is archived, and the check-ins have stopped. Open owner actions:
+- photographs (blocked by the network policy);
+- the price and rating record prose;
+- a reviewed second locale.

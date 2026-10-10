@@ -710,3 +710,5 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Gates.** G1 488/488 on every path (scrolled, deep, search, no-JS), and New York 508/508. `qa/w5.js` passes 64/64. P-04 passes in `npm test`. `validate`, `test` and `beta:check` are green.
 - 2026-10-10 · **QA** · R5 follow-up re-test · session_015bFMDrayu1fp3qp2cKD3xm
   - **QA sign-off: YES on `63932912265fa83e23addc65c5f65b63112a7007`** (clean pinned worktree): w5.js 64/64; G1 in all views; Atlas 24/24; Tokyo default 1,932 KB raw (≈0.45 MB gzip); FCP 4× ≤ 968 ms on every pilot + landing; one-tap phone map → #view=atlas&map=1 (Back returns to Gallery); Gallery holds every place with its JSON blocked; W2 217/218 (QA-26). Details: BETA-QA.md → "R5 follow-up re-test".
+
+- 2026-10-10 21:11Z · orchestrator · DEPLOYED R5 follow-up (PR alvations/cleo-guide#8, QA-signed 63932912, merge 9f54587d). Program closed. Every beta session is archived and the check-ins have stopped.
