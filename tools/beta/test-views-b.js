@@ -1,0 +1,177 @@
+#!/usr/bin/env node
+'use strict';
+/**
+ * tools/beta/test-views-b.js — FE-B gate for the Wave 3 views (Guidebook B-01/B-03, Insights B-02, hub links B-04).
+ * Run from test-hubs.js (so it is part of `npm test`), or alone: node tools/beta/test-views-b.js
+ *
+ *  1. GUIDEBOOK, every place page: entries == N, each id exactly once, in view order; no empty section; closed entries
+ *     carry no tier; the intro prose is template words + computed numbers + names from the data, nothing else;
+ *     the sources appendix carries every source of the page and every URL a record cites.
+ *  2. INSIGHTS, every place page: every chart's segments sum to its denominator; per-area numbers equal the platform's
+ *     guide.areas; a city with no pop-culture data says so (null, not 0); the index lists N names; no chart library.
+ *  3. HONESTY on both renders: no price, rating, booking, availability or opening-hours strings.
+ *  4. jsdom on pilot city pages: both modules mount through Cleo.views (or the queue) with storage blocked, render
+ *     every place, follow the city page's lens (no second predicate), and fail with a stated message, not an error.
+ *  5. HUB LINKS (B-04): every "Read as a guidebook" / "in numbers" link points at a generated city page and a real view.
+ */
+const fs = require('fs');
+const path = require('path');
+const { JSDOM } = require('jsdom');
+const G = require('./client/guidebook.js');
+const I = require('./client/insights.js');
+
+const ROOT = path.resolve(__dirname, '..', '..');
+const BETA = path.join(ROOT, 'beta');
+let failures = 0;
+const chk = (name, ok, got) => { console.log(`  ${ok ? 'PASS' : 'FAIL'}  ${name}${got !== undefined ? ' = ' + JSON.stringify(got).slice(0, 240) : ''}`); if (!ok) failures++; };
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const files = fs.readdirSync(path.join(BETA, 'data/places')).filter(f => f.endsWith('.json')).sort();
+const load = f => JSON.parse(fs.readFileSync(path.join(BETA, 'data/places', f), 'utf8'));
+const HONESTY = /(\$\s?\d|€\s?\d|¥\s?\d|£\s?\d|\bprice[sd]?\b|\brating\b|\bstars?\b(?! ?\d? ?·)|\bbook now\b|\bbooking\b|\breserve (?:a|your)\b|\breservations?\b|\bavailability\b|\bopen(?:ing)? hours\b|\bopen now\b)/i;
+const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+
+(async () => {
+  console.log('FE-B views — Guidebook + Insights (W3)');
+  let bad = { n: [], once: [], order: [], empty: [], tier: [], intro: [], src: [], sums: [], plat: [], pop: [], idx: [], honest: [] };
+  for (const f of files) {
+    const d = load(f), N = d.places.length;
+    // ---- 1 · Guidebook
+    const r = G.render(d), h = r.html, M = r.model;
+    const ids = [...h.matchAll(/<li class="ge" id="gb-([^"]+)"/g)].map(m => m[1]);
+    if (ids.length !== N) bad.n.push(f);
+    if (new Set(ids).size !== N || d.places.some(p => !ids.includes(p.id.replace(/&/g, '&amp;').replace(/"/g, '&quot;')))) bad.once.push(f);
+    // view order within each section follows rank; sections in fixed order
+    for (const m of h.matchAll(/<ol class="gl">([\s\S]*?)<\/ol>/g)) {
+      const rk = [...m[1].matchAll(/data-rank="(\d+)"/g)].map(x => +x[1]);
+      if (rk.some((x, i) => i && x < rk[i - 1])) { bad.order.push(f); break; }
+    }
+    if (/<section class="gs[^"]*"><h3 class="d3">[^<]*<span class="meta">0<\/span>/.test(h)) bad.empty.push(f);
+    if (/<li class="ge"[^>]*data-closed>(?:(?!<\/li>)[\s\S])*class="tier /.test(h)) bad.tier.push(f);
+    // intro: remove data names, then every word must be template text or a number
+    const words = new Set(G.TEMPLATE.toLowerCase().replace(/[^a-z\s-]/g, ' ').split(/\s+/).filter(Boolean));
+    const names = d.places.map(p => M.order.find(x => x.p.id === p.id).name)
+      .concat(d.areas.map(a => G.shortArea(a.n)), (d.sourceIndex || []).map(s => String(s.name).split(/\s+[·—(]\s*/)[0].slice(0, 34)), ['Added by the guide'])
+      .filter(Boolean).sort((a, b) => b.length - a.length);
+    for (const m of h.matchAll(/<p class="ch-intro">([^<]*)<\/p>/g)) {
+      let t = m[1].replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
+      for (const n of names) t = t.split(n).join(' ');
+      const left = t.toLowerCase().replace(/[0-9]+/g, ' ').replace(/[^a-z\s-]/g, ' ').split(/\s+/).filter(w => w && !words.has(w));
+      if (left.length) { bad.intro.push(f + ': ' + left.slice(0, 5).join(' ')); break; }
+    }
+    // sources appendix: every source, every URL a record cites
+    const app = h.slice(h.indexOf('id="gb-sources"'));
+    const missing = (d.sourceIndex || []).filter(s => !app.includes('<b>' + s.name.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;') + '</b>'));
+    const cited = new Set(d.places.flatMap(p => (p.s || []).map(x => x[1]).filter(u => /^https?:\/\//.test(u || ''))));
+    const urls = new Set([...app.matchAll(/<a href="([^"]+)"/g)].map(m => m[1].replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"')));
+    const lost = [...cited].filter(u => !urls.has(u));
+    if (missing.length || lost.length) bad.src.push(`${f}: ${missing.length} sources, ${lost.length} URLs (${lost[0] || ''})`);
+    // ---- 2 · Insights
+    const ir = I.render(d), X = ir.numbers, s = o => Object.values(o || {}).reduce((a, b) => a + b, 0);
+    const ok = s(X.kind.whole) === N && X.areas.every(a => s(X.kind.perArea[a.id]) === X.perArea[a.id] && s(X.src.perArea[a.id]) === d.places.filter(p => p.a === a.id).reduce((t, p) => t + p.src.length, 0))
+      && s(X.perArea) === N && s(X.closed) === X.tiles.closed && X.areas.reduce((t, a) => t + s(X.tiers[a.id]), 0) === N - X.tiles.closed
+      && s(X.months) === N && X.areas.reduce((t, a) => t + s(X.src.perArea[a.id]), 0) === X.tiles.citations
+      && X.tiles.citations === d.places.reduce((t, p) => t + p.src.length, 0) && X.tiles.sights + X.tiles.food === N;
+    if (!ok) bad.sums.push(f);
+    const GA = (d.guide || {}).areas || {};
+    for (const a of X.areas) {
+      const g = GA[a.id]; if (!g) continue;
+      const k = X.kind.perArea[a.id];
+      if (g.n !== X.perArea[a.id] || g.closed !== X.closed[a.id] || g.food !== (k.food || 0) || g.sights !== (k.sight || 0) + (k.pop || 0)
+        || s(g.tiers) !== s(X.tiers[a.id]) + X.closed[a.id]) { bad.plat.push(f + ':' + a.id); break; }   // guide.areas tiers include closed places
+    }
+    const hasPop = !!((d.guide || {}).popCulture && d.guide.popCulture.c && d.guide.popCulture.c.length);
+    if (hasPop ? X.tiles.pop === null : X.tiles.pop !== null || !/no pop-culture collection/.test(ir.html)) bad.pop.push(f);
+    if (ir.index !== N || (ir.html.match(/<li class="ixi"/g) || []).length !== N) bad.idx.push(f);
+    if (/<script|cdn|https?:\/\/(?!www\.w3\.org)/i.test(ir.html)) bad.idx.push(f + ' (external ref in insights)');
+    // ---- 3 · honesty (write-ups and notes are the record's own words; the view's chrome must add none)
+    let chrome = textOf(h.replace(/<p class="ge-w">[\s\S]*?<\/p>|<p class="gk">[\s\S]*?<\/p>|<section class="gb-appendix"[\s\S]*$/g, '') + ir.html.replace(/<li class="ixi"[\s\S]*?<\/li>/g, ''));
+    for (const nm of names.concat(d.places.map(p => p.ad || ''), d.places.map(p => p.n)).filter(Boolean).sort((a, b) => b.length - a.length)) chrome = chrome.split(nm.replace(/&/g, '&')).join(' ');
+    const hit = HONESTY.exec(chrome); if (hit) bad.honest.push(f + ': ' + chrome.slice(Math.max(0, hit.index - 40), hit.index + 30));
+  }
+  const n = files.length;
+  chk(`guidebook: entries == N on all ${n} place pages`, !bad.n.length, bad.n);
+  chk('guidebook: every place exactly once', !bad.once.length, bad.once);
+  chk('guidebook: rank order within every section', !bad.order.length, bad.order);
+  chk('guidebook: no empty section', !bad.empty.length, bad.empty);
+  chk('guidebook: closed entries carry no tier', !bad.tier.length, bad.tier);
+  chk('guidebook: intro = template words + numbers + data names only', !bad.intro.length, bad.intro);
+  chk('guidebook: appendix lists every source and every cited URL', !bad.src.length, bad.src);
+  chk('insights: every chart sums to its denominator', !bad.sums.length, bad.sums);
+  chk('insights: per-area numbers == platform guide.areas', !bad.plat.length, bad.plat);
+  chk('insights: no pop-culture data → absent (null + stated), not 0', !bad.pop.length, bad.pop);
+  chk('insights: index lists N names; no script/CDN in the view', !bad.idx.length, bad.idx);
+  chk('honesty: no price / rating / booking / hours strings in either view', !bad.honest.length, bad.honest);
+
+  // ---- 4 · jsdom on pilot city pages, storage blocked
+  const PILOTS = [['cities/tokyo.html', 'tokyo'], ['cleveland.html', 'cleveland'], ['Singapore/chinatown.html', 'singapore--chinatown']];
+  for (const [page, file] of PILOTS) {
+    if (!fs.existsSync(path.join(BETA, page))) { chk(`${page} exists`, false); continue; }
+    const N = load(file + '.json').places.length;
+    let html = fs.readFileSync(path.join(BETA, page), 'utf8').replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
+      (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
+    html = html.replace('</body>', ['guidebook', 'insights'].map(x => '<script>' + fs.readFileSync(path.join(__dirname, 'client', x + '.js'), 'utf8') + '</script>').join('') + '</body>');
+    const errs = [];
+    const dom = new JSDOM(html, { runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + page,
+      beforeParse(w) {
+        w.Element.prototype.scrollIntoView = function () {};
+        w.matchMedia = () => ({ matches: false, addListener() {}, removeListener() {} });
+        Object.defineProperty(w, 'localStorage', { get() { throw new Error('SecurityError'); } });
+        w.fetch = u => { const p = path.join(BETA, /data\/places\//.test(u) ? 'data/places/' + u.split('data/places/')[1] : new URL(u, w.location.href).pathname.replace(/^\/beta\//, ''));
+          return fs.existsSync(p) ? Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(fs.readFileSync(p, 'utf8'))) }) : Promise.resolve({ ok: false, status: 404 }); };
+        w.addEventListener('error', e => errs.push('ERR ' + (e.message || e.error)));
+      } });
+    const w = dom.window, d = w.document; await sleep(30);
+    const reg = {}; const views = w.Cleo && w.Cleo.views && w.Cleo.views.get ? null : (w.CleoViewQueue || []);
+    (views || []).forEach(([k, def]) => { reg[k] = def; });
+    const gb = (views ? reg.guidebook : (w.Cleo.views.get && w.Cleo.views.get('guidebook'))) || { mount: w.CleoGuidebook.mount, unmount: w.CleoGuidebook.unmount };
+    const ins = (views ? reg.insights : (w.Cleo.views.get && w.Cleo.views.get('insights'))) || { mount: w.CleoInsights.mount, unmount: w.CleoInsights.unmount };
+    const host = d.createElement('div'); d.getElementById('main').appendChild(host);
+    const mr = await gb.mount(host, {}).catch(e => { errs.push('mount: ' + e.stack); });
+    chk(`${page}: guidebook mounts with storage blocked, ${N} entries`, host.querySelectorAll('li.ge').length === N, host.querySelectorAll('li.ge').length);
+    chk(`${page}: guidebook count line reads All N`, /All \d+ places/.test((host.querySelector('[data-gb-count]') || {}).textContent || ''), (host.querySelector('[data-gb-count]') || {}).textContent);
+    // lens mirror: hide one canonical card → its entry hides; no predicate of our own
+    w.location.hash = '#mode=food';
+    for (let i = 0; i < 60 && (!d.querySelectorAll('li.pl[hidden]').length || host.querySelectorAll('li.ge[hidden]').length !== d.querySelectorAll('li.pl[hidden]').length); i++) await sleep(50);
+    const vis = [...host.querySelectorAll('li.ge:not([hidden])')].map(li => li.getAttribute('data-k3'));
+    const cards = [...d.querySelectorAll('li.pl:not([hidden])')].length;
+    chk(`${page}: guidebook follows the city lens (mode=food → only food entries, == visible cards)`, vis.length > 0 && vis.every(k => k === 'food') && vis.length === cards && /of all \d+ places/.test(host.querySelector('[data-gb-count]').textContent), [vis.length, cards]);
+    w.location.hash = '';
+    for (let i = 0; i < 40 && host.querySelectorAll('li.ge[hidden]').length; i++) await sleep(50);
+    chk(`${page}: lens cleared → all entries back`, host.querySelectorAll('li.ge:not([hidden])').length === N, host.querySelectorAll('li.ge:not([hidden])').length);
+    // save toggles through Cleo.saved (memory store when storage throws)
+    const sv = host.querySelector('[data-cleo-ref]'); if (sv) sv.click(); await sleep(2);
+    chk(`${page}: entry Save toggles Cleo.saved (storage blocked → memory)`, !!sv && sv.getAttribute('aria-pressed') === 'true', sv && sv.getAttribute('aria-pressed'));
+    gb.unmount();
+    await ins.mount(host, {});
+    chk(`${page}: insights mounts, 7 chart cards, index N`, host.querySelectorAll('.igrid > .icard').length === 7 && host.querySelectorAll('li.ixi').length === N, [host.querySelectorAll('.igrid > .icard').length, host.querySelectorAll('li.ixi').length]);
+    const links = [...host.querySelectorAll('svg a')].map(a => a.getAttribute('href'));
+    const KEYS = new Set(['view', 'a', 'mode', 'c', 'cz', 'src', 't', 'closed']);
+    chk(`${page}: every bar is a lens link with known route keys`, links.length > 0 && links.every(hh => /^#view=(gallery|atlas)&/.test(hh) && hh.slice(1).split('&').every(kv => KEYS.has(kv.split('=')[0]))), links.find(hh => !/^#view=/.test(hh)));
+    chk(`${page}: every chart has a table and a footnote or empty-state`, [...host.querySelectorAll('.igrid > .icard')].every(c => c.querySelector('details.tbl') || c.querySelector('.empty')));
+    ins.unmount();
+    // failure path: JSON unavailable → stated message, no throw
+    w.fetch = () => Promise.resolve({ ok: false, status: 503 });
+    w.Cleo.pageData = () => Promise.reject(new Error('offline'));
+    await gb.mount(host, {});
+    chk(`${page}: guidebook offline → stated message`, !!host.querySelector('[data-cleo-state="view-failed"]'));
+    gb.unmount();
+    chk(`${page}: 0 JS errors`, errs.length === 0, errs.slice(0, 3));
+    w.close();
+  }
+
+  // ---- 5 · hub links (B-04)
+  const hubs = ['index.html'].concat(fs.readdirSync(BETA).filter(x => fs.existsSync(path.join(BETA, x, 'index.html'))).map(x => x + '/index.html'));
+  let nLinks = 0; const badL = [];
+  for (const hp of hubs) {
+    const h = fs.readFileSync(path.join(BETA, hp), 'utf8');
+    for (const m of h.matchAll(/<a href="([^"#]+)#view=([a-z]+)" data-view-link/g)) {
+      nLinks++;
+      const target = path.join(BETA, path.dirname(hp), m[1]);
+      if (!fs.existsSync(target) || !['guidebook', 'insights'].includes(m[2]) || !/data-cleo-page="city"/.test(fs.readFileSync(target, 'utf8'))) badL.push(hp + ' → ' + m[1]);
+    }
+  }
+  chk(`hubs: view links resolve to generated city pages and real views (${nLinks})`, nLinks > 0 && !badL.length, badL.slice(0, 3));
+
+  console.log(failures ? `\n>>> FAIL — ${failures} FE-B view check(s) failed` : '\n>>> PASS — FE-B views: Guidebook + Insights hold every place, numbers add up, hub links resolve');
+  process.exitCode = failures ? 1 : 0;
+})();

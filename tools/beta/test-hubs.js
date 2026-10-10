@@ -247,6 +247,9 @@ async function load(rel, { url, storageThrows = false, fetchFails = false } = {}
     const st = d.querySelector('[data-cleo-state="unknown-page"]');
     chk('unknown page: copy + way on', st && /We couldn't find that page\./.test(st.textContent) && !!st.querySelector('a[href="index.html#destinations"]'), true);
   }
+  // W3 views (Guidebook + Insights + hub view links): its own file, run here so it is part of `npm test`
+  const vb = require('child_process').spawnSync(process.execPath, [path.join(__dirname, 'test-views-b.js')], { stdio: 'inherit' });
+  if (vb.status !== 0) failures++;
   console.log(failures ? `\n>>> FAIL — ${failures} FE-B check(s) failed` : '\n>>> PASS — FE-B: every city reachable, one shell, method computed, states worded');
   process.exit(failures ? 1 : 0);
 })();
