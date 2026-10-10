@@ -23,7 +23,14 @@
     return x >= 0 && y >= 0 && x <= a[1] && y <= a[2] ? [(100 * x / a[1]).toFixed(1), (100 * y / a[2]).toFixed(1)] : null; };
   const ringOf = r => { const p = posOf(r); return p ? '<i class="g-ring me" style="left:' + p[0] + '%;top:' + p[1] + '%"></i>' : ''; };
   // W4 designer hook (ROUND-3 #3): --rx/--ry = the pin, so a cover composition can crop and zoom the art around it
-  const artOf = (aid, ring, r) => { const a = (info.art || {})[aid], p = r && posOf(r); return a ? '<span class="g-art pinart" style="aspect-ratio:' + a[1] + '/' + a[2] + (p ? ';--rx:' + p[0] + '%;--ry:' + p[1] + '%' : '') + '"><img src="' + esc(a[0]) + '" alt="" width="' + a[1] + '" height="' + a[2] + '" loading="lazy" decoding="async">' + ring + '</span>' : ''; };
+  // one request per area art, not one per cover (ROUND-5 gap #2: 450 cover requests on a Tokyo show-all): the file is
+  // read once and every cover of that area shares one blob URL. No fetch or a failed one: the plain src, lazy as before.
+  const blobs = {};
+  const artSrc = aid => { const a = (info.art || {})[aid]; if (!a) return;
+    if (!blobs[aid]) blobs[aid] = window.fetch && window.URL && URL.createObjectURL ? fetch(a[0]).then(r => { if (!r.ok) throw new Error(r.status); return r.blob(); }).then(b => URL.createObjectURL(b)).catch(() => a[0]) : Promise.resolve(a[0]);
+    blobs[aid].then(u => qa('img[data-art="' + aid + '"]:not([src])').forEach(i => { i.src = u; })); };
+  const artOf = (aid, ring, r) => { const a = (info.art || {})[aid], p = r && posOf(r); if (a) setTimeout(() => artSrc(aid), 0);
+    return a ? '<span class="g-art pinart" style="aspect-ratio:' + a[1] + '/' + a[2] + (p ? ';--rx:' + p[0] + '%;--ry:' + p[1] + '%' : '') + '"><img data-art="' + esc(aid) + '" alt="" width="' + a[1] + '" height="' + a[2] + '" decoding="async">' + ring + '</span>' : ''; };
   const CJK = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af\uf900-\ufaff]/;
   const gcard = (r, i) => {
     const nat = r.nat && r.n.slice(-r.nat.length - 2) === '(' + r.nat + ')' ? r.nat : '', g = Array.from(nat);
@@ -38,31 +45,8 @@
       '<p class="pl-s"><span class="lbl">Recommended by</span> ' + (chips || '<span class="added">Added by the guide (general knowledge)</span>') + (ids.length > 2 ? ' <span class="more">+' + (ids.length - 2) + '</span>' : '') + '</p>' +
       '<button type="button" class="heart gc-save" data-ref="' + esc(r.id) + '" aria-pressed="false" aria-label="Save ' + esc(nm) + '"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg></button></li>';
   };
-  // the rows, in SPEC §3.1 order: ★ signature, Must see, the food canon (when it is one lens), the 3 largest other
-  // collections / cuisines, Recently closed. View order inside a row: area order, then rank (open first, tier, named
-  // sources, live order). [title, subtitle, lens key, value, ★, n, records ≤ 12]
-  const pl = n => n + (n === 1 ? ' place' : ' places');
-  function rowsOf(j) {
-    const ar = (j.areas || []).map(a => a.id), named = r => (r.src || []).filter(x => x !== 'guide').length, G = j.guide || {};
-    const ord = (j.places || []).map((r, i) => [r, i]).sort(([x, i], [y, k]) => { const ax = ar.indexOf(x.a), ay = ar.indexOf(y.a);
-      return (ax < 0 ? 1e3 : ax) - (ay < 0 ? 1e3 : ay) || (x.closed ? 1 : 0) - (y.closed ? 1 : 0) || x.t - y.t || named(y) - named(x) || i - k; }).map(p => p[0]);
-    const inC = id => ord.filter(r => (r.g || []).indexOf(id) >= 0), inCz = id => ord.filter(r => (r.cz || []).indexOf(id) >= 0), out = [], used = {};
-    const add = (t, sub, k, v, list, star) => { if (!list.length || used[k + '=' + v]) return; used[k + '=' + v] = 1; out.push([t, sub, k, v, star, list.length, list.slice(0, 12)]); };
-    const star = (j.collections || []).filter(c => /^★/.test(c.n) && inC(c.id).length)[0], sg = G.signature;
-    let sig = [];
-    if (star) { sig = inC(star.id); add(star.n.replace(/^★\s*/, ''), pl(sig.length) + ' · the signature of ' + info.name, 'c', star.id, sig, 1); }
-    else if (sg && sg.n) { const c = sg.kind === 'collection' && sg.c && (j.collections || []).filter(x => x.id === sg.c[0])[0];
-      sig = c ? inC(c.id) : ord.filter(r => (sg.ids || []).indexOf(r.id) >= 0); add(c ? c.n : sg.title, pl(sig.length) + ' · the signature of ' + info.name, c ? 'c' : 'sig', c ? c.id : '1', sig, 1); }
-    add('Must see', pl(ord.filter(r => r.t === 1 && !r.closed).length) + ' · the top tier, graded within each area', 't', '1', ord.filter(r => r.t === 1 && !r.closed), 0);
-    if (G.canon && G.canon.cz && G.canon.cz.length === 1) add(G.canon.title || 'The canon', pl(inCz(G.canon.cz[0]).length) + ' · what ' + info.name + ' is known for', 'cz', G.canon.cz[0], inCz(G.canon.cz[0]), 0);
-    (j.collections || []).map(c => ['c', c, inC(c.id)]).concat((j.cuisines || []).map(c => ['cz', c, inCz(c.id)]))
-      .filter(x => x[2].length > 1 && x[1].id !== 'ICON' && !used[x[0] + '=' + x[1].id]).sort((x, y) => y[2].length - x[2].length).slice(0, 3)
-      .forEach(([k, c, l]) => add(c.n.replace(/^★\s*/, ''), pl(l.length) + ' · ' + (k === 'cz' ? 'eat & drink' : 'a collection'), k, c.id, l, 0));
-    const cl = (G.closed || []).map(x => ord.filter(r => r.id === x.id)[0]).filter(Boolean);
-    add('Recently closed', pl(cl.length) + ' · kept for the record, newest check first', 'closed', '1', cl, 0);
-    const lead = sig.filter(r => r.t === 1 && !r.closed)[0] || ord.filter(r => r.t === 1 && !r.closed)[0] || ord.filter(r => !r.closed)[0];
-    return { rows: out, lead };
-  }
+  // the rows + lead card come chosen from the build (lib/gallery.js → data/gallery/<page>.json, ~20 KB): the first
+  // screen never fetches the whole page JSON (ROUND-5 gap #2). [title, subtitle, lens key, value, ★, n, records ≤ 12]
   let lead = null;
   const pending = [];
   const rowHtml = (x, i) => '<section class="row g-row" aria-labelledby="gr-' + i + '"><header class="row-h"><div><h2 class="d2" id="gr-' + i + '">' + (x[4] ? '<span aria-hidden="true">★</span> ' : '') + esc(x[0]) + '</h2>' +
@@ -73,8 +57,9 @@
   const watch = el => { if (!el || !pending.length) return; if (!io) { while (pending.length) stampRow(); return; } io.observe(el); };
   function start() {
     if (started || !rowsHost || !Cleo.pageData) return; started = 1;
-    Cleo.pageData(info.file || C.key).then(j => {
-      const o = rowsOf(j); pending.push.apply(pending, o.rows); lead = o.lead;
+    const f = String(info.file || C.key).replace(/\//g, '--');
+    (window.fetch ? fetch(Cleo.root + 'data/gallery/' + f + '.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }) : Promise.reject(new Error('no fetch'))).then(o => {
+      pending.push.apply(pending, o.rows); lead = o.lead;
       if ('IntersectionObserver' in window) io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; io.unobserve(e.target); watch(stampRow()); }), { rootMargin: '200px 0px' });
       watch(stampRow());
       // the lead card: floats in the hero on desktop; on phones and tablets it is the first card under the hero, so a

@@ -680,3 +680,31 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - Coordinated test edits: `test-fe-a.js` (default Gallery, `#c=` → Atlas, lens keeps Gallery, stored Atlas preference); `test-beta.js` R-32 place-only stamping is now measured on `#view=atlas&p=` (the Gallery pager stamps for the true page order, by design since QA-29). JS budget held at ≤ 40 KB gzip by condensing `views.js` comments.
   - **Gap #3 — masthead link:** reads "last checked 2026-10-03" again (the link is `display:inline`; the 44 px hit area is block padding, which never changes an inline line box, so line gaps are even). Phones show one short facts line; the method sentence and "How we choose" are `.long` (≥ 900 px; the section and footer still link it), so B-03 is back to **14** in Atlas and **7** in Gallery.
   - Screenshots: `design/beta/eval/w5/fe-a/w5-{tokyo,tokyo-rows,cleveland,chinatown,newyork,lens-link,atlas,showall}-{m,d}.jpg` (`node tools/beta/fe-a-shots.js --w5 --out design/beta/eval/w5/fe-a --tag w5`).
+- 2026-10-10 · **QA** · W5 (final) full pass · session_015bFMDrayu1fp3qp2cKD3xm
+  - **QA sign-off: YES on `f2bf7610ccebadfac31f893542b0eb23b63892d8`** (clean pinned worktree). **Gallery-as-default ratified.** FE-A's two `metrics.js` rules stay, backed by the independent `tools/beta/qa/w5.js`: deep link opens every place (1,241/1,241), search, show-all and no-JS reach 100 %, and every pilot has a real place card in the first phone screen. W5 items 64/64 (macrons at DPR 1, motif by kind, masthead link 44 px, Tokyo ≈0.55 MB gzip, Insights DOM + 44 px rows, i18n catalogue with the switcher hidden). views.js 319/320 (record-prose INFO). The W2 map probe now runs in Atlas: 35/35. Details: BETA-QA.md → "Wave 5".
+
+- 2026-10-10 19:42Z · orchestrator · DEPLOYED Round 5 (final build).
+  - QA W5 signed off YES on `f2bf7610` (99fc4d33) and ratified Gallery as the default view after an independent reachability probe: 1,241/1,241 deep links, search 100 %, show-all N/N, no-JS complete, and a lead card in the first phone screen.
+  - PR alvations/cleo-guide#7 merged into the Pages branch (merge `5509b8cc`).
+  - Final evaluation (ROUND-5.md + FINAL-SUMMARY.md) pending.
+- 2026-10-10 · **Evaluator** · Round 5 (final) on `f2bf7610` (Gallery default) · [ROUND-5](../design/beta/eval/ROUND-5.md) · [FINAL-SUMMARY](../design/beta/eval/FINAL-SUMMARY.md)
+  - **84.5 overall (R4 83.4) = A 76 · B 86 · C 96 · D 89.** Overall ✅ · C ✅ · **A ✕ (−4)** · stretch 90 ✕. The goal is not met after 5 rounds.
+  - **Gained:** Gallery default with a phone lead card (B-01 0.50–0.59, B-03 7); macrons visible at DPR 1; covers keyed on kind; masthead link fixed; Insights rows 44 px and 2.9 k DOM.
+  - **Regressed:** default-view weight (Tokyo 2.06 → 3.03 MB, New York 5.84 MB, FCP 4× 1,124 ms; Gallery fetches `data/places/<city>.json` at load). The phone map is 2 taps from Gallery ("Show the map" lands on the Atlas list). `#p=` deep link on a phone builds 12.8 k nodes.
+  - **Still open:** 0 photographs (owner action; the A cap). The Cleveland lead card (Slyman's) ≠ its "Start with Larder…" button. (QA signed W5 YES and ratified the Gallery criteria in parallel, entry above.) Transfer figures are the harness's uncompressed bytes, the same basis as R4's 2.06 MB; QA's ≈0.55 MB is gzip on the wire.
+  - Gates on `f2bf7610`: validate, test and beta:check green. 61 flows × 2 rounds, 0 JS errors. Screenshots, logs, metrics and probes: `design/beta/eval/r5/`.
+- 2026-10-10 · **Fix lane (R5 follow-up)** · ROUND-5 gaps #2 (default-view weight) and #3 (map from Gallery on phones) · FINAL-SUMMARY "Recommended next step" step 1
+  - **#2 weight.** Gallery no longer fetches `data/places/<page>.json` (Tokyo 423 KB) at load. Its rows and lead card are chosen at build time (`tools/beta/lib/gallery.js`, the same rules moved out of `client/gallery.js`) and written to `data/gallery/<page>.json` (Tokyo 23 KB, 12 slim records per row). The page JSON now loads only when a view or sheet asks for it. Cover art is read once per area and shared as one blob URL. Before this, a show-all on desktop Tokyo made 452 requests for the area SVGs (1.2 MB).
+  - **#3 map.** On phones, a map button outside Atlas ("Show the map", the day "Map") now writes `#view=atlas&map=1`, so the map opens in one tap. Desktop Atlas always shows the map, so its route is unchanged (`client/views.js`).
+  - **Measured.** Harness: `metrics.js --only cities/tokyo`, default view, same machine, uncompressed bytes.
+
+    | Page | Before | After |
+    |---|---|---|
+    | Tokyo, Gallery | 3,012 KB, FCP 300 ms, FCP 4× 372 ms, 20/24 | **1,932 KB**, FCP 276 ms, FCP 4× 564 ms, 21/24 |
+    | Tokyo, phone first load only (own probe) | 1,851 KB, FCP 4× 768 ms | **1,449 KB**, FCP 4× 408 ms |
+    | New York, Gallery | 5.84 MB (R5) | **1,678 KB**, FCP 4× 332 ms |
+    | Tokyo, Atlas | not measured | 2,012 KB, **24/24** |
+
+    The harness's FCP 4× figures move by a few hundred ms from run to run on this machine. The R5 figure of 1,124 ms came from another machine. Every after-figure is under 1.0 s.
+  - **Phone tap from Gallery.** Before: `#view=atlas`, list only, no map. After: `#view=atlas&map=1` with the map mounted.
+  - **Gates.** G1 488/488 on every path (scrolled, deep, search, no-JS), and New York 508/508. `qa/w5.js` passes 64/64. P-04 passes in `npm test`. `validate`, `test` and `beta:check` are green.

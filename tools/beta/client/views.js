@@ -96,7 +96,9 @@
   d.addEventListener('click', e => {
     const b = cur !== 'atlas' && e.target.closest && e.target.closest('[data-cleo-map]'); if (!b || !ok('atlas')) return;
     e.preventDefault(); e.stopPropagation(); store.set('view', 'atlas');
-    const r = Cleo.route.parse(), a = at(b, 'data-cleo-map'); delete r.pg; delete r.all; delete r.p; r.view = 'atlas'; if (a) r.map = a; else delete r.map;
+    const r = Cleo.route.parse(), a = at(b, 'data-cleo-map'); delete r.pg; delete r.all; delete r.p; r.view = 'atlas';
+    // phones: the map opens in this same tap (ROUND-5 gap #3), not the Atlas list; desktop Atlas always shows it
+    if (a || mobile()) r.map = a || '1'; else delete r.map;
     show('atlas', { user: 1 }); location.hash = Cleo.route.href(r);
   }, true);
   const fromHash = () => {
