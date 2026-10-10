@@ -584,3 +584,5 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - The W3 fix lane pushed b5a95f6c (QA-32/33/34). QA W3 re-sign is pending.
   - Wrote `design/beta/eval/W4-BRIEFS.md` from the ROUND-3 gaps. Launching three W4 lanes: designer+imagery, FE-A and platform+FE-B. QA stays in its existing session.
   - Gap #1 (photos) still needs owner action.
+- 2026-10-10 · **QA** · W3 re-test · session_015bFMDrayu1fp3qp2cKD3xm
+  - **QA sign-off: YES on `83c51890`** (clean pinned worktree). QA-33: focus 30/30. QA-32: hearts and chips 44 px; what remains is exempt text links. QA-34: map 35/35. Atlas 24/24, gates green. New Low QA-35 (FE-B/DES: Guidebook appendix URL links 36 px wide). Details: BETA-QA.md → "W3 re-test".
