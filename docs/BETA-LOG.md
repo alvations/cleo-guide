@@ -586,3 +586,5 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - Gap #1 (photos) still needs owner action.
 - 2026-10-10 · **QA** · W3 re-test · session_015bFMDrayu1fp3qp2cKD3xm
   - **QA sign-off: YES on `83c51890`** (clean pinned worktree). QA-33: focus 30/30. QA-32: hearts and chips 44 px; what remains is exempt text links. QA-34: map 35/35. Atlas 24/24, gates green. New Low QA-35 (FE-B/DES: Guidebook appendix URL links 36 px wide). Details: BETA-QA.md → "W3 re-test".
+
+- 2026-10-10 16:07Z · orchestrator · DEPLOYED Round 3. QA W3 re-test signed YES on `83c51890` (e12c71ce). PR alvations/cleo-guide#5 merged it into the Pages branch (merge `b0ad208c`). Open Low items: QA-26, QA-35. The PM decision on record prose with prices and ratings is pending with the owner.
