@@ -31,12 +31,13 @@ function build({ reg, cityRows, emit, errors, sha, betaDir }) {
   for (const r of cityRows) r.imagery = { motif: v(index.pages[r.key]), photos: {} };
   for (const c of reg.countries) if (index.countries[c.key]) c.imagery = { motif: v(index.countries[c.key]) };
   const collections = Object.fromEntries(Object.entries(index.collections).map(([k, m]) => [k, v(m)]));
+  const themes = Object.fromEntries(Object.entries(index.themes || {}).map(([k, m]) => [k, Object.assign(v(m), { subject: m.subject })]));
 
   emit('assets/img/motifs/index.json', JSON.stringify({ _generated: 'tools/beta/imagery/motifs.js — do not edit', v: 1,
     _doc: 'Original SVG motifs (imagery lane). night = drawn for the night ground (tiles, mastheads); ink = for the paper ground, flips under prefers-color-scheme: dark. Generic subjects only — never a depiction of a venue. Render with imagery.motifSvg() (an inline <svg><image href> layer). Do not put these URLs in a CSS custom property: browsers disagree on its base URL.',
     pages: Object.fromEntries(cityRows.map(r => [r.key, r.imagery.motif])),
     countries: Object.fromEntries(reg.countries.filter(c => c.imagery).map(c => [c.key, c.imagery.motif])),
-    collections, collectionIds: require('./motifs').COLLECTION_ID }, null, 1));
+    collections, themes, collectionIds: require('./motifs').COLLECTION_ID }, null, 1));
 
   emit('assets/img/manifest.json', JSON.stringify(buildManifest(cityRows, reg.geo), null, 1));
 

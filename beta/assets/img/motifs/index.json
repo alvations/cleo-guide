@@ -426,151 +426,195 @@
  },
  "countries": {
   "us": {
-   "night": "assets/img/motifs/country-us.svg?v=a0ff74ddf1",
-   "ink": "assets/img/motifs/country-us.ink.svg?v=7e54838222",
+   "night": "assets/img/motifs/us.svg?v=a0ff74ddf1",
+   "ink": "assets/img/motifs/us.ink.svg?v=7e54838222",
    "why": "street-grid ground, a skyline, a truss bridge, mountains"
   },
   "singapore": {
-   "night": "assets/img/motifs/country-singapore.svg?v=f407d0e417",
-   "ink": "assets/img/motifs/country-singapore.ink.svg?v=23b257a085",
+   "night": "assets/img/motifs/singapore.svg?v=f407d0e417",
+   "ink": "assets/img/motifs/singapore.ink.svg?v=23b257a085",
    "why": "tile ground, shophouses meeting towers, an orchid-like bloom"
   },
   "vietnam": {
-   "night": "assets/img/motifs/country-vietnam.svg?v=ae2456376f",
-   "ink": "assets/img/motifs/country-vietnam.ink.svg?v=4204702342",
+   "night": "assets/img/motifs/vietnam.svg?v=ae2456376f",
+   "ink": "assets/img/motifs/vietnam.ink.svg?v=4204702342",
    "why": "dot ground, terraces, woven hats, a river boat"
   },
   "germany": {
-   "night": "assets/img/motifs/country-germany.svg?v=4fdeab2954",
-   "ink": "assets/img/motifs/country-germany.ink.svg?v=1385f590b9",
+   "night": "assets/img/motifs/germany.svg?v=4fdeab2954",
+   "ink": "assets/img/motifs/germany.ink.svg?v=1385f590b9",
    "why": "hex ground, half-timbered houses, wooded hills, castle towers"
   },
   "belgium": {
-   "night": "assets/img/motifs/country-belgium.svg?v=ae01898a7b",
-   "ink": "assets/img/motifs/country-belgium.ink.svg?v=e27afb3956",
+   "night": "assets/img/motifs/belgium.svg?v=ae01898a7b",
+   "ink": "assets/img/motifs/belgium.ink.svg?v=e27afb3956",
    "why": "brick ground, a stepped-gable terrace, a belfry, a canal"
   },
   "japan": {
-   "night": "assets/img/motifs/country-japan.svg?v=a3a2626454",
-   "ink": "assets/img/motifs/country-japan.ink.svg?v=3634908558",
+   "night": "assets/img/motifs/japan.svg?v=a3a2626454",
+   "ink": "assets/img/motifs/japan.ink.svg?v=3634908558",
    "why": "wave-scale ground, a volcanic cone, a shrine gate, a rising sun"
   },
   "malaysia": {
-   "night": "assets/img/motifs/country-malaysia.svg?v=29c3e19014",
-   "ink": "assets/img/motifs/country-malaysia.ink.svg?v=65c8925398",
+   "night": "assets/img/motifs/malaysia.svg?v=29c3e19014",
+   "ink": "assets/img/motifs/malaysia.ink.svg?v=65c8925398",
    "why": "geometric ground, rainforest, a domed roofline"
   },
   "thailand": {
-   "night": "assets/img/motifs/country-thailand.svg?v=a772edbf95",
-   "ink": "assets/img/motifs/country-thailand.ink.svg?v=3089254d3c",
+   "night": "assets/img/motifs/thailand.svg?v=a772edbf95",
+   "ink": "assets/img/motifs/thailand.ink.svg?v=3089254d3c",
    "why": "chevron ground, a river, a temple spire, a boat"
   },
   "indonesia": {
-   "night": "assets/img/motifs/country-indonesia.svg?v=f7f27c3e95",
-   "ink": "assets/img/motifs/country-indonesia.ink.svg?v=4a6c126be5",
+   "night": "assets/img/motifs/indonesia.svg?v=f7f27c3e95",
+   "ink": "assets/img/motifs/indonesia.ink.svg?v=4a6c126be5",
    "why": "wave ground, rice terraces, a volcano"
   },
   "philippines": {
-   "night": "assets/img/motifs/country-philippines.svg?v=18c850c397",
-   "ink": "assets/img/motifs/country-philippines.ink.svg?v=e4cef9fbac",
+   "night": "assets/img/motifs/philippines.svg?v=18c850c397",
+   "ink": "assets/img/motifs/philippines.ink.svg?v=e4cef9fbac",
    "why": "wave ground, a palm shore, an outrigger boat"
   },
   "indochina": {
-   "night": "assets/img/motifs/country-indochina.svg?v=6bff96a48a",
-   "ink": "assets/img/motifs/country-indochina.ink.svg?v=4862a9ab9f",
+   "night": "assets/img/motifs/indochina.svg?v=6bff96a48a",
+   "ink": "assets/img/motifs/indochina.ink.svg?v=4862a9ab9f",
    "why": "dot ground, river and hills, a temple roof"
   }
  },
  "collections": {
   "food": {
-   "night": "assets/img/motifs/collection-food.svg?v=6484eeec59",
-   "ink": "assets/img/motifs/collection-food.ink.svg?v=05075d0d4c",
+   "night": "assets/img/motifs/collections/food.svg?v=6484eeec59",
+   "ink": "assets/img/motifs/collections/food.ink.svg?v=05075d0d4c",
    "why": "tile ground, a market awning, a bowl with chopsticks and steam"
   },
   "landmarks": {
-   "night": "assets/img/motifs/collection-landmarks.svg?v=156b183fbb",
-   "ink": "assets/img/motifs/collection-landmarks.ink.svg?v=eae95c4c20",
+   "night": "assets/img/motifs/collections/landmarks.svg?v=156b183fbb",
+   "ink": "assets/img/motifs/collections/landmarks.ink.svg?v=eae95c4c20",
    "why": "grid ground, a portico, towers and spires, a star"
   },
   "popculture": {
-   "night": "assets/img/motifs/collection-popculture.svg?v=7c482ff7b4",
-   "ink": "assets/img/motifs/collection-popculture.ink.svg?v=7cf99ceed8",
+   "night": "assets/img/motifs/collections/popculture.svg?v=7c482ff7b4",
+   "ink": "assets/img/motifs/collections/popculture.ink.svg?v=7cf99ceed8",
    "why": "halftone-dot ground, a speech balloon with motion lines, a skyline"
   },
   "outdoors": {
-   "night": "assets/img/motifs/collection-outdoors.svg?v=2a9b821343",
-   "ink": "assets/img/motifs/collection-outdoors.ink.svg?v=9b46299f9c",
+   "night": "assets/img/motifs/collections/outdoors.svg?v=2a9b821343",
+   "ink": "assets/img/motifs/collections/outdoors.ink.svg?v=9b46299f9c",
    "why": "diagonal ground, peaks and hills, leaves"
   },
   "art": {
-   "night": "assets/img/motifs/collection-art.svg?v=faf1542fc8",
-   "ink": "assets/img/motifs/collection-art.ink.svg?v=cde279a223",
+   "night": "assets/img/motifs/collections/art.svg?v=faf1542fc8",
+   "ink": "assets/img/motifs/collections/art.ink.svg?v=cde279a223",
    "why": "cross-hatch ground, a picture on an easel, a gallery portico"
   },
   "temples": {
-   "night": "assets/img/motifs/collection-temples.svg?v=07353d99e4",
-   "ink": "assets/img/motifs/collection-temples.ink.svg?v=6bc7f18aba",
+   "night": "assets/img/motifs/collections/temples.svg?v=07353d99e4",
+   "ink": "assets/img/motifs/collections/temples.ink.svg?v=6bc7f18aba",
    "why": "wave-scale ground, a shrine gate, a pagoda"
   },
   "history": {
-   "night": "assets/img/motifs/collection-history.svg?v=a2d4b1537d",
-   "ink": "assets/img/motifs/collection-history.ink.svg?v=37ba73ae01",
+   "night": "assets/img/motifs/collections/history.svg?v=a2d4b1537d",
+   "ink": "assets/img/motifs/collections/history.ink.svg?v=37ba73ae01",
    "why": "brick ground, towers, belfries and spires"
   },
   "views": {
-   "night": "assets/img/motifs/collection-views.svg?v=ff46f9300f",
-   "ink": "assets/img/motifs/collection-views.ink.svg?v=0523c3d221",
+   "night": "assets/img/motifs/collections/views.svg?v=ff46f9300f",
+   "ink": "assets/img/motifs/collections/views.ink.svg?v=0523c3d221",
    "why": "grid ground, a skyline, a sun"
   },
   "markets": {
-   "night": "assets/img/motifs/collection-markets.svg?v=fcc7ecc84e",
-   "ink": "assets/img/motifs/collection-markets.ink.svg?v=b799f04225",
+   "night": "assets/img/motifs/collections/markets.svg?v=fcc7ecc84e",
+   "ink": "assets/img/motifs/collections/markets.ink.svg?v=b799f04225",
    "why": "tile ground, two market awnings, a lantern string"
   },
   "night": {
-   "night": "assets/img/motifs/collection-night.svg?v=03416bf31f",
-   "ink": "assets/img/motifs/collection-night.ink.svg?v=8fdcfa90b3",
+   "night": "assets/img/motifs/collections/night.svg?v=03416bf31f",
+   "ink": "assets/img/motifs/collections/night.ink.svg?v=8fdcfa90b3",
    "why": "star-dot ground, a skyline, a crescent moon, lanterns"
   },
   "water": {
-   "night": "assets/img/motifs/collection-water.svg?v=fb5e866056",
-   "ink": "assets/img/motifs/collection-water.ink.svg?v=b3d0e1bf13",
+   "night": "assets/img/motifs/collections/water.svg?v=fb5e866056",
+   "ink": "assets/img/motifs/collections/water.ink.svg?v=b3d0e1bf13",
    "why": "wave ground, rollers, a boat, a lighthouse"
   },
   "free": {
-   "night": "assets/img/motifs/collection-free.svg?v=b2dea13dc4",
-   "ink": "assets/img/motifs/collection-free.ink.svg?v=fcd3205d31",
+   "night": "assets/img/motifs/collections/free.svg?v=b2dea13dc4",
+   "ink": "assets/img/motifs/collections/free.ink.svg?v=fcd3205d31",
    "why": "dot ground, a ticket with rays, hills"
   },
   "family": {
-   "night": "assets/img/motifs/collection-family.svg?v=737c58c2f4",
-   "ink": "assets/img/motifs/collection-family.ink.svg?v=5f202e8979",
+   "night": "assets/img/motifs/collections/family.svg?v=737c58c2f4",
+   "ink": "assets/img/motifs/collections/family.ink.svg?v=5f202e8979",
    "why": "chevron ground, a roller coaster, a Ferris wheel"
   },
   "oddities": {
-   "night": "assets/img/motifs/collection-oddities.svg?v=4f2e0684cb",
-   "ink": "assets/img/motifs/collection-oddities.ink.svg?v=e6d2dce596",
+   "night": "assets/img/motifs/collections/oddities.svg?v=4f2e0684cb",
+   "ink": "assets/img/motifs/collections/oddities.ink.svg?v=e6d2dce596",
    "why": "cross ground, a compass rose"
   },
   "onsen": {
-   "night": "assets/img/motifs/collection-onsen.svg?v=edf6b70ae3",
-   "ink": "assets/img/motifs/collection-onsen.ink.svg?v=ab27e1f08a",
+   "night": "assets/img/motifs/collections/onsen.svg?v=edf6b70ae3",
+   "ink": "assets/img/motifs/collections/onsen.ink.svg?v=ab27e1f08a",
    "why": "wave-scale ground, mountains, a pool, rising steam"
   },
   "sport": {
-   "night": "assets/img/motifs/collection-sport.svg?v=f191bafb70",
-   "ink": "assets/img/motifs/collection-sport.ink.svg?v=0d33aca85f",
+   "night": "assets/img/motifs/collections/sport.svg?v=f191bafb70",
+   "ink": "assets/img/motifs/collections/sport.ink.svg?v=0d33aca85f",
    "why": "grid ground, an oval stadium, a burst of lights"
   },
   "craft": {
-   "night": "assets/img/motifs/collection-craft.svg?v=c4c3629be8",
-   "ink": "assets/img/motifs/collection-craft.ink.svg?v=fbe79a4672",
+   "night": "assets/img/motifs/collections/craft.svg?v=c4c3629be8",
+   "ink": "assets/img/motifs/collections/craft.ink.svg?v=fbe79a4672",
    "why": "hex ground, a vase and a glass, hills"
   },
   "campus": {
-   "night": "assets/img/motifs/collection-campus.svg?v=d44ac794a0",
-   "ink": "assets/img/motifs/collection-campus.ink.svg?v=b9a50892b8",
+   "night": "assets/img/motifs/collections/campus.svg?v=d44ac794a0",
+   "ink": "assets/img/motifs/collections/campus.ink.svg?v=b9a50892b8",
    "why": "grid ground, a college portico, a leaf"
+  }
+ },
+ "themes": {
+  "anime": {
+   "night": "assets/img/motifs/collections/anime.svg?v=7c482ff7b4",
+   "ink": "assets/img/motifs/collections/anime.ink.svg?v=7cf99ceed8",
+   "why": "halftone-dot ground, a speech balloon with motion lines, a skyline",
+   "subject": "popculture"
+  },
+  "hawker": {
+   "night": "assets/img/motifs/collections/hawker.svg?v=fcc7ecc84e",
+   "ink": "assets/img/motifs/collections/hawker.ink.svg?v=b799f04225",
+   "why": "tile ground, two market awnings, a lantern string",
+   "subject": "markets"
+  },
+  "ramen": {
+   "night": "assets/img/motifs/collections/ramen.svg?v=6484eeec59",
+   "ink": "assets/img/motifs/collections/ramen.ink.svg?v=05075d0d4c",
+   "why": "tile ground, a market awning, a bowl with chopsticks and steam",
+   "subject": "food"
+  },
+  "fine": {
+   "night": "assets/img/motifs/collections/fine.svg?v=6484eeec59",
+   "ink": "assets/img/motifs/collections/fine.ink.svg?v=05075d0d4c",
+   "why": "tile ground, a market awning, a bowl with chopsticks and steam",
+   "subject": "food"
+  },
+  "unesco": {
+   "night": "assets/img/motifs/collections/unesco.svg?v=156b183fbb",
+   "ink": "assets/img/motifs/collections/unesco.ink.svg?v=eae95c4c20",
+   "why": "grid ground, a portico, towers and spires, a star",
+   "subject": "landmarks"
+  },
+  "beer": {
+   "night": "assets/img/motifs/collections/beer.svg?v=03416bf31f",
+   "ink": "assets/img/motifs/collections/beer.ink.svg?v=8fdcfa90b3",
+   "why": "star-dot ground, a skyline, a crescent moon, lanterns",
+   "subject": "night"
+  },
+  "flw": {
+   "night": "assets/img/motifs/collections/flw.svg?v=156b183fbb",
+   "ink": "assets/img/motifs/collections/flw.ink.svg?v=eae95c4c20",
+   "why": "grid ground, a portico, towers and spires, a star",
+   "subject": "landmarks"
   }
  },
  "collectionIds": {

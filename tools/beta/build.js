@@ -22,6 +22,7 @@ const stats = require('./lib/stats');
 const { pageSources, siteSources } = require('./lib/sources');
 const art = require('./lib/art');
 const imagery = require('./imagery');                              // imagery lane: motifs, photo manifest, credit gate
+const { guide } = require('./lib/guide');
 const { assertCityPage, assertHubPage, assertPage } = require('./lib/guards');
 const { swSource } = require('./lib/sw');
 const { BETA_BASE } = require('./lib/render/common');
@@ -48,6 +49,7 @@ for (const r of cityRows) {
   if (r.recs.length !== r.counts.P + r.counts.F) errors.push(`${r.live}: model ${r.recs.length} != live ${r.counts.P + r.counts.F}`);
   r.sources = pageSources(r, r.recs);             // stamps rec.src (publisher ids) — M1-10
   r.stats = stats.pageStats(r, r.recs);           // every number the page prints — M1-20
+  r.guide = guide(r, r.recs);                     // ★ signature, canon-first food order, day plans, recently closed (W2)
   const m = r.data.meta;
   r.name = m.h1Main || r.key;
   r.nat = nativeOf(m.eyebrow) || nativeOf(m.h1) || null;
@@ -134,6 +136,9 @@ for (const r of cityRows) {
     sources: { sights: page.S || {}, food: page.FS || {} },
     // Attribution as navigation (M1-10): one row per publisher, with the ids of every place it recommends.
     sourceIndex: r.sources.list, art: r.art, notes: page.notes,
+    // W2 (platform → FE-A/FE-B): ★ signature (food canon / pop culture, never a publisher), canon-first cuisine order,
+    // hub tile line, "Your day" per area, "Recently closed". Schema: design/beta/RFC-architecture.md §12.
+    guide: r.guide,
     places: r.recs,
   }));
 }
@@ -142,6 +147,13 @@ if (searchItems.length !== totalLive) errors.push(`search index ${searchItems.le
 emit('data/sources.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
   _doc: 'Every publisher cited on any beta place page: id, display name, text authority mark, total records citing it, and [pageKey, n] per page. Per-page detail (entries, place ids) is in data/places/<page>.json sourceIndex.',
   sources: siteSources(cityRows) }));
+// Site-wide "guide" index (FE-B hubs + landing rail): one row per place page, computed from the records.
+emit('data/guide.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
+  _doc: 'Per place page: ★ signature (kind, title, line, n), hub tile line, food canon and pop-culture counts, day-plan and closed counts. Detail is in data/places/<page>.json guide.',
+  pages: cityRows.map(r => { const g = r.guide; return { key: r.key, name: r.name, href: r.beta, country: r.country || '',
+    signature: g.signature && { kind: g.signature.kind, title: g.signature.title, line: g.signature.line, n: g.signature.n, c: g.signature.c, cz: g.signature.cz },
+    tileLine: g.tileLine && g.tileLine.text, canon: g.canon && { title: g.canon.title, cz: g.canon.cz, n: g.canon.n, dishes: g.canon.dishes },
+    popCulture: g.popCulture, days: Object.keys(g.days.plans).length, closed: g.closed.length }; }) }));
 emit('data/search.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1, fields: { pages: ['key', 'name', 'href', 'country', 'deepLinks'], items: ['page', 'id', 'name', 'kind', 'tier', 'closed', 'area'] }, pages: searchPages, items: searchItems }));
 
 // ---------------------------------------------------------------- pages

@@ -102,14 +102,15 @@ for (const [rel, body] of Object.entries(files)) {
   const p = path.join(BETA, rel);
   if (!fs.existsSync(p) || fs.readFileSync(p, 'utf8') !== body) { ok(false, `beta/${rel} is stale — run npm run beta`); break; }
 }
-// generated pages carry the art
+// generated pages carry the art (FE-B layers it as --motif on the tile; FE-A/hub hooks use motifSvg's <image>)
 const landing = fs.readFileSync(path.join(BETA, 'index.html'), 'utf8');
-const tiles = landing.match(/<span class="art">[\s\S]*?<\/span>/g) || [];
-ok(tiles.length > 0 && tiles.every(t => /<svg class="motif"[^>]*><image href="assets\/img\/motifs\/[^"]+\.svg\?v=[0-9a-f]+"/.test(t)), `every landing tile carries its motif (${tiles.length})`);
+const tiles = landing.match(/<li class="dest"[^>]*><a [^>]*class="tile[^>]*>/g) || [];
+const refOf = t => (/(?:--motif:url\('|<image href=")([^'"?]+)/.exec(t) || [])[1];
+ok(tiles.length > 0 && tiles.every(t => refOf(t) && fs.existsSync(path.join(BETA, refOf(t)))), `every landing city tile references an existing motif (${tiles.length})`);
 const tk = fs.readFileSync(path.join(BETA, 'cities', 'tokyo.html'), 'utf8');
 ok(/<header class="masthead"><svg class="motif"[^>]*><image href="\.\.\/assets\/img\/motifs\/tokyo\.svg\?v=/.test(tk), 'Tokyo masthead carries the Tokyo motif');
 const hubJ = fs.readFileSync(path.join(BETA, 'Japan', 'index.html'), 'utf8');
-ok(/<svg class="motif"[^>]*><image href="\.\.\/assets\/img\/motifs\/country-japan\.svg/.test(hubJ), 'Japan hub hero carries the country motif');
+ok(/assets\/img\/motifs\/japan\.svg/.test(hubJ) && fs.existsSync(path.join(BETA, 'assets/img/motifs/japan.svg')), 'Japan hub hero references the country motif');
 const anyPhoto = [];
 for (const r of rows) { const h = fs.readFileSync(path.join(BETA, r.beta), 'utf8'); for (const f of h.match(/<figure class="photo[^"]*">[\s\S]*?<\/figure>/g) || []) if (!/<figcaption>[^<]*by [\s\S]+<a [^>]*rel="license/.test(f)) anyPhoto.push(r.beta); }
 ok(!anyPhoto.length, `every photo on a generated page shows its TASL credit${anyPhoto.length ? ': ' + anyPhoto.join(', ') : ''}`);

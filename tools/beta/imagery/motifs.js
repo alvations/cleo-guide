@@ -1,7 +1,8 @@
 'use strict';
 /**
  * imagery/motifs.js — ORIGINAL SVG motif art, one per city page, per country and per collection subject
- * (lane: imagery; ROUND-1 gap #1). Output: beta/assets/img/motifs/{<fileKey>,country-<key>,collection-<kind>}.svg
+ * (lane: imagery; ROUND-1 gap #1). Output: beta/assets/img/motifs/{<pageKey with / → -->,<countryKey>,collections/<kind|themeKey>}.svg
+ * (the naming FE-B's render/hub.js looks up)
  *
  * What a motif is: a faint repeating ground (a <pattern>) + a line-art horizon + one accent stroke in the city's
  * skin colour. Subjects are GENERIC — "lake swell + a truss bridge", "wave scales + a skyline", "a shophouse
@@ -166,6 +167,8 @@ function collectionKind(id, name) {
   return COLLECTION_ID[id] || (COLLECTION_NAME.find(([re]) => re.test(name || '')) || [])[1] || 'landmarks';
 }
 
+const THEME_ALIAS = { anime: 'popculture', hawker: 'markets', ramen: 'food', fine: 'food', unesco: 'landmarks', beer: 'night', flw: 'landmarks' };
+
 // ---------------------------------------------------------------- skin colours (designer tokens, parsed)
 const DEFAULT_ACC = { light: '#3B3A8F', dark: '#9C9BEF' };
 const COUNTRY_SKIN = { japan: 'vermilion', us: 'lake', singapore: 'orchid', vietnam: 'jade', germany: 'plum', belgium: 'saffron',
@@ -242,7 +245,7 @@ function accentFor(skins, skin, key) {
  * Build every motif. Returns { files: {relPath: svgString}, index } — `index` is the documented model FE lanes read:
  *   index.pages[pageKey]       = { night, ink, why }           (paths relative to beta/)
  *   index.countries[countryKey] = { night, ink, why }
- *   index.collections[kind]     = { night, ink, why }  and index.collectionKind(id, name) maps a CATS entry to a kind.
+ *   index.collections[kind]     = { night, ink, why }, index.themes[themeKey] (aliases)  and index.collectionKind(id, name) maps a CATS entry to a kind.
  */
 function buildMotifs({ cityRows, countries, tokensCss }) {
   const skins = readSkins(tokensCss);
@@ -256,9 +259,15 @@ function buildMotifs({ cityRows, countries, tokensCss }) {
   for (const r of cityRows) put(index.pages, r.key, r.fileKey, cityRecipe(r), accentFor(skins, null, r.key), `${r.name || r.key} — motif`);
   for (const c of countries) {
     const spec = COUNTRIES[c.key] ? COUNTRIES[c.key]() : fallback('country-' + c.key, c.key);
-    put(index.countries, c.key, 'country-' + c.key, spec, accentFor(skins, COUNTRY_SKIN[c.key]), `${c.name || c.key} — motif`);
+    put(index.countries, c.key, c.key, spec, accentFor(skins, COUNTRY_SKIN[c.key]), `${c.name || c.key} — motif`);
   }
-  for (const k of Object.keys(COLLECTIONS)) put(index.collections, k, 'collection-' + k, COLLECTIONS[k](), accentFor(skins, COLLECTION_SKIN[k]), `${k} collection — motif`);
+  for (const k of Object.keys(COLLECTIONS)) put(index.collections, k, 'collections/' + k, COLLECTIONS[k](), accentFor(skins, COLLECTION_SKIN[k]), `${k} collection — motif`);
+  // FE-B's cross-city editorial themes (render/hub.js THEMES) look up motifs/collections/<themeKey>.svg: alias each to its subject.
+  for (const [theme, kind] of Object.entries(THEME_ALIAS)) if (!index.collections[theme]) {
+    const base = 'assets/img/motifs/collections/';
+    files[base + theme + '.svg'] = files[base + kind + '.svg']; files[base + theme + '.ink.svg'] = files[base + kind + '.ink.svg'];
+    index.themes = index.themes || {}; index.themes[theme] = Object.assign({ subject: kind }, index.collections[kind], { night: base + theme + '.svg', ink: base + theme + '.ink.svg' });
+  }
   return { files, index };
 }
 

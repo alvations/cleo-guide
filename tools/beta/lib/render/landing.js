@@ -8,7 +8,7 @@
 const { esc } = require('../html');
 const { head, siteBar, footer, styles } = require('./common');
 const { icon } = require('./shell');
-const { cityTile, moreRow, countryPages } = require('./hub');
+const { cityTile, moreRow, countryPages, themeRail, FEB_CSS } = require('./hub');
 
 function render(reg, ctx) {
   const rows = reg.rows;
@@ -23,11 +23,11 @@ function render(reg, ctx) {
     const n = all.reduce((s, r) => s + r.counts.P + r.counts.F, 0);
     const hub = hubHref(c);
     return `<section class="csec" id="${esc(c.key)}" aria-labelledby="c-${esc(c.key)}">
-<div class="rail-head"><h2 class="d2" id="c-${esc(c.key)}">${esc(c.name)}<span class="n">${all.length} ${all.length === 1 ? 'guide' : 'guides'} · ${n.toLocaleString('en-US')} places</span></h2>
+<div class="rail-head"><h2 class="d2" id="c-${esc(c.key)}">${esc(c.name)}<span class="n">${all.length} ${all.length === 1 ? 'guide' : 'guides'} · ${n.toLocaleString('en-US')} ${n === 1 ? 'place' : 'places'}</span></h2>
 ${hub ? `<a class="more" href="${esc(hub)}">All ${esc(c.name)} ${icon('chevr', 'ico sm')}</a>` : ''}</div>
 ${c.blurb ? `<p class="blurb">${esc(c.blurb)}</p>` : ''}
 <ul class="tiles hub2" aria-label="${esc(c.name)} guides">
-${main.map((r, i) => cityTile(r, i)).join('\n')}
+${main.map((r, i) => cityTile(r, i, { cap: 24 }))   /* lighter art keeps the landing ≤ 80 KB */.join('\n')}
 </ul>
 ${more.length ? `<h3 class="more-h d3" style="margin-top:20px">More in ${esc(c.name)}</h3>\n<ul class="morelist">\n${more.map(r => moreRow(r)).join('\n')}\n</ul>` : ''}
 </section>`;
@@ -39,7 +39,7 @@ ${more.length ? `<h3 class="more-h d3" style="margin-top:20px">More in ${esc(c.n
   const desc = `${total.toLocaleString('en-US')} places across ${places.length} guides in ${live.length} countries — every one traceable to the source that recommended it, pinned and status-checked.`;
   return `${head({ page: 'landing', title, description: desc, rel: 'index.html', depth: 0, assetsV: ctx.assetsV, css: styles(0), from: 'data/countries.json + every live place page',
     jsonld: { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Cleo', url: ctx.betaBase + '/',
-      potentialAction: { '@type': 'SearchAction', target: ctx.betaBase + '/?q={q}', 'query-input': 'required name=q' } } })}
+      potentialAction: { '@type': 'SearchAction', target: ctx.betaBase + '/?q={q}', 'query-input': 'required name=q' } } }).replace('</head>', `<style>${FEB_CSS}</style>\n</head>`)}
 <body class="has-tabbar">
 ${siteBar({ depth: 0, current: 'landing', rel: 'index.html', onNight: true })}
 <main id="main" class="feb">
@@ -57,7 +57,11 @@ ${siteBar({ depth: 0, current: 'landing', rel: 'index.html', onNight: true })}
 <section class="results" id="results" aria-live="polite" hidden></section>
 <div id="destinations" class="section">
 <div class="stickypills"><nav class="countries" aria-label="Countries">${live.map(c => `<a class="pill" href="#${esc(c.key)}">${esc(c.name)}</a>`).join('')}</nav></div>
-${sections.join('\n')}
+${sections[0] || ''}
+</div>
+${themeRail(reg, { heading: 'Collections across the guides', id: 'themes' })}
+<div class="section">
+${sections.slice(1).join('\n')}
 </div>
 <section class="section" aria-labelledby="trust-h"><h2 class="d2" id="trust-h" style="margin-bottom:16px">Why trust a Cleo pick</h2>
 <div class="trust">

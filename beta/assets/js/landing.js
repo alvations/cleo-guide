@@ -19,6 +19,7 @@
   var q0 = ''; try { q0 = new URLSearchParams(location.search).get('q') || ''; } catch (e) {}
   if (q0) { input.value = q0; show(q0.trim()); }
   var t; input.addEventListener('input', function () { clearTimeout(t); t = setTimeout(function () { show(input.value.trim()); }, 150); });
+  if (Cleo.kbNav) Cleo.kbNav(input, out);
   var form = input.form;
   if (form) form.addEventListener('submit', function (e) {
     e.preventDefault(); show(input.value.trim());

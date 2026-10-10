@@ -88,15 +88,19 @@ promise visible: *every star is a place someone credible recommended and we pinn
 - **Made by code:** `tools/beta/imagery/draw.js` (vocabulary) + `motifs.js` (recipes, seeded per key, so a build
   is deterministic and no two cities share a line). Accents are parsed from `beta/assets/tokens.css` skins, so a skin
   change re-colours the art.
-- **Two tones:** `<name>.svg` for the night ground (tiles, mastheads); `<name>.ink.svg` for paper (rail covers), which
-  flips to cream under `prefers-color-scheme: dark`. 226 files, ≤ 6 KB each, loaded as images (0 bytes inline).
-- **Where it shows now:** every hub/landing city tile (under the pin star-field), every country hub hero, every city
-  masthead (right-anchored, masked away from the text). Collection covers are in the index for FE-A's rail.
+- **Files:** `beta/assets/img/motifs/<pageKey, / → -->.svg`, `<countryKey>.svg`, `collections/<subject|themeKey>.svg`
+  (FE-B's editorial themes — anime, hawker, ramen… — alias to a subject). **Two tones:** `<name>.svg` for the night
+  ground (night tiles, mastheads); `<name>.ink.svg` for paper (wash/paper tiles, rail covers), which flips to cream under
+  `prefers-color-scheme: dark`. ≤ 6 KB each, loaded as images (0 bytes inline).
+- **Where it shows now:** every hub/landing city tile (FE-B's four compositions; ink tone on the light ones), the
+  landing's editorial theme rail, every country hub hero, every city masthead (right-anchored, masked away from the
+  text). Subject covers are in the index for FE-A's collection rail.
 - **How to use it (FE lanes):** `require('tools/beta/imagery').motifSvg(row.imagery.motif, up, {fit, style, tone})`
   returns a decorative `<svg><image href>` layer. Model: `row.imagery.motif`, `country.imagery.motif`,
   `reg.imagery.collections[kind]` + `reg.imagery.collectionKind(id, name)`; static index
-  `beta/assets/img/motifs/index.json`. **Do not** put the URLs in a CSS custom property (`--motif:url(…)`): Chromium
-  resolves such a url() against the stylesheet, other browsers against the page.
+  `beta/assets/img/motifs/index.json`. **Caution with `--motif:url(…)`:** Chromium resolves a url() held in a custom
+  property against the stylesheet that *uses* the var() — fine when the consuming rule is inline in the page (FE-B's
+  `FEB_CSS`), a 404 when it is in `assets/cleo.css` on a root-level page. `motifSvg()`'s `<image href>` has no such trap.
 
 | Hub (Japan, desktop) | Landing tiles | Contact sheet (every motif, night + ink) |
 |---|---|---|
