@@ -308,7 +308,8 @@
       if (cards.length) emit('cleo:stamped', { cards: cards });
       return cards;
     },
-    all: function () { var out = []; D.pending().forEach(function (ns) { out = out.concat(D.stamp(ns)); }); if (io) { io.disconnect(); io = null; } return out; },
+    all: function () { var out = []; D.pending().forEach(function (ns) { out = out.concat(D.stamp(ns)); }); if (io) { io.disconnect(); io = null; }
+      VC.slice().forEach(function (c) { c.all(); }); return out; },             // view chunks too (R-33)
     /** Stamp the chunk holding place `id` (a map pin of a not-yet-stamped card). Returns the card or null. */
     stampFor: function (id) {
       var el = document.getElementById('p-' + id); if (el) return el;
@@ -332,15 +333,66 @@
       return out;
     }
   };
+  /* ---- view chunks (P-05, R-33): the same progressive rendering for content a VIEW builds on the client (Guidebook
+   * chapters, Gallery rails/pages, Insights cards). `parts` = HTML strings in order; `initial` render now, the rest as
+   * the host's end nears the viewport (IntersectionObserver, 1,200 px), and ALL of them on anything that needs every
+   * place (Cleo.defer.all(): a lens, search, find-in-page, print, an area anchor). `ids` (optional, one array of place
+   * ids per part) lets a place link stamp only up to its part. Each stamp emits `cleo:view-stamped` {host, from, to}.
+   * Returns {all(), reach(id), left(), cancel()}. No IntersectionObserver → everything at once. ---- */
+  var VC = [];
+  Cleo.chunks = function (host, parts, opt) {
+    opt = opt || {};
+    var i = 0, ob = null, gap = null, step = opt.step || 1, api;
+    var put = function (k) {
+      k = Math.min(k, parts.length); if (k <= i) return;
+      var from = i, html = parts.slice(i, k).join(''); i = k;
+      if (gap && gap.parentNode === host) gap.insertAdjacentHTML('beforebegin', html); else host.insertAdjacentHTML('beforeend', html);
+      emit('cleo:view-stamped', { host: host, from: from, to: k });
+      if (i >= parts.length) stop();
+    };
+    var stop = function () {
+      if (ob) { ob.disconnect(); ob = null; }
+      if (gap && gap.parentNode) gap.parentNode.removeChild(gap); gap = null;
+      var x = VC.indexOf(api); if (x >= 0) VC.splice(x, 1);
+    };
+    api = {
+      all: function () { put(parts.length); },
+      reach: function (id) { if (!opt.ids) return api.all(); for (var k = i; k < parts.length; k++) if ((opt.ids[k] || []).indexOf(id) >= 0) return put(k + 1); },
+      left: function () { return parts.length - i; },
+      cancel: stop
+    };
+    VC.push(api);
+    put(opt.initial == null ? 1 : opt.initial);
+    if (i >= parts.length) return api;
+    if (!('IntersectionObserver' in window)) { api.all(); return api; }
+    gap = document.createElement('div'); gap.className = 'cleo-defer-gap'; gap.setAttribute('aria-hidden', 'true');
+    gap.style.cssText = 'grid-column:1/-1;margin:0;padding:0;border:0;height:' + (opt.est || 600) + 'px';
+    host.appendChild(gap);
+    ob = new IntersectionObserver(function (es) {
+      if (!ob || !es.some(function (e) { return e.isIntersecting; })) return;
+      put(i + step);
+      if (ob && gap) { ob.unobserve(gap); ob.observe(gap); }            // still near the viewport → the next part
+    }, { rootMargin: '1200px 0px' });
+    ob.observe(gap);
+    return api;
+  };
+  Cleo.chunks.pending = function () { return VC.length; };
+
   var io = null;
-  /** The URL addresses one place and nothing else (keys p / view / map, or a #p-<id> anchor). */
-  function placeOnly() {
-    var h = location.hash; if (/^#p-[A-Za-z0-9_.~-]+$/.test(h)) return true;
+  /** What the URL needs stamped: 'p' = one place only (keys p/view/map/pg/all, or a #p-<id> anchor); true = nothing
+   *  (a view switch, the map toggle, a Gallery page — no lens); false = every card (a lens, an area anchor, a day…). */
+  var QUIET = ['p', 'view', 'map', 'pg', 'all'];
+  function quiet() {
+    var h = location.hash; if (!h || h === '#') return true;
+    if (/^#p-[A-Za-z0-9_.~-]+$/.test(h)) return 'p';
+    if (h.indexOf('=') < 0) return false;
     var r = Cleo.route.parse(), ks = Object.keys(r);
-    return !!r.p && ks.every(function (k) { return k === 'p' || k === 'view' || k === 'map'; });
+    if (!ks.every(function (k) { return QUIET.indexOf(k) >= 0; })) return false;
+    return r.p ? 'p' : true;
   }
   function stampPlace() {
     var m = /^#p-(.+)$/.exec(location.hash), id = m ? m[1] : Cleo.route.parse().p;
+    VC.slice().forEach(function (c) { c.reach(id); });                       // a view's own chunk holding the place
     if (!D.stampFor(id)) D.all();                  // unknown id: let the page see everything (its "not found" path)
   }
   function deferInit() {
@@ -350,8 +402,9 @@
     // A place link stamps its own chunk and the rest stay lazy (R-32); anything else in the URL (a lens, an area
     // anchor) needs every card now.
     if (!('IntersectionObserver' in window)) { D.all(); if (h && h !== '#') emit('cleo:route', {}); return; }
-    if (h && h !== '#' && placeOnly()) { stampPlace(); emit('cleo:route', {}); }
-    else if (h && h !== '#') {
+    var q = quiet();
+    if (q === 'p') { stampPlace(); emit('cleo:route', {}); }
+    else if (!q) {
       D.all();
       emit('cleo:route', {});                          // page scripts that already routed (inline/jsdom order) route again
       return;
@@ -384,19 +437,19 @@
       }
       watch(ol);
     });
-    window.addEventListener('beforeprint', allNow);
-    var NEEDS_ALL = '[data-mode],[data-cleo-all],.rail-i,.pl-s button.src,[data-cleo-tray],[data-cleo-map],[data-unset],[data-tr],[data-cleo-day],[data-cleo-near],[data-cleo-foryou],[data-cleo-mine]';
-    document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest(NEEDS_ALL)) allNow(); }, true);
-    document.addEventListener('focusin', function (e) { if (e.target.matches && e.target.matches('#cleo-filter,main input[type=search]')) allNow(); }, true);
-    document.addEventListener('keydown', function (e) { if ((e.ctrlKey || e.metaKey) && (e.key === 'f' || e.key === 'F' || e.key === 'g')) allNow(); }, true);
   }
-  var allNow = function () { if (D.pending().length) D.all(); };
+  var allNow = function () { if (D.pending().length || VC.length) D.all(); };
   // a place link (card, pin, shared #p=, Back/Forward between sheets) needs only its own card (R-32, gap #6); anything
   // else addressed by the URL needs every card. Registered when core.js runs — before any page script's listener — so
   // stamped cards are adopted before the page routes.
-  var routed = function () { if (!D.pending().length) return; if (placeOnly()) stampPlace(); else allNow(); };
+  var routed = function () { if (!D.pending().length && !VC.length) return; var q = quiet(); if (q === 'p') stampPlace(); else if (!q) allNow(); };
   window.addEventListener('hashchange', routed);
   document.addEventListener('cleo:route', routed);
+  window.addEventListener('beforeprint', allNow);
+  var NEEDS_ALL = '[data-mode],[data-cleo-all],.rail-i,.pl-s button.src,[data-cleo-tray],[data-cleo-map],[data-unset],[data-tr],[data-cleo-day],[data-cleo-near],[data-cleo-foryou],[data-cleo-mine]';
+  document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest(NEEDS_ALL)) allNow(); }, true);
+  document.addEventListener('focusin', function (e) { if (e.target.matches && e.target.matches('#cleo-filter,main input[type=search]')) allNow(); }, true);
+  document.addEventListener('keydown', function (e) { if ((e.ctrlKey || e.metaKey) && (e.key === 'f' || e.key === 'F' || e.key === 'g')) allNow(); }, true);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', deferInit); else deferInit();
 
   /* ---- saved counter in the site bar ---- */
