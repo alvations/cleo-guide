@@ -146,3 +146,5 @@ html[data-view=atlas] .area-chips{display:flex;gap:6px;overflow-x:auto;padding:4
 @media (max-width:1023px){html.atlas-m[data-view=atlas] .leaflet-top{top:64px}}
 /* print: in Guidebook / Insights the module is the printed copy (it holds every place); JS off → no data-view → the list prints */
 @media print{html[data-view=guidebook] .split,html[data-view=insights] .split,html[data-view] .g-rows,html[data-view] .pager,.views{display:none!important}html[data-view=gallery] .pl.pg-off,html[data-view=gallery] section.area.pg-empty{display:revert!important}}
+/* DES REVIEW-W3: Guidebook / Insights phones — the module's cover is the first screen (rail hidden above; masthead compact) */
+@media (max-width:639px){html[data-view=guidebook] .masthead,html[data-view=insights] .masthead{min-height:0;padding-bottom:6px}html[data-view=guidebook] .masthead :is(.facts,.dek,.eyebrow,svg),html[data-view=insights] .masthead :is(.facts,.dek,.eyebrow,svg){display:none}html[data-view=guidebook] .masthead h1,html[data-view=insights] .masthead h1{font-size:28px}}

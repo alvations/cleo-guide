@@ -38,6 +38,7 @@ const W3 = [
   { id: 'atlas-full', url: 'beta/cities/tokyo.html#view=atlas', click: '[data-detent-cycle]', mobileOnly: 1, wait: 600 },
   { id: 'exp', url: 'beta/cities/tokyo.html#p=kanda-myojin', wait: 700 },
   { id: 'sheet-atlas', url: 'beta/cities/tokyo.html#view=atlas&p=kanda-myojin', wait: 900 },
+  { id: 'guidebook', url: 'beta/cities/tokyo.html#view=guidebook', wait: 1200 },
 ];
 const SETS = process.argv.includes('--w3') ? W3 : [
   { id: 'tokyo', url: 'beta/cities/tokyo.html' },
