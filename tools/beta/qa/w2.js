@@ -250,7 +250,8 @@ async function near() {
 async function map() {
   console.log('\n# Map as a guide (M2-13 / B-06 / B-07)');
   for (const rel of PILOTS) {
-    const { ctx, page, st } = await open(rel, 'desktop', { settle: 1500 });
+    // the map is the Atlas view's (W5: Gallery is the default view and has no map), so the map probe runs in Atlas
+    const { ctx, page, st } = await open(rel, 'desktop', { hash: '#view=atlas', settle: 1500 });
     const w = await page.evaluate(() => { const m = document.querySelector('.leaflet-container') || document.querySelector('[data-cleo-map]'); return m ? Math.round(m.getBoundingClientRect().width / innerWidth * 100) : 0; });
     check('map', `${rel} desktop: map ≥ 40 % of 1440`, w >= 40, w + ' %');
     // open a card from the second area: the map should centre on it
@@ -271,7 +272,7 @@ async function map() {
     check('map', `${rel} desktop: 0 JS errors`, !st.errors.length, st.errors.slice(0, 3));
     await ctx.close();
     // mobile: toggle → pin → peek detent ≤ 40 %, Esc closes, locator inset in the full sheet
-    const m = await open(rel, 'mobile', { settle: 800 });
+    const m = await open(rel, 'mobile', { hash: '#view=atlas', settle: 800 });
     const tg = m.page.locator('.map-toggle').first();
     if (await tg.count()) {
       await tg.click(); await m.page.waitForTimeout(1500);

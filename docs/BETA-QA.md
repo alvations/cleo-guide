@@ -517,3 +517,39 @@ commented edits so the numbers can be reproduced; QA owns the file and may rever
 
 Not claimed: B-04/B-06/B-07/B-09 are Atlas map/rail rows (QA W3: "Atlas-only, don't apply to the other views") and
 B-16 is 1.53–1.61 in Gallery (SPEC §4: a 1-column, cover-led phone grid). Atlas keeps all of them (`--view atlas`).
+
+## 2026-10-10 · QA · Wave 5 (final) full pass · session_015bFMDrayu1fp3qp2cKD3xm
+
+**Tested SHA: `f2bf7610ccebadfac31f893542b0eb23b63892d8`**, pinned in a clean worktree. Gates verified there: validate ✅, `npm test` ✅, `beta:check` ✅ (179 pages, 84 place pages, 8,458 places, beta == live).
+
+### Ruling on "Gallery as default" (FE-A's two `metrics.js` edits): **ratified**
+
+I checked reachability with an independent probe, `tools/beta/qa/w5.js`, which doesn't use the edited rules. It covers the 5 pilots with the Gallery as the actual default (no hash, no stored preference):
+
+| Path to a place | Result |
+|---|---|
+| Deep link | ✅ `#p=<id>` opens that place's sheet, with the Gallery kept, for **every** place: 194 + 488 + 508 + 16 + 35 |
+| Search | ✅ typing the name in the page filter shows the place (25 spread samples per pilot) |
+| Show all | ✅ "Show all N on one page" shows every record (visible == N), phone and desktop. Wheeling (35) fits one page and shows all 35 after scrolling. |
+| No-JS | ✅ every record is listed and displayed on all 5 pilots |
+| Phone first screen | ✅ a real place card on every pilot: lead card with cover, name, tier, heart, "Recommended by" and a link that opens the place (screenshot `first-cities_tokyo.jpg`: Kanda Myōjin at ≈ 0.5 screens) |
+
+Ratified as QA rules: in a paged view, one tap on the pager's own visible "Show all" counts as part of "All" for G1; and in the Gallery, the first visible place card (`li.pl` or `li.gc[data-id]`) counts as the "first card" for B-01/B-03. With these rules, metrics on the Gallery default read B-01 0.50–0.59, B-03 7, and G1 ✅ on every pilot. The Gallery-default rows that still fail are the Atlas-only map rows (B-06, B-07, B-09) and B-04 on Chinatown (rail top 936 px), plus B-16 at 1.52–1.61 (the 1-column cover grid from SPEC §4). The Atlas view keeps all of them: `--view atlas` is 24/24 on every pilot.
+
+### W5 items (`w5.js` 64/64)
+- **Macrons at DPR 1:** "ō" draws visibly different pixels from "o" in the display-name face at 18 and 24 px (`macron-dpr1.jpg`).
+- **Motif by kind:** every sight card carries a `data-m` motif. `motifOf` keys only on collection ids (and food on its cuisine id), never on description or name text (code read).
+- **Masthead "last checked":** ≥ 44 px target on phone and desktop. B-03 is back to ≤ 14 in Atlas (14) and 7 in Gallery.
+- **Tokyo weight:** ≈ 0.55 MB gzip (1.9 MB raw) on the Gallery default. A single `art/tokyo/map.svg` fetch, no duplicate.
+- **Insights:** Tokyo initial DOM ≤ 3,000 and every chart link has a ≥ 44 px hit area, on phone and desktop.
+- **i18n:** the `en` catalogue is present, no other locale is shipped, hreflang en + x-default, and the switcher is hidden.
+
+### Regressions
+- `views.js` (no-CDN + storage throwing, deep-link matrix, honesty; 5 pilots × 4 views): **319/320**. The one is the known record-prose INFO (live data, PM call).
+- Per view: B-22 overflow 0, B-23 contrast 0 and M1-16 focus 30/30 in **all four views**. Guidebook and Insights B-20 are only the exempt text links and the ≥ 24 px bars.
+- W2 harness: 192/218 as written, because 25 map checks opened the page with no hash and landed on the Gallery. The map belongs to the Atlas view, so `w2.js` now runs the map probe at `#view=atlas` (QA harness fix): **35/35**. Remaining: QA-26 (Low).
+- Atlas Tokyo B-07 missed once at concurrency 3 and passed 2/2 when re-run alone (timing, not reproducible).
+
+Open, Low: QA-26. PM call pending on record prose with prices and ratings.
+
+QA sign-off: YES

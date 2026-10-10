@@ -69,9 +69,10 @@ The method is identical to ROUND-4.
 
    No web research and no WebFetch.
 
-**Process note.** QA's W5 sign-off is not in yet. It also has to rule on FE-A's proposed G1 "scrolled" and B-01 card
-criteria for the paged default (`docs/BETA-QA.md`, "Gallery as default"). The G1 numbers below use the harness as FE-A edited
-it.
+**Process note.** QA's W5 pass ran in parallel and landed while this round was being written. It gives **sign-off YES on
+`f2bf7610`** and ratifies FE-A's G1 "scrolled" and B-01 card criteria, backed by its own `tools/beta/qa/w5.js` (deep links
+1,241/1,241). See `docs/BETA-QA.md` and BETA-LOG. Transfer figures here are `beta:metrics`' **uncompressed** byte totals,
+the same basis as R4's 2.06 MB. QA's "Tokyo ≈ 0.55 MB" is gzip on the wire. Both bases show the default view grew.
 
 ## Side-by-side (R4 → R5)
 
@@ -109,7 +110,7 @@ Composites are labelled R4 `8aa6fdf4` | R5 `f2bf7610`.
 | `beta:metrics` pilot score (default view) | 23/24 ×5, landing 10/10 | **20/24 ×4, 19/24** (Chinatown), landing 10/10 | metrics |
 | B-01 screens to first card (≤ 1.0) | 0.90–1.00 | **0.50–0.59** | metrics |
 | B-03 controls above first card (≤ 14) | 15 ✕ | **7** | metrics |
-| G1 reachability (default view) | 100 % | 100 %: scrolled, deep, search and no-JS on all 5 pilots, using FE-A's criterion that QA has not yet ratified | metrics |
+| G1 reachability (default view) | 100 % | 100 %: scrolled, deep, search and no-JS on all 5 pilots, using FE-A's criterion, which QA has now ratified | metrics |
 | B-06 split + sync · B-07 phone map · B-09 numbered pins (default view) | ✅ | **✕**: these are Atlas rows, and the default is no longer Atlas. Atlas keeps them, one tap away. | metrics |
 | B-16 cards per phone screen (≥ 2) | ✅ | ✕ 1.52–1.61, from the 1-column cover grid | metrics |
 | B-23 contrast, light + night | 0/0 | 0/0 (Gallery cover initials are now generated content) | metrics |
@@ -197,7 +198,7 @@ Gain = weight × the dimension points if the change fully lands. A ≥ 80 needs 
 | 5 | **Lead-card mismatch and empty desktop hero** | The "Start with" button must name the place the lead card shows (Cleveland: Slyman's vs Larder). Use the empty desktop navy field, for example by setting the city schematic at a legible scale. | FE-A + designer | A +2 → **+0.8** |
 | 6 | **Cleveland sights on the compass motif** | Give the 148 sights collection ids through the **live** pipeline (a PM backlog request; out of beta scope), and the motif follows by rule. | PM → live pipeline | A +1 → **+0.4** |
 | 7 | **No reviewed second locale** (C #30) | The owner reviews one locale, and the switcher appears by rule. | owner review + platform | C +1.4 → **+0.3** |
-| 8 | **QA ratification** | QA rules on the G1 "scrolled" and B-01 card criteria and signs W5. `beta:metrics` reports the Atlas rows (B-06/07/09) under `--view atlas`, so the default-view table does not read as a regression. | QA | B +1 → **+0.25** |
+| 8 | **Harness view rows** | QA has ratified the Gallery criteria and signed W5. Still to do: `beta:metrics` reports the Atlas rows (B-06/07/09) under `--view atlas`, so the default-view table does not read as a regression. | QA | B +1 → **+0.25** |
 | 9 | **B-16 in Gallery on phones** (1.5–1.6) | A 2-up compact grid below the first rows on phones, or accept the cover-led grid in SPEC with QA. | designer + QA | B +1 → **+0.25** |
 | 10 | **★ count label** | Label the ★ row "37 (collection)", which completes the R4 gap #10. | FE-A | D +1 → **+0.15** |
 
@@ -232,7 +233,7 @@ gained only +1.
 ## What R5 got right (keep)
 
 - FE-A flipped the Gallery default only after every gate passed on the pilots, and it says plainly which rows it does not claim.
-- Every place stays reachable in the new default: G1 deep, search and no-JS are 100 % on every pilot.
+- Every place stays reachable in the new default: G1 deep, search and no-JS are 100 % on every pilot, and QA ratified it.
 - The macron fix was verified by a pixel test, not by eye, and it holds at DPR 1.
 - Motifs key on collection ids. Where Cleveland has no ids, the gap is stated and not guessed (the Wenwen rule).
 - The i18n groundwork rebuilt the landing and hubs byte-identically, and no unreviewed locale shipped.

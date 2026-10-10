@@ -58,7 +58,7 @@ Goal: overall ≥ 80 with A ≥ 80 and C ≥ 80. Stretch: 90.
   - The landing and hub strings are on the catalogue.
   - **Cost:** the default view got heavier (Tokyo 2.06 → 3.03 MB; FCP at 4× 396 → 1,124 ms). On phones, the map is now one
     tap further away.
-  - Not yet deployed: QA's W5 sign-off and its ruling on the new Gallery reachability criterion are still owed.
+  - QA signed W5 off YES on `f2bf7610` and ratified the Gallery reachability criteria. It is not deployed yet.
 
 ## Competitor feature rows (C)
 
@@ -96,7 +96,6 @@ These are things no leader product in the teardown does:
    1.1 s. On a phone, "Show the map" from the Gallery lands on the Atlas list, and a second tap opens the map. See ROUND-5
    gaps #2 and #3.
 4. **A reviewed second locale (C #30).** This needs an owner review.
-5. **QA's W5 sign-off,** including a ruling on FE-A's G1 "scrolled" criterion for a paged default.
 
 **Honest ceiling.** Without photographs, A tops out at about 78–79 and the overall score at about 85–86. With photographs and
 the two smaller fixes above, A reaches about 85+ and the overall score about 88. Reaching the stretch target of 90 also needs a
@@ -104,10 +103,10 @@ signature motion moment and B at 88 or more.
 
 ## Recommended next step
 
-**Ship W5 once QA signs off, then have the owner fetch the landmark photographs. No further polish wave until then.**
+**Ship W5 (QA signed it off YES), then have the owner fetch the landmark photographs. No further polish wave until then.**
 
-1. QA ratifies or tightens the Gallery G1/B-01 criteria in `docs/BETA-QA.md`, and signs `f2bf7610`, or a fix head that defers the
-   places JSON and opens the map in one tap from the Gallery (ROUND-5 gaps #2 and #3). The orchestrator then deploys the beta-only PR as in earlier rounds.
+1. Deploy `f2bf7610`, which QA has signed off, through the beta-only PR as in earlier rounds. Then make one small fix head that
+   defers the places JSON and opens the map in one tap from the Gallery (ROUND-5 gaps #2 and #3).
 2. The owner runs the photo manifest on an unrestricted machine, commits the files and `CREDITS.json` rows, and re-runs
    `npm run beta` and `beta:check`. The credit gate refuses any photo without a licence row.
 3. Re-score once (a Round 6) on that head with this same rubric. Expected: A ≈ 85, overall ≈ 88. Only then decide whether a
