@@ -392,3 +392,56 @@ B-06, B-07 and B-16 were re-measured on this head and are **green on the pilot s
 
 QA sign-off: NO
 Blockers: **QA-24** (DES — axe serious on every page: footer links told apart by colour only; M1-16 needs 0 serious/critical) · **QA-25** (DES + FE-A — `saved.html` night contrast, B-23) · **QA-22** (FE-B — Vietnam hub B-05) · **QA-23** (FE-B — `404.html` contrast, B-23). The pilot rows B-06, B-07 and B-16 are fixed, and so are QA-16, QA-18, QA-19 and QA-21. QA-24 is a one-rule CSS fix. QA re-signs YES once `npm run beta:qa:w2 -- --only a11y` and `beta:metrics:all` show these four green with the gates unchanged.
+
+## 2026-10-10 · QA · W2 re-test (blockers QA-22, QA-23, QA-24, QA-25, QA-28) · session_015bFMDrayu1fp3qp2cKD3xm
+
+**Tested SHA: `c2a221bd`** (full: `git rev-parse c2a221bd`), checked out clean in a separate worktree. It carries designer `432c01ce` (QA-24, QA-25) and FE-B `d71e3831` (QA-22, QA-23, QA-28), and it predates FE-A's view registry (`tools/beta/client/views.js`).
+
+| Blocker | Re-test | Result |
+|---|---|---|
+| QA-24 footer links told apart by colour only | `beta:qa:w2 --only a11y`: axe on hubs, pilots, saved, accessibility and method pages, light + night | ✅ no `link-in-text-block` on any page. 43/44 rows are 0 serious/critical. The one left is QA-26 (Low, `how-we-choose` `.tablewrap`), which was never a blocker. |
+| QA-25 `saved.html` night note 1.37:1 | axe saved (3 rows) + `metrics --only saved` | ✅ axe 0. B-23 light 0/0 · night 0/0 |
+| QA-22 Vietnam hub B-05 | `metrics --only Vietnam/index` | ✅ B-05 = 2. Score 10/10. |
+| QA-23 `404.html` tab labels 2.86:1 | `metrics --only 404` | ✅ B-23 light 0/0 · night 0/0. Score 9/9. |
+| QA-28 rail counts ≠ lens | `beta:qa:w2 --only hubs` | ✅ all 38 editorial-rail deep links open with the promised count |
+
+Gates on `c2a221bd`: `npm run validate` ✅, `npm test` ✅, `npm run beta:check` ✅ (95 pages, 8,458 places, beta == live). Pilot metrics (regression guard): landing 10/10, and Cleveland, Tokyo, NYC, Chinatown and Wheeling 24/24 each. G1, B-23 and every hard gate are green.
+Evidence: `qa/beta-w2-retest-c2a221bd-{a11y-hubs.json,pilots.md,Vietnam_index.md,404.md,saved.md}`.
+
+**Do not deploy the later head `498629e1`** (`c2a221bd` + FE-A's in-progress view registry + QA tooling). With Gallery as the default view, the pilots drop to 14–15/24: `qa/beta-w2-retest-pilots-498629e1.md`.
+- **QA-29 (High, FE-A):** G1 hard-gate FAIL on Cleveland and Tokyo, because the page opens on the paged Gallery and only 48 of N places are reached by scroll or `#p=` (Cleveland deep 48/194, Tokyo 48/488).
+- **QA-30 (Med, FE-A/DES):** B-23 night 1/1 on every place page.
+- **QA-31 (Med, FE-A):** the W2 page metrics (B-01–B-04, B-06–B-09) regress, because the default view is no longer the split list + map. Either the Atlas view keeps them, or the default view changes.
+- The landing rail links (`#c=TEMPLE` etc.) open 48 cards instead of the promised count under Gallery paging (QA-28 regresses).
+
+These are W3 work-in-progress defects. They do not block the W2 deploy of `c2a221bd`.
+
+QA sign-off: YES
+
+## 2026-10-10 · QA · Wave 3 (views) full pass · session_015bFMDrayu1fp3qp2cKD3xm
+
+**Tested SHA: `83aa1a28`**, checked out clean in a separate worktree. All W3 lanes reported done (platform, FE-B, designer `982c3ba7`, FE-A `83aa1a28`).
+
+Gates: `npm run validate` ✅, `npm test` ✅ (P-04 reachability per view and the Q-04 honesty gate included), `npm run beta:check` ✅ (95 pages, 8,458 places, beta == live).
+
+| Item | Run | Result |
+|---|---|---|
+| Q-01 per-view metrics | `metrics.js --view {atlas,gallery,guidebook,insights}`, 6 pilots × 390/360/1440 → `qa/beta-w3/beta-w3-metrics-*.md` | **Atlas** (default) 24/24 on every pilot, so the W2 page metrics hold (QA-29/30/31 fixed). In every view: B-22 overflow 0 at 360 and 390, and B-23 contrast 0/0 light and night. **Gallery:** the first rail card sits on the first phone screen (checked by screenshot). The B-01/B-03/B-16 ❌ come from the probe measuring the paged All-N grid, a harness limit, not a defect. ❌ **QA-32:** Guidebook B-20, 598 (Cleveland) / 2,801 (Tokyo) small targets. ❌ **QA-33:** Insights M1-16 focus visible 13/30 and 12/30, plus B-20 62/188. The map/rail rows (B-04, B-06, B-07, B-09) are Atlas-only and don't apply to the other views. |
+| G1 reachability, every view | `test-views.js` P-04 in npm test (scroll, `#p=`, `q=`, print DOM) + `views.js` | ✅ every place on every pilot in every view. The Gallery reaches all of them through the pager and Show all (`#p=` 194/194, 488/488). The metrics G1 row reads 0/N in Guidebook and Insights because it probes `li.pl` only; P-04 covers those views. |
+| Q-02 no-CDN + storage blocked | `views.js --only nocdn`: Leaflet, tiles and fonts blocked and `localStorage`/`sessionStorage` throwing, 5 pilots × 4 views × 2 viewports | ✅ **160/160**. The view is applied, every place id is in the DOM, there are 0 JS errors, and the switcher switches (phone disclosure + aria-pressed) with no storage. |
+| Q-03 deep-link matrix | `views.js --only links`: #view × #p × lens (a, t, q) × pg/all, receiver's stored preference ≠ the link, Back/Forward | ✅ 140 + 70 cases. The sender's view wins over the stored preference, the lens counts equal `Cleo.lens`, `#p=` opens the sheet in every view, and one switch is one history entry. |
+| Q-04 honesty | `test-honesty.js` (npm test) + mounted views with the sheet open | ✅ 0 hits in view copy. INFO (PM): record prose from the live data carries prices and ratings (269 places, e.g. Cleveland golf "Around $13 for nine holes", shown verbatim in the Guidebook). It is data, not view copy, and needs a PM call. |
+| W2 regression | `beta:qa:w2` (full) | 216/218. ❌ **QA-34:** Chinatown phone map, a pin tap opens no sheet (2/2 runs; it was 36 % in W2). ❌ QA-26 (Low, carried over). |
+
+### New defects (W3)
+
+| ID | Sev | What | Evidence | Lane |
+|---|---|---|---|---|
+| QA-32 | Med | **Guidebook tap targets.** Save hearts `.ge-save` are 30 px tall (194 on Cleveland), source chips `.recby .src` are 26 px (229), and the `.urls` links are under 44 px. Hearts and chips should match the 44 px card chrome. The entry-name links in `h4` are text links (exempt). | `beta-w3-metrics-guidebook.md` B-20 | FE-B (guidebook markup) + DES (views.css) |
+| QA-33 | Med | **Insights keyboard focus.** Tab walk: 13/30 focus stops have no visible focus ring. These are the SVG chart bar links (`<a>` around `rect.bar`), which also measure 18 px tall. Add a `:focus-visible` outline on the bar or link. The 18 px height is acceptable *only* because "Show as a table" and the index give equivalent 44 px targets; keep both. | `beta-w3-metrics-insights.md` M1-16, B-20 | DES (views.css) + FE-B |
+| QA-34 | Med | **Chinatown phone map: a pin tap opens no sheet** (M2-13 peek detent). Other pilots pass. It was 36 % in W2, so this regresses with FE-A slice 3 (list-first phones). | `qa/beta-w3/w2-map-83aa1a28.json` | FE-A |
+
+Harness notes: `views.js` opens the phone switcher disclosure before switching (fixed in this commit). Per-view metrics evidence: `qa/beta-w3/`.
+
+QA sign-off: NO
+Blockers: **QA-33** (keyboard focus not visible on Insights chart links: M1-16 a11y on a new view) · **QA-32** (Guidebook hearts and source chips under 44 px: Q-01 B-20 per view) · **QA-34** (Chinatown phone pin sheet regression: W2 M2-13). All three are small. Every other W3 criterion passes on `83aa1a28`: Q-02 160/160, Q-03 210/210, Q-04 0 hits, P-04 reachability in every view, Atlas 24/24 on every pilot. QA re-signs YES once `metrics.js --view guidebook|insights` (B-20, focus) and `beta:qa:w2 --only map` show these three green with the gates unchanged.

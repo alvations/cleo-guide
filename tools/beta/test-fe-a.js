@@ -24,13 +24,13 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 function boot(page, { hash = '', storage = 'ok', mobile = false, geo = null, seed = null } = {}) {
   let html = fs.readFileSync(path.join(BETA, page), 'utf8').replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
     (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
-  // foryou.js / day.js load on first use (C.need); jsdom fetches nothing, so the harness inlines them like a browser would
-  if (/data-cleo-page="city"/.test(html)) html = html.replace('</body>', ['foryou', 'day'].map(n => '<script>' + fs.readFileSync(path.join(BETA, 'assets/js', n + '.js'), 'utf8') + '</script>').join('') + '</body>');
+  // foryou.js / day.js / gallery.js load on first use (C.need / views.js); jsdom fetches nothing, so the harness inlines them like a browser would
+  if (/data-cleo-page="city"/.test(html)) html = html.replace('</body>', () => ['foryou', 'day', 'gallery'].map(n => '<script>' + fs.readFileSync(path.join(BETA, 'assets/js', n + '.js'), 'utf8') + '</script>').join('') + '</body>');
   const errs = [];
   const dom = new JSDOM(html, {
     runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + page + hash,
     beforeParse(w) {
-      w.Element.prototype.scrollIntoView = function () {};
+      w.Element.prototype.scrollIntoView = function () {}; w.scrollTo = () => {};
       w.matchMedia = q => ({ matches: /min-width/.test(q) ? !mobile : false, addListener() {}, removeListener() {} });
       if (storage === 'throws') Object.defineProperty(w, 'localStorage', { get() { throw new Error('SecurityError'); } });
       else if (seed) for (const k in seed) w.localStorage.setItem('cleo:v1:' + k, JSON.stringify(seed[k]));
@@ -161,6 +161,84 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     chk('no js errors', errs.length === 0, errs.slice(0, 2));
   }
 
-  console.log(failures ? `\n>>> FAIL — ${failures} FE-A check(s) failed` : '\n>>> PASS — FE-A: for-you reorders only, days honest, near-me in memory, pin sheet Esc, shared lists');
+  console.log('\n== W3 VIEWS: switcher, precedence, Gallery pager, Atlas, sheet n of N (A-01…A-05) ==');
+  {
+    const page = 'cities/tokyo.html', N = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places/tokyo.json'), 'utf8')).places.length;
+    let { d, w, errs } = boot(page); await sleep(150);
+    const view = () => d.documentElement.getAttribute('data-view');
+    chk('default view is Atlas (QA-29/31), switcher revealed with Gallery + Atlas', view() === 'atlas' && !d.querySelector('[data-cleo-views]').hidden &&
+      ['gallery', 'atlas'].every(v => d.querySelector(`[data-cleo-views] button[data-view="${v}"]`)), view());
+    ({ d, w, errs } = boot(page, { hash: '#view=gallery' })); await sleep(150);
+    if (w.Cleo.defer) w.Cleo.defer.all(); await sleep(30);
+    const cards = [...d.querySelectorAll('li.pl')];
+    chk('Gallery grid holds every place', cards.length === N, [cards.length, N]);
+    chk('page 1 shows 48, the rest are paged (never hidden by a lens)', cards.filter(c => !c.classList.contains('pg-off')).length === 48 && cards.every(c => !c.hidden));
+    const pager = d.querySelector('.pager');
+    chk('pager: page numbers + "all N" line + show-all', !!pager && !pager.hidden && pager.querySelectorAll('.pg-n button[data-pg]').length >= 3 &&
+      new RegExp('all ' + N + ' places').test(pager.textContent) && new RegExp('Show all ' + N + ' on one page').test(pager.textContent), pager && pager.textContent.slice(0, 120));
+    w.Cleo.root = '../'; w.Cleo.city.apply(); await sleep(80);   // inlined scripts have no src → set the site root, re-paint (rows load from the page JSON)
+    chk('rows are drawn client-side from the page JSON (none in the server HTML) and every row card shows Recommended by', !/class="g-row"/.test(fs.readFileSync(path.join(BETA, page), 'utf8')) && d.querySelectorAll('#cleo-rows-host .g-row').length > 0 &&
+      [...d.querySelectorAll('#cleo-rows-host .gc')].every(g => /Recommended by/.test(g.textContent)), d.querySelectorAll('#cleo-rows-host .g-row').length);
+    w.location.hash = '#view=gallery&all=1'; await sleep(30);
+    chk('#all=1 puts every place on one page', d.querySelectorAll('li.pl.pg-off').length === 0);
+    w.location.hash = '#view=gallery&pg=9'; await sleep(30);
+    const last = d.querySelector('li.pl:not(.pg-off)');
+    chk('#pg=9 shows a later page', !!last && cards.indexOf(last) === 8 * 48, last && cards.indexOf(last));
+    const deep = cards[cards.length - 3], nm = w.Cleo.city.name(deep);
+    const fi = d.getElementById('cleo-filter'); fi.value = nm; fi.dispatchEvent(new w.Event('input')); await sleep(200);
+    chk('search spans every page (a last-page record found by name, on page 1 of the matches)', !deep.hidden && !deep.classList.contains('pg-off'), nm);
+    fi.value = ''; fi.dispatchEvent(new w.Event('input')); await sleep(200);
+    d.querySelector('[data-cleo-views] button[data-view="atlas"]').click(); await sleep(30);
+    chk('switch → Atlas: html[data-view], hash view=atlas, every card unpaged', view() === 'atlas' && !/view=/.test(w.location.hash) && d.querySelectorAll('li.pl.pg-off').length === 0, w.location.hash);   // Atlas is the default: no view= key
+    chk('…remembered', w.Cleo.store.get('view') === 'atlas');
+    d.querySelector('button[data-mode="sights"]').click(); await sleep(30);
+    chk('a lens keeps the view (Atlas stays; no stray view= key)', view() === 'atlas' && !/view=/.test(w.location.hash) && /mode=sights/.test(w.location.hash), w.location.hash);
+    chk('live region announces the view', /Atlas view, \d/.test(d.getElementById('cleo-view-live').textContent));
+    chk('no js errors', errs.length === 0, errs.slice(0, 2));
+
+    ({ d, w, errs } = boot(page, { mobile: true, hash: '#view=gallery' })); await sleep(100);
+    d.querySelector('.map-toggle[data-cleo-map]').click(); await sleep(40);
+    chk('outside Atlas the map button switches to Atlas (the map lives there)', view() === 'atlas' && !/view=gallery/.test(w.location.hash) && errs.length === 0, [view(), w.location.hash, errs.slice(0, 1)]);
+    // G1 (QA-29): in the paged Gallery every deep link and anchor lands on a shown card
+    ({ d, w, errs } = boot(page, { hash: '#view=gallery' })); await sleep(120);
+    const all9 = [...d.querySelectorAll('li.pl')], far = all9[all9.length - 2], shown = c => !c.hidden && !c.classList.contains('pg-off') && !c.closest('.pg-empty');
+    w.location.hash = '#view=gallery&p=' + far.id.slice(2); await sleep(60);
+    chk('Gallery #p= to a last-page place moves the pager there (card shown)', shown(far) && /pg=\d+/.test(w.location.hash), w.location.hash);
+    const mid = all9[200]; w.location.hash = '#' + mid.id; await sleep(60);
+    chk('Gallery #p-<id> anchor lands on a shown card', shown(mid), mid.id);
+    const lastA = [...d.querySelectorAll('section.area')].pop(); w.location.hash = '#' + lastA.id; await sleep(60);
+    chk('Gallery #area-<A> anchor shows that area', !lastA.classList.contains('pg-empty') && !!lastA.querySelector('li.pl:not(.pg-off):not([hidden])'), lastA.id);
+    chk('no js errors', errs.length === 0, errs.slice(0, 2));
+    ({ d, w, errs } = boot(page, { hash: '#view=bogus' })); await sleep(100);
+    chk('#view=bogus → the default (Atlas), the bad key dropped, no error', view() === 'atlas' && !/view=/.test(w.location.hash) && errs.length === 0, [view(), w.location.hash]);
+    ({ d, w, errs } = boot(page, { hash: '#view=atlas&p=kanda-myojin' })); await sleep(150);
+    const sh = d.getElementById('cleo-sheet');
+    chk('#view=atlas&p=x opens the sheet over Atlas', view() === 'atlas' && !sh.hidden && /Kanda/.test(sh.textContent));
+    ({ d, w, errs } = boot(page, { seed: { view: 'gallery' } })); await sleep(100);
+    chk('stored preference → Gallery, written into the hash', view() === 'gallery' && /view=gallery/.test(w.location.hash), w.location.hash);
+    ({ d, w, errs } = boot(page, { seed: { view: 'gallery' }, hash: '#view=atlas' })); await sleep(100);
+    chk('an explicit view= beats the stored preference (shared links)', view() === 'atlas');
+    ({ d, w, errs } = boot(page, { storage: 'throws' })); await sleep(100);
+    d.querySelector('[data-cleo-views] button[data-view="gallery"]').click(); await sleep(30);
+    chk('storage blocked: switching still works, no error', view() === 'gallery' && errs.length === 0, errs.slice(0, 2));
+
+    ({ d, w, errs } = boot(page, { hash: '#view=gallery&c=ANIME' })); await sleep(150);
+    const set = [...d.querySelectorAll('li.pl:not([hidden])')];
+    w.location.hash = '#view=gallery&c=ANIME&p=' + set[1].id.slice(2); await sleep(60);
+    const pos = d.querySelector('#cleo-sheet [data-sh-pos]');
+    chk('sheet: "2 of n in this view" counts the lensed set', !!pos && pos.textContent.startsWith('2 of ' + set.length + ' '), [pos && pos.textContent, set.length]);
+    chk('sheet: "No. r of n in {area}"', /No\. \d+ of \d+ in /.test((d.querySelector('#cleo-sheet .sh-rank') || {}).textContent || ''));
+    d.querySelector('#cleo-sheet [data-sh="go"][aria-label^="Next"]').click(); await sleep(60);
+    chk('next walks the view order', /p=/.test(w.location.hash) && w.location.hash.indexOf(set[2].id.slice(2)) > 0 && d.querySelector('#cleo-sheet [data-sh-pos]').textContent.startsWith('3 of '), w.location.hash);
+    chk('Gallery sheet = experience page (Plan your visit, one primary link, Close by)', !!d.querySelector('#cleo-sheet .sheet.exp .plan') && d.querySelectorAll('#cleo-sheet .primary-link').length <= 1 && !!d.querySelector('#cleo-sheet .closeby'));
+    const st = d.querySelector('#cleo-sheet').textContent.replace(/Hours and prices aren’t in our data/g, '');
+    chk('no price / booking / rating / availability on the sheet', !/(\$|¥|€|£)\s?\d|\bbook(ing| now)\b|\breserv|\bavailab|\brating|\bstars?\b|\bprice/i.test(st));
+    const hrefs = [...d.querySelectorAll('#cleo-sheet a[href]')].map(a => a.getAttribute('href')).filter(h => !h.startsWith('#'));
+    chk('every outbound sheet link is absolute https', hrefs.every(h => /^https:\/\//.test(h)), hrefs.filter(h => !/^https:/.test(h)).slice(0, 3));
+    chk('share link writes view= explicitly', /#view=gallery&/.test(d.querySelector('#cleo-sheet [data-sh="share"]').getAttribute('data-url')));
+    chk('no js errors', errs.length === 0, errs.slice(0, 2));
+  }
+
+  console.log(failures ? `\n>>> FAIL — ${failures} FE-A check(s) failed` : '\n>>> PASS — FE-A: for-you reorders only, days honest, near-me in memory, pin sheet Esc, shared lists, views (switcher, pager, Atlas, sheet n of N)');
   process.exit(failures ? 1 : 0);
 })();

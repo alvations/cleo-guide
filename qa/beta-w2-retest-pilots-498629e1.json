@@ -1,0 +1,2840 @@
+{
+ "generated": "2026-10-10T13:48:29.262Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "index.html",
+   "gen": "new",
+   "expected": null,
+   "mobile": {
+    "loadErr": null,
+    "kind": "landing",
+    "vw": 390,
+    "vh": 844,
+    "title": "Cleo — sourced city guides",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 405,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 413,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "span.k \"★ United States\"",
+    "contrastChecked": 358,
+    "contrastUnknown": 52,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.stickypills \"United StatesSingaporeVi\"",
+     "nav.tabbar \"Explore Search Your list\""
+    ],
+    "railVisible": true,
+    "railTop": 507,
+    "railOnFirstScreen": true,
+    "railItems": 2,
+    "railFirst": "★ United StatesSan Francisco classicsin ",
+    "cityCardsAbove": 2,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1408,
+    "fcp": 468,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Bodoni Moda": 107,
+     "Figtree": 404,
+     "Noto Serif JP": 5
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bodoni Moda": 813,
+      "Figtree Light": 5599,
+      "Inter SemiBold": 2,
+      "Inter Medium": 4,
+      "IPAGothic": 11
+     },
+     "primary": [
+      "Figtree Light",
+      "Bodoni Moda",
+      "IPAGothic",
+      "Inter Medium",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 648523,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 358,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "landing",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Cleo — sourced city guides",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 425,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 488,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 431,
+    "contrastUnknown": 54,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.stickypills \"United StatesSingaporeVi\""
+    ],
+    "railVisible": true,
+    "railTop": 524,
+    "railOnFirstScreen": true,
+    "railItems": 6,
+    "railFirst": "★ United StatesSan Francisco classicsin ",
+    "cityCardsAbove": 6,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1408,
+    "fcp": 456,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Bodoni Moda": 105,
+     "Figtree": 429
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Bodoni Moda": 816,
+      "Figtree Light": 7238,
+      "Inter SemiBold": 6,
+      "Inter Medium": 4
+     },
+     "primary": [
+      "Figtree Light",
+      "Bodoni Moda",
+      "Inter SemiBold",
+      "Inter Medium"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 648523,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 431,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 0,
+    "text": 8149
+   },
+   "cpu4x": {
+    "fcp": 1080,
+    "dcl": 1776,
+    "loadMs": 1866
+   },
+   "verdict": {
+    "rows": {
+     "B-05 hub: city cards above the fold ≥2": {
+      "pass": true,
+      "val": 2
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bodoni Moda, Figtree · rendered here: Figtree Light, Bodoni Moda, IPAGothic, Inter Medium, Inter SemiBold"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0% (0/413)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px span.k \"★ United States\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": null,
+      "val": "no tiles requested"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "633 KB · 1408 nodes · 456 ms · 1080 ms"
+     }
+    },
+    "passed": 10,
+    "total": 10,
+    "hardFail": []
+   }
+  },
+  {
+   "page": "cleveland.html",
+   "gen": "new",
+   "expected": {
+    "total": 194,
+    "sights": 148,
+    "food": 46,
+    "live": "cleveland.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Cleveland — 194 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 24,
+    "legacy": false,
+    "firstCardTop": 2349,
+    "screensToFirstCard": 2.78,
+    "mastheadPx": 724,
+    "controlsAbove": 33,
+    "controlsAboveOnScreen": 33,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"United States\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"How we choose\"",
+     "a.btn.btn-primary \"Browse all 194 places\"",
+     "a.btn.btn-ghost \"Start with Larder Delica\"",
+     "button.btn.btn-ghost \"See all 18\"",
+     "a.gc-a \"SMust see · Downtown & T\"",
+     "button.src \"Bourdain / TV\"",
+     "button.heart.gc-save",
+     "a.gc-a \"CWorth the detour · Down\"",
+     "button.src \"The Infatuation Clevelan\"",
+     "button.btn.btn-ghost \"See all 47\"",
+     "a.gc-a \"CMust see · Downtown & T\"",
+     "button.src \"Asked for by name\"",
+     "button.src \"News 5 Cleveland\"",
+     "button.heart.gc-save",
+     "a.gc-a \"AMust see · Downtown & T\"",
+     "button.src \"News 5 Cleveland\"",
+     "button.src \"There She Goes Again\"",
+     "button.rail-i.sig \"★ SignatureOnly in Cleve\"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button \"All 194\"",
+     "button \"Sights 148\"",
+     "button \"Eat & drink 46\"",
+     "input#cleo-filter",
+     "button.btn.btn-ghost \"Filters\"",
+     "button.btn.btn-primary"
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 354,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "span.k \"★ Signature\"",
+    "contrastChecked": 311,
+    "contrastUnknown": 9,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.views \"GalleryAtlasGuidebookIns\""
+    ],
+    "railVisible": true,
+    "railTop": 883,
+    "railOnFirstScreen": false,
+    "railItems": 5,
+    "railFirst": "SMust see · Downtown & The Flats · Eat &",
+    "cityCardsAbove": 0,
+    "cardMedianH": 373,
+    "cardsPerScreen": 2.26,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1990,
+    "fcp": 528,
+    "fontSampleN": 348,
+    "fontsDeclared": {
+     "Bodoni Moda": 96,
+     "Figtree": 408
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bodoni Moda": 1661,
+      "Figtree Light": 3748,
+      "Inter": 1,
+      "Inter Medium": 1
+     },
+     "primary": [
+      "Figtree Light",
+      "Bodoni Moda",
+      "Inter",
+      "Inter Medium"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 3,
+     "where": [
+      "views over Free Stamp",
+      "views over Butcher and the Brewer",
+      "views over Brewboat CLE"
+     ]
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1108516,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 311,
+     "contrastFails": 1,
+     "contrastFailList": [
+      "a.btn.btn-primary \"Browse all 194 places\" 1.00:1 <4.5"
+     ]
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 44,
+      "h": 44,
+      "name": "Show the map",
+      "ok44": true
+     },
+     "fullMap": false,
+     "detail": {
+      "cls": "sheet detail exp",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "tile.openstreetmap.org"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Cleveland — 194 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 32,
+    "legacy": false,
+    "firstCardTop": 2142,
+    "screensToFirstCard": 2.38,
+    "mastheadPx": 668,
+    "controlsAbove": 61,
+    "controlsAboveOnScreen": 61,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"United States\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"How we choose\"",
+     "a.btn.btn-primary \"Browse all 194 places\"",
+     "a.btn.btn-ghost \"Start with Larder Delica\"",
+     "a.gc-a \"SMust see · Downtown & T\"",
+     "button.src \"Bourdain / TV\"",
+     "button.heart.gc-save",
+     "button.btn.btn-ghost \"See all 18\"",
+     "a.gc-a \"SMust see · Downtown & T\"",
+     "button.src \"Bourdain / TV\"",
+     "button.heart.gc-save",
+     "a.gc-a \"CWorth the detour · Down\"",
+     "button.src \"The Infatuation Clevelan\"",
+     "button.heart.gc-save",
+     "a.gc-a \"MWorth the detour · Down\"",
+     "button.heart.gc-save",
+     "a.gc-a \"BDeep cut · University C\"",
+     "button.heart.gc-save",
+     "a.gc-a \"HClosed · kept for the r\"",
+     "button.btn.btn-ghost \"See all 47\"",
+     "a.gc-a \"CMust see · Downtown & T\"",
+     "button.src \"Asked for by name\"",
+     "button.src \"News 5 Cleveland\"",
+     "button.heart.gc-save",
+     "a.gc-a \"AMust see · Downtown & T\"",
+     "button.src \"News 5 Cleveland\"",
+     "button.src \"There She Goes Again\"",
+     "button.heart.gc-save",
+     "a.gc-a \"TMust see · Downtown & T\"",
+     "button.src \"News 5 Cleveland\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 491,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 434,
+    "contrastUnknown": 8,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.views \"GalleryAtlasGuidebookIns\"",
+     "div.toolbar \"All 194Sights 148Eat & d\""
+    ],
+    "railVisible": true,
+    "railTop": 781,
+    "railOnFirstScreen": true,
+    "railItems": 11,
+    "railFirst": "SMust see · Downtown & The Flats · Eat &",
+    "cityCardsAbove": 0,
+    "cardMedianH": 368,
+    "cardsPerScreen": 2.45,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2014,
+    "fcp": 436,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Bodoni Moda": 130,
+     "Figtree": 485
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bodoni Moda": 1280,
+      "Figtree Light": 15632,
+      "Inter": 1,
+      "Inter Medium": 1
+     },
+     "primary": [
+      "Figtree Light",
+      "Bodoni Moda",
+      "Inter",
+      "Inter Medium"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 6,
+     "where": [
+      "toolbar over Cleveland Convention Center Ur",
+      "toolbar over Cleveland Script Signs — all s",
+      "views over Mini Guardians of Traffic",
+      "toolbar over Mini Guardians of Traffic",
+      "views over Leif Erikson Bust"
+     ]
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 194,
+     "scrolled": 48,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 194,
+      "ok": 48,
+      "bad": [
+       "cleveland-museum-of-art",
+       "lucy-at-the-cleveland-museum-of-natural-history",
+       "quintanas-speakeasy",
+       "wade-memorial-chapel",
+       "the-thinker",
+       "severance-music-center",
+       "prestis-bakery",
+       "the-fine-arts-garden",
+       "bo-loong",
+       "lake-view-cemetery-dam"
+      ]
+     },
+     "search": {
+      "n": 28,
+      "ok": 28,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 194 places",
+     "groups": [
+      "AreaDowntown & The F",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byNews 5",
+      "Recommended by",
+      "CuisineVietnamese 4S",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are",
+      "Been thereShow allHi",
+      "Been there"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1258149,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 434,
+     "contrastFails": 1,
+     "contrastFailList": [
+      "a.btn.btn-primary \"Browse all 194 places\" 1.00:1 <4.5"
+     ]
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 32,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 194,
+    "text": 20397
+   },
+   "cpu4x": {
+    "fcp": 1044,
+    "dcl": 1048,
+    "loadMs": 1838
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": false,
+      "val": 2.78
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": false,
+      "val": 724
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": false,
+      "val": "33 on-screen / 33 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": false,
+      "val": "top 883, 5 tiles, first \"SMust see · Downtown & The Flats · Eat &\""
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": false,
+      "val": "toggle 44×44, full map false, pin sheet none"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": false,
+      "val": 3
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 194 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.26
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": false,
+      "val": "data 194 · DOM 194 · scrolled 48 · deep 48/194 · search 28/28 · no-JS 194"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bodoni Moda, Figtree · rendered here: Figtree Light, Bodoni Moda, Inter, Inter Medium"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0% (0/354)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px span.k \"★ Signature\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": false,
+      "val": "light 0/0 · night 1/1 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "tile.openstreetmap.org"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "1229 KB · 2014 nodes · 436 ms · 1044 ms"
+     }
+    },
+    "passed": 14,
+    "total": 24,
+    "hardFail": [
+     "G1 reachability 100% (scroll, deep link, search, no-JS)"
+    ]
+   }
+  },
+  {
+   "page": "cities/tokyo.html",
+   "gen": "new",
+   "expected": {
+    "total": 488,
+    "sights": 263,
+    "food": 225,
+    "live": "cities/tokyo.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Tokyo — 488 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 24,
+    "legacy": false,
+    "firstCardTop": 2387,
+    "screensToFirstCard": 2.83,
+    "mastheadPx": 724,
+    "controlsAbove": 33,
+    "controlsAboveOnScreen": 33,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Japan\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"How we choose\"",
+     "a.btn.btn-primary \"Browse all 488 places\"",
+     "a.btn.btn-ghost \"Start with Kanda Myōjin\"",
+     "button.btn.btn-ghost \"See all 37\"",
+     "a.gc-a \"神田明神Must see · Chiyoda-k\"",
+     "button.src \"GO Tokyo\"",
+     "button.src \"Wikipedia\"",
+     "button.heart.gc-save",
+     "a.gc-a \"AMust see · Chiyoda-ku ·\"",
+     "button.src \"Japan-guide\"",
+     "button.btn.btn-ghost \"See all 177\"",
+     "a.gc-a \"IMust see · Chiyoda-ku ·\"",
+     "button.src \"Wikipedia\"",
+     "button.src \"GO Tokyo\"",
+     "button.heart.gc-save",
+     "a.gc-a \"靖國神社Must see · Chiyoda-k\"",
+     "button.src \"GO Tokyo\"",
+     "button.rail-i.sig \"★ SignatureAnime, Manga \"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button \"All 488\"",
+     "button \"Sights 263\"",
+     "button \"Eat & drink 225\"",
+     "input#cleo-filter",
+     "button.btn.btn-ghost \"Filters\"",
+     "button.btn.btn-primary"
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 383,
+    "upperNodes": 1,
+    "upperPct": 0.3,
+    "minFontPx": 12,
+    "minFontEl": "span.k \"★ Signature\"",
+    "contrastChecked": 341,
+    "contrastUnknown": 10,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.views \"GalleryAtlasGuidebookIns\""
+    ],
+    "railVisible": true,
+    "railTop": 893,
+    "railOnFirstScreen": false,
+    "railItems": 6,
+    "railFirst": "神田明神Must see · Chiyoda-ku · SeeKanda Myō",
+    "cityCardsAbove": 0,
+    "cardMedianH": 342,
+    "cardsPerScreen": 2.47,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2497,
+    "fcp": 320,
+    "fontSampleN": 379,
+    "fontsDeclared": {
+     "Bodoni Moda": 84,
+     "Figtree": 461,
+     "Noto Serif JP": 23
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bodoni Moda": 2164,
+      "Figtree Light": 2630,
+      "IPAGothic": 12,
+      "Inter": 1,
+      "Inter Medium": 1
+     },
+     "primary": [
+      "Figtree Light",
+      "Bodoni Moda",
+      "IPAGothic",
+      "Inter",
+      "Inter Medium"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 3,
+     "where": [
+      "views over Yasukuni Shrine (靖國神社)",
+      "views over Kanda Yabu Soba (かんだやぶそば)",
+      "views over Mitsubishi Ichigōkan Museum (三"
+     ]
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 2015307,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 341,
+     "contrastFails": 1,
+     "contrastFailList": [
+      "a.btn.btn-primary \"Browse all 488 places\" 1.00:1 <4.5"
+     ]
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 44,
+      "h": 44,
+      "name": "Show the map",
+      "ok44": true
+     },
+     "fullMap": false,
+     "detail": {
+      "cls": "sheet detail exp",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "tile.openstreetmap.org"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Tokyo — 488 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 32,
+    "legacy": false,
+    "firstCardTop": 2165,
+    "screensToFirstCard": 2.41,
+    "mastheadPx": 668,
+    "controlsAbove": 69,
+    "controlsAboveOnScreen": 69,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Japan\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"How we choose\"",
+     "a.btn.btn-primary \"Browse all 488 places\"",
+     "a.btn.btn-ghost \"Start with Kanda Myōjin\"",
+     "a.gc-a \"神田明神Must see · Chiyoda-k\"",
+     "button.src \"GO Tokyo\"",
+     "button.src \"Wikipedia\"",
+     "button.heart.gc-save",
+     "button.btn.btn-ghost \"See all 37\"",
+     "a.gc-a \"神田明神Must see · Chiyoda-k\"",
+     "button.src \"GO Tokyo\"",
+     "button.src \"Wikipedia\"",
+     "button.heart.gc-save",
+     "a.gc-a \"AMust see · Chiyoda-ku ·\"",
+     "button.src \"GO Tokyo\"",
+     "button.src \"Japan-guide\"",
+     "button.heart.gc-save",
+     "a.gc-a \"MMust see · Chiyoda-ku ·\"",
+     "button.src \"Time Out\"",
+     "button.src \"Tokyo Cheapo\"",
+     "button.heart.gc-save",
+     "a.gc-a \"TWorth the detour · Chiy\"",
+     "button.src \"Time Out\"",
+     "button.src \"JNTO\"",
+     "button.heart.gc-save",
+     "a.gc-a \"AWorth the detour · Chiy\"",
+     "button.btn.btn-ghost \"See all 177\"",
+     "a.gc-a \"IMust see · Chiyoda-ku ·\"",
+     "button.src \"Wikipedia\"",
+     "button.src \"GO Tokyo\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 539,
+    "upperNodes": 2,
+    "upperPct": 0.4,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 483,
+    "contrastUnknown": 9,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.views \"GalleryAtlasGuidebookIns\"",
+     "div.toolbar \"All 488Sights 263Eat & d\""
+    ],
+    "railVisible": true,
+    "railTop": 781,
+    "railOnFirstScreen": true,
+    "railItems": 17,
+    "railFirst": "神田明神Must see · Chiyoda-ku · SeeKanda Myō",
+    "cityCardsAbove": 0,
+    "cardMedianH": 339,
+    "cardsPerScreen": 2.65,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2521,
+    "fcp": 448,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Bodoni Moda": 108,
+     "Figtree": 532,
+     "Noto Serif JP": 25
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bodoni Moda": 1059,
+      "Figtree Light": 10695,
+      "IPAGothic": 354,
+      "Inter": 1,
+      "Inter Medium": 3
+     },
+     "primary": [
+      "Figtree Light",
+      "Bodoni Moda",
+      "IPAGothic",
+      "Inter Medium",
+      "Inter"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 488,
+     "scrolled": 48,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 488,
+      "ok": 48,
+      "bad": [
+       "tsukiji-outer-market",
+       "rengatei",
+       "taimeiken",
+       "tsukishima-monja-street",
+       "tamahide",
+       "yakitori-takahashi",
+       "ginza-kitagawa",
+       "cafe-de-lambre",
+       "kuya",
+       "chukasoba-ginza-hachigou"
+      ]
+     },
+     "search": {
+      "n": 26,
+      "ok": 26,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 488 places",
+     "groups": [
+      "AreaChiyoda-ku 43Chū",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionAnime, Man",
+      "Collection",
+      "CuisineSushi & Kaise",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 2154822,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 483,
+     "contrastFails": 1,
+     "contrastFailList": [
+      "a.btn.btn-primary \"Browse all 488 places\" 1.00:1 <4.5"
+     ]
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 32,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 488,
+    "text": 18637
+   },
+   "cpu4x": {
+    "fcp": 524,
+    "dcl": 1658,
+    "loadMs": 2453
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": false,
+      "val": 2.83
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": false,
+      "val": 724
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": false,
+      "val": "33 on-screen / 33 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": false,
+      "val": "top 893, 6 tiles, first \"神田明神Must see · Chiyoda-ku · SeeKanda Myō\""
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": false,
+      "val": "toggle 44×44, full map false, pin sheet none"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": false,
+      "val": 3
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 488 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.47
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": false,
+      "val": "data 488 · DOM 488 · scrolled 48 · deep 48/488 · search 26/26 · no-JS 488"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bodoni Moda, Figtree · rendered here: Figtree Light, Bodoni Moda, IPAGothic, Inter, Inter Medium"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0.3% (1/383)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px span.k \"★ Signature\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": false,
+      "val": "light 0/0 · night 1/1 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "tile.openstreetmap.org"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "2104 KB · 2521 nodes · 448 ms · 524 ms"
+     }
+    },
+    "passed": 14,
+    "total": 24,
+    "hardFail": [
+     "G1 reachability 100% (scroll, deep link, search, no-JS)"
+    ]
+   }
+  },
+  {
+   "page": "cities/newyork.html",
+   "gen": "new",
+   "expected": {
+    "total": 508,
+    "sights": 219,
+    "food": 289,
+    "live": "cities/newyork.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "New York City — 508 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 24,
+    "legacy": false,
+    "firstCardTop": 2238,
+    "screensToFirstCard": 2.65,
+    "mastheadPx": 724,
+    "controlsAbove": 33,
+    "controlsAboveOnScreen": 33,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"United States\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"How we choose\"",
+     "a.btn.btn-primary \"Browse all 508 places\"",
+     "a.btn.btn-ghost \"Start with Roberta's\"",
+     "button.btn.btn-ghost \"See all 31\"",
+     "a.gc-a \"KMust see · Manhattan · \"",
+     "button.src \"Eater NY\"",
+     "button.src \"The Infatuation\"",
+     "button.heart.gc-save",
+     "a.gc-a \"JMust see · Manhattan · \"",
+     "button.src \"Time Out New York\"",
+     "button.btn.btn-ghost \"See all 97\"",
+     "a.gc-a \"MMust see · Manhattan · \"",
+     "button.src \"The Metropolitan Museum \"",
+     "button.src \"Time Out New York\"",
+     "button.heart.gc-save",
+     "a.gc-a \"CMust see · Manhattan · \"",
+     "button.src \"Time Out New York\"",
+     "button.rail-i.sig \"★ SignatureNew York clas\"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button \"All 508\"",
+     "button \"Sights 219\"",
+     "button \"Eat & drink 289\"",
+     "input#cleo-filter",
+     "button.btn.btn-ghost \"Filters\"",
+     "button.btn.btn-primary"
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 385,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "span.k \"★ Signature\"",
+    "contrastChecked": 343,
+    "contrastUnknown": 9,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.views \"GalleryAtlasGuidebookIns\""
+    ],
+    "railVisible": true,
+    "railTop": 883,
+    "railOnFirstScreen": false,
+    "railItems": 6,
+    "railFirst": "KMust see · Manhattan · Eat & drinkKatz'",
+    "cityCardsAbove": 0,
+    "cardMedianH": 368,
+    "cardsPerScreen": 2.3,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2361,
+    "fcp": 468,
+    "fontSampleN": 381,
+    "fontsDeclared": {
+     "Bodoni Moda": 97,
+     "Figtree": 461
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bodoni Moda": 1402,
+      "Figtree Light": 2637,
+      "Inter": 1,
+      "Inter Medium": 1
+     },
+     "primary": [
+      "Figtree Light",
+      "Bodoni Moda",
+      "Inter",
+      "Inter Medium"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 1,
+     "where": [
+      "views over Stonewall National Monument"
+     ]
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1774796,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 343,
+     "contrastFails": 1,
+     "contrastFailList": [
+      "a.btn.btn-primary \"Browse all 508 places\" 1.00:1 <4.5"
+     ]
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 44,
+      "h": 44,
+      "name": "Show the map",
+      "ok44": true
+     },
+     "fullMap": false,
+     "detail": {
+      "cls": "sheet detail exp",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "tile.openstreetmap.org"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "New York City — 508 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 32,
+    "legacy": false,
+    "firstCardTop": 2138,
+    "screensToFirstCard": 2.38,
+    "mastheadPx": 668,
+    "controlsAbove": 73,
+    "controlsAboveOnScreen": 73,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"United States\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"How we choose\"",
+     "a.btn.btn-primary \"Browse all 508 places\"",
+     "a.btn.btn-ghost \"Start with Roberta's\"",
+     "a.gc-a \"KMust see · Manhattan · \"",
+     "button.src \"Eater NY\"",
+     "button.src \"The Infatuation\"",
+     "button.heart.gc-save",
+     "button.btn.btn-ghost \"See all 31\"",
+     "a.gc-a \"KMust see · Manhattan · \"",
+     "button.src \"Eater NY\"",
+     "button.src \"The Infatuation\"",
+     "button.heart.gc-save",
+     "a.gc-a \"JMust see · Manhattan · \"",
+     "button.src \"The Infatuation\"",
+     "button.src \"Time Out New York\"",
+     "button.heart.gc-save",
+     "a.gc-a \"JMust see · Manhattan · \"",
+     "button.src \"Wikipedia\"",
+     "button.src \"Time Out New York\"",
+     "button.heart.gc-save",
+     "a.gc-a \"BMust see · Manhattan · \"",
+     "button.src \"The New York Times\"",
+     "button.src \"Wikipedia\"",
+     "button.heart.gc-save",
+     "a.gc-a \"AWorth the detour · Manh\"",
+     "button.src \"Time Out New York\"",
+     "button.btn.btn-ghost \"See all 97\"",
+     "a.gc-a \"MMust see · Manhattan · \"",
+     "button.src \"The Metropolitan Museum \""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 530,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 475,
+    "contrastUnknown": 8,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.views \"GalleryAtlasGuidebookIns\"",
+     "div.toolbar \"All 508Sights 219Eat & d\""
+    ],
+    "railVisible": true,
+    "railTop": 781,
+    "railOnFirstScreen": true,
+    "railItems": 18,
+    "railFirst": "KMust see · Manhattan · Eat & drinkKatz'",
+    "cityCardsAbove": 0,
+    "cardMedianH": 360,
+    "cardsPerScreen": 2.5,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2385,
+    "fcp": 552,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Bodoni Moda": 124,
+     "Figtree": 527
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bodoni Moda": 904,
+      "Figtree Light": 9935,
+      "Inter": 1,
+      "Inter Medium": 1
+     },
+     "primary": [
+      "Figtree Light",
+      "Bodoni Moda",
+      "Inter",
+      "Inter Medium"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 508,
+     "scrolled": 48,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 508,
+      "ok": 48,
+      "bad": [
+       "the-morgan-library-and-museum",
+       "lower-east-side-tenement-museum",
+       "the-museum-at-fit",
+       "madison-square-park",
+       "union-square-greenmarket",
+       "washington-mews",
+       "grace-church",
+       "edge-at-hudson-yards",
+       "museum-of-the-city-of-new-york",
+       "general-grant-national-memorial"
+      ]
+     },
+     "search": {
+      "n": 26,
+      "ok": 26,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 508 places",
+     "groups": [
+      "AreaManhattan 264Bro",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byNYC To",
+      "Recommended by",
+      "CollectionMuseums & ",
+      "Collection",
+      "CuisinePizza 23Itali",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 2433379,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 475,
+     "contrastFails": 1,
+     "contrastFailList": [
+      "a.btn.btn-primary \"Browse all 508 places\" 1.00:1 <4.5"
+     ]
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 32,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 508,
+    "text": 74827
+   },
+   "cpu4x": {
+    "fcp": 1368,
+    "dcl": 2363,
+    "loadMs": 2716
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": false,
+      "val": 2.65
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": false,
+      "val": 724
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": false,
+      "val": "33 on-screen / 33 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": false,
+      "val": "top 883, 6 tiles, first \"KMust see · Manhattan · Eat & drinkKatz'\""
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": false,
+      "val": "toggle 44×44, full map false, pin sheet none"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": false,
+      "val": 1
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 508 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.3
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": false,
+      "val": "data 508 · DOM 508 · scrolled 48 · deep 48/508 · search 26/26 · no-JS 508"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bodoni Moda, Figtree · rendered here: Figtree Light, Bodoni Moda, Inter, Inter Medium"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0% (0/385)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px span.k \"★ Signature\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": false,
+      "val": "light 0/0 · night 1/1 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "tile.openstreetmap.org"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "2376 KB · 2385 nodes · 552 ms · 1368 ms"
+     }
+    },
+    "passed": 14,
+    "total": 24,
+    "hardFail": [
+     "G1 reachability 100% (scroll, deep link, search, no-JS)"
+    ]
+   }
+  },
+  {
+   "page": "Singapore/chinatown.html",
+   "gen": "new",
+   "expected": {
+    "total": 16,
+    "sights": 4,
+    "food": 12,
+    "live": "Singapore/chinatown.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Chinatown & CBD — 16 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 16,
+    "cardsVisible": 16,
+    "legacy": false,
+    "firstCardTop": 2258,
+    "screensToFirstCard": 2.68,
+    "mastheadPx": 724,
+    "controlsAbove": 33,
+    "controlsAboveOnScreen": 33,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Singapore\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"How we choose\"",
+     "a.btn.btn-primary \"Browse all 16 places\"",
+     "a.btn.btn-ghost \"Start with Tian Tian Hai\"",
+     "button.btn.btn-ghost \"See all 9\"",
+     "a.gc-a \"TMust see · Chinatown & \"",
+     "button.src \"Michelin Guide\"",
+     "button.src \"Daniel Food Diary\"",
+     "button.heart.gc-save",
+     "a.gc-a \"SMust see · Chinatown & \"",
+     "button.src \"Daniel Food Diary\"",
+     "button.btn.btn-ghost \"See all 6\"",
+     "a.gc-a \"TMust see · Chinatown & \"",
+     "button.src \"Michelin Guide\"",
+     "button.src \"Daniel Food Diary\"",
+     "button.heart.gc-save",
+     "a.gc-a \"SMust see · Chinatown & \"",
+     "button.src \"Daniel Food Diary\"",
+     "button.rail-i.sig \"★ SignatureThe hawker ca\"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button \"All 16\"",
+     "button \"Sights 4\"",
+     "button \"Eat & drink 12\"",
+     "input#cleo-filter",
+     "button.btn.btn-ghost \"Filters\"",
+     "button.btn.btn-primary"
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 271,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "span.k \"★ Signature\"",
+    "contrastChecked": 237,
+    "contrastUnknown": 9,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.views \"GalleryAtlasGuidebookIns\""
+    ],
+    "railVisible": true,
+    "railTop": 883,
+    "railOnFirstScreen": false,
+    "railItems": 6,
+    "railFirst": "TMust see · Chinatown & CBD · Eat & drin",
+    "cityCardsAbove": 0,
+    "cardMedianH": 312,
+    "cardsPerScreen": 2.71,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1402,
+    "fcp": 200,
+    "fontSampleN": 267,
+    "fontsDeclared": {
+     "Bodoni Moda": 72,
+     "Figtree": 329
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bodoni Moda": 780,
+      "Figtree Light": 2486,
+      "Inter": 1,
+      "Inter Medium": 1
+     },
+     "primary": [
+      "Figtree Light",
+      "Bodoni Moda",
+      "Inter",
+      "Inter Medium"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 3,
+     "where": [
+      "views over JUMBO Seafood (Riverside Point",
+      "views over Best Satay 7 & 8 (Lau Pa Sat S",
+      "views over Tong Ah Eating House"
+     ]
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 604272,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 237,
+     "contrastFails": 1,
+     "contrastFailList": [
+      "a.btn.btn-primary \"Browse all 16 places\" 1.00:1 <4.5"
+     ]
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 44,
+      "h": 44,
+      "name": "Show the map",
+      "ok44": true
+     },
+     "fullMap": false,
+     "detail": {
+      "cls": "sheet detail exp",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "tile.openstreetmap.org"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Chinatown & CBD — 16 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 16,
+    "cardsVisible": 16,
+    "legacy": false,
+    "firstCardTop": 2146,
+    "screensToFirstCard": 2.38,
+    "mastheadPx": 668,
+    "controlsAbove": 70,
+    "controlsAboveOnScreen": 70,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Singapore\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"How we choose\"",
+     "a.btn.btn-primary \"Browse all 16 places\"",
+     "a.btn.btn-ghost \"Start with Tian Tian Hai\"",
+     "a.gc-a \"TMust see · Chinatown & \"",
+     "button.src \"Michelin Guide\"",
+     "button.src \"Daniel Food Diary\"",
+     "button.heart.gc-save",
+     "button.btn.btn-ghost \"See all 9\"",
+     "a.gc-a \"TMust see · Chinatown & \"",
+     "button.src \"Michelin Guide\"",
+     "button.src \"Daniel Food Diary\"",
+     "button.heart.gc-save",
+     "a.gc-a \"SMust see · Chinatown & \"",
+     "button.src \"Michelin Guide\"",
+     "button.src \"Daniel Food Diary\"",
+     "button.heart.gc-save",
+     "a.gc-a \"JMust see · Chinatown & \"",
+     "button.src \"Eatbook.sg\"",
+     "button.src \"Wikipedia (English)\"",
+     "button.heart.gc-save",
+     "a.gc-a \"FMust see · Chinatown & \"",
+     "button.src \"Michelin Guide\"",
+     "button.src \"Miss Tam Chiak (misstamc\"",
+     "button.heart.gc-save",
+     "a.gc-a \"AWorth the detour · Chin\"",
+     "button.btn.btn-ghost \"See all 6\"",
+     "a.gc-a \"TMust see · Chinatown & \"",
+     "button.src \"Michelin Guide\"",
+     "button.src \"Daniel Food Diary\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 332,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 292,
+    "contrastUnknown": 8,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.views \"GalleryAtlasGuidebookIns\"",
+     "div.toolbar \"All 16Sights 4Eat & drin\""
+    ],
+    "railVisible": true,
+    "railTop": 781,
+    "railOnFirstScreen": true,
+    "railItems": 17,
+    "railFirst": "TMust see · Chinatown & CBD · Eat & drin",
+    "cityCardsAbove": 0,
+    "cardMedianH": 354,
+    "cardsPerScreen": 2.54,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1402,
+    "fcp": 360,
+    "fontSampleN": 328,
+    "fontsDeclared": {
+     "Bodoni Moda": 96,
+     "Figtree": 402
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bodoni Moda": 1530,
+      "Figtree Light": 7979,
+      "Inter": 1,
+      "Inter Medium": 1
+     },
+     "primary": [
+      "Figtree Light",
+      "Bodoni Moda",
+      "Inter",
+      "Inter Medium"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 8,
+     "where": [
+      "toolbar over Buddha Tooth Relic Temple & Mu",
+      "toolbar over Famous Sungei Road Trishaw Lak",
+      "toolbar over Thian Hock Keng Temple",
+      "toolbar over Chinatown Heritage Centre",
+      "toolbar over Nai Ek Roll Noodle (Nai Ek Kua"
+     ]
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 16,
+     "scrolled": 16,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 16,
+      "ok": 16,
+      "bad": []
+     },
+     "search": {
+      "n": 16,
+      "ok": 16,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 16 places",
+     "groups": [
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byDaniel",
+      "Recommended by",
+      "CollectionHeritage &",
+      "Collection",
+      "CuisineHainanese Chi",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are",
+      "Been thereShow allHi",
+      "Been there"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 614776,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 292,
+     "contrastFails": 1,
+     "contrastFailList": [
+      "a.btn.btn-primary \"Browse all 16 places\" 1.00:1 <4.5"
+     ]
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 16,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 16,
+    "text": 6671
+   },
+   "cpu4x": {
+    "fcp": 444,
+    "dcl": 690,
+    "loadMs": 1060
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": false,
+      "val": 2.68
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": false,
+      "val": 724
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": false,
+      "val": "33 on-screen / 33 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": false,
+      "val": "top 883, 6 tiles, first \"TMust see · Chinatown & CBD · Eat & drin\""
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": false,
+      "val": "toggle 44×44, full map false, pin sheet none"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": false,
+      "val": 3
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 16 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.71
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 16 · DOM 16 · scrolled 16 · deep 16/16 · search 16/16 · no-JS 16"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bodoni Moda, Figtree · rendered here: Figtree Light, Bodoni Moda, Inter, Inter Medium"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0% (0/271)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px span.k \"★ Signature\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": false,
+      "val": "light 0/0 · night 1/1 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "tile.openstreetmap.org"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "600 KB · 1402 nodes · 360 ms · 444 ms"
+     }
+    },
+    "passed": 15,
+    "total": 24,
+    "hardFail": []
+   }
+  },
+  {
+   "page": "cities/wheeling.html",
+   "gen": "new",
+   "expected": {
+    "total": 35,
+    "sights": 28,
+    "food": 7,
+    "live": "cities/wheeling.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Wheeling — 35 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 24,
+    "legacy": false,
+    "firstCardTop": 2318,
+    "screensToFirstCard": 2.75,
+    "mastheadPx": 724,
+    "controlsAbove": 35,
+    "controlsAboveOnScreen": 35,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"United States\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"How we choose\"",
+     "a.btn.btn-primary \"Browse all 35 places\"",
+     "a.btn.btn-ghost \"Start with Wheeling Susp\"",
+     "button.btn.btn-ghost \"See all 18\"",
+     "a.gc-a \"WMust see · Wheeling, WV\"",
+     "button.src \"e-WV: The West Virginia \"",
+     "button.src \"Asce\"",
+     "button.heart.gc-save",
+     "a.gc-a \"WMust see · Wheeling, WV\"",
+     "button.src \"WV Dept. of Arts, Cultur\"",
+     "button.src \"WV Tourism (Almost Heave\"",
+     "button.btn.btn-ghost \"See all 15\"",
+     "a.gc-a \"WMust see · Wheeling, WV\"",
+     "button.src \"e-WV: The West Virginia \"",
+     "button.src \"Asce\"",
+     "button.heart.gc-save",
+     "a.gc-a \"WMust see · Wheeling, WV\"",
+     "button.src \"WV Dept. of Arts, Cultur\"",
+     "button.src \"WV Tourism (Almost Heave\"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button.rail-i.door \"Your dayA day in Wheelin\"",
+     "button \"All 35\"",
+     "button \"Sights 28\"",
+     "button \"Eat & drink 7\"",
+     "input#cleo-filter",
+     "button.btn.btn-ghost \"Filters\"",
+     "button.btn.btn-primary"
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 367,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "span.k \"Your guide\"",
+    "contrastChecked": 326,
+    "contrastUnknown": 9,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.views \"GalleryAtlasGuidebookIns\""
+    ],
+    "railVisible": true,
+    "railTop": 851,
+    "railOnFirstScreen": false,
+    "railItems": 7,
+    "railFirst": "WMust see · Wheeling, WV · SeeWheeling S",
+    "cityCardsAbove": 0,
+    "cardMedianH": 331,
+    "cardsPerScreen": 2.55,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2083,
+    "fcp": 152,
+    "fontSampleN": 363,
+    "fontsDeclared": {
+     "Bodoni Moda": 100,
+     "Figtree": 453
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bodoni Moda": 1665,
+      "Figtree Light": 3390
+     },
+     "primary": [
+      "Figtree Light",
+      "Bodoni Moda"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 2,
+     "where": [
+      "views over Kruger Street Toy & Train Muse",
+      "views over Century Inn"
+     ]
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 696250,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 326,
+     "contrastFails": 1,
+     "contrastFailList": [
+      "a.btn.btn-primary \"Browse all 35 places\" 1.00:1 <4.5"
+     ]
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 44,
+      "h": 44,
+      "name": "Show the map",
+      "ok44": true
+     },
+     "fullMap": false,
+     "detail": {
+      "cls": "sheet detail exp",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "tile.openstreetmap.org"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Wheeling — 35 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 32,
+    "legacy": false,
+    "firstCardTop": 2169,
+    "screensToFirstCard": 2.41,
+    "mastheadPx": 668,
+    "controlsAbove": 74,
+    "controlsAboveOnScreen": 74,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"United States\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "a \"How we choose\"",
+     "a.btn.btn-primary \"Browse all 35 places\"",
+     "a.btn.btn-ghost \"Start with Wheeling Susp\"",
+     "a.gc-a \"WMust see · Wheeling, WV\"",
+     "button.src \"e-WV: The West Virginia \"",
+     "button.src \"Asce\"",
+     "button.heart.gc-save",
+     "button.btn.btn-ghost \"See all 18\"",
+     "a.gc-a \"WMust see · Wheeling, WV\"",
+     "button.src \"e-WV: The West Virginia \"",
+     "button.src \"Asce\"",
+     "button.heart.gc-save",
+     "a.gc-a \"WMust see · Wheeling, WV\"",
+     "button.src \"WV Dept. of Arts, Cultur\"",
+     "button.src \"WV Tourism (Almost Heave\"",
+     "button.heart.gc-save",
+     "a.gc-a \"CMust see · Wheeling, WV\"",
+     "button.src \"WV Tourism (Almost Heave\"",
+     "button.src \"Wikipedia (notability / \"",
+     "button.heart.gc-save",
+     "a.gc-a \"FMust see · Wheeling, WV\"",
+     "button.src \"James Beard Foundation (\"",
+     "button.src \"The Intelligencer / Whee\"",
+     "button.heart.gc-save",
+     "a.gc-a \"OMust see · Wheeling, WV\"",
+     "button.src \"Oglebay Resort & Park (o\"",
+     "button.src \"WV Tourism (Almost Heave\"",
+     "button.btn.btn-ghost \"See all 15\"",
+     "a.gc-a \"WMust see · Wheeling, WV\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 506,
+    "upperNodes": 1,
+    "upperPct": 0.2,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 451,
+    "contrastUnknown": 8,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.views \"GalleryAtlasGuidebookIns\"",
+     "div.toolbar \"All 35Sights 28Eat & dri\""
+    ],
+    "railVisible": true,
+    "railTop": 781,
+    "railOnFirstScreen": true,
+    "railItems": 19,
+    "railFirst": "WMust see · Wheeling, WV · SeeWheeling S",
+    "cityCardsAbove": 0,
+    "cardMedianH": 352,
+    "cardsPerScreen": 2.56,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2100,
+    "fcp": 264,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Bodoni Moda": 131,
+     "Figtree": 529
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bodoni Moda": 859,
+      "Figtree Light": 9233
+     },
+     "primary": [
+      "Figtree Light",
+      "Bodoni Moda"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 24,
+     "where": [
+      "views over Centre Market Historic Distric",
+      "views over Figaretti's Restaurant",
+      "toolbar over Shorty's Lunch",
+      "toolbar over David Bradford House",
+      "toolbar over Washington County Courthouse"
+     ]
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 35,
+     "scrolled": 35,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 35,
+      "ok": 35,
+      "bad": []
+     },
+     "search": {
+      "n": 35,
+      "ok": 35,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 35 places",
+     "groups": [
+      "AreaWheeling, WV 11W",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionIconic & M",
+      "Collection",
+      "CuisineItalian & Piz",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 710705,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 451,
+     "contrastFails": 1,
+     "contrastFailList": [
+      "a.btn.btn-primary \"Browse all 35 places\" 1.00:1 <4.5"
+     ]
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 32,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 35,
+    "text": 7933
+   },
+   "cpu4x": {
+    "fcp": 608,
+    "dcl": 1123,
+    "loadMs": 1437
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": false,
+      "val": 2.75
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": false,
+      "val": 724
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": false,
+      "val": "35 on-screen / 35 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": false,
+      "val": "top 851, 7 tiles, first \"WMust see · Wheeling, WV · SeeWheeling S\""
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": false,
+      "val": "toggle 44×44, full map false, pin sheet none"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": false,
+      "val": 2
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 35 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.55
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 35 · DOM 35 · scrolled 35 · deep 35/35 · search 35/35 · no-JS 35"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bodoni Moda, Figtree · rendered here: Figtree Light, Bodoni Moda"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0% (0/367)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px span.k \"Your guide\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": false,
+      "val": "light 0/0 · night 1/1 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "tile.openstreetmap.org"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "694 KB · 2100 nodes · 264 ms · 608 ms"
+     }
+    },
+    "passed": 15,
+    "total": 24,
+    "hardFail": []
+   }
+  }
+ ]
+}

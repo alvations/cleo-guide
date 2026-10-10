@@ -54,6 +54,9 @@ const OUT_JSON = path.resolve(ROOT, opt('--out', 'qa/beta-metrics.json'));
 const SHOTS = flag('--shots');
 const STRICT = flag('--strict');
 const CONC = +opt('--concurrency', 2);
+// W3 Q-01: --view <gallery|atlas|guidebook|insights> measures that view (#view=… on every place-page load; hubs unchanged)
+const VIEW = opt('--view', '');
+const vhash = (rel, h) => VIEW && !/(^|\/)index\.html$/.test(rel) ? (h ? h + '&' : '#') + 'view=' + VIEW : (h || '');
 
 const VP = {
   mobile: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 3,
@@ -149,7 +152,7 @@ async function open(browser, base, rel, vpName, o = {}) {
     st.bytes += +(r.headers()['content-length'] || 0);
   });
   let loadErr = null;
-  try { await page.goto(base + 'beta/' + rel + (o.hash || ''), { waitUntil: 'load', timeout: 45000 }); }
+  try { await page.goto(base + 'beta/' + rel + vhash(rel, o.hash), { waitUntil: 'load', timeout: 45000 }); }
   catch (e) { loadErr = String(e.message || e).slice(0, 200); }
   await page.waitForTimeout(o.settle || 400);
   return { ctx, page, st, loadErr };
@@ -683,7 +686,7 @@ async function measure(browser, base, rel) {
     const page = await ctx.newPage();
     await ctx.route('**/*', r => r.request().url().startsWith(base) ? r.continue() : r.abort('blockedbyclient'));
     const cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
-    const t0 = Date.now(); await page.goto(base + 'beta/' + rel, { waitUntil: 'load', timeout: 60000 }).catch(() => {});
+    const t0 = Date.now(); await page.goto(base + 'beta/' + rel + vhash(rel), { waitUntil: 'load', timeout: 60000 }).catch(() => {});
     const r = await page.evaluate(() => ({ fcp: Math.round((performance.getEntriesByName('first-contentful-paint')[0] || {}).startTime || 0) || null,
       dcl: Math.round(performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart) })).catch(() => ({}));
     r.loadMs = Date.now() - t0; out.cpu4x = r; return { ctx };

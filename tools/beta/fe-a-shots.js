@@ -26,7 +26,21 @@ const TYPES = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascrip
 const TILE = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGN482YJAAT0Aqt4WyN2AAAAAElFTkSuQmCC', 'base64');
 
 const SAVED = ['tokyo/senso-ji', 'tokyo/kanda-myojin', 'tokyo/ghibli-museum-mitaka', 'cleveland/west-side-market', 'tokyo/nakano-broadway'];
-const SETS = [
+// W3 (views): --w3 shoots the Gallery / Atlas / sheet sets instead (default view = Gallery)
+const W3 = [
+  { id: 'gallery', url: 'beta/cities/tokyo.html' },
+  { id: 'gallery-rows', url: 'beta/cities/tokyo.html', scroll: 1, wait: 500 },
+  { id: 'gallery-grid', url: 'beta/cities/tokyo.html#pg=3', wait: 400 },
+  { id: 'gallery-cle', url: 'beta/cleveland.html' },
+  { id: 'gallery-lens', url: 'beta/cities/tokyo.html#c=ANIME', wait: 400 },
+  { id: 'atlas', url: 'beta/cities/tokyo.html#view=atlas', wait: 900 },
+  { id: 'atlas-cle', url: 'beta/cleveland.html#view=atlas&a=DT', wait: 900 },
+  { id: 'atlas-full', url: 'beta/cities/tokyo.html#view=atlas', click: '[data-detent-cycle]', mobileOnly: 1, wait: 600 },
+  { id: 'exp', url: 'beta/cities/tokyo.html#p=kanda-myojin', wait: 700 },
+  { id: 'sheet-atlas', url: 'beta/cities/tokyo.html#view=atlas&p=kanda-myojin', wait: 900 },
+  { id: 'guidebook', url: 'beta/cities/tokyo.html#view=guidebook', wait: 1200 },
+];
+const SETS = process.argv.includes('--w3') ? W3 : [
   { id: 'tokyo', url: 'beta/cities/tokyo.html' },
   { id: 'tokyo-s1', url: 'beta/cities/tokyo.html', scroll: 1 },
   { id: 'cleveland', url: 'beta/cleveland.html' },

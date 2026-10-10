@@ -14,7 +14,7 @@
   function build(c) {
     var id = C.pid(c), name = q('.pl-n', c).textContent, a = c.getAttribute('data-a'), ll = c.getAttribute('data-ll');
     var pz = String((info.prov || {})[id] || ''), pb = pz.indexOf('|'), pv = pz ? [{ h: 'high', m: 'med', l: 'low', u: 'unverified' }[pz.charAt(0)] || '', (info.pd || [])[parseInt(pz.slice(1), 10)] || '', pb > 0 ? pz.slice(pb + 1) : ''] : [], closed = c.hasAttribute('data-closed'), chk = c.getAttribute('data-checked') || '';
-    var k = q('.pl-k', c), ad = q('.pl-ad', c), w = q('.pl-w', c), tier = q('.pl-e .tier', c), url = location.href.split('#')[0] + '#p=' + encodeURIComponent(id);
+    var k = q('.pl-k', c), ad = q('.pl-ad', c), w = q('.pl-w', c), tier = q('.pl-e .tier', c), url = Cleo.views ? Cleo.views.shareUrl(id) : location.href.split('#')[0] + '#p=' + encodeURIComponent(id);
     var lenses = (c.getAttribute('data-g') || '').split(' ').filter(Boolean).map(function (x) { return ['c', x]; })
       .concat((c.getAttribute('data-cz') || '').split(' ').filter(Boolean).map(function (x) { return ['cz', x]; }));
     var note = !k ? '' : k.classList.contains('note') ? '<div class="note"><span class="eyebrow">Your guide’s note</span><p>' + k.innerHTML.replace(/<span class="lbl">[^<]*<\/span>/, '') + '</p></div>'
@@ -41,15 +41,39 @@
           .map(function (x) { return x === c ? '' : dot(x.getAttribute('data-ll')); }).join('') + dot(ll, 1) + '</svg></div>';
     }
     var inDay = C.day && C.day.has(id), planned = info.days && Object.keys(info.days).length;
-    return '<div class="sheet detail" role="dialog" aria-modal="true" aria-labelledby="sh-t"><span class="grab" aria-hidden="true"></span>' +
-      '<button class="btn btn-icon close" data-sh="x" aria-label="Close">' + icon('close') + '</button>' +
+    // W3 A-05: "n of N in this view" + previous / next over the lensed set in view order (the visible list's DOM order:
+    // area order, then rank), and "No. r of n in {area}". Previous / next wrap at the ends.
+    var set = [].slice.call(d.querySelectorAll('li.pl')).filter(function (x) { return !x.hidden; }), i = set.indexOf(c), nIn = d.querySelectorAll('li.pl[data-a="' + a + '"]').length;
+    if (i < 0) { set = [c]; i = 0; }
+    var pv1 = set[(i - 1 + set.length) % set.length], nx1 = set[(i + 1) % set.length], vw = d.documentElement.getAttribute('data-view') || 'atlas', vname = vw.charAt(0).toUpperCase() + vw.slice(1);   // set before paint, so right even before views.js runs
+    var navRow = '<div class="sh-nav"><button class="btn btn-quiet" data-sh="all">' + icon('chev-l') + '<span>All ' + info.total + ' places</span></button><span class="sm" data-sh-pos>' + (i + 1) + ' of ' + set.length + ' in this ' + esc(vname) + ' view</span>' +
+      (set.length > 1 ? '<span class="pn"><button class="btn btn-icon btn-ghost" data-sh="go" data-to="' + esc(C.pid(pv1)) + '" aria-label="Previous: ' + esc(C.name(pv1)) + '">' + icon('chev-l') + '</button>' +
+        '<button class="btn btn-icon btn-ghost" data-sh="go" data-to="' + esc(C.pid(nx1)) + '" aria-label="Next: ' + esc(C.name(nx1)) + '">' + icon('chev-r') + '</button></span>' : '') + '</div>';
+    var rank = '<p class="sm sh-rank">No. ' + c.getAttribute('data-n') + ' of ' + nIn + ' in ' + esc(C.label('a', a)) + '</p>';
+    // Close by: the 4 nearest open places with a pin, straight-line (never a walking time we don't hold)
+    var near = '';
+    if (ll) {
+      var p0 = ll.split(','), rad = Math.PI / 180, km = function (q) { var x = q.split(','), dl = (x[0] - p0[0]) * rad, dn = (x[1] - p0[1]) * rad;
+        var h = Math.sin(dl / 2) * Math.sin(dl / 2) + Math.cos(p0[0] * rad) * Math.cos(x[0] * rad) * Math.sin(dn / 2) * Math.sin(dn / 2); return 12742 * Math.asin(Math.sqrt(h)); };
+      near = [].slice.call(d.querySelectorAll('li.pl[data-ll]:not([data-closed])')).filter(function (x) { return x !== c; })
+        .map(function (x) { return [km(x.getAttribute('data-ll')), x]; }).sort(function (x, y) { return x[0] - y[0]; }).slice(0, 4)
+        .map(function (z) { return '<li><a href="#p-' + esc(C.pid(z[1])) + '">' + esc(C.name(z[1])) + '</a> <span class="sm">' + (z[0] < 1 ? Math.round(z[0] * 100) * 10 + ' m' : z[0].toFixed(1) + ' km') + ' straight-line</span></li>'; }).join('');
+      if (near) near = '<div class="closeby"><h3 class="section-t">Close by</h3><ul>' + near + '</ul></div>';
+    }
+    // one honest primary deep link: the official site only when a source IS the official site; else the first source's own page
+    var gs = [].map.call(c.querySelectorAll('.pl-s button.src'), function (b) { return b.getAttribute('data-src'); }), og = gs.filter(function (g) { return /official/.test(g); })[0];
+    var pg = og || gs.filter(function (g) { return ((info.src || {})[g] || [])[4]; })[0], ps = pg && (info.src || {})[pg];
+    var primary = pg ? '<a class="btn btn-primary primary-link" data-g="' + esc(pg) + '"' + (ps && ps[4] ? ' href="' + esc(ps[4]) + '"' : ' hidden') + NT + '>' + (og ? 'Visit the official site' : 'Read what ' + esc(ps[0]) + ' says') + ' ' + icon('external') + '</a>' : '';
+    var exp = vw === 'gallery';    // A-04: in Gallery the sheet is the experience page
+    return '<div class="sheet detail' + (exp ? ' exp' : '') + '" role="dialog" aria-modal="true" aria-labelledby="sh-t"><span class="grab" aria-hidden="true"></span>' +
+      '<button class="btn btn-icon close" data-sh="x" aria-label="Close">' + icon('close') + '</button>' + navRow +
       '<div class="hero-plate" style="--area:' + esc(((info.areas || {})[a] || {}).c || 'var(--city)') + '">' + loc + '<div aria-hidden="true">' + q('.pl-cover', c).innerHTML + '</div></div>' +
       '<div class="content"><div class="badges">' + (closed ? '<span class="status closed">Closed · kept for the record</span>' : tier ? tier.outerHTML.replace('class="tier', 'class="tier lg') : '') +
       '<span class="sm">in ' + esc(C.label('a', a)) + ' · pin ' + c.getAttribute('data-n') + '</span></div><h2 class="d2" id="sh-t">' + (q('.pl-vert', c) && q('.pl-n .nat', c) ? esc(C.name(c)) + ' <span class="vh">' + esc(q('.pl-n .nat', c).textContent) + '</span>' : q('.pl-n a', c).innerHTML) + '</h2>' +
-      (w ? '<p class="why">' + w.innerHTML + '</p>' : '') +
+      rank + (w ? (exp ? '<h3 class="section-t">Why it’s here</h3>' : '') + '<p class="why">' + w.innerHTML + '</p>' : '') +
       (closed ? '<p class="closed-note">Closed — kept for the record' + (pv[2] ? ' · per ' + esc(pv[2]) : '') + (chk ? ', checked ' + esc(chk) : '') + '</p>' : '') + note +
       (lenses.length ? '<div><h3 class="section-t">Part of</h3><div class="pills">' + lenses.map(function (x) { return '<button class="pill" data-sh="lens" data-f="' + x[0] + '" data-v="' + esc(x[1]) + '">' + esc(C.label(x[0], x[1])) + '</button>'; }).join('') + '</div></div>' : '') +
-      '<div><h3 class="section-t">Recommended by</h3><ul class="srclist">' + src + '</ul></div><div>' +
+      '<div><h3 class="section-t">Recommended by</h3><ul class="srclist">' + src + '</ul></div>' + near + '<div class="plan"><h3 class="section-t">Plan your visit</h3>' + (primary ? '<p>' + primary + '</p>' : '') +
       (ad || dir ? fact('pin', ad ? esc(ad.textContent) : 'Directions', dir) : '') +
       (pv[0] ? fact('check', 'Pinned to the door: ' + esc(pv[0]) + ' confidence', '<span class="muted" data-pin>' + (pv[1] ? 'verified ' + esc(pv[1]) : '') + '</span>') : '') +
       (chk ? fact('stamp', 'Status checked ' + esc(chk), '<span class="muted">' + (closed ? 'Closed' : 'Open when last checked') + '</span>') : '') +
@@ -72,6 +96,7 @@
         if (!li || !u) return;
         var a = q('a.out', li); if (!a) { q('.acts', li).insertAdjacentHTML('beforeend', '<a class="out"' + NT + '>Read ' + icon('external') + '</a>'); a = q('a.out', li); }
         a.href = u; q('.ttl', li).textContent = dom(u);
+        var pr = host.querySelector('.primary-link[data-g="' + kg[x[0]] + '"]'); if (pr) { pr.href = u; pr.hidden = false; }
       });
     }).catch(function () {});
   }
@@ -81,6 +106,8 @@
     if (t === host) { api.close(); return; } if (!b) return;
     var k = b.getAttribute('data-sh');
     if (k === 'x') api.close();
+    else if (k === 'all') { api.close(true); C.go({}); }
+    else if (k === 'go') { var r = Cleo.route.parse(); r.p = b.getAttribute('data-to'); C.go(r, true); }
     else if (k === 'save') { v = Cleo.saved && Cleo.saved.toggle(ref()); b.setAttribute('aria-pressed', String(!!v)); b.lastChild.textContent = v ? 'Saved' : 'Save'; }
     else if (k === 'been') { v = C.been.toggle(ref()); b.setAttribute('aria-pressed', String(v)); b.textContent = v ? 'Been there ✓' : 'Mark as been there'; }
     else if (k === 'day') { var cc = card; C.need('day', function () { var on = C.day.toggle(C.pid(cc)); b.setAttribute('aria-pressed', String(on)); b.textContent = on ? 'In your day ✓' : 'Add to your day'; }); }

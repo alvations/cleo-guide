@@ -11,7 +11,7 @@ const clip = (a.find(x => x.startsWith('--clip=')) || '').slice(7);
 const mount = (a.find(x => x.startsWith('--mount=')) || '').slice(8);   // preview a view module before the switcher lands
 const print = a.includes('--print');
 const only = (a.find(x => x.startsWith('--vp=')) || '--vp=m,d').slice(5).split(',');
-const sets = a.filter(x => !x.startsWith('--')).map(x => x.split('='));
+const sets = a.filter(x => !x.startsWith('--')).map(x => [x.slice(0, x.indexOf('=')), x.slice(x.indexOf('=') + 1)]);
 const VP = { m: { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true }, d: { viewport: { width: 1440, height: 900 } } };
 const CT = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.png': 'image/png', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.webmanifest': 'application/manifest+json' };
 (async () => {
