@@ -45,3 +45,30 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     0.69–0.79 screens, controls above first card 11–14, glyph on 100 % of open cards, 0 closed with glyph, cover 100 %,
     2 font families, min text 13 px, overflow 0, small targets 0. Screenshots `design/beta/screenshots/review-w1/`
     (before: `review-w1-baseline/`). Hooks for FE lanes: `design/beta/specs/M1-visual.md`.
+- 2026-10-10 · platform (tech lead) · Wave 1 (M1) · session_01PCNcUkfa5S1N1BKGzZA4xx · commits `28bba17`, `967ac27`,
+  `c623495`, `f60007a` + this log/RFC commit. RFC revised (§11, R-15…R-19); markup contract §5.5 extended.
+  - **M1-20 — done (platform side).** `tools/beta/lib/stats.js`: every count/date computed (page, area, collection,
+    cuisine, country, site; `lastChecked` = max `statusChecked`). Live prose count phrases rewritten from data
+    (Cleveland standfirst said 143+40, page is 148+46). City-specific placeholder exposed as `row.searchPlaceholder`
+    — **FE-B to wire it into `shell.js`** (it still prints a generic placeholder). Tests: stats == records, prose
+    counts == computed, landing + every hub card count == its page.
+  - **M1-10 — data done; UI is FE-A.** `lib/sources.js`: publisher-level source per page (`rec.src`, `li[data-src]`,
+    `#cleo-city.src`), n == records citing (tested on every page), text authority marks (Michelin / James Beard /
+    NPS), site index `beta/data/sources.json`. Call: Cleveland News 5 has **100** numbered entries cited by **103**
+    records — both carried; invariant asserted on `numbered` (News 5 = 100, There She Goes = 23). Card source names
+    now use the short label, not article titles. Source hrefs normalised (R-18).
+  - **M1-13 — platform part done.** `lib/art.js`: `beta/assets/art/<page>/map.svg` + one SVG per area, verified
+    (high/med) pins only (8,220 of 8,458), no OSM geometry, projections for locator dots (`Cleo.art.xy`). Test: each
+    SVG draws exactly the verified pins. Area-header silhouettes and sheet locator insets are FE-A/DES placement.
+  - **M1-06 — platform part done.** Leaflet vendored (W0); no-network map pane = the schematic + copy;
+    `Cleo.watchTiles` + `Cleo.mapFallback` show VOICE.md "The map couldn't load" over the schematic (one hook line
+    in `client/city.js`). Tested in jsdom. Clustering above a density threshold remains FE-A.
+  - **M1-22 — done.** All 91 live pages in `tools/beta/pages.json` (84 place pages incl. all Singapore/Vietnam,
+    5 country hubs incl. **Japan, previously missing**, SEA archive) + saved. `render/hub.js` skeleton (**FE-B owns
+    it from now**). Build gate refuses unless every hub/landing cards each page once with its count. Tests: beta HTML
+    set == live set, counts == live on all 84 pages, budgets on every city page (largest Okinawa 663 KB / 141 KB gz),
+    jsdom no-CDN render of the pilot set (Cleveland, NYC, Chinatown SG, Wheeling, Tokyo).
+    `tools/beta-restyle.py` now skips every page; delete it in a later wave.
+  - **QA harness** (`node tools/qa-site.js --only beta/`): first post-rollout run 14 FAIL (broken source links on 7
+    pages) → fixed (R-18) → **92 pages, 276 loads, 0 FAIL**, 84 WARN all "tap targets <40px" (FE-A/DES).
+  - Speed: `npm run beta` ≈ 3 s, `beta:check` ≈ 3 s, `test:beta` ≈ 16 s. `npm run validate` + `npm test` PASS.
