@@ -1,0 +1,584 @@
+# melon-seek
+
+**Zillow for job postings.** Pick a company, and melon-seek pulls its public job
+board and plots every posting the way a real-estate site plots listings: by
+price (salary), by neighbourhood (location), and by features (skills,
+responsibilities, fit).
+
+- **Chart mode (default)** — every job is a horizontal min–max salary bar on a
+  shared salary axis, sorted by midpoint and optionally grouped/coloured by
+  department, location or seniority. Hover for details, click to open the job.
+- **Map mode** — Zillow-style price-tag pins per city (`$352K · 12`), clustered
+  by location, with remote roles collected in a separate "Remote" badge.
+- **Zillow-like filters** — salary range, responsibilities, fit / requirements,
+  skills keywords, department, location, seniority. Filter and view state lives
+  in the URL hash, so any view is shareable.
+- **Company switcher** — built-in Anthropic, Anduril, OpenAI, Scale AI, xAI,
+  Cohere, Palantir and Shield AI, plus **Add board** for any custom Greenhouse,
+  Ashby or Lever board slug.
+
+Zero build step, Node >= 18, one runtime dependency (`leaflet`).
+
+## Screenshots
+
+<!-- Images to be added by the project lead. -->
+
+| Chart mode | Map mode |
+| --- | --- |
+| ![Chart mode](docs/screenshots/chart.png) | ![Map mode](docs/screenshots/map.png) |
+
+## Quick start
+
+```sh
+npm install && npm start
+# open http://localhost:5173
+```
+
+`npm run dev` restarts the server on file changes (`node --watch`). Set `PORT`
+to change the port (default `5173`).
+
+With Docker:
+
+```sh
+docker build -t melon-seek .
+docker run --rm -p 5173:5173 melon-seek
+```
+
+## Data modes
+
+Every `/api/jobs` response carries a `mode` telling you where the data came from.
+The server tries, in order:
+
+| Mode | Source | When |
+| --- | --- | --- |
+| `cache` | In-memory / disk cache (`data/cache/`) | A fetch younger than 30 minutes exists. Stale disk cache is also used if the live fetch fails. |
+| `live` | The company's public job board API | Cache missing or expired (or `?refresh=1`). |
+| `snapshot` | `data/snapshots/<slug>.json` | Live fetch failed and no disk cache exists. |
+| `demo` | Synthetic, deterministic jobs from `server/demo.js` | Nothing else is available (e.g. boards unreachable, offline sandbox). |
+
+**Demo data is fake.** It exists so the whole pipeline (salary parsing, geo,
+keywords, chart, map) can be exercised offline. The API marks it
+`mode: "demo"` and the UI labels it clearly; it is never presented as a real
+posting.
+
+### Snapshots
+
+```sh
+npm run snapshot                              # every built-in in server/companies.js
+npm run snapshot -- anthropic anduril openai  # explicit list
+npm run snapshot -- lever:acme                # custom board as <source>:<board>
+```
+
+Only live data is ever written; if a fetch fails (or returns 0 jobs) the
+existing snapshot is kept, and demo data never ends up in `data/snapshots/`.
+
+This fetches live data and writes `data/snapshots/<slug>.json`. The server
+uses these as its offline fallback, and the static build bundles them.
+
+**Snapshots are not committed to git.** `data/snapshots/*.json` is gitignored.
+Real boards are big (one day's set is ~74 MB; `anduril.json` alone is ~38 MB),
+and committing them daily would add that much to the repo's history every day,
+for data that's stale within hours. Instead:
+
+- The [`snapshot` workflow](.github/workflows/snapshot.yml) runs daily on GitHub
+  Actions, whose runners can reach the boards. It uploads `data/snapshots/` as
+  the workflow artifact **`job-board-snapshots`**, kept for 90 days (GitHub's
+  maximum); the permanent copy is the `data-archive` branch ([docs/DATA_ARCHIVE.md](docs/DATA_ARCHIVE.md)).
+- The [`pages` workflow](.github/workflows/pages.yml) restores the newest
+  artifact, then fetches fresh data. A board that fails during that run keeps
+  its last good snapshot instead of dropping to demo data.
+- Both workflows run the **salary vetting gate** (`node scripts/vet-salaries.js`)
+  after fetching. It exits 1 when a job whose salary would be shown has a
+  critical anomaly (an implausible amount), or when a regression fixture fails.
+  - In `pages.yml` it's a **hard gate**: no existence guard and no
+    `continue-on-error`. A non-zero exit skips the build and the deploy, so
+    implausible pay is never published. Its flags report is kept as the
+    `salary-vetting` artifact.
+  - In `snapshot.yml` it fails the run, but the snapshots artifact is still
+    uploaded for review.
+  - Flagged jobs are listed in the run's summary.
+- A fresh clone has no snapshots and shows demo data (clearly labelled) until
+  you run `npm run snapshot` on a machine with internet access. You can also
+  download a recent artifact:
+  `gh run download --repo alvations/melon-seek --name job-board-snapshots --dir data/snapshots`.
+
+**Artifact trust.** Workflows only restore artifacts (snapshots and the ledger)
+from runs that meet all three conditions:
+- they ran on this repository, never a fork;
+- they were triggered by `push`, `schedule` or `workflow_dispatch`, never a
+  pull request;
+- they ran on the default branch or the deploy branch (`TRUSTED_BRANCHES` in
+  the workflows).
+
+A pull request can't plant data that Pages then publishes.
+(`.github/scripts/ledger.sh restore-artifact`; tested in
+`test/workflows.test.js`.)
+
+### History ledger (listing age, freshness, reposts)
+
+`npm run snapshot` also records each successful fetch in a per-company **ledger**,
+`data/history/<slug>.json` (`server/history.js` and `scripts/history.js`). It
+tracks when each posting was first seen, when it closed, and reposts (a new id
+for the same role). The UI's "Listed N days ago", the freshness filter and the
+repost details all come from it.
+
+The ledger is only useful if it survives between runs, so the workflows persist
+it. Like snapshots, it is never committed to `main` (`data/history/` is
+gitignored). There are two stores, chosen by the repository variable
+**`HISTORY_STORE`**:
+
+| Store | How it works | Caveat |
+| --- | --- | --- |
+| `artifact` **(default)** | Both workflows restore the newest non-expired **`history-ledger`** artifact (from either workflow), run the snapshot, which updates the ledger, and upload it again with **90-day retention**. No artifact means start fresh. | If no workflow runs for 90 days, the chain breaks and the ledger starts over. Two overlapping runs: the last upload wins. |
+| `branch` | The same restore and update, but the ledger is read from, and committed to, an **orphan `data-history` branch** as `history/<slug>.json`. A separate `persist-ledger` job does the commit. It's the only job with `contents: write`, and it's skipped in artifact mode. | Durable and auditable. Needs the user's OK (ROADMAP §9 D1). |
+
+**Switching to the branch is one step:** Settings → Secrets and variables →
+Actions → Variables → add `HISTORY_STORE` = `branch`. Nothing in the workflow
+files changes: both already contain the branch steps
+([`.github/scripts/ledger.sh`](.github/scripts/ledger.sh) and the
+`persist-ledger` job). The first branch run seeds `data-history` from the latest
+artifact, since the artifact is still uploaded on every run. Removing the
+variable switches back.
+
+To get a ledger locally, use either
+`gh run download --repo alvations/melon-seek --name history-ledger --dir data/history`
+or, in branch mode,
+`git fetch origin data-history && git show origin/data-history:history/anthropic.json`.
+
+## Tests
+
+```sh
+npm test   # node --test test/*.test.js
+```
+
+CI ([`ci.yml`](.github/workflows/ci.yml)) runs the tests on Node 20 and 22,
+checks that the static build succeeds, and smoke-tests the running server
+(`/api/companies`, `/api/jobs?company=anthropic`).
+
+## Deploying to GitHub Pages
+
+The app also runs without a server, as a static site at
+<https://alvations.github.io/melon-seek/>.
+
+```sh
+npm run build          # -> dist/
+```
+
+`scripts/build-static.js` writes:
+
+| Path | Contents |
+| --- | --- |
+| `dist/` | A copy of `public/`. Absolute `/x` URLs in the HTML become relative, so the site works under the `/melon-seek/` sub-path. |
+| `dist/config.js` | Sets `window.MELON_STATIC = true`. It's loaded before `app.js`. |
+| `dist/lib/` | Browser copies of the modules allowlisted in `server/lib-modules.js` (the same list the server serves at `/lib/`) that the browser can load: `normalize`, `salary`, `vet`, `geo`, `keywords`, `demo`, `juice`, `history`, `export`, `companies`, and the adapters of the boards it fetches live (`sources/greenhouse`, `ashby`, `lever`, `util`). The main site's `companies.js` lists the stable companies only. |
+| `dist/vendor/leaflet/` | Leaflet. |
+| `dist/api/companies.json` | The built-in companies. |
+| `dist/api/jobs/<slug>.json` | The company's job list: its snapshot (`mode: "snapshot"`), or demo data if the build had no snapshot. Descriptions are left out and the list is packed (see below). Each list is kept under 1.5 MB. |
+| `dist/api/cities.json` | `data/cities.json`, the Juice Score inputs (89 cities). |
+| `dist/api/desc/<slug>/<id>.json` | One job's `descriptionHtml` (plus its `sections`, if they were moved out of the list), loaded when the job is opened. |
+| `dist/api/demo/<slug>.json` | Demo data (`mode: "demo"`). Only written when the main list is a real snapshot. |
+| `dist/api/history/<slug>.json` | The compact ledger, `{ id: [firstSeenAt, postedAt, repostCount, repostFirstSeenAt?] }` (open postings; `server/history.js#compactLedger`). It's `{}` when there's no ledger. `api.js` merges it into jobs fetched live in the browser. |
+| `dist/api/meta/<slug>.json` | The list's `meta`: `{ compstimate, history }`. Live browser fetches reuse it. |
+| `dist/api/market.json` | Market comps ("same role elsewhere"), from `scripts/build-market.js`. Vetted base-pay ranges only, ≤ 150 kB. |
+| `dist/data/<slug>.csv`, `dist/data/README.txt` | **Open data**: one CSV per company (no descriptions), plus a README covering the columns and attribution. Both come from `server/export.js`, the same code as the server's `GET /api/export`. Every row has a `data_mode` column, so demo companies' rows are marked `demo` (synthetic). |
+| `dist/.nojekyll` | Turns off Jekyll processing. |
+| `dist/beta/` | The [beta site](#beta-site): the same app again, with the big-tech boards added. |
+
+Each list also carries `meta`:
+- `meta.compstimate` is the seeded leave-one-out backtest of Compstimate
+  (`backtest()` in `public/features/compstimate.js`, seed 20261002, up to 500
+  jobs, percent values). It's null for demo data.
+- `meta.history` is `{ since, runs }` from the ledger.
+
+The Pages run's summary shows both for every company.
+
+**Keeping bundles small.** Description HTML is about 90% of a job's bytes; on
+real data, the lists were 7–10 MB for the biggest boards with descriptions
+inline. The build makes three changes:
+
+1. Each description goes in its own `api/desc/...` file. The app calls
+   `getJobDetail(job)` from `public/api.js` when you open a job, so the HTML is
+   fetched once per job you open and then cached. Server mode works the same
+   way: `/api/jobs` lists are lazy too (`meta.lazy`), and `getJobDetail` fetches
+   `/api/job?id=<job.id>`.
+2. Lists use a lossless packed format (`melon-packed-2`):
+   - company fields, the id prefix and the shared URL prefix are stored once;
+   - repeated locations, keyword labels and departments become indexes into a
+     shared dictionary;
+   - fields that every job carries (`postedAt`, `firstSeenAt`, `ageDays`,
+     `freshness`, `repost`, `extras`, …) are stored once per list as columns;
+   - exact ISO timestamps become epoch milliseconds;
+   - salary and keywords become value tuples.
+
+   `public/api.js` unpacks them back into normal Job objects, and still reads
+   the older `melon-packed-1`. The build checks that every job round-trips
+   exactly, including every v2 field, and fails if one doesn't.
+3. If a list is still over 1.5 MB, that company's `sections` (the
+   responsibilities/fit bullets) also move into the desc files. Keywords stay in
+   the list, so filters work immediately.
+
+The build prints each company's list size and description total. On real data
+(Oct 2026) every list is under 1.5 MB; the largest is Anduril, with 2,418 jobs
+in 1.3 MB.
+
+**Juice Score.** `public/api.js` computes each job's `juice` (what's left of the
+salary after tax, rent and living costs; see [docs/LIVABILITY.md](docs/LIVABILITY.md))
+in the browser, in both server and static mode. Every `getJobs` result goes
+through the salary gate (`vetSalaries`), then `attachJuiceAll` with the cities
+from `getCities()`. Juice is never stored in the bundled lists. If the cities
+can't be loaded, jobs get `juice: null` and no error is shown.
+
+In static mode, `public/api.js` runs the fallback chain in the browser:
+
+1. A live fetch from the board, using the same adapters and normalizer as the
+   server.
+2. The bundled snapshot.
+3. The bundled demo data.
+4. Demo data generated in the browser.
+
+Custom boards try the live fetch and otherwise show demo data. Browsers only
+allow cross-origin requests when the board API permits them:
+
+- **Greenhouse** is built for client-side use, so live fetches are attempted.
+- **Ashby** is attempted too, but its API is reported not to allow cross-origin
+  requests.
+- **Lever** is attempted. Its docs say cross-origin requests from other sites
+  aren't supported, though it currently returns `Access-Control-Allow-Origin: *`.
+  Because that failure is expected, a Lever board whose live fetch is blocked
+  falls back to the bundled snapshot **without an error banner**.
+
+When a live fetch fails, the bundled snapshot is shown. After a network or CORS
+failure, that source isn't retried for the rest of the session unless you click
+Refresh. Demo fallbacks always show why they're demo data.
+
+The [`pages` workflow](.github/workflows/pages.yml) fetches fresh snapshots for
+every built-in company in `server/companies.js` before each build, after first
+restoring the latest `job-board-snapshots` artifact as a fallback. It runs on
+pushes to `main` and `claude/stoic-ride-54ddxp`, on manual dispatch, and
+daily. The run's summary page lists each company's mode, job count, list size
+and description size.
+
+Preview locally by serving `dist/` under the same sub-path, so relative URLs
+resolve the way they do on Pages.
+
+**One-time setup on GitHub:**
+
+1. **Settings → Pages → Build and deployment → Source: "GitHub Actions".**
+2. To deploy from a branch other than the default (e.g.
+   `claude/stoic-ride-54ddxp`), allow it under **Settings → Environments →
+   github-pages → Deployment branches and tags**. By default the
+   `github-pages` environment only accepts the default branch, and the deploy
+   job fails with a protection-rule error.
+
+### Making sure the live site is the app (not the README)
+
+If **Settings → Pages → Source** is "Deploy from a branch", GitHub runs its own
+"pages build and deployment" on every push. That build publishes the README,
+and it races the app deploy. **The Source must be "GitHub Actions"**, which an
+admin has to set; a workflow token can't change it. The workflows also guard
+against the race:
+
+- **Deploy job (`pages.yml`)** runs these steps in order:
+  1. Wait up to 5 min until no branch-based Pages build for the commit is
+     queued or running.
+  2. Deploy.
+  3. Check the live URL (`.github/scripts/check-site.sh`, retrying up to
+     3 min for the CDN) for the build marker
+     `<meta name="melon-seek-build" content="<commit sha>">` and the absence
+     of README/Jekyll markup.
+  4. On failure, re-deploy once and check again.
+  5. If it still fails, the job fails with the Settings fix in the message.
+- **`site-watchdog.yml`** (every 30 min, plus on demand) runs the same check
+  against the latest successful deploy. If the README or a wrong build is
+  being served, it re-runs `pages.yml` and writes the problem to the job
+  summary.
+
+### Methodology page and the link policy
+
+The Juice Score has a human guide, `docs/METHODOLOGY_GUIDE.md`, rendered as `methodology/` with
+charts built from the live code at build time (`scripts/methodology-figures.js`), and the full
+technical reference, `docs/LIVABILITY.md`, rendered as `methodology/reference/`.
+`scripts/md.js` is a tiny dependency-free Markdown converter whose heading ids
+match GitHub's, so `#1-the-formula` works; `scripts/methodology.js` builds the
+page. The Juice "How it's calculated" link points there
+(`methodology/#1-the-formula`), never to GitHub. External source citations in
+the doc are shown as text with their URL, not as links.
+
+**Link policy** (`scripts/links-policy.js`; the build fails on any violation,
+and `test/links-policy.test.js` checks it too):
+- No link to github.com, raw.githubusercontent.com or the repo.
+- Absolute links only to the ATS job hosts (job-boards.greenhouse.io,
+  boards.greenhouse.io, jobs.ashbyhq.com, jobs.lever.co), the OpenStreetMap
+  attribution, or the site itself (fonts are self-hosted in `public/fonts/`). The reserved `example.com`
+  is allowed for dev mocks.
+- Every relative link in `dist/` resolves to a file, and its `#anchor` exists.
+
+### Security headers on Pages
+
+GitHub Pages can't send HTTP headers, so the build adds two tags to every page:
+- `<meta http-equiv="Content-Security-Policy">`, generated from the server's
+  own policy (`server/index.js#CSP`): scripts and styles from `'self'`, Google
+  Fonts, the map tile hosts, and the three job-board APIs for live fetches.
+  `frame-ancestors` is dropped, because browsers ignore it in a meta tag.
+- `<meta name="referrer" content="strict-origin-when-cross-origin">`.
+
+**The build fails if any shipped page has an inline script, a `<style>` block
+or an `on*=` handler.** The share pages' redirect is an external file,
+`c/share-redirect.js`. The dev-only demo pages (`viz/demo.html`,
+`features/demo.html`) aren't deployed.
+
+**Workflow hardening:**
+- Every action is pinned by commit SHA, with its version as a comment.
+- In `pages.yml` only the deploy job has `pages: write` and `id-token: write`.
+- `col-refresh.yml` pushes the `bot/col-refresh` branch and opens a pull
+  request instead of pushing to `main`. Opening the PR needs Settings →
+  Actions → General → "Allow GitHub Actions to create and approve pull
+  requests"; without it, the run asks you to open the PR by hand.
+
+### Link previews (LinkedIn, Facebook, Slack, X)
+
+`public/index.html` carries static Open Graph and Twitter card tags; crawlers
+don't run JavaScript. The share image is
+[`public/og/melon-seek-og.png`](public/og/melon-seek-og.png) (1200×630). Its
+source is `public/og/card.html`, rendered by `scripts/build-og.mjs` with
+Playwright from outside the repo; the PNG is committed, so deploys need no
+browser. In server mode the tag URLs stay relative. The static build makes
+`og:url`, `og:image` and `twitter:image` absolute using `SITE_URL` (default
+`https://alvations.github.io/melon-seek/`; override it with the `SITE_URL`
+repository variable). The build also writes a share page per company,
+`c/<slug>/` (for example `…/melon-seek/c/anthropic/`). Each one has its own
+title, such as "Anthropic jobs by salary · 638 roles · median $352K", and
+opens the app with that company selected.
+
+Platforms cache previews, so after a deploy that changes them:
+
+- **LinkedIn** caches for about 7 days. Re-scrape with
+  [Post Inspector](https://www.linkedin.com/post-inspector/) by pasting the
+  URL and clicking *Inspect*. Posts made before that keep their old preview.
+- **Facebook/Meta**: use the
+  [Sharing Debugger](https://developers.facebook.com/tools/debug/) and click
+  *Scrape Again*.
+- **X, Slack, Discord**: there's no public refresh tool. Share the URL with a
+  query string such as `?v=2`.
+- **Telegram**: send the link to @WebpageBot.
+
+Wait about 10 minutes after a deploy before re-scraping, because Pages' CDN
+caches HTML. Details, verification commands and other platforms are in
+[docs/process/social.md](docs/process/social.md).
+
+### Beta site
+
+<https://alvations.github.io/melon-seek/beta/> is a full second copy of the
+app: the stable companies plus the big-tech career sites (Google, Microsoft,
+Apple, Netflix and NVIDIA). Amazon and Meta are paused because their terms bar
+automated collection, and Tesla is left out because its site blocks plain
+requests; see [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md) §7.
+The main site at `/melon-seek/` doesn't change and doesn't link to it.
+Contract: [docs/CONTRACT.md](docs/CONTRACT.md) "v3 additions"; build log:
+[docs/process/beta-deploy.md](docs/process/beta-deploy.md).
+
+- **What looks different:** only a small "Beta" pill by the logo (on phones, at
+  the start of the top row). It's one CSS rule keyed on
+  `<html data-channel="beta">`; there's no JavaScript and no new control.
+- **What's different underneath:** every beta page has
+  `<meta name="robots" content="noindex">`, and `index.html` also carries
+  `<meta name="melon-channel" content="beta">` next to the build marker. Market
+  comps ("Same role elsewhere", Insights), share pages `c/<slug>/`, CSV and the
+  methodology page all cover the beta companies.
+- **Data:** `node scripts/snapshot.js --channel beta` (or one slug, e.g.
+  `node scripts/snapshot.js amazon`) fetches the big-tech boards. The workflows
+  keep them in `data/beta/snapshots/` (and their ledger in `data/beta/history/`),
+  never in `data/snapshots/`, so the stable vetting gate never sees them. These
+  companies are `live: false` in `server/companies.js`: their career sites send
+  no CORS headers, so the browser can't fetch them live, and the badge reads
+  "Snapshot · <date>". A beta company with no snapshot, or one that fails its
+  vetting gate, is left out of the beta site and listed in the run summary.
+  Beta companies never get demo data.
+- **How fresh:** the big-tech boards are re-crawled **every 6 hours**
+  (`snapshot.yml`, 00:47, 06:47, 12:47 and 18:47 UTC), and each crawl is
+  deployed as soon as it finishes. A full crawl takes over an hour, because the
+  crawl is polite (about 1 request/s per host); Apple alone takes about 2 hours
+  for about 6,100 postings. So a post on `/beta/` is usually under 6 hours old, plus the crawl
+  time. The stable boards keep their own cadence (daily snapshot, plus a fresh
+  fetch on every deploy).
+- **Build:** `npm run build` writes `dist/` and then `dist/beta/`. The stable
+  companies' files in the copy are the main site's files, copied. A beta
+  failure never fails the main build: the copy is removed with a warning.
+
+  | Option / env | Meaning |
+  | --- | --- |
+  | `--no-beta` | Stable site only. |
+  | `--beta-only` | Only `dist/beta/` (exit code 1 on failure). `pages.yml` builds the copy in its own step, after the main site; the stable companies' files are then copied from `dist/`. |
+  | `--beta-summary <file>` | Append a Markdown table of the beta companies (included / left out, and why). |
+  | `MELON_BETA_SNAPSHOT_DIR`, `MELON_BETA_HISTORY_DIR` | Beta inputs (default `data/beta/snapshots`, `data/beta/history`; a snapshot is also looked for in `MELON_SNAPSHOT_DIR`). |
+  | `MELON_BETA_COMPANIES` | Test-only registry override: a JSON file with extra beta companies (`[{ slug, name, source, board, color, live: false }]`), so tests need no change to `server/companies.js`. |
+  | `MELON_BUILT_AT` | Pin the build time (reproducible builds; the tests compare bytes). |
+
+- **The crawl (`snapshot.yml`, every 6 hours):**
+  1. A job lists the beta companies
+     (`.github/scripts/beta-snapshots.mjs slugs`).
+  2. A matrix runs one job per company, in parallel. Each company is a
+     different host, so the per-host politeness holds. Each crawl is capped at
+     140 minutes, and its snapshot goes through the beta vetting gate
+     (`.github/scripts/beta-gate.sh`).
+  3. A merge job restores the previous `job-board-snapshots-beta` artifact
+     (trusted runs only, same rules as the stable one). It puts each company's
+     fresh snapshot on top and records it in that company's ledger. A company
+     whose crawl failed, timed out or was rejected keeps its previous file.
+     Then it uploads the artifact.
+  4. A last job dispatches `pages.yml`, so the new posts go live without a
+     push.
+
+  The stable daily job is unchanged and separate.
+- **The deploy (`pages.yml`, on push, daily, and when the crawl dispatches
+  it):** it never crawls a big-tech board.
+  1. It restores the latest beta artifact.
+  2. It runs the stable vetting gate (unchanged, hard), then the per-company
+     beta gate on the restored data.
+  3. It builds the stable site, then the beta copy (`--beta-only`, which
+     copies the stable companies' files instead of rebuilding them).
+
+  A push deploy takes what it did before, plus about 1–2 minutes for `/beta/`.
+  Each beta step has `continue-on-error` and a short `timeout-minutes` cap (20
+  minutes in total, only if something hangs), so it never blocks the main
+  site. Dispatched and scheduled deploys make no branch-based Pages build, so
+  they never show the holding page.
+- **Checks:** after each deploy, and every 30 minutes in `site-watchdog.yml`,
+  `/beta/` is checked for this build's marker and the beta channel meta. A
+  problem there is a warning annotation, not a failure.
+- **Server mode:** `/api/companies` lists the stable companies unless the server
+  runs with `MELON_CHANNEL=beta` (`MELON_CHANNEL=beta npm start`).
+  `/api/jobs?company=<beta slug>` works either way.
+- **Try it locally:**
+
+  ```sh
+  MELON_SNAPSHOT_DIR=data/beta/snapshots MELON_HISTORY_DIR=data/beta/history node scripts/snapshot.js --channel beta  # over an hour
+  npm run build
+  # serve dist/ under /melon-seek/ (e.g. docs/process/scripts/qa-audit-static-server.mjs), then open /melon-seek/beta/
+  ```
+
+## API reference
+
+### `GET /api/companies`
+
+```json
+[{ "slug": "anthropic", "name": "Anthropic", "source": "greenhouse", "board": "anthropic", "color": "#d97757" }]
+```
+
+Built-ins: `anthropic` (greenhouse/`anthropic`), `anduril`
+(greenhouse/`andurilindustries`), `openai` (ashby/`openai`), `scaleai`
+(greenhouse/`scaleai`), `xai` (greenhouse/`xai`), `cohere` (ashby/`cohere`),
+`palantir` (lever/`palantir`), `shieldai` (lever/`shieldai`). Stable companies
+only; with `MELON_CHANNEL=beta` the beta-channel companies follow them (see
+[Beta site](#beta-site)).
+
+### `GET /api/jobs`
+
+| Query | Meaning |
+| --- | --- |
+| `company=anthropic` | A built-in company. |
+| `source=greenhouse\|ashby\|lever&board=<slug>[&name=Display]` | A custom board. |
+| `refresh=1` | Bypass the fresh cache and fetch live. |
+
+Response:
+
+```js
+{
+  company: { slug, name, source, board, color },
+  mode: "live" | "cache" | "snapshot" | "demo",
+  fetchedAt,               // ISO timestamp
+  error: string | null,    // why live failed, if it did
+  jobs: Job[]
+}
+```
+
+`Job`:
+
+```js
+{
+  id: "anthropic:4012345",
+  company: "anthropic", companyName: "Anthropic",
+  title, department, team, employmentType,
+  seniority: "Intern"|"Entry"|"Mid"|"Senior"|"Staff+"|"Manager"|"Director+",
+  locations: [{ name: "San Francisco, CA", city: "San Francisco", region: "CA",
+                country: "US", lat: 37.77, lng: -122.42, remote: false }],
+  remote: boolean,
+  salary: { min: 300000, max: 405000, mid: 352500, currency: "USD",
+            interval: "year", text: "$300,000—$405,000 USD" } | null,
+            // min/max are annualized (hourly × 2080, monthly × 12)
+  url, updatedAt,
+  descriptionHtml,   // NOT in /api/jobs lists (lazy, see meta.lazy): GET /api/job?id=
+  sections: { responsibilities: [string], fit: [string] }, // [] in lists when meta.lazy.sections
+  keywords: { responsibilities: [string], fit: [string], skills: [string] }
+}
+```
+
+Errors: `400` for a missing/invalid `company`, `source` or `board`; `404` for an
+unknown built-in company.
+
+Lists also carry `meta: { compstimate, history, lazy }`. `lazy.descriptionHtml`
+is always true; `lazy.sections` is true when a big board's bullets were also
+left out. The v2 job fields (`postedAt`, `firstSeenAt`, `ageDays`, `freshness`,
+`repost`, `salary.spread`, `extras`, …) are listed in
+[docs/CONTRACT.md](docs/CONTRACT.md) under "v2 additions".
+
+### Other endpoints
+
+| Endpoint | Returns | Static build equivalent |
+| --- | --- | --- |
+| `GET /api/job?id=<job.id>` | `{ id, descriptionHtml, sections }`. The company comes from the id's `<slug>:` prefix. `400` without an id, `404` for an unknown one. | `api/desc/<slug>/<id>.json` |
+| `GET /api/cities` | Juice Score inputs (`data/cities.json`) | `api/cities.json` |
+| `GET /api/market` | Market comps (`melon-market-1`) | `api/market.json` |
+| `GET /api/export?company=` | One company's CSV | `data/<slug>.csv` |
+| `GET /lib/<module>.js` | Browser-safe server modules (allowlist: `server/lib-modules.js`) | `lib/*.js` |
+
+### Static
+
+- `/` → `public/`
+- `/vendor/leaflet/*` → `node_modules/leaflet/dist/*`
+
+## Project layout
+
+```
+server/index.js            HTTP server (static + API)
+server/companies.js        company registry + custom-board validation
+server/sources/            board adapters: greenhouse.js, ashby.js, lever.js (+ util.js)
+server/normalize.js        raw job -> Job (salary, geo, keywords)
+server/salary.js           salary text parsing + annualizing
+server/geo.js              location strings -> coordinates (built-in gazetteer)
+server/keywords.js         responsibilities/fit sections, keyword facets, seniority
+server/cache.js            memory + disk cache (data/cache/, gitignored)
+server/demo.js             synthetic offline demo jobs
+scripts/snapshot.js        npm run snapshot -> data/snapshots/*.json
+scripts/build-static.js    npm run build -> dist/ (GitHub Pages bundle, gitignored)
+public/                    index.html, styles.css, app.js (state, filters, list, drawer)
+public/api.js              data access: server API, or static mode (live -> snapshot -> demo)
+public/viz/                palette.js, chart.js, map.js
+test/*.test.js             node --test
+docs/                      CONTRACT.md, ARCHITECTURE.md, ADDING_A_BOARD.md
+```
+
+More detail: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) ·
+[docs/ADDING_A_BOARD.md](docs/ADDING_A_BOARD.md) ·
+[docs/CONTRACT.md](docs/CONTRACT.md).
+
+## Data sources
+
+All data comes from public, unauthenticated job-board APIs that the companies
+themselves publish for embedding their careers pages:
+
+| Source | Endpoint |
+| --- | --- |
+| Greenhouse boards API | `https://boards-api.greenhouse.io/v1/boards/{board}/jobs?content=true` |
+| Ashby posting API | `https://api.ashbyhq.com/posting-api/job-board/{board}?includeCompensation=true` |
+| Lever postings API | `https://api.lever.co/v0/postings/{board}?mode=json` |
+
+`openai.com/careers/search` is backed by the Ashby board `openai`.
+
+### Responsible use
+
+melon-seek only reads public endpoints, sends an identifying `User-Agent`, and
+caches each board for **30 minutes** (memory + disk) so normal browsing makes at
+most one request per board per half hour. Please keep it that way: don't lower
+the cache TTL or poll boards in a loop. Postings belong to the respective
+companies; always apply via the original posting URL.

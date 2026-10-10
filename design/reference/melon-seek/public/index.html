@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>melon·seek — job boards, plotted by salary</title>
+  <meta name="description" content="See a company's whole job board at once: every role on a salary-range chart or a map, with filters for pay, team, location and skills.">
+  <!-- Link previews (LinkedIn, Facebook, Slack, X...). Crawlers don't run JS, so these stay static.
+       URLs are relative for server mode; scripts/build-static.js makes og:url, og:image and
+       twitter:image absolute (SITE_URL) for GitHub Pages. Card source: og/card.html. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="melon·seek">
+  <meta property="og:title" content="melon·seek — the Zillow of job postings">
+  <meta property="og:description" content="See a company's whole job board at once: every role on a salary-range chart or a map, with filters for pay, team, location and skills.">
+  <meta property="og:url" content="./">
+  <meta property="og:image" content="og/melon-seek-og.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="melon·seek, the Zillow of job postings: a salary cluster chart by department next to a map with price-tag pins.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="melon·seek — the Zillow of job postings">
+  <meta name="twitter:description" content="See a company's whole job board at once: every role on a salary-range chart or a map, with filters for pay, team, location and skills.">
+  <meta name="twitter:image" content="og/melon-seek-og.png">
+  <meta name="twitter:image:alt" content="melon·seek, the Zillow of job postings: a salary cluster chart by department next to a map with price-tag pins.">
+  <meta name="color-scheme" content="light dark">
+  <script src="theme-init.js"></script>
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#11141a" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- Inter is self-hosted (fonts/, @font-face in styles.css): no render-blocking third-party CSS. -->
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="viz/viz.css">
+  <link rel="stylesheet" href="features/features.css">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Leaflet (vendor/leaflet/*) is loaded by app.js on first Map open. -->
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#resultsList">Skip to results</a>
+  <a class="skip-link" href="#vizArea">Skip to chart</a>
+  <h1 class="sr-only" id="pageTitle">melon·seek: job boards by salary</h1>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="melon·seek home">
+      <img src="favicon.svg" alt="" width="28" height="28">
+      <span class="brand-word">melon<span class="brand-dot">·</span>seek</span>
+    </a>
+
+    <div class="company-bar">
+      <button class="company-menu-btn" id="companyMenuBtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Choose company"></button>
+      <div class="company-pills" id="companyPills" role="group" aria-label="Recent companies"></div>
+      <button class="btn btn--ghost btn--sm add-board-btn" id="addBoardBtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Add board">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg><span>Add board</span>
+      </button>
+    </div>
+
+    <div class="search">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="m13.2 13.2 3.3 3.3"/></svg>
+      <label class="sr-only" for="search">Search roles</label>
+      <input id="search" type="search" placeholder="Search titles, teams, skills…" autocomplete="off" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </div>
+
+    <div class="topbar-right">
+      <div class="seg" role="group" aria-label="View">
+        <button type="button" data-mode="chart" aria-pressed="true" aria-label="Chart view">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 5h7M6 9h9M3 13h6M8 17h8"/></svg><span>Chart</span>
+        </button>
+        <button type="button" data-mode="map" aria-pressed="false" aria-label="Map view">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 17s5-4.6 5-8.5a5 5 0 0 0-10 0C5 12.4 10 17 10 17Z"/><circle cx="10" cy="8.5" r="1.8"/></svg><span>Map</span>
+        </button>
+        <button type="button" data-mode="insights" aria-pressed="false" aria-label="Insights view">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16V9M8 16V5M12 16v-5M16 16V7"/></svg><span>Insights</span>
+        </button>
+      </div>
+      <button type="button" class="data-badge" id="dataBadge" aria-haspopup="dialog" aria-expanded="false" hidden></button>
+      <button class="icon-btn theme-btn" id="themeBtn" type="button" aria-label="Theme: System" title="Theme: System (press T to change)"></button>
+      <button class="icon-btn" id="refreshBtn" type="button" aria-label="Refresh from the live board" title="Refresh from the live board">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10a6 6 0 1 1-1.8-4.3M16 3.5v3.2h-3.2"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="quickbar" aria-label="Quick filters">
+    <button class="chip chip--filters" id="filtersToggle" type="button" aria-controls="filters" aria-expanded="true">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M6 10h8M8.5 15h3"/></svg>
+      <span>Filters</span><span class="chip-count" id="filtersCount" hidden></span>
+    </button>
+    <div class="quick-chips" id="quickChips"></div>
+    <div class="quickbar-end">
+      <div id="areaChipTop"></div>
+      <button class="chip chip--save" id="saveSearch" type="button" hidden>
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3.5h8v13l-4-3-4 3z"/></svg><span>Save</span>
+      </button>
+      <button class="link-btn" id="clearAll" type="button" hidden>Clear all</button>
+    </div>
+  </nav>
+
+  <div class="layout" id="layout">
+    <aside class="filters" id="filters" aria-label="Filters">
+      <div class="filters-head">
+        <h2>Filters</h2>
+        <button class="link-btn" id="filtersClear" type="button">Reset</button>
+        <button class="icon-btn filters-close" id="filtersClose" type="button" aria-label="Close filters">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"/></svg>
+        </button>
+      </div>
+      <div class="filters-body" id="filterBody"></div>
+      <div class="filters-foot">
+        <button class="btn btn--primary btn--block" id="filtersDone" type="button">Show roles</button>
+      </div>
+    </aside>
+    <div class="scrim" id="filtersScrim" hidden></div>
+
+    <main class="main" id="main">
+      <div class="demo-banner" id="demoBanner" role="status" hidden></div>
+      <div class="viz-toolbar" id="vizToolbar">
+        <p class="stats-line" id="statsLine" aria-label="Summary"></p>
+        <div class="viz-controls" id="vizControls">
+          <div class="seg seg--sm" role="group" aria-label="Chart view">
+            <button type="button" data-view="clusters" aria-pressed="true">Clusters</button>
+            <button type="button" data-view="ranges" aria-pressed="false">Ranges</button>
+          </div>
+          <label class="quiet-select"><span>Group:</span>
+            <select id="groupBy" aria-label="Group roles by">
+              <option value="department">Department</option>
+              <option value="location">Location</option>
+              <option value="seniority">Seniority</option>
+              <option value="none">None</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="viz" id="vizArea" tabindex="-1" aria-label="Chart or map of roles">
+        <div class="viz-host" id="chartHost"></div>
+        <div class="viz-host" id="mapHost" hidden></div>
+        <div class="viz-overlay" id="vizOverlay" hidden></div>
+      </div>
+      <div class="insights-host" id="insightsHost" hidden>
+        <section class="insights-card" id="compHost" aria-label="Compstimate"></section>
+        <section class="insights-card" id="insightsPanel" aria-label="Market insights"></section>
+        <section class="insights-card" id="compsCardHost" aria-label="Compare companies" hidden></section>
+      </div>
+    </main>
+
+    <aside class="results" id="results" aria-label="Results">
+      <button class="sheet-handle" id="sheetHandle" type="button" aria-expanded="false" aria-controls="resultsList">
+        <span class="sheet-grip" aria-hidden="true"></span><span class="sr-only">Toggle results list</span>
+      </button>
+      <div class="results-head">
+        <h2 class="results-title" id="resultsTitle" aria-live="polite">Loading roles…</h2>
+        <label class="select-field select-field--compact"><span class="sr-only">Sort by</span>
+          <select id="sortBy">
+            <option value="salary-desc">Highest pay</option>
+            <option value="salary-asc">Lowest pay</option>
+            <option value="newest">Newest</option>
+            <option value="title">Title A–Z</option>
+            <option value="juice">Most juice</option>
+          </select>
+        </label>
+      </div>
+      <div class="area-chip-slot" id="areaChipList"></div>
+      <ol class="cards" id="resultsList" tabindex="-1"></ol>
+    </aside>
+  </div>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" hidden></aside>
+
+  <div class="popover" id="popover" role="dialog" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
