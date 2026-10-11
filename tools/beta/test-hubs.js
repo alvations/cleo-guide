@@ -151,6 +151,33 @@ console.log('\n== W2: signature lines from data, distinct tiles, themes computed
   chk('generated pages whose footer does not link accessibility.html', manifest.generated.filter(r => !/<footer[\s\S]*accessibility\.html/.test(rd(r))), a => a.length === 0);
 }
 
+// ── 7. W7: hub "Known for" from the guides' signatures; a hub hero photo never repeated on a card ─────────
+console.log('\n== W7: hub "Known for" from child guides\' signatures; hero photo not reused by a card ==');
+{
+  const guideIdx = Object.fromEntries(JSON.parse(rd('data/guide.json')).pages.map(p => [p.key, p]));
+  const hubs = manifest.pages.filter(p => p.kind === 'country-hub' && p.gen === 'new');
+  const badKnown = [], dupHero = [];
+  let nKnown = 0;
+  for (const h of hubs) {
+    const d = doc(rd(h.beta));
+    const kids = cityPages.filter(p => p.country === h.country);
+    // allowed: each child guide's signature (tile line) and its open tier-1 record names
+    const allowed = kids.flatMap(p => {
+      const g = guideIdx[p.key], j = JSON.parse(rd(`data/places/${p.key.replace(/\//g, '--')}.json`));
+      return (g && g.tileLine ? g.tileLine.split(' · ') : []).concat(j.places.filter(x => !x.closed && x.t === 1).map(x => x.n));
+    });
+    for (const s of d.querySelectorAll('.chero .why .l > span')) {
+      nKnown++;
+      const t = s.textContent.trim();
+      if (!allowed.some(a => a.startsWith(t))) badKnown.push(`${h.beta}: ${t}`);
+    }
+    const heroSrc = [...d.querySelectorAll('.chero .hero-media figcaption a')].map(a => a.getAttribute('href')).find(u => !/creativecommons|\/licen[cs]e|publicdomain/i.test(u || ''));
+    if (heroSrc) for (const a of d.querySelectorAll('li.dest .credit a')) if (a.getAttribute('href') === heroSrc) dupHero.push(`${h.beta}: ${heroSrc}`);
+  }
+  chk(`hub "Known for" items (${nKnown}) that are neither a child guide's signature nor an open tier-1 place`, badKnown, a => a.length === 0 && nKnown >= hubs.length);
+  chk('hub hero photo reused by a card on the same hub', dupHero, a => a.length === 0);
+}
+
 // ── 5. voice lint ──────────────────────────────────────────────────────────
 console.log('\n== VOICE: urgency lint on FE-B pages ==');
 {
