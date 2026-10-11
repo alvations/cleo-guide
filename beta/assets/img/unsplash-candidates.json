@@ -22,19 +22,19 @@
   "notes": "gaps stated (no candidate found) and exclusions"
  },
  "summary": {
-  "targets": 98,
+  "targets": 146,
   "byType": {
-   "hero": 28,
-   "landmark": 58,
-   "cover": 12
+   "hero": 34,
+   "landmark": 93,
+   "cover": 19
   },
-  "withCandidate": 84,
-  "withHigh": 55,
-  "candidates": 186,
+  "withCandidate": 121,
+  "withHigh": 72,
+  "candidates": 250,
   "byConfidence": {
-   "high": 102,
-   "med": 48,
-   "low": 36
+   "high": 128,
+   "med": 77,
+   "low": 45
   },
   "gaps": [
    "landmark:cleveland#terminal-tower-observation-deck",
@@ -48,9 +48,22 @@
    "landmark:saarland#petite-france",
    "landmark:saarland#place-stanislas-place-de-la-carriere-and-place-dalliance",
    "landmark:okinawa#shuri-castle",
+   "cover:fine",
+   "landmark:siliconvalley#computer-history-museum",
+   "landmark:akron#stan-hywet-hall-and-gardens",
+   "landmark:wheeling#wheeling-suspension-bridge",
+   "landmark:statecollege#old-main",
+   "hero:youngstown",
+   "hero:okinawa",
+   "landmark:kyoto#heian-jingu",
+   "landmark:singapore/upper-thomson#macritchie-reservoir-and-treetop-walk",
+   "landmark:singapore/phnom-penh#royal-palace-and-silver-pagoda",
+   "landmark:singapore/mandai#singapore-zoo",
+   "hero:aachen"
+  ],
+  "coveredByAnotherTarget": [
    "hero:thailand",
-   "hero:indochina",
-   "cover:fine"
+   "hero:indochina"
   ]
  },
  "targets": [
@@ -138,10 +151,31 @@
    "type": "landmark",
    "depicts": "tokyo#meiji-jingu",
    "label": "Meiji Jingū (明治神宮)",
-   "query": "Meiji Jingu shrine Tokyo photo",
+   "query": "Meiji Jingu shrine Tokyo photo; Meiji Shrine torii Tokyo forest gate photo",
    "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
    "searched": "2026-10-11",
    "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/person-standing-in-front-of-torii-during-daytime-E_scfTVpjT8",
+     "id": "E_scfTVpjT8",
+     "title": "Person standing in front of torii during daytime - Free Photo on Unsplash",
+     "photographer": "Michal Pechardo",
+     "depicts": "tokyo#meiji-jingu",
+     "confidence": "med",
+     "reason": "title generic; second search's summary says it is titled \"Meiji Gate\" and located at Meiji Jingū Honden, Shibuya",
+     "flags": [
+      "people-visible"
+     ]
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/wooden-torii-gate-in-a-lush-green-forest-BOQGF_zvmVw",
+     "id": "BOQGF_zvmVw",
+     "title": "Wooden torii gate in a lush green forest. photo",
+     "photographer": "Lex Brogan",
+     "depicts": "tokyo#meiji-jingu",
+     "confidence": "med",
+     "reason": "caption reportedly names the Meiji Shrine torii, but the page location is Chōfu — the API must confirm"
+    },
     {
      "pageUrl": "https://unsplash.com/photos/a-row-of-wooden-pillars-with-a-clock-on-top-bhMJWdQrTuw",
      "id": "bhMJWdQrTuw",
@@ -150,31 +184,10 @@
      "depicts": "tokyo#meiji-jingu",
      "confidence": "low",
      "reason": "returned for \"Meiji Jingu\" but the title names no place"
-    },
-    {
-     "pageUrl": "https://unsplash.com/photos/a-group-of-people-with-umbrellas-standing-in-front-of-a-gate-4s3IVoGh7HA",
-     "id": "4s3IVoGh7HA",
-     "title": "A group of people with umbrellas standing in front of a gate",
-     "photographer": "",
-     "depicts": "tokyo#meiji-jingu",
-     "confidence": "low",
-     "reason": "returned for \"Meiji Jingu\" but the title names no place",
-     "flags": [
-      "people-visible"
-     ]
-    },
-    {
-     "pageUrl": "https://unsplash.com/photos/person-standing-in-front-of-torii-during-daytime-E_scfTVpjT8",
-     "id": "E_scfTVpjT8",
-     "title": "Person standing in front of torii during daytime - Free Photo on Unsplash",
-     "photographer": "",
-     "depicts": "tokyo#meiji-jingu",
-     "confidence": "low",
-     "reason": "generic torii; title names no place",
-     "flags": [
-      "people-visible"
-     ]
     }
+   ],
+   "notes": [
+    "Two searches. 4s3IVoGh7HA (umbrellas at a gate) dropped: people-centred and unnamed."
    ]
   },
   {
@@ -643,12 +656,13 @@
    "type": "landmark",
    "depicts": "cleveland#terminal-tower-observation-deck",
    "label": "Terminal Tower Observation Deck",
-   "query": "Terminal Tower Cleveland photo",
+   "query": "Terminal Tower Cleveland photo; Cleveland Public Square Terminal Tower downtown photo",
    "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
    "searched": "2026-10-11",
    "candidates": [],
    "notes": [
-    "No candidate: no returned photo names the Terminal Tower. Gap stated, not filled."
+    "No candidate: no returned photo names the Terminal Tower. Gap stated, not filled.",
+    "Retried with a second query: still no photo that names it."
    ]
   },
   {
@@ -656,12 +670,13 @@
    "type": "landmark",
    "depicts": "cleveland#west-side-market",
    "label": "West Side Market",
-   "query": "West Side Market Cleveland photo",
+   "query": "West Side Market Cleveland photo; Cleveland West Side Market clock tower Ohio City photo",
    "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
    "searched": "2026-10-11",
    "candidates": [],
    "notes": [
-    "No candidate: no returned photo names the West Side Market. Gap stated, not filled."
+    "No candidate: no returned photo names the West Side Market. Gap stated, not filled.",
+    "Retried with a second query: still no photo that names it."
    ]
   },
   {
@@ -1262,12 +1277,13 @@
    "type": "landmark",
    "depicts": "singapore/bukit-timah#singapore-botanic-gardens",
    "label": "Singapore Botanic Gardens",
-   "query": "Singapore Botanic Gardens photo",
+   "query": "Singapore Botanic Gardens photo; Singapore Botanic Gardens bandstand Swan Lake photo",
    "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
    "searched": "2026-10-11",
    "candidates": [],
    "notes": [
-    "No candidate: results were Gardens by the Bay (a different place). Gap stated, not filled."
+    "No candidate: results were Gardens by the Bay (a different place). Gap stated, not filled.",
+    "Retried with a second query: still no photo that names it."
    ]
   },
   {
@@ -3037,6 +3053,1224 @@
      "flags": [
       "people-visible"
      ]
+    }
+   ]
+  },
+  {
+   "key": "landmark:philadelphia#independence-hall",
+   "type": "landmark",
+   "depicts": "philadelphia#independence-hall",
+   "label": "Independence Hall",
+   "query": "Independence Hall Philadelphia photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-large-brick-building-with-a-clock-tower-with-independence-hall-in-the-background-znjcQLC4Bz0",
+     "id": "znjcQLC4Bz0",
+     "title": "A large brick building with a clock tower with Independence Hall in the background photo",
+     "photographer": "Ernie Journeys",
+     "depicts": "philadelphia#independence-hall",
+     "confidence": "high",
+     "reason": "title names Independence Hall"
+    }
+   ],
+   "notes": [
+    "Other results were Philadelphia City Hall (a different building) — excluded."
+   ]
+  },
+  {
+   "key": "landmark:washingtondc#lincoln-memorial",
+   "type": "landmark",
+   "depicts": "washingtondc#lincoln-memorial",
+   "label": "Lincoln Memorial",
+   "query": "Lincoln Memorial Washington photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/an-aerial-view-of-the-lincoln-memorial-in-washington-dc-Rtk8bkK5iOE",
+     "id": "Rtk8bkK5iOE",
+     "title": "An aerial view of the lincoln memorial in washington dc photo",
+     "photographer": "Harrison Mitchell",
+     "depicts": "washingtondc#lincoln-memorial",
+     "confidence": "high",
+     "reason": "title names the Lincoln Memorial"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/66xlbteRRwc",
+     "id": "66xlbteRRwc",
+     "title": "Washington dc, lincoln memorial, monument and memorial HD photo by Kelli Dougal (@kwithani) on Unsplash",
+     "photographer": "Kelli Dougal",
+     "depicts": "washingtondc#lincoln-memorial",
+     "confidence": "high",
+     "reason": "title names the Lincoln Memorial"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/a-black-and-white-photo-of-the-lincoln-memorial-JcW1Iw7Kigs",
+     "id": "JcW1Iw7Kigs",
+     "title": "A black and white photo of the lincoln memorial - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "washingtondc#lincoln-memorial",
+     "confidence": "high",
+     "reason": "title names the Lincoln Memorial"
+    }
+   ]
+  },
+  {
+   "key": "landmark:chicago#art-institute-of-chicago",
+   "type": "landmark",
+   "depicts": "chicago#art-institute-of-chicago",
+   "label": "Art Institute of Chicago",
+   "query": "Art Institute of Chicago lions entrance photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-statue-of-a-lion-in-front-of-art-institute-of-chicago-with-a-large-clock-tower-zfpDZ1-3YK4",
+     "id": "zfpDZ1-3YK4",
+     "title": "A statue of a lion in front of Art Institute of Chicago with a large clock tower photo",
+     "photographer": "Danny Burke",
+     "depicts": "chicago#art-institute-of-chicago",
+     "confidence": "high",
+     "reason": "title names the Art Institute of Chicago"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/a-statue-of-a-lion-qya3dQM0HP0",
+     "id": "qya3dQM0HP0",
+     "title": "A statue of a lion photo",
+     "photographer": "Patricia Jekki",
+     "depicts": "chicago#art-institute-of-chicago",
+     "confidence": "med",
+     "reason": "title generic; search summary places it at the museum's South Michigan Avenue address"
+    }
+   ],
+   "notes": [
+    "The museum's own account (@artchicago) publishes collection artworks — not photos of the building."
+   ]
+  },
+  {
+   "key": "landmark:pittsburgh#duquesne-incline",
+   "type": "landmark",
+   "depicts": "pittsburgh#duquesne-incline",
+   "label": "Duquesne Incline",
+   "query": "Duquesne Incline Pittsburgh photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-view-of-a-river-and-a-bridge-in-a-city-s5hmSwIsSX4",
+     "id": "s5hmSwIsSX4",
+     "title": "A view of a river and a bridge in a city - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "pittsburgh#duquesne-incline",
+     "confidence": "low",
+     "reason": "returned for the incline; the summary says results are views FROM the incline, not of it"
+    }
+   ],
+   "notes": [
+    "No photo OF the incline cars/track was identified — views from the top belong to hero:pittsburgh, not this record."
+   ]
+  },
+  {
+   "key": "landmark:sanfrancisco#alcatraz-island",
+   "type": "landmark",
+   "depicts": "sanfrancisco#alcatraz-island",
+   "label": "Alcatraz Island",
+   "query": "Alcatraz Island San Francisco photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/alcatraz-island-sits-in-the-san-francisco-bay-UIzZmlgR_bU",
+     "id": "UIzZmlgR_bU",
+     "title": "Alcatraz island sits in the san francisco bay. photo",
+     "photographer": "Brett Wharton",
+     "depicts": "sanfrancisco#alcatraz-island",
+     "confidence": "high",
+     "reason": "title names Alcatraz Island"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/msPBFLQGcPM",
+     "id": "msPBFLQGcPM",
+     "title": "Top view photography of island surrounded by body of water - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "sanfrancisco#alcatraz-island",
+     "confidence": "low",
+     "reason": "returned for Alcatraz; title names no place"
+    }
+   ]
+  },
+  {
+   "key": "landmark:washingtondc#united-states-capitol",
+   "type": "landmark",
+   "depicts": "washingtondc#united-states-capitol",
+   "label": "United States Capitol",
+   "query": "United States Capitol building photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-view-of-the-united-states-capitol-building-prnhSkUDVJk",
+     "id": "prnhSkUDVJk",
+     "title": "A view of the united states capitol building photo",
+     "photographer": "",
+     "depicts": "washingtondc#united-states-capitol",
+     "confidence": "high",
+     "reason": "title names the United States Capitol"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/the-dome-of-the-united-states-capitol-building-IXxhitPIAlQ",
+     "id": "IXxhitPIAlQ",
+     "title": "The dome of the united states capitol building photo",
+     "photographer": "",
+     "depicts": "washingtondc#united-states-capitol",
+     "confidence": "high",
+     "reason": "title names the United States Capitol"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/the-dome-of-the-u-s-capitol-building-EqrebgG-nHg",
+     "id": "EqrebgG-nHg",
+     "title": "The dome of the u s capitol building photo",
+     "photographer": "",
+     "depicts": "washingtondc#united-states-capitol",
+     "confidence": "high",
+     "reason": "title names the U.S. Capitol"
+    }
+   ]
+  },
+  {
+   "key": "landmark:madison#wisconsin-state-capitol",
+   "type": "landmark",
+   "depicts": "madison#wisconsin-state-capitol",
+   "label": "Wisconsin State Capitol",
+   "query": "Madison Wisconsin State Capitol photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-large-building-with-statues-on-top-of-it-KB-SjxzDza0",
+     "id": "KB-SjxzDza0",
+     "title": "A large building with statues on top of it photo",
+     "photographer": "Luke Witter",
+     "depicts": "madison#wisconsin-state-capitol",
+     "confidence": "med",
+     "reason": "title generic; search summary says statues on a government building in Madison (the Capitol)"
+    }
+   ],
+   "notes": [
+    "Also the hero:madison candidate. Several results were the U.S. Capitol in Washington — excluded."
+   ]
+  },
+  {
+   "key": "landmark:siliconvalley#computer-history-museum",
+   "type": "landmark",
+   "depicts": "siliconvalley#computer-history-museum",
+   "label": "Computer History Museum",
+   "query": "Computer History Museum Mountain View photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [],
+   "notes": [
+    "No candidate: results were vintage-computer photos from other museums (Melbourne, Erfurt). Gap stated, not filled."
+   ]
+  },
+  {
+   "key": "landmark:akron#stan-hywet-hall-and-gardens",
+   "type": "landmark",
+   "depicts": "akron#stan-hywet-hall-and-gardens",
+   "label": "Stan Hywet Hall & Gardens",
+   "query": "Stan Hywet Hall Akron photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [],
+   "notes": [
+    "No candidate. The one Akron result (Knlde4SUjDE) is a modern artwork inside the Akron Art Museum — a copyrighted work, not a photo of the museum; excluded. Gap stated, not filled."
+   ]
+  },
+  {
+   "key": "landmark:dayton#national-museum-of-the-u-s-air-force",
+   "type": "landmark",
+   "depicts": "dayton#national-museum-of-the-u-s-air-force",
+   "label": "National Museum of the U.S. Air Force",
+   "query": "National Museum of the US Air Force Dayton photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-large-airplane-on-display-BrMdVLj4nD8",
+     "id": "BrMdVLj4nD8",
+     "title": "A large airplane on display photo",
+     "photographer": "Sean Foster",
+     "depicts": "dayton#national-museum-of-the-u-s-air-force",
+     "confidence": "high",
+     "reason": "returned caption names the National Museum of the US Air Force, Dayton"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/a-u-s-air-force-jet-sitting-on-display-IaMIm881ZzU",
+     "id": "IaMIm881ZzU",
+     "title": "A u s air force jet sitting on display photo",
+     "photographer": "Rafik Wahba",
+     "depicts": "dayton#national-museum-of-the-u-s-air-force",
+     "confidence": "med",
+     "reason": "title generic; page location Dayton, OH per the search summary"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/a-plane-is-on-display-in-a-museum-EnBk92GDcBk",
+     "id": "EnBk92GDcBk",
+     "title": "A plane is on display in a museum photo",
+     "photographer": "",
+     "depicts": "dayton#national-museum-of-the-u-s-air-force",
+     "confidence": "low",
+     "reason": "returned for the museum; title names no place"
+    }
+   ]
+  },
+  {
+   "key": "landmark:erie#presque-isle-state-park",
+   "type": "landmark",
+   "depicts": "erie#presque-isle-state-park",
+   "label": "Presque Isle State Park",
+   "query": "Presque Isle Erie Pennsylvania photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-beach-with-snow-LR-MVht3Pcg",
+     "id": "LR-MVht3Pcg",
+     "title": "A beach with snow - Free Photo on Unsplash",
+     "photographer": "Chuck Derby",
+     "depicts": "erie#presque-isle-state-park",
+     "confidence": "med",
+     "reason": "title generic; page location is Presque Isle State Park, Peninsula Drive, Erie per the search summary"
+    }
+   ],
+   "notes": [
+    "Also the hero:erie candidate."
+   ]
+  },
+  {
+   "key": "landmark:harrisburg#pennsylvania-state-capitol",
+   "type": "landmark",
+   "depicts": "harrisburg#pennsylvania-state-capitol",
+   "label": "Pennsylvania State Capitol",
+   "query": "Pennsylvania State Capitol Harrisburg photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/pennsylvania-state-capitol-near-red-rose-flowers-CHThpUvT-yU",
+     "id": "CHThpUvT-yU",
+     "title": "Pennsylvania State Capitol near red rose flowers photo",
+     "photographer": "Olivia Connell",
+     "depicts": "harrisburg#pennsylvania-state-capitol",
+     "confidence": "high",
+     "reason": "title names the Pennsylvania State Capitol"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/the-pennysylvania-state-capitol-signage-HLKNH1-ITr0",
+     "id": "HLKNH1-ITr0",
+     "title": "The Pennysylvania State Capitol signage - Free Photo on Unsplash",
+     "photographer": "Katherine McAdoo",
+     "depicts": "harrisburg#pennsylvania-state-capitol",
+     "confidence": "high",
+     "reason": "title names the Pennsylvania State Capitol (sign in front of the building)"
+    }
+   ],
+   "notes": [
+    "Also the hero:harrisburg candidate."
+   ]
+  },
+  {
+   "key": "landmark:wheeling#wheeling-suspension-bridge",
+   "type": "landmark",
+   "depicts": "wheeling#wheeling-suspension-bridge",
+   "label": "Wheeling Suspension Bridge",
+   "query": "Wheeling Suspension Bridge West Virginia photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [],
+   "notes": [
+    "No candidate: generic suspension bridges only, none located in Wheeling. Gap stated, not filled (also blocks hero:wheeling)."
+   ]
+  },
+  {
+   "key": "landmark:statecollege#old-main",
+   "type": "landmark",
+   "depicts": "statecollege#old-main",
+   "label": "Old Main (Penn State)",
+   "query": "Penn State Old Main State College photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [],
+   "notes": [
+    "No candidate: only a collection page tagged \"old main\" came back, no photo URL. Gap stated, not filled (also blocks hero:statecollege)."
+   ]
+  },
+  {
+   "key": "hero:youngstown",
+   "type": "hero",
+   "depicts": "hub:youngstown",
+   "label": "Youngstown — city hero",
+   "query": "Youngstown Ohio photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [],
+   "notes": [
+    "No candidate: no Youngstown photo URL came back (Lanterman's Mill was mentioned only in listings). Gap stated, not filled."
+   ]
+  },
+  {
+   "key": "hero:okinawa",
+   "type": "hero",
+   "depicts": "hub:okinawa",
+   "label": "Okinawa — city hero",
+   "query": "Okinawa beach turquoise sea photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [],
+   "notes": [
+    "No candidate: the beach photos returned do not name Okinawa; using an unnamed beach as an Okinawa hero would misstate the place. Gap stated, not filled."
+   ]
+  },
+  {
+   "key": "landmark:antwerp#antwerpen-centraal-centraal-station",
+   "type": "landmark",
+   "depicts": "antwerp#antwerpen-centraal-centraal-station",
+   "label": "Antwerpen-Centraal",
+   "query": "Antwerpen Centraal station photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/antwerpen-centraal-railway-station-rnj-nTurUUo",
+     "id": "rnj-nTurUUo",
+     "title": "Antwerpen-Centraal railway station photo",
+     "photographer": "Who's Denilo",
+     "depicts": "antwerp#antwerpen-centraal-centraal-station",
+     "confidence": "high",
+     "reason": "title names Antwerpen-Centraal"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/the-inside-of-a-train-station-with-a-glass-ceiling-6d-B_qL95OA",
+     "id": "6d-B_qL95OA",
+     "title": "The inside of a train station with a glass ceiling photo",
+     "photographer": "Pourya Gohari",
+     "depicts": "antwerp#antwerpen-centraal-centraal-station",
+     "confidence": "med",
+     "reason": "title generic; search summary says the station's glass-ceiling hall"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/interior-of-a-grand-train-station-with-arched-ceiling-tFA3ZfwbcRs",
+     "id": "tFA3ZfwbcRs",
+     "title": "Interior of a grand train station with arched ceiling - Free Photo on Unsplash",
+     "photographer": "Joost Crop",
+     "depicts": "antwerp#antwerpen-centraal-centraal-station",
+     "confidence": "med",
+     "reason": "title generic; search summary says the Antwerpen-Centraal interior"
+    }
+   ],
+   "notes": [
+    "Also the hero:antwerp candidate."
+   ]
+  },
+  {
+   "key": "landmark:ghent#gravensteen-kasteel-van-de-graven-van-vlaanderen",
+   "type": "landmark",
+   "depicts": "ghent#gravensteen-kasteel-van-de-graven-van-vlaanderen",
+   "label": "Gravensteen",
+   "query": "Gravensteen castle Ghent photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-castle-with-a-moat-x2zm_EWNB0o",
+     "id": "x2zm_EWNB0o",
+     "title": "A castle with a moat photo",
+     "photographer": "Eduard Delputte",
+     "depicts": "ghent#gravensteen-kasteel-van-de-graven-van-vlaanderen",
+     "confidence": "med",
+     "reason": "title generic; search summary identifies it as the Gravensteen in Ghent"
+    }
+   ]
+  },
+  {
+   "key": "landmark:tokyo#shibuya-scramble-crossing",
+   "type": "landmark",
+   "depicts": "tokyo#shibuya-scramble-crossing",
+   "label": "Shibuya Scramble Crossing",
+   "query": "Shibuya Tokyo street night photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-birds-eye-view-of-shibuya-crossing-at-night-X07Gu03-a00",
+     "id": "X07Gu03-a00",
+     "title": "A bird's-eye view of shibuya crossing at night. photo",
+     "photographer": "ZHENYU LUO",
+     "depicts": "tokyo#shibuya-scramble-crossing",
+     "confidence": "high",
+     "reason": "title names Shibuya Crossing"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/tokyos-shibuya-crossing-at-night-is-bustling-JMD0K-kCJ5I",
+     "id": "JMD0K-kCJ5I",
+     "title": "Tokyo's shibuya crossing at night is bustling. - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "tokyo#shibuya-scramble-crossing",
+     "confidence": "high",
+     "reason": "title names Shibuya Crossing",
+     "flags": [
+      "people-visible"
+     ]
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/busy-shibuya-crossing-at-night-with-neon-lights-keRAW9X0OlM",
+     "id": "keRAW9X0OlM",
+     "title": "Busy shibuya crossing at night with neon lights. photo",
+     "photographer": "",
+     "depicts": "tokyo#shibuya-scramble-crossing",
+     "confidence": "high",
+     "reason": "title names Shibuya Crossing",
+     "flags": [
+      "people-visible"
+     ]
+    }
+   ],
+   "notes": [
+    "Crowd shots: people are incidental at distance; prefer the bird's-eye frame (X07Gu03-a00), where no one is identifiable."
+   ]
+  },
+  {
+   "key": "landmark:kyoto#gion-and-hanamikoji",
+   "type": "landmark",
+   "depicts": "kyoto#gion-and-hanamikoji",
+   "label": "Gion & Hanamikoji",
+   "query": "Gion Hanamikoji Kyoto street photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/sunset-over-a-bustling-traditional-japanese-street-bufftuB58_k",
+     "id": "bufftuB58_k",
+     "title": "Sunset over a bustling traditional japanese street. photo",
+     "photographer": "PJH",
+     "depicts": "kyoto#gion-and-hanamikoji",
+     "confidence": "low",
+     "reason": "title generic; tagged Higashiyama (the neighbouring district), not Gion/Hanamikoji",
+     "flags": [
+      "people-visible"
+     ]
+    }
+   ],
+   "notes": [
+    "No photo labelled Hanamikoji came back; a Gion-tagged pagoda-street photo is the Yasaka/Hōkan-ji lane (already a hero:kyoto candidate), not Hanamikoji."
+   ]
+  },
+  {
+   "key": "landmark:kyoto#heian-jingu",
+   "type": "landmark",
+   "depicts": "kyoto#heian-jingu",
+   "label": "Heian Jingū",
+   "query": "Heian Jingu shrine Kyoto photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [],
+   "notes": [
+    "No candidate: no returned photo names Heian Jingū. Gap stated, not filled."
+   ]
+  },
+  {
+   "key": "landmark:tokyo#ueno-park",
+   "type": "landmark",
+   "depicts": "tokyo#ueno-park",
+   "label": "Ueno Park (上野恩賜公園)",
+   "query": "Ueno Park Tokyo cherry blossom photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/0-0nQxBHJ84",
+     "id": "0-0nQxBHJ84",
+     "title": "Pink flowering tree closeup photography at daytime photo",
+     "photographer": "Don Kawahigashi",
+     "depicts": "tokyo#ueno-park",
+     "confidence": "med",
+     "reason": "title generic; search summary says the page places it in Ueno Park, Taitō City"
+    }
+   ],
+   "notes": [
+    "The Tokyo Tower + cherry-blossom results (7VGVlBk6BtU, qli87cOEaXQ, mAlQ9x5jMMk) are Shiba Park, not Ueno — usable as extra landmark:tokyo#tokyo-tower candidates only."
+   ]
+  },
+  {
+   "key": "landmark:newyork#brooklyn-bridge-park",
+   "type": "landmark",
+   "depicts": "newyork#brooklyn-bridge-park",
+   "label": "Brooklyn Bridge Park",
+   "query": "Brooklyn Bridge Park DUMBO photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-view-of-the-brooklyn-bridge-from-across-the-river-QLil35Iwobo",
+     "id": "QLil35Iwobo",
+     "title": "A view of the brooklyn bridge from across the river - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "newyork#brooklyn-bridge-park",
+     "confidence": "med",
+     "reason": "title names the Brooklyn Bridge (seen across the river) — the park sits at its foot, but the title does not name the park"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/brooklyn-bridge-puwdjzA1-AQ",
+     "id": "puwdjzA1-AQ",
+     "title": "Brooklyn Bridge - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "newyork#brooklyn-bridge-park",
+     "confidence": "low",
+     "reason": "names the bridge, not the park record"
+    }
+   ],
+   "notes": [
+    "The search summary quotes park-specific descriptions (Jane's Carousel cove in DUMBO; Josh Miller's DUMBO sunset tagged Brooklyn Bridge Park) without URLs — the fetch step should prefer a photo whose API location says Brooklyn Bridge Park."
+   ]
+  },
+  {
+   "key": "landmark:cleveland#lake-view-cemetery-whole-grounds",
+   "type": "landmark",
+   "depicts": "cleveland#lake-view-cemetery-whole-grounds",
+   "label": "Lake View Cemetery (whole grounds)",
+   "query": "Lake View Cemetery Cleveland Garfield Memorial photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/천사의-모자이크-디테일이-있는-화려한-돔-내부가-qmoQ3_0Zpxo",
+     "id": "qmoQ3_0Zpxo",
+     "title": "천사의 모자이크 디테일이 있는 화려한 돔 내부가 사진",
+     "photographer": "Chris Bischoff",
+     "depicts": "cleveland#lake-view-cemetery-whole-grounds",
+     "confidence": "med",
+     "reason": "returned caption names the President James A. Garfield Monument (inside Lake View Cemetery), but it is an interior dome detail, not the grounds this record covers",
+     "returnedUrl": "https://unsplash.com/ko/사진/천사의-모자이크-디테일이-있는-화려한-돔-내부가-qmoQ3_0Zpxo"
+    }
+   ],
+   "notes": [
+    "Prefer an exterior view of the cemetery if one turns up."
+   ]
+  },
+  {
+   "key": "landmark:singapore/chinatown#sri-mariamman-temple",
+   "type": "landmark",
+   "depicts": "singapore/chinatown#sri-mariamman-temple",
+   "label": "Sri Mariamman Temple",
+   "query": "Sri Mariamman Temple Singapore gopuram photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-group-of-people-in-garment-with-sri-mariamman-temple-singapore-in-the-background-inUhUkI5MVA",
+     "id": "inUhUkI5MVA",
+     "title": "A group of people in garment with Sri Mariamman Temple, Singapore in the background photo",
+     "photographer": "",
+     "depicts": "singapore/chinatown#sri-mariamman-temple",
+     "confidence": "med",
+     "reason": "title names Sri Mariamman Temple, Singapore — but the summary says its tags point to Mauritius, so the API must confirm",
+     "flags": [
+      "people-visible"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "landmark:singapore/civic-district#national-gallery-singapore",
+   "type": "landmark",
+   "depicts": "singapore/civic-district#national-gallery-singapore",
+   "label": "National Gallery Singapore",
+   "query": "National Gallery Singapore photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/dome-building-inside-museum-DBzq28q5Y2A",
+     "id": "DBzq28q5Y2A",
+     "title": "Dome building inside museum - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "singapore/civic-district#national-gallery-singapore",
+     "confidence": "med",
+     "reason": "title generic; matches the summary's \"Matt Briney … gallery's interior dome\" but the summary did not give its URL"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/a-large-white-building-with-lots-of-windows-exRGXYZwgno",
+     "id": "exRGXYZwgno",
+     "title": "A large white building with lots of windows - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "singapore/civic-district#national-gallery-singapore",
+     "confidence": "low",
+     "reason": "returned for National Gallery Singapore; title names no place"
+    }
+   ],
+   "notes": [
+    "Some results were the National Gallery (London) or the National Gallery of Art (Washington) — excluded."
+   ]
+  },
+  {
+   "key": "landmark:singapore/upper-thomson#macritchie-reservoir-and-treetop-walk",
+   "type": "landmark",
+   "depicts": "singapore/upper-thomson#macritchie-reservoir-and-treetop-walk",
+   "label": "MacRitchie Reservoir & TreeTop Walk",
+   "query": "MacRitchie Reservoir treetop walk Singapore photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [],
+   "notes": [
+    "No candidate: the treetop-walk photo was an iStock (paid) listing; a free MacRitchie photo (Aki Tolentino) was named without a URL. Gap stated, not filled."
+   ]
+  },
+  {
+   "key": "landmark:singapore/katong-joo-chiat#koon-seng-road-peranakan-shophouses-joo-chiat-katong",
+   "type": "landmark",
+   "depicts": "singapore/katong-joo-chiat#koon-seng-road-peranakan-shophouses-joo-chiat-katong",
+   "label": "Koon Seng Road Peranakan shophouses",
+   "query": "Koon Seng Road Peranakan shophouses Joo Chiat photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/people-walking-on-street-near-building-during-daytime-RbSwWKvFGk0",
+     "id": "RbSwWKvFGk0",
+     "title": "People walking on street near building during daytime - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "singapore/katong-joo-chiat#koon-seng-road-peranakan-shophouses-joo-chiat-katong",
+     "confidence": "med",
+     "reason": "description says Joo Chiat Road, Singapore — the neighbourhood, not Koon Seng Road itself",
+     "flags": [
+      "people-visible"
+     ]
+    }
+   ],
+   "notes": [
+    "Excluded CUcGQYN8Y3U (\"Joo Chiat district, Singapore\"): Unsplash+."
+   ]
+  },
+  {
+   "key": "landmark:singapore/penang#george-town-unesco-heritage-zone",
+   "type": "landmark",
+   "depicts": "singapore/penang#george-town-unesco-heritage-zone",
+   "label": "George Town UNESCO heritage zone",
+   "query": "George Town Penang street photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/rainbow-colored-umbrellas-NstHWF3syb8",
+     "id": "NstHWF3syb8",
+     "title": "Rainbow-colored umbrellas photo",
+     "photographer": "SR",
+     "depicts": "singapore/penang#george-town-unesco-heritage-zone",
+     "confidence": "med",
+     "reason": "title generic; search summary says hanging umbrellas over a street in the George Town heritage site"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/turned-on-building-boyqvKEvEg4",
+     "id": "boyqvKEvEg4",
+     "title": "Turned on building - Free Photo on Unsplash",
+     "photographer": "Poh Wei Chuen",
+     "depicts": "singapore/penang#george-town-unesco-heritage-zone",
+     "confidence": "med",
+     "reason": "title generic; search summary says a George Town crossroads at night"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/a-woman-pushing-a-cart-full-of-food-down-a-street-wVfx69cym8g",
+     "id": "wVfx69cym8g",
+     "title": "A woman pushing a cart full of food down a street - Free Photo on Unsplash",
+     "photographer": "Bernd Dittrich",
+     "depicts": "singapore/penang#george-town-unesco-heritage-zone",
+     "confidence": "low",
+     "reason": "identifiable person at the centre; George Town per the summary",
+     "flags": [
+      "people-visible"
+     ]
+    }
+   ],
+   "notes": [
+    "Also the hero:malaysia alternative to the Petronas Towers."
+   ]
+  },
+  {
+   "key": "landmark:singapore/chiang-mai#wat-phra-that-doi-suthep",
+   "type": "landmark",
+   "depicts": "singapore/chiang-mai#wat-phra-that-doi-suthep",
+   "label": "Wat Phra That Doi Suthep",
+   "query": "Wat Phra That Doi Suthep Chiang Mai photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-row-of-colorful-ribbons-hanging-from-a-roof-HeGGB69Yglo",
+     "id": "HeGGB69Yglo",
+     "title": "A row of colorful ribbons hanging from a roof - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "singapore/chiang-mai#wat-phra-that-doi-suthep",
+     "confidence": "med",
+     "reason": "title generic; search summary says it is tagged Doi Suthep and located in Suthep, Chiang Mai (a detail, not the chedi)"
+    }
+   ]
+  },
+  {
+   "key": "landmark:singapore/phnom-penh#royal-palace-and-silver-pagoda",
+   "type": "landmark",
+   "depicts": "singapore/phnom-penh#royal-palace-and-silver-pagoda",
+   "label": "Royal Palace & Silver Pagoda",
+   "query": "Royal Palace Phnom Penh Silver Pagoda photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [],
+   "notes": [
+    "No candidate: only a collection page matched; no photo URL names the palace. Gap stated, not filled."
+   ]
+  },
+  {
+   "key": "landmark:singapore/bagan#bagan-archaeological-zone",
+   "type": "landmark",
+   "depicts": "singapore/bagan#bagan-archaeological-zone",
+   "label": "Bagan Archaeological Zone",
+   "query": "Bagan temples balloons sunrise Myanmar photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/silhouette-of-two-hot-air-balloons-near-temple-YVMINsxTIKY",
+     "id": "YVMINsxTIKY",
+     "title": "Silhouette of two hot air balloons near temple - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "singapore/bagan#bagan-archaeological-zone",
+     "confidence": "med",
+     "reason": "title generic; search summary says taken in Old Bagan from a pagoda's second level"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/three-silhouette-of-air-balloons-mPcloXwFLYY",
+     "id": "mPcloXwFLYY",
+     "title": "Three silhouette of air balloons photo",
+     "photographer": "",
+     "depicts": "singapore/bagan#bagan-archaeological-zone",
+     "confidence": "med",
+     "reason": "title generic; search summary says tagged \"sunrise at bagan\""
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/hot-air-balloon-flying-on-the-sky-np5wC9cYINA",
+     "id": "np5wC9cYINA",
+     "title": "Hot air balloon flying on the sky - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "singapore/bagan#bagan-archaeological-zone",
+     "confidence": "med",
+     "reason": "title generic; search summary says temples and balloons in Old Bagan"
+    }
+   ]
+  },
+  {
+   "key": "landmark:singapore/luang-prabang#kuang-si-falls",
+   "type": "landmark",
+   "depicts": "singapore/luang-prabang#kuang-si-falls",
+   "label": "Kuang Si Falls",
+   "query": "Kuang Si Falls Luang Prabang photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/water-falls-in-the-middle-of-trees-LZoHQO-rEec",
+     "id": "LZoHQO-rEec",
+     "title": "Water falls in the middle of trees photo",
+     "photographer": "",
+     "depicts": "singapore/luang-prabang#kuang-si-falls",
+     "confidence": "low",
+     "reason": "top result for Kuang Si; title generic (the summary names Kuang Si photos by Giuliano Gabella, Branden Leighty and Kyle Petzer without tying them to URLs)"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/a-waterfall-in-the-middle-of-a-body-of-water-qqi1JDuDsHQ",
+     "id": "qqi1JDuDsHQ",
+     "title": "A waterfall in the middle of a body of water - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "singapore/luang-prabang#kuang-si-falls",
+     "confidence": "low",
+     "reason": "returned for Kuang Si; title generic"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/waterfalls-in-the-middle-of-the-forest-in6sTbsTFz8",
+     "id": "in6sTbsTFz8",
+     "title": "Waterfalls in the middle of the forest - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "singapore/luang-prabang#kuang-si-falls",
+     "confidence": "low",
+     "reason": "returned for Kuang Si; title generic"
+    }
+   ]
+  },
+  {
+   "key": "landmark:singapore/bali#uluwatu-temple-pura-luhur-uluwatu",
+   "type": "landmark",
+   "depicts": "singapore/bali#uluwatu-temple-pura-luhur-uluwatu",
+   "label": "Uluwatu Temple (Pura Luhur Uluwatu)",
+   "query": "Uluwatu Temple cliff Bali photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/pink-flowers-overlook-a-scenic-cliffside-and-ocean-a19bFxDyeVI",
+     "id": "a19bFxDyeVI",
+     "title": "Pink flowers overlook a scenic cliffside and ocean - Free Photo on Unsplash",
+     "photographer": "Rengan Visweswaran",
+     "depicts": "singapore/bali#uluwatu-temple-pura-luhur-uluwatu",
+     "confidence": "med",
+     "reason": "title generic; search summary says at the temple site"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/person-standing-on-cliff-in-front-of-ocean-during-daytime-yKjURf1u7EY",
+     "id": "yKjURf1u7EY",
+     "title": "Person standing on cliff in front of ocean during daytime - Free Photo on Unsplash",
+     "photographer": "Darren Lawrence",
+     "depicts": "singapore/bali#uluwatu-temple-pura-luhur-uluwatu",
+     "confidence": "med",
+     "reason": "title generic; search summary says the cliff at the temple",
+     "flags": [
+      "people-visible"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "landmark:singapore/yogyakarta#prambanan",
+   "type": "landmark",
+   "depicts": "singapore/yogyakarta#prambanan",
+   "label": "Prambanan",
+   "query": "Prambanan temple Yogyakarta photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/prambanan-temple-complex-stone-spires-_QTeGT478_8",
+     "id": "_QTeGT478_8",
+     "title": "Prambanan temple complex stone spires - Free Photo on Unsplash",
+     "photographer": "Eugenia Clara",
+     "depicts": "singapore/yogyakarta#prambanan",
+     "confidence": "high",
+     "reason": "title names the Prambanan temple complex"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/ornate-ancient-temple-stands-amidst-weathered-stone-ruins-resK56xgmVk",
+     "id": "resK56xgmVk",
+     "title": "Ornate ancient temple stands amidst weathered stone ruins - Free Photo on Unsplash",
+     "photographer": "Rowan Heuvel",
+     "depicts": "singapore/yogyakarta#prambanan",
+     "confidence": "med",
+     "reason": "title generic; page location Prambanan Temple per the search summary"
+    }
+   ],
+   "notes": [
+    "Also the hero:indonesia pick (high)."
+   ]
+  },
+  {
+   "key": "landmark:singapore/mandai#singapore-zoo",
+   "type": "landmark",
+   "depicts": "singapore/mandai#singapore-zoo",
+   "label": "Singapore Zoo",
+   "query": "Singapore Zoo photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [],
+   "notes": [
+    "No candidate: no returned photo is from the zoo. Gap stated, not filled."
+   ]
+  },
+  {
+   "key": "cover:anime",
+   "type": "cover",
+   "depicts": "collection:anime",
+   "label": "Anime, manga & pop culture — generic cover",
+   "query": "anime manga shop shelves Akihabara photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/anime-billboards-and-van-on-city-street-EJ1CK5By1n0",
+     "id": "EJ1CK5By1n0",
+     "title": "Anime billboards and van on city street photo",
+     "photographer": "",
+     "depicts": "collection:anime",
+     "confidence": "med",
+     "reason": "title describes the subject; taken in Akihabara per the summary — the billboards are copyrighted character art, so only if the art is incidental",
+     "flags": [
+      "artwork-check",
+      "venue-check"
+     ]
+    }
+   ],
+   "notes": [
+    "Character figures and posters are copyrighted works; a cover photo must not centre one."
+   ]
+  },
+  {
+   "key": "cover:views",
+   "type": "cover",
+   "depicts": "collection:views",
+   "label": "Views & viewpoints — generic cover",
+   "query": "city viewpoint overlook panorama photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-view-of-a-city-from-a-high-viewpoint-JGjcRQqXYQE",
+     "id": "JGjcRQqXYQE",
+     "title": "A view of a city from a high viewpoint photo",
+     "photographer": "",
+     "depicts": "collection:views",
+     "confidence": "high",
+     "reason": "title describes the generic subject; names no venue"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/a-panoramic-view-of-a-city-with-tall-buildings-BnMdR4R5vY4",
+     "id": "BnMdR4R5vY4",
+     "title": "A panoramic view of a city with tall buildings - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "collection:views",
+     "confidence": "med",
+     "reason": "title generic, but the summary says one such result is downtown Toronto — a recognisable foreign skyline would mislead on another city's page"
+    }
+   ],
+   "notes": [
+    "A \"views\" cover shows a real city; use it only where that is not read as the guide's own city, or prefer a city's own hero. Vt0vKwChjcE is Chicago (lake panorama) — a hero:chicago lead, not a generic cover."
+   ]
+  },
+  {
+   "key": "cover:water",
+   "type": "cover",
+   "depicts": "collection:water",
+   "label": "Water & waterfronts — generic cover",
+   "query": "calm lake kayak waterfront photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/yellow-kayak-on-calm-body-of-water-MMS_CBu0ngM",
+     "id": "MMS_CBu0ngM",
+     "title": "Yellow kayak on calm body of water - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "collection:water",
+     "confidence": "high",
+     "reason": "title describes the generic subject; names no venue (Lake Wanaka, NZ per the summary — not one of our places)"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/boat-docks-on-a-calm-lake-with-mountain-view-bQWvA240c9k",
+     "id": "bQWvA240c9k",
+     "title": "Boat docks on a calm lake with mountain view. photo",
+     "photographer": "",
+     "depicts": "collection:water",
+     "confidence": "high",
+     "reason": "title describes the generic subject; names no venue"
+    }
+   ]
+  },
+  {
+   "key": "cover:history",
+   "type": "cover",
+   "depicts": "collection:history",
+   "label": "History — generic cover (a museum display)",
+   "query": "museum history artifacts exhibit hall photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-display-of-ancient-artifacts-in-a-museum-GJUX-2e3T2c",
+     "id": "GJUX-2e3T2c",
+     "title": "A display of ancient artifacts in a museum photo",
+     "photographer": "",
+     "depicts": "collection:history",
+     "confidence": "high",
+     "reason": "title describes the generic subject; names no venue (a Boston museum per the summary — not one of our places)"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/elephant-exhibit-in-a-grand-museum-hall-ICmz3cFcX58",
+     "id": "ICmz3cFcX58",
+     "title": "Elephant exhibit in a grand museum hall. photo",
+     "photographer": "",
+     "depicts": "collection:history",
+     "confidence": "med",
+     "reason": "generic title, but a grand named hall may be recognisable (natural-history museum)",
+     "flags": [
+      "venue-check"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "cover:campus",
+   "type": "cover",
+   "depicts": "collection:campus",
+   "label": "Campus — generic cover",
+   "query": "university campus quad autumn photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-grassy-quad-surrounded-by-university-buildings-oDSJhV1RvdU",
+     "id": "oDSJhV1RvdU",
+     "title": "A grassy quad surrounded by university buildings - Free Photo on Unsplash",
+     "photographer": "",
+     "depicts": "collection:campus",
+     "confidence": "high",
+     "reason": "title describes the generic subject; names no venue (Adelaide per the summary — not one of our places)"
+    }
+   ]
+  },
+  {
+   "key": "cover:craft",
+   "type": "cover",
+   "depicts": "collection:craft",
+   "label": "Craft & makers — generic cover",
+   "query": "pottery craft workshop hands clay photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-clay-stained-hand-of-a-potter-engaging-in-a-craft-work-of-pottery-or-molding-Tq4YjCa2BSc",
+     "id": "Tq4YjCa2BSc",
+     "title": "A clay stained hand of a potter engaging in a craft work of pottery or molding photo",
+     "photographer": "Alex Jones",
+     "depicts": "collection:craft",
+     "confidence": "high",
+     "reason": "title describes the generic subject; names no venue"
+    }
+   ],
+   "notes": [
+    "Excluded af97FFfpLqA and gnIw1RkwOfc: Getty Images uploads (Unsplash+ style)."
+   ]
+  },
+  {
+   "key": "hero:siliconvalley",
+   "type": "hero",
+   "depicts": "hub:siliconvalley",
+   "label": "Silicon Valley — region hero",
+   "query": "Silicon Valley San Jose aerial photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/aerial-view-of-city-buildings-near-body-of-water-during-daytime-8bB9xmJqyz4",
+     "id": "8bB9xmJqyz4",
+     "title": "Aerial view of city buildings near body of water during daytime photo",
+     "photographer": "Timo Wielink",
+     "depicts": "hub:siliconvalley",
+     "confidence": "med",
+     "reason": "title generic; search summary says labelled San Jose, CA"
+    }
+   ]
+  },
+  {
+   "key": "hero:liege",
+   "type": "hero",
+   "depicts": "hub:liege",
+   "label": "Liège — city hero",
+   "query": "Liège Belgium city view photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/of2gRDyEBwA",
+     "id": "of2gRDyEBwA",
+     "title": "A very tall building with a clock on it's side photo",
+     "photographer": "Henri Viatour",
+     "depicts": "hub:liege",
+     "confidence": "med",
+     "reason": "title generic; search summary says the \"Tour des Finances\", taken in Liège"
+    }
+   ]
+  },
+  {
+   "key": "hero:aachen",
+   "type": "hero",
+   "depicts": "hub:aachen",
+   "label": "Aachen — city hero",
+   "query": "Aachen Rathaus Markt photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [],
+   "notes": [
+    "No free candidate: the Aachener Rathaus result was an iStock (paid) listing. landmark:aachen#aachener-dom-pfalzkapelle-karls-des-gro-en has a med candidate. Gap stated, not filled."
+   ]
+  },
+  {
+   "key": "hero:brussels",
+   "type": "hero",
+   "depicts": "hub:brussels",
+   "label": "Brussels — city hero (Grand-Place)",
+   "query": "Grand Place Brussels town hall night photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/k7dVsfDEh6M",
+     "id": "k7dVsfDEh6M",
+     "title": "Photo by Victoria Heath on Unsplash",
+     "photographer": "Victoria Heath",
+     "depicts": "hub:brussels",
+     "confidence": "low",
+     "reason": "returned for the Grand-Place at night; title is only the credit"
+    }
+   ],
+   "notes": [
+    "The search summary names a Paolo Margari photo described \"The Grand Place in Brussels, Belgium, at night\" (would be high) and an Olaia Irigoien night shot tagged grand place, but did not give their URLs — look them up on the photographer pages at fetch time."
+   ]
+  },
+  {
+   "key": "landmark:saarland#saarschleife-and-aussichtspunkt-cloef",
+   "type": "landmark",
+   "depicts": "saarland#saarschleife-and-aussichtspunkt-cloef",
+   "label": "Saarschleife & Aussichtspunkt Cloef",
+   "query": "Saarschleife Saarland photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/ypOQduUISgM",
+     "id": "ypOQduUISgM",
+     "title": "brown and green mountain beside blue body of water during daytime photo",
+     "photographer": "Victor He",
+     "depicts": "saarland#saarschleife-and-aussichtspunkt-cloef",
+     "confidence": "high",
+     "reason": "returned description names the Saarschleife (the bend in the Saar)"
+    },
+    {
+     "pageUrl": "https://unsplash.com/photos/idSjTa8WuSs",
+     "id": "idSjTa8WuSs",
+     "title": "Green trees on mountain beside river during daytime - Free Photo on Unsplash",
+     "photographer": "Christopher Schaumloeffel",
+     "depicts": "saarland#saarschleife-and-aussichtspunkt-cloef",
+     "confidence": "high",
+     "reason": "returned description labels it the Saarschleife, Mettlach"
+    }
+   ],
+   "notes": [
+    "Also the hero:saarland pick."
+   ]
+  },
+  {
+   "key": "cover:family",
+   "type": "cover",
+   "depicts": "collection:family",
+   "label": "Family — generic cover (a playground)",
+   "query": "family picnic park children playground photo",
+   "searchedVia": "WebSearch allowed_domains=[unsplash.com]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "pageUrl": "https://unsplash.com/photos/a-sunny-day-at-a-colorful-childrens-playground-MLlyFSXH9J4",
+     "id": "MLlyFSXH9J4",
+     "title": "A sunny day at a colorful children's playground. photo",
+     "photographer": "Brett Jordan",
+     "depicts": "collection:family",
+     "confidence": "high",
+     "reason": "title describes the generic subject; names no venue"
     }
    ]
   }
