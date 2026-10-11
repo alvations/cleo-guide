@@ -1,16 +1,22 @@
-# Beta imagery: fetch the vetted Unsplash photos named in beta/assets/img/unsplash-candidates.json.
+# Beta imagery: fetch vetted, credited photos for the beta.
 #
-# Why this runs on GitHub Actions: the authoring sandbox cannot reach api.unsplash.com or
-# images.unsplash.com (network policy), but a GitHub-hosted runner can. The script it runs,
-# tools/beta/imagery/fetch-unsplash.js, re-reads every candidate from the official API, keeps
-# only high-confidence matches whose title names the place, skips Unsplash+ (paid) photos,
-# fires each photo's download_location as the API guidelines require, writes resized local
-# files to beta/assets/img/photos/ and adds a "Photo by <name> on Unsplash" row to
-# beta/assets/img/CREDITS.json. The beta build and the credit gate (npm test) then refuse any
-# photo without a complete credit, so nothing uncredited can land.
+# Why this runs on GitHub Actions: the authoring sandbox cannot reach the image hosts (network
+# policy), but a GitHub-hosted runner can. Two sources, each with its own vetted candidate manifest
+# and fetch script:
 #
-# Needs one repository secret: UNSPLASH_ACCESS_KEY (Settings → Secrets and variables → Actions).
-# Without it the job warns and exits cleanly; nothing is committed.
+#   1. Wikimedia Commons — needs NO key. tools/beta/imagery/fetch-commons.js reads
+#      beta/assets/img/commons-candidates.json, re-checks every file with the Commons API (free licence
+#      only: CC0 / PD / CC BY / CC BY-SA; author present; the title, description or categories name the
+#      place), stores sized thumbnails under beta/assets/img/photos/ and writes a TASL credit row per
+#      photo to beta/assets/img/CREDITS.json. A rerun resumes where the last one stopped.
+#   2. Unsplash — runs only when the UNSPLASH_ACCESS_KEY repository secret is set
+#      (Settings → Secrets and variables → Actions). tools/beta/imagery/fetch-unsplash.js re-reads each
+#      candidate from the official API, keeps only high-confidence matches, skips paid photos and fires
+#      download_location as the API guidelines require.
+#
+# Food places, venues, closed places and Vietnam never get a photo. After fetching, the job rebuilds the
+# beta and runs validate + test (the credit gate refuses any uncredited or non-free photo); it commits
+# only when every gate passes.
 name: beta-fetch-unsplash
 
 on:
@@ -18,8 +24,9 @@ on:
   push:
     branches: [claude/peaceful-goodall-i0hsrt]
     paths:
+      - beta/assets/img/commons-candidates.json
       - beta/assets/img/unsplash-candidates.json
-      - tools/beta/imagery/fetch-unsplash.js
+      - tools/beta/imagery/**
       - .github/workflows/beta-fetch-unsplash.yml
 
 permissions:
@@ -32,7 +39,7 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     env:
       UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
     steps:
@@ -44,37 +51,37 @@ jobs:
         with:
           node-version: 20
 
-      - name: Check for the API key
-        id: key
+      - name: Install tools
+        # package-lock.json is gitignored in this repo, so npm ci cannot run here.
+        run: cd tools && npm install --no-audit --no-fund
+
+      - name: Fetch Wikimedia Commons photos (no key needed)
         run: |
-          if [ -z "$UNSPLASH_ACCESS_KEY" ]; then
-            echo "::warning::UNSPLASH_ACCESS_KEY secret is not set; skipping the photo fetch."
-            echo "ok=false" >> "$GITHUB_OUTPUT"
-          elif [ ! -f tools/beta/imagery/fetch-unsplash.js ]; then
-            echo "::warning::tools/beta/imagery/fetch-unsplash.js is not on this branch yet; skipping."
-            echo "ok=false" >> "$GITHUB_OUTPUT"
+          if [ -f tools/beta/imagery/fetch-commons.js ]; then
+            node tools/beta/imagery/fetch-commons.js --budget 300 --widths 500,960 --hero-widths 500,960
           else
-            echo "ok=true" >> "$GITHUB_OUTPUT"
+            echo "::warning::tools/beta/imagery/fetch-commons.js is not on this branch; skipping Commons."
           fi
 
-      - name: Install tools
-        if: steps.key.outputs.ok == 'true'
-        run: cd tools && npm ci
-
-      - name: Fetch vetted photos
-        if: steps.key.outputs.ok == 'true'
-        run: node tools/beta/imagery/fetch-unsplash.js
+      - name: Fetch Unsplash photos (only with the key)
+        run: |
+          if [ -z "$UNSPLASH_ACCESS_KEY" ]; then
+            echo "UNSPLASH_ACCESS_KEY secret is not set; skipping Unsplash."
+          elif [ ! -f tools/beta/imagery/fetch-unsplash.js ]; then
+            echo "::warning::tools/beta/imagery/fetch-unsplash.js is not on this branch; skipping Unsplash."
+          else
+            node tools/beta/imagery/fetch-unsplash.js
+          fi
 
       - name: Rebuild the beta and run the gates
-        if: steps.key.outputs.ok == 'true'
         run: |
           cd tools
           npm run beta
           npm run validate
           npm test
+          npm run beta:check
 
       - name: Commit photos and credits
-        if: steps.key.outputs.ok == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -83,10 +90,28 @@ jobs:
             echo "No new photos."
             exit 0
           fi
-          git commit -m "Beta imagery: fetch vetted Unsplash photos + credits (Actions)"
+          git commit -m "Beta imagery: fetch vetted Commons/Unsplash photos + credits (Actions)"
+          # Other lanes push to this branch while the job runs. This job only adds photos and credits under
+          # beta/assets/img/ and regenerates the built pages. A conflict in a built page is resolved by
+          # rebuilding from the merged sources and re-running the gates. Any other conflict stops the job.
+          sync_and_push() {
+            git fetch origin claude/peaceful-goodall-i0hsrt || return 1
+            if ! git merge --no-edit origin/claude/peaceful-goodall-i0hsrt; then
+              conflicted=$(git diff --name-only --diff-filter=U)
+              if printf '%s\n' "$conflicted" | grep -v '^beta/' | grep -q . || \
+                 printf '%s\n' "$conflicted" | grep -q '^beta/assets/img/'; then
+                echo "::error::merge conflict outside the built pages:"; printf '%s\n' "$conflicted"
+                git merge --abort; return 2
+              fi
+              git diff --name-only --diff-filter=U -z | xargs -0 git checkout --theirs --
+              (cd tools && npm run beta && npm run validate && npm test && npm run beta:check) || return 2
+              git add -A beta && git commit --no-edit || return 2
+            fi
+            git push origin HEAD:claude/peaceful-goodall-i0hsrt
+          }
           for i in 1 2 3; do
-            git pull --no-rebase --no-edit origin claude/peaceful-goodall-i0hsrt && \
-              git push origin HEAD:claude/peaceful-goodall-i0hsrt && exit 0
-            sleep $((i * 5))
+            sync_and_push && exit 0
+            [ $? -eq 2 ] && exit 1
+            sleep $((i * 10))
           done
           exit 1

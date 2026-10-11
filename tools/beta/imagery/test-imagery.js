@@ -10,6 +10,9 @@
  *  3. Motifs: one per page, country and collection subject; well-formed SVG; small; distinct; self-contained (no
  *     external refs, no raster, no script); every generated hub tile and city masthead carries its motif.
  *  4. The manifest lists only Wikipedia-citing records, never marks a closed/Vietnam/food record eligible.
+ *  5. W7 Commons: size variants under one credit (srcset), Commons File: source pinned, hero slots (eager, scrim,
+ *     credit line in the flow), commons-candidates.json well-formed, and fetch-commons.js's licence / depicts / plan
+ *     checks — all offline.
  */
 const fs = require('fs');
 const os = require('os');
@@ -91,6 +94,28 @@ ok(fixture([Object.assign({}, slotRow, { slot: { type: 'hero', key: 'vietnam' } 
 ok(fixture([Object.assign({}, slotRow, { slot: { type: 'banner', key: 'x' } })], ['a.png']).errors.some(e => /slot must be/.test(e)), 'unknown slot type → refused');
 ok(fixture([Object.assign({}, slotRow, { record: { page: 'tokyo', id: open.id } })], ['a.png']).errors.some(e => /not both/.test(e)), 'record and slot together → refused');
 
+// Wikimedia Commons (W7, fetch-commons.js rows): srcset variants under one credit, Commons source pinned, heroes
+const cmn = Object.assign({}, good, { file: 'a-960.png', provider: 'wikimedia-commons', sourceUrl: 'https://commons.wikimedia.org/wiki/File:Senso-ji,_Asakusa,_Tokyo.jpg', variants: [{ file: 'a-480.png', width: 480, height: 320 }] });
+r = fixture([cmn], ['a-960.png', 'a-480.png']);
+const cph = r.byPage.tokyo && r.byPage.tokyo[open.id];
+ok(r.errors.length === 0 && cph && cph.widths.length === 2 && cph.srcset === 'assets/img/photos/a-480.png 480w, assets/img/photos/a-960.png 960w', 'Commons row with a size variant → one photo, srcset of 2 (the variant is covered by the row\'s credit)');
+const cfig = cph ? photos.figureHtml(cph, '../') : '';
+ok(/ srcset="\.\.\/assets\/img\/photos\/a-480\.png 480w, \.\.\/assets\/img\/photos\/a-960\.png 960w" sizes="[^"]+"/.test(cfig) && /loading="lazy"/.test(cfig), 'card figure: sized srcset (480w, 960w) + sizes, lazy');
+ok(fixture([cmn], ['a-960.png']).errors.some(e => /variant a-480\.png — no such file/.test(e)), 'variant file missing → refused');
+ok(fixture([cmn, Object.assign({}, good, { file: 'b.png', variants: [{ file: 'a-480.png' }] })], ['a-960.png', 'a-480.png', 'b.png']).errors.some(e => /already credited/.test(e)), 'one variant claimed by two credit rows → refused');
+ok(fixture([Object.assign({}, cmn, { variants: [{ file: '../x.png' }] })], ['a-960.png']).errors.some(e => /bare/.test(e)), 'variant path outside photos/ → refused');
+ok(photos.creditProblems(Object.assign({}, cmn, { sourceUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/X.jpg' })).some(p => /File: page/.test(p)), 'Commons row whose source is a hotlink, not the File: page → refused');
+const hero = Object.assign({}, cmn, { slot: { type: 'hero', key: 'tokyo' }, depicts: 'Tokyo skyline' }); delete hero.record;
+r = fixture([hero], ['a-960.png', 'a-480.png']);
+const hph = r.bySlot['hero:tokyo'];
+ok(r.errors.length === 0 && hph && hph.widths.length === 2, 'Commons hero slot with a variant → bySlot hero:tokyo');
+const hfig = hph ? photos.heroHtml(hph, '../') : '', hcred = hph ? photos.heroCreditHtml(hph) : '';
+ok(/<figure class="photo hero-photo"/.test(hfig) && /fetchpriority="high"/.test(hfig) && !/loading="lazy"/.test(hfig) && /alt="Tokyo skyline"/.test(hfig) && /sizes="100vw"/.test(hfig) && /class="hero-scrim" aria-hidden="true"/.test(hfig), 'hero figure: eager (fetchpriority high, not lazy), srcset at 100vw, alt, scrim for text contrast');
+ok(/^<p class="hero-credit"[^>]*>Photo: “[^”]+” by A\. Photographer, <a [^>]*rel="license[^"]*"[^>]*>CC BY-SA 4\.0<\/a>, via <a [^>]*>Wikimedia Commons<\/a>/.test(hcred), 'hero credit: a visible TASL line in the text flow (title, author, licence link, source)');
+ok(imagery.heroFor({ imagery: { hero: hph } }) === hph && imagery.heroFor({ imagery: { slots: r.bySlot } }, 'tokyo') === hph && imagery.heroFor({ imagery: { slots: r.bySlot } }, 'kyoto') === null && imagery.heroFor({ imagery: {} }) === null && imagery.heroFor(null) === null, 'heroFor(row) / heroFor(reg, key): the credited hero, else null (renderer keeps the motif)');
+ok(/^<figure class="photo hero-media"><img [^>]*srcset=[^>]*fetchpriority="high"[^>]*><figcaption>“/.test(hph ? photos.heroHtml(hph, '../', 'photo hero-media') : ''), 'heroHtml with a media-slot class: in-flow, eager, with its TASL figcaption (FE-B hub hero)');
+ok(fixture([Object.assign({}, hero, { slot: { type: 'hero', key: 'vietnam/hanoi' } })], ['a-960.png', 'a-480.png']).errors.some(e => /freedom of panorama/.test(e)), 'Vietnam city hero slot → refused');
+
 // ---------------------------------------------------------------- 3. motifs
 console.log('imagery: motifs');
 const tok = fs.readFileSync(path.join(BETA, 'assets', 'tokens.css'), 'utf8');
@@ -120,14 +145,34 @@ for (const [rel, body] of Object.entries(files)) {
 // generated pages carry the art (FE-B layers an <img class="motif">; city mastheads use motifSvg's <image>)
 const landing = fs.readFileSync(path.join(BETA, 'index.html'), 'utf8');
 const tiles = landing.match(/<li class="dest"[^>]*><a [^>]*class="tile[\s\S]*?<\/li>/g) || [];
+// W7: a credited photo may stand in for the motif — a slot passes with its motif OR a credited photo, never neither
 const refOf = t => (/(?:<img class="motif" src="|<image href=")([^'"?]+)/.exec(t) || [])[1];
-ok(tiles.length > 0 && tiles.every(t => refOf(t) && fs.existsSync(path.join(BETA, refOf(t)))), `every landing city tile references an existing motif (${tiles.length})`);
+const hasMotif = t => !!refOf(t) && fs.existsSync(path.join(BETA, refOf(t)));
+/** a credited photo in this fragment: a photo element AND a visible TASL credit (figcaption, .credit or .hero-credit). */
+const hasCreditedPhoto = t => /<(?:img class="ph"|figure class="photo)/.test(t) &&
+  /<(?:figcaption|small class="credit"|p class="hero-credit")[^>]*>[\s\S]*?by [\s\S]*?<a [^>]*rel="license/.test(t);
+const artOrPhoto = t => hasMotif(t) || hasCreditedPhoto(t);
+const heroOf = h => (/<section class="chero[\s\S]*?<\/section>/.exec(h) || [''])[0];
+ok(tiles.length > 0 && tiles.every(artOrPhoto), `every landing city tile carries an existing motif or a credited photo (${tiles.length})`);
 const tk = fs.readFileSync(path.join(BETA, 'cities', 'tokyo.html'), 'utf8');
-ok(/<header class="masthead"><svg class="motif"[^>]*><image href="\.\.\/assets\/img\/motifs\/tokyo\.svg\?v=/.test(tk), 'Tokyo masthead carries the Tokyo motif');
+const tkMast = (/<header class="masthead">[\s\S]*?<\/header>/.exec(tk) || [''])[0];
+ok(/<header class="masthead"><svg class="motif"[^>]*><image href="\.\.\/assets\/img\/motifs\/tokyo\.svg\?v=/.test(tk) || hasCreditedPhoto(tkMast), 'Tokyo masthead carries the Tokyo motif or a credited hero photo');
 const hubJ = fs.readFileSync(path.join(BETA, 'Japan', 'index.html'), 'utf8');
-ok(/assets\/img\/motifs\/japan\.svg/.test(hubJ) && fs.existsSync(path.join(BETA, 'assets/img/motifs/japan.svg')), 'Japan hub hero references the country motif');
+ok((/assets\/img\/motifs\/japan\.svg/.test(hubJ) && fs.existsSync(path.join(BETA, 'assets/img/motifs/japan.svg'))) || hasCreditedPhoto(heroOf(hubJ)), 'Japan hub hero references the country motif or carries a credited hero photo');
+// the same rule on fixtures, so the photo-present case is covered offline (photos exist only on the runner)
+if (hph) {
+  const fxHub = `<section class="chero" aria-labelledby="cn"><div class="inner"><h1>Japan</h1></div>${photos.heroHtml(hph, '../', 'photo hero-media')}</section>`;
+  const fxBare = '<section class="chero" aria-labelledby="cn"><div class="inner"><h1>Japan</h1></div><div class="hero-media cover"></div></section>';
+  const fxNoCredit = fxHub.replace(/<figcaption>[\s\S]*?<\/figcaption>/, '');
+  const fxMast = `<header class="masthead"><div class="g-hero-x">${photos.heroHtml(hph, '../')}<p class="g-kick">x</p>${photos.heroCreditHtml(hph)}</div></header>`;
+  const fxTile = `<li class="dest"><a class="tile card"><span class="card-media"><img class="ph" src="x.jpg" alt="x"></span></a><small class="credit">${photos.captionHtml(hph.credit)}</small></li>`;
+  ok(artOrPhoto(heroOf(fxHub)) && !artOrPhoto(heroOf(fxBare)) && !artOrPhoto(heroOf(fxNoCredit)), 'fixture: a hub hero passes with a credited photo, fails with neither motif nor photo, fails with an uncredited photo');
+  ok(hasCreditedPhoto(fxMast) && !hasCreditedPhoto(fxMast.replace(/<p class="hero-credit"[\s\S]*?<\/p>/, '')), 'fixture: a city masthead hero photo passes only with its credit line');
+  ok(artOrPhoto(fxTile) && !artOrPhoto(fxTile.replace(/<small class="credit">[\s\S]*?<\/small>/, '')), 'fixture: a landing tile passes with a credited photo, never with an uncredited one');
+}
 const anyPhoto = [];
-for (const r of rows) { const h = fs.readFileSync(path.join(BETA, r.beta), 'utf8'); for (const f of h.match(/<figure class="photo[^"]*">[\s\S]*?<\/figure>/g) || []) if (!/<figcaption>[^<]*by [\s\S]+<a [^>]*rel="license/.test(f)) anyPhoto.push(r.beta); }
+for (const r of rows) { const h = fs.readFileSync(path.join(BETA, r.beta), 'utf8'); for (const f of h.match(/<figure class="photo[^"]*">[\s\S]*?<\/figure>/g) || []) if (!/<figcaption>[^<]*by [\s\S]+<a [^>]*rel="license/.test(f)) anyPhoto.push(r.beta);
+  if (/class="photo hero-photo"/.test(h) && !/<p class="hero-credit"[^>]*>Photo: [\s\S]*?rel="license/.test(h)) anyPhoto.push(r.beta + ' (hero without its credit line)'); }
 ok(!anyPhoto.length, `every photo on a generated page shows its TASL credit${anyPhoto.length ? ': ' + anyPhoto.join(', ') : ''}`);
 
 // ---------------------------------------------------------------- 4. manifest
@@ -157,6 +202,40 @@ const fu = require('./fetch-unsplash');
 ok(fu.fileBase({ type: 'landmark', depicts: 'singapore/marina-bay#merlion-park' }) === 'singapore--marina-bay--merlion-park' && fu.fileBase({ type: 'hero', depicts: 'hub:tokyo' }) === 'hero--tokyo', 'fetch-unsplash: file names follow the photos/ convention');
 const vnRec = vn && vn.recs.find(x => x.kind !== 'food' && !x.closed);
 if (vnRec) ok(fu.recordCheck({ depicts: `${vn.key}#${vnRec.id}` }).why === 'Vietnam has no freedom of panorama', 'fetch-unsplash: never fetches for a Vietnamese record');
+// Commons candidate manifest (W7, research only) + the fetch script's pure checks — no network here
+const cm = JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'commons-candidates.json'), 'utf8'));
+const cmBad = [];
+for (const t of cm.targets) {
+  if (!['hero', 'landmark'].includes(t.type) || !Array.isArray(t.names) || !t.names.length) cmBad.push(`${t.key}: type/names`);
+  if (t.type === 'landmark') {
+    const [pg, id] = t.depicts.split('#'), row = rows.find(x => x.key === pg), rec = row && row.recs.find(x => x.id === id);
+    if (!rec) cmBad.push(`${t.key}: no such record`);
+    else if (t.candidates.length && (rec.kind === 'food' || rec.closed || row.country === 'vietnam')) cmBad.push(`${t.key}: candidates on a food/closed/Vietnam record`);
+  }
+  if (t.type === 'hero' && /^vietnam/.test(t.depicts.replace('hub:', '')) && t.candidates.length) cmBad.push(`${t.key}: Vietnam hero candidates`);
+  if (t.skip && t.candidates.length) cmBad.push(`${t.key}: candidates on a skipped target`);
+  for (const c of t.candidates) {
+    if (!/^File:.+\.(jpe?g|png|webp|tiff?)$/i.test(c.file) || !/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/.test(c.pageUrl)) cmBad.push(`${t.key}: file/pageUrl ${c.file}`);
+    if (!['high', 'med'].includes(c.confidence) || !c.reason || !c.depicts || (c.refused != null && typeof c.refused !== 'string')) cmBad.push(`${t.key}: ${c.file} confidence/reason/depicts`);
+  }
+}
+ok(cm.targets.length > 1000 && !cmBad.length, `commons-candidates.json: ${cm.targets.length} targets, ${cm.summary.candidates.total} candidates — real non-food, open, non-Vietnam records, Commons File: titles with confidence + reason${cmBad.length ? ': ' + cmBad.slice(0, 5).join('; ') : ''}`);
+const fc = require('./fetch-commons');
+ok(fc.licenceOf('CC BY-SA 4.0').licence === 'CC BY-SA 4.0' && fc.licenceOf('CC BY 2.0').licenceUrl === 'https://creativecommons.org/licenses/by/2.0/' && fc.licenceOf('CC0').licence === 'CC0 1.0' && fc.licenceOf('Public domain').licence === 'Public domain', 'fetch-commons: free licences normalised (CC BY-SA, CC BY, CC0, PD)');
+ok(['CC BY-NC-SA 2.0', 'CC BY-ND 4.0', 'GFDL', 'All rights reserved', ''].every(l => fc.licenceOf(l).why), 'fetch-commons: NC, ND, GFDL-only, all-rights-reserved and missing licences refused');
+const port = fc.licenceOf('CC BY-SA 3.0 de');
+ok(port.licence === 'CC BY-SA 3.0 DE' && photos.creditProblems(Object.assign({}, cmn, port)).length === 0, 'fetch-commons: a ported licence (CC BY-SA 3.0 de) passes the credit gate');
+ok(fc.namesPlace(['Sensō-ji', '浅草寺'], 'File:Senso-ji, Asakusa, Tokyo.jpg') && fc.namesPlace(['Sensō-ji'], 'File:X.jpg', '', 'Sensoji temple') && fc.namesPlace(['浅草寺'], '', '浅草寺の本堂') && !fc.namesPlace(['Ginkaku-ji'], 'File:Kinkaku-ji in autumn.jpg', 'Golden Pavilion') && !fc.namesPlace(['Arc'], 'File:Cleveland Arcade.jpg'), 'fetch-commons: depicts re-check matches names without spaces/diacritics, refuses another place and too-short names');
+ok(JSON.stringify(fc.snapWidths([480, 960], 4000)) === '[500,960]' && JSON.stringify(fc.snapWidths([640, 1280], 1100)) === '[500,1100]' && JSON.stringify(fc.snapWidths([640, 960], 960)) === '[500,960]', 'fetch-commons: widths snap to Commons\' standard thumbnail steps (640 → 500; a 640 px request answered HTTP 400 in run #5), never wider than the original');
+ok(!fc.tooManyFailures(10, 1) && !fc.tooManyFailures(2, 1) && fc.tooManyFailures(8, 3), 'fetch-commons: one failed thumbnail is skipped; the run fails only past 25 % failed downloads');
+ok(fc.SIGNAGE.test('Shop signage in Dotonbori') && fc.SIGNAGE.test('Billboards at night') && !fc.SIGNAGE.test('Tokyo Tower at night') && !fc.SIGNAGE.test('30 Rockefeller Plaza (NBC headquarters)'), 'fetch-commons: a file whose subject is signage, a logo or advertising is refused');
+const refusedC = cm.targets.flatMap(t => t.candidates.filter(c => c.refused).map(c => [t, c]));
+ok(refusedC.every(([, c]) => c.refused.length > 10) && fc.plan(cm, { credits: [] }, { keys: [], types: [], min: 'high', allow: [], wikiLead: false, pilot: false }).filter(p => !p.skip).every(p => p.cands.every(c => !c.refused)), `fetch-commons: candidates refused after visual review carry a reason and are never fetched (${refusedC.length})`);
+ok(fc.fileBase({ type: 'landmark', depicts: 'singapore/chinatown#sri-mariamman-temple' }) === 'singapore--chinatown--sri-mariamman-temple' && fc.fileBase({ type: 'hero', depicts: 'hub:singapore/chinatown' }) === 'hero--singapore--chinatown', 'fetch-commons: file names follow the photos/ convention');
+const fplan = fc.plan(cm, { credits: [] }, { keys: [], types: [], min: 'high', allow: [], wikiLead: false, pilot: false }).filter(p => !p.skip);
+ok(fplan.length > 100 && fplan.every(p => p.cands.length && p.cands.every(c => c.confidence === 'high' && !(c.flags || []).length) && !p.t.skip), `fetch-commons default plan: ${fplan.length} targets, high-confidence unflagged candidates only, never a skipped (venue/food/closed/Vietnam) target`);
+const lm = fplan.filter(p => p.t.type === 'landmark');
+ok(fplan.findIndex(p => p.t.type === 'landmark') === fplan.filter(p => p.t.type === 'hero').length && (lm.findIndex(p => !p.t.pilot) < 0 || lm.findIndex(p => !p.t.pilot) >= lm.filter(p => p.t.pilot).length), 'fetch-commons: city and hub heroes first, then pilot tier-1 sights, then the rest');
 const onDisk = path.join(BETA, 'assets', 'img', 'manifest.json');
 ok(fs.existsSync(onDisk) && JSON.parse(fs.readFileSync(onDisk, 'utf8')).items.length === m.items.length, 'beta/assets/img/manifest.json is current');
 

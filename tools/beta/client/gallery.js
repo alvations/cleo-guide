@@ -19,6 +19,10 @@
   const att = (id, k) => { if (!attrs[id]) { const c = C.byId[id] || (Cleo.defer && Cleo.defer.peek().filter(x => x.id === 'p-' + id)[0]); attrs[id] = c || { getAttribute: () => null }; } return attrs[id].getAttribute(k); };
   // W7: covers are calm (neutral ground, kind icon, typographic initial or native name). The area pin art moved off the
   // cards to the place detail's locator, so a grid page no longer fetches one art file per area.
+  // W7: a credited photo (lib/gallery.js ph) laid over the calm cover, the same slot as the grid card's figure.pl-photo
+  const root = Cleo.root || '../';
+  const phHtml = p => p ? '<figure class="photo gc-photo"><img src="' + esc(root + p[0]) + '"' + (p[5] && p[5].length > 1 ? ' srcset="' + p[5].map(x => esc(root + x[0]) + ' ' + x[1] + 'w').join(', ') + '" sizes="(min-width: 1024px) 300px, 80vw"' : '') +
+    ' width="' + p[1] + '" height="' + p[2] + '" alt="' + esc(p[3]) + '" loading="lazy" decoding="async"><figcaption>' + p[4] + '</figcaption></figure>' : '';
   const CJK = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af\uf900-\ufaff]/;
   const gcard = (r, i) => {
     const nat = r.nat && r.n.slice(-r.nat.length - 2) === '(' + r.nat + ')' ? r.nat : '', g = Array.from(nat);
@@ -28,7 +32,7 @@
     const ids = (r.src || []).filter(x => x !== 'guide'), chips = ids.slice(0, 2).map(x => '<button type="button" class="src" data-src="' + esc(x) + '">' + esc(((info.src || {})[x] || [x])[0]) + '</button>').join(', ');
     return '<li class="gc' + (r.closed ? ' gc--closed' : '') + '" data-id="' + esc(r.id) + '"><a class="gc-a" href="#p-' + esc(r.id) + '"><span class="cover' + (r.closed ? ' closed' : '') + '" data-gl="' + esc(att(r.id, 'data-gl') || 'compass') + '" data-m="' + esc(att(r.id, 'data-m') || att(r.id, 'data-gl') || 'compass') + '" data-t="' + (r.t || 3) + '" data-comp="' + ((i || 0) % 5) + '"' + (col ? ' style="--ac:' + col + '"' : '') + ' aria-hidden="true">' + plate + '<span class="gl"><svg class="ico"><use href="#i-' + esc(att(r.id, 'data-gl') || 'compass') + '"/></svg></span></span>' +
       '<span class="gc-b"><span class="pl-e">' + (r.closed ? 'Closed · kept for the record' : (r.t === 1 ? '<span class="badge t1">Must see</span> ' : TIER[r.t] ? '<span class="vh">' + TIER[r.t] + ' · </span>' : '') + esc(C.label('a', r.a)) + ' · ' + (r.kind === 'food' ? 'Eat &amp; drink' : 'See')) + '</span>' +
-      '<span class="gc-n">' + esc(nm) + '</span>' + (r.w ? '<span class="gc-w">' + esc(String(r.w).replace(/<[^>]+>/g, '')) + '</span>' : '') + '</span></a>' +
+      '<span class="gc-n">' + esc(nm) + '</span>' + (r.w ? '<span class="gc-w">' + esc(String(r.w).replace(/<[^>]+>/g, '')) + '</span>' : '') + '</span></a>' + phHtml(r.ph) +
       '<p class="pl-s"><span class="lbl">Recommended by</span> ' + (chips || '<span class="added">Added by the guide (general knowledge)</span>') + (ids.length > 2 ? ' <span class="more">+' + (ids.length - 2) + '</span>' : '') + '</p>' +
       '<button type="button" class="heart gc-save" data-ref="' + esc(r.id) + '" aria-pressed="false" aria-label="Save ' + esc(nm) + '"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg></button></li>';
   };

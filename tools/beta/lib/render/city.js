@@ -94,7 +94,7 @@ const BY_NAME = [[/sushi/i, 'sushi'], [/ramen|noodle|pho|laksa|soba|udon/i, 'noo
   [/temple|shrine|mosque|church/i, 'torii'], [/market|shop|hawker/i, 'awning'], [/view|skyline|tower/i, 'tower'], [/night/i, 'moon'],
   [/history|heritage|castle|palace/i, 'castle'], [/free/i, 'ticket'], [/screen|tv|film|pop/i, 'tv']];
 const glyphFor = (id, n, food) => GLYPH[id] || (BY_NAME.find(([re]) => re.test(n || '')) || [])[1] || (food ? 'forkknife' : 'compass');
-const { motifSvg, motifOf, photoFor, figureHtml } = require('../../imagery');   // imagery lane hooks
+const { motifSvg, motifOf, photoFor, figureHtml, heroFor, heroHtml: heroPhotoHtml } = require('../../imagery');   // imagery lane hooks
 const ico = n => `<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg>`;
 const tier = (t, cls = '') => TIER[t] ? `<a class="tier t${t}${cls}" href="#how-we-choose"><i class="tg t${t}" aria-hidden="true"></i><span>${TIER[t]}</span></a>` : '';
 
@@ -120,10 +120,6 @@ const orderArea = list => list.map((r, i) => [r, i]).sort(([x, i], [y, j]) =>
 
 const glyphOf = (r, page) => { const czN = r.cz.map(id => ((page.CUISINES || []).find(c => c.id === id) || {}).n).filter(Boolean);
   return r.kind === 'food' ? glyphFor(r.cz[0], czN[0], true) : glyphFor(r.g.find(g => g !== 'ICON' && g !== 'FREE') || r.g[0], '', false); };
-
-/* W7 photo slot: a photo record may carry srcset (two widths of one credited file); the grid's sizes are fixed here */
-const SIZES = '(min-width: 1440px) 330px, (min-width: 1024px) 31vw, (min-width: 768px) 46vw, calc(100vw - 32px)';
-const photoSlot = (fig, ph) => ph.srcset ? fig.replace('<img ', `<img srcset="${esc(ph.srcset)}" sizes="${SIZES}" `) : fig;
 
 /* ---- the card (M1-11): cover → eyebrow (tier · area · dish · pin no.) → name → write-up → note → address → Recommended by → save ---- */
 function card(r, num, ctx) {
@@ -158,9 +154,9 @@ function card(r, num, ctx) {
     r.g.length && `data-g="${esc(r.g.join(' '))}"`, r.cz.length && `data-cz="${esc(r.cz.join(' '))}"`,
     r.src && r.src.length && `data-src="${esc(r.src.join(' '))}"`,
     r.la != null && `data-ll="${r.la},${r.ln}"`, pv.checked && `data-checked="${esc(pv.checked)}"`, r.closed && 'data-closed', r.warn && 'data-warn'].filter(Boolean).join(' ');
-  // W7 media slot (contract in docs/BETA-LOG.md): .pl-media holds the calm cover, a credited photo when the imagery lane has
-  // one (figure.photo.pl-photo, lazy, sized, alt = what it depicts, credit in the figcaption) and the heart (.pl-x)
-  return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-media"><div class="pl-cover" aria-hidden="true"></div>${(ph => ph ? photoSlot(figureHtml(ph, ctx.up || '', 'photo pl-photo'), ph) : '')(ctx.photo && ctx.photo(r))}<p class="pl-x" hidden></p></div>
+  // W7 media slot (contract in docs/BETA-LOG.md): the calm cover (.pl-cover), a credited photo laid over it when the imagery
+  // lane has one (figure.photo.pl-photo: lazy, sized, alt = what it depicts, credit in the figcaption), and the heart (.pl-x)
+  return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${(ph => ph ? figureHtml(ph, ctx.up || '', 'photo pl-photo') : '')(ctx.photo && ctx.photo(r))}<p class="pl-x" hidden></p>
 <p class="pl-e">${r.closed ? `${eyebrow} <span class="pl-num" aria-label="Map pin ${num}">${num}</span>` : `<span class="pl-num" aria-label="Map pin ${num}">${num}</span> ${eyebrow}`}</p>
 <h3 class="pl-n"><a href="#p-${esc(r.id)}">${nm}</a></h3>
 ${r.w ? `<p class="pl-w">${prose(r.w)}</p>` : ''}${r.k ? `<p class="pl-k${isNote ? ' note' : ''}"><span class="lbl">${isNote ? 'Your guide’s note' : 'Look for'}</span> ${prose(r.k)}</p>` : ''}${r.ad ? `<p class="pl-ad">${esc(r.ad)}</p>` : ''}
@@ -300,12 +296,15 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   const sigT = tiles.find(t => t.cls === 'sig');
   const leadR = (sig && sig.ids ? sig.ids.map(id => recs.find(r => r.id === id)) : sigT && sigT.key === 'c' ? inC(sigT.id) : []).find(r => r && r.t === 1 && !r.closed)
     || ordered.find(r => r.t === 1 && !r.closed) || ordered.find(r => !r.closed) || ordered[0];
-  // W7 (owner: full UI/UX overhaul): a quiet hero — the city name, one line and the count line. The night-sky art and the
-  // action pair are retired; the grid, the category bar and the floating "Show map" pill carry the browsing
+  // W7 (owner: full UI/UX overhaul): a quiet hero — the city name, one line and the count line, with the imagery lane's
+  // credited city photo when there is one. The night-sky art and the action pair are retired; the grid, the category bar
+  // and the floating "Show map" pill carry the browsing
   const heroLine = (G.tileLine && G.tileLine.text) || m.h1Thin || '';
+  const heroPhoto = heroFor(row);   // imagery W7: a credited city hero photo, or none
   // desktop shows the lead as one quiet text link (the phone shows it as the first card, under the hero)
   const leadName = leadR ? (leadR.nat && leadR.n.endsWith(`(${leadR.nat})`) ? leadR.n.slice(0, -leadR.nat.length - 2).trimEnd() : leadR.n) : '';
-  const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(heroLine)}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">Start with ${esc(leadName)}</a></p>` : ''}</div>`;
+  // the photo is an in-flow media slot (imagery: eager, sized, TASL credit in its figcaption), never a full-bleed backdrop
+  const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(heroLine)}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">Start with ${esc(leadName)}</a></p>` : ''}${heroPhoto ? heroPhotoHtml(heroPhoto, up, 'photo hero-media') : ''}</div>`;
   // default view: Gallery (SPEC §2.4), flipped in W5 once G1 and the phone first screen passed (ROUND-4 #2). A link with
   // #day= or a lens and no view= still opens Atlas, the unpaged list (views.js implied(), mirrored in the head script)
   const DV = 'gallery';

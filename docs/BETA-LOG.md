@@ -828,20 +828,112 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - Owner: "autonomously continue and fan out on all lanes".
   - FE-B (landing + hubs) launched now instead of waiting for the R6 sessions. The amendment was sent to the designer, FE-A and imagery lanes.
 
+- 2026-10-11 · FE-B (W7) · **Landing, country hubs and static pages rebuilt image-first, search-first and calm.**
+  - **Landing:** a light, search-first hero with one headline in the display face ("Where to next?", with a sunny highlighter swipe as the single expressive moment), a big search pill and country pills. Below it: one row of image-first city cards per live country, the ★ signature row and collections as image cards, a quiet "How we choose" strip with computed counts (named sources, places pinned, closed places kept), and country cards.
+  - **Card anatomy (shared with FE-A):** a rounded media slot, then name / counts / "Known for" / "Recommended by {top sources} + n more". There is no frame or border, and a soft lift on hover that is off under reduced motion.
+    - **Photo:** the imagery lane's credited photo (`hero:<key>` slot, else the best-sourced open tier-1 sight; never Vietnam), with its TASL credit under the card.
+    - **No-photo cover:** a calm neutral ground in 4 rotating tones, the city's own paper-ground line motif and its native-script name.
+  - **Hubs:**
+    - Retired the navy night hero, star-field particle art, skins and purple tiles.
+    - The hero is now copy plus media: a credited hero photo, or the calm cover with the place count as the big number. A primary CTA, share and method sit beside it.
+    - Below the hero: a "Guides in {country}" card grid (1/2/3/4 columns), the collections as image cards, and country cards.
+  - **Static pages:** method, accessibility and 404 use a light page head and the same type and spacing (17 px prose, display-face numbers).
+  - **CSS:** one cached stylesheet `assets/fe-b.css` (source `tools/beta/lib/render/fe-b.css`, tokens only, reading `--accent`/`--sun`/`--cover-1..4` with today's tokens as the fallback) replaces the inline glue CSS each hub and landing page used to carry.
+  - **Weight:** the landing went from 83 KB to ≈72 KB raw (≈11 KB gzip).
+  - **Tests:** test-i18n's fixture gains named sources, so the card's "Recommended by" line is checked in pseudo. That extends the check; nothing was relaxed.
+
+- 2026-10-11 14:20Z · orchestrator · **R6 evaluation in: 85.4** (A 77, B 88, C 96, D 89; R5 84.5).
+  - Type & style re-scored at 223/300.
+  - D1–D11: ✅ 5, ◐ 5, ✕ 1 (D9 photos, owner-blocked).
+  - About 3.1 points are owner-blocked; about 2.5 are earnable without the owner.
+  - **R6 QA (in progress)** has already found three Highs:
+    - the Leaflet `_leaflet_pos` error;
+    - the 370 px Atlas tray head;
+    - the workflow `npm ci` failure, fixed in 49deb0a7.
+  - So R6 gets no separate deploy. Its gaps are folded into W7 (W7-BRIEFS §"Round 6 evaluator gaps"):
+    - #1 motion, designer + FE-A;
+    - #2 Atlas, FE-A;
+    - #3 type, designer;
+    - #4 a11y and #5 perf, a new platform lane (session_01USPS1inq7bUDfyw89evKMA);
+    - #6 is out of beta scope;
+    - #7 and #8, FE-A.
+- 2026-10-11 14:20Z · orchestrator · **Commons photos via GitHub Actions.**
+  - The workflow gained the keyless Commons fetch (cd4196b0).
+  - Run #5 failed on HTTP 400 for a 640 px thumbnail. Wikimedia only serves standard thumbnail widths.
+  - Switched to 500/960 (eedd4207); the imagery lane is hardening fetch-commons.js (width snapping, non-fatal per-image failures).
+
+- 2026-10-11 14:26Z · orchestrator · **Owner: "Where is the map front and center in the atlas mode?! Think Zillow for travel kinda!"**
+  - **Why the owner can't see it:** the R6 map-first Atlas lives only on the branch, held back by the R6 QA Highs. The live beta still has the R5 Atlas.
+  - **Why R6 Atlas falls short anyway:** it enlarged the map but didn't make the map the way you search.
+  - **Response:**
+    - W7-BRIEFS **Amendment 2**: Atlas becomes map-search, the real-estate map-search pattern for travel.
+      - Desktop: a split view with the map at about 60 % and a 2-column card grid that follows the map bounds, pill pins, two-way hover sync and a preview card.
+      - Phone: a full-screen map, a synced card carousel and a List/Map toggle.
+    - Checklist D2 upgraded to match.
+    - A dedicated **Atlas map-search lane** (session_01Cuvo7DWhwbWjLpFicvaF5E) takes over atlas.js and Atlas CSS from FE-A.
+
+- 2026-10-11 14:45Z · orchestrator · **R6 QA: sign-off NO** on 2f227631 (73711b71). No R6 deploy; the findings are routed to W7.
+  - **To the Atlas map-search lane:**
+    - QA-36 High: the Leaflet `_leaflet_pos` error.
+    - QA-37 High: the 370 px tray head.
+    - QA-40 Med: phone Atlas doesn't name the city.
+    - QA-41 Med: pin ranks and cluster look.
+    - QA-44 Low: the initial fit should ignore far outliers. The Chinatown SG data issue goes to the live-pipeline backlog.
+  - **To platform:** QA-38 High (Insights axe) and QA-43 Low (eager JS).
+  - **To FE-A:** QA-42 Med (lead-card heart tap target).
+  - **Already fixed:** QA-39 High (workflow `npm ci`), in 49deb0a7.
+  - **Ratified:** R6 metrics.js B-02, B-06, B-07 and B-08, the test-beta cluster count, and D-36.
+- 2026-10-11 · Atlas lane · **Atlas is map search (W7 Amendment 2), first increment.**
+  - **Desktop (≥ 1024):** a filter bar on top (Sights / Eat & drink, search, Area, Filters, Must see, Saved, Sort); the map on the left at 60 %, full height; a 2-column card grid on the right (the shared `li.pl` card), filtered to the map area ("Search as I move the map", on by default), with "N more outside this area. Show all".
+    - Label-pill pins (the guide's number, ★ Must see; sight vs eat & drink in two quiet tokens; closed struck; saved ♥).
+    - Hover syncs both ways. A pin click selects its card in the list pane (the page never scrolls) and opens a preview card on the map that links to the place.
+    - Round dark count bubbles for clusters. Area chips fit the map.
+  - **Phone (< 1024):** the map is the screen. One chip row, a swipeable card carousel synced to the pins, a floating List / Map pill (Back closes the list), and "Search this area" after a pan. The R6 peek/half/full tray is retired, and with it the 370 px tray-head High.
+  - **R6 High `_leaflet_pos` fixed:** `C.map()` returns null once tiles fail and the map is removed, and every map call checks it. With tiles blocked the list holds every place under "Map unavailable". On phones the list opens by itself. 0 page errors with tiles blocked (probe below).
+  - **Leaflet after first paint:** it is injected after the page's `load` + one frame. The Atlas UI moved off the eager path into the lazy `atlas.js`, so eager JS fell: city.js −1.0 KB and views.js −0.4 KB gzip versus the R6 head.
+  - **Measurement rules changed because the UI changed. QA to ratify; none is weaker:**
+    1. `test-beta.js` "one marker per pinned place": pins are now `.leaflet-marker-icon.pp` label markers, not SVG circle paths. The invariant is unchanged (drawn + cluster counts == pinned places).
+    2. `test-fe-a.js` W6 Atlas checks (tray detents, `.mapclose`, the phone pin sheet) are replaced by W7 map-search checks:
+       - map-first with no list over it;
+       - the chip row holds the switcher, toolbar, Must see, Saved and Sort;
+       - List adds one history entry and Back closes it;
+       - "See these n on the map" returns to the map;
+       - the Must see chip is the `t=1` lens;
+       - the desktop filter bar and results head, all restored outside Atlas;
+       - a pin selects one carousel card;
+       - the pin preview closes on Esc.
+    3. `qa/w2.js` mobile map flow:
+       - the phone Atlas is already the map, so a toggle is pressed only when one is visible;
+       - pins are `.pp` pills, measured by their label box, and a cluster bubble is tapped until a pin shows;
+       - the pin "peek" is the carousel holding the selected card (≤ 40 %: measured at 15 %);
+       - desktop "numbered pins" counts `.pp`.
+    4. `metrics.js` B-06 `split`: the map may sit on either side of the cards (it now leads on the left), still without overlapping them.
+  - **QA findings routed by the orchestrator, each with a regression check:**
+    - **QA-36:** `repro-qa36.js` gives 0/20 for Cleveland `a=DT`, 0/10 for `a=SUB` and 0/10 for NY `map=1`.
+    - **QA-37:** w6.js's independent B-08 rule is now in `atlas-ms.js` for the carousel and the scrolled list: 0 titles covered. The list ends above the Map pill's own band.
+    - **QA-40:** the city name is first in the phone chip row.
+    - **QA-41:** label pills carry the number at every zoom, and clusters are round dark bubbles.
+    - **QA-44:** the first view fits the city core (pins within 3× the median distance of the median point). Chinatown fits at z15, not z6. The outlier stays in the list, behind "Show all" and a zoom out.
+    - **For QA:** `tools/beta/qa/w6.js` still drives the R6 tray (`.grab`, `.mapclose`, detents), which is retired. It needs a W7 rewrite against the carousel and List / Map pill. I left it untouched because it is QA's probe.
+  - **Gates on the final tree:** validate + `npm test` + `beta:check` all PASS (eager JS 39 KB gzip). w2 map 35/35, w5 64/64, `atlas-ms.js` 85/85.
+  - **Evidence:** `design/beta/eval/w7/atlas/` (390 + 1440, light + dark, stub tiles + tiles blocked). Probe: `NODE_PATH=$(npm root -g) node tools/beta/atlas-ms.js`, the Amendment 2 acceptance as executable checks.
 - 2026-10-11 · **FE-A** · W7 city pages + views overhaul (owner: modern, minimal, image-first; classy, never tacky; Gen Z wanderlust every generation trusts) · session_01PCNcUkfa5S1N1BKGzZA4xx (lane run) · commit: this entry's commit
   - **Shipped (all seven brief items):**
     1. **City bar** (`.cbar` › `.cbar-in`), sticky under the site bar: a centred **search pill** (`.spill[role=search]` holding the page filter `#cleo-filter`, moved out of the toolbar; "place · dish · area" hint ≥ 900 px) and the view switcher as an understated segmented control (desktop, no longer pinned into the site bar) or one compact "current view ▾" control that opens the four as a menu (phones, B-03 budget kept).
     2. **Category bar**: the collections rail (`nav.rail#cleo-rail`) moved under the hero (after the phone lead card, so B-03 is unchanged) and restyled as line icon + label, sideways scroll, active = underline; sticky ≥ 768 px. Kickers, notes and counts stay in each button for AT (visually hidden). Source tiles and "Show all" gained icons. In Atlas the same buttons render as compact pills.
     3. **Image-first grid**: borderless cards, 4:3 rounded media with the heart on its corner, then name, area · kind (a "Must see" sticker only where the data says tier 1), Recommended by. 1 / 2 / 3 / 4 columns at < 600 / ≥ 600 / ≥ 1024 / ≥ 1280. Hover lift, pressed scale, heart pop (motion only when allowed). Row and lead cards (`li.gc`) share the anatomy. The calm **no-photo cover**: area colour at 9 % over sand, the kind icon on a small disc, the native name when it is CJK. The area pin art left the cards (one fewer fetch per area on a grid page) and stays in the place detail's locator.
     4. **Quiet hero**: city name, one line (`guide.tileLine` or the dek), the count line; desktop adds one text link "Start with {lead}". Night sky, particle art, the masthead motif layer (kept in markup for the imagery test, hidden by CSS) and the hero buttons are retired on city pages.
-    5. **"Show map" pill** (`.mappill[data-cleo-map]`, fixed bottom centre) in Gallery, Guidebook and Insights → the map-first Atlas. On the phone map, the W6 "List" control is now the **"Show list"** pill above the tray peek. R6 Atlas kept whole (tray, ≥ 60 % desktop map, numbered pins, two-way sync); pins restyled as white pills with the area ring that turn ink when selected or hovered (sizes unchanged, anchors hold); list rows are thumbnail + rank badge (= pin number) + name + meta + 2-line write-up + Recommended by.
+    5. **"Show map" pill** (`.mappill[data-cleo-map]`, fixed bottom centre) in Gallery, Guidebook and Insights → Atlas (hidden in Atlas, whose own List / Map pill takes over). **Atlas itself is now the Atlas map-search lane's** (Amendment 2): on merging its work I dropped every Atlas-scoped rule of this lane (tray rows, pin restyle, "Show list" pill, tray focus fix), so `atlas.css` owns Atlas alone. Shared pieces Atlas inherits: the city bar (search pill + switcher above the map) and the CSS heart on `li.pl`.
     6. **Place detail**: sticky nav row ("n of N" shortens on phones), large calm media (or the credited photo, see the slot below) with the area locator inset, title, meta row (tier sticker, area, pin), sections divided by hairlines (Why it's here, Part of, Recommended by, Close by, Plan your visit), the sticky Save · Directions · Share bar. **Closed**: the media turns grey with a "Closed" label, a closed pill in the meta row and a closed callout; no tier.
     7. **Guidebook and Insights**: the module's own cover carries the name (the page masthead steps aside; its h1 stays for AT, no hidden focusable links), no italics, drop caps, gold chapter bars or double rules; hairlines and the same type scale.
+  - **Design system v2 merged** (designer's `v2.css`, new faces). One deliberate override: v2 forces the card-chip look on every `.rail-i` with `!important`; the W7 category bar (FE-A item 2) answers in kind, scoped to `#cleo-rail` only (icon + label, no box, underline when active). **Designer:** if you want the chip look elsewhere, keep it; the city page's category bar stays bare.
   - **Tokens only.** The W7 layer (`tools/beta/lib/render/fe-a.css` § W7) uses no raw colour: `--paper --surface --sand --ink --ink-2 --ink-3 --line --line-strong --city --city-ink --gilt-soft --closed --closed-soft --focus --e-1…--e-4 --r-s/m/l/pill --fs-* --font-display/-ui/-native --dur-* --ease-*`, plus the data colours `--area`/`--ac`. **Designer:** keep these names in v2 (or alias them) and the layer restyles itself; the heart is a CSS mask (shape only, colour = `currentColor`).
-  - **Media slot contract (for the imagery lane).** Card: `li.pl > .pl-media` (4:3, `overflow:hidden`, radius `--r-m`) holds `.pl-cover` (calm cover, always present), then, when `photoFor()` returns a credited photo, `figure.photo.pl-photo > img[width][height][alt=depicts][loading=lazy][decoding=async] + figcaption` (TASL credit, shown as a small chip on the photo), then `.pl-x` (heart). A photo record may carry `srcset` (two widths of one credited file); the renderer adds `sizes="(min-width: 1440px) 330px, (min-width: 1024px) 31vw, (min-width: 768px) 46vw, calc(100vw - 32px)"` (`render/city.js` `photoSlot`). The photo covers the cover (`object-fit:cover`), so photo and no-photo cards share one geometry. Place detail: `sheet.js` copies the card's `figure.pl-photo` into `.hero-plate.has-photo` (16:10 phone, 220–340 px desktop) with the credit chip; closed places never get a photo (gate) and show the grey "Closed" media. Row cards (`li.gc`, client-drawn) stay no-photo until the gallery JSON carries a photo field: add `ph: {src, srcset, w, h, alt, credit}` to `lib/gallery.js` SLIM and I will render it into `.cover` the same way.
+  - **Media slot contract (for the imagery lane).** Card: `li.pl > .pl-cover` (the calm cover, always present; it is the 4:3 media box, 16:10 on phones, radius `--r-m`), then, when `photoFor()` returns a credited photo, `li.pl > figure.photo.pl-photo > img[width][height][alt=depicts][loading=lazy][decoding=async] + figcaption` (TASL credit, shown as a small chip on the photo) laid exactly over the cover, then `li.pl > .pl-x` (heart, top right). City hero: the imagery lane's `heroHtml(photo, up, 'photo hero-media')` in-flow slot renders inside the quiet hero when a credited city photo exists — a rounded 3:1 strip under the line on phones (the first card stays in the first screen), the right column (4:3) on desktop; its TASL credit is the figcaption chip. The full-bleed backdrop + scrim variant is not used on city pages. `srcset`/`sizes` come from the imagery lane's `figureHtml` (`CARD_SIZES`); FE-A adds nothing to the img. The photo is laid exactly over the cover (`object-fit:cover`), so photo and no-photo cards share one geometry; its credit is a 2-line chip on the photo, never cut to one line. Place detail: `sheet.js` copies the card's `figure.pl-photo` into `.hero-plate.has-photo` (16:10 phone, 220–340 px desktop) with the credit chip; closed places never get a photo (gate) and show the grey "Closed" media. Row and lead cards (`li.gc`, client-drawn): **done in this lane** — `lib/gallery.js` adds `ph = [src, w, h, alt, caption html, [[src, w]…]]` from the same credit-gated records (never closed), and `gallery.js` draws `li.gc > figure.photo.gc-photo` outside the card link (its credit links stay valid), laid over the cover. Place detail: the credit sits as a line under the photo.
   - **Budgets.** Minify step added (`tools/beta/lib/minify.js`: comments, indentation, blank lines; strings, templates and regexes untouched; every file syntax-checked with `vm.Script`, the build refuses on failure). Eager JS per page **40.45 → 32 KB gzip** (heaviest: cleveland.html). **Tokyo default (Gallery): 1,854 KB** desktop / 1,431 KB phone (R6 base on the same harness: 1,952 KB), DOM 2,626 → initial Tokyo Insights DOM 2,956 (≤ 3,000; the heart is a CSS mask so cards gain no nodes). **FCP 4× (phone): Tokyo 460 / 560 ms** over two runs, Cleveland 440, New York 336 (≤ 1.0 s).
-  - **Fixed (pre-existing, FE-A):** the `_leaflet_pos` page error in `views.js` [links] `cleveland #view=atlas&a=DT (pref insights)` on phones: when tiles fail, the fallback removed the map during an animated lens fit (Leaflet keeps its zoom-end timer). `city.js` now stops the map and waits for `zoomend` before falling back.
-  - **Gates.** `npm run validate`, `npm test`, `npm run beta:check` PASS (8,458 places, beta == live). `qa/views.js` 319/320 (the one FAIL is the known record-prose INFO "Look for: Closed Monday…", as in R5). `qa/w5.js` 64/64. `qa/w2.js` 186/188: the two FAILs are pre-existing and fail identically on base `24c20e65` (see below). `metrics.js` pilots, Gallery (same harness, base → W7): Cleveland 21 → 21, Tokyo 20 → 20, New York 21 → 20, Chinatown 20 → 21, Wheeling 21 → 21 of 24. **Fixed:** B-16 cards per phone screen 1.6 → 2.15 (16:10 phone media). **New ❌:** B-08 (rule change below). New York's extra ❌ is B-07 "pin sheet none", a timing flake (base Tokyo shows it; the same NY page passes it in a single-page run). Gallery B-06/B-09 ❌ are by design (no map in Gallery), as on base. `metrics.js --view atlas`: 23/24 on Cleveland, Tokyo, Chinatown and Wheeling (B-04 by design, D-36, as in W6); New York 22/24 with B-08 = 1 (see below).
+  - **Fixed (pre-existing):** the `_leaflet_pos` page error (`views.js` [links] `cleveland #view=atlas&a=DT (pref insights)`, R6 QA-36): Leaflet's `remove()` keeps its zoom-end timer, so removing the map during an animated lens fit throws. Merged with the Atlas lane's QA-36 fix: `city.js` now stops the map and waits for `zoomend` before its clean no-map fallback. **QA-42 (lead-card heart tap target): fixed**, every card heart is a 44 × 44 button around a 36 px disc.
+  - **Card structure for other lanes:** `li.pl` keeps `.pl-cover`, `figure.pl-photo` and `.pl-x` as direct children (no wrapper; the Atlas lane's `li.pl>.pl-cover` / `>.pl-x` selectors hold). The page filter `#cleo-filter` now lives in the city bar, not the toolbar, so the Atlas filter bar shows search from the bar above it.
+  - **Gates on the merged tree** (with design system v2, Atlas map-search and Commons photos): `npm run validate`, `npm test`, `npm run beta:check` PASS; eager JS **30 KB gzip**. Merged-tree harnesses: `qa/w5.js` 64/64; `qa/w2.js` 216/218 (how-we-choose `.tablewrap`, FE-B, pre-existing; landing editorial-rail counts, FE-B/Atlas, under review); `qa/views.js` crashed in `switchTo` on phone Atlas (the city bar overlaps the Atlas lane's chip row) — **follow-up push from FE-A**.
+  - **Pre-merge gates.** `npm run validate`, `npm test`, `npm run beta:check` PASS (8,458 places, beta == live). `qa/views.js` 319/320 (the one FAIL is the known record-prose INFO "Look for: Closed Monday…", as in R5). `qa/w5.js` 64/64. `qa/w2.js` 186/188: the two FAILs are pre-existing and fail identically on base `24c20e65` (see below). `metrics.js` pilots, Gallery (same harness, base → W7): Cleveland 21 → 21, Tokyo 20 → 20, New York 21 → 20, Chinatown 20 → 21, Wheeling 21 → 21 of 24. **Fixed:** B-16 cards per phone screen 1.6 → 2.15 (16:10 phone media). **New ❌:** B-08 (rule change below). New York's extra ❌ is B-07 "pin sheet none", a timing flake (base Tokyo shows it; the same NY page passes it in a single-page run). Gallery B-06/B-09 ❌ are by design (no map in Gallery), as on base. `metrics.js --view atlas`: 23/24 on Cleveland, Tokyo, Chinatown and Wheeling (B-04 by design, D-36, as in W6); New York 22/24 with B-08 = 1 (see below).
   - **For QA to ratify (no test edited):**
     - **B-08 floaters over titles (Gallery):** the brief mandates a sticky header with the search pill and a floating "Show map" pill, which titles scroll beneath by design (the marketplace pattern). Proposed rule: exempt the page's sticky city bar (`.cbar`, the same role as the site bar `header`) and the `.mappill`, as B-08 already exempts the site header and the map pane.
     - **B-08 (Atlas, phone):** a row's title can sit partly under the tray's own sticky head while the tray list is scrolled (the W6 tray design; New York hits 1 of 20 positions after this lane's fix). Fixed here: keyboard focus entering the tray at the peek raises it to half and scrolls the focused row below the head (it was 20 of 20). Proposed rule: also treat a title beneath its own scroll pane's sticky head as clipped, like the W6 "clipped by its own pane" rule.

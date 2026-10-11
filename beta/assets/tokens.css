@@ -1,226 +1,177 @@
 /* ==========================================================================
-   Cleo beta — design tokens  ("Constellation" direction, 2026-10)
+   Cleo beta — design tokens  (design system v2, W7 2026-10-11: "Bone & Oxblood")
    Canonical source: design/beta/tokens.css  ·  shipped copy: beta/assets/tokens.css
-   (design/beta/tools/make-mockups.py copies this file and refuses to run if the two drift)
+   (design/beta/tools/skins.py rewrites the skin marker and copies this file; make-mockups.py refuses to run on drift)
 
-   Rules baked in:
-   - one calm shared frame (paper / ink / gilt) + ONE local accent per city (data-city skin);
-   - every text pair below is WCAG 2.2 AA (verified by design/beta/tools/contrast.py — table in DESIGN-SYSTEM.md);
-   - two families only (W6, design/beta/style/DECISION.md): Playfair — a sturdy Didone-descended serif, one optical cut —
-     for the voice; Inter for the interface. Both self-hosted (beta/assets/fonts, OFL), Latin + Vietnamese subsets; CJK
-     falls through to the system stack below. No font service is ever contacted;
-   - one disciplined set, after melon-seek: one token per font role, one radius pair (--radius / --radius-sm), a 3-step
-     shadow scale (--shadow-sm / --shadow / --shadow-lg), tabular figures wherever we count;
-   - motion collapses to 0 under prefers-reduced-motion.
+   Rules baked in (design/beta/style/v2/DECISION.md):
+   - calm and minimal: near-black ink on a warm bone ground, quiet chrome, ONE accent (oxblood) spent only on the saved
+     heart, the saved count, the day route and the wordmark star — the same for every city (per-city skins retired);
+   - the R6 art direction is retired AT THE TOKEN: --night now IS the ground, --gilt is ink, --motif is none, so every
+     rule that still says "night" paints paper and no rule has to be patched to lose the navy hero;
+   - every text pair is WCAG 2.2 AA in light and dark (design/beta/tools/contrast.py; style/v2/tools/palettes.py);
+   - type: --font-display = Bricolage Grotesque (headlines, city names, big numbers — the inviting, youthful voice the
+     owner asked for); --font-ui = Inter (everything people read or tap, tabular figures). One token each;
+   - ONE warm "sun" highlight (W7 amendment, Gen Z wanderlust): a flat wash behind sticker badges and the heart pop —
+     never a gradient, never text colour, never chrome;
+   - shadows are soft and rare (resting cards have none); radius 8 controls / 12 inputs / 16 media; motion ≤ 220 ms on
+     primary paths and 0 under prefers-reduced-motion.
    ========================================================================== */
 
 :root {
-  /* ---- Surfaces & ink (light) ---- */
-  --paper:        #FBF8F3;   /* page ground — warm porcelain */
-  --surface:      #FFFFFF;   /* cards, sheets */
-  --sand:         #F2ECE2;   /* secondary ground, plates without a city wash */
-  --ink:          #191613;   /* primary text + primary action fill */
-  --ink-2:        #4B443C;   /* secondary text */
-  --ink-3:        #675E54;   /* tertiary text, meta (AA on paper + surface + sand) */
-  --line:         #E7E0D5;   /* hairlines */
-  --line-strong:  #CDC3B4;   /* control borders */
-  --scrim:        rgba(18, 15, 12, .44);
+  /* ---- Ground, surfaces & ink (light) ---- */
+  --paper:        #F9F7F3;   /* page ground — warm bone */
+  --surface:      #FFFFFF;   /* sheets, menus, the search pill */
+  --sand:         #F1EDE7;   /* quiet fill: the no-photo cover, the switcher track, chips at rest */
+  --ink:          #1C1917;   /* primary text + primary action fill + focus ring */
+  --ink-2:        #4A4440;   /* secondary text */
+  --ink-3:        #68615B;   /* tertiary text, meta, icons on covers (AA on paper, surface and sand) */
+  --line:         #E7E2DB;   /* hairlines */
+  --line-strong:  #CCC5BC;   /* control borders */
+  --scrim:        rgba(28, 25, 23, .40);
 
-  /* ---- Night ground: masthead, hero, constellation art ---- */
-  --night:        #0E1526;
-  --night-2:      #18213A;
-  --on-night:     #F5EEDF;
-  --on-night-2:   #BDB6A8;
-  --star:         #F5EEDF;
+  /* ---- The one accent (oxblood) — rare by rule ---- */
+  --accent:       #7A2A2A;
+  --accent-ink:   #7A2A2A;   /* text-safe on paper / surface / wash */
+  --accent-wash:  #F5EAE7;
+  --on-accent:    #FFFFFF;
 
-  /* ---- Distinction & state (never decoration) ---- */
-  --gilt:         #8A6514;   /* tier glyph + "Must see" label — text-safe on paper/surface */
-  --gilt-soft:    #F3E7C8;
-  --open:         #2D6A49;
-  --open-soft:    #E3F0E7;
-  --closed:       #8C3A2B;
-  --closed-soft:  #F5E4DF;
-  --warn:         #8A5A00;
-  --warn-soft:    #FBEFD6;
-  --focus:        #1F4FD1;
+  /* ---- The sun highlight — sticker badges + heart pop ring only ---- */
+  --sun:          #E9A93B;
+  --sun-wash:     #FBEBC8;
+  --on-sun-wash:  #3D2A06;
 
-  /* ---- City skin (default = neutral ink; each [data-city] overrides) ---- */
-  --city:         #3B3A8F;   /* accent: active tab, saved heart, signature tile, route line */
-  --city-ink:     #34337F;   /* text-safe version of the accent */
-  --city-wash:    #ECEBF7;   /* tinted ground for plates & signature tiles */
-  --city-on:      #FFFFFF;   /* text on a --city fill */
+  /* ---- State (never decoration) ---- */
+  --open:         #2E6A4C;
+  --open-soft:    #E5F0E9;
+  --closed:       #8E3B2E;
+  --closed-soft:  #F6E7E2;
+  --warn:         #835800;
+  --warn-soft:    #F8EFD9;
+  --focus:        var(--ink);
+
+  /* ---- Map: the data's area colours are mixed toward this warm grey so pins sit quietly ---- */
+  --area-mute:    #948B83;
+  --area-mix:     50%;
+
+  /* ---- R6 names, aliased onto v2 (the retirement happens here) ---- */
+  --night:        var(--paper);
+  --night-2:      var(--sand);
+  --on-night:     var(--ink);
+  --on-night-2:   var(--ink-2);
+  --star:         transparent;
+  --gilt:         var(--ink);        /* "Must see" = ink + glyph, not gold */
+  --gilt-soft:    var(--sand);
+  --city:         var(--accent);     /* one accent for every city */
+  --city-ink:     var(--accent-ink);
+  --city-wash:    var(--accent-wash);
+  --city-on:      var(--on-accent);
+  --city-2:       var(--line-strong);
+  --motif:        none;
+  --motif-ink:    none;
 
   /* ---- Type ---- */
-  --font-display: "Playfair", "Playfair Display", "Didot", "Bodoni 72", Georgia, "Times New Roman",
-                  "Hiragino Mincho ProN", "Noto Serif JP", "Noto Serif CJK JP", "IPAMincho", serif;
+  --font-display: "Bricolage Grotesque", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+                  "Hiragino Sans", "Noto Sans JP", "Noto Sans CJK JP", "IPAGothic", sans-serif;   /* W7 amendment: inviting display face — headlines, city names, big numbers */
   --font-ui:      "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
                   "Hiragino Sans", "Noto Sans JP", "Noto Sans CJK JP", "IPAGothic", sans-serif;
-  --font-native:  "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif CJK JP", "IPAMincho",
-                  "IPAGothic", serif;   /* native-script plates (東京, 浅草寺); system faces first-class */
+  --font-native:  "Hiragino Sans", "Noto Sans JP", "Noto Sans CJK JP", "Yu Gothic", "IPAGothic", sans-serif;   /* native script, set small and upright */
 
   /* size / line-height pairs — mobile first, desktop step-up below */
-  --fs-hero: 44px;  --lh-hero: 1.02;   /* landing hero */
-  --fs-d1:   38px;  --lh-d1:   1.04;   /* city name */
-  --fs-d2:   28px;  --lh-d2:   1.10;   /* section & sheet titles */
-  --fs-d3:   21px;  --lh-d3:   1.18;   /* place name on card */
-  --fs-lead: 18px;  --lh-lead: 1.45;   /* lead paragraphs */
-  --fs-body: 16px;  --lh-body: 1.5;
-  --fs-sm:   14px;  --lh-sm:   1.42;
-  --fs-xs:   12.5px;--lh-xs:   1.35;   /* eyebrow (≤1 per card), legal, credits */
-  /* W6 interface steps between sm and body — the only two in-between sizes components may use (no 13.5 / 14.5 px) */
-  --fs-meta: 13px;                     /* meta lines, chip counts, chart labels */
-  --fs-ui:   15px;                     /* buttons, chips, list rows */
-  --fw-ui: 400; --fw-ui-strong: 600;
-  --track-eyebrow: .05em;
-  --track-display: -.012em;            /* Playfair at ≥ 20 px */
-  --num: lining-nums tabular-nums;     /* every count, rank, stat and chart value */
+  --fs-hero: 38px;  --lh-hero: 1.06;   /* landing hero */
+  --fs-d1:   34px;  --lh-d1:   1.08;   /* city / country name */
+  --fs-d2:   22px;  --lh-d2:   1.2;    /* section & sheet titles */
+  --fs-d3:   16px;  --lh-d3:   1.3;    /* place name on a card (UI face, 600) */
+  --fs-lead: 17px;  --lh-lead: 1.5;
+  --fs-body: 16px;  --lh-body: 1.55;   /* ≥ 16 px body for every reader */
+  --fs-sm:   14px;  --lh-sm:   1.45;
+  --fs-xs:   12px;  --lh-xs:   1.35;
+  --fs-meta: 13px;
+  --fs-ui:   14px;                     /* = --fs-sm: five steps between 12 and 17 px (12 · 13 · 14 · 16 · 17), ROUND-6 gap #3 */
+  --fs-brand: 22px;                    /* the wordmark */
+  --fw-ui: 400; --fw-ui-strong: 600; --fw-display: 600;
+  --track-eyebrow: .04em;
+  --track-display: -.024em;
+  --num: lining-nums tabular-nums;
+  --icon-stroke: 1.5;
 
   /* ---- Space (4-pt) ---- */
   --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px;
   --s-7: 32px; --s-8: 40px; --s-9: 56px; --s-10: 72px; --s-11: 96px;
-  --gutter: 16px;                 /* page side gutter (mobile) */
+  --gutter: 16px;
   --maxw: 1360px;
 
-  /* ---- Radius (W6: one scale; melon-seek-style aliases) ---- */
-  --r-xs: 6px; --r-s: 8px; --r-m: 12px; --r-l: 20px; --r-pill: 999px;
+  /* ---- Radius: 8 controls · 12 inputs & small media · 16 card media & sheets · pill ---- */
+  --r-xs: 6px; --r-s: 8px; --r-m: 12px; --r-l: 16px; --r-pill: 999px;
   --radius-sm: var(--r-s);  --radius: var(--r-m);  --radius-lg: var(--r-l);
 
-  /* ---- Elevation (W6: three steps — sm rests, md lifts on hover/active, lg floats: sheets, popovers, dialogs) ---- */
-  --shadow-sm: 0 1px 2px rgba(25, 22, 19, .06);
-  --shadow:    0 1px 3px rgba(25, 22, 19, .08), 0 4px 12px rgba(25, 22, 19, .06);
-  --shadow-lg: 0 12px 32px rgba(25, 22, 19, .16), 0 2px 6px rgba(25, 22, 19, .08);
+  /* ---- Elevation: soft and rare. Resting cards: none. ---- */
+  --shadow-sm: 0 1px 2px rgba(28, 25, 23, .06);
+  --shadow:    0 1px 2px rgba(28, 25, 23, .04), 0 6px 18px rgba(28, 25, 23, .07);
+  --shadow-lg: 0 8px 28px rgba(28, 25, 23, .12), 0 1px 3px rgba(28, 25, 23, .06);
   --e-0: none;
-  --e-1: var(--shadow-sm);
+  --e-1: none;
   --e-2: var(--shadow);
-  --e-3: 0 -12px 32px rgba(25, 22, 19, .16), 0 -2px 6px rgba(25, 22, 19, .06);   /* --shadow-lg, cast upward (bottom sheet) */
+  --e-3: 0 -8px 28px rgba(28, 25, 23, .12);
   --e-4: var(--shadow-lg);
-  --focus-ring: 0 0 0 3px color-mix(in srgb, var(--focus) 35%, transparent);
+  --focus-ring: 0 0 0 2px var(--paper), 0 0 0 4px var(--focus);
 
   /* ---- Motion ---- */
-  --dur-1: 120ms; --dur-2: 220ms; --dur-3: 360ms; --dur-4: 520ms;
+  --dur-1: 120ms; --dur-2: 200ms; --dur-3: 320ms; --dur-4: 480ms;
   --ease-out:    cubic-bezier(.2, .8, .2, 1);
   --ease-in-out: cubic-bezier(.6, 0, .2, 1);
-  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);   /* save-stamp only */
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);   /* the heart pop only */
+  /* the signature moment (ROUND-6 gap #1, design/beta/style/v2/MOTION.md): the tapped cover or pin grows into the sheet */
+  --dur-grow: 340ms;                                  /* ≤ 400 ms */
+  --ease-grow: cubic-bezier(.2, .9, .1, 1);           /* fast out of the tap, long soft landing */
+  --dur-pop: 320ms;                                   /* the heart pop (uses --ease-spring) */
 
   /* ---- Sizing ---- */
-  --tap: 44px;          /* minimum target */
-  --bar-h: 60px;        /* top bar */
-  --tab-h: 64px;        /* mobile tab bar */
+  --tap: 44px;
+  --bar-h: 64px;
+  --tab-h: 64px;
 
-  /* ---- Charts (W3 D-02, Insights view): categorical series in FIXED order — blue, orange, aqua, yellow, magenta, violet —
-     plus a neutral "Other". Validated with the dataviz method on #FFFFFF (light) and #1B1916 (dark): all checks PASS.
-     The light-surface contrast WARN is answered on every chart by value labels, a legend and "Show as a table".
-     Dark mode selects the dark set by token (below) — never an automatic flip/filter. */
+  /* ---- Charts (W3 D-02): categorical series in FIXED order; validated with the dataviz method ---- */
   --series-1:#2a78d6; --series-2:#eb6834; --series-3:#1baf7a; --series-4:#eda100; --series-5:#e87ba4; --series-6:#6250d6;
-  --series-other:#b4ada2; --chart-grid:#E6DFD3; --chart-gap:#FFFFFF;
+  --series-other:#b4ada2; --chart-grid:#E7E2DB; --chart-gap:#FFFFFF;
 
   color-scheme: light;
 }
 
 @media (min-width: 900px) {
   :root {
-    --fs-hero: 76px; --fs-d1: 64px; --fs-d2: 36px; --fs-d3: 22px; --fs-lead: 20px;
-    --gutter: 40px; --bar-h: 68px;
+    --fs-hero: 60px; --fs-d1: 52px; --fs-d2: 28px; --fs-d3: 16px; --fs-lead: 18px;
+    --gutter: 40px; --bar-h: 72px;
   }
 }
 
-/* ---------------- Night edition (dark) ----------------
+/* ---------------- Dark edition: warm near-black, not navy ----------------
    Applied by OS preference unless the page pins data-theme="light"; data-theme="dark" forces it. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper:#11100E; --surface:#1B1916; --sand:#24211D; --ink:#F3EEE6; --ink-2:#D2CABE; --ink-3:#A79E91;
-    --line:#2F2B26; --line-strong:#4A443C; --scrim:rgba(0,0,0,.6);
-    --night:#090D18; --night-2:#121A2E;
-    --gilt:#DDB65E; --gilt-soft:#3A2F17; --open:#7CC79C; --open-soft:#1D3327; --closed:#F09A85; --closed-soft:#3B211B;
-    --warn:#F0BE5A; --warn-soft:#3A2D12; --focus:#8FB0FF;
-    --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70; --series-4:#c98500; --series-5:#d55181; --series-6:#9085e9; --series-other:#b4ada2; --chart-grid:#2F2B26; --chart-gap:#1B1916;
-    --motif-ink: radial-gradient(rgba(255,255,255,.075) 1px, transparent 1.5px) 0 0 / 22px 22px;
-    --shadow-sm: 0 1px 2px rgba(0,0,0,.4); --shadow: 0 1px 3px rgba(0,0,0,.45), 0 4px 12px rgba(0,0,0,.35); --shadow-lg: 0 12px 32px rgba(0,0,0,.55), 0 2px 6px rgba(0,0,0,.4); --e-3: 0 -12px 32px rgba(0,0,0,.55);
+    --paper:#131110; --surface:#1C1918; --sand:#262220; --ink:#F2EEEA; --ink-2:#D0C9C3; --ink-3:#A69E97;
+    --line:#302B28; --line-strong:#4B4440; --scrim:rgba(0,0,0,.6);
+    --accent:#E0A19A; --accent-ink:#E8B0A9; --accent-wash:#33201E; --on-accent:#1E0E0C; --sun:#F0BC5E; --sun-wash:#3B2C10; --on-sun-wash:#FBE3B0;
+    --open:#86C9A3; --open-soft:#1C3026; --closed:#F0A08C; --closed-soft:#3A221C; --warn:#EDC06A; --warn-soft:#382C12;
+    --area-mute:#766D67;
+    --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70; --series-4:#c98500; --series-5:#d55181; --series-6:#9085e9; --series-other:#b4ada2; --chart-grid:#302B28; --chart-gap:#1C1918;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.4); --shadow: 0 1px 2px rgba(0,0,0,.35), 0 6px 18px rgba(0,0,0,.35); --shadow-lg: 0 8px 28px rgba(0,0,0,.55), 0 1px 3px rgba(0,0,0,.4); --e-3: 0 -8px 28px rgba(0,0,0,.5);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper:#11100E; --surface:#1B1916; --sand:#24211D; --ink:#F3EEE6; --ink-2:#D2CABE; --ink-3:#A79E91;
-  --line:#2F2B26; --line-strong:#4A443C; --scrim:rgba(0,0,0,.6);
-  --night:#090D18; --night-2:#121A2E;
-  --gilt:#DDB65E; --gilt-soft:#3A2F17; --open:#7CC79C; --open-soft:#1D3327; --closed:#F09A85; --closed-soft:#3B211B;
-  --warn:#F0BE5A; --warn-soft:#3A2D12; --focus:#8FB0FF;
-  --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70; --series-4:#c98500; --series-5:#d55181; --series-6:#9085e9; --series-other:#b4ada2; --chart-grid:#2F2B26; --chart-gap:#1B1916;
-  --motif-ink: radial-gradient(rgba(255,255,255,.075) 1px, transparent 1.5px) 0 0 / 22px 22px;
-  --shadow-sm: 0 1px 2px rgba(0,0,0,.4); --shadow: 0 1px 3px rgba(0,0,0,.45), 0 4px 12px rgba(0,0,0,.35); --shadow-lg: 0 12px 32px rgba(0,0,0,.55), 0 2px 6px rgba(0,0,0,.4); --e-3: 0 -12px 32px rgba(0,0,0,.55);
+  --paper:#131110; --surface:#1C1918; --sand:#262220; --ink:#F2EEEA; --ink-2:#D0C9C3; --ink-3:#A69E97;
+  --line:#302B28; --line-strong:#4B4440; --scrim:rgba(0,0,0,.6);
+  --accent:#E0A19A; --accent-ink:#E8B0A9; --accent-wash:#33201E; --on-accent:#1E0E0C; --sun:#F0BC5E; --sun-wash:#3B2C10; --on-sun-wash:#FBE3B0;
+  --open:#86C9A3; --open-soft:#1C3026; --closed:#F0A08C; --closed-soft:#3A221C; --warn:#EDC06A; --warn-soft:#382C12;
+  --area-mute:#766D67;
+  --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70; --series-4:#c98500; --series-5:#d55181; --series-6:#9085e9; --series-other:#b4ada2; --chart-grid:#302B28; --chart-gap:#1C1918;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.4); --shadow: 0 1px 2px rgba(0,0,0,.35), 0 6px 18px rgba(0,0,0,.35); --shadow-lg: 0 8px 28px rgba(0,0,0,.55), 0 1px 3px rgba(0,0,0,.4); --e-3: 0 -8px 28px rgba(0,0,0,.5);
   color-scheme: dark;
 }
 /* ---------------- City skins (generated by design/beta/tools/skins.py from skins.json — do not hand-edit) ----------------
-   A skin overrides ≤ 8 tokens: --city, --city-ink, --city-wash, --city-on, --motif, --motif-ink, --city-2 (decorative) (+ --paper on the pastel regional skins).
-   Every pair passes AA (design/beta/tools/contrast.py). Apply with data-city / data-page="<page key>" or class="skin-<name>". */
-:root { --motif:radial-gradient(rgba(255,255,255,.075) 1px, transparent 1.5px) 0 0 / 22px 22px; --motif-ink:radial-gradient(rgba(25,22,19,.075) 1px, transparent 1.5px) 0 0 / 22px 22px; --city-2:var(--gilt); }
-[data-city="tokyo"], [data-page="tokyo"], [data-city="sanfrancisco"], [data-page="sanfrancisco"], [data-city="cincinnati"], [data-page="cincinnati"], [data-city="liege"], [data-page="liege"], [data-city="indianapolis"], [data-page="indianapolis"], .skin-vermilion { --city:#C23A1C; --city-ink:#A9321A; --city-wash:#FBE8E1; --city-on:#FFFFFF; --motif:radial-gradient(circle at 50% 100%, transparent 34%, rgba(255,255,255,.075) 35% 40%, transparent 41% 54%, rgba(255,255,255,.075) 55% 60%, transparent 61%) 0 0 / 30px 15px; --motif-ink:radial-gradient(circle at 50% 100%, transparent 34%, rgba(25,22,19,.075) 35% 40%, transparent 41% 54%, rgba(25,22,19,.075) 55% 60%, transparent 61%) 0 0 / 30px 15px; --city-2:#1E3A6B; }
-[data-city="kyoto"], [data-page="kyoto"], [data-city="akron"], [data-page="akron"], [data-city="youngstown"], [data-page="youngstown"], [data-city="wheeling"], [data-page="wheeling"], [data-city="aachen"], [data-page="aachen"], .skin-moss { --city:#4E6B22; --city-ink:#46601E; --city-wash:#EBF0DF; --city-on:#FFFFFF; --motif:repeating-conic-gradient(from 45deg, rgba(255,255,255,.075) 0 25%, transparent 0 50%) 0 0 / 18px 18px; --motif-ink:repeating-conic-gradient(from 45deg, rgba(25,22,19,.075) 0 25%, transparent 0 50%) 0 0 / 18px 18px; --city-2:#B5832A; }
-[data-city="osaka"], [data-page="osaka"], [data-city="miami"], [data-page="miami"], [data-city="orlando"], [data-page="orlando"], .skin-neon { --city:#B8255F; --city-ink:#A32154; --city-wash:#F9E3EC; --city-on:#FFFFFF; --motif:radial-gradient(rgba(255,255,255,.075) 1.6px, transparent 2px) 0 0 / 12px 12px; --motif-ink:radial-gradient(rgba(25,22,19,.075) 1.6px, transparent 2px) 0 0 / 12px 12px; --city-2:#2A6CB0; }
-[data-city="okinawa"], [data-page="okinawa"], [data-city="madison"], [data-page="madison"], [data-city="erie"], [data-page="erie"], .skin-lagoon { --city:#0B7473; --city-ink:#0A6766; --city-wash:#DDF1EF; --city-on:#FFFFFF; --motif:repeating-radial-gradient(circle at 0 100%, transparent 0 9px, rgba(255,255,255,.075) 9px 10px); --motif-ink:repeating-radial-gradient(circle at 0 100%, transparent 0 9px, rgba(25,22,19,.075) 9px 10px); --city-2:#E07A5F; }
-[data-city="hokkaido"], [data-page="hokkaido"], [data-city="siliconvalley"], [data-page="siliconvalley"], [data-city="washingtondc"], [data-page="washingtondc"], [data-city="harrisburg"], [data-page="harrisburg"], [data-city="statecollege"], [data-page="statecollege"], [data-city="antwerp"], [data-page="antwerp"], .skin-glacier { --city:#2F5F9E; --city-ink:#2A558E; --city-wash:#E3EBF6; --city-on:#FFFFFF; --motif:repeating-linear-gradient(60deg, rgba(255,255,255,.075) 0 1px, transparent 1px 14px), repeating-linear-gradient(-60deg, rgba(255,255,255,.075) 0 1px, transparent 1px 14px); --motif-ink:repeating-linear-gradient(60deg, rgba(25,22,19,.075) 0 1px, transparent 1px 14px), repeating-linear-gradient(-60deg, rgba(25,22,19,.075) 0 1px, transparent 1px 14px); --city-2:#8C6BB0; }
-[data-city="cleveland"], [data-page="cleveland"], [data-city="philadelphia"], [data-page="philadelphia"], [data-city="dayton"], [data-page="dayton"], [data-city="bruges"], [data-page="bruges"], .skin-lake { --city:#1F5E8A; --city-ink:#1B5479; --city-wash:#E2EDF5; --city-on:#FFFFFF; --motif:repeating-linear-gradient(0deg, rgba(255,255,255,.075) 0 1px, transparent 1px 10px); --motif-ink:repeating-linear-gradient(0deg, rgba(25,22,19,.075) 0 1px, transparent 1px 10px); --city-2:#B8572E; }
-[data-city="newyork"], [data-page="newyork"], [data-city="pittsburgh"], [data-page="pittsburgh"], [data-city="rhineland"], [data-page="rhineland"], [data-city="brussels"], [data-page="brussels"], .skin-saffron { --city:#9A5B00; --city-ink:#8A5100; --city-wash:#FAEBD3; --city-on:#FFFFFF; --motif:repeating-linear-gradient(90deg, rgba(255,255,255,.075) 0 1px, transparent 1px 26px), repeating-linear-gradient(0deg, rgba(255,255,255,.075) 0 1px, transparent 1px 26px); --motif-ink:repeating-linear-gradient(90deg, rgba(25,22,19,.075) 0 1px, transparent 1px 26px), repeating-linear-gradient(0deg, rgba(25,22,19,.075) 0 1px, transparent 1px 26px); --city-2:#2F5F5A; }
-[data-city="chicago"], [data-page="chicago"], [data-city="columbus"], [data-page="columbus"], [data-city="saarland"], [data-page="saarland"], [data-city="ghent"], [data-page="ghent"], .skin-plum { --city:#6B3A8C; --city-ink:#61347F; --city-wash:#EFE5F5; --city-on:#FFFFFF; --motif:repeating-linear-gradient(45deg, rgba(255,255,255,.075) 0 1px, transparent 1px 12px); --motif-ink:repeating-linear-gradient(45deg, rgba(25,22,19,.075) 0 1px, transparent 1px 12px); --city-2:#C08A2E; }
-[data-city^="singapore/"], [data-page^="singapore/"], .skin-orchid { --city:#8A3F86; --city-ink:#7D3979; --city-wash:#F6E8F3; --city-on:#FFFFFF; --paper:#FCF8FB; --motif:radial-gradient(circle at 25% 25%, rgba(255,255,255,.075) 2px, transparent 2.5px) 0 0 / 16px 16px, radial-gradient(circle at 75% 75%, rgba(255,255,255,.075) 1.5px, transparent 2px) 0 0 / 16px 16px; --motif-ink:radial-gradient(circle at 25% 25%, rgba(25,22,19,.075) 2px, transparent 2.5px) 0 0 / 16px 16px, radial-gradient(circle at 75% 75%, rgba(25,22,19,.075) 1.5px, transparent 2px) 0 0 / 16px 16px; --city-2:#2F7A6B; }
-[data-city^="vietnam/"], [data-page^="vietnam/"], .skin-jade { --city:#2F7458; --city-ink:#2A684F; --city-wash:#E1F1E8; --city-on:#FFFFFF; --paper:#F8FAF6; --motif:linear-gradient(rgba(255,255,255,.075) 0 1px, transparent 1px) 0 0 / 18px 18px, linear-gradient(90deg, rgba(255,255,255,.075) 0 1px, transparent 1px) 0 0 / 18px 18px; --motif-ink:linear-gradient(rgba(25,22,19,.075) 0 1px, transparent 1px) 0 0 / 18px 18px, linear-gradient(90deg, rgba(25,22,19,.075) 0 1px, transparent 1px) 0 0 / 18px 18px; --city-2:#C2452D; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) [data-city="tokyo"], :root:not([data-theme="light"]) [data-page="tokyo"], :root:not([data-theme="light"]) [data-city="sanfrancisco"], :root:not([data-theme="light"]) [data-page="sanfrancisco"], :root:not([data-theme="light"]) [data-city="cincinnati"], :root:not([data-theme="light"]) [data-page="cincinnati"], :root:not([data-theme="light"]) [data-city="liege"], :root:not([data-theme="light"]) [data-page="liege"], :root:not([data-theme="light"]) [data-city="indianapolis"], :root:not([data-theme="light"]) [data-page="indianapolis"], :root:not([data-theme="light"]) .skin-vermilion { --city:#FF7A57; --city-ink:#FF8F70; --city-wash:#3A1D15; --city-on:#1A0B06; --motif-ink:radial-gradient(circle at 50% 100%, transparent 34%, rgba(255,255,255,.075) 35% 40%, transparent 41% 54%, rgba(255,255,255,.075) 55% 60%, transparent 61%) 0 0 / 30px 15px; --city-2:#8FA8E0; }
-  :root:not([data-theme="light"]) [data-city="kyoto"], :root:not([data-theme="light"]) [data-page="kyoto"], :root:not([data-theme="light"]) [data-city="akron"], :root:not([data-theme="light"]) [data-page="akron"], :root:not([data-theme="light"]) [data-city="youngstown"], :root:not([data-theme="light"]) [data-page="youngstown"], :root:not([data-theme="light"]) [data-city="wheeling"], :root:not([data-theme="light"]) [data-page="wheeling"], :root:not([data-theme="light"]) [data-city="aachen"], :root:not([data-theme="light"]) [data-page="aachen"], :root:not([data-theme="light"]) .skin-moss { --city:#A8C46A; --city-ink:#B7D07E; --city-wash:#1F2914; --city-on:#10160A; --motif-ink:repeating-conic-gradient(from 45deg, rgba(255,255,255,.075) 0 25%, transparent 0 50%) 0 0 / 18px 18px; --city-2:#E2B865; }
-  :root:not([data-theme="light"]) [data-city="osaka"], :root:not([data-theme="light"]) [data-page="osaka"], :root:not([data-theme="light"]) [data-city="miami"], :root:not([data-theme="light"]) [data-page="miami"], :root:not([data-theme="light"]) [data-city="orlando"], :root:not([data-theme="light"]) [data-page="orlando"], :root:not([data-theme="light"]) .skin-neon { --city:#FF74AA; --city-ink:#FF8DBA; --city-wash:#3A1426; --city-on:#1C0711; --motif-ink:radial-gradient(rgba(255,255,255,.075) 1.6px, transparent 2px) 0 0 / 12px 12px; --city-2:#7DB4F0; }
-  :root:not([data-theme="light"]) [data-city="okinawa"], :root:not([data-theme="light"]) [data-page="okinawa"], :root:not([data-theme="light"]) [data-city="madison"], :root:not([data-theme="light"]) [data-page="madison"], :root:not([data-theme="light"]) [data-city="erie"], :root:not([data-theme="light"]) [data-page="erie"], :root:not([data-theme="light"]) .skin-lagoon { --city:#4FD1C9; --city-ink:#6ADBD4; --city-wash:#0F2E2D; --city-on:#041514; --motif-ink:repeating-radial-gradient(circle at 0 100%, transparent 0 9px, rgba(255,255,255,.075) 9px 10px); --city-2:#F2A48C; }
-  :root:not([data-theme="light"]) [data-city="hokkaido"], :root:not([data-theme="light"]) [data-page="hokkaido"], :root:not([data-theme="light"]) [data-city="siliconvalley"], :root:not([data-theme="light"]) [data-page="siliconvalley"], :root:not([data-theme="light"]) [data-city="washingtondc"], :root:not([data-theme="light"]) [data-page="washingtondc"], :root:not([data-theme="light"]) [data-city="harrisburg"], :root:not([data-theme="light"]) [data-page="harrisburg"], :root:not([data-theme="light"]) [data-city="statecollege"], :root:not([data-theme="light"]) [data-page="statecollege"], :root:not([data-theme="light"]) [data-city="antwerp"], :root:not([data-theme="light"]) [data-page="antwerp"], :root:not([data-theme="light"]) .skin-glacier { --city:#7FA8EA; --city-ink:#97B9EF; --city-wash:#17253B; --city-on:#08111F; --motif-ink:repeating-linear-gradient(60deg, rgba(255,255,255,.075) 0 1px, transparent 1px 14px), repeating-linear-gradient(-60deg, rgba(255,255,255,.075) 0 1px, transparent 1px 14px); --city-2:#C2A8E6; }
-  :root:not([data-theme="light"]) [data-city="cleveland"], :root:not([data-theme="light"]) [data-page="cleveland"], :root:not([data-theme="light"]) [data-city="philadelphia"], :root:not([data-theme="light"]) [data-page="philadelphia"], :root:not([data-theme="light"]) [data-city="dayton"], :root:not([data-theme="light"]) [data-page="dayton"], :root:not([data-theme="light"]) [data-city="bruges"], :root:not([data-theme="light"]) [data-page="bruges"], :root:not([data-theme="light"]) .skin-lake { --city:#6FB2E6; --city-ink:#8CC2EC; --city-wash:#142A3A; --city-on:#06131D; --motif-ink:repeating-linear-gradient(0deg, rgba(255,255,255,.075) 0 1px, transparent 1px 10px); --city-2:#E89A74; }
-  :root:not([data-theme="light"]) [data-city="newyork"], :root:not([data-theme="light"]) [data-page="newyork"], :root:not([data-theme="light"]) [data-city="pittsburgh"], :root:not([data-theme="light"]) [data-page="pittsburgh"], :root:not([data-theme="light"]) [data-city="rhineland"], :root:not([data-theme="light"]) [data-page="rhineland"], :root:not([data-theme="light"]) [data-city="brussels"], :root:not([data-theme="light"]) [data-page="brussels"], :root:not([data-theme="light"]) .skin-saffron { --city:#F2B54B; --city-ink:#F5C46D; --city-wash:#35260D; --city-on:#1C1203; --motif-ink:repeating-linear-gradient(90deg, rgba(255,255,255,.075) 0 1px, transparent 1px 26px), repeating-linear-gradient(0deg, rgba(255,255,255,.075) 0 1px, transparent 1px 26px); --city-2:#7EC2B9; }
-  :root:not([data-theme="light"]) [data-city="chicago"], :root:not([data-theme="light"]) [data-page="chicago"], :root:not([data-theme="light"]) [data-city="columbus"], :root:not([data-theme="light"]) [data-page="columbus"], :root:not([data-theme="light"]) [data-city="saarland"], :root:not([data-theme="light"]) [data-page="saarland"], :root:not([data-theme="light"]) [data-city="ghent"], :root:not([data-theme="light"]) [data-page="ghent"], :root:not([data-theme="light"]) .skin-plum { --city:#C79BEA; --city-ink:#D3AEF0; --city-wash:#2C1C38; --city-on:#160C1E; --motif-ink:repeating-linear-gradient(45deg, rgba(255,255,255,.075) 0 1px, transparent 1px 12px); --city-2:#E8C06A; }
-  :root:not([data-theme="light"]) [data-city^="singapore/"], :root:not([data-theme="light"]) [data-page^="singapore/"], :root:not([data-theme="light"]) .skin-orchid { --city:#E3A3DC; --city-ink:#EAB6E4; --city-wash:#33182F; --city-on:#1A0918; --paper:#141117; --motif-ink:radial-gradient(circle at 25% 25%, rgba(255,255,255,.075) 2px, transparent 2.5px) 0 0 / 16px 16px, radial-gradient(circle at 75% 75%, rgba(255,255,255,.075) 1.5px, transparent 2px) 0 0 / 16px 16px; --city-2:#7FCDBB; }
-  :root:not([data-theme="light"]) [data-city^="vietnam/"], :root:not([data-theme="light"]) [data-page^="vietnam/"], :root:not([data-theme="light"]) .skin-jade { --city:#7FD1AC; --city-ink:#95DABB; --city-wash:#13302A; --city-on:#06170F; --paper:#141117; --motif-ink:linear-gradient(rgba(255,255,255,.075) 0 1px, transparent 1px) 0 0 / 18px 18px, linear-gradient(90deg, rgba(255,255,255,.075) 0 1px, transparent 1px) 0 0 / 18px 18px; --city-2:#F08A72; }
-}
-:root[data-theme="dark"] [data-city="tokyo"], :root[data-theme="dark"] [data-page="tokyo"], :root[data-theme="dark"] [data-city="sanfrancisco"], :root[data-theme="dark"] [data-page="sanfrancisco"], :root[data-theme="dark"] [data-city="cincinnati"], :root[data-theme="dark"] [data-page="cincinnati"], :root[data-theme="dark"] [data-city="liege"], :root[data-theme="dark"] [data-page="liege"], :root[data-theme="dark"] [data-city="indianapolis"], :root[data-theme="dark"] [data-page="indianapolis"], :root[data-theme="dark"] .skin-vermilion { --city:#FF7A57; --city-ink:#FF8F70; --city-wash:#3A1D15; --city-on:#1A0B06; --motif-ink:radial-gradient(circle at 50% 100%, transparent 34%, rgba(255,255,255,.075) 35% 40%, transparent 41% 54%, rgba(255,255,255,.075) 55% 60%, transparent 61%) 0 0 / 30px 15px; --city-2:#8FA8E0; }
-:root[data-theme="dark"] [data-city="kyoto"], :root[data-theme="dark"] [data-page="kyoto"], :root[data-theme="dark"] [data-city="akron"], :root[data-theme="dark"] [data-page="akron"], :root[data-theme="dark"] [data-city="youngstown"], :root[data-theme="dark"] [data-page="youngstown"], :root[data-theme="dark"] [data-city="wheeling"], :root[data-theme="dark"] [data-page="wheeling"], :root[data-theme="dark"] [data-city="aachen"], :root[data-theme="dark"] [data-page="aachen"], :root[data-theme="dark"] .skin-moss { --city:#A8C46A; --city-ink:#B7D07E; --city-wash:#1F2914; --city-on:#10160A; --motif-ink:repeating-conic-gradient(from 45deg, rgba(255,255,255,.075) 0 25%, transparent 0 50%) 0 0 / 18px 18px; --city-2:#E2B865; }
-:root[data-theme="dark"] [data-city="osaka"], :root[data-theme="dark"] [data-page="osaka"], :root[data-theme="dark"] [data-city="miami"], :root[data-theme="dark"] [data-page="miami"], :root[data-theme="dark"] [data-city="orlando"], :root[data-theme="dark"] [data-page="orlando"], :root[data-theme="dark"] .skin-neon { --city:#FF74AA; --city-ink:#FF8DBA; --city-wash:#3A1426; --city-on:#1C0711; --motif-ink:radial-gradient(rgba(255,255,255,.075) 1.6px, transparent 2px) 0 0 / 12px 12px; --city-2:#7DB4F0; }
-:root[data-theme="dark"] [data-city="okinawa"], :root[data-theme="dark"] [data-page="okinawa"], :root[data-theme="dark"] [data-city="madison"], :root[data-theme="dark"] [data-page="madison"], :root[data-theme="dark"] [data-city="erie"], :root[data-theme="dark"] [data-page="erie"], :root[data-theme="dark"] .skin-lagoon { --city:#4FD1C9; --city-ink:#6ADBD4; --city-wash:#0F2E2D; --city-on:#041514; --motif-ink:repeating-radial-gradient(circle at 0 100%, transparent 0 9px, rgba(255,255,255,.075) 9px 10px); --city-2:#F2A48C; }
-:root[data-theme="dark"] [data-city="hokkaido"], :root[data-theme="dark"] [data-page="hokkaido"], :root[data-theme="dark"] [data-city="siliconvalley"], :root[data-theme="dark"] [data-page="siliconvalley"], :root[data-theme="dark"] [data-city="washingtondc"], :root[data-theme="dark"] [data-page="washingtondc"], :root[data-theme="dark"] [data-city="harrisburg"], :root[data-theme="dark"] [data-page="harrisburg"], :root[data-theme="dark"] [data-city="statecollege"], :root[data-theme="dark"] [data-page="statecollege"], :root[data-theme="dark"] [data-city="antwerp"], :root[data-theme="dark"] [data-page="antwerp"], :root[data-theme="dark"] .skin-glacier { --city:#7FA8EA; --city-ink:#97B9EF; --city-wash:#17253B; --city-on:#08111F; --motif-ink:repeating-linear-gradient(60deg, rgba(255,255,255,.075) 0 1px, transparent 1px 14px), repeating-linear-gradient(-60deg, rgba(255,255,255,.075) 0 1px, transparent 1px 14px); --city-2:#C2A8E6; }
-:root[data-theme="dark"] [data-city="cleveland"], :root[data-theme="dark"] [data-page="cleveland"], :root[data-theme="dark"] [data-city="philadelphia"], :root[data-theme="dark"] [data-page="philadelphia"], :root[data-theme="dark"] [data-city="dayton"], :root[data-theme="dark"] [data-page="dayton"], :root[data-theme="dark"] [data-city="bruges"], :root[data-theme="dark"] [data-page="bruges"], :root[data-theme="dark"] .skin-lake { --city:#6FB2E6; --city-ink:#8CC2EC; --city-wash:#142A3A; --city-on:#06131D; --motif-ink:repeating-linear-gradient(0deg, rgba(255,255,255,.075) 0 1px, transparent 1px 10px); --city-2:#E89A74; }
-:root[data-theme="dark"] [data-city="newyork"], :root[data-theme="dark"] [data-page="newyork"], :root[data-theme="dark"] [data-city="pittsburgh"], :root[data-theme="dark"] [data-page="pittsburgh"], :root[data-theme="dark"] [data-city="rhineland"], :root[data-theme="dark"] [data-page="rhineland"], :root[data-theme="dark"] [data-city="brussels"], :root[data-theme="dark"] [data-page="brussels"], :root[data-theme="dark"] .skin-saffron { --city:#F2B54B; --city-ink:#F5C46D; --city-wash:#35260D; --city-on:#1C1203; --motif-ink:repeating-linear-gradient(90deg, rgba(255,255,255,.075) 0 1px, transparent 1px 26px), repeating-linear-gradient(0deg, rgba(255,255,255,.075) 0 1px, transparent 1px 26px); --city-2:#7EC2B9; }
-:root[data-theme="dark"] [data-city="chicago"], :root[data-theme="dark"] [data-page="chicago"], :root[data-theme="dark"] [data-city="columbus"], :root[data-theme="dark"] [data-page="columbus"], :root[data-theme="dark"] [data-city="saarland"], :root[data-theme="dark"] [data-page="saarland"], :root[data-theme="dark"] [data-city="ghent"], :root[data-theme="dark"] [data-page="ghent"], :root[data-theme="dark"] .skin-plum { --city:#C79BEA; --city-ink:#D3AEF0; --city-wash:#2C1C38; --city-on:#160C1E; --motif-ink:repeating-linear-gradient(45deg, rgba(255,255,255,.075) 0 1px, transparent 1px 12px); --city-2:#E8C06A; }
-:root[data-theme="dark"] [data-city^="singapore/"], :root[data-theme="dark"] [data-page^="singapore/"], :root[data-theme="dark"] .skin-orchid { --city:#E3A3DC; --city-ink:#EAB6E4; --city-wash:#33182F; --city-on:#1A0918; --paper:#141117; --motif-ink:radial-gradient(circle at 25% 25%, rgba(255,255,255,.075) 2px, transparent 2.5px) 0 0 / 16px 16px, radial-gradient(circle at 75% 75%, rgba(255,255,255,.075) 1.5px, transparent 2px) 0 0 / 16px 16px; --city-2:#7FCDBB; }
-:root[data-theme="dark"] [data-city^="vietnam/"], :root[data-theme="dark"] [data-page^="vietnam/"], :root[data-theme="dark"] .skin-jade { --city:#7FD1AC; --city-ink:#95DABB; --city-wash:#13302A; --city-on:#06170F; --paper:#141117; --motif-ink:linear-gradient(rgba(255,255,255,.075) 0 1px, transparent 1px) 0 0 / 18px 18px, linear-gradient(90deg, rgba(255,255,255,.075) 0 1px, transparent 1px) 0 0 / 18px 18px; --city-2:#F08A72; }
-/* root copies: the site bar, page ground and footer take the city skin too (html:has(main[data-city])) */
-html:has(main[data-city="tokyo"]), html:has(main[data-city="sanfrancisco"]), html:has(main[data-city="cincinnati"]), html:has(main[data-city="liege"]), html:has(main[data-city="indianapolis"]) { --city:#C23A1C; --city-ink:#A9321A; --city-wash:#FBE8E1; --city-on:#FFFFFF; --motif:radial-gradient(circle at 50% 100%, transparent 34%, rgba(255,255,255,.075) 35% 40%, transparent 41% 54%, rgba(255,255,255,.075) 55% 60%, transparent 61%) 0 0 / 30px 15px; --motif-ink:radial-gradient(circle at 50% 100%, transparent 34%, rgba(25,22,19,.075) 35% 40%, transparent 41% 54%, rgba(25,22,19,.075) 55% 60%, transparent 61%) 0 0 / 30px 15px; --city-2:#1E3A6B; }
-html:has(main[data-city="kyoto"]), html:has(main[data-city="akron"]), html:has(main[data-city="youngstown"]), html:has(main[data-city="wheeling"]), html:has(main[data-city="aachen"]) { --city:#4E6B22; --city-ink:#46601E; --city-wash:#EBF0DF; --city-on:#FFFFFF; --motif:repeating-conic-gradient(from 45deg, rgba(255,255,255,.075) 0 25%, transparent 0 50%) 0 0 / 18px 18px; --motif-ink:repeating-conic-gradient(from 45deg, rgba(25,22,19,.075) 0 25%, transparent 0 50%) 0 0 / 18px 18px; --city-2:#B5832A; }
-html:has(main[data-city="osaka"]), html:has(main[data-city="miami"]), html:has(main[data-city="orlando"]) { --city:#B8255F; --city-ink:#A32154; --city-wash:#F9E3EC; --city-on:#FFFFFF; --motif:radial-gradient(rgba(255,255,255,.075) 1.6px, transparent 2px) 0 0 / 12px 12px; --motif-ink:radial-gradient(rgba(25,22,19,.075) 1.6px, transparent 2px) 0 0 / 12px 12px; --city-2:#2A6CB0; }
-html:has(main[data-city="okinawa"]), html:has(main[data-city="madison"]), html:has(main[data-city="erie"]) { --city:#0B7473; --city-ink:#0A6766; --city-wash:#DDF1EF; --city-on:#FFFFFF; --motif:repeating-radial-gradient(circle at 0 100%, transparent 0 9px, rgba(255,255,255,.075) 9px 10px); --motif-ink:repeating-radial-gradient(circle at 0 100%, transparent 0 9px, rgba(25,22,19,.075) 9px 10px); --city-2:#E07A5F; }
-html:has(main[data-city="hokkaido"]), html:has(main[data-city="siliconvalley"]), html:has(main[data-city="washingtondc"]), html:has(main[data-city="harrisburg"]), html:has(main[data-city="statecollege"]), html:has(main[data-city="antwerp"]) { --city:#2F5F9E; --city-ink:#2A558E; --city-wash:#E3EBF6; --city-on:#FFFFFF; --motif:repeating-linear-gradient(60deg, rgba(255,255,255,.075) 0 1px, transparent 1px 14px), repeating-linear-gradient(-60deg, rgba(255,255,255,.075) 0 1px, transparent 1px 14px); --motif-ink:repeating-linear-gradient(60deg, rgba(25,22,19,.075) 0 1px, transparent 1px 14px), repeating-linear-gradient(-60deg, rgba(25,22,19,.075) 0 1px, transparent 1px 14px); --city-2:#8C6BB0; }
-html:has(main[data-city="cleveland"]), html:has(main[data-city="philadelphia"]), html:has(main[data-city="dayton"]), html:has(main[data-city="bruges"]) { --city:#1F5E8A; --city-ink:#1B5479; --city-wash:#E2EDF5; --city-on:#FFFFFF; --motif:repeating-linear-gradient(0deg, rgba(255,255,255,.075) 0 1px, transparent 1px 10px); --motif-ink:repeating-linear-gradient(0deg, rgba(25,22,19,.075) 0 1px, transparent 1px 10px); --city-2:#B8572E; }
-html:has(main[data-city="newyork"]), html:has(main[data-city="pittsburgh"]), html:has(main[data-city="rhineland"]), html:has(main[data-city="brussels"]) { --city:#9A5B00; --city-ink:#8A5100; --city-wash:#FAEBD3; --city-on:#FFFFFF; --motif:repeating-linear-gradient(90deg, rgba(255,255,255,.075) 0 1px, transparent 1px 26px), repeating-linear-gradient(0deg, rgba(255,255,255,.075) 0 1px, transparent 1px 26px); --motif-ink:repeating-linear-gradient(90deg, rgba(25,22,19,.075) 0 1px, transparent 1px 26px), repeating-linear-gradient(0deg, rgba(25,22,19,.075) 0 1px, transparent 1px 26px); --city-2:#2F5F5A; }
-html:has(main[data-city="chicago"]), html:has(main[data-city="columbus"]), html:has(main[data-city="saarland"]), html:has(main[data-city="ghent"]) { --city:#6B3A8C; --city-ink:#61347F; --city-wash:#EFE5F5; --city-on:#FFFFFF; --motif:repeating-linear-gradient(45deg, rgba(255,255,255,.075) 0 1px, transparent 1px 12px); --motif-ink:repeating-linear-gradient(45deg, rgba(25,22,19,.075) 0 1px, transparent 1px 12px); --city-2:#C08A2E; }
-html:has(main[data-city^="singapore/"]) { --city:#8A3F86; --city-ink:#7D3979; --city-wash:#F6E8F3; --city-on:#FFFFFF; --paper:#FCF8FB; --motif:radial-gradient(circle at 25% 25%, rgba(255,255,255,.075) 2px, transparent 2.5px) 0 0 / 16px 16px, radial-gradient(circle at 75% 75%, rgba(255,255,255,.075) 1.5px, transparent 2px) 0 0 / 16px 16px; --motif-ink:radial-gradient(circle at 25% 25%, rgba(25,22,19,.075) 2px, transparent 2.5px) 0 0 / 16px 16px, radial-gradient(circle at 75% 75%, rgba(25,22,19,.075) 1.5px, transparent 2px) 0 0 / 16px 16px; --city-2:#2F7A6B; }
-html:has(main[data-city^="vietnam/"]) { --city:#2F7458; --city-ink:#2A684F; --city-wash:#E1F1E8; --city-on:#FFFFFF; --paper:#F8FAF6; --motif:linear-gradient(rgba(255,255,255,.075) 0 1px, transparent 1px) 0 0 / 18px 18px, linear-gradient(90deg, rgba(255,255,255,.075) 0 1px, transparent 1px) 0 0 / 18px 18px; --motif-ink:linear-gradient(rgba(25,22,19,.075) 0 1px, transparent 1px) 0 0 / 18px 18px, linear-gradient(90deg, rgba(25,22,19,.075) 0 1px, transparent 1px) 0 0 / 18px 18px; --city-2:#C2452D; }
-@media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]):has(main[data-city="tokyo"]), html:not([data-theme="light"]):has(main[data-city="sanfrancisco"]), html:not([data-theme="light"]):has(main[data-city="cincinnati"]), html:not([data-theme="light"]):has(main[data-city="liege"]), html:not([data-theme="light"]):has(main[data-city="indianapolis"]) { --city:#FF7A57; --city-ink:#FF8F70; --city-wash:#3A1D15; --city-on:#1A0B06; --motif-ink:radial-gradient(circle at 50% 100%, transparent 34%, rgba(255,255,255,.075) 35% 40%, transparent 41% 54%, rgba(255,255,255,.075) 55% 60%, transparent 61%) 0 0 / 30px 15px; --city-2:#8FA8E0; }
-  html:not([data-theme="light"]):has(main[data-city="kyoto"]), html:not([data-theme="light"]):has(main[data-city="akron"]), html:not([data-theme="light"]):has(main[data-city="youngstown"]), html:not([data-theme="light"]):has(main[data-city="wheeling"]), html:not([data-theme="light"]):has(main[data-city="aachen"]) { --city:#A8C46A; --city-ink:#B7D07E; --city-wash:#1F2914; --city-on:#10160A; --motif-ink:repeating-conic-gradient(from 45deg, rgba(255,255,255,.075) 0 25%, transparent 0 50%) 0 0 / 18px 18px; --city-2:#E2B865; }
-  html:not([data-theme="light"]):has(main[data-city="osaka"]), html:not([data-theme="light"]):has(main[data-city="miami"]), html:not([data-theme="light"]):has(main[data-city="orlando"]) { --city:#FF74AA; --city-ink:#FF8DBA; --city-wash:#3A1426; --city-on:#1C0711; --motif-ink:radial-gradient(rgba(255,255,255,.075) 1.6px, transparent 2px) 0 0 / 12px 12px; --city-2:#7DB4F0; }
-  html:not([data-theme="light"]):has(main[data-city="okinawa"]), html:not([data-theme="light"]):has(main[data-city="madison"]), html:not([data-theme="light"]):has(main[data-city="erie"]) { --city:#4FD1C9; --city-ink:#6ADBD4; --city-wash:#0F2E2D; --city-on:#041514; --motif-ink:repeating-radial-gradient(circle at 0 100%, transparent 0 9px, rgba(255,255,255,.075) 9px 10px); --city-2:#F2A48C; }
-  html:not([data-theme="light"]):has(main[data-city="hokkaido"]), html:not([data-theme="light"]):has(main[data-city="siliconvalley"]), html:not([data-theme="light"]):has(main[data-city="washingtondc"]), html:not([data-theme="light"]):has(main[data-city="harrisburg"]), html:not([data-theme="light"]):has(main[data-city="statecollege"]), html:not([data-theme="light"]):has(main[data-city="antwerp"]) { --city:#7FA8EA; --city-ink:#97B9EF; --city-wash:#17253B; --city-on:#08111F; --motif-ink:repeating-linear-gradient(60deg, rgba(255,255,255,.075) 0 1px, transparent 1px 14px), repeating-linear-gradient(-60deg, rgba(255,255,255,.075) 0 1px, transparent 1px 14px); --city-2:#C2A8E6; }
-  html:not([data-theme="light"]):has(main[data-city="cleveland"]), html:not([data-theme="light"]):has(main[data-city="philadelphia"]), html:not([data-theme="light"]):has(main[data-city="dayton"]), html:not([data-theme="light"]):has(main[data-city="bruges"]) { --city:#6FB2E6; --city-ink:#8CC2EC; --city-wash:#142A3A; --city-on:#06131D; --motif-ink:repeating-linear-gradient(0deg, rgba(255,255,255,.075) 0 1px, transparent 1px 10px); --city-2:#E89A74; }
-  html:not([data-theme="light"]):has(main[data-city="newyork"]), html:not([data-theme="light"]):has(main[data-city="pittsburgh"]), html:not([data-theme="light"]):has(main[data-city="rhineland"]), html:not([data-theme="light"]):has(main[data-city="brussels"]) { --city:#F2B54B; --city-ink:#F5C46D; --city-wash:#35260D; --city-on:#1C1203; --motif-ink:repeating-linear-gradient(90deg, rgba(255,255,255,.075) 0 1px, transparent 1px 26px), repeating-linear-gradient(0deg, rgba(255,255,255,.075) 0 1px, transparent 1px 26px); --city-2:#7EC2B9; }
-  html:not([data-theme="light"]):has(main[data-city="chicago"]), html:not([data-theme="light"]):has(main[data-city="columbus"]), html:not([data-theme="light"]):has(main[data-city="saarland"]), html:not([data-theme="light"]):has(main[data-city="ghent"]) { --city:#C79BEA; --city-ink:#D3AEF0; --city-wash:#2C1C38; --city-on:#160C1E; --motif-ink:repeating-linear-gradient(45deg, rgba(255,255,255,.075) 0 1px, transparent 1px 12px); --city-2:#E8C06A; }
-  html:not([data-theme="light"]):has(main[data-city^="singapore/"]) { --city:#E3A3DC; --city-ink:#EAB6E4; --city-wash:#33182F; --city-on:#1A0918; --paper:#141117; --motif-ink:radial-gradient(circle at 25% 25%, rgba(255,255,255,.075) 2px, transparent 2.5px) 0 0 / 16px 16px, radial-gradient(circle at 75% 75%, rgba(255,255,255,.075) 1.5px, transparent 2px) 0 0 / 16px 16px; --city-2:#7FCDBB; }
-  html:not([data-theme="light"]):has(main[data-city^="vietnam/"]) { --city:#7FD1AC; --city-ink:#95DABB; --city-wash:#13302A; --city-on:#06170F; --paper:#141117; --motif-ink:linear-gradient(rgba(255,255,255,.075) 0 1px, transparent 1px) 0 0 / 18px 18px, linear-gradient(90deg, rgba(255,255,255,.075) 0 1px, transparent 1px) 0 0 / 18px 18px; --city-2:#F08A72; }
-}
-html[data-theme="dark"]:has(main[data-city="tokyo"]), html[data-theme="dark"]:has(main[data-city="sanfrancisco"]), html[data-theme="dark"]:has(main[data-city="cincinnati"]), html[data-theme="dark"]:has(main[data-city="liege"]), html[data-theme="dark"]:has(main[data-city="indianapolis"]) { --city:#FF7A57; --city-ink:#FF8F70; --city-wash:#3A1D15; --city-on:#1A0B06; --motif-ink:radial-gradient(circle at 50% 100%, transparent 34%, rgba(255,255,255,.075) 35% 40%, transparent 41% 54%, rgba(255,255,255,.075) 55% 60%, transparent 61%) 0 0 / 30px 15px; --city-2:#8FA8E0; }
-html[data-theme="dark"]:has(main[data-city="kyoto"]), html[data-theme="dark"]:has(main[data-city="akron"]), html[data-theme="dark"]:has(main[data-city="youngstown"]), html[data-theme="dark"]:has(main[data-city="wheeling"]), html[data-theme="dark"]:has(main[data-city="aachen"]) { --city:#A8C46A; --city-ink:#B7D07E; --city-wash:#1F2914; --city-on:#10160A; --motif-ink:repeating-conic-gradient(from 45deg, rgba(255,255,255,.075) 0 25%, transparent 0 50%) 0 0 / 18px 18px; --city-2:#E2B865; }
-html[data-theme="dark"]:has(main[data-city="osaka"]), html[data-theme="dark"]:has(main[data-city="miami"]), html[data-theme="dark"]:has(main[data-city="orlando"]) { --city:#FF74AA; --city-ink:#FF8DBA; --city-wash:#3A1426; --city-on:#1C0711; --motif-ink:radial-gradient(rgba(255,255,255,.075) 1.6px, transparent 2px) 0 0 / 12px 12px; --city-2:#7DB4F0; }
-html[data-theme="dark"]:has(main[data-city="okinawa"]), html[data-theme="dark"]:has(main[data-city="madison"]), html[data-theme="dark"]:has(main[data-city="erie"]) { --city:#4FD1C9; --city-ink:#6ADBD4; --city-wash:#0F2E2D; --city-on:#041514; --motif-ink:repeating-radial-gradient(circle at 0 100%, transparent 0 9px, rgba(255,255,255,.075) 9px 10px); --city-2:#F2A48C; }
-html[data-theme="dark"]:has(main[data-city="hokkaido"]), html[data-theme="dark"]:has(main[data-city="siliconvalley"]), html[data-theme="dark"]:has(main[data-city="washingtondc"]), html[data-theme="dark"]:has(main[data-city="harrisburg"]), html[data-theme="dark"]:has(main[data-city="statecollege"]), html[data-theme="dark"]:has(main[data-city="antwerp"]) { --city:#7FA8EA; --city-ink:#97B9EF; --city-wash:#17253B; --city-on:#08111F; --motif-ink:repeating-linear-gradient(60deg, rgba(255,255,255,.075) 0 1px, transparent 1px 14px), repeating-linear-gradient(-60deg, rgba(255,255,255,.075) 0 1px, transparent 1px 14px); --city-2:#C2A8E6; }
-html[data-theme="dark"]:has(main[data-city="cleveland"]), html[data-theme="dark"]:has(main[data-city="philadelphia"]), html[data-theme="dark"]:has(main[data-city="dayton"]), html[data-theme="dark"]:has(main[data-city="bruges"]) { --city:#6FB2E6; --city-ink:#8CC2EC; --city-wash:#142A3A; --city-on:#06131D; --motif-ink:repeating-linear-gradient(0deg, rgba(255,255,255,.075) 0 1px, transparent 1px 10px); --city-2:#E89A74; }
-html[data-theme="dark"]:has(main[data-city="newyork"]), html[data-theme="dark"]:has(main[data-city="pittsburgh"]), html[data-theme="dark"]:has(main[data-city="rhineland"]), html[data-theme="dark"]:has(main[data-city="brussels"]) { --city:#F2B54B; --city-ink:#F5C46D; --city-wash:#35260D; --city-on:#1C1203; --motif-ink:repeating-linear-gradient(90deg, rgba(255,255,255,.075) 0 1px, transparent 1px 26px), repeating-linear-gradient(0deg, rgba(255,255,255,.075) 0 1px, transparent 1px 26px); --city-2:#7EC2B9; }
-html[data-theme="dark"]:has(main[data-city="chicago"]), html[data-theme="dark"]:has(main[data-city="columbus"]), html[data-theme="dark"]:has(main[data-city="saarland"]), html[data-theme="dark"]:has(main[data-city="ghent"]) { --city:#C79BEA; --city-ink:#D3AEF0; --city-wash:#2C1C38; --city-on:#160C1E; --motif-ink:repeating-linear-gradient(45deg, rgba(255,255,255,.075) 0 1px, transparent 1px 12px); --city-2:#E8C06A; }
-html[data-theme="dark"]:has(main[data-city^="singapore/"]) { --city:#E3A3DC; --city-ink:#EAB6E4; --city-wash:#33182F; --city-on:#1A0918; --paper:#141117; --motif-ink:radial-gradient(circle at 25% 25%, rgba(255,255,255,.075) 2px, transparent 2.5px) 0 0 / 16px 16px, radial-gradient(circle at 75% 75%, rgba(255,255,255,.075) 1.5px, transparent 2px) 0 0 / 16px 16px; --city-2:#7FCDBB; }
-html[data-theme="dark"]:has(main[data-city^="vietnam/"]) { --city:#7FD1AC; --city-ink:#95DABB; --city-wash:#13302A; --city-on:#06170F; --paper:#141117; --motif-ink:linear-gradient(rgba(255,255,255,.075) 0 1px, transparent 1px) 0 0 / 18px 18px, linear-gradient(90deg, rgba(255,255,255,.075) 0 1px, transparent 1px) 0 0 / 18px 18px; --city-2:#F08A72; }
+   Retired in design system v2 (W7): one accent site-wide, no per-city skin. data-city / data-page / .skin-* stay as hooks. */
 /* ---------------- end city skins ---------------- */
 
 @media (prefers-reduced-motion: reduce) {
-  :root { --dur-1: 0ms; --dur-2: 0ms; --dur-3: 0ms; --dur-4: 0ms; }
+  :root { --dur-1: 0ms; --dur-2: 0ms; --dur-3: 0ms; --dur-4: 0ms; --dur-grow: 0ms; --dur-pop: 0ms; }
 }

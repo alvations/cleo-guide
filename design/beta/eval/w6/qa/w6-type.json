@@ -1,0 +1,227 @@
+{
+ "head": "2f227631252db2a90fd7e76541365a151871ac99",
+ "checks": [
+  {
+   "group": "type",
+   "name": "Vietnam/hanoi.html: shipped faces draw every letter on the page (79 chars, 1 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Playfair 5pt SemiExpanded Light:78",
+     "Inter:1"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:78"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "Vietnam/ho-chi-minh-city.html: shipped faces draw every letter on the page (149 chars, 47 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Playfair 5pt SemiExpanded Light:147",
+     "Liberation Serif:1",
+     "Inter:1"
+    ],
+    "ui": [
+     "Inter:2",
+     "Inter:147"
+    ],
+    "displayFallback": [
+     "→ U+2192"
+    ],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "Vietnam/hoi-an.html: shipped faces draw every letter on the page (75 chars, 0 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Playfair 5pt SemiExpanded Light:74",
+     "Inter:1"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:74"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "Vietnam/index.html: shipped faces draw every letter on the page (74 chars, 4 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Playfair 5pt SemiExpanded Light:74"
+    ],
+    "ui": [
+     "Inter:74"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "cleveland.html: shipped faces draw every letter on the page (106 chars, 8 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Playfair 5pt SemiExpanded Light:105",
+     "Inter:1"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:105"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "cities/tokyo.html: shipped faces draw every letter on the page (102 chars, 2 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Playfair 5pt SemiExpanded Light:105",
+     "Inter:1"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:101"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "cities/tokyo.html: CJK (600 chars) falls back to a CJK system face, no gaps",
+   "ok": true,
+   "evidence": [
+    "IPAGothic:600"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "cities/newyork.html: shipped faces draw every letter on the page (86 chars, 0 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Playfair 5pt SemiExpanded Light:85",
+     "Inter:1"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:85"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "Singapore/chinatown.html: shipped faces draw every letter on the page (80 chars, 0 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Playfair 5pt SemiExpanded Light:79",
+     "Inter:1"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:79"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "cities/wheeling.html: shipped faces draw every letter on the page (81 chars, 0 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Playfair 5pt SemiExpanded Light:81"
+    ],
+    "ui": [
+     "Inter:81"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "index.html: shipped faces draw every letter on the page (95 chars, 5 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Playfair 5pt SemiExpanded Light:95",
+     "Inter:1"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:94"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "index.html: CJK (10 chars) falls back to a CJK system face, no gaps",
+   "ok": true,
+   "evidence": [
+    "IPAGothic:10"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "DPR 1, 18 px, var(--font-display): \"ō\" draws its macron (pixels differ from \"o\")",
+   "ok": true,
+   "evidence": {
+    "a": 317,
+    "b": 304
+   }
+  },
+  {
+   "group": "type",
+   "name": "DPR 1, 24 px, var(--font-display): \"ō\" draws its macron (pixels differ from \"o\")",
+   "ok": true,
+   "evidence": {
+    "a": 395,
+    "b": 376
+   }
+  },
+  {
+   "group": "type",
+   "name": "DPR 1, 18 px, var(--font-ui): \"ō\" draws its macron (pixels differ from \"o\")",
+   "ok": true,
+   "evidence": {
+    "a": 417,
+    "b": 389
+   }
+  },
+  {
+   "group": "type",
+   "name": "DPR 1, 24 px, var(--font-ui): \"ō\" draws its macron (pixels differ from \"o\")",
+   "ok": true,
+   "evidence": {
+    "a": 537,
+    "b": 501
+   }
+  }
+ ],
+ "info": {}
+}

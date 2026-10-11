@@ -60,7 +60,7 @@ return L.circleMarker(p, { radius: 9, weight: 2, color: '#fff', fillColor: accen
 .on('click', function () { C.go({ day: C.S.day, p: ids[i] }); });
 }))).addTo(map);
 var k = C.S.day + ids.join();
-if (k !== drawn) { drawn = k; map.fitBounds(L.latLngBounds(pts), { padding: [48, 48], maxZoom: 16, animate: false }); }
+if (k !== drawn) { drawn = k; map.fitBounds(L.latLngBounds(pts), Object.assign(C.overMap ? C.overMap() : { padding: [48, 48] }, { maxZoom: 16, animate: false })); }
 });
 function kml(title, ids) {
 var x = function (s) { return String(s).replace(/[<&>]/g, function (c) { return { '<': '&lt;', '&': '&amp;', '>': '&gt;' }[c]; }); };

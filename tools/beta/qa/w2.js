@@ -263,7 +263,7 @@ async function map() {
       const M = window.Cleo && Cleo.city && Cleo.city.map && Cleo.city.map();
       const ctr = M && M.getCenter ? M.getCenter() : null; const b = M && M.getBounds ? M.getBounds() : null;
       return { id: c.id, ll, ctr: ctr && [ctr.lat, ctr.lng], inView: b ? b.contains(ll) : null, sheet: !!document.querySelector('#cleo-sheet:not([hidden])'),
-        numbered: document.querySelectorAll('.leaflet-tooltip.pin-n, .pin-n').length };
+        numbered: document.querySelectorAll('.leaflet-tooltip.pin-n, .pin-n, .leaflet-marker-icon.pp').length };   // W7: label-pill pins carry the number
     });
     const off = r.ctr ? Math.hypot(r.ctr[0] - r.ll[0], r.ctr[1] - r.ll[1]) : null;
     check('map', `${rel} desktop: open sheet → its place is in view on the map`, r.sheet && r.inView === true, { id: r.id, inView: r.inView, offDeg: off && +off.toFixed(4) });
@@ -271,24 +271,32 @@ async function map() {
     if (rel === 'cities/tokyo.html') await shot(page, 'map-sheet-tokyo-d');
     check('map', `${rel} desktop: 0 JS errors`, !st.errors.length, st.errors.slice(0, 3));
     await ctx.close();
-    // mobile: toggle → pin → peek detent ≤ 40 %, Esc closes, locator inset in the full sheet
+    // mobile: map → pin → peek ≤ 40 %, Esc leaves nothing over the map, locator inset in the full sheet.
+    // W7 Atlas map-search (Amendment 2): the phone Atlas IS the map (the "Map" pill shows only over the list, so a toggle
+    // is pressed only when one is visible) and a pin's peek is its card in the bottom carousel instead of a sheet: the
+    // peek is measured as the carousel holding the selected card (docs/BETA-LOG.md, for QA to ratify). Pins are label
+    // pills (.pp); below zoom 15 nearby pins gather into bubbles, so a bubble is tapped (it zooms in) until a pin shows.
     const m = await open(rel, 'mobile', { hash: '#view=atlas', settle: 800 });
-    const tg = m.page.locator('.map-toggle').first();
-    if (await tg.count()) {
-      await tg.click(); await m.page.waitForTimeout(1500);
-      const pin = m.page.locator('.leaflet-marker-icon, .leaflet-interactive').first();
-      let peek = null, esc = null;
-      if (await pin.count()) {
-        await pin.click({ force: true }).catch(() => {}); await m.page.waitForTimeout(900);
-        peek = await m.page.evaluate(() => { const s = [...document.querySelectorAll('.poi-sheet, .sheet, [role=dialog]')].find(e => e.offsetParent && e.getBoundingClientRect().height > 40);
-          return s ? Math.round(s.getBoundingClientRect().height / innerHeight * 100) : null; });
-        if (rel === 'cities/tokyo.html') await shot(m.page, 'map-peek-tokyo-m');
-        await m.page.keyboard.press('Escape'); await m.page.waitForTimeout(500);
-        esc = await m.page.evaluate(() => ![...document.querySelectorAll('.poi-sheet')].some(e => e.offsetParent && e.getBoundingClientRect().height > 40));
-      }
-      check('map', `${rel} mobile: pin peek detent ≤ 40 % of the viewport`, peek != null && peek <= 40, peek == null ? 'no sheet' : peek + ' %');
-      check('map', `${rel} mobile: Esc closes the pin sheet (QA-19)`, esc === true, esc);
-    } else check('map', `${rel} mobile: map toggle`, false);
+    const tg = m.page.locator('.map-toggle:visible, .ms-toggle[aria-pressed="true"]:visible').first();
+    if (await tg.count()) await tg.click();
+    await m.page.waitForTimeout(1500);
+    const tapPin = () => m.page.evaluate(() => {   // a pill's icon box is 0×0: its label is the pin
+      const band = e => { const r = (e.firstElementChild || e).getBoundingClientRect(); return r.width && r.left > 20 && r.right < innerWidth - 70 && r.top > 200 && r.bottom < innerHeight - 220; };
+      const p = [...document.querySelectorAll('.leaflet-marker-icon.pp')].find(band); if (p) { p.firstElementChild.dispatchEvent(new MouseEvent('click', { bubbles: true })); return 'pin'; }
+      const c = [...document.querySelectorAll('.leaflet-marker-icon.pin-cl')].find(band); if (c) { c.dispatchEvent(new MouseEvent('click', { bubbles: true })); return 'bubble'; }
+      return null; });
+    let peek = null, esc = null, how = null;
+    for (let i = 0; i < 4 && how !== 'pin'; i++) { how = await tapPin(); await m.page.waitForTimeout(900); if (!how) break; }
+    if (how === 'pin') {
+      peek = await m.page.evaluate(() => { const c = document.querySelector('li.pl.is-sel'); const s = c && (c.closest('.poi-sheet, .sheet, [role=dialog], .listpane') || c);
+        const r = s && s.getBoundingClientRect(), cr = c && c.getBoundingClientRect(); const inView = !!cr && cr.left >= -2 && cr.right <= innerWidth + 2 && cr.bottom <= innerHeight + 2;
+        return r && inView && r.height > 40 ? Math.round(r.height / innerHeight * 100) : null; });
+      if (rel === 'cities/tokyo.html') await shot(m.page, 'map-peek-tokyo-m');
+      await m.page.keyboard.press('Escape'); await m.page.waitForTimeout(500);
+      esc = await m.page.evaluate(() => ![...document.querySelectorAll('.poi-sheet')].some(e => e.offsetParent && e.getBoundingClientRect().height > 40));
+    }
+    check('map', `${rel} mobile: pin peek detent ≤ 40 % of the viewport`, peek != null && peek <= 40, peek == null ? 'no peek (' + how + ')' : peek + ' %');
+    check('map', `${rel} mobile: Esc closes the pin sheet (QA-19)`, esc === true, esc);
     await m.ctx.close();
     const s = await open(rel, 'mobile', { hash: '#p=' + (await firstPinned(rel)), settle: 1200 });
     const loc = await s.page.evaluate(() => !!document.querySelector('#cleo-sheet:not([hidden]) .locator, #cleo-sheet:not([hidden]) .loc'));

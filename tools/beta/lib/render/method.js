@@ -76,10 +76,10 @@ function methodPage(reg, ctx) {
 <body class="has-tabbar">
 ${siteBar({ depth: 0, current: 'method', rel: 'how-we-choose.html' })}
 <main id="main" class="feb">
-<section class="masthead" aria-labelledby="mh"><div class="inner">
+<section class="page-head" aria-labelledby="mh"><div class="inner">
   <h1 class="title d1" id="mh">How we choose</h1>
-  <p class="facts">Every place on every Cleo map is there because someone credible recommended it — and you can see who. Here is the whole method, with the numbers as they stand today.</p>
-</div><span class="accentbar"></span></section>
+  <p class="lead">Every place on every Cleo map is there because someone credible recommended it — and you can see who. Here is the whole method, with the numbers as they stand today.</p>
+</div></section>
 <div class="wrap section">
   <div class="stats" role="list" aria-label="The guide in numbers">
     <div role="listitem"><b>${n(s.places)}</b><span>places in ${s.guides} guides</span></div>
@@ -171,10 +171,10 @@ function accessibilityPage(reg, ctx) {
 <body class="has-tabbar">
 ${siteBar({ depth: 0, current: 'other', rel: 'accessibility.html' })}
 <main id="main" class="feb">
-<section class="masthead" aria-labelledby="ah"><div class="inner">
+<section class="page-head" aria-labelledby="ah"><div class="inner">
   <h1 class="title d1" id="ah">Accessibility</h1>
-  <p class="facts">A guide is only useful if you can read it. Cleo aims to meet <b>WCAG 2.2 level AA</b> on every page, for every one of its ${T.places.toLocaleString('en-US')} places — and to say plainly where it doesn't yet.</p>
-</div><span class="accentbar"></span></section>
+  <p class="lead">A guide is only useful if you can read it. Cleo aims to meet <b>WCAG 2.2 level AA</b> on every page, for every one of its ${T.places.toLocaleString('en-US')} places — and to say plainly where it doesn't yet.</p>
+</div></section>
 <div class="wrap section prose">
   <h2 class="d2" id="commit">What we commit to</h2>
   <ul class="a11y-list">

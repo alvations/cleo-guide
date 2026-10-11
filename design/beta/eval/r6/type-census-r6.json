@@ -1,0 +1,1272 @@
+{
+ "label": "R6",
+ "res": {
+  "landing-m": {
+   "textEls": 143,
+   "distinctSizes": 13,
+   "sizes": {
+    "24px": 1,
+    "15px": 5,
+    "34px": 2,
+    "16px": 1,
+    "28px": 2,
+    "12px": 10,
+    "21px": 6,
+    "13px": 22,
+    "26px": 6,
+    "14px": 6,
+    "52px": 18,
+    "20px": 16,
+    "13.5px": 48
+   },
+   "distinctLS": 6,
+   "families": {
+    "Playfair": 51,
+    "Inter": 92
+   },
+   "weights": {
+    "400": 73,
+    "500": 53,
+    "600": 17
+   },
+   "distinctRadii": 4,
+   "radii": {
+    "50%": 2,
+    "999px": 8,
+    "16px": 6,
+    "20px": 18
+   },
+   "distinctShadows": 3,
+   "numericEls": 6,
+   "numericTabular": 0,
+   "numericSamples": [
+    "n:39:normal",
+    "n:269:normal",
+    "n:43:normal",
+    "n:63:normal",
+    "n:163:normal",
+    "n:116:normal"
+   ],
+   "scripts": {
+    "macron-disp": {
+     "text": "Onsen & sentō",
+     "size": "23px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×14"
+     ]
+    }
+   }
+  },
+  "hub-m": {
+   "textEls": 185,
+   "distinctSizes": 14,
+   "sizes": {
+    "24px": 1,
+    "14px": 45,
+    "15px": 6,
+    "44px": 8,
+    "19px": 4,
+    "18px": 5,
+    "20px": 5,
+    "13px": 14,
+    "13.5px": 78,
+    "12.5px": 5,
+    "28px": 2,
+    "23px": 7,
+    "27px": 1,
+    "12px": 4
+   },
+   "distinctLS": 7,
+   "families": {
+    "Playfair": 28,
+    "Inter": 152,
+    "Noto Serif JP": 5
+   },
+   "weights": {
+    "400": 96,
+    "450": 1,
+    "500": 38,
+    "600": 21,
+    "650": 29
+   },
+   "distinctRadii": 3,
+   "radii": {
+    "50%": 2,
+    "999px": 36,
+    "20px": 12
+   },
+   "distinctShadows": 0,
+   "numericEls": 40,
+   "numericTabular": 5,
+   "numericSamples": [
+    "theme-n:116:normal",
+    ":37:normal",
+    ":28:normal",
+    ":24:normal",
+    ":18:normal",
+    "theme-n:315:normal"
+   ],
+   "scripts": {
+    "macron-disp": {
+     "text": "Goryōkaku",
+     "size": "19px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×10"
+     ]
+    },
+    "cjk-ui": {
+     "text": "東京",
+     "size": "18px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "Goryōkaku",
+     "size": "13.5px",
+     "fonts": [
+      "Inter×11"
+     ]
+    }
+   }
+  },
+  "tokyo-gallery-m": {
+   "textEls": 341,
+   "distinctSizes": 16,
+   "sizes": {
+    "24px": 4,
+    "14px": 11,
+    "13px": 135,
+    "50.7px": 1,
+    "19.76px": 1,
+    "17px": 5,
+    "15px": 27,
+    "12.5px": 56,
+    "20px": 1,
+    "21px": 26,
+    "0px": 25,
+    "30px": 4,
+    "12px": 8,
+    "19px": 1,
+    "16px": 35,
+    "28px": 1
+   },
+   "distinctLS": 12,
+   "families": {
+    "Playfair": 70,
+    "Inter": 264,
+    "Noto Serif JP": 7
+   },
+   "weights": {
+    "400": 76,
+    "500": 122,
+    "600": 142,
+    "700": 1
+   },
+   "distinctRadii": 5,
+   "radii": {
+    "999px": 64,
+    "50%": 28,
+    "20px": 1,
+    "12px": 65,
+    "13px": 1
+   },
+   "distinctShadows": 4,
+   "numericEls": 72,
+   "numericTabular": 4,
+   "numericSamples": [
+    "nw:2026-10-03:normal",
+    "pl-s:Recommende:normal",
+    "more:+1:normal",
+    "pl-s:Recommende:normal",
+    "more:+1:normal",
+    "pl-s:Recommende:normal"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "19.76px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-disp": {
+     "text": "Kanda Myōjin",
+     "size": "21px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×13"
+     ]
+    },
+    "macron-ui": {
+     "text": "Tokyo's electronics-and-otaku quarter — ",
+     "size": "15px",
+     "fonts": [
+      "Inter×151"
+     ]
+    }
+   }
+  },
+  "tokyo-atlas-m": {
+   "textEls": 104,
+   "distinctSizes": 14,
+   "sizes": {
+    "24px": 1,
+    "14px": 14,
+    "13px": 35,
+    "38px": 1,
+    "19.76px": 1,
+    "16px": 1,
+    "15px": 19,
+    "21px": 2,
+    "12.5px": 12,
+    "23px": 6,
+    "0px": 5,
+    "20.4545px": 2,
+    "26px": 1,
+    "17px": 4
+   },
+   "distinctLS": 10,
+   "families": {
+    "Playfair": 13,
+    "Inter": 80,
+    "Noto Serif JP": 11
+   },
+   "weights": {
+    "400": 32,
+    "500": 17,
+    "600": 48,
+    "700": 7
+   },
+   "distinctRadii": 5,
+   "radii": {
+    "999px": 14,
+    "50%": 3,
+    "20px": 1,
+    "12px": 6,
+    "13px": 6
+   },
+   "distinctShadows": 4,
+   "numericEls": 8,
+   "numericTabular": 7,
+   "numericSamples": [
+    "nw:2026-10-03:normal",
+    "n:43:lining-nums tabular-nums",
+    "pl-num:1:lining-nums tabular-nums",
+    "pl-num:2:lining-nums tabular-nums",
+    "pl-num:3:lining-nums tabular-nums",
+    "pl-num:4:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "19.76px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "The 1869 Shintō shrine to Japan's war de",
+     "size": "15px",
+     "fonts": [
+      "Inter×191"
+     ]
+    },
+    "macron-disp": {
+     "text": "Kanda Myōjin",
+     "size": "23px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×13",
+      "IPAGothic×6"
+     ]
+    }
+   }
+  },
+  "tokyo-guidebook-m": {
+   "textEls": 117,
+   "distinctSizes": 15,
+   "sizes": {
+    "24px": 2,
+    "14px": 38,
+    "13px": 5,
+    "28px": 1,
+    "19.76px": 1,
+    "16px": 2,
+    "12px": 13,
+    "48px": 1,
+    "22px": 1,
+    "12.5px": 17,
+    "38px": 1,
+    "19px": 9,
+    "21px": 1,
+    "11px": 4,
+    "15px": 21
+   },
+   "distinctLS": 8,
+   "families": {
+    "Playfair": 17,
+    "Inter": 94,
+    "Noto Serif JP": 6
+   },
+   "weights": {
+    "400": 54,
+    "500": 22,
+    "600": 40,
+    "700": 1
+   },
+   "distinctRadii": 2,
+   "radii": {
+    "999px": 39,
+    "50%": 2
+   },
+   "distinctShadows": 1,
+   "numericEls": 34,
+   "numericTabular": 3,
+   "numericSamples": [
+    "n:488:lining-nums tabular-nums",
+    "n:263:lining-nums tabular-nums",
+    "n:225:lining-nums tabular-nums",
+    "n:1:normal",
+    "meta:43:normal",
+    "n:2:normal"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "19.76px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "Chūō-ku",
+     "size": "14px",
+     "fonts": [
+      "Inter×7"
+     ]
+    },
+    "macron-disp": {
+     "text": "Kanda Myōjin",
+     "size": "19px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×14",
+      "IPAGothic×4"
+     ]
+    }
+   }
+  },
+  "tokyo-insights-m": {
+   "textEls": 104,
+   "distinctSizes": 10,
+   "sizes": {
+    "24px": 1,
+    "14px": 7,
+    "13px": 46,
+    "28px": 2,
+    "19.76px": 1,
+    "16px": 1,
+    "32px": 6,
+    "12.5px": 7,
+    "21px": 2,
+    "12px": 31
+   },
+   "distinctLS": 6,
+   "families": {
+    "Playfair": 11,
+    "Inter": 92,
+    "Noto Serif JP": 1
+   },
+   "weights": {
+    "400": 59,
+    "500": 14,
+    "600": 31
+   },
+   "distinctRadii": 5,
+   "radii": {
+    "999px": 10,
+    "50%": 2,
+    "12px": 6,
+    "20px": 2,
+    "3px": 9
+   },
+   "distinctShadows": 1,
+   "numericEls": 40,
+   "numericTabular": 9,
+   "numericSamples": [
+    "n:488:lining-nums tabular-nums",
+    "n:263:lining-nums tabular-nums",
+    "n:225:lining-nums tabular-nums",
+    ":488:lining-nums tabular-nums",
+    ":263:lining-nums tabular-nums",
+    ":225:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "19.76px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "Chūō-ku",
+     "size": "13px",
+     "fonts": [
+      "Inter×7"
+     ]
+    }
+   }
+  },
+  "sheet-m": {
+   "textEls": 117,
+   "distinctSizes": 11,
+   "sizes": {
+    "24px": 1,
+    "14px": 28,
+    "15px": 24,
+    "0px": 5,
+    "13px": 33,
+    "26px": 2,
+    "12.5px": 8,
+    "21px": 5,
+    "30px": 3,
+    "17px": 1,
+    "16px": 7
+   },
+   "distinctLS": 9,
+   "families": {
+    "Playfair": 10,
+    "Inter": 99,
+    "Noto Serif JP": 8
+   },
+   "weights": {
+    "400": 33,
+    "500": 11,
+    "600": 69,
+    "700": 4
+   },
+   "distinctRadii": 6,
+   "radii": {
+    "999px": 19,
+    "50%": 13,
+    "12px": 8,
+    "13px": 4,
+    "20px": 1,
+    "3px": 1
+   },
+   "distinctShadows": 4,
+   "numericEls": 4,
+   "numericTabular": 4,
+   "numericSamples": [
+    "pl-num:3:lining-nums tabular-nums",
+    "pl-num:4:lining-nums tabular-nums",
+    "pl-num:5:lining-nums tabular-nums",
+    "pl-num:6:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "19.76px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-disp": {
+     "text": "Kanda Myōjin",
+     "size": "21px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×13"
+     ]
+    },
+    "macron-ui": {
+     "text": "Tokyo's electronics-and-otaku quarter — ",
+     "size": "15px",
+     "fonts": [
+      "Inter×151"
+     ]
+    },
+    "cjk-disp": {
+     "text": "(神田明神)",
+     "size": "30px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×2",
+      "WenQuanYi Zen Hei×4"
+     ]
+    }
+   }
+  },
+  "sheet-vn-m": {
+   "textEls": 102,
+   "distinctSizes": 10,
+   "sizes": {
+    "24px": 1,
+    "14px": 27,
+    "21px": 5,
+    "15px": 19,
+    "0px": 5,
+    "13px": 29,
+    "12.5px": 8,
+    "30px": 1,
+    "17px": 1,
+    "16px": 6
+   },
+   "distinctLS": 5,
+   "families": {
+    "Playfair": 9,
+    "Inter": 93
+   },
+   "weights": {
+    "400": 29,
+    "500": 11,
+    "600": 57,
+    "700": 5
+   },
+   "distinctRadii": 6,
+   "radii": {
+    "999px": 19,
+    "50%": 12,
+    "12px": 8,
+    "13px": 4,
+    "20px": 1,
+    "3px": 1
+   },
+   "distinctShadows": 4,
+   "numericEls": 4,
+   "numericTabular": 4,
+   "numericSamples": [
+    "pl-num:33:lining-nums tabular-nums",
+    "pl-num:34:lining-nums tabular-nums",
+    "pl-num:35:lining-nums tabular-nums",
+    "pl-num:36:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "viet-disp": {
+     "text": "phở · bánh mì · Cầu Ba Son",
+     "size": "17px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×26"
+     ]
+    },
+    "viet-ui": {
+     "text": "North-to-South phở institution since 195",
+     "size": "15px",
+     "fonts": [
+      "Inter×169"
+     ]
+    }
+   }
+  },
+  "hcmc-gallery-m": {
+   "textEls": 295,
+   "distinctSizes": 13,
+   "sizes": {
+    "24px": 4,
+    "14px": 11,
+    "13px": 111,
+    "50.7px": 1,
+    "17px": 5,
+    "15px": 27,
+    "12.5px": 57,
+    "21px": 26,
+    "0px": 24,
+    "12px": 6,
+    "19px": 1,
+    "16px": 21,
+    "28px": 1
+   },
+   "distinctLS": 8,
+   "families": {
+    "Playfair": 57,
+    "Inter": 238
+   },
+   "weights": {
+    "400": 63,
+    "500": 96,
+    "600": 135,
+    "700": 1
+   },
+   "distinctRadii": 5,
+   "radii": {
+    "999px": 64,
+    "50%": 28,
+    "20px": 1,
+    "12px": 51,
+    "13px": 1
+   },
+   "distinctShadows": 4,
+   "numericEls": 37,
+   "numericTabular": 4,
+   "numericSamples": [
+    "nw:2026-10-03:normal",
+    "pl-s:Recommende:normal",
+    "more:+1:normal",
+    "pl-s:Recommende:normal",
+    "more:+1:normal",
+    "pl-s:Recommende:normal"
+   ],
+   "scripts": {
+    "viet-disp": {
+     "text": "phở · bánh mì · Cầu Ba Son",
+     "size": "17px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×26"
+     ]
+    },
+    "viet-ui": {
+     "text": "North-to-South phở institution since 195",
+     "size": "15px",
+     "fonts": [
+      "Inter×169"
+     ]
+    }
+   }
+  },
+  "landing-d": {
+   "textEls": 303,
+   "distinctSizes": 16,
+   "sizes": {
+    "27px": 1,
+    "12px": 7,
+    "15px": 6,
+    "64px": 2,
+    "20px": 1,
+    "16px": 1,
+    "36px": 3,
+    "21px": 6,
+    "13px": 52,
+    "26px": 6,
+    "14px": 7,
+    "52px": 21,
+    "24px": 21,
+    "13.5px": 149,
+    "44px": 10,
+    "23px": 10
+   },
+   "distinctLS": 6,
+   "families": {
+    "Playfair": 80,
+    "Inter": 223
+   },
+   "weights": {
+    "400": 167,
+    "450": 1,
+    "500": 82,
+    "600": 15,
+    "650": 38
+   },
+   "distinctRadii": 4,
+   "radii": {
+    "999px": 48,
+    "50%": 3,
+    "16px": 6,
+    "20px": 31
+   },
+   "distinctShadows": 3,
+   "numericEls": 54,
+   "numericTabular": 0,
+   "numericSamples": [
+    "n:39:normal",
+    "n:269:normal",
+    "n:43:normal",
+    "n:63:normal",
+    "n:163:normal",
+    "n:116:normal"
+   ],
+   "scripts": {
+    "macron-disp": {
+     "text": "Onsen & sentō",
+     "size": "23px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×14"
+     ]
+    }
+   }
+  },
+  "hub-d": {
+   "textEls": 193,
+   "distinctSizes": 14,
+   "sizes": {
+    "27px": 2,
+    "12px": 1,
+    "14px": 45,
+    "15px": 9,
+    "64px": 1,
+    "26px": 4,
+    "18px": 5,
+    "24px": 5,
+    "13px": 22,
+    "13.5px": 78,
+    "12.5px": 5,
+    "36px": 2,
+    "44px": 7,
+    "23px": 7
+   },
+   "distinctLS": 6,
+   "families": {
+    "Playfair": 28,
+    "Inter": 160,
+    "Noto Serif JP": 5
+   },
+   "weights": {
+    "400": 106,
+    "450": 1,
+    "500": 38,
+    "600": 19,
+    "650": 29
+   },
+   "distinctRadii": 3,
+   "radii": {
+    "999px": 38,
+    "50%": 3,
+    "20px": 12
+   },
+   "distinctShadows": 0,
+   "numericEls": 40,
+   "numericTabular": 5,
+   "numericSamples": [
+    "theme-n:116:normal",
+    ":37:normal",
+    ":28:normal",
+    ":24:normal",
+    ":18:normal",
+    "theme-n:315:normal"
+   ],
+   "scripts": {
+    "macron-disp": {
+     "text": "Goryōkaku",
+     "size": "26px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×10"
+     ]
+    },
+    "cjk-ui": {
+     "text": "東京",
+     "size": "18px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "Goryōkaku",
+     "size": "13.5px",
+     "fonts": [
+      "Inter×12"
+     ]
+    }
+   }
+  },
+  "tokyo-gallery-d": {
+   "textEls": 401,
+   "distinctSizes": 17,
+   "sizes": {
+    "27px": 1,
+    "12px": 9,
+    "14px": 26,
+    "15px": 39,
+    "112px": 1,
+    "33.28px": 1,
+    "13px": 152,
+    "26px": 3,
+    "30px": 5,
+    "12.5px": 61,
+    "21px": 30,
+    "0px": 29,
+    "34px": 3,
+    "22px": 1,
+    "17px": 38,
+    "16px": 1,
+    "36px": 1
+   },
+   "distinctLS": 12,
+   "families": {
+    "Playfair": 74,
+    "Inter": 314,
+    "Noto Serif JP": 13
+   },
+   "weights": {
+    "400": 94,
+    "500": 127,
+    "600": 176,
+    "700": 4
+   },
+   "distinctRadii": 5,
+   "radii": {
+    "999px": 73,
+    "50%": 34,
+    "20px": 1,
+    "12px": 72,
+    "13px": 4
+   },
+   "distinctShadows": 6,
+   "numericEls": 75,
+   "numericTabular": 7,
+   "numericSamples": [
+    "nw:2026-10-03:normal",
+    "pl-s:Recommende:normal",
+    "more:+1:normal",
+    "pl-s:Recommende:normal",
+    "more:+1:normal",
+    "pl-s:Recommende:normal"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "33.28px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "Start with Kanda Myōjin",
+     "size": "15px",
+     "fonts": [
+      "Inter×23"
+     ]
+    },
+    "macron-disp": {
+     "text": "Kanda Myōjin",
+     "size": "21px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×13"
+     ]
+    }
+   }
+  },
+  "tokyo-atlas-d": {
+   "textEls": 256,
+   "distinctSizes": 17,
+   "sizes": {
+    "27px": 2,
+    "12px": 9,
+    "14px": 44,
+    "15px": 21,
+    "40px": 1,
+    "33.28px": 1,
+    "22px": 1,
+    "13px": 93,
+    "17px": 42,
+    "12.5px": 19,
+    "16px": 1,
+    "36px": 1,
+    "20.9091px": 5,
+    "24px": 7,
+    "0px": 7,
+    "20px": 1,
+    "26px": 1
+   },
+   "distinctLS": 11,
+   "families": {
+    "Playfair": 55,
+    "Inter": 188,
+    "Noto Serif JP": 13
+   },
+   "weights": {
+    "400": 63,
+    "500": 109,
+    "600": 75,
+    "700": 9
+   },
+   "distinctRadii": 4,
+   "radii": {
+    "999px": 26,
+    "50%": 3,
+    "12px": 47,
+    "13px": 8
+   },
+   "distinctShadows": 3,
+   "numericEls": 47,
+   "numericTabular": 11,
+   "numericSamples": [
+    "nw:2026-10-03:normal",
+    "n:37:normal",
+    "n:125:normal",
+    "n:177:normal",
+    "n:44:normal",
+    "n:5:normal"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "33.28px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-disp": {
+     "text": "Onsen & Sentō",
+     "size": "17px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×14"
+     ]
+    },
+    "macron-ui": {
+     "text": "Imperial Palace · Marunouchi · Akihabara",
+     "size": "14px",
+     "fonts": [
+      "Inter×59"
+     ]
+    }
+   }
+  },
+  "tokyo-guidebook-d": {
+   "textEls": 220,
+   "distinctSizes": 15,
+   "sizes": {
+    "27px": 1,
+    "12px": 14,
+    "14px": 74,
+    "15px": 49,
+    "64px": 1,
+    "33.28px": 1,
+    "16px": 3,
+    "13px": 6,
+    "12.5px": 35,
+    "88px": 1,
+    "44px": 1,
+    "22px": 2,
+    "60px": 1,
+    "19px": 21,
+    "11px": 10
+   },
+   "distinctLS": 8,
+   "families": {
+    "Playfair": 32,
+    "Inter": 176,
+    "Noto Serif JP": 12
+   },
+   "weights": {
+    "400": 97,
+    "500": 40,
+    "600": 82,
+    "700": 1
+   },
+   "distinctRadii": 4,
+   "radii": {
+    "999px": 48,
+    "50%": 3,
+    "8px": 13,
+    "12px": 1
+   },
+   "distinctShadows": 2,
+   "numericEls": 47,
+   "numericTabular": 3,
+   "numericSamples": [
+    "nw:2026-10-03:normal",
+    "n:488:lining-nums tabular-nums",
+    "n:263:lining-nums tabular-nums",
+    "n:225:lining-nums tabular-nums",
+    "n:1:normal",
+    "meta:43:normal"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "33.28px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-disp": {
+     "text": "ward by ward · Jōnan · Jōsai · Jōhoku · ",
+     "size": "16px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×75"
+     ]
+    },
+    "macron-ui": {
+     "text": "Chūō-ku",
+     "size": "14px",
+     "fonts": [
+      "Inter×7"
+     ]
+    }
+   }
+  },
+  "tokyo-insights-d": {
+   "textEls": 213,
+   "distinctSizes": 12,
+   "sizes": {
+    "27px": 1,
+    "12px": 69,
+    "14px": 26,
+    "15px": 2,
+    "64px": 1,
+    "33.28px": 1,
+    "16px": 2,
+    "13px": 85,
+    "34px": 1,
+    "32px": 6,
+    "12.5px": 12,
+    "22px": 7
+   },
+   "distinctLS": 6,
+   "families": {
+    "Playfair": 17,
+    "Inter": 195,
+    "Noto Serif JP": 1
+   },
+   "weights": {
+    "400": 122,
+    "500": 19,
+    "600": 72
+   },
+   "distinctRadii": 5,
+   "radii": {
+    "999px": 15,
+    "50%": 3,
+    "12px": 6,
+    "20px": 7,
+    "3px": 9
+   },
+   "distinctShadows": 2,
+   "numericEls": 65,
+   "numericTabular": 9,
+   "numericSamples": [
+    "nw:2026-10-03:normal",
+    "n:488:lining-nums tabular-nums",
+    "n:263:lining-nums tabular-nums",
+    "n:225:lining-nums tabular-nums",
+    ":488:lining-nums tabular-nums",
+    ":263:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "33.28px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-disp": {
+     "text": "ward by ward · Jōnan · Jōsai · Jōhoku · ",
+     "size": "16px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×75"
+     ]
+    },
+    "macron-ui": {
+     "text": "Chūō-ku",
+     "size": "13px",
+     "fonts": [
+      "Inter×7"
+     ]
+    }
+   }
+  },
+  "sheet-d": {
+   "textEls": 376,
+   "distinctSizes": 15,
+   "sizes": {
+    "27px": 1,
+    "12px": 9,
+    "14px": 54,
+    "15px": 47,
+    "22px": 1,
+    "13px": 123,
+    "17px": 39,
+    "12.5px": 43,
+    "16px": 8,
+    "36px": 1,
+    "21px": 29,
+    "0px": 14,
+    "26px": 4,
+    "37.2727px": 1,
+    "34px": 2
+   },
+   "distinctLS": 11,
+   "families": {
+    "Playfair": 65,
+    "Inter": 283,
+    "Noto Serif JP": 28
+   },
+   "weights": {
+    "400": 67,
+    "500": 132,
+    "600": 157,
+    "700": 20
+   },
+   "distinctRadii": 6,
+   "radii": {
+    "999px": 48,
+    "50%": 31,
+    "12px": 61,
+    "13px": 20,
+    "3px": 1,
+    "20px": 1
+   },
+   "distinctShadows": 6,
+   "numericEls": 59,
+   "numericTabular": 23,
+   "numericSamples": [
+    "n:37:normal",
+    "n:125:normal",
+    "n:177:normal",
+    "n:44:normal",
+    "n:5:normal",
+    "n:79:normal"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "33.28px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "Start with Kanda Myōjin",
+     "size": "15px",
+     "fonts": [
+      "Inter×23"
+     ]
+    },
+    "macron-disp": {
+     "text": "Kanda Myōjin",
+     "size": "21px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×13"
+     ]
+    },
+    "cjk-disp": {
+     "text": "(神田明神)",
+     "size": "34px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×2",
+      "WenQuanYi Zen Hei×4"
+     ]
+    }
+   }
+  },
+  "sheet-vn-d": {
+   "textEls": 268,
+   "distinctSizes": 12,
+   "sizes": {
+    "27px": 1,
+    "12px": 1,
+    "14px": 49,
+    "15px": 38,
+    "13px": 91,
+    "16px": 13,
+    "21px": 20,
+    "0px": 20,
+    "12.5px": 32,
+    "36px": 1,
+    "34px": 1,
+    "17px": 1
+   },
+   "distinctLS": 6,
+   "families": {
+    "Playfair": 25,
+    "Inter": 243
+   },
+   "weights": {
+    "400": 68,
+    "500": 42,
+    "600": 140,
+    "700": 18
+   },
+   "distinctRadii": 6,
+   "radii": {
+    "999px": 51,
+    "50%": 24,
+    "12px": 23,
+    "13px": 16,
+    "20px": 2,
+    "3px": 1
+   },
+   "distinctShadows": 5,
+   "numericEls": 23,
+   "numericTabular": 19,
+   "numericSamples": [
+    "n:171:lining-nums tabular-nums",
+    "n:105:lining-nums tabular-nums",
+    "n:66:lining-nums tabular-nums",
+    "pl-num:33:lining-nums tabular-nums",
+    "pl-num:34:lining-nums tabular-nums",
+    "pl-num:35:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "viet-disp": {
+     "text": "phở · bánh mì · Cầu Ba Son",
+     "size": "26px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×26"
+     ]
+    },
+    "viet-ui": {
+     "text": "North-to-South phở institution since 195",
+     "size": "15px",
+     "fonts": [
+      "Inter×170"
+     ]
+    }
+   }
+  },
+  "hcmc-gallery-d": {
+   "textEls": 345,
+   "distinctSizes": 15,
+   "sizes": {
+    "27px": 1,
+    "12px": 7,
+    "14px": 25,
+    "15px": 35,
+    "112px": 1,
+    "13px": 126,
+    "26px": 1,
+    "12.5px": 62,
+    "21px": 29,
+    "0px": 28,
+    "34px": 3,
+    "22px": 1,
+    "17px": 24,
+    "16px": 1,
+    "36px": 1
+   },
+   "distinctLS": 7,
+   "families": {
+    "Playfair": 60,
+    "Inter": 285
+   },
+   "weights": {
+    "400": 76,
+    "500": 99,
+    "600": 166,
+    "700": 4
+   },
+   "distinctRadii": 5,
+   "radii": {
+    "999px": 73,
+    "50%": 34,
+    "20px": 1,
+    "12px": 58,
+    "13px": 4
+   },
+   "distinctShadows": 6,
+   "numericEls": 40,
+   "numericTabular": 7,
+   "numericSamples": [
+    "nw:2026-10-03:normal",
+    "pl-s:Recommende:normal",
+    "more:+1:normal",
+    "pl-s:Recommende:normal",
+    "more:+1:normal",
+    "pl-s:Recommende:normal"
+   ],
+   "scripts": {
+    "viet-disp": {
+     "text": "phở · bánh mì · Cầu Ba Son",
+     "size": "26px",
+     "fonts": [
+      "Playfair 5pt SemiExpanded Light×26"
+     ]
+    },
+    "viet-ui": {
+     "text": "North-to-South phở institution since 195",
+     "size": "15px",
+     "fonts": [
+      "Inter×170"
+     ]
+    }
+   }
+  }
+ }
+}

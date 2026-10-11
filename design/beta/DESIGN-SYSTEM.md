@@ -1,4 +1,87 @@
-# Cleo beta design system — "Constellation"
+# Cleo beta design system — v2 "Bone & Oxblood" (W7, current)
+
+> Lane: designer. Wave 7, 2026-10-11. Beta only. Decision and evidence: [`style/v2/DECISION.md`](style/v2/DECISION.md) ·
+> board: [`style/v2/board.html`](style/v2/board.html) · tokens: [`tokens.css`](tokens.css) · base components:
+> [`css/v2.css`](css/v2.css) (bundled last into `beta/assets/cleo.css`) · icons: [`style/v2/icons/`](style/v2/icons/sheet.html).
+> The "Constellation" system below this section is **superseded** and kept for history. Where the two disagree, v2 wins.
+
+## v2.1 Principles
+
+1. **Calm, minimal, image-first.** Content and photos carry the colour. The chrome is ground, ink and hairlines.
+2. **One accent, spent rarely.** Oxblood is used on four things only: the saved heart, the saved count, the day route and the wordmark star. It is the same for every city.
+3. **One sun highlight.** A flat warm wash sits behind data-backed sticker badges and the heart pop. It is never a gradient, never text colour and never chrome.
+4. **Ink does the work.** The primary button, the active segment, the pressed chip, the selected pin and the focus ring are all ink.
+5. **Two faces, two jobs.** Bricolage Grotesque sets headlines, city names and big numbers. Inter sets everything people read or tap. There are no italics.
+6. **Quiet depth.** Resting cards have no shadow. Soft shadows appear only on the search pill, floating controls and sheets.
+7. **Honest covers.** Without a credited photo, a place gets the calm cover: a sand ground, one kind glyph and the name in type. The cover never pretends to be a photo.
+8. **Trust for every generation.** Body text is 16 px or more, every pair passes AA in light and dark, buttons say what they do, and "Recommended by" is always visible.
+
+## v2.2 Colour
+
+| Token | Light | Dark | Use |
+|---|---|---|---|
+| `--paper` | `#F9F7F3` | `#131110` | Page ground (warm bone / warm near-black). `--night` aliases here. |
+| `--surface` | `#FFFFFF` | `#1C1918` | Sheets, menus, the search pill |
+| `--sand` | `#F1EDE7` | `#262220` | Quiet fill: the no-photo cover, the switcher track |
+| `--ink` · `--ink-2` · `--ink-3` | `#1C1917` · `#4A4440` · `#68615B` | `#F2EEEA` · `#D0C9C3` · `#A69E97` | Text tiers; ink is also the primary fill and the focus ring. `--gilt` aliases to ink. |
+| `--line` · `--line-strong` | `#E7E2DB` · `#CCC5BC` | `#302B28` · `#4B4440` | Hairlines and control borders |
+| `--accent` · `--accent-ink` · `--accent-wash` · `--on-accent` | `#7A2A2A` · `#7A2A2A` · `#F5EAE7` · `#FFF` | `#E0A19A` · `#E8B0A9` · `#33201E` · `#1E0E0C` | The one accent. `--city*` aliases here. |
+| `--sun` · `--sun-wash` · `--on-sun-wash` | `#E9A93B` · `#FBEBC8` · `#3D2A06` | `#F0BC5E` · `#3B2C10` · `#FBE3B0` | Sticker badge and heart pop only |
+| `--open` / `--closed` / `--warn` (+ `-soft`) | green / brick / amber | lifted | Status only |
+| `--area-mute`, `--area-mix` | `#948B83`, 50 % | `#766D67` | The data's area colours are mixed toward the palette for pins and dots |
+
+`python3 design/beta/tools/contrast.py` checks **86 pairs: 0 below AA**. The palette generator is
+`style/v2/tools/palettes.py`; it writes four directions and exits 1 on any miss.
+
+## v2.3 Type
+
+| Role | Face | Mobile / desktop |
+|---|---|---|
+| Hero | Bricolage Grotesque 600, −0.035 em | 38 / 60 px |
+| Display 1 (city, country) | Bricolage 600, −0.024 em | 34 / 52 |
+| Display 2 (sections, sheet titles) | Bricolage 600 | 22 / 28 |
+| Card title | **Inter 600** | 16 |
+| Lead / body / small = UI / meta / xs | Inter 400–500 | 17·18 / 16 / 14 / 13 / 12 |
+
+- **Five steps between 12 and 17 px:** 12 · 13 · 14 · 16 · 17. Only weights 400 / 500 / 600 / 700 render, and there is no 13.5 px.
+  - `style/v2/tools/normalize-v2.py` snaps every raw size and radius in the designer's sources onto tokens, and has a `--check` mode.
+  - The probes confirm it: `eval/r6/tools/probe-type.js` and `probe-css.py`. In the designer's CSS the only raw font size left is `.5em` (the native script after a city name), and the only raw radii are `50%` and `3px`.
+- **Optical size:** headlines of 40 px and up use Bricolage's opsz 72 instance. Headlines, deks and subtitles use `text-wrap: balance / pretty`.
+- Tabular figures appear wherever we count (`--num`).
+- CJK falls back to the system sans.
+- Fonts are self-hosted OFL subsets (vi, latin-ext, latin), with `font-display: swap`.
+
+## v2.4 Shape, depth, motion, icons
+
+- **Radius:** 8 px for buttons and controls, 12 px for inputs and small media, 16 px for card media and sheets, and pill for chips, search, the switcher and stickers.
+- **Elevation:** `--e-1` is none. `--shadow` is used on hover and floating controls, `--shadow-lg` on sheets and dialogs.
+- **Motion:** durations are 120, 200, 320 and 480 ms; primary paths stay at 200 ms or less. The signature moment is the tapped cover or pin growing into the sheet: `--dur-grow` 340 ms with `--ease-grow`, using view transitions plus a FLIP fallback. The heart pop is the only spring. `prefers-reduced-motion` sets every duration to 0. Spec: [`style/v2/MOTION.md`](style/v2/MOTION.md).
+- **Elevation, three steps:** `--shadow-sm` (the switcher thumb and the heart chip), `--shadow` (the search pill, hover, floating controls) and `--shadow-lg` (sheets and dialogs). Resting cards have none (`--e-1: none`).
+- **Icons:** one line set of 73 icons on a 24 px grid, with a 1.5 stroke and round caps (`style/v2/icons/icons.json`). Every subject is generic, never a venue.
+
+## v2.5 Components (base layer, `css/v2.css`)
+
+| Component | v2 spec |
+|---|---|
+| Top bar | Ground + 1 px hairline, no blur. Wordmark in Bricolage 600 with an accent star. The current nav item gets a 2 px ink underline. |
+| Buttons | Primary: ink fill with paper text, 8 px radius. Secondary: transparent with a `--line-strong` hairline. Icon buttons: round, sand on hover. Focus: 2 px ink outline, 2 px offset. |
+| Chips / pills | Surface with a hairline; pressed = ink fill. Source credits are underlined text, not filled pills. |
+| Search pill | White capsule, hairline, `--shadow`, ink search button. |
+| Hero / masthead | On the ground: eyebrow in ink-3, name in display, one line, the count. No night, art, particles, motif or accent bar. |
+| Card | No frame, border or resting shadow. Rounded media (16 px), heart top-right, then 2–3 lines: name (Inter 600), area · kind (ink-3), Recommended by. Hover dims the media 3 %; pressed scales it to 0.99. |
+| No-photo cover | Sand ground, centred 30 px kind glyph in ink-3, native name 13 px bottom-left. |
+| Sticker badge `.sticker` | Sun-wash pill with 12 px semibold text, top-left on media (or inline). Data-backed only; never on closed places. |
+| Rails / collection tiles | Surface with a hairline, ink text; pressed = ink inset ring. No purple, motif or shimmer. |
+| View switcher | Sand track (pill) with a white thumb and `--shadow-sm`; labels in ink-2 / ink. |
+| Sheets, tray, dialogs | Surface, `--shadow-lg`, 16 px top radius. |
+| Toast | Ink, paper text, 8 px radius. |
+| Tab bar | Surface + hairline; current item in ink with a 2 px stroke icon. |
+| Map | Pins on surface with a 2 px muted area underline; selected pin = ink. Clusters get a muted ring; the day route uses the accent. |
+| Footer | On the ground, hairline above. |
+
+---
+
+# (superseded) Cleo beta design system — "Constellation"
 
 > Lane: UI/UX (design/beta/, beta/assets/*.css). Wave 0, 2026-10-10. Beta only — nothing here touches the live site.
 > Tokens: [`tokens.css`](tokens.css) (shipped copy `beta/assets/tokens.css`) · Components: [`beta/assets/constellation.css`](../../beta/assets/constellation.css)

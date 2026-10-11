@@ -1,0 +1,2683 @@
+{
+ "generated": "2026-10-11T14:05:07.438Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "index.html",
+   "gen": "new",
+   "expected": null,
+   "mobile": {
+    "loadErr": null,
+    "kind": "landing",
+    "vw": 390,
+    "vh": 844,
+    "title": "Cleo — sourced city guides",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 405,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 413,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "span.k \"★ United States\"",
+    "contrastChecked": 357,
+    "contrastUnknown": 53,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.stickypills \"United StatesSingaporeVi\"",
+     "nav.tabbar \"Explore Search Your list\""
+    ],
+    "railVisible": true,
+    "railTop": 507,
+    "railOnFirstScreen": true,
+    "railItems": 2,
+    "railFirst": "★ United StatesSan Francisco classicsin ",
+    "cityCardsAbove": 2,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1410,
+    "fcp": 380,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Playfair": 107,
+     "Inter": 404,
+     "Noto Serif JP": 5
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Playfair 5pt SemiExpanded Light": 820,
+      "Inter": 5587,
+      "Inter SemiBold": 2,
+      "IPAGothic": 11
+     },
+     "primary": [
+      "Inter",
+      "Playfair 5pt SemiExpanded Light",
+      "IPAGothic",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 714325,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 357,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "landing",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Cleo — sourced city guides",
+    "overflowX": 0,
+    "cards": 0,
+    "cardsVisible": 0,
+    "legacy": true,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 425,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 488,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 431,
+    "contrastUnknown": 54,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.stickypills \"United StatesSingaporeVi\""
+    ],
+    "railVisible": true,
+    "railTop": 524,
+    "railOnFirstScreen": true,
+    "railItems": 6,
+    "railFirst": "★ United StatesSan Francisco classicsin ",
+    "cityCardsAbove": 6,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1410,
+    "fcp": 328,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Playfair": 105,
+     "Inter": 429
+    },
+    "hasMapEl": false,
+    "fonts": {
+     "all": {
+      "Playfair 5pt SemiExpanded Light": 820,
+      "Inter": 7240,
+      "Inter SemiBold": 6
+     },
+     "primary": [
+      "Inter",
+      "Playfair 5pt SemiExpanded Light",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 714325,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 431,
+     "contrastFails": 0,
+     "contrastFailList": []
+    }
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 0,
+    "text": 8149
+   },
+   "cpu4x": {
+    "fcp": 364,
+    "dcl": 687,
+    "loadMs": 1476
+   },
+   "verdict": {
+    "rows": {
+     "B-05 hub: city cards above the fold ≥2": {
+      "pass": true,
+      "val": 2
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Playfair, Inter · rendered here: Inter, Playfair 5pt SemiExpanded Light, IPAGothic, Inter SemiBold"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0% (0/413)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px span.k \"★ United States\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": null,
+      "val": "no tiles requested"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "698 KB · 1410 nodes · 328 ms · 364 ms"
+     }
+    },
+    "passed": 10,
+    "total": 10,
+    "hardFail": []
+   }
+  },
+  {
+   "page": "cleveland.html",
+   "gen": "new",
+   "expected": {
+    "total": 194,
+    "sights": 148,
+    "food": 46,
+    "live": "cleveland.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Cleveland — 194 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 0,
+    "legacy": false,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 177,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 30,
+    "tapSmallKinds": {
+     "a": 30
+    },
+    "tapSmallList": [
+     "a \"All of Cleveland · Eat &\" 31x44",
+     "a \"Downtown & The Flats · E\" 8x44",
+     "a \"University Circle & East\" 34x44",
+     "a \"Suburbs, Metroparks & Da\" 19x44",
+     "a \"Downtown & The Flats · A\" 10x44",
+     "a \"Downtown & The Flats · T\" 27x44",
+     "a \"Downtown & The Flats · A\" 7x44",
+     "a \"Downtown & The Flats · O\" 7x44",
+     "a \"University Circle & East\" 26x44",
+     "a \"University Circle & East\" 12x44",
+     "a \"University Circle & East\" 8x44",
+     "a \"University Circle & East\" 6x44",
+     "a \"University Circle & East\" 20x44",
+     "a \"West Side, Ohio City & T\" 41x44",
+     "a \"West Side, Ohio City & T\" 18x44",
+     "a \"West Side, Ohio City & T\" 5x44",
+     "a \"West Side, Ohio City & T\" 3x44",
+     "a \"West Side, Ohio City & T\" 14x44",
+     "a \"Suburbs, Metroparks & Da\" 7x44",
+     "a \"Suburbs, Metroparks & Da\" 7x44",
+     "a \"Suburbs, Metroparks & Da\" 10x44",
+     "a \"Suburbs, Metroparks & Da\" 30x44",
+     "a \"Downtown & The Flats · M\" 23x44",
+     "a \"Downtown & The Flats · D\" 20x44",
+     "a \"University Circle & East\" 30x44"
+    ],
+    "textNodes": 92,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12.5,
+    "minFontEl": "span.ts \"in 4 areas\"",
+    "contrastChecked": 89,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1823,
+    "fcp": 132,
+    "fontSampleN": 90,
+    "fontsDeclared": {
+     "Playfair": 16,
+     "Inter": 182
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Playfair 5pt SemiExpanded Light": 1605,
+      "Inter": 2822
+     },
+     "primary": [
+      "Inter",
+      "Playfair 5pt SemiExpanded Light"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1101504,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 89,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 44,
+      "h": 44,
+      "name": "Show the map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": {
+      "cls": "poi-sheet",
+      "h": 322,
+      "closeVisible": true,
+      "modal": false,
+      "grab": true,
+      "has": {
+       "sources": false,
+       "directions": false,
+       "pin": false,
+       "status": false,
+       "save": false,
+       "share": false
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "tile.openstreetmap.org"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Cleveland — 194 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 0,
+    "legacy": false,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 219,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 14,
+    "tapSmallKinds": {
+     "a": 14
+    },
+    "tapSmallList": [
+     "a \"Downtown & The Flats · E\" 22x44",
+     "a \"Downtown & The Flats · A\" 27x44",
+     "a \"Downtown & The Flats · A\" 19x44",
+     "a \"Downtown & The Flats · O\" 19x44",
+     "a \"University Circle & East\" 32x44",
+     "a \"University Circle & East\" 22x44",
+     "a \"University Circle & East\" 17x44",
+     "a \"West Side, Ohio City & T\" 15x44",
+     "a \"West Side, Ohio City & T\" 9x44",
+     "a \"West Side, Ohio City & T\" 37x44",
+     "a \"Suburbs, Metroparks & Da\" 19x44",
+     "a \"Suburbs, Metroparks & Da\" 19x44",
+     "a \"Suburbs, Metroparks & Da\" 5x44",
+     "a \"Suburbs, Metroparks & Da\" 27x44"
+    ],
+    "textNodes": 110,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 98,
+    "contrastUnknown": 9,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.views \"GalleryAtlasGuidebookIns\"",
+     "div.toolbar \"All 194Sights 148Eat & d\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1823,
+    "fcp": 148,
+    "fontSampleN": 107,
+    "fontsDeclared": {
+     "Playfair": 17,
+     "Inter": 207
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Playfair 5pt SemiExpanded Light": 1658,
+      "Inter": 3270
+     },
+     "primary": [
+      "Inter",
+      "Playfair 5pt SemiExpanded Light"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 194,
+     "scrolled": 0,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 194,
+      "ok": 0,
+      "bad": [
+       "chess-collection-cleveland-public-library-main-library",
+       "the-arcade-old-arcade",
+       "terminal-tower-observation-deck",
+       "soldiers-and-sailors-monument",
+       "free-stamp",
+       "rock-and-roll-hall-of-fame",
+       "ge-chandelier-playhouse-square",
+       "steamship-william-g-mather",
+       "slymans-restaurant-and-deli",
+       "hope-memorial-bridge-and-the-guardians-of-traffic"
+      ]
+     },
+     "search": {
+      "n": 28,
+      "ok": 0,
+      "bad": [
+       "Chess Collection — Cleveland Public Library MAIN Library",
+       "Steamship William G. Mather",
+       "Jesse Owens Statue",
+       "Brewboat CLE",
+       "Mabel's BBQ"
+      ]
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 194 places",
+     "groups": [
+      "AreaDowntown & The F",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byNews 5",
+      "Recommended by",
+      "CuisineVietnamese 4S",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are",
+      "Been thereShow allHi",
+      "Been there"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1158676,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 98,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 32,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 194,
+    "text": 20264
+   },
+   "cpu4x": {
+    "fcp": 332,
+    "dcl": 627,
+    "loadMs": 797
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": false,
+      "val": null
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 177
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "0 on-screen / 0 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": false,
+      "val": "no rail"
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 44×44, full map true, pin sheet close true, esc true, back true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 194 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": false,
+      "val": null
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": false,
+      "val": "data 194 · DOM 194 · scrolled 0 · deep 0/194 · search 0/28 · no-JS 194"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Playfair, Inter · rendered here: Inter, Playfair 5pt SemiExpanded Light"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0% (0/92)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": false,
+      "val": 30
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12.5px span.ts \"in 4 areas\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "tile.openstreetmap.org"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "1132 KB · 1823 nodes · 148 ms · 332 ms"
+     }
+    },
+    "passed": 17,
+    "total": 24,
+    "hardFail": [
+     "G1 reachability 100% (scroll, deep link, search, no-JS)"
+    ]
+   }
+  },
+  {
+   "page": "cities/tokyo.html",
+   "gen": "new",
+   "expected": {
+    "total": 488,
+    "sights": 263,
+    "food": 225,
+    "live": "cities/tokyo.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Tokyo — 488 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 0,
+    "legacy": false,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 177,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 113,
+    "tapSmallKinds": {
+     "a": 113
+    },
+    "tapSmallList": [
+     "a \"All of Tokyo · Pop cultu\" 12x44",
+     "a \"Chiyoda-ku · Pop culture\" 21x44",
+     "a \"Chūō-ku · Sights: 13 of \" 35x44",
+     "a \"Minato-ku · Pop culture:\" 3x44",
+     "a \"Shinjuku-ku · Pop cultur\" 11x44",
+     "a \"Shibuya-ku · Sights: 15 \" 44x44",
+     "a \"Shibuya-ku · Pop culture\" 7x44",
+     "a \"Taitō-ku · Pop culture: \" 1x44",
+     "a \"Sumida-ku & Kōtō-ku · Ea\" 43x44",
+     "a \"Sumida-ku & Kōtō-ku · Po\" 16x44",
+     "a \"Jōnan · Pop culture: 1 o\" 3x44",
+     "a \"Jōsai · Pop culture: 6 o\" 26x44",
+     "a \"Jōhoku · Eat & drink: 10\" 36x44",
+     "a \"Jōhoku · Pop culture: 12\" 43x44",
+     "a \"Jōtō · Eat & drink: 3 of\" 24x44",
+     "a \"Jōtō · Pop culture: 3 of\" 24x44",
+     "a \"Tama area · Eat & drink:\" 41x44",
+     "a \"Tama area · Pop culture:\" 20x44",
+     "a \"Kantō day trips · Eat & \" 12x44",
+     "a \"Kantō day trips · Pop cu\" 9x44",
+     "a \"Chiyoda-ku · Wikipedia: \" 29x44",
+     "a \"Chiyoda-ku · GO Tokyo: 1\" 24x44",
+     "a \"Chiyoda-ku · Time Out: 2\" 37x44",
+     "a \"Chiyoda-ku · Michelin: 6\" 7x44",
+     "a \"Chiyoda-ku · Japan-guide\" 2x44"
+    ],
+    "textNodes": 98,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12.5,
+    "minFontEl": "span.ts \"in 13 areas\"",
+    "contrastChecked": 94,
+    "contrastUnknown": 2,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2908,
+    "fcp": 176,
+    "fontSampleN": 96,
+    "fontsDeclared": {
+     "Playfair": 18,
+     "Inter": 331,
+     "Noto Serif JP": 1
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Playfair 5pt SemiExpanded Light": 2127,
+      "Inter": 2845,
+      "IPAGothic": 4
+     },
+     "primary": [
+      "Inter",
+      "Playfair 5pt SemiExpanded Light",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1900327,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 94,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 44,
+      "h": 44,
+      "name": "Show the map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": null,
+     "detail": {
+      "cls": "sheet detail",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "tile.openstreetmap.org"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Tokyo — 488 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 0,
+    "legacy": false,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 219,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 46,
+    "tapSmallKinds": {
+     "a": 46
+    },
+    "tapSmallList": [
+     "a \"All of Tokyo · Pop cultu\" 33x44",
+     "a \"Minato-ku · Pop culture:\" 11x44",
+     "a \"Shinjuku-ku · Pop cultur\" 29x44",
+     "a \"Shibuya-ku · Pop culture\" 20x44",
+     "a \"Taitō-ku · Pop culture: \" 6x44",
+     "a \"Sumida-ku & Kōtō-ku · Po\" 42x44",
+     "a \"Jōnan · Pop culture: 1 o\" 10x44",
+     "a \"Kantō day trips · Eat & \" 33x44",
+     "a \"Kantō day trips · Pop cu\" 24x44",
+     "a \"Chiyoda-ku · Michelin: 6\" 19x44",
+     "a \"Chiyoda-ku · Japan-guide\" 9x44",
+     "a \"Chūō-ku · Japan-guide: 2\" 6x44",
+     "a \"Minato-ku · Time Out: 13\" 43x44",
+     "a \"Minato-ku · Japan-guide:\" 9x44",
+     "a \"Shinjuku-ku · Michelin: \" 29x44",
+     "a \"Shinjuku-ku · Japan-guid\" 17x44",
+     "a \"Shibuya-ku · GO Tokyo: 1\" 42x44",
+     "a \"Shibuya-ku · Michelin: 1\" 42x44",
+     "a \"Shibuya-ku · Japan-guide\" 18x44",
+     "a \"Taitō-ku · Michelin: 6 o\" 21x44",
+     "a \"Taitō-ku · Japan-guide: \" 21x44",
+     "a \"Sumida-ku & Kōtō-ku · Mi\" 3x44",
+     "a \"Sumida-ku & Kōtō-ku · Ja\" 18x44",
+     "a \"Jōnan · Michelin: 5 of 6\" 27x44",
+     "a \"Jōsai · Michelin: 2 of 5\" 12x44"
+    ],
+    "textNodes": 116,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 103,
+    "contrastUnknown": 10,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.views \"GalleryAtlasGuidebookIns\"",
+     "div.toolbar \"All 488Sights 263Eat & d\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2908,
+    "fcp": 148,
+    "fontSampleN": 113,
+    "fontsDeclared": {
+     "Playfair": 19,
+     "Inter": 358,
+     "Noto Serif JP": 1
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Playfair 5pt SemiExpanded Light": 2233,
+      "Inter": 3288,
+      "IPAGothic": 4
+     },
+     "primary": [
+      "Inter",
+      "Playfair 5pt SemiExpanded Light",
+      "IPAGothic"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 488,
+     "scrolled": 0,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 488,
+      "ok": 0,
+      "bad": [
+       "imperial-palace-east-gardens",
+       "yasukuni-shrine",
+       "kanda-myojin",
+       "tokyo-station-marunouchi-building",
+       "akihabara-electric-town",
+       "kokyo-gaien-and-nijubashi",
+       "isegen",
+       "virtu-four-seasons-hotel-tokyo-at-otemachi",
+       "chidorigafuchi",
+       "mandarake-complex-akihabara"
+      ]
+     },
+     "search": {
+      "n": 26,
+      "ok": 0,
+      "bad": [
+       "Imperial Palace East Gardens (皇居東御苑)",
+       "National Diet Building (国会議事堂)",
+       "Jimbocho Gokita (神保町 五木田)",
+       "Chukasoba Ginza Hachigou (銀座 八五)",
+       "Tsukudajima"
+      ]
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 488 places",
+     "groups": [
+      "AreaChiyoda-ku 43Chū",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionAnime, Man",
+      "Collection",
+      "CuisineSushi & Kaise",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1912183,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 103,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 32,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 488,
+    "text": 18504
+   },
+   "cpu4x": {
+    "fcp": 384,
+    "dcl": 898,
+    "loadMs": 1094
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": false,
+      "val": null
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 177
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "0 on-screen / 0 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": false,
+      "val": "no rail"
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": false,
+      "val": "toggle 44×44, full map true, pin sheet none"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 488 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": false,
+      "val": null
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": false,
+      "val": "data 488 · DOM 488 · scrolled 0 · deep 0/488 · search 0/26 · no-JS 488"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Playfair, Inter · rendered here: Inter, Playfair 5pt SemiExpanded Light, IPAGothic"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0% (0/98)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": false,
+      "val": 113
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12.5px span.ts \"in 13 areas\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "tile.openstreetmap.org"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "1867 KB · 2908 nodes · 148 ms · 384 ms"
+     }
+    },
+    "passed": 16,
+    "total": 24,
+    "hardFail": [
+     "G1 reachability 100% (scroll, deep link, search, no-JS)"
+    ]
+   }
+  },
+  {
+   "page": "cities/newyork.html",
+   "gen": "new",
+   "expected": {
+    "total": 508,
+    "sights": 219,
+    "food": 289,
+    "live": "cities/newyork.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "New York City — 508 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 0,
+    "legacy": false,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 177,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 48,
+    "tapSmallKinds": {
+     "a": 48
+    },
+    "tapSmallList": [
+     "a \"All of New York City · P\" 4x44",
+     "a \"Manhattan · Sights: 82 o\" 42x44",
+     "a \"Manhattan · Pop culture:\" 7x44",
+     "a \"The Bronx · Pop culture:\" 1x44",
+     "a \"Staten Island · Pop cult\" 6x44",
+     "a \"Day Trips · Eat & drink:\" 13x44",
+     "a \"Manhattan · NYC Tourism \" 20x44",
+     "a \"Manhattan · Wikipedia: 4\" 18x44",
+     "a \"Manhattan · The Infatuat\" 23x44",
+     "a \"Manhattan · Time Out New\" 15x44",
+     "a \"Manhattan · NYC Parks: 1\" 4x44",
+     "a \"Brooklyn · NYC Tourism +\" 17x44",
+     "a \"Brooklyn · Wikipedia: 22\" 29x44",
+     "a \"Brooklyn · The Infatuati\" 22x44",
+     "a \"Brooklyn · Time Out New \" 9x44",
+     "a \"Brooklyn · NYC Parks: 4 \" 4x44",
+     "a \"Queens · NYC Tourism + C\" 22x44",
+     "a \"Queens · Wikipedia: 20 o\" 28x44",
+     "a \"Queens · The Infatuation\" 13x44",
+     "a \"Queens · Time Out New Yo\" 11x44",
+     "a \"Queens · NYC Parks: 8 of\" 10x44",
+     "a \"The Bronx · Wikipedia: 1\" 30x44",
+     "a \"The Bronx · The Infatuat\" 5x44",
+     "a \"The Bronx · Time Out New\" 9x44",
+     "a \"The Bronx · NYC Parks: 1\" 21x44"
+    ],
+    "textNodes": 93,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12.5,
+    "minFontEl": "span.ts \"in 6 areas\"",
+    "contrastChecked": 90,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2293,
+    "fcp": 128,
+    "fontSampleN": 91,
+    "fontsDeclared": {
+     "Playfair": 16,
+     "Inter": 209
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Playfair 5pt SemiExpanded Light": 1400,
+      "Inter": 2814
+     },
+     "primary": [
+      "Inter",
+      "Playfair 5pt SemiExpanded Light"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1682750,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 90,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 44,
+      "h": 44,
+      "name": "Show the map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": null,
+     "detail": {
+      "cls": "sheet detail",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "tile.openstreetmap.org"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "New York City — 508 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 0,
+    "legacy": false,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 198,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 34,
+    "tapSmallKinds": {
+     "a": 34
+    },
+    "tapSmallList": [
+     "a \"All of New York City · P\" 12x44",
+     "a \"Manhattan · Pop culture:\" 19x44",
+     "a \"Brooklyn · Pop culture: \" 3x44",
+     "a \"Queens · Pop culture: 1 \" 3x44",
+     "a \"The Bronx · Pop culture:\" 6x44",
+     "a \"Staten Island · Pop cult\" 17x44",
+     "a \"Day Trips · Eat & drink:\" 34x44",
+     "a \"Manhattan · Time Out New\" 39x44",
+     "a \"Manhattan · NYC Parks: 1\" 12x44",
+     "a \"Brooklyn · Time Out New \" 25x44",
+     "a \"Brooklyn · NYC Parks: 4 \" 12x44",
+     "a \"Queens · The Infatuation\" 34x44",
+     "a \"Queens · Time Out New Yo\" 30x44",
+     "a \"Queens · NYC Parks: 8 of\" 27x44",
+     "a \"The Bronx · The Infatuat\" 15x44",
+     "a \"The Bronx · Time Out New\" 26x44",
+     "a \"The Bronx · Other source\" 37x44",
+     "a \"Staten Island · Wikipedi\" 41x44",
+     "a \"Staten Island · Time Out\" 32x44",
+     "a \"Day Trips · Wikipedia: 2\" 16x44",
+     "a \"Day Trips · The Infatuat\" 7x44",
+     "a \"Day Trips · Time Out New\" 7x44",
+     "a \"Brooklyn · Must see: 16 \" 19x44",
+     "a \"Brooklyn · Deep cut: 20 \" 24x44",
+     "a \"Queens · Must see: 12 of\" 14x44"
+    ],
+    "textNodes": 109,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 99,
+    "contrastUnknown": 8,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.views \"GalleryAtlasGuidebookIns\"",
+     "div.toolbar \"All 508Sights 219Eat & d\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2293,
+    "fcp": 180,
+    "fontSampleN": 107,
+    "fontsDeclared": {
+     "Playfair": 17,
+     "Inter": 235
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Playfair 5pt SemiExpanded Light": 1461,
+      "Inter": 3213
+     },
+     "primary": [
+      "Inter",
+      "Playfair 5pt SemiExpanded Light"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 508,
+     "scrolled": 0,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 508,
+      "ok": 0,
+      "bad": [
+       "the-metropolitan-museum-of-art",
+       "central-park",
+       "empire-state-building",
+       "museum-of-modern-art-moma",
+       "radio-city-music-hall",
+       "rockefeller-center",
+       "st-patricks-cathedral",
+       "chrysler-building",
+       "bryant-park",
+       "chelsea-market"
+      ]
+     },
+     "search": {
+      "n": 26,
+      "ok": 0,
+      "bad": [
+       "The Metropolitan Museum of Art",
+       "Cote",
+       "Nom Wah Tea Parlor",
+       "Bow Bridge",
+       "Federal Hall National Memorial"
+      ]
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 508 places",
+     "groups": [
+      "AreaManhattan 264Bro",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byNYC To",
+      "Recommended by",
+      "CollectionMuseums & ",
+      "Collection",
+      "CuisinePizza 23Itali",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1682750,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 99,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 32,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 508,
+    "text": 74715
+   },
+   "cpu4x": {
+    "fcp": 348,
+    "dcl": 578,
+    "loadMs": 737
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": false,
+      "val": null
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 177
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "0 on-screen / 0 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": false,
+      "val": "no rail"
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": false,
+      "val": "toggle 44×44, full map true, pin sheet none"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 508 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": false,
+      "val": null
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": false,
+      "val": "data 508 · DOM 508 · scrolled 0 · deep 0/508 · search 0/26 · no-JS 508"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Playfair, Inter · rendered here: Inter, Playfair 5pt SemiExpanded Light"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0% (0/93)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": false,
+      "val": 48
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12.5px span.ts \"in 6 areas\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "tile.openstreetmap.org"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "1643 KB · 2293 nodes · 180 ms · 348 ms"
+     }
+    },
+    "passed": 16,
+    "total": 24,
+    "hardFail": [
+     "G1 reachability 100% (scroll, deep link, search, no-JS)"
+    ]
+   }
+  },
+  {
+   "page": "Singapore/chinatown.html",
+   "gen": "new",
+   "expected": {
+    "total": 16,
+    "sights": 4,
+    "food": 12,
+    "live": "Singapore/chinatown.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Chinatown & CBD — 16 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 16,
+    "cardsVisible": 0,
+    "legacy": false,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 177,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 8,
+    "tapSmallKinds": {
+     "a": 8
+    },
+    "tapSmallList": [
+     "a \"All of Chinatown & CBD ·\" 33x44",
+     "a \"Chinatown & CBD · Sights\" 33x44",
+     "a \"Chinatown & CBD · Michel\" 18x44",
+     "a \"Chinatown & CBD · Daniel\" 18x44",
+     "a \"Chinatown & CBD · Wikipe\" 14x44",
+     "a \"Chinatown & CBD · Eatboo\" 14x44",
+     "a \"Chinatown & CBD · Roots.\" 10x44",
+     "a \"Chinatown & CBD · Deep c\" 16x44"
+    ],
+    "textNodes": 90,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12.5,
+    "minFontEl": "span.ts \"in 1 area\"",
+    "contrastChecked": 87,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1231,
+    "fcp": 92,
+    "fontSampleN": 88,
+    "fontsDeclared": {
+     "Playfair": 15,
+     "Inter": 131
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Playfair 5pt SemiExpanded Light": 736,
+      "Inter": 2755
+     },
+     "primary": [
+      "Inter",
+      "Playfair 5pt SemiExpanded Light"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 690440,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 87,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 44,
+      "h": 44,
+      "name": "Show the map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": {
+      "cls": "poi-sheet",
+      "h": 303,
+      "closeVisible": true,
+      "modal": false,
+      "grab": true,
+      "has": {
+       "sources": false,
+       "directions": false,
+       "pin": false,
+       "status": false,
+       "save": false,
+       "share": false
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "tile.openstreetmap.org"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Chinatown & CBD — 16 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 16,
+    "cardsVisible": 0,
+    "legacy": false,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 198,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 4,
+    "tapSmallKinds": {
+     "a": 4
+    },
+    "tapSmallList": [
+     "a \"Chinatown & CBD · Wikipe\" 37x44",
+     "a \"Chinatown & CBD · Eatboo\" 37x44",
+     "a \"Chinatown & CBD · Roots.\" 27x44",
+     "a \"Chinatown & CBD · Deep c\" 41x44"
+    ],
+    "textNodes": 123,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 113,
+    "contrastUnknown": 8,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.views \"GalleryAtlasGuidebookIns\"",
+     "div.toolbar \"All 16Sights 4Eat & drin\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1267,
+    "fcp": 144,
+    "fontSampleN": 121,
+    "fontsDeclared": {
+     "Playfair": 17,
+     "Inter": 186
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Playfair 5pt SemiExpanded Light": 813,
+      "Inter": 3585
+     },
+     "primary": [
+      "Inter",
+      "Playfair 5pt SemiExpanded Light"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 16,
+     "scrolled": 0,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 16,
+      "ok": 0,
+      "bad": [
+       "tian-tian-hainanese-chicken-rice",
+       "song-fa-bak-kut-teh",
+       "jumbo-seafood-riverside-point",
+       "sri-mariamman-temple",
+       "buddha-tooth-relic-temple-and-museum",
+       "famous-sungei-road-trishaw-laksa",
+       "thian-hock-keng-temple",
+       "chinatown-heritage-centre",
+       "nai-ek-roll-noodle-nai-ek-kuay-jub",
+       "ah-tai-hainanese-chicken-rice"
+      ]
+     },
+     "search": {
+      "n": 16,
+      "ok": 0,
+      "bad": [
+       "Tian Tian Hainanese Chicken Rice",
+       "Song Fa Bak Kut Teh",
+       "JUMBO Seafood (Riverside Point)",
+       "Sri Mariamman Temple",
+       "Buddha Tooth Relic Temple & Museum"
+      ]
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 16 places",
+     "groups": [
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byDaniel",
+      "Recommended by",
+      "CollectionHeritage &",
+      "Collection",
+      "CuisineHainanese Chi",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are",
+      "Been thereShow allHi",
+      "Been there"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 690440,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 113,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 16,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 16,
+    "text": 6559
+   },
+   "cpu4x": {
+    "fcp": 272,
+    "dcl": 423,
+    "loadMs": 569
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": false,
+      "val": null
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 177
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "0 on-screen / 0 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": false,
+      "val": "no rail"
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 44×44, full map true, pin sheet close true, esc true, back true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 16 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": false,
+      "val": null
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": false,
+      "val": "data 16 · DOM 16 · scrolled 0 · deep 0/16 · search 0/16 · no-JS 16"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Playfair, Inter · rendered here: Inter, Playfair 5pt SemiExpanded Light"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0% (0/90)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": false,
+      "val": 8
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12.5px span.ts \"in 1 area\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "tile.openstreetmap.org"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "674 KB · 1267 nodes · 144 ms · 272 ms"
+     }
+    },
+    "passed": 17,
+    "total": 24,
+    "hardFail": [
+     "G1 reachability 100% (scroll, deep link, search, no-JS)"
+    ]
+   }
+  },
+  {
+   "page": "cities/wheeling.html",
+   "gen": "new",
+   "expected": {
+    "total": 35,
+    "sights": 28,
+    "food": 7,
+    "live": "cities/wheeling.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Wheeling — 35 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 0,
+    "legacy": false,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 177,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 23,
+    "tapSmallKinds": {
+     "a": 23
+    },
+    "tapSmallList": [
+     "a \"All of Wheeling · Eat & \" 26x44",
+     "a \"Wheeling, WV · Eat & dri\" 11x44",
+     "a \"Cambridge & Guernsey Cou\" 33x44",
+     "a \"Zanesville & the Nationa\" 33x44",
+     "a \"Wheeling, WV · Wikipedia\" 29x44",
+     "a \"Wheeling, WV · WV Touris\" 40x44",
+     "a \"Wheeling, WV · Visit Whe\" 19x44",
+     "a \"Washington, PA · Wikiped\" 37x44",
+     "a \"Washington, PA · Visit W\" 21x44",
+     "a \"Ohio Valley · Wikipedia:\" 26x44",
+     "a \"Cambridge & Guernsey Cou\" 16x44",
+     "a \"Zanesville & the Nationa\" 23x44",
+     "a \"Zanesville & the Nationa\" 31x44",
+     "a \"Wheeling, WV · Worth the\" 36x44",
+     "a \"Wheeling, WV · Deep cut:\" 36x44",
+     "a \"Washington, PA · Worth t\" 36x44",
+     "a \"Ohio Valley · Must see: \" 24x44",
+     "a \"Ohio Valley · Worth the \" 11x44",
+     "a \"Ohio Valley · Deep cut: \" 11x44",
+     "a \"Cambridge & Guernsey Cou\" 24x44",
+     "a \"Cambridge & Guernsey Cou\" 24x44",
+     "a \"Zanesville & the Nationa\" 11x44",
+     "a \"Zanesville & the Nationa\" 24x44"
+    ],
+    "textNodes": 91,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12.5,
+    "minFontEl": "span.ts \"in 5 areas\"",
+    "contrastChecked": 88,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1833,
+    "fcp": 132,
+    "fontSampleN": 89,
+    "fontsDeclared": {
+     "Playfair": 16,
+     "Inter": 171
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Playfair 5pt SemiExpanded Light": 1581,
+      "Inter": 2634
+     },
+     "primary": [
+      "Inter",
+      "Playfair 5pt SemiExpanded Light"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 769961,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 88,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 44,
+      "h": 44,
+      "name": "Show the map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": {
+      "cls": "poi-sheet",
+      "h": 303,
+      "closeVisible": true,
+      "modal": false,
+      "grab": true,
+      "has": {
+       "sources": false,
+       "directions": false,
+       "pin": false,
+       "status": false,
+       "save": false,
+       "share": false
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "tile.openstreetmap.org"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Wheeling — 35 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 0,
+    "legacy": false,
+    "firstCardTop": null,
+    "screensToFirstCard": null,
+    "mastheadPx": 219,
+    "controlsAbove": 0,
+    "controlsAboveOnScreen": 0,
+    "controlsAboveList": [],
+    "tapSmall": 5,
+    "tapSmallKinds": {
+     "a": 5
+    },
+    "tapSmallList": [
+     "a \"Wheeling, WV · Eat & dri\" 29x44",
+     "a \"Cambridge & Guernsey Cou\" 41x44",
+     "a \"Ohio Valley · Worth the \" 29x44",
+     "a \"Ohio Valley · Deep cut: \" 29x44",
+     "a \"Zanesville & the Nationa\" 29x44"
+    ],
+    "textNodes": 109,
+    "upperNodes": 0,
+    "upperPct": 0,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 97,
+    "contrastUnknown": 9,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.views \"GalleryAtlasGuidebookIns\"",
+     "div.toolbar \"All 35Sights 28Eat & dri\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": null,
+    "cardsPerScreen": null,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 1833,
+    "fcp": 116,
+    "fontSampleN": 106,
+    "fontsDeclared": {
+     "Playfair": 17,
+     "Inter": 195
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Playfair 5pt SemiExpanded Light": 1666,
+      "Inter": 3077
+     },
+     "primary": [
+      "Inter",
+      "Playfair 5pt SemiExpanded Light"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 35,
+     "scrolled": 0,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 35,
+      "ok": 0,
+      "bad": [
+       "wheeling-suspension-bridge",
+       "west-virginia-independence-hall",
+       "centre-market-historic-district",
+       "figarettis-restaurant",
+       "oglebay-resort-and-park",
+       "capitol-theatre",
+       "kruger-street-toy-and-train-museum",
+       "wheeling-heritage-trail",
+       "monument-place-shepherd-hall",
+       "oglebay-institutes-stifel-fine-arts-center"
+      ]
+     },
+     "search": {
+      "n": 35,
+      "ok": 0,
+      "bad": [
+       "Wheeling Suspension Bridge",
+       "West Virginia Independence Hall",
+       "Centre Market Historic District",
+       "Figaretti's Restaurant",
+       "Oglebay Resort & Park"
+      ]
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 35 places",
+     "groups": [
+      "AreaWheeling, WV 11W",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionIconic & M",
+      "Collection",
+      "CuisineItalian & Piz",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 769961,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 97,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 32,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 35,
+    "text": 7800
+   },
+   "cpu4x": {
+    "fcp": 264,
+    "dcl": 447,
+    "loadMs": 602
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": false,
+      "val": null
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 177
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "0 on-screen / 0 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": false,
+      "val": "no rail"
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 44×44, full map true, pin sheet close true, esc true, back true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 35 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": false,
+      "val": null
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": false,
+      "val": "data 35 · DOM 35 · scrolled 0 · deep 0/35 · search 0/35 · no-JS 35"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Playfair, Inter · rendered here: Inter, Playfair 5pt SemiExpanded Light"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0% (0/91)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": false,
+      "val": 23
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12.5px span.ts \"in 5 areas\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "tile.openstreetmap.org"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "752 KB · 1833 nodes · 116 ms · 264 ms"
+     }
+    },
+    "passed": 17,
+    "total": 24,
+    "hardFail": [
+     "G1 reachability 100% (scroll, deep link, search, no-JS)"
+    ]
+   }
+  }
+ ]
+}

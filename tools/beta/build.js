@@ -95,8 +95,11 @@ if (!fs.existsSync(cssPath)) errors.push('beta/assets/cleo.css missing (designer
 else assetsV.css = sha(fs.readFileSync(cssPath));
 // FE-A page CSS (W2): city + saved mechanics cleo.css doesn't define yet, cached once instead of inlined per page.
 // Source owned by FE-A (tools/beta/lib/render/fe-a.css); DES upstreams rules into cleo.css over time.
-const feaCss = fs.readFileSync(path.join(__dirname, 'lib', 'render', 'fe-a.css'));
+// Atlas lane (W7 Amendment 2): Atlas map-search CSS (tools/beta/lib/render/atlas.css) rides in the same file — one request.
+const feaCss = Buffer.concat([fs.readFileSync(path.join(__dirname, 'lib', 'render', 'fe-a.css')), Buffer.from('\n'), fs.readFileSync(path.join(__dirname, 'lib', 'render', 'atlas.css'))]);
 emit('assets/fe-a.css', feaCss); const feaV = sha(feaCss);
+// FE-B page CSS (W7): landing, hubs and static pages — tokens only; source owned by FE-B (lib/render/fe-b.css).
+const febCss = fs.readFileSync(require('./lib/render/shell').FEB_CSS_SRC); emit('assets/fe-b.css', febCss);
 const tokPath = path.join(BETA, 'assets', 'tokens.css');          // optional design tokens (designer, M0-01)
 if (fs.existsSync(tokPath)) assetsV.tokens = sha(fs.readFileSync(tokPath));
 emit('assets/icon.svg', fs.readFileSync(path.join(__dirname, 'static', 'icon.svg')));
@@ -184,7 +187,7 @@ for (const r of cityRows) {
   }));
   // ROUND-5 gap #2: the Gallery's rows + lead card, chosen here so its first screen never waits on the page JSON
   emit(`data/gallery/${r.fileKey}.json`, JSON.stringify(Object.assign({ _generated: 'tools/beta/build.js (lib/gallery.js) — do not edit', v: 1, key: r.key },
-    galleryRows({ areas: page.AREAS || [], collections: page.CATS || [], cuisines: page.CUISINES || [], guide: r.guide, places: r.recs }, r.name || page.meta.h1Main || r.key))));
+    galleryRows({ areas: page.AREAS || [], collections: page.CATS || [], cuisines: page.CUISINES || [], guide: r.guide, places: r.recs, photos: (r.imagery && r.imagery.photos) || {} }, r.name || page.meta.h1Main || r.key))));
   emit(`data/prov/${r.fileKey}.json`, JSON.stringify({ _generated: 'tools/beta/build.js from data/geocodes.json — do not edit', v: 1, key: r.key,
     _doc: 'Pin provenance per place id: the published coordinate each pin was read from (data/geocodes.json `source`). Split from the page JSON to keep views light; the page JSON keeps pv.pin / pv.checked / pv.status / pv.verified.',
     pins: Object.fromEntries(r.recs.filter(x => x.pv && x.pv.src).map(x => [x.id, x.pv.src])) }));
@@ -265,7 +268,7 @@ emit('data/manifest.json', JSON.stringify({
 // Self-hosted fonts (designer, beta/assets/fonts) are precached so offline type matches online type.
 const FONTS = path.join(BETA, 'assets', 'fonts');
 const fontFiles = fs.existsSync(FONTS) ? fs.readdirSync(FONTS).filter(f => f.endsWith('.woff2')).sort().map(f => './assets/fonts/' + f) : [];
-const shellFiles = ['./index.html', './saved.html', './manifest.webmanifest', './assets/icon.svg', `./assets/cleo.css?v=${assetsV.css}`, `./${ctx.feaCss}`]
+const shellFiles = ['./index.html', './saved.html', './manifest.webmanifest', './assets/icon.svg', `./assets/cleo.css?v=${assetsV.css}`, `./${ctx.feaCss}`, `./assets/fe-b.css?v=${require('./lib/render/shell').febV()}`]
   .concat(fontFiles)
   .concat(assetsV.tokens ? [`./assets/tokens.css?v=${assetsV.tokens}`] : [])
   .concat(['./how-we-choose.html'])                                 // FE-B method page, offline too

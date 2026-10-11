@@ -11,34 +11,28 @@
  *  - the ★ collection line (Japan: anime) with its count;
  *  - editorial themes (THEMES): cross-city collections keyed on collection / cuisine IDS only (Wenwen rule), the
  *    label check only guards against an id meaning something else on another page.
- * Art = map art from the city's own open, pinned places (IMAGERY.md B), in one of four compositions so no two
- * neighbouring tiles look alike; an original motif from the imagery lane (beta/assets/img/motifs/<key>.svg) is layered
- * in as an <img class="motif"> (never a url() in --motif: browsers disagree on its base URL) when the file exists and silently skipped when it doesn't. No photos.
- * Card motifs load lazily and decode off the main thread (W4 gap #6: landing FCP at 4× CPU); the hero's decodes async.
+ * W7 (image-first): every city is a borderless card — rounded media slot, then name, counts, "Known for" and
+ * "Recommended by". The media is the imagery lane's credited photo when one exists (hero:<key> slot, else the city's
+ * best-sourced open must-see), otherwise the design system's calm no-photo cover (design/beta/css/v2.css V2.7): a
+ * quiet ground, one small icon and the name set in type (plus the native-script name where the live page prints one).
+ * The city's line motif stays referenced in the cover (the imagery gate) but v2 does not draw it. Cover tone classes
+ * c-0…c-3 rotate so no two neighbouring covers are marked alike.
+ * No night ground, particle art, skins or purple tiles. Motifs and photos below the fold load lazily.
+ * Styles: lib/render/fe-b.css (tokens only), published as assets/fe-b.css.
  */
 const fs = require('fs');
 const path = require('path');
 const { esc } = require('../html');
 const { head, siteBar, footer, styles, BETA_BASE } = require('./common');
 const { site, icon } = require('./shell');
+const imagery = require('../../imagery');                          // imagery lane: credited photos (optional helpers)
+const { captionHtml } = require('../../imagery/photos');
 const { fmt, sumStats } = require('../stats');
 const { t, tn } = require('../i18n');                // W5 gap #7: every hub/tile string comes from the catalogue
 
 const BETA = path.resolve(__dirname, '..', '..', '..', '..', 'beta');
 /** Counted phrase from the catalogue: plural('hub.places', 3) → "3 places"; the `.one` variant for 1. Escaped. */
 const plural = (key, n) => esc(n === 1 ? tn(key, 1) : t(key, { n: fmt(n) }));
-
-// ---------------------------------------------------------------- skins
-const SKINS = ['vermilion', 'lake', 'moss', 'neon', 'lagoon', 'glacier', 'saffron', 'plum'];
-const NAMED = { tokyo: 'tokyo', cleveland: 'cleveland', kyoto: 'kyoto', osaka: 'osaka', okinawa: 'okinawa', hokkaido: 'hokkaido' };
-const ASSIGNED = { newyork: 'saffron', chicago: 'plum' };           // DESIGN-SYSTEM.md §3.3
-/** Skin attribute for a page: [data-city] for the six named skins, a .skin-* class otherwise (rotating). */
-function skin(row, i) {
-  if (NAMED[row.key]) return { attr: ` data-city="${NAMED[row.key]}"`, cls: '' };
-  if (ASSIGNED[row.key]) return { attr: '', cls: ' skin-' + ASSIGNED[row.key] };
-  if (row.country === 'singapore' || row.country === 'vietnam') return { attr: '', cls: ' skin-' + ['lagoon', 'glacier', 'moss', 'plum'][i % 4] };
-  return { attr: '', cls: ' skin-' + SKINS[i % SKINS.length] };
-}
 
 /** Native-script name, only where the live page prints one: "Field guide · Tokyo (東京), sourced" → 東京. */
 function nativeName(meta) {
@@ -97,60 +91,58 @@ function facts(row) {
   const areas = (d.AREAS || []).filter(a => recs.some(x => x.a === a.id)).length;
   return { n: st ? st.total : recs.length, P: st ? st.sights : row.counts.P, F: st ? st.food : row.counts.F, star, canon, checked, areas,
     sig: signature(row), native: row.nat || nativeName(d.meta), name: row.name || d.meta.h1Main || row.key,
-    closed: recs.filter(x => x.closed).length };
+    closed: recs.filter(x => x.closed).length, musts: recs.filter(x => !x.closed && x.t === 1).length,
+    recby: recommenders(row) };
 }
 
-// ---------------------------------------------------------------- map art from verified pins
-const q = (a, p) => a[Math.min(a.length - 1, Math.max(0, Math.floor(p * (a.length - 1))))];
-/**
- * Dots for a set of records, coloured per area where `colors` is given. Trims day-trip outliers (trim) so the place
- * itself fills the frame — art, not a map: the full set is on the page. Returns '' with fewer than 2 pins.
- */
-function starfield(recs, { W = 320, H = 120, cap = 44, trim = 0.06, colors = null, pad = 20, stroke = 2.2 } = {}) {
-  const pts = recs.filter(x => x.la != null && x.ln != null && !x.closed && (!x.pv || x.pv.pin !== 'low'));
-  if (pts.length < 2) return '';
-  const las = pts.map(p => p.la).sort((a, b) => a - b), lns = pts.map(p => p.ln).sort((a, b) => a - b);
-  const box = [q(las, trim), q(las, 1 - trim), q(lns, trim), q(lns, 1 - trim)];
-  const k = Math.cos(((box[0] + box[1]) / 2) * Math.PI / 180);
-  const w = Math.max((box[3] - box[2]) * k, 1e-4), h = Math.max(box[1] - box[0], 1e-4);
-  const s = Math.min((W - 2 * pad) / w, (H - 2 * pad * 0.6) / h);
-  const ox = (W - w * s) / 2, oy = (H - h * s) / 2;
-  const inside = pts.filter(p => p.la >= box[0] && p.la <= box[1] && p.ln >= box[2] && p.ln <= box[3]);
-  const pick = inside.slice().sort((a, b) => a.t - b.t).slice(0, cap);
-  const seen = new Set(), groups = {};
-  for (const p of pick) {
-    const x = Math.round(ox + (p.ln - box[2]) * k * s), y = Math.round(oy + (box[1] - p.la) * s);
-    const key = x + ',' + y; if (seen.has(key)) continue; seen.add(key);
-    const g = (p.t === 1 ? 't1' : 'r') + '|' + (colors && colors[p.a] ? colors[p.a] : '');
-    (groups[g] = groups[g] || []).push(`M${x} ${y}h0`);
-  }
-  const paths = Object.keys(groups).sort().map(g => {
-    const [t, c] = g.split('|');
-    return `<path class="dots${t === 't1' ? ' t1' : ''}"${c ? ` style="--dot:${esc(c)}"` : ''} stroke-width="${t === 't1' ? +(stroke * 1.6).toFixed(1) : stroke}"${t === 't1' ? '' : ' stroke-opacity=".75"'} d="${groups[g].join('')}"/>`;
-  }).join('');
-  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">${paths}</svg>`;
+/** Named publishers behind a page, most places first (the guide's own additions are not a source). Computed by lib/sources.js. */
+function recommenders(row) {
+  const list = ((row.sources && row.sources.list) || []).filter(s => s.id !== 'guide' && s.name);
+  return { names: list.slice(0, 2).map(s => s.name), n: list.length };
 }
 
-// ---------------------------------------------------------------- city tile
-/** Four compositions, rotated through a list so no two neighbouring tiles share one (gap #3, "no two navy tiles alike"). */
-const COMPS = ['night', 'wash', 'city', 'paper'];
+// ---------------------------------------------------------------- photos (imagery lane, credit-gated)
+/** The credited photo for a hub hero or a city card, or null. Vietnam is never photographed (no freedom of panorama). */
+function photoOf(key, reg, row) {
+  if (row && row.country === 'vietnam') return null;
+  if (/^vietnam(\/|$)/.test(String(key))) return null;
+  try { if (typeof imagery.heroFor === 'function') { const h = imagery.heroFor(reg || row, key); if (h) return h; } } catch (e) { /* helper not shipped yet */ }
+  const slots = reg && reg.imagery && reg.imagery.slots;
+  if (slots && slots['hero:' + key]) return slots['hero:' + key];
+  if (!row) return null;
+  const ph = (row.imagery && row.imagery.photos) || {};
+  const best = (row.recs || []).filter(x => !x.closed && x.kind === 'sight' && x.t === 1 && ph[x.id]).sort(rank)[0];
+  return best ? ph[best.id] : null;
+}
+/** A photo as a media-slot <img>: sized, srcset when the imagery lane wrote widths, lazy unless above the fold. */
+function photoImg(ph, up, { sizes, eager = false } = {}) {
+  const set = ph.srcset ? ` srcset="${esc(String(ph.srcset).split(',').map(x => up + x.trim()).join(', '))}" sizes="${esc(sizes)}"` : '';
+  return `<img class="ph" src="${esc(up + ph.src)}"${set} width="${ph.w}" height="${ph.h}" alt="${esc(ph.credit.depicts)}"${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async">`;
+}
+const credit = ph => ph ? `<small class="credit">${captionHtml(ph.credit)}</small>` : '';
+
+// ---------------------------------------------------------------- city card
+/** Sizes for the card media: 1/2/3/4 columns (hubs) or 2/3/4 (landing). */
+const SIZES = { hub: '(min-width:1280px) 300px, (min-width:1024px) 31vw, (min-width:640px) 46vw, 92vw',
+  dense: '(min-width:1280px) 300px, (min-width:1024px) 23vw, (min-width:640px) 31vw, 46vw' };
 
 /**
- * One city tile. Markup contract kept for test-beta.js / guards: li.dest[data-page] > a[href] first, and ".dest-c"
- * starting with the computed place count.
+ * One city card. Markup contract kept for test-beta.js / guards: li.dest[data-page] > a[href] first, and ".dest-c"
+ * starting with the computed place count. The cover tone rotates (c-0…c-3) so neighbouring covers never match.
  */
-function cityTile(row, i, { up = '', art = true, lg = false, cap = 44, views = false } = {}) {
-  const f = facts(row), sk = skin(row, i), comp = COMPS[i % COMPS.length];
-  const mf = motif(row.key);   // night drawing: cleo.css (designer W2) paints every tile composition on a dark ground; use motif(key, 'ink') on a light one
-  const sig = f.sig.length ? `<span class="sigline">${f.sig.map(x => `<span>${esc(x.name)}</span>`).join('')}</span>` : '';
-  const star = f.star ? `<span class="star">${icon('star4', 'ico sm')}${esc(f.star.name)} · ${fmt(f.star.n)}</span>` : '';
+function cityTile(row, i, { up = '', views = false, reg = null, dense = false, eager = false } = {}) {
+  const f = facts(row);
+  const ph = photoOf(row.key, reg, row);
+  const mf = motif(row.key, 'ink');
+  const sig = f.sig.length ? `<span class="sigline"><b class="k">${esc(t('card.known'))}</b>${f.sig.map(x => `<span>${esc(x.name)}</span>`).join('')}</span>` : '';
+  const star = f.star ? `<span class="star sticker">${icon('star4', 'ico sm')}${esc(f.star.name)} · ${fmt(f.star.n)}</span>` : '';
   const canon = !sig && f.canon.length ? `<span class="canon">${f.canon.map(c => `<span>${esc(c)}</span>`).join('')}</span>` : '';
-  const ini = esc((f.name.match(/[A-Za-zÀ-ɏ]/) || ['·'])[0]);
-  return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}" class="tile c-${comp}${lg ? ' lg' : ''}${sk.cls}"${sk.attr}>
-<span class="art">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}${art ? starfield(row.recs || [], { cap, colors: comp === 'night' ? null : row.colors }) : ''}${f.native ? `<span class="native">${esc(f.native)}</span>` : `<span class="ini" aria-hidden="true">${ini}</span>`}<span class="bar"></span></span>
-<span class="txt"><h3>${esc(f.name)}</h3>
+  const rb = f.recby.n ? `<span class="recby">${icon('seal', 'ico sm')}<span>${esc(t('card.recby'))} <b>${esc(f.recby.names.join(', '))}</b>${f.recby.n > f.recby.names.length ? ` ${esc(t('card.recby.more', { n: fmt(f.recby.n - f.recby.names.length) }))}` : ''}</span></span>` : '';
+  return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}" class="tile card c-${i % 4}">
+<span class="card-media"><span class="cover" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}${icon('pin', 'gl ico')}<span class="cover-n">${esc(f.name)}</span>${f.native ? `<span class="native">${esc(f.native)}</span>` : ''}</span>${ph ? photoImg(ph, up, { sizes: dense ? SIZES.dense : SIZES.hub, eager }) : ''}${star}</span>
+<span class="card-body txt"><h3 class="card-t">${esc(f.name)}</h3>
 <span class="counts"><span class="dest-c">${plural('hub.places', f.n)}<span class="hide-m"> · ${esc(t('hub.sights', { n: fmt(f.P) }))} · ${esc(t('hub.food', { n: fmt(f.F) }))}</span></span></span>
-${sig}${star}${canon}</span></a>${views && row.gen === 'new' ? viewLinks(row, up) : ''}</li>`;
+${sig}${canon}${rb}</span></a>${credit(ph)}${views && row.gen === 'new' ? viewLinks(row, up) : ''}</li>`;
 }
 
 /** W3 B-04: open the city in a named view. Real anchors (#view= is a route the city page's switcher reads). */
@@ -221,15 +213,21 @@ function whereLine(th, reg) {
   return t('hub.where.countries', { n: names.length });
 }
 
+/** A collection's paper-ground motif (imagery lane: assets/img/motifs/collections/<key>.ink.svg), or null. */
+function collMotif(key) {
+  const rel = `assets/img/motifs/collections/${key}.ink.svg`;
+  return fs.existsSync(path.join(BETA, rel)) ? rel : null;
+}
+
 /** The editorial rail (landing + hubs). Tiles are figures with real links; chips link straight to each city's view. */
 function themeRail(reg, { up = '', country = null, heading = t('hub.themes.h'), id = 'themes', sub = '' } = {}) {
   const ts = themes(reg, { country });
   if (!ts.length) return '';
   const tile = (th, i) => {
     const top = th.cities.slice(0, 4), rest = th.cities.length - top.length;
-    const mf = motif('collections/' + th.key);
+    const mf = collMotif(th.key);
     return `<li class="theme t-${i % 4}">
-<a class="theme-main" href="${up}${esc(th.cities[0].href)}">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}<span class="theme-n">${fmt(th.n)}</span><span class="theme-t">${esc(th.title)}</span><span class="theme-w">${esc(th.line)} · ${esc(whereLine(th, reg))}</span></a>
+<a class="theme-main" href="${up}${esc(th.cities[0].href)}"><span class="cover" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}</span><span class="theme-n">${fmt(th.n)}</span><span class="theme-t">${esc(th.title)}</span><span class="theme-w">${esc(th.line)} · ${esc(whereLine(th, reg))}</span></a>
 <span class="theme-c">${top.map(c => `<a href="${up}${esc(c.href)}">${esc(c.row.name)} <b>${fmt(c.n)}</b></a>`).join('')}${rest > 0 ? `<span class="more-n">${esc(tn('hub.themes.more', rest))}</span>` : ''}</span></li>`;
   };
   return `<section class="themes section" id="${esc(id)}" aria-labelledby="${esc(id)}-h">
@@ -239,86 +237,6 @@ ${sub ? `<p class="blurb">${esc(sub)}</p>` : ''}
 ${ts.map(tile).join('\n')}
 </ul></section>`;
 }
-
-// ---------------------------------------------------------------- inline glue CSS (designer to upstream into cleo.css)
-/** FE-B Wave 2 rules for tile compositions, the country hero and the editorial rail. Tokens only; AA in both themes. */
-const FEB_CSS = `
-.tile .art .dots{stroke:var(--dot,var(--on-night))}
-.tile.c-night .art .dots{stroke:var(--on-night)}.tile.c-night .art .dots.t1{stroke:var(--gilt-soft)}
-.tile.c-wash .art{background:var(--motif,none),linear-gradient(160deg,var(--city-wash),var(--surface));color:var(--ink)}
-.tile.c-wash .art .native,.tile.c-wash .art .ini{color:var(--city-ink)}
-.tile.c-wash .art .dots,.tile.c-paper .art .dots{stroke:var(--dot,var(--city-ink))}.tile.c-wash .art .dots.t1,.tile.c-paper .art .dots.t1{stroke:var(--ink)}
-.tile.c-city .art{background:var(--motif,none),radial-gradient(120% 140% at 0 100%,color-mix(in srgb,var(--night) 35%,transparent),transparent 60%),var(--city);color:var(--city-on)}
-.tile.c-city .art .dots{stroke:var(--city-on);stroke-opacity:.9}.tile.c-city .art .dots.t1{stroke:var(--city-on)}
-.tile.c-city .art .native,.tile.c-city .art .ini{color:var(--city-on)}.tile.c-city .art .bar{background:var(--night)}
-.tile.c-paper .art{background:var(--motif,none),repeating-radial-gradient(circle at 70% 120%,transparent 0 13px,color-mix(in srgb,var(--city) 16%,transparent) 13px 14px),var(--sand);color:var(--ink)}
-.tile.c-paper .art .native,.tile.c-paper .art .ini{color:var(--ink)}
-.tile .art .ini{position:absolute;right:14px;bottom:6px;font:italic 500 84px/1 var(--font-display);opacity:.9;color:var(--on-night)}
-.tile .art .native{color:var(--on-night)}
-.tiles.hub2 .tile .art .ini{font-size:52px;bottom:4px}
-.tile .sigline{font-size:13.5px;line-height:1.35;color:var(--ink-2);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.tile .sigline span+span::before{content:" · ";color:var(--ink-3)}
-.tile .star{font-size:12.5px}
-.tile:hover .art svg,.tile:focus-visible .art svg{transform:scale(1.04)}.tile .art svg{transition:transform .5s var(--ease,ease)}
-@media (prefers-reduced-motion:reduce){.tile .art svg{transition:none}.tile:hover .art svg{transform:none}}
-.chero{position:relative;background:var(--night);color:var(--on-night);overflow:hidden;isolation:isolate}
-.chero .sky{position:absolute;inset:0;z-index:-1;background:var(--motif,none)}
-.chero .sky svg{position:absolute;inset:0;width:100%;height:100%}
-.chero .sky .dots{stroke:var(--on-night);stroke-linecap:round;fill:none;stroke-opacity:.9}.chero .sky .dots.t1{stroke:var(--gilt-soft)}
-.chero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--night) 0,color-mix(in srgb,var(--night) 70%,transparent) 55%,transparent)}
-.chero .inner{max-width:var(--maxw);margin:0 auto;padding:28px var(--gutter) 26px}
-.chero .kicker{color:var(--on-night-2);font-size:15px;margin:0 0 6px}
-.chero h1{margin:0;color:var(--on-night)}
-.chero .why{font:italic 500 21px/1.3 var(--font-display);color:var(--on-night);margin:10px 0 0;max-width:40ch}
-.chero .why .l span+span::before{content:" · ";font-style:normal;color:var(--on-night-2)}
-.chero .facts{color:var(--on-night-2);font-size:15px;margin:12px 0 0;max-width:60ch}
-.chero .facts b{color:var(--on-night);font-weight:650}.chero .facts a{color:var(--on-night)}
-.chero .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.chero .btn{min-height:var(--tap)}
-.chero .btn-ghost{color:var(--on-night);border-color:color-mix(in srgb,var(--on-night) 45%,transparent);background:transparent}
-.chero .accentbar{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--city,var(--gilt-soft))}
-@media(max-width:639px){.chero .blurb-c{display:none}.chero .sky{opacity:.45}.chero .why{font-size:19px}.chero .inner{padding:20px var(--gutter) 22px}.chero h1{font-size:44px}}
-@media(min-width:900px){.chero .inner{padding:44px var(--gutter) 40px}.chero .why{font-size:26px}}
-.share-note{font-size:14px;color:var(--on-night-2);align-self:center}
-.themes .theme-rail{list-style:none;margin:12px 0 0;padding:2px 2px 10px;display:grid;grid-auto-flow:column;grid-auto-columns:min(74%,290px);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}
-@media(min-width:1100px){.themes .theme-rail{grid-auto-columns:calc((100% - 36px)/4)}}
-.themes .rail-head .n{display:block;margin-top:4px;font:450 14px/1.3 var(--font-ui);color:var(--ink-3);letter-spacing:0}
-@media(min-width:900px){.themes .rail-head .n{display:inline;margin-left:12px}}
-.theme-main{min-height:170px}
-.theme{scroll-snap-align:start;display:grid;grid-template-rows:1fr auto;border-radius:var(--r-l);overflow:hidden;background:var(--surface);border:1px solid var(--line)}
-.theme-main{display:grid;gap:4px;align-content:end;min-height:150px;padding:16px;text-decoration:none;color:var(--on-night);background:var(--motif,none),var(--night)}
-.theme.t-1 .theme-main{background:var(--motif,none),linear-gradient(150deg,var(--night-2),var(--night))}
-.theme.t-2 .theme-main{background:var(--motif,none),repeating-linear-gradient(135deg,transparent 0 10px,color-mix(in srgb,var(--on-night) 6%,transparent) 10px 11px),var(--night)}
-.theme.t-3 .theme-main{background:var(--motif,none),radial-gradient(120% 120% at 100% 0,var(--night-2),var(--night) 70%)}
-.theme-n{font:500 44px/1 var(--font-display);color:var(--gilt-soft)}
-.theme-t{font:500 23px/1.15 var(--font-display);color:var(--on-night)}
-.theme-w{font-size:13.5px;line-height:1.35;color:var(--on-night-2)}
-.theme-c{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 12px}
-.theme-c a{display:inline-flex;align-items:center;gap:5px;min-height:var(--tap);padding:0 12px;border:1px solid var(--line-strong);border-radius:var(--r-pill);font-size:13.5px;text-decoration:none;color:var(--ink)}
-.theme-c a b{font-weight:650;color:var(--ink-2)}
-.theme-c .more-n{font-size:13px;color:var(--ink-3);align-self:center;padding:0 4px}
-.theme-main:hover .theme-t{text-decoration:underline;text-underline-offset:4px}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .tile.c-night .art .dots.t1,:root:not([data-theme=light]) .chero .sky .dots.t1{stroke:var(--gilt)}:root:not([data-theme=light]) .theme-n{color:var(--gilt)}:root:not([data-theme=light]) .tile.c-wash .art .dots,:root:not([data-theme=light]) .tile.c-paper .art .dots{stroke:var(--city-ink)}:root:not([data-theme=light]) .tile.c-wash .art .dots.t1,:root:not([data-theme=light]) .tile.c-paper .art .dots.t1{stroke:var(--ink)}}
-:root[data-theme=dark] .tile.c-night .art .dots.t1,:root[data-theme=dark] .chero .sky .dots.t1{stroke:var(--gilt)}:root[data-theme=dark] .theme-n{color:var(--gilt)}:root[data-theme=dark] .tile.c-wash .art .dots,:root[data-theme=dark] .tile.c-paper .art .dots{stroke:var(--city-ink)}:root[data-theme=dark] .tile.c-wash .art .dots.t1,:root[data-theme=dark] .tile.c-paper .art .dots.t1{stroke:var(--ink)}
-.results .grp.guides ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0}
-.results a.is-kb,.results a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-.results mark{background:var(--gilt-soft);color:var(--ink);border-radius:2px}
-
-.motif{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%;z-index:-1;pointer-events:none}
-.theme-main{position:relative;isolation:isolate}.chero .sky .motif{object-fit:contain;object-position:100% 100%;z-index:0}
-/* ROUND-2 gap #4 (FE-B half): landing editorial rail — compact ★ tiles that scroll sideways; designer's .rail-i.sig skin */
-.editorial-s .rail-head h2 .n{margin-left:12px;font:500 15px/1.3 var(--font-ui);color:var(--ink-3)}
-html .rail.editorial{display:flex;flex-wrap:nowrap;gap:12px;overflow-x:auto;scroll-snap-type:x proximity;padding:4px 2px 14px;margin:0;grid-template-rows:none;height:auto}
-html .rail.editorial .rail-i{flex:0 0 min(80vw,300px);align-content:start;height:auto;min-height:0;aspect-ratio:auto;scroll-snap-align:start;text-decoration:none;color:var(--city-on,var(--on-night));display:grid;grid-template-columns:22px 1fr auto;gap:2px 10px;align-items:start;padding:14px 16px;border-radius:16px;font-size:inherit}
-html .rail.editorial .rail-i .g{grid-row:1/span 3;margin:2px 0 0}
-html .rail.editorial .rail-i .k{grid-column:2;font:600 12px/1.3 var(--font-ui);letter-spacing:.02em;opacity:.9}
-html .rail.editorial .rail-i .t{grid-column:2;font:500 21px/1.15 var(--font-display)}
-html .rail.editorial .rail-i .d{grid-column:2;font:13px/1.4 var(--font-ui);opacity:.9}
-html .rail.editorial .rail-i .n{grid-column:3;grid-row:1/span 2;font:500 26px/1 var(--font-display);color:inherit}
-/* W3 B-04: "Read as a guidebook" / "See it in numbers" under each hub tile (44 px targets) */
-li.dest>.dest-views{display:flex;flex-wrap:wrap;gap:0 16px;margin:4px 2px 0;font-size:14px}
-li.dest>.dest-views a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink-2,inherit);text-underline-offset:3px}
-`;
 
 // ---------------------------------------------------------------- country hub page
 /** A live country's hub. Returns { html, expect } — guards.assertHubPage checks every expected page is carded once. */
@@ -363,6 +281,14 @@ function ogFor(key) {
   return null;
 }
 
+/** Country cards (landing "Countries", hub "Elsewhere in Cleo"): calm cover with the country's line motif, name, counts. */
+function countryCards(list, up = '', reg = null) {
+  return `<ul class="ccards">${list.map((o, i) => {
+    const mf = motif(o.key, 'ink'), ph = photoOf(o.key, reg, null);
+    return `<li><a class="ccard c-${i % 4}" href="${up}${esc(o.href)}"><span class="card-media"><span class="cover" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}${icon('compass', 'gl ico')}<span class="cover-n">${esc(o.name)}</span></span>${ph ? photoImg(ph, up, { sizes: SIZES.dense }) : ''}</span><span class="card-body"><span class="card-t">${esc(o.name)}</span><span class="counts">${plural('hub.guides', o.guides)} · ${plural('hub.places', o.places)}</span></span></a>${credit(ph)}</li>`;
+  }).join('')}</ul>`;
+}
+
 function render(row, reg, ctx, { c, main, more, all, groups }) {
   const depth = row.beta.split('/').length - 1, up = '../'.repeat(depth);
   const S = sumStats(all);                                           // computed (lib/stats.js), never re-typed
@@ -371,33 +297,42 @@ function render(row, reg, ctx, { c, main, more, all, groups }) {
   const title = t('hub.title', { country: c.name, n: all.length });
   const sig = groups ? [] : countrySignature(all);
   const desc = t('hub.desc', { places: n.toLocaleString('en-US'), n: all.length, country: c.name, known: sig.length ? t('hub.desc.known', { names: sig.map(s => s.name).join(', ') }) : '' });
-  const sky = starfield(all.flatMap(r => r.recs || []), { W: 900, H: 360, cap: 900, trim: 0.01, pad: 30, stroke: 3 })
-    .replace('preserveAspectRatio="xMidYMid slice"', 'preserveAspectRatio="xMaxYMid meet"');
-  const mf = motif(c.key);
+  const pins = all.reduce((s, r) => s + (r.recs || []).filter(x => x.la != null && !x.closed && (!x.pv || x.pv.pin !== 'low')).length, 0);
   const rail = groups ? '' : themeRail(reg, { up, country: c.key, heading: t('hub.themes.country', { country: c.name }), id: 'themes' });
   const shareUrl = BETA_BASE + '/' + row.beta.replace(/index\.html$/, '');
-  return `${head({ page: 'hub', title, description: desc, rel: row.beta, depth, assetsV: ctx.assetsV, css: styles(depth), ogImage: ogFor(c.key), from: `data/countries.json + every ${c.name} place page` }).replace('</head>', `<style>${FEB_CSS}</style>\n</head>`)}
+  // Hero media: the imagery lane's credited hero photo, else the calm cover — the country's line drawing (paper ground;
+  // the night-ground drawing under a dark scheme) and the one expressive moment: the place count in the display face.
+  const ph = groups ? null : photoOf(c.key, reg, null);
+  const ink = motif(c.key, 'ink'), night = motif(c.key);
+  const media = ph
+    ? (typeof imagery.heroHtml === 'function' ? imagery.heroHtml(ph, up, 'photo hero-media') : `<figure class="photo hero-media">${photoImg(ph, up, { eager: true })}<figcaption>${captionHtml(ph.credit)}</figcaption></figure>`)
+    : `<div class="hero-media cover c-1" aria-hidden="true">${ink ? `<picture>${night ? `<source media="(prefers-color-scheme: dark)" srcset="${up}${night}">` : ''}<img class="motif" src="${up}${ink}" alt="" decoding="async"></picture>` : ''}<span class="big">${fmt(n)}</span><span class="big-l">${esc(t('hub.hero.places'))}</span></div>`;
+  return `${head({ page: 'hub', title, description: desc, rel: row.beta, depth, assetsV: ctx.assetsV, css: styles(depth), ogImage: ogFor(c.key), from: `data/countries.json + every ${c.name} place page` })}
 <body class="has-tabbar">
 ${siteBar({ depth, current: 'hub', rel: row.beta })}
 <main id="main" class="feb">
-<section class="chero masthead" aria-labelledby="cn"><div class="sky" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" decoding="async">` : ''}${sky}</div><div class="inner">
-  <p class="kicker">${esc(t(groups ? 'hub.kicker.archive' : 'hub.kicker'))} · ${esc(t('hub.drawn')).replace('{pins}', plural('hub.pins', all.reduce((s, r) => s + (r.recs || []).filter(x => x.la != null && !x.closed && (!x.pv || x.pv.pin !== 'low')).length, 0)))}</p>
+<section class="chero" aria-labelledby="cn"><div class="inner">
+<div class="copy">
+  <p class="kicker">${icon('pin', 'ico sm')}${esc(t(groups ? 'hub.kicker.archive' : 'hub.kicker'))} · ${plural('hub.pins', pins)}</p>
   <h1 class="title d1" id="cn">${esc(c.name)}</h1>
-  ${sig.length ? `<p class="why"><span class="vh">${esc(t('hub.known'))} </span><span class="l">${sig.map(s => `<span>${esc(s.name)}</span>`).join('')}</span></p>` : ''}
+  ${sig.length ? `<p class="why"><span class="k">${esc(t('hub.known'))}</span> <span class="l">${sig.map(s => `<span>${esc(s.name)}</span>`).join('')}</span></p>` : ''}
   <p class="facts"><b>${plural('hub.guides', all.length)} · ${plural('hub.places', n)}</b> · ${esc(t('hub.sights', { n: fmt(P) }))} · ${esc(t('hub.food', { n: fmt(F) }))}${checked ? ` · ${esc(t('hub.checked', { d: checked }))}` : ''}.</p>
   ${c.blurb ? `<p class="facts blurb-c">${esc(c.blurb)}</p>` : ''}
-  <div class="acts"><button type="button" class="btn btn-ghost" data-cleo-share data-title="${esc(title)}" data-url="${esc(shareUrl)}" hidden>${icon('share', 'ico sm')}${esc(t('hub.share', { country: c.name }))}</button><a class="btn btn-ghost" href="${up}how-we-choose.html">${esc(t('shell.nav.method'))}</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>
-</div><span class="accentbar"></span></section>
+  <div class="acts"><a class="btn btn-primary" href="#destinations">${esc(t('hub.cta', { n: all.length }))}</a><button type="button" class="btn btn-ghost" data-cleo-share data-title="${esc(title)}" data-url="${esc(shareUrl)}" hidden>${icon('share', 'ico sm')}${esc(t('hub.share', { country: c.name }))}</button><a class="btn btn-ghost" href="${up}how-we-choose.html">${icon('seal', 'ico sm')}${esc(t('shell.nav.method'))}</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>
+</div>
+${groups ? '' : media}
+</div></section>
 <div class="wrap section" id="destinations">
 ${groups ? groups.map(g => `<section class="csec" id="${esc(g.c.key)}" aria-labelledby="g-${esc(g.c.key)}"><div class="rail-head"><h2 class="d2" id="g-${esc(g.c.key)}">${esc(g.c.name)}<span class="n">${plural('hub.guides', g.pages.length)}${g.c.live === false ? ` · ${esc(t('hub.preview'))}` : ''}</span></h2></div>
-<ul class="morelist">\n${g.pages.map(r => moreRow(r, up)).join('\n')}\n</ul></section>`).join('\n') : `  <ul class="tiles hub2" aria-label="${esc(t('hub.guides.label', { country: c.name }))}">
-${main.map((r, i) => cityTile(r, i, { up, views: true })).join('\n')}
+<ul class="morelist">\n${g.pages.map(r => moreRow(r, up)).join('\n')}\n</ul></section>`).join('\n') : `<div class="rail-head"><h2 class="d2" id="grid-h">${esc(t('hub.grid.h', { country: c.name }))}<span class="n">${plural('hub.guides', all.length)}</span></h2></div>
+  <ul class="tiles hub2 cards" aria-labelledby="grid-h">
+${main.map((r, i) => cityTile(r, i, { up, views: true, reg, eager: i < 2 })).join('\n')}
   </ul>`}
-${more.length ? `<h2 class="d3" style="margin-top:28px">${esc(t('hub.more', { country: c.name }))}</h2>\n<ul class="morelist">\n${more.map(r => moreRow(r, up)).join('\n')}\n</ul>` : ''}
+${more.length ? `<h2 class="d3 more-h">${esc(t('hub.more', { country: c.name }))}</h2>\n<ul class="morelist">\n${more.map(r => moreRow(r, up)).join('\n')}\n</ul>` : ''}
 </div>
 ${rail ? `<div class="wrap">${rail}</div>` : ''}
-<section class="wrap section" aria-labelledby="else-h"><h2 class="d2" id="else-h">${esc(t('hub.else'))}</h2>
-<div class="countries" style="margin-top:12px">${others.map(o => `<a class="pill" href="${up}${esc(o.href)}">${esc(o.name)} <span class="n">${o.places.toLocaleString('en-US')}</span></a>`).join('')}</div></section>
+<section class="wrap section" aria-labelledby="else-h"><div class="rail-head"><h2 class="d2" id="else-h">${esc(t('hub.else'))}</h2></div>
+${countryCards(others, up, reg)}</section>
 </main>
 ${footer({ depth, tabbar: true, current: 'hub' })}
 </body>
@@ -405,5 +340,5 @@ ${footer({ depth, tabbar: true, current: 'hub' })}
 `;
 }
 
-module.exports = { ogFor, renderCountry, renderArchive, cityTile, moreRow, facts, skin, starfield, countryPages, nativeName,
-  signature, shortName, themes, themeRail, THEMES, FEB_CSS, motif };
+module.exports = { ogFor, renderCountry, renderArchive, cityTile, moreRow, facts, countryPages, nativeName, countryCards,
+  signature, shortName, themes, themeRail, THEMES, motif, photoOf };

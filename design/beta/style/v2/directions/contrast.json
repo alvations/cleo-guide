@@ -1,0 +1,1628 @@
+{
+ "state_light": {
+  "open": "#2E6A4C",
+  "open-soft": "#E5F0E9",
+  "closed": "#8E3B2E",
+  "closed-soft": "#F6E7E2",
+  "warn": "#835800",
+  "warn-soft": "#F8EFD9"
+ },
+ "state_dark": {
+  "open": "#86C9A3",
+  "open-soft": "#1C3026",
+  "closed": "#F0A08C",
+  "closed-soft": "#3A221C",
+  "warn": "#EDC06A",
+  "warn-soft": "#382C12"
+ },
+ "directions": {
+  "juniper": {
+   "name": "Juniper",
+   "line": "Stone ground, near-black ink, a deep juniper green spent only on the saved heart and the one active state.",
+   "light": {
+    "paper": "#F7F6F2",
+    "surface": "#FFFFFF",
+    "sand": "#EFEEE8",
+    "ink": "#1A1C1A",
+    "ink-2": "#464944",
+    "ink-3": "#62655E",
+    "line": "#E3E2DB",
+    "line-strong": "#C9C8BF",
+    "accent": "#2C5A4C",
+    "accent-ink": "#2C5A4C",
+    "accent-wash": "#E6EEEA",
+    "on-accent": "#FFFFFF",
+    "area-mute": "#8A8D86"
+   },
+   "dark": {
+    "paper": "#111312",
+    "surface": "#191C1A",
+    "sand": "#222624",
+    "ink": "#EDEFEB",
+    "ink-2": "#C9CDC7",
+    "ink-3": "#9DA39B",
+    "line": "#2A2F2C",
+    "line-strong": "#434A46",
+    "accent": "#8FC3AF",
+    "accent-ink": "#9CCDB9",
+    "accent-wash": "#1B2C26",
+    "on-accent": "#0C1A15",
+    "area-mute": "#6E746E"
+   },
+   "fails": 0,
+   "min_text_ratio": 5.1,
+   "rows": [
+    {
+     "mode": "light",
+     "pair": "ink on paper",
+     "ratio": 15.85,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on surface",
+     "ratio": 17.14,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on sand",
+     "ratio": 14.75,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-2 on paper",
+     "ratio": 8.45,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-2 on surface",
+     "ratio": 9.14,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-2 on sand",
+     "ratio": 7.87,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-3 on paper",
+     "ratio": 5.48,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-3 on surface",
+     "ratio": 5.93,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-3 on sand",
+     "ratio": 5.1,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "paper on ink",
+     "ratio": 15.85,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent-ink on paper",
+     "ratio": 7.26,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent-ink on surface",
+     "ratio": 7.85,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent-ink on accent-wash",
+     "ratio": 6.65,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "on-accent on accent",
+     "ratio": 7.85,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on accent-wash",
+     "ratio": 14.52,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent on surface",
+     "ratio": 7.85,
+     "min": 3.0,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent on paper",
+     "ratio": 7.26,
+     "min": 3.0,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "line-strong on surface",
+     "ratio": 1.68,
+     "min": 1.4,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "open on open-soft",
+     "ratio": 5.48,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "closed on closed-soft",
+     "ratio": 6.2,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "closed on surface",
+     "ratio": 7.46,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on warn-soft",
+     "ratio": 14.97,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "warn on surface",
+     "ratio": 6.25,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "on-sun-wash on sun-wash",
+     "ratio": 11.63,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on sun-wash",
+     "ratio": 14.55,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "sun on surface",
+     "ratio": 2.06,
+     "min": 1.8,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on paper",
+     "ratio": 16.12,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on surface",
+     "ratio": 14.85,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on sand",
+     "ratio": 13.24,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-2 on paper",
+     "ratio": 11.58,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-2 on surface",
+     "ratio": 10.67,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-2 on sand",
+     "ratio": 9.51,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-3 on paper",
+     "ratio": 7.24,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-3 on surface",
+     "ratio": 6.66,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-3 on sand",
+     "ratio": 5.94,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "paper on ink",
+     "ratio": 16.12,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent-ink on paper",
+     "ratio": 10.52,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent-ink on surface",
+     "ratio": 9.69,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent-ink on accent-wash",
+     "ratio": 8.26,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "on-accent on accent",
+     "ratio": 9.02,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on accent-wash",
+     "ratio": 12.65,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent on surface",
+     "ratio": 8.67,
+     "min": 3.0,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent on paper",
+     "ratio": 9.41,
+     "min": 3.0,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "line-strong on surface",
+     "ratio": 1.89,
+     "min": 1.4,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "open on open-soft",
+     "ratio": 7.26,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "closed on closed-soft",
+     "ratio": 7.09,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "closed on surface",
+     "ratio": 8.27,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on warn-soft",
+     "ratio": 11.81,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "warn on surface",
+     "ratio": 10.1,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "on-sun-wash on sun-wash",
+     "ratio": 10.76,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on sun-wash",
+     "ratio": 11.68,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "sun on surface",
+     "ratio": 9.87,
+     "min": 1.8,
+     "ok": true
+    }
+   ]
+  },
+  "oxblood": {
+   "name": "Bone & Oxblood",
+   "line": "Warm bone ground, soft-black ink, one deep oxblood \u2014 a tailoring colour, not a signal red \u2014 kept for the saved heart, the saved count, the day route and the wordmark star.",
+   "light": {
+    "paper": "#F9F7F3",
+    "surface": "#FFFFFF",
+    "sand": "#F1EDE7",
+    "ink": "#1C1917",
+    "ink-2": "#4A4440",
+    "ink-3": "#68615B",
+    "line": "#E7E2DB",
+    "line-strong": "#CCC5BC",
+    "accent": "#7A2A2A",
+    "accent-ink": "#7A2A2A",
+    "accent-wash": "#F5EAE7",
+    "on-accent": "#FFFFFF",
+    "area-mute": "#948B83"
+   },
+   "dark": {
+    "paper": "#131110",
+    "surface": "#1C1918",
+    "sand": "#262220",
+    "ink": "#F2EEEA",
+    "ink-2": "#D0C9C3",
+    "ink-3": "#A69E97",
+    "line": "#302B28",
+    "line-strong": "#4B4440",
+    "accent": "#E0A19A",
+    "accent-ink": "#E8B0A9",
+    "accent-wash": "#33201E",
+    "on-accent": "#1E0E0C",
+    "area-mute": "#766D67"
+   },
+   "fails": 0,
+   "min_text_ratio": 5.22,
+   "rows": [
+    {
+     "mode": "light",
+     "pair": "ink on paper",
+     "ratio": 16.34,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on surface",
+     "ratio": 17.49,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on sand",
+     "ratio": 15.0,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-2 on paper",
+     "ratio": 8.95,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-2 on surface",
+     "ratio": 9.58,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-2 on sand",
+     "ratio": 8.22,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-3 on paper",
+     "ratio": 5.69,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-3 on surface",
+     "ratio": 6.09,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-3 on sand",
+     "ratio": 5.22,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "paper on ink",
+     "ratio": 16.34,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent-ink on paper",
+     "ratio": 8.95,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent-ink on surface",
+     "ratio": 9.58,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent-ink on accent-wash",
+     "ratio": 8.12,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "on-accent on accent",
+     "ratio": 9.58,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on accent-wash",
+     "ratio": 14.83,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent on surface",
+     "ratio": 9.58,
+     "min": 3.0,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent on paper",
+     "ratio": 8.95,
+     "min": 3.0,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "line-strong on surface",
+     "ratio": 1.71,
+     "min": 1.4,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "open on open-soft",
+     "ratio": 5.48,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "closed on closed-soft",
+     "ratio": 6.2,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "closed on surface",
+     "ratio": 7.46,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on warn-soft",
+     "ratio": 15.27,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "warn on surface",
+     "ratio": 6.25,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "on-sun-wash on sun-wash",
+     "ratio": 11.63,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on sun-wash",
+     "ratio": 14.84,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "sun on surface",
+     "ratio": 2.06,
+     "min": 1.8,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on paper",
+     "ratio": 16.31,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on surface",
+     "ratio": 15.14,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on sand",
+     "ratio": 13.66,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-2 on paper",
+     "ratio": 11.5,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-2 on surface",
+     "ratio": 10.67,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-2 on sand",
+     "ratio": 9.63,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-3 on paper",
+     "ratio": 7.14,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-3 on surface",
+     "ratio": 6.62,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-3 on sand",
+     "ratio": 5.97,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "paper on ink",
+     "ratio": 16.31,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent-ink on paper",
+     "ratio": 10.05,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent-ink on surface",
+     "ratio": 9.33,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent-ink on accent-wash",
+     "ratio": 8.21,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "on-accent on accent",
+     "ratio": 8.67,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on accent-wash",
+     "ratio": 13.32,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent on surface",
+     "ratio": 8.1,
+     "min": 3.0,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent on paper",
+     "ratio": 8.73,
+     "min": 3.0,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "line-strong on surface",
+     "ratio": 1.83,
+     "min": 1.4,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "open on open-soft",
+     "ratio": 7.26,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "closed on closed-soft",
+     "ratio": 7.09,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "closed on surface",
+     "ratio": 8.42,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on warn-soft",
+     "ratio": 11.84,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "warn on surface",
+     "ratio": 10.28,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "on-sun-wash on sun-wash",
+     "ratio": 10.76,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on sun-wash",
+     "ratio": 11.71,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "sun on surface",
+     "ratio": 10.04,
+     "min": 1.8,
+     "ok": true
+    }
+   ]
+  },
+  "petrol": {
+   "name": "Mist & Petrol",
+   "line": "Cool mist ground, graphite ink, a petrol blue-green accent \u2014 the most architectural, least warm of the four.",
+   "light": {
+    "paper": "#F5F6F6",
+    "surface": "#FFFFFF",
+    "sand": "#ECEEEE",
+    "ink": "#15191B",
+    "ink-2": "#42494D",
+    "ink-3": "#5E666A",
+    "line": "#E0E4E5",
+    "line-strong": "#C3C9CB",
+    "accent": "#1D5568",
+    "accent-ink": "#1D5568",
+    "accent-wash": "#E2ECEF",
+    "on-accent": "#FFFFFF",
+    "area-mute": "#87908F"
+   },
+   "dark": {
+    "paper": "#0F1213",
+    "surface": "#171B1D",
+    "sand": "#1F2427",
+    "ink": "#ECEFF0",
+    "ink-2": "#C6CDD0",
+    "ink-3": "#9AA3A7",
+    "line": "#283033",
+    "line-strong": "#3F494D",
+    "accent": "#8EC5D6",
+    "accent-ink": "#9FD0DF",
+    "accent-wash": "#16282F",
+    "on-accent": "#08161B",
+    "area-mute": "#6A7377"
+   },
+   "fails": 0,
+   "min_text_ratio": 5.03,
+   "rows": [
+    {
+     "mode": "light",
+     "pair": "ink on paper",
+     "ratio": 16.34,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on surface",
+     "ratio": 17.7,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on sand",
+     "ratio": 15.19,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-2 on paper",
+     "ratio": 8.46,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-2 on surface",
+     "ratio": 9.16,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-2 on sand",
+     "ratio": 7.87,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-3 on paper",
+     "ratio": 5.41,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-3 on surface",
+     "ratio": 5.86,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-3 on sand",
+     "ratio": 5.03,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "paper on ink",
+     "ratio": 16.34,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent-ink on paper",
+     "ratio": 7.6,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent-ink on surface",
+     "ratio": 8.23,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent-ink on accent-wash",
+     "ratio": 6.85,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "on-accent on accent",
+     "ratio": 8.23,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on accent-wash",
+     "ratio": 14.73,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent on surface",
+     "ratio": 8.23,
+     "min": 3.0,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent on paper",
+     "ratio": 7.6,
+     "min": 3.0,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "line-strong on surface",
+     "ratio": 1.67,
+     "min": 1.4,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "open on open-soft",
+     "ratio": 5.48,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "closed on closed-soft",
+     "ratio": 6.2,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "closed on surface",
+     "ratio": 7.46,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on warn-soft",
+     "ratio": 15.45,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "warn on surface",
+     "ratio": 6.25,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "on-sun-wash on sun-wash",
+     "ratio": 11.63,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on sun-wash",
+     "ratio": 15.01,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "sun on surface",
+     "ratio": 2.06,
+     "min": 1.8,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on paper",
+     "ratio": 16.28,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on surface",
+     "ratio": 15.01,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on sand",
+     "ratio": 13.56,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-2 on paper",
+     "ratio": 11.69,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-2 on surface",
+     "ratio": 10.77,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-2 on sand",
+     "ratio": 9.74,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-3 on paper",
+     "ratio": 7.32,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-3 on surface",
+     "ratio": 6.75,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-3 on sand",
+     "ratio": 6.1,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "paper on ink",
+     "ratio": 16.28,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent-ink on paper",
+     "ratio": 11.25,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent-ink on surface",
+     "ratio": 10.37,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent-ink on accent-wash",
+     "ratio": 9.11,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "on-accent on accent",
+     "ratio": 9.74,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on accent-wash",
+     "ratio": 13.18,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent on surface",
+     "ratio": 9.17,
+     "min": 3.0,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent on paper",
+     "ratio": 9.95,
+     "min": 3.0,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "line-strong on surface",
+     "ratio": 1.88,
+     "min": 1.4,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "open on open-soft",
+     "ratio": 7.26,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "closed on closed-soft",
+     "ratio": 7.09,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "closed on surface",
+     "ratio": 8.35,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on warn-soft",
+     "ratio": 11.82,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "warn on surface",
+     "ratio": 10.2,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "on-sun-wash on sun-wash",
+     "ratio": 10.76,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on sun-wash",
+     "ratio": 11.7,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "sun on surface",
+     "ratio": 9.96,
+     "min": 1.8,
+     "ok": true
+    }
+   ]
+  },
+  "ember": {
+   "name": "Sable & Ember",
+   "line": "Greige sable ground, umber ink, a burnt-ember accent \u2014 the warmest, most terracotta-leaning of the four.",
+   "light": {
+    "paper": "#F4F1EC",
+    "surface": "#FBFAF7",
+    "sand": "#EAE5DD",
+    "ink": "#211D1A",
+    "ink-2": "#4C4540",
+    "ink-3": "#655D56",
+    "line": "#E0DAD1",
+    "line-strong": "#C8C0B5",
+    "accent": "#9C4423",
+    "accent-ink": "#953F20",
+    "accent-wash": "#F5E4DB",
+    "on-accent": "#FFFFFF",
+    "area-mute": "#998F86"
+   },
+   "dark": {
+    "paper": "#151312",
+    "surface": "#1E1B19",
+    "sand": "#282421",
+    "ink": "#F3EFEA",
+    "ink-2": "#D3CBC3",
+    "ink-3": "#A89F96",
+    "line": "#322D29",
+    "line-strong": "#4D4640",
+    "accent": "#EE9C7A",
+    "accent-ink": "#F2AD90",
+    "accent-wash": "#3A2219",
+    "on-accent": "#200D06",
+    "area-mute": "#7A716A"
+   },
+   "fails": 0,
+   "min_text_ratio": 5.15,
+   "rows": [
+    {
+     "mode": "light",
+     "pair": "ink on paper",
+     "ratio": 14.85,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on surface",
+     "ratio": 16.03,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on sand",
+     "ratio": 13.34,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-2 on paper",
+     "ratio": 8.35,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-2 on surface",
+     "ratio": 9.01,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-2 on sand",
+     "ratio": 7.5,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-3 on paper",
+     "ratio": 5.73,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-3 on surface",
+     "ratio": 6.18,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink-3 on sand",
+     "ratio": 5.15,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "paper on ink",
+     "ratio": 14.85,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent-ink on paper",
+     "ratio": 6.19,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent-ink on surface",
+     "ratio": 6.68,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent-ink on accent-wash",
+     "ratio": 5.65,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "on-accent on accent",
+     "ratio": 6.43,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on accent-wash",
+     "ratio": 13.54,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent on surface",
+     "ratio": 6.16,
+     "min": 3.0,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "accent on paper",
+     "ratio": 5.71,
+     "min": 3.0,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "line-strong on surface",
+     "ratio": 1.73,
+     "min": 1.4,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "open on open-soft",
+     "ratio": 5.48,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "closed on closed-soft",
+     "ratio": 6.2,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "closed on surface",
+     "ratio": 7.15,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on warn-soft",
+     "ratio": 14.61,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "warn on surface",
+     "ratio": 5.99,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "on-sun-wash on sun-wash",
+     "ratio": 11.63,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "ink on sun-wash",
+     "ratio": 14.19,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "light",
+     "pair": "sun on surface",
+     "ratio": 1.97,
+     "min": 1.8,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on paper",
+     "ratio": 16.18,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on surface",
+     "ratio": 14.96,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on sand",
+     "ratio": 13.44,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-2 on paper",
+     "ratio": 11.55,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-2 on surface",
+     "ratio": 10.69,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-2 on sand",
+     "ratio": 9.6,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-3 on paper",
+     "ratio": 7.11,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-3 on surface",
+     "ratio": 6.58,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink-3 on sand",
+     "ratio": 5.91,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "paper on ink",
+     "ratio": 16.18,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent-ink on paper",
+     "ratio": 9.84,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent-ink on surface",
+     "ratio": 9.1,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent-ink on accent-wash",
+     "ratio": 7.84,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "on-accent on accent",
+     "ratio": 8.62,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on accent-wash",
+     "ratio": 12.89,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent on surface",
+     "ratio": 7.89,
+     "min": 3.0,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "accent on paper",
+     "ratio": 8.53,
+     "min": 3.0,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "line-strong on surface",
+     "ratio": 1.85,
+     "min": 1.4,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "open on open-soft",
+     "ratio": 7.26,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "closed on closed-soft",
+     "ratio": 7.09,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "closed on surface",
+     "ratio": 8.25,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on warn-soft",
+     "ratio": 11.93,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "warn on surface",
+     "ratio": 10.07,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "on-sun-wash on sun-wash",
+     "ratio": 10.76,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "ink on sun-wash",
+     "ratio": 11.81,
+     "min": 4.5,
+     "ok": true
+    },
+    {
+     "mode": "dark",
+     "pair": "sun on surface",
+     "ratio": 9.84,
+     "min": 1.8,
+     "ok": true
+    }
+   ]
+  }
+ }
+}

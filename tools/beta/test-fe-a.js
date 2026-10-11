@@ -24,8 +24,8 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 function boot(page, { hash = '', storage = 'ok', mobile = false, geo = null, seed = null } = {}) {
   let html = fs.readFileSync(path.join(BETA, page), 'utf8').replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
     (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
-  // foryou.js / day.js / gallery.js load on first use (C.need / views.js); jsdom fetches nothing, so the harness inlines them like a browser would
-  if (/data-cleo-page="city"/.test(html)) html = html.replace('</body>', () => ['foryou', 'day', 'gallery'].map(n => '<script>' + fs.readFileSync(path.join(BETA, 'assets/js', n + '.js'), 'utf8') + '</script>').join('') + '</body>');
+  // foryou.js / day.js / gallery.js / atlas.js load on first use (C.need / views.js); jsdom fetches nothing, so the harness inlines them like a browser would
+  if (/data-cleo-page="city"/.test(html)) html = html.replace('</body>', () => ['foryou', 'day', 'gallery', 'atlas'].map(n => '<script>' + fs.readFileSync(path.join(BETA, 'assets/js', n + '.js'), 'utf8') + '</script>').join('') + '</body>');
   const errs = [];
   const dom = new JSDOM(html, {
     runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + page + hash,
@@ -135,15 +135,16 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     chk('no js errors', errs.length === 0, errs.slice(0, 2));
   }
 
-  console.log('\n== MAP PIN SHEET: Esc closes it ==');
+  console.log('\n== MAP PIN PREVIEW: Esc closes it ==');
   {
-    const { d, w, errs } = boot('cities/tokyo.html', { mobile: true });
+    // W7 Atlas map-search: a pin opens a preview card on the (desktop) map — the phone pin sheet is retired for the carousel
+    const { d, w, errs } = boot('cities/tokyo.html', { hash: '#view=atlas' });
     await sleep(100);
     const c = d.querySelector('li.pl'), poi = d.getElementById('cleo-poi');
     w.Cleo.city.openPoi(c); await sleep(10);
-    chk('pin sheet opens with a peek summary', !poi.hidden && !!poi.querySelector('.peek-c'));
-    poi.querySelector('[data-poi="x"]').dispatchEvent(new w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); await sleep(10);
-    chk('Esc closes the pin sheet', poi.hidden);
+    chk('pin preview opens with the name, a line and the sources, linking to the place in Atlas', !poi.hidden && !!poi.querySelector('.ms-pv-n') && !!poi.querySelector('.ms-pv-s') && /view=atlas&p=/.test(poi.querySelector('a.ms-pv').getAttribute('href')));
+    poi.querySelector('a.ms-pv').dispatchEvent(new w.KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); await sleep(10);
+    chk('Esc closes the preview', poi.hidden);
     chk('no js errors', errs.length === 0, errs.slice(0, 2));
   }
 
@@ -255,19 +256,21 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     const pj = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places/tokyo.json'), 'utf8')).places;
     const lost = pj.filter(r => !live.has(r.n) && !live.has(r.n.replace(/\s*[—–-]+\s*CLOSED\b.*$/, ''))), macron = pj.filter(r => /[\u0100-\u024f]/.test(r.n)).length;
     chk('every place name is the dataset name verbatim, diacritics kept (one name field)', macron > 20 && lost.length === 0, { macron, lost: lost.slice(0, 3).map(r => r.n) });
-    chk('Kanda Myōjin: card, lead CTA and JSON-LD all carry the macron', /Kanda Myōjin <span class="nat"/.test(html) && /Start with Kanda Myōjin/.test(html) && /"name":"Kanda Myōjin/.test(html) && !/Kanda Myojin/.test(html));
+    // a photo credit quotes the source's file title verbatim (TASL, e.g. "Sakura at Kanda Myojin Shrine" on Commons) —
+    // that is the source's text, not our name field, so captions are left out of the "never unaccented" scan (imagery W7)
+    const ours = html.replace(/<figcaption>[\s\S]*?<\/figcaption>|<small class="credit">[\s\S]*?<\/small>|<p class="hero-credit"[\s\S]*?<\/p>/g, '');
+    chk('Kanda Myōjin: card, lead CTA and JSON-LD all carry the macron', /Kanda Myōjin <span class="nat"/.test(html) && /Start with Kanda Myōjin/.test(html) && /"name":"Kanda Myōjin/.test(html) && !/Kanda Myojin/.test(ours));
     chk('hero dek keeps Jōnan · Jōsai · Jōhoku', /Jōnan · Jōsai · Jōhoku/.test(html));
     const gb = (html.match(/<button type="button" data-view="gallery"[^>]*>.*?<\/button>/) || [''])[0];
     chk('Gallery switcher glyph is the grid, not the Saved heart', /#i-grid/.test(gb) && !/#i-heart/.test(gb) && /<symbol id="i-grid"/.test(html), gb.slice(0, 120));
 
+    // W7 Atlas map-search (Amendment 2): the R6 pin sheet over the phone map is retired; a pin selects its carousel card
     let { d, w, errs } = boot(page, { hash: '#view=atlas&map=1', mobile: true }); await sleep(150);
-    const poi = d.getElementById('cleo-poi'), lp = d.querySelector('.listpane'), c0 = d.querySelector('li.pl[data-ll]');
-    w.Cleo.city.openPoi(c0); await sleep(10);
-    if (!poi.hidden) {
-      chk('phone map: a pin sheet sends the tray away (one sheet, html.poi-on, tray inert)', d.documentElement.classList.contains('poi-on') && lp.hasAttribute('inert'));
-      poi.querySelector('[data-poi="x"]').click(); await sleep(20);
-      chk('phone map: closing the pin sheet brings the tray back', !d.documentElement.classList.contains('poi-on') && !lp.hasAttribute('inert'));
-    } else chk('phone map: the pin sheet opens', false);
+    const c0 = d.querySelector('li.pl[data-ll]');
+    w.Cleo.city.select(c0, 'pin'); await sleep(10);
+    chk('phone map: a pin selects its card in the carousel (no sheet covers the map)', c0.classList.contains('is-sel') && d.getElementById('cleo-poi').hidden && !d.documentElement.classList.contains('ms-list'));
+    w.Cleo.city.select(d.querySelectorAll('li.pl[data-ll]')[3], 'swipe'); await sleep(10);
+    chk('phone map: one selected card at a time', d.querySelectorAll('li.pl.is-sel').length === 1 && !c0.classList.contains('is-sel'));
 
     ({ d, w, errs } = boot(page, { hash: '#view=atlas' })); await sleep(150);
     const sv = d.querySelector('li.pl button.pl-save'); sv.click(); await sleep(10);
@@ -281,33 +284,34 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     chk('no js errors', errs.length === 0 && rm.errs.length === 0, errs.concat(rm.errs).slice(0, 2));
   }
 
-  console.log('\n== W6: Atlas map-first (owner 2026-10-11) ==');
+  console.log('\n== W7: Atlas map-search (owner 2026-10-11, Amendment 2) ==');
   {
     const page = 'cities/tokyo.html';
     let { d, w, errs } = boot(page, { hash: '#view=atlas', mobile: true }); await sleep(150);
-    const html = d.documentElement, split = d.querySelector('.split'), lp = d.querySelector('.listpane');
-    chk('phone Atlas opens map-first: html.atlas-m, the map view, the tray at peek', html.classList.contains('atlas-m') && split.getAttribute('data-view') === 'map' && split.getAttribute('data-detent') === 'peek', [html.className, split.getAttribute('data-detent')]);
+    const html = d.documentElement, split = d.querySelector('.split'), lp = d.querySelector('.listpane'), bar = d.querySelector('.ms-bar'), tog = d.querySelector('.ms-toggle');
+    chk('phone Atlas opens map-first: html.atlas-m, the map view, no list over it', html.classList.contains('atlas-m') && split.getAttribute('data-view') === 'map' && !html.classList.contains('ms-list'), html.className);
     chk('…with no map= in the URL (map-first is the Atlas default, not a route)', !/map=/.test(w.location.hash), w.location.hash);
-    chk('…the toolbar and rail live in the tray head', !!lp.querySelector('.tray-head [data-cleo-toolbar]') && !!lp.querySelector('.tray-head #cleo-rail'));
-    d.querySelector('.mapclose').click(); await sleep(20);
-    chk('"List" over the map opens the full tray', split.getAttribute('data-detent') === 'full');
-    d.querySelector('.map-toggle[data-cleo-map]').click(); await sleep(20);
-    chk('"Map" in the tray lowers it to the peek, still on the map', split.getAttribute('data-detent') === 'peek' && html.classList.contains('atlas-m'));
-    const poi = d.getElementById('cleo-poi'), n0 = w.history.length;
-    w.Cleo.city.openPoi(d.querySelector('li.pl[data-ll]')); await sleep(10);
-    chk('a pin sheet adds one history entry', !poi.hidden && w.history.length === n0 + 1, [w.history.length, n0]);
+    chk('…one chip row on top holds the switcher, the toolbar and Must see / Saved / Sort', !!bar && !!bar.querySelector('[data-cleo-views]') && !!bar.querySelector('[data-cleo-toolbar]') && !!bar.querySelector('.ms-must') && !!bar.querySelector('.ms-mine') && !!bar.querySelector('.ms-sort select'));
+    const N = w.Cleo.city.info.total;
+    chk('without the map library the results line counts every place', new RegExp('All ' + N.toLocaleString('en-US') + ' places').test(d.querySelector('.ms-count').textContent), d.querySelector('.ms-count').textContent);
+    const n0 = w.history.length; tog.click(); await sleep(20);
+    chk('"List" opens the full-screen list (one history entry)', html.classList.contains('ms-list') && w.history.length === n0 + 1 && /Map/.test(tog.textContent), [html.className, w.history.length - n0]);
     w.history.back(); await sleep(60);
-    chk('Back closes the pin sheet and stays on the map', poi.hidden && html.classList.contains('atlas-m') && !html.classList.contains('poi-on'));
+    chk('Back closes the list and stays on the map', !html.classList.contains('ms-list') && html.classList.contains('atlas-m'));
+    tog.click(); await sleep(20);
     d.querySelector('.area-end [data-cleo-map]').click(); await sleep(30);
-    chk('"See these n on the map" names its area (map=<A>) and lowers the tray', /map=[A-Z]/.test(w.location.hash) && split.getAttribute('data-detent') === 'peek', w.location.hash);
+    chk('"See these n on the map" names its area (map=<A>) and returns to the map', /map=[A-Z]/.test(w.location.hash) && !html.classList.contains('ms-list'), w.location.hash);
+    d.querySelector('.ms-must').click(); await sleep(30);
+    chk('the Must see chip is the t=1 lens', /t=1/.test(w.location.hash) && d.querySelector('.ms-must').getAttribute('aria-pressed') === 'true', w.location.hash);
     chk('no js errors (phone)', errs.length === 0, errs.slice(0, 2));
     ({ d, w, errs } = boot(page, { hash: '#view=atlas&map=1', mobile: true })); await sleep(150);
-    chk('#view=atlas&map=1 still opens the map', d.documentElement.classList.contains('atlas-m') && d.querySelector('.split').getAttribute('data-detent') === 'peek');
+    chk('#view=atlas&map=1 still opens the map', d.documentElement.classList.contains('atlas-m') && !d.documentElement.classList.contains('ms-list'));
     ({ d, w, errs } = boot(page, { hash: '#view=atlas' })); await sleep(150);
-    const lp2 = d.querySelector('.listpane');
-    chk('desktop Atlas: rail and toolbar move into the list side panel', d.documentElement.classList.contains('atlas-d') && lp2.querySelector(':scope > [data-cleo-toolbar]') && lp2.querySelector(':scope > #cleo-rail'));
+    const bar2 = d.querySelector('.ms-bar'), head = d.querySelector('.ms-head');
+    chk('desktop Atlas: the toolbar moves into the filter bar above the split; area chips into the results head', d.documentElement.classList.contains('atlas-d') && !!bar2.querySelector(':scope > [data-cleo-toolbar]') && !!head.querySelector('.area-chips') && bar2.nextElementSibling === d.querySelector('.split'));
+    chk('…"Search as I move the map" waits for the map (hidden without it)', head.querySelector('.ms-live').hidden === true);
     d.querySelector('[data-cleo-views] button[data-view="gallery"]').click(); await sleep(30);
-    chk('…and go back where they were outside Atlas', !lp2.querySelector('[data-cleo-toolbar],#cleo-rail') && !d.documentElement.classList.contains('atlas-d'));
+    chk('…and everything goes back where it was outside Atlas', !bar2.querySelector('[data-cleo-toolbar]') && !head.querySelector('.area-chips') && !d.documentElement.classList.contains('atlas-d'));
     chk('no js errors (desktop)', errs.length === 0, errs.slice(0, 2));
   }
 

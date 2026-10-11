@@ -1,0 +1,117 @@
+{
+ "chars_checked": 215,
+ "vietnamese_chars": 47,
+ "macron_chars": "āēīŌōū",
+ "faces": {
+  "Fraunces": {
+   "package": "@fontsource-variable/fraunces",
+   "missing": "ǎǔ",
+   "missing_n": 2,
+   "vietnamese_missing": "",
+   "macrons_ok": true,
+   "tnum": false,
+   "case": false,
+   "axes": [
+    [
+     "opsz",
+     9.0,
+     144.0
+    ],
+    [
+     "wght",
+     100.0,
+     900.0
+    ],
+    [
+     "SOFT",
+     0.0,
+     100.0
+    ],
+    [
+     "WONK",
+     0.0,
+     1.0
+    ]
+   ],
+   "kb_latin_ext_vn_one_master": 254.5
+  },
+  "Bricolage Grotesque": {
+   "package": "@fontsource-variable/bricolage-grotesque",
+   "missing": "ǔʼ",
+   "missing_n": 2,
+   "vietnamese_missing": "",
+   "macrons_ok": true,
+   "tnum": true,
+   "case": false,
+   "axes": [
+    [
+     "wght",
+     200.0,
+     800.0
+    ],
+    [
+     "wdth",
+     75.0,
+     100.0
+    ]
+   ],
+   "kb_latin_ext_vn_one_master": 120.7
+  },
+  "Unbounded": {
+   "package": "@fontsource-variable/unbounded",
+   "missing": "′″",
+   "missing_n": 2,
+   "vietnamese_missing": "",
+   "macrons_ok": true,
+   "tnum": true,
+   "case": false,
+   "axes": [
+    [
+     "wght",
+     200.0,
+     900.0
+    ]
+   ],
+   "kb_latin_ext_vn_one_master": 178.8
+  },
+  "Space Grotesk": {
+   "package": "@fontsource-variable/space-grotesk",
+   "missing": "",
+   "missing_n": 0,
+   "vietnamese_missing": "",
+   "macrons_ok": true,
+   "tnum": true,
+   "case": false,
+   "axes": [
+    [
+     "wght",
+     300.0,
+     700.0
+    ]
+   ],
+   "kb_latin_ext_vn_one_master": 46.8
+  },
+  "Newsreader": {
+   "package": "@fontsource-variable/newsreader",
+   "missing": "ǎǔ",
+   "missing_n": 2,
+   "vietnamese_missing": "",
+   "macrons_ok": true,
+   "tnum": true,
+   "case": false,
+   "axes": [
+    [
+     "wght",
+     200.0,
+     800.0
+    ],
+    [
+     "opsz",
+     6.0,
+     72.0
+    ]
+   ],
+   "kb_latin_ext_vn_one_master": 240.1
+  }
+ }
+}

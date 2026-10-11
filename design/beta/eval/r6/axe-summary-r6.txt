@@ -1,0 +1,10 @@
+runs 60, failed 0, runs with serious/critical 8, total serious/critical nodes 56
+m light cities/tokyo.html#view=insights [{"id":"nested-interactive","impact":"serious","n":7,"ex":["svg[viewBox=\"0 0 288 642\"]","svg[aria-labelledby=\"src-t src-d\"]"]}]
+m light cleveland.html#view=insights [{"id":"nested-interactive","impact":"serious","n":7,"ex":["svg[viewBox=\"0 0 288 246\"]","svg[aria-labelledby=\"src-t src-d\"]"]}]
+m dark cities/tokyo.html#view=insights [{"id":"nested-interactive","impact":"serious","n":7,"ex":["svg[viewBox=\"0 0 288 642\"]","svg[aria-labelledby=\"src-t src-d\"]"]}]
+m dark cleveland.html#view=insights [{"id":"nested-interactive","impact":"serious","n":7,"ex":["svg[viewBox=\"0 0 288 246\"]","svg[aria-labelledby=\"src-t src-d\"]"]}]
+d light cities/tokyo.html#view=insights [{"id":"nested-interactive","impact":"serious","n":7,"ex":["svg[viewBox=\"0 0 554 642\"]","svg[aria-labelledby=\"src-t src-d\"]"]}]
+d light cleveland.html#view=insights [{"id":"nested-interactive","impact":"serious","n":7,"ex":["svg[viewBox=\"0 0 554 246\"]","svg[aria-labelledby=\"src-t src-d\"]"]}]
+d dark cities/tokyo.html#view=insights [{"id":"nested-interactive","impact":"serious","n":7,"ex":["svg[viewBox=\"0 0 554 642\"]","svg[aria-labelledby=\"src-t src-d\"]"]}]
+d dark cleveland.html#view=insights [{"id":"nested-interactive","impact":"serious","n":7,"ex":["svg[viewBox=\"0 0 554 246\"]","svg[aria-labelledby=\"src-t src-d\"]"]}]
+moderate/minor rule ids (runs): {"heading-order":22,"aria-allowed-role":44}
