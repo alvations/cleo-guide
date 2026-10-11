@@ -300,3 +300,7 @@
   .feb .card-media, .feb .theme-main .cover, .feb .rail.editorial .rail-i.sig::before { transition: none; }
   .feb .tile.card:hover .card-media, .feb .ccard:hover .card-media, .feb .theme-main:hover .cover, .feb .rail.editorial .rail-i.sig:hover::before { transform: none; }
 }
+
+/* W9-3 "For you" rail: the Clear control is a button styled as the rail-head link; ≥ 44 px target */
+.foryou-s [data-cleo-fy-clear] { min-height: var(--tap); padding-inline: 0; background: none; border: 0; font: inherit; color: inherit; cursor: pointer; }
+.foryou-s .fy-note { margin-block: 0 var(--s-3); }

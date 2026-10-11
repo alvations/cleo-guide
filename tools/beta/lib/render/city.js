@@ -465,4 +465,4 @@ ${footer({ depth, liveRel: row.live, notes: page.notes })}
 `;
 }
 
-module.exports = { render, jsonLd, shortArea, offlineStrings };
+module.exports = { render, jsonLd, shortArea, offlineStrings, interests, INTERESTS };   // interests: also FE-B's W9-3 "For you" rail

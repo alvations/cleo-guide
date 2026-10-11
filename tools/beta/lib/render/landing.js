@@ -9,7 +9,7 @@
 const { esc } = require('../html');
 const { head, siteBar, footer, styles } = require('./common');
 const { icon } = require('./shell');
-const { cityTile, moreRow, countryPages, themeRail, countryCards, ogFor } = require('./hub');
+const { cityTile, moreRow, countryPages, themeRail, countryCards, ogFor, forYou } = require('./hub');
 const { stats: methodStats } = require('./method');
 const { t, tn } = require('../i18n');                // W5 gap #7: every landing string comes from the catalogue
 
@@ -109,6 +109,7 @@ ${siteBar({ depth: 0, current: 'landing', rel: 'index.html' })}
 </div></section>
 <div class="wrap">
 <section class="results" id="results" aria-live="polite" hidden></section>
+${forYou()}
 <div id="destinations" class="section">
 ${sections[0] || ''}
 </div>
@@ -127,6 +128,7 @@ ${archive && archive.gen !== 'none' ? `<p class="archive sm muted">${esc(t('land
 </main>
 ${footer({ depth: 0, tabbar: true, current: 'landing' })}
 <script src="assets/js/landing.js?v=${ctx.assetsV.landing}" defer></script>
+<script src="assets/js/interests.js?v=${ctx.assetsV.interests}" defer></script>
 </body>
 </html>
 `;

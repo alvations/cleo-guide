@@ -6,8 +6,9 @@
 # a person reviews the rows and applies accepted ones locally with `node tools/location-verify.js --accept`, then the
 # gates run (research.js --geocheck/--statuscheck, npm run validate, npm test). Design: docs/LOCATION-VERIFY-ACTIONS.md.
 #
-# Manual dispatch only, never on a schedule (the Nominatim usage policy discourages periodic bulk geocoding). One run at
-# a time (concurrency group), so we are a single, polite client towards Nominatim and Overpass.
+# Manual dispatch or a REQUEST push for one city. The only schedule is the quarterly STATUS-ONLY sweep (owner decision
+# 2026-10-11, docs/LOCATION-VERIFY-ACTIONS.md §8): Wikidata + Overpass + official sites, no Nominatim, one shard a day on
+# days 1-3 of Jan/Apr/Jul/Oct (schedules fire only from the default branch). One run at a time (concurrency group).
 name: location-verify
 
 on:
@@ -41,6 +42,11 @@ on:
     branches: [claude/peaceful-goodall-i0hsrt]
     paths:
       - docs/geoverify/REQUEST
+  schedule:
+    # quarterly status-only sweep, shard = day of month (1/3, 2/3, 3/3), never in parallel
+    - cron: '23 5 1 1,4,7,10 *'
+    - cron: '23 5 2 1,4,7,10 *'
+    - cron: '23 5 3 1,4,7,10 *'
 
 permissions:
   contents: write
@@ -70,6 +76,12 @@ jobs:
           IN_NMAX: ${{ github.event.inputs.nominatim_max }}
           IN_DRY: ${{ github.event.inputs.dry_run }}
         run: |
+          if [ "$GITHUB_EVENT_NAME" = schedule ]; then
+            d=$(date -u +%-d); [[ "$d" =~ ^[123]$ ]] || { echo "::error::the status sweep runs on days 1-3 only"; exit 1; }
+            { echo "MODE=sweep"; echo "SHARD=$d/3"; echo "CITY=all"; echo "SCOPE=all"; echo "LIMIT=0"; echo "NOMINATIM_MAX=0"; echo "COMMIT=true"
+              echo "REPORT_PREFIX=docs/geoverify/status/"; echo "ARTIFACT_PATH=docs/geoverify/status/"; echo "LV_CACHE_DIR=$RUNNER_TEMP/lv-cache"; } >> "$GITHUB_ENV"
+            echo "quarterly status sweep, shard $d/3 (no Nominatim)"; exit 0
+          fi
           if [ "$GITHUB_EVENT_NAME" = push ]; then
             f=docs/geoverify/REQUEST
             [ -f "$f" ] || { echo "::error::$f is missing"; exit 1; }
@@ -90,6 +102,7 @@ jobs:
           # the response cache: absolute and outside the checkout (actions/cache refuses '..'; the runner context is not
           # available in job-level env, so it is set here)
           echo "LV_CACHE_DIR=$RUNNER_TEMP/lv-cache" >> "$GITHUB_ENV"
+          { echo "MODE=city"; echo "REPORT_PREFIX=docs/geoverify/$CITY."; echo "ARTIFACT_PATH=docs/geoverify/$CITY.*"; } >> "$GITHUB_ENV"
           echo "city=$CITY scope=$SCOPE limit=$LIMIT nominatim_max=$NOMINATIM_MAX commit=$COMMIT event=$GITHUB_EVENT_NAME"
 
       - name: Restore the response cache (the Nominatim policy requires caching; reruns resume)
@@ -104,8 +117,13 @@ jobs:
       - name: Unit tests (no network)
         run: node tools/location-verify.test.js
 
-      - name: Verify (writes docs/geoverify/<city>.json and .md only)
+      - name: Verify (writes docs/geoverify/<city>.json and .md, or docs/geoverify/status/ for the sweep, only)
         run: |
+          if [ "$MODE" = sweep ]; then
+            node tools/location-verify.js --status-sweep --shard "$SHARD" --max-minutes 330
+            { echo "### Status sweep, shard $SHARD"; ls docs/geoverify/status/ 2>/dev/null; } | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
           args=(--city "$CITY" --scope "$SCOPE" --nominatim-max "$NOMINATIM_MAX")
           [ "$LIMIT" != "0" ] && args+=(--limit "$LIMIT")
           node tools/location-verify.js "${args[@]}"
@@ -122,27 +140,29 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: geoverify-${{ env.CITY }}-${{ github.run_id }}
-          path: docs/geoverify/${{ env.CITY }}.*
+          path: ${{ env.ARTIFACT_PATH }}
 
       - name: Commit the report (dispatch with dry_run=false, or a REQUEST with commit=true)
         if: ${{ env.COMMIT == 'true' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "docs/geoverify/$CITY.json" "docs/geoverify/$CITY.md"
+          git add -- "$REPORT_PREFIX"*
           if git diff --cached --quiet; then echo "No report change."; exit 0; fi
-          git commit -m "Location-verify report: $CITY (proposals only; review + --accept + gates before any registry change)"
+          if [ "$MODE" = sweep ]; then msg="Location-verify status sweep, shard $SHARD (proposals only; review + --accept + gates before any registry change)"
+          else msg="Location-verify report: $CITY (proposals only; review + --accept + gates before any registry change)"; fi
+          git commit -m "$msg"
           # Other lanes push to this branch while the job runs. This job adds only docs/geoverify/<city>.*; any merge
           # conflict outside that stops the job; a conflict on our own report keeps ours (it is the fresh run).
           for i in 1 2 3; do
             git fetch origin claude/peaceful-goodall-i0hsrt || { sleep $((i * 10)); continue; }
             if ! git merge --no-edit origin/claude/peaceful-goodall-i0hsrt; then
               conflicted=$(git diff --name-only --diff-filter=U)
-              if printf '%s\n' "$conflicted" | grep -v "^docs/geoverify/$CITY\." | grep -q .; then
+              if printf '%s\n' "$conflicted" | grep -v -F -- "$REPORT_PREFIX" | grep -q .; then
                 echo "::error::merge conflict outside the report:"; printf '%s\n' "$conflicted"; git merge --abort; exit 1
               fi
-              git checkout --ours -- "docs/geoverify/$CITY.json" "docs/geoverify/$CITY.md"
-              git add "docs/geoverify/$CITY.json" "docs/geoverify/$CITY.md" && git commit --no-edit
+              while IFS= read -r f; do [ -n "$f" ] && git checkout --ours -- "$f" && git add -- "$f"; done <<< "$conflicted"
+              git commit --no-edit
             fi
             git push origin HEAD:claude/peaceful-goodall-i0hsrt && exit 0
             sleep $((i * 10))
