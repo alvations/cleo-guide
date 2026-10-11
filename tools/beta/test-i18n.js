@@ -109,6 +109,14 @@ chk('collections rail, every phrasing: no English left', rails.map(left), [[], [
 console.log('\n== CATALOGUE ==');
 const en = i18n.EN;
 chk('en catalogue is reviewed', en.reviewed, true);
+// W9-8 (platform): the offline-pack control and the offline map line on the city page, rendered in `pseudo`
+{
+  i18n.setLocale('pseudo');
+  const os = require('./lib/render/city').offlineStrings('Tōkyō', 488);
+  const en = /\b(Keep|offline|Saved|Remove|places|Map|unavailable|storage|device|Couldn)\b/;
+  chk('offline pack + offline map strings render from the catalogue (pseudo: 0 English words; data passes)', Object.entries(os).filter(([k, v]) => en.test(v)).map(([k]) => k), []);
+  i18n.setLocale('en');
+}
 chk('every string used by the pseudo render exists in en', [...i18n.used].filter(k => !(k in en.strings)), []);
 const unused = Object.keys(en.strings).filter(k => !i18n.used.has(k) && !k.endsWith('.one') && k !== 'shell.locale.label');
 chk('no dead catalogue strings', unused, []);

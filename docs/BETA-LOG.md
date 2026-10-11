@@ -1480,3 +1480,66 @@ Append-only. One entry per session per wave: date, lane, session id, what change
 - **PANEL-R1 #4 / #6, SPEC §1.1–1.3:** dots are kind-by-shape (sight 7 px circle, eat & drink 6 px rounded square; dark-mode alphas 30 % / 50 %); a non-featured Must-see is a `--sun` dot with an `--on-sun-wash` ring; a closed dot is hollow with a diagonal slash at every zoom; canvas tolerance 19 (44 px hit circle). Pins are 32 px pills with 14 px labels and a 44 px hit area; each pin IS a link (`<a href="#view=atlas&p=id">`, the marker element itself — `keyboard: true`, one Tab stop, no role=button) with `data-kind` and aria-label "full name, sight|eat and drink, [Must see], [Closed], [saved]". Labels try four anchors (above with stem, right, left, below) before a place stays a dot; no two labels overlap. Sight pins with no collection glyph take the type noun in the place's own name (museum → columns, park → leaf, lake → wave, tower/bridge → tower, theatre → ticket, market → awning, memorial → flag, church/temple → lantern; torii on Japan pages) — map only (`data-mg`), card covers unchanged.
 - **Default view:** the fit is centred on the top places' own median point (their busiest spot) when that widens the frame by ≤ 1 zoom step and the town isn't already at street zoom — so two zoom steps in land among places (Cleveland phone: 1 → 4 named pins).
 - New probe checks (atlas-ms): pins are links with "name, kind" labels, 14 px / 32 px / ≥ 44 × 44, no overlaps; two zoom steps on phone → ≥ 4 named pins (a ≤ 40-place town: every place in the band, since Chinatown holds 1–2 places in the band at z18).
+
+- 2026-10-11 21:55Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **R7 re-sign on `dd2125e3`: NO** (QA 34ecf44c). Open High/Blocker count is 0. All four failing rows belong to FE-A:
+    - QA-47: B-02 is 513 against a limit of 506.
+    - QA-48: the Tokyo B-04 rail starts at 859.
+    - QA-60: the Wheeling B-04 rail starts at 852, a new regression (it was 687).
+    - QA-50: a fresh `#p=` link shows "No. 37 of 37" where the data says 2 of 37.
+  - FE-A's b244f104 (QA-47/48/59b-d) and 6733a233 (`lib/casing.js`) are still not on origin. FE-A has been told to put those four rows ahead of gap 3 motion. The next re-sign is pinned once they land.
+  - **Register (QA):**
+    - 72+ rows, verified on pinned heads.
+    - QA-64 is verified within the D-32 scope: the post-rule beta docs have 0 brand hits.
+    - QA-61 and QA-59a now have FE-A as lead.
+    - PERF-01…15 are merged into the register.
+  - **Optimization audit, first push (platform: fc861679, ee53bc4b):** see `docs/BETA-PERF-AUDIT.md`.
+    - PERF-01: npm test runs as a parallel pool, 392 s → 105–154 s.
+    - PERF-03: one batched `cleo:stamped`, so the Tokyo filter's INP drops from about 1 s to about 0.5 s.
+    - PERF-04: a links slice cuts the first place-open download from 104 KB to 14 KB gzip.
+    - PERF-05: CI caching, and the fetch job skips its rebuild when nothing was fetched. The orchestrator reviewed the workflow diffs.
+    - Still open: PERF-06 Gallery phone CLS (FE-A), PERF-07 Atlas first-load CLS (Atlas), PERF-08 INP (platform leads, approved for after the re-sign rows) and PERF-13 SW cache across deploys (W9-8).
+  - **Atlas:** FE-1 pushed cd1e4a7f.
+    - #2: a one-line phone credit with an ⓘ, and a stricter real-tap probe.
+    - #4 (part): square food dots and round sight dots, collision-free labels, more glyphs.
+    - #6 (part): 44 px hit areas.
+    - #15: records that aren't places are never drawn.
+    - Round 2 goes to the panel once FE-1 and FE-2 agree on N and the SHA.
+  - **W9:**
+    - FE-C shipped Trips (W9-4, ce4c6a7c): `beta/trip.html`, nearest-next by area, closed places refused with a reason, one `#trip=` link, KML and a printable booklet. A 25-check test plus a probe.
+    - FE-B shipped the landing's "October 2026 in Cleo" (W9-2), with an Atom feed.
+    - W9-3/W9-6 wait on platform's index fields.
+  - **Imagery:**
+    - Pilots cleaned up: Rockaway, Nihonbashi and MacRitchie refused, a `viewFrom` guard added, and SIGNAGE widened to info boards and plaques.
+    - Refusals are now split: a photo fault applies everywhere, a slot fault applies only to its own slot.
+    - Heroes: 84/84 credited or stated (Queenstown stated). Ang Mo Kio is now Town Garden West, reviewed.
+    - **`scope=all` dispatched** (run #40). QA-63's weak cards are in progress.
+  - **Location verification:** workflow `location-verify.yml`.
+    - Run #1 for Wheeling: 18 pin proposals, 4 no-match, artifact only, and the guard confirmed nothing else changed.
+    - Run #1's response cache didn't save (a `..` path); fixed by moving the cache under RUNNER_TEMP.
+    - The fix put the runner context in job-level env, which GitHub rejects, so runs 2–3 failed. Fixed and re-triggered.
+    - The report is now printed to the job log and run summary, so it can be reviewed without committing anything.
+    - Phase-2 government sources researched (2ce8e431): OneMap needs a token (owner decision); the German state house-coordinate files are open; the Japan Address Base Registry and the US Census Geocoder are guards only.
+
+- 2026-10-11 22:00Z · **Orchestrator** · the owner delegates decisions · commit: this entry's commit
+  - **The owner:** "You decide the answers to your question if you're asking for permissions then I say just yes."
+  - **Location verification, all six questions decided** (recorded in docs/LOCATION-VERIFY-ACTIONS.md by the lane):
+    1. ODbL: yes. OSM-derived coordinates may enter the registry with the OSM object as `source`.
+    2. An agent lane may review, under a bar:
+       - `high` place-specific matches (OSM POI with a matching name, a Wikidata P625 item, or the official site's JSON-LD) are accepted;
+       - `med` rows are accepted only with a second independent source within 50 m;
+       - `low` rows, street-level matches and shared OSM objects are never accepted;
+       - closures need a real `statusSource` under rule 4c.
+    3. A paced sweep: ≤ 300 Nominatim requests a day, one city per run.
+    4. Reports are committed as the audit trail: a `commit=true` line in REQUEST, or a dispatch with `dry_run=false`.
+    5. Phase 2: German state house-coordinate files and the Japan Address Base Registry (as a guard) are yes. Luxembourg, France, Belgium and the Netherlands get researched. OneMap is approved but needs a login only the owner can create, so the adapter skips it until an Actions secret exists.
+    6. A quarterly status-only sweep: yes. The schedule is added once the CLI exists; it fires from the default branch after the next deploy.
+  - **Next for the lane:** apply accepted rows locally with `--accept`, rebuild, and run the gates (--geocheck, --statuscheck, validate, test, beta:check), city by city.
+  - **D-39 ratified:** label, don't strip.
+  - **D-41 (new):** a second locale ships as an **AI-reviewed tier, labelled on the page**; `reviewed: true` stays human-only.
+    - New **i18n lane** `session_01HB7igqdcuhrau7mUWSauDL` builds Japanese (`ja`): one agent translates, an independent subagent reviews, and the changes are recorded in `design/beta/i18n/ja-REVIEW.md`. The switcher appears by rule, with a visible note and hreflang ja.
+    - This answers ROUND-7's owner-blocked "reviewed second locale" without claiming a human sign-off.
+  - **Not changed, because these are content rules rather than permissions:** food places still get no photos. Only a photo that truly shows the place counts.
+  - **Still needs the owner's own hands (optional):**
+    - the photo library's API key as an Actions secret (worth about +0.1);
+    - a OneMap login as Actions secrets, for Singapore pins.
