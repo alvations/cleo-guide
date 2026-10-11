@@ -17,7 +17,7 @@
 
 /* ---------- V1. The view switcher (SPEC §2.4): 4-segment control, 44 px, buttons not links ---------- */
 nav.views[data-cleo-views] { margin: 8px 0 4px; }
-nav.views[data-cleo-views] > div, nav.views[data-cleo-views][role=group] { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px;
+nav.views[data-cleo-views] > div, nav.views[data-cleo-views][aria-label] { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px;
   padding: 3px; background: var(--sand); border-radius: var(--r-pill); }
 nav.views[data-cleo-views] button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: var(--tap, 44px); min-width: 0;
   padding: 0 10px; border: 0; border-radius: var(--r-pill); background: transparent; color: var(--ink-2); font: 600 var(--fs-sm)/1 var(--font-ui);
@@ -34,7 +34,7 @@ nav.views[data-cleo-views][hidden] { display: none; }
 
 /* shared count line + lens bar + pager (every view; SPEC §2.1–2.3) */
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .count, .views-count { margin: 12px 0; font-size:var(--fs-sm); color: var(--ink-2); }
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .count b, .views-count b { color: var(--ink); }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .count b { color: var(--ink); }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .showall { min-height: var(--tap, 44px); }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .pager .pg:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 
@@ -104,7 +104,6 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 /* photo path (imagery lane hook): the credited photo replaces tint + pin art; plate stays; credit sits on the cover */
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.photo { background: var(--sand); }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.photo > img.ph { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.photo .pinart { display: none; }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.photo .plate { color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.55); }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .credit { position: absolute; left: 0; right: 0; top: calc(100% + 6px); margin: 0; padding: 0;
   background: none; color: var(--ink-3); font-size: var(--fs-xs); line-height: 1.4; white-space: normal; overflow: visible; text-overflow: clip; }   /* W7: the credit sits UNDER the media, never over it, never clipped */
@@ -121,8 +120,6 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .chart .s1, :is(.vw, [data-cleo-book], [data-cleo-insights]) .legend .s1 { fill: var(--series-1); background: var(--series-1); }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .chart .s2, :is(.vw, [data-cleo-book], [data-cleo-insights]) .legend .s2 { fill: var(--series-2); background: var(--series-2); }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .chart .s3, :is(.vw, [data-cleo-book], [data-cleo-insights]) .legend .s3 { fill: var(--series-3); background: var(--series-3); }
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .chart .s4, :is(.vw, [data-cleo-book], [data-cleo-insights]) .legend .s4 { fill: var(--series-4); background: var(--series-4); }
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .chart .s5, :is(.vw, [data-cleo-book], [data-cleo-insights]) .legend .s5 { fill: var(--series-5); background: var(--series-5); }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .chart .s6, :is(.vw, [data-cleo-book], [data-cleo-insights]) .legend .s6 { fill: var(--series-6); background: var(--series-6); }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .chart .so, :is(.vw, [data-cleo-book], [data-cleo-insights]) .legend .so { fill: var(--series-other); background: var(--series-other); }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .chart .area-bar { fill: var(--ac, var(--series-1)); }                 /* density / spread charts only: identity is the area */
@@ -149,7 +146,6 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:var(--r-pill);border:1px solid var(--ink);background:var(--ink);color:var(--paper);font:600 var(--fs-ui) var(--font-ui);text-decoration:none;cursor:pointer;white-space:nowrap}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .btn.on-night{color:var(--on-night);border-color:rgba(245,238,223,.4)}
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .ib{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:var(--r-pill);border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .chip{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border-radius:var(--r-pill);border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);font:500 var(--fs-sm) var(--font-ui);white-space:nowrap;cursor:pointer}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .chip[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .chip i{width:10px;height:10px;border-radius:50%}
@@ -159,8 +155,6 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 
 /* ---------- V3. D-03 data-drawn covers (.cover) — shared by Gallery cards, the experience page and "Close by" ---------- */
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover{position:relative;aspect-ratio:4/3;border-radius:var(--r-m);overflow:hidden;background:color-mix(in srgb,var(--ac) 16%,var(--surface));box-shadow:inset 0 -5px 0 var(--ac)}
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .pinart{position:absolute;right:3%;bottom:10%;width:74%;aspect-ratio:16/10}
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .pinart img{width:100%;height:100%}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .me{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--city);border:3px solid var(--surface);box-shadow:0 0 0 2px var(--city)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .plate{position:absolute;left:14px;top:12px;color:color-mix(in srgb,var(--ac) 45%,var(--ink));line-height:1}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .plate.v{writing-mode:vertical-rl;font:600 var(--fs-d2)/1.05 var(--font-native);letter-spacing:.04em;max-height:calc(100% - 24px)}
@@ -171,31 +165,10 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.big .plate.i{font-size:var(--fs-hero)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.closed{background:repeating-linear-gradient(135deg,var(--sand) 0 8px,var(--surface) 8px 16px);box-shadow:inset 0 -5px 0 var(--line-strong)}
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.closed .pinart{filter:grayscale(1);opacity:.6}
-
-/* ---------- V4. GALLERY (.view-gallery) ---------- */
-.view-gallery .ghero{position:relative;color:var(--on-night);background:var(--night);overflow:hidden;display:grid;gap:24px;padding:22px 16px 24px}
-@media(min-width:900px){.view-gallery .ghero{grid-template-columns:1fr 400px;align-items:center;padding:56px 40px;min-height:520px}
-}
-.view-gallery .ghero .sky{position:absolute;inset:0}
-.view-gallery .ghero .sky svg{width:100%;height:100%}
-.view-gallery .ghero-in,.view-gallery .ghero-card{position:relative}
-.view-gallery .ghero .kicker{font:600 var(--fs-meta) var(--font-ui);color:var(--on-night-2);margin:0 0 12px}
-.view-gallery .ghero h1{font-size:var(--fs-d1)}
-@media(min-width:900px){.view-gallery .ghero h1{font-size:var(--fs-hero)}
-}
-.view-gallery .hero-nat{display:block;font:500 .42em var(--font-native);color:var(--on-night-2);margin-top:6px}
-.view-gallery .ghero .lead{font:italic 400 var(--fs-lead)/1.35 var(--font-display);color:var(--on-night);max-width:34ch;margin:14px 0 22px}
-.view-gallery .ghero .btn:not(.ghost){background:var(--on-night);color:var(--night);border-color:var(--on-night)}
 .view-gallery .cta{display:flex;flex-wrap:wrap;gap:10px}
-.view-gallery .ghero-card{display:grid;gap:6px;background:var(--surface);color:var(--ink);border-radius:var(--r-l);padding:12px 12px 18px;text-decoration:none;box-shadow:var(--e-4);max-width:400px}
-.view-gallery .ghero-card b{font:500 var(--fs-d2)/1.15 var(--font-display)}
 .view-gallery .gc-w{color:var(--ink-2);font-size:var(--fs-ui);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-@media(max-width:639px){.view-gallery .ghero-card{display:none}
-.view-gallery .ghero h1{font-size:var(--fs-d1)}
-.view-gallery .ghero .lead{font-size:var(--fs-lead);margin:10px 0 16px}
+@media(max-width:639px){
 .view-gallery .cta .btn{min-height:44px}
-.view-gallery .hero-nat{display:inline;margin-left:10px;font-size:.5em}
 }
 .view-gallery .row{margin:36px 0 0}
 .view-gallery .row-h{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:14px}
@@ -209,7 +182,6 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 .view-gallery .gc-a{display:grid;gap:8px;text-decoration:none}
 .view-gallery .gc-b{display:grid;gap:3px}
 .view-gallery .gc-n{font:500 var(--fs-lead)/1.2 var(--font-display)}
-.view-gallery .gc-f{display:grid;gap:2px;margin-top:6px}
 .view-gallery .heart{position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:var(--r-pill);border:0;background:color-mix(in srgb,var(--surface) 88%,transparent);display:grid;place-items:center;cursor:pointer;color:var(--ink)}
 .view-gallery .all{margin-top:48px}
 .view-gallery .grid{display:grid;grid-template-columns:1fr;gap:28px 18px;margin:0;padding:0;list-style:none}
@@ -221,26 +193,17 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 .view-gallery .pager .pg{min-width:44px;height:44px;border-radius:var(--r-pill);border:1px solid var(--line);background:var(--surface);font:600 var(--fs-sm) var(--font-ui);cursor:pointer;color:var(--ink)}
 .view-gallery .pager .pg[aria-current]{background:var(--ink);color:var(--paper)}
 .view-gallery .pager .tot{flex-basis:100%;text-align:center;color:var(--ink-2);font-size:var(--fs-sm)}
-.view-gallery .lensbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 14px;padding:10px 14px;border-radius:var(--r-m);background:var(--city-wash);font-size:var(--fs-sm)}
 .view-gallery .detail .wrap{padding-top:12px}
-.view-gallery .dnav{display:flex;align-items:center;gap:8px;justify-content:space-between;margin-bottom:12px;font-size:var(--fs-sm)}
-.view-gallery .dnav a{display:inline-flex;align-items:center;gap:4px;min-height:44px;text-decoration:none}
-.view-gallery .dnav .pn{display:flex;gap:4px}
-.view-gallery .dnav .pn a{width:44px;justify-content:center;border:1px solid var(--line);border-radius:var(--r-pill)}
-.view-gallery .dnav .pos{color:var(--ink-3)}
 .view-gallery .mosaic{display:grid;gap:8px;grid-template-columns:1fr 1fr;grid-template-rows:auto 150px}
 .view-gallery .mosaic .m1{grid-column:1/3}
 .view-gallery .mosaic .m1 .cover{aspect-ratio:16/10;border-radius:var(--r-l)}
-.view-gallery .m2,.view-gallery .m3{position:relative;border-radius:var(--r-m);overflow:hidden;background:color-mix(in srgb,var(--ac) 14%,var(--surface))}
+.view-gallery .m2 {position:relative;border-radius:var(--r-m);overflow:hidden;background:color-mix(in srgb,var(--ac) 14%,var(--surface))}
 .view-gallery .m2 svg{width:100%;height:100%}
-.view-gallery .m3{display:grid;place-items:center}
-.view-gallery .glbig .ico{width:64px;height:64px;stroke-width:1.2;color:color-mix(in srgb,var(--ac) 55%,var(--ink))}
 .view-gallery .cap{position:absolute;left:10px;bottom:8px;font-size:var(--fs-xs);background:var(--surface);padding:2px 8px;border-radius:var(--r-pill)}
 @media(min-width:900px){.view-gallery .mosaic{grid-template-columns:2fr 1fr;grid-template-rows:220px 220px}
 .view-gallery .mosaic .m1{grid-column:1;grid-row:1/3}
 .view-gallery .mosaic .m1 .cover{aspect-ratio:auto;height:100%}
 }
-.view-gallery .grat{stroke:var(--line);stroke-width:1}
 .view-gallery .pin{fill:color-mix(in srgb,var(--ink-3) 60%,transparent)}
 .view-gallery .pin.t1{fill:var(--ink-2)}
 .view-gallery .num circle{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}
@@ -248,15 +211,8 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 .view-gallery .num.sel circle{fill:var(--city);stroke:var(--surface)}
 .view-gallery .num.sel text{fill:var(--city-on)}
 .view-gallery .route{fill:none;stroke:var(--city);stroke-width:2.5;stroke-dasharray:2 5;stroke-linecap:round}
-.view-gallery .dgrid{display:grid;gap:28px;margin-top:22px}
-@media(min-width:1024px){.view-gallery .dgrid{grid-template-columns:1fr 380px;align-items:start}
-}
-.view-gallery .dmain h1{margin:6px 0 2px}
-.view-gallery .dnat{font:500 var(--fs-lead) var(--font-native);color:var(--ink-3);margin:0}
-.view-gallery .dtier{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0}
 .view-gallery .sec{border-top:1px solid var(--line);padding:20px 0 6px}
 .view-gallery .sec h2{margin-bottom:10px}
-.view-gallery .lead-w{font:400 var(--fs-lead)/1.55 var(--font-ui);margin:0;max-width:62ch}
 .view-gallery .note{font:italic 400 var(--fs-lead)/1.5 var(--font-display);background:var(--city-wash);padding:14px 16px;border-radius:var(--r-m);margin:0}
 .view-gallery .srclist{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .view-gallery .srclist li{display:flex;gap:12px;align-items:center}
@@ -277,27 +233,13 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 }
 .view-gallery .plan .btn{width:100%}
 .view-gallery .addr{display:flex;gap:8px;margin:0}
-.view-gallery .dirs{margin:0;font-size:var(--fs-sm)}
-.view-gallery .plan-row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.view-gallery .plan-row .btn{padding:0 8px;font-size:var(--fs-sm)}
 .view-gallery .fine{font-size:var(--fs-meta);color:var(--ink-3);margin:0}
 .view-gallery .facts{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:0;font-size:var(--fs-sm)}
 .view-gallery .facts dt{color:var(--ink-3)}
 .view-gallery .facts dd{margin:0}
-.view-gallery .dbar{position:fixed;left:0;right:0;bottom:0;z-index:25;display:flex;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--surface);border-top:1px solid var(--line);box-shadow:var(--e-3)}
-.view-gallery .dbar .btn:last-child{flex:1}
-@media(min-width:1024px){.view-gallery .dbar{display:none}
-}
 
 /* ---------- V5. ATLAS (.view-atlas) ---------- */
 .view-atlas .atlas{position:relative}
-.view-atlas .amap{position:fixed;inset:105px 0 0 0;background:var(--sand);overflow:hidden}
-.view-atlas .amap svg{width:100%;height:100%}
-.view-atlas .mq-d{display:none}
-.view-atlas .mq-m{height:100%}
-.view-atlas .mctl{position:absolute;right:12px;top:12px;display:grid;gap:8px}
-.view-atlas .mbadge{position:absolute;left:12px;top:12px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-pill);padding:6px 12px;font-size:var(--fs-meta);box-shadow:var(--e-1)}
-.view-atlas .mcredit{position:absolute;right:8px;bottom:4px;margin:0;font-size:var(--fs-xs);color:var(--ink-3);background:color-mix(in srgb,var(--surface) 80%,transparent);padding:1px 6px;border-radius:var(--r-xs)}
 .view-atlas .tray{position:fixed;left:0;right:0;bottom:0;z-index:22;height:52vh;background:var(--surface);border-radius:var(--r-l) var(--r-l) 0 0;box-shadow:var(--e-3);display:flex;flex-direction:column}
 .view-atlas .tray[data-detent=full]{height:calc(100vh - 120px)}
 .view-atlas .tray[data-detent=peek]{height:150px}
@@ -308,29 +250,14 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 .view-atlas .order{margin:0 0 8px;font-size:var(--fs-meta);color:var(--ink-3)}
 .view-atlas .chips.area{margin-bottom:6px}
 .view-atlas .tray .tools{position:static;border:0;background:transparent}
-.view-atlas .tray .tools-in{padding:4px 0 8px}
-.view-atlas .tray-b{overflow-y:auto;flex:1;padding:0 16px 80px}
-.view-atlas .ag-h{position:sticky;top:0;background:var(--surface);display:flex;align-items:center;gap:8px;padding:12px 0 8px;z-index:1}
-.view-atlas .ag-h i{width:12px;height:12px;border-radius:50%}
-.view-atlas .ag-h .meta{margin-left:auto}
-.view-atlas .arl{list-style:none;margin:0;padding:0}
 .view-atlas .ar{border-bottom:1px solid var(--line);padding:12px 0}
-.view-atlas .ar-a{display:grid;grid-template-columns:36px 1fr;gap:12px;text-decoration:none}
 .view-atlas .rk{width:32px;height:32px;border-radius:var(--r-pill);display:grid;place-items:center;font:700 var(--fs-meta) var(--font-ui);background:var(--surface);border:2px solid var(--ac)}
-.view-atlas .ar-b{display:grid;gap:3px}
-.view-atlas .ar-n{font:500 var(--fs-lead)/1.2 var(--font-display)}
-.view-atlas .ar-m{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:var(--fs-meta);color:var(--ink-3)}
-.view-atlas .ar-w{font-size:var(--fs-sm);color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .view-atlas .ar .recby{margin-left:48px}
-.view-atlas .ar[data-closed] .ar-n{color:var(--ink-3)}
-@media(min-width:1024px){.view-atlas .amap{inset:68px 0 0 46%}
-.view-atlas .mq-d{display:block;height:100%}
-.view-atlas .mq-m{display:none}
+@media(min-width:1024px){
 .view-atlas .tray{position:relative;width:46%;height:auto;min-height:calc(100vh - 68px);border-radius:0;box-shadow:none;border-right:1px solid var(--line)}
 .view-atlas .tray[data-detent]{height:auto}
 .view-atlas .grab{display:none}
 .view-atlas .tray-h{padding:8px 24px 0}
-.view-atlas .tray-b{padding:0 24px 40px;overflow:visible}
 .view-atlas .atlas~.foot{margin-left:0;width:46%}
 }
 
@@ -398,7 +325,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 :is(.view-guidebook, [data-cleo-book]) .recby{line-height:1.9}
 :is(.view-guidebook, [data-cleo-book]) .urls a{display:inline-flex;align-items:center;min-height:44px;overflow-wrap:anywhere}
 :is(.view-guidebook, [data-cleo-book]) .gk{display:block;font:italic 400 var(--fs-ui) var(--font-display);color:var(--ink-2)}
-@media print{:is(.view-guidebook, [data-cleo-book]) .top,:is(.view-guidebook, [data-cleo-book]) .toc,:is(.view-guidebook, [data-cleo-book]) .tools,:is(.view-guidebook, [data-cleo-book]) .foot,:is(.view-guidebook, [data-cleo-book]) .heart,:is(.view-guidebook, [data-cleo-book]) .dbar{display:none!important}
+@media print{:is(.view-guidebook, [data-cleo-book]) .top, :is(.view-guidebook, [data-cleo-book]) .toc, :is(.view-guidebook, [data-cleo-book]) .tools, :is(.view-guidebook, [data-cleo-book]) .foot, :is(.view-guidebook, [data-cleo-book]) .heart {display:none!important}
 .view-guidebook{background:#fff;color:#000;font-size:var(--fs-sm)}
 .view-guidebook .bk,.bk[data-cleo-book]{display:block}
 :is(.view-guidebook, [data-cleo-book]) .ch{break-before:page;border:0}
@@ -476,7 +403,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 
 /* ---------- V9. Print (Guidebook; SPEC §3.3): chapter per page, 2-col entries, chips as text, chrome hidden ---------- */
 @media print {
-  nav.views[data-cleo-views], :is(.vw, [data-cleo-book], [data-cleo-insights]) .pager, :is(.vw, [data-cleo-book], [data-cleo-insights]) .heart, :is(.vw, [data-cleo-book], [data-cleo-insights]) .dbar, :is(.vw, [data-cleo-book], [data-cleo-insights]) .tbl summary { display: none !important; }
+  nav.views[data-cleo-views], :is(.vw, [data-cleo-book], [data-cleo-insights]) .pager, :is(.vw, [data-cleo-book], [data-cleo-insights]) .heart, :is(.vw, [data-cleo-book], [data-cleo-insights]) .tbl summary { display: none !important; }
   :is(.view-guidebook, [data-cleo-book]) .toc { display: none !important; }
   /* the mounted guidebook is the one printed copy: its own cover replaces the masthead, and the canonical list (same
      places, already printed as entries) is left out — only when the book is actually mounted, so JS-off still prints it */
@@ -506,10 +433,10 @@ html[data-view="gallery"] .split .pl-cover::before, .vw .cover[data-comp]::befor
   -webkit-mask: none center / contain no-repeat; mask: none center / contain no-repeat;
 }
 html[data-view="gallery"] .split .pl-cover > *, .vw .cover[data-comp] > * { z-index: 1; }
-html[data-view="gallery"] .split .pl-cover .g-art, .vw .cover[data-comp] .pinart {
+html[data-view="gallery"] .split .pl-cover .g-art {
   transform-origin: var(--rx, 50%) var(--ry, 50%); transform: scale(var(--z));
 }
-html[data-view="gallery"] .split .pl-cover .g-art img, .vw .cover[data-comp] .pinart img { opacity: var(--ao); }   /* the ring stays at full strength */
+html[data-view="gallery"] .split .pl-cover .g-art img { opacity: var(--ao); }   /* the ring stays at full strength */
 html[data-view="gallery"] .split .pl-cover .g-ring, .vw .cover[data-comp] .me { scale: calc(1 / var(--z)); }
 /* plate colour by tier: must-see deep and solid, worth-the-detour the area ink, deep cut an outlined initial */
 html[data-view="gallery"] .split .pl[data-t="1"] > .pl-cover, .vw .cover[data-t="1"] { --tc: color-mix(in srgb, var(--ac) 74%, var(--ink)); --mo: color-mix(in srgb, var(--ac) 80%, var(--ink)); }
@@ -532,14 +459,14 @@ html[data-view="gallery"] .split .pl-cover[data-comp="1"], .vw .cover[data-comp=
 html[data-view="gallery"] .split .pl-cover[data-comp="2"], .vw .cover[data-comp="2"] { --mx: 8%; --mb: 4%; --mw: 34%; --mh: 44%; --mop: .95;
   background-image: linear-gradient(0deg, color-mix(in srgb, var(--ac) 30%, transparent) 0 30%, transparent 30%); }
 html[data-view="gallery"] .split .pl-cover[data-comp="2"]:has(.pl-vert), .vw .cover[data-comp="2"]:has(.plate.v) { --mx: 30%; }
-html[data-view="gallery"] .split .pl-cover[data-comp="2"] .g-art, .vw .cover[data-comp="2"] .pinart { width: 54%; right: 4%; bottom: 30%; }
+html[data-view="gallery"] .split .pl-cover[data-comp="2"] .g-art { width: 54%; right: 4%; bottom: 30%; }
 /* 3 · close crop: the pins zoomed around this place (the neighbourhood, not the whole area), motif at the foot */
 html[data-view="gallery"] .split .pl-cover[data-comp="3"], .vw .cover[data-comp="3"] { --z: 1.75; --mx: 6%; --mb: 6%; --mw: 28%; --mh: 34%; --mop: .7; }
 html[data-view="gallery"] .split .pl-cover[data-comp="3"]:has(.pl-vert), .vw .cover[data-comp="3"]:has(.plate.v) { --mx: 30%; }
 /* 4 · pattern: the kind repeated as a faint printed ground, the pins centred over it */
 html[data-view="gallery"] .split .pl-cover[data-comp="4"], .vw .cover[data-comp="4"] { --mx: 0%; --mb: 0%; --mw: 100%; --mh: 100%; --mop: .16; }
 html[data-view="gallery"] .split .pl-cover[data-comp="4"]::before, .vw .cover[data-comp="4"]::before { -webkit-mask-size: 64px 48px; mask-size: 64px 48px; -webkit-mask-repeat: repeat; mask-repeat: repeat; -webkit-mask-position: 6px 6px; mask-position: 6px 6px; }
-html[data-view="gallery"] .split .pl-cover[data-comp="4"] .g-art, .vw .cover[data-comp="4"] .pinart { width: 62%; right: 12%; bottom: 14%; }
+html[data-view="gallery"] .split .pl-cover[data-comp="4"] .g-art { width: 62%; right: 12%; bottom: 14%; }
 
 /* ---------- V11. W4 motion (ROUND-3 gap #5) — every effect answers a tap or a scroll; none runs on load; all off under
    reduced motion (§13 zeroes every animation and transition, and the block below is inside no-preference).

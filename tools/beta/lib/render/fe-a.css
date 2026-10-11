@@ -129,7 +129,7 @@ html[data-view=gallery] .pl-cover .g-art{display:block}
 /* QA-30: the hero's primary action on the night sky, both themes (was 1:1 in night mode) */
 .g-acts .btn-primary,.g-acts .btn-primary:hover{background:var(--on-night);color:var(--night);border-color:var(--on-night)}
 /* phones: the switcher collapses to the current view; tapping it opens all four (QA-31 · B-03 ≤ 14 controls) */
-@media (max-width:639px){html nav.views[data-cleo-views][role=group]:not(.open){grid-template-columns:1fr;display:grid}html nav.views[data-cleo-views]:not(.open) button[aria-pressed=false]{display:none}
+@media (max-width:639px){html nav.views[data-cleo-views][aria-label]:not(.open){grid-template-columns:1fr;display:grid}html nav.views[data-cleo-views]:not(.open) button[aria-pressed=false]{display:none}
   html nav.views[data-cleo-views] button[aria-pressed=true]::before{content:"View: ";font-weight:400;color:var(--ink-3)}html nav.views[data-cleo-views]:not(.open) button[aria-pressed=true]::after{content:"▾";margin-left:6px;color:var(--ink-3)}}
 /* ROUND-4 #3: masthead prose links stay inline (the inline-flex 44 px box swallowed the space before the date and
    opened uneven line gaps); the 44 px hit area comes from block padding, which never changes an inline line box */
@@ -192,7 +192,7 @@ html main[data-city] nav.views[data-cleo-views] button .ico{width:17px;height:17
 /* phones and tablets: the switcher is one compact "current view" control beside the pill; it opens the four as a menu */
 @media (max-width:639px){
   html main[data-city] .cbar-in{gap:8px}
-  html main[data-city] nav.views[data-cleo-views][role=group]:not(.open){display:flex;grid-template-columns:none;padding:0;border:0}
+  html main[data-city] nav.views[data-cleo-views][aria-label]:not(.open){display:flex;grid-template-columns:none;padding:0;border:0}
   html main[data-city] nav.views[data-cleo-views]:not(.open) button[aria-pressed=true]{min-height:48px;padding:0 12px;background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:var(--e-1)}
   html main[data-city] nav.views[data-cleo-views] button[aria-pressed=true]::before{content:none}
   html main[data-city] nav.views[data-cleo-views] button .ico{display:inline-block}

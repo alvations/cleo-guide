@@ -420,6 +420,9 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
   const ogUnused = manifest.pages.filter(p => p.kind === 'city' && ogs.includes(p.key.replace(/\//g, '--') + '.png'))
     .filter(p => !rd('beta/' + p.beta).includes(`/assets/og/${p.key.replace(/\//g, '--')}.png"`)).map(p => p.beta);
   chk(`share cards: ${ogs.length} PNGs are 1200×630 ≤ 300 KB, and their pages use them`, ogBad.concat(ogUnused), a => a.length === 0);
+  // Platform W8 (R7 gap 7): the one shared stylesheet ships ≤ 200 KB raw (dead R6 rules removed by tools/beta/css-dead.py,
+  // comments stripped by build-css.py; the sources keep theirs)
+  chk('cleo.css ≤ 200 KB raw (200,000 B)', size('assets/cleo.css'), n => n <= 200000);
   chk('search index ≤ 250 KB gzip (lazy)', KB(gz('data/search.json')), n => n <= 250);
 
   console.log(failures ? `\n>>> FAIL — ${failures} beta check(s) failed` : '\n>>> PASS — beta: counts == live, reproducible, guarded, renders with no CDN');

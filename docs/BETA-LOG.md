@@ -1299,3 +1299,12 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - platform: implement the ratified B-08 exemption and the D-38 tiles-excluded wording.
   - **QA-58** (rule-6 brand names in committed docs) fixed here. The two owner quotes (W7-BRIEFS, this log) and the DESIGN-SYSTEM and BETA-DECISIONS (D-01, D-09) mentions now say "the real-estate map-search site" or "the leading home-rental marketplace", each marked as redacted per rule 6.
   - **Re-sign needs:** Atlas G1 ✅ 5/5; Gallery B-02 ✅ 5/5, Tokyo B-04 ✅ and landing B-05 ✅ (or ratified re-measured rules); QA-50 and QA-52 passing in `w7.js --only detail,atlasm`. Then deploy.
+  - **Platform (W8, R7 gap 7 + shared-shell axe):** Evidence is in `design/beta/eval/w8/platform/README.md`, with `npm run beta:qa:w8p` as the probe.
+    - Phone @3× never fetches 960w for a < 200 px slot: 5 → 0. The Atlas carousel thumbs fetched 960w before.
+    - Tokyo phone first load: Gallery 930 → **590 KB**, Atlas 1,021 → **549 KB**. This uses the 3×-phone density cap (proposed **D-40**).
+    - `cleo.css`: 255,666 B → **193 KB** raw.
+      - `tools/beta/css-dead.py` removed 20 KB of provably dead R6 rules (237 selectors) from the designer's sources.
+      - `build-css.py` strips comments and indentation from the shipped file only.
+      - All 28 pilot shots (light and dark, 390 and 1440) diff **0 px**.
+    - axe `aria-allowed-role` 44 → 0 runs (the switcher `<nav>` loses `role="group"`); `heading-order` 16 → 0 (the footer heads are h3).
+    - B-06/07/09 re-pointing waits for R7 QA.
