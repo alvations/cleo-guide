@@ -1,0 +1,6 @@
+/* atlas-nav.css (Atlas FE-2 lane): the Atlas map's interaction state — rides after atlas.css in assets/fe-a.css.
+ * Phones, Atlas only: the place detail is a sheet over the map that leaves a band of map above it, so the open place's
+ * pin is never under the sheet (SPEC-v3 §3.2). It scrolls inside; the other views keep FE-A's full-height sheet. */
+@media (max-width:1023.98px){
+  html.atlas-m[data-view=atlas] #cleo-sheet .sheet.detail{max-height:58vh}
+}
