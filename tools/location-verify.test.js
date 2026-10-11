@@ -70,6 +70,8 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     assert.deepStrictEqual(LV.osmClosureEvidence({ 'disused:shop': 'shoes', name: 'X' }).map(e => e.detail), ['disused:shop=shoes']);
     assert.strictEqual(LV.osmClosureEvidence({ 'was:name': 'Old X', shop: 'shoes' }).length, 0, 'a former name alone is not closure');
     assert.strictEqual(LV.osmClosureEvidence({ shop: 'vacant' }).length, 1);
+    assert.strictEqual(LV.osmClosureEvidence({ 'was:amenity': 'place_of_worship', leisure: 'sports_centre', name: 'Rink' }).length, 0, 'repurposed building, not closed');
+    assert.strictEqual(LV.osmClosureEvidence({ 'disused:amenity': 'restaurant', building: 'yes' }).length, 1, 'no active main tag → evidence');
   });
   await t('siteClosureNotice', () => {
     assert.ok(LV.siteClosureNotice('<p>After 40 years we have closed our doors.</p>'));
@@ -218,6 +220,58 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     const p = await LV.run({ city: 'testville-zz', registry: fx.registry, scope: ['unverified'], sources: ['wikidata', 'wikipedia', 'nominatim', 'overpass', 'official'], mode: 'offline-plan', today: '2026-10-11' });
     assert.ok(p.rows.length > 0 && p.rows.every(r => r.outcome === 'planned' && !r.proposal));
     assert.ok(p.meta.estimate.requests > 0);
+  });
+
+  // ── phase 2: government geodata adapters ──
+  const P2 = require('./location-verify-phase2.js');
+  await t('UTM 32: lat 50 on the central meridian → E 500000, N ≈ 5,538,631 m; round trip < 1 cm', () => {
+    const u = P2.toUtm(50, 9); assert.ok(Math.abs(u.e - 500000) < 0.01); assert.ok(Math.abs(u.n - 5538630.7) < 1.5, String(u.n));
+    for (const [la, lo] of [[50.94129, 6.95817], [49.2354, 6.9969], [51.2277, 6.7735]]) {
+      const b = P2.fromUtm(...Object.values(P2.toUtm(la, lo)));
+      assert.ok(Math.abs(b.lat - la) < 1e-7 && Math.abs(b.lng - lo) < 1e-7, `${la},${lo} → ${b.lat},${b.lng}`);
+    }
+  });
+  await t('German address parsing and street normalisation', () => {
+    assert.deepStrictEqual(P2.parseAddressDE('Hohe Straße 12a, 50667 Köln, Germany'), { street: 'hohestr', houseNumber: '12a', postcode: '50667' });
+    assert.strictEqual(P2.normStreetDE('Hohe Str.'), P2.normStreetDE('Hohe Strasse'));
+    assert.deepStrictEqual(P2.parseAddressDE('St. Johanner Markt 1, 66111 Saarbrücken'), { street: 'stjohannermarkt', houseNumber: '1', postcode: '66111' });
+    assert.strictEqual(P2.parseAddressDE('Nauwieser Straße, 66111 Saarbrücken').houseNumber, null);
+  });
+  await t('house-coordinate file: UTM columns convert; wrong file fails loud', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lv-hk-'));
+    const u = P2.toUtm(50.94129, 6.95817);
+    fs.writeFileSync(path.join(dir, 'hk.txt'), `NBA;STN;HNR;ADZ;PLZ;ONM;OST;NORD\nX;Domkloster;4;;50667;Köln;${u.e.toFixed(2)};${u.n.toFixed(2)}\n`);
+    const set = P2.loadHouseCoords(path.join(dir, 'hk.txt'), { licence: 'dl-de/zero-2-0 (synthetic test)' });
+    const h = set.index.get('50667|domkloster|4'); assert.ok(h && Math.abs(h.lat - 50.94129) < 1e-6 && Math.abs(h.lng - 6.95817) < 1e-6);
+    fs.writeFileSync(path.join(dir, 'bad.csv'), 'a,b,c\n1,2,3\n');
+    assert.throws(() => P2.loadHouseCoords(path.join(dir, 'bad.csv')), /need coordinate, street, house number and postcode/);
+  });
+  await t('ABR guard flags a pin far from its town, stays silent when near', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lv-abr-'));
+    fs.writeFileSync(path.join(dir, 'abr.csv'), '市区町村名_英字,大字・町名_英字,代表点_緯度,代表点_経度\nTestshi,Probe-cho,0.5000,-30.5000\n');
+    const abr = P2.loadAbr(path.join(dir, 'abr.csv'));
+    const far = { address: '1-2 Probe-cho, Testshi, Okinawa, Japan', current: { lat: 0.56, lng: -30.5 } };
+    const near = { address: '1-2 Probe-cho, Testshi, Okinawa, Japan', current: { lat: 0.501, lng: -30.5 } };
+    assert.ok(/ABR guard: the pin is 6\.7 km/.test(P2.abrGuard(abr, far, LV.haversineM)));
+    assert.strictEqual(P2.abrGuard(abr, near, LV.haversineM), null);
+  });
+  await t('OneMap: no secrets → skipped with a note, credentials never echoed', async () => {
+    const r = await P2.onemapToken({}); assert.strictEqual(r.token, null); assert.ok(/secrets are not set/.test(r.note));
+    const r2 = await P2.onemapToken({ ONEMAP_EMAIL: 'x@example.invalid', ONEMAP_PASSWORD: 'hunter2' }, async () => ({ ok: false, status: 401 }));
+    assert.strictEqual(r2.token, null); assert.ok(!/hunter2|example\.invalid/.test(r2.note));
+  });
+  await t('replay with phase-2 sources: gov-address → med pin; OneMap building → high pin with SODL attribution', async () => {
+    const set = P2.loadHouseCoords(path.join(__dirname, 'location-verify-fixtures', 'house-coords-latlng.csv'), { label: 'synthetic house file', licence: 'dl-de/zero-2-0 (synthetic test)' });
+    const r2 = await LV.run({ city: 'testville-zz', registry: fx.registry, scope: ['unverified'], sources: ['nominatim'], fixtures: fx.responses, mode: 'fixtures',
+      today: '2026-10-11', houseSets: [set], onemapToken: 'test-token' });
+    const haus = r2.rows.find(r => r.name === 'Haus Probe Cafe');
+    assert.strictEqual(haus.outcome, 'pin'); assert.strictEqual(haus.proposal.kind, 'gov-address'); assert.strictEqual(haus.proposal.grade, 'med');
+    assert.strictEqual(haus.proposal.lat, 0.5071); assert.strictEqual(haus.assist.verdict, 'hold');
+    const sg = r2.rows.find(r => r.name === 'Marina Test Tower');
+    assert.strictEqual(sg.outcome, 'pin'); assert.strictEqual(sg.proposal.kind, 'onemap'); assert.strictEqual(sg.proposal.grade, 'high');
+    assert.strictEqual(sg.assist.verdict, 'pass'); assert.ok(/Singapore Open Data Licence/.test(r2.meta.attributionOneMap));
+    assert.ok(!JSON.stringify(r2).includes('test-token'), 'the token never reaches the report');
+    assert.ok(/House coordinates: synthetic house file/.test(LV.toMarkdown(r2)));
   });
 
   // ── --accept: local, reviewed, never a downgrade, counts asserted, audit trail ──

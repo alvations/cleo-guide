@@ -191,6 +191,13 @@ function chapterPhotos(r) {
   }
   return out;
 }
+/** W9-10 FE-B: the Guidebook edition cover's photo = the guide's own credited hero (same shape as a chapter photo). */
+function coverPhoto(r) {
+  if (r.country === 'vietnam') return null;
+  const ph = imagery.heroFor(r); if (!ph || !ph.credit) return null;
+  return { src: ph.src, w: ph.w, h: ph.h, alt: ph.credit.depicts, set: (ph.widths || []).map(w => [w.src, w.w]),
+    cap: require('./imagery/photos').captionHtml(ph.credit) };
+}
 for (const r of cityRows) {
   const page = r.data, areaN = Object.fromEntries((page.AREAS || []).map(a => [a.id, city.shortArea(a.n)]));
   const pi = searchPages.length;
@@ -224,6 +231,8 @@ for (const r of cityRows) {
     // W8 FE-B: Guidebook chapters lead with a credited photo where one exists — per area, the first open SIGHT in view
     // order with a credited photo (imagery gate: never closed, never Vietnam; never a food place). Caption = TASL, linked.
     chapterPhotos: chapterPhotos(r),
+    // W9-10: the edition cover's credited hero photo (or null) and this guide's full "What changed" page
+    coverPhoto: coverPhoto(r), changesPage: `changes/${r.fileKey}.html`,
     // W9-1 / W9-9 (platform): per-page recognition summary; per place `rec` {award, video, cited} and `lf` ride on places[]
     recognition: r.recog,
     places: r.recs.map(x => (x.pv && x.pv.src ? Object.assign({}, x, { pv: Object.assign({}, x.pv, { src: undefined }) }) : x))

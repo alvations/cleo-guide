@@ -268,14 +268,15 @@ async function pinTarget(page, phone) {
   for (const [key, url] of PAGES.filter(p => ['tokyo', 'cleveland'].includes(p[0]))) {
     const { ctx, page, errors } = await open(browser, 'd', url + '#view=atlas', { tiles: 'stub' });
     const stops = []; let firstCard = -1, firstPin = -1, mapFocus = -1, noRing = 0;
-    for (let i = 0; i < 90; i++) {
+    for (let i = 0; i < 450; i++) {
       await page.keyboard.press('Tab'); await sleep(30);
       const s = await page.evaluate(() => { const a = document.activeElement; if (!a || a === document.body) return null; const st = getComputedStyle(a), r = a.getBoundingClientRect();
-        const ring = (st.outlineStyle !== 'none' && parseFloat(st.outlineWidth) > 0) || (st.boxShadow && st.boxShadow !== 'none');
+        const hasRing = x => { const q = getComputedStyle(x); return (q.outlineStyle !== 'none' && parseFloat(q.outlineWidth) > 0) || (q.boxShadow && q.boxShadow !== 'none'); };
+        let ring = hasRing(a); for (let p = a.parentElement, i = 0; !ring && p && i < 3; p = p.parentElement, i++) ring = p.matches(':focus-within') && hasRing(p);   // a wrapper's :focus-within ring counts
         return { d: (a.className && a.className.baseVal === undefined ? a.tagName.toLowerCase() + '.' + String(a.className).split(' ')[0] : a.tagName.toLowerCase()) + ' ' + (a.getAttribute('aria-label') || a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 30), card: !!a.closest('li.pl'), pin: a.classList.contains('leaflet-marker-icon'), map: a.id === 'cleo-map' || a.classList.contains('leaflet-container'), ring, onScreen: r.bottom > 0 && r.top < innerHeight && r.width > 0 }; });
       if (!s) continue; stops.push(s);
       if (s.card && firstCard < 0) firstCard = stops.length; if (s.pin && firstPin < 0) firstPin = stops.length; if (s.map && mapFocus < 0) mapFocus = stops.length; if (!s.ring) noRing++;
-      if (firstCard > 0 && stops.length > firstCard + 6) break;
+      if (firstCard > 0 && (firstPin > 0 || mapFocus > 0) && stops.length > Math.max(firstCard, firstPin, mapFocus) + 3) break;   // R2 erratum: scan until the map and a pin are reached
     }
     // map keyboard: focus the map, arrows pan, +/- zoom
     let mapKeys = null;
