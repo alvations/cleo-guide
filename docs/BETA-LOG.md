@@ -714,3 +714,8 @@ Append-only. One entry per session per wave: date, lane, session id, what change
 - 2026-10-10 21:11Z · orchestrator · DEPLOYED R5 follow-up (PR alvations/cleo-guide#8, QA-signed 63932912, merge 9f54587d). Program closed. Every beta session is archived and the check-ins have stopped.
 
 - 2026-10-11 · orchestrator · Owner request: rate the fonts, styles and every other visual element, and build the improvements, using melon-seek ideas if helpful. Opened Round 6 (type & style), briefs in `design/beta/eval/W6-BRIEFS.md`. Rubric addition in BETA-PROGRAM: a Typography & style sub-scorecard within dimension A.
+
+- 2026-10-11 11:16Z · orchestrator · Owner asked for images via Unsplash.
+  - **Blocked here:** api.unsplash.com and images.unsplash.com return 403 from the environment's network policy, the same as Wikimedia. Not routed around.
+  - **What works:** WebSearch with allowed_domains=unsplash.com returns photo page IDs and titles (e.g. Kinkaku-ji: x7Vl0wVpZBo, N5SG29ZSz_A).
+  - **Launched:** an imagery research lane (session_01VuJ1fj7XcNcQEei7qeoXap) building `beta/assets/img/unsplash-candidates.json` (verified candidates per hub and landmark, plus generic collection covers, never venues) and `tools/beta/imagery/fetch-unsplash.js`, ready to run once the owner allows the hosts and adds UNSPLASH_ACCESS_KEY.
