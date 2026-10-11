@@ -1217,3 +1217,25 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - On the phone carousel the thumbnail's figure steps aside (`display: contents`), and its credit runs the card's full width under the thumbnail and text: author · licence · source, in full.
   - The carousel card grows to 150 px, and the © shortcut is hidden there.
   - New `atlas-ms.js` check: every carousel credit sits inside its card with no overflow. Evidence: `design/beta/eval/w7/atlas/tokyo-atlas-390-day-credit.jpg`.
+
+- 2026-10-11 19:15Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **Loop A (Atlas panel):**
+    - Real-tile workflow run #2 (38164928697) succeeded; about 110 shots are in `design/beta/atlas/real/R0/`. They show OSM standard tiles too busy under the pins, and dark mode still drawing the bright OSM tiles. Settled with the designer and the Atlas lane: Esri Light Gray Canvas by default, Esri Dark Gray Canvas in dark mode, following the theme; satellite stays as the alternative; a test covers it.
+    - SPEC-v3 slice 1 (32a6eb86: no numbers on the map, named kind pills, quiet dots, a city-core default view, one 108 px bar, a flat list) is accepted, with four refinements sent:
+      - one glyph per pill;
+      - neutral dots;
+      - short names with collision-to-dot;
+      - possibly fewer pills.
+    - The Atlas lane is building slice 1.
+    - The panel's R0 evidence pack is built (129 shots); its eight panelists are scoring.
+  - **Casing (owner):** the designer pushed the rule and the executable spec (f145ab71: DESIGN-SYSTEM.md §v2.6, design/beta/casing/ with allowlist.json, sentence_case.py and labels.md: 368 labels, 259 change; CASING-AUDIT.md). It also removed the designer-owned uppercase, drop caps and cover initials. FE-A is building `tools/beta/lib/casing.js` to match the reference output; FE-B and the Atlas lane follow.
+  - **Loop C:**
+    - FE-A: "Start with" = lead card on all 84 pages (bae1b624; two pickers had drifted on 17 US/EU pages).
+    - FE-B:
+      - D-39 price/rating note on 235 records (ba5d7e23);
+      - "What changed" B-20/B-23 84/84;
+      - Guidebook chapter photos, 25 of 299 chapters, lazy and credited (f677272c);
+      - the Insights v2 series tokens were requested from the designer.
+    - Imagery: `--scope heroes|priority|pilots|all` (e26f890e) is wired into the workflow as a dispatch input; push runs stay at priority (62b7295d). The priority run is in progress; pilots and all wait for the contact sheet and a repo-size estimate.
+    - The Atlas carousel credit clip is fixed (f5efbc66).
+  - **Loop B:** R7 QA is running pilot runs and the B-07 rewrite; the evaluator's metrics sweep is about 2/3 done.
