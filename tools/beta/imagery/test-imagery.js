@@ -270,11 +270,16 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
 const refusedC = cm.targets.flatMap(t => t.candidates.filter(c => c.refused).map(c => [t, c]));
 ok(refusedC.every(([, c]) => c.refused.length > 10) && fc.plan(cm, { credits: [] }, { keys: [], types: [], min: 'high', allow: [], wikiLead: false, pilot: false }).filter(p => !p.skip).every(p => p.cands.every(c => !c.refused)), `fetch-commons: candidates refused after visual review carry a reason and are never fetched (${refusedC.length})`);
 ok(fc.fileBase({ type: 'landmark', depicts: 'singapore/chinatown#sri-mariamman-temple' }) === 'singapore--chinatown--sri-mariamman-temple' && fc.fileBase({ type: 'hero', depicts: 'hub:singapore/chinatown' }) === 'hero--singapore--chinatown', 'fetch-commons: file names follow the photos/ convention');
-const fplan = fc.plan(cm, { credits: [] }, { keys: [], types: [], min: 'high', allow: [], wikiLead: false, pilot: false }).filter(p => !p.skip);
+const fplan = fc.plan(cm, { credits: [] }, { scope: 'all', keys: [], types: [], min: 'high', allow: [], wikiLead: false, pilot: false }).filter(p => !p.skip);
 ok(fplan.length > 100 && fplan.every(p => (p.cands.length || p.lead) && p.cands.every(c => c.confidence === 'high' && !(c.flags || []).length) && !p.t.skip), `fetch-commons default plan: ${fplan.length} targets, high-confidence unflagged candidates (or a cited article's lead image), never a skipped (venue/food/closed/Vietnam) target`);
 const lm = fplan.filter(p => p.t.type === 'landmark');
 const rank = p => ({ lead: 0, row: 1 })[p.t.priority] ?? (p.t.pilot ? 2 : 3);
 ok(fplan.findIndex(p => p.t.type === 'landmark') === fplan.filter(p => p.t.type === 'hero').length && lm.every((p, i) => !i || rank(lm[i - 1]) <= rank(p)), 'fetch-commons: heroes first, then lead cards, first rail rows, pilot tier-1 sights, then the rest (W8 order)');
+{ // --scope: what a run may fetch (W8)
+  const sp = s => fc.plan(cm, { credits: [] }, { scope: s, keys: [], types: [], min: 'high', allow: [], wikiLead: false, pilot: false }).filter(p => !p.skip);
+  const H = sp('heroes'), P = sp('priority'), PI = sp('pilots'), A = sp('all');
+  ok(H.every(p => p.t.type === 'hero') && P.every(p => p.t.type === 'hero' || p.t.priority) && PI.every(p => p.t.type === 'hero' || p.t.priority || p.t.pilot) && H.length < P.length && P.length < PI.length && PI.length < A.length, `fetch-commons --scope: heroes ${H.length} < priority ${P.length} < pilots ${PI.length} < all ${A.length}; default priority`);
+}
 ok(lm.some(p => p.t.priority === 'lead') && lm.every(p => !p.t.priority || p.cands.length || p.lead) && cm.targets.filter(t => t.priority && !t.skip).every(t => t.candidates.length || t.wikiLead), 'W8 coverage: every unskipped lead card / first-row sight has a candidate or a cited article to try');
 ok(cm.targets.filter(t => /Pok[eé]mon Center|Pok[eé] Lid|Animate |Jump Shop/.test(t.label)).every(t => t.skip), 'W8: brand stores and Poké Lid character art are stated gaps, never fetched');
 const onDisk = path.join(BETA, 'assets', 'img', 'manifest.json');
