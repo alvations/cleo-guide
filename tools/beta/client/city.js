@@ -164,6 +164,7 @@
       if (r.p !== lastP || !(Cleo.sheet && Cleo.sheet.isOpen())) {
         tg.scrollIntoView({ block: 'center' });
         if (map && markers[r.p]) fly(markers[r.p].getLatLng());
+        if (C.select && C.view === 'atlas') C.select(tg, 'route');   // selected + labelled on the map (SPEC-v3 §1.4)
         if (Cleo.sheet) Cleo.sheet.open(tg); else { const l = $('.pl-n a', tg); if (l && l.focus) l.focus({ preventScroll: true }); }
       }
     } else if (Cleo.sheet && Cleo.sheet.isOpen()) Cleo.sheet.close(true);
@@ -203,7 +204,7 @@
   const tray = $('#cleo-tray'), TK = ['a', 't', 'src', 'c', 'cz', 'sort', 'been'];
   let P = {}, opener = null, pushed = 0, after = null;
   const tpaint = () => {
-    $$('.pill', tray).forEach(b => { const k = at(b, 'data-f'); b.setAttribute('aria-pressed', String((k === 'base' ? store.get('base', 'street') : P[k] || '') === at(b, 'data-v'))); });
+    $$('.pill', tray).forEach(b => { const k = at(b, 'data-f'); b.setAttribute('aria-pressed', String((k === 'base' ? ({ 'street!': 'street', satellite: 'satellite' })[store.get('base', 'map')] || 'light' : P[k] || '') === at(b, 'data-v'))); });
     const o = { gap: '' }; TK.forEach(k => { o[k] = P[k]; }); const n = count(o);
     $('[data-tr="go"]', tray).textContent = n ? 'Show ' + pl(n) : 'No places match — clear a filter';
   };
@@ -238,23 +239,18 @@
 
   let map = null, loading = 0;
   const markers = {}, bases = {}, waiters = [];
-  // W7 Atlas map-search: every pin is a label pill (the guide's pin number, ★ for Must see) — a light DOM marker, no
-  // per-pin tooltip. Sight vs eat & drink in two quiet tokens; closed = struck, kept; saved = a heart. Hover/selected
-  // turn it ink-filled (CSS .hot/.sel). The class list is the whole state, so a repaint never rebuilds the marker.
-  const pinCls = c => { const cl = c.hasAttribute('data-closed'), sv = !!(Cleo.saved ? Cleo.saved.all() : {})[key + '/' + pid(c)];
-    return 'pp pp-' + (at(c, 'data-k') === 'f' ? 'f' : 's') + (at(c, 'data-t') === '1' && !cl ? ' pp-1' : '') + (cl ? ' pp-x' : '') + (sv ? ' pp-sv' : ''); };
-  const pinIcon = c => window.L.divIcon({ className: pinCls(c), iconSize: null, html: '<span>' + (at(c, 'data-t') === '1' && !c.hasAttribute('data-closed') ? '<i aria-hidden="true">★</i>' : '') + at(c, 'data-n') + '</span>' });
-  const pinEl = c => { const k = c && markers[pid(c)]; return k && k.getElement && k.getElement(); };
-  const hot = (c, o) => { const k = c && markers[pid(c)], el = pinEl(c); if (!k) return; if (el) el.classList.toggle('hot', o);
-    if (k.setZIndexOffset) k.setZIndexOffset(o ? 1000 : at(c, 'data-t') === '1' ? 600 : 0);
-    const m = inCl[pid(c)], ce = m && m.getElement && m.getElement(); if (ce) ce.classList.toggle('hot', o); };
+  // SPEC-v3 slice 1 ("places on a map, not numbers on a grid"): every place is a quiet DOT on one shared canvas layer
+  // (zero DOM nodes; city.js); atlas.js lifts the best places in view into labelled pins (kind glyph + name, ≤ 24) and
+  // draws density discs at region zoom. No numbers on the map. Before atlas.js arrives the dots are plain.
+  const dotStyle = c => (C.dotStyle ? C.dotStyle(c) : { radius: 3.5, weight: 1.5, color: '#fff', fillColor: '#948B83', fillOpacity: 1 });
+  const pinEl = c => (c && C.pinOf ? C.pinOf(pid(c)) : null);
+  const hot = (c, o) => { if (c && C.hotPin) C.hotPin(c, o); };
   ['mouseover', 'focusin', 'mouseout', 'focusout'].forEach((ev, i) => on(d, ev, e => {
     const c = e.target.closest && e.target.closest('li.pl'); if (c && !(e.relatedTarget && c.contains(e.relatedTarget))) hot(c, i < 2); }));
   const syncMarkers = () => { if (!map) return; try { map.stop(); } catch (e) {}
-    const sv = Cleo.saved ? Cleo.saved.all() : {};
-    cards.forEach(c => { const k = markers[pid(c)]; if (!k) return; const el = k.getElement && k.getElement(); if (el) el.classList.toggle('pp-sv', !!sv[key + '/' + pid(c)]);
-      if (!c.hidden) { if (!map.hasLayer(k) && !inCl[pid(c)]) k.addTo(map); } else if (map.hasLayer(k)) map.removeLayer(k); }); cluster(); };
-  const inCl = C.inCl = {}, cluster = () => { if (map && C.cluster) C.cluster(); };
+    cards.forEach(c => { const k = markers[pid(c)]; if (!k) return; if (!c.hidden) { if (!dots.hasLayer(k)) k.addTo(dots); } else if (dots.hasLayer(k)) dots.removeLayer(k); }); feature(); };
+  let dots = null;   // the canvas layer group holding every dot
+  const inCl = C.inCl = {}, feature = () => { if (map && C.feature) C.feature(); };
   const still = () => !window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches;
   let auto = 0; const stub = {};   // unstamped cards (Cleo.defer.peek) that already have a pin
   const live = () => !!map && !!map._loaded && !!map.getContainer().parentNode;   // R6 QA High: never touch a removed map (_leaflet_pos)
@@ -282,32 +278,42 @@
     el.innerHTML = ''; el.removeAttribute('data-tiles');
     const z = info.center || [0, 0, 2], E = 'https://server.arcgisonline.com/ArcGIS/rest/services/', ea = { attribution: 'Tiles &copy; Esri', maxZoom: 19 };
     map = L.map(el, { scrollWheelZoom: desk(), zoomControl: false, zoomSnap: 0.5 }).setView([z[0], z[1]], z[2] || 11);
+    // SPEC-v3 §4 (settled by the real-tile R0 shots): the default base is the calm Esri gray canvas that follows the
+    // theme (light / dark), with its reference labels in their own pane below our dots and pins; Satellite is the one
+    // alternative in the switch; OSM street detail is opt-in (the Key). OSM + Esri only, no key, never CARTO.
+    map.createPane('labels').style.zIndex = 350; map.getPane('labels').style.pointerEvents = 'none';
+    const ca = { attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxNativeZoom: 16, maxZoom: 19 };
+    const canvas = t => L.layerGroup([L.tileLayer(E + 'Canvas/World_' + t + '_Gray_Base/MapServer/tile/{z}/{y}/{x}', ca), L.tileLayer(E + 'Canvas/World_' + t + '_Gray_Reference/MapServer/tile/{z}/{y}/{x}', { pane: 'labels', opacity: 0.85, maxNativeZoom: 16, maxZoom: 19 })]);
+    bases.mapLight = canvas('Light'); bases.mapDark = canvas('Dark');
     bases.street = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' });
-    bases.light = L.tileLayer(E + 'Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', Object.assign({ maxNativeZoom: 16 }, ea));
     bases.satellite = L.tileLayer(E + 'World_Imagery/MapServer/tile/{z}/{y}/{x}', ea);
-    const b0 = bases[store.get('base', 'street')] || bases.street; b0.addTo(map);
+    const b0 = baseOf(store.get('base', 'map')); b0.addTo(map);
     // tiles that never load: drop the map (cleanly — every handler checks live()), keep the list whole, say so quietly.
     // Never mid-zoom (W7 FE-A): Leaflet's remove() leaves the zoom-end timer armed (`_leaflet_pos` of a removed pane)
     const fail = () => { const m0 = map; if (!m0) return; try { m0.stop(); } catch (e) {} if (m0._animatingZoom) { m0.once('zoomend', () => setTimeout(fail, 0)); return; }
       map = null; Object.keys(inCl).forEach(k => delete inCl[k]); Cleo.mapFallback(el, m0); d.documentElement.classList.add('ms-nomap'); if (C.onNoMap) C.onNoMap(); };
-    if (Cleo.watchTiles) Cleo.watchTiles(b0, fail);
-    // every place gets its pin, stamped or not (unstamped = a start-tag stub from Cleo.defer.peek(); click stamps it)
+    if (Cleo.watchTiles) Cleo.watchTiles(b0.getLayers ? b0.getLayers()[0] : b0, fail);
+    // every place gets its dot, stamped or not (unstamped = a start-tag stub from Cleo.defer.peek(); click stamps it) —
+    // one canvas renderer, so 500+ places cost no DOM nodes and pan smoothly; a generous click tolerance (thumbs)
+    const c2d = (() => { try { return !!d.createElement('canvas').getContext('2d'); } catch (e) { return false; } })();   // no 2D canvas → SVG dots, same API
+    const cv = C.canvas = c2d ? L.canvas({ padding: 0.3, tolerance: 8 }) : L.svg({ padding: 0.3 }); dots = C.dots = L.layerGroup().addTo(map);
+    const card = id => byId[id] || (Cleo.defer && Cleo.defer.stampIds ? Cleo.defer.stampIds(new Set(['p-' + id]))[0] : Cleo.defer && Cleo.defer.stampFor(id));
+    C.cardOf = id => byId[id] || card(id);
     cards.concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => {
       const ll = (at(c, 'data-ll') || '').split(','); if (ll.length !== 2) return;
-      const id = pid(c), k = markers[id] = L.marker([+ll[0], +ll[1]], { icon: pinIcon(c), keyboard: false, zIndexOffset: at(c, 'data-t') === '1' ? 600 : 0 }).addTo(map); if (c.stub) stub[id] = c;
-      k.on('click', () => { const r = byId[id] || (Cleo.defer && Cleo.defer.stampFor(id)); if (r) pin(r); });
-      k.on('mouseover', () => { const r = byId[id]; if (r) { r.classList.add('is-hover'); hot(r, true); } });
-      k.on('mouseout', () => { const r = byId[id]; if (r) { r.classList.remove('is-hover'); hot(r, false); } });
+      const id = pid(c), k = markers[id] = L.circleMarker([+ll[0], +ll[1]], Object.assign({ renderer: cv, bubblingMouseEvents: false }, dotStyle(c))).addTo(dots); if (c.stub) stub[id] = c;
+      k.on('click', () => { const r = byId[id] || card(id); if (r) pin(r); });
+      k.on('mouseover', () => { const r = byId[id]; if (r) r.classList.add('is-hover'); if (C.hotId) C.hotId(id, true); });
+      k.on('mouseout', () => { const r = byId[id]; if (r) r.classList.remove('is-hover'); if (C.hotId) C.hotId(id, false); });
     });
-    L.control.zoom({ position: desk() ? 'topleft' : 'topright' }).addTo(map);
-    map.on('zoomend', cluster);
-    need('atlas', () => { if (C.atlasTools && live()) { C.atlasTools(L, el); cluster(); } });
+    if (desk()) L.control.zoom({ position: 'topleft' }).addTo(map);   // phones pinch (SPEC-v3 §2.2)
+    need('atlas', () => { if (C.atlasTools && live()) { C.atlasTools(L, el); feature(); } });
     syncMarkers(); C.after.forEach(f => f());
     const r0 = Cleo.route.parse().p;
     if (r0 && markers[r0]) setTimeout(() => fly(markers[r0].getLatLng()), 0);
     else if (S.a) setTimeout(() => fitArea(S.a), 0);
     else if (S.mode !== 'all' || S.q || LENS.some(k => S[k])) setTimeout(fitLens, 0);   // a lens link: every match on the map, so the count is the lens total
-    else setTimeout(fitCore, 0);
+    else setTimeout(() => { if (!(C.fitDefault && C.fitDefault())) fitCore(); }, 0);   // the city core, or the last view of this city (atlas.js)
     return true;
   };
   const fitLens = () => { if (!live() || !map.getSize().x) return; const ll = cards.filter(c => !c.hidden && markers[pid(c)]).map(c => markers[pid(c)].getLatLng());
@@ -319,7 +325,14 @@
     const dd = ll.map(p => [Math.hypot(p.lat - c[0], (p.lng - c[1]) * Math.cos(c[0] * Math.PI / 180)), p]).sort((x, y) => x[0] - y[0]), cut = Math.max(dd[dd.length >> 1][0] * 3, 0.004);
     let k = dd.filter(x => x[0] <= cut); if (k.length < ll.length * 0.6) k = dd.slice(0, Math.ceil(ll.length * 0.95)); k = k.map(x => x[1]);   // the core: within 3× the median distance
     auto = Date.now(); map.fitBounds(window.L.latLngBounds(k), Object.assign(overMap(), { maxZoom: 15, animate: false })); };
-  C.setBase = k => { store.set('base', k); if (!live() || !bases[k]) return; for (const x in bases) if (map.hasLayer(bases[x])) map.removeLayer(bases[x]); bases[k].addTo(map); };
+  // 'map' = the theme's gray canvas (the old stored 'light' and the old default 'street' both read as it; street detail is
+  // only ever an explicit choice from the Key, stored as 'street!')
+  const dark = () => { const t = d.documentElement.getAttribute('data-theme'); return t === 'dark' || (t !== 'light' && !!window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches); };
+  const baseOf = k => k === 'satellite' ? bases.satellite : k === 'street!' ? bases.street : dark() ? bases.mapDark : bases.mapLight;
+  C.setBase = k => { k = k === 'street' ? 'street!' : k === 'light' ? 'map' : k; store.set('base', k); if (!live()) return; const b = baseOf(k); for (const x in bases) if (bases[x] && bases[x] !== b && map.hasLayer(bases[x])) map.removeLayer(bases[x]); if (!map.hasLayer(b)) b.addTo(map); };
+  const reTheme = () => { if (live()) C.setBase(store.get('base', 'map')); };   // the canvas follows a theme toggle live
+  if (window.matchMedia) { const mq = matchMedia('(prefers-color-scheme: dark)'); if (mq.addEventListener) mq.addEventListener('change', reTheme); else if (mq.addListener) mq.addListener(reTheme); }
+  if (window.MutationObserver) new MutationObserver(reTheme).observe(d.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   // Leaflet (≈ 144 KB) loads after first paint and after the page's own load: the list is the content, the map follows
   // (W7: Atlas Tokyo ≤ 2,000 KB, FCP untouched). A failed load costs the map, never a place: the list stays whole.
   const afterPaint = f => { const go = () => requestAnimationFrame(() => setTimeout(f, 0)); if (d.readyState === 'complete') go(); else on(window, 'load', go); };

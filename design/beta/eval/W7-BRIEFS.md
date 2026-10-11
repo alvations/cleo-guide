@@ -184,7 +184,7 @@ Photos are what make a marketplace-grade, image-first page. Unsplash still waits
 
 ## Amendment 2 (owner, 2026-10-11 14:25Z): Atlas is map-search, "the real-estate map-search pattern, for travel"
 
-The owner asked: *"Where is the map front and center in the atlas mode?! Think Zillow for travel kinda!"*
+The owner asked: *"Where is the map front and center in the atlas mode?! Think [the real-estate map-search site] for travel kinda!"* (brand name redacted per rule 6)
 
 Rule 6: in anything committed, call it "the real-estate map-search pattern".
 

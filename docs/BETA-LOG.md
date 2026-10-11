@@ -862,7 +862,7 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - Run #5 failed on HTTP 400 for a 640 px thumbnail. Wikimedia only serves standard thumbnail widths.
   - Switched to 500/960 (eedd4207); the imagery lane is hardening fetch-commons.js (width snapping, non-fatal per-image failures).
 
-- 2026-10-11 14:26Z · orchestrator · **Owner: "Where is the map front and center in the atlas mode?! Think Zillow for travel kinda!"**
+- 2026-10-11 14:26Z · orchestrator · **Owner: "Where is the map front and center in the atlas mode?! Think [the real-estate map-search site] for travel kinda!"** (brand name redacted per rule 6)
   - **Why the owner can't see it:** the R6 map-first Atlas lives only on the branch, held back by the R6 QA Highs. The live beta still has the R5 Atlas.
   - **Why R6 Atlas falls short anyway:** it enlarged the map but didn't make the map the way you search.
   - **Response:**
@@ -1274,3 +1274,45 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - platform (reopened): photo `sizes`, the 700 KB phone target, cleo.css ≤ 200 KB with the R6 layers pruned, shell axe moderates, and the B-06/07/09 re-pointing after QA ratifies;
     - Atlas residuals (gap 4) stay in the Atlas panel loop.
   - The R7 evaluator session is archived. R7 QA is still running; on QA YES the deploy goes ahead (beta-deploy-r7).
+
+- 2026-10-11 19:40Z · **Orchestrator** · R7 QA: sign-off NO; findings routed; QA-58 fixed · commit: this entry's commit
+  - **R7 QA** (`session_017FLWXa5zgGWvqNo4C3UsvH`, 03f4f402 / e473cb4e) on `badcc20d`:
+    - **sign-off NO.**
+    - Gates green; QA-36…44 all fixed.
+    - Harnesses: w5 64/64, views 319/320, w2 218/218, atlas-ms 98/98, probe:fe-a 33/33; new `tools/beta/qa/w7.js`.
+    - Budgets within D-38.
+  - **Ratified:**
+    - `.pp` pins; test-fe-a W6→W7;
+    - the w2 carousel peek; B-06 map-left;
+    - the lens header total; the B-08 `.cbar`/`.mappill` exemption;
+    - the w2 toggle skip; Gallery hides `.pl-w/.pl-k/.pl-ad`;
+    - unique-URL bytes;
+    - D-38, on condition that the row states tiles are excluded;
+    - B-04 in Atlas by design;
+    - a new map-search B-07 path in metrics.js.
+  - **Rejected:** FE-A's B-08 sticky-head rule (QA-46; not coded, so no fix needed).
+  - **Routed:**
+    - Atlas: QA-45 High (G1 regression: the list pages by 40 and has no one-tap single list; deploy blocker), QA-52, QA-54, QA-57;
+    - FE-A: QA-47 (B-02 513 px), QA-48 (Tokyo B-04), QA-50 ("No. 2 of 1"), QA-51 (the upscaled detail photo), QA-55 (facts lines), QA-59;
+    - FE-B: QA-49 (landing B-05), QA-55 (Insights 14/12 px), QA-59 ("New York density" copy);
+    - imagery: QA-53 (Tokyo Tower, Rockaway, MoMA, the Nihonbashi woodblock; swap overcast heroes Kyoto, Orlando, Madison, Ghent and Akron if bright leads exist; Hokkaido and Erie kept after the orchestrator's review), QA-56 (author cleanup);
+    - platform: implement the ratified B-08 exemption and the D-38 tiles-excluded wording.
+  - **QA-58** (rule-6 brand names in committed docs) fixed here. The two owner quotes (W7-BRIEFS, this log) and the DESIGN-SYSTEM and BETA-DECISIONS (D-01, D-09) mentions now say "the real-estate map-search site" or "the leading home-rental marketplace", each marked as redacted per rule 6.
+  - **Re-sign needs:** Atlas G1 ✅ 5/5; Gallery B-02 ✅ 5/5, Tokyo B-04 ✅ and landing B-05 ✅ (or ratified re-measured rules); QA-50 and QA-52 passing in `w7.js --only detail,atlasm`. Then deploy.
+- 2026-10-11 · Atlas lane · **Atlas review loop, round 1: SPEC-v3 slice 1 built** ("places on a map, not numbers on a grid").
+  - **Markers** (as refined in b62cce9a):
+    - every place is a quiet canvas dot (one neutral: ink 38 % for sights, 62 % for eat & drink; hollow when closed; area colour only under an area filter), with zero DOM nodes;
+    - up to 16 (8 on phones) of the best places in view become labelled pins: one kind glyph and the short name, never truncated. Must see is the sun-wash pill; closed is dashed with " · Closed"; saved gets a heart chip; selected is ink with a tail.
+  - **Basemap:** the Esri Light / Dark Gray Canvas follows the theme live, with reference labels in their own pane. Satellite is the one alternative; OSM street detail is opt-in from the Key.
+    - unnumbered density discs appear at region zoom.
+    - No rank pills, count bubbles or numbers on the map.
+  - **Map priority** (tier, then a round-robin across areas, sources, rank) is computed in atlas.js from the cards' own attributes. That is equivalent to the spec's build-time `mp`, and FE-A's builder stays untouched.
+  - **Default view:** the top 30 by priority (12 on phones) inside the city core. The last view per city is kept in sessionStorage (try/catch). `#p=` opens selected at zoom ≥ 15. An empty-map click clears the selection.
+  - **Placement:** pins never sit under the chip row, the carousel, a map control or the List pill.
+  - **Phones:** no + / − (pinch).
+  - **Probe-rule changes for QA to ratify:**
+    1. `test-beta.js` "one marker per pinned place" now counts the canvas dots (one each). A new check: ≤ 17 marker nodes and no bare-number marker.
+    2. `metrics.js` B-09 also accepts named pins, because the map now carries no numbers by spec.
+    3. `atlas-ms.js` hover and pin checks target the labelled pins (`.pp[data-id]`); count bubbles are retired. New slice-1 acceptance checks.
+  - **Gates:** validate + `npm test` + `beta:check` PASS; `atlas-ms.js` 117/117; w2 map + hubs 39/39.
+  - **Budget:** Tokyo Atlas 1440 ≈ 616 KB / 2,604 nodes; 390@3× ≈ 904 KB / 2,574 nodes.

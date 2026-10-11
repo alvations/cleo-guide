@@ -242,7 +242,14 @@ ok(fc.subjectRefused(fc.CLOSEUP, { label: 'Dayton', names: ['Dayton'] }, 'RiverS
 { // recompress.js: size targets per copy, Commons JPEGs only, once per row; the card credit still says "(resized)"
   const rc = require('./recompress');
   const card = { provider: 'wikimedia-commons', file: 'x-960.jpg', width: 960, record: {} }, hero = Object.assign({}, card, { slot: { type: 'hero', key: 'tokyo' } });
-  ok(rc.targetOf(card, 500, false) === 45 * 1024 && rc.targetOf(card, 960, true) === 110 * 1024 && rc.targetOf(hero, 960, true) === 160 * 1024 && rc.targetOf(hero, 500, false) === 45 * 1024, 'recompress: targets — card 500 w ≤ 45 KB, card 960 w ≤ 110 KB, hero 960 w ≤ 160 KB');
+  ok(rc.targetOf(card, 500, false) === 45 * 1024 && rc.targetOf(card, 960, true) === 110 * 1024 && rc.targetOf(hero, 960, true) === 120 * 1024 && rc.targetOf(hero, 500, false) === 45 * 1024, 'recompress: targets — card 500 w ≤ 45 KB, card 960 w ≤ 110 KB, hero 960 w ≤ 120 KB');
+  { // R7 gap 7 + gap 3, over the committed photos: every 960-step JPEG ≤ 120 KB; every Commons JPEG row has its dominant colour
+    const rows = JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits;
+    const big = rows.flatMap(r => rc.filesOf(r)).filter(f => /-960\.jpe?g$/i.test(f.file) && fs.statSync(path.join(BETA, 'assets', 'img', 'photos', f.file)).size > 120 * 1024).map(f => f.file);
+    ok(!big.length, `every 960 w JPEG ≤ 120 KB${big.length ? ': ' + big.join(', ') : ''}`);
+    const noColour = rows.filter(r => r.provider === 'wikimedia-commons' && /\.jpe?g$/i.test(r.file) && !/^#[0-9a-f]{6}$/.test(r.color || '')).map(r => r.file);
+    ok(!noColour.length, `every credited Commons JPEG carries its dominant colour (#rrggbb, for the fade-in placeholder)${noColour.length ? ': ' + noColour.join(', ') : ''}`);
+  }
   ok(rc.eligible(card) && !rc.eligible(Object.assign({}, card, { modified: 'resized to 500 and 960 px wide; ' + rc.MARK })) && !rc.eligible(Object.assign({}, card, { provider: 'unsplash' })) && !rc.eligible(Object.assign({}, card, { file: 'x.png' })), 'recompress: Commons JPEG rows only, each once (idempotent after every fetch)');
   ok(/ \(resized\)$/.test(photos.captionHtml(Object.assign({}, cmn, { modified: 'resized to 500 and 960 px wide; ' + rc.MARK }))) && photos.captionHtml(Object.assign({}, cmn, { modified: 'resized to 500 and 960 px wide; ' + rc.MARK }), { full: true }).includes('recompressed'), 'recompressed rows: short credit "(resized)", the full credit names both changes');
   ok(/ \(resized; derivative work by O\.J\.\)$/.test(photos.captionHtml(Object.assign({}, cmn, { modified: 'resized to 500 and 960 px wide; ' + rc.MARK + '; derivative work by O.J.' }))), 'a derivative row: the short credit still names the derivative\'s creator');
@@ -275,6 +282,19 @@ ok(fplan.length > 100 && fplan.every(p => (p.cands.length || p.lead) && p.cands.
 const lm = fplan.filter(p => p.t.type === 'landmark');
 const rank = p => ({ lead: 0, row: 1 })[p.t.priority] ?? (p.t.pilot ? 2 : 3);
 ok(fplan.findIndex(p => p.t.type === 'landmark') === fplan.filter(p => p.t.type === 'hero').length && lm.every((p, i) => !i || rank(lm[i - 1]) <= rank(p)), 'fetch-commons: heroes first, then lead cards, first rail rows, pilot tier-1 sights, then the rest (W8 order)');
+{ // W8 per-class widths: heroes and first-screen cards 500 + 960; every other card 500 only (repo size)
+  const o = { widths: [500, 960], heroWidths: [500, 960] };
+  ok(JSON.stringify(fc.widthsFor({ type: 'hero' }, o)) === '[500,960]' && JSON.stringify(fc.widthsFor({ type: 'landmark', priority: 'lead' }, o)) === '[500,960]' && JSON.stringify(fc.widthsFor({ type: 'landmark', priority: 'row' }, o)) === '[500,960]' && JSON.stringify(fc.widthsFor({ type: 'landmark', pilot: true }, o)) === '[500]' && JSON.stringify(fc.widthsFor({ type: 'landmark' }, o)) === '[500]', 'fetch-commons widths per class: heroes, lead cards and first rows 500 + 960; every other card 500 only');
+  ok(fc.NOT_A_PHOTO.test('File:Bangkok Montage 2021.jpg') && fc.NOT_A_PHOTO.test('File:Coat of arms of Ipoh.png') && fc.NOT_A_PHOTO.test('File:Singapore location map.png') && !fc.NOT_A_PHOTO.test('File:Marina Bay Sands at dusk.jpg'), 'fetch-commons: a map, coat of arms, flag, montage or logo is never a photo of the place');
+  ok(JSON.stringify(fc.articlesOf({ articles: ['a', 'b'], article: 'c' })) === '["a","b"]' && JSON.stringify(fc.articlesOf({ article: 'c' })) === '["c"]' && fc.articlesOf({}).length === 0, 'fetch-commons: a hero tries its articles in order (the town, then an iconic sight)');
+}
+{ // R7 gap 1 (a): every non-Vietnam guide has a credited hero, a hero target with something to try, or a stated reason
+  const heroes = new Set(JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits.filter(c => c.slot).map(c => c.slot.key));
+  const T = new Map(cm.targets.filter(t => t.type === 'hero').map(t => [t.key.slice(5), t]));
+  const bare = fs.readdirSync(path.join(BETA, 'data', 'places')).map(f => JSON.parse(fs.readFileSync(path.join(BETA, 'data', 'places', f), 'utf8')))
+    .filter(pg => !heroes.has(pg.key)).filter(pg => { const t = T.get(pg.key); return !t || !(t.skip || t.candidates.some(c => !c.refused) || (t.articles || []).length); }).map(pg => pg.key);
+  ok(!bare.length, `every guide: a credited hero, a hero target to try, or a stated reason (Vietnam)${bare.length ? ': ' + bare.join(', ') : ''}`);
+}
 { // --scope: what a run may fetch (W8)
   const sp = s => fc.plan(cm, { credits: [] }, { scope: s, keys: [], types: [], min: 'high', allow: [], wikiLead: false, pilot: false }).filter(p => !p.skip);
   const H = sp('heroes'), P = sp('priority'), PI = sp('pilots'), A = sp('all');

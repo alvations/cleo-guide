@@ -102,7 +102,7 @@ const MEASURE = () => {
   const mk = [...D.querySelectorAll('.leaflet-marker-icon')].filter(e => { const r = box(e); return mr && r.width && inView(r) && r.left < mr.right && r.right > mr.left && r.top < mr.bottom && r.bottom > mr.top; });
   const txt = e => e.textContent.trim();
   const pins = mk.filter(e => e.classList.contains('pp')), cls = mk.filter(e => e.classList.contains('pin-cl'));
-  const numbered = mk.filter(e => /\d/.test(txt(e))), named = mk.filter(e => /[A-Za-z぀-鿿]{3,}/.test(txt(e)));
+  const numbered = mk.filter(e => /^[★\s]*[\d,]+\s*$/.test(txt(e)))   // a bare number (rank or count); R0's markers were all bare numbers, named = mk.filter(e => /[A-Za-z぀-鿿]{3,}/.test(txt(e)));
   // obscured labels: centre covered by something else (another marker, a control)
   const covered = mk.filter(e => { const r = box(e), x = r.left + r.width / 2, y = r.top + r.height / 2; if (x < 0 || y < 0 || x > W || y > H) return false; const t = D.elementFromPoint(x, y); return t && !e.contains(t); }).length;
   // text sizes (visible text-bearing elements)
@@ -139,6 +139,9 @@ const MEASURE = () => {
     mapSharePct: mapShare, mapClearPct: mapClear, chromeAbovePx: chromeAbove, overlayOnMapPct: mr ? Math.round(overlayPx / (W * H) * 100) : null,
     zoom: window.Cleo && Cleo.city.map && Cleo.city.map() ? Cleo.city.map().getZoom() : null,
     markers: { visible: mk.length, pins: pins.length, clusters: cls.length, numberedLabels: numbered.length, namedLabels: named.length, mustSeePins: pins.filter(e => e.classList.contains('pp-1')).length, foodPins: pins.filter(e => e.classList.contains('pp-f')).length, sightPins: pins.filter(e => e.classList.contains('pp-s')).length, closedPins: pins.filter(e => e.classList.contains('pp-x')).length, clusterCounts: cls.map(txt).map(Number).sort((a, b) => b - a).slice(0, 12), pinLabelsSample: pins.slice(0, 10).map(txt), coveredCentres: covered },
+    canvas: (() => { const C = window.Cleo && Cleo.city, mm = C && C.map && C.map(); if (!mm) return null; const b = mm.getBounds(); let dots = 0, dotsShown = 0;
+      for (const id in C.markers) { const k = C.markers[id]; if (!k || !k.getLatLng || k.getElement && k.getElement()) continue; if (!b.contains(k.getLatLng())) continue; dots++; if (k.options && k.options.opacity !== 0 && mm.hasLayer(k)) dotsShown++; }
+      return { discs: C.discs || 0, dotsInView: dots, dotsShown }; })(),
     mapControls: ctl, cardsVisible: cards.length, countLine: H1.trim(), counterLines: [...new Set(counters)].slice(0, 12),
     fontSizes: fsum, contrast: { checked: cchk, fails: cfail.length, examples: cfail.slice(0, 8) },
     targets: { visible: targets.length, under44: small.length, under24: under24.length, by: smallBy, examples: small.slice(0, 10).map(t => desc(t.e) + ' ' + t.w + '×' + t.h) },
@@ -394,9 +397,9 @@ async function pinTarget(page, phone) {
   M.shots = shots;
   fs.writeFileSync(path.join(OUT, 'measurements.json'), JSON.stringify(M, null, 1) + '\n');
   // readable summary
-  const L = ['# Evidence pack — measurements', '', `Product tree: \`${M.root}\`. Tiles: ${M.tiles}.`, '', '## First screen (default Atlas view)', '', '| page | vp | theme | map share % (box / clear) | map width % | chrome above map px | visible markers (pins / clusters) | numbered labels | named labels | must-see pins | covered marker centres | targets < 44 px (< 24) | contrast fails / checked | min text px (card / chrome / pin) | nodes | first load KB (raw / text-gz) |', '|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|'];
+  const L = ['# Evidence pack — measurements', '', `Product tree: \`${M.root}\`. Tiles: ${M.tiles}.`, '', '## First screen (default Atlas view)', '', '| page | vp | theme | map share % (box / clear) | map width % | chrome above map px | visible markers (pins / clusters) | numbered labels | named labels | must-see pins | covered marker centres | targets < 44 px (< 24) | contrast fails / checked | min text px (card / chrome / pin) | nodes | first load KB (raw / text-gz) | canvas dots shown / density discs |', '|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|'];
   for (const k in M.pages) for (const vk of ['d', 'm']) for (const t of ['light', 'dark']) { const s = M.pages[k][`${vk}-${t}-default`]; if (!s) continue; const f = s.fontSizes;
-    L.push(`| ${k} | ${vk === 'd' ? 1440 : 390} | ${t} | ${s.mapSharePct} / ${s.mapClearPct} | ${s.map && s.map.wPct} | ${s.chromeAbovePx} | ${s.markers.visible} (${s.markers.pins} / ${s.markers.clusters}) | ${s.markers.numberedLabels} | ${s.markers.namedLabels} | ${s.markers.mustSeePins} | ${s.markers.coveredCentres} | ${s.targets.under44} (${s.targets.under24}) | ${s.contrast.fails} / ${s.contrast.checked} | ${(f.card || {}).min} / ${(f.chrome || {}).min} / ${(f.pin || {}).min} | ${s.nodes} | ${s.firstLoadKB.raw} / ${s.firstLoadKB.gzipText} |`); }
+    L.push(`| ${k} | ${vk === 'd' ? 1440 : 390} | ${t} | ${s.mapSharePct} / ${s.mapClearPct} | ${s.map && s.map.wPct} | ${s.chromeAbovePx} | ${s.markers.visible} (${s.markers.pins} / ${s.markers.clusters}) | ${s.markers.numberedLabels} | ${s.markers.namedLabels} | ${s.markers.mustSeePins} | ${s.markers.coveredCentres} | ${s.targets.under44} (${s.targets.under24}) | ${s.contrast.fails} / ${s.contrast.checked} | ${(f.card || {}).min} / ${(f.chrome || {}).min} / ${(f.pin || {}).min} | ${s.nodes} | ${s.firstLoadKB.raw} / ${s.firstLoadKB.gzipText} | ${s.canvas ? s.canvas.dotsShown + ' / ' + s.canvas.discs : '–'} |`); }
   L.push('', 'Full per-state data (zoomed, selected, pan, list mode, tiles/library blocked, round-trip, deep link, 200 %, keyboard, tasks) is in `measurements.json`.', '', '## Shots', '');
   shots.forEach(s => L.push(`- \`${s.file}\` — ${s.what}`));
   fs.writeFileSync(path.join(OUT, 'measurements.md'), L.join('\n') + '\n');
