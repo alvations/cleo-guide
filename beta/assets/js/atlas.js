@@ -1,21 +1,28 @@
 /* generated copy of tools/beta/client/atlas.js — do not edit here */
-/* atlas.js (FE-A, W6 map-first): the live map-centred guide's map tools, rebuilt for Atlas and loaded with the map
- * (city.js need('atlas')), so a visitor who never opens the map never pays for them.
- *   · pin clustering only at dense zooms: below zoom 13, when more than 40 pins show, pins closer than ~64 px gather into
- *     one count bubble; a tap zooms in (and, on desktop, brings the best-ranked place in it to the list). Day routes and
- *     zoom ≥ 13 never cluster. Nothing is hidden for good: every pin returns as you zoom in; the list holds every place.
- *   · area-colour legend; base-layer switch (OSM + Esri only, never a key-required host); locate-me (opt-in, one reading,
- *     kept in memory only — never stored, never sent); the Must-see filter on the map (the same t=1 lens as the filter
- *     tray, so the list follows). */
+/* atlas.js (Atlas lane, W7 Amendment 2): the map half of Atlas map-search — the real-estate map-search pattern, for
+ * travel. Loaded with the map (city.js need('atlas')), so a visitor who never opens the map never pays for it.
+ *   · map-area filter: the list shows the places inside the map ("Search as I move the map", desktop, on by default);
+ *     phones refresh on "Search this area" after a pan, never live. "N more outside this area · Show all" keeps every
+ *     place one tap away; the open place (#p=) and the selected card are never filtered out.
+ *   · pin ⇄ card: hover lights both ways (city.js); a pin click selects its card — desktop: the card comes into view in
+ *     the list pane (the page never scrolls) and a preview card opens on the map; phones: the carousel brings it in.
+ *     Swiping the carousel lights the pin and pans the map gently (not at all under reduced motion).
+ *   · clusters: below zoom 15, pins closer than ~72 px gather into a round count bubble (unlike the label pins); a click
+ *     zooms in. Day routes never cluster. Nothing is hidden for good: every pin returns as you zoom.
+ *   · controls: zoom, locate-me (opt-in, one reading, in memory only — never stored, never sent), Street / Satellite
+ *     (OSM + Esri only, never a key-required host) and a minimal legend. */
 (() => {
   'use strict';
-  const Cleo = window.Cleo || {}, C = Cleo.city, d = document; if (!C || C.atlasTools) return;
-  const $ = (s, el) => (el || d).querySelector(s), at = (el, a) => el.getAttribute(a), on = (el, ev, f) => el && el.addEventListener(ev, f);
-  const info = C.info, S = C.S, store = Cleo.store || { get: (k, x) => x, set: () => {} };
-  const pl = n => n + (n === 1 ? ' place' : ' places'), rec = id => C.byId[id] || C.stub(id);
-  const accent = () => ((window.getComputedStyle && getComputedStyle(d.getElementById('main')).getPropertyValue('--city')) || '').trim() || '#C23A1C';
+  const Cleo = window.Cleo || {}, C = Cleo.city, d = document, H = d.documentElement; if (!C || C.atlasTools) return;
+  const $ = (s, el) => (el || d).querySelector(s), qa = (s, el) => [].slice.call((el || d).querySelectorAll(s));
+  const at = (el, a) => el.getAttribute(a), on = (el, ev, f) => el && el.addEventListener(ev, f);
+  const S = C.S, store = Cleo.store || { get: (k, x) => x, set: () => {} }, lp = $('.listpane'), mp = $('.mappane');
+  const pl = n => n.toLocaleString('en-US') + (n === 1 ? ' place' : ' places'), rec = id => C.byId[id] || C.stub(id);
+  const llOf = c => { const v = (at(c, 'data-ll') || '').split(','); return v.length === 2 ? [+v[0], +v[1]] : null; };
+  const atlas = () => C.view === 'atlas', desk = () => C.desk();
 
-  const CL_Z = 13, CL_N = 40, CL_PX = 64, inCl = C.inCl;
+  /* ---- clusters: count bubbles, drawn unlike the label pins ---- */
+  const CL_Z = 15, CL_N = 30, CL_PX = 72, inCl = C.inCl;
   let clL = null;
   C.cluster = () => {
     const map = C.map(), L = window.L, markers = C.markers; if (!map || !L) return;
@@ -27,90 +34,239 @@
     const cells = {};
     vis.forEach(id => { const p = map.project(markers[id].getLatLng(), z), k = Math.floor(p.x / CL_PX) + ':' + Math.floor(p.y / CL_PX); (cells[k] = cells[k] || []).push(id); });
     Object.keys(cells).forEach(k => {
-      const ids = cells[k]; if (ids.length < 3) return;
-      const b = L.latLngBounds(ids.map(id => markers[id].getLatLng())), cnt = {};
-      ids.forEach(id => { const a = at(rec(id), 'data-a'); cnt[a] = (cnt[a] || 0) + 1; });
-      const a0 = Object.keys(cnt).sort((x, y) => cnt[y] - cnt[x])[0], ac = ((info.areas || {})[a0] || {}).c || accent();
+      const ids = cells[k]; if (ids.length < 2) return;
+      const b = L.latLngBounds(ids.map(id => markers[id].getLatLng()));
       const best = ids.map(rec).sort((x, y) => (+at(x, 'data-t') || 9) - (+at(y, 'data-t') || 9) || C.num(x) - C.num(y))[0];
-      const sz = ids.length < 10 ? 34 : ids.length < 50 ? 40 : 46;
-      const m = L.marker(b.getCenter(), { icon: L.divIcon({ className: 'pin-cl', html: '<span style="--ac:' + ac + '">' + ids.length + '</span>', iconSize: [sz, sz] }),
-        title: pl(ids.length) + ' here — zoom in', alt: pl(ids.length), keyboard: true, riseOnHover: true }).addTo(clL);
+      const sz = ids.length < 10 ? 36 : ids.length < 50 ? 42 : 48;
+      const m = L.marker(b.getCenter(), { icon: L.divIcon({ className: 'pin-cl', html: '<span>' + ids.length + '</span>', iconSize: [sz, sz] }),
+        title: pl(ids.length) + ' here — zoom in', alt: pl(ids.length), keyboard: false, riseOnHover: true, zIndexOffset: 500 }).addTo(clL);
       m.on('click', () => {
-        C.auto(); map.flyToBounds(b, { padding: [48, 48], maxZoom: CL_Z + 1, duration: C.still() ? 0 : 0.5, animate: !C.still() });
-        if (C.desk()) { const id = C.pid(best), r = C.byId[id] || (Cleo.defer && Cleo.defer.stampFor(id)); if (r) C.pin(r); }
+        C.auto(); map.flyToBounds(b, Object.assign(C.overMap(), { maxZoom: CL_Z + 1, duration: C.still() ? 0 : 0.5, animate: !C.still() }));
+        if (desk()) { const id = C.pid(best), r = C.byId[id] || (Cleo.defer && Cleo.defer.stampFor(id)); if (r) setTimeout(() => select(r, 'cluster'), C.still() ? 0 : 560); }
       });
       ids.forEach(id => { inCl[id] = m; if (map.hasLayer(markers[id])) map.removeLayer(markers[id]); });
     });
   };
 
-  const BASE_N = { street: 'Street', light: 'Light', satellite: 'Satellite' }, BASE_K = Object.keys(BASE_N);
+  /* ---- the map-area filter ---- */
+  const box = () => {   // the uncovered part of the map (phones: between the chip row and the carousel), as lat/lng bounds
+    const map = C.map(), sz = map.getSize(), o = C.overMap(), L = window.L;
+    const tl = L.point(Math.min(sz.x - 1, o.paddingTopLeft[0] - 24), Math.min(sz.y - 1, o.paddingTopLeft[1] - 24)), br = L.point(Math.max(tl.x + 1, sz.x - o.paddingBottomRight[0] + 24), Math.max(tl.y + 1, sz.y - o.paddingBottomRight[1] + 24));
+    return L.latLngBounds(map.containerPointToLatLng(tl), map.containerPointToLatLng(br));
+  };
+  let selC = null;
+  const msArea = C.msArea = () => {
+    const map = C.map();
+    const want = !!map && atlas() && map.getSize().x > 0 && !C.msAll && !S.day && (!desk() || C.msLive !== false);
+    if (!want) { H.classList.remove('ms-on'); C.msN = null; if (C.msPaint) C.msPaint(); return; }
+    const b = box(), inB = c => { const ll = llOf(c); return !!ll && b.contains(ll); };
+    // still-deferred places inside the area are stamped (their chunk), so the list is real cards, never stubs
+    if (Cleo.defer) Cleo.defer.peek().filter(inB).forEach(s => Cleo.defer.stampFor(C.pid(s)));
+    let nIn = 0, nOut = Cleo.defer ? Cleo.defer.peek().length : 0;
+    qa('li.pl').forEach(c => { if (c.hidden) { c.classList.remove('ms-out'); return; }
+      const o = !inB(c) && !c.classList.contains('is-target') && c !== selC; c.classList.toggle('ms-out', o); if (o) nOut++; else nIn++; });
+    qa('section.area').forEach(s => s.classList.toggle('ms-empty', !s.querySelector('li.pl:not([hidden]):not(.ms-out)')));
+    C.msN = [nIn, nOut]; H.classList.add('ms-on'); here(false);
+    if (C.msPaint) C.msPaint();
+  };
+  C.after.push(() => { if (atlas() && C.map()) msArea(); });
+
+  /* ---- "Search this area" (phones, after the reader pans or zooms; never live, so the carousel never jumps) ---- */
+  let hereB = null;
+  const here = o => {
+    if (!hereB && o) { hereB = d.createElement('button'); hereB.type = 'button'; hereB.className = 'btn ms-here'; hereB.innerHTML = C.icon('pin') + '<span>Search this area</span>'; mp.appendChild(hereB);
+      on(hereB, 'click', () => { C.msAll = false; msArea(); if (lp) lp.scrollLeft = 0; }); }
+    if (hereB) hereB.hidden = !o;
+  };
+
+  /* ---- selection: pin → card, card (swipe) → pin ---- */
+  const pinSel = (c, o) => { const el = C.pinEl(c), m = inCl[C.pid(c)], ce = m && m.getElement && m.getElement(); if (el) el.classList.toggle('sel', o); if (ce) ce.classList.toggle('sel', o);
+    const k = C.markers[C.pid(c)]; if (k && k.setZIndexOffset) k.setZIndexOffset(o ? 1200 : at(c, 'data-t') === '1' ? 300 : 0); };
+  let quiet = 0;
+  const select = C.select = (c, how) => {
+    if (!c) return;
+    if (selC && selC !== c) { selC.classList.remove('is-sel', 'is-focus'); pinSel(selC, false); }
+    const again = selC === c; selC = c; c.classList.add('is-sel', 'is-focus'); pinSel(c, true);
+    if (c.classList.contains('ms-out')) msArea();
+    if (c.classList.contains('ms-out')) c.classList.remove('ms-out');
+    if (desk()) {
+      // the list pane scrolls, the page never does; once more after late stamping above it settles
+      const into = sm => { if (!lp || !lp.scrollTo || selC !== c) return; const r = c.getBoundingClientRect(), pr = lp.getBoundingClientRect(), hd = $('.ms-head', lp), top = pr.top + (hd ? hd.offsetHeight : 0);
+        if (r.top < top || r.bottom > pr.bottom) lp.scrollTo({ top: lp.scrollTop + r.top - pr.top - (pr.height - r.height) / 2, behavior: sm && !C.still() ? 'smooth' : 'auto' }); };
+      into(1); setTimeout(() => into(0), 650);
+      if (how === 'pin') preview(c);
+      return;
+    }
+    if (how === 'swipe') {   // the card leads: light its pin and bring it into the uncovered band, gently
+      const map = C.map(), k = C.markers[C.pid(c)]; if (!map || !k || again) return;
+      quiet = Date.now(); try { map.panInside(k.getLatLng(), Object.assign(C.overMap(), { animate: !C.still(), duration: 0.35 })); } catch (e) {}
+      return;
+    }
+    if (lp && lp.scrollTo && !H.classList.contains('ms-list')) { qSwipe = Date.now(); lp.scrollTo({ left: c.offsetLeft - (lp.clientWidth - c.offsetWidth) / 2, behavior: C.still() ? 'auto' : 'smooth' }); }
+  };
+  // the carousel: the card nearest the middle after a swipe settles is the selected one
+  let st = 0, qSwipe = 0;
+  on(lp, 'scroll', () => {
+    if (desk() || !atlas() || H.classList.contains('ms-list')) return;
+    clearTimeout(st); st = setTimeout(() => {
+      const mid = lp.getBoundingClientRect().left + lp.clientWidth / 2;
+      const c = qa('li.pl', lp).filter(x => x.offsetWidth && !x.hidden).sort((x, y) => { const a = x.getBoundingClientRect(), b = y.getBoundingClientRect(); return Math.abs(a.left + a.width / 2 - mid) - Math.abs(b.left + b.width / 2 - mid); })[0];
+      if (c && c !== selC) select(c, Date.now() - qSwipe < 900 ? 'pinned' : 'swipe');
+    }, 140);
+  }, { passive: true });
+
+  /* ---- the preview card on the map (desktop): photo or calm cover, name, one line, sources → the place ---- */
+  const poi = $('#cleo-poi');
+  let pvC = null;
+  const closePoi = C.closePoi = () => { if (poi && !poi.hidden) { poi.hidden = true; poi.innerHTML = ''; } pvC = null; };
+  const place = () => {
+    const map = C.map(); if (!map || !pvC || !poi || poi.hidden) return;
+    const k = C.markers[C.pid(pvC)]; if (!k) return;
+    const p = map.latLngToContainerPoint(k.getLatLng()), sz = map.getSize(), w = poi.offsetWidth || 300, h = poi.offsetHeight || 240;
+    const x = Math.max(12, Math.min(sz.x - w - 12, p.x - w / 2)), y = p.y - h - 22 >= 12 ? p.y - h - 22 : Math.min(sz.y - h - 12, p.y + 22);
+    poi.style.left = Math.round(x) + 'px'; poi.style.top = Math.round(Math.max(12, y)) + 'px';
+  };
+  const preview = c => {
+    if (!poi) return; pvC = c;
+    const ph = $('.pl-photo img, figure.photo img', c), cov = $('.pl-cover', c), nm = $('.pl-n a', c), w = $('.pl-w', c), s = $('.pl-s', c);
+    const r = Cleo.route.parse(); delete r.pg; delete r.all; r.p = C.pid(c);
+    const media = ph ? '<img src="' + C.esc(ph.currentSrc || ph.src) + '" alt="" loading="lazy" decoding="async">' : cov ? '<div class="pl-cover" aria-hidden="true">' + cov.innerHTML + '</div>' : '';
+    const nmT = nm ? (C.name(c) || nm.textContent) : '';
+    poi.innerHTML = '<a class="ms-pv" href="' + C.esc(Cleo.route.href(r)) + '">' + '<span class="ms-pv-m' + (ph ? ' ph' : '') + '">' + media + '</span>' +
+      '<span class="ms-pv-b"><span class="ms-pv-e">' + ($('.pl-e', c) ? C.esc($('.pl-e', c).textContent.replace(/\s+/g, ' ').trim()) : '') + '</span>' +
+      '<span class="ms-pv-n">' + C.esc(nmT) + '</span>' + (w ? '<span class="ms-pv-w">' + C.esc(w.textContent.trim()) + '</span>' : '') +
+      (s ? '<span class="ms-pv-s">' + C.esc(s.textContent.replace(/\s+/g, ' ').replace(/\s+,/g, ',').trim()) + '</span>' : '') + '</span></a>' +
+      '<button type="button" class="btn btn-icon ms-pv-x" aria-label="Close the preview">' + C.icon('close') + '</button>';
+    poi.hidden = false; place();
+  };
+  C.openPoi = c => preview(c);
+  if (poi) {
+    on(poi, 'click', e => { if (e.target.closest('.ms-pv-x')) { closePoi(); return; } const a = e.target.closest('a.ms-pv'); if (!a) return;
+      e.preventDefault(); const h = at(a, 'href'); closePoi(); location.hash = h; });
+    on(poi, 'keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); const c = pvC; closePoi(); const a = c && $('.pl-n a', c); if (a) a.focus({ preventScroll: true }); } });
+  }
+  on(d, 'keydown', e => { if (e.key === 'Escape' && poi && !poi.hidden && !(Cleo.sheet && Cleo.sheet.isOpen())) closePoi(); });
+
+  /* ---- the Atlas chrome (moved off the eager path): filter bar, results line, List / Map pill ---- */
+  const split = $('.split'), tb = $('[data-cleo-toolbar]'), nav = $('[data-cleo-views]'), achips = $('.area-chips');
+  let moved = [], bar = null, head = null, tog = null, listOn = false, pushedList = 0;
+  const park = (el, host, before) => { if (el && el.parentNode !== host) { moved.push([el, el.parentNode, el.nextSibling]); host.insertBefore(el, before || null); } };
+  const unpark = () => moved.splice(0).reverse().forEach(([el, par, nx]) => { if (nx && nx.parentNode === par) par.insertBefore(el, nx); else par.appendChild(el); });
+  const SORT = [['', 'Top ranked'], ['src', 'Most sources'], ['az', 'A–Z'], ['near', 'Nearest to me']];
+  function build() {
+    if (bar || !split) return;
+    bar = d.createElement('div'); bar.className = 'ms-bar'; bar.setAttribute('role', 'search'); bar.setAttribute('aria-label', 'Search and filter the map');
+    bar.innerHTML = '<p class="ms-city">' + C.esc(C.info.name || '') + '</p><div class="ms-x"><button type="button" class="chip ms-must" aria-pressed="false"><i class="tg t1" aria-hidden="true"></i><span>Must see</span></button>' +
+      '<button type="button" class="chip ms-mine" aria-pressed="false">' + C.icon('heart') + '<span>Saved</span> <span class="n"></span></button>' +
+      '<label class="ms-sort"><span class="vh">Sort places</span><select>' + SORT.map(x => '<option value="' + x[0] + '">' + x[1] + '</option>').join('') + '</select></label></div>';
+    split.parentNode.insertBefore(bar, split);
+    head = d.createElement('div'); head.className = 'ms-head';
+    head.innerHTML = '<p class="ms-nomap-n">Map unavailable right now — every place is listed here.</p><div class="ms-row"><p class="ms-count" aria-live="polite"></p>' +
+      '<label class="ms-live"><input type="checkbox"> <span>Search as I move the map</span></label></div><p class="ms-more"></p>';
+    if (lp) lp.insertBefore(head, lp.firstChild);
+    const lv = $('.ms-live input', head); lv.checked = C.msLive = store.get('msLive', true) !== false;
+    on(lv, 'change', () => { C.msLive = lv.checked; store.set('msLive', lv.checked); msArea(); });
+    tog = d.createElement('button'); tog.type = 'button'; tog.className = 'btn btn-primary ms-toggle'; split.appendChild(tog);
+    on(tog, 'click', () => listMode(!listOn, true));
+    on(bar, 'click', e => { const b = e.target.closest('button'); if (!b) return; const r = Cleo.route.parse(); delete r.p; delete r.pg; delete r.all;
+      if (b.classList.contains('ms-must')) { if (r.t === '1') delete r.t; else r.t = '1'; C.go(r); }
+      else if (b.classList.contains('ms-mine')) { if (r.mine) delete r.mine; else r.mine = '1'; C.go(r); } });
+    on($('select', bar), 'change', e => { const v = e.target.value, r = Cleo.route.parse(); delete r.p; if (v) r.sort = v; else delete r.sort; C.go(r);
+      if (v === 'near' && !C.dist) C.need('foryou', () => C.near()); });
+    on(head, 'click', e => { const b = e.target.closest('[data-ms]'); if (!b) return; C.msAll = at(b, 'data-ms') === 'all'; msArea(); });
+  }
+  // the results line: "86 places in this map area · Top ranked" + "12 more outside this area. Show all"; without the
+  // map it is simply every place in the lens
+  const paintMs = C.msPaint = () => {
+    if (!head) return;
+    const pend = Cleo.defer ? Cleo.defer.peek().length : 0, N = qa('li.pl').filter(c => !c.hidden).length + pend, n = C.msN, onA = !!n && H.classList.contains('ms-on'), all = !!C.msAll && !!C.map();
+    const tot = '<span class="ms-sortby" title="Ordered by tier within each area, then by number of named sources">' + (SORT.filter(x => x[0] === (S.sort || ''))[0] || SORT[0])[1] + '</span>';
+    $('.ms-count', head).innerHTML = onA ? '<b>' + n[0].toLocaleString('en-US') + '</b> ' + (n[0] === 1 ? 'place' : 'places') + ' in this map area · ' + tot
+      : (all ? 'Showing all <b>' : 'All <b>') + N.toLocaleString('en-US') + '</b> ' + (N === 1 ? 'place' : 'places') + ' · ' + tot;
+    $('.ms-more', head).innerHTML = onA && n[1] ? n[1].toLocaleString('en-US') + ' more outside this area. <button type="button" class="btn btn-quiet" data-ms="all">Show all ' + (n[0] + n[1]).toLocaleString('en-US') + '</button>'
+      : all ? '<button type="button" class="btn btn-quiet" data-ms="area">Only show this map area</button>' : '';
+    $('.ms-live', head).hidden = !C.map() || !desk();
+    $('.ms-must', bar).setAttribute('aria-pressed', String(S.t === '1')); $('.ms-mine', bar).setAttribute('aria-pressed', String(!!S.mine));
+    const sv = Cleo.saved ? Object.keys(Cleo.saved.all()).filter(r => r.slice(0, r.lastIndexOf('/')) === C.key).length : 0; $('.ms-mine .n', bar).textContent = sv || '';
+    $('select', bar).value = S.sort || '';
+    const k = onA ? n[0] : N;
+    tog.innerHTML = listOn ? C.icon('map') + '<span>Map</span>' : C.icon('list') + '<span>List · ' + k.toLocaleString('en-US') + '</span>';
+    tog.setAttribute('aria-pressed', String(listOn)); tog.setAttribute('aria-label', listOn ? 'Show the map' : 'Show the list of ' + pl(k));
+  };
+  C.after.push(paintMs); on(d, 'cleo:stamped', () => { if (atlas()) requestAnimationFrame(paintMs); }); on(d, 'cleo:saved', paintMs);
+  // phones: List ⇄ Map. The list is the full-screen image-first list of the places in the map area (Back closes it).
+  const listMode = C.listMode = (o, push) => {
+    if (!!o === listOn && !push) return; listOn = !!o && !desk(); H.classList.toggle('ms-list', listOn);
+    if (listOn && push && !pushedList) { try { history.pushState({ msList: 1 }, '', location.href); pushedList = 1; } catch (e) {} }
+    if (!listOn && pushedList && push) { pushedList = 0; try { history.back(); } catch (e) {} }
+    if (lp) { lp.scrollTop = 0; lp.scrollLeft = 0; }
+    paintMs(); const m = C.map(); if (m) setTimeout(() => { try { m.invalidateSize(); } catch (e) {} }, 60);
+  };
+  on(window, 'popstate', () => { if (pushedList) { pushedList = 0; if (listOn) listMode(false); } });
+  on(d, 'keydown', e => { if (e.key !== 'Escape' || !atlas() || !listOn || (Cleo.sheet && Cleo.sheet.isOpen()) || $('.overlay:not([hidden])')) return; listMode(false, true); });
+  C.onNoMap = () => { C.msN = null; H.classList.remove('ms-on'); if (atlas() && !desk()) listMode(true); paintMs(); };
+  C.msIn = () => {
+    build(); unpark();
+    const x = $('.ms-x', bar);
+    if (!desk()) { park(nav, bar, $('.ms-city', bar).nextSibling); park(tb, bar, x); } else { park(tb, bar, x); if (achips) park(achips, head, $('.ms-more', head).nextSibling); }
+    if (desk() && listOn) listMode(false);
+    if (H.classList.contains('ms-nomap')) C.onNoMap();
+    msArea();
+  };
+  C.msOut = () => { listOn = false; unpark(); closePoi(); };
+
+  /* ---- locate-me: opt-in, one reading, memory only ---- */
   let me = null, meL = null;
   const locate = b => {
     const map = C.map(), live = $('#cleo-view-live'), say = t => { if (live) live.textContent = t; b.title = t; };
+    if (!map) return;
     if (me) { C.fly(me); return; }
     if (!navigator.geolocation) { say('This browser can’t share a location.'); return; }
     b.classList.add('busy');
     navigator.geolocation.getCurrentPosition(p => {
-      b.classList.remove('busy'); me = window.L.latLng(p.coords.latitude, p.coords.longitude); b.setAttribute('aria-pressed', 'true');
-      if (!meL) meL = window.L.layerGroup().addTo(map); meL.clearLayers();
-      if (p.coords.accuracy) window.L.circle(me, { radius: p.coords.accuracy, color: '#2F6FD0', weight: 1, opacity: 0.6, fillColor: '#2F6FD0', fillOpacity: 0.1, interactive: false }).addTo(meL);
-      window.L.circleMarker(me, { radius: 7, color: '#fff', weight: 2, fillColor: '#2F6FD0', fillOpacity: 1, interactive: false, className: 'me' }).addTo(meL);
+      const m = C.map(); b.classList.remove('busy'); if (!m) return; me = window.L.latLng(p.coords.latitude, p.coords.longitude); b.setAttribute('aria-pressed', 'true');
+      if (!meL) meL = window.L.layerGroup().addTo(m); meL.clearLayers();
+      if (p.coords.accuracy) window.L.circle(me, { radius: p.coords.accuracy, className: 'me-acc', weight: 1, interactive: false }).addTo(meL);
+      window.L.circleMarker(me, { radius: 7, weight: 2, fillOpacity: 1, interactive: false, className: 'me' }).addTo(meL);
       say('You are here — shown on this device only, never stored, gone when you reload.'); C.fly(me);
     }, err => { b.classList.remove('busy'); say(err && err.code === 1 ? 'Location permission was declined. Nothing was stored.' : 'Couldn’t get your location.'); },
     { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
   };
 
-  // the phone tray's peek line: the area chip (opens the area picker) of the first ranked place in the tray — the lensed
-  // area, else the guide's first — and "All N" (opens the list). Still-deferred stubs count, so the numbers match the guide.
-  const peek = () => {
-    const lp = $('.listpane'), th = lp && $('.tray-head', lp); if (!th) return;
-    let pk = $('.atlas-peek', th);
-    if (!pk) {
-      th.insertAdjacentHTML('beforeend', '<div class="atlas-peek"><button type="button" class="chip peek-a" data-cleo-tray="area" aria-haspopup="dialog"><i aria-hidden="true"></i><span class="t"></span> <span class="n"></span></button>' +
-        '<button type="button" class="btn btn-ghost peek-list">' + C.icon('list') + '<span></span></button></div>');
-      pk = $('.atlas-peek', th); on($('.peek-list', pk), 'click', () => C.detent('full', true));
-    }
-    const all = [].slice.call(lp.querySelectorAll('li.pl')).filter(x => !x.hidden), st = Cleo.defer ? Cleo.defer.peek() : [];
-    const a = all[0] ? at(all[0], 'data-a') : '', x = (info.areas || {})[a] || {}, nm = x.n || a || info.name;
-    const n = all.concat(st).filter(y => at(y, 'data-a') === a).length, N = all.length + st.length, ch = $('.peek-a', pk);
-    ch.style.setProperty('--area', x.c || 'var(--city)'); $('.t', ch).textContent = nm; $('.n', ch).textContent = n || '';
-    ch.setAttribute('aria-label', 'Area: ' + nm + (n ? ', ' + pl(n) : '') + '. Choose an area');
-    $('.peek-list span', pk).textContent = 'All ' + N.toLocaleString('en-US'); $('.peek-list', pk).setAttribute('aria-label', 'Show the list, ' + pl(N));
-  };
-  C.after.push(peek); peek();
-  // desktop: the split fills the rest of the first screen (map bottom = viewport bottom), measured, never guessed
-  const sp = $('.split'), fit = C.fitSplit = () => { if (!sp || !C.desk() || C.view !== 'atlas') return; sp.style.removeProperty('--atlas-top');
-    const t = Math.round(sp.getBoundingClientRect().top + (window.scrollY || 0)); if (t > 0) sp.style.setProperty('--atlas-top', t + 'px'); const m = C.map(); if (m) m.invalidateSize(); };
-  let rt; on(window, 'resize', () => { clearTimeout(rt); rt = setTimeout(fit, 150); }); if (d.fonts && d.fonts.ready) d.fonts.ready.then(fit); requestAnimationFrame(fit);
-  // two-way hover: a pin lights its card; a card lights the bubble its pin sits in
-  Object.keys(C.markers).forEach(id => { const k = C.markers[id], hv = o => () => { const r = C.byId[id]; if (r) r.classList.toggle('is-hover', o); }; k.on('mouseover', hv(true)); k.on('mouseout', hv(false)); });
-  ['mouseover', 'mouseout'].forEach((ev, i) => on(d, ev, e => { const c = e.target.closest && e.target.closest('li.pl'), m = c && inCl[C.pid(c)], el = m && m.getElement && m.getElement(); if (el) el.classList.toggle('hot', !i); }));
-
-  // desktop: locate under the zoom (top left), Must see + map style top right, legend bottom left (open when ≤ 6 areas);
-  // phones: zoom + locate on the right, Must see + style + legend on the left, under the switcher
   C.atlasTools = (L, el) => {
-    const map = C.map(), desk = C.desk(), zs = desk ? 'topleft' : 'topright';
+    const map = C.map(); if (!map) return;
+    const dk = desk();
     const ctl = (pos, mk) => { const X = L.Control.extend({ options: { position: pos }, onAdd: () => { const n = mk(); L.DomEvent.disableClickPropagation(n); L.DomEvent.disableScrollPropagation(n); return n; } }); map.addControl(new X()); };
     const btn = (cls, lbl, html) => { const b = d.createElement('button'); b.type = 'button'; b.className = 'am-ctl ' + cls; b.setAttribute('aria-label', lbl); b.title = lbl; b.innerHTML = html; return b; };
-    ctl(zs, () => { const b = btn('m-locate', 'Show my location on the map (stays on this device)', C.icon('locate')); on(b, 'click', () => locate(b)); return b; });
-    ctl(desk ? 'topright' : 'topleft', () => {
-      const w = d.createElement('div'); w.className = 'am-row';
-      const t = btn('m-must', 'Must see only', '<i class="tg t1" aria-hidden="true"></i><span>Must see</span>'); t.setAttribute('aria-pressed', String(S.t === '1'));
-      on(t, 'click', () => { const r = Cleo.route.parse(); delete r.p; if (r.t === '1') delete r.t; else r.t = '1'; C.go(r); });
+    ctl(dk ? 'topleft' : 'topright', () => { const b = btn('m-locate', 'Show my location on the map (stays on this device)', C.icon('locate')); b.setAttribute('aria-pressed', 'false'); on(b, 'click', () => locate(b)); return b; });
+    ctl('topright', () => {
       const s = btn('m-base', '', C.icon('grid') + '<span></span>');
-      const lab = () => { const n = BASE_N[store.get('base', 'street')] || BASE_N.street; $('span', s).textContent = n; s.setAttribute('aria-label', 'Map style: ' + n + '. Change the map style'); s.title = 'Map style: ' + n; };
-      on(s, 'click', () => { const k = store.get('base', 'street'); C.setBase(BASE_K[(BASE_K.indexOf(k) + 1) % BASE_K.length]); lab(); }); lab();
-      w.appendChild(t); w.appendChild(s); return w;
+      const lab = () => { const sat = store.get('base', 'street') === 'satellite', n = sat ? 'Satellite' : 'Street'; $('span', s).textContent = sat ? 'Street' : 'Satellite';
+        s.setAttribute('aria-label', 'Map style: ' + n + '. Switch to ' + (sat ? 'Street' : 'Satellite')); s.title = 'Map style: ' + n; s.setAttribute('aria-pressed', String(sat)); };
+      on(s, 'click', () => { C.setBase(store.get('base', 'street') === 'satellite' ? 'street' : 'satellite'); lab(); }); lab(); return s;
     });
-    ctl(desk ? 'bottomleft' : 'topleft', () => {
-      const g = d.createElement('details'), used = {}; g.className = 'am-ctl m-legend';
-      C.cards.concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => { if (c.hasAttribute('data-ll')) used[at(c, 'data-a')] = 1; });
-      const ar = C.sections.map(x => at(x, 'data-area')).filter(a => used[a] && (info.areas || {})[a]); if (desk && ar.length <= 6) g.open = true;
-      g.innerHTML = '<summary>' + C.icon('info') + '<span>Legend</span></summary><ul>' +
-        ar.map(a => '<li><i style="--ac:' + (info.areas[a].c || '#555') + '"></i>' + C.esc(info.areas[a].n || a) + '</li>').join('') +
-        '<li class="k"><i class="big"></i>Big pin = Must see</li><li class="k"><i class="gone"></i>Grey pin = closed, kept for the record</li><li class="k"><b class="cl">12</b>Bubble = nearby pins, zoom in</li></ul>';
+    ctl(dk ? 'bottomleft' : 'topright', () => {
+      const g = d.createElement('details'); g.className = 'am-ctl m-legend';
+      g.innerHTML = '<summary aria-label="Map key">' + C.icon('info') + '<span>Key</span></summary><ul>' +
+        '<li><b class="pp pp-s"><span>12</span></b>Sight · the guide’s number</li><li><b class="pp pp-f"><span>12</span></b>Eat &amp; drink</li>' +
+        '<li><b class="pp pp-s pp-1"><span><i>★</i>3</span></b>Must see</li><li><b class="pp pp-s pp-x"><span>9</span></b>Closed, kept for the record</li>' +
+        '<li><b class="pin-cl"><span>24</span></b>Nearby places · zoom in</li></ul>';
       return g;
     });
-    C.after.push(() => { const t = el.querySelector('.m-must'); if (t) t.setAttribute('aria-pressed', String(S.t === '1')); });
+    // map moves → the list follows (desktop, live) / "Search this area" (phones, after the reader moves the map)
+    let user = 0, mt = 0;
+    map.on('dragstart', () => { user = 1; closePoi(); });
+    map.on('zoomstart', () => { if (Date.now() - C.autoAt() > 1500 && Date.now() - quiet > 1500) user = 1; });
+    map.on('move zoom', place);
+    map.on('click', () => closePoi());
+    map.on('moveend', () => {
+      const u = user; user = 0; place(); if (!atlas()) return;
+      if (desk()) { clearTimeout(mt); mt = setTimeout(msArea, 180); return; }
+      if (u) { if (H.classList.contains('ms-on')) here(true); return; }   // the reader moved the map: offer, never jump
+      if (Date.now() - quiet < 1200) return;      // the carousel's own gentle pan never reshuffles the carousel
+      msArea();
+    });
+    msArea();
   };
+  if (atlas()) C.msIn();
 })();
