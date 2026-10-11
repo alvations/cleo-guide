@@ -31,7 +31,7 @@ const CREDITS = 'assets/img/CREDITS.json';
 const EXT = /\.(jpe?g|png|webp)$/i;
 const REQUIRED = ['file', 'sourceUrl', 'author', 'licence', 'licenceUrl', 'depicts'];   // + record or slot
 /** Free licences only (CC0, public domain, CC BY, CC BY-SA, any version). NC / ND are refused. */
-const LICENCE_OK = /^(CC0(?: 1\.0)?|Public domain|PD(?:-[\w.-]+)?|CC BY(?:-SA)? \d\.\d(?: [A-Z]{2,3})?|Unsplash License)$/i;
+const LICENCE_OK = /^(CC0(?: 1\.0)?|Public domain|PD(?:-[\w.-]+)?|CC BY(?:-SA)? \d\.\d(?: [A-Z]{2,3})?|Copyrighted free use|Unsplash License)$/i;
 const UNSPLASH_LICENCE_URL = 'https://unsplash.com/license';
 const SLOT_TYPES = ['hero', 'cover'];
 const LICENCE_BAD = /\b(NC|ND)\b|non-?commercial|no-?deriv/i;
@@ -44,7 +44,7 @@ const SCHEMA = {
   depicts: 'what the photo shows, in words ("Sensō-ji main hall from the Hōzōmon gate")',
   author: 'the creator exactly as the source credits them',
   sourceUrl: 'https URL of the file\'s own page (e.g. its Wikimedia Commons file page)',
-  licence: 'short licence name: CC0 1.0 | Public domain | CC BY 4.0 | CC BY-SA 4.0 (… any version; NC/ND refused) | Unsplash License',
+  licence: 'short licence name: CC0 1.0 | Public domain | CC BY 4.0 | CC BY-SA 4.0 (… any version; NC/ND refused) | Copyrighted free use | Unsplash License',
   licenceUrl: 'https URL of the licence deed',
   modified: 'optional: what you changed ("cropped", "resized") — BY-SA adaptations stay BY-SA',
   width: 'optional: pixel width (read from the file when omitted)',

@@ -1,0 +1,412 @@
+{
+ "_synthetic": "Hand-written fixtures shaped like the Wikidata, Wikipedia GeoData, Nominatim, Overpass and website responses. Every name, URL (.example) and coordinate is fictional. Requests not listed here answer 599 (no network in tests).",
+ "registry": {
+  "_meta": {
+   "note": "SYNTHETIC registry for tools/location-verify.test.js. Fictional places at fictional coordinates in the mid-Atlantic; never merge into data/geocodes.json."
+  },
+  "cities": {
+   "testville-zz": {
+    "Anchor Hall A": {
+     "address": "1 Anchor Rd, Testville, ZZ 99901",
+     "lat": 0.5,
+     "lng": -30.5,
+     "source": "synthetic test fixture — not a real place",
+     "verified": "2026-01-01",
+     "confidence": "high",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Anchor Hall B": {
+     "address": "2 Anchor Rd, Testville, ZZ 99901",
+     "lat": 0.505,
+     "lng": -30.505,
+     "source": "synthetic test fixture — not a real place",
+     "verified": "2026-01-01",
+     "confidence": "high",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Anchor Hall C": {
+     "address": "3 Anchor Rd, Testville, ZZ 99901",
+     "lat": 0.495,
+     "lng": -30.495,
+     "source": "synthetic test fixture — not a real place",
+     "verified": "2026-01-01",
+     "confidence": "high",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Fictional Fish Market": {
+     "address": "12 Harbor St, Testville, ZZ 99901",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Example Museum": {
+     "address": "40 Main St, Testville, ZZ 99901",
+     "lat": 0.501,
+     "lng": -30.501,
+     "source": "synthetic listing; Wikidata Q999001",
+     "verified": "2026-01-01",
+     "confidence": "med",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Sample Park": {
+     "address": "Park entrance, Testville, ZZ 99901",
+     "lat": 0.51,
+     "lng": -30.51,
+     "source": "https://en.wikipedia.org/wiki/Sample_Park_(Testville)",
+     "verified": "2026-01-01",
+     "confidence": "low",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Ambiguous Cafe": {
+     "address": "Testville, ZZ 99901",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Broken Site Bakery": {
+     "address": "7 Oven Rd, Testville, ZZ 99901",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED (official https://broken-bakery.example/ )",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Lifecycle Shoe Shop": {
+     "address": "5 Market St, Testville, ZZ 99901",
+     "lat": 0.502,
+     "lng": -30.502,
+     "source": "synthetic test fixture — not a real place",
+     "verified": "2026-01-01",
+     "confidence": "high",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Far Away Diner": {
+     "address": "1 Remote Rd, Testville, ZZ 99901",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Robots Blocked Tavern": {
+     "address": "9 Ale St, Testville, ZZ 99901",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED https://blocked-tavern.example/",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Schema Grill": {
+     "address": "88 Grill Ave, Testville, ZZ 99901",
+     "lat": 0.499,
+     "lng": -30.499,
+     "source": "https://schema-grill.example/menu",
+     "verified": "2026-01-01",
+     "confidence": "low",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Old Mill — CLOSED": {
+     "address": "3 Mill Rd, Testville, ZZ 99901",
+     "lat": 0.503,
+     "lng": -30.497,
+     "source": "synthetic test fixture — not a real place",
+     "verified": "2026-01-01",
+     "confidence": "high",
+     "status": "closed",
+     "statusSource": "synthetic: closed 2020",
+     "statusChecked": "2026-01-01"
+    }
+   }
+  }
+ },
+ "responses": [
+  {
+   "host": "www.wikidata.org",
+   "params": {
+    "action": "wbgetentities",
+    "ids": "Q999001"
+   },
+   "body": {
+    "entities": {
+     "Q999001": {
+      "id": "Q999001",
+      "labels": {
+       "en": {
+        "value": "Example Museum"
+       }
+      },
+      "claims": {
+       "P625": [
+        {
+         "rank": "normal",
+         "mainsnak": {
+          "snaktype": "value",
+          "datavalue": {
+           "value": {
+            "latitude": 0.502,
+            "longitude": -30.5005
+           }
+          }
+         }
+        }
+       ],
+       "P576": [
+        {
+         "rank": "normal",
+         "mainsnak": {
+          "snaktype": "value",
+          "datavalue": {
+           "value": {
+            "time": "+2025-06-30T00:00:00Z"
+           }
+          }
+         }
+        }
+       ],
+       "P856": [
+        {
+         "rank": "normal",
+         "mainsnak": {
+          "snaktype": "value",
+          "datavalue": {
+           "value": "https://museum.example/"
+          }
+         }
+        }
+       ]
+      },
+      "sitelinks": {}
+     }
+    }
+   }
+  },
+  {
+   "host": "museum.example",
+   "path": "/robots.txt",
+   "status": 404,
+   "body": "not found"
+  },
+  {
+   "host": "museum.example",
+   "path": "/",
+   "body": "<html><body><h1>Example Museum</h1><p>After 40 years we have closed our doors. Thank you, Testville.</p></body></html>"
+  },
+  {
+   "host": "en.wikipedia.org",
+   "params": {
+    "action": "query",
+    "titles": "Sample Park (Testville)"
+   },
+   "body": {
+    "query": {
+     "pages": [
+      {
+       "title": "Sample Park (Testville)",
+       "coordinates": [
+        {
+         "lat": 0.515,
+         "lon": -30.51,
+         "primary": true
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "host": "nominatim.openstreetmap.org",
+   "params": {
+    "q": "Fictional Fish Market, 12 Harbor St, Testville, ZZ 99901"
+   },
+   "body": [
+    {
+     "lat": "0.50310",
+     "lon": "-30.50120",
+     "category": "shop",
+     "type": "seafood",
+     "osm_type": "node",
+     "osm_id": 1001,
+     "name": "Fictional Fish Market",
+     "namedetails": {
+      "name": "Fictional Fish Market"
+     },
+     "address": {
+      "house_number": "12",
+      "road": "Harbor Street",
+      "city": "Testville",
+      "postcode": "99901"
+     },
+     "extratags": {
+      "website": "https://fish.example/"
+     }
+    }
+   ]
+  },
+  {
+   "host": "fish.example",
+   "path": "/robots.txt",
+   "body": "User-agent: *\nDisallow: /private\n"
+  },
+  {
+   "host": "fish.example",
+   "path": "/",
+   "body": "<html><body>Fresh fish daily. Closed on Mondays.</body></html>"
+  },
+  {
+   "host": "nominatim.openstreetmap.org",
+   "params": {
+    "q": "Ambiguous Cafe, Testville, ZZ 99901"
+   },
+   "body": [
+    {
+     "lat": "0.5000",
+     "lon": "-30.5100",
+     "category": "amenity",
+     "type": "cafe",
+     "osm_type": "node",
+     "osm_id": 2001,
+     "name": "Ambiguous Cafe",
+     "namedetails": {
+      "name": "Ambiguous Cafe"
+     },
+     "address": {
+      "city": "Testville"
+     },
+     "extratags": {}
+    },
+    {
+     "lat": "0.5000",
+     "lon": "-30.4900",
+     "category": "amenity",
+     "type": "cafe",
+     "osm_type": "node",
+     "osm_id": 2002,
+     "name": "Ambiguous Cafe",
+     "namedetails": {
+      "name": "Ambiguous Cafe"
+     },
+     "address": {
+      "city": "Testville"
+     },
+     "extratags": {}
+    }
+   ]
+  },
+  {
+   "host": "broken-bakery.example",
+   "path": "/robots.txt",
+   "status": 404,
+   "body": ""
+  },
+  {
+   "host": "broken-bakery.example",
+   "path": "/",
+   "status": 404,
+   "body": "gone"
+  },
+  {
+   "host": "nominatim.openstreetmap.org",
+   "params": {
+    "q": "Far Away Diner, 1 Remote Rd, Testville, ZZ 99901"
+   },
+   "body": [
+    {
+     "lat": "40.0",
+     "lon": "-30.5",
+     "category": "amenity",
+     "type": "restaurant",
+     "osm_type": "node",
+     "osm_id": 3001,
+     "name": "Far Away Diner",
+     "namedetails": {
+      "name": "Far Away Diner"
+     },
+     "address": {
+      "house_number": "1",
+      "road": "Remote Road",
+      "postcode": "99901"
+     },
+     "extratags": {}
+    }
+   ]
+  },
+  {
+   "host": "blocked-tavern.example",
+   "path": "/robots.txt",
+   "body": "User-agent: CleoGuideLocationVerify\nDisallow: /\n\nUser-agent: *\nAllow: /\n"
+  },
+  {
+   "host": "schema-grill.example",
+   "path": "/robots.txt",
+   "body": "User-agent: *\nAllow: /\n"
+  },
+  {
+   "host": "schema-grill.example",
+   "path": "/menu",
+   "body": "<html><head><script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"Restaurant\",\"name\":\"Schema Grill\",\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":0.49905,\"longitude\":-30.49905},\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"88 Grill Ave\",\"addressLocality\":\"Testville\",\"postalCode\":\"99901\"}}</script></head><body>Grill</body></html>"
+  },
+  {
+   "method": "POST",
+   "host": "overpass-api.de",
+   "bodyIncludes": "out tags center",
+   "body": {
+    "elements": [
+     {
+      "type": "node",
+      "id": 7001,
+      "lat": 0.50201,
+      "lon": -30.50201,
+      "tags": {
+       "name": "Lifecycle Shoe Shop",
+       "disused:shop": "shoes"
+      }
+     },
+     {
+      "type": "node",
+      "id": 7002,
+      "lat": 0.5031,
+      "lon": -30.5012,
+      "tags": {
+       "name": "Fictional Fish Market",
+       "shop": "seafood"
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -65,6 +65,17 @@ function build(cityRows, emit) {
     summary.push({ key: r.key, name: r.name, href: r.beta, feed: r.feed, last: r.changes.length ? r.changes[0].d : null,
       closed: r.changes.filter(e => e.kind === 'closed').length, checked: r.changes.filter(e => e.kind === 'checked').reduce((s, e) => s + e.n, 0) });
   }
+  // W9-2 (FE-B, landing "<month> in Cleo"): the newest month on record across every guide — from the data's own dates,
+  // never the wall clock (reproducible builds) — and, per page, what happened in it. Only dated events: re-checks,
+  // closures with their source, pin verifications. No "new openings": records carry no first-seen date.
+  const month = summary.reduce((m, x) => (x.last && x.last.slice(0, 7) > m ? x.last.slice(0, 7) : m), '');
+  for (const [i, r] of cityRows.entries()) {
+    const inM = r.changes.filter(e => e.d.slice(0, 7) === month);
+    summary[i].changesPage = `changes/${r.fileKey}.html`;
+    summary[i].month = { checked: inM.filter(e => e.kind === 'checked').reduce((t, e) => t + e.n, 0),
+      closed: inM.filter(e => e.kind === 'closed').length, pins: inM.filter(e => e.kind === 'pins').reduce((t, e) => t + e.n, 0) };
+  }
+  summary.month = month;
   site.sort((x, y) => (x.d < y.d ? 1 : x.d > y.d ? -1 : 0) || (x.id < y.id ? -1 : 1));
   emit('feeds/all.xml', atom('Cleo — what changed across every guide', 'feeds/all.xml', `${BETA_BASE}/index.html`, site));
   return summary;

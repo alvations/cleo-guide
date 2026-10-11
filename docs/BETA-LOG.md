@@ -1408,3 +1408,36 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - the platform lane runs the audit with before/after numbers and commits in `docs/BETA-PERF-AUDIT.md`;
     - "backend" here means the build and data pipeline, the search index and data payloads, the service worker and caching, and the GitHub Actions workflows (there is no server);
     - "front end" means JS, CSS, images and fonts, plus LCP, CLS and INP.
+
+- 2026-10-11 20:55Z · **Orchestrator** · Owner: "Location verify, can we also use [GitHub] Actions for that? Launch an agent to look into that" · commit: this entry's commit
+  - Launched the **location-verification lane** `session_012FeQJjTmiN2MXYQWwe55J2`, a feasibility study plus a prototype. Its deliverable is `docs/LOCATION-VERIFY-ACTIONS.md`, covering:
+    - the backlog today (unsourced, low-confidence and unchecked places per city);
+    - candidate runner-reachable sources (OSM Nominatim/Overpass, Wikidata, Wikipedia coordinates, official sites, open data), each with its usage policy and licence. Keyed and commercial map APIs are excluded;
+    - the fit with CLAUDE.md rules 4a–4c. The runner **proposes** with source, date and confidence and never writes `data/geocodes.json` directly. Closures are proposed only as "needs check" with evidence. Acceptance goes through review and the existing gates;
+    - the workflow design, rate plan, run time and risks.
+  - Prototype: `tools/location-verify*` with fixture tests, plus a dry-run report for one small city. The workflow YAML comes to the orchestrator, who owns the workflow files.
+  - This is an owner-sanctioned use of Actions, like the Commons photo workflow; nothing routes around the sandbox policy.
+
+- 2026-10-11 20:58Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **QA-45 has landed:** a852a4e1 (Atlas FE-1: Show all is a single list, refit on search for QA-54, whole carousel credits, phone controls bottom right).
+    - Pinned **`dd2125e3`** for the R7 re-sign. The QA lane runs the G1/B-02/B-04/B-05 rows plus QA-45/50/52/54 on that SHA and records them in `docs/BETA-ISSUES.md`.
+    - On YES, beta-deploy-r7 ships exactly that SHA.
+    - The orchestrator's validate + test run on the same SHA is in progress.
+  - **Imagery `pilots` (run #34, 1cf7c025):** 3 new 500w photos, reviewed on a contact sheet.
+    - Kept: Tokyo Tower.
+    - Refused: Rockaway (an old aerial survey shot with bulldozers on the sand; equipment class).
+    - Refused: Nihonbashi ("Chuo-dori from Nihonbashi" shows the street seen from the bridge, not the bridge).
+    - Imagery adds a depicts-mismatch guard ("X from <place>" / "View from <place>" is refused unless depicts names the place) with a test. `scope=all` waits for the cleanup and the per-city coverage report.
+  - **Atlas loop:**
+    - FE-1 and FE-2 have agreed file ownership: FE-2 takes `atlas-nav.js` plus hook exports and a marked focus-ring block; FE-1 takes the pins, controls, attribution and phone overlay.
+    - FE-1 is fixing PANEL-R1 #2: the phone credit becomes a one-line "© OpenStreetMap · Esri ⓘ" strip at the bottom left, with the full credit behind ⓘ. The atlas-ms probe now does a real tap on every control (locate first).
+    - FE-2 is fixing #1 (the round-trip): its probe passes except focus return to the pin.
+    - Round 2 goes to the panel once both agree on N and the SHA.
+  - **The other lanes are all working:**
+    - FE-A: R7 gap 2 gate, then the gap 5 food covers;
+    - FE-B: the type residue;
+    - platform: replies, then the optimization audit;
+    - the designer;
+    - FE-C: `trip.js` (the walking helper is done);
+    - QC: the Phase 1 Playwright harness;
+    - location verification: reading the pipeline.

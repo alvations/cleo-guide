@@ -125,6 +125,7 @@ function licenceOf(short, url) {
   if (/\b(NC|ND)\b|non-?commercial|no-?deriv/i.test(s)) return { why: `licence ${s} (NC/ND) is not free` };
   let m;
   if (/^(CC0|CC-?Zero)\b/i.test(s)) return { licence: 'CC0 1.0', licenceUrl: 'https://creativecommons.org/publicdomain/zero/1.0/' };
+  if (/^Copyrighted free use$/i.test(s)) return { licence: 'Copyrighted free use', licenceUrl: 'https://commons.wikimedia.org/wiki/Template:Copyrighted_free_use' };   // any use, no conditions (W8, approved)
   if (/^(Public domain|PD\b|PD-)/i.test(s)) return { licence: 'Public domain', licenceUrl: 'https://creativecommons.org/publicdomain/mark/1.0/' };
   if ((m = /^CC[ -](BY(?:-SA)?)[ -](\d\.\d)(?:[ -]([a-z]{2,3}))?$/i.exec(s))) {
     const kind = m[1].toUpperCase(), ver = m[2], port = m[3] ? ' ' + m[3].toUpperCase() : '';
@@ -165,6 +166,15 @@ function derivativeNote(html) {
   const m = DERIVATIVE.exec(strip(String(html || '').replace(/<(table|div|ul|ol|style|sup|small)\b[\s\S]*?<\/\1>/gi, ' ')));
   const by = m && cleanAuthor(m[1]);
   return by ? `derivative work by ${by}` : '';
+}
+/**
+ * The author when the Artist field is empty: an "Own work" upload (Credit field) is by its uploader, whom the API
+ * names (imageinfo user). Nothing else is guessed (W8: Tiong Bahru / Queenstown own-work files had no Artist).
+ */
+function authorOrUploader(artistHtml, creditHtml, uploader) {
+  const a = authorOf(artistHtml);
+  if (a) return a;
+  return /\bown work\b/i.test(strip(creditHtml)) && uploader ? cleanAuthor(uploader) : '';
 }
 /** Why an author string is not a clean credit name ([] when it is). */
 const authorProblems = a => [!a && 'empty', a && a.length > 60 && 'longer than 60 characters',
@@ -268,6 +278,17 @@ const ARTWORK = /\b(woodblock|ukiyo-?e|paintings?|painted by|prints?|engravings?
 /** Vehicles or works dominating the frame (R7 QA-53: tour buses at Tokyo Tower, a van at MoMA, a construction site) —
  *  flagged by the rescan for a person to look at; too common in descriptions to refuse on the word alone. */
 const VEHICLES = /\b(bus(?:es)?|tour bus|vans?|trucks?|lorr(?:y|ies)|construction|scaffold\w*|cranes?)\b/i;
+/**
+ * "<X> from <place>" / "View from <place>": the file shows the view FROM the place, not the place (W8: "Chuo-dori from
+ * Nihonbashi" for Nihonbashi Bridge). Refused unless the part before "from" (or the depicts text) names the place too.
+ */
+function viewFrom(title, names, depicts = '') {
+  const t = String(title || '').replace(/^File:/, '').replace(/\.[a-z0-9]+$/i, '');
+  const m = /^(.*?)\b(?:seen |viewed |as seen |looking )?from\b(.+)$/i.exec(t);
+  if (!m) return false;
+  const named = s => namesPlace(names, s);
+  return named(m[2]) && !named(m[1]) && !named(depicts);
+}
 /** Maps, heraldry, flags, montages and logos are not a photo of the place (W8: town-article lead images). */
 const NOT_A_PHOTO = /\b(maps?|locator|location map|coat of arms|coats of arms|flag of|seal of|emblem|montage|collage|logo)\b/i;
 /** What a run may fetch (W8): a stray run can never pull the whole tier-1 set. */
@@ -338,8 +359,8 @@ async function main() {
   let imgBytes = 0, stopped = false, imgTries = 0, imgFails = 0;
 
   /** Re-read one File: from the API and apply every check. Returns {ok:info} or {why}. */
-  async function inspect(t, title) {
-    const j = await api({ action: 'query', titles: title, prop: 'imageinfo|categories', iiprop: 'url|size|mime|sha1|extmetadata', iiurlwidth: snapWidths(widthsOf(t), 1e9).pop(), iiextmetadatafilter: 'LicenseShortName|LicenseUrl|Artist|ImageDescription|ObjectName|Restrictions|AttributionRequired', clshow: '!hidden', cllimit: 50 });
+  async function inspect(t, title, depicts = '') {
+    const j = await api({ action: 'query', titles: title, prop: 'imageinfo|categories', iiprop: 'url|size|mime|sha1|user|extmetadata', iiurlwidth: snapWidths(widthsOf(t), 1e9).pop(), iiextmetadatafilter: 'LicenseShortName|LicenseUrl|Artist|Credit|ImageDescription|ObjectName|Restrictions|AttributionRequired', clshow: '!hidden', cllimit: 50 });
     const pg = j.query && j.query.pages && j.query.pages[0];
     if (!pg || pg.missing || !pg.imageinfo || !pg.imageinfo[0]) return { why: 'no such file on Commons (renamed or deleted)' };
     const dup = credits.credits.find(c => c.commonsTitle === pg.title);   // one Commons file, one credit row
@@ -350,7 +371,8 @@ async function main() {
     if (ii.width > 3 * ii.height) return { why: `a panorama (${ii.width}×${ii.height}) — does not crop to a card or hero` };
     const lic = licenceOf(val('LicenseShortName'), val('LicenseUrl'));
     if (lic.why) return { why: lic.why };
-    const author = authorOf(val('Artist'));
+    const author = authorOrUploader(val('Artist'), val('Credit'), ii.user);
+    const viaUploader = !authorOf(val('Artist')) && !!author;   // audited: named in the run log
     if (!author) return { why: 'no author in the file metadata' };
     if (authorProblems(author).length) return { why: `author "${author.slice(0, 80)}" is not a clean name (${authorProblems(author).join(', ')})` };
     if (t.type === 'hero' && /^unknown author$/i.test(author)) return { why: 'a hero prefers a named author (this one is "Unknown author")' };
@@ -359,11 +381,12 @@ async function main() {
     const desc = strip(val('ImageDescription')), obj = strip(val('ObjectName'));
     if (t.type === 'hero' && !t.winterOk && GLOOM.test(`${pg.title} ${obj} ${desc}`)) return { why: 'a hero wants a bright, warm-season or golden-hour view; the title or description says winter, snow, overcast or fog' };
     if (subjectRefused(ARTWORK, t, `${pg.title} ${obj} ${desc}`)) return { why: 'a print, painting or drawing — artwork, not a photo of the place today' };
+    if (viewFrom(pg.title, t.names, depicts)) return { why: 'the view FROM the place ("… from <place>"), not the place itself' };
     if (NOT_A_PHOTO.test(`${pg.title} ${obj}`)) return { why: 'a map, coat of arms, flag, montage or logo — not a photo of the place' };
     if (subjectRefused(SIGNAGE, t, `${pg.title} ${obj} ${desc}`)) return { why: 'title or description suggests signage, lettering, a logo or advertising is the subject' };
     if (subjectRefused(CLOSEUP, t, `${pg.title} ${obj} ${desc} ${cats.join(' | ')}`)) return { why: 'title, description or categories suggest equipment, people or a close-up is the subject, not the place' };
     if (!namesPlace(t.names, pg.title, obj, desc, cats.join('|'))) return { why: `title, description and categories do not name ${t.label}` };
-    return { ok: { title: pg.title, ii, lic, author, desc, obj, cats, derived: derivativeNote(val('Artist')) } };
+    return { ok: { title: pg.title, ii, lic, author, viaUploader, desc, obj, cats, derived: derivativeNote(val('Artist')) } };
   }
 
   /**
@@ -395,6 +418,8 @@ async function main() {
         if (RESCAN_KEPT[c.commonsTitle]) { kept++; continue; }
         if (subjectRefused(SIGNAGE, t, text)) hits.push(`${key} ${c.commonsTitle}: signage/lettering/logo (${(SIGNAGE.exec(text) || [])[0]})`);
         if (subjectRefused(CLOSEUP, t, `${text} ${cats}`)) hits.push(`${key} ${c.commonsTitle}: equipment/people/close-up (${(CLOSEUP.exec(`${text} ${cats}`) || [])[0]})`);
+        { const cand = (t.candidates || []).find(x => x.file === c.commonsTitle && !x.refused);
+          if (viewFrom(c.commonsTitle, t.names || [], cand ? cand.depicts : '')) hits.push(`${key} ${c.commonsTitle}: the view FROM the place, not the place`); }
         if (subjectRefused(ARTWORK, t, text)) hits.push(`${key} ${c.commonsTitle}: a print/painting, not the place (${(ARTWORK.exec(text) || [])[0]})`);
         if (subjectRefused(VEHICLES, t, text)) hits.push(`${key} ${c.commonsTitle}: vehicles or works may dominate (${(VEHICLES.exec(text) || [])[0]}) — look`);
         if (c.slot && !t.winterOk && GLOOM.test(text)) hits.push(`${key} ${c.commonsTitle}: gloomy hero (${(GLOOM.exec(text) || [])[0]})`);
@@ -468,7 +493,7 @@ async function main() {
       confidence: c.confidence,
     });
     fs.writeFileSync(CREDITS, JSON.stringify(credits, null, 1) + '\n');   // after each photo, so a stop keeps the work
-    return { ok: `${p.t.key} ← ${info.title} (${info.lic.licence}, ${info.author}) → ${out.map(v => `${v.file} ${v.kb} KB`).join(', ')}` };
+    return { ok: `${p.t.key} ← ${info.title} (${info.lic.licence}, ${info.author}${info.viaUploader ? ' — author = uploader, own work (no Artist on Commons)' : ''}) → ${out.map(v => `${v.file} ${v.kb} KB`).join(', ')}` };
   }
 
   /** Every file a person refused, whichever target it was refused for: the reason is about the photo, not the place. */
@@ -490,7 +515,7 @@ async function main() {
           c = { file: f, confidence: 'lead', depicts: p.t.type === 'hero' ? '' : p.t.label.replace(/\s*\([^)]*\)\s*$/, '') };
         }
         if (refusedAnywhere.has(c.file)) { refused.push(`${p.t.key} ${c.file}: refused after review (for another target)`); continue; }
-        const r = await inspect(p.t, c.file);
+        const r = await inspect(p.t, c.file, c.confidence === 'lead' ? '' : c.depicts);   // a lead image has no vetted depicts
         if (r.why) { refused.push(`${p.t.key} ${c.file}: ${r.why}`); continue; }
         const st = await store(p, c, r.ok);
         if (st.why) { refused.push(`${p.t.key} ${c.file}: ${st.why}`); continue; }
@@ -509,4 +534,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { viewFrom, authorOrUploader, ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
