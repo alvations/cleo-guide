@@ -324,10 +324,11 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
   {
     const html = rd('beta/' + TOKYO);
     const liveTags = (html.replace(/<noscript data-cleo-defer[\s\S]*?<\/noscript>/g, '').match(/<li class="pl[ "]/g) || []).length;
-    chk('Tokyo ships ≤ 32 live cards, the rest in <noscript data-cleo-defer> (still in the HTML)', [liveTags, (html.match(/<li class="pl[ "]/g) || []).length].join(), `32,${total}`);
+    chk('Tokyo ships ≤ 24 live cards, the rest in <noscript data-cleo-defer> (still in the HTML)', [liveTags, (html.match(/<li class="pl[ "]/g) || []).length].join(), `24,${total}`);
     const { w, d, errs } = boot({ io: true });
     await sleep(300);
-    chk('with JS: initial cards are the live 32', d.querySelectorAll('li.pl').length, 32);
+    // platform W7: the paged Gallery stamps exactly its first page (24 on a phone; jsdom has no matchMedia → 48), no more
+    chk('with JS: the cards built are exactly Gallery page 1 (jsdom: 48 per page)', d.querySelectorAll('li.pl').length, 48);
     chk('every deferred place still has a map stub (pin) via Cleo.defer.peek()', w.Cleo.defer.peek().filter(x => x.getAttribute('data-ll')).length + d.querySelectorAll('li.pl[data-ll]').length, total);
     chk('every area section stays visible while its cards are deferred', [...d.querySelectorAll('section.area')].filter(s => s.hidden).length, 0);
     const lastId = [...html.matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"/g)].pop()[1];
@@ -335,12 +336,21 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
     d.querySelector('button[data-mode="food"]').click(); await sleep(30);
     chk('any lens stamps every card first; food mode shows exactly the food', [d.querySelectorAll('li.pl').length, shown(d)].join(), `${total},${live.F.length}`);
     chk('no js errors (lazy)', errs, e => e.length === 0);
-    // W5 (FE-A, coordinated): Gallery is the default now and its pager stamps every card for a deep link (the true page
-    // order, QA-29); R-32 place-only stamping is the Atlas path, so it is measured there
+    // Platform W7 (R6 gap #5): a Gallery deep link no longer stamps every card — it stamps only the page that holds the
+    // place (24 per page on a phone, 48 wider), placed by the true view order (QA-29). The page shown must be the right one.
+    {
+      const order = [...html.replace(/<noscript data-cleo-defer[^>]*>/g, '').matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"/g)].map(m => m[1]);
+      const far = order[order.length - 30], g = boot({ io: true, hash: '#view=gallery&p=' + far }); await sleep(300);
+      const gt = g.d.getElementById('p-' + far), n = g.d.querySelectorAll('li.pl').length;
+      const onPage = [...g.d.querySelectorAll('li.pl')].filter(c => !c.hidden && !c.classList.contains('pg-off'));
+      chk('Gallery deep link on load to a deferred place: lands on its page, stamping only that page (≤ 24 live + one page; jsdom has no matchMedia → 48 per page)',
+        [!!gt && !gt.hidden && !gt.classList.contains('pg-off'), n <= 24 + 48 && n < order.length, onPage.length > 0 && onPage.length <= 48].join() + ' (' + n + ' cards)', s => s.startsWith('true,true,true'));
+      chk('… and no js errors', g.errs, e => e.length === 0);
+    }
     const b2 = boot({ io: true, hash: '#view=atlas&p=' + lastId }); await sleep(300);
     const tg = b2.d.getElementById('p-' + lastId);
     const nDom = b2.d.querySelectorAll('li.pl').length;
-    chk('deep link on load to a deferred place lands, stamping only its chunk (R-32, gap #6)', !!tg && !tg.hidden && tg.classList.contains('is-target') && nDom < total && nDom <= 32 + 40, true);
+    chk('deep link on load to a deferred place lands, stamping only its card (R-32, gap #6; platform W7)', !!tg && !tg.hidden && tg.classList.contains('is-target') && nDom < total && nDom <= 24 + 1, true);
     const mid = [...html.matchAll(/<li class="pl[ "][^>]*id="p-([^"]+)"/g)][200][1];
     b2.w.location.hash = '#view=atlas&p=' + mid; await sleep(60);
     const tm = b2.d.getElementById('p-' + mid);
@@ -402,7 +412,8 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
   }
   // Platform W2: 32 → 40 KB gzip per page — core.js now carries progressive rendering (M3-06) and offline caching (B-40),
   // both of which make pages lighter/sturdier; every script is `defer`, so content never waits on it (RFC §7.5).
-  chk(`client JS loaded by any one page ≤ 40 KB gzip (heaviest: ${jsMax[0]}, ${jsMax[1]} KB raw)`, KB(jsMax[2]), n => n <= 40);
+  // Platform W7 (R6 gap #5): no rounding — the exact gzip bytes are held to 40.0 KB (40.45 used to round down to 40).
+  chk(`client JS loaded by any one page ≤ 40.0 KB gzip, unrounded (heaviest: ${jsMax[0]}, ${jsMax[1]} KB raw)`, +(jsMax[2] / 1024).toFixed(2), n => n <= 40.0);
   // per-page share cards (B-36, npm run beta:og): 1200×630 PNG ≤ 300 KB, and every page that has one points og:image at it
   const OGD = path.join(BETA, 'assets/og'), ogs = fs.existsSync(OGD) ? fs.readdirSync(OGD).filter(f => f.endsWith('.png')) : [];
   const ogBad = ogs.filter(f => { const b = fs.readFileSync(path.join(OGD, f)); return b.readUInt32BE(16) !== 1200 || b.readUInt32BE(20) !== 630 || b.length > 300 * 1024; });
