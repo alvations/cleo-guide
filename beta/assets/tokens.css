@@ -130,9 +130,12 @@
   --bar-h: 64px;
   --tab-h: 64px;
 
-  /* ---- Charts (W3 D-02): categorical series in FIXED order; validated with the dataviz method ---- */
-  --series-1:#2a78d6; --series-2:#eb6834; --series-3:#1baf7a; --series-4:#eda100; --series-5:#e87ba4; --series-6:#6250d6;
-  --series-other:#b4ada2; --chart-grid:#E7E2DB; --chart-gap:#FFFFFF;
+  /* ---- Charts (v2, W8): calm, earthy categorical series in FIXED order — slate blue, clay, teal, ochre (the sun, deepened),
+     plum, sage — generated at OKLCH L .56 / C .11 and validated with the dataviz method on #FFFFFF: lightness band,
+     chroma floor, adjacent CVD ΔE ≥ 8, normal-vision ΔE ≥ 15, ≥ 3:1 vs surface — ALL PASS. Oxblood stays out (it has
+     four jobs only). Dark mode selects its own steps (L .66, validated on #1C1918), never an automatic flip. ---- */
+  --series-1:#3D78B2; --series-2:#A85E36; --series-3:#008977; --series-4:#976B15; --series-5:#985B93; --series-6:#4F8444;
+  --series-other:#8C847C; --chart-grid:#E7E2DB; --chart-gap:#FFFFFF;
 
   color-scheme: light;
 }
@@ -153,7 +156,7 @@
     --accent:#E0A19A; --accent-ink:#E8B0A9; --accent-wash:#33201E; --on-accent:#1E0E0C; --sun:#F0BC5E; --sun-wash:#3B2C10; --on-sun-wash:#FBE3B0;
     --open:#86C9A3; --open-soft:#1C3026; --closed:#F0A08C; --closed-soft:#3A221C; --warn:#EDC06A; --warn-soft:#382C12;
     --area-mute:#766D67;
-    --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70; --series-4:#c98500; --series-5:#d55181; --series-6:#9085e9; --series-other:#b4ada2; --chart-grid:#302B28; --chart-gap:#1C1918;
+    --series-1:#5B97D3; --series-2:#C97C54; --series-3:#29A895; --series-4:#B7893B; --series-5:#B879B2; --series-6:#6DA361; --series-other:#8A827A; --chart-grid:#302B28; --chart-gap:#1C1918;
     --shadow-sm: 0 1px 2px rgba(0,0,0,.4); --shadow: 0 1px 2px rgba(0,0,0,.35), 0 6px 18px rgba(0,0,0,.35); --shadow-lg: 0 8px 28px rgba(0,0,0,.55), 0 1px 3px rgba(0,0,0,.4); --e-3: 0 -8px 28px rgba(0,0,0,.5);
     color-scheme: dark;
   }
@@ -164,7 +167,7 @@
   --accent:#E0A19A; --accent-ink:#E8B0A9; --accent-wash:#33201E; --on-accent:#1E0E0C; --sun:#F0BC5E; --sun-wash:#3B2C10; --on-sun-wash:#FBE3B0;
   --open:#86C9A3; --open-soft:#1C3026; --closed:#F0A08C; --closed-soft:#3A221C; --warn:#EDC06A; --warn-soft:#382C12;
   --area-mute:#766D67;
-  --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70; --series-4:#c98500; --series-5:#d55181; --series-6:#9085e9; --series-other:#b4ada2; --chart-grid:#302B28; --chart-gap:#1C1918;
+  --series-1:#5B97D3; --series-2:#C97C54; --series-3:#29A895; --series-4:#B7893B; --series-5:#B879B2; --series-6:#6DA361; --series-other:#8A827A; --chart-grid:#302B28; --chart-gap:#1C1918;
   --shadow-sm: 0 1px 2px rgba(0,0,0,.4); --shadow: 0 1px 2px rgba(0,0,0,.35), 0 6px 18px rgba(0,0,0,.35); --shadow-lg: 0 8px 28px rgba(0,0,0,.55), 0 1px 3px rgba(0,0,0,.4); --e-3: 0 -8px 28px rgba(0,0,0,.5);
   color-scheme: dark;
 }
