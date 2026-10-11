@@ -30,6 +30,7 @@
 <script src="../assets/js/core.js?v=48403ad571" defer></script>
 <link rel="stylesheet" href="../assets/fe-a.css?v=a9cd00d03a">
 <script>(function(){var v=["gallery","atlas","guidebook","insights"],h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)(?:day|mode|a|t|c|cz|src|closed|q|sig|gap)=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'gallery';document.documentElement.setAttribute('data-view',x)})()</script>
+<script>(function(){var v=document.documentElement.getAttribute('data-view')||(/[#&]view=([a-z]+)/.exec(location.hash)||[])[1];if(!v){try{v=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}if(v==="atlas")return;var l=document.createElement('link');l.rel='preload';l.setAttribute('as','image');l.href="../assets/img/photos/hero--singapore--tiong-bahru-960.jpg";l.setAttribute('imagesrcset',"../assets/img/photos/hero--singapore--tiong-bahru-500.jpg 500w, ../assets/img/photos/hero--singapore--tiong-bahru-960.jpg 960w");l.setAttribute('imagesizes',"(min-width: 1024px) 50vw, 100vw");l.setAttribute('fetchpriority','high');document.head.appendChild(l)})()</script>
 <link rel="alternate" type="application/atom+xml" title="Tiong Bahru — what changed" href="../feeds/singapore--tiong-bahru.xml">
 </head>
 <body>
@@ -56,7 +57,7 @@
   <p class="eyebrow">Singapore</p>
   <div class="title"><h1>Tiong Bahru</h1></div>
   <p class="facts"><b>3 places</b> · 1 area<span class="long"> · every one sourced, pinned and status-checked</span> · <a href="../changes/singapore--tiong-bahru.html" data-cleo-changes>last checked <time class="nw">2026-09-02</time></a><span class="long">. Ordered by tier, then by number of named sources. <a href="#how-we-choose">How we choose</a></span></p>
-<div class="g-hero-x"><p class="g-lead">a town of Singapore — sights &amp; hawker food, sourced</p><p class="g-start"><a href="#p-loos-hainanese-curry-rice">Start with Loo&#39;s Hainanese Curry Rice</a></p></div>
+<div class="g-hero-x"><p class="g-lead">a town of Singapore — sights &amp; hawker food, sourced</p><p class="g-start"><a href="#p-loos-hainanese-curry-rice">Start with Loo&#39;s Hainanese Curry Rice</a></p><figure class="photo hero-media"><img src="../assets/img/photos/hero--singapore--tiong-bahru-960.jpg" srcset="../assets/img/photos/hero--singapore--tiong-bahru-500.jpg 500w, ../assets/img/photos/hero--singapore--tiong-bahru-960.jpg 960w" sizes="(min-width: 1024px) 50vw, 100vw" width="960" height="720" alt="Tiong Bahru art-deco SIT flats from Seng Poh Road (August 2022)" loading="lazy" fetchpriority="high" decoding="async"><figcaption>Photo: Wzhkevin · <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="license noopener" target="_blank">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:57_and_58_Tiong_Bahru_Road_from_Seng_Poh_Road_-_2022-08-14.jpg" title="“57 and 58 Tiong Bahru Road.”" aria-label="“57 and 58 Tiong Bahru Road.” on Wikimedia Commons" rel="noopener" target="_blank">Wikimedia Commons</a> (resized)</figcaption></figure></div>
 </header>
 <div class="g-lead-slot vw view-gallery" id="cleo-lead"><p class="g-lead-k">Start with</p></div>
 <nav class="rail" id="cleo-rail" aria-label="Collections" data-cleo-rail data-view="all" hidden>
