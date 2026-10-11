@@ -159,3 +159,19 @@ insight modes; a snapshot is in `design/reference/melon-seek/`.
 
 A view may page its results only if every place stays reachable: page navigation, an "all N places" total, show-all,
 and search and filters that reach every record. The study, specs, mockups and build plan go in `design/beta/views/`.
+
+## Round 6: typography & style (owner request, 2026-10-11)
+
+The owner asked for the fonts, the styles and every other visual element to be **rated explicitly** and the improvements built in. melon-seek's ideas may be borrowed.
+
+From Round 6 on, the evaluator reports an itemised **Typography & style** sub-scorecard inside dimension A, covering:
+- the display face and the UI face;
+- scale and rhythm;
+- colour and skins;
+- spacing, radius and elevation;
+- components;
+- iconography;
+- motion;
+- consistency.
+
+The A weight is unchanged. The audit and the decision record live in `design/beta/style/`. The briefs are in `design/beta/eval/W6-BRIEFS.md`.
