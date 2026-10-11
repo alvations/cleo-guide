@@ -59,7 +59,8 @@ jobs:
 
       - name: Install tools
         if: steps.key.outputs.ok == 'true'
-        run: cd tools && npm ci
+        # package-lock.json is gitignored in this repo, so npm ci cannot run here.
+        run: cd tools && npm install --no-audit --no-fund
 
       - name: Fetch vetted photos
         if: steps.key.outputs.ok == 'true'
