@@ -103,15 +103,16 @@ function recommenders(row) {
 
 // ---------------------------------------------------------------- photos (imagery lane, credit-gated)
 /** The credited photo for a hub hero or a city card, or null. Vietnam is never photographed (no freedom of panorama). */
-function photoOf(key, reg, row) {
+function photoOf(key, reg, row, avoid = null) {
   if (row && row.country === 'vietnam') return null;
   if (/^vietnam(\/|$)/.test(String(key))) return null;
-  try { if (typeof imagery.heroFor === 'function') { const h = imagery.heroFor(reg || row, key); if (h) return h; } } catch (e) { /* helper not shipped yet */ }
+  const ok = p => p && !(avoid && p.credit && p.credit.sourceUrl === avoid) ? p : null;   // never repeat the page's hero
+  try { if (typeof imagery.heroFor === 'function') { const h = ok(imagery.heroFor(reg || row, key)); if (h) return h; } } catch (e) { /* helper not shipped yet */ }
   const slots = reg && reg.imagery && reg.imagery.slots;
-  if (slots && slots['hero:' + key]) return slots['hero:' + key];
+  if (slots && ok(slots['hero:' + key])) return slots['hero:' + key];
   if (!row) return null;
   const ph = (row.imagery && row.imagery.photos) || {};
-  const best = (row.recs || []).filter(x => !x.closed && x.kind === 'sight' && x.t === 1 && ph[x.id]).sort(rank)[0];
+  const best = (row.recs || []).filter(x => !x.closed && x.kind === 'sight' && x.t === 1 && ok(ph[x.id])).sort(rank)[0];
   return best ? ph[best.id] : null;
 }
 /** A photo as a media-slot <img>: sized, srcset when the imagery lane wrote widths, lazy unless above the fold. */
@@ -134,9 +135,9 @@ const SIZES = { hub: '(min-width:1280px) 300px, (min-width:1024px) 31vw, (min-wi
  * One city card. Markup contract kept for test-beta.js / guards: li.dest[data-page] > a[href] first, and ".dest-c"
  * starting with the computed place count. The cover tone rotates (c-0…c-3) so neighbouring covers never match.
  */
-function cityTile(row, i, { up = '', views = false, reg = null, dense = false } = {}) {
+function cityTile(row, i, { up = '', views = false, reg = null, dense = false, avoid = null } = {}) {
   const f = facts(row);
-  const ph = photoOf(row.key, reg, row);
+  const ph = photoOf(row.key, reg, row, avoid);
   const mf = motif(row.key, 'ink');
   const sig = f.sig.length ? `<span class="sigline"><b class="k">${esc(t('card.known'))}</b>${f.sig.map(x => `<span>${esc(x.name)}</span>`).join('')}</span>` : '';
   const star = f.star ? `<span class="star sticker">${icon('star4', 'ico sm')}${esc(f.star.name)} · ${fmt(f.star.n)}</span>` : '';
@@ -267,14 +268,16 @@ function renderArchive(row, reg, ctx) {
 
 /** The country's most-recommended open must-sees across all its guides (the hero's "why go" line). */
 function countrySignature(all) {
-  const recs = all.flatMap(r => (r.recs || []).filter(x => !x.closed && x.t === 1).map(x => Object.assign({ _city: r.name }, x)));
-  const S = recs.filter(x => x.kind === 'sight').sort(rank), F = recs.filter(x => x.kind === 'food').sort(rank);
-  const out = [], seen = new Set();
-  const cities = new Set();
-  for (const x of S.concat(F)) {
-    const n = shortName(x.n);
-    if (out.length >= 3 || seen.has(n) || cities.has(x._city) || out.filter(o => o.kind === x.kind).length >= (x.kind === 'sight' ? 2 : 1)) continue;
-    seen.add(n); cities.add(x._city); out.push({ name: n, kind: x.kind, city: x._city });
+  // Built from the guides' own signatures (signature(): the guide's curated tile line, else its most-cited open
+  // tier-1 sights): the first item of each of the country's three largest guides, one per guide, no repeats.
+  const out = [], seen = new Set(), cities = new Set();
+  const bySize = all.slice().sort((a, b) => (b.counts.P + b.counts.F) - (a.counts.P + a.counts.F) || (a.name < b.name ? -1 : 1));
+  for (const r of bySize) {
+    if (out.length >= 3) break;
+    if (cities.has(r.name)) continue;                 // the SEA archive mirrors some pages under another folder
+    const s = signature(r).find(x => !seen.has(x.name.toLowerCase()));
+    if (!s) continue;
+    seen.add(s.name.toLowerCase()); cities.add(r.name); out.push({ name: s.name, kind: s.kind, city: r.name });
   }
   return out;
 }
@@ -308,6 +311,7 @@ function render(row, reg, ctx, { c, main, more, all, groups }) {
   // the night-ground drawing under a dark scheme) and the one expressive moment: the place count in the display face.
   const ph = groups ? null : photoOf(c.key, reg, null);
   const ink = motif(c.key, 'ink'), night = motif(c.key);
+  const heroSrc = ph && ph.credit ? ph.credit.sourceUrl : null;           // cards below never repeat the hero photo
   const media = ph
     ? (typeof imagery.heroHtml === 'function' ? imagery.heroHtml(ph, up, 'photo hero-media') : `<figure class="photo hero-media">${photoImg(ph, up, { eager: true })}<figcaption>${captionHtml(ph.credit)}</figcaption></figure>`)
     : `<div class="hero-media cover c-1" aria-hidden="true">${ink ? `<picture>${night ? `<source media="(prefers-color-scheme: dark)" srcset="${up}${night}">` : ''}<img class="motif" src="${up}${ink}" alt="" decoding="async"></picture>` : ''}<span class="big">${fmt(n)}</span><span class="big-l">${esc(t('hub.hero.places'))}</span></div>`;
@@ -331,7 +335,7 @@ ${groups ? '' : media}
 ${groups ? groups.map(g => `<section class="csec" id="${esc(g.c.key)}" aria-labelledby="g-${esc(g.c.key)}"><div class="rail-head"><h2 class="d2" id="g-${esc(g.c.key)}">${esc(g.c.name)}<span class="n">${plural('hub.guides', g.pages.length)}${g.c.live === false ? ` · ${esc(t('hub.preview'))}` : ''}</span></h2></div>
 <ul class="morelist">\n${g.pages.map(r => moreRow(r, up)).join('\n')}\n</ul></section>`).join('\n') : `<div class="rail-head"><h2 class="d2" id="grid-h">${esc(t('hub.grid.h', { country: c.name }))}<span class="n">${plural('hub.guides', all.length)}</span></h2></div>
   <ul class="tiles hub2 cards" aria-labelledby="grid-h">
-${main.map((r, i) => cityTile(r, i, { up, views: true, reg })).join('\n')}
+${main.map((r, i) => cityTile(r, i, { up, views: true, reg, avoid: heroSrc })).join('\n')}
   </ul>`}
 ${more.length ? `<h2 class="d3 more-h">${esc(t('hub.more', { country: c.name }))}</h2>\n<ul class="morelist">\n${more.map(r => moreRow(r, up)).join('\n')}\n</ul>` : ''}
 </div>
