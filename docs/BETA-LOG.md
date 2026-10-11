@@ -988,3 +988,26 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - fe-a.css has no raw font sizes or radii left (mapped to `--fs-*` / `--r-*`), for probe-css gap #3(e).
     - Evidence re-shot on the current head (v2, Commons photos, shared card, hero photo), 52 shots, in `design/beta/eval/w7/fe-a/after/`.
 
+
+- 2026-10-11 16:55Z · **Orchestrator** · W7 check-in: lane reviews and routing · commit: this entry's commit
+  - **FE-B** (7936b8bd, merged 876b4676): hub hero photo first on phones (3:2 slot, one primary CTA, quiet secondary row); desktop two columns with the photo above the fold. Accepted. Landing 768 KB on a 3× phone, so a 330w card width is not needed for hubs. Follow-ups sent: (1) the country-hub "Known for" line is built from the top three guides' own signatures, never a cross-country most-cited pick (Japan read "Goryōkaku · Mandarake Grand Chaos · Menya Itto"), with a test; (2) the short credit under hub heroes and landing cards; (3) a test that a hub hero's file is not reused by a card on the same page.
+  - **FE-A** (8f85ae53): media radius `--r-l`, the V2.7 calm cover, tokenised fe-a.css, the hero two-column and phone strip, the phone Atlas `switchTo` fix. Accepted. Follow-ups sent, in order:
+    1. the motion trigger (R6 gap #1), with reduced-motion and a test;
+    2. credits must never clip the author or licence (phone cards and the hero strip did), with a test;
+    3. place-detail photo letterboxed on desktop, so fill the slot;
+    4. w7-shots.js stubs tiles with a yellow-green flat tile, so use the neutral land colour and state that tiles are stubbed offline;
+    5. phone `#p=` node growth and the sheet "n of N".
+  - **Atlas:** on top of the 8.26 MB budget fix, sent:
+    - the desktop list cards are not the shared card yet;
+    - the phone peek card shows the no-photo cover for a place that has a photo;
+    - the phone top bar overflows at 390 px;
+    - routed from FE-A: the w2 [hubs] rail-count FAIL. A lens deep link into Atlas fits the map to all matches, so the header count equals the lens total, with paging. The probe reads the header total, as a rule change for R7 QA to ratify.
+  - **Imagery:** contact sheet of all 38 heroes after run #15 (38154721912, success). Good: Japan, Tokyo, Kyoto, Osaka, Bruges (canal + Belfry), Harrisburg (blue sky), Pittsburgh, Singapore, State College, Okinawa, Saarland. Queued:
+    - duplicate files: `hero:us` = `hero:washingtondc` (the same Capitol file), and the Wheeling hero is also a place card on the Wheeling page;
+    - Belgium hub vs Bruges hero: near-identical views;
+    - Germany is grey and overcast;
+    - Hokkaido is a tower fragment;
+    - Youngstown's letter sign breaks the signage rule;
+    - plus Dayton, Erie and the optional Silicon Valley;
+    - a test that no Commons file appears in two credit rows;
+    - the short-credit helper first, since FE-A and FE-B both reuse it.
