@@ -1,0 +1,139 @@
+{
+ "page": "cities/tokyo.html",
+ "phone": {
+  "map": [
+   0,
+   60,
+   390,
+   784
+  ],
+  "peekTray": {
+   "top": 664,
+   "visibleH": 180
+  },
+  "peekText": "Chiyoda-ku 43 All 488",
+  "controls": [
+   "am-ctl:Must see",
+   "am-ctl:Street",
+   "am-ctl:LegendChiyoda-kuChūō-kuMinato-kuS",
+   "leaflet-control-zoom-in:+",
+   "leaflet-control-zoom-out:−",
+   "am-ctl:Show my location on the map (stay"
+  ],
+  "geoCallsAtLoad": 0,
+  "markers": {
+   "all": 26,
+   "clusters": 26,
+   "labelled": 26
+  },
+  "tray_half": {
+   "top": 405,
+   "shareOfScreen": "52%",
+   "mapVisiblePx": 345
+  },
+  "tray_full": {
+   "top": 124,
+   "shareOfScreen": "85%",
+   "mapVisiblePx": 64
+  },
+  "tray_peek": {
+   "top": 620,
+   "shareOfScreen": "27%",
+   "mapVisiblePx": 560
+  },
+  "pinTap": {
+   "x": 145,
+   "y": 428,
+   "w": 10,
+   "h": 10,
+   "candidates": 9
+  },
+  "afterPin": {
+   "open": true,
+   "text": "Jōsai · pin 26 26 Worth the detour within Jōsai · International Zupperia Osteria Pitiglian",
+   "hash": "#view=atlas"
+  },
+  "afterBack": {
+   "open": false,
+   "hash": "#view=atlas",
+   "url": "ta/cities/tokyo.html"
+  },
+  "geoCallsAfterLocateTap": 1,
+  "storedGeo": [],
+  "baseOptions": [
+   "Must see",
+   "Light"
+  ],
+  "baseLabelAfter": "Light",
+  "legend": "Must see Light Legend Chiyoda-ku Chūō-ku Minato-ku Shinjuku-ku Shibuya-ku Taitō-ku Sumida-ku & Kōtō-ku Jōnan Jōsai Jōhoku Jōtō Tama area Kantō day trips Big pin = Must see Grey pin = closed, kept for ",
+  "errors": []
+ },
+ "desktop": {
+  "map": [
+   518,
+   181,
+   922,
+   719
+  ],
+  "mapShare": "64%",
+  "list": [
+   40,
+   442,
+   "31%"
+  ],
+  "controls": [
+   "am-ctl:",
+   "am-ctl:Must see",
+   "am-ctl:Street",
+   "am-ctl:LegendChiyoda-kuChūō-kuMinato-"
+  ],
+  "markers": {
+   "all": 488,
+   "clusters": 0,
+   "labelled": 488,
+   "paths": 488,
+   "sample": [
+    "pin-n   foc:1",
+    "pin-n   foc:2",
+    "pin-n   foc:3",
+    "pin-n   foc:4",
+    "pin-n   foc:5",
+    "pin-n   foc:6"
+   ]
+  },
+  "rankMatch": {
+   "cardNums": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8"
+   ],
+   "foundOnMap": 8
+  },
+  "hoverHot": [
+   "DIV.pin-n   foc sel:1"
+  ],
+  "pinClick": {
+   "pin": {
+    "x": 1085.8392333984375,
+    "y": 768.67333984375,
+    "cls": "leaflet-interactive"
+   },
+   "cardLit": true,
+   "cardText": "19 Must see within Chūō-ku · Kaiseki Mutsukari Ginza Japanes",
+   "cardInView": true,
+   "sheet": false,
+   "hash": "#view=atlas"
+  },
+  "flyTo": {
+   "hash": "#view=atlas&p=kanda-myojin",
+   "pinCls": null,
+   "pinOffsetFromMapCentre": null
+  },
+  "errors": []
+ }
+}

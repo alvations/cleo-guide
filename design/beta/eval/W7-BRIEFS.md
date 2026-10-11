@@ -156,3 +156,28 @@ Photos are what make a marketplace-grade, image-first page. Unsplash still waits
    - The credit gate and `test-imagery.js` keep refusing anything uncredited.
 4. **Workflow.** Do **not** edit `.github/workflows/`. Tell the orchestrator the exact command and it will wire it into `beta-fetch-unsplash.yml`, which runs on a GitHub runner, rebuilds and gates the beta, and commits.
 5. **Render.** Make sure the builder renders credited photos into heroes and cards: lazy, sized, with alt text, and with a small credit line or a credit in the sheet. Coordinate the card markup with FE-A.
+
+## Added 2026-10-11 14:20Z: Round 6 evaluator gaps folded into Wave 7
+
+[ROUND-6](ROUND-6.md) scored R6 at **85.4** (A 77, B 88, C 96, D 89). Its ranked gaps, each with a testable acceptance in ROUND-6 §"Top gaps", are now W7 work:
+
+| R6 gap | Owner in W7 |
+|---|---|
+| #1 Signature motion moment: tapped cover or pin grows into the sheet, ≤ 400 ms, nothing under reduced motion. Doubles as the Gen Z "delight" moment. | designer (spec + tokens) + FE-A (build) |
+| #2 Atlas residuals: number labels open the place, clusters look unlike rank pins, pin → card in view, no page scroll on desktop pin, day route above the peek, city name visible at peek. Plus R6 QA's two Highs: the Leaflet `_leaflet_pos` error and the 370 px tray head. | FE-A |
+| #3 Type rebuild unfinished: rendered weights and steps, widows, optical size, raw sizes and radii, DESIGN-SYSTEM.md. | designer (v2 rollout must meet these probes) |
+| #4 Accessibility debt from the full sweep: Insights `role="img"` wrapping links; light-theme contrast and targets on the 84 "What changed" pages. | platform (new lane) |
+| #5 Performance residue: Atlas Tokyo ≤ 2,000 KB, `#p=` deep link ≤ 3,000 nodes, eager JS ≤ 40.0 KB gzip via a minify step. | platform (new lane) |
+| #6 Cleveland sights on the compass motif | live pipeline, out of beta scope; stays in the PM backlog |
+| #7 Desktop Atlas rail reachable without horizontal scroll | FE-A |
+| #8 "Start with" button names the lead-card place | FE-A |
+
+## Lane: platform (accessibility + performance), added 2026-10-11
+
+1. **R6 gap #4: accessibility.** Acceptance: `probe-axe.js` reports 0 serious/critical on every page, viewport and theme. `beta:metrics:all` reports B-23 ✅ and B-20 ✅ on all 84 "What changed" pages.
+2. **R6 gap #5: performance.** Acceptance:
+   - Atlas Tokyo ≤ 2,000 KB, e.g. by loading Leaflet after first paint.
+   - A `#p=` deep link on a phone builds ≤ 3,000 nodes at load.
+   - Eager JS ≤ 40.0 KB gzip with no rounding. Add a minify step to the beta build, with source maps not shipped.
+3. **Ownership.** This lane owns the build pipeline's minify step and the performance changes. FE-A owns view markup and behaviour, so coordinate any atlas.js or view-JS change with FE-A first.
+4. **Evidence:** `design/beta/eval/w7/platform/`.
