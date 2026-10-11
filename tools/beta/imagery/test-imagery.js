@@ -246,6 +246,13 @@ ok(fc.subjectRefused(fc.CLOSEUP, { label: 'Dayton', names: ['Dayton'] }, 'RiverS
   ok(rc.eligible(card) && !rc.eligible(Object.assign({}, card, { modified: 'resized to 500 and 960 px wide; ' + rc.MARK })) && !rc.eligible(Object.assign({}, card, { provider: 'unsplash' })) && !rc.eligible(Object.assign({}, card, { file: 'x.png' })), 'recompress: Commons JPEG rows only, each once (idempotent after every fetch)');
   ok(/ \(resized\)$/.test(photos.captionHtml(Object.assign({}, cmn, { modified: 'resized to 500 and 960 px wide; ' + rc.MARK }))) && photos.captionHtml(Object.assign({}, cmn, { modified: 'resized to 500 and 960 px wide; ' + rc.MARK }), { full: true }).includes('recompressed'), 'recompressed rows: short credit "(resized)", the full credit names both changes');
 }
+{ // author names: the photographer only — no flag notices, userboxes, "(talk)" asides or doubled names (W7: "Kakidai Rising Sun Flag…")
+  const art = '<a href="//commons.wikimedia.org/wiki/User:Kakidai">Kakidai</a> <table><tr><td><img alt="Rising Sun Flag of Japan (16 rays)" src="x.png"></td><td>Legal disclaimer This image shows a symbol</td></tr></table>';
+  ok(fc.authorOf(art) === 'Kakidai' && fc.authorOf('<a href="//x/User:Yasu">Yasu</a> (<a href="//x/User_talk:Yasu">talk</a>)') === 'Yasu' && fc.authorOf('Unknown author Unknown author') === 'Unknown author' && fc.authorOf('Rolf Müller ( User:Rolfmueller )') === 'Rolf Müller' && fc.authorOf('Photograph by Mike Peel ( www.mikepeel.net ).') === 'Mike Peel' && fc.authorOf('Bernard Spragg. NZ from Christchurch, New Zealand') === 'Bernard Spragg. NZ from Christchurch, New Zealand', 'fetch-commons authorOf: template/flag text, (talk) and (User:) asides dropped, a doubled name said once');
+  ok(fc.authorProblems('Kakidai Rising Sun Flag of Japan (16 rays) Legal disclaimer').length && fc.authorProblems('x'.repeat(61)).length && !fc.authorProblems('Bernard Spragg. NZ from Christchurch, New Zealand').length, 'fetch-commons authorProblems: > 60 characters or notice text is not a clean name');
+  const bad = (JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || []).filter(c => fc.authorProblems(c.author).length).map(c => `${c.file}: "${String(c.author).slice(0, 50)}"`);
+  ok(!bad.length, `every credited author is a clean name (≤ 60 characters, no flag/userbox/talk text, not doubled)${bad.length ? ': ' + bad.join('; ') : ''}`);
+}
 { // one Commons file, one credit row: never the same photo as two heroes, or as a hero and a card (owner review, W7)
   const seen = new Map(), dups = [];
   for (const c of (JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || [])) {
