@@ -56,15 +56,18 @@ for (const rel of man.generated || []) {
   console.log(`  PASS  ${rel}: ${cards.length} cards, ${closed.length} closed, attribution 100%`);
 }
 
-// localStorage only inside try blocks in shipped client JS
+// localStorage only inside try blocks in shipped client JS — and in its source (platform W7: shipped JS is minified to
+// one line, where a 6-line window would see the whole file, so the line check runs on the authored source as well).
 const jsDir = path.join(BETA, 'assets', 'js');
-for (const f of fs.existsSync(jsDir) ? fs.readdirSync(jsDir).filter(x => x.endsWith('.js')) : []) {
-  const src = fs.readFileSync(path.join(jsDir, f), 'utf8');
+const srcDir = path.join(__dirname, '..', 'client');
+for (const [dir, label] of [[jsDir, 'beta/assets/js'], [srcDir, 'tools/beta/client']])
+for (const f of fs.existsSync(dir) ? fs.readdirSync(dir).filter(x => x.endsWith('.js')) : []) {
+  const src = fs.readFileSync(path.join(dir, f), 'utf8');
   const lines = src.split('\n');
   lines.forEach((ln, i) => {
     if (!/localStorage\s*[.[]/.test(ln)) return;
     const before = lines.slice(Math.max(0, i - 6), i + 1).join('\n');
-    ok(/\btry\s*\{/.test(before), `beta/assets/js/${f}:${i + 1}: localStorage outside try/catch`);
+    ok(/\btry\s*\{/.test(before), `${label}/${f}:${i + 1}: localStorage outside try/catch`);
   });
 }
 

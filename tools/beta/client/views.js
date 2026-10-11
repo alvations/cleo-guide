@@ -59,6 +59,7 @@
     if (v !== prev) { mem[prev] = window.scrollY || 0; unmount(prev); }
     cur = v; html.setAttribute('data-view', v); C.view = v; paintNav();
     if (v === 'atlas') atlasIn(); else atlasOut();
+    if (v !== 'gallery' && Cleo.defer && Cleo.defer.resume) Cleo.defer.resume();   // the lazy observer takes over again
     if (v === 'gallery' && !C.gallery) need('gallery');            // the Gallery extras (rows, covers) load on first use
     if (!NAME[v] || v === 'gallery' || v === 'atlas') { if (host) host.hidden = true; }
     else loadMod(v, () => { if (cur === v) mount(v); });
@@ -120,12 +121,23 @@
     let pend = Cleo.defer ? Cleo.defer.peek().length : 0;
     let pg = Math.max(1, parseInt(r.pg, 10) || 1);
     const deep = !!r.p || /^#(p|area)-/.test(location.hash);          // an addressed place / area needs the true view order
-    if (pend && (all || pg > 1 || lensOn || deep)) { Cleo.defer.all(); pend = 0; if (lensOn) { C.apply(); return; } }   // re-apply: new cards must meet the lens
-    const live = qa('li.pl').filter(c => !c.hidden), N = live.length + pend, pages = Math.max(1, Math.ceil(N / per));
+    const fine = !!(Cleo.defer && Cleo.defer.order && Cleo.defer.stampIds);
+    if (pend && (all || lensOn || (!fine && (pg > 1 || deep)))) { Cleo.defer.all(); pend = 0; if (lensOn) { C.apply(); return; } }   // re-apply: new cards must meet the lens
+    const h = location.hash, mp = /^#p-(.+)$/.exec(h), ma = /^#area-(.+)$/.exec(h), tid = r.p || (mp && decodeURIComponent(mp[1]));
+    // Platform W7 (R6 gap #5): with no lens, any page (a deep link, page > 1, page 1) stamps only the cards it shows, placed
+    // by the full view order (stamped cards + deferred stubs) — not every card (a phone #p= built 12.8k nodes).
+    let ord = pend && fine ? Cleo.defer.order() : null;
+    if (ord) {
+      const i0 = tid ? ord.findIndex(o => o.id === 'p-' + tid) : -1, p0 = Math.min(i0 >= 0 ? Math.floor(i0 / per) + 1 : pg, Math.max(1, Math.ceil(ord.length / per)));
+      const want = new Set(ord.slice((p0 - 1) * per, p0 * per).filter(o => !o.el).map(o => o.id));
+      if (want.size) { Cleo.defer.stampIds(want); ord = Cleo.defer.order(); }
+      pend = Cleo.defer.peek().length; if (!pend) ord = null;
+    }
+    const live = qa('li.pl').filter(c => !c.hidden), N = ord ? ord.length : live.length + pend, pages = Math.max(1, Math.ceil(N / per));
+    const at0 = ord ? new Map(ord.map((o, i) => [o.id, i])) : null, pos = c => at0 ? (at0.has(c.id) ? at0.get(c.id) : -1) : live.indexOf(c);
     if (pg > pages) pg = pages;
     // QA-29 (G1): a deep link or anchor always lands — #p=<id>, #p-<id> or #area-<A> on another page moves the pager there
-    const h = location.hash, mp = /^#p-(.+)$/.exec(h), ma = /^#area-(.+)$/.exec(h), tid = r.p || (mp && decodeURIComponent(mp[1]));
-    const tg = tid ? d.getElementById('p-' + tid) : ma ? $('li.pl:not([hidden])', d.getElementById('area-' + decodeURIComponent(ma[1])) || d.createElement('i')) : null, ti = tg ? live.indexOf(tg) : -1;
+    const tg = tid ? d.getElementById('p-' + tid) : ma ? $('li.pl:not([hidden])', d.getElementById('area-' + decodeURIComponent(ma[1])) || d.createElement('i')) : null, ti = tg ? pos(tg) : -1;
     if (!all && ti >= 0 && (ti < (pg - 1) * per || ti >= pg * per)) {
       pg = Math.floor(ti / per) + 1;
       if (!tid) requestAnimationFrame(() => { const s = tg.closest('section.area'); if (s) s.scrollIntoView({ block: 'start' }); });
@@ -133,9 +145,10 @@
     }
     const a = all ? 0 : (pg - 1) * per, b = all ? N : Math.min(N, a + per);
     // page 1 may reach past the live cards (still deferred): keep their sections in layout; cleo:stamped re-pages
-    const keep = new Set(pend && b > live.length ? Cleo.defer.peek().slice(0, b - live.length).map(x => x.getAttribute('data-a')) : []);
+    const keep = new Set(ord ? ord.slice(a, b).filter(o => !o.el).map(o => o.a)
+      : pend && b > live.length ? Cleo.defer.peek().slice(0, b - live.length).map(x => x.getAttribute('data-a')) : []);
     qa('li.pl').forEach(c => c.classList.remove('pg-off'));
-    live.forEach((c, i) => { if (i < a || i >= b) c.classList.add('pg-off'); });
+    live.forEach(c => { const i = pos(c); if (i < a || i >= b) c.classList.add('pg-off'); });
     secs.forEach(s => s.classList.toggle('pg-empty', !s.querySelector('li.pl:not([hidden]):not(.pg-off)') && !keep.has(at(s, 'data-area'))));
     if (!pager) { pager = d.createElement('nav'); pager.className = 'pager g-pager vw view-gallery'; pager.setAttribute('aria-label', 'Pages of places');
       const how = $('#how-we-choose'); if (how) how.parentNode.insertBefore(pager, how); else if (lp) lp.appendChild(pager);
@@ -157,6 +170,8 @@
     if (Cleo.emit) Cleo.emit('cleo:paged', { a, b, n: N });
   }
   C.after.push(page);
+  // the paged Gallery stamps exactly its page (above), so core's lazy observer holds while it shows (platform W7)
+  if (Cleo.defer && Cleo.defer.resume) Cleo.defer.hold = () => cur === 'gallery' && Cleo.route.parse().all !== '1';
   on(d, 'cleo:stamped', () => { if (cur === 'gallery') requestAnimationFrame(page); });
   on(window, 'beforeprint', () => { if (Cleo.defer) Cleo.defer.all(); qa('li.pl.pg-off').forEach(c => c.classList.remove('pg-off')); qa('.pg-empty').forEach(s => s.classList.remove('pg-empty')); });
   on(window, 'afterprint', () => page());

@@ -1,0 +1,786 @@
+[
+ {
+  "u": "index.html",
+  "vp": "m",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "Japan/index.html",
+  "vp": "m",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "saved.html",
+  "vp": "m",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "changes/tokyo.html",
+  "vp": "m",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=gallery",
+  "vp": "m",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [
+   {
+    "id": "color-contrast",
+    "impact": "serious",
+    "n": 7,
+    "ex": [
+     ".fy > .k",
+     "button[data-cleo-day=\"\"] > .k"
+    ]
+   }
+  ],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cleveland.html#view=gallery",
+  "vp": "m",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [
+   {
+    "id": "color-contrast",
+    "impact": "serious",
+    "n": 7,
+    "ex": [
+     ".fy > .k",
+     "button[data-cleo-day=\"\"] > .k"
+    ]
+   }
+  ],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=atlas",
+  "vp": "m",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1",
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "cleveland.html#view=atlas",
+  "vp": "m",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1",
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=guidebook",
+  "vp": "m",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cleveland.html#view=guidebook",
+  "vp": "m",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=insights",
+  "vp": "m",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [
+   {
+    "id": "nested-interactive",
+    "impact": "serious",
+    "n": 7,
+    "ex": [
+     "svg[viewBox=\"0 0 288 642\"]",
+     "svg[aria-labelledby=\"src-t src-d\"]"
+    ]
+   }
+  ],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cleveland.html#view=insights",
+  "vp": "m",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [
+   {
+    "id": "nested-interactive",
+    "impact": "serious",
+    "n": 7,
+    "ex": [
+     "svg[viewBox=\"0 0 288 246\"]",
+     "svg[aria-labelledby=\"src-t src-d\"]"
+    ]
+   }
+  ],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "Singapore/chinatown.html#view=atlas",
+  "vp": "m",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1",
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=gallery&p=kanda-myojin",
+  "vp": "m",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [
+   {
+    "id": "color-contrast",
+    "impact": "serious",
+    "n": 1,
+    "ex": [
+     ".fy > .k"
+    ]
+   }
+  ],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "Vietnam/ho-chi-minh-city.html#view=gallery&p=viet-nam-quoc-tu",
+  "vp": "m",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [
+   {
+    "id": "color-contrast",
+    "impact": "serious",
+    "n": 1,
+    "ex": [
+     ".fy > .k"
+    ]
+   }
+  ],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "index.html",
+  "vp": "m",
+  "scheme": "dark",
+  "theme": "light",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "Japan/index.html",
+  "vp": "m",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "saved.html",
+  "vp": "m",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "changes/tokyo.html",
+  "vp": "m",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=gallery",
+  "vp": "m",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cleveland.html#view=gallery",
+  "vp": "m",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=atlas",
+  "vp": "m",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1",
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "cleveland.html#view=atlas",
+  "vp": "m",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1",
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=guidebook",
+  "vp": "m",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cleveland.html#view=guidebook",
+  "vp": "m",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=insights",
+  "vp": "m",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [
+   {
+    "id": "nested-interactive",
+    "impact": "serious",
+    "n": 7,
+    "ex": [
+     "svg[viewBox=\"0 0 288 642\"]",
+     "svg[aria-labelledby=\"src-t src-d\"]"
+    ]
+   }
+  ],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cleveland.html#view=insights",
+  "vp": "m",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [
+   {
+    "id": "nested-interactive",
+    "impact": "serious",
+    "n": 7,
+    "ex": [
+     "svg[viewBox=\"0 0 288 246\"]",
+     "svg[aria-labelledby=\"src-t src-d\"]"
+    ]
+   }
+  ],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "Singapore/chinatown.html#view=atlas",
+  "vp": "m",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1",
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=gallery&p=kanda-myojin",
+  "vp": "m",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "Vietnam/ho-chi-minh-city.html#view=gallery&p=viet-nam-quoc-tu",
+  "vp": "m",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "index.html",
+  "vp": "d",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "Japan/index.html",
+  "vp": "d",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "saved.html",
+  "vp": "d",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "changes/tokyo.html",
+  "vp": "d",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=gallery",
+  "vp": "d",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cleveland.html#view=gallery",
+  "vp": "d",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=atlas",
+  "vp": "d",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cleveland.html#view=atlas",
+  "vp": "d",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=guidebook",
+  "vp": "d",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cleveland.html#view=guidebook",
+  "vp": "d",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=insights",
+  "vp": "d",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [
+   {
+    "id": "nested-interactive",
+    "impact": "serious",
+    "n": 7,
+    "ex": [
+     "svg[viewBox=\"0 0 554 642\"]",
+     "svg[aria-labelledby=\"src-t src-d\"]"
+    ]
+   }
+  ],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cleveland.html#view=insights",
+  "vp": "d",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [
+   {
+    "id": "nested-interactive",
+    "impact": "serious",
+    "n": 7,
+    "ex": [
+     "svg[viewBox=\"0 0 554 246\"]",
+     "svg[aria-labelledby=\"src-t src-d\"]"
+    ]
+   }
+  ],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "Singapore/chinatown.html#view=atlas",
+  "vp": "d",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=gallery&p=kanda-myojin",
+  "vp": "d",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "Vietnam/ho-chi-minh-city.html#view=gallery&p=viet-nam-quoc-tu",
+  "vp": "d",
+  "scheme": "light",
+  "theme": "",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "index.html",
+  "vp": "d",
+  "scheme": "dark",
+  "theme": "light",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "Japan/index.html",
+  "vp": "d",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "saved.html",
+  "vp": "d",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "changes/tokyo.html",
+  "vp": "d",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "heading-order×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=gallery",
+  "vp": "d",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cleveland.html#view=gallery",
+  "vp": "d",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=atlas",
+  "vp": "d",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cleveland.html#view=atlas",
+  "vp": "d",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=guidebook",
+  "vp": "d",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cleveland.html#view=guidebook",
+  "vp": "d",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=insights",
+  "vp": "d",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [
+   {
+    "id": "nested-interactive",
+    "impact": "serious",
+    "n": 7,
+    "ex": [
+     "svg[viewBox=\"0 0 554 642\"]",
+     "svg[aria-labelledby=\"src-t src-d\"]"
+    ]
+   }
+  ],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cleveland.html#view=insights",
+  "vp": "d",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [
+   {
+    "id": "nested-interactive",
+    "impact": "serious",
+    "n": 7,
+    "ex": [
+     "svg[viewBox=\"0 0 554 246\"]",
+     "svg[aria-labelledby=\"src-t src-d\"]"
+    ]
+   }
+  ],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "Singapore/chinatown.html#view=atlas",
+  "vp": "d",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "cities/tokyo.html#view=gallery&p=kanda-myojin",
+  "vp": "d",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ },
+ {
+  "u": "Vietnam/ho-chi-minh-city.html#view=gallery&p=viet-nam-quoc-tu",
+  "vp": "d",
+  "scheme": "dark",
+  "theme": "dark",
+  "errs": 0,
+  "serious": [],
+  "minor": [
+   "aria-allowed-role×1"
+  ]
+ }
+]
