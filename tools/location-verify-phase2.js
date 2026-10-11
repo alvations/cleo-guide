@@ -3,7 +3,8 @@
  * location-verify-phase2.js — government-geodata adapters for tools/location-verify.js (docs/LOCATION-VERIFY-ACTIONS.md
  * § 2.2). Every adapter PROPOSES only, like the rest of the tool.
  *
- *   House-coordinate files (Germany: Geobasis NRW, LVermGeo RLP, LVGL Saarland). Official address POINTS from a file
+ *   House-coordinate / building-reference files (Germany: the OPEN NRW Gebäudereferenzen, LVermGeo RLP, LVGL Saarland;
+ *     the official NRW Hauskoordinaten themselves are licensed through ZSHH, NOT open). Official address POINTS from a file
  *     downloaded once (no per-request API, so no rate limit). Header-driven parsing, any of ; , or tab as delimiter;
  *     UTM zone 32 (EPSG:25832) eastings/northings are converted to WGS84. A match is an exact
  *     postcode + street + house number hit. It is an address point, not a named place: kind 'gov-address', graded med;
@@ -86,12 +87,15 @@ const num = s => parseFloat(String(s || '').replace(',', '.'));
 function normStreetDE(s) {
   return stripDia(String(s || '')).toLowerCase().replace(/strasse\b|str\.?(?=\s|$)/g, 'str').replace(/[^a-z0-9]+/g, '');
 }
+const normTown = s => stripDia(String(s || '')).toLowerCase().replace(/\(.*?\)/g, '').replace(/[^a-z0-9]+/g, '');
 function parseAddressDE(addr) {
   const parts = String(addr || '').split(',').map(x => x.trim());
   const m = (parts[0] || '').match(/^(.*?)\s+(\d+\s*[a-zA-Z]?)(?:\s*[-–\/]\s*\d+\s*[a-zA-Z]?)?$/);
-  const pc = (String(addr || '').match(/\b(\d{5})\b/) || [])[1] || null;
-  if (!m) return { street: normStreetDE(parts[0]) || null, houseNumber: null, postcode: pc };
-  return { street: normStreetDE(m[1]), houseNumber: m[2].replace(/\s+/g, '').toLowerCase(), postcode: pc };
+  const pcm = String(addr || '').match(/\b(\d{5})\s+([^,]+)/);
+  const pc = pcm ? pcm[1] : ((String(addr || '').match(/\b(\d{5})\b/) || [])[1] || null);
+  const town = pcm ? normTown(pcm[2]) : null;
+  if (!m) return { street: normStreetDE(parts[0]) || null, houseNumber: null, postcode: pc, town };
+  return { street: normStreetDE(m[1]), houseNumber: m[2].replace(/\s+/g, '').toLowerCase(), postcode: pc, town };
 }
 
 const H = {
@@ -111,8 +115,9 @@ function loadHouseCoords(file, o = {}) {
   const { header, rows } = readTable(fs.readFileSync(file, 'utf8'));
   const c = Object.fromEntries(Object.entries(H).map(([k, v]) => [k, col(header, v)]));
   const haveUtm = c.east >= 0 && c.north >= 0, haveLL = c.lat >= 0 && c.lng >= 0;
-  if (!(haveUtm || haveLL) || c.street < 0 || c.hnr < 0 || c.plz < 0)
-    throw new Error(`${path.basename(file)}: need coordinate, street, house number and postcode columns; header was: ${header.join(' | ')}`);
+  // Postcode OR town name: the open NRW Gebäudereferenzen carry no postal data, so they key on town + street + number.
+  if (!(haveUtm || haveLL) || c.street < 0 || c.hnr < 0 || (c.plz < 0 && c.place < 0))
+    throw new Error(`${path.basename(file)}: need coordinate, street, house number and postcode (or town) columns; header was: ${header.join(' | ')}`);
   const index = new Map(); let count = 0, skipped = 0;
   for (const r of rows) {
     let lat, lng;
@@ -120,8 +125,9 @@ function loadHouseCoords(file, o = {}) {
     else { const e = num(r[c.east]), n = num(r[c.north]); if (!(e > 100000 && e < 1000000 && n > 5000000 && n < 6200000)) { skipped++; continue; } ({ lat, lng } = fromUtm(e, n, o.zone || 32)); }
     if (!(isFinite(lat) && isFinite(lng))) { skipped++; continue; }
     const hnr = (String(r[c.hnr] || '') + (c.adz >= 0 ? String(r[c.adz] || '') : '')).replace(/\s+/g, '').toLowerCase();
-    const key = `${String(r[c.plz]).slice(0, 5)}|${normStreetDE(r[c.street])}|${hnr}`;
-    if (!index.has(key)) index.set(key, { lat, lng, address: `${r[c.street]} ${hnr}, ${r[c.plz]}${c.place >= 0 ? ' ' + r[c.place] : ''}` });
+    const rec = { lat, lng, address: `${r[c.street]} ${hnr}, ${c.plz >= 0 ? r[c.plz] + ' ' : ''}${c.place >= 0 ? r[c.place] : ''}`.trim() };
+    if (c.plz >= 0) { const k = `${String(r[c.plz]).slice(0, 5)}|${normStreetDE(r[c.street])}|${hnr}`; if (!index.has(k)) index.set(k, rec); }
+    if (c.place >= 0) { const k = `town:${normTown(r[c.place])}|${normStreetDE(r[c.street])}|${hnr}`; if (!index.has(k)) index.set(k, rec); }
     count++;
   }
   return { index, count, skipped, columns: c, label: o.label || path.basename(file), licence: o.licence || 'see docs/LOCATION-VERIFY-ACTIONS.md § 2.2', sourceUrl: o.sourceUrl || null };
@@ -129,9 +135,9 @@ function loadHouseCoords(file, o = {}) {
 /** Look a registry address up in loaded house-coordinate sets. Returns a candidate or null. */
 function houseCandidate(sets, place, retrieved) {
   const a = parseAddressDE(place.address);
-  if (!a.street || !a.houseNumber || !a.postcode) return null;
+  if (!a.street || !a.houseNumber || !(a.postcode || a.town)) return null;
   for (const s of sets) {
-    const hit = s.index.get(`${a.postcode}|${a.street}|${a.houseNumber}`);
+    const hit = (a.postcode && s.index.get(`${a.postcode}|${a.street}|${a.houseNumber}`)) || (a.town && s.index.get(`town:${a.town}|${a.street}|${a.houseNumber}`));
     if (hit) return { kind: 'gov-address', source: s.label, name: '', lat: hit.lat, lng: hit.lng, address: hit.address,
       houseNumber: a.houseNumber, street: null, postcode: a.postcode, sourceUrl: s.sourceUrl || s.label, retrieved, licence: s.licence, exactGovAddress: true };
   }
