@@ -158,6 +158,24 @@
     syncMarkers(); C.after.forEach(f => f());
   };
   C.apply = () => apply();
+  // R7 gap 3, delight 1: photos fade in (≤ 280 ms) from their dominant colour (--ph, set at build). Only once this script
+  // runs (html.ph-fade), so a page without JS never hides a photo; a photo already loaded shows at once; a broken one
+  // drops its placeholder too. Under reduced motion the CSS has no transition.
+  { const done = im => { const f = im.closest('figure.photo, .gc .cover'); if (f) f.classList.add('in'); };
+    $$('figure.photo img, .gc .cover img').forEach(im => { if (im.complete) done(im); });
+    d.addEventListener('load', e => { if (e.target.tagName === 'IMG') done(e.target); }, true);
+    d.addEventListener('error', e => { if (e.target.tagName === 'IMG') done(e.target); }, true);
+    on(d, 'cleo:stamped', () => $$('figure.photo:not(.in) img, .gc .cover:not(.in) img').forEach(im => { if (im.complete) done(im); }));
+    d.documentElement.classList.add('ph-fade'); }
+  // R7 gap 3, delight 2: switching views — the switcher's selection slides to the new view and the content cross-fades
+  // in (≤ 260 ms); none under reduced motion (CSS)
+  { const nav = $('[data-cleo-views]');
+    if (nav) { const ind = d.createElement('span'); ind.className = 'v-ind'; ind.setAttribute('aria-hidden', 'true'); nav.appendChild(ind);
+      const place = () => { const b = $('button[aria-pressed="true"]', nav); if (!b || !b.offsetWidth) { ind.style.opacity = '0'; return; }
+        ind.style.opacity = ''; ind.style.left = b.offsetLeft + 'px'; ind.style.width = b.offsetWidth + 'px'; ind.style.top = b.offsetTop + 'px'; ind.style.height = b.offsetHeight + 'px'; };
+      nav.classList.add('has-ind'); place(); on(window, 'resize', place); if (d.fonts && d.fonts.ready) d.fonts.ready.then(place);
+      on(d, 'cleo:view', () => { requestAnimationFrame(place); main.classList.remove('v-swap'); void main.offsetWidth; main.classList.add('v-swap');
+        setTimeout(() => main.classList.remove('v-swap'), 400); }); } }
   // W8 grid density: an area's end actions take the rest of its last card row (a lone last card never sits by itself);
   // a full last row gets the actions on a row of their own. Counts what is shown (lens, pager), recomputed after every change
   let endsQ = 0;

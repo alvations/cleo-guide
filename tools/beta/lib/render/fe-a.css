@@ -651,3 +651,26 @@ html main[data-city] .mappill.away:not([hidden]){opacity:0;visibility:hidden;tra
 }
 @media (min-width:1024px){html[data-view=gallery] main[data-city] .split section.area{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (min-width:1280px){html[data-view=gallery] main[data-city] .split section.area{grid-template-columns:repeat(4,minmax(0,1fr))}}
+/* ---- 19. R7 gap 3: two delight moments, each ≤ 280 ms, none under reduced motion ----
+   1. A photo fades in from its dominant colour (--ph, set at build from imagery's recompress.js colour). The colour is a
+      layer in the image's own grid cell that fades out when the image has loaded (city.js adds .in); only under
+      html.ph-fade (set by city.js), so without JS nothing is ever hidden. */
+html.ph-fade main[data-city] figure.photo[style*="--ph"]{display:grid}
+html.ph-fade main[data-city] figure.photo[style*="--ph"]>img{grid-area:1/1}
+html.ph-fade main[data-city] figure.photo[style*="--ph"]::before{content:"";grid-area:1/1;position:relative;z-index:1;border-radius:var(--w7-media,var(--r-l));background:var(--ph);pointer-events:none;transition:opacity 280ms var(--ease-out)}
+html.ph-fade main[data-city] figure.photo.in::before{opacity:0}
+html.ph-fade .view-gallery li.gc .cover.has-ph[style*="--ph"]::before{content:"";display:block;position:absolute;inset:0;z-index:2;background:var(--ph);pointer-events:none;transition:opacity 280ms var(--ease-out)}
+html.ph-fade .view-gallery li.gc .cover.has-ph.in::before{opacity:0}
+/* 2. Switching views: the switcher's selection slides to the new view (desktop pill row), and the page content fades in */
+html main[data-city] nav.views .v-ind{display:none}
+@media (min-width:1024px){
+  html main[data-city] nav.views.has-ind{position:relative;isolation:isolate}
+  html main[data-city] nav.views.has-ind .v-ind{display:block;position:absolute;z-index:-1;border-radius:var(--r-pill);background:var(--ink);pointer-events:none;transition:left 240ms var(--ease-out),width 240ms var(--ease-out),top 240ms var(--ease-out)}
+  html main[data-city] nav.views.has-ind button[aria-pressed=true]{background:transparent}
+}
+@keyframes w8-vin{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:no-preference){html main[data-city].v-swap>:not(.cbar):not(.overlay):not(.mappill):not(.tray){animation:w8-vin 240ms var(--ease-out) both}}
+@media (prefers-reduced-motion:reduce){
+  html.ph-fade main[data-city] figure.photo::before,html.ph-fade .view-gallery li.gc .cover::before{transition:none}
+  html main[data-city] nav.views.has-ind .v-ind{transition:none}
+}

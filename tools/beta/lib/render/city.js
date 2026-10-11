@@ -98,6 +98,9 @@ const BY_NAME = [[/sushi/i, 'sushi'], [/ramen|noodle|pho|laksa|soba|udon/i, 'noo
 const glyphFor = (id, n, food) => GLYPH[id] || (BY_NAME.find(([re]) => re.test(n || '')) || [])[1] || (food ? 'forkknife' : 'compass');
 const { motifSvg, motifOf, photoFor, figureHtml, heroFor, heroHtml: heroPhotoHtml, heroPreload } = require('../../imagery');   // imagery lane hooks
 const ico = n => `<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+// R7 gap 3: the photo's dominant colour (imagery recompress.js, photo.color) rides on its figure as --ph, the placeholder
+// the photo fades in from (city.js marks the figure .in when its image has loaded)
+const tinted = (html, ph) => ph && /^#[0-9a-f]{6}$/i.test(ph.color || '') ? html.replace(/^<figure class="/, `<figure style="--ph:${ph.color}" class="`) : html;
 const tier = (t, cls = '') => TIER[t] ? `<a class="tier t${t}${cls}" href="#how-we-choose"><i class="tg t${t}" aria-hidden="true"></i><span>${TIER[t]}</span></a>` : '';
 
 /* ---- stated gaps: verbatim from the page's own method notes (never a keyword tag on a place) ---- */
@@ -158,7 +161,7 @@ function card(r, num, ctx) {
     r.la != null && `data-ll="${r.la},${r.ln}"`, pv.checked && `data-checked="${esc(pv.checked)}"`, r.closed && 'data-closed', r.warn && 'data-warn'].filter(Boolean).join(' ');
   // W7 media slot (contract in docs/BETA-LOG.md): the calm cover (.pl-cover), a credited photo laid over it when the imagery
   // lane has one (figure.photo.pl-photo: lazy, sized, alt = what it depicts, credit in the figcaption), and the heart (.pl-x)
-  return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${(ph => ph ? figureHtml(ph, ctx.up || '', 'photo pl-photo') : '')(ctx.photo && ctx.photo(r))}<p class="pl-x" hidden></p>
+  return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${(ph => ph ? tinted(figureHtml(ph, ctx.up || '', 'photo pl-photo'), ph) : '')(ctx.photo && ctx.photo(r))}<p class="pl-x" hidden></p>
 <p class="pl-e">${r.closed ? `${eyebrow} <span class="pl-num" aria-label="Map pin ${num}">${num}</span>` : `<span class="pl-num" aria-label="Map pin ${num}">${num}</span> ${eyebrow}`}</p>
 <h3 class="pl-n"><a href="#p-${esc(r.id)}">${nm}</a></h3>
 ${r.w ? `<p class="pl-w">${prose(r.w)}</p>` : ''}${r.k ? `<p class="pl-k${isNote ? ' note' : ''}"><span class="lbl">${isNote ? 'Your guide’s note' : 'Look for'}</span> ${prose(r.k)}</p>` : ''}${r.ad ? `<p class="pl-ad">${esc(r.ad)}</p>` : ''}
@@ -308,7 +311,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   // desktop shows the lead as one quiet text link (the phone shows it as the first card, under the hero)
   const leadName = leadR ? (leadR.nat && leadR.n.endsWith(`(${leadR.nat})`) ? leadR.n.slice(0, -leadR.nat.length - 2).trimEnd() : leadR.n) : '';
   // the photo is an in-flow media slot (imagery: eager, sized, TASL credit in its figcaption), never a full-bleed backdrop
-  const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(heroLine)}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">Start with ${esc(leadName)}</a></p>` : ''}${heroPhoto ? heroPhotoHtml(heroPhoto, up, 'photo hero-media', { preloaded: true }) : ''}</div>`;
+  const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(heroLine)}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">Start with ${esc(leadName)}</a></p>` : ''}${heroPhoto ? tinted(heroPhotoHtml(heroPhoto, up, 'photo hero-media', { preloaded: true }), heroPhoto) : ''}</div>`;
   // default view: Gallery (SPEC §2.4), flipped in W5 once G1 and the phone first screen passed (ROUND-4 #2). A link with
   // #day= or a lens and no view= still opens Atlas, the unpaged list (views.js implied(), mirrored in the head script)
   const DV = 'gallery';

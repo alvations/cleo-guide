@@ -163,6 +163,41 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
     }
     await ctx.close();
   }
+  console.log('# delight (R7 gap 3): photos fade in from their dominant colour; view switch slides and cross-fades');
+  for (const rm of ['no-preference', 'reduce']) {
+    const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block', reducedMotion: rm });
+    await ctx.route('**/*', r => { const u = r.request().url();
+      if (/tile\.openstreetmap\.org|arcgisonline\.com/.test(u)) return r.fulfill({ status: 200, contentType: 'image/png', body: TILE });
+      if (!u.startsWith(BASE)) return r.abort('blockedbyclient');
+      const p = path.join(ROOT, decodeURIComponent(new URL(u).pathname));
+      if (!fs.existsSync(p) || fs.statSync(p).isDirectory()) return r.fulfill({ status: 404, body: '' });
+      return r.fulfill({ status: 200, contentType: T[path.extname(p)] || 'application/octet-stream', body: fs.readFileSync(p) }); });
+    const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(1500);
+    const ph = await page.evaluate(() => { const f = document.querySelector('main figure.photo[style*="--ph"]'); if (!f) return null; const b = getComputedStyle(f, '::before');
+      return { ph: f.style.getPropertyValue('--ph'), bg: b.backgroundColor, dur: parseFloat(b.transitionDuration) * 1000, inn: f.classList.contains('in'), op: b.opacity, fade: document.documentElement.classList.contains('ph-fade') }; });
+    const hex = c => '#' + (c.match(/\d+/g) || []).slice(0, 3).map(x => (+x).toString(16).padStart(2, '0')).join('');
+    if (rm === 'no-preference') {
+      ok(ph && ph.fade && hex(ph.bg) === ph.ph.toLowerCase() && ph.dur > 0 && ph.dur <= 300, 'a photo\'s placeholder is its dominant colour, fading ≤ 300 ms', ph);
+      ok(ph && ph.inn && +ph.op === 0, 'once the image has loaded the placeholder is gone', ph && [ph.inn, ph.op]);
+    } else ok(ph && ph.dur === 0, 'reduced motion: the placeholder clears with no transition', ph && ph.dur);
+    const ind = () => page.evaluate(() => { const i = document.querySelector('nav.views .v-ind'), b = document.querySelector('nav.views button[aria-pressed="true"]');
+      return i && b ? { left: Math.round(i.getBoundingClientRect().left), on: Math.round(b.getBoundingClientRect().left), w: Math.round(i.getBoundingClientRect().width), bw: Math.round(b.getBoundingClientRect().width), dur: parseFloat(getComputedStyle(i).transitionDuration) * 1000 } : null; });
+    const i0 = await ind();
+    await page.evaluate(() => { window.__an = []; const t0 = performance.now(); const tick = () => { document.getAnimations().forEach(a => { const e = a.effect && a.effect.target; if (e && e.parentElement && e.parentElement.id === 'main') window.__an.push(Math.round(a.effect.getComputedTiming().duration)); }); if (performance.now() - t0 < 350) requestAnimationFrame(tick); }; requestAnimationFrame(tick); });
+    await page.click('nav.views button[data-view="guidebook"]'); await page.waitForTimeout(500);
+    const i1 = await ind(), an = await page.evaluate(() => window.__an);
+    ok(i0 && i1 && i1.left !== i0.left && Math.abs(i1.left - i1.on) <= 1 && Math.abs(i1.w - i1.bw) <= 1, `${rm}: the switcher's selection moves onto the new view`, [i0, i1]);
+    if (rm === 'no-preference') ok(i1.dur > 0 && i1.dur <= 300 && an.length > 0 && Math.max(...an) <= 300, 'the selection slides and the content cross-fades, each ≤ 300 ms', [i1.dur, [...new Set(an)]]);
+    else ok(i1.dur === 0 && an.length === 0, 'reduced motion: no slide, no cross-fade', [i1.dur, an.length]);
+    await ctx.close();
+  }
+  { const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, javaScriptEnabled: false, serviceWorkers: 'block' });
+    await ctx.route('**/*', r => { const u = r.request().url(); if (!u.startsWith(BASE)) return r.abort('blockedbyclient');
+      const p = path.join(ROOT, decodeURIComponent(new URL(u).pathname)); if (!fs.existsSync(p) || fs.statSync(p).isDirectory()) return r.fulfill({ status: 404, body: '' });
+      return r.fulfill({ status: 200, contentType: T[path.extname(p)] || 'application/octet-stream', body: fs.readFileSync(p) }); });
+    const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(600);
+    const c = await page.evaluate(() => { const f = document.querySelector('main figure.photo[style*="--ph"]'); return f ? getComputedStyle(f, '::before').content : 'no photo'; });
+    ok(c === 'none' || c === 'normal', 'without JS no placeholder ever covers a photo', c); await ctx.close(); }
   await b.close();
   console.log(fails ? `\n>>> FAIL — ${fails} FE-A W8 check(s)` : '\n>>> PASS — FE-A W8: a day from saved places, edited, shared, printed and reopened, by keyboard');
   process.exit(fails ? 1 : 0);
