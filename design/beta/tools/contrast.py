@@ -45,7 +45,7 @@ PAIRS = [  # (fg, bg, min, what)
     # W7 v2: the one accent (saved heart, count dot, day route, wordmark star) and its text-safe ink
     ('accent-ink', 'paper', 4.5, 'accent text on ground'), ('accent-ink', 'surface', 4.5, 'accent text on sheet'),
     ('accent-ink', 'accent-wash', 4.5, 'accent text on wash'), ('on-accent', 'accent', 4.5, 'count on accent dot'),
-    ('accent', 'surface', 3.0, 'heart glyph on card'), ('ink', 'accent-wash', 4.5, 'ink on wash'), ('warn', 'surface', 4.5, 'warning text'),
+    ('accent', 'surface', 3.0, 'heart glyph on card'), ('ink', 'accent-wash', 4.5, 'ink on wash'), ('warn', 'surface', 4.5, 'warning text'), ('on-sun-wash', 'sun-wash', 4.5, 'sticker badge'), ('ink', 'sun-wash', 4.5, 'ink on sun wash'),
 ]
 SKINS = re.findall(r'(\[data-city="(\w+)"\],\s*)?\.skin-(\w+)\s*\{([^}]*)\}', CSS)
 fails, rows = 0, []

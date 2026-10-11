@@ -47,6 +47,12 @@ D = {
   },
 }
 
+# W7 amendment (Gen Z wanderlust): ONE warm, sun-washed highlight, offered to every direction and judged by the scores.
+# It is a flat wash behind a sticker-style badge ("Must see", "Hidden gem" — only where the data says so) and the heart
+# "pop" ring. Never a gradient, never text colour, never chrome.
+SUN = {'light': {'sun': '#E9A93B', 'sun-wash': '#FBEBC8', 'on-sun-wash': '#3D2A06'},
+       'dark':  {'sun': '#F0BC5E', 'sun-wash': '#3B2C10', 'on-sun-wash': '#FBE3B0'}}
+
 def lum(h):
     c = [int(h[i:i + 2], 16) / 255 for i in (1, 3, 5)]
     c = [x / 12.92 if x <= .03928 else ((x + .055) / 1.055) ** 2.4 for x in c]
@@ -60,10 +66,11 @@ PAIRS = [('ink', 'paper', 4.5), ('ink', 'surface', 4.5), ('ink', 'sand', 4.5), (
          ('ink-2', 'sand', 4.5), ('ink-3', 'paper', 4.5), ('ink-3', 'surface', 4.5), ('ink-3', 'sand', 4.5), ('paper', 'ink', 4.5),
          ('accent-ink', 'paper', 4.5), ('accent-ink', 'surface', 4.5), ('accent-ink', 'accent-wash', 4.5), ('on-accent', 'accent', 4.5),
          ('ink', 'accent-wash', 4.5), ('accent', 'surface', 3.0), ('accent', 'paper', 3.0), ('line-strong', 'surface', 1.4),
-         ('open', 'open-soft', 4.5), ('closed', 'closed-soft', 4.5), ('closed', 'surface', 4.5), ('ink', 'warn-soft', 4.5), ('warn', 'surface', 4.5)]
+         ('open', 'open-soft', 4.5), ('closed', 'closed-soft', 4.5), ('closed', 'surface', 4.5), ('ink', 'warn-soft', 4.5), ('warn', 'surface', 4.5),
+         ('on-sun-wash', 'sun-wash', 4.5), ('ink', 'sun-wash', 4.5), ('sun', 'surface', 1.8)]
 
 def full(d, mode):
-    t = dict(d[mode]); t.update(STATE_L if mode == 'light' else STATE_D); return t
+    t = dict(d[mode]); t.update(STATE_L if mode == 'light' else STATE_D); t.update(SUN[mode]); return t
 
 def check(d):
     rows, fails = [], 0
