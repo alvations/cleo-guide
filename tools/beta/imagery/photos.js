@@ -16,6 +16,12 @@
  * the source is an unsplash.com photo page; the caption then reads "Photo by <name> on Unsplash". A row may carry
  * `slot: {type: hero|cover, key}` instead of `record` for a hub hero or a generic collection cover — same TASL and
  * file checks, exposed as `bySlot`, never attached to a card. Rows come from tools/beta/imagery/fetch-unsplash.js.
+ *
+ * Wikimedia Commons (W7): rows from tools/beta/imagery/fetch-commons.js carry `provider: "wikimedia-commons"` (the
+ * source must then be a commons.wikimedia.org File: page) and may carry `variants: [{file, width, height}]` — smaller
+ * sizes of the SAME credited image for srcset. A variant is covered by its row's credit; it must exist, be a bare
+ * image name and appear in no other row. The figure then carries srcset + sizes; hero slots render eagerly
+ * (heroHtml), cards lazily.
  */
 const fs = require('fs');
 const path = require('path');
@@ -43,6 +49,8 @@ const SCHEMA = {
   modified: 'optional: what you changed ("cropped", "resized") — BY-SA adaptations stay BY-SA',
   width: 'optional: pixel width (read from the file when omitted)',
   height: 'optional: pixel height (read from the file when omitted)',
+  variants: 'optional: [{ file, width, height }] — smaller sizes of the same image for srcset (same credit; e.g. the 480 px copy of a 960 px file)',
+  provider: 'optional: "wikimedia-commons" | "unsplash" — who hosts the source page (Commons rows must link a commons.wikimedia.org File: page)',
 };
 
 /** Pixel size of a PNG / JPEG / WebP from its header; null if unknown (then the credit must carry width/height). */
@@ -82,6 +90,15 @@ function creditProblems(c) {
   if (c.sourceUrl && !httpsUrl(c.sourceUrl)) p.push('sourceUrl must be https');
   if (c.licenceUrl && !httpsUrl(c.licenceUrl)) p.push('licenceUrl must be https');
   if (c.licence && (LICENCE_BAD.test(c.licence) || !LICENCE_OK.test(String(c.licence).trim()))) p.push(`licence "${c.licence}" is not CC0 / PD / CC BY / CC BY-SA / Unsplash License`);
+  if (c.variants != null) {
+    if (!Array.isArray(c.variants)) p.push('variants must be an array of {file, width, height}');
+    else c.variants.forEach((v, i) => {
+      if (!v || typeof v !== 'object' || !v.file || !EXT.test(v.file) || /[\\/]/.test(v.file)) p.push(`variants[${i}] must have a bare .jpg/.png/.webp file name`);
+      else if (v.file === c.file) p.push(`variants[${i}] repeats the main file`);
+      if (v && (v.width != null || v.height != null) && !(+v.width > 0 && +v.height > 0)) p.push(`variants[${i}] width/height must be positive numbers`);
+    });
+  }
+  if (c.provider === 'wikimedia-commons' && c.sourceUrl && !/^https:\/\/commons\.wikimedia\.org\/wiki\/File:[^\s]+$/.test(c.sourceUrl)) p.push('a Wikimedia Commons row needs its commons.wikimedia.org/wiki/File: page as sourceUrl');
   if (isUnsplash(c)) {
     if (c.licenceUrl !== UNSPLASH_LICENCE_URL) p.push(`Unsplash License needs licenceUrl ${UNSPLASH_LICENCE_URL}`);
     if (c.sourceUrl && !/^https:\/\/unsplash\.com\/photos\/[^\s/]+/.test(c.sourceUrl)) p.push('Unsplash License needs an unsplash.com/photos/… sourceUrl');
@@ -104,12 +121,27 @@ function loadPhotos(betaDir, pages) {
   }
   const files = fs.existsSync(dir) ? fs.readdirSync(dir).filter(f => !f.startsWith('.') && f !== 'README.md') : [];
   const byFile = new Map();
+  /** srcset entries for a row's variants (+ the main size), smallest first; null + an error when one is unusable. */
+  const sizesOf = (c, where, main) => {
+    const set = [];
+    for (const v of c.variants || []) {
+      if (!files.includes(v.file)) { errors.push(`${where}: variant ${v.file} — no such file in beta/${PHOTO_DIR}/`); return null; }
+      const sz = (v.width && v.height) ? { w: +v.width, h: +v.height } : imageSize(fs.readFileSync(path.join(dir, v.file)));
+      if (!sz || !sz.w || !sz.h) { errors.push(`${where}: cannot read the size of variant ${v.file} — add width and height`); return null; }
+      set.push({ src: `${PHOTO_DIR}/${v.file}`, w: sz.w, h: sz.h });
+    }
+    if (!set.length) return [];
+    set.push({ src: `${PHOTO_DIR}/${c.file}`, w: main.w, h: main.h });
+    return set.sort((a, b) => a.w - b.w);
+  };
   credits.forEach((c, i) => {
     const where = `${CREDITS} credits[${i}]${c && c.file ? ` (${c.file})` : ''}`;
     const p = creditProblems(c || {});
     if (c && c.file && byFile.has(c.file)) p.push('duplicate credit for this file');
+    for (const v of (c && Array.isArray(c.variants) ? c.variants : [])) if (v && v.file && byFile.has(v.file)) p.push(`variant ${v.file} is already credited by another row`);
     if (p.length) { errors.push(`${where}: ${p.join('; ')}`); return; }
     byFile.set(c.file, c);
+    for (const v of c.variants || []) byFile.set(v.file, c);
     if (!files.includes(c.file)) { errors.push(`${where}: no such file in beta/${PHOTO_DIR}/`); return; }
     if (c.slot) {
       if (vietnamSlot(c.slot)) { errors.push(`${where}: Vietnam has no freedom of panorama — no Vietnam hub hero photo`); return; }
@@ -117,7 +149,8 @@ function loadPhotos(betaDir, pages) {
       const size = (c.width && c.height) ? { w: +c.width, h: +c.height } : imageSize(buf);
       if (!size || !size.w || !size.h) { errors.push(`${where}: cannot read the image size — add width and height`); return; }
       if (bySlot[sk]) { errors.push(`${where}: ${sk} already has a photo`); return; }
-      bySlot[sk] = { file: c.file, src: `${PHOTO_DIR}/${c.file}`, w: size.w, h: size.h, credit: c };
+      const set = sizesOf(c, where, size); if (!set) return;
+      bySlot[sk] = { file: c.file, src: `${PHOTO_DIR}/${c.file}`, w: size.w, h: size.h, srcset: set, credit: c };
       return;
     }
     const pg = pages[c.record.page];
@@ -130,7 +163,8 @@ function loadPhotos(betaDir, pages) {
     if (!size || !size.w || !size.h) { errors.push(`${where}: cannot read the image size — add width and height`); return; }
     const page = (byPage[c.record.page] = byPage[c.record.page] || {});
     if (page[c.record.id]) { errors.push(`${where}: ${c.record.id} already has a photo`); return; }
-    page[c.record.id] = { file: c.file, src: `${PHOTO_DIR}/${c.file}`, w: size.w, h: size.h, credit: c };
+    const set = sizesOf(c, where, size); if (!set) return;
+    page[c.record.id] = { file: c.file, src: `${PHOTO_DIR}/${c.file}`, w: size.w, h: size.h, srcset: set, credit: c };
   });
   for (const f of files) {
     if (!EXT.test(f)) errors.push(`beta/${PHOTO_DIR}/${f}: not an image this pipeline accepts (.jpg/.png/.webp)`);
@@ -151,10 +185,39 @@ function captionHtml(c) {
 }
 function hostOf(u) { const m = /^https:\/\/(?:www\.)?([^/]+)/i.exec(u); return m ? m[1].replace(/^commons\.wikimedia\.org$/, 'Wikimedia Commons') : 'source'; }
 
-/** The <figure> a renderer drops in for a gated photo. `up` = path back to beta/ root. */
-function figureHtml(photo, up = '', cls = 'photo') {
+/** Default `sizes` for a card photo: one column on phones, about a third of the page on desktop grids. */
+const CARD_SIZES = '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw';
+/** srcset + sizes attributes when the photo has size variants (else ''). */
+function srcsetAttr(photo, up, sizes) {
+  const set = photo.srcset || [];
+  return set.length > 1 ? ` srcset="${set.map(s => `${esc(up + s.src)} ${s.w}w`).join(', ')}" sizes="${esc(sizes)}"` : '';
+}
+/**
+ * The <figure> a renderer drops in for a gated photo. `up` = path back to beta/ root. Cards: lazy, below the fold.
+ * opts.sizes overrides the srcset sizes; opts.eager (heroes) loads it at once with fetchpriority=high.
+ */
+function figureHtml(photo, up = '', cls = 'photo', opts = {}) {
+  const c = photo.credit, load = opts.eager ? ' fetchpriority="high"' : ' loading="lazy"';
+  return `<figure class="${cls}"><img src="${esc(up + photo.src)}"${srcsetAttr(photo, up, opts.sizes || CARD_SIZES)} width="${photo.w}" height="${photo.h}" alt="${esc(c.depicts)}"${load} decoding="async"><figcaption>${captionHtml(c)}</figcaption></figure>`;
+}
+/**
+ * A hero photo (city masthead, country hub): a full-bleed cover behind the headline, eager (it is above the fold).
+ * Self-contained inline styles so it needs no stylesheet change and sits on any ground. A scrim in the hero's ground
+ * colour (--hero-scrim, default --night) keeps the headline and facts at AA over any photo: dense behind the text column
+ * on the left, lighter on the right where the photo shows. The credit is NOT laid over the photo (it collided with the
+ * facts and buttons): heroCreditHtml() is a visible line in the text flow, under the actions. Rendered ONLY when a
+ * credited hero slot exists — otherwise the page is byte-identical.
+ */
+function heroHtml(photo, up = '', cls = 'photo hero-photo') {
+  const g = 'var(--hero-scrim,var(--night,#14161c))';
+  const scrim = `<span class="hero-scrim" aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(90deg,color-mix(in srgb,${g} 90%,transparent) 0,color-mix(in srgb,${g} 78%,transparent) 45%,color-mix(in srgb,${g} 38%,transparent) 100%)"></span>`;
   const c = photo.credit;
-  return `<figure class="${cls}"><img src="${esc(up + photo.src)}" width="${photo.w}" height="${photo.h}" alt="${esc(c.depicts)}" loading="lazy" decoding="async"><figcaption>${captionHtml(c)}</figcaption></figure>`;
+  return `<figure class="${cls}" style="position:absolute;inset:0;margin:0;z-index:-2;border-radius:0">` +
+    `<img style="width:100%;height:100%;object-fit:cover;display:block" src="${esc(up + photo.src)}"${srcsetAttr(photo, up, '100vw')} width="${photo.w}" height="${photo.h}" alt="${esc(c.depicts)}" fetchpriority="high" decoding="async">${scrim}</figure>`;
+}
+/** The hero photo's visible TASL credit, one small line in the text flow (inherits the hero's text colour). */
+function heroCreditHtml(photo) {
+  return `<p class="hero-credit" style="margin:12px 0 0;font-size:12px;line-height:1.45;opacity:.8;max-width:70ch">Photo: ${captionHtml(photo.credit).replace(/<a /g, '<a style="color:inherit" ')}</p>`;
 }
 
-module.exports = { loadPhotos, creditProblems, figureHtml, captionHtml, imageSize, SCHEMA, PHOTO_DIR, CREDITS, LICENCE_OK };
+module.exports = { loadPhotos, creditProblems, figureHtml, heroHtml, heroCreditHtml, captionHtml, imageSize, SCHEMA, PHOTO_DIR, CREDITS, LICENCE_OK, CARD_SIZES };

@@ -257,3 +257,106 @@ either way.
 **Not wired yet:** the renderers attach gated photos to record cards today; hero and cover `slot` rows are validated
 and exposed (`loadPhotos().bySlot`), but the hub hero, masthead and collection-cover renderers still show motifs.
 Hooking them up is a front-end task for the next round.
+
+## Wikimedia Commons — a keyless photo path through GitHub Actions (W7, 2026-10-11)
+
+> Lane: imagery · W7 brief `design/beta/eval/W7-BRIEFS.md` § "Lane: imagery". Commons needs **no key**, and a
+> GitHub-hosted runner can reach it. This sandbox cannot (network policy), so nothing was downloaded here and nothing
+> routes around the block: the manifest is built from WebSearch results restricted to `commons.wikimedia.org`, and the
+> fetch runs on the runner.
+
+### 1. The manifest — `beta/assets/img/commons-candidates.json`
+
+One entry per **target**, in fetch-priority order:
+
+| Order | Target | Count | What |
+|---|---|---|---|
+| 1 | `hero:<page or country>` | 40 | city, town and hub heroes: the five pilot pages and the five live country hubs first (Tokyo, Cleveland, New York, Chinatown SG, Wheeling; Japan, US, Singapore, Belgium, Germany), then every other city and region |
+| 2 | `landmark:<pilot page>#<id>` | 174 | every tier-1 sight on the pilot pages |
+| 3 | `landmark:<page>#<id>` | 1,114 | every other tier-1 sight (not Vietnam) |
+
+Each target carries `names` (the phrases a file must name: the record name and its parts, the native name, the cited
+Wikipedia article title, plus a few aliases such as "Hannes Tiedemann House" for Franklin Castle), its cited `article`
+when there is one, and `candidates` copied verbatim from search results: the `File:` title, its Commons page, what the
+result says it shows, a confidence grade and the reason. **high** = the file title (or its description as the result
+showed it) names that exact place; **med** = a description or category points to it but the title is generic, or the
+photo may not show the place today. Nothing is guessed: titles from a Commons category listing are marked so in the reason.
+
+**Status (about 150 searches):** 40 heroes, all 40 with a high candidate; 174 pilot sights, 103 with a high
+candidate, 65 skipped by rule; 269 candidates in all (255 high, 14 med). Seven pilot gaps are stated, not filled:
+Holden Arboretum (only plant close-ups), the Solstice Steps, Bronx Zoo, Queens Museum (only 1939 scans), LeMoyne House
+(only its marker), Salt Fork State Park, The Wilds.
+
+**Never a photo (target `skip`):** food places; venues: anything tagged bar, shop, market, mall, hawker, theatre,
+arena, entertainment or nightlife, plus pilot venues named one by one (Kabuki-za, Ryōgoku Kokugikan, Radio City, the
+Apollo, Yankee Stadium, Luna Park, the Cyclone, teamLab, the Ghibli Museum, the studio tour, Shibuya Sky, Sunshine
+City, Severance, Beck Center, Cain Park, 78th Street Studios, two tiny private museums, Quintana's); modern public art
+where the country has no freedom of panorama for it (the Free Stamp, the Unisphere, the GE Chandelier, the Yayoi Kusama
+façade, manga and animation museums); exhibits inside a building (Lucy, the chess collection, the Percy Skuy
+collection); closed places; Vietnam.
+
+**Flags** (the fetch skips a flagged candidate unless `--allow-flag` names it after a person has looked):
+`people-visible`, `public-art-check` (the 9/11 Memorial pools, Christopher Park's statue, Storm King, the Hakone
+Open-Air Museum, the Noguchi Museum, the Guardians of Traffic), `venue-check` (shop signs on Pagoda Street), `panorama`
+(a 360° file), `outdated` (Shuri Castle before the 2019 fire; the Cleveland Museum of Art before its 2013 addition),
+`author-check`.
+
+### 2. The fetch — `tools/beta/imagery/fetch-commons.js`
+
+```bash
+node tools/beta/imagery/fetch-commons.js --dry-run                  # the plan, no network
+node tools/beta/imagery/fetch-commons.js --budget 150               # runner: heroes, then pilot sights (high, unflagged)
+node tools/beta/imagery/fetch-commons.js --budget 300 --wiki-lead   # also tier-1 sights everywhere else, from the
+                                                                    # lead image of each record's cited Wikipedia article
+cd tools && npm run beta && npm test                                # the gate renders them, or names the problem
+```
+
+Per target, the first candidate that passes, in manifest order (then, with `--wiki-lead`, the article's lead image):
+
+1. **Re-read from the Commons API** (`action=query&prop=imageinfo|categories&iiprop=url|size|mime|sha1|extmetadata`).
+   The API, not the search snippet, decides.
+2. **Free licence only:** `LicenseShortName` must be CC0, public domain, CC BY or CC BY-SA (any version or port). NC,
+   ND, GFDL-only and anything else are refused. The author (`Artist`, HTML stripped) must be present. Bitmap only,
+   at least 640 px wide, no panorama wider than 3:1. Personality-rights restrictions are refused unless
+   `--allow-flag people-visible`.
+3. **Depicts re-check:** the file title, its `ObjectName`, its description or one of its visible categories must
+   contain one of the target's `names`, compared without spaces, punctuation or diacritics. "Kinkaku-ji" never passes
+   for Ginkaku-ji.
+4. **Sized local copies:** Commons' own server-side thumbnails, never wider than the original. Cards are stored at
+   480 and 960 px and heroes at 640 and 1280 px, as `beta/assets/img/photos/<base>-<w>.jpg` (`/` in a page key becomes `--`).
+   Nothing is hotlinked.
+5. **TASL credit row** in `CREDITS.json`: the largest width is `file`, the smaller one is in `variants`, plus `title`,
+   `depicts`, `author`, `sourceUrl` (the Commons File: page), `licence`, `licenceUrl`, `provider:
+   "wikimedia-commons"`, `commonsTitle`, `sha1`, `modified` ("resized to … px wide"), `fetched`, `confidence`.
+   Written after each photo, so a stop keeps the finished work; credited targets are skipped next run.
+
+API etiquette: a descriptive `User-Agent`/`Api-User-Agent`, `maxlag=5`, a 400 ms pause between requests, and a request
+budget (`--budget`, default 150). **No network → exit 0 with the plan printed** (this sandbox: `ENOTFOUND`). Exit 4
+when a request fails mid-run.
+
+**Workflow:** `.github/workflows/` belongs to the orchestrator. The command to wire in is
+`node tools/beta/imagery/fetch-commons.js --budget 150`, run before the beta rebuild and gates. It needs no secret.
+Add `--wiki-lead` once the pilots have been reviewed.
+
+### 3. The gate — `photos.js` + `test-imagery.js`
+
+Still refuses anything uncredited. New in W7:
+- `variants: [{file, width, height}]`: smaller sizes of the **same** credited image. Each must exist, be a bare image
+  name and belong to no other row. A variant without its row is an uncredited photo and is refused like any other.
+- `provider: "wikimedia-commons"` rows must link a `commons.wikimedia.org/wiki/File:` page, never an
+  `upload.wikimedia.org` hotlink.
+- Hero slots work for any city, town or country key. A Vietnam key (country or city) is still refused.
+
+### 4. Rendering
+
+- **Cards** (`li.pl`): `<figure class="photo pl-photo">` with `srcset` (480w, 960w) and
+  `sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"`, `loading="lazy"`, explicit width and height,
+  `alt` = what it depicts, and the TASL `figcaption` laid over the bottom of the photo.
+- **City heroes** (`.masthead .g-hero-x`) and **hub heroes** (`.chero`): `imagery.heroHtml()` is a full-bleed
+  `<figure class="photo hero-photo">` behind the headline. It is eager (`fetchpriority="high"`) with `srcset` at
+  `100vw` and a scrim in the hero's ground colour (`--hero-scrim`, default `--night`), so the text stays at AA. It
+  replaces the pin sky only when a credited hero exists. `imagery.heroCreditHtml()` puts the credit as a small
+  **"Photo: “title” by author, licence, via Wikimedia Commons"** line in the text flow, under the actions. Laid over
+  the photo it collided with the facts and buttons. With no hero photo the page is byte-identical.
+- Not yet: Gallery row cards and the "Start with" lead card are drawn client-side from `data/gallery/<page>.json`.
+  Adding `row.imagery.photos[id]` there is an FE-A follow-up (contract: `{src, srcset, w, h, credit}`).

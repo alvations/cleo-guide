@@ -23,6 +23,7 @@ const { head, siteBar, footer, styles, BETA_BASE } = require('./common');
 const { site, icon } = require('./shell');
 const { fmt, sumStats } = require('../stats');
 const { t, tn } = require('../i18n');                // W5 gap #7: every hub/tile string comes from the catalogue
+const { heroFor, heroHtml: heroPhotoHtml, heroCreditHtml } = require('../../imagery');   // imagery lane W7: credited hub hero photo (none → unchanged)
 
 const BETA = path.resolve(__dirname, '..', '..', '..', '..', 'beta');
 /** Counted phrase from the catalogue: plural('hub.places', 3) → "3 places"; the `.one` variant for 1. Escaped. */
@@ -374,19 +375,20 @@ function render(row, reg, ctx, { c, main, more, all, groups }) {
   const sky = starfield(all.flatMap(r => r.recs || []), { W: 900, H: 360, cap: 900, trim: 0.01, pad: 30, stroke: 3 })
     .replace('preserveAspectRatio="xMidYMid slice"', 'preserveAspectRatio="xMaxYMid meet"');
   const mf = motif(c.key);
+  const hp = heroFor(reg.countries.find(x => x.key === c.key));   // imagery W7: credited country hero photo, else the motif + pin sky
   const rail = groups ? '' : themeRail(reg, { up, country: c.key, heading: t('hub.themes.country', { country: c.name }), id: 'themes' });
   const shareUrl = BETA_BASE + '/' + row.beta.replace(/index\.html$/, '');
   return `${head({ page: 'hub', title, description: desc, rel: row.beta, depth, assetsV: ctx.assetsV, css: styles(depth), ogImage: ogFor(c.key), from: `data/countries.json + every ${c.name} place page` }).replace('</head>', `<style>${FEB_CSS}</style>\n</head>`)}
 <body class="has-tabbar">
 ${siteBar({ depth, current: 'hub', rel: row.beta })}
 <main id="main" class="feb">
-<section class="chero masthead" aria-labelledby="cn"><div class="sky" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" decoding="async">` : ''}${sky}</div><div class="inner">
+<section class="chero masthead" aria-labelledby="cn">${hp ? heroPhotoHtml(hp, up) : ''}<div class="sky" aria-hidden="true">${!hp && mf ? `<img class="motif" src="${up}${mf}" alt="" decoding="async">` : ''}${hp ? '' : sky}</div><div class="inner">
   <p class="kicker">${esc(t(groups ? 'hub.kicker.archive' : 'hub.kicker'))} · ${esc(t('hub.drawn')).replace('{pins}', plural('hub.pins', all.reduce((s, r) => s + (r.recs || []).filter(x => x.la != null && !x.closed && (!x.pv || x.pv.pin !== 'low')).length, 0)))}</p>
   <h1 class="title d1" id="cn">${esc(c.name)}</h1>
   ${sig.length ? `<p class="why"><span class="vh">${esc(t('hub.known'))} </span><span class="l">${sig.map(s => `<span>${esc(s.name)}</span>`).join('')}</span></p>` : ''}
   <p class="facts"><b>${plural('hub.guides', all.length)} · ${plural('hub.places', n)}</b> · ${esc(t('hub.sights', { n: fmt(P) }))} · ${esc(t('hub.food', { n: fmt(F) }))}${checked ? ` · ${esc(t('hub.checked', { d: checked }))}` : ''}.</p>
   ${c.blurb ? `<p class="facts blurb-c">${esc(c.blurb)}</p>` : ''}
-  <div class="acts"><button type="button" class="btn btn-ghost" data-cleo-share data-title="${esc(title)}" data-url="${esc(shareUrl)}" hidden>${icon('share', 'ico sm')}${esc(t('hub.share', { country: c.name }))}</button><a class="btn btn-ghost" href="${up}how-we-choose.html">${esc(t('shell.nav.method'))}</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>
+  <div class="acts"><button type="button" class="btn btn-ghost" data-cleo-share data-title="${esc(title)}" data-url="${esc(shareUrl)}" hidden>${icon('share', 'ico sm')}${esc(t('hub.share', { country: c.name }))}</button><a class="btn btn-ghost" href="${up}how-we-choose.html">${esc(t('shell.nav.method'))}</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>${hp ? '\n  ' + heroCreditHtml(hp) : ''}
 </div><span class="accentbar"></span></section>
 <div class="wrap section" id="destinations">
 ${groups ? groups.map(g => `<section class="csec" id="${esc(g.c.key)}" aria-labelledby="g-${esc(g.c.key)}"><div class="rail-head"><h2 class="d2" id="g-${esc(g.c.key)}">${esc(g.c.name)}<span class="n">${plural('hub.guides', g.pages.length)}${g.c.live === false ? ` · ${esc(t('hub.preview'))}` : ''}</span></h2></div>

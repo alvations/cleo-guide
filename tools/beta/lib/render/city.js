@@ -94,7 +94,7 @@ const BY_NAME = [[/sushi/i, 'sushi'], [/ramen|noodle|pho|laksa|soba|udon/i, 'noo
   [/temple|shrine|mosque|church/i, 'torii'], [/market|shop|hawker/i, 'awning'], [/view|skyline|tower/i, 'tower'], [/night/i, 'moon'],
   [/history|heritage|castle|palace/i, 'castle'], [/free/i, 'ticket'], [/screen|tv|film|pop/i, 'tv']];
 const glyphFor = (id, n, food) => GLYPH[id] || (BY_NAME.find(([re]) => re.test(n || '')) || [])[1] || (food ? 'forkknife' : 'compass');
-const { motifSvg, motifOf, photoFor, figureHtml } = require('../../imagery');   // imagery lane hooks
+const { motifSvg, motifOf, photoFor, figureHtml, heroFor, heroHtml: heroPhotoHtml, heroCreditHtml } = require('../../imagery');   // imagery lane hooks
 const ico = n => `<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg>`;
 const tier = (t, cls = '') => TIER[t] ? `<a class="tier t${t}${cls}" href="#how-we-choose"><i class="tg t${t}" aria-hidden="true"></i><span>${TIER[t]}</span></a>` : '';
 
@@ -296,10 +296,11 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   const leadR = (sig && sig.ids ? sig.ids.map(id => recs.find(r => r.id === id)) : sigT && sigT.key === 'c' ? inC(sigT.id) : []).find(r => r && r.t === 1 && !r.closed)
     || ordered.find(r => r.t === 1 && !r.closed) || ordered.find(r => !r.closed) || ordered[0];
   const heroArt = row.art && row.art.hero;
-  const heroHtml = `<div class="g-hero-x" aria-hidden="false">${heroArt ? `<img class="g-sky" src="${esc(up + heroArt.src)}" alt="" width="${heroArt.w}" height="${heroArt.h}" decoding="async">` : ''}` +
+  const heroPhoto = heroFor(row);   // imagery W7: a credited city hero photo replaces the pin sky (else unchanged)
+  const heroHtml = `<div class="g-hero-x" aria-hidden="false">${heroPhoto ? heroPhotoHtml(heroPhoto, up) : heroArt ? `<img class="g-sky" src="${esc(up + heroArt.src)}" alt="" width="${heroArt.w}" height="${heroArt.h}" decoding="async">` : ''}` +
     `<p class="g-kick">A guide in ${plural(st.areas || areas.length, 'area')} · every place recommended by name</p>` +
     `${G.tileLine && G.tileLine.text ? `<p class="g-lead">${esc(G.tileLine.text)}</p>` : ''}<p class="g-acts"><a class="btn btn-primary" href="#cleo-grid" data-g-browse>Browse all ${plural(recs.length, 'place')}</a>` +
-    `${leadR ? `<a class="btn btn-ghost" href="#p-${esc(leadR.id)}">Start with ${esc(leadR.nat && leadR.n.endsWith(`(${leadR.nat})`) ? leadR.n.slice(0, -leadR.nat.length - 2).trimEnd() : leadR.n)}</a>` : ''}</p></div>`;
+    `${leadR ? `<a class="btn btn-ghost" href="#p-${esc(leadR.id)}">Start with ${esc(leadR.nat && leadR.n.endsWith(`(${leadR.nat})`) ? leadR.n.slice(0, -leadR.nat.length - 2).trimEnd() : leadR.n)}</a>` : ''}</p>${heroPhoto ? heroCreditHtml(heroPhoto) : ''}</div>`;
   // default view: Gallery (SPEC §2.4), flipped in W5 once G1 and the phone first screen passed (ROUND-4 #2). A link with
   // #day= or a lens and no view= still opens Atlas, the unpaged list (views.js implied(), mirrored in the head script)
   const DV = 'gallery';
