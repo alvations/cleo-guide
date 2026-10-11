@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Test and validation harness for the field guide",
   "scripts": {
-    "test": "node test.js && node test-singapore.js && python3 check-escapes.py && python3 check-google.py && python3 test-geo-merge.py && node beta/test-beta.js && node beta/test-hubs.js && node beta/qa/test-contract.js && node beta/imagery/test-imagery.js && node beta/test-fe-a.js && node beta/test-views.js && node beta/qa/test-honesty.js && node beta/test-i18n.js",
+    "test": "node test.js && node test-singapore.js && python3 check-escapes.py && python3 check-google.py && python3 test-geo-merge.py && node beta/test-beta.js && node beta/test-hubs.js && node beta/qa/test-contract.js && node beta/imagery/test-imagery.js && node beta/test-fe-a.js && node beta/test-fe-c.js && node beta/test-views.js && node beta/qa/test-honesty.js && node beta/test-i18n.js && node location-verify.test.js",
     "test:singapore": "node test-singapore.js",
     "check:escapes": "python3 check-escapes.py",
     "check:google": "python3 check-google.py",
@@ -12,6 +12,7 @@
     "research": "node research.js",
     "qa": "node qa-site.js --shots",
     "beta": "node beta/build.js",
+    "beta:probe:fe-c": "node beta/w9-fe-c-probe.js",
     "beta:check": "node beta/build.js --check",
     "beta:og": "node beta/og.js",
     "beta:offline": "node beta/offline-check.js",

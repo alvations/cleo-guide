@@ -352,7 +352,7 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **QA-20 / B-16, root cause:** the area-art thumbnail (`.area .shape`, float right 72 px) squeezed the card grid by about 80 px for its whole height wherever the area heading was shorter than the float (single-line area names: Changi, Wheeling, Cleveland…), so sources stacked one per line. Fix: `.area>.pls{clear:right}`. "Recommended by" sources now flow inline (26 px per line) and each keeps a **44 px tap box** (padding pulled back by margin, so B-20 stays 0). On phones the eyebrow's "within {area}" ellipsizes, since the full name is the section heading. **Measured on all 84 place pages at 390×844: min 2.05 cards per screen** (was 23 pages under 2); `design/beta/eval/w2/fe-a/w2-b16-cards-per-screen.txt`. **DES:** these are 3 rules in `fe-a.css` (`html .pls .pl-s .src`…) layered over your 15.3. Fold them in as you like.
   - **"Look for: HIST":** 249 live records (Akron, Wheeling…) carry a collection id in `k`. Those no longer print as "Look for" (the collection already shows under "Part of"). Display only; data untouched.
   - **QA-19 (Esc on the pin sheet):** fixed in slice 1, with a test. **QA-21 (publisher ★):** gone since slice 2. ★ is now the platform canon or pop culture, else no ★ tile.
-  - **For PM (data, not FE-A):** some live source lists include **Tripadvisor** (e.g. Pittsburgh's Andy Warhol Museum: "carnegiemuseums.org, Tripadvisor, cmu.edu"). CLAUDE.md says Yelp/TripAdvisor are never the recommender. Beta prints what the live page cites, so this belongs on the live-pipeline backlog.
+  - **For PM (data, not FE-A):** some live source lists include **a review-aggregator site** (e.g. Pittsburgh's Andy Warhol Museum cites one beside carnegiemuseums.org and cmu.edu). CLAUDE.md says review aggregators are never the recommender. Beta prints what the live page cites, so this belongs on the live-pipeline backlog.
 - 2026-10-10 · **Platform** · Wave 2 slice 6 · session_01PCNcUkfa5S1N1BKGzZA4xx · `6b898a49` · orchestrator note (Round 3 Insights). `data/places/<page>.json` → `guide.areas[AREA]` = {n, sights, food, pop, closed, open, tiers, pins, km2, perKm2, sources:[[publisherId, n]]}, computed from the records, view-agnostic (every view still renders the full record set). Gated (sums agree); RFC §12. Owner rule 6 checked: no third-party brand names in platform code, comments, commits or copy (source ids are attribution). validate + npm test + beta:check PASS.
 - 2026-10-10 · **FE-A (city + saved)** · Wave 2 slice 5 · DES REVIEW-W2 fixes sent back to FE-A · commit: this entry's commit.
   - **#6 pin-label declutter:** numbers show for the focused area at every zoom and for all pins at ≥ 14. Then any label that would overlap one already shown is hidden (its pin stays), with the focused area first and guide order within it. This re-runs after every move and zoom, and it now also covers the pins of platform-deferred cards (`Cleo.defer.peek` stubs). Measured on Tokyo at 1440 after load: **0 overlapping labels** (369 shown, 119 hidden), where it was 200 overlapping pairs.
@@ -1441,3 +1441,36 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - FE-C: `trip.js` (the walking helper is done);
     - QC: the Phase 1 Playwright harness;
     - location verification: reading the pipeline.
+
+- 2026-10-11 21:25Z · **Orchestrator** · location verification via GitHub Actions (owner request, 20:54Z) · commit: this entry's commit
+  - **The lane's verdict (1f337866):** feasible, as a proposal engine only.
+    - The runner queries open, key-free sources and writes `docs/geoverify/<city>.{json,md}`: Wikidata (CC0), Wikipedia GeoData, OSM Nominatim (≤ 1 request/s, cached) and Overpass, plus the place's own site, read only after robots.txt allows it.
+    - It never writes `data/geocodes.json`. A person sets `review.decision`, then runs `node tools/location-verify.js --accept` locally. That step refuses on CI and asserts record counts. After it, the usual gates run.
+    - Full study: `docs/LOCATION-VERIFY-ACTIONS.md`.
+  - **The orchestrator's review:**
+    - --accept refuses CI;
+    - the counts are asserted;
+    - the registry round-trips (only a trailing newline differs);
+    - the user agent carries no personal contact;
+    - only `docs/geoverify/` is written;
+    - 29/29 offline tests pass.
+  - **Added:**
+    - `.github/workflows/location-verify.yml`: manual dispatch only, one run at a time, input validation, a guard step that fails on any change outside `docs/geoverify/`, and an artifact upload. It commits only when `dry_run=false`.
+    - `node location-verify.test.js` wired into `npm test`.
+    - validate and npm test exit 0.
+  - **Backlog (from the registry):**
+    - 3,450 rows in the default scope: 2,032 UNVERIFIED, 237 low, 1,744 with no status check;
+    - plus 347 places not yet in the registry.
+    - Estimated runner time is about 6 h, paced over 2–3 weeks under Nominatim's policy.
+  - **Owner questions relayed** (ODbL, the reviewer, Nominatim pacing, auto-commit, phase-2 sources, a quarterly status sweep). Until the owner answers, the conservative defaults apply.
+
+- 2026-10-11 21:40Z · **FE-C** · closes **W9-4** (Trips) · ce4c6a7c (head 807ea5a3)
+  - New page `beta/trip.html` (`tools/beta/lib/render/trip.js`, `tools/beta/client/trip.js`):
+    - a trip starts from saved places, a named list, a shared list link or a guide collection, for 1–7 days;
+    - one area a day, at most six stops, nearest next;
+    - closed, unpinned and unfitted places are left out, each with its reason; unknown ids are reported;
+    - one `#trip=` link (ids and day breaks only), booklet print (one day a page), KML;
+    - each day opens its guide in day mode through day.js's `#day=&s=` route.
+  - Platform hooks (orchestrator OK; platform told): `Cleo.geo.walk` in core.js is the one 80 m/min helper; build.js emits trip.html.
+  - Tests: `beta/test-fe-c.js` in npm test (84 guides, 0 closed stops, link lossless, reopen with storage throwing); probe `npm run beta:probe:fe-c` (keyboard at 390/1440 light and dark, 5-page booklet, day-mode handoff, 0 off-origin requests). Shots: `design/beta/eval/w9/fe-c/`.
+  - Open: a "Make a trip" entry in saved.js and lazy-module versions in render/city.js wait on FE-A.

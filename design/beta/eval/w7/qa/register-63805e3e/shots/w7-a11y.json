@@ -1,0 +1,3134 @@
+{
+ "head": "63805e3e681ea60da1ce78326d302812717c2c9b",
+ "checks": [
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html gallery mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/tokyo.html gallery mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "488 places · 13 areas · every "
+    ],
+    [
+     14,
+     "pl-w",
+     "The free public garden on the "
+    ],
+    [
+     14,
+     "pl-w",
+     "The 1869 Shintō shrine to Japa"
+    ],
+    [
+     14,
+     "pl-w",
+     "1,300-year-old shrine of Edo's"
+    ],
+    [
+     14,
+     "pl-w",
+     "Tatsuno Kingo's 1914 red-brick"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/tokyo.html gallery mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/tokyo.html gallery mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html gallery mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html gallery desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/tokyo.html gallery desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "488 places · 13 areas · every "
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Savor Japan, Th"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Time Out, The W"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Time Out, JNTO,"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Tokyo Cheapo, R"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/tokyo.html gallery desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/tokyo.html gallery desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html gallery desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html atlas mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/tokyo.html atlas mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "488 places · 13 areas · every "
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/tokyo.html atlas mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 39,
+    "eg": [
+     [
+      52,
+      42,
+      "INPUT "
+     ],
+     [
+      116,
+      41,
+      "A Imperial Palace "
+     ],
+     [
+      123,
+      20,
+      "A Yasukuni Shrine "
+     ],
+     [
+      104,
+      20,
+      "A Kanda Myōjin (神田"
+     ],
+     [
+      158,
+      41,
+      "A Tokyo Station Ma"
+     ],
+     [
+      103,
+      41,
+      "A Akihabara Electr"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/tokyo.html atlas mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html atlas mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html atlas desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/tokyo.html atlas desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "488 places · 13 areas · every "
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Savor Japan, Th"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Time Out, The W"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Time Out, JNTO,"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Tokyo Cheapo, R"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/tokyo.html atlas desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 9,
+    "eg": [
+     [
+      18,
+      18,
+      "INPUT "
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/tokyo.html atlas desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html atlas desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html guidebook mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/tokyo.html guidebook mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "gfacts",
+     "263 sights · 225 places to eat"
+    ],
+    [
+     14,
+     "gsig",
+     "★ Anime, Manga & Pop Culture: "
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/tokyo.html guidebook mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 1,
+    "eg": [
+     [
+      294,
+      42,
+      "A Imperial Palace "
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/tokyo.html guidebook mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html guidebook mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html guidebook desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/tokyo.html guidebook desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "gfacts",
+     "263 sights · 225 places to eat"
+    ],
+    [
+     14,
+     "gsig",
+     "★ Anime, Manga & Pop Culture: "
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/tokyo.html guidebook desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 3,
+    "eg": [
+     [
+      268,
+      42,
+      "A Imperial Palace "
+     ],
+     [
+      215,
+      21,
+      "A Chidorigafuchi 千"
+     ],
+     [
+      268,
+      42,
+      "A Mandarake Comple"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/tokyo.html guidebook desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html guidebook desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html insights mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/tokyo.html insights mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     12,
+     "fn",
+     "Pop culture = sights in the ci"
+    ],
+    [
+     12,
+     "fn",
+     "Citations, not places: a place"
+    ],
+    [
+     12,
+     "fn",
+     "Computed from 487 of 488 place"
+    ],
+    [
+     12,
+     "fn",
+     "Closed places stay in every vi"
+    ],
+    [
+     12,
+     "fn",
+     "Bars count canon places whose "
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/tokyo.html insights mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 19,
+    "eg": [
+     [
+      12,
+      44,
+      "[object SVGAnimatedStr All of Tokyo · P"
+     ],
+     [
+      21,
+      44,
+      "[object SVGAnimatedStr Chiyoda-ku · Pop"
+     ],
+     [
+      35,
+      44,
+      "[object SVGAnimatedStr Chūō-ku · Sights"
+     ],
+     [
+      3,
+      44,
+      "[object SVGAnimatedStr Minato-ku · Pop "
+     ],
+     [
+      11,
+      44,
+      "[object SVGAnimatedStr Shinjuku-ku · Po"
+     ],
+     [
+      7,
+      44,
+      "[object SVGAnimatedStr Shibuya-ku · Pop"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/tokyo.html insights mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html insights mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html insights desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/tokyo.html insights desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     12,
+     "fn",
+     "Pop culture = sights in the ci"
+    ],
+    [
+     12,
+     "fn",
+     "Citations, not places: a place"
+    ],
+    [
+     12,
+     "fn",
+     "Computed from 487 of 488 place"
+    ],
+    [
+     12,
+     "fn",
+     "Closed places stay in every vi"
+    ],
+    [
+     12,
+     "fn",
+     "Bars count canon places whose "
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/tokyo.html insights desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 33,
+    "eg": [
+     [
+      33,
+      44,
+      "[object SVGAnimatedStr All of Tokyo · P"
+     ],
+     [
+      11,
+      44,
+      "[object SVGAnimatedStr Minato-ku · Pop "
+     ],
+     [
+      29,
+      44,
+      "[object SVGAnimatedStr Shinjuku-ku · Po"
+     ],
+     [
+      20,
+      44,
+      "[object SVGAnimatedStr Shibuya-ku · Pop"
+     ],
+     [
+      6,
+      44,
+      "[object SVGAnimatedStr Taitō-ku · Pop c"
+     ],
+     [
+      42,
+      44,
+      "[object SVGAnimatedStr Sumida-ku & Kōtō"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/tokyo.html insights desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html insights desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html gallery mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cleveland.html gallery mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "194 places · 4 areas · every o"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Fox 8 Cleveland"
+    ],
+    [
+     14,
+     "pl-w",
+     "This is the right building. Th"
+    ],
+    [
+     14,
+     "pl-w",
+     "Five-story glass-roofed atrium"
+    ],
+    [
+     14,
+     "pl-w",
+     "The 42nd floor of a 52-story t"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cleveland.html gallery mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html gallery mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html gallery mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html gallery desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cleveland.html gallery desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "194 places · 4 areas · every o"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Fox 8 Cleveland"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Atlas Obscura, "
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Bourdain / TV, "
+    ],
+    [
+     14,
+     "pl-e",
+     "28 Worth the detour within Dow"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cleveland.html gallery desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html gallery desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html gallery desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html atlas mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cleveland.html atlas mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "194 places · 4 areas · every o"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cleveland.html atlas mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 38,
+    "eg": [
+     [
+      52,
+      42,
+      "INPUT "
+     ],
+     [
+      97,
+      41,
+      "A The Arcade (Old "
+     ],
+     [
+      137,
+      41,
+      "A Terminal Tower O"
+     ],
+     [
+      143,
+      41,
+      "A Soldiers' & Sail"
+     ],
+     [
+      87,
+      20,
+      "A Free Stamp"
+     ],
+     [
+      95,
+      41,
+      "A Rock & Roll Hall"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html atlas mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html atlas mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html atlas desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cleveland.html atlas desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "194 places · 4 areas · every o"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Atlas Obscura, "
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Bourdain / TV, "
+    ],
+    [
+     14,
+     "pl-e",
+     "28 Worth the detour within Dow"
+    ],
+    [
+     14,
+     "pl-e",
+     "29 Worth the detour within Dow"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cleveland.html atlas desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 9,
+    "eg": [
+     [
+      18,
+      18,
+      "INPUT "
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html atlas desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html atlas desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html guidebook mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cleveland.html guidebook mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "gfacts",
+     "148 sights · 46 places to eat "
+    ],
+    [
+     14,
+     "gsig",
+     "★ Only in Cleveland: 18 places"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cleveland.html guidebook mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 1,
+    "eg": [
+     [
+      294,
+      42,
+      "A Chess Collection"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html guidebook mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html guidebook mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html guidebook desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cleveland.html guidebook desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "gfacts",
+     "148 sights · 46 places to eat "
+    ],
+    [
+     14,
+     "gsig",
+     "★ Only in Cleveland: 18 places"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cleveland.html guidebook desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 2,
+    "eg": [
+     [
+      268,
+      42,
+      "A Chess Collection"
+     ],
+     [
+      226,
+      21,
+      "A Slyman's Restaur"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html guidebook desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html guidebook desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html insights mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cleveland.html insights mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     12,
+     "fn",
+     "This city has no pop-culture c"
+    ],
+    [
+     12,
+     "fn",
+     "Citations, not places: a place"
+    ],
+    [
+     12,
+     "fn",
+     "Computed from 180 of 194 place"
+    ],
+    [
+     12,
+     "fn",
+     "Closed places stay in every vi"
+    ],
+    [
+     12,
+     "fn",
+     "Bars count canon places whose "
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cleveland.html insights mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 8,
+    "eg": [
+     [
+      31,
+      44,
+      "[object SVGAnimatedStr All of Cleveland"
+     ],
+     [
+      8,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      34,
+      44,
+      "[object SVGAnimatedStr University Circl"
+     ],
+     [
+      19,
+      44,
+      "[object SVGAnimatedStr Suburbs, Metropa"
+     ],
+     [
+      10,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      27,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html insights mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html insights mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html insights desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cleveland.html insights desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     12,
+     "fn",
+     "This city has no pop-culture c"
+    ],
+    [
+     12,
+     "fn",
+     "Citations, not places: a place"
+    ],
+    [
+     12,
+     "fn",
+     "Computed from 180 of 194 place"
+    ],
+    [
+     12,
+     "fn",
+     "Closed places stay in every vi"
+    ],
+    [
+     12,
+     "fn",
+     "Bars count canon places whose "
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cleveland.html insights desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 14,
+    "eg": [
+     [
+      22,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      27,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      19,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      19,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      32,
+      44,
+      "[object SVGAnimatedStr University Circl"
+     ],
+     [
+      22,
+      44,
+      "[object SVGAnimatedStr University Circl"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html insights desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html insights desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "index.html hub mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "index.html hub mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "archive sm muted",
+     "Looking for the rest of Southe"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "index.html hub mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "index.html hub mobile: focus ring on the first 40 tab stops",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "index.html hub mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "index.html hub desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "index.html hub desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "archive sm muted",
+     "Looking for the rest of Southe"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "index.html hub desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "index.html hub desktop: focus ring on the first 40 tab stops",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "index.html hub desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Japan/index.html hub mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Japan/index.html hub mobile: body copy ≥ 16 px",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "targets",
+   "name": "Japan/index.html hub mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Japan/index.html hub mobile: focus ring on the first 40 tab stops",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Japan/index.html hub mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Japan/index.html hub desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Japan/index.html hub desktop: body copy ≥ 16 px",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "targets",
+   "name": "Japan/index.html hub desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Japan/index.html hub desktop: focus ring on the first 40 tab stops",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Japan/index.html hub desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/index.html hub mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Singapore/index.html hub mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "dest-views",
+     "Read as a guidebook — Toa Payo"
+    ],
+    [
+     14,
+     "dest-views",
+     "Read as a guidebook — Ang Mo K"
+    ],
+    [
+     14,
+     "dest-views",
+     "Read as a guidebook — Potong P"
+    ],
+    [
+     14,
+     "dest-views",
+     "Read as a guidebook — Upper Se"
+    ],
+    [
+     14,
+     "dest-views",
+     "Read as a guidebook — Newton &"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "Singapore/index.html hub mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Singapore/index.html hub mobile: focus ring on the first 40 tab stops",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/index.html hub mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/index.html hub desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Singapore/index.html hub desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "dest-views",
+     "Read as a guidebook — Toa Payo"
+    ],
+    [
+     14,
+     "dest-views",
+     "Read as a guidebook — Ang Mo K"
+    ],
+    [
+     14,
+     "dest-views",
+     "Read as a guidebook — Potong P"
+    ],
+    [
+     14,
+     "dest-views",
+     "Read as a guidebook — Upper Se"
+    ],
+    [
+     14,
+     "dest-views",
+     "Read as a guidebook — Newton &"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "Singapore/index.html hub desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Singapore/index.html hub desktop: focus ring on the first 40 tab stops",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/index.html hub desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Vietnam/index.html hub mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Vietnam/index.html hub mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "dest-views",
+     "Read as a guidebook — Ho Chi M"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "Vietnam/index.html hub mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Vietnam/index.html hub mobile: focus ring on the first 40 tab stops",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Vietnam/index.html hub mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Vietnam/index.html hub desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Vietnam/index.html hub desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "dest-views",
+     "Read as a guidebook — Ho Chi M"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "Vietnam/index.html hub desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Vietnam/index.html hub desktop: focus ring on the first 40 tab stops",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Vietnam/index.html hub desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Germany/index.html hub mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Germany/index.html hub mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "dest-views",
+     "Read as a guidebook — Saarbrüc"
+    ],
+    [
+     14,
+     "dest-views",
+     "Read as a guidebook — The Rhin"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "Germany/index.html hub mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Germany/index.html hub mobile: focus ring on the first 40 tab stops",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Germany/index.html hub mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Germany/index.html hub desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Germany/index.html hub desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "dest-views",
+     "Read as a guidebook — Saarbrüc"
+    ],
+    [
+     14,
+     "dest-views",
+     "Read as a guidebook — The Rhin"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "Germany/index.html hub desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Germany/index.html hub desktop: focus ring on the first 40 tab stops",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Germany/index.html hub desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Belgium/index.html hub mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Belgium/index.html hub mobile: body copy ≥ 16 px",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "targets",
+   "name": "Belgium/index.html hub mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Belgium/index.html hub mobile: focus ring on the first 40 tab stops",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Belgium/index.html hub mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Belgium/index.html hub desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Belgium/index.html hub desktop: body copy ≥ 16 px",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "targets",
+   "name": "Belgium/index.html hub desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Belgium/index.html hub desktop: focus ring on the first 40 tab stops",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Belgium/index.html hub desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  }
+ ],
+ "info": {},
+ "a11y": [
+  {
+   "rel": "cities/tokyo.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "488 places · 13 areas · every "
+     ],
+     [
+      14,
+      "pl-w",
+      "The free public garden on the "
+     ],
+     [
+      14,
+      "pl-w",
+      "The 1869 Shintō shrine to Japa"
+     ],
+     [
+      14,
+      "pl-w",
+      "1,300-year-old shrine of Edo's"
+     ],
+     [
+      14,
+      "pl-w",
+      "Tatsuno Kingo's 1914 red-brick"
+     ]
+    ],
+    "smallN": 30,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "488 places · 13 areas · every "
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Savor Japan, Th"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Time Out, The W"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Time Out, JNTO,"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Tokyo Cheapo, R"
+     ]
+    ],
+    "smallN": 6,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "488 places · 13 areas · every "
+     ]
+    ],
+    "smallN": 1,
+    "targets": [
+     [
+      52,
+      42,
+      "INPUT "
+     ],
+     [
+      116,
+      41,
+      "A Imperial Palace "
+     ],
+     [
+      123,
+      20,
+      "A Yasukuni Shrine "
+     ],
+     [
+      104,
+      20,
+      "A Kanda Myōjin (神田"
+     ],
+     [
+      158,
+      41,
+      "A Tokyo Station Ma"
+     ],
+     [
+      103,
+      41,
+      "A Akihabara Electr"
+     ]
+    ],
+    "targetsN": 39,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "488 places · 13 areas · every "
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Savor Japan, Th"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Time Out, The W"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Time Out, JNTO,"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Tokyo Cheapo, R"
+     ]
+    ],
+    "smallN": 7,
+    "targets": [
+     [
+      18,
+      18,
+      "INPUT "
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ]
+    ],
+    "targetsN": 9,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "gfacts",
+      "263 sights · 225 places to eat"
+     ],
+     [
+      14,
+      "gsig",
+      "★ Anime, Manga & Pop Culture: "
+     ]
+    ],
+    "smallN": 2,
+    "targets": [
+     [
+      294,
+      42,
+      "A Imperial Palace "
+     ]
+    ],
+    "targetsN": 1,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "gfacts",
+      "263 sights · 225 places to eat"
+     ],
+     [
+      14,
+      "gsig",
+      "★ Anime, Manga & Pop Culture: "
+     ]
+    ],
+    "smallN": 2,
+    "targets": [
+     [
+      268,
+      42,
+      "A Imperial Palace "
+     ],
+     [
+      215,
+      21,
+      "A Chidorigafuchi 千"
+     ],
+     [
+      268,
+      42,
+      "A Mandarake Comple"
+     ]
+    ],
+    "targetsN": 3,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      12,
+      "fn",
+      "Pop culture = sights in the ci"
+     ],
+     [
+      12,
+      "fn",
+      "Citations, not places: a place"
+     ],
+     [
+      12,
+      "fn",
+      "Computed from 487 of 488 place"
+     ],
+     [
+      12,
+      "fn",
+      "Closed places stay in every vi"
+     ],
+     [
+      12,
+      "fn",
+      "Bars count canon places whose "
+     ]
+    ],
+    "smallN": 6,
+    "targets": [
+     [
+      12,
+      44,
+      "[object SVGAnimatedStr All of Tokyo · P"
+     ],
+     [
+      21,
+      44,
+      "[object SVGAnimatedStr Chiyoda-ku · Pop"
+     ],
+     [
+      35,
+      44,
+      "[object SVGAnimatedStr Chūō-ku · Sights"
+     ],
+     [
+      3,
+      44,
+      "[object SVGAnimatedStr Minato-ku · Pop "
+     ],
+     [
+      11,
+      44,
+      "[object SVGAnimatedStr Shinjuku-ku · Po"
+     ],
+     [
+      7,
+      44,
+      "[object SVGAnimatedStr Shibuya-ku · Pop"
+     ]
+    ],
+    "targetsN": 19,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      12,
+      "fn",
+      "Pop culture = sights in the ci"
+     ],
+     [
+      12,
+      "fn",
+      "Citations, not places: a place"
+     ],
+     [
+      12,
+      "fn",
+      "Computed from 487 of 488 place"
+     ],
+     [
+      12,
+      "fn",
+      "Closed places stay in every vi"
+     ],
+     [
+      12,
+      "fn",
+      "Bars count canon places whose "
+     ]
+    ],
+    "smallN": 6,
+    "targets": [
+     [
+      33,
+      44,
+      "[object SVGAnimatedStr All of Tokyo · P"
+     ],
+     [
+      11,
+      44,
+      "[object SVGAnimatedStr Minato-ku · Pop "
+     ],
+     [
+      29,
+      44,
+      "[object SVGAnimatedStr Shinjuku-ku · Po"
+     ],
+     [
+      20,
+      44,
+      "[object SVGAnimatedStr Shibuya-ku · Pop"
+     ],
+     [
+      6,
+      44,
+      "[object SVGAnimatedStr Taitō-ku · Pop c"
+     ],
+     [
+      42,
+      44,
+      "[object SVGAnimatedStr Sumida-ku & Kōtō"
+     ]
+    ],
+    "targetsN": 33,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "194 places · 4 areas · every o"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Fox 8 Cleveland"
+     ],
+     [
+      14,
+      "pl-w",
+      "This is the right building. Th"
+     ],
+     [
+      14,
+      "pl-w",
+      "Five-story glass-roofed atrium"
+     ],
+     [
+      14,
+      "pl-w",
+      "The 42nd floor of a 52-story t"
+     ]
+    ],
+    "smallN": 29,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "194 places · 4 areas · every o"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Fox 8 Cleveland"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Atlas Obscura, "
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Bourdain / TV, "
+     ],
+     [
+      14,
+      "pl-e",
+      "28 Worth the detour within Dow"
+     ]
+    ],
+    "smallN": 15,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "194 places · 4 areas · every o"
+     ]
+    ],
+    "smallN": 1,
+    "targets": [
+     [
+      52,
+      42,
+      "INPUT "
+     ],
+     [
+      97,
+      41,
+      "A The Arcade (Old "
+     ],
+     [
+      137,
+      41,
+      "A Terminal Tower O"
+     ],
+     [
+      143,
+      41,
+      "A Soldiers' & Sail"
+     ],
+     [
+      87,
+      20,
+      "A Free Stamp"
+     ],
+     [
+      95,
+      41,
+      "A Rock & Roll Hall"
+     ]
+    ],
+    "targetsN": 38,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "194 places · 4 areas · every o"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Atlas Obscura, "
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Bourdain / TV, "
+     ],
+     [
+      14,
+      "pl-e",
+      "28 Worth the detour within Dow"
+     ],
+     [
+      14,
+      "pl-e",
+      "29 Worth the detour within Dow"
+     ]
+    ],
+    "smallN": 10,
+    "targets": [
+     [
+      18,
+      18,
+      "INPUT "
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ]
+    ],
+    "targetsN": 9,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "gfacts",
+      "148 sights · 46 places to eat "
+     ],
+     [
+      14,
+      "gsig",
+      "★ Only in Cleveland: 18 places"
+     ]
+    ],
+    "smallN": 2,
+    "targets": [
+     [
+      294,
+      42,
+      "A Chess Collection"
+     ]
+    ],
+    "targetsN": 1,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "gfacts",
+      "148 sights · 46 places to eat "
+     ],
+     [
+      14,
+      "gsig",
+      "★ Only in Cleveland: 18 places"
+     ]
+    ],
+    "smallN": 2,
+    "targets": [
+     [
+      268,
+      42,
+      "A Chess Collection"
+     ],
+     [
+      226,
+      21,
+      "A Slyman's Restaur"
+     ]
+    ],
+    "targetsN": 2,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      12,
+      "fn",
+      "This city has no pop-culture c"
+     ],
+     [
+      12,
+      "fn",
+      "Citations, not places: a place"
+     ],
+     [
+      12,
+      "fn",
+      "Computed from 180 of 194 place"
+     ],
+     [
+      12,
+      "fn",
+      "Closed places stay in every vi"
+     ],
+     [
+      12,
+      "fn",
+      "Bars count canon places whose "
+     ]
+    ],
+    "smallN": 6,
+    "targets": [
+     [
+      31,
+      44,
+      "[object SVGAnimatedStr All of Cleveland"
+     ],
+     [
+      8,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      34,
+      44,
+      "[object SVGAnimatedStr University Circl"
+     ],
+     [
+      19,
+      44,
+      "[object SVGAnimatedStr Suburbs, Metropa"
+     ],
+     [
+      10,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      27,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ]
+    ],
+    "targetsN": 8,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      12,
+      "fn",
+      "This city has no pop-culture c"
+     ],
+     [
+      12,
+      "fn",
+      "Citations, not places: a place"
+     ],
+     [
+      12,
+      "fn",
+      "Computed from 180 of 194 place"
+     ],
+     [
+      12,
+      "fn",
+      "Closed places stay in every vi"
+     ],
+     [
+      12,
+      "fn",
+      "Bars count canon places whose "
+     ]
+    ],
+    "smallN": 6,
+    "targets": [
+     [
+      22,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      27,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      19,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      19,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      32,
+      44,
+      "[object SVGAnimatedStr University Circl"
+     ],
+     [
+      22,
+      44,
+      "[object SVGAnimatedStr University Circl"
+     ]
+    ],
+    "targetsN": 14,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "index.html",
+   "view": "hub",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "archive sm muted",
+      "Looking for the rest of Southe"
+     ]
+    ],
+    "smallN": 1,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": []
+   }
+  },
+  {
+   "rel": "index.html",
+   "view": "hub",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "index.html",
+   "view": "hub",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "archive sm muted",
+      "Looking for the rest of Southe"
+     ]
+    ],
+    "smallN": 1,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": []
+   }
+  },
+  {
+   "rel": "index.html",
+   "view": "hub",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "Japan/index.html",
+   "view": "hub",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [],
+    "smallN": 0,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": []
+   }
+  },
+  {
+   "rel": "Japan/index.html",
+   "view": "hub",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "Japan/index.html",
+   "view": "hub",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [],
+    "smallN": 0,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": []
+   }
+  },
+  {
+   "rel": "Japan/index.html",
+   "view": "hub",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "Singapore/index.html",
+   "view": "hub",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "dest-views",
+      "Read as a guidebook — Toa Payo"
+     ],
+     [
+      14,
+      "dest-views",
+      "Read as a guidebook — Ang Mo K"
+     ],
+     [
+      14,
+      "dest-views",
+      "Read as a guidebook — Potong P"
+     ],
+     [
+      14,
+      "dest-views",
+      "Read as a guidebook — Upper Se"
+     ],
+     [
+      14,
+      "dest-views",
+      "Read as a guidebook — Newton &"
+     ]
+    ],
+    "smallN": 7,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": []
+   }
+  },
+  {
+   "rel": "Singapore/index.html",
+   "view": "hub",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "Singapore/index.html",
+   "view": "hub",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "dest-views",
+      "Read as a guidebook — Toa Payo"
+     ],
+     [
+      14,
+      "dest-views",
+      "Read as a guidebook — Ang Mo K"
+     ],
+     [
+      14,
+      "dest-views",
+      "Read as a guidebook — Potong P"
+     ],
+     [
+      14,
+      "dest-views",
+      "Read as a guidebook — Upper Se"
+     ],
+     [
+      14,
+      "dest-views",
+      "Read as a guidebook — Newton &"
+     ]
+    ],
+    "smallN": 7,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": []
+   }
+  },
+  {
+   "rel": "Singapore/index.html",
+   "view": "hub",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "Vietnam/index.html",
+   "view": "hub",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "dest-views",
+      "Read as a guidebook — Ho Chi M"
+     ]
+    ],
+    "smallN": 1,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": []
+   }
+  },
+  {
+   "rel": "Vietnam/index.html",
+   "view": "hub",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "Vietnam/index.html",
+   "view": "hub",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "dest-views",
+      "Read as a guidebook — Ho Chi M"
+     ]
+    ],
+    "smallN": 1,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": []
+   }
+  },
+  {
+   "rel": "Vietnam/index.html",
+   "view": "hub",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "Germany/index.html",
+   "view": "hub",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "dest-views",
+      "Read as a guidebook — Saarbrüc"
+     ],
+     [
+      14,
+      "dest-views",
+      "Read as a guidebook — The Rhin"
+     ]
+    ],
+    "smallN": 2,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": []
+   }
+  },
+  {
+   "rel": "Germany/index.html",
+   "view": "hub",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "Germany/index.html",
+   "view": "hub",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "dest-views",
+      "Read as a guidebook — Saarbrüc"
+     ],
+     [
+      14,
+      "dest-views",
+      "Read as a guidebook — The Rhin"
+     ]
+    ],
+    "smallN": 2,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": []
+   }
+  },
+  {
+   "rel": "Germany/index.html",
+   "view": "hub",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "Belgium/index.html",
+   "view": "hub",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [],
+    "smallN": 0,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": []
+   }
+  },
+  {
+   "rel": "Belgium/index.html",
+   "view": "hub",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  },
+  {
+   "rel": "Belgium/index.html",
+   "view": "hub",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [],
+   "ux": {
+    "smallBody": [],
+    "smallN": 0,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": []
+   }
+  },
+  {
+   "rel": "Belgium/index.html",
+   "view": "hub",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [],
+   "ux": null
+  }
+ ]
+}
