@@ -26,6 +26,10 @@ on:
         description: "What this run may fetch: heroes | priority | pilots | all (fetch-commons.js --scope)"
         required: false
         default: priority
+      budget:
+        description: "Commons API requests this run (1-1500; 400 ms apart). Default 300; a wide `all` sweep may use up to 1500"
+        required: false
+        default: "300"
   push:
     branches: [claude/peaceful-goodall-i0hsrt]
     paths:
@@ -44,7 +48,7 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     env:
       UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
     steps:
@@ -73,10 +77,12 @@ jobs:
         # so no stray run can pull hundreds of photos.
         env:
           SCOPE: ${{ github.event.inputs.scope || 'priority' }}
+          BUDGET: ${{ github.event.inputs.budget || '300' }}
         run: |
           case "$SCOPE" in heroes|priority|pilots|all) ;; *) echo "::error::unknown scope '$SCOPE'"; exit 1;; esac
+          [[ "$BUDGET" =~ ^[0-9]+$ && "$BUDGET" -ge 1 && "$BUDGET" -le 1500 ]] || { echo "::error::budget must be 1-1500"; exit 1; }
           if [ -f tools/beta/imagery/fetch-commons.js ]; then
-            node tools/beta/imagery/fetch-commons.js --scope "$SCOPE" --budget 300 --widths 500,960 --hero-widths 500,960
+            node tools/beta/imagery/fetch-commons.js --scope "$SCOPE" --budget "$BUDGET" --widths 500,960 --hero-widths 500,960
           else
             echo "::warning::tools/beta/imagery/fetch-commons.js is not on this branch; skipping Commons."
           fi
