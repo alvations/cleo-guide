@@ -133,9 +133,10 @@ async function open(browser, base, rel, vpName, o = {}) {
   const ctx = await browser.newContext({ ...VP[vpName], serviceWorkers: 'block', colorScheme: o.scheme || 'light',
     javaScriptEnabled: o.js !== false, reducedMotion: 'reduce' });
   const page = await ctx.newPage();
-  // bytes = the whole session (load + every probe, focus walk, reachability stress and tray flow, which scroll every card
-  // and so load every lazy photo); load = the first load only (snapshot after `load` + settle), raw and as a transfer
-  // estimate (gzip for text; images/fonts as sent). Platform W7: both reported, so the first-load budget is measurable.
+  // session (bytes) = the whole session: load + every probe, focus walk, reachability stress and tray flow, which scroll
+  // every card and so load every lazy photo — INFORMATIONAL. initial = the default view at first load, no user scroll,
+  // up to network idle + 2 s: only what the browser actually fetched (lazy images below the fold excluded), raw and as
+  // a transfer estimate (gzip for text; images/fonts as sent) — GATED ≤ 2.0 MB (platform W7, proposed D-38).
   // ctx.route() (needed to block off-origin requests) disables Chromium's HTTP/memory cache, so a URL shown twice (a
   // card and its rail copy) or revisited during the stress loop is downloaded again — a real browser would not. Bytes
   // count each URL once; the raw sum of every response stays in bytesAllResponses for reference.
@@ -165,6 +166,7 @@ async function open(browser, base, rel, vpName, o = {}) {
   try { await page.goto(base + 'beta/' + rel + vhash(rel, o.hash), { waitUntil: 'load', timeout: 45000 }); }
   catch (e) { loadErr = String(e.message || e).slice(0, 200); }
   await page.waitForTimeout(o.settle || 400);
+  if (o.initial) { await page.waitForLoadState('networkidle', { timeout: 20000 }).catch(() => {}); await page.waitForTimeout(2000); }
   await Promise.all(st.pend); st.load = { bytes: st.bytes, gz: st.gz }; st.pend = [];
   return { ctx, page, st, loadErr };
 }
@@ -654,7 +656,7 @@ async function measure(browser, base, rel) {
   const out = { page: rel, gen: exp ? exp.gen : ((MAN.generated || []).includes(rel) ? 'new' : 'mirror'), expected: exp && { total: exp.total, sights: exp.sights, food: exp.food, live: exp.live } };
   for (const vp of ['mobile', 'desktop']) {
     const v = out[vp] = {};
-    let s = await open(browser, base, rel, vp);
+    let s = await open(browser, base, rel, vp, { initial: true });
     v.loadErr = s.loadErr;
     try {
       Object.assign(v, await s.page.evaluate(PROBE));
@@ -681,7 +683,7 @@ async function measure(browser, base, rel) {
       }
     } catch (e) { v.probeErr = String(e.message || e).slice(0, 200); }
     v.errorsStress = s.st.errors.length - (v.errorsLoad || 0);
-    v.errors = s.st.errors.slice(0, v.errorsLoad == null ? undefined : v.errorsLoad); v.stressErrorSample = [...new Set(s.st.errors.slice(v.errorsLoad || 0).map(e => e.slice(0, 120)))].slice(0, 3); v.local404 = s.st.local404; v.bytes = s.st.bytes; v.bytesAllResponses = s.st.bytesAll; v.load = s.st.load; v.offOriginBlocked = s.st.offOrigin;
+    v.errors = s.st.errors.slice(0, v.errorsLoad == null ? undefined : v.errorsLoad); v.stressErrorSample = [...new Set(s.st.errors.slice(v.errorsLoad || 0).map(e => e.slice(0, 120)))].slice(0, 3); v.local404 = s.st.local404; v.bytes = s.st.bytes; v.bytesAllResponses = s.st.bytesAll; v.initial = s.st.load; v.session = { bytes: s.st.bytes }; v.offOriginBlocked = s.st.offOrigin;
     await s.ctx.close();
 
     // night theme contrast
@@ -777,8 +779,11 @@ function grade(m) {
   rows['Tiles OSM/Esri only'] = P(!mo.tileHosts && !de.tileHosts ? null : (mo.tileHostsOk !== false && de.tileHostsOk !== false), [...new Set([...(mo.tileHosts || []), ...(de.tileHosts || [])])].join(', ') || 'no tiles requested');
   const kb = n => Math.round((n || 0) / 1024).toLocaleString('en-US') + ' KB';
   rows['Perf: bytes / DOM / FCP / FCP 4×'] = P(null, `${Math.round((de.bytes || 0) / 1024)} KB · ${de.domNodes} nodes · ${de.fcp} ms · ${m.cpu4x && m.cpu4x.fcp} ms`);
-  // platform W7: the first load alone (the ≤ 2.0 MB budget), desktop and phone @3×; the row above is the whole session
-  rows['Perf: first load raw / transfer (desktop · phone)'] = P(null, de.load && mo.load ? `${kb(de.load.bytes)} / ${kb(de.load.gz)} · ${kb(mo.load.bytes)} / ${kb(mo.load.gz)}` : 'n/a');
+  // platform W7 (proposed D-38): the budget is the default view at first load (no scroll, network idle + 2 s), transfer
+  // ≤ 2.0 MB (2,000,000 B) on desktop AND phone @3×. The row above (whole session, unique URLs) stays informational.
+  const ini = de.initial && mo.initial;
+  rows['Perf: initial load transfer ≤ 2.0 MB (desktop · phone@3×; raw in brackets)'] = P(ini ? de.initial.gz <= 2e6 && mo.initial.gz <= 2e6 : false,
+    ini ? `${kb(de.initial.gz)} (${kb(de.initial.bytes)}) · ${kb(mo.initial.gz)} (${kb(mo.initial.bytes)})` : 'not measured');
   const vals = Object.values(rows).filter(r => r.pass !== null);
   const hardKeys = Object.keys(rows).filter(k => /^(G1|G4|G6|B-12)/.test(k));
   return { rows, passed: vals.filter(r => r.pass).length, total: vals.length, hardFail: hardKeys.filter(k => rows[k].pass === false) };

@@ -271,5 +271,30 @@ ok(fplan.findIndex(p => p.t.type === 'landmark') === fplan.filter(p => p.t.type 
 const onDisk = path.join(BETA, 'assets', 'img', 'manifest.json');
 ok(fs.existsSync(onDisk) && JSON.parse(fs.readFileSync(onDisk, 'utf8')).items.length === m.items.length, 'beta/assets/img/manifest.json is current');
 
+// ---------------------------------------------------------------- 6. heroPreload (platform W7): lazy hero + early preload
+console.log('imagery: hero preload (no fetch when the page opens in Atlas)');
+{
+  const ph = { src: 'assets/img/photos/hero--x-960.jpg', w: 960, h: 540, widths: [{ src: 'assets/img/photos/hero--x-500.jpg', w: 500 }, { src: 'assets/img/photos/hero--x-960.jpg', w: 960 }], credit: { depicts: 'X' } };
+  const tag = photos.heroPreload(ph, '../');
+  const run = ({ hash = '', view = null, stored, throws = false }) => {
+    const dom = new JSDOM(`<!doctype html><html${view ? ` data-view="${view}"` : ''}><head>${tag}</head><body></body></html>`, {
+      runScripts: 'dangerously', url: 'https://x.test/beta/cities/x.html' + hash,
+      beforeParse(w) {
+        if (throws) Object.defineProperty(w, 'localStorage', { get() { throw new Error('SecurityError'); } });
+        else if (stored !== undefined) w.localStorage.setItem('cleo:v1:view', JSON.stringify(stored));
+      } });
+    const l = dom.window.document.querySelector('link[rel=preload][as=image]');
+    return l ? [l.getAttribute('href'), l.getAttribute('imagesrcset'), l.getAttribute('imagesizes'), l.getAttribute('fetchpriority')].join('|') : 'none';
+  };
+  const want = '../assets/img/photos/hero--x-960.jpg|../assets/img/photos/hero--x-500.jpg 500w, ../assets/img/photos/hero--x-960.jpg 960w|' + photos.HERO_SIZES + '|high';
+  ok(run({}) === want, 'heroPreload: Gallery (no hash, no preference) preloads the hero with the img\'s srcset/sizes, fetchpriority=high');
+  ok(run({ view: 'atlas' }) === 'none' && run({ hash: '#view=atlas' }) === 'none' && run({ stored: 'atlas' }) === 'none', 'heroPreload: skipView — html[data-view=atlas], #view=atlas or a stored Atlas preference fetch nothing');
+  ok(run({ view: 'gallery', stored: 'atlas' }) === want && run({ hash: '#view=guidebook' }) === want, 'heroPreload: the boot script\'s data-view wins over storage; other views preload');
+  ok(run({ throws: true }) === want, 'heroPreload: storage that throws (sandbox) is caught — the hero still preloads, no error');
+  ok(!/document\.write/.test(tag) && /try\{/.test(tag), 'heroPreload: no document.write; localStorage inside try/catch');
+  const fig = photos.heroHtml(ph, '../', 'photo hero-media', { preloaded: true });
+  ok(/ loading="lazy" fetchpriority="high"/.test(fig) && /<figcaption>/.test(fig), 'heroHtml { preloaded }: lazy img (never fetched while hidden) at high priority, credit kept');
+}
+
 if (fails) { console.error(`>>> FAIL — imagery: ${fails} check(s) failed`); process.exit(1); }
 console.log('>>> PASS — imagery: credit gate, motifs and manifest');
