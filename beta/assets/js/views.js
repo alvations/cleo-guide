@@ -1,5 +1,5 @@
 /* generated copy of tools/beta/client/views.js — do not edit here */
-/* views.js (FE-A): view switcher + registry (SPEC §2.4), Gallery pager (§2.3), Atlas tray (§3.2). Nothing removes a card. */
+/* views.js (FE-A): view switcher + registry (SPEC §2.4), Gallery pager (§2.3); Atlas layout hooks (Atlas lane: atlas.js does the rest). Nothing removes a card. */
 (() => {
   'use strict';
   const Cleo = window.Cleo || {}, C = Cleo.city, d = document, html = d.documentElement;
@@ -163,52 +163,28 @@
   on(window, 'afterprint', () => page());
   if (window.matchMedia) { const mq = matchMedia('(min-width: 640px)'); const f = () => page(); if (mq.addEventListener) mq.addEventListener('change', f); else if (mq.addListener) mq.addListener(f); }
 
-  /* ---- Atlas, map-first (W6): desktop map ≥ 60 % + list panel; phones map + tray peek/half/full ---- */
-  const DET = ['peek', 'half', 'full'], tb = $('[data-cleo-toolbar]'), rail = $('#cleo-rail'), rbar = $('.railbar');
-  let grab = null, moved = [], det = 'peek', pushedDet = 0;
-  const mobile = () => !C.desk();
-  const setDet = (v, push) => {
-    det = v; if (split) split.setAttribute('data-detent', v);
-    if (grab) { grab.setAttribute('aria-label', 'List: ' + v + '. Change the list size'); grab.setAttribute('aria-expanded', String(v !== 'peek')); }
-    if (push && v === 'full' && !pushedDet) { try { history.pushState({ detent: 1 }, '', location.href); pushedDet = 1; } catch (e) {} }
-    if (v === 'peek' && lp) lp.scrollTop = 0;
-    const m = C.map && C.map(); if (m) setTimeout(() => { try { m.invalidateSize(); } catch (e) {} }, 220);
-  };
-  C.mapFirst = () => cur === 'atlas' && mobile();
-  C.detent = (v, push) => { if (v) setDet(v, push); return det; };
-  const park = (el, host, before) => { if (el && el.parentNode !== host) { moved.push([el, el.parentNode, el.nextSibling]); host.insertBefore(el, before || null); } };
-  const unpark = () => moved.splice(0).reverse().forEach(([el, par, nx]) => { if (nx && nx.parentNode === par) par.insertBefore(el, nx); else par.appendChild(el); });
-  function head() {
-    let th = $('.tray-head', lp); if (th) return th;
-    th = d.createElement('div'); th.className = 'tray-head'; th.innerHTML = '<button type="button" class="grab" data-detent-cycle aria-expanded="false"><span class="vh">List size</span></button>';
-    grab = th.firstChild; lp.insertBefore(th, lp.firstChild);
-    let y0 = null, sw = 0; on(th, 'pointerdown', e => { y0 = e.clientY; sw = 0; }); on(th, 'pointerup', e => { if (y0 == null) return; const dy = e.clientY - y0; y0 = null;
-      if (Math.abs(dy) < 24) return; sw = 1; const i = DET.indexOf(det); setDet(DET[Math.max(0, Math.min(2, i + (dy < 0 ? 1 : -1)))], dy < 0); });
-    on(grab, 'click', () => { if (sw) { sw = 0; return; } const i = DET.indexOf(det); setDet(DET[(i + 1) % 3], true); });
-    return th;
-  }
+  /* ---- Atlas = map search (W7 Amendment 2: the real-estate map-search pattern, for travel) ----
+   * The layout is CSS on html[data-view=atlas] from first paint (atlas.css: desktop map-left split with a 2-column card
+   * grid; phones the map is the screen with a card carousel). The filter bar, results line, List / Map pill and the
+   * map-area filter are atlas.js (Atlas lane), loaded on entering Atlas — off the eager path. Without it, or without
+   * the map, the list still holds every place. State classes on <html>: atlas-d / atlas-m (layout), ms-*. */
+  C.mapFirst = () => cur === 'atlas' && !C.desk();
+  // desktop: the split fills the rest of the first screen (map bottom = viewport bottom), measured, never guessed
+  const fitSplit = C.fitSplit = () => { if (!split || !C.desk() || cur !== 'atlas') return; split.style.removeProperty('--atlas-top');
+    const t = Math.round(split.getBoundingClientRect().top + (window.scrollY || 0)); if (t > 0) split.style.setProperty('--atlas-top', t + 'px'); const m = C.map && C.map(); if (m) m.invalidateSize(); };
+  let rt; on(window, 'resize', () => { clearTimeout(rt); rt = setTimeout(fitSplit, 150); });
   function atlasIn() {
     if (!split) return;
-    html.classList.toggle('atlas-m', mobile()); html.classList.toggle('atlas-d', !mobile());
-    const th = head();
-    if (!mobile()) {
-      unpark(); const at0 = th.nextSibling; [rail, rbar, tb].forEach(el => park(el, lp, at0));
-      split.removeAttribute('data-detent');
-      if (C.loadMap) C.loadMap(() => { if (C.fitSplit) C.fitSplit(); });
-      nopin(); return;
-    }
-    unpark(); [tb, rail].forEach(el => park(el, th));
-    if (C.loadMap) C.loadMap(() => { const m = C.map(); if (m) m.invalidateSize(); });
-    setDet(det); nopin();
+    const m = !C.desk(); html.classList.toggle('atlas-m', m); html.classList.toggle('atlas-d', !m);
+    if (C.need) C.need('atlas', () => { if (cur === 'atlas' && C.msIn) { C.msIn(); fitSplit(); } });
+    if (C.loadMap) C.loadMap(() => { fitSplit(); if (C.msArea) C.msArea(); });
+    requestAnimationFrame(fitSplit); if (d.fonts && d.fonts.ready) d.fonts.ready.then(fitSplit);
+    nopin();
   }
   function atlasOut() {
-    html.classList.remove('atlas-m'); html.classList.remove('atlas-d'); if (lp) lp.removeAttribute('inert');   // a pin sheet's inert tray never outlives the phone map
-    unpark(); if (split) { split.removeAttribute('data-detent'); split.style.removeProperty('--atlas-top'); }
+    ['atlas-m', 'atlas-d', 'ms-list', 'ms-on'].forEach(k => html.classList.remove(k));
+    if (C.msOut) C.msOut(); if (split) split.style.removeProperty('--atlas-top');
   }
-  on(d, 'keydown', e => { if (e.key !== 'Escape' || cur !== 'atlas' || !mobile() || det === 'peek') return;
-    if ((Cleo.sheet && Cleo.sheet.isOpen()) || $('.overlay:not([hidden])') || ($('#cleo-poi') && !$('#cleo-poi').hidden)) return;
-    setDet(det === 'full' ? 'half' : 'peek'); });
-  on(window, 'popstate', () => { if (pushedDet) { pushedDet = 0; if (cur === 'atlas' && det === 'full') setDet('half'); } });
   if (window.matchMedia) { const mq = matchMedia('(min-width: 1024px)'); const f = () => { if (cur === 'atlas') atlasIn(); }; if (mq.addEventListener) mq.addEventListener('change', f); else if (mq.addListener) mq.addListener(f); }
   // places without a verified pin are listed, never dropped (R-17): a floating badge on the Atlas map says so
   function nopin() {
@@ -218,8 +194,7 @@
     if (!b) { b = d.createElement('p'); b.className = 'nopin'; mp.appendChild(b); }
     b.textContent = n + ' without a verified pin · in the list';
   }
-
-  // area chips (Atlas tray head): one tap = the area lens, a second tap clears it. Drawn here from the blob + card attrs.
+  // area chips (Atlas list head on desktop; the Area tray elsewhere): one tap = the area lens, a second tap clears it. Drawn here from the blob + card attrs.
   const chips = $('.area-chips');
   if (chips) { const n = {}; qa('li.pl').concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => { const a = c.getAttribute('data-a'); n[a] = (n[a] || 0) + 1; });
     chips.innerHTML = qa('section.area[data-area]').map(s => at(s, 'data-area')).filter(a => n[a]).map(a => { const x = (info.areas || {})[a] || {};

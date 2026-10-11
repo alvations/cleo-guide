@@ -92,7 +92,8 @@ if (!fs.existsSync(cssPath)) errors.push('beta/assets/cleo.css missing (designer
 else assetsV.css = sha(fs.readFileSync(cssPath));
 // FE-A page CSS (W2): city + saved mechanics cleo.css doesn't define yet, cached once instead of inlined per page.
 // Source owned by FE-A (tools/beta/lib/render/fe-a.css); DES upstreams rules into cleo.css over time.
-const feaCss = fs.readFileSync(path.join(__dirname, 'lib', 'render', 'fe-a.css'));
+// Atlas lane (W7 Amendment 2): Atlas map-search CSS (tools/beta/lib/render/atlas.css) rides in the same file — one request.
+const feaCss = Buffer.concat([fs.readFileSync(path.join(__dirname, 'lib', 'render', 'fe-a.css')), Buffer.from('\n'), fs.readFileSync(path.join(__dirname, 'lib', 'render', 'atlas.css'))]);
 emit('assets/fe-a.css', feaCss); const feaV = sha(feaCss);
 // FE-B page CSS (W7): landing, hubs and static pages — tokens only; source owned by FE-B (lib/render/fe-b.css).
 const febCss = fs.readFileSync(require('./lib/render/shell').FEB_CSS_SRC); emit('assets/fe-b.css', febCss);
