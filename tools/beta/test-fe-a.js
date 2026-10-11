@@ -317,6 +317,19 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     chk('no js errors (desktop)', errs.length === 0, errs.slice(0, 2));
   }
 
+  console.log('# W8: "Start with" names the lead card (R6 gap #8), every place page');
+  {
+    const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (e.name === 'data' || e.name === 'assets' ? [] : walk(path.join(d, e.name))) : e.name.endsWith('.html') ? [path.join(d, e.name)] : []);
+    const pages = walk(BETA).map(f => [f, fs.readFileSync(f, 'utf8')]).filter(([, h]) => /data-cleo-page="city"/.test(h)), bad = [];
+    for (const [f, h] of pages) {
+      const file = (/"file":"([^"]+)"/.exec(h) || [])[1], g = file && path.join(BETA, 'data/gallery', file + '.json');
+      const lead = g && fs.existsSync(g) ? JSON.parse(fs.readFileSync(g, 'utf8')).lead : null, a = /class="g-start"><a href="#p-([^"]+)">Start with ([^<]*)<\/a>/.exec(h);
+      const dn = s => s.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
+      if (!lead || !a || a[1] !== lead.id || !lead.n.startsWith(dn(a[2]))) bad.push([path.relative(BETA, f), a && a[1], lead && lead.id]);
+    }
+    chk(`"Start with" links and names the lead card's place on all ${pages.length} place pages`, pages.length >= 84 && !bad.length, bad.length ? bad.slice(0, 4) : pages.length);
+  }
+
   console.log(failures ? `\n>>> FAIL — ${failures} FE-A check(s) failed` : '\n>>> PASS — FE-A: for-you reorders only, days honest, near-me in memory, pin sheet Esc, shared lists, views (switcher, pager, Atlas, sheet n of N)');
   process.exit(failures ? 1 : 0);
 })();
