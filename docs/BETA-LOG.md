@@ -915,5 +915,12 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - **QA-41:** label pills carry the number at every zoom, and clusters are round dark bubbles.
     - **QA-44:** the first view fits the city core (pins within 3× the median distance of the median point). Chinatown fits at z15, not z6. The outlier stays in the list, behind "Show all" and a zoom out.
     - **For QA:** `tools/beta/qa/w6.js` still drives the R6 tray (`.grab`, `.mapclose`, detents), which is retired. It needs a W7 rewrite against the carousel and List / Map pill. I left it untouched because it is QA's probe.
+  - **Paged map-area list (DOM):** the list now pages like listing results. The first 48 places in the area go "Top ranked" across areas (each area's own tier, then rank), shown grouped by area, then "Show 48 more". Only the cards on show are stamped.
+    - Tokyo desktop Atlas: 12,392 → 3,023 DOM nodes.
+    - Raw first-load bytes (uncompressed): 2,100 KB desktop, 2,539 KB phone. HTML/CSS/JS gzip ≈ 5:1, so the transfer is well under 2,000 KB.
+  - **Photos for imagery + FE-A:**
+    - On the phone, the card photos load at 960 px for a 96–300 px slot (`sizes` is `100vw` below 640 px), and the hidden Atlas masthead still loads `hero--tokyo-960.jpg` (274 KB).
+    - Fix: an Atlas-aware `sizes` / lazy hero. That markup is FE-A's and imagery's, so I left it.
+    - In Atlas, photos are cropped 4:3 (they had been rendering 692 px tall). The phone carousel keeps the calm cover, because a 96 px thumb has no room for a legible credit. The map preview shows the photo with its credit.
   - **Gates on the final tree:** validate + `npm test` + `beta:check` all PASS (eager JS 39 KB gzip). w2 map 35/35, w5 64/64, `atlas-ms.js` 85/85.
   - **Evidence:** `design/beta/eval/w7/atlas/` (390 + 1440, light + dark, stub tiles + tiles blocked). Probe: `NODE_PATH=$(npm root -g) node tools/beta/atlas-ms.js`, the Amendment 2 acceptance as executable checks.
