@@ -263,3 +263,6 @@ html:root[data-view=atlas] #cleo-grid li.pl:not(.w7-cards li) > figure.pl-photo 
 :root .masthead .title .native { font-size: var(--fs-sm); }
 :root :is(.gcover .lead, .gfacts, .ch-intro, .hoods, .ins-h p, .icard p) { text-wrap: pretty; }
 :root :is(.ch-h h2, .ins-h h2) { text-wrap: balance; }
+
+/* ---------- V2.20 Focus rings never clip (Atlas SPEC-v3 §5, PANEL-R2-#12): inside overflow/scroll containers the ring is drawn inset ---------- */
+:root :is(.card, .cc, .chips, .list, .rail, .carousel) :is(a, button, input, select, textarea, [tabindex]):focus-visible { outline-offset: -2px; }
