@@ -125,8 +125,7 @@ When a label lowercases a proper noun, add the noun to `allowlist.json`, never t
 
 ## 1. The direction in one paragraph
 
-**Every city is drawn as the constellation of its verified pins.** The owner asked for "luxury yet fun — Airbnb
-Experiences meets a hotel butler meets your local guide; wanderlust; clean yet informative", and we have no venue
+**Every city is drawn as the constellation of its verified pins.** The owner asked for "luxury yet fun — [the leading home-rental marketplace's experiences] meets a hotel butler meets your local guide; wanderlust; clean yet informative", and we have no venue
 photos and may not fake any. So the visual anchor is *our own data, made beautiful*: a night-sky masthead where each
 star is a sourced coordinate (brighter = must-see, lines join each area's must-sees), and a **typographic plate** on
 every card — the place's native script set vertically (浅草寺) or a fashion-Didone initial, on its area's colour,
