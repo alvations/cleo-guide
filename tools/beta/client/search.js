@@ -58,6 +58,48 @@
       '<p>It needs the site index, which isn’t reachable right now. Every guide is still listed and every page works.</p></div>';
   };
 
+  /* ---- W9-6 paste a link: a source URL opens the places that source recommends. The URL is only PARSED (its host),
+   * never fetched; the lookup is the guides' own index (data/source-hosts.json, loaded lazily on the first pasted link). */
+  /** The host of q when q is a link or a bare domain ("https://www.timeout.com/tokyo", "timeout.com"), else null. */
+  Cleo.urlHost = function (q) {
+    var s = String(q || '').trim();
+    if (/\s/.test(s) || !/^(https?:\/\/)?([a-z0-9-]+\.)+[a-z]{2,}(:\d+)?([/?#]\S*)?$/i.test(s)) return null;
+    try { return new URL(/^https?:\/\//i.test(s) ? s : 'https://' + s).hostname.toLowerCase().replace(/^www\./, ''); } catch (e) { return null; }
+  };
+  var hidx = null;
+  Cleo.hostIndex = function () {
+    if (hidx) return hidx;
+    hidx = (window.fetch ? fetch((Cleo.root || '') + 'data/source-hosts.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      : Promise.reject(new Error('no fetch')));
+    hidx.catch(function () { hidx = null; });
+    return hidx;
+  };
+  /** Render the places a host's sources recommend, guide by guide (each opens that guide filtered to the source). */
+  Cleo.renderSource = function (el, idx, host) {
+    var h = host, rows = null;
+    while (h && !(rows = (idx.hosts || {})[h])) h = h.indexOf('.') > 0 && h.split('.').length > 2 ? h.slice(h.indexOf('.') + 1) : null;   // sub.example.com → example.com
+    if (!rows) {
+      el.innerHTML = '<div class="state" data-cleo-state="no-source"><h3>No guide cites ' + esc(host) + '.</h3>' +
+        '<p>Paste a link from a source the guides name — a newspaper, a guidebook, a creator — to see the places it recommends. Cleo only reads the address; it never opens the link.</p></div>';
+      return 0;
+    }
+    var n = rows.reduce(function (t, r) { return t + r[4]; }, 0);
+    el.innerHTML = '<h2 class="d3" data-cleo-source="' + esc(h) + '">' + n + ' ' + (n === 1 ? 'place' : 'places') + ' recommended by ' + esc(h) +
+      ' <span class="sm muted">in ' + rows.length + ' ' + (rows.length === 1 ? 'guide' : 'guides') + '</span></h2>' +
+      '<p class="sm muted">Cleo only read the link’s address; nothing was opened or fetched from it.</p>' +
+      '<section class="grp"><ol>' + rows.map(function (r) {
+        return '<li><a href="' + esc((Cleo.root || '') + r[0] + '#src=' + encodeURIComponent(r[2])) + '"><span>' + esc(r[1]) + '</span><span class="meta">' +
+          r[4] + ' ' + (r[4] === 1 ? 'place' : 'places') + ' · ' + esc(r[3]) + '</span></a></li>';
+      }).join('') + '</ol></section>';
+    return n;
+  };
+  /** One entry point for a query: a pasted link → its source's places; anything else → the place search. */
+  Cleo.query = function (el, q, onClear) {
+    var host = Cleo.urlHost(q);
+    if (host) return Cleo.hostIndex().then(function (idx) { return Cleo.renderSource(el, idx, host); });
+    return Cleo.searchIndex().then(function (data) { return Cleo.renderHits(el, data, q, onClear); });
+  };
+
   /** Arrow keys move through result links; ArrowDown from the input enters the list, Escape/ArrowUp at the top returns. */
   Cleo.kbNav = function (input, out) {
     var links = function () { return Array.prototype.filter.call(out.querySelectorAll('a[href], button'), function (a) { return !a.closest('[hidden]'); }); };
@@ -113,6 +155,7 @@
       var run = function () {
         var q = input.value.trim();
         if (!q) { out.innerHTML = ''; return; }
+        if (Cleo.urlHost(q)) { Cleo.hostIndex().then(function (idx) { if (input.value.trim() === q) Cleo.renderSource(out, idx, Cleo.urlHost(q)); }, function () { Cleo.indexFailed(out); }); return; }
         Cleo.searchIndex().then(function (data) { if (input.value.trim() === q) Cleo.renderHits(out, data, q, function () { input.value = ''; out.innerHTML = ''; input.focus(); }); },
           function () { Cleo.indexFailed(out); });
       };

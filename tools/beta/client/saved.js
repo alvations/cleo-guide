@@ -79,6 +79,8 @@
       : '<button type="button" class="btn btn-primary" data-sv="share"' + (S.refs.length ? '' : ' disabled') + '>' + ico('share') + 'Share link</button>') +
       (S.refs.length ? '<details class="exp"><summary class="btn btn-ghost">' + ico('download') + 'Export</summary><div class="pop"><button type="button" class="btn btn-quiet" data-sv="kml">KML (Google Earth, My Maps)</button>' +
         '<button type="button" class="btn btn-quiet" data-sv="geojson">GeoJSON</button>' + (S.shared ? '' : '<button type="button" class="btn btn-quiet" data-sv="json">Backup of all lists (JSON)</button>') + '</div></details>' : '') +
+      // FE-C W9-4 hook: "Make a trip" from this list (trip.html builds it; nothing here is written)
+      (S.refs.length ? '<a class="btn btn-ghost" data-cleo-trip href="trip.html#' + (S.shared ? 'list=' + Cleo.listCodec.encode(S.refs) + '&amp;n=' + encodeURIComponent(S.name) : 'from=' + encodeURIComponent(S.v)) + '">Make a trip</a>' : '') +
       (S.shared ? '' : '<button type="button" class="btn btn-ghost" data-sv="pick">Import backup</button><input type="file" accept="application/json,.json" data-sv="import" hidden>') +
       '</div>';
     var head = S.shared ? '<div class="sv-banner banner shared"><span class="eyebrow">Shared with you</span><h2>' + esc(S.name) + '</h2><p>A shared list of ' + S.refs.length + ' places — read only. It came as a link; nothing was stored on a server.</p>' +
