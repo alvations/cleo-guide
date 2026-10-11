@@ -1160,3 +1160,103 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Launched:**
     - R7 QA `session_017FLWXa5zgGWvqNo4C3UsvH`: W7 acceptance, D1–D13, re-test of QA-36…44, Atlas/cards/photos/type/budgets/no-regression/honesty, and ratification of the W7 rule edits (Atlas, FE-A, platform D-38, B-07 rewrite, B-04 in Atlas).
     - R7 independent evaluator `session_01Vx8PDHmhSZ8YgiQphvTLPs`: ROUND-7.md, same rubric, Typography & style sub-scorecard, D1–D13, owner-blocked points. It was not told any target.
+
+- 2026-10-11 18:33Z · **Orchestrator** · Owner request: thorough UI/UX review and iterative revision of the Atlas map with a panel, until the panel scores ≥ 95/100 · commit: this entry's commit
+  - **Owner:** "The map is just way off compared to how we originally envisioned it and the scoring all too noisy … iteratively revise and review the atlas map feature until it meets the panels score of >=95 out of 100". The panel includes Gen Z travel bloggers, Gen X travel planners and Boomer wanderlusters, alongside the UI/UX designer and the front-end engineer.
+  - **Charter:** `design/beta/atlas/PANEL.md` (af015696, 965b7a5c).
+    - **Original vision recap:** the live map-centred guide, the early map-centred beta, the real-estate map-search pattern, and the W7 look.
+    - **The orchestrator's round-0 observations AO-1…AO-8:**
+      - number soup: cluster counts, rank pills and ★ pills look alike;
+      - a whole-city cluster default;
+      - three stacked bars of about 210 px above the map;
+      - an area-grouped list full of counters;
+      - pin kinds unreadable;
+      - a phone control stack;
+      - card hierarchy;
+      - no real-tile evidence.
+    - **The panel:** eight simulated composite panelists: a UX designer, a front-end/a11y engineer, two Gen Z, two Gen X, two Boomer.
+    - **The rubric:** anchored, 100 points: map-first 15, pin/cluster signal-to-noise 20, map search 15, card↔pin↔preview↔detail 15, phone 15, craft 10, trust/access 10.
+    - **Noise controls:** fixed anchors and evidence pack; panelist agents never see targets or each other's scores; changes > 3 points need new evidence.
+    - **Tasks:** T1–T6.
+    - **The loop:** panel → designer SPEC-v3 → front-end build → panel. The plateau rule applies.
+  - **Real-tile evidence:** `.github/workflows/beta-atlas-real-shots.yml` shoots Atlas with the real no-key OSM/Esri tiles on a GitHub runner (the sandbox cannot reach tile hosts) into `design/beta/atlas/real/<label>/`. It is triggered by `design/beta/atlas/SHOTS-REQUEST` and runs `tools/beta/atlas-real-shots.js`, which the front-end engineer is writing now.
+  - **Sessions:**
+    - designer `session_011YjA2jku166RJrUyCiQV6B`, unarchived: SPEC-v3 with prototypes;
+    - front-end engineer: the Atlas lane `session_01Cuvo7DWhwbWjLpFicvaF5E` (real-shots script, then the SPEC-v3 slices);
+    - **panel** `session_01EKzwLjqF1Z1gwXWgbrrr2S`: round 0 on `965b7a5cb091097b10bc1fabb3eacaefdb491ae2`.
+  - R7 QA and the evaluator continue on `badcc20d`. They are unaffected.
+
+- 2026-10-11 18:42Z · **Orchestrator** · Owner: "autonomously continue to work and Fanout on the other agents lane". W8 part 1 fan-out (`design/beta/eval/W8-BRIEFS.md`) · commit: this entry's commit
+  - **FE-A:**
+    - "Start with" = lead card on all 84 pages (R6 gap #8);
+    - the day-plan / "Your guide" flow (R6 D 77);
+    - place detail and Gallery polish against D12/D13.
+  - **FE-B:**
+    - Guidebook and Insights under v2 (photo-led chapters, v2 charts);
+    - price/rating wording **labelled, not stripped**, as D-39 proposed (owner may veto);
+    - type residue (R6 gap #3);
+    - DESIGN-SYSTEM.md rewritten to what ships (D7);
+    - "What changed" B-23/B-20 (R6 gap #4).
+  - **Imagery:** photo coverage for each non-Vietnam city's first screen (lead card, first rail row, then tier-1 open sights), keeping every refusal and the ≤ 2.0 MB first-load budget.
+  - Atlas files stay with the Atlas review loop. R7 QA findings take priority in every lane.
+
+- 2026-10-11 18:52Z · **Orchestrator** · Owner: "those capital initials everywhere in the UI … superfluous … Have the UI and front end engineer revise that too!!!" · commit: this entry's commit
+  - **Read as three families of superfluous capitals:**
+    - Title Case labels: "Iconic & Must-See", "Free to Visit", "Temples & Shrines", "Anime, Manga & Pop Culture";
+    - uppercase-transformed eyebrows and kickers;
+    - decorative initials: Guidebook and collection-intro drop caps, and the cover initial plates `.pl-ini` / `.plate.i`.
+  - **Rule:** sentence case everywhere in the UI. Proper nouns, place names, acronyms and source names keep their capitals. Data is untouched; casing happens at display time through one shared helper.
+  - **Owners:**
+    - designer: the rule in DESIGN-SYSTEM.md plus CASING-AUDIT.md;
+    - FE-A: `tools/beta/lib/casing.js`, city pages, cards, Gallery, detail, and a casing test in `npm test`;
+    - FE-B: landing, hubs, Guidebook, Insights, "What changed";
+    - Atlas lane: Atlas surfaces, in its next SPEC-v3 slice.
+  - This takes priority over W8 part 1 in those lanes. It is recorded in `design/beta/eval/W8-BRIEFS.md`.
+
+- 2026-10-11 · Atlas lane · **Carousel credit never clipped** (FE-A's report: "Photo: Wiiii" was cut off at `#day=TAITO`).
+  - On the phone carousel the thumbnail's figure steps aside (`display: contents`), and its credit runs the card's full width under the thumbnail and text: author · licence · source, in full.
+  - The carousel card grows to 150 px, and the © shortcut is hidden there.
+  - New `atlas-ms.js` check: every carousel credit sits inside its card with no overflow. Evidence: `design/beta/eval/w7/atlas/tokyo-atlas-390-day-credit.jpg`.
+
+- 2026-10-11 19:15Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **Loop A (Atlas panel):**
+    - Real-tile workflow run #2 (38164928697) succeeded; about 110 shots are in `design/beta/atlas/real/R0/`. They show OSM standard tiles too busy under the pins, and dark mode still drawing the bright OSM tiles. Settled with the designer and the Atlas lane: Esri Light Gray Canvas by default, Esri Dark Gray Canvas in dark mode, following the theme; satellite stays as the alternative; a test covers it.
+    - SPEC-v3 slice 1 (32a6eb86: no numbers on the map, named kind pills, quiet dots, a city-core default view, one 108 px bar, a flat list) is accepted, with four refinements sent:
+      - one glyph per pill;
+      - neutral dots;
+      - short names with collision-to-dot;
+      - possibly fewer pills.
+    - The Atlas lane is building slice 1.
+    - The panel's R0 evidence pack is built (129 shots); its eight panelists are scoring.
+  - **Casing (owner):** the designer pushed the rule and the executable spec (f145ab71: DESIGN-SYSTEM.md §v2.6, design/beta/casing/ with allowlist.json, sentence_case.py and labels.md: 368 labels, 259 change; CASING-AUDIT.md). It also removed the designer-owned uppercase, drop caps and cover initials. FE-A is building `tools/beta/lib/casing.js` to match the reference output; FE-B and the Atlas lane follow.
+  - **Loop C:**
+    - FE-A: "Start with" = lead card on all 84 pages (bae1b624; two pickers had drifted on 17 US/EU pages).
+    - FE-B:
+      - D-39 price/rating note on 235 records (ba5d7e23);
+      - "What changed" B-20/B-23 84/84;
+      - Guidebook chapter photos, 25 of 299 chapters, lazy and credited (f677272c);
+      - the Insights v2 series tokens were requested from the designer.
+    - Imagery: `--scope heroes|priority|pilots|all` (e26f890e) is wired into the workflow as a dispatch input; push runs stay at priority (62b7295d). The priority run is in progress; pilots and all wait for the contact sheet and a repo-size estimate.
+    - The Atlas carousel credit clip is fixed (f5efbc66).
+  - **Loop B:** R7 QA is running pilot runs and the B-07 rewrite; the evaluator's metrics sweep is about 2/3 done.
+
+- 2026-10-11 19:22Z · **Orchestrator** · Atlas panel round 0 · commit: this entry's commit
+  - **PANEL-R0** (head 965b7a5c; a70cc645 / 8e06aeb2):
+    - **panel score 56.1/100**, min 53.5 (FE), max 58.5 (B2), SD 1.73;
+    - row means: R1 9.4/15, R2 7.5/20, R3 8.8/15, R4 8.4/15, R5 9.4/15, R6 6.9/10, R7 5.8/10;
+    - no Blocker findings.
+  - **Top findings:**
+    1. number soup / no names on the map (≈10.5);
+    2. the detail round-trip loses the map state (≈6.5, High);
+    3. chrome and phone overlays (≈6.1);
+    4. near-me ignores proximity (≈3.5, High);
+    5. text and targets too small (≈2.8, High);
+    6. pin kind unreadable;
+    7. closed not marked on the map;
+    8. contradictory counts;
+    - also: #11 keyboard (High) and #13 view not in the URL (High).
+  - **AO verdicts:** AO-1/2/3/4/6/8 confirmed; AO-5 confirmed in part; AO-7 confirmed with low weight.
+  - **Routing:**
+    - visual findings → designer (SPEC-v3 slices; slice 1 refined in b62cce9a: one glyph, sun-wash Must-see, short names with collide-to-dot, 16/8 pins, neutral dots; basemap settled: Esri Light/Dark Gray Canvas following the theme);
+    - front-end findings #2/#4/#11/#13/#5/#3 → Atlas lane, after slice 1.
+  - Round 1 starts when slice 1 + the basemap ship.

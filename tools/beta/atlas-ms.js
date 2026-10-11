@@ -201,6 +201,10 @@ const nIn = s => +((/([\d,]+)/.exec(s.count) || [0, '0'])[1].replace(/,/g, ''));
         // the city is named on the first screen (QA-40)
         const city = await page.evaluate(() => { const n = Cleo.city.info.name, e = [...document.querySelectorAll('.ms-city, header, h1')].find(x => { const r = x.getBoundingClientRect(); return r.width && r.top >= 0 && r.bottom <= innerHeight && x.textContent.includes(n) && getComputedStyle(x).visibility !== 'hidden'; }); return !!e; });
         chk(`${key} phone: the city is named on the first screen (QA-40)`, city, city);
+        // no carousel photo credit is clipped (author · licence · source in full, inside its card)
+        const clip = await page.evaluate(() => [...document.querySelectorAll('#cleo-grid li.pl figcaption')].filter(f => { const c = f.closest('li.pl'), r = c.getBoundingClientRect(); return r.width && r.right > 0 && r.left < innerWidth; })
+          .map(f => { const c = f.closest('li.pl').getBoundingClientRect(), r = f.getBoundingClientRect(); return { id: f.closest('li.pl').id, ok: r.width > 40 && f.scrollWidth <= f.clientWidth + 1 && f.scrollHeight <= f.clientHeight + 1 && r.bottom <= c.bottom + 1 && r.right <= c.right + 1, w: Math.round(r.width) }; }));
+        chk(`${key} phone: carousel photo credits are never clipped`, clip.every(x => x.ok), clip.filter(x => !x.ok).slice(0, 3).concat([{ checked: clip.length }]));
         // tap a pin → its card in the carousel, in view
         for (let i = 0; i < 3; i++) { const b = await page.evaluate(() => { const ok = e => { const r = (e.firstElementChild || e).getBoundingClientRect(); return r.width && r.left > 30 && r.right < innerWidth - 70 && r.top > 200 && r.bottom < innerHeight - 260; };
           if ([...document.querySelectorAll('.leaflet-marker-icon.pp')].some(ok)) return 0; const c = [...document.querySelectorAll('.leaflet-marker-icon.pin-cl')].find(ok); if (c) c.dispatchEvent(new MouseEvent('click', { bubbles: true })); return c ? 1 : 0; });
