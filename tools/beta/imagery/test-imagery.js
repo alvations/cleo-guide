@@ -61,7 +61,7 @@ const ph = r.byPage.tokyo && r.byPage.tokyo[open.id];
 ok(r.errors.length === 0 && ph && ph.w === 960 && ph.h === 640, 'complete credit + file → photo with size read from the header');
 const fig = ph ? photos.figureHtml(ph, '../') : '';
 ok(/<figure class="photo"><img src="\.\.\/assets\/img\/photos\/a\.png" width="960" height="640" alt="Main hall"/.test(fig), 'figure: local src, explicit width/height, alt = depicts');
-ok(/<figcaption>“Main hall” by A\. Photographer, <a [^>]*href="https:\/\/creativecommons\.org[^"]*"[^>]*>CC BY-SA 4\.0<\/a>, via <a [^>]*>Wikimedia Commons<\/a><\/figcaption>/.test(fig), 'figcaption shows title, author, licence link and source (TASL)');
+ok(/<figcaption>Photo: A\. Photographer · <a [^>]*href="https:\/\/creativecommons\.org[^"]*"[^>]*>CC BY-SA 4\.0<\/a> · <a [^>]*title="“Main hall”"[^>]*>Wikimedia Commons<\/a><\/figcaption>/.test(fig), 'figcaption shows title (source link title), author, licence link and source (TASL)');
 const row = { imagery: { photos: r.byPage.tokyo } };
 ok(imagery.photoFor(row, open) === ph && imagery.photoFor(row, Object.assign({}, open, { closed: true })) === null, 'photoFor: the gated photo, never for a closed record');
 r = fixture([], ['a.png']);
@@ -111,9 +111,16 @@ const hph = r.bySlot['hero:tokyo'];
 ok(r.errors.length === 0 && hph && hph.widths.length === 2, 'Commons hero slot with a variant → bySlot hero:tokyo');
 const hfig = hph ? photos.heroHtml(hph, '../') : '', hcred = hph ? photos.heroCreditHtml(hph) : '';
 ok(/<figure class="photo hero-photo"/.test(hfig) && /fetchpriority="high"/.test(hfig) && !/loading="lazy"/.test(hfig) && /alt="Tokyo skyline"/.test(hfig) && /sizes="100vw"/.test(hfig) && /class="hero-scrim" aria-hidden="true"/.test(hfig), 'hero figure: eager (fetchpriority high, not lazy), srcset at 100vw, alt, scrim for text contrast');
-ok(/^<p class="hero-credit"[^>]*>Photo: “[^”]+” by A\. Photographer, <a [^>]*rel="license[^"]*"[^>]*>CC BY-SA 4\.0<\/a>, via <a [^>]*>Wikimedia Commons<\/a>/.test(hcred), 'hero credit: a visible TASL line in the text flow (title, author, licence link, source)');
+ok(/^<p class="hero-credit"[^>]*>Photo: A\. Photographer · <a [^>]*rel="license[^"]*"[^>]*>CC BY-SA 4\.0<\/a> · <a [^>]*href="https:\/\/commons[^"]*" title="“[^”]+”"[^>]*>Wikimedia Commons<\/a>/.test(hcred), 'hero credit: a visible short TASL line in the text flow (author, licence link, source link titled with the file title)');
+{ // card credit: short TASL line; the full sentence only on request (place detail)
+  const rc = Object.assign({}, cmn, { title: 'Senso-ji, Asakusa', modified: 'resized to 500 and 960 px wide' });
+  const short = photos.captionHtml(rc), full = photos.captionHtml(rc, { full: true });
+  ok(short === 'Photo: A. Photographer · <a href="' + rc.licenceUrl.replace(/&/g, '&amp;') + '" rel="license noopener" target="_blank">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Senso-ji,_Asakusa,_Tokyo.jpg" title="“Senso-ji, Asakusa”" rel="noopener" target="_blank">Wikimedia Commons</a> (resized)', 'card credit: "Photo: author · licence · source (resized)" — title on the source link, licence + source linked');
+  ok(/^“Senso-ji, Asakusa” by A\. Photographer, <a [^>]*rel="license[^"]*"[^>]*>CC BY-SA 4\.0<\/a>, via <a [^>]*>Wikimedia Commons<\/a> — resized to 500 and 960 px wide$/.test(full), 'captionHtml(c, {full:true}): the whole TASL sentence for a place detail');
+  ok(/ sizes="\(max-width: 639px\) 92vw, \(max-width: 1023px\) 45vw, 25vw"/.test(photos.figureHtml(cph, '../')) && / sizes="120px"/.test(photos.figureHtml(cph, '../', 'photo', { sizes: '120px' })), 'card sizes default: 92vw on phones, 45vw tablets, 25vw desktop; callers can pass a smaller sizes (thumbnails)');
+}
 ok(imagery.heroFor({ imagery: { hero: hph } }) === hph && imagery.heroFor({ imagery: { slots: r.bySlot } }, 'tokyo') === hph && imagery.heroFor({ imagery: { slots: r.bySlot } }, 'kyoto') === null && imagery.heroFor({ imagery: {} }) === null && imagery.heroFor(null) === null, 'heroFor(row) / heroFor(reg, key): the credited hero, else null (renderer keeps the motif)');
-ok(/^<figure class="photo hero-media"><img [^>]*srcset=[^>]*fetchpriority="high"[^>]*><figcaption>“/.test(hph ? photos.heroHtml(hph, '../', 'photo hero-media') : ''), 'heroHtml with a media-slot class: in-flow, eager, with its TASL figcaption (FE-B hub hero)');
+ok(/^<figure class="photo hero-media"><img [^>]*srcset=[^>]*fetchpriority="high"[^>]*><figcaption>Photo: /.test(hph ? photos.heroHtml(hph, '../', 'photo hero-media') : ''), 'heroHtml with a media-slot class: in-flow, eager, with its TASL figcaption (FE-B hub hero)');
 ok(fixture([Object.assign({}, hero, { slot: { type: 'hero', key: 'vietnam/hanoi' } })], ['a-960.png', 'a-480.png']).errors.some(e => /freedom of panorama/.test(e)), 'Vietnam city hero slot → refused');
 
 // ---------------------------------------------------------------- 3. motifs
@@ -150,7 +157,7 @@ const refOf = t => (/(?:<img class="motif" src="|<image href=")([^'"?]+)/.exec(t
 const hasMotif = t => !!refOf(t) && fs.existsSync(path.join(BETA, refOf(t)));
 /** a credited photo in this fragment: a photo element AND a visible TASL credit (figcaption, .credit or .hero-credit). */
 const hasCreditedPhoto = t => /<(?:img class="ph"|figure class="photo)/.test(t) &&
-  /<(?:figcaption|small class="credit"|p class="hero-credit")[^>]*>[\s\S]*?by [\s\S]*?<a [^>]*rel="license/.test(t);
+  /<(?:figcaption|small class="credit"|p class="hero-credit")[^>]*>[\s\S]*?(?:by |Photo: )[\s\S]*?<a [^>]*rel="license/.test(t);
 const artOrPhoto = t => hasMotif(t) || hasCreditedPhoto(t);
 const heroOf = h => (/<section class="chero[\s\S]*?<\/section>/.exec(h) || [''])[0];
 ok(tiles.length > 0 && tiles.every(artOrPhoto), `every landing city tile carries an existing motif or a credited photo (${tiles.length})`);
@@ -171,7 +178,7 @@ if (hph) {
   ok(artOrPhoto(fxTile) && !artOrPhoto(fxTile.replace(/<small class="credit">[\s\S]*?<\/small>/, '')), 'fixture: a landing tile passes with a credited photo, never with an uncredited one');
 }
 const anyPhoto = [];
-for (const r of rows) { const h = fs.readFileSync(path.join(BETA, r.beta), 'utf8'); for (const f of h.match(/<figure class="photo[^"]*">[\s\S]*?<\/figure>/g) || []) if (!/<figcaption>[^<]*by [\s\S]+<a [^>]*rel="license/.test(f)) anyPhoto.push(r.beta);
+for (const r of rows) { const h = fs.readFileSync(path.join(BETA, r.beta), 'utf8'); for (const f of h.match(/<figure class="photo[^"]*">[\s\S]*?<\/figure>/g) || []) if (!/<figcaption>(?:[^<]*by |Photo: )[\s\S]+<a [^>]*rel="license/.test(f)) anyPhoto.push(r.beta);
   if (/class="photo hero-photo"/.test(h) && !/<p class="hero-credit"[^>]*>Photo: [\s\S]*?rel="license/.test(h)) anyPhoto.push(r.beta + ' (hero without its credit line)'); }
 ok(!anyPhoto.length, `every photo on a generated page shows its TASL credit${anyPhoto.length ? ': ' + anyPhoto.join(', ') : ''}`);
 

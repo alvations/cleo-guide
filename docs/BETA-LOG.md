@@ -980,4 +980,14 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Row/lead cards (`li.gc`):** the photo sits inside the cover (one link) with a plain-text TASL credit under it; the linked credit is in the place detail.
   - **Phone Atlas:** the city bar steps aside (the Atlas chip row holds the switcher and the toolbar) and the search pill rides in the toolbar. This fixes `qa/views.js` `switchTo`, where the city bar intercepted taps on the parked switcher.
   - Gates: validate, test, beta:check PASS on the merged tree.
+  - **Follow-up 2 (orchestrator + designer asks):**
+    - Media radius is now `--r-l`.
+    - The calm cover follows V2.7: kind glyph in ink-3 straight on sand (no disc), native name bottom-left.
+    - Photo credit is one quiet line under the media, on grid and row cards.
+    - "Recommended by" is one line on row cards too.
+    - fe-a.css has no raw font sizes or radii left (mapped to `--fs-*` / `--r-*`), for probe-css gap #3(e).
+    - Evidence re-shot on the current head (v2, Commons photos, shared card, hero photo), 52 shots, in `design/beta/eval/w7/fe-a/after/`.
+  - **Gap #1, the signature motion moment (follow-up 3):** tapping a card (grid `li.pl` or row/lead `li.gc`) grows its media (photo, else calm cover) into the place sheet's media through one view transition named `cleo-grow`, using the designer's V2.16 CSS and `--dur-grow` / `--ease-grow` (`client/sheet.js`).
+    - Triggers only on a real tap within the last second; deep links and back/forward open as before.
+    - Not used when view transitions are unavailable or motion is reduced. Probe `tools/beta/w7-grow-probe.js`: motion allowed → 1 transition; reduced motion → 0 transitions and 0 animations, at 390 and 1440 (`design/beta/eval/w7/fe-a/grow-probe.txt`).
 

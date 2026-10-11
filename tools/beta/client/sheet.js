@@ -120,13 +120,31 @@
     el.textContent = e.detail === 'Link copied' ? 'Link copied — it opens this exact view.' : String(e.detail);
     d.body.appendChild(el); setTimeout(function () { el.remove(); }, 2600);
   });
+  // the media of the card a reader just tapped (its photo, else its calm cover), for the grow-into-sheet transition
+  var grow = null;
+  d.addEventListener('click', function (e) {
+    var t = e.target.closest && e.target.closest('li.pl .pl-n a, li.pl > .pl-cover, li.pl > .pl-photo, li.gc .gc-a'); if (!t) return;
+    var li = t.closest('li.pl, li.gc'), m = li && (q('.pl-photo img', li) || q('.pl-cover', li) || q('.cover', li));
+    if (m && m.getBoundingClientRect().height > 0) grow = [m, Date.now()];
+  }, true);
   var api = Cleo.sheet = {
     isOpen: function () { return !host.hidden; },
     open: function (c) {
       if (Cleo.tray) Cleo.tray.close(true);
-      card = c; byNav = navs > 0; host.innerHTML = build(c); host.hidden = false; host.classList.toggle('side', C.desk()); if (C.beat) C.beat(host, 'sh-in', 450);   // ROUND-3 #5: the sheet rises (DES CSS; off under reduced motion)
-      if (!C.desk()) d.body.style.overflow = 'hidden';
-      q('[data-sh="x"]', host).focus({ preventScroll: true }); deep(c); if (C.onSheet) C.onSheet(c);
+      var show = function () {
+        card = c; byNav = navs > 0; host.innerHTML = build(c); host.hidden = false; host.classList.toggle('side', C.desk()); if (!g && C.beat) C.beat(host, 'sh-in', 450);   // ROUND-3 #5: the sheet rises (DES CSS; off under reduced motion)
+        if (!C.desk()) d.body.style.overflow = 'hidden';
+        q('[data-sh="x"]', host).focus({ preventScroll: true }); deep(c); if (C.onSheet) C.onSheet(c);
+      };
+      // W7 gap #1, the signature moment (design/beta/style/v2/MOTION.md): the tapped card media grows into the sheet's media.
+      // Only on a real tap of that card (≤ 1 s ago), only where view transitions exist and motion is allowed; otherwise as before.
+      var g = grow && Date.now() - grow[1] < 1000 && grow[0].isConnected && d.startViewTransition && C.moves && C.moves() ? grow[0] : null; grow = null;
+      if (!g) { show(); return; }
+      g.style.viewTransitionName = 'cleo-grow';
+      try {
+        var t = d.startViewTransition(function () { g.style.viewTransitionName = ''; show(); var h = q('.hero-plate', host); if (h) h.style.viewTransitionName = 'cleo-grow'; });
+        t.finished.then(function () { var h = q('.hero-plate', host); if (h) h.style.viewTransitionName = ''; }, function () {});
+      } catch (e) { g.style.viewTransitionName = ''; if (host.hidden || card !== c) show(); }
     },
     close: function (fromRoute) {
       if (host.hidden) return;
