@@ -142,7 +142,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 @media(min-width:900px){:is(.vw, [data-cleo-book], [data-cleo-insights]) .d1{font-size:var(--fs-hero)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .d2{font-size:var(--fs-d2)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .d3{font-size:var(--fs-lead)}}
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .eyebrow{font:600 var(--fs-xs)/1.3 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .eyebrow{font:600 var(--fs-xs)/1.3 var(--font-ui);letter-spacing:0;text-transform:none;color:var(--ink-3)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .meta,:is(.vw, [data-cleo-book], [data-cleo-insights]) .sub{color:var(--ink-3);font-size:var(--fs-sm)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .sub{margin:4px 0 0}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .nat{font-family:var(--font-native);font-weight:500}
@@ -367,7 +367,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 @media(min-width:1200px){:is(.view-guidebook, [data-cleo-book]) .ch-g{grid-template-columns:1fr 280px;align-items:start}
 }
 :is(.view-guidebook, [data-cleo-book]) .ch-intro{font:400 var(--fs-lead)/1.6 var(--font-display);margin:0 0 8px;max-width:64ch}
-:is(.view-guidebook, [data-cleo-book]) .ch-intro::first-letter{font-size:var(--fs-d1);float:left;line-height:.85;margin:4px 8px 0 0;color:var(--ac)}
+/* W7 casing rule: the chapter drop cap is retired — the text starts plainly */
 :is(.view-guidebook, [data-cleo-book]) .facts-box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-m);padding:16px;font-size:var(--fs-sm)}
 @media(min-width:1200px){:is(.view-guidebook, [data-cleo-book]) .facts-box{position:sticky;top:92px}
 }
