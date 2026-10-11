@@ -1,0 +1,499 @@
+{
+ "generated": "2026-10-11T19:05:50.762Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "cities/tokyo.html",
+   "gen": "new",
+   "expected": {
+    "total": 488,
+    "sights": 263,
+    "food": 225,
+    "live": "cities/tokyo.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Tokyo — 488 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 24,
+    "cardsVisible": 24,
+    "legacy": false,
+    "firstCardTop": 544,
+    "screensToFirstCard": 0.64,
+    "mastheadPx": 513,
+    "controlsAbove": 9,
+    "controlsAboveOnScreen": 9,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Japan\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "input#cleo-filter",
+     "button \"Gallery\"",
+     "a \"last checked 2026-10-03\"",
+     "a \"CC BY 4.0\"",
+     "a \"Wikimedia Commons\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 308,
+    "upperNodes": 5,
+    "upperPct": 1.6,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: David Kernan · CC\"",
+    "contrastChecked": 296,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Tokyoplace · dish\"",
+     "button.mappill \"Show map\""
+    ],
+    "railVisible": true,
+    "railTop": 859,
+    "railOnFirstScreen": false,
+    "railItems": 4,
+    "railFirst": "★ SignatureAnime, Manga & Pop Culture37",
+    "cityCardsAbove": 0,
+    "cardMedianH": 378,
+    "cardsPerScreen": 2.23,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2254,
+    "fcp": 204,
+    "fontSampleN": 297,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 13,
+     "Inter": 432,
+     "Hiragino Sans": 8
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 731,
+      "Inter": 9691,
+      "IPAGothic": 324,
+      "Inter SemiBold": 1
+     },
+     "primary": [
+      "Inter",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "IPAGothic",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 1,
+     "where": [
+      "cbar over Tokyo Station Marunouchi Build"
+     ]
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 2274279,
+    "bytesAllResponses": 3342953,
+    "initial": {
+     "bytes": 2031314,
+     "gz": 962460
+    },
+    "session": {
+     "bytes": 2274279
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 296,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 137,
+      "h": 48,
+      "name": "Show map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "detail": {
+      "cls": "sheet detail",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "tile.openstreetmap.org"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Tokyo — 488 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 48,
+    "cardsVisible": 48,
+    "legacy": false,
+    "firstCardTop": 862,
+    "screensToFirstCard": 0.96,
+    "mastheadPx": 679,
+    "controlsAbove": 30,
+    "controlsAboveOnScreen": 30,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Japan\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "input#cleo-filter",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "button.mappill \"Show map\"",
+     "a \"last checked 2026-10-03\"",
+     "a \"How we choose\"",
+     "a \"Start with Kanda Myōjin\"",
+     "a \"CC BY 4.0\"",
+     "a \"Wikimedia Commons\"",
+     "button.rail-i.sig \"★ SignatureAnime, Manga \"",
+     "button.rail-i.door \"Your guideFor youTell it\"",
+     "button.rail-i.door \"Your dayA day in Chiyoda\"",
+     "button.rail-i.door \"Near meNearest firstAsks\"",
+     "button.rail-i.door \"Free to Visit125\"",
+     "button.rail-i \"Must see177\"",
+     "button.rail-i \"Iconic & Must-See44\"",
+     "button.rail-i \"UNESCO World Heritage5\"",
+     "button.rail-i \"Temples & Shrines79\"",
+     "button.rail-i \"Castles, Palaces & Histo\"",
+     "button.rail-i \"Gardens & Teahouses49\"",
+     "button.btn.btn-ghost \"See all 37\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 494,
+    "upperNodes": 6,
+    "upperPct": 1.2,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 480,
+    "contrastUnknown": 1,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"Search Tokyoplace · dish\"",
+     "button.mappill \"Show map\"",
+     "nav#cleo-rail.rail \"★ SignatureAnime, Manga \""
+    ],
+    "railVisible": true,
+    "railTop": 679,
+    "railOnFirstScreen": true,
+    "railItems": 11,
+    "railFirst": "★ SignatureAnime, Manga & Pop Culture37",
+    "cityCardsAbove": 0,
+    "cardMedianH": 317,
+    "cardsPerScreen": 2.84,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2855,
+    "fcp": 184,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 16,
+     "Inter": 640,
+     "Hiragino Sans": 14
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 55,
+      "Inter": 5530,
+      "IPAGothic": 575,
+      "Inter SemiBold": 2
+     },
+     "primary": [
+      "Inter",
+      "IPAGothic",
+      "Bricolage Grotesque 96pt ExtraBold",
+      "Inter SemiBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 3,
+     "where": [
+      "mappill over Kōkyo Gaien & Nijūbashi (皇居外苑・",
+      "cbar over Kōkyo Gaien & Nijūbashi (皇居外苑・",
+      "cbar over Chidorigafuchi (千鳥ヶ淵緑道)"
+     ]
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 488,
+     "scrolled": 488,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 488,
+      "ok": 488,
+      "bad": []
+     },
+     "search": {
+      "n": 26,
+      "ok": 26,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 488 places",
+     "groups": [
+      "AreaChiyoda-ku 43Chū",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionAnime, Man",
+      "Collection",
+      "CuisineSushi & Kaise",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 3504731,
+    "bytesAllResponses": 5414207,
+    "initial": {
+     "bytes": 1736267,
+     "gz": 667413
+    },
+    "session": {
+     "bytes": 3504731
+    },
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 480,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 48,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 488,
+    "text": 18941
+   },
+   "cpu4x": {
+    "fcp": 340,
+    "dcl": 1211,
+    "loadMs": 1849
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": true,
+      "val": 0.64
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": false,
+      "val": 513
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "9 on-screen / 9 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": false,
+      "val": "top 859, 4 tiles, first \"★ SignatureAnime, Manga & Pop Culture37\""
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": false,
+      "val": "toggle 137×48, full map true, pin sheet none"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": false,
+      "val": 1
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 488 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.23
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 488 · DOM 488 · scrolled 488 · deep 488/488 · search 26/26 · no-JS 488"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Bricolage Grotesque, Inter · rendered here: Inter, Bricolage Grotesque 96pt ExtraBold, IPAGothic, Inter SemiBold"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "1.6% (5/308)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: David Kernan · CC\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "tile.openstreetmap.org"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "3423 KB · 2855 nodes · 184 ms · 340 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "652 KB (1,696 KB) · 940 KB (1,984 KB)"
+     }
+    },
+    "passed": 19,
+    "total": 25,
+    "hardFail": []
+   }
+  }
+ ]
+}

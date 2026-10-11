@@ -1,0 +1,256 @@
+{
+ "head": "badcc20dbae7f4e4f47023048e85a58552cede24",
+ "checks": [
+  {
+   "group": "type",
+   "name": "Vietnam/hanoi.html: Bricolage + Inter draw every letter (79 chars, 1 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Inter:1",
+     "Bricolage Grotesque 96pt ExtraBold:78"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:78"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "Vietnam/ho-chi-minh-city.html: Bricolage + Inter draw every letter (150 chars, 47 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Inter:2",
+     "Bricolage Grotesque 96pt ExtraBold:148"
+    ],
+    "ui": [
+     "Inter:2",
+     "Inter:148"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "Vietnam/hoi-an.html: Bricolage + Inter draw every letter (76 chars, 0 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Inter:1",
+     "Bricolage Grotesque 96pt ExtraBold:75"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:75"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "Vietnam/index.html: Bricolage + Inter draw every letter (81 chars, 6 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Bricolage Grotesque 96pt ExtraBold:81"
+    ],
+    "ui": [
+     "Inter:81"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "cleveland.html: Bricolage + Inter draw every letter (107 chars, 8 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Inter:1",
+     "Bricolage Grotesque 96pt ExtraBold:106"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:106"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "cities/tokyo.html: Bricolage + Inter draw every letter (105 chars, 2 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Inter:1",
+     "Bricolage Grotesque 96pt ExtraBold:108"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:104"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "cities/tokyo.html: CJK (603 chars) falls back to a CJK system face",
+   "ok": true,
+   "evidence": [
+    "IPAGothic:603"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "cities/newyork.html: Bricolage + Inter draw every letter (89 chars, 0 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Inter:1",
+     "Bricolage Grotesque 96pt ExtraBold:88"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:88"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "cities/newyork.html: CJK (1 chars) falls back to a CJK system face",
+   "ok": true,
+   "evidence": [
+    "IPAGothic:1"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "Singapore/chinatown.html: Bricolage + Inter draw every letter (81 chars, 0 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Inter:1",
+     "Bricolage Grotesque 96pt ExtraBold:80"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:80"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "cities/wheeling.html: Bricolage + Inter draw every letter (82 chars, 0 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Bricolage Grotesque 96pt ExtraBold:82"
+    ],
+    "ui": [
+     "Inter:82"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "index.html: Bricolage + Inter draw every letter (95 chars, 5 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Inter:1",
+     "Bricolage Grotesque 96pt ExtraBold:95"
+    ],
+    "ui": [
+     "Inter:1",
+     "Inter:94"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "index.html: CJK (8 chars) falls back to a CJK system face",
+   "ok": true,
+   "evidence": [
+    "WenQuanYi Zen Hei:2",
+    "IPAGothic:6"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "Japan/index.html: Bricolage + Inter draw every letter (72 chars, 0 Vietnamese)",
+   "ok": true,
+   "evidence": {
+    "display": [
+     "Bricolage Grotesque 96pt ExtraBold:73"
+    ],
+    "ui": [
+     "Inter:72"
+    ],
+    "displayFallback": [],
+    "uiFallback": []
+   }
+  },
+  {
+   "group": "type",
+   "name": "Japan/index.html: CJK (5 chars) falls back to a CJK system face",
+   "ok": true,
+   "evidence": [
+    "IPAGothic:5"
+   ]
+  },
+  {
+   "group": "type",
+   "name": "DPR 1, 18 px, var(--font-display): \"ō\" draws its macron (pixels differ from \"o\")",
+   "ok": true,
+   "evidence": {
+    "a": 422,
+    "b": 389
+   }
+  },
+  {
+   "group": "type",
+   "name": "DPR 1, 24 px, var(--font-display): \"ō\" draws its macron (pixels differ from \"o\")",
+   "ok": true,
+   "evidence": {
+    "a": 530,
+    "b": 493
+   }
+  },
+  {
+   "group": "type",
+   "name": "DPR 1, 18 px, var(--font-ui): \"ō\" draws its macron (pixels differ from \"o\")",
+   "ok": true,
+   "evidence": {
+    "a": 417,
+    "b": 389
+   }
+  },
+  {
+   "group": "type",
+   "name": "DPR 1, 24 px, var(--font-ui): \"ō\" draws its macron (pixels differ from \"o\")",
+   "ok": true,
+   "evidence": {
+    "a": 537,
+    "b": 501
+   }
+  }
+ ],
+ "info": {}
+}

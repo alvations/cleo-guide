@@ -564,7 +564,8 @@ async function sheetFlow(page) {
   r.toggle = await page.evaluate(() => {
     // W6 (FE-A, coordinated with QA): Atlas phones open map-first — the map is already full screen, so the toggle measured
     // is the visible one ("List" over the map), and it is not tapped before the pin test
-    const mf = document.documentElement.classList.contains('atlas-m') && [...document.querySelectorAll('.mapclose')].find(window.__qaVis);
+    // W7 Atlas map-search (QA R7, additive): the visible "List" pill (.ms-toggle) is that control on the map-search phone
+    const mf = document.documentElement.classList.contains('atlas-m') && [...document.querySelectorAll('.mapclose, .ms-toggle')].find(window.__qaVis);
     if (mf) { mf.setAttribute('data-qa-toggle', '1'); mf.setAttribute('data-qa-mapfirst', '1'); const b = mf.getBoundingClientRect(); return { w: Math.round(b.width), h: Math.round(b.height), name: 'map-first: ' + (mf.textContent || '').trim(), mapFirst: true }; }
     const c = document.querySelector('.map-toggle, [data-cleo-map=""]') || [...document.querySelectorAll('button, a, [role=button]')].find(b =>
       /^(show (the )?)?map\b/i.test((b.getAttribute('aria-label') || b.textContent || '').trim()) && window.__qaVis(b));
@@ -578,16 +579,31 @@ async function sheetFlow(page) {
     await page.waitForTimeout(900);
     r.fullMap = await page.evaluate(() => { const m = document.querySelector('#cleo-map, .leaflet-container'); if (!m) return false; const b = m.getBoundingClientRect(); return b.height >= innerHeight * 0.7 && b.width >= innerWidth * 0.95; });
     // a real tap on a visible pin
-    const pinSel = await page.evaluate(() => {
+    const findPin = () => page.evaluate(() => {
       // a pin a finger can actually reach: on screen and not under the tray or a control (W6: not a cluster bubble)
-      const ps = [...document.querySelectorAll('.leaflet-overlay-pane path.leaflet-interactive, .leaflet-marker-icon:not(.pin-cl)')].filter(p => { const b = p.getBoundingClientRect(); if (!(b.width > 0 && b.top > 80 && b.bottom < innerHeight - 80 && b.left > 10 && b.right < innerWidth - 10)) return false;
+      // W7 (QA R7, additive): a label-pill pin (.pp) is measured and tapped by its label, as a finger would; it must sit
+      // in the uncovered band of the map (below the chip row, above the carousel) and hit-test to itself
+      const lab = p => p.classList.contains('pp') && p.firstElementChild ? p.firstElementChild : p;
+      const ms = !!document.querySelector('.ms-toggle'), top = ms ? 200 : 80, bot = ms ? 260 : 80;
+      const ps = [...document.querySelectorAll('.leaflet-overlay-pane path.leaflet-interactive, .leaflet-marker-icon:not(.pin-cl)')].filter(p => { const b = lab(p).getBoundingClientRect(); if (!(b.width > 0 && b.top > top && b.bottom < innerHeight - bot && b.left > 10 && b.right < innerWidth - 10)) return false;
         const t = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2); return !!t && (t === p || p.contains(t)); });
-      if (!ps.length) return false; ps[Math.floor(ps.length / 2)].setAttribute('data-qa-pin', '1'); return true;
+      if (!ps.length) return false; const pk = ps[Math.floor(ps.length / 2)]; lab(pk).setAttribute('data-qa-pin', '1');
+      const C = window.Cleo && Cleo.city; if (C && C.markers) for (const id of Object.keys(C.markers)) { const e = C.markers[id].getElement && C.markers[id].getElement(); if (e === pk) pk.setAttribute('data-qa-pin-id', id); }
+      return true;
     });
+    let pinSel = await findPin();
+    // W7 (QA R7, additive): on the map-search phone, pins below zoom 15 gather into count bubbles; when no single pin is
+    // in reach, a real tap on a bubble zooms in (up to 3 times), as a reader would, then the pin rule above applies
+    for (let i = 0; i < 3 && !pinSel && await page.evaluate(() => !!document.querySelector('.ms-toggle')); i++) {
+      const bub = await page.evaluate(() => { const e = [...document.querySelectorAll('.leaflet-marker-icon.pin-cl')].map(x => [x, x.getBoundingClientRect()]).find(([x, b]) => b.top > 200 && b.bottom < innerHeight - 260 && b.left > 10 && b.right < innerWidth - 10 && (t => !!t && x.contains(t))(document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2)));
+        return e ? { x: e[1].left + e[1].width / 2, y: e[1].top + e[1].height / 2 } : null; });
+      if (!bub) break; await page.mouse.click(bub.x, bub.y); await page.waitForTimeout(1200); pinSel = await findPin();
+    }
     if (pinSel) {
       await page.click('[data-qa-pin]', { force: true, timeout: 3000 }).catch(() => {});
       await page.waitForTimeout(600);
       r.pinSheet = await openSheetState(page);
+      if (!r.pinSheet && await page.evaluate(() => !!document.querySelector('.ms-toggle'))) r.msPin = await msPinFlow(page);
       if (r.pinSheet) {
         await page.keyboard.press('Escape'); await page.waitForTimeout(400);
         r.pinSheet.escCloses = await sheetGone(page);
@@ -631,6 +647,33 @@ async function sheetFlow(page) {
       }
     }
   }
+  return r;
+}
+
+// B-07, W7 Atlas map-search (QA R7, BETA-QA.md "Wave 7 full pass"; ADDED, the W6 pin-sheet path still passes on its
+// own): the tapped pin's OWN card is selected and wholly on screen in the carousel (no sheet over the map); one tap on that
+// card opens the place detail with a visible Close; Esc closes it; re-opened, Back closes it and the reader is still in
+// Atlas on the same page.
+async function msPinFlow(page) {
+  const r = {};
+  r.card = await page.evaluate(() => { const id = (document.querySelector('[data-qa-pin-id]') || { getAttribute: () => null }).getAttribute('data-qa-pin-id'), c = id && document.getElementById('p-' + id);
+    const sel = document.querySelectorAll('li.pl.is-sel'), b = c && c.getBoundingClientRect();
+    if (c) { const a = c.querySelector('.pl-n a, .pl-n button'); if (a) a.setAttribute('data-qa-mscard', '1'); }
+    return { id, own: !!c && c.classList.contains('is-sel') && sel.length === 1, inView: !!b && b.left >= -1 && b.right <= innerWidth + 1 && b.top >= 0 && b.bottom <= innerHeight + 1 }; });
+  if (!r.card.own || !r.card.inView) return r;
+  const tap = () => page.click('[data-qa-mscard]', { timeout: 3000 }).catch(() => {});
+  await tap(); await page.waitForTimeout(700);
+  r.detail = await openSheetState(page);
+  if (!r.detail) return r;
+  await page.keyboard.press('Escape'); await page.waitForTimeout(400);
+  r.escCloses = await sheetGone(page);
+  await tap(); await page.waitForTimeout(700);
+  if (await openSheetState(page)) {
+    await page.goBack({ timeout: 3000 }).catch(() => {}); await page.waitForTimeout(500);
+    r.backCloses = await sheetGone(page);
+    r.stayedOnPage = /\/beta\//.test(page.url()) && await page.evaluate(() => document.documentElement.getAttribute('data-view') === 'atlas');
+  }
+  r.ok = !!(r.detail.closeVisible && r.escCloses && r.backCloses && r.stayedOnPage);
   return r;
 }
 
@@ -745,8 +788,12 @@ function grade(m) {
     rows['B-06 split view + sticky map + sync'] = de.sync ? F(de.sync.split && de.sync.sticky && de.sync.mapWidthPct >= 40 && de.sync.hoverHighlights && de.sync.pinClick && de.sync.pinClick.cardInView,
       `split ${de.sync.split}, sticky ${de.sync.sticky}, map ${de.sync.mapWidthPct}%, hover→pin ${de.sync.hoverHighlights}, pin→card ${de.sync.pinClick && de.sync.pinClick.cardInView}`) : P(false, 'map did not mount');
     const sf = mo.sheetFlow || {}, ps = sf.pinSheet, dt = sf.detail;
-    rows['B-07 mobile map toggle + sheet (Close, Esc, Back)'] = F(sf.toggle && sf.toggle.ok44 && sf.fullMap && ps && ps.closeVisible && ps.escCloses && ps.backCloses && ps.stayedOnPage,
-      `toggle ${sf.toggle ? sf.toggle.w + '×' + sf.toggle.h : 'none'}, full map ${!!sf.fullMap}, pin sheet ${ps ? `close ${ps.closeVisible}, esc ${ps.escCloses}, back ${ps.backCloses}` : 'none'}`);
+    // W7 (QA R7, additive): on the map-search phone a pin's place shows as its own carousel card, and the detail opens from
+    // it — the row passes on the W6 path (pin sheet) OR the complete W7 path (msPinFlow); neither path is relaxed
+    const mp = sf.msPin;
+    rows['B-07 mobile map toggle + sheet (Close, Esc, Back)'] = F(sf.toggle && sf.toggle.ok44 && sf.fullMap && ((ps && ps.closeVisible && ps.escCloses && ps.backCloses && ps.stayedOnPage) || (mp && mp.ok)),
+      `toggle ${sf.toggle ? sf.toggle.w + '×' + sf.toggle.h : 'none'}, full map ${!!sf.fullMap}, pin sheet ${ps ? `close ${ps.closeVisible}, esc ${ps.escCloses}, back ${ps.backCloses}` : 'none'}` +
+      (mp ? `, map-search: own card ${mp.card && mp.card.own} in view ${mp.card && mp.card.inView} → detail ${!!mp.detail} close ${mp.detail && mp.detail.closeVisible} esc ${mp.escCloses} back ${mp.backCloses} atlas ${mp.stayedOnPage}` : ''));
     rows['B-08 floaters over titles = 0'] = P(mo.overlap && mo.overlap.hits === 0, mo.overlap ? mo.overlap.hits : null);
     rows['B-09 pin numbers == card numbers'] = de.sync ? P((de.sync.markerNumbers > 0 || de.sync.pinLabels > 0 || de.sync.namedPins > 0) && de.sync.orderingStated, `numbered pins ${de.sync.markerNumbers} (pin-n labels ${de.sync.pinLabels}), named pins ${de.sync.namedPins}, ordering stated ${de.sync.orderingStated}`) : P(false, 'n/a');
     rows['B-10 filter tray + "Show N places"'] = de.tray ? P(de.tray.tray && !!de.tray.showN, de.tray.tray ? de.tray.showN : (de.tray.button ? 'button, no tray' : 'no Filters control')) : P(false, 'n/a');

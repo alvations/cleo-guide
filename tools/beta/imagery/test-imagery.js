@@ -281,6 +281,9 @@ ok(fplan.findIndex(p => p.t.type === 'landmark') === fplan.filter(p => p.t.type 
   ok(H.every(p => p.t.type === 'hero') && P.every(p => p.t.type === 'hero' || p.t.priority) && PI.every(p => p.t.type === 'hero' || p.t.priority || p.t.pilot) && H.length < P.length && P.length < PI.length && PI.length < A.length, `fetch-commons --scope: heroes ${H.length} < priority ${P.length} < pilots ${PI.length} < all ${A.length}; default priority`);
 }
 ok(lm.some(p => p.t.priority === 'lead') && lm.every(p => !p.t.priority || p.cands.length || p.lead) && cm.targets.filter(t => t.priority && !t.skip).every(t => t.candidates.length || t.wikiLead), 'W8 coverage: every unskipped lead card / first-row sight has a candidate or a cited article to try');
+{ const skipped = new Map(cm.targets.filter(t => t.skip).map(t => [t.depicts, t.skip]));
+  const bad = JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits.filter(c => c.record && skipped.has(`${c.record.page}#${c.record.id}`)).map(c => `${c.record.page}#${c.record.id}`);
+  ok(!bad.length, `no credited photo for a skipped target (venue, brand store, copyrighted art, stated gap)${bad.length ? ': ' + bad.join(', ') : ''}`); }
 ok(cm.targets.filter(t => /Pok[eé]mon Center|Pok[eé] Lid|Animate |Jump Shop/.test(t.label)).every(t => t.skip), 'W8: brand stores and Poké Lid character art are stated gaps, never fetched');
 const onDisk = path.join(BETA, 'assets', 'img', 'manifest.json');
 ok(fs.existsSync(onDisk) && JSON.parse(fs.readFileSync(onDisk, 'utf8')).items.length === m.items.length, 'beta/assets/img/manifest.json is current');

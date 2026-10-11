@@ -75,3 +75,62 @@ Atlas files (`atlas.js`, `atlas.css`, the Atlas parts of the view JS) belong to 
 - FE-A: the helper; city pages, cards, Gallery, detail; the casing test wired into `npm test` (no uppercase/capitalize transforms, no styled `::first-letter`, no Title Case UI labels outside the allowlist).
 - FE-B: landing, hubs, Guidebook, Insights, "What changed", how-we-choose.
 - Atlas lane: Atlas surfaces, in its next SPEC-v3 slice.
+
+## Part 2: from ROUND-7 (R7 = 88.5; A 83 · B 91 · C 96 · D 89)
+
+The evaluator's gaps and acceptances are in `design/beta/eval/ROUND-7.md` § "Top gaps". Every lane builds to those acceptances exactly; each one is a test. Some items already landed after `badcc20d`:
+- the carousel credit (Atlas f5efbc66);
+- Cleveland's "Start with" (FE-A bae1b624);
+- the price/rating note (D-39, FE-B ba5d7e23).
+
+Those still need their acceptance test to pass on the new head. **The Atlas map review loop (PANEL.md) stays top priority** for the designer and the Atlas lane. Owner-blocked: ≈ +0.6 (a reviewed second locale, the D-39 confirmation, the Unsplash top-up).
+
+### Imagery: R7 gap 1, photo coverage (+1.15)
+- (a) A credited hero on ≥ 78 of 84 place pages, or a stated per-guide reason in the manifest. Most missing heroes are Singapore towns and smaller US guides.
+- (b) ≥ 60 % of eligible tier-1 sights photographed. Use the agreed per-class widths: heroes, leads and first rows at 500+960; other tier-1 at 500w only. Scope order: `pilots`, then `all`, each after the orchestrator's contact-sheet review.
+- (b) On every guide with eligible sights, the first phone screen shows ≥ 1 photo.
+- (c) The credit gate is unchanged.
+- **R7 gap 7, imagery half:** every 960w JPEG ≤ 120 KB, done by recompress.
+
+### FE-A: R7 gap 2 (+0.52), gap 3 (+0.46), gap 5 (+0.19, its pages)
+- **Gap 2 polish:**
+  - (a) No credit overflows its box (test).
+  - (b) Top bar and tab bar backgrounds fully opaque.
+  - (c) The phone search placeholder is unclipped ("Search Cleveland").
+  - (d) The desktop place sheet gets a scrim, is centred or docked flush, and its close button never overlaps the switcher.
+  - (e) No photo is upscaled past its source width.
+  - (f) "No. N of M in <area>" uses the area's full count, with N ≤ M on all 8,458 sheets (test).
+  - (g) No single-token last line in the dek or the masthead stat line ("· 1 closed", "Edo-/Tokyo Museum") at 390 and 1440.
+  - (h) The "Start with" test is already landed.
+  - Also: a closed place never offers Directions as its primary action (closure honesty).
+- **Gap 3, two more delight moments** (each ≤ 300 ms, none under reduced motion, test):
+  1. Photos fade in from a dominant-colour placeholder. The colour is computed at build time and stored per photo; coordinate with imagery.
+  2. A view-switch transition: the switcher's selection slides and the content cross-fades.
+  The Atlas lane owns pin → preview grow inside the map.
+- **Gap 5, FE-A's pages:**
+  - B-02: the phone hero strip is short enough that the masthead stays ≤ 0.6 of the screen.
+  - B-08: the floating "Show map" pill never covers a card title in the default view.
+  - B-04 and B-20 on the 9 failing pages each.
+  - The blank band left of the desktop hero.
+  - Category-bar labels must not truncate: two lines or shorter labels, with the casing helper.
+- **Food covers** (K1 and Luxury, "blank sand boxes read as not loaded"). Food places never get photos (honesty rule), so the no-photo cover must read as intentional:
+  - the dish or cuisine name set in display type on the kind tint;
+  - plus the kind glyph;
+  - the designer reviews the shots before merge.
+
+### FE-B: R7 gap 5 (hubs), gap 6 (+0.17), type residue
+- **Gap 5 B-05:** on all 7 failing hubs, the city grid starts in the first phone screen.
+- **Gap 6:**
+  - Insights bars on the designer's v2 series tokens (K8);
+  - ≤ 6 distinct raw letter-spacings and ≤ 10 raw shadows across the beta CSS (`probe-css.py`; coordinate with platform for shared files);
+  - tabular figures on Guidebook facts and Insights axes (≥ 90 %).
+- **S2 widows on your surfaces:** the hub "Known for" (e.g. "· jingisukan"), deks and stat lines.
+- **Strays:** the 3 px and 6 px radii on the landing page; the lone filter-button row in phone Guidebook and Insights.
+- **Moderate axe:** `aria-allowed-role` (56 runs) and `heading-order` (24 runs). Fix them on your pages; platform takes the shared shell.
+
+### Platform (reopened): R7 gap 7 (+0.16), axe moderates, harness support
+- A phone @3× never fetches a 960w photo for a slot under 200 CSS px: correct `sizes` per slot, Atlas thumbnails and carousel included.
+- Tokyo phone @3× first load ≤ 700 KB transfer.
+- `cleo.css` ≤ 200 KB raw with the dead R6 layers removed. Coverage-guided; every gate green; shots before and after on the pilots.
+- `aria-allowed-role` and `heading-order` in the shared shell.
+- Once R7 QA ratifies the B-06/07/09 re-pointing, implement it in metrics.js.
