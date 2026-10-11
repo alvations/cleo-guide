@@ -274,13 +274,19 @@
     layer.on('tileerror', function () { if (!ok && !done && ++errs >= n) { done = true; onFail(); } });
   };
 
+  // the build-time schematic inside #cleo-map: kept before a map mount clears it, so a fallback re-shows it (platform W7)
+  (function () { var m = document.getElementById('cleo-map'), i = m && m.querySelector('.map-art img'); if (i) m._cleoArt = i; })();
+
   /* ---- tiles failed: drop the dead map, show the build-time schematic + the VOICE.md copy ---- */
   Cleo.mapFallback = function (el, map) {
     try { if (map && map.remove) map.remove(); } catch (e) {}
     var art = el.getAttribute('data-art'), alt = el.getAttribute('data-art-alt') || '';
     el.innerHTML = (art ? '<figure class="map-art map-fallback"><img alt="" decoding="async" style="max-width:100%;height:auto"><figcaption></figcaption></figure>'
       : '<div class="map-fallback"><p></p></div>');
-    var img = el.querySelector('img'); if (img) { img.src = art; img.alt = alt; }
+    var img = el.querySelector('img'), kept = el._cleoArt;
+    // reuse the page's own schematic <img> (stashed below before the map cleared it): no second fetch of map.svg
+    if (img && kept && kept.getAttribute('src') === art) { kept.alt = alt; kept.style.cssText = img.style.cssText; img.parentNode.replaceChild(kept, img); img = null; }
+    if (img) { img.src = art; img.alt = alt; }
     var cap = el.querySelector('figcaption, p');
     cap.innerHTML = '<strong>The map couldn\u2019t load.</strong> The list still has every place, address and source. ' +
       'We\u2019re showing map art from our own pins until tiles return. <button type="button" class="map-retry">Try again</button>';
@@ -331,8 +337,40 @@
         }
       });
       return out;
+    },
+    /** Every card in document (= view) order, stamped or not, WITHOUT stamping: [{id:'p-…', a, el|null, ns|null}].
+     *  Lets the Gallery pager place a deep link on its page and stamp only that page (platform W7, R6 gap #5). */
+    order: function () {
+      var out = [];
+      [].forEach.call(document.querySelectorAll('li.pl, noscript[data-cleo-defer]'), function (x) {
+        if (x.tagName === 'LI') { out.push({ id: x.id, a: x.getAttribute('data-a'), el: x, ns: null }); return; }
+        cardsOf(x).forEach(function (c) { var t = c.slice(0, c.indexOf('>')), m = /\bid="([^"]*)"/.exec(t), a = /\bdata-a="([^"]*)"/.exec(t);
+          out.push({ id: m ? m[1] : '', a: a ? a[1].replace(/&amp;/g, '&') : null, el: null, ns: x }); });
+      });
+      return out;
+    },
+    /** Stamp exactly the cards whose element id is in `want` (Set of 'p-…'), splitting their chunks so the rest stay
+     *  deferred. Returns the stamped cards. */
+    stampIds: function (want) {
+      var out = [];
+      D.pending().forEach(function (ns) {
+        var cards = cardsOf(ns), hit = cards.map(function (c) { var m = /\bid="([^"]*)"/.exec(c.slice(0, c.indexOf('>'))); return !!(m && want.has(m[1])); });
+        if (!hit.some(Boolean)) return;
+        if (hit.every(Boolean)) { out = out.concat(D.stamp(ns)); return; }
+        var ol = ns.parentNode, runs = [], cur = null, made = [];
+        cards.forEach(function (c, i) { if (!cur || cur.h !== hit[i]) runs.push(cur = { h: hit[i], c: [] }); cur.c.push(c); });
+        runs.forEach(function (r) {
+          var n = document.createElement('noscript'); n.setAttribute('data-cleo-defer', ''); n.setAttribute('data-n', String(r.c.length));
+          n.setAttribute('style', 'display:contents'); n.textContent = '\n' + r.c.join('\n') + '\n'; ol.insertBefore(n, ns); if (r.h) made.push(n);
+        });
+        ol.removeChild(ns);
+        made.forEach(function (n) { out = out.concat(D.stamp(n)); });
+      });
+      return out;
     }
   };
+  var CARD = /<li class="pl[ "][\s\S]*?<\/li>/g;           // same card pattern as tools/beta/lib/chunk.js
+  function cardsOf(ns) { return (ns.children && ns.children.length ? ns.innerHTML : ns.textContent).match(CARD) || []; }
   /* ---- view chunks (P-05, R-33): the same progressive rendering for content a VIEW builds on the client (Guidebook
    * chapters, Gallery rails/pages, Insights cards). `parts` = HTML strings in order; `initial` render now, the rest as
    * the host's end nears the viewport (IntersectionObserver, 1,200 px), and ALL of them on anything that needs every
@@ -378,7 +416,11 @@
   };
   Cleo.chunks.pending = function () { return VC.length; };
 
-  var io = null;
+  var io = null, watched = [];
+  /** A view that stamps exactly what it shows (the paged Gallery) sets D.hold = () => true while that holds, so the lazy
+   *  observer doesn't stamp chunks the page then hides; D.resume() re-checks every watched list once the hold lifts. */
+  D.hold = null;
+  D.resume = function () { if (!io) return; watched.slice().forEach(function (t) { io.unobserve(t); io.observe(t); }); };
   /** What the URL needs stamped: 'p' = one place only (keys p/view/map/pg/all, or a #p-<id> anchor); true = nothing
    *  (a view switch, the map toggle, a Gallery page — no lens); false = every card (a lens, an area anchor, a day…). */
   var QUIET = ['p', 'view', 'map', 'pg', 'all'];
@@ -393,7 +435,8 @@
   function stampPlace() {
     var m = /^#p-(.+)$/.exec(location.hash), id = m ? m[1] : Cleo.route.parse().p;
     VC.slice().forEach(function (c) { c.reach(id); });                       // a view's own chunk holding the place
-    if (!D.stampFor(id)) D.all();                  // unknown id: let the page see everything (its "not found" path)
+    // just that card (its chunk stays deferred: R6 gap #5); unknown id: let the page see everything ("not found" path)
+    if (!document.getElementById('p-' + id) && !D.stampIds(new Set(['p-' + id])).length) D.all();
   }
   function deferInit() {
     var list = D.pending(); if (!list.length) return;
@@ -416,14 +459,16 @@
     // nears the viewport, stamp that one chunk and move the watch to the new last card
     var watch = function (ol) {
       var ns = ol.querySelector('noscript[data-cleo-defer]'); if (!ns || !io) return;
-      var t = ns.previousElementSibling || ol; t._cleoNext = ns; io.observe(t);
+      var t = ns.previousElementSibling || ol; t._cleoNext = ns; watched.push(t); io.observe(t);
     };
     io = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
-        if (!e.isIntersecting || !io) return;
-        io.unobserve(e.target);
-        var ns = e.target._cleoNext, ol = ns && ns.parentNode; e.target._cleoNext = null;
-        if (ol) { D.stamp(ns); watch(ol); }
+        if (!e.isIntersecting || !io || (D.hold && D.hold())) return;   // held: the view stamps its own page (Gallery pager)
+        io.unobserve(e.target); watched.splice(watched.indexOf(e.target) >>> 0, 1);
+        var ns = e.target._cleoNext; e.target._cleoNext = null;
+        // the watched chunk may have been split by stampIds since: stamp what is now the list's first chunk
+        var ol = ns && (ns.parentNode || (e.target.matches('ol') ? e.target : e.target.closest('ol')));
+        if (ol) { var first = ns.parentNode ? ns : ol.querySelector('noscript[data-cleo-defer]'); if (first) D.stamp(first); watch(ol); }
       });
     }, { rootMargin: '1200px 0px' });
     D.pending().forEach(function (ns) {                 // re-read: a place link may have stamped one chunk already

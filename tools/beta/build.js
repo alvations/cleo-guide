@@ -83,8 +83,22 @@ if (args.has('--list')) {
 // ---------------------------------------------------------------- static assets (client JS, vendor, icon)
 const CLIENT = path.join(__dirname, 'client');
 const assetsV = {};
+// Platform W7 (R6 gap #5): client JS ships minified — the eager-JS budget is ≤ 40.0 KB gzip with no rounding.
+// terser is pinned (tools/package.json) so the output, and so `--check`, is deterministic. No source maps ship.
+// Top-level names are kept (the files share globals as classic scripts); quotes keep their original style.
+let terser = null;
+try { terser = require('terser'); } catch (e) { errors.push('tools/node_modules/terser missing — run `cd tools && npm install` (beta JS minify step)'); }
+const minify = (f, src) => {
+  if (!terser) return src;
+  const r = terser.minify_sync({ [f]: src }, { ecma: 2017, compress: { passes: 2 }, mangle: true, sourceMap: false,
+    format: { comments: false, quote_style: 3, ascii_only: false } });
+  return r.code;
+};
 for (const f of fs.readdirSync(CLIENT).filter(f => f.endsWith('.js')).sort()) {
-  const body = Buffer.concat([Buffer.from(`/* generated copy of tools/beta/client/${f} — do not edit here */\n`), fs.readFileSync(path.join(CLIENT, f))]);
+  let code;
+  try { code = minify(f, fs.readFileSync(path.join(CLIENT, f), 'utf8')); }
+  catch (e) { errors.push(`minify ${f}: ${e.message}`); code = fs.readFileSync(path.join(CLIENT, f), 'utf8'); }
+  const body = Buffer.from(`/* generated (minified) from tools/beta/client/${f} — do not edit here */\n` + code + '\n');
   emit('assets/js/' + f, body); assetsV[f.replace(/\.js$/, '')] = sha(body);
 }
 const cssPath = path.join(BETA, 'assets', 'cleo.css');            // owned by the designer lane; we only version it
@@ -184,7 +198,7 @@ for (const r of cityRows) {
   }));
   // ROUND-5 gap #2: the Gallery's rows + lead card, chosen here so its first screen never waits on the page JSON
   emit(`data/gallery/${r.fileKey}.json`, JSON.stringify(Object.assign({ _generated: 'tools/beta/build.js (lib/gallery.js) — do not edit', v: 1, key: r.key },
-    galleryRows({ areas: page.AREAS || [], collections: page.CATS || [], cuisines: page.CUISINES || [], guide: r.guide, places: r.recs }, r.name || page.meta.h1Main || r.key))));
+    galleryRows({ areas: page.AREAS || [], collections: page.CATS || [], cuisines: page.CUISINES || [], guide: r.guide, places: r.recs, photos: (r.imagery && r.imagery.photos) || {} }, r.name || page.meta.h1Main || r.key))));
   emit(`data/prov/${r.fileKey}.json`, JSON.stringify({ _generated: 'tools/beta/build.js from data/geocodes.json — do not edit', v: 1, key: r.key,
     _doc: 'Pin provenance per place id: the published coordinate each pin was read from (data/geocodes.json `source`). Split from the page JSON to keep views light; the page JSON keeps pv.pin / pv.checked / pv.status / pv.verified.',
     pins: Object.fromEntries(r.recs.filter(x => x.pv && x.pv.src).map(x => [x.id, x.pv.src])) }));
@@ -206,7 +220,8 @@ emit('data/search.json', JSON.stringify({ _generated: 'tools/beta/build.js — d
 // ---------------------------------------------------------------- pages
 const ctx = { assetsV, betaBase: BETA_BASE, feaCss: `assets/fe-a.css?v=${feaV}` };
 const LAZY_OK = /cleo:stamped/.test(fs.readFileSync(path.join(CLIENT, 'city.js'), 'utf8'));
-const CHUNK = { initial: 32, size: 40 };            // first 32 cards live; later ones in 40-card <noscript> chunks
+// Platform W7 (R6 gap #5): 32 → 24 live = one phone Gallery page, so a deep link elsewhere doesn't carry 8 hidden cards
+const CHUNK = { initial: 24, size: 40 };            // first 24 cards live; later ones in 40-card <noscript> chunks
 shell.setSite(reg, assetsV);
 const totals = Object.fromEntries(cityRows.map(r => [r.key, r.stats.total]));
 for (const r of reg.rows.filter(r => r.gen === 'new')) {

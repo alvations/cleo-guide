@@ -217,6 +217,9 @@
 .feb .results a.is-kb, .feb .results a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 .feb .results mark { background: var(--sun-wash, var(--sand)); color: var(--ink); border-radius: var(--r-xs); }
 
+/* platform W7 (R6 gap #4, B-20): the masthead's city link (What changed pages) is a ≥ 44 px target even for short names */
+.feb .masthead .eyebrow a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+
 @media (prefers-reduced-motion: reduce) {
   .feb .card-media, .feb .theme-main .cover, .feb .rail.editorial .rail-i.sig::before { transition: none; }
   .feb .tile.card:hover .card-media, .feb .ccard:hover .card-media, .feb .theme-main:hover .cover, .feb .rail.editorial .rail-i.sig:hover::before { transform: none; }

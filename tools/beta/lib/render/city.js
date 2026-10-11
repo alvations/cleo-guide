@@ -94,7 +94,7 @@ const BY_NAME = [[/sushi/i, 'sushi'], [/ramen|noodle|pho|laksa|soba|udon/i, 'noo
   [/temple|shrine|mosque|church/i, 'torii'], [/market|shop|hawker/i, 'awning'], [/view|skyline|tower/i, 'tower'], [/night/i, 'moon'],
   [/history|heritage|castle|palace/i, 'castle'], [/free/i, 'ticket'], [/screen|tv|film|pop/i, 'tv']];
 const glyphFor = (id, n, food) => GLYPH[id] || (BY_NAME.find(([re]) => re.test(n || '')) || [])[1] || (food ? 'forkknife' : 'compass');
-const { motifSvg, motifOf, photoFor, figureHtml, heroFor, heroHtml: heroPhotoHtml, heroCreditHtml } = require('../../imagery');   // imagery lane hooks
+const { motifSvg, motifOf, photoFor, figureHtml, heroFor, heroHtml: heroPhotoHtml } = require('../../imagery');   // imagery lane hooks
 const ico = n => `<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg>`;
 const tier = (t, cls = '') => TIER[t] ? `<a class="tier t${t}${cls}" href="#how-we-choose"><i class="tg t${t}" aria-hidden="true"></i><span>${TIER[t]}</span></a>` : '';
 
@@ -154,12 +154,13 @@ function card(r, num, ctx) {
     r.g.length && `data-g="${esc(r.g.join(' '))}"`, r.cz.length && `data-cz="${esc(r.cz.join(' '))}"`,
     r.src && r.src.length && `data-src="${esc(r.src.join(' '))}"`,
     r.la != null && `data-ll="${r.la},${r.ln}"`, pv.checked && `data-checked="${esc(pv.checked)}"`, r.closed && 'data-closed', r.warn && 'data-warn'].filter(Boolean).join(' ');
-  return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${(ph => ph ? figureHtml(ph, ctx.up || '', 'photo pl-photo') : '')(ctx.photo && ctx.photo(r))}
+  // W7 media slot (contract in docs/BETA-LOG.md): the calm cover (.pl-cover), a credited photo laid over it when the imagery
+  // lane has one (figure.photo.pl-photo: lazy, sized, alt = what it depicts, credit in the figcaption), and the heart (.pl-x)
+  return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${(ph => ph ? figureHtml(ph, ctx.up || '', 'photo pl-photo') : '')(ctx.photo && ctx.photo(r))}<p class="pl-x" hidden></p>
 <p class="pl-e">${r.closed ? `${eyebrow} <span class="pl-num" aria-label="Map pin ${num}">${num}</span>` : `<span class="pl-num" aria-label="Map pin ${num}">${num}</span> ${eyebrow}`}</p>
 <h3 class="pl-n"><a href="#p-${esc(r.id)}">${nm}</a></h3>
 ${r.w ? `<p class="pl-w">${prose(r.w)}</p>` : ''}${r.k ? `<p class="pl-k${isNote ? ' note' : ''}"><span class="lbl">${isNote ? 'Your guide’s note' : 'Look for'}</span> ${prose(r.k)}</p>` : ''}${r.ad ? `<p class="pl-ad">${esc(r.ad)}</p>` : ''}
-<p class="pl-s"><span class="lbl">Recommended by</span> ${rec}</p>
-<p class="pl-x" hidden></p></li>`;
+<p class="pl-s"><span class="lbl">Recommended by</span> ${rec}</p></li>`;
 }
 
 /* ---- "For you" (M2-05): interests → collection / cuisine IDS only (Wenwen rule: never a dish or name keyword).
@@ -238,7 +239,7 @@ function render(row, recs, ctx) {
   const nT1 = cnt(r => r.t === 1 && !r.closed);
   if (nT1) tiles.push({ cls: '', key: 't', id: '1', t: 'Must see', n: nT1, tg: 1 });
   cats.filter(c => !/^★/.test(c.n) && !tiles.some(t => t.key === 'c' && t.id === c.id)).forEach(c => { const n = cnt(r => r.g.includes(c.id)); if (n) tiles.push({ cls: '', key: 'c', id: c.id, t: c.n, n, g: glyphFor(c.id, c.n), only: recs.every(r => !r.g.includes(c.id) || r.kind === 'sight') ? 's' : '' }); });
-  namedSrc.slice(0, 2).forEach(s => tiles.push({ cls: 'src-t', key: 'src', id: s.id, t: s.name, n: s.n, k: 'Everything recommended by' }));
+  namedSrc.slice(0, 2).forEach(s => tiles.push({ cls: 'src-t', key: 'src', id: s.id, t: s.name, n: s.n, k: 'Everything recommended by', g: 'stamp' }));
   const fo = G.foodOrder || [], fRank = c => { const i = fo.indexOf(c.id); return i < 0 ? 1e3 : i; };
   cuis.slice().sort((x, y) => fRank(x) - fRank(y)).forEach(c => { const n = cnt(r => r.cz.includes(c.id)); if (n) tiles.push({ cls: '', key: 'cz', id: c.id, t: c.n, n, g: glyphFor(c.id, c.n, true), only: 'f' }); });
   const missing = cats.concat(cuis).filter(c => cnt(r => r.g.includes(c.id) || r.cz.includes(c.id)) && !tiles.some(t => t.id === c.id && t.key !== 'src'));
@@ -295,12 +296,15 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   const sigT = tiles.find(t => t.cls === 'sig');
   const leadR = (sig && sig.ids ? sig.ids.map(id => recs.find(r => r.id === id)) : sigT && sigT.key === 'c' ? inC(sigT.id) : []).find(r => r && r.t === 1 && !r.closed)
     || ordered.find(r => r.t === 1 && !r.closed) || ordered.find(r => !r.closed) || ordered[0];
-  const heroArt = row.art && row.art.hero;
-  const heroPhoto = heroFor(row);   // imagery W7: a credited city hero photo replaces the pin sky (else unchanged)
-  const heroHtml = `<div class="g-hero-x" aria-hidden="false">${heroPhoto ? heroPhotoHtml(heroPhoto, up) : heroArt ? `<img class="g-sky" src="${esc(up + heroArt.src)}" alt="" width="${heroArt.w}" height="${heroArt.h}" decoding="async">` : ''}` +
-    `<p class="g-kick">A guide in ${plural(st.areas || areas.length, 'area')} · every place recommended by name</p>` +
-    `${G.tileLine && G.tileLine.text ? `<p class="g-lead">${esc(G.tileLine.text)}</p>` : ''}<p class="g-acts"><a class="btn btn-primary" href="#cleo-grid" data-g-browse>Browse all ${plural(recs.length, 'place')}</a>` +
-    `${leadR ? `<a class="btn btn-ghost" href="#p-${esc(leadR.id)}">Start with ${esc(leadR.nat && leadR.n.endsWith(`(${leadR.nat})`) ? leadR.n.slice(0, -leadR.nat.length - 2).trimEnd() : leadR.n)}</a>` : ''}</p>${heroPhoto ? heroCreditHtml(heroPhoto) : ''}</div>`;
+  // W7 (owner: full UI/UX overhaul): a quiet hero — the city name, one line and the count line, with the imagery lane's
+  // credited city photo when there is one. The night-sky art and the action pair are retired; the grid, the category bar
+  // and the floating "Show map" pill carry the browsing
+  const heroLine = (G.tileLine && G.tileLine.text) || m.h1Thin || '';
+  const heroPhoto = heroFor(row);   // imagery W7: a credited city hero photo, or none
+  // desktop shows the lead as one quiet text link (the phone shows it as the first card, under the hero)
+  const leadName = leadR ? (leadR.nat && leadR.n.endsWith(`(${leadR.nat})`) ? leadR.n.slice(0, -leadR.nat.length - 2).trimEnd() : leadR.n) : '';
+  // the photo is an in-flow media slot (imagery: eager, sized, TASL credit in its figcaption), never a full-bleed backdrop
+  const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(heroLine)}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">Start with ${esc(leadName)}</a></p>` : ''}${heroPhoto ? heroPhotoHtml(heroPhoto, up, 'photo hero-media') : ''}</div>`;
   // default view: Gallery (SPEC §2.4), flipped in W5 once G1 and the phone first screen passed (ROUND-4 #2). A link with
   // #day= or a lens and no view= still opens Atlas, the unpaged list (views.js implied(), mirrored in the head script)
   const DV = 'gallery';
@@ -313,7 +317,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'${DV}';document.documentElement.setAttribute('data-view',x)})()</script>`;
 
   /* -- sprite: only the glyphs this page uses -- */
-  const used = new Set(['grid', 'map', 'list', 'sliders', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive', 'castle', 'bowl', 'tv', 'mountain', 'columns']);
+  const used = new Set(['search', 'grid', 'map', 'list', 'sliders', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive', 'castle', 'bowl', 'tv', 'mountain', 'columns']);
   tiles.forEach(t => t.g && used.add(t.g));
   for (const mm of cardsHtml.matchAll(/data-gl="([a-z0-9-]+)"/g)) used.add(mm[1]);
   const sprite = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">${[...used].filter(k => ICONS[k]).sort().map(k => `<symbol id="i-${k}" viewBox="0 0 24 24">${ICONS[k]}</symbol>`).join('')}</svg>`;
@@ -371,27 +375,28 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
 ${sprite}
 ${siteBar({ depth, current: 'city', rel: row.beta })}
 <main id="main" data-city="${esc(row.key)}">
-${switcher}
+<div class="cbar"><div class="cbar-in"><div class="spill" role="search" data-cleo-search hidden>${ico('search')}<label class="vh" for="cleo-filter">Search ${esc(name)}</label><input id="cleo-filter" type="search" placeholder="Search ${esc(name)}" autocomplete="off" enterkeyhint="search"><span class="hint" aria-hidden="true">place · dish · area</span></div>
+${switcher}</div></div>
+<button type="button" class="mappill" data-cleo-map="" data-cleo-mappill hidden>${ico('map')}<span>Show map</span></button>
 <p class="vh" id="cleo-view-live" aria-live="polite"></p>
 <header class="masthead">${motifSvg(row.imagery && row.imagery.motif, up, { fit: 'xMaxYMax meet', style: 'position:absolute;inset:0;width:100%;height:100%;z-index:-3;opacity:.42;-webkit-mask-image:linear-gradient(90deg,transparent 35%,#000 75%);mask-image:linear-gradient(90deg,transparent 35%,#000 75%)' })}
   <p class="eyebrow">${esc(country.name || m.eyebrow || '')}</p>
-  <div class="title"><h1>${esc(name)}${row.nat ? ` <span class="native">${esc(row.nat)}</span>` : ''}</h1>${m.h1Thin ? `<p class="dek">${esc(m.h1Thin)}</p>` : ''}</div>
+  <div class="title"><h1>${esc(name)}${row.nat ? ` <span class="native">${esc(row.nat)}</span>` : ''}</h1>${m.h1Thin && m.h1Thin !== heroLine ? `<p class="dek">${esc(m.h1Thin)}</p>` : ''}</div>
   <p class="facts">${facts}</p>
 ${heroHtml}
 </header>
 <div class="g-lead-slot vw view-gallery" id="cleo-lead"><p class="g-lead-k">Start with</p></div>
-<div class="g-rows vw view-gallery" id="cleo-rows-host"></div>
 <nav class="rail" id="cleo-rail" aria-label="Collections" data-cleo-rail data-view="all" hidden>
 ${tiles.filter(t => t.cls === 'sig').map(tileHtml).join('\n')}
 ${mods.join('\n')}${free ? '\n' + tileHtml(free) : ''}
 ${tiles.filter(t => t.cls !== 'sig').map(tileHtml).join('\n')}
 ${gapHtml.join('\n')}${closedTile ? '\n' + closedTile : ''}
-<button type="button" class="rail-i rail-all" data-cleo-all aria-pressed="false"><span class="t">Show all</span><span class="n">${recs.length}</span></button>
+<button type="button" class="rail-i rail-all" data-cleo-all aria-pressed="false"><svg class="g ico" aria-hidden="true"><use href="#i-grid"/></svg><span class="t">Show all</span><span class="n">${recs.length}</span></button>
 </nav>
 <div class="railbar" data-cleo-rail hidden><button type="button" class="btn btn-icon btn-ghost" data-rail="-1" aria-label="Previous collections">${ico('chev-l')}</button><button type="button" class="btn btn-icon btn-ghost" data-rail="1" aria-label="Next collections">${ico('chev-r')}</button></div>
+<div class="g-rows vw view-gallery" id="cleo-rows-host"></div>
 <div class="toolbar" data-cleo-toolbar hidden>
 ${seg}
-<label class="vh" for="cleo-filter">Search ${esc(name)}</label><input id="cleo-filter" type="search" placeholder="${esc(row.searchPlaceholder || 'Search ' + name)}" autocomplete="off">
 <button type="button" class="btn btn-ghost area-btn" data-cleo-tray="area" aria-haspopup="dialog">${ico('pin')}<span class="lbl">Area</span></button>
 <button type="button" class="btn btn-ghost" data-cleo-tray="" aria-haspopup="dialog" aria-label="Filters">${ico('sliders')}<span class="lbl">Filters</span><span class="tb-n" data-cleo-nf></span></button>
 <button type="button" class="btn btn-primary map-toggle" data-cleo-map="" aria-label="Show the map">${ico('map')}</button>
@@ -411,7 +416,7 @@ ${cardsHtml}
 </section>
 </div>
 <aside class="mappane" aria-label="Map">
-<button type="button" class="btn btn-primary mapclose" data-cleo-map="" aria-label="Back to the list">${ico('list')}<span>List</span></button>
+<button type="button" class="btn btn-primary mapclose" data-cleo-map="" aria-label="Back to the list">${ico('list')}<span>Show list</span></button>
 <div id="cleo-map" class="map"${mapArt ? ` data-art="${esc(up + mapArt.src)}" data-art-alt="${esc(mapArt.alt)}"` : ''}>${mapArt
     ? `<figure class="map-art map-fallback"><img src="${esc(up + mapArt.src)}" width="${mapArt.w}" height="${mapArt.h}" alt="${esc(mapArt.alt)}" decoding="async" style="max-width:100%;height:auto"><figcaption>The map appears when it can load. Every place is listed here either way.</figcaption></figure>`
     : '<p class="map-fallback">The map appears when it can load. Every place is listed here either way.</p>'}</div>
