@@ -21,6 +21,11 @@ name: beta-fetch-unsplash
 
 on:
   workflow_dispatch:
+    inputs:
+      scope:
+        description: "What this run may fetch: heroes | priority | pilots | all (fetch-commons.js --scope)"
+        required: false
+        default: priority
   push:
     branches: [claude/peaceful-goodall-i0hsrt]
     paths:
@@ -61,9 +66,14 @@ jobs:
         run: cd tools && npm install --no-save --no-audit --no-fund sharp
 
       - name: Fetch Wikimedia Commons photos (no key needed)
+        # Push-triggered runs use the default scope (priority); wider scopes only by hand (workflow_dispatch),
+        # so no stray run can pull hundreds of photos.
+        env:
+          SCOPE: ${{ github.event.inputs.scope || 'priority' }}
         run: |
+          case "$SCOPE" in heroes|priority|pilots|all) ;; *) echo "::error::unknown scope '$SCOPE'"; exit 1;; esac
           if [ -f tools/beta/imagery/fetch-commons.js ]; then
-            node tools/beta/imagery/fetch-commons.js --budget 300 --widths 500,960 --hero-widths 500,960
+            node tools/beta/imagery/fetch-commons.js --scope "$SCOPE" --budget 300 --widths 500,960 --hero-widths 500,960
           else
             echo "::warning::tools/beta/imagery/fetch-commons.js is not on this branch; skipping Commons."
           fi
