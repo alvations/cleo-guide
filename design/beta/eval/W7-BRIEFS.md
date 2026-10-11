@@ -15,6 +15,33 @@ This wave replaces the R6 art direction. It does not polish it. Specifically, **
 
 Keep everything that makes the guide honest. Every place must stay reachable, attribution and "Recommended by" stay visible, closures stay flagged, and nothing may be fabricated.
 
+## Amendment (owner, 2026-10-11): Gen Z wanderlust that every generation trusts
+
+The owner added:
+> "We want th Gen Z wonder lust feel in the beta pages!! But keep it classy and still able to attract the boomer or Gen X. Don't forget to have inviting Gen Z style fonts too."
+
+Every lane applies this on top of the brief below:
+
+- **The feel.** Gen Z wanderlust: it should make you want to go, now. Get there with:
+  - big, sun-washed photography;
+  - confident and playful display type;
+  - small moments of delight, e.g. a satisfying heart "pop", a soft card lift, a "you'd love this" nudge on saved lists, and fun counts like "37 spots locals swear by";
+  - sticker-like but tasteful badges ("Must see", "Hidden gem" only where the data says so);
+  - warm, sunny accents used sparingly.
+- **Keep it classy.** Restraint wins every tie. No gimmicks, slang overload, emoji confetti, neon, gradients or loud animations. One expressive moment per screen, not ten.
+- **Every generation trusts it.** Gen X and Boomer readers must find it calm, legible and credible:
+  - body text ≥ 16 px with generous line-height;
+  - high contrast, plain labels and obvious buttons;
+  - nothing that hides behind gestures alone;
+  - "Recommended by" and sources always visible, as the trust signal that wins them.
+- **Fonts: inviting, Gen Z-style display face plus a supremely legible text face.**
+  - The designer compares at least 4 expressive, self-hostable OFL/Apache display faces in the current youthful-editorial vein: soft or "wonky" serifs, characterful grotesques, friendly rounded geometrics. Each must ship Latin-ext **and Vietnamese**.
+  - Pair the winner with one highly legible text and UI sans.
+  - The display face sets headlines, city names and big numbers. The text face sets everything people read or tap.
+  - Verify macrons, Vietnamese and the CJK fallback, and keep budgets: subset, `font-display: swap`, ≤ 2 families and ≤ 4 woff2 files in the critical path.
+- **Copy voice.** Inviting and a little playful in headlines and CTAs, e.g. "Where to next?" and "Save it for the trip". Keep it plain and precise everywhere facts live: sources, closures, addresses. Strings go through the i18n catalogue. Never invent facts to sound fun.
+- **Scoring.** The designer's direction card adds two items: **Gen Z wanderlust appeal** and **cross-generational trust and legibility**. Both must score ≥ 9/10 for the winning direction.
+
 ## Common rules (every lane)
 
 - **Branch and git**
