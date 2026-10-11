@@ -31,6 +31,7 @@ const SHOTS = [
   { id: 'gallery', url: 'beta/cities/tokyo.html' },
   { id: 'atlas', url: 'beta/cities/tokyo.html#view=atlas', wait: 1200 },
   { id: 'place', url: 'beta/cities/tokyo.html#p=kanda-myojin', wait: 900 },
+  { id: 'guidebook', url: 'beta/cities/tokyo.html#view=guidebook', wait: 1200 },
   { id: 'gallery-cle', url: 'beta/cleveland.html' },
   { id: 'gallery-vn', url: 'beta/Vietnam/index.html' },
 ];

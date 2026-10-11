@@ -365,7 +365,29 @@ Still refuses anything uncredited. New in W7:
   `<figure class="photo hero-photo">` behind the headline. It is eager (`fetchpriority="high"`) with `srcset` at
   `100vw` and a scrim in the hero's ground colour (`--hero-scrim`, default `--night`), so the text stays at AA. It
   replaces the pin sky only when a credited hero exists. `imagery.heroCreditHtml()` puts the credit as a small
-  **"Photo: “title” by author, licence, via Wikimedia Commons"** line in the text flow, under the actions. Laid over
+  **"Photo: author · licence · Wikimedia Commons (resized)"** line in the text flow, under the actions. Laid over
   the photo it collided with the facts and buttons. With no hero photo the page is byte-identical.
 - Not yet: Gallery row cards and the "Start with" lead card are drawn client-side from `data/gallery/<page>.json`.
   Adding `row.imagery.photos[id]` there is an FE-A follow-up (contract: `{src, srcset, w, h, credit}`).
+
+### 5. Credits, subject rules and weight (W7 review round 3)
+
+- **Short credit everywhere a card or hero shows a photo:** `photos.captionHtml(credit)` →
+  `Photo: <author> · <licence link> · <Commons File: page link> (resized)`. The file title is the source link's
+  `title` and part of its accessible name (`aria-label="“Title” on Wikimedia Commons"`), which covers CC 2.0/3.0's
+  title-if-supplied term. The File: page is the full TASL record; there is no separate credits page.
+  `captionHtml(credit, {full:true})` gives the whole sentence for a place detail view.
+- **Card `sizes`:** `CARD_SIZES = (max-width: 639px) 92vw, (max-width: 1023px) 45vw, 25vw`. Thumbnails pass their own,
+  e.g. `figureHtml(photo, up, cls, { sizes: '120px' })`.
+- **Subject rules at fetch time** (`fetch-commons.js`): signage, lettering, logos or advertising (`SIGNAGE`), and
+  equipment, people or close-ups such as hands, a drone controller, a selfie or a portrait (`CLOSEUP`, which also checks
+  categories) are refused unless the target itself is named so (Sign Hill, a portrait gallery). Heroes also refuse
+  winter, snow, overcast or fog (`GLOOM`). Every run first **re-scans** the credited photos against their current
+  Commons text and prints `RESCAN` lines (report only).
+- **One file, one row:** `test-imagery.js` fails if a Commons file is credited twice (two heroes, or a hero and a card).
+  Whether a hub hero looks too much like one of its city heroes stays a visual check.
+- **Weight:** `tools/beta/imagery/recompress.js` re-encodes credited Commons JPEGs in place: progressive mozjpeg,
+  metadata stripped, the highest quality ≤ 72 that meets 45 KB (500 w), 110 KB (card 960 w) or 160 KB (hero 960 w),
+  never below 50. It keeps pixel size, writes only when smaller and appends "recompressed (JPEG, quality ≤ 72)" to
+  `modified`; it is idempotent. It needs `sharp` (`npm install --no-save sharp` in `tools/` on the runner) and exits 0
+  without it. The first pass took `photos/` from 36 MB to 17 MB.

@@ -26,6 +26,7 @@
  *   --widths a,b         card photo widths (srcset; default 480,960 → snapped to 500,960; the largest is the credited file)
  *   --hero-widths a,b    hero photo widths (default 960,1280)
  *   --delay <ms>         pause between requests (default 400; API etiquette)
+ *   --no-rescan          skip the start-of-run re-scan of credited photos (see 2b; it reports, never deletes)
  *
  * Per target it takes the first candidate that passes, in manifest order:
  *   1. GET commons.wikimedia.org/w/api.php?action=query&prop=imageinfo|categories&iiprop=url|size|mime|sha1|
@@ -33,8 +34,12 @@
  *   2. Licence (extmetadata LicenseShortName) must be CC0, public domain, CC BY or CC BY-SA; NC, ND, GFDL-only and
  *      anything else is refused. Author (Artist, HTML stripped) must be present. Bitmap only (JPEG/PNG/WebP), at least
  *      640 px wide, not a panorama wider than 3:1.
- *   2b. Refused: a candidate a person marked `refused` after looking at it, or whose title/description suggests that
- *      signage, a logo or advertising is the subject.
+ *   2b. Refused: a candidate a person marked `refused` after looking at it; one whose title/description suggests that
+ *      signage, lettering, a logo or advertising is the subject; one whose title/description/categories suggest
+ *      equipment, people or a close-up (hands, a drone controller, a portrait) — each unless the target itself is named
+ *      so (Sign Hill, a portrait gallery); a hero whose title/description says winter, snow, overcast or fog.
+ *      Every run first RE-SCANS the already-credited photos with these rules against their current Commons text and
+ *      prints `RESCAN` lines (report only; ≈ 1 API request per 50 photos).
  *   3. Depicts re-check: the file title, its description or one of its visible categories must contain one of the
  *      target's `names` (compared without spaces, punctuation or diacritics). Otherwise refused.
  *   4. Download the server-side thumbnails: each asked width is snapped to Commons' standard thumbnail steps (250, 330,
@@ -84,6 +89,7 @@ function args(argv) {
     else if (a === '--widths') o.widths = String(v()).split(',').map(Number).sort((x, y) => x - y);
     else if (a === '--hero-widths') o.heroWidths = String(v()).split(',').map(Number).sort((x, y) => x - y);
     else if (a === '--delay') o.delay = +v();
+    else if (a === '--no-rescan') o.noRescan = true;
     else if (a === '-h' || a === '--help') { console.log(fs.readFileSync(__filename, 'utf8').split('*/')[0]); process.exit(0); }
     else die(`unknown option ${a} (see --help)`);
   }
@@ -120,8 +126,14 @@ function licenceOf(short, url) {
 }
 const strip = h => String(h || '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/\s+/g, ' ').trim();
 
-/** Corporate signage, logos or advertising as the subject (owner review, W7): such a file is refused. */
-const SIGNAGE = /\b(logos?|signage|signboards?|billboards?|advertis\w*|neon signs?)\b/i;
+/** Corporate signage, logos, lettering or advertising as the subject (owner review, W7): such a file is refused —
+ * unless the sign IS the place (the target's own names say so, e.g. Sign Hill, the Glico Running Man sign). */
+const SIGNAGE = /\b(logos?|signage|signboards?|signs?|billboards?|advertis\w*|letters|lettering)\b/i;
+/** Equipment, people or close-ups as the subject (owner review, W7: a "RiverScape, Dayton" file showed hands on a
+ * drone controller): refused for every slot. Checked against the title, description and visible categories. */
+const CLOSEUP = /\b(drone controllers?|controllers?|remote controls?|remotes?|hands?|holding|selfies?|portraits?|close-?ups?|equipment)\b/i;
+/** A subject check applies unless the target itself is named by it (a museum of signs, a portrait gallery). */
+const subjectRefused = (re, t, text) => re.test(text) && !re.test(`${t.label || ''} ${(t.names || []).join(' ')}`);
 
 /** City and hub heroes: bright, warm-season or golden-hour establishing shots (owner review, W7). A gloomy one is refused
  * unless the target says `winterOk` (a winter destination). Night views stay allowed; night-time construction does not. */
@@ -229,7 +241,6 @@ async function main() {
   const why = {}; todo0.filter(p => p.skip).forEach(p => { const k = p.skip.replace(/ \(.*$/, '').replace(/ — .*$/, ''); why[k] = (why[k] || 0) + 1; });
   for (const [k, n] of Object.entries(why).sort((a, b) => b[1] - a[1])) console.log(`  skip  ${n} × ${k}`);
   if (o.dry) { console.log('\n--dry-run — nothing fetched.'); return; }
-  if (!todo.length) { console.log('\nNothing to do.'); return; }
   const off = await reachable();
   if (off) {
     console.log(`\ncommons.wikimedia.org is not reachable from here (${off}). Nothing fetched (exit 0).\n` +
@@ -265,9 +276,39 @@ async function main() {
     const cats = (pg.categories || []).map(c => c.title.replace(/^Category:/, ''));
     const desc = strip(val('ImageDescription')), obj = strip(val('ObjectName'));
     if (t.type === 'hero' && !t.winterOk && GLOOM.test(`${pg.title} ${obj} ${desc}`)) return { why: 'a hero wants a bright, warm-season or golden-hour view; the title or description says winter, snow, overcast or fog' };
-    if (SIGNAGE.test(`${pg.title} ${obj} ${desc}`)) return { why: 'title or description suggests signage, a logo or advertising is the subject' };
+    if (subjectRefused(SIGNAGE, t, `${pg.title} ${obj} ${desc}`)) return { why: 'title or description suggests signage, lettering, a logo or advertising is the subject' };
+    if (subjectRefused(CLOSEUP, t, `${pg.title} ${obj} ${desc} ${cats.join(' | ')}`)) return { why: 'title, description or categories suggest equipment, people or a close-up is the subject, not the place' };
     if (!namesPlace(t.names, pg.title, obj, desc, cats.join('|'))) return { why: `title, description and categories do not name ${t.label}` };
     return { ok: { title: pg.title, ii, lic, author, desc, obj, cats } };
+  }
+
+  /**
+   * Re-scan every credited Commons photo with today's subject rules (signage, equipment/close-up, hero gloom), against
+   * the file's CURRENT description and categories — 50 titles per API request. Reports only: a person looks, then
+   * marks the candidate `refused` in the manifest and removes the row.
+   */
+  async function rescan() {
+    const rows = credits.credits.filter(c => c.provider === 'wikimedia-commons' && c.commonsTitle), hits = [];
+    const byKey = new Map(man.targets.map(t => [t.key, t]));
+    for (let i = 0; i < rows.length; i += 50) {
+      const part = rows.slice(i, i + 50);
+      const j = await api({ action: 'query', titles: part.map(c => c.commonsTitle).join('|'), prop: 'imageinfo|categories', iiprop: 'extmetadata', iiextmetadatafilter: 'ImageDescription|ObjectName', clshow: '!hidden', cllimit: 'max' });
+      const pages = new Map(((j.query && j.query.pages) || []).map(pg => [pg.title, pg]));
+      const norm = new Map(((j.query && j.query.normalized) || []).map(n => [n.from, n.to]));
+      for (const c of part) {
+        const pg = pages.get(norm.get(c.commonsTitle) || c.commonsTitle);
+        const key = c.slot ? `hero:${c.slot.key}` : `landmark:${c.record.page}#${c.record.id}`, t = byKey.get(key) || { label: c.depicts, names: [] };
+        if (!pg || pg.missing) { hits.push(`${key} ${c.commonsTitle}: no longer on Commons`); continue; }
+        const em = (pg.imageinfo && pg.imageinfo[0] && pg.imageinfo[0].extmetadata) || {}, v = k => strip(em[k] && em[k].value);
+        const cats = (pg.categories || []).map(x => x.title.replace(/^Category:/, '')).join(' | ');
+        const text = `${pg.title} ${v('ObjectName')} ${v('ImageDescription')}`;
+        if (subjectRefused(SIGNAGE, t, text)) hits.push(`${key} ${c.commonsTitle}: signage/lettering/logo (${(SIGNAGE.exec(text) || [])[0]})`);
+        if (subjectRefused(CLOSEUP, t, `${text} ${cats}`)) hits.push(`${key} ${c.commonsTitle}: equipment/people/close-up (${(CLOSEUP.exec(`${text} ${cats}`) || [])[0]})`);
+        if (c.slot && !t.winterOk && GLOOM.test(text)) hits.push(`${key} ${c.commonsTitle}: gloomy hero (${(GLOOM.exec(text) || [])[0]})`);
+      }
+    }
+    console.log(`\nRescan of ${rows.length} credited Commons photo(s): ${hits.length} hit(s)${hits.length ? ' — review, then mark refused' : ''}`);
+    hits.forEach(h => console.log(`  RESCAN ${h}`));
   }
 
   /** The lead image of the cited Wikipedia article (pageimages), as a File: title, or null. */
@@ -337,6 +378,7 @@ async function main() {
   }
 
   try {
+    if (!o.noRescan) await rescan();
     for (const p of todo) {
       let done = false;
       const tries = p.cands.slice();
@@ -368,4 +410,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { SIGNAGE, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };

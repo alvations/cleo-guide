@@ -39,8 +39,8 @@
    "withArticle": 635
   },
   "candidates": {
-   "total": 294,
-   "high": 280,
+   "total": 307,
+   "high": 293,
    "med": 14,
    "low": 0
   },
@@ -247,14 +247,16 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Wheeling_Suspension_Bridge.jpg",
      "depicts": "The Wheeling Suspension Bridge over the Ohio River",
      "confidence": "high",
-     "reason": "title names the Wheeling Suspension Bridge; colour photograph (HAER, Library of Congress), public domain"
+     "reason": "title names the Wheeling Suspension Bridge; colour photograph (HAER, Library of Congress), public domain",
+     "refused": "refused by review (W7): the same file is the Wheeling Suspension Bridge place card"
     },
     {
      "file": "File:WheelingSuspBridge.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:WheelingSuspBridge.jpg",
      "depicts": "The Wheeling Suspension Bridge",
      "confidence": "high",
-     "reason": "title names the Wheeling Suspension Bridge (copied from a category listing)"
+     "reason": "title names the Wheeling Suspension Bridge (copied from a category listing)",
+     "refused": "refused by review (W7): the Suspension Bridge is already a place card on the page; the hero is an establishing view"
     },
     {
      "file": "File:Wheeling West Virginia.jpg",
@@ -309,12 +311,27 @@
    "label": "United States — country hub hero",
    "names": [
     "Manhattan",
-    "Capitol"
+    "Capitol",
+    "Golden Gate"
    ],
    "pilot": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
+    {
+     "file": "File:Golden Gate Bridge at sunset 1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Golden_Gate_Bridge_at_sunset_1.jpg",
+     "depicts": "Golden Gate Bridge at sunset",
+     "confidence": "high",
+     "reason": "title names the Golden Gate Bridge; Commons picture of the day 15 Oct 2012; not any city hero (SF hero is the skyline)"
+    },
+    {
+     "file": "File:Golden Gate Bridge At Golden Hour.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Golden_Gate_Bridge_At_Golden_Hour.jpg",
+     "depicts": "Golden Gate Bridge at golden hour",
+     "confidence": "high",
+     "reason": "title names the Golden Gate Bridge (copied from a category listing)"
+    },
     {
      "file": "File:Brooklyn Bridge, Downtown Manhattan, and Freedom Tower, golden hour (20137848066).jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge,_Downtown_Manhattan,_and_Freedom_Tower,_golden_hour_(20137848066).jpg",
@@ -335,7 +352,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:United_States_Capitol_west_front_edit2_(cropped).jpg",
      "depicts": "United States Capitol, west front",
      "confidence": "high",
-     "reason": "title names the United States Capitol"
+     "reason": "title names the United States Capitol",
+     "refused": "refused by review (W7): the same file is the Washington DC hero"
     }
    ]
   },
@@ -384,25 +402,45 @@
     "Dijver",
     "Graslei",
     "Gent",
-    "Ghent"
+    "Ghent",
+    "Gravensteen",
+    "Antwerpen",
+    "Antwerp",
+    "Liebfrauenkathedrale"
    ],
    "pilot": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Gravensteen, Ghent (DSCF0191).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gravensteen,_Ghent_(DSCF0191).jpg",
+     "depicts": "Gravensteen castle, Ghent, at golden hour",
+     "confidence": "high",
+     "reason": "title names the Gravensteen, Ghent; summary: golden hour, CC BY-SA 4.0 (Trougnouf); not the Ghent hero view (Graslei)"
+    },
+    {
+     "file": "File:Antwerpen, Liebfrauenkathedrale.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Antwerpen,_Liebfrauenkathedrale.jpg",
+     "depicts": "Cathedral of Our Lady, Antwerp, from the Groenplaats",
+     "confidence": "high",
+     "reason": "title names Antwerp cathedral; summary: from the Groenplaats, Rolf Kranz 2018; not the Antwerp hero view (Grote Markt)"
+    },
+    {
      "file": "File:Bruges, the Dijver canal, view to the Belfry.JPG",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Bruges,_the_Dijver_canal,_view_to_the_Belfry.JPG",
      "depicts": "The Dijver canal and the Belfry of Bruges (September 2017, midday)",
      "confidence": "high",
-     "reason": "title names Bruges, the Dijver canal and the Belfry; a different file from the Bruges hero"
+     "reason": "title names Bruges, the Dijver canal and the Belfry; a different file from the Bruges hero",
+     "refused": "refused by visual review (W7): near-duplicate of the Bruges hero (canal, willow and Belfry)"
     },
     {
      "file": "File:Graslei Gent.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Graslei_Gent.jpg",
      "depicts": "Graslei, Ghent",
      "confidence": "high",
-     "reason": "title names the Graslei, Ghent (copied from a category listing); a different file from the Ghent hero"
+     "reason": "title names the Graslei, Ghent (copied from a category listing); a different file from the Ghent hero",
+     "refused": "refused by review (W7): the Ghent hero is the same Graslei/Korenlei view"
     },
     {
      "file": "File:Grand Place, Brussels, Belgium.jpg",
@@ -433,18 +471,34 @@
     "Aachen",
     "Bonn",
     "Rheinufer",
-    "Rhine"
+    "Rhine",
+    "Altes Rathaus"
    ],
    "pilot": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Altes Rathaus, Bonn.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Altes_Rathaus,_Bonn.jpg",
+     "depicts": "Old Town Hall on the Markt, Bonn (2009)",
+     "confidence": "high",
+     "reason": "title names the Altes Rathaus, Bonn; summary: Mike Peel 2009, CC BY-SA 4.0; not the Rhineland hero (Rabenlay skywalk view)"
+    },
+    {
+     "file": "File:Bonn - Altes Rathaus am Markt (tone-mapping).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bonn_-_Altes_Rathaus_am_Markt_(tone-mapping).jpg",
+     "depicts": "Old Town Hall on the Markt, Bonn",
+     "confidence": "high",
+     "reason": "title names the Altes Rathaus am Markt, Bonn (Guido Radig)"
+    },
+    {
      "file": "File:Rheinuferpromenade in Bonn 2021.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Rheinuferpromenade_in_Bonn_2021.jpg",
      "depicts": "The Rhine promenade in Bonn (2021)",
      "confidence": "high",
-     "reason": "title names the Rhine promenade (Rheinuferpromenade) in Bonn (copied from a category listing)"
+     "reason": "title names the Rhine promenade (Rheinuferpromenade) in Bonn (copied from a category listing)",
+     "refused": "refused by visual review (W7): grey river under an overcast sky"
     },
     {
      "file": "File:Saarschleife at Mettlach (2457306844).jpg",
@@ -526,21 +580,37 @@
    "key": "hero:hokkaido",
    "type": "hero",
    "depicts": "hub:hokkaido",
-   "label": "Hokkaido (Sapporo) — city hero",
+   "label": "Hokkaido (Sapporo, Otaru) — city hero",
    "names": [
     "Sapporo",
-    "Odori"
+    "Odori",
+    "Otaru"
    ],
    "pilot": false,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Otaru Canal 20140817.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Otaru_Canal_20140817.jpg",
+     "depicts": "Otaru Canal, Hokkaido, in summer (17 August 2014)",
+     "confidence": "high",
+     "reason": "title names the Otaru Canal; dated August 2014; summary CC BY-SA 4.0 (Suicasmo)"
+    },
+    {
+     "file": "File:Otaru Canal 2009.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Otaru_Canal_2009.jpg",
+     "depicts": "Otaru Canal, Hokkaido (June 2009)",
+     "confidence": "high",
+     "reason": "title names the Otaru Canal; summary: June 2009, public domain (Komatta)"
+    },
+    {
      "file": "File:Sapporo TV Tower 20110719.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Sapporo_TV_Tower_20110719.jpg",
      "depicts": "Sapporo TV Tower above Odori Park in summer (July 2011)",
      "confidence": "high",
-     "reason": "title names Sapporo TV Tower; dated 19 July 2011 (summer)"
+     "reason": "title names Sapporo TV Tower; dated 19 July 2011 (summer)",
+     "refused": "refused by visual review (W7): a large corporate logo on the tower (signage rule); cropped to a tower fragment and sky"
     },
     {
      "file": "File:View of Sapporo TV Tower from Odori Park(2011).JPG",
@@ -747,12 +817,20 @@
    "label": "Silicon Valley — region hero (San Jose)",
    "names": [
     "San Jose",
-    "Silicon Valley"
+    "Silicon Valley",
+    "Stanford"
    ],
    "pilot": false,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
+    {
+     "file": "File:Stanford Memorial Church (2025)-L1007381.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Stanford_Memorial_Church_(2025)-L1007381.jpg",
+     "depicts": "Stanford Memorial Church from the Main Quad (June 2025)",
+     "confidence": "high",
+     "reason": "title names Stanford Memorial Church; summary: Frank Schulenburg, 16 June 2025, CC BY-SA 4.0"
+    },
     {
      "file": "File:San Jose Skyline Silicon Valley.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:San_Jose_Skyline_Silicon_Valley.jpg",
@@ -766,7 +844,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:San_Jose_California_Skyline.jpg",
      "depicts": "San Jose skyline (2009)",
      "confidence": "high",
-     "reason": "title names the San Jose skyline"
+     "reason": "title names the San Jose skyline",
+     "refused": "refused by visual review (W7): hazy aerial"
     }
    ]
   },
@@ -975,7 +1054,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:RiverScape_MetroPark,_Dayton,_United_States_(Unsplash).jpg",
      "depicts": "RiverScape MetroPark on the Great Miami River, Dayton",
      "confidence": "high",
-     "reason": "title names RiverScape MetroPark, Dayton (copied from a category listing)"
+     "reason": "title names RiverScape MetroPark, Dayton (copied from a category listing)",
+     "refused": "refused by visual review (W7): does not depict the place (drone controller close-up)"
     },
     {
      "file": "File:DaytonSkylineGMRiver.jpg",
@@ -1015,11 +1095,26 @@
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:North Point Lighthouse - Presque Isle, Erie, PA (8664303854).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:North_Point_Lighthouse_-_Presque_Isle,_Erie,_PA_(8664303854).jpg",
+     "depicts": "North Pier/North Point lighthouse, Presque Isle, Erie",
+     "confidence": "high",
+     "reason": "title names Presque Isle, Erie, PA; summary CC BY 2.0 (Flickr)"
+    },
+    {
+     "file": "File:Old Presque Isle Light house.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Old_Presque_Isle_Light_house.JPG",
+     "depicts": "Presque Isle Light, Erie",
+     "confidence": "high",
+     "reason": "title names the Presque Isle lighthouse"
+    },
+    {
      "file": "File:Presque Isle State Park, Millcreek Twp, Erie County, Pennsylvania - 20210904 - 10 - Leslie Beach looking southwest.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Presque_Isle_State_Park,_Millcreek_Twp,_Erie_County,_Pennsylvania_-_20210904_-_10_-_Leslie_Beach_looking_southwest.jpg",
      "depicts": "Leslie Beach, Presque Isle State Park, on a sunny afternoon",
      "confidence": "high",
-     "reason": "title names Presque Isle State Park, Erie County; summary: sunny Labor Day afternoon (people small and incidental)"
+     "reason": "title names Presque Isle State Park, Erie County; summary: sunny Labor Day afternoon (people small and incidental)",
+     "refused": "refused by visual review (W7): overcast, grey beach"
     },
     {
      "file": "File:Presque Isle Beach and Dunes.jpg",
@@ -1151,14 +1246,30 @@
    "key": "hero:youngstown",
    "type": "hero",
    "depicts": "hub:youngstown",
-   "label": "Youngstown — city hero (skyline)",
+   "label": "Youngstown — city hero (Mill Creek Park)",
    "names": [
-    "Youngstown"
+    "Youngstown",
+    "Lanterman",
+    "Mill Creek Park"
    ],
    "pilot": false,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
+    {
+     "file": "File:Lanterman's Mill - Mill Creek Park.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Lanterman's_Mill_-_Mill_Creek_Park.jpg",
+     "depicts": "Lanterman's Mill, Mill Creek Park, Youngstown (May 2008)",
+     "confidence": "high",
+     "reason": "title names Lanterman's Mill, Mill Creek Park; summary: Keith Roberts, 4 May 2008 (Mill Creek Park is a sourced must-see)"
+    },
+    {
+     "file": "File:Mill Creek Park Suspension Bridge.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mill_Creek_Park_Suspension_Bridge.jpg",
+     "depicts": "Suspension bridge in Mill Creek Park, Youngstown",
+     "confidence": "high",
+     "reason": "title names Mill Creek Park"
+    },
     {
      "file": "File:Downtown Youngstown Skyline.JPG",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Youngstown_Skyline.JPG",
@@ -1172,7 +1283,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Youngstown_skyline_Wean_Park.jpg",
      "depicts": "Youngstown skyline from Wean Park (2020)",
      "confidence": "high",
-     "reason": "title names the Youngstown skyline"
+     "reason": "title names the Youngstown skyline",
+     "refused": "refused by visual review (W7): dominated by the YOUNGSTOWN letter sign (signage rule; cards crop it to OUNGSTOWN)"
     }
    ]
   },

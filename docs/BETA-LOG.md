@@ -1032,6 +1032,20 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - On phones Atlas follows FE-A's rule: the city bar steps aside, and the chip row carries the search pill and the switcher.
     - In Atlas the write-up stays hidden even on the selected card. The selection ring sits on the media image.
     - Gates all PASS; `atlas-ms.js` 85/85; w2 map 35/35.
+  - **Follow-up 4 (orchestrator 16:52 / 17:05):**
+    - **Credits never clip.** Cards, rows, the hero strip and the detail use imagery's short `captionHtml` ("Photo: author · licence · Wikimedia Commons (resized)", the file title on the link). It wraps in full under the media, and on phones the hero credit sits under the strip.
+    - **Place detail.** It spells the title out in front, for the full TASL credit. The photo fills its slot with `object-fit:cover`, max 420 px: no letterbox.
+    - **Phone `#p=` deep link.** Gallery rows no longer stamp behind an open place sheet. Before, they grew 2,422 → 3,156 nodes within 0.5 s; now Tokyo holds 2,167 for 3 s. The rows resume once the sheet closes and the reader is near them.
+    - **`w7-shots.js`.** The offline tile stub is a neutral land colour (#F2EFE9, dark #24211D); the README says tiles are stubbed.
+    - **New probe** `npm run beta:probe:fe-a` (`tools/beta/w7-fe-a-probe.js`, Playwright). It checks, and passes:
+      - no credit ellipsised, clamped or cut (6 page/viewport cases);
+      - phone deep links ≤ 3,000 nodes for 3 s (Tokyo ×2, New York), with rows resuming after close;
+      - the sheet count over the whole view ("… of 488");
+      - the grow motion: 1 transition and `--dur-grow` 340 ms; under reduced motion no transition, 0 animations and `--dur-grow` 0.
+
+      Result: `design/beta/eval/w7/fe-a/probe.txt`.
+    - Shots re-taken.
+
 
 - 2026-10-11 · Atlas lane · **Atlas budget regression fixed, plus the orchestrator's pass.**
   - **Cause of 8.26 MB / 10k nodes:** `msArea()` called `stampFor()` per shown id, and each call built a whole ~40-card chunk. Platform's lazy scroll-stamping also kept building hidden cards while the list scrolled.

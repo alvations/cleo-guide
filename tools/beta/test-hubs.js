@@ -156,7 +156,13 @@ console.log('\n== W7: hub "Known for" from child guides\' signatures; hero photo
 {
   const guideIdx = Object.fromEntries(JSON.parse(rd('data/guide.json')).pages.map(p => [p.key, p]));
   const hubs = manifest.pages.filter(p => p.kind === 'country-hub' && p.gen === 'new');
-  const badKnown = [], dupHero = [];
+  const badKnown = [], dupHero = [], sameDish = [];
+  // one dish, several names (the guides' canon table writes synonyms as "gaufre|waffle|waffles"): a class per synonym set
+  const { CANON } = require('./lib/guide');
+  const fold = x => String(x).normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+  const cls = new Map();
+  for (const c of Object.values(CANON)) for (const dd of c.dishes || []) { const alts = dd.split('|').map(fold); for (const x of alts) if (!cls.has(x)) cls.set(x, alts.slice().sort().join('|')); }
+  const dishClassOf = n => cls.get(fold(n)) || fold(n);
   let nKnown = 0;
   for (const h of hubs) {
     const d = doc(rd(h.beta));
@@ -166,16 +172,20 @@ console.log('\n== W7: hub "Known for" from child guides\' signatures; hero photo
       const g = guideIdx[p.key], j = JSON.parse(rd(`data/places/${p.key.replace(/\//g, '--')}.json`));
       return (g && g.tileLine ? g.tileLine.split(' · ') : []).concat(j.places.filter(x => !x.closed && x.t === 1).map(x => x.n));
     });
+    const classes = [];
     for (const s of d.querySelectorAll('.chero .why .l > span')) {
       nKnown++;
+      classes.push(dishClassOf(s.textContent.trim()));
       const t = s.textContent.trim();
       if (!allowed.some(a => a.startsWith(t))) badKnown.push(`${h.beta}: ${t}`);
     }
+    if (new Set(classes).size !== classes.length) sameDish.push(`${h.beta}: ${classes.join(' / ')}`);
     const heroSrc = [...d.querySelectorAll('.chero .hero-media figcaption a')].map(a => a.getAttribute('href')).find(u => !/creativecommons|\/licen[cs]e|publicdomain/i.test(u || ''));
     if (heroSrc) for (const a of d.querySelectorAll('li.dest .credit a')) if (a.getAttribute('href') === heroSrc) dupHero.push(`${h.beta}: ${heroSrc}`);
   }
   chk(`hub "Known for" items (${nKnown}) that are neither a child guide's signature nor an open tier-1 place`, badKnown, a => a.length === 0 && nKnown >= hubs.length);
   chk('hub hero photo reused by a card on the same hub', dupHero, a => a.length === 0);
+  chk('hub "Known for" lines naming one dish twice (synonyms from the canon table)', sameDish, a => a.length === 0);
 }
 
 // ── 5. voice lint ──────────────────────────────────────────────────────────
