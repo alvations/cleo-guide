@@ -956,3 +956,42 @@ QA re-signs when, on a pinned SHA:
 - QA-50 and QA-52 pass in `w7.js --only detail,atlasm`.
 
 QA sign-off: NO
+
+## 2026-10-11 · QA · R7 re-sign check (QA-45 reported fixed) · session_017FLWXa5zgGWvqNo4C3UsvH
+
+**Tested SHA: `63805e3e681ea60da1ce78326d302812717c2c9b`** (branch head, pinned in the clean `qa-r7` worktree).
+
+Gates:
+- validate ✅.
+- `npm test` ✅: 565 PASS.
+- `beta:check` ✅: 179 pages, 8,458 places, beta == live.
+- Eager JS: 28.8 KB gzip.
+
+Logs, and the full per-issue state, are in `design/beta/eval/w7/qa/register-63805e3e/` and `docs/BETA-ISSUES.md`.
+
+| Re-sign row (from the W7 pass) | Result on `63805e3e` |
+|---|---|
+| `metrics.js --view atlas` G1 ✅ 5/5 (QA-45) | ✅ 5/5: scrolled 194/488/508/16/35, deep 100 %, search 100 %, no-JS 100 % (a852a4e1) |
+| Gallery B-02 ✅ 5/5 (QA-47) | ❌ Cleveland 513, Tokyo 513 (FE-A's fix b244f104 is not on the branch) |
+| Tokyo B-04 ✅ (QA-48) | ❌ top 859 (same) |
+| Landing B-05 ✅ (QA-49) | ✅ 2 (d1790787) |
+| QA-50 in `w7.js --only detail` | ❌ **re-opened**: a fresh `#p=` load now reads "No. 37 of 37 in Jōhoku" (the data says 2 of 37) and "No. 52 of 52" on Cleveland. The count N is fixed; the rank k comes from `Cleo.defer.order()`, where the deep-linked card sits last. After load the same sheet reads "No. 2 of 37". |
+| QA-52 in `w7.js --only atlasm` | ✅ credits whole on the carousel and the list, 5/5 |
+
+New on this head:
+- **QA-60** (Med, regression): Gallery B-04 Wheeling, the category bar starts at 852 px (it was 687 on `badcc20`).
+- **QA-61** (Low): the phone Atlas search input is 52 × 42 px (B-20 ❌ on 5/5 pilots). It has been present since `badcc20`, and I missed it in the R7 write-up.
+
+Verified as fixed:
+- QA-45, QA-49, QA-51, QA-52, QA-54 and QA-56;
+- QA-53 for the routed photos;
+- QA-58 for the named lines;
+- QA-59e;
+- R7-g7;
+- the platform's B-08, D-38 and B-06/07/09 implementations.
+
+Axe still reports 0 serious/critical. `atlas-ms.js` 117/117, `beta:probe:fe-a` 33/33, `beta:probe:fe-a:w8` 44/44, `beta:qa:w8p` 4/4.
+
+**Why NO:** QA-47, QA-48 and QA-60 regress cells that were ✅ on the W6 pin or on `badcc20`. QA-50 fails its re-sign row.
+
+QA sign-off: NO

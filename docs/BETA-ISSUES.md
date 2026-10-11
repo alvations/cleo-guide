@@ -40,4 +40,84 @@ The QA lane builds and keeps this table from every source listed above, starting
 
 | Id | Source | Summary | Owner | Status | Fix commit(s) | Verification (pinned SHA · probe · result) |
 |---|---|---|---|---|---|---|
-| … | | | | | | |
+| QA-45 | BETA-QA R7 | Atlas G1: the list paged by 40 with no one-tap single list (hard-gate regression) | Atlas FE-1 | verified | a852a4e1 | 63805e3e · `metrics.js --view atlas` · G1 ✅ 5/5 (scrolled 194/488/508/16/35); `w7.js lens` 114/114 |
+| QA-46 | BETA-QA R7 | Proposed B-08 rule ("title under its own pane's sticky head = clipped") rejected: it would hide QA-37 | FE-A | verified (not adopted) | — | 63805e3e · `grep` metrics.js overlapScan · no sticky-head exemption; only the ratified `.cbar`/`.mappill` one |
+| QA-47 | BETA-QA R7 | Gallery B-02 masthead 513 px > 506 on Cleveland and Tokyo (regression) | FE-A | open (claim not on branch) | b244f104 (claimed, **not on the branch**) | 63805e3e · `metrics.js` · ❌ 513 / 513 |
+| QA-48 | BETA-QA R7 | Gallery B-04: Tokyo category bar starts at 859 px (regression) | FE-A | open (claim not on branch) | b244f104 (claimed, **not on the branch**) | 63805e3e · `metrics.js` · ❌ top 859 |
+| QA-49 | BETA-QA R7 | Landing B-05: 0 city cards wholly above the phone fold (regression) | FE-B | verified | d1790787 (orchestrator named c5cfce4d) | 63805e3e · `metrics.js` · B-05 ✅ 2 |
+| QA-50 | BETA-QA R7 | Detail "No. n of N in <area>" wrong on a deep link | FE-A | **open (re-opened)** | 9b514f1a | 63805e3e · `w7.js --only detail` · N now right, **n wrong on a fresh `#p=` load**: Tokyo "No. 37 of 37" (data 2 of 37), Cleveland "No. 52 of 52" (3 of 52). Correct ("No. 2 of 37") when opened after load. `sheet.js` reads k from `Cleo.defer.order()`, where the deep-linked card sits last. The W8 probe checks only k ≤ n |
+| QA-51 | BETA-QA R7 | Desktop detail photo upscaled (500w at 1,024 px) | platform (+ FE-A) | verified | a1a8a53f, 9b514f1a | 63805e3e · `w7.js --only detail` 5/5 not upscaled; `beta:qa:w8p` check 3 (960w at 1,024) |
+| QA-52 | BETA-QA R7 | Phone Atlas carousel credits clipped to a 4 px column | Atlas FE-1 | verified | f5efbc66, 3a77cd03, a852a4e1 | 63805e3e · `w7.js --only atlasm` · credits whole on carousel and list, 5/5 |
+| QA-53 | BETA-QA R7 | Photos that don't show the place (Tokyo Tower, Rockaway, MoMA, Nihonbashi print); overcast heroes | imagery | verified (routed part) | 1732b57f, 32a43b39, 3c7e2419, d5a9cb64 | 63805e3e · `CREDITS.json` + `p1-hero-swaps.jpg` · the 4 photos removed (calm cover); Kyoto, Orlando, Madison, Ghent heroes now bright; Akron, Hokkaido, Erie kept by orchestrator review. Residual → QA-63 |
+| QA-54 | BETA-QA R7 | Atlas search for an off-map place showed "0 places in this map area" | Atlas FE-1 | verified | a852a4e1 | 63805e3e · `w7.js --only reach` · Chinatown search 16/16 (Nai Ek listed), Tokyo 25/25 |
+| QA-55 | BETA-QA R7 | Prose under 16 px (D13) | FE-B (Insights) + FE-A (city pages) + designer | in progress | 88aed887 (FE-B); FE-A b244f104 claimed, not on branch | 63805e3e · `w7.js --only a11y` · Insights subtitles now 16 px ✅; still 14 px: city facts line, Guidebook facts and signature line, card write-ups (`.pl-w`), hub "Read as a guidebook" lines (`.dest-views`), landing archive line; 12 px Insights footnotes (FE-B kept them small: needs a designer/owner call) |
+| QA-56 | BETA-QA R7 | Author fields that are not clean names | imagery | verified | 1732b57f, 7f668236 | 63805e3e · `w7-photos.js` author check · 245/245 rows clean |
+| QA-57 | BETA-QA R7 | No entry point to "A day in …" / "For you" from Atlas | Atlas FE-1 | open | — | — |
+| QA-58 | BETA-QA R7 | Rule-6 brand names in W7 docs (owner quotes, DESIGN-SYSTEM, BETA-DECISIONS D-01/D-09) | orchestrator | verified (named lines) | 6caf3175 | 63805e3e · `grep -i` · the named lines are redacted. Residual → QA-64 |
+| QA-59a | BETA-QA R7 | Desktop Atlas card: the 2-line name clamp lets a third line peek | FE-A (shared card) | open | — | not re-checked |
+| QA-59b | BETA-QA R7 | Phone detail meta row runs off the right edge | FE-A | open (claim not on branch) | b244f104 (claimed, not on branch) | 63805e3e · shot `p1-detail-390-cleveland.jpg` · "… Tremont · pin" still cut; the "153 of 1…" nav count is ellipsised |
+| QA-59c | BETA-QA R7 | Desktop category-bar labels ellipsised | FE-A | open (claim not on branch) | b244f104 (claimed, not on branch) | 63805e3e · probe · 21 of 39 Tokyo rail labels ellipsised |
+| QA-59d | BETA-QA R7 | Detail "Read" chevron wraps onto its own line | FE-A | fixed (claimed) | b244f104 (claimed, not on branch) | not verifiable until the commit lands |
+| QA-59e | BETA-QA R7 | Japan hub copy "each driven to New York density" | FE-B | verified | 88aed887 | 63805e3e · `grep` beta/Japan/index.html · 0 |
+| QA-60 | register pass | **New regression:** Gallery B-04 Wheeling: the category bar starts at 852 px (687 on badcc20) | FE-A | open | — | 63805e3e · `metrics.js` · ❌ top 852 (R7 ✅ 687) |
+| QA-61 | register pass | Phone Atlas B-20: the search input `#cleo-filter` is 52 × 42 px (present since badcc20; missed in R7 QA) | FE-A (search pill) + Atlas FE-1 (chip row) | open | — | badcc20 and 63805e3e · `metrics.js --view atlas` · B-20 ❌ 1 on 5/5 |
+| QA-63 | QA-53 residual | Weak card photos left: Dia Beacon (lawn), Rockefeller Center (night blur), Cuyahoga Valley (weir), Ueno Park (dead lotus), Gōtoku-ji (figurine close-up), Meadowcroft (rock close-up), PA Trolley Museum (equipment), Cleveland Museum of Art ("OPEN" banner) | imagery | open | — | contact sheet R7 |
+| QA-64 | QA-58 residual | Rule-6 brand names still committed: `BETA-DECISIONS.md:20` (a booking brand) and 16 pre-W7 research and plan docs (`design/research-2026-10/**`, `design/beta/specs/README.md`, `DECISIONS.md`, `REVIEW-W1.md`, `ROUND-1.md`, `BETA-BACKLOG/BENCHMARK/PROGRAM.md`) | orchestrator | open | — | 63805e3e · `git ls-files \\| xargs grep -il` |
+| R7-g1 | ROUND-7 gap 1 | Photo coverage: heroes ≥ 78/84 or a stated reason; ≥ 60 % of eligible tier-1 photographed; ≥ 1 photo on each first phone screen | imagery | in progress | 283c4262, 1aaaa1ce, 423cc7b1 … | 63805e3e · built pages · 75/84 pages carry a hero photo (3 are Vietnam, by rule; 3 stated gaps claimed in 1aaaa1ce, unchecked); (b) not yet measured |
+| R7-g2 | ROUND-7 gap 2 | Polish defects (a) credit overflow, (b) opaque bars, (c) search placeholder, (d) desktop sheet scrim and close, (e) no upscale, (f) n ≤ N on every sheet, (g) widows, (h) "Start with" = lead | designer + FE-A + FE-B | in progress | 9b514f1a, f1374bff, bae1b624, a1a8a53f | 63805e3e · (e) ✅ (QA-51); (h) ✅ npm test "Start with" 84/84; (f) ❌ QA-50; (a)(b)(c)(d)(g) not yet verified |
+| R7-g3 | ROUND-7 gap 3 | Two more delight moments (≤ 300 ms, none under reduced motion) | designer + FE-A + Atlas | open | — | — |
+| R7-g4 | ROUND-7 gap 4 | Atlas residuals: pin hit area ≥ 44, outer-pin card in view, deep link scrollY 0, "last checked" on phone, For you/day/near on desktop | Atlas FE-1 / FE-2 | open | — | overlaps PANEL-R1 #1, #6, #11 and QA-57 |
+| R7-g5 | ROUND-7 gap 5 | First screen and targets across all pages (B-02, B-04, B-05, B-08, B-20 at 0 failing pages; B-06/07/09 re-pointed) | FE-A + FE-B + QA | in progress | d1790787, a1a8a53f; QA B-07 (03f4f402) | 63805e3e · pilots: B-05 ✅, B-08 ✅, B-06/B-07 ✅ (QA); B-02 ❌ QA-47; B-04 ❌ QA-48, QA-60; B-20 ❌ QA-61; `--all` not yet run |
+| R7-g6 | ROUND-7 gap 6 | Palette and token residue: v2 chart tokens, ≤ 6 letter-spacings and ≤ 10 shadows, tabular figures | designer + FE-B | in progress | b62cce9a | not yet verified |
+| R7-g7 | ROUND-7 gap 7 | Photo weight and dead CSS: no 960w for < 200 px slots, every 960w ≤ 120 KB, Tokyo phone first load ≤ 700 KB, cleo.css ≤ 200 KB | platform + imagery | verified | e83b6cc3, 283c4262 | 63805e3e · `beta:qa:w8p` 4/4 (0 oversize fetches over 13 page/views; Tokyo phone 591 / 553 KB); 238/238 960w files ≤ 120 KB; cleo.css 193,383 B |
+| OWNER-casing | owner 18:50Z; W8-BRIEFS | Sentence case for every UI label; no uppercase/capitalize transforms; no drop caps or initial plates | FE-A (city pages) + FE-B (hubs, landing) + designer (spec) | **open (claim not on branch)** | 6733a233 (claimed, **not on the branch**); spec f145ab71 | 63805e3e · `grep` built pages · "Free to Visit" ×3, "Iconic &amp; Must-See" ×2 on Tokyo; `fe-a.css` keeps 2 `text-transform:uppercase` and 2 `::first-letter`; no `test-casing.js` in npm test |
+| PANEL-R1-#1 | design/beta/atlas/PANEL-R1.md (R0 folded in) | Closing the detail loses your place (view, scroll, focus); `#p=` puts the pin under the panel | Atlas FE-2 | open | — | panel R2 re-measures |
+| PANEL-R1-#2 | design/beta/atlas/PANEL-R1.md (R0 folded in) | Phone map top crowded; attribution covers locate-me (regression) | Atlas FE-1 + designer | open | — | panel R2 re-measures |
+| PANEL-R1-#3 | design/beta/atlas/PANEL-R1.md (R0 folded in) | "Near me" isn't near; no distances; stale pill count | Atlas FE-2 (+ designer) | open | — | panel R2 re-measures |
+| PANEL-R1-#4 | design/beta/atlas/PANEL-R1.md (R0 folded in) | The anonymous dot field | designer + Atlas FE-1 | open | — | panel R2 re-measures |
+| PANEL-R1-#5 | design/beta/atlas/PANEL-R1.md (R0 folded in) | Desktop map not front and centre (208 px chrome; document scrolls) | designer + Atlas FE-1 | open | — | panel R2 re-measures |
+| PANEL-R1-#6 | design/beta/atlas/PANEL-R1.md (R0 folded in) | Text and targets too small on the map and cards | designer + Atlas FE-1 | open | — | panel R2 re-measures |
+| PANEL-R1-#7 | design/beta/atlas/PANEL-R1.md (R0 folded in) | Closed places not marked on the map | designer + Atlas FE-1 | open | — | panel R2 re-measures |
+| PANEL-R1-#8 | design/beta/atlas/PANEL-R1.md (R0 folded in) | Too many counts, contradicting each other | designer + Atlas FE-1 | open | — | panel R2 re-measures |
+| PANEL-R1-#9 | design/beta/atlas/PANEL-R1.md (R0 folded in) | Phone carousel: one card per screen; duplicate Must see control | designer + Atlas FE-1 | open | — | panel R2 re-measures |
+| PANEL-R1-#10 | design/beta/atlas/PANEL-R1.md (R0 folded in) | No-photo places read as placeholders | designer + Atlas FE-1 | open | — | panel R2 re-measures |
+| PANEL-R1-#11 | design/beta/atlas/PANEL-R1.md (R0 folded in) | Map not keyboard-reachable | Atlas FE-2 | open | — | panel R2 re-measures |
+| PANEL-R1-#12 | design/beta/atlas/PANEL-R1.md (R0 folded in) | Area buried on phone | designer + Atlas FE-1 | open | — | panel R2 re-measures |
+| PANEL-R1-#13 | design/beta/atlas/PANEL-R1.md (R0 folded in) | Map view can't be shared; toast overpromises | Atlas FE-2 | open | — | panel R2 re-measures |
+| PANEL-R1-#14 | design/beta/atlas/PANEL-R1.md (R0 folded in) | Detail rank context inconsistent ("No. 1 of 24" vs list 43) | FE-A (same defect as QA-50) | open (tracked as QA-50) | — | panel R2 re-measures |
+| PANEL-R1-#15 | design/beta/atlas/PANEL-R1.md (R0 folded in) | "Not a place" data item drawn as a pin; phone breadcrumb clipped | Atlas FE-1 | open | — | panel R2 re-measures |
+| W8-FEA-2 | design/beta/eval/W8-BRIEFS.md | "Your guide" and day plans: build → edit → share → reopen → print, by keyboard | FE-A | verified | 16720bd1 | 63805e3e · `beta:probe:fe-a:w8` (re-run by QA) 44/44 |
+| W8-FEA-3 | design/beta/eval/W8-BRIEFS.md | Place detail and Gallery polish (D12/D13); closed place never offers Directions as the primary action | FE-A | fixed (claimed) | 9b514f1a | not yet verified (the R7-g2 parts are tracked there) |
+| W8-FEA-4 | design/beta/eval/W8-BRIEFS.md | Food covers read as intentional (dish in display type, kind glyph) | FE-A + designer | open | — | — |
+| W8-FEB-1 | design/beta/eval/W8-BRIEFS.md | Guidebook chapters lead with a credited photo; Insights v2 palette and tabular figures | FE-B | fixed (claimed) | 6c5ab7da | photo credits under the media pass `w7-photos.js` (245 rows); the rest not yet verified |
+| W8-FEB-2 | design/beta/eval/W8-BRIEFS.md | D-39 (proposed): price/rating wording labelled, not stripped; awaits the owner | FE-B (owner decision) | fixed (claimed) · owner veto pending | ba5d7e23 | not yet verified |
+| W8-FEB-3 | design/beta/eval/W8-BRIEFS.md | Type residue on the landing, hubs, Guidebook and Insights (weights, steps, widows) | FE-B | fixed (claimed) | f1374bff | not yet verified |
+| W8-FEB-4 | design/beta/eval/W8-BRIEFS.md | DESIGN-SYSTEM.md documents what ships | FE-B | fixed (claimed) | baef4709 | not yet verified |
+| W8-FEB-5 | design/beta/eval/W8-BRIEFS.md | "What changed" pages: B-23 and B-20 on all 84 | FE-B | open | — | needs `beta:metrics:all` |
+| W8-FEB-6 | design/beta/eval/W8-BRIEFS.md | Landing stray 3/6 px radii; lone filter row in phone Guidebook/Insights | FE-B | open | — | — |
+| W8-PLAT-1 | design/beta/eval/W8-BRIEFS.md | Shared-shell axe moderates (aria-allowed-role, heading-order) | platform | verified | e83b6cc3 | 63805e3e · `w7.js --only a11y` (Tokyo, Cleveland, 6 hubs) · axe serious/critical 0; moderates per platform 0 (not separately re-run) |
+| W8-PLAT-2 | design/beta/eval/W8-BRIEFS.md | B-08 `.cbar`/`.mappill` exemption implemented exactly as ratified | platform | verified | a1a8a53f | 63805e3e · `metrics.js` · Gallery B-08 ✅ 0 on 5/5; `w7.js b08` titles uncovered |
+| W8-PLAT-3 | design/beta/eval/W8-BRIEFS.md | D-38 row states "map tiles excluded" | platform | verified | a1a8a53f | 63805e3e · `metrics.js` row label |
+| W8-PLAT-4 | design/beta/eval/W8-BRIEFS.md | B-06/07/09 re-pointed to map-search | QA + platform | verified | 03f4f402 (B-07); B-06 ratified | 63805e3e · `metrics.js --view atlas` · B-06 ✅, B-07 ✅, B-09 ✅ 5/5 |
+| W8-FEA-1 | W8-BRIEFS | "Start with" names the lead card → see R7-g2(h) | FE-A | verified | bae1b624 | 63805e3e · npm test · 84/84 |
+| W8-IMG-1 | W8-BRIEFS | Photo coverage → see R7-g1 | imagery | see R7-g1 |  |  |
+| W8-IMG-2 | W8-BRIEFS | Photo weight (every 960w ≤ 120 KB; first loads ≤ 2.0 MB) → see R7-g7 | imagery | verified | 283c4262 | see R7-g7 |
+| W9-1 | design/beta/eval/W9-BRIEFS.md | Recognition layer (award, cited-by and creator badges from source keys; filter; Insights chart) | platform → FE-A → FE-B | open | — | — |
+| W9-2 | design/beta/eval/W9-BRIEFS.md | Freshness everywhere ("Checked" on cards, "This month in Cleo", recently closed rail, RSS) | FE-A + FE-B | open | — | — |
+| W9-3 | design/beta/eval/W9-BRIEFS.md | Interests follow you across guides (reorder only) | FE-B + FE-A | open | — | — |
+| W9-4 | design/beta/eval/W9-BRIEFS.md | Trips (multi-day plans, one link, booklet, KML) | FE-C | open | — | — |
+| W9-5 | design/beta/eval/W9-BRIEFS.md | "Set as my base" (distance and walk time; Atlas ring) | FE-C + Atlas FE-2 | open | — | — |
+| W9-6 | design/beta/eval/W9-BRIEFS.md | Paste a link (a source URL opens its places) | FE-B + platform | open | — | — |
+| W9-7 | design/beta/eval/W9-BRIEFS.md | Share cards (canvas PNG, 0 off-origin requests) | FE-C (+ designer, imagery) | open | — | — |
+| W9-8 | design/beta/eval/W9-BRIEFS.md | Offline city pack | platform | open | — | — |
+| W9-9 | design/beta/eval/W9-BRIEFS.md | Local favourites lens | platform + FE-A | open | — | — |
+| W9-10 | design/beta/eval/W9-BRIEFS.md | Dated edition (Guidebook cover, "since the last edition", booklet) | FE-B (+ designer, imagery) | open | — | — |
+
+### Register state · 63805e3e · QA register keeper (session_017FLWXa5zgGWvqNo4C3UsvH)
+
+Pinned head `63805e3e681ea60da1ce78326d302812717c2c9b`. Gates: validate ✅, `npm test` ✅ (565 PASS), `beta:check` ✅ (8,458 places, beta == live), eager JS 28.8 KB gzip. Probes re-run by QA on this head: `w7.js` (Atlas, detail, no-CDN, lens, B-08, Gallery 188/192; reach 8/8; a11y axe 0), `metrics.js` pilots in Gallery and Atlas, `beta:probe:fe-a` 33/33, `beta:probe:fe-a:w8` 44/44, `beta:qa:w8p` 4/4, `atlas-ms.js` 117/117, `w7-photos.js` 13/13. Logs: `design/beta/eval/w7/qa/register-63805e3e/`.
+
+- **Open High/Blocker: 0.** QA-45 (the only R7 High with a product defect) is verified; QA-46 is a rejected rule that was never coded.
+- **Open regressions that block the R7 re-sign:** QA-47, QA-48, QA-60 (new), QA-50 (re-opened).
+- **Claims that could not be verified because the commit is not on the branch:** b244f104 (FE-A: QA-47, 48, 55 FE-A part, 59b/c/d) and 6733a233 (FE-A: casing). Both were checked on the head as it stands: the defects are still there.
+- **No issue is without an owner.** Two rows span two lanes and need one lead named: QA-61 (FE-A's search pill inside Atlas's chip row) and QA-59a (the shared card clamp seen in the Atlas grid).
