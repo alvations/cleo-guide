@@ -221,7 +221,7 @@ console.log('\n== VOICE: urgency lint on FE-B pages ==');
 }
 
 // ── 4. states, in jsdom ────────────────────────────────────────────────────
-async function load(rel, { url, storageThrows = false, fetchFails = false } = {}) {
+async function load(rel, { url, storageThrows = false, fetchFails = false, seed = null } = {}) {
   const html = rd(rel).replace(/<script src="([^"]+)"( defer)?><\/script>/g, (m, src) => {
     const p = path.join(BETA, path.posix.dirname(rel), src.split('?')[0]);
     return fs.existsSync(p) ? `<script>${fs.readFileSync(p, 'utf8').replace(/<\/script/g, '<\\/script')}</script>` : '';
@@ -231,6 +231,7 @@ async function load(rel, { url, storageThrows = false, fetchFails = false } = {}
     beforeParse(w) {
       w.addEventListener('error', e => errors.push(String(e.message)));
       if (storageThrows) Object.defineProperty(w, 'localStorage', { get() { throw new Error('blocked'); } });
+      else if (seed) for (const k in seed) w.localStorage.setItem(k, JSON.stringify(seed[k]));
       w.fetch = u => { fetched.push(String(u)); return fetchFails ? Promise.reject(new Error('offline'))
         : Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(rd(/source-hosts\.json/.test(u) ? 'data/source-hosts.json' : 'data/search.json'))) }); };
       w.Element.prototype.scrollIntoView = function () {};
@@ -267,6 +268,38 @@ async function load(rel, { url, storageThrows = false, fetchFails = false } = {}
     const { d } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=a', });
     const shown = d.querySelectorAll('#results .grp:not(.guides) li').length, head = d.querySelector('#results h2').textContent;
     chk('search: every match reachable (folded groups expand to all)', (() => { d.querySelectorAll('[data-cleo-more]').forEach(b => b.click()); return d.querySelectorAll('#results .grp:not(.guides) li:not([hidden])').length === shown && head.startsWith(String(shown)); })(), true);
+  }
+  // W9-3: interests picked on a city page follow you — a "For you" rail on the landing and hubs that only reorders
+  {
+    const { d } = await load('index.html');
+    chk('for you: no interests → no rail', d.getElementById('foryou').hidden, true);
+  }
+  for (const [rel, on] of [['index.html', ['history']], ['index.html', ['food', 'art']], ['Japan/index.html', ['pop']]]) {
+    const { w, d, errors } = await load(rel, { seed: { 'cleo:v1:interests': on } });
+    const sec = d.getElementById('foryou'), rows = [...sec.querySelectorAll('.fy-list a')];
+    const cards = [...d.querySelectorAll('li.dest[data-page]')].filter(li => !sec.contains(li));
+    const want = new Map();                                   // expected: open places per guide for these ids, from data-fy
+    for (const li of cards) { const k = li.querySelector('a').getAttribute('href'); if (want.has(k)) continue;
+      const fy = Object.fromEntries((li.getAttribute('data-fy') || '').split(' ').filter(Boolean).map(x => x.split(':')).map(([a, b]) => [a, +b]));
+      want.set(k, on.reduce((s, id) => s + (fy[id] || 0), 0)); }
+    const got = rows.map(a => [a.getAttribute('href'), +a.getAttribute('data-fy-rank')]);
+    chk(`for you (${rel} · ${on}): rail shown`, !sec.hidden && rows.length > 0, true);
+    chk(`for you (${rel} · ${on}): every guide with a match, most first, counts == data-fy`, JSON.stringify(got),
+      JSON.stringify([...want].filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1])));   // stable: page order on ties
+    chk(`for you (${rel} · ${on}): each row says "First because …" with each interest's own open-place count (no summed total)`,
+      rows.filter(a => { const li = cards.find(c => c.querySelector('a').getAttribute('href') === a.getAttribute('href'));
+        const fy = Object.fromEntries(li.getAttribute('data-fy').split(' ').map(x => x.split(':')));
+        return a.querySelector('.dest-s').textContent !== 'First because: ' + on.filter(id => +fy[id] > 0).map(id => JSON.parse(sec.getAttribute('data-labels'))[id] + ' ' + (+fy[id]).toLocaleString('en-US')).join(' · ') || a.querySelector('.dest-c'); }), a => a.length === 0);
+    chk(`for you (${rel} · ${on}): reorders only — every guide card still listed`, cards.length, cards.filter(li => !li.closest('[hidden]')).length);
+    if (rel === 'index.html' && on.length === 1) {
+      sec.querySelector('[data-cleo-fy-clear]').click(); await sleep(10);
+      chk('for you: Clear hides the rail and forgets the interests', sec.hidden && w.localStorage.getItem('cleo:v1:interests') === '[]', true);
+    }
+    chk(`for you (${rel}): no JS errors`, errors, a => a.length === 0);
+  }
+  {
+    const { d, errors } = await load('Japan/index.html', { storageThrows: true });
+    chk('for you: storage blocked → no rail, no errors', d.getElementById('foryou').hidden && errors.length === 0, true);
   }
   // W9-6: paste a link — a source URL opens that source's places; the pasted address is only read, never fetched
   {
