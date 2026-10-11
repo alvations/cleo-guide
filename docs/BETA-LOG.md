@@ -1355,3 +1355,8 @@ Append-only. One entry per session per wave: date, lane, session id, what change
       - All 28 pilot shots (light and dark, 390 and 1440) diff **0 px**.
     - axe `aria-allowed-role` 44 → 0 runs (the switcher `<nav>` loses `role="group"`); `heading-order` 16 → 0 (the footer heads are h3).
     - B-06/07/09 re-pointing waits for R7 QA.
+  - **Platform (W8, R7 ratifications + QA-51):**
+    - `metrics.js` B-08 exempts the sticky city bar `.cbar` and the floating `.mappill`, as it exempts the site header (ratification 6, exactly as worded). Tokyo Gallery B-08 is ✅ 0.
+    - D-38 is **ratified**. The first-load row now reads "map tiles excluded": tiles are off-origin and blocked.
+    - QA-51: the detail media clone in `sheet.js` `fullCap()` asks for its own slot (`(min-width: 1024px) 1024px, 100vw`). Desktop Tokyo detail went from 500w to **960w** at 1,024 px. `beta:qa:w8p` check 3 covers it.
+    - B-06/07/09: nothing is left for platform. QA did B-06/B-07, and B-09 waits for QA's next pass.
