@@ -33,6 +33,8 @@
  *   2. Licence (extmetadata LicenseShortName) must be CC0, public domain, CC BY or CC BY-SA; NC, ND, GFDL-only and
  *      anything else is refused. Author (Artist, HTML stripped) must be present. Bitmap only (JPEG/PNG/WebP), at least
  *      640 px wide, not a panorama wider than 3:1.
+ *   2b. Refused: a candidate a person marked `refused` after looking at it, or whose title/description suggests that
+ *      signage, a logo or advertising is the subject.
  *   3. Depicts re-check: the file title, its description or one of its visible categories must contain one of the
  *      target's `names` (compared without spaces, punctuation or diacritics). Otherwise refused.
  *   4. Download the server-side thumbnails: each asked width is snapped to Commons' standard thumbnail steps (250, 330,
@@ -118,6 +120,13 @@ function licenceOf(short, url) {
 }
 const strip = h => String(h || '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/\s+/g, ' ').trim();
 
+/** Corporate signage, logos or advertising as the subject (owner review, W7): such a file is refused. */
+const SIGNAGE = /\b(logos?|signage|signboards?|billboards?|advertis\w*|neon signs?)\b/i;
+
+/** City and hub heroes: bright, warm-season or golden-hour establishing shots (owner review, W7). A gloomy one is refused
+ * unless the target says `winterOk` (a winter destination). Night views stay allowed; night-time construction does not. */
+const GLOOM = /\b(winter|snow\w*|overcast|fog\w*|blizzard|ice storm|construction)\b/i;
+
 /** A run fails only when more than a quarter of the attempted downloads failed (a single bad file is skipped). */
 const tooManyFailures = (tries, fails) => tries >= 4 && fails / tries > 0.25;
 
@@ -199,7 +208,7 @@ function plan(man, credits, o) {
     const where = t.type === 'landmark' ? recordCheck(t) : slotCheck(t);
     if (where.why) { out.push({ t, skip: where.why }); continue; }
     if (where.page ? haveRecord.has(`${where.page}#${where.id}`) : haveSlot.has(`hero:${where.slot.key}`)) { out.push({ t, skip: 'already has a credited photo' }); continue; }
-    const cands = (t.candidates || []).filter(c => RANK[c.confidence] >= RANK[o.min] && (c.flags || []).every(f => o.allow.includes(f)));
+    const cands = (t.candidates || []).filter(c => !c.refused && RANK[c.confidence] >= RANK[o.min] && (c.flags || []).every(f => o.allow.includes(f)));
     const lead = o.wikiLead && t.type === 'landmark' && t.article;
     if (!cands.length && !lead) { out.push({ t, skip: (t.candidates || []).length ? `no ${o.min}+ candidate without an unaccepted flag` : (t.article ? 'no candidate (pass --wiki-lead to try the article lead image)' : 'no candidate') }); continue; }
     out.push({ t, where, cands, lead });
@@ -255,6 +264,8 @@ async function main() {
     if (/personality|trademark/i.test(val('Restrictions') || '') && !o.allow.includes('people-visible')) return { why: `restrictions: ${strip(val('Restrictions'))}` };
     const cats = (pg.categories || []).map(c => c.title.replace(/^Category:/, ''));
     const desc = strip(val('ImageDescription')), obj = strip(val('ObjectName'));
+    if (t.type === 'hero' && !t.winterOk && GLOOM.test(`${pg.title} ${obj} ${desc}`)) return { why: 'a hero wants a bright, warm-season or golden-hour view; the title or description says winter, snow, overcast or fog' };
+    if (SIGNAGE.test(`${pg.title} ${obj} ${desc}`)) return { why: 'title or description suggests signage, a logo or advertising is the subject' };
     if (!namesPlace(t.names, pg.title, obj, desc, cats.join('|'))) return { why: `title, description and categories do not name ${t.label}` };
     return { ok: { title: pg.title, ii, lic, author, desc, obj, cats } };
   }
@@ -357,4 +368,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { SIGNAGE, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };

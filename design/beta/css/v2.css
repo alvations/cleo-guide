@@ -226,3 +226,24 @@
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
   :root .v2-grow { animation: none !important; }
 }
+
+/* ---------- V2.17 photographs (W7 visual pass with the first credited Commons photos) ----------
+   A photo replaces the calm cover in the same rounded box: no kind glyph, no name plate on top of it (the name is
+   right below the media). Credits are quiet: a caption UNDER a standalone figure; a small surface pill on card media.
+   The city hero photo keeps the builder's ground-coloured wash (--hero-scrim → the ground), so hero text stays ink on
+   paper in light and dark; anything floating on the photo (the lead card) gets a surface of its own. */
+:root :is(.cover, .pl-cover).photo::before, :root :is(.cover, .pl-cover).photo :is(.plate, .gl, .pl-vert) { display: none !important; }
+:root :is(.cover, .pl-cover).photo > img { border-radius: inherit; }
+:root .masthead { --hero-scrim: var(--paper); }
+:root figure.photo:not(.hero-photo) { overflow: visible; background: transparent; border-radius: 0; }
+:root figure.photo:not(.hero-photo) > img { border-radius: var(--r-l); display: block; width: 100%; }
+:root figure.photo:not(.hero-photo) figcaption { position: static; background: none; color: var(--ink-3); padding: 6px 2px 0; font-size: var(--fs-xs); line-height: 1.4; text-wrap: pretty; }
+:root figure.photo figcaption a, :root .hero-credit a, :root .cover .credit a { color: inherit; text-decoration-color: var(--line-strong); }
+:root .hero-credit { color: var(--ink-3); font-size: var(--fs-xs); text-shadow: none; }
+:root .masthead:has(.hero-photo) .g-lead-card .gc, html:root[data-view=gallery] .masthead:has(.hero-photo) .g-lead-card .gc {
+  background: var(--surface); border-radius: var(--r-l); padding: 10px 10px 8px; box-shadow: var(--shadow-lg); }
+:root :is(.cover, .pl-cover) .credit { background: color-mix(in srgb, var(--surface) 92%, transparent); color: var(--ink-2); }
+/* phones: the hero text spans the full width, so the photo wash is flat (no fade under the text) */
+@media (max-width: 899px) { :root .masthead .hero-scrim { background: color-mix(in srgb, var(--paper) 86%, transparent) !important; } }
+:root .masthead .hero-credit { line-height: 1.4; margin-block: 8px; }
+:root :is(.hero-credit, figure.photo figcaption, .cover .credit) a { display: inline; min-height: 0; min-width: 0; padding: 0; }
