@@ -160,7 +160,7 @@ function gradeCandidate(c, place) {
     if (sim >= 0.85 && (ag.houseNumber === true || (ag.houseNumber === null && ag.street === true))) { grade = 'high'; why.push('OSM place object, name + address agree'); }
     else if (sim >= 0.85) { grade = 'med'; why.push('OSM place object, name agrees, address not corroborated'); }
     else why.push(`OSM object name similarity ${sim} < 0.85`);
-  } else if (c.kind === 'osm-address' && /^(highway|route|boundary|landuse|place=(?!house|address))/.test(c.osmClass || '')) {
+  } else if (c.kind === 'osm-address' && (/^(highway|route|boundary|landuse|place=(?!house|address))/.test(c.osmClass || '') || (/^place=/.test(c.osmClass || '') && /^way\//.test(c.osm || '')))) {
     why.push(`street/area-level OSM object (${c.osmClass}), not an address point`);
   } else if (c.kind === 'osm-address') {
     if (ag.houseNumber === true && ag.street !== false) { grade = 'med'; why.push('exact address point (the building, not a named place)'); }
@@ -377,6 +377,13 @@ function backlog(cities, today) {
   }
   return rows;
 }
+/** Split city keys into n shards of similar row counts (greedy, largest first); returns the keys of shard i (1-based). */
+function shardCities(cities, i, n) {
+  const bins = Array.from({ length: n }, () => ({ rows: 0, keys: [] }));
+  Object.entries(cities).map(([k, v]) => [k, Object.keys(v).length]).sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1))
+    .forEach(([k, c]) => { const b = bins.reduce((m, x) => (x.rows < m.rows ? x : m)); b.rows += c; b.keys.push(k); });
+  return bins[i - 1].keys.sort();
+}
 function daysBetween(a, b) { return Math.round((Date.parse(b) - Date.parse(a)) / 86400000); }
 function round5(x) { return Math.round(x * 1e5) / 1e5; }
 
@@ -514,7 +521,9 @@ async function fromNominatim(http, place, anchor) {
       // An address point must itself BE a building or a house/address node. Nominatim also answers an address query with
       // the street (class=highway) and echoes the asked house number into address{}, so a house number alone proves
       // nothing: such a hit is street-level, osm-other, graded low.
-      const isAddr = !nm && cls !== 'highway' && (cls === 'building' || x.addresstype === 'building' || (cls === 'place' && (x.type === 'house' || x.type === 'address')));
+      // place=house on a WAY is an addr:interpolation line (Nominatim interpolates the asked number along it): street-level.
+      const isAddr = !nm && cls !== 'highway' && (cls === 'building' || x.addresstype === 'building'
+        || (cls === 'place' && (x.type === 'house' || x.type === 'address') && x.osm_type === 'node'));
       const kind = nm && OSM_PLACE_CLASSES.test(cls) ? 'osm-poi' : (isAddr ? 'osm-address' : 'osm-other');
       cands.push({ kind, source: 'nominatim', name: nm, lat, lng, houseNumber: a.house_number || null, street: a.road || null, postcode: a.postcode || null,
         address: [[a.house_number, a.road].filter(Boolean).join(' '), a.city || a.town || a.village || a.hamlet, [a.state, a.postcode].filter(Boolean).join(' ')].filter(Boolean).join(', '),
@@ -808,18 +817,22 @@ function parseArgs(argv) {
     else if (a === '--limit') o.limit = parseInt(v(), 10);
     else if (a === '--nominatim-max') o.nominatimMax = parseInt(v(), 10);
     else if (a === '--max-requests') o.maxRequests = parseInt(v(), 10);
-    else if (a === '--out') o.out = path.resolve(v());
+    else if (a === '--out') { o.out = path.resolve(v()); o.outGiven = true; }
     else if (a === '--cache') o.cache = path.resolve(v());
     else if (a === '--cache-ttl-days') o.ttlDays = parseInt(v(), 10);
     else if (a === '--fixtures') o.fixturesPath = path.resolve(v());
     else if (a === '--geocodes') o.geocodes = path.resolve(v());
     else if (a === '--offline') o.offline = true;
     else if (a === '--today') o.today = v();
+    else if (a === '--shard') { o.shard = v(); if (!/^\d+\/\d+$/.test(o.shard)) throw Object.assign(new Error('--shard i/n, e.g. 1/3'), { code: 1 }); }
+    else if (a === '--max-minutes') o.maxMinutes = parseFloat(v());
+    else if (a === '--status-sweep') { o.scope = ['all']; o.sources = ['wikidata', 'overpass', 'official']; o.nominatimMax = 0; o.city = o.city || 'all'; o.statusSweep = true; }
     else if (a === '--backlog') o.backlog = true;
     else if (a === '--accept') o.accept = path.resolve(v());
     else if (a === '--dry-run') o.dryRun = true; // report mode is always a dry run; with --accept: show, write nothing
     else throw Object.assign(new Error(`unknown option ${a}`), { code: 1 });
   }
+  if (o.statusSweep && !o.outGiven) o.out = path.join(ROOT, 'docs', 'geoverify', 'status');
   const okScope = ['unverified', 'low', 'med', 'high', 'status', 'all'], okSrc = ['wikidata', 'wikipedia', 'nominatim', 'overpass', 'official'];
   for (const s of o.scope) if (!okScope.includes(s)) throw Object.assign(new Error(`unknown scope ${s}`), { code: 1 });
   for (const s of o.sources) if (!okSrc.includes(s)) throw Object.assign(new Error(`unknown source ${s}`), { code: 1 });
@@ -855,7 +868,12 @@ async function main() {
     console.log('  then: node tools/research.js --geocheck <city> && node tools/research.js --statuscheck <city> && (cd tools && npm run validate && npm test)');
     return 0;
   }
-  if (!o.city) throw Object.assign(new Error('--city <key> is required (or --backlog / --accept)'), { code: 1 });
+  if (!o.city) throw Object.assign(new Error('--city <key> is required (or --backlog / --accept / --status-sweep)'), { code: 1 });
+  if (o.city === 'all') return sweep(o);
+  return main1(o);
+}
+
+async function main1(o) {
   let mode = 'live', fixtures = null;
   if (o.fixturesPath) {
     const fx = JSON.parse(fs.readFileSync(o.fixturesPath, 'utf8')); mode = 'fixtures';
@@ -873,9 +891,25 @@ async function main() {
   return rep.meta.hardFailure ? 4 : 0;
 }
 
+/** Many cities in one job (the quarterly status sweep): one report per city, sequential, inside --max-minutes. */
+async function sweep(o) {
+  const reg = o.registry || JSON.parse(fs.readFileSync(o.geocodes || GEOCODES, 'utf8'));
+  let keys = Object.keys(reg.cities).sort();
+  if (o.shard) { const [i, n] = o.shard.split('/').map(Number); keys = shardCities(reg.cities, i, n); }
+  const t0 = Date.now(), budget = (o.maxMinutes || 330) * 60000, done = [], left = [];
+  let worst = 0;
+  for (const k of keys) {
+    if (Date.now() - t0 > budget) { left.push(k); continue; }
+    const code = await main1({ ...o, city: k, registry: reg });
+    worst = Math.max(worst, code); done.push(k);
+  }
+  console.log(`sweep: ${done.length} cities done${left.length ? `; NOT reached within ${o.maxMinutes || 330} min: ${left.join(', ')}` : ''}`);
+  return worst;
+}
+
 if (require.main === module) {
   main().then(c => { process.exitCode = c; }).catch(e => { console.error('location-verify: ' + e.message); process.exitCode = e.code || 4; });
 }
 
 module.exports = { normName, nameSim, haversineM, parseAddress, addrAgreement, isExtended, gradeCandidate, decide, osmClosureEvidence,
-  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, osmEvidence, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };
+  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };

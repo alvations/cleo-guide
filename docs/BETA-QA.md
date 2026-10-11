@@ -1021,3 +1021,14 @@ Evidence: `design/beta/eval/w7/qa/resign-dd2125e3/`.
 Register state on this SHA: **0 open High/Blocker**. The rows above that fail are Med regressions or a factual error. They block the sign-off under ROUNDS-6-9's rule that QA must not sign a deploy that regresses a ✅ row.
 
 QA sign-off: NO
+
+## 2026-10-11 · QA · Ratification addendum: D-40 and the D-39 check · session_017FLWXa5zgGWvqNo4C3UsvH
+
+Head `8e526c48`.
+
+| Rule | Verdict | Reason | Probe |
+|---|---|---|---|
+| **D-40**: on phones at ≥ 2.5 dppx, card and rail thumbnails take the 500w copy (`sizes` capped at 166px); heroes, Guidebook figures, 2× phones, tablets and desktop are unchanged (platform; designer ratified) | **Ratified, with a condition** | No QA gate measures image density, so the cap weakens no gate. It is the R7 gap-7 acceptance ("never a 960w photo for a slot under 200 CSS px"). The cost is real but bounded: 3× phone cards drop from about 2.7 to 1.5–1.7 image px per CSS px, and the designer reviewed the crops. **Condition:** the next photo re-fetch adds a ≈ 720w copy so the cap can become a true 2×. The budget then still holds (D-38). | Browser at 390@3×, Tokyo: cards 500w at 289–326 px = 1.53–1.73; hero 960w = 2.94. `beta:qa:w8p` 4/4 (first load 591 / 553 KB). |
+| **D-39** (ratified by the orchestrator): verify FE-B's note test | **Guidebook ✅, detail ❌ → QA-65** | `test-views-b` passes. QA's own regex finds 192 records quoting a figure, and all 192 carry the note. The detector also labels 43 wording-only records, which errs on the safe side. The place detail, which D-39 says reads the same field, never shows the note. | `npm test`; Tokyo Guidebook 2/2 notes in the browser; `#p=tempura-abe-honten` shows "¥1,500–9,000" with no note |
+
+New finding **QA-65** (Med, honesty) · FE-A (`sheet.js`), with FE-B as the D-39 owner: the place detail shows quoted prices and ratings without the dated note.
