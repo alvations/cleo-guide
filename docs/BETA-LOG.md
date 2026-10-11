@@ -1160,3 +1160,28 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Launched:**
     - R7 QA `session_017FLWXa5zgGWvqNo4C3UsvH`: W7 acceptance, D1–D13, re-test of QA-36…44, Atlas/cards/photos/type/budgets/no-regression/honesty, and ratification of the W7 rule edits (Atlas, FE-A, platform D-38, B-07 rewrite, B-04 in Atlas).
     - R7 independent evaluator `session_01Vx8PDHmhSZ8YgiQphvTLPs`: ROUND-7.md, same rubric, Typography & style sub-scorecard, D1–D13, owner-blocked points. It was not told any target.
+
+- 2026-10-11 18:33Z · **Orchestrator** · Owner request: thorough UI/UX review and iterative revision of the Atlas map with a panel, until the panel scores ≥ 95/100 · commit: this entry's commit
+  - **Owner:** "The map is just way off compared to how we originally envisioned it and the scoring all too noisy … iteratively revise and review the atlas map feature until it meets the panels score of >=95 out of 100". The panel includes Gen Z travel bloggers, Gen X travel planners and Boomer wanderlusters, alongside the UI/UX designer and the front-end engineer.
+  - **Charter:** `design/beta/atlas/PANEL.md` (af015696, 965b7a5c).
+    - **Original vision recap:** the live map-centred guide, the early map-centred beta, the real-estate map-search pattern, and the W7 look.
+    - **The orchestrator's round-0 observations AO-1…AO-8:**
+      - number soup: cluster counts, rank pills and ★ pills look alike;
+      - a whole-city cluster default;
+      - three stacked bars of about 210 px above the map;
+      - an area-grouped list full of counters;
+      - pin kinds unreadable;
+      - a phone control stack;
+      - card hierarchy;
+      - no real-tile evidence.
+    - **The panel:** eight simulated composite panelists: a UX designer, a front-end/a11y engineer, two Gen Z, two Gen X, two Boomer.
+    - **The rubric:** anchored, 100 points: map-first 15, pin/cluster signal-to-noise 20, map search 15, card↔pin↔preview↔detail 15, phone 15, craft 10, trust/access 10.
+    - **Noise controls:** fixed anchors and evidence pack; panelist agents never see targets or each other's scores; changes > 3 points need new evidence.
+    - **Tasks:** T1–T6.
+    - **The loop:** panel → designer SPEC-v3 → front-end build → panel. The plateau rule applies.
+  - **Real-tile evidence:** `.github/workflows/beta-atlas-real-shots.yml` shoots Atlas with the real no-key OSM/Esri tiles on a GitHub runner (the sandbox cannot reach tile hosts) into `design/beta/atlas/real/<label>/`. It is triggered by `design/beta/atlas/SHOTS-REQUEST` and runs `tools/beta/atlas-real-shots.js`, which the front-end engineer is writing now.
+  - **Sessions:**
+    - designer `session_011YjA2jku166RJrUyCiQV6B`, unarchived: SPEC-v3 with prototypes;
+    - front-end engineer: the Atlas lane `session_01Cuvo7DWhwbWjLpFicvaF5E` (real-shots script, then the SPEC-v3 slices);
+    - **panel** `session_01EKzwLjqF1Z1gwXWgbrrr2S`: round 0 on `965b7a5cb091097b10bc1fabb3eacaefdb491ae2`.
+  - R7 QA and the evaluator continue on `badcc20d`. They are unaffected.
