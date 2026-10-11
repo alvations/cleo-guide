@@ -1543,3 +1543,8 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Still needs the owner's own hands (optional):**
     - the photo library's API key as an Actions secret (worth about +0.1);
     - a OneMap login as Actions secrets, for Singapore pins.
+### FE Atlas (FE-1) — CLS on a fresh Atlas load (Platform perf audit)
+Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phone at 3×, plus a phone run with the tile host blocked). Tokyo desktop 1.575 → **0.003**, phone 0.184 → **0**, phone tiles-blocked 0.695 → **0.001**; Cleveland, New York, Chinatown ≤ 0.003.
+- The head boot script already sets `data-view`; for Atlas it now also sets `atlas-d` / `atlas-m` (the same 1024 px query views.js uses), so the Atlas layout applies from first paint instead of after views.js.
+- Desktop: the bar has a fixed 65 px height and its space is held (`:not(.ms-built)`) until atlas.js inserts it, in the same task; FE-A's toolbar (which moves into the bar) is held out of flow until then; the map and list panes take explicit grid columns, so the list never starts in the map's column; the list's cards are held (not drawn) until the first map-area pass picks its page (`ms-ready`, set by msArea, by no-map, or after 3 s; a CSS animation shows them after 4 s if JS never arrives); `#cleo-grid` gets FE-A's card face (`w7-cards`) at parse time on desktop Atlas.
+- Phone: the method notes and the footer (outside `<main>`, under the full-screen map) are `display:none` in phone Atlas only — they were invisible under the map and still Tab stops; every other view shows them.

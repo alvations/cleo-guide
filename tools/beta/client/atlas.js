@@ -176,6 +176,8 @@
     if (need.size && Cleo.defer && (map || H.classList.contains('ms-nomap'))) { if (Cleo.defer.stampIds) Cleo.defer.stampIds(need); else need.forEach(id => Cleo.defer.stampFor(id.slice(2))); }
     qa('li.pl').forEach(c => c.classList.toggle('ms-out', !c.hidden && !show[C.pid(c)] && !keep(c)));
     qa('section.area').forEach(s => s.classList.toggle('ms-empty', !s.querySelector('li.pl:not([hidden]):not(.ms-out)')));
+    // the first map-area pass has picked the page (or there is no map / the reader asked for all): the list can be drawn
+    if (area || C.msAll || H.classList.contains('ms-nomap') || !C.loadMap) H.classList.add('ms-ready');
     // the pager keeps the paged views' contract (.g-pager [data-pg="all"] = everything in one list, the G1 probe's one tap)
     if (!pager && lp) { pager = d.createElement('p'); pager.className = 'ms-pager g-pager'; lp.insertBefore(pager, $('#how-we-choose', lp));
       on(pager, 'click', e => { const b = e.target.closest('button'); if (!b) return; if (at(b, 'data-pg') === 'all') { C.msAll = C.msOne = true; msArea(); } else { lim += PER; msArea(true); } }); }
@@ -301,7 +303,7 @@
     bar.innerHTML = '<div class="ms-x"><button type="button" class="chip ms-must" aria-pressed="false"><i class="tg t1" aria-hidden="true"></i><span>Must see</span></button>' +
       '<button type="button" class="chip ms-mine" aria-pressed="false">' + C.icon('heart') + '<span>Saved</span> <span class="n"></span></button>' +
       '<label class="ms-sort"><span class="vh">Sort places</span><select>' + SORT.map(x => '<option value="' + x[0] + '">' + x[1] + '</option>').join('') + '</select></label></div>';
-    split.parentNode.insertBefore(bar, split);
+    split.parentNode.insertBefore(bar, split); H.classList.add('ms-built');   // the bar takes the space held for it, in the same frame
     head = d.createElement('div'); head.className = 'ms-head';
     head.innerHTML = '<p class="ms-nomap-n">Map unavailable right now — every place is listed here.</p><div class="ms-row"><p class="ms-count" aria-live="polite"></p>' +
       '<label class="ms-live"><input type="checkbox"> <span>Search as I move the map</span></label></div><p class="ms-more"></p>';
@@ -357,6 +359,7 @@
   // a #p= that routed before this file arrived: select it now (selected + labelled on the map, SPEC-v3 §1.4)
   const routeSel = () => { const p = Cleo.route.parse().p, c = p && C.byId[p]; if (c && selC !== c) select(c, 'route'); };
   C.msIn = () => {
+    setTimeout(() => H.classList.add('ms-ready'), 3000);   // never hold the list longer than this, map or not
     build(); unpark(); deco(); face(); setTimeout(routeSel, 0); sq();
     const x = $('.ms-x', bar);
     // phones: the chip row carries FE-A's search pill (in the toolbar) and the switcher last; desktop: area chips in the results head

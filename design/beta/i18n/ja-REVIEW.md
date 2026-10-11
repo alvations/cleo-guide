@@ -1,6 +1,6 @@
 # Japanese interface catalogue: independent review (D-41)
 
-- **Catalogue:** `tools/beta/i18n/ja.json`, published as `beta/assets/i18n/ja.json`. It has 147 interface strings and the AI-tier note.
+- **Catalogue:** `tools/beta/i18n/ja.json`, published as `beta/assets/i18n/ja.json`. It has 157 interface strings and the AI-tier note (147 at first, plus 10 offline-pack strings that landed upstream during the work).
 - **Translator:** an AI agent (session_01HB7igqdcuhrau7mUWSauDL).
 - **Reviewer:** an independent AI subagent. It was given only `en.json`, `ja.json` and the review brief, and none of the translator's reasoning.
 - **Date:** 2026-10-11.
@@ -33,3 +33,13 @@ Check each string for:
 | `hub.food` | 食べる・飲む{n}か所 | 飲食スポット{n}か所 | Two bare verbs before a count read unnaturally. A noun phrase fits the stat label and matches 見どころ{n}か所. |
 | `hub.checked` | 営業状況の最終確認 {d} (plain space) | 営業状況の最終確認&nbsp;{d} (U+00A0) | The English uses a non-breaking space so the date never wraps away from its label. The Japanese had dropped it. |
 | `theme.free.t` | 無料で訪れる | 無料スポット | Theme titles are headings, so they should be noun phrases like the other theme titles. |
+
+## Round 2: the 10 offline-pack strings (1 change, applied)
+
+`pack.*` and `map.offline` landed in `en.json` upstream while this work was in progress. A fresh independent subagent reviewed just those 10 strings under the same brief and had access only to the two catalogues. It accepted 9 of them.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `pack.size` | この端末で{size} | この端末で{size}を使用 | The phrase read as cut off. Adding を使用 states the English meaning, that {size} is used on this device, and adds no new information. |
+
+**Total: 5 changes over two rounds.**

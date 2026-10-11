@@ -2,4 +2,5 @@ city=wheeling-wv
 scope=unverified,low,status
 limit=0
 nominatim_max=300
-# run 3: street-level (highway) hits graded low; shared OSM object demotes both rows; OSM object shown in evidence
+commit=true
+# run 3: street-match grading fixed (b31303b4); commit the report for review
