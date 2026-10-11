@@ -1,0 +1,5 @@
+/* W6 shared discipline layer (every direction): numbers line up, one elevation scale, one radius scale.
+   Selectors are the generator's existing hooks; no markup change is needed. */
+.n, .pl-num, .area-c, .count, .daysum b, .pl-dist, .tile b, .tbl td, .tbl th, svg .vl, svg .ax, .sh-nav, .gc-meta,
+.view-insights .tile b, [data-cleo-insights] .tile b { font-variant-numeric: lining-nums tabular-nums; }
+:root { --shadow-sm: var(--e-1); --shadow: var(--e-2); --shadow-lg: var(--e-4); }

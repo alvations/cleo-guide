@@ -8,11 +8,12 @@
   "depicts": "what the photo shows, in words (\"Sensō-ji main hall from the Hōzōmon gate\")",
   "author": "the creator exactly as the source credits them",
   "sourceUrl": "https URL of the file's own page (e.g. its Wikimedia Commons file page)",
-  "licence": "short licence name: CC0 1.0 | Public domain | CC BY 4.0 | CC BY-SA 4.0 (… any version; NC/ND refused)",
+  "licence": "short licence name: CC0 1.0 | Public domain | CC BY 4.0 | CC BY-SA 4.0 (… any version; NC/ND refused) | Unsplash License (licenceUrl https://unsplash.com/license, sourceUrl an unsplash.com/photos/… page; caption \"Photo by <name> on Unsplash\")",
   "licenceUrl": "https URL of the licence deed",
   "modified": "optional: what you changed (\"cropped\", \"resized\") — BY-SA adaptations stay BY-SA",
   "width": "optional: pixel width (read from the file when omitted)",
-  "height": "optional: pixel height (read from the file when omitted)"
+  "height": "optional: pixel height (read from the file when omitted)",
+  "slot": "instead of record, for a hub hero or a generic collection cover: { type: \"hero\" | \"cover\", key: page/country or collection key } — Unsplash rows from tools/beta/imagery/fetch-unsplash.js"
  },
  "example": {
   "file": "tokyo--senso-ji-960.webp",

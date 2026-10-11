@@ -1,0 +1,471 @@
+{
+ "generated": "2026-10-11T11:45:38.536Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "cities/tokyo.html",
+   "gen": "new",
+   "expected": {
+    "total": 488,
+    "sights": 263,
+    "food": 225,
+    "live": "cities/tokyo.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Tokyo — 488 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 24,
+    "legacy": false,
+    "firstCardTop": 438,
+    "screensToFirstCard": 0.52,
+    "mastheadPx": 407,
+    "controlsAbove": 7,
+    "controlsAboveOnScreen": 7,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Japan\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "a \"last checked 2026-10-03\"",
+     "a.btn.btn-primary \"Browse all 488 places\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 333,
+    "upperNodes": 2,
+    "upperPct": 0.6,
+    "minFontPx": 12,
+    "minFontEl": "span.k \"★ Signature\"",
+    "contrastChecked": 305,
+    "contrastUnknown": 8,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [],
+    "railVisible": true,
+    "railTop": 800,
+    "railOnFirstScreen": true,
+    "railItems": 6,
+    "railFirst": "神田明神Must see · Chiyoda-ku · SeeKanda Myō",
+    "cityCardsAbove": 0,
+    "cardMedianH": 531,
+    "cardsPerScreen": 1.59,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2510,
+    "fcp": 260,
+    "fontSampleN": 329,
+    "fontsDeclared": {
+     "Playfair": 71,
+     "Inter": 423,
+     "Noto Serif JP": 24
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Playfair 5pt SemiExpanded Light": 2665,
+      "Inter": 8935,
+      "IPAGothic": 344,
+      "Inter Medium": 1
+     },
+     "primary": [
+      "Inter",
+      "Playfair 5pt SemiExpanded Light",
+      "IPAGothic",
+      "Inter Medium"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1505319,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 305,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 44,
+      "h": 44,
+      "name": "Show the map",
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": {
+      "cls": "poi-sheet",
+      "h": 303,
+      "closeVisible": true,
+      "modal": false,
+      "grab": true,
+      "has": {
+       "sources": false,
+       "directions": false,
+       "pin": false,
+       "status": false,
+       "save": false,
+       "share": false
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     },
+     "detail": {
+      "cls": "sheet detail exp",
+      "h": 776,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "tile.openstreetmap.org"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Tokyo — 488 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 32,
+    "cardsVisible": 32,
+    "legacy": false,
+    "firstCardTop": 142,
+    "screensToFirstCard": 0.16,
+    "mastheadPx": 668,
+    "controlsAbove": 11,
+    "controlsAboveOnScreen": 11,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Japan\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 463,
+    "upperNodes": 2,
+    "upperPct": 0.4,
+    "minFontPx": 12,
+    "minFontEl": "small \"field guides\"",
+    "contrastChecked": 425,
+    "contrastUnknown": 12,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "nav.views \"GalleryAtlasGuidebookIns\"",
+     "div.toolbar \"All 488Sights 263Eat & d\""
+    ],
+    "railVisible": true,
+    "railTop": 781,
+    "railOnFirstScreen": true,
+    "railItems": 17,
+    "railFirst": "神田明神Must see · Chiyoda-ku · SeeKanda Myō",
+    "cityCardsAbove": 0,
+    "cardMedianH": 485,
+    "cardsPerScreen": 1.86,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 2534,
+    "fcp": 268,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Playfair": 94,
+     "Inter": 541,
+     "Noto Serif JP": 31
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Playfair 5pt SemiExpanded Light": 1123,
+      "Inter": 10619,
+      "IPAGothic": 440,
+      "Inter Medium": 1
+     },
+     "primary": [
+      "Inter",
+      "Playfair 5pt SemiExpanded Light",
+      "IPAGothic",
+      "Inter Medium"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 4,
+     "where": [
+      "toolbar over Imperial Palace East Gardens (",
+      "toolbar over Yasukuni Shrine (靖國神社)",
+      "toolbar over Kanda Myōjin (神田明神)",
+      "toolbar over Tokyo Station Marunouchi Build"
+     ]
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 488,
+     "scrolled": 488,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 488,
+      "ok": 488,
+      "bad": []
+     },
+     "search": {
+      "n": 26,
+      "ok": 26,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 488 places",
+     "groups": [
+      "AreaChiyoda-ku 43Chū",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionAnime, Man",
+      "Collection",
+      "CuisineSushi & Kaise",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 1991220,
+    "offOriginBlocked": 0,
+    "night": {
+     "contrastChecked": 425,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "sync": {
+     "mounted": false,
+     "mapWidthPct": 0,
+     "split": false,
+     "sticky": false,
+     "markers": 0,
+     "pinned": 32,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "hoverHighlights": false,
+     "orderingStated": true
+    },
+    "tileHosts": [],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 488,
+    "text": 18504
+   },
+   "cpu4x": {
+    "fcp": 528,
+    "dcl": 1396,
+    "loadMs": 1863
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": true,
+      "val": 0.52
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 407
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "7 on-screen / 7 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": true,
+      "val": "top 800, 6 tiles, first \"神田明神Must see · Chiyoda-ku · SeeKanda Myō\""
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": false,
+      "val": "split false, sticky false, map 0%, hover→pin false, pin→card undefined"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 44×44, full map true, pin sheet close true, esc true, back true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": false,
+      "val": "numbered pins 0 (pin-n labels 0), ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 488 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": false,
+      "val": 1.59
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 488 · DOM 488 · scrolled 488 · deep 488/488 · search 26/26 · no-JS 488"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Playfair, Inter · rendered here: Inter, Playfair 5pt SemiExpanded Light, IPAGothic, Inter Medium"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "0.6% (2/333)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px span.k \"★ Signature\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 0"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "tile.openstreetmap.org"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "1945 KB · 2534 nodes · 268 ms · 528 ms"
+     }
+    },
+    "passed": 21,
+    "total": 24,
+    "hardFail": []
+   }
+  }
+ ]
+}

@@ -721,3 +721,57 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Launched:** an imagery research lane (session_01VuJ1fj7XcNcQEei7qeoXap) building `beta/assets/img/unsplash-candidates.json` (verified candidates per hub and landmark, plus generic collection covers, never venues) and `tools/beta/imagery/fetch-unsplash.js`, ready to run once the owner allows the hosts and adds UNSPLASH_ACCESS_KEY.
 
 - 2026-10-11 11:17Z · orchestrator · Owner request: in Atlas the map must be front and centre, as in the live guide and the early map-centred beta Cleveland page. Launched the FE-A Atlas map-first lane (session_01GMm8uxMFE2KN29Q7WYH3EZ). On phones Atlas opens map-first with a tray; on desktop the map takes at least 60 % of the width. It reuses the live guide's ideas: area pins and legend, base switch, locate-me and tier filter. It goes through the same QA and evaluator review loop as every round before deploy.
+
+- 2026-10-11 11:20Z · orchestrator · Owner request: run 4 more rounds (R6–R9) and make sure the beta matches what was designed. Added the design-conformance checklist `design/beta/eval/ROUNDS-6-9.md` (D1–D11). Every evaluator scores it, every non-✅ row becomes next-wave work, and QA blocks any regression of a ✅ row. Round 6 is in progress: type & style, Atlas map-first and the Unsplash manifest.
+
+- 2026-10-11 11:25Z · orchestrator · Owner raised the target: **≥ 98 overall is the minimum**. Iterate until the independent review reaches it; there is no fixed round count. Evaluator independence is kept: it is not told the target and uses the same rubric. Plateau rule: if two rounds gain < 1 point and the remaining gap is owner-blocked (photographs, reviewed locale), pause and report what unblocks it.
+
+- 2026-10-11 · **Imagery research lane (Unsplash)** · session_01PCNcUkfa5S1N1BKGzZA4xx
+  - **Blocked, not bypassed:** api.unsplash.com and images.unsplash.com stay blocked by the network policy; nothing was downloaded. About 160 WebSearch calls restricted to unsplash.com built the candidate manifest.
+  - **`beta/assets/img/unsplash-candidates.json`:** 146 targets (34 city/country heroes, 93 tier-1 landmarks starting with the pilots, 19 generic collection covers) and 250 candidates: **128 high · 77 med · 45 low**. "High" only when the returned title or description names the exact place. No venue or food place gets a photo. Unsplash+, 3-D renders, archive images and wrong-place results are excluded with notes. 23 gaps are stated, not filled (for example Terminal Tower, West Side Market, Henderson Waves, Heian Jingū, Shuri Castle).
+  - **`tools/beta/imagery/fetch-unsplash.js`:** uses the official API (`GET /photos/:id`, then `download_location`). It re-checks every candidate (id, not premium, the API text names the landmark), stores 960 px WebP in `beta/assets/img/photos/` and writes "Photo by <name> on Unsplash" rows to CREDITS.json. Per the orchestrator's contract for the owner-approved Actions workflow: no key → plan only, exit 0; at most 45 API calls per run, then it resumes on the next run; it prints kept and refused photos with reasons; a blocked host exits 3.
+  - **Gate (`photos.js`):** accepts the Unsplash License (pinned licence URL plus an unsplash.com photo page) and renders the Unsplash credit line. It also adds `slot` rows for hero and cover photos; a Vietnam hub hero is refused. New tests in test-imagery.js check these rules and the manifest.
+  - **Owner decisions:** (1) add the `UNSPLASH_ACCESS_KEY` repository secret (the Actions workflow does the fetch); (2) the API guidelines prefer hotlinking but our rule self-hosts, so confirm with Unsplash or use manual downloads (see IMAGERY.md); (3) whether a natural-landscape Vietnam hub hero is acceptable. The renderers do not consume hero and cover slots yet; that is front-end work for the next round.
+
+- 2026-10-11 · orchestrator · Owner asked for the Unsplash photos to come through GitHub Actions, and authorised the permission rules for it.
+  - **Added** `.github/workflows/beta-fetch-unsplash.yml`. A GitHub-hosted runner can reach the Unsplash API; this sandbox cannot.
+  - **Triggers:** manual dispatch, or a push to this branch that touches the candidate manifest, the fetch script or the workflow.
+  - **Run:** runs `tools/beta/imagery/fetch-unsplash.js` (official API, high-confidence title matches only, no Unsplash+, `download_location` fired), rebuilds the beta, runs `validate` and `test`, then commits the photos and their "Photo by X on Unsplash" credits.
+  - **Skips cleanly:** if the `UNSPLASH_ACCESS_KEY` repository secret or the script is missing, it warns and commits nothing.
+  - **Settings:** scoped allow rules in `.claude/settings.json`.
+
+- 2026-10-11 · **Designer (W6 type & style)** · [AUDIT](../design/beta/style/AUDIT.md) · [DECISION](../design/beta/style/DECISION.md) · `23da97d8`
+  - **Rated** the shipped type and style on 30 items (`design/beta/style/scores.json`): **196/300 (65.3 %)**. melon-seek scores 216 and the leading products' general patterns score 240. Top defects:
+    - Vietnamese falls back to a system face mid-word: Bodoni misses 43 characters and Figtree 44.
+    - Bodoni's macrons survive only through 13 opsz patches.
+    - The stylesheets carry 73 font sizes and 27 radii, and figures are proportional.
+  - **Three directions** (`design/beta/style/directions/`, token sets plus re-rendered mockups of the landing page, the Japan hub, Tokyo in all four views and two sheets): **A** Bodoni + Figtree refined, 209; **B** Playfair + Inter with melon-seek tokens, **240**; **C** Fraunces + Manrope, 224 (the packaged Fraunces subset misplaces macrons).
+  - **Shipped B:**
+    - Fonts: self-hosted OFL Playfair (opsz 28 pinned, roman + italic) and Inter, 400–700, in latin / latin-ext / latin-ext-more / vietnamese subsets built by `design/beta/style/tools/make-fonts.py`. Bodoni Moda and Figtree are removed.
+    - Tokens: `--radius*`, `--shadow-sm/--shadow/--shadow-lg` with a full night set, `--fs-meta/--fs-ui`, `--num`, `--track-display`, `--focus-ring`.
+    - `normalize-css.py` moved 179 sizes, 42 weights and 47 radii onto tokens.
+    - The Bodoni opsz patches are retired (contract §15.1/§16.1, views V11, the `build-css.py` Japan rule).
+    - Tabular figures on counts, stats and charts (views V12).
+  - **Hooks outside the designer's files:**
+    - `tools/beta/lib/render/fe-a.css` (FE-A): the normalization pass, plus the phone lead-card thumbnail at 108 → 100 px with its meta line at weight 500, so it stays on one line.
+    - `tools/beta/og.js` (platform) reads the new font files. The OG PNGs are not regenerated; run `npm run beta:og`.
+    - `lib/art.js` still names Figtree inside SVG-as-image, where web fonts never load. It is left as is.
+  - **Measured, Tokyo default:**
+
+    | | Before | After |
+    |---|---|---|
+    | Bytes | 1,932 KB | 1,945 KB |
+    | FCP 4× | 480 ms | 528 ms |
+    | AA failures | 0/0 | 0/0 |
+
+    The macron check passes on the visible lines. Vietnamese renders in one face. The gates (validate, test, beta:check) are green, with 8,458 places (beta == live).
+  - **After score: 240/300 (80.0 %).** Before and after screenshots: `design/beta/style/audit/` → `design/beta/style/after/`.
+
+- 2026-10-11 11:58Z · orchestrator · R6 check-in.
+  - **Type & style lane: verified and archived.**
+    - Re-ran validate and test on its head: all green; the rule-6 brand scan found 0 hits.
+    - Direction B shipped: Playfair + Inter with melon-seek-style tokens. The type & style sub-score rose from 196 to 240 of 300.
+    - Budgets hold: Tokyo default 1,945 KB, FCP 4× 528 ms, 0 AA contrast failures.
+  - **Atlas lane:** sent the new token values. It has built map-first and is running its tests.
+  - **Unsplash:** the first Actions run of `beta-fetch-unsplash` succeeded. It committed nothing because no key secret is set.
+  - **Waiting on:** the Atlas lane before R6 QA and the evaluator start.

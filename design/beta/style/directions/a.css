@@ -1,0 +1,9 @@
+/* Direction A — "Didone, refined": keep Bodoni Moda + Figtree; fix how they are used.
+   - Bodoni's optical size is pinned low (sturdier hairlines) below 30 px, where it set card names, sheet titles, stats;
+   - italic display falls back to roman at running sizes (deks, notes): the Didone italic hairline drowns at 15–19 px;
+   - one radius scale (8/12/20) and three shadows; tabular figures on every count.
+   It cannot fix Vietnamese: neither face carries the Vietnamese block. */
+:root { --r-xs: 6px; --r-s: 8px; --r-m: 12px; --r-l: 20px;
+  --e-1: 0 1px 2px rgba(25,22,19,.06); --e-2: 0 1px 3px rgba(25,22,19,.08), 0 4px 12px rgba(25,22,19,.06); --e-4: 0 12px 32px rgba(25,22,19,.16), 0 2px 6px rgba(25,22,19,.08); }
+.pl-n, .gc-n, .d3, .ar-n, .near b, .ge h4, .tile b, .ghero-card b, #sh-t, .sh-t { font-variation-settings: "opsz" 11; font-weight: 600; }
+.masthead .dek, .lens > p:first-of-type, .view-gallery .ghero .lead, .gk, .note p, .pl-k.note p { font-style: normal; font-family: var(--font-ui) !important; font-weight: 450 !important; font-style: normal !important; }

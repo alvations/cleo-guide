@@ -1,0 +1,9 @@
+/* Direction C — "Soft serif + rounded grotesk": Fraunces (opsz 36, SOFT 50, no wonk) + Manrope. Warmer and more playful,
+   rounder corners, the same 3-step shadows and tabular numbers. */
+:root {
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-ui: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Hiragino Sans", "Noto Sans JP", "IPAGothic", sans-serif;
+  --fw-ui: 500; --fw-ui-strong: 700;
+  --r-xs: 8px; --r-s: 12px; --r-m: 18px; --r-l: 28px;
+  --e-1: 0 1px 2px rgba(25,22,19,.06); --e-2: 0 1px 3px rgba(25,22,19,.08), 0 4px 12px rgba(25,22,19,.06); --e-4: 0 12px 32px rgba(25,22,19,.16), 0 2px 6px rgba(25,22,19,.08);
+}
