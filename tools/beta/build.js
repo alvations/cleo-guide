@@ -379,8 +379,9 @@ const shellFiles = ['./index.html', './saved.html', './trip.html', './manifest.w
   .concat(fontFiles)
   .concat(assetsV.tokens ? [`./assets/tokens.css?v=${assetsV.tokens}`] : [])
   .concat(['./how-we-choose.html'])                                 // FE-B method page, offline too
-  .concat(Object.keys(assetsV).filter(k => k !== 'css' && k !== 'tokens').sort().map(k => `./assets/js/${k}.js?v=${assetsV[k]}`));
-const version = sha(JSON.stringify(assetsV) + feaV + generated.join() + fontFiles.join() + cityRows.map(r => r.art && r.art.map ? r.art.map.v : '').join());
+  .concat(Object.keys(assetsV).filter(k => k !== 'css' && k !== 'tokens').sort().map(k => `./assets/js/${k}.js?v=${assetsV[k]}`))
+  .concat(i18n.files().map(([rel]) => './' + rel));                 // i18n D-41: catalogues, so a chosen locale works offline
+const version = sha(JSON.stringify(assetsV) + i18n.files().map(([, b]) => sha(b)).join() /* i18n D-41 */ + feaV + generated.join() + fontFiles.join() + cityRows.map(r => r.art && r.art.map ? r.art.map.v : '').join());
 emit('sw.js', swSource(version, shellFiles));
 
 // ---------------------------------------------------------------- gate, then write (or check)
