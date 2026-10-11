@@ -176,7 +176,7 @@
 /* ---------- country hub hero: copy + media (credited photo, or the calm cover with the big count) ---------- */
 .feb .chero { position: relative; background: var(--paper); color: var(--ink); }
 .feb .chero .inner { display: grid; gap: 24px; max-width: var(--maxw); margin: 0 auto; padding: clamp(24px, 4vw, 56px) var(--gutter) 0; }
-@media (min-width: 900px) { .feb .chero .inner { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); align-items: center; gap: 48px; } }
+@media (min-width: 900px) { .feb .chero .inner { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); align-items: start; gap: 48px; } }
 .feb .chero .kicker { display: flex; align-items: center; gap: 6px; margin: 0 0 10px; color: var(--ink-2); font: 600 var(--fs-sm)/1.3 var(--font-ui); }
 .feb .chero h1 { margin: 0; color: var(--ink); letter-spacing: var(--track-display, -.02em); }
 .feb .chero .why { margin: 14px 0 0; max-width: 46ch; font-size: var(--fs-lead); line-height: var(--lh-lead); color: var(--ink); }
@@ -185,6 +185,13 @@
 .feb .chero .facts { margin: 12px 0 0; max-width: 60ch; color: var(--ink-2); font-size: var(--fs-body); }
 .feb .chero .facts b { color: var(--ink); font-weight: 600; }
 .feb .chero .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 20px; }
+/* secondary actions: quiet text buttons (still 44 px targets), below the one primary CTA */
+.feb .chero .acts2 { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; margin-top: 8px; }
+.feb .chero .acts2 .btn { min-height: var(--tap); padding: 0 4px; border: 0; background: none; color: var(--ink-2); font-size: var(--fs-sm); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+.feb .chero .acts2 .btn:hover { color: var(--ink); }
+.feb .chero .blurb-c { margin-top: 16px; }
+/* phones: image-first — the hero media leads (reserved 3:2 box, no layout shift), the copy follows */
+@media (max-width: 899px) { .feb .chero .inner { padding-top: 12px; gap: 20px; } .feb .chero .hero-media { order: -1; aspect-ratio: 3 / 2; } .feb .chero .hero-media.photo { aspect-ratio: auto; } .feb .chero .hero-media.photo img { aspect-ratio: 3 / 2; } }
 .feb .chero .share-note { font-size: var(--fs-sm); color: var(--ink-2); }
 .feb .hero-media { position: relative; margin: 0; aspect-ratio: 16 / 10; border-radius: var(--r-l); overflow: hidden; isolation: isolate; }
 @media (min-width: 900px) { .feb .hero-media { aspect-ratio: 16 / 10; } }
@@ -194,8 +201,9 @@
 .feb .hero-media .motif { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: auto; max-height: 70%; object-fit: cover; object-position: 50% 100%; z-index: -1; }
 .feb .hero-media.photo { aspect-ratio: auto; overflow: visible; background: none; }
 .feb .hero-media.photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r-l); }
-.feb .hero-media.photo figcaption { position: static; margin-top: 6px; padding: 0 2px; background: none; text-shadow: none; font-size: var(--fs-xs); line-height: var(--lh-xs); color: var(--ink-3); }   /* below the photo, not over it */
-.feb .hero-media.photo figcaption a { display: inline-flex; align-items: center; min-height: var(--tap); color: inherit; }
+.feb .hero-media.photo figcaption { position: static; margin-top: 8px; padding: 0 2px; background: none; text-shadow: none; font-size: var(--fs-xs); line-height: 1.6; color: var(--ink-3); }   /* below the photo, not over it */
+/* 44 px tap area from inline padding: the hit box grows, the caption's lines don't */
+.feb .hero-media.photo figcaption a { display: inline; padding-block: calc((var(--tap) - 1em) / 2); color: inherit; }
 
 /* ---------- static pages (method, accessibility, 404): same type and spacing ---------- */
 .feb .page-head { background: var(--paper); color: var(--ink); }
