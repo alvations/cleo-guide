@@ -87,7 +87,13 @@ Every panelist scores every row. Anchors keep scores comparable across panelists
 - Every point lost cites evidence.
 - From round 1 on, each panelist sees their own previous scores and must justify any change of more than 3 points on a row with new evidence.
 - Panelists never see the other panelists' scores before submitting.
-- The panel never sees any target score.
+- Panelists never see the exit criterion or any target score. The panel lead gives each panelist agent only:
+  - its persona card (§3);
+  - the rubric and anchors (§4);
+  - the tasks (§5);
+  - the round's evidence pack (§6);
+  - in later rounds, its own previous scores.
+- The panel lead computes the mean mechanically and reports it without comment on any target.
 
 ## 5. Tasks (run on the real page in headless Chromium, desktop 1440×900 and phone 390×844)
 
