@@ -1391,3 +1391,20 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - D-38 is **ratified**. The first-load row now reads "map tiles excluded": tiles are off-origin and blocked.
     - QA-51: the detail media clone in `sheet.js` `fullCap()` asks for its own slot (`(min-width: 1024px) 1024px, 100vw`). Desktop Tokyo detail went from 500w to **960w** at 1,024 px. `beta:qa:w8p` check 3 covers it.
     - B-06/07/09: nothing is left for platform. QA did B-06/B-07, and B-09 waits for QA's next pass.
+
+- 2026-10-11 20:55Z · **Orchestrator** · Owner: "Fix all the issues! And then run the melon-seek style UI/UX and experience QA QC and all the backend and application front end optimization and keep the audit trail on all of them" · commit: this entry's commit
+  - **Audit trail:**
+    - new `docs/BETA-ISSUES.md`, the single register of every open issue from every source;
+    - statuses: open → fixed (claimed, with a SHA) → verified (by an independent checker on a pinned SHA, with the probe and its result);
+    - the R7 QA lane builds and keeps it.
+  - **Fix all the issues:**
+    - every open item already has an owning lane (R7 QA rows, the R7 gaps, PANEL-R1, casing, W8);
+    - the register makes any unassigned item visible.
+  - **Then the melon-seek-style UI/UX and experience QA/QC:**
+    - a new QC lane, judged against the patterns in `design/beta/views/STUDY.md` §7 (taken from the owner's melon-seek), plus experience journeys and a UI QC sweep;
+    - it builds its harness now and runs the full pass on a pinned head once the fixes land;
+    - output in `docs/BETA-QC.md`, with each finding mirrored in the register.
+  - **Backend and front-end optimization:**
+    - the platform lane runs the audit with before/after numbers and commits in `docs/BETA-PERF-AUDIT.md`;
+    - "backend" here means the build and data pipeline, the search index and data payloads, the service worker and caching, and the GitHub Actions workflows (there is no server);
+    - "front end" means JS, CSS, images and fonts, plus LCP, CLS and INP.
