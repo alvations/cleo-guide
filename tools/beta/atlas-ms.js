@@ -194,8 +194,8 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
       if (!dark) {
         const pp = await page.evaluate(() => { const lp = document.querySelector('.listpane').getBoundingClientRect(), bar = document.querySelector('.ms-bar').getBoundingClientRect();
           const ps = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp')].map(e => (e.firstElementChild || e).getBoundingClientRect());
-          return { pins: ps.length, under: ps.filter(r => r.bottom > lp.top + 2 || r.top < bar.bottom - 2).length }; });
-        chk(`${key} phone: ≤ 8 labelled pins, none under the carousel or the chip row`, pp.pins <= 8 && pp.under === 0, pp);
+          return { pins: ps.length, under: ps.filter(r => r.bottom > lp.top + 2 || r.top < bar.bottom - 2).length, discs: Cleo.city.discs || 0 }; });
+        chk(`${key} phone: ≤ 8 labelled pins, none under the carousel or the chip row; ≤ 10 density discs`, pp.pins <= 8 && pp.under === 0 && pp.discs <= 10, pp);
         const nc = await page.evaluate(() => document.querySelectorAll('li.pl').length);
         chk(`${key} phone: the first fit builds one page of cards, not the area (≤ 32 live + 40)`, nc <= 32 + 40 + 2, { cards: nc });
         const ov = await page.evaluate(() => { const s = document.querySelector('.ms-bar .spill'), r = s && s.getBoundingClientRect(); return { page: document.documentElement.scrollWidth - innerWidth, spill: r ? [Math.round(r.left), Math.round(r.right)] : null }; });
