@@ -188,6 +188,23 @@ console.log('\n== W7: hub "Known for" from child guides\' signatures; hero photo
   chk('hub "Known for" lines naming one dish twice (synonyms from the canon table)', sameDish, a => a.length === 0);
 }
 
+// ── 8. W9-2: the landing's "<month> in Cleo" module — every number a sum of data/changes.json; links resolve ──────
+console.log('\n== W9-2: "<month> in Cleo" from data/changes.json; What changed links + the feed resolve ==');
+{
+  const C = JSON.parse(rd('data/changes.json')), d = doc(rd('index.html'));
+  const sec = d.getElementById('month'), act = C.pages.filter(p => p.month && (p.month.checked || p.month.closed));
+  const sum = k => act.reduce((t, p) => t + p.month[k], 0), n = x => x.toLocaleString('en-US');
+  chk('module present, for the newest month on record', !!sec && sec.querySelector('.month-lede').dataset.month === C.month, true);
+  const lede = sec ? sec.querySelector('.month-lede').textContent : '';
+  chk('lede numbers == changes.json sums (re-checked, closed, pins, guides)', [n(sum('checked')), n(sum('closed')), n(sum('pins')), String(act.length)].every(x => lede.includes(x)), true);
+  const rows = sec ? [...sec.querySelectorAll('.month-list a')] : [];
+  const bad = rows.filter(a => { const p = C.pages.find(x => x.changesPage === a.getAttribute('href'));
+    return !p || !fs.existsSync(path.join(BETA, a.getAttribute('href'))) || +a.dataset.checked !== p.month.checked || +a.dataset.closed !== p.month.closed; }).map(a => a.getAttribute('href'));
+  chk(`rows (${rows.length}) == guides with activity, each linking to its What changed page with its own numbers`, bad.length === 0 && rows.length === act.length, true);
+  const feed = sec && sec.querySelector('a[href="feeds/all.xml"]');
+  chk('"Follow changes" links the site feed, which exists', !!feed && /<feed xmlns="http:\/\/www.w3.org\/2005\/Atom">/.test(rd('feeds/all.xml')), true);
+}
+
 // ── 5. voice lint ──────────────────────────────────────────────────────────
 console.log('\n== VOICE: urgency lint on FE-B pages ==');
 {

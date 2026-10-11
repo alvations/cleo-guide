@@ -42,12 +42,12 @@
    "withArticle": 632
   },
   "candidates": {
-   "total": 363,
-   "high": 349,
+   "total": 372,
+   "high": 358,
    "med": 14,
    "low": 0
   },
-  "targetsWithHigh": 168,
+  "targetsWithHigh": 169,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -1683,7 +1683,29 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Ang_Mo_Kio_Town_Garden_West_Singapore_-_panoramio.jpg",
      "depicts": "Ang Mo Kio Town Garden West",
      "confidence": "high",
-     "reason": "title names Ang Mo Kio Town Garden West (copied from the category listing)"
+     "reason": "title names Ang Mo Kio Town Garden West (copied from the category listing)",
+     "refused": "refused by visual review (W8): the park's name sign is the centre of the frame (signage rule)"
+    },
+    {
+     "file": "File:Ang Mo Kio Town Garden West Singapore - panoramio (1).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ang_Mo_Kio_Town_Garden_West_Singapore_-_panoramio_(1).jpg",
+     "depicts": "Ang Mo Kio Town Garden West",
+     "confidence": "high",
+     "reason": "title names Ang Mo Kio Town Garden West (copied from the category listing; another view)"
+    },
+    {
+     "file": "File:Ang Mo Kio Town Garden West Singapore - panoramio (2).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ang_Mo_Kio_Town_Garden_West_Singapore_-_panoramio_(2).jpg",
+     "depicts": "Ang Mo Kio Town Garden West",
+     "confidence": "high",
+     "reason": "title names Ang Mo Kio Town Garden West (copied from the category listing; another view)"
+    },
+    {
+     "file": "File:Ang Mo Kio Park Connector - 2022-11-07.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ang_Mo_Kio_Park_Connector_-_2022-11-07.jpg",
+     "depicts": "Ang Mo Kio Park Connector (November 2022)",
+     "confidence": "high",
+     "reason": "title names the Ang Mo Kio Park Connector"
     },
     {
      "file": "File:AngMoKio.JPG",
@@ -1877,6 +1899,32 @@
    ],
    "wikiLead": true,
    "candidates": []
+  },
+  {
+   "key": "hero:singapore/queenstown",
+   "type": "hero",
+   "depicts": "hub:singapore/queenstown",
+   "label": "Queenstown & Redhill — guide hero",
+   "names": [
+    "Queenstown",
+    "Redhill"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Queenstown,_Singapore"
+   ],
+   "wikiLead": true,
+   "candidates": [
+    {
+     "file": "File:Queenstown hdb.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Queenstown_hdb.jpg",
+     "depicts": "HDB flats along Strathmore Avenue, Queenstown",
+     "confidence": "high",
+     "reason": "title names Queenstown; summary: thirty-storey flats, Strathmore Avenue, 2005"
+    }
+   ]
   },
   {
    "key": "hero:singapore/jalan-besar",
@@ -2121,32 +2169,6 @@
    ],
    "wikiLead": true,
    "candidates": []
-  },
-  {
-   "key": "hero:singapore/queenstown",
-   "type": "hero",
-   "depicts": "hub:singapore/queenstown",
-   "label": "Queenstown & Redhill — guide hero",
-   "names": [
-    "Queenstown",
-    "Redhill"
-   ],
-   "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "articles": [
-    "https://en.wikipedia.org/wiki/Queenstown,_Singapore"
-   ],
-   "wikiLead": true,
-   "candidates": [
-    {
-     "file": "File:Queenstown hdb.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Queenstown_hdb.jpg",
-     "depicts": "HDB flats along Strathmore Avenue, Queenstown",
-     "confidence": "high",
-     "reason": "title names Queenstown; summary: thirty-storey flats, Strathmore Avenue, 2005"
-    }
-   ]
   },
   {
    "key": "hero:singapore/southern-ridges",
@@ -3204,7 +3226,18 @@
    "article": "https://en.wikipedia.org/wiki/MacRitchie_Reservoir",
    "priority": "lead",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Info Board MacRitchie Reservoir Singapore Feb23 D72 25337.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Info_Board_MacRitchie_Reservoir_Singapore_Feb23_D72_25337.jpg",
+     "depicts": "MacRitchie info board",
+     "confidence": "high",
+     "reason": "lead image (run #35)",
+     "refused": "refused (W8): an information board — signage is the subject"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/yangon#shwedagon-pagoda",
@@ -5476,6 +5509,28 @@
      "confidence": "high",
      "reason": "title names Nihonbashi Bridge (photo upload; NOT the Hiroshige print \"Nihonbashi bridge.jpg\")",
      "refused": "refused by R7 QA-53 (W8): a woodblock print (Hiroshige) — artwork, not the place today"
+    },
+    {
+     "file": "File:Chuo-dori from Nihonbashi.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Chuo-dori_from_Nihonbashi.jpg",
+     "depicts": "Chūō-dōri seen from Nihonbashi",
+     "confidence": "high",
+     "reason": "lead image of the cited article (pilots run #34)",
+     "refused": "refused by visual review (W8): the street seen from the bridge, not the bridge (a view from the place)"
+    },
+    {
+     "file": "File:Nihonbashi bridge.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nihonbashi_bridge.jpg",
+     "depicts": "Nihonbashi Bridge",
+     "confidence": "high",
+     "reason": "title names Nihonbashi bridge (W8 re-lead)"
+    },
+    {
+     "file": "File:Kirin Statue (Nihonbashi Bridge).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kirin_Statue_(Nihonbashi_Bridge).jpg",
+     "depicts": "The bronze kirin guarding Nihonbashi Bridge (1911)",
+     "confidence": "high",
+     "reason": "title names the Kirin statue of Nihonbashi Bridge; summary: Phlizz, January 2020, CC BY-SA 4.0; the 1911 bronze is long out of copyright"
     }
    ]
   },
@@ -7792,7 +7847,22 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Rockaway_Beach_aerial_view.jpg",
      "depicts": "Rockaway Beach from the air",
      "confidence": "high",
-     "reason": "title names Rockaway Beach"
+     "reason": "title names Rockaway Beach",
+     "refused": "refused by visual review (W8): an old aerial survey shot with bulldozers on the sand (vehicles/equipment), and no boardwalk"
+    },
+    {
+     "file": "File:Rockaway Boardwalk jeh.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rockaway_Boardwalk_jeh.JPG",
+     "depicts": "The Rockaway boardwalk on a sunny afternoon (2008)",
+     "confidence": "high",
+     "reason": "title names the Rockaway Boardwalk; summary: Jim.henderson, sunny early afternoon"
+    },
+    {
+     "file": "File:Rockaway Beach Queens.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rockaway_Beach_Queens.JPG",
+     "depicts": "Rockaway Beach, Queens",
+     "confidence": "high",
+     "reason": "title names Rockaway Beach, Queens; summary: Urielevy 2013, CC BY-SA 4.0"
     }
    ]
   },

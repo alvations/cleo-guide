@@ -34,6 +34,7 @@ const { BETA_BASE } = require('./lib/render/common');
 const city = require('./lib/render/city');
 const landing = require('./lib/render/landing');
 const saved = require('./lib/render/saved');
+const tripPage = require('./lib/render/trip');                  // FE-C W9-4: beta/trip.html
 const shell = require('./lib/render/shell');                       // FE-B: site context for header/footer
 const hub = require('./lib/render/hub');                           // FE-B: country hubs + SEA archive
 const method = require('./lib/render/method');                     // FE-B: how-we-choose.html, 404.html
@@ -168,8 +169,9 @@ for (const [rel, body] of i18n.files()) emit(rel, body);
 // ---------------------------------------------------------------- what changed (ROUND-2 gap #9, M3-07): Atom feeds
 const changeRows = changes.build(cityRows, emit);
 emit('data/changes.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
-  _doc: 'Per place page: its Atom feed, the newest dated event, closures and status checks on record. Events come only from dates in data/geocodes.json (status checks, closures with their source, pin verifications).',
-  pages: changeRows }));
+  _doc: 'Per place page: its Atom feed, the newest dated event, closures and status checks on record, and `month` = what happened in the newest month on record (`month` at the top: YYYY-MM from the data, not the clock). Events come only from dates in data/geocodes.json (status checks, closures with their source, pin verifications).',
+  month: changeRows.month, pages: changeRows }));
+reg.changes = changeRows;                          // W9-2: the landing's "<month> in Cleo" module reads these rows
 
 // ---------------------------------------------------------------- data indexes
 const pageHref = r => r.beta;                     // beta-root-relative
@@ -191,6 +193,13 @@ for (const r of cityRows) {
   const pi = searchPages.length;
   searchPages.push([r.key, page.meta.h1Main || r.key, pageHref(r), r.country || '', r.gen === 'new' ? 1 : 0]);
   for (const x of r.recs) searchItems.push([pi, x.id, x.n, x.kind === 'food' ? 'f' : 's', x.t, x.closed ? 1 : 0, areaN[x.a] || '']);
+  // Perf audit PERF-04: the place detail's per-article links, sliced out of the dataset below (same data, ~7× smaller):
+  // g = source key → publisher group id (sourceIndex), p = place id → [[source key, url], …] (http(s) urls only).
+  {
+    const g = {}; for (const s of r.sources.list || []) for (const e of s.entries || []) g[e.key] = s.id;
+    const p = {}; for (const x of r.recs) { const s = (x.s || []).filter(y => y && /^https?:\/\//.test(y[1] || '')); if (s.length) p[x.id] = s; }
+    emit(`data/links/${r.fileKey}.json`, JSON.stringify({ _generated: 'tools/beta/build.js — do not edit; slice of data/places/' + r.fileKey + '.json', v: 1, g, p }));
+  }
   // Per-page open dataset: every record, its sources registry, areas/collections/cuisines, provenance.
   emit(`data/places/${r.fileKey}.json`, JSON.stringify({
     _generated: 'tools/beta/build.js from ' + r.live + ' — do not edit', v: 1, key: r.key, live: r.live, beta: r.beta, country: r.country, name: page.meta.h1Main,
@@ -277,6 +286,7 @@ for (const r of reg.rows.filter(r => r.gen === 'new')) {
   emit(r.beta, html);
 }
 const savedHtml = saved.render(ctx); errors.push(...assertPage('saved.html', savedHtml)); emit('saved.html', savedHtml);
+const tripHtml = tripPage.render(ctx); errors.push(...assertPage('trip.html', tripHtml)); emit('trip.html', tripHtml);
 const extraPages = method.pages(reg, ctx);                         // FE-B: { 'how-we-choose.html': html, '404.html': html }
 for (const r of cityRows) extraPages[changesPage.rel(r)] = changesPage.page(r, ctx);   // W4 gap #9
 for (const [rel, html] of Object.entries(extraPages)) { errors.push(...assertPage(rel, html)); emit(rel, html); }
@@ -287,7 +297,7 @@ emit('manifest.webmanifest', JSON.stringify({
 }, null, 1));
 
 // Manifest of ownership: what the new generator writes vs what is still the legacy mirror.
-const generated = reg.rows.filter(r => r.gen === 'new').map(r => r.beta).concat(['saved.html'], Object.keys(extraPages));
+const generated = reg.rows.filter(r => r.gen === 'new').map(r => r.beta).concat(['saved.html', 'trip.html'], Object.keys(extraPages));
 emit('data/manifest.json', JSON.stringify({
   v: 1, _doc: 'Written by tools/beta/build.js. `generated` pages are owned by the new beta generator; tools/beta-restyle.py must skip them. `pages` maps every live page to its beta source.',
   generated,
@@ -299,7 +309,7 @@ emit('data/manifest.json', JSON.stringify({
 // Self-hosted fonts (designer, beta/assets/fonts) are precached so offline type matches online type.
 const FONTS = path.join(BETA, 'assets', 'fonts');
 const fontFiles = fs.existsSync(FONTS) ? fs.readdirSync(FONTS).filter(f => f.endsWith('.woff2')).sort().map(f => './assets/fonts/' + f) : [];
-const shellFiles = ['./index.html', './saved.html', './manifest.webmanifest', './assets/icon.svg', `./assets/cleo.css?v=${assetsV.css}`, `./${ctx.feaCss}`, `./assets/fe-b.css?v=${require('./lib/render/shell').febV()}`]
+const shellFiles = ['./index.html', './saved.html', './trip.html', './manifest.webmanifest', './assets/icon.svg', `./assets/cleo.css?v=${assetsV.css}`, `./${ctx.feaCss}`, `./assets/fe-b.css?v=${require('./lib/render/shell').febV()}`]
   .concat(fontFiles)
   .concat(assetsV.tokens ? [`./assets/tokens.css?v=${assetsV.tokens}`] : [])
   .concat(['./how-we-choose.html'])                                 // FE-B method page, offline too

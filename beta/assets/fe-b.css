@@ -117,9 +117,6 @@
 .feb .credit a { color: inherit; }
 @media (max-width: 479px) { .feb .dense .card-t { font-size: var(--fs-lead); } .feb .dense .recby .ico { display: none; }
   .feb .dense .card-body .sigline { -webkit-line-clamp: 3; } .feb .dense .recby > span { -webkit-line-clamp: 3; } }
-/* "Recommended by": two source names from 640 px; on phones one name + "n more" (never clipped) */
-.feb .recby .rb-short { display: none; }
-@media (max-width: 639px) { .feb .recby .rb-full { display: none; } .feb .recby .rb-short { display: inline; } }
 
 /* ---------- phones (< 640 px): city cards become compact rows — media left, text right, one link (B-05: two cards on the
    first phone screen of the landing and every hub, QA-49). No line clamps: nothing is ellipsised (QA-59). ---------- */
@@ -151,6 +148,13 @@
 .feb .morelist .dest-n { grid-area: n; }
 .feb .morelist .dest-c { grid-area: c; }
 .feb .morelist .dest-s { grid-area: s; font-size: var(--fs-sm); color: var(--ink-2); }
+
+/* W9-2 "<month> in Cleo": each guide is a compact link — its name, then its counts for the month */
+.feb .month-list { grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); }
+.feb .month-list a { grid-template-columns: minmax(0, 1fr); grid-template-areas: "n" "c"; min-height: 64px; align-content: center; }
+.feb .month-list .dest-c { white-space: normal; font-variant-numeric: normal; }   /* "re-checked": tabular figures would space the hyphen */
+.feb .month-lede { margin: 0 0 16px; max-width: 70ch; color: var(--ink-2); }
+.feb .month-feed { margin: 12px 0 0; }
 
 /* W3 B-04: "Read as a guidebook" / "See it in numbers" under each hub card (44 px targets) */
 .feb li.dest > .dest-views { display: flex; flex-wrap: wrap; gap: 0 16px; margin: 2px 2px 0; font-size: var(--fs-sm); }
@@ -279,17 +283,16 @@
 @media (max-width: 639px) {
   .feb .chero .acts, .feb .chero .copy > .acts2, .feb .chero .copy > .blurb-c { display: none; }
   .feb .chero .hero-media, .feb .chero .hero-media.photo img { aspect-ratio: 12 / 5; }
-  .feb .chero .kicker { margin-bottom: 4px; }
+  .feb .chero .kicker { display: none; }   /* phones: the stat line carries the counts; the verified-pin kicker shows from 640 px */
   .feb .chero .why { margin-top: 8px; font-size: var(--fs-body); }
   .feb .chero .facts { margin-top: 6px; }
   .feb .chero .inner { gap: 14px; }
   .feb .acts2-m .blurb-c { margin: 12px 0 0; color: var(--ink-2); }
 }
 
-/* phones, compact rows: exactly one "Recommended by" form, and no ★ sticker on the 112 px thumbnail (it is on the city page) */
+/* phones, compact rows: no ★ sticker on the 112 px thumbnail (it is on the city page) */
 @media (max-width: 639px) {
   .feb .tile.card .recby { display: block; }
-  .feb .tile.card .recby > .rb-full { display: none; }
   .feb .tile.card .card-media > .sticker { display: none; }
 }
 
