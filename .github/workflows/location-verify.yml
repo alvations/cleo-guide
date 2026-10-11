@@ -52,8 +52,6 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 340
-    env:
-      LV_CACHE_DIR: ${{ runner.temp }}/lv-cache   # absolute, outside the checkout (actions/cache refuses '..')
     steps:
       - uses: actions/checkout@v4
         with:
@@ -84,6 +82,9 @@ jobs:
           [[ "$NOMINATIM_MAX" =~ ^[0-9]+$ && "$NOMINATIM_MAX" -le 1000 ]] || { echo "::error::nominatim_max must be 0..1000"; exit 1; }
           CITY="$CITY" node -e "const c=require('./data/geocodes.json').cities; if(!c[process.env.CITY]){console.error('::error::unknown city '+process.env.CITY); process.exit(1)}"
           { echo "CITY=$CITY"; echo "SCOPE=$SCOPE"; echo "LIMIT=$LIMIT"; echo "NOMINATIM_MAX=$NOMINATIM_MAX"; } >> "$GITHUB_ENV"
+          # the response cache: absolute and outside the checkout (actions/cache refuses '..'; the runner context is not
+          # available in job-level env, so it is set here)
+          echo "LV_CACHE_DIR=$RUNNER_TEMP/lv-cache" >> "$GITHUB_ENV"
           echo "city=$CITY scope=$SCOPE limit=$LIMIT nominatim_max=$NOMINATIM_MAX event=$GITHUB_EVENT_NAME"
 
       - name: Restore the response cache (the Nominatim policy requires caching; reruns resume)
