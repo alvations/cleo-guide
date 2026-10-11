@@ -174,6 +174,18 @@ emit('data/changes.json', JSON.stringify({ _generated: 'tools/beta/build.js — 
 // ---------------------------------------------------------------- data indexes
 const pageHref = r => r.beta;                     // beta-root-relative
 const searchPages = [], searchItems = [];
+/** W8 FE-B: { areaId: {id, src, w, h, alt, set: [[src, w]…], cap} } — the Guidebook chapter's lead photo, credit-gated. */
+function chapterPhotos(r) {
+  if (r.country === 'vietnam') return {};
+  const byId = Object.fromEntries(r.recs.map(x => [x.id, x])), out = {};
+  for (const id of r.order.map(x => x.id)) {
+    const x = byId[id]; if (!x || out[x.a] || x.closed || x.kind !== 'sight') continue;
+    const ph = imagery.photoFor(r, x); if (!ph) continue;
+    out[x.a] = { id: x.id, src: ph.src, w: ph.w, h: ph.h, alt: ph.credit.depicts, set: (ph.widths || []).map(w => [w.src, w.w]),
+      cap: require('./imagery/photos').captionHtml(ph.credit) };
+  }
+  return out;
+}
 for (const r of cityRows) {
   const page = r.data, areaN = Object.fromEntries((page.AREAS || []).map(a => [a.id, city.shortArea(a.n)]));
   const pi = searchPages.length;
@@ -197,6 +209,9 @@ for (const r of cityRows) {
     prov: `data/prov/${r.fileKey}.json`,
     // D-39 (proposed, FE-B W8): `pq` = research date on records whose prose quotes a price or a rating (lib/quoted.js);
     // views show "Prices and ratings are quoted from the source at the time of research (<pq>)". Prose itself untouched.
+    // W8 FE-B: Guidebook chapters lead with a credited photo where one exists — per area, the first open SIGHT in view
+    // order with a credited photo (imagery gate: never closed, never Vietnam; never a food place). Caption = TASL, linked.
+    chapterPhotos: chapterPhotos(r),
     places: r.recs.map(x => (x.pv && x.pv.src ? Object.assign({}, x, { pv: Object.assign({}, x.pv, { src: undefined }) }) : x))
       .map(x => quoted.quotes(x) ? Object.assign({}, x, { pq: quoted.researched(x) || r.stats.lastChecked || 'undated' }) : x),
   }));
