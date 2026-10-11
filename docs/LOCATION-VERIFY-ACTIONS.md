@@ -496,6 +496,39 @@ the JSON; the edited value still needs `by` + `why` and passes the same downgrad
 - **Website text in another language** (Japanese, German, Dutch, French sites). The closure-phrase detector is
   English-only for now, so it misses closures there; it never produces a false "closed".
 
+## 8. Owner decisions — 2026-10-11
+
+The owner answered the questions in §7 directly to the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx, 2026-10-11): *"You
+decide the answers to your question if you're asking for permissions then I say just yes."* The orchestrator recorded
+these decisions first-hand. An agent lane that only hears them relayed should treat this section as the record.
+
+1. **ODbL: yes.** An accepted OSM-derived coordinate may enter `data/geocodes.json`. Its `source` names the OSM object
+   URL. The report and `docs/geoverify/ACCEPTED.md` carry the ODbL credit, and the site keeps its OSM map attribution.
+   Rule 4a already lists OpenStreetMap as a verification source.
+2. **Reviewer: an agent may review**, named in `review.by` (its session id), with a reason in `review.why`. The bar:
+   - **Accept** `high` rows whose match is place-specific: an OSM POI whose name matches, a Wikidata item with P625, or
+     the place's official site (JSON-LD).
+   - **Accept** `med` rows only with a second, independent source that agrees within 50 m (for example the official site,
+     or a map listing found through WebSearch), cited in `review.why`.
+   - **Never accept** `low` rows, street-level matches, address-interpolation matches or `shared-object` rows. The tool
+     enforces this.
+   - **Closures** follow rule 4c: a real `statusSource` (an official notice, a news story, a map's "permanently closed"),
+     applied through `tools/geo-merge.py`, and the place keeps its "— CLOSED" marker. A 404 is never evidence.
+3. **Pace: yes.** A paced sweep of at most 300 Nominatim requests a day, one city per run, no self-hosting.
+4. **Reports are committed** as the audit trail: a `commit=true` line in `docs/geoverify/REQUEST`, or a dispatch with
+   `dry_run=false`. Reports are proposals; they never change the registry by themselves.
+5. **Phase 2: yes.** Build the NRW, Rhineland-Palatinate and Saarland house-coordinate adapters, plus the Japan Address
+   Base Registry as a wrong-town guard only, each with attribution. Research Luxembourg, France, Belgium and the
+   Netherlands the same way. OneMap is approved, but it needs a login only the owner can create: the adapter reads
+   `ONEMAP_EMAIL` / `ONEMAP_PASSWORD` from Actions secrets if they exist and skips with a logged note if not.
+   Credentials are never requested in chat or committed.
+6. **Quarterly status sweep: yes.** Status-only, with no Nominatim:
+   `node tools/location-verify.js --status-sweep --shard <i>/3 --max-minutes 330`. The three shards run on different days
+   and never in parallel. The schedule is added to the workflow and fires once the workflow is on the default branch.
+
+Every accepted change still goes through the gates: `research.js --geocheck` and `--statuscheck` for the city, then
+`npm run validate`, `npm test` and `npm run beta:check`, all before the push.
+
 ## Workflow YAML to add
 
 Path: `.github/workflows/location-verify.yml`. Not committed by this lane; the orchestrator owns workflow files.

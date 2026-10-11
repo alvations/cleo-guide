@@ -576,6 +576,12 @@ source, update the entry, and rebuild — the provenance travels with the coordi
 `node tools/research.js --geocheck <city-key>` lists any place on the page missing (or stale in) the
 registry, so verification can't be skipped.
 
+**Open geodata through GitHub Actions.** Coordinates that WebSearch cannot resolve can be proposed by the
+`location-verify` workflow, which matches each place against an OSM POI, a Wikidata item or the official site's markup.
+Each proposal carries its source and date, so rule 4a is met, and a reviewer accepts it before it reaches the registry.
+Street-level, interpolated and low matches are never accepted. Details and the acceptance bar are in
+[`LOCATION-VERIFY-ACTIONS.md`](LOCATION-VERIFY-ACTIONS.md).
+
 ### The re-verify & fix pass — a required step for every city (not a one-off cleanup)
 
 Getting a *sourced* coordinate is not the same as getting the *right* one. A whole batch of
