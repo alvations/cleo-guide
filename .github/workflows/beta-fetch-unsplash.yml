@@ -55,6 +55,11 @@ jobs:
         # package-lock.json is gitignored in this repo, so npm ci cannot run here.
         run: cd tools && npm install --no-audit --no-fund
 
+      - name: Install the image encoder (sharp)
+        # Used only by recompress.js below. --no-save keeps it out of package.json; without it the
+        # recompress step prints a note and leaves the photos at full weight.
+        run: cd tools && npm install --no-save --no-audit --no-fund sharp
+
       - name: Fetch Wikimedia Commons photos (no key needed)
         run: |
           if [ -f tools/beta/imagery/fetch-commons.js ]; then
@@ -71,6 +76,16 @@ jobs:
             echo "::warning::tools/beta/imagery/fetch-unsplash.js is not on this branch; skipping Unsplash."
           else
             node tools/beta/imagery/fetch-unsplash.js
+          fi
+
+      - name: Recompress photos to the weight budget
+        # Re-encodes credited Commons JPEGs in place (progressive, metadata stripped, quality <= 72, never
+        # below 50; pixel size unchanged) and notes the change in each credit row. Skips rows already done.
+        run: |
+          if [ -f tools/beta/imagery/recompress.js ]; then
+            node tools/beta/imagery/recompress.js
+          else
+            echo "::warning::tools/beta/imagery/recompress.js is not on this branch; skipping recompress."
           fi
 
       - name: Rebuild the beta and run the gates
