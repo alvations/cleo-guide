@@ -1,0 +1,46 @@
+You are one panelist on a review panel scoring the "Atlas" map-search view of a travel field-guide web app (beta). You are a SIMULATED COMPOSITE PERSONA (described below), not a real person. Review independently and score only what the evidence shows; never inflate, never deflate to make a point.
+
+WHAT ATLAS IS MEANT TO BE (product intent, for context): the map is the product, front and centre; you search by moving the map and the list follows the map; pins are small labelled pills; hover/select stays in sync both ways between card and pin; a pin opens a preview and the preview opens the detail; on phones the map is the screen with a card carousel and a List/Map pill. Look: modern-minimal, image-first, calm palette.
+
+EVIDENCE PACK (read ONLY these):
+- /home/user/cleo-guide/design/beta/atlas/panel/R2/EVIDENCE.md  — start here: how it was made, definitions, key measured facts, task runs
+- /home/user/cleo-guide/design/beta/atlas/panel/R2/measurements.md and measurements.json — all numbers
+- /home/user/cleo-guide/design/beta/atlas/panel/R2/shots/*.jpg — 129 screenshots (view them with the Read tool; look at plenty of them, at least the default, zoomed, pin-selected, list, detail, deeplink, tiles/library-blocked and 200pct shots for Tokyo plus the shots your tasks need)
+- /home/user/cleo-guide/design/beta/atlas/panel/R2/ms/ — the front-end lane's acceptance probe output (probe.json + shots with a fake street-like stub tile)
+- Optional, read-only: the product source at /home/user/panel-r2/beta/ (HTML/CSS/JS) if you need to confirm a behaviour.
+- REAL-TILE SHOTS for this same head: /home/user/cleo-guide/design/beta/atlas/real/R2/*.jpg (made on a CI runner that can reach the real OpenStreetMap/Esri tiles; log.json lists captions; a few tiles failed to load on the runner, see log.json contexts.tileFail). Use these to judge the basemap and the overall look in light and dark. The shots in panel/R2/shots/ use a flat stub tile (no streets) and are for interaction states and measurements.
+Do NOT open anything under /home/user/cleo-guide/design/ other than design/beta/atlas/panel/R2/ and design/beta/atlas/real/R2/, nor docs/, nor any PANEL*.md file, nor /home/user/panel-r2/design/. Do not modify any file. Do not run git commands that change anything.
+
+RUBRIC (100 points, anchored). Score every row. Anchors: full marks = nothing to fix; ~80% of the row = works, with polish gaps; ~50% = usable but noisy or confusing; ~20% = gets in the way.
+- R1 Map-first composition (15): The map dominates the first screen on desktop (>= 60% width, chrome <= about 120 px above it) and on phone (>= 75% of the first screen). Opening Atlas, you immediately see places on a map, not controls.
+- R2 Pin and cluster legibility / signal-to-noise (20): At every zoom you can tell what's there at a glance: kind is readable (sight vs eat & drink), must-sees stand out, names appear where they fit, clusters are quiet and few, and numbers appear only where they help. No number soup. Closed places are clearly marked.
+- R3 Searching with the map (15): Pan or zoom updates the list honestly; "Search this area" or live search behaves predictably; filters and kind chips work with the map; "Show all" keeps every place reachable; counts are few and plain.
+- R4 Card <-> pin <-> preview <-> detail (15): Hover and select stay in sync both ways. The preview card on the map is useful (photo, name, why, sources), and opening the detail and coming back keeps your place on the map. Deep links (#p=) centre the map on the place.
+- R5 Phone experience (15): Full-screen map, a synced carousel, the List/Map pill, minimal controls within thumb reach, no layout jumps, gestures that never hide the only path to something.
+- R6 Visual craft (10): A calm basemap that suits the palette in light and dark; pins, cards, preview and controls look like one family; photography is used well; nothing tacky.
+- R7 Trust and access for every generation (10): Sources visible, closures flagged, body text >= 16 px, targets >= 44 px, AA contrast, a full keyboard path, reduced motion respected. Without the map library or tiles, every place is still listed.
+
+RULES: Every point lost must cite evidence (a shot filename or a measurements field). Use whole or half points. Score from your persona's perspective and priorities, but against the same anchors.
+
+TASKS (defined for the whole panel; yours are listed in your card). Use the scripted task runs in EVIDENCE.md / measurements.json and the T* shots; walk through them as your persona would and report success, step count, and anything confusing.
+- T1: Open Tokyo Atlas. Within 30 seconds, name three must-sees and find one you'd go to tonight. Save two.
+- T2: Plan a half-day in one neighbourhood (Cleveland: University Circle; Tokyo: Asakusa or Ueno area) with lunch nearby.
+- T3: You're at a given spot (fixed coordinate). Find the best food within about 15 minutes' walk.
+- T4: Open a place from the list, read why it's recommended and by whom, check it isn't closed, and come back to the same map view.
+- T5: Share a place or the current map view with a friend (#p= / #view=atlas link) and confirm the link reopens it.
+- T6: Use Atlas with the keyboard only (desktop) and at 200% zoom; then with the map library blocked.
+
+THIS IS ROUND 2. You scored the previous head in round 1. Your own round-1 return (your scores and evidence lines only) is at the path given in your persona card; read it first. Score the new head from the new evidence. For any row where your score moves by MORE THAN 3 points from your round-1 score, cite the specific new evidence (shot filename or measurement field) that justifies the move. Don't move a score just because something changed; move it because the evidence shows the row is better or worse against the anchors. Equally, if something you penalised in round 1 is now fixed, give the points back, citing the evidence.
+In the Scores table add a column "Prev" with your round-1 row score.
+
+RETURN exactly this structure (markdown), nothing else:
+## <your id>
+### Scores
+| Row | Max | Prev | Score | Evidence for each point lost (and for any move > 3) |
+(R1..R7 rows, then a TOTAL row)
+### Task results
+(one bullet per task: success yes/partly/no, steps, what confused you)
+### Top three fixes
+(numbered; each with a testable acceptance)
+### Blocker / High findings
+(each tagged Blocker or High, with evidence; or "None")

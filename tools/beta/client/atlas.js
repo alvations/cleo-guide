@@ -19,6 +19,9 @@
   const pl = n => n.toLocaleString('en-US') + (n === 1 ? ' place' : ' places'), rec = id => C.byId[id] || C.stub(id);
   const llOf = c => { const v = (at(c, 'data-ll') || '').split(','); return v.length === 2 ? [+v[0], +v[1]] : null; };
   const atlas = () => C.view === 'atlas', desk = () => C.desk();
+  // PERF-08: with selective stamping a lens stamps only the cards it shows; an unstamped stub has no `hidden`, so ask the lens
+  const shows = c => (Cleo.lens && Cleo.lens.shows ? Cleo.lens.shows(c) : !c.hidden);
+  const lensStubs = () => (Cleo.defer ? Cleo.defer.peek(Cleo.lens && Cleo.lens.current ? { lens: Cleo.lens.current() } : undefined) : []);
 
   /* ---- SPEC-v3 slice 1: places on a map, not numbers on a grid ----
    * Three levels, chosen per viewport: up to N labelled pins (kind glyph + name; N = 24 desktop / 12 phone) for the best
@@ -99,7 +102,7 @@
   const feature = () => {
     const map = C.map(), L = window.L; if (!map || !L || !map.getSize().x) return;
     const N = desk() ? 16 : 8, sv = savedSet(), sel = selC && C.pid(selC), b = atlas() ? box() : map.getBounds(), z = map.getZoom();
-    const vis = Object.keys(C.markers).filter(id => { const c = rec(id); return c && !c.hidden && C.dots.hasLayer(C.markers[id]); });
+    const vis = Object.keys(C.markers).filter(id => { const c = rec(id); return c && shows(c) && C.dots.hasLayer(C.markers[id]); });
     const inV = vis.filter(id => b.contains(C.markers[id].getLatLng()));
     const first = id => (id === sel ? 0 : sv[id] ? 1 : 2);
     const cand = inV.slice().sort((x, y) => first(x) - first(y) || (MP[x] - MP[y]));
@@ -169,7 +172,7 @@
     // which places make each page: the guide's own order (area, then rank within it — tiers are graded per area), the
     // order the list is shown in; page 1 reuses the cards the page already rendered, so a first fit builds ≤ 1 page
     const ord = {}; C.sections.forEach((s, i) => { ord[at(s, 'data-area')] = i; });
-        const all = qa('li.pl').filter(c => !c.hidden).concat(Cleo.defer ? Cleo.defer.peek() : []);
+        const all = qa('li.pl').filter(c => !c.hidden).concat(lensStubs());
     const inn = all.filter(inB).sort((x, y) => !llOf(x) - !llOf(y) || (S.sort ? 0 : (ord[at(x, 'data-a')] || 0) - (ord[at(y, 'data-a')] || 0) || C.num(x) - C.num(y)));
     // only the cards on show are built: exactly these ids (Cleo.defer.stampIds splits their chunks), never the whole area
     const show = {}, need = new Set(); inn.slice(0, lim).concat(inn.filter(keep)).forEach(c => { show[C.pid(c)] = 1; if (!C.byId[C.pid(c)]) need.add('p-' + C.pid(c)); });   // the selected / open place always shows
@@ -324,7 +327,7 @@
   // map it is simply every place in the lens
   const paintMs = C.msPaint = () => {
     if (!head) return;
-    const pend = Cleo.defer ? Cleo.defer.peek().length : 0, N = qa('li.pl').filter(c => !c.hidden).length + pend, n = C.msN, onA = !!n && H.classList.contains('ms-on'), all = !!C.msOne || (!!C.msAll && !!C.map());
+    const pend = lensStubs().length, N = qa('li.pl').filter(c => !c.hidden).length + pend, n = C.msN, onA = !!n && H.classList.contains('ms-on'), all = !!C.msOne || (!!C.msAll && !!C.map());
     const tot = '<span class="ms-sortby" title="Ordered by tier within each area, then by number of named sources">' + (SORT.filter(x => x[0] === (S.sort || ''))[0] || SORT[0])[1] + '</span>';
     $('.ms-count', head).innerHTML = onA ? '<b>' + n[0].toLocaleString('en-US') + '</b> ' + (n[0] === 1 ? 'place' : 'places') + ' in this map area · ' + tot
       : (all ? 'Showing all <b>' : 'All <b>') + N.toLocaleString('en-US') + '</b> ' + (N === 1 ? 'place' : 'places') + ' · ' + tot;
