@@ -17,6 +17,9 @@
  *   --budget <n>         max API requests this run (default 150; images are counted separately, ≤ 2 per photo)
  *   --key <target>       only this target (repeatable), e.g. --key landmark:tokyo#senso-ji
  *   --type <t>           only hero | landmark (repeatable)
+ *   --scope <s>          what this run may fetch (default priority): heroes = city/hub heroes only; priority = heroes +
+ *                        each guide's lead card and first rail row; pilots = + the pilot pages' tier-1 sights;
+ *                        all = every target (the full tier-1 set — a repo-size decision, W8)
  *   --pilot              only pilot targets (Tokyo, Cleveland, New York, Chinatown SG, Wheeling + live country hubs)
  *   --min high|med       lowest candidate confidence to consider (default high)
  *   --allow-flag <f>     accept candidates carrying this flag (repeatable): people-visible, public-art-check,
@@ -79,7 +82,7 @@ const RANK = { high: 3, med: 2 };
 const PILOT_PAGES = ['tokyo', 'cleveland', 'newyork', 'singapore/chinatown', 'wheeling'];
 
 function args(argv) {
-  const o = { dry: false, keys: [], types: [], min: 'high', allow: [], widths: [480, 960], heroWidths: [960, 1280], budget: 150, wikiLead: false, pilot: false, delay: 400 };
+  const o = { scope: 'priority', dry: false, keys: [], types: [], min: 'high', allow: [], widths: [480, 960], heroWidths: [960, 1280], budget: 150, wikiLead: false, pilot: false, delay: 400 };
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i], v = () => argv[++i];
     if (a === '--dry-run') o.dry = true;
@@ -94,9 +97,11 @@ function args(argv) {
     else if (a === '--hero-widths') o.heroWidths = String(v()).split(',').map(Number).sort((x, y) => x - y);
     else if (a === '--delay') o.delay = +v();
     else if (a === '--no-rescan') o.noRescan = true;
+    else if (a === '--scope') o.scope = v();
     else if (a === '-h' || a === '--help') { console.log(fs.readFileSync(__filename, 'utf8').split('*/')[0]); process.exit(0); }
     else die(`unknown option ${a} (see --help)`);
   }
+  if (!SCOPES.includes(o.scope)) die(`--scope must be one of ${SCOPES.join(' | ')}`);
   if (!RANK[o.min]) die('--min must be high or med (low candidates are never recorded or fetched)');
   for (const ws of [o.widths, o.heroWidths]) if (!ws.length || ws.some(w => !(w >= 320 && w <= 1600))) die('--widths / --hero-widths must be 320–1600 each');
   if (!(o.budget >= 1 && o.budget <= 5000)) die('--budget must be 1–5000');
@@ -244,6 +249,13 @@ async function reachable() {
   } catch (e) { return e.cause ? e.cause.code || e.cause.message : e.message; }
 }
 
+/** What a run may fetch (W8): a stray run can never pull the whole tier-1 set. */
+const SCOPES = ['heroes', 'priority', 'pilots', 'all'];
+function inScope(t, scope) {
+  if (t.type === 'hero' || scope === 'all') return true;
+  if (scope === 'heroes') return false;
+  return !!t.priority || (scope === 'pilots' && !!t.pilot);
+}
 function loadCredits() {
   const j = JSON.parse(fs.readFileSync(CREDITS, 'utf8'));
   if (!Array.isArray(j.credits)) die('CREDITS.json has no "credits" array');
@@ -259,6 +271,7 @@ function plan(man, credits, o) {
     if (o.keys.length && !o.keys.includes(t.key)) continue;
     if (o.types.length && !o.types.includes(t.type)) continue;
     if (o.pilot && !t.pilot) continue;
+    if (!inScope(t, o.scope || 'all')) continue;
     const where = t.type === 'landmark' ? recordCheck(t) : slotCheck(t);
     if (where.why) { out.push({ t, skip: where.why }); continue; }
     if (where.page ? haveRecord.has(`${where.page}#${where.id}`) : haveSlot.has(`hero:${where.slot.key}`)) { out.push({ t, skip: 'already has a credited photo' }); continue; }
@@ -278,7 +291,7 @@ async function main() {
   const todo0 = plan(man, credits, o);
   const todo = todo0.filter(p => !p.skip);
   const skips = todo0.length - todo.length;
-  console.log(`fetch-commons: ${todo0.length} target(s): ${todo.length} to try, ${skips} skipped`);
+  console.log(`fetch-commons: scope ${o.scope} — ${todo0.length} target(s): ${todo.length} to try, ${skips} skipped`);
   for (const p of todo) console.log(`  try   ${p.t.key} → ${p.cands.map(c => `${c.file} (${c.confidence})`).join(' | ')}${p.lead ? `${p.cands.length ? ' | ' : ''}lead image of ${p.t.article}` : ''}`);
   const why = {}; todo0.filter(p => p.skip).forEach(p => { const k = p.skip.replace(/ \(.*$/, '').replace(/ — .*$/, ''); why[k] = (why[k] || 0) + 1; });
   for (const [k, n] of Object.entries(why).sort((a, b) => b[1] - a[1])) console.log(`  skip  ${n} × ${k}`);
@@ -464,4 +477,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
