@@ -45,7 +45,7 @@ self.addEventListener('fetch', function (e) {
     }));
     return;
   }
-  if (/\\/data\\/[^/]+\\.json$/.test(url.pathname) || /\\/data\\/places\\//.test(url.pathname)) {
+  if (/\\/data\\/[^/]+\\.json$/.test(url.pathname) || /\\/data\\/(places|links)\\//.test(url.pathname)) {
     e.respondWith(caches.match(req).then(function (m) {
       var net = fetch(req).then(function (r) { return put(req, r); }).catch(function () { return m; });
       return m || net;

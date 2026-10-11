@@ -193,6 +193,13 @@ for (const r of cityRows) {
   const pi = searchPages.length;
   searchPages.push([r.key, page.meta.h1Main || r.key, pageHref(r), r.country || '', r.gen === 'new' ? 1 : 0]);
   for (const x of r.recs) searchItems.push([pi, x.id, x.n, x.kind === 'food' ? 'f' : 's', x.t, x.closed ? 1 : 0, areaN[x.a] || '']);
+  // Perf audit PERF-04: the place detail's per-article links, sliced out of the dataset below (same data, ~7× smaller):
+  // g = source key → publisher group id (sourceIndex), p = place id → [[source key, url], …] (http(s) urls only).
+  {
+    const g = {}; for (const s of r.sources.list || []) for (const e of s.entries || []) g[e.key] = s.id;
+    const p = {}; for (const x of r.recs) { const s = (x.s || []).filter(y => y && /^https?:\/\//.test(y[1] || '')); if (s.length) p[x.id] = s; }
+    emit(`data/links/${r.fileKey}.json`, JSON.stringify({ _generated: 'tools/beta/build.js — do not edit; slice of data/places/' + r.fileKey + '.json', v: 1, g, p }));
+  }
   // Per-page open dataset: every record, its sources registry, areas/collections/cuisines, provenance.
   emit(`data/places/${r.fileKey}.json`, JSON.stringify({
     _generated: 'tools/beta/build.js from ' + r.live + ' — do not edit', v: 1, key: r.key, live: r.live, beta: r.beta, country: r.country, name: page.meta.h1Main,
