@@ -325,10 +325,11 @@ Per target, the first candidate that passes, in manifest order (then, with `--wi
 4. **Sized local copies:** Commons' own server-side thumbnails, never wider than the original. Commons serves only its
    standard thumbnail widths (250, 330, 500, 960, 1280, 1920); any other width answers HTTP 400, which stopped
    workflow run #5 at a 640 px thumbnail. Each asked width therefore snaps to the nearest step, and the thumbnail URL
-   comes from the API for that width. Cards: 500 + 960 px. Heroes: 500 + 1280 px by default; the workflow passes
-   `--hero-widths 640,960` → 500 + 960 to keep Tokyo within its 2.0 MB budget. Stored as
+   comes from the API for that width (`thumb.wikimedia.org` or `upload.wikimedia.org`). Cards: 500 + 960 px. Heroes:
+   960 + 1280 px by default; the workflow passes `--widths 500,960 --hero-widths 500,960` to keep Tokyo within 2.0 MB. Stored as
    `beta/assets/img/photos/<base>-<w>.jpg` (`/` in a page key becomes `--`). Nothing is hotlinked. A failed thumbnail
-   refuses that candidate; a 429 or 5xx stops the run cleanly, and the next run resumes.
+   refuses that candidate; a 429 or 5xx stops the run cleanly, and the next run resumes. The run exits 4 only if
+   the API fails or more than 25 % of image downloads fail.
 5. **TASL credit row** in `CREDITS.json`: the largest width is `file`, the smaller one is in `variants`, plus `title`,
    `depicts`, `author`, `sourceUrl` (the Commons File: page), `licence`, `licenceUrl`, `provider:
    "wikimedia-commons"`, `commonsTitle`, `sha1`, `modified` ("resized to … px wide"), `fetched`, `confidence`.
