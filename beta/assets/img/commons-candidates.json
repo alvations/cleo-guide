@@ -8,6 +8,7 @@
   "type": "hero = city/town/country hub scene (a slot, not a record); landmark = one tier-1 sight record",
   "names": "phrases a file title, description or category must contain (compared without spaces, punctuation or diacritics) for the fetch to keep it",
   "priority": "W8: 'lead' = the guide's lead card, 'row' = its first rail row (what a visitor sees first) — fetched right after the heroes",
+  "articles": "W8 heroes: Wikipedia articles whose lead images are tried in order (the town, then an iconic sight)",
   "wikiLead": "W8: when no candidate passes, try the lead image of the record's cited Wikipedia article (same licence, depicts, subject and author checks) without --wiki-lead",
   "pilot": "true for the pilot pages (Tokyo, Cleveland, New York, Chinatown SG, Wheeling) and the five live country hubs — fetched first",
   "article": "the record's cited Wikipedia article (for --wiki-lead)",
@@ -21,13 +22,13 @@
   "candidates[].flags": "people-visible, public-art-check (no freedom of panorama for modern public art in the US/JP), venue-check, panorama (360° file), outdated (the place has changed), author-check — the fetch skips a flagged candidate unless --allow-flag names it"
  },
  "summary": {
-  "targets": 1370,
+  "targets": 1419,
   "byType": {
-   "hero": 40,
+   "hero": 89,
    "landmark": 1330
   },
   "heroes": {
-   "targets": 40,
+   "targets": 89,
    "withHigh": 40
   },
   "pilotLandmarks": {
@@ -41,12 +42,12 @@
    "withArticle": 633
   },
   "candidates": {
-   "total": 324,
-   "high": 310,
+   "total": 327,
+   "high": 313,
    "med": 14,
    "low": 0
   },
-  "targetsWithHigh": 152,
+  "targetsWithHigh": 154,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -231,7 +232,11 @@
       "people-visible"
      ]
     }
-   ]
+   ],
+   "articles": [
+    "https://en.wikipedia.org/wiki/Chinatown,_Singapore"
+   ],
+   "wikiLead": true
   },
   {
    "key": "hero:wheeling",
@@ -277,7 +282,11 @@
      "reason": "title names Wheeling on the Ohio River; summary CC BY-SA 2.0",
      "refused": "refused by visual review (W7): hazy grey aerial through a plane window; the city does not read at card size"
     }
-   ]
+   ],
+   "articles": [
+    "https://en.wikipedia.org/wiki/Wheeling,_West_Virginia"
+   ],
+   "wikiLead": true
   },
   {
    "key": "hero:japan",
@@ -881,7 +890,12 @@
      "reason": "title names the Cincinnati skyline",
      "refused": "refused by the fetch (run #18, Commons API): no author in the file metadata"
     }
-   ]
+   ],
+   "articles": [
+    "https://en.wikipedia.org/wiki/Cincinnati",
+    "https://en.wikipedia.org/wiki/Roebling_Suspension_Bridge"
+   ],
+   "wikiLead": true
   },
   {
    "key": "hero:columbus",
@@ -1572,6 +1586,857 @@
    ]
   },
   {
+   "key": "hero:singapore/ang-mo-kio",
+   "type": "hero",
+   "depicts": "hub:singapore/ang-mo-kio",
+   "label": "Ang Mo Kio — guide hero",
+   "names": [
+    "Ang Mo Kio"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Ang_Mo_Kio"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/balestier",
+   "type": "hero",
+   "depicts": "hub:singapore/balestier",
+   "label": "Balestier — guide hero",
+   "names": [
+    "Balestier"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Balestier"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/bedok",
+   "type": "hero",
+   "depicts": "hub:singapore/bedok",
+   "label": "Bedok — guide hero",
+   "names": [
+    "Bedok"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Bedok"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/bishan",
+   "type": "hero",
+   "depicts": "hub:singapore/bishan",
+   "label": "Bishan — guide hero",
+   "names": [
+    "Bishan"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Bishan,_Singapore",
+    "https://en.wikipedia.org/wiki/Bishan-Ang_Mo_Kio_Park"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/bukit-timah",
+   "type": "hero",
+   "depicts": "hub:singapore/bukit-timah",
+   "label": "Bukit Timah — guide hero",
+   "names": [
+    "Bukit Timah"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Bukit_Timah",
+    "https://en.wikipedia.org/wiki/Bukit_Timah_Nature_Reserve"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/changi",
+   "type": "hero",
+   "depicts": "hub:singapore/changi",
+   "label": "Changi — guide hero",
+   "names": [
+    "Changi"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Changi",
+    "https://en.wikipedia.org/wiki/Changi_Beach_Park"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/civic-district",
+   "type": "hero",
+   "depicts": "hub:singapore/civic-district",
+   "label": "Civic District — guide hero",
+   "names": [
+    "Civic District",
+    "Padang",
+    "Esplanade",
+    "Victoria Theatre"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Civic_District",
+    "https://en.wikipedia.org/wiki/Padang,_Singapore"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/dempsey-hill",
+   "type": "hero",
+   "depicts": "hub:singapore/dempsey-hill",
+   "label": "Dempsey Hill — guide hero",
+   "names": [
+    "Dempsey"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Dempsey_Hill"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/geylang",
+   "type": "hero",
+   "depicts": "hub:singapore/geylang",
+   "label": "Geylang — guide hero",
+   "names": [
+    "Geylang"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Geylang"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/holland-village",
+   "type": "hero",
+   "depicts": "hub:singapore/holland-village",
+   "label": "Holland Village — guide hero",
+   "names": [
+    "Holland Village"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Holland_Village,_Singapore"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/jalan-besar",
+   "type": "hero",
+   "depicts": "hub:singapore/jalan-besar",
+   "label": "Jalan Besar & Lavender — guide hero",
+   "names": [
+    "Jalan Besar",
+    "Lavender"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Jalan_Besar"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/jurong",
+   "type": "hero",
+   "depicts": "hub:singapore/jurong",
+   "label": "Jurong — guide hero",
+   "names": [
+    "Jurong"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Jurong",
+    "https://en.wikipedia.org/wiki/Jurong_Lake_Gardens"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/kampong-glam",
+   "type": "hero",
+   "depicts": "hub:singapore/kampong-glam",
+   "label": "Kampong Glam — guide hero",
+   "names": [
+    "Kampong Glam",
+    "Kampong Gelam",
+    "Sultan Mosque",
+    "Masjid Sultan"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Kampong_Glam",
+    "https://en.wikipedia.org/wiki/Sultan_Mosque"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/katong-joo-chiat",
+   "type": "hero",
+   "depicts": "hub:singapore/katong-joo-chiat",
+   "label": "Katong & Joo Chiat — guide hero",
+   "names": [
+    "Katong",
+    "Joo Chiat",
+    "Koon Seng"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Katong",
+    "https://en.wikipedia.org/wiki/Joo_Chiat"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/little-india",
+   "type": "hero",
+   "depicts": "hub:singapore/little-india",
+   "label": "Little India — guide hero",
+   "names": [
+    "Little India"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Little_India,_Singapore"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/mandai",
+   "type": "hero",
+   "depicts": "hub:singapore/mandai",
+   "label": "Mandai — guide hero",
+   "names": [
+    "Mandai"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Mandai"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/marina-bay",
+   "type": "hero",
+   "depicts": "hub:singapore/marina-bay",
+   "label": "Marina Bay — guide hero",
+   "names": [
+    "Marina Bay"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Marina_Bay,_Singapore"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/marine-parade",
+   "type": "hero",
+   "depicts": "hub:singapore/marine-parade",
+   "label": "Marine Parade & East Coast — guide hero",
+   "names": [
+    "Marine Parade",
+    "East Coast"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Marine_Parade"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/newton-novena",
+   "type": "hero",
+   "depicts": "hub:singapore/newton-novena",
+   "label": "Newton & Novena — guide hero",
+   "names": [
+    "Newton",
+    "Novena"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Newton,_Singapore",
+    "https://en.wikipedia.org/wiki/Novena,_Singapore"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/old-airport-road",
+   "type": "hero",
+   "depicts": "hub:singapore/old-airport-road",
+   "label": "Old Airport Road — guide hero",
+   "names": [
+    "Kallang Airport",
+    "Old Airport"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Kallang_Airport"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/potong-pasir-macpherson",
+   "type": "hero",
+   "depicts": "hub:singapore/potong-pasir-macpherson",
+   "label": "Potong Pasir & MacPherson — guide hero",
+   "names": [
+    "Potong Pasir",
+    "MacPherson"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Potong_Pasir",
+    "https://en.wikipedia.org/wiki/MacPherson,_Singapore"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/punggol",
+   "type": "hero",
+   "depicts": "hub:singapore/punggol",
+   "label": "Punggol — guide hero",
+   "names": [
+    "Punggol"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Punggol",
+    "https://en.wikipedia.org/wiki/Punggol_Waterway_Park"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/queenstown",
+   "type": "hero",
+   "depicts": "hub:singapore/queenstown",
+   "label": "Queenstown & Redhill — guide hero",
+   "names": [
+    "Queenstown",
+    "Redhill"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Queenstown,_Singapore"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/southern-ridges",
+   "type": "hero",
+   "depicts": "hub:singapore/southern-ridges",
+   "label": "Southern Ridges — guide hero",
+   "names": [
+    "Southern Ridges",
+    "Henderson Waves",
+    "Mount Faber"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Southern_Ridges",
+    "https://en.wikipedia.org/wiki/Mount_Faber"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/tiong-bahru",
+   "type": "hero",
+   "depicts": "hub:singapore/tiong-bahru",
+   "label": "Tiong Bahru — guide hero",
+   "names": [
+    "Tiong Bahru"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Tiong_Bahru"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/toa-payoh",
+   "type": "hero",
+   "depicts": "hub:singapore/toa-payoh",
+   "label": "Toa Payoh — guide hero",
+   "names": [
+    "Toa Payoh"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Toa_Payoh",
+    "https://en.wikipedia.org/wiki/Toa_Payoh_Town_Park"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/upper-serangoon",
+   "type": "hero",
+   "depicts": "hub:singapore/upper-serangoon",
+   "label": "Upper Serangoon — guide hero",
+   "names": [
+    "Serangoon"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Serangoon"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/upper-thomson",
+   "type": "hero",
+   "depicts": "hub:singapore/upper-thomson",
+   "label": "Upper Thomson & MacRitchie — guide hero",
+   "names": [
+    "MacRitchie",
+    "Thomson"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/MacRitchie_Reservoir"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/bagan",
+   "type": "hero",
+   "depicts": "hub:singapore/bagan",
+   "label": "Bagan — guide hero",
+   "names": [
+    "Bagan"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Bagan"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/bali",
+   "type": "hero",
+   "depicts": "hub:singapore/bali",
+   "label": "Bali — guide hero",
+   "names": [
+    "Bali"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Bali",
+    "https://en.wikipedia.org/wiki/Tanah_Lot"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/bangkok",
+   "type": "hero",
+   "depicts": "hub:singapore/bangkok",
+   "label": "Bangkok — guide hero",
+   "names": [
+    "Bangkok",
+    "Chao Phraya"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Bangkok",
+    "https://en.wikipedia.org/wiki/Chao_Phraya_River"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/cebu",
+   "type": "hero",
+   "depicts": "hub:singapore/cebu",
+   "label": "Cebu — guide hero",
+   "names": [
+    "Cebu"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Cebu_City"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/chiang-mai",
+   "type": "hero",
+   "depicts": "hub:singapore/chiang-mai",
+   "label": "Chiang Mai — guide hero",
+   "names": [
+    "Chiang Mai"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Chiang_Mai"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/ipoh",
+   "type": "hero",
+   "depicts": "hub:singapore/ipoh",
+   "label": "Ipoh — guide hero",
+   "names": [
+    "Ipoh"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Ipoh"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/jakarta",
+   "type": "hero",
+   "depicts": "hub:singapore/jakarta",
+   "label": "Jakarta — guide hero",
+   "names": [
+    "Jakarta",
+    "Monas",
+    "National Monument"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Jakarta",
+    "https://en.wikipedia.org/wiki/National_Monument_(Indonesia)"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/kuala-lumpur",
+   "type": "hero",
+   "depicts": "hub:singapore/kuala-lumpur",
+   "label": "Kuala Lumpur — guide hero",
+   "names": [
+    "Kuala Lumpur",
+    "Petronas"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Kuala_Lumpur",
+    "https://en.wikipedia.org/wiki/Petronas_Towers"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/luang-prabang",
+   "type": "hero",
+   "depicts": "hub:singapore/luang-prabang",
+   "label": "Luang Prabang — guide hero",
+   "names": [
+    "Luang Prabang"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Luang_Prabang"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/malacca",
+   "type": "hero",
+   "depicts": "hub:singapore/malacca",
+   "label": "Malacca — guide hero",
+   "names": [
+    "Malacca",
+    "Melaka"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Malacca_City",
+    "https://en.wikipedia.org/wiki/Malacca_River"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/manila",
+   "type": "hero",
+   "depicts": "hub:singapore/manila",
+   "label": "Manila — guide hero",
+   "names": [
+    "Manila"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Manila",
+    "https://en.wikipedia.org/wiki/Manila_Bay"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/penang",
+   "type": "hero",
+   "depicts": "hub:singapore/penang",
+   "label": "Penang (George Town) — guide hero",
+   "names": [
+    "George Town",
+    "Penang"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/George_Town,_Penang"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/phnom-penh",
+   "type": "hero",
+   "depicts": "hub:singapore/phnom-penh",
+   "label": "Phnom Penh — guide hero",
+   "names": [
+    "Phnom Penh"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Phnom_Penh"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/siem-reap",
+   "type": "hero",
+   "depicts": "hub:singapore/siem-reap",
+   "label": "Siem Reap — guide hero",
+   "names": [
+    "Siem Reap",
+    "Angkor"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Siem_Reap"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/yangon",
+   "type": "hero",
+   "depicts": "hub:singapore/yangon",
+   "label": "Yangon — guide hero",
+   "names": [
+    "Yangon"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Yangon"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/yogyakarta",
+   "type": "hero",
+   "depicts": "hub:singapore/yogyakarta",
+   "label": "Yogyakarta — guide hero",
+   "names": [
+    "Yogyakarta",
+    "Jogja"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Yogyakarta"
+   ],
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/hanoi",
+   "type": "hero",
+   "depicts": "hub:singapore/hanoi",
+   "label": "singapore/hanoi — guide hero",
+   "names": [
+    "Hanoi"
+   ],
+   "pilot": false,
+   "skip": "Vietnam has no freedom of panorama — the guide keeps its motif hero (stated)",
+   "candidates": []
+  },
+  {
+   "key": "hero:singapore/hoi-an",
+   "type": "hero",
+   "depicts": "hub:singapore/hoi-an",
+   "label": "singapore/hoi-an — guide hero",
+   "names": [
+    "Hoi An"
+   ],
+   "pilot": false,
+   "skip": "Vietnam has no freedom of panorama — the guide keeps its motif hero (stated)",
+   "candidates": []
+  },
+  {
+   "key": "hero:vietnam/hanoi",
+   "type": "hero",
+   "depicts": "hub:vietnam/hanoi",
+   "label": "vietnam/hanoi — guide hero",
+   "names": [
+    "Hanoi"
+   ],
+   "pilot": false,
+   "skip": "Vietnam has no freedom of panorama — the guide keeps its motif hero (stated)",
+   "candidates": []
+  },
+  {
+   "key": "hero:vietnam/ho-chi-minh-city",
+   "type": "hero",
+   "depicts": "hub:vietnam/ho-chi-minh-city",
+   "label": "vietnam/ho-chi-minh-city — guide hero",
+   "names": [
+    "Ho Chi Minh City"
+   ],
+   "pilot": false,
+   "skip": "Vietnam has no freedom of panorama — the guide keeps its motif hero (stated)",
+   "candidates": []
+  },
+  {
+   "key": "hero:vietnam/hoi-an",
+   "type": "hero",
+   "depicts": "hub:vietnam/hoi-an",
+   "label": "vietnam/hoi-an — guide hero",
+   "names": [
+    "Hoi An"
+   ],
+   "pilot": false,
+   "skip": "Vietnam has no freedom of panorama — the guide keeps its motif hero (stated)",
+   "candidates": []
+  },
+  {
    "key": "landmark:tokyo#kanda-myojin",
    "type": "landmark",
    "depicts": "tokyo#kanda-myojin",
@@ -1905,7 +2770,18 @@
    "article": "https://en.wikipedia.org/wiki/Singapore_Zoo",
    "priority": "lead",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Singapore Zoo entrance-15Feb2010.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Singapore_Zoo_entrance-15Feb2010.jpg",
+     "depicts": "Singapore Zoo entrance",
+     "confidence": "high",
+     "reason": "lead image of the cited article (run #25)",
+     "refused": "refused by visual review (W8): the entrance sign is the subject (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/manila#intramuros",
@@ -2982,7 +3858,18 @@
    "article": "https://en.wikipedia.org/wiki/Nipponbashi",
    "priority": "row",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Nipponbashi Osaka Japan01-r.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nipponbashi_Osaka_Japan01-r.jpg",
+     "depicts": "Den Den Town street",
+     "confidence": "high",
+     "reason": "lead image of the cited article (run #25)",
+     "refused": "refused by visual review (W8): a shop street dominated by signage (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:osaka#gashapon-department-store-hep-five-umeda",
@@ -3133,7 +4020,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Elizabeth_Gamble_Garden,_Palo_Alto,_United_States_(Unsplash).jpg",
      "depicts": "Elizabeth F. Gamble Garden, Palo Alto",
      "confidence": "high",
-     "reason": "title names the Elizabeth Gamble Garden, Palo Alto (copied from the category listing)"
+     "reason": "title names the Elizabeth Gamble Garden, Palo Alto (copied from the category listing)",
+     "refused": "refused by visual review (W8): a blossom close-up; it does not show the garden (close-up rule)"
     }
    ]
   },
@@ -3662,6 +4550,14 @@
      "flags": [
       "public-art-check"
      ]
+    },
+    {
+     "file": "File:Hakone5.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hakone5.jpg",
+     "depicts": "Hakone Open-Air Museum",
+     "confidence": "high",
+     "reason": "lead image of the cited article (run #25)",
+     "refused": "refused by visual review (W8): a modern sculpture is the subject — Japan has no freedom of panorama for art"
     }
    ]
   },
@@ -4491,7 +5387,8 @@
      "reason": "title names Shibuya Crossing; aerial",
      "flags": [
       "people-visible"
-     ]
+     ],
+     "refused": "refused by visual review (W8): a wall of billboards; the crossing barely reads (signage rule)"
     }
    ]
   },

@@ -391,3 +391,24 @@ Still refuses anything uncredited. New in W7:
   never below 50. It keeps pixel size, writes only when smaller and appends "recompressed (JPEG, quality ≤ 72)" to
   `modified`; it is idempotent. It needs `sharp` (`npm install --no-save sharp` in `tools/` on the runner) and exits 0
   without it. The first pass took `photos/` from 36 MB to 17 MB.
+
+### 6. W8 coverage (R7 gap 1), weight (gap 7) and colour (gap 3)
+
+- **Targets.** Every non-Vietnam guide's gallery lead card and first rail row are targets (`priority: lead | row`),
+  fetched right after the heroes; then the pilot pages' tier-1 sights, then every other tier-1 sight.
+  `fetch-commons.js --scope heroes | priority | pilots | all` (default `priority`) says what a run may fetch.
+- **Article lead images.** A target citing a Wikipedia article carries `wikiLead`: when no candidate passes, the
+  fetch tries that article's lead image under every check. Heroes carry `articles` (the town, then an iconic
+  sight), tried in order. Maps, coats of arms, flags, montages and logos are refused (`NOT_A_PHOTO`), and so is a
+  file already credited to another row (one file, one row). Vietnam guides keep their motif hero, with the reason
+  stated in the manifest.
+- **Stated gaps.** Brand stores (the branding is the subject), Poké Lid character art, venues (by tag, and by name:
+  theatre, opera house, playhouse, ballpark, arena, stadium, concert hall; each name-matched skip is listed in the run
+  summary for review). `node tools/beta/imagery/coverage.js` reports hero / lead / first-row / tier-1 coverage per
+  guide.
+- **Widths per class (repo size).** Heroes, lead cards and first-row cards: 500 + 960. Every other card: 500 only
+  (≈ 35 KB, ≈ 21 MB for the whole tier-1 set).
+- **Weight.** recompress.js: every 960 w JPEG ≤ 120 KB (cards ≤ 110 KB), 500 w ≤ 45 KB, quality floor 40. A tall or
+  very detailed photo that still misses its target is scaled down (0.85× steps) and its row's width/height updated.
+- **Dominant colour.** recompress.js writes `color: "#rrggbb"` on each Commons row; the gate exposes it as
+  `photo.color` for a fade-in placeholder.
