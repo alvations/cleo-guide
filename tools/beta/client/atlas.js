@@ -140,7 +140,9 @@
     const map = C.map();
     // the list always pages by 48 in Atlas (a day route excepted): filtered to the map area while the map is up and
     // "Search as I move" is on; the whole lens when there is no map (or "Show all") — never every card at once
-    if (!atlas() || S.day) { qa('li.pl.ms-out').forEach(c => c.classList.remove('ms-out')); H.classList.remove('ms-on'); C.msN = null; if (pager) pager.hidden = true; held(); if (C.msPaint) C.msPaint(); return; }
+    // QA-45 (G1): "Show all N in one list" — one tap puts every place in one scrollable list (all stamped, unpaged), as
+    // the Gallery pager's "Show all on one page" does; "Only show this map area" / a pan of the map pages it again
+    if (!atlas() || S.day || C.msOne) { if (C.msOne && atlas() && Cleo.defer) Cleo.defer.all(); qa('li.pl.ms-out').forEach(c => c.classList.remove('ms-out')); qa('section.area.ms-empty').forEach(s => s.classList.remove('ms-empty')); H.classList.remove('ms-on'); C.msN = null; if (pager) pager.hidden = true; held(); deco(); face(); if (C.msPaint) C.msPaint(); return; }
     const area = !!map && map.getSize().x > 0 && !C.msAll && (!desk() || C.msLive !== false);
     if (more !== true) lim = PER;
     // a place without a verified pin has no "outside": it is always listed (last), so no lens count ever loses it
@@ -156,9 +158,11 @@
     if (need.size && Cleo.defer && (map || H.classList.contains('ms-nomap'))) { if (Cleo.defer.stampIds) Cleo.defer.stampIds(need); else need.forEach(id => Cleo.defer.stampFor(id.slice(2))); }
     qa('li.pl').forEach(c => c.classList.toggle('ms-out', !c.hidden && !show[C.pid(c)] && !keep(c)));
     qa('section.area').forEach(s => s.classList.toggle('ms-empty', !s.querySelector('li.pl:not([hidden]):not(.ms-out)')));
-    if (!pager && lp) { pager = d.createElement('p'); pager.className = 'ms-pager'; lp.insertBefore(pager, $('#how-we-choose', lp)); on(pager, 'click', e => { if (e.target.closest('button')) { lim += PER; msArea(true); } }); }
+    // the pager keeps the paged views' contract (.g-pager [data-pg="all"] = everything in one list, the G1 probe's one tap)
+    if (!pager && lp) { pager = d.createElement('p'); pager.className = 'ms-pager g-pager'; lp.insertBefore(pager, $('#how-we-choose', lp));
+      on(pager, 'click', e => { const b = e.target.closest('button'); if (!b) return; if (at(b, 'data-pg') === 'all') { C.msAll = C.msOne = true; msArea(); } else { lim += PER; msArea(true); } }); }
     const left = inn.length - lim;
-    if (pager) { pager.hidden = left <= 0; pager.innerHTML = left > 0 ? '<button type="button" class="btn btn-ghost">Show ' + Math.min(PER, left) + ' more</button> <span>' + lim.toLocaleString('en-US') + ' of ' + pl(inn.length) + (area ? ' in this area' : '') + '</span>' : ''; }
+    if (pager) { pager.hidden = left <= 0; pager.innerHTML = left > 0 ? '<button type="button" class="btn btn-ghost">Show ' + Math.min(PER, left) + ' more</button> <button type="button" class="btn btn-quiet" data-pg="all">Show all ' + inn.length.toLocaleString('en-US') + ' in one list</button> <span>' + lim.toLocaleString('en-US') + ' of ' + pl(inn.length) + (area ? ' in this area' : '') + '</span>' : ''; }
     deco(); face(); C.msN = area ? [inn.length, all.length - inn.length] : null; H.classList.add('ms-on'); held(); here(false);
     if (C.msPaint) C.msPaint();
   };
@@ -166,13 +170,15 @@
   // holds, so scrolling the list never builds hidden cards; "Show all" lifts the hold (D.resume) and stamping goes on
   if (Cleo.defer) { const h0 = Cleo.defer.hold; Cleo.defer.hold = () => !!(h0 && h0()) || (atlas() && H.classList.contains('ms-on')); }
   let wasOn = false; const held = () => { const o = H.classList.contains('ms-on'); if (wasOn && !o && Cleo.defer && Cleo.defer.resume) Cleo.defer.resume(); wasOn = o; };
-  C.after.push(() => { if (atlas()) msArea(); });
+  // QA-54: a search fits the map to its matches (an exact name off the map is never "0 places in this map area")
+  let lastQ = S.q || '';
+  C.after.push(() => { if (!atlas()) return; const q = S.q || ''; if (q !== lastQ) { lastQ = q; if (q && C.fitLens && C.map()) { C.msOne = C.msAll = false; C.fitLens(); } } msArea(); });
 
   /* ---- "Search this area" (phones, after the reader pans or zooms; never live, so the carousel never jumps) ---- */
   let hereB = null;
   const here = o => {
     if (!hereB && o) { hereB = d.createElement('button'); hereB.type = 'button'; hereB.className = 'btn ms-here'; hereB.innerHTML = C.icon('pin') + '<span>Search this area</span>'; mp.appendChild(hereB);
-      on(hereB, 'click', () => { C.msAll = false; msArea(); if (lp) lp.scrollLeft = 0; }); }
+      on(hereB, 'click', () => { C.msAll = C.msOne = false; msArea(); if (lp) lp.scrollLeft = 0; }); }
     if (hereB) hereB.hidden = !o;
   };
 
@@ -291,18 +297,18 @@
       else if (b.classList.contains('ms-mine')) { if (r.mine) delete r.mine; else r.mine = '1'; C.go(r); } });
     on($('select', bar), 'change', e => { const v = e.target.value, r = Cleo.route.parse(); delete r.p; if (v) r.sort = v; else delete r.sort; C.go(r);
       if (v === 'near' && !C.dist) C.need('foryou', () => C.near()); });
-    on(head, 'click', e => { const b = e.target.closest('[data-ms]'); if (!b) return; C.msAll = at(b, 'data-ms') === 'all'; msArea(); });
+    on(head, 'click', e => { const b = e.target.closest('[data-ms]'); if (!b) return; C.msAll = C.msOne = at(b, 'data-ms') === 'all'; msArea(); });   // "Show all N" = one list (QA-45)
   }
   // the results line: "86 places in this map area · Top ranked" + "12 more outside this area. Show all"; without the
   // map it is simply every place in the lens
   const paintMs = C.msPaint = () => {
     if (!head) return;
-    const pend = Cleo.defer ? Cleo.defer.peek().length : 0, N = qa('li.pl').filter(c => !c.hidden).length + pend, n = C.msN, onA = !!n && H.classList.contains('ms-on'), all = !!C.msAll && !!C.map();
+    const pend = Cleo.defer ? Cleo.defer.peek().length : 0, N = qa('li.pl').filter(c => !c.hidden).length + pend, n = C.msN, onA = !!n && H.classList.contains('ms-on'), all = !!C.msOne || (!!C.msAll && !!C.map());
     const tot = '<span class="ms-sortby" title="Ordered by tier within each area, then by number of named sources">' + (SORT.filter(x => x[0] === (S.sort || ''))[0] || SORT[0])[1] + '</span>';
     $('.ms-count', head).innerHTML = onA ? '<b>' + n[0].toLocaleString('en-US') + '</b> ' + (n[0] === 1 ? 'place' : 'places') + ' in this map area · ' + tot
       : (all ? 'Showing all <b>' : 'All <b>') + N.toLocaleString('en-US') + '</b> ' + (N === 1 ? 'place' : 'places') + ' · ' + tot;
     $('.ms-more', head).innerHTML = onA && n[1] ? n[1].toLocaleString('en-US') + ' more outside this area. <button type="button" class="btn btn-quiet" data-ms="all">Show all ' + (n[0] + n[1]).toLocaleString('en-US') + '</button>'
-      : all ? '<button type="button" class="btn btn-quiet" data-ms="area">Only show this map area</button>' : '';
+      : all ? '<button type="button" class="btn btn-quiet" data-ms="area">' + (C.map() ? 'Only show this map area' : 'Show 40 at a time') + '</button>' : '';
     $('.ms-live', head).hidden = !C.map() || !desk();
     $('.ms-must', bar).setAttribute('aria-pressed', String(S.t === '1')); $('.ms-mine', bar).setAttribute('aria-pressed', String(!!S.mine));
     const sv = Cleo.saved ? Object.keys(Cleo.saved.all()).filter(r => r.slice(0, r.lastIndexOf('/')) === C.key).length : 0; $('.ms-mine .n', bar).textContent = sv || '';
@@ -366,15 +372,17 @@
     const dk = desk();
     const ctl = (pos, mk) => { const X = L.Control.extend({ options: { position: pos }, onAdd: () => { const n = mk(); L.DomEvent.disableClickPropagation(n); L.DomEvent.disableScrollPropagation(n); return n; } }); map.addControl(new X()); };
     const btn = (cls, lbl, html) => { const b = d.createElement('button'); b.type = 'button'; b.className = 'am-ctl ' + cls; b.setAttribute('aria-label', lbl); b.title = lbl; b.innerHTML = html; return b; };
-    ctl(dk ? 'topleft' : 'topright', () => { const b = btn('m-locate', 'Show my location on the map (stays on this device)', C.icon('locate')); b.setAttribute('aria-pressed', 'false'); on(b, 'click', () => locate(b)); return b; });
-    ctl('topright', () => {
+    // phones (SPEC-v3 slice 2): the map's own controls sit bottom right above the cards; the OSM credit takes the top left, clear of them
+    if (!dk && map.attributionControl) map.attributionControl.setPosition('topleft');
+    ctl(dk ? 'topleft' : 'bottomright', () => { const b = btn('m-locate', 'Show my location on the map (stays on this device)', C.icon('locate')); b.setAttribute('aria-pressed', 'false'); on(b, 'click', () => locate(b)); return b; });
+    ctl(dk ? 'topright' : 'bottomright', () => {
       const s = btn('m-base', '', C.icon('grid') + '<span></span>');
       // one button: Map ⇄ Satellite (SPEC-v3 §4; street detail lives in the Key)
       const lab = () => { const sat = store.get('base', 'map') === 'satellite', n = sat ? 'Satellite' : 'Map'; $('span', s).textContent = sat ? 'Map' : 'Satellite';
         s.setAttribute('aria-label', 'Map style: ' + n + '. Switch to ' + (sat ? 'the map' : 'satellite')); s.title = 'Map style: ' + n; s.setAttribute('aria-pressed', String(sat)); };
       on(s, 'click', () => { C.setBase(store.get('base', 'map') === 'satellite' ? 'map' : 'satellite'); lab(); }); lab(); C.after.push(lab); return s;
     });
-    ctl(dk ? 'bottomleft' : 'topright', () => {
+    ctl(dk ? 'bottomleft' : 'bottomright', () => {
       const g = d.createElement('details'); g.className = 'am-ctl m-legend';
       const k = (cls, gl, t) => '<b class="pp ' + cls + '"><span><svg class="ico" aria-hidden="true"><use href="#i-' + gl + '"/></svg><b>' + t + '</b></span></b>';
       const fk = d.getElementById('i-forkknife') ? 'forkknife' : 'bowl';

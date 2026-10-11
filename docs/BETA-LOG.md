@@ -1382,3 +1382,12 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - new probe `beta:qa:w8p`.
   - **FE-A** casing helper `tools/beta/lib/casing.js` plus `test-casing.js` in npm test (6733a233): JS equals the Python reference on 368 labels; no uppercase/capitalize in any shipped CSS; 4,919 city-page labels in sentence case.
   - **Imagery:** the last hero swaps are pushed (61a69415, 71e1d271): Toa Payoh dragon playground, Changi Boardwalk, Sule Pagoda; refusals apply per file.
+### FE Atlas — QA-45 / QA-52 / QA-54 + w7 atlasm (no test changed)
+- QA-45: "Show all N in one list" (pager `data-pg="all"`, and the header's Show all) stamps every deferred card and lifts paging — every place in one list; metrics `--view atlas` G1 ✅ on all pilots, first load ≤ 2 MB ✅.
+- QA-54: a query change refits the map to the matches (`C.fitLens`), so an exact-name search off the map brings the place in view.
+- QA-52 / w7 atlasm: the carousel thumbnail's figure is `display:contents` (it clips nothing) and now says `overflow:visible`; a canvas dot reports its featured pin as its element, so a tapped pin is found by the probe as the place's element; phone controls (locate, map style, key) sit bottom right above the cards, the OSM credit top left — clear of every control. `node tools/beta/qa/w7.js --only atlasm` 56/56 PASS.
+  - **Platform (W8, R7 ratifications + QA-51):**
+    - `metrics.js` B-08 exempts the sticky city bar `.cbar` and the floating `.mappill`, as it exempts the site header (ratification 6, exactly as worded). Tokyo Gallery B-08 is ✅ 0.
+    - D-38 is **ratified**. The first-load row now reads "map tiles excluded": tiles are off-origin and blocked.
+    - QA-51: the detail media clone in `sheet.js` `fullCap()` asks for its own slot (`(min-width: 1024px) 1024px, 100vw`). Desktop Tokyo detail went from 500w to **960w** at 1,024 px. `beta:qa:w8p` check 3 covers it.
+    - B-06/07/09: nothing is left for platform. QA did B-06/B-07, and B-09 waits for QA's next pass.

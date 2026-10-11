@@ -414,7 +414,8 @@ async function overlapScan(page) {
   return page.evaluate(async () => {
     const H = document.documentElement.scrollHeight, vh = innerHeight; let hits = 0; const where = [];
     const vis = el => { const r = el.getBoundingClientRect(); const cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && !el.closest('[hidden]'); };
-    const floaters = [...document.querySelectorAll('body *')].filter(el => { const p = getComputedStyle(el).position; return (p === 'fixed' || p === 'sticky') && !el.closest('header, [role=banner], .sitebar, .leaflet-container, .mappane, [role=dialog]'); });
+    // R7 QA ratification 6 (docs/BETA-QA.md): the sticky city bar .cbar and the floating .mappill are exempt, as the site header is
+    const floaters = [...document.querySelectorAll('body *')].filter(el => { const p = getComputedStyle(el).position; return (p === 'fixed' || p === 'sticky') && !el.closest('header, [role=banner], .sitebar, .cbar, .mappill, .leaflet-container, .mappane, [role=dialog]'); });
     for (let i = 0; i < 20; i++) {
       window.scrollTo(0, Math.round((H - vh) * i / 19)); await new Promise(r => requestAnimationFrame(() => r()));
       const fr = floaters.filter(vis).map(f => [f, f.getBoundingClientRect()]);
@@ -828,10 +829,11 @@ function grade(m) {
   rows['Tiles OSM/Esri only'] = P(!mo.tileHosts && !de.tileHosts ? null : (mo.tileHostsOk !== false && de.tileHostsOk !== false), [...new Set([...(mo.tileHosts || []), ...(de.tileHosts || [])])].join(', ') || 'no tiles requested');
   const kb = n => Math.round((n || 0) / 1024).toLocaleString('en-US') + ' KB';
   rows['Perf: bytes / DOM / FCP / FCP 4×'] = P(null, `${Math.round((de.bytes || 0) / 1024)} KB · ${de.domNodes} nodes · ${de.fcp} ms · ${m.cpu4x && m.cpu4x.fcp} ms`);
-  // platform W7 (proposed D-38): the budget is the default view at first load (no scroll, network idle + 2 s), transfer
+  // D-38 (ratified R7, on condition): map tiles are off-origin and blocked here, so they are EXCLUDED (Tokyo Atlas asks for
+  // ~44 tiles on desktop, 27 on a phone). The budget is the default view at first load (no scroll, network idle + 2 s), transfer
   // ≤ 2.0 MB (2,000,000 B) on desktop AND phone @3×. The row above (whole session, unique URLs) stays informational.
   const ini = de.initial && mo.initial;
-  rows['Perf: initial load transfer ≤ 2.0 MB (desktop · phone@3×; raw in brackets)'] = P(ini ? de.initial.gz <= 2e6 && mo.initial.gz <= 2e6 : false,
+  rows['Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)'] = P(ini ? de.initial.gz <= 2e6 && mo.initial.gz <= 2e6 : false,
     ini ? `${kb(de.initial.gz)} (${kb(de.initial.bytes)}) · ${kb(mo.initial.gz)} (${kb(mo.initial.bytes)})` : 'not measured');
   const vals = Object.values(rows).filter(r => r.pass !== null);
   const hardKeys = Object.keys(rows).filter(k => /^(G1|G4|G6|B-12)/.test(k));
