@@ -42,8 +42,8 @@
    "withArticle": 632
   },
   "candidates": {
-   "total": 363,
-   "high": 349,
+   "total": 366,
+   "high": 352,
    "med": 14,
    "low": 0
   },
@@ -1683,7 +1683,29 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Ang_Mo_Kio_Town_Garden_West_Singapore_-_panoramio.jpg",
      "depicts": "Ang Mo Kio Town Garden West",
      "confidence": "high",
-     "reason": "title names Ang Mo Kio Town Garden West (copied from the category listing)"
+     "reason": "title names Ang Mo Kio Town Garden West (copied from the category listing)",
+     "refused": "refused by visual review (W8): the park's name sign is the centre of the frame (signage rule)"
+    },
+    {
+     "file": "File:Ang Mo Kio Town Garden West Singapore - panoramio (1).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ang_Mo_Kio_Town_Garden_West_Singapore_-_panoramio_(1).jpg",
+     "depicts": "Ang Mo Kio Town Garden West",
+     "confidence": "high",
+     "reason": "title names Ang Mo Kio Town Garden West (copied from the category listing; another view)"
+    },
+    {
+     "file": "File:Ang Mo Kio Town Garden West Singapore - panoramio (2).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ang_Mo_Kio_Town_Garden_West_Singapore_-_panoramio_(2).jpg",
+     "depicts": "Ang Mo Kio Town Garden West",
+     "confidence": "high",
+     "reason": "title names Ang Mo Kio Town Garden West (copied from the category listing; another view)"
+    },
+    {
+     "file": "File:Ang Mo Kio Park Connector - 2022-11-07.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ang_Mo_Kio_Park_Connector_-_2022-11-07.jpg",
+     "depicts": "Ang Mo Kio Park Connector (November 2022)",
+     "confidence": "high",
+     "reason": "title names the Ang Mo Kio Park Connector"
     },
     {
      "file": "File:AngMoKio.JPG",
