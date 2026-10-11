@@ -1550,9 +1550,9 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - Phone: the method notes and the footer (outside `<main>`, under the full-screen map) are `display:none` in phone Atlas only — they were invisible under the map and still Tab stops; every other view shows them.
 - 2026-10-11 · i18n lane · W8 · session_01HB7igqdcuhrau7mUWSauDL · D-41 Japanese interface, commits `269c577c` and `1345c26a` (merge).
   - **Catalogue:** `tools/beta/i18n/ja.json` (published as `beta/assets/i18n/ja.json`).
-    - It translates all 157 interface strings: 147, plus the 10 offline-pack strings that landed upstream during the work.
+    - It translates all 166 interface strings: 147, plus 10 offline-pack strings and 9 "For you" strings that landed upstream during the work.
     - It carries `review: {by: "ai", …}` and keeps `reviewed: false`.
-  - **Review:** an independent subagent saw only en + ja. It made 4 changes, then 1 more in a second round for the pack strings. All are recorded in `design/beta/i18n/ja-REVIEW.md`.
+  - **Review:** an independent subagent saw only en + ja. It made 4 changes, then 1 more for the pack strings and 2 more for the "For you" strings (7 in all). All are recorded in `design/beta/i18n/ja-REVIEW.md`.
   - **Platform:** `lib/i18n.js` gains `offered()`, which lists locales with a tier. `reviewed()` stays human-only.
   - **Shell:** `localeSwitch()` now lists the offered locales. Every page gets a top-bar switcher, with buttons that are ≥ 44 px and keyboard reachable.
   - **Head (`common.js`):**

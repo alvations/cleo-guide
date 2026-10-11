@@ -1,6 +1,6 @@
 # Japanese interface catalogue: independent review (D-41)
 
-- **Catalogue:** `tools/beta/i18n/ja.json`, published as `beta/assets/i18n/ja.json`. It has 157 interface strings and the AI-tier note (147 at first, plus 10 offline-pack strings that landed upstream during the work).
+- **Catalogue:** `tools/beta/i18n/ja.json`, published as `beta/assets/i18n/ja.json`. It has 166 interface strings and the AI-tier note: 147 at first, plus 10 offline-pack strings and 9 "For you" strings that landed upstream during the work.
 - **Translator:** an AI agent (session_01HB7igqdcuhrau7mUWSauDL).
 - **Reviewer:** an independent AI subagent. It was given only `en.json`, `ja.json` and the review brief, and none of the translator's reasoning.
 - **Date:** 2026-10-11.
@@ -42,4 +42,13 @@ Check each string for:
 |---|---|---|---|
 | `pack.size` | この端末で{size} | この端末で{size}を使用 | The phrase read as cut off. Adding を使用 states the English meaning, that {size} is used on this device, and adds no new information. |
 
-**Total: 5 changes over two rounds.**
+## Round 3: the 9 "For you" strings (2 changes, applied)
+
+The `fy.*` strings landed upstream after round 2. A fresh independent subagent reviewed them under the same brief, with access only to the two catalogues. It accepted 7 of them.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `fy.note` | …すべてのガイドは下に一覧があります。 | …すべてのガイドは引き続き下に一覧表示されています。 | The English "still" had been dropped, and the old phrasing read awkwardly. The new wording keeps the reassurance that nothing is hidden. |
+| `fy.i.food` | 食と飲み物 | 飲食 | 食と飲み物 is an unnatural pairing for a chip. The catalogue already uses 飲食 for "eat & drink" (`hub.food`). |
+
+**Total: 7 changes over three rounds.**
