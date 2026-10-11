@@ -53,8 +53,6 @@
 :root .btn-primary:hover { background: var(--ink-2); box-shadow: none; }
 :root .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line-strong); }
 :root .btn-ghost:hover { border-color: var(--ink); background: transparent; }
-:root .btn-city { background: var(--accent); color: var(--on-accent); }
-:root .btn-night { background: var(--ink); color: var(--paper); }
 :root .btn-icon { border-radius: 50%; border-color: transparent; background: transparent; }
 :root .btn-icon:hover { background: var(--sand); }
 :root :is(a, button, input, select, textarea, [tabindex]):focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
@@ -90,8 +88,7 @@
 
 /* ---------- V2.6 masthead (hub, city): the city name, one line, the count — on the ground, no art ---------- */
 :root .masthead, :root main > .masthead, :root .chero, :root .view-gallery .ghero { background: var(--paper) !important; background-image: none !important; color: var(--ink); box-shadow: none; }
-:root .masthead::before, :root .masthead::after, :root .masthead .sky, :root .masthead .g-sky, :root .masthead .accentbar, :root .masthead .motif,
-:root .chero .sky, :root .ghero .sky { display: none !important; }
+:root .masthead::before, :root .masthead::after, :root .masthead .sky, :root .masthead .g-sky, :root .masthead .accentbar, :root .masthead .motif, :root .chero .sky { display: none !important; }
 :root .masthead :is(h1, .title, .g-kick, .g-lead, .facts, .eyebrow, .kicker, .why, .dek) { color: inherit; text-shadow: none !important; }
 :root .masthead :is(.eyebrow, .kicker, .g-kick) { color: var(--ink-3); font-size: var(--fs-meta); font-weight: 500; letter-spacing: .02em; text-transform: none; }
 :root .masthead :is(.facts, .dek, .g-lead, .why) { color: var(--ink-2); }
@@ -151,11 +148,11 @@
 :root .rail-i :is(.k, .d) { color: var(--ink-3) !important; font-weight: 500; }
 :root .rail-i .t { font-family: var(--font-ui) !important; font-weight: 600 !important; font-style: normal !important; color: var(--ink) !important; letter-spacing: -.006em; }
 :root .rail-i .n { color: var(--ink-3) !important; }
-:root .rail-i[aria-pressed="true"], :root .coll[aria-pressed="true"] { border-color: var(--ink) !important; box-shadow: inset 0 0 0 1px var(--ink) !important; }
+:root .rail-i[aria-pressed="true"] { border-color: var(--ink) !important; box-shadow: inset 0 0 0 1px var(--ink) !important; }
 :root .rail-i:hover { border-color: var(--ink-3) !important; }
 
 /* ---------- V2.10 view switcher: an understated segmented control ---------- */
-:root nav.views[data-cleo-views] > div, :root nav.views[data-cleo-views][role=group] { background: var(--sand); border: 0; box-shadow: none; border-radius: var(--r-pill); padding: 3px; }
+:root nav.views[data-cleo-views] > div, :root nav.views[data-cleo-views][aria-label] { background: var(--sand); border: 0; box-shadow: none; border-radius: var(--r-pill); padding: 3px; }
 :root nav.views[data-cleo-views] button { color: var(--ink-2); font-weight: 500; border-radius: var(--r-pill); }
 :root nav.views[data-cleo-views] button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }
 :root nav.views[data-cleo-views] button[aria-pressed="true"] .ico { color: var(--ink); }
@@ -173,6 +170,8 @@
 /* ---------- V2.12 footer: on the ground, hairline above ---------- */
 :root :is(.footer, .sitefoot) { background: var(--paper); color: var(--ink-2); border-top: 1px solid var(--line); }
 :root :is(.footer, .sitefoot) :is(a, h2, h3, b, .brand b) { color: var(--ink); }
+/* platform W8: the footer column heads are h3 now (axe heading-order); they keep the h4 look — no display tracking or balance */
+:root .footer h3 { letter-spacing: normal; text-wrap: wrap; }
 
 /* ---------- V2.13 map: pins and area marks muted toward the palette ---------- */
 :root [style*="--area"] { --area-q: color-mix(in oklab, var(--area) var(--area-mix), var(--area-mute)); }
@@ -219,12 +218,10 @@
 ::view-transition-old(cleo-grow), ::view-transition-new(cleo-grow) { animation-duration: var(--dur-grow); animation-timing-function: var(--ease-grow); height: 100%; object-fit: cover; }
 ::view-transition-old(root), ::view-transition-new(root) { animation-duration: var(--dur-2); }
 @media (prefers-reduced-motion: no-preference) {
-  :root .v2-grow { animation: v2-grow var(--dur-grow) var(--ease-grow) 1 both; transform-origin: 0 0; }
   @keyframes v2-grow { from { transform: translate(var(--gx, 0), var(--gy, 24px)) scale(var(--gs, .96)); opacity: .6; } to { transform: none; opacity: 1; } }
 }
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
-  :root .v2-grow { animation: none !important; }
 }
 
 /* ---------- V2.17 photographs (W7 visual pass with the first credited Commons photos) ----------

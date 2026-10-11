@@ -1346,3 +1346,74 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - new **Atlas FE-2** (`session_011SQNDyJMGzR5K32A4y9Udd`): interaction state (#1, #3, #11, #13 and the honest view-kept probe);
     - Atlas FE-1: QA-45 first, then #2, #5, #6, #4/#7/#8/#9/#10/#12 per spec, and #15 (a "not a place" record drawn as a pin);
     - designer: the visual findings into SPEC-v3.
+  - **Platform (W8, R7 gap 7 + shared-shell axe):** Evidence is in `design/beta/eval/w8/platform/README.md`, with `npm run beta:qa:w8p` as the probe.
+    - Phone @3× never fetches 960w for a < 200 px slot: 5 → 0. The Atlas carousel thumbs fetched 960w before.
+    - Tokyo phone first load: Gallery 930 → **590 KB**, Atlas 1,021 → **549 KB**. This uses the 3×-phone density cap (proposed **D-40**).
+    - `cleo.css`: 255,666 B → **193 KB** raw.
+      - `tools/beta/css-dead.py` removed 20 KB of provably dead R6 rules (237 selectors) from the designer's sources.
+      - `build-css.py` strips comments and indentation from the shipped file only.
+      - All 28 pilot shots (light and dark, 390 and 1440) diff **0 px**.
+    - axe `aria-allowed-role` 44 → 0 runs (the switcher `<nav>` loses `role="group"`); `heading-order` 16 → 0 (the footer heads are h3).
+    - B-06/07/09 re-pointing waits for R7 QA.
+
+- 2026-10-11 20:45Z · **Orchestrator** · ONE-UP.md landed; W9 fanned out; platform W8 done · commit: this entry's commit
+  - **Product lane** (archived): `design/beta/eval/ONE-UP.md`.
+    - It covers 7 competitor families (neutrally named), the other views and the refusals.
+    - C is already 96, so more copying earns little. The one-ups target D's weakest rows ("Your guide" 79, interest triad 81), D13 trust and Gen Z, and B discovery.
+    - Top 10, estimated ≈ +1.2 overall:
+      1. a recognition layer;
+      2. freshness everywhere;
+      3. interests that follow you;
+      4. trips;
+      5. "set as my base";
+      6. paste a link;
+      7. share cards;
+      8. an offline city pack;
+      9. a local favourites lens;
+      10. a dated edition.
+  - **`design/beta/eval/W9-BRIEFS.md`:**
+    - owners: platform (W9-1 data, W9-8, W9-9), FE-B (W9-2 landing, W9-3, W9-6, W9-10, the W9-1 Insights chart), FE-A (W9-1 UI, W9-2 cards and rail, W9-3 rail, the W9-9 lens), and the new **FE-C** `session_01SxU3Mdpo1UAQyJQJmnMFtG` (W9-4 trips, W9-5 base, W9-7 share cards, as new modules with agreed hooks);
+    - order in every lane: R7 re-sign rows → Atlas panel findings → W8 → W9.
+  - **Platform W8** (e83b6cc3 / cc514dbe):
+    - the 3×-phone density cap (D-40, proposed): no 960w for slots under 200 px;
+    - Tokyo phone first load: Gallery 590 KB, Atlas 553 KB;
+    - cleo.css 255 → 193 KB with the dead R6 layers removed (28 pilot shots diff 0 px; budget ≤ 200 KB in test-beta);
+    - axe moderates `aria-allowed-role` and `heading-order` both 0;
+    - new probe `beta:qa:w8p`.
+  - **FE-A** casing helper `tools/beta/lib/casing.js` plus `test-casing.js` in npm test (6733a233): JS equals the Python reference on 368 labels; no uppercase/capitalize in any shipped CSS; 4,919 city-page labels in sentence case.
+  - **Imagery:** the last hero swaps are pushed (61a69415, 71e1d271): Toa Payoh dragon playground, Changi Boardwalk, Sule Pagoda; refusals apply per file.
+### FE Atlas — QA-45 / QA-52 / QA-54 + w7 atlasm (no test changed)
+- QA-45: "Show all N in one list" (pager `data-pg="all"`, and the header's Show all) stamps every deferred card and lifts paging — every place in one list; metrics `--view atlas` G1 ✅ on all pilots, first load ≤ 2 MB ✅.
+- QA-54: a query change refits the map to the matches (`C.fitLens`), so an exact-name search off the map brings the place in view.
+- QA-52 / w7 atlasm: the carousel thumbnail's figure is `display:contents` (it clips nothing) and now says `overflow:visible`; a canvas dot reports its featured pin as its element, so a tapped pin is found by the probe as the place's element; phone controls (locate, map style, key) sit bottom right above the cards, the OSM credit top left — clear of every control. `node tools/beta/qa/w7.js --only atlasm` 56/56 PASS.
+  - **Platform (W8, R7 ratifications + QA-51):**
+    - `metrics.js` B-08 exempts the sticky city bar `.cbar` and the floating `.mappill`, as it exempts the site header (ratification 6, exactly as worded). Tokyo Gallery B-08 is ✅ 0.
+    - D-38 is **ratified**. The first-load row now reads "map tiles excluded": tiles are off-origin and blocked.
+    - QA-51: the detail media clone in `sheet.js` `fullCap()` asks for its own slot (`(min-width: 1024px) 1024px, 100vw`). Desktop Tokyo detail went from 500w to **960w** at 1,024 px. `beta:qa:w8p` check 3 covers it.
+    - B-06/07/09: nothing is left for platform. QA did B-06/B-07, and B-09 waits for QA's next pass.
+
+- 2026-10-11 20:55Z · **Orchestrator** · Owner: "Fix all the issues! And then run the melon-seek style UI/UX and experience QA QC and all the backend and application front end optimization and keep the audit trail on all of them" · commit: this entry's commit
+  - **Audit trail:**
+    - new `docs/BETA-ISSUES.md`, the single register of every open issue from every source;
+    - statuses: open → fixed (claimed, with a SHA) → verified (by an independent checker on a pinned SHA, with the probe and its result);
+    - the R7 QA lane builds and keeps it.
+  - **Fix all the issues:**
+    - every open item already has an owning lane (R7 QA rows, the R7 gaps, PANEL-R1, casing, W8);
+    - the register makes any unassigned item visible.
+  - **Then the melon-seek-style UI/UX and experience QA/QC:**
+    - a new QC lane, judged against the patterns in `design/beta/views/STUDY.md` §7 (taken from the owner's melon-seek), plus experience journeys and a UI QC sweep;
+    - it builds its harness now and runs the full pass on a pinned head once the fixes land;
+    - output in `docs/BETA-QC.md`, with each finding mirrored in the register.
+  - **Backend and front-end optimization:**
+    - the platform lane runs the audit with before/after numbers and commits in `docs/BETA-PERF-AUDIT.md`;
+    - "backend" here means the build and data pipeline, the search index and data payloads, the service worker and caching, and the GitHub Actions workflows (there is no server);
+    - "front end" means JS, CSS, images and fonts, plus LCP, CLS and INP.
+
+- 2026-10-11 20:55Z · **Orchestrator** · Owner: "Location verify, can we also use [GitHub] Actions for that? Launch an agent to look into that" · commit: this entry's commit
+  - Launched the **location-verification lane** `session_012FeQJjTmiN2MXYQWwe55J2`, a feasibility study plus a prototype. Its deliverable is `docs/LOCATION-VERIFY-ACTIONS.md`, covering:
+    - the backlog today (unsourced, low-confidence and unchecked places per city);
+    - candidate runner-reachable sources (OSM Nominatim/Overpass, Wikidata, Wikipedia coordinates, official sites, open data), each with its usage policy and licence. Keyed and commercial map APIs are excluded;
+    - the fit with CLAUDE.md rules 4a–4c. The runner **proposes** with source, date and confidence and never writes `data/geocodes.json` directly. Closures are proposed only as "needs check" with evidence. Acceptance goes through review and the existing gates;
+    - the workflow design, rate plan, run time and risks.
+  - Prototype: `tools/location-verify*` with fixture tests, plus a dry-run report for one small city. The workflow YAML comes to the orchestrator, who owns the workflow files.
+  - This is an owner-sanctioned use of Actions, like the Commons photo workflow; nothing routes around the sandbox policy.
