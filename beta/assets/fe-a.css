@@ -727,7 +727,14 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
    ========================================================================== */
 @media (min-width:1024px){
   html.atlas-d[data-view=atlas] main>.masthead{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);min-height:0;padding:0;margin:0}
-  html.atlas-d[data-view=atlas] .ms-bar{position:relative;z-index:5;margin:0 calc(-1 * var(--gutter));padding:10px var(--gutter);background:var(--paper);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+  /* no layout shift on load (Platform perf audit, CLS): the Atlas layout applies from first paint (the head boot script sets
+     atlas-d / atlas-m with data-view), the bar has a fixed height and its space is held until atlas.js builds it, and the
+     list is held (not drawn) until the first map-area pass picks its page — a CSS fallback shows it after 4 s regardless */
+  html.atlas-d[data-view=atlas]:not(.ms-built) main:not(.feb)>.split.split{margin-top:65px}
+  html.atlas-d[data-view=atlas]:not(.ms-built) main>[data-cleo-toolbar]{position:absolute;visibility:hidden;animation:ms-reveal 0s 4s forwards}   /* it moves into the bar */
+  html.atlas-d[data-view=atlas] .split>.mappane{grid-column:1;grid-row:1}html.atlas-d[data-view=atlas] .split>.listpane{grid-column:2;grid-row:1}   /* the list's column never depends on the map pane being shown yet */
+  html.atlas-d[data-view=atlas]:not(.ms-ready) .split>.listpane>:not(.ms-head){visibility:hidden;animation:ms-reveal 0s 4s forwards}
+  html.atlas-d[data-view=atlas] .ms-bar{height:65px;box-sizing:border-box;position:relative;z-index:5;margin:0 calc(-1 * var(--gutter));padding:10px var(--gutter);background:var(--paper);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
   html.atlas-d[data-view=atlas] .ms-bar #cleo-filter{flex:0 1 300px;min-width:200px;min-height:var(--tap);padding:0 18px;border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--shadow-sm);font:inherit;color:var(--ink)}
   html.atlas-d[data-view=atlas] .ms-bar .applied{display:flex;gap:6px}
   html.atlas-d[data-view=atlas] .ms-bar .ms-sort{margin-left:auto}
@@ -751,6 +758,8 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
    List / Map pill; "Search this area" after a pan. The list mode is a full-screen image-first list of the map area.
    ========================================================================== */
 @media (max-width:1023px){
+  /* the method notes and the footer sit under the full-screen map on phones: kept out of the Atlas screen (no shift, no hidden Tab stops); every other view shows them */
+  html.atlas-m[data-view=atlas] body>:is(.method,.footer){display:none}
   html.atlas-m[data-view=atlas]{--car-h:150px;--cbar-o:0px;--row-top:calc(var(--bar-h) + 8px)}   /* FE-A hides its city bar here; the chip row carries search + switcher */
   html.atlas-m[data-view=atlas] main>.masthead{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);min-height:0;padding:0;margin:0}
   html.atlas-m[data-view=atlas] :is(.about,.site-footer,body>footer){display:none}
@@ -839,6 +848,7 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
   html.atlas-m[data-view=atlas] #cleo-poi{display:none!important}
 }
 @media (min-width:600px) and (max-width:1023px){html.atlas-m.ms-list[data-view=atlas] .listpane .pls{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@keyframes ms-reveal{to{visibility:visible}}
 @media (prefers-reduced-motion:reduce){.pp>span{transition:none}}
 
 /* atlas-nav.css (Atlas FE-2 lane): the Atlas map's interaction state — rides after atlas.css in assets/fe-a.css.

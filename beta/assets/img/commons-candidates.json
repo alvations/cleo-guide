@@ -33,7 +33,7 @@
   },
   "pilotLandmarks": {
    "targets": 180,
-   "skipped": 73,
+   "skipped": 74,
    "withHigh": 103
   },
   "otherLandmarks": {
@@ -42,12 +42,12 @@
    "withArticle": 632
   },
   "candidates": {
-   "total": 381,
-   "high": 367,
+   "total": 386,
+   "high": 372,
    "med": 14,
    "low": 0
   },
-  "targetsWithHigh": 169,
+  "targetsWithHigh": 175,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -5517,7 +5517,7 @@
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Nihonbashi",
-   "wikiLead": true,
+   "skip": "no Commons file shows the whole bridge (the expressway runs overhead); the kirin close-up and the view from the bridge were refused — calm cover (stated, W8)",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
@@ -5538,18 +5538,12 @@
      "refused": "refused by visual review (W8): the street seen from the bridge, not the bridge (a view from the place)"
     },
     {
-     "file": "File:Nihonbashi bridge.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nihonbashi_bridge.jpg",
-     "depicts": "Nihonbashi Bridge",
-     "confidence": "high",
-     "reason": "title names Nihonbashi bridge (W8 re-lead)"
-    },
-    {
      "file": "File:Kirin Statue (Nihonbashi Bridge).jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Kirin_Statue_(Nihonbashi_Bridge).jpg",
-     "depicts": "The bronze kirin guarding Nihonbashi Bridge (1911)",
+     "depicts": "The bronze kirin of Nihonbashi Bridge",
      "confidence": "high",
-     "reason": "title names the Kirin statue of Nihonbashi Bridge; summary: Phlizz, January 2020, CC BY-SA 4.0; the 1911 bronze is long out of copyright"
+     "reason": "(re-lead W8)",
+     "refused": "refused by visual review (W8, all run #40): a close-up of the kirin bronze, not the bridge (close-up rule)"
     }
    ]
   },
@@ -10266,7 +10260,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Empty_Bottle",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Torquil Campbell at The Empty Bottle 1.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Torquil_Campbell_at_The_Empty_Bottle_1.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #40)",
+     "refused": "refused by visual review (W8, all run #40): a sepia portrait of a performer singing — a person, not the place (performer rule)"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#field-museum",
@@ -10497,7 +10502,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Lincoln_Park_Zoo",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Lincoln Park Zoo, Chicago.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Lincoln_Park_Zoo,_Chicago.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #40)",
+     "refused": "refused by visual review (W8, all run #40): an engraved LINCOLN PARK ZOO plinth with a sculpture (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#logan-square-boulevards-district",
@@ -10619,7 +10635,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Morton_Arboretum",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Morton Arboretum Winter 2005 05.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Morton_Arboretum_Winter_2005_05.JPG",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #40)",
+     "refused": "refused by visual review (W8, all run #40): a grey snowy day showing the visitor building, not the trees (gloom; outdated)"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#mount-baldy",
@@ -10820,7 +10847,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Ravinia_Festival",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Ravinia Tyler Gate.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ravinia_Tyler_Gate.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #40)",
+     "refused": "refused by visual review (W8, all run #40): the RAVINIA FESTIVAL gate sign over a crowd (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#ridge-historic-district-beverly",
@@ -11063,7 +11101,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/The_Second_City",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:The Second City, Main Stage.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Second_City,_Main_Stage.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #40)",
+     "refused": "refused by visual review (W8, all run #40): a stage interior with lights, not the building (performer/stage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#tribune-tower",
@@ -12419,7 +12468,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Hersheypark",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Hersheypark Entrance 10-2-2022.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Hersheypark_Entrance_10-2-2022.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #40)",
+     "refused": "refused by visual review (W8, all run #40): the neon HERSHEYPARK entrance sign at night (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:harrisburg#hersheys-chocolate-world",

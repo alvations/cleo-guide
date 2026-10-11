@@ -340,7 +340,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   const areaChips = areas.length > 1 ? '<div class="area-chips" role="group" aria-label="Areas" data-cleo-toolbar hidden></div>' : '';   // views.js draws the chips (page weight)
   // the view is set before first paint (SPEC §2.4): hash, then the stored preference (try/catch), then Gallery
   const viewHead = `<script>(function(){var v=${JSON.stringify(VIEWS)},h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)(?:day|mode|a|t|c|cz|src|closed|q|sig|gap)=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}` +
-    `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'${DV}';document.documentElement.setAttribute('data-view',x)})()</script>`;
+    `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'${DV}';document.documentElement.setAttribute('data-view',x);if(x==='atlas')document.documentElement.classList.add(!window.matchMedia||matchMedia('(min-width:1024px)').matches?'atlas-d':'atlas-m')})()</script>`;
 
   /* -- sprite: only the glyphs this page uses -- */
   const used = new Set(['search', 'grid', 'map', 'list', 'sliders', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive', 'castle', 'bowl', 'tv', 'mountain', 'columns']);
@@ -431,7 +431,7 @@ ${areaChips}
 </div>
 <div class="view-host" id="cleo-view" hidden></div>
 <div class="split">
-<div class="listpane" id="cleo-grid">
+<div class="listpane" id="cleo-grid"><script>(function(h,g){if(h.classList.contains('atlas-d'))g.classList.add('w7-cards')})(document.documentElement,document.currentScript.parentNode)</script>
 <div class="lens" id="cleo-lens" aria-live="polite" hidden></div>
 <p class="shown" id="cleo-shown" aria-live="polite"></p>
 ${cardsHtml}
