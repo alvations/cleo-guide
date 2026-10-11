@@ -39,8 +39,8 @@
    "withArticle": 635
   },
   "candidates": {
-   "total": 277,
-   "high": 263,
+   "total": 294,
+   "high": 280,
    "med": 14,
    "low": 0
   },
@@ -234,7 +234,7 @@
    "key": "hero:wheeling",
    "type": "hero",
    "depicts": "hub:wheeling",
-   "label": "Wheeling — city hero",
+   "label": "Wheeling — city hero (Suspension Bridge)",
    "names": [
     "Wheeling"
    ],
@@ -243,11 +243,26 @@
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Wheeling Suspension Bridge.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Wheeling_Suspension_Bridge.jpg",
+     "depicts": "The Wheeling Suspension Bridge over the Ohio River",
+     "confidence": "high",
+     "reason": "title names the Wheeling Suspension Bridge; colour photograph (HAER, Library of Congress), public domain"
+    },
+    {
+     "file": "File:WheelingSuspBridge.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:WheelingSuspBridge.jpg",
+     "depicts": "The Wheeling Suspension Bridge",
+     "confidence": "high",
+     "reason": "title names the Wheeling Suspension Bridge (copied from a category listing)"
+    },
+    {
      "file": "File:Wheeling West Virginia.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Wheeling_West_Virginia.jpg",
      "depicts": "Downtown Wheeling from Wheeling Island (2006)",
      "confidence": "high",
-     "reason": "title names Wheeling; summary: downtown from Wheeling Island, CC BY-SA 2.5"
+     "reason": "title names Wheeling; summary: downtown from Wheeling Island, CC BY-SA 2.5",
+     "refused": "refused by visual review (W7): a dry-grass foreground reflection; the Suspension Bridge is the icon"
     },
     {
      "file": "File:Wheeling, West Virginia on the Ohio River (7235259280).jpg",
@@ -365,25 +380,45 @@
     "Bruxelles",
     "Rozenhoedkaai",
     "Bruges",
-    "Brugge"
+    "Brugge",
+    "Dijver",
+    "Graslei",
+    "Gent",
+    "Ghent"
    ],
    "pilot": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Bruges, the Dijver canal, view to the Belfry.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bruges,_the_Dijver_canal,_view_to_the_Belfry.JPG",
+     "depicts": "The Dijver canal and the Belfry of Bruges (September 2017, midday)",
+     "confidence": "high",
+     "reason": "title names Bruges, the Dijver canal and the Belfry; a different file from the Bruges hero"
+    },
+    {
+     "file": "File:Graslei Gent.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Graslei_Gent.jpg",
+     "depicts": "Graslei, Ghent",
+     "confidence": "high",
+     "reason": "title names the Graslei, Ghent (copied from a category listing); a different file from the Ghent hero"
+    },
+    {
      "file": "File:Grand Place, Brussels, Belgium.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Grand_Place,_Brussels,_Belgium.jpg",
      "depicts": "Grand-Place, Brussels",
      "confidence": "high",
-     "reason": "title names the Grand Place, Brussels"
+     "reason": "title names the Grand Place, Brussels",
+     "refused": "refused by visual review (W7): duplicates the Brussels hero"
     },
     {
      "file": "File:Rozenhoedkaai (canal) and Belfry of Bruges, Bruges, Belgium (Ank Kumar, Infosys Limited) 03.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Rozenhoedkaai_(canal)_and_Belfry_of_Bruges,_Bruges,_Belgium_(Ank_Kumar,_Infosys_Limited)_03.jpg",
      "depicts": "Rozenhoedkaai and the Belfry of Bruges",
      "confidence": "high",
-     "reason": "title names Rozenhoedkaai and the Belfry"
+     "reason": "title names Rozenhoedkaai and the Belfry",
+     "refused": "refused by visual review (W7): a cramped brick-building close-up (as for Bruges)"
     }
    ]
   },
@@ -395,25 +430,37 @@
    "names": [
     "Saarschleife",
     "Saar",
-    "Aachen"
+    "Aachen",
+    "Bonn",
+    "Rheinufer",
+    "Rhine"
    ],
    "pilot": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Rheinuferpromenade in Bonn 2021.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rheinuferpromenade_in_Bonn_2021.jpg",
+     "depicts": "The Rhine promenade in Bonn (2021)",
+     "confidence": "high",
+     "reason": "title names the Rhine promenade (Rheinuferpromenade) in Bonn (copied from a category listing)"
+    },
+    {
      "file": "File:Saarschleife at Mettlach (2457306844).jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Saarschleife_at_Mettlach_(2457306844).jpg",
      "depicts": "The Saar loop at Mettlach",
      "confidence": "high",
-     "reason": "title names the Saarschleife; a place in the guide (Saarland)"
+     "reason": "title names the Saarschleife; a place in the guide (Saarland)",
+     "refused": "refused by visual review (W7): duplicates the Saarland hero"
     },
     {
      "file": "File:Aachen Cathedral, Germany.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Aachen_Cathedral,_Germany.jpg",
      "depicts": "Aachen Cathedral exterior",
      "confidence": "high",
-     "reason": "title names Aachen Cathedral; a place in the guide"
+     "reason": "title names Aachen Cathedral; a place in the guide",
+     "refused": "refused by visual review (W7): a cramped, tilted close-up of the cathedral (as for Aachen)"
     }
    ]
   },
@@ -711,7 +758,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:San_Jose_Skyline_Silicon_Valley.jpg",
      "depicts": "Downtown San Jose and Silicon Valley from Quimby Road",
      "confidence": "high",
-     "reason": "title names the San Jose skyline and Silicon Valley"
+     "reason": "title names the San Jose skyline and Silicon Valley",
+     "refused": "refused by visual review (W7): a hazy valley that is hard to read"
     },
     {
      "file": "File:San Jose California Skyline.jpg",
@@ -782,21 +830,37 @@
    "key": "hero:indianapolis",
    "type": "hero",
    "depicts": "hub:indianapolis",
-   "label": "Indianapolis — city hero (Monument Circle)",
+   "label": "Indianapolis — city hero (canal and skyline)",
    "names": [
     "Monument Circle",
-    "Indianapolis"
+    "Indianapolis",
+    "Indy Central Canal"
    ],
    "pilot": false,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Indy Central Canal.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Indy_Central_Canal.jpg",
+     "depicts": "The Central Canal and the downtown Indianapolis skyline",
+     "confidence": "high",
+     "reason": "summary: the central canal with the Indianapolis skyline (Daniel Schwen, 2008)"
+    },
+    {
+     "file": "File:Indianapolis Skyline and Canal 2025-10-14.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Indianapolis_Skyline_and_Canal_2025-10-14.jpg",
+     "depicts": "The Indianapolis skyline and the canal (October 2025)",
+     "confidence": "high",
+     "reason": "title names the Indianapolis skyline and canal (copied from a category listing)"
+    },
+    {
      "file": "File:Indiana Soldiers' and Sailors' Monument, Monument Circle, Indianapolis, Indiana.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Indiana_Soldiers'_and_Sailors'_Monument,_Monument_Circle,_Indianapolis,_Indiana.jpg",
      "depicts": "Soldiers' and Sailors' Monument on Monument Circle, Indianapolis",
      "confidence": "high",
-     "reason": "title names the monument and Monument Circle, Indianapolis"
+     "reason": "title names the monument and Monument Circle, Indianapolis",
+     "refused": "refused by visual review (W7): a monument close-up from below"
     },
     {
      "file": "File:Monument Circle, Indianapolis, Indiana, USA.jpg",
@@ -881,7 +945,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Downtown_skyline_as_seen_from_Ohio_&_Erie_Canalway_at_Martin_Luther_King_Boulevard,_Akron,_Ohio_-_20200530.jpg",
      "depicts": "Downtown Akron skyline from the Ohio & Erie Canalway",
      "confidence": "high",
-     "reason": "title names the downtown Akron skyline"
+     "reason": "title names the downtown Akron skyline",
+     "refused": "refused by visual review (W7): plain office towers and highway"
     },
     {
      "file": "File:Akron Skyline at Sunset.jpg",
@@ -896,20 +961,36 @@
    "key": "hero:dayton",
    "type": "hero",
    "depicts": "hub:dayton",
-   "label": "Dayton — city hero (skyline)",
+   "label": "Dayton — city hero (RiverScape)",
    "names": [
-    "Dayton"
+    "Dayton",
+    "RiverScape"
    ],
    "pilot": false,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:RiverScape MetroPark, Dayton, United States (Unsplash).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:RiverScape_MetroPark,_Dayton,_United_States_(Unsplash).jpg",
+     "depicts": "RiverScape MetroPark on the Great Miami River, Dayton",
+     "confidence": "high",
+     "reason": "title names RiverScape MetroPark, Dayton (copied from a category listing)"
+    },
+    {
+     "file": "File:DaytonSkylineGMRiver.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:DaytonSkylineGMRiver.jpg",
+     "depicts": "Dayton skyline over the Great Miami River",
+     "confidence": "high",
+     "reason": "title names the Dayton skyline and the Great Miami River (copied from a category listing)"
+    },
+    {
      "file": "File:Dayton-ohio-skyline.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Dayton-ohio-skyline.jpg",
      "depicts": "Dayton, Ohio skyline (2006)",
      "confidence": "high",
-     "reason": "title names the Dayton skyline; summary: Derek Jensen 2006"
+     "reason": "title names the Dayton skyline; summary: Derek Jensen 2006",
+     "refused": "refused by visual review (W7): flat, overcast, dull office blocks"
     },
     {
      "file": "File:Dayton Skyline.jpg",
@@ -924,20 +1005,36 @@
    "key": "hero:erie",
    "type": "hero",
    "depicts": "hub:erie",
-   "label": "Erie — city hero (skyline)",
+   "label": "Erie — city hero (Presque Isle)",
    "names": [
-    "Erie"
+    "Erie",
+    "Presque Isle"
    ],
    "pilot": false,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Presque Isle State Park, Millcreek Twp, Erie County, Pennsylvania - 20210904 - 10 - Leslie Beach looking southwest.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Presque_Isle_State_Park,_Millcreek_Twp,_Erie_County,_Pennsylvania_-_20210904_-_10_-_Leslie_Beach_looking_southwest.jpg",
+     "depicts": "Leslie Beach, Presque Isle State Park, on a sunny afternoon",
+     "confidence": "high",
+     "reason": "title names Presque Isle State Park, Erie County; summary: sunny Labor Day afternoon (people small and incidental)"
+    },
+    {
+     "file": "File:Presque Isle Beach and Dunes.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Presque_Isle_Beach_and_Dunes.jpg",
+     "depicts": "Lake Erie beach and dunes at Presque Isle (July 2009)",
+     "confidence": "high",
+     "reason": "title names Presque Isle beach; summary GFDL (the fetch keeps it only if a CC licence is offered too)"
+    },
+    {
      "file": "File:Erie PA skyline from tower observation deck (cropped).jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Erie_PA_skyline_from_tower_observation_deck_(cropped).jpg",
      "depicts": "Erie skyline from the Bicentennial Tower observation deck",
      "confidence": "high",
-     "reason": "title names the Erie PA skyline"
+     "reason": "title names the Erie PA skyline",
+     "refused": "refused by visual review (W7): a top-down road view that reads as a parking lot"
     },
     {
      "file": "File:Eriesky2.jpg",
@@ -961,11 +1058,26 @@
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Pennsylvania State Capitol from State Street, Harrisburg, PA - 52441712893.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Pennsylvania_State_Capitol_from_State_Street,_Harrisburg,_PA_-_52441712893.jpg",
+     "depicts": "The Pennsylvania State Capitol dome from State Street, Harrisburg",
+     "confidence": "high",
+     "reason": "title names the Pennsylvania State Capitol from State Street, Harrisburg"
+    },
+    {
+     "file": "File:Pennsylvania State Capitol.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Pennsylvania_State_Capitol.jpg",
+     "depicts": "The Pennsylvania State Capitol, Harrisburg",
+     "confidence": "high",
+     "reason": "title names the Pennsylvania State Capitol"
+    },
+    {
      "file": "File:Harrisburg, Pennsylvania State Capitol Building.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Harrisburg,_Pennsylvania_State_Capitol_Building.jpg",
      "depicts": "Downtown Harrisburg and the State Capitol across the Susquehanna",
      "confidence": "high",
-     "reason": "title names Harrisburg and the State Capitol; summary: from across the Susquehanna"
+     "reason": "title names Harrisburg and the State Capitol; summary: from across the Susquehanna",
+     "refused": "refused by visual review (W7): a heavy grey sky"
     },
     {
      "file": "File:Harrisburg, PA Skyline 2021.jpg",
@@ -1079,11 +1191,26 @@
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Brugge-CanalRozenhoedkaai.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Brugge-CanalRozenhoedkaai.JPG",
+     "depicts": "The Rozenhoedkaai canal, Bruges",
+     "confidence": "high",
+     "reason": "title names the Rozenhoedkaai canal"
+    },
+    {
+     "file": "File:Bruegge View from Rozenhoedkaai.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bruegge_View_from_Rozenhoedkaai.jpg",
+     "depicts": "View from the Rozenhoedkaai towards the Belfry, Bruges",
+     "confidence": "high",
+     "reason": "title names the view from Rozenhoedkaai (category: views on the Belfry from Rozenhoedkaai)"
+    },
+    {
      "file": "File:Rozenhoedkaai (canal) and Belfry of Bruges, Bruges, Belgium (Ank Kumar, Infosys Limited) 03.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Rozenhoedkaai_(canal)_and_Belfry_of_Bruges,_Bruges,_Belgium_(Ank_Kumar,_Infosys_Limited)_03.jpg",
      "depicts": "Rozenhoedkaai canal and the Belfry of Bruges",
      "confidence": "high",
-     "reason": "title names Rozenhoedkaai and the Belfry of Bruges"
+     "reason": "title names Rozenhoedkaai and the Belfry of Bruges",
+     "refused": "refused by visual review (W7): a cramped brick-building close-up, not the canal-and-Belfry view"
     },
     {
      "file": "File:Rozenhoedkaai Brugge.jpg",
@@ -1206,7 +1333,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Li%C3%A8ge,_vue_de_Montagne_de_Bueren_IMG_9576_2019-05-31_22.01.jpg",
      "depicts": "Liège seen from the Montagne de Bueren",
      "confidence": "high",
-     "reason": "title names Liège and the Montagne de Bueren viewpoint"
+     "reason": "title names Liège and the Montagne de Bueren viewpoint",
+     "refused": "refused by visual review (W7): grey rooftops"
     },
     {
      "file": "File:Montagne de Bueren Liège.jpg",
@@ -1221,7 +1349,7 @@
    "key": "hero:aachen",
    "type": "hero",
    "depicts": "hub:aachen",
-   "label": "Aachen — city hero (cathedral)",
+   "label": "Aachen — city hero (Markt and cathedral)",
    "names": [
     "Aachen"
    ],
@@ -1230,11 +1358,26 @@
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Aachen, Markt mit Rathaus.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Aachen,_Markt_mit_Rathaus.jpg",
+     "depicts": "The Markt and City Hall, Aachen",
+     "confidence": "high",
+     "reason": "title names the Aachen Markt with the Rathaus (copied from a category listing)"
+    },
+    {
+     "file": "File:Katschhof, Aachen.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Katschhof,_Aachen.jpg",
+     "depicts": "The Katschhof and City Hall seen from the cathedral tower, Aachen",
+     "confidence": "high",
+     "reason": "title names the Katschhof, Aachen; summary: from a cathedral tower room, CC BY-SA 2.0"
+    },
+    {
      "file": "File:Aachen Cathedral, Germany.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Aachen_Cathedral,_Germany.jpg",
      "depicts": "Aachen Cathedral exterior (2007)",
      "confidence": "high",
-     "reason": "title names Aachen Cathedral; summary: exterior"
+     "reason": "title names Aachen Cathedral; summary: exterior",
+     "refused": "refused by visual review (W7): a cramped, tilted close-up of the cathedral"
     },
     {
      "file": "File:Aachen Cathedral North View at Evening.jpg",

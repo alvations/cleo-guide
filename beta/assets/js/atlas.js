@@ -55,18 +55,29 @@
     return L.latLngBounds(map.containerPointToLatLng(tl), map.containerPointToLatLng(br));
   };
   let selC = null;
-  const msArea = C.msArea = () => {
+  // the list pages like listing results: the first 48 places in the area (guide order: area, then rank), "Show 48 more"
+  // after them; only the cards on show are stamped, so a city-wide view never builds every card (DOM stays small)
+  const PER = 48; let lim = PER, pager = null;
+  const msArea = C.msArea = more => {
     const map = C.map();
     const want = !!map && atlas() && map.getSize().x > 0 && !C.msAll && !S.day && (!desk() || C.msLive !== false);
-    if (!want) { H.classList.remove('ms-on'); C.msN = null; if (C.msPaint) C.msPaint(); return; }
-    const b = box(), inB = c => { const ll = llOf(c); return !!ll && b.contains(ll); };
-    // still-deferred places inside the area are stamped (their chunk), so the list is real cards, never stubs
-    if (Cleo.defer) Cleo.defer.peek().filter(inB).forEach(s => Cleo.defer.stampFor(C.pid(s)));
-    let nIn = 0, nOut = Cleo.defer ? Cleo.defer.peek().length : 0;
-    qa('li.pl').forEach(c => { if (c.hidden) { c.classList.remove('ms-out'); return; }
-      const o = !inB(c) && !c.classList.contains('is-target') && c !== selC; c.classList.toggle('ms-out', o); if (o) nOut++; else nIn++; });
+    if (!want) { H.classList.remove('ms-on'); C.msN = null; if (pager) pager.hidden = true; if (C.msPaint) C.msPaint(); return; }
+    if (more !== true) lim = PER;
+    const b = box(), keep = c => c.classList && (c.classList.contains('is-target') || c === selC), inB = c => { const ll = llOf(c); return (!!ll && b.contains(ll)) || keep(c); };
+    // which places make the first page: "Top ranked" across the map area — each area's own tier (graded within its area,
+    // never re-graded), then its rank — so every area's Must sees are on page 1. Shown grouped by area, in guide order.
+    const ord = {}; C.sections.forEach((s, i) => { ord[at(s, 'data-area')] = i; });
+    const tier = c => c.hasAttribute('data-closed') ? 4 : +at(c, 'data-t') || 3;
+    const all = qa('li.pl').filter(c => !c.hidden).concat(Cleo.defer ? Cleo.defer.peek() : []);
+    const inn = all.filter(inB).sort((x, y) => S.sort ? 0 : tier(x) - tier(y) || C.num(x) - C.num(y) || (ord[at(x, 'data-a')] || 0) - (ord[at(y, 'data-a')] || 0));
+    const show = {}; inn.slice(0, lim).concat(inn.filter(keep)).forEach(c => {   // the selected / open place always shows
+      show[C.pid(c)] = 1; if (!C.byId[C.pid(c)] && Cleo.defer) Cleo.defer.stampFor(C.pid(c)); });
+    qa('li.pl').forEach(c => c.classList.toggle('ms-out', !c.hidden && !show[C.pid(c)] && !keep(c)));
     qa('section.area').forEach(s => s.classList.toggle('ms-empty', !s.querySelector('li.pl:not([hidden]):not(.ms-out)')));
-    C.msN = [nIn, nOut]; H.classList.add('ms-on'); here(false);
+    if (!pager && lp) { pager = d.createElement('p'); pager.className = 'ms-pager'; lp.insertBefore(pager, $('#how-we-choose', lp)); on(pager, 'click', e => { if (e.target.closest('button')) { lim += PER; msArea(true); } }); }
+    const left = inn.length - lim;
+    if (pager) { pager.hidden = left <= 0; pager.innerHTML = left > 0 ? '<button type="button" class="btn btn-ghost">Show ' + Math.min(PER, left) + ' more</button> <span>' + lim.toLocaleString('en-US') + ' of ' + pl(inn.length) + ' in this area</span>' : ''; }
+    C.msN = [inn.length, all.length - inn.length]; H.classList.add('ms-on'); here(false);
     if (C.msPaint) C.msPaint();
   };
   C.after.push(() => { if (atlas() && C.map()) msArea(); });
@@ -81,14 +92,13 @@
 
   /* ---- selection: pin → card, card (swipe) → pin ---- */
   const pinSel = (c, o) => { const el = C.pinEl(c), m = inCl[C.pid(c)], ce = m && m.getElement && m.getElement(); if (el) el.classList.toggle('sel', o); if (ce) ce.classList.toggle('sel', o);
-    const k = C.markers[C.pid(c)]; if (k && k.setZIndexOffset) k.setZIndexOffset(o ? 1200 : at(c, 'data-t') === '1' ? 300 : 0); };
+    const k = C.markers[C.pid(c)]; if (k && k.setZIndexOffset) k.setZIndexOffset(o ? 1200 : at(c, 'data-t') === '1' ? 600 : 0); };
   let quiet = 0;
   const select = C.select = (c, how) => {
     if (!c) return;
     if (selC && selC !== c) { selC.classList.remove('is-sel', 'is-focus'); pinSel(selC, false); }
     const again = selC === c; selC = c; c.classList.add('is-sel', 'is-focus'); pinSel(c, true);
-    if (c.classList.contains('ms-out')) msArea();
-    if (c.classList.contains('ms-out')) c.classList.remove('ms-out');
+    if (c.classList.contains('ms-out')) msArea(true);
     if (desk()) {
       // the list pane scrolls, the page never does; once more after late stamping above it settles
       const into = sm => { if (!lp || !lp.scrollTo || selC !== c) return; const r = c.getBoundingClientRect(), pr = lp.getBoundingClientRect(), hd = $('.ms-head', lp), top = pr.top + (hd ? hd.offsetHeight : 0);
@@ -136,6 +146,7 @@
       '<span class="ms-pv-b"><span class="ms-pv-e">' + ($('.pl-e', c) ? C.esc($('.pl-e', c).textContent.replace(/\s+/g, ' ').trim()) : '') + '</span>' +
       '<span class="ms-pv-n">' + C.esc(nmT) + '</span>' + (w ? '<span class="ms-pv-w">' + C.esc(w.textContent.trim()) + '</span>' : '') +
       (s ? '<span class="ms-pv-s">' + C.esc(s.textContent.replace(/\s+/g, ' ').replace(/\s+,/g, ',').trim()) + '</span>' : '') + '</span></a>' +
+      (ph && $('figcaption', ph.closest('figure') || c) ? '<p class="ms-pv-c">' + $('figcaption', ph.closest('figure')).innerHTML + '</p>' : '') +
       '<button type="button" class="btn btn-icon ms-pv-x" aria-label="Close the preview">' + C.icon('close') + '</button>';
     poi.hidden = false; place();
   };
