@@ -766,3 +766,12 @@ Append-only. One entry per session per wave: date, lane, session id, what change
 
     The macron check passes on the visible lines. Vietnamese renders in one face. The gates (validate, test, beta:check) are green, with 8,458 places (beta == live).
   - **After score: 240/300 (80.0 %).** Before and after screenshots: `design/beta/style/audit/` → `design/beta/style/after/`.
+
+- 2026-10-11 11:58Z · orchestrator · R6 check-in.
+  - **Type & style lane: verified and archived.**
+    - Re-ran validate and test on its head: all green; the rule-6 brand scan found 0 hits.
+    - Direction B shipped: Playfair + Inter with melon-seek-style tokens. The type & style sub-score rose from 196 to 240 of 300.
+    - Budgets hold: Tokyo default 1,945 KB, FCP 4× 528 ms, 0 AA contrast failures.
+  - **Atlas lane:** sent the new token values. It has built map-first and is running its tests.
+  - **Unsplash:** the first Actions run of `beta-fetch-unsplash` succeeded. It committed nothing because no key secret is set.
+  - **Waiting on:** the Atlas lane before R6 QA and the evaluator start.
