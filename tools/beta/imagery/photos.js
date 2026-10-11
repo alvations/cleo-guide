@@ -179,7 +179,8 @@ const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(
 /**
  * Visible TASL caption (title, author, source, licence) — the credit is shown wherever the photo is.
  * Default: the short card line `Photo: <author> · <licence> · <source> (resized)`; the file title rides as the
- * source link's title attribute, the licence and source stay links. opts.full: the whole sentence
+ * source link's title attribute and accessible name (CC 2.x/3.0 ask for the title when supplied), the licence
+ * and source stay links; the source link is the Commons File: page, which carries the full TASL record. opts.full: the whole sentence
  * (“Title” by Author, licence, via source — what was changed) for a place detail view.
  */
 function captionHtml(c, opts = {}) {
@@ -192,7 +193,7 @@ function captionHtml(c, opts = {}) {
   if (opts.full) return `“${esc(title)}” by ${esc(c.author)}, ${lic}, via <a href="${esc(c.sourceUrl)}" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${c.modified ? ` — ${esc(c.modified)}` : ''}`;
   // CC BY / BY-SA ask only that changes be indicated: "(resized)" for the pipeline's size copies, else the note as written
   const changed = !c.modified ? '' : /^resized\b/i.test(c.modified) ? ' (resized)' : ` (${esc(c.modified)})`;
-  return `Photo: ${esc(c.author)} · ${lic} · <a href="${esc(c.sourceUrl)}" title="“${esc(title)}”" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${changed}`;
+  return `Photo: ${esc(c.author)} · ${lic} · <a href="${esc(c.sourceUrl)}" title="“${esc(title)}”" aria-label="“${esc(title)}” on ${esc(hostOf(c.sourceUrl))}" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${changed}`;
 }
 function hostOf(u) { const m = /^https:\/\/(?:www\.)?([^/]+)/i.exec(u); return m ? m[1].replace(/^commons\.wikimedia\.org$/, 'Wikimedia Commons') : 'source'; }
 
