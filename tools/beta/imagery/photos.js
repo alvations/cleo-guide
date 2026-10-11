@@ -176,19 +176,29 @@ function loadPhotos(betaDir, pages) {
 }
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-/** Visible TASL caption (title, author, source, licence) — the credit is shown wherever the photo is. */
-function captionHtml(c) {
+/**
+ * Visible TASL caption (title, author, source, licence) — the credit is shown wherever the photo is.
+ * Default: the short card line `Photo: <author> · <licence> · <source> (resized)`; the file title rides as the
+ * source link's title attribute, the licence and source stay links. opts.full: the whole sentence
+ * (“Title” by Author, licence, via source — what was changed) for a place detail view.
+ */
+function captionHtml(c, opts = {}) {
   if (isUnsplash(c)) {   // the credit line the Unsplash guidelines ask for, plus the licence link
     const who = c.authorUrl && httpsUrl(c.authorUrl) ? `<a href="${esc(c.authorUrl)}" rel="noopener" target="_blank">${esc(c.author)}</a>` : esc(c.author);
     return `Photo by ${who} on <a href="${esc(c.sourceUrl)}" rel="noopener" target="_blank">Unsplash</a> · <a href="${esc(c.licenceUrl)}" rel="license noopener" target="_blank">${esc(c.licence)}</a>${c.modified ? ` — ${esc(c.modified)}` : ''}`;
   }
   const title = c.title || c.depicts;
-  return `“${esc(title)}” by ${esc(c.author)}, <a href="${esc(c.licenceUrl)}" rel="license noopener" target="_blank">${esc(c.licence)}</a>, via <a href="${esc(c.sourceUrl)}" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${c.modified ? ` — ${esc(c.modified)}` : ''}`;
+  const lic = `<a href="${esc(c.licenceUrl)}" rel="license noopener" target="_blank">${esc(c.licence)}</a>`;
+  if (opts.full) return `“${esc(title)}” by ${esc(c.author)}, ${lic}, via <a href="${esc(c.sourceUrl)}" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${c.modified ? ` — ${esc(c.modified)}` : ''}`;
+  // CC BY / BY-SA ask only that changes be indicated: "(resized)" for the pipeline's size copies, else the note as written
+  const changed = !c.modified ? '' : /^resized\b/i.test(c.modified) ? ' (resized)' : ` (${esc(c.modified)})`;
+  return `Photo: ${esc(c.author)} · ${lic} · <a href="${esc(c.sourceUrl)}" title="“${esc(title)}”" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${changed}`;
 }
 function hostOf(u) { const m = /^https:\/\/(?:www\.)?([^/]+)/i.exec(u); return m ? m[1].replace(/^commons\.wikimedia\.org$/, 'Wikimedia Commons') : 'source'; }
 
-/** Default `sizes` for a card photo: one column on phones, about a third of the page on desktop grids. */
-const CARD_SIZES = '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw';
+/** Default `sizes` for a card photo: one inset column on phones, two on tablets, a quarter of the page on desktop grids.
+ *  Pass opts.sizes to figureHtml for anything smaller (thumbnails, carousels). */
+const CARD_SIZES = '(max-width: 639px) 92vw, (max-width: 1023px) 45vw, 25vw';
 /** srcset + sizes attributes when the photo has size variants (else ''). */
 function srcsetAttr(photo, up, sizes) {
   const set = photo.widths || [];
@@ -221,7 +231,8 @@ function heroHtml(photo, up = '', cls = 'photo hero-photo') {
 }
 /** The hero photo's visible TASL credit, one small line in the text flow (inherits the hero's text colour). */
 function heroCreditHtml(photo) {
-  return `<p class="hero-credit" style="margin:12px 0 0;font-size:12px;line-height:1.45;opacity:.8;max-width:70ch">Photo: ${captionHtml(photo.credit).replace(/<a /g, '<a style="color:inherit" ')}</p>`;
+  const cap = captionHtml(photo.credit);
+  return `<p class="hero-credit" style="margin:12px 0 0;font-size:12px;line-height:1.45;opacity:.8;max-width:70ch">${/^Photo/.test(cap) ? '' : 'Photo: '}${cap.replace(/<a /g, '<a style="color:inherit" ')}</p>`;
 }
 
 module.exports = { loadPhotos, creditProblems, figureHtml, heroHtml, heroCreditHtml, captionHtml, imageSize, SCHEMA, PHOTO_DIR, CREDITS, LICENCE_OK, CARD_SIZES };
