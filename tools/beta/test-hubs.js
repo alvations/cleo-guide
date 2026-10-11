@@ -205,6 +205,13 @@ console.log('\n== W9-2: "<month> in Cleo" from data/changes.json; What changed l
   chk('"Follow changes" links the site feed, which exists', !!feed && /<feed xmlns="http:\/\/www.w3.org\/2005\/Atom">/.test(rd('feeds/all.xml')), true);
 }
 
+// ── 9. R7-g2b: the tab bar is fully opaque — content never shows through it ──────────────────────────────────
+{
+  const css = rd('assets/cleo.css');
+  const top = [...css.matchAll(/:root \.tabbar\s*\{([^}]*)\}/g)].map(m => m[1]).filter(b => /background\s*:/.test(b)).pop() || '';
+  chk('tab bar background is opaque (the winning :root .tabbar rule)', (/background\s*:\s*([^;]+)/.exec(top) || [])[1], v => !!v && !/color-mix|transparent|rgba|hsla|\/\s*[\d.]+%?\s*\)/.test(v));
+}
+
 // ── 5. voice lint ──────────────────────────────────────────────────────────
 console.log('\n== VOICE: urgency lint on FE-B pages ==');
 {
