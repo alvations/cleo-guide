@@ -39,7 +39,10 @@
  *      equipment, people or a close-up (hands, a drone controller, a portrait) — each unless the target itself is named
  *      so (Sign Hill, a portrait gallery); a hero whose title/description says winter, snow, overcast or fog.
  *      Every run first RE-SCANS the already-credited photos with these rules against their current Commons text and
- *      prints `RESCAN` lines (report only; ≈ 1 API request per 50 photos).
+ *      prints `RESCAN` lines (report only; ≈ 1 API request per 50 photos) — except an author string saved before
+ *      authorOf() existed, which it re-derives from the API and rewrites.
+ *   2c. Author: the `Artist` HTML minus templates, userboxes, flag notices and "(talk)" asides (authorOf); refused when
+ *      it is still not a clean name (> 60 characters, notice text, said twice). A hero refuses "Unknown author".
  *   3. Depicts re-check: the file title, its description or one of its visible categories must contain one of the
  *      target's `names` (compared without spaces, punctuation or diacritics). Otherwise refused.
  *   4. Download the server-side thumbnails: each asked width is snapped to Commons' standard thumbnail steps (250, 330,
@@ -126,12 +129,35 @@ function licenceOf(short, url) {
 }
 const strip = h => String(h || '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/\s+/g, ' ').trim();
 
+/**
+ * The photographer's name from the Commons `Artist` HTML. Templates, userboxes and notices (tables, divs, lists, flag
+ * icons with their alt text) are dropped; "(talk)", "(contribs)" and "(User:x)" asides go; a doubled name
+ * ("Unknown author Unknown author") is said once. When what is left is still long or template-like, the text of the
+ * first link (the user or creator page) is the name. (W7: a "Kakidai" credit carried a flag notice.)
+ */
+function authorOf(html) {
+  const h = String(html || '').replace(/<(table|div|ul|ol|style|sup|small)\b[\s\S]*?<\/\1>/gi, ' ').replace(/<img\b[^>]*>/gi, ' ');
+  const links = [...h.matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/gi)].map(m => cleanAuthor(strip(m[1]))).filter(Boolean);
+  const s = cleanAuthor(strip(h));
+  return authorProblems(s).length && links.length && !authorProblems(links[0]).length ? links[0] : s;
+}
+function cleanAuthor(s) {
+  s = String(s || '').replace(/\(\s*(talk|contribs?|User:[^)]*|(?:https?:\/\/|www\.)[^)\s]*)\s*\)/gi, ' ').replace(/^(?:photo(?:graph)?|picture|image)\s+(?:by|:)\s+/i, '')
+    .replace(/\s+/g, ' ').trim().replace(/(?:\s+\.|[\s,;:·-])+$/, '');   // a lone trailing " ." goes; an initial's "O.J." stays
+  const m = /^(.+?) \1$/.exec(s);
+  return m ? m[1] : s;
+}
+/** Why an author string is not a clean credit name ([] when it is). */
+const authorProblems = a => [!a && 'empty', a && a.length > 60 && 'longer than 60 characters',
+  /flag of|userbox|legal disclaimer|\(\s*talk\s*\)|uploader was|this image shows/i.test(a || '') && 'template or notice text',
+  /^(.+?) \1$/.test(a || '') && 'name said twice'].filter(Boolean);
+
 /** Corporate signage, logos, lettering or advertising as the subject (owner review, W7): such a file is refused —
  * unless the sign IS the place (the target's own names say so, e.g. Sign Hill, the Glico Running Man sign). */
 const SIGNAGE = /\b(logos?|signage|signboards?|signs?|billboards?|advertis\w*|letters|lettering)\b/i;
 /** Equipment, people or close-ups as the subject (owner review, W7: a "RiverScape, Dayton" file showed hands on a
  * drone controller): refused for every slot. Checked against the title, description and visible categories. */
-const CLOSEUP = /\b(drone controllers?|controllers?|remote controls?|remotes?|hands?|holding|selfies?|portraits?|close-?ups?|equipment)\b/i;
+const CLOSEUP = /\b(drone controllers?|controllers?|remote controls?|remotes?|hands|holding|selfies?|portraits?|close-?ups?|equipment)\b/i;
 /** A subject check applies unless the target itself is named by it (a museum of signs, a portrait gallery). */
 const subjectRefused = (re, t, text) => re.test(text) && !re.test(`${t.label || ''} ${(t.names || []).join(' ')}`);
 
@@ -270,8 +296,10 @@ async function main() {
     if (ii.width > 3 * ii.height) return { why: `a panorama (${ii.width}×${ii.height}) — does not crop to a card or hero` };
     const lic = licenceOf(val('LicenseShortName'), val('LicenseUrl'));
     if (lic.why) return { why: lic.why };
-    const author = strip(val('Artist'));
+    const author = authorOf(val('Artist'));
     if (!author) return { why: 'no author in the file metadata' };
+    if (authorProblems(author).length) return { why: `author "${author.slice(0, 80)}" is not a clean name (${authorProblems(author).join(', ')})` };
+    if (t.type === 'hero' && /^unknown author$/i.test(author)) return { why: 'a hero prefers a named author (this one is "Unknown author")' };
     if (/personality|trademark/i.test(val('Restrictions') || '') && !o.allow.includes('people-visible')) return { why: `restrictions: ${strip(val('Restrictions'))}` };
     const cats = (pg.categories || []).map(c => c.title.replace(/^Category:/, ''));
     const desc = strip(val('ImageDescription')), obj = strip(val('ObjectName'));
@@ -289,10 +317,11 @@ async function main() {
    */
   async function rescan() {
     const rows = credits.credits.filter(c => c.provider === 'wikimedia-commons' && c.commonsTitle), hits = [];
+    let fixed = 0;
     const byKey = new Map(man.targets.map(t => [t.key, t]));
     for (let i = 0; i < rows.length; i += 50) {
       const part = rows.slice(i, i + 50);
-      const j = await api({ action: 'query', titles: part.map(c => c.commonsTitle).join('|'), prop: 'imageinfo|categories', iiprop: 'extmetadata', iiextmetadatafilter: 'ImageDescription|ObjectName', clshow: '!hidden', cllimit: 'max' });
+      const j = await api({ action: 'query', titles: part.map(c => c.commonsTitle).join('|'), prop: 'imageinfo|categories', iiprop: 'extmetadata', iiextmetadatafilter: 'ImageDescription|ObjectName|Artist', clshow: '!hidden', cllimit: 'max' });
       const pages = new Map(((j.query && j.query.pages) || []).map(pg => [pg.title, pg]));
       const norm = new Map(((j.query && j.query.normalized) || []).map(n => [n.from, n.to]));
       for (const c of part) {
@@ -300,6 +329,11 @@ async function main() {
         const key = c.slot ? `hero:${c.slot.key}` : `landmark:${c.record.page}#${c.record.id}`, t = byKey.get(key) || { label: c.depicts, names: [] };
         if (!pg || pg.missing) { hits.push(`${key} ${c.commonsTitle}: no longer on Commons`); continue; }
         const em = (pg.imageinfo && pg.imageinfo[0] && pg.imageinfo[0].extmetadata) || {}, v = k => strip(em[k] && em[k].value);
+        if (authorProblems(c.author).length) {   // an author saved before authorOf existed: re-derive it from the API
+          const a = authorOf(em.Artist && em.Artist.value);
+          if (a && !authorProblems(a).length) { hits.push(`${key} ${c.commonsTitle}: author fixed "${c.author.slice(0, 60)}" → "${a}"`); c.author = a; fixed++; }
+          else hits.push(`${key} ${c.commonsTitle}: author "${c.author.slice(0, 60)}" needs a person (${authorProblems(c.author).join(', ')})`);
+        }
         const cats = (pg.categories || []).map(x => x.title.replace(/^Category:/, '')).join(' | ');
         const text = `${pg.title} ${v('ObjectName')} ${v('ImageDescription')}`;
         if (subjectRefused(SIGNAGE, t, text)) hits.push(`${key} ${c.commonsTitle}: signage/lettering/logo (${(SIGNAGE.exec(text) || [])[0]})`);
@@ -307,7 +341,8 @@ async function main() {
         if (c.slot && !t.winterOk && GLOOM.test(text)) hits.push(`${key} ${c.commonsTitle}: gloomy hero (${(GLOOM.exec(text) || [])[0]})`);
       }
     }
-    console.log(`\nRescan of ${rows.length} credited Commons photo(s): ${hits.length} hit(s)${hits.length ? ' — review, then mark refused' : ''}`);
+    if (fixed) fs.writeFileSync(CREDITS, JSON.stringify(credits, null, 1) + '\n');
+    console.log(`\nRescan of ${rows.length} credited Commons photo(s): ${hits.length} hit(s)${fixed ? `, ${fixed} author(s) fixed from the API` : ''}${hits.length > fixed ? ' — review subject hits, then mark refused' : ''}`);
     hits.forEach(h => console.log(`  RESCAN ${h}`));
   }
 
@@ -410,4 +445,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { authorOf, cleanAuthor, authorProblems, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };

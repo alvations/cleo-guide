@@ -548,3 +548,13 @@ html main[data-city]>.masthead .hero-media figcaption{position:static;max-width:
 /* place detail: the photo fills its slot (cover crop, capped height), never letterboxed */
 html body #cleo-sheet .detail .hero-plate.has-photo>.photo{width:100%}
 html body #cleo-sheet .detail .hero-plate.has-photo>.photo img{display:block;width:100%;max-width:none;object-fit:cover;max-height:420px}
+/* W7 card, from the Atlas lane's review: "Recommended by" = the first source + "+n more" (all of them in the detail), so a
+   narrow card never ends on a dangling comma; and the area is dropped from the eyebrow where the list is grouped by area */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s .src:not(:first-of-type),html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s :is(.more,.rest){display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s .src::after{content:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s[data-more]::after{content:"+" attr(data-more) " more";color:var(--ink-3);margin-left:4px;font:400 var(--fs-sm)/1.4 var(--font-ui)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) section.area li.pl>.pl-e .in-a,html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) section.area li.pl>.pl-e .in-d .sep{display:none}
+html .view-gallery li.gc .pl-s .src::after{content:none}
+html .view-gallery li.gc .pl-s .more{color:var(--ink-3);margin-left:4px}
+/* a long source name wraps rather than being cut (with one chip + "+n more" it rarely needs to) */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s,html .view-gallery li.gc>.pl-s{white-space:normal;overflow:visible;text-overflow:clip;max-height:none}

@@ -242,7 +242,7 @@ function heroPreload(photo, up = '', sizes = HERO_SIZES, skipView = 'atlas') {
   const j = x => JSON.stringify(x).replace(/</g, '\\u003c');
   // the page's view boot script (city.js viewHead) has already set html[data-view]; fall back to hash, then storage
   return `<script>(function(){var v=document.documentElement.getAttribute('data-view')||(/[#&]view=([a-z]+)/.exec(location.hash)||[])[1];if(!v){try{v=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}` +
-    `if(v===${j(skipView)})return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=${j(up + photo.src)};` +
+    `if(v===${j(skipView)})return;var l=document.createElement('link');l.rel='preload';l.setAttribute('as','image');l.href=${j(up + photo.src)};` +
     (set ? `l.setAttribute('imagesrcset',${j(set)});l.setAttribute('imagesizes',${j(sizes)});` : '') +
     `l.setAttribute('fetchpriority','high');document.head.appendChild(l)})()</script>`;
 }
