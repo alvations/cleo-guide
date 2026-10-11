@@ -46,7 +46,7 @@
 - **Five steps between 12 and 17 px:** 12 · 13 · 14 · 16 · 17. Only weights 400 / 500 / 600 / 700 render, and there is no 13.5 px.
   - `style/v2/tools/normalize-v2.py` snaps every raw size and radius in the designer's sources onto tokens, and has a `--check` mode.
   - The probes confirm it: `eval/r6/tools/probe-type.js` and `probe-css.py`. In the designer's CSS the only raw font size left is `.5em` (the native script after a city name), and the only raw radii are `50%` and `3px`.
-- **Optical size:** headlines of 40 px and up use Bricolage's opsz 72 instance. Headlines, deks and subtitles use `text-wrap: balance / pretty`.
+- **Optical size:** Bricolage ships as one pinned opsz-72 instance (wght axis only, 54.5 KB). That is deliberate: the display face only sets 22 px and up, where opsz 72 is the right cut, and keeping the opsz axis would roughly double the files for no visible gain. Do not set `font-optical-sizing` or `font-variation-settings: 'opsz'` on it. Headlines, deks and subtitles use `text-wrap: balance / pretty`.
 - Tabular figures appear wherever we count (`--num`).
 - CJK falls back to the system sans.
 - Fonts are self-hosted OFL subsets (vi, latin-ext, latin), with `font-display: swap`.
@@ -78,6 +78,41 @@
 | Tab bar | Surface + hairline; current item in ink with a 2 px stroke icon. |
 | Map | Pins on surface with a 2 px muted area underline; selected pin = ink. Clusters get a muted ring; the day route uses the accent. |
 | Footer | On the ground, hairline above. |
+
+## v2.6 Casing: no superfluous capitals (owner rule, W7)
+
+> Owner: "those capital initials everywhere in the UI I don't think we need them they are superfluous and don't serve any purpose!"
+
+**Rule: every UI label, heading, chip, badge, button and eyebrow is in sentence case.** Capitalise only the first word, plus anything in the list below. Text is never transformed: there is no `text-transform: uppercase | capitalize`, no small caps and no letter-spaced caps. The text starts plainly: there are no drop caps (`::first-letter`) and no decorative cover initials.
+
+**What keeps its capitals:**
+1. **Proper nouns and demonyms:** place names (Tokyo, Kanda Myōjin, Ohio River, Little Tokyo) and nationalities or cuisines of a people (Japanese, Polish, Southeast Asian). This also covers named styles, events and things: Art Deco, Prairie School, Civil War, World Heritage, Frank Lloyd Wright, Rainbow Cone.
+2. **Acronyms and initialisms:** UNESCO, NPS, JNTO, BBQ, TV, UW. Words with an internal capital also stay as written: MiMo, MetroParks, YouTube.
+3. **Source and publisher names, exactly as each publisher writes them:** Time Out, The Japan Times, Atlas Obscura, Michelin. Source names never pass through the casing helper. A generic label is not a publisher name, so "Official Site" becomes "Official site".
+
+**How it is applied to data:** collection and cuisine labels come from page data (`beta/data/places/*.json`), and 259 of 368 are Title Case. **The data is not edited.** A shared display-time helper, `sentenceCase(label)`, applies the rule:
+- it keeps the first word;
+- it keeps allowlisted phrases and words;
+- it keeps all-caps words, single capital letters (U-pick) and words with an internal capital;
+- it lowercases every other word, handling hyphenated words per segment (must-see, Italian-American, sub-Saharan).
+
+The executable spec and allowlist are in [`casing/`](casing/):
+- `allowlist.json`: the phrases and words to keep;
+- `sentence_case.py`: the reference implementation, whose `--check` mode lists every change;
+- `labels.md`: every label before and after, for review.
+
+When a label lowercases a proper noun, add the noun to `allowlist.json`, never to code.
+
+| Before | After |
+|---|---|
+| Iconic & Must-See | Iconic & must-see |
+| Free to Visit | Free to visit |
+| Temples & Shrines | Temples & shrines |
+| ★ Anime, Manga & Pop Culture | ★ Anime, manga & pop culture |
+| Aviation & the Wright Brothers | Aviation & the Wright brothers |
+| Art Deco, MiMo & Architecture | Art Deco, MiMo & architecture |
+| Polish, Ukrainian & Eastern European | Polish, Ukrainian & Eastern European |
+| START WITH (CSS uppercase) | Start with |
 
 ---
 

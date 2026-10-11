@@ -1,0 +1,48 @@
+# Your day @390: build from saved → reorder / remove → share → print → reopen
+  PASS  @390 "Your list" offers "Plan a day from these", reached by Tab
+  PASS  @390 Enter builds a day from the 4 saved places in Taitō-ku (the 5th is elsewhere) = ["senso-ji","kappabashi-dogu-gai","ameya-yokocho","ueno-park"]
+  PASS  @390 focus moves to the day's heading
+  PASS  @390 the heading and the summary (stops, km) are in view, clear of the sticky bars
+  PASS  @390 the summary reads stops and distance = "4 stops 2.5 km straight-line total 0 places to eat"
+  PASS  @390 [data-dy="share"] is reached by Tab from the heading
+  PASS  @390 [data-dy="print"] is reached by Tab from the heading
+  PASS  @390 [data-dy="kml"] is reached by Tab from the heading
+  PASS  @390 [data-dy="edit"] is reached by Tab from the heading
+  PASS  @390 "Move later" on stop 1 is reached by Tab (editing)
+  PASS  @390 Enter moves stop 1 later = ["kappabashi-dogu-gai","senso-ji","ameya-yokocho","ueno-park"]
+  PASS  @390 focus stays on the moved stop's controls
+  PASS  @390 "Remove" on stop 4 is reached by Tab
+  PASS  @390 Enter removes stop 4 (3 left) = ["kappabashi-dogu-gai","senso-ji","ameya-yokocho"]
+  PASS  @390 Share hands over a link carrying the edited stops, in order = "#day=TAITO&s=kappabashi-dogu-gai,senso-ji,ameya-yokocho"
+  PASS  @390 Print (Enter) opens the print dialog
+  PASS  @390 print keeps the summary and stops, drops the buttons and the map pill = {"stops":true,"sum":true,"bar":false,"pill":false}
+  PASS  @390 0 page errors while building = []
+  PASS  @390 the shared link reopens the same day, same order (view: atlas) = ["kappabashi-dogu-gai","senso-ji","ameya-yokocho"]
+  PASS  @390 the day's summary sits on the map, in view and uncovered = "Your day Taitō-ku 3 stops · 2.8 km"
+  PASS  @390 opening a shared day stores nothing
+  PASS  @390 0 page errors on reopen = []
+# Your day @1440: build from saved → reorder / remove → share → print → reopen
+  PASS  @1440 "Your list" offers "Plan a day from these", reached by Tab
+  PASS  @1440 Enter builds a day from the 4 saved places in Taitō-ku (the 5th is elsewhere) = ["senso-ji","kappabashi-dogu-gai","ameya-yokocho","ueno-park"]
+  PASS  @1440 focus moves to the day's heading
+  PASS  @1440 the heading and the summary (stops, km) are in view, clear of the sticky bars
+  PASS  @1440 the summary reads stops and distance = "4 stops 2.5 km straight-line total 0 places to eat"
+  PASS  @1440 [data-dy="share"] is reached by Tab from the heading
+  PASS  @1440 [data-dy="print"] is reached by Tab from the heading
+  PASS  @1440 [data-dy="kml"] is reached by Tab from the heading
+  PASS  @1440 [data-dy="edit"] is reached by Tab from the heading
+  PASS  @1440 "Move later" on stop 1 is reached by Tab (editing)
+  PASS  @1440 Enter moves stop 1 later = ["kappabashi-dogu-gai","senso-ji","ameya-yokocho","ueno-park"]
+  PASS  @1440 focus stays on the moved stop's controls
+  PASS  @1440 "Remove" on stop 4 is reached by Tab
+  PASS  @1440 Enter removes stop 4 (3 left) = ["kappabashi-dogu-gai","senso-ji","ameya-yokocho"]
+  PASS  @1440 Share hands over a link carrying the edited stops, in order = "#day=TAITO&s=kappabashi-dogu-gai,senso-ji,ameya-yokocho"
+  PASS  @1440 Print (Enter) opens the print dialog
+  PASS  @1440 print keeps the summary and stops, drops the buttons and the map pill = {"stops":true,"sum":true,"bar":false,"pill":false}
+  PASS  @1440 0 page errors while building = []
+  PASS  @1440 the shared link reopens the same day, same order (view: atlas) = ["kappabashi-dogu-gai","senso-ji","ameya-yokocho"]
+  PASS  @1440 the day's summary sits on the map, in view and uncovered = "Your day Taitō-ku 3 stops · 2.8 km"
+  PASS  @1440 opening a shared day stores nothing
+  PASS  @1440 0 page errors on reopen = []
+
+>>> PASS — FE-A W8: a day from saved places, edited, shared, printed and reopened, by keyboard

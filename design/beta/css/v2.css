@@ -253,3 +253,16 @@
 html:root[data-view=atlas] #cleo-grid li.pl:not(.w7-cards li) > figure.pl-photo figcaption { position: static; inset: auto; max-width: none;
   padding: 6px 2px 0; border-radius: 0; background: none; color: var(--ink-3); font: 400 var(--fs-xs)/1.4 var(--font-ui);
   white-space: normal; overflow: visible; text-overflow: clip; display: block; -webkit-line-clamp: unset; line-clamp: none; max-height: none; height: auto; }
+
+/* ---------- V2.18 casing rule (owner, W7): no superfluous capitals. Labels are sentence case and never transformed;
+   no drop caps, no decorative initials. Proper nouns, acronyms and publishers' names keep their own capitals
+   (design/beta/DESIGN-SYSTEM.md §v2.6; data labels are sentence-cased at display time by the shared helper). ---------- */
+:root :is(.eyebrow, .kicker, .g-kick, .g-lead-k, .lbl, .k, .rail-i .k, .pl-e, .badge, .sticker, .tier, th, legend, summary, label) { text-transform: none; font-variant-caps: normal; }
+:root :is(.eyebrow, .kicker, .g-kick, .g-lead-k) { letter-spacing: 0; }
+:root :is(p, .lens p, .ch-intro)::first-letter { float: none; font: inherit; color: inherit; margin: 0; padding: 0; initial-letter: normal; }
+:root :is(.plate.i, .pl-ini, .ini, .initial) { display: none !important; }
+
+/* ---------- V2.19 Type residue (FE-B audit): one step for the masthead native name; no widows in Guidebook and Insights ---------- */
+:root .masthead .title .native { font-size: var(--fs-sm); }
+:root :is(.gcover .lead, .gfacts, .ch-intro, .hoods, .ins-h p, .icard p) { text-wrap: pretty; }
+:root :is(.ch-h h2, .ins-h h2) { text-wrap: balance; }
