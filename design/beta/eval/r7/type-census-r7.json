@@ -1,0 +1,1266 @@
+{
+ "label": "R7",
+ "res": {
+  "landing-m": {
+   "textEls": 114,
+   "distinctSizes": 6,
+   "sizes": {
+    "17px": 19,
+    "12px": 26,
+    "38px": 2,
+    "16px": 2,
+    "14px": 64,
+    "22px": 1
+   },
+   "distinctLS": 7,
+   "families": {
+    "Bricolage Grotesque": 22,
+    "Inter": 92
+   },
+   "weights": {
+    "400": 55,
+    "500": 7,
+    "600": 52
+   },
+   "distinctRadii": 4,
+   "radii": {
+    "50%": 2,
+    "6px": 1,
+    "999px": 8,
+    "16px": 20
+   },
+   "distinctShadows": 1,
+   "numericEls": 0,
+   "numericTabular": 0,
+   "numericSamples": [],
+   "scripts": {}
+  },
+  "hub-m": {
+   "textEls": 77,
+   "distinctSizes": 6,
+   "sizes": {
+    "17px": 8,
+    "14px": 42,
+    "34px": 1,
+    "16px": 3,
+    "12px": 19,
+    "22px": 4
+   },
+   "distinctLS": 7,
+   "families": {
+    "Bricolage Grotesque": 9,
+    "Inter": 65,
+    "Hiragino Sans": 3
+   },
+   "weights": {
+    "400": 41,
+    "500": 7,
+    "600": 29
+   },
+   "distinctRadii": 3,
+   "radii": {
+    "50%": 2,
+    "999px": 6,
+    "16px": 9
+   },
+   "distinctShadows": 0,
+   "numericEls": 0,
+   "numericTabular": 0,
+   "numericSamples": [],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "14px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "Goryōkaku",
+     "size": "14px",
+     "fonts": [
+      "Inter×12"
+     ]
+    }
+   }
+  },
+  "tokyo-gallery-m": {
+   "textEls": 293,
+   "distinctSizes": 9,
+   "sizes": {
+    "17px": 2,
+    "14px": 51,
+    "16px": 27,
+    "38px": 1,
+    "15.96px": 1,
+    "12px": 48,
+    "13px": 158,
+    "22px": 4,
+    "0px": 1
+   },
+   "distinctLS": 9,
+   "families": {
+    "Bricolage Grotesque": 6,
+    "Inter": 285,
+    "Hiragino Sans": 2
+   },
+   "weights": {
+    "400": 109,
+    "500": 98,
+    "600": 85,
+    "700": 1
+   },
+   "distinctRadii": 4,
+   "radii": {
+    "999px": 31,
+    "50%": 53,
+    "16px": 27,
+    "8px": 2
+   },
+   "distinctShadows": 1,
+   "numericEls": 40,
+   "numericTabular": 39,
+   "numericSamples": [
+    "nw:2026-10-03:normal",
+    "n:37:lining-nums tabular-nums",
+    "n:125:lining-nums tabular-nums",
+    "n:177:lining-nums tabular-nums",
+    "n:44:lining-nums tabular-nums",
+    "n:5:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "15.96px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "Kanda Myōjin",
+     "size": "16px",
+     "fonts": [
+      "Inter×12"
+     ]
+    }
+   }
+  },
+  "tokyo-atlas-m": {
+   "textEls": 105,
+   "distinctSizes": 9,
+   "sizes": {
+    "17px": 2,
+    "14px": 30,
+    "38px": 1,
+    "15.96px": 1,
+    "16px": 12,
+    "13px": 16,
+    "12px": 36,
+    "0px": 6,
+    "22px": 1
+   },
+   "distinctLS": 10,
+   "families": {
+    "Bricolage Grotesque": 4,
+    "Inter": 94,
+    "Hiragino Sans": 7
+   },
+   "weights": {
+    "400": 48,
+    "500": 19,
+    "600": 31,
+    "700": 7
+   },
+   "distinctRadii": 5,
+   "radii": {
+    "999px": 25,
+    "50%": 11,
+    "8px": 5,
+    "12px": 1,
+    "16px": 7
+   },
+   "distinctShadows": 1,
+   "numericEls": 12,
+   "numericTabular": 11,
+   "numericSamples": [
+    "nw:2026-10-03:normal",
+    "n:488:tabular-nums",
+    "n:263:tabular-nums",
+    "n:225:tabular-nums",
+    ":488:tabular-nums",
+    "pl-num:1:tabular-nums"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "15.96px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "ward by ward · Jōnan · Jōsai · Jōhoku · ",
+     "size": "17px",
+     "fonts": [
+      "Inter×62"
+     ]
+    }
+   }
+  },
+  "tokyo-guidebook-m": {
+   "textEls": 121,
+   "distinctSizes": 9,
+   "sizes": {
+    "17px": 4,
+    "14px": 42,
+    "16px": 33,
+    "34px": 2,
+    "14.28px": 1,
+    "13px": 3,
+    "12px": 34,
+    "38px": 1,
+    "19px": 1
+   },
+   "distinctLS": 7,
+   "families": {
+    "Bricolage Grotesque": 4,
+    "Inter": 110,
+    "Hiragino Sans": 7
+   },
+   "weights": {
+    "400": 54,
+    "500": 29,
+    "600": 37,
+    "700": 1
+   },
+   "distinctRadii": 3,
+   "radii": {
+    "999px": 30,
+    "50%": 2,
+    "8px": 1
+   },
+   "distinctShadows": 2,
+   "numericEls": 35,
+   "numericTabular": 3,
+   "numericSamples": [
+    "n:488:tabular-nums",
+    "n:263:tabular-nums",
+    "n:225:tabular-nums",
+    "n:1:normal",
+    "meta:43:normal",
+    "n:2:normal"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "14.28px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "Chūō-ku",
+     "size": "14px",
+     "fonts": [
+      "Inter×7"
+     ]
+    }
+   }
+  },
+  "tokyo-insights-m": {
+   "textEls": 112,
+   "distinctSizes": 8,
+   "sizes": {
+    "17px": 3,
+    "14px": 9,
+    "16px": 1,
+    "34px": 1,
+    "14.28px": 1,
+    "13px": 46,
+    "22px": 7,
+    "12px": 44
+   },
+   "distinctLS": 6,
+   "families": {
+    "Bricolage Grotesque": 11,
+    "Inter": 100,
+    "Hiragino Sans": 1
+   },
+   "weights": {
+    "400": 65,
+    "500": 15,
+    "600": 32
+   },
+   "distinctRadii": 5,
+   "radii": {
+    "999px": 9,
+    "50%": 2,
+    "8px": 1,
+    "16px": 8,
+    "3px": 9
+   },
+   "distinctShadows": 1,
+   "numericEls": 46,
+   "numericTabular": 9,
+   "numericSamples": [
+    "n:488:tabular-nums",
+    "n:263:tabular-nums",
+    "n:225:tabular-nums",
+    ":488:lining-nums tabular-nums",
+    ":263:lining-nums tabular-nums",
+    ":225:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "14.28px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "Chūō-ku",
+     "size": "13px",
+     "fonts": [
+      "Inter×7"
+     ]
+    }
+   }
+  },
+  "sheet-m": {
+   "textEls": 130,
+   "distinctSizes": 7,
+   "sizes": {
+    "17px": 7,
+    "14px": 44,
+    "16px": 14,
+    "12px": 34,
+    "0px": 6,
+    "13px": 23,
+    "34px": 2
+   },
+   "distinctLS": 6,
+   "families": {
+    "Bricolage Grotesque": 6,
+    "Inter": 118,
+    "Hiragino Sans": 6
+   },
+   "weights": {
+    "400": 58,
+    "500": 18,
+    "600": 48,
+    "700": 6
+   },
+   "distinctRadii": 6,
+   "radii": {
+    "999px": 25,
+    "50%": 17,
+    "16px": 10,
+    "3px": 1,
+    "8px": 4,
+    "12px": 1
+   },
+   "distinctShadows": 1,
+   "numericEls": 6,
+   "numericTabular": 6,
+   "numericSamples": [
+    "pl-num:3:tabular-nums",
+    "pl-num:4:tabular-nums",
+    "pl-num:5:tabular-nums",
+    "pl-num:6:tabular-nums",
+    "pl-num:7:tabular-nums",
+    "pl-num:8:tabular-nums"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "15.96px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "Kanda Myōjin",
+     "size": "16px",
+     "fonts": [
+      "Inter×12"
+     ]
+    },
+    "macron-disp": {
+     "text": "Kanda Myōjin",
+     "size": "34px",
+     "fonts": [
+      "IPAGothic×4",
+      "Bricolage Grotesque 96pt ExtraBold×15"
+     ]
+    },
+    "cjk-disp": {
+     "text": "(神田明神)",
+     "size": "34px",
+     "fonts": [
+      "IPAGothic×4",
+      "Bricolage Grotesque 96pt ExtraBold×2"
+     ]
+    }
+   }
+  },
+  "sheet-vn-m": {
+   "textEls": 110,
+   "distinctSizes": 8,
+   "sizes": {
+    "17px": 7,
+    "14px": 43,
+    "16px": 13,
+    "13px": 22,
+    "12px": 18,
+    "0px": 5,
+    "22px": 1,
+    "34px": 1
+   },
+   "distinctLS": 5,
+   "families": {
+    "Bricolage Grotesque": 5,
+    "Inter": 105
+   },
+   "weights": {
+    "400": 37,
+    "500": 19,
+    "600": 47,
+    "700": 7
+   },
+   "distinctRadii": 6,
+   "radii": {
+    "999px": 26,
+    "50%": 20,
+    "16px": 9,
+    "3px": 1,
+    "8px": 6,
+    "12px": 1
+   },
+   "distinctShadows": 1,
+   "numericEls": 6,
+   "numericTabular": 6,
+   "numericSamples": [
+    "pl-num:33:tabular-nums",
+    "pl-num:1:tabular-nums",
+    "pl-num:2:tabular-nums",
+    "pl-num:3:tabular-nums",
+    "pl-num:4:tabular-nums",
+    "pl-num:5:tabular-nums"
+   ],
+   "scripts": {
+    "viet-ui": {
+     "text": "phở · bánh mì · Cầu Ba Son",
+     "size": "17px",
+     "fonts": [
+      "Inter×26"
+     ]
+    },
+    "viet-disp": {
+     "text": "Việt Nam Quốc Tự",
+     "size": "34px",
+     "fonts": [
+      "Bricolage Grotesque 96pt ExtraBold×16"
+     ]
+    }
+   }
+  },
+  "hcmc-gallery-m": {
+   "textEls": 248,
+   "distinctSizes": 8,
+   "sizes": {
+    "17px": 2,
+    "14px": 49,
+    "16px": 28,
+    "38px": 1,
+    "12px": 37,
+    "13px": 126,
+    "22px": 4,
+    "0px": 1
+   },
+   "distinctLS": 6,
+   "families": {
+    "Bricolage Grotesque": 6,
+    "Inter": 242
+   },
+   "weights": {
+    "400": 91,
+    "500": 66,
+    "600": 89,
+    "700": 2
+   },
+   "distinctRadii": 4,
+   "radii": {
+    "999px": 35,
+    "50%": 56,
+    "16px": 27,
+    "8px": 2
+   },
+   "distinctShadows": 1,
+   "numericEls": 28,
+   "numericTabular": 27,
+   "numericSamples": [
+    "nw:2026-10-03:normal",
+    "n:40:lining-nums tabular-nums",
+    "n:31:lining-nums tabular-nums",
+    "n:58:lining-nums tabular-nums",
+    "n:6:lining-nums tabular-nums",
+    "n:22:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "viet-ui": {
+     "text": "phở · bánh mì · Cầu Ba Son",
+     "size": "17px",
+     "fonts": [
+      "Inter×26"
+     ]
+    }
+   }
+  },
+  "ny-gallery-m": {
+   "textEls": 299,
+   "distinctSizes": 8,
+   "sizes": {
+    "17px": 2,
+    "14px": 51,
+    "16px": 27,
+    "38px": 1,
+    "12px": 49,
+    "13px": 164,
+    "22px": 4,
+    "0px": 1
+   },
+   "distinctLS": 6,
+   "families": {
+    "Bricolage Grotesque": 6,
+    "Inter": 293
+   },
+   "weights": {
+    "400": 103,
+    "500": 110,
+    "600": 84,
+    "700": 2
+   },
+   "distinctRadii": 4,
+   "radii": {
+    "999px": 31,
+    "50%": 54,
+    "16px": 28,
+    "8px": 2
+   },
+   "distinctShadows": 1,
+   "numericEls": 49,
+   "numericTabular": 48,
+   "numericSamples": [
+    "nw:2026-08-13:normal",
+    "n:31:lining-nums tabular-nums",
+    "n:28:lining-nums tabular-nums",
+    "n:97:lining-nums tabular-nums",
+    "n:70:lining-nums tabular-nums",
+    "n:79:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "Photo: 句 · CC BY-SA 4.0 · Wikimedia Comm",
+     "size": "12px",
+     "fonts": [
+      "IPAGothic×1",
+      "Inter×51"
+     ]
+    }
+   }
+  },
+  "wheeling-m": {
+   "textEls": 248,
+   "distinctSizes": 8,
+   "sizes": {
+    "17px": 2,
+    "14px": 49,
+    "16px": 27,
+    "38px": 1,
+    "12px": 46,
+    "13px": 119,
+    "22px": 3,
+    "0px": 1
+   },
+   "distinctLS": 6,
+   "families": {
+    "Bricolage Grotesque": 5,
+    "Inter": 243
+   },
+   "weights": {
+    "400": 103,
+    "500": 57,
+    "600": 86,
+    "700": 2
+   },
+   "distinctRadii": 4,
+   "radii": {
+    "999px": 34,
+    "50%": 54,
+    "16px": 27,
+    "8px": 2
+   },
+   "distinctShadows": 1,
+   "numericEls": 24,
+   "numericTabular": 23,
+   "numericSamples": [
+    "nw:2026-08-27:normal",
+    "n one:1:lining-nums tabular-nums",
+    "n:18:lining-nums tabular-nums",
+    "n:7:lining-nums tabular-nums",
+    "n:15:lining-nums tabular-nums",
+    "n:10:lining-nums tabular-nums"
+   ],
+   "scripts": {}
+  },
+  "landing-d": {
+   "textEls": 223,
+   "distinctSizes": 6,
+   "sizes": {
+    "18px": 2,
+    "12px": 46,
+    "14px": 139,
+    "60px": 2,
+    "16px": 1,
+    "28px": 33
+   },
+   "distinctLS": 6,
+   "families": {
+    "Bricolage Grotesque": 36,
+    "Inter": 187
+   },
+   "weights": {
+    "400": 112,
+    "500": 9,
+    "600": 102
+   },
+   "distinctRadii": 4,
+   "radii": {
+    "999px": 9,
+    "50%": 3,
+    "6px": 1,
+    "16px": 40
+   },
+   "distinctShadows": 2,
+   "numericEls": 0,
+   "numericTabular": 0,
+   "numericSamples": [],
+   "scripts": {
+    "cjk-ui": {
+     "text": "Photo: 颐园居 ·",
+     "size": "12px",
+     "fonts": [
+      "WenQuanYi Zen Hei×2",
+      "IPAGothic×1",
+      "Inter×51"
+     ]
+    }
+   }
+  },
+  "hub-d": {
+   "textEls": 202,
+   "distinctSizes": 6,
+   "sizes": {
+    "18px": 5,
+    "12px": 24,
+    "14px": 143,
+    "52px": 8,
+    "16px": 10,
+    "28px": 12
+   },
+   "distinctLS": 8,
+   "families": {
+    "Bricolage Grotesque": 28,
+    "Inter": 169,
+    "Hiragino Sans": 5
+   },
+   "weights": {
+    "400": 105,
+    "500": 19,
+    "600": 78
+   },
+   "distinctRadii": 3,
+   "radii": {
+    "999px": 38,
+    "50%": 3,
+    "16px": 18
+   },
+   "distinctShadows": 0,
+   "numericEls": 35,
+   "numericTabular": 0,
+   "numericSamples": [
+    "theme-n:116:normal",
+    ":37:normal",
+    ":28:normal",
+    ":24:normal",
+    ":18:normal",
+    "theme-n:315:normal"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "14px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "Goryōkaku",
+     "size": "14px",
+     "fonts": [
+      "Inter×12"
+     ]
+    },
+    "macron-disp": {
+     "text": "Onsen & sentō",
+     "size": "16px",
+     "fonts": [
+      "Bricolage Grotesque 96pt ExtraBold×14"
+     ]
+    }
+   }
+  },
+  "tokyo-gallery-d": {
+   "textEls": 370,
+   "distinctSizes": 9,
+   "sizes": {
+    "18px": 2,
+    "12px": 80,
+    "14px": 68,
+    "16px": 33,
+    "60px": 1,
+    "25.2px": 1,
+    "13px": 173,
+    "28px": 4,
+    "0px": 8
+   },
+   "distinctLS": 9,
+   "families": {
+    "Bricolage Grotesque": 6,
+    "Inter": 356,
+    "Hiragino Sans": 8
+   },
+   "weights": {
+    "400": 146,
+    "500": 112,
+    "600": 104,
+    "700": 8
+   },
+   "distinctRadii": 4,
+   "radii": {
+    "999px": 50,
+    "50%": 62,
+    "16px": 33,
+    "8px": 2
+   },
+   "distinctShadows": 2,
+   "numericEls": 48,
+   "numericTabular": 46,
+   "numericSamples": [
+    "nw:2026-10-03:normal",
+    "n:37:lining-nums tabular-nums",
+    "n:125:lining-nums tabular-nums",
+    "n:177:lining-nums tabular-nums",
+    "n:44:lining-nums tabular-nums",
+    "n:5:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "25.2px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "Start with Kanda Myōjin",
+     "size": "14px",
+     "fonts": [
+      "Inter SemiBold×1",
+      "Inter×23"
+     ]
+    }
+   }
+  },
+  "tokyo-atlas-d": {
+   "textEls": 242,
+   "distinctSizes": 9,
+   "sizes": {
+    "18px": 4,
+    "12px": 61,
+    "14px": 67,
+    "16px": 20,
+    "60px": 1,
+    "25.2px": 1,
+    "13px": 73,
+    "0px": 14,
+    "28px": 1
+   },
+   "distinctLS": 10,
+   "families": {
+    "Bricolage Grotesque": 5,
+    "Inter": 223,
+    "Hiragino Sans": 14
+   },
+   "weights": {
+    "400": 125,
+    "500": 43,
+    "600": 59,
+    "700": 15
+   },
+   "distinctRadii": 5,
+   "radii": {
+    "999px": 59,
+    "50%": 38,
+    "8px": 7,
+    "12px": 1,
+    "16px": 14
+   },
+   "distinctShadows": 1,
+   "numericEls": 33,
+   "numericTabular": 31,
+   "numericSamples": [
+    "nw:2026-10-03:normal",
+    "n:488:tabular-nums",
+    "n:263:tabular-nums",
+    "n:225:tabular-nums",
+    ":488:tabular-nums",
+    "n:43:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "25.2px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "ward by ward · Jōnan · Jōsai · Jōhoku · ",
+     "size": "18px",
+     "fonts": [
+      "Inter×65"
+     ]
+    },
+    "macron-disp": {
+     "text": "263 sights and 225 places to eat across ",
+     "size": "18px",
+     "fonts": [
+      "Bricolage Grotesque 96pt ExtraBold×648"
+     ]
+    }
+   }
+  },
+  "tokyo-guidebook-d": {
+   "textEls": 207,
+   "distinctSizes": 9,
+   "sizes": {
+    "18px": 5,
+    "12px": 54,
+    "14px": 73,
+    "16px": 65,
+    "52px": 1,
+    "21.84px": 1,
+    "13px": 5,
+    "60px": 2,
+    "30px": 1
+   },
+   "distinctLS": 7,
+   "families": {
+    "Bricolage Grotesque": 4,
+    "Inter": 191,
+    "Hiragino Sans": 12
+   },
+   "weights": {
+    "400": 90,
+    "500": 48,
+    "600": 68,
+    "700": 1
+   },
+   "distinctRadii": 4,
+   "radii": {
+    "999px": 32,
+    "50%": 3,
+    "8px": 16,
+    "16px": 1
+   },
+   "distinctShadows": 3,
+   "numericEls": 46,
+   "numericTabular": 3,
+   "numericSamples": [
+    "n:488:tabular-nums",
+    "n:263:tabular-nums",
+    "n:225:tabular-nums",
+    "n:1:normal",
+    "meta:43:normal",
+    "n:2:normal"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "21.84px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "ward by ward · Jōnan · Jōsai · Jōhoku · ",
+     "size": "18px",
+     "fonts": [
+      "Inter×53"
+     ]
+    }
+   }
+  },
+  "tokyo-insights-d": {
+   "textEls": 212,
+   "distinctSizes": 8,
+   "sizes": {
+    "18px": 9,
+    "12px": 82,
+    "14px": 22,
+    "16px": 1,
+    "52px": 1,
+    "21.84px": 1,
+    "13px": 89,
+    "28px": 7
+   },
+   "distinctLS": 6,
+   "families": {
+    "Bricolage Grotesque": 16,
+    "Inter": 195,
+    "Hiragino Sans": 1
+   },
+   "weights": {
+    "400": 122,
+    "500": 25,
+    "600": 65
+   },
+   "distinctRadii": 5,
+   "radii": {
+    "999px": 14,
+    "50%": 3,
+    "8px": 2,
+    "16px": 13,
+    "3px": 12
+   },
+   "distinctShadows": 3,
+   "numericEls": 65,
+   "numericTabular": 9,
+   "numericSamples": [
+    "n:488:tabular-nums",
+    "n:263:tabular-nums",
+    "n:225:tabular-nums",
+    ":488:lining-nums tabular-nums",
+    ":263:lining-nums tabular-nums",
+    ":225:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "21.84px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "ward by ward · Jōnan · Jōsai · Jōhoku · ",
+     "size": "18px",
+     "fonts": [
+      "Inter×53"
+     ]
+    }
+   }
+  },
+  "sheet-d": {
+   "textEls": 444,
+   "distinctSizes": 8,
+   "sizes": {
+    "18px": 7,
+    "12px": 106,
+    "14px": 95,
+    "16px": 40,
+    "13px": 174,
+    "28px": 3,
+    "0px": 17,
+    "52px": 2
+   },
+   "distinctLS": 8,
+   "families": {
+    "Bricolage Grotesque": 9,
+    "Inter": 418,
+    "Hiragino Sans": 17
+   },
+   "weights": {
+    "400": 149,
+    "500": 149,
+    "600": 126,
+    "700": 20
+   },
+   "distinctRadii": 6,
+   "radii": {
+    "999px": 70,
+    "50%": 71,
+    "8px": 7,
+    "16px": 40,
+    "3px": 1,
+    "12px": 1
+   },
+   "distinctShadows": 2,
+   "numericEls": 59,
+   "numericTabular": 58,
+   "numericSamples": [
+    "n:37:lining-nums tabular-nums",
+    "n:125:lining-nums tabular-nums",
+    "n:177:lining-nums tabular-nums",
+    "n:44:lining-nums tabular-nums",
+    "n:5:lining-nums tabular-nums",
+    "n:79:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "東京",
+     "size": "25.2px",
+     "fonts": [
+      "IPAGothic×2"
+     ]
+    },
+    "macron-ui": {
+     "text": "Start with Kanda Myōjin",
+     "size": "14px",
+     "fonts": [
+      "Inter SemiBold×1",
+      "Inter×23"
+     ]
+    },
+    "macron-disp": {
+     "text": "Kanda Myōjin",
+     "size": "52px",
+     "fonts": [
+      "IPAGothic×4",
+      "Bricolage Grotesque 96pt ExtraBold×15"
+     ]
+    },
+    "cjk-disp": {
+     "text": "(神田明神)",
+     "size": "52px",
+     "fonts": [
+      "IPAGothic×4",
+      "Bricolage Grotesque 96pt ExtraBold×2"
+     ]
+    }
+   }
+  },
+  "sheet-vn-d": {
+   "textEls": 313,
+   "distinctSizes": 8,
+   "sizes": {
+    "18px": 7,
+    "12px": 71,
+    "14px": 65,
+    "16px": 40,
+    "13px": 105,
+    "0px": 22,
+    "28px": 2,
+    "52px": 1
+   },
+   "distinctLS": 5,
+   "families": {
+    "Bricolage Grotesque": 6,
+    "Inter": 307
+   },
+   "weights": {
+    "400": 81,
+    "500": 109,
+    "600": 101,
+    "700": 22
+   },
+   "distinctRadii": 6,
+   "radii": {
+    "999px": 65,
+    "50%": 53,
+    "16px": 28,
+    "8px": 8,
+    "3px": 1,
+    "12px": 1
+   },
+   "distinctShadows": 2,
+   "numericEls": 48,
+   "numericTabular": 42,
+   "numericSamples": [
+    "n:40:lining-nums tabular-nums",
+    "n:31:lining-nums tabular-nums",
+    "n:58:lining-nums tabular-nums",
+    "n:6:lining-nums tabular-nums",
+    "n:22:lining-nums tabular-nums",
+    "n:52:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "viet-ui": {
+     "text": "phở · bánh mì · Cầu Ba Son",
+     "size": "18px",
+     "fonts": [
+      "Inter×26"
+     ]
+    },
+    "viet-disp": {
+     "text": "Việt Nam Quốc Tự",
+     "size": "52px",
+     "fonts": [
+      "Bricolage Grotesque 96pt ExtraBold×16"
+     ]
+    }
+   }
+  },
+  "hcmc-gallery-d": {
+   "textEls": 364,
+   "distinctSizes": 8,
+   "sizes": {
+    "18px": 2,
+    "12px": 63,
+    "14px": 76,
+    "16px": 45,
+    "60px": 1,
+    "13px": 168,
+    "28px": 5,
+    "0px": 4
+   },
+   "distinctLS": 6,
+   "families": {
+    "Bricolage Grotesque": 7,
+    "Inter": 357
+   },
+   "weights": {
+    "400": 140,
+    "500": 78,
+    "600": 138,
+    "700": 8
+   },
+   "distinctRadii": 4,
+   "radii": {
+    "999px": 60,
+    "50%": 91,
+    "8px": 3,
+    "16px": 44
+   },
+   "distinctShadows": 2,
+   "numericEls": 34,
+   "numericTabular": 33,
+   "numericSamples": [
+    "nw:2026-10-03:normal",
+    "n:40:lining-nums tabular-nums",
+    "n:31:lining-nums tabular-nums",
+    "n:58:lining-nums tabular-nums",
+    "n:6:lining-nums tabular-nums",
+    "n:22:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "viet-ui": {
+     "text": "phở · bánh mì · Cầu Ba Son",
+     "size": "18px",
+     "fonts": [
+      "Inter×26"
+     ]
+    }
+   }
+  },
+  "ny-gallery-d": {
+   "textEls": 369,
+   "distinctSizes": 8,
+   "sizes": {
+    "18px": 2,
+    "12px": 85,
+    "14px": 59,
+    "16px": 33,
+    "60px": 1,
+    "13px": 177,
+    "28px": 4,
+    "0px": 8
+   },
+   "distinctLS": 6,
+   "families": {
+    "Bricolage Grotesque": 6,
+    "Inter": 363
+   },
+   "weights": {
+    "400": 139,
+    "500": 120,
+    "600": 102,
+    "700": 8
+   },
+   "distinctRadii": 4,
+   "radii": {
+    "999px": 48,
+    "50%": 60,
+    "16px": 33,
+    "8px": 2
+   },
+   "distinctShadows": 2,
+   "numericEls": 55,
+   "numericTabular": 54,
+   "numericSamples": [
+    "nw:2026-08-13:normal",
+    "n:31:lining-nums tabular-nums",
+    "n:28:lining-nums tabular-nums",
+    "n:97:lining-nums tabular-nums",
+    "n:70:lining-nums tabular-nums",
+    "n:79:lining-nums tabular-nums"
+   ],
+   "scripts": {
+    "cjk-ui": {
+     "text": "Photo: 句 · CC BY-SA 4.0 · Wikimedia Comm",
+     "size": "12px",
+     "fonts": [
+      "IPAGothic×1",
+      "Inter×51"
+     ]
+    }
+   }
+  },
+  "wheeling-d": {
+   "textEls": 356,
+   "distinctSizes": 8,
+   "sizes": {
+    "18px": 2,
+    "12px": 69,
+    "14px": 79,
+    "16px": 40,
+    "60px": 1,
+    "13px": 157,
+    "28px": 4,
+    "0px": 4
+   },
+   "distinctLS": 6,
+   "families": {
+    "Bricolage Grotesque": 6,
+    "Inter": 350
+   },
+   "weights": {
+    "400": 159,
+    "500": 68,
+    "600": 121,
+    "700": 8
+   },
+   "distinctRadii": 4,
+   "radii": {
+    "999px": 52,
+    "50%": 83,
+    "8px": 3,
+    "16px": 43
+   },
+   "distinctShadows": 2,
+   "numericEls": 30,
+   "numericTabular": 29,
+   "numericSamples": [
+    "nw:2026-08-27:normal",
+    "n one:1:lining-nums tabular-nums",
+    "n:18:lining-nums tabular-nums",
+    "n:7:lining-nums tabular-nums",
+    "n:15:lining-nums tabular-nums",
+    "n:10:lining-nums tabular-nums"
+   ],
+   "scripts": {}
+  }
+ }
+}

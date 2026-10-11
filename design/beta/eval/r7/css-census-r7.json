@@ -1,0 +1,246 @@
+{
+ "label": "R7",
+ "font-size": {
+  "decls": 391,
+  "token_or_keyword": 387,
+  "raw": 4,
+  "distinct_raw": 2,
+  "distinct_all": 14,
+  "top_raw": [
+   [
+    ".5em",
+    3
+   ],
+   [
+    ".42em",
+    1
+   ]
+  ]
+ },
+ "border-radius": {
+  "decls": 353,
+  "token_or_keyword": 300,
+  "raw": 53,
+  "distinct_raw": 2,
+  "distinct_all": 14,
+  "top_raw": [
+   [
+    "50%",
+    43
+   ],
+   [
+    "3px",
+    10
+   ]
+  ]
+ },
+ "letter-spacing": {
+  "decls": 95,
+  "token_or_keyword": 31,
+  "raw": 64,
+  "distinct_raw": 16,
+  "distinct_all": 24,
+  "top_raw": [
+   [
+    "-.01em",
+    10
+   ],
+   [
+    "-.02em",
+    8
+   ],
+   [
+    ".08em",
+    7
+   ],
+   [
+    ".02em",
+    7
+   ],
+   [
+    ".04em",
+    6
+   ],
+   [
+    "-.015em",
+    5
+   ],
+   [
+    "-.04em",
+    3
+   ],
+   [
+    ".1em",
+    3
+   ]
+  ]
+ },
+ "box-shadow": {
+  "decls": 213,
+  "token_or_keyword": 173,
+  "raw": 40,
+  "distinct_raw": 28,
+  "distinct_all": 39,
+  "top_raw": [
+   [
+    "inset 0 0 0 1px var(--ink)",
+    7
+   ],
+   [
+    "0 0 0 2px var(--city), var(--e-2)",
+    4
+   ],
+   [
+    "0 1px 0 var(--line)",
+    2
+   ],
+   [
+    "inset 0 -5px 0 var(--ac)",
+    2
+   ],
+   [
+    "0 0 0 2px var(--city)",
+    2
+   ],
+   [
+    "0 0 0 2px var(--pin), var(--e-1)",
+    1
+   ],
+   [
+    "0 0 0 3px var(--surface), 0 0 0 5px var(--city), var(--e-2)",
+    1
+   ],
+   [
+    "0 0 0 2px var(--paper), 0 0 0 4px var(--city)",
+    1
+   ]
+  ]
+ },
+ "font-weight": {
+  "decls": 154,
+  "token_or_keyword": 7,
+  "raw": 147,
+  "distinct_raw": 6,
+  "distinct_all": 8,
+  "top_raw": [
+   [
+    "600",
+    85
+   ],
+   [
+    "500",
+    34
+   ],
+   [
+    "400",
+    11
+   ],
+   [
+    "700",
+    10
+   ],
+   [
+    "400 700",
+    4
+   ],
+   [
+    "500 700",
+    3
+   ]
+  ]
+ },
+ "line-height": {
+  "decls": 82,
+  "token_or_keyword": 25,
+  "raw": 57,
+  "distinct_raw": 17,
+  "distinct_all": 27,
+  "top_raw": [
+   [
+    "1.45",
+    11
+   ],
+   [
+    "1.5",
+    9
+   ],
+   [
+    "1.4",
+    7
+   ],
+   [
+    "1",
+    5
+   ],
+   [
+    "1.6",
+    5
+   ],
+   [
+    "1.3",
+    3
+   ],
+   [
+    "1.35",
+    3
+   ],
+   [
+    "1.55",
+    3
+   ]
+  ]
+ },
+ "font-family": {
+  "decls": 37,
+  "token_or_keyword": 30,
+  "raw": 7,
+  "distinct_raw": 2,
+  "distinct_all": 6,
+  "top_raw": [
+   [
+    "\"Inter\"",
+    4
+   ],
+   [
+    "\"Bricolage Grotesque\"",
+    3
+   ]
+  ]
+ },
+ "font-variant-numeric": {
+  "decls": 12,
+  "token_or_keyword": 2,
+  "raw": 10,
+  "distinct_raw": 3,
+  "distinct_all": 4,
+  "top_raw": [
+   [
+    "tabular-nums",
+    8
+   ],
+   [
+    "oldstyle-nums proportional-nums",
+    1
+   ],
+   [
+    "lining-nums tabular-nums",
+    1
+   ]
+  ]
+ },
+ "@font-face families": [
+  "Bricolage Grotesque",
+  "Inter"
+ ],
+ "tabular-nums rules": 12,
+ "css bytes": 444153,
+ "tokens": {
+  "fs": 16,
+  "r-": 5,
+  "radius": 3,
+  "shadow": 9,
+  "e-": 7,
+  "sp": 0,
+  "font": 3
+ }
+}

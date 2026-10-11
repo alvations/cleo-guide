@@ -1,0 +1,100 @@
+PASS  tokyo desktop: the first fit builds one page of cards, not the area (≤ 32 live + 40)  {"cards":40}
+PASS  tokyo desktop: map ≥ 58 % wide, on the left, full height  [60,0,0]
+PASS  tokyo desktop: list is a 2-column card grid  2
+PASS  tokyo desktop: zooming in changes the list count (search as I move the map)  ["435 places in this map area · Top ranked","198 places in this map area · Top ranked","290 more outside this area. Show all 488"]
+PASS  tokyo desktop: panning changes the list count  ["198 places in this map area · Top ranked","142 places in this map area · Top ranked"]
+PASS  tokyo desktop: "Show all" restores every place  ["Showing all 488 places · Top ranked",488]
+PASS  tokyo desktop: hovering a card highlights its pin  {"id":"p-imperial-palace-east-gardens","cardToPin":true}
+PASS  tokyo desktop: hovering a pin highlights its card  true
+PASS  tokyo desktop: pin → card in view in the list, page not scrolled  {"open":true,"name":"Yasukuni Shrine","card":"p-yasukuni-shrine","cardInView":true,"r":[429,743],"lp":[208,900],"scrollY":0}
+PASS  tokyo desktop: pin → preview card on the map  "Yasukuni Shrine"
+PASS  tokyo desktop: preview → place detail (#p=, view kept)  {"hash":"#view=atlas&p=yasukuni-shrine","sheet":true}
+PASS  tokyo desktop: an area chip fits the map to that area  {"a":"CYD","z0":15,"z1":14.5,"inside":43,"of":43}
+PASS  tokyo desktop: 0 page errors (stub tiles)  []
+PASS  tokyo desktop-dark: 0 page errors (stub tiles)  []
+PASS  tokyo desktop, tiles blocked: every place listed + "Map unavailable"  ["atlas-d ms-on ms-nomap","All 488 places · Top ranked"]
+PASS  tokyo desktop, tiles blocked: 0 page errors  []
+PASS  tokyo phone: the OSM credit is visible and clear of the pill, the carousel and the chip row  {"box":[132,162],"pill":false,"carousel":false,"bar":false}
+PASS  tokyo phone: the first fit builds one page of cards, not the area (≤ 32 live + 40)  {"cards":41}
+PASS  tokyo phone: no horizontal overflow; the search control is fully on screen  {"page":0,"spill":[12,56]}
+PASS  tokyo phone: first screen ≥ 70 % map  {"box":92,"clear":69}
+PASS  tokyo phone: the city is named on the first screen (QA-40)  true
+PASS  tokyo phone: pin → its carousel card in view  {"card":"p-nezu-shrine","inView":true,"pinSel":true}
+PASS  tokyo phone: swiping the carousel selects the next card's pin  {"before":"★5","card":"p-rikugien-gardens"}
+PASS  tokyo phone: a pan offers "Search this area", which refreshes the carousel  {"button":true,"before":248,"after":77}
+PASS  tokyo phone: independent B-08 — no visible title covered (carousel, list scrolled) (QA-37)  {"carousel":{"seen":1,"covered":0,"eg":[]},"list":{"seen":2,"covered":0,"eg":[]}}
+PASS  tokyo phone: List shows the full-screen list, Map returns  ["atlas-m ms-on ms-list",81,"atlas-m ms-on"]
+PASS  tokyo phone: 0 page errors  []
+PASS  tokyo phone-dark: the OSM credit is visible and clear of the pill, the carousel and the chip row  {"box":[132,162],"pill":false,"carousel":false,"bar":false}
+PASS  tokyo phone-dark: 0 page errors  []
+PASS  tokyo phone, tiles blocked: the list holds every place  ["atlas-m ms-on ms-list ms-nomap","All 488 places · Top ranked"]
+PASS  tokyo phone, tiles blocked: 0 page errors  []
+PASS  tokyo 390: #view=atlas&p= opens the detail with the place on the map  {"sheet":true,"inView":true}
+PASS  tokyo 390 deep link: 0 page errors  []
+PASS  tokyo 1440: #view=atlas&p= opens the detail with the place on the map  {"sheet":true,"inView":true}
+PASS  tokyo 1440 deep link: 0 page errors  []
+PASS  cleveland desktop: the first fit builds one page of cards, not the area (≤ 32 live + 40)  {"cards":40}
+PASS  cleveland desktop: map ≥ 58 % wide, on the left, full height  [60,0,0]
+PASS  cleveland desktop: list is a 2-column card grid  2
+PASS  cleveland desktop: zooming in changes the list count (search as I move the map)  ["167 places in this map area · Top ranked","83 places in this map area · Top ranked","111 more outside this area. Show all 194"]
+PASS  cleveland desktop: panning changes the list count  ["83 places in this map area · Top ranked","11 places in this map area · Top ranked"]
+PASS  cleveland desktop: "Show all" restores every place  ["Showing all 194 places · Top ranked",194]
+PASS  cleveland desktop: hovering a card highlights its pin  {"id":"p-chess-collection-cleveland-public-library-main-library","cardToPin":true}
+PASS  cleveland desktop: hovering a pin highlights its card  true
+PASS  cleveland desktop: pin → card in view in the list, page not scrolled  {"open":true,"name":"Slyman's Restaurant and Deli","card":"p-slymans-restaurant-and-deli","cardInView":true,"r":[393,716],"lp":[208,900],"scrollY":0}
+PASS  cleveland desktop: pin → preview card on the map  "Slyman's Restaurant and Deli"
+PASS  cleveland desktop: preview → place detail (#p=, view kept)  {"hash":"#view=atlas&p=slymans-restaurant-and-deli","sheet":true}
+PASS  cleveland desktop: an area chip fits the map to that area  {"a":"DT","z0":15,"z1":14,"inside":42,"of":42}
+PASS  cleveland desktop: 0 page errors (stub tiles)  []
+PASS  cleveland desktop, tiles blocked: every place listed + "Map unavailable"  ["atlas-d ms-on ms-nomap","All 194 places · Top ranked"]
+PASS  cleveland desktop, tiles blocked: 0 page errors  []
+PASS  cleveland phone: the OSM credit is visible and clear of the pill, the carousel and the chip row  {"box":[132,162],"pill":false,"carousel":false,"bar":false}
+PASS  cleveland phone: the first fit builds one page of cards, not the area (≤ 32 live + 40)  {"cards":40}
+PASS  cleveland phone: no horizontal overflow; the search control is fully on screen  {"page":0,"spill":[12,56]}
+PASS  cleveland phone: first screen ≥ 70 % map  {"box":92,"clear":69}
+PASS  cleveland phone: the city is named on the first screen (QA-40)  true
+PASS  cleveland phone: pin → its carousel card in view  {"card":"p-sims-park-and-lakefront-trail","inView":true,"pinSel":true}
+PASS  cleveland phone: swiping the carousel selects the next card's pin  {"before":"34","after":"35","card":"p-lakefront-lodge"}
+PASS  cleveland phone: a pan offers "Search this area", which refreshes the carousel  {"button":true,"before":180,"after":4}
+PASS  cleveland phone: independent B-08 — no visible title covered (carousel, list scrolled) (QA-37)  {"carousel":{"seen":1,"covered":0,"eg":[]},"list":{"seen":2,"covered":0,"eg":[]}}
+PASS  cleveland phone: List shows the full-screen list, Map returns  ["atlas-m ms-on ms-list",80,"atlas-m ms-on"]
+PASS  cleveland phone: 0 page errors  []
+PASS  cleveland phone, tiles blocked: the list holds every place  ["atlas-m ms-on ms-list ms-nomap","All 194 places · Top ranked"]
+PASS  cleveland phone, tiles blocked: 0 page errors  []
+PASS  cleveland 390: #view=atlas&p= opens the detail with the place on the map  {"sheet":true,"inView":true}
+PASS  cleveland 390 deep link: 0 page errors  []
+PASS  cleveland 1440: #view=atlas&p= opens the detail with the place on the map  {"sheet":true,"inView":true}
+PASS  cleveland 1440 deep link: 0 page errors  []
+PASS  chinatown desktop: the first fit builds one page of cards, not the area (≤ 32 live + 40)  {"cards":16}
+PASS  chinatown desktop: map ≥ 58 % wide, on the left, full height  [60,0,0]
+PASS  chinatown desktop: list is a 2-column card grid  2
+PASS  chinatown desktop: zooming in changes the list count (search as I move the map)  ["15 places in this map area · Top ranked","9 places in this map area · Top ranked","7 more outside this area. Show all 16"]
+PASS  chinatown desktop: panning changes the list count  ["9 places in this map area · Top ranked","6 places in this map area · Top ranked"]
+PASS  chinatown desktop: "Show all" restores every place  ["Showing all 16 places · Top ranked",16]
+PASS  chinatown desktop: hovering a card highlights its pin  {"id":"p-tian-tian-hainanese-chicken-rice","cardToPin":true}
+PASS  chinatown desktop: hovering a pin highlights its card  true
+PASS  chinatown desktop: pin → card in view in the list, page not scrolled  {"open":true,"name":"Sri Mariamman Temple","card":"p-sri-mariamman-temple","cardInView":true,"r":[388,719],"lp":[208,900],"scrollY":0}
+PASS  chinatown desktop: pin → preview card on the map  "Sri Mariamman Temple"
+PASS  chinatown desktop: preview → place detail (#p=, view kept)  {"hash":"#view=atlas&p=sri-mariamman-temple","sheet":true}
+PASS  chinatown desktop: 0 page errors (stub tiles)  []
+PASS  chinatown desktop, tiles blocked: every place listed + "Map unavailable"  ["atlas-d ms-on ms-nomap","All 16 places · Top ranked"]
+PASS  chinatown desktop, tiles blocked: 0 page errors  []
+PASS  chinatown phone: the OSM credit is visible and clear of the pill, the carousel and the chip row  {"box":[132,162],"pill":false,"carousel":false,"bar":false}
+PASS  chinatown phone: the first fit builds one page of cards, not the area (≤ 32 live + 40)  {"cards":16}
+PASS  chinatown phone: no horizontal overflow; the search control is fully on screen  {"page":0,"spill":[12,56]}
+PASS  chinatown phone: first screen ≥ 70 % map  {"box":92,"clear":69}
+PASS  chinatown phone: the city is named on the first screen (QA-40)  true
+PASS  chinatown phone: pin → its carousel card in view  {"card":"p-sri-mariamman-temple","inView":true,"pinSel":true}
+PASS  chinatown phone: swiping the carousel selects the next card's pin  {"before":"★4","after":"★5","card":"p-buddha-tooth-relic-temple-and-museum"}
+PASS  chinatown phone: a pan offers "Search this area", which refreshes the carousel  {"button":true,"before":15,"after":3}
+PASS  chinatown phone: independent B-08 — no visible title covered (carousel, list scrolled) (QA-37)  {"carousel":{"seen":1,"covered":0,"eg":[]},"list":{"seen":2,"covered":0,"eg":[]}}
+PASS  chinatown phone: List shows the full-screen list, Map returns  ["atlas-m ms-on ms-list",16,"atlas-m ms-on"]
+PASS  chinatown phone: 0 page errors  []
+PASS  chinatown phone, tiles blocked: the list holds every place  ["atlas-m ms-on ms-list ms-nomap","All 16 places · Top ranked"]
+PASS  chinatown phone, tiles blocked: 0 page errors  []
+PASS  chinatown 390: #view=atlas&p= opens the detail with the place on the map  {"sheet":true,"inView":true}
+PASS  chinatown 390 deep link: 0 page errors  []
+PASS  chinatown 1440: #view=atlas&p= opens the detail with the place on the map  {"sheet":true,"inView":true}
+PASS  chinatown 1440 deep link: 0 page errors  []
+
+>>> PASS — Atlas map-search acceptance
