@@ -282,7 +282,7 @@
   // ROUND-3 #2: one sheet on the phone map: while a pin sheet is up, the Atlas tray steps aside (html.poi-on), and it
   // comes back when the sheet closes. Nothing is removed: the tray keeps every row, only hidden from view meanwhile.
   const poiOn = v => { d.documentElement.classList.toggle('poi-on', v); const lp = $('.listpane'); if (lp && !desk()) { if (v && d.documentElement.classList.contains('atlas-m')) lp.setAttribute('inert', ''); else lp.removeAttribute('inert'); } };
-  // W6: Back closes the pin sheet
+  // Back closes the pin sheet
   let poiPushed = 0;
   const closePoi = how => { if (poi && !poi.hidden) { poi.hidden = true; poi.innerHTML = ''; poiOn(false); } if (poiPushed && !how) history.back(); poiPushed = 0; };
   on(window, 'popstate', () => { if (poiPushed) closePoi(1); });
@@ -309,7 +309,7 @@
   const pin = c => {
     if (!desk()) { openPoi(c); return; }
     $$('li.pl.is-focus').forEach(x => x.classList.remove('is-focus'));
-    c.classList.add('is-focus'); c.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    if (Cleo.defer) Cleo.defer.all(); c.classList.add('is-focus'); const s = () => c.scrollIntoView({ block: 'center' }); s(); setTimeout(s, 600);
   };
   const mountMap = Cleo.mountMap = () => {
     const L = window.L, el = d.getElementById('cleo-map'); if (map || !L || !L.map || !el) return false;

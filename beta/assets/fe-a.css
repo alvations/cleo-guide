@@ -238,3 +238,7 @@ html[data-view=gallery] .g-row .row-h{flex-wrap:nowrap;align-items:end;margin-to
 .pin-cl span{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:var(--surface,#fff);color:var(--ink);border:3px solid var(--ac,var(--city));box-shadow:var(--e-2);font:700 13px/1 var(--font-ui,sans-serif);font-variant-numeric:tabular-nums}
 .pin-cl.hot span,.pin-cl:hover span,.pin-cl:focus-visible span{background:var(--ac,var(--city));color:#fff;text-shadow:0 0 2px rgba(0,0,0,.6)}
 .pin-cl:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:50%}
+/* W6 (FE-A): while JS runs (html[data-view] is set by the head script) a deferred chunk's <noscript> holds raw text, yet its
+   inline display:contents made it one giant grid row (~100k px), so Cleo.defer sized its spacers at ~3,900 px a card and a
+   pin/deep link scrolled the list past its card. No-JS keeps display:contents (no data-view), so every card still renders. */
+html[data-view] ol.pls>noscript[data-cleo-defer]{display:none!important}

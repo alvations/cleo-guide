@@ -177,7 +177,7 @@
   C.detent = (v, push) => { if (v) setDet(v, push); return det; };
   const park = (el, host, before) => { if (el && el.parentNode !== host) { moved.push([el, el.parentNode, el.nextSibling]); host.insertBefore(el, before || null); } };
   const unpark = () => moved.splice(0).reverse().forEach(([el, par, nx]) => { if (nx && nx.parentNode === par) par.insertBefore(el, nx); else par.appendChild(el); });
-  function head() {   // the grab: tap or swipe steps the detents
+  function head() {
     let th = $('.tray-head', lp); if (th) return th;
     th = d.createElement('div'); th.className = 'tray-head'; th.innerHTML = '<button type="button" class="grab" data-detent-cycle aria-expanded="false"><span class="vh">List size</span></button>';
     grab = th.firstChild; lp.insertBefore(th, lp.firstChild);
