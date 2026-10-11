@@ -7,7 +7,7 @@
  * the fallback, so this sheet restyles itself when the designer's tokens.css lands:
  *   (the signature accent is NOT used here: v2 keeps it to the heart, saved count, route line and wordmark star;
  *    primary CTAs stay soft-black ink, from the base sheet)
- *   --sun                   the warm, sunny highlight (used sparingly)      → fallback --accent-wash, then --gilt
+ *   --sun / --sun-wash      the warm, sunny highlight (used sparingly)      → fallback --ink-2 / --sand
  *   --cover-1..4            the calm no-photo cover grounds                 → fallback mixes of --sand/--surface/--line
  * Motion: a soft lift on hover/focus only; nothing moves under prefers-reduced-motion.
  */
@@ -31,7 +31,7 @@
 .lhero .d-hero { color: var(--ink); font-size: clamp(var(--fs-hero), 9vw, calc(var(--fs-hero) * 1.25)); letter-spacing: var(--track-display, -.02em); }
 /* the one expressive moment: a sun-washed highlighter swipe under one word — no italics, no gradient chrome */
 .lhero .d-hero em { font-style: normal; padding: 0 .06em; border-radius: .12em;
-  background: linear-gradient(transparent 58%, color-mix(in srgb, var(--sun, var(--accent-wash, var(--gilt))) 32%, transparent) 58%, color-mix(in srgb, var(--sun, var(--accent-wash, var(--gilt))) 32%, transparent) 92%, transparent 92%); }
+  background: linear-gradient(transparent 58%, var(--sun-wash, var(--sand)) 58%, var(--sun-wash, var(--sand)) 92%, transparent 92%); }
 .lhero .sub { margin: 18px auto 28px; max-width: 48ch; color: var(--ink-2); font-size: var(--fs-lead); line-height: var(--lh-lead); }
 .feb .search { display: flex; align-items: center; gap: 10px; max-width: 720px; min-height: 64px; margin: 0 auto; padding: 8px 8px 8px 20px;
   border: 1px solid var(--line-strong); border-radius: var(--r-pill); background: var(--surface); box-shadow: var(--e-2); text-align: left; }
@@ -77,17 +77,22 @@
 /* the calm no-photo cover: a quiet neutral ground, the place's own line drawing, its name in type */
 .feb .cover { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 16px 18px; z-index: 0; }
 .feb .cover .motif { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 82%; object-fit: cover; object-position: 50% 100%; z-index: -1; pointer-events: none; }
-.feb .cover .native { position: absolute; top: 14px; right: 16px; font: 500 clamp(18px, 2vw, 24px)/1.1 var(--font-native, var(--font-display)); color: var(--ink-2); writing-mode: vertical-rl; letter-spacing: .12em; }
+/* v2 calm cover (V2.7): one small centred icon, then the name set in type — no drawing */
+.feb .card-media > .cover, .feb .ccard .cover { align-items: center; justify-content: center; text-align: center; gap: 8px; padding: 16px; }
+.feb .cover .gl { width: 26px; height: 26px; color: var(--ink-3); stroke-width: var(--icon-stroke, 1.5); }
+.feb .cover-n { max-width: 92%; font: 600 clamp(20px, 2.1vw, 26px)/1.1 var(--font-display); letter-spacing: var(--track-display, -.02em); color: var(--ink-2); }
+.feb .dense .cover-n { font-size: clamp(17px, 4.4vw, 24px); }
+.feb .cover .native { font: 500 var(--fs-sm)/1.2 var(--font-native, var(--font-ui)); letter-spacing: .08em; color: var(--ink-3); }
 .feb .c-0 .card-media, .feb .c-0.hero-media, .feb .t-0 .cover, .feb .rail.editorial .rail-i.sig:nth-child(4n+1)::before { background: var(--cover-1, var(--sand)); }
 .feb .c-1 .card-media, .feb .c-1.hero-media, .feb .t-1 .cover, .feb .rail.editorial .rail-i.sig:nth-child(4n+2)::before { background: var(--cover-2, color-mix(in srgb, var(--sand) 45%, var(--surface))); }
 .feb .c-2 .card-media, .feb .c-2.hero-media, .feb .t-2 .cover, .feb .rail.editorial .rail-i.sig:nth-child(4n+3)::before { background: var(--cover-3, color-mix(in srgb, var(--line) 75%, var(--paper))); }
-.feb .c-3 .card-media, .feb .c-3.hero-media, .feb .t-3 .cover, .feb .rail.editorial .rail-i.sig:nth-child(4n+4)::before { background: var(--cover-4, color-mix(in srgb, var(--sun, var(--accent-wash, var(--gilt))) 10%, var(--surface))); }
+.feb .c-3 .card-media, .feb .c-3.hero-media, .feb .t-3 .cover, .feb .rail.editorial .rail-i.sig:nth-child(4n+4)::before { background: var(--cover-4, color-mix(in srgb, var(--sun-wash, var(--sand)) 60%, var(--surface))); }
 
 /* sticker-like badge — only where the data has a ★ collection */
 .feb .sticker { position: absolute; left: 10px; bottom: 10px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; max-width: calc(100% - 20px);
   padding: 5px 11px; border-radius: var(--r-pill); background: var(--surface); color: var(--ink); box-shadow: var(--e-1);
   font: 600 var(--fs-sm)/1.2 var(--font-ui); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.feb .sticker .ico { color: var(--sun, var(--accent-wash, var(--gilt))); }
+.feb .sticker .ico { color: var(--sun, var(--ink-2)); }
 
 .feb .card-body { display: grid; gap: 4px; padding: 0 2px; }
 .feb .card-t { margin: 0; font: 500 var(--fs-d3)/1.15 var(--font-display); letter-spacing: var(--track-display, -.01em); color: var(--ink); }
@@ -187,7 +192,7 @@
 .feb .chero .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 20px; }
 .feb .chero .share-note { font-size: var(--fs-sm); color: var(--ink-2); }
 .feb .hero-media { position: relative; margin: 0; aspect-ratio: 16 / 10; border-radius: var(--r-l); overflow: hidden; isolation: isolate; }
-@media (min-width: 900px) { .feb .hero-media { aspect-ratio: 4 / 3; } }
+@media (min-width: 900px) { .feb .hero-media { aspect-ratio: 16 / 11; } }
 .feb .hero-media .motif { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: auto; max-height: 70%; object-fit: cover; object-position: 50% 100%; z-index: -1; }
 .feb .hero-media .big { position: absolute; top: clamp(18px, 3vw, 32px); left: clamp(20px, 3vw, 36px); font: 500 clamp(56px, 9vw, 112px)/1 var(--font-display); letter-spacing: -.03em; color: var(--ink); }
 .feb .hero-media .big-l { position: absolute; top: calc(clamp(18px, 3vw, 32px) + clamp(60px, 9.6vw, 120px)); left: clamp(20px, 3vw, 36px); max-width: 22ch; font-size: var(--fs-body); color: var(--ink-2); }
@@ -214,7 +219,7 @@
 .feb .results .grp.guides ol { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; }
 .feb .results li a { border-radius: var(--r-m); }
 .feb .results a.is-kb, .feb .results a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
-.feb .results mark { background: color-mix(in srgb, var(--sun, var(--accent-wash, var(--gilt))) 28%, transparent); color: var(--ink); border-radius: 2px; }
+.feb .results mark { background: var(--sun-wash, var(--sand)); color: var(--ink); border-radius: 2px; }
 
 @media (prefers-reduced-motion: reduce) {
   .feb .card-media, .feb .theme-main .cover, .feb .rail.editorial .rail-i.sig::before { transition: none; }
