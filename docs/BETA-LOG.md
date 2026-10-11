@@ -739,3 +739,30 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Run:** runs `tools/beta/imagery/fetch-unsplash.js` (official API, high-confidence title matches only, no Unsplash+, `download_location` fired), rebuilds the beta, runs `validate` and `test`, then commits the photos and their "Photo by X on Unsplash" credits.
   - **Skips cleanly:** if the `UNSPLASH_ACCESS_KEY` repository secret or the script is missing, it warns and commits nothing.
   - **Settings:** scoped allow rules in `.claude/settings.json`.
+
+- 2026-10-11 · **Designer (W6 type & style)** · [AUDIT](../design/beta/style/AUDIT.md) · [DECISION](../design/beta/style/DECISION.md) · `23da97d8`
+  - **Rated** the shipped type and style on 30 items (`design/beta/style/scores.json`): **196/300 (65.3 %)**. melon-seek scores 216 and the leading products' general patterns score 240. Top defects:
+    - Vietnamese falls back to a system face mid-word: Bodoni misses 43 characters and Figtree 44.
+    - Bodoni's macrons survive only through 13 opsz patches.
+    - The stylesheets carry 73 font sizes and 27 radii, and figures are proportional.
+  - **Three directions** (`design/beta/style/directions/`, token sets plus re-rendered mockups of the landing page, the Japan hub, Tokyo in all four views and two sheets): **A** Bodoni + Figtree refined, 209; **B** Playfair + Inter with melon-seek tokens, **240**; **C** Fraunces + Manrope, 224 (the packaged Fraunces subset misplaces macrons).
+  - **Shipped B:**
+    - Fonts: self-hosted OFL Playfair (opsz 28 pinned, roman + italic) and Inter, 400–700, in latin / latin-ext / latin-ext-more / vietnamese subsets built by `design/beta/style/tools/make-fonts.py`. Bodoni Moda and Figtree are removed.
+    - Tokens: `--radius*`, `--shadow-sm/--shadow/--shadow-lg` with a full night set, `--fs-meta/--fs-ui`, `--num`, `--track-display`, `--focus-ring`.
+    - `normalize-css.py` moved 179 sizes, 42 weights and 47 radii onto tokens.
+    - The Bodoni opsz patches are retired (contract §15.1/§16.1, views V11, the `build-css.py` Japan rule).
+    - Tabular figures on counts, stats and charts (views V12).
+  - **Hooks outside the designer's files:**
+    - `tools/beta/lib/render/fe-a.css` (FE-A): the normalization pass, plus the phone lead-card thumbnail at 108 → 100 px with its meta line at weight 500, so it stays on one line.
+    - `tools/beta/og.js` (platform) reads the new font files. The OG PNGs are not regenerated; run `npm run beta:og`.
+    - `lib/art.js` still names Figtree inside SVG-as-image, where web fonts never load. It is left as is.
+  - **Measured, Tokyo default:**
+
+    | | Before | After |
+    |---|---|---|
+    | Bytes | 1,932 KB | 1,945 KB |
+    | FCP 4× | 480 ms | 528 ms |
+    | AA failures | 0/0 | 0/0 |
+
+    The macron check passes on the visible lines. Vietnamese renders in one face. The gates (validate, test, beta:check) are green, with 8,458 places (beta == live).
+  - **After score: 240/300 (80.0 %).** Before and after screenshots: `design/beta/style/audit/` → `design/beta/style/after/`.
