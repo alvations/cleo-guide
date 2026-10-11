@@ -190,3 +190,11 @@ There will be four more rounds, Rounds 6–9, run with the same loop. Each evalu
 - performance and accessibility.
 
 Any row that is not ✅ becomes the next wave's work.
+
+## Target raised: ≥ 98 overall (owner, 2026-10-11)
+
+**98 is the minimum, not a stretch target.** Rounds continue (6, 7, 8, …) until the independent review scores ≥ 98 overall with every design-conformance row ✅. The rubric and the evaluator's independence are unchanged:
+- the evaluator is never given the target, nor asked to hit it;
+- QA never weakens a gate.
+
+If progress stalls because the remaining points are blocked on the owner (photographs, a reviewed locale), the orchestrator pauses and reports exactly what unblocks them. See `design/beta/eval/ROUNDS-6-9.md`.

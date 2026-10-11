@@ -1,4 +1,4 @@
-# Rounds 6–9 — build what was designed (owner request, 2026-10-11)
+# Rounds 6+ — build what was designed, iterate to ≥ 98 (owner request, 2026-10-11)
 
 The owner asked for **4 more rounds** and wants to be sure the beta ends up with what was designed. This file is the **design-conformance checklist**. In every round, from Round 6 to Round 9:
 
@@ -8,10 +8,13 @@ The owner asked for **4 more rounds** and wants to be sure the beta ends up with
 
 Each round runs the same loop as before: **build wave → QA pass on a pinned SHA → independent evaluator (ROUND-N.md with the rubric + Typography & style sub-scorecard + this checklist) → fix wave on gaps → QA YES → deploy (beta-only PR into the Pages branch) → BETA-CHANGELOG entry**.
 
-**Goals:**
-- Overall ≥ 80, A (look & feel) ≥ 80 and C ≥ 80.
-- Stretch: 90.
-- Every conformance row ✅, except rows blocked on the owner, which are marked as such.
+**Goal (owner, 2026-10-11): an overall score of at least 98 in the independent review. 98 is the minimum, not a stretch target.** Because 0.40·A + 0.25·B + 0.20·C + 0.15·D ≥ 98, every dimension has to sit around 98 too, and every conformance row has to be ✅.
+
+**Iteration rule:** there is no fixed round count. Keep running rounds (6, 7, 8, …) until a review scores **≥ 98**.
+
+**Rules:**
+- **Integrity of the review.** The evaluator is independent and uses the same rubric and method as ROUND-1. It must never be told a target score or asked to reach one. A score that has not been earned with evidence is worthless. QA likewise never weakens a gate.
+- **Owner-blocked items.** Some points need the owner: real photographs (blocked hosts or key), a reviewed second locale, and the price/rating prose decision. Each evaluator must state how many points are blocked on the owner. If two rounds in a row gain < 1 point and the remaining gap is mostly owner-blocked, pause the build waves and tell the owner exactly what unblocks the next points, instead of burning rounds. Resume as soon as the owner acts.
 
 ## Design-conformance checklist
 
@@ -32,10 +35,10 @@ Each round runs the same loop as before: **build wave → QA pass on a pinned SH
 ## Round plan
 
 - **Round 6:** Wave 6 runs the type & style lane, Atlas map-first and the Unsplash candidate manifest. Then QA, then the R6 evaluation, then a fix wave if needed, then deploy.
-- **Rounds 7–9:** each wave targets the evaluator's top gaps and every non-✅ checklist row. Expected order:
+- **Round 7 and onwards:** each wave targets the evaluator's top gaps and every non-✅ checklist row. Expected order:
   - R7: style polish across views and Atlas refinements;
   - R8: photos, if the owner has allowed the hosts, otherwise more art and motion;
   - R9: a final consistency pass.
 
   At most 4–5 sessions run at once.
-- **Close-out after Round 9:** `FINAL-SUMMARY.md` is updated with R6–R9 and the final checklist state.
+- **Close-out:** once a review scores ≥ 98, update `FINAL-SUMMARY.md` with every round and the final checklist state.
