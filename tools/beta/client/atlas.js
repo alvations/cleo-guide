@@ -76,7 +76,7 @@
     if (!pager && lp) { pager = d.createElement('p'); pager.className = 'ms-pager'; lp.insertBefore(pager, $('#how-we-choose', lp)); on(pager, 'click', e => { if (e.target.closest('button')) { lim += PER; msArea(true); } }); }
     const left = inn.length - lim;
     if (pager) { pager.hidden = left <= 0; pager.innerHTML = left > 0 ? '<button type="button" class="btn btn-ghost">Show ' + Math.min(PER, left) + ' more</button> <span>' + lim.toLocaleString('en-US') + ' of ' + pl(inn.length) + ' in this area</span>' : ''; }
-    C.msN = [inn.length, all.length - inn.length]; H.classList.add('ms-on'); here(false);
+    deco(); C.msN = [inn.length, all.length - inn.length]; H.classList.add('ms-on'); here(false);
     if (C.msPaint) C.msPaint();
   };
   C.after.push(() => { if (atlas() && C.map()) msArea(); });
@@ -157,6 +157,28 @@
   }
   on(d, 'keydown', e => { if (e.key === 'Escape' && poi && !poi.hidden && !(Cleo.sheet && Cleo.sheet.isOpen())) closePoi(); });
 
+  /* ---- the Atlas card face (W7 review): image-first on FE-A's shared li.pl — media on top (credited 500w photo or the
+   * calm cover) with the heart, a small rank badge, the Must see sun sticker / Closed; below: the name (2 lines), area ·
+   * kind, "Recommended by <first source> +N". Only additions, hidden outside Atlas (atlas.css); the card stays FE-A's. */
+  const info = C.info;
+  const deco = () => qa('li.pl').forEach(c => {
+    if (c.hasAttribute('data-ms')) return; c.setAttribute('data-ms', '');
+    const t1 = at(c, 'data-t') === '1', cl = c.hasAttribute('data-closed'), n = at(c, 'data-n'), a = ((info.areas || {})[at(c, 'data-a')] || {}).n || '';
+    const inT = ($('.pl-e .in', c) || {}).textContent || '', dish = inT.split(' · ').slice(1).join(' · ').trim();
+    const g = (at(c, 'data-g') || '').split(' ').filter(x => x && x !== 'FREE' && x !== 'ICON')[0], kind = dish || (at(c, 'data-k') === 'f' ? 'Eat & drink' : ((info.cats || {})[g] || 'Sight'));
+    const ss = (at(c, 'data-src') || '').split(' ').filter(x => x && x !== 'guide'), s0 = ss[0] && ((info.src || {})[ss[0]] || [ss[0]])[0];
+    const fig = $('figure.pl-photo', c), cap = fig && $('figcaption', fig), cl0 = cap && [].slice.call(cap.querySelectorAll('a')).pop();
+    c.insertAdjacentHTML('afterbegin', '<span class="ms-bd"><b class="ms-rk" aria-hidden="true">' + (t1 && !cl ? '★ ' : '') + C.esc(n) + '</b>' +
+      (cl ? '<span class="sticker ms-cl">Closed</span>' : t1 ? '<span class="sticker ms-st">Must see</span>' : '') + '</span>' +
+      (cl0 ? '<a class="ms-cr" href="' + C.esc(cl0.href) + '" target="_blank" rel="noopener" title="' + C.esc(cap.textContent.trim()) + '" aria-label="Photo credit: ' + C.esc(cap.textContent.trim()) + '">©</a>' : ''));
+    const nm = $('.pl-n', c); if (nm) nm.insertAdjacentHTML('afterend', '<p class="ms-k"><span class="ms-a">' + C.esc(a) + ' · </span>' + C.esc(kind) + '</p>' +
+      '<p class="ms-rec">' + (s0 ? 'Recommended by <b>' + C.esc(s0) + '</b>' + (ss.length > 1 ? ' +' + (ss.length - 1) : '') : 'Added by the guide') + '</p>');
+    const im = fig && $('img', fig); if (im) { im.setAttribute('data-sizes0', im.getAttribute('sizes') || ''); im.setAttribute('sizes', '240px'); }   // the 500w copy
+  });
+  const undeco = () => { qa('li.pl img[data-sizes0]').forEach(im => { im.setAttribute('sizes', at(im, 'data-sizes0')); im.removeAttribute('data-sizes0'); });
+    qa('li.pl[data-ms]').forEach(x => x.removeAttribute('data-ms')); qa('li.pl :is(.ms-bd,.ms-cr,.ms-k,.ms-rec)').forEach(x => x.remove()); };
+  on(d, 'cleo:stamped', () => { if (atlas()) deco(); });
+
   /* ---- the Atlas chrome (moved off the eager path): filter bar, results line, List / Map pill ---- */
   const split = $('.split'), tb = $('[data-cleo-toolbar]'), nav = $('[data-cleo-views]'), achips = $('.area-chips');
   let moved = [], bar = null, head = null, tog = null, listOn = false, pushedList = 0;
@@ -166,7 +188,7 @@
   function build() {
     if (bar || !split) return;
     bar = d.createElement('div'); bar.className = 'ms-bar'; bar.setAttribute('role', 'search'); bar.setAttribute('aria-label', 'Search and filter the map');
-    bar.innerHTML = '<p class="ms-city">' + C.esc(C.info.name || '') + '</p><div class="ms-x"><button type="button" class="chip ms-must" aria-pressed="false"><i class="tg t1" aria-hidden="true"></i><span>Must see</span></button>' +
+    bar.innerHTML = '<div class="ms-x"><button type="button" class="chip ms-must" aria-pressed="false"><i class="tg t1" aria-hidden="true"></i><span>Must see</span></button>' +
       '<button type="button" class="chip ms-mine" aria-pressed="false">' + C.icon('heart') + '<span>Saved</span> <span class="n"></span></button>' +
       '<label class="ms-sort"><span class="vh">Sort places</span><select>' + SORT.map(x => '<option value="' + x[0] + '">' + x[1] + '</option>').join('') + '</select></label></div>';
     split.parentNode.insertBefore(bar, split);
@@ -205,8 +227,9 @@
   };
   C.after.push(paintMs); on(d, 'cleo:stamped', () => { if (atlas()) requestAnimationFrame(paintMs); }); on(d, 'cleo:saved', paintMs);
   // phones: List ⇄ Map. The list is the full-screen image-first list of the places in the map area (Back closes it).
+  const face = () => { if (lp) lp.classList.toggle('w7-cards', atlas() && (desk() || listOn)); };   // FE-A's shared card face, except the carousel
   const listMode = C.listMode = (o, push) => {
-    if (!!o === listOn && !push) return; listOn = !!o && !desk(); H.classList.toggle('ms-list', listOn);
+    if (!!o === listOn && !push) return; listOn = !!o && !desk(); H.classList.toggle('ms-list', listOn); face();
     if (listOn && push && !pushedList) { try { history.pushState({ msList: 1 }, '', location.href); pushedList = 1; } catch (e) {} }
     if (!listOn && pushedList && push) { pushedList = 0; try { history.back(); } catch (e) {} }
     if (lp) { lp.scrollTop = 0; lp.scrollLeft = 0; }
@@ -216,14 +239,15 @@
   on(d, 'keydown', e => { if (e.key !== 'Escape' || !atlas() || !listOn || (Cleo.sheet && Cleo.sheet.isOpen()) || $('.overlay:not([hidden])')) return; listMode(false, true); });
   C.onNoMap = () => { C.msN = null; H.classList.remove('ms-on'); if (atlas() && !desk()) listMode(true); paintMs(); };
   C.msIn = () => {
-    build(); unpark();
+    build(); unpark(); deco(); face();
     const x = $('.ms-x', bar);
-    if (!desk()) { park(nav, bar, $('.ms-city', bar).nextSibling); park(tb, bar, x); } else { park(tb, bar, x); if (achips) park(achips, head, $('.ms-more', head).nextSibling); }
+    // phones: the chip row carries FE-A's search pill (in the toolbar) and the switcher last; desktop: area chips in the results head
+    if (!desk()) { park(tb, bar, x); park(nav, bar, null); } else { park(tb, bar, x); if (achips) park(achips, head, $('.ms-more', head).nextSibling); }
     if (desk() && listOn) listMode(false);
     if (H.classList.contains('ms-nomap')) C.onNoMap();
     msArea();
   };
-  C.msOut = () => { listOn = false; unpark(); closePoi(); };
+  C.msOut = () => { listOn = false; unpark(); undeco(); if (lp) lp.classList.remove('w7-cards'); closePoi(); };
 
   /* ---- locate-me: opt-in, one reading, memory only ---- */
   let me = null, meL = null;
