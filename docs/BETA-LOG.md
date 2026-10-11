@@ -775,3 +775,13 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Atlas lane:** sent the new token values. It has built map-first and is running its tests.
   - **Unsplash:** the first Actions run of `beta-fetch-unsplash` succeeded. It committed nothing because no key secret is set.
   - **Waiting on:** the Atlas lane before R6 QA and the evaluator start.
+
+- 2026-10-11 12:10Z · orchestrator · Imagery lane verified and archived.
+  - **Candidate manifest:** 146 targets, 250 candidates (128 high).
+  - **`fetch-unsplash.js` (1485b61b):** matches the Actions workflow.
+    - At most 45 API calls per run; it resumes on the next run.
+    - One 960w WebP per target.
+    - With no key it prints the plan and exits 0 (verified here).
+  - **Credit gate (ed9f78b7):** accepts the Unsplash License with "Photo by X on Unsplash" credits. The closed-place and Vietnam refusals stay.
+  - **Checks:** validate and test all green, brand scan 0 hits.
+  - **Owner step to get photos:** add the `UNSPLASH_ACCESS_KEY` repository secret, then run the "beta-fetch-unsplash" workflow from the Actions tab.
