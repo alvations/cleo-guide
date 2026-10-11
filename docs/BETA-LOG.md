@@ -821,3 +821,9 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Retired as defaults:** the night hero, particle art, gold plates and purple tiles.
   - **Checklist:** row D12 added to ROUNDS-6-9.
   - **Round 6:** the QA and evaluator sessions keep running on 2f227631. Their scores are the baseline the overhaul is measured against.
+
+- 2026-10-11 13:25Z · orchestrator · **Owner amendment: Gen Z wanderlust feel, classy enough for Gen X and Boomers, with inviting Gen Z-style fonts.**
+  - Added the amendment to W7-BRIEFS and checklist row D13.
+  - Type plan: an expressive self-hosted OFL display face with Vietnamese, plus a highly legible text face.
+  - Owner: "autonomously continue and fan out on all lanes".
+  - FE-B (landing + hubs) launched now instead of waiting for the R6 sessions. The amendment was sent to the designer, FE-A and imagery lanes.
