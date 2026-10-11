@@ -908,4 +908,12 @@ Append-only. One entry per session per wave: date, lane, session id, what change
        - the pin "peek" is the carousel holding the selected card (≤ 40 %: measured at 15 %);
        - desktop "numbered pins" counts `.pp`.
     4. `metrics.js` B-06 `split`: the map may sit on either side of the cards (it now leads on the left), still without overlapping them.
+  - **QA findings routed by the orchestrator, each with a regression check:**
+    - **QA-36:** `repro-qa36.js` gives 0/20 for Cleveland `a=DT`, 0/10 for `a=SUB` and 0/10 for NY `map=1`.
+    - **QA-37:** w6.js's independent B-08 rule is now in `atlas-ms.js` for the carousel and the scrolled list: 0 titles covered. The list ends above the Map pill's own band.
+    - **QA-40:** the city name is first in the phone chip row.
+    - **QA-41:** label pills carry the number at every zoom, and clusters are round dark bubbles.
+    - **QA-44:** the first view fits the city core (pins within 3× the median distance of the median point). Chinatown fits at z15, not z6. The outlier stays in the list, behind "Show all" and a zoom out.
+    - **For QA:** `tools/beta/qa/w6.js` still drives the R6 tray (`.grab`, `.mapclose`, detents), which is retired. It needs a W7 rewrite against the carousel and List / Map pill. I left it untouched because it is QA's probe.
+  - **Gates on the final tree:** validate + `npm test` + `beta:check` all PASS (eager JS 39 KB gzip). w2 map 35/35, w5 64/64, `atlas-ms.js` 85/85.
   - **Evidence:** `design/beta/eval/w7/atlas/` (390 + 1440, light + dark, stub tiles + tiles blocked). Probe: `NODE_PATH=$(npm root -g) node tools/beta/atlas-ms.js`, the Amendment 2 acceptance as executable checks.

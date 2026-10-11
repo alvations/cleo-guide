@@ -109,17 +109,19 @@ const nIn = s => +((/([\d,]+)/.exec(s.count) || [0, '0'])[1].replace(/,/g, ''));
         chk(`${key} desktop: map ≥ 58 % wide, on the left, full height`, s0.mapW >= 58 && s0.mapLeft <= 1 && Math.abs(s0.mapBottomGap) <= 2, [s0.mapW, s0.mapLeft, s0.mapBottomGap]);
         chk(`${key} desktop: list is a 2-column card grid`, s0.cols === 2, s0.cols);
         const N = nIn(s0) + nIn({ count: s0.more });
+        const v0 = await page.evaluate(() => { const m = Cleo.city.map(), c = m.getCenter(); return [c.lat, c.lng, m.getZoom()]; });
         // pan: the list follows the map
         await page.evaluate(() => { const m = Cleo.city.map(); m.setZoom(m.getZoom() + 2, { animate: false }); });
         await sleep(700); const s1 = await state(page);
         chk(`${key} desktop: zooming in changes the list count (search as I move the map)`, nIn(s1) < nIn(s0) && /more outside/.test(s1.more), [s0.count, s1.count, s1.more]);
-        await page.evaluate(() => { const m = Cleo.city.map(); m.panBy([300, 120], { animate: false }); });
+        await page.evaluate(() => { const m = Cleo.city.map(); const s = m.getSize(); m.panBy([s.x * 0.45, s.y * 0.35], { animate: false }); });
         await sleep(700); const s2 = await state(page);
         chk(`${key} desktop: panning changes the list count`, nIn(s2) !== nIn(s1), [s1.count, s2.count]);
         await page.click('.ms-more [data-ms="all"]'); await sleep(300); const s3 = await state(page);
         const total = await page.evaluate(() => Cleo.city.info.total);
         chk(`${key} desktop: "Show all" restores every place`, nIn(s3) === total && s3.cardsVisible > 0, [s3.count, total]);
         await page.click('.ms-more [data-ms="area"]'); await sleep(300);
+        await page.evaluate(v => Cleo.city.map().setView([v[0], v[1]], v[2], { animate: false }), v0); await sleep(600);   // back to the first view for the sync checks
         // hover sync: card → pin and pin → card
         const hv = await page.evaluate(async () => {
           const c = [...document.querySelectorAll('li.pl[data-ll]')].find(x => x.offsetParent && Cleo.city.pinEl(x)); if (!c) return null;
@@ -169,7 +171,22 @@ const nIn = s => +((/([\d,]+)/.exec(s.count) || [0, '0'])[1].replace(/,/g, ''));
       await snap(page, `${key}-atlas-390${t}`);
       if (!dark) {
         chk(`${key} phone: first screen ≥ 70 % map`, s0.mapClear >= 70 || s0.mapScreen >= 70, { box: s0.mapScreen, clear: s0.mapClear });
+        // independent B-08 (w6.js's rule, QA-37): no visible card title is covered by something else — the carousel
+        const cover = () => page.evaluate(() => { let seen = 0, cov = [];
+          const lr = document.querySelector('.listpane').getBoundingClientRect();   // what the list pane clips is not seen
+          for (const t of document.querySelectorAll('li.pl .pl-n')) { const b = t.getBoundingClientRect(), r = { left: Math.max(b.left, lr.left, 0), right: Math.min(b.right, lr.right, innerWidth), top: Math.max(b.top, lr.top, 0), bottom: Math.min(b.bottom, lr.bottom, innerHeight) };
+            if (!b.width || r.right - r.left < 4 || r.bottom - r.top < 4 || getComputedStyle(t).visibility === 'hidden') continue;
+            const x = (r.left + r.right) / 2, y = (r.top + r.bottom) / 2, hit = document.elementFromPoint(x, y); if (!hit) continue; seen++;
+            if (!t.contains(hit) && hit.closest('li.pl') !== t.closest('li.pl')) cov.push((hit.className || hit.tagName).toString().slice(0, 30) + ' over ' + t.textContent.trim().slice(0, 24)); }
+          return { seen, covered: cov.length, eg: cov.slice(0, 3) }; });
+        const cvMap = await cover();
+        // the city is named on the first screen (QA-40)
+        const city = await page.evaluate(() => { const n = Cleo.city.info.name, e = [...document.querySelectorAll('.ms-city, header, h1')].find(x => { const r = x.getBoundingClientRect(); return r.width && r.top >= 0 && r.bottom <= innerHeight && x.textContent.includes(n) && getComputedStyle(x).visibility !== 'hidden'; }); return !!e; });
+        chk(`${key} phone: the city is named on the first screen (QA-40)`, city, city);
         // tap a pin → its card in the carousel, in view
+        for (let i = 0; i < 3; i++) { const b = await page.evaluate(() => { const ok = e => { const r = (e.firstElementChild || e).getBoundingClientRect(); return r.width && r.left > 30 && r.right < innerWidth - 70 && r.top > 200 && r.bottom < innerHeight - 260; };
+          if ([...document.querySelectorAll('.leaflet-marker-icon.pp')].some(ok)) return 0; const c = [...document.querySelectorAll('.leaflet-marker-icon.pin-cl')].find(ok); if (c) c.dispatchEvent(new MouseEvent('click', { bubbles: true })); return c ? 1 : 0; });
+          if (!b) break; await sleep(900); }   // a bubble zooms in until a pin is in reach
         const tp = await page.evaluate(() => { const els = [...document.querySelectorAll('.leaflet-marker-icon.pp')].map(e => [e, e.firstElementChild.getBoundingClientRect()]).filter(([e, r]) => r.left > 30 && r.right < innerWidth - 70 && r.top > 200 && r.bottom < innerHeight - 260);
           const [e, r] = els[Math.floor(els.length / 2)] || []; return e ? { x: r.left + r.width / 2, y: r.top + r.height / 2 } : null; });
         let pc = null;
@@ -195,6 +212,8 @@ const nIn = s => +((/([\d,]+)/.exec(s.count) || [0, '0'])[1].replace(/,/g, ''));
         await page.click('.ms-toggle'); await sleep(500); const sl = await state(page);
         await snap(page, `${key}-atlas-390-list`);
         await page.click('.ms-toggle'); await sleep(500); const sm = await state(page);
+        await page.click('.ms-toggle'); await sleep(400); await page.evaluate(() => { const l = document.querySelector('.listpane'); l.scrollTop = Math.min(1200, (l.scrollHeight - l.clientHeight) / 2); }); await sleep(250); const cvList = await cover(); await page.click('.ms-toggle'); await sleep(400);
+        chk(`${key} phone: independent B-08 — no visible title covered (carousel, list scrolled) (QA-37)`, cvMap.covered === 0 && cvList.covered === 0 && cvMap.seen > 0 && cvList.seen > 0, { carousel: cvMap, list: cvList });
         chk(`${key} phone: List shows the full-screen list, Map returns`, /ms-list/.test(sl.cls) && sl.cardsVisible > 0 && !/ms-list/.test(sm.cls), [sl.cls, sl.cardsVisible, sm.cls]);
         void box;
       } else {

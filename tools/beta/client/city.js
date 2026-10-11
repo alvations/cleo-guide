@@ -299,11 +299,12 @@
     else setTimeout(fitCore, 0);
     return true;
   };
-  // QA-44: the first view fits the densest ~95 % of pins (a far outlier — a day trip, a mis-filed place — never zooms
+  // QA-44: the first view fits the city's core (pins within 3× the median distance of the median point, else 95 %) (a far outlier — a day trip, a mis-filed place — never zooms
   // the city out to a country); every place stays in the list, behind "Show all" and a zoom out
   const fitCore = () => { if (!live() || !map.getSize().x) return; const ll = Object.keys(markers).map(id => markers[id].getLatLng()); if (ll.length < 2) return;
     const md = a => a.slice().sort((x, y) => x - y)[a.length >> 1], c = [md(ll.map(p => p.lat)), md(ll.map(p => p.lng))];
-    const k = ll.map(p => [Math.hypot(p.lat - c[0], (p.lng - c[1]) * Math.cos(c[0] * Math.PI / 180)), p]).sort((x, y) => x[0] - y[0]).slice(0, Math.max(2, Math.ceil(ll.length * 0.95))).map(x => x[1]);
+    const dd = ll.map(p => [Math.hypot(p.lat - c[0], (p.lng - c[1]) * Math.cos(c[0] * Math.PI / 180)), p]).sort((x, y) => x[0] - y[0]), cut = Math.max(dd[dd.length >> 1][0] * 3, 0.004);
+    let k = dd.filter(x => x[0] <= cut); if (k.length < ll.length * 0.6) k = dd.slice(0, Math.ceil(ll.length * 0.95)); k = k.map(x => x[1]);   // the core: within 3× the median distance
     auto = Date.now(); map.fitBounds(window.L.latLngBounds(k), Object.assign(overMap(), { maxZoom: 15, animate: false })); };
   C.setBase = k => { store.set('base', k); if (!live() || !bases[k]) return; for (const x in bases) if (map.hasLayer(bases[x])) map.removeLayer(bases[x]); bases[k].addTo(map); };
   // Leaflet (≈ 144 KB) loads after first paint and after the page's own load: the list is the content, the map follows
