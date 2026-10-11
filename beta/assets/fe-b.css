@@ -5,8 +5,9 @@
  * per screen (the landing headline; a hub's big place count), plain labels and sources always visible.
  * TOKENS ONLY — no raw colours, no hard-coded families. W7 design-system v2 names are read first with today's tokens as
  * the fallback, so this sheet restyles itself when the designer's tokens.css lands:
- *   --accent / --on-accent  the one signature accent (primary CTA)        → fallback --ink / --paper
- *   --sun                   the warm, sunny highlight (used sparingly)      → fallback --gilt
+ *   (the signature accent is NOT used here: v2 keeps it to the heart, saved count, route line and wordmark star;
+ *    primary CTAs stay soft-black ink, from the base sheet)
+ *   --sun                   the warm, sunny highlight (used sparingly)      → fallback --accent-wash, then --gilt
  *   --cover-1..4            the calm no-photo cover grounds                 → fallback mixes of --sand/--surface/--line
  * Motion: a soft lift on hover/focus only; nothing moves under prefers-reduced-motion.
  */
@@ -22,7 +23,6 @@
 .feb .csec .blurb { color: var(--ink-2); font-size: var(--fs-body); }
 .feb .more-h { margin: 28px 0 0; }
 .feb .btn { border-radius: var(--r-pill); }
-.feb .btn-primary { background: var(--accent, var(--ink)); color: var(--on-accent, var(--paper)); }
 
 /* ---------- landing hero: search-first ---------- */
 .lhero { position: relative; background: var(--paper); color: var(--ink); text-align: center; }
@@ -31,7 +31,7 @@
 .lhero .d-hero { color: var(--ink); font-size: clamp(var(--fs-hero), 9vw, calc(var(--fs-hero) * 1.25)); letter-spacing: var(--track-display, -.02em); }
 /* the one expressive moment: a sun-washed highlighter swipe under one word — no italics, no gradient chrome */
 .lhero .d-hero em { font-style: normal; padding: 0 .06em; border-radius: .12em;
-  background: linear-gradient(transparent 58%, color-mix(in srgb, var(--sun, var(--gilt)) 32%, transparent) 58%, color-mix(in srgb, var(--sun, var(--gilt)) 32%, transparent) 92%, transparent 92%); }
+  background: linear-gradient(transparent 58%, color-mix(in srgb, var(--sun, var(--accent-wash, var(--gilt))) 32%, transparent) 58%, color-mix(in srgb, var(--sun, var(--accent-wash, var(--gilt))) 32%, transparent) 92%, transparent 92%); }
 .lhero .sub { margin: 18px auto 28px; max-width: 48ch; color: var(--ink-2); font-size: var(--fs-lead); line-height: var(--lh-lead); }
 .feb .search { display: flex; align-items: center; gap: 10px; max-width: 720px; min-height: 64px; margin: 0 auto; padding: 8px 8px 8px 20px;
   border: 1px solid var(--line-strong); border-radius: var(--r-pill); background: var(--surface); box-shadow: var(--e-2); text-align: left; }
@@ -81,13 +81,13 @@
 .feb .c-0 .card-media, .feb .c-0.hero-media, .feb .t-0 .cover, .feb .rail.editorial .rail-i.sig:nth-child(4n+1)::before { background: var(--cover-1, var(--sand)); }
 .feb .c-1 .card-media, .feb .c-1.hero-media, .feb .t-1 .cover, .feb .rail.editorial .rail-i.sig:nth-child(4n+2)::before { background: var(--cover-2, color-mix(in srgb, var(--sand) 45%, var(--surface))); }
 .feb .c-2 .card-media, .feb .c-2.hero-media, .feb .t-2 .cover, .feb .rail.editorial .rail-i.sig:nth-child(4n+3)::before { background: var(--cover-3, color-mix(in srgb, var(--line) 75%, var(--paper))); }
-.feb .c-3 .card-media, .feb .c-3.hero-media, .feb .t-3 .cover, .feb .rail.editorial .rail-i.sig:nth-child(4n+4)::before { background: var(--cover-4, color-mix(in srgb, var(--sun, var(--gilt)) 10%, var(--surface))); }
+.feb .c-3 .card-media, .feb .c-3.hero-media, .feb .t-3 .cover, .feb .rail.editorial .rail-i.sig:nth-child(4n+4)::before { background: var(--cover-4, color-mix(in srgb, var(--sun, var(--accent-wash, var(--gilt))) 10%, var(--surface))); }
 
 /* sticker-like badge — only where the data has a ★ collection */
 .feb .sticker { position: absolute; left: 10px; bottom: 10px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; max-width: calc(100% - 20px);
   padding: 5px 11px; border-radius: var(--r-pill); background: var(--surface); color: var(--ink); box-shadow: var(--e-1);
   font: 600 var(--fs-sm)/1.2 var(--font-ui); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.feb .sticker .ico { color: var(--sun, var(--gilt)); }
+.feb .sticker .ico { color: var(--sun, var(--accent-wash, var(--gilt))); }
 
 .feb .card-body { display: grid; gap: 4px; padding: 0 2px; }
 .feb .card-t { margin: 0; font: 500 var(--fs-d3)/1.15 var(--font-display); letter-spacing: var(--track-display, -.01em); color: var(--ink); }
@@ -214,7 +214,7 @@
 .feb .results .grp.guides ol { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; }
 .feb .results li a { border-radius: var(--r-m); }
 .feb .results a.is-kb, .feb .results a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
-.feb .results mark { background: color-mix(in srgb, var(--sun, var(--gilt)) 28%, transparent); color: var(--ink); border-radius: 2px; }
+.feb .results mark { background: color-mix(in srgb, var(--sun, var(--accent-wash, var(--gilt))) 28%, transparent); color: var(--ink); border-radius: 2px; }
 
 @media (prefers-reduced-motion: reduce) {
   .feb .card-media, .feb .theme-main .cover, .feb .rail.editorial .rail-i.sig::before { transition: none; }
