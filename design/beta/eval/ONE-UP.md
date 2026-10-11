@@ -45,11 +45,22 @@ open/closed check, and closures that stay on the record.
    every guide. It reorders and never hides.
 4. **Trips, not just a day.** The trip planners' multi-day itinerary, built from your saved places. Closed places can't
    enter, every stop keeps its source, the whole trip travels as one link, and nothing needs an account.
-5. **"Close by" from any place.** The real-estate commute filter, rebuilt as a walking radius around any place you
-   choose, with the assumption stated. Atlas and the place detail share it.
+5. **"Set as my base".** The real-estate commute filter, rebuilt: choose any place (your hotel, a station) as your
+   base. Every view then shows walking distance from it, and Atlas can filter to a 5/10/15-minute ring, with the
+   assumption stated. SPEC-v3 §10's "Near here" line is the per-place version; this one is persistent.
 
 ROUND-7's top gaps and W8 are still the work in progress: photos, polish, motion, Atlas residuals, first screen, palette
-and weight. SPEC-v3 covers the Atlas map itself. The proposals here are **additive** and reference those briefs instead of
+and weight. SPEC-v3 covers the Atlas map itself. Its **§10 (slice 4, "one-up")** landed while this audit was being
+written. It already takes these onto the map:
+- why and by whom in the preview;
+- day mode with walking times and reordering;
+- Saved as a map layer;
+- "Near here" in the preview and the detail;
+- one-tap lenses;
+- the dated "open when last checked" line;
+- a Directions handoff.
+
+This audit was reconciled with §10, and items it covers are referenced, not repeated. The proposals here are **additive** and reference those briefs instead of
 repeating them.
 
 ## 2. Method and evidence
@@ -166,10 +177,10 @@ What it is known for in 2024–2026:
 | Their best feature | Us | Evidence | **The one-up** |
 |---|:-:|---|---|
 | Search as you move, list follows map, pin → preview | ✅ | R7: map ↔ list 94; lane probe 99/99; SPEC-v3 slices 1–3 | SPEC-v3 owns this. It stays the navigation spine, as the owner asked. |
-| Commute-time filter | ✕ | Near me gives distances from *your* location (SPEC-v3 §3.4) | **"Close by" from any place** (§6 #5): choose a hotel, a station or any place, and see what is within 5, 10 or 15 minutes' walk. It is straight-line ÷ 80 m/min, and the page says so. Only open, pinned places count. No key, no routing service. |
+| Commute-time filter | ◐ | Near me gives distances from *your* location (SPEC-v3 §3.4); §10 adds "Near here: A · B · C" (≤ 800 m) per place | **"Set as my base"** (§6 #5): choose a hotel, a station or any place as your base. Distances from it then show on every card in every view, and Atlas filters to a 5, 10 or 15-minute ring. It is straight-line ÷ 80 m/min, and the page says so. Only open, pinned places count. No key, no routing service. |
 | Saved search with alerts | ◐ | The view goes in the URL (SPEC-v3 §3.5); per-city RSS and "What changed" exist | **Follow a city** (part of §6 #2): the RSS feed *is* the alert, surfaced as "Follow changes" on each city with a plain explanation. Push, email and accounts stay out of scope. |
 | Data layers | ◐ | Street/Satellite and the Key | **Collection lenses on the map** go to SPEC-v3 §10 (W8 named it). The recognition and freshness layers (§6 #1, #2) give Atlas two layers no competitor has. |
-| Draw an area | ✕ | — | **Rejected** (§8). Area chips plus "Close by" answer the travel question better than freehand drawing. |
+| Draw an area | ✕ | — | **Rejected** (§8). Area chips plus the base ring answer the travel question better than freehand drawing. |
 | Compare side by side | ✕ | — | **Parked.** Homes are compared on attributes; places to visit aren't, and we hold no price or hours data to compare. |
 
 ### 4.4 Photo-led luxury travel magazines
@@ -201,7 +212,7 @@ What they are known for in 2024–2026:
 
 | Their best feature | Us | Evidence | **The one-up** |
 |---|:-:|---|---|
-| Day plans on a map | ◐ | One area per day; numbered route; move/remove; [day plan shot](one-up/tokyo-day-d.jpg) | **Trips** (§6 #4): several days from your saved places, each day one area, nearest-next order, legs in metres *and* walking minutes (straight-line ÷ 80 m/min, stated), closed and unpinned places refused with a reason. |
+| Day plans on a map | ◐ | One area per day; numbered route; move/remove; [day plan shot](one-up/tokyo-day-d.jpg). SPEC-v3 §10 adds Atlas day mode with walking times and reordering | **Trips** (§6 #4): several days from your saved places, each day one area, nearest-next order, closed and unpinned places refused with a reason. Walking times reuse §10's helper. |
 | Route optimisation | ◐ | Nearest next within a day | Part of Trips: the order is nearest-neighbour from the first stop, and the page says so. They charge for it; ours is free and explained. |
 | Offline | ◐ | A service worker is registered; offline reload exists (`core.js`, `states.js`). Nothing tells you a city is saved for offline | **Offline city pack** (§6 #8): one "Keep Tokyo offline" button with its size and a done state. They charge for this. |
 | Export to map apps | ✅ | KML; a map-app route; "Open in maps" | Keep. |
@@ -259,7 +270,7 @@ names its one-up. "W8" means a W8 brief already covers it; those aren't repeated
 | **Landing** | The marketplace's destination-led home | Search-first hero, country chips, credited city photos, "Signatures across the guides" ([shot](one-up/landing-m.jpg)). Each city tile reads "194 places · Recommended by News 5 Cleveland · … + 14 more" | Type residue, radii (FE-B) | A **"This month in Cleo"** module: places re-checked, newly closed or retiring, with dates (§6 #2). A **"For you" rail across guides** once interests are set (§6 #3). |
 | **Country hubs** | The map apps' curated guides | Hero photo, guides, collections ([shot](one-up/japan-m.jpg)); B-05 fails on 7 hubs (R7) | B-05 grid in the first screen; "Known for" widows (FE-B) | Cross-guide **recognition** counts (Japan today: 442 places cite an institutional restaurant-award source) and the **interest rail** (§6 #1, #3). |
 | **Gallery** | The marketplace's grid | Category bar, rows, an "All N" grid, a lead card ([shot](one-up/tokyo-m.jpg)) | Polish a–h, food covers, motion (FE-A); photos (imagery) | **Recognition badges** and the **"checked" stamp** on cards (§6 #1, #2). **Source-led covers** for places without a photo (§6 #11). |
-| **Place detail** | The magazine's critic page plus the map app's place card | Large media, Why it's here, Recommended by, Plan your visit, a sticky Save/Directions/Share bar, "No. 3 of 43 in Chiyoda-ku" ([shot](one-up/tokyo-sheet-d.jpg)) | Scrim, upscaling, rank denominator, no Directions on closed places (FE-A) | **"Close by"**: open places within 10 minutes' walk, split into sights and eat & drink (§6 #5). **"Recognised by"** (§6 #1). **Share card** (§6 #7). |
+| **Place detail** | The magazine's critic page plus the map app's place card | Large media, Why it's here, Recommended by, Plan your visit, a sticky Save/Directions/Share bar, "No. 3 of 43 in Chiyoda-ku" ([shot](one-up/tokyo-sheet-d.jpg)) | Scrim, upscaling, rank denominator, no Directions on closed places (FE-A) | "Near here" is in SPEC-v3 §10. Here: **distance from your base** (§6 #5), **"Recognised by"** (§6 #1) and a **share card** (§6 #7). |
 | **Guidebook** | The magazine's print issue | Contents first, lazy chapters, chapter maps, print ([shot](one-up/tokyo-guidebook-d.jpg)) | v2 audit, chapter photos, the price/rating note (FE-B) | **The dated edition**: a cover, a booklet print and a "since the last edition" page (§6 #10). |
 | **Insights** | No competitor has this view | Seven SVG charts with tables: "What each area is for", "Who recommends each area", "How far you walk", "Closures, kept for the record" ([shot](one-up/tokyo-insights-d.jpg)) | v2 series tokens, tabular figures (FE-B) | A recognition chart ("Award-listed and most-cited, by area") that links to the lens (§6 #1). Insights stays our own invention. **Don't dilute it.** |
 | **Saved / Your lists** | Map-app lists plus the marketplace wishlist | Named lists, Been-there, a map, KML/GeoJSON/JSON, `#list=` with "Save a copy" | Day flow walk-through (FE-A W8 1.2) | **"Make a trip from this list"** (§6 #4). **Group pick** (§6 #12). **Share card** (§6 #7). |
@@ -282,7 +293,7 @@ names its one-up. "W8" means a W8 brief already covers it; those aren't repeated
 | 2 | **Freshness everywhere**: "checked <date>" on cards; a "This month" module on the landing; a city "retiring soon / recently closed" rail; "Follow changes" (RSS) | editorial guides, real-estate alerts | 3 | 4 | S | **12** | D closure honesty 95; D13 trust; B mobile 88 (with R7 gap 4d) | +0.15 |
 | 3 | **Your interests follow you**: the picker's choices carry across guides; a "For you" rail on the landing and hubs; ★ rails ordered by your interests; every lift says "First because …" | rental marketplace home, map apps | 4 | 4 | M− (1.5) | **10.7** | D interest triad 81; B discovery 91; D13 Gen Z 7.5 | +0.2 |
 | 4 | **Trips**: several days from your saved places or a list, one area per day, nearest-next order, walking minutes, closed places refused, one link, booklet print, KML | trip planners, rental marketplace's trips tab | 5 | 4 | M | **10** | D "Your guide" and day plans 79 (the lowest D row); B discovery; D13 | +0.25 |
-| 5 | **"Close by" from any place**: a walking radius (5/10/15 min, straight-line ÷ 80 m/min, stated) from any place, in the detail as a section and on Atlas as a ring | real-estate commute filter, hidden-gems "nearby" | 5 | 3 | M− (1.5) | **10** | B detail 90 and map ↔ list 94; D verified pins 92; PANEL T3 (best food within 15 min) | +0.1 |
+| 5 | **"Set as my base"**: any place becomes your base (in the URL and on the device); every card in every view shows walking distance from it, and Atlas filters to a 5/10/15-minute ring (straight-line ÷ 80 m/min, stated) | real-estate commute filter, hidden-gems "nearby" | 5 | 3 | M− (1.5) | **10** | B detail 90 and map ↔ list 94; D verified pins 92; PANEL T3 (best food within 15 min) | +0.1 |
 | 6 | **Paste a link**: search takes an article or video URL; if it is a source, open its source view (every place it recommends, pinned and checked) | map apps' screenshot import, creator-to-map apps | 3 | 3 | S | **9** | D sourced picks; B discovery; C #15 kept | +0.05 |
 | 7 | **Share cards**: a 1080×1920 portrait image of a place, list, day or trip, drawn on canvas in the browser, carrying the source line, photo credit and checked date | short-video and social sharing | 4 | 3 | M | **6** | D13 Gen Z 7.5; A wanderlust 83; C #27 kept | +0.1 |
 | 8 | **Offline city pack**: "Keep <city> offline" with its size and a done state, using the existing service worker | trip planners' paid offline mode | 3 | 2 | S | **6** | B mobile 88; C #28 kept | +0.05 |
@@ -299,17 +310,21 @@ designer as an option inside that brief, not as new work.
 moving toward 9. That is additive to R7's ≈ 3.0 recoverable through its own gaps, and it doesn't compete with them for
 the same lanes in the same order (§7).
 
-### Hand-off to SPEC-v3 §10 "One-up" (Atlas lane)
+### Reconciled with SPEC-v3 §10 (slice 4, Atlas lane)
 
-W8 named §10 but it isn't written yet. From this audit, the Atlas-side one-ups are:
-- (a) the **recognition** and **freshness** badges in the preview card and carousel card, not on pins, which keeps §1's
-  calm;
-- (b) the **"Close by" ring** from a selected place (§7 W9-5);
-- (c) **collection lenses** as a map layer;
-- (d) a **trip day** drawn on the map with walking minutes per leg;
-- (e) the shared view link reopening a trip day.
+§10 already covers these, so they aren't proposed here:
+- the source filter with the count line naming it;
+- day mode with walking times, reordering and "Add to your day";
+- Saved as a layer with a view-carrying list link;
+- the Directions handoff;
+- "Near here" (≤ 3 open places within 800 m in the preview and the detail);
+- one-tap lenses;
+- the dated "open when last checked" line.
 
-None of these changes SPEC-v3 slices 1–5. They belong after slice 3.
+This audit adds only these Atlas-side pieces, after slice 4:
+- (a) the **recognition** badges (W9-1) in the preview and carousel cards, not on pins, which keeps §1's calm;
+- (b) the **base ring** and base-relative distances (W9-5);
+- (c) a **trip day** from W9-4 opening in §10's day mode (`#trip=…&d=2`).
 
 ---
 
@@ -363,7 +378,8 @@ replace it.
   3. Every rail item carries its source and date.
   4. The feed link resolves to `feeds/<city>.xml`.
   5. No text anywhere implies open now or hours.
-- **Depends on:** R7 gap 4d (Atlas phone "last checked") stays with the Atlas lane; use the same string.
+- **Depends on:** R7 gap 4d (Atlas phone "last checked") and SPEC-v3 §10's preview line ("Open when last checked · <date>")
+  stay with the Atlas lane. Cards use the same string and date format.
 
 ### W9-3 · Your interests follow you (FE-B for the landing and hubs, FE-A for the city rail order)
 
@@ -396,24 +412,30 @@ replace it.
   5. Keyboard-complete at 390 and 1440, light and dark.
   6. Print fits one day per page.
   7. Unknown ids are reported, never dropped silently (the `saved.js` rule).
-- **Depends on:** FE-A W8 1.2 (the day flow) landed first. The Atlas lane draws a trip day after SPEC-v3 slice 3.
+- **Depends on:** FE-A W8 1.2 (the day flow) landed first. The walking-time helper is shared with SPEC-v3 §10 day mode
+  (one function, no second copy). A trip day opens in §10's day mode (Atlas lane).
 
-### W9-5 · "Close by" from any place (FE-A for the detail section, Atlas for the ring)
+### W9-5 · "Set as my base" (FE-A for cards and the detail, Atlas for the ring)
 
-- **What:**
-  - **Detail:** a section "Close by · within 10 min walk" with up to 3 sights and 3 places to eat and drink, open and
-    pinned, nearest first, each with a distance.
-  - **Atlas:** "Show what's within … of here" on a selected place draws a 5/10/15-minute ring and filters the list to
-    it. It uses the same distance code as Near me (SPEC-v3 §3.4) with the origin swapped.
+- **What:** the detail of any open, pinned place offers "Set as my base", for example a hotel, a station or a friend's
+  flat that happens to be a listed place.
+  - The base is kept on the device (`Cleo.store`) and in the URL (`&base=<id>`).
+  - While it is set, every card in Gallery, Atlas, Guidebook and Saved shows "650 m from <base> · 8 min walk".
+  - Sort gains "Nearest to my base".
+  - Atlas gains "Within 5 / 10 / 15 min of <base>": a ring that filters the list.
+
+  This is the persistent, cross-view form of SPEC-v3 §10's per-place "Near here" line (which stays as specified). It
+  uses §3.4's distance helper with the origin swapped.
 - **Acceptance:**
-  1. Every listed place is open, has a high- or medium-confidence pin, and lies within 800 m (10 min) straight-line of
-     the origin (a test on 84 pages × 5 places).
-  2. The section states "straight-line, about 80 m a minute".
-  3. Where none qualify, it says so instead of widening silently (stated gaps).
-  4. Atlas: the list count equals the in-ring count, and "Show all" still reaches every place.
-  5. Under reduced motion, there is no animated ring.
-- **Depends on:** SPEC-v3 §3.4 distance helper (Atlas lane). The pin `confidence` must be in the page JSON (platform; it
-  is already in `pv.pin`).
+  1. With a base set, every rendered card's distance equals the haversine distance from the base, rounded as §3.4 says
+     (a test over 84 pages × 5 bases).
+  2. "Straight-line, about 80 m a minute" is stated once per view.
+  3. A closed place cannot be a base.
+  4. Clearing the base restores the default order exactly.
+  5. Atlas: the list count equals the in-ring count, and "Show all" still reaches every place.
+  6. Under reduced motion, there is no animated ring.
+  7. With storage throwing, `&base=` still works for that visit.
+- **Depends on:** the SPEC-v3 §3.4 distance helper (Atlas lane; one shared function).
 
 ### W9-6 · Paste a link (FE-B, search)
 
@@ -479,7 +501,7 @@ replace it.
 - **What:** each Guidebook opens with an edition cover: the guide name, native name, "October 2026 edition", place
   count, closed count and the newest check date, over the hero photo where one exists.
   - A "Since the last edition" page lists the dated changes from `changes.json`.
-  - "Print as booklet" lays out cover, contents, chapters with chapter photos, "Close by" summaries, all sources with
+  - "Print as booklet" lays out cover, contents, chapters with chapter photos, all sources with
     URLs, and the method notes verbatim.
 - **Acceptance:**
   1. Every number on the cover equals the page JSON.
@@ -507,6 +529,6 @@ These are features the families are known for that we deliberately **don't** bui
 | "Why go now" / seasonal picks | magazines | No sourced seasonal field | Revisit only if the data pipeline adds one, with a source |
 | AI concierge, AI itinerary, screenshot import | map apps, trip planners, real-estate search | Needs a backend and an API key; risk of unsourced answers (X-05) | Paste a link (W9-6); "suggested by the guide" days |
 | Live collaboration, accounts, sync | marketplace, trip planners | Static hosting (X-01, X-04) | Group pick by link (§6 #12); JSON backup and import |
-| Freehand draw-an-area | real-estate search | Low value for travel next to area chips; costly on touch; adds an accessibility path to maintain | "Close by" ring (W9-5) |
+| Freehand draw-an-area | real-estate search | Low value for travel next to area chips; costly on touch; adds an accessibility path to maintain | The base ring (W9-5) |
 | Embedded videos | short-video platforms | Third-party scripts on the page | A plain link to the video (W9-1 badge) |
 | Push or email alerts | real-estate search | Server and third party (X-07–X-09) | RSS "Follow changes" (W9-2) |
