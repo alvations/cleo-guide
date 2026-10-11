@@ -183,7 +183,7 @@ html[data-view] ol.pls>noscript[data-cleo-defer]{display:none!important}
   transition:transform var(--dur-1) var(--ease-out),background-color var(--dur-1) var(--ease-out),color var(--dur-1) var(--ease-out)}
 .pp>span::before{content:"";position:absolute;inset:-9px -6px}                       /* a 44 px hit area round a 26 px pill */
 .pp-f>span{background:var(--pin-eat,var(--sand));border-color:var(--line-strong)}
-.pp-1>span{font-weight:700;padding:0 10px 0 8px}.pp i{font-style:normal;font-size:11px;margin-right:2px}
+.pp-1>span{font-weight:700;padding:0 10px 0 8px;background:var(--sun-wash);color:var(--on-sun-wash);border-color:color-mix(in srgb,var(--sun) 60%,var(--line-strong))}   /* the one warm accent: Must see */.pp i{font-style:normal;font-size:11px;margin-right:2px}
 .pp-x>span{background:var(--paper);color:var(--ink-3);border-style:dashed;text-decoration:line-through;text-decoration-thickness:1.5px}
 .pp-sv>span::after{content:"\2665";margin-left:3px;color:var(--accent);font-size:11px}
 .pp.hot>span,.pp.sel>span,.pp:hover>span{background:var(--ink);color:var(--paper);border-color:var(--ink);transform:translate(-50%,-50%) scale(1.14)}
@@ -221,7 +221,6 @@ html[data-view=atlas] .ms-bar>.toolbar{display:contents}
 html[data-view=atlas] .ms-bar :is(.map-toggle,.applied:empty){display:none!important}
 html[data-view=atlas] .ms-bar .applied{flex:0 0 auto;width:auto}
 html[data-view=atlas] .ms-bar .ms-x{display:contents}
-html[data-view=atlas] .ms-city{display:none}
 html[data-view=atlas] .ms-bar .chip{flex:none;display:inline-flex;align-items:center;gap:6px;min-height:var(--tap);padding:0 14px;border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:500 var(--fs-ui)/1 var(--font-ui);cursor:pointer;white-space:nowrap}
 html[data-view=atlas] .ms-bar .chip .ico{width:16px;height:16px}html[data-view=atlas] .ms-bar .chip .n{color:var(--ink-3)}
 html[data-view=atlas] .ms-bar .chip[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
@@ -247,14 +246,38 @@ html[data-view=atlas] .ms-pager{display:flex;flex-wrap:wrap;align-items:center;j
 html[data-view=atlas] .ms-pager[hidden],html:not(.ms-on) .ms-pager,html:not([data-view=atlas]) .ms-pager{display:none}
 /* Atlas shows the cards, the map shows the rest: no rail, no Gallery pager, no lens line duplicating the head */
 html[data-view=atlas] :is(.rail,.railbar,.listpane>.shown,.mapclose,.pager){display:none!important}
-html[data-view=atlas] #cleo-grid li.pl :is(.pl-w,.pl-k,.pl-ad){display:none}   /* the card is image, name, area, sources */
-/* credited photos (imagery lane): the image is cropped 4:3 (the card's credit line is FE-A's); the calm cover steps aside.
-   The phone carousel has no room for a legible credit, so it keeps the calm cover (the list and the preview show the photo) */
-html[data-view=atlas] #cleo-grid li.pl>figure.pl-photo{margin:0}
-html[data-view=atlas] #cleo-grid li.pl>figure.pl-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-l);background:var(--sand)}
-html[data-view=atlas] #cleo-grid li.pl:has(>figure.pl-photo)>.pl-cover{display:none}
 html[data-view=atlas] li.pl.is-hover,html[data-view=atlas] li.pl.is-sel{outline:2px solid var(--ink);outline-offset:3px;border-radius:var(--r-l)}
 html[data-view=atlas] .nopin{z-index:650;top:auto;bottom:16px;left:auto;right:16px;transform:none}
+
+/* ---- the Atlas card face (W7 review): image-first on FE-A's shared li.pl. atlas.js adds .ms-bd (rank + sticker),
+   .ms-cr (photo credit), .ms-k (area · kind) and .ms-rec (Recommended by); the long write-up and eyebrow step aside ---- */
+html:not([data-view=atlas]) :is(.ms-bd,.ms-cr,.ms-k,.ms-rec){display:none}
+html[data-view=atlas] #cleo-grid li.pl{position:relative;display:block;margin:0;padding:0;background:none;border:0;box-shadow:none;container-type:inline-size;min-height:0}
+html[data-view=atlas] #cleo-grid li.pl::before{display:none}
+html[data-view=atlas] #cleo-grid li.pl>:is(.pl-e,.pl-w,.pl-k,.pl-ad,.pl-s){display:none}
+html[data-view=atlas] #cleo-grid li.pl>:is(.pl-cover,figure.pl-photo){position:relative;display:grid;place-items:center;width:100%;height:auto;aspect-ratio:4/3;margin:0;padding:0;border-radius:var(--r-l);overflow:hidden;background:var(--sand)}
+html[data-view=atlas] #cleo-grid li.pl>figure.pl-photo img{display:block;width:100%;height:100%;object-fit:cover}
+html[data-view=atlas] #cleo-grid li.pl>figure.pl-photo figcaption{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}   /* the credit is the © link on the photo */
+html[data-view=atlas] #cleo-grid li.pl:has(>figure.pl-photo)>.pl-cover{display:none}
+html[data-view=atlas] #cleo-grid li.pl>.pl-cover>:not(.pl-glyph){display:none}
+html[data-view=atlas] #cleo-grid li.pl>.pl-cover .pl-glyph{position:static;inset:auto;width:34px;height:34px;margin:0;color:var(--ink-3);opacity:1;transform:none}
+html[data-view=atlas] #cleo-grid li.pl>.ms-bd{position:absolute;z-index:3;left:10px;top:10px;right:60px;display:flex;flex-wrap:wrap;gap:6px;pointer-events:none}
+html[data-view=atlas] .ms-rk{display:inline-grid;place-items:center;min-width:28px;height:28px;padding:0 8px;border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:600 13px/1 var(--font-ui);font-variant-numeric:tabular-nums;box-shadow:var(--shadow-sm)}
+html[data-view=atlas] #cleo-grid li.pl .ms-bd .sticker{position:absolute;left:0;top:calc(75cqw - 48px);margin:0;white-space:nowrap}
+html[data-view=atlas] #cleo-grid li.pl .ms-cl{background:var(--closed-soft);color:var(--closed)}
+html[data-view=atlas] #cleo-grid li.pl>.ms-cr{position:absolute;z-index:3;right:6px;top:calc(75cqw - 40px);display:inline-grid;place-items:center;width:var(--tap);height:var(--tap);color:var(--paper);font:600 12px/1 var(--font-ui);text-decoration:none;text-shadow:0 1px 2px rgba(0,0,0,.7)}
+html[data-view=atlas] #cleo-grid li.pl>.pl-x{position:absolute;z-index:3;top:6px;right:6px;margin:0}
+html[data-view=atlas] #cleo-grid li.pl>.pl-n{margin:10px 0 2px;padding:0;font:600 var(--fs-d3)/1.3 var(--font-ui);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+html[data-view=atlas] #cleo-grid li.pl>.pl-n a{display:inline;min-height:0;padding:0;color:var(--ink);text-decoration:none}
+html[data-view=atlas] #cleo-grid li.pl>.pl-n a::after{content:"";position:absolute;inset:0;z-index:1}   /* the whole card opens the place */
+html[data-view=atlas] #cleo-grid li.pl>.pl-n .nat{display:none}
+html[data-view=atlas] #cleo-grid li.pl>:is(.ms-k,.ms-rec){margin:0;padding:0;min-height:0;font-size:var(--fs-sm);line-height:1.45;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html[data-view=atlas] #cleo-grid li.pl>.ms-rec b{font-weight:600;color:var(--ink)}
+html[data-view=atlas] #cleo-grid section.area .ms-a{display:none}          /* grouped by area: the header already names it */
+html[data-view=atlas] #cleo-grid li.pl :is(.stamp,.pl-why){display:none}
+html[data-view=atlas] #cleo-grid li.pl:is(.is-hover,.is-sel){outline:none}
+html[data-view=atlas] #cleo-grid li.pl:is(.is-hover,.is-sel)>:is(.pl-cover,figure.pl-photo){outline:2px solid var(--ink);outline-offset:2px}
+@media (hover:hover){html[data-view=atlas] #cleo-grid li.pl:hover>:is(.pl-cover,figure.pl-photo) img{transform:scale(1.03)}html[data-view=atlas] #cleo-grid li.pl>figure.pl-photo img{transition:transform var(--dur-3) var(--ease-out)}}
 
 /* ---- the preview card on the map (desktop): opens from a pin, links to the place ---- */
 html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700;inset:auto;left:0;top:0;width:300px;max-height:none;overflow:hidden;padding:0;margin:0;border:0;border-radius:var(--r-l);background:var(--surface);box-shadow:var(--e-4);transform:none}
@@ -309,7 +332,6 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
   html.atlas-m[data-view=atlas] .ms-bar{position:fixed;z-index:30;left:0;right:0;top:var(--row-top);padding:0 12px 6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   html.atlas-m[data-view=atlas] .ms-bar::-webkit-scrollbar{display:none}
   html.atlas-m[data-view=atlas] .ms-bar :is(.chip,.ms-sort select,.views,.modes,.area-btn,[data-cleo-tray],#cleo-filter){box-shadow:var(--e-2)}
-  html.atlas-m[data-view=atlas] .ms-city{display:inline-flex;align-items:center;flex:none;min-height:var(--tap);margin:0;padding:0 14px;border-radius:var(--r-pill);background:var(--ink);color:var(--paper);font:var(--fw-display) 17px/1 var(--font-display);letter-spacing:var(--track-display);box-shadow:var(--e-2);white-space:nowrap}   /* QA-40: the city is named on the first screen */
   html.atlas-m[data-view=atlas] .ms-bar>.views{flex:none;margin:0;width:auto;position:static}
   html.atlas-m[data-view=atlas] .ms-bar #cleo-filter{flex:0 0 150px;min-height:var(--tap);padding:0 14px;border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:inherit}
   html.atlas-m[data-view=atlas] .ms-bar :is(.area-btn,[data-cleo-tray]){flex:none;background:var(--surface)}
@@ -322,32 +344,21 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
   html.atlas-m[data-view=atlas]:not(.ms-list) .listpane>:not(section.area){display:none}
   html.atlas-m[data-view=atlas]:not(.ms-list) .listpane :is(section.area,section.area>ol.pls){display:contents}
   html.atlas-m[data-view=atlas]:not(.ms-list) .listpane section.area>:not(ol){display:none}
-  html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl{flex:0 0 min(84vw,380px);scroll-snap-align:center;display:grid;grid-template-columns:96px minmax(0,1fr);grid-auto-rows:min-content;column-gap:12px;align-content:center;
-    position:relative;height:var(--car-h);margin:0;padding:10px 12px 10px 10px;overflow:hidden;background:var(--surface);border:0;border-radius:var(--r-l);box-shadow:var(--e-2)}
-  html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl::before{display:none}
-  html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl>.pl-cover{grid-column:1;grid-row:1/span 4;width:96px;height:calc(var(--car-h) - 20px);min-height:0;margin:0;border-radius:var(--r-m);aspect-ratio:auto;overflow:hidden}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo{display:none}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl:has(>figure.pl-photo)>.pl-cover{display:grid}
-  html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl>:is(.pl-e,.pl-n,.pl-s){grid-column:2;margin:0;padding:0;min-height:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-e{display:block;padding-right:40px;font-size:var(--fs-xs);line-height:24px;color:var(--ink-2)}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-e :is(.tier,.in,span){display:inline;position:static;margin:0;padding:0;min-height:0;font-size:inherit}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-e .pl-num{display:inline-grid;place-items:center;min-width:24px;height:24px;margin-right:6px;vertical-align:middle}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-e .tier{font-weight:600;color:var(--ink)}html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-e .tg{display:none}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-cover{display:grid;place-items:center;background:var(--sand)}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-cover>:not(.pl-glyph){display:none}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-cover .pl-glyph{position:static;inset:auto;width:30px;height:30px;margin:0;color:var(--ink-3);opacity:1;transform:none}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n{font-size:16px;line-height:1.3;margin:2px 0 4px;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n a{display:inline;min-height:0;padding:0}
-  html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl>.pl-n a::after{content:"";position:absolute;inset:0;z-index:1}   /* the whole card opens the place */
-  html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl>.pl-s{font-size:var(--fs-xs);color:var(--ink-2)}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-s{display:block;line-height:20px}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-s :is(.src,.lbl,.more,.rest,.added){display:inline!important;min-height:0;min-width:0;margin:0;padding:0;font:inherit;text-decoration:none;color:inherit;pointer-events:none;vertical-align:baseline}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-s .src{font-weight:600;color:var(--ink)}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-s .src::after{content:none}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-s .rest{display:none}
-  html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl>.pl-x{position:absolute;z-index:2;top:4px;right:4px;margin:0}
-  html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl :is(.stamp,.pl-why,.pl-dist){display:none}
-  html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl.is-sel{outline:2px solid var(--ink);outline-offset:-2px}
+  /* the carousel: the same card face, side by side — media left, text right (sections and lists step aside) */
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl{flex:0 0 min(84vw,360px);scroll-snap-align:center;display:grid;grid-template-columns:104px minmax(0,1fr);grid-template-rows:auto auto auto;align-content:center;column-gap:12px;
+    height:var(--car-h);padding:10px 12px 10px 10px;overflow:hidden;background:var(--surface);border-radius:var(--r-l);box-shadow:var(--e-2);container-type:normal}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.pl-cover,figure.pl-photo){grid-column:1;grid-row:1/span 3;width:104px;height:calc(var(--car-h) - 20px);aspect-ratio:auto;border-radius:var(--r-m)}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.pl-n,.ms-k,.ms-rec){grid-column:2;padding:0}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n{grid-row:1}html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-k{grid-row:2;margin-right:30px}html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-rec{grid-row:3}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n{margin:0 30px 2px 0;font-size:16px}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.ms-k,.ms-rec){font-size:var(--fs-xs)}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid section.area .ms-a{display:inline}   /* the carousel crosses areas: name it */
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-bd{left:14px;top:14px;right:auto}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl .ms-bd .sticker{display:none}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-cr{right:auto;left:70px;top:auto;bottom:6px}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-x{top:2px;right:2px}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl.is-sel{outline:2px solid var(--ink);outline-offset:-2px}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl.is-sel>:is(.pl-cover,figure.pl-photo){outline:none}
   /* the List / Map pill, bottom centre */
   html.atlas-m[data-view=atlas] .ms-toggle{display:inline-flex;align-items:center;gap:8px;position:fixed;z-index:35;left:50%;bottom:calc(var(--car-h) + 24px);transform:translateX(-50%);min-height:var(--tap);padding:0 20px;border-radius:var(--r-pill);box-shadow:var(--e-4);white-space:nowrap}
   html.atlas-m.ms-list[data-view=atlas] .ms-toggle{bottom:14px}
@@ -369,6 +380,10 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
   html.atlas-m[data-view=atlas] .leaflet-container :is(.m-base,.m-legend summary)>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
   html.atlas-m[data-view=atlas] .leaflet-container .m-legend[open]{width:auto}
   html.atlas-m[data-view=atlas] .leaflet-bottom{bottom:calc(var(--car-h) + 76px)}
+  html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-right{bottom:auto;top:56px;left:0;right:auto}   /* OSM credit: top left, clear of the pill and the pins */
+  html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-right .leaflet-control{margin:6px 0 0 12px;float:left;clear:both}
+  html.atlas-m[data-view=atlas] .leaflet-control-attribution{font-size:11px;line-height:1.5;padding:0 6px;border-radius:var(--r-s)}
+  html.atlas-m[data-view=atlas] .topbar .crumbs :is(a~.sep,a~.here){display:inline}   /* QA-40: the city named in the header */
   html.atlas-m[data-view=atlas] .nopin{bottom:calc(var(--car-h) + 80px);right:auto;left:12px}
   html.atlas-m[data-view=atlas] #cleo-poi{display:none!important}
 }

@@ -924,3 +924,15 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - In Atlas, photos are cropped 4:3 (they had been rendering 692 px tall). The phone carousel keeps the calm cover, because a 96 px thumb has no room for a legible credit. The map preview shows the photo with its credit.
   - **Gates on the final tree:** validate + `npm test` + `beta:check` all PASS (eager JS 39 KB gzip). w2 map 35/35, w5 64/64, `atlas-ms.js` 85/85.
   - **Evidence:** `design/beta/eval/w7/atlas/` (390 + 1440, light + dark, stub tiles + tiles blocked). Probe: `NODE_PATH=$(npm root -g) node tools/beta/atlas-ms.js`, the Amendment 2 acceptance as executable checks.
+
+- 2026-10-11 · Atlas lane · **Atlas review fixes (orchestrator):**
+  - **Image-first card face**, decorated onto the shared `li.pl` (no fork; additions are hidden outside Atlas):
+    - Media on top at 4:3: the credited photo at its 500w copy (`sizes="240px"` in Atlas, restored on leaving), or the calm cover.
+    - On the media: the heart, a rank badge (★ for Must see), a Must see sun sticker or a Closed sticker, and a © link carrying the full TASL credit.
+    - Below the media: the name (2 lines), area · kind (the area is dropped where the list is grouped by area), and "Recommended by <first source> +N".
+  - **Phone:**
+    - the carousel uses the same face;
+    - the OSM attribution moved top-left under the chip row, clear of the List pill and the bottom pins;
+    - the city is named in the header crumbs, and the chip row is filters only (view switcher last).
+  - **Pins:** Must see pins take the sun-wash; every other pin stays neutral.
+  - **Gates:** validate + `npm test` + `beta:check` all PASS (eager JS 39 KB gzip); w2 map 35/35; `atlas-ms.js` 85/85.
