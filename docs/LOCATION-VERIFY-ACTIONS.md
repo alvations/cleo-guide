@@ -104,7 +104,7 @@ Re-read each live page before the first production run: several say they change 
 | source | why it is out |
 |---|---|
 | Google Maps Platform, Apple Maps, Mapbox, HERE, Bing/Azure Maps | All need a key and a billing account. Google's service terms allow caching lat/lng for at most **30 days**, then require deletion ([Service Specific Terms](https://cloud.google.com/maps-platform/terms/maps-service-terms/index-20240522)), but `data/geocodes.json` stores coordinates permanently. The others have similar storage limits. Reading their pins through WebSearch snippets by hand stays as it is today. |
-| Yelp, TripAdvisor, other review or booking sites | Never a source of truth (CLAUDE.md). Many registry rows already cite them for a *pin*; this tool never queries them. Its `NOT_OFFICIAL` filter also stops their URLs being treated as an "official site". |
+| Review-aggregator and booking sites (the ones CLAUDE.md names) | Never a source of truth (CLAUDE.md). Many registry rows already cite them for a *pin*; this tool never queries them. Its `NOT_OFFICIAL` filter also stops their URLs being treated as an "official site". |
 | openstreetmap.org pages, tile servers, Nominatim "details" scraping | Forbidden by the OSMF policies; we use the APIs only. |
 | US Census Geocoder | No key, but it returns **address-range interpolation**, not a place pin. Guard only; see § 2.2. |
 | Singapore OneMap, Japan GSI / Address Base Registry, German state house coordinates, BKG | Phase 2. Terms, keys and licences are in § 2.2. |
