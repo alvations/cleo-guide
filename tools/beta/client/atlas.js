@@ -227,8 +227,9 @@
   };
   C.after.push(paintMs); on(d, 'cleo:stamped', () => { if (atlas()) requestAnimationFrame(paintMs); }); on(d, 'cleo:saved', paintMs);
   // phones: List ⇄ Map. The list is the full-screen image-first list of the places in the map area (Back closes it).
+  const face = () => { if (lp) lp.classList.toggle('w7-cards', atlas() && (desk() || listOn)); };   // FE-A's shared card face, except the carousel
   const listMode = C.listMode = (o, push) => {
-    if (!!o === listOn && !push) return; listOn = !!o && !desk(); H.classList.toggle('ms-list', listOn);
+    if (!!o === listOn && !push) return; listOn = !!o && !desk(); H.classList.toggle('ms-list', listOn); face();
     if (listOn && push && !pushedList) { try { history.pushState({ msList: 1 }, '', location.href); pushedList = 1; } catch (e) {} }
     if (!listOn && pushedList && push) { pushedList = 0; try { history.back(); } catch (e) {} }
     if (lp) { lp.scrollTop = 0; lp.scrollLeft = 0; }
@@ -238,15 +239,15 @@
   on(d, 'keydown', e => { if (e.key !== 'Escape' || !atlas() || !listOn || (Cleo.sheet && Cleo.sheet.isOpen()) || $('.overlay:not([hidden])')) return; listMode(false, true); });
   C.onNoMap = () => { C.msN = null; H.classList.remove('ms-on'); if (atlas() && !desk()) listMode(true); paintMs(); };
   C.msIn = () => {
-    build(); unpark(); deco();
+    build(); unpark(); deco(); face();
     const x = $('.ms-x', bar);
-    // phones: the filter chips (the view switcher stays in FE-A's search bar when there is one); desktop: area chips in the results head
-    if (!desk()) { park(tb, bar, x); if (!(nav && nav.closest('.cbar'))) park(nav, bar, null); } else { park(tb, bar, x); if (achips) park(achips, head, $('.ms-more', head).nextSibling); }
+    // phones: the chip row carries FE-A's search pill (in the toolbar) and the switcher last; desktop: area chips in the results head
+    if (!desk()) { park(tb, bar, x); park(nav, bar, null); } else { park(tb, bar, x); if (achips) park(achips, head, $('.ms-more', head).nextSibling); }
     if (desk() && listOn) listMode(false);
     if (H.classList.contains('ms-nomap')) C.onNoMap();
     msArea();
   };
-  C.msOut = () => { listOn = false; unpark(); undeco(); closePoi(); };
+  C.msOut = () => { listOn = false; unpark(); undeco(); if (lp) lp.classList.remove('w7-cards'); closePoi(); };
 
   /* ---- locate-me: opt-in, one reading, memory only ---- */
   let me = null, meL = null;

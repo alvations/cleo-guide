@@ -993,3 +993,8 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Pins:** Must see pins take the sun-wash; every other pin stays neutral.
   - **Gates:** validate + `npm test` + `beta:check` all PASS (eager JS 39 KB gzip); w2 map 35/35; `atlas-ms.js` 85/85.
   - **After FE-A's W7 merge (57f3e39b):** FE-A's search bar (`.cbar`: search pill + view switcher) now leads Atlas on both layouts. On phones it is fixed under the header with the filter chip row below it, and the switcher stays there. The map controls, the OSM credit and "Search this area" are offset below both. My W7 test reads "the switcher stays in reach (search bar or chip row)", because it now lives in FE-A's search bar, not the chip row. All gates PASS; eager JS 27.5 KB gzip after platform's minify; `atlas-ms.js` 85/85; w2 map 35/35.
+  - **On FE-A's shared card (3cf31a3e):**
+    - Atlas opts into FE-A's `.w7-cards` face for the desktop grid and the phone list. My decorations are now carousel-only: a compact side-by-side version of the same `li.pl`.
+    - On phones Atlas follows FE-A's rule: the city bar steps aside, and the chip row carries the search pill and the switcher.
+    - In Atlas the write-up stays hidden even on the selected card. The selection ring sits on the media image.
+    - Gates all PASS; `atlas-ms.js` 85/85; w2 map 35/35.
