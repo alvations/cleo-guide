@@ -24,14 +24,14 @@ const PH = path.join(BETA, 'assets/img/photos');
 const places = {}; for (const f of fs.readdirSync(path.join(BETA, 'data/places'))) { const d = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places', f), 'utf8')); places[d.key] = d; places[f.replace(/\.json$/, '')] = d; }
 const R = { checks: [], rows: [] }; let fails = 0;
 const check = (name, ok, ev) => { R.checks.push({ name, ok: ok === null ? null : !!ok, ev }); if (ok === false) fails++; console.log(`  ${ok === null ? 'INFO' : ok ? 'PASS' : 'FAIL'}  ${name}` + (ev !== undefined ? ' = ' + JSON.stringify(ev).slice(0, 400) : '')); };
-const FREE = /^(CC0 1\.0|Public domain|CC BY(-SA)? \d\.\d)$/;
+const FREE = /^(CC0 1\.0|Public domain|CC BY(-SA)? \d\.\d( [A-Z]{2})?)$/;   // a ported licence keeps its jurisdiction (e.g. "CC BY 3.0 US")
 const VENUE = /\b(BAR|SHOP|SHOPPING|MARKET|MALL|HAWKER|THEATRE|THEATER|ARENA|ENTERTAINMENT|NIGHTLIFE|STADIUM|MUSIC|VENUE|CLUB)\b/;
 const bad = { lic: [], src: [], author: [], food: [], venue: [], closed: [], vn: [], missing: [] };
 const seenT = {}, seenS = {}, dupes = [];
 for (const c of CR) {
   const id = c.file;
   if (!FREE.test(c.licence || '') || /NC|ND/.test(c.licence)) bad.lic.push(id + ' ' + c.licence);
-  else if (/^CC BY/.test(c.licence)) { const [, kind, ver] = /^CC (BY(?:-SA)?) (\d\.\d)/.exec(c.licence); if (c.licenceUrl !== `https://creativecommons.org/licenses/${kind.toLowerCase()}/${ver}` && c.licenceUrl !== `https://creativecommons.org/licenses/${kind.toLowerCase()}/${ver}/`) bad.lic.push(id + ' url ' + c.licenceUrl); }
+  else if (/^CC BY/.test(c.licence)) { const [, kind, ver, jur] = /^CC (BY(?:-SA)?) (\d\.\d)(?: ([A-Z]{2}))?/.exec(c.licence), deed = `https://creativecommons.org/licenses/${kind.toLowerCase()}/${ver}` + (jur ? '/' + jur.toLowerCase() : ''); if (!new RegExp('^' + deed.replace(/[.]/g, '\\.') + '(/|/deed\\.[a-z]+)?$').test(c.licenceUrl)) bad.lic.push(id + ' url ' + c.licenceUrl); }
   else if (!/^https:\/\/creativecommons\.org\/(publicdomain|licenses)\//.test(c.licenceUrl || '') && !/wikipedia|wikimedia/.test(c.licenceUrl || '')) bad.lic.push(id + ' url ' + c.licenceUrl);
   const want = 'https://commons.wikimedia.org/wiki/' + (c.commonsTitle || '').replace(/ /g, '_');
   if (!c.commonsTitle || decodeURIComponent(c.sourceUrl) !== decodeURIComponent(want)) bad.src.push(id + ' ' + c.sourceUrl);

@@ -267,6 +267,14 @@
       return 2 * 6371.0088 * Math.asin(Math.min(1, Math.sqrt(h)));
     },
     fmt: function (km) { return km < 0.1 ? 'next door (under 0.1 km straight-line)' : (km < 10 ? km.toFixed(1) : Math.round(km)) + ' km straight-line'; },
+    /** THE walking estimate (SPEC-v3 §3.4 / §10; W9-4 trips, W9-5 base) — one function, no second copy: straight-line
+     *  metres ÷ 80 m a minute. Metres round to 10 under 1 km, one decimal of a km above. Callers state ASSUME once per view. */
+    MPM: 80, ASSUME: 'Walk times are straight-line, about 80 m a minute — an estimate, not a route',
+    walk: function (km) {
+      var m = km * 1000, r = Math.round(m / 10) * 10, min = Math.round(m / 80);
+      var dist = r < 1000 ? r + ' m' : (m / 1000).toFixed(1) + ' km';
+      return { m: m, min: min, dist: dist, text: dist + ' · ' + (min < 1 ? 'under 1 min walk' : min + ' min walk') };
+    },
     ll: function (el) { var v = (el && el.getAttribute('data-ll') || '').split(','); return v.length === 2 ? [+v[0], +v[1]] : null; }
   };
 

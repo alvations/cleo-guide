@@ -93,7 +93,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 
 /* ---------- V3b. D-03 cover rules (Gallery): tint, edge, pin art, ringed pin, plates per breakpoint, glyph chip ---------- */
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover { --ac: var(--area-c, var(--city)); container-type: size; }
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .me { background: var(--city); border-color: var(--surface); box-shadow: 0 0 0 2px var(--city), 0 0 0 6px color-mix(in srgb, var(--city) 22%, transparent); }
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .me { background: var(--city); border-color: var(--surface); box-shadow: var(--ring-glow); }
 /* native plate: ≤ 4 glyphs set vertically, sized from the cover's height so it never clips at 320–1440 px */
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .plate.v { font-size: var(--fs-d2); max-height: calc(100cqh - 24px); overflow: hidden; }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .plate.i { font-size: var(--fs-d1); }
@@ -133,7 +133,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 /* ---------- V2. Shared primitives inside a view root (.vw) — ported from the mockups, scoped so they never restyle the live page ---------- */
 *,:is(.vw, [data-cleo-book], [data-cleo-insights]) *::before,:is(.vw, [data-cleo-book], [data-cleo-insights]) *::after{box-sizing:border-box}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) a{color:inherit}
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .d1{font:500 var(--fs-d1)/1.05 var(--font-display);margin:0;letter-spacing:-.01em}
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .d1{font:500 var(--fs-d1)/1.05 var(--font-display);margin:0;letter-spacing:var(--track-tight)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .d2{font:500 var(--fs-d2)/1.12 var(--font-display);margin:0}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .d3{font:500 var(--fs-lead)/1.2 var(--font-display);margin:0}
 @media(min-width:900px){:is(.vw, [data-cleo-book], [data-cleo-insights]) .d1{font-size:var(--fs-hero)}
@@ -155,16 +155,16 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 
 /* ---------- V3. D-03 data-drawn covers (.cover) — shared by Gallery cards, the experience page and "Close by" ---------- */
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover{position:relative;aspect-ratio:4/3;border-radius:var(--r-m);overflow:hidden;background:color-mix(in srgb,var(--ac) 16%,var(--surface));box-shadow:inset 0 -5px 0 var(--ac)}
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .me{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--city);border:3px solid var(--surface);box-shadow:0 0 0 2px var(--city)}
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .me{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--city);border:3px solid var(--surface);box-shadow:var(--ring-select)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .plate{position:absolute;left:14px;top:12px;color:color-mix(in srgb,var(--ac) 45%,var(--ink));line-height:1}
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .plate.v{writing-mode:vertical-rl;font:600 var(--fs-d2)/1.05 var(--font-native);letter-spacing:.04em;max-height:calc(100% - 24px)}
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .plate.v{writing-mode:vertical-rl;font:600 var(--fs-d2)/1.05 var(--font-native);letter-spacing:var(--track-eyebrow);max-height:calc(100% - 24px)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .plate.i{font:italic 500 var(--fs-hero) var(--font-display)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover .gl{position:absolute;right:12px;bottom:14px;width:36px;height:36px;display:grid;place-items:center;border-radius:var(--r-pill);background:var(--surface);color:var(--ink)}
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.big .plate.v{font-size:var(--fs-d1)}
 @media(min-width:900px){:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.big .plate.v{font-size:var(--fs-d1)}
 }
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.big .plate.i{font-size:var(--fs-hero)}
-:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.closed{background:repeating-linear-gradient(135deg,var(--sand) 0 8px,var(--surface) 8px 16px);box-shadow:inset 0 -5px 0 var(--line-strong)}
+:is(.vw, [data-cleo-book], [data-cleo-insights]) .cover.closed{background:repeating-linear-gradient(135deg,var(--sand) 0 8px,var(--surface) 8px 16px);box-shadow:var(--underline-quiet)}
 .view-gallery .cta{display:flex;flex-wrap:wrap;gap:10px}
 .view-gallery .gc-w{color:var(--ink-2);font-size:var(--fs-ui);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 @media(max-width:639px){
@@ -320,8 +320,8 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 :is(.view-guidebook, [data-cleo-book]) .ge-save:hover{border-color:var(--ink)}
 :is(.view-guidebook, [data-cleo-book]) .ge-save[aria-pressed="true"]{background:var(--city);border-color:var(--city);color:var(--city-on)}
 :is(.view-guidebook, [data-cleo-book]) .recby .src{min-height:44px;min-width:44px;border:9px solid transparent;border-left-width:0;border-right-width:0;margin:-9px 0;background-clip:padding-box;box-shadow:none;cursor:pointer;vertical-align:middle;line-height:1.2;box-sizing:border-box}
-:is(.view-guidebook, [data-cleo-book]) .recby .src.added{border:9px solid transparent;border-left-width:0;border-right-width:0;box-shadow:inset 0 0 0 1px var(--line-strong);background:transparent}
-:is(.view-guidebook, [data-cleo-book]) .recby .src:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+:is(.view-guidebook, [data-cleo-book]) .recby .src.added{border:9px solid transparent;border-left-width:0;border-right-width:0;box-shadow:var(--ring-quiet);background:transparent}
+:is(.view-guidebook, [data-cleo-book]) .recby .src:hover{box-shadow:var(--ring-pressed)}
 :is(.view-guidebook, [data-cleo-book]) .recby{line-height:1.9}
 :is(.view-guidebook, [data-cleo-book]) .urls a{display:inline-flex;align-items:center;min-height:44px;overflow-wrap:anywhere}
 :is(.view-guidebook, [data-cleo-book]) .gk{display:block;font:italic 400 var(--fs-ui) var(--font-display);color:var(--ink-2)}

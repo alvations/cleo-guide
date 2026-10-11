@@ -54,7 +54,7 @@ There is no server, so "backend" here means the build and data side.
   - test-fe-a 118 s, test-views 116 s, test-honesty 53 s, test-beta 34 s, test-hubs 33 s;
   - the other eight suites together about 37 s.
 - **Change:** `tools/run-tests.js`.
-  - It runs **the same suites**, read from `package.json` `test:serial`, as a pool of up to 4 jobs, longest first.
+  - It runs **the same suites**, read from `package.json` `test:serial` (13 at the time; any suite added there, e.g. `beta/test-fe-c.js` and `location-verify.test.js` since, joins the pool automatically), as a pool of up to 4 jobs, longest first.
   - Each suite's output is buffered and printed in the original order, followed by a timing table.
   - It exits 1 if **any** suite fails; the old chain stopped at the first failure.
   - The suites are independent and read-only. test-beta's builds are `build.js --check` (in memory), and test-imagery writes only to its own `mkdtemp`. No check was removed or changed.

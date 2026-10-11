@@ -1,0 +1,4343 @@
+{
+ "head": "63805e3e681ea60da1ce78326d302812717c2c9b",
+ "checks": [
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: map ≥ 58 % wide, on the left, to the bottom of the screen",
+   "ok": true,
+   "evidence": {
+    "mapW": 60,
+    "left": 0,
+    "top": 208,
+    "bottom": 900,
+    "vh": 900,
+    "cols": 2,
+    "count": 86,
+    "head": "86 places in this map area · Top ranked",
+    "more": "108 more outside this area. Show all 194",
+    "scrollH": 1944
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: the list is a 2-column card grid",
+   "ok": true,
+   "evidence": 2
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: photo credits on the grid cards are whole",
+   "ok": true,
+   "evidence": {
+    "n": 3,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: zoom/pan changes the count; \"N more outside\" offered",
+   "ok": true,
+   "evidence": {
+    "first": 86,
+    "zoomed": 18,
+    "panned": 15,
+    "more": "179 more outside this area. Show all 194"
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: \"Show all\" + \"Show 40 more\" lists every place once (194)",
+   "ok": true,
+   "evidence": {
+    "head": "Showing all 194 places · Top ranked",
+    "clicks": 0,
+    "n": 194,
+    "uniq": 194
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: hovering a pin lights its card (real mouse)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: pin → its card in view in the list pane, the page never scrolls",
+   "ok": true,
+   "evidence": {
+    "open": true,
+    "name": "Superior Phở",
+    "want": "Superior Phở",
+    "sel": true,
+    "cardInView": true,
+    "scrollY": 0
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: B-07 (W7) pin → preview naming the place → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "pv": [
+     true,
+     "Superior Phở"
+    ],
+    "dd": {
+     "open": {
+      "title": "Superior Phở",
+      "close": true
+     },
+     "same": true,
+     "hash1": "#view=atlas&p=superior-pho",
+     "esc": true,
+     "reopen": true,
+     "back": true,
+     "stay": {
+      "view": "atlas",
+      "url": "/beta/cleveland.html"
+     }
+    }
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: hovering a card lights its pin (real mouse)",
+   "ok": true,
+   "evidence": {
+    "card": "p-slymans-restaurant-and-deli",
+    "c2p": true
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 405,
+     "y": 866,
+     "w": 458,
+     "h": 34,
+     "b": 900,
+     "r": 863
+    },
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: ≥ 70 % of the first screen is map (box), and the uncovered map share recorded",
+   "ok": true,
+   "evidence": {
+    "box": 92,
+    "clear": 66
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: the city (\"Cleveland\") is named on the first screen",
+   "ok": true,
+   "evidence": "SPAN.here: Cleveland"
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: photo credits on the carousel cards are whole (not clipped, squeezed or ellipsised)",
+   "ok": true,
+   "evidence": {
+    "n": 1,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: List pill ≥ 44 × 44, no horizontal overflow",
+   "ok": true,
+   "evidence": [
+    122,
+    44,
+    "List · 57"
+   ]
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: B-04 rail on the first phone screen (Atlas; D-36 by design) — recorded",
+   "ok": null,
+   "evidence": false
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
+   "ok": true,
+   "evidence": {
+    "pin": "prosperity-social-club",
+    "sel": true,
+    "nSel": 1,
+    "inView": true,
+    "r": {
+     "x": 47,
+     "y": 682,
+     "w": 328,
+     "h": 150,
+     "b": 832,
+     "r": 374
+    },
+    "pinSel": true,
+    "want": "Prosperity Social Club",
+    "sheet": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: B-07 (W7) … card → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "open": {
+     "title": "Prosperity Social Club",
+     "close": true
+    },
+    "same": true,
+    "hash1": "#p-prosperity-social-club",
+    "esc": true,
+    "reopen": true,
+    "back": true,
+    "stay": {
+     "view": "atlas",
+     "url": "/beta/cleveland.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: swiping the carousel selects the centred card and marks its pin (or its bubble)",
+   "ok": true,
+   "evidence": {
+    "id": "p-soldiers-and-sailors-monument",
+    "sel": true,
+    "pin": true,
+    "bubble": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: photo credits in the phone list are whole",
+   "ok": true,
+   "evidence": {
+    "n": 1,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: List pill → image-first list; Back → the map, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "list": true,
+    "cards": 8,
+    "w7": true,
+    "tog": "Map",
+    "back": {
+     "list": false,
+     "view": "atlas",
+     "url": "/beta/cleveland.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 12,
+     "y": 132,
+     "w": 378,
+     "h": 60,
+     "b": 192,
+     "r": 390
+    },
+    "onScreen": true,
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html mobile: Leaflet blocked — \"Map unavailable\", a card on screen, every place pageable (194), 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "leaflet": false,
+    "view": "atlas",
+    "note": "Map unavailable right now — every place is listed here.",
+    "first": "Chess Collection — Cleveland P",
+    "paged": 194,
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html desktop: Leaflet blocked — \"Map unavailable\", a card on screen, every place pageable (194), 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "leaflet": false,
+    "view": "atlas",
+    "note": "Map unavailable right now — every place is listed here.",
+    "first": "Chess Collection — Cleveland P",
+    "paged": 194,
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "cleveland.html mobile: storage throws — Atlas + map render, base switch, Must see, List pill work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "leaflet": true,
+    "count": 57,
+    "hash": "#t=1",
+    "base": "Map style: Satellite. Switch to the map",
+    "list": true,
+    "acts": [
+     ".m-base",
+     ".ms-must",
+     ".ms-toggle"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "cleveland.html desktop: storage throws — Atlas + map render, base switch, Must see work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "leaflet": true,
+    "count": 86,
+    "hash": "#t=1",
+    "base": "Map style: Satellite. Switch to the map",
+    "list": false,
+    "acts": [
+     ".m-base",
+     ".ms-must"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "b08",
+   "name": "cleveland.html mobile: every sampled Gallery title at reading position (centre) is uncovered; floaters [{\"cls\":\"cbar\",\"pos\":\"sticky\",\"h\":70,\"w\":358},{\"cls\":\"mappill\",\"pos\":\"fixed\",\"h\":48,\"w\":137}]",
+   "ok": true,
+   "evidence": {
+    "floaters": [
+     {
+      "cls": "cbar",
+      "pos": "sticky",
+      "h": 70,
+      "w": 358
+     },
+     {
+      "cls": "mappill",
+      "pos": "fixed",
+      "h": 48,
+      "w": 137
+     }
+    ],
+    "seen": 24,
+    "covered": 0,
+    "eg": [],
+    "stickyBottom": 134
+   }
+  },
+  {
+   "group": "b08",
+   "name": "cleveland.html desktop: every sampled Gallery title at reading position (centre) is uncovered; floaters [{\"cls\":\"cbar\",\"pos\":\"sticky\",\"h\":71,\"w\":1280},{\"cls\":\"mappill\",\"pos\":\"fixed\",\"h\":48,\"w\":137}]",
+   "ok": true,
+   "evidence": {
+    "floaters": [
+     {
+      "cls": "cbar",
+      "pos": "sticky",
+      "h": 71,
+      "w": 1280
+     },
+     {
+      "cls": "mappill",
+      "pos": "fixed",
+      "h": 48,
+      "w": 137
+     }
+    ],
+    "seen": 48,
+    "covered": 0,
+    "eg": [],
+    "stickyBottom": 143
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cleveland.html mobile: every visible Gallery card shows \"Recommended by\"/\"Added by\"; every closed place reads \"Closed\" on its card",
+   "ok": true,
+   "evidence": {
+    "cards": 194,
+    "noRec": [],
+    "closed": [
+     {
+      "id": "heinens-downtown",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "azure-rooftop-lounge-at-the-9",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "skidmark-garage",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "nela-holiday-lights-display",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "the-rainforest-cleveland-metroparks-zoo",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "lolly-the-trolley",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "minh-anh-restaurant",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "barroco-arepa-bar",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "skyline-chili-lyndhurst",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "melt-bar-and-grilled-the-original",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "sweet-moses-soda-fountain",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "sokolowskis-university-inn",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "hot-sauce-williams",
+      "shown": true,
+      "visibleClosed": true
+     }
+    ],
+    "hiddenLines": [
+     ".pl-w:shown",
+     ".pl-k:in DOM, hidden",
+     ".pl-ad:in DOM, hidden"
+    ]
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cleveland.html desktop: every visible Gallery card shows \"Recommended by\"/\"Added by\"; every closed place reads \"Closed\" on its card",
+   "ok": true,
+   "evidence": {
+    "cards": 194,
+    "noRec": [],
+    "closed": [
+     {
+      "id": "heinens-downtown",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "azure-rooftop-lounge-at-the-9",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "skidmark-garage",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "nela-holiday-lights-display",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "the-rainforest-cleveland-metroparks-zoo",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "lolly-the-trolley",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "minh-anh-restaurant",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "barroco-arepa-bar",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "skyline-chili-lyndhurst",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "melt-bar-and-grilled-the-original",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "sweet-moses-soda-fountain",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "sokolowskis-university-inn",
+      "shown": true,
+      "visibleClosed": true
+     },
+     {
+      "id": "hot-sauce-williams",
+      "shown": true,
+      "visibleClosed": true
+     }
+    ],
+    "hiddenLines": [
+     ".pl-w:in DOM, hidden",
+     ".pl-k:in DOM, hidden",
+     ".pl-ad:in DOM, hidden"
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html mobile: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "A Christmas Story House & Museum",
+    "img": true,
+    "media": [
+     358,
+     224
+    ],
+    "slot": [
+     358,
+     267
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“A Christmas Story house” · Photo: J. Miers · CC BY-SA 1.0 · Wikimedia Commons (resized)",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      114,
+      48
+     ],
+     [
+      "Directions",
+      114,
+      48
+     ],
+     [
+      "Share",
+      114,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "b1": {
+     "x": 0,
+     "y": 770,
+     "w": 390,
+     "h": 73,
+     "b": 843,
+     "r": 390
+    },
+    "srcW": 960,
+    "need": 716,
+    "rank": "No. 52 of 52 in West Side, Ohio City & Tremont"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html mobile: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 716
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html mobile: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": false,
+   "evidence": {
+    "shown": "No. 52 of 52 in West Side, Ohio City & Tremont",
+    "data": [
+     3,
+     52
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html mobile: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cleveland.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html desktop: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "A Christmas Story House & Museum",
+    "img": true,
+    "media": [
+     1024,
+     360
+    ],
+    "slot": [
+     1024,
+     385
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“A Christmas Story house” · Photo: J. Miers · CC BY-SA 1.0 · Wikimedia Commons (resized)",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      344,
+      48
+     ],
+     [
+      "Directions",
+      344,
+      48
+     ],
+     [
+      "Share",
+      344,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "b1": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "srcW": 960,
+    "need": 1024,
+    "rank": "No. 52 of 52 in West Side, Ohio City & Tremont"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html desktop: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 1024
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html desktop: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": false,
+   "evidence": {
+    "shown": "No. 52 of 52 in West Side, Ohio City & Tremont",
+    "data": [
+     3,
+     52
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html desktop: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cleveland.html"
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: map ≥ 58 % wide, on the left, to the bottom of the screen",
+   "ok": true,
+   "evidence": {
+    "mapW": 60,
+    "left": 0,
+    "top": 208,
+    "bottom": 900,
+    "vh": 900,
+    "cols": 2,
+    "count": 332,
+    "head": "332 places in this map area · Top ranked",
+    "more": "156 more outside this area. Show all 488",
+    "scrollH": 2109
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: the list is a 2-column card grid",
+   "ok": true,
+   "evidence": 2
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: photo credits on the grid cards are whole",
+   "ok": true,
+   "evidence": {
+    "n": 4,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: zoom/pan changes the count; \"N more outside\" offered",
+   "ok": true,
+   "evidence": {
+    "first": 332,
+    "zoomed": 23,
+    "panned": 54,
+    "more": "434 more outside this area. Show all 488"
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: \"Show all\" + \"Show 40 more\" lists every place once (488)",
+   "ok": true,
+   "evidence": {
+    "head": "Showing all 488 places · Top ranked",
+    "clicks": 0,
+    "n": 488,
+    "uniq": 488
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: hovering a pin lights its card (real mouse)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: pin → its card in view in the list pane, the page never scrolls",
+   "ok": true,
+   "evidence": {
+    "open": true,
+    "name": "Ukiyo-e Ōta Memorial Museum of Art",
+    "want": "Ukiyo-e Ōta Memorial Museum of Art (太田記念美術館)",
+    "sel": true,
+    "cardInView": true,
+    "scrollY": 0
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: B-07 (W7) pin → preview naming the place → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "pv": [
+     true,
+     "Ukiyo-e Ōta Memorial Museum of Art"
+    ],
+    "dd": {
+     "open": {
+      "title": "Ukiyo-e Ōta Memorial Museum of Art (太田記念美術館)",
+      "close": true
+     },
+     "same": true,
+     "hash1": "#view=atlas&p=ukiyo-e-ota-memorial-museum-of-art",
+     "esc": true,
+     "reopen": true,
+     "back": true,
+     "stay": {
+      "view": "atlas",
+      "url": "/beta/cities/tokyo.html"
+     }
+    }
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: hovering a card lights its pin (real mouse)",
+   "ok": true,
+   "evidence": {
+    "card": "p-nezu-museum",
+    "c2p": true
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 405,
+     "y": 866,
+     "w": 458,
+     "h": 34,
+     "b": 900,
+     "r": 863
+    },
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: ≥ 70 % of the first screen is map (box), and the uncovered map share recorded",
+   "ok": true,
+   "evidence": {
+    "box": 92,
+    "clear": 66
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: the city (\"Tokyo\") is named on the first screen",
+   "ok": true,
+   "evidence": "SPAN.here: Tokyo"
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: photo credits on the carousel cards are whole (not clipped, squeezed or ellipsised)",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: List pill ≥ 44 × 44, no horizontal overflow",
+   "ok": true,
+   "evidence": [
+    132,
+    44,
+    "List · 348"
+   ]
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: B-04 rail on the first phone screen (Atlas; D-36 by design) — recorded",
+   "ok": null,
+   "evidence": false
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
+   "ok": true,
+   "evidence": {
+    "pin": "nonbei-yokocho-shibuya",
+    "sel": true,
+    "nSel": 1,
+    "inView": true,
+    "r": {
+     "x": 46,
+     "y": 682,
+     "w": 328,
+     "h": 150,
+     "b": 832,
+     "r": 374
+    },
+    "pinSel": true,
+    "want": "Nonbei Yokochō, Shibuya (渋谷のんべい横丁)",
+    "sheet": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: B-07 (W7) … card → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "open": {
+     "title": "Nonbei Yokochō, Shibuya (渋谷のんべい横丁)",
+     "close": true
+    },
+    "same": true,
+    "hash1": "#p-nonbei-yokocho-shibuya",
+    "esc": true,
+    "reopen": true,
+    "back": true,
+    "stay": {
+     "view": "atlas",
+     "url": "/beta/cities/tokyo.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: swiping the carousel selects the centred card and marks its pin (or its bubble)",
+   "ok": true,
+   "evidence": {
+    "id": "p-tokyo-station-marunouchi-building",
+    "sel": true,
+    "pin": true,
+    "bubble": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: photo credits in the phone list are whole",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: List pill → image-first list; Back → the map, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "list": true,
+    "cards": 21,
+    "w7": true,
+    "tog": "Map",
+    "back": {
+     "list": false,
+     "view": "atlas",
+     "url": "/beta/cities/tokyo.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 12,
+     "y": 132,
+     "w": 378,
+     "h": 60,
+     "b": 192,
+     "r": 390
+    },
+    "onScreen": true,
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html mobile: Leaflet blocked — \"Map unavailable\", a card on screen, every place pageable (488), 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "leaflet": false,
+    "view": "atlas",
+    "note": "Map unavailable right now — every place is listed here.",
+    "first": "Imperial Palace East Gardens (",
+    "paged": 488,
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html desktop: Leaflet blocked — \"Map unavailable\", a card on screen, every place pageable (488), 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "leaflet": false,
+    "view": "atlas",
+    "note": "Map unavailable right now — every place is listed here.",
+    "first": "Imperial Palace East Gardens (",
+    "paged": 488,
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "cities/tokyo.html mobile: storage throws — Atlas + map render, base switch, Must see, List pill work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "leaflet": true,
+    "count": 348,
+    "hash": "#t=1",
+    "base": "Map style: Satellite. Switch to the map",
+    "list": true,
+    "acts": [
+     ".m-base",
+     ".ms-must",
+     ".ms-toggle"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "cities/tokyo.html desktop: storage throws — Atlas + map render, base switch, Must see work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "leaflet": true,
+    "count": 332,
+    "hash": "#t=1",
+    "base": "Map style: Satellite. Switch to the map",
+    "list": false,
+    "acts": [
+     ".m-base",
+     ".ms-must"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "b08",
+   "name": "cities/tokyo.html mobile: every sampled Gallery title at reading position (centre) is uncovered; floaters [{\"cls\":\"cbar\",\"pos\":\"sticky\",\"h\":70,\"w\":358},{\"cls\":\"mappill\",\"pos\":\"fixed\",\"h\":48,\"w\":137}]",
+   "ok": true,
+   "evidence": {
+    "floaters": [
+     {
+      "cls": "cbar",
+      "pos": "sticky",
+      "h": 70,
+      "w": 358
+     },
+     {
+      "cls": "mappill",
+      "pos": "fixed",
+      "h": 48,
+      "w": 137
+     }
+    ],
+    "seen": 24,
+    "covered": 0,
+    "eg": [],
+    "stickyBottom": 134
+   }
+  },
+  {
+   "group": "b08",
+   "name": "cities/tokyo.html desktop: every sampled Gallery title at reading position (centre) is uncovered; floaters [{\"cls\":\"cbar\",\"pos\":\"sticky\",\"h\":71,\"w\":1280},{\"cls\":\"mappill\",\"pos\":\"fixed\",\"h\":48,\"w\":137}]",
+   "ok": true,
+   "evidence": {
+    "floaters": [
+     {
+      "cls": "cbar",
+      "pos": "sticky",
+      "h": 71,
+      "w": 1280
+     },
+     {
+      "cls": "mappill",
+      "pos": "fixed",
+      "h": 48,
+      "w": 137
+     }
+    ],
+    "seen": 48,
+    "covered": 0,
+    "eg": [],
+    "stickyBottom": 143
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cities/tokyo.html mobile: every visible Gallery card shows \"Recommended by\"/\"Added by\"; every closed place reads \"Closed\" on its card",
+   "ok": true,
+   "evidence": {
+    "cards": 488,
+    "noRec": [],
+    "closed": [
+     {
+      "id": "unicorn-gundam-statue-divercity-tokyo-plaza",
+      "shown": true,
+      "visibleClosed": true
+     }
+    ],
+    "hiddenLines": [
+     ".pl-w:shown",
+     ".pl-k:in DOM, hidden",
+     ".pl-ad:in DOM, hidden"
+    ]
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cities/tokyo.html desktop: every visible Gallery card shows \"Recommended by\"/\"Added by\"; every closed place reads \"Closed\" on its card",
+   "ok": true,
+   "evidence": {
+    "cards": 488,
+    "noRec": [],
+    "closed": [
+     {
+      "id": "unicorn-gundam-statue-divercity-tokyo-plaza",
+      "shown": true,
+      "visibleClosed": true
+     }
+    ],
+    "hiddenLines": [
+     ".pl-w:in DOM, hidden",
+     ".pl-k:in DOM, hidden",
+     ".pl-ad:in DOM, hidden"
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html mobile: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "Asukayama Park (飛鳥山公園)",
+    "img": true,
+    "media": [
+     358,
+     224
+    ],
+    "slot": [
+     358,
+     267
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Asukayama Park” · Photo: ↑ＰＯＮ · CC BY-SA 3.0 · Wikimedia Commons (resized)",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      114,
+      48
+     ],
+     [
+      "Directions",
+      114,
+      48
+     ],
+     [
+      "Share",
+      114,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "b1": {
+     "x": 0,
+     "y": 770,
+     "w": 390,
+     "h": 73,
+     "b": 843,
+     "r": 390
+    },
+    "srcW": 960,
+    "need": 716,
+    "rank": "No. 37 of 37 in Jōhoku"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html mobile: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 716
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html mobile: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": false,
+   "evidence": {
+    "shown": "No. 37 of 37 in Jōhoku",
+    "data": [
+     2,
+     37
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html mobile: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/tokyo.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html desktop: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "Asukayama Park (飛鳥山公園)",
+    "img": true,
+    "media": [
+     1024,
+     360
+    ],
+    "slot": [
+     1024,
+     385
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Asukayama Park” · Photo: ↑ＰＯＮ · CC BY-SA 3.0 · Wikimedia Commons (resized)",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      344,
+      48
+     ],
+     [
+      "Directions",
+      344,
+      48
+     ],
+     [
+      "Share",
+      344,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "b1": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "srcW": 960,
+    "need": 1024,
+    "rank": "No. 37 of 37 in Jōhoku"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html desktop: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 1024
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html desktop: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": false,
+   "evidence": {
+    "shown": "No. 37 of 37 in Jōhoku",
+    "data": [
+     2,
+     37
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html desktop: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/tokyo.html"
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: map ≥ 58 % wide, on the left, to the bottom of the screen",
+   "ok": true,
+   "evidence": {
+    "mapW": 60,
+    "left": 0,
+    "top": 208,
+    "bottom": 900,
+    "vh": 900,
+    "cols": 2,
+    "count": 331,
+    "head": "331 places in this map area · Top ranked",
+    "more": "177 more outside this area. Show all 508",
+    "scrollH": 1921
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: the list is a 2-column card grid",
+   "ok": true,
+   "evidence": 2
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: photo credits on the grid cards are whole",
+   "ok": true,
+   "evidence": {
+    "n": 3,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: zoom/pan changes the count; \"N more outside\" offered",
+   "ok": true,
+   "evidence": {
+    "first": 331,
+    "zoomed": 15,
+    "panned": 16,
+    "more": "492 more outside this area. Show all 508"
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: \"Show all\" + \"Show 40 more\" lists every place once (508)",
+   "ok": true,
+   "evidence": {
+    "head": "Showing all 508 places · Top ranked",
+    "clicks": 0,
+    "n": 508,
+    "uniq": 508
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: hovering a pin lights its card (real mouse)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: pin → its card in view in the list pane, the page never scrolls",
+   "ok": true,
+   "evidence": {
+    "open": true,
+    "name": "Brooklyn Bridge Park",
+    "want": "Brooklyn Bridge Park",
+    "sel": true,
+    "cardInView": true,
+    "scrollY": 0
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: B-07 (W7) pin → preview naming the place → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "pv": [
+     true,
+     "Brooklyn Bridge Park"
+    ],
+    "dd": {
+     "open": {
+      "title": "Brooklyn Bridge Park",
+      "close": true
+     },
+     "same": true,
+     "hash1": "#view=atlas&p=brooklyn-bridge-park",
+     "esc": true,
+     "reopen": true,
+     "back": true,
+     "stay": {
+      "view": "atlas",
+      "url": "/beta/cities/newyork.html"
+     }
+    }
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: hovering a card lights its pin (real mouse)",
+   "ok": true,
+   "evidence": {
+    "card": "p-crown-shy",
+    "c2p": true
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 405,
+     "y": 866,
+     "w": 458,
+     "h": 34,
+     "b": 900,
+     "r": 863
+    },
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: ≥ 70 % of the first screen is map (box), and the uncovered map share recorded",
+   "ok": true,
+   "evidence": {
+    "box": 92,
+    "clear": 66
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: the city (\"New York City\") is named on the first screen",
+   "ok": true,
+   "evidence": "SPAN.here: New York City"
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: photo credits on the carousel cards are whole (not clipped, squeezed or ellipsised)",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: List pill ≥ 44 × 44, no horizontal overflow",
+   "ok": true,
+   "evidence": [
+    131,
+    44,
+    "List · 259"
+   ]
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: B-04 rail on the first phone screen (Atlas; D-36 by design) — recorded",
+   "ok": null,
+   "evidence": false
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
+   "ok": true,
+   "evidence": {
+    "pin": "veselka",
+    "sel": true,
+    "nSel": 1,
+    "inView": true,
+    "r": {
+     "x": 32,
+     "y": 682,
+     "w": 328,
+     "h": 150,
+     "b": 832,
+     "r": 359
+    },
+    "pinSel": true,
+    "want": "Veselka",
+    "sheet": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: B-07 (W7) … card → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "open": {
+     "title": "Veselka",
+     "close": true
+    },
+    "same": true,
+    "hash1": "#p-veselka",
+    "esc": true,
+    "reopen": true,
+    "back": true,
+    "stay": {
+     "view": "atlas",
+     "url": "/beta/cities/newyork.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: swiping the carousel selects the centred card and marks its pin (or its bubble)",
+   "ok": true,
+   "evidence": {
+    "id": "p-museum-of-modern-art-moma",
+    "sel": true,
+    "pin": true,
+    "bubble": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: photo credits in the phone list are whole",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: List pill → image-first list; Back → the map, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "list": true,
+    "cards": 35,
+    "w7": true,
+    "tog": "Map",
+    "back": {
+     "list": false,
+     "view": "atlas",
+     "url": "/beta/cities/newyork.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 12,
+     "y": 132,
+     "w": 378,
+     "h": 60,
+     "b": 192,
+     "r": 390
+    },
+    "onScreen": true,
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html mobile: Leaflet blocked — \"Map unavailable\", a card on screen, every place pageable (508), 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "leaflet": false,
+    "view": "atlas",
+    "note": "Map unavailable right now — every place is listed here.",
+    "first": "The Metropolitan Museum of Art",
+    "paged": 508,
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html desktop: Leaflet blocked — \"Map unavailable\", a card on screen, every place pageable (508), 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "leaflet": false,
+    "view": "atlas",
+    "note": "Map unavailable right now — every place is listed here.",
+    "first": "The Metropolitan Museum of Art",
+    "paged": 508,
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "cities/newyork.html mobile: storage throws — Atlas + map render, base switch, Must see, List pill work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "leaflet": true,
+    "count": 259,
+    "hash": "#t=1",
+    "base": "Map style: Satellite. Switch to the map",
+    "list": true,
+    "acts": [
+     ".m-base",
+     ".ms-must",
+     ".ms-toggle"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "cities/newyork.html desktop: storage throws — Atlas + map render, base switch, Must see work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "leaflet": true,
+    "count": 331,
+    "hash": "#t=1",
+    "base": "Map style: Satellite. Switch to the map",
+    "list": false,
+    "acts": [
+     ".m-base",
+     ".ms-must"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "b08",
+   "name": "cities/newyork.html mobile: every sampled Gallery title at reading position (centre) is uncovered; floaters [{\"cls\":\"cbar\",\"pos\":\"sticky\",\"h\":70,\"w\":358},{\"cls\":\"mappill\",\"pos\":\"fixed\",\"h\":48,\"w\":137}]",
+   "ok": true,
+   "evidence": {
+    "floaters": [
+     {
+      "cls": "cbar",
+      "pos": "sticky",
+      "h": 70,
+      "w": 358
+     },
+     {
+      "cls": "mappill",
+      "pos": "fixed",
+      "h": 48,
+      "w": 137
+     }
+    ],
+    "seen": 24,
+    "covered": 0,
+    "eg": [],
+    "stickyBottom": 134
+   }
+  },
+  {
+   "group": "b08",
+   "name": "cities/newyork.html desktop: every sampled Gallery title at reading position (centre) is uncovered; floaters [{\"cls\":\"cbar\",\"pos\":\"sticky\",\"h\":71,\"w\":1280},{\"cls\":\"mappill\",\"pos\":\"fixed\",\"h\":48,\"w\":137}]",
+   "ok": true,
+   "evidence": {
+    "floaters": [
+     {
+      "cls": "cbar",
+      "pos": "sticky",
+      "h": 71,
+      "w": 1280
+     },
+     {
+      "cls": "mappill",
+      "pos": "fixed",
+      "h": 48,
+      "w": 137
+     }
+    ],
+    "seen": 48,
+    "covered": 0,
+    "eg": [],
+    "stickyBottom": 143
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cities/newyork.html mobile: every visible Gallery card shows \"Recommended by\"/\"Added by\"; every closed place reads \"Closed\" on its card",
+   "ok": true,
+   "evidence": {
+    "cards": 508,
+    "noRec": [],
+    "closed": [],
+    "hiddenLines": [
+     ".pl-w:shown",
+     ".pl-k:in DOM, hidden",
+     ".pl-ad:in DOM, hidden"
+    ]
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cities/newyork.html desktop: every visible Gallery card shows \"Recommended by\"/\"Added by\"; every closed place reads \"Closed\" on its card",
+   "ok": true,
+   "evidence": {
+    "cards": 508,
+    "noRec": [],
+    "closed": [],
+    "hiddenLines": [
+     ".pl-w:in DOM, hidden",
+     ".pl-k:in DOM, hidden",
+     ".pl-ad:in DOM, hidden"
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html mobile: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "American Museum of Natural History",
+    "img": true,
+    "media": [
+     358,
+     224
+    ],
+    "slot": [
+     358,
+     267
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Facade of the American museum of natural history NYC (1)” · Photo: Ferfive · CC BY 4.0 · ",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      114,
+      48
+     ],
+     [
+      "Directions",
+      114,
+      48
+     ],
+     [
+      "Share",
+      114,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "b1": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "srcW": 960,
+    "need": 716,
+    "rank": "No. 15 of 264 in Manhattan"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html mobile: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 716
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html mobile: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 15 of 264 in Manhattan",
+    "data": [
+     15,
+     264
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html mobile: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/newyork.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html desktop: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "American Museum of Natural History",
+    "img": true,
+    "media": [
+     1024,
+     360
+    ],
+    "slot": [
+     1024,
+     385
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Facade of the American museum of natural history NYC (1)” · Photo: Ferfive · CC BY 4.0 · ",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      344,
+      48
+     ],
+     [
+      "Directions",
+      344,
+      48
+     ],
+     [
+      "Share",
+      344,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "b1": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "srcW": 960,
+    "need": 1024,
+    "rank": "No. 15 of 264 in Manhattan"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html desktop: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 1024
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html desktop: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 15 of 264 in Manhattan",
+    "data": [
+     15,
+     264
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html desktop: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/newyork.html"
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: map ≥ 58 % wide, on the left, to the bottom of the screen",
+   "ok": true,
+   "evidence": {
+    "mapW": 60,
+    "left": 0,
+    "top": 208,
+    "bottom": 900,
+    "vh": 900,
+    "cols": 2,
+    "count": 15,
+    "head": "15 places in this map area · Top ranked",
+    "more": "1 more outside this area. Show all 16",
+    "scrollH": 1755
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: the list is a 2-column card grid",
+   "ok": true,
+   "evidence": 2
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: photo credits on the grid cards are whole",
+   "ok": true,
+   "evidence": {
+    "n": 1,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: zoom/pan changes the count; \"N more outside\" offered",
+   "ok": true,
+   "evidence": {
+    "first": 15,
+    "zoomed": 4,
+    "panned": 2,
+    "more": "14 more outside this area. Show all 16"
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: \"Show all\" + \"Show 40 more\" lists every place once (16)",
+   "ok": true,
+   "evidence": {
+    "head": "Showing all 16 places · Top ranked",
+    "clicks": 0,
+    "n": 16,
+    "uniq": 16
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: hovering a pin lights its card (real mouse)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: pin → its card in view in the list pane, the page never scrolls",
+   "ok": true,
+   "evidence": {
+    "open": true,
+    "name": "Buddha Tooth Relic Temple & Museum",
+    "want": "Buddha Tooth Relic Temple & Museum",
+    "sel": true,
+    "cardInView": true,
+    "scrollY": 0
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: B-07 (W7) pin → preview naming the place → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "pv": [
+     true,
+     "Buddha Tooth Relic Temple & Museum"
+    ],
+    "dd": {
+     "open": {
+      "title": "Buddha Tooth Relic Temple & Museum",
+      "close": true
+     },
+     "same": true,
+     "hash1": "#view=atlas&p=buddha-tooth-relic-temple-and-museum",
+     "esc": true,
+     "reopen": true,
+     "back": true,
+     "stay": {
+      "view": "atlas",
+      "url": "/beta/Singapore/chinatown.html"
+     }
+    }
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: hovering a card lights its pin (real mouse)",
+   "ok": true,
+   "evidence": {
+    "card": "p-tian-tian-hainanese-chicken-rice",
+    "c2p": true
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 405,
+     "y": 866,
+     "w": 458,
+     "h": 34,
+     "b": 900,
+     "r": 863
+    },
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: ≥ 70 % of the first screen is map (box), and the uncovered map share recorded",
+   "ok": true,
+   "evidence": {
+    "box": 92,
+    "clear": 66
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: the city (\"Chinatown & CBD\") is named on the first screen",
+   "ok": true,
+   "evidence": "SPAN.here: Chinatown & CBD"
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: photo credits on the carousel cards are whole (not clipped, squeezed or ellipsised)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: List pill ≥ 44 × 44, no horizontal overflow",
+   "ok": true,
+   "evidence": [
+    117,
+    44,
+    "List · 11"
+   ]
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: B-04 rail on the first phone screen (Atlas; D-36 by design) — recorded",
+   "ok": null,
+   "evidence": false
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
+   "ok": true,
+   "evidence": {
+    "pin": "sri-mariamman-temple",
+    "sel": true,
+    "nSel": 1,
+    "inView": true,
+    "r": {
+     "x": 31,
+     "y": 682,
+     "w": 328,
+     "h": 150,
+     "b": 832,
+     "r": 358
+    },
+    "pinSel": true,
+    "want": "Sri Mariamman Temple",
+    "sheet": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: B-07 (W7) … card → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "open": {
+     "title": "Sri Mariamman Temple",
+     "close": true
+    },
+    "same": true,
+    "hash1": "#p-sri-mariamman-temple",
+    "esc": true,
+    "reopen": true,
+    "back": true,
+    "stay": {
+     "view": "atlas",
+     "url": "/beta/Singapore/chinatown.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: swiping the carousel selects the centred card and marks its pin (or its bubble)",
+   "ok": true,
+   "evidence": {
+    "id": "p-sri-mariamman-temple",
+    "sel": true,
+    "pin": true,
+    "bubble": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: photo credits in the phone list are whole",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: List pill → image-first list; Back → the map, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "list": true,
+    "cards": 14,
+    "w7": true,
+    "tog": "Map",
+    "back": {
+     "list": false,
+     "view": "atlas",
+     "url": "/beta/Singapore/chinatown.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 12,
+     "y": 132,
+     "w": 378,
+     "h": 60,
+     "b": 192,
+     "r": 390
+    },
+    "onScreen": true,
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html mobile: Leaflet blocked — \"Map unavailable\", a card on screen, every place pageable (16), 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "leaflet": false,
+    "view": "atlas",
+    "note": "Map unavailable right now — every place is listed here.",
+    "first": "Tian Tian Hainanese Chicken Ri",
+    "paged": 16,
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html desktop: Leaflet blocked — \"Map unavailable\", a card on screen, every place pageable (16), 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "leaflet": false,
+    "view": "atlas",
+    "note": "Map unavailable right now — every place is listed here.",
+    "first": "Tian Tian Hainanese Chicken Ri",
+    "paged": 16,
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "Singapore/chinatown.html mobile: storage throws — Atlas + map render, base switch, Must see, List pill work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "leaflet": true,
+    "count": 11,
+    "hash": "#t=1",
+    "base": "Map style: Satellite. Switch to the map",
+    "list": true,
+    "acts": [
+     ".m-base",
+     ".ms-must",
+     ".ms-toggle"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "Singapore/chinatown.html desktop: storage throws — Atlas + map render, base switch, Must see work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "leaflet": true,
+    "count": 15,
+    "hash": "#t=1",
+    "base": "Map style: Satellite. Switch to the map",
+    "list": false,
+    "acts": [
+     ".m-base",
+     ".ms-must"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "b08",
+   "name": "Singapore/chinatown.html mobile: every sampled Gallery title at reading position (centre) is uncovered; floaters [{\"cls\":\"cbar\",\"pos\":\"sticky\",\"h\":70,\"w\":358},{\"cls\":\"mappill\",\"pos\":\"fixed\",\"h\":48,\"w\":137}]",
+   "ok": true,
+   "evidence": {
+    "floaters": [
+     {
+      "cls": "cbar",
+      "pos": "sticky",
+      "h": 70,
+      "w": 358
+     },
+     {
+      "cls": "mappill",
+      "pos": "fixed",
+      "h": 48,
+      "w": 137
+     }
+    ],
+    "seen": 16,
+    "covered": 0,
+    "eg": [],
+    "stickyBottom": 134
+   }
+  },
+  {
+   "group": "b08",
+   "name": "Singapore/chinatown.html desktop: every sampled Gallery title at reading position (centre) is uncovered; floaters [{\"cls\":\"cbar\",\"pos\":\"sticky\",\"h\":71,\"w\":1280},{\"cls\":\"mappill\",\"pos\":\"fixed\",\"h\":48,\"w\":137}]",
+   "ok": true,
+   "evidence": {
+    "floaters": [
+     {
+      "cls": "cbar",
+      "pos": "sticky",
+      "h": 71,
+      "w": 1280
+     },
+     {
+      "cls": "mappill",
+      "pos": "fixed",
+      "h": 48,
+      "w": 137
+     }
+    ],
+    "seen": 14,
+    "covered": 0,
+    "eg": [],
+    "stickyBottom": 143
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "Singapore/chinatown.html mobile: every visible Gallery card shows \"Recommended by\"/\"Added by\"; every closed place reads \"Closed\" on its card",
+   "ok": true,
+   "evidence": {
+    "cards": 16,
+    "noRec": [],
+    "closed": [],
+    "hiddenLines": [
+     ".pl-w:shown",
+     ".pl-k:in DOM, hidden",
+     ".pl-ad:in DOM, hidden"
+    ]
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "Singapore/chinatown.html desktop: every visible Gallery card shows \"Recommended by\"/\"Added by\"; every closed place reads \"Closed\" on its card",
+   "ok": true,
+   "evidence": {
+    "cards": 16,
+    "noRec": [],
+    "closed": [],
+    "hiddenLines": [
+     ".pl-w:in DOM, hidden",
+     ".pl-k:in DOM, hidden",
+     ".pl-ad:in DOM, hidden"
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html mobile: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "Buddha Tooth Relic Temple & Museum",
+    "img": true,
+    "media": [
+     358,
+     224
+    ],
+    "slot": [
+     358,
+     267
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Buddha Tooth Relic Temple and Museum” · Photo: Riction · CC BY 3.0 · Wikimedia Commons (r",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      114,
+      48
+     ],
+     [
+      "Directions",
+      114,
+      48
+     ],
+     [
+      "Share",
+      114,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "b1": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "srcW": 960,
+    "need": 716,
+    "rank": "No. 5 of 16 in Chinatown & CBD"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html mobile: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 716
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html mobile: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 5 of 16 in Chinatown & CBD",
+    "data": [
+     5,
+     16
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html mobile: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/Singapore/chinatown.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html desktop: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "Buddha Tooth Relic Temple & Museum",
+    "img": true,
+    "media": [
+     1024,
+     360
+    ],
+    "slot": [
+     1024,
+     385
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Buddha Tooth Relic Temple and Museum” · Photo: Riction · CC BY 3.0 · Wikimedia Commons (r",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      344,
+      48
+     ],
+     [
+      "Directions",
+      344,
+      48
+     ],
+     [
+      "Share",
+      344,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "b1": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "srcW": 960,
+    "need": 1024,
+    "rank": "No. 5 of 16 in Chinatown & CBD"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html desktop: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 1024
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html desktop: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 5 of 16 in Chinatown & CBD",
+    "data": [
+     5,
+     16
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html desktop: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/Singapore/chinatown.html"
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: map ≥ 58 % wide, on the left, to the bottom of the screen",
+   "ok": true,
+   "evidence": {
+    "mapW": 60,
+    "left": 0,
+    "top": 208,
+    "bottom": 900,
+    "vh": 900,
+    "cols": 2,
+    "count": 13,
+    "head": "13 places in this map area · Top ranked",
+    "more": "22 more outside this area. Show all 35",
+    "scrollH": 1948
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: the list is a 2-column card grid",
+   "ok": true,
+   "evidence": 2
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: photo credits on the grid cards are whole",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: zoom/pan changes the count; \"N more outside\" offered",
+   "ok": true,
+   "evidence": {
+    "first": 13,
+    "zoomed": 6,
+    "panned": 1,
+    "more": "34 more outside this area. Show all 35"
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: \"Show all\" + \"Show 40 more\" lists every place once (35)",
+   "ok": true,
+   "evidence": {
+    "head": "Showing all 35 places · Top ranked",
+    "clicks": 0,
+    "n": 35,
+    "uniq": 35
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: hovering a pin lights its card (real mouse)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: pin → its card in view in the list pane, the page never scrolls",
+   "ok": true,
+   "evidence": {
+    "open": true,
+    "name": "Oglebay Resort & Park",
+    "want": "Oglebay Resort & Park",
+    "sel": true,
+    "cardInView": true,
+    "scrollY": 0
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: B-07 (W7) pin → preview naming the place → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "pv": [
+     true,
+     "Oglebay Resort & Park"
+    ],
+    "dd": {
+     "open": {
+      "title": "Oglebay Resort & Park",
+      "close": true
+     },
+     "same": true,
+     "hash1": "#view=atlas&p=oglebay-resort-and-park",
+     "esc": true,
+     "reopen": true,
+     "back": true,
+     "stay": {
+      "view": "atlas",
+      "url": "/beta/cities/wheeling.html"
+     }
+    }
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: hovering a card lights its pin (real mouse)",
+   "ok": true,
+   "evidence": {
+    "card": "p-oglebay-resort-and-park",
+    "c2p": true
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 405,
+     "y": 866,
+     "w": 458,
+     "h": 34,
+     "b": 900,
+     "r": 863
+    },
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: ≥ 70 % of the first screen is map (box), and the uncovered map share recorded",
+   "ok": true,
+   "evidence": {
+    "box": 92,
+    "clear": 66
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: the city (\"Wheeling\") is named on the first screen",
+   "ok": true,
+   "evidence": "SPAN.here: Wheeling"
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: photo credits on the carousel cards are whole (not clipped, squeezed or ellipsised)",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: List pill ≥ 44 × 44, no horizontal overflow",
+   "ok": true,
+   "evidence": [
+    120,
+    44,
+    "List · 13"
+   ]
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: B-04 rail on the first phone screen (Atlas; D-36 by design) — recorded",
+   "ok": null,
+   "evidence": false
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
+   "ok": true,
+   "evidence": {
+    "pin": "great-stone-viaduct",
+    "sel": true,
+    "nSel": 1,
+    "inView": true,
+    "r": {
+     "x": 31,
+     "y": 682,
+     "w": 328,
+     "h": 150,
+     "b": 832,
+     "r": 358
+    },
+    "pinSel": true,
+    "want": "Great Stone Viaduct",
+    "sheet": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: B-07 (W7) … card → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "open": {
+     "title": "Great Stone Viaduct",
+     "close": true
+    },
+    "same": true,
+    "hash1": "#p-great-stone-viaduct",
+    "esc": true,
+    "reopen": true,
+    "back": true,
+    "stay": {
+     "view": "atlas",
+     "url": "/beta/cities/wheeling.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: swiping the carousel selects the centred card and marks its pin (or its bubble)",
+   "ok": true,
+   "evidence": {
+    "id": "p-figarettis-restaurant",
+    "sel": true,
+    "pin": true,
+    "bubble": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: photo credits in the phone list are whole",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: List pill → image-first list; Back → the map, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "list": true,
+    "cards": 2,
+    "w7": true,
+    "tog": "Map",
+    "back": {
+     "list": false,
+     "view": "atlas",
+     "url": "/beta/cities/wheeling.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 12,
+     "y": 132,
+     "w": 378,
+     "h": 60,
+     "b": 192,
+     "r": 390
+    },
+    "onScreen": true,
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html mobile: Leaflet blocked — \"Map unavailable\", a card on screen, every place pageable (35), 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "leaflet": false,
+    "view": "atlas",
+    "note": "Map unavailable right now — every place is listed here.",
+    "first": "Wheeling Suspension Bridge",
+    "paged": 35,
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html desktop: Leaflet blocked — \"Map unavailable\", a card on screen, every place pageable (35), 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "leaflet": false,
+    "view": "atlas",
+    "note": "Map unavailable right now — every place is listed here.",
+    "first": "Wheeling Suspension Bridge",
+    "paged": 35,
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "cities/wheeling.html mobile: storage throws — Atlas + map render, base switch, Must see, List pill work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "leaflet": true,
+    "count": 13,
+    "hash": "#t=1",
+    "base": "Map style: Satellite. Switch to the map",
+    "list": true,
+    "acts": [
+     ".m-base",
+     ".ms-must",
+     ".ms-toggle"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "cities/wheeling.html desktop: storage throws — Atlas + map render, base switch, Must see work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "leaflet": true,
+    "count": 13,
+    "hash": "#t=1",
+    "base": "Map style: Satellite. Switch to the map",
+    "list": false,
+    "acts": [
+     ".m-base",
+     ".ms-must"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "b08",
+   "name": "cities/wheeling.html mobile: every sampled Gallery title at reading position (centre) is uncovered; floaters [{\"cls\":\"cbar\",\"pos\":\"sticky\",\"h\":70,\"w\":358},{\"cls\":\"mappill\",\"pos\":\"fixed\",\"h\":48,\"w\":137}]",
+   "ok": true,
+   "evidence": {
+    "floaters": [
+     {
+      "cls": "cbar",
+      "pos": "sticky",
+      "h": 70,
+      "w": 358
+     },
+     {
+      "cls": "mappill",
+      "pos": "fixed",
+      "h": 48,
+      "w": 137
+     }
+    ],
+    "seen": 24,
+    "covered": 0,
+    "eg": [],
+    "stickyBottom": 134
+   }
+  },
+  {
+   "group": "b08",
+   "name": "cities/wheeling.html desktop: every sampled Gallery title at reading position (centre) is uncovered; floaters [{\"cls\":\"cbar\",\"pos\":\"sticky\",\"h\":71,\"w\":1280},{\"cls\":\"mappill\",\"pos\":\"fixed\",\"h\":48,\"w\":137}]",
+   "ok": true,
+   "evidence": {
+    "floaters": [
+     {
+      "cls": "cbar",
+      "pos": "sticky",
+      "h": 71,
+      "w": 1280
+     },
+     {
+      "cls": "mappill",
+      "pos": "fixed",
+      "h": 48,
+      "w": 137
+     }
+    ],
+    "seen": 35,
+    "covered": 0,
+    "eg": [],
+    "stickyBottom": 143
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cities/wheeling.html mobile: every visible Gallery card shows \"Recommended by\"/\"Added by\"; every closed place reads \"Closed\" on its card",
+   "ok": true,
+   "evidence": {
+    "cards": 35,
+    "noRec": [],
+    "closed": [
+     {
+      "id": "old-market-house-inn",
+      "shown": true,
+      "visibleClosed": true
+     }
+    ],
+    "hiddenLines": [
+     ".pl-w:shown",
+     ".pl-k:absent",
+     ".pl-ad:in DOM, hidden"
+    ]
+   }
+  },
+  {
+   "group": "gallery",
+   "name": "cities/wheeling.html desktop: every visible Gallery card shows \"Recommended by\"/\"Added by\"; every closed place reads \"Closed\" on its card",
+   "ok": true,
+   "evidence": {
+    "cards": 35,
+    "noRec": [],
+    "closed": [
+     {
+      "id": "old-market-house-inn",
+      "shown": true,
+      "visibleClosed": true
+     }
+    ],
+    "hiddenLines": [
+     ".pl-w:in DOM, hidden",
+     ".pl-k:absent",
+     ".pl-ad:in DOM, hidden"
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html mobile: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "Meadowcroft Rockshelter & Historic Villa",
+    "img": true,
+    "media": [
+     358,
+     224
+    ],
+    "slot": [
+     358,
+     267
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Meadowcroft Rockshelter 07” · Photo: Jbarta · CC0 1.0 · Wikimedia Commons (resized)",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      114,
+      48
+     ],
+     [
+      "Directions",
+      114,
+      48
+     ],
+     [
+      "Share",
+      114,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "b1": {
+     "x": 0,
+     "y": 770,
+     "w": 390,
+     "h": 73,
+     "b": 843,
+     "r": 390
+    },
+    "srcW": 960,
+    "need": 716,
+    "rank": "No. 1 of 8 in Washington, PA"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html mobile: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 716
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html mobile: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 1 of 8 in Washington, PA",
+    "data": [
+     1,
+     8
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html mobile: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/wheeling.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html desktop: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "Meadowcroft Rockshelter & Historic Villa",
+    "img": true,
+    "media": [
+     1024,
+     360
+    ],
+    "slot": [
+     1024,
+     385
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Meadowcroft Rockshelter 07” · Photo: Jbarta · CC0 1.0 · Wikimedia Commons (resized)",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      344,
+      48
+     ],
+     [
+      "Directions",
+      344,
+      48
+     ],
+     [
+      "Share",
+      344,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "b1": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "srcW": 960,
+    "need": 1024,
+    "rank": "No. 1 of 8 in Washington, PA"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html desktop: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 1024
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html desktop: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 1 of 8 in Washington, PA",
+    "data": [
+     1,
+     8
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html desktop: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/wheeling.html"
+   }
+  },
+  {
+   "group": "tiles",
+   "name": "every tile request went to OSM or Esri",
+   "ok": true,
+   "evidence": {
+    "server.arcgisonline.com": 9698
+   }
+  },
+  {
+   "group": "lens",
+   "name": "38 lens deep links (landing rail + hubs) × default / remembered Atlas / view=atlas: Atlas header total == promise == cards a reader can page through; elsewhere cards == promise",
+   "ok": true,
+   "evidence": {
+    "bad": 0,
+    "eg": [],
+    "atlasRows": 114
+   }
+  }
+ ],
+ "info": {
+  "lens": [
+   {
+    "href": "cities/tokyo.html#c=ANIME",
+    "how": "default",
+    "promised": 37,
+    "view": "atlas",
+    "header": 37,
+    "paged": 37,
+    "uniq": 37,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#c=ANIME",
+    "how": "pref-atlas",
+    "promised": 37,
+    "view": "atlas",
+    "header": 37,
+    "paged": 37,
+    "uniq": 37,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#c=ANIME",
+    "how": "hash-atlas",
+    "promised": 37,
+    "view": "atlas",
+    "header": 37,
+    "paged": 37,
+    "uniq": 37,
+    "err": 0
+   },
+   {
+    "href": "cities/hokkaido.html#c=ANIME",
+    "how": "default",
+    "promised": 28,
+    "view": "atlas",
+    "header": 28,
+    "paged": 28,
+    "uniq": 28,
+    "err": 0
+   },
+   {
+    "href": "cities/hokkaido.html#c=ANIME",
+    "how": "pref-atlas",
+    "promised": 28,
+    "view": "atlas",
+    "header": 28,
+    "paged": 28,
+    "uniq": 28,
+    "err": 0
+   },
+   {
+    "href": "cities/hokkaido.html#c=ANIME",
+    "how": "hash-atlas",
+    "promised": 28,
+    "view": "atlas",
+    "header": 28,
+    "paged": 28,
+    "uniq": 28,
+    "err": 0
+   },
+   {
+    "href": "cities/osaka.html#c=ANIME",
+    "how": "default",
+    "promised": 24,
+    "view": "atlas",
+    "header": 24,
+    "paged": 24,
+    "uniq": 24,
+    "err": 0
+   },
+   {
+    "href": "cities/osaka.html#c=ANIME",
+    "how": "pref-atlas",
+    "promised": 24,
+    "view": "atlas",
+    "header": 24,
+    "paged": 24,
+    "uniq": 24,
+    "err": 0
+   },
+   {
+    "href": "cities/osaka.html#c=ANIME",
+    "how": "hash-atlas",
+    "promised": 24,
+    "view": "atlas",
+    "header": 24,
+    "paged": 24,
+    "uniq": 24,
+    "err": 0
+   },
+   {
+    "href": "cities/okinawa.html#c=ANIME",
+    "how": "default",
+    "promised": 18,
+    "view": "atlas",
+    "header": 18,
+    "paged": 18,
+    "uniq": 18,
+    "err": 0
+   },
+   {
+    "href": "cities/okinawa.html#c=ANIME",
+    "how": "pref-atlas",
+    "promised": 18,
+    "view": "atlas",
+    "header": 18,
+    "paged": 18,
+    "uniq": 18,
+    "err": 0
+   },
+   {
+    "href": "cities/okinawa.html#c=ANIME",
+    "how": "hash-atlas",
+    "promised": 18,
+    "view": "atlas",
+    "header": 18,
+    "paged": 18,
+    "uniq": 18,
+    "err": 0
+   },
+   {
+    "href": "Singapore/newton-novena.html#cz=HAWKER",
+    "how": "default",
+    "promised": 22,
+    "view": "atlas",
+    "header": 22,
+    "paged": 22,
+    "uniq": 22,
+    "err": 0
+   },
+   {
+    "href": "Singapore/newton-novena.html#cz=HAWKER",
+    "how": "pref-atlas",
+    "promised": 22,
+    "view": "atlas",
+    "header": 22,
+    "paged": 22,
+    "uniq": 22,
+    "err": 0
+   },
+   {
+    "href": "Singapore/newton-novena.html#cz=HAWKER",
+    "how": "hash-atlas",
+    "promised": 22,
+    "view": "atlas",
+    "header": 22,
+    "paged": 22,
+    "uniq": 22,
+    "err": 0
+   },
+   {
+    "href": "Singapore/upper-serangoon.html#cz=HAWKER",
+    "how": "default",
+    "promised": 21,
+    "view": "atlas",
+    "header": 21,
+    "paged": 21,
+    "uniq": 21,
+    "err": 0
+   },
+   {
+    "href": "Singapore/upper-serangoon.html#cz=HAWKER",
+    "how": "pref-atlas",
+    "promised": 21,
+    "view": "atlas",
+    "header": 21,
+    "paged": 21,
+    "uniq": 21,
+    "err": 0
+   },
+   {
+    "href": "Singapore/upper-serangoon.html#cz=HAWKER",
+    "how": "hash-atlas",
+    "promised": 21,
+    "view": "atlas",
+    "header": 21,
+    "paged": 21,
+    "uniq": 21,
+    "err": 0
+   },
+   {
+    "href": "Singapore/punggol.html#cz=HAWKER",
+    "how": "default",
+    "promised": 20,
+    "view": "atlas",
+    "header": 20,
+    "paged": 20,
+    "uniq": 20,
+    "err": 0
+   },
+   {
+    "href": "Singapore/punggol.html#cz=HAWKER",
+    "how": "pref-atlas",
+    "promised": 20,
+    "view": "atlas",
+    "header": 20,
+    "paged": 20,
+    "uniq": 20,
+    "err": 0
+   },
+   {
+    "href": "Singapore/punggol.html#cz=HAWKER",
+    "how": "hash-atlas",
+    "promised": 20,
+    "view": "atlas",
+    "header": 20,
+    "paged": 20,
+    "uniq": 20,
+    "err": 0
+   },
+   {
+    "href": "Singapore/holland-village.html#cz=HAWKER",
+    "how": "default",
+    "promised": 19,
+    "view": "atlas",
+    "header": 19,
+    "paged": 19,
+    "uniq": 19,
+    "err": 0
+   },
+   {
+    "href": "Singapore/holland-village.html#cz=HAWKER",
+    "how": "pref-atlas",
+    "promised": 19,
+    "view": "atlas",
+    "header": 19,
+    "paged": 19,
+    "uniq": 19,
+    "err": 0
+   },
+   {
+    "href": "Singapore/holland-village.html#cz=HAWKER",
+    "how": "hash-atlas",
+    "promised": 19,
+    "view": "atlas",
+    "header": 19,
+    "paged": 19,
+    "uniq": 19,
+    "err": 0
+   },
+   {
+    "href": "cities/kyoto.html#c=TEMPLE",
+    "how": "default",
+    "promised": 158,
+    "view": "atlas",
+    "header": 158,
+    "paged": 158,
+    "uniq": 158,
+    "err": 0
+   },
+   {
+    "href": "cities/kyoto.html#c=TEMPLE",
+    "how": "pref-atlas",
+    "promised": 158,
+    "view": "atlas",
+    "header": 158,
+    "paged": 158,
+    "uniq": 158,
+    "err": 0
+   },
+   {
+    "href": "cities/kyoto.html#c=TEMPLE",
+    "how": "hash-atlas",
+    "promised": 158,
+    "view": "atlas",
+    "header": 158,
+    "paged": 158,
+    "uniq": 158,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#c=TEMPLE",
+    "how": "default",
+    "promised": 79,
+    "view": "atlas",
+    "header": 79,
+    "paged": 79,
+    "uniq": 79,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#c=TEMPLE",
+    "how": "pref-atlas",
+    "promised": 79,
+    "view": "atlas",
+    "header": 79,
+    "paged": 79,
+    "uniq": 79,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#c=TEMPLE",
+    "how": "hash-atlas",
+    "promised": 79,
+    "view": "atlas",
+    "header": 79,
+    "paged": 79,
+    "uniq": 79,
+    "err": 0
+   },
+   {
+    "href": "Vietnam/ho-chi-minh-city.html#c=TEMPLE",
+    "how": "default",
+    "promised": 52,
+    "view": "atlas",
+    "header": 52,
+    "paged": 52,
+    "uniq": 52,
+    "err": 0
+   },
+   {
+    "href": "Vietnam/ho-chi-minh-city.html#c=TEMPLE",
+    "how": "pref-atlas",
+    "promised": 52,
+    "view": "atlas",
+    "header": 52,
+    "paged": 52,
+    "uniq": 52,
+    "err": 0
+   },
+   {
+    "href": "Vietnam/ho-chi-minh-city.html#c=TEMPLE",
+    "how": "hash-atlas",
+    "promised": 52,
+    "view": "atlas",
+    "header": 52,
+    "paged": 52,
+    "uniq": 52,
+    "err": 0
+   },
+   {
+    "href": "cities/osaka.html#c=TEMPLE",
+    "how": "default",
+    "promised": 42,
+    "view": "atlas",
+    "header": 42,
+    "paged": 42,
+    "uniq": 42,
+    "err": 0
+   },
+   {
+    "href": "cities/osaka.html#c=TEMPLE",
+    "how": "pref-atlas",
+    "promised": 42,
+    "view": "atlas",
+    "header": 42,
+    "paged": 42,
+    "uniq": 42,
+    "err": 0
+   },
+   {
+    "href": "cities/osaka.html#c=TEMPLE",
+    "how": "hash-atlas",
+    "promised": 42,
+    "view": "atlas",
+    "header": 42,
+    "paged": 42,
+    "uniq": 42,
+    "err": 0
+   },
+   {
+    "href": "cities/hokkaido.html#cz=RAMEN",
+    "how": "default",
+    "promised": 33,
+    "view": "atlas",
+    "header": 33,
+    "paged": 33,
+    "uniq": 33,
+    "err": 0
+   },
+   {
+    "href": "cities/hokkaido.html#cz=RAMEN",
+    "how": "pref-atlas",
+    "promised": 33,
+    "view": "atlas",
+    "header": 33,
+    "paged": 33,
+    "uniq": 33,
+    "err": 0
+   },
+   {
+    "href": "cities/hokkaido.html#cz=RAMEN",
+    "how": "hash-atlas",
+    "promised": 33,
+    "view": "atlas",
+    "header": 33,
+    "paged": 33,
+    "uniq": 33,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#cz=RAMEN",
+    "how": "default",
+    "promised": 33,
+    "view": "atlas",
+    "header": 33,
+    "paged": 33,
+    "uniq": 33,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#cz=RAMEN",
+    "how": "pref-atlas",
+    "promised": 33,
+    "view": "atlas",
+    "header": 33,
+    "paged": 33,
+    "uniq": 33,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#cz=RAMEN",
+    "how": "hash-atlas",
+    "promised": 33,
+    "view": "atlas",
+    "header": 33,
+    "paged": 33,
+    "uniq": 33,
+    "err": 0
+   },
+   {
+    "href": "cities/kyoto.html#cz=RAMEN",
+    "how": "default",
+    "promised": 13,
+    "view": "atlas",
+    "header": 13,
+    "paged": 13,
+    "uniq": 13,
+    "err": 0
+   },
+   {
+    "href": "cities/kyoto.html#cz=RAMEN",
+    "how": "pref-atlas",
+    "promised": 13,
+    "view": "atlas",
+    "header": 13,
+    "paged": 13,
+    "uniq": 13,
+    "err": 0
+   },
+   {
+    "href": "cities/kyoto.html#cz=RAMEN",
+    "how": "hash-atlas",
+    "promised": 13,
+    "view": "atlas",
+    "header": 13,
+    "paged": 13,
+    "uniq": 13,
+    "err": 0
+   },
+   {
+    "href": "cities/osaka.html#cz=RAMEN",
+    "how": "default",
+    "promised": 9,
+    "view": "atlas",
+    "header": 9,
+    "paged": 9,
+    "uniq": 9,
+    "err": 0
+   },
+   {
+    "href": "cities/osaka.html#cz=RAMEN",
+    "how": "pref-atlas",
+    "promised": 9,
+    "view": "atlas",
+    "header": 9,
+    "paged": 9,
+    "uniq": 9,
+    "err": 0
+   },
+   {
+    "href": "cities/osaka.html#cz=RAMEN",
+    "how": "hash-atlas",
+    "promised": 9,
+    "view": "atlas",
+    "header": 9,
+    "paged": 9,
+    "uniq": 9,
+    "err": 0
+   },
+   {
+    "href": "cities/liege.html#cz=FINE",
+    "how": "default",
+    "promised": 59,
+    "view": "atlas",
+    "header": 59,
+    "paged": 59,
+    "uniq": 59,
+    "err": 0
+   },
+   {
+    "href": "cities/liege.html#cz=FINE",
+    "how": "pref-atlas",
+    "promised": 59,
+    "view": "atlas",
+    "header": 59,
+    "paged": 59,
+    "uniq": 59,
+    "err": 0
+   },
+   {
+    "href": "cities/liege.html#cz=FINE",
+    "how": "hash-atlas",
+    "promised": 59,
+    "view": "atlas",
+    "header": 59,
+    "paged": 59,
+    "uniq": 59,
+    "err": 0
+   },
+   {
+    "href": "cities/kyoto.html#cz=FINE",
+    "how": "default",
+    "promised": 52,
+    "view": "atlas",
+    "header": 52,
+    "paged": 52,
+    "uniq": 52,
+    "err": 0
+   },
+   {
+    "href": "cities/kyoto.html#cz=FINE",
+    "how": "pref-atlas",
+    "promised": 52,
+    "view": "atlas",
+    "header": 52,
+    "paged": 52,
+    "uniq": 52,
+    "err": 0
+   },
+   {
+    "href": "cities/kyoto.html#cz=FINE",
+    "how": "hash-atlas",
+    "promised": 52,
+    "view": "atlas",
+    "header": 52,
+    "paged": 52,
+    "uniq": 52,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#cz=FINE",
+    "how": "default",
+    "promised": 52,
+    "view": "atlas",
+    "header": 52,
+    "paged": 52,
+    "uniq": 52,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#cz=FINE",
+    "how": "pref-atlas",
+    "promised": 52,
+    "view": "atlas",
+    "header": 52,
+    "paged": 52,
+    "uniq": 52,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#cz=FINE",
+    "how": "hash-atlas",
+    "promised": 52,
+    "view": "atlas",
+    "header": 52,
+    "paged": 52,
+    "uniq": 52,
+    "err": 0
+   },
+   {
+    "href": "cities/osaka.html#cz=FINE",
+    "how": "default",
+    "promised": 34,
+    "view": "atlas",
+    "header": 34,
+    "paged": 34,
+    "uniq": 34,
+    "err": 0
+   },
+   {
+    "href": "cities/osaka.html#cz=FINE",
+    "how": "pref-atlas",
+    "promised": 34,
+    "view": "atlas",
+    "header": 34,
+    "paged": 34,
+    "uniq": 34,
+    "err": 0
+   },
+   {
+    "href": "cities/osaka.html#cz=FINE",
+    "how": "hash-atlas",
+    "promised": 34,
+    "view": "atlas",
+    "header": 34,
+    "paged": 34,
+    "uniq": 34,
+    "err": 0
+   },
+   {
+    "href": "cities/okinawa.html#c=UNESCO",
+    "how": "default",
+    "promised": 30,
+    "view": "atlas",
+    "header": 30,
+    "paged": 30,
+    "uniq": 30,
+    "err": 0
+   },
+   {
+    "href": "cities/okinawa.html#c=UNESCO",
+    "how": "pref-atlas",
+    "promised": 30,
+    "view": "atlas",
+    "header": 30,
+    "paged": 30,
+    "uniq": 30,
+    "err": 0
+   },
+   {
+    "href": "cities/okinawa.html#c=UNESCO",
+    "how": "hash-atlas",
+    "promised": 30,
+    "view": "atlas",
+    "header": 30,
+    "paged": 30,
+    "uniq": 30,
+    "err": 0
+   },
+   {
+    "href": "cities/kyoto.html#c=UNESCO",
+    "how": "default",
+    "promised": 26,
+    "view": "atlas",
+    "header": 26,
+    "paged": 26,
+    "uniq": 26,
+    "err": 0
+   },
+   {
+    "href": "cities/kyoto.html#c=UNESCO",
+    "how": "pref-atlas",
+    "promised": 26,
+    "view": "atlas",
+    "header": 26,
+    "paged": 26,
+    "uniq": 26,
+    "err": 0
+   },
+   {
+    "href": "cities/kyoto.html#c=UNESCO",
+    "how": "hash-atlas",
+    "promised": 26,
+    "view": "atlas",
+    "header": 26,
+    "paged": 26,
+    "uniq": 26,
+    "err": 0
+   },
+   {
+    "href": "cities/saarland.html#c=UNESCO",
+    "how": "default",
+    "promised": 26,
+    "view": "atlas",
+    "header": 26,
+    "paged": 26,
+    "uniq": 26,
+    "err": 0
+   },
+   {
+    "href": "cities/saarland.html#c=UNESCO",
+    "how": "pref-atlas",
+    "promised": 26,
+    "view": "atlas",
+    "header": 26,
+    "paged": 26,
+    "uniq": 26,
+    "err": 0
+   },
+   {
+    "href": "cities/saarland.html#c=UNESCO",
+    "how": "hash-atlas",
+    "promised": 26,
+    "view": "atlas",
+    "header": 26,
+    "paged": 26,
+    "uniq": 26,
+    "err": 0
+   },
+   {
+    "href": "cities/brussels.html#c=UNESCO",
+    "how": "default",
+    "promised": 12,
+    "view": "atlas",
+    "header": 12,
+    "paged": 12,
+    "uniq": 12,
+    "err": 0
+   },
+   {
+    "href": "cities/brussels.html#c=UNESCO",
+    "how": "pref-atlas",
+    "promised": 12,
+    "view": "atlas",
+    "header": 12,
+    "paged": 12,
+    "uniq": 12,
+    "err": 0
+   },
+   {
+    "href": "cities/brussels.html#c=UNESCO",
+    "how": "hash-atlas",
+    "promised": 12,
+    "view": "atlas",
+    "header": 12,
+    "paged": 12,
+    "uniq": 12,
+    "err": 0
+   },
+   {
+    "href": "cities/hokkaido.html#c=ONSEN",
+    "how": "default",
+    "promised": 29,
+    "view": "atlas",
+    "header": 29,
+    "paged": 29,
+    "uniq": 29,
+    "err": 0
+   },
+   {
+    "href": "cities/hokkaido.html#c=ONSEN",
+    "how": "pref-atlas",
+    "promised": 29,
+    "view": "atlas",
+    "header": 29,
+    "paged": 29,
+    "uniq": 29,
+    "err": 0
+   },
+   {
+    "href": "cities/hokkaido.html#c=ONSEN",
+    "how": "hash-atlas",
+    "promised": 29,
+    "view": "atlas",
+    "header": 29,
+    "paged": 29,
+    "uniq": 29,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#c=ONSEN",
+    "how": "default",
+    "promised": 12,
+    "view": "atlas",
+    "header": 12,
+    "paged": 12,
+    "uniq": 12,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#c=ONSEN",
+    "how": "pref-atlas",
+    "promised": 12,
+    "view": "atlas",
+    "header": 12,
+    "paged": 12,
+    "uniq": 12,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#c=ONSEN",
+    "how": "hash-atlas",
+    "promised": 12,
+    "view": "atlas",
+    "header": 12,
+    "paged": 12,
+    "uniq": 12,
+    "err": 0
+   },
+   {
+    "href": "cities/kyoto.html#c=ONSEN",
+    "how": "default",
+    "promised": 5,
+    "view": "atlas",
+    "header": 5,
+    "paged": 5,
+    "uniq": 5,
+    "err": 0
+   },
+   {
+    "href": "cities/kyoto.html#c=ONSEN",
+    "how": "pref-atlas",
+    "promised": 5,
+    "view": "atlas",
+    "header": 5,
+    "paged": 5,
+    "uniq": 5,
+    "err": 0
+   },
+   {
+    "href": "cities/kyoto.html#c=ONSEN",
+    "how": "hash-atlas",
+    "promised": 5,
+    "view": "atlas",
+    "header": 5,
+    "paged": 5,
+    "uniq": 5,
+    "err": 0
+   },
+   {
+    "href": "cities/osaka.html#c=ONSEN",
+    "how": "default",
+    "promised": 5,
+    "view": "atlas",
+    "header": 5,
+    "paged": 5,
+    "uniq": 5,
+    "err": 0
+   },
+   {
+    "href": "cities/osaka.html#c=ONSEN",
+    "how": "pref-atlas",
+    "promised": 5,
+    "view": "atlas",
+    "header": 5,
+    "paged": 5,
+    "uniq": 5,
+    "err": 0
+   },
+   {
+    "href": "cities/osaka.html#c=ONSEN",
+    "how": "hash-atlas",
+    "promised": 5,
+    "view": "atlas",
+    "header": 5,
+    "paged": 5,
+    "uniq": 5,
+    "err": 0
+   },
+   {
+    "href": "cities/rhineland.html#cz=BEER",
+    "how": "default",
+    "promised": 24,
+    "view": "atlas",
+    "header": 24,
+    "paged": 24,
+    "uniq": 24,
+    "err": 0
+   },
+   {
+    "href": "cities/rhineland.html#cz=BEER",
+    "how": "pref-atlas",
+    "promised": 24,
+    "view": "atlas",
+    "header": 24,
+    "paged": 24,
+    "uniq": 24,
+    "err": 0
+   },
+   {
+    "href": "cities/rhineland.html#cz=BEER",
+    "how": "hash-atlas",
+    "promised": 24,
+    "view": "atlas",
+    "header": 24,
+    "paged": 24,
+    "uniq": 24,
+    "err": 0
+   },
+   {
+    "href": "cities/antwerp.html#cz=BEER",
+    "how": "default",
+    "promised": 19,
+    "view": "atlas",
+    "header": 19,
+    "paged": 19,
+    "uniq": 19,
+    "err": 0
+   },
+   {
+    "href": "cities/antwerp.html#cz=BEER",
+    "how": "pref-atlas",
+    "promised": 19,
+    "view": "atlas",
+    "header": 19,
+    "paged": 19,
+    "uniq": 19,
+    "err": 0
+   },
+   {
+    "href": "cities/antwerp.html#cz=BEER",
+    "how": "hash-atlas",
+    "promised": 19,
+    "view": "atlas",
+    "header": 19,
+    "paged": 19,
+    "uniq": 19,
+    "err": 0
+   },
+   {
+    "href": "cities/brussels.html#cz=BEER",
+    "how": "default",
+    "promised": 15,
+    "view": "atlas",
+    "header": 15,
+    "paged": 15,
+    "uniq": 15,
+    "err": 0
+   },
+   {
+    "href": "cities/brussels.html#cz=BEER",
+    "how": "pref-atlas",
+    "promised": 15,
+    "view": "atlas",
+    "header": 15,
+    "paged": 15,
+    "uniq": 15,
+    "err": 0
+   },
+   {
+    "href": "cities/brussels.html#cz=BEER",
+    "how": "hash-atlas",
+    "promised": 15,
+    "view": "atlas",
+    "header": 15,
+    "paged": 15,
+    "uniq": 15,
+    "err": 0
+   },
+   {
+    "href": "cities/bruges.html#cz=BEER",
+    "how": "default",
+    "promised": 10,
+    "view": "atlas",
+    "header": 10,
+    "paged": 10,
+    "uniq": 10,
+    "err": 0
+   },
+   {
+    "href": "cities/bruges.html#cz=BEER",
+    "how": "pref-atlas",
+    "promised": 10,
+    "view": "atlas",
+    "header": 10,
+    "paged": 10,
+    "uniq": 10,
+    "err": 0
+   },
+   {
+    "href": "cities/bruges.html#cz=BEER",
+    "how": "hash-atlas",
+    "promised": 10,
+    "view": "atlas",
+    "header": 10,
+    "paged": 10,
+    "uniq": 10,
+    "err": 0
+   },
+   {
+    "href": "cities/chicago.html#c=FLW",
+    "how": "default",
+    "promised": 21,
+    "view": "atlas",
+    "header": 21,
+    "paged": 21,
+    "uniq": 21,
+    "err": 0
+   },
+   {
+    "href": "cities/chicago.html#c=FLW",
+    "how": "pref-atlas",
+    "promised": 21,
+    "view": "atlas",
+    "header": 21,
+    "paged": 21,
+    "uniq": 21,
+    "err": 0
+   },
+   {
+    "href": "cities/chicago.html#c=FLW",
+    "how": "hash-atlas",
+    "promised": 21,
+    "view": "atlas",
+    "header": 21,
+    "paged": 21,
+    "uniq": 21,
+    "err": 0
+   },
+   {
+    "href": "cities/madison.html#c=FLW",
+    "how": "default",
+    "promised": 9,
+    "view": "atlas",
+    "header": 9,
+    "paged": 9,
+    "uniq": 9,
+    "err": 0
+   },
+   {
+    "href": "cities/madison.html#c=FLW",
+    "how": "pref-atlas",
+    "promised": 9,
+    "view": "atlas",
+    "header": 9,
+    "paged": 9,
+    "uniq": 9,
+    "err": 0
+   },
+   {
+    "href": "cities/madison.html#c=FLW",
+    "how": "hash-atlas",
+    "promised": 9,
+    "view": "atlas",
+    "header": 9,
+    "paged": 9,
+    "uniq": 9,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#c=FREE",
+    "how": "default",
+    "promised": 125,
+    "view": "atlas",
+    "header": 125,
+    "paged": 125,
+    "uniq": 125,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#c=FREE",
+    "how": "pref-atlas",
+    "promised": 125,
+    "view": "atlas",
+    "header": 125,
+    "paged": 125,
+    "uniq": 125,
+    "err": 0
+   },
+   {
+    "href": "cities/tokyo.html#c=FREE",
+    "how": "hash-atlas",
+    "promised": 125,
+    "view": "atlas",
+    "header": 125,
+    "paged": 125,
+    "uniq": 125,
+    "err": 0
+   },
+   {
+    "href": "cities/okinawa.html#c=FREE",
+    "how": "default",
+    "promised": 108,
+    "view": "atlas",
+    "header": 108,
+    "paged": 108,
+    "uniq": 108,
+    "err": 0
+   },
+   {
+    "href": "cities/okinawa.html#c=FREE",
+    "how": "pref-atlas",
+    "promised": 108,
+    "view": "atlas",
+    "header": 108,
+    "paged": 108,
+    "uniq": 108,
+    "err": 0
+   },
+   {
+    "href": "cities/okinawa.html#c=FREE",
+    "how": "hash-atlas",
+    "promised": 108,
+    "view": "atlas",
+    "header": 108,
+    "paged": 108,
+    "uniq": 108,
+    "err": 0
+   },
+   {
+    "href": "cities/saarland.html#c=FREE",
+    "how": "default",
+    "promised": 88,
+    "view": "atlas",
+    "header": 88,
+    "paged": 88,
+    "uniq": 88,
+    "err": 0
+   },
+   {
+    "href": "cities/saarland.html#c=FREE",
+    "how": "pref-atlas",
+    "promised": 88,
+    "view": "atlas",
+    "header": 88,
+    "paged": 88,
+    "uniq": 88,
+    "err": 0
+   },
+   {
+    "href": "cities/saarland.html#c=FREE",
+    "how": "hash-atlas",
+    "promised": 88,
+    "view": "atlas",
+    "header": 88,
+    "paged": 88,
+    "uniq": 88,
+    "err": 0
+   },
+   {
+    "href": "cities/hokkaido.html#c=FREE",
+    "how": "default",
+    "promised": 82,
+    "view": "atlas",
+    "header": 82,
+    "paged": 82,
+    "uniq": 82,
+    "err": 0
+   },
+   {
+    "href": "cities/hokkaido.html#c=FREE",
+    "how": "pref-atlas",
+    "promised": 82,
+    "view": "atlas",
+    "header": 82,
+    "paged": 82,
+    "uniq": 82,
+    "err": 0
+   },
+   {
+    "href": "cities/hokkaido.html#c=FREE",
+    "how": "hash-atlas",
+    "promised": 82,
+    "view": "atlas",
+    "header": 82,
+    "paged": 82,
+    "uniq": 82,
+    "err": 0
+   }
+  ]
+ }
+}

@@ -89,8 +89,25 @@
   --fs-ui:   14px;                     /* = --fs-sm: five steps between 12 and 17 px (12 · 13 · 14 · 16 · 17), ROUND-6 gap #3 */
   --fs-brand: 22px;                    /* the wordmark */
   --fw-ui: 400; --fw-ui-strong: 600; --fw-display: 600;
-  --track-eyebrow: .04em;
-  --track-display: -.024em;
+  --track-hero: -.035em;               /* the hero display line */
+  --track-display: -.024em;            /* display headings */
+  --track-tight: -.01em;               /* UI headings, card names */
+  --track-eyebrow: .04em;              /* small positive tracking for tiny text; never caps (§v2.6) */
+  --track-vert: .12em;                 /* vertical CJK native-name plates only */
+  /* ---- Rings and underlines (functional box-shadows, not elevation; W7 gap 6) ---- */
+  --ring-pressed: inset 0 0 0 1px var(--ink);
+  --ring-quiet: inset 0 0 0 1px var(--line-strong);
+  --ring-select: 0 0 0 2px var(--city);
+  --ring-select-halo: 0 0 0 2px var(--paper), 0 0 0 4px var(--city);
+  --ring-glow: 0 0 0 2px var(--city), 0 0 0 6px color-mix(in srgb, var(--city) 22%, transparent);
+  --ring-sun: 0 0 0 2px var(--sun-wash);
+  --ring-focus-soft: 0 0 0 3px color-mix(in srgb, var(--focus) 30%, transparent);
+  --ring-surface: 0 0 0 4px var(--surface);
+  --pulse-from: 0 0 0 0 color-mix(in srgb, var(--city) 55%, transparent);
+  --pulse-to: 0 0 0 14px transparent;
+  --underline-quiet: inset 0 -5px 0 var(--line-strong);
+  --underline-active: inset 0 -2px 0 var(--ink);
+  --hairline-below: 0 1px 0 var(--line);
   --num: lining-nums tabular-nums;
   --icon-stroke: 1.5;
 
