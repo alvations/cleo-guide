@@ -225,7 +225,7 @@ open/closed status), `docs/CITIES.md` (one row per city), `docs/AGENT-PROMPTS.md
 | `session_017mbzpE8dtjevPVLcXB6TEK` | Beta PM — M1 acceptance + W2/W3 backlog | 2026-10-10 10:53 | completed, archived | M1: 16/22 accepted, 4 await QA re-measure, 2 rejected; W2 + R3 items; Round 2 exit criteria (4380fb4a, 0e4da869) |
 | `session_012XtSjToyAdhBzVDZmhPP1u` | Beta W2 — QA sign-off | 2026-10-10 11:52 | completed, archived | BETA-QA W2 on aa7cafcf: gates and features pass; sign-off NO on QA-22/23/24/25/28 (routed to W3 designer + FE-B) |
 | `session_015bFMDrayu1fp3qp2cKD3xm` | Beta QA (W3 → R5 follow-up) | 2026-10-10 12:52 | completed, archived | Signed every deploy: R2 c2a221bd, R3 83c51890, R4 8aa6fdf4, R5 f2bf7610 (Gallery default ratified), R5b 63932912 |
-| `session_01SJkx2g656Kv6x7X7TrzbWY` | Beta W6 — typography & style (rate + rebuild) | 2026-10-11 11:14 | running | — |
+| `session_01SJkx2g656Kv6x7X7TrzbWY` | Beta W6 — typography & style (rate + rebuild) | 2026-10-11 11:14 | completed, archived | Direction B (Playfair + Inter, melon-seek-style tokens): type & style 196 → 240 / 300; Tokyo 1,945 KB, FCP 4× 528 ms, AA 0 fails (23da97d8, ff6c42ae) |
 | `session_01VuJ1fj7XcNcQEei7qeoXap` | Beta imagery — Unsplash photo research (manifest) | 2026-10-11 11:15 | running | — |
 | `session_01GMm8uxMFE2KN29Q7WYH3EZ` | Beta W6 — Atlas map-first (live-guide ideas) | 2026-10-11 11:16 | running | — |
 | `session_01VDFVuQ72NNS18uAcxwDEou` | Beta Round 3 — independent evaluator | 2026-10-10 15:05 | completed, archived | design/beta/eval/ROUND-3.md: R3 80.8 (A71 B84 C91 D88) |
