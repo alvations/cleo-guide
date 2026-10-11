@@ -17,12 +17,16 @@
  *   --budget <n>         max API requests this run (default 150; images are counted separately, ≤ 2 per photo)
  *   --key <target>       only this target (repeatable), e.g. --key landmark:tokyo#senso-ji
  *   --type <t>           only hero | landmark (repeatable)
+ *   --scope <s>          what this run may fetch (default priority): heroes = city/hub heroes only; priority = heroes +
+ *                        each guide's lead card and first rail row; pilots = + the pilot pages' tier-1 sights;
+ *                        all = every target (the full tier-1 set — a repo-size decision, W8)
  *   --pilot              only pilot targets (Tokyo, Cleveland, New York, Chinatown SG, Wheeling + live country hubs)
  *   --min high|med       lowest candidate confidence to consider (default high)
  *   --allow-flag <f>     accept candidates carrying this flag (repeatable): people-visible, public-art-check,
  *                        venue-check, panorama, outdated, author-check. Only after a person has LOOKED at the photo.
  *   --wiki-lead          for a landmark with no usable candidate, try the lead image of its cited Wikipedia article
- *                        (same licence and depicts checks)
+ *                        (same licence and depicts checks); a manifest target with `wikiLead: true` does so without the flag
+ *                        (W8: the lead cards, first rail rows and remaining tier-1 sights that cite an article)
  *   --widths a,b         card photo widths (srcset; default 480,960 → snapped to 500,960; the largest is the credited file)
  *   --hero-widths a,b    hero photo widths (default 960,1280)
  *   --delay <ms>         pause between requests (default 400; API etiquette)
@@ -78,7 +82,7 @@ const RANK = { high: 3, med: 2 };
 const PILOT_PAGES = ['tokyo', 'cleveland', 'newyork', 'singapore/chinatown', 'wheeling'];
 
 function args(argv) {
-  const o = { dry: false, keys: [], types: [], min: 'high', allow: [], widths: [480, 960], heroWidths: [960, 1280], budget: 150, wikiLead: false, pilot: false, delay: 400 };
+  const o = { scope: 'priority', dry: false, keys: [], types: [], min: 'high', allow: [], widths: [480, 960], heroWidths: [960, 1280], budget: 150, wikiLead: false, pilot: false, delay: 400 };
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i], v = () => argv[++i];
     if (a === '--dry-run') o.dry = true;
@@ -93,9 +97,11 @@ function args(argv) {
     else if (a === '--hero-widths') o.heroWidths = String(v()).split(',').map(Number).sort((x, y) => x - y);
     else if (a === '--delay') o.delay = +v();
     else if (a === '--no-rescan') o.noRescan = true;
+    else if (a === '--scope') o.scope = v();
     else if (a === '-h' || a === '--help') { console.log(fs.readFileSync(__filename, 'utf8').split('*/')[0]); process.exit(0); }
     else die(`unknown option ${a} (see --help)`);
   }
+  if (!SCOPES.includes(o.scope)) die(`--scope must be one of ${SCOPES.join(' | ')}`);
   if (!RANK[o.min]) die('--min must be high or med (low candidates are never recorded or fetched)');
   for (const ws of [o.widths, o.heroWidths]) if (!ws.length || ws.some(w => !(w >= 320 && w <= 1600))) die('--widths / --hero-widths must be 320–1600 each');
   if (!(o.budget >= 1 && o.budget <= 5000)) die('--budget must be 1–5000');
@@ -243,6 +249,13 @@ async function reachable() {
   } catch (e) { return e.cause ? e.cause.code || e.cause.message : e.message; }
 }
 
+/** What a run may fetch (W8): a stray run can never pull the whole tier-1 set. */
+const SCOPES = ['heroes', 'priority', 'pilots', 'all'];
+function inScope(t, scope) {
+  if (t.type === 'hero' || scope === 'all') return true;
+  if (scope === 'heroes') return false;
+  return !!t.priority || (scope === 'pilots' && !!t.pilot);
+}
 function loadCredits() {
   const j = JSON.parse(fs.readFileSync(CREDITS, 'utf8'));
   if (!Array.isArray(j.credits)) die('CREDITS.json has no "credits" array');
@@ -258,11 +271,12 @@ function plan(man, credits, o) {
     if (o.keys.length && !o.keys.includes(t.key)) continue;
     if (o.types.length && !o.types.includes(t.type)) continue;
     if (o.pilot && !t.pilot) continue;
+    if (!inScope(t, o.scope || 'all')) continue;
     const where = t.type === 'landmark' ? recordCheck(t) : slotCheck(t);
     if (where.why) { out.push({ t, skip: where.why }); continue; }
     if (where.page ? haveRecord.has(`${where.page}#${where.id}`) : haveSlot.has(`hero:${where.slot.key}`)) { out.push({ t, skip: 'already has a credited photo' }); continue; }
     const cands = (t.candidates || []).filter(c => !c.refused && RANK[c.confidence] >= RANK[o.min] && (c.flags || []).every(f => o.allow.includes(f)));
-    const lead = o.wikiLead && t.type === 'landmark' && t.article;
+    const lead = (o.wikiLead || t.wikiLead) && t.type === 'landmark' && t.article;   // W8: the manifest opts a target in
     if (!cands.length && !lead) { out.push({ t, skip: (t.candidates || []).length ? `no ${o.min}+ candidate without an unaccepted flag` : (t.article ? 'no candidate (pass --wiki-lead to try the article lead image)' : 'no candidate') }); continue; }
     out.push({ t, where, cands, lead });
   }
@@ -277,7 +291,7 @@ async function main() {
   const todo0 = plan(man, credits, o);
   const todo = todo0.filter(p => !p.skip);
   const skips = todo0.length - todo.length;
-  console.log(`fetch-commons: ${todo0.length} target(s): ${todo.length} to try, ${skips} skipped`);
+  console.log(`fetch-commons: scope ${o.scope} — ${todo0.length} target(s): ${todo.length} to try, ${skips} skipped`);
   for (const p of todo) console.log(`  try   ${p.t.key} → ${p.cands.map(c => `${c.file} (${c.confidence})`).join(' | ')}${p.lead ? `${p.cands.length ? ' | ' : ''}lead image of ${p.t.article}` : ''}`);
   const why = {}; todo0.filter(p => p.skip).forEach(p => { const k = p.skip.replace(/ \(.*$/, '').replace(/ — .*$/, ''); why[k] = (why[k] || 0) + 1; });
   for (const [k, n] of Object.entries(why).sort((a, b) => b[1] - a[1])) console.log(`  skip  ${n} × ${k}`);
@@ -305,6 +319,8 @@ async function main() {
     const j = await api({ action: 'query', titles: title, prop: 'imageinfo|categories', iiprop: 'url|size|mime|sha1|extmetadata', iiurlwidth: snapWidths(widthsOf(t), 1e9).pop(), iiextmetadatafilter: 'LicenseShortName|LicenseUrl|Artist|ImageDescription|ObjectName|Restrictions|AttributionRequired', clshow: '!hidden', cllimit: 50 });
     const pg = j.query && j.query.pages && j.query.pages[0];
     if (!pg || pg.missing || !pg.imageinfo || !pg.imageinfo[0]) return { why: 'no such file on Commons (renamed or deleted)' };
+    const dup = credits.credits.find(c => c.commonsTitle === pg.title);   // one Commons file, one credit row
+    if (dup) return { why: `already credited to ${dup.slot ? `hero:${dup.slot.key}` : `${dup.record.page}#${dup.record.id}`} (one file, one row)` };
     const ii = pg.imageinfo[0], em = ii.extmetadata || {}, val = k => em[k] && em[k].value;
     if (!/^image\/(jpeg|png|webp)$/.test(ii.mime)) return { why: `not a bitmap photo (${ii.mime})` };
     if (ii.width < 640) return { why: `too small (${ii.width} px wide)` };
@@ -367,8 +383,8 @@ async function main() {
     const m = /^https:\/\/([a-z-]+)\.wikipedia\.org\/wiki\/(.+)$/.exec(article || ''); if (!m) return null;
     calls++; await sleep(o.delay);
     if (calls > o.budget) throw Object.assign(new Error('budget'), { budget: true });
-    const r = await get(`https://${m[1]}.wikipedia.org/w/api.php?${qs({ action: 'query', titles: decodeURIComponent(m[2]).replace(/_/g, ' '), prop: 'pageimages', piprop: 'name', redirects: 1, format: 'json', formatversion: 2 })}`);
-    if (!r.ok) return null;
+    const r = await get(`https://${m[1]}.wikipedia.org/w/api.php?${qs({ action: 'query', titles: decodeURIComponent(m[2]).replace(/_/g, ' '), prop: 'pageimages', piprop: 'name', redirects: 1, format: 'json', formatversion: 2 })}`).catch(() => null);
+    if (!r || !r.ok) return null;   // a Wikipedia hiccup skips this one target, never the run
     const j = await r.json().catch(() => null), p = j && j.query && j.query.pages && j.query.pages[0];
     return p && p.pageimage ? `File:${p.pageimage.replace(/_/g, ' ')}` : null;
   }
@@ -461,4 +477,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
