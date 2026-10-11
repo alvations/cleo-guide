@@ -861,3 +861,13 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - The workflow gained the keyless Commons fetch (cd4196b0).
   - Run #5 failed on HTTP 400 for a 640 px thumbnail. Wikimedia only serves standard thumbnail widths.
   - Switched to 500/960 (eedd4207); the imagery lane is hardening fetch-commons.js (width snapping, non-fatal per-image failures).
+
+- 2026-10-11 14:26Z · orchestrator · **Owner: "Where is the map front and center in the atlas mode?! Think Zillow for travel kinda!"**
+  - **Why the owner can't see it:** the R6 map-first Atlas lives only on the branch, held back by the R6 QA Highs. The live beta still has the R5 Atlas.
+  - **Why R6 Atlas falls short anyway:** it enlarged the map but didn't make the map the way you search.
+  - **Response:**
+    - W7-BRIEFS **Amendment 2**: Atlas becomes map-search, the real-estate map-search pattern for travel.
+      - Desktop: a split view with the map at about 60 % and a 2-column card grid that follows the map bounds, pill pins, two-way hover sync and a preview card.
+      - Phone: a full-screen map, a synced card carousel and a List/Map toggle.
+    - Checklist D2 upgraded to match.
+    - A dedicated **Atlas map-search lane** (session_01Cuvo7DWhwbWjLpFicvaF5E) takes over atlas.js and Atlas CSS from FE-A.

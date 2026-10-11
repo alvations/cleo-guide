@@ -322,9 +322,13 @@ Per target, the first candidate that passes, in manifest order (then, with `--wi
 3. **Depicts re-check:** the file title, its `ObjectName`, its description or one of its visible categories must
    contain one of the target's `names`, compared without spaces, punctuation or diacritics. "Kinkaku-ji" never passes
    for Ginkaku-ji.
-4. **Sized local copies:** Commons' own server-side thumbnails, never wider than the original. Cards are stored at
-   480 and 960 px and heroes at 640 and 1280 px, as `beta/assets/img/photos/<base>-<w>.jpg` (`/` in a page key becomes `--`).
-   Nothing is hotlinked.
+4. **Sized local copies:** Commons' own server-side thumbnails, never wider than the original. Commons serves only its
+   standard thumbnail widths (250, 330, 500, 960, 1280, 1920); any other width answers HTTP 400, which stopped
+   workflow run #5 at a 640 px thumbnail. Each asked width therefore snaps to the nearest step, and the thumbnail URL
+   comes from the API for that width. Cards: 500 + 960 px. Heroes: 500 + 1280 px by default; the workflow passes
+   `--hero-widths 640,960` → 500 + 960 to keep Tokyo within its 2.0 MB budget. Stored as
+   `beta/assets/img/photos/<base>-<w>.jpg` (`/` in a page key becomes `--`). Nothing is hotlinked. A failed thumbnail
+   refuses that candidate; a 429 or 5xx stops the run cleanly, and the next run resumes.
 5. **TASL credit row** in `CREDITS.json`: the largest width is `file`, the smaller one is in `variants`, plus `title`,
    `depicts`, `author`, `sourceUrl` (the Commons File: page), `licence`, `licenceUrl`, `provider:
    "wikimedia-commons"`, `commonsTitle`, `sha1`, `modified` ("resized to … px wide"), `fetched`, `confidence`.
@@ -349,7 +353,7 @@ Still refuses anything uncredited. New in W7:
 
 ### 4. Rendering
 
-- **Cards** (`li.pl`): `<figure class="photo pl-photo">` with `srcset` (480w, 960w) and
+- **Cards** (`li.pl`): `<figure class="photo pl-photo">` with `srcset` (500w, 960w) and
   `sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"`, `loading="lazy"`, explicit width and height,
   `alt` = what it depicts, and the TASL `figcaption` laid over the bottom of the photo.
 - **Hub heroes and hub/landing city cards** belong to FE-B (`hub.js`, `landing.js`). They call `imagery.heroFor(reg, key)`
