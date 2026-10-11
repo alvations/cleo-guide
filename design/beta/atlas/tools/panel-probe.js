@@ -66,7 +66,7 @@ async function context(browser, vp, o) {
 }
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 async function open(browser, vpk, url, o = {}) {
-  const ctx = await context(browser, VP[vpk], o), page = await ctx.newPage(), errors = [];
+  const ctx = await context(browser, VP[vpk], o), page = await ctx.newPage(), errors = []; page.setDefaultTimeout(6000);
   page.on('pageerror', e => errors.push(String(e).slice(0, 200)));
   await page.goto(BASE + url, { waitUntil: 'load' });
   await page.waitForFunction(() => document.querySelector('.leaflet-marker-icon') || document.documentElement.classList.contains('ms-nomap'), null, { timeout: 9000 }).catch(() => {});
@@ -101,8 +101,9 @@ const MEASURE = () => {
   const box = e => { const r = e.getBoundingClientRect(); return r.width > 1 ? r : (e.firstElementChild || e).getBoundingClientRect(); };
   const mk = [...D.querySelectorAll('.leaflet-marker-icon')].filter(e => { const r = box(e); return mr && r.width && inView(r) && r.left < mr.right && r.right > mr.left && r.top < mr.bottom && r.bottom > mr.top; });
   const txt = e => e.textContent.trim();
+  // numbered = a bare number (rank or count); R0's markers were all bare numbers
   const pins = mk.filter(e => e.classList.contains('pp')), cls = mk.filter(e => e.classList.contains('pin-cl'));
-  const numbered = mk.filter(e => /^[★\s]*[\d,]+\s*$/.test(txt(e)))   // a bare number (rank or count); R0's markers were all bare numbers, named = mk.filter(e => /[A-Za-z぀-鿿]{3,}/.test(txt(e)));
+  const numbered = mk.filter(e => /^[★\s]*[\d,]+\s*$/.test(txt(e))), named = mk.filter(e => /[A-Za-z぀-鿿]{3,}/.test(txt(e)));
   // obscured labels: centre covered by something else (another marker, a control)
   const covered = mk.filter(e => { const r = box(e), x = r.left + r.width / 2, y = r.top + r.height / 2; if (x < 0 || y < 0 || x > W || y > H) return false; const t = D.elementFromPoint(x, y); return t && !e.contains(t); }).length;
   // text sizes (visible text-bearing elements)
@@ -332,7 +333,7 @@ async function pinTarget(page, phone) {
     await sleep(1100);
     const a1 = await page.evaluate(() => ({ count: (document.querySelector('.ms-count') || {}).textContent, view: (() => { const m = Cleo.city.map(); return m ? m.getZoom() : null; })(), top: [...document.querySelectorAll('li.pl')].filter(e => e.offsetParent && !e.hidden).slice(0, 5).map(e => e.querySelector('.pl-n').textContent.trim().slice(0, 36) + ' [' + e.getAttribute('data-k') + ']') }));
     await snap(page, `T2-${key}-${vk === 'd' ? 1440 : 390}-area`, `T2: ${key} neighbourhood chosen`);
-    const food = await page.$('.ms-bar button[data-mode="food"]'); if (food) { await food.click(); steps.push('tap "Eat & drink"'); await sleep(900); }
+    const food = await page.$('.ms-bar button[data-mode="food"]'); if (food) { try { await food.click({ timeout: 3000 }); steps.push('tap "Eat & drink"'); } catch (e) { await food.evaluate(b => b.click()); steps.push('tap "Eat & drink": BLOCKED by an overlay; scripted click'); } await sleep(900); }
     const a2 = await page.evaluate(() => ({ count: (document.querySelector('.ms-count') || {}).textContent, top: [...document.querySelectorAll('li.pl')].filter(e => e.offsetParent && !e.hidden).slice(0, 5).map(e => e.querySelector('.pl-n').textContent.trim().slice(0, 36)) }));
     await snap(page, `T2-${key}-${vk === 'd' ? 1440 : 390}-lunch`, `T2: ${key} Eat & drink in that area`);
     const dayRoute = await page.evaluate(() => !!document.querySelector('[data-cleo-day]'));
@@ -345,19 +346,24 @@ async function pinTarget(page, phone) {
     const geo = { latitude: 35.6595, longitude: 139.7005 };
     const { ctx, page, errors } = await open(browser, vk, 'beta/cities/tokyo.html#view=atlas', { tiles: 'stub', geo }); const steps = [];
     const loc = await page.$('.leaflet-control-container [aria-label*="ocat"], .leaflet-control-container [title*="ocat"], .leaflet-control-container .ms-loc, .leaflet-control-container a[role="button"][aria-label*="me"]');
-    let locOk = false; if (loc && await loc.isVisible()) { await loc.click(); steps.push('tap locate-me'); await sleep(1500); locOk = true; }
+    let locOk = false, locCovered = null;
+    if (loc && await loc.isVisible()) {
+      try { await loc.click({ timeout: 3000 }); steps.push('tap locate-me'); locOk = true; }
+      catch (e) { locCovered = (/<([a-z]+) class="([^"]+)"[^>]*>…<\/\1> from .* subtree intercepts pointer events/.exec(String(e)) || [])[2] || 'another element';
+        steps.push('tap locate-me: BLOCKED, the tap lands on "' + locCovered + '"; fell back to a scripted click'); await loc.evaluate(b => b.click()); locOk = 'scripted'; }
+      await sleep(1500); }
     const v = await view(page);
     const d0 = await page.evaluate(g => { const R = 6371, rad = x => x * Math.PI / 180, dist = (a, b) => { const dl = rad(b[0] - a[0]), dn = rad(b[1] - a[1]); const h = Math.sin(dl / 2) ** 2 + Math.cos(rad(a[0])) * Math.cos(rad(b[0])) * Math.sin(dn / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)); };
       const all = [...document.querySelectorAll('li.pl[data-ll]')].map(e => ({ n: e.querySelector('.pl-n').textContent.trim().slice(0, 36), k: e.getAttribute('data-k'), t: e.getAttribute('data-t'), d: dist([g.latitude, g.longitude], e.getAttribute('data-ll').split(',').map(Number)) }));
       const near = all.filter(x => x.k === 'f' && x.d <= 1.2).sort((a, b) => (a.t - b.t) || a.d - b.d);
       return { foodWithin1200m: near.length, bestByTier: near.slice(0, 5).map(x => x.n + ' (' + x.d.toFixed(2) + ' km, tier ' + x.t + ')') }; }, geo);
     await snap(page, `T3-tokyo-${vk === 'd' ? 1440 : 390}-located`, 'T3: after locate-me at the fixed spot');
-    const food = await page.$('.ms-bar button[data-mode="food"]'); if (food) { await food.click(); steps.push('tap "Eat & drink"'); await sleep(1000); }
+    const food = await page.$('.ms-bar button[data-mode="food"]'); if (food) { try { await food.click({ timeout: 3000 }); steps.push('tap "Eat & drink"'); } catch (e) { await food.evaluate(b => b.click()); steps.push('tap "Eat & drink": BLOCKED by an overlay; scripted click'); } await sleep(1000); }
     const shown = await page.evaluate(() => ({ count: (document.querySelector('.ms-count') || {}).textContent, top: [...document.querySelectorAll('li.pl')].filter(e => e.offsetParent && !e.hidden).slice(0, 5).map(e => e.querySelector('.pl-n').textContent.trim().slice(0, 36) + ((e.querySelector('.pl-dist') || {}).textContent ? ' · ' + e.querySelector('.pl-dist').textContent : '')) }));
     await snap(page, `T3-tokyo-${vk === 'd' ? 1440 : 390}-food-near`, 'T3: Eat & drink after locate-me');
     // is there a "near me" sort reachable from Atlas?
     const nearSort = await page.evaluate(() => [...document.querySelectorAll('select option, [data-v="near"], [data-cleo-near]')].map(e => (e.textContent || e.value || '').trim()).filter(t => /near|distance/i.test(t)).slice(0, 3));
-    T[`T3-${vk}`] = { steps: steps.length + 1, log: steps, locateFound: locOk, viewAfterLocate: v, truth: d0, listShows: shown, nearSortOptions: nearSort, errors };
+    T[`T3-${vk}`] = { steps: steps.length + 1, log: steps, locateFound: locOk, locateCoveredBy: locCovered, viewAfterLocate: v, truth: d0, listShows: shown, nearSortOptions: nearSort, errors };
     await ctx.close();
   }
   // T4 — closed place in Cleveland: pin, card and detail mark it
