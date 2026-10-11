@@ -184,14 +184,13 @@ const authorProblems = a => [!a && 'empty', a && a.length > 60 && 'longer than 6
 
 /** Corporate signage, logos, lettering or advertising as the subject (owner review, W7): such a file is refused —
  * unless the sign IS the place (the target's own names say so, e.g. Sign Hill, the Glico Running Man sign). */
-const SIGNAGE = /\b(logos?|signage|signboards?|signs?|billboards?|advertis\w*|letters|lettering|info(?:rmation)? boards?|notice ?boards?|signposts?|plaques?|historical markers?)\b/i;
+const SIGNAGE = /\b(logos?|signage|signboards?|signs?|billboards?|advertis\w*|letters|lettering|info(?:rmation)? boards?|map boards?|notice ?boards?|interpretive (?:panels?|signs?|boards?)|signposts?|plaques?|historical markers?|(?<!wikivoyage )banners?)\b/i;
 /** Equipment, people or close-ups as the subject (owner review, W7: a "RiverScape, Dayton" file showed hands on a
  * drone controller): refused for every slot. Checked against the title, description and visible categories. */
-const CLOSEUP = /\b(drone controllers?|controllers?|remote controls?|remotes?|hands|holding|selfies?|portraits?|close-?ups?|equipment)\b/i;
+const CLOSEUP = /\b(drone controllers?|controllers?|remote controls?|remotes?|hands|holding|selfies?|portraits?|close-?ups?|equipment|figurines?|statuettes?|lotus(?:es)?|macro)\b|\(detail\)/i;
 /** Rescan hits a person looked at and kept (W7 review): the file's subject is the place; the matched word is incidental. */
 const RESCAN_KEPT = {
   'File:Brooklyn Bridge, Downtown Manhattan, and Freedom Tower, golden hour (20137848066).jpg': 'kept after review (W7): moody but strong — cables, skyline and light; not dull',
-  'File:Meadowcroft Rockshelter 07.jpg': 'kept after review (W7): the rock-shelter overhang, no sign in frame',
 };
 /** A subject check applies unless the target itself is named by it (a museum of signs, a portrait gallery). */
 const subjectRefused = (re, t, text) => re.test(text) && !re.test(`${t.label || ''} ${(t.names || []).join(' ')}`);
@@ -277,7 +276,7 @@ const articlesOf = t => (t.articles && t.articles.length ? t.articles : t.articl
 const ARTWORK = /\b(woodblock|ukiyo-?e|paintings?|painted by|prints?|engravings?|lithographs?|etchings?|postcards?|drawings?|illustrations?)\b/i;
 /** Vehicles or works dominating the frame (R7 QA-53: tour buses at Tokyo Tower, a van at MoMA, a construction site) —
  *  flagged by the rescan for a person to look at; too common in descriptions to refuse on the word alone. */
-const VEHICLES = /\b(bus(?:es)?|tour bus|coach(?:es)?|delivery vans?|trucks?|lorr(?:y|ies)|construction site|under construction|construction work|scaffold\w*|cranes?|bulldozers?|excavators?)\b/i;   // not bare "van" (Dutch names) or "construction" (history text)
+const VEHICLES = /\b(bus(?:es)?|tour bus|coach(?:es)?|delivery vans?|trucks?|lorr(?:y|ies)|construction site|under construction|construction work|scaffold\w*|cranes?|bulldozers?|excavators?|trolleys?|trams?|streetcars?|locomotives?|railcars?)\b/i;   // not bare "van" (Dutch names) or "construction" (history text)
 /**
  * "<X> from <place>" / "View from <place>": the file shows the view FROM the place, not the place (W8: "Chuo-dori from
  * Nihonbashi" for Nihonbashi Bridge). Refused unless the part before "from" (or the depicts text) names the place too.
@@ -424,7 +423,8 @@ async function main() {
         { const cand = (t.candidates || []).find(x => x.file === c.commonsTitle && !x.refused);
           if (viewFrom(c.commonsTitle, t.names || [], cand ? cand.depicts : '')) hits.push(`${key} ${c.commonsTitle}: the view FROM the place, not the place`); }
         if (subjectRefused(ARTWORK, t, text)) hits.push(`${key} ${c.commonsTitle}: a print/painting, not the place (${(ARTWORK.exec(text) || [])[0]})`);
-        if (subjectRefused(VEHICLES, t, text)) hits.push(`${key} ${c.commonsTitle}: vehicles or works may dominate (${(VEHICLES.exec(text) || [])[0]}) — look`);
+        // report-only: flagged even where the place is named so (a trolley museum's trolley is still equipment)
+        if (VEHICLES.test(text)) hits.push(`${key} ${c.commonsTitle}: vehicles or works may dominate (${(VEHICLES.exec(text) || [])[0]}) — look`);
         if (c.slot && !t.winterOk && GLOOM.test(text)) hits.push(`${key} ${c.commonsTitle}: gloomy hero (${(GLOOM.exec(text) || [])[0]})`);
       }
     }

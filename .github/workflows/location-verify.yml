@@ -34,8 +34,9 @@ on:
         type: boolean
         required: false
         default: true
-  # A push of docs/geoverify/REQUEST (key=value lines: city, scope, limit, nominatim_max) also starts a run. Push runs are
-  # ALWAYS dry runs (report as an artifact only), and the push registers this workflow so it can then be dispatched.
+  # A push of docs/geoverify/REQUEST (key=value lines: city, scope, limit, nominatim_max, commit) also starts a run, and
+  # registers this workflow so it can then be dispatched. A push run commits its report only with `commit=true`
+  # (owner decision 2026-10-11: reports are committed as the audit trail; they are proposals, never registry changes).
   push:
     branches: [claude/peaceful-goodall-i0hsrt]
     paths:
@@ -52,8 +53,6 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 340
-    env:
-      LV_CACHE_DIR: ${{ runner.temp }}/lv-cache   # absolute, outside the checkout (actions/cache refuses '..')
     steps:
       - uses: actions/checkout@v4
         with:
@@ -69,12 +68,16 @@ jobs:
           IN_SCOPE: ${{ github.event.inputs.scope }}
           IN_LIMIT: ${{ github.event.inputs.limit }}
           IN_NMAX: ${{ github.event.inputs.nominatim_max }}
+          IN_DRY: ${{ github.event.inputs.dry_run }}
         run: |
           if [ "$GITHUB_EVENT_NAME" = push ]; then
             f=docs/geoverify/REQUEST
             [ -f "$f" ] || { echo "::error::$f is missing"; exit 1; }
             get() { sed -n "s/^$1=//p" "$f" | head -n1 | tr -d '\r'; }
             IN_CITY=$(get city); IN_SCOPE=$(get scope); IN_LIMIT=$(get limit); IN_NMAX=$(get nominatim_max)
+            [ "$(get commit)" = true ] && COMMIT=true || COMMIT=false
+          else
+            [ "$IN_DRY" = false ] && COMMIT=true || COMMIT=false
           fi
           CITY="${IN_CITY:-wheeling-wv}"; SCOPE="${IN_SCOPE:-unverified,low,status}"; LIMIT="${IN_LIMIT:-0}"; NOMINATIM_MAX="${IN_NMAX:-300}"
           # validate BEFORE anything reaches GITHUB_ENV (each value is one safe token)
@@ -83,8 +86,11 @@ jobs:
           [[ "$LIMIT" =~ ^[0-9]+$ ]] || { echo "::error::bad limit"; exit 1; }
           [[ "$NOMINATIM_MAX" =~ ^[0-9]+$ && "$NOMINATIM_MAX" -le 1000 ]] || { echo "::error::nominatim_max must be 0..1000"; exit 1; }
           CITY="$CITY" node -e "const c=require('./data/geocodes.json').cities; if(!c[process.env.CITY]){console.error('::error::unknown city '+process.env.CITY); process.exit(1)}"
-          { echo "CITY=$CITY"; echo "SCOPE=$SCOPE"; echo "LIMIT=$LIMIT"; echo "NOMINATIM_MAX=$NOMINATIM_MAX"; } >> "$GITHUB_ENV"
-          echo "city=$CITY scope=$SCOPE limit=$LIMIT nominatim_max=$NOMINATIM_MAX event=$GITHUB_EVENT_NAME"
+          { echo "CITY=$CITY"; echo "SCOPE=$SCOPE"; echo "LIMIT=$LIMIT"; echo "NOMINATIM_MAX=$NOMINATIM_MAX"; echo "COMMIT=$COMMIT"; } >> "$GITHUB_ENV"
+          # the response cache: absolute and outside the checkout (actions/cache refuses '..'; the runner context is not
+          # available in job-level env, so it is set here)
+          echo "LV_CACHE_DIR=$RUNNER_TEMP/lv-cache" >> "$GITHUB_ENV"
+          echo "city=$CITY scope=$SCOPE limit=$LIMIT nominatim_max=$NOMINATIM_MAX commit=$COMMIT event=$GITHUB_EVENT_NAME"
 
       - name: Restore the response cache (the Nominatim policy requires caching; reruns resume)
         uses: actions/cache@v4
@@ -118,8 +124,8 @@ jobs:
           name: geoverify-${{ env.CITY }}-${{ github.run_id }}
           path: docs/geoverify/${{ env.CITY }}.*
 
-      - name: Commit the report (dry_run=false only)
-        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run == 'false' }}
+      - name: Commit the report (dispatch with dry_run=false, or a REQUEST with commit=true)
+        if: ${{ env.COMMIT == 'true' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
