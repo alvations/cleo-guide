@@ -1,0 +1,91 @@
+# Beta Atlas: screenshots with the REAL basemap tiles, for the Atlas review panel (design/beta/atlas/PANEL.md).
+#
+# Why this runs on GitHub Actions: the authoring sandbox cannot reach the tile hosts, so every local screenshot
+# uses a stub tile and nobody can judge the map's real look. A GitHub-hosted runner can reach the no-key tile hosts
+# the beta uses (OpenStreetMap and Esri). tools/beta/atlas-real-shots.js serves beta/ from the checkout, lets only
+# those tile hosts through (everything else off-origin stays blocked, as in the local harnesses), and writes the
+# evidence pack to design/beta/atlas/real/<label>/. A handful of pages at two viewports: a few hundred tile
+# requests per run, well within the tile servers' usage policies.
+#
+# Trigger: edit design/beta/atlas/SHOTS-REQUEST (first line = the round label, e.g. R1) or run it by hand.
+name: beta-atlas-real-shots
+
+on:
+  workflow_dispatch:
+    inputs:
+      label:
+        description: Round label for the output folder (letters, digits, dot, dash, underscore)
+        required: false
+        default: manual
+  push:
+    branches: [claude/peaceful-goodall-i0hsrt]
+    paths:
+      - design/beta/atlas/SHOTS-REQUEST
+      - tools/beta/atlas-real-shots.js
+      - .github/workflows/beta-atlas-real-shots.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: beta-atlas-real-shots
+  cancel-in-progress: false
+
+jobs:
+  shoot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/peaceful-goodall-i0hsrt
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install tools and the headless browser
+        # package-lock.json is gitignored in this repo, so npm ci cannot run here.
+        run: |
+          cd tools
+          npm install --no-audit --no-fund
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Shoot Atlas with real tiles
+        env:
+          INPUT_LABEL: ${{ github.event.inputs.label }}
+        run: |
+          if [ ! -f tools/beta/atlas-real-shots.js ]; then
+            echo "::warning::tools/beta/atlas-real-shots.js is not on this branch yet; nothing to shoot."
+            exit 0
+          fi
+          LABEL="${INPUT_LABEL:-}"
+          if [ -z "$LABEL" ] && [ -f design/beta/atlas/SHOTS-REQUEST ]; then LABEL=$(head -n1 design/beta/atlas/SHOTS-REQUEST); fi
+          LABEL=$(printf '%s' "${LABEL:-manual}" | tr -cd 'A-Za-z0-9._-' | cut -c1-40)
+          [ -n "$LABEL" ] || LABEL=manual
+          echo "LABEL=$LABEL" >> "$GITHUB_ENV"
+          node tools/beta/atlas-real-shots.js --out "design/beta/atlas/real/$LABEL"
+
+      - name: Commit the shots
+        run: |
+          [ -d "design/beta/atlas/real/${LABEL:-manual}" ] || { echo "No shots written."; exit 0; }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add design/beta/atlas/real
+          if git diff --cached --quiet; then
+            echo "No new shots."
+            exit 0
+          fi
+          git commit -m "Beta Atlas: real-tile screenshots for the review panel (${LABEL}) (Actions)"
+          # Other lanes push to this branch while the job runs; this job only adds files under
+          # design/beta/atlas/real/, so a merge is clean unless someone else wrote there.
+          for i in 1 2 3; do
+            git fetch origin claude/peaceful-goodall-i0hsrt || { sleep $((i * 10)); continue; }
+            if ! git merge --no-edit origin/claude/peaceful-goodall-i0hsrt; then
+              echo "::error::merge conflict"; git diff --name-only --diff-filter=U; git merge --abort; exit 1
+            fi
+            git push origin HEAD:claude/peaceful-goodall-i0hsrt && exit 0
+            sleep $((i * 10))
+          done
+          exit 1
