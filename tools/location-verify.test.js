@@ -160,6 +160,29 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
   await t('replay: closed place kept; no closure proposal for an already-closed row', () => {
     const r = row('Old Mill — CLOSED'); assert.ok(r); assert.ok(!r.statusProposal);
   });
+  await t('replay: a street (highway way) echoing the asked house number is street-level → low, never proposed', () => {
+    for (const n of ['Street Echo Museum', 'Street Echo Village']) {
+      const r = row(n); assert.strictEqual(r.outcome, 'no-match', n); assert.strictEqual(r.proposal, null, n);
+      const c = r.candidates.find(x => x.osm === 'way/4004'); assert.ok(c, n); assert.strictEqual(c.kind, 'osm-other'); assert.strictEqual(c.grade, 'low');
+    }
+  });
+  await t('replay: two rows resolving to the same OSM object both drop to low (shared object), evidence shows the object', () => {
+    for (const n of ['Twin Shop One', 'Twin Shop Two']) {
+      const r = row(n); assert.strictEqual(r.outcome, 'shared-object', n); assert.strictEqual(r.proposal.grade, 'low');
+      assert.ok(r.notes.some(x => /shared object: OSM way\/5005/.test(x)), n);
+      assert.strictEqual(r.proposal.osmObject.id, 'way/5005'); assert.strictEqual(r.proposal.osmObject.class, 'building=yes');
+      assert.strictEqual(r.proposal.osmObject.tags.building, 'yes');
+    }
+    const md = LV.toMarkdown(rep); assert.ok(/OSM way\/5005 building=yes · addresstype=building · \(no name\)/.test(md), 'object shown in the evidence column');
+  });
+  await t('gradeCandidate: an osm-address whose object is a highway is low (defence in depth)', () => {
+    const place = { name: 'X Museum', address: '627 Long Ave, Testville', current: {} };
+    assert.strictEqual(LV.gradeCandidate({ kind: 'osm-address', name: '', houseNumber: '627', street: 'Long Avenue', osmClass: 'highway=primary' }, place).grade, 'low');
+  });
+  await t('demoteSharedObjects leaves distinct objects alone', () => {
+    const rows = [{ name: 'a', outcome: 'pin', proposal: { grade: 'high', osmObject: { id: 'node/1' } } }, { name: 'b', outcome: 'pin', proposal: { grade: 'high', osmObject: { id: 'node/2' } } }];
+    LV.demoteSharedObjects(rows); assert.deepStrictEqual(rows.map(r => r.proposal.grade), ['high', 'high']);
+  });
   await t('replay: every proposal carries source, date, licence, grade', () => {
     for (const r of rep.rows) if (r.proposal) for (const k of ['sourceUrl', 'retrieved', 'licence', 'grade', 'lat', 'lng']) assert.ok(r.proposal[k] != null, `${r.name}.${k}`);
     assert.ok(/OpenStreetMap contributors/.test(rep.meta.attribution));
@@ -186,12 +209,14 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     set('Example Museum', { decision: 'accept-closed', by: 'reviewer-a', why: 'museum site says closed', statusSource: 'museum.example home page notice (read 2026-10-11)' });
     set('Sample Park', { decision: 'accept', why: 'no reviewer named' });
     set('Ambiguous Cafe', { decision: 'accept', by: 'reviewer-a', why: 'try' });
+    set('Twin Shop One', { decision: 'accept', by: 'reviewer-a', why: 'try a low one' });
     const rp = path.join(dir, 'rep.json'); fs.writeFileSync(rp, JSON.stringify(r2));
     const led = path.join(dir, 'ACCEPTED.md');
     const out = LV.accept(rp, { geocodes: geo, ledger: led, waveDir: dir, today: '2026-10-11', allowCi: true });
     assert.strictEqual(out.applied.length, 2);
     assert.strictEqual(out.closures.length, 1);
-    assert.strictEqual(out.refused.length, 2, out.refused.join('; '));
+    assert.strictEqual(out.refused.length, 3, out.refused.join('; '));
+    assert.ok(out.refused.some(x => /Twin Shop One: a low \/ shared-object proposal/.test(x)));
     const g = JSON.parse(fs.readFileSync(geo, 'utf8')).cities['testville-zz'];
     assert.strictEqual(g['Fictional Fish Market'].lat, 0.5031); assert.strictEqual(g['Fictional Fish Market'].confidence, 'high');
     assert.ok(/accepted by reviewer-a/.test(g['Fictional Fish Market'].source));
