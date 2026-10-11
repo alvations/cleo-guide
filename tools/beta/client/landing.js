@@ -9,6 +9,9 @@
   function clear() { input.value = ''; show(''); input.focus(); }
   function show(q) {
     if (!q) { out.hidden = true; out.innerHTML = ''; return; }
+    var host = Cleo.urlHost && Cleo.urlHost(q);      // W9-6: a pasted link opens its source's places (the URL is never fetched)
+    if (host) { Cleo.hostIndex().then(function (idx) { if (input.value.trim() !== q) return; out.hidden = false; Cleo.renderSource(out, idx, host); },
+      function () { out.hidden = false; Cleo.indexFailed(out); }); return; }
     Cleo.searchIndex().then(function (data) {
       if (input.value.trim() !== q) return;            // a newer keystroke won
       out.hidden = false;
