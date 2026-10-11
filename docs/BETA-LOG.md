@@ -1548,3 +1548,29 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - The head boot script already sets `data-view`; for Atlas it now also sets `atlas-d` / `atlas-m` (the same 1024 px query views.js uses), so the Atlas layout applies from first paint instead of after views.js.
 - Desktop: the bar has a fixed 65 px height and its space is held (`:not(.ms-built)`) until atlas.js inserts it, in the same task; FE-A's toolbar (which moves into the bar) is held out of flow until then; the map and list panes take explicit grid columns, so the list never starts in the map's column; the list's cards are held (not drawn) until the first map-area pass picks its page (`ms-ready`, set by msArea, by no-map, or after 3 s; a CSS animation shows them after 4 s if JS never arrives); `#cleo-grid` gets FE-A's card face (`w7-cards`) at parse time on desktop Atlas.
 - Phone: the method notes and the footer (outside `<main>`, under the full-screen map) are `display:none` in phone Atlas only — they were invisible under the map and still Tab stops; every other view shows them.
+- 2026-10-11 · i18n lane · W8 · session_01HB7igqdcuhrau7mUWSauDL · D-41 Japanese interface, commits `269c577c` and `1345c26a` (merge).
+  - **Catalogue:** `tools/beta/i18n/ja.json` (published as `beta/assets/i18n/ja.json`).
+    - It translates all 157 interface strings: 147, plus the 10 offline-pack strings that landed upstream during the work.
+    - It carries `review: {by: "ai", …}` and keeps `reviewed: false`.
+  - **Review:** an independent subagent saw only en + ja. It made 4 changes, then 1 more in a second round for the pack strings. All are recorded in `design/beta/i18n/ja-REVIEW.md`.
+  - **Platform:** `lib/i18n.js` gains `offered()`, which lists locales with a tier. `reviewed()` stays human-only.
+  - **Shell:** `localeSwitch()` now lists the offered locales. Every page gets a top-bar switcher, with buttons that are ≥ 44 px and keyboard reachable.
+  - **Head (`common.js`):**
+    - hreflang ja (`?lang=ja`), en and x-default;
+    - a pre-paint snippet that holds the paint until the catalogue is applied (storage read in try/catch, 1.5 s failsafe);
+    - a Japanese system-font fallback and `word-break: auto-phrase`, with no CDN.
+  - **Runtime (`client/locale.js`, new):**
+    - It swaps the catalogue strings on the landing, the hubs and the What changed pages, and swaps the shell on every other page.
+    - It shows the AI note: "Japanese interface: machine-translated and checked by a second AI review. Place write-ups stay in English", in ja + en, with a "Report a wrong phrase" link to a GitHub issue.
+  - **Tests:** `test-i18n.js` now checks:
+    - offered = en + ja (ai), human-reviewed = en;
+    - key and placeholder parity;
+    - hreflang ja on all 180 pages;
+    - a runtime pseudo swap leaves 0 English;
+    - the note appears only with ja;
+    - a failed fetch falls back to English.
+  - **Shots:** `design/beta/eval/i18n/` (`tools/beta/i18n-shots.js`) covers the landing, Tokyo Gallery, Tokyo Atlas and a place detail, in ja and en, at 390 and 1440, with dark mode for ja.
+    - No overflow and no JS errors.
+    - Japanese CLS is no higher than English on the same view. The Atlas CLS of 0.511 at 390 is the same in en, so it predates this work.
+  - **Gap, stated:** FE-A's city-page interface strings (Gallery, Atlas, place sheet, offline pack) are not in the catalogue yet. On city pages only the shell is in Japanese.
+  - validate, npm test (all suites) and beta:check PASS.
