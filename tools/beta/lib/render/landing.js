@@ -1,14 +1,16 @@
 'use strict';
 /**
- * render/landing.js — the beta LANDING page (lane FE-B: this template + client/landing.js). M1-17.
- * Inventory-first: a short night hero with the site search, then every live country (countries.json order,
- * live only) and every place page in it as a city tile with computed counts and its signature line.
- * Links go to the beta copy of each page — the new engine where migrated, the legacy mirror otherwise.
+ * render/landing.js — the beta LANDING page (lane FE-B: this template + client/landing.js). M1-17, W7.
+ * Search-first: one headline in the display face and a big search pill, then the country shortcuts, the ★ signature
+ * row, one row of image-first city cards per live country (countries.json order, live only — every place page in it),
+ * the cross-city collections, a quiet "How we choose" strip (named sources, pins, closures — computed) and the
+ * countries. Links go to the beta copy of each page. Styles: lib/render/fe-b.css (tokens only).
  */
 const { esc } = require('../html');
 const { head, siteBar, footer, styles } = require('./common');
 const { icon } = require('./shell');
-const { cityTile, moreRow, countryPages, themeRail, FEB_CSS, ogFor } = require('./hub');
+const { cityTile, moreRow, countryPages, themeRail, countryCards, ogFor } = require('./hub');
+const { stats: methodStats } = require('./method');
 const { t, tn } = require('../i18n');                // W5 gap #7: every landing string comes from the catalogue
 
 function render(reg, ctx) {
@@ -18,24 +20,26 @@ function render(reg, ctx) {
   const places = rows.filter(r => r.kind === 'city');
   const total = places.reduce((s, r) => s + r.counts.P + r.counts.F, 0);
   const hubHref = c => { const h = byLive[c.hub]; return h && h.kind === 'country-hub' && h.gen !== 'none' ? h.beta : null; };
+  const fmt = n => n.toLocaleString('en-US');
 
+  let first = true;                                  // the first two cards on the page are above the fold: no lazy photo
   const sections = live.map(c => {
     const { main, more, all } = countryPages(c, reg);
     const n = all.reduce((s, r) => s + r.counts.P + r.counts.F, 0);
     const hub = hubHref(c);
+    const eagerRow = first; first = false;
     return `<section class="csec" id="${esc(c.key)}" aria-labelledby="c-${esc(c.key)}">
-<div class="rail-head"><h2 class="d2" id="c-${esc(c.key)}">${esc(c.name)}<span class="n">${esc(tn('hub.guides', all.length))} · ${esc(n === 1 ? t('hub.places.one') : t('hub.places', { n: n.toLocaleString('en-US') }))}</span></h2>
+<div class="rail-head"><h2 class="d2" id="c-${esc(c.key)}">${esc(c.name)}<span class="n">${esc(tn('hub.guides', all.length))} · ${esc(n === 1 ? t('hub.places.one') : t('hub.places', { n: fmt(n) }))}</span></h2>
 ${hub ? `<a class="more" href="${esc(hub)}">${esc(t('land.all', { country: c.name }))} ${icon('chevr', 'ico sm')}</a>` : ''}</div>
-${c.blurb ? `<p class="blurb">${esc(c.blurb)}</p>` : ''}
-<ul class="tiles hub2" aria-label="${esc(t('hub.guides.label', { country: c.name }))}">
-${main.map((r, i) => cityTile(r, i, { cap: 16 }))   /* lighter star-field (the imagery motif carries the art) keeps the landing ≤ 80 KB */.join('\n')}
+<ul class="tiles hub2 cards dense" aria-label="${esc(t('hub.guides.label', { country: c.name }))}">
+${main.map((r, i) => cityTile(r, i, { reg, dense: true, eager: eagerRow && i < 2 })).join('\n')}
 </ul>
-${more.length ? `<h3 class="more-h d3" style="margin-top:20px">${esc(t('hub.more', { country: c.name }))}</h3>\n<ul class="morelist">\n${more.map(r => moreRow(r)).join('\n')}\n</ul>` : ''}
+${more.length ? `<h3 class="more-h d3">${esc(t('hub.more', { country: c.name }))}</h3>\n<ul class="morelist">\n${more.map(r => moreRow(r)).join('\n')}\n</ul>` : ''}
 </section>`;
   });
 
   // ROUND-2 gap #4 (FE-B half): one ★ signature per live country, from the guides' own data (lib/guide.js) — the
-  // signature shared by the most places across that country's pages. A tile opens the page holding most of them,
+  // signature shared by the most places across that country's pages. A card opens the page holding most of them,
   // with its ★ lens on. No copy beyond titles, place counts and city names.
   const editorial = live.map(c => {
     const groups = new Map();
@@ -57,44 +61,54 @@ ${more.length ? `<h3 class="more-h d3" style="margin-top:20px">${esc(t('hub.more
 ${editorial.join('\n')}
 </nav></section>` : '';
 
+  // The quiet trust strip: what wins a careful reader. Every figure is computed from the records (method.stats).
+  const ms = methodStats(reg);
+  const trust = [['seal', 'src', ms.publishers], ['pin', 'pin', ms.pinned], ['info', 'closed', ms.closed]];
+  const trustHtml = `<section class="section trust-s" aria-labelledby="trust-h"><div class="rail-head"><h2 class="d2" id="trust-h">${esc(t('land.trust.h'))}</h2>
+<a class="more" href="how-we-choose.html">${esc(t('land.trust.more'))} ${icon('chevr', 'ico sm')}</a></div>
+<div class="trust">
+${trust.map(([ic, k, n]) => `<div class="t">${icon(ic)}<div><p class="tn"><b>${esc(fmt(n))}</b> ${esc(t(`land.trust.${k}.n`))}</p><h3>${esc(t(`land.trust.${k}.h`))}</h3><p>${esc(t(`land.trust.${k}.p`))}</p></div></div>`).join('\n')}
+</div></section>`;
+
+  const countries = live.map(c => ({ key: c.key, name: c.name, href: hubHref(c) || '#' + c.key,
+    guides: countryPages(c, reg).all.length, places: countryPages(c, reg).all.reduce((s, r) => s + r.counts.P + r.counts.F, 0) }));
+
   const archive = byLive['Singapore/singapore-old.html'];
   const nGuides = live.reduce((s, c) => s + countryPages(c, reg).all.length, 0);
   const title = t('land.title');
-  const nums = { places: total.toLocaleString('en-US'), guides: places.length, countries: live.length };
+  const nums = { places: fmt(total), guides: places.length, countries: live.length };
   const desc = t('land.desc', nums);
-  return `${head({ page: 'landing', title, description: desc, rel: 'index.html', depth: 0, assetsV: ctx.assetsV, css: styles(0), ogImage: ogFor('us') || undefined,   // the default (US) view's share card from: 'data/countries.json + every live place page',
+  return `${head({ page: 'landing', title, description: desc, rel: 'index.html', depth: 0, assetsV: ctx.assetsV, css: styles(0), ogImage: ogFor('us') || undefined,   // the default (US) view's share card
+    from: 'data/countries.json + every live place page',
     jsonld: { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Cleo', url: ctx.betaBase + '/',
-      potentialAction: { '@type': 'SearchAction', target: ctx.betaBase + '/?q={q}', 'query-input': 'required name=q' } } }).replace('</head>', `<style>${FEB_CSS}</style>\n</head>`)}
+      potentialAction: { '@type': 'SearchAction', target: ctx.betaBase + '/?q={q}', 'query-input': 'required name=q' } } })}
 <body class="has-tabbar">
-${siteBar({ depth: 0, current: 'landing', rel: 'index.html', onNight: true })}
+${siteBar({ depth: 0, current: 'landing', rel: 'index.html' })}
 <main id="main" class="feb">
-<section class="hero" aria-labelledby="hero-h"><div class="inner">
+<section class="lhero" data-cleo-masthead aria-labelledby="hero-h"><div class="inner">
   <p class="kicker">${esc(t('land.kicker'))}</p>
   <h1 class="d-hero" id="hero-h">${esc(t('land.h1')).replace('{em}', `<em>${esc(t('land.h1.em'))}</em>`)}</h1>
   <p class="sub">${esc(t('land.sub', nums))}</p>
   <form class="search" id="search" role="search" action="index.html" method="get" data-cleo-search>
     ${icon('search')}<label class="vh" for="cleo-q">${esc(t('shell.search'))}</label>
     <input id="cleo-q" name="q" type="search" placeholder="${esc(t('land.search.ph'))}" autocomplete="off" enterkeyhint="search">
-    <button class="btn btn-primary" type="submit">${esc(t('land.search.go'))}</button>
+    <button class="btn btn-primary" type="submit">${icon('search', 'ico sm')}<span>${esc(t('land.search.go'))}</span></button>
   </form>
+  <nav class="countries" aria-label="${esc(t('land.countries'))}">${live.map(c => `<a class="pill" href="#${esc(c.key)}">${esc(c.name)}</a>`).join('')}</nav>
 </div></section>
 <div class="wrap">
 <section class="results" id="results" aria-live="polite" hidden></section>
-${editorialHtml}
 <div id="destinations" class="section">
-<div class="stickypills"><nav class="countries" aria-label="${esc(t('land.countries'))}">${live.map(c => `<a class="pill" href="#${esc(c.key)}">${esc(c.name)}</a>`).join('')}</nav></div>
 ${sections[0] || ''}
 </div>
-${themeRail(reg, { heading: t('hub.themes.h'), id: 'themes' })}
+${editorialHtml}
 <div class="section">
 ${sections.slice(1).join('\n')}
 </div>
-<section class="section" aria-labelledby="trust-h"><h2 class="d2" id="trust-h" style="margin-bottom:16px">${esc(t('land.trust.h'))}</h2>
-<div class="trust">
-${[['seal', 'src'], ['pin', 'pin'], ['info', 'closed']].map(([ic, k]) => `<div class="t">${icon(ic)}<div><b>${esc(t(`land.trust.${k}.h`))}</b><p>${esc(t(`land.trust.${k}.p`))}</p></div></div>`).join('\n')}
-</div>
-<p style="margin-top:16px"><a class="btn btn-ghost" href="how-we-choose.html">${esc(t('shell.nav.method'))} ${icon('chevr', 'ico sm')}</a></p>
-</section>
+${themeRail(reg, { heading: t('hub.themes.h'), id: 'themes' })}
+${trustHtml}
+<section class="section" aria-labelledby="cc-h"><div class="rail-head"><h2 class="d2" id="cc-h">${esc(t('land.countries'))}</h2></div>
+${countryCards(countries, '', reg)}</section>
 ${archive && archive.gen !== 'none' ? `<p class="archive sm muted">${esc(t('land.archive')).replace('{link}', `<a href="${esc(archive.beta)}">${esc(t('land.archive.link'))}</a>`)}</p>` : ''}
 <p class="sr-count vh">${esc(t('land.srcount', { n: nGuides }))}</p>
 </div>
