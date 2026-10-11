@@ -26,6 +26,9 @@
 :root .d-hero em { color: inherit; }
 :root :is(.note p, .pl-k.note p, .pl-k .note-t, .view-gallery .note) { font-size: var(--fs-body); line-height: 1.55; color: var(--ink-2); }
 :root .num, :root :is(.n, .pl-num, .area-c, .dest-c) { font-variant-numeric: var(--num); }
+/* one line-icon weight everywhere (design/beta/style/v2/icons) */
+:root .ico { stroke-width: var(--icon-stroke); }
+:root .tabbar a[aria-current="page"] .ico { stroke-width: 2; }
 ::selection { background: var(--accent-wash); color: var(--ink); }
 
 /* ---------- V2.1 brand & top bar: paper, a hairline, no blur, no night variant ---------- */
@@ -120,7 +123,7 @@
 :root .tile .art { min-height: 0; }
 :root :is(.cover, .pl-cover).closed, :root .pl[data-closed] .pl-cover { background: var(--sand) !important; }
 /* closed: calm but unmistakable — a quiet chip, not a hatch */
-:root :is(.cover, .pl-cover).closed::after, :root html .pl[data-closed]::before { background-image: none !important; }
+:root :is(.cover, .pl-cover).closed::after, html:root .pl[data-closed]::before { background-image: none !important; }
 
 /* ---------- V2.8 cards: no frame, no border, no heavy shadow — rounded media, 2–3 lines of text below ---------- */
 :root :is(.gc, .pl, .card, .tile, .theme, .dest > a) { background: transparent; border: 0; box-shadow: none; }
@@ -129,7 +132,7 @@
 :root :is(.pl-e, .gc-w, .counts, .sigline, .area-sub, .area-c, .sub, .blurb) { color: var(--ink-2); }
 :root .pl-e { color: var(--ink-3); font-weight: 500; }
 :root .sigline, :root .sigline *, :root :is(.tile, .dest) .star, :root .tile .sigline .ico { color: var(--ink-2) !important; stroke: currentColor; }
-:root .g-lead-card .gc, :root html[data-view=gallery] .g-lead-slot .gc { background: transparent; border: 0; box-shadow: none; padding: 0; }
+:root .g-lead-card .gc, html:root[data-view=gallery] .g-lead-slot .gc { background: transparent; border: 0; box-shadow: none; padding: 0; }
 :root .tg.t1, :root .tier.t1 { color: var(--ink); }
 :root .heart { background: color-mix(in srgb, var(--surface) 92%, transparent); color: var(--ink); border: 0; box-shadow: var(--shadow-sm); }
 :root .heart[aria-pressed="true"] { color: var(--accent); }
