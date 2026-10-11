@@ -6930,6 +6930,122 @@
    "fetched": "2026-10-11",
    "confidence": "high",
    "color": "#080808"
+  },
+  {
+   "file": "hero--akron-960.jpg",
+   "slot": {
+    "type": "hero",
+    "key": "akron"
+   },
+   "title": "Akron Skyline at Sunset",
+   "depicts": "Akron skyline at sunset from the Towpath Trail",
+   "author": "Dillguy9",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akron_Skyline_at_Sunset.jpg",
+   "licence": "CC0 1.0",
+   "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Akron Skyline at Sunset.jpg",
+   "sha1": "a3938218bf79a143cc86bb3bdf886dffa548ab0a",
+   "width": 960,
+   "height": 540,
+   "variants": [
+    {
+     "file": "hero--akron-500.jpg",
+     "width": 500,
+     "height": 281
+    }
+   ],
+   "modified": "resized to 500 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-11",
+   "confidence": "high",
+   "color": "#6898c8"
+  },
+  {
+   "file": "hero--singapore--mandai-960.jpg",
+   "slot": {
+    "type": "hero",
+    "key": "singapore/mandai"
+   },
+   "title": "Upper Seletar Reservoir",
+   "depicts": "Upper Seletar Reservoir",
+   "author": "Redthreadhx",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Upper_Seletar_Reservoir.jpg",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Upper Seletar Reservoir.jpg",
+   "sha1": "f3cd22d730c484f5b57b635f76ec3f984c331788",
+   "width": 960,
+   "height": 720,
+   "variants": [
+    {
+     "file": "hero--singapore--mandai-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
+   "modified": "resized to 500 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-11",
+   "confidence": "lead",
+   "color": "#f8f8f8"
+  },
+  {
+   "file": "hero--singapore--newton-novena-960.jpg",
+   "slot": {
+    "type": "hero",
+    "key": "singapore/newton-novena"
+   },
+   "title": "Church of Saint Alphonsus, or Novena Church",
+   "depicts": "Church of Saint Alphonsus, or Novena Church",
+   "author": "Exec8",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Church_of_Saint_Alphonsus,_or_Novena_Church.jpg",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Church of Saint Alphonsus, or Novena Church.jpg",
+   "sha1": "080b6695cc54a0cb6db105dcf1b1f9dd8678f410",
+   "width": 960,
+   "height": 1200,
+   "variants": [
+    {
+     "file": "hero--singapore--newton-novena-500.jpg",
+     "width": 500,
+     "height": 625
+    }
+   ],
+   "modified": "resized to 500 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-11",
+   "confidence": "lead",
+   "color": "#e8f8f8"
+  },
+  {
+   "file": "hero--singapore--kuala-lumpur-960.jpg",
+   "slot": {
+    "type": "hero",
+    "key": "singapore/kuala-lumpur"
+   },
+   "title": "Dataran Merdeka 2",
+   "depicts": "Dataran Merdeka 2",
+   "author": "Haakon S. Krohn",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dataran_Merdeka_2.jpg",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Dataran Merdeka 2.jpg",
+   "sha1": "18d44cecaec247023fc7c6f2e81d1be40e351d79",
+   "width": 960,
+   "height": 626,
+   "variants": [
+    {
+     "file": "hero--singapore--kuala-lumpur-500.jpg",
+     "width": 500,
+     "height": 326
+    }
+   ],
+   "modified": "resized to 500 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-11",
+   "confidence": "lead",
+   "color": "#c8d8e8"
   }
  ]
 }
