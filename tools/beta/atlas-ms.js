@@ -104,6 +104,8 @@ const nIn = s => +((/([\d,]+)/.exec(s.count) || [0, '0'])[1].replace(/,/g, ''));
       const t = dark ? '-dark' : '';
       let { ctx, page, errors } = await open(browser, D, url + '#view=atlas', { tiles: 'stub', dark });
       const s0 = await state(page); R[`${key}-d${t}`] = s0;
+      if (!dark) { const nc = await page.evaluate(() => document.querySelectorAll('li.pl').length), live0 = (fs.readFileSync(path.join(ROOT, url), 'utf8').match(/<li class="pl[ "]/g) || []).length;
+        chk(`${key} desktop: the first fit builds one page of cards, not the area (≤ 32 live + 40)`, nc <= 32 + 40 + 2, { cards: nc }); }
       await snap(page, `${key}-atlas-1440${t}`);
       if (!dark) {
         chk(`${key} desktop: map ≥ 58 % wide, on the left, full height`, s0.mapW >= 58 && s0.mapLeft <= 1 && Math.abs(s0.mapBottomGap) <= 2, [s0.mapW, s0.mapLeft, s0.mapBottomGap]);
@@ -173,6 +175,17 @@ const nIn = s => +((/([\d,]+)/.exec(s.count) || [0, '0'])[1].replace(/,/g, ''));
       const t = dark ? '-dark' : '';
       const { ctx, page, errors } = await open(browser, M, url + '#view=atlas', { tiles: 'stub', dark, wait: 1200 });
       const s0 = await state(page); R[`${key}-m${t}`] = s0;
+      // the OSM credit never collides with the List pill or the carousel
+      const att = await page.evaluate(() => { const a = document.querySelector('.leaflet-control-attribution'), r = a && a.getBoundingClientRect(); if (!r || !r.width) return null;
+        const hit = el => { const b = el && el.getBoundingClientRect(); return !!b && b.width && !(b.right < r.left || b.left > r.right || b.bottom < r.top || b.top > r.bottom); };
+        return { box: [Math.round(r.top), Math.round(r.bottom)], pill: hit(document.querySelector('.ms-toggle')), carousel: hit(document.querySelector('.listpane')), bar: hit(document.querySelector('.ms-bar')) }; });
+      chk(`${key} phone${t}: the OSM credit is visible and clear of the pill, the carousel and the chip row`, att && !att.pill && !att.carousel && !att.bar, att);
+      if (!dark) {
+        const nc = await page.evaluate(() => document.querySelectorAll('li.pl').length);
+        chk(`${key} phone: the first fit builds one page of cards, not the area (≤ 32 live + 40)`, nc <= 32 + 40 + 2, { cards: nc });
+        const ov = await page.evaluate(() => { const s = document.querySelector('.ms-bar .spill'), r = s && s.getBoundingClientRect(); return { page: document.documentElement.scrollWidth - innerWidth, spill: r ? [Math.round(r.left), Math.round(r.right)] : null }; });
+        chk(`${key} phone: no horizontal overflow; the search control is fully on screen`, ov.page <= 0 && (!ov.spill || (ov.spill[0] >= 0 && ov.spill[1] <= 390)), ov);
+      }
       await snap(page, `${key}-atlas-390${t}`);
       if (!dark) {
         chk(`${key} phone: first screen ≥ 70 % map`, s0.mapClear >= 70 || s0.mapScreen >= 70, { box: s0.mapScreen, clear: s0.mapClear });

@@ -9,6 +9,7 @@
  *  credits   no photo credit (cards, rows, hero, place detail) is ellipsised, line-clamped or cut: author + licence show
  *  nodes     a phone #p= deep link stays ≤ 3,000 DOM nodes for 3 s after load; rows resume once the sheet closes
  *  count     the sheet's "n of N" counts the whole view order (a far #p= reads "k of 488" on Tokyo, never "k of 25")
+ *  face      the card eyebrow hides its area only under a header for that area; Recommended by never ends on a dangling comma
  *  motion    a card tap grows into the sheet through one view transition; under reduced motion: none, 0 animations
  */
 const fs = require('fs');
@@ -61,11 +62,35 @@ const CLIP = () => [...document.querySelectorAll('figcaption, .gc-cred, .hero-cr
   console.log('# sheet "n of N"');
   { const s = await open(b, 'cities/tokyo.html#p=isegen'); const t = await s.page.evaluate(() => (document.querySelector('#cleo-sheet [data-sh-pos]') || {}).textContent || '');
     ok(/^\d+ of 488\b/.test(t), 'Tokyo far #p=: the count is the whole view (… of 488)', t); await s.ctx.close(); }
+  console.log('# card face (shared W7 card: Gallery grid, Atlas .w7-cards)');
+  // the eyebrow area hides only under a header for the same area; "Recommended by" never ends on a dangling separator
+  const FACE = () => { const vis = e => e && e.getClientRects().length && getComputedStyle(e).display !== 'none' && getComputedStyle(e).visibility !== 'hidden';
+    const cards = [...document.querySelectorAll('li.pl')].filter(vis).slice(0, 60), bad = { areaRepeat: [], areaMissing: [], dangling: [] };
+    for (const c of cards) {
+      const ia = c.querySelector('.pl-e .in-a'), sec = c.closest('section.area');
+      if (ia && sec && vis(ia)) bad.areaRepeat.push(c.id);
+      const chips = [...c.querySelectorAll('.pl-s .src')].filter(vis), last = chips[chips.length - 1];
+      const after = last ? getComputedStyle(last, '::after').content : 'none';
+      const clipped = last && (() => { const p = last.closest('.pl-s').getBoundingClientRect(), r = last.getBoundingClientRect(); return r.right > p.right + 1; })();
+      if (last && ((after !== 'none' && after !== 'normal' && /,/.test(after)) || clipped)) bad.dangling.push(c.id);
+    }
+    const gcs = [...document.querySelectorAll('li.gc')].filter(vis).slice(0, 12);
+    for (const g of gcs) { const t = (g.querySelector('.pl-e') || {}).textContent || ''; if (!g.classList.contains('gc--closed') && !/·/.test(t)) bad.areaMissing.push(g.getAttribute('data-id')); }
+    return { cards: cards.length, rails: gcs.length, bad }; };
+  for (const [url, w] of [['cities/tokyo.html#all=1', 1440], ['cities/tokyo.html#all=1', 390], ['cities/tokyo.html', 1440], ['cities/tokyo.html#view=atlas', 1440], ['cleveland.html#view=atlas', 1440]]) {
+    const s = await open(b, url, { w, settle: 1800 });
+    await s.page.evaluate(async () => { for (let y = 0; y < 3000; y += 700) { scrollTo(0, y); await new Promise(r => setTimeout(r, 80)); } scrollTo(0, 0); });
+    const r = await s.page.evaluate(FACE);
+    ok(r.cards > 0 && !r.bad.areaRepeat.length, `${url} @${w}: no card repeats its area under an area header (${r.cards} cards)`, r.bad.areaRepeat.slice(0, 3));
+    ok(!r.bad.dangling.length, `${url} @${w}: "Recommended by" never ends on a dangling comma or a cut chip`, r.bad.dangling.slice(0, 3));
+    if (r.rails) ok(!r.bad.areaMissing.length, `${url} @${w}: rail cards (no area header) keep their area (${r.rails})`, r.bad.areaMissing.slice(0, 3));
+    await s.ctx.close();
+  }
   console.log('# motion (card → sheet grow)');
   for (const rm of ['no-preference', 'reduce']) for (const w of [390, 1440]) {
     const s = await open(b, 'cities/tokyo.html', { w, rm });
     await s.page.evaluate(() => { window.__vt = 0; const o = document.startViewTransition; if (o) document.startViewTransition = function (f) { window.__vt++; return o.call(document, f); }; });
-    await s.page.locator('.g-rows li.gc .gc-a').first().click(); await s.page.waitForTimeout(80);
+    await s.page.locator('.g-rows li.gc .gc-a').first().click(); await s.page.waitForTimeout(400);
     const r = await s.page.evaluate(() => ({ open: !document.getElementById('cleo-sheet').hidden, vt: window.__vt, anims: document.getAnimations().length,
       dur: getComputedStyle(document.documentElement).getPropertyValue('--dur-grow').trim() }));
     if (rm === 'reduce') ok(r.open && r.vt === 0 && r.anims === 0 && /^0(ms|s)?$/.test(r.dur), `reduced motion @${w}: sheet opens, no transition, 0 animations, --dur-grow 0`, r);

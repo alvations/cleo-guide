@@ -6,19 +6,33 @@
   PASS  cities/tokyo.html#p=kanda-myojin @390: 12 credits, none ellipsised, clamped or cut = []
   PASS  cities/tokyo.html#p=kanda-myojin @1440: 14 credits, none ellipsised, clamped or cut = []
 # nodes (phone #p= deep link)
-  PASS  cities/tokyo.html#p=kanda-myojin: ≤ 3,000 nodes for 3 s = [2168,2168,2168,2168,2168,2168,2168]
+  PASS  cities/tokyo.html#p=kanda-myojin: ≤ 3,000 nodes for 3 s = [2208,2208,2208,2208,2208,2208,2208]
   PASS  cities/tokyo.html#p=kanda-myojin: Gallery rows resume after the sheet closes = [1,6]
   PASS  cities/tokyo.html#p=kanda-myojin: 0 page errors = []
-  PASS  cities/tokyo.html#p=isegen: ≤ 3,000 nodes for 3 s = [2164,2164,2164,2164,2164,2164,2164]
+  PASS  cities/tokyo.html#p=isegen: ≤ 3,000 nodes for 3 s = [2204,2204,2204,2204,2204,2204,2204]
   PASS  cities/tokyo.html#p=isegen: Gallery rows resume after the sheet closes = [1,4]
   PASS  cities/tokyo.html#p=isegen: 0 page errors = []
-  PASS  cities/newyork.html#p=katzs-delicatessen: ≤ 3,000 nodes for 3 s = [2282,2282,2282,2282,2282,2282,2282]
+  PASS  cities/newyork.html#p=katzs-delicatessen: ≤ 3,000 nodes for 3 s = [2322,2322,2322,2322,2322,2322,2322]
   PASS  cities/newyork.html#p=katzs-delicatessen: Gallery rows resume after the sheet closes = [1,4]
   PASS  cities/newyork.html#p=katzs-delicatessen: 0 page errors = []
 # sheet "n of N"
   PASS  Tokyo far #p=: the count is the whole view (… of 488) = "7 of 488 in this Gallery view"
+# card face (shared W7 card: Gallery grid, Atlas .w7-cards)
+  PASS  cities/tokyo.html#all=1 @1440: no card repeats its area under an area header (60 cards) = []
+  PASS  cities/tokyo.html#all=1 @1440: "Recommended by" never ends on a dangling comma or a cut chip = []
+  PASS  cities/tokyo.html#all=1 @1440: rail cards (no area header) keep their area (12) = []
+  PASS  cities/tokyo.html#all=1 @390: no card repeats its area under an area header (60 cards) = []
+  PASS  cities/tokyo.html#all=1 @390: "Recommended by" never ends on a dangling comma or a cut chip = []
+  PASS  cities/tokyo.html#all=1 @390: rail cards (no area header) keep their area (12) = []
+  PASS  cities/tokyo.html @1440: no card repeats its area under an area header (48 cards) = []
+  PASS  cities/tokyo.html @1440: "Recommended by" never ends on a dangling comma or a cut chip = []
+  PASS  cities/tokyo.html @1440: rail cards (no area header) keep their area (12) = []
+  PASS  cities/tokyo.html#view=atlas @1440: no card repeats its area under an area header (60 cards) = []
+  PASS  cities/tokyo.html#view=atlas @1440: "Recommended by" never ends on a dangling comma or a cut chip = []
+  PASS  cleveland.html#view=atlas @1440: no card repeats its area under an area header (60 cards) = []
+  PASS  cleveland.html#view=atlas @1440: "Recommended by" never ends on a dangling comma or a cut chip = []
 # motion (card → sheet grow)
-  PASS  motion @390: one view transition, --dur-grow > 0 = {"open":true,"vt":1,"anims":11,"dur":"340ms"}
+  PASS  motion @390: one view transition, --dur-grow > 0 = {"open":true,"vt":1,"anims":10,"dur":"340ms"}
   PASS  motion @1440: one view transition, --dur-grow > 0 = {"open":true,"vt":1,"anims":10,"dur":"340ms"}
   PASS  reduced motion @390: sheet opens, no transition, 0 animations, --dur-grow 0 = {"open":true,"vt":0,"anims":0,"dur":"0ms"}
   PASS  reduced motion @1440: sheet opens, no transition, 0 animations, --dur-grow 0 = {"open":true,"vt":0,"anims":0,"dur":"0ms"}
