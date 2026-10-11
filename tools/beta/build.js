@@ -34,6 +34,7 @@ const { BETA_BASE } = require('./lib/render/common');
 const city = require('./lib/render/city');
 const landing = require('./lib/render/landing');
 const saved = require('./lib/render/saved');
+const tripPage = require('./lib/render/trip');                  // FE-C W9-4: beta/trip.html
 const shell = require('./lib/render/shell');                       // FE-B: site context for header/footer
 const hub = require('./lib/render/hub');                           // FE-B: country hubs + SEA archive
 const method = require('./lib/render/method');                     // FE-B: how-we-choose.html, 404.html
@@ -278,6 +279,7 @@ for (const r of reg.rows.filter(r => r.gen === 'new')) {
   emit(r.beta, html);
 }
 const savedHtml = saved.render(ctx); errors.push(...assertPage('saved.html', savedHtml)); emit('saved.html', savedHtml);
+const tripHtml = tripPage.render(ctx); errors.push(...assertPage('trip.html', tripHtml)); emit('trip.html', tripHtml);
 const extraPages = method.pages(reg, ctx);                         // FE-B: { 'how-we-choose.html': html, '404.html': html }
 for (const r of cityRows) extraPages[changesPage.rel(r)] = changesPage.page(r, ctx);   // W4 gap #9
 for (const [rel, html] of Object.entries(extraPages)) { errors.push(...assertPage(rel, html)); emit(rel, html); }
@@ -288,7 +290,7 @@ emit('manifest.webmanifest', JSON.stringify({
 }, null, 1));
 
 // Manifest of ownership: what the new generator writes vs what is still the legacy mirror.
-const generated = reg.rows.filter(r => r.gen === 'new').map(r => r.beta).concat(['saved.html'], Object.keys(extraPages));
+const generated = reg.rows.filter(r => r.gen === 'new').map(r => r.beta).concat(['saved.html', 'trip.html'], Object.keys(extraPages));
 emit('data/manifest.json', JSON.stringify({
   v: 1, _doc: 'Written by tools/beta/build.js. `generated` pages are owned by the new beta generator; tools/beta-restyle.py must skip them. `pages` maps every live page to its beta source.',
   generated,
@@ -300,7 +302,7 @@ emit('data/manifest.json', JSON.stringify({
 // Self-hosted fonts (designer, beta/assets/fonts) are precached so offline type matches online type.
 const FONTS = path.join(BETA, 'assets', 'fonts');
 const fontFiles = fs.existsSync(FONTS) ? fs.readdirSync(FONTS).filter(f => f.endsWith('.woff2')).sort().map(f => './assets/fonts/' + f) : [];
-const shellFiles = ['./index.html', './saved.html', './manifest.webmanifest', './assets/icon.svg', `./assets/cleo.css?v=${assetsV.css}`, `./${ctx.feaCss}`, `./assets/fe-b.css?v=${require('./lib/render/shell').febV()}`]
+const shellFiles = ['./index.html', './saved.html', './trip.html', './manifest.webmanifest', './assets/icon.svg', `./assets/cleo.css?v=${assetsV.css}`, `./${ctx.feaCss}`, `./assets/fe-b.css?v=${require('./lib/render/shell').febV()}`]
   .concat(fontFiles)
   .concat(assetsV.tokens ? [`./assets/tokens.css?v=${assetsV.tokens}`] : [])
   .concat(['./how-we-choose.html'])                                 // FE-B method page, offline too
