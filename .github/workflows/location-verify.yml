@@ -34,6 +34,12 @@ on:
         type: boolean
         required: false
         default: true
+  # A push of docs/geoverify/REQUEST (key=value lines: city, scope, limit, nominatim_max) also starts a run. Push runs are
+  # ALWAYS dry runs (report as an artifact only), and the push registers this workflow so it can then be dispatched.
+  push:
+    branches: [claude/peaceful-goodall-i0hsrt]
+    paths:
+      - docs/geoverify/REQUEST
 
 permissions:
   contents: write
@@ -47,11 +53,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 340
     env:
-      CITY: ${{ github.event.inputs.city }}
-      SCOPE: ${{ github.event.inputs.scope }}
-      LIMIT: ${{ github.event.inputs.limit }}
-      NOMINATIM_MAX: ${{ github.event.inputs.nominatim_max }}
-      DRY_RUN: ${{ github.event.inputs.dry_run }}
       LV_CACHE_DIR: ${{ github.workspace }}/../lv-cache
     steps:
       - uses: actions/checkout@v4
@@ -62,21 +63,36 @@ jobs:
         with:
           node-version: 20
 
-      - name: Check inputs
+      - name: Resolve and check inputs (dispatch inputs, or docs/geoverify/REQUEST on a push; push runs are dry runs)
+        env:
+          IN_CITY: ${{ github.event.inputs.city }}
+          IN_SCOPE: ${{ github.event.inputs.scope }}
+          IN_LIMIT: ${{ github.event.inputs.limit }}
+          IN_NMAX: ${{ github.event.inputs.nominatim_max }}
         run: |
-          [[ "$CITY" =~ ^[a-z0-9-]+$ ]] || { echo "::error::bad city key '$CITY'"; exit 1; }
-          [[ "$SCOPE" =~ ^[a-z,]+$ ]] || { echo "::error::bad scope '$SCOPE'"; exit 1; }
-          [[ "$LIMIT" =~ ^[0-9]+$ ]] || { echo "::error::bad limit '$LIMIT'"; exit 1; }
+          if [ "$GITHUB_EVENT_NAME" = push ]; then
+            f=docs/geoverify/REQUEST
+            [ -f "$f" ] || { echo "::error::$f is missing"; exit 1; }
+            get() { sed -n "s/^$1=//p" "$f" | head -n1 | tr -d '\r'; }
+            IN_CITY=$(get city); IN_SCOPE=$(get scope); IN_LIMIT=$(get limit); IN_NMAX=$(get nominatim_max)
+          fi
+          CITY="${IN_CITY:-wheeling-wv}"; SCOPE="${IN_SCOPE:-unverified,low,status}"; LIMIT="${IN_LIMIT:-0}"; NOMINATIM_MAX="${IN_NMAX:-300}"
+          # validate BEFORE anything reaches GITHUB_ENV (each value is one safe token)
+          [[ "$CITY" =~ ^[a-z0-9-]+$ ]] || { echo "::error::bad city key"; exit 1; }
+          [[ "$SCOPE" =~ ^[a-z,]+$ ]] || { echo "::error::bad scope"; exit 1; }
+          [[ "$LIMIT" =~ ^[0-9]+$ ]] || { echo "::error::bad limit"; exit 1; }
           [[ "$NOMINATIM_MAX" =~ ^[0-9]+$ && "$NOMINATIM_MAX" -le 1000 ]] || { echo "::error::nominatim_max must be 0..1000"; exit 1; }
-          node -e "const c=require('./data/geocodes.json').cities; if(!c[process.env.CITY]){console.error('::error::unknown city '+process.env.CITY); process.exit(1)}"
+          CITY="$CITY" node -e "const c=require('./data/geocodes.json').cities; if(!c[process.env.CITY]){console.error('::error::unknown city '+process.env.CITY); process.exit(1)}"
+          { echo "CITY=$CITY"; echo "SCOPE=$SCOPE"; echo "LIMIT=$LIMIT"; echo "NOMINATIM_MAX=$NOMINATIM_MAX"; } >> "$GITHUB_ENV"
+          echo "city=$CITY scope=$SCOPE limit=$LIMIT nominatim_max=$NOMINATIM_MAX event=$GITHUB_EVENT_NAME"
 
       - name: Restore the response cache (the Nominatim policy requires caching; reruns resume)
         uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/../lv-cache
-          key: location-verify-${{ github.event.inputs.city }}-${{ github.run_id }}
+          key: location-verify-${{ env.CITY }}-${{ github.run_id }}
           restore-keys: |
-            location-verify-${{ github.event.inputs.city }}-
+            location-verify-${{ env.CITY }}-
             location-verify-
 
       - name: Unit tests (no network)
@@ -96,11 +112,11 @@ jobs:
       - name: Upload the report
         uses: actions/upload-artifact@v4
         with:
-          name: geoverify-${{ github.event.inputs.city }}-${{ github.run_id }}
-          path: docs/geoverify/${{ github.event.inputs.city }}.*
+          name: geoverify-${{ env.CITY }}-${{ github.run_id }}
+          path: docs/geoverify/${{ env.CITY }}.*
 
       - name: Commit the report (dry_run=false only)
-        if: ${{ github.event.inputs.dry_run == 'false' }}
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run == 'false' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
