@@ -26,6 +26,12 @@
         '<button class="go" data-src="' + esc(g) + '">All ' + s[1] + ' ' + esc(info.name) + ' picks citing ' + esc(s[0]) + ' ' + icon('chev-r') + '</button>' +
         (s[4] ? '<a class="out" href="' + esc(s[4]) + '"' + NT + '>Read ' + icon('external') + '<span class="vh"> ' + esc(s[0]) + '</span></a>' : '') + '</div></li>';
     }).join('') + (q('.pl-s .added', c) ? '<li><span class="mono" aria-hidden="true">·</span><div><span class="nm">Added by the guide</span><span class="ttl">General knowledge — not from a cited source</span></div></li>' : '');
+    // W8 (D12/D13 "sources always visible"): who recommends it, right under the name; the full list follows Why it's here
+    var by = [].map.call(c.querySelectorAll('.pl-s button.src'), function (b) { return ((info.src || {})[b.getAttribute('data-src')] || [b.textContent])[0]; }),
+      byline = by.length ? '<p class="sh-by">Recommended by <b>' + esc(by[0]) + '</b>' + (by.length > 1 ? ' and ' + (by.length - 1) + ' more' : '') + '</p>'
+        : q('.pl-s .added', c) ? '<p class="sh-by">Added by the guide (general knowledge)</p>' : '';
+    // closures are loud: a banner above the name with the check date and source, and Directions is never the primary action
+    var shut = closed ? '<div class="closed-banner" role="note"><b>Closed</b><span>Kept for the record, not as a suggestion' + (chk ? ' · checked ' + esc(chk) : '') + (pv[2] ? ' · per ' + esc(pv[2]) : '') + '</span></div>' : '';
     var dir = ll ? '<div class="links"><a class="btn btn-ghost" href="https://maps.apple.com/?daddr=' + ll + '"' + NT + '>Apple Maps</a>' +
       '<a class="btn btn-ghost" href="https://www.openstreetmap.org/?mlat=' + ll.replace(',', '&amp;mlon=') + '#map=17/' + ll.replace(',', '/') + '"' + NT + '>OpenStreetMap</a>' +
       '<a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=' + ll + '"' + NT + '>Google Maps</a></div>' : '';
@@ -43,7 +49,7 @@
     var inDay = C.day && C.day.has(id), planned = info.days && Object.keys(info.days).length;
     // W3 A-05: "n of N in this view" + previous / next over the lensed set in view order (the visible list's DOM order:
     // area order, then rank), and "No. r of n in {area}". Previous / next wrap at the ends.
-    var set = [].slice.call(d.querySelectorAll('li.pl')).filter(function (x) { return !x.hidden; }), i = set.indexOf(c), nIn = d.querySelectorAll('li.pl[data-a="' + a + '"]').length;
+    var set = [].slice.call(d.querySelectorAll('li.pl')).filter(function (x) { return !x.hidden; }), i = set.indexOf(c);
     if (i < 0) { set = [c]; i = 0; }
     // W7: with no lens on, "n of N" counts the whole view order, stamped or not (Cleo.defer.order, platform W7), so a far
     // #p= reads "k of 488", not "k of the cards stamped so far"; an unstamped neighbour is reached through its #p= route
@@ -57,7 +63,11 @@
     var navRow = '<div class="sh-nav"><button class="btn btn-quiet" data-sh="all">' + icon('chev-l') + '<span>All ' + info.total + ' places</span></button><span class="sm" data-sh-pos>' + (i + 1) + ' of ' + set.length + '<span class="long"> in this ' + esc(vname) + ' view</span></span>' +
       (set.length > 1 ? '<span class="pn"><button class="btn btn-icon btn-ghost" data-sh="go" data-to="' + esc(C.pid(pv1)) + '" aria-label="' + (nm(pv1) ? 'Previous: ' + esc(nm(pv1)) : 'Previous place') + '">' + icon('chev-l') + '</button>' +
         '<button class="btn btn-icon btn-ghost" data-sh="go" data-to="' + esc(C.pid(nx1)) + '" aria-label="' + (nm(nx1) ? 'Next: ' + esc(nm(nx1)) : 'Next place') + '">' + icon('chev-r') + '</button></span>' : '') + '</div>';
-    var rank = '<p class="sm sh-rank">No. ' + c.getAttribute('data-n') + ' of ' + nIn + ' in ' + esc(C.label('a', a)) + '</p>';
+    // W8 (R7 gap 2f): "No. k of n in {area}" = this place's rank in its area over the whole view order (stamped or not), so
+    // n is the area's full count and k ≤ n always (the pin number is a separate thing and stays on the badges line)
+    var inA = (Cleo.defer && Cleo.defer.order ? Cleo.defer.order() : [].map.call(d.querySelectorAll('li.pl'), function (x) { return { id: x.id, a: x.getAttribute('data-a') }; }))
+      .filter(function (x) { return x.a === a; }).map(function (x) { return x.id; }), k = inA.indexOf(c.id) + 1;
+    var rank = k > 0 ? '<p class="sm sh-rank">No. ' + k + ' of ' + inA.length + ' in ' + esc(C.label('a', a)) + '</p>' : '';
     // Close by: the 4 nearest open places with a pin, straight-line (never a walking time we don't hold)
     var near = '';
     if (ll) {
@@ -76,12 +86,11 @@
     return '<div class="sheet detail' + (exp ? ' exp' : '') + '" role="dialog" aria-modal="true" aria-labelledby="sh-t"><span class="grab" aria-hidden="true"></span>' +
       '<button class="btn btn-icon close" data-sh="x" aria-label="Close">' + icon('close') + '</button>' + navRow +
       '<div class="hero-plate' + (q('.pl-photo', c) ? ' has-photo' : '') + (closed ? ' is-closed' : '') + '" style="--area:' + esc(((info.areas || {})[a] || {}).c || 'var(--city)') + '">' + (q('.pl-photo', c) ? fullCap(q('.pl-photo', c)) : '') + loc + '<div class="plate-art" aria-hidden="true">' + q('.pl-cover', c).innerHTML + '</div></div>' +
-      '<div class="content"><div class="badges">' + (closed ? '<span class="status closed">Closed · kept for the record</span>' : tier ? tier.outerHTML.replace('class="tier', 'class="tier lg') : '') +
+      '<div class="content">' + shut + '<div class="badges">' + (closed ? '' : tier ? tier.outerHTML.replace('class="tier', 'class="tier lg') : '') +
       '<span class="sm">in ' + esc(C.label('a', a)) + ' · pin ' + c.getAttribute('data-n') + '</span></div><h2 class="d2" id="sh-t">' + (q('.pl-vert', c) && q('.pl-n .nat', c) ? esc(C.name(c)) + ' <span class="vh">' + esc(q('.pl-n .nat', c).textContent) + '</span>' : q('.pl-n a', c).innerHTML) + '</h2>' +
-      rank + (w ? (exp ? '<h3 class="section-t">Why it’s here</h3>' : '') + '<p class="why">' + w.innerHTML + '</p>' : '') +
-      (closed ? '<p class="closed-note">Closed — kept for the record' + (pv[2] ? ' · per ' + esc(pv[2]) : '') + (chk ? ', checked ' + esc(chk) : '') + '</p>' : '') + note +
-      (lenses.length ? '<div><h3 class="section-t">Part of</h3><div class="pills">' + lenses.map(function (x) { return '<button class="pill" data-sh="lens" data-f="' + x[0] + '" data-v="' + esc(x[1]) + '">' + esc(C.label(x[0], x[1])) + '</button>'; }).join('') + '</div></div>' : '') +
-      '<div><h3 class="section-t">Recommended by</h3><ul class="srclist">' + src + '</ul></div>' + near + '<div class="plan"><h3 class="section-t">Plan your visit</h3>' + (primary ? '<p>' + primary + '</p>' : '') +
+      byline + rank + (w ? (exp ? '<h3 class="section-t">Why it’s here</h3>' : '') + '<p class="why">' + w.innerHTML + '</p>' : '') + note +
+      '<div><h3 class="section-t">Recommended by</h3><ul class="srclist">' + src + '</ul></div>' +
+      (lenses.length ? '<div><h3 class="section-t">Part of</h3><div class="pills">' + lenses.map(function (x) { return '<button class="pill" data-sh="lens" data-f="' + x[0] + '" data-v="' + esc(x[1]) + '">' + esc(C.label(x[0], x[1])) + '</button>'; }).join('') + '</div></div>' : '') + near + '<div class="plan"><h3 class="section-t">Plan your visit</h3>' + (primary ? '<p>' + primary + '</p>' : '') +
       (ad || dir ? fact('pin', ad ? esc(ad.textContent) : 'Directions', dir) : '') +
       (pv[0] ? fact('check', 'Pinned to the door: ' + esc(pv[0]) + ' confidence', '<span class="muted" data-pin>' + (pv[1] ? 'verified ' + esc(pv[1]) : '') + '</span>') : '') +
       (chk ? fact('stamp', 'Status checked ' + esc(chk), '<span class="muted">' + (closed ? 'Closed' : 'Open when last checked') + '</span>') : '') +
@@ -90,7 +99,7 @@
       (planned && !closed && ll ? '<div class="fact">' + icon('route') + '<div><button class="btn btn-ghost" data-sh="day" aria-pressed="' + !!inDay + '">' + (inDay ? 'In your day ✓' : 'Add to your day in ' + esc(C.label('a', a))) + '</button></div></div>' : '') +
       '<p class="sm"><a href="https://github.com/alvations/cleo-guide/issues/new?title=' + encodeURIComponent('Correction: ' + name + ' (' + info.name + ')') + '"' + NT + '>Suggest a correction</a></p></div></div>' +
       '<div class="actions"><button class="btn btn-ghost" data-sh="save" aria-pressed="' + !!saved + '">' + icon('heart') + '<span>' + (saved ? 'Saved' : 'Save') + '</span></button>' +
-      (ll ? '<a class="btn btn-primary" href="https://www.openstreetmap.org/directions?route=%3B' + encodeURIComponent(ll) + '"' + NT + '>' + icon('directions') + '<span>Directions</span></a>' : '<span></span>') +
+      (ll ? '<a class="btn ' + (closed ? 'btn-ghost' : 'btn-primary') + '" href="https://www.openstreetmap.org/directions?route=%3B' + encodeURIComponent(ll) + '"' + NT + '>' + icon('directions') + '<span>' + (closed ? 'Where it was' : 'Directions') + '</span></a>' : '<span></span>') +
       '<button class="btn btn-ghost" data-sh="share" data-url="' + esc(url) + '">' + icon('share') + '<span>Share</span></button></div></div>';
   }
   // Per-article links from the page dataset (same origin, cached by the service worker); until it arrives: the publisher.
@@ -145,9 +154,10 @@
     isOpen: function () { return !host.hidden; },
     open: function (c) {
       if (Cleo.tray) Cleo.tray.close(true);
+      // W8 (R7 2d): a side panel only beside the Atlas map; elsewhere a centred dialog over a scrim
       var show = function () {
-        card = c; byNav = navs > 0; host.innerHTML = build(c); host.hidden = false; host.classList.toggle('side', C.desk()); if (!g && C.beat) C.beat(host, 'sh-in', 450);   // ROUND-3 #5: the sheet rises (DES CSS; off under reduced motion)
-        if (!C.desk()) d.body.style.overflow = 'hidden';
+        card = c; byNav = navs > 0; host.innerHTML = build(c); host.hidden = false; host.classList.toggle('side', C.desk() && d.documentElement.getAttribute('data-view') === 'atlas'); if (!g && C.beat) C.beat(host, 'sh-in', 450);   // ROUND-3 #5: the sheet rises (DES CSS; off under reduced motion)
+        if (!host.classList.contains('side')) d.body.style.overflow = 'hidden';
         q('[data-sh="x"]', host).focus({ preventScroll: true }); deep(c); if (C.onSheet) C.onSheet(c);
       };
       // W7 gap #1, the signature moment (design/beta/style/v2/MOTION.md): the tapped card media grows into the sheet's media.

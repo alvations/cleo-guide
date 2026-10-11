@@ -42,8 +42,8 @@
    "withArticle": 633
   },
   "candidates": {
-   "total": 327,
-   "high": 313,
+   "total": 336,
+   "high": 322,
    "med": 14,
    "low": 0
   },
@@ -539,18 +539,34 @@
    "names": [
     "Yasaka",
     "Hokan",
-    "Kyoto"
+    "Kyoto",
+    "Kiyomizu"
    ],
    "pilot": false,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Kyoto-Kiyomizudera, Japan.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kyoto-Kiyomizudera,_Japan.jpg",
+     "depicts": "Kiyomizu-dera, Kyoto",
+     "confidence": "high",
+     "reason": "title names Kiyomizu-dera, Kyoto (R7 QA-53 swap)"
+    },
+    {
+     "file": "File:Kiyomizu-dera.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera.jpg",
+     "depicts": "Kiyomizu-dera, Kyoto",
+     "confidence": "high",
+     "reason": "title names Kiyomizu-dera (R7 QA-53 swap)"
+    },
+    {
      "file": "File:Yasaka-dori early morning with street lanterns and the Tower of Yasaka (Hokan-ji Temple), Kyoto, Japan.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Yasaka-dori_early_morning_with_street_lanterns_and_the_Tower_of_Yasaka_(Hokan-ji_Temple),_Kyoto,_Japan.jpg",
      "depicts": "Yasaka Pagoda (Hōkan-ji) from Yasaka-dōri, Kyoto",
      "confidence": "high",
-     "reason": "title names the Tower of Yasaka, Hōkan-ji, Kyoto"
+     "reason": "title names the Tower of Yasaka, Hōkan-ji, Kyoto",
+     "refused": "refused by R7 QA-53 (W8): overcast, dim street — a hero wants a bright establishing view"
     },
     {
      "file": "File:Yasaka Pagode.jpg",
@@ -1012,11 +1028,19 @@
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Lake-eola-park-orlando-florida.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Lake-eola-park-orlando-florida.jpg",
+     "depicts": "Lake Eola Park, downtown Orlando, on a sunny afternoon",
+     "confidence": "high",
+     "reason": "summary: a sunny afternoon at Lake Eola Park, downtown Orlando; CC BY-SA 4.0 (R7 QA-53 swap)"
+    },
+    {
      "file": "File:High-rises in Orlando from Lake Eola Park (May 2023) - 5 (cropped).JPG",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:High-rises_in_Orlando_from_Lake_Eola_Park_(May_2023)_-_5_(cropped).JPG",
      "depicts": "Downtown Orlando high-rises from Lake Eola Park",
      "confidence": "high",
-     "reason": "title names Orlando from Lake Eola Park"
+     "reason": "title names Orlando from Lake Eola Park",
+     "refused": "refused by R7 QA-53 (W8): overcast sky; grey high-rises"
     },
     {
      "file": "File:Lake eola in Orlando Florida with fountain.jpg",
@@ -1040,6 +1064,20 @@
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Akron Ohio Skyline from the All-America Bridge.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Akron_Ohio_Skyline_from_the_All-America_Bridge.JPG",
+     "depicts": "Akron skyline from the All-America Bridge (2008)",
+     "confidence": "high",
+     "reason": "title names the Akron skyline (R7 QA-53 swap)"
+    },
+    {
+     "file": "File:Akron, Ohio, Skyline.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Akron,_Ohio,_Skyline.jpg",
+     "depicts": "Akron skyline",
+     "confidence": "high",
+     "reason": "title names the Akron, Ohio skyline (R7 QA-53 swap)"
+    },
+    {
      "file": "File:Downtown skyline as seen from Ohio & Erie Canalway at Martin Luther King Boulevard, Akron, Ohio - 20200530.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Downtown_skyline_as_seen_from_Ohio_&_Erie_Canalway_at_Martin_Luther_King_Boulevard,_Akron,_Ohio_-_20200530.jpg",
      "depicts": "Downtown Akron skyline from the Ohio & Erie Canalway",
@@ -1052,7 +1090,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Akron_Skyline_at_Sunset.jpg",
      "depicts": "Akron skyline at sunset from the Towpath Trail",
      "confidence": "high",
-     "reason": "title names the Akron skyline"
+     "reason": "title names the Akron skyline",
+     "refused": "refused by R7 QA-53 (W8): reads overcast and dim at hero size"
     }
    ]
   },
@@ -1215,20 +1254,36 @@
    "key": "hero:madison",
    "type": "hero",
    "depicts": "hub:madison",
-   "label": "Madison — city hero (skyline)",
+   "label": "Madison — city hero (State Capitol)",
    "names": [
-    "Madison"
+    "Madison",
+    "Wisconsin State Capitol"
    ],
    "pilot": false,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:The Wisconsin State Capitol in July.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Wisconsin_State_Capitol_in_July.JPG",
+     "depicts": "The Wisconsin State Capitol, Madison, in July",
+     "confidence": "high",
+     "reason": "title names the Wisconsin State Capitol in July (R7 QA-53 swap)"
+    },
+    {
+     "file": "File:The capitol in summer (53128564674).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_capitol_in_summer_(53128564674).jpg",
+     "depicts": "The Wisconsin State Capitol in summer",
+     "confidence": "high",
+     "reason": "title: the capitol in summer (copied from the Wisconsin State Capitol category listing; R7 QA-53 swap)"
+    },
+    {
      "file": "File:Skyline of Madison, Wisconsin (cropped).jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Skyline_of_Madison,_Wisconsin_(cropped).jpg",
      "depicts": "Madison skyline from Lake Monona",
      "confidence": "high",
-     "reason": "title names the Madison skyline; summary: from Lake Monona, John Benson"
+     "reason": "title names the Madison skyline; summary: from Lake Monona, John Benson",
+     "refused": "refused by R7 QA-53 (W8): overcast grey skyline"
     },
     {
      "file": "File:Madison, WI skyline.JPG",
@@ -1377,11 +1432,26 @@
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Graslei Ghent.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Graslei_Ghent.jpg",
+     "depicts": "The Graslei along the Leie from the Grasbrug, Ghent (May 2014)",
+     "confidence": "high",
+     "reason": "title names the Graslei, Ghent; summary: 3 May 2014, Martinvl (R7 QA-53 swap)"
+    },
+    {
+     "file": "File:Gent Graslei zonsondergang.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gent_Graslei_zonsondergang.JPG",
+     "depicts": "The Graslei at sunset, Ghent",
+     "confidence": "high",
+     "reason": "title names the Graslei, Gent, at sunset (R7 QA-53 swap)"
+    },
+    {
      "file": "File:Gent - Graslei Korenlei 1.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Gent_-_Graslei_Korenlei_1.jpg",
      "depicts": "Graslei and Korenlei along the Leie, Ghent",
      "confidence": "high",
-     "reason": "title names Graslei and Korenlei, Ghent"
+     "reason": "title names Graslei and Korenlei, Ghent",
+     "refused": "refused by R7 QA-53 (W8): overcast grey sky over the Graslei"
     },
     {
      "file": "File:Gent - night view of Graslei 2025.jpg",
@@ -5179,7 +5249,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Nihonbashi_Bridge_(5765349567).jpg",
      "depicts": "Nihonbashi Bridge",
      "confidence": "high",
-     "reason": "title names Nihonbashi Bridge (photo upload; NOT the Hiroshige print \"Nihonbashi bridge.jpg\")"
+     "reason": "title names Nihonbashi Bridge (photo upload; NOT the Hiroshige print \"Nihonbashi bridge.jpg\")",
+     "refused": "refused by R7 QA-53 (W8): a woodblock print (Hiroshige) — artwork, not the place today"
     }
    ]
   },
@@ -5736,7 +5807,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Tokyo_Tower_(53080631132).jpg",
      "depicts": "Tokyo Tower (2023)",
      "confidence": "high",
-     "reason": "title names Tokyo Tower; summary 2 Jan 2023, Dick Thomas Johnson"
+     "reason": "title names Tokyo Tower; summary 2 Jan 2023, Dick Thomas Johnson",
+     "refused": "refused by R7 QA-53 (W8): tour buses dominate the frame"
     },
     {
      "file": "File:Tokyo Tower 2024.jpg",
@@ -7278,7 +7350,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:MoMA_exterior_(1629399048).jpg",
      "depicts": "Exterior of the Museum of Modern Art, 53rd Street",
      "confidence": "high",
-     "reason": "title names the MoMA exterior"
+     "reason": "title names the MoMA exterior",
+     "refused": "refused by R7 QA-53 (W8): a delivery van dominates the frame"
     }
    ]
   },
@@ -7486,7 +7559,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Rockaway_Boardwalk_Curve_(8268879268).jpg",
      "depicts": "Rockaway Boardwalk",
      "confidence": "high",
-     "reason": "title names the Rockaway Boardwalk (copied from the category listing)"
+     "reason": "title names the Rockaway Boardwalk (copied from the category listing)",
+     "refused": "refused by R7 QA-53 (W8): a construction site, not the beach"
     },
     {
      "file": "File:Rockaway Beach aerial view.jpg",

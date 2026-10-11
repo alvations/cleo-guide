@@ -4,6 +4,7 @@
 - **Status:** revision 2, after PANEL-R0 (56.1 / 100; [`PANEL-R0.md`](PANEL-R0.md)). Every R0 finding has an answer and an acceptance check in this spec; the map is in §9. Slice 1 is ready to build; slices 2, 3 and 5 are specified to the panel's acceptance numbers.
 - **Prototypes:** [`proto/`](proto/), shot at 1440×900 and 390×844, in light and dark. They use real coordinates on a flat stub basemap; see §6.
 - **Rule 6:** no brand names. The owner's reference is written as "the real-estate map-search pattern".
+- **Owner direction:** combine the best patterns of every product kind and don't copy one (§10). The map-search navigation is the frame, not the whole product.
 - **Casing** (DESIGN-SYSTEM §v2.6): every map label, chip, pin and legend string in this spec is sentence case. Collection and cuisine labels on pins, cards and filters go through `sentenceCase()`. There are no uppercase eyebrows.
 
 ## 0. What is wrong, and the one idea that fixes it
@@ -291,6 +292,7 @@ It ends with a dot row, "More places · zoom in to see their names". With an are
 3. **Slice 3** (preview, carousel, round-trip, deep links).
 4. **Basemap**: settled (§4); ships with slice 1.
 5. **Slice 5** (skip link, focusable map and pins, live region, no-map state).
+6. **Slice 4, combine** (§10): source and collection lenses, day mode, saved layer and share, Directions and "Near here" in the preview. Build it after slice 3 and before slice 5. Each item reuses an existing beta feature.
 
 The R0 findings sit in these slices: #1, #5 (pins), #6, #7 in slice 1; #3, #8, #10, #12 and the card text of #5 in slice 2; #2, #4, #9, #13, #14 in slice 3; #11 in slice 5.
 
@@ -319,4 +321,30 @@ The R0 findings sit in these slices: #1, #5 (pins), #6, #7 in slice 1; #3, #8, #
 | PANEL-R0 #13 (0.5) | Map view not shareable; toast overpromises | §3.5: view in the URL; toast says what the link restores. |
 | PANEL-R0 #14 (0.3) | Inconsistent rank context | §3.6: N is always the area's full count. |
 | PANEL-R0 task gap | "Tonight" can't be answered | **Decided: no open-now filter.** Opening hours are not in the sourced data, and unsourced or stale hours would break the closed-status promise (CLAUDE.md 4c). The gap is stated, not filled: Atlas offers no "tonight" control rather than a guess. Revisit only if a sourced hours field lands in the data. |
+| Owner direction (relayed by the panel, 2026-10-11) | Don't copy one product; combine the best of each, keep the map-search navigation, don't neglect the other features | §10: a combination table built from existing beta features, plus a non-regression rule for Gallery, Guidebook, Insights and the detail (§10.1). |
 | PANEL-R0 AO-5 (rejected in part) | Must-sees stand out | Kept: the sun-wash pill stays the Must-see signal. |
+
+## 10. Slice 4, "one-up": combine the best patterns, don't copy one product (owner direction, 2026-10-11)
+
+> The owner said, in substance: don't make Atlas a literal copy of the real-estate map-search product. Take the best features from each kind of competitor and combine them so the result beats every one of them. Keep iterating on the map-search navigation, which is "super on point", and don't neglect the other features.
+
+**The rule.** The map-search navigation is the frame: the list follows the map, labelled pills, hover in sync, preview → detail, the phone carousel. It stays and keeps improving through the panel rounds. Inside that frame, Atlas surfaces what the other product kinds do best, and **almost all of it already exists in the beta**. Slice 4 brings those features onto the map instead of inventing new ones:
+
+| Pattern (product kind, described neutrally) | Already in the beta | What Atlas does with it | Acceptance |
+|---|---|---|---|
+| **Why and by whom** (travel-guide products: an editor's reason to go) | Each card has its "Recommended by" sources and a why line | The preview leads with the why line and the named sources (§3.1). Filters → **Source** narrows the map to one publisher's picks, and the count line names it: "23 places · picked by Time Out". No map-search product can show *who* recommends a place. | Choosing a source changes the pins and the count line, and the source chip names it. |
+| **Your day on the map** (itinerary and trip-planner products) | `day.js`: a 4–6 stop "Your day" per area, numbered route, legs, a share link (`#day=`) and KML export | With an area filtered, the count line offers **"Plan a day here"**. It draws the day route in `--accent` (the only accent line on the map) with numbered stops. **Numbered markers are allowed only in day mode**, where order means something; this is the single exception to §1.6's "no numbers". Each leg shows its **walking time** (straight-line distance at 80 m/min, labelled as such), with the total in the count line. Stops can be **reordered** (drag, plus up and down buttons for keyboard users) or removed. Any open, pinned place's preview offers **"Add to your day"**. Leaving day mode restores the normal pins. | Day mode shows 4–6 numbered stops, the accent route, a walking time on every leg and a total. Reordering redraws the route and the times. Outside day mode the map has 0 numbers. `#day=` opens Atlas in day mode. |
+| **Saved as a map layer, shared as a list** (saving and sharing products) | Saved places, `saved.html`, shareable list links (`listCodec`) | The **Saved ♥** chip filters the map to saved pins and fits them. The count line then reads "6 saved · Share list", which copies the existing list link **plus the current map view** (`&c=lat,lng,z`, §3.5). A shared list opens in Atlas showing only its places, at the sender's view. | Saved chip on: pins = saved places only, fitted. Share copies a `#list=…&c=…` link that reopens the same set within 1 px and 0.1 zoom of the sender's view. |
+| **Directions handoff** (maps products) | The place sheet already links to directions (OSM, plus the two platform map apps) | The preview gets a third action, **Directions**, which opens the same links as the sheet. Closed places read "Where it was". | Every open place's preview offers Directions; closed ones say "Where it was". |
+| **Nearby from here** (maps and local-discovery products) | The coordinates and the near-me distance logic (§3.4) | The preview and the detail add one line, **"Near here: A · B · C"**: the three closest open places within a 10-minute walk, each a link that selects it on the map. | The line lists ≤ 3 open places within 800 m, sorted by distance, and each opens its own preview. |
+| **Curated lenses** (editorial city guides: themed lists) | Collections ("Anime, manga and pop culture", "Free to visit", "Iconic and must-see"…) | **One tap:** the top three lenses for the city sit as chips in the desktop bar's overflow and at the top of the phone Filters sheet, and every other collection is in Filters → **Collection**. A lens turns the map into that list, and the count line names it ("12 places · Free to visit", in sentence case per §v2.6). | One tap from the first screen (desktop) or two (phone) applies a lens. The collection's places are then the only pins, and the count line names the collection. |
+| **Honest closures, dated** (our own sourcing rule, CLAUDE.md 4c) | Each place carries `pv.checked` (the date its status was verified) and `pv.ss` (the closure source) | The preview and the detail show "Open when last checked · 10 Aug 2026", or "Closed · checked 10 Aug 2026" with the source line. Closed places stay on the map, flagged (§1.1, §1.2), and never enter day mode. No map-search or listing product dates its own data. | Every preview shows the checked date when `pv.checked` exists; a closed place's preview shows the source line. |
+| **Works without the map** (our own) | Every place is in the list with or without tiles or the map library | Unchanged (§5, §7). | Unchanged. |
+
+**What we deliberately don't copy:** prices, availability calendars, review stars and booking flows. They don't fit a sourced guide, and ratings are never the recommender (CLAUDE.md).
+
+### 10.1 Don't regress the other views
+
+- Atlas work stays in the Atlas lane's files (`atlas.js`, `atlas.css` and the Atlas templates). Changes to **shared** pieces (the card component, the place sheet or detail, `day.js`, `saved.js`, tokens) go through their owners: FE-A for the card, the sheet and day; the designer for tokens and base styles. Such a change also needs a before/after check of **Gallery, Guidebook, Insights and the place detail** at 390 and 1440, in light and dark.
+- The panel's evidence pack adds those four views as regression shots from round 1 on. Any visible change there must be intended and named in the round's notes.
+- The detail round-trip (§3.2) changes how Atlas *hosts* the detail, not the detail's own layout.

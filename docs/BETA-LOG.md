@@ -1317,6 +1317,14 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Gates:** validate + `npm test` + `beta:check` PASS; `atlas-ms.js` 117/117; w2 map + hubs 39/39.
   - **Budget:** Tokyo Atlas 1440 ≈ 616 KB / 2,604 nodes; 390@3× ≈ 904 KB / 2,574 nodes.
 
+- 2026-10-11 20:10Z · **Orchestrator** · Owner direction ("don't make it a literal copy … take the best features from the competitors … one-up every one of them … don't neglect the other features"), product lane launched, hero review, QA-49 fixed · commit: this entry's commit
+  - **Owner direction:** relayed through the panel session and recorded in W8-BRIEFS. The designer adds SPEC-v3 §10 "One-up". New product lane `session_013eanpBxmbgvhv8ELajtv2Q` writes ONE-UP.md with ranked W9 briefs. The panel adds a non-scoring regression check of the other views.
+  - **Heroes:** priority run #29 added 42 heroes (74 hero files in all). Contact sheet reviewed.
+    - Kept: Tanah Lot, Kiyomizu-dera, Ghent Graslei, the Madison Capitol, Cincinnati, the Rain Vortex, the Chinatown and Kampong Glam roofscapes, Katong, Little India, the Kallang terminal, Shwedagon, Marina Bay, and others.
+    - Refused: **Akron** (grey highway; restore the earlier sunset skyline), **Kuala Lumpur** (billboards and a fast-food logo), **Mandai** (unreadable), **Newton–Novena** (a mall sign).
+    - Balestier is a low-priority swap.
+  - **FE-B** c5cfce4d: QA-49 / R7 gap 5 fixed. B-05 shows 2 wholly-visible city cards on the landing page and every hub (the archive shows 7). Phone city cards are compact rows with no clamps.
+  - test-imagery briefly failed on the branch: a runner-fetched author, "Groyn88 at English Wikipedia". Imagery fixed it in 7f668236, and it passes on the head.
 ### FE Atlas — QA-45 / QA-52 / QA-54 + w7 atlasm (no test changed)
 - QA-45: "Show all N in one list" (pager `data-pg="all"`, and the header's Show all) stamps every deferred card and lifts paging — every place in one list; metrics `--view atlas` G1 ✅ on all pilots, first load ≤ 2 MB ✅.
 - QA-54: a query change refits the map to the matches (`C.fitLens`), so an exact-name search off the map brings the place in view.
