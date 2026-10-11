@@ -32,7 +32,8 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
 
 (async () => {
   console.log('FE-B views — Guidebook + Insights (W3)');
-  let bad = { n: [], once: [], order: [], empty: [], tier: [], intro: [], src: [], sums: [], plat: [], pop: [], idx: [], honest: [], quoted: [] };
+  let bad = { n: [], once: [], order: [], empty: [], tier: [], intro: [], src: [], sums: [], plat: [], pop: [], idx: [], honest: [], quoted: [], chph: [] };
+  let nChPh = 0;
   const quoted = require('./lib/quoted');
   let nQuoted = 0;
   for (const f of files) {
@@ -89,6 +90,14 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     if (hasPop ? X.tiles.pop === null : X.tiles.pop !== null || !/no pop-culture collection/.test(ir.html)) bad.pop.push(f);
     if (ir.index !== N || (ir.html.match(/<li class="ixi"/g) || []).length !== N) bad.idx.push(f);
     if (/<script|cdn|https?:\/\/(?!www\.w3\.org)/i.test(ir.html)) bad.idx.push(f + ' (external ref in insights)');
+    // ---- W8 · Guidebook chapter photos: open sights only, never Vietnam, credit under the media with a licence link
+    for (const [aid, cp] of Object.entries(d.chapterPhotos || {})) {
+      nChPh++;
+      const rec = d.places.find(p => p.id === cp.id);
+      if (!rec || rec.closed || rec.kind !== 'sight' || rec.a !== aid || d.country === 'vietnam') bad.chph.push(`${f} ${aid}: ${cp.id}`);
+      const fig = (h.match(new RegExp('<article class="ch" id="gb-area-' + aid + '"[\\s\\S]*?<figure class="photo ch-photo">([\\s\\S]*?)</figure>')) || [])[1] || '';
+      if (!/<figcaption>[\s\S]*rel="license/.test(fig) || !/alt="[^"]+"/.test(fig) || !/loading="lazy"/.test(fig)) bad.chph.push(`${f} ${aid}: figure/credit`);
+    }
     // ---- D-39 · price/rating prose is labelled, not stripped: the note on exactly the records whose own prose quotes one
     for (const p of d.places) {
       const q = quoted.quotes(p), li = (h.match(new RegExp('<li class="ge" id="gb-' + p.id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '"[\\s\\S]*?</li>')) || [''])[0];
@@ -115,6 +124,7 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
   chk('insights: no pop-culture data → absent (null + stated), not 0', !bad.pop.length, bad.pop);
   chk('insights: index lists N names; no script/CDN in the view', !bad.idx.length, bad.idx);
   chk('honesty: no price / rating / booking / hours strings in either view', !bad.honest.length, bad.honest);
+  chk(`W8: Guidebook chapter photos (${nChPh}) are open sights with a linked credit under the media, never Vietnam`, !bad.chph.length && nChPh > 0, bad.chph.slice(0, 4));
   chk(`D-39: dated-quote note on every record whose prose quotes a price or rating, and on no other (${nQuoted} records)`, !bad.quoted.length && nQuoted > 100, bad.quoted.slice(0, 4));
 
   // ---- 4 · jsdom on pilot city pages, storage blocked
