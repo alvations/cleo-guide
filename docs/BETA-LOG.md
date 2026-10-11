@@ -1355,6 +1355,37 @@ Append-only. One entry per session per wave: date, lane, session id, what change
       - All 28 pilot shots (light and dark, 390 and 1440) diff **0 px**.
     - axe `aria-allowed-role` 44 → 0 runs (the switcher `<nav>` loses `role="group"`); `heading-order` 16 → 0 (the footer heads are h3).
     - B-06/07/09 re-pointing waits for R7 QA.
+
+- 2026-10-11 20:45Z · **Orchestrator** · ONE-UP.md landed; W9 fanned out; platform W8 done · commit: this entry's commit
+  - **Product lane** (archived): `design/beta/eval/ONE-UP.md`.
+    - It covers 7 competitor families (neutrally named), the other views and the refusals.
+    - C is already 96, so more copying earns little. The one-ups target D's weakest rows ("Your guide" 79, interest triad 81), D13 trust and Gen Z, and B discovery.
+    - Top 10, estimated ≈ +1.2 overall:
+      1. a recognition layer;
+      2. freshness everywhere;
+      3. interests that follow you;
+      4. trips;
+      5. "set as my base";
+      6. paste a link;
+      7. share cards;
+      8. an offline city pack;
+      9. a local favourites lens;
+      10. a dated edition.
+  - **`design/beta/eval/W9-BRIEFS.md`:**
+    - owners: platform (W9-1 data, W9-8, W9-9), FE-B (W9-2 landing, W9-3, W9-6, W9-10, the W9-1 Insights chart), FE-A (W9-1 UI, W9-2 cards and rail, W9-3 rail, the W9-9 lens), and the new **FE-C** `session_01SxU3Mdpo1UAQyJQJmnMFtG` (W9-4 trips, W9-5 base, W9-7 share cards, as new modules with agreed hooks);
+    - order in every lane: R7 re-sign rows → Atlas panel findings → W8 → W9.
+  - **Platform W8** (e83b6cc3 / cc514dbe):
+    - the 3×-phone density cap (D-40, proposed): no 960w for slots under 200 px;
+    - Tokyo phone first load: Gallery 590 KB, Atlas 553 KB;
+    - cleo.css 255 → 193 KB with the dead R6 layers removed (28 pilot shots diff 0 px; budget ≤ 200 KB in test-beta);
+    - axe moderates `aria-allowed-role` and `heading-order` both 0;
+    - new probe `beta:qa:w8p`.
+  - **FE-A** casing helper `tools/beta/lib/casing.js` plus `test-casing.js` in npm test (6733a233): JS equals the Python reference on 368 labels; no uppercase/capitalize in any shipped CSS; 4,919 city-page labels in sentence case.
+  - **Imagery:** the last hero swaps are pushed (61a69415, 71e1d271): Toa Payoh dragon playground, Changi Boardwalk, Sule Pagoda; refusals apply per file.
+### FE Atlas — QA-45 / QA-52 / QA-54 + w7 atlasm (no test changed)
+- QA-45: "Show all N in one list" (pager `data-pg="all"`, and the header's Show all) stamps every deferred card and lifts paging — every place in one list; metrics `--view atlas` G1 ✅ on all pilots, first load ≤ 2 MB ✅.
+- QA-54: a query change refits the map to the matches (`C.fitLens`), so an exact-name search off the map brings the place in view.
+- QA-52 / w7 atlasm: the carousel thumbnail's figure is `display:contents` (it clips nothing) and now says `overflow:visible`; a canvas dot reports its featured pin as its element, so a tapped pin is found by the probe as the place's element; phone controls (locate, map style, key) sit bottom right above the cards, the OSM credit top left — clear of every control. `node tools/beta/qa/w7.js --only atlasm` 56/56 PASS.
   - **Platform (W8, R7 ratifications + QA-51):**
     - `metrics.js` B-08 exempts the sticky city bar `.cbar` and the floating `.mappill`, as it exempts the site header (ratification 6, exactly as worded). Tokyo Gallery B-08 is ✅ 0.
     - D-38 is **ratified**. The first-load row now reads "map tiles excluded": tiles are off-origin and blocked.
