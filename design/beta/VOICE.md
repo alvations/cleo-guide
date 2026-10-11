@@ -4,7 +4,7 @@
 
 ## Rules
 
-1. **Sentence case everywhere.** Tracked caps only for one eyebrow per block ("Area 6 of 13 · 44 places").
+1. **Sentence case everywhere, with no exceptions for eyebrows** (W7 owner rule, superseding "tracked caps for one eyebrow per block"). There are no uppercase transforms, no drop caps and no decorative initials. Proper nouns, acronyms and publishers' own names keep their capitals. See DESIGN-SYSTEM.md §v2.6 and [`CASING-AUDIT.md`](CASING-AUDIT.md).
 2. **Say what we know, and say what we don't.** "Hours and prices aren't in our data — check before you go." Never guess.
 3. **Never manufacture urgency or popularity.** Lint list (build fails if any appears in beta output, case-insensitive):
    `trending`, `popular now`, `only \d+ left`, `hurry`, `selling fast`, `book now`, `don't miss out`, `limited time`, `best-selling`.

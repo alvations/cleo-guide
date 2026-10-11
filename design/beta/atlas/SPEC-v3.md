@@ -4,6 +4,7 @@
 - **Status:** slice 1 is ready to build. Slices 2–5 are specified and get refined as the panel's findings land (§9).
 - **Prototypes:** [`proto/`](proto/), shot at 1440×900 and 390×844, in light and dark. They use real coordinates on a flat stub basemap; see §6.
 - **Rule 6:** no brand names. The owner's reference is written as "the real-estate map-search pattern".
+- **Casing** (DESIGN-SYSTEM §v2.6): every map label, chip, pin and legend string in this spec is sentence case. Collection and cuisine labels on pins, cards and filters go through `sentenceCase()`. There are no uppercase eyebrows.
 
 ## 0. What is wrong, and the one idea that fixes it
 
