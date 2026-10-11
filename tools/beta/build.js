@@ -169,8 +169,9 @@ for (const [rel, body] of i18n.files()) emit(rel, body);
 // ---------------------------------------------------------------- what changed (ROUND-2 gap #9, M3-07): Atom feeds
 const changeRows = changes.build(cityRows, emit);
 emit('data/changes.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
-  _doc: 'Per place page: its Atom feed, the newest dated event, closures and status checks on record. Events come only from dates in data/geocodes.json (status checks, closures with their source, pin verifications).',
-  pages: changeRows }));
+  _doc: 'Per place page: its Atom feed, the newest dated event, closures and status checks on record, and `month` = what happened in the newest month on record (`month` at the top: YYYY-MM from the data, not the clock). Events come only from dates in data/geocodes.json (status checks, closures with their source, pin verifications).',
+  month: changeRows.month, pages: changeRows }));
+reg.changes = changeRows;                          // W9-2: the landing's "<month> in Cleo" module reads these rows
 
 // ---------------------------------------------------------------- data indexes
 const pageHref = r => r.beta;                     // beta-root-relative
