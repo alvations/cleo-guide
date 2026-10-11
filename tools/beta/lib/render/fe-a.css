@@ -141,7 +141,7 @@ html .pl-ini[data-i]::after,html .cover .plate.i[data-i]::after{content:attr(dat
 .g-lead-slot{display:none}
 @media (max-width:1023px){
 html[data-view=gallery].g-lead-on .g-lead-slot{display:block;max-width:var(--maxw);margin:0 auto;padding:10px var(--gutter) 0}
-html[data-view=gallery] .g-lead-slot .g-lead-k{margin:0 0 6px;font:600 var(--fs-xs)/1.2 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+html[data-view=gallery] .g-lead-slot .g-lead-k{margin:0 0 6px;font:600 var(--fs-xs)/1.2 var(--font-ui);color:var(--ink-3)}
 html[data-view=gallery] .g-lead-slot .g-lead-card{display:block;margin:0;padding:0}
 html[data-view=gallery].g-lead-on .g-acts .btn-ghost{display:none}
 }
@@ -417,7 +417,7 @@ html body #cleo-sheet .sheet .actions [data-sh=save][aria-pressed=true] .ico{fil
 html main[data-city] .lens:not([hidden]){background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);box-shadow:none;color:var(--ink)}
 html main[data-city] .lens :is(h2,h3,.d3,.lens-t){font-family:var(--font-display);font-style:normal;color:var(--ink)}
 html main[data-city] .lens p{font-style:normal;font-family:var(--font-ui);color:var(--ink-2)}
-html main[data-city] .lens p::first-letter{float:none;font:inherit;color:inherit;margin:0;padding:0;initial-letter:normal}
+
 html body #cleo-sheet .detail .section-t+.why{margin-top:0}
 @media (min-width:1024px){html body #cleo-sheet .detail .hero-plate{aspect-ratio:auto;height:clamp(220px,34vh,340px)}}
 /* ---- 12. Guidebook and Insights in the same system: the module's own cover carries the name (the page masthead steps
@@ -560,7 +560,7 @@ html .view-gallery li.gc .pl-s .more{color:var(--ink-3);margin-left:4px}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s,html .view-gallery li.gc>.pl-s{white-space:normal;overflow:visible;text-overflow:clip;max-height:none}
 /* ---- 14. W8 day plans: the summary on the map, print ---- */
 html main[data-city] .leaflet-control.day-chip{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px;max-width:min(320px,calc(100vw - 96px));margin-top:10px;padding:8px 14px;border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:500 var(--fs-sm)/1.3 var(--font-ui);box-shadow:var(--e-2)}
-html main[data-city] .day-chip .eyebrow{margin:0;color:var(--ink-2);font-size:var(--fs-xs);letter-spacing:.06em;text-transform:uppercase}
+html main[data-city] .day-chip .eyebrow{margin:0;color:var(--ink-2);font-size:var(--fs-xs);font-weight:600}
 html main[data-city] .day-chip b{font-weight:600}
 html main[data-city] .day-chip span:last-child{color:var(--ink-2);font-variant-numeric:tabular-nums}
 @media print{
@@ -588,3 +588,89 @@ html body #cleo-sheet .detail .hero-plate.is-closed::after{content:none}
 html body main[data-city]>.overlay:is(#cleo-sheet,#cleo-fy){max-width:none;margin:0;inset:0}
 @media (min-width:1024px){html body #cleo-sheet.overlay:not(.side){align-items:center;justify-content:center;padding:24px}
   html body #cleo-sheet.overlay:not(.side) .sheet{max-height:calc(100vh - 48px);border-radius:var(--r-l)}}
+/* ---- 16. W8 QA-47 / QA-48 / QA-55 / QA-59c / R7 2g: the phone first screen, readable prose, whole labels ---- */
+/* the phone hero strip is 4:1 (was 3:1) so the masthead stays ≤ 0.6 of the screen and the category bar on the first
+   screen; the dek and the facts line wrap balanced (no "· 1 closed" or "Tokyo Museum" alone on the last line) */
+@media (max-width:1023px){html main[data-city]>.masthead .hero-media img{aspect-ratio:4/1}
+  html main[data-city]>.masthead .hero-media{margin-top:12px}
+  html main[data-city]>.masthead .dek,html main[data-city]>.masthead .g-lead{margin-top:8px}}
+html main[data-city]>.masthead :is(.dek,.g-lead,.facts){text-wrap:balance}
+/* sentences people read are ≥ 16 px (D13): the facts line and card write-ups */
+html main[data-city]>.masthead .facts{font-size:var(--fs-body);line-height:1.45}
+html main[data-city] li.pl .pl-w{font-size:var(--fs-body)}
+/* category-bar labels never ellipsise: up to two balanced lines */
+html body nav.rail#cleo-rail .rail-i .t{max-width:120px;overflow:visible;text-overflow:clip;white-space:normal;text-wrap:balance;text-align:center}
+/* QA-51: the detail photo is never wider than its largest file; narrower files sit centred on the plate */
+html body #cleo-sheet .detail .hero-plate.has-photo>.photo img{margin-inline:auto;border-radius:var(--r-l)}
+html body #cleo-sheet .detail .nw{white-space:nowrap}
+/* QA-59b: the detail meta row ("in Ohio City & Tremont · pin 12") wraps inside the sheet, never off its edge */
+html body #cleo-sheet .detail .badges{display:flex;flex-wrap:wrap;align-items:center;min-width:0}
+html body #cleo-sheet .detail .badges>.sm{min-width:0;overflow-wrap:anywhere}
+/* QA-59b root cause: a long nowrap fact button ("Add to your day in West Side, Ohio City & Tremont") widened the whole
+   content column past the sheet; fact buttons wrap, and the columns may shrink */
+html body #cleo-sheet .detail .content{min-width:0}
+html body #cleo-sheet .detail .content>*{min-width:0}
+html body #cleo-sheet .detail .fact>div{min-width:0}
+html body #cleo-sheet .detail .fact .btn{max-width:100%;height:auto;min-height:44px;white-space:normal;text-align:left;line-height:1.3;padding-block:10px}
+/* R7 gap 2(b): the bars are fully opaque — content never ghosts through the top bar (was paper 96 %) */
+html:root body .topbar,html:root body .topbar.on-night{background:var(--paper)}
+html body .tabbar{background:var(--surface)}
+/* ---- 17. R7 gap 5: food covers read as intentional — the dish in display type on the eat-and-drink tint, under the
+   kind glyph (food places never get photos; a blank sand box read as "not loaded") ---- */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-cover,html .view-gallery .gc .cover.food{background:color-mix(in srgb,var(--sun) 16%,var(--sand))!important;container-type:inline-size;align-content:center;gap:8px}
+html main[data-city] li.pl>.pl-cover .pl-dish,html .view-gallery .gc .cover .dish{display:block;max-width:86%;margin:0;color:var(--ink);font:500 clamp(14px,10cqi,28px)/1.08 var(--font-display);letter-spacing:-.01em;text-align:center;text-wrap:balance;overflow-wrap:anywhere}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-cover .pl-glyph,html .view-gallery .gc .cover.food .gl,html .view-gallery .gc .cover.food .gl .ico{width:24px;height:24px;color:var(--ink-2)}
+html main[data-city] li.pl[data-k=f]>.pl-cover .pl-vert{display:none}
+/* the ratified Gallery card (QA W7): no write-up / look-for / address on the card face. v2's clamp rule
+   (.pls .pl:not(.is-target):not(:target):not(:focus-within) .pl-w, 0-6-0) re-showed the write-up on phones, above the name */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>:is(.pl-w,.pl-k,.pl-ad){display:none!important}
+/* B-08: the map pill steps aside (scrolling down, or a card title under it); it fades, then stops being hit-testable */
+html main[data-city] .mappill:not([hidden]){transition:opacity var(--dur-2) var(--ease-out),transform var(--dur-2) var(--ease-out),visibility 0s}
+html main[data-city] .mappill.away:not([hidden]){opacity:0;visibility:hidden;transform:translate(-50%,12px);transition:opacity var(--dur-2) var(--ease-out),transform var(--dur-2) var(--ease-out),visibility 0s var(--dur-2)}
+@media (prefers-reduced-motion:reduce){html main[data-city] .mappill:not([hidden]),html main[data-city] .mappill.away:not([hidden]){transition:none}}
+/* R7 gap 5: no blank band beside the desktop hero — the photo takes the height of the text column (name, line, start,
+   facts) instead of a fixed 4:3 that ran ~170 px past it; never shorter than 300 px (object-fit crops, never stretches) */
+@media (min-width:1024px){
+  html[data-view=gallery] main[data-city]>.masthead .hero-media{align-self:stretch;aspect-ratio:auto;display:grid;grid-template-rows:minmax(300px,1fr) auto}
+  html[data-view=gallery] main[data-city]>.masthead .hero-media img{contain:size;width:100%;height:100%;min-height:300px;aspect-ratio:auto;object-fit:cover}
+}
+/* the category bar is sticky over the cards: v2's right-edge fade is a mask, so it faded the bar's own paper too and let
+   the cards scrolling beneath show through ("+2 more" ghosting at 1024). No mask; the cut-off last tile says "scrolls" */
+@media (min-width:768px){html body nav.rail#cleo-rail{-webkit-mask:none;mask:none}}
+/* ---- 18. W8 grid density (1024 / 1280 / 1440): no lone card on an area's last row. From 600 px the area section is the
+   grid (its <ol> keeps its list semantics but lays out as contents), so the area's own end actions ("See these N on the
+   map", "Your day here") take the rest of the last row — or a full row when the last row is already full ---- */
+@media (min-width:600px){
+  html[data-view=gallery] main[data-city] .split section.area{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(16px,1.6vw,24px);row-gap:0}
+  html[data-view=gallery] main[data-city] .split section.area>*{grid-column:1/-1}
+  html[data-view=gallery] main[data-city] .split section.area>ol.pls{display:contents}
+  html[data-view=gallery] main[data-city] .split section.area>ol.pls>li.pl{grid-column:auto;margin-bottom:clamp(28px,3vw,40px)}
+  html[data-view=gallery] main[data-city] .split section.area>.area-end{grid-column:1/-1;align-self:start;align-content:center;justify-content:center;min-height:120px;margin:0 0 clamp(28px,3vw,40px);padding:16px;border:1px dashed var(--line-strong);border-radius:var(--w7-media)}
+  html[data-view=gallery] main[data-city] .split section.area>.area-end:empty{display:none}
+  html[data-view=gallery] main[data-city] .split section.area>.area-end [data-cleo-map]{display:inline-flex}
+}
+@media (min-width:1024px){html[data-view=gallery] main[data-city] .split section.area{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:1280px){html[data-view=gallery] main[data-city] .split section.area{grid-template-columns:repeat(4,minmax(0,1fr))}}
+/* ---- 19. R7 gap 3: two delight moments, each ≤ 280 ms, none under reduced motion ----
+   1. A photo fades in from its dominant colour (--ph, set at build from imagery's recompress.js colour). The colour is a
+      layer in the image's own grid cell that fades out when the image has loaded (city.js adds .in); only under
+      html.ph-fade (set by city.js), so without JS nothing is ever hidden. */
+html.ph-fade main[data-city] figure.photo[style*="--ph"]{display:grid}
+html.ph-fade main[data-city] figure.photo[style*="--ph"]>img{grid-area:1/1}
+html.ph-fade main[data-city] figure.photo[style*="--ph"]::before{content:"";grid-area:1/1;position:relative;z-index:1;border-radius:var(--w7-media,var(--r-l));background:var(--ph);pointer-events:none;transition:opacity 280ms var(--ease-out)}
+html.ph-fade main[data-city] figure.photo.in::before{opacity:0}
+html.ph-fade .view-gallery li.gc .cover.has-ph[style*="--ph"]::before{content:"";display:block;position:absolute;inset:0;z-index:2;background:var(--ph);pointer-events:none;transition:opacity 280ms var(--ease-out)}
+html.ph-fade .view-gallery li.gc .cover.has-ph.in::before{opacity:0}
+/* 2. Switching views: the switcher's selection slides to the new view (desktop pill row), and the page content fades in */
+html main[data-city] nav.views .v-ind{display:none}
+@media (min-width:1024px){
+  html main[data-city] nav.views.has-ind{position:relative;isolation:isolate}
+  html main[data-city] nav.views.has-ind .v-ind{display:block;position:absolute;z-index:-1;border-radius:var(--r-pill);background:var(--ink);pointer-events:none;transition:left 240ms var(--ease-out),width 240ms var(--ease-out),top 240ms var(--ease-out)}
+  html main[data-city] nav.views.has-ind button[aria-pressed=true]{background:transparent}
+}
+@keyframes w8-vin{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:no-preference){html main[data-city].v-swap>:not(.cbar):not(.overlay):not(.mappill):not(.tray){animation:w8-vin 240ms var(--ease-out) both}}
+@media (prefers-reduced-motion:reduce){
+  html.ph-fade main[data-city] figure.photo::before,html.ph-fade .view-gallery li.gc .cover::before{transition:none}
+  html main[data-city] nav.views.has-ind .v-ind{transition:none}
+}
