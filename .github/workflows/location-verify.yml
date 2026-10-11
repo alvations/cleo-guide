@@ -118,6 +118,11 @@ jobs:
         run: node tools/location-verify.test.js
 
       - name: Verify (writes docs/geoverify/<city>.json and .md, or docs/geoverify/status/ for the sweep, only)
+        env:
+          # optional Singapore OneMap login (owner decision 5a): used only if the owner adds these Actions secrets;
+          # empty otherwise, and the adapter skips OneMap with a logged note. The token never reaches logs or reports.
+          ONEMAP_EMAIL: ${{ secrets.ONEMAP_EMAIL }}
+          ONEMAP_PASSWORD: ${{ secrets.ONEMAP_PASSWORD }}
         run: |
           if [ "$MODE" = sweep ]; then
             node tools/location-verify.js --status-sweep --shard "$SHARD" --max-minutes 330

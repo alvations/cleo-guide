@@ -399,16 +399,20 @@ Still refuses anything uncredited. New in W7:
   `fetch-commons.js --scope heroes | priority | pilots | all` (default `priority`) says what a run may fetch.
 - **Article lead images.** A target citing a Wikipedia article carries `wikiLead`: when no candidate passes, the
   fetch tries that article's lead image under every check. Heroes carry `articles` (the town, then an iconic
-  sight), tried in order. Maps, coats of arms, flags, montages and logos are refused (`NOT_A_PHOTO`), and so is a
+  sight), tried in order. Maps, coats of arms, flags, seals, emblems, crests, insignia, badges, logos, diagrams,
+  posters and montages are refused (`NOT_A_PHOTO`, on the title, object name and vetted depicts; R7-g7: the NMUSAF
+  emblem). A PNG or other non-JPEG lead image is suspect and accepted only with a vetted candidate's depicts. So is a
   file already credited to another row (one file, one row). Vietnam guides keep their motif hero, with the reason
   stated in the manifest.
 - **Stated gaps.** Brand stores (the branding is the subject), Poké Lid character art, venues (by tag, and by name:
   theatre, opera house, playhouse, ballpark, arena, stadium, concert hall; each name-matched skip is listed in the run
   summary for review). `node tools/beta/imagery/coverage.js` reports hero / lead / first-row / tier-1 coverage per
   guide.
-- **Widths per class (repo size).** Heroes, lead cards and first-row cards: 500 + 960. Every other card: 500 only
-  (≈ 35 KB, ≈ 21 MB for the whole tier-1 set).
-- **Weight.** recompress.js: every 960 w JPEG ≤ 120 KB (cards ≤ 110 KB), 500 w ≤ 45 KB, quality floor 40. A tall or
+- **Widths per class (repo size).** Heroes, lead cards and first-row cards: 500 + 960. Every other card: 500 + 720
+  (the 720 derived with sharp from the 960 thumbnail, D-40).
+- **Weight.** recompress.js: every 960 w ≤ 120 KB (cards ≤ 110 KB), 720 w ≤ 75 KB, 500 w ≤ 45 KB, quality floor 40.
+  Any non-JPEG file (a PNG thumbnail) is converted to `<same name>.jpg`, transparency on white, and its row and srcset
+  follow (R7-g7); the size test covers every format. A tall or
   very detailed photo that still misses its target is scaled down (0.85× steps) and its row's width/height updated.
 - **Dominant colour.** recompress.js writes `color: "#rrggbb"` on each Commons row; the gate exposes it as
   `photo.color` for a fade-in placeholder.
