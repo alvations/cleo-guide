@@ -199,6 +199,17 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     assert.ok(/OpenStreetMap contributors/.test(rep.meta.attribution));
     for (const r of rep.rows) assert.deepStrictEqual(r.review, { decision: null, by: null, why: null, date: null });
   });
+  await t('review assist mirrors the accept bar', () => {
+    assert.strictEqual(row('Fictional Fish Market').assist.verdict, 'pass', 'OSM POI + exact address');
+    assert.strictEqual(row('Schema Grill').assist.verdict, 'pass', 'official JSON-LD');
+    assert.strictEqual(row('Example Museum').assist.verdict, 'hold', 'Wikidata coordinate only');
+    assert.strictEqual(row('Twin Shop One').assist.verdict, 'reject', 'shared object');
+    assert.strictEqual(row('Ambiguous Cafe').assist.verdict, 'reject');
+    const med = LV.reviewAssist({ outcome: 'pin', proposal: { grade: 'med', kind: 'osm-poi' } }); assert.strictEqual(med.verdict, 'hold');
+    const poiNoAddr = LV.reviewAssist({ outcome: 'pin', proposal: { grade: 'high', kind: 'osm-poi', nameSim: 1, addressAgreement: { houseNumber: null, street: true } } });
+    assert.strictEqual(poiNoAddr.verdict, 'hold');
+    assert.ok(/assist/.test(LV.toMarkdown(rep)));
+  });
   await t('markdown report renders every row', () => {
     const md = LV.toMarkdown(rep); for (const r of rep.rows) assert.ok(md.includes(r.name.replace(/\|/g, '\\|')), r.name);
   });

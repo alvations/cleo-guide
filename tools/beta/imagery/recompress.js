@@ -34,6 +34,7 @@ const MARK = 'recompressed (JPEG, quality ≤ 72)';
 /** Size target (bytes) for one file of a row: a hero's 960 w ≤ 120 KB (R7 gap 7: every 960 w JPEG ≤ 120 KB); a card's
  *  ≥ 800 w copy ≤ 110 KB; any smaller copy ≤ 45 KB. */
 function targetOf(row, width, isMain) {
+  if (width >= 600 && width < 800) return 75 * KB;   // a card's derived 720 w copy (D-40)
   if (width < 800) return 45 * KB;
   return row.slot && isMain ? 120 * KB : 110 * KB;
 }

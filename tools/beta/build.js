@@ -61,6 +61,7 @@ for (const r of cityRows) {
   r.guide = guide(r, r.recs);                     // ★ signature, canon-first food order, day plans, recently closed (W2)
   r.order = views.stamp(r, r.recs);               // W3 P-01: rank/of/k3 on every record; the view order (area, then rank)
   r.insights = views.insights(r, r.recs);         // W3 P-03: every number the Insights view draws
+  r.fy = city.interests(r.recs.filter(x => !x.closed), r.data).map(([id, , n]) => [id, n]);   // W9-3: open places per interest id
   const m = r.data.meta;
   r.name = m.h1Main || r.key;
   r.nat = nativeOf(m.eyebrow) || nativeOf(m.h1) || null;

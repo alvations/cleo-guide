@@ -1901,32 +1901,6 @@
    "candidates": []
   },
   {
-   "key": "hero:singapore/queenstown",
-   "type": "hero",
-   "depicts": "hub:singapore/queenstown",
-   "label": "Queenstown & Redhill — guide hero",
-   "names": [
-    "Queenstown",
-    "Redhill"
-   ],
-   "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "articles": [
-    "https://en.wikipedia.org/wiki/Queenstown,_Singapore"
-   ],
-   "wikiLead": true,
-   "candidates": [
-    {
-     "file": "File:Queenstown hdb.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Queenstown_hdb.jpg",
-     "depicts": "HDB flats along Strathmore Avenue, Queenstown",
-     "confidence": "high",
-     "reason": "title names Queenstown; summary: thirty-storey flats, Strathmore Avenue, 2005"
-    }
-   ]
-  },
-  {
    "key": "hero:singapore/jalan-besar",
    "type": "hero",
    "depicts": "hub:singapore/jalan-besar",
@@ -2169,6 +2143,34 @@
    ],
    "wikiLead": true,
    "candidates": []
+  },
+  {
+   "key": "hero:singapore/queenstown",
+   "type": "hero",
+   "depicts": "hub:singapore/queenstown",
+   "label": "Queenstown & Redhill — guide hero",
+   "names": [
+    "Queenstown",
+    "Redhill"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Queenstown,_Singapore"
+   ],
+   "wikiLead": true,
+   "candidates": [
+    {
+     "file": "File:Queenstown hdb.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Queenstown_hdb.jpg",
+     "depicts": "HDB flats along Strathmore Avenue, Queenstown",
+     "confidence": "high",
+     "reason": "title names Queenstown; summary: thirty-storey flats, Strathmore Avenue, 2005",
+     "refused": "refused by the fetch (runs #31/#35, Commons API): no author in the file metadata, not marked own work"
+    }
+   ],
+   "skip": "its only Commons photo has no author in its metadata (not marked own work) and the town article's lead image doesn't show Queenstown — the guide keeps its motif hero (stated)"
   },
   {
    "key": "hero:singapore/southern-ridges",
