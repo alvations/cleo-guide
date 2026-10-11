@@ -75,6 +75,21 @@ ok(fixture([Object.assign({}, good, { record: { page: 'tokyo', id: 'no-such-plac
 if (closed) ok(fixture([Object.assign({}, good, { record: { page: closed[0], id: closed[1].id } })], ['a.png']).errors.some(e => /closed/.test(e)), 'closed place → refused (never "go here today")');
 if (vn) ok(fixture([Object.assign({}, good, { record: { page: vn.key, id: vn.recs[0].id } })], ['a.png']).errors.some(e => /freedom of panorama/.test(e)), 'Vietnam record → refused (no freedom of panorama)');
 for (const lic of ['CC0 1.0', 'Public domain', 'CC BY 2.0', 'CC BY-SA 3.0 DE']) ok(photos.creditProblems(Object.assign({}, good, { licence: lic })).length === 0, `licence accepted: ${lic}`);
+// Unsplash (fetch-unsplash.js rows): licence + URL pinned, "Photo by … on Unsplash" caption, slot rows for heroes/covers
+const uns = Object.assign({}, good, { licence: 'Unsplash License', licenceUrl: 'https://unsplash.com/license', sourceUrl: 'https://unsplash.com/photos/abcDEF12345?utm_source=cleo_guide&utm_medium=referral', author: 'A. Photographer', authorUrl: 'https://unsplash.com/@aphoto?utm_source=cleo_guide&utm_medium=referral', provider: 'unsplash' });
+ok(photos.creditProblems(uns).length === 0, 'licence accepted: Unsplash License (with its licence URL and an unsplash.com photo page)');
+ok(photos.creditProblems(Object.assign({}, uns, { licenceUrl: 'https://example.org/license' })).some(p => /unsplash\.com\/license/.test(p)), 'Unsplash License with another licence URL → refused');
+ok(photos.creditProblems(Object.assign({}, uns, { sourceUrl: 'https://images.unsplash.com/photo-1?w=960' })).some(p => /unsplash\.com\/photos/.test(p)), 'Unsplash License whose source is not a photo page (e.g. a hotlink) → refused');
+ok(photos.creditProblems(Object.assign({}, uns, { licence: 'Unsplash+ License' })).length > 0, 'Unsplash+ (paid licence) → refused');
+r = fixture([uns], ['a.png']);
+const uph = r.byPage.tokyo && r.byPage.tokyo[open.id];
+ok(r.errors.length === 0 && uph && /<figcaption>Photo by <a href="https:\/\/unsplash\.com\/@aphoto[^"]*"[^>]*>A\. Photographer<\/a> on <a href="https:\/\/unsplash\.com\/photos\/abcDEF12345[^"]*"[^>]*>Unsplash<\/a> · <a [^>]*rel="license[^"]*"[^>]*>Unsplash License<\/a><\/figcaption>/.test(photos.figureHtml(uph)), 'Unsplash photo → "Photo by <name> on Unsplash" caption with licence link');
+const slotRow = Object.assign({}, uns, { record: undefined, slot: { type: 'hero', key: 'tokyo' } }); delete slotRow.record;
+r = fixture([slotRow], ['a.png']);
+ok(r.errors.length === 0 && r.bySlot['hero:tokyo'] && !Object.keys(r.byPage).length, 'slot row (hub hero) → bySlot, never attached to a card');
+ok(fixture([Object.assign({}, slotRow, { slot: { type: 'hero', key: 'vietnam' } })], ['a.png']).errors.some(e => /freedom of panorama/.test(e)), 'Vietnam hub hero slot → refused');
+ok(fixture([Object.assign({}, slotRow, { slot: { type: 'banner', key: 'x' } })], ['a.png']).errors.some(e => /slot must be/.test(e)), 'unknown slot type → refused');
+ok(fixture([Object.assign({}, slotRow, { record: { page: 'tokyo', id: open.id } })], ['a.png']).errors.some(e => /not both/.test(e)), 'record and slot together → refused');
 
 // ---------------------------------------------------------------- 3. motifs
 console.log('imagery: motifs');
@@ -123,6 +138,25 @@ ok(m.items.every(i => !(i.eligible && (i.status === 'closed' || i.country === 'v
 ok(parseSource('https://en.wikipedia.org/wiki/Next_(restaurant) (Wikipedia/GeoHack published coordinates)').title === 'Next (restaurant)', 'parser: URL title with parentheses');
 ok(parseSource('ja.wikipedia 北海道立文学館 infobox (北緯43度2分39.3秒) via WebSearch').title === '北海道立文学館', 'parser: ja.wikipedia named title');
 ok(parseSource('curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09') === null, 'parser: an audit mention is not a citation');
+// Unsplash candidate manifest (research only): well-formed, honest confidence, no food/venue record, real record ids
+const uc = JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'unsplash-candidates.json'), 'utf8'));
+const ucBad = [];
+for (const t of uc.targets) {
+  if (!['hero', 'landmark', 'cover'].includes(t.type)) ucBad.push(`${t.key}: type`);
+  if (t.type === 'landmark') {
+    const [pg, id] = t.depicts.split('#'), row = rows.find(x => x.key === pg), rec = row && row.recs.find(x => x.id === id);
+    if (!rec) ucBad.push(`${t.key}: no such record`); else if (rec.kind === 'food') ucBad.push(`${t.key}: food record`);
+  }
+  for (const c of t.candidates) {
+    if (!/^https:\/\/unsplash\.com\/photos\/(?:[a-z0-9-]*-)?[A-Za-z0-9_-]{11}$/.test(c.pageUrl) || !c.pageUrl.endsWith(c.id)) ucBad.push(`${t.key}: url/id ${c.pageUrl}`);
+    if (!['high', 'med', 'low'].includes(c.confidence) || !c.reason || !c.title) ucBad.push(`${t.key}: ${c.id} confidence/reason/title`);
+  }
+}
+ok(uc.targets.length > 0 && !ucBad.length, `unsplash-candidates.json: ${uc.targets.length} targets, every landmark a real non-food record, every candidate a photo-page id with confidence + reason${ucBad.length ? ': ' + ucBad.slice(0, 5).join('; ') : ''}`);
+const fu = require('./fetch-unsplash');
+ok(fu.fileBase({ type: 'landmark', depicts: 'singapore/marina-bay#merlion-park' }) === 'singapore--marina-bay--merlion-park' && fu.fileBase({ type: 'hero', depicts: 'hub:tokyo' }) === 'hero--tokyo', 'fetch-unsplash: file names follow the photos/ convention');
+const vnRec = vn && vn.recs.find(x => x.kind !== 'food' && !x.closed);
+if (vnRec) ok(fu.recordCheck({ depicts: `${vn.key}#${vnRec.id}` }).why === 'Vietnam has no freedom of panorama', 'fetch-unsplash: never fetches for a Vietnamese record');
 const onDisk = path.join(BETA, 'assets', 'img', 'manifest.json');
 ok(fs.existsSync(onDisk) && JSON.parse(fs.readFileSync(onDisk, 'utf8')).items.length === m.items.length, 'beta/assets/img/manifest.json is current');
 

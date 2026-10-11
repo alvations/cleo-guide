@@ -13,7 +13,8 @@
   "type": "hero = city/country hub scene (not a record); landmark = one tier-1 sight record; cover = generic collection mood image",
   "depicts": "hub:<key> | <page>#<record id> | collection:<key>",
   "candidates[].pageUrl": "Unsplash photo page as returned by the search",
-  "candidates[].id": "photo id = last path token of pageUrl (11 chars)",
+  "candidates[].id": "photo id = last 11 characters of pageUrl",
+  "candidates[].returnedUrl": "only when the search returned a localized page (es/pt-br/ko); pageUrl is then the canonical /photos/<id>",
   "candidates[].title": "title/description text exactly as returned",
   "candidates[].photographer": "only when the result showed it; empty otherwise (the API value wins at fetch time)",
   "candidates[].confidence": "high | med | low (see _doc)",
@@ -1252,7 +1253,7 @@
      "reason": "title names Jewel Changi's Rain Vortex"
     },
     {
-     "pageUrl": "https://unsplash.com/photos/una-impresionante-cascada-interior-en-el-aeropuerto-de-jewel-changi-gBUJkVape1U",
+     "pageUrl": "https://unsplash.com/photos/gBUJkVape1U",
      "id": "gBUJkVape1U",
      "title": "Una impresionante cascada interior en el aeropuerto de Jewel Changi. foto",
      "photographer": "Hanna Lazar",
@@ -1872,7 +1873,7 @@
    "searched": "2026-10-11",
    "candidates": [
     {
-     "pageUrl": "https://unsplash.com/photos/torre-de-tv-de-sapporo-e-fonte-do-parque-1jrmrYfvEqI",
+     "pageUrl": "https://unsplash.com/photos/1jrmrYfvEqI",
      "id": "1jrmrYfvEqI",
      "title": "Torre de TV de Sapporo e fonte do parque",
      "photographer": "Dr. C.K. Huang",
@@ -1893,7 +1894,7 @@
    "searched": "2026-10-11",
    "candidates": [
     {
-     "pageUrl": "https://unsplash.com/photos/torre-de-tv-de-sapporo-e-fonte-do-parque-1jrmrYfvEqI",
+     "pageUrl": "https://unsplash.com/photos/1jrmrYfvEqI",
      "id": "1jrmrYfvEqI",
      "title": "Torre de TV de Sapporo e fonte do parque",
      "photographer": "Dr. C.K. Huang",
@@ -3645,7 +3646,7 @@
    "searched": "2026-10-11",
    "candidates": [
     {
-     "pageUrl": "https://unsplash.com/photos/천사의-모자이크-디테일이-있는-화려한-돔-내부가-qmoQ3_0Zpxo",
+     "pageUrl": "https://unsplash.com/photos/qmoQ3_0Zpxo",
      "id": "qmoQ3_0Zpxo",
      "title": "천사의 모자이크 디테일이 있는 화려한 돔 내부가 사진",
      "photographer": "Chris Bischoff",

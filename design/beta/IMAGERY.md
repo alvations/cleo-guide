@@ -146,3 +146,106 @@ Every motif is a 480×200 frame whose subject sits in the middle band, so it cro
   on the art.
 If Gallery needs portrait covers, the imagery lane will add a square/portrait recipe per key to `motifs.js`. That is
 the same vocabulary and needs no new pipeline.
+
+## Unsplash candidates — research now, a mechanical fetch later (2026-10-11)
+
+> Lane: imagery research · owner request "real photographs, from Unsplash among other sources". `api.unsplash.com`
+> and `images.unsplash.com` return 403 under this environment's network policy (like Wikimedia). Nothing was
+> downloaded and nothing routes around the block. What does work is WebSearch restricted to `unsplash.com`, which
+> returns photo **page** URLs and their titles. That is all this manifest is built from.
+
+### What is in `beta/assets/img/unsplash-candidates.json`
+
+One entry per **target**, with up to three **candidates** each, copied verbatim from search results:
+
+| Target type | What it is | Where it may show |
+|---|---|---|
+| `hero` (`hub:<page or country>`) | a recognisable city or country scene (skyline, a signature view) | hub tiles, country hub hero, city masthead |
+| `landmark` (`<page>#<record id>`) | one **tier-1 sight** record, pilots first (Tokyo, Kyoto, Cleveland, New York, Singapore towns), then the other cities and SEA | that record's card and detail hero |
+| `cover` (`collection:<key>`) | a **generic** mood image: a noodle bowl, a hawker hall, a shrine gate, a diner… | collection covers **only**, never next to a venue's name |
+
+Each candidate: `pageUrl`, `id` (the last 11-character path token), `title` exactly as returned, `photographer` only
+when the result showed it, `depicts`, `confidence`, `reason`, and `flags` where something needs a human look.
+
+**Confidence is strict.** `high` only when the returned title or description names that exact landmark or place
+("Kinkaku-ji with a gold roof"). `med` when a search summary or location tag points to it but the title is generic
+("A castle with a moat", located at the Gravensteen). `low` when it was merely returned for the query. For covers,
+`high` means the title describes exactly the generic subject and names no venue.
+
+**Never assigned.** No photo is attached to a restaurant, shop or other venue: food and venues get only generic
+covers. Excluded with a note: Unsplash+ photos (a paid licence), 3-D renders, historical archive images presented
+as today, and any result that is really a different place (Kinkaku-ji when searching for Ginkaku-ji, Philadelphia
+City Hall for Independence Hall, the U.S. Capitol for Wisconsin's). **Gaps are stated, not filled**: a target with
+no honest candidate keeps an empty list and a note (Terminal Tower, West Side Market, Henderson Waves…).
+
+**Flags** (the fetch script skips a flagged candidate unless you pass `--allow-flag <flag>` after looking at it):
+`people-visible` (identifiable people), `public-art-check` (freedom of panorama: US and Japan have none for modern
+public art), `venue-check` (a legible shop sign or a nameable venue on a cover), `artwork-check` (copyrighted works
+in frame), `possibly-plus` (stock-agency style title; the API decides), `fop-vietnam`.
+
+The `summary` block counts targets, candidates by confidence, and lists every gap.
+
+**Status (2026-10-11, about 160 searches):** 146 targets (34 heroes, 93 landmarks, 19 covers) and 250 candidates:
+**128 high, 77 med, 45 low**. 121 targets have at least one candidate and 72 have a high one. 23 are stated gaps,
+including Terminal Tower, West Side Market, Soldiers' & Sailors', the Arcade and the Cleveland Museum of Art building,
+Singapore Botanic Gardens, Henderson Waves, Heian Jingū, Shuri Castle and the Singapore Zoo. Hero Thailand and hero
+Indochina reuse the Wat Arun and Angkor Wat candidates. With the defaults (high only, no flags) the fetch script would
+try 65 targets; `--min med` and reviewed `--allow-flag`s widen that.
+
+### Licence and credit
+
+Unsplash photos are under the **Unsplash License** (<https://unsplash.com/license>): free use, modification allowed,
+no permission needed; attribution is not legally required but the API guidelines require it and our rule shows it
+anyway, wherever the photo appears. The credit line is **"Photo by <name> on Unsplash"**, with the name linked to the
+photographer's profile and "Unsplash" linked to the photo page, both with `utm_source=cleo_guide&utm_medium=referral`.
+The licence does not allow selling unaltered copies or compiling photos into a competing photo service; neither
+applies here. Unsplash+ is a different, paid licence and is refused.
+
+The credit gate (`tools/beta/imagery/photos.js`) accepts `Unsplash License` (licence URL must be the one above and the
+source must be an `unsplash.com` photo page), renders the Unsplash credit line, and also accepts `slot` rows
+(`{type: hero|cover, key}`) for hero and cover photos that do not belong to one record. Everything else is unchanged:
+no file without a complete row, no row without its file, no closed or Vietnamese place.
+
+### Fetch and commit, once the owner allows the hosts
+
+Prerequisites (owner): allow `api.unsplash.com` and `images.unsplash.com` in the environment's network policy;
+create an Unsplash developer app and put its **Access Key** in `UNSPLASH_ACCESS_KEY` (an environment secret, never in
+the repo). Demo apps get 50 requests an hour; each photo costs 2 API calls (photo + download event), so about 25
+photos per hour until the app is approved for production.
+
+```bash
+node tools/beta/imagery/fetch-unsplash.js                       # dry run: the plan, no network, no key needed
+node tools/beta/imagery/fetch-unsplash.js --type landmark --go  # fetch landmarks (high confidence only)
+node tools/beta/imagery/fetch-unsplash.js --key hero:tokyo --go # one target
+cd tools && npm run beta && npm test                            # the gate renders them, or names the problem
+git add beta/assets/img/photos/<new files> beta/assets/img/CREDITS.json && git commit
+```
+
+Per target the script takes the first candidate that passes, in manifest order:
+
+1. `GET /photos/:id` with `Authorization: Client-ID $UNSPLASH_ACCESS_KEY`. The API, not the search snippet, decides:
+   the id must match, the photo must not be Unsplash+/premium, and for a landmark the API's own description, alt text,
+   location or tags must contain a word of the target's name. A candidate that fails moves to the next one.
+2. `GET` the photo's `links.download_location`, the download event the API guidelines require whenever a photo is used.
+3. Download `urls.raw` with `w=960&fm=webp&q=75&fit=max`, resized by Unsplash's image CDN, so no local image library is
+   needed. Store it as `beta/assets/img/photos/<page>--<id>-960.webp` (landmarks; `/` in a page key becomes `--`),
+   `hero--<key>-960.webp` or `cover--<key>-960.webp`.
+4. Write or replace its `CREDITS.json` row: `record` (landmark) or `slot` (hero/cover), `author`, `authorUrl`,
+   `sourceUrl` (photo page + utm), `licence: "Unsplash License"`, `licenceUrl`, `provider: "unsplash"`, `unsplashId`,
+   `credit: "Photo by <name> on Unsplash"`, `modified`, `fetched`, `confidence`.
+
+It exits with a clear message and writes nothing when `UNSPLASH_ACCESS_KEY` is missing (exit 2) or when either host
+is unreachable or answered by a policy proxy (exit 3). It must never be run through a proxy, mirror, CI job or any
+other path that sidesteps the network policy.
+
+**One tension for the owner to decide.** The Unsplash API guidelines ask API apps to *hotlink* the returned image URLs,
+while our rules self-host every asset (content never depends on a CDN; a blocked CDN costs a map, not a page). The
+licence itself allows downloading and self-hosting. The script follows our rule: it triggers the download event and
+credits every photo as the guidelines ask, then serves a local copy. If the owner registers a production app, either
+confirm with Unsplash that self-hosting downloaded files is acceptable for this use, or use the site's own download
+button for each picked photo (the licence covers that) and add the `CREDITS.json` row by hand. The gate is the same
+either way.
+
+**Not wired yet:** the renderers attach gated photos to record cards today; hero and cover `slot` rows are validated
+and exposed (`loadPhotos().bySlot`), but the hub hero, masthead and collection-cover renderers still show motifs.
+Hooking them up is a front-end task for the next round.
