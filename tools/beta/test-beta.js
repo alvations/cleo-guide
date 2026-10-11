@@ -336,6 +336,19 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
     d.querySelector('button[data-mode="food"]').click(); await sleep(30);
     chk('any lens stamps every card first; food mode shows exactly the food', [d.querySelectorAll('li.pl').length, shown(d)].join(), `${total},${live.F.length}`);
     chk('no js errors (lazy)', errs, e => e.length === 0);
+    // PERF-08 primitives (core): a lens stamps only the cards it shows; every other place stays a reachable stub
+    {
+      const b3 = boot({ io: true }); await sleep(300);
+      const C3 = b3.w.Cleo, F = live.F.length, before = b3.d.querySelectorAll('li.pl').length;
+      const foodStubs = C3.defer.peek({ lens: { mode: 'food' } });
+      chk('peek({lens}) returns only the stubs that lens shows', foodStubs.every(x => x.getAttribute('data-k') === 'f'), true);
+      C3.defer.stampLens({ mode: 'food' });
+      const dom = [...b3.d.querySelectorAll('li.pl')], foodDom = dom.filter(c => c.getAttribute('data-k') === 'f').length;
+      chk('stampLens(food): every food place is now a card, nothing else new was built, every place still reachable (cards + stubs = total)',
+        [foodDom, dom.length - before <= F, dom.length + C3.defer.peek().length].join(), `${F},true,${total}`);
+      chk('stampLens(q=…) stamps everything (a stub cannot be judged on its text)', (C3.defer.stampLens({ q: 'shrine' }), b3.d.querySelectorAll('li.pl').length), total);
+      chk('no js errors (stampLens)', b3.errs, e => e.length === 0);
+    }
     // Platform W7 (R6 gap #5): a Gallery deep link no longer stamps every card — it stamps only the page that holds the
     // place (24 per page on a phone, 48 wider), placed by the true view order (QA-29). The page shown must be the right one.
     {
