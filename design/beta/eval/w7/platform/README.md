@@ -63,6 +63,25 @@ The axe JSON for both runs is in `axe-before.json` and `axe-after.json`. The dee
   - Fixed here: five `color-contrast` (`.fy > .k`) results, plus how-we-choose `.tablewrap`, which is now a focusable, labelled region. That fix landed after the w2 rerun.
   - Still failing: `[map] probe crashed`, a click timeout on `.map-toggle`. It fails the same way on clean HEAD.
 
+## After merging the Atlas map-search and imagery commits (`cb326ffc`)
+
+This lane's own numbers still hold on the merged tree:
+- eager JS **27.38 KB** gzip;
+- phone `#p=` deep links 1,932 / 2,759 / 2,053 nodes (Tokyo kanda-myojin / sushi-yuki / amazake), and 2,285 on Cleveland;
+- every unit gate green.
+
+Two regressions arrived with the merge. Both are reported to the orchestrator, and neither is in this lane's files:
+
+| Measure | This lane (eb47e76) | Merged (cb326ffc) | Cause |
+|---|---:|---:|---|
+| `metrics.js --view atlas --only cities/tokyo` | 1,911 KB · 1,650 nodes | **4,352 KB · 12,670 nodes** | `atlas.js` `msArea()` calls `Cleo.defer.stampFor()` for every deferred place inside the map box. At the first fit the box is the whole city, so all 488 cards are built, and their photos then load. |
+| `metrics.js --only cities/tokyo` (Gallery) | — | **4,283 KB** · 2,980 nodes | 34 Tokyo card photos at about 60–100 KB (500w) and 70–340 KB (960w). They are lazy and sized, but the harness's reachability scroll loads them all. |
+
+Suggested fixes:
+- **Atlas:** cap the stamped area results. Build the first page of in-area cards with `Cleo.defer.stampIds()`, which stamps exact cards rather than chunks, and stamp more as the list scrolls.
+- **Imagery:** re-encode the thumbnails, aiming for ≤ 40 KB at 500w.
+- **Orchestrator:** decide whether the harness's whole-session byte count, scroll included, is the right budget for a page with photos.
+
 ## Open, not this lane's
 
 - B-04 in desktop Atlas: R6 gap #7 (FE-A).
