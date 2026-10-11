@@ -110,6 +110,13 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     assert.strictEqual(rows.reduce((a, r) => a + r.low, 0), low);
   });
 
+  await t('shardCities: every city in exactly one shard, balanced by rows', () => {
+    const cities = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'geocodes.json'), 'utf8')).cities;
+    const shards = [1, 2, 3].map(i => LV.shardCities(cities, i, 3));
+    const all = shards.flat().sort(); assert.deepStrictEqual(all, Object.keys(cities).sort());
+    const rows = shards.map(k => k.reduce((a, c) => a + Object.keys(cities[c]).length, 0));
+    assert.ok(Math.max(...rows) - Math.min(...rows) < 1300, rows.join(','));
+  });
   // ── replay a whole city through the fixtures ──
   const fx = JSON.parse(fs.readFileSync(path.join(__dirname, 'location-verify-fixtures', 'testville.json'), 'utf8'));
   const regCopy = JSON.parse(JSON.stringify(fx.registry));
@@ -174,6 +181,10 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
       assert.strictEqual(r.proposal.osmObject.tags.building, 'yes');
     }
     const md = LV.toMarkdown(rep); assert.ok(/OSM way\/5005 building=yes · addresstype=building · \(no name\)/.test(md), 'object shown in the evidence column');
+  });
+  await t('replay: place=house on a WAY is an address-interpolation line → street-level, low', () => {
+    const r = row('Interpolated Diner'); assert.strictEqual(r.outcome, 'no-match'); assert.strictEqual(r.proposal, null);
+    const c = r.candidates.find(x => x.osm === 'way/6006'); assert.strictEqual(c.kind, 'osm-other'); assert.strictEqual(c.grade, 'low');
   });
   await t('gradeCandidate: an osm-address whose object is a highway is low (defence in depth)', () => {
     const place = { name: 'X Museum', address: '627 Long Ave, Testville', current: {} };
