@@ -1299,3 +1299,20 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - platform: implement the ratified B-08 exemption and the D-38 tiles-excluded wording.
   - **QA-58** (rule-6 brand names in committed docs) fixed here. The two owner quotes (W7-BRIEFS, this log) and the DESIGN-SYSTEM and BETA-DECISIONS (D-01, D-09) mentions now say "the real-estate map-search site" or "the leading home-rental marketplace", each marked as redacted per rule 6.
   - **Re-sign needs:** Atlas G1 ✅ 5/5; Gallery B-02 ✅ 5/5, Tokyo B-04 ✅ and landing B-05 ✅ (or ratified re-measured rules); QA-50 and QA-52 passing in `w7.js --only detail,atlasm`. Then deploy.
+- 2026-10-11 · Atlas lane · **Atlas review loop, round 1: SPEC-v3 slice 1 built** ("places on a map, not numbers on a grid").
+  - **Markers** (as refined in b62cce9a):
+    - every place is a quiet canvas dot (one neutral: ink 38 % for sights, 62 % for eat & drink; hollow when closed; area colour only under an area filter), with zero DOM nodes;
+    - up to 16 (8 on phones) of the best places in view become labelled pins: one kind glyph and the short name, never truncated. Must see is the sun-wash pill; closed is dashed with " · Closed"; saved gets a heart chip; selected is ink with a tail.
+  - **Basemap:** the Esri Light / Dark Gray Canvas follows the theme live, with reference labels in their own pane. Satellite is the one alternative; OSM street detail is opt-in from the Key.
+    - unnumbered density discs appear at region zoom.
+    - No rank pills, count bubbles or numbers on the map.
+  - **Map priority** (tier, then a round-robin across areas, sources, rank) is computed in atlas.js from the cards' own attributes. That is equivalent to the spec's build-time `mp`, and FE-A's builder stays untouched.
+  - **Default view:** the top 30 by priority (12 on phones) inside the city core. The last view per city is kept in sessionStorage (try/catch). `#p=` opens selected at zoom ≥ 15. An empty-map click clears the selection.
+  - **Placement:** pins never sit under the chip row, the carousel, a map control or the List pill.
+  - **Phones:** no + / − (pinch).
+  - **Probe-rule changes for QA to ratify:**
+    1. `test-beta.js` "one marker per pinned place" now counts the canvas dots (one each). A new check: ≤ 17 marker nodes and no bare-number marker.
+    2. `metrics.js` B-09 also accepts named pins, because the map now carries no numbers by spec.
+    3. `atlas-ms.js` hover and pin checks target the labelled pins (`.pp[data-id]`); count bubbles are retired. New slice-1 acceptance checks.
+  - **Gates:** validate + `npm test` + `beta:check` PASS; `atlas-ms.js` 117/117; w2 map + hubs 39/39.
+  - **Budget:** Tokyo Atlas 1440 ≈ 616 KB / 2,604 nodes; 390@3× ≈ 904 KB / 2,574 nodes.
