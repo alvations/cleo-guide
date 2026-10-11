@@ -203,6 +203,28 @@
      "status": "open",
      "statusSource": "synthetic test fixture — not a real place",
      "statusChecked": "2026-01-01"
+    },
+    "Haus Probe Cafe": {
+     "address": "Probestraße 12a, 99999 Testdorf, Germany",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Marina Test Tower": {
+     "address": "1 Test Bay Road, Singapore 099999",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
     }
    }
   }
@@ -569,6 +591,27 @@
      "extratags": {}
     }
    ]
+  },
+  {
+   "host": "www.onemap.gov.sg",
+   "params": {
+    "searchVal": "099999"
+   },
+   "body": {
+    "found": 1,
+    "results": [
+     {
+      "SEARCHVAL": "MARINA TEST TOWER",
+      "BLK_NO": "1",
+      "ROAD_NAME": "TEST BAY ROAD",
+      "BUILDING": "MARINA TEST TOWER",
+      "ADDRESS": "1 TEST BAY ROAD MARINA TEST TOWER SINGAPORE 099999",
+      "POSTAL": "099999",
+      "LATITUDE": "0.50550",
+      "LONGITUDE": "-30.50550"
+     }
+    ]
+   }
   }
  ]
 }

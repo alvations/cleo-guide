@@ -288,16 +288,101 @@ matters for public businesses.
 `low`. Useful as a cheap **wrong-town / wrong-street check** for the US backlog (Miami, Orlando, Chicago, DC, Erie…)
 using one batch call per city. Never a pin.
 
+#### Luxembourg, France, Belgium, Netherlands (for the Saarland and Aachen regions; researched 2026-10-11)
+
+Same caveat as above: these come from search excerpts, and anything marked **unconfirmed** must be read on the live
+page before use. All four are **bulk address files or keyless services**, so they are address points (`gov-address`,
+graded `med`), never named places.
+
+##### Luxembourg: CACLR + BD-Adresses (ACT)
+
+**Data.**
+- The national register of localities and streets (CACLR) holds official street names, house numbers and
+  postcodes, but **no coordinates**.
+- **BD-Adresses** is the subset of those addresses enriched with coordinates, georeferenced from the cadastral
+  parcel ([data.public.lu: CACLR](https://data.public.lu/en/datasets/registre-national-des-localites-et-des-rues)).
+
+**Key and rate.** No key; a one-off download.
+
+**Licence.**
+- CACLR is **CC0** (updated 2025-03-05).
+- BD-Adresses is listed as CC0 on its page, but a third party lists CC BY 1.0, so **unconfirmed**.
+- The cadastral plan (PCN) it is based on is CC BY 4.0.
+
+**Verdict. Phase 2.** Use BD-Adresses for the Luxembourg part of the Saarland region, after confirming the licence.
+
+##### France: Base Adresse Nationale (BAN)
+
+**Data.**
+- National address points, as daily CSV exports on adresse.data.gouv.fr ("données nationales").
+- Also a geocoder, now on the IGN Géoplateforme. The old `api-adresse.data.gouv.fr` was **decommissioned at the end
+  of January 2026** ([CNIG, June 2026](https://cnig.gouv.fr/IMG/pdf/cnig_gt_assurances_19062026.pdf)).
+
+**Key and rate.**
+- No key.
+- The old API allowed 50 requests per second per IP; the Géoplateforme quota is **unconfirmed**. Prefer the bulk
+  CSV for one département.
+
+**Licence.** API replies label it **ETALAB-2.0**; a 2017 page says ODbL. **Unconfirmed**: read adresse.data.gouv.fr.
+
+**Verdict. Phase 2.** Use the département CSV for Moselle (Metz) in the Saarland region.
+
+##### Belgium: BeST Address (the regional address registers, merged by BOSA)
+
+**Data.**
+- Address points for all three regions, in Lambert 72 (EPSG:31370) coordinates
+  ([BeST TechSpec](https://urbisdownload.datastore.brussels/BeSt/TechSpec/BeStAddress_TechSpec_EN20240601.pdf)).
+- Statbel also publishes a consolidated CSV/SQLite file with X-Y coordinates
+  ([Statbel 2024](https://statbel.fgov.be/en/news/open-data-address-files-and-statistical-sectors-2024)).
+
+**Key and rate.** No key; a one-off download.
+
+**Licence. Mixed by region**
+([transportdata.be](https://www.transportdata.be/dataset/address-points-belgium-best-address)):
+- Brussels: UrbIS licence on the national entry, but **CC0** on the Brussels metadata
+  ([Geobru](https://geobru-geonetwork.irisnet.be/geonetwork/srv/api/records/a8c9ccde-5c2b-11ed-913a-900f0cda5d5c)),
+  so **unconfirmed**.
+- Flanders: free-reuse licence.
+- Wallonia: CC BY 4.0.
+- In every case, the custodian must be named on public use.
+
+**Verdict. Phase 2.** Covers the Belgian cities (Antwerp, Ghent, Bruges, Brussels, Liège) and the Belgian part of
+Aachen. It **needs a Lambert 72 → WGS84 conversion**, which is not built yet.
+
+##### Netherlands: PDOK Locatieserver (BAG)
+
+**Data.** A geocoding service over the national address and building register (BAG) and other sources
+([PDOK wiki: API Locatieserver](https://github.com/PDOK/locatieserver/wiki/API-Locatieserver)).
+
+**Key and rate.** No key seen; the rate limit is **unconfirmed**.
+
+**Licence.** Most PDOK data is described as **CC0** by a third-party catalogue
+([atlas.co](https://atlas.co/data-portals/pdok/)); **unconfirmed** for the Locatieserver itself.
+
+**Verdict. Phase 2,** after reading PDOK's terms. Covers the Dutch part of the Aachen region (Maastricht, Heerlen,
+Vaals).
+
 #### Coverage of the biggest backlogs
 
 | backlog | rows (default scope) | phase-1 sources (in the prototype) | phase-2 addition |
 |---|---|---|---|
 | Singapore | 712 | Wikidata, Wikipedia, Nominatim, Overpass, official sites | **OneMap**, needs a free token, so the owner decides (§ 7, Q5) |
-| Saarland region (Saarland, Rhineland-Palatinate, Luxembourg, France) | 409 | same | **LVGL Saarland** (66xxx) + **LVermGeo RLP** (54–57xxx, 67xxx). Luxembourg and France not yet researched. |
+| Saarland region (Saarland, Rhineland-Palatinate, Luxembourg, France) | 409 | same | **LVGL Saarland** (66xxx) + **LVermGeo RLP** (54–57xxx, 67xxx) + Luxembourg **BD-Adresses** + France **BAN** (Moselle) |
 | Okinawa | 286 | same; OSM coverage in Okinawa is uneven | **Address Base Registry**, as a guard only |
 | Rhineland (Cologne, Düsseldorf, Bonn) | 270 | same | **Geobasis NRW** house coordinates (dl-de/zero) |
-| Aachen (incl. Belgium and Netherlands) | 202 | same | **Geobasis NRW** for 52xxx; the Belgian and Dutch parts not yet researched |
+| Aachen (incl. Belgium and Netherlands) | 202 | same | **Geobasis NRW** for 52xxx; **BeST** (Belgium, needs Lambert 72) and **PDOK** (Netherlands) |
 | San Francisco, Orlando, Chicago and other US cities | 183, 149, 122… | same | **Census Geocoder**, as a guard only |
+
+**Prototype status (59c0144b).**
+
+| adapter | flag | what it does |
+|---|---|---|
+| German house-coordinate files | `--house-file <path>[::licence]` | Header-driven: `STN/HNR/ADZ/PLZ/ONM/OST/NORD` and aliases; UTM 32 or lat/lng. Exact postcode + street + number → `gov-address`, graded `med`. |
+| Japan Address Base Registry | `--abr-file <path>` | Wrong-town guard notes only; never proposes a pin |
+| OneMap | — | Postal-code search; reads `ONEMAP_EMAIL` / `ONEMAP_PASSWORD` if set. Without them it is skipped with a logged note; the token is never logged or reported. |
+
+The same `gov-address` path will take the French, Luxembourg and Dutch files. The Belgian file first needs a
+Lambert 72 converter.
 
 **Not covered by any phase-2 source.** Restaurants without a Wikidata item, an OSM object or schema.org markup. That
 tail stays with the WebSearch waves and `tools/geocode-helper.html`.
