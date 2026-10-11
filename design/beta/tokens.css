@@ -84,9 +84,10 @@
   --fs-lead: 17px;  --lh-lead: 1.5;
   --fs-body: 16px;  --lh-body: 1.55;   /* ≥ 16 px body for every reader */
   --fs-sm:   14px;  --lh-sm:   1.45;
-  --fs-xs:   12.5px;--lh-xs:   1.35;
+  --fs-xs:   12px;  --lh-xs:   1.35;
   --fs-meta: 13px;
-  --fs-ui:   15px;
+  --fs-ui:   14px;                     /* = --fs-sm: five steps between 12 and 17 px (12 · 13 · 14 · 16 · 17), ROUND-6 gap #3 */
+  --fs-brand: 22px;                    /* the wordmark */
   --fw-ui: 400; --fw-ui-strong: 600; --fw-display: 600;
   --track-eyebrow: .04em;
   --track-display: -.024em;
@@ -119,6 +120,10 @@
   --ease-out:    cubic-bezier(.2, .8, .2, 1);
   --ease-in-out: cubic-bezier(.6, 0, .2, 1);
   --ease-spring: cubic-bezier(.34, 1.56, .64, 1);   /* the heart pop only */
+  /* the signature moment (ROUND-6 gap #1, design/beta/style/v2/MOTION.md): the tapped cover or pin grows into the sheet */
+  --dur-grow: 340ms;                                  /* ≤ 400 ms */
+  --ease-grow: cubic-bezier(.2, .9, .1, 1);           /* fast out of the tap, long soft landing */
+  --dur-pop: 320ms;                                   /* the heart pop (uses --ease-spring) */
 
   /* ---- Sizing ---- */
   --tap: 44px;
@@ -168,5 +173,5 @@
 /* ---------------- end city skins ---------------- */
 
 @media (prefers-reduced-motion: reduce) {
-  :root { --dur-1: 0ms; --dur-2: 0ms; --dur-3: 0ms; --dur-4: 0ms; }
+  :root { --dur-1: 0ms; --dur-2: 0ms; --dur-3: 0ms; --dur-4: 0ms; --dur-grow: 0ms; --dur-pop: 0ms; }
 }

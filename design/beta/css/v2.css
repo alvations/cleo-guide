@@ -34,7 +34,7 @@
 ::selection { background: var(--accent-wash); color: var(--ink); }
 
 /* ---------- V2.1 brand & top bar: paper, a hairline, no blur, no night variant ---------- */
-:root .brand b, :root [data-cleo-shell=topbar] .brand b { font: 600 23px/1 var(--font-display); font-style: normal; letter-spacing: -.035em; color: var(--ink); }
+:root .brand b, :root [data-cleo-shell=topbar] .brand b { font: 600 var(--fs-lead)/1 var(--font-display); font-style: normal; letter-spacing: -.035em; color: var(--ink); }
 :root .brand .mark { color: var(--accent); }
 :root .brand small, :root .brand .sub { color: var(--ink-3); font-weight: 400; }
 :root .topbar, :root .topbar.on-night { background: color-mix(in srgb, var(--paper) 96%, transparent); color: var(--ink); border-bottom: 1px solid var(--line);
@@ -196,11 +196,31 @@
    closed place, never invented) and the heart "pop" ring. No gradient, no glow, no confetti. .sticker is the component
    FE-A / FE-B put on card media (top-left, like the marketplace's badge); .tier.t1 picks it up where it already exists. */
 :root .sticker, :root .tier.t1:not(.lg) { display: inline-flex; align-items: center; gap: 5px; background: var(--sun-wash); color: var(--on-sun-wash);
-  font: 600 12px/1 var(--font-ui); letter-spacing: .01em; padding: 6px 10px; border-radius: var(--r-pill); box-shadow: none; }
+  font: 600 var(--fs-xs)/1 var(--font-ui); letter-spacing: .01em; padding: 6px 10px; border-radius: var(--r-pill); box-shadow: none; }
 :root .sticker .ico, :root .tier.t1:not(.lg) .ico { width: 13px; height: 13px; color: currentColor; }
 :root :is(.cover, .pl-cover) .sticker { position: absolute; top: 12px; left: 12px; z-index: 2; background: color-mix(in srgb, var(--surface) 94%, transparent); color: var(--ink); }
 :root .heart[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--sun-wash), var(--shadow-sm); }
 @media (prefers-reduced-motion: no-preference) {
-  :root .heart[aria-pressed="true"] svg { animation: v2-pop var(--dur-3) var(--ease-spring) 1; }
+  :root .heart[aria-pressed="true"] svg { animation: v2-pop var(--dur-pop) var(--ease-spring) 1; }
   @keyframes v2-pop { 0% { transform: scale(.7); } 60% { transform: scale(1.18); } 100% { transform: scale(1); } }
+}
+
+/* ---------- V2.15 line breaks (ROUND-6 gap #3c): no single-word last lines on headings, deks, stat lines, subtitles ---------- */
+:root :is(h1, h2, h3, .d-hero, .d1, .d2, .d3, .gc-n, .pl-n) { text-wrap: balance; }
+:root :is(p, .dek, .facts, .sub, .g-lead, .g-kick, .lead, .blurb, .area-sub, .gc-w, .rail-i .t, .rail-i .d, .why) { text-wrap: pretty; }
+
+/* ---------- V2.16 the signature moment: the tapped cover or pin grows into the sheet (ROUND-6 gap #1; spec MOTION.md) ----------
+   FE-A owns the trigger: give the tapped media `view-transition-name: cleo-grow`, open the sheet inside
+   document.startViewTransition(), and give the sheet's media the same name. Browsers without view transitions get the
+   .v2-grow FLIP fallback (FE-A sets --gx/--gy/--gs from the tapped rect). Nothing autoplays; reduced motion = no animation. */
+::view-transition-group(cleo-grow) { animation-duration: var(--dur-grow); animation-timing-function: var(--ease-grow); }
+::view-transition-old(cleo-grow), ::view-transition-new(cleo-grow) { animation-duration: var(--dur-grow); animation-timing-function: var(--ease-grow); height: 100%; object-fit: cover; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: var(--dur-2); }
+@media (prefers-reduced-motion: no-preference) {
+  :root .v2-grow { animation: v2-grow var(--dur-grow) var(--ease-grow) 1 both; transform-origin: 0 0; }
+  @keyframes v2-grow { from { transform: translate(var(--gx, 0), var(--gy, 24px)) scale(var(--gs, .96)); opacity: .6; } to { transform: none; opacity: 1; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+  :root .v2-grow { animation: none !important; }
 }
