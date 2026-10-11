@@ -1131,3 +1131,14 @@ Append-only. One entry per session per wave: date, lane, session id, what change
       - desktop 1,727 KB raw / 610 KB transfer; phone 2,015 KB raw / 899 KB transfer;
       - 2,348 DOM nodes; FCP 204 ms (300 ms at 4×).
     - Gates all PASS; `atlas-ms.js` 98/98; w2 map + hubs 39/39.
+  - **Type (designer's notes):** atlas.css has no raw font sizes left. The pins, clusters, rank badge, credit link, preview name and caption all use tokens, and the OSM credit went from 11 px up to `--fs-xs`, at or above the 12 px floor.
+  - **Budget, measured the orchestrator's way** (Tokyo `#view=atlas`, network idle + 2 s, no scroll; transfer = gzip text + images):
+
+    | Viewport | Tiles | Transfer | Nodes | Cards |
+    |---|---|---|---|---|
+    | 1440 | blocked | 612 KB | 2,422 | 40 |
+    | 1440 | stub | 612 KB | 2,693 | 40 |
+    | 390@3× | blocked | 1,532 KB | 2,453 | 41 |
+    | 390@3× | stub | 900 KB | 2,616 | 41 |
+
+    All are within ≤ 2,000 KB and ≤ 3,000 nodes. Blocked on the phone is the heaviest, because the first server cards' `sizes` picks the 960w copy at 3×.
