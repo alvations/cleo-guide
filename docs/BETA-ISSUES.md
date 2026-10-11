@@ -116,6 +116,21 @@ The QA lane builds and keeps this table from every source listed above, starting
 | IMG-R2 | orchestrator relay (imagery pilots review) | Refusal: Nihonbashi (depicts mismatch) | imagery | in progress | — | refusal logged; the photo was already absent at 63805e3e |
 | IMG-R3 | orchestrator relay (imagery pilots review) | Refusal: MacRitchie (info-board signage) | imagery | in progress | — | — |
 | PANEL-R0-tonight | design/beta/atlas/PANEL-R0.md | "Tonight" / open-now request | designer | stated gap | cd327e9f | opening hours are not sourced, so there is no open-now filter (W9 refusals) |
+| PERF-01 | BETA-PERF-AUDIT | `npm test` wall 392 s serial → parallel pool of the same 13 suites | platform | fixed (claimed) | fc861679 | probe: `npm test` timing table (110–154 s) |
+| PERF-02 | BETA-PERF-AUDIT | Build 5.6 s / `beta:check` 5.3 s, deterministic — measured, no change | platform | stated gap (no change needed) | — | `npm run beta`, `beta:check` |
+| PERF-03 | BETA-PERF-AUDIT | INP collection filter (Tokyo, 4× CPU) 960/1,064 ms → ≈ 450–520/580 ms (one batched `cleo:stamped`) | platform | in progress (rest = PERF-08) | fc861679 | `npm run beta:perf` inp rows |
+| PERF-04 | BETA-PERF-AUDIT | First "open a place" download 104 KB → 14 KB gzip (`data/links/<page>.json`) | platform (+ FE-A sheet.js) | fixed (claimed) | fc861679 | test-beta "data/links … == the page dataset"; browser fetch list |
+| PERF-05 | BETA-PERF-AUDIT | CI: npm/Playwright caches; fetch-unsplash skips rebuild when nothing new (was 4 m 58 s of 5 m 55 s) | platform (orchestrator owns workflows) | fixed (claimed) | fc861679 | next Actions run step timings |
+| PERF-06 | BETA-PERF-AUDIT | CLS Gallery phone 0.29–0.34 (rail/toolbar revealed by JS; rows built client-side) | FE-A | open | — | `npm run beta:perf` load rows |
+| PERF-07 | BETA-PERF-AUDIT | CLS Atlas first load desktop 1.05–1.57, phone 0.18 (layout keyed on classes added after load) | Atlas lane | open | — | `npm run beta:perf` load rows |
+| PERF-08 | BETA-PERF-AUDIT | INP switch to Atlas phone ≈ 1.6 s / desktop ≈ 0.5 s; filter ≈ 0.5 s (lens stamps every card; msArea stamps the area) | Atlas lane + FE-A + platform | open | — | `npm run beta:perf` inp rows |
+| PERF-09 | BETA-PERF-AUDIT | LCP ≤ 1.2 s on every page/viewport at 4× CPU (local, rendering share) | platform | meets target | — | `npm run beta:perf` load rows |
+| PERF-10 | BETA-PERF-AUDIT | Font preload tried: landing LCP worse (372→620 ms phone) — reverted | platform | won't fix (measured worse) | — | `beta:perf` before/after in the audit |
+| PERF-11 | BETA-PERF-AUDIT | CSS after prune: cleo 193.7 KB / 34 KB gz; lane sheets 1.6 KB dead (reported) | platform | stated gap (no change) | e83b6cc3 | `css-dead.py`, test-beta cleo.css budget |
+| PERF-12 | BETA-PERF-AUDIT | Data payloads (places 2.2 MB gz lazy, search 205 KB gz lazy, share cards unfurl-only) — measured, compact | platform | stated gap (no change) | — | sizes in the audit |
+| PERF-13 | BETA-PERF-AUDIT | SW cache keyed by build hash wipes offline cities on every deploy | platform (W9-8) | open | — | to add: offline-pack survives a rebuild test |
+| PERF-14 | BETA-PERF-AUDIT | Phone @3× photos: Tokyo first load 930 → 590 KB; no 960w in < 200 px slots | platform + imagery | fixed (claimed) | e83b6cc3 | `npm run beta:qa:w8p` |
+| PERF-15 | BETA-PERF-AUDIT | Eager JS 40.45 → 27.4 KB gzip; #p= deep link 12,459 → ≈ 2.2 k nodes | platform | fixed (claimed) | eb47e76 | test-beta budgets; `beta:qa:w8p`/perf probes |
 
 ### Register state · 63805e3e · QA register keeper (session_017FLWXa5zgGWvqNo4C3UsvH)
 
