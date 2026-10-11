@@ -1,0 +1,2387 @@
+{
+ "head": "2f227631252db2a90fd7e76541365a151871ac99",
+ "checks": [
+  {
+   "group": "phone",
+   "name": "cleveland.html: Atlas opens map-first (map ≥ 95 % wide, ≥ 70 % tall, Leaflet mounted)",
+   "ok": true,
+   "evidence": {
+    "map": {
+     "x": 0,
+     "y": 60,
+     "w": 390,
+     "h": 784,
+     "b": 844,
+     "r": 390
+    },
+    "det": "peek"
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cleveland.html: tray at peek shows the area chip and the first ranked place",
+   "ok": true,
+   "evidence": {
+    "det": "peek",
+    "chip": "Downtown & The Flats 42",
+    "first": "Chess Collection — Cleveland Public Libr",
+    "rank": "1",
+    "trayTop": 620
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cleveland.html: the city is named on the first screen",
+   "ok": false,
+   "evidence": {
+    "city": "Cleveland",
+    "h1Visible": false,
+    "namedInChrome": false
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cleveland.html: map/tray controls ≥ 44 × 44 px (attribution links reported apart)",
+   "ok": true,
+   "evidence": {
+    "under44": [],
+    "attributionLinks": 2
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cleveland.html: keyboard — Enter on the grab: peek→half→full; Esc: full→half→peek; ring on the grab",
+   "ok": true,
+   "evidence": [
+    [
+     "focus",
+     "peek",
+     620,
+     true
+    ],
+    [
+     "Enter",
+     "half",
+     405
+    ],
+    [
+     "Enter",
+     "full",
+     124
+    ],
+    [
+     "Esc",
+     "half",
+     405
+    ],
+    [
+     "Esc",
+     "peek",
+     620
+    ]
+   ]
+  },
+  {
+   "group": "phone",
+   "name": "cleveland.html: D-36 — the rail is on screen at the half detent (one step up)",
+   "ok": true,
+   "evidence": {
+    "rail": {
+     "x": 0,
+     "y": 631,
+     "w": 390,
+     "h": 149,
+     "b": 780,
+     "r": 390
+    }
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cleveland.html: \"List\" opens the full tray with every card; Back steps it down and stays on the page",
+   "ok": true,
+   "evidence": {
+    "afterList": "full",
+    "cardsInTray": 194,
+    "afterBack": "half",
+    "samePage": true,
+    "view": "atlas"
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cleveland.html: independent B-08 — no visible title covered (peek, half, half scrolled, full scrolled)",
+   "ok": false,
+   "evidence": {
+    "peek": {
+     "seen": 1,
+     "covered": 0,
+     "eg": []
+    },
+    "half": {
+     "seen": 0,
+     "covered": 0,
+     "eg": []
+    },
+    "halfScrolled": {
+     "seen": 2,
+     "covered": 1,
+     "eg": [
+      "grab over The Arcade (Old Arcade)"
+     ]
+    },
+    "fullScrolled": {
+     "seen": 2,
+     "covered": 1,
+     "eg": [
+      "toolbar over Rock & Roll Hall of Fame"
+     ]
+    }
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cleveland.html: clustering is a partition — every pinned place drawn or in exactly one bubble, bubble counts add up",
+   "ok": true,
+   "evidence": {
+    "zoom": 11,
+    "shown": 194,
+    "drawn": 49,
+    "clustered": 145,
+    "overlap": 0,
+    "lost": 0,
+    "bubbles": 12,
+    "bubbleSum": 145
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cleveland.html: a tap on a count bubble zooms in",
+   "ok": true,
+   "evidence": {
+    "z0": 11,
+    "z1": 13
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cleveland.html: at zoom ≥ 13 no bubbles — every pin drawn",
+   "ok": true,
+   "evidence": {
+    "zoom": 13,
+    "bubbles": 0,
+    "clustered": 0,
+    "drawn": 194,
+    "shown": 194
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cleveland.html: pin tap → sheet with Close; Esc closes; Back closes and stays in Atlas",
+   "ok": true,
+   "evidence": {
+    "t1": {
+     "sheet": true,
+     "h": 322,
+     "dialog": "dialog",
+     "close": true
+    },
+    "escClosed": true,
+    "t2": {
+     "sheet": true,
+     "h": 303,
+     "dialog": "dialog",
+     "close": true
+    },
+    "back": {
+     "closed": true,
+     "view": "atlas",
+     "url": "/beta/cleveland.html"
+    }
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cleveland.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "desktop",
+   "name": "cleveland.html: map ≥ 60 % of the width and fills the first screen",
+   "ok": true,
+   "evidence": {
+    "mapPct": 64,
+    "listPct": 36,
+    "map": {
+     "x": 518,
+     "y": 181,
+     "w": 922,
+     "h": 719,
+     "b": 900,
+     "r": 1440
+    }
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cleveland.html: area legend on the map",
+   "ok": true,
+   "evidence": {
+    "items": 7,
+    "open": true
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cleveland.html: locate-me is opt-in — no location read on load",
+   "ok": true,
+   "evidence": {
+    "geoCalls": 0
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cleveland.html: every numbered pin carries its card's rank",
+   "ok": true,
+   "evidence": {
+    "checked": 194,
+    "noLabel": 0,
+    "mismatch": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cleveland.html: card hover → its pin (or bubble) lights",
+   "ok": true,
+   "evidence": {
+    "id": "chess-collection-cleveland-public-library-main-library",
+    "r0": 7,
+    "r1": 10,
+    "bubbleHot": false
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cleveland.html: pin click → its card is focused and in view in the list pane",
+   "ok": true,
+   "evidence": {
+    "id": "land-of-the-warres",
+    "cardTop0": 31422,
+    "focus": true,
+    "inPane": true,
+    "top": 325
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cleveland.html: independent B-06 — wheel over the list moves the list; the map stays in view",
+   "ok": true,
+   "evidence": {
+    "paneScroll": 3000,
+    "winScroll": 0,
+    "mapTop": 181,
+    "mapBottom": 900,
+    "mapInView": true
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cleveland.html: area lens fits the map to that area (≥ 90 % of its pins in view)",
+   "ok": true,
+   "evidence": {
+    "a": "UC",
+    "pins": 59,
+    "inBounds": 59,
+    "zoom": 12
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cleveland.html: \"Must see\" on the map — list and pins follow the t=1 lens; a second tap restores all",
+   "ok": true,
+   "evidence": {
+    "n0": 194,
+    "hash": "#t=1",
+    "shown": 47,
+    "nonT1": 0,
+    "pins": 47,
+    "pinnedShown": 47,
+    "pressed": "true",
+    "n2": 194
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cleveland.html: base switch cycles Street → Light → Satellite (OSM / Esri)",
+   "ok": true,
+   "evidence": [
+    "Light",
+    "Satellite",
+    "Street"
+   ]
+  },
+  {
+   "group": "desktop",
+   "name": "cleveland.html: locate-me reads the position only on tap, draws it, stores nothing",
+   "ok": true,
+   "evidence": {
+    "geo": 1,
+    "me": 1,
+    "pressed": "true",
+    "stored": []
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cleveland.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "desktop",
+   "name": "cleveland.html: deep link #view=atlas&p= opens the place and the map shows its pin",
+   "ok": true,
+   "evidence": {
+    "id": "dunham-tavern-museum-and-gardens",
+    "sheet": true,
+    "inView": true,
+    "view": "atlas"
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cleveland.html mobile: Atlas #p= opens the sheet for every one of 194 places, Atlas kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cleveland.html mobile: Atlas list holds every card (194); search by name shows the place (25 samples)",
+   "ok": true,
+   "evidence": {
+    "list": 194,
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cleveland.html desktop: Atlas #p= opens the sheet for every one of 194 places, Atlas kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cleveland.html desktop: Atlas list holds every card (194); search by name shows the place (25 samples)",
+   "ok": true,
+   "evidence": {
+    "list": 194,
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html mobile: Leaflet blocked — every card, a card on screen, 0 JS errors, only the map missing",
+   "ok": true,
+   "evidence": {
+    "cards": 194,
+    "leaflet": false,
+    "view": "atlas",
+    "firstOnScreen": "Chess Collection — Cleveland Public Libr",
+    "mapText": "The map appears when it can load. Every place is listed here either way.",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html phone: Leaflet blocked — \"List\" still opens the list (194)",
+   "ok": true,
+   "evidence": {
+    "n": 194
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cleveland.html desktop: Leaflet blocked — every card, a card on screen, 0 JS errors, only the map missing",
+   "ok": true,
+   "evidence": {
+    "cards": 194,
+    "leaflet": false,
+    "view": "atlas",
+    "firstOnScreen": "Chess Collection — Cleveland Public Libr",
+    "mapText": "The map appears when it can load. Every place is listed here either way.",
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "cleveland.html mobile: storage throws — Atlas renders, map, base switch / Must see / tray work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "cards": 194,
+    "leaflet": true,
+    "hash": "#t=1",
+    "det": "half",
+    "base": "Light",
+    "acts": [
+     ".m-base",
+     ".m-must",
+     ".grab"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "cleveland.html desktop: storage throws — Atlas renders, map, base switch / Must see / tray work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "cards": 194,
+    "leaflet": true,
+    "hash": "#t=1",
+    "det": null,
+    "base": "Light",
+    "acts": [
+     ".m-base",
+     ".m-must"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html mobile: every Atlas map / tray control shows a focus ring (24 controls)",
+   "ok": false,
+   "evidence": {
+    "bad": [
+     "not focusable: am-ctl m-legend leaflet-control LegendDowntown & T"
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html desktop: every Atlas map / tray control shows a focus ring (11 controls)",
+   "ok": false,
+   "evidence": {
+    "bad": [
+     "not focusable: am-ctl m-legend leaflet-control LegendDowntown & T"
+    ]
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/tokyo.html: Atlas opens map-first (map ≥ 95 % wide, ≥ 70 % tall, Leaflet mounted)",
+   "ok": true,
+   "evidence": {
+    "map": {
+     "x": 0,
+     "y": 60,
+     "w": 390,
+     "h": 784,
+     "b": 844,
+     "r": 390
+    },
+    "det": "peek"
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/tokyo.html: tray at peek shows the area chip and the first ranked place",
+   "ok": true,
+   "evidence": {
+    "det": "peek",
+    "chip": "Chiyoda-ku 43",
+    "first": "Imperial Palace East Gardens (皇居東御苑)",
+    "rank": "1",
+    "trayTop": 620
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/tokyo.html: the city is named on the first screen",
+   "ok": false,
+   "evidence": {
+    "city": "Tokyo",
+    "h1Visible": false,
+    "namedInChrome": false
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/tokyo.html: map/tray controls ≥ 44 × 44 px (attribution links reported apart)",
+   "ok": true,
+   "evidence": {
+    "under44": [],
+    "attributionLinks": 2
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/tokyo.html: keyboard — Enter on the grab: peek→half→full; Esc: full→half→peek; ring on the grab",
+   "ok": true,
+   "evidence": [
+    [
+     "focus",
+     "peek",
+     620,
+     true
+    ],
+    [
+     "Enter",
+     "half",
+     405
+    ],
+    [
+     "Enter",
+     "full",
+     124
+    ],
+    [
+     "Esc",
+     "half",
+     405
+    ],
+    [
+     "Esc",
+     "peek",
+     620
+    ]
+   ]
+  },
+  {
+   "group": "phone",
+   "name": "cities/tokyo.html: D-36 — the rail is on screen at the half detent (one step up)",
+   "ok": true,
+   "evidence": {
+    "rail": {
+     "x": 0,
+     "y": 631,
+     "w": 390,
+     "h": 138,
+     "b": 769,
+     "r": 390
+    }
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/tokyo.html: \"List\" opens the full tray with every card; Back steps it down and stays on the page",
+   "ok": true,
+   "evidence": {
+    "afterList": "full",
+    "cardsInTray": 488,
+    "afterBack": "half",
+    "samePage": true,
+    "view": "atlas"
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/tokyo.html: independent B-08 — no visible title covered (peek, half, half scrolled, full scrolled)",
+   "ok": false,
+   "evidence": {
+    "peek": {
+     "seen": 1,
+     "covered": 0,
+     "eg": []
+    },
+    "half": {
+     "seen": 0,
+     "covered": 0,
+     "eg": []
+    },
+    "halfScrolled": {
+     "seen": 2,
+     "covered": 1,
+     "eg": [
+      "BUTTON over Kanda Myōjin (神田明神)"
+     ]
+    },
+    "fullScrolled": {
+     "seen": 2,
+     "covered": 1,
+     "eg": [
+      "chip over Isegen (いせ源)"
+     ]
+    }
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/tokyo.html: clustering is a partition — every pinned place drawn or in exactly one bubble, bubble counts add up",
+   "ok": true,
+   "evidence": {
+    "zoom": 11,
+    "shown": 488,
+    "drawn": 64,
+    "clustered": 424,
+    "overlap": 0,
+    "lost": 0,
+    "bubbles": 26,
+    "bubbleSum": 424
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/tokyo.html: a tap on a count bubble zooms in",
+   "ok": true,
+   "evidence": {
+    "z0": 11,
+    "z1": 13
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/tokyo.html: at zoom ≥ 13 no bubbles — every pin drawn",
+   "ok": true,
+   "evidence": {
+    "zoom": 13,
+    "bubbles": 0,
+    "clustered": 0,
+    "drawn": 488,
+    "shown": 488
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/tokyo.html: pin tap → sheet with Close; Esc closes; Back closes and stays in Atlas",
+   "ok": true,
+   "evidence": {
+    "t1": {
+     "sheet": true,
+     "h": 303,
+     "dialog": "dialog",
+     "close": true
+    },
+    "escClosed": true,
+    "t2": {
+     "sheet": true,
+     "h": 303,
+     "dialog": "dialog",
+     "close": true
+    },
+    "back": {
+     "closed": true,
+     "view": "atlas",
+     "url": "/beta/cities/tokyo.html"
+    }
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/tokyo.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "desktop",
+   "name": "cities/tokyo.html: map ≥ 60 % of the width and fills the first screen",
+   "ok": true,
+   "evidence": {
+    "mapPct": 64,
+    "listPct": 36,
+    "map": {
+     "x": 518,
+     "y": 181,
+     "w": 922,
+     "h": 719,
+     "b": 900,
+     "r": 1440
+    }
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/tokyo.html: area legend on the map",
+   "ok": true,
+   "evidence": {
+    "items": 16,
+    "open": false
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/tokyo.html: locate-me is opt-in — no location read on load",
+   "ok": true,
+   "evidence": {
+    "geoCalls": 0
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/tokyo.html: every numbered pin carries its card's rank",
+   "ok": true,
+   "evidence": {
+    "checked": 488,
+    "noLabel": 0,
+    "mismatch": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/tokyo.html: card hover → its pin (or bubble) lights",
+   "ok": true,
+   "evidence": {
+    "id": "imperial-palace-east-gardens",
+    "r0": 7,
+    "r1": 10,
+    "bubbleHot": false
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/tokyo.html: pin click → its card is focused and in view in the list pane",
+   "ok": true,
+   "evidence": {
+    "id": "yushima-seido",
+    "cardTop0": 31004,
+    "focus": true,
+    "inPane": true,
+    "top": 293
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/tokyo.html: independent B-06 — wheel over the list moves the list; the map stays in view",
+   "ok": true,
+   "evidence": {
+    "paneScroll": 3000,
+    "winScroll": 0,
+    "mapTop": 181,
+    "mapBottom": 900,
+    "mapInView": true
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/tokyo.html: area lens fits the map to that area (≥ 90 % of its pins in view)",
+   "ok": true,
+   "evidence": {
+    "a": "TAITO",
+    "pins": 44,
+    "inBounds": 44,
+    "zoom": 14
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/tokyo.html: \"Must see\" on the map — list and pins follow the t=1 lens; a second tap restores all",
+   "ok": true,
+   "evidence": {
+    "n0": 488,
+    "hash": "#t=1",
+    "shown": 177,
+    "nonT1": 0,
+    "pins": 177,
+    "pinnedShown": 177,
+    "pressed": "true",
+    "n2": 488
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/tokyo.html: base switch cycles Street → Light → Satellite (OSM / Esri)",
+   "ok": true,
+   "evidence": [
+    "Light",
+    "Satellite",
+    "Street"
+   ]
+  },
+  {
+   "group": "desktop",
+   "name": "cities/tokyo.html: locate-me reads the position only on tap, draws it, stores nothing",
+   "ok": true,
+   "evidence": {
+    "geo": 1,
+    "me": 1,
+    "pressed": "true",
+    "stored": []
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/tokyo.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "desktop",
+   "name": "cities/tokyo.html: deep link #view=atlas&p= opens the place and the map shows its pin",
+   "ok": true,
+   "evidence": {
+    "id": "tempura-otsuka",
+    "sheet": true,
+    "inView": true,
+    "view": "atlas"
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cities/tokyo.html mobile: Atlas #p= opens the sheet for every one of 488 places, Atlas kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cities/tokyo.html mobile: Atlas list holds every card (488); search by name shows the place (25 samples)",
+   "ok": true,
+   "evidence": {
+    "list": 488,
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cities/tokyo.html desktop: Atlas #p= opens the sheet for every one of 488 places, Atlas kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cities/tokyo.html desktop: Atlas list holds every card (488); search by name shows the place (25 samples)",
+   "ok": true,
+   "evidence": {
+    "list": 488,
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html mobile: Leaflet blocked — every card, a card on screen, 0 JS errors, only the map missing",
+   "ok": true,
+   "evidence": {
+    "cards": 488,
+    "leaflet": false,
+    "view": "atlas",
+    "firstOnScreen": "Imperial Palace East Gardens (皇居東御苑)",
+    "mapText": "The map appears when it can load. Every place is listed here either way.",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html phone: Leaflet blocked — \"List\" still opens the list (488)",
+   "ok": true,
+   "evidence": {
+    "n": 488
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/tokyo.html desktop: Leaflet blocked — every card, a card on screen, 0 JS errors, only the map missing",
+   "ok": true,
+   "evidence": {
+    "cards": 488,
+    "leaflet": false,
+    "view": "atlas",
+    "firstOnScreen": "Imperial Palace East Gardens (皇居東御苑)",
+    "mapText": "The map appears when it can load. Every place is listed here either way.",
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "cities/tokyo.html mobile: storage throws — Atlas renders, map, base switch / Must see / tray work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "cards": 488,
+    "leaflet": true,
+    "hash": "#t=1",
+    "det": "half",
+    "base": "Light",
+    "acts": [
+     ".m-base",
+     ".m-must",
+     ".grab"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "cities/tokyo.html desktop: storage throws — Atlas renders, map, base switch / Must see / tray work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "cards": 488,
+    "leaflet": true,
+    "hash": "#t=1",
+    "det": null,
+    "base": "Light",
+    "acts": [
+     ".m-base",
+     ".m-must"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/tokyo.html mobile: every Atlas map / tray control shows a focus ring (31 controls)",
+   "ok": false,
+   "evidence": {
+    "bad": [
+     "not focusable: am-ctl m-legend leaflet-control LegendChiyoda-kuCh"
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/tokyo.html desktop: every Atlas map / tray control shows a focus ring (11 controls)",
+   "ok": false,
+   "evidence": {
+    "bad": [
+     "not focusable: am-ctl m-legend leaflet-control LegendChiyoda-kuCh"
+    ]
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/newyork.html: Atlas opens map-first (map ≥ 95 % wide, ≥ 70 % tall, Leaflet mounted)",
+   "ok": true,
+   "evidence": {
+    "map": {
+     "x": 0,
+     "y": 60,
+     "w": 390,
+     "h": 784,
+     "b": 844,
+     "r": 390
+    },
+    "det": "peek"
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/newyork.html: tray at peek shows the area chip and the first ranked place",
+   "ok": true,
+   "evidence": {
+    "det": "peek",
+    "chip": "Manhattan 264",
+    "first": "The Metropolitan Museum of Art",
+    "rank": "1",
+    "trayTop": 620
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/newyork.html: the city is named on the first screen",
+   "ok": false,
+   "evidence": {
+    "city": "New",
+    "h1Visible": false,
+    "namedInChrome": false
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/newyork.html: map/tray controls ≥ 44 × 44 px (attribution links reported apart)",
+   "ok": true,
+   "evidence": {
+    "under44": [],
+    "attributionLinks": 2
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/newyork.html: keyboard — Enter on the grab: peek→half→full; Esc: full→half→peek; ring on the grab",
+   "ok": true,
+   "evidence": [
+    [
+     "focus",
+     "peek",
+     620,
+     true
+    ],
+    [
+     "Enter",
+     "half",
+     405
+    ],
+    [
+     "Enter",
+     "full",
+     124
+    ],
+    [
+     "Esc",
+     "half",
+     405
+    ],
+    [
+     "Esc",
+     "peek",
+     620
+    ]
+   ]
+  },
+  {
+   "group": "phone",
+   "name": "cities/newyork.html: D-36 — the rail is on screen at the half detent (one step up)",
+   "ok": true,
+   "evidence": {
+    "rail": {
+     "x": 0,
+     "y": 631,
+     "w": 390,
+     "h": 133,
+     "b": 765,
+     "r": 390
+    }
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/newyork.html: \"List\" opens the full tray with every card; Back steps it down and stays on the page",
+   "ok": true,
+   "evidence": {
+    "afterList": "full",
+    "cardsInTray": 508,
+    "afterBack": "half",
+    "samePage": true,
+    "view": "atlas"
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/newyork.html: independent B-08 — no visible title covered (peek, half, half scrolled, full scrolled)",
+   "ok": false,
+   "evidence": {
+    "peek": {
+     "seen": 1,
+     "covered": 0,
+     "eg": []
+    },
+    "half": {
+     "seen": 0,
+     "covered": 0,
+     "eg": []
+    },
+    "halfScrolled": {
+     "seen": 1,
+     "covered": 1,
+     "eg": [
+      "INPUT over Empire State Building"
+     ]
+    },
+    "fullScrolled": {
+     "seen": 3,
+     "covered": 1,
+     "eg": [
+      "grab over Rockefeller Center"
+     ]
+    }
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/newyork.html: clustering is a partition — every pinned place drawn or in exactly one bubble, bubble counts add up",
+   "ok": true,
+   "evidence": {
+    "zoom": 11,
+    "shown": 508,
+    "drawn": 54,
+    "clustered": 454,
+    "overlap": 0,
+    "lost": 0,
+    "bubbles": 30,
+    "bubbleSum": 454
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/newyork.html: a tap on a count bubble zooms in",
+   "ok": true,
+   "evidence": {
+    "z0": 11,
+    "z1": 13
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/newyork.html: at zoom ≥ 13 no bubbles — every pin drawn",
+   "ok": true,
+   "evidence": {
+    "zoom": 13,
+    "bubbles": 0,
+    "clustered": 0,
+    "drawn": 508,
+    "shown": 508
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/newyork.html: pin tap → sheet with Close; Esc closes; Back closes and stays in Atlas",
+   "ok": true,
+   "evidence": {
+    "t1": {
+     "sheet": true,
+     "h": 322,
+     "dialog": "dialog",
+     "close": true
+    },
+    "escClosed": true,
+    "t2": {
+     "sheet": true,
+     "h": 322,
+     "dialog": "dialog",
+     "close": true
+    },
+    "back": {
+     "closed": true,
+     "view": "atlas",
+     "url": "/beta/cities/newyork.html"
+    }
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/newyork.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "desktop",
+   "name": "cities/newyork.html: map ≥ 60 % of the width and fills the first screen",
+   "ok": true,
+   "evidence": {
+    "mapPct": 64,
+    "listPct": 36,
+    "map": {
+     "x": 518,
+     "y": 160,
+     "w": 922,
+     "h": 740,
+     "b": 900,
+     "r": 1440
+    }
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/newyork.html: area legend on the map",
+   "ok": true,
+   "evidence": {
+    "items": 9,
+    "open": true
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/newyork.html: locate-me is opt-in — no location read on load",
+   "ok": true,
+   "evidence": {
+    "geoCalls": 0
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/newyork.html: every numbered pin carries its card's rank",
+   "ok": true,
+   "evidence": {
+    "checked": 508,
+    "noLabel": 0,
+    "mismatch": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/newyork.html: card hover → its pin (or bubble) lights",
+   "ok": true,
+   "evidence": {
+    "id": "the-metropolitan-museum-of-art",
+    "r0": 7,
+    "r1": 10,
+    "bubbleHot": true
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/newyork.html: pin click → its card is focused and in view in the list pane",
+   "ok": true,
+   "evidence": {
+    "id": "fan-fan-doughnuts",
+    "cardTop0": 102077,
+    "focus": true,
+    "inPane": true,
+    "top": 324
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/newyork.html: independent B-06 — wheel over the list moves the list; the map stays in view",
+   "ok": true,
+   "evidence": {
+    "paneScroll": 3000,
+    "winScroll": 0,
+    "mapTop": 160,
+    "mapBottom": 900,
+    "mapInView": true
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/newyork.html: area lens fits the map to that area (≥ 90 % of its pins in view)",
+   "ok": true,
+   "evidence": {
+    "a": "BX",
+    "pins": 42,
+    "inBounds": 42,
+    "zoom": 12
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/newyork.html: \"Must see\" on the map — list and pins follow the t=1 lens; a second tap restores all",
+   "ok": true,
+   "evidence": {
+    "n0": 508,
+    "hash": "#t=1",
+    "shown": 97,
+    "nonT1": 0,
+    "pins": 97,
+    "pinnedShown": 97,
+    "pressed": "true",
+    "n2": 508
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/newyork.html: base switch cycles Street → Light → Satellite (OSM / Esri)",
+   "ok": true,
+   "evidence": [
+    "Light",
+    "Satellite",
+    "Street"
+   ]
+  },
+  {
+   "group": "desktop",
+   "name": "cities/newyork.html: locate-me reads the position only on tap, draws it, stores nothing",
+   "ok": true,
+   "evidence": {
+    "geo": 1,
+    "me": 1,
+    "pressed": "true",
+    "stored": []
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/newyork.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "desktop",
+   "name": "cities/newyork.html: deep link #view=atlas&p= opens the place and the map shows its pin",
+   "ok": true,
+   "evidence": {
+    "id": "jean-georges",
+    "sheet": true,
+    "inView": true,
+    "view": "atlas"
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cities/newyork.html mobile: Atlas #p= opens the sheet for every one of 508 places, Atlas kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cities/newyork.html mobile: Atlas list holds every card (508); search by name shows the place (25 samples)",
+   "ok": true,
+   "evidence": {
+    "list": 508,
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cities/newyork.html desktop: Atlas #p= opens the sheet for every one of 508 places, Atlas kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cities/newyork.html desktop: Atlas list holds every card (508); search by name shows the place (25 samples)",
+   "ok": true,
+   "evidence": {
+    "list": 508,
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html mobile: Leaflet blocked — every card, a card on screen, 0 JS errors, only the map missing",
+   "ok": true,
+   "evidence": {
+    "cards": 508,
+    "leaflet": false,
+    "view": "atlas",
+    "firstOnScreen": "The Metropolitan Museum of Art",
+    "mapText": "The map appears when it can load. Every place is listed here either way.",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html phone: Leaflet blocked — \"List\" still opens the list (508)",
+   "ok": true,
+   "evidence": {
+    "n": 508
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/newyork.html desktop: Leaflet blocked — every card, a card on screen, 0 JS errors, only the map missing",
+   "ok": true,
+   "evidence": {
+    "cards": 508,
+    "leaflet": false,
+    "view": "atlas",
+    "firstOnScreen": "The Metropolitan Museum of Art",
+    "mapText": "The map appears when it can load. Every place is listed here either way.",
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "cities/newyork.html mobile: storage throws — Atlas renders, map, base switch / Must see / tray work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "cards": 508,
+    "leaflet": true,
+    "hash": "#t=1",
+    "det": "half",
+    "base": "Light",
+    "acts": [
+     ".m-base",
+     ".m-must",
+     ".grab"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "cities/newyork.html desktop: storage throws — Atlas renders, map, base switch / Must see / tray work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "cards": 508,
+    "leaflet": true,
+    "hash": "#t=1",
+    "det": null,
+    "base": "Light",
+    "acts": [
+     ".m-base",
+     ".m-must"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/newyork.html mobile: every Atlas map / tray control shows a focus ring (38 controls)",
+   "ok": false,
+   "evidence": {
+    "bad": [
+     "not focusable: am-ctl m-legend leaflet-control LegendManhattanBro"
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/newyork.html desktop: every Atlas map / tray control shows a focus ring (47 controls)",
+   "ok": false,
+   "evidence": {
+    "bad": [
+     "not focusable: am-ctl m-legend leaflet-control LegendManhattanBro"
+    ]
+   }
+  },
+  {
+   "group": "phone",
+   "name": "Singapore/chinatown.html: Atlas opens map-first (map ≥ 95 % wide, ≥ 70 % tall, Leaflet mounted)",
+   "ok": true,
+   "evidence": {
+    "map": {
+     "x": 0,
+     "y": 60,
+     "w": 390,
+     "h": 784,
+     "b": 844,
+     "r": 390
+    },
+    "det": "peek"
+   }
+  },
+  {
+   "group": "phone",
+   "name": "Singapore/chinatown.html: tray at peek shows the area chip and the first ranked place",
+   "ok": true,
+   "evidence": {
+    "det": "peek",
+    "chip": "Chinatown & CBD 16",
+    "first": "Tian Tian Hainanese Chicken Rice",
+    "rank": "1",
+    "trayTop": 620
+   }
+  },
+  {
+   "group": "phone",
+   "name": "Singapore/chinatown.html: the city is named on the first screen",
+   "ok": true,
+   "evidence": {
+    "city": "Chinatown",
+    "h1Visible": false,
+    "namedInChrome": true
+   }
+  },
+  {
+   "group": "phone",
+   "name": "Singapore/chinatown.html: map/tray controls ≥ 44 × 44 px (attribution links reported apart)",
+   "ok": true,
+   "evidence": {
+    "under44": [],
+    "attributionLinks": 2
+   }
+  },
+  {
+   "group": "phone",
+   "name": "Singapore/chinatown.html: keyboard — Enter on the grab: peek→half→full; Esc: full→half→peek; ring on the grab",
+   "ok": true,
+   "evidence": [
+    [
+     "focus",
+     "peek",
+     620,
+     true
+    ],
+    [
+     "Enter",
+     "half",
+     405
+    ],
+    [
+     "Enter",
+     "full",
+     124
+    ],
+    [
+     "Esc",
+     "half",
+     405
+    ],
+    [
+     "Esc",
+     "peek",
+     620
+    ]
+   ]
+  },
+  {
+   "group": "phone",
+   "name": "Singapore/chinatown.html: D-36 — the rail is on screen at the half detent (one step up)",
+   "ok": true,
+   "evidence": {
+    "rail": {
+     "x": 0,
+     "y": 571,
+     "w": 390,
+     "h": 149,
+     "b": 720,
+     "r": 390
+    }
+   }
+  },
+  {
+   "group": "phone",
+   "name": "Singapore/chinatown.html: \"List\" opens the full tray with every card; Back steps it down and stays on the page",
+   "ok": true,
+   "evidence": {
+    "afterList": "full",
+    "cardsInTray": 16,
+    "afterBack": "half",
+    "samePage": true,
+    "view": "atlas"
+   }
+  },
+  {
+   "group": "phone",
+   "name": "Singapore/chinatown.html: independent B-08 — no visible title covered (peek, half, half scrolled, full scrolled)",
+   "ok": false,
+   "evidence": {
+    "peek": {
+     "seen": 1,
+     "covered": 0,
+     "eg": []
+    },
+    "half": {
+     "seen": 0,
+     "covered": 0,
+     "eg": []
+    },
+    "halfScrolled": {
+     "seen": 1,
+     "covered": 1,
+     "eg": [
+      "rail-i sig over Sri Mariamman Temple"
+     ]
+    },
+    "fullScrolled": {
+     "seen": 2,
+     "covered": 1,
+     "eg": [
+      "BUTTON over Thian Hock Keng Temple"
+     ]
+    }
+   }
+  },
+  {
+   "group": "phone",
+   "name": "Singapore/chinatown.html: clustering is a partition — every pinned place drawn or in exactly one bubble, bubble counts add up",
+   "ok": true,
+   "evidence": {
+    "zoom": 16,
+    "shown": 16,
+    "drawn": 16,
+    "clustered": 0,
+    "overlap": 0,
+    "lost": 0,
+    "bubbles": 0,
+    "bubbleSum": 0
+   }
+  },
+  {
+   "group": "phone",
+   "name": "Singapore/chinatown.html: at zoom ≥ 13 no bubbles — every pin drawn",
+   "ok": true,
+   "evidence": {
+    "zoom": 13,
+    "bubbles": 0,
+    "clustered": 0,
+    "drawn": 16,
+    "shown": 16
+   }
+  },
+  {
+   "group": "phone",
+   "name": "Singapore/chinatown.html: pin tap → sheet with Close; Esc closes; Back closes and stays in Atlas",
+   "ok": true,
+   "evidence": {
+    "t1": {
+     "sheet": true,
+     "h": 322,
+     "dialog": "dialog",
+     "close": true
+    },
+    "escClosed": true,
+    "t2": {
+     "sheet": true,
+     "h": 322,
+     "dialog": "dialog",
+     "close": true
+    },
+    "back": {
+     "closed": true,
+     "view": "atlas",
+     "url": "/beta/Singapore/chinatown.html"
+    }
+   }
+  },
+  {
+   "group": "phone",
+   "name": "Singapore/chinatown.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "desktop",
+   "name": "Singapore/chinatown.html: map ≥ 60 % of the width and fills the first screen",
+   "ok": true,
+   "evidence": {
+    "mapPct": 64,
+    "listPct": 36,
+    "map": {
+     "x": 518,
+     "y": 160,
+     "w": 922,
+     "h": 740,
+     "b": 900,
+     "r": 1440
+    }
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "Singapore/chinatown.html: area legend on the map",
+   "ok": true,
+   "evidence": {
+    "items": 4,
+    "open": true
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "Singapore/chinatown.html: locate-me is opt-in — no location read on load",
+   "ok": true,
+   "evidence": {
+    "geoCalls": 0
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "Singapore/chinatown.html: every numbered pin carries its card's rank",
+   "ok": true,
+   "evidence": {
+    "checked": 16,
+    "noLabel": 0,
+    "mismatch": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "Singapore/chinatown.html: card hover → its pin (or bubble) lights",
+   "ok": true,
+   "evidence": {
+    "id": "tian-tian-hainanese-chicken-rice",
+    "r0": 7,
+    "r1": 10,
+    "bubbleHot": false
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "Singapore/chinatown.html: pin click → its card is focused and in view in the list pane",
+   "ok": true,
+   "evidence": {
+    "id": "tian-tian-hainanese-chicken-rice",
+    "cardTop0": 552,
+    "focus": true,
+    "inPane": true,
+    "top": 296
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "Singapore/chinatown.html: independent B-06 — wheel over the list moves the list; the map stays in view",
+   "ok": true,
+   "evidence": {
+    "paneScroll": 3000,
+    "winScroll": 0,
+    "mapTop": 160,
+    "mapBottom": 900,
+    "mapInView": true
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "Singapore/chinatown.html: area lens fits the map to that area (≥ 90 % of its pins in view)",
+   "ok": true,
+   "evidence": {
+    "a": "CHINATOWN",
+    "pins": 16,
+    "inBounds": 16,
+    "zoom": 6
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "Singapore/chinatown.html: \"Must see\" on the map — list and pins follow the t=1 lens; a second tap restores all",
+   "ok": true,
+   "evidence": {
+    "n0": 16,
+    "hash": "#t=1",
+    "shown": 6,
+    "nonT1": 0,
+    "pins": 6,
+    "pinnedShown": 6,
+    "pressed": "true",
+    "n2": 16
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "Singapore/chinatown.html: base switch cycles Street → Light → Satellite (OSM / Esri)",
+   "ok": true,
+   "evidence": [
+    "Light",
+    "Satellite",
+    "Street"
+   ]
+  },
+  {
+   "group": "desktop",
+   "name": "Singapore/chinatown.html: locate-me reads the position only on tap, draws it, stores nothing",
+   "ok": true,
+   "evidence": {
+    "geo": 1,
+    "me": 1,
+    "pressed": "true",
+    "stored": []
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "Singapore/chinatown.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "desktop",
+   "name": "Singapore/chinatown.html: deep link #view=atlas&p= opens the place and the map shows its pin",
+   "ok": true,
+   "evidence": {
+    "id": "best-satay-7-and-8-lau-pa-sat-satay-street",
+    "sheet": true,
+    "inView": true,
+    "view": "atlas"
+   }
+  },
+  {
+   "group": "reach",
+   "name": "Singapore/chinatown.html mobile: Atlas #p= opens the sheet for every one of 16 places, Atlas kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "Singapore/chinatown.html mobile: Atlas list holds every card (16); search by name shows the place (16 samples)",
+   "ok": true,
+   "evidence": {
+    "list": 16,
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "Singapore/chinatown.html desktop: Atlas #p= opens the sheet for every one of 16 places, Atlas kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "Singapore/chinatown.html desktop: Atlas list holds every card (16); search by name shows the place (16 samples)",
+   "ok": true,
+   "evidence": {
+    "list": 16,
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html mobile: Leaflet blocked — every card, a card on screen, 0 JS errors, only the map missing",
+   "ok": true,
+   "evidence": {
+    "cards": 16,
+    "leaflet": false,
+    "view": "atlas",
+    "firstOnScreen": "Tian Tian Hainanese Chicken Rice",
+    "mapText": "The map appears when it can load. Every place is listed here either way.",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html phone: Leaflet blocked — \"List\" still opens the list (16)",
+   "ok": true,
+   "evidence": {
+    "n": 16
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "Singapore/chinatown.html desktop: Leaflet blocked — every card, a card on screen, 0 JS errors, only the map missing",
+   "ok": true,
+   "evidence": {
+    "cards": 16,
+    "leaflet": false,
+    "view": "atlas",
+    "firstOnScreen": "Tian Tian Hainanese Chicken Rice",
+    "mapText": "The map appears when it can load. Every place is listed here either way.",
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "Singapore/chinatown.html mobile: storage throws — Atlas renders, map, base switch / Must see / tray work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "cards": 16,
+    "leaflet": true,
+    "hash": "#t=1",
+    "det": "half",
+    "base": "Light",
+    "acts": [
+     ".m-base",
+     ".m-must",
+     ".grab"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "Singapore/chinatown.html desktop: storage throws — Atlas renders, map, base switch / Must see / tray work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "cards": 16,
+    "leaflet": true,
+    "hash": "#t=1",
+    "det": null,
+    "base": "Light",
+    "acts": [
+     ".m-base",
+     ".m-must"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Singapore/chinatown.html mobile: every Atlas map / tray control shows a focus ring (12 controls)",
+   "ok": false,
+   "evidence": {
+    "bad": [
+     "not focusable: am-ctl m-legend leaflet-control LegendChinatown & "
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Singapore/chinatown.html desktop: every Atlas map / tray control shows a focus ring (11 controls)",
+   "ok": false,
+   "evidence": {
+    "bad": [
+     "not focusable: am-ctl m-legend leaflet-control LegendChinatown & "
+    ]
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/wheeling.html: Atlas opens map-first (map ≥ 95 % wide, ≥ 70 % tall, Leaflet mounted)",
+   "ok": true,
+   "evidence": {
+    "map": {
+     "x": 0,
+     "y": 60,
+     "w": 390,
+     "h": 784,
+     "b": 844,
+     "r": 390
+    },
+    "det": "peek"
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/wheeling.html: tray at peek shows the area chip and the first ranked place",
+   "ok": true,
+   "evidence": {
+    "det": "peek",
+    "chip": "Wheeling, WV 11",
+    "first": "Wheeling Suspension Bridge",
+    "rank": "1",
+    "trayTop": 620
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/wheeling.html: the city is named on the first screen",
+   "ok": true,
+   "evidence": {
+    "city": "Wheeling",
+    "h1Visible": false,
+    "namedInChrome": true
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/wheeling.html: map/tray controls ≥ 44 × 44 px (attribution links reported apart)",
+   "ok": true,
+   "evidence": {
+    "under44": [],
+    "attributionLinks": 2
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/wheeling.html: keyboard — Enter on the grab: peek→half→full; Esc: full→half→peek; ring on the grab",
+   "ok": true,
+   "evidence": [
+    [
+     "focus",
+     "peek",
+     620,
+     true
+    ],
+    [
+     "Enter",
+     "half",
+     405
+    ],
+    [
+     "Enter",
+     "full",
+     124
+    ],
+    [
+     "Esc",
+     "half",
+     405
+    ],
+    [
+     "Esc",
+     "peek",
+     620
+    ]
+   ]
+  },
+  {
+   "group": "phone",
+   "name": "cities/wheeling.html: D-36 — the rail is on screen at the half detent (one step up)",
+   "ok": true,
+   "evidence": {
+    "rail": {
+     "x": 0,
+     "y": 631,
+     "w": 390,
+     "h": 117,
+     "b": 748,
+     "r": 390
+    }
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/wheeling.html: \"List\" opens the full tray with every card; Back steps it down and stays on the page",
+   "ok": true,
+   "evidence": {
+    "afterList": "full",
+    "cardsInTray": 35,
+    "afterBack": "half",
+    "samePage": true,
+    "view": "atlas"
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/wheeling.html: independent B-08 — no visible title covered (peek, half, half scrolled, full scrolled)",
+   "ok": false,
+   "evidence": {
+    "peek": {
+     "seen": 1,
+     "covered": 0,
+     "eg": []
+    },
+    "half": {
+     "seen": 0,
+     "covered": 0,
+     "eg": []
+    },
+    "halfScrolled": {
+     "seen": 2,
+     "covered": 1,
+     "eg": [
+      "BUTTON over Centre Market Historic D"
+     ]
+    },
+    "fullScrolled": {
+     "seen": 2,
+     "covered": 1,
+     "eg": [
+      "INPUT over Kruger Street Toy & Trai"
+     ]
+    }
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/wheeling.html: clustering is a partition — every pinned place drawn or in exactly one bubble, bubble counts add up",
+   "ok": true,
+   "evidence": {
+    "zoom": 9,
+    "shown": 35,
+    "drawn": 35,
+    "clustered": 0,
+    "overlap": 0,
+    "lost": 0,
+    "bubbles": 0,
+    "bubbleSum": 0
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/wheeling.html: at zoom ≥ 13 no bubbles — every pin drawn",
+   "ok": true,
+   "evidence": {
+    "zoom": 13,
+    "bubbles": 0,
+    "clustered": 0,
+    "drawn": 35,
+    "shown": 35
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/wheeling.html: pin tap → sheet with Close; Esc closes; Back closes and stays in Atlas",
+   "ok": null,
+   "evidence": {
+    "t1": null,
+    "escClosed": true,
+    "t2": null,
+    "back": {
+     "closed": true,
+     "view": "atlas",
+     "url": "/beta/cities/wheeling.html"
+    }
+   }
+  },
+  {
+   "group": "phone",
+   "name": "cities/wheeling.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "desktop",
+   "name": "cities/wheeling.html: map ≥ 60 % of the width and fills the first screen",
+   "ok": true,
+   "evidence": {
+    "mapPct": 64,
+    "listPct": 36,
+    "map": {
+     "x": 518,
+     "y": 181,
+     "w": 922,
+     "h": 719,
+     "b": 900,
+     "r": 1440
+    }
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/wheeling.html: area legend on the map",
+   "ok": true,
+   "evidence": {
+    "items": 8,
+    "open": true
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/wheeling.html: locate-me is opt-in — no location read on load",
+   "ok": true,
+   "evidence": {
+    "geoCalls": 0
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/wheeling.html: every numbered pin carries its card's rank",
+   "ok": true,
+   "evidence": {
+    "checked": 35,
+    "noLabel": 0,
+    "mismatch": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/wheeling.html: card hover → its pin (or bubble) lights",
+   "ok": true,
+   "evidence": {
+    "id": "wheeling-suspension-bridge",
+    "r0": 7,
+    "r1": 10,
+    "bubbleHot": false
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/wheeling.html: pin click → its card is focused and in view in the list pane",
+   "ok": true,
+   "evidence": {
+    "id": "wheeling-island-historic-district",
+    "cardTop0": 3592,
+    "focus": true,
+    "inPane": true,
+    "top": 302
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/wheeling.html: independent B-06 — wheel over the list moves the list; the map stays in view",
+   "ok": true,
+   "evidence": {
+    "paneScroll": 3000,
+    "winScroll": 0,
+    "mapTop": 181,
+    "mapBottom": 900,
+    "mapInView": true
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/wheeling.html: area lens fits the map to that area (≥ 90 % of its pins in view)",
+   "ok": true,
+   "evidence": {
+    "a": "WASH",
+    "pins": 8,
+    "inBounds": 8,
+    "zoom": 11
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/wheeling.html: \"Must see\" on the map — list and pins follow the t=1 lens; a second tap restores all",
+   "ok": true,
+   "evidence": {
+    "n0": 35,
+    "hash": "#t=1",
+    "shown": 18,
+    "nonT1": 0,
+    "pins": 18,
+    "pinnedShown": 18,
+    "pressed": "true",
+    "n2": 35
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/wheeling.html: base switch cycles Street → Light → Satellite (OSM / Esri)",
+   "ok": true,
+   "evidence": [
+    "Light",
+    "Satellite",
+    "Street"
+   ]
+  },
+  {
+   "group": "desktop",
+   "name": "cities/wheeling.html: locate-me reads the position only on tap, draws it, stores nothing",
+   "ok": true,
+   "evidence": {
+    "geo": 1,
+    "me": 1,
+    "pressed": "true",
+    "stored": []
+   }
+  },
+  {
+   "group": "desktop",
+   "name": "cities/wheeling.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "desktop",
+   "name": "cities/wheeling.html: deep link #view=atlas&p= opens the place and the map shows its pin",
+   "ok": true,
+   "evidence": {
+    "id": "national-road-and-zane-grey-museum",
+    "sheet": true,
+    "inView": true,
+    "view": "atlas"
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cities/wheeling.html mobile: Atlas #p= opens the sheet for every one of 35 places, Atlas kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cities/wheeling.html mobile: Atlas list holds every card (35); search by name shows the place (25 samples)",
+   "ok": true,
+   "evidence": {
+    "list": 35,
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cities/wheeling.html desktop: Atlas #p= opens the sheet for every one of 35 places, Atlas kept",
+   "ok": true,
+   "evidence": {
+    "missing": 0,
+    "e": [],
+    "err": []
+   }
+  },
+  {
+   "group": "reach",
+   "name": "cities/wheeling.html desktop: Atlas list holds every card (35); search by name shows the place (25 samples)",
+   "ok": true,
+   "evidence": {
+    "list": 35,
+    "bad": [],
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html mobile: Leaflet blocked — every card, a card on screen, 0 JS errors, only the map missing",
+   "ok": true,
+   "evidence": {
+    "cards": 35,
+    "leaflet": false,
+    "view": "atlas",
+    "firstOnScreen": "Wheeling Suspension Bridge",
+    "mapText": "The map appears when it can load. Every place is listed here either way.",
+    "err": []
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html phone: Leaflet blocked — \"List\" still opens the list (35)",
+   "ok": true,
+   "evidence": {
+    "n": 35
+   }
+  },
+  {
+   "group": "nocdn",
+   "name": "cities/wheeling.html desktop: Leaflet blocked — every card, a card on screen, 0 JS errors, only the map missing",
+   "ok": true,
+   "evidence": {
+    "cards": 35,
+    "leaflet": false,
+    "view": "atlas",
+    "firstOnScreen": "Wheeling Suspension Bridge",
+    "mapText": "The map appears when it can load. Every place is listed here either way.",
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "cities/wheeling.html mobile: storage throws — Atlas renders, map, base switch / Must see / tray work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "cards": 35,
+    "leaflet": true,
+    "hash": "#t=1",
+    "det": "half",
+    "base": "Light",
+    "acts": [
+     ".m-base",
+     ".m-must",
+     ".grab"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "storage",
+   "name": "cities/wheeling.html desktop: storage throws — Atlas renders, map, base switch / Must see / tray work, 0 JS errors",
+   "ok": true,
+   "evidence": {
+    "view": "atlas",
+    "cards": 35,
+    "leaflet": true,
+    "hash": "#t=1",
+    "det": null,
+    "base": "Light",
+    "acts": [
+     ".m-base",
+     ".m-must"
+    ],
+    "err": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/wheeling.html mobile: every Atlas map / tray control shows a focus ring (12 controls)",
+   "ok": false,
+   "evidence": {
+    "bad": [
+     "not focusable: am-ctl m-legend leaflet-control LegendWheeling, WV"
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/wheeling.html desktop: every Atlas map / tray control shows a focus ring (11 controls)",
+   "ok": false,
+   "evidence": {
+    "bad": [
+     "not focusable: am-ctl m-legend leaflet-control LegendWheeling, WV"
+    ]
+   }
+  },
+  {
+   "group": "tiles",
+   "name": "every tile request went to OSM or Esri",
+   "ok": true,
+   "evidence": {
+    "tile.openstreetmap.org": 24254,
+    "server.arcgisonline.com": 334
+   }
+  }
+ ],
+ "info": {}
+}

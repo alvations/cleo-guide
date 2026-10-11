@@ -14,6 +14,15 @@ CANDS = {   # name → (package dir, file glob per subset)
     'Manrope':           ('@fontsource-variable/manrope', 'manrope-{s}-wght-normal.woff2'),
     'Be Vietnam Pro':    ('@fontsource/be-vietnam-pro', 'be-vietnam-pro-{s}-500-normal.woff2'),
 }
+DISPLAY = {   # W7 amendment: expressive display candidates that ship a Vietnamese subset (checked: Young Serif, Gloock,
+    # Instrument Serif, DM Serif Display, Syne, Sora, Outfit and Gabarito ship none, so they are out before measuring)
+    'Fraunces':            ('@fontsource-variable/fraunces', 'fraunces-{s}-full-normal.woff2'),
+    'Bricolage Grotesque': ('@fontsource-variable/bricolage-grotesque', 'bricolage-grotesque-{s}-wdth-normal.woff2'),
+    'Unbounded':           ('@fontsource-variable/unbounded', 'unbounded-{s}-wght-normal.woff2'),
+    'Space Grotesk':       ('@fontsource-variable/space-grotesk', 'space-grotesk-{s}-wght-normal.woff2'),
+    'Newsreader':          ('@fontsource-variable/newsreader', 'newsreader-{s}-opsz-normal.woff2'),
+}
+if '--display' in sys.argv: CANDS = DISPLAY
 # every non-CJK letter/number/punct the beta pages set (HTML + data JSON)
 chars = set()
 for f in glob.glob(os.path.join(R, 'beta', '**', '*.html'), recursive=True) + glob.glob(os.path.join(R, 'beta', 'data', '**', '*.json'), recursive=True):

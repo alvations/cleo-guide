@@ -20,10 +20,12 @@
   text-rendering: optimizeLegibility; font-feature-settings: "cv11", "ss01" 0; }
 :root :is(h1, h2, .d-hero, .d1, .d2, .masthead h1, .area-n, .row-h h2) { font-family: var(--font-display); font-weight: var(--fw-display); letter-spacing: var(--track-display); font-style: normal; }
 :root :is(h3, .d3, .gc-n, .pl-n, .tile h3) { font-family: var(--font-ui); font-weight: var(--fw-ui-strong); letter-spacing: -.006em; font-style: normal; }
+/* no italic faces ship in v2 (display + Inter roman only), so a leftover `italic` rule never fakes a slant */
+:root { font-synthesis-style: none; }
 /* italic display voice retired: deks, notes, leads, initials and the hero's emphasised word set upright in the sans */
-:root :is(.masthead .dek, .g-lead, .lead, .note p, .pl-k.note p, .pl-k .note-t, .lens > p:first-of-type, .gk, .gap .d3, .d-hero em, em.it, .it, .stamp,
+:root :is(.masthead .dek, .g-lead, .lead, .note p, .pl-k.note p, .pl-k .note-t, .lens > p:first-of-type, .gk, .gap .d3, em.it, .it, .stamp,
   .view-gallery .note, .view-gallery .ghero .lead, .gcover .lead) { font-style: normal; font-family: var(--font-ui); }
-:root .d-hero em { color: inherit; }
+:root .d-hero em { color: inherit; font-style: normal; font-family: inherit; }
 :root :is(.note p, .pl-k.note p, .pl-k .note-t, .view-gallery .note) { font-size: var(--fs-body); line-height: 1.55; color: var(--ink-2); }
 :root .num, :root :is(.n, .pl-num, .area-c, .dest-c) { font-variant-numeric: var(--num); }
 /* one line-icon weight everywhere (design/beta/style/v2/icons) */
@@ -53,7 +55,7 @@
 :root .btn-night { background: var(--ink); color: var(--paper); }
 :root .btn-icon { border-radius: 50%; border-color: transparent; background: transparent; }
 :root .btn-icon:hover { background: var(--sand); }
-:root :is(a, button, input, select, textarea, [tabindex]):focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; box-shadow: none; }
+:root :is(a, button, input, select, textarea, [tabindex]):focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 
 /* ---------- V2.3 chips, pills, source chips: hairline outlines; pressed = ink ---------- */
 :root :is(.pill, .chip) { background: var(--surface); border: 1px solid var(--line); color: var(--ink); font-weight: 500; box-shadow: none; }
@@ -188,3 +190,17 @@
 :root .lookfor .tag { border-color: var(--line); color: var(--ink-2); }
 /* sheet hero: the calm cover, without the locator inset */
 :root .detail .hero-plate :is(.loc, .map) { display: none !important; }
+
+/* ---------- V2.14 the sun highlight (W7 amendment: Gen Z wanderlust, kept classy) ----------
+   ONE warm, flat highlight per screen family: the sticker badge for a data-backed distinction ("Must see" — never on a
+   closed place, never invented) and the heart "pop" ring. No gradient, no glow, no confetti. .sticker is the component
+   FE-A / FE-B put on card media (top-left, like the marketplace's badge); .tier.t1 picks it up where it already exists. */
+:root .sticker, :root .tier.t1:not(.lg) { display: inline-flex; align-items: center; gap: 5px; background: var(--sun-wash); color: var(--on-sun-wash);
+  font: 600 12px/1 var(--font-ui); letter-spacing: .01em; padding: 6px 10px; border-radius: var(--r-pill); box-shadow: none; }
+:root .sticker .ico, :root .tier.t1:not(.lg) .ico { width: 13px; height: 13px; color: currentColor; }
+:root :is(.cover, .pl-cover) .sticker { position: absolute; top: 12px; left: 12px; z-index: 2; background: color-mix(in srgb, var(--surface) 94%, transparent); color: var(--ink); }
+:root .heart[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--sun-wash), var(--shadow-sm); }
+@media (prefers-reduced-motion: no-preference) {
+  :root .heart[aria-pressed="true"] svg { animation: v2-pop var(--dur-3) var(--ease-spring) 1; }
+  @keyframes v2-pop { 0% { transform: scale(.7); } 60% { transform: scale(1.18); } 100% { transform: scale(1); } }
+}

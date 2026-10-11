@@ -274,9 +274,15 @@ async function map() {
     // mobile: toggle → pin → peek detent ≤ 40 %, Esc closes, locator inset in the full sheet
     const m = await open(rel, 'mobile', { hash: '#view=atlas', settle: 800 });
     const tg = m.page.locator('.map-toggle').first();
-    if (await tg.count()) {
-      await tg.click(); await m.page.waitForTimeout(1500);
-      const pin = m.page.locator('.leaflet-marker-icon, .leaflet-interactive').first();
+    // W6 (QA): Atlas phones open map-first (D-36) — the map is already full screen and "Show the map" is hidden, so it is
+    // only tapped when the map is not up; the pin tapped is one a finger can reach (on screen, not under the tray or a
+    // control) and not a count bubble (a bubble zooms in, it opens no sheet)
+    const mapUp = await m.page.evaluate(() => { const e = document.querySelector('.leaflet-container'); if (!e) return false; const b = e.getBoundingClientRect(); return b.height >= innerHeight * 0.7 && b.width >= innerWidth * 0.95; });
+    if (mapUp || await tg.count()) {
+      if (!mapUp) { await tg.click(); await m.page.waitForTimeout(1500); }
+      await m.page.evaluate(() => { const ps = [...document.querySelectorAll('.leaflet-overlay-pane path.leaflet-interactive, .leaflet-marker-icon:not(.pin-cl)')].filter(p => { const b = p.getBoundingClientRect(); if (!(b.width > 0 && b.top > 0 && b.bottom < innerHeight && b.left >= 0 && b.right <= innerWidth)) return false;
+        const t = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2); return !!t && (t === p || p.contains(t)); }); if (ps.length) ps[0].setAttribute('data-qa-w2pin', '1'); });
+      const pin = m.page.locator('[data-qa-w2pin]').first();
       let peek = null, esc = null;
       if (await pin.count()) {
         await pin.click({ force: true }).catch(() => {}); await m.page.waitForTimeout(900);
