@@ -20,7 +20,8 @@
     "beta:metrics:all": "node beta/metrics.js --all",
     "qa:beta": "node qa-site.js --only beta/ --shots",
     "beta:qa:w2": "node beta/qa/w2.js",
-    "beta:qa:views": "node beta/qa/views.js"
+    "beta:qa:views": "node beta/qa/views.js",
+    "beta:probe:fe-a": "node beta/w7-fe-a-probe.js"
   },
   "dependencies": {
     "jsdom": "^24.0.0",
