@@ -22,7 +22,8 @@
  *   --allow-flag <f>     accept candidates carrying this flag (repeatable): people-visible, public-art-check,
  *                        venue-check, panorama, outdated, author-check. Only after a person has LOOKED at the photo.
  *   --wiki-lead          for a landmark with no usable candidate, try the lead image of its cited Wikipedia article
- *                        (same licence and depicts checks)
+ *                        (same licence and depicts checks); a manifest target with `wikiLead: true` does so without the flag
+ *                        (W8: the lead cards, first rail rows and remaining tier-1 sights that cite an article)
  *   --widths a,b         card photo widths (srcset; default 480,960 → snapped to 500,960; the largest is the credited file)
  *   --hero-widths a,b    hero photo widths (default 960,1280)
  *   --delay <ms>         pause between requests (default 400; API etiquette)
@@ -262,7 +263,7 @@ function plan(man, credits, o) {
     if (where.why) { out.push({ t, skip: where.why }); continue; }
     if (where.page ? haveRecord.has(`${where.page}#${where.id}`) : haveSlot.has(`hero:${where.slot.key}`)) { out.push({ t, skip: 'already has a credited photo' }); continue; }
     const cands = (t.candidates || []).filter(c => !c.refused && RANK[c.confidence] >= RANK[o.min] && (c.flags || []).every(f => o.allow.includes(f)));
-    const lead = o.wikiLead && t.type === 'landmark' && t.article;
+    const lead = (o.wikiLead || t.wikiLead) && t.type === 'landmark' && t.article;   // W8: the manifest opts a target in
     if (!cands.length && !lead) { out.push({ t, skip: (t.candidates || []).length ? `no ${o.min}+ candidate without an unaccepted flag` : (t.article ? 'no candidate (pass --wiki-lead to try the article lead image)' : 'no candidate') }); continue; }
     out.push({ t, where, cands, lead });
   }
@@ -305,6 +306,8 @@ async function main() {
     const j = await api({ action: 'query', titles: title, prop: 'imageinfo|categories', iiprop: 'url|size|mime|sha1|extmetadata', iiurlwidth: snapWidths(widthsOf(t), 1e9).pop(), iiextmetadatafilter: 'LicenseShortName|LicenseUrl|Artist|ImageDescription|ObjectName|Restrictions|AttributionRequired', clshow: '!hidden', cllimit: 50 });
     const pg = j.query && j.query.pages && j.query.pages[0];
     if (!pg || pg.missing || !pg.imageinfo || !pg.imageinfo[0]) return { why: 'no such file on Commons (renamed or deleted)' };
+    const dup = credits.credits.find(c => c.commonsTitle === pg.title);   // one Commons file, one credit row
+    if (dup) return { why: `already credited to ${dup.slot ? `hero:${dup.slot.key}` : `${dup.record.page}#${dup.record.id}`} (one file, one row)` };
     const ii = pg.imageinfo[0], em = ii.extmetadata || {}, val = k => em[k] && em[k].value;
     if (!/^image\/(jpeg|png|webp)$/.test(ii.mime)) return { why: `not a bitmap photo (${ii.mime})` };
     if (ii.width < 640) return { why: `too small (${ii.width} px wide)` };
@@ -367,8 +370,8 @@ async function main() {
     const m = /^https:\/\/([a-z-]+)\.wikipedia\.org\/wiki\/(.+)$/.exec(article || ''); if (!m) return null;
     calls++; await sleep(o.delay);
     if (calls > o.budget) throw Object.assign(new Error('budget'), { budget: true });
-    const r = await get(`https://${m[1]}.wikipedia.org/w/api.php?${qs({ action: 'query', titles: decodeURIComponent(m[2]).replace(/_/g, ' '), prop: 'pageimages', piprop: 'name', redirects: 1, format: 'json', formatversion: 2 })}`);
-    if (!r.ok) return null;
+    const r = await get(`https://${m[1]}.wikipedia.org/w/api.php?${qs({ action: 'query', titles: decodeURIComponent(m[2]).replace(/_/g, ' '), prop: 'pageimages', piprop: 'name', redirects: 1, format: 'json', formatversion: 2 })}`).catch(() => null);
+    if (!r || !r.ok) return null;   // a Wikipedia hiccup skips this one target, never the run
     const j = await r.json().catch(() => null), p = j && j.query && j.query.pages && j.query.pages[0];
     return p && p.pageimage ? `File:${p.pageimage.replace(/_/g, ' ')}` : null;
   }
