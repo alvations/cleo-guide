@@ -28,12 +28,16 @@
   const hex = s => { const m = /^#?([0-9a-f]{6})$/i.exec((s || '').trim()); return m ? [0, 2, 4].map(i => parseInt(m[1].slice(i, i + 2), 16)) : null; };
   const mix = (a, b, t) => { const x = hex(a), y = hex(b); return x && y ? '#' + x.map((v, i) => Math.round(v * t + y[i] * (1 - t)).toString(16).padStart(2, '0')).join('') : (a || b); };
   let tok = {};
-  const readTok = () => { tok = { surface: css('--surface') || '#fff', mute: css('--area-mute') || '#948B83', ink3: css('--ink-3') || '#68615B', sand: css('--sand') || '#F1EDE7', line: css('--line') || '#E7E2DB', sun: css('--sun') || '#E9A93B', ink: css('--ink') || '#1C1917' }; };
+  const readTok = () => { tok = { surface: css('--surface') || '#fff', paper: css('--paper') || '#F9F7F3', mute: css('--area-mute') || '#948B83', ink3: css('--ink-3') || '#68615B', sand: css('--sand') || '#F1EDE7', line: css('--line') || '#E7E2DB', sun: css('--sun') || '#E9A93B', ink: css('--ink') || '#1C1917' }; };
   readTok();
   const areaC = c => mix(((C.info.areas || {})[at(c, 'data-a')] || {}).c || tok.mute, tok.mute, 0.5);
   const isT1 = c => at(c, 'data-t') === '1' && !c.hasAttribute('data-closed');
-  C.dotStyle = c => { const cl = c.hasAttribute('data-closed'), t1 = isT1(c), a = areaC(c);
-    return { radius: t1 ? 4.5 : 3.5, weight: 1.5, color: cl ? a : tok.surface, opacity: 1, fillColor: a, fillOpacity: cl ? 0 : 1 }; };
+  // dots (SPEC-v3 §1.1, refined): ONE quiet neutral — ink at 38 % for sights, 62 % for eat & drink (mixed into the page
+  // ground so the canvas needs no alpha), hollow when closed, a thin surface halo. Area colour only under an area filter.
+  C.dotStyle = c => { const cl = c.hasAttribute('data-closed'), f = at(c, 'data-k') === 'f', a = S.a ? areaC(c) : mix(tok.ink, tok.paper, f ? 0.62 : 0.38);
+    return { radius: isT1(c) ? 4.5 : 3.5, weight: cl ? 1.5 : 1, color: cl ? a : tok.surface, opacity: 1, fillColor: a, fillOpacity: cl ? 0 : 1 }; };
+  let lastA = S.a;   // an area filter turns its area colour on for the dots (and off again)
+  C.after.push(() => { if (S.a !== lastA) { lastA = S.a; restyle(); } });
   const restyle = () => { readTok(); Object.keys(C.markers).forEach(id => { const c = rec(id); if (c) C.markers[id].setStyle(C.dotStyle(c)); }); if (C.feature) C.feature(); };
   if (window.matchMedia) { const mq = matchMedia('(prefers-color-scheme: dark)'); const f = () => setTimeout(restyle, 0); if (mq.addEventListener) mq.addEventListener('change', f); else if (mq.addListener) mq.addListener(f); }
   if (window.MutationObserver) new MutationObserver(() => setTimeout(restyle, 0)).observe(H, { attributes: true, attributeFilter: ['data-theme'] });
@@ -58,10 +62,13 @@
 
   const pins = {}; let hoverPin = null, discL = null, hoverId = null;
   const savedSet = () => { const s = Cleo.saved ? Cleo.saved.all() : {}, o = {}; Object.keys(s).forEach(r => { const i = r.lastIndexOf('/'); if (r.slice(0, i) === C.key) o[r.slice(i + 1)] = 1; }); return o; };
-  const pinHtml = (c, nm, sv) => { const cl = c.hasAttribute('data-closed'), a = areaC(c);
-    return '<span><i class="pp-a" style="--ac:' + a + '" aria-hidden="true"></i>' + (isT1(c) ? '<svg class="pp-st" aria-hidden="true"><use href="#i-star4"/></svg>' : '') +
-      '<svg class="ico" aria-hidden="true"><use href="#i-' + C.esc(at(c, 'data-gl') || (at(c, 'data-k') === 'f' ? 'bowl' : 'pin')) + '"/></svg>' +
-      '<b>' + C.esc(nm.length > 22 ? nm.slice(0, 21).trimEnd() + '…' : nm) + (cl ? ' · Closed' : '') + '</b>' + (sv ? '<em class="pp-h" aria-hidden="true">♥</em>' : '') + '</span>'; };
+  // one glyph, the kind: a sight's own glyph; eat & drink is the fork-and-knife (the cup for cafés)
+  const glyph = c => { const g = at(c, 'data-gl') || ''; if (at(c, 'data-k') !== 'f') return g || 'pin'; return g === 'cup' ? 'cup' : d.getElementById('i-forkknife') ? 'forkknife' : 'bowl'; };
+  // the short map name: up to the first ", " / " — " / " – ", parentheses dropped — never truncated (a pill that won't fit stays a dot)
+  const short = nm => nm.replace(/\s*\([^)]*\)/g, '').split(/, | — | – /)[0].trim() || nm;
+  const pinHtml = (c, nm, sv) => { const cl = c.hasAttribute('data-closed');
+    return '<span><svg class="ico" aria-hidden="true"><use href="#i-' + C.esc(glyph(c)) + '"/></svg>' +
+      '<b>' + C.esc(short(nm)) + (cl ? ' · Closed' : '') + '</b>' + (sv ? '<em class="pp-h" aria-hidden="true">♥</em>' : '') + '</span>'; };
   const pinCls = (c, sv) => 'pp pp-' + (at(c, 'data-k') === 'f' ? 'f' : 's') + (isT1(c) ? ' pp-1' : '') + (c.hasAttribute('data-closed') ? ' pp-x' : '') + (sv ? ' pp-sv' : '');
   const mkPin = (id, c, sv) => { const L = window.L, nm = nameOf(id), k = L.marker(C.markers[id].getLatLng(), { icon: L.divIcon({ className: pinCls(c, sv), iconSize: null, html: pinHtml(c, nm, sv) }), keyboard: false, title: nm, zIndexOffset: isT1(c) ? 600 : 0 });
     k.on('click', () => { const r = C.cardOf(id); if (r) C.pin(r); });
@@ -69,12 +76,12 @@
     k.on('mouseout', () => { const r = C.byId[id]; if (r) r.classList.remove('is-hover'); });
     return k; };
   // the label box a pill needs, in px (Inter 600 13 px ≈ 7.2 px a character), for the greedy collision check
-  const boxOf = (c, nm) => 46 + (isT1(c) ? 16 : 0) + Math.min(23, nm.length) * 7.2 + (c.hasAttribute('data-closed') ? 52 : 0);
+  const boxOf = (c, nm) => 46 + short(nm).length * 7.4 + (c.hasAttribute('data-closed') ? 52 : 0);
   let ft = 0;
   C.feature = () => { clearTimeout(ft); ft = setTimeout(feature, 120); };
   const feature = () => {
     const map = C.map(), L = window.L; if (!map || !L || !map.getSize().x) return;
-    const N = desk() ? 24 : 12, sv = savedSet(), sel = selC && C.pid(selC), b = atlas() ? box() : map.getBounds(), z = map.getZoom();
+    const N = desk() ? 16 : 8, sv = savedSet(), sel = selC && C.pid(selC), b = atlas() ? box() : map.getBounds(), z = map.getZoom();
     const vis = Object.keys(C.markers).filter(id => { const c = rec(id); return c && !c.hidden && C.dots.hasLayer(C.markers[id]); });
     const inV = vis.filter(id => b.contains(C.markers[id].getLatLng()));
     const first = id => (id === sel ? 0 : sv[id] ? 1 : 2);
@@ -362,17 +369,23 @@
     ctl(dk ? 'topleft' : 'topright', () => { const b = btn('m-locate', 'Show my location on the map (stays on this device)', C.icon('locate')); b.setAttribute('aria-pressed', 'false'); on(b, 'click', () => locate(b)); return b; });
     ctl('topright', () => {
       const s = btn('m-base', '', C.icon('grid') + '<span></span>');
-      const lab = () => { const sat = store.get('base', 'street') === 'satellite', n = sat ? 'Satellite' : 'Street'; $('span', s).textContent = sat ? 'Street' : 'Satellite';
-        s.setAttribute('aria-label', 'Map style: ' + n + '. Switch to ' + (sat ? 'Street' : 'Satellite')); s.title = 'Map style: ' + n; s.setAttribute('aria-pressed', String(sat)); };
-      on(s, 'click', () => { C.setBase(store.get('base', 'street') === 'satellite' ? 'street' : 'satellite'); lab(); }); lab(); return s;
+      // one button: Map ⇄ Satellite (SPEC-v3 §4; street detail lives in the Key)
+      const lab = () => { const sat = store.get('base', 'map') === 'satellite', n = sat ? 'Satellite' : 'Map'; $('span', s).textContent = sat ? 'Map' : 'Satellite';
+        s.setAttribute('aria-label', 'Map style: ' + n + '. Switch to ' + (sat ? 'the map' : 'satellite')); s.title = 'Map style: ' + n; s.setAttribute('aria-pressed', String(sat)); };
+      on(s, 'click', () => { C.setBase(store.get('base', 'map') === 'satellite' ? 'map' : 'satellite'); lab(); }); lab(); C.after.push(lab); return s;
     });
     ctl(dk ? 'bottomleft' : 'topright', () => {
       const g = d.createElement('details'); g.className = 'am-ctl m-legend';
-      const k = (cls, gl, t) => '<b class="pp ' + cls + '"><span>' + (/pp-1/.test(cls) ? '<svg class="pp-st" aria-hidden="true"><use href="#i-star4"/></svg>' : '') + '<svg class="ico" aria-hidden="true"><use href="#i-' + gl + '"/></svg><b>' + t + '</b></span></b>';
-      g.innerHTML = '<summary aria-label="Map key">' + C.icon('info') + '<span>Key</span></summary><ul>' +
-        '<li>' + k('pp-s', 'columns', 'Sight') + '</li><li>' + k('pp-f', 'bowl', 'Eat &amp; drink') + '</li>' +
+      const k = (cls, gl, t) => '<b class="pp ' + cls + '"><span><svg class="ico" aria-hidden="true"><use href="#i-' + gl + '"/></svg><b>' + t + '</b></span></b>';
+      const fk = d.getElementById('i-forkknife') ? 'forkknife' : 'bowl';
+      const paint = () => { const ar = S.a ? [S.a] : []; g.querySelector('ul').innerHTML = '<li>' + k('pp-s', 'columns', 'Sight') + '</li><li>' + k('pp-f', fk, 'Eat &amp; drink') + '</li>' +
         '<li>' + k('pp-s pp-1', 'columns', 'Must see') + '</li><li>' + k('pp-s pp-x', 'columns', 'Closed') + '</li>' +
-        '<li class="k">Dots are more places. Zoom in to see their names.</li></ul>';
+        '<li class="k"><i class="kd"></i><i class="kd f"></i>More places · zoom in to see their names</li>' +
+        ar.map(a => '<li class="k"><i class="kd" style="background:' + areaC({ getAttribute: () => a, hasAttribute: () => false }) + '"></i>' + C.esc(((C.info.areas || {})[a] || {}).n || a) + '</li>').join('') +
+        '<li class="k">' + (store.get('base', 'map') === 'street!' ? '<button type="button" class="btn btn-quiet" data-base="map">Back to the calm map</button>' : '<button type="button" class="btn btn-quiet" data-base="street">Show street detail</button>') + '</li>'; };
+      g.innerHTML = '<summary aria-label="Map key">' + C.icon('info') + '<span>Key</span></summary><ul></ul>'; paint();
+      on(g, 'click', e => { const b = e.target.closest('[data-base]'); if (!b) return; C.setBase(at(b, 'data-base')); paint(); });
+      C.after.push(paint);
       return g;
     });
     // map moves → the list follows (desktop, live) / "Search this area" (phones, after the reader moves the map)

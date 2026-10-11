@@ -109,9 +109,9 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
         await sleep(300);
         const pv = await page.evaluate(() => { const ic = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon')];
           return { pins: ic.filter(e => e.classList.contains('pp')).length, areas: new Set(ic.map(e => e.getAttribute('data-a')).filter(Boolean)).size, food: ic.filter(e => e.classList.contains('pp-f')).length,
-            bare: ic.filter(e => /^\s*★?\s*\d+\s*$/.test(e.textContent)).length, discs: Cleo.city.discs || 0, dots: Object.keys(Cleo.city.markers).length, markerNodes: document.querySelectorAll('#cleo-map .leaflet-marker-pane *').length }; });
+            bare: ic.filter(e => /^\s*★?\s*\d+\s*$/.test(e.textContent)).length, trunc: ic.filter(e => /…/.test(e.textContent)).length, discs: Cleo.city.discs || 0, dots: Object.keys(Cleo.city.markers).length, markerNodes: document.querySelectorAll('#cleo-map .leaflet-marker-pane *').length }; });
         chk(`${key} desktop: no number on the map (no rank pills, no count bubbles)`, pv.bare === 0 && !document_hasClusters(pv), pv);
-        if (key === 'tokyo') chk(`tokyo desktop: default view shows 18–24 labelled pins from ≥ 6 areas, ≥ 1 food pin, no density disc`, pv.pins >= 18 && pv.pins <= 24 && pv.areas >= 6 && pv.food >= 1 && pv.discs === 0, pv);
+        if (key === 'tokyo') chk(`tokyo desktop: default view shows 12–16 labelled pins from ≥ 5 areas, ≥ 1 food pin, no density disc, no truncated label`, pv.pins >= 12 && pv.pins <= 16 && pv.areas >= 5 && pv.food >= 1 && pv.discs === 0 && !pv.trunc, pv);
       }
       if (!dark) { const nc = await page.evaluate(() => document.querySelectorAll('li.pl').length), live0 = (fs.readFileSync(path.join(ROOT, url), 'utf8').match(/<li class="pl[ "]/g) || []).length;
         chk(`${key} desktop: the first fit builds one page of cards, not the area (≤ 32 live + 40)`, nc <= 32 + 40 + 2, { cards: nc }); }
@@ -129,7 +129,7 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
         await sleep(700); const s2 = await state(page);
         chk(`${key} desktop: panning changes the list count`, nIn(s2) !== nIn(s1), [s1.count, s2.count]);
         const mk = await page.evaluate(() => document.querySelectorAll('#cleo-map .leaflet-marker-icon').length);
-        chk(`${key} desktop: after zoom and pan at most 24 + 1 marker nodes (dots on canvas)`, mk <= 25, mk);
+        chk(`${key} desktop: after zoom and pan at most 16 + 1 marker nodes (dots on canvas)`, mk <= 17, mk);
         await page.click('.ms-more [data-ms="all"]'); await sleep(300); const s3 = await state(page);
         const total = await page.evaluate(() => Cleo.city.info.total);
         chk(`${key} desktop: "Show all" restores every place`, nIn(s3) === total && s3.cardsVisible > 0, [s3.count, total]);
@@ -195,7 +195,7 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
         const pp = await page.evaluate(() => { const lp = document.querySelector('.listpane').getBoundingClientRect(), bar = document.querySelector('.ms-bar').getBoundingClientRect();
           const ps = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp')].map(e => (e.firstElementChild || e).getBoundingClientRect());
           return { pins: ps.length, under: ps.filter(r => r.bottom > lp.top + 2 || r.top < bar.bottom - 2).length }; });
-        chk(`${key} phone: ≤ 12 labelled pins, none under the carousel or the chip row`, pp.pins <= 12 && pp.under === 0, pp);
+        chk(`${key} phone: ≤ 8 labelled pins, none under the carousel or the chip row`, pp.pins <= 8 && pp.under === 0, pp);
         const nc = await page.evaluate(() => document.querySelectorAll('li.pl').length);
         chk(`${key} phone: the first fit builds one page of cards, not the area (≤ 32 live + 40)`, nc <= 32 + 40 + 2, { cards: nc });
         const ov = await page.evaluate(() => { const s = document.querySelector('.ms-bar .spill'), r = s && s.getBoundingClientRect(); return { page: document.documentElement.scrollWidth - innerWidth, spill: r ? [Math.round(r.left), Math.round(r.right)] : null }; });

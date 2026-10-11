@@ -198,7 +198,7 @@
   const tray = $('#cleo-tray'), TK = ['a', 't', 'src', 'c', 'cz', 'sort', 'been'];
   let P = {}, opener = null, pushed = 0, after = null;
   const tpaint = () => {
-    $$('.pill', tray).forEach(b => { const k = at(b, 'data-f'); b.setAttribute('aria-pressed', String((k === 'base' ? store.get('base', 'street') : P[k] || '') === at(b, 'data-v'))); });
+    $$('.pill', tray).forEach(b => { const k = at(b, 'data-f'); b.setAttribute('aria-pressed', String((k === 'base' ? ({ 'street!': 'street', satellite: 'satellite' })[store.get('base', 'map')] || 'light' : P[k] || '') === at(b, 'data-v'))); });
     const o = { gap: '' }; TK.forEach(k => { o[k] = P[k]; }); const n = count(o);
     $('[data-tr="go"]', tray).textContent = n ? 'Show ' + pl(n) : 'No places match — clear a filter';
   };
@@ -272,15 +272,21 @@
     el.innerHTML = ''; el.removeAttribute('data-tiles');
     const z = info.center || [0, 0, 2], E = 'https://server.arcgisonline.com/ArcGIS/rest/services/', ea = { attribution: 'Tiles &copy; Esri', maxZoom: 19 };
     map = L.map(el, { scrollWheelZoom: desk(), zoomControl: false, zoomSnap: 0.5 }).setView([z[0], z[1]], z[2] || 11);
+    // SPEC-v3 §4 (settled by the real-tile R0 shots): the default base is the calm Esri gray canvas that follows the
+    // theme (light / dark), with its reference labels in their own pane below our dots and pins; Satellite is the one
+    // alternative in the switch; OSM street detail is opt-in (the Key). OSM + Esri only, no key, never CARTO.
+    map.createPane('labels').style.zIndex = 350; map.getPane('labels').style.pointerEvents = 'none';
+    const ca = { attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxNativeZoom: 16, maxZoom: 19 };
+    const canvas = t => L.layerGroup([L.tileLayer(E + 'Canvas/World_' + t + '_Gray_Base/MapServer/tile/{z}/{y}/{x}', ca), L.tileLayer(E + 'Canvas/World_' + t + '_Gray_Reference/MapServer/tile/{z}/{y}/{x}', { pane: 'labels', opacity: 0.85, maxNativeZoom: 16, maxZoom: 19 })]);
+    bases.mapLight = canvas('Light'); bases.mapDark = canvas('Dark');
     bases.street = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' });
-    bases.light = L.tileLayer(E + 'Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', Object.assign({ maxNativeZoom: 16 }, ea));
     bases.satellite = L.tileLayer(E + 'World_Imagery/MapServer/tile/{z}/{y}/{x}', ea);
-    const b0 = bases[store.get('base', 'street')] || bases.street; b0.addTo(map);
+    const b0 = baseOf(store.get('base', 'map')); b0.addTo(map);
     // tiles that never load: drop the map (cleanly — every handler checks live()), keep the list whole, say so quietly.
     // Never mid-zoom (W7 FE-A): Leaflet's remove() leaves the zoom-end timer armed (`_leaflet_pos` of a removed pane)
     const fail = () => { const m0 = map; if (!m0) return; try { m0.stop(); } catch (e) {} if (m0._animatingZoom) { m0.once('zoomend', () => setTimeout(fail, 0)); return; }
       map = null; Object.keys(inCl).forEach(k => delete inCl[k]); Cleo.mapFallback(el, m0); d.documentElement.classList.add('ms-nomap'); if (C.onNoMap) C.onNoMap(); };
-    if (Cleo.watchTiles) Cleo.watchTiles(b0, fail);
+    if (Cleo.watchTiles) Cleo.watchTiles(b0.getLayers ? b0.getLayers()[0] : b0, fail);
     // every place gets its dot, stamped or not (unstamped = a start-tag stub from Cleo.defer.peek(); click stamps it) —
     // one canvas renderer, so 500+ places cost no DOM nodes and pan smoothly; a generous click tolerance (thumbs)
     const c2d = (() => { try { return !!d.createElement('canvas').getContext('2d'); } catch (e) { return false; } })();   // no 2D canvas → SVG dots, same API
@@ -313,7 +319,14 @@
     const dd = ll.map(p => [Math.hypot(p.lat - c[0], (p.lng - c[1]) * Math.cos(c[0] * Math.PI / 180)), p]).sort((x, y) => x[0] - y[0]), cut = Math.max(dd[dd.length >> 1][0] * 3, 0.004);
     let k = dd.filter(x => x[0] <= cut); if (k.length < ll.length * 0.6) k = dd.slice(0, Math.ceil(ll.length * 0.95)); k = k.map(x => x[1]);   // the core: within 3× the median distance
     auto = Date.now(); map.fitBounds(window.L.latLngBounds(k), Object.assign(overMap(), { maxZoom: 15, animate: false })); };
-  C.setBase = k => { store.set('base', k); if (!live() || !bases[k]) return; for (const x in bases) if (map.hasLayer(bases[x])) map.removeLayer(bases[x]); bases[k].addTo(map); };
+  // 'map' = the theme's gray canvas (the old stored 'light' and the old default 'street' both read as it; street detail is
+  // only ever an explicit choice from the Key, stored as 'street!')
+  const dark = () => { const t = d.documentElement.getAttribute('data-theme'); return t === 'dark' || (t !== 'light' && !!window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches); };
+  const baseOf = k => k === 'satellite' ? bases.satellite : k === 'street!' ? bases.street : dark() ? bases.mapDark : bases.mapLight;
+  C.setBase = k => { k = k === 'street' ? 'street!' : k === 'light' ? 'map' : k; store.set('base', k); if (!live()) return; const b = baseOf(k); for (const x in bases) if (bases[x] && bases[x] !== b && map.hasLayer(bases[x])) map.removeLayer(bases[x]); if (!map.hasLayer(b)) b.addTo(map); };
+  const reTheme = () => { if (live()) C.setBase(store.get('base', 'map')); };   // the canvas follows a theme toggle live
+  if (window.matchMedia) { const mq = matchMedia('(prefers-color-scheme: dark)'); if (mq.addEventListener) mq.addEventListener('change', reTheme); else if (mq.addListener) mq.addListener(reTheme); }
+  if (window.MutationObserver) new MutationObserver(reTheme).observe(d.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   // Leaflet (≈ 144 KB) loads after first paint and after the page's own load: the list is the content, the map follows
   // (W7: Atlas Tokyo ≤ 2,000 KB, FCP untouched). A failed load costs the map, never a place: the list stays whole.
   const afterPaint = f => { const go = () => requestAnimationFrame(() => setTimeout(f, 0)); if (d.readyState === 'complete') go(); else on(window, 'load', go); };
