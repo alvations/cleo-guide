@@ -125,7 +125,7 @@
   function stackSvg(rows, series, link, uid, asPct, W, LW, narrow) {
     var G = 2, span0 = W - LW - 44;
     var mx = Math.max.apply(null, rows.map(function (r) { return sum(r.v); }).concat(1));
-    var out = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + (rows.length * RH + 26) + '" role="img" aria-labelledby="' + uid + '-t ' + uid + '-d">'];
+    var out = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + (rows.length * RH + 26) + '" role="group" aria-labelledby="' + uid + '-t ' + uid + '-d">'];
     [0, .25, .5, .75, 1].forEach(function (t) {
       var x = (LW + t * span0).toFixed(1);
       out.push('<line class="grid" x1="' + x + '" x2="' + x + '" y1="0" y2="' + rows.length * RH + '"/><text class="ax" x="' + x + '" y="' + (rows.length * RH + 16) + '" text-anchor="middle">' + (asPct ? Math.round(t * 100) + '%' : Math.round(t * mx)) + '</text>');
@@ -148,7 +148,7 @@
   }
   function barSvg(rows, link, uid, unit, W, LW, narrow) {
     var mx = Math.max.apply(null, rows.map(function (r) { return r.n; }).concat(0)) || 1;
-    var out = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + (rows.length * RH + 2) + '" role="img" aria-labelledby="' + uid + '-t ' + uid + '-d">'];
+    var out = ['<svg class="chart" viewBox="0 0 ' + W + ' ' + (rows.length * RH + 2) + '" role="group" aria-labelledby="' + uid + '-t ' + uid + '-d">'];
     rows.forEach(function (r, i) {
       var y0 = i * RH, y = y0 + BY, w = (W - LW - 70) * r.n / mx;
       out.push('<a href="' + esc(link(r.key)) + '" aria-label="' + esc(r.label + ': ' + r.n + unit) + '">' + hit(0, y0, LW + Math.max(w, 2) + 4) +

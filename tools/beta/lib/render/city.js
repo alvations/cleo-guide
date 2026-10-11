@@ -297,7 +297,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     || ordered.find(r => r.t === 1 && !r.closed) || ordered.find(r => !r.closed) || ordered[0];
   const heroArt = row.art && row.art.hero;
   const heroPhoto = heroFor(row);   // imagery W7: a credited city hero photo replaces the pin sky (else unchanged)
-  const heroHtml = `<div class="g-hero-x" aria-hidden="false">${heroPhoto ? heroPhotoHtml(heroPhoto, up) : heroArt ? `<img class="g-sky" src="${esc(up + heroArt.src)}" alt="" width="${heroArt.w}" height="${heroArt.h}" decoding="async">` : ''}` +
+  const heroHtml = `<div class="g-hero-x" aria-hidden="false">${heroPhoto ? heroPhotoHtml(heroPhoto, up) : heroArt ? `<img class="g-sky" src="${esc(up + heroArt.src)}" alt="" width="${heroArt.w}" height="${heroArt.h}" loading="lazy" decoding="async">` : ''}` +
     `<p class="g-kick">A guide in ${plural(st.areas || areas.length, 'area')} · every place recommended by name</p>` +
     `${G.tileLine && G.tileLine.text ? `<p class="g-lead">${esc(G.tileLine.text)}</p>` : ''}<p class="g-acts"><a class="btn btn-primary" href="#cleo-grid" data-g-browse>Browse all ${plural(recs.length, 'place')}</a>` +
     `${leadR ? `<a class="btn btn-ghost" href="#p-${esc(leadR.id)}">Start with ${esc(leadR.nat && leadR.n.endsWith(`(${leadR.nat})`) ? leadR.n.slice(0, -leadR.nat.length - 2).trimEnd() : leadR.n)}</a>` : ''}</p>${heroPhoto ? heroCreditHtml(heroPhoto) : ''}</div>`;

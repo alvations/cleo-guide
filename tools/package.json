@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "jsdom": "^24.0.0",
-    "leaflet": "^1.9.4"
+    "leaflet": "^1.9.4",
+    "terser": "5.36.0"
   }
 }
