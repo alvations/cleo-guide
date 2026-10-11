@@ -1,0 +1,1538 @@
+{
+ "head": "2f227631252db2a90fd7e76541365a151871ac99",
+ "checks": [
+  {
+   "group": "axe",
+   "name": "cleveland.html gallery mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html gallery mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html gallery desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html gallery desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html atlas mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html atlas mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html atlas desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html atlas desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html guidebook mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html guidebook mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html guidebook desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html guidebook desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html insights mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×7: svg[viewBox=\"0 0 288 246\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html insights mobile dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×7: svg[viewBox=\"0 0 288 246\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html insights desktop light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×7: svg[viewBox=\"0 0 554 246\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html insights desktop dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×7: svg[viewBox=\"0 0 554 246\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html gallery mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html gallery mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html gallery desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html gallery desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html atlas mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html atlas mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html atlas desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html atlas desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html guidebook mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html guidebook mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html guidebook desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html guidebook desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html insights mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×7: svg[viewBox=\"0 0 288 642\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html insights mobile dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×7: svg[viewBox=\"0 0 288 642\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html insights desktop light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×7: svg[viewBox=\"0 0 554 642\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/tokyo.html insights desktop dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×7: svg[viewBox=\"0 0 554 642\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html gallery mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html gallery mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html gallery desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html gallery desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html atlas mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html atlas mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html atlas desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html atlas desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html guidebook mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html guidebook mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html guidebook desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html guidebook desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html insights mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×6: svg[viewBox=\"0 0 288 334\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html insights mobile dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×6: svg[viewBox=\"0 0 288 334\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html insights desktop light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×6: svg[viewBox=\"0 0 554 334\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html insights desktop dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×6: svg[viewBox=\"0 0 554 334\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html gallery mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html gallery mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html gallery desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html gallery desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html atlas mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html atlas mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html atlas desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html atlas desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html guidebook mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html guidebook mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html guidebook desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html guidebook desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html insights mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×6: svg[viewBox=\"0 0 288 114\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html insights mobile dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×6: svg[viewBox=\"0 0 288 114\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html insights desktop light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×6: svg[viewBox=\"0 0 554 114\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html insights desktop dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×6: svg[viewBox=\"0 0 554 114\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html gallery mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html gallery mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html gallery desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html gallery desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html atlas mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html atlas mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html atlas desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html atlas desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html guidebook mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html guidebook mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html guidebook desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html guidebook desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html insights mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×6: svg[viewBox=\"0 0 288 290\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html insights mobile dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×6: svg[viewBox=\"0 0 288 290\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html insights desktop light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×6: svg[viewBox=\"0 0 554 290\"] — Element has focusable descendants"
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html insights desktop dark: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "nested-interactive×6: svg[viewBox=\"0 0 554 290\"] — Element has focusable descendants"
+   ]
+  }
+ ],
+ "info": {},
+ "axe": [
+  {
+   "rel": "cleveland.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1",
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1",
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 7,
+     "eg": [
+      "svg[viewBox=\"0 0 288 246\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 7,
+     "eg": [
+      "svg[viewBox=\"0 0 288 246\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 7,
+     "eg": [
+      "svg[viewBox=\"0 0 554 246\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 7,
+     "eg": [
+      "svg[viewBox=\"0 0 554 246\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1",
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1",
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 7,
+     "eg": [
+      "svg[viewBox=\"0 0 288 642\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 7,
+     "eg": [
+      "svg[viewBox=\"0 0 288 642\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 7,
+     "eg": [
+      "svg[viewBox=\"0 0 554 642\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 7,
+     "eg": [
+      "svg[viewBox=\"0 0 554 642\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1",
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1",
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 6,
+     "eg": [
+      "svg[viewBox=\"0 0 288 334\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 6,
+     "eg": [
+      "svg[viewBox=\"0 0 288 334\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 6,
+     "eg": [
+      "svg[viewBox=\"0 0 554 334\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 6,
+     "eg": [
+      "svg[viewBox=\"0 0 554 334\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1",
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1",
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 6,
+     "eg": [
+      "svg[viewBox=\"0 0 288 114\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 6,
+     "eg": [
+      "svg[viewBox=\"0 0 288 114\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 6,
+     "eg": [
+      "svg[viewBox=\"0 0 554 114\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 6,
+     "eg": [
+      "svg[viewBox=\"0 0 554 114\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1",
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1",
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 6,
+     "eg": [
+      "svg[viewBox=\"0 0 288 290\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 6,
+     "eg": [
+      "svg[viewBox=\"0 0 288 290\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 6,
+     "eg": [
+      "svg[viewBox=\"0 0 554 290\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [
+    {
+     "id": "nested-interactive",
+     "impact": "serious",
+     "n": 6,
+     "eg": [
+      "svg[viewBox=\"0 0 554 290\"] — Element has focusable descendants",
+      "svg[aria-labelledby=\"src-t src-d\"] — Element has focusable descendants"
+     ]
+    }
+   ],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  }
+ ]
+}

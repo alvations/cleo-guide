@@ -26,8 +26,7 @@ on:
     paths:
       - beta/assets/img/commons-candidates.json
       - beta/assets/img/unsplash-candidates.json
-      - tools/beta/imagery/fetch-commons.js
-      - tools/beta/imagery/fetch-unsplash.js
+      - tools/beta/imagery/**
       - .github/workflows/beta-fetch-unsplash.yml
 
 permissions:

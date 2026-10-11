@@ -9,8 +9,10 @@
    - the R6 art direction is retired AT THE TOKEN: --night now IS the ground, --gilt is ink, --motif is none, so every
      rule that still says "night" paints paper and no rule has to be patched to lose the navy hero;
    - every text pair is WCAG 2.2 AA in light and dark (design/beta/tools/contrast.py; style/v2/tools/palettes.py);
-   - type: --font-ui = Inter (text + UI, tabular figures); --font-display = the display face, ONE token (W7 amendment:
-     the expressive display face is being decided — swapping it is a one-token change);
+   - type: --font-display = Bricolage Grotesque (headlines, city names, big numbers — the inviting, youthful voice the
+     owner asked for); --font-ui = Inter (everything people read or tap, tabular figures). One token each;
+   - ONE warm "sun" highlight (W7 amendment, Gen Z wanderlust): a flat wash behind sticker badges and the heart pop —
+     never a gradient, never text colour, never chrome;
    - shadows are soft and rare (resting cards have none); radius 8 controls / 12 inputs / 16 media; motion ≤ 220 ms on
      primary paths and 0 under prefers-reduced-motion.
    ========================================================================== */
@@ -32,6 +34,11 @@
   --accent-ink:   #7A2A2A;   /* text-safe on paper / surface / wash */
   --accent-wash:  #F5EAE7;
   --on-accent:    #FFFFFF;
+
+  /* ---- The sun highlight — sticker badges + heart pop ring only ---- */
+  --sun:          #E9A93B;
+  --sun-wash:     #FBEBC8;
+  --on-sun-wash:  #3D2A06;
 
   /* ---- State (never decoration) ---- */
   --open:         #2E6A4C;
@@ -63,8 +70,8 @@
   --motif-ink:    none;
 
   /* ---- Type ---- */
-  --font-display: "Playfair", "Playfair Display", Georgia, "Times New Roman",
-                  "Hiragino Sans", "Noto Sans JP", "Noto Sans CJK JP", "IPAGothic", serif;   /* W7: display face pending the amendment — one-token swap */
+  --font-display: "Bricolage Grotesque", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+                  "Hiragino Sans", "Noto Sans JP", "Noto Sans CJK JP", "IPAGothic", sans-serif;   /* W7 amendment: inviting display face — headlines, city names, big numbers */
   --font-ui:      "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
                   "Hiragino Sans", "Noto Sans JP", "Noto Sans CJK JP", "IPAGothic", sans-serif;
   --font-native:  "Hiragino Sans", "Noto Sans JP", "Noto Sans CJK JP", "Yu Gothic", "IPAGothic", sans-serif;   /* native script, set small and upright */
@@ -77,9 +84,10 @@
   --fs-lead: 17px;  --lh-lead: 1.5;
   --fs-body: 16px;  --lh-body: 1.55;   /* ≥ 16 px body for every reader */
   --fs-sm:   14px;  --lh-sm:   1.45;
-  --fs-xs:   12.5px;--lh-xs:   1.35;
+  --fs-xs:   12px;  --lh-xs:   1.35;
   --fs-meta: 13px;
-  --fs-ui:   15px;
+  --fs-ui:   14px;                     /* = --fs-sm: five steps between 12 and 17 px (12 · 13 · 14 · 16 · 17), ROUND-6 gap #3 */
+  --fs-brand: 22px;                    /* the wordmark */
   --fw-ui: 400; --fw-ui-strong: 600; --fw-display: 600;
   --track-eyebrow: .04em;
   --track-display: -.024em;
@@ -112,6 +120,10 @@
   --ease-out:    cubic-bezier(.2, .8, .2, 1);
   --ease-in-out: cubic-bezier(.6, 0, .2, 1);
   --ease-spring: cubic-bezier(.34, 1.56, .64, 1);   /* the heart pop only */
+  /* the signature moment (ROUND-6 gap #1, design/beta/style/v2/MOTION.md): the tapped cover or pin grows into the sheet */
+  --dur-grow: 340ms;                                  /* ≤ 400 ms */
+  --ease-grow: cubic-bezier(.2, .9, .1, 1);           /* fast out of the tap, long soft landing */
+  --dur-pop: 320ms;                                   /* the heart pop (uses --ease-spring) */
 
   /* ---- Sizing ---- */
   --tap: 44px;
@@ -138,7 +150,7 @@
   :root:not([data-theme="light"]) {
     --paper:#131110; --surface:#1C1918; --sand:#262220; --ink:#F2EEEA; --ink-2:#D0C9C3; --ink-3:#A69E97;
     --line:#302B28; --line-strong:#4B4440; --scrim:rgba(0,0,0,.6);
-    --accent:#E0A19A; --accent-ink:#E8B0A9; --accent-wash:#33201E; --on-accent:#1E0E0C;
+    --accent:#E0A19A; --accent-ink:#E8B0A9; --accent-wash:#33201E; --on-accent:#1E0E0C; --sun:#F0BC5E; --sun-wash:#3B2C10; --on-sun-wash:#FBE3B0;
     --open:#86C9A3; --open-soft:#1C3026; --closed:#F0A08C; --closed-soft:#3A221C; --warn:#EDC06A; --warn-soft:#382C12;
     --area-mute:#766D67;
     --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70; --series-4:#c98500; --series-5:#d55181; --series-6:#9085e9; --series-other:#b4ada2; --chart-grid:#302B28; --chart-gap:#1C1918;
@@ -149,7 +161,7 @@
 :root[data-theme="dark"] {
   --paper:#131110; --surface:#1C1918; --sand:#262220; --ink:#F2EEEA; --ink-2:#D0C9C3; --ink-3:#A69E97;
   --line:#302B28; --line-strong:#4B4440; --scrim:rgba(0,0,0,.6);
-  --accent:#E0A19A; --accent-ink:#E8B0A9; --accent-wash:#33201E; --on-accent:#1E0E0C;
+  --accent:#E0A19A; --accent-ink:#E8B0A9; --accent-wash:#33201E; --on-accent:#1E0E0C; --sun:#F0BC5E; --sun-wash:#3B2C10; --on-sun-wash:#FBE3B0;
   --open:#86C9A3; --open-soft:#1C3026; --closed:#F0A08C; --closed-soft:#3A221C; --warn:#EDC06A; --warn-soft:#382C12;
   --area-mute:#766D67;
   --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70; --series-4:#c98500; --series-5:#d55181; --series-6:#9085e9; --series-other:#b4ada2; --chart-grid:#302B28; --chart-gap:#1C1918;
@@ -161,5 +173,5 @@
 /* ---------------- end city skins ---------------- */
 
 @media (prefers-reduced-motion: reduce) {
-  :root { --dur-1: 0ms; --dur-2: 0ms; --dur-3: 0ms; --dur-4: 0ms; }
+  :root { --dur-1: 0ms; --dur-2: 0ms; --dur-3: 0ms; --dur-4: 0ms; --dur-grow: 0ms; --dur-pop: 0ms; }
 }

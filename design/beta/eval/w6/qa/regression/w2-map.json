@@ -1,0 +1,240 @@
+{
+ "checks": [
+  {
+   "group": "map",
+   "name": "cleveland.html desktop: map ≥ 40 % of 1440",
+   "ok": true,
+   "evidence": "64 %"
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html desktop: open sheet → its place is in view on the map",
+   "ok": true,
+   "evidence": {
+    "id": "p-voinovich-bicentennial-park-and-cleveland-lighthouse-view",
+    "inView": true,
+    "offDeg": 0
+   }
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html desktop: numbered pins drawn",
+   "ok": true,
+   "evidence": 194
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html mobile: pin peek detent ≤ 40 % of the viewport",
+   "ok": true,
+   "evidence": "38 %"
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html mobile: Esc closes the pin sheet (QA-19)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "cleveland.html mobile: sheet has a locator inset",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "cities/tokyo.html desktop: map ≥ 40 % of 1440",
+   "ok": true,
+   "evidence": "64 %"
+  },
+  {
+   "group": "map",
+   "name": "cities/tokyo.html desktop: open sheet → its place is in view on the map",
+   "ok": true,
+   "evidence": {
+    "id": "p-maz-tokyo-garden-terrace-kioicho",
+    "inView": true,
+    "offDeg": 0
+   }
+  },
+  {
+   "group": "map",
+   "name": "cities/tokyo.html desktop: numbered pins drawn",
+   "ok": true,
+   "evidence": 488
+  },
+  {
+   "group": "map",
+   "name": "cities/tokyo.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "map",
+   "name": "cities/tokyo.html mobile: pin peek detent ≤ 40 % of the viewport",
+   "ok": true,
+   "evidence": "36 %"
+  },
+  {
+   "group": "map",
+   "name": "cities/tokyo.html mobile: Esc closes the pin sheet (QA-19)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "cities/tokyo.html mobile: sheet has a locator inset",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "cities/newyork.html desktop: map ≥ 40 % of 1440",
+   "ok": true,
+   "evidence": "64 %"
+  },
+  {
+   "group": "map",
+   "name": "cities/newyork.html desktop: open sheet → its place is in view on the map",
+   "ok": true,
+   "evidence": {
+    "id": "p-bethesda-terrace-and-fountain",
+    "inView": true,
+    "offDeg": 0
+   }
+  },
+  {
+   "group": "map",
+   "name": "cities/newyork.html desktop: numbered pins drawn",
+   "ok": true,
+   "evidence": 508
+  },
+  {
+   "group": "map",
+   "name": "cities/newyork.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "map",
+   "name": "cities/newyork.html mobile: pin peek detent ≤ 40 % of the viewport",
+   "ok": true,
+   "evidence": "36 %"
+  },
+  {
+   "group": "map",
+   "name": "cities/newyork.html mobile: Esc closes the pin sheet (QA-19)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "cities/newyork.html mobile: sheet has a locator inset",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "Singapore/chinatown.html desktop: map ≥ 40 % of 1440",
+   "ok": true,
+   "evidence": "64 %"
+  },
+  {
+   "group": "map",
+   "name": "Singapore/chinatown.html desktop: open sheet → its place is in view on the map",
+   "ok": true,
+   "evidence": {
+    "id": "p-nai-ek-roll-noodle-nai-ek-kuay-jub",
+    "inView": true,
+    "offDeg": 0
+   }
+  },
+  {
+   "group": "map",
+   "name": "Singapore/chinatown.html desktop: numbered pins drawn",
+   "ok": true,
+   "evidence": 16
+  },
+  {
+   "group": "map",
+   "name": "Singapore/chinatown.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "map",
+   "name": "Singapore/chinatown.html mobile: pin peek detent ≤ 40 % of the viewport",
+   "ok": true,
+   "evidence": "36 %"
+  },
+  {
+   "group": "map",
+   "name": "Singapore/chinatown.html mobile: Esc closes the pin sheet (QA-19)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "Singapore/chinatown.html mobile: sheet has a locator inset",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "cities/wheeling.html desktop: map ≥ 40 % of 1440",
+   "ok": true,
+   "evidence": "64 %"
+  },
+  {
+   "group": "map",
+   "name": "cities/wheeling.html desktop: open sheet → its place is in view on the map",
+   "ok": true,
+   "evidence": {
+    "id": "p-david-bradford-house",
+    "inView": true,
+    "offDeg": 0
+   }
+  },
+  {
+   "group": "map",
+   "name": "cities/wheeling.html desktop: numbered pins drawn",
+   "ok": true,
+   "evidence": 35
+  },
+  {
+   "group": "map",
+   "name": "cities/wheeling.html desktop: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "map",
+   "name": "cities/wheeling.html mobile: pin peek detent ≤ 40 % of the viewport",
+   "ok": true,
+   "evidence": "36 %"
+  },
+  {
+   "group": "map",
+   "name": "cities/wheeling.html mobile: Esc closes the pin sheet (QA-19)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "map",
+   "name": "cities/wheeling.html mobile: sheet has a locator inset",
+   "ok": true,
+   "evidence": true
+  }
+ ],
+ "summary": {
+  "checks": 35,
+  "pass": 35,
+  "fail": 0,
+  "at": "2026-10-11T13:35:52.063Z"
+ }
+}

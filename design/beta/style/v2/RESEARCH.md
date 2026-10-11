@@ -78,20 +78,16 @@ specimen is in [`type/specimen.png`](type/specimen.png).
 | Manrope | 5 | ✅ | ✅ | ✅ | 47 KB | Friendly, but its wide, round forms read less luxurious. |
 | Be Vietnam Pro | 5 | ✅ | ✅ | ✗ (static files) | 47 KB per weight | Native Vietnamese design, but it is static (one file per weight) and has no tabular figures. |
 
-**Decision (type):**
-- **Inter is the one family.** Its **Display** optical size (opsz 32) is used for headings ≥ 22 px. The text cut covers UI and body.
-- Playfair is retired, along with every italic display voice.
-- The serif does not earn a place even in the wordmark. A serif wordmark would cost a 30 KB font for four letters and would bring back the "fashion masthead" read the owner rejected. The wordmark is now Inter Display 600 with tight tracking and one accent star.
-- Why Inter over the warmer faces:
-  - It is the only face with **zero missing characters**. The others would drop pinyin carons or primes into a system face, which mixes faces mid-word.
-  - It is the only face that ships tabular figures for our counts and charts.
-  - It is already proven on this beta.
-- **Net font weight goes down.** About 140 KB of Playfair subsets on a Japan page is replaced by about 41 KB of Inter Display (latin + latin-ext).
+**Decision (type), revised for the owner's amendment** ("inviting Gen Z-style fonts"):
+- **Inter stays the text and UI face** because of the coverage and figures above.
+- The first-round "Inter Display" headline cut was replaced by an **expressive display face**. Five Vietnamese-capable OFL candidates were compared in [`type/audit-display.json`](type/audit-display.json) and [`type/display-specimen.png`](type/display-specimen.png), and shot on the real pages in [`type/pairings/`](type/pairings): Fraunces, Bricolage Grotesque, Unbounded, Space Grotesk and Newsreader.
+- **Bricolage Grotesque** won with 46/50. Fraunces was disqualified on macron drift. The scores are in DECISION §3.
+- Playfair and every italic voice are retired. The Bricolage subsets (54.5 KB) replace about 140 KB of Playfair on a Japan page.
 
 ## 5. What this changes in our system
 
 1. **Retire the R6 art direction as the default.** That means the night hero, the constellation and particle art, the gold-tinted illustrated plates, the purple signature tiles, the italic deks, the motif textures and the gradient washes. The retirement happens in the tokens: `--night` now points at the ground, so every rule that painted "night" paints paper.
-2. **One accent site-wide.** The accent is the same for every city, replacing the eight-colour city skins. It is spent only on the saved heart, the saved count, the day-route line and the wordmark star.
+2. **One accent site-wide.** The accent is the same for every city, replacing the eight-colour city skins. It is spent only on the saved heart, the saved count, the day-route line and the wordmark star. After the amendment, one flat warm "sun" wash was added behind data-backed sticker badges and the heart pop.
 3. **Ink does the work.** The primary button, the active segment and the focus ring are all ink. Distinction ("Must see") is ink with a glyph, not gilt.
 4. **Quiet chrome.**
    - The top bar is the ground plus a hairline.

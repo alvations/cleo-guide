@@ -872,6 +872,17 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - Checklist D2 upgraded to match.
     - A dedicated **Atlas map-search lane** (session_01Cuvo7DWhwbWjLpFicvaF5E) takes over atlas.js and Atlas CSS from FE-A.
 
+- 2026-10-11 14:45Z · orchestrator · **R6 QA: sign-off NO** on 2f227631 (73711b71). No R6 deploy; the findings are routed to W7.
+  - **To the Atlas map-search lane:**
+    - QA-36 High: the Leaflet `_leaflet_pos` error.
+    - QA-37 High: the 370 px tray head.
+    - QA-40 Med: phone Atlas doesn't name the city.
+    - QA-41 Med: pin ranks and cluster look.
+    - QA-44 Low: the initial fit should ignore far outliers. The Chinatown SG data issue goes to the live-pipeline backlog.
+  - **To platform:** QA-38 High (Insights axe) and QA-43 Low (eager JS).
+  - **To FE-A:** QA-42 Med (lead-card heart tap target).
+  - **Already fixed:** QA-39 High (workflow `npm ci`), in 49deb0a7.
+  - **Ratified:** R6 metrics.js B-02, B-06, B-07 and B-08, the test-beta cluster count, and D-36.
 - 2026-10-11 · Atlas lane · **Atlas is map search (W7 Amendment 2), first increment.**
   - **Desktop (≥ 1024):** a filter bar on top (Sights / Eat & drink, search, Area, Filters, Must see, Saved, Sort); the map on the left at 60 %, full height; a 2-column card grid on the right (the shared `li.pl` card), filtered to the map area ("Search as I move the map", on by default), with "N more outside this area. Show all".
     - Label-pill pins (the guide's number, ★ Must see; sight vs eat & drink in two quiet tokens; closed struck; saved ♥).

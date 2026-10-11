@@ -145,12 +145,31 @@ for (const [rel, body] of Object.entries(files)) {
 // generated pages carry the art (FE-B layers an <img class="motif">; city mastheads use motifSvg's <image>)
 const landing = fs.readFileSync(path.join(BETA, 'index.html'), 'utf8');
 const tiles = landing.match(/<li class="dest"[^>]*><a [^>]*class="tile[\s\S]*?<\/li>/g) || [];
+// W7: a credited photo may stand in for the motif — a slot passes with its motif OR a credited photo, never neither
 const refOf = t => (/(?:<img class="motif" src="|<image href=")([^'"?]+)/.exec(t) || [])[1];
-ok(tiles.length > 0 && tiles.every(t => refOf(t) && fs.existsSync(path.join(BETA, refOf(t)))), `every landing city tile references an existing motif (${tiles.length})`);
+const hasMotif = t => !!refOf(t) && fs.existsSync(path.join(BETA, refOf(t)));
+/** a credited photo in this fragment: a photo element AND a visible TASL credit (figcaption, .credit or .hero-credit). */
+const hasCreditedPhoto = t => /<(?:img class="ph"|figure class="photo)/.test(t) &&
+  /<(?:figcaption|small class="credit"|p class="hero-credit")[^>]*>[\s\S]*?by [\s\S]*?<a [^>]*rel="license/.test(t);
+const artOrPhoto = t => hasMotif(t) || hasCreditedPhoto(t);
+const heroOf = h => (/<section class="chero[\s\S]*?<\/section>/.exec(h) || [''])[0];
+ok(tiles.length > 0 && tiles.every(artOrPhoto), `every landing city tile carries an existing motif or a credited photo (${tiles.length})`);
 const tk = fs.readFileSync(path.join(BETA, 'cities', 'tokyo.html'), 'utf8');
-ok(/<header class="masthead"><svg class="motif"[^>]*><image href="\.\.\/assets\/img\/motifs\/tokyo\.svg\?v=/.test(tk), 'Tokyo masthead carries the Tokyo motif');
+const tkMast = (/<header class="masthead">[\s\S]*?<\/header>/.exec(tk) || [''])[0];
+ok(/<header class="masthead"><svg class="motif"[^>]*><image href="\.\.\/assets\/img\/motifs\/tokyo\.svg\?v=/.test(tk) || hasCreditedPhoto(tkMast), 'Tokyo masthead carries the Tokyo motif or a credited hero photo');
 const hubJ = fs.readFileSync(path.join(BETA, 'Japan', 'index.html'), 'utf8');
-ok(/assets\/img\/motifs\/japan\.svg/.test(hubJ) && fs.existsSync(path.join(BETA, 'assets/img/motifs/japan.svg')), 'Japan hub hero references the country motif');
+ok((/assets\/img\/motifs\/japan\.svg/.test(hubJ) && fs.existsSync(path.join(BETA, 'assets/img/motifs/japan.svg'))) || hasCreditedPhoto(heroOf(hubJ)), 'Japan hub hero references the country motif or carries a credited hero photo');
+// the same rule on fixtures, so the photo-present case is covered offline (photos exist only on the runner)
+if (hph) {
+  const fxHub = `<section class="chero" aria-labelledby="cn"><div class="inner"><h1>Japan</h1></div>${photos.heroHtml(hph, '../', 'photo hero-media')}</section>`;
+  const fxBare = '<section class="chero" aria-labelledby="cn"><div class="inner"><h1>Japan</h1></div><div class="hero-media cover"></div></section>';
+  const fxNoCredit = fxHub.replace(/<figcaption>[\s\S]*?<\/figcaption>/, '');
+  const fxMast = `<header class="masthead"><div class="g-hero-x">${photos.heroHtml(hph, '../')}<p class="g-kick">x</p>${photos.heroCreditHtml(hph)}</div></header>`;
+  const fxTile = `<li class="dest"><a class="tile card"><span class="card-media"><img class="ph" src="x.jpg" alt="x"></span></a><small class="credit">${photos.captionHtml(hph.credit)}</small></li>`;
+  ok(artOrPhoto(heroOf(fxHub)) && !artOrPhoto(heroOf(fxBare)) && !artOrPhoto(heroOf(fxNoCredit)), 'fixture: a hub hero passes with a credited photo, fails with neither motif nor photo, fails with an uncredited photo');
+  ok(hasCreditedPhoto(fxMast) && !hasCreditedPhoto(fxMast.replace(/<p class="hero-credit"[\s\S]*?<\/p>/, '')), 'fixture: a city masthead hero photo passes only with its credit line');
+  ok(artOrPhoto(fxTile) && !artOrPhoto(fxTile.replace(/<small class="credit">[\s\S]*?<\/small>/, '')), 'fixture: a landing tile passes with a credited photo, never with an uncredited one');
+}
 const anyPhoto = [];
 for (const r of rows) { const h = fs.readFileSync(path.join(BETA, r.beta), 'utf8'); for (const f of h.match(/<figure class="photo[^"]*">[\s\S]*?<\/figure>/g) || []) if (!/<figcaption>[^<]*by [\s\S]+<a [^>]*rel="license/.test(f)) anyPhoto.push(r.beta);
   if (/class="photo hero-photo"/.test(h) && !/<p class="hero-credit"[^>]*>Photo: [\s\S]*?rel="license/.test(h)) anyPhoto.push(r.beta + ' (hero without its credit line)'); }
@@ -208,6 +227,7 @@ const port = fc.licenceOf('CC BY-SA 3.0 de');
 ok(port.licence === 'CC BY-SA 3.0 DE' && photos.creditProblems(Object.assign({}, cmn, port)).length === 0, 'fetch-commons: a ported licence (CC BY-SA 3.0 de) passes the credit gate');
 ok(fc.namesPlace(['Sensō-ji', '浅草寺'], 'File:Senso-ji, Asakusa, Tokyo.jpg') && fc.namesPlace(['Sensō-ji'], 'File:X.jpg', '', 'Sensoji temple') && fc.namesPlace(['浅草寺'], '', '浅草寺の本堂') && !fc.namesPlace(['Ginkaku-ji'], 'File:Kinkaku-ji in autumn.jpg', 'Golden Pavilion') && !fc.namesPlace(['Arc'], 'File:Cleveland Arcade.jpg'), 'fetch-commons: depicts re-check matches names without spaces/diacritics, refuses another place and too-short names');
 ok(JSON.stringify(fc.snapWidths([480, 960], 4000)) === '[500,960]' && JSON.stringify(fc.snapWidths([640, 1280], 1100)) === '[500,1100]' && JSON.stringify(fc.snapWidths([640, 960], 960)) === '[500,960]', 'fetch-commons: widths snap to Commons\' standard thumbnail steps (640 → 500; a 640 px request answered HTTP 400 in run #5), never wider than the original');
+ok(!fc.tooManyFailures(10, 1) && !fc.tooManyFailures(2, 1) && fc.tooManyFailures(8, 3), 'fetch-commons: one failed thumbnail is skipped; the run fails only past 25 % failed downloads');
 ok(fc.fileBase({ type: 'landmark', depicts: 'singapore/chinatown#sri-mariamman-temple' }) === 'singapore--chinatown--sri-mariamman-temple' && fc.fileBase({ type: 'hero', depicts: 'hub:singapore/chinatown' }) === 'hero--singapore--chinatown', 'fetch-commons: file names follow the photos/ convention');
 const fplan = fc.plan(cm, { credits: [] }, { keys: [], types: [], min: 'high', allow: [], wikiLead: false, pilot: false }).filter(p => !p.skip);
 ok(fplan.length > 100 && fplan.every(p => p.cands.length && p.cands.every(c => c.confidence === 'high' && !(c.flags || []).length) && !p.t.skip), `fetch-commons default plan: ${fplan.length} targets, high-confidence unflagged candidates only, never a skipped (venue/food/closed/Vietnam) target`);
