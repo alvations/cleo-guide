@@ -17,20 +17,12 @@
   // visit): no rows — the All N grid below still holds every place.
   const esc = C.esc, TIER = ['', 'Must see', 'Worth the detour', 'Deep cut'], attrs = {};
   const att = (id, k) => { if (!attrs[id]) { const c = C.byId[id] || (Cleo.defer && Cleo.defer.peek().filter(x => x.id === 'p-' + id)[0]); attrs[id] = c || { getAttribute: () => null }; } return attrs[id].getAttribute(k); };
-  // the pin's spot on its area art, in % of the art box (null: closed / no art / off the art)
-  const posOf = r => { const a = (info.art || {})[r.a]; if (!a || r.la == null || r.closed) return null;
-    const x = a[3] + (r.ln - a[5]) * a[8], y = a[3] + (a[6] - r.la) * a[9];
-    return x >= 0 && y >= 0 && x <= a[1] && y <= a[2] ? [(100 * x / a[1]).toFixed(1), (100 * y / a[2]).toFixed(1)] : null; };
-  const ringOf = r => { const p = posOf(r); return p ? '<i class="g-ring me" style="left:' + p[0] + '%;top:' + p[1] + '%"></i>' : ''; };
-  // W4 designer hook (ROUND-3 #3): --rx/--ry = the pin, so a cover composition can crop and zoom the art around it
-  // one request per area art, not one per cover (ROUND-5 gap #2: 450 cover requests on a Tokyo show-all): the file is
-  // read once and every cover of that area shares one blob URL. No fetch or a failed one: the plain src, lazy as before.
-  const blobs = {};
-  const artSrc = aid => { const a = (info.art || {})[aid]; if (!a) return;
-    if (!blobs[aid]) blobs[aid] = window.fetch && window.URL && URL.createObjectURL ? fetch(a[0]).then(r => { if (!r.ok) throw new Error(r.status); return r.blob(); }).then(b => URL.createObjectURL(b)).catch(() => a[0]) : Promise.resolve(a[0]);
-    blobs[aid].then(u => qa('img[data-art="' + aid + '"]:not([src])').forEach(i => { i.src = u; })); };
-  const artOf = (aid, ring, r) => { const a = (info.art || {})[aid], p = r && posOf(r); if (a) setTimeout(() => artSrc(aid), 0);
-    return a ? '<span class="g-art pinart" style="aspect-ratio:' + a[1] + '/' + a[2] + (p ? ';--rx:' + p[0] + '%;--ry:' + p[1] + '%' : '') + '"><img data-art="' + esc(aid) + '" alt="" width="' + a[1] + '" height="' + a[2] + '" decoding="async">' + ring + '</span>' : ''; };
+  // W7: covers are calm (neutral ground, kind icon, typographic initial or native name). The area pin art moved off the
+  // cards to the place detail's locator, so a grid page no longer fetches one art file per area.
+  // W7: a credited photo (lib/gallery.js ph) laid over the calm cover, the same slot as the grid card's figure.pl-photo
+  const root = Cleo.root || '../';
+  const phHtml = p => p ? '<figure class="photo gc-photo"><img src="' + esc(root + p[0]) + '"' + (p[5] && p[5].length > 1 ? ' srcset="' + p[5].map(x => esc(root + x[0]) + ' ' + x[1] + 'w').join(', ') + '" sizes="(min-width: 1024px) 300px, 80vw"' : '') +
+    ' width="' + p[1] + '" height="' + p[2] + '" alt="' + esc(p[3]) + '" loading="lazy" decoding="async"><figcaption>' + p[4] + '</figcaption></figure>' : '';
   const CJK = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af\uf900-\ufaff]/;
   const gcard = (r, i) => {
     const nat = r.nat && r.n.slice(-r.nat.length - 2) === '(' + r.nat + ')' ? r.nat : '', g = Array.from(nat);
@@ -38,10 +30,9 @@
     const plate = g.length && g.length <= 4 && CJK.test(nat) ? '<span class="plate v"' + (info.lang ? ' lang="' + info.lang + '"' : '') + '>' + esc(nat) + '</span>'
       : '<span class="plate i" data-i="' + esc((nm.replace(/^(The|La|Le|El|Il|Der|Die|Das)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || ['·'])[0]) + '"></span>';
     const ids = (r.src || []).filter(x => x !== 'guide'), chips = ids.slice(0, 2).map(x => '<button type="button" class="src" data-src="' + esc(x) + '">' + esc(((info.src || {})[x] || [x])[0]) + '</button>').join(', ');
-    return '<li class="gc' + (r.closed ? ' gc--closed' : '') + '" data-id="' + esc(r.id) + '"><a class="gc-a" href="#p-' + esc(r.id) + '"><span class="cover' + (r.closed ? ' closed' : '') + '" data-gl="' + esc(att(r.id, 'data-gl') || 'compass') + '" data-m="' + esc(att(r.id, 'data-m') || att(r.id, 'data-gl') || 'compass') + '" data-t="' + (r.t || 3) + '" data-comp="' + ((i || 0) % 5) + '"' + (col ? ' style="--ac:' + col + '"' : '') + ' aria-hidden="true">' +
-      artOf(r.a, ringOf(r), r) + plate + '<span class="gl"><svg class="ico"><use href="#i-' + esc(att(r.id, 'data-gl') || 'compass') + '"/></svg></span></span>' +
-      '<span class="gc-b"><span class="pl-e">' + (r.closed ? 'Closed · kept for the record' : (TIER[r.t] ? '<i class="tg t' + r.t + '" aria-hidden="true"></i><span class="vh">' + TIER[r.t] + ' · </span>' : '') + esc(C.label('a', r.a)) + ' · ' + (r.kind === 'food' ? 'Eat &amp; drink' : 'See')) + '</span>' +
-      '<span class="gc-n">' + esc(nm) + '</span>' + (r.w ? '<span class="gc-w">' + esc(String(r.w).replace(/<[^>]+>/g, '')) + '</span>' : '') + '</span></a>' +
+    return '<li class="gc' + (r.closed ? ' gc--closed' : '') + '" data-id="' + esc(r.id) + '"><a class="gc-a" href="#p-' + esc(r.id) + '"><span class="cover' + (r.closed ? ' closed' : '') + '" data-gl="' + esc(att(r.id, 'data-gl') || 'compass') + '" data-m="' + esc(att(r.id, 'data-m') || att(r.id, 'data-gl') || 'compass') + '" data-t="' + (r.t || 3) + '" data-comp="' + ((i || 0) % 5) + '"' + (col ? ' style="--ac:' + col + '"' : '') + ' aria-hidden="true">' + plate + '<span class="gl"><svg class="ico"><use href="#i-' + esc(att(r.id, 'data-gl') || 'compass') + '"/></svg></span></span>' +
+      '<span class="gc-b"><span class="pl-e">' + (r.closed ? 'Closed · kept for the record' : (r.t === 1 ? '<span class="badge t1">Must see</span> ' : TIER[r.t] ? '<span class="vh">' + TIER[r.t] + ' · </span>' : '') + esc(C.label('a', r.a)) + ' · ' + (r.kind === 'food' ? 'Eat &amp; drink' : 'See')) + '</span>' +
+      '<span class="gc-n">' + esc(nm) + '</span>' + (r.w ? '<span class="gc-w">' + esc(String(r.w).replace(/<[^>]+>/g, '')) + '</span>' : '') + '</span></a>' + phHtml(r.ph) +
       '<p class="pl-s"><span class="lbl">Recommended by</span> ' + (chips || '<span class="added">Added by the guide (general knowledge)</span>') + (ids.length > 2 ? ' <span class="more">+' + (ids.length - 2) + '</span>' : '') + '</p>' +
       '<button type="button" class="heart gc-save" data-ref="' + esc(r.id) + '" aria-pressed="false" aria-label="Save ' + esc(nm) + '"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg></button></li>';
   };
@@ -86,14 +77,8 @@
     else if ((b = t.closest('[data-g-browse]'))) { e.preventDefault(); if (grid) grid.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
   });
 
-  // covers on the grid's current page: area pin art + this place ringed (one cached SVG per area)
-  // data-comp: the composition, by position among the cards on screen, so no two neighbours share one (5 > 4 columns)
-  const cover = (c, i) => {
-    const p = $('.pl-cover', c), ll = (at(c, 'data-ll') || '').split(','); if (!p) return;
-    p.setAttribute('data-comp', String(i % 5)); if ($('.g-art', p)) return;
-    const r = { a: at(c, 'data-a'), la: ll.length === 2 ? +ll[0] : null, ln: +ll[1], closed: c.hasAttribute('data-closed') };
-    p.insertAdjacentHTML('afterbegin', artOf(r.a, ringOf(r), r));
-  };
+  // data-comp: the composition hook, by position among the cards on screen, so no two neighbours share one (5 > 4 columns)
+  const cover = (c, i) => { const p = $('.pl-cover', c); if (p) p.setAttribute('data-comp', String(i % 5)); };
   const paint = () => {
     if (!isG()) return; start();
     qa('li.pl:not([hidden]):not(.pg-off)').forEach(cover);
