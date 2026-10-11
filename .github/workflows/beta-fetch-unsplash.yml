@@ -59,7 +59,7 @@ jobs:
       - name: Fetch Wikimedia Commons photos (no key needed)
         run: |
           if [ -f tools/beta/imagery/fetch-commons.js ]; then
-            node tools/beta/imagery/fetch-commons.js --budget 150 --hero-widths 640,960
+            node tools/beta/imagery/fetch-commons.js --budget 150 --widths 500,960 --hero-widths 500,960
           else
             echo "::warning::tools/beta/imagery/fetch-commons.js is not on this branch; skipping Commons."
           fi
