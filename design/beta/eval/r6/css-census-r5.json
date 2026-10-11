@@ -1,0 +1,298 @@
+{
+ "label": "R5",
+ "font-size": {
+  "decls": 325,
+  "token_or_keyword": 18,
+  "raw": 307,
+  "distinct_raw": 51,
+  "distinct_all": 56,
+  "top_raw": [
+   [
+    "13px",
+    45
+   ],
+   [
+    "14px",
+    40
+   ],
+   [
+    "13.5px",
+    33
+   ],
+   [
+    "12.5px",
+    31
+   ],
+   [
+    "15px",
+    23
+   ],
+   [
+    "12px",
+    23
+   ],
+   [
+    "14.5px",
+    13
+   ],
+   [
+    "19px",
+    7
+   ]
+  ]
+ },
+ "border-radius": {
+  "decls": 235,
+  "token_or_keyword": 128,
+  "raw": 107,
+  "distinct_raw": 17,
+  "distinct_all": 25,
+  "top_raw": [
+   [
+    "50%",
+    34
+   ],
+   [
+    "999px",
+    17
+   ],
+   [
+    "3px",
+    10
+   ],
+   [
+    "12px",
+    9
+   ],
+   [
+    "16px",
+    6
+   ],
+   [
+    "14px",
+    5
+   ],
+   [
+    "9px",
+    4
+   ],
+   [
+    "13px",
+    4
+   ]
+  ]
+ },
+ "letter-spacing": {
+  "decls": 47,
+  "token_or_keyword": 5,
+  "raw": 42,
+  "distinct_raw": 13,
+  "distinct_all": 15,
+  "top_raw": [
+   [
+    "-.01em",
+    8
+   ],
+   [
+    "-.02em",
+    5
+   ],
+   [
+    ".04em",
+    5
+   ],
+   [
+    "-.015em",
+    3
+   ],
+   [
+    ".08em",
+    3
+   ],
+   [
+    "-.04em",
+    3
+   ],
+   [
+    ".1em",
+    3
+   ],
+   [
+    ".06em",
+    3
+   ]
+  ]
+ },
+ "box-shadow": {
+  "decls": 125,
+  "token_or_keyword": 94,
+  "raw": 31,
+  "distinct_raw": 20,
+  "distinct_all": 26,
+  "top_raw": [
+   [
+    "inset 0 0 0 1px var(--ink)",
+    6
+   ],
+   [
+    "0 0 0 2px var(--city), var(--e-2)",
+    4
+   ],
+   [
+    "0 1px 0 var(--line)",
+    2
+   ],
+   [
+    "inset 0 -5px 0 var(--ac)",
+    2
+   ],
+   [
+    "0 0 0 2px var(--city)",
+    2
+   ],
+   [
+    "0 0 0 2px var(--pin), var(--e-1)",
+    1
+   ],
+   [
+    "0 0 0 3px var(--surface), 0 0 0 5px var(--city), var(--e-2)",
+    1
+   ],
+   [
+    "0 0 0 2px var(--paper), 0 0 0 4px var(--city)",
+    1
+   ]
+  ]
+ },
+ "font-weight": {
+  "decls": 111,
+  "token_or_keyword": 4,
+  "raw": 107,
+  "distinct_raw": 7,
+  "distinct_all": 8,
+  "top_raw": [
+   [
+    "650",
+    42
+   ],
+   [
+    "600",
+    24
+   ],
+   [
+    "500",
+    18
+   ],
+   [
+    "700",
+    9
+   ],
+   [
+    "400",
+    7
+   ],
+   [
+    "400 700",
+    6
+   ],
+   [
+    "460",
+    1
+   ]
+  ]
+ },
+ "line-height": {
+  "decls": 56,
+  "token_or_keyword": 12,
+  "raw": 44,
+  "distinct_raw": 16,
+  "distinct_all": 22,
+  "top_raw": [
+   [
+    "1.45",
+    10
+   ],
+   [
+    "1.5",
+    8
+   ],
+   [
+    "1",
+    4
+   ],
+   [
+    "1.4",
+    4
+   ],
+   [
+    "1.6",
+    2
+   ],
+   [
+    "1.3",
+    2
+   ],
+   [
+    "1.35",
+    2
+   ],
+   [
+    "1.04",
+    2
+   ]
+  ]
+ },
+ "font-family": {
+  "decls": 21,
+  "token_or_keyword": 15,
+  "raw": 6,
+  "distinct_raw": 2,
+  "distinct_all": 5,
+  "top_raw": [
+   [
+    "\"Bodoni Moda\"",
+    4
+   ],
+   [
+    "\"Figtree\"",
+    2
+   ]
+  ]
+ },
+ "font-variant-numeric": {
+  "decls": 4,
+  "token_or_keyword": 0,
+  "raw": 4,
+  "distinct_raw": 3,
+  "distinct_all": 3,
+  "top_raw": [
+   [
+    "tabular-nums",
+    2
+   ],
+   [
+    "oldstyle-nums proportional-nums",
+    1
+   ],
+   [
+    "lining-nums tabular-nums",
+    1
+   ]
+  ]
+ },
+ "@font-face families": [
+  "Bodoni Moda",
+  "Figtree"
+ ],
+ "tabular-nums rules": 3,
+ "css bytes": 345812,
+ "tokens": {
+  "fs": 13,
+  "r-": 5,
+  "radius": 0,
+  "shadow": 0,
+  "e-": 11,
+  "sp": 0,
+  "font": 3
+ }
+}
