@@ -725,3 +725,10 @@ Append-only. One entry per session per wave: date, lane, session id, what change
 - 2026-10-11 11:20Z · orchestrator · Owner request: run 4 more rounds (R6–R9) and make sure the beta matches what was designed. Added the design-conformance checklist `design/beta/eval/ROUNDS-6-9.md` (D1–D11). Every evaluator scores it, every non-✅ row becomes next-wave work, and QA blocks any regression of a ✅ row. Round 6 is in progress: type & style, Atlas map-first and the Unsplash manifest.
 
 - 2026-10-11 11:25Z · orchestrator · Owner raised the target: **≥ 98 overall is the minimum**. Iterate until the independent review reaches it; there is no fixed round count. Evaluator independence is kept: it is not told the target and uses the same rubric. Plateau rule: if two rounds gain < 1 point and the remaining gap is owner-blocked (photographs, reviewed locale), pause and report what unblocks it.
+
+- 2026-10-11 · orchestrator · Owner asked for the Unsplash photos to come through GitHub Actions, and authorised the permission rules for it.
+  - **Added** `.github/workflows/beta-fetch-unsplash.yml`. A GitHub-hosted runner can reach the Unsplash API; this sandbox cannot.
+  - **Triggers:** manual dispatch, or a push to this branch that touches the candidate manifest, the fetch script or the workflow.
+  - **Run:** runs `tools/beta/imagery/fetch-unsplash.js` (official API, high-confidence title matches only, no Unsplash+, `download_location` fired), rebuilds the beta, runs `validate` and `test`, then commits the photos and their "Photo by X on Unsplash" credits.
+  - **Skips cleanly:** if the `UNSPLASH_ACCESS_KEY` repository secret or the script is missing, it warns and commits nothing.
+  - **Settings:** scoped allow rules in `.claude/settings.json`.
