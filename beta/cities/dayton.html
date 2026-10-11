@@ -30,6 +30,7 @@
 <script src="../assets/js/core.js?v=806e19740c" defer></script>
 <link rel="stylesheet" href="../assets/fe-a.css?v=25f312f04c">
 <script>(function(){var v=["gallery","atlas","guidebook","insights"],h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)(?:day|mode|a|t|c|cz|src|closed|q|sig|gap)=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'gallery';document.documentElement.setAttribute('data-view',x)})()</script>
+<script>(function(){var v=document.documentElement.getAttribute('data-view')||(/[#&]view=([a-z]+)/.exec(location.hash)||[])[1];if(!v){try{v=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}if(v==="atlas")return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href="../assets/img/photos/hero--dayton-960.jpg";l.setAttribute('imagesrcset',"../assets/img/photos/hero--dayton-500.jpg 500w, ../assets/img/photos/hero--dayton-960.jpg 960w");l.setAttribute('imagesizes',"(min-width: 1024px) 50vw, 100vw");l.setAttribute('fetchpriority','high');document.head.appendChild(l)})()</script>
 <link rel="alternate" type="application/atom+xml" title="Dayton — what changed" href="../feeds/dayton.xml">
 </head>
 <body>
@@ -56,7 +57,7 @@
   <p class="eyebrow">United States</p>
   <div class="title"><h1>Dayton</h1><p class="dek">the Gem City — birthplace of aviation on the Great Miami</p></div>
   <p class="facts"><b>74 places</b> · 7 areas<span class="long"> · every one sourced, pinned and status-checked</span> · <a href="../changes/dayton.html" data-cleo-changes>last checked <time class="nw">2026-08-24</time></a><span class="long">. Ordered by tier, then by number of named sources. <a href="#how-we-choose">How we choose</a></span></p>
-<div class="g-hero-x"><p class="g-lead">Dayton-style · pizza · Frank Lloyd Wright&#39;s Westcott House</p><p class="g-start"><a href="#p-marions-piazza">Start with Marion&#39;s Piazza</a></p></div>
+<div class="g-hero-x"><p class="g-lead">Dayton-style · pizza · Frank Lloyd Wright&#39;s Westcott House</p><p class="g-start"><a href="#p-marions-piazza">Start with Marion&#39;s Piazza</a></p><figure class="photo hero-media"><img src="../assets/img/photos/hero--dayton-960.jpg" srcset="../assets/img/photos/hero--dayton-500.jpg 500w, ../assets/img/photos/hero--dayton-960.jpg 960w" sizes="(min-width: 1024px) 50vw, 100vw" width="960" height="720" alt="Dayton skyline over the Great Miami River" loading="lazy" fetchpriority="high" decoding="async"><figcaption>Photo: The Mighty Tim Inconnu from Dayton, United States of America · <a href="https://creativecommons.org/licenses/by/2.0" rel="license noopener" target="_blank">CC BY 2.0</a> · <a href="https://commons.wikimedia.org/wiki/File:DaytonSkylineGMRiver.jpg" title="“DaytonSkylineGMRiver”" aria-label="“DaytonSkylineGMRiver” on Wikimedia Commons" rel="noopener" target="_blank">Wikimedia Commons</a> (resized)</figcaption></figure></div>
 </header>
 <div class="g-lead-slot vw view-gallery" id="cleo-lead"><p class="g-lead-k">Start with</p></div>
 <nav class="rail" id="cleo-rail" aria-label="Collections" data-cleo-rail data-view="all" hidden>
