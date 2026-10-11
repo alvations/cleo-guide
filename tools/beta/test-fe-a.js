@@ -291,7 +291,9 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     const html = d.documentElement, split = d.querySelector('.split'), lp = d.querySelector('.listpane'), bar = d.querySelector('.ms-bar'), tog = d.querySelector('.ms-toggle');
     chk('phone Atlas opens map-first: html.atlas-m, the map view, no list over it', html.classList.contains('atlas-m') && split.getAttribute('data-view') === 'map' && !html.classList.contains('ms-list'), html.className);
     chk('…with no map= in the URL (map-first is the Atlas default, not a route)', !/map=/.test(w.location.hash), w.location.hash);
-    chk('…one chip row on top holds the switcher, the toolbar and Must see / Saved / Sort', !!bar && !!bar.querySelector('[data-cleo-views]') && !!bar.querySelector('[data-cleo-toolbar]') && !!bar.querySelector('.ms-must') && !!bar.querySelector('.ms-mine') && !!bar.querySelector('.ms-sort select'));
+    // the view switcher sits in FE-A's search bar (.cbar) when the page has one, else at the end of the chip row
+    const vw = d.querySelector('[data-cleo-views]');
+    chk('…one chip row on top holds the toolbar and Must see / Saved / Sort; the switcher stays in reach (search bar or chip row)', !!bar && !!bar.querySelector('[data-cleo-toolbar]') && !!bar.querySelector('.ms-must') && !!bar.querySelector('.ms-mine') && !!bar.querySelector('.ms-sort select') && !!vw && !!(vw.closest('.cbar') || vw.closest('.ms-bar')));
     const N = w.Cleo.city.info.total;
     chk('without the map library the results line counts every place', new RegExp('All ' + N.toLocaleString('en-US') + ' places').test(d.querySelector('.ms-count').textContent), d.querySelector('.ms-count').textContent);
     const n0 = w.history.length; tog.click(); await sleep(20);
