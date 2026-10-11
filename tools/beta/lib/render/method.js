@@ -61,7 +61,7 @@ function countryTable(reg) {
     const hi = recs.filter(x => x.pv && x.pv.pin === 'high').length;
     return { name: c.name, g, n: recs.length, hi, pct: recs.length ? Math.round(100 * hi / recs.length) : 0, closed: recs.filter(x => x.closed).length };
   }).filter(r => r.n);
-  return `<div class="tablewrap"><table class="ctable"><caption class="sm muted">By country, as built</caption>
+  return `<div class="tablewrap" tabindex="0" role="region" aria-label="By country, as built (scrolls sideways)"><table class="ctable"><caption class="sm muted">By country, as built</caption>
 <thead><tr><th scope="col">Country</th><th scope="col">Guides</th><th scope="col">Places</th><th scope="col">Pins at high confidence</th><th scope="col">Closed, kept</th></tr></thead>
 <tbody>${rows.map(r => `<tr><th scope="row">${esc(r.name)}</th><td>${r.g}</td><td>${n(r.n)}</td><td>${n(r.hi)} (${r.pct} %)</td><td>${n(r.closed)}</td></tr>`).join('')}</tbody></table></div>`;
 }

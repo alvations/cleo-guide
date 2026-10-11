@@ -924,3 +924,28 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - In Atlas, photos are cropped 4:3 (they had been rendering 692 px tall). The phone carousel keeps the calm cover, because a 96 px thumb has no room for a legible credit. The map preview shows the photo with its credit.
   - **Gates on the final tree:** validate + `npm test` + `beta:check` all PASS (eager JS 39 KB gzip). w2 map 35/35, w5 64/64, `atlas-ms.js` 85/85.
   - **Evidence:** `design/beta/eval/w7/atlas/` (390 + 1440, light + dark, stub tiles + tiles blocked). Probe: `NODE_PATH=$(npm root -g) node tools/beta/atlas-ms.js`, the Amendment 2 acceptance as executable checks.
+
+- 2026-10-11 16:22Z · orchestrator · **W7 progress.**
+  - **Real photos via GitHub Actions (keyless Wikimedia Commons).** Runs #11–#14 landed 128 credited photos: 38 heroes and 94 cards. Licences are CC BY-SA, CC BY, PD and CC0, each with TASL credits.
+    - Run fixes along the way:
+      - #5: Commons only serves standard thumbnail widths, so widths are now 500/960.
+      - #6/#7: stale motif checks.
+      - #10: a test-fe-a credit-scan assumption.
+    - The imagery lane now runs a full 134-photo local mock before pushing.
+    - **Visual review by the orchestrator:**
+      - Tokyo and New York heroes swapped (dull office blocks with a logo; an asphalt path).
+      - 12 more hero swaps from a contact sheet: Bruges canal, Belgium and Germany hubs de-duplicated, Aachen, Dayton, Erie, Harrisburg, Akron, Liège, Indianapolis, Silicon Valley, Wheeling.
+      - New fetch rules refuse signage/logo subjects and winter/overcast heroes.
+    - Fetch budget raised to 300.
+  - **Weights with real photos:** Tokyo 941 KB desktop / 1,237 KB phone; Japan hub 649 / 1,064 KB. **The landing is 2,145 KB on a 3× phone**, over budget, and FE-B is fixing `sizes` and lazy loading.
+  - **Designer:**
+    - Owner board published: https://claude.ai/artifact/B58XJxG6XKYx3v9HeBmB8U (Bone & Oxblood + sun, Bricolage Grotesque + Inter; 100/110).
+    - R6 gap #3 type discipline and the gap #1 motion spec are done.
+    - Photo visual pass V2.17 is done.
+  - **FE-B:** landing and hubs on v2 and Bricolage. Next: the hub hero photo first on phones, and the landing budget.
+  - **Atlas map-search** (Amendment 2) is shipped:
+    - a desktop split with the map at 60 % and a list that follows the map bounds;
+    - a phone map with a carousel and a List/Map toggle;
+    - QA-36, 37, 40, 41 and 44 closed;
+    - probe 85/85.
+  - **Pending:** the shared photo-first card from FE-A. It has not pushed for about 3 h; deadline 16:30Z, otherwise the card is reassigned to the designer.
