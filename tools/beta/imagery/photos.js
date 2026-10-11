@@ -205,6 +205,11 @@ function hostOf(u) { const m = /^https:\/\/(?:www\.)?([^/]+)/i.exec(u); return m
 // A ≥ 2.5 dppx phone takes the 500 w copy for a card (≈ 1.5 image px per CSS px; platform W8, R7 gap 7: Tokyo phone
 // first load 930 → 609 KB); 2× phones, tablets, desktop and heroes are unchanged.
 const CARD_SIZES = '(min-resolution: 2.5dppx) and (max-width: 1023px) 166px, (max-width: 639px) 92vw, (max-width: 1023px) 45vw, 25vw';
+// D-40 (QA-ratified condition, platform): a card whose largest copy is 720w (500w + 720w, non-first-screen cards) asks for
+// 240px on a 3× phone, so it resolves to the 720w copy — a true 2× cap. Cards with a 960w copy (lead, first row) keep the
+// 166px clause (the 500w copy), which holds the Tokyo phone first load ≤ 700 KB.
+const CARD_SIZES_720 = CARD_SIZES.replace('(max-width: 1023px) 166px,', '(max-width: 1023px) 240px,');
+const cardSizes = photo => { const ws = (photo.widths || []).map(x => x.w); return ws.length && Math.max(...ws) <= 720 ? CARD_SIZES_720 : CARD_SIZES; };
 /** srcset + sizes attributes when the photo has size variants (else ''). */
 function srcsetAttr(photo, up, sizes) {
   const set = photo.widths || [];
@@ -217,7 +222,7 @@ function srcsetAttr(photo, up, sizes) {
 function figureHtml(photo, up = '', cls = 'photo', opts = {}) {
   // opts.preloaded (platform W7): lazy, so a hidden hero (Atlas) is never fetched; heroPreload() fetches it early otherwise
   const c = photo.credit, load = opts.preloaded ? ' loading="lazy" fetchpriority="high"' : opts.eager ? ' fetchpriority="high"' : ' loading="lazy"';
-  return `<figure class="${cls}"><img src="${esc(up + photo.src)}"${srcsetAttr(photo, up, opts.sizes || CARD_SIZES)} width="${photo.w}" height="${photo.h}" alt="${esc(c.depicts)}"${load} decoding="async"><figcaption>${captionHtml(c)}</figcaption></figure>`;
+  return `<figure class="${cls}"><img src="${esc(up + photo.src)}"${srcsetAttr(photo, up, opts.sizes || cardSizes(photo))} width="${photo.w}" height="${photo.h}" alt="${esc(c.depicts)}"${load} decoding="async"><figcaption>${captionHtml(c)}</figcaption></figure>`;
 }
 /**
  * A hero photo (city masthead, country hub): a full-bleed cover behind the headline, eager (it is above the fold).
@@ -257,4 +262,4 @@ function heroCreditHtml(photo) {
   return `<p class="hero-credit" style="margin:12px 0 0;font-size:12px;line-height:1.45;opacity:.8;max-width:70ch">${/^Photo/.test(cap) ? '' : 'Photo: '}${cap.replace(/<a /g, '<a style="color:inherit" ')}</p>`;
 }
 
-module.exports = { loadPhotos, creditProblems, figureHtml, heroHtml, heroPreload, HERO_SIZES, heroCreditHtml, captionHtml, imageSize, SCHEMA, PHOTO_DIR, CREDITS, LICENCE_OK, CARD_SIZES };
+module.exports = { loadPhotos, creditProblems, figureHtml, heroHtml, heroPreload, HERO_SIZES, heroCreditHtml, captionHtml, imageSize, SCHEMA, PHOTO_DIR, CREDITS, LICENCE_OK, CARD_SIZES, CARD_SIZES_720, cardSizes };
