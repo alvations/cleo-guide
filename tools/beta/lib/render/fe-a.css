@@ -1,14 +1,14 @@
 /* fe-a.css — FE-A page mechanics for the beta city + saved pages (source: tools/beta/lib/render/fe-a.css; generated copy in beta/assets/). DES upstreams into cleo.css. */
-.rail-i .n::after{content:" places"}.rail-i .n.one::after{content:" place"}.rail-i .k{font:500 12px/1.2 var(--font-ui)}
+.rail-i .n::after{content:" places"}.rail-i .n.one::after{content:" place"}.rail-i .k{font:500 var(--fs-xs)/1.2 var(--font-ui)}
 .rail-i.src-t{background:var(--night);color:var(--on-night);border-color:transparent}.rail-i.src-t .n{color:var(--on-night-2)}
 .rail-i.gap{background:transparent;border:1.5px dashed var(--line-strong);box-shadow:none}
 .rail[data-view=sights] [data-only=f],.rail[data-view=food] [data-only=s]{display:none}.rail[data-view=food] [data-cz],.rail[data-view=food] .gap{order:-1}@media (max-width:639px){.pls .pl:focus-within:not(:has(:focus-visible)):not(.is-target):not(:target) .pl-w{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}}
 .railbar[hidden]{display:none}@media (max-width:899px){.railbar{display:none}}
-.toolbar .btn{flex:none}.toolbar .tb-n:not(:empty){min-width:20px;height:20px;border-radius:10px;background:var(--ink);color:var(--paper);font-size:12px;display:inline-grid;place-items:center;padding:0 5px}
+.toolbar .btn{flex:none}.toolbar .tb-n:not(:empty){min-width:20px;height:20px;border-radius:var(--r-s);background:var(--ink);color:var(--paper);font-size:var(--fs-xs);display:inline-grid;place-items:center;padding:0 5px}
 @media (max-width:1023px){.toolbar .area-btn{display:none}.toolbar .lbl{display:none}.toolbar .btn-ghost{width:var(--tap);padding:0}}
 @media (min-width:1024px){.toolbar .map-toggle{display:none}}
 .applied{display:flex;flex-wrap:wrap;gap:6px;width:100%}.applied:empty{display:none}.applied .chip-x{min-height:var(--tap)}.applied .clear{min-height:var(--tap)}
-.lens{margin:12px 0 4px;padding:16px 18px;border-radius:var(--r-m);background:var(--city-wash);display:grid;gap:6px}.lens h2{margin:0;font:500 24px/1.15 var(--font-display)}.lens p{margin:0;color:var(--ink-2)}.lens .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}.lens .gap{background:var(--surface)}
+.lens{margin:12px 0 4px;padding:16px 18px;border-radius:var(--r-m);background:var(--city-wash);display:grid;gap:6px}.lens h2{margin:0;font:500 var(--fs-d2)/1.15 var(--font-display)}.lens p{margin:0;color:var(--ink-2)}.lens .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}.lens .gap{background:var(--surface)}
 .listpane>.shown{padding:8px 0 0}.shown a{color:var(--ink-2)}
 .area-end{margin:12px 0 0;display:flex;flex-wrap:wrap;gap:8px}@media (min-width:1024px){.area-end [data-cleo-map]{display:none}}.shown:empty{display:none}
 .railbar{position:relative;height:0;margin:0;z-index:4}.railbar .btn{position:absolute;top:-78px;box-shadow:var(--e-2);background:var(--surface)}.railbar [data-rail="-1"]{right:2px}.railbar [data-rail="1"]{right:-50px}
@@ -21,21 +21,21 @@
 .pl-s .rest{display:none}.pl-s .more{color:var(--ink-3);padding:0 4px}.pl-s .added{display:inline-block;padding:4px 8px;margin:4px 0;border:1px dashed var(--line-strong);border-radius:var(--r-pill);color:var(--ink-2)}
 .pl-cover .pl-glyph{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .overlay[hidden]{display:none}.overlay .sheet{width:100%;max-height:92vh;overflow:auto;overscroll-behavior:contain}.overlay .tray{width:100%}
-@media (min-width:1024px){.overlay.side{background:transparent;pointer-events:none;justify-content:flex-start;align-items:stretch;top:var(--bar-h)}.overlay.side .sheet{pointer-events:auto;width:min(560px,52vw);max-height:none;border-radius:0 var(--r-l) var(--r-l) 0;box-shadow:var(--e-4)}}
-.sheet .grab{display:block;border:0;padding:0}.detail .hero-plate .pl-vert{position:absolute;writing-mode:vertical-rl;font-family:var(--font-native);font-weight:600;letter-spacing:.1em}.detail .hero-plate .pl-ini{position:absolute;right:26px;top:-8px;font:italic 500 150px/1 var(--font-display);color:color-mix(in srgb,var(--area) 60%,transparent)}.detail .hero-plate .pl-glyph{position:absolute;left:22px;bottom:16px;width:30px;height:30px}
+@media (min-width:1024px){.overlay.side{background:transparent;pointer-events:none;justify-content:flex-start;align-items:stretch;top:var(--bar-h)}.overlay.side .sheet{pointer-events:auto;width:min(560px,52vw);max-height:none;border-radius:var(--r-l);box-shadow:var(--e-4)}}
+.sheet .grab{display:block;border:0;padding:0}.detail .hero-plate .pl-vert{position:absolute;writing-mode:vertical-rl;font-family:var(--font-native);font-weight:600;letter-spacing:.1em}.detail .hero-plate .pl-ini{position:absolute;right:26px;top:-8px;font:500 var(--fs-hero)/1 var(--font-display);color:color-mix(in srgb,var(--area) 60%,transparent)}.detail .hero-plate .pl-glyph{position:absolute;left:22px;bottom:16px;width:30px;height:30px}
 .detail h2{margin:0}.detail .pills{display:flex;flex-wrap:wrap;gap:8px}.srclist li{grid-template-columns:36px minmax(0,1fr)}.srclist .acts{grid-column:2;display:flex;gap:14px;flex-wrap:wrap}.srclist .go{background:none;border:0;padding:0;cursor:pointer;min-height:var(--tap)}.srclist a.out{display:inline-flex;align-items:center;gap:4px;min-height:var(--tap);font-size:var(--fs-meta);font-weight:600;color:var(--ink-2)}
 .sheet .actions{grid-template-columns:repeat(3,1fr)}.sheet .actions .btn{padding:0 10px}.tray .scroll{max-height:calc(88vh - 140px)}.tray footer .btn-primary{width:100%}
-.mappane .poi-sheet{z-index:700}.poi-sheet .pl{margin:0 var(--gutter) 10px}.poi-sheet .grab{display:block;border:0;padding:0;cursor:pointer;width:100%;height:var(--tap);margin:0;background:none;position:relative}.poi-sheet .grab::before{content:"";position:absolute;left:50%;top:10px;width:40px;height:5px;margin-left:-20px;border-radius:3px;background:var(--line-strong)}.mapclose{display:none}
+.mappane .poi-sheet{z-index:700}.poi-sheet .pl{margin:0 var(--gutter) 10px}.poi-sheet .grab{display:block;border:0;padding:0;cursor:pointer;width:100%;height:var(--tap);margin:0;background:none;position:relative}.poi-sheet .grab::before{content:"";position:absolute;left:50%;top:10px;width:40px;height:5px;margin-left:-20px;border-radius:var(--r-s);background:var(--line-strong)}.mapclose{display:none}
 @media (max-width:1023px){.split[data-view=map] .mapclose{display:inline-flex;position:absolute;z-index:690;top:12px;right:12px;box-shadow:var(--e-2)}}
-.pin-n{background:var(--ink);color:var(--paper);border:2px solid var(--surface);border-radius:var(--r-m);min-width:22px;height:22px;padding:0 5px;font:700 12px/18px var(--font-ui);text-align:center;box-shadow:none}.pin-n::before{display:none}.pin-n.sel{background:var(--city);color:var(--city-on)}.zoom-lo .pin-n:not(.foc){display:none}
+.pin-n{background:var(--ink);color:var(--paper);border:2px solid var(--surface);border-radius:var(--r-m);min-width:22px;height:22px;padding:0 5px;font:700 var(--fs-xs)/18px var(--font-ui);text-align:center;box-shadow:none}.pin-n::before{display:none}.pin-n.sel{background:var(--city);color:var(--city-on)}.zoom-lo .pin-n:not(.foc){display:none}
 .map-note{position:absolute;left:12px;right:12px;top:12px;z-index:500;margin:0}
 .howto{margin:40px 0 0;padding:22px;border-radius:var(--r-l);background:var(--surface);border:1px solid var(--line)}.howto h2{margin:0 0 8px}.howto dl{display:grid;gap:4px;margin:12px 0}.howto dd{margin:0 0 8px 24px;color:var(--ink-2)}
 /* ---- W2 (FE-A): map ≥ 40 %, plates that never clip, sheet header, chip commas, modules, For you, Near me, Your day, peek ---- */
 @media (min-width:1024px){.split{grid-template-columns:minmax(0,1fr) minmax(460px,50%)}}
-.rail-i.door{background:var(--city-wash);border-color:transparent}.rail-i>svg.ico{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.rail-i.door .t{font-size:17px}.rail-i .d{font:500 var(--fs-xs)/1.25 var(--font-ui);color:var(--ink-2)}.rail-i.sig .d{color:color-mix(in srgb,var(--city-on) 88%,transparent)}.rail-i[hidden]{display:none}
+.rail-i.door{background:var(--city-wash);border-color:transparent}.rail-i>svg.ico{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.rail-i.door .t{font-size:var(--fs-lead)}.rail-i .d{font:500 var(--fs-xs)/1.25 var(--font-ui);color:var(--ink-2)}.rail-i.sig .d{color:color-mix(in srgb,var(--city-on) 88%,transparent)}.rail-i[hidden]{display:none}
 .detail h2.d2{overflow-wrap:anywhere}
 .mappane .poi-sheet{max-height:40vh;overflow:auto;overscroll-behavior:contain}.mappane .poi-sheet.full{max-height:86vh}.poi-sheet .pk-full{display:none}.poi-sheet.full .pk-full{display:grid}.poi-sheet.full .peek-c{display:none}
-.peek-c{padding:0 var(--gutter) 10px}.peek-c .pl-e{padding:0;min-height:0}.pk-n{margin:4px 0;font:500 22px/1.15 var(--font-display)}.pk-w{margin:0;color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.poi-sheet .row-actions{padding-top:4px}
+.peek-c{padding:0 var(--gutter) 10px}.peek-c .pl-e{padding:0;min-height:0}.pk-n{margin:4px 0;font:500 var(--fs-d2)/1.15 var(--font-display)}.pk-w{margin:0;color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.poi-sheet .row-actions{padding-top:4px}
 .day-on .pin-n:not(.day){display:none}.pin-n.day{background:var(--city);color:var(--city-on);display:block!important}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:900;background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:var(--r-pill)}
 /* saved page (M2-03/04) */
@@ -43,16 +43,16 @@
 .sv-tabs .pill{flex:none;min-height:var(--tap)}.sv-tabs .pill[aria-current=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}.sv-tabs .pill .n{opacity:.75;margin-left:4px}
 .sv-acts{display:flex;flex-wrap:wrap;gap:8px}.sv-acts .btn{gap:6px}.sv-top .ico,.sv-x .ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .sv-form{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px;border-radius:var(--r-m);background:var(--surface);border:1px solid var(--line)}.sv-form input{flex:1 1 200px;min-height:var(--tap);font:inherit;padding:0 12px;border:1px solid var(--line-strong);border-radius:var(--r-s);background:var(--paper);color:var(--ink)}
-.sv-banner{padding:16px 18px;border-radius:var(--r-m);background:var(--city-wash,var(--sand));display:grid;gap:8px}.sv-banner h2{margin:0;font:500 24px/1.15 var(--font-display)}.sv-banner p{margin:0;color:var(--ink-2)}
+.sv-banner{padding:16px 18px;border-radius:var(--r-m);background:var(--city-wash,var(--sand));display:grid;gap:8px}.sv-banner h2{margin:0;font:500 var(--fs-d2)/1.15 var(--font-display)}.sv-banner p{margin:0;color:var(--ink-2)}
 .sv-split{display:grid;gap:16px}.sv-map{height:240px;border-radius:var(--r-m);overflow:hidden;background:var(--sand);border:1px solid var(--line);position:relative}.sv-map .note{position:absolute;inset:auto 12px 12px;margin:0;font-size:var(--fs-meta);color:var(--ink-2)}
 @media (min-width:1024px){.sv-split{grid-template-columns:minmax(0,1fr) minmax(420px,44%);align-items:start}.sv-map{position:sticky;top:calc(var(--bar-h,64px) + 16px);height:calc(100vh - var(--bar-h,64px) - 40px);order:2}}
-.sv-city{margin:0 0 20px}.sv-city>h2{display:flex;align-items:baseline;gap:10px;margin:8px 0 10px;font:500 26px/1.1 var(--font-display)}.sv-city>h2 .sm{font:500 var(--fs-sm)/1 var(--font-ui);color:var(--ink-3)}.sv-city>h2 a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;min-height:var(--tap)}
+.sv-city{margin:0 0 20px}.sv-city>h2{display:flex;align-items:baseline;gap:10px;margin:8px 0 10px;font:500 var(--fs-d2)/1.1 var(--font-display)}.sv-city>h2 .sm{font:500 var(--fs-sm)/1 var(--font-ui);color:var(--ink-3)}.sv-city>h2 a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;min-height:var(--tap)}
 .sv-x{position:relative;z-index:3;display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px 4px 21px!important}.saved-cards .pl-s{padding-bottom:0}.listhead{display:grid;gap:4px}.listhead h2{margin:0}.listhead .device-note{margin:0}.listmenu{margin:0}.sv-x .btn{min-height:var(--tap);padding:0 12px;font-size:var(--fs-sm);gap:6px}.sv-x .btn[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .sv-x details{position:relative}.sv-x summary{list-style:none;cursor:pointer}.sv-x summary::-webkit-details-marker{display:none}.sv-x .pop{position:absolute;z-index:20;left:0;top:calc(100% + 6px);min-width:230px;display:grid;gap:2px;padding:8px;border-radius:var(--r-m);background:var(--surface);border:1px solid var(--line);box-shadow:var(--e-3)}
 .sv-x .pop label{display:flex;gap:10px;align-items:center;min-height:var(--tap);padding:0 8px;border-radius:var(--r-s);cursor:pointer}.sv-x .pop label:hover{background:var(--sand)}.sv-x .pop input{width:18px;height:18px;accent-color:var(--ink)}
 .sv-c.closed .sv-c.closed 
-.sv-empty{padding:28px 20px;border-radius:var(--r-l);background:var(--surface);border:1px solid var(--line);display:grid;gap:10px;justify-items:start}.sv-empty h2{margin:0;font:500 26px/1.15 var(--font-display)}.sv-empty p{margin:0;color:var(--ink-2)}
-.sv-map .pin-n{background:var(--ink);color:var(--paper);border:2px solid var(--surface);border-radius:var(--r-m);min-width:22px;height:22px;padding:0 5px;font:700 12px/18px var(--font-ui);text-align:center;box-shadow:none}.sv-map .pin-n::before{display:none}
+.sv-empty{padding:28px 20px;border-radius:var(--r-l);background:var(--surface);border:1px solid var(--line);display:grid;gap:10px;justify-items:start}.sv-empty h2{margin:0;font:500 var(--fs-d2)/1.15 var(--font-display)}.sv-empty p{margin:0;color:var(--ink-2)}
+.sv-map .pin-n{background:var(--ink);color:var(--paper);border:2px solid var(--surface);border-radius:var(--r-m);min-width:22px;height:22px;padding:0 5px;font:700 var(--fs-xs)/18px var(--font-ui);text-align:center;box-shadow:none}.sv-map .pin-n::before{display:none}
 [data-cleo-page=saved] .toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);z-index:900;background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:var(--r-pill)}
 @media (max-width:639px){}
 /* W2 FE-A mechanics around DES 15.10 (For you · Your day · Near me) */
@@ -86,8 +86,8 @@ html[data-view=gallery] .masthead .g-hero-x{display:block}
 html[data-view=gallery] .masthead{min-height:min(74vh,600px);display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:28px}
 html[data-view=gallery] .masthead .g-sky{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.55;filter:invert(1) hue-rotate(180deg) brightness(1.1)}
 html[data-view=gallery] .masthead>svg{display:none}
-html[data-view=gallery] .masthead h1{font-size:clamp(48px,9vw,112px);line-height:1}
-.g-kick{order:-1;font-size:var(--fs-meta);color:var(--on-night-2);margin:0 0 6px}.g-lead{font:italic 400 clamp(18px,2.2vw,26px)/1.3 var(--font-display);margin:10px 0 0;max-width:30ch}
+html[data-view=gallery] .masthead h1{font-size:var(--fs-hero);line-height:1}
+.g-kick{order:-1;font-size:var(--fs-meta);color:var(--on-night-2);margin:0 0 6px}.g-lead{font:400 var(--fs-lead)/1.3 var(--font-display);margin:10px 0 0;max-width:30ch}
 .g-acts{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0}.g-acts .btn-ghost,.g-acts .btn-ghost:hover{background:transparent;color:var(--on-night);border:1px solid var(--on-night-2)}
 html[data-view=gallery] .masthead .facts{order:9;margin-top:14px}
 @media (min-width:1024px){html[data-view=gallery] .masthead{padding-right:min(44vw,460px)}html[data-view=gallery] .g-lead-card{display:block;position:absolute;right:max(var(--gutter),calc((100vw - var(--maxw))/2));top:50%;transform:translateY(-50%);width:min(400px,32vw);margin:0;padding:0;list-style:none}}
@@ -125,7 +125,7 @@ html[data-view=gallery] .pl-cover .g-art{display:block}
 /* print: in Guidebook / Insights the module is the printed copy (it holds every place); JS off → no data-view → the list prints */
 @media print{html[data-view=guidebook] .split,html[data-view=insights] .split,html[data-view] .g-rows,html[data-view] .pager,.views{display:none!important}html[data-view=gallery] .pl.pg-off,html[data-view=gallery] section.area.pg-empty{display:revert!important}}
 /* DES REVIEW-W3: Guidebook / Insights phones — the module's cover is the first screen (rail hidden above; masthead compact) */
-@media (max-width:639px){html[data-view=guidebook] .masthead,html[data-view=insights] .masthead{min-height:0;padding-bottom:6px}html[data-view=guidebook] .masthead :is(.facts,.dek,.eyebrow,svg),html[data-view=insights] .masthead :is(.facts,.dek,.eyebrow,svg){display:none}html[data-view=guidebook] .masthead h1,html[data-view=insights] .masthead h1{font-size:28px}}
+@media (max-width:639px){html[data-view=guidebook] .masthead,html[data-view=insights] .masthead{min-height:0;padding-bottom:6px}html[data-view=guidebook] .masthead :is(.facts,.dek,.eyebrow,svg),html[data-view=insights] .masthead :is(.facts,.dek,.eyebrow,svg){display:none}html[data-view=guidebook] .masthead h1,html[data-view=insights] .masthead h1{font-size:var(--fs-d2)}}
 /* QA-30: the hero's primary action on the night sky, both themes (was 1:1 in night mode) */
 .g-acts .btn-primary,.g-acts .btn-primary:hover{background:var(--on-night);color:var(--night);border-color:var(--on-night)}
 /* phones: the switcher collapses to the current view; tapping it opens all four (QA-31 · B-03 ≤ 14 controls) */
@@ -147,7 +147,7 @@ html[data-view=gallery].g-lead-on .g-acts .btn-ghost{display:none}
 }
 @media (max-width:639px){
 html[data-view=gallery] .masthead{min-height:0;padding-top:18px;padding-bottom:18px}
-html[data-view=gallery] .masthead h1{font-size:clamp(44px,13vw,60px)}
+html[data-view=gallery] .masthead h1{font-size:var(--fs-d1)}
 html[data-view=gallery] .g-acts{margin-top:12px}
 html[data-view=gallery] .masthead .facts{margin-top:10px}
 html[data-view=gallery] .g-row .row-h{flex-wrap:nowrap;align-items:end;margin-top:22px}html[data-view=gallery] .g-row .row-h>div{min-width:0}
@@ -164,7 +164,7 @@ html[data-view] ol.pls>noscript[data-cleo-defer]{display:none!important}
    design-system token, so design system v2 (tokens.css) restyles this layer without touching it. Hooks: docs/BETA-LOG.md.
    Rules: nothing here hides a place; [hidden] wins; targets ≥ 44 px; body text ≥ 16 px; motion only when allowed.
    ===================================================================================================================== */
-main[data-city]{--cbar-h:69px;--w7-media:var(--r-m);--w7-cover:color-mix(in srgb,var(--area,var(--city)) 9%,var(--sand))}
+main[data-city]{--cbar-h:69px;--w7-media:var(--r-l);--w7-cover:color-mix(in srgb,var(--area,var(--city)) 9%,var(--sand))}
 /* ---- 1. the city bar: compact, sticky, a centred search pill and an understated view switcher ---- */
 main[data-city]>.cbar{position:sticky;top:var(--bar-h);z-index:45;max-width:none;margin-inline:calc(-1 * var(--gutter));background:var(--paper);border-bottom:1px solid var(--line)}
 .cbar-in{max-width:var(--maxw);margin:0 auto;padding:10px var(--gutter);display:flex;align-items:center;gap:10px;min-height:var(--cbar-h)}
@@ -205,7 +205,7 @@ html main[data-city] nav.views[data-cleo-views] button .ico{width:17px;height:17
 html main[data-city]>.masthead{background:none;color:var(--ink);min-height:0;display:flex;flex-direction:column;align-items:flex-start;margin-inline:auto;max-width:var(--maxw);padding:clamp(20px,4vw,48px) var(--gutter) clamp(12px,2vw,24px);overflow:visible;isolation:auto;border:0}
 html main[data-city]>.masthead::before,html main[data-city]>.masthead::after,html main[data-city]>.masthead>svg,html main[data-city]>.masthead .accentbar,html main[data-city]>.masthead .g-sky{display:none}
 html main[data-city]>.masthead .eyebrow{color:var(--ink-3);font:500 var(--fs-sm)/1.4 var(--font-ui);margin:0 0 6px;letter-spacing:0;text-transform:none}
-html main[data-city]>.masthead h1{color:var(--ink);font-family:var(--font-display);font-weight:500;font-size:clamp(40px,7.4vw,84px);line-height:1;letter-spacing:var(--track-display,-.02em);margin:0}
+html main[data-city]>.masthead h1{color:var(--ink);font-family:var(--font-display);font-weight:500;font-size:var(--fs-hero);line-height:1;letter-spacing:var(--track-display,-.02em);margin:0}
 html main[data-city]>.masthead h1 .native{color:var(--ink-3);font-size:.42em;letter-spacing:.02em}
 html main[data-city]>.masthead .title{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
 html main[data-city]>.masthead .dek,html main[data-city]>.masthead .g-lead{font:400 var(--fs-lead)/1.45 var(--font-ui);font-style:normal;color:var(--ink-2);margin:12px 0 0;max-width:46ch;-webkit-line-clamp:unset}
@@ -253,7 +253,7 @@ html[data-view=gallery] main[data-city]>.toolbar>.area-btn{margin-left:auto}
 html[data-view=gallery] main[data-city] .g-rows{margin-top:clamp(20px,3vw,36px);padding:0}
 html[data-view=gallery] .g-row{margin:0 0 clamp(32px,4vw,48px)}
 html[data-view=gallery] .g-row .row-h{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 14px;padding:0;border:0}
-html[data-view=gallery] .g-row .row-h h2{font:600 clamp(20px,2.2vw,24px)/1.2 var(--font-display);letter-spacing:-.01em;color:var(--ink);margin:0}
+html[data-view=gallery] .g-row .row-h h2{font:600 var(--fs-d2)/1.2 var(--font-display);letter-spacing:-.01em;color:var(--ink);margin:0}
 html[data-view=gallery] .g-row .row-h h2 [aria-hidden]{color:var(--city-ink)}
 html[data-view=gallery] .g-row .row-h .sub{margin:4px 0 0;color:var(--ink-3);font-size:var(--fs-sm)}
 html[data-view=gallery] .g-row .row-h .btn{min-height:44px;padding:0 6px;border:0;background:none;color:var(--ink);font:600 var(--fs-sm)/1 var(--font-ui);text-decoration:underline;text-underline-offset:4px;box-shadow:none}
@@ -265,49 +265,49 @@ html[data-view=gallery] main[data-city] .split .pls{gap:clamp(28px,3vw,40px) cla
 @media (min-width:600px){html[data-view=gallery] main[data-city] .split .pls{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:1024px){html[data-view=gallery] main[data-city] .split .pls{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (min-width:1280px){html[data-view=gallery] main[data-city] .split .pls{grid-template-columns:repeat(4,minmax(0,1fr))}}
-html[data-view=gallery] main[data-city] .split li.pl{display:flex;flex-direction:column;gap:4px;padding:0;margin:0;background:none;border:0;border-radius:0;box-shadow:none;overflow:visible;animation:none;transform:none}
-html[data-view=gallery] main[data-city] .split li.pl::before,html[data-view=gallery] main[data-city] .split li.pl::after{content:none;display:none}
-html[data-view=gallery] main[data-city] .split li.pl>*{padding:0;margin:0;grid-row:auto}
-html[data-view=gallery] main[data-city] .split li.pl:hover{box-shadow:none;transform:none}
-html[data-view=gallery] main[data-city] .split li.pl.is-target,html[data-view=gallery] main[data-city] .split li.pl:target{box-shadow:none;outline:0}
-html[data-view=gallery] main[data-city] .split li.pl.is-target>.pl-cover,html[data-view=gallery] main[data-city] .split li.pl:target>.pl-cover{box-shadow:0 0 0 3px var(--city)}
-html[data-view=gallery] main[data-city] .split li.pl{position:relative}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-cover{order:0;position:relative;display:grid;place-items:center;width:auto;height:auto;min-height:0;padding:0;border:0;aspect-ratio:4/3;margin:0 0 10px;border-radius:var(--w7-media);overflow:hidden;background:var(--w7-cover);transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2) var(--ease-out)}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-n{order:1;font:600 var(--fs-body)/1.3 var(--font-ui);letter-spacing:0;color:var(--ink);padding:0}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-n a{color:inherit;text-decoration:none}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-n a::after{content:"";position:absolute;inset:0;z-index:1;border-radius:var(--w7-media)}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-n a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-n a:focus-visible::after{outline:2px solid var(--focus);outline-offset:4px}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-e{order:2;min-height:0;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font:400 var(--fs-ui)/1.35 var(--font-ui);color:var(--ink-3)}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-e::before{content:none}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-e .pl-num{display:none}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-s{order:3;color:var(--ink-2);position:relative;z-index:2}
-html[data-view=gallery] main[data-city] .split li.pl>:is(.pl-w,.pl-k,.pl-ad){display:none}
-html[data-view=gallery] main[data-city] .split li.pl.pg-off{display:none}
-html[data-view=gallery] main[data-city] .split li.pl[hidden]{display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl{display:flex;flex-direction:column;gap:4px;padding:0;margin:0;background:none;border:0;border-radius:0;box-shadow:none;overflow:visible;animation:none;transform:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl::before,html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl::after{content:none;display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>*{padding:0;margin:0;grid-row:auto}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:hover{box-shadow:none;transform:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl.is-target,html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:target{box-shadow:none;outline:0}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl.is-target>.pl-cover,html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:target>.pl-cover{box-shadow:0 0 0 3px var(--city)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl{position:relative}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover{order:0;position:relative;display:grid;place-items:center;width:auto;height:auto;min-height:0;padding:0;border:0;aspect-ratio:4/3;margin:0 0 10px;border-radius:var(--w7-media);overflow:hidden;background:var(--w7-cover);transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2) var(--ease-out)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n{order:1;font:600 var(--fs-body)/1.3 var(--font-ui);letter-spacing:0;color:var(--ink);padding:0}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a{color:inherit;text-decoration:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a::after{content:"";position:absolute;inset:0;z-index:1;border-radius:var(--w7-media)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a:focus-visible::after{outline:2px solid var(--focus);outline-offset:4px}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e{order:2;min-height:0;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font:400 var(--fs-ui)/1.35 var(--font-ui);color:var(--ink-3)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e::before{content:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .pl-num{display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s{order:3;color:var(--ink-2);position:relative;z-index:2}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>:is(.pl-w,.pl-k,.pl-ad){display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl.pg-off{display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[hidden]{display:none}
 /* the tier as a small, tasteful sticker — only where the data grades it */
 html main[data-city] li.pl .pl-e .tier,html .view-gallery .gc .tg+.vh{white-space:nowrap}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-e .tier{position:relative;z-index:2;display:inline-flex;align-items:center;gap:5px;min-height:26px;padding:0 9px 0 7px;border-radius:var(--r-pill);background:var(--sand);color:var(--ink);font:600 var(--fs-xs)/1 var(--font-ui);text-decoration:none}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-e .tier.t1{background:var(--gilt-soft);color:var(--ink)}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-e .tier .tg{width:13px;height:13px}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-e .tier:not(.t1){position:absolute;width:1px;height:1px;min-height:0;padding:0;overflow:hidden;clip:rect(0 0 0 0)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .tier{position:relative;z-index:2;display:inline-flex;align-items:center;gap:5px;min-height:26px;padding:0 9px 0 7px;border-radius:var(--r-pill);background:var(--sand);color:var(--ink);font:600 var(--fs-xs)/1 var(--font-ui);text-decoration:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .tier.t1{background:var(--gilt-soft);color:var(--ink)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .tier .tg{width:13px;height:13px}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .tier:not(.t1){position:absolute;width:1px;height:1px;min-height:0;padding:0;overflow:hidden;clip:rect(0 0 0 0)}
 html .view-gallery .gc .badge{display:inline-flex;align-items:center;min-height:26px;padding:0 9px;border-radius:var(--r-pill);background:var(--gilt-soft);color:var(--ink);font:600 var(--fs-xs)/1 var(--font-ui);white-space:nowrap}
 html .view-gallery .gc .cover::after{content:none}
 /* the calm no-photo cover: a quiet ground (area colour at 9 % over sand), the kind icon on a small disc, the native name */
-html[data-view=gallery] main[data-city] li.pl>.pl-cover::before,html[data-view=gallery] main[data-city] li.pl:not([data-closed])>.pl-cover::after{content:none;display:none}
-html[data-view=gallery] main[data-city] li.pl>.pl-cover .g-art{display:none}
-html[data-view=gallery] main[data-city] li.pl>.pl-cover .pl-glyph{position:static;display:block;width:30px;height:30px;padding:17px;box-sizing:content-box;border-radius:50%;background:var(--surface);color:var(--ink-2);stroke-width:1.4;opacity:1;transform:none;box-shadow:var(--e-1)}
-html[data-view=gallery] main[data-city] li.pl>.pl-cover .pl-ini{display:none}
-html[data-view=gallery] main[data-city] li.pl>.pl-cover .pl-vert{position:absolute;left:14px;bottom:12px;top:auto;right:auto;writing-mode:horizontal-tb;font:500 var(--fs-sm)/1 var(--font-native,var(--font-ui));letter-spacing:.08em;color:var(--ink-2);opacity:1}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-photo{position:absolute;left:0;right:0;top:0;aspect-ratio:4/3;margin:0;border-radius:var(--w7-media);overflow:hidden;z-index:1;transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2) var(--ease-out)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover::before,html[data-view=gallery] main[data-city] li.pl:not([data-closed])>.pl-cover::after{content:none;display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover .g-art{display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover .pl-glyph{position:static;display:block;width:30px;height:30px;padding:17px;box-sizing:content-box;border-radius:50%;background:var(--surface);color:var(--ink-2);stroke-width:1.4;opacity:1;transform:none;box-shadow:var(--e-1)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover .pl-ini{display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover .pl-vert{position:absolute;left:14px;bottom:12px;top:auto;right:auto;writing-mode:horizontal-tb;font:500 var(--fs-sm)/1 var(--font-native,var(--font-ui));letter-spacing:.08em;color:var(--ink-2);opacity:1}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo{position:absolute;left:0;right:0;top:0;aspect-ratio:4/3;margin:0;border-radius:var(--w7-media);overflow:hidden;z-index:1;transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2) var(--ease-out)}
 html main[data-city] li.pl>.pl-photo img{display:block;width:100%;height:100%;object-fit:cover}
-html main[data-city] li.pl>.pl-photo figcaption{position:absolute;left:8px;bottom:8px;right:56px;max-width:max-content;padding:3px 8px;border-radius:var(--r-pill);background:color-mix(in srgb,var(--ink) 62%,transparent);color:var(--paper);font:400 11px/1.3 var(--font-ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:2}
+html main[data-city] li.pl>.pl-photo figcaption{position:absolute;left:8px;bottom:8px;right:56px;max-width:max-content;padding:3px 8px;border-radius:var(--r-pill);background:color-mix(in srgb,var(--ink) 62%,transparent);color:var(--paper);font:400 var(--fs-xs)/1.3 var(--font-ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:2}
 html main[data-city] li.pl>.pl-photo figcaption a{color:inherit}
 /* the heart, on the media's corner (a 44 px target around a 36 px disc); a small pop when saved */
-html[data-view=gallery] main[data-city] .split li.pl>.pl-x{position:absolute;top:4px;right:4px;z-index:3;margin:0;padding:0}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-x{position:absolute;top:4px;right:4px;z-index:3;margin:0;padding:0}
 html main[data-city] li.pl>.pl-x[hidden]{display:none}
 html main[data-city] button.pl-save.heart,html .view-gallery .gc .gc-save{display:grid;place-items:center;width:44px;height:44px;min-height:44px;padding:0;margin:0;border:0;border-radius:50%;background:transparent;color:var(--ink);cursor:pointer;box-shadow:none}
-html main[data-city] button.pl-save.heart{position:relative;display:block;overflow:hidden;white-space:nowrap;text-indent:200%;font:500 12px/44px var(--font-ui)}
+html main[data-city] button.pl-save.heart{position:relative;display:block;overflow:hidden;white-space:nowrap;text-indent:200%;font:500 var(--fs-xs)/44px var(--font-ui)}
 html main[data-city] button.pl-save.heart::before{position:absolute;left:4px;top:4px}
 html main[data-city] button.pl-save.heart::before,html .view-gallery .gc .gc-save::before{content:"";grid-area:1/1;width:36px;height:36px;border-radius:50%;background:color-mix(in srgb,var(--surface) 92%,transparent);box-shadow:var(--e-1)}
 html main[data-city] button.pl-save.heart .ico,html .view-gallery .gc .gc-save .ico{grid-area:1/1;position:relative;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8}
@@ -316,17 +316,17 @@ html main[data-city] button.pl-save.heart:focus-visible,html .view-gallery .gc .
 @keyframes w7-pop{0%{transform:scale(1)}40%{transform:scale(1.28)}70%{transform:scale(.92)}100%{transform:scale(1)}}
 @media (prefers-reduced-motion:no-preference){
   html main[data-city] button.pl-save.heart[aria-pressed=true] .ico,html .view-gallery .gc .gc-save[aria-pressed=true] .ico{animation:w7-pop var(--dur-3) var(--ease-spring)}
-  html[data-view=gallery] main[data-city] .split li.pl:hover>:is(.pl-cover,.pl-photo),html .view-gallery .gc:hover .cover{transform:translateY(-3px);box-shadow:var(--e-2)}
-  html[data-view=gallery] main[data-city] .split li.pl:active>:is(.pl-cover,.pl-photo),html .view-gallery .gc:active .cover{transform:scale(.985);box-shadow:none}
+  html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:hover>:is(.pl-cover,.pl-photo),html .view-gallery .gc:hover .cover{transform:translateY(-3px);box-shadow:var(--e-2)}
+  html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:active>:is(.pl-cover,.pl-photo),html .view-gallery .gc:active .cover{transform:scale(.985);box-shadow:none}
 }
-html[data-view=gallery] main[data-city] .split li.pl[data-closed]>.pl-cover,html .view-gallery .gc.gc--closed .cover{filter:grayscale(1);opacity:.78}
-html[data-view=gallery] main[data-city] .split li.pl[data-closed]>.pl-cover::after,html .view-gallery .gc.gc--closed .cover::after{content:"Closed";position:absolute;left:10px;top:10px;z-index:2;padding:5px 10px;border-radius:var(--r-pill);background:var(--closed);color:var(--surface);font:600 var(--fs-xs)/1 var(--font-ui);letter-spacing:.02em}
-html[data-view=gallery] main[data-city] .split li.pl[data-closed]>.pl-e{color:var(--closed)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-closed]>.pl-cover,html .view-gallery .gc.gc--closed .cover{filter:grayscale(1);opacity:.78}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-closed]>.pl-cover::after,html .view-gallery .gc.gc--closed .cover::after{content:"Closed";position:absolute;left:10px;top:10px;z-index:2;padding:5px 10px;border-radius:var(--r-pill);background:var(--closed);color:var(--surface);font:600 var(--fs-xs)/1 var(--font-ui);letter-spacing:.02em}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-closed]>.pl-e{color:var(--closed)}
 /* row and lead cards (li.gc): the same anatomy */
 html .view-gallery li.gc{position:relative;list-style:none;margin:0;padding:0;background:none;border:0;box-shadow:none}
 html .view-gallery .gc .gc-a{display:flex;flex-direction:column;gap:4px;color:inherit;text-decoration:none}
 html .view-gallery .gc .gc-a:focus-visible{outline:2px solid var(--focus);outline-offset:4px;border-radius:var(--r-m)}
-html .view-gallery .gc .cover{position:relative;display:grid;place-items:center;aspect-ratio:4/3;height:auto;margin:0 0 6px;border-radius:var(--w7-media,var(--r-m));overflow:hidden;background:color-mix(in srgb,var(--ac,var(--city)) 9%,var(--sand));border:0;box-shadow:none;transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2) var(--ease-out)}
+html .view-gallery .gc .cover{position:relative;display:grid;place-items:center;aspect-ratio:4/3;height:auto;margin:0 0 6px;border-radius:var(--w7-media,var(--r-l));overflow:hidden;background:color-mix(in srgb,var(--ac,var(--city)) 9%,var(--sand));border:0;box-shadow:none;transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2) var(--ease-out)}
 html .view-gallery .gc .cover::before{content:none;display:none}
 html .view-gallery .gc .cover>:is(.pinart,.g-art,.me){display:none}
 html .view-gallery .gc .cover .plate.i{display:none}
@@ -348,7 +348,7 @@ html[data-view=gallery] .g-lead-slot .g-lead-k{margin:0 0 10px;font:600 var(--fs
 /* ---- 7. the All N grid: area heads as quiet section titles, the area art retired from the grid ---- */
 html[data-view=gallery] main[data-city] section.area{margin:clamp(28px,4vw,48px) 0 0;padding:0;border:0;background:none}
 html[data-view=gallery] main[data-city] section.area>.shape{display:none}
-html[data-view=gallery] main[data-city] section.area>h2{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0 0 4px;padding:0;border:0;font:600 clamp(20px,2.2vw,24px)/1.2 var(--font-display);color:var(--ink)}
+html[data-view=gallery] main[data-city] section.area>h2{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0 0 4px;padding:0;border:0;font:600 var(--fs-d2)/1.2 var(--font-display);color:var(--ink)}
 html[data-view=gallery] main[data-city] section.area>h2 .area-c{font:400 var(--fs-sm)/1.3 var(--font-ui);color:var(--ink-3)}
 html[data-view=gallery] main[data-city] section.area>.area-sub{margin:0 0 18px;color:var(--ink-3);font-size:var(--fs-sm)}
 html[data-view=gallery] main[data-city] section.area>.area-end{margin:20px 0 0;display:flex;flex-wrap:wrap;gap:8px}
@@ -365,7 +365,7 @@ html[data-view=atlas] main[data-city] .mappill{display:none}
 @media print{.mappill,.cbar{display:none!important}}
 /* ---- 9. the other views share the bar, the hero and the type ---- */
 html[data-view=guidebook] main[data-city]>.masthead,html[data-view=insights] main[data-city]>.masthead{padding-top:clamp(14px,2vw,24px);padding-bottom:clamp(10px,1.4vw,16px)}
-html[data-view=guidebook] main[data-city]>.masthead h1,html[data-view=insights] main[data-city]>.masthead h1{font-size:clamp(30px,4vw,44px)}
+html[data-view=guidebook] main[data-city]>.masthead h1,html[data-view=insights] main[data-city]>.masthead h1{font-size:var(--fs-d1)}
 html:not([data-view=gallery]) main[data-city]>.masthead .g-hero-x{display:none}
 /* ---- 10. the place detail: large media, the title, a meta row, sections divided by hairlines, a sticky action bar ---- */
 html body #cleo-sheet .sheet.detail{background:var(--surface);color:var(--ink)}
@@ -396,7 +396,7 @@ html body #cleo-sheet .detail .content{padding:22px 20px 28px}
 html body #cleo-sheet .detail .badges{gap:8px 10px;color:var(--ink-3);font-size:var(--fs-sm)}
 html body #cleo-sheet .detail .badges .tier{display:inline-flex;align-items:center;gap:6px;min-height:30px;padding:0 12px 0 9px;border-radius:var(--r-pill);background:var(--sand);color:var(--ink);font:600 var(--fs-sm)/1 var(--font-ui);text-decoration:none}
 html body #cleo-sheet .detail .badges .tier.t1{background:var(--gilt-soft);color:var(--ink)}
-html body #cleo-sheet .detail #sh-t{margin:12px 0 4px;font:500 clamp(28px,4vw,40px)/1.1 var(--font-display);letter-spacing:-.015em;color:var(--ink)}
+html body #cleo-sheet .detail #sh-t{margin:12px 0 4px;font:500 var(--fs-d1)/1.1 var(--font-display);letter-spacing:-.015em;color:var(--ink)}
 html body #cleo-sheet .detail .sh-rank{margin:0;color:var(--ink-3);font-size:var(--fs-sm)}
 html body #cleo-sheet .detail .why{margin:14px 0 0;font:400 var(--fs-lead)/1.6 var(--font-ui);color:var(--ink);max-width:62ch}
 html body #cleo-sheet .detail .section-t{margin:0 0 12px;font:600 var(--fs-lead)/1.3 var(--font-ui);letter-spacing:0;text-transform:none;color:var(--ink)}
@@ -428,7 +428,7 @@ html[data-view=guidebook] main[data-city]>.masthead>.title,html[data-view=insigh
 html:not([data-view=atlas]) main[data-city] .toolbar .map-toggle{display:none}
 html main[data-city] :is(.view-guidebook,[data-cleo-book]) .gcover{padding:clamp(24px,4vw,48px) 0 clamp(20px,3vw,32px);border-bottom:1px solid var(--line)}
 html main[data-city] :is(.view-guidebook,[data-cleo-book]) .gcover .kicker{font:500 var(--fs-sm)/1.4 var(--font-ui);color:var(--ink-3)}
-html main[data-city] :is(.view-guidebook,[data-cleo-book]) .hero-t{font-family:var(--font-display);font-weight:500;letter-spacing:var(--track-display,-.02em);font-size:clamp(44px,7.4vw,84px)}
+html main[data-city] :is(.view-guidebook,[data-cleo-book]) .hero-t{font-family:var(--font-display);font-weight:500;letter-spacing:var(--track-display,-.02em);font-size:var(--fs-hero)}
 html main[data-city] :is(.view-guidebook,[data-cleo-book]) .gcover .lead{font:400 var(--fs-lead)/1.5 var(--font-ui);font-style:normal;color:var(--ink-2);margin:14px 0 10px}
 html main[data-city] :is(.view-guidebook,[data-cleo-book]) .ch{padding:clamp(32px,4vw,48px) 0 8px}
 html main[data-city] :is(.view-guidebook,[data-cleo-book]) .ch-h{border-left:0;padding-left:0}
@@ -458,9 +458,9 @@ html main[data-city] button.pl-save.heart[aria-pressed=true]{--w7-heart:url("dat
 html main[data-city] button.pl-save.heart::after{content:"";position:absolute;left:12px;top:12px;width:20px;height:20px;background:currentColor;-webkit-mask:var(--w7-heart) center/contain no-repeat;mask:var(--w7-heart) center/contain no-repeat}
 @media (prefers-reduced-motion:no-preference){html main[data-city] button.pl-save.heart[aria-pressed=true]::after{animation:w7-pop var(--dur-3) var(--ease-spring)}}
 /* phones: a 16:10 media keeps two cards a screen (B-16 ≥ 2); the name link spans the card line (B-20 ≥ 44 px) */
-@media (max-width:599px){html[data-view=gallery] main[data-city] .split li.pl>:is(.pl-cover,.pl-photo){aspect-ratio:16/10}}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-n{align-self:stretch;width:auto}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-n a{display:block;width:100%;min-width:44px;padding:12px 0;margin:-12px 0}
+@media (max-width:599px){html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>:is(.pl-cover,.pl-photo){aspect-ratio:16/10}}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n{align-self:stretch;width:auto}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a{display:block;width:100%;min-width:44px;padding:12px 0;margin:-12px 0}
 /* the quiet hero's optional photo (imagery lane's credited city photo): an in-flow, rounded media slot with its credit
    as a chip; a short strip on phones (the first card stays in the first screen), the right column on desktop */
 html main[data-city]>.masthead .g-hero-x{display:flex;flex-direction:column;align-items:flex-start}
@@ -487,13 +487,13 @@ html body nav.rail#cleo-rail .rail-i .t{color:inherit!important;font-weight:500!
 html body nav.rail#cleo-rail .rail-i[aria-pressed=true] .t{font-weight:600!important}
 html body nav.rail#cleo-rail .rail-i:focus-visible{border-radius:var(--r-s)!important}
 /* row and lead card photos (li.gc > figure.gc-photo, outside the card link so its credit links stay valid): laid over the cover */
-html .view-gallery li.gc>.gc-photo{position:absolute;left:0;right:0;top:0;aspect-ratio:4/3;margin:0;border-radius:var(--w7-media,var(--r-m));overflow:hidden;z-index:1;pointer-events:none;transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2) var(--ease-out)}
+html .view-gallery li.gc>.gc-photo{position:absolute;left:0;right:0;top:0;aspect-ratio:4/3;margin:0;border-radius:var(--w7-media,var(--r-l));overflow:hidden;z-index:1;pointer-events:none;transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2) var(--ease-out)}
 html .view-gallery li.gc>.gc-photo img{display:block;width:100%;height:100%;object-fit:cover}
 html .view-gallery li.gc>.gc-photo figcaption{pointer-events:auto}
 html[data-view=gallery] .g-lead-slot li.gc>.gc-photo{aspect-ratio:2/1}
 @media (prefers-reduced-motion:no-preference){html .view-gallery li.gc:hover>.gc-photo{transform:translateY(-3px);box-shadow:var(--e-2)}html .view-gallery li.gc:active>.gc-photo{transform:scale(.985)}}
 /* photo credits (TASL) stay whole: a two-line chip on cards, a line under the media in the place detail */
-html .view-gallery li.gc>.gc-photo figcaption,html main[data-city] li.pl>.pl-photo figcaption{position:absolute;left:8px;right:52px;bottom:8px;max-width:max-content;padding:4px 9px;border-radius:var(--r-m);background:color-mix(in srgb,var(--ink) 66%,transparent);color:var(--paper);font:400 11px/1.35 var(--font-ui);white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+html .view-gallery li.gc>.gc-photo figcaption,html main[data-city] li.pl>.pl-photo figcaption{position:absolute;left:8px;right:52px;bottom:8px;max-width:max-content;padding:4px 9px;border-radius:var(--r-m);background:color-mix(in srgb,var(--ink) 66%,transparent);color:var(--paper);font:400 var(--fs-xs)/1.35 var(--font-ui);white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 html .view-gallery li.gc>.gc-photo figcaption a{color:inherit}
 html body #cleo-sheet .detail .hero-plate.has-photo{display:block;aspect-ratio:auto;height:auto;background:none;overflow:visible;container-type:normal}
 html body #cleo-sheet .detail .hero-plate.has-photo>.photo{position:relative;inset:auto;margin:0}
@@ -504,3 +504,38 @@ html body #cleo-sheet .detail .hero-plate.has-photo>.photo figcaption a{color:in
 html body #cleo-sheet .detail .hero-plate.has-photo .locator{top:12px;right:12px;bottom:auto}
 html body #cleo-sheet .detail .hero-plate.has-photo>.photo{background:none;border-radius:0;box-shadow:none;padding:0}
 html body #cleo-sheet .detail .hero-plate.has-photo>.photo img{width:100%;object-fit:cover}
+
+/* ---- 13. the shared card, final spec (orchestrator, W7): media first; rank badge top-left and the sun "Must see" sticker on
+   the media; heart top-right; name (2 lines), area · kind (the area is omitted where the list is grouped by area), one line of
+   Recommended by; a photo's credit is a quiet caption UNDER the media. Opt in with class w7-cards on any li.pl container. ---- */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e{position:static}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .pl-num{display:inline-grid;position:absolute;left:10px;top:10px;z-index:3;place-items:center;min-width:28px;height:28px;padding:0 7px;border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:700 var(--fs-xs)/1 var(--font-ui);font-variant-numeric:tabular-nums;box-shadow:var(--e-1)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .tier.t1{position:absolute;left:46px;top:10px;z-index:3;min-height:28px;background:var(--gilt-soft);color:var(--ink);box-shadow:var(--e-1)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .tier.t1 .tg{color:var(--gilt)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-height:44px}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s .rest{display:none}
+/* a credited photo replaces the calm cover in the flow; its credit sits under it */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:has(>.pl-photo)>.pl-cover{display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo{position:relative;left:auto;right:auto;top:auto;aspect-ratio:auto;order:0;margin:0 0 10px;overflow:visible;border-radius:0;z-index:2}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo img{aspect-ratio:4/3;height:auto;border-radius:var(--w7-media)}
+@media (max-width:599px){html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo img{aspect-ratio:16/10}}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo figcaption{position:static;display:block;max-width:none;margin:6px 0 0;padding:0;border-radius:0;background:none;color:var(--ink-3);font:400 var(--fs-xs)/1.4 var(--font-ui);-webkit-line-clamp:unset}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo figcaption a{color:inherit}
+html .view-gallery li.gc .cover>img.gc-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+html .view-gallery li.gc .gc-cred{display:block;margin:-2px 0 4px;color:var(--ink-3);font:400 var(--fs-xs)/1.4 var(--font-ui)}
+/* phone Atlas: the Atlas lane's chip row carries the switcher; the search pill rides in its toolbar and the city bar steps aside */
+html.atlas-m[data-view=atlas] main[data-city]>.cbar{display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo{z-index:auto}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo figcaption{position:relative;z-index:2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e :is(.pl-num,.tier.t1){z-index:4}
+html .view-gallery li.gc .gc-cred{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+html.atlas-m[data-view=atlas] main[data-city] .toolbar>.spill{flex:0 0 min(240px,64vw)}
+
+/* V2.7 calm cover (designer): the kind glyph in ink-3 straight on the quiet sand ground — no disc, no shadow — and the
+   native name small at the bottom-left; intentional, never a broken-image look. Credit: one quiet line under the media. */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover .pl-glyph,html .view-gallery .gc .cover .gl{width:30px;height:30px;padding:0;background:none;box-shadow:none;color:var(--ink-3)}
+html .view-gallery .gc .cover .gl .ico{width:30px;height:30px}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo figcaption,html .view-gallery li.gc .gc-cred{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:unset}
+html .view-gallery li.gc>.pl-s{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-height:44px}
+html .view-gallery li.gc>.pl-s .rest{display:none}
