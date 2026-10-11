@@ -175,3 +175,18 @@ From Round 6 on, the evaluator reports an itemised **Typography & style** sub-sc
 - consistency.
 
 The A weight is unchanged. The audit and the decision record live in `design/beta/style/`. The briefs are in `design/beta/eval/W6-BRIEFS.md`.
+
+## Rounds 6–9 (owner request, 2026-10-11)
+
+There will be four more rounds, Rounds 6–9, run with the same loop. Each evaluator also scores the **design-conformance checklist** in `design/beta/eval/ROUNDS-6-9.md`, which covers:
+- the views;
+- Atlas map-first;
+- Gallery, Guidebook and Insights;
+- the type & style rating and rebuild;
+- the melon-seek ideas;
+- luxury and fun;
+- photos;
+- honesty;
+- performance and accessibility.
+
+Any row that is not ✅ becomes the next wave's work.
