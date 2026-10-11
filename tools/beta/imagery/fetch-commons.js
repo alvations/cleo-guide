@@ -24,7 +24,7 @@
  *   --wiki-lead          for a landmark with no usable candidate, try the lead image of its cited Wikipedia article
  *                        (same licence and depicts checks)
  *   --widths a,b         card photo widths (srcset; default 480,960 → snapped to 500,960; the largest is the credited file)
- *   --hero-widths a,b    hero photo widths (default 640,1280 → snapped to 500,1280)
+ *   --hero-widths a,b    hero photo widths (default 960,1280)
  *   --delay <ms>         pause between requests (default 400; API etiquette)
  *
  * Per target it takes the first candidate that passes, in manifest order:
@@ -46,7 +46,9 @@
  * exact problem.
  *
  * Exit codes: 0 = done, nothing to do, or the hosts are unreachable (plan printed); 1 = bad option/input;
- * 4 = an API or image request failed mid-run (finished photos are kept: CREDITS.json is written after each one).
+ * 4 = the API failed, or more than 25 % of image downloads failed (a single bad thumbnail only skips that candidate;
+ * finished photos are kept: CREDITS.json is written after each one). Thumbnails come from thumb.wikimedia.org or
+ * upload.wikimedia.org, whichever URL the API returns; nothing checks the host, and the credit links the File: page.
  *
  * Never fetched: food places, venues and other `skip` targets, closed places, Vietnamese places or a Vietnam hero
  * (no freedom of panorama), a record that is not on its beta page.
@@ -66,7 +68,7 @@ const RANK = { high: 3, med: 2 };
 const PILOT_PAGES = ['tokyo', 'cleveland', 'newyork', 'singapore/chinatown', 'wheeling'];
 
 function args(argv) {
-  const o = { dry: false, keys: [], types: [], min: 'high', allow: [], widths: [480, 960], heroWidths: [640, 1280], budget: 150, wikiLead: false, pilot: false, delay: 400 };
+  const o = { dry: false, keys: [], types: [], min: 'high', allow: [], widths: [480, 960], heroWidths: [960, 1280], budget: 150, wikiLead: false, pilot: false, delay: 400 };
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i], v = () => argv[++i];
     if (a === '--dry-run') o.dry = true;
@@ -115,6 +117,9 @@ function licenceOf(short, url) {
   return { why: `licence ${s} is not CC0 / PD / CC BY / CC BY-SA` };
 }
 const strip = h => String(h || '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/\s+/g, ' ').trim();
+
+/** A run fails only when more than a quarter of the attempted downloads failed (a single bad file is skipped). */
+const tooManyFailures = (tries, fails) => tries >= 4 && fails / tries > 0.25;
 
 /**
  * Commons serves thumbnails only at its standard widths (a non-standard width such as 640 answers HTTP 400), so each
@@ -232,7 +237,7 @@ async function main() {
   const today = new Date().toISOString().slice(0, 10);
   const widthsOf = t => t.type === 'hero' ? o.heroWidths : o.widths, maxOf = t => { const w = widthsOf(t); return w[w.length - 1]; };
   const kept = [], refused = [];
-  let imgBytes = 0, stopped = false;
+  let imgBytes = 0, stopped = false, imgTries = 0, imgFails = 0;
 
   /** Re-read one File: from the API and apply every check. Returns {ok:info} or {why}. */
   async function inspect(t, title) {
@@ -265,6 +270,8 @@ async function main() {
     return p && p.pageimage ? `File:${p.pageimage.replace(/_/g, ' ')}` : null;
   }
 
+  /** Remove the sizes already written for a candidate that is then refused: an uncredited file would fail the gate. */
+  const drop = out => { for (const v of out.splice(0)) { try { fs.unlinkSync(path.join(PHOTO_DIR, v.file)); } catch (e) { /* already gone */ } imgBytes -= v.bytes || 0; } };
   async function store(p, c, info) {
     const { ii } = info, ext = ii.mime === 'image/png' ? 'png' : ii.mime === 'image/webp' ? 'webp' : 'jpg', base = fileBase(p.t);
     const ws = snapWidths(widthsOf(p.t), ii.width), out = [];
@@ -277,18 +284,19 @@ async function main() {
         else {
           const j = await api({ action: 'query', titles: info.title, prop: 'imageinfo', iiprop: 'url|size', iiurlwidth: w });
           const t = j.query && j.query.pages && j.query.pages[0] && j.query.pages[0].imageinfo && j.query.pages[0].imageinfo[0];
-          if (!t || !t.thumburl) return { why: `no ${w} px thumbnail from the API` };
+          if (!t || !t.thumburl) { drop(out); return { why: `no ${w} px thumbnail from the API` }; }
           url = t.thumburl; tw = t.thumbwidth; th = t.thumbheight;
         }
       }
-      const img = await get(url, { accept: 'image/*', timeout: 60000 });
+      imgTries++;
+      const img = await get(url, { accept: 'image/*', timeout: 60000 }).catch(e => ({ ok: false, status: 0, headers: { get: () => String(e.cause ? e.cause.code || e.cause.message : e.message) } }));
       const type = img.headers.get('content-type') || '';
-      if (img.status === 429 || img.status >= 500) throw Object.assign(new Error(`image host answered HTTP ${img.status}`), { budget: true, why: `image host HTTP ${img.status} — stopping; the next run resumes` });
-      if (!img.ok || !/^image\//.test(type)) return { why: `thumbnail ${url} → HTTP ${img.status} ${type}` };
+      if (img.status === 429 || img.status >= 500) { drop(out); imgFails++; throw Object.assign(new Error(`image host answered HTTP ${img.status}`), { budget: true, why: `image host HTTP ${img.status} — stopping; the next run resumes` }); }
+      if (!img.ok || !/^image\//.test(type)) { imgFails++; drop(out); return { why: `thumbnail ${url} → HTTP ${img.status} ${type}` }; }
       const buf = Buffer.from(await img.arrayBuffer());
       const file = `${base}-${tw}.${ext}`;
       fs.writeFileSync(path.join(PHOTO_DIR, file), buf); imgBytes += buf.length;
-      out.push({ file, w: tw, h: th, kb: Math.round(buf.length / 1024) });
+      out.push({ file, w: tw, h: th, kb: Math.round(buf.length / 1024), bytes: buf.length });
       await sleep(o.delay);
     }
     if (!out.length) return { why: 'no thumbnail could be stored' };
@@ -343,8 +351,10 @@ async function main() {
   console.log(`\nKept ${kept.length}:`); kept.forEach(k => console.log(`  ok    ${k}`));
   console.log(`Refused ${refused.length}:`); refused.forEach(k => console.log(`  no    ${k}`));
   console.log(`API requests this run: ${calls}/${o.budget}; image bytes ${Math.round(imgBytes / 1024)} KB.${stopped ? ' Budget reached — run again to resume (credited targets are skipped).' : ''}`);
+  console.log(`Image downloads: ${imgTries - imgFails}/${imgTries} ok.`);
   if (kept.length) console.log('Now: cd tools && npm run beta && npm test');
+  if (tooManyFailures(imgTries, imgFails)) die(`${imgFails} of ${imgTries} image downloads failed (> 25 %) — something is wrong with the image host or the URLs; finished photos are kept.`, 4);
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { fold, namesPlace, licenceOf, snapWidths, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
