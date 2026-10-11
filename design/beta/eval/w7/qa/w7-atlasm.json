@@ -1,5 +1,5 @@
 {
- "head": "ddae9ce16e0b5eff4d78cfab7894e530f7f56f61",
+ "head": "dd2125e3be6769c776aa1633ed96b17db69181d8",
  "checks": [
   {
    "group": "atlasm",
@@ -30,9 +30,9 @@
    "name": "cleveland.html: List pill ≥ 44 × 44, no horizontal overflow",
    "ok": true,
    "evidence": [
-    122,
+    123,
     44,
-    "List · 57"
+    "List · 85"
    ]
   },
   {
@@ -46,7 +46,7 @@
    "name": "cleveland.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
    "ok": true,
    "evidence": {
-    "pin": "prosperity-social-club",
+    "pin": "superior-pho",
     "sel": true,
     "nSel": 1,
     "inView": true,
@@ -59,7 +59,7 @@
      "r": 374
     },
     "pinSel": true,
-    "want": "Prosperity Social Club",
+    "want": "Superior Phở",
     "sheet": false
    }
   },
@@ -69,11 +69,11 @@
    "ok": true,
    "evidence": {
     "open": {
-     "title": "Prosperity Social Club",
+     "title": "Superior Phở",
      "close": true
     },
     "same": true,
-    "hash1": "#p-prosperity-social-club",
+    "hash1": "#p-superior-pho",
     "esc": true,
     "reopen": true,
     "back": true,
@@ -109,7 +109,7 @@
    "ok": true,
    "evidence": {
     "list": true,
-    "cards": 8,
+    "cards": 13,
     "w7": true,
     "tog": "Map",
     "back": {
@@ -124,16 +124,16 @@
    "name": "cleveland.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
    "ok": true,
    "evidence": {
-    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "text": "© OpenStreetMap · Esriⓘ Leaflet | Tiles © Esri — Esri, HERE,",
     "osm": true,
     "px": 12,
     "box": {
      "x": 12,
-     "y": 132,
-     "w": 378,
-     "h": 60,
-     "b": 192,
-     "r": 390
+     "y": 598,
+     "w": 168,
+     "h": 20,
+     "b": 618,
+     "r": 180
     },
     "onScreen": true,
     "hitOwn": true,
@@ -175,9 +175,9 @@
    "name": "cities/tokyo.html: List pill ≥ 44 × 44, no horizontal overflow",
    "ok": true,
    "evidence": [
-    132,
+    129,
     44,
-    "List · 348"
+    "List · 351"
    ]
   },
   {
@@ -191,7 +191,7 @@
    "name": "cities/tokyo.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
    "ok": true,
    "evidence": {
-    "pin": "nonbei-yokocho-shibuya",
+    "pin": "zojo-ji",
     "sel": true,
     "nSel": 1,
     "inView": true,
@@ -204,7 +204,7 @@
      "r": 374
     },
     "pinSel": true,
-    "want": "Nonbei Yokochō, Shibuya (渋谷のんべい横丁)",
+    "want": "Zōjō-ji (増上寺)",
     "sheet": false
    }
   },
@@ -214,11 +214,11 @@
    "ok": true,
    "evidence": {
     "open": {
-     "title": "Nonbei Yokochō, Shibuya (渋谷のんべい横丁)",
+     "title": "Zōjō-ji (増上寺)",
      "close": true
     },
     "same": true,
-    "hash1": "#p-nonbei-yokocho-shibuya",
+    "hash1": "#p-zojo-ji",
     "esc": true,
     "reopen": true,
     "back": true,
@@ -254,7 +254,7 @@
    "ok": true,
    "evidence": {
     "list": true,
-    "cards": 21,
+    "cards": 12,
     "w7": true,
     "tog": "Map",
     "back": {
@@ -269,16 +269,16 @@
    "name": "cities/tokyo.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
    "ok": true,
    "evidence": {
-    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "text": "© OpenStreetMap · Esriⓘ Leaflet | Tiles © Esri — Esri, HERE,",
     "osm": true,
     "px": 12,
     "box": {
      "x": 12,
-     "y": 132,
-     "w": 378,
-     "h": 60,
-     "b": 192,
-     "r": 390
+     "y": 598,
+     "w": 168,
+     "h": 20,
+     "b": 618,
+     "r": 180
     },
     "onScreen": true,
     "hitOwn": true,
@@ -320,9 +320,9 @@
    "name": "cities/newyork.html: List pill ≥ 44 × 44, no horizontal overflow",
    "ok": true,
    "evidence": [
-    131,
+    128,
     44,
-    "List · 259"
+    "List · 317"
    ]
   },
   {
@@ -336,12 +336,12 @@
    "name": "cities/newyork.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
    "ok": true,
    "evidence": {
-    "pin": "veselka",
+    "pin": "apollo-theater",
     "sel": true,
     "nSel": 1,
     "inView": true,
     "r": {
-     "x": 32,
+     "x": 31,
      "y": 682,
      "w": 328,
      "h": 150,
@@ -349,7 +349,7 @@
      "r": 359
     },
     "pinSel": true,
-    "want": "Veselka",
+    "want": "Apollo Theater",
     "sheet": false
    }
   },
@@ -359,11 +359,11 @@
    "ok": true,
    "evidence": {
     "open": {
-     "title": "Veselka",
+     "title": "Apollo Theater",
      "close": true
     },
     "same": true,
-    "hash1": "#p-veselka",
+    "hash1": "#p-apollo-theater",
     "esc": true,
     "reopen": true,
     "back": true,
@@ -399,7 +399,7 @@
    "ok": true,
    "evidence": {
     "list": true,
-    "cards": 35,
+    "cards": 6,
     "w7": true,
     "tog": "Map",
     "back": {
@@ -414,16 +414,16 @@
    "name": "cities/newyork.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
    "ok": true,
    "evidence": {
-    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "text": "© OpenStreetMap · Esriⓘ Leaflet | Tiles © Esri — Esri, HERE,",
     "osm": true,
     "px": 12,
     "box": {
      "x": 12,
-     "y": 132,
-     "w": 378,
-     "h": 60,
-     "b": 192,
-     "r": 390
+     "y": 598,
+     "w": 168,
+     "h": 20,
+     "b": 618,
+     "r": 180
     },
     "onScreen": true,
     "hitOwn": true,
@@ -481,7 +481,7 @@
    "name": "Singapore/chinatown.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
    "ok": true,
    "evidence": {
-    "pin": "sri-mariamman-temple",
+    "pin": "famous-sungei-road-trishaw-laksa",
     "sel": true,
     "nSel": 1,
     "inView": true,
@@ -491,10 +491,10 @@
      "w": 328,
      "h": 150,
      "b": 832,
-     "r": 358
+     "r": 359
     },
     "pinSel": true,
-    "want": "Sri Mariamman Temple",
+    "want": "Famous Sungei Road Trishaw Laksa",
     "sheet": false
    }
   },
@@ -504,11 +504,11 @@
    "ok": true,
    "evidence": {
     "open": {
-     "title": "Sri Mariamman Temple",
+     "title": "Famous Sungei Road Trishaw Laksa",
      "close": true
     },
     "same": true,
-    "hash1": "#p-sri-mariamman-temple",
+    "hash1": "#p-famous-sungei-road-trishaw-laksa",
     "esc": true,
     "reopen": true,
     "back": true,
@@ -544,7 +544,7 @@
    "ok": true,
    "evidence": {
     "list": true,
-    "cards": 14,
+    "cards": 11,
     "w7": true,
     "tog": "Map",
     "back": {
@@ -559,16 +559,16 @@
    "name": "Singapore/chinatown.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
    "ok": true,
    "evidence": {
-    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "text": "© OpenStreetMap · Esriⓘ Leaflet | Tiles © Esri — Esri, HERE,",
     "osm": true,
     "px": 12,
     "box": {
      "x": 12,
-     "y": 132,
-     "w": 378,
-     "h": 60,
-     "b": 192,
-     "r": 390
+     "y": 598,
+     "w": 168,
+     "h": 20,
+     "b": 618,
+     "r": 180
     },
     "onScreen": true,
     "hitOwn": true,
@@ -626,20 +626,20 @@
    "name": "cities/wheeling.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
    "ok": true,
    "evidence": {
-    "pin": "great-stone-viaduct",
+    "pin": "west-virginia-independence-hall",
     "sel": true,
     "nSel": 1,
     "inView": true,
     "r": {
-     "x": 31,
+     "x": 32,
      "y": 682,
      "w": 328,
      "h": 150,
      "b": 832,
-     "r": 358
+     "r": 359
     },
     "pinSel": true,
-    "want": "Great Stone Viaduct",
+    "want": "West Virginia Independence Hall",
     "sheet": false
    }
   },
@@ -649,11 +649,11 @@
    "ok": true,
    "evidence": {
     "open": {
-     "title": "Great Stone Viaduct",
+     "title": "West Virginia Independence Hall",
      "close": true
     },
     "same": true,
-    "hash1": "#p-great-stone-viaduct",
+    "hash1": "#p-west-virginia-independence-hall",
     "esc": true,
     "reopen": true,
     "back": true,
@@ -689,7 +689,7 @@
    "ok": true,
    "evidence": {
     "list": true,
-    "cards": 2,
+    "cards": 6,
     "w7": true,
     "tog": "Map",
     "back": {
@@ -704,16 +704,16 @@
    "name": "cities/wheeling.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
    "ok": true,
    "evidence": {
-    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "text": "© OpenStreetMap · Esriⓘ Leaflet | Tiles © Esri — Esri, HERE,",
     "osm": true,
     "px": 12,
     "box": {
      "x": 12,
-     "y": 132,
-     "w": 378,
-     "h": 60,
-     "b": 192,
-     "r": 390
+     "y": 598,
+     "w": 168,
+     "h": 20,
+     "b": 618,
+     "r": 180
     },
     "onScreen": true,
     "hitOwn": true,
@@ -731,7 +731,7 @@
    "name": "every tile request went to OSM or Esri",
    "ok": true,
    "evidence": {
-    "server.arcgisonline.com": 380
+    "server.arcgisonline.com": 392
    }
   }
  ],
