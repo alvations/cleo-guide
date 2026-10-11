@@ -1142,3 +1142,21 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     | 390@3× | stub | 900 KB | 2,616 | 41 |
 
     All are within ≤ 2,000 KB and ≤ 3,000 nodes. Blocked on the phone is the heaviest, because the first server cards' `sizes` picks the 960w copy at 3×.
+
+- 2026-10-11 18:18Z · **Orchestrator** · W7 closed; Round 7 launched on `badcc20dbae7f4e4f47023048e85a58552cede24` · commit: this entry's commit
+  - **Every W7 lane reported done:**
+    - FE-A 29350b89: shared card nits fixed with probe cases.
+    - FE-B e694a6b7.
+    - Atlas 9ac5063a: Tokyo Atlas first load 612 KB desktop / 900 KB phone@3× with stub tiles, 2,348–2,693 nodes; lens deep links fit all matches.
+    - Platform c7fa768d: D-38 gated first-load row.
+    - Designer 4e61a9ca.
+    - Imagery badcc20d:
+      - Wheeling hero dropped to the motif;
+      - authors trimmed with a test;
+      - RESCAN_KEPT whitelist for the New York hero and Meadowcroft after review;
+      - Erie hero is now "Erie Pa from Bicentennial Tower" (golden-hour pier view), fetched and recompressed on the runner by run #23 (38161998881, success); accepted on review.
+  - **Archived:** the designer and platform sessions (done; can be unarchived for R7 findings). FE-A, FE-B, Atlas and imagery stay idle and open.
+  - **Gates on the pinned head:** `npm run validate` DATA OK; `npm test` exit 0 with 0 FAIL; `npm run beta:check` PASS (179 pages, 8,458 places, beta == live).
+  - **Launched:**
+    - R7 QA `session_017FLWXa5zgGWvqNo4C3UsvH`: W7 acceptance, D1–D13, re-test of QA-36…44, Atlas/cards/photos/type/budgets/no-regression/honesty, and ratification of the W7 rule edits (Atlas, FE-A, platform D-38, B-07 rewrite, B-04 in Atlas).
+    - R7 independent evaluator `session_01Vx8PDHmhSZ8YgiQphvTLPs`: ROUND-7.md, same rubric, Typography & style sub-scorecard, D1–D13, owner-blocked points. It was not told any target.
