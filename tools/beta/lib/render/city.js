@@ -94,7 +94,7 @@ const BY_NAME = [[/sushi/i, 'sushi'], [/ramen|noodle|pho|laksa|soba|udon/i, 'noo
   [/temple|shrine|mosque|church/i, 'torii'], [/market|shop|hawker/i, 'awning'], [/view|skyline|tower/i, 'tower'], [/night/i, 'moon'],
   [/history|heritage|castle|palace/i, 'castle'], [/free/i, 'ticket'], [/screen|tv|film|pop/i, 'tv']];
 const glyphFor = (id, n, food) => GLYPH[id] || (BY_NAME.find(([re]) => re.test(n || '')) || [])[1] || (food ? 'forkknife' : 'compass');
-const { motifSvg, motifOf, photoFor, figureHtml, heroFor, heroHtml: heroPhotoHtml } = require('../../imagery');   // imagery lane hooks
+const { motifSvg, motifOf, photoFor, figureHtml, heroFor, heroHtml: heroPhotoHtml, heroPreload } = require('../../imagery');   // imagery lane hooks
 const ico = n => `<svg class="ico" aria-hidden="true"><use href="#i-${n}"/></svg>`;
 const tier = (t, cls = '') => TIER[t] ? `<a class="tier t${t}${cls}" href="#how-we-choose"><i class="tg t${t}" aria-hidden="true"></i><span>${TIER[t]}</span></a>` : '';
 
@@ -304,7 +304,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   // desktop shows the lead as one quiet text link (the phone shows it as the first card, under the hero)
   const leadName = leadR ? (leadR.nat && leadR.n.endsWith(`(${leadR.nat})`) ? leadR.n.slice(0, -leadR.nat.length - 2).trimEnd() : leadR.n) : '';
   // the photo is an in-flow media slot (imagery: eager, sized, TASL credit in its figcaption), never a full-bleed backdrop
-  const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(heroLine)}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">Start with ${esc(leadName)}</a></p>` : ''}${heroPhoto ? heroPhotoHtml(heroPhoto, up, 'photo hero-media') : ''}</div>`;
+  const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(heroLine)}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">Start with ${esc(leadName)}</a></p>` : ''}${heroPhoto ? heroPhotoHtml(heroPhoto, up, 'photo hero-media', { preloaded: true }) : ''}</div>`;
   // default view: Gallery (SPEC §2.4), flipped in W5 once G1 and the phone first screen passed (ROUND-4 #2). A link with
   // #day= or a lens and no view= still opens Atlas, the unpaged list (views.js implied(), mirrored in the head script)
   const DV = 'gallery';
@@ -362,7 +362,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   const title = `${name} — ${recs.length} sourced places · Cleo`;
   const desc = `${name}: ${nS} sights and ${nF} places to eat and drink, every one traceable to the source that recommended it, pinned and status-checked.`;
   const headHtml = head({ page: 'city', title, description: desc, rel: row.beta, depth, ogImage: ctx.ogImage, jsonld: jsonLd(row, recs, title), assetsV: ctx.assetsV, from: row.live })
-    .replace('</head>', `<link rel="stylesheet" href="${up}${ctx.feaCss}">\n${viewHead}\n</head>`);
+    .replace('</head>', `<link rel="stylesheet" href="${up}${ctx.feaCss}">\n${viewHead}${heroPhoto ? '\n' + heroPreload(heroPhoto, up) : '' /* platform W7: hero preloaded unless the page opens in Atlas */}\n</head>`);
   const country = COUNTRIES.find(c => c.key === row.country) || {};
   // ROUND-4 #3: phones keep one short line (count · areas · last checked · closed); the method sentence and its "How we
   // choose" link sit in .long (≥ 900 px), so the What-changed link is the only masthead link before the first card
