@@ -1218,6 +1218,48 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - The carousel card grows to 150 px, and the © shortcut is hidden there.
   - New `atlas-ms.js` check: every carousel credit sits inside its card with no overflow. Evidence: `design/beta/eval/w7/atlas/tokyo-atlas-390-day-credit.jpg`.
 
+- 2026-10-11 19:15Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **Loop A (Atlas panel):**
+    - Real-tile workflow run #2 (38164928697) succeeded; about 110 shots are in `design/beta/atlas/real/R0/`. They show OSM standard tiles too busy under the pins, and dark mode still drawing the bright OSM tiles. Settled with the designer and the Atlas lane: Esri Light Gray Canvas by default, Esri Dark Gray Canvas in dark mode, following the theme; satellite stays as the alternative; a test covers it.
+    - SPEC-v3 slice 1 (32a6eb86: no numbers on the map, named kind pills, quiet dots, a city-core default view, one 108 px bar, a flat list) is accepted, with four refinements sent:
+      - one glyph per pill;
+      - neutral dots;
+      - short names with collision-to-dot;
+      - possibly fewer pills.
+    - The Atlas lane is building slice 1.
+    - The panel's R0 evidence pack is built (129 shots); its eight panelists are scoring.
+  - **Casing (owner):** the designer pushed the rule and the executable spec (f145ab71: DESIGN-SYSTEM.md §v2.6, design/beta/casing/ with allowlist.json, sentence_case.py and labels.md: 368 labels, 259 change; CASING-AUDIT.md). It also removed the designer-owned uppercase, drop caps and cover initials. FE-A is building `tools/beta/lib/casing.js` to match the reference output; FE-B and the Atlas lane follow.
+  - **Loop C:**
+    - FE-A: "Start with" = lead card on all 84 pages (bae1b624; two pickers had drifted on 17 US/EU pages).
+    - FE-B:
+      - D-39 price/rating note on 235 records (ba5d7e23);
+      - "What changed" B-20/B-23 84/84;
+      - Guidebook chapter photos, 25 of 299 chapters, lazy and credited (f677272c);
+      - the Insights v2 series tokens were requested from the designer.
+    - Imagery: `--scope heroes|priority|pilots|all` (e26f890e) is wired into the workflow as a dispatch input; push runs stay at priority (62b7295d). The priority run is in progress; pilots and all wait for the contact sheet and a repo-size estimate.
+    - The Atlas carousel credit clip is fixed (f5efbc66).
+  - **Loop B:** R7 QA is running pilot runs and the B-07 rewrite; the evaluator's metrics sweep is about 2/3 done.
+
+- 2026-10-11 19:22Z · **Orchestrator** · Atlas panel round 0 · commit: this entry's commit
+  - **PANEL-R0** (head 965b7a5c; a70cc645 / 8e06aeb2):
+    - **panel score 56.1/100**, min 53.5 (FE), max 58.5 (B2), SD 1.73;
+    - row means: R1 9.4/15, R2 7.5/20, R3 8.8/15, R4 8.4/15, R5 9.4/15, R6 6.9/10, R7 5.8/10;
+    - no Blocker findings.
+  - **Top findings:**
+    1. number soup / no names on the map (≈10.5);
+    2. the detail round-trip loses the map state (≈6.5, High);
+    3. chrome and phone overlays (≈6.1);
+    4. near-me ignores proximity (≈3.5, High);
+    5. text and targets too small (≈2.8, High);
+    6. pin kind unreadable;
+    7. closed not marked on the map;
+    8. contradictory counts;
+    - also: #11 keyboard (High) and #13 view not in the URL (High).
+  - **AO verdicts:** AO-1/2/3/4/6/8 confirmed; AO-5 confirmed in part; AO-7 confirmed with low weight.
+  - **Routing:**
+    - visual findings → designer (SPEC-v3 slices; slice 1 refined in b62cce9a: one glyph, sun-wash Must-see, short names with collide-to-dot, 16/8 pins, neutral dots; basemap settled: Esri Light/Dark Gray Canvas following the theme);
+    - front-end findings #2/#4/#11/#13/#5/#3 → Atlas lane, after slice 1.
+  - Round 1 starts when slice 1 + the basemap ship.
 - 2026-10-11 · Atlas lane · **Atlas review loop, round 1: SPEC-v3 slice 1 built** ("places on a map, not numbers on a grid").
   - **Markers:**
     - every place is a quiet canvas dot (area colour, muted; Must see 9 px; closed hollow), with zero DOM nodes;

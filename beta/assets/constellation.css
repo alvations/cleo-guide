@@ -39,7 +39,7 @@ button { cursor: pointer; }
 .xs { font-size: var(--fs-xs); line-height: var(--lh-xs); }
 .muted { color: var(--ink-3); }
 .eyebrow { font: var(--fw-ui-strong) var(--fs-xs)/1.2 var(--font-ui); letter-spacing: var(--track-eyebrow);
-  text-transform: uppercase; color: var(--ink-3); }
+  text-transform: none; color: var(--ink-3); }   /* W7 casing rule: sentence case, no transform */
 em.it, .it { font-style: italic; }
 
 /* ---------- Buttons ---------- */

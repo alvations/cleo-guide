@@ -24,6 +24,10 @@
 .feb .more-h { margin: 28px 0 0; }
 .feb .btn { border-radius: var(--r-pill); }
 
+/* no single-word last lines (R6 gap #3c): headings balance, deks / stat lines / rail and card subtitles wrap pretty */
+.feb :is(h1, h2, h3, .card-t, .theme-t, .rail-i .t, .cover-n, .chero .why, .chero .facts) { text-wrap: balance; }
+.feb :is(p:not(.why):not(.facts), .sigline, .canon, .recby > span, .counts, .theme-w, .rail-i .d, .rail-head .n, .big-l) { text-wrap: pretty; }
+
 /* ---------- landing hero: search-first ---------- */
 .lhero { position: relative; background: var(--paper); color: var(--ink); text-align: center; }
 .lhero .inner { max-width: 880px; margin: 0 auto; padding: clamp(36px, 7vw, 96px) var(--gutter) clamp(8px, 2vw, 24px); }

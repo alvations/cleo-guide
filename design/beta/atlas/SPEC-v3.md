@@ -4,6 +4,7 @@
 - **Status:** slice 1 is ready to build. Slices 2–5 are specified and get refined as the panel's findings land (§9).
 - **Prototypes:** [`proto/`](proto/), shot at 1440×900 and 390×844, in light and dark. They use real coordinates on a flat stub basemap; see §6.
 - **Rule 6:** no brand names. The owner's reference is written as "the real-estate map-search pattern".
+- **Casing** (DESIGN-SYSTEM §v2.6): every map label, chip, pin and legend string in this spec is sentence case. Collection and cuisine labels on pins, cards and filters go through `sentenceCase()`. There are no uppercase eyebrows.
 
 ## 0. What is wrong, and the one idea that fixes it
 
@@ -31,51 +32,50 @@ This brings back the live map-centred guide's calm. That guide has one big map, 
 
 | Level | What | Drawn as | DOM cost |
 |---|---|---|---|
-| **Featured pin** | The best places in view (§1.3), up to **N = 24 desktop / 12 phone**; the prototype measures 24 / 10 for Tokyo | A **labelled pill**: kind glyph + name (§1.2) | One divIcon each, so ≤ 24 nodes |
-| **Place dot** | Every other place in view | A **7 px dot** in the place's muted area colour with a 1.5 px `--surface` ring. **No number.** Must-see dots are 9 px. | **Zero**: one shared canvas layer (`L.canvas()` circleMarkers) |
+| **Featured pin** | The best places in view (§1.3), up to **N = 16 desktop / 8 phone** (prototype: Tokyo 16 / 7). 24 read as busy in review, so the count was lowered. | A **labelled pill**: one kind glyph + the short name (§1.2) | One divIcon each, so ≤ 16 nodes |
+| **Place dot** | Every other place in view | A **7 px dot** in **one quiet neutral**: `--ink` at 38 % for sights, `--ink` at 62 % for eat & drink, and hollow when closed, with a thin surface halo. **No number and no area colours.** Area colour returns only when an area filter is active, and in the Key. | **Zero**: one shared canvas layer (`L.canvas()` circleMarkers) |
 | **Density disc** (replaces clusters) | Only where dots would overlap into a blob: more than 12 dots inside 28 px, which in practice means region zoom (≤ 11) | A soft **`--sand` disc at 80 % opacity** with a 1 px `--line` ring, sized by count (24 / 32 / 40 px) and **no number**. It reads as "lots here". | Canvas, zero nodes |
 
 - **No count bubbles and no rank numbers on the map, at any zoom.**
 - Counts belong to the list's count line (§2.3). The map's job is *where*.
 - Clicking a density disc zooms in one step to its bounds. Clicking a dot selects the place, just as a pin does (§1.4).
 - **Dots keep every place visible on the map**: nothing is hidden behind a cluster count.
-- **Performance:** 500+ dots on one canvas pan at 60 fps. The DOM holds at most 24 pins plus 1 preview, well under the 3,000-node budget. The current divIcon count bubbles and rank pills are removed.
+- **Performance:** 500+ dots on one canvas pan at 60 fps. The DOM holds at most 16 pins plus 1 preview, well under the 3,000-node budget. The current divIcon count bubbles and rank pills are removed.
 
 ### 1.2 Pin anatomy (featured pin)
 
 ```
- ┌───────────────────────────────┐
- │ ◯glyph  Sensō-ji         ♥    │   height 30 px · radius pill · 1 px --line · --surface fill
- └───────────────────────────────┘   hit area ≥ 44 px (invisible ::before)
+ ┌──────────────────────────┐
+ │ glyph  Sensō-ji      ♥   │   height 30 px · radius pill · 1 px --line · --surface fill
+ └──────────────────────────┘   hit area ≥ 44 px (invisible ::before)
 ```
 
-- **Glyph** (16 px, `--ink-2`, 1.5 stroke) from the v2 icon set. Two families make kind readable at a glance:
+- **One glyph, the kind** (16 px, `--ink-2`, 1.5 stroke, from the v2 icon set). There is no area dot and no star. The orchestrator's review found that three leading marks per pill were busy.
   - **Sight:** the place's own kind glyph (`data-gl`: lantern, castle, columns, leaf, tower, wave …).
-  - **Eat & drink:** always the **fork-and-knife**, or the bowl, noodles, cup or bottle where `data-gl` says so. The glyph alone carries the kind. A coloured bar was prototyped and dropped, because it competed with the Must-see star.
-- **Name:**
-  - Inter 600, 13 px, `--ink`, single line, at most 22 characters, then an ellipsis. The full name is in the tooltip and on the preview.
-  - Native script is not shown on pins; it appears on the preview and in the detail.
-- **Area identity:** a 6 px dot in the muted area colour, `color-mix(in oklab, area 50%, --area-mute)`, sits before the glyph. The live guide's area colours survive, quietly.
-- **Must-see:**
-  - A **filled star4 in `--sun`** (13 px, with a 70 % sun/ink outline) precedes the glyph, and the pill border tints to `--sun` at 70 %. The fill stays `--surface`.
-  - A sun-wash fill was prototyped first. Because most featured pins are Must-sees, nearly every pill turned sun and the distinction was lost. The star keeps it.
-- **Saved:** a 14 px `--accent` heart chip sits on the pill's top-right corner, on a surface ring. Saved places are **always featured**: they count toward N but are added first.
+  - **Eat & drink:** the **fork-and-knife**, or the cup for cafés.
+- **Short name on the map:**
+  - Inter 600, 13 px, `--ink`, on one line, **never truncated**.
+  - The map name is the place name up to the first ", ", " — " or " – ", with any parenthesis dropped. For example, "Nonbei Yokochō, Shibuya" becomes **Nonbei Yokochō**, and "Chess Collection — Cleveland Public Library…" becomes **Chess Collection**.
+  - The full name appears in the tooltip, the preview, the card and the detail.
+  - If a pill does not fit, it becomes a dot rather than truncating or overlapping (§1.3).
+- **Must-see:** shown by the pill's **own treatment**: a **`--sun-wash` fill** with a `--sun` border at 55 % and `--on-sun-wash` text and glyph. There is no extra mark. Other featured places keep the surface pill, so the map reads as warm pills (the best) and white pills (good).
+- **Saved:** a 14 px `--accent` heart chip sits on the pill's top-right corner, on a surface ring. Saved places are **always featured**: they are added first and count toward N.
 - **Closed:**
-  - The pill uses a `--line-strong` dashed border and `--sand` fill; glyph and name are in `--ink-3`.
+  - The pill uses a `--line-strong` dashed border and a `--sand` fill; glyph and name are in `--ink-3`.
   - The name is followed by " · Closed".
-  - A closed place never gets the Must-see treatment and never counts toward N unless it is saved or selected.
-  - A closed dot is hollow (ring only).
-- **Hover** (from the map, or from its card in the list): border becomes `--ink`, `--shadow`, z-index on top. If the place was a dot, it temporarily becomes a labelled pill.
+  - It never gets the Must-see treatment and never counts toward N unless it is saved or selected.
+  - A closed dot is hollow.
+- **Hover** (on the map, or from its card in the list): the border becomes `--ink`, with `--shadow` and the top z-index. If the place was a dot, it temporarily becomes a labelled pill.
 - **Selected:**
-  - Fill becomes **`--ink`**, with name and glyph in **`--paper`**. A 6 px tail points to the exact coordinate. This is the only dark marker on the map.
-  - A must-see keeps a 2 px `--sun` ring.
-  - The selected place is always labelled, even at low zoom.
-- **Focus** (keyboard): a 2 px `--focus` outline at a 2 px offset, the same as v2 everywhere.
-- **Dark mode:** everything is defined by tokens, so pins flip automatically (surface `#1C1918`, ink `#F2EEEA`, sun-wash `#3B2C10`).
+  - The fill becomes **`--ink`**, with name and glyph in **`--paper`**. A short stem points to the exact coordinate. This is the only dark marker on the map.
+  - A Must-see keeps a 2 px `--sun` ring.
+  - The selected place is always labelled.
+- **Focus:** a 2 px `--focus` outline at a 2 px offset.
+- **Dark mode:** pins are defined by tokens, so they flip automatically. A Must-see pill becomes `#3B2C10` with `#FBE3B0` text.
 
 ### 1.3 Which places are featured (the "map priority")
 
-Tiers are graded within each area, which is an editorial rule: Tokyo has 177 Must-sees across 13 areas. So "the best 24 in view" needs one city-wide order. It must be computed at build time and stored per place as `mp` (map priority, an integer, lower is better):
+Tiers are graded within each area, which is an editorial rule: Tokyo has 177 Must-sees across 13 areas. So "the best 16 in view" needs one city-wide order. It must be computed at build time and stored per place as `mp` (map priority, an integer, lower is better):
 
 1. tier ascending (1 Must-see → 3 Deep cut);
 2. then the number of named sources, descending;
@@ -86,7 +86,7 @@ Tiers are graded within each area, which is an editorial rule: Tokyo has 177 Mus
 1. Take the places inside the visible map area (excluding any panel overlay).
 2. Add saved places first, then the selected place, then sort the rest by `mp`.
 3. Walk the list, placing a pill if its label box does not collide with an already placed pill (a greedy check, with a 4 px gap).
-4. Stop at N.
+4. Stop at N (16 / 8). A pill that would collide or run off the map edge is skipped and stays a dot. Labels are never truncated.
 5. Every place not placed becomes a dot.
 6. Recompute on `moveend` and `zoomend`, debounced at 120 ms.
 
@@ -100,7 +100,7 @@ As you zoom in, more places fit, so more names appear. That is the progressive d
   - Padding is 48 px. On phones, the fit uses the band between the chip row and the carousel.
 - The round-robin in `mp` deliberately reaches every area, including day-trip areas such as Tama or Kantō from Tokyo, or Bangkok on a Singapore-town page. The core rule keeps those areas from zooming the city out to a region.
 - Expected result:
-  - **Tokyo** opens on central Tokyo at zoom 13 on desktop (24 labelled pins, 326 dots, no discs) and zoom 12 on phones (10 pins). These counts are measured in the prototype.
+  - **Tokyo** opens on central Tokyo at zoom 13 on desktop (16 labelled pins, 334 dots, no discs) and zoom 12 on phones (7 pins). These counts are measured in the prototype.
   - **Cleveland** opens on Downtown, Ohio City and University Circle.
   - **Chinatown (Singapore)** opens on the town itself (16 places, every one featured).
 - **Restore the last Atlas view** (centre and zoom) per city from `sessionStorage`, wrapped in try/catch. Coming back from the detail or from another view never resets the map (R4).
@@ -115,17 +115,17 @@ As you zoom in, more places fit, so more names appear. That is the progressive d
 The legend opens a small popover with four rows:
 - **Sight**: a pill with a lantern glyph;
 - **Eat & drink**: a pill with the fork glyph and the sun bar;
-- **Must see**: a pill with a sun star;
+- **Must see**: a sun-wash pill;
 - **Closed**: a dashed pill.
 
-It ends with one line: "Dots are more places. Zoom in to see their names." Count bubbles are no longer explained, because they no longer exist.
+It ends with a dot row, "More places · zoom in to see their names". With an area filter on, it also shows the area colours. Count bubbles are no longer explained, because they no longer exist.
 
 ### 1.6 Acceptance for slice 1 (the FE engineer's checks)
 
 - No visible number on the map at any zoom on Tokyo, Cleveland, Chinatown and New York. The map attribution text is the only exception.
-- Default Tokyo view (1440×900): between 18 and 24 labelled pills, all from at least 6 different areas; no density disc; ≥ 1 food pill.
-- 390×844: ≤ 12 labelled pills, with no pill under the carousel or the chip row.
-- Pan and zoom produce no more than 24 + 1 marker DOM nodes. Page DOM ≤ 3,000. Dots render on canvas.
+- Default Tokyo view (1440×900): between 12 and 16 labelled pills, from at least 5 different areas; no density disc; ≥ 1 food pill; no truncated label.
+- 390×844: ≤ 8 labelled pills, with no pill under the carousel or the chip row.
+- Pan and zoom produce no more than 16 + 1 marker DOM nodes. Page DOM ≤ 3,000. Dots render on canvas in one neutral (two shades by kind).
 - `#p=` opens the place selected and labelled at zoom ≥ 15.
 - Closed places show dashed or hollow markers and " · Closed" on any visible label.
 - Every place remains reachable through the list's "Show all" and through its dot, with or without tiles. Without the map library, the list is unchanged.
@@ -181,19 +181,32 @@ It ends with one line: "Dots are more places. Zoom in to see their names." Count
 - **"List" / "Map" pill:** floating and centred, 44 px, above the carousel. It toggles the full list sheet.
 - **Detail round-trip:** the detail opens as a sheet (phone) or a side page (desktop) over the Atlas. Closing it returns to **the same map centre, zoom and selection**, from the saved view in §1.4. Deep links `#p=` and `#view=atlas&c=lat,lng,z` both reopen exactly.
 
-## 4. Slice 4: basemap (R6). Provisional until real-tile shots exist (AO-8)
+## 4. Basemap: **settled** by the real-tile R0 shots (`real/R0/`). Ship it with slice 1.
 
-These are no-key options the engine already allows (`tools/engine_guard.py`):
+- **What R0 showed:**
+  - **OSM standard is far too busy under our pins.** Saturated pink, orange and yellow roads and dense labels compete with every pin and with the v2 palette (`tokyo-1440-light-1-default`).
+  - **Dark mode currently shows the bright OSM tiles**, a glaring light map in a dark UI (`tokyo-1440-dark-2-zoomed`).
+- **The decision:** all hosts below are no-key and on `server.arcgisonline.com`, which `tools/engine_guard.py` already allows. Never use CARTO (`TILE_FORBIDDEN`).
 
-| Theme | Default base | Why |
+| Theme / option | Base layer | Labels layer (on top) |
 |---|---|---|
-| Light | **Esri World Light Gray Base** + **Light Gray Reference** labels (`server.arcgisonline.com`; native to z16, upscaled beyond with `maxNativeZoom: 16`) | Near-neutral warm-gray ground with low-contrast roads. Bone-and-oxblood pins and sun pills stand out without the basemap competing. |
-| Dark | **Esri World Dark Gray Base** + **Dark Gray Reference** | A true dark edition that matches `#131110`; no inverted-tile hacks. |
-| Option | "Street": **OpenStreetMap standard** | Full street detail on demand, for B1 and B2 who navigate by street names. |
-| Option | "Satellite": **Esri World Imagery** | As today. |
+| **Light (default)** | `https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}` | `https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}` |
+| **Dark (default when the page is dark)** | `https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}` | `https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}` |
+| Satellite (the one alternative in the base switch) | `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}` | none |
+| Street detail (optional third choice, **never the default**) | `https://tile.openstreetmap.org/{z}/{x}/{y}.png` | none |
 
-- A **subtle CSS filter** (`saturate(.85)`) is applied to the tile pane in light mode, so water and parks sit inside the palette.
-- The decision is confirmed or revised once `design/beta/atlas/real/<round>/` has real tiles with our pins.
+- **Options:**
+  - Both gray canvases use `maxNativeZoom: 16, maxZoom: 19` and upscale beyond 16.
+  - The labels layer sits in its own pane, below the marker pane, at `opacity: .85`, so place names never sit on top of our pins.
+  - Attribution: "Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap contributors" for the canvases, and "© OpenStreetMap contributors" for Street.
+- **Follow the theme:**
+  - The default base is chosen from the current theme: `prefers-color-scheme`, or `data-theme` when it is pinned.
+  - It **switches live** when the theme toggles.
+  - A stored user choice of Satellite or Street overrides the default. "Map" means the theme's gray canvas.
+  - Today's stored default of `street` (`city.js` → `store.get('base', 'street')`) changes to the theme canvas.
+- **The base switch control** is one button that cycles **Map ⇄ Satellite**, with Street detail inside the Key / Filters popover. On phones it lives in the stacked locate/layers control.
+- The palette needs no tile CSS filter: the gray canvases already sit inside it.
+- R1 real-tile shots will confirm this in light and dark.
 
 ## 5. Slice 5: access for every generation (R7)
 
@@ -201,7 +214,7 @@ These are no-key options the engine already allows (`tools/engine_guard.py`):
 - **Targets:** every pin and dot hit area is ≥ 44 px on phones and ≥ 24 px with spacing on desktop. All controls are 44 px.
 - **Keyboard path:**
   1. Tab moves through search, chips, Filters, the map and the list.
-  2. **On the map, arrow keys move between featured pins in `mp` order**, with Enter to select. A visually hidden live region announces "Sensō-ji, sight, Must see, Taitō-ku, 3 of 24 shown".
+  2. **On the map, arrow keys move between featured pins in `mp` order**, with Enter to select. A visually hidden live region announces "Sensō-ji, sight, Must see, Taitō-ku, 3 of 16 shown".
   3. Esc closes the preview.
   4. "Skip map" jumps straight to the list.
 - **Reduced motion:** no flyTo or pan animation, and no pin scale. Changes are instant.
@@ -226,9 +239,17 @@ These are no-key options the engine already allows (`tools/engine_guard.py`):
 1. **Slice 1** (pins, dots and discs, `mp`, default view, legend). This is the biggest win on R1, R2 and R6.
 2. **Slice 2** (one bar, phone controls, a flat ranked list, the card hierarchy).
 3. **Slice 3** (preview, carousel, round-trip, deep links).
-4. **Slice 4** (basemap, after the real-tile shots).
+4. **Basemap**: settled (§4); ships with slice 1.
 5. **Slice 5** (keyboard pin navigation, live region, no-map state).
 
-## 9. Panel findings folded in
+## 9. Review findings folded in
 
-This section is pending: PANEL-R0.md has not landed yet. When it does, each finding gets a row here with the spec section that answers it.
+| Source | Finding | Answer in this spec |
+|---|---|---|
+| Orchestrator review of slice 1 (2026-10-11) | The pill carried three leading marks (area dot, star, glyph) | §1.2: one glyph only. Must-see is shown by the sun-wash fill. |
+| 〃 | Hundreds of dots in six or more area colours read as confetti | §1.1: one neutral, with two shades by kind. Area colour appears only under an area filter and in the Key. |
+| 〃 | Truncated labels ("Imperial Palace East …") | §1.2: short names, never truncated. A pill that collides becomes a dot. |
+| 〃 | Are 24 pills too many? | §1.1: lowered to N = 16 desktop / 8 phone, measured in the prototype. |
+| 〃 | The casing rule | Header: every string is sentence case. |
+| Real-tile shots R0 | OSM is too busy, and dark mode shows bright tiles | §4: the basemap is settled (Esri Light/Dark Gray Canvas, following the theme). |
+| PANEL-R0 | not landed yet | rows will be added when it lands |

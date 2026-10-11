@@ -3,7 +3,7 @@
 areas, closures, sources, photos) on a flat stub basemap — no invented streets, so pins are judged on their own.
     python3 design/beta/atlas/proto/make-proto.py      → design/beta/atlas/proto/*.html
 Then shoot: NODE_PATH=$(npm root -g) node design/beta/atlas/proto/shoot.js"""
-import json, math, os, html
+import json, math, os, html, re
 H = os.path.dirname(os.path.abspath(__file__))
 R = os.path.join(H, '..', '..', '..', '..')
 UP = '../../../../'            # proto/ → repo root
@@ -28,7 +28,8 @@ def load(key):
     for a in d['areas']: AREAN[a['id']] = a['n'].split(' (')[0]
     for p in P:
         p['col'] = col.get(p['a'], '#948B83')
-        p['nm'] = p['n'].split(' (')[0].replace(' — CLOSED', '')
+        p['full'] = p['n'].split(' (')[0].replace(' — CLOSED', '')
+        p['nm'] = re.split(r', | — | – ', p['full'])[0]          # SPEC §1.2: the map shows the short name; the full name lives in preview, card, detail
         if p['kind'] == 'food': p['gl'] = 'cup' if 'CAFE' in p.get('g', []) else 'forkknife'
         else: p['gl'] = next((GLY[t] for t in p.get('g', []) if t in GLY), 'compass')
         f = f"{key}--{p['id']}-500.jpg"
@@ -70,7 +71,7 @@ def layout(P, W, Hh, view, N, saved=(), sel=None):
     boxes, pins = [], []
     for p, x, y in first + rest:
         if len(pins) >= N and p['id'] not in saved and p['id'] != sel: continue
-        w = 46 + 7.1 * min(len(p['nm']), 22) + (14 if p.get('closed') else 0) + (16 if p['t'] == 1 else 0)
+        w = 40 + 7.1 * len(p['nm']) + (52 if p.get('closed') else 0)
         b = (x - w / 2 - 2, y - 36, x + w / 2 + 2, y - 2)
         if b[0] < 4 or b[2] > W - 4 or b[1] < 4: continue
         if any(not (b[2] < c[0] or b[0] > c[2] or b[3] < c[1] or b[1] > c[3]) for c in boxes) and p['id'] != sel: continue
@@ -91,14 +92,14 @@ def pin_html(p, x, y, w, saved, sel):
     if p['t'] == 1 and not p.get('closed'): c.append('must')
     if p.get('closed'): c.append('closed')
     if p['id'] == sel: c.append('sel')
-    nm = p['nm'] if len(p['nm']) <= 22 else p['nm'][:21] + '…'
-    return (f'<a class="{" ".join(c)}" style="left:{x:.0f}px;top:{y:.0f}px" title="{e(p["nm"])}">'
-            f'<i class="ad" style="background:{mix(p["col"])}"></i>{svg("star4", "st") if "must" in c else ""}{svg(p["gl"])}'
+    nm = p['nm']
+    return (f'<a class="{" ".join(c)}" style="left:{x:.0f}px;top:{y:.0f}px" title="{e(p["full"])}">'
+            f'{svg(p["gl"])}'
             f'<b>{e(nm)}</b>{"<em>· Closed</em>" if p.get("closed") else ""}{"<span class=sv>" + svg("heart") + "</span>" if p["id"] in saved else ""}</a>')
 
-def dot_html(p, x, y):
-    c = 'dot' + (' m' if p['t'] == 1 else '') + (' x' if p.get('closed') else '')
-    return f'<i class="{c}" style="left:{x:.0f}px;top:{y:.0f}px;--c:{mix(p["col"])}"></i>'
+def dot_html(p, x, y):   # SPEC §1.1: one quiet neutral; eat & drink a shade darker; closed hollow
+    c = 'dot' + (' f' if p['kind'] == 'food' else '') + (' x' if p.get('closed') else '')
+    return f'<i class="{c}" style="left:{x:.0f}px;top:{y:.0f}px"></i>'
 
 AREAN = {}
 def card(p, key, rank, big=True):
@@ -110,9 +111,10 @@ def card(p, key, rank, big=True):
             f'{"<span class=stk>" + svg("star4", "si") + "Must see</span>" if p["t"] == 1 and not p.get("closed") else ""}'
             f'<span class="hrt">{svg("heart")}</span></div>'
             + (f'<p class="cred">Photo: {e(p["cred"])}</p>' if p['ph'] and p['cred'] else '') +
-            f'<h3>{e(p["nm"])}</h3><p class="kl">{e(AREAN.get(p["a"], p["a"]))} · {kind}{" · Closed, kept for the record" if p.get("closed") else ""}</p>'
+            f'<h3>{e(p["full"])}</h3><p class="kl">{e(AREAN.get(p["a"], p["a"]))} · {kind}{" · Closed, kept for the record" if p.get("closed") else ""}</p>'
             + (f'<p class="why">{why}</p>' if big and why else '') + f'<p class="src">Recommended by {e(srcs)}</p></article>')
 
+NDESK, NPHONE = 16, 8
 CSS = open(os.path.join(H, 'proto.css')).read()
 
 def page(title, body, theme):
@@ -125,7 +127,7 @@ def page(title, body, theme):
 def desktop(key, city, P, view=None, saved=(), sel=None, name=''):
     W, Hh = int(1440 * .62), 900 - 108
     view = view or fit(P, W, Hh)
-    pts, pins, dots, z = layout(P, W, Hh, view, 24, saved, sel)
+    pts, pins, dots, z = layout(P, W, Hh, view, NDESK, saved, sel)
     inview = sorted([p for p, _, _ in pts], key=lambda p: p['mp'])
     m = ''.join(dot_html(*d) for d in dots) + ''.join(pin_html(p, x, y, w, saved, sel) for p, x, y, w in pins)
     prev = ''
@@ -151,7 +153,7 @@ def phone(key, city, P, view=None, saved=(), sel=None, name=''):
     view = view or fit(P, W, Hh - 260, 40, 12)
     # the uncovered map band: below the chip row (52 px) and above the carousel (180 px)
     cx, cy, z = view; view = (cx, cy + (180 - 52) / 2, z)
-    pts, pins, dots, z = layout(P, W, Hh, view, 12, saved, sel)
+    pts, pins, dots, z = layout(P, W, Hh, view, NPHONE, saved, sel)
     pins = [t for t in pins if 60 < t[2] < Hh - 196]
     m = ''.join(dot_html(*d) for d in dots) + ''.join(pin_html(p, x, y, w, saved, sel) for p, x, y, w in pins)
     first = next((p for p, *_ in pins if p['id'] == sel), pins[0][0] if pins else P[0])
