@@ -235,7 +235,7 @@ open/closed status), `docs/CITIES.md` (one row per city), `docs/AGENT-PROMPTS.md
 | `session_0192s7fEFwRUZrw5ocAEJn9G` | Beta W7 — FE-A: city pages + views UX overhaul | 2026-10-11 13:18 | running | — |
 | `session_01BpzJesL1sQZFU5ZfBQtcNG` | Beta W7 — FE-B: landing + hubs overhaul | 2026-10-11 13:20 | running | — |
 | `session_01USPS1inq7bUDfyw89evKMA` | Beta W7 — platform: accessibility + performance | 2026-10-11 14:17 | running | — |
-| `session_01Cuvo7DWhwbWjLpFicvaF5E` | Beta W7 — Atlas map-search (map front and center) | 2026-10-11 14:26 | running | — |
+| `session_01Cuvo7DWhwbWjLpFicvaF5E` | Beta W7 — Atlas map-search (map front and center) | 2026-10-11 14:26 | running | map-search shipped (QA-36/37/40/41/44 fixed); open: 8.26 MB budget fix, shared card, phone bar overflow, lens-fit count |
 | `session_01VDFVuQ72NNS18uAcxwDEou` | Beta Round 3 — independent evaluator | 2026-10-10 15:05 | completed, archived | design/beta/eval/ROUND-3.md: R3 80.8 (A71 B84 C91 D88) |
 | `session_013p6wtCFUuNa7M5yALNp5JE` | Beta W3 — fix lane (QA-32/33/34) | 2026-10-10 15:18 | completed, archived | b5a95f6c: Guidebook 44 px targets, Insights focus ring, phone pin → sheet; QA re-signed YES on 83c51890 → deployed PR #5 |
 | `session_01TPCWCMYD2HDRMEduEtaw9P` | Beta W4 — Designer + imagery art | 2026-10-10 15:58 | completed, archived | Gallery cover variety (category motifs, tier plates), motion layer (reduced-motion safe), polish, QA-35; REVIEW-W4.md |
