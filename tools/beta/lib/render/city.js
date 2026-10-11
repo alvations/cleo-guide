@@ -15,6 +15,7 @@ const { esc, prose, jsonInline } = require('../html');
 const { TIER } = require('../model');
 const { head, siteBar, footer, BETA_BASE } = require('./common');
 const { rowsOf: galleryRows } = require('../gallery');
+const { sentence, ownWords } = require('../casing');
 const COUNTRIES = (() => { try { return JSON.parse(require('fs').readFileSync(require('path').resolve(__dirname, '../../../../data/countries.json'), 'utf8')).countries; } catch (e) { return []; } })();
 
 const shortArea = n => String(n || '').split(/\s+[(—–]\s*|\s+\(/)[0].trim();
@@ -127,7 +128,7 @@ function card(r, num, ctx) {
   const { page, srcById, areaName } = ctx;
   const aName = areaName(r.a);
   const czN = r.cz.map(id => ((page.CUISINES || []).find(c => c.id === id) || {}).n).filter(Boolean);
-  const dish = r.kind === 'food' && czN[0] ? czN[0].split(/ & |, | \(/)[0] : '';
+  const dish = r.kind === 'food' && czN[0] ? (ctx.SC || String)(czN[0].split(/ & |, | \(/)[0]) : '';
   const gl = glyphOf(r, page);
   const pv = r.pv || {}, prov = ctx.prov[r.id] || {};
   const where = [aName, dish].filter(Boolean).map(esc).join(' · ');
@@ -226,14 +227,16 @@ function render(row, recs, ctx) {
   for (const a of areas) { const pl = (gd.plans || {})[a.id]; if (pl && pl.ids && pl.ids.length) days[a.id] = pl.ids; }
 
   /* -- collections: ★ signature first, Must see, the page's collections, two sources, the dish rail, stated gaps -- */
-  const cats = page.CATS || [], cuis = page.CUISINES || [];
+  // W8 (owner): UI labels are sentence case at display time (lib/casing.js, DESIGN-SYSTEM §v2.6); data is never edited
+  const own = ownWords(name, m.h1Native, row.nat, ...areasAll.map(a => a.n)), SC = x => sentence(x, own);
+  const cats = (page.CATS || []).map(c => Object.assign({}, c, { n: SC(c.n) })), cuis = (page.CUISINES || []).map(c => Object.assign({}, c, { n: SC(c.n) }));
   const cnt = f => recs.filter(f).length;
   const tiles = [];
   const star = cats.filter(c => /^★/.test(c.n) && cnt(r => r.g.includes(c.id)));
   const namedSrc = srcList.filter(s => s.id !== 'guide');
   star.forEach(c => tiles.push({ cls: 'sig', key: 'c', id: c.id, t: c.n.replace(/^★\s*/, ''), n: cnt(r => r.g.includes(c.id)), g: glyphFor(c.id, c.n), badge: 1 }));
   // no ★ collection in the data: the guide's own signature is the publisher it was built on (most-cited source)
-  const sig = !star.length && G.signature && G.signature.n ? G.signature : null;   // no ★ collection: the city's canon / pop culture
+  const sig = !star.length && G.signature && G.signature.n ? Object.assign({}, G.signature, { title: SC(G.signature.title) }) : null;   // no ★ collection: the city's canon / pop culture
   if (sig && sig.kind === 'collection' && sig.c && cats.some(c => c.id === sig.c[0])) {
     const c = cats.find(x => x.id === sig.c[0]); tiles.push({ cls: 'sig', key: 'c', id: c.id, t: c.n, n: cnt(r => r.g.includes(c.id)), g: glyphFor(c.id, c.n), badge: 1, d: sig.line });
   } else if (sig) tiles.push({ cls: 'sig', key: 'sig', id: '1', t: sig.title, n: sig.ids.length, g: sig.kind === 'food' ? glyphFor((sig.cz || [])[0], sig.title, true) : 'star4', badge: 1, d: sig.line });
@@ -256,7 +259,7 @@ function render(row, recs, ctx) {
   if (recs.some(r => r.la != null)) mods.push(`<button type="button" class="rail-i door" data-cleo-near aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-locate"/></svg><span class="k">Near me</span><span class="t">Nearest first</span><span class="d">Asks once · never stored</span></button>`);
   const nClosed = cnt(r => r.closed);
   const closedTile = nClosed ? `<button type="button" class="rail-i gap" data-closed="1" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-archive"/></svg><span class="k">Kept for the record</span><span class="t">Recently closed</span><span class="n${nClosed === 1 ? ' one' : ''}">${nClosed}</span></button>` : '';
-  const gaps = statedGaps(page);
+  const gaps = statedGaps(page).map(g => Object.assign({}, g, { title: SC(g.title) }));
   const tileHtml = t => `<button type="button" class="rail-i${t.cls ? ' ' + t.cls : ''}" data-${t.key}="${esc(t.id)}"${t.only ? ` data-only="${t.only}"` : ''} aria-pressed="false">` +
     (t.tg ? '<i class="tg t1 g" aria-hidden="true"></i>' : t.g ? `<svg class="g ico" aria-hidden="true"><use href="#i-${t.g}"/></svg>` : '') +
     (t.badge ? '<span class="k">★ Signature</span>' : t.k ? `<span class="k">${esc(t.k)}</span>` : '') +
@@ -265,7 +268,7 @@ function render(row, recs, ctx) {
 
   /* -- area chapters -- */
   const lang = { japan: 'ja', singapore: 'zh' }[row.country] || '';
-  const cardCtx = { page, srcById, areaName, prov, lang, up, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
+  const cardCtx = { page, srcById, areaName, prov, lang, up, SC, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
   let placed = 0;
   const chapter = (a, list, i, total) => {
     const [head1, hoods] = a ? areaSplit(a.n) : ['Elsewhere', ''];

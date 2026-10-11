@@ -10,6 +10,7 @@
 const SLIM = ['id', 'n', 'nat', 'a', 'closed', 't', 'src', 'w', 'kind', 'la', 'ln'];
 let PH = {};                                   // W7: credited photos for this page (imagery lane, credit-gated), by place id
 const { captionHtml } = require('../imagery/photos');
+const { sentence, ownWords } = require('./casing');
 // ph = [src, w, h, alt, credit as plain text, [[src, w]…]] — paths are beta-root-relative; gallery.js draws the same figure as the
 // grid card (lazy, sized, alt = what it depicts, TASL credit in the figcaption). Never for a closed place (the gate).
 const capText = c => captionHtml(c).replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
@@ -23,7 +24,9 @@ function rowsOf(j, name) {
   const ord = (j.places || []).map((r, i) => [r, i]).sort(([x, i], [y, k]) => { const ax = ar.indexOf(x.a), ay = ar.indexOf(y.a);
     return (ax < 0 ? 1e3 : ax) - (ay < 0 ? 1e3 : ay) || (x.closed ? 1 : 0) - (y.closed ? 1 : 0) || x.t - y.t || named(y) - named(x) || i - k; }).map(p => p[0]);
   const inC = id => ord.filter(r => (r.g || []).indexOf(id) >= 0), inCz = id => ord.filter(r => (r.cz || []).indexOf(id) >= 0), out = [], used = {};
-  const add = (t, sub, k, v, list, star) => { if (!list.length || used[k + '=' + v]) return; used[k + '=' + v] = 1; out.push([t, sub, k, v, star, list.length, list.slice(0, 12).map(slim)]); };
+  // W8 (owner): row titles are sentence case at display time (lib/casing.js); the page's own place names keep their capitals
+  const own = ownWords(name, ...(j.areas || []).map(a => a.n));
+  const add = (t, sub, k, v, list, star) => { if (!list.length || used[k + '=' + v]) return; used[k + '=' + v] = 1; out.push([sentence(t, own), sub, k, v, star, list.length, list.slice(0, 12).map(slim)]); };
   const star = (j.collections || []).filter(c => /^★/.test(c.n) && inC(c.id).length)[0], sg = G.signature;
   let sig = [];
   if (star) { sig = inC(star.id); add(star.n.replace(/^★\s*/, ''), pl(sig.length) + ' · the signature of ' + name, 'c', star.id, sig, 1); }

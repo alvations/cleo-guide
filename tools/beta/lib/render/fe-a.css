@@ -141,7 +141,7 @@ html .pl-ini[data-i]::after,html .cover .plate.i[data-i]::after{content:attr(dat
 .g-lead-slot{display:none}
 @media (max-width:1023px){
 html[data-view=gallery].g-lead-on .g-lead-slot{display:block;max-width:var(--maxw);margin:0 auto;padding:10px var(--gutter) 0}
-html[data-view=gallery] .g-lead-slot .g-lead-k{margin:0 0 6px;font:600 var(--fs-xs)/1.2 var(--font-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+html[data-view=gallery] .g-lead-slot .g-lead-k{margin:0 0 6px;font:600 var(--fs-xs)/1.2 var(--font-ui);color:var(--ink-3)}
 html[data-view=gallery] .g-lead-slot .g-lead-card{display:block;margin:0;padding:0}
 html[data-view=gallery].g-lead-on .g-acts .btn-ghost{display:none}
 }
@@ -417,7 +417,7 @@ html body #cleo-sheet .sheet .actions [data-sh=save][aria-pressed=true] .ico{fil
 html main[data-city] .lens:not([hidden]){background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);box-shadow:none;color:var(--ink)}
 html main[data-city] .lens :is(h2,h3,.d3,.lens-t){font-family:var(--font-display);font-style:normal;color:var(--ink)}
 html main[data-city] .lens p{font-style:normal;font-family:var(--font-ui);color:var(--ink-2)}
-html main[data-city] .lens p::first-letter{float:none;font:inherit;color:inherit;margin:0;padding:0;initial-letter:normal}
+
 html body #cleo-sheet .detail .section-t+.why{margin-top:0}
 @media (min-width:1024px){html body #cleo-sheet .detail .hero-plate{aspect-ratio:auto;height:clamp(220px,34vh,340px)}}
 /* ---- 12. Guidebook and Insights in the same system: the module's own cover carries the name (the page masthead steps
@@ -560,7 +560,7 @@ html .view-gallery li.gc .pl-s .more{color:var(--ink-3);margin-left:4px}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s,html .view-gallery li.gc>.pl-s{white-space:normal;overflow:visible;text-overflow:clip;max-height:none}
 /* ---- 14. W8 day plans: the summary on the map, print ---- */
 html main[data-city] .leaflet-control.day-chip{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px;max-width:min(320px,calc(100vw - 96px));margin-top:10px;padding:8px 14px;border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:500 var(--fs-sm)/1.3 var(--font-ui);box-shadow:var(--e-2)}
-html main[data-city] .day-chip .eyebrow{margin:0;color:var(--ink-2);font-size:var(--fs-xs);letter-spacing:.06em;text-transform:uppercase}
+html main[data-city] .day-chip .eyebrow{margin:0;color:var(--ink-2);font-size:var(--fs-xs);font-weight:600}
 html main[data-city] .day-chip b{font-weight:600}
 html main[data-city] .day-chip span:last-child{color:var(--ink-2);font-variant-numeric:tabular-nums}
 @media print{
