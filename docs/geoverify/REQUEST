@@ -1,0 +1,5 @@
+city=wheeling-wv
+scope=unverified,low,status
+limit=0
+nominatim_max=300
+# run 2: cache path fixed (runner.temp via RUNNER_TEMP); report printed to the log

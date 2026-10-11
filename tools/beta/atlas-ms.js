@@ -112,6 +112,17 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
           return { pins: ic.filter(e => e.classList.contains('pp')).length, areas: new Set(ic.map(e => e.getAttribute('data-a')).filter(Boolean)).size, food: ic.filter(e => e.classList.contains('pp-f')).length,
             bare: ic.filter(e => /^\s*★?\s*\d+\s*$/.test(e.textContent)).length, trunc: ic.filter(e => /…/.test(e.textContent)).length, discs: Cleo.city.discs || 0, dots: Object.keys(Cleo.city.markers).length, markerNodes: document.querySelectorAll('#cleo-map .leaflet-marker-pane *').length }; });
         chk(`${key} desktop: no number on the map (no rank pills, no count bubbles)`, pv.bare === 0 && !document_hasClusters(pv), pv);
+        // SPEC-v3 rev 2/3 §1.2–1.3 (PANEL-R1 #4, #6, #11): each pin is a link (one Tab stop) named "full name, kind, …"; 14 px label,
+        // 32 px pill, ≥ 44 × 44 hit area; no two labels overlap
+        const pa = await page.evaluate(() => { const ic = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp')], bx = ic.map(e => e.firstElementChild.getBoundingClientRect());
+          const hit = e => { const s = e.firstElementChild, b = getComputedStyle(s, '::before'), r = s.getBoundingClientRect(); return [r.width - parseFloat(b.left) - parseFloat(b.right), r.height - parseFloat(b.top) - parseFloat(b.bottom)]; };
+          let over = 0; for (let i = 0; i < bx.length; i++) for (let j = i + 1; j < bx.length; j++) { const a = bx[i], b = bx[j]; if (a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top) over++; }
+          return { n: ic.length, links: ic.filter(e => e.tagName === 'A' && /p=/.test(e.getAttribute('href')) && e.tabIndex === 0 && !e.getAttribute('role')).length,
+            named: ic.filter(e => /, (sight|eat and drink)\b/.test(e.getAttribute('aria-label') || '') && /^(sight|food)$/.test(e.getAttribute('data-kind'))).length,
+            px: Math.min(...ic.map(e => parseFloat(getComputedStyle(e.querySelector('b')).fontSize))), h: Math.min(...bx.map(r => Math.round(r.height))),
+            hit: ic.map(hit).reduce((m, [w, h]) => [Math.min(m[0], w), Math.min(m[1], h)], [99, 99]).map(Math.round), over }; });
+        chk(`${key} desktop: every pin is a link with "name, kind" aria-label and one Tab stop; 14 px label, 32 px pill, ≥ 44 × 44 hit area; no two labels overlap`,
+          pa.n > 0 && pa.links === pa.n && pa.named === pa.n && pa.px >= 14 && pa.h >= 32 && pa.hit[0] >= 44 && pa.hit[1] >= 44 && pa.over === 0, pa);
         if (key === 'tokyo') chk(`tokyo desktop: default view shows 12–16 labelled pins from ≥ 5 areas, ≥ 1 food pin, no density disc, no truncated label`, pv.pins >= 12 && pv.pins <= 16 && pv.areas >= 5 && pv.food >= 1 && pv.discs === 0 && !pv.trunc, pv);
       }
       if (!dark) { const nc = await page.evaluate(() => document.querySelectorAll('li.pl').length), live0 = (fs.readFileSync(path.join(ROOT, url), 'utf8').match(/<li class="pl[ "]/g) || []).length;
@@ -200,8 +211,19 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
       // the OSM credit never collides with the List pill or the carousel
       const att = await page.evaluate(() => { const a = document.querySelector('.leaflet-control-attribution'), r = a && a.getBoundingClientRect(); if (!r || !r.width) return null;
         const hit = el => { const b = el && el.getBoundingClientRect(); return !!b && b.width && !(b.right < r.left || b.left > r.right || b.bottom < r.top || b.top > r.bottom); };
-        return { box: [Math.round(r.top), Math.round(r.bottom)], pill: hit(document.querySelector('.ms-toggle')), carousel: hit(document.querySelector('.listpane')), bar: hit(document.querySelector('.ms-bar')) }; });
+        // PANEL-R1 #2: a real tap on every map control hits that control (locate first), and the credit is one line ≤ 20 px
+        const ctl = [...document.querySelectorAll('.leaflet-control-container .am-ctl')].map(e => { const b = e.getBoundingClientRect(), h = b.width && document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2);
+          return { c: e.className.toString().replace('am-ctl ', '').slice(0, 20), hitOwn: !!h && e.contains(h), coveredBy: h && !e.contains(h) ? h.className.toString().slice(0, 30) : null, overlaps: hit(e) }; });
+        return { box: [Math.round(r.top), Math.round(r.bottom)], h: Math.round(r.height), pill: hit(document.querySelector('.ms-toggle')), carousel: hit(document.querySelector('.listpane')), bar: hit(document.querySelector('.ms-bar')),
+          here: hit(document.querySelector('.ms-here:not([hidden])')), ctl, locateCoveredBy: (ctl.find(c => /m-locate/.test(c.c)) || {}).coveredBy || null }; });
       chk(`${key} phone${t}: the OSM credit is visible and clear of the pill, the carousel and the chip row`, att && !att.pill && !att.carousel && !att.bar, att);
+      chk(`${key} phone${t}: the OSM credit is one line ≤ 20 px, clear of "Search this area" and every map control; a real tap on each control (locate first) hits it`,
+        !!att && att.h <= 20 && !att.here && att.ctl.length >= 2 && att.ctl.every(c => c.hitOwn && !c.overlaps) && !att.locateCoveredBy, att);
+      if (key === 'cleveland' && !dark) {   // PANEL-R1 #15: a source entry that is not a place stays listed but never draws on the map
+        const np = await page.evaluate(() => { const ids = [...document.querySelectorAll('li.pl[data-np]')].map(c => c.id.slice(2)).concat(Cleo.defer ? Cleo.defer.peek().filter(x => x.hasAttribute('data-np')).map(x => x.id.slice(2)) : []);
+          return { ids, onMap: ids.filter(id => Cleo.city.markers[id] || Cleo.city.pinOf(id)) }; });
+        chk(`${key} phone: "not a place" records stay listed and never draw on the map`, np.ids.length >= 1 && !np.onMap.length, np);
+      }
       if (!dark) {
         const pp = await page.evaluate(() => { const lp = document.querySelector('.listpane').getBoundingClientRect(), bar = document.querySelector('.ms-bar').getBoundingClientRect();
           const ps = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp')].map(e => (e.firstElementChild || e).getBoundingClientRect());
@@ -209,6 +231,17 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
         chk(`${key} phone: ≤ 8 labelled pins, none under the carousel or the chip row; ≤ 10 density discs`, pp.pins <= 8 && pp.under === 0 && pp.discs <= 10, pp);
         const nc = await page.evaluate(() => document.querySelectorAll('li.pl').length);
         chk(`${key} phone: the first fit builds one page of cards, not the area (≤ 32 live + 40)`, nc <= 32 + 40 + 2, { cards: nc });
+        // PANEL-R1 #4: after two zoom steps a phone shows ≥ 4 named pins, none overlapping
+        const z2 = await page.evaluate(async () => { const m = Cleo.city.map(); m.setZoom(m.getZoom() + 2, { animate: false }); await new Promise(r => setTimeout(r, 900));
+          const bx = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp')].map(e => e.firstElementChild.getBoundingClientRect()); let over = 0;
+          for (let i = 0; i < bx.length; i++) for (let j = i + 1; j < bx.length; j++) { const a = bx[i], b = bx[j]; if (a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top) over++; }
+          const lp = document.querySelector('.listpane').getBoundingClientRect(), bar = document.querySelector('.ms-bar').getBoundingClientRect(), mr = m.getContainer().getBoundingClientRect();
+          const band = Object.keys(Cleo.city.markers).filter(id => { const p = m.latLngToContainerPoint(Cleo.city.markers[id].getLatLng()), y = p.y + mr.top; return p.x > 16 && p.x < mr.width - 60 && y > bar.bottom + 40 && y < lp.top - 8 && !document.getElementById('p-' + id)?.hasAttribute('data-closed'); }).length;
+          const out = { pins: bx.length, band, over, z: m.getZoom(), inView: Object.keys(Cleo.city.markers).filter(id => m.getBounds().contains(Cleo.city.markers[id].getLatLng())).length };
+          m.setZoom(m.getZoom() - 2, { animate: false }); await new Promise(r => setTimeout(r, 600)); return out; });
+        // a small town (≤ 40 places, already at street zoom) can hold fewer than 4 places in the band two steps in: there it must name every place in the band
+        const small = await page.evaluate(() => Object.keys(Cleo.city.markers).length <= 40);
+        chk(`${key} phone: two zoom steps in → ≥ 4 named pins (a small town: no fewer than it can), no two overlapping`, (z2.pins >= 4 || (small && z2.pins >= Math.min(4, z2.band))) && z2.over === 0, Object.assign({ small }, z2));
         const ov = await page.evaluate(() => { const s = document.querySelector('.ms-bar .spill'), r = s && s.getBoundingClientRect(); return { page: document.documentElement.scrollWidth - innerWidth, spill: r ? [Math.round(r.left), Math.round(r.right)] : null }; });
         chk(`${key} phone: no horizontal overflow; the search control is fully on screen`, ov.page <= 0 && (!ov.spill || (ov.spill[0] >= 0 && ov.spill[1] <= 390)), ov);
       }

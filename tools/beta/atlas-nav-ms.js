@@ -98,7 +98,9 @@ async function roundTrip(page, vk, how, close) {
     const pv = await page.$('#cleo-poi:not([hidden]) a.ms-pv'); if (!pv) return { skipped: 'no preview' };
     const s1 = await snapState(page);   // the preview may scroll the list to the card: that is the state the detail must keep
     await pv.click(); await sleep(1000);
-    return finish(page, s1, 'pin p-' + id, close, s0);
+    // the pin of the place that opened (pills can overlap, so the click may land on a neighbour): focus returns to it
+    const opened = await page.evaluate(() => Cleo.route.parse().p || (/^#p-(.+)$/.exec(location.hash) || [])[1] || '');
+    return finish(page, s1, 'pin p-' + (opened || id), close, s0);
   }
   const id = await pickCard(page); if (!id) return { skipped: 'no card on screen' };
   const s0 = await snapState(page);

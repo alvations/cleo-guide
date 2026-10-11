@@ -38,7 +38,8 @@ const tripPage = require('./lib/render/trip');                  // FE-C W9-4: be
 const shell = require('./lib/render/shell');                       // FE-B: site context for header/footer
 const hub = require('./lib/render/hub');                           // FE-B: country hubs + SEA archive
 const method = require('./lib/render/method');                     // FE-B: how-we-choose.html, 404.html
-const changesPage = require('./lib/render/changes');               // W4 gap #9: human-readable "What changed" per page
+const changesPage = require('./lib/render/changes');
+const recognition = require('./lib/recognition');                 // W9-1 / W9-9 (platform): design/beta/RECOGNITION.md               // W4 gap #9: human-readable "What changed" per page
 
 const BETA = path.join(ROOT, 'beta');
 const args = new Set(process.argv.slice(2));
@@ -55,6 +56,7 @@ for (const r of cityRows) {
   r.recs = normalise(r);
   if (r.recs.length !== r.counts.P + r.counts.F) errors.push(`${r.live}: model ${r.recs.length} != live ${r.counts.P + r.counts.F}`);
   r.sources = pageSources(r, r.recs);             // stamps rec.src (publisher ids) — M1-10
+  r.recog = recognition.pageRecognition(r, r.recs, r.sources.list, ROOT);   // W9-1/W9-9: badges + local favourites from source keys only
   r.stats = stats.pageStats(r, r.recs);           // every number the page prints — M1-20
   r.guide = guide(r, r.recs);                     // ★ signature, canon-first food order, day plans, recently closed (W2)
   r.order = views.stamp(r, r.recs);               // W3 P-01: rank/of/k3 on every record; the view order (area, then rank)
@@ -198,6 +200,13 @@ for (const r of cityRows) {
   const pi = searchPages.length;
   searchPages.push([r.key, page.meta.h1Main || r.key, pageHref(r), r.country || '', r.gen === 'new' ? 1 : 0]);
   for (const x of r.recs) searchItems.push([pi, x.id, x.n, x.kind === 'food' ? 'f' : 's', x.t, x.closed ? 1 : 0, areaN[x.a] || '']);
+  // Perf audit PERF-04: the place detail's per-article links, sliced out of the dataset below (same data, ~7× smaller):
+  // g = source key → publisher group id (sourceIndex), p = place id → [[source key, url], …] (http(s) urls only).
+  {
+    const g = {}; for (const s of r.sources.list || []) for (const e of s.entries || []) g[e.key] = s.id;
+    const p = {}; for (const x of r.recs) { const s = (x.s || []).filter(y => y && /^https?:\/\//.test(y[1] || '')); if (s.length) p[x.id] = s; }
+    emit(`data/links/${r.fileKey}.json`, JSON.stringify({ _generated: 'tools/beta/build.js — do not edit; slice of data/places/' + r.fileKey + '.json', v: 1, g, p }));
+  }
   // Per-page open dataset: every record, its sources registry, areas/collections/cuisines, provenance.
   emit(`data/places/${r.fileKey}.json`, JSON.stringify({
     _generated: 'tools/beta/build.js from ' + r.live + ' — do not edit', v: 1, key: r.key, live: r.live, beta: r.beta, country: r.country, name: page.meta.h1Main,
@@ -219,6 +228,8 @@ for (const r of cityRows) {
     // W8 FE-B: Guidebook chapters lead with a credited photo where one exists — per area, the first open SIGHT in view
     // order with a credited photo (imagery gate: never closed, never Vietnam; never a food place). Caption = TASL, linked.
     chapterPhotos: chapterPhotos(r),
+    // W9-1 / W9-9 (platform): per-page recognition summary; per place `rec` {award, video, cited} and `lf` ride on places[]
+    recognition: r.recog,
     places: r.recs.map(x => (x.pv && x.pv.src ? Object.assign({}, x, { pv: Object.assign({}, x.pv, { src: undefined }) }) : x))
       .map(x => quoted.quotes(x) ? Object.assign({}, x, { pq: quoted.researched(x) || r.stats.lastChecked || 'undated' }) : x),
   }));
@@ -231,6 +242,21 @@ for (const r of cityRows) {
 }
 const totalLive = cityRows.reduce((s, r) => s + r.counts.P + r.counts.F, 0);
 if (searchItems.length !== totalLive) errors.push(`search index ${searchItems.length} != live total ${totalLive}`);
+// W9-6 (FE-B "paste a link"): host → the publishers whose cited URLs live there, with the guides and place counts each
+// recommends. Search reads it when a query is a URL; the pasted URL is only parsed, never fetched. From each page's own
+// source index (lib/sources.js domains), so a host maps only to sources the guides actually cite.
+{
+  const hosts = {};
+  for (const r of cityRows) for (const s of (r.sources && r.sources.list) || []) {
+    if (s.id === 'guide') continue;
+    for (const dom of new Set((s.domains || []).map(d => String(d).toLowerCase().replace(/^www\./, '')).filter(Boolean)))
+      (hosts[dom] = hosts[dom] || []).push([r.beta, r.name, s.id, s.name, s.n]);   // that guide's own id + name for the source
+  }
+  for (const h of Object.keys(hosts)) hosts[h].sort((x, y) => y[4] - x[4] || (x[0] < y[0] ? -1 : 1));
+  emit('data/source-hosts.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
+    _doc: 'W9-6 paste a link: host (lowercase, no www.) → [[beta page, guide name, that page\'s source id, its name there, places it recommends there]…], most places first. Built from the guides\' own cited URLs; nothing is fetched from a pasted URL.',
+    hosts: Object.fromEntries(Object.keys(hosts).sort().map(h => [h, hosts[h]])) }));
+}
 emit('data/sources.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
   _doc: 'Every publisher cited on any beta place page: id, display name, text authority mark, total records citing it, and [pageKey, n] per page. Per-page detail (entries, place ids) is in data/places/<page>.json sourceIndex.',
   sources: siteSources(cityRows) }));

@@ -296,12 +296,21 @@
     // every place gets its dot, stamped or not (unstamped = a start-tag stub from Cleo.defer.peek(); click stamps it) —
     // one canvas renderer, so 500+ places cost no DOM nodes and pan smoothly; a generous click tolerance (thumbs)
     const c2d = (() => { try { return !!d.createElement('canvas').getContext('2d'); } catch (e) { return false; } })();   // no 2D canvas → SVG dots, same API
-    const cv = C.canvas = c2d ? L.canvas({ padding: 0.3, tolerance: 8 }) : L.svg({ padding: 0.3 }); dots = C.dots = L.layerGroup().addTo(map);
+    // tolerance 19: every dot gets a 44 px hit circle (SPEC-v3 §1.1)
+    const cv = C.canvas = c2d ? L.canvas({ padding: 0.3, tolerance: 19 }) : L.svg({ padding: 0.3 });
+    // a dot draws its kind by shape on the canvas: options.shape 'sq' (eat & drink), options.slash (closed); SVG keeps the circle
+    const Dot = L.CircleMarker.extend({ _updatePath: function () { const r = this._renderer, o = this.options;
+      if (!r._ctx || !r._fillStroke || (!o.shape && !o.slash)) return L.CircleMarker.prototype._updatePath.call(this);
+      if (!r._drawing || this._empty()) return; const p = this._point, ctx = r._ctx, h = Math.max(this._radius, 1);
+      ctx.beginPath(); if (o.shape === 'sq') { if (ctx.roundRect) ctx.roundRect(p.x - h, p.y - h, 2 * h, 2 * h, 1.5); else ctx.rect(p.x - h, p.y - h, 2 * h, 2 * h); } else ctx.arc(p.x, p.y, h, 0, Math.PI * 2, false);
+      r._fillStroke(ctx, this);
+      if (o.slash && o.opacity) { ctx.beginPath(); ctx.moveTo(p.x - h - 1, p.y + h + 1); ctx.lineTo(p.x + h + 1, p.y - h - 1); ctx.globalAlpha = o.opacity; ctx.lineWidth = 1.5; ctx.strokeStyle = o.color; ctx.stroke(); } } }); dots = C.dots = L.layerGroup().addTo(map);
     const card = id => byId[id] || (Cleo.defer && Cleo.defer.stampIds ? Cleo.defer.stampIds(new Set(['p-' + id]))[0] : Cleo.defer && Cleo.defer.stampFor(id));
     C.cardOf = id => byId[id] || card(id);
     cards.concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => {
-      const ll = (at(c, 'data-ll') || '').split(','); if (ll.length !== 2) return;
-      const id = pid(c), k = markers[id] = L.circleMarker([+ll[0], +ll[1]], Object.assign({ renderer: cv, bubblingMouseEvents: false }, dotStyle(c))).addTo(dots); if (c.stub) stub[id] = c;
+      // not a physical place (data-np): it stays in the list with its note, and never draws on the map (PANEL-R1 #15)
+      const ll = (at(c, 'data-ll') || '').split(','); if (ll.length !== 2 || c.hasAttribute('data-np')) return;
+      const id = pid(c), k = markers[id] = new Dot([+ll[0], +ll[1]], Object.assign({ renderer: cv, bubblingMouseEvents: false }, dotStyle(c))).addTo(dots); if (c.stub) stub[id] = c;
       // a canvas dot has no element of its own: the place's element is its featured pin, when it has one
       k.getElement = () => (C.pinOf ? C.pinOf(id) : null) || undefined;
       k.on('click', () => { const r = byId[id] || card(id); if (r) pin(r); });
