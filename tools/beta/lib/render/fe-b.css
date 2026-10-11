@@ -104,7 +104,9 @@
 .feb .recby .ico { margin-top: 1px; color: var(--ink-3); }
 .feb .recby > span { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .feb .recby b { color: var(--ink); font-weight: 600; }
-.feb li.dest > .credit, .feb .ccards li > .credit { display: block; margin: 6px 2px 0; font-size: var(--fs-xs); line-height: 2; color: var(--ink-3); }   /* ≥ 24 px between inline credit links */
+.feb li.dest > .credit, .feb .ccards li > .credit { display: block; margin: 8px 2px 0; font-size: var(--fs-xs); line-height: 1.6; color: var(--ink-3); }
+/* 44 px tap area from inline padding: the hit box grows, the credit's lines don't */
+.feb li.dest > .credit a, .feb .ccards li > .credit a { padding-block: calc((var(--tap) - 1em) / 2); }
 .feb .credit a { color: inherit; }
 @media (max-width: 479px) { .feb .dense .card-t { font-size: var(--fs-lead); } .feb .dense .recby .ico { display: none; }
   .feb .dense .card-body .sigline { -webkit-line-clamp: 3; } .feb .dense .recby > span { -webkit-line-clamp: 3; } }
