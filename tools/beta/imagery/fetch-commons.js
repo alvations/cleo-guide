@@ -471,12 +471,14 @@ async function main() {
     return { ok: `${p.t.key} ← ${info.title} (${info.lic.licence}, ${info.author}) → ${out.map(v => `${v.file} ${v.kb} KB`).join(', ')}` };
   }
 
+  /** Every file a person refused, whichever target it was refused for: the reason is about the photo, not the place. */
+  const refusedAnywhere = new Set(man.targets.flatMap(t => (t.candidates || []).filter(c => c.refused).map(c => c.file)));
   try {
     if (!o.noRescan) await rescan();
     for (const p of todo) {
       let done = false;
       const tries = p.cands.slice(), arts = p.lead ? articlesOf(p.t).slice() : [];
-      const refusedFile = new Set((p.t.candidates || []).filter(c => c.refused).map(c => c.file));
+      const refusedFile = refusedAnywhere;   // a file refused for one target is refused for every target (W8: Den Den → Mandarake)
       for (let i = 0; !done; i++) {
         let c = tries[i];
         if (!c) {                                    // candidates exhausted: the articles' lead images, in order
@@ -487,6 +489,7 @@ async function main() {
           if (refusedFile.has(f)) { refused.push(`${p.t.key} ${f}: refused after review (lead image of ${art})`); continue; }
           c = { file: f, confidence: 'lead', depicts: p.t.type === 'hero' ? '' : p.t.label.replace(/\s*\([^)]*\)\s*$/, '') };
         }
+        if (refusedAnywhere.has(c.file)) { refused.push(`${p.t.key} ${c.file}: refused after review (for another target)`); continue; }
         const r = await inspect(p.t, c.file);
         if (r.why) { refused.push(`${p.t.key} ${c.file}: ${r.why}`); continue; }
         const st = await store(p, c, r.ok);
