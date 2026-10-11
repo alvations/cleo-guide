@@ -70,6 +70,8 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     assert.deepStrictEqual(LV.osmClosureEvidence({ 'disused:shop': 'shoes', name: 'X' }).map(e => e.detail), ['disused:shop=shoes']);
     assert.strictEqual(LV.osmClosureEvidence({ 'was:name': 'Old X', shop: 'shoes' }).length, 0, 'a former name alone is not closure');
     assert.strictEqual(LV.osmClosureEvidence({ shop: 'vacant' }).length, 1);
+    assert.strictEqual(LV.osmClosureEvidence({ 'was:amenity': 'place_of_worship', leisure: 'sports_centre', name: 'Rink' }).length, 0, 'repurposed building, not closed');
+    assert.strictEqual(LV.osmClosureEvidence({ 'disused:amenity': 'restaurant', building: 'yes' }).length, 1, 'no active main tag → evidence');
   });
   await t('siteClosureNotice', () => {
     assert.ok(LV.siteClosureNotice('<p>After 40 years we have closed our doors.</p>'));
@@ -230,9 +232,9 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     }
   });
   await t('German address parsing and street normalisation', () => {
-    assert.deepStrictEqual(P2.parseAddressDE('Hohe Straße 12a, 50667 Köln, Germany'), { street: 'hohestr', houseNumber: '12a', postcode: '50667' });
+    assert.deepStrictEqual(P2.parseAddressDE('Hohe Straße 12a, 50667 Köln, Germany'), { street: 'hohestr', houseNumber: '12a', postcode: '50667', town: 'koln' });
     assert.strictEqual(P2.normStreetDE('Hohe Str.'), P2.normStreetDE('Hohe Strasse'));
-    assert.deepStrictEqual(P2.parseAddressDE('St. Johanner Markt 1, 66111 Saarbrücken'), { street: 'stjohannermarkt', houseNumber: '1', postcode: '66111' });
+    assert.deepStrictEqual(P2.parseAddressDE('St. Johanner Markt 1, 66111 Saarbrücken'), { street: 'stjohannermarkt', houseNumber: '1', postcode: '66111', town: 'saarbrucken' });
     assert.strictEqual(P2.parseAddressDE('Nauwieser Straße, 66111 Saarbrücken').houseNumber, null);
   });
   await t('house-coordinate file: UTM columns convert; wrong file fails loud', () => {
@@ -243,6 +245,11 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     const h = set.index.get('50667|domkloster|4'); assert.ok(h && Math.abs(h.lat - 50.94129) < 1e-6 && Math.abs(h.lng - 6.95817) < 1e-6);
     fs.writeFileSync(path.join(dir, 'bad.csv'), 'a,b,c\n1,2,3\n');
     assert.throws(() => P2.loadHouseCoords(path.join(dir, 'bad.csv')), /need coordinate, street, house number and postcode/);
+    // building references without postal data (the open NRW Gebäudereferenzen): town + street + number
+    fs.writeFileSync(path.join(dir, 'gebref.csv'), `gemeinde;strasse;hausnummer;zusatz;ostwert;nordwert\nKöln;Domkloster;4;;${u.e.toFixed(2)};${u.n.toFixed(2)}\n`);
+    const g = P2.loadHouseCoords(path.join(dir, 'gebref.csv'), { label: 'gebref', licence: 'dl-de/zero-2-0' });
+    const hit = P2.houseCandidate([g], { address: 'Domkloster 4, 50667 Köln, Germany' }, '2026-10-11');
+    assert.ok(hit && Math.abs(hit.lat - 50.94129) < 1e-6 && hit.kind === 'gov-address');
   });
   await t('ABR guard flags a pin far from its town, stays silent when near', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lv-abr-'));

@@ -89,11 +89,11 @@ Light and dark gave the same numbers.
   leads with Isegen (Chiyoda-ku) while the pill reads "List · 10".
 - Cards show no distances, and "Nearest to me" isn't applied.
 
-**Keyboard.**
+**Keyboard (corrected by the erratum below).**
 - The first card is the 39th Tab stop on Tokyo and the 30th on Cleveland.
-- Pins and the map are not in the Tab order, and there's no keyboard pan.
-- The search input has no focus ring.
+- The search box shows a visible 2 px focus ring on its wrapper (see erratum item 2).
 - Focusing a card lights its pin, and Enter → detail → Escape returns focus to the card.
+- The map and the pins *are* in the Tab order, but only after the whole list (see the erratum).
 
 **Map view in the URL.**
 - It isn't there: a URL copied at Asakusa z 15 reopens at the default view.
@@ -137,3 +137,31 @@ Light and dark gave the same numbers.
   - Coming back from the detail doesn't restore the view.
 - **T5, sharing.** A place link reopens the detail, but its pin sits under the panel. The map view isn't shareable.
 - **T6.** See the keyboard, 200 % and library-blocked facts above.
+
+## Erratum (issued during round-2 scoring, to all eight panelists)
+
+The first keyboard run stopped scanning 6 stops after the first card, so it never reached the map. Its
+"`tabsToFirstPin: -1`, `mapFocusableAt: -1`, pins not in the Tab order" was a **probe artefact**.
+
+A full scan of this head (`tasks.keyboard-deep-tokyo` / `-cleveland`) shows the following.
+
+**Where the map sits in the Tab order.**
+
+| Page | Map container | First pin | Before the map |
+|---|---|---|---|
+| Tokyo | stop 226 | stop 227 | every list card, then "Your day here · 6 stops", "Show 40 more" and "Show all 379 in one list" |
+| Cleveland | stop 205 | stop 206 | every list card |
+
+**How the pins behave.**
+- Every named pin is one Tab stop, with an aria-label of name, kind and tier (e.g. "Edo-Tokyo Museum, sight, Must
+  see"). Each shows a visible focus ring.
+- **Enter** on a pin opens its preview, and focus stays on the pin.
+- **Escape** closes the preview and returns focus to the pin.
+- **Arrow keys** pan the focused map.
+
+**What still holds.**
+- There's no skip link to the map or the results.
+- The map is about 190 stops after the first card.
+- Focus goes to `<body>` after closing the detail on New York and on Cleveland phone.
+
+**Erratum item 2: the search box focus ring.** "The search input has no focus ring" (`stopsWithoutVisibleRing: 1`) was also a probe artefact. The probe checked only the input element. Its wrapper draws a 2 px focus-colour ring while the input has focus (`.spill:focus-within { box-shadow: 0 0 0 2px var(--focus) }` in `assets/fe-a.css`). FE raised this, and the lead verified it in the source.

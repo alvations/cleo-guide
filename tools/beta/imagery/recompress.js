@@ -4,7 +4,7 @@
  * imagery/recompress.js — make the credited Commons photos lighter, in place (lane: imagery).
  *
  * Commons thumbnails come out at about 60–100 KB at 500 w and 70–340 KB at 960 w. That is heavy for an image-first grid.
- * This re-encodes every credited Wikimedia Commons JPEG (the row's file and its srcset variants) as a progressive
+ * This re-encodes every credited Wikimedia Commons photo (the row's file and its srcset variants) as a progressive
  * mozjpeg with its metadata stripped, at the highest quality ≤ 72 that meets the size target:
  *   card  500 w ≤ 45 KB · card 960 w ≤ 110 KB · hero 960 w ≤ 120 KB (R7: every 960 w JPEG ≤ 120 KB).
  * Never below quality 40: a photo that still misses its target keeps the q40 copy and is listed. A row recompressed
@@ -13,7 +13,9 @@
  * (the credit row's width/height and the srcset stay true), and a copy is written only when it is smaller.
  * Each touched row's `modified` gains "; recompressed (JPEG, quality ≤ 72)" (CC BY / BY-SA ask that changes be
  * indicated; the short card credit already says "(resized)", the full credit names both). The credit is otherwise
- * unchanged. A row already marked recompressed is skipped, so it is safe to run after every fetch.
+ * unchanged. A row already marked recompressed is skipped, so it is safe to run after every fetch. A file that is not a
+ * JPEG (a PNG thumbnail, say) is converted to <same name>.jpg (transparency on white) and its credit row and srcset
+ * follow: otherwise it would bypass the weight caps (R7-g7).
  *
  *   node tools/beta/imagery/recompress.js            # re-encode
  *   node tools/beta/imagery/recompress.js --dry-run  # report sizes only
@@ -43,10 +45,13 @@ const filesOf = row => [...(row.variants || []).map(v => ({ file: v.file, w: v.w
 /** The size class of a file: its 960-step copy is judged by its name, so a copy scaled below 800 px keeps its 110/120 KB target. */
 const classWidth = f => Math.max(f.w || 0, +((/-(\d+)\.[a-z]+$/i.exec(f.file) || [])[1] || 0));
 const marked = row => String(row.modified || '').includes('recompressed');
-const eligible = row => row.provider === 'wikimedia-commons' && /\.jpe?g$/i.test(row.file) && !marked(row);
-/** A row to (re)visit: not yet recompressed, over a size target (targets tightened, R7), or without its dominant colour. */
-const needsWork = (row, sizeOf) => row.provider === 'wikimedia-commons' && /\.jpe?g$/i.test(row.file) &&
-  (!marked(row) || !/^#[0-9a-f]{6}$/.test(row.color || '') || filesOf(row).some(f => { const s = sizeOf(f.file); return s != null && s > targetOf(row, classWidth(f), f.main); }));
+const isJpeg = f => /\.jpe?g$/i.test(f);
+/** A Commons file that is not a JPEG (PNG, WebP, TIFF thumbnails): converted to JPEG, since only JPEG is weight-capped (R7). */
+const notJpeg = row => filesOf(row).some(f => !isJpeg(f.file));
+const eligible = row => row.provider === 'wikimedia-commons' && (!marked(row) || notJpeg(row));
+/** A row to (re)visit: not yet recompressed, not a JPEG, over a size target (targets tightened, R7), or without its dominant colour. */
+const needsWork = (row, sizeOf) => row.provider === 'wikimedia-commons' &&
+  (!marked(row) || notJpeg(row) || !/^#[0-9a-f]{6}$/.test(row.color || '') || filesOf(row).some(f => { const s = sizeOf(f.file); return s != null && s > targetOf(row, classWidth(f), f.main); }));
 /** The photo's dominant colour as #rrggbb (sharp stats), for a fade-in placeholder behind the image (R7 gap 3). */
 async function dominantOf(sharp, buf) {
   const { dominant: d } = await sharp(buf).stats();
@@ -79,12 +84,30 @@ async function encode(sharp, buf, target, meta) {
   return best;
 }
 
+/** The same base name with a .jpg extension. */
+const jpgName = f => f.replace(/\.[a-z0-9]+$/i, '.jpg');
+/** Convert one non-JPEG file (PNG transparency flattened on white) to a JPEG ≤ q72 within its target; the credit row's
+ *  file name (main or variant) and, if scaled, its pixel size follow, and the old file is deleted. */
+async function convert(sharp, row, f, buf, target, meta, dry, p) {
+  const flat = await sharp(buf).rotate().flatten({ background: '#ffffff' }).toBuffer();
+  const m = await sharp(flat).metadata();
+  const { out, q, w: nw, h: nh, scaled } = await encode(sharp, flat, target, m);
+  const name = jpgName(f.file);
+  console.log(`  ${dry ? 'would convert' : 'converted'} ${f.file} (${meta.format}, ${Math.round(buf.length / KB)} KB) → ${name} ${Math.round(out.length / KB)} KB (q${q}${scaled ? `, scaled to ${nw}×${nh}` : ''}, target ${Math.round(target / KB)} KB)`);
+  if (dry) return [buf.length, out.length];
+  fs.writeFileSync(path.join(PHOTO_DIR, name), out);
+  if (name !== f.file) fs.unlinkSync(p);
+  const slot = f.main ? row : row.variants.find(x => x.file === f.file);
+  slot.file = name; slot.width = nw; slot.height = nh;
+  return [buf.length, out.length];
+}
+
 async function main() {
   const dry = process.argv.includes('--dry-run');
   const j = JSON.parse(fs.readFileSync(CREDITS, 'utf8'));
   const sizeOf = f => { try { return fs.statSync(path.join(PHOTO_DIR, f)).size; } catch (e) { return null; } };
   const rows = j.credits.filter(r => needsWork(r, sizeOf));
-  console.log(`recompress: ${rows.length} credited Commons JPEG row(s) to re-encode or colour (new, over target, or no dominant colour)`);
+  console.log(`recompress: ${rows.length} credited Commons row(s) to re-encode, convert to JPEG or colour (new, not a JPEG, over target, or no dominant colour)`);
   if (!rows.length) return;
   const sharp = loadSharp();
   if (!sharp) { console.log('recompress: sharp is not installed (cd tools && npm install --no-save sharp) — nothing changed (exit 0).'); return; }
@@ -97,9 +120,9 @@ async function main() {
       if (!fs.existsSync(p)) { console.log(`  skip  ${f.file}: no such file`); continue; }
       const buf = fs.readFileSync(p), target = targetOf(row, classWidth(f), f.main);
       if (f.main && !/^#[0-9a-f]{6}$/.test(row.color || '')) { row.color = await dominantOf(sharp, buf); colours++; }
-      if (marked(row) && buf.length <= target) continue;          // already recompressed and within its target
       const meta = await sharp(buf).metadata();
-      if (meta.format !== 'jpeg') { console.log(`  skip  ${f.file}: not a JPEG (${meta.format})`); continue; }
+      if (meta.format !== 'jpeg' || !isJpeg(f.file)) { const [b, a] = await convert(sharp, row, f, buf, target, meta, dry, p); before += b; after += a; files++; touched = true; continue; }
+      if (marked(row) && buf.length <= target) continue;          // already recompressed and within its target
       if ((meta.orientation || 1) !== 1) { console.log(`  skip  ${f.file}: EXIF orientation ${meta.orientation} (stripping it would turn the photo)`); continue; }
       const { out, q, w: nw, h: nh, scaled } = await encode(sharp, buf, target, meta);
       const m2 = await sharp(out).metadata();
@@ -126,4 +149,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => { console.error(`recompress: ${e.stack || e}`); process.exit(4); });
-module.exports = { targetOf, filesOf, eligible, needsWork, dominantOf, MARK, QUALITIES };
+module.exports = { targetOf, filesOf, eligible, needsWork, notJpeg, jpgName, dominantOf, MARK, QUALITIES };
