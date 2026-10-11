@@ -281,11 +281,17 @@ function reviewAssist(row) {
 }
 
 const LIFECYCLE = /^(disused|was|abandoned|closed|demolished|removed|razed|destroyed):/;
-/** Closure evidence carried by OSM tags (lifecycle prefixes, shop=vacant). Returns [{type, detail}]. */
+const ACTIVE_MAIN = /^(amenity|shop|leisure|tourism|craft|office|club|healthcare|historic|attraction|sport)$/;
+/**
+ * Closure evidence carried by OSM tags (lifecycle prefixes, shop=vacant). Returns [{type, detail}]. A lifecycle tag on
+ * an object that still has an ACTIVE main feature tag means the building was repurposed (a roller rink in a former
+ * church: was:amenity=place_of_worship + leisure=sports_centre), not that the place closed, so it does not count.
+ */
 function osmClosureEvidence(tags) {
   const ev = [];
+  const active = Object.entries(tags || {}).some(([k, v]) => ACTIVE_MAIN.test(k) && v && v !== 'no' && v !== 'vacant');
   for (const [k, v] of Object.entries(tags || {})) {
-    if (LIFECYCLE.test(k) && !/^(was|old):?name/.test(k)) ev.push({ type: 'osm-lifecycle', detail: `${k}=${v}` });
+    if (LIFECYCLE.test(k) && !/^(was|old):?name/.test(k) && !active) ev.push({ type: 'osm-lifecycle', detail: `${k}=${v}` });
     if (k === 'shop' && v === 'vacant') ev.push({ type: 'osm-vacant', detail: 'shop=vacant' });
     if (k === 'opening_hours' && /^\s*closed\s*$/i.test(v)) ev.push({ type: 'osm-hours-closed', detail: 'opening_hours=closed' });
   }
@@ -448,7 +454,11 @@ class Http {
     }
     if (this.count >= this.max) return { status: 0, body: '', error: 'request budget exhausted', budget: true };
     if (h === 'nominatim.openstreetmap.org' && this.nomCount >= this.nomMax) return { status: 0, body: '', error: 'nominatim budget exhausted', budget: true };
-    if (this.backoffUntil[h] && Date.now() < this.backoffUntil[h]) return { status: 0, body: '', error: `${h} backing off after 429/503` };
+    if (this.backoffUntil[h] && Date.now() < this.backoffUntil[h]) {
+      const w = this.backoffUntil[h] - Date.now();
+      if (w > 120000) return { status: 0, body: '', error: `${h} backing off after 429/503` };
+      await new Promise(r => setTimeout(r, w)); // wait it out (polite), then try once
+    }
     const gap = SPACING[h] || SPACING.default, wait = (this.last[h] || 0) + gap - Date.now();
     if (wait > 0) await new Promise(r => setTimeout(r, wait));
     this.count++; if (h === 'nominatim.openstreetmap.org') this.nomCount++;

@@ -38,16 +38,16 @@
   },
   "otherLandmarks": {
    "targets": 1150,
-   "skipped": 222,
-   "withArticle": 632
+   "skipped": 223,
+   "withArticle": 631
   },
   "candidates": {
-   "total": 386,
-   "high": 372,
+   "total": 393,
+   "high": 379,
    "med": 14,
    "low": 0
   },
-  "targetsWithHigh": 175,
+  "targetsWithHigh": 182,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -3442,20 +3442,6 @@
    "candidates": []
   },
   {
-   "key": "landmark:wheeling#blaine-hill-s-bridge",
-   "type": "landmark",
-   "depicts": "wheeling#blaine-hill-s-bridge",
-   "label": "Blaine Hill \"S\" Bridge",
-   "names": [
-    "Blaine Hill \"S\" Bridge"
-   ],
-   "pilot": true,
-   "article": "https://en.wikipedia.org/wiki/Blaine_Hill_%22S%22_Bridge",
-   "priority": "row",
-   "wikiLead": true,
-   "candidates": []
-  },
-  {
    "key": "landmark:wheeling#centre-market-historic-district",
    "type": "landmark",
    "depicts": "wheeling#centre-market-historic-district",
@@ -3469,31 +3455,6 @@
    "skip": "venue (MKT) — never a photo",
    "priority": "row",
    "candidates": []
-  },
-  {
-   "key": "landmark:wheeling#great-stone-viaduct",
-   "type": "landmark",
-   "depicts": "wheeling#great-stone-viaduct",
-   "label": "Great Stone Viaduct",
-   "names": [
-    "Great Stone Viaduct",
-    "Bellaire viaduct",
-    "B&O Railroad Viaduct",
-    "Benwood"
-   ],
-   "pilot": true,
-   "priority": "row",
-   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "candidates": [
-    {
-     "file": "File:Bellaire viaduct 01.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bellaire_viaduct_01.jpg",
-     "depicts": "The B&O stone-arch viaduct (Great Stone Viaduct) in Bellaire",
-     "confidence": "med",
-     "reason": "title names the Bellaire viaduct; summary: used on the B&O Railroad Viaduct article"
-    }
-   ]
   },
   {
    "key": "landmark:wheeling#lemoyne-house",
@@ -8356,6 +8317,43 @@
    ]
   },
   {
+   "key": "landmark:wheeling#blaine-hill-s-bridge",
+   "type": "landmark",
+   "depicts": "wheeling#blaine-hill-s-bridge",
+   "label": "Blaine Hill \"S\" Bridge",
+   "names": [
+    "Blaine Hill \"S\" Bridge"
+   ],
+   "pilot": true,
+   "article": "https://en.wikipedia.org/wiki/Blaine_Hill_%22S%22_Bridge",
+   "wikiLead": true,
+   "candidates": []
+  },
+  {
+   "key": "landmark:wheeling#great-stone-viaduct",
+   "type": "landmark",
+   "depicts": "wheeling#great-stone-viaduct",
+   "label": "Great Stone Viaduct",
+   "names": [
+    "Great Stone Viaduct",
+    "Bellaire viaduct",
+    "B&O Railroad Viaduct",
+    "Benwood"
+   ],
+   "pilot": true,
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Bellaire viaduct 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bellaire_viaduct_01.jpg",
+     "depicts": "The B&O stone-arch viaduct (Great Stone Viaduct) in Bellaire",
+     "confidence": "med",
+     "reason": "title names the Bellaire viaduct; summary: used on the B&O Railroad Viaduct article"
+    }
+   ]
+  },
+  {
    "key": "landmark:wheeling#national-road-and-zane-grey-museum",
    "type": "landmark",
    "depicts": "wheeling#national-road-and-zane-grey-museum",
@@ -10491,7 +10489,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Lincoln_Park,_Chicago,_Illinois",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Bissell Street District 4.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bissell_Street_District_4.JPG",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #40)",
+     "refused": "refused by visual review (W8, all run #40, R7-g1): Bissell Street rowhouses, not the lakefront park (wrong subject)"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#lincoln-park-zoo",
@@ -10953,8 +10962,19 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/DeKoven_Street",
-   "wikiLead": true,
-   "candidates": []
+   "skip": "R7-g1: the only Commons lead image is a DeKoven Street view of parked cars; no file shows the site or the Pillar of Fire sculpture — calm cover (stated)",
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:DeKoven Street - August 2023.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:DeKoven_Street_-_August_2023.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #40)",
+     "refused": "refused by visual review (W8, all run #40, R7-g1): a DeKoven Street view of parked cars, not the site or the Pillar of Fire (wrong subject; vehicles)"
+    }
+   ]
   },
   {
    "key": "landmark:chicago#starved-rock-state-park",
@@ -11297,7 +11317,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Cincinnati_Zoo_and_Botanical_Garden",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Cincinnati Zoo.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cincinnati_Zoo.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #40)",
+     "refused": "refused by visual review (W8, all run #40, R7-g1): the hanging entrance sign is the subject (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:cincinnati#contemporary-arts-center",
@@ -11903,7 +11934,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/National_Museum_of_the_United_States_Air_Force",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:National Museum of the United States Air Force.png",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:National_Museum_of_the_United_States_Air_Force.png",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #40)",
+     "refused": "refused by visual review (W8, all run #40, R7-g1): the museum emblem, not a photo (not-a-photo rule)"
+    }
+   ]
   },
   {
    "key": "landmark:dayton#oregon-district",
@@ -12255,7 +12297,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Sint-Martens-Latem",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Sint-Martens-Latem-Nature-Summer-2014.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sint-Martens-Latem-Nature-Summer-2014.JPG",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #40)",
+     "refused": "refused by visual review (W8, all run #40, R7-g1): a flat field under a dark cloud (gloom)"
+    }
+   ]
   },
   {
    "key": "landmark:ghent#sint-michielsbrug-and-sint-michielshelling",
@@ -12444,7 +12497,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Gettysburg_Museum_and_Visitor_Center",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Gettysburg1.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gettysburg1.JPG",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #40)",
+     "refused": "refused by visual review (W8, all run #40, R7-g1): a stone entrance sign in snow (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:harrisburg#haines-shoe-house",
@@ -12494,7 +12558,18 @@
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Hershey%27s_Chocolate_World",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Chocolate World.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Chocolate_World.jpg",
+     "depicts": "(lead image)",
+     "confidence": "high",
+     "reason": "lead image (run #40)",
+     "refused": "refused by visual review (W8, all run #40, R7-g1): the \"Chocolate World\" sign with mascots (signage rule)"
+    }
+   ]
   },
   {
    "key": "landmark:harrisburg#high-water-mark-and-the-angle-picketts-charge",
