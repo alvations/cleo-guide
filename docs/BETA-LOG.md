@@ -1199,3 +1199,16 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - "What changed" B-23/B-20 (R6 gap #4).
   - **Imagery:** photo coverage for each non-Vietnam city's first screen (lead card, first rail row, then tier-1 open sights), keeping every refusal and the ≤ 2.0 MB first-load budget.
   - Atlas files stay with the Atlas review loop. R7 QA findings take priority in every lane.
+
+- 2026-10-11 18:52Z · **Orchestrator** · Owner: "those capital initials everywhere in the UI … superfluous … Have the UI and front end engineer revise that too!!!" · commit: this entry's commit
+  - **Read as three families of superfluous capitals:**
+    - Title Case labels: "Iconic & Must-See", "Free to Visit", "Temples & Shrines", "Anime, Manga & Pop Culture";
+    - uppercase-transformed eyebrows and kickers;
+    - decorative initials: Guidebook and collection-intro drop caps, and the cover initial plates `.pl-ini` / `.plate.i`.
+  - **Rule:** sentence case everywhere in the UI. Proper nouns, place names, acronyms and source names keep their capitals. Data is untouched; casing happens at display time through one shared helper.
+  - **Owners:**
+    - designer: the rule in DESIGN-SYSTEM.md plus CASING-AUDIT.md;
+    - FE-A: `tools/beta/lib/casing.js`, city pages, cards, Gallery, detail, and a casing test in `npm test`;
+    - FE-B: landing, hubs, Guidebook, Insights, "What changed";
+    - Atlas lane: Atlas surfaces, in its next SPEC-v3 slice.
+  - This takes priority over W8 part 1 in those lanes. It is recorded in `design/beta/eval/W8-BRIEFS.md`.
