@@ -1185,3 +1185,17 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - front-end engineer: the Atlas lane `session_01Cuvo7DWhwbWjLpFicvaF5E` (real-shots script, then the SPEC-v3 slices);
     - **panel** `session_01EKzwLjqF1Z1gwXWgbrrr2S`: round 0 on `965b7a5cb091097b10bc1fabb3eacaefdb491ae2`.
   - R7 QA and the evaluator continue on `badcc20d`. They are unaffected.
+
+- 2026-10-11 18:42Z · **Orchestrator** · Owner: "autonomously continue to work and Fanout on the other agents lane". W8 part 1 fan-out (`design/beta/eval/W8-BRIEFS.md`) · commit: this entry's commit
+  - **FE-A:**
+    - "Start with" = lead card on all 84 pages (R6 gap #8);
+    - the day-plan / "Your guide" flow (R6 D 77);
+    - place detail and Gallery polish against D12/D13.
+  - **FE-B:**
+    - Guidebook and Insights under v2 (photo-led chapters, v2 charts);
+    - price/rating wording **labelled, not stripped**, as D-39 proposed (owner may veto);
+    - type residue (R6 gap #3);
+    - DESIGN-SYSTEM.md rewritten to what ships (D7);
+    - "What changed" B-23/B-20 (R6 gap #4).
+  - **Imagery:** photo coverage for each non-Vietnam city's first screen (lead card, first rail row, then tier-1 open sights), keeping every refusal and the ≤ 2.0 MB first-load budget.
+  - Atlas files stay with the Atlas review loop. R7 QA findings take priority in every lane.
