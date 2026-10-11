@@ -22,3 +22,20 @@
 ## What changed
 
 See the 2026-10-11 FE-B entry in `docs/BETA-LOG.md`.
+
+## With the real Commons photos (72 credited, 2026-10-11 15:30Z)
+
+Default view after load; all off-origin requests aborted. The total counts gzip for text and raw bytes for images and fonts.
+
+| Page | 390 px @3× | 1440 px | FCP 4× (phone) |
+|---|---:|---:|---:|
+| Landing | 768 KB (11 photos, all 500w) | 1,194 KB (20 photos, 500w) | 268 ms |
+| Japan hub | 1,344 KB (hero + cards, 960w) | 815 KB | 420 ms |
+| Belgium hub | 1,401 KB | — | 348 ms |
+
+- **Landing on a 3× phone:** the imagery lane's mock measured it at 2,285 KB, because the dense-grid `sizes` (46vw) pushed a 3× phone onto the 960w copy. At 42vw the ~170 px card takes the 500w copy.
+- **Lazy loading:** no card is eager; only a hub hero photo is. Scrolling the whole landing still loads all 38 card photos (≈ 2.3 MB), but over time and on demand.
+- **Credits:** every photo's TASL credit is visible.
+  - Under each card it is a sentence with inline links (`<p class="credit">`, line-height 2, so the links sit ≥ 24 px apart).
+  - Under the hub hero it sits below the photo, not over it, with 44 px link targets.
+- **Measurements:** 0 targets under 44 px on every captured page, light and dark.

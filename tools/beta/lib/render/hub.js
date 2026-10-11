@@ -119,18 +119,22 @@ function photoImg(ph, up, { sizes, eager = false } = {}) {
   const set = ph.srcset ? ` srcset="${esc(String(ph.srcset).split(',').map(x => up + x.trim()).join(', '))}" sizes="${esc(sizes)}"` : '';
   return `<img class="ph" src="${esc(up + ph.src)}"${set} width="${ph.w}" height="${ph.h}" alt="${esc(ph.credit.depicts)}"${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async">`;
 }
-const credit = ph => ph ? `<small class="credit">${captionHtml(ph.credit)}</small>` : '';
+/** The photo's visible TASL credit: one sentence under the card, its links inline (WCAG 2.5.8 inline exception). */
+const credit = ph => ph ? `<p class="credit">${captionHtml(ph.credit)}</p>` : '';
 
 // ---------------------------------------------------------------- city card
 /** Sizes for the card media: 1/2/3/4 columns (hubs) or 2/3/4 (landing). */
 const SIZES = { hub: '(min-width:1280px) 300px, (min-width:1024px) 31vw, (min-width:640px) 46vw, 92vw',
-  dense: '(min-width:1280px) 300px, (min-width:1024px) 23vw, (min-width:640px) 31vw, 46vw' };
+  dense: '(min-width:1280px) 300px, (min-width:1024px) 23vw, (min-width:768px) 31vw, 42vw' };
+// Budget note (W7): on a 390 px phone the dense grid's card is ~170 px; 42vw keeps a 3× screen on the 500w copy
+// (≈ 491 px), where 46vw tipped it to 960w and put the landing over 2 MB. Cards are never eager: on a phone the first
+// row sits below the search hero, so only a hub hero photo is fetched eagerly.
 
 /**
  * One city card. Markup contract kept for test-beta.js / guards: li.dest[data-page] > a[href] first, and ".dest-c"
  * starting with the computed place count. The cover tone rotates (c-0…c-3) so neighbouring covers never match.
  */
-function cityTile(row, i, { up = '', views = false, reg = null, dense = false, eager = false } = {}) {
+function cityTile(row, i, { up = '', views = false, reg = null, dense = false } = {}) {
   const f = facts(row);
   const ph = photoOf(row.key, reg, row);
   const mf = motif(row.key, 'ink');
@@ -139,7 +143,7 @@ function cityTile(row, i, { up = '', views = false, reg = null, dense = false, e
   const canon = !sig && f.canon.length ? `<span class="canon">${f.canon.map(c => `<span>${esc(c)}</span>`).join('')}</span>` : '';
   const rb = f.recby.n ? `<span class="recby">${icon('seal', 'ico sm')}<span>${esc(t('card.recby'))} <b>${esc(f.recby.names.join(', '))}</b>${f.recby.n > f.recby.names.length ? ` ${esc(t('card.recby.more', { n: fmt(f.recby.n - f.recby.names.length) }))}` : ''}</span></span>` : '';
   return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}" class="tile card c-${i % 4}">
-<span class="card-media"><span class="cover" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}${icon('pin', 'gl ico')}<span class="cover-n">${esc(f.name)}</span>${f.native ? `<span class="native">${esc(f.native)}</span>` : ''}</span>${ph ? photoImg(ph, up, { sizes: dense ? SIZES.dense : SIZES.hub, eager }) : ''}${star}</span>
+<span class="card-media"><span class="cover" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}${icon('pin', 'gl ico')}<span class="cover-n">${esc(f.name)}</span>${f.native ? `<span class="native">${esc(f.native)}</span>` : ''}</span>${ph ? photoImg(ph, up, { sizes: dense ? SIZES.dense : SIZES.hub }) : ''}${star}</span>
 <span class="card-body txt"><h3 class="card-t">${esc(f.name)}</h3>
 <span class="counts"><span class="dest-c">${plural('hub.places', f.n)}<span class="hide-m"> · ${esc(t('hub.sights', { n: fmt(f.P) }))} · ${esc(t('hub.food', { n: fmt(f.F) }))}</span></span></span>
 ${sig}${canon}${rb}</span></a>${credit(ph)}${views && row.gen === 'new' ? viewLinks(row, up) : ''}</li>`;
@@ -326,7 +330,7 @@ ${groups ? '' : media}
 ${groups ? groups.map(g => `<section class="csec" id="${esc(g.c.key)}" aria-labelledby="g-${esc(g.c.key)}"><div class="rail-head"><h2 class="d2" id="g-${esc(g.c.key)}">${esc(g.c.name)}<span class="n">${plural('hub.guides', g.pages.length)}${g.c.live === false ? ` · ${esc(t('hub.preview'))}` : ''}</span></h2></div>
 <ul class="morelist">\n${g.pages.map(r => moreRow(r, up)).join('\n')}\n</ul></section>`).join('\n') : `<div class="rail-head"><h2 class="d2" id="grid-h">${esc(t('hub.grid.h', { country: c.name }))}<span class="n">${plural('hub.guides', all.length)}</span></h2></div>
   <ul class="tiles hub2 cards" aria-labelledby="grid-h">
-${main.map((r, i) => cityTile(r, i, { up, views: true, reg, eager: i < 2 })).join('\n')}
+${main.map((r, i) => cityTile(r, i, { up, views: true, reg })).join('\n')}
   </ul>`}
 ${more.length ? `<h2 class="d3 more-h">${esc(t('hub.more', { country: c.name }))}</h2>\n<ul class="morelist">\n${more.map(r => moreRow(r, up)).join('\n')}\n</ul>` : ''}
 </div>
