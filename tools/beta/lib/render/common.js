@@ -36,9 +36,13 @@ const L10N_CSS = '.locales{display:flex;gap:2px;align-items:center;flex:none}.lo
 function l10nHead(up, assetsV) {
   const others = i18n.offered().map(l => l.locale).filter(l => l !== 'en');
   if (!others.length) return '';
+  // locale.js is injected only when a non-en locale is chosen (en pages pay no JS, no hide). On an en page a delegated
+  // click on the switcher stores the choice and reloads; on a ja page locale.js owns the switcher.
+  const src = `${up}assets/js/locale.js?v=${assetsV.locale}`;
   return `<style data-cleo-l10n>${L10N_CSS}</style>
-<script>(function(){var d=document.documentElement,o=${JSON.stringify(others)},l=null,m=/[?&]lang=([a-z-]+)/.exec(location.search);if(m)l=m[1];else try{l=JSON.parse(localStorage.getItem("cleo:v1:locale"))}catch(e){}if(o.indexOf(l)<0)return;d.lang=l;d.classList.add("cleo-l10n-wait");setTimeout(function(){d.classList.remove("cleo-l10n-wait")},1500)})()</script>
-<script src="${up}assets/js/locale.js?v=${assetsV.locale}" defer></script>`;
+<script>(function(){var d=document.documentElement,o=${JSON.stringify(others)},l=null,m=/[?&]lang=([a-z-]+)/.exec(location.search);if(m)l=m[1];else try{l=JSON.parse(localStorage.getItem("cleo:v1:locale"))}catch(e){}` +
+  `document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-cleo-locale]");if(!b||window.CleoLocale||b.getAttribute("aria-pressed")==="true")return;try{localStorage.setItem("cleo:v1:locale",JSON.stringify(b.getAttribute("data-cleo-locale")))}catch(x){}var u=location.href.replace(/([?&])lang=[a-z-]+&?/,"$1").replace(/[?&](#|$)/,"$1");if(u===location.href)location.reload();else location.href=u});` +
+  `if(o.indexOf(l)<0)return;d.lang=l;d.classList.add("cleo-l10n-wait");setTimeout(function(){d.classList.remove("cleo-l10n-wait")},1500);var s=document.createElement("script");s.src=${JSON.stringify(src)};document.head.appendChild(s)})()</script>`;
 }
 
 function head({ page, title, description, rel, depth, ogImage, jsonld, assetsV, preload = [], from = 'data', css = null }) {
