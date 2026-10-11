@@ -1,6 +1,6 @@
-city=orlando-fl
+city=san-francisco-ca
 scope=unverified,low,status
 limit=0
 nominatim_max=300
-commit=false
-# dry run: next-largest US backlog (149 rows)
+commit=true
+# San Francisco for review (orchestrator): cache warm; Overpass back-off fixed (abd3f061 lifecycle fix)
