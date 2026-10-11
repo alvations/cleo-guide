@@ -883,3 +883,37 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **To FE-A:** QA-42 Med (lead-card heart tap target).
   - **Already fixed:** QA-39 High (workflow `npm ci`), in 49deb0a7.
   - **Ratified:** R6 metrics.js B-02, B-06, B-07 and B-08, the test-beta cluster count, and D-36.
+- 2026-10-11 · Atlas lane · **Atlas is map search (W7 Amendment 2), first increment.**
+  - **Desktop (≥ 1024):** a filter bar on top (Sights / Eat & drink, search, Area, Filters, Must see, Saved, Sort); the map on the left at 60 %, full height; a 2-column card grid on the right (the shared `li.pl` card), filtered to the map area ("Search as I move the map", on by default), with "N more outside this area. Show all".
+    - Label-pill pins (the guide's number, ★ Must see; sight vs eat & drink in two quiet tokens; closed struck; saved ♥).
+    - Hover syncs both ways. A pin click selects its card in the list pane (the page never scrolls) and opens a preview card on the map that links to the place.
+    - Round dark count bubbles for clusters. Area chips fit the map.
+  - **Phone (< 1024):** the map is the screen. One chip row, a swipeable card carousel synced to the pins, a floating List / Map pill (Back closes the list), and "Search this area" after a pan. The R6 peek/half/full tray is retired, and with it the 370 px tray-head High.
+  - **R6 High `_leaflet_pos` fixed:** `C.map()` returns null once tiles fail and the map is removed, and every map call checks it. With tiles blocked the list holds every place under "Map unavailable". On phones the list opens by itself. 0 page errors with tiles blocked (probe below).
+  - **Leaflet after first paint:** it is injected after the page's `load` + one frame. The Atlas UI moved off the eager path into the lazy `atlas.js`, so eager JS fell: city.js −1.0 KB and views.js −0.4 KB gzip versus the R6 head.
+  - **Measurement rules changed because the UI changed. QA to ratify; none is weaker:**
+    1. `test-beta.js` "one marker per pinned place": pins are now `.leaflet-marker-icon.pp` label markers, not SVG circle paths. The invariant is unchanged (drawn + cluster counts == pinned places).
+    2. `test-fe-a.js` W6 Atlas checks (tray detents, `.mapclose`, the phone pin sheet) are replaced by W7 map-search checks:
+       - map-first with no list over it;
+       - the chip row holds the switcher, toolbar, Must see, Saved and Sort;
+       - List adds one history entry and Back closes it;
+       - "See these n on the map" returns to the map;
+       - the Must see chip is the `t=1` lens;
+       - the desktop filter bar and results head, all restored outside Atlas;
+       - a pin selects one carousel card;
+       - the pin preview closes on Esc.
+    3. `qa/w2.js` mobile map flow:
+       - the phone Atlas is already the map, so a toggle is pressed only when one is visible;
+       - pins are `.pp` pills, measured by their label box, and a cluster bubble is tapped until a pin shows;
+       - the pin "peek" is the carousel holding the selected card (≤ 40 %: measured at 15 %);
+       - desktop "numbered pins" counts `.pp`.
+    4. `metrics.js` B-06 `split`: the map may sit on either side of the cards (it now leads on the left), still without overlapping them.
+  - **QA findings routed by the orchestrator, each with a regression check:**
+    - **QA-36:** `repro-qa36.js` gives 0/20 for Cleveland `a=DT`, 0/10 for `a=SUB` and 0/10 for NY `map=1`.
+    - **QA-37:** w6.js's independent B-08 rule is now in `atlas-ms.js` for the carousel and the scrolled list: 0 titles covered. The list ends above the Map pill's own band.
+    - **QA-40:** the city name is first in the phone chip row.
+    - **QA-41:** label pills carry the number at every zoom, and clusters are round dark bubbles.
+    - **QA-44:** the first view fits the city core (pins within 3× the median distance of the median point). Chinatown fits at z15, not z6. The outlier stays in the list, behind "Show all" and a zoom out.
+    - **For QA:** `tools/beta/qa/w6.js` still drives the R6 tray (`.grab`, `.mapclose`, detents), which is retired. It needs a W7 rewrite against the carousel and List / Map pill. I left it untouched because it is QA's probe.
+  - **Gates on the final tree:** validate + `npm test` + `beta:check` all PASS (eager JS 39 KB gzip). w2 map 35/35, w5 64/64, `atlas-ms.js` 85/85.
+  - **Evidence:** `design/beta/eval/w7/atlas/` (390 + 1440, light + dark, stub tiles + tiles blocked). Probe: `NODE_PATH=$(npm root -g) node tools/beta/atlas-ms.js`, the Amendment 2 acceptance as executable checks.

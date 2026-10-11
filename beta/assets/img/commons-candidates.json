@@ -15,6 +15,7 @@
   "candidates[].depicts": "what the result says the photo shows",
   "candidates[].confidence": "high | med",
   "candidates[].reason": "why that confidence",
+  "candidates[].refused": "set after a person looked at the fetched photo: why it is never used again (the fetch skips it)",
   "candidates[].flags": "people-visible, public-art-check (no freedom of panorama for modern public art in the US/JP), venue-check, panorama (360° file), outdated (the place has changed), author-check — the fetch skips a flagged candidate unless --allow-flag names it"
  },
  "summary": {
@@ -38,8 +39,8 @@
    "withArticle": 635
   },
   "candidates": {
-   "total": 269,
-   "high": 255,
+   "total": 274,
+   "high": 260,
    "med": 14,
    "low": 0
   },
@@ -70,11 +71,40 @@
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Minato City, Tokyo, Japan.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Minato_City,_Tokyo,_Japan.jpg",
+     "depicts": "Tokyo skyline at sunset around Tokyo Tower (golden hour)",
+     "confidence": "high",
+     "reason": "title names Minato City, Tokyo; description: golden-hour panorama centred on Tokyo Tower"
+    },
+    {
+     "file": "File:Tokyo Tower, Minato City.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Tokyo_Tower,_Minato_City.jpg",
+     "depicts": "Tokyo Tower and Minato skyscrapers lit at night",
+     "confidence": "high",
+     "reason": "title names Tokyo Tower; summary: high-angle night view from Shibuya Stream"
+    },
+    {
+     "file": "File:Skyscrapers of Shinjuku 2009 January (revised).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Skyscrapers_of_Shinjuku_2009_January_(revised).jpg",
+     "depicts": "Tokyo skyline with Mount Fuji in the background",
+     "confidence": "high",
+     "reason": "description: \"Skyline of Tokyo, with Mount Fuji in the background\" (Morio)"
+    },
+    {
+     "file": "File:Rainbow Bridge, Minato City, Tokyo, Japan.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rainbow_Bridge,_Minato_City,_Tokyo,_Japan.jpg",
+     "depicts": "Rainbow Bridge, Minato, Tokyo",
+     "confidence": "high",
+     "reason": "title names Rainbow Bridge, Tokyo"
+    },
+    {
      "file": "File:Tokyo skyline 2017.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Tokyo_skyline_2017.jpg",
      "depicts": "Tokyo skyline (2017)",
      "confidence": "high",
-     "reason": "title names the Tokyo skyline"
+     "reason": "title names the Tokyo skyline",
+     "refused": "refused by visual review (W7, owner amendment): dull office blocks; corporate logo"
     },
     {
      "file": "File:Tokio skyline from Tokyo Metropolitan Government Building.jpg",
@@ -82,13 +112,6 @@
      "depicts": "Tokyo skyline from the Tokyo Metropolitan Government Building",
      "confidence": "high",
      "reason": "title names the Tokyo skyline and viewpoint"
-    },
-    {
-     "file": "File:Minato City, Tokyo, Japan.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Minato_City,_Tokyo,_Japan.jpg",
-     "depicts": "Minato City panorama centred on Tokyo Tower at sunset",
-     "confidence": "high",
-     "reason": "title names Minato City, Tokyo; summary: Tokyo Tower panorama"
     }
    ]
   },
@@ -141,11 +164,26 @@
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Brooklyn Bridge, Downtown Manhattan, and Freedom Tower, golden hour (20137848066).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge,_Downtown_Manhattan,_and_Freedom_Tower,_golden_hour_(20137848066).jpg",
+     "depicts": "Brooklyn Bridge and Downtown Manhattan at golden hour",
+     "confidence": "high",
+     "reason": "title names the Brooklyn Bridge and Downtown Manhattan at golden hour"
+    },
+    {
+     "file": "File:Brooklyn Bridge at sunset from Brooklyn Bridge Park, New York City.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge_at_sunset_from_Brooklyn_Bridge_Park,_New_York_City.jpg",
+     "depicts": "Brooklyn Bridge and Manhattan at sunset from Brooklyn Bridge Park",
+     "confidence": "high",
+     "reason": "title names the Brooklyn Bridge at sunset; summary CC BY-SA 4.0, Sebastian Blume 2025"
+    },
+    {
      "file": "File:Lower Manhattan Skyline March 2023.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Lower_Manhattan_Skyline_March_2023.jpg",
      "depicts": "Lower Manhattan skyline from Brooklyn Bridge Park",
      "confidence": "high",
-     "reason": "title names the Lower Manhattan skyline (2023)"
+     "reason": "title names the Lower Manhattan skyline (2023)",
+     "refused": "replaced after visual review (W7): half the frame is path and railing; a golden-hour Brooklyn Bridge view exists"
     },
     {
      "file": "File:Lower Manhattan Skyline September 2021.jpg",
