@@ -1,5 +1,5 @@
 /* fe-a.css — FE-A page mechanics for the beta city + saved pages (source: tools/beta/lib/render/fe-a.css; generated copy in beta/assets/). DES upstreams into cleo.css. */
-.rail-i .n::after{content:" places"}.rail-i .n.one::after{content:" place"}.rail-i .k{font:500 12px/1.2 var(--font-ui);opacity:.85}
+.rail-i .n::after{content:" places"}.rail-i .n.one::after{content:" place"}.rail-i .k{font:500 12px/1.2 var(--font-ui)}
 .rail-i.src-t{background:var(--night);color:var(--on-night);border-color:transparent}.rail-i.src-t .n{color:var(--on-night-2)}
 .rail-i.gap{background:transparent;border:1.5px dashed var(--line-strong);box-shadow:none}
 .rail[data-view=sights] [data-only=f],.rail[data-view=food] [data-only=s]{display:none}.rail[data-view=food] [data-cz],.rail[data-view=food] .gap{order:-1}@media (max-width:639px){.pls .pl:focus-within:not(:has(:focus-visible)):not(.is-target):not(:target) .pl-w{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}}
