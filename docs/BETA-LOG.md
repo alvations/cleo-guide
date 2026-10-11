@@ -1071,3 +1071,9 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - no horizontal overflow on the phone, and the search control is on screen;
     - the OSM credit is clear of the pill, the carousel and the chip row, light + dark.
   - **Probe rule for R7 QA to ratify:** `qa/w2.js` hubs reads the promised lens count from the Atlas results header (`.ms-count b`) when there is one, because Atlas pages its list. Otherwise it counts cards as before. 38/38 PASS.
+  - **Nodes follow-up:**
+    - The Atlas list now pages by 40 in the guide's own order (area, then rank within the area), the order it is shown in. Page 1 reuses the cards the page already rendered.
+    - `metrics.js --view atlas --only cities/tokyo` (platform's first-load row):
+      - desktop 1,727 KB raw / 610 KB transfer; phone 2,015 KB raw / 899 KB transfer;
+      - 2,348 DOM nodes; FCP 204 ms (300 ms at 4×).
+    - Gates all PASS; `atlas-ms.js` 98/98; w2 map + hubs 39/39.

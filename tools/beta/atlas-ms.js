@@ -105,7 +105,7 @@ const nIn = s => +((/([\d,]+)/.exec(s.count) || [0, '0'])[1].replace(/,/g, ''));
       let { ctx, page, errors } = await open(browser, D, url + '#view=atlas', { tiles: 'stub', dark });
       const s0 = await state(page); R[`${key}-d${t}`] = s0;
       if (!dark) { const nc = await page.evaluate(() => document.querySelectorAll('li.pl').length), live0 = (fs.readFileSync(path.join(ROOT, url), 'utf8').match(/<li class="pl[ "]/g) || []).length;
-        chk(`${key} desktop: the first fit builds one page of cards, not the area (≤ 32 live + 48)`, nc <= 32 + 48 + 2, { cards: nc }); }
+        chk(`${key} desktop: the first fit builds one page of cards, not the area (≤ 32 live + 40)`, nc <= 32 + 40 + 2, { cards: nc }); }
       await snap(page, `${key}-atlas-1440${t}`);
       if (!dark) {
         chk(`${key} desktop: map ≥ 58 % wide, on the left, full height`, s0.mapW >= 58 && s0.mapLeft <= 1 && Math.abs(s0.mapBottomGap) <= 2, [s0.mapW, s0.mapLeft, s0.mapBottomGap]);
@@ -182,7 +182,7 @@ const nIn = s => +((/([\d,]+)/.exec(s.count) || [0, '0'])[1].replace(/,/g, ''));
       chk(`${key} phone${t}: the OSM credit is visible and clear of the pill, the carousel and the chip row`, att && !att.pill && !att.carousel && !att.bar, att);
       if (!dark) {
         const nc = await page.evaluate(() => document.querySelectorAll('li.pl').length);
-        chk(`${key} phone: the first fit builds one page of cards, not the area (≤ 32 live + 48)`, nc <= 32 + 48 + 2, { cards: nc });
+        chk(`${key} phone: the first fit builds one page of cards, not the area (≤ 32 live + 40)`, nc <= 32 + 40 + 2, { cards: nc });
         const ov = await page.evaluate(() => { const s = document.querySelector('.ms-bar .spill'), r = s && s.getBoundingClientRect(); return { page: document.documentElement.scrollWidth - innerWidth, spill: r ? [Math.round(r.left), Math.round(r.right)] : null }; });
         chk(`${key} phone: no horizontal overflow; the search control is fully on screen`, ov.page <= 0 && (!ov.spill || (ov.spill[0] >= 0 && ov.spill[1] <= 390)), ov);
       }

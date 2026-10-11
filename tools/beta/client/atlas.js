@@ -54,9 +54,9 @@
     return L.latLngBounds(map.containerPointToLatLng(tl), map.containerPointToLatLng(br));
   };
   let selC = null;
-  // the list pages like listing results: the first 48 places in the area (guide order: area, then rank), "Show 48 more"
+  // the list pages like listing results: the first 40 places in the area (guide order: area, then rank), "Show 40 more"
   // after them; only the cards on show are stamped, so a city-wide view never builds every card (DOM stays small)
-  const PER = 48; let lim = PER, pager = null;
+  const PER = 40; let lim = PER, pager = null;
   const msArea = C.msArea = more => {
     const map = C.map();
     // the list always pages by 48 in Atlas (a day route excepted): filtered to the map area while the map is up and
@@ -66,12 +66,11 @@
     if (more !== true) lim = PER;
     // a place without a verified pin has no "outside": it is always listed (last), so no lens count ever loses it
     const b = area ? box() : null, keep = c => c.classList && (c.classList.contains('is-target') || c === selC), inB = c => { const ll = llOf(c); return !b || !ll || b.contains(ll) || keep(c); };
-    // which places make the first page: "Top ranked" across the map area — each area's own tier (graded within its area,
-    // never re-graded), then its rank — so every area's Must sees are on page 1. Shown grouped by area, in guide order.
+    // which places make each page: the guide's own order (area, then rank within it — tiers are graded per area), the
+    // order the list is shown in; page 1 reuses the cards the page already rendered, so a first fit builds ≤ 1 page
     const ord = {}; C.sections.forEach((s, i) => { ord[at(s, 'data-area')] = i; });
-    const tier = c => c.hasAttribute('data-closed') ? 4 : +at(c, 'data-t') || 3;
-    const all = qa('li.pl').filter(c => !c.hidden).concat(Cleo.defer ? Cleo.defer.peek() : []);
-    const inn = all.filter(inB).sort((x, y) => !llOf(x) - !llOf(y) || (S.sort ? 0 : tier(x) - tier(y) || C.num(x) - C.num(y) || (ord[at(x, 'data-a')] || 0) - (ord[at(y, 'data-a')] || 0)));
+        const all = qa('li.pl').filter(c => !c.hidden).concat(Cleo.defer ? Cleo.defer.peek() : []);
+    const inn = all.filter(inB).sort((x, y) => !llOf(x) - !llOf(y) || (S.sort ? 0 : (ord[at(x, 'data-a')] || 0) - (ord[at(y, 'data-a')] || 0) || C.num(x) - C.num(y)));
     // only the cards on show are built: exactly these ids (Cleo.defer.stampIds splits their chunks), never the whole area
     const show = {}, need = new Set(); inn.slice(0, lim).concat(inn.filter(keep)).forEach(c => { show[C.pid(c)] = 1; if (!C.byId[C.pid(c)]) need.add('p-' + C.pid(c)); });   // the selected / open place always shows
     // while the map is still on its way, page what is already built: its own first fit picks the page to build
