@@ -1032,3 +1032,14 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - On phones Atlas follows FE-A's rule: the city bar steps aside, and the chip row carries the search pill and the switcher.
     - In Atlas the write-up stays hidden even on the selected card. The selection ring sits on the media image.
     - Gates all PASS; `atlas-ms.js` 85/85; w2 map 35/35.
+  - **Platform (W7 close):**
+    - `metrics.js` page weight. The budget row is now **"Perf: initial load transfer ≤ 2.0 MB"**, gated on desktop and phone @3×: the default view at first load, no scroll, network idle + 2 s, each URL once. Session bytes stay informational. This is proposed as **D-38** for R7 QA to ratify.
+    - Why the numbers disagreed:
+      - `ctx.route()` disables the browser cache, so repeated URLs were downloaded and counted twice. `bytes` now counts each URL once, and `bytesAllResponses` keeps the raw sum.
+      - The old figure was whole-session, including the reachability scroll that loads every lazy photo.
+    - Tokyo, desktop / phone transfer:
+      - Gallery: 929 / 1,628 KB.
+      - Atlas: 820 / 1,847 KB. **Phone is within 10 % of the line**; the card photos are the lever (imagery re-encode routed).
+      - Landing: 1,151 / 830 KB.
+      - Hubs: Japan 787 / 1,344 KB, Belgium 800 / 1,407 KB, Germany 651 / 1,133 KB, Singapore 482 / 326 KB, Vietnam 376 / 349 KB.
+    - Hero photo: lazy plus `imagery.heroPreload()`. Atlas fetches 0 KB of it, and Gallery LCP is unchanged. New tests in `test-imagery.js` cover skipView, the stored preference and storage that throws.
