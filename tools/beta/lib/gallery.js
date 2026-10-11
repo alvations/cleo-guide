@@ -10,9 +10,10 @@
 const SLIM = ['id', 'n', 'nat', 'a', 'closed', 't', 'src', 'w', 'kind', 'la', 'ln'];
 let PH = {};                                   // W7: credited photos for this page (imagery lane, credit-gated), by place id
 const { captionHtml } = require('../imagery/photos');
-// ph = [src, w, h, alt, caption html, [[src, w]…]] — paths are beta-root-relative; gallery.js draws the same figure as the
+// ph = [src, w, h, alt, credit as plain text, [[src, w]…]] — paths are beta-root-relative; gallery.js draws the same figure as the
 // grid card (lazy, sized, alt = what it depicts, TASL credit in the figcaption). Never for a closed place (the gate).
-const phOf = r => { const p = !r.closed && PH[r.id]; return p ? [p.src, p.w, p.h, p.credit.depicts, captionHtml(p.credit), (p.widths || []).map(x => [x.src, x.w])] : null; };
+const capText = c => captionHtml(c).replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+const phOf = r => { const p = !r.closed && PH[r.id]; return p ? [p.src, p.w, p.h, p.credit.depicts, capText(p.credit), (p.widths || []).map(x => [x.src, x.w])] : null; };
 const slim = r => Object.assign(Object.fromEntries(SLIM.filter(k => r[k] != null && r[k] !== '' && r[k] !== false).map(k => [k, r[k]])), phOf(r) ? { ph: phOf(r) } : {});
 const pl = n => n + (n === 1 ? ' place' : ' places');
 
