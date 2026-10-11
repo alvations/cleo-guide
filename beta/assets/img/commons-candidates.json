@@ -29,7 +29,7 @@
   },
   "heroes": {
    "targets": 89,
-   "withHigh": 48
+   "withHigh": 50
   },
   "pilotLandmarks": {
    "targets": 180,
@@ -42,12 +42,12 @@
    "withArticle": 632
   },
   "candidates": {
-   "total": 352,
-   "high": 338,
+   "total": 354,
+   "high": 340,
    "med": 14,
    "low": 0
   },
-  "targetsWithHigh": 163,
+  "targetsWithHigh": 165,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -1071,11 +1071,19 @@
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Akron Skyline at Sunset.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Akron_Skyline_at_Sunset.jpg",
+     "depicts": "Akron skyline at sunset from the Towpath Trail",
+     "confidence": "high",
+     "reason": "title names the Akron skyline — restored after review (W8): bright, the best warm view"
+    },
+    {
      "file": "File:Akron Ohio Skyline from the All-America Bridge.JPG",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Akron_Ohio_Skyline_from_the_All-America_Bridge.JPG",
      "depicts": "Akron skyline from the All-America Bridge (2008)",
      "confidence": "high",
-     "reason": "title names the Akron skyline (R7 QA-53 swap)"
+     "reason": "title names the Akron skyline (R7 QA-53 swap)",
+     "refused": "refused by visual review (W8): a grey, overcast highway — worse than the sunset view"
     },
     {
      "file": "File:Akron, Ohio, Skyline.jpg",
@@ -1091,14 +1099,6 @@
      "confidence": "high",
      "reason": "title names the downtown Akron skyline",
      "refused": "refused by visual review (W7): plain office towers and highway"
-    },
-    {
-     "file": "File:Akron Skyline at Sunset.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Akron_Skyline_at_Sunset.jpg",
-     "depicts": "Akron skyline at sunset from the Towpath Trail",
-     "confidence": "high",
-     "reason": "title names the Akron skyline",
-     "refused": "refused by R7 QA-53 (W8): reads overcast and dim at hero size"
     }
    ]
   },
@@ -1956,13 +1956,15 @@
    "depicts": "hub:singapore/mandai",
    "label": "Mandai — guide hero",
    "names": [
-    "Mandai"
+    "Mandai",
+    "Upper Seletar"
    ],
    "pilot": false,
    "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
-    "https://en.wikipedia.org/wiki/Mandai"
+    "https://en.wikipedia.org/wiki/Mandai",
+    "https://en.wikipedia.org/wiki/Upper_Seletar_Reservoir"
    ],
    "wikiLead": true,
    "candidates": [
@@ -1974,8 +1976,7 @@
      "reason": "lead image of the Mandai article (run #29)",
      "refused": "refused by review (W8): a crematorium, not what the Mandai guide is about"
     }
-   ],
-   "skip": "Mandai is the wildlife parks' district: their gates are signage (refused) and the article's lead image is a crematorium — the guide keeps its motif hero (stated)"
+   ]
   },
   {
    "key": "hero:singapore/marina-bay",
@@ -2019,17 +2020,29 @@
    "label": "Newton & Novena — guide hero",
    "names": [
     "Newton",
-    "Novena"
+    "Novena",
+    "Saint Alphonsus",
+    "St Alphonsus"
    ],
    "pilot": false,
    "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Newton,_Singapore",
-    "https://en.wikipedia.org/wiki/Novena,_Singapore"
+    "https://en.wikipedia.org/wiki/Novena,_Singapore",
+    "https://en.wikipedia.org/wiki/Novena_Church"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [
+    {
+     "file": "File:Novena Square 3.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Novena_Square_3.JPG",
+     "depicts": "Novena Square",
+     "confidence": "high",
+     "reason": "lead image (run #29)",
+     "refused": "refused by visual review (W8): a mall façade whose name is the subject (signage rule)"
+    }
+   ]
   },
   {
    "key": "hero:singapore/old-airport-road",
@@ -2379,17 +2392,29 @@
    "label": "Kuala Lumpur — guide hero",
    "names": [
     "Kuala Lumpur",
-    "Petronas"
+    "Petronas",
+    "Merdeka Square",
+    "Dataran Merdeka"
    ],
    "pilot": false,
    "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Kuala_Lumpur",
-    "https://en.wikipedia.org/wiki/Petronas_Towers"
+    "https://en.wikipedia.org/wiki/Petronas_Towers",
+    "https://en.wikipedia.org/wiki/Merdeka_Square,_Kuala_Lumpur"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [
+    {
+     "file": "File:Bukit Bintang junction in 2024 2.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bukit_Bintang_junction_in_2024_2.jpg",
+     "depicts": "Bukit Bintang junction",
+     "confidence": "high",
+     "reason": "lead image of the Kuala Lumpur article (run #29)",
+     "refused": "refused by visual review (W8): a busy street of billboards and a fast-food logo (signage rule)"
+    }
+   ]
   },
   {
    "key": "hero:singapore/luang-prabang",
