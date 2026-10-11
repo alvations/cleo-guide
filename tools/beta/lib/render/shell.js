@@ -168,9 +168,9 @@ function footer({ depth, liveRel, notes = [], tabbar = false, current }) {
   <div class="cols">
     <div><a class="brand" href="${up}index.html" aria-label="${t('shell.brand.label')}">${MARK}<b>${t('shell.brand.word')}</b></a>
       <p>${t('foot.about', { places: T.places.toLocaleString('en-US'), guides: T.guides })}</p></div>
-    <div><h3>${t('foot.destinations')}</h3><ul>${SITE.countries.map(c => `<li><a href="${up}${esc(c.href)}">${esc(c.name)}</a></li>`).join('')}</ul></div>
-    <div><h3>${t('foot.method')}</h3><ul><li><a href="${up}how-we-choose.html">${t('foot.method.how')}</a></li><li><a href="${up}how-we-choose.html#closures">${t('foot.method.closures')}</a></li><li><a href="${up}how-we-choose.html#pins">${t('foot.method.pins')}</a></li><li><a href="${up}accessibility.html">${t('foot.method.a11y')}</a></li></ul></div>
-    <div><h3>${t('foot.yours')}</h3><ul><li><a href="${up}saved.html">${t('foot.yours.saved')}</a></li><li><a href="${up}index.html#search">${t('foot.yours.search')}</a></li><li><button type="button" class="btn theme-toggle" aria-pressed="false" data-cleo-theme hidden>${icon('moon')}<span>${t('shell.night')}</span></button></li></ul></div>
+    <div><h2 class="fh">${t('foot.destinations')}</h2><ul>${SITE.countries.map(c => `<li><a href="${up}${esc(c.href)}">${esc(c.name)}</a></li>`).join('')}</ul></div>
+    <div><h2 class="fh">${t('foot.method')}</h2><ul><li><a href="${up}how-we-choose.html">${t('foot.method.how')}</a></li><li><a href="${up}how-we-choose.html#closures">${t('foot.method.closures')}</a></li><li><a href="${up}how-we-choose.html#pins">${t('foot.method.pins')}</a></li><li><a href="${up}accessibility.html">${t('foot.method.a11y')}</a></li></ul></div>
+    <div><h2 class="fh">${t('foot.yours')}</h2><ul><li><a href="${up}saved.html">${t('foot.yours.saved')}</a></li><li><a href="${up}index.html#search">${t('foot.yours.search')}</a></li><li><button type="button" class="btn theme-toggle" aria-pressed="false" data-cleo-theme hidden>${icon('moon')}<span>${t('shell.night')}</span></button></li></ul></div>
   </div>
   <p class="legal colophon">${t('foot.colophon', { live, osm: `<a href="https://www.openstreetmap.org/copyright">${t('foot.osm')}</a>` })}</p>
 </div></footer>

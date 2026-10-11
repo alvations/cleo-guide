@@ -4,6 +4,7 @@
  * (map tiles answered with a 1×1 PNG so the phone Atlas shows its carousel, not the no-map list).
  *   1. A phone @3× never fetches a 960w photo for a slot under 200 CSS px — every view of the pilots, the landing and
  *      hubs, scrolled to the end, and the phone Atlas carousel (104 px thumbs).
+ *   3. QA-51: on desktop the place detail's media (≈ 1,024 px) takes the 960w copy, not the card's 500w.
  *   2. Tokyo phone @3× first load ≤ 700 KB transfer (default view, no scroll, network idle + 2 s; gzip for text,
  *      images and fonts as sent; each URL once) — Gallery and Atlas.
  * Exit 1 on any failure.
@@ -50,6 +51,14 @@ let fails = 0; const chk = (ok, msg, v) => { console.log(`  ${ok ? 'PASS' : 'FAI
     await p.goto(base + u, { waitUntil: 'load' }); await p.waitForLoadState('networkidle').catch(() => {}); await p.waitForTimeout(2000); await Promise.all(pend);
     const kb = Math.round([...seen.values()].reduce((a, c) => a + c, 0) / 1024);
     chk(kb <= 700, `${u}: first-load transfer ≤ 700 KB`, kb + ' KB');
+    await ctx.close();
+  }
+  console.log('== 3. QA-51: the desktop detail photo is not the upscaled 500w card copy ==');
+  {
+    const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block' }), p = await ctx.newPage();
+    await p.goto(base + 'cities/tokyo.html#p=kanda-myojin', { waitUntil: 'load' }); await p.waitForTimeout(2500);
+    const r = await p.evaluate(() => [...document.querySelectorAll('[role=dialog] img[srcset]')].filter(i => i.getBoundingClientRect().width > 400).map(i => ({ w: Math.round(i.getBoundingClientRect().width), src: i.currentSrc.split('/').pop() })));
+    chk(r.length > 0 && r.every(x => /-960\./.test(x.src)), 'Tokyo #p=kanda-myojin, 1440: detail media takes the 960w copy', r);
     await ctx.close();
   }
   await browser.close(); srv.close();
