@@ -31,34 +31,6 @@
  },
  "credits": [
   {
-   "file": "hero--tokyo-960.jpg",
-   "slot": {
-    "type": "hero",
-    "key": "tokyo"
-   },
-   "title": "Tokyo skyline 2017",
-   "depicts": "Tokyo skyline (2017)",
-   "author": "kallerna",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokyo_skyline_2017.jpg",
-   "licence": "CC BY-SA 3.0",
-   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-   "provider": "wikimedia-commons",
-   "commonsTitle": "File:Tokyo skyline 2017.jpg",
-   "sha1": "ded622c93cacda9fcb16b33f3a68e617815c6011",
-   "width": 960,
-   "height": 744,
-   "variants": [
-    {
-     "file": "hero--tokyo-500.jpg",
-     "width": 500,
-     "height": 387
-    }
-   ],
-   "modified": "resized to 500 and 960 px wide",
-   "fetched": "2026-10-11",
-   "confidence": "high"
-  },
-  {
    "file": "hero--cleveland-960.jpg",
    "slot": {
     "type": "hero",
@@ -80,34 +52,6 @@
      "file": "hero--cleveland-500.jpg",
      "width": 500,
      "height": 333
-    }
-   ],
-   "modified": "resized to 500 and 960 px wide",
-   "fetched": "2026-10-11",
-   "confidence": "high"
-  },
-  {
-   "file": "hero--newyork-960.jpg",
-   "slot": {
-    "type": "hero",
-    "key": "newyork"
-   },
-   "title": "Lower Manhattan Skyline March 2023",
-   "depicts": "Lower Manhattan skyline from Brooklyn Bridge Park",
-   "author": "Kidfly182",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lower_Manhattan_Skyline_March_2023.jpg",
-   "licence": "CC BY-SA 4.0",
-   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-   "provider": "wikimedia-commons",
-   "commonsTitle": "File:Lower Manhattan Skyline March 2023.jpg",
-   "sha1": "25c5878399a7d15810e7c8cad2be218875f9a888",
-   "width": 960,
-   "height": 720,
-   "variants": [
-    {
-     "file": "hero--newyork-500.jpg",
-     "width": 500,
-     "height": 375
     }
    ],
    "modified": "resized to 500 and 960 px wide",
