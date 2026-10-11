@@ -168,6 +168,11 @@ const SIGNAGE = /\b(logos?|signage|signboards?|signs?|billboards?|advertis\w*|le
 /** Equipment, people or close-ups as the subject (owner review, W7: a "RiverScape, Dayton" file showed hands on a
  * drone controller): refused for every slot. Checked against the title, description and visible categories. */
 const CLOSEUP = /\b(drone controllers?|controllers?|remote controls?|remotes?|hands|holding|selfies?|portraits?|close-?ups?|equipment)\b/i;
+/** Rescan hits a person looked at and kept (W7 review): the file's subject is the place; the matched word is incidental. */
+const RESCAN_KEPT = {
+  'File:Brooklyn Bridge, Downtown Manhattan, and Freedom Tower, golden hour (20137848066).jpg': 'kept after review (W7): moody but strong — cables, skyline and light; not dull',
+  'File:Meadowcroft Rockshelter 07.jpg': 'kept after review (W7): the rock-shelter overhang, no sign in frame',
+};
 /** A subject check applies unless the target itself is named by it (a museum of signs, a portrait gallery). */
 const subjectRefused = (re, t, text) => re.test(text) && !re.test(`${t.label || ''} ${(t.names || []).join(' ')}`);
 
@@ -327,7 +332,7 @@ async function main() {
    */
   async function rescan() {
     const rows = credits.credits.filter(c => c.provider === 'wikimedia-commons' && c.commonsTitle), hits = [];
-    let fixed = 0;
+    let fixed = 0, kept = 0;
     const byKey = new Map(man.targets.map(t => [t.key, t]));
     for (let i = 0; i < rows.length; i += 50) {
       const part = rows.slice(i, i + 50);
@@ -346,13 +351,14 @@ async function main() {
         }
         const cats = (pg.categories || []).map(x => x.title.replace(/^Category:/, '')).join(' | ');
         const text = `${pg.title} ${v('ObjectName')} ${v('ImageDescription')}`;
+        if (RESCAN_KEPT[c.commonsTitle]) { kept++; continue; }
         if (subjectRefused(SIGNAGE, t, text)) hits.push(`${key} ${c.commonsTitle}: signage/lettering/logo (${(SIGNAGE.exec(text) || [])[0]})`);
         if (subjectRefused(CLOSEUP, t, `${text} ${cats}`)) hits.push(`${key} ${c.commonsTitle}: equipment/people/close-up (${(CLOSEUP.exec(`${text} ${cats}`) || [])[0]})`);
         if (c.slot && !t.winterOk && GLOOM.test(text)) hits.push(`${key} ${c.commonsTitle}: gloomy hero (${(GLOOM.exec(text) || [])[0]})`);
       }
     }
     if (fixed) fs.writeFileSync(CREDITS, JSON.stringify(credits, null, 1) + '\n');
-    console.log(`\nRescan of ${rows.length} credited Commons photo(s): ${hits.length} hit(s)${fixed ? `, ${fixed} author(s) fixed from the API` : ''}${hits.length > fixed ? ' — review subject hits, then mark refused' : ''}`);
+    console.log(`\nRescan of ${rows.length} credited Commons photo(s): ${hits.length} hit(s)${fixed ? `, ${fixed} author(s) fixed from the API` : ''}${kept ? `, ${kept} kept after review` : ''}${hits.length > fixed ? ' — review subject hits, then mark refused' : ''}`);
     hits.forEach(h => console.log(`  RESCAN ${h}`));
   }
 
@@ -455,4 +461,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };

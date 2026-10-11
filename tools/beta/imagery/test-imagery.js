@@ -255,6 +255,10 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
   const bad = (JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || []).filter(c => fc.authorProblems(c.author).length).map(c => `${c.file}: "${String(c.author).slice(0, 50)}"`);
   ok(!bad.length, `every credited author is a clean name (≤ 60 characters, no flag/userbox/talk text, not doubled)${bad.length ? ': ' + bad.join('; ') : ''}`);
 }
+{ // rescan whitelist: only files a person reviewed, each with its reason
+  const titles = new Set((JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || []).map(c => c.commonsTitle));
+  ok(Object.entries(fc.RESCAN_KEPT).every(([f, why]) => /^File:/.test(f) && /kept after review/.test(why) && titles.has(f)), `rescan whitelist: ${Object.keys(fc.RESCAN_KEPT).length} reviewed file(s), each credited and with its reason`);
+}
 { // one Commons file, one credit row: never the same photo as two heroes, or as a hero and a card (owner review, W7)
   const seen = new Map(), dups = [];
   for (const c of (JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || [])) {
