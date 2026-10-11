@@ -7,26 +7,23 @@
    The cards are the shared Gallery card (li.pl, FE-A); this file only lays them out. Tokens only, no raw colours.
    ========================================================================== */
 
-/* ---- label-pill pins (the guide's number, ★ Must see), drawn by city.js as light DOM markers ---- */
+/* ---- SPEC-v3 slice 1 pins: a labelled pill (one kind glyph · the short name; Must see = the sun-wash pill), anchored by a tail at the
+   place's exact point. Every other place is a canvas dot (atlas.js); no numbers on the map. ---- */
 .leaflet-marker-icon.pp{width:0!important;height:0!important;margin:0!important;background:none;border:0;overflow:visible}
-.pp>span{position:absolute;left:0;top:0;transform:translate(-50%,-50%);display:inline-flex;align-items:center;justify-content:center;gap:1px;height:26px;min-width:30px;padding:0 9px;border-radius:var(--r-pill);
-  background:var(--pin-sight,var(--surface));color:var(--ink);border:1px solid var(--line-strong);box-shadow:var(--shadow-sm);font:600 var(--fs-meta)/1 var(--font-ui);font-variant-numeric:tabular-nums;white-space:nowrap;cursor:pointer;
-  transition:transform var(--dur-1) var(--ease-out),background-color var(--dur-1) var(--ease-out),color var(--dur-1) var(--ease-out)}
-.pp>span::before{content:"";position:absolute;inset:-9px -6px}                       /* a 44 px hit area round a 26 px pill */
-.pp-f>span{background:var(--pin-eat,var(--sand));border-color:var(--line-strong)}
-.pp-1>span{font-weight:700;padding:0 10px 0 8px;background:var(--sun-wash);color:var(--on-sun-wash);border-color:color-mix(in srgb,var(--sun) 60%,var(--line-strong))}   /* the one warm accent: Must see */.pp i{font-style:normal;font-size:var(--fs-xs);margin-right:2px}
-.pp-x>span{background:var(--paper);color:var(--ink-3);border-style:dashed;text-decoration:line-through;text-decoration-thickness:1.5px}
-.pp-sv>span::after{content:"\2665";margin-left:3px;color:var(--accent);font-size:var(--fs-xs)}
-.pp.hot>span,.pp.sel>span,.pp:hover>span{background:var(--ink);color:var(--paper);border-color:var(--ink);transform:translate(-50%,-50%) scale(1.14)}
-.pp.hot.pp-sv>span::after,.pp.sel.pp-sv>span::after,.pp:hover.pp-sv>span::after{color:var(--paper)}
-.pp.sel>span{box-shadow:0 0 0 3px var(--paper),var(--shadow)}
+.pp>span{position:absolute;left:0;top:0;transform:translate(-50%,calc(-100% - 7px));display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 11px 0 9px;border-radius:var(--r-pill);
+  background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow-sm);font:600 var(--fs-meta)/1 var(--font-ui);white-space:nowrap;cursor:pointer;
+  transition:transform var(--dur-1) var(--ease-out),background-color var(--dur-1) var(--ease-out),color var(--dur-1) var(--ease-out),border-color var(--dur-1) var(--ease-out)}
+.pp>span::before{content:"";position:absolute;inset:-7px -2px}                         /* a 44 px hit area round a 30 px pill */
+.pp>span::after{content:"";position:absolute;left:50%;bottom:-7px;width:10px;height:7px;margin-left:-5px;background:inherit;clip-path:polygon(0 0,100% 0,50% 100%)}   /* the tail */
+.pp>span>b{font-weight:600}
+.pp .ico{flex:none;width:16px;height:16px;color:var(--ink-2);stroke-width:1.5}
+.pp-1>span{background:var(--sun-wash);color:var(--on-sun-wash);border-color:color-mix(in srgb,var(--sun) 55%,transparent)}.pp-1 .ico{color:var(--on-sun-wash)}
+.pp-x>span{background:var(--sand);color:var(--ink-3);border:1px dashed var(--line-strong)}.pp-x .ico{color:var(--ink-3)}
+.pp .pp-h{position:absolute;right:-7px;top:-8px;display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--surface);box-shadow:0 0 0 1px var(--line);color:var(--accent);font:normal var(--fs-xs)/1 var(--font-ui)}
+.pp.hot>span,.pp:hover>span{border-color:var(--ink);box-shadow:var(--shadow)}
+.pp.sel>span{background:var(--ink);color:var(--paper);border-color:var(--ink);box-shadow:var(--shadow)}.pp.sel .ico{color:var(--paper)}
+.pp-1.sel>span{box-shadow:0 0 0 2px var(--sun),var(--shadow)}
 .day-on .leaflet-marker-icon.pp{display:none}                                         /* a day shows its numbered stops only */
-
-/* ---- clusters: round count bubbles, dark — never mistaken for a label pin ---- */
-.leaflet-marker-icon.pin-cl{display:grid;place-items:center;background:none;border:0}
-.pin-cl span{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:color-mix(in srgb,var(--ink) 86%,var(--paper));color:var(--paper);box-shadow:0 0 0 4px color-mix(in srgb,var(--paper) 70%,transparent),0 0 0 5px color-mix(in srgb,var(--ink) 22%,transparent),var(--shadow-sm);
-  font:700 var(--fs-sm)/1 var(--font-ui);font-variant-numeric:tabular-nums;cursor:pointer;transition:transform var(--dur-1) var(--ease-out)}
-.pin-cl.hot span,.pin-cl.sel span,.pin-cl:hover span{transform:scale(1.12);box-shadow:0 0 0 5px color-mix(in srgb,var(--ink) 30%,transparent),var(--shadow)}
 
 /* ---- map controls: one family of 44 px buttons ---- */
 .leaflet-container .am-ctl{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px;min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:500 var(--fs-ui)/1 var(--font-ui);box-shadow:var(--e-2);cursor:pointer}
@@ -38,8 +35,8 @@
 .leaflet-container .m-legend summary::-webkit-details-marker{display:none}
 .leaflet-container .m-legend ul{list-style:none;margin:0;padding:2px 12px 12px;display:grid;gap:8px;font-size:var(--fs-meta);line-height:1.3;color:var(--ink-2)}
 .leaflet-container .m-legend li{display:flex;align-items:center;gap:10px}
-.m-legend b.pp{position:relative;display:inline-block;flex:none;width:44px;height:26px}.m-legend b.pp>span{left:50%;top:50%;cursor:default}
-.m-legend b.pin-cl{display:inline-block;flex:none;width:30px;height:30px;margin:0 7px}
+.leaflet-container .m-legend .kd{flex:none;width:7px;height:7px;border-radius:50%;background:color-mix(in srgb,var(--ink) 38%,var(--paper));box-shadow:0 0 0 1px var(--surface)}.leaflet-container .m-legend .kd.f{background:color-mix(in srgb,var(--ink) 62%,var(--paper));margin-left:-6px}
+.m-legend b.pp{position:relative;display:inline-block;flex:none;width:118px;height:30px}.m-legend b.pp>span{left:0;top:0;transform:none;cursor:default}.m-legend b.pp>span::after{display:none}
 .leaflet-container .leaflet-control-zoom a{width:44px;height:44px;line-height:44px;background:var(--surface);color:var(--ink);border-color:var(--line)}
 html .leaflet-container .leaflet-control-attribution{background:color-mix(in srgb,var(--surface) 85%,transparent);color:var(--ink-2)}
 html .leaflet-container .leaflet-control-attribution a{color:var(--ink)}
@@ -240,4 +237,4 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
   html.atlas-m[data-view=atlas] #cleo-poi{display:none!important}
 }
 @media (min-width:600px) and (max-width:1023px){html.atlas-m.ms-list[data-view=atlas] .listpane .pls{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (prefers-reduced-motion:reduce){.pp>span,.pin-cl span{transition:none}.pp.hot>span,.pp.sel>span,.pp:hover>span{transform:translate(-50%,-50%)}.pin-cl.hot span,.pin-cl:hover span{transform:none}}
+@media (prefers-reduced-motion:reduce){.pp>span{transition:none}}

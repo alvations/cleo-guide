@@ -202,7 +202,8 @@ function hostOf(u) { const m = /^https:\/\/(?:www\.)?([^/]+)/i.exec(u); return m
 
 /** Default `sizes` for a card photo: one inset column on phones, two on tablets, a quarter of the page on desktop grids.
  *  Pass opts.sizes to figureHtml for anything smaller (thumbnails, carousels). */
-// platform W8 (R7 gap 7): ≥ 2.5 dppx phones take the 500w copy for card thumbs (3× density cap; proposed D-40)
+// A ≥ 2.5 dppx phone takes the 500 w copy for a card (≈ 1.5 image px per CSS px; platform W8, R7 gap 7: Tokyo phone
+// first load 930 → 609 KB); 2× phones, tablets, desktop and heroes are unchanged.
 const CARD_SIZES = '(min-resolution: 2.5dppx) and (max-width: 1023px) 166px, (max-width: 639px) 92vw, (max-width: 1023px) 45vw, 25vw';
 /** srcset + sizes attributes when the photo has size variants (else ''). */
 function srcsetAttr(photo, up, sizes) {

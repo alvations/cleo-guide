@@ -148,7 +148,11 @@ function authorOf(html) {
   return authorProblems(s).length && links.length && !authorProblems(links[0]).length ? links[0] : s;
 }
 function cleanAuthor(s) {
-  s = String(s || '').replace(FILE_PREFIX, '').replace(DERIVATIVE, '').replace(/\(\s*(talk|contribs?|User:[^)]*|(?:https?:\/\/|www\.)[^)\s]*)\s*\)/gi, ' ').replace(/^(?:photo(?:graph)?|picture|image)\s+(?:by|:)\s+/i, '')
+  s = String(s || '').replace(FILE_PREFIX, '').replace(DERIVATIVE, '')
+    .replace(/\s+-\s+User:.*$/i, '')                                          // "J. Miers - User: (WT-shared) x at y" → "J. Miers"
+    .replace(/\((?:[^()]*\b(?:wikipedia|wikivoyage|WT-shared)\b[^()]*)\)/gi, ' ')    // "(English Wikipedia)", "(a.k.a x at en.wikipedia)"
+    .replace(/\s+at\s+(?:[a-z-]+\.)?(?:[A-Z][a-z]+\s+)?(?:wikipedia|wikivoyage)\b.*$/i, '')   // "Riction at English Wikipedia", "x at en.wikipedia"
+    .replace(/^User:\s*/i, '').replace(/\(\s*(talk|contribs?|User:[^)]*|(?:https?:\/\/|www\.)[^)\s]*)\s*\)/gi, ' ').replace(/^(?:photo(?:graph)?|picture|image)\s+(?:by|:)\s+/i, '')
     .replace(/\s+/g, ' ').trim().replace(/(?:\s+\.|[\s,;:·-])+$/, '');   // a lone trailing " ." goes; an initial's "O.J." stays
   const m = /^(.+?) \1$/.exec(s);
   return m ? m[1] : s;
@@ -165,7 +169,7 @@ function derivativeNote(html) {
 /** Why an author string is not a clean credit name ([] when it is). */
 const authorProblems = a => [!a && 'empty', a && a.length > 60 && 'longer than 60 characters',
   /flag of|userbox|legal disclaimer|\(\s*talk\s*\)|uploader was|this image shows/i.test(a || '') && 'template or notice text',
-  /^(.+?) \1$/.test(a || '') && 'name said twice', /derivative/i.test(a || '') && 'a derivative note (belongs in modified)',
+  /^(.+?) \1$/.test(a || '') && 'name said twice', /\bUser:|wikipedia|wikivoyage|WT-shared/i.test(a || '') && 'a wiki user-page or project aside (R7 QA-56)', /derivative/i.test(a || '') && 'a derivative note (belongs in modified)',
   /\.(?:jpe?g|png|tiff?|gif|svg|webp)\b/i.test(a || '') && 'a file name'].filter(Boolean);
 
 /** Corporate signage, logos, lettering or advertising as the subject (owner review, W7): such a file is refused —
@@ -259,6 +263,11 @@ function widthsFor(t, o) {
 }
 /** A target's Wikipedia articles to try for a lead image, in order: `articles` (heroes: the town, then iconic sights), else `article`. */
 const articlesOf = t => (t.articles && t.articles.length ? t.articles : t.article ? [t.article] : []);
+/** A print, painting or drawing of the place is artwork, not the place today (R7 QA-53: a Hiroshige Nihonbashi). */
+const ARTWORK = /\b(woodblock|ukiyo-?e|paintings?|painted by|prints?|engravings?|lithographs?|etchings?|postcards?|drawings?|illustrations?)\b/i;
+/** Vehicles or works dominating the frame (R7 QA-53: tour buses at Tokyo Tower, a van at MoMA, a construction site) —
+ *  flagged by the rescan for a person to look at; too common in descriptions to refuse on the word alone. */
+const VEHICLES = /\b(bus(?:es)?|tour bus|vans?|trucks?|lorr(?:y|ies)|construction|scaffold\w*|cranes?)\b/i;
 /** Maps, heraldry, flags, montages and logos are not a photo of the place (W8: town-article lead images). */
 const NOT_A_PHOTO = /\b(maps?|locator|location map|coat of arms|coats of arms|flag of|seal of|emblem|montage|collage|logo)\b/i;
 /** What a run may fetch (W8): a stray run can never pull the whole tier-1 set. */
@@ -349,6 +358,7 @@ async function main() {
     const cats = (pg.categories || []).map(c => c.title.replace(/^Category:/, ''));
     const desc = strip(val('ImageDescription')), obj = strip(val('ObjectName'));
     if (t.type === 'hero' && !t.winterOk && GLOOM.test(`${pg.title} ${obj} ${desc}`)) return { why: 'a hero wants a bright, warm-season or golden-hour view; the title or description says winter, snow, overcast or fog' };
+    if (subjectRefused(ARTWORK, t, `${pg.title} ${obj} ${desc}`)) return { why: 'a print, painting or drawing — artwork, not a photo of the place today' };
     if (NOT_A_PHOTO.test(`${pg.title} ${obj}`)) return { why: 'a map, coat of arms, flag, montage or logo — not a photo of the place' };
     if (subjectRefused(SIGNAGE, t, `${pg.title} ${obj} ${desc}`)) return { why: 'title or description suggests signage, lettering, a logo or advertising is the subject' };
     if (subjectRefused(CLOSEUP, t, `${pg.title} ${obj} ${desc} ${cats.join(' | ')}`)) return { why: 'title, description or categories suggest equipment, people or a close-up is the subject, not the place' };
@@ -385,6 +395,8 @@ async function main() {
         if (RESCAN_KEPT[c.commonsTitle]) { kept++; continue; }
         if (subjectRefused(SIGNAGE, t, text)) hits.push(`${key} ${c.commonsTitle}: signage/lettering/logo (${(SIGNAGE.exec(text) || [])[0]})`);
         if (subjectRefused(CLOSEUP, t, `${text} ${cats}`)) hits.push(`${key} ${c.commonsTitle}: equipment/people/close-up (${(CLOSEUP.exec(`${text} ${cats}`) || [])[0]})`);
+        if (subjectRefused(ARTWORK, t, text)) hits.push(`${key} ${c.commonsTitle}: a print/painting, not the place (${(ARTWORK.exec(text) || [])[0]})`);
+        if (subjectRefused(VEHICLES, t, text)) hits.push(`${key} ${c.commonsTitle}: vehicles or works may dominate (${(VEHICLES.exec(text) || [])[0]}) — look`);
         if (c.slot && !t.winterOk && GLOOM.test(text)) hits.push(`${key} ${c.commonsTitle}: gloomy hero (${(GLOOM.exec(text) || [])[0]})`);
       }
     }
@@ -459,12 +471,14 @@ async function main() {
     return { ok: `${p.t.key} ← ${info.title} (${info.lic.licence}, ${info.author}) → ${out.map(v => `${v.file} ${v.kb} KB`).join(', ')}` };
   }
 
+  /** Every file a person refused, whichever target it was refused for: the reason is about the photo, not the place. */
+  const refusedAnywhere = new Set(man.targets.flatMap(t => (t.candidates || []).filter(c => c.refused).map(c => c.file)));
   try {
     if (!o.noRescan) await rescan();
     for (const p of todo) {
       let done = false;
       const tries = p.cands.slice(), arts = p.lead ? articlesOf(p.t).slice() : [];
-      const refusedFile = new Set((p.t.candidates || []).filter(c => c.refused).map(c => c.file));
+      const refusedFile = refusedAnywhere;   // a file refused for one target is refused for every target (W8: Den Den → Mandarake)
       for (let i = 0; !done; i++) {
         let c = tries[i];
         if (!c) {                                    // candidates exhausted: the articles' lead images, in order
@@ -475,6 +489,7 @@ async function main() {
           if (refusedFile.has(f)) { refused.push(`${p.t.key} ${f}: refused after review (lead image of ${art})`); continue; }
           c = { file: f, confidence: 'lead', depicts: p.t.type === 'hero' ? '' : p.t.label.replace(/\s*\([^)]*\)\s*$/, '') };
         }
+        if (refusedAnywhere.has(c.file)) { refused.push(`${p.t.key} ${c.file}: refused after review (for another target)`); continue; }
         const r = await inspect(p.t, c.file);
         if (r.why) { refused.push(`${p.t.key} ${c.file}: ${r.why}`); continue; }
         const st = await store(p, c, r.ok);
@@ -494,4 +509,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };

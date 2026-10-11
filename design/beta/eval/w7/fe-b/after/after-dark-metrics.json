@@ -2,7 +2,7 @@
  "landing-m": {
   "overflowX": 0,
   "headerH": 64,
-  "tilesFullyAboveFold": 0,
+  "tilesFullyAboveFold": 2,
   "tilesNameAboveFold": 2,
   "tapTargetsUnder44": 0,
   "tapTargetsUnder44List": [],
@@ -21,8 +21,8 @@
  "landing-s1-m": {
   "overflowX": 0,
   "headerH": 64,
-  "tilesFullyAboveFold": 2,
-  "tilesNameAboveFold": 2,
+  "tilesFullyAboveFold": 3,
+  "tilesNameAboveFold": 4,
   "tapTargetsUnder44": 0,
   "tapTargetsUnder44List": [],
   "controlsWithoutName": 0,
@@ -40,8 +40,8 @@
  "hub-japan-m": {
   "overflowX": 0,
   "headerH": 64,
-  "tilesFullyAboveFold": 0,
-  "tilesNameAboveFold": 0,
+  "tilesFullyAboveFold": 1,
+  "tilesNameAboveFold": 2,
   "tapTargetsUnder44": 0,
   "tapTargetsUnder44List": [],
   "controlsWithoutName": 0,
@@ -59,27 +59,8 @@
  "hub-singapore-m": {
   "overflowX": 0,
   "headerH": 64,
-  "tilesFullyAboveFold": 0,
-  "tilesNameAboveFold": 0,
-  "tapTargetsUnder44": 0,
-  "tapTargetsUnder44List": [],
-  "controlsWithoutName": 0,
-  "landmarks": [
-   "header",
-   "nav",
-   "main",
-   "footer"
-  ],
-  "skipLink": true,
-  "states": [],
-  "jsErrors": [],
-  "offOriginAborted": 0
- },
- "method-m": {
-  "overflowX": 0,
-  "headerH": 64,
-  "tilesFullyAboveFold": 0,
-  "tilesNameAboveFold": 0,
+  "tilesFullyAboveFold": 1,
+  "tilesNameAboveFold": 2,
   "tapTargetsUnder44": 0,
   "tapTargetsUnder44List": [],
   "controlsWithoutName": 0,
@@ -97,8 +78,8 @@
  "hub-us-m": {
   "overflowX": 0,
   "headerH": 64,
-  "tilesFullyAboveFold": 2,
-  "tilesNameAboveFold": 2,
+  "tilesFullyAboveFold": 4,
+  "tilesNameAboveFold": 4,
   "tapTargetsUnder44": 0,
   "tapTargetsUnder44List": [],
   "controlsWithoutName": 0,
@@ -114,6 +95,25 @@
   "offOriginAborted": 0
  },
  "hub-belgium-m": {
+  "overflowX": 0,
+  "headerH": 64,
+  "tilesFullyAboveFold": 1,
+  "tilesNameAboveFold": 2,
+  "tapTargetsUnder44": 0,
+  "tapTargetsUnder44List": [],
+  "controlsWithoutName": 0,
+  "landmarks": [
+   "header",
+   "nav",
+   "main",
+   "footer"
+  ],
+  "skipLink": true,
+  "states": [],
+  "jsErrors": [],
+  "offOriginAborted": 0
+ },
+ "archive-m": {
   "overflowX": 0,
   "headerH": 64,
   "tilesFullyAboveFold": 0,
@@ -208,25 +208,6 @@
   "jsErrors": [],
   "offOriginAborted": 0
  },
- "method-d": {
-  "overflowX": 0,
-  "headerH": 72,
-  "tilesFullyAboveFold": 0,
-  "tilesNameAboveFold": 0,
-  "tapTargetsUnder44": 0,
-  "tapTargetsUnder44List": [],
-  "controlsWithoutName": 0,
-  "landmarks": [
-   "header",
-   "nav",
-   "main",
-   "footer"
-  ],
-  "skipLink": true,
-  "states": [],
-  "jsErrors": [],
-  "offOriginAborted": 0
- },
  "hub-us-d": {
   "overflowX": 0,
   "headerH": 72,
@@ -247,6 +228,25 @@
   "offOriginAborted": 0
  },
  "hub-belgium-d": {
+  "overflowX": 0,
+  "headerH": 72,
+  "tilesFullyAboveFold": 0,
+  "tilesNameAboveFold": 0,
+  "tapTargetsUnder44": 0,
+  "tapTargetsUnder44List": [],
+  "controlsWithoutName": 0,
+  "landmarks": [
+   "header",
+   "nav",
+   "main",
+   "footer"
+  ],
+  "skipLink": true,
+  "states": [],
+  "jsErrors": [],
+  "offOriginAborted": 0
+ },
+ "archive-d": {
   "overflowX": 0,
   "headerH": 72,
   "tilesFullyAboveFold": 0,
