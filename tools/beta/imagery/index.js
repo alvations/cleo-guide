@@ -122,4 +122,4 @@ function photoFor(row, rec) {
   return row.imagery.photos[rec.id] || null;
 }
 
-module.exports = { build, motifSvg, motifOf, MOTIF_KIND, MOTIF_THEME, photoFor, heroFor, figureHtml: photos.figureHtml, heroHtml: photos.heroHtml, heroCreditHtml: photos.heroCreditHtml, collectionKind };
+module.exports = { build, motifSvg, motifOf, MOTIF_KIND, MOTIF_THEME, photoFor, heroFor, figureHtml: photos.figureHtml, heroHtml: photos.heroHtml, heroPreload: photos.heroPreload, heroCreditHtml: photos.heroCreditHtml, collectionKind };

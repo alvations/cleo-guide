@@ -1015,6 +1015,23 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - plus Dayton, Erie and the optional Silicon Valley;
     - a test that no Commons file appears in two credit rows;
     - the short-credit helper first, since FE-A and FE-B both reuse it.
+- 2026-10-11 · Atlas lane · **Atlas review fixes (orchestrator):**
+  - **Image-first card face**, decorated onto the shared `li.pl` (no fork; additions are hidden outside Atlas):
+    - Media on top at 4:3: the credited photo at its 500w copy (`sizes="240px"` in Atlas, restored on leaving), or the calm cover.
+    - On the media: the heart, a rank badge (★ for Must see), a Must see sun sticker or a Closed sticker, and a © link carrying the full TASL credit.
+    - Below the media: the name (2 lines), area · kind (the area is dropped where the list is grouped by area), and "Recommended by <first source> +N".
+  - **Phone:**
+    - the carousel uses the same face;
+    - the OSM attribution moved top-left under the chip row, clear of the List pill and the bottom pins;
+    - the city is named in the header crumbs, and the chip row is filters only (view switcher last).
+  - **Pins:** Must see pins take the sun-wash; every other pin stays neutral.
+  - **Gates:** validate + `npm test` + `beta:check` all PASS (eager JS 39 KB gzip); w2 map 35/35; `atlas-ms.js` 85/85.
+  - **After FE-A's W7 merge (57f3e39b):** FE-A's search bar (`.cbar`: search pill + view switcher) now leads Atlas on both layouts. On phones it is fixed under the header with the filter chip row below it, and the switcher stays there. The map controls, the OSM credit and "Search this area" are offset below both. My W7 test reads "the switcher stays in reach (search bar or chip row)", because it now lives in FE-A's search bar, not the chip row. All gates PASS; eager JS 27.5 KB gzip after platform's minify; `atlas-ms.js` 85/85; w2 map 35/35.
+  - **On FE-A's shared card (3cf31a3e):**
+    - Atlas opts into FE-A's `.w7-cards` face for the desktop grid and the phone list. My decorations are now carousel-only: a compact side-by-side version of the same `li.pl`.
+    - On phones Atlas follows FE-A's rule: the city bar steps aside, and the chip row carries the search pill and the switcher.
+    - In Atlas the write-up stays hidden even on the selected card. The selection ring sits on the media image.
+    - Gates all PASS; `atlas-ms.js` 85/85; w2 map 35/35.
   - **Follow-up 4 (orchestrator 16:52 / 17:05):**
     - **Credits never clip.** Cards, rows, the hero strip and the detail use imagery's short `captionHtml` ("Photo: author · licence · Wikimedia Commons (resized)", the file title on the link). It wraps in full under the media, and on phones the hero credit sits under the strip.
     - **Place detail.** It spells the title out in front, for the full TASL credit. The photo fills its slot with `object-fit:cover`, max 420 px: no letterbox.
