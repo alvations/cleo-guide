@@ -124,13 +124,18 @@ const nIn = s => +((/([\d,]+)/.exec(s.count) || [0, '0'])[1].replace(/,/g, ''));
         await page.evaluate(v => Cleo.city.map().setView([v[0], v[1]], v[2], { animate: false }), v0); await sleep(600);   // back to the first view for the sync checks
         // hover sync: card → pin and pin → card
         const hv = await page.evaluate(async () => {
-          const c = [...document.querySelectorAll('li.pl[data-ll]')].find(x => x.offsetParent && Cleo.city.pinEl(x)); if (!c) return null;
+          // a pin inside a cluster lights its bubble instead (the pin isn't drawn at this zoom)
+          const el = x => Cleo.city.pinEl(x) || (Cleo.city.inCl[x.id.slice(2)] && Cleo.city.inCl[x.id.slice(2)].getElement());
+          const c = [...document.querySelectorAll('li.pl[data-ll]')].find(x => x.offsetParent && el(x)); if (!c) return null;
           c.dispatchEvent(new MouseEvent('mouseover', { bubbles: true })); await new Promise(r => setTimeout(r, 50));
-          const a = Cleo.city.pinEl(c).classList.contains('hot'); c.dispatchEvent(new MouseEvent('mouseout', { bubbles: true }));
+          const a = el(c).classList.contains('hot'); c.dispatchEvent(new MouseEvent('mouseout', { bubbles: true }));
           return { id: c.id, cardToPin: a };
         });
-        const pinBox = await page.evaluate(() => { const els = [...document.querySelectorAll('.leaflet-marker-icon.pp')].map(e => [e, e.firstElementChild.getBoundingClientRect()]).filter(([e, r]) => r.left > 120 && r.right < innerWidth * 0.55 && r.top > 260 && r.bottom < innerHeight - 120);
+        // a pin whose card is on the list's current page (the list pages by 48, like listing results)
+        const findPin = () => page.evaluate(() => { const C = Cleo.city, els = Object.keys(C.markers).filter(id => C.byId[id] && C.byId[id].offsetParent).map(id => C.markers[id].getElement()).filter(Boolean).map(e => [e, e.firstElementChild.getBoundingClientRect()]).filter(([e, r]) => r.left > 120 && r.right < innerWidth * 0.55 && r.top > 260 && r.bottom < innerHeight - 120);
           const [e, r] = els[Math.floor(els.length / 2)] || []; return e ? { x: r.left + r.width / 2, y: r.top + r.height / 2, n: e.textContent } : null; });
+        let pinBox = await findPin();
+        for (let i = 0; i < 3 && !pinBox; i++) { await page.evaluate(() => { const m = Cleo.city.map(); m.setZoom(m.getZoom() + 1, { animate: false }); }); await sleep(700); pinBox = await findPin(); }   // zoom in until one is unclustered
         let p2c = null, pv = null, det = null;
         if (pinBox) {
           await page.mouse.move(pinBox.x, pinBox.y); await sleep(150);

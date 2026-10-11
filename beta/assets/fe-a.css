@@ -243,9 +243,16 @@ html.ms-nomap[data-view=atlas] .ms-nomap-n{display:block}
 html[data-view=atlas] .ms-head .area-chips{display:flex;gap:8px;overflow-x:auto;padding:6px 0 2px;scrollbar-width:thin}
 /* the map-area filter: classes only — a card outside the area is out of the list, never out of the guide */
 html.ms-on[data-view=atlas] :is(li.pl.ms-out,section.area.ms-empty,.cleo-defer-gap){display:none}   /* in-area stubs are stamped by atlas.js */
+html[data-view=atlas] .ms-pager{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 14px;margin:24px 0;color:var(--ink-2);font-size:var(--fs-sm)}
+html[data-view=atlas] .ms-pager[hidden],html:not(.ms-on) .ms-pager,html:not([data-view=atlas]) .ms-pager{display:none}
 /* Atlas shows the cards, the map shows the rest: no rail, no Gallery pager, no lens line duplicating the head */
 html[data-view=atlas] :is(.rail,.railbar,.listpane>.shown,.mapclose,.pager){display:none!important}
 html[data-view=atlas] #cleo-grid li.pl :is(.pl-w,.pl-k,.pl-ad){display:none}   /* the card is image, name, area, sources */
+/* credited photos (imagery lane): the image is cropped 4:3 (the card's credit line is FE-A's); the calm cover steps aside.
+   The phone carousel has no room for a legible credit, so it keeps the calm cover (the list and the preview show the photo) */
+html[data-view=atlas] #cleo-grid li.pl>figure.pl-photo{margin:0}
+html[data-view=atlas] #cleo-grid li.pl>figure.pl-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-l);background:var(--sand)}
+html[data-view=atlas] #cleo-grid li.pl:has(>figure.pl-photo)>.pl-cover{display:none}
 html[data-view=atlas] li.pl.is-hover,html[data-view=atlas] li.pl.is-sel{outline:2px solid var(--ink);outline-offset:3px;border-radius:var(--r-l)}
 html[data-view=atlas] .nopin{z-index:650;top:auto;bottom:16px;left:auto;right:16px;transform:none}
 
@@ -258,6 +265,7 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
 .ms-pv-e{font-size:var(--fs-xs);color:var(--ink-3);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
 .ms-pv-n{font:var(--fw-display) 20px/1.15 var(--font-display);letter-spacing:var(--track-display)}
 .ms-pv-w{font-size:var(--fs-sm);line-height:var(--lh-sm);color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ms-pv-c{margin:0;padding:0 14px 12px;font-size:11.5px;line-height:1.35;color:var(--ink-3)}.ms-pv-c a{color:var(--ink-2)}
 .ms-pv-s{font-size:var(--fs-xs);color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
 .ms-pv:hover .ms-pv-n,.ms-pv:focus-visible .ms-pv-n{text-decoration:underline;text-underline-offset:3px}
 .ms-pv:focus-visible{outline:3px solid var(--focus);outline-offset:-3px;border-radius:var(--r-l)}
@@ -317,8 +325,9 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
   html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl{flex:0 0 min(84vw,380px);scroll-snap-align:center;display:grid;grid-template-columns:96px minmax(0,1fr);grid-auto-rows:min-content;column-gap:12px;align-content:center;
     position:relative;height:var(--car-h);margin:0;padding:10px 12px 10px 10px;overflow:hidden;background:var(--surface);border:0;border-radius:var(--r-l);box-shadow:var(--e-2)}
   html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl::before{display:none}
-  html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl>:is(.pl-cover,.pl-photo,figure){grid-column:1;grid-row:1/span 4;width:96px;height:calc(var(--car-h) - 20px);min-height:0;margin:0;border-radius:var(--r-m);aspect-ratio:auto;overflow:hidden}
-  html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl>.pl-photo~.pl-cover{display:none}
+  html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl>.pl-cover{grid-column:1;grid-row:1/span 4;width:96px;height:calc(var(--car-h) - 20px);min-height:0;margin:0;border-radius:var(--r-m);aspect-ratio:auto;overflow:hidden}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo{display:none}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl:has(>figure.pl-photo)>.pl-cover{display:grid}
   html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl>:is(.pl-e,.pl-n,.pl-s){grid-column:2;margin:0;padding:0;min-height:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-e{display:block;padding-right:40px;font-size:var(--fs-xs);line-height:24px;color:var(--ink-2)}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-e :is(.tier,.in,span){display:inline;position:static;margin:0;padding:0;min-height:0;font-size:inherit}
@@ -334,6 +343,7 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-s{display:block;line-height:20px}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-s :is(.src,.lbl,.more,.rest,.added){display:inline!important;min-height:0;min-width:0;margin:0;padding:0;font:inherit;text-decoration:none;color:inherit;pointer-events:none;vertical-align:baseline}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-s .src{font-weight:600;color:var(--ink)}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-s .src::after{content:none}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-s .rest{display:none}
   html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl>.pl-x{position:absolute;z-index:2;top:4px;right:4px;margin:0}
   html.atlas-m[data-view=atlas]:not(.ms-list) .listpane li.pl :is(.stamp,.pl-why,.pl-dist){display:none}
