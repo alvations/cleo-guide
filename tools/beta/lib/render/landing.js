@@ -22,17 +22,15 @@ function render(reg, ctx) {
   const hubHref = c => { const h = byLive[c.hub]; return h && h.kind === 'country-hub' && h.gen !== 'none' ? h.beta : null; };
   const fmt = n => n.toLocaleString('en-US');
 
-  let first = true;                                  // the first two cards on the page are above the fold: no lazy photo
   const sections = live.map(c => {
     const { main, more, all } = countryPages(c, reg);
     const n = all.reduce((s, r) => s + r.counts.P + r.counts.F, 0);
     const hub = hubHref(c);
-    const eagerRow = first; first = false;
     return `<section class="csec" id="${esc(c.key)}" aria-labelledby="c-${esc(c.key)}">
 <div class="rail-head"><h2 class="d2" id="c-${esc(c.key)}">${esc(c.name)}<span class="n">${esc(tn('hub.guides', all.length))} · ${esc(n === 1 ? t('hub.places.one') : t('hub.places', { n: fmt(n) }))}</span></h2>
 ${hub ? `<a class="more" href="${esc(hub)}">${esc(t('land.all', { country: c.name }))} ${icon('chevr', 'ico sm')}</a>` : ''}</div>
 <ul class="tiles hub2 cards dense" aria-label="${esc(t('hub.guides.label', { country: c.name }))}">
-${main.map((r, i) => cityTile(r, i, { reg, dense: true, eager: eagerRow && i < 2 })).join('\n')}
+${main.map((r, i) => cityTile(r, i, { reg, dense: true })).join('\n')}
 </ul>
 ${more.length ? `<h3 class="more-h d3">${esc(t('hub.more', { country: c.name }))}</h3>\n<ul class="morelist">\n${more.map(r => moreRow(r)).join('\n')}\n</ul>` : ''}
 </section>`;
