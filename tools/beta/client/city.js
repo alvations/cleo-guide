@@ -302,6 +302,8 @@
     cards.concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => {
       const ll = (at(c, 'data-ll') || '').split(','); if (ll.length !== 2) return;
       const id = pid(c), k = markers[id] = L.circleMarker([+ll[0], +ll[1]], Object.assign({ renderer: cv, bubblingMouseEvents: false }, dotStyle(c))).addTo(dots); if (c.stub) stub[id] = c;
+      // a canvas dot has no element of its own: the place's element is its featured pin, when it has one
+      k.getElement = () => (C.pinOf ? C.pinOf(id) : null) || undefined;
       k.on('click', () => { const r = byId[id] || card(id); if (r) pin(r); });
       k.on('mouseover', () => { const r = byId[id]; if (r) r.classList.add('is-hover'); if (C.hotId) C.hotId(id, true); });
       k.on('mouseout', () => { const r = byId[id]; if (r) r.classList.remove('is-hover'); if (C.hotId) C.hotId(id, false); });
@@ -316,7 +318,7 @@
     else setTimeout(() => { if (!(C.fitDefault && C.fitDefault())) fitCore(); }, 0);   // the city core, or the last view of this city (atlas.js)
     return true;
   };
-  const fitLens = () => { if (!live() || !map.getSize().x) return; const ll = cards.filter(c => !c.hidden && markers[pid(c)]).map(c => markers[pid(c)].getLatLng());
+  const fitLens = C.fitLens = () => { if (!live() || !map.getSize().x) return; const ll = cards.filter(c => !c.hidden && markers[pid(c)]).map(c => markers[pid(c)].getLatLng());
     if (ll.length) { auto = Date.now(); map.fitBounds(window.L.latLngBounds(ll), Object.assign(overMap(), { maxZoom: 15, animate: false })); } };
   // QA-44: the first view fits the city's core (pins within 3× the median distance of the median point, else 95 %) (a far outlier — a day trip, a mis-filed place — never zooms
   // the city out to a country); every place stays in the list, behind "Show all" and a zoom out

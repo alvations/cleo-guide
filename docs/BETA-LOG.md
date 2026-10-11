@@ -1316,3 +1316,8 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     3. `atlas-ms.js` hover and pin checks target the labelled pins (`.pp[data-id]`); count bubbles are retired. New slice-1 acceptance checks.
   - **Gates:** validate + `npm test` + `beta:check` PASS; `atlas-ms.js` 117/117; w2 map + hubs 39/39.
   - **Budget:** Tokyo Atlas 1440 ≈ 616 KB / 2,604 nodes; 390@3× ≈ 904 KB / 2,574 nodes.
+
+### FE Atlas — QA-45 / QA-52 / QA-54 + w7 atlasm (no test changed)
+- QA-45: "Show all N in one list" (pager `data-pg="all"`, and the header's Show all) stamps every deferred card and lifts paging — every place in one list; metrics `--view atlas` G1 ✅ on all pilots, first load ≤ 2 MB ✅.
+- QA-54: a query change refits the map to the matches (`C.fitLens`), so an exact-name search off the map brings the place in view.
+- QA-52 / w7 atlasm: the carousel thumbnail's figure is `display:contents` (it clips nothing) and now says `overflow:visible`; a canvas dot reports its featured pin as its element, so a tapped pin is found by the probe as the place's element; phone controls (locate, map style, key) sit bottom right above the cards, the OSM credit top left — clear of every control. `node tools/beta/qa/w7.js --only atlasm` 56/56 PASS.
