@@ -244,6 +244,35 @@ function demoteSharedObjects(rows) {
   return rows;
 }
 
+/**
+ * Review assist: pre-check the agreed accept bar (docs/LOCATION-VERIFY-ACTIONS.md § Owner decisions) so a review is
+ * mechanical. It ADVISES only; review.decision is still set by the reviewer.
+ *   pass  high + place-specific: an OSM POI whose name matches AND whose house number + street equal the registry's;
+ *         an official-site JSON-LD geo; a Wikidata/Wikipedia coordinate that also has a matching address or an
+ *         independent source within 40 m.
+ *   hold  needs a second, independent source within 50 m (any med row; a coordinate-only Wikidata/Wikipedia row;
+ *         an OSM POI without an exact address match) — logged in review.why when found.
+ *   reject low, shared-object, conflict, ambiguous, or no proposal.
+ */
+function reviewAssist(row) {
+  const p = row.proposal;
+  if (!p || ['no-match', 'ambiguous', 'planned', 'skipped'].includes(row.outcome)) return { verdict: 'reject', why: ['no proposal'] };
+  if (row.outcome === 'shared-object' || p.grade === 'low') return { verdict: 'reject', why: ['low / shared OSM object'] };
+  if (row.outcome === 'conflict') return { verdict: 'hold', why: [`conflict: ${p.distanceM} m from the current pin — look at both`] };
+  const ag = p.addressAgreement || {};
+  const exactAddr = ag.houseNumber === true && ag.street === true;
+  const corroborated = (p.corroboratedBy || []).length > 0;
+  if (p.grade === 'med') return { verdict: 'hold', why: ['med: needs a second independent source within 50 m'] };
+  if (p.kind === 'osm-poi') return exactAddr && p.nameSim >= 0.85
+    ? { verdict: 'pass', why: [`OSM POI, name ${p.nameSim}, house number + street match`] }
+    : { verdict: 'hold', why: [`OSM POI without an exact address match (house number ${ag.houseNumber}, street ${ag.street})`] };
+  if (p.kind === 'official') return { verdict: 'pass', why: ["official site's schema.org geo"] };
+  if (p.kind === 'wikidata' || p.kind === 'wikipedia') return exactAddr || corroborated
+    ? { verdict: 'pass', why: [`${p.kind} coordinate with ${exactAddr ? 'matching address' : 'an independent source within 40 m'}`] }
+    : { verdict: 'hold', why: [`${p.kind} coordinate only: needs the address or a second source`] };
+  return { verdict: 'hold', why: [`${p.kind}: check by hand`] };
+}
+
 const LIFECYCLE = /^(disused|was|abandoned|closed|demolished|removed|razed|destroyed):/;
 /** Closure evidence carried by OSM tags (lifecycle prefixes, shop=vacant). Returns [{type, detail}]. */
 function osmClosureEvidence(tags) {
@@ -681,6 +710,7 @@ async function run(opts) {
     report.rows.push(row);
   }
   demoteSharedObjects(report.rows);
+  for (const row of report.rows) row.assist = reviewAssist(row);
   for (const row of report.rows) count[row.outcome] = (count[row.outcome] || 0) + 1;
   report.summary = count;
   meta.requests = { network: http.count, cacheHits: http.cacheHits, nominatim: http.nomCount, failures: http.failures.slice(0, 50) };
@@ -725,8 +755,10 @@ function toMarkdown(rep) {
   L.push('## Summary', '', '| outcome | rows |', '|---|---|');
   for (const [k, v] of Object.entries(rep.summary)) L.push(`| ${k} | ${v} |`);
   L.push('');
+  const av = {}; rep.rows.forEach(r => { if (r.assist) av[r.assist.verdict] = (av[r.assist.verdict] || 0) + 1; });
+  if (Object.keys(av).length) L.push(`Review assist (advice against the accept bar): ${Object.entries(av).map(([k, v]) => `${k} ${v}`).join(' · ')}`, '');
   L.push('## Rows', '');
-  L.push('| place | now | scope | outcome | proposal | evidence |', '|---|---|---|---|---|---|');
+  L.push('| place | now | scope | outcome | assist | proposal | evidence |', '|---|---|---|---|---|---|---|');
   const esc = s => String(s == null ? '' : s).replace(/\|/g, '\\|').replace(/\n/g, ' ');
   for (const r of rep.rows) {
     const now = r.current.lat == null ? 'UNVERIFIED' : `${r.current.lat}, ${r.current.lng} (${r.current.confidence})`;
@@ -735,7 +767,7 @@ function toMarkdown(rep) {
     const o = r.proposal && r.proposal.osmObject;
     const osm = o ? `OSM ${o.id} ${o.class || ''}${o.addresstype ? ' · addresstype=' + o.addresstype : ''}${o.name ? ' · name “' + esc(o.name) + '”' : ' · (no name)'}${o.address ? ' · ' + esc(o.address) : ''}${Object.keys(o.tags).length ? ' · ' + esc(Object.entries(o.tags).map(([k, v]) => k + '=' + v).join(', ')) : ''}` : '';
     const ev = [osm, (r.statusProposal ? `**${r.statusProposal.suggest}**: ` : '') + (r.evidence || []).map(e => `${esc(e.detail)} ([src](${e.sourceUrl}))`).join('; '), (r.notes || []).map(esc).join('; ')].filter(Boolean).join(' — ');
-    L.push(`| ${esc(r.name)} | ${now} | ${r.scope.join(', ')} | ${r.outcome}${r.statusOutcome ? ' + ' + r.statusOutcome : ''} | ${p} | ${ev} |`);
+    L.push(`| ${esc(r.name)} | ${now} | ${r.scope.join(', ')} | ${r.outcome}${r.statusOutcome ? ' + ' + r.statusOutcome : ''} | ${r.assist ? `**${r.assist.verdict}**: ${esc(r.assist.why.join('; '))}` : ''} | ${p} | ${ev} |`);
   }
   L.push('');
   if (m.attribution) L.push(`_${m.attribution}_`, '');
@@ -912,4 +944,4 @@ if (require.main === module) {
 }
 
 module.exports = { normName, nameSim, haversineM, parseAddress, addrAgreement, isExtended, gradeCandidate, decide, osmClosureEvidence,
-  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };
+  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };
