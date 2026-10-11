@@ -7046,6 +7046,93 @@
    "fetched": "2026-10-11",
    "confidence": "lead",
    "color": "#c8d8e8"
+  },
+  {
+   "file": "hero--singapore--changi-960.jpg",
+   "slot": {
+    "type": "hero",
+    "key": "singapore/changi"
+   },
+   "title": "Sunrise seen from Changi Boardwalk",
+   "depicts": "Sunrise from the Changi Boardwalk",
+   "author": "Kenrick95",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunrise_seen_from_Changi_Boardwalk.jpg",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Sunrise seen from Changi Boardwalk.jpg",
+   "sha1": "757781b37ea54ec4e38e02da75610a1d5d351989",
+   "width": 960,
+   "height": 542,
+   "variants": [
+    {
+     "file": "hero--singapore--changi-500.jpg",
+     "width": 500,
+     "height": 282
+    }
+   ],
+   "modified": "resized to 500 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-11",
+   "confidence": "high",
+   "color": "#383838"
+  },
+  {
+   "file": "hero--singapore--toa-payoh-960.jpg",
+   "slot": {
+    "type": "hero",
+    "key": "singapore/toa-payoh"
+   },
+   "title": "Original \"Toa Payoh Dragon Playground\", Singapore (2025) - img 02",
+   "depicts": "The Toa Payoh dragon playground (March 2025)",
+   "author": "Chainwit.",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Original_%22Toa_Payoh_Dragon_Playground%22,_Singapore_(2025)_-_img_02.jpg",
+   "licence": "CC BY 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Original \"Toa Payoh Dragon Playground\", Singapore (2025) - img 02.jpg",
+   "sha1": "a328c9eee16dc118f51854910944cb182b20d679",
+   "width": 691,
+   "height": 921,
+   "variants": [
+    {
+     "file": "hero--singapore--toa-payoh-500.jpg",
+     "width": 500,
+     "height": 667
+    }
+   ],
+   "modified": "resized to 500 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-11",
+   "confidence": "high",
+   "color": "#d8d8d8"
+  },
+  {
+   "file": "hero--singapore--yangon-960.jpg",
+   "slot": {
+    "type": "hero",
+    "key": "singapore/yangon"
+   },
+   "title": "Sule Pagoda Yangoon",
+   "depicts": "Sule Pagoda, downtown Yangon",
+   "author": "kallerna",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sule_Pagoda_Yangoon.jpg",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "provider": "wikimedia-commons",
+   "commonsTitle": "File:Sule Pagoda Yangoon.jpg",
+   "sha1": "310d1f7e98e71b9b2ea88c1081c762e6123b329d",
+   "width": 960,
+   "height": 639,
+   "variants": [
+    {
+     "file": "hero--singapore--yangon-500.jpg",
+     "width": 500,
+     "height": 333
+    }
+   ],
+   "modified": "resized to 500 and 960 px wide; recompressed (JPEG, quality ≤ 72)",
+   "fetched": "2026-10-11",
+   "confidence": "high",
+   "color": "#3868a8"
   }
  ]
 }
