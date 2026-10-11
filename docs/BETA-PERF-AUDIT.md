@@ -43,7 +43,7 @@ There is no server, so "backend" here means the build and data side.
 | PERF-10 | Font preload (Inter and Bricolage Latin) | — | tried and measured worse; **reverted** | rejected |
 | PERF-11 | CSS after the W8 prune | cleo.css 193.7 KB raw / 34 KB gzip; fe-a.css 114 KB / 22 KB | dead code in the lane sheets is 1.6 KB (reported) | no change |
 | PERF-12 | Data payloads | places 9.0 MB raw / 2.2 MB gzip, search 698 KB / 205 KB gzip, 90 share cards 6.7 MB | already compact and lazy; see the rows | no change |
-| PERF-13 | Service-worker caching | the cache name is the build hash, so every deploy wipes a reader's offline cities | — | open → platform (W9-8) |
+| PERF-13 | Service-worker caching | the cache name is the build hash, so every deploy wipes a reader's offline cities | offline packs live in `cleo-packs`, which a deploy never wipes | fixed (2e4faf42) |
 | PERF-14 | Photos on phone @3× (W8) | Tokyo first load 930 KB; 960w photos in 104 px slots | **590 KB**; none | fixed (e83b6cc3) |
 | PERF-15 | Eager JS and deep-link DOM (W7) | 40.45 KB gzip; #p= 12,459 nodes | **27.4 KB**; **≈ 2.2 k** | fixed (eb47e76) |
 
@@ -143,12 +143,16 @@ There is no server, so "backend" here means the build and data side.
 - **`data/search.json`:** 698 KB raw / 205 KB gzip, lazy (fetched on the first search query, `search.js`) and already positional arrays.
 - **Share cards:** 90 PNGs, 6.7 MB, fetched only by link unfurlers, never by a page. They're held to ≤ 300 KB each by test-beta.
 
-### PERF-13: service-worker caching (open, platform → W9-8)
+### PERF-13: service-worker caching (fixed in W9-8, 2e4faf42)
 - **Today:**
   - the cache name is `cleo-<build hash>` and `activate` deletes every other `cleo-*` cache;
   - shell precache; navigations network-first; `?v=` assets cache-first; `data/` stale-while-revalidate; cross-origin never intercepted.
 - **Problem:** every deploy (many per day) wipes the cities a reader saved for offline.
-- **Plan (W9-8, offline pack):** split into a versioned shell cache, retired on activate, and a stable pages/data/photos cache that's pruned, not wiped. Pages stay network-first, so the stable cache never serves a stale page when online.
+- **Done (W9-8, 2e4faf42):**
+  - The versioned shell cache `cleo-<hash>` is still retired on activate.
+  - Offline packs live in `cleo-packs`, which activate never touches. A pack is pruned only by "Remove" (keeping files that another kept city still lists) and refreshes itself on an online visit.
+  - Navigations stay network-first, so a pack never serves a stale page while online.
+- **Probe:** `npm run beta:qa:pack`. It deletes every non-pack cache, as a deploy does, and kills the server; Tokyo then reloads with 488/488 places.
 - **GitHub Pages limits:** a fixed `Cache-Control: max-age=600`; no `immutable` and no custom headers. Assets are cache-busted by `?v=<hash>`, and photos by content-addressed file names.
 
 ### PERF-14 and PERF-15: earlier platform work, for the record

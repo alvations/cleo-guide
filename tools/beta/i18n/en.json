@@ -150,6 +150,16 @@
     "theme.flw.t": "Frank Lloyd Wright",
     "theme.flw.l": "Prairie School houses and the buildings that made him",
     "theme.free.t": "Free to visit",
-    "theme.free.l": "Museums, parks and landmarks that cost nothing"
+    "theme.free.l": "Museums, parks and landmarks that cost nothing",
+    "pack.title": "Take {city} with you",
+    "pack.keep": "Keep {city} offline",
+    "pack.size": "{size} on this device",
+    "pack.note": "Every place, its sources, the Guidebook and the photos at a small size. Map tiles are not saved: offline, the map shows our own pin schematic and every place stays listed.",
+    "pack.saving": "Saving {city} for offline…",
+    "pack.saved": "Saved for offline · {date}",
+    "pack.remove": "Remove",
+    "pack.removed": "{city} is no longer kept offline.",
+    "pack.failed": "Couldn’t save for offline: this browser’s storage is full or blocked. The guide works as usual online.",
+    "map.offline": "Map unavailable · all {n} places listed"
   }
 }
