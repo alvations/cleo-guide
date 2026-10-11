@@ -599,7 +599,7 @@ html[data-cleo-page="landing"] .stickypills { top: 0; }   /* the landing top bar
    old-style figures in running Bodoni, a two-line drop initial on the collection intro. No caps-only text (B-19). */
 .about p, .lens p, .method .note p { font-variant-numeric: oldstyle-nums proportional-nums; }
 .lens > p:first-of-type { font: italic 400 var(--fs-lead)/1.45 var(--font-display); color: var(--ink); max-width: 62ch; }
-.lens > p:first-of-type::first-letter { float: left; font: 500 var(--fs-d1)/.86 var(--font-display); font-style: normal; margin: 4px 8px 0 0; color: var(--city-ink); }
+/* W7 casing rule: the decorative drop cap is retired — the text starts plainly */
 .masthead .dek { font-style: italic; font-family: var(--font-display); }
 .area > h2 .area-c, .area-c { font-variant-numeric: tabular-nums; }
 

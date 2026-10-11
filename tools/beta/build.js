@@ -23,6 +23,7 @@ const stats = require('./lib/stats');
 const { pageSources, siteSources } = require('./lib/sources');
 const art = require('./lib/art');
 const imagery = require('./imagery');                              // imagery lane: motifs, photo manifest, credit gate
+const quoted = require('./lib/quoted');                            // D-39: price/rating prose is labelled, not stripped
 const { guide } = require('./lib/guide');
 const { chunk } = require('./lib/chunk');
 const views = require('./lib/views');
@@ -194,7 +195,10 @@ for (const r of cityRows) {
     changes: r.changes, feed: r.feed,                // "what changed": dated events newest first + the page's Atom feed
     // W4 gap #6 (weight): the pin-source sentence (pv.src) moves to the provenance sidecar below; no client reads it
     prov: `data/prov/${r.fileKey}.json`,
-    places: r.recs.map(x => (x.pv && x.pv.src ? Object.assign({}, x, { pv: Object.assign({}, x.pv, { src: undefined }) }) : x)),
+    // D-39 (proposed, FE-B W8): `pq` = research date on records whose prose quotes a price or a rating (lib/quoted.js);
+    // views show "Prices and ratings are quoted from the source at the time of research (<pq>)". Prose itself untouched.
+    places: r.recs.map(x => (x.pv && x.pv.src ? Object.assign({}, x, { pv: Object.assign({}, x.pv, { src: undefined }) }) : x))
+      .map(x => quoted.quotes(x) ? Object.assign({}, x, { pq: quoted.researched(x) || r.stats.lastChecked || 'undated' }) : x),
   }));
   // ROUND-5 gap #2: the Gallery's rows + lead card, chosen here so its first screen never waits on the page JSON
   emit(`data/gallery/${r.fileKey}.json`, JSON.stringify(Object.assign({ _generated: 'tools/beta/build.js (lib/gallery.js) — do not edit', v: 1, key: r.key },

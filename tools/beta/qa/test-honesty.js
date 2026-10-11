@@ -57,7 +57,9 @@ const PROSE = [...DATA].sort((a, b) => b.length - a.length);
 const HONESTY = /(?:[$€£¥₫₩]\s?\d|\b\d+\s?(?:usd|eur|sgd|jpy|vnd|dollars?|yen)\b|(?<![A-Z][a-z]+ )\bprices?\b|\bpriced\b|\bcheap\b|\bratings?\b|\brated \d|\b\d(?:\.\d)?\s?(?:\/\s?5|stars?)\b|\bstar[- ]score\b|\bbook now\b|\bbooking\b|\breserve (?:a|your|ahead|online|now)\b|\breservations?\b|\bavailability\b|\bopen(?:ing)? hours\b|\bopen now\b|\bopens? at\b|\bcloses? at\b)/i;
 // stated-gap lines (they say what we do NOT show) are the allowed exceptions, and so is a closed card's status line:
 // its text after "kept for the record ·" is the closure source (rule 4c), a data-rendered source label
-const ALLOWED = /Closed — kept for the record · .*|Hours and prices aren['’]t in our data|No ratings, prices or (?:opening )?hours are shown|review-aggregator star ratings never count as the recommender/gi;
+// D-39 (proposed, FE-B W8): the dated-quote label on records whose own prose quotes a price or rating is a stated
+// limit of the data, like the gap lines above — exact sentence only.
+const ALLOWED = /Closed — kept for the record · .*|Hours and prices aren['’]t in our data|No ratings, prices or (?:opening )?hours are shown|review-aggregator star ratings never count as the recommender|Prices and ratings are quoted from the source at the time of research \((?:\d{4}-\d{2}-\d{2}|undated)\)\./gi;
 
 let failures = 0;
 const hits = { honesty: [], brand: [], prose: [] };
