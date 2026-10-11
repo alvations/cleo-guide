@@ -166,6 +166,15 @@ function derivativeNote(html) {
   const by = m && cleanAuthor(m[1]);
   return by ? `derivative work by ${by}` : '';
 }
+/**
+ * The author when the Artist field is empty: an "Own work" upload (Credit field) is by its uploader, whom the API
+ * names (imageinfo user). Nothing else is guessed (W8: Tiong Bahru / Queenstown own-work files had no Artist).
+ */
+function authorOrUploader(artistHtml, creditHtml, uploader) {
+  const a = authorOf(artistHtml);
+  if (a) return a;
+  return /\bown work\b/i.test(strip(creditHtml)) && uploader ? cleanAuthor(uploader) : '';
+}
 /** Why an author string is not a clean credit name ([] when it is). */
 const authorProblems = a => [!a && 'empty', a && a.length > 60 && 'longer than 60 characters',
   /flag of|userbox|legal disclaimer|\(\s*talk\s*\)|uploader was|this image shows/i.test(a || '') && 'template or notice text',
@@ -339,7 +348,7 @@ async function main() {
 
   /** Re-read one File: from the API and apply every check. Returns {ok:info} or {why}. */
   async function inspect(t, title) {
-    const j = await api({ action: 'query', titles: title, prop: 'imageinfo|categories', iiprop: 'url|size|mime|sha1|extmetadata', iiurlwidth: snapWidths(widthsOf(t), 1e9).pop(), iiextmetadatafilter: 'LicenseShortName|LicenseUrl|Artist|ImageDescription|ObjectName|Restrictions|AttributionRequired', clshow: '!hidden', cllimit: 50 });
+    const j = await api({ action: 'query', titles: title, prop: 'imageinfo|categories', iiprop: 'url|size|mime|sha1|user|extmetadata', iiurlwidth: snapWidths(widthsOf(t), 1e9).pop(), iiextmetadatafilter: 'LicenseShortName|LicenseUrl|Artist|Credit|ImageDescription|ObjectName|Restrictions|AttributionRequired', clshow: '!hidden', cllimit: 50 });
     const pg = j.query && j.query.pages && j.query.pages[0];
     if (!pg || pg.missing || !pg.imageinfo || !pg.imageinfo[0]) return { why: 'no such file on Commons (renamed or deleted)' };
     const dup = credits.credits.find(c => c.commonsTitle === pg.title);   // one Commons file, one credit row
@@ -350,7 +359,7 @@ async function main() {
     if (ii.width > 3 * ii.height) return { why: `a panorama (${ii.width}×${ii.height}) — does not crop to a card or hero` };
     const lic = licenceOf(val('LicenseShortName'), val('LicenseUrl'));
     if (lic.why) return { why: lic.why };
-    const author = authorOf(val('Artist'));
+    const author = authorOrUploader(val('Artist'), val('Credit'), ii.user);
     if (!author) return { why: 'no author in the file metadata' };
     if (authorProblems(author).length) return { why: `author "${author.slice(0, 80)}" is not a clean name (${authorProblems(author).join(', ')})` };
     if (t.type === 'hero' && /^unknown author$/i.test(author)) return { why: 'a hero prefers a named author (this one is "Unknown author")' };
@@ -509,4 +518,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { authorOrUploader, ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
