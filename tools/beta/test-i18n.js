@@ -159,10 +159,13 @@ chk('switcher buttons are real <button>s (keyboard reachable)', (sw.match(/<butt
 const h2 = common.head({ page: 'x', title: 'x', description: 'x', rel: 'cities/testville.html', depth: 1, assetsV: ctx.assetsV });
 chk('head: hreflang ja → ?lang=ja, en + x-default → the page', [/hreflang="ja" href="[^"]*testville\.html\?lang=ja"/.test(h2), /hreflang="en" href="[^"]*testville\.html"/.test(h2), /hreflang="x-default"/.test(h2)], [true, true, true]);
 chk('head: ≥ 44 px switcher targets + Japanese system-font fallback + phrase line breaking (no CDN)', [/\.locales \.btn\{min-height:44px;min-width:44px/.test(h2), /html:lang\(ja\)\{--font-ui:[^}]*"Yu Gothic"/.test(h2), /word-break:auto-phrase/.test(h2), !/https?:\/\/[^"]*fonts/.test(h2)], [true, true, true, true]);
-chk('head: pre-paint snippet reads storage only inside try/catch', /try\{l=JSON\.parse\(localStorage\.getItem\("cleo:v1:locale"\)\)\}catch\(e\)\{\}/.test(h2) && (h2.match(/localStorage/g) || []).length === 1, true);
+chk('head: pre-paint snippet touches storage only inside try/catch (read + the en-page switcher write)', (h2.match(/localStorage/g) || []).length === 2 && (h2.match(/try\{[^{}]*localStorage\.(getItem|setItem)\([^{}]*\}catch\(\w+\)\{\}/g) || []).length === 2, true);
 const pages = man.generated.map(p => [p, fs.readFileSync(path.join(BETA, p), 'utf8')]);
 chk(`every generated page (${pages.length}) carries hreflang ja + en + x-default`, pages.filter(([, x]) => !(/hreflang="ja"/.test(x) && /hreflang="en"/.test(x) && /hreflang="x-default"/.test(x))).map(([p]) => p).slice(0, 10), []);
-chk('every generated page ships the switcher and locale.js', pages.filter(([, x]) => !(/data-cleo-locale="ja"/.test(x) && /assets\/js\/locale\.js/.test(x))).map(([p]) => p).slice(0, 10), []);
+chk('every generated page ships the switcher and the snippet that injects locale.js', pages.filter(([, x]) => !(/data-cleo-locale="ja"/.test(x) && /s\.src="[^"]*assets\/js\/locale\.js/.test(x))).map(([p]) => p).slice(0, 10), []);
+chk('no page loads locale.js eagerly (en pays no locale JS; platform eager-JS budget)', pages.filter(([, x]) => /<script[^>]+src="[^"]*locale\.js/.test(x)).map(([p]) => p).slice(0, 10), []);
+const swSrc = fs.readFileSync(path.join(BETA, 'sw.js'), 'utf8');
+chk('service worker precaches the catalogues (a chosen locale works offline)', [/assets\/i18n\/en\.json/.test(swSrc), /assets\/i18n\/ja\.json/.test(swSrc)], [true, true]);
 
 console.log('\n== D-41: RUNTIME (client/locale.js) ==');
 const LOCALE_JS = fs.readFileSync(path.join(__dirname, 'client', 'locale.js'), 'utf8');
