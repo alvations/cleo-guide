@@ -212,6 +212,24 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     assert.strictEqual(poiNoAddr.verdict, 'hold');
     assert.ok(/assist/.test(LV.toMarkdown(rep)));
   });
+  await t('census second source for med rows: within 50 m → review, far → hold (never a pin)', async () => {
+    const r3 = await LV.run({ city: 'testville-zz', registry: fx.registry, scope: ['unverified'], sources: ['nominatim', 'census'], fixtures: fx.responses, mode: 'fixtures', today: '2026-10-11' });
+    const near = r3.rows.find(r => r.name === 'Census Near Deli'), far = r3.rows.find(r => r.name === 'Census Far Deli');
+    assert.strictEqual(near.proposal.grade, 'med'); assert.strictEqual(near.proposal.kind, 'osm-address', 'census never becomes the proposal');
+    assert.ok(near.secondSource.matched && near.secondSource.distanceM <= 50, JSON.stringify(near.secondSource));
+    assert.strictEqual(near.assist.verdict, 'review');
+    assert.ok(far.secondSource.distanceM > 50); assert.strictEqual(far.assist.verdict, 'hold');
+    assert.ok(/2nd source: \[Census\]/.test(LV.toMarkdown(r3)));
+  });
+  await t('Wikidata closure dates count only for the place itself (not a same-name item 1.5 km away)', () => {
+    const r = row('Old Light Tower'); assert.strictEqual(r.outcome, 'conflict');
+    assert.ok(!r.statusProposal, 'P576 of a different, far item is not closure evidence');
+    assert.ok(row('Example Museum').statusProposal.evidence.some(e => e.type === 'wikidata-P576'), 'a linked QID still counts');
+  });
+  await t('review assist holds official JSON-LD that names something else (the venue)', () => {
+    const v = LV.reviewAssist({ outcome: 'pin', proposal: { grade: 'high', kind: 'official', nameSim: 0.2, matchedName: 'Disney Springs' } });
+    assert.strictEqual(v.verdict, 'hold');
+  });
   await t('markdown report renders every row', () => {
     const md = LV.toMarkdown(rep); for (const r of rep.rows) assert.ok(md.includes(r.name.replace(/\|/g, '\\|')), r.name);
   });
