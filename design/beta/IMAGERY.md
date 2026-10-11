@@ -412,3 +412,12 @@ Still refuses anything uncredited. New in W7:
   very detailed photo that still misses its target is scaled down (0.85× steps) and its row's width/height updated.
 - **Dominant colour.** recompress.js writes `color: "#rrggbb"` on each Commons row; the gate exposes it as
   `photo.color` for a fade-in placeholder.
+- **Author from the uploader (approved W8).** When a Commons file's Artist field is empty and its Credit field says
+  "Own work", the author is the uploader the API names (imageinfo `user`), the Commons convention for own-work
+  uploads. Nothing else is guessed. Each such row is named in the run log (`author = uploader, own work`).
+- **Copyrighted free use (approved W8)** is an allowed licence (any use, no conditions). The full credit still shows
+  author, "Copyrighted free use" and the Commons link.
+- **The view from a place is not the place.** A title of the form "<X> from <place>" / "View from <place>" is refused
+  unless the part before "from", or a vetted candidate's depicts text, names the place (`viewFrom`); the rescan flags
+  credited rows that match. (W8: "Chuo-dori from Nihonbashi" for Nihonbashi Bridge.)
+- **A refusal is per file, not per target.** A file refused for one place is refused for every place.
