@@ -47,3 +47,36 @@ The owner asked for the **fonts, the styles and everything else visual** to be *
 
    Regenerate with `npm run beta`. Keep every gate green. Save before and after screenshots in `design/beta/style/after/`. Append to `docs/BETA-LOG.md`.
 5. Your final report is ≤ 200 words: the scores before and after, the chosen direction and why, and the SHAs.
+
+## Lane: atlas-map-first (owner request, 2026-10-11)
+
+The owner says that in **Atlas** the **map must be front and centre**, as in the live map-centred guide (`cleveland.html` and the other live city maps) and as in the earlier map-centred beta Cleveland page from Waves 0–1 (`git log -- beta/cleveland.html` and `design/beta/mockups/`). Bring those ideas back into Atlas. Gallery stays the default view, and Guidebook and Insights are unchanged.
+
+**Requirements:**
+
+- **Phones (390×844):**
+  - Atlas opens **map-first**. The map fills the viewport under a compact header.
+  - The ranked list sits in a bottom tray with a peek → half → full detent; the peek shows the area chip and the first ranked place.
+  - Tapping a pin opens the sheet, and Back closes it.
+  - This reverses the earlier list-first choice for phones. Re-measure B-01/B-03 and record the decision in BETA-LOG and BETA-DECISIONS (PM-owned file: add one entry).
+- **Desktop (1440×900):**
+  - The map is the dominant pane, at least 60 % of the width.
+  - The ranked list is a slimmer side panel, with numbered pins matching the list ranks and two-way hover/click sync.
+  - Fit to the active area, and fly to the open place.
+- **Live-guide ideas to reuse (study `cleveland.html`):**
+  - area colour pins and the legend;
+  - the base-layer switch (OSM/Esri only);
+  - locate-me (opt-in, never stored);
+  - the must-see / tier filter on the map;
+  - pin clustering only at dense zooms.
+
+  Never add Google or key-required tiles; `check-google.py` must pass.
+- **Unchanged guarantees:**
+  - Everything that worked in Atlas keeps working: deep links, `#view=atlas&map=1`, the day plan route line, saved lists, Near me, and closures flagged.
+  - Every place stays reachable (P-04 and G1 gates), and the count asserts hold.
+  - No CDN dependency for content; the map mounts progressively.
+  - Budgets hold: Tokyo default ≤ 2.0 MB, FCP 4× ≤ 1.0 s.
+  - AA contrast is kept.
+- **Coordination:** the W6 type & style lane is changing `beta/assets/*.css` at the same time. Keep your CSS in Atlas-scoped selectors, pull often, and log the hooks you add in BETA-LOG.
+- **Evidence:** before and after screenshots at both viewports (Tokyo, Cleveland, a Singapore town) in `design/beta/eval/w6/atlas/`.
+- **Final report:** at most 200 words.

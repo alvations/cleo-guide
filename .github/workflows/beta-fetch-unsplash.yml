@@ -1,0 +1,92 @@
+# Beta imagery: fetch the vetted Unsplash photos named in beta/assets/img/unsplash-candidates.json.
+#
+# Why this runs on GitHub Actions: the authoring sandbox cannot reach api.unsplash.com or
+# images.unsplash.com (network policy), but a GitHub-hosted runner can. The script it runs,
+# tools/beta/imagery/fetch-unsplash.js, re-reads every candidate from the official API, keeps
+# only high-confidence matches whose title names the place, skips Unsplash+ (paid) photos,
+# fires each photo's download_location as the API guidelines require, writes resized local
+# files to beta/assets/img/photos/ and adds a "Photo by <name> on Unsplash" row to
+# beta/assets/img/CREDITS.json. The beta build and the credit gate (npm test) then refuse any
+# photo without a complete credit, so nothing uncredited can land.
+#
+# Needs one repository secret: UNSPLASH_ACCESS_KEY (Settings → Secrets and variables → Actions).
+# Without it the job warns and exits cleanly; nothing is committed.
+name: beta-fetch-unsplash
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/peaceful-goodall-i0hsrt]
+    paths:
+      - beta/assets/img/unsplash-candidates.json
+      - tools/beta/imagery/fetch-unsplash.js
+      - .github/workflows/beta-fetch-unsplash.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: beta-fetch-unsplash
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/peaceful-goodall-i0hsrt
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check for the API key
+        id: key
+        run: |
+          if [ -z "$UNSPLASH_ACCESS_KEY" ]; then
+            echo "::warning::UNSPLASH_ACCESS_KEY secret is not set; skipping the photo fetch."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          elif [ ! -f tools/beta/imagery/fetch-unsplash.js ]; then
+            echo "::warning::tools/beta/imagery/fetch-unsplash.js is not on this branch yet; skipping."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install tools
+        if: steps.key.outputs.ok == 'true'
+        run: cd tools && npm ci
+
+      - name: Fetch vetted photos
+        if: steps.key.outputs.ok == 'true'
+        run: node tools/beta/imagery/fetch-unsplash.js
+
+      - name: Rebuild the beta and run the gates
+        if: steps.key.outputs.ok == 'true'
+        run: |
+          cd tools
+          npm run beta
+          npm run validate
+          npm test
+
+      - name: Commit photos and credits
+        if: steps.key.outputs.ok == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add beta
+          if git diff --cached --quiet; then
+            echo "No new photos."
+            exit 0
+          fi
+          git commit -m "Beta imagery: fetch vetted Unsplash photos + credits (Actions)"
+          for i in 1 2 3; do
+            git pull --no-rebase --no-edit origin claude/peaceful-goodall-i0hsrt && \
+              git push origin HEAD:claude/peaceful-goodall-i0hsrt && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

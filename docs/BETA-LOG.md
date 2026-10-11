@@ -714,3 +714,21 @@ Append-only. One entry per session per wave: date, lane, session id, what change
 - 2026-10-10 21:11Z · orchestrator · DEPLOYED R5 follow-up (PR alvations/cleo-guide#8, QA-signed 63932912, merge 9f54587d). Program closed. Every beta session is archived and the check-ins have stopped.
 
 - 2026-10-11 · orchestrator · Owner request: rate the fonts, styles and every other visual element, and build the improvements, using melon-seek ideas if helpful. Opened Round 6 (type & style), briefs in `design/beta/eval/W6-BRIEFS.md`. Rubric addition in BETA-PROGRAM: a Typography & style sub-scorecard within dimension A.
+
+- 2026-10-11 11:16Z · orchestrator · Owner asked for images via Unsplash.
+  - **Blocked here:** api.unsplash.com and images.unsplash.com return 403 from the environment's network policy, the same as Wikimedia. Not routed around.
+  - **What works:** WebSearch with allowed_domains=unsplash.com returns photo page IDs and titles (e.g. Kinkaku-ji: x7Vl0wVpZBo, N5SG29ZSz_A).
+  - **Launched:** an imagery research lane (session_01VuJ1fj7XcNcQEei7qeoXap) building `beta/assets/img/unsplash-candidates.json` (verified candidates per hub and landmark, plus generic collection covers, never venues) and `tools/beta/imagery/fetch-unsplash.js`, ready to run once the owner allows the hosts and adds UNSPLASH_ACCESS_KEY.
+
+- 2026-10-11 11:17Z · orchestrator · Owner request: in Atlas the map must be front and centre, as in the live guide and the early map-centred beta Cleveland page. Launched the FE-A Atlas map-first lane (session_01GMm8uxMFE2KN29Q7WYH3EZ). On phones Atlas opens map-first with a tray; on desktop the map takes at least 60 % of the width. It reuses the live guide's ideas: area pins and legend, base switch, locate-me and tier filter. It goes through the same QA and evaluator review loop as every round before deploy.
+
+- 2026-10-11 11:20Z · orchestrator · Owner request: run 4 more rounds (R6–R9) and make sure the beta matches what was designed. Added the design-conformance checklist `design/beta/eval/ROUNDS-6-9.md` (D1–D11). Every evaluator scores it, every non-✅ row becomes next-wave work, and QA blocks any regression of a ✅ row. Round 6 is in progress: type & style, Atlas map-first and the Unsplash manifest.
+
+- 2026-10-11 11:25Z · orchestrator · Owner raised the target: **≥ 98 overall is the minimum**. Iterate until the independent review reaches it; there is no fixed round count. Evaluator independence is kept: it is not told the target and uses the same rubric. Plateau rule: if two rounds gain < 1 point and the remaining gap is owner-blocked (photographs, reviewed locale), pause and report what unblocks it.
+
+- 2026-10-11 · orchestrator · Owner asked for the Unsplash photos to come through GitHub Actions, and authorised the permission rules for it.
+  - **Added** `.github/workflows/beta-fetch-unsplash.yml`. A GitHub-hosted runner can reach the Unsplash API; this sandbox cannot.
+  - **Triggers:** manual dispatch, or a push to this branch that touches the candidate manifest, the fetch script or the workflow.
+  - **Run:** runs `tools/beta/imagery/fetch-unsplash.js` (official API, high-confidence title matches only, no Unsplash+, `download_location` fired), rebuilds the beta, runs `validate` and `test`, then commits the photos and their "Photo by X on Unsplash" credits.
+  - **Skips cleanly:** if the `UNSPLASH_ACCESS_KEY` repository secret or the script is missing, it warns and commits nothing.
+  - **Settings:** scoped allow rules in `.claude/settings.json`.
