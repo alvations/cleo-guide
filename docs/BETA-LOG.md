@@ -990,4 +990,5 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Gap #1, the signature motion moment (follow-up 3):** tapping a card (grid `li.pl` or row/lead `li.gc`) grows its media (photo, else calm cover) into the place sheet's media through one view transition named `cleo-grow`, using the designer's V2.16 CSS and `--dur-grow` / `--ease-grow` (`client/sheet.js`).
     - Triggers only on a real tap within the last second; deep links and back/forward open as before.
     - Not used when view transitions are unavailable or motion is reduced. Probe `tools/beta/w7-grow-probe.js`: motion allowed → 1 transition; reduced motion → 0 transitions and 0 animations, at 390 and 1440 (`design/beta/eval/w7/fe-a/grow-probe.txt`).
+  - **Sheet "n of N" (platform's note):** with no lens on, the count and position use `Cleo.defer.order()` (the whole view order, stamped or not), so a far `#p=` reads e.g. "311 of 488" and not "25 of 25". An unstamped neighbour is labelled "Previous place" / "Next place" and opens through its `#p=` route, which stamps it. With a lens on, the count is unchanged: the lensed set.
 
