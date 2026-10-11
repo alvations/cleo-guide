@@ -23,88 +23,12 @@
 <meta name="twitter:image" content="https://alvations.github.io/cleo-guide/beta/assets/og/country-vietnam.png">
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/tokens.css?v=c1b9d4467d">
-<link rel="stylesheet" href="../assets/cleo.css?v=0c9d4e8102">
+<link rel="stylesheet" href="../assets/tokens.css?v=34c20b63ec">
+<link rel="stylesheet" href="../assets/cleo.css?v=0675341af6">
+<link rel="stylesheet" href="../assets/fe-b.css?v=6c966c035d">
 
 
 <script src="../assets/js/core.js?v=391c852b58" defer></script>
-<style>
-.tile .art .dots{stroke:var(--dot,var(--on-night))}
-.tile.c-night .art .dots{stroke:var(--on-night)}.tile.c-night .art .dots.t1{stroke:var(--gilt-soft)}
-.tile.c-wash .art{background:var(--motif,none),linear-gradient(160deg,var(--city-wash),var(--surface));color:var(--ink)}
-.tile.c-wash .art .native,.tile.c-wash .art .ini{color:var(--city-ink)}
-.tile.c-wash .art .dots,.tile.c-paper .art .dots{stroke:var(--dot,var(--city-ink))}.tile.c-wash .art .dots.t1,.tile.c-paper .art .dots.t1{stroke:var(--ink)}
-.tile.c-city .art{background:var(--motif,none),radial-gradient(120% 140% at 0 100%,color-mix(in srgb,var(--night) 35%,transparent),transparent 60%),var(--city);color:var(--city-on)}
-.tile.c-city .art .dots{stroke:var(--city-on);stroke-opacity:.9}.tile.c-city .art .dots.t1{stroke:var(--city-on)}
-.tile.c-city .art .native,.tile.c-city .art .ini{color:var(--city-on)}.tile.c-city .art .bar{background:var(--night)}
-.tile.c-paper .art{background:var(--motif,none),repeating-radial-gradient(circle at 70% 120%,transparent 0 13px,color-mix(in srgb,var(--city) 16%,transparent) 13px 14px),var(--sand);color:var(--ink)}
-.tile.c-paper .art .native,.tile.c-paper .art .ini{color:var(--ink)}
-.tile .art .ini{position:absolute;right:14px;bottom:6px;font:italic 500 84px/1 var(--font-display);opacity:.9;color:var(--on-night)}
-.tile .art .native{color:var(--on-night)}
-.tiles.hub2 .tile .art .ini{font-size:52px;bottom:4px}
-.tile .sigline{font-size:13.5px;line-height:1.35;color:var(--ink-2);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.tile .sigline span+span::before{content:" · ";color:var(--ink-3)}
-.tile .star{font-size:12.5px}
-.tile:hover .art svg,.tile:focus-visible .art svg{transform:scale(1.04)}.tile .art svg{transition:transform .5s var(--ease,ease)}
-@media (prefers-reduced-motion:reduce){.tile .art svg{transition:none}.tile:hover .art svg{transform:none}}
-.chero{position:relative;background:var(--night);color:var(--on-night);overflow:hidden;isolation:isolate}
-.chero .sky{position:absolute;inset:0;z-index:-1;background:var(--motif,none)}
-.chero .sky svg{position:absolute;inset:0;width:100%;height:100%}
-.chero .sky .dots{stroke:var(--on-night);stroke-linecap:round;fill:none;stroke-opacity:.9}.chero .sky .dots.t1{stroke:var(--gilt-soft)}
-.chero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--night) 0,color-mix(in srgb,var(--night) 70%,transparent) 55%,transparent)}
-.chero .inner{max-width:var(--maxw);margin:0 auto;padding:28px var(--gutter) 26px}
-.chero .kicker{color:var(--on-night-2);font-size:15px;margin:0 0 6px}
-.chero h1{margin:0;color:var(--on-night)}
-.chero .why{font:italic 500 21px/1.3 var(--font-display);color:var(--on-night);margin:10px 0 0;max-width:40ch}
-.chero .why .l span+span::before{content:" · ";font-style:normal;color:var(--on-night-2)}
-.chero .facts{color:var(--on-night-2);font-size:15px;margin:12px 0 0;max-width:60ch}
-.chero .facts b{color:var(--on-night);font-weight:650}.chero .facts a{color:var(--on-night)}
-.chero .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.chero .btn{min-height:var(--tap)}
-.chero .btn-ghost{color:var(--on-night);border-color:color-mix(in srgb,var(--on-night) 45%,transparent);background:transparent}
-.chero .accentbar{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--city,var(--gilt-soft))}
-@media(max-width:639px){.chero .blurb-c{display:none}.chero .sky{opacity:.45}.chero .why{font-size:19px}.chero .inner{padding:20px var(--gutter) 22px}.chero h1{font-size:44px}}
-@media(min-width:900px){.chero .inner{padding:44px var(--gutter) 40px}.chero .why{font-size:26px}}
-.share-note{font-size:14px;color:var(--on-night-2);align-self:center}
-.themes .theme-rail{list-style:none;margin:12px 0 0;padding:2px 2px 10px;display:grid;grid-auto-flow:column;grid-auto-columns:min(74%,290px);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}
-@media(min-width:1100px){.themes .theme-rail{grid-auto-columns:calc((100% - 36px)/4)}}
-.themes .rail-head .n{display:block;margin-top:4px;font:450 14px/1.3 var(--font-ui);color:var(--ink-3);letter-spacing:0}
-@media(min-width:900px){.themes .rail-head .n{display:inline;margin-left:12px}}
-.theme-main{min-height:170px}
-.theme{scroll-snap-align:start;display:grid;grid-template-rows:1fr auto;border-radius:var(--r-l);overflow:hidden;background:var(--surface);border:1px solid var(--line)}
-.theme-main{display:grid;gap:4px;align-content:end;min-height:150px;padding:16px;text-decoration:none;color:var(--on-night);background:var(--motif,none),var(--night)}
-.theme.t-1 .theme-main{background:var(--motif,none),linear-gradient(150deg,var(--night-2),var(--night))}
-.theme.t-2 .theme-main{background:var(--motif,none),repeating-linear-gradient(135deg,transparent 0 10px,color-mix(in srgb,var(--on-night) 6%,transparent) 10px 11px),var(--night)}
-.theme.t-3 .theme-main{background:var(--motif,none),radial-gradient(120% 120% at 100% 0,var(--night-2),var(--night) 70%)}
-.theme-n{font:500 44px/1 var(--font-display);color:var(--gilt-soft)}
-.theme-t{font:500 23px/1.15 var(--font-display);color:var(--on-night)}
-.theme-w{font-size:13.5px;line-height:1.35;color:var(--on-night-2)}
-.theme-c{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 12px}
-.theme-c a{display:inline-flex;align-items:center;gap:5px;min-height:var(--tap);padding:0 12px;border:1px solid var(--line-strong);border-radius:var(--r-pill);font-size:13.5px;text-decoration:none;color:var(--ink)}
-.theme-c a b{font-weight:650;color:var(--ink-2)}
-.theme-c .more-n{font-size:13px;color:var(--ink-3);align-self:center;padding:0 4px}
-.theme-main:hover .theme-t{text-decoration:underline;text-underline-offset:4px}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .tile.c-night .art .dots.t1,:root:not([data-theme=light]) .chero .sky .dots.t1{stroke:var(--gilt)}:root:not([data-theme=light]) .theme-n{color:var(--gilt)}:root:not([data-theme=light]) .tile.c-wash .art .dots,:root:not([data-theme=light]) .tile.c-paper .art .dots{stroke:var(--city-ink)}:root:not([data-theme=light]) .tile.c-wash .art .dots.t1,:root:not([data-theme=light]) .tile.c-paper .art .dots.t1{stroke:var(--ink)}}
-:root[data-theme=dark] .tile.c-night .art .dots.t1,:root[data-theme=dark] .chero .sky .dots.t1{stroke:var(--gilt)}:root[data-theme=dark] .theme-n{color:var(--gilt)}:root[data-theme=dark] .tile.c-wash .art .dots,:root[data-theme=dark] .tile.c-paper .art .dots{stroke:var(--city-ink)}:root[data-theme=dark] .tile.c-wash .art .dots.t1,:root[data-theme=dark] .tile.c-paper .art .dots.t1{stroke:var(--ink)}
-.results .grp.guides ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0}
-.results a.is-kb,.results a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-.results mark{background:var(--gilt-soft);color:var(--ink);border-radius:2px}
-
-.motif{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%;z-index:-1;pointer-events:none}
-.theme-main{position:relative;isolation:isolate}.chero .sky .motif{object-fit:contain;object-position:100% 100%;z-index:0}
-/* ROUND-2 gap #4 (FE-B half): landing editorial rail — compact ★ tiles that scroll sideways; designer's .rail-i.sig skin */
-.editorial-s .rail-head h2 .n{margin-left:12px;font:500 15px/1.3 var(--font-ui);color:var(--ink-3)}
-html .rail.editorial{display:flex;flex-wrap:nowrap;gap:12px;overflow-x:auto;scroll-snap-type:x proximity;padding:4px 2px 14px;margin:0;grid-template-rows:none;height:auto}
-html .rail.editorial .rail-i{flex:0 0 min(80vw,300px);align-content:start;height:auto;min-height:0;aspect-ratio:auto;scroll-snap-align:start;text-decoration:none;color:var(--city-on,var(--on-night));display:grid;grid-template-columns:22px 1fr auto;gap:2px 10px;align-items:start;padding:14px 16px;border-radius:16px;font-size:inherit}
-html .rail.editorial .rail-i .g{grid-row:1/span 3;margin:2px 0 0}
-html .rail.editorial .rail-i .k{grid-column:2;font:600 12px/1.3 var(--font-ui);letter-spacing:.02em;opacity:.9}
-html .rail.editorial .rail-i .t{grid-column:2;font:500 21px/1.15 var(--font-display)}
-html .rail.editorial .rail-i .d{grid-column:2;font:13px/1.4 var(--font-ui);opacity:.9}
-html .rail.editorial .rail-i .n{grid-column:3;grid-row:1/span 2;font:500 26px/1 var(--font-display);color:inherit}
-/* W3 B-04: "Read as a guidebook" / "See it in numbers" under each hub tile (44 px targets) */
-li.dest>.dest-views{display:flex;flex-wrap:wrap;gap:0 16px;margin:4px 2px 0;font-size:14px}
-li.dest>.dest-views a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink-2,inherit);text-underline-offset:3px}
-</style>
 </head>
 <body class="has-tabbar">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol><symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.3l1.4 3 3.2.3-2.4 2.2.7 3.1L12 14.3l-2.9 1.6.7-3.1-2.4-2.2 3.2-.3z"/></symbol><symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-star4" viewBox="0 0 24 24"><path d="M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1-2.1 7.4-2.1-7.4L2.5 12l7.4-2.1z"/></symbol><symbol id="i-offline" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M7.6 7.6A5 5 0 0 0 7 9.5 4 4 0 0 0 7 17.5h10M10 5a5 5 0 0 1 6.9 3.5h.6a3.5 3.5 0 0 1 2.4 6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.2"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.2"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M6 12v7h12v-7"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.4a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.4"/></symbol></defs></svg><a class="skip" href="#main">Skip to content</a>
@@ -121,38 +45,42 @@ li.dest>.dest-views a{display:inline-flex;align-items:center;min-height:44px;col
 </div></header>
 <div class="banners" data-cleo-banners aria-live="polite"></div>
 <main id="main" class="feb">
-<section class="chero masthead" aria-labelledby="cn"><div class="sky" aria-hidden="true"><img class="motif" src="../assets/img/motifs/vietnam.svg" alt="" decoding="async"><svg viewBox="0 0 900 360" preserveAspectRatio="xMaxYMid meet" aria-hidden="true" focusable="false"><path class="dots" stroke-width="3" stroke-opacity=".75" d="M449 319h0M455 330h0M461 332h0M448 321h0M447 317h0M448 319h0M451 321h0M441 301h0M461 333h0M471 328h0M448 320h0M449 313h0M450 317h0M448 312h0M454 314h0M457 330h0M462 326h0M454 317h0M463 307h0M473 326h0M451 320h0"/><path class="dots t1" stroke-width="4.8" d="M450 319h0M451 319h0M449 320h0M434 304h0M441 332h0M454 316h0M453 317h0M448 311h0M441 331h0M435 302h0M460 329h0M474 326h0M447 316h0M453 315h0M468 298h0M469 314h0M449 317h0M444 312h0M450 320h0M450 318h0M451 318h0M426 18h0M464 22h0"/></svg></div><div class="inner">
-  <p class="kicker">Country guide · drawn from 181 verified pins</p>
+<section class="chero" aria-labelledby="cn"><div class="inner">
+<div class="copy">
+  <p class="kicker"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Country guide · 181 verified pins</p>
   <h1 class="title d1" id="cn">Vietnam</h1>
-  <p class="why"><span class="vh">Known for: </span><span class="l"><span>Saigon Notre-Dame Basilica</span><span>Hoan Kiem Lake</span><span>Banh Mi Phuong</span></span></p>
+  <p class="why"><span class="k">Known for:</span> <span class="l"><span>Saigon Notre-Dame Basilica</span><span>Hoan Kiem Lake</span><span>Banh Mi Phuong</span></span></p>
   <p class="facts"><b>5 guides · 183 places</b> · 111 sights · 72 to eat &amp; drink · status last checked 2026-10-03.</p>
   <p class="facts blurb-c">Ho Chi Minh City, district by district and out to the Mekong, Củ Chi, Tây Ninh and Vũng Tàu corridors.</p>
-  <div class="acts"><button type="button" class="btn btn-ghost" data-cleo-share data-title="Vietnam — 5 sourced guides · Cleo" data-url="https://alvations.github.io/cleo-guide/beta/Vietnam/" hidden><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-share"/></svg>Share Vietnam</button><a class="btn btn-ghost" href="../how-we-choose.html">How we choose</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>
-</div><span class="accentbar"></span></section>
+  <div class="acts"><a class="btn btn-primary" href="#destinations">See all 5 guides</a><button type="button" class="btn btn-ghost" data-cleo-share data-title="Vietnam — 5 sourced guides · Cleo" data-url="https://alvations.github.io/cleo-guide/beta/Vietnam/" hidden><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-share"/></svg>Share Vietnam</button><a class="btn btn-ghost" href="../how-we-choose.html"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seal"/></svg>How we choose</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>
+</div>
+<div class="hero-media cover c-1" aria-hidden="true"><picture><source media="(prefers-color-scheme: dark)" srcset="../assets/img/motifs/vietnam.svg"><img class="motif" src="../assets/img/motifs/vietnam.ink.svg" alt="" decoding="async"></picture><span class="big">183</span><span class="big-l">places, each with its sources</span></div>
+</div></section>
 <div class="wrap section" id="destinations">
-  <ul class="tiles hub2" aria-label="Vietnam guides">
-<li class="dest" data-page="vietnam/ho-chi-minh-city" data-gen="new"><a href="../Vietnam/ho-chi-minh-city.html" class="tile c-night skin-lagoon">
-<span class="art"><img class="motif" src="../assets/img/motifs/vietnam--ho-chi-minh-city.svg" alt="" loading="lazy" decoding="async"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots t1" stroke-width="3.5" d="M138 47h0M139 46h0M138 44h0M139 47h0M143 44h0M132 51h0M138 48h0M162 29h0M135 52h0M156 32h0M198 103h0M135 46h0M140 47h0M119 26h0M156 23h0M141 46h0M131 37h0M138 46h0M136 45h0M134 48h0M133 49h0M136 48h0M136 44h0M137 45h0M139 48h0M135 49h0M137 44h0M137 47h0M140 44h0M131 50h0M136 47h0M136 42h0M146 42h0"/></svg><span class="ini" aria-hidden="true">H</span><span class="bar"></span></span>
-<span class="txt"><h3>Ho Chi Minh City</h3>
+<div class="rail-head"><h2 class="d2" id="grid-h">Guides in Vietnam<span class="n">5 guides</span></h2></div>
+  <ul class="tiles hub2 cards" aria-labelledby="grid-h">
+<li class="dest" data-page="vietnam/ho-chi-minh-city" data-gen="new"><a href="../Vietnam/ho-chi-minh-city.html" class="tile card c-0">
+<span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/vietnam--ho-chi-minh-city.ink.svg" alt="" loading="lazy" decoding="async"><svg class="gl ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span class="cover-n">Ho Chi Minh City</span></span></span>
+<span class="card-body txt"><h3 class="card-t">Ho Chi Minh City</h3>
 <span class="counts"><span class="dest-c">171 places<span class="hide-m"> · 105 sights · 66 to eat &amp; drink</span></span></span>
-<span class="sigline"><span>phở</span><span>bánh mì</span><span>Cầu Ba Son</span></span></span></a><p class="dest-views"><a href="../Vietnam/ho-chi-minh-city.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Ho Chi Minh City</span></a><a href="../Vietnam/ho-chi-minh-city.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Ho Chi Minh City</span></a></p></li>
-<li class="dest" data-page="singapore/hanoi" data-gen="new"><a href="../Singapore/hanoi.html" class="tile c-wash skin-glacier">
-<span class="art"><img class="motif" src="../assets/img/motifs/singapore--hanoi.svg" alt="" loading="lazy" decoding="async"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots t1" style="--dot:#BCA7E6" stroke-width="3.5" d="M162 12h0M163 21h0"/></svg><span class="ini" aria-hidden="true">H</span><span class="bar"></span></span>
-<span class="txt"><h3>Hanoi</h3>
+<span class="sigline"><b class="k">Known for</b><span>phở</span><span>bánh mì</span><span>Cầu Ba Son</span></span><span class="recby"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seal"/></svg><span>Recommended by <b>Wikipedia, Wikipedia tiếng Việt</b> + 99 more</span></span></span></a><p class="dest-views"><a href="../Vietnam/ho-chi-minh-city.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Ho Chi Minh City</span></a><a href="../Vietnam/ho-chi-minh-city.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Ho Chi Minh City</span></a></p></li>
+<li class="dest" data-page="singapore/hanoi" data-gen="new"><a href="../Singapore/hanoi.html" class="tile card c-1">
+<span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/singapore--hanoi.ink.svg" alt="" loading="lazy" decoding="async"><svg class="gl ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span class="cover-n">Hanoi</span></span></span>
+<span class="card-body txt"><h3 class="card-t">Hanoi</h3>
 <span class="counts"><span class="dest-c">4 places<span class="hide-m"> · 2 sights · 2 to eat &amp; drink</span></span></span>
-<span class="sigline"><span>phở</span><span>bún</span><span>Ha Long Bay</span></span></span></a><p class="dest-views"><a href="../Singapore/hanoi.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Hanoi</span></a><a href="../Singapore/hanoi.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Hanoi</span></a></p></li>
-<li class="dest" data-page="singapore/hoi-an" data-gen="new"><a href="../Singapore/hoi-an.html" class="tile c-city skin-moss">
-<span class="art"><img class="motif" src="../assets/img/motifs/singapore--hoi-an.svg" alt="" loading="lazy" decoding="async"><span class="ini" aria-hidden="true">H</span><span class="bar"></span></span>
-<span class="txt"><h3>Hoi An</h3>
+<span class="sigline"><b class="k">Known for</b><span>phở</span><span>bún</span><span>Ha Long Bay</span></span><span class="recby"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seal"/></svg><span>Recommended by <b>Wikipedia, Daniel Food Diary</b> + 6 more</span></span></span></a><p class="dest-views"><a href="../Singapore/hanoi.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Hanoi</span></a><a href="../Singapore/hanoi.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Hanoi</span></a></p></li>
+<li class="dest" data-page="singapore/hoi-an" data-gen="new"><a href="../Singapore/hoi-an.html" class="tile card c-2">
+<span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/singapore--hoi-an.ink.svg" alt="" loading="lazy" decoding="async"><svg class="gl ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span class="cover-n">Hoi An</span></span></span>
+<span class="card-body txt"><h3 class="card-t">Hoi An</h3>
 <span class="counts"><span class="dest-c">2 places<span class="hide-m"> · 1 sights · 1 to eat &amp; drink</span></span></span>
-<span class="sigline"><span>bánh mì</span><span>Hoi An Ancient Town</span><span>Banh Mi Phuong</span></span></span></a><p class="dest-views"><a href="../Singapore/hoi-an.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Hoi An</span></a><a href="../Singapore/hoi-an.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Hoi An</span></a></p></li>
-<li class="dest" data-page="vietnam/hanoi" data-gen="new"><a href="../Vietnam/hanoi.html" class="tile c-paper skin-plum">
-<span class="art"><img class="motif" src="../assets/img/motifs/vietnam--hanoi.svg" alt="" loading="lazy" decoding="async"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots t1" style="--dot:#BCA7E6" stroke-width="3.5" d="M162 12h0M163 21h0"/></svg><span class="ini" aria-hidden="true">H</span><span class="bar"></span></span>
-<span class="txt"><h3>Hanoi</h3>
+<span class="sigline"><b class="k">Known for</b><span>bánh mì</span><span>Hoi An Ancient Town</span><span>Banh Mi Phuong</span></span><span class="recby"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seal"/></svg><span>Recommended by <b>Cuisine Wat Damnak (official), Eat Like Bourdain (Bourdain locations index)</b> + 2 more</span></span></span></a><p class="dest-views"><a href="../Singapore/hoi-an.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Hoi An</span></a><a href="../Singapore/hoi-an.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Hoi An</span></a></p></li>
+<li class="dest" data-page="vietnam/hanoi" data-gen="new"><a href="../Vietnam/hanoi.html" class="tile card c-3">
+<span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/vietnam--hanoi.ink.svg" alt="" loading="lazy" decoding="async"><svg class="gl ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span class="cover-n">Hanoi</span></span></span>
+<span class="card-body txt"><h3 class="card-t">Hanoi</h3>
 <span class="counts"><span class="dest-c">4 places<span class="hide-m"> · 2 sights · 2 to eat &amp; drink</span></span></span>
-<span class="sigline"><span>phở</span><span>bún</span><span>Ha Long Bay</span></span></span></a><p class="dest-views"><a href="../Vietnam/hanoi.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Hanoi</span></a><a href="../Vietnam/hanoi.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Hanoi</span></a></p></li>
+<span class="sigline"><b class="k">Known for</b><span>phở</span><span>bún</span><span>Ha Long Bay</span></span><span class="recby"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seal"/></svg><span>Recommended by <b>Wikipedia, Daniel Food Diary</b> + 6 more</span></span></span></a><p class="dest-views"><a href="../Vietnam/hanoi.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Hanoi</span></a><a href="../Vietnam/hanoi.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Hanoi</span></a></p></li>
   </ul>
-<h2 class="d3" style="margin-top:28px">More in Vietnam</h2>
+<h2 class="d3 more-h">More in Vietnam</h2>
 <ul class="morelist">
 <li class="dest" data-page="vietnam/hoi-an" data-gen="new"><a href="../Vietnam/hoi-an.html"><span class="dest-n">Hoi An</span><span class="dest-c">2 places</span></a></li>
 </ul>
@@ -162,14 +90,14 @@ li.dest>.dest-views a{display:inline-flex;align-items:center;min-height:44px;col
 
 <ul class="theme-rail" aria-label="Collections in Vietnam">
 <li class="theme t-0">
-<a class="theme-main" href="../Vietnam/ho-chi-minh-city.html#c=TEMPLE"><span class="theme-n">54</span><span class="theme-t">Temples &amp; shrines</span><span class="theme-w">From Kyoto’s great halls to neighbourhood shrines · across Vietnam</span></a>
+<a class="theme-main" href="../Vietnam/ho-chi-minh-city.html#c=TEMPLE"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/collections/temples.ink.svg" alt="" loading="lazy" decoding="async"></span><span class="theme-n">54</span><span class="theme-t">Temples &amp; shrines</span><span class="theme-w">From Kyoto’s great halls to neighbourhood shrines · across Vietnam</span></a>
 <span class="theme-c"><a href="../Vietnam/ho-chi-minh-city.html#c=TEMPLE">Ho Chi Minh City <b>52</b></a><a href="../Singapore/hanoi.html#c=TEMPLE">Hanoi <b>1</b></a><a href="../Vietnam/hanoi.html#c=TEMPLE">Hanoi <b>1</b></a></span></li>
 <li class="theme t-1">
-<a class="theme-main" href="../Vietnam/ho-chi-minh-city.html#c=FREE"><span class="theme-n">31</span><span class="theme-t">Free to visit</span><span class="theme-w">Museums, parks and landmarks that cost nothing · in Ho Chi Minh City</span></a>
+<a class="theme-main" href="../Vietnam/ho-chi-minh-city.html#c=FREE"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/collections/free.ink.svg" alt="" loading="lazy" decoding="async"></span><span class="theme-n">31</span><span class="theme-t">Free to visit</span><span class="theme-w">Museums, parks and landmarks that cost nothing · in Ho Chi Minh City</span></a>
 <span class="theme-c"><a href="../Vietnam/ho-chi-minh-city.html#c=FREE">Ho Chi Minh City <b>31</b></a></span></li>
 </ul></section></div>
-<section class="wrap section" aria-labelledby="else-h"><h2 class="d2" id="else-h">Elsewhere in Cleo</h2>
-<div class="countries" style="margin-top:12px"><a class="pill" href="../index.html#us">United States <span class="n">4,144</span></a><a class="pill" href="../Singapore/index.html">Singapore <span class="n">598</span></a><a class="pill" href="../Germany/index.html">Germany <span class="n">751</span></a><a class="pill" href="../Belgium/index.html">Belgium <span class="n">651</span></a><a class="pill" href="../Japan/index.html">Japan <span class="n">2,092</span></a></div></section>
+<section class="wrap section" aria-labelledby="else-h"><div class="rail-head"><h2 class="d2" id="else-h">Elsewhere in Cleo</h2></div>
+<ul class="ccards"><li><a class="ccard c-0" href="../index.html#us"><span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/us.ink.svg" alt="" loading="lazy" decoding="async"><svg class="gl ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-compass"/></svg><span class="cover-n">United States</span></span></span><span class="card-body"><span class="card-t">United States</span><span class="counts">21 guides · 4,144 places</span></span></a></li><li><a class="ccard c-1" href="../Singapore/index.html"><span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/singapore.ink.svg" alt="" loading="lazy" decoding="async"><svg class="gl ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-compass"/></svg><span class="cover-n">Singapore</span></span></span><span class="card-body"><span class="card-t">Singapore</span><span class="counts">29 guides · 598 places</span></span></a></li><li><a class="ccard c-2" href="../Germany/index.html"><span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/germany.ink.svg" alt="" loading="lazy" decoding="async"><svg class="gl ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-compass"/></svg><span class="cover-n">Germany</span></span></span><span class="card-body"><span class="card-t">Germany</span><span class="counts">3 guides · 751 places</span></span></a></li><li><a class="ccard c-3" href="../Belgium/index.html"><span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/belgium.ink.svg" alt="" loading="lazy" decoding="async"><svg class="gl ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-compass"/></svg><span class="cover-n">Belgium</span></span></span><span class="card-body"><span class="card-t">Belgium</span><span class="counts">5 guides · 651 places</span></span></a></li><li><a class="ccard c-0" href="../Japan/index.html"><span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/japan.ink.svg" alt="" loading="lazy" decoding="async"><svg class="gl ico" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-compass"/></svg><span class="cover-n">Japan</span></span></span><span class="card-body"><span class="card-t">Japan</span><span class="counts">5 guides · 2,092 places</span></span></a></li></ul></section>
 </main>
 
 <footer class="footer" role="contentinfo"><div class="wrap">

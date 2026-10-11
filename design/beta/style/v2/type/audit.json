@@ -1,0 +1,86 @@
+{
+ "chars_checked": 215,
+ "vietnamese_chars": 47,
+ "macron_chars": "āēīŌōū",
+ "faces": {
+  "Inter": {
+   "package": "@fontsource-variable/inter",
+   "missing": "",
+   "missing_n": 0,
+   "vietnamese_missing": "",
+   "macrons_ok": true,
+   "tnum": true,
+   "case": false,
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0
+    ]
+   ],
+   "kb_latin_ext_vn_one_master": 140.2
+  },
+  "Plus Jakarta Sans": {
+   "package": "@fontsource-variable/plus-jakarta-sans",
+   "missing": "ǎǔʼ",
+   "missing_n": 3,
+   "vietnamese_missing": "",
+   "macrons_ok": true,
+   "tnum": true,
+   "case": false,
+   "axes": [
+    [
+     "wght",
+     200.0,
+     800.0
+    ]
+   ],
+   "kb_latin_ext_vn_one_master": 56.0
+  },
+  "Hanken Grotesk": {
+   "package": "@fontsource-variable/hanken-grotesk",
+   "missing": "ʼ′″",
+   "missing_n": 3,
+   "vietnamese_missing": "",
+   "macrons_ok": true,
+   "tnum": false,
+   "case": false,
+   "axes": [
+    [
+     "wght",
+     100.0,
+     900.0
+    ]
+   ],
+   "kb_latin_ext_vn_one_master": 61.8
+  },
+  "Manrope": {
+   "package": "@fontsource-variable/manrope",
+   "missing": "ǎǔʼ′″",
+   "missing_n": 5,
+   "vietnamese_missing": "",
+   "macrons_ok": true,
+   "tnum": true,
+   "case": false,
+   "axes": [
+    [
+     "wght",
+     200.0,
+     800.0
+    ]
+   ],
+   "kb_latin_ext_vn_one_master": 47.3
+  },
+  "Be Vietnam Pro": {
+   "package": "@fontsource/be-vietnam-pro",
+   "missing": "ǎǔʼ′″",
+   "missing_n": 5,
+   "vietnamese_missing": "",
+   "macrons_ok": true,
+   "tnum": false,
+   "case": false,
+   "axes": "static",
+   "kb_latin_ext_vn_one_master": 46.5
+  }
+ }
+}

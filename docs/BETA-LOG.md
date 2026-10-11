@@ -795,3 +795,79 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Coordinated test / harness edits (QA, platform — please review):** `test-beta.js` "one marker per pinned place" now counts pins drawn + cluster bubble counts (= 488). `metrics.js`: B-07 measures the visible "List" control when the phone is already on the map and does not tap it first; B-06 "sticky" scrolls the list's own pane, and "split" accepts a list under 40 % (the map is now ≥ 60 %); B-08 skips titles clipped by their own scroll pane; B-02 reads a masthead collapsed to 0 px as 0; the pin probe only taps a pin a finger can reach (not under the tray, not a bubble). `test-fe-a.js` gains a W6 block (13 checks).
   - **Measured** (`metrics.js --view atlas`, pilots): **23/24** on Cleveland, Tokyo, New York, Chinatown, Wheeling (R5: 24/24); the one ❌ is B-04 (rail on the first phone screen), by design (D-36). B-01 **0.85**, B-03 **10**, B-06/B-07/B-08/B-20/B-23 ✅, G1 194/488/508/16/35 ✅. Tokyo default (Gallery): **1,952 KB** (≤ 2.0 MB); FCP 4× over four runs 484 / 1,188 / 804 / 680 ms (the 1,188 ran right after a full sweep; noisy, as before). Eager JS per page 40.45 KB gzip (budget ≤ 40 rounded; 47 B headroom: a minify step would help).
   - **Evidence:** `design/beta/eval/w6/atlas/` (before/after at 390 and 1440 for Tokyo, Cleveland, Chinatown + pin sheet, full tray, open place; `README.md`; metric tables). Gates: validate, npm test, beta:check PASS.
+
+- 2026-10-11 13:07Z · orchestrator · **Round 6 build complete; review started.**
+  - **Atlas map-first lane** (8c7fb6ef, b7ad67e3, 2f227631):
+    - phone map with a peek/half/full tray; desktop map ≥ 60 % of the width;
+    - numbered pins with two-way sync, legend, OSM/Esri switch, locate-me, tier filter;
+    - lazy atlas.js, so the Gallery default doesn't load it;
+    - `metrics --view atlas` 23/24 on the 5 pilots. B-04 is a by-design miss, D-36.
+  - **Pinned R6 SHA:** `2f227631252db2a90fd7e76541365a151871ac99`.
+  - **Launched in parallel:**
+    - QA full pass (session_01RX4nPDtmV2V1kHSaN6tG7z). It also rules on the Atlas lane's metrics.js/test-beta.js rule edits and on D-36.
+    - Independent evaluator (session_01KXg4vAizpiCSSLznCKWvJh): ROUND-6.md, with the rubric, the Typography & style sub-scorecard, D1–D11 and the owner-blocked points. Not told the target.
+
+- 2026-10-11 13:20Z · orchestrator · **Owner request: full UI/UX overhaul.**
+  - **What the owner said:** the colours, styles and everything else are still far from the competitors.
+  - **The target:**
+    - modern and minimal, at the image-first clarity of the leading home-rental marketplace;
+    - a unique colour scheme that is classy and luxurious, never tacky;
+    - the restraint of premium athleisure and fashion labels as reference.
+  - **Opened Wave 7** (`design/beta/eval/W7-BRIEFS.md`) with four lanes:
+    - designer: research, at least 4 unique palette directions, a type re-decision, an owner review board, then design system v2 across the beta;
+    - FE-A: city pages and views, with a search pill, category icon bar, image-first grid, map/list pill and a new place detail;
+    - FE-B: landing and hubs, launched once the R6 review sessions finish;
+    - imagery: Wikimedia Commons photos through GitHub Actions. They need no key; Unsplash still waits on the owner.
+  - **Retired as defaults:** the night hero, particle art, gold plates and purple tiles.
+  - **Checklist:** row D12 added to ROUNDS-6-9.
+  - **Round 6:** the QA and evaluator sessions keep running on 2f227631. Their scores are the baseline the overhaul is measured against.
+
+- 2026-10-11 13:25Z · orchestrator · **Owner amendment: Gen Z wanderlust feel, classy enough for Gen X and Boomers, with inviting Gen Z-style fonts.**
+  - Added the amendment to W7-BRIEFS and checklist row D13.
+  - Type plan: an expressive self-hosted OFL display face with Vietnamese, plus a highly legible text face.
+  - Owner: "autonomously continue and fan out on all lanes".
+  - FE-B (landing + hubs) launched now instead of waiting for the R6 sessions. The amendment was sent to the designer, FE-A and imagery lanes.
+
+- 2026-10-11 · FE-B (W7) · **Landing, country hubs and static pages rebuilt image-first, search-first and calm.**
+  - **Landing:** a light, search-first hero with one headline in the display face ("Where to next?", with a sunny highlighter swipe as the single expressive moment), a big search pill and country pills. Below it: one row of image-first city cards per live country, the ★ signature row and collections as image cards, a quiet "How we choose" strip with computed counts (named sources, places pinned, closed places kept), and country cards.
+  - **Card anatomy (shared with FE-A):** a rounded media slot, then name / counts / "Known for" / "Recommended by {top sources} + n more". There is no frame or border, and a soft lift on hover that is off under reduced motion.
+    - **Photo:** the imagery lane's credited photo (`hero:<key>` slot, else the best-sourced open tier-1 sight; never Vietnam), with its TASL credit under the card.
+    - **No-photo cover:** a calm neutral ground in 4 rotating tones, the city's own paper-ground line motif and its native-script name.
+  - **Hubs:**
+    - Retired the navy night hero, star-field particle art, skins and purple tiles.
+    - The hero is now copy plus media: a credited hero photo, or the calm cover with the place count as the big number. A primary CTA, share and method sit beside it.
+    - Below the hero: a "Guides in {country}" card grid (1/2/3/4 columns), the collections as image cards, and country cards.
+  - **Static pages:** method, accessibility and 404 use a light page head and the same type and spacing (17 px prose, display-face numbers).
+  - **CSS:** one cached stylesheet `assets/fe-b.css` (source `tools/beta/lib/render/fe-b.css`, tokens only, reading `--accent`/`--sun`/`--cover-1..4` with today's tokens as the fallback) replaces the inline glue CSS each hub and landing page used to carry.
+  - **Weight:** the landing went from 83 KB to ≈72 KB raw (≈11 KB gzip).
+  - **Tests:** test-i18n's fixture gains named sources, so the card's "Recommended by" line is checked in pseudo. That extends the check; nothing was relaxed.
+
+- 2026-10-11 14:20Z · orchestrator · **R6 evaluation in: 85.4** (A 77, B 88, C 96, D 89; R5 84.5).
+  - Type & style re-scored at 223/300.
+  - D1–D11: ✅ 5, ◐ 5, ✕ 1 (D9 photos, owner-blocked).
+  - About 3.1 points are owner-blocked; about 2.5 are earnable without the owner.
+  - **R6 QA (in progress)** has already found three Highs:
+    - the Leaflet `_leaflet_pos` error;
+    - the 370 px Atlas tray head;
+    - the workflow `npm ci` failure, fixed in 49deb0a7.
+  - So R6 gets no separate deploy. Its gaps are folded into W7 (W7-BRIEFS §"Round 6 evaluator gaps"):
+    - #1 motion, designer + FE-A;
+    - #2 Atlas, FE-A;
+    - #3 type, designer;
+    - #4 a11y and #5 perf, a new platform lane (session_01USPS1inq7bUDfyw89evKMA);
+    - #6 is out of beta scope;
+    - #7 and #8, FE-A.
+- 2026-10-11 14:20Z · orchestrator · **Commons photos via GitHub Actions.**
+  - The workflow gained the keyless Commons fetch (cd4196b0).
+  - Run #5 failed on HTTP 400 for a 640 px thumbnail. Wikimedia only serves standard thumbnail widths.
+  - Switched to 500/960 (eedd4207); the imagery lane is hardening fetch-commons.js (width snapping, non-fatal per-image failures).
+
+- 2026-10-11 14:26Z · orchestrator · **Owner: "Where is the map front and center in the atlas mode?! Think Zillow for travel kinda!"**
+  - **Why the owner can't see it:** the R6 map-first Atlas lives only on the branch, held back by the R6 QA Highs. The live beta still has the R5 Atlas.
+  - **Why R6 Atlas falls short anyway:** it enlarged the map but didn't make the map the way you search.
+  - **Response:**
+    - W7-BRIEFS **Amendment 2**: Atlas becomes map-search, the real-estate map-search pattern for travel.
+      - Desktop: a split view with the map at about 60 % and a 2-column card grid that follows the map bounds, pill pins, two-way hover sync and a preview card.
+      - Phone: a full-screen map, a synced card carousel and a List/Map toggle.
+    - Checklist D2 upgraded to match.
+    - A dedicated **Atlas map-search lane** (session_01Cuvo7DWhwbWjLpFicvaF5E) takes over atlas.js and Atlas CSS from FE-A.
