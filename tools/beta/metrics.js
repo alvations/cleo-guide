@@ -483,8 +483,9 @@ async function mapSync(page) {
       const lb = list && list.getBoundingClientRect();
       const fc = [...document.querySelectorAll('li.pl')].find(c => c.getBoundingClientRect().height > 0);
       const fr = fc && fc.getBoundingClientRect();
-      // map to the right of the cards (W6: Atlas gives the map ≥ 60 %, so the list may be narrower than 40 %)
-      r.split = !!fr && b.width > 0 && b.left >= fr.right - 2 && b.left > innerWidth * 0.25;
+      // map beside the cards (W6: Atlas gives the map ≥ 60 %, so the list may be narrower than 40 %). W7 Atlas map-search
+      // (Amendment 2) puts the map on the LEFT, so "beside" is either side, never overlapping (docs/BETA-LOG.md, QA to ratify)
+      r.split = !!fr && b.width > innerWidth * 0.25 && (b.left >= fr.right - 2 || b.right <= fr.left + 2);
       // sticky = the map stays in view while the list scrolls — the window, or (W6 Atlas) the list's own scroll pane
       const pane = fc && (() => { for (let e = fc.parentElement; e && e !== document.body; e = e.parentElement) { const o = getComputedStyle(e).overflowY; if ((o === 'auto' || o === 'scroll') && e.scrollHeight > e.clientHeight) return e; } return null; })();
       if (pane) pane.scrollTop = 2500; else window.scrollTo(0, 2500); await new Promise(x => setTimeout(x, 120));
