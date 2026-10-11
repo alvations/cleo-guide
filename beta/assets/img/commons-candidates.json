@@ -39,8 +39,8 @@
    "withArticle": 635
   },
   "candidates": {
-   "total": 307,
-   "high": 293,
+   "total": 308,
+   "high": 294,
    "med": 14,
    "low": 0
   },
@@ -271,7 +271,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Wheeling,_West_Virginia_on_the_Ohio_River_(7235259280).jpg",
      "depicts": "Wheeling on the Ohio River (2012)",
      "confidence": "high",
-     "reason": "title names Wheeling on the Ohio River; summary CC BY-SA 2.0"
+     "reason": "title names Wheeling on the Ohio River; summary CC BY-SA 2.0",
+     "refused": "refused by visual review (W7): hazy grey aerial through a plane window; the city does not read at card size"
     }
    ]
   },
@@ -866,14 +867,16 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Cincinnati-skyline-from-kentucky-shore-night_cropped.jpg",
      "depicts": "Cincinnati skyline and the Roebling Suspension Bridge at night from the Kentucky shore",
      "confidence": "high",
-     "reason": "title names the Cincinnati skyline; summary: Roebling bridge, Carew Tower; PD-self derivative"
+     "reason": "title names the Cincinnati skyline; summary: Roebling bridge, Carew Tower; PD-self derivative",
+     "refused": "refused by the fetch (run #18, Commons API): a 2560×601 panorama, does not crop to a hero"
     },
     {
      "file": "File:Cincinnati oh skyline crop.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Cincinnati_oh_skyline_crop.jpg",
      "depicts": "Cincinnati skyline",
      "confidence": "high",
-     "reason": "title names the Cincinnati skyline"
+     "reason": "title names the Cincinnati skyline",
+     "refused": "refused by the fetch (run #18, Commons API): no author in the file metadata"
     }
    ]
   },
@@ -1095,11 +1098,19 @@
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Erie Pa from Bicentennial Tower.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Erie_Pa_from_Bicentennial_Tower.JPG",
+     "depicts": "Erie's bayfront and downtown from the Bicentennial Tower (14 June 2013)",
+     "confidence": "high",
+     "reason": "title names Erie and the Bicentennial Tower; summary: waterfront and downtown from the top of the tower, dated 14 June 2013"
+    },
+    {
      "file": "File:North Point Lighthouse - Presque Isle, Erie, PA (8664303854).jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:North_Point_Lighthouse_-_Presque_Isle,_Erie,_PA_(8664303854).jpg",
      "depicts": "North Pier/North Point lighthouse, Presque Isle, Erie",
      "confidence": "high",
-     "reason": "title names Presque Isle, Erie, PA; summary CC BY 2.0 (Flickr)"
+     "reason": "title names Presque Isle, Erie, PA; summary CC BY 2.0 (Flickr)",
+     "refused": "refused by visual review (W7): lighthouse against a white overcast sky; the frame reads mostly white"
     },
     {
      "file": "File:Old Presque Isle Light house.JPG",
@@ -4628,14 +4639,16 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Former_Staten_Island_Railway_station_in_New_Dorp,_Staten_Island,_now_located_in_Historic_Richmond_Town.jpg",
      "depicts": "Former New Dorp railway station, now in Historic Richmond Town",
      "confidence": "high",
-     "reason": "title names Historic Richmond Town"
+     "reason": "title names Historic Richmond Town",
+     "refused": "refused by the fetch (runs #18/#20, Commons API): too small (433 px wide; minimum 640)"
     },
     {
      "file": "File:School in Historic Richmond Town in Staten Island.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:School_in_Historic_Richmond_Town_in_Staten_Island.jpg",
      "depicts": "Schoolhouse in Historic Richmond Town",
      "confidence": "high",
-     "reason": "title names Historic Richmond Town (copied from the category listing)"
+     "reason": "title names Historic Richmond Town (copied from the category listing)",
+     "refused": "refused by the fetch (runs #18/#20, Commons API): too small (537 px wide; minimum 640)"
     }
    ]
   },

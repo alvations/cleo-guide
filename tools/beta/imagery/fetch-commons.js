@@ -142,15 +142,25 @@ function authorOf(html) {
   return authorProblems(s).length && links.length && !authorProblems(links[0]).length ? links[0] : s;
 }
 function cleanAuthor(s) {
-  s = String(s || '').replace(/\(\s*(talk|contribs?|User:[^)]*|(?:https?:\/\/|www\.)[^)\s]*)\s*\)/gi, ' ').replace(/^(?:photo(?:graph)?|picture|image)\s+(?:by|:)\s+/i, '')
+  s = String(s || '').replace(FILE_PREFIX, '').replace(DERIVATIVE, '').replace(/\(\s*(talk|contribs?|User:[^)]*|(?:https?:\/\/|www\.)[^)\s]*)\s*\)/gi, ' ').replace(/^(?:photo(?:graph)?|picture|image)\s+(?:by|:)\s+/i, '')
     .replace(/\s+/g, ' ').trim().replace(/(?:\s+\.|[\s,;:·-])+$/, '');   // a lone trailing " ." goes; an initial's "O.J." stays
   const m = /^(.+?) \1$/.exec(s);
   return m ? m[1] : s;
 }
+/** "Original.jpg : " before a name (the file a derivative was made from) and a trailing "derivative work: X" note. */
+const FILE_PREFIX = /^[^:]*\.(?:jpe?g|png|tiff?|gif|svg|webp)\s*:\s*/i;
+const DERIVATIVE = /[\s;,.]*\(?\s*derivative work:?\s*([^)]*)\)?\s*$/i;
+/** The derivative note an Artist string carries ("derivative work by O.J."), for the row's `modified`; '' when none. */
+function derivativeNote(html) {
+  const m = DERIVATIVE.exec(strip(String(html || '').replace(/<(table|div|ul|ol|style|sup|small)\b[\s\S]*?<\/\1>/gi, ' ')));
+  const by = m && cleanAuthor(m[1]);
+  return by ? `derivative work by ${by}` : '';
+}
 /** Why an author string is not a clean credit name ([] when it is). */
 const authorProblems = a => [!a && 'empty', a && a.length > 60 && 'longer than 60 characters',
   /flag of|userbox|legal disclaimer|\(\s*talk\s*\)|uploader was|this image shows/i.test(a || '') && 'template or notice text',
-  /^(.+?) \1$/.test(a || '') && 'name said twice'].filter(Boolean);
+  /^(.+?) \1$/.test(a || '') && 'name said twice', /derivative/i.test(a || '') && 'a derivative note (belongs in modified)',
+  /\.(?:jpe?g|png|tiff?|gif|svg|webp)\b/i.test(a || '') && 'a file name'].filter(Boolean);
 
 /** Corporate signage, logos, lettering or advertising as the subject (owner review, W7): such a file is refused —
  * unless the sign IS the place (the target's own names say so, e.g. Sign Hill, the Glico Running Man sign). */
@@ -307,7 +317,7 @@ async function main() {
     if (subjectRefused(SIGNAGE, t, `${pg.title} ${obj} ${desc}`)) return { why: 'title or description suggests signage, lettering, a logo or advertising is the subject' };
     if (subjectRefused(CLOSEUP, t, `${pg.title} ${obj} ${desc} ${cats.join(' | ')}`)) return { why: 'title, description or categories suggest equipment, people or a close-up is the subject, not the place' };
     if (!namesPlace(t.names, pg.title, obj, desc, cats.join('|'))) return { why: `title, description and categories do not name ${t.label}` };
-    return { ok: { title: pg.title, ii, lic, author, desc, obj, cats } };
+    return { ok: { title: pg.title, ii, lic, author, desc, obj, cats, derived: derivativeNote(val('Artist')) } };
   }
 
   /**
@@ -404,7 +414,7 @@ async function main() {
       sha1: ii.sha1,
       width: main.w, height: main.h,
       ...(variants.length ? { variants } : {}),
-      modified: `resized to ${out.map(v => v.w).join(' and ')} px wide`,
+      modified: `resized to ${out.map(v => v.w).join(' and ')} px wide${info.derived ? `; ${info.derived}` : ''}`,
       fetched: today,
       confidence: c.confidence,
     });
@@ -445,4 +455,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { authorOf, cleanAuthor, authorProblems, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
