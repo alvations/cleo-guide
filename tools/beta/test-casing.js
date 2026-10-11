@@ -64,5 +64,29 @@ console.log('# casing: UI labels on every city page are sentence case');
   chk(`${labels} labels on ${pages} city pages are sentence case`, pages >= 84 && labels > 1000 && !bad.length, bad.slice(0, 5));
 }
 
+console.log('# casing: FE-B pages — landing, country hubs, Guidebook (★ signature and collection labels)');
+{
+  const pj = {}; for (const f of fs.readdirSync(path.join(BETA, 'data/places'))) { const j = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places', f), 'utf8')); pj[j.beta] = j; }
+  const ownOf = href => { const j = pj[String(href).replace(/^(\.\.\/)+/, '').split('#')[0]]; return j ? ownWords(j.name, j.nat, ...(j.areas || []).map(a => a.n)) : null; };
+  const bad = []; let labels = 0;
+  const see = (where, t, own) => { t = un(t).trim(); if (!t) return; labels++; if (!own || sentence(t, own) !== t) bad.push([where, t, own ? sentence(t, own) : 'no page']); };
+  const pages = ['index.html'].concat(fs.readdirSync(BETA, { withFileTypes: true }).filter(e => e.isDirectory() && fs.existsSync(path.join(BETA, e.name, 'index.html'))).map(e => e.name + '/index.html'));
+  for (const rel of pages) {
+    const h = fs.readFileSync(path.join(BETA, rel), 'utf8');
+    // the landing's ★ signature row (the label of the page each tile opens) and every card's ★ sticker
+    for (const m of h.matchAll(/<a class="rail-i sig" href="([^"]+)"[\s\S]*?<span class="t">([^<]*)<\/span>/g)) see(rel + ' ★ row', m[2], ownOf(m[1]));
+    for (const m of h.matchAll(/<li class="dest"[^>]*><a href="([^"]+)"[\s\S]*?<\/li>/g)) {
+      const st = /<span class="star sticker">(?:<svg[\s\S]*?<\/svg>)?([^<]*?) · [\d,]+<\/span>/.exec(m[0]); if (st) see(rel + ' ★ sticker', st[1], ownOf(m[1]));
+    }
+  }
+  // the Guidebook's ★ line, rendered from each page JSON exactly as the view draws it
+  const G = require('./client/guidebook.js');
+  for (const j of Object.values(pj)) {
+    const m = /<p class="gsig">★ ([^:]*):/.exec(G.render(j, { root: '' }).html);
+    if (m) see(j.key + ' Guidebook ★', m[1], ownWords(j.name, j.nat, ...(j.areas || []).map(a => a.n)));
+  }
+  chk(`${labels} ★ labels on the landing, ${pages.length - 1} hubs and every Guidebook are sentence case`, labels > 50 && !bad.length, bad.slice(0, 5));
+}
+
 console.log(failures ? `\n>>> FAIL — ${failures} casing check(s)` : '\n>>> PASS — casing: one helper matching the spec, no shouting styles, sentence-case labels on every city page');
 process.exit(failures ? 1 : 0);

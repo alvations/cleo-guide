@@ -161,7 +161,7 @@
       (g.tileLine && g.tileLine.text ? '<p class="lead">' + esc(g.tileLine.text) + '</p>' : '') +
       '<p class="gfacts">' + [plural(st.sights || 0, 'sight'), plural(st.food || 0, 'place') + ' to eat and drink', plural(st.sources || 0, 'named source'),
         (st.verifiedPins || 0) + ' of ' + (st.pins || 0) + ' pins verified'].concat(st.lastChecked ? ['status checked to ' + longDate(st.lastChecked)] : []).map(esc).join(' · ') + '</p>' +
-      (sig ? '<p class="gsig">★ ' + esc(sig.title) + ': ' + plural(sig.n, 'place') + ', marked through the chapters.</p>' : '') + '</header>' + since(M, up);
+      (sig ? '<p class="gsig">★ ' + esc(sig.label || sig.title) + ': ' + plural(sig.n, 'place') + ', marked through the chapters.</p>' : '') + '</header>' + since(M, up);
     var nav = '<div class="bk" data-cleo-book>' +
       '<nav class="toc" aria-label="Chapters"><p class="eyebrow">Contents</p><ol>' + toc.join('') + '</ol>' +
       '<button type="button" class="btn btn-ghost" data-cleo-print>Print as booklet</button></nav>' +
