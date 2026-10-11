@@ -8,14 +8,14 @@ H = os.path.dirname(os.path.abspath(__file__))
 R = os.path.join(H, '..', '..', '..', '..')
 UP = '../../../../'            # proto/ → repo root
 ICONS = json.load(open(os.path.join(R, 'design', 'beta', 'style', 'v2', 'icons', 'icons.json')))
-GLY = json.load(open(os.path.join(R, 'design', 'beta', 'glyphs.json')))['collections']
+_G = json.load(open(os.path.join(R, 'design', 'beta', 'glyphs.json'))); GLY = _G['collections']; GLYJP = set(_G.get('japan', []))
 PHOTOS = set(os.listdir(os.path.join(R, 'beta', 'assets', 'img', 'photos')))
 CRED = {c['file']: c for c in json.load(open(os.path.join(R, 'beta', 'assets', 'img', 'CREDITS.json')))['credits']}
 e = html.escape
 
 def load(key):
     d = json.load(open(os.path.join(R, 'beta', 'data', 'places', key + '.json')))
-    P = d['places']; col = d.get('colors', {})
+    P = [p for p in d['places'] if not p.get('warn')]; col = d.get('colors', {})   # SPEC §1.3 step 5: non-places never draw
     # SPEC §1.3 map priority: tier ↑, sources ↓, rank ↑, then round-robin across areas
     base = sorted(P, key=lambda p: (p['t'], -len(p.get('src', [])), p.get('rank', 99)))
     by = {}
@@ -31,12 +31,23 @@ def load(key):
         p['full'] = p['n'].split(' (')[0].replace(' — CLOSED', '')
         p['nm'] = re.split(r', | — | – ', p['full'])[0]          # SPEC §1.2: the map shows the short name; the full name lives in preview, card, detail
         if p['kind'] == 'food': p['gl'] = 'cup' if 'CAFE' in p.get('g', []) else 'forkknife'
-        else: p['gl'] = next((GLY[t] for t in p.get('g', []) if t in GLY), 'compass')
+        else: p['gl'] = next((GLY[t] for t in p.get('g', []) if t in GLY), None) or name_glyph(p['full'], key)
         f = f"{key}--{p['id']}-500.jpg"
         p['ph'] = f if f in PHOTOS else None
         c = CRED.get(f"{key}--{p['id']}-960.jpg") or CRED.get(f)
         p['cred'] = (c['author'][:40] + ' · ' + c['licence']) if c else ''
     return d, sorted(P, key=lambda p: p['mp'])
+
+NOUNS = [('columns', r'museum|gallery|library|hall|institute'), ('spire', r'church|cathedral|chapel|synagogue|basilica'),
+         ('leaf', r'park|gardens?|reservation|preserve|arboretum|conservatory|trail'), ('wave', r'beach|lake|river|falls|pier|harbor'),
+         ('tower', r'tower|lighthouse|observatory|bridge'), ('ticket', r'theatre|theater|playhouse|stadium|arena'),
+         ('bag', r'market|shop|bookstore'), ('flag', r'cemetery|memorial|monument')]
+
+def name_glyph(name, key):   # SPEC §1.2: collection glyph → the type noun in the place's own name → compass (never the description)
+    for g, r in NOUNS:
+        if re.search(r'\b(' + r + r')\b', name.lower()):
+            return ('torii' if key in GLYJP else g) if g == 'spire' else g
+    return 'compass'
 
 def proj(la, ln, z):
     s = 256 * 2 ** z
@@ -59,6 +70,7 @@ def fit(P, W, Hh, pad=48, k=30):
             return ((max(xs) + min(xs)) / 2, (max(ys) + min(ys)) / 2, z)
     return (0, 0, 4)
 
+ANCH = {}
 def layout(P, W, Hh, view, N, saved=(), sel=None):
     cx, cy, z = view
     ox, oy = cx - W / 2, cy - Hh / 2
@@ -72,10 +84,12 @@ def layout(P, W, Hh, view, N, saved=(), sel=None):
     for p, x, y in first + rest:
         if len(pins) >= N and p['id'] not in saved and p['id'] != sel: continue
         w = 42 + 7.7 * len(p['nm']) + (56 if p.get('closed') else 0)
-        b = (x - w / 2 - 2, y - 38, x + w / 2 + 2, y - 2)
-        if b[0] < 4 or b[2] > W - 4 or b[1] < 4: continue
-        if any(not (b[2] < c[0] or b[0] > c[2] or b[3] < c[1] or b[1] > c[3]) for c in boxes) and p['id'] != sel: continue
-        boxes.append(b); pins.append((p, x, y, w))
+        # SPEC §1.3 step 3: four anchors in turn (above with stem, right, left, below) before collapsing to a dot
+        for an, b in (('t', (x - w / 2 - 2, y - 38, x + w / 2 + 2, y - 2)), ('r', (x + 4, y - 18, x + w + 8, y + 18)),
+                      ('l', (x - w - 8, y - 18, x - 4, y + 18)), ('b', (x - w / 2 - 2, y + 4, x + w / 2 + 2, y + 40))):
+            if b[0] < 4 or b[2] > W - 4 or b[1] < 4 or b[3] > Hh - 4: continue
+            if any(not (b[2] < c[0] or b[0] > c[2] or b[3] < c[1] or b[1] > c[3]) for c in boxes) and p['id'] != sel: continue
+            ANCH[p['id']] = an; boxes.append(b); pins.append((p, x, y, w)); break
     pinned = {p['id'] for p, *_ in pins}
     dots = [(p, x, y) for p, x, y in pts if p['id'] not in pinned]
     return pts, pins, dots, z
@@ -87,7 +101,7 @@ def mix(col):  # muted area colour, SPEC §1.2 (rendered with color-mix in CSS)
     return f'color-mix(in oklab, {col} 50%, var(--area-mute))'
 
 def pin_html(p, x, y, w, saved, sel):
-    c = ['pin']
+    c = ['pin', 'a-' + ANCH.get(p['id'], 't')]
     if p['kind'] == 'food': c.append('food')
     if p['t'] == 1 and not p.get('closed'): c.append('must')
     if p.get('closed'): c.append('closed')
@@ -98,8 +112,8 @@ def pin_html(p, x, y, w, saved, sel):
             f'{svg(p["gl"])}'
             f'<b>{e(nm)}</b>{"<em>· Closed</em>" if p.get("closed") else ""}{"<span class=sv>" + svg("heart") + "</span>" if p["id"] in saved else ""}</a>')
 
-def dot_html(p, x, y):   # SPEC §1.1: one quiet neutral; eat & drink a shade darker; closed hollow
-    c = 'dot' + (' f' if p['kind'] == 'food' else '') + (' x' if p.get('closed') else '')
+def dot_html(p, x, y):   # SPEC §1.1: one quiet neutral; eat & drink a darker rounded square; closed hollow + slash; Must-see sun
+    c = 'dot' + (' f' if p['kind'] == 'food' else '') + (' x' if p.get('closed') else '') + (' m' if p['t'] == 1 and not p.get('closed') else '')
     return f'<i class="{c}" style="left:{x:.0f}px;top:{y:.0f}px"></i>'
 
 AREAN = {}
@@ -184,7 +198,7 @@ def phone(key, city, P, view=None, saved=(), sel=None, name='', me=None, food=Fa
 <section class="map ph" style="width:{W}px;height:{Hh}px">{m}
 <div class="chips"><span{' class="on"' if not food else ''}>All</span><span>Sights</span><span{' class="on"' if food else ''}>Eat &amp; drink</span><span>{svg("star4","vi")}Must see</span><span>{svg("sliders","vi")}Filters</span></div>
 <span class="ctl" style="bottom:{bot + 28}px">{svg("compass","vi")}{svg("grid","vi")}</span>
-<span class="attr ph" style="bottom:{bot}px">© OpenStreetMap contributors · Esri</span>
+<span class="attr ph" style="bottom:{bot}px">© OpenStreetMap · Esri <b class="ai">ⓘ</b></span>
 {bottom}</section>
 <p class="note">{e(name)} — {len(pins)} labelled pins, {len(dots)} dots, clear map {(Hh - 52 - bot) / 844:.0%}.</p>'''
     return body, len(pins), len(dots), z
