@@ -1325,3 +1325,24 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - Balestier is a low-priority swap.
   - **FE-B** c5cfce4d: QA-49 / R7 gap 5 fixed. B-05 shows 2 wholly-visible city cards on the landing page and every hub (the archive shows 7). Phone city cards are compact rows with no clamps.
   - test-imagery briefly failed on the branch: a runner-fetched author, "Groyn88 at English Wikipedia". Imagery fixed it in 7f668236, and it passes on the head.
+
+- 2026-10-11 20:25Z · **Orchestrator** · Atlas panel round 1 = 63.8; second Atlas engineer · commit: this entry's commit
+  - **PANEL-R1** (head d8b26516, slice 1 + Esri basemap; cadff6f4 / 5ea294e9):
+    - **63.8/100** (R0 56.1, +7.7), min 60.0, max 67.5, SD 2.28;
+    - rows: R1 9.9, **R2 14.9 (was 7.5)**, R3 8.8, R4 8.3, R5 8.4 (was 9.4: a phone regression), R6 7.5, R7 6.1;
+    - the number soup is resolved; the basemap was judged on real tiles (real/R1); the other-view regression check is clean.
+  - **Top findings:**
+    1. the detail round-trip loses your place;
+    2. the phone attribution wraps to 2 lines and covers locate-me (new regression);
+    3. near-me isn't near;
+    4. the anonymous dot field;
+    5. desktop chrome at 208 px;
+    6. text and targets too small;
+    7. closed not marked on the map;
+    8. contradictory counts;
+    - plus #11 keyboard and #13 the view in the URL (both High).
+  - **Panel process note:** two atlas-ms checks passed while the panel measured failures ("view kept" checked only the hash; "credit clear" ignored locate-me). Both are being made stricter.
+  - **Routing:**
+    - new **Atlas FE-2** (`session_011SQNDyJMGzR5K32A4y9Udd`): interaction state (#1, #3, #11, #13 and the honest view-kept probe);
+    - Atlas FE-1: QA-45 first, then #2, #5, #6, #4/#7/#8/#9/#10/#12 per spec, and #15 (a "not a place" record drawn as a pin);
+    - designer: the visual findings into SPEC-v3.

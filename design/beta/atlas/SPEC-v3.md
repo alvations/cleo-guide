@@ -1,9 +1,10 @@
 # Atlas map, spec v3: "places on a map, not numbers on a grid"
 
 - **Owner:** the designer, for the Atlas review loop ([`PANEL.md`](PANEL.md)). The Atlas lane builds it.
-- **Status:** revision 2, after PANEL-R0 (56.1 / 100; [`PANEL-R0.md`](PANEL-R0.md)). Every R0 finding has an answer and an acceptance check in this spec; the map is in §9. Slice 1 is ready to build; slices 2, 3 and 5 are specified to the panel's acceptance numbers.
+- **Status:** revision 3, after PANEL-R1 (63.8 / 100, up from 56.1; [`PANEL-R1.md`](PANEL-R1.md)). Revision 2 folded in PANEL-R0 ([`PANEL-R0.md`](PANEL-R0.md)). Every R0 finding has an answer and an acceptance check in this spec; the map is in §9. Slice 1 is ready to build; slices 2, 3 and 5 are specified to the panel's acceptance numbers.
 - **Prototypes:** [`proto/`](proto/), shot at 1440×900 and 390×844, in light and dark. They use real coordinates on a flat stub basemap; see §6.
 - **Rule 6:** no brand names. The owner's reference is written as "the real-estate map-search pattern".
+- **Owner direction:** combine the best patterns of every product kind and don't copy one (§10). The map-search navigation is the frame, not the whole product.
 - **Casing** (DESIGN-SYSTEM §v2.6): every map label, chip, pin and legend string in this spec is sentence case. Collection and cuisine labels on pins, cards and filters go through `sentenceCase()`. There are no uppercase eyebrows.
 
 ## 0. What is wrong, and the one idea that fixes it
@@ -33,7 +34,7 @@ This brings back the live map-centred guide's calm. That guide has one big map, 
 | Level | What | Drawn as | DOM cost |
 |---|---|---|---|
 | **Featured pin** | The best places in view (§1.3), up to **N = 16 desktop / 8 phone** (prototype: Tokyo 16 / 8). 24 read as busy in review, so the count was lowered. | A **labelled pill**: one kind glyph + the short name (§1.2) | One divIcon each, so ≤ 16 nodes |
-| **Place dot** | Every other place in view | A **7 px dot** in **one quiet neutral**: `--ink` at 38 % for sights, `--ink` at 62 % for eat & drink, with a thin surface halo. A **closed** dot is hollow with a 1.5 px diagonal slash, so "closed" is an icon at every zoom, not only a shade (R0 #7). Canvas `tolerance: 19` gives every dot a 44 px hit circle (R0 #5). **No number and no area colours.** Area colour returns only when an area filter is active, and in the Key. | **Zero**: one shared canvas layer (`L.canvas()` circleMarkers) |
+| **Place dot** | Every other place in view | A **7 px marker** in **one quiet neutral**, with a thin surface halo. **Kind by shape** (R1 #4): a sight is a **circle** (`--ink` at 38 %); eat & drink is a **6 px rounded square** (radius 1.5, `--ink` at 62 %). In dark mode the alphas drop to 30 % / 50 %, so the field stays quiet. **Tier hint:** a Must-see that isn't featured is drawn in `--sun` with a 1 px `--on-sun-wash` ring. A **closed** dot is hollow with a 1.5 px diagonal slash, so "closed" is an icon at every zoom, not only a shade (R0 #7). Canvas `tolerance: 19` gives every dot a 44 px hit circle (R0 #5). **No number and no area colours.** Area colour returns only when an area filter is active, and in the Key. | **Zero**: one shared canvas layer (`L.canvas()` circleMarkers) |
 | **Density disc** (replaces clusters) | Only where dots would overlap into a blob: more than 12 dots inside 28 px, which in practice means region zoom (≤ 11) | A soft **`--sand` disc at 80 % opacity** with a 1 px `--line` ring, sized by count (24 / 32 / 40 px) and **no number**. It reads as "lots here". | Canvas, zero nodes |
 
 - **No count bubbles and no rank numbers on the map, at any zoom.**
@@ -52,7 +53,12 @@ This brings back the live map-centred guide's calm. That guide has one big map, 
 ```
 
 - **One glyph, the kind** (16 px, `--ink-2`, 1.5 stroke, from the v2 icon set). There is no area dot and no star. The orchestrator's review found that three leading marks per pill were busy.
-  - **Sight:** the place's own kind glyph (`data-gl`: lantern, castle, columns, leaf, tower, wave …).
+  - **Sight:** the place's own kind glyph (`data-gl`: lantern, castle, columns, leaf, tower, wave …). It is resolved in this order (R1 #4, "Cleveland sights share one glyph"):
+    1. the glyph of the place's first collection (`glyphs.json`);
+    2. otherwise, the **type noun in the place's own name**, from this fixed table: museum, gallery, library, hall, institute → `columns`; church, cathedral, chapel, synagogue, basilica → `spire` (`torii` or `lantern` on Japan pages, per `glyphs.json`); park, garden, reservation, preserve, arboretum, conservatory, trail → `leaf`; beach, lake, river, falls, pier, harbor → `wave`; tower, lighthouse, observatory, bridge → `tower`; theatre or theater, playhouse, stadium, arena → `ticket`; market, shop, bookstore → `bag`; cemetery, memorial, monument → `flag`;
+    3. otherwise, `compass`.
+    - Only the name is read, never the description. This picks a pictogram, not a category or cuisine tag, so the cuisine rule in CLAUDE.md is untouched.
+    - Measured: Cleveland gets 8 distinct sight glyphs (75 of 148 sights matched), Pittsburgh 8 (57 of 111).
   - **Eat & drink:** the **fork-and-knife**, or the cup for cafés.
 - **Short name on the map:**
   - Inter 600, **14 px** (raised from 13 for R0 #5: no text under 14 px except credits and the attribution), `--ink`, on one line, **never truncated**.
@@ -87,10 +93,11 @@ Tiers are graded within each area, which is an editorial rule: Tokyo has 177 Mus
 **Per viewport:**
 1. Take the places inside the visible map area (excluding any panel overlay).
 2. Add saved places first, then the selected place, then sort the rest by `mp`.
-3. Walk the list, placing a pill if its label box does not collide with an already placed pill (a greedy check, with a 4 px gap).
-4. Stop at N (16 / 8). A pill that would collide or run off the map edge is skipped and stays a dot. Labels are never truncated.
-5. Every place not placed becomes a dot.
-6. Recompute on `moveend` and `zoomend`, debounced at 120 ms.
+3. Walk the list, placing a pill if its label box does not collide with an already placed pill (a greedy check, with a 4 px gap). **Try four anchors in turn** before giving up: above the point (the default, with the stem), right, left, then below (R1 #4: overlaps, and phones thinning to 1–2 names). A pill on a side anchor drops its stem and keeps a 4 px gap from the point.
+4. Stop at N (16 / 8). A pill that collides at all four anchors, or runs off the map edge, is skipped and stays a dot. Labels are never truncated, and **no two placed pills overlap**.
+5. **Records that are not a physical place** (`warn: 1` in the data, e.g. Cleveland's "@neorsd — not a place, but on the list") **never draw on the map**, neither as a pin nor as a dot. They stay in the list with their own note, so the source count is untouched (R1 #15).
+6. Every place not placed becomes a dot.
+7. Recompute on `moveend` and `zoomend`, debounced at 120 ms.
 
 As you zoom in, more places fit, so more names appear. That is the progressive disclosure, with no separate zoom thresholds to tune.
 
@@ -130,6 +137,7 @@ It ends with a dot row, "More places · zoom in to see their names". With an are
 - Tokyo zoomed in two steps from the default: **named labels ≥ 10**.
 - 390×844: ≤ 8 labelled pills, with no pill under the chip row, the peek or the carousel. **No count bubble at all** (R0 asked the largest ≤ 99). **Density discs on the phone first screen ≤ 10** (0 at the default zoom 12; discs only draw at zoom ≤ 11).
 - Every pin's hit area is ≥ 44 × 44 px; every dot's canvas hit circle is ≥ 44 px.
+- **(R1)** Sight and eat & drink dots differ by shape. **Phone, two zoom steps in from the default: ≥ 4 named pins** on Tokyo, Cleveland and New York. **0 overlapping labels.** **Cleveland shows ≥ 3 distinct sight glyphs.** No `warn` record draws on the map.
 - Every featured pin exposes `data-kind` and an aria-label with its kind; a closed pin's aria-label contains "Closed".
 - Pan and zoom produce no more than 16 + 1 marker DOM nodes. Page DOM ≤ 3,000. Dots render on canvas in one neutral (two shades by kind).
 - `#p=` opens the place selected and labelled at zoom ≥ 15, **clear of the panel** (§3.2).
@@ -152,7 +160,8 @@ It ends with a dot row, "More places · zoom in to see their names". With an are
   - on the far right, **"Search as I move the map"** as a compact switch.
 - Total chrome is 56 + 52 = **108 px** before the map.
 - **Split:** the map takes 64 % and the list 36 % (with a minimum list width of 420 px). The map is on the left, so it is the first thing the eye lands on.
-- **Acceptance (R0 #3):** the map's clear area starts at ≤ 120 px on all four pages (108 px here), and the map box is ≥ 55 % of the first screen (64 % × 792 / 900 = 56 % at 1440×900).
+- **Acceptance (R0 #3, R1 #5):** the map's clear area starts at ≤ 120 px on all four pages (108 px here), and the map box is ≥ 55 % of the first screen (64 % × 792 / 900 = 56 % at 1440×900).
+- **The document doesn't scroll in Atlas.** The map and list fill the viewport below the 108 px of chrome; only the list scrolls, inside its own column. The site footer is not part of the Atlas view: it sits at the end of the list column.
 - **Map controls on desktop:** + / − (top-left of the map), Key (bottom-left), and one stacked locate / layers control (bottom-right). The attribution is one 11 px line at the bottom-right edge; the featured-pin layout treats its box as off-map, so it never covers a pin.
 
 ### 2.2 Phone: the map is the screen (AO-6, R0 #3, #9, #12)
@@ -164,7 +173,14 @@ It ends with a dot row, "More places · zoom in to see their names". With an are
 - **Bottom: a 64 px list peek**, not the carousel. It shows the drag handle and one line, "128 places here · Show list". Tapping or dragging it opens the full list sheet. This replaces the floating "List" pill.
 - **The carousel appears only after a selection** (a pin, a dot or a search result) or after locate-me (§3.4). It replaces the peek; Escape, the back gesture or a tap on empty map brings the peek back.
 - **Controls:** **two**, locate and layers, as one stacked 44 px control at the bottom-right, 28 px above the peek or carousel, so it is in thumb reach. No + / − buttons (pinch zooms). Key lives in Filters. (R0 asked ≤ 3 controls in the bottom 60 %.)
-- **Attribution:** a single line of 11 px text in `--ink-2` on a 70 % surface strip at the bottom-left, directly above the peek or carousel. The featured-pin layout and the default fit both treat that strip as off-map, so it never covers a pin.
+- **Attribution** (R1 #2: it wrapped to two lines and covered locate, so real taps landed on the attribution):
+  - On phones it is **one line that cannot wrap**: "© OpenStreetMap · Esri" plus an **ⓘ button**, at 11 px in `--ink-2` on a 70 % surface strip, `white-space: nowrap`, at most 20 px tall, at the **bottom-left**, directly above the peek or carousel.
+  - The ⓘ has a 44 × 44 hit area. It opens a small popover with the full credit ("Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap contributors", with links), so the licence text stays one tap away and nothing is hidden.
+  - On desktop it is the full credit on one line at the bottom-right edge of the map. If the map is narrower than the credit, it falls back to the phone form.
+  - **It never shares a corner with a control.** Locate and layers are bottom-*right*; the attribution is bottom-*left*. The featured-pin layout and the default fit both treat the strip as off-map, so it never covers a pin.
+- **"Search this area"** (shown only when "Search as I move the map" is off; that switch lives in Filters on phones) is a 40 px pill centred **under the chip row** (top 112 px). It never sits at the bottom, where the attribution and controls are.
+- **At 200 % zoom** (a 195 CSS px wide viewport) the header stays 52 px, the chip row stays one line and scrolls sideways, and the peek stays 64 px. That leaves at least 50 % clear map.
+- **Acceptance (R1 #2):** a real tap on locate hits locate (`locateCoveredBy` null). The attribution is one line ≤ 20 px. Clear map ≥ 75 % at 390 and ≥ 50 % at 200 %. No two overlays overlap. Every map control sits at y ≥ 55 % of the screen or carries a text label.
 - **Clear map on the first screen:** 844 − 52 header − 52 chip row − 64 peek = 676 px, **80 %** (R0 asked ≥ 75 %). With the carousel open it is 70 %, which is a selected state, not the first screen.
 
 ### 2.3 The list beside the map (AO-4, AO-7)
@@ -291,6 +307,7 @@ It ends with a dot row, "More places · zoom in to see their names". With an are
 3. **Slice 3** (preview, carousel, round-trip, deep links).
 4. **Basemap**: settled (§4); ships with slice 1.
 5. **Slice 5** (skip link, focusable map and pins, live region, no-map state).
+6. **Slice 4, combine** (§10): source and collection lenses, day mode, saved layer and share, Directions and "Near here" in the preview. Build it after slice 3 and before slice 5. Each item reuses an existing beta feature.
 
 The R0 findings sit in these slices: #1, #5 (pins), #6, #7 in slice 1; #3, #8, #10, #12 and the card text of #5 in slice 2; #2, #4, #9, #13, #14 in slice 3; #11 in slice 5.
 
@@ -319,4 +336,40 @@ The R0 findings sit in these slices: #1, #5 (pins), #6, #7 in slice 1; #3, #8, #
 | PANEL-R0 #13 (0.5) | Map view not shareable; toast overpromises | §3.5: view in the URL; toast says what the link restores. |
 | PANEL-R0 #14 (0.3) | Inconsistent rank context | §3.6: N is always the area's full count. |
 | PANEL-R0 task gap | "Tonight" can't be answered | **Decided: no open-now filter.** Opening hours are not in the sourced data, and unsourced or stale hours would break the closed-status promise (CLAUDE.md 4c). The gap is stated, not filled: Atlas offers no "tonight" control rather than a guess. Revisit only if a sourced hours field lands in the data. |
+| PANEL-R1 (63.8; head d8b26516) | Score context | R2 14.94 / 20 (from 7.50): the names-on-the-map finding is resolved. Down: R5 8.38 (from 9.44), from the phone overlay regression below. |
+| PANEL-R1 #1 (6.0, 8/8) | The round-trip still loses the view | Not built yet; §3.2 already specifies it with R1's exact acceptance. FE engineer. |
+| PANEL-R1 #2 (5.0, 8/8, regression) | The phone attribution wraps over locate; 59 % clear map; "Search this area" overlaps | §2.2: one-line attribution plus an ⓘ popover, opposite corner from the controls, "Search this area" under the chip row, the 200 % rule and acceptance. |
+| PANEL-R1 #3 (3.8, 6/8) | Near me isn't near; the pill count ≠ the List count | §3.4 (not built yet). The pill and peek read the same in-bounds total as List mode (§2.3: one source of truth). |
+| PANEL-R1 #4 (3.7) | Anonymous dot field; phone zoom thins names; Cleveland sights share one glyph; labels overlap | §1.1: dots differ by shape, quieter in dark mode, a sun tier hint. §1.2: glyph fallback from the name's type noun. §1.3: four-anchor placement, no overlaps. §1.6: R1 acceptance. |
+| PANEL-R1 #5 (3.2) | Desktop chrome 208 px | §2.1 (slice 2, not built yet), plus "the document doesn't scroll". |
+| PANEL-R1 #6, #7, #8 | Text and targets; closed on the map; counts | Already in revision 2 (§1.1, §1.2, §2.3, §5); not built yet. |
+| PANEL-R1 #9–#14 | As in R0 | Unchanged answers: §3.3, §2.3, §5, §2.2, §3.5, §3.6. |
+| PANEL-R1 #15 | "@neorsd — not a place" drawn as a pin; phone breadcrumb collisions | §1.3 step 5: `warn` records never draw. The breadcrumb is FE chrome; on phones §2.2's header shows only back + city, with no breadcrumb. |
+| PANEL-R1 process note | Two `atlas-ms.js` checks pass while the panel measures a failure | For the FE engineer: the round-trip check must compare centre and zoom, and the credit check must include the locate control. The acceptances in §2.2 and §3.2 are the spec. |
+| Owner direction (relayed by the panel, 2026-10-11) | Don't copy one product; combine the best of each, keep the map-search navigation, don't neglect the other features | §10: a combination table built from existing beta features, plus a non-regression rule for Gallery, Guidebook, Insights and the detail (§10.1). |
 | PANEL-R0 AO-5 (rejected in part) | Must-sees stand out | Kept: the sun-wash pill stays the Must-see signal. |
+
+## 10. Slice 4, "one-up": combine the best patterns, don't copy one product (owner direction, 2026-10-11)
+
+> The owner said, in substance: don't make Atlas a literal copy of the real-estate map-search product. Take the best features from each kind of competitor and combine them so the result beats every one of them. Keep iterating on the map-search navigation, which is "super on point", and don't neglect the other features.
+
+**The rule.** The map-search navigation is the frame: the list follows the map, labelled pills, hover in sync, preview → detail, the phone carousel. It stays and keeps improving through the panel rounds. Inside that frame, Atlas surfaces what the other product kinds do best, and **almost all of it already exists in the beta**. Slice 4 brings those features onto the map instead of inventing new ones:
+
+| Pattern (product kind, described neutrally) | Already in the beta | What Atlas does with it | Acceptance |
+|---|---|---|---|
+| **Why and by whom** (travel-guide products: an editor's reason to go) | Each card has its "Recommended by" sources and a why line | The preview leads with the why line and the named sources (§3.1). Filters → **Source** narrows the map to one publisher's picks, and the count line names it: "23 places · picked by Time Out". No map-search product can show *who* recommends a place. | Choosing a source changes the pins and the count line, and the source chip names it. |
+| **Your day on the map** (itinerary and trip-planner products) | `day.js`: a 4–6 stop "Your day" per area, numbered route, legs, a share link (`#day=`) and KML export | With an area filtered, the count line offers **"Plan a day here"**. It draws the day route in `--accent` (the only accent line on the map) with numbered stops. **Numbered markers are allowed only in day mode**, where order means something; this is the single exception to §1.6's "no numbers". Each leg shows its **walking time** (straight-line distance at 80 m/min, labelled as such), with the total in the count line. Stops can be **reordered** (drag, plus up and down buttons for keyboard users) or removed. Any open, pinned place's preview offers **"Add to your day"**. Leaving day mode restores the normal pins. | Day mode shows 4–6 numbered stops, the accent route, a walking time on every leg and a total. Reordering redraws the route and the times. Outside day mode the map has 0 numbers. `#day=` opens Atlas in day mode. |
+| **Saved as a map layer, shared as a list** (saving and sharing products) | Saved places, `saved.html`, shareable list links (`listCodec`) | The **Saved ♥** chip filters the map to saved pins and fits them. The count line then reads "6 saved · Share list", which copies the existing list link **plus the current map view** (`&c=lat,lng,z`, §3.5). A shared list opens in Atlas showing only its places, at the sender's view. | Saved chip on: pins = saved places only, fitted. Share copies a `#list=…&c=…` link that reopens the same set within 1 px and 0.1 zoom of the sender's view. |
+| **Directions handoff** (maps products) | The place sheet already links to directions (OSM, plus the two platform map apps) | The preview gets a third action, **Directions**, which opens the same links as the sheet. Closed places read "Where it was". | Every open place's preview offers Directions; closed ones say "Where it was". |
+| **Nearby from here** (maps and local-discovery products) | The coordinates and the near-me distance logic (§3.4) | The preview and the detail add one line, **"Near here: A · B · C"**: the three closest open places within a 10-minute walk, each a link that selects it on the map. | The line lists ≤ 3 open places within 800 m, sorted by distance, and each opens its own preview. |
+| **Curated lenses** (editorial city guides: themed lists) | Collections ("Anime, manga and pop culture", "Free to visit", "Iconic and must-see"…) | **One tap:** the top three lenses for the city sit as chips in the desktop bar's overflow and at the top of the phone Filters sheet, and every other collection is in Filters → **Collection**. A lens turns the map into that list, and the count line names it ("12 places · Free to visit", in sentence case per §v2.6). | One tap from the first screen (desktop) or two (phone) applies a lens. The collection's places are then the only pins, and the count line names the collection. |
+| **Honest closures, dated** (our own sourcing rule, CLAUDE.md 4c) | Each place carries `pv.checked` (the date its status was verified) and `pv.ss` (the closure source) | The preview and the detail show "Open when last checked · 10 Aug 2026", or "Closed · checked 10 Aug 2026" with the source line. Closed places stay on the map, flagged (§1.1, §1.2), and never enter day mode. No map-search or listing product dates its own data. | Every preview shows the checked date when `pv.checked` exists; a closed place's preview shows the source line. |
+| **Works without the map** (our own) | Every place is in the list with or without tiles or the map library | Unchanged (§5, §7). | Unchanged. |
+
+**What we deliberately don't copy:** prices, availability calendars, review stars and booking flows. They don't fit a sourced guide, and ratings are never the recommender (CLAUDE.md).
+
+### 10.1 Don't regress the other views
+
+- Atlas work stays in the Atlas lane's files (`atlas.js`, `atlas.css` and the Atlas templates). Changes to **shared** pieces (the card component, the place sheet or detail, `day.js`, `saved.js`, tokens) go through their owners: FE-A for the card, the sheet and day; the designer for tokens and base styles. Such a change also needs a before/after check of **Gallery, Guidebook, Insights and the place detail** at 390 and 1440, in light and dark.
+- The panel's evidence pack adds those four views as regression shots from round 1 on. Any visible change there must be intended and named in the round's notes.
+- The detail round-trip (§3.2) changes how Atlas *hosts* the detail, not the detail's own layout.
