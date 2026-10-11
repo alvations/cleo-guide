@@ -1609,3 +1609,15 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - Japanese CLS is no higher than English on the same view. The Atlas CLS of 0.511 at 390 is the same in en, so it predates this work.
   - **Gap, stated:** FE-A's city-page interface strings (Gallery, Atlas, place sheet, offline pack) are not in the catalogue yet. On city pages only the shell is in Japanese.
   - validate, npm test (all suites) and beta:check PASS.
+- 2026-10-11 · i18n lane · W8 follow-up · session_01HB7igqdcuhrau7mUWSauDL · D-41: platform's conditions, SW precache, CLS re-measure.
+  - **locale.js now loads only for a non-en locale.** The pre-paint snippet injects it with a script element, not `document.write`. The paint is held only when a non-en locale is chosen.
+    - en pages load no locale JS and are never hidden.
+    - On an en page, a delegated click on the switcher stores the choice (in try/catch) and reloads.
+    - test-i18n checks that no page loads locale.js eagerly.
+  - **SW precache** (approved by the orchestrator; platform's `build.js`, marked `// i18n D-41`): `assets/i18n/*.json` are in the shell list and in the SW version hash, so a chosen locale works offline.
+  - **beta:perf before and after:** identical.
+    - The city-page phone CLS (0.29–0.34 on Cleveland, Tokyo, New York, Chinatown and Wheeling) is unchanged.
+    - A control build with ja removed measured the same, so it predates i18n. Routed to the city-page owners.
+  - **Atlas CLS:** 0.000/0.003 on this head, so my earlier 0.511 no longer reproduces.
+  - **Shots re-taken:** `design/beta/eval/i18n/`. Switching en → ja → en works in a real browser with 0 JS errors.
+  - validate, npm test (all suites) and beta:check PASS.
