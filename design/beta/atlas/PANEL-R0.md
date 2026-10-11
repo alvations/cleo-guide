@@ -11,6 +11,9 @@
 - **Basemap:** judged **without real tiles**. No `design/beta/atlas/real/R0/` shots existed when this round was
   scored, so every shot uses a flat stub tile. R6 scores pins, cards, the preview, controls and dark mode; they don't
   reflect how the basemap looks.
+  - **Addendum:** the real-tile shots for this head (`real/R0/`, 114 files) reached the branch only after the
+    scores were in. Round 0 was not re-scored. From round 1 on, the real-tile shots are part of the evidence
+    pack.
 
 ## Scores
 
