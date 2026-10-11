@@ -6875,7 +6875,7 @@
    "color": "#3868a8"
   },
   {
-   "file": "tokyo--tokyo-tower-500.jpg",
+   "file": "tokyo--tokyo-tower-720.jpg",
    "record": {
     "page": "tokyo",
     "id": "tokyo-tower"
@@ -6889,12 +6889,19 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Tokyo Tower 2024.jpg",
    "sha1": "6b22d5bef12f7d275fff8355c0d2df2509c514b3",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "high",
-   "color": "#2868b8"
+   "variants": [
+    {
+     "file": "tokyo--tokyo-tower-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
+   "color": "#0878d8"
   },
   {
    "file": "hero--singapore--tiong-bahru-960.jpg",
@@ -6955,7 +6962,7 @@
    "color": "#d8f8f8"
   },
   {
-   "file": "newyork--rockaway-beach-and-boardwalk-500.jpg",
+   "file": "newyork--rockaway-beach-and-boardwalk-720.jpg",
    "record": {
     "page": "newyork",
     "id": "rockaway-beach-and-boardwalk"
@@ -6969,15 +6976,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Rockaway Boardwalk jeh.JPG",
    "sha1": "d5edd60da2fdc69a41594ca9f46fff21acb52dc6",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "high",
+   "variants": [
+    {
+     "file": "newyork--rockaway-beach-and-boardwalk-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#6898c8"
   },
   {
-   "file": "chicago--chicago-architecture-center-500.jpg",
+   "file": "chicago--chicago-architecture-center-720.jpg",
    "record": {
     "page": "chicago",
     "id": "chicago-architecture-center"
@@ -6991,15 +7005,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Chicago Architecture Center.jpg",
    "sha1": "c3364690276b3051af9a581f14b420c5cbf1ffcf",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--chicago-architecture-center-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#585858"
   },
   {
-   "file": "chicago--chicago-board-of-trade-building-500.jpg",
+   "file": "chicago--chicago-board-of-trade-building-720.jpg",
    "record": {
     "page": "chicago",
     "id": "chicago-board-of-trade-building"
@@ -7013,15 +7034,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Chicago Board Of Trade Building.jpg",
    "sha1": "68f7f48c51254be4bafe1ef351e4f925e408b821",
-   "width": 360,
-   "height": 727,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 518,
+   "height": 1046,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--chicago-board-of-trade-building-500.jpg",
+     "width": 360,
+     "height": 727
+    }
+   ],
    "color": "#181818"
   },
   {
-   "file": "chicago--chicago-botanic-garden-500.jpg",
+   "file": "chicago--chicago-botanic-garden-720.jpg",
    "record": {
     "page": "chicago",
     "id": "chicago-botanic-garden"
@@ -7035,15 +7063,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Chicago Botanic Garden - Zig Zag Bridge.jpg",
    "sha1": "850ae23e2ad94eb7a3b4e636d82f8c65e32d4b79",
-   "width": 500,
-   "height": 333,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 480,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--chicago-botanic-garden-500.jpg",
+     "width": 500,
+     "height": 333
+    }
+   ],
    "color": "#081808"
   },
   {
-   "file": "chicago--chicago-cultural-center-500.jpg",
+   "file": "chicago--chicago-cultural-center-720.jpg",
    "record": {
     "page": "chicago",
     "id": "chicago-cultural-center"
@@ -7057,15 +7092,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Chicago Cultural Center (51574888388).jpg",
    "sha1": "21a2861d4122eef0ddc3d77105a0363082aed829",
-   "width": 500,
-   "height": 281,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 405,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--chicago-cultural-center-500.jpg",
+     "width": 500,
+     "height": 281
+    }
+   ],
    "color": "#b8b8b8"
   },
   {
-   "file": "chicago--chicago-riverwalk-500.jpg",
+   "file": "chicago--chicago-riverwalk-720.jpg",
    "record": {
     "page": "chicago",
     "id": "chicago-riverwalk"
@@ -7079,15 +7121,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Chicago Riverwalk (51556708640).jpg",
    "sha1": "bebf27ceb92d65678f9202cdfb1c550007e021db",
-   "width": 500,
-   "height": 313,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 450,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--chicago-riverwalk-500.jpg",
+     "width": 500,
+     "height": 313
+    }
+   ],
    "color": "#d8d8d8"
   },
   {
-   "file": "chicago--elks-national-veterans-memorial-500.jpg",
+   "file": "chicago--elks-national-veterans-memorial-720.jpg",
    "record": {
     "page": "chicago",
     "id": "elks-national-veterans-memorial"
@@ -7101,15 +7150,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Elks National Veterans Memorial and Headquarters.jpg",
    "sha1": "9d71840defdbf6e325f67ad38f743b7b9dc9ae80",
-   "width": 500,
-   "height": 407,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 587,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--elks-national-veterans-memorial-500.jpg",
+     "width": 500,
+     "height": 407
+    }
+   ],
    "color": "#88a8d8"
   },
   {
-   "file": "chicago--frank-lloyd-wright-historic-district-oak-park-500.jpg",
+   "file": "chicago--frank-lloyd-wright-historic-district-oak-park-720.jpg",
    "record": {
     "page": "chicago",
     "id": "frank-lloyd-wright-historic-district-oak-park"
@@ -7123,15 +7179,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Oak Park Il Balch House2.jpg",
    "sha1": "f195a5cbbcbc757493e98154809d6a3fa346030a",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--frank-lloyd-wright-historic-district-oak-park-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#f8f8f8"
   },
   {
-   "file": "chicago--frank-lloyd-wright-home-and-studio-500.jpg",
+   "file": "chicago--frank-lloyd-wright-home-and-studio-720.jpg",
    "record": {
     "page": "chicago",
     "id": "frank-lloyd-wright-home-and-studio"
@@ -7145,15 +7208,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:FLW home and studio.jpg",
    "sha1": "a40a03b2a46bdea8cb260c6aa407d73fdb6a7b88",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--frank-lloyd-wright-home-and-studio-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#080808"
   },
   {
-   "file": "chicago--frederick-c-robie-house-500.jpg",
+   "file": "chicago--frederick-c-robie-house-720.jpg",
    "record": {
     "page": "chicago",
     "id": "frederick-c-robie-house"
@@ -7167,15 +7237,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Frederick C. Robie House.JPG",
    "sha1": "ffa16f91a97f354d56d9a37b9e576f8b0667b7a4",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--frederick-c-robie-house-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#c8e8f8"
   },
   {
-   "file": "chicago--garden-of-the-phoenix-500.jpg",
+   "file": "chicago--garden-of-the-phoenix-720.jpg",
    "record": {
     "page": "chicago",
     "id": "garden-of-the-phoenix"
@@ -7189,15 +7266,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Garden of the Phoenix Jackson Park Chicago.jpg",
    "sha1": "3235bd91c1a26c80f40be0151374b5a448921593",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--garden-of-the-phoenix-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#282838"
   },
   {
-   "file": "chicago--holy-trinity-orthodox-cathedral-500.jpg",
+   "file": "chicago--holy-trinity-orthodox-cathedral-720.jpg",
    "record": {
     "page": "chicago",
     "id": "holy-trinity-orthodox-cathedral"
@@ -7211,15 +7295,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Holy Trinity Cathedral Chicago.jpg",
    "sha1": "36b29bd77eddbcfe7718709f56b0ad86e547567b",
-   "width": 500,
-   "height": 667,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 960,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--holy-trinity-orthodox-cathedral-500.jpg",
+     "width": 500,
+     "height": 667
+    }
+   ],
    "color": "#4878b8"
   },
   {
-   "file": "chicago--humboldt-park-500.jpg",
+   "file": "chicago--humboldt-park-720.jpg",
    "record": {
     "page": "chicago",
     "id": "humboldt-park"
@@ -7233,15 +7324,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Aerial Photo of Humboldt Park Boat House.jpg",
    "sha1": "b5063159cc42d4a2f08164591a13928457163931",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--humboldt-park-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#b8e8f8"
   },
   {
-   "file": "chicago--illinois-holocaust-museum-and-education-center-500.jpg",
+   "file": "chicago--illinois-holocaust-museum-and-education-center-720.jpg",
    "record": {
     "page": "chicago",
     "id": "illinois-holocaust-museum-and-education-center"
@@ -7255,15 +7353,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Illinois Holocaust Museum and Education Center A June 27 2009 003.jpg",
    "sha1": "118698fead6d105534d5d855142d8d002791fd6d",
-   "width": 500,
-   "height": 213,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 308,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--illinois-holocaust-museum-and-education-center-500.jpg",
+     "width": 500,
+     "height": 213
+    }
+   ],
    "color": "#b8c8e8"
   },
   {
-   "file": "chicago--indiana-dunes-national-park-500.jpg",
+   "file": "chicago--indiana-dunes-national-park-720.jpg",
    "record": {
     "page": "chicago",
     "id": "indiana-dunes-national-park"
@@ -7277,15 +7382,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Indiana Dunes National Lakeshore, Michigan City, Indiana, Estados Unidos, 2012-10-20, DD 03.jpg",
    "sha1": "e0785278ec9763ccfbbfbbda379d2f59508e6efa",
-   "width": 500,
-   "height": 333,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 480,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#b8b8a8"
+   "variants": [
+    {
+     "file": "chicago--indiana-dunes-national-park-500.jpg",
+     "width": 500,
+     "height": 333
+    }
+   ],
+   "color": "#c8b8a8"
   },
   {
-   "file": "chicago--lincoln-park-conservatory-500.jpg",
+   "file": "chicago--lincoln-park-conservatory-720.jpg",
    "record": {
     "page": "chicago",
     "id": "lincoln-park-conservatory"
@@ -7299,15 +7411,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Lincoln Park Conservatory (9719113515).jpg",
    "sha1": "6a875d86e66a474464f075921252ad236e798208",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--lincoln-park-conservatory-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#a8b8d8"
   },
   {
-   "file": "chicago--maggie-daley-park-500.jpg",
+   "file": "chicago--maggie-daley-park-720.jpg",
    "record": {
     "page": "chicago",
     "id": "maggie-daley-park"
@@ -7321,15 +7440,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Maggie Daley Park 2014.JPG",
    "sha1": "9acdba1f2e75a7a603a8c6114c0cd82a69eacb05",
-   "width": 500,
-   "height": 370,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 533,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--maggie-daley-park-500.jpg",
+     "width": 500,
+     "height": 370
+    }
+   ],
    "color": "#181808"
   },
   {
-   "file": "chicago--marina-city-500.jpg",
+   "file": "chicago--marina-city-720.jpg",
    "record": {
     "page": "chicago",
     "id": "marina-city"
@@ -7343,15 +7469,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Marina City, Chicago, Illinois, Estados Unidos, 2012-10-20, DD 01.jpg",
    "sha1": "01df4d91df1b5c757ebec81dcdbe0c49b249b292",
-   "width": 500,
-   "height": 681,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 980,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#080808"
+   "variants": [
+    {
+     "file": "chicago--marina-city-500.jpg",
+     "width": 500,
+     "height": 681
+    }
+   ],
+   "color": "#88a8d8"
   },
   {
-   "file": "chicago--millennium-park-500.jpg",
+   "file": "chicago--millennium-park-720.jpg",
    "record": {
     "page": "chicago",
     "id": "millennium-park"
@@ -7365,15 +7498,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Millennium Square, Chicago, Illinois (9181701264).jpg",
    "sha1": "04c3277881d171640a3fa0d00eb42432f7b57323",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--millennium-park-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#f8f8f8"
   },
   {
-   "file": "chicago--museum-of-contemporary-art-chicago-500.jpg",
+   "file": "chicago--museum-of-contemporary-art-chicago-720.jpg",
    "record": {
     "page": "chicago",
     "id": "museum-of-contemporary-art-chicago"
@@ -7387,15 +7527,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:MCA Chicago 060930.jpg",
    "sha1": "db152f383bb68dd0be6a0cdd2c2bb4b2642b6bb8",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#a89898"
+   "variants": [
+    {
+     "file": "chicago--museum-of-contemporary-art-chicago-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
+   "color": "#4898f8"
   },
   {
-   "file": "chicago--museum-of-science-and-industry-500.jpg",
+   "file": "chicago--museum-of-science-and-industry-720.jpg",
    "record": {
     "page": "chicago",
     "id": "museum-of-science-and-industry"
@@ -7409,15 +7556,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Museum of Science and Industry (Chicago).jpg",
    "sha1": "20440108116472df0482c9be84ab6c87022e3808",
-   "width": 500,
-   "height": 352,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 507,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--museum-of-science-and-industry-500.jpg",
+     "width": 500,
+     "height": 352
+    }
+   ],
    "color": "#78c8f8"
   },
   {
-   "file": "chicago--navy-pier-500.jpg",
+   "file": "chicago--navy-pier-720.jpg",
    "record": {
     "page": "chicago",
     "id": "navy-pier"
@@ -7431,15 +7585,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Navy Pier 1190x1585 (cropped).jpg",
    "sha1": "2fed48592d1ef4702ae34307d0d3a79646a4812d",
-   "width": 500,
-   "height": 398,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 573,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--navy-pier-500.jpg",
+     "width": 500,
+     "height": 398
+    }
+   ],
    "color": "#183868"
   },
   {
-   "file": "chicago--obama-presidential-center-500.jpg",
+   "file": "chicago--obama-presidential-center-720.jpg",
    "record": {
     "page": "chicago",
     "id": "obama-presidential-center"
@@ -7453,15 +7614,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Obama Center south elevation 2 (opening day) - Chicago, IL - June 2026.jpg",
    "sha1": "d46d14112ba65802384075b75a8227733f72b843",
-   "width": 500,
-   "height": 750,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 1080,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--obama-presidential-center-500.jpg",
+     "width": 500,
+     "height": 750
+    }
+   ],
    "color": "#2878c8"
   },
   {
-   "file": "chicago--promontory-point-500.jpg",
+   "file": "chicago--promontory-point-720.jpg",
    "record": {
     "page": "chicago",
     "id": "promontory-point"
@@ -7475,15 +7643,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Promontory Point from south.jpg",
    "sha1": "cb7ed4d2192c717e9e93863fb9d182fdaa35d8e1",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--promontory-point-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#6888a8"
   },
   {
-   "file": "chicago--ridge-historic-district-beverly-500.jpg",
+   "file": "chicago--ridge-historic-district-beverly-720.jpg",
    "record": {
     "page": "chicago",
     "id": "ridge-historic-district-beverly"
@@ -7497,15 +7672,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Ridge Historic District.jpg",
    "sha1": "8d7ec197c581c12933fc0898f0c7b68ccf4db5d5",
-   "width": 500,
-   "height": 384,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 553,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#080808"
+   "variants": [
+    {
+     "file": "chicago--ridge-historic-district-beverly-500.jpg",
+     "width": 500,
+     "height": 384
+    }
+   ],
+   "color": "#f8f8f8"
   },
   {
-   "file": "chicago--riverside-olmsted-planned-village-500.jpg",
+   "file": "chicago--riverside-olmsted-planned-village-720.jpg",
    "record": {
     "page": "chicago",
     "id": "riverside-olmsted-planned-village"
@@ -7519,15 +7701,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:The Riverside Water Tower from Guthrie Park.jpg",
    "sha1": "9cb9ef2ded0dc0260e842e3865f6a636ca7b3de6",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--riverside-olmsted-planned-village-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#080808"
   },
   {
-   "file": "chicago--roberts-temple-church-of-god-in-christ-500.jpg",
+   "file": "chicago--roberts-temple-church-of-god-in-christ-720.jpg",
    "record": {
     "page": "chicago",
     "id": "roberts-temple-church-of-god-in-christ"
@@ -7541,15 +7730,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Roberts Temple Church of God in Christ.jpg",
    "sha1": "a79c43eac0e814d9839431ddce6e5689f4c7ec20",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#080808"
+   "variants": [
+    {
+     "file": "chicago--roberts-temple-church-of-god-in-christ-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
+   "color": "#181818"
   },
   {
-   "file": "chicago--s-r-crown-hall-500.jpg",
+   "file": "chicago--s-r-crown-hall-720.jpg",
    "record": {
     "page": "chicago",
     "id": "s-r-crown-hall"
@@ -7563,15 +7759,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:S.R. Crown Hall.jpg",
    "sha1": "253bfe94ee217c3f40f136d24a93c69433027663",
-   "width": 500,
-   "height": 311,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 448,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--s-r-crown-hall-500.jpg",
+     "width": 500,
+     "height": 311
+    }
+   ],
    "color": "#080808"
   },
   {
-   "file": "chicago--sc-johnson-administration-building-500.jpg",
+   "file": "chicago--sc-johnson-administration-building-720.jpg",
    "record": {
     "page": "chicago",
     "id": "sc-johnson-administration-building"
@@ -7585,15 +7788,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Racine October 2023 102 (S. C. Johnson and Son Administration Building and Research Tower).jpg",
    "sha1": "98b3d03e97365ffee966c5dd30b55b1e16e8bb5c",
-   "width": 500,
-   "height": 333,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 480,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--sc-johnson-administration-building-500.jpg",
+     "width": 500,
+     "height": 333
+    }
+   ],
    "color": "#5888c8"
   },
   {
-   "file": "chicago--shedd-aquarium-500.jpg",
+   "file": "chicago--shedd-aquarium-720.jpg",
    "record": {
     "page": "chicago",
     "id": "shedd-aquarium"
@@ -7607,15 +7817,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Shedd Aquarium E.jpg",
    "sha1": "e93765d90a20018e300891cd0ad7269bd1fb7957",
-   "width": 500,
-   "height": 281,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 405,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--shedd-aquarium-500.jpg",
+     "width": 500,
+     "height": 281
+    }
+   ],
    "color": "#a8c8d8"
   },
   {
-   "file": "chicago--starved-rock-state-park-500.jpg",
+   "file": "chicago--starved-rock-state-park-720.jpg",
    "record": {
     "page": "chicago",
     "id": "starved-rock-state-park"
@@ -7629,15 +7846,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Starved Rock Illinois on Illinois River.jpg",
    "sha1": "839f9532e2b2214919effde71bedfa36eb975bdb",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#98d8f8"
+   "variants": [
+    {
+     "file": "chicago--starved-rock-state-park-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
+   "color": "#d8d8d8"
   },
   {
-   "file": "chicago--stony-island-arts-bank-500.jpg",
+   "file": "chicago--stony-island-arts-bank-720.jpg",
    "record": {
     "page": "chicago",
     "id": "stony-island-arts-bank"
@@ -7651,15 +7875,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Image Trust & Savings.jpg",
    "sha1": "76ea0a02f44ec858f16bfbc3918db4388b894893",
-   "width": 500,
-   "height": 333,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 480,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--stony-island-arts-bank-500.jpg",
+     "width": 500,
+     "height": 333
+    }
+   ],
    "color": "#f8f8f8"
   },
   {
-   "file": "chicago--sullivan-center-500.jpg",
+   "file": "chicago--sullivan-center-720.jpg",
    "record": {
     "page": "chicago",
     "id": "sullivan-center"
@@ -7673,15 +7904,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Carson, Pirie, Scott and Company Building (Sullivan Center), Chicago, Illinois (9179422705).jpg",
    "sha1": "a128c1a2a9c816a4dd5d5e8a2cc8f9e0161f90a4",
-   "width": 500,
-   "height": 471,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 679,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--sullivan-center-500.jpg",
+     "width": 500,
+     "height": 471
+    }
+   ],
    "color": "#f8f8f8"
   },
   {
-   "file": "chicago--symphony-center-500.jpg",
+   "file": "chicago--symphony-center-720.jpg",
    "record": {
     "page": "chicago",
     "id": "symphony-center"
@@ -7695,15 +7933,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Symphony Center - Chicago Symphony Orchestra (51574648471).jpg",
    "sha1": "58d7b3418b3b364993d0c996946950b81cc28a0c",
-   "width": 500,
-   "height": 667,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 612,
+   "height": 816,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--symphony-center-500.jpg",
+     "width": 500,
+     "height": 667
+    }
+   ],
    "color": "#f8f8f8"
   },
   {
-   "file": "chicago--thalia-hall-500.jpg",
+   "file": "chicago--thalia-hall-720.jpg",
    "record": {
     "page": "chicago",
     "id": "thalia-hall"
@@ -7717,15 +7962,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Thalia Hall.jpg",
    "sha1": "8f38f1015bd2cac4aa9cad12075b90ba1a7d24a6",
-   "width": 500,
-   "height": 668,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 961,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--thalia-hall-500.jpg",
+     "width": 500,
+     "height": 668
+    }
+   ],
    "color": "#f8f8f8"
   },
   {
-   "file": "chicago--the-606-bloomingdale-trail-500.jpg",
+   "file": "chicago--the-606-bloomingdale-trail-720.jpg",
    "record": {
     "page": "chicago",
     "id": "the-606-bloomingdale-trail"
@@ -7739,15 +7991,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Bloomingdale Trail, the 606, Chicago 2015-33.jpg",
    "sha1": "79e44bafa7d1f33a6af42b544d65a8319701935a",
-   "width": 500,
-   "height": 333,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 480,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--the-606-bloomingdale-trail-500.jpg",
+     "width": 500,
+     "height": 333
+    }
+   ],
    "color": "#e8d8d8"
   },
   {
-   "file": "chicago--the-rookery-500.jpg",
+   "file": "chicago--the-rookery-720.jpg",
    "record": {
     "page": "chicago",
     "id": "the-rookery"
@@ -7761,15 +8020,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:The Rookery, Chicago, IL.jpg",
    "sha1": "5523ad41c56707b778d7a7d6ac83693538b5d85f",
-   "width": 500,
-   "height": 667,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 960,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--the-rookery-500.jpg",
+     "width": 500,
+     "height": 667
+    }
+   ],
    "color": "#e8e8e8"
   },
   {
-   "file": "chicago--tribune-tower-500.jpg",
+   "file": "chicago--tribune-tower-720.jpg",
    "record": {
     "page": "chicago",
     "id": "tribune-tower"
@@ -7783,15 +8049,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Tribune Tower, Chicago, Illinois (9181667444) (cropped).jpg",
    "sha1": "8625d378260793962883798b1e7d15cb30aefbb2",
-   "width": 360,
-   "height": 886,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 518,
+   "height": 1275,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--tribune-tower-500.jpg",
+     "width": 360,
+     "height": 886
+    }
+   ],
    "color": "#3878c8"
   },
   {
-   "file": "chicago--unity-temple-500.jpg",
+   "file": "chicago--unity-temple-720.jpg",
    "record": {
     "page": "chicago",
     "id": "unity-temple"
@@ -7805,15 +8078,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Oak Park Il Unity Temple8.jpg",
    "sha1": "044b960236641898a74ab091170a1f9f1d6aed8c",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "chicago--unity-temple-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#d8e8f8"
   },
   {
-   "file": "chicago--wrigley-building-500.jpg",
+   "file": "chicago--wrigley-building-720.jpg",
    "record": {
     "page": "chicago",
     "id": "wrigley-building"
@@ -7827,15 +8107,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Wrigley Building 1 (31887261212).jpg",
    "sha1": "7264583b853e2779fbf7f374ebeaa67f33a8bbfb",
-   "width": 500,
-   "height": 353,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 509,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#080808"
+   "variants": [
+    {
+     "file": "chicago--wrigley-building-500.jpg",
+     "width": 500,
+     "height": 353
+    }
+   ],
+   "color": "#2858a8"
   },
   {
-   "file": "cincinnati--american-sign-museum-500.jpg",
+   "file": "cincinnati--american-sign-museum-720.jpg",
    "record": {
     "page": "cincinnati",
     "id": "american-sign-museum"
@@ -7849,15 +8136,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:American Sign Museum (8669465949).jpg",
    "sha1": "0a91f0786f582fbcb3888052f4c02c5d9fbccd32",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "cincinnati--american-sign-museum-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#080808"
   },
   {
-   "file": "cincinnati--cincinnati-museum-center-at-union-terminal-500.jpg",
+   "file": "cincinnati--cincinnati-museum-center-at-union-terminal-720.jpg",
    "record": {
     "page": "cincinnati",
     "id": "cincinnati-museum-center-at-union-terminal"
@@ -7871,15 +8165,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:CMC-Union Terminal.jpg",
    "sha1": "d3cd725dfefa24003440d837db1d8aeedd070d3d",
-   "width": 500,
-   "height": 333,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 480,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#98b8d8"
+   "variants": [
+    {
+     "file": "cincinnati--cincinnati-museum-center-at-union-terminal-500.jpg",
+     "width": 500,
+     "height": 333
+    }
+   ],
+   "color": "#c8b8a8"
   },
   {
-   "file": "cincinnati--cincinnati-observatory-500.jpg",
+   "file": "cincinnati--cincinnati-observatory-720.jpg",
    "record": {
     "page": "cincinnati",
     "id": "cincinnati-observatory"
@@ -7893,15 +8194,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Cincinnati Observatory.JPG",
    "sha1": "d5e2584de8d5326f3cacda8684b06c65ffc1ae9a",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#080808"
+   "variants": [
+    {
+     "file": "cincinnati--cincinnati-observatory-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
+   "color": "#68a8e8"
   },
   {
-   "file": "cincinnati--contemporary-arts-center-500.jpg",
+   "file": "cincinnati--contemporary-arts-center-720.jpg",
    "record": {
     "page": "cincinnati",
     "id": "contemporary-arts-center"
@@ -7915,15 +8223,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Contemp Art Center.JPG",
    "sha1": "3ce6c58d0b48054d3177174dda76638377d9d90c",
-   "width": 500,
-   "height": 667,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 960,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "cincinnati--contemporary-arts-center-500.jpg",
+     "width": 500,
+     "height": 667
+    }
+   ],
    "color": "#f8f8f8"
   },
   {
-   "file": "cincinnati--devou-park-city-overlook-500.jpg",
+   "file": "cincinnati--devou-park-city-overlook-720.jpg",
    "record": {
     "page": "cincinnati",
     "id": "devou-park-city-overlook"
@@ -7937,15 +8252,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Devou Park Memorial Overlook.jpg",
    "sha1": "9299c74168b9fbc879d4204726902bdf8f1fd741",
-   "width": 500,
-   "height": 333,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 480,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#285888"
+   "variants": [
+    {
+     "file": "cincinnati--devou-park-city-overlook-500.jpg",
+     "width": 500,
+     "height": 333
+    }
+   ],
+   "color": "#085888"
   },
   {
-   "file": "cincinnati--eden-park-and-twin-lakes-overlook-500.jpg",
+   "file": "cincinnati--eden-park-and-twin-lakes-overlook-720.jpg",
    "record": {
     "page": "cincinnati",
     "id": "eden-park-and-twin-lakes-overlook"
@@ -7959,15 +8281,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Eden Park View 2.JPG",
    "sha1": "dcb840a0b34460952cfe39323614ff1ff4a235dc",
-   "width": 500,
-   "height": 335,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 482,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "cincinnati--eden-park-and-twin-lakes-overlook-500.jpg",
+     "width": 500,
+     "height": 335
+    }
+   ],
    "color": "#f8f8f8"
   },
   {
-   "file": "cincinnati--fountain-square-and-the-tyler-davidson-fountain-500.jpg",
+   "file": "cincinnati--fountain-square-and-the-tyler-davidson-fountain-720.jpg",
    "record": {
     "page": "cincinnati",
     "id": "fountain-square-and-the-tyler-davidson-fountain"
@@ -7981,15 +8310,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:TylerDavidsonFountainAtNight.jpg",
    "sha1": "334dd7cbcddbc3659309b3030c76077d749aa57c",
-   "width": 500,
-   "height": 776,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 1118,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "cincinnati--fountain-square-and-the-tyler-davidson-fountain-500.jpg",
+     "width": 500,
+     "height": 776
+    }
+   ],
    "color": "#f8f8f8"
   },
   {
-   "file": "cincinnati--john-a-roebling-suspension-bridge-500.jpg",
+   "file": "cincinnati--john-a-roebling-suspension-bridge-720.jpg",
    "record": {
     "page": "cincinnati",
     "id": "john-a-roebling-suspension-bridge"
@@ -8003,15 +8339,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Cincinnati Skyline and Roebling Bridge from Riverfront Commons, Covington, KY - 51400457956.jpg",
    "sha1": "e36246a917818eef3e2863a9471ec7b94a635064",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#5898d8"
+   "variants": [
+    {
+     "file": "cincinnati--john-a-roebling-suspension-bridge-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
+   "color": "#4898e8"
   },
   {
-   "file": "cincinnati--loveland-castle-chateau-laroche-500.jpg",
+   "file": "cincinnati--loveland-castle-chateau-laroche-720.jpg",
    "record": {
     "page": "cincinnati",
     "id": "loveland-castle-chateau-laroche"
@@ -8025,15 +8368,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Loveland Castle (9).jpg",
    "sha1": "9ebbe911fa6a86827959e2619f06d07f31808eae",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "cincinnati--loveland-castle-chateau-laroche-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#f8f8f8"
   },
   {
-   "file": "cincinnati--mt-adams-and-holy-cross-immaculata-church-500.jpg",
+   "file": "cincinnati--mt-adams-and-holy-cross-immaculata-church-720.jpg",
    "record": {
     "page": "cincinnati",
     "id": "mt-adams-and-holy-cross-immaculata-church"
@@ -8047,15 +8397,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:ImmaculateConceptionChurch.jpg",
    "sha1": "4f89a92714ea5bc022bd9706c758bb0c9536f05a",
-   "width": 500,
-   "height": 725,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 1043,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "cincinnati--mt-adams-and-holy-cross-immaculata-church-500.jpg",
+     "width": 500,
+     "height": 725
+    }
+   ],
    "color": "#486898"
   },
   {
-   "file": "cincinnati--national-underground-railroad-freedom-center-500.jpg",
+   "file": "cincinnati--national-underground-railroad-freedom-center-720.jpg",
    "record": {
     "page": "cincinnati",
     "id": "national-underground-railroad-freedom-center"
@@ -8069,15 +8426,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:NationalUndergroundRailroadFreedomCenter.jpg",
    "sha1": "e1002683ec0ef7fe2715a5a14ad7a17bc5433b4d",
-   "width": 500,
-   "height": 268,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 386,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "cincinnati--national-underground-railroad-freedom-center-500.jpg",
+     "width": 500,
+     "height": 268
+    }
+   ],
    "color": "#3868a8"
   },
   {
-   "file": "cincinnati--spring-grove-cemetery-and-arboretum-500.jpg",
+   "file": "cincinnati--spring-grove-cemetery-and-arboretum-720.jpg",
    "record": {
     "page": "cincinnati",
     "id": "spring-grove-cemetery-and-arboretum"
@@ -8091,15 +8455,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Dexter Memorial.jpg",
    "sha1": "7a566195a029551c8f0f7f8ade06402725c67d3d",
-   "width": 360,
-   "height": 530,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 518,
+   "height": 763,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "cincinnati--spring-grove-cemetery-and-arboretum-500.jpg",
+     "width": 360,
+     "height": 530
+    }
+   ],
    "color": "#080808"
   },
   {
-   "file": "cincinnati--taft-museum-of-art-500.jpg",
+   "file": "cincinnati--taft-museum-of-art-720.jpg",
    "record": {
     "page": "cincinnati",
     "id": "taft-museum-of-art"
@@ -8113,15 +8484,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Taft-Museum-of-Art-Facade.jpg",
    "sha1": "be46e810d3ccb3cf11f8280082e20265f40d1d95",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#080808"
+   "variants": [
+    {
+     "file": "cincinnati--taft-museum-of-art-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
+   "color": "#a8c8f8"
   },
   {
-   "file": "columbus--battelle-darby-creek-metro-park-500.jpg",
+   "file": "columbus--battelle-darby-creek-metro-park-720.jpg",
    "record": {
     "page": "columbus",
     "id": "battelle-darby-creek-metro-park"
@@ -8135,15 +8513,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Darby Creek-Mixed Fall Forest near the Bison Range 1.jpg",
    "sha1": "b88f847920cc4678ebb9c212d8432af3170154b2",
-   "width": 500,
-   "height": 332,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 479,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#382818"
+   "variants": [
+    {
+     "file": "columbus--battelle-darby-creek-metro-park-500.jpg",
+     "width": 500,
+     "height": 332
+    }
+   ],
+   "color": "#281808"
   },
   {
-   "file": "columbus--columbus-museum-of-art-500.jpg",
+   "file": "columbus--columbus-museum-of-art-720.jpg",
    "record": {
     "page": "columbus",
     "id": "columbus-museum-of-art"
@@ -8157,15 +8542,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Columbus Museum of Art 06.jpg",
    "sha1": "c67dbf0c6446ac8c9dcf051e06ae53728ad076cd",
-   "width": 500,
-   "height": 359,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 518,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#080808"
+   "variants": [
+    {
+     "file": "columbus--columbus-museum-of-art-500.jpg",
+     "width": 500,
+     "height": 359
+    }
+   ],
+   "color": "#081818"
   },
   {
-   "file": "columbus--franklin-park-conservatory-and-botanical-gardens-500.jpg",
+   "file": "columbus--franklin-park-conservatory-and-botanical-gardens-720.jpg",
    "record": {
     "page": "columbus",
     "id": "franklin-park-conservatory-and-botanical-gardens"
@@ -8179,15 +8571,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Franklin Park Conservatory, Columbus, OH.jpg",
    "sha1": "79253344a177fc2100afdf4b43188b486e86b237",
-   "width": 500,
-   "height": 281,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 405,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "columbus--franklin-park-conservatory-and-botanical-gardens-500.jpg",
+     "width": 500,
+     "height": 281
+    }
+   ],
    "color": "#384828"
   },
   {
-   "file": "columbus--ohio-statehouse-500.jpg",
+   "file": "columbus--ohio-statehouse-720.jpg",
    "record": {
     "page": "columbus",
     "id": "ohio-statehouse"
@@ -8201,15 +8600,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Ohio Statehouse exterior.jpg",
    "sha1": "d6d3c02d697466c2cb1ccc59816f1d567efa8269",
-   "width": 500,
-   "height": 313,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 452,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "columbus--ohio-statehouse-500.jpg",
+     "width": 500,
+     "height": 313
+    }
+   ],
    "color": "#98c8e8"
   },
   {
-   "file": "columbus--scioto-mile-and-bicentennial-park-500.jpg",
+   "file": "columbus--scioto-mile-and-bicentennial-park-720.jpg",
    "record": {
     "page": "columbus",
     "id": "scioto-mile-and-bicentennial-park"
@@ -8223,15 +8629,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Scioto Mile aerial from north.jpg",
    "sha1": "7f380c3c725728f706e941a3580602228e2a8a37",
-   "width": 500,
-   "height": 281,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 405,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "columbus--scioto-mile-and-bicentennial-park-500.jpg",
+     "width": 500,
+     "height": 281
+    }
+   ],
    "color": "#4898c8"
   },
   {
-   "file": "columbus--wexner-center-for-the-arts-500.jpg",
+   "file": "columbus--wexner-center-for-the-arts-720.jpg",
    "record": {
     "page": "columbus",
     "id": "wexner-center-for-the-arts"
@@ -8245,15 +8658,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Wexner Center for the Arts S.jpg",
    "sha1": "67e44e287ab7be2b9c3ac07f867db29c02892183",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "columbus--wexner-center-for-the-arts-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#c8c8d8"
   },
   {
-   "file": "dayton--dayton-art-institute-500.jpg",
+   "file": "dayton--dayton-art-institute-720.jpg",
    "record": {
     "page": "dayton",
     "id": "dayton-art-institute"
@@ -8267,15 +8687,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:The Dayton Art Institute, Belmonte Park, Grafton Hill, Dayton, OH.jpg",
    "sha1": "d47ebd030d37103ce44738304dee7a8d94f278f0",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#b8c8d8"
+   "variants": [
+    {
+     "file": "dayton--dayton-art-institute-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
+   "color": "#c8c8b8"
   },
   {
-   "file": "dayton--glen-helen-nature-preserve-500.jpg",
+   "file": "dayton--glen-helen-nature-preserve-720.jpg",
    "record": {
     "page": "dayton",
     "id": "glen-helen-nature-preserve"
@@ -8289,15 +8716,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Orators Mound.jpg",
    "sha1": "5cb2caf834a4a0948cc20670954f66d56a01a041",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "dayton--glen-helen-nature-preserve-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#284818"
   },
   {
-   "file": "erie--erie-maritime-museum-and-u-s-brig-niagara-500.jpg",
+   "file": "erie--erie-maritime-museum-and-u-s-brig-niagara-720.jpg",
    "record": {
     "page": "erie",
     "id": "erie-maritime-museum-and-u-s-brig-niagara"
@@ -8311,15 +8745,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Brig Niagara behind museum.jpg",
    "sha1": "ca390c81dd4ea229550fbfbb6ccf2b42a2dbd3b3",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "erie--erie-maritime-museum-and-u-s-brig-niagara-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#f8f8f8"
   },
   {
-   "file": "erie--presque-isle-state-park-500.jpg",
+   "file": "erie--presque-isle-state-park-720.jpg",
    "record": {
     "page": "erie",
     "id": "presque-isle-state-park"
@@ -8333,15 +8774,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Presque Isle Pennsylvania aerial view.jpg",
    "sha1": "871019af534a3d139367140a94b86f135655fd80",
-   "width": 500,
-   "height": 351,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 505,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "erie--presque-isle-state-park-500.jpg",
+     "width": 500,
+     "height": 351
+    }
+   ],
    "color": "#080808"
   },
   {
-   "file": "erie--waldameer-park-and-water-world-500.jpg",
+   "file": "erie--waldameer-park-and-water-world-720.jpg",
    "record": {
     "page": "erie",
     "id": "waldameer-park-and-water-world"
@@ -8355,15 +8803,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Waldameer overview.png",
    "sha1": "dfe226a9d53d818775a86d9a452a9e1909baa93d",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#b8c8d8"
+   "variants": [
+    {
+     "file": "erie--waldameer-park-and-water-world-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
+   "color": "#a8c8e8"
   },
   {
-   "file": "ghent--kasteel-van-ooidonk-500.jpg",
+   "file": "ghent--kasteel-van-ooidonk-720.jpg",
    "record": {
     "page": "ghent",
     "id": "kasteel-van-ooidonk"
@@ -8377,15 +8832,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Kasteel van Ooidonk.JPG",
    "sha1": "04a176b869823a5bae5e4b4fe0fe566e0f6b905a",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "ghent--kasteel-van-ooidonk-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#f8f8f8"
   },
   {
-   "file": "harrisburg--colonial-complex-and-colonial-courthouse-york-county-history-500.jpg",
+   "file": "harrisburg--colonial-complex-and-colonial-courthouse-york-county-history-720.jpg",
    "record": {
     "page": "harrisburg",
     "id": "colonial-complex-and-colonial-courthouse-york-county-history"
@@ -8399,15 +8861,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:YorkPaGPTavern.jpg",
    "sha1": "32c0e8e191af0ff3f326008d1673a0a281ee3b84",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "harrisburg--colonial-complex-and-colonial-courthouse-york-county-history-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#f8f8f8"
   },
   {
-   "file": "harrisburg--downtown-lititz-and-moravian-church-square-500.jpg",
+   "file": "harrisburg--downtown-lititz-and-moravian-church-square-720.jpg",
    "record": {
     "page": "harrisburg",
     "id": "downtown-lititz-and-moravian-church-square"
@@ -8421,15 +8890,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:LititzStreetScene.jpg",
    "sha1": "9a0ddbd29739e24a6ff26176026ce8935fe80594",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "harrisburg--downtown-lititz-and-moravian-church-square-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#a8d8f8"
   },
   {
-   "file": "harrisburg--ephrata-cloister-500.jpg",
+   "file": "harrisburg--ephrata-cloister-720.jpg",
    "record": {
     "page": "harrisburg",
     "id": "ephrata-cloister"
@@ -8443,15 +8919,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Ephrata with people.JPG",
    "sha1": "8705b186ea14f4cb5d50892c76160e0fbc84883f",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
-   "color": "#080808"
+   "variants": [
+    {
+     "file": "harrisburg--ephrata-cloister-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
+   "color": "#282818"
   },
   {
-   "file": "harrisburg--gettysburg-national-cemetery-soldiers-national-cemetery-500.jpg",
+   "file": "harrisburg--gettysburg-national-cemetery-soldiers-national-cemetery-720.jpg",
    "record": {
     "page": "harrisburg",
     "id": "gettysburg-national-cemetery-soldiers-national-cemetery"
@@ -8465,15 +8948,22 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Gettysburg national cemetery img 4164.jpg",
    "sha1": "9c20f2a9aa9fa9c902640868dfacca46c571b99b",
-   "width": 500,
-   "height": 334,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 480,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "harrisburg--gettysburg-national-cemetery-soldiers-national-cemetery-500.jpg",
+     "width": 500,
+     "height": 334
+    }
+   ],
    "color": "#f8f8f8"
   },
   {
-   "file": "harrisburg--haines-shoe-house-500.jpg",
+   "file": "harrisburg--haines-shoe-house-720.jpg",
    "record": {
     "page": "harrisburg",
     "id": "haines-shoe-house"
@@ -8487,11 +8977,18 @@
    "provider": "wikimedia-commons",
    "commonsTitle": "File:Shoehouse.jpg",
    "sha1": "888d7abf9a71380fbb982feccae01efaaac4cd19",
-   "width": 500,
-   "height": 375,
-   "modified": "resized to 500 px wide; recompressed (JPEG, quality ≤ 72)",
+   "width": 720,
+   "height": 540,
+   "modified": "resized to 500 and 720 px wide; recompressed (JPEG, quality ≤ 72)",
    "fetched": "2026-10-11",
    "confidence": "lead",
+   "variants": [
+    {
+     "file": "harrisburg--haines-shoe-house-500.jpg",
+     "width": 500,
+     "height": 375
+    }
+   ],
    "color": "#686898"
   }
  ]
