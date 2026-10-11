@@ -1548,3 +1548,26 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - The head boot script already sets `data-view`; for Atlas it now also sets `atlas-d` / `atlas-m` (the same 1024 px query views.js uses), so the Atlas layout applies from first paint instead of after views.js.
 - Desktop: the bar has a fixed 65 px height and its space is held (`:not(.ms-built)`) until atlas.js inserts it, in the same task; FE-A's toolbar (which moves into the bar) is held out of flow until then; the map and list panes take explicit grid columns, so the list never starts in the map's column; the list's cards are held (not drawn) until the first map-area pass picks its page (`ms-ready`, set by msArea, by no-map, or after 3 s; a CSS animation shows them after 4 s if JS never arrives); `#cleo-grid` gets FE-A's card face (`w7-cards`) at parse time on desktop Atlas.
 - Phone: the method notes and the footer (outside `<main>`, under the full-screen map) are `display:none` in phone Atlas only — they were invisible under the map and still Tab stops; every other view shows them.
+
+- 2026-10-11 22:25Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **Location verification, first accepted wave (c727e196).** The decisions are recorded first-hand in `docs/LOCATION-VERIFY-ACTIONS.md` §8; the lane's own guard correctly refused to act on relayed authority.
+    - 7 Wheeling pins accepted: each is an OSM POI whose name matches and whose street address is exactly the registry address, graded high.
+    - Zanesville Museum of Art held: a Wikidata coordinate only, with no independent second source.
+    - `cities/wheeling.html` goes from 35 to 42 places on the map; the beta has 8,465 places.
+    - The --geocheck and --statuscheck gates passed, and ACCEPTED.md and GEOCODE-BACKLOG.md are updated.
+    - The workflow gained the quarterly status-only sweep schedule (days 1–3 of Jan/Apr/Jul/Oct, no Nominatim) and a `commit=true` REQUEST line.
+    - The split from here: the lane proposes and builds adapters; the orchestrator reviews, accepts, rebuilds and gates.
+  - **Imagery `all` run #40:** 92 rows. All are reviewed on contact sheets (33 + 52).
+    - Refused 7: Empty Bottle (performer), Second City (stage), Ravinia, Lincoln Park Zoo and Hersheypark (signage), Morton Arboretum (snowy grey), Nihonbashi kirin (close-up; now a stated gap).
+    - Refused 7 more: Lincoln Park lakefront (wrong subject), the Great Fire site (parked cars), Cincinnati Zoo, the Gettysburg visitor centre and Chocolate World (signage), the Air Force Museum (an emblem, not a photo), Sint-Martens-Latem (gloom).
+    - Guards added or widened: PERFORMER (with building-exterior-only for clubs and theatres), CLOSEUP, VEHICLES and SIGNAGE. Pending: NOT_A_PHOTO for emblems and logos.
+    - **Bug found:** PNG photos bypassed recompress and the weight caps; the Vogelsang 960w PNG is 827 KB. Imagery is converting every non-JPEG to JPEG and extending the size test to all formats before the next run.
+    - Tier-1 coverage is 146 → 223 of 1,018. The 720w card copies (D-40's condition) are in.
+    - The next `all` run uses budget 1200, about 3–4 runs for the remaining ~500 targets.
+  - **Atlas round 2 is with the panel** (FE-1 at 40e15601: #2, #15 and parts of #4, #6, #11; Atlas CLS 0.000 / 0.003). The R2 real-tile shots are in `design/beta/atlas/real/R2/` (114). FE-2 takes R3.
+  - **QC baseline pass** is running on `f2c39d69` (the QC lane's harness: 55 checks).
+  - **Other lanes:**
+    - FE-B: W9-6 paste-a-link and W9-3 "For you" rail shipped; QA-65 (the D-39 note in the detail) routed to FE-B.
+    - Platform: W9-1/W9-9 data and W9-8 offline packs shipped (PERF-13 fixed); PERF-08 started on the parts outside FE-A's files; PERF-06 to follow.
+    - QA: D-40 ratified on condition of the 720w copy, now met; QA-65 filed.
+  - **The R7 deploy still waits on FE-A** (QA-47/48/50/60 plus casing.js), which first finished gap 3 motion.

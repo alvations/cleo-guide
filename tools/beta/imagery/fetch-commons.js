@@ -97,6 +97,7 @@ function args(argv) {
     else if (a === '--hero-widths') o.heroWidths = String(v()).split(',').map(Number).sort((x, y) => x - y);
     else if (a === '--delay') o.delay = +v();
     else if (a === '--no-rescan') o.noRescan = true;
+    else if (a === '--no-backfill') o.noBackfill = true;
     else if (a === '--scope') o.scope = v();
     else if (a === '-h' || a === '--help') { console.log(fs.readFileSync(__filename, 'utf8').split('*/')[0]); process.exit(0); }
     else die(`unknown option ${a} (see --help)`);
@@ -281,7 +282,14 @@ async function reachable() {
  */
 function widthsFor(t, o) {
   if (t.type === 'hero') return o.heroWidths;
-  return t.priority ? o.widths : [Math.min(...o.widths)];
+  return t.priority ? o.widths : [Math.min(...o.widths), DERIVED_W];
+}
+/** A card's ≈ 2× copy (D-40, ratified by QA): Commons serves no 720 px thumbnail, so it is derived on the runner from
+ *  the 960 one (sharp), never kept at 960. Without sharp the card stays 500 w only. */
+const DERIVED_W = 720;
+function loadSharp() {
+  for (const base of [path.join(ROOT, 'tools'), process.cwd()]) { try { return require(require.resolve('sharp', { paths: [base] })); } catch (e) { /* next */ } }
+  try { return require('sharp'); } catch (e) { return null; }
 }
 /** A target's Wikipedia articles to try for a lead image, in order: `articles` (heroes: the town, then iconic sights), else `article`. */
 const articlesOf = t => (t.articles && t.articles.length ? t.articles : t.article ? [t.article] : []);
@@ -461,9 +469,45 @@ async function main() {
 
   /** Remove the sizes already written for a candidate that is then refused: an uncredited file would fail the gate. */
   const drop = out => { for (const v of out.splice(0)) { try { fs.unlinkSync(path.join(PHOTO_DIR, v.file)); } catch (e) { /* already gone */ } imgBytes -= v.bytes || 0; } };
+  const sharp = loadSharp(), refusedNote = [];
+  /** Download the API's next standard thumbnail above w (960 for 720) and downscale it to w. {ok:{file,w,h,kb,bytes}} | {why[,stop]} */
+  async function deriveWidth(title, base, ext, w) {
+    if (!sharp) return { why: 'sharp is not installed' };
+    const src = STD_WIDTHS.find(s => s > w);
+    const j = await api({ action: 'query', titles: title, prop: 'imageinfo', iiprop: 'url|size', iiurlwidth: src });
+    const t = j.query && j.query.pages && j.query.pages[0] && j.query.pages[0].imageinfo && j.query.pages[0].imageinfo[0];
+    if (!t || !t.thumburl || !(t.thumbwidth > w)) return { why: `no ${src} px thumbnail to derive from` };
+    imgTries++;
+    const img = await get(t.thumburl, { accept: 'image/*', timeout: 60000 }).catch(e => ({ ok: false, status: 0, headers: { get: () => String(e.message) } }));
+    if (img.status === 429 || img.status >= 500) { imgFails++; return { why: `image host HTTP ${img.status} — stopping; the next run resumes`, stop: true }; }
+    if (!img.ok) { imgFails++; return { why: `thumbnail → HTTP ${img.status}` }; }
+    const buf = await sharp(Buffer.from(await img.arrayBuffer())).resize({ width: w }).jpeg({ quality: 82, mozjpeg: true }).toBuffer();
+    const m = await sharp(buf).metadata(), file = `${base}-${m.width}.${ext === 'png' ? 'jpg' : ext}`;
+    fs.writeFileSync(path.join(PHOTO_DIR, file), buf); imgBytes += buf.length;
+    await sleep(o.delay);
+    return { ok: { file, w: m.width, h: m.height, kb: Math.round(buf.length / 1024), bytes: buf.length } };
+  }
+  /** Card rows fetched before the 720 copy existed (500 w only): add it, budget permitting (after the run's new targets). */
+  async function backfill720() {
+    const byKey = new Map(man.targets.map(t => [t.key, t]));
+    const rows = credits.credits.filter(c => c.provider === 'wikimedia-commons' && c.record && !c.variants && /-500\.jpe?g$/i.test(c.file) && (c.width || 0) <= 500)
+      .filter(c => { const t = byKey.get(`landmark:${c.record.page}#${c.record.id}`); return t && !t.priority && !t.skip; });
+    let added = 0;
+    for (const c of rows) {
+      const d = await deriveWidth(c.commonsTitle, c.file.replace(/-500\.jpe?g$/i, ''), 'jpg', DERIVED_W);
+      if (d.why) { if (d.stop) throw Object.assign(new Error(d.why), { budget: true, why: d.why }); continue; }
+      c.variants = [{ file: c.file, width: c.width, height: c.height }];
+      c.file = d.ok.file; c.width = d.ok.w; c.height = d.ok.h;
+      c.modified = String(c.modified || '').replace(/^resized to 500 px wide/, `resized to 500 and ${d.ok.w} px wide`).replace(/; recompressed \(JPEG, quality ≤ 72\)/, '');
+      delete c.color; added++;
+      fs.writeFileSync(CREDITS, JSON.stringify(credits, null, 1) + '\n');
+    }
+    if (rows.length) console.log(`\nBackfill: ${added}/${rows.length} card(s) given a ${DERIVED_W} px copy${sharp ? '' : ' (sharp is not installed — none)'}.`);
+  }
   async function store(p, c, info) {
     const { ii } = info, ext = ii.mime === 'image/png' ? 'png' : ii.mime === 'image/webp' ? 'webp' : 'jpg', base = fileBase(p.t);
-    const ws = snapWidths(widthsOf(p.t), ii.width), out = [];
+    const asked = widthsOf(p.t), derive = asked.filter(w => !STD_WIDTHS.includes(w) && w < ii.width);
+    const ws = snapWidths(asked.filter(w => !derive.includes(w)), ii.width), out = [];
     for (const w of ws) {
       // the URL comes from the API for that exact width (Commons serves only its standard thumbnail sizes, and the
       // API knows the current host and path); the original only when it is no wider than the step asked for
@@ -487,6 +531,11 @@ async function main() {
       fs.writeFileSync(path.join(PHOTO_DIR, file), buf); imgBytes += buf.length;
       out.push({ file, w: tw, h: th, kb: Math.round(buf.length / 1024), bytes: buf.length });
       await sleep(o.delay);
+    }
+    for (const w of derive) {   // e.g. 720: downscaled from the API's 960 thumbnail, the 960 itself is not kept
+      const d = await deriveWidth(info.title, base, ext, w);
+      if (d.why) { if (d.stop) { drop(out); throw Object.assign(new Error(d.why), { budget: true, why: d.why }); } refusedNote.push(`${p.t.key}: no ${w} px copy (${d.why}) — kept ${out.map(v => v.w).join('+')}`); continue; }
+      out.push(d.ok); out.sort((a, b) => a.w - b.w);
     }
     if (!out.length) return { why: 'no thumbnail could be stored' };
     const main = out[out.length - 1], variants = out.slice(0, -1).map(v => ({ file: v.file, width: v.w, height: v.h }));
@@ -542,7 +591,9 @@ async function main() {
       }
       if (!done && !p.cands.length && !p.lead) refused.push(`${p.t.key}: nothing to try`);
     }
+    if (!o.noBackfill) await backfill720();
   } catch (e) { if (!e.budget) throw e; stopped = true; if (e.why) refused.push(e.why); }
+  refused.push(...refusedNote);
 
   console.log(`\nKept ${kept.length}:`); kept.forEach(k => console.log(`  ok    ${k}`));
   console.log(`Refused ${refused.length}:`); refused.forEach(k => console.log(`  no    ${k}`));
@@ -553,4 +604,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { PERFORMER, performerRefused, refusalIsGlobal, viewFrom, authorOrUploader, ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { DERIVED_W, PERFORMER, performerRefused, refusalIsGlobal, viewFrom, authorOrUploader, ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
