@@ -134,3 +134,14 @@ Those still need their acceptance test to pass on the new head. **The Atlas map 
 - `cleo.css` ≤ 200 KB raw with the dead R6 layers removed. Coverage-guided; every gate green; shots before and after on the pilots.
 - `aria-allowed-role` and `heading-order` in the shared shell.
 - Once R7 QA ratifies the B-06/07/09 re-pointing, implement it in metrics.js.
+
+## Owner direction (2026-10-11 ~20:05Z, relayed through the Atlas panel session; brand redacted per rule 6)
+
+> "Remember not to just make it a literal copy of [the real-estate map-search product]. The general idea is to take the best features from the competitors and put them together to one-up every one of them. But the [real-estate map-search]-style Atlas navigation is super on point, so continue to iterate on it, but don't neglect the other features. Fan out the agents as you need and autonomously continue to achieve the goal."
+
+**Response:**
+- **Atlas:** the map-search navigation stays and keeps iterating through the panel loop. SPEC-v3 gains a **§10 "One-up"**: what Atlas does that no single competitor family does. Examples: sourcing in the preview card, building a day on the map with walking times, collection lenses on the map, dated closures, shareable saved lists that reopen the same view.
+- **The other features:**
+  - W8 parts 1–2 already cover Gallery, detail, day plans, Guidebook, Insights, hubs, landing and photos;
+  - the panel now runs a non-scoring regression check of the other views on every Atlas head;
+  - a new **product lane** (`session_013eanpBxmbgvhv8ELajtv2Q`) writes `design/beta/eval/ONE-UP.md`: per competitor family (described neutrally), their best features, whether we have them, our one-up, and a ranked set of W9 briefs across every view, within the hard rules.
