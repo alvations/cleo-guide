@@ -28,7 +28,7 @@
   // after[] run once per apply (map overlays); dist {id: km} while Near me is on (never stored)
   const nameOf = c => { const a = $('.pl-n a', c); if (!a) return ''; const x = a.cloneNode(true); if (c.querySelector('.pl-vert')) $$('.nat', x).forEach(v => v.remove()); return x.textContent.trim(); };
   const C = Cleo.city = { name: nameOf, byId, info, key, pid, been, desk, esc, icon, trap, cards, S, lens: {}, after: [], rank: null, why: null, dist: null };
-  $$('[data-cleo-rail],[data-cleo-toolbar]').forEach(el => { el.hidden = false; });
+  $$('[data-cleo-rail],[data-cleo-toolbar],[data-cleo-search],[data-cleo-mappill]').forEach(el => { el.hidden = false; });
   // For you / Near me (foryou.js) and Your day (day.js) load on first use — a tap, a stored interest or a #day= route
   const need = C.need = (n, cb) => {
     if ({ foryou: C.fy, day: C.day, atlas: C.atlasTools }[n]) { if (cb) cb(); return; }
@@ -179,7 +179,8 @@
     cards.forEach(c => {
       cover(c);
       const x = $('.pl-x', c), ref = key + '/' + pid(c); if (!x) return;
-      if (!x.firstChild) x.innerHTML = '<button class="pl-save" aria-pressed="false">Save</button>';
+      // W7: the heart sits on the card's media, drawn by CSS (no extra nodes: DOM budget); the word stays for AT and search
+      if (!x.firstChild) x.innerHTML = '<button class="pl-save heart" aria-pressed="false">Save</button>';
       const btn = x.firstChild, o = !!s[ref], st = $('.stamp', c); x.hidden = false;
       btn.setAttribute('aria-pressed', String(o)); btn.textContent = o ? 'Saved' : 'Save'; btn.setAttribute('aria-label', (o ? 'Saved: ' : 'Save ') + $('.pl-n', c).textContent);
       if (b[ref] && !st) c.insertAdjacentHTML('beforeend', '<span class="stamp">Been<br>there</span>'); else if (!b[ref] && st) c.removeChild(st);
@@ -319,7 +320,10 @@
     bases.light = L.tileLayer(E + 'Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', Object.assign({ maxNativeZoom: 16 }, ea));
     bases.satellite = L.tileLayer(E + 'World_Imagery/MapServer/tile/{z}/{y}/{x}', ea);
     const b0 = bases[store.get('base', 'street')] || bases.street; b0.addTo(map);
-    if (Cleo.watchTiles) Cleo.watchTiles(b0, () => { Cleo.mapFallback(el, map); map = null; });
+    // tiles failed: fall back to the schematic, but never mid-zoom (Leaflet's remove() leaves the zoom-end timer armed:
+    // `_leaflet_pos` of a removed pane, seen when a lens fit animates as the tiles give up)
+    const fail = () => { const m = map; if (!m) return; try { m.stop(); } catch (e) {} if (m._animatingZoom) { m.once('zoomend', () => setTimeout(fail, 0)); return; } Cleo.mapFallback(el, m); map = null; };
+    if (Cleo.watchTiles) Cleo.watchTiles(b0, fail);
     // every place gets its pin, stamped or not (unstamped = a start-tag stub from Cleo.defer.peek(); click stamps it)
     cards.concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => {
       const ll = (at(c, 'data-ll') || '').split(','); if (ll.length !== 2) return;

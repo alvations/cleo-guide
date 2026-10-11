@@ -82,9 +82,12 @@ if (args.has('--list')) {
 
 // ---------------------------------------------------------------- static assets (client JS, vendor, icon)
 const CLIENT = path.join(__dirname, 'client');
+const { minifyChecked } = require('./lib/minify');
 const assetsV = {};
 for (const f of fs.readdirSync(CLIENT).filter(f => f.endsWith('.js')).sort()) {
-  const body = Buffer.concat([Buffer.from(`/* generated copy of tools/beta/client/${f} — do not edit here */\n`), fs.readFileSync(path.join(CLIENT, f))]);
+  // W7 FE-A: minified (comments, indentation, blank lines; lib/minify.js, syntax-checked) — eager JS ≤ 40 KB gzip
+  let src; try { src = minifyChecked(fs.readFileSync(path.join(CLIENT, f), 'utf8'), f); } catch (e) { errors.push(String(e.message)); src = fs.readFileSync(path.join(CLIENT, f), 'utf8'); }
+  const body = Buffer.concat([Buffer.from(`/* generated copy of tools/beta/client/${f} (minified) — do not edit here */\n`), Buffer.from(src)]);
   emit('assets/js/' + f, body); assetsV[f.replace(/\.js$/, '')] = sha(body);
 }
 const cssPath = path.join(BETA, 'assets', 'cleo.css');            // owned by the designer lane; we only version it

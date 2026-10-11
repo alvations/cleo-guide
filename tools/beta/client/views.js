@@ -174,6 +174,10 @@
     const m = C.map && C.map(); if (m) setTimeout(() => { try { m.invalidateSize(); } catch (e) {} }, 220);
   };
   C.mapFirst = () => cur === 'atlas' && mobile();
+  // W7: keyboard focus entering the list at the peek detent raises the tray, so the focused row is never hidden or under the head
+  on(lp, 'focusin', e => { if (cur !== 'atlas' || !mobile() || (e.target.closest && e.target.closest('.tray-head'))) return; if (det === 'peek') setDet('half');
+    const li = e.target.closest && e.target.closest('li.pl'), th = $('.tray-head', lp); if (!li || !th) return;
+    const fit = () => { const g = th.getBoundingClientRect().bottom + 8 - li.getBoundingClientRect().top; if (g > 0) lp.scrollTop -= g; }; fit(); setTimeout(fit, 260); });
   C.detent = (v, push) => { if (v) setDet(v, push); return det; };
   const park = (el, host, before) => { if (el && el.parentNode !== host) { moved.push([el, el.parentNode, el.nextSibling]); host.insertBefore(el, before || null); } };
   const unpark = () => moved.splice(0).reverse().forEach(([el, par, nx]) => { if (nx && nx.parentNode === par) par.insertBefore(el, nx); else par.appendChild(el); });
