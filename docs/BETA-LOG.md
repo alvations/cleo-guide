@@ -841,3 +841,23 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **CSS:** one cached stylesheet `assets/fe-b.css` (source `tools/beta/lib/render/fe-b.css`, tokens only, reading `--accent`/`--sun`/`--cover-1..4` with today's tokens as the fallback) replaces the inline glue CSS each hub and landing page used to carry.
   - **Weight:** the landing went from 83 KB to ≈72 KB raw (≈11 KB gzip).
   - **Tests:** test-i18n's fixture gains named sources, so the card's "Recommended by" line is checked in pseudo. That extends the check; nothing was relaxed.
+
+- 2026-10-11 14:20Z · orchestrator · **R6 evaluation in: 85.4** (A 77, B 88, C 96, D 89; R5 84.5).
+  - Type & style re-scored at 223/300.
+  - D1–D11: ✅ 5, ◐ 5, ✕ 1 (D9 photos, owner-blocked).
+  - About 3.1 points are owner-blocked; about 2.5 are earnable without the owner.
+  - **R6 QA (in progress)** has already found three Highs:
+    - the Leaflet `_leaflet_pos` error;
+    - the 370 px Atlas tray head;
+    - the workflow `npm ci` failure, fixed in 49deb0a7.
+  - So R6 gets no separate deploy. Its gaps are folded into W7 (W7-BRIEFS §"Round 6 evaluator gaps"):
+    - #1 motion, designer + FE-A;
+    - #2 Atlas, FE-A;
+    - #3 type, designer;
+    - #4 a11y and #5 perf, a new platform lane (session_01USPS1inq7bUDfyw89evKMA);
+    - #6 is out of beta scope;
+    - #7 and #8, FE-A.
+- 2026-10-11 14:20Z · orchestrator · **Commons photos via GitHub Actions.**
+  - The workflow gained the keyless Commons fetch (cd4196b0).
+  - Run #5 failed on HTTP 400 for a 640 px thumbnail. Wikimedia only serves standard thumbnail widths.
+  - Switched to 500/960 (eedd4207); the imagery lane is hardening fetch-commons.js (width snapping, non-fatal per-image failures).
