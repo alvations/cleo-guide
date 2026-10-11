@@ -141,7 +141,10 @@
   // the place detail shows the photo's full TASL credit (title, author, licence, source); the card carries the short form
   // (TASL: the short card credit names author, licence and source and keeps the file title on its source link; the detail
   // spells the title out in front)
-  var fullCap = function (f) { var x = f.cloneNode(true), cap = q('figcaption', x), t = cap && q('a[title]', cap);
+  // QA-51 (platform W8): the detail media slot is ~1,024 px on desktop and full width on phones; the card's sizes (25vw,
+  // or the 3× density cap) would pick the 500w copy and upscale it, so the clone asks for the slot it actually fills
+  var fullCap = function (f) { var x = f.cloneNode(true), cap = q('figcaption', x), t = cap && q('a[title]', cap), im = q('img', x);
+    if (im && im.hasAttribute('srcset')) { im.setAttribute('sizes', '(min-width: 1024px) 1024px, 100vw'); im.removeAttribute('data-sizes0'); }
     if (t && !q('.cap-t', cap)) cap.insertAdjacentHTML('afterbegin', '<span class="cap-t">' + esc(t.getAttribute('title')) + '</span> · ');
     return x.outerHTML; };
   var grow = null;
