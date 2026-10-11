@@ -409,6 +409,11 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 :is(.view-guidebook, [data-cleo-book]) .facts-box{position:static;break-inside:avoid}
 }
 
+/* FE-B W8 (R7 gap 6): counts line up in the Guidebook too — facts box, contents, section counts, ranks; dates stay
+   proportional (Inter's tabular hyphen spaces "2026-10-03" apart) */
+:is(.view-guidebook, [data-cleo-book]) :is(.facts-box dd, .toc .meta, .toc .n, .gs .meta, .rk){font-variant-numeric:var(--num)}
+:is(.view-guidebook, [data-cleo-book]) .facts-box dd time{font-variant-numeric:normal}
+
 /* ---------- V7. INSIGHTS (.view-insights) ---------- */
 :is(.view-insights, [data-cleo-insights]) .ins-h{padding:24px 0 8px}
 :is(.view-insights, [data-cleo-insights]) .tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0 20px}
@@ -432,10 +437,12 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 :is(.view-insights, [data-cleo-insights]) .chart .ax{font:var(--fs-xs) var(--font-ui);fill:var(--ink-3)}
 :is(.view-insights, [data-cleo-insights]) .chart .lb{font:var(--fs-meta) var(--font-ui);fill:var(--ink-2)}
 :is(.view-insights, [data-cleo-insights]) .chart .vl{font:600 var(--fs-xs) var(--font-ui);fill:var(--ink)}
+/* the font shorthands above reset font-variant: chart values and axis ticks line up again (R7 gap 6) */
+:is(.view-insights, [data-cleo-insights]) .chart :is(.ax, .vl){font-variant-numeric:var(--num)}
 :is(.view-insights, [data-cleo-insights]) .chart a:hover rect{stroke:var(--ink);stroke-width:1.5}
 :is(.view-insights, [data-cleo-insights]) .chart a:focus-visible rect{stroke:var(--focus);stroke-width:3px;paint-order:fill}
 :is(.view-insights, [data-cleo-insights]) .legend{display:flex;flex-wrap:wrap;gap:6px 14px;list-style:none;margin:10px 0 0;padding:0;font-size:var(--fs-meta);color:var(--ink-2)}
-:is(.view-insights, [data-cleo-insights]) .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px}
+:is(.view-insights, [data-cleo-insights]) .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
 :is(.view-insights, [data-cleo-insights]) .fn{font-size:var(--fs-xs);color:var(--ink-3);margin:10px 0 0}
 /* QA-55 (FE-B W8): the chart and page subtitles are prose a reader reads — body size (≥ 16 px); footnotes stay small */
 :is(.view-insights, [data-cleo-insights]) :is(.ins-h, .icard) > .sub{font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink-2)}
