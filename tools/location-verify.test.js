@@ -70,6 +70,8 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     assert.deepStrictEqual(LV.osmClosureEvidence({ 'disused:shop': 'shoes', name: 'X' }).map(e => e.detail), ['disused:shop=shoes']);
     assert.strictEqual(LV.osmClosureEvidence({ 'was:name': 'Old X', shop: 'shoes' }).length, 0, 'a former name alone is not closure');
     assert.strictEqual(LV.osmClosureEvidence({ shop: 'vacant' }).length, 1);
+    assert.strictEqual(LV.osmClosureEvidence({ 'was:amenity': 'place_of_worship', leisure: 'sports_centre', name: 'Rink' }).length, 0, 'repurposed building, not closed');
+    assert.strictEqual(LV.osmClosureEvidence({ 'disused:amenity': 'restaurant', building: 'yes' }).length, 1, 'no active main tag → evidence');
   });
   await t('siteClosureNotice', () => {
     assert.ok(LV.siteClosureNotice('<p>After 40 years we have closed our doors.</p>'));
