@@ -119,7 +119,8 @@ function photoImg(ph, up, { sizes, eager = false } = {}) {
   const set = ph.srcset ? ` srcset="${esc(String(ph.srcset).split(',').map(x => up + x.trim()).join(', '))}" sizes="${esc(sizes)}"` : '';
   return `<img class="ph" src="${esc(up + ph.src)}"${set} width="${ph.w}" height="${ph.h}" alt="${esc(ph.credit.depicts)}"${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async">`;
 }
-const credit = ph => ph ? `<small class="credit">${captionHtml(ph.credit)}</small>` : '';
+/** The photo's visible TASL credit: one sentence under the card, its links inline (WCAG 2.5.8 inline exception). */
+const credit = ph => ph ? `<p class="credit">${captionHtml(ph.credit)}</p>` : '';
 
 // ---------------------------------------------------------------- city card
 /** Sizes for the card media: 1/2/3/4 columns (hubs) or 2/3/4 (landing). */
