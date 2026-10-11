@@ -22,7 +22,8 @@
     "beta:qa:w2": "node beta/qa/w2.js",
     "beta:qa:views": "node beta/qa/views.js",
     "beta:probe:fe-a:w8": "node beta/w8-fe-a-probe.js",
-    "beta:probe:fe-a": "node beta/w7-fe-a-probe.js"
+    "beta:probe:fe-a": "node beta/w7-fe-a-probe.js",
+    "beta:qa:w8p": "node beta/qa/w8-platform.js"
   },
   "dependencies": {
     "jsdom": "^24.0.0",
