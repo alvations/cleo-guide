@@ -238,13 +238,20 @@ ok(!fc.tooManyFailures(10, 1) && !fc.tooManyFailures(2, 1) && fc.tooManyFailures
 ok(fc.GLOOM.test('Old Main Snow PSU') && fc.GLOOM.test('Skyline on an overcast winter day') && !fc.GLOOM.test('Downtown Miami skyline at night') && !fc.GLOOM.test('Brooklyn Bridge at golden hour'), 'fetch-commons: a hero whose title or description says winter, snow, overcast or fog is refused (night views allowed)');
 ok(fc.SIGNAGE.test('Shop signage in Dotonbori') && fc.SIGNAGE.test('Billboards at night') && !fc.SIGNAGE.test('Tokyo Tower at night') && !fc.SIGNAGE.test('30 Rockefeller Plaza (NBC headquarters)'), 'fetch-commons: a file whose subject is signage, a logo or advertising is refused');
 ok(fc.SIGNAGE.test('Youngstown skyline with the YOUNGSTOWN letters sign') && fc.SIGNAGE.test('Hotel lettering') && fc.subjectRefused(fc.SIGNAGE, { label: 'Youngstown', names: ['Youngstown'] }, 'Big letters sign in Wean Park') && !fc.subjectRefused(fc.SIGNAGE, { label: 'Sign Hill', names: ['Sign Hill'] }, 'Sign Hill letters from the bay'), 'fetch-commons: lettering and letter signs are refused too — unless the sign is the place itself (Sign Hill)');
-ok(fc.subjectRefused(fc.CLOSEUP, { label: 'Dayton', names: ['Dayton'] }, 'RiverScape MetroPark, Dayton | person holding black drone controller') && fc.CLOSEUP.test('Hands on a remote') && fc.CLOSEUP.test('Selfie at the falls') && fc.CLOSEUP.test('Close-up of a lantern') && !fc.CLOSEUP.test('Aerial view of the Great Miami River') && !fc.subjectRefused(fc.CLOSEUP, { label: 'National Portrait Gallery', names: ['National Portrait Gallery'] }, 'National Portrait Gallery facade'), 'fetch-commons: equipment / people / close-up subjects (drone controller, hands, selfie, close-up) refused; a portrait gallery keeps its photo');
+ok(fc.subjectRefused(fc.CLOSEUP, { label: 'Dayton', names: ['Dayton'] }, 'RiverScape MetroPark, Dayton | person holding black drone controller') && fc.CLOSEUP.test('Hands on a remote') && fc.CLOSEUP.test('Selfie at the falls') && fc.CLOSEUP.test('Close-up of a lantern') && !fc.CLOSEUP.test('Aerial view of the Great Miami River') && !fc.CLOSEUP.test('the Capitol dome on the right-hand side of State Street') && fc.CLOSEUP.test('a hand holding a tablet') && !fc.subjectRefused(fc.CLOSEUP, { label: 'National Portrait Gallery', names: ['National Portrait Gallery'] }, 'National Portrait Gallery facade'), 'fetch-commons: equipment / people / close-up subjects (drone controller, hands, selfie, close-up) refused; a portrait gallery keeps its photo');
 { // recompress.js: size targets per copy, Commons JPEGs only, once per row; the card credit still says "(resized)"
   const rc = require('./recompress');
   const card = { provider: 'wikimedia-commons', file: 'x-960.jpg', width: 960, record: {} }, hero = Object.assign({}, card, { slot: { type: 'hero', key: 'tokyo' } });
   ok(rc.targetOf(card, 500, false) === 45 * 1024 && rc.targetOf(card, 960, true) === 110 * 1024 && rc.targetOf(hero, 960, true) === 160 * 1024 && rc.targetOf(hero, 500, false) === 45 * 1024, 'recompress: targets — card 500 w ≤ 45 KB, card 960 w ≤ 110 KB, hero 960 w ≤ 160 KB');
   ok(rc.eligible(card) && !rc.eligible(Object.assign({}, card, { modified: 'resized to 500 and 960 px wide; ' + rc.MARK })) && !rc.eligible(Object.assign({}, card, { provider: 'unsplash' })) && !rc.eligible(Object.assign({}, card, { file: 'x.png' })), 'recompress: Commons JPEG rows only, each once (idempotent after every fetch)');
   ok(/ \(resized\)$/.test(photos.captionHtml(Object.assign({}, cmn, { modified: 'resized to 500 and 960 px wide; ' + rc.MARK }))) && photos.captionHtml(Object.assign({}, cmn, { modified: 'resized to 500 and 960 px wide; ' + rc.MARK }), { full: true }).includes('recompressed'), 'recompressed rows: short credit "(resized)", the full credit names both changes');
+}
+{ // author names: the photographer only — no flag notices, userboxes, "(talk)" asides or doubled names (W7: "Kakidai Rising Sun Flag…")
+  const art = '<a href="//commons.wikimedia.org/wiki/User:Kakidai">Kakidai</a> <table><tr><td><img alt="Rising Sun Flag of Japan (16 rays)" src="x.png"></td><td>Legal disclaimer This image shows a symbol</td></tr></table>';
+  ok(fc.authorOf(art) === 'Kakidai' && fc.authorOf('<a href="//x/User:Yasu">Yasu</a> (<a href="//x/User_talk:Yasu">talk</a>)') === 'Yasu' && fc.authorOf('Unknown author Unknown author') === 'Unknown author' && fc.authorOf('Rolf Müller ( User:Rolfmueller )') === 'Rolf Müller' && fc.authorOf('Photograph by Mike Peel ( www.mikepeel.net ).') === 'Mike Peel' && fc.authorOf('Bernard Spragg. NZ from Christchurch, New Zealand') === 'Bernard Spragg. NZ from Christchurch, New Zealand', 'fetch-commons authorOf: template/flag text, (talk) and (User:) asides dropped, a doubled name said once');
+  ok(fc.authorProblems('Kakidai Rising Sun Flag of Japan (16 rays) Legal disclaimer').length && fc.authorProblems('x'.repeat(61)).length && !fc.authorProblems('Bernard Spragg. NZ from Christchurch, New Zealand').length, 'fetch-commons authorProblems: > 60 characters or notice text is not a clean name');
+  const bad = (JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || []).filter(c => fc.authorProblems(c.author).length).map(c => `${c.file}: "${String(c.author).slice(0, 50)}"`);
+  ok(!bad.length, `every credited author is a clean name (≤ 60 characters, no flag/userbox/talk text, not doubled)${bad.length ? ': ' + bad.join('; ') : ''}`);
 }
 { // one Commons file, one credit row: never the same photo as two heroes, or as a hero and a card (owner review, W7)
   const seen = new Map(), dups = [];
@@ -263,6 +270,31 @@ const lm = fplan.filter(p => p.t.type === 'landmark');
 ok(fplan.findIndex(p => p.t.type === 'landmark') === fplan.filter(p => p.t.type === 'hero').length && (lm.findIndex(p => !p.t.pilot) < 0 || lm.findIndex(p => !p.t.pilot) >= lm.filter(p => p.t.pilot).length), 'fetch-commons: city and hub heroes first, then pilot tier-1 sights, then the rest');
 const onDisk = path.join(BETA, 'assets', 'img', 'manifest.json');
 ok(fs.existsSync(onDisk) && JSON.parse(fs.readFileSync(onDisk, 'utf8')).items.length === m.items.length, 'beta/assets/img/manifest.json is current');
+
+// ---------------------------------------------------------------- 6. heroPreload (platform W7): lazy hero + early preload
+console.log('imagery: hero preload (no fetch when the page opens in Atlas)');
+{
+  const ph = { src: 'assets/img/photos/hero--x-960.jpg', w: 960, h: 540, widths: [{ src: 'assets/img/photos/hero--x-500.jpg', w: 500 }, { src: 'assets/img/photos/hero--x-960.jpg', w: 960 }], credit: { depicts: 'X' } };
+  const tag = photos.heroPreload(ph, '../');
+  const run = ({ hash = '', view = null, stored, throws = false }) => {
+    const dom = new JSDOM(`<!doctype html><html${view ? ` data-view="${view}"` : ''}><head>${tag}</head><body></body></html>`, {
+      runScripts: 'dangerously', url: 'https://x.test/beta/cities/x.html' + hash,
+      beforeParse(w) {
+        if (throws) Object.defineProperty(w, 'localStorage', { get() { throw new Error('SecurityError'); } });
+        else if (stored !== undefined) w.localStorage.setItem('cleo:v1:view', JSON.stringify(stored));
+      } });
+    const l = dom.window.document.querySelector('link[rel=preload][as=image]');
+    return l ? [l.getAttribute('href'), l.getAttribute('imagesrcset'), l.getAttribute('imagesizes'), l.getAttribute('fetchpriority')].join('|') : 'none';
+  };
+  const want = '../assets/img/photos/hero--x-960.jpg|../assets/img/photos/hero--x-500.jpg 500w, ../assets/img/photos/hero--x-960.jpg 960w|' + photos.HERO_SIZES + '|high';
+  ok(run({}) === want, 'heroPreload: Gallery (no hash, no preference) preloads the hero with the img\'s srcset/sizes, fetchpriority=high');
+  ok(run({ view: 'atlas' }) === 'none' && run({ hash: '#view=atlas' }) === 'none' && run({ stored: 'atlas' }) === 'none', 'heroPreload: skipView — html[data-view=atlas], #view=atlas or a stored Atlas preference fetch nothing');
+  ok(run({ view: 'gallery', stored: 'atlas' }) === want && run({ hash: '#view=guidebook' }) === want, 'heroPreload: the boot script\'s data-view wins over storage; other views preload');
+  ok(run({ throws: true }) === want, 'heroPreload: storage that throws (sandbox) is caught — the hero still preloads, no error');
+  ok(!/document\.write/.test(tag) && /try\{/.test(tag), 'heroPreload: no document.write; localStorage inside try/catch');
+  const fig = photos.heroHtml(ph, '../', 'photo hero-media', { preloaded: true });
+  ok(/ loading="lazy" fetchpriority="high"/.test(fig) && /<figcaption>/.test(fig), 'heroHtml { preloaded }: lazy img (never fetched while hidden) at high priority, credit kept');
+}
 
 if (fails) { console.error(`>>> FAIL — imagery: ${fails} check(s) failed`); process.exit(1); }
 console.log('>>> PASS — imagery: credit gate, motifs and manifest');

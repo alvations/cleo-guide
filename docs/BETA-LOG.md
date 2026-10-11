@@ -1082,6 +1082,17 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - Erie (white sky) is weak; swap it if a bright lead exists.
     - Run #19 (sharp + recompress) is in progress.
   - **Atlas** (68ae2639): shared card face in the desktop grid and phone list, phone peek with the photo, OSM credit clear of the pill, phone chip row. Still owed: the Tokyo Atlas node and byte numbers after a first-page-only stamp (platform measured about 10.5 k nodes on desktop), and the lens deep link fitting all matches.
+  - **Platform (W7 close):**
+    - `metrics.js` page weight. The budget row is now **"Perf: initial load transfer ≤ 2.0 MB"**, gated on desktop and phone @3×: the default view at first load, no scroll, network idle + 2 s, each URL once. Session bytes stay informational. This is proposed as **D-38** for R7 QA to ratify.
+    - Why the numbers disagreed:
+      - `ctx.route()` disables the browser cache, so repeated URLs were downloaded and counted twice. `bytes` now counts each URL once, and `bytesAllResponses` keeps the raw sum.
+      - The old figure was whole-session, including the reachability scroll that loads every lazy photo.
+    - Tokyo, desktop / phone transfer:
+      - Gallery: 929 / 1,628 KB.
+      - Atlas: 820 / 1,847 KB. **Phone is within 10 % of the line**; the card photos are the lever (imagery re-encode routed).
+      - Landing: 1,151 / 830 KB.
+      - Hubs: Japan 787 / 1,344 KB, Belgium 800 / 1,407 KB, Germany 651 / 1,133 KB, Singapore 482 / 326 KB, Vietnam 376 / 349 KB.
+    - Hero photo: lazy plus `imagery.heroPreload()`. Atlas fetches 0 KB of it, and Gallery LCP is unchanged. New tests in `test-imagery.js` cover skipView, the stored preference and storage that throws.
   - **Card-face test cases (orchestrator 17:41):** `beta:probe:fe-a` now checks the card face on Tokyo Gallery (grid at 1440/390, rails) and on Atlas (Tokyo, Cleveland `.w7-cards`):
     - no card under an area header shows its area;
     - rail cards (no header) keep it;
