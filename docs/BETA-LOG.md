@@ -1045,6 +1045,9 @@ Append-only. One entry per session per wave: date, lane, session id, what change
 
       Result: `design/beta/eval/w7/fe-a/probe.txt`.
     - Shots re-taken.
+  - **Follow-up 5 (Atlas lane review of the shared card):**
+    - **Area hook.** The eyebrow's area is now `.in-a` and the dish `.in-d` (with a `.sep`). Both the Gallery grid and any `.w7-cards` list hide the area under an area heading. The text is unchanged for search and AT.
+    - **Recommended by.** The card shows the first source plus "+n more" (`.pl-s[data-more]`; row cards `.more`). The full list is in the detail, and a narrow card no longer ends on a dangling comma.
   - **Platform (W7 close):**
     - `metrics.js` page weight. The budget row is now **"Perf: initial load transfer ≤ 2.0 MB"**, gated on desktop and phone @3×: the default view at first load, no scroll, network idle + 2 s, each URL once. Session bytes stay informational. This is proposed as **D-38** for R7 QA to ratify.
     - Why the numbers disagreed:
