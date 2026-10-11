@@ -18,6 +18,8 @@ const NATIVE = /\(([^()]*[^\x00-\x7F\u00C0-\u024F\u1E00-\u1EFF\u2000-\u206F][^()
 const nativeOf = s => { const m = NATIVE.exec(String(s || '')); return m ? m[1].trim() : null; };
 
 const CLOSED_RE = /\s*[—–-]+\s*CLOSED\b.*$/i;
+// a source entry that is not a physical place (Cleveland's "@neorsd — not a place, but on the list"): listed, never pinned
+const NOT_PLACE_RE = /\bnot a place\b/i;
 const baseName = n => n.replace(CLOSED_RE, '').trim();
 
 function fnv(s) { let h = 0x811c9dc5; for (const c of s) { h ^= c.codePointAt(0); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); }
@@ -67,6 +69,7 @@ function normalise(row) {
     if (nat) rec.nat = nat;
     if (closed) rec.closed = true;
     if (r.warn) rec.warn = r.warn;
+    if (NOT_PLACE_RE.test(r.n)) rec.np = true;
     if (g) {
       rec.pv = {};
       if (g.statusChecked) rec.pv.checked = g.statusChecked;

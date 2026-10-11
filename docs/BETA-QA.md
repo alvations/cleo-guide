@@ -995,3 +995,29 @@ Axe still reports 0 serious/critical. `atlas-ms.js` 117/117, `beta:probe:fe-a` 3
 **Why NO:** QA-47, QA-48 and QA-60 regress cells that were ✅ on the W6 pin or on `badcc20`. QA-50 fails its re-sign row.
 
 QA sign-off: NO
+
+## 2026-10-11 · QA · R7 re-sign on the orchestrator's pinned SHA · session_017FLWXa5zgGWvqNo4C3UsvH
+
+**Tested SHA: `dd2125e3be6769c776aa1633ed96b17db69181d8`**, in a clean worktree. It contains `63805e3e`, FE-B's c5cfce4d, d979b3e9 and 08289aa7, and Atlas's 7fef2dec. It does **not** contain FE-A's b244f104 or 6733a233.
+
+Gates:
+- validate ✅.
+- `npm test` ✅.
+- `beta:check` ✅.
+
+Evidence: `design/beta/eval/w7/qa/resign-dd2125e3/`.
+
+| Re-sign row | Result | Owner |
+|---|---|---|
+| Atlas G1 5/5 (QA-45) | ✅ 5/5 | Atlas FE-1 |
+| Gallery B-02 5/5 (QA-47) | ❌ Cleveland 513, Tokyo 513 (New York 468, Chinatown 492, Wheeling 489) | FE-A |
+| Tokyo B-04 (QA-48) | ❌ top 859 | FE-A |
+| Landing B-05 (QA-49) | ✅ 2 | FE-B |
+| QA-50 (`w7.js --only detail`) | ❌ a fresh `#p=` load reads "No. 37 of 37 in Jōhoku" (data: 2 of 37) and "No. 52 of 52" (Cleveland, 3 of 52) | FE-A |
+| QA-52 (`w7.js --only atlasm`) | ✅ credits whole on 5/5; B-07 real pin tap ✅ | Atlas FE-1 |
+| QA-54 (search refit) | ✅ Chinatown search 16/16, phone and desktop | Atlas FE-1 |
+| No regression | ❌ QA-60: Wheeling B-04 top 852 (badcc20: 687) | FE-A |
+
+Register state on this SHA: **0 open High/Blocker**. The rows above that fail are Med regressions or a factual error. They block the sign-off under ROUNDS-6-9's rule that QA must not sign a deploy that regresses a ✅ row.
+
+QA sign-off: NO

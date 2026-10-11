@@ -43,6 +43,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
+          cache-dependency-path: tools/package.json
+
+      # perf audit PERF-05: the Chromium download (~150 MB) is cached per pinned Playwright version;
+      # `playwright install --with-deps` then only installs the system libraries
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-1.56.1-${{ runner.os }}
 
       - name: Install tools and the headless browser
         # package-lock.json is gitignored in this repo, so npm ci cannot run here.

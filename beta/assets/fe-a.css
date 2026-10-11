@@ -601,10 +601,14 @@ html body main[data-city]>.overlay:is(#cleo-sheet,#cleo-fy){max-width:none;margi
 /* ---- SPEC-v3 slice 1 pins: a labelled pill (one kind glyph · the short name; Must see = the sun-wash pill), anchored by a tail at the
    place's exact point. Every other place is a canvas dot (atlas.js); no numbers on the map. ---- */
 .leaflet-marker-icon.pp{width:0!important;height:0!important;margin:0!important;background:none;border:0;overflow:visible}
-.pp>span{position:absolute;left:0;top:0;transform:translate(-50%,calc(-100% - 7px));display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 11px 0 9px;border-radius:var(--r-pill);
-  background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow-sm);font:600 var(--fs-meta)/1 var(--font-ui);white-space:nowrap;cursor:pointer;
+.pp>span{position:absolute;left:0;top:0;transform:translate(-50%,calc(-100% - 7px));display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px 0 10px;border-radius:var(--r-pill);
+  background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow-sm);font:600 var(--fs-sm)/1 var(--font-ui);white-space:nowrap;cursor:pointer;
   transition:transform var(--dur-1) var(--ease-out),background-color var(--dur-1) var(--ease-out),color var(--dur-1) var(--ease-out),border-color var(--dur-1) var(--ease-out)}
-.pp>span::before{content:"";position:absolute;inset:-7px -2px}                         /* a 44 px hit area round a 30 px pill */
+.pp>span::before{content:"";position:absolute;inset:-6px -2px}                         /* a 44 px hit area round a 32 px pill */
+a.pp{color:inherit;text-decoration:none}a.pp:focus{outline:none}a.pp:focus-visible>span{outline:2px solid var(--focus);outline-offset:2px}
+/* side and below anchors (SPEC-v3 §1.3): no stem, a 4 px gap from the point */
+.pp.pp-ar>span{transform:translate(4px,-50%)}.pp.pp-al>span{transform:translate(calc(-100% - 4px),-50%)}.pp.pp-ab>span{transform:translate(-50%,4px)}
+.pp:is(.pp-ar,.pp-al,.pp-ab)>span::after{display:none}
 .pp>span::after{content:"";position:absolute;left:50%;bottom:-7px;width:10px;height:7px;margin-left:-5px;background:inherit;clip-path:polygon(0 0,100% 0,50% 100%)}   /* the tail */
 .pp>span>b{font-weight:600}
 .pp .ico{flex:none;width:16px;height:16px;color:var(--ink-2);stroke-width:1.5}
@@ -626,8 +630,8 @@ html body main[data-city]>.overlay:is(#cleo-sheet,#cleo-fy){max-width:none;margi
 .leaflet-container .m-legend summary::-webkit-details-marker{display:none}
 .leaflet-container .m-legend ul{list-style:none;margin:0;padding:2px 12px 12px;display:grid;gap:8px;font-size:var(--fs-meta);line-height:1.3;color:var(--ink-2)}
 .leaflet-container .m-legend li{display:flex;align-items:center;gap:10px}
-.leaflet-container .m-legend .kd{flex:none;width:7px;height:7px;border-radius:50%;background:color-mix(in srgb,var(--ink) 38%,var(--paper));box-shadow:0 0 0 1px var(--surface)}.leaflet-container .m-legend .kd.f{background:color-mix(in srgb,var(--ink) 62%,var(--paper));margin-left:-6px}
-.m-legend b.pp{position:relative;display:inline-block;flex:none;width:118px;height:30px}.m-legend b.pp>span{left:0;top:0;transform:none;cursor:default}.m-legend b.pp>span::after{display:none}
+.leaflet-container .m-legend .kd{flex:none;width:7px;height:7px;border-radius:50%;background:color-mix(in srgb,var(--ink) 38%,var(--paper));box-shadow:0 0 0 1px var(--surface)}.leaflet-container .m-legend .kd.f{width:6px;height:6px;border-radius:1.5px;background:color-mix(in srgb,var(--ink) 62%,var(--paper));margin-left:2px}   /* eat & drink: a rounded square */
+.m-legend b.pp{position:relative;display:inline-block;flex:none;width:140px;height:32px}.m-legend b.pp>span{left:0;top:0;transform:none;cursor:default}.m-legend b.pp>span::after{display:none}
 .leaflet-container .leaflet-control-zoom a{width:44px;height:44px;line-height:44px;background:var(--surface);color:var(--ink);border-color:var(--line)}
 html .leaflet-container .leaflet-control-attribution{background:color-mix(in srgb,var(--surface) 85%,transparent);color:var(--ink-2)}
 html .leaflet-container .leaflet-control-attribution a{color:var(--ink)}
@@ -820,7 +824,14 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
   html.atlas-m[data-view=atlas] .leaflet-container :is(.m-base,.m-legend summary)>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
   html.atlas-m[data-view=atlas] .leaflet-container .m-legend[open]{width:auto}
   html.atlas-m[data-view=atlas] .leaflet-bottom{bottom:calc(var(--car-h) + 76px)}
-  html.atlas-m[data-view=atlas] .leaflet-top.leaflet-left .leaflet-control-attribution{margin:6px 0 0 12px;float:left;clear:both}   /* OSM credit: top left, clear of the controls and the pins */
+  /* OSM credit: one line, bottom left, never wraps; the ⓘ (a 44 px hit area) opens the full credit */
+  html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-left .leaflet-control-attribution.m-attr{position:relative;display:flex;align-items:center;gap:4px;margin:0 0 0 12px;padding:0 2px 0 6px;max-height:20px;white-space:nowrap;background:color-mix(in srgb,var(--surface) 70%,transparent);color:var(--ink-2);border-radius:var(--r-s)}
+  html.atlas-m[data-view=atlas] .m-attr .m-attr-s a{color:var(--ink-2)}
+  html.atlas-m[data-view=atlas] .m-attr .m-attr-i{position:relative;display:inline-grid;place-items:center;width:20px;height:20px;margin:0;padding:0;border:0;background:none;color:var(--ink-2);font:inherit;line-height:1;cursor:pointer}
+  html.atlas-m[data-view=atlas] .m-attr .m-attr-i::before{content:"";position:absolute;left:50%;top:50%;width:44px;height:44px;transform:translate(-50%,-50%)}
+  html.atlas-m[data-view=atlas] .m-attr .m-attr-i:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+  html.atlas-m[data-view=atlas] .m-attr .m-attr-pop{position:absolute;left:0;bottom:calc(100% + 8px);width:max-content;max-width:calc(100vw - 24px);padding:8px 10px;white-space:normal;background:var(--surface);color:var(--ink-2);border:1px solid var(--line);border-radius:var(--r-m);box-shadow:var(--e-2);line-height:1.5}
+  html.atlas-m[data-view=atlas] .m-attr .m-attr-pop[hidden]{display:none}
   html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-right .leaflet-control{margin:8px 12px 0 0}   /* locate, map style, key: bottom right above the cards */
   html.atlas-m[data-view=atlas] .leaflet-control-attribution{font-size:var(--fs-xs);line-height:1.5;padding:0 6px;border-radius:var(--r-s)}
   html.atlas-m[data-view=atlas] .topbar .crumbs :is(a~.sep,a~.here){display:inline}   /* QA-40: the city named in the header */
