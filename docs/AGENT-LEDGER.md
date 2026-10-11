@@ -238,7 +238,8 @@ open/closed status), `docs/CITIES.md` (one row per city), `docs/AGENT-PROMPTS.md
 | `session_01Cuvo7DWhwbWjLpFicvaF5E` | Beta W7 — Atlas map-search (map front and center) | 2026-10-11 14:26 | running (idle, open for R7) | Map-search (desktop map-left + bounds-following card grid, phone map + carousel), QA-36/37/40/41/44 fixed, Tokyo Atlas 2,348 nodes / 610–900 KB first load, lens deep links fit all matches; atlas-ms.js 98/98 (9ac5063a) |
 | `session_017FLWXa5zgGWvqNo4C3UsvH` | Beta R7 — QA full pass (badcc20d) | 2026-10-11 18:17 | running | — |
 | `session_01Vx8PDHmhSZ8YgiQphvTLPs` | Beta R7 — independent evaluator (badcc20d) | 2026-10-11 18:17 | completed, archived | ROUND-7.md: 88.5 (A 83 · B 91 · C 96 · D 89; +3.1 vs R6); D1–D13 6 ✅ 7 ◐; owner-blocked ≈ +0.6; top gaps: photo coverage, polish, second delight, Atlas residuals, harness first screen (61184481) |
-| `session_01EKzwLjqF1Z1gwXWgbrrr2S` | Atlas map review panel (8 simulated panelists; R0 on 965b7a5c) | 2026-10-11 18:32 | running | R0 56.1/100 (PANEL-R0.md); R1 on d8b26516 in progress |
+| `session_01EKzwLjqF1Z1gwXWgbrrr2S` | Atlas map review panel (8 simulated panelists; R0 on 965b7a5c) | 2026-10-11 18:32 | running | R0 56.1 → R1 63.8 /100 (PANEL-R0/R1.md) |
+| `session_011SQNDyJMGzR5K32A4y9Udd` | Atlas FE-2 — map interaction state (round-trip, URL view, keyboard, near-me) | 2026-10-11 20:22 | running | — |
 | `session_013eanpBxmbgvhv8ELajtv2Q` | Beta W8 — product: one-up feature audit (ONE-UP.md) | 2026-10-11 20:08 | running | — |
 | `session_01VDFVuQ72NNS18uAcxwDEou` | Beta Round 3 — independent evaluator | 2026-10-10 15:05 | completed, archived | design/beta/eval/ROUND-3.md: R3 80.8 (A71 B84 C91 D88) |
 | `session_013p6wtCFUuNa7M5yALNp5JE` | Beta W3 — fix lane (QA-32/33/34) | 2026-10-10 15:18 | completed, archived | b5a95f6c: Guidebook 44 px targets, Insights focus ring, phone pin → sheet; QA re-signed YES on 83c51890 → deployed PR #5 |

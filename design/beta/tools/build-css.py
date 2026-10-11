@@ -68,6 +68,30 @@ out += '\n' + open(os.path.join(R, 'design', 'beta', 'css', 'v2.css')).read()
 # guards: no network-loaded resources, no forbidden tile hosts, no brand names in CSS
 bad = [w for w in ('http://', 'https://fonts.', '@import', 'cartocdn', 'googleapis', 'gstatic') if w in out.replace("http://www.w3.org/2000/svg", '')]
 if bad: sys.exit(f'build-css: refusing — found {bad}')
+# Platform W8 (R7 gap 7): the shipped cleo.css carries no comments (the sources keep every one); the header stays.
+# String-aware: a "/*" inside a quoted value or url() is never treated as a comment.
+def strip_comments(css):
+    o, i, n, q = [], 0, len(css), None
+    while i < n:
+        ch = css[i]
+        if q:
+            o.append(ch)
+            if ch == '\\' and i + 1 < n: o.append(css[i + 1]); i += 2; continue
+            if ch == q: q = None
+            i += 1; continue
+        if ch in '"\'': q = ch; o.append(ch); i += 1; continue
+        if css.startswith('/*', i):
+            j = css.find('*/', i + 2); i = n if j < 0 else j + 2; continue
+        if ch in '{};':   # whitespace around these is never significant outside a string
+            while o and o[-1] in ' \t\n': o.pop()
+            o.append(ch); i += 1
+            while i < n and css[i] in ' \t\n': i += 1
+            continue
+        o.append(ch); i += 1
+    # and no indentation or blank lines (CSS strings never span lines, so this only touches whitespace between tokens)
+    return '\n'.join(l.strip() for l in ''.join(o).split('\n') if l.strip()) + '\n'
+_hd = out.index('*/') + 2
+out = out[:_hd] + '\n' + strip_comments(out[_hd:]).lstrip('\n')
 P = os.path.join(R, 'beta', 'assets', 'cleo.css')
 if '--check' in sys.argv:
     ok = open(P).read() == out; print('build-css:', 'cleo.css in sync' if ok else 'cleo.css OUT OF DATE — run python3 design/beta/tools/build-css.py'); sys.exit(0 if ok else 1)

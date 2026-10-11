@@ -315,7 +315,7 @@
   // phones: List ⇄ Map. The list is the full-screen image-first list of the places in the map area (Back closes it).
   // FE-A's shared card face, except the carousel; phone thumbs ask for the 500w copy (carousel 120px, list 240px)
   const face = () => { const car = atlas() && !desk() && !listOn; if (lp) lp.classList.toggle('w7-cards', atlas() && !car);
-    const s = car ? '120px' : atlas() && !desk() ? '240px' : null;   // phone list: the 500w copy too (budget); desktop: the card default
+    const s = car ? '120px' : atlas() && !desk() ? '166px' : null;   // 166px: 500w even at 3× (platform W8; 240px × 3 picked 960w)   // phone list: the 500w copy too (budget); desktop: the card default
     qa('li.pl img[data-sizes0]').forEach(im => { const v = s || at(im, 'data-sizes0'); if (at(im, 'sizes') !== v) im.setAttribute('sizes', v); }); };
   const listMode = C.listMode = (o, push) => {
     if (!!o === listOn && !push) return; listOn = !!o && !desk(); H.classList.toggle('ms-list', listOn); face();
