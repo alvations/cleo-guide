@@ -13,6 +13,13 @@
  */
 const { esc, prose, jsonInline } = require('../html');
 const { TIER } = require('../model');
+const { t: tr } = require('../i18n');   // platform W9-8: the offline-pack strings come from the catalogue
+/** Every catalogue string the W9-8 offline pack and the offline map line use (test-i18n renders it in `pseudo`). */
+function offlineStrings(city, n) {
+  const L = k => tr('pack.' + k, { city, size: '{size}', date: '{date}' });
+  return { title: L('title'), note: L('note'), keep: L('keep'), size: L('size'), saved: L('saved'), saving: L('saving'),
+    failed: L('failed'), removed: L('removed'), remove: L('remove'), mapOffline: tr('map.offline', { n }) };
+}
 const { head, siteBar, footer, BETA_BASE } = require('./common');
 const { rowsOf: galleryRows } = require('../gallery');
 const COUNTRIES = (() => { try { return JSON.parse(require('fs').readFileSync(require('path').resolve(__dirname, '../../../../data/countries.json'), 'utf8')).countries; } catch (e) { return []; } })();
@@ -315,6 +322,14 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   // desktop shows the lead as one quiet text link (the phone shows it as the first card, under the hero)
   const leadName = leadR ? (leadR.nat && leadR.n.endsWith(`(${leadR.nat})`) ? leadR.n.slice(0, -leadR.nat.length - 2).trimEnd() : leadR.n) : '';
   // the photo is an in-flow media slot (imagery: eager, sized, TASL credit in its figcaption), never a full-bleed backdrop
+  // W9-8 (platform): "Keep <city> offline" — core.js fills it from data/packs/<page>.json; hidden without a service worker
+  const OS = offlineStrings(row.name || m.h1Main || row.key, recs.length), pkL = k => OS[k];
+  const packHtml = `<section class="pack" data-cleo-pack data-key="${esc(row.fileKey || String(row.key).replace(/\//g, '--'))}" aria-labelledby="pack-h" hidden>` +
+    `<h2 class="d3" id="pack-h">${esc(pkL('title'))}</h2><p class="sm" data-pack-note>${esc(pkL('note'))}</p>` +
+    `<p class="pack-row"><button type="button" class="btn btn-primary" data-pack="keep">${esc(pkL('keep'))}</button> <span class="sm" data-pack-size data-l="${esc(pkL('size'))}"></span></p>` +
+    `<p class="pack-done sm" data-pack-done data-l="${esc(pkL('saved'))}" hidden></p>` +
+    `<p class="pack-msg sm" data-pack-msg role="status" aria-live="polite" data-l-saving="${esc(pkL('saving'))}" data-l-failed="${esc(pkL('failed'))}" data-l-removed="${esc(pkL('removed'))}"></p>` +
+    `<p><button type="button" class="btn btn-ghost" data-pack="remove" hidden>${esc(pkL('remove'))}</button></p></section>`;
   const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(heroLine)}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">Start with ${esc(leadName)}</a></p>` : ''}${heroPhoto ? heroPhotoHtml(heroPhoto, up, 'photo hero-media', { preloaded: true }) : ''}</div>`;
   // default view: Gallery (SPEC §2.4), flipped in W5 once G1 and the phone first screen passed (ROUND-4 #2). A link with
   // #day= or a lens and no view= still opens Atlas, the unpaged list (views.js implied(), mirrored in the head script)
@@ -428,13 +443,14 @@ ${cardsHtml}
 </div>
 <aside class="mappane" aria-label="Map">
 <button type="button" class="btn btn-primary mapclose" data-cleo-map="" aria-label="Back to the list">${ico('list')}<span>Show list</span></button>
-<div id="cleo-map" class="map"${mapArt ? ` data-art="${esc(up + mapArt.src)}" data-art-alt="${esc(mapArt.alt)}"` : ''}>${mapArt
+<div id="cleo-map" class="map" data-l-offline="${esc(OS.mapOffline)}"${mapArt ? ` data-art="${esc(up + mapArt.src)}" data-art-alt="${esc(mapArt.alt)}"` : ''}>${mapArt
     ? `<figure class="map-art map-fallback"><img src="${esc(up + mapArt.src)}" width="${mapArt.w}" height="${mapArt.h}" alt="${esc(mapArt.alt)}" decoding="async" style="max-width:100%;height:auto"><figcaption>The map appears when it can load. Every place is listed here either way.</figcaption></figure>`
     : '<p class="map-fallback">The map appears when it can load. Every place is listed here either way.</p>'}</div>
 <div class="poi-sheet" id="cleo-poi" role="dialog" aria-label="Place on the map" hidden></div>
 </aside>
 </div>
 ${m.standfirst ? `<section class="about" aria-label="About this guide"><p>${esc(m.standfirst.replace(/\s*Switch modes below[\s\S]*$/, ''))}</p></section>` : ''}
+${packHtml}
 <div class="overlay" id="cleo-sheet" hidden></div>
 <div class="overlay" id="cleo-fy" hidden></div>
 ${trayHtml}
@@ -449,4 +465,4 @@ ${footer({ depth, liveRel: row.live, notes: page.notes })}
 `;
 }
 
-module.exports = { render, jsonLd, shortArea };
+module.exports = { render, jsonLd, shortArea, offlineStrings };
