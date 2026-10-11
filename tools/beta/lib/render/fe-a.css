@@ -265,46 +265,46 @@ html[data-view=gallery] main[data-city] .split .pls{gap:clamp(28px,3vw,40px) cla
 @media (min-width:600px){html[data-view=gallery] main[data-city] .split .pls{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:1024px){html[data-view=gallery] main[data-city] .split .pls{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (min-width:1280px){html[data-view=gallery] main[data-city] .split .pls{grid-template-columns:repeat(4,minmax(0,1fr))}}
-html[data-view=gallery] main[data-city] .split li.pl{display:flex;flex-direction:column;gap:4px;padding:0;margin:0;background:none;border:0;border-radius:0;box-shadow:none;overflow:visible;animation:none;transform:none}
-html[data-view=gallery] main[data-city] .split li.pl::before,html[data-view=gallery] main[data-city] .split li.pl::after{content:none;display:none}
-html[data-view=gallery] main[data-city] .split li.pl>*{padding:0;margin:0;grid-row:auto}
-html[data-view=gallery] main[data-city] .split li.pl:hover{box-shadow:none;transform:none}
-html[data-view=gallery] main[data-city] .split li.pl.is-target,html[data-view=gallery] main[data-city] .split li.pl:target{box-shadow:none;outline:0}
-html[data-view=gallery] main[data-city] .split li.pl.is-target>.pl-cover,html[data-view=gallery] main[data-city] .split li.pl:target>.pl-cover{box-shadow:0 0 0 3px var(--city)}
-html[data-view=gallery] main[data-city] .split li.pl{position:relative}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-cover{order:0;position:relative;display:grid;place-items:center;width:auto;height:auto;min-height:0;padding:0;border:0;aspect-ratio:4/3;margin:0 0 10px;border-radius:var(--w7-media);overflow:hidden;background:var(--w7-cover);transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2) var(--ease-out)}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-n{order:1;font:600 var(--fs-body)/1.3 var(--font-ui);letter-spacing:0;color:var(--ink);padding:0}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-n a{color:inherit;text-decoration:none}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-n a::after{content:"";position:absolute;inset:0;z-index:1;border-radius:var(--w7-media)}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-n a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-n a:focus-visible::after{outline:2px solid var(--focus);outline-offset:4px}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-e{order:2;min-height:0;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font:400 var(--fs-ui)/1.35 var(--font-ui);color:var(--ink-3)}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-e::before{content:none}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-e .pl-num{display:none}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-s{order:3;color:var(--ink-2);position:relative;z-index:2}
-html[data-view=gallery] main[data-city] .split li.pl>:is(.pl-w,.pl-k,.pl-ad){display:none}
-html[data-view=gallery] main[data-city] .split li.pl.pg-off{display:none}
-html[data-view=gallery] main[data-city] .split li.pl[hidden]{display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl{display:flex;flex-direction:column;gap:4px;padding:0;margin:0;background:none;border:0;border-radius:0;box-shadow:none;overflow:visible;animation:none;transform:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl::before,html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl::after{content:none;display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>*{padding:0;margin:0;grid-row:auto}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:hover{box-shadow:none;transform:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl.is-target,html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:target{box-shadow:none;outline:0}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl.is-target>.pl-cover,html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:target>.pl-cover{box-shadow:0 0 0 3px var(--city)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl{position:relative}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover{order:0;position:relative;display:grid;place-items:center;width:auto;height:auto;min-height:0;padding:0;border:0;aspect-ratio:4/3;margin:0 0 10px;border-radius:var(--w7-media);overflow:hidden;background:var(--w7-cover);transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2) var(--ease-out)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n{order:1;font:600 var(--fs-body)/1.3 var(--font-ui);letter-spacing:0;color:var(--ink);padding:0}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a{color:inherit;text-decoration:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a::after{content:"";position:absolute;inset:0;z-index:1;border-radius:var(--w7-media)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a:focus-visible::after{outline:2px solid var(--focus);outline-offset:4px}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e{order:2;min-height:0;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font:400 var(--fs-ui)/1.35 var(--font-ui);color:var(--ink-3)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e::before{content:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .pl-num{display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s{order:3;color:var(--ink-2);position:relative;z-index:2}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>:is(.pl-w,.pl-k,.pl-ad){display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl.pg-off{display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[hidden]{display:none}
 /* the tier as a small, tasteful sticker — only where the data grades it */
 html main[data-city] li.pl .pl-e .tier,html .view-gallery .gc .tg+.vh{white-space:nowrap}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-e .tier{position:relative;z-index:2;display:inline-flex;align-items:center;gap:5px;min-height:26px;padding:0 9px 0 7px;border-radius:var(--r-pill);background:var(--sand);color:var(--ink);font:600 var(--fs-xs)/1 var(--font-ui);text-decoration:none}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-e .tier.t1{background:var(--gilt-soft);color:var(--ink)}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-e .tier .tg{width:13px;height:13px}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-e .tier:not(.t1){position:absolute;width:1px;height:1px;min-height:0;padding:0;overflow:hidden;clip:rect(0 0 0 0)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .tier{position:relative;z-index:2;display:inline-flex;align-items:center;gap:5px;min-height:26px;padding:0 9px 0 7px;border-radius:var(--r-pill);background:var(--sand);color:var(--ink);font:600 var(--fs-xs)/1 var(--font-ui);text-decoration:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .tier.t1{background:var(--gilt-soft);color:var(--ink)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .tier .tg{width:13px;height:13px}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .tier:not(.t1){position:absolute;width:1px;height:1px;min-height:0;padding:0;overflow:hidden;clip:rect(0 0 0 0)}
 html .view-gallery .gc .badge{display:inline-flex;align-items:center;min-height:26px;padding:0 9px;border-radius:var(--r-pill);background:var(--gilt-soft);color:var(--ink);font:600 var(--fs-xs)/1 var(--font-ui);white-space:nowrap}
 html .view-gallery .gc .cover::after{content:none}
 /* the calm no-photo cover: a quiet ground (area colour at 9 % over sand), the kind icon on a small disc, the native name */
-html[data-view=gallery] main[data-city] li.pl>.pl-cover::before,html[data-view=gallery] main[data-city] li.pl:not([data-closed])>.pl-cover::after{content:none;display:none}
-html[data-view=gallery] main[data-city] li.pl>.pl-cover .g-art{display:none}
-html[data-view=gallery] main[data-city] li.pl>.pl-cover .pl-glyph{position:static;display:block;width:30px;height:30px;padding:17px;box-sizing:content-box;border-radius:50%;background:var(--surface);color:var(--ink-2);stroke-width:1.4;opacity:1;transform:none;box-shadow:var(--e-1)}
-html[data-view=gallery] main[data-city] li.pl>.pl-cover .pl-ini{display:none}
-html[data-view=gallery] main[data-city] li.pl>.pl-cover .pl-vert{position:absolute;left:14px;bottom:12px;top:auto;right:auto;writing-mode:horizontal-tb;font:500 var(--fs-sm)/1 var(--font-native,var(--font-ui));letter-spacing:.08em;color:var(--ink-2);opacity:1}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-photo{position:absolute;left:0;right:0;top:0;aspect-ratio:4/3;margin:0;border-radius:var(--w7-media);overflow:hidden;z-index:1;transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2) var(--ease-out)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover::before,html[data-view=gallery] main[data-city] li.pl:not([data-closed])>.pl-cover::after{content:none;display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover .g-art{display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover .pl-glyph{position:static;display:block;width:30px;height:30px;padding:17px;box-sizing:content-box;border-radius:50%;background:var(--surface);color:var(--ink-2);stroke-width:1.4;opacity:1;transform:none;box-shadow:var(--e-1)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover .pl-ini{display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-cover .pl-vert{position:absolute;left:14px;bottom:12px;top:auto;right:auto;writing-mode:horizontal-tb;font:500 var(--fs-sm)/1 var(--font-native,var(--font-ui));letter-spacing:.08em;color:var(--ink-2);opacity:1}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo{position:absolute;left:0;right:0;top:0;aspect-ratio:4/3;margin:0;border-radius:var(--w7-media);overflow:hidden;z-index:1;transition:transform var(--dur-2) var(--ease-out),box-shadow var(--dur-2) var(--ease-out)}
 html main[data-city] li.pl>.pl-photo img{display:block;width:100%;height:100%;object-fit:cover}
 html main[data-city] li.pl>.pl-photo figcaption{position:absolute;left:8px;bottom:8px;right:56px;max-width:max-content;padding:3px 8px;border-radius:var(--r-pill);background:color-mix(in srgb,var(--ink) 62%,transparent);color:var(--paper);font:400 11px/1.3 var(--font-ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:2}
 html main[data-city] li.pl>.pl-photo figcaption a{color:inherit}
 /* the heart, on the media's corner (a 44 px target around a 36 px disc); a small pop when saved */
-html[data-view=gallery] main[data-city] .split li.pl>.pl-x{position:absolute;top:4px;right:4px;z-index:3;margin:0;padding:0}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-x{position:absolute;top:4px;right:4px;z-index:3;margin:0;padding:0}
 html main[data-city] li.pl>.pl-x[hidden]{display:none}
 html main[data-city] button.pl-save.heart,html .view-gallery .gc .gc-save{display:grid;place-items:center;width:44px;height:44px;min-height:44px;padding:0;margin:0;border:0;border-radius:50%;background:transparent;color:var(--ink);cursor:pointer;box-shadow:none}
 html main[data-city] button.pl-save.heart{position:relative;display:block;overflow:hidden;white-space:nowrap;text-indent:200%;font:500 12px/44px var(--font-ui)}
@@ -316,12 +316,12 @@ html main[data-city] button.pl-save.heart:focus-visible,html .view-gallery .gc .
 @keyframes w7-pop{0%{transform:scale(1)}40%{transform:scale(1.28)}70%{transform:scale(.92)}100%{transform:scale(1)}}
 @media (prefers-reduced-motion:no-preference){
   html main[data-city] button.pl-save.heart[aria-pressed=true] .ico,html .view-gallery .gc .gc-save[aria-pressed=true] .ico{animation:w7-pop var(--dur-3) var(--ease-spring)}
-  html[data-view=gallery] main[data-city] .split li.pl:hover>:is(.pl-cover,.pl-photo),html .view-gallery .gc:hover .cover{transform:translateY(-3px);box-shadow:var(--e-2)}
-  html[data-view=gallery] main[data-city] .split li.pl:active>:is(.pl-cover,.pl-photo),html .view-gallery .gc:active .cover{transform:scale(.985);box-shadow:none}
+  html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:hover>:is(.pl-cover,.pl-photo),html .view-gallery .gc:hover .cover{transform:translateY(-3px);box-shadow:var(--e-2)}
+  html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:active>:is(.pl-cover,.pl-photo),html .view-gallery .gc:active .cover{transform:scale(.985);box-shadow:none}
 }
-html[data-view=gallery] main[data-city] .split li.pl[data-closed]>.pl-cover,html .view-gallery .gc.gc--closed .cover{filter:grayscale(1);opacity:.78}
-html[data-view=gallery] main[data-city] .split li.pl[data-closed]>.pl-cover::after,html .view-gallery .gc.gc--closed .cover::after{content:"Closed";position:absolute;left:10px;top:10px;z-index:2;padding:5px 10px;border-radius:var(--r-pill);background:var(--closed);color:var(--surface);font:600 var(--fs-xs)/1 var(--font-ui);letter-spacing:.02em}
-html[data-view=gallery] main[data-city] .split li.pl[data-closed]>.pl-e{color:var(--closed)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-closed]>.pl-cover,html .view-gallery .gc.gc--closed .cover{filter:grayscale(1);opacity:.78}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-closed]>.pl-cover::after,html .view-gallery .gc.gc--closed .cover::after{content:"Closed";position:absolute;left:10px;top:10px;z-index:2;padding:5px 10px;border-radius:var(--r-pill);background:var(--closed);color:var(--surface);font:600 var(--fs-xs)/1 var(--font-ui);letter-spacing:.02em}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-closed]>.pl-e{color:var(--closed)}
 /* row and lead cards (li.gc): the same anatomy */
 html .view-gallery li.gc{position:relative;list-style:none;margin:0;padding:0;background:none;border:0;box-shadow:none}
 html .view-gallery .gc .gc-a{display:flex;flex-direction:column;gap:4px;color:inherit;text-decoration:none}
@@ -458,9 +458,9 @@ html main[data-city] button.pl-save.heart[aria-pressed=true]{--w7-heart:url("dat
 html main[data-city] button.pl-save.heart::after{content:"";position:absolute;left:12px;top:12px;width:20px;height:20px;background:currentColor;-webkit-mask:var(--w7-heart) center/contain no-repeat;mask:var(--w7-heart) center/contain no-repeat}
 @media (prefers-reduced-motion:no-preference){html main[data-city] button.pl-save.heart[aria-pressed=true]::after{animation:w7-pop var(--dur-3) var(--ease-spring)}}
 /* phones: a 16:10 media keeps two cards a screen (B-16 ≥ 2); the name link spans the card line (B-20 ≥ 44 px) */
-@media (max-width:599px){html[data-view=gallery] main[data-city] .split li.pl>:is(.pl-cover,.pl-photo){aspect-ratio:16/10}}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-n{align-self:stretch;width:auto}
-html[data-view=gallery] main[data-city] .split li.pl>.pl-n a{display:block;width:100%;min-width:44px;padding:12px 0;margin:-12px 0}
+@media (max-width:599px){html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>:is(.pl-cover,.pl-photo){aspect-ratio:16/10}}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n{align-self:stretch;width:auto}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a{display:block;width:100%;min-width:44px;padding:12px 0;margin:-12px 0}
 /* the quiet hero's optional photo (imagery lane's credited city photo): an in-flow, rounded media slot with its credit
    as a chip; a short strip on phones (the first card stays in the first screen), the right column on desktop */
 html main[data-city]>.masthead .g-hero-x{display:flex;flex-direction:column;align-items:flex-start}
@@ -504,3 +504,30 @@ html body #cleo-sheet .detail .hero-plate.has-photo>.photo figcaption a{color:in
 html body #cleo-sheet .detail .hero-plate.has-photo .locator{top:12px;right:12px;bottom:auto}
 html body #cleo-sheet .detail .hero-plate.has-photo>.photo{background:none;border-radius:0;box-shadow:none;padding:0}
 html body #cleo-sheet .detail .hero-plate.has-photo>.photo img{width:100%;object-fit:cover}
+
+/* ---- 13. the shared card, final spec (orchestrator, W7): media first; rank badge top-left and the sun "Must see" sticker on
+   the media; heart top-right; name (2 lines), area · kind (the area is omitted where the list is grouped by area), one line of
+   Recommended by; a photo's credit is a quiet caption UNDER the media. Opt in with class w7-cards on any li.pl container. ---- */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e{position:static}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .pl-num{display:inline-grid;position:absolute;left:10px;top:10px;z-index:3;place-items:center;min-width:28px;height:28px;padding:0 7px;border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:700 var(--fs-xs)/1 var(--font-ui);font-variant-numeric:tabular-nums;box-shadow:var(--e-1)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .tier.t1{position:absolute;left:46px;top:10px;z-index:3;min-height:28px;background:var(--gilt-soft);color:var(--ink);box-shadow:var(--e-1)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e .tier.t1 .tg{color:var(--gilt)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-height:44px}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s .rest{display:none}
+/* a credited photo replaces the calm cover in the flow; its credit sits under it */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl:has(>.pl-photo)>.pl-cover{display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo{position:relative;left:auto;right:auto;top:auto;aspect-ratio:auto;order:0;margin:0 0 10px;overflow:visible;border-radius:0;z-index:2}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo img{aspect-ratio:4/3;height:auto;border-radius:var(--w7-media)}
+@media (max-width:599px){html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo img{aspect-ratio:16/10}}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo figcaption{position:static;display:block;max-width:none;margin:6px 0 0;padding:0;border-radius:0;background:none;color:var(--ink-3);font:400 var(--fs-xs)/1.4 var(--font-ui);-webkit-line-clamp:unset}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo figcaption a{color:inherit}
+html .view-gallery li.gc .cover>img.gc-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+html .view-gallery li.gc .gc-cred{display:block;margin:-2px 0 4px;color:var(--ink-3);font:400 var(--fs-xs)/1.4 var(--font-ui)}
+/* phone Atlas: the Atlas lane's chip row carries the switcher; the search pill rides in its toolbar and the city bar steps aside */
+html.atlas-m[data-view=atlas] main[data-city]>.cbar{display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo{z-index:auto}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo figcaption{position:relative;z-index:2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-e :is(.pl-num,.tier.t1){z-index:4}
+html .view-gallery li.gc .gc-cred{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+html.atlas-m[data-view=atlas] main[data-city] .toolbar>.spill{flex:0 0 min(240px,64vw)}

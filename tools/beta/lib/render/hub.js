@@ -321,8 +321,9 @@ ${siteBar({ depth, current: 'hub', rel: row.beta })}
   <h1 class="title d1" id="cn">${esc(c.name)}</h1>
   ${sig.length ? `<p class="why"><span class="k">${esc(t('hub.known'))}</span> <span class="l">${sig.map(s => `<span>${esc(s.name)}</span>`).join('')}</span></p>` : ''}
   <p class="facts"><b>${plural('hub.guides', all.length)} · ${plural('hub.places', n)}</b> · ${esc(t('hub.sights', { n: fmt(P) }))} · ${esc(t('hub.food', { n: fmt(F) }))}${checked ? ` · ${esc(t('hub.checked', { d: checked }))}` : ''}.</p>
+  <div class="acts"><a class="btn btn-primary" href="#destinations">${esc(t('hub.cta', { n: all.length }))}</a></div>
+  <div class="acts2"><button type="button" class="btn btn-quiet" data-cleo-share data-title="${esc(title)}" data-url="${esc(shareUrl)}" hidden>${icon('share', 'ico sm')}${esc(t('hub.share', { country: c.name }))}</button><a class="btn btn-quiet" href="${up}how-we-choose.html">${icon('seal', 'ico sm')}${esc(t('shell.nav.method'))}</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>
   ${c.blurb ? `<p class="facts blurb-c">${esc(c.blurb)}</p>` : ''}
-  <div class="acts"><a class="btn btn-primary" href="#destinations">${esc(t('hub.cta', { n: all.length }))}</a><button type="button" class="btn btn-ghost" data-cleo-share data-title="${esc(title)}" data-url="${esc(shareUrl)}" hidden>${icon('share', 'ico sm')}${esc(t('hub.share', { country: c.name }))}</button><a class="btn btn-ghost" href="${up}how-we-choose.html">${icon('seal', 'ico sm')}${esc(t('shell.nav.method'))}</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>
 </div>
 ${groups ? '' : media}
 </div></section>

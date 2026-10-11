@@ -974,6 +974,13 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - Search: the filter box moved from the toolbar into the city bar; `#cleo-filter` keeps its id (metrics, w5 and test-fe-a find it as before).
     - `how-we-choose.html` axe `scrollable-region-focusable` (`.tablewrap`) is FE-B's page, unchanged here.
   - **Evidence:** `design/beta/eval/w7/fe-a/` (before/after, 390 and 1440, light and dark; `README.md`). Shots: `tools/beta/w7-shots.js`.
+
+- 2026-10-11 · **FE-A** · W7 follow-up: the shared card to the orchestrator's spec, the `w7-cards` opt-in, phone Atlas overlap · commit: this entry's commit
+  - **Shared card (`li.pl`):** media first, 4:3 (16:10 on phones), rounded. When a credited photo exists it replaces the calm cover in the flow, and its TASL credit is a quiet 2-line caption **under** the media. On the media: the rank badge top-left, the "Must see" sticker beside it, the heart top-right. Then the name (2 lines), area · kind, and one line of Recommended by. No frame, rail or tint. **Opt in anywhere with class `w7-cards`** on the list container (Gallery's grid has it by default). API sent to the Atlas and FE-B lanes.
+  - **Row/lead cards (`li.gc`):** the photo sits inside the cover (one link) with a plain-text TASL credit under it; the linked credit is in the place detail.
+  - **Phone Atlas:** the city bar steps aside (the Atlas chip row holds the switcher and the toolbar) and the search pill rides in the toolbar. This fixes `qa/views.js` `switchTo`, where the city bar intercepted taps on the parked switcher.
+  - Gates: validate, test, beta:check PASS on the merged tree.
+
 - 2026-10-11 · Atlas lane · **Atlas review fixes (orchestrator):**
   - **Image-first card face**, decorated onto the shared `li.pl` (no fork; additions are hidden outside Atlas):
     - Media on top at 4:3: the credited photo at its 500w copy (`sizes="240px"` in Atlas, restored on leaving), or the calm cover.
