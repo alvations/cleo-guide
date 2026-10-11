@@ -1463,3 +1463,14 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - plus 347 places not yet in the registry.
     - Estimated runner time is about 6 h, paced over 2–3 weeks under Nominatim's policy.
   - **Owner questions relayed** (ODbL, the reviewer, Nominatim pacing, auto-commit, phase-2 sources, a quarterly status sweep). Until the owner answers, the conservative defaults apply.
+
+- 2026-10-11 21:40Z · **FE-C** · closes **W9-4** (Trips) · ce4c6a7c (head 807ea5a3)
+  - New page `beta/trip.html` (`tools/beta/lib/render/trip.js`, `tools/beta/client/trip.js`):
+    - a trip starts from saved places, a named list, a shared list link or a guide collection, for 1–7 days;
+    - one area a day, at most six stops, nearest next;
+    - closed, unpinned and unfitted places are left out, each with its reason; unknown ids are reported;
+    - one `#trip=` link (ids and day breaks only), booklet print (one day a page), KML;
+    - each day opens its guide in day mode through day.js's `#day=&s=` route.
+  - Platform hooks (orchestrator OK; platform told): `Cleo.geo.walk` in core.js is the one 80 m/min helper; build.js emits trip.html.
+  - Tests: `beta/test-fe-c.js` in npm test (84 guides, 0 closed stops, link lossless, reopen with storage throwing); probe `npm run beta:probe:fe-c` (keyboard at 390/1440 light and dark, 5-page booklet, day-mode handoff, 0 off-origin requests). Shots: `design/beta/eval/w9/fe-c/`.
+  - Open: a "Make a trip" entry in saved.js and lazy-module versions in render/city.js wait on FE-A.

@@ -14,6 +14,7 @@ removed only when EVERY selector in its list is dead; a list with some live sele
   python3 tools/beta/css-dead.py                 # report per source file (bytes that would go)
   python3 tools/beta/css-dead.py --apply         # rewrite the designer's SOURCE files, then run build-css.py
   python3 tools/beta/css-dead.py --list          # also print every dead selector
+  python3 tools/beta/css-dead.py --files=tools/beta/lib/render/fe-a.css,tools/beta/lib/render/atlas.css   # report only
 """
 import os, re, sys, glob
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -107,7 +108,10 @@ def walk(css, words, prefixes, edits, dead_list, lo=0, hi=None):
 if __name__ == '__main__':
     words, prefixes = universe()
     total = 0
-    for rel in SOURCES:
+    files = [a.split('=', 1)[1] for a in sys.argv if a.startswith('--files=')]
+    targets = files[0].split(',') if files else SOURCES       # --files=a.css,b.css: report on other lanes' sheets
+    if files and '--apply' in sys.argv: sys.exit('--apply is only for the designer sources; send other lanes the --list report')
+    for rel in targets:
         p = os.path.join(R, rel); css = open(p, encoding='utf8').read(); BL = blank_comments(css)
         edits, dl = [], []
         walk(css, words, prefixes, edits, dl)
