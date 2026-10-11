@@ -1317,6 +1317,9 @@
     "Azabudai Hills & teamLab Borderless",
     "Azabudai Hills",
     "teamLab Borderless",
+    "Azabudai Hills & teamLab Borderles",
+    "Azabudai Hill",
+    "teamLab Borderles",
     "麻布台ヒルズ"
    ],
    "pilot": true,
@@ -1477,7 +1480,6 @@
    "names": [
     "Ghibli Museum, Mitaka",
     "Ghibli Museum",
-    "Mitaka",
     "三鷹の森ジブリ美術館"
    ],
    "pilot": true,
@@ -1613,7 +1615,10 @@
    "label": "Hama-rikyū Gardens (浜離宮恩賜庭園)",
    "names": [
     "Hama-rikyū Gardens",
-    "浜離宮恩賜庭園"
+    "Hama-rikyū Garden",
+    "浜離宮恩賜庭園",
+    "Hama-rikyu",
+    "Hamarikyu"
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Hama-riky%C5%AB_Gardens",
@@ -1678,8 +1683,8 @@
    "label": "Imperial Palace East Gardens (皇居東御苑)",
    "names": [
     "Imperial Palace East Gardens",
-    "皇居東御苑",
     "Imperial Palace East Garden",
+    "皇居東御苑",
     "East Garden",
     "East Gardens"
    ],
@@ -1856,6 +1861,7 @@
    "label": "Kegon Falls (華厳滝)",
    "names": [
     "Kegon Falls",
+    "Kegon Fall",
     "華厳滝"
    ],
    "pilot": true,
@@ -1886,7 +1892,9 @@
    "label": "Kiyosumi Garden (清澄庭園)",
    "names": [
     "Kiyosumi Garden",
-    "清澄庭園"
+    "清澄庭園",
+    "Kiyosumi Teien",
+    "Kiyosumi"
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Kiyosumi_Garden",
@@ -2316,8 +2324,11 @@
    "label": "Rikugien Gardens (六義園)",
    "names": [
     "Rikugien Gardens",
+    "Rikugien Garden",
     "六義園",
-    "Rikugi-en Gardens"
+    "Rikugi-en Gardens",
+    "Rikugien",
+    "Rikugi-en"
    ],
    "pilot": true,
    "article": "https://en.wikipedia.org/wiki/Rikugi-en_Gardens",
@@ -2564,7 +2575,7 @@
    "names": [
     "Suga Shrine stairs, Yotsuya",
     "Suga Shrine stairs",
-    "Yotsuya",
+    "Suga Shrine stair",
     "須賀神社 男坂",
     "Suga Shrine",
     "Suga Jinja"
@@ -3103,7 +3114,8 @@
    "depicts": "cleveland#78th-street-studios",
    "label": "78th Street Studios",
    "names": [
-    "78th Street Studios"
+    "78th Street Studios",
+    "78th Street Studio"
    ],
    "pilot": true,
    "skip": "venue (galleries and studios) — never a photo",
@@ -3116,8 +3128,7 @@
    "label": "A Christmas Story House & Museum",
    "names": [
     "A Christmas Story House & Museum",
-    "A Christmas Story House",
-    "Museum"
+    "A Christmas Story House"
    ],
    "pilot": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
@@ -3151,6 +3162,7 @@
    "label": "Brandywine Falls",
    "names": [
     "Brandywine Falls",
+    "Brandywine Fall",
     "Brandywine"
    ],
    "pilot": true,
@@ -3173,8 +3185,7 @@
    "label": "Buckland Museum of Witchcraft & Magick",
    "names": [
     "Buckland Museum of Witchcraft & Magick",
-    "Buckland Museum of Witchcraft",
-    "Magick"
+    "Buckland Museum of Witchcraft"
    ],
    "pilot": true,
    "skip": "a small private venue — never a photo",
@@ -3387,7 +3398,6 @@
    "names": [
     "Huntington Reservation & Beach",
     "Huntington Reservation",
-    "Beach",
     "Huntington Beach"
    ],
    "pilot": true,
@@ -3448,7 +3458,6 @@
    "label": "Lucy, at the Cleveland Museum of Natural History",
    "names": [
     "Lucy, at the Cleveland Museum of Natural History",
-    "Lucy",
     "at the Cleveland Museum of Natural History"
    ],
    "pilot": true,
@@ -3488,7 +3497,6 @@
    "label": "Rock & Roll Hall of Fame",
    "names": [
     "Rock & Roll Hall of Fame",
-    "Rock",
     "Roll Hall of Fame"
    ],
    "pilot": true,
@@ -3520,6 +3528,8 @@
     "Rocky River Reservation & Fort Hill Stairs",
     "Rocky River Reservation",
     "Fort Hill Stairs",
+    "Rocky River Reservation & Fort Hill Stair",
+    "Fort Hill Stair",
     "Fort Hill"
    ],
    "pilot": true,
@@ -3592,7 +3602,8 @@
    "names": [
     "Solstice Steps, Lakewood Park",
     "Solstice Steps",
-    "Lakewood Park"
+    "Lakewood Park",
+    "Solstice Step"
    ],
    "pilot": true,
    "skip": "no Commons file names the Solstice Steps (gap stated, not filled)",
@@ -3625,7 +3636,8 @@
    "depicts": "cleveland#st-theodosius-russian-orthodox-cathedral",
    "label": "St. Theodosius Russian Orthodox Cathedral",
    "names": [
-    "St. Theodosius Russian Orthodox Cathedral"
+    "St. Theodosius Russian Orthodox Cathedral",
+    "Saint Theodosius Russian Orthodox Cathedral"
    ],
    "pilot": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
@@ -3746,7 +3758,7 @@
    "names": [
     "Virginia Kendall Ledges Overlook",
     "Virginia Kendall",
-    "Ledges"
+    "Kendall Ledges"
    ],
    "pilot": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
@@ -3809,7 +3821,6 @@
    "names": [
     "9/11 Memorial & Museum",
     "9/11 Memorial",
-    "Museum",
     "September 11 Memorial",
     "911 Memorial"
    ],
@@ -3898,7 +3909,9 @@
    "depicts": "newyork#bethesda-terrace-and-fountain",
    "label": "Bethesda Terrace and Fountain",
    "names": [
-    "Bethesda Terrace and Fountain"
+    "Bethesda Terrace and Fountain",
+    "Bethesda Terrace",
+    "Bethesda Fountain"
    ],
    "pilot": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
@@ -4034,7 +4047,10 @@
    "depicts": "newyork#cathedral-of-st-john-the-divine",
    "label": "Cathedral of St. John the Divine",
    "names": [
-    "Cathedral of St. John the Divine"
+    "Cathedral of St. John the Divine",
+    "Cathedral of Saint John the Divine",
+    "Saint John the Divine",
+    "St. John the Divine"
    ],
    "pilot": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
@@ -4662,7 +4678,8 @@
    "depicts": "newyork#st-george-theatre",
    "label": "St. George Theatre",
    "names": [
-    "St. George Theatre"
+    "St. George Theatre",
+    "Saint George Theatre"
    ],
    "pilot": true,
    "skip": "venue (theatre) — never a photo",
@@ -4674,7 +4691,8 @@
    "depicts": "newyork#st-patricks-cathedral",
    "label": "St. Patrick's Cathedral",
    "names": [
-    "St. Patrick's Cathedral"
+    "St. Patrick's Cathedral",
+    "Saint Patrick's Cathedral"
    ],
    "pilot": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
@@ -4874,7 +4892,8 @@
    "depicts": "newyork#whitney-museum-of-american-art",
    "label": "Whitney Museum of American Art",
    "names": [
-    "Whitney Museum of American Art"
+    "Whitney Museum of American Art",
+    "Whitney Museum"
    ],
    "pilot": true,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
@@ -4916,7 +4935,6 @@
    "names": [
     "Buddha Tooth Relic Temple & Museum",
     "Buddha Tooth Relic Temple",
-    "Museum",
     "Buddha Tooth Relic"
    ],
    "pilot": true,
@@ -5084,8 +5102,7 @@
    "label": "Oglebay Resort & Park",
    "names": [
     "Oglebay Resort & Park",
-    "Oglebay Resort",
-    "Park"
+    "Oglebay Resort"
    ],
    "pilot": true,
    "skip": "venue (GLASS) — never a photo",
@@ -5222,7 +5239,8 @@
    "names": [
     "Aachener Rathaus & Krönungssaal",
     "Aachener Rathaus",
-    "Krönungssaal"
+    "Krönungssaal",
+    "Aachener Rathau"
    ],
    "pilot": false,
    "article": "https://de.wikipedia.org/wiki/Aachener_Rathaus",
@@ -5480,6 +5498,9 @@
     "Hohes Venn / Hautes Fagnes",
     "moorland reserve",
     "boardwalks",
+    "Hohes Venn / Hautes Fagnes — moorland reserve & boardwalk",
+    "Hohes Venn / Hautes Fagne",
+    "boardwalk",
     "Hautes Fagnes"
    ],
    "pilot": false,
@@ -5542,7 +5563,7 @@
    "names": [
     "Museum Vieille Montagne, Kelmis",
     "Museum Vieille Montagne",
-    "Kelmis"
+    "Museum Vieille Montagne, Kelmi"
    ],
    "pilot": false,
    "article": "https://de.wikipedia.org/wiki/Museum_Vieille_Montagne",
@@ -5631,8 +5652,7 @@
    "label": "Rurtalsperre Schwammenauel & Rursee",
    "names": [
     "Rurtalsperre Schwammenauel & Rursee",
-    "Rurtalsperre Schwammenauel",
-    "Rursee"
+    "Rurtalsperre Schwammenauel"
    ],
    "pilot": false,
    "candidates": []
@@ -5829,6 +5849,7 @@
    "label": "Anna-Dean Farm Barns (O.C. Barber)",
    "names": [
     "Anna-Dean Farm Barns",
+    "Anna-Dean Farm Barn",
     "Anna–Dean Farm"
    ],
    "pilot": false,
@@ -5841,7 +5862,8 @@
    "depicts": "akron#derby-downs-all-american-soap-box-derby",
    "label": "Derby Downs (All-American Soap Box Derby)",
    "names": [
-    "Derby Downs"
+    "Derby Downs",
+    "Derby Down"
    ],
    "pilot": false,
    "skip": "venue (ENT) — never a photo",
@@ -6028,7 +6050,7 @@
    "names": [
     "Stan Hywet Hall & Gardens",
     "Stan Hywet Hall",
-    "Gardens",
+    "Stan Hywet Hall & Garden",
     "Stan Hywet Hall and Gardens"
    ],
    "pilot": false,
@@ -6092,7 +6114,6 @@
    "label": "KMSKA — Koninklijk Museum voor Schone Kunsten",
    "names": [
     "KMSKA — Koninklijk Museum voor Schone Kunsten",
-    "KMSKA",
     "Koninklijk Museum voor Schone Kunsten"
    ],
    "pilot": false,
@@ -6105,7 +6126,6 @@
    "label": "MAS — Museum aan de Stroom",
    "names": [
     "MAS — Museum aan de Stroom",
-    "MAS",
     "Museum aan de Stroom"
    ],
    "pilot": false,
@@ -6128,7 +6148,8 @@
    "depicts": "antwerp#museum-plantin-moretus",
    "label": "Museum Plantin-Moretus",
    "names": [
-    "Museum Plantin-Moretus"
+    "Museum Plantin-Moretus",
+    "Museum Plantin-Moretu"
    ],
    "pilot": false,
    "candidates": []
@@ -6165,8 +6186,7 @@
    "label": "Sint-Romboutskathedraal & -toren",
    "names": [
     "Sint-Romboutskathedraal & -toren",
-    "Sint-Romboutskathedraal",
-    "-toren"
+    "Sint-Romboutskathedraal"
    ],
    "pilot": false,
    "candidates": []
@@ -6312,7 +6332,8 @@
    "depicts": "bruges#james-ensorhuis",
    "label": "James Ensorhuis",
    "names": [
-    "James Ensorhuis"
+    "James Ensorhuis",
+    "James Ensorhui"
    ],
    "pilot": false,
    "candidates": []
@@ -6443,7 +6464,6 @@
    "label": "BOZAR — Palais des Beaux-Arts",
    "names": [
     "BOZAR — Palais des Beaux-Arts",
-    "BOZAR",
     "Palais des Beaux-Arts",
     "Centre for Fine Arts, Brussels"
    ],
@@ -6520,7 +6540,8 @@
    "depicts": "brussels#hotel-de-ville-de-bruxelles",
    "label": "Hôtel de Ville de Bruxelles",
    "names": [
-    "Hôtel de Ville de Bruxelles"
+    "Hôtel de Ville de Bruxelles",
+    "Hôtel de Ville de Bruxelle"
    ],
    "pilot": false,
    "candidates": []
@@ -6652,6 +6673,7 @@
    "label": "Palais de Justice de Bruxelles",
    "names": [
     "Palais de Justice de Bruxelles",
+    "Palais de Justice de Bruxelle",
     "Palace of Justice, Brussels"
    ],
    "pilot": false,
@@ -6837,7 +6859,8 @@
    "depicts": "chicago#buddy-guys-legends",
    "label": "Buddy Guy's Legends",
    "names": [
-    "Buddy Guy's Legends"
+    "Buddy Guy's Legends",
+    "Buddy Guy's Legend"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Buddy_Guy's_Legends",
@@ -7162,6 +7185,7 @@
    "label": "Kingston Mines",
    "names": [
     "Kingston Mines",
+    "Kingston Mine",
     "Kingston Mines (blues club)"
    ],
    "pilot": false,
@@ -7967,7 +7991,6 @@
    "label": "Fountain Square & the Tyler Davidson Fountain",
    "names": [
     "Fountain Square & the Tyler Davidson Fountain",
-    "Fountain Square",
     "the Tyler Davidson Fountain",
     "Tyler Davidson Fountain"
    ],
@@ -8049,6 +8072,7 @@
     "Mt. Adams & Holy Cross-Immaculata Church",
     "Mt. Adams",
     "Holy Cross-Immaculata Church",
+    "Mt. Adam",
     "Immaculata Church"
    ],
    "pilot": false,
@@ -8152,8 +8176,7 @@
    "label": "Billy Ireland Cartoon Library & Museum",
    "names": [
     "Billy Ireland Cartoon Library & Museum",
-    "Billy Ireland Cartoon Library",
-    "Museum"
+    "Billy Ireland Cartoon Library"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Billy_Ireland_Cartoon_Library_%26_Museum",
@@ -8203,6 +8226,7 @@
    "label": "Franklin Park Conservatory and Botanical Gardens",
    "names": [
     "Franklin Park Conservatory and Botanical Gardens",
+    "Franklin Park Conservatory and Botanical Garden",
     "Franklin Park Conservatory"
    ],
    "pilot": false,
@@ -8378,7 +8402,8 @@
    "depicts": "dayton#downtown-yellow-springs",
    "label": "Downtown Yellow Springs",
    "names": [
-    "Downtown Yellow Springs"
+    "Downtown Yellow Springs",
+    "Downtown Yellow Spring"
    ],
    "pilot": false,
    "skip": "venue (SHOP) — never a photo",
@@ -8517,6 +8542,7 @@
    "label": "Rose Music Center at The Heights",
    "names": [
     "Rose Music Center at The Heights",
+    "Rose Music Center at The Height",
     "Rose Music Center"
    ],
    "pilot": false,
@@ -8593,7 +8619,8 @@
    "names": [
     "Goodell Gardens & Homestead",
     "Goodell Gardens",
-    "Homestead"
+    "Homestead",
+    "Goodell Garden"
    ],
    "pilot": false,
    "candidates": []
@@ -8737,7 +8764,6 @@
    "label": "Graslei & Korenlei",
    "names": [
     "Graslei & Korenlei",
-    "Graslei",
     "Korenlei"
    ],
    "pilot": false,
@@ -8907,7 +8933,8 @@
    "depicts": "harrisburg#carlisle-fairgrounds-carlisle-events-car-shows",
    "label": "Carlisle Fairgrounds (Carlisle Events car shows)",
    "names": [
-    "Carlisle Fairgrounds"
+    "Carlisle Fairgrounds",
+    "Carlisle Fairground"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Carlisle_Fairgrounds",
@@ -9065,7 +9092,8 @@
    "depicts": "harrisburg#indian-echo-caverns",
    "label": "Indian Echo Caverns",
    "names": [
-    "Indian Echo Caverns"
+    "Indian Echo Caverns",
+    "Indian Echo Cavern"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Indian_Echo_Caverns",
@@ -9177,8 +9205,9 @@
    "label": "Sight & Sound Theatres",
    "names": [
     "Sight & Sound Theatres",
-    "Sight",
-    "Sound Theatres"
+    "Sound Theatres",
+    "Sight & Sound Theatre",
+    "Sound Theatre"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Sight_%26_Sound_Theatres",
@@ -9298,7 +9327,6 @@
    "names": [
     "Blue Pond, Biei",
     "Blue Pond",
-    "Biei",
     "青い池",
     "Blue Pond (Biei)"
    ],
@@ -9424,8 +9452,9 @@
    "names": [
     "Hokkaido University — Poplar & Ginkgo Avenues",
     "Hokkaido University",
-    "Poplar",
     "Ginkgo Avenues",
+    "Hokkaido University — Poplar & Ginkgo Avenue",
+    "Ginkgo Avenue",
     "北海道大学 札幌キャンパス",
     "北海道大学"
    ],
@@ -9737,6 +9766,7 @@
    "label": "Shiretoko Five Lakes (知床五湖)",
    "names": [
     "Shiretoko Five Lakes",
+    "Shiretoko Five Lake",
     "知床五湖",
     "Shiretoko Goko Lakes"
    ],
@@ -9764,10 +9794,9 @@
    "label": "Upopoy — National Ainu Museum & Park (ウポポイ)",
    "names": [
     "Upopoy — National Ainu Museum & Park",
-    "Upopoy",
     "National Ainu Museum",
-    "Park",
-    "ウポポイ"
+    "ウポポイ",
+    "Upopoy"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Upopoy",
@@ -10133,6 +10162,7 @@
    "label": "Newfields (Indianapolis Museum of Art)",
    "names": [
     "Newfields",
+    "Newfield",
     "Indianapolis Museum of Art"
    ],
    "pilot": false,
@@ -10185,6 +10215,7 @@
    "label": "The Children's Museum of Indianapolis",
    "names": [
     "Children's Museum of Indianapolis",
+    "Children's Museum of Indianapoli",
     "The Children's Museum of Indianapolis"
    ],
    "pilot": false,
@@ -10361,7 +10392,6 @@
    "label": "Gion & Hanamikoji",
    "names": [
     "Gion & Hanamikoji",
-    "Gion",
     "Hanamikoji"
    ],
    "pilot": false,
@@ -10994,7 +11024,8 @@
    "depicts": "liege#circuit-de-spa-francorchamps",
    "label": "Circuit de Spa-Francorchamps",
    "names": [
-    "Circuit de Spa-Francorchamps"
+    "Circuit de Spa-Francorchamps",
+    "Circuit de Spa-Francorchamp"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Circuit_de_Spa-Francorchamps",
@@ -11043,6 +11074,7 @@
    "label": "Église Saint-Jacques",
    "names": [
     "Église Saint-Jacques",
+    "Église Saint-Jacque",
     "St James's Church, Liège"
    ],
    "pilot": false,
@@ -11080,6 +11112,7 @@
    "label": "Gare de Liège-Guillemins",
    "names": [
     "Gare de Liège-Guillemins",
+    "Gare de Liège-Guillemin",
     "Liège-Guillemins railway station"
    ],
    "pilot": false,
@@ -11093,6 +11126,7 @@
    "label": "Grand Curtius",
    "names": [
     "Grand Curtius",
+    "Grand Curtiu",
     "Curtius Museum"
    ],
    "pilot": false,
@@ -11121,6 +11155,7 @@
    "label": "Grottes de Remouchamps",
    "names": [
     "Grottes de Remouchamps",
+    "Grottes de Remouchamp",
     "Cave of Remouchamps"
    ],
    "pilot": false,
@@ -11180,7 +11215,8 @@
    "depicts": "liege#palais-des-princes-eveques",
    "label": "Palais des Princes-Évêques",
    "names": [
-    "Palais des Princes-Évêques"
+    "Palais des Princes-Évêques",
+    "Palais des Princes-Évêque"
    ],
    "pilot": false,
    "skip": "venue (MKT) — never a photo",
@@ -11279,7 +11315,8 @@
    "depicts": "madison#cave-of-the-mounds",
    "label": "Cave of the Mounds",
    "names": [
-    "Cave of the Mounds"
+    "Cave of the Mounds",
+    "Cave of the Mound"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Cave_of_the_Mounds",
@@ -11417,7 +11454,8 @@
    "names": [
     "Olbrich Botanical Gardens & Thai Pavilion",
     "Olbrich Botanical Gardens",
-    "Thai Pavilion"
+    "Thai Pavilion",
+    "Olbrich Botanical Garden"
    ],
    "pilot": false,
    "candidates": []
@@ -11615,7 +11653,7 @@
    "names": [
     "Bonnet House Museum & Gardens",
     "Bonnet House Museum",
-    "Gardens",
+    "Bonnet House Museum & Garden",
     "Bonnet House"
    ],
    "pilot": false,
@@ -11729,8 +11767,7 @@
    "label": "Flamingo Visitor Center & Marina",
    "names": [
     "Flamingo Visitor Center & Marina",
-    "Flamingo Visitor Center",
-    "Marina"
+    "Flamingo Visitor Center"
    ],
    "pilot": false,
    "candidates": []
@@ -11841,8 +11878,7 @@
    "label": "Institute of Contemporary Art, Miami (ICA Miami)",
    "names": [
     "Institute of Contemporary Art, Miami",
-    "Institute of Contemporary Art",
-    "Miami"
+    "Institute of Contemporary Art"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Institute_of_Contemporary_Art,_Miami",
@@ -12002,7 +12038,8 @@
    "depicts": "miami#pinecrest-gardens",
    "label": "Pinecrest Gardens",
    "names": [
-    "Pinecrest Gardens"
+    "Pinecrest Gardens",
+    "Pinecrest Garden"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Pinecrest_Gardens",
@@ -12028,7 +12065,6 @@
    "names": [
     "Seminole Hard Rock Hotel & Casino",
     "Seminole Hard Rock Hotel",
-    "Casino",
     "Seminole Hard Rock Hotel & Casino Hollywood"
    ],
    "pilot": false,
@@ -12128,7 +12164,8 @@
    "depicts": "miami#vizcaya-museum-and-gardens",
    "label": "Vizcaya Museum and Gardens",
    "names": [
-    "Vizcaya Museum and Gardens"
+    "Vizcaya Museum and Gardens",
+    "Vizcaya Museum and Garden"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Vizcaya_Museum_and_Gardens",
@@ -12140,7 +12177,8 @@
    "depicts": "miami#wynwood-walls",
    "label": "Wynwood Walls",
    "names": [
-    "Wynwood Walls"
+    "Wynwood Walls",
+    "Wynwood Wall"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Wynwood_Walls",
@@ -12165,7 +12203,6 @@
    "label": "17END, Shimoji Island (17エンド)",
    "names": [
     "17END, Shimoji Island",
-    "17END",
     "Shimoji Island",
     "17エンド"
    ],
@@ -12258,6 +12295,7 @@
    "label": "Former Japanese Navy Underground Headquarters (旧海軍司令部壕)",
    "names": [
     "Former Japanese Navy Underground Headquarters",
+    "Former Japanese Navy Underground Headquarter",
     "旧海軍司令部壕"
    ],
    "pilot": false,
@@ -12298,6 +12336,7 @@
    "label": "Hiji Falls (比地大滝)",
    "names": [
     "Hiji Falls",
+    "Hiji Fall",
     "比地大滝"
    ],
    "pilot": false,
@@ -12350,6 +12389,8 @@
     "Iriomote Island jungle & mangroves",
     "Iriomote Island jungle",
     "mangroves",
+    "Iriomote Island jungle & mangrove",
+    "mangrove",
     "西表島"
    ],
    "pilot": false,
@@ -12529,6 +12570,7 @@
    "label": "Nakijin Castle Ruins (今帰仁城跡)",
    "names": [
     "Nakijin Castle Ruins",
+    "Nakijin Castle Ruin",
     "今帰仁城跡"
    ],
    "pilot": false,
@@ -12611,6 +12653,7 @@
     "Pinaisara Falls, Iriomote",
     "Pinaisara Falls",
     "Iriomote",
+    "Pinaisara Fall",
     "ピナイサーラの滝"
    ],
    "pilot": false,
@@ -12734,7 +12777,6 @@
    "names": [
     "Taketomi Island & village",
     "Taketomi Island",
-    "village",
     "竹富島"
    ],
    "pilot": false,
@@ -12803,6 +12845,7 @@
     "Uegusuku Castle Ruins, Kume Island",
     "Uegusuku Castle Ruins",
     "Kume Island",
+    "Uegusuku Castle Ruin",
     "宇江城城跡"
    ],
    "pilot": false,
@@ -12965,8 +13008,7 @@
    "label": "Disney's Grand Floridian Resort & Spa",
    "names": [
     "Disney's Grand Floridian Resort & Spa",
-    "Disney's Grand Floridian Resort",
-    "Spa"
+    "Disney's Grand Floridian Resort"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Disney's_Grand_Floridian_Resort_&_Spa",
@@ -13100,7 +13142,8 @@
    "depicts": "orlando#harry-p-leu-gardens",
    "label": "Harry P. Leu Gardens",
    "names": [
-    "Harry P. Leu Gardens"
+    "Harry P. Leu Gardens",
+    "Harry P. Leu Garden"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Harry_P._Leu_Gardens",
@@ -13125,7 +13168,8 @@
    "depicts": "orlando#harry-potter-and-the-escape-from-gringotts",
    "label": "Harry Potter and the Escape from Gringotts",
    "names": [
-    "Harry Potter and the Escape from Gringotts"
+    "Harry Potter and the Escape from Gringotts",
+    "Harry Potter and the Escape from Gringott"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Harry_Potter_and_the_Escape_from_Gringotts",
@@ -13161,6 +13205,7 @@
    "label": "Hogwarts Express (King's Cross Station)",
    "names": [
     "Hogwarts Express",
+    "Hogwarts Expres",
     "Hogwarts Express (Universal Orlando Resort)"
    ],
    "pilot": false,
@@ -13176,7 +13221,6 @@
    "names": [
     "ICON Park & The Wheel",
     "ICON Park",
-    "Wheel",
     "International Drive"
    ],
    "pilot": false,
@@ -13251,7 +13295,8 @@
    "depicts": "orlando#kilimanjaro-safaris",
    "label": "Kilimanjaro Safaris",
    "names": [
-    "Kilimanjaro Safaris"
+    "Kilimanjaro Safaris",
+    "Kilimanjaro Safari"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Kilimanjaro_Safaris",
@@ -13288,8 +13333,7 @@
    "label": "Main Street, U.S.A. (Magic Kingdom)",
    "names": [
     "Main Street, U.S.A.",
-    "Main Street",
-    "U.S.A."
+    "Main Street"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Main_Street,_U.S.A.",
@@ -13377,7 +13421,6 @@
    "label": "Mickey & Minnie's Runaway Railway",
    "names": [
     "Mickey & Minnie's Runaway Railway",
-    "Mickey",
     "Minnie's Runaway Railway"
    ],
    "pilot": false,
@@ -13391,6 +13434,7 @@
    "label": "Mine-Cart Madness",
    "names": [
     "Mine-Cart Madness",
+    "Mine-Cart Madnes",
     "List of Universal Epic Universe attractions"
    ],
    "pilot": false,
@@ -13600,7 +13644,8 @@
    "depicts": "orlando#stardust-racers",
    "label": "Stardust Racers",
    "names": [
-    "Stardust Racers"
+    "Stardust Racers",
+    "Stardust Racer"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Stardust_Racers",
@@ -13967,7 +14012,6 @@
    "label": "Kōyasan — Okunoin",
    "names": [
     "Kōyasan — Okunoin",
-    "Kōyasan",
     "Okunoin"
    ],
    "pilot": false,
@@ -14007,6 +14051,7 @@
    "label": "Mandarake Grand Chaos (Nipponbashi)",
    "names": [
     "Mandarake Grand Chaos",
+    "Mandarake Grand Chao",
     "Nipponbashi"
    ],
    "pilot": false,
@@ -14361,7 +14406,8 @@
    "depicts": "philadelphia#fairmount-water-works",
    "label": "Fairmount Water Works",
    "names": [
-    "Fairmount Water Works"
+    "Fairmount Water Works",
+    "Fairmount Water Work"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Fairmount_Water_Works",
@@ -14523,7 +14569,8 @@
    "depicts": "philadelphia#longwood-gardens",
    "label": "Longwood Gardens",
    "names": [
-    "Longwood Gardens"
+    "Longwood Gardens",
+    "Longwood Garden"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Longwood_Gardens",
@@ -14562,7 +14609,7 @@
    "names": [
     "Morris Arboretum & Gardens",
     "Morris Arboretum",
-    "Gardens"
+    "Morris Arboretum & Garden"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Morris_Arboretum",
@@ -14672,8 +14719,7 @@
    "label": "Philadelphia City Hall & Tower",
    "names": [
     "Philadelphia City Hall & Tower",
-    "Philadelphia City Hall",
-    "Tower"
+    "Philadelphia City Hall"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Philadelphia_City_Hall",
@@ -14687,7 +14733,9 @@
    "names": [
     "Philadelphia Museum of Art & the Rocky Steps",
     "Philadelphia Museum of Art",
-    "the Rocky Steps"
+    "the Rocky Steps",
+    "Philadelphia Museum of Art & the Rocky Step",
+    "the Rocky Step"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Philadelphia_Museum_of_Art",
@@ -14712,7 +14760,8 @@
    "depicts": "philadelphia#philadelphias-magic-gardens",
    "label": "Philadelphia's Magic Gardens",
    "names": [
-    "Philadelphia's Magic Gardens"
+    "Philadelphia's Magic Gardens",
+    "Philadelphia's Magic Garden"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Philadelphia%27s_Magic_Gardens",
@@ -14865,8 +14914,6 @@
    "names": [
     "Winterthur Museum, Garden & Library",
     "Winterthur Museum",
-    "Garden",
-    "Library",
     "Winterthur Museum, Garden and Library"
    ],
    "pilot": false,
@@ -14939,7 +14986,9 @@
    "names": [
     "Cathedral of Learning & the Nationality Rooms",
     "Cathedral of Learning",
-    "the Nationality Rooms"
+    "the Nationality Rooms",
+    "Cathedral of Learning & the Nationality Room",
+    "the Nationality Room"
    ],
    "pilot": false,
    "candidates": []
@@ -15029,7 +15078,8 @@
    "depicts": "pittsburgh#phipps-conservatory-and-botanical-gardens",
    "label": "Phipps Conservatory and Botanical Gardens",
    "names": [
-    "Phipps Conservatory and Botanical Gardens"
+    "Phipps Conservatory and Botanical Gardens",
+    "Phipps Conservatory and Botanical Garden"
    ],
    "pilot": false,
    "candidates": []
@@ -15126,7 +15176,7 @@
    "names": [
     "Altes Rathaus & Markt",
     "Altes Rathaus",
-    "Markt"
+    "Altes Rathau"
    ],
    "pilot": false,
    "skip": "venue (MKT) — never a photo",
@@ -15155,6 +15205,9 @@
    "label": "Basilika St. Lambertus",
    "names": [
     "Basilika St. Lambertus",
+    "Basilika St. Lambertu",
+    "Basilika Saint Lambertus",
+    "Basilika Saint Lambertu",
     "St. Lambertus (Düsseldorf)"
    ],
    "pilot": false,
@@ -15229,7 +15282,8 @@
    "names": [
     "Drachenfels & Drachenfelsbahn",
     "Drachenfels",
-    "Drachenfelsbahn"
+    "Drachenfelsbahn",
+    "Drachenfel"
    ],
    "pilot": false,
    "candidates": []
@@ -15263,7 +15317,8 @@
    "depicts": "rhineland#gro-st-martin",
    "label": "Groß St. Martin",
    "names": [
-    "Groß St. Martin"
+    "Groß St. Martin",
+    "Groß Saint Martin"
    ],
    "pilot": false,
    "candidates": []
@@ -15286,7 +15341,8 @@
    "depicts": "rhineland#historisches-rathaus",
    "label": "Historisches Rathaus",
    "names": [
-    "Historisches Rathaus"
+    "Historisches Rathaus",
+    "Historisches Rathau"
    ],
    "pilot": false,
    "skip": "venue (MKT) — never a photo",
@@ -15334,7 +15390,6 @@
    "label": "K20 – Kunstsammlung Nordrhein-Westfalen",
    "names": [
     "K20 – Kunstsammlung Nordrhein-Westfalen",
-    "K20",
     "Kunstsammlung Nordrhein-Westfalen"
    ],
    "pilot": false,
@@ -15441,7 +15496,8 @@
    "names": [
     "Kurfürstliches Schloss & Hofgarten",
     "Kurfürstliches Schloss",
-    "Hofgarten"
+    "Hofgarten",
+    "Kurfürstliches Schlos"
    ],
    "pilot": false,
    "candidates": []
@@ -15561,6 +15617,7 @@
     "Poppelsdorfer Schloss & Botanischer Garten",
     "Poppelsdorfer Schloss",
     "Botanischer Garten",
+    "Poppelsdorfer Schlos",
     "Botanical Garden, Bonn"
    ],
    "pilot": false,
@@ -15574,6 +15631,7 @@
    "label": "Quirinus-Münster Neuss",
    "names": [
     "Quirinus-Münster Neuss",
+    "Quirinus-Münster Neus",
     "Quirinus-Münster (Neuss)"
    ],
    "pilot": false,
@@ -15693,6 +15751,7 @@
    "label": "St. Gereon",
    "names": [
     "St. Gereon",
+    "Saint Gereon",
     "St. Gereon's Basilica, Cologne"
    ],
    "pilot": false,
@@ -15705,7 +15764,8 @@
    "depicts": "rhineland#st-maria-im-kapitol",
    "label": "St. Maria im Kapitol",
    "names": [
-    "St. Maria im Kapitol"
+    "St. Maria im Kapitol",
+    "Saint Maria im Kapitol"
    ],
    "pilot": false,
    "candidates": []
@@ -15753,7 +15813,8 @@
    "depicts": "saarland#belval-blast-furnaces",
    "label": "Belval Blast Furnaces",
    "names": [
-    "Belval Blast Furnaces"
+    "Belval Blast Furnaces",
+    "Belval Blast Furnace"
    ],
    "pilot": false,
    "candidates": []
@@ -15764,7 +15825,8 @@
    "depicts": "saarland#benediktinerabtei-st-mauritius-tholey",
    "label": "Benediktinerabtei St. Mauritius Tholey",
    "names": [
-    "Benediktinerabtei St. Mauritius Tholey"
+    "Benediktinerabtei St. Mauritius Tholey",
+    "Benediktinerabtei Saint Mauritius Tholey"
    ],
    "pilot": false,
    "candidates": []
@@ -15775,7 +15837,8 @@
    "depicts": "saarland#bock-casemates",
    "label": "Bock Casemates",
    "names": [
-    "Bock Casemates"
+    "Bock Casemates",
+    "Bock Casemate"
    ],
    "pilot": false,
    "candidates": []
@@ -16035,7 +16098,8 @@
    "depicts": "saarland#musee-de-la-faience-de-sarreguemines",
    "label": "Musée de la Faïence de Sarreguemines",
    "names": [
-    "Musée de la Faïence de Sarreguemines"
+    "Musée de la Faïence de Sarreguemines",
+    "Musée de la Faïence de Sarreguemine"
    ],
    "pilot": false,
    "skip": "venue (CRAFT) — never a photo",
@@ -16111,7 +16175,6 @@
    "label": "Obernai – cité médiévale & Place du Marché",
    "names": [
     "Obernai – cité médiévale & Place du Marché",
-    "Obernai",
     "cité médiévale",
     "Place du Marché"
    ],
@@ -16190,7 +16253,8 @@
    "depicts": "saarland#place-stanislas-nancy",
    "label": "Place Stanislas (Nancy)",
    "names": [
-    "Place Stanislas"
+    "Place Stanislas",
+    "Place Stanisla"
    ],
    "pilot": false,
    "candidates": []
@@ -16204,7 +16268,8 @@
     "Place Stanislas, Place de la Carrière & Place d'Alliance",
     "Place Stanislas",
     "Place de la Carrière",
-    "Place d'Alliance"
+    "Place d'Alliance",
+    "Place Stanisla"
    ],
    "pilot": false,
    "candidates": []
@@ -16217,7 +16282,8 @@
    "names": [
     "Ponts Couverts & Barrage Vauban",
     "Ponts Couverts",
-    "Barrage Vauban"
+    "Barrage Vauban",
+    "Ponts Couvert"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Barrage_Vauban",
@@ -16240,7 +16306,8 @@
    "depicts": "saarland#porte-des-allemands",
    "label": "Porte des Allemands",
    "names": [
-    "Porte des Allemands"
+    "Porte des Allemands",
+    "Porte des Allemand"
    ],
    "pilot": false,
    "candidates": []
@@ -16325,7 +16392,8 @@
    "names": [
     "Saarbrücker Schloss & Historisches Museum Saar",
     "Saarbrücker Schloss",
-    "Historisches Museum Saar"
+    "Historisches Museum Saar",
+    "Saarbrücker Schlos"
    ],
    "pilot": false,
    "skip": "venue (CRAFT) — never a photo",
@@ -16338,8 +16406,7 @@
    "label": "Saarburger Wasserfall & Staden",
    "names": [
     "Saarburger Wasserfall & Staden",
-    "Saarburger Wasserfall",
-    "Staden"
+    "Saarburger Wasserfall"
    ],
    "pilot": false,
    "candidates": []
@@ -16388,7 +16455,8 @@
    "depicts": "saarland#st-johanner-markt",
    "label": "St. Johanner Markt",
    "names": [
-    "St. Johanner Markt"
+    "St. Johanner Markt",
+    "Saint Johanner Markt"
    ],
    "pilot": false,
    "article": "https://de.wikipedia.org/wiki/St._Johanner_Markt",
@@ -16414,7 +16482,8 @@
    "depicts": "saarland#stiftskirche-st-arnual",
    "label": "Stiftskirche St. Arnual",
    "names": [
-    "Stiftskirche St. Arnual"
+    "Stiftskirche St. Arnual",
+    "Stiftskirche Saint Arnual"
    ],
    "pilot": false,
    "skip": "venue (MKT) — never a photo",
@@ -16575,7 +16644,8 @@
    "depicts": "sanfrancisco#california-academy-of-sciences",
    "label": "California Academy of Sciences",
    "names": [
-    "California Academy of Sciences"
+    "California Academy of Sciences",
+    "California Academy of Science"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/California_Academy_of_Sciences",
@@ -16641,7 +16711,9 @@
    "names": [
     "Coit Tower & the Filbert Steps",
     "Coit Tower",
-    "the Filbert Steps"
+    "the Filbert Steps",
+    "Coit Tower & the Filbert Step",
+    "the Filbert Step"
    ],
    "pilot": false,
    "candidates": []
@@ -16652,7 +16724,8 @@
    "depicts": "sanfrancisco#conservatory-of-flowers",
    "label": "Conservatory of Flowers",
    "names": [
-    "Conservatory of Flowers"
+    "Conservatory of Flowers",
+    "Conservatory of Flower"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Conservatory_of_Flowers",
@@ -16866,8 +16939,6 @@
    "label": "Haight & Ashbury (Haight-Ashbury)",
    "names": [
     "Haight & Ashbury",
-    "Haight",
-    "Ashbury",
     "Haight-Ashbury"
    ],
    "pilot": false,
@@ -16933,6 +17004,8 @@
     "Lands End & Sutro Baths Ruins",
     "Lands End",
     "Sutro Baths Ruins",
+    "Lands End & Sutro Baths Ruin",
+    "Sutro Baths Ruin",
     "Sutro Baths"
    ],
    "pilot": false,
@@ -16972,6 +17045,7 @@
    "label": "Mission Dolores",
    "names": [
     "Mission Dolores",
+    "Mission Dolore",
     "Mission San Francisco de Asís"
    ],
    "pilot": false,
@@ -17037,7 +17111,8 @@
    "names": [
     "Painted Ladies & Alamo Square",
     "Painted Ladies",
-    "Alamo Square"
+    "Alamo Square",
+    "Painted Ladie"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Painted_Ladies",
@@ -17079,6 +17154,8 @@
     "PIER 39 & the Sea Lions",
     "PIER 39",
     "the Sea Lions",
+    "PIER 39 & the Sea Lion",
+    "the Sea Lion",
     "Pier 39"
    ],
    "pilot": false,
@@ -17180,8 +17257,7 @@
    "label": "SFO Louis A. Turpen Aviation Museum & Library",
    "names": [
     "SFO Louis A. Turpen Aviation Museum & Library",
-    "SFO Louis A. Turpen Aviation Museum",
-    "Library"
+    "SFO Louis A. Turpen Aviation Museum"
    ],
    "pilot": false,
    "candidates": []
@@ -17282,6 +17358,7 @@
    "label": "Twin Peaks",
    "names": [
     "Twin Peaks",
+    "Twin Peak",
     "Twin Peaks (San Francisco)"
    ],
    "pilot": false,
@@ -17434,7 +17511,6 @@
    "names": [
     "Filoli Historic House & Garden",
     "Filoli Historic House",
-    "Garden",
     "Filoli"
    ],
    "pilot": false,
@@ -17461,7 +17537,7 @@
    "names": [
     "Hakone Estate & Gardens",
     "Hakone Estate",
-    "Gardens",
+    "Hakone Estate & Garden",
     "Hakone Gardens"
    ],
    "pilot": false,
@@ -17587,7 +17663,8 @@
    "depicts": "siliconvalley#new-museum-los-gatos-numu",
    "label": "New Museum Los Gatos (NUMU)",
    "names": [
-    "New Museum Los Gatos"
+    "New Museum Los Gatos",
+    "New Museum Los Gato"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/New_Museum_Los_Gatos",
@@ -17629,6 +17706,8 @@
     "Pillar Point Harbor & Mavericks",
     "Pillar Point Harbor",
     "Mavericks",
+    "Pillar Point Harbor & Maverick",
+    "Maverick",
     "Mavericks Beach"
    ],
    "pilot": false,
@@ -17964,7 +18043,8 @@
    "depicts": "singapore/bukit-timah#singapore-botanic-gardens",
    "label": "Singapore Botanic Gardens",
    "names": [
-    "Singapore Botanic Gardens"
+    "Singapore Botanic Gardens",
+    "Singapore Botanic Garden"
    ],
    "pilot": false,
    "candidates": []
@@ -18039,6 +18119,7 @@
    "label": "Koon Seng Road Peranakan Shophouses (Joo Chiat/Katong)",
    "names": [
     "Koon Seng Road Peranakan Shophouses",
+    "Koon Seng Road Peranakan Shophouse",
     "Joo Chiat Road"
    ],
    "pilot": false,
@@ -18051,7 +18132,8 @@
    "depicts": "singapore/kuala-lumpur#batu-caves",
    "label": "Batu Caves",
    "names": [
-    "Batu Caves"
+    "Batu Caves",
+    "Batu Cave"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Batu_Caves",
@@ -18064,6 +18146,7 @@
    "label": "Petronas Twin Towers",
    "names": [
     "Petronas Twin Towers",
+    "Petronas Twin Tower",
     "Petronas Towers"
    ],
    "pilot": false,
@@ -18076,7 +18159,8 @@
    "depicts": "singapore/luang-prabang#kuang-si-falls",
    "label": "Kuang Si Falls",
    "names": [
-    "Kuang Si Falls"
+    "Kuang Si Falls",
+    "Kuang Si Fall"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Kuang_Si_Falls",
@@ -18140,7 +18224,8 @@
    "depicts": "singapore/manila#intramuros",
    "label": "Intramuros",
    "names": [
-    "Intramuros"
+    "Intramuros",
+    "Intramuro"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Intramuros",
@@ -18377,7 +18462,10 @@
    "names": [
     "Southern Ridges & Henderson Waves",
     "Southern Ridges",
-    "Henderson Waves"
+    "Henderson Waves",
+    "Southern Ridges & Henderson Wave",
+    "Southern Ridge",
+    "Henderson Wave"
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Henderson_Waves",
@@ -18693,8 +18781,7 @@
    "label": "African American Civil War Memorial & Museum",
    "names": [
     "African American Civil War Memorial & Museum",
-    "African American Civil War Memorial",
-    "Museum"
+    "African American Civil War Memorial"
    ],
    "pilot": false,
    "candidates": []
@@ -18788,7 +18875,8 @@
    "depicts": "washingtondc#library-of-congress",
    "label": "Library of Congress",
    "names": [
-    "Library of Congress"
+    "Library of Congress",
+    "Library of Congres"
    ],
    "pilot": false,
    "candidates": []
@@ -19093,7 +19181,8 @@
    "depicts": "youngstown#fellows-riverside-gardens",
    "label": "Fellows Riverside Gardens",
    "names": [
-    "Fellows Riverside Gardens"
+    "Fellows Riverside Gardens",
+    "Fellows Riverside Garden"
    ],
    "pilot": false,
    "candidates": []
@@ -19116,8 +19205,7 @@
    "label": "National McKinley Birthplace Memorial & Museum",
    "names": [
     "National McKinley Birthplace Memorial & Museum",
-    "National McKinley Birthplace Memorial",
-    "Museum"
+    "National McKinley Birthplace Memorial"
    ],
    "pilot": false,
    "candidates": []
