@@ -288,7 +288,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 :is(.view-guidebook, [data-cleo-book]) .gcover .lead{font:italic 400 var(--fs-lead)/1.4 var(--font-display);margin:16px 0 10px;max-width:40ch}
 :is(.view-guidebook, [data-cleo-book]) .gc-photo{margin:0 0 var(--s-5);border-radius:var(--r-m);overflow:hidden}
 :is(.view-guidebook, [data-cleo-book]) .gc-photo img{display:block;width:100%}
-:is(.view-guidebook, [data-cleo-book]) .edition{font-size:var(--fs-body);color:var(--ink);margin:var(--s-3) 0 0;font-variant-numeric:tabular-nums}
+:is(.view-guidebook, [data-cleo-book]) .edition{font-size:var(--fs-body);color:var(--ink);margin:var(--s-3) 0 0;font-variant-numeric:var(--num)}
 :is(.view-guidebook, [data-cleo-book]) .edition time{font-variant-numeric:normal}
 :is(.view-guidebook, [data-cleo-book]) .gb-since{padding:var(--s-6) 0 var(--s-4);border-bottom:1px solid var(--line)}
 :is(.view-guidebook, [data-cleo-book]) .gb-since .since{list-style:none;padding:0;margin:var(--s-3) 0 0}
@@ -431,7 +431,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
   .view-guidebook > [data-gb-count] { display: none !important; }
   :is(.view-guidebook, [data-cleo-book]) .gb-since { break-after: page; border: 0; }
   :is(.view-guidebook, [data-cleo-book]) .gc-photo { break-inside: avoid; max-height: 60vh; }
-  :is(.view-guidebook, [data-cleo-book]) .gc-photo img { max-height: 55vh; }
+  :is(.view-guidebook, [data-cleo-book]) .gc-photo img { max-height: 55vh; object-fit: cover; }
   :is(.view-guidebook, [data-cleo-book]) .ch:first-of-type { break-before: auto; }
   :is(.view-guidebook, [data-cleo-book]) .ge, :is(.view-guidebook, [data-cleo-book]) .facts-box { break-inside: avoid; }
   :is(.vw, [data-cleo-book], [data-cleo-insights]) .src { border: 0; padding: 0; min-height: 0; background: none; color: #000; }
