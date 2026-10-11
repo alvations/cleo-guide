@@ -1,0 +1,1649 @@
+{
+ "head": "dd2125e3be6769c776aa1633ed96b17db69181d8",
+ "checks": [
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: ≥ 70 % of the first screen is map (box), and the uncovered map share recorded",
+   "ok": true,
+   "evidence": {
+    "box": 92,
+    "clear": 66
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: the city (\"Cleveland\") is named on the first screen",
+   "ok": true,
+   "evidence": "SPAN.here: Cleveland"
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: photo credits on the carousel cards are whole (not clipped, squeezed or ellipsised)",
+   "ok": true,
+   "evidence": {
+    "n": 1,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: List pill ≥ 44 × 44, no horizontal overflow",
+   "ok": true,
+   "evidence": [
+    122,
+    44,
+    "List · 57"
+   ]
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: B-04 rail on the first phone screen (Atlas; D-36 by design) — recorded",
+   "ok": null,
+   "evidence": false
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
+   "ok": true,
+   "evidence": {
+    "pin": "prosperity-social-club",
+    "sel": true,
+    "nSel": 1,
+    "inView": true,
+    "r": {
+     "x": 47,
+     "y": 682,
+     "w": 328,
+     "h": 150,
+     "b": 832,
+     "r": 374
+    },
+    "pinSel": true,
+    "want": "Prosperity Social Club",
+    "sheet": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: B-07 (W7) … card → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "open": {
+     "title": "Prosperity Social Club",
+     "close": true
+    },
+    "same": true,
+    "hash1": "#p-prosperity-social-club",
+    "esc": true,
+    "reopen": true,
+    "back": true,
+    "stay": {
+     "view": "atlas",
+     "url": "/beta/cleveland.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: swiping the carousel selects the centred card and marks its pin (or its bubble)",
+   "ok": true,
+   "evidence": {
+    "id": "p-soldiers-and-sailors-monument",
+    "sel": true,
+    "pin": true,
+    "bubble": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: photo credits in the phone list are whole",
+   "ok": true,
+   "evidence": {
+    "n": 1,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: List pill → image-first list; Back → the map, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "list": true,
+    "cards": 8,
+    "w7": true,
+    "tog": "Map",
+    "back": {
+     "list": false,
+     "view": "atlas",
+     "url": "/beta/cleveland.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 12,
+     "y": 132,
+     "w": 378,
+     "h": 60,
+     "b": 192,
+     "r": 390
+    },
+    "onScreen": true,
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cleveland.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html mobile: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "A Christmas Story House & Museum",
+    "img": true,
+    "media": [
+     358,
+     224
+    ],
+    "slot": [
+     358,
+     267
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“A Christmas Story house” · Photo: J. Miers · CC BY-SA 1.0 · Wikimedia Commons (resized)",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      114,
+      48
+     ],
+     [
+      "Directions",
+      114,
+      48
+     ],
+     [
+      "Share",
+      114,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "b1": {
+     "x": 0,
+     "y": 770,
+     "w": 390,
+     "h": 73,
+     "b": 843,
+     "r": 390
+    },
+    "srcW": 960,
+    "need": 716,
+    "rank": "No. 52 of 52 in West Side, Ohio City & Tremont"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html mobile: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 716
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html mobile: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": false,
+   "evidence": {
+    "shown": "No. 52 of 52 in West Side, Ohio City & Tremont",
+    "data": [
+     3,
+     52
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html mobile: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cleveland.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html desktop: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "A Christmas Story House & Museum",
+    "img": true,
+    "media": [
+     1024,
+     360
+    ],
+    "slot": [
+     1024,
+     385
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“A Christmas Story house” · Photo: J. Miers · CC BY-SA 1.0 · Wikimedia Commons (resized)",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      344,
+      48
+     ],
+     [
+      "Directions",
+      344,
+      48
+     ],
+     [
+      "Share",
+      344,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "b1": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "srcW": 960,
+    "need": 1024,
+    "rank": "No. 52 of 52 in West Side, Ohio City & Tremont"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html desktop: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 1024
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html desktop: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": false,
+   "evidence": {
+    "shown": "No. 52 of 52 in West Side, Ohio City & Tremont",
+    "data": [
+     3,
+     52
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cleveland.html desktop: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cleveland.html"
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: ≥ 70 % of the first screen is map (box), and the uncovered map share recorded",
+   "ok": true,
+   "evidence": {
+    "box": 92,
+    "clear": 66
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: the city (\"Tokyo\") is named on the first screen",
+   "ok": true,
+   "evidence": "SPAN.here: Tokyo"
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: photo credits on the carousel cards are whole (not clipped, squeezed or ellipsised)",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: List pill ≥ 44 × 44, no horizontal overflow",
+   "ok": true,
+   "evidence": [
+    132,
+    44,
+    "List · 348"
+   ]
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: B-04 rail on the first phone screen (Atlas; D-36 by design) — recorded",
+   "ok": null,
+   "evidence": false
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
+   "ok": true,
+   "evidence": {
+    "pin": "nonbei-yokocho-shibuya",
+    "sel": true,
+    "nSel": 1,
+    "inView": true,
+    "r": {
+     "x": 46,
+     "y": 682,
+     "w": 328,
+     "h": 150,
+     "b": 832,
+     "r": 374
+    },
+    "pinSel": true,
+    "want": "Nonbei Yokochō, Shibuya (渋谷のんべい横丁)",
+    "sheet": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: B-07 (W7) … card → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "open": {
+     "title": "Nonbei Yokochō, Shibuya (渋谷のんべい横丁)",
+     "close": true
+    },
+    "same": true,
+    "hash1": "#p-nonbei-yokocho-shibuya",
+    "esc": true,
+    "reopen": true,
+    "back": true,
+    "stay": {
+     "view": "atlas",
+     "url": "/beta/cities/tokyo.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: swiping the carousel selects the centred card and marks its pin (or its bubble)",
+   "ok": true,
+   "evidence": {
+    "id": "p-tokyo-station-marunouchi-building",
+    "sel": true,
+    "pin": true,
+    "bubble": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: photo credits in the phone list are whole",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: List pill → image-first list; Back → the map, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "list": true,
+    "cards": 21,
+    "w7": true,
+    "tog": "Map",
+    "back": {
+     "list": false,
+     "view": "atlas",
+     "url": "/beta/cities/tokyo.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 12,
+     "y": 132,
+     "w": 378,
+     "h": 60,
+     "b": 192,
+     "r": 390
+    },
+    "onScreen": true,
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/tokyo.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html mobile: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "Asukayama Park (飛鳥山公園)",
+    "img": true,
+    "media": [
+     358,
+     224
+    ],
+    "slot": [
+     358,
+     267
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Asukayama Park” · Photo: ↑ＰＯＮ · CC BY-SA 3.0 · Wikimedia Commons (resized)",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      114,
+      48
+     ],
+     [
+      "Directions",
+      114,
+      48
+     ],
+     [
+      "Share",
+      114,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "b1": {
+     "x": 0,
+     "y": 770,
+     "w": 390,
+     "h": 73,
+     "b": 843,
+     "r": 390
+    },
+    "srcW": 960,
+    "need": 716,
+    "rank": "No. 37 of 37 in Jōhoku"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html mobile: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 716
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html mobile: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": false,
+   "evidence": {
+    "shown": "No. 37 of 37 in Jōhoku",
+    "data": [
+     2,
+     37
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html mobile: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/tokyo.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html desktop: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "Asukayama Park (飛鳥山公園)",
+    "img": true,
+    "media": [
+     1024,
+     360
+    ],
+    "slot": [
+     1024,
+     385
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Asukayama Park” · Photo: ↑ＰＯＮ · CC BY-SA 3.0 · Wikimedia Commons (resized)",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      344,
+      48
+     ],
+     [
+      "Directions",
+      344,
+      48
+     ],
+     [
+      "Share",
+      344,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "b1": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "srcW": 960,
+    "need": 1024,
+    "rank": "No. 37 of 37 in Jōhoku"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html desktop: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 1024
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html desktop: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": false,
+   "evidence": {
+    "shown": "No. 37 of 37 in Jōhoku",
+    "data": [
+     2,
+     37
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/tokyo.html desktop: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/tokyo.html"
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: ≥ 70 % of the first screen is map (box), and the uncovered map share recorded",
+   "ok": true,
+   "evidence": {
+    "box": 92,
+    "clear": 66
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: the city (\"New York City\") is named on the first screen",
+   "ok": true,
+   "evidence": "SPAN.here: New York City"
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: photo credits on the carousel cards are whole (not clipped, squeezed or ellipsised)",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: List pill ≥ 44 × 44, no horizontal overflow",
+   "ok": true,
+   "evidence": [
+    131,
+    44,
+    "List · 259"
+   ]
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: B-04 rail on the first phone screen (Atlas; D-36 by design) — recorded",
+   "ok": null,
+   "evidence": false
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
+   "ok": true,
+   "evidence": {
+    "pin": "veselka",
+    "sel": true,
+    "nSel": 1,
+    "inView": true,
+    "r": {
+     "x": 32,
+     "y": 682,
+     "w": 328,
+     "h": 150,
+     "b": 832,
+     "r": 359
+    },
+    "pinSel": true,
+    "want": "Veselka",
+    "sheet": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: B-07 (W7) … card → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "open": {
+     "title": "Veselka",
+     "close": true
+    },
+    "same": true,
+    "hash1": "#p-veselka",
+    "esc": true,
+    "reopen": true,
+    "back": true,
+    "stay": {
+     "view": "atlas",
+     "url": "/beta/cities/newyork.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: swiping the carousel selects the centred card and marks its pin (or its bubble)",
+   "ok": true,
+   "evidence": {
+    "id": "p-museum-of-modern-art-moma",
+    "sel": true,
+    "pin": true,
+    "bubble": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: photo credits in the phone list are whole",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: List pill → image-first list; Back → the map, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "list": true,
+    "cards": 35,
+    "w7": true,
+    "tog": "Map",
+    "back": {
+     "list": false,
+     "view": "atlas",
+     "url": "/beta/cities/newyork.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 12,
+     "y": 132,
+     "w": 378,
+     "h": 60,
+     "b": 192,
+     "r": 390
+    },
+    "onScreen": true,
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/newyork.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html mobile: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "American Museum of Natural History",
+    "img": true,
+    "media": [
+     358,
+     224
+    ],
+    "slot": [
+     358,
+     267
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Facade of the American museum of natural history NYC (1)” · Photo: Ferfive · CC BY 4.0 · ",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      114,
+      48
+     ],
+     [
+      "Directions",
+      114,
+      48
+     ],
+     [
+      "Share",
+      114,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "b1": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "srcW": 960,
+    "need": 716,
+    "rank": "No. 15 of 264 in Manhattan"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html mobile: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 716
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html mobile: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 15 of 264 in Manhattan",
+    "data": [
+     15,
+     264
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html mobile: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/newyork.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html desktop: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "American Museum of Natural History",
+    "img": true,
+    "media": [
+     1024,
+     360
+    ],
+    "slot": [
+     1024,
+     385
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Facade of the American museum of natural history NYC (1)” · Photo: Ferfive · CC BY 4.0 · ",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      344,
+      48
+     ],
+     [
+      "Directions",
+      344,
+      48
+     ],
+     [
+      "Share",
+      344,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "b1": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "srcW": 960,
+    "need": 1024,
+    "rank": "No. 15 of 264 in Manhattan"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html desktop: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 1024
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html desktop: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 15 of 264 in Manhattan",
+    "data": [
+     15,
+     264
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/newyork.html desktop: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/newyork.html"
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: ≥ 70 % of the first screen is map (box), and the uncovered map share recorded",
+   "ok": true,
+   "evidence": {
+    "box": 92,
+    "clear": 66
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: the city (\"Chinatown & CBD\") is named on the first screen",
+   "ok": true,
+   "evidence": "SPAN.here: Chinatown & CBD"
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: photo credits on the carousel cards are whole (not clipped, squeezed or ellipsised)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: List pill ≥ 44 × 44, no horizontal overflow",
+   "ok": true,
+   "evidence": [
+    117,
+    44,
+    "List · 11"
+   ]
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: B-04 rail on the first phone screen (Atlas; D-36 by design) — recorded",
+   "ok": null,
+   "evidence": false
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
+   "ok": true,
+   "evidence": {
+    "pin": "sri-mariamman-temple",
+    "sel": true,
+    "nSel": 1,
+    "inView": true,
+    "r": {
+     "x": 31,
+     "y": 682,
+     "w": 328,
+     "h": 150,
+     "b": 832,
+     "r": 358
+    },
+    "pinSel": true,
+    "want": "Sri Mariamman Temple",
+    "sheet": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: B-07 (W7) … card → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "open": {
+     "title": "Sri Mariamman Temple",
+     "close": true
+    },
+    "same": true,
+    "hash1": "#p-sri-mariamman-temple",
+    "esc": true,
+    "reopen": true,
+    "back": true,
+    "stay": {
+     "view": "atlas",
+     "url": "/beta/Singapore/chinatown.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: swiping the carousel selects the centred card and marks its pin (or its bubble)",
+   "ok": true,
+   "evidence": {
+    "id": "p-sri-mariamman-temple",
+    "sel": true,
+    "pin": true,
+    "bubble": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: photo credits in the phone list are whole",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: List pill → image-first list; Back → the map, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "list": true,
+    "cards": 14,
+    "w7": true,
+    "tog": "Map",
+    "back": {
+     "list": false,
+     "view": "atlas",
+     "url": "/beta/Singapore/chinatown.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 12,
+     "y": 132,
+     "w": 378,
+     "h": 60,
+     "b": 192,
+     "r": 390
+    },
+    "onScreen": true,
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "Singapore/chinatown.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html mobile: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "Buddha Tooth Relic Temple & Museum",
+    "img": true,
+    "media": [
+     358,
+     224
+    ],
+    "slot": [
+     358,
+     267
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Buddha Tooth Relic Temple and Museum” · Photo: Riction · CC BY 3.0 · Wikimedia Commons (r",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      114,
+      48
+     ],
+     [
+      "Directions",
+      114,
+      48
+     ],
+     [
+      "Share",
+      114,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "b1": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "srcW": 960,
+    "need": 716,
+    "rank": "No. 5 of 16 in Chinatown & CBD"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html mobile: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 716
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html mobile: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 5 of 16 in Chinatown & CBD",
+    "data": [
+     5,
+     16
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html mobile: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/Singapore/chinatown.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html desktop: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "Buddha Tooth Relic Temple & Museum",
+    "img": true,
+    "media": [
+     1024,
+     360
+    ],
+    "slot": [
+     1024,
+     385
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Buddha Tooth Relic Temple and Museum” · Photo: Riction · CC BY 3.0 · Wikimedia Commons (r",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      344,
+      48
+     ],
+     [
+      "Directions",
+      344,
+      48
+     ],
+     [
+      "Share",
+      344,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "b1": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "srcW": 960,
+    "need": 1024,
+    "rank": "No. 5 of 16 in Chinatown & CBD"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html desktop: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 1024
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html desktop: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 5 of 16 in Chinatown & CBD",
+    "data": [
+     5,
+     16
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "Singapore/chinatown.html desktop: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/Singapore/chinatown.html"
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: ≥ 70 % of the first screen is map (box), and the uncovered map share recorded",
+   "ok": true,
+   "evidence": {
+    "box": 92,
+    "clear": 66
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: the city (\"Wheeling\") is named on the first screen",
+   "ok": true,
+   "evidence": "SPAN.here: Wheeling"
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: photo credits on the carousel cards are whole (not clipped, squeezed or ellipsised)",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: List pill ≥ 44 × 44, no horizontal overflow",
+   "ok": true,
+   "evidence": [
+    120,
+    44,
+    "List · 13"
+   ]
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: B-04 rail on the first phone screen (Atlas; D-36 by design) — recorded",
+   "ok": null,
+   "evidence": false
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: B-07 (W7) real pin tap → its card selected, wholly on screen in the carousel, pin marked",
+   "ok": true,
+   "evidence": {
+    "pin": "great-stone-viaduct",
+    "sel": true,
+    "nSel": 1,
+    "inView": true,
+    "r": {
+     "x": 31,
+     "y": 682,
+     "w": 328,
+     "h": 150,
+     "b": 832,
+     "r": 358
+    },
+    "pinSel": true,
+    "want": "Great Stone Viaduct",
+    "sheet": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: B-07 (W7) … card → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "open": {
+     "title": "Great Stone Viaduct",
+     "close": true
+    },
+    "same": true,
+    "hash1": "#p-great-stone-viaduct",
+    "esc": true,
+    "reopen": true,
+    "back": true,
+    "stay": {
+     "view": "atlas",
+     "url": "/beta/cities/wheeling.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: swiping the carousel selects the centred card and marks its pin (or its bubble)",
+   "ok": true,
+   "evidence": {
+    "id": "p-figarettis-restaurant",
+    "sel": true,
+    "pin": true,
+    "bubble": false
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: photo credits in the phone list are whole",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: List pill → image-first list; Back → the map, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "list": true,
+    "cards": 2,
+    "w7": true,
+    "tog": "Map",
+    "back": {
+     "list": false,
+     "view": "atlas",
+     "url": "/beta/cities/wheeling.html"
+    }
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 12,
+     "y": 132,
+     "w": 378,
+     "h": 60,
+     "b": 192,
+     "r": 390
+    },
+    "onScreen": true,
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasm",
+   "name": "cities/wheeling.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html mobile: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "Meadowcroft Rockshelter & Historic Villa",
+    "img": true,
+    "media": [
+     358,
+     224
+    ],
+    "slot": [
+     358,
+     267
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Meadowcroft Rockshelter 07” · Photo: Jbarta · CC0 1.0 · Wikimedia Commons (resized)",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      114,
+      48
+     ],
+     [
+      "Directions",
+      114,
+      48
+     ],
+     [
+      "Share",
+      114,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 0,
+     "y": 771,
+     "w": 390,
+     "h": 73,
+     "b": 844,
+     "r": 390
+    },
+    "b1": {
+     "x": 0,
+     "y": 770,
+     "w": 390,
+     "h": 73,
+     "b": 843,
+     "r": 390
+    },
+    "srcW": 960,
+    "need": 716,
+    "rank": "No. 1 of 8 in Washington, PA"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html mobile: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 716
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html mobile: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 1 of 8 in Washington, PA",
+    "data": [
+     1,
+     8
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html mobile: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/wheeling.html"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html desktop: place detail — photo fills its slot (no letterbox) with its credit; sticky Save · Directions · Share stay on screen when scrolled; buttons ≥ 44 px",
+   "ok": true,
+   "evidence": {
+    "title": "Meadowcroft Rockshelter & Historic Villa",
+    "img": true,
+    "media": [
+     1024,
+     360
+    ],
+    "slot": [
+     1024,
+     385
+    ],
+    "fit": "cover",
+    "letter": false,
+    "credit": "“Meadowcroft Rockshelter 07” · Photo: Jbarta · CC0 1.0 · Wikimedia Commons (resized)",
+    "bar": true,
+    "barOnScreen": true,
+    "scrolled": true,
+    "btns": [
+     [
+      "Save",
+      344,
+      48
+     ],
+     [
+      "Directions",
+      344,
+      48
+     ],
+     [
+      "Share",
+      344,
+      48
+     ]
+    ],
+    "b0": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "b1": {
+     "x": 180,
+     "y": 803,
+     "w": 1080,
+     "h": 73,
+     "b": 876,
+     "r": 1260
+    },
+    "srcW": 960,
+    "need": 1024,
+    "rank": "No. 1 of 8 in Washington, PA"
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html desktop: the detail photo's chosen source is at least its displayed width × DPR (not upscaled)",
+   "ok": true,
+   "evidence": {
+    "chosen": 960,
+    "needed": 1024
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html desktop: the detail's \"No. n of N in <area>\" matches the data (deep link on load)",
+   "ok": true,
+   "evidence": {
+    "shown": "No. 1 of 8 in Washington, PA",
+    "data": [
+     1,
+     8
+    ]
+   }
+  },
+  {
+   "group": "detail",
+   "name": "cities/wheeling.html desktop: Esc closes the detail; Back closes it and stays on the page",
+   "ok": true,
+   "evidence": {
+    "esc": true,
+    "re": true,
+    "back": true,
+    "url": "/beta/cities/wheeling.html"
+   }
+  },
+  {
+   "group": "tiles",
+   "name": "every tile request went to OSM or Esri",
+   "ok": true,
+   "evidence": {
+    "server.arcgisonline.com": 380
+   }
+  }
+ ],
+ "info": {}
+}

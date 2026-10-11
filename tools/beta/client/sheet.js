@@ -106,11 +106,16 @@
   }
   // Per-article links from the page dataset (same origin, cached by the service worker); until it arrives: the publisher.
   function deep(c) {
-    if (Cleo.pageData) Cleo.pageData(info.key).then(function (j) {
-      if (card !== c) return;
-      var rec = (j.places || []).filter(function (p) { return p.id === C.pid(c); })[0], kg = {};
+    // perf audit PERF-04: the links slice (data/links/<page>.json, ~7× smaller than the page dataset) when present
+    var id = C.pid(c), fromPage = function (j) { var kg = {}, rec = (j.places || []).filter(function (p) { return p.id === id; })[0], p = {};
       (j.sourceIndex || []).forEach(function (s) { (s.entries || []).forEach(function (e) { kg[e.key] = s.id; }); });
-      (rec ? rec.s : []).forEach(function (x) {
+      p[id] = rec ? rec.s : []; return { g: kg, p: p }; };
+    var got = Cleo.links ? Cleo.links(info.key).catch(function () { return Cleo.pageData(info.key).then(fromPage); })
+      : Cleo.pageData ? Cleo.pageData(info.key).then(fromPage) : null;
+    if (got) got.then(function (j) {
+      if (card !== c) return;
+      var kg = j.g || {};
+      (j.p && j.p[id] || []).forEach(function (x) {
         var li = kg[x[0]] && host.querySelector('.srclist li[data-g="' + kg[x[0]] + '"]'), u = /^https?:\/\/\S+$/.test(x[1] || '') ? x[1] : '';
         if (!li || !u) return;
         var a = q('a.out', li); if (!a) { q('.acts', li).insertAdjacentHTML('beforeend', '<a class="out"' + NT + '>' + glue('Read', 'external') + '</a>'); a = q('a.out', li); }

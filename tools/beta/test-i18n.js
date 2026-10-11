@@ -82,7 +82,9 @@ const reg2 = { rows: [cityRow('testville', 'cities/testville.html', 'tl', 6), ci
   { kind: 'archive-hub', beta: 'Singapore/singapore-old.html', live: 'Singapore/singapore-old.html', gen: 'new', key: 'sea', country: 'sg', data: { meta: { h1Main: 'Testland' } } }],
   countries: [{ key: 'tl', name: 'Testland', live: true, order: 1, hub: 'Testland/index.html', cityPages: ['cities/testville.html'], blurb: 'Testville Gazette' },
     { key: 'sg', name: 'Testland', live: false, order: 2, kind: 'engine', cityPages: [] }] };
-reg2.rows[3].country = 'zz';                                   // a page outside every region → "elsewhere in the region"
+reg2.rows[3].country = 'zz';
+// W9-2: the landing's "<month> in Cleo" module (data/changes.json rows)
+reg2.changes = Object.assign([{ key: 'testville', name: 'Testville', changesPage: 'changes/testville.html', month: { checked: 3, closed: 1, pins: 2 } }], { month: '2026-10' });                                   // a page outside every region → "elsewhere in the region"
 shell.setSite(reg2, {});
 const lctx = { assetsV: { core: 'x', css: 'x', landing: 'x' }, betaBase: 'https://example.test/beta' };
 const DATA2 = DATA.concat(['Anime', 'Testburg']);
@@ -107,6 +109,14 @@ chk('collections rail, every phrasing: no English left', rails.map(left), [[], [
 console.log('\n== CATALOGUE ==');
 const en = i18n.EN;
 chk('en catalogue is reviewed', en.reviewed, true);
+// W9-8 (platform): the offline-pack control and the offline map line on the city page, rendered in `pseudo`
+{
+  i18n.setLocale('pseudo');
+  const os = require('./lib/render/city').offlineStrings('Tōkyō', 488);
+  const en = /\b(Keep|offline|Saved|Remove|places|Map|unavailable|storage|device|Couldn)\b/;
+  chk('offline pack + offline map strings render from the catalogue (pseudo: 0 English words; data passes)', Object.entries(os).filter(([k, v]) => en.test(v)).map(([k]) => k), []);
+  i18n.setLocale('en');
+}
 chk('every string used by the pseudo render exists in en', [...i18n.used].filter(k => !(k in en.strings)), []);
 const unused = Object.keys(en.strings).filter(k => !i18n.used.has(k) && !k.endsWith('.one') && k !== 'shell.locale.label');
 chk('no dead catalogue strings', unused, []);

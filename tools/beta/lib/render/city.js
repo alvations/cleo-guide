@@ -13,6 +13,13 @@
  */
 const { esc, prose, jsonInline } = require('../html');
 const { TIER } = require('../model');
+const { t: tr } = require('../i18n');   // platform W9-8: the offline-pack strings come from the catalogue
+/** Every catalogue string the W9-8 offline pack and the offline map line use (test-i18n renders it in `pseudo`). */
+function offlineStrings(city, n) {
+  const L = k => tr('pack.' + k, { city, size: '{size}', date: '{date}' });
+  return { title: L('title'), note: L('note'), keep: L('keep'), size: L('size'), saved: L('saved'), saving: L('saving'),
+    failed: L('failed'), removed: L('removed'), remove: L('remove'), mapOffline: tr('map.offline', { n }) };
+}
 const { head, siteBar, footer, BETA_BASE } = require('./common');
 const { rowsOf: galleryRows } = require('../gallery');
 const { sentence, ownWords } = require('../casing');
@@ -52,6 +59,8 @@ const ICONS = {
   columns: '<path d="M3 9l9-5 9 5M5.5 9.5v8M9.8 9.5v8M14.2 9.5v8M18.5 9.5v8M3 20.5h18"/>',
   mountain: '<path d="M2.5 20l6.5-11.5 4 6.5 2.5-3.5 6 8.5z"/><path d="M7.4 11.3l1.6 1.2 1.7-1"/>',
   steam: '<path d="M3.5 14.5c0 3.2 3.8 5.5 8.5 5.5s8.5-2.3 8.5-5.5z"/><path d="M8.5 11c-1.2-1.6 1.2-2.6 0-4.4M12 11c-1.2-1.6 1.2-2.6 0-4.4M15.5 11c-1.2-1.6 1.2-2.6 0-4.4"/>',
+  wave: '<path d="M2.5 8.5c2.4 0 2.4-2 4.75-2S9.6 8.5 12 8.5s2.4-2 4.75-2 2.35 2 4.75 2M2.5 13.5c2.4 0 2.4-2 4.75-2s2.35 2 4.75 2 2.4-2 4.75-2 2.35 2 4.75 2M2.5 18.5c2.4 0 2.4-2 4.75-2s2.35 2 4.75 2 2.4-2 4.75-2 2.35 2 4.75 2"/>',   // design/beta/tools/build-css.py NEW
+  flag: '<path d="M5 21V3.5M5 4h12l-2.5 4L17 12H5"/>',
   awning: '<path d="M3 9l2-5h14l2 5"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v8.5h14V12M10 20.5v-5h4v5"/>',
   moon: '<path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/><path d="M17 4l.5 1.3 1.3.5-1.3.5L17 7.6l-.5-1.3-1.3-.5 1.3-.5z"/>',
   bubble: '<path d="M4 4.5h16v11.5H10.5L5.5 20v-4H4z"/><path d="M12 6.8l1.1 2.4 2.6.3-1.9 1.7.5 2.5-2.3-1.3-2.3 1.3.5-2.5-1.9-1.7 2.6-.3z"/>',
@@ -123,6 +132,14 @@ const named = r => (r.src || []).filter(s => s !== 'guide').length;
 const orderArea = list => list.map((r, i) => [r, i]).sort(([x, i], [y, j]) =>
   (x.closed ? 1 : 0) - (y.closed ? 1 : 0) || x.t - y.t || named(y) - named(x) || i - j).map(p => p[0]);
 
+// the map pin's glyph for a sight with no collection glyph (SPEC-v3 §1.2): the type noun in the place's OWN NAME, from a
+// fixed table — a pictogram, never a category or cuisine tag; worship is the torii on Japan pages, the lantern elsewhere
+const NOUN = [[/\b(museum|gallery|library|hall|institute)\b/i, 'columns'], [/\b(church|cathedral|chapel|synagogue|basilica|temple|shrine|mosque)\b/i, 'worship'],
+  [/\b(park|gardens?|reservation|preserve|arboretum|conservatory|trail)\b/i, 'leaf'], [/\b(beach|lake|river|falls|pier|harbou?r)\b/i, 'wave'],
+  [/\b(tower|lighthouse|observatory|bridge)\b/i, 'tower'], [/\b(theat(?:re|er)|playhouse|stadium|arena)\b/i, 'ticket'],
+  [/\b(market|shop|bookstore)\b/i, 'awning'], [/\b(cemetery|memorial|monument)\b/i, 'flag']];
+const mapGlyphOf = (r, gl, japan) => { if (r.kind === 'food' || gl !== 'compass') return ''; const hit = NOUN.find(([re]) => re.test(r.n));
+  return !hit ? '' : hit[1] === 'worship' ? (japan ? 'torii' : 'lantern') : hit[1]; };
 const glyphOf = (r, page) => { const czN = r.cz.map(id => ((page.CUISINES || []).find(c => c.id === id) || {}).n).filter(Boolean);
   return r.kind === 'food' ? glyphFor(r.cz[0], czN[0], true) : glyphFor(r.g.find(g => g !== 'ICON' && g !== 'FREE') || r.g[0], '', false); };
 
@@ -132,7 +149,7 @@ function card(r, num, ctx) {
   const aName = areaName(r.a);
   const czN = r.cz.map(id => ((page.CUISINES || []).find(c => c.id === id) || {}).n).filter(Boolean);
   const dish = r.kind === 'food' && czN[0] ? (ctx.SC || String)(czN[0].split(/ & |, | \(/)[0]) : '';
-  const gl = glyphOf(r, page);
+  const gl = glyphOf(r, page), mg = mapGlyphOf(r, gl, ctx.japan);
   const pv = r.pv || {}, prov = ctx.prov[r.id] || {};
   const where = [aName, dish].filter(Boolean).map(esc).join(' · ');
   const eyebrow = r.closed
@@ -154,11 +171,11 @@ function card(r, num, ctx) {
   // not advice, so it never prints as "Look for: HIST" (249 records, W2)
   if (kText && (page.CATS || []).concat(page.CUISINES || []).some(c => c.id === kText)) r = Object.assign({}, r, { k: '' });
   const isNote = kText.split(' ').length >= 8 && /[.!?…](\s|$)/.test(kText);     // VOICE.md rule 4 (D-16)
-  const attrs = [`data-k="${r.kind === 'food' ? 'f' : 's'}"`, `data-t="${r.t}"`, `data-a="${esc(r.a)}"`, `data-n="${num}"`, `data-gl="${gl}"`, `data-m="${motifOf(r, gl)}"`,   // data-m: cover motif by kind id (imagery, ROUND-4 #6)
+  const attrs = [`data-k="${r.kind === 'food' ? 'f' : 's'}"`, `data-t="${r.t}"`, `data-a="${esc(r.a)}"`, `data-n="${num}"`, `data-gl="${gl}"`, mg && `data-mg="${mg}"`, `data-m="${motifOf(r, gl)}"`,   // data-m: cover motif by kind id (imagery, ROUND-4 #6)
    
     r.g.length && `data-g="${esc(r.g.join(' '))}"`, r.cz.length && `data-cz="${esc(r.cz.join(' '))}"`,
     r.src && r.src.length && `data-src="${esc(r.src.join(' '))}"`,
-    r.la != null && `data-ll="${r.la},${r.ln}"`, pv.checked && `data-checked="${esc(pv.checked)}"`, r.closed && 'data-closed', r.warn && 'data-warn'].filter(Boolean).join(' ');
+    r.la != null && `data-ll="${r.la},${r.ln}"`, pv.checked && `data-checked="${esc(pv.checked)}"`, r.closed && 'data-closed', r.warn && 'data-warn', r.np && 'data-np'].filter(Boolean).join(' ');
   // W7 media slot (contract in docs/BETA-LOG.md): the calm cover (.pl-cover), a credited photo laid over it when the imagery
   // lane has one (figure.photo.pl-photo: lazy, sized, alt = what it depicts, credit in the figcaption), and the heart (.pl-x)
   return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${(ph => ph ? tinted(figureHtml(ph, ctx.up || '', 'photo pl-photo'), ph) : '')(ctx.photo && ctx.photo(r))}<p class="pl-x" hidden></p>
@@ -271,7 +288,7 @@ function render(row, recs, ctx) {
 
   /* -- area chapters -- */
   const lang = { japan: 'ja', singapore: 'zh' }[row.country] || '';
-  const cardCtx = { page, srcById, areaName, prov, lang, up, SC, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
+  const cardCtx = { japan: row.country === 'japan', page, srcById, areaName, prov, lang, up, SC, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
   let placed = 0;
   const chapter = (a, list, i, total) => {
     const [head1, hoods] = a ? areaSplit(a.n) : ['Elsewhere', ''];
@@ -311,6 +328,14 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   // desktop shows the lead as one quiet text link (the phone shows it as the first card, under the hero)
   const leadName = leadR ? (leadR.nat && leadR.n.endsWith(`(${leadR.nat})`) ? leadR.n.slice(0, -leadR.nat.length - 2).trimEnd() : leadR.n) : '';
   // the photo is an in-flow media slot (imagery: eager, sized, TASL credit in its figcaption), never a full-bleed backdrop
+  // W9-8 (platform): "Keep <city> offline" — core.js fills it from data/packs/<page>.json; hidden without a service worker
+  const OS = offlineStrings(row.name || m.h1Main || row.key, recs.length), pkL = k => OS[k];
+  const packHtml = `<section class="pack" data-cleo-pack data-key="${esc(row.fileKey || String(row.key).replace(/\//g, '--'))}" aria-labelledby="pack-h" hidden>` +
+    `<h2 class="d3" id="pack-h">${esc(pkL('title'))}</h2><p class="sm" data-pack-note>${esc(pkL('note'))}</p>` +
+    `<p class="pack-row"><button type="button" class="btn btn-primary" data-pack="keep">${esc(pkL('keep'))}</button> <span class="sm" data-pack-size data-l="${esc(pkL('size'))}"></span></p>` +
+    `<p class="pack-done sm" data-pack-done data-l="${esc(pkL('saved'))}" hidden></p>` +
+    `<p class="pack-msg sm" data-pack-msg role="status" aria-live="polite" data-l-saving="${esc(pkL('saving'))}" data-l-failed="${esc(pkL('failed'))}" data-l-removed="${esc(pkL('removed'))}"></p>` +
+    `<p><button type="button" class="btn btn-ghost" data-pack="remove" hidden>${esc(pkL('remove'))}</button></p></section>`;
   const heroHtml = `<div class="g-hero-x">${heroLine ? `<p class="g-lead">${esc(heroLine)}</p>` : ''}${leadR ? `<p class="g-start"><a href="#p-${esc(leadR.id)}">Start with ${esc(leadName)}</a></p>` : ''}${heroPhoto ? tinted(heroPhotoHtml(heroPhoto, up, 'photo hero-media', { preloaded: true }), heroPhoto) : ''}</div>`;
   // default view: Gallery (SPEC §2.4), flipped in W5 once G1 and the phone first screen passed (ROUND-4 #2). A link with
   // #day= or a lens and no view= still opens Atlas, the unpaged list (views.js implied(), mirrored in the head script)
@@ -321,12 +346,12 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   const areaChips = areas.length > 1 ? '<div class="area-chips" role="group" aria-label="Areas" data-cleo-toolbar hidden></div>' : '';   // views.js draws the chips (page weight)
   // the view is set before first paint (SPEC §2.4): hash, then the stored preference (try/catch), then Gallery
   const viewHead = `<script>(function(){var v=${JSON.stringify(VIEWS)},h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)(?:day|mode|a|t|c|cz|src|closed|q|sig|gap)=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}` +
-    `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'${DV}';document.documentElement.setAttribute('data-view',x)})()</script>`;
+    `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'${DV}';document.documentElement.setAttribute('data-view',x);if(x==='atlas')document.documentElement.classList.add(!window.matchMedia||matchMedia('(min-width:1024px)').matches?'atlas-d':'atlas-m')})()</script>`;
 
   /* -- sprite: only the glyphs this page uses -- */
   const used = new Set(['search', 'grid', 'map', 'list', 'sliders', 'close', 'directions', 'share', 'check', 'chev-r', 'chev-l', 'pin', 'external', 'info', 'stamp', 'heart', 'star4', 'route', 'locate', 'spark', 'up', 'down', 'archive', 'castle', 'bowl', 'tv', 'mountain', 'columns']);
   tiles.forEach(t => t.g && used.add(t.g));
-  for (const mm of cardsHtml.matchAll(/data-gl="([a-z0-9-]+)"/g)) used.add(mm[1]);
+  for (const mm of cardsHtml.matchAll(/data-[gm][lg]="([a-z0-9-]+)"/g)) used.add(mm[1]);
   const sprite = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">${[...used].filter(k => ICONS[k]).sort().map(k => `<symbol id="i-${k}" viewBox="0 0 24 24">${ICONS[k]}</symbol>`).join('')}</svg>`;
 
   const mapArt = row.art && row.art.map ? Object.assign({ alt: `Schematic of ${row.art.map.drawn} verified pins in ${name}, coloured by area` }, row.art.map) : null;
@@ -412,7 +437,7 @@ ${areaChips}
 </div>
 <div class="view-host" id="cleo-view" hidden></div>
 <div class="split">
-<div class="listpane" id="cleo-grid">
+<div class="listpane" id="cleo-grid"><script>(function(h,g){if(h.classList.contains('atlas-d'))g.classList.add('w7-cards')})(document.documentElement,document.currentScript.parentNode)</script>
 <div class="lens" id="cleo-lens" aria-live="polite" hidden></div>
 <p class="shown" id="cleo-shown" aria-live="polite"></p>
 ${cardsHtml}
@@ -424,13 +449,14 @@ ${cardsHtml}
 </div>
 <aside class="mappane" aria-label="Map">
 <button type="button" class="btn btn-primary mapclose" data-cleo-map="" aria-label="Back to the list">${ico('list')}<span>Show list</span></button>
-<div id="cleo-map" class="map"${mapArt ? ` data-art="${esc(up + mapArt.src)}" data-art-alt="${esc(mapArt.alt)}"` : ''}>${mapArt
+<div id="cleo-map" class="map" data-l-offline="${esc(OS.mapOffline)}"${mapArt ? ` data-art="${esc(up + mapArt.src)}" data-art-alt="${esc(mapArt.alt)}"` : ''}>${mapArt
     ? `<figure class="map-art map-fallback"><img src="${esc(up + mapArt.src)}" width="${mapArt.w}" height="${mapArt.h}" alt="${esc(mapArt.alt)}" decoding="async" style="max-width:100%;height:auto"><figcaption>The map appears when it can load. Every place is listed here either way.</figcaption></figure>`
     : '<p class="map-fallback">The map appears when it can load. Every place is listed here either way.</p>'}</div>
 <div class="poi-sheet" id="cleo-poi" role="dialog" aria-label="Place on the map" hidden></div>
 </aside>
 </div>
 ${m.standfirst ? `<section class="about" aria-label="About this guide"><p>${esc(m.standfirst.replace(/\s*Switch modes below[\s\S]*$/, ''))}</p></section>` : ''}
+${packHtml}
 <div class="overlay" id="cleo-sheet" hidden></div>
 <div class="overlay" id="cleo-fy" hidden></div>
 ${trayHtml}
@@ -445,4 +471,4 @@ ${footer({ depth, liveRel: row.live, notes: page.notes })}
 `;
 }
 
-module.exports = { render, jsonLd, shortArea };
+module.exports = { render, jsonLd, shortArea, offlineStrings };

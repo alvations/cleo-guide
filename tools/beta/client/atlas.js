@@ -28,14 +28,18 @@
   const hex = s => { const m = /^#?([0-9a-f]{6})$/i.exec((s || '').trim()); return m ? [0, 2, 4].map(i => parseInt(m[1].slice(i, i + 2), 16)) : null; };
   const mix = (a, b, t) => { const x = hex(a), y = hex(b); return x && y ? '#' + x.map((v, i) => Math.round(v * t + y[i] * (1 - t)).toString(16).padStart(2, '0')).join('') : (a || b); };
   let tok = {};
-  const readTok = () => { tok = { surface: css('--surface') || '#fff', paper: css('--paper') || '#F9F7F3', mute: css('--area-mute') || '#948B83', ink3: css('--ink-3') || '#68615B', sand: css('--sand') || '#F1EDE7', line: css('--line') || '#E7E2DB', sun: css('--sun') || '#E9A93B', ink: css('--ink') || '#1C1917' }; };
+  const readTok = () => { tok = { surface: css('--surface') || '#fff', paper: css('--paper') || '#F9F7F3', mute: css('--area-mute') || '#948B83', ink3: css('--ink-3') || '#68615B', sand: css('--sand') || '#F1EDE7', line: css('--line') || '#E7E2DB', sun: css('--sun') || '#E9A93B', onSun: css('--on-sun-wash') || '#5A3D0C', ink: css('--ink') || '#1C1917' }; };
   readTok();
   const areaC = c => mix(((C.info.areas || {})[at(c, 'data-a')] || {}).c || tok.mute, tok.mute, 0.5);
   const isT1 = c => at(c, 'data-t') === '1' && !c.hasAttribute('data-closed');
   // dots (SPEC-v3 §1.1, refined): ONE quiet neutral — ink at 38 % for sights, 62 % for eat & drink (mixed into the page
   // ground so the canvas needs no alpha), hollow when closed, a thin surface halo. Area colour only under an area filter.
-  C.dotStyle = c => { const cl = c.hasAttribute('data-closed'), f = at(c, 'data-k') === 'f', a = S.a ? areaC(c) : mix(tok.ink, tok.paper, f ? 0.62 : 0.38);
-    return { radius: isT1(c) ? 4.5 : 3.5, weight: cl ? 1.5 : 1, color: cl ? a : tok.surface, opacity: 1, fillColor: a, fillOpacity: cl ? 0 : 1 }; };
+  // Kind by shape (R1 #4): a sight is a 7 px circle, eat & drink a 6 px rounded square; dark mode drops to 30 % / 50 %.
+  // A Must-see that isn't featured is a --sun dot with an --on-sun-wash ring; a closed dot is hollow with a diagonal slash.
+  const darkOn = () => { const t = H.getAttribute('data-theme'); return t === 'dark' || (t !== 'light' && !!window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches); };
+  C.dotStyle = c => { const cl = c.hasAttribute('data-closed'), f = at(c, 'data-k') === 'f', dk = darkOn(), t1 = isT1(c) && !S.a;
+    const a = S.a ? areaC(c) : t1 ? tok.sun : mix(tok.ink, tok.paper, f ? (dk ? 0.5 : 0.62) : (dk ? 0.3 : 0.38));
+    return { radius: f ? 3 : t1 ? 4.5 : 3.5, shape: f ? 'sq' : '', slash: cl, weight: cl ? 1.5 : 1, color: cl ? a : t1 ? tok.onSun : tok.surface, opacity: 1, fillColor: a, fillOpacity: cl ? 0 : 1 }; };
   let lastA = S.a;   // an area filter turns its area colour on for the dots (and off again)
   C.after.push(() => { if (S.a !== lastA) { lastA = S.a; restyle(); } });
   const restyle = () => { readTok(); Object.keys(C.markers).forEach(id => { const c = rec(id); if (c) C.markers[id].setStyle(C.dotStyle(c)); }); if (C.feature) C.feature(); };
@@ -63,20 +67,33 @@
   const pins = {}; let hoverPin = null, discL = null, hoverId = null;
   const savedSet = () => { const s = Cleo.saved ? Cleo.saved.all() : {}, o = {}; Object.keys(s).forEach(r => { const i = r.lastIndexOf('/'); if (r.slice(0, i) === C.key) o[r.slice(i + 1)] = 1; }); return o; };
   // one glyph, the kind: a sight's own glyph; eat & drink is the fork-and-knife (the cup for cafés)
-  const glyph = c => { const g = at(c, 'data-gl') || ''; if (at(c, 'data-k') !== 'f') return g || 'pin'; return g === 'cup' ? 'cup' : d.getElementById('i-forkknife') ? 'forkknife' : 'bowl'; };
+  const glyph = c => { const g = at(c, 'data-mg') || at(c, 'data-gl') || ''; if (at(c, 'data-k') !== 'f') return g || 'pin'; return g === 'cup' ? 'cup' : d.getElementById('i-forkknife') ? 'forkknife' : 'bowl'; };
   // the short map name: up to the first ", " / " — " / " – ", parentheses dropped — never truncated (a pill that won't fit stays a dot)
   const short = nm => nm.replace(/\s*\([^)]*\)/g, '').split(/, | — | – /)[0].trim() || nm;
   const pinHtml = (c, nm, sv) => { const cl = c.hasAttribute('data-closed');
     return '<span><svg class="ico" aria-hidden="true"><use href="#i-' + C.esc(glyph(c)) + '"/></svg>' +
       '<b>' + C.esc(short(nm)) + (cl ? ' · Closed' : '') + '</b>' + (sv ? '<em class="pp-h" aria-hidden="true">♥</em>' : '') + '</span>'; };
   const pinCls = (c, sv) => 'pp pp-' + (at(c, 'data-k') === 'f' ? 'f' : 's') + (isT1(c) ? ' pp-1' : '') + (c.hasAttribute('data-closed') ? ' pp-x' : '') + (sv ? ' pp-sv' : '');
-  const mkPin = (id, c, sv) => { const L = window.L, nm = nameOf(id), k = L.marker(C.markers[id].getLatLng(), { icon: L.divIcon({ className: pinCls(c, sv), iconSize: null, html: pinHtml(c, nm, sv) }), keyboard: false, title: nm, zIndexOffset: isT1(c) ? 600 : 0 });
+  // the pin's accessible name (SPEC-v3 §1.2): full name, kind, [Must see], [Closed], [saved] — the kind never by colour alone
+  const pinLabel = (c, nm, sv) => [nm, at(c, 'data-k') === 'f' ? 'eat and drink' : 'sight', isT1(c) && !c.hasAttribute('data-closed') && 'Must see', c.hasAttribute('data-closed') && 'Closed', sv && 'saved'].filter(Boolean).join(', ');
+  // each featured pin IS a link to its place (<a href="#…p=id">): one Tab stop, the marker element itself (keyboard: true)
+  let PinIcon = null;
+  const pinIcon = o => { const L = window.L; if (!PinIcon) PinIcon = L.DivIcon.extend({ createIcon: function () { const a = d.createElement('a'); a.href = this.options.href; a.innerHTML = this.options.html; this._setIconStyles(a, 'icon');
+      a.setAttribute('aria-label', this.options.label); a.setAttribute('data-kind', this.options.kind); return a; } }); return new PinIcon(o); };
+  const mkPin = (id, c, sv) => { const L = window.L, nm = nameOf(id), lab = pinLabel(c, nm, sv),
+      k = L.marker(C.markers[id].getLatLng(), { icon: pinIcon({ className: pinCls(c, sv), iconSize: null, html: pinHtml(c, nm, sv), href: '#view=atlas&p=' + id, label: lab, kind: at(c, 'data-k') === 'f' ? 'food' : 'sight' }), keyboard: true, title: nm, alt: lab, zIndexOffset: isT1(c) ? 600 : 0 });
+    // a link, not Leaflet's role=button; the click selects in place (the href serves a new tab / a copied link)
+    k.on('add', () => { const e = k.getElement(); if (!e) return; e.removeAttribute('role'); if (!e._pv) { e._pv = 1; e.addEventListener('click', ev => { if (!ev.metaKey && !ev.ctrlKey && !ev.shiftKey) ev.preventDefault(); }); } });
     k.on('click', () => { const r = C.cardOf(id); if (r) C.pin(r); });
     k.on('mouseover', () => { const r = C.byId[id]; if (r) r.classList.add('is-hover'); });
     k.on('mouseout', () => { const r = C.byId[id]; if (r) r.classList.remove('is-hover'); });
     return k; };
-  // the label box a pill needs, in px (Inter 600 13 px ≈ 7.2 px a character), for the greedy collision check
-  const boxOf = (c, nm) => 46 + short(nm).length * 7.4 + (c.hasAttribute('data-closed') ? 52 : 0);
+  // the label box a pill needs, in px (Inter 600 14 px ≈ 8 px a character), for the greedy collision check
+  const boxOf = (c, nm) => 48 + short(nm).length * 8 + (c.hasAttribute('data-closed') ? 56 : 0);
+  // four anchors, tried in turn before a pill gives way to a dot (SPEC-v3 §1.3): above (with the stem), right, left, below
+  const ANCH = ['t', 'r', 'l', 'b'];
+  const boxAt = (p, w, a) => a === 't' ? { l: p.x - w / 2 - 2, r: p.x + w / 2 + 2, t: p.y - 41, b: p.y + 2 } : a === 'b' ? { l: p.x - w / 2 - 2, r: p.x + w / 2 + 2, t: p.y + 2, b: p.y + 38 }
+    : a === 'r' ? { l: p.x + 2, r: p.x + w + 6, t: p.y - 18, b: p.y + 18 } : { l: p.x - w - 6, r: p.x - 2, t: p.y - 18, b: p.y + 18 };
   let ft = 0;
   C.feature = () => { clearTimeout(ft); ft = setTimeout(feature, 120); };
   const feature = () => {
@@ -86,7 +103,7 @@
     const inV = vis.filter(id => b.contains(C.markers[id].getLatLng()));
     const first = id => (id === sel ? 0 : sv[id] ? 1 : 2);
     const cand = inV.slice().sort((x, y) => first(x) - first(y) || (MP[x] - MP[y]));
-    const placed = [], want = {}, sz = map.getSize(), ob = atlas() ? C.overMap() : null;   // a pill never sits under the chip row or the carousel
+    const placed = [], want = {}, anc = {}, sz = map.getSize(), ob = atlas() ? C.overMap() : null;   // a pill never sits under the chip row or the carousel
     const topL = ob ? ob.paddingTopLeft[1] - 24 : 0, botL = ob ? sz.y - (ob.paddingBottomRight[1] - 24) : sz.y;
     // nor under a map control, the List / Map pill or "Search this area" (rects in map-container px)
     const mr = map.getContainer().getBoundingClientRect(), avoid = [...map.getContainer().querySelectorAll('.leaflet-control')].concat([$('.ms-toggle'), $('.ms-here'), $('#cleo-poi')])
@@ -94,16 +111,17 @@
     for (const id of cand) {
       if (placed.length >= N && first(id) === 2) break;
       const c = rec(id); if (c.hasAttribute('data-closed') && first(id) === 2) continue;   // closed: never featured unless saved / selected
-      const p = map.latLngToContainerPoint(C.markers[id].getLatLng()), w = boxOf(c, nameOf(id)), r = { l: p.x - w / 2 - 2, r: p.x + w / 2 + 2, t: p.y - 38, b: p.y + 2 };
-      const hit = q => r.l < q.r && r.r > q.l && r.t < q.b && r.b > q.t;
-      if (first(id) === 2 && (r.t < topL || r.b > botL || r.l < 0 || r.r > sz.x || placed.some(hit) || avoid.some(hit))) continue;
-      placed.push(r); want[id] = 1;
+      const p = map.latLngToContainerPoint(C.markers[id].getLatLng()), w = boxOf(c, nameOf(id));
+      const fits = r => { const hit = q => r.l < q.r && r.r > q.l && r.t < q.b && r.b > q.t; return !(r.t < topL || r.b > botL || r.l < 0 || r.r > sz.x || placed.some(hit) || avoid.some(hit)); };
+      let a = ANCH.find(x => fits(boxAt(p, w, x)));
+      if (!a) { if (first(id) === 2) continue; a = 't'; }   // saved / selected: always labelled, above
+      placed.push(boxAt(p, w, a)); want[id] = 1; anc[id] = a;
     }
     Object.keys(pins).forEach(id => { if (!want[id]) { map.removeLayer(pins[id]); delete pins[id]; } });
     Object.keys(want).forEach(id => { const c = rec(id), cls = pinCls(c, sv[id]);
       if (pins[id] && pins[id]._cls !== cls) { map.removeLayer(pins[id]); delete pins[id]; }
       if (!pins[id]) { pins[id] = mkPin(id, c, sv[id]).addTo(map); pins[id]._cls = cls; const e0 = pins[id].getElement(); if (e0) { e0.setAttribute('data-id', id); e0.setAttribute('data-a', at(c, 'data-a')); } }
-      const el = pins[id].getElement(); if (el) { el.classList.toggle('sel', id === sel); el.classList.toggle('hot', id === hoverId); } });
+      const el = pins[id].getElement(); if (el) { el.classList.toggle('sel', id === sel); el.classList.toggle('hot', id === hoverId); ANCH.forEach(x => el.classList.toggle('pp-a' + x, x !== 't' && anc[id] === x)); } });
     // density discs (region zoom only): > 12 dots inside a 28 px cell read as one soft, unnumbered disc; a click zooms in
     if (!discL) discL = L.layerGroup().addTo(map); discL.clearLayers(); C.discs = 0;
     vis.forEach(id => { const k = C.markers[id]; if (k.options.opacity === 0) k.setStyle(C.dotStyle(rec(id))); });
@@ -158,6 +176,8 @@
     if (need.size && Cleo.defer && (map || H.classList.contains('ms-nomap'))) { if (Cleo.defer.stampIds) Cleo.defer.stampIds(need); else need.forEach(id => Cleo.defer.stampFor(id.slice(2))); }
     qa('li.pl').forEach(c => c.classList.toggle('ms-out', !c.hidden && !show[C.pid(c)] && !keep(c)));
     qa('section.area').forEach(s => s.classList.toggle('ms-empty', !s.querySelector('li.pl:not([hidden]):not(.ms-out)')));
+    // the first map-area pass has picked the page (or there is no map / the reader asked for all): the list can be drawn
+    if (area || C.msAll || H.classList.contains('ms-nomap') || !C.loadMap) H.classList.add('ms-ready');
     // the pager keeps the paged views' contract (.g-pager [data-pg="all"] = everything in one list, the G1 probe's one tap)
     if (!pager && lp) { pager = d.createElement('p'); pager.className = 'ms-pager g-pager'; lp.insertBefore(pager, $('#how-we-choose', lp));
       on(pager, 'click', e => { const b = e.target.closest('button'); if (!b) return; if (at(b, 'data-pg') === 'all') { C.msAll = C.msOne = true; msArea(); } else { lim += PER; msArea(true); } }); }
@@ -283,7 +303,7 @@
     bar.innerHTML = '<div class="ms-x"><button type="button" class="chip ms-must" aria-pressed="false"><i class="tg t1" aria-hidden="true"></i><span>Must see</span></button>' +
       '<button type="button" class="chip ms-mine" aria-pressed="false">' + C.icon('heart') + '<span>Saved</span> <span class="n"></span></button>' +
       '<label class="ms-sort"><span class="vh">Sort places</span><select>' + SORT.map(x => '<option value="' + x[0] + '">' + x[1] + '</option>').join('') + '</select></label></div>';
-    split.parentNode.insertBefore(bar, split);
+    split.parentNode.insertBefore(bar, split); H.classList.add('ms-built');   // the bar takes the space held for it, in the same frame
     head = d.createElement('div'); head.className = 'ms-head';
     head.innerHTML = '<p class="ms-nomap-n">Map unavailable right now — every place is listed here.</p><div class="ms-row"><p class="ms-count" aria-live="polite"></p>' +
       '<label class="ms-live"><input type="checkbox"> <span>Search as I move the map</span></label></div><p class="ms-more"></p>';
@@ -339,6 +359,7 @@
   // a #p= that routed before this file arrived: select it now (selected + labelled on the map, SPEC-v3 §1.4)
   const routeSel = () => { const p = Cleo.route.parse().p, c = p && C.byId[p]; if (c && selC !== c) select(c, 'route'); };
   C.msIn = () => {
+    setTimeout(() => H.classList.add('ms-ready'), 3000);   // never hold the list longer than this, map or not
     build(); unpark(); deco(); face(); setTimeout(routeSel, 0); sq();
     const x = $('.ms-x', bar);
     // phones: the chip row carries FE-A's search pill (in the toolbar) and the switcher last; desktop: area chips in the results head
@@ -373,7 +394,18 @@
     const ctl = (pos, mk) => { const X = L.Control.extend({ options: { position: pos }, onAdd: () => { const n = mk(); L.DomEvent.disableClickPropagation(n); L.DomEvent.disableScrollPropagation(n); return n; } }); map.addControl(new X()); };
     const btn = (cls, lbl, html) => { const b = d.createElement('button'); b.type = 'button'; b.className = 'am-ctl ' + cls; b.setAttribute('aria-label', lbl); b.title = lbl; b.innerHTML = html; return b; };
     // phones (SPEC-v3 slice 2): the map's own controls sit bottom right above the cards; the OSM credit takes the top left, clear of them
-    if (!dk && map.attributionControl) map.attributionControl.setPosition('topleft');
+    // the OSM credit on phones (SPEC-v3 §2.2): one line that cannot wrap, bottom LEFT (never a control's corner),
+    // "© OpenStreetMap · Esri ⓘ" — the ⓘ opens the full credit with its links, so the licence stays one tap away
+    if (!dk && map.attributionControl) { const ac = map.attributionControl, up = ac._update;
+      ac.setPosition('bottomleft');
+      ac._update = function () { up.call(this); const el = this._container; if (!el) return; const full = el.innerHTML; el.classList.add('m-attr');
+        el.innerHTML = '<span class="m-attr-s">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · Esri</span>' +
+          '<button type="button" class="m-attr-i" aria-expanded="false" aria-label="Map credits">ⓘ</button><div class="m-attr-pop" role="note" hidden>' + full + '</div>'; };
+      ac._update();
+      const box = ac.getContainer(), tog = o => { const b = $('.m-attr-i', box), pp = $('.m-attr-pop', box); if (!b || !pp) return; pp.hidden = !o; b.setAttribute('aria-expanded', String(o)); };
+      on(box, 'click', e => { if (e.target.closest('.m-attr-i')) tog($('.m-attr-pop', box).hidden); });
+      on(d, 'keydown', e => { if (e.key === 'Escape') tog(false); });
+      map.on('click dragstart', () => tog(false)); }
     ctl(dk ? 'topleft' : 'bottomright', () => { const b = btn('m-locate', 'Show my location on the map (stays on this device)', C.icon('locate')); b.setAttribute('aria-pressed', 'false'); on(b, 'click', () => locate(b)); return b; });
     ctl(dk ? 'topright' : 'bottomright', () => {
       const s = btn('m-base', '', C.icon('grid') + '<span></span>');
@@ -433,7 +465,12 @@
     const m1 = md(k.map(d1)) || 1e-6, top = k.filter(p => d1(p) <= 2.5 * m1);
     if (!top.length) return false;
     const o = C.overMap(); o.paddingTopLeft = o.paddingTopLeft.map(x => x + 16); o.paddingBottomRight = o.paddingBottomRight.map(x => x + 16);   // ≈ 48 px
-    C.auto(); m.fitBounds(L.latLngBounds(top), Object.assign(o, { maxZoom: 16, animate: false })); return true;
+    // centred on the top places' own median point (their busiest spot), not their bounds' middle — so zooming in from the
+    // first screen lands among places, not in a gap between neighbourhoods (PANEL-R1 #4); the frame may widen by ≤ 1 step
+    let bb = L.latLngBounds(top); const sym = L.latLngBounds(top.concat(top.map(p => L.latLng(2 * c1[0] - p.lat, 2 * c1[1] - p.lng))));
+    const op = Object.assign({}, o, { maxZoom: 16 }), z0 = m.getBoundsZoom(bb, false, L.point(op.paddingTopLeft).add(op.paddingBottomRight));
+    if (z0 < 16 && m.getBoundsZoom(sym, false, L.point(op.paddingTopLeft).add(op.paddingBottomRight)) >= z0 - 1) bb = sym;   // a small town already fits at street zoom: leave it
+    C.auto(); m.fitBounds(bb, Object.assign(o, { maxZoom: 16, animate: false })); return true;
   };
   const unselect = () => { if (!selC) return; selC.classList.remove('is-sel', 'is-focus'); selC = null; C.feature(); };
   if (atlas()) C.msIn();

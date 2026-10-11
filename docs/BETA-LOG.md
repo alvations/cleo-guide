@@ -352,7 +352,7 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **QA-20 / B-16, root cause:** the area-art thumbnail (`.area .shape`, float right 72 px) squeezed the card grid by about 80 px for its whole height wherever the area heading was shorter than the float (single-line area names: Changi, Wheeling, Cleveland…), so sources stacked one per line. Fix: `.area>.pls{clear:right}`. "Recommended by" sources now flow inline (26 px per line) and each keeps a **44 px tap box** (padding pulled back by margin, so B-20 stays 0). On phones the eyebrow's "within {area}" ellipsizes, since the full name is the section heading. **Measured on all 84 place pages at 390×844: min 2.05 cards per screen** (was 23 pages under 2); `design/beta/eval/w2/fe-a/w2-b16-cards-per-screen.txt`. **DES:** these are 3 rules in `fe-a.css` (`html .pls .pl-s .src`…) layered over your 15.3. Fold them in as you like.
   - **"Look for: HIST":** 249 live records (Akron, Wheeling…) carry a collection id in `k`. Those no longer print as "Look for" (the collection already shows under "Part of"). Display only; data untouched.
   - **QA-19 (Esc on the pin sheet):** fixed in slice 1, with a test. **QA-21 (publisher ★):** gone since slice 2. ★ is now the platform canon or pop culture, else no ★ tile.
-  - **For PM (data, not FE-A):** some live source lists include **Tripadvisor** (e.g. Pittsburgh's Andy Warhol Museum: "carnegiemuseums.org, Tripadvisor, cmu.edu"). CLAUDE.md says Yelp/TripAdvisor are never the recommender. Beta prints what the live page cites, so this belongs on the live-pipeline backlog.
+  - **For PM (data, not FE-A):** some live source lists include **a review-aggregator site** (e.g. Pittsburgh's Andy Warhol Museum cites one beside carnegiemuseums.org and cmu.edu). CLAUDE.md says review aggregators are never the recommender. Beta prints what the live page cites, so this belongs on the live-pipeline backlog.
 - 2026-10-10 · **Platform** · Wave 2 slice 6 · session_01PCNcUkfa5S1N1BKGzZA4xx · `6b898a49` · orchestrator note (Round 3 Insights). `data/places/<page>.json` → `guide.areas[AREA]` = {n, sights, food, pop, closed, open, tiers, pins, km2, perKm2, sources:[[publisherId, n]]}, computed from the records, view-agnostic (every view still renders the full record set). Gated (sums agree); RFC §12. Owner rule 6 checked: no third-party brand names in platform code, comments, commits or copy (source ids are attribution). validate + npm test + beta:check PASS.
 - 2026-10-10 · **FE-A (city + saved)** · Wave 2 slice 5 · DES REVIEW-W2 fixes sent back to FE-A · commit: this entry's commit.
   - **#6 pin-label declutter:** numbers show for the focused area at every zoom and for all pins at ≥ 14. Then any label that would overlap one already shown is hidden (its pin stays), with the focused area first and guide order within it. This re-runs after every move and zoom, and it now also covers the pins of platform-deferred cards (`Cleo.defer.peek` stubs). Measured on Tokyo at 1440 after load: **0 overlapping labels** (369 shown, 119 hidden), where it was 200 overlapping pairs.
@@ -1441,3 +1441,110 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - FE-C: `trip.js` (the walking helper is done);
     - QC: the Phase 1 Playwright harness;
     - location verification: reading the pipeline.
+
+- 2026-10-11 21:25Z · **Orchestrator** · location verification via GitHub Actions (owner request, 20:54Z) · commit: this entry's commit
+  - **The lane's verdict (1f337866):** feasible, as a proposal engine only.
+    - The runner queries open, key-free sources and writes `docs/geoverify/<city>.{json,md}`: Wikidata (CC0), Wikipedia GeoData, OSM Nominatim (≤ 1 request/s, cached) and Overpass, plus the place's own site, read only after robots.txt allows it.
+    - It never writes `data/geocodes.json`. A person sets `review.decision`, then runs `node tools/location-verify.js --accept` locally. That step refuses on CI and asserts record counts. After it, the usual gates run.
+    - Full study: `docs/LOCATION-VERIFY-ACTIONS.md`.
+  - **The orchestrator's review:**
+    - --accept refuses CI;
+    - the counts are asserted;
+    - the registry round-trips (only a trailing newline differs);
+    - the user agent carries no personal contact;
+    - only `docs/geoverify/` is written;
+    - 29/29 offline tests pass.
+  - **Added:**
+    - `.github/workflows/location-verify.yml`: manual dispatch only, one run at a time, input validation, a guard step that fails on any change outside `docs/geoverify/`, and an artifact upload. It commits only when `dry_run=false`.
+    - `node location-verify.test.js` wired into `npm test`.
+    - validate and npm test exit 0.
+  - **Backlog (from the registry):**
+    - 3,450 rows in the default scope: 2,032 UNVERIFIED, 237 low, 1,744 with no status check;
+    - plus 347 places not yet in the registry.
+    - Estimated runner time is about 6 h, paced over 2–3 weeks under Nominatim's policy.
+  - **Owner questions relayed** (ODbL, the reviewer, Nominatim pacing, auto-commit, phase-2 sources, a quarterly status sweep). Until the owner answers, the conservative defaults apply.
+
+- 2026-10-11 21:40Z · **FE-C** · closes **W9-4** (Trips) · ce4c6a7c (head 807ea5a3)
+  - New page `beta/trip.html` (`tools/beta/lib/render/trip.js`, `tools/beta/client/trip.js`):
+    - a trip starts from saved places, a named list, a shared list link or a guide collection, for 1–7 days;
+    - one area a day, at most six stops, nearest next;
+    - closed, unpinned and unfitted places are left out, each with its reason; unknown ids are reported;
+    - one `#trip=` link (ids and day breaks only), booklet print (one day a page), KML;
+    - each day opens its guide in day mode through day.js's `#day=&s=` route.
+  - Platform hooks (orchestrator OK; platform told): `Cleo.geo.walk` in core.js is the one 80 m/min helper; build.js emits trip.html.
+  - Tests: `beta/test-fe-c.js` in npm test (84 guides, 0 closed stops, link lossless, reopen with storage throwing); probe `npm run beta:probe:fe-c` (keyboard at 390/1440 light and dark, 5-page booklet, day-mode handoff, 0 off-origin requests). Shots: `design/beta/eval/w9/fe-c/`.
+  - Open: a "Make a trip" entry in saved.js and lazy-module versions in render/city.js wait on FE-A.
+### FE Atlas (FE-1) — PANEL-R1 #2, #4, #6, #15 · SPEC-v3 rev 3 §1.1–1.3, §2.2 (attribution)
+- **PANEL-R1 #2 (phone map top):** the OSM credit on phones is one line that cannot wrap, "© OpenStreetMap · Esri ⓘ" (≤ 20 px, bottom LEFT); the ⓘ (44 px hit area) opens the full credit with its links (Esc / map tap closes). Locate, map style and Key sit bottom RIGHT above the cards — no corner is shared. Probe made stricter (`atlas-ms.js`): the credit check now also requires one line ≤ 20 px, clear of "Search this area", and that a real tap on EVERY map control (locate first) hits that control (`locateCoveredBy` null) — the old check passed while locate was covered.
+- **PANEL-R1 #15:** a source entry that is not a physical place (name says "not a place", e.g. Cleveland's @neorsd) renders `data-np`; it stays listed with its note (source count untouched) and never draws on the map. NOTE for the designer: SPEC rev 3 keys this on `warn: 1`, but `warn` marks *planning hazards* (26 Cleveland places incl. West Side Market) — keying on it would wipe real places off the map, so it is keyed on "not a place" instead. New probe check.
+- **PANEL-R1 #4 / #6, SPEC §1.1–1.3:** dots are kind-by-shape (sight 7 px circle, eat & drink 6 px rounded square; dark-mode alphas 30 % / 50 %); a non-featured Must-see is a `--sun` dot with an `--on-sun-wash` ring; a closed dot is hollow with a diagonal slash at every zoom; canvas tolerance 19 (44 px hit circle). Pins are 32 px pills with 14 px labels and a 44 px hit area; each pin IS a link (`<a href="#view=atlas&p=id">`, the marker element itself — `keyboard: true`, one Tab stop, no role=button) with `data-kind` and aria-label "full name, sight|eat and drink, [Must see], [Closed], [saved]". Labels try four anchors (above with stem, right, left, below) before a place stays a dot; no two labels overlap. Sight pins with no collection glyph take the type noun in the place's own name (museum → columns, park → leaf, lake → wave, tower/bridge → tower, theatre → ticket, market → awning, memorial → flag, church/temple → lantern; torii on Japan pages) — map only (`data-mg`), card covers unchanged.
+- **Default view:** the fit is centred on the top places' own median point (their busiest spot) when that widens the frame by ≤ 1 zoom step and the town isn't already at street zoom — so two zoom steps in land among places (Cleveland phone: 1 → 4 named pins).
+- New probe checks (atlas-ms): pins are links with "name, kind" labels, 14 px / 32 px / ≥ 44 × 44, no overlaps; two zoom steps on phone → ≥ 4 named pins (a ≤ 40-place town: every place in the band, since Chinatown holds 1–2 places in the band at z18).
+
+- 2026-10-11 21:55Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **R7 re-sign on `dd2125e3`: NO** (QA 34ecf44c). Open High/Blocker count is 0. All four failing rows belong to FE-A:
+    - QA-47: B-02 is 513 against a limit of 506.
+    - QA-48: the Tokyo B-04 rail starts at 859.
+    - QA-60: the Wheeling B-04 rail starts at 852, a new regression (it was 687).
+    - QA-50: a fresh `#p=` link shows "No. 37 of 37" where the data says 2 of 37.
+  - FE-A's b244f104 (QA-47/48/59b-d) and 6733a233 (`lib/casing.js`) are still not on origin. FE-A has been told to put those four rows ahead of gap 3 motion. The next re-sign is pinned once they land.
+  - **Register (QA):**
+    - 72+ rows, verified on pinned heads.
+    - QA-64 is verified within the D-32 scope: the post-rule beta docs have 0 brand hits.
+    - QA-61 and QA-59a now have FE-A as lead.
+    - PERF-01…15 are merged into the register.
+  - **Optimization audit, first push (platform: fc861679, ee53bc4b):** see `docs/BETA-PERF-AUDIT.md`.
+    - PERF-01: npm test runs as a parallel pool, 392 s → 105–154 s.
+    - PERF-03: one batched `cleo:stamped`, so the Tokyo filter's INP drops from about 1 s to about 0.5 s.
+    - PERF-04: a links slice cuts the first place-open download from 104 KB to 14 KB gzip.
+    - PERF-05: CI caching, and the fetch job skips its rebuild when nothing was fetched. The orchestrator reviewed the workflow diffs.
+    - Still open: PERF-06 Gallery phone CLS (FE-A), PERF-07 Atlas first-load CLS (Atlas), PERF-08 INP (platform leads, approved for after the re-sign rows) and PERF-13 SW cache across deploys (W9-8).
+  - **Atlas:** FE-1 pushed cd1e4a7f.
+    - #2: a one-line phone credit with an ⓘ, and a stricter real-tap probe.
+    - #4 (part): square food dots and round sight dots, collision-free labels, more glyphs.
+    - #6 (part): 44 px hit areas.
+    - #15: records that aren't places are never drawn.
+    - Round 2 goes to the panel once FE-1 and FE-2 agree on N and the SHA.
+  - **W9:**
+    - FE-C shipped Trips (W9-4, ce4c6a7c): `beta/trip.html`, nearest-next by area, closed places refused with a reason, one `#trip=` link, KML and a printable booklet. A 25-check test plus a probe.
+    - FE-B shipped the landing's "October 2026 in Cleo" (W9-2), with an Atom feed.
+    - W9-3/W9-6 wait on platform's index fields.
+  - **Imagery:**
+    - Pilots cleaned up: Rockaway, Nihonbashi and MacRitchie refused, a `viewFrom` guard added, and SIGNAGE widened to info boards and plaques.
+    - Refusals are now split: a photo fault applies everywhere, a slot fault applies only to its own slot.
+    - Heroes: 84/84 credited or stated (Queenstown stated). Ang Mo Kio is now Town Garden West, reviewed.
+    - **`scope=all` dispatched** (run #40). QA-63's weak cards are in progress.
+  - **Location verification:** workflow `location-verify.yml`.
+    - Run #1 for Wheeling: 18 pin proposals, 4 no-match, artifact only, and the guard confirmed nothing else changed.
+    - Run #1's response cache didn't save (a `..` path); fixed by moving the cache under RUNNER_TEMP.
+    - The fix put the runner context in job-level env, which GitHub rejects, so runs 2–3 failed. Fixed and re-triggered.
+    - The report is now printed to the job log and run summary, so it can be reviewed without committing anything.
+    - Phase-2 government sources researched (2ce8e431): OneMap needs a token (owner decision); the German state house-coordinate files are open; the Japan Address Base Registry and the US Census Geocoder are guards only.
+
+- 2026-10-11 22:00Z · **Orchestrator** · the owner delegates decisions · commit: this entry's commit
+  - **The owner:** "You decide the answers to your question if you're asking for permissions then I say just yes."
+  - **Location verification, all six questions decided** (recorded in docs/LOCATION-VERIFY-ACTIONS.md by the lane):
+    1. ODbL: yes. OSM-derived coordinates may enter the registry with the OSM object as `source`.
+    2. An agent lane may review, under a bar:
+       - `high` place-specific matches (OSM POI with a matching name, a Wikidata P625 item, or the official site's JSON-LD) are accepted;
+       - `med` rows are accepted only with a second independent source within 50 m;
+       - `low` rows, street-level matches and shared OSM objects are never accepted;
+       - closures need a real `statusSource` under rule 4c.
+    3. A paced sweep: ≤ 300 Nominatim requests a day, one city per run.
+    4. Reports are committed as the audit trail: a `commit=true` line in REQUEST, or a dispatch with `dry_run=false`.
+    5. Phase 2: German state house-coordinate files and the Japan Address Base Registry (as a guard) are yes. Luxembourg, France, Belgium and the Netherlands get researched. OneMap is approved but needs a login only the owner can create, so the adapter skips it until an Actions secret exists.
+    6. A quarterly status-only sweep: yes. The schedule is added once the CLI exists; it fires from the default branch after the next deploy.
+  - **Next for the lane:** apply accepted rows locally with `--accept`, rebuild, and run the gates (--geocheck, --statuscheck, validate, test, beta:check), city by city.
+  - **D-39 ratified:** label, don't strip.
+  - **D-41 (new):** a second locale ships as an **AI-reviewed tier, labelled on the page**; `reviewed: true` stays human-only.
+    - New **i18n lane** `session_01HB7igqdcuhrau7mUWSauDL` builds Japanese (`ja`): one agent translates, an independent subagent reviews, and the changes are recorded in `design/beta/i18n/ja-REVIEW.md`. The switcher appears by rule, with a visible note and hreflang ja.
+    - This answers ROUND-7's owner-blocked "reviewed second locale" without claiming a human sign-off.
+  - **Not changed, because these are content rules rather than permissions:** food places still get no photos. Only a photo that truly shows the place counts.
+  - **Still needs the owner's own hands (optional):**
+    - the photo library's API key as an Actions secret (worth about +0.1);
+    - a OneMap login as Actions secrets, for Singapore pins.
+### FE Atlas (FE-1) — CLS on a fresh Atlas load (Platform perf audit)
+Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phone at 3×, plus a phone run with the tile host blocked). Tokyo desktop 1.575 → **0.003**, phone 0.184 → **0**, phone tiles-blocked 0.695 → **0.001**; Cleveland, New York, Chinatown ≤ 0.003.
+- The head boot script already sets `data-view`; for Atlas it now also sets `atlas-d` / `atlas-m` (the same 1024 px query views.js uses), so the Atlas layout applies from first paint instead of after views.js.
+- Desktop: the bar has a fixed 65 px height and its space is held (`:not(.ms-built)`) until atlas.js inserts it, in the same task; FE-A's toolbar (which moves into the bar) is held out of flow until then; the map and list panes take explicit grid columns, so the list never starts in the map's column; the list's cards are held (not drawn) until the first map-area pass picks its page (`ms-ready`, set by msArea, by no-map, or after 3 s; a CSS animation shows them after 4 s if JS never arrives); `#cleo-grid` gets FE-A's card face (`w7-cards`) at parse time on desktop Atlas.
+- Phone: the method notes and the footer (outside `<main>`, under the full-screen map) are `display:none` in phone Atlas only — they were invisible under the map and still Tab stops; every other view shows them.

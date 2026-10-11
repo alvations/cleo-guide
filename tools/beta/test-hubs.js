@@ -188,6 +188,30 @@ console.log('\n== W7: hub "Known for" from child guides\' signatures; hero photo
   chk('hub "Known for" lines naming one dish twice (synonyms from the canon table)', sameDish, a => a.length === 0);
 }
 
+// ── 8. W9-2: the landing's "<month> in Cleo" module — every number a sum of data/changes.json; links resolve ──────
+console.log('\n== W9-2: "<month> in Cleo" from data/changes.json; What changed links + the feed resolve ==');
+{
+  const C = JSON.parse(rd('data/changes.json')), d = doc(rd('index.html'));
+  const sec = d.getElementById('month'), act = C.pages.filter(p => p.month && (p.month.checked || p.month.closed));
+  const sum = k => act.reduce((t, p) => t + p.month[k], 0), n = x => x.toLocaleString('en-US');
+  chk('module present, for the newest month on record', !!sec && sec.querySelector('.month-lede').dataset.month === C.month, true);
+  const lede = sec ? sec.querySelector('.month-lede').textContent : '';
+  chk('lede numbers == changes.json sums (re-checked, closed, pins, guides)', [n(sum('checked')), n(sum('closed')), n(sum('pins')), String(act.length)].every(x => lede.includes(x)), true);
+  const rows = sec ? [...sec.querySelectorAll('.month-list a')] : [];
+  const bad = rows.filter(a => { const p = C.pages.find(x => x.changesPage === a.getAttribute('href'));
+    return !p || !fs.existsSync(path.join(BETA, a.getAttribute('href'))) || +a.dataset.checked !== p.month.checked || +a.dataset.closed !== p.month.closed; }).map(a => a.getAttribute('href'));
+  chk(`rows (${rows.length}) == guides with activity, each linking to its What changed page with its own numbers`, bad.length === 0 && rows.length === act.length, true);
+  const feed = sec && sec.querySelector('a[href="feeds/all.xml"]');
+  chk('"Follow changes" links the site feed, which exists', !!feed && /<feed xmlns="http:\/\/www.w3.org\/2005\/Atom">/.test(rd('feeds/all.xml')), true);
+}
+
+// ── 9. R7-g2b: the tab bar is fully opaque — content never shows through it ──────────────────────────────────
+{
+  const css = rd('assets/cleo.css');
+  const top = [...css.matchAll(/:root \.tabbar\s*\{([^}]*)\}/g)].map(m => m[1]).filter(b => /background\s*:/.test(b)).pop() || '';
+  chk('tab bar background is opaque (the winning :root .tabbar rule)', (/background\s*:\s*([^;]+)/.exec(top) || [])[1], v => !!v && !/color-mix|transparent|rgba|hsla|\/\s*[\d.]+%?\s*\)/.test(v));
+}
+
 // ── 5. voice lint ──────────────────────────────────────────────────────────
 console.log('\n== VOICE: urgency lint on FE-B pages ==');
 {
@@ -202,19 +226,19 @@ async function load(rel, { url, storageThrows = false, fetchFails = false } = {}
     const p = path.join(BETA, path.posix.dirname(rel), src.split('?')[0]);
     return fs.existsSync(p) ? `<script>${fs.readFileSync(p, 'utf8').replace(/<\/script/g, '<\\/script')}</script>` : '';
   });
-  const errors = [];
+  const errors = [], fetched = [];
   const dom = new JSDOM(html, { url: url || 'https://cleo.local/beta/' + rel, runScripts: 'dangerously', pretendToBeVisual: true,
     beforeParse(w) {
       w.addEventListener('error', e => errors.push(String(e.message)));
       if (storageThrows) Object.defineProperty(w, 'localStorage', { get() { throw new Error('blocked'); } });
-      w.fetch = () => fetchFails ? Promise.reject(new Error('offline'))
-        : Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(rd('data/search.json'))) });
+      w.fetch = u => { fetched.push(String(u)); return fetchFails ? Promise.reject(new Error('offline'))
+        : Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(rd(/source-hosts\.json/.test(u) ? 'data/source-hosts.json' : 'data/search.json'))) }); };
       w.Element.prototype.scrollIntoView = function () {};
     } });
   await sleep(60);
   dom.window.document.dispatchEvent(new dom.window.Event('DOMContentLoaded'));
   await sleep(250);
-  return { w: dom.window, d: dom.window.document, errors };
+  return { w: dom.window, d: dom.window.document, errors, fetched };
 }
 
 (async () => {
@@ -243,6 +267,20 @@ async function load(rel, { url, storageThrows = false, fetchFails = false } = {}
     const { d } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=a', });
     const shown = d.querySelectorAll('#results .grp:not(.guides) li').length, head = d.querySelector('#results h2').textContent;
     chk('search: every match reachable (folded groups expand to all)', (() => { d.querySelectorAll('[data-cleo-more]').forEach(b => b.click()); return d.querySelectorAll('#results .grp:not(.guides) li:not([hidden])').length === shown && head.startsWith(String(shown)); })(), true);
+  }
+  // W9-6: paste a link — a source URL opens that source's places; the pasted address is only read, never fetched
+  {
+    const { d, errors, fetched } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=' + encodeURIComponent('https://www.timeout.com/chicago/restaurants/x') });
+    const box = d.querySelector('#results [data-cleo-source]'), links = [...d.querySelectorAll('#results a[href*="#src="]')];
+    chk('paste a link: a source URL lists the guides that cite it', !!box && links.length >= 1 && links.some(a => /chicago\.html#src=time-out-chicago$/.test(a.getAttribute('href'))), true);
+    chk('paste a link: every #src= link resolves to a built guide', links.filter(a => !fs.existsSync(path.join(BETA, a.getAttribute('href').split('#')[0]))), a => a.length === 0);
+    chk('paste a link: nothing fetched from the pasted host', fetched.filter(u => /timeout\.com/.test(u) || /^https?:/.test(u) && !u.startsWith('https://cleo.local/')), a => a.length === 0);
+    chk('paste a link: no JS errors', errors, a => a.length === 0);
+  }
+  {
+    const { d, fetched } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=' + encodeURIComponent('https://zzqxv-unknown.example/a') });
+    chk('paste a link: an unknown host says so', !!d.querySelector('#results [data-cleo-state="no-source"]'), true);
+    chk('paste a link: unknown host not fetched', fetched.filter(u => /zzqxv-unknown/.test(u)), a => a.length === 0);
   }
   {
     const { d } = await load('index.html', { url: 'https://cleo.local/beta/index.html?q=ramen', fetchFails: true });

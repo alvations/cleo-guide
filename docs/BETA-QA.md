@@ -956,3 +956,79 @@ QA re-signs when, on a pinned SHA:
 - QA-50 and QA-52 pass in `w7.js --only detail,atlasm`.
 
 QA sign-off: NO
+
+## 2026-10-11 · QA · R7 re-sign check (QA-45 reported fixed) · session_017FLWXa5zgGWvqNo4C3UsvH
+
+**Tested SHA: `63805e3e681ea60da1ce78326d302812717c2c9b`** (branch head, pinned in the clean `qa-r7` worktree).
+
+Gates:
+- validate ✅.
+- `npm test` ✅: 565 PASS.
+- `beta:check` ✅: 179 pages, 8,458 places, beta == live.
+- Eager JS: 28.8 KB gzip.
+
+Logs, and the full per-issue state, are in `design/beta/eval/w7/qa/register-63805e3e/` and `docs/BETA-ISSUES.md`.
+
+| Re-sign row (from the W7 pass) | Result on `63805e3e` |
+|---|---|
+| `metrics.js --view atlas` G1 ✅ 5/5 (QA-45) | ✅ 5/5: scrolled 194/488/508/16/35, deep 100 %, search 100 %, no-JS 100 % (a852a4e1) |
+| Gallery B-02 ✅ 5/5 (QA-47) | ❌ Cleveland 513, Tokyo 513 (FE-A's fix b244f104 is not on the branch) |
+| Tokyo B-04 ✅ (QA-48) | ❌ top 859 (same) |
+| Landing B-05 ✅ (QA-49) | ✅ 2 (d1790787) |
+| QA-50 in `w7.js --only detail` | ❌ **re-opened**: a fresh `#p=` load now reads "No. 37 of 37 in Jōhoku" (the data says 2 of 37) and "No. 52 of 52" on Cleveland. The count N is fixed; the rank k comes from `Cleo.defer.order()`, where the deep-linked card sits last. After load the same sheet reads "No. 2 of 37". |
+| QA-52 in `w7.js --only atlasm` | ✅ credits whole on the carousel and the list, 5/5 |
+
+New on this head:
+- **QA-60** (Med, regression): Gallery B-04 Wheeling, the category bar starts at 852 px (it was 687 on `badcc20`).
+- **QA-61** (Low): the phone Atlas search input is 52 × 42 px (B-20 ❌ on 5/5 pilots). It has been present since `badcc20`, and I missed it in the R7 write-up.
+
+Verified as fixed:
+- QA-45, QA-49, QA-51, QA-52, QA-54 and QA-56;
+- QA-53 for the routed photos;
+- QA-58 for the named lines;
+- QA-59e;
+- R7-g7;
+- the platform's B-08, D-38 and B-06/07/09 implementations.
+
+Axe still reports 0 serious/critical. `atlas-ms.js` 117/117, `beta:probe:fe-a` 33/33, `beta:probe:fe-a:w8` 44/44, `beta:qa:w8p` 4/4.
+
+**Why NO:** QA-47, QA-48 and QA-60 regress cells that were ✅ on the W6 pin or on `badcc20`. QA-50 fails its re-sign row.
+
+QA sign-off: NO
+
+## 2026-10-11 · QA · R7 re-sign on the orchestrator's pinned SHA · session_017FLWXa5zgGWvqNo4C3UsvH
+
+**Tested SHA: `dd2125e3be6769c776aa1633ed96b17db69181d8`**, in a clean worktree. It contains `63805e3e`, FE-B's c5cfce4d, d979b3e9 and 08289aa7, and Atlas's 7fef2dec. It does **not** contain FE-A's b244f104 or 6733a233.
+
+Gates:
+- validate ✅.
+- `npm test` ✅.
+- `beta:check` ✅.
+
+Evidence: `design/beta/eval/w7/qa/resign-dd2125e3/`.
+
+| Re-sign row | Result | Owner |
+|---|---|---|
+| Atlas G1 5/5 (QA-45) | ✅ 5/5 | Atlas FE-1 |
+| Gallery B-02 5/5 (QA-47) | ❌ Cleveland 513, Tokyo 513 (New York 468, Chinatown 492, Wheeling 489) | FE-A |
+| Tokyo B-04 (QA-48) | ❌ top 859 | FE-A |
+| Landing B-05 (QA-49) | ✅ 2 | FE-B |
+| QA-50 (`w7.js --only detail`) | ❌ a fresh `#p=` load reads "No. 37 of 37 in Jōhoku" (data: 2 of 37) and "No. 52 of 52" (Cleveland, 3 of 52) | FE-A |
+| QA-52 (`w7.js --only atlasm`) | ✅ credits whole on 5/5; B-07 real pin tap ✅ | Atlas FE-1 |
+| QA-54 (search refit) | ✅ Chinatown search 16/16, phone and desktop | Atlas FE-1 |
+| No regression | ❌ QA-60: Wheeling B-04 top 852 (badcc20: 687) | FE-A |
+
+Register state on this SHA: **0 open High/Blocker**. The rows above that fail are Med regressions or a factual error. They block the sign-off under ROUNDS-6-9's rule that QA must not sign a deploy that regresses a ✅ row.
+
+QA sign-off: NO
+
+## 2026-10-11 · QA · Ratification addendum: D-40 and the D-39 check · session_017FLWXa5zgGWvqNo4C3UsvH
+
+Head `8e526c48`.
+
+| Rule | Verdict | Reason | Probe |
+|---|---|---|---|
+| **D-40**: on phones at ≥ 2.5 dppx, card and rail thumbnails take the 500w copy (`sizes` capped at 166px); heroes, Guidebook figures, 2× phones, tablets and desktop are unchanged (platform; designer ratified) | **Ratified, with a condition** | No QA gate measures image density, so the cap weakens no gate. It is the R7 gap-7 acceptance ("never a 960w photo for a slot under 200 CSS px"). The cost is real but bounded: 3× phone cards drop from about 2.7 to 1.5–1.7 image px per CSS px, and the designer reviewed the crops. **Condition:** the next photo re-fetch adds a ≈ 720w copy so the cap can become a true 2×. The budget then still holds (D-38). | Browser at 390@3×, Tokyo: cards 500w at 289–326 px = 1.53–1.73; hero 960w = 2.94. `beta:qa:w8p` 4/4 (first load 591 / 553 KB). |
+| **D-39** (ratified by the orchestrator): verify FE-B's note test | **Guidebook ✅, detail ❌ → QA-65** | `test-views-b` passes. QA's own regex finds 192 records quoting a figure, and all 192 carry the note. The detector also labels 43 wording-only records, which errs on the safe side. The place detail, which D-39 says reads the same field, never shows the note. | `npm test`; Tokyo Guidebook 2/2 notes in the browser; `#p=tempura-abe-honten` shows "¥1,500–9,000" with no note |
+
+New finding **QA-65** (Med, honesty) · FE-A (`sheet.js`), with FE-B as the D-39 owner: the place detail shows quoted prices and ratings without the dated note.

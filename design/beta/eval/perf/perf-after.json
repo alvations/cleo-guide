@@ -1,0 +1,212 @@
+{
+ "load": [
+  {
+   "page": "index.html",
+   "vp": "phone",
+   "lcp": 284,
+   "cls": 0,
+   "tbt": 535
+  },
+  {
+   "page": "index.html",
+   "vp": "desk",
+   "lcp": 788,
+   "cls": 0.001,
+   "tbt": 648
+  },
+  {
+   "page": "cleveland.html",
+   "vp": "phone",
+   "lcp": 532,
+   "cls": 0.294,
+   "tbt": 783
+  },
+  {
+   "page": "cleveland.html",
+   "vp": "desk",
+   "lcp": 472,
+   "cls": 0.041,
+   "tbt": 1066
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "phone",
+   "lcp": 616,
+   "cls": 0.315,
+   "tbt": 633
+  },
+  {
+   "page": "cities/tokyo.html",
+   "vp": "desk",
+   "lcp": 460,
+   "cls": 0.041,
+   "tbt": 973
+  },
+  {
+   "page": "cities/tokyo.html#view=atlas",
+   "vp": "phone",
+   "lcp": 1168,
+   "cls": 0.184,
+   "tbt": 1494
+  },
+  {
+   "page": "cities/tokyo.html#view=atlas",
+   "vp": "desk",
+   "lcp": 640,
+   "cls": 1.052,
+   "tbt": 2166
+  },
+  {
+   "page": "cities/newyork.html",
+   "vp": "phone",
+   "lcp": 628,
+   "cls": 0.341,
+   "tbt": 573
+  },
+  {
+   "page": "cities/newyork.html",
+   "vp": "desk",
+   "lcp": 444,
+   "cls": 0.039,
+   "tbt": 937
+  },
+  {
+   "page": "Singapore/chinatown.html",
+   "vp": "phone",
+   "lcp": 420,
+   "cls": 0.312,
+   "tbt": 523
+  },
+  {
+   "page": "Singapore/chinatown.html",
+   "vp": "desk",
+   "lcp": 444,
+   "cls": 0.04,
+   "tbt": 554
+  },
+  {
+   "page": "cities/wheeling.html",
+   "vp": "phone",
+   "lcp": 504,
+   "cls": 0.341,
+   "tbt": 490
+  },
+  {
+   "page": "cities/wheeling.html",
+   "vp": "desk",
+   "lcp": 436,
+   "cls": 0.059,
+   "tbt": 509
+  },
+  {
+   "page": "Japan/index.html",
+   "vp": "phone",
+   "lcp": 324,
+   "cls": 0,
+   "tbt": 211
+  },
+  {
+   "page": "Japan/index.html",
+   "vp": "desk",
+   "lcp": 260,
+   "cls": 0.002,
+   "tbt": 193
+  },
+  {
+   "page": "Singapore/index.html",
+   "vp": "phone",
+   "lcp": 372,
+   "cls": 0,
+   "tbt": 218
+  },
+  {
+   "page": "Singapore/index.html",
+   "vp": "desk",
+   "lcp": 372,
+   "cls": 0.002,
+   "tbt": 207
+  }
+ ],
+ "inp": [
+  {
+   "vp": "phone",
+   "action": "collection filter (Gallery)",
+   "inp": 520,
+   "runs": [
+    600,
+    520,
+    456
+   ]
+  },
+  {
+   "vp": "phone",
+   "action": "open a place",
+   "inp": 152,
+   "runs": [
+    152,
+    168,
+    136
+   ]
+  },
+  {
+   "vp": "phone",
+   "action": "switch view → Guidebook",
+   "inp": 168,
+   "runs": [
+    200,
+    168,
+    144
+   ]
+  },
+  {
+   "vp": "phone",
+   "action": "switch view → Atlas",
+   "inp": 1608,
+   "runs": [
+    1608,
+    2528,
+    1504
+   ]
+  },
+  {
+   "vp": "desk",
+   "action": "collection filter (Gallery)",
+   "inp": 576,
+   "runs": [
+    560,
+    648,
+    576
+   ]
+  },
+  {
+   "vp": "desk",
+   "action": "open a place",
+   "inp": 168,
+   "runs": [
+    168,
+    168,
+    152
+   ]
+  },
+  {
+   "vp": "desk",
+   "action": "switch view → Guidebook",
+   "inp": 168,
+   "runs": [
+    160,
+    208,
+    168
+   ]
+  },
+  {
+   "vp": "desk",
+   "action": "switch view → Atlas",
+   "inp": 504,
+   "runs": [
+    512,
+    504,
+    464
+   ]
+  }
+ ]
+}

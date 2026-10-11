@@ -104,10 +104,10 @@ Re-read each live page before the first production run: several say they change 
 | source | why it is out |
 |---|---|
 | Google Maps Platform, Apple Maps, Mapbox, HERE, Bing/Azure Maps | All need a key and a billing account. Google's service terms allow caching lat/lng for at most **30 days**, then require deletion ([Service Specific Terms](https://cloud.google.com/maps-platform/terms/maps-service-terms/index-20240522)), but `data/geocodes.json` stores coordinates permanently. The others have similar storage limits. Reading their pins through WebSearch snippets by hand stays as it is today. |
-| Yelp, TripAdvisor, other review or booking sites | Never a source of truth (CLAUDE.md). Many registry rows already cite them for a *pin*; this tool never queries them. Its `NOT_OFFICIAL` filter also stops their URLs being treated as an "official site". |
+| Review-aggregator and booking sites (the ones CLAUDE.md names) | Never a source of truth (CLAUDE.md). Many registry rows already cite them for a *pin*; this tool never queries them. Its `NOT_OFFICIAL` filter also stops their URLs being treated as an "official site". |
 | openstreetmap.org pages, tile servers, Nominatim "details" scraping | Forbidden by the OSMF policies; we use the APIs only. |
-| US Census Geocoder | No key, but it returns **address-range interpolation**, not a place pin: at best `med`, and its terms carry a use restriction that needs a reading. **Phase 2 candidate** for US address corroboration, pending the owner. |
-| Singapore OneMap, Japan GSI address search, Belgian/German national registers | Government sources, and attractive. But this lane could not confirm their current key and terms through search: OneMap's token requirement conflicts between sources, and GSI's terms were not found. **Phase 2**, after someone reads each policy. Nominatim covers all of these countries meanwhile. |
+| US Census Geocoder | No key, but it returns **address-range interpolation**, not a place pin. Guard only; see § 2.2. |
+| Singapore OneMap, Japan GSI / Address Base Registry, German state house coordinates, BKG | Phase 2. Terms, keys and licences are in § 2.2. |
 | Wikidata Query Service (SPARQL) | Not needed. The per-entity API is lighter and its etiquette clearer. |
 
 ### 2.1 ODbL: what storing an OSM-derived coordinate means
@@ -123,6 +123,184 @@ insubstantial unless it is systematic. The design therefore:
    writes the OSM object URL; the report prints the attribution line);
 3. relies on the guide pages already crediting OpenStreetMap on every map;
 4. raises the ODbL question for the owner (§ 7, Q1) before any bulk acceptance.
+
+### 2.2 Phase-2 sources: government geodata (terms read 2026-10-11, via WebSearch)
+
+**Status of this table.** WebFetch is blocked here, so these terms come from search excerpts of the official pages
+listed. Where an excerpt did not settle a point, the cell says **unconfirmed**. Read every cell marked unconfirmed
+on the live page before adding the source.
+
+**The key lesson.** The best government sources here are **bulk downloads, not query APIs**:
+
+- German state house-coordinate files;
+- Japan's Address Base Registry.
+
+A runner can download a state or prefecture file once, cache it and match locally. That means no rate limit and no
+per-request terms. It also means no place names: these give **address points**, not named places. Under § 4.2 they
+grade `med` on their own. Paired with a matching Wikidata, OSM or official candidate within 40 m, they lift that
+candidate to `high`.
+
+#### Singapore OneMap
+
+**Data.** Address and building search (postal code, block, road, building name), from the Singapore Land Authority
+(SLA).
+
+**Key.** **Yes, a free token.** An SLA workshop deck (Aug 2025) says a token is needed for every endpoint except
+basemaps and staticmap. Tokens come from a registered email and password and last 3 days
+([OneMap API workshop, SLA](https://www.onemap.gov.sg/apidocs/static/media/OneMap_API_Workshop_Demo_260825.6522ddef4affd370a81a.pdf)).
+Older third-party write-ups saying search is open are out of date.
+
+**Rate limit.** A "call rate limit" exists, but the figure is **unconfirmed**. The deck lists it without a number.
+Ask onemap@sla.gov.sg ([ask.gov.sg](https://ask.gov.sg/sla/questions/cmbt7ovwe00ahs5f68ql9se2p)).
+
+**Licence and storage.** Datasets are under the **Singapore Open Data Licence v1.0**, which permits use, download,
+copy and modification, commercial or not. It requires a conspicuous notice naming the dataset and access date, with a
+link to the licence ([API Terms of Service](https://www.onemap.gov.sg/legal/apitermsofservice.html),
+[Singapore Open Data Licence](https://www.onemap.gov.sg/legal/opendatalicence.html)). **Storing results looks
+allowed** by the licence, but no OneMap clause addresses caching or retention, so that point is **unconfirmed**. The
+API terms add: keep credentials confidential; the Agency may monitor use; provided "as is", with no promise of
+continued availability.
+
+**Verdict. Usable, if the owner agrees to one free registered account** stored as an Actions secret. That breaks
+this lane's "no keys" default, so it needs the owner's yes (§ 7, Q5). It covers Singapore (712 rows, the largest
+backlog), which has postal codes on most buildings.
+
+#### Japan: GSI address search (`msearch.gsi.go.jp`)
+
+**Data.** Address to coordinate, as used by 地理院地図.
+
+**Key.** None seen.
+
+**Rate limit.** No published figure. The 地理院地図 terms say access may be blocked without notice under excessive
+load ([地理院地図 利用規約](https://maps.gsi.go.jp/help/termsofuse.html)).
+
+**Licence.** GSI content defaults to the **Public Data License 1.0 (PDL1.0)**: commercial use allowed, attribution
+「出典：国土地理院ウェブサイト」 required, and edits must be stated
+([国土地理院コンテンツ利用規約](https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html),
+[出典の記載](https://www.gsi.go.jp/LAW/2930-meizi.html)). But content fetched by API from an external database follows
+**that provider's** terms. **No terms page for AddressSearch itself was found.**
+
+**Verdict. Out for now.** The endpoint is undocumented and its terms are unconfirmed. Prefer the Address Base
+Registry below.
+
+#### Japan: Address Base Registry (アドレス・ベース・レジストリ, Digital Agency)
+
+**Data.** The national address database (bulk download). It was built from GSI's 電子国土基本図, the justice
+ministry's lot-area data, MLIT's 位置参照情報 and Japan Post postcodes. Town-block (町字) data is complete. Lot numbers
+and residential block numbers (地番 / 住居表示) are a **trial release**
+([デジタル庁 アドレス・ベース・レジストリ](https://www.digital.go.jp/policies/base_registry_address)).
+
+**Key.** None (download site).
+
+**Rate limit.** None; it is a one-off download.
+
+**Licence.** Published free as open data. The Digital Agency site defaults to **PDL1.0** (attribution, edits stated)
+([PDL1.0](https://www.digital.go.jp/resources/open_data/public_data_license_v1.0)). The per-dataset licence on the
+download site is **unconfirmed**, as is its terms page
+([base_registry_address_tos](https://www.digital.go.jp/policies/base_registry_address_tos)).
+
+**Verdict. Phase 2, recommended for Japan.** Okinawa (286 rows), Hokkaido, Osaka, Kyoto and Tokyo. Caveat: many
+points are **town-block representatives, not buildings**. So it is a **wrong-town / wrong-block guard**, `low`
+unless a house-level record exists, never a pin on its own. The Okinawa registry rows carry no postcodes; their
+addresses must be matched in Japanese.
+
+#### Germany: NRW official house coordinates (Geobasis NRW, Bezirksregierung Köln)
+
+**Data.** Official house coordinates and building outlines. Bulk download from **opengeodata.nrw.de**.
+
+**Key.** None.
+
+**Rate limit.** None; it is a one-off download.
+
+**Licence.** Geobasis NRW data is published under **Datenlizenz Deutschland – Zero 2.0**: any use, no conditions
+([GDI-DE catalogue record](https://gdk.gdi-de.org/geonetwork/srv/api/records/c2195ebe-dad7-4f5e-9bc3-79a30d3373f3),
+[OSM wiki: Aachen data sources](https://wiki.openstreetmap.org/wiki/DE:Aachen_Datenquellen)). An older harvested
+record lists dl-de/by-2.0, so confirm on the dataset page. **Municipal** house-coordinate sets differ: Essen lists
+dl-de/zero and CC BY variants, Bottrop is internal-only
+([open.nrw](https://ckan.open.nrw.de/dataset/amtliche-hauskoordinaten-essen-e/resource/a2e764ca-e309-42bb-b385-acf259635d0d)).
+Use only the **state** file.
+
+**Verdict. Phase 2, recommended.** Rhineland (270 rows: Cologne 50xxx, Düsseldorf 40xxx, Bonn 53xxx) and the German
+part of Aachen (202 rows, 52xxx). These are exact address points, graded `med`; agreement within 40 m lifts a named
+candidate to `high`.
+
+#### Germany: Rhineland-Palatinate house coordinates (LVermGeo RLP)
+
+**Data.** Official house coordinates: statewide CSV, EPSG:25832, updated every 6 months
+([product sheet](https://lvermgeo.rlp.de/fileadmin/lvermgeo/pdf/produktblaetter/HK.pdf)).
+
+**Key.** None for the open-data download.
+
+**Rate limit.** None; it is a one-off download.
+
+**Licence.** LVermGeo open data is **dl-de/by-2.0**, free of charge. Credit "©GeoBasis-DE / LVermGeoRP, dl-de/by-2-0".
+Whether the house-coordinate file itself carries that licence is **unconfirmed**
+([geodatenkatalog record](https://gdk.gdi-de.org/geonetwork/srv/api/records/2f3290c3-4ce5-b904-5cc7-49381a2185d8)).
+
+**Verdict. Phase 2.** The Trier / Mosel / Pfalz part of the Saarland region (54xxx, 55–57xxx, 67xxx).
+
+#### Germany: Saarland house coordinates (LVGL Saarland)
+
+**Data.** Official house coordinates and addresses from ALKIS, as WFS/WMS services.
+
+**Key.** None seen for the open services.
+
+**Rate limit.** None published. Each WFS layer is fetched once.
+
+**Licence.** The 2025 metadata lists **CC BY 4.0** ("© GeoBasis DE/LVGL-SL"). The 2023/2024 INSPIRE address services
+list **dl-de/by-2.0** ("©LVGL 2022, dl-de/by-2-0"). A 2016 house-coordinate dataset is marked **paid**, so it must be
+avoided
+([INSPIRE SL Adressen Hauskoordinaten](https://gdk.gdi-de.org/geonetwork/srv/api/records/6ea239e0-256e-ae6e-3d2d-95f75e210150)).
+
+**Verdict. Phase 2.** The Saarland core of the Saarland region (66xxx). Use only the open (CC BY / dl-de/by) services.
+
+#### Germany: BKG / AdV national geocoder
+
+**Data.** OpenSearch and WFS geocoding of addresses and place names.
+
+**Key.** **Licence required.**
+
+**Licence.** Copyright. Free for authorities; **paid** for third parties, from €300 to €6,000+
+([BKG-MIS](https://mis.bkg.bund.de/trefferanzeige?docuuid=9eceecf9-8af8-4ee0-b7bf-fac2becc2b80),
+[GDZ functional services](https://gdz.bkg.bund.de/index.php/default/webdienste/funktionale-geodatendienste.html)).
+
+**Verdict. Out:** paid and licensed. The state files above cover the same addresses openly.
+
+#### US Census Geocoder
+
+**Data.** Address to coordinate by **address-range interpolation** along TIGER road centrelines, placed at a
+standard offset. The coordinates are "in the general vicinity", not at the building
+([Census Geocoder documentation](https://www.census.gov/programs-surveys/geography/technical-documentation/complete-technical-documentation/census-geocoder.html),
+[LUCA geocoder guide](https://www2.census.gov/programs-surveys/decennial/2030/program-management/luca/luca-geocoder-block-count-list-user-guide.pdf)).
+
+**Key.** None.
+
+**Rate limit.** **None published.** Batch files are capped at 10,000 records and 5 MB
+([Geocoding Services API](https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html),
+[Geocoder FAQ](https://www2.census.gov/geo/pdfs/maps-data/data/Census_Geocoder_FAQ.pdf)).
+
+**Licence and storage.** Federal work. "Public domain" is a third party's description; the official statement is
+**unconfirmed**. The Census API terms bar re-identifying individuals or households and allow blocking over-limit use
+([Census developer Terms of Service](https://www.census.gov/data/developers/about/terms-of-service.html)). Neither
+matters for public businesses.
+
+**Verdict. Phase 2, as a guard only.** Interpolated points are below our `med` bar ("adjacent door"), so it grades
+`low`. Useful as a cheap **wrong-town / wrong-street check** for the US backlog (Miami, Orlando, Chicago, DC, Erie…)
+using one batch call per city. Never a pin.
+
+#### Coverage of the biggest backlogs
+
+| backlog | rows (default scope) | phase-1 sources (in the prototype) | phase-2 addition |
+|---|---|---|---|
+| Singapore | 712 | Wikidata, Wikipedia, Nominatim, Overpass, official sites | **OneMap**, needs a free token, so the owner decides (§ 7, Q5) |
+| Saarland region (Saarland, Rhineland-Palatinate, Luxembourg, France) | 409 | same | **LVGL Saarland** (66xxx) + **LVermGeo RLP** (54–57xxx, 67xxx). Luxembourg and France not yet researched. |
+| Okinawa | 286 | same; OSM coverage in Okinawa is uneven | **Address Base Registry**, as a guard only |
+| Rhineland (Cologne, Düsseldorf, Bonn) | 270 | same | **Geobasis NRW** house coordinates (dl-de/zero) |
+| Aachen (incl. Belgium and Netherlands) | 202 | same | **Geobasis NRW** for 52xxx; the Belgian and Dutch parts not yet researched |
+| San Francisco, Orlando, Chicago and other US cities | 183, 149, 122… | same | **Census Geocoder**, as a guard only |
+
+**Not covered by any phase-2 source.** Restaurants without a Wikidata item, an OSM object or schema.org markup. That
+tail stays with the WebSearch waves and `tools/geocode-helper.html`.
 
 ## 3. How it fits rules 4a–4c
 
@@ -298,8 +476,10 @@ the JSON; the edited value still needs `by` + `why` and passes the same downgrad
    runner is possible for a single country extract, at a few GB and ~1 h of import.
 4. **Auto-commit of reports.** Should `dry_run=false` push report files to the branch, or should reports stay as
    workflow artifacts (90-day retention) with only reviewed ones committed?
-5. **Phase-2 sources.** Should someone read the terms of OneMap (Singapore, the largest backlog), GSI (Japan) and the
-   US Census Geocoder, so they can be added as government sources?
+5. **Phase-2 sources** (§ 2.2). Should we register one **free OneMap account** for Singapore? It is stored as an
+   Actions secret, which breaks the "no keys" default. And should the open German state house-coordinate files (NRW
+   dl-de/zero, RLP dl-de/by, Saarland CC BY) and Japan's Address Base Registry be added as bulk address
+   corroboration? Both would carry their attribution in each accepted pin's `source`.
 6. **Status freshness.** Every `statusChecked` today is from 2026-08 to 2026-10. Should a quarterly `--scope status`
    sweep (Wikidata + Overpass + official sites only, with **no Nominatim**: ~34k requests and ~12 h across all cities)
    become routine?
@@ -315,6 +495,39 @@ the JSON; the edited value still needs `by` + `why` and passes the same downgrad
   without notice.
 - **Website text in another language** (Japanese, German, Dutch, French sites). The closure-phrase detector is
   English-only for now, so it misses closures there; it never produces a false "closed".
+
+## 8. Owner decisions — 2026-10-11
+
+The owner answered the questions in §7 directly to the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx, 2026-10-11): *"You
+decide the answers to your question if you're asking for permissions then I say just yes."* The orchestrator recorded
+these decisions first-hand. An agent lane that only hears them relayed should treat this section as the record.
+
+1. **ODbL: yes.** An accepted OSM-derived coordinate may enter `data/geocodes.json`. Its `source` names the OSM object
+   URL. The report and `docs/geoverify/ACCEPTED.md` carry the ODbL credit, and the site keeps its OSM map attribution.
+   Rule 4a already lists OpenStreetMap as a verification source.
+2. **Reviewer: an agent may review**, named in `review.by` (its session id), with a reason in `review.why`. The bar:
+   - **Accept** `high` rows whose match is place-specific: an OSM POI whose name matches, a Wikidata item with P625, or
+     the place's official site (JSON-LD).
+   - **Accept** `med` rows only with a second, independent source that agrees within 50 m (for example the official site,
+     or a map listing found through WebSearch), cited in `review.why`.
+   - **Never accept** `low` rows, street-level matches, address-interpolation matches or `shared-object` rows. The tool
+     enforces this.
+   - **Closures** follow rule 4c: a real `statusSource` (an official notice, a news story, a map's "permanently closed"),
+     applied through `tools/geo-merge.py`, and the place keeps its "— CLOSED" marker. A 404 is never evidence.
+3. **Pace: yes.** A paced sweep of at most 300 Nominatim requests a day, one city per run, no self-hosting.
+4. **Reports are committed** as the audit trail: a `commit=true` line in `docs/geoverify/REQUEST`, or a dispatch with
+   `dry_run=false`. Reports are proposals; they never change the registry by themselves.
+5. **Phase 2: yes.** Build the NRW, Rhineland-Palatinate and Saarland house-coordinate adapters, plus the Japan Address
+   Base Registry as a wrong-town guard only, each with attribution. Research Luxembourg, France, Belgium and the
+   Netherlands the same way. OneMap is approved, but it needs a login only the owner can create: the adapter reads
+   `ONEMAP_EMAIL` / `ONEMAP_PASSWORD` from Actions secrets if they exist and skips with a logged note if not.
+   Credentials are never requested in chat or committed.
+6. **Quarterly status sweep: yes.** Status-only, with no Nominatim:
+   `node tools/location-verify.js --status-sweep --shard <i>/3 --max-minutes 330`. The three shards run on different days
+   and never in parallel. The schedule is added to the workflow and fires once the workflow is on the default branch.
+
+Every accepted change still goes through the gates: `research.js --geocheck` and `--statuscheck` for the city, then
+`npm run validate`, `npm test` and `npm run beta:check`, all before the push.
 
 ## Workflow YAML to add
 

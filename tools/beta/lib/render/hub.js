@@ -143,11 +143,11 @@ function cityTile(row, i, { up = '', views = false, reg = null, dense = false, a
   const sig = f.sig.length ? `<span class="sigline"><b class="k">${esc(t('card.known'))}</b>${f.sig.map(x => `<span>${esc(x.name)}</span>`).join('')}</span>` : '';
   const star = f.star ? `<span class="star sticker">${icon('star4', 'ico sm')}${esc(f.star.name)} · ${fmt(f.star.n)}</span>` : '';
   const canon = !sig && f.canon.length ? `<span class="canon">${f.canon.map(c => `<span>${esc(c)}</span>`).join('')}</span>` : '';
-  // "Recommended by": two names on wider screens; on phones (compact rows, B-05) the first name + "n more", never clipped
-  const more = k => f.recby.n > k ? ` ${esc(t('card.recby.more', { n: fmt(f.recby.n - k) }))}` : '';
-  const rb = f.recby.n ? `<span class="recby">${icon('seal', 'ico sm')}<span class="rb-full">${esc(t('card.recby'))} <b>${esc(f.recby.names.join(', '))}</b>${more(f.recby.names.length)}</span><span class="rb-short">${esc(t('card.recby'))} <b>${esc(f.recby.names[0])}</b>${more(1)}</span></span>` : '';
+  // "Recommended by": the most-citing source by name, then "+ n more" — one form on every screen, never clipped
+  const rb = f.recby.n ? `<span class="recby"><span>${esc(t('card.recby'))} <b>${esc(f.recby.names[0])}</b>${f.recby.n > 1 ? ` ${esc(t('card.recby.more', { n: fmt(f.recby.n - 1) }))}` : ''}</span></span>` : '';
   return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}" class="tile card c-${i % 4}">
-<span class="card-media"><span class="cover" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}${icon('pin', 'gl ico')}<span class="cover-n">${esc(f.name)}</span>${f.native ? `<span class="native">${esc(f.native)}</span>` : ''}</span>${ph ? photoImg(ph, up, { sizes: dense ? SIZES.dense : SIZES.hub }) : ''}${star}</span>
+<span class="card-media">${ph ? photoImg(ph, up, { sizes: dense ? SIZES.dense : SIZES.hub })   /* a credited photo fills the slot: no cover markup under it */
+  : `<span class="cover" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}${icon('pin', 'gl ico')}<span class="cover-n">${esc(f.name)}</span>${f.native ? `<span class="native">${esc(f.native)}</span>` : ''}</span>`}${star}</span>
 <span class="card-body txt"><h3 class="card-t">${esc(f.name)}</h3>
 <span class="counts"><span class="dest-c">${plural('hub.places', f.n)}<span class="hide-m"> · ${esc(t('hub.sights', { n: fmt(f.P) }))} · ${esc(t('hub.food', { n: fmt(f.F) }))}</span></span></span>
 ${sig}${canon}${rb}</span></a>${credit(ph)}${views && row.gen === 'new' ? viewLinks(row, up) : ''}</li>`;

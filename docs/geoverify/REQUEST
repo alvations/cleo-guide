@@ -1,0 +1,6 @@
+city=wheeling-wv
+scope=unverified,low,status
+limit=0
+nominatim_max=300
+commit=true
+# run 3: street-match grading fixed (b31303b4); commit the report for review

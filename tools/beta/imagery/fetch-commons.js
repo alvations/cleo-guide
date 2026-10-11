@@ -184,15 +184,27 @@ const authorProblems = a => [!a && 'empty', a && a.length > 60 && 'longer than 6
 
 /** Corporate signage, logos, lettering or advertising as the subject (owner review, W7): such a file is refused —
  * unless the sign IS the place (the target's own names say so, e.g. Sign Hill, the Glico Running Man sign). */
-const SIGNAGE = /\b(logos?|signage|signboards?|signs?|billboards?|advertis\w*|letters|lettering)\b/i;
+const SIGNAGE = /\b(logos?|signage|signboards?|signs?|billboards?|advertis\w*|letters|lettering|info(?:rmation)? boards?|map boards?|notice ?boards?|interpretive (?:panels?|signs?|boards?)|signposts?|plaques?|historical markers?|(?<!wikivoyage )banners?)\b/i;
 /** Equipment, people or close-ups as the subject (owner review, W7: a "RiverScape, Dayton" file showed hands on a
  * drone controller): refused for every slot. Checked against the title, description and visible categories. */
-const CLOSEUP = /\b(drone controllers?|controllers?|remote controls?|remotes?|hands|holding|selfies?|portraits?|close-?ups?|equipment)\b/i;
+const CLOSEUP = /\b(drone controllers?|controllers?|remote controls?|remotes?|hands|holding|selfies?|portraits?|close-?ups?|equipment|figurines?|statuettes?|lotus(?:es)?|macro)\b|\(detail\)/i;
 /** Rescan hits a person looked at and kept (W7 review): the file's subject is the place; the matched word is incidental. */
 const RESCAN_KEPT = {
   'File:Brooklyn Bridge, Downtown Manhattan, and Freedom Tower, golden hour (20137848066).jpg': 'kept after review (W7): moody but strong — cables, skyline and light; not dull',
-  'File:Meadowcroft Rockshelter 07.jpg': 'kept after review (W7): the rock-shelter overhang, no sign in frame',
 };
+/** A performer or a performance is the subject, not the place (W8 run #40: a singer at the Empty Bottle). */
+const PERFORMER = /\b(live at|performing|performs|performance of|on stage|onstage|in concert|concert at|band|singer|comedian|stand-?up|main stage|stage)\b/i;
+/** A music club, comedy club, improv or theatre record: only the building outside (W8). */
+const PERFORMANCE_VENUE = /\b(music club|comedy|improv|theat(?:re|er)|jazz club|blues club|concert hall|music venue|night ?club|second city|empty bottle)\b/i;
+const EXTERIOR = /\b(exterior|fa[cç]ade|front|building|entrance|marquee|outside|street view)\b/i;
+const INTERIOR = /\b(interior|inside|auditorium|stage|backstage|seating)\b/i;
+/** Refused when a performer is the subject, or when a performance venue's photo is not its building's exterior. */
+function performerRefused(t, text) {
+  if (subjectRefused(PERFORMER, t, text)) return 'a performer or a performance is the subject, not the place';
+  if (PERFORMANCE_VENUE.test(`${t.label || ''}`) && (INTERIOR.test(text) || !(EXTERIOR.test(text) || namesPlace(t.names, text))))
+    return 'a performance venue takes only its building exterior (no stage, interior or show)';
+  return '';
+}
 /** A subject check applies unless the target itself is named by it (a museum of signs, a portrait gallery). */
 const subjectRefused = (re, t, text) => re.test(text) && !re.test(`${t.label || ''} ${(t.names || []).join(' ')}`);
 
@@ -277,7 +289,7 @@ const articlesOf = t => (t.articles && t.articles.length ? t.articles : t.articl
 const ARTWORK = /\b(woodblock|ukiyo-?e|paintings?|painted by|prints?|engravings?|lithographs?|etchings?|postcards?|drawings?|illustrations?)\b/i;
 /** Vehicles or works dominating the frame (R7 QA-53: tour buses at Tokyo Tower, a van at MoMA, a construction site) —
  *  flagged by the rescan for a person to look at; too common in descriptions to refuse on the word alone. */
-const VEHICLES = /\b(bus(?:es)?|tour bus|vans?|trucks?|lorr(?:y|ies)|construction|scaffold\w*|cranes?)\b/i;
+const VEHICLES = /\b(bus(?:es)?|tour bus|coach(?:es)?|delivery vans?|trucks?|lorr(?:y|ies)|construction site|under construction|construction work|scaffold\w*|cranes?|bulldozers?|excavators?|trolleys?|trams?|streetcars?|locomotives?|railcars?)\b/i;   // not bare "van" (Dutch names) or "construction" (history text)
 /**
  * "<X> from <place>" / "View from <place>": the file shows the view FROM the place, not the place (W8: "Chuo-dori from
  * Nihonbashi" for Nihonbashi Bridge). Refused unless the part before "from" (or the depicts text) names the place too.
@@ -291,6 +303,9 @@ function viewFrom(title, names, depicts = '') {
 }
 /** Maps, heraldry, flags, montages and logos are not a photo of the place (W8: town-article lead images). */
 const NOT_A_PHOTO = /\b(maps?|locator|location map|coat of arms|coats of arms|flag of|seal of|emblem|montage|collage|logo)\b/i;
+/** A refusal about the photo itself (signage, gloom, close-up, wrong subject) holds for every target; one about the
+ *  slot (a duplicate of another hero or card, repeating a lead card's subject) holds only for the target it names. */
+const refusalIsGlobal = reason => !/duplicat|same file|repeats|already|place card|is the [\w ]*hero|the [\w ]+ hero is/i.test(reason || '');
 /** What a run may fetch (W8): a stray run can never pull the whole tier-1 set. */
 const SCOPES = ['heroes', 'priority', 'pilots', 'all'];
 function inScope(t, scope) {
@@ -381,6 +396,7 @@ async function main() {
     const desc = strip(val('ImageDescription')), obj = strip(val('ObjectName'));
     if (t.type === 'hero' && !t.winterOk && GLOOM.test(`${pg.title} ${obj} ${desc}`)) return { why: 'a hero wants a bright, warm-season or golden-hour view; the title or description says winter, snow, overcast or fog' };
     if (subjectRefused(ARTWORK, t, `${pg.title} ${obj} ${desc}`)) return { why: 'a print, painting or drawing — artwork, not a photo of the place today' };
+    { const pr = performerRefused(t, `${pg.title} ${obj} ${desc}`); if (pr) return { why: pr }; }
     if (viewFrom(pg.title, t.names, depicts)) return { why: 'the view FROM the place ("… from <place>"), not the place itself' };
     if (NOT_A_PHOTO.test(`${pg.title} ${obj}`)) return { why: 'a map, coat of arms, flag, montage or logo — not a photo of the place' };
     if (subjectRefused(SIGNAGE, t, `${pg.title} ${obj} ${desc}`)) return { why: 'title or description suggests signage, lettering, a logo or advertising is the subject' };
@@ -420,8 +436,10 @@ async function main() {
         if (subjectRefused(CLOSEUP, t, `${text} ${cats}`)) hits.push(`${key} ${c.commonsTitle}: equipment/people/close-up (${(CLOSEUP.exec(`${text} ${cats}`) || [])[0]})`);
         { const cand = (t.candidates || []).find(x => x.file === c.commonsTitle && !x.refused);
           if (viewFrom(c.commonsTitle, t.names || [], cand ? cand.depicts : '')) hits.push(`${key} ${c.commonsTitle}: the view FROM the place, not the place`); }
+        { const pr = performerRefused(t, text); if (pr) hits.push(`${key} ${c.commonsTitle}: ${pr}`); }
         if (subjectRefused(ARTWORK, t, text)) hits.push(`${key} ${c.commonsTitle}: a print/painting, not the place (${(ARTWORK.exec(text) || [])[0]})`);
-        if (subjectRefused(VEHICLES, t, text)) hits.push(`${key} ${c.commonsTitle}: vehicles or works may dominate (${(VEHICLES.exec(text) || [])[0]}) — look`);
+        // report-only: flagged even where the place is named so (a trolley museum's trolley is still equipment)
+        if (VEHICLES.test(text)) hits.push(`${key} ${c.commonsTitle}: vehicles or works may dominate (${(VEHICLES.exec(text) || [])[0]}) — look`);
         if (c.slot && !t.winterOk && GLOOM.test(text)) hits.push(`${key} ${c.commonsTitle}: gloomy hero (${(GLOOM.exec(text) || [])[0]})`);
       }
     }
@@ -497,13 +515,14 @@ async function main() {
   }
 
   /** Every file a person refused, whichever target it was refused for: the reason is about the photo, not the place. */
-  const refusedAnywhere = new Set(man.targets.flatMap(t => (t.candidates || []).filter(c => c.refused).map(c => c.file)));
+  const refusedAnywhere = new Set(man.targets.flatMap(t => (t.candidates || []).filter(c => c.refused && refusalIsGlobal(c.refused)).map(c => c.file)));
   try {
     if (!o.noRescan) await rescan();
     for (const p of todo) {
       let done = false;
       const tries = p.cands.slice(), arts = p.lead ? articlesOf(p.t).slice() : [];
-      const refusedFile = refusedAnywhere;   // a file refused for one target is refused for every target (W8: Den Den → Mandarake)
+      // a photo refused for its own fault is refused for every target (W8: Den Den → Mandarake); a slot refusal stays local
+      const refusedFile = new Set([...refusedAnywhere, ...(p.t.candidates || []).filter(c => c.refused).map(c => c.file)]);
       for (let i = 0; !done; i++) {
         let c = tries[i];
         if (!c) {                                    // candidates exhausted: the articles' lead images, in order
@@ -514,7 +533,7 @@ async function main() {
           if (refusedFile.has(f)) { refused.push(`${p.t.key} ${f}: refused after review (lead image of ${art})`); continue; }
           c = { file: f, confidence: 'lead', depicts: p.t.type === 'hero' ? '' : p.t.label.replace(/\s*\([^)]*\)\s*$/, '') };
         }
-        if (refusedAnywhere.has(c.file)) { refused.push(`${p.t.key} ${c.file}: refused after review (for another target)`); continue; }
+        if (refusedAnywhere.has(c.file) && !(p.t.candidates || []).some(x => x.file === c.file && !x.refused)) { refused.push(`${p.t.key} ${c.file}: refused after review (for another target)`); continue; }
         const r = await inspect(p.t, c.file, c.confidence === 'lead' ? '' : c.depicts);   // a lead image has no vetted depicts
         if (r.why) { refused.push(`${p.t.key} ${c.file}: ${r.why}`); continue; }
         const st = await store(p, c, r.ok);
@@ -534,4 +553,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { viewFrom, authorOrUploader, ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { PERFORMER, performerRefused, refusalIsGlobal, viewFrom, authorOrUploader, ARTWORK, VEHICLES, widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };

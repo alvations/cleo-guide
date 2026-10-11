@@ -34,10 +34,12 @@ const { BETA_BASE } = require('./lib/render/common');
 const city = require('./lib/render/city');
 const landing = require('./lib/render/landing');
 const saved = require('./lib/render/saved');
+const tripPage = require('./lib/render/trip');                  // FE-C W9-4: beta/trip.html
 const shell = require('./lib/render/shell');                       // FE-B: site context for header/footer
 const hub = require('./lib/render/hub');                           // FE-B: country hubs + SEA archive
 const method = require('./lib/render/method');                     // FE-B: how-we-choose.html, 404.html
-const changesPage = require('./lib/render/changes');               // W4 gap #9: human-readable "What changed" per page
+const changesPage = require('./lib/render/changes');
+const recognition = require('./lib/recognition');                 // W9-1 / W9-9 (platform): design/beta/RECOGNITION.md               // W4 gap #9: human-readable "What changed" per page
 
 const BETA = path.join(ROOT, 'beta');
 const args = new Set(process.argv.slice(2));
@@ -54,6 +56,7 @@ for (const r of cityRows) {
   r.recs = normalise(r);
   if (r.recs.length !== r.counts.P + r.counts.F) errors.push(`${r.live}: model ${r.recs.length} != live ${r.counts.P + r.counts.F}`);
   r.sources = pageSources(r, r.recs);             // stamps rec.src (publisher ids) — M1-10
+  r.recog = recognition.pageRecognition(r, r.recs, r.sources.list, ROOT);   // W9-1/W9-9: badges + local favourites from source keys only
   r.stats = stats.pageStats(r, r.recs);           // every number the page prints — M1-20
   r.guide = guide(r, r.recs);                     // ★ signature, canon-first food order, day plans, recently closed (W2)
   r.order = views.stamp(r, r.recs);               // W3 P-01: rank/of/k3 on every record; the view order (area, then rank)
@@ -168,8 +171,9 @@ for (const [rel, body] of i18n.files()) emit(rel, body);
 // ---------------------------------------------------------------- what changed (ROUND-2 gap #9, M3-07): Atom feeds
 const changeRows = changes.build(cityRows, emit);
 emit('data/changes.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
-  _doc: 'Per place page: its Atom feed, the newest dated event, closures and status checks on record. Events come only from dates in data/geocodes.json (status checks, closures with their source, pin verifications).',
-  pages: changeRows }));
+  _doc: 'Per place page: its Atom feed, the newest dated event, closures and status checks on record, and `month` = what happened in the newest month on record (`month` at the top: YYYY-MM from the data, not the clock). Events come only from dates in data/geocodes.json (status checks, closures with their source, pin verifications).',
+  month: changeRows.month, pages: changeRows }));
+reg.changes = changeRows;                          // W9-2: the landing's "<month> in Cleo" module reads these rows
 
 // ---------------------------------------------------------------- data indexes
 const pageHref = r => r.beta;                     // beta-root-relative
@@ -191,6 +195,13 @@ for (const r of cityRows) {
   const pi = searchPages.length;
   searchPages.push([r.key, page.meta.h1Main || r.key, pageHref(r), r.country || '', r.gen === 'new' ? 1 : 0]);
   for (const x of r.recs) searchItems.push([pi, x.id, x.n, x.kind === 'food' ? 'f' : 's', x.t, x.closed ? 1 : 0, areaN[x.a] || '']);
+  // Perf audit PERF-04: the place detail's per-article links, sliced out of the dataset below (same data, ~7× smaller):
+  // g = source key → publisher group id (sourceIndex), p = place id → [[source key, url], …] (http(s) urls only).
+  {
+    const g = {}; for (const s of r.sources.list || []) for (const e of s.entries || []) g[e.key] = s.id;
+    const p = {}; for (const x of r.recs) { const s = (x.s || []).filter(y => y && /^https?:\/\//.test(y[1] || '')); if (s.length) p[x.id] = s; }
+    emit(`data/links/${r.fileKey}.json`, JSON.stringify({ _generated: 'tools/beta/build.js — do not edit; slice of data/places/' + r.fileKey + '.json', v: 1, g, p }));
+  }
   // Per-page open dataset: every record, its sources registry, areas/collections/cuisines, provenance.
   emit(`data/places/${r.fileKey}.json`, JSON.stringify({
     _generated: 'tools/beta/build.js from ' + r.live + ' — do not edit', v: 1, key: r.key, live: r.live, beta: r.beta, country: r.country, name: page.meta.h1Main,
@@ -212,6 +223,8 @@ for (const r of cityRows) {
     // W8 FE-B: Guidebook chapters lead with a credited photo where one exists — per area, the first open SIGHT in view
     // order with a credited photo (imagery gate: never closed, never Vietnam; never a food place). Caption = TASL, linked.
     chapterPhotos: chapterPhotos(r),
+    // W9-1 / W9-9 (platform): per-page recognition summary; per place `rec` {award, video, cited} and `lf` ride on places[]
+    recognition: r.recog,
     places: r.recs.map(x => (x.pv && x.pv.src ? Object.assign({}, x, { pv: Object.assign({}, x.pv, { src: undefined }) }) : x))
       .map(x => quoted.quotes(x) ? Object.assign({}, x, { pq: quoted.researched(x) || r.stats.lastChecked || 'undated' }) : x),
   }));
@@ -224,6 +237,21 @@ for (const r of cityRows) {
 }
 const totalLive = cityRows.reduce((s, r) => s + r.counts.P + r.counts.F, 0);
 if (searchItems.length !== totalLive) errors.push(`search index ${searchItems.length} != live total ${totalLive}`);
+// W9-6 (FE-B "paste a link"): host → the publishers whose cited URLs live there, with the guides and place counts each
+// recommends. Search reads it when a query is a URL; the pasted URL is only parsed, never fetched. From each page's own
+// source index (lib/sources.js domains), so a host maps only to sources the guides actually cite.
+{
+  const hosts = {};
+  for (const r of cityRows) for (const s of (r.sources && r.sources.list) || []) {
+    if (s.id === 'guide') continue;
+    for (const dom of new Set((s.domains || []).map(d => String(d).toLowerCase().replace(/^www\./, '')).filter(Boolean)))
+      (hosts[dom] = hosts[dom] || []).push([r.beta, r.name, s.id, s.name, s.n]);   // that guide's own id + name for the source
+  }
+  for (const h of Object.keys(hosts)) hosts[h].sort((x, y) => y[4] - x[4] || (x[0] < y[0] ? -1 : 1));
+  emit('data/source-hosts.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
+    _doc: 'W9-6 paste a link: host (lowercase, no www.) → [[beta page, guide name, that page\'s source id, its name there, places it recommends there]…], most places first. Built from the guides\' own cited URLs; nothing is fetched from a pasted URL.',
+    hosts: Object.fromEntries(Object.keys(hosts).sort().map(h => [h, hosts[h]])) }));
+}
 emit('data/sources.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
   _doc: 'Every publisher cited on any beta place page: id, display name, text authority mark, total records citing it, and [pageKey, n] per page. Per-page detail (entries, place ids) is in data/places/<page>.json sourceIndex.',
   sources: siteSources(cityRows) }));
@@ -277,6 +305,7 @@ for (const r of reg.rows.filter(r => r.gen === 'new')) {
   emit(r.beta, html);
 }
 const savedHtml = saved.render(ctx); errors.push(...assertPage('saved.html', savedHtml)); emit('saved.html', savedHtml);
+const tripHtml = tripPage.render(ctx); errors.push(...assertPage('trip.html', tripHtml)); emit('trip.html', tripHtml);
 const extraPages = method.pages(reg, ctx);                         // FE-B: { 'how-we-choose.html': html, '404.html': html }
 for (const r of cityRows) extraPages[changesPage.rel(r)] = changesPage.page(r, ctx);   // W4 gap #9
 for (const [rel, html] of Object.entries(extraPages)) { errors.push(...assertPage(rel, html)); emit(rel, html); }
@@ -287,7 +316,7 @@ emit('manifest.webmanifest', JSON.stringify({
 }, null, 1));
 
 // Manifest of ownership: what the new generator writes vs what is still the legacy mirror.
-const generated = reg.rows.filter(r => r.gen === 'new').map(r => r.beta).concat(['saved.html'], Object.keys(extraPages));
+const generated = reg.rows.filter(r => r.gen === 'new').map(r => r.beta).concat(['saved.html', 'trip.html'], Object.keys(extraPages));
 emit('data/manifest.json', JSON.stringify({
   v: 1, _doc: 'Written by tools/beta/build.js. `generated` pages are owned by the new beta generator; tools/beta-restyle.py must skip them. `pages` maps every live page to its beta source.',
   generated,
@@ -296,10 +325,42 @@ emit('data/manifest.json', JSON.stringify({
   totals: { pages: cityRows.length, places: totalLive },
 }, null, 1));
 
+// ---------------------------------------------------------------- W9-8 offline city packs (platform)
+// data/packs/<page>.json lists EVERY file "Keep <city> offline" stores, with its exact byte size, as the URL the page
+// actually requests (?v= hashes included): the page; its dataset, links slice and Gallery rows; the shared CSS, all JS
+// (lazy views too), fonts and icon; Leaflet (so Atlas runs and falls back to the schematic offline, never caching tiles);
+// its map art; and every photo it shows at the SMALLEST width (500w). The client shows the size before the tap; the
+// service worker stores the files in a cache that a deploy never wipes (PERF-13). Tiles are never listed.
+const sizeOf = rel => { const b = out.get(rel); if (b != null) return (Buffer.isBuffer(b) ? b : Buffer.from(b)).length;
+  const p = path.join(BETA, rel); return fs.existsSync(p) ? fs.statSync(p).size : -1; };
+const smallest = rel => { const m = /^(.*)-960\.(jpe?g|png)$/.exec(rel); return m && sizeOf(m[1] + '-500.' + m[2]) >= 0 ? m[1] + '-500.' + m[2] : rel; };
+for (const r of cityRows) {
+  const html = out.get(r.beta); if (html == null) continue;
+  const H = String(html), dir = path.posix.dirname(r.beta), refs = new Set([r.beta]);
+  const add = u => { if (!u || /^(https?:|data:|#|mailto:|javascript:)/.test(u)) return; u = u.replace(/&amp;/g, '&').split('#')[0];
+    const [p0, q] = u.split('?'); const rel = path.posix.normalize(path.posix.join(dir, p0));
+    if (rel.startsWith('..') || !/^(assets|data)\//.test(rel) || /^assets\/og\//.test(rel)) return;
+    refs.add(smallest(rel) + (q && smallest(rel) === rel ? '?' + q : '')); };
+  for (const m of H.matchAll(/\b(?:src|href|data-art)="([^"]+)"/g)) add(m[1]);
+  for (const m of H.matchAll(/\bsrcset="([^"]+)"/g)) for (const c of m[1].split(',')) add(c.trim().split(/\s+/)[0]);
+  const f = r.fileKey;
+  for (const d of [`data/places/${f}.json`, `data/links/${f}.json`, `data/gallery/${f}.json`]) if (sizeOf(d) >= 0) refs.add(d);
+  try { const g = JSON.stringify(JSON.parse(String(out.get(`data/gallery/${f}.json`) || '{}')));
+    for (const m of g.matchAll(/"(assets\/img\/[^"]+\.(?:jpe?g|png))"/g)) refs.add(smallest(m[1])); } catch (e) { /* no rows */ }
+  for (const k of Object.keys(assetsV).filter(k => k !== 'css' && k !== 'tokens')) refs.add(`assets/js/${k}.js?v=${assetsV[k]}`);
+  for (const x of ['assets/vendor/leaflet/leaflet.js', 'assets/vendor/leaflet/leaflet.css', 'assets/icon.svg', 'manifest.webmanifest']) refs.add(x);
+  if (fs.existsSync(path.join(BETA, 'assets', 'fonts'))) for (const x of fs.readdirSync(path.join(BETA, 'assets', 'fonts')).filter(x => x.endsWith('.woff2')).sort()) refs.add('assets/fonts/' + x);
+  const files = [...refs].map(u => [u, sizeOf(u.split('?')[0])]).filter(([u, n]) => n >= 0).sort((a, b) => a[0] < b[0] ? -1 : 1);
+  const missing = [...refs].filter(u => sizeOf(u.split('?')[0]) < 0);
+  if (missing.length) errors.push(`offline pack ${f}: ${missing.length} referenced file(s) missing: ${missing.slice(0, 3).join(', ')}`);
+  emit(`data/packs/${f}.json`, JSON.stringify({ _generated: 'tools/beta/build.js — do not edit (W9-8 offline city pack)', v: 1,
+    key: r.key, page: r.beta, name: r.name, bytes: files.reduce((t, x) => t + x[1], 0), files }));
+}
+
 // Self-hosted fonts (designer, beta/assets/fonts) are precached so offline type matches online type.
 const FONTS = path.join(BETA, 'assets', 'fonts');
 const fontFiles = fs.existsSync(FONTS) ? fs.readdirSync(FONTS).filter(f => f.endsWith('.woff2')).sort().map(f => './assets/fonts/' + f) : [];
-const shellFiles = ['./index.html', './saved.html', './manifest.webmanifest', './assets/icon.svg', `./assets/cleo.css?v=${assetsV.css}`, `./${ctx.feaCss}`, `./assets/fe-b.css?v=${require('./lib/render/shell').febV()}`]
+const shellFiles = ['./index.html', './saved.html', './trip.html', './manifest.webmanifest', './assets/icon.svg', `./assets/cleo.css?v=${assetsV.css}`, `./${ctx.feaCss}`, `./assets/fe-b.css?v=${require('./lib/render/shell').febV()}`]
   .concat(fontFiles)
   .concat(assetsV.tokens ? [`./assets/tokens.css?v=${assetsV.tokens}`] : [])
   .concat(['./how-we-choose.html'])                                 // FE-B method page, offline too

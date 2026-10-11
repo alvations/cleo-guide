@@ -160,7 +160,7 @@
 /* ---------- V2.11 sheets, tray, dialogs, toasts, tab bar, banners ---------- */
 :root :is(.sheet, .tray, .poi-sheet, dialog) { background: var(--surface); box-shadow: var(--shadow-lg); border: 0; }
 :root .toast { background: var(--ink); color: var(--paper); border-radius: var(--r-s); box-shadow: var(--shadow-lg); }
-:root .tabbar { background: color-mix(in srgb, var(--surface) 97%, transparent); border-top: 1px solid var(--line); box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+:root .tabbar { background: var(--surface); border-top: 1px solid var(--line); box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
 :root .tabbar a { color: var(--ink-3); }
 :root .tabbar a[aria-current="page"], :root .tabbar a[aria-current="page"] .ico { color: var(--ink); }
 :root :is(.banner.offline, .banner.shared) { background: var(--sand); color: var(--ink); }
