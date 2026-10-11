@@ -14,6 +14,7 @@
 const { esc, prose, jsonInline } = require('../html');
 const { TIER } = require('../model');
 const { head, siteBar, footer, BETA_BASE } = require('./common');
+const { rowsOf: galleryRows } = require('../gallery');
 const COUNTRIES = (() => { try { return JSON.parse(require('fs').readFileSync(require('path').resolve(__dirname, '../../../../data/countries.json'), 'utf8')).countries; } catch (e) { return []; } })();
 
 const shortArea = n => String(n || '').split(/\s+[(—–]\s*|\s+\(/)[0].trim();
@@ -287,15 +288,15 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   if (placed !== recs.length) throw new Error(`${row.beta}: rendered ${placed} of ${recs.length} places`);
   const cardsHtml = sections.join('\n');
 
-  /* -- Gallery hero (W3 A-03): "Start with {lead}" = the first open must-see of the ★ signature, else the first must-see.
+  /* -- Gallery hero (W3 A-03): "Start with {lead}" = the lead card's place (the first open must-see of the signature, else the first must-see).
    *    The category rows are chosen and drawn client-side from the page JSON (gallery.js): 0 bytes, 0 initial nodes. -- */
   const byArea = new Map(), ordered = [];
   areas.forEach(a => byArea.set(a.id, orderArea(recs.filter(r => r.a === a.id))));
   byArea.forEach(l => ordered.push(...l)); ordered.push(...orderArea(orphan));
-  const inC = id => ordered.filter(r => r.g.includes(id));
-  const sigT = tiles.find(t => t.cls === 'sig');
-  const leadR = (sig && sig.ids ? sig.ids.map(id => recs.find(r => r.id === id)) : sigT && sigT.key === 'c' ? inC(sigT.id) : []).find(r => r && r.t === 1 && !r.closed)
-    || ordered.find(r => r.t === 1 && !r.closed) || ordered.find(r => !r.closed) || ordered[0];
+  // W8 (R6 gap #8): the lead is ONE pick, lib/gallery.js rowsOf().lead — the record the lead card draws — so "Start with"
+  // can never name a different place from the card under it (two near-identical pickers had drifted on 17 of 21 pages)
+  const leadId = (galleryRows({ areas: areasAll, collections: page.CATS || [], cuisines: page.CUISINES || [], guide: row.guide, places: recs }, name).lead || {}).id;
+  const leadR = recs.find(r => r.id === leadId) || ordered.find(r => !r.closed) || ordered[0];
   // W7 (owner: full UI/UX overhaul): a quiet hero — the city name, one line and the count line, with the imagery lane's
   // credited city photo when there is one. The night-sky art and the action pair are retired; the grid, the category bar
   // and the floating "Show map" pill carry the browsing

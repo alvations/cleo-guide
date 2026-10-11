@@ -32,7 +32,9 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
 
 (async () => {
   console.log('FE-B views — Guidebook + Insights (W3)');
-  let bad = { n: [], once: [], order: [], empty: [], tier: [], intro: [], src: [], sums: [], plat: [], pop: [], idx: [], honest: [] };
+  let bad = { n: [], once: [], order: [], empty: [], tier: [], intro: [], src: [], sums: [], plat: [], pop: [], idx: [], honest: [], quoted: [] };
+  const quoted = require('./lib/quoted');
+  let nQuoted = 0;
   for (const f of files) {
     const d = load(f), N = d.places.length;
     // ---- 1 · Guidebook
@@ -87,8 +89,16 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     if (hasPop ? X.tiles.pop === null : X.tiles.pop !== null || !/no pop-culture collection/.test(ir.html)) bad.pop.push(f);
     if (ir.index !== N || (ir.html.match(/<li class="ixi"/g) || []).length !== N) bad.idx.push(f);
     if (/<script|cdn|https?:\/\/(?!www\.w3\.org)/i.test(ir.html)) bad.idx.push(f + ' (external ref in insights)');
+    // ---- D-39 · price/rating prose is labelled, not stripped: the note on exactly the records whose own prose quotes one
+    for (const p of d.places) {
+      const q = quoted.quotes(p), li = (h.match(new RegExp('<li class="ge" id="gb-' + p.id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '"[\\s\\S]*?</li>')) || [''])[0];
+      const shown = /<p class="gq sm muted">Prices and ratings are quoted from the source at the time of research \(/.test(li);
+      if (q) nQuoted++;
+      if (q !== !!p.pq || q !== shown) bad.quoted.push(`${f} ${p.id}: prose quotes=${q} pq=${p.pq || '-'} note=${shown}`);
+    }
     // ---- 3 · honesty (write-ups and notes are the record's own words; the view's chrome must add none)
-    let chrome = textOf(h.replace(/<p class="ge-w">[\s\S]*?<\/p>|<p class="gk">[\s\S]*?<\/p>|<section class="gb-appendix"[\s\S]*$/g, '') + ir.html.replace(/<li class="ixi"[\s\S]*?<\/li>/g, ''));
+    // D-39: the dated-quote label is a stated limit of the record's own prose (exact sentence only), not view copy
+    let chrome = textOf(h.replace(/<p class="ge-w">[\s\S]*?<\/p>|<p class="gk">[\s\S]*?<\/p>|<p class="gq sm muted">Prices and ratings are quoted from the source at the time of research \((?:\d{4}-\d{2}-\d{2}|undated)\)\.<\/p>|<section class="gb-appendix"[\s\S]*$/g, '') + ir.html.replace(/<li class="ixi"[\s\S]*?<\/li>/g, ''));
     for (const nm of names.concat(d.places.map(p => p.ad || ''), d.places.map(p => p.n)).filter(Boolean).sort((a, b) => b.length - a.length)) chrome = chrome.split(nm.replace(/&/g, '&')).join(' ');
     const hit = HONESTY.exec(chrome); if (hit) bad.honest.push(f + ': ' + chrome.slice(Math.max(0, hit.index - 40), hit.index + 30));
   }
@@ -105,6 +115,7 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
   chk('insights: no pop-culture data → absent (null + stated), not 0', !bad.pop.length, bad.pop);
   chk('insights: index lists N names; no script/CDN in the view', !bad.idx.length, bad.idx);
   chk('honesty: no price / rating / booking / hours strings in either view', !bad.honest.length, bad.honest);
+  chk(`D-39: dated-quote note on every record whose prose quotes a price or rating, and on no other (${nQuoted} records)`, !bad.quoted.length && nQuoted > 100, bad.quoted.slice(0, 4));
 
   // ---- 4 · jsdom on pilot city pages, storage blocked
   const PILOTS = [['cities/tokyo.html', 'tokyo'], ['cleveland.html', 'cleveland'], ['Singapore/chinatown.html', 'singapore--chinatown']];

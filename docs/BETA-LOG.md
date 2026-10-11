@@ -1212,3 +1212,8 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - FE-B: landing, hubs, Guidebook, Insights, "What changed";
     - Atlas lane: Atlas surfaces, in its next SPEC-v3 slice.
   - This takes priority over W8 part 1 in those lanes. It is recorded in `design/beta/eval/W8-BRIEFS.md`.
+
+- 2026-10-11 · Atlas lane · **Carousel credit never clipped** (FE-A's report: "Photo: Wiiii" was cut off at `#day=TAITO`).
+  - On the phone carousel the thumbnail's figure steps aside (`display: contents`), and its credit runs the card's full width under the thumbnail and text: author · licence · source, in full.
+  - The carousel card grows to 150 px, and the © shortcut is hidden there.
+  - New `atlas-ms.js` check: every carousel credit sits inside its card with no overflow. Evidence: `design/beta/eval/w7/atlas/tokyo-atlas-390-day-credit.jpg`.

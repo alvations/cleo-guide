@@ -96,6 +96,8 @@
       (p.nat ? ' <span class="nat"' + (M.lang ? ' lang="' + M.lang + '"' : '') + '>' + esc(p.nat) + '</span>' : '') + '</a></h4>' +
       '<p class="ge-m">' + tier + (p.ad ? '<span class="ad">' + esc(p.ad) + '</span>' : '') + '</p>' +
       (p.w ? '<p class="ge-w">' + esc(p.w) + '</p>' : '') + (p.k ? '<p class="gk">Look for: ' + esc(p.k) + '</p>' : '') +
+      // D-39 (proposed): prose that quotes a price or a rating is labelled as a dated quote, never edited (`pq` from build)
+      (p.pq ? '<p class="gq sm muted">Prices and ratings are quoted from the source at the time of research (' + esc(p.pq) + ').</p>' : '') +
       '<p class="recby"><span>Recommended by</span> ' + rec + '</p>' +
       '<button type="button" class="heart ge-save" data-cleo-ref="' + esc(ref) + '" aria-pressed="false" aria-label="Save ' + esc(x.name) + '">Save</button></li>';
   }
