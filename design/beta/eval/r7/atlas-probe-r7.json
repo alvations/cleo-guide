@@ -1,0 +1,333 @@
+{
+ "tokyo-phone": {
+  "first": {
+   "mapBox": [
+    64,
+    780
+   ],
+   "mapShare": 0.92,
+   "lastChecked": [],
+   "lastCheckedAny": 0
+  },
+  "open": {
+   "rankPins": 5,
+   "clusters": 21,
+   "pinW": [
+    30,
+    37,
+    52
+   ],
+   "pinH": [
+    26,
+    26,
+    26
+   ],
+   "pinLook": "rgb(255, 255, 255) / rgb(28, 25, 23) / r 999px",
+   "clusterLook": "color(srgb 0.231137 0.219922 0.21098) / rgb(249, 247, 243) / r 50%",
+   "clusterSize": 48
+  },
+  "zoomed": {
+   "rankPins": 12,
+   "clusters": 35,
+   "pinW": [
+    37,
+    37,
+    44
+   ],
+   "pinH": [
+    26,
+    26,
+    26
+   ],
+   "pinLook": "rgb(251, 235, 200) / rgb(61, 42, 6) / r 999px",
+   "clusterLook": "color(srgb 0.231137 0.219922 0.21098) / rgb(249, 247, 243) / r 50%",
+   "clusterSize": 42
+  },
+  "pinTap": {
+   "tappedCorner": true,
+   "card": "p-yasukuni-shrine",
+   "inView": true
+  },
+  "carouselCredit": [
+   {
+    "li": "p-imperial-palace-east-gardens",
+    "text": "Photo: john w · CC BY 2.0 · Wikimedia Commons (res",
+    "clip": false,
+    "fs": "16px",
+    "box": [
+     104,
+     104
+    ]
+   },
+   {
+    "li": "p-yasukuni-shrine",
+    "text": "Photo: Kakidai · CC BY-SA 4.0 · Wikimedia Commons ",
+    "clip": false,
+    "fs": "16px",
+    "box": [
+     104,
+     104
+    ]
+   },
+   {
+    "li": "p-kanda-myojin",
+    "text": "Photo: Yoshikazu TAKADA from Tokyo, Japan · CC BY ",
+    "clip": false,
+    "fs": "16px",
+    "box": [
+     104,
+     104
+    ]
+   }
+  ],
+  "mustChip": [
+   "Must see"
+  ],
+  "day": {
+   "routes": 0,
+   "routeTopBottom": [
+    null,
+    null
+   ],
+   "carouselTop": 708,
+   "stops": 0,
+   "stopsUnderCarousel": 0,
+   "hash": "#view=atlas&day=TAITO"
+  },
+  "errors": 0
+ },
+ "cleveland-phone": {
+  "first": {
+   "mapBox": [
+    64,
+    780
+   ],
+   "mapShare": 0.92,
+   "lastChecked": [],
+   "lastCheckedAny": 0
+  },
+  "open": {
+   "rankPins": 10,
+   "clusters": 13,
+   "pinW": [
+    37,
+    37,
+    44
+   ],
+   "pinH": [
+    26,
+    26,
+    26
+   ],
+   "pinLook": "rgb(251, 235, 200) / rgb(61, 42, 6) / r 999px",
+   "clusterLook": "color(srgb 0.231137 0.219922 0.21098) / rgb(249, 247, 243) / r 50%",
+   "clusterSize": 48
+  },
+  "zoomed": {
+   "rankPins": 11,
+   "clusters": 14,
+   "pinW": [
+    37,
+    37,
+    52
+   ],
+   "pinH": [
+    26,
+    26,
+    26
+   ],
+   "pinLook": "rgb(251, 235, 200) / rgb(61, 42, 6) / r 999px",
+   "clusterLook": "color(srgb 0.231137 0.219922 0.21098) / rgb(249, 247, 243) / r 50%",
+   "clusterSize": 36
+  },
+  "pinTap": {
+   "tappedCorner": true,
+   "card": "p-greater-cleveland-aquarium-shark-gallery-and-seatube",
+   "inView": true
+  },
+  "carouselCredit": [],
+  "mustChip": [
+   "Must see"
+  ],
+  "errors": 0
+ },
+ "chinatown-phone": {
+  "first": {
+   "mapBox": [
+    64,
+    780
+   ],
+   "mapShare": 0.92,
+   "lastChecked": [],
+   "lastCheckedAny": 0
+  },
+  "open": {
+   "rankPins": 15,
+   "clusters": 0,
+   "pinW": [
+    30,
+    37,
+    44
+   ],
+   "pinH": [
+    26,
+    26,
+    26
+   ],
+   "pinLook": "rgb(251, 235, 200) / rgb(61, 42, 6) / r 999px",
+   "clusterLook": null,
+   "clusterSize": null
+  },
+  "zoomed": {
+   "rankPins": 15,
+   "clusters": 0,
+   "pinW": [
+    30,
+    37,
+    44
+   ],
+   "pinH": [
+    26,
+    26,
+    26
+   ],
+   "pinLook": "rgb(251, 235, 200) / rgb(61, 42, 6) / r 999px",
+   "clusterLook": null,
+   "clusterSize": null
+  },
+  "pinTap": {
+   "tappedCorner": true,
+   "card": "p-tian-tian-hainanese-chicken-rice",
+   "inView": true
+  },
+  "carouselCredit": [],
+  "mustChip": [
+   "Must see"
+  ],
+  "errors": 0
+ },
+ "tokyo-desktop": {
+  "layout": {
+   "mapPct": 60,
+   "mapLeft": 0,
+   "mapH": 692,
+   "cols": 2,
+   "cardsInView": 4,
+   "rail": [
+    "foryou:not in view",
+    "day:not in view",
+    "near:not in view"
+   ],
+   "results": "435 places in this map area · Top ranked"
+  },
+  "open": {
+   "rankPins": 16,
+   "clusters": 38,
+   "pinW": [
+    30,
+    37,
+    44
+   ],
+   "pinH": [
+    26,
+    26,
+    26
+   ],
+   "pinLook": "rgb(251, 235, 200) / rgb(61, 42, 6) / r 999px",
+   "clusterLook": "color(srgb 0.231137 0.219922 0.21098) / rgb(249, 247, 243) / r 50%",
+   "clusterSize": 42
+  },
+  "zoomed": {
+   "rankPins": 16,
+   "clusters": 38,
+   "pinW": [
+    30,
+    37,
+    44
+   ],
+   "pinH": [
+    26,
+    26,
+    26
+   ],
+   "pinLook": "rgb(251, 235, 200) / rgb(61, 42, 6) / r 999px",
+   "clusterLook": "color(srgb 0.231137 0.219922 0.21098) / rgb(249, 247, 243) / r 50%",
+   "clusterSize": 42
+  },
+  "pinClick": {
+   "preview": true,
+   "card": "p-warner-bros-studio-tour-tokyo-the-making-of-harry-potter",
+   "cardInView": false,
+   "scrollY": 0
+  },
+  "deep": {
+   "sheet": true,
+   "scrollY": 104,
+   "mapBottom": 796,
+   "bandUnderMap": 104
+  },
+  "errors": 0
+ },
+ "cleveland-desktop": {
+  "layout": {
+   "mapPct": 60,
+   "mapLeft": 0,
+   "mapH": 692,
+   "cols": 2,
+   "cardsInView": 4,
+   "rail": [
+    "foryou:not in view",
+    "day:not in view",
+    "near:not in view"
+   ],
+   "results": "167 places in this map area · Top ranked"
+  },
+  "open": {
+   "rankPins": 28,
+   "clusters": 17,
+   "pinW": [
+    37,
+    37,
+    52
+   ],
+   "pinH": [
+    26,
+    26,
+    26
+   ],
+   "pinLook": "rgb(255, 255, 255) / rgb(28, 25, 23) / r 999px",
+   "clusterLook": "color(srgb 0.231137 0.219922 0.21098) / rgb(249, 247, 243) / r 50%",
+   "clusterSize": 42
+  },
+  "zoomed": {
+   "rankPins": 28,
+   "clusters": 17,
+   "pinW": [
+    37,
+    37,
+    52
+   ],
+   "pinH": [
+    26,
+    26,
+    26
+   ],
+   "pinLook": "rgb(255, 255, 255) / rgb(28, 25, 23) / r 999px",
+   "clusterLook": "color(srgb 0.231137 0.219922 0.21098) / rgb(249, 247, 243) / r 50%",
+   "clusterSize": 42
+  },
+  "pinClick": {
+   "preview": true,
+   "card": "p-beachland-ballroom-and-tavern",
+   "cardInView": false,
+   "scrollY": 0
+  },
+  "deep": {
+   "sheet": true,
+   "scrollY": 104,
+   "mapBottom": 796,
+   "bandUnderMap": 104
+  },
+  "errors": 0
+ }
+}

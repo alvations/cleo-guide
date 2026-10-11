@@ -1217,3 +1217,60 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - On the phone carousel the thumbnail's figure steps aside (`display: contents`), and its credit runs the card's full width under the thumbnail and text: author · licence · source, in full.
   - The carousel card grows to 150 px, and the © shortcut is hidden there.
   - New `atlas-ms.js` check: every carousel credit sits inside its card with no overflow. Evidence: `design/beta/eval/w7/atlas/tokyo-atlas-390-day-credit.jpg`.
+
+- 2026-10-11 19:15Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **Loop A (Atlas panel):**
+    - Real-tile workflow run #2 (38164928697) succeeded; about 110 shots are in `design/beta/atlas/real/R0/`. They show OSM standard tiles too busy under the pins, and dark mode still drawing the bright OSM tiles. Settled with the designer and the Atlas lane: Esri Light Gray Canvas by default, Esri Dark Gray Canvas in dark mode, following the theme; satellite stays as the alternative; a test covers it.
+    - SPEC-v3 slice 1 (32a6eb86: no numbers on the map, named kind pills, quiet dots, a city-core default view, one 108 px bar, a flat list) is accepted, with four refinements sent:
+      - one glyph per pill;
+      - neutral dots;
+      - short names with collision-to-dot;
+      - possibly fewer pills.
+    - The Atlas lane is building slice 1.
+    - The panel's R0 evidence pack is built (129 shots); its eight panelists are scoring.
+  - **Casing (owner):** the designer pushed the rule and the executable spec (f145ab71: DESIGN-SYSTEM.md §v2.6, design/beta/casing/ with allowlist.json, sentence_case.py and labels.md: 368 labels, 259 change; CASING-AUDIT.md). It also removed the designer-owned uppercase, drop caps and cover initials. FE-A is building `tools/beta/lib/casing.js` to match the reference output; FE-B and the Atlas lane follow.
+  - **Loop C:**
+    - FE-A: "Start with" = lead card on all 84 pages (bae1b624; two pickers had drifted on 17 US/EU pages).
+    - FE-B:
+      - D-39 price/rating note on 235 records (ba5d7e23);
+      - "What changed" B-20/B-23 84/84;
+      - Guidebook chapter photos, 25 of 299 chapters, lazy and credited (f677272c);
+      - the Insights v2 series tokens were requested from the designer.
+    - Imagery: `--scope heroes|priority|pilots|all` (e26f890e) is wired into the workflow as a dispatch input; push runs stay at priority (62b7295d). The priority run is in progress; pilots and all wait for the contact sheet and a repo-size estimate.
+    - The Atlas carousel credit clip is fixed (f5efbc66).
+  - **Loop B:** R7 QA is running pilot runs and the B-07 rewrite; the evaluator's metrics sweep is about 2/3 done.
+
+- 2026-10-11 19:22Z · **Orchestrator** · Atlas panel round 0 · commit: this entry's commit
+  - **PANEL-R0** (head 965b7a5c; a70cc645 / 8e06aeb2):
+    - **panel score 56.1/100**, min 53.5 (FE), max 58.5 (B2), SD 1.73;
+    - row means: R1 9.4/15, R2 7.5/20, R3 8.8/15, R4 8.4/15, R5 9.4/15, R6 6.9/10, R7 5.8/10;
+    - no Blocker findings.
+  - **Top findings:**
+    1. number soup / no names on the map (≈10.5);
+    2. the detail round-trip loses the map state (≈6.5, High);
+    3. chrome and phone overlays (≈6.1);
+    4. near-me ignores proximity (≈3.5, High);
+    5. text and targets too small (≈2.8, High);
+    6. pin kind unreadable;
+    7. closed not marked on the map;
+    8. contradictory counts;
+    - also: #11 keyboard (High) and #13 view not in the URL (High).
+  - **AO verdicts:** AO-1/2/3/4/6/8 confirmed; AO-5 confirmed in part; AO-7 confirmed with low weight.
+  - **Routing:**
+    - visual findings → designer (SPEC-v3 slices; slice 1 refined in b62cce9a: one glyph, sun-wash Must-see, short names with collide-to-dot, 16/8 pins, neutral dots; basemap settled: Esri Light/Dark Gray Canvas following the theme);
+    - front-end findings #2/#4/#11/#13/#5/#3 → Atlas lane, after slice 1.
+  - Round 1 starts when slice 1 + the basemap ship.
+
+- 2026-10-11 19:32Z · **Orchestrator** · Round 7 result and the W8 part 2 fan-out · commit: this entry's commit
+  - **ROUND-7** (on `badcc20d`; 61184481 / 7e7c3762): **88.5** = A 83 (+6), B 91 (+3), C 96, D 89. Δ +3.1 vs R6 85.4.
+    - Typography & style 241/300 (R6 223); 7 items below 8: T7, S2, S3, C3, K5, K8, K9.
+    - D1–D13: 6 ✅, 7 ◐ (D2, D6, D7, D9, D11, D12, D13), 0 ✕.
+    - Owner-blocked about +0.6 (second locale, the price/rating call, the Unsplash top-up). The evaluator puts the team-recoverable points at about 3.0.
+    - Budgets: Tokyo default 652/940 KB first load, FCP 4× 340 ms, every page ≤ 2.0 MB and ≤ 1 s, axe 0 serious/critical in 80 runs, B-23 0/179.
+  - **W8 part 2** (`design/beta/eval/W8-BRIEFS.md`), from the R7 gaps:
+    - imagery: coverage (+1.15);
+    - FE-A: polish (+0.52), two more delight moments (+0.46), first-screen metrics, food covers;
+    - FE-B: B-05 hubs, the Insights v2 series, letter-spacing/shadow/tabular residue, widows, axe moderates;
+    - platform (reopened): photo `sizes`, the 700 KB phone target, cleo.css ≤ 200 KB with the R6 layers pruned, shell axe moderates, and the B-06/07/09 re-pointing after QA ratifies;
+    - Atlas residuals (gap 4) stay in the Atlas panel loop.
+  - The R7 evaluator session is archived. R7 QA is still running; on QA YES the deploy goes ahead (beta-deploy-r7).
