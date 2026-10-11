@@ -29,7 +29,7 @@
   },
   "heroes": {
    "targets": 89,
-   "withHigh": 40
+   "withHigh": 50
   },
   "pilotLandmarks": {
    "targets": 180,
@@ -38,16 +38,16 @@
   },
   "otherLandmarks": {
    "targets": 1150,
-   "skipped": 221,
-   "withArticle": 633
+   "skipped": 222,
+   "withArticle": 632
   },
   "candidates": {
-   "total": 336,
-   "high": 322,
+   "total": 354,
+   "high": 340,
    "med": 14,
    "low": 0
   },
-  "targetsWithHigh": 154,
+  "targetsWithHigh": 165,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -281,6 +281,13 @@
      "confidence": "high",
      "reason": "title names Wheeling on the Ohio River; summary CC BY-SA 2.0",
      "refused": "refused by visual review (W7): hazy grey aerial through a plane window; the city does not read at card size"
+    },
+    {
+     "file": "File:Downtown Wheeling, WV - 20200628 - 14 - Skyline from Wheeling Island.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Wheeling,_WV_-_20200628_-_14_-_Skyline_from_Wheeling_Island.jpg",
+     "depicts": "Downtown Wheeling from Wheeling Island (June 2020)",
+     "confidence": "high",
+     "reason": "title names downtown Wheeling, from Wheeling Island, 28 June 2020 (copied from a category listing)"
     }
    ],
    "articles": [
@@ -1064,11 +1071,19 @@
    "searched": "2026-10-11",
    "candidates": [
     {
+     "file": "File:Akron Skyline at Sunset.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Akron_Skyline_at_Sunset.jpg",
+     "depicts": "Akron skyline at sunset from the Towpath Trail",
+     "confidence": "high",
+     "reason": "title names the Akron skyline — restored after review (W8): bright, the best warm view"
+    },
+    {
      "file": "File:Akron Ohio Skyline from the All-America Bridge.JPG",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Akron_Ohio_Skyline_from_the_All-America_Bridge.JPG",
      "depicts": "Akron skyline from the All-America Bridge (2008)",
      "confidence": "high",
-     "reason": "title names the Akron skyline (R7 QA-53 swap)"
+     "reason": "title names the Akron skyline (R7 QA-53 swap)",
+     "refused": "refused by visual review (W8): a grey, overcast highway — worse than the sunset view"
     },
     {
      "file": "File:Akron, Ohio, Skyline.jpg",
@@ -1084,14 +1099,6 @@
      "confidence": "high",
      "reason": "title names the downtown Akron skyline",
      "refused": "refused by visual review (W7): plain office towers and highway"
-    },
-    {
-     "file": "File:Akron Skyline at Sunset.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Akron_Skyline_at_Sunset.jpg",
-     "depicts": "Akron skyline at sunset from the Towpath Trail",
-     "confidence": "high",
-     "reason": "title names the Akron skyline",
-     "refused": "refused by R7 QA-53 (W8): reads overcast and dim at hero size"
     }
    ]
   },
@@ -1664,13 +1671,28 @@
     "Ang Mo Kio"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Ang_Mo_Kio"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [
+    {
+     "file": "File:Ang Mo Kio Town Garden West Singapore - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ang_Mo_Kio_Town_Garden_West_Singapore_-_panoramio.jpg",
+     "depicts": "Ang Mo Kio Town Garden West",
+     "confidence": "high",
+     "reason": "title names Ang Mo Kio Town Garden West (copied from the category listing)"
+    },
+    {
+     "file": "File:AngMoKio.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:AngMoKio.JPG",
+     "depicts": "Ang Mo Kio from above (2006)",
+     "confidence": "high",
+     "reason": "title names Ang Mo Kio; summary: a 2006 top view of the town"
+    }
+   ]
   },
   {
    "key": "hero:singapore/balestier",
@@ -1681,7 +1703,7 @@
     "Balestier"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Balestier"
@@ -1698,7 +1720,7 @@
     "Bedok"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Bedok"
@@ -1715,7 +1737,7 @@
     "Bishan"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Bishan,_Singapore",
@@ -1733,7 +1755,7 @@
     "Bukit Timah"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Bukit_Timah",
@@ -1751,7 +1773,7 @@
     "Changi"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Changi",
@@ -1772,7 +1794,7 @@
     "Victoria Theatre"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Civic_District",
@@ -1790,13 +1812,14 @@
     "Dempsey"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Dempsey_Hill"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [],
+   "skip": "no Commons photo of Dempsey Hill turned up and its article has no lead image — the guide keeps its motif hero (stated)"
   },
   {
    "key": "hero:singapore/geylang",
@@ -1807,7 +1830,7 @@
     "Geylang"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Geylang"
@@ -1824,7 +1847,7 @@
     "Holland Village"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Holland_Village,_Singapore"
@@ -1842,13 +1865,14 @@
     "Lavender"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Jalan_Besar"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [],
+   "skip": "only a constituency locator map and a non-free photo on Commons — the guide keeps its motif hero (stated)"
   },
   {
    "key": "hero:singapore/jurong",
@@ -1859,7 +1883,7 @@
     "Jurong"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Jurong",
@@ -1880,7 +1904,7 @@
     "Masjid Sultan"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Kampong_Glam",
@@ -1900,7 +1924,7 @@
     "Koon Seng"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Katong",
@@ -1918,7 +1942,7 @@
     "Little India"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Little_India,_Singapore"
@@ -1932,16 +1956,27 @@
    "depicts": "hub:singapore/mandai",
    "label": "Mandai — guide hero",
    "names": [
-    "Mandai"
+    "Mandai",
+    "Upper Seletar"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
-    "https://en.wikipedia.org/wiki/Mandai"
+    "https://en.wikipedia.org/wiki/Mandai",
+    "https://en.wikipedia.org/wiki/Upper_Seletar_Reservoir"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [
+    {
+     "file": "File:Mandai Crematorium and Columbarium Complex Overview 3, 2015.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mandai_Crematorium_and_Columbarium_Complex_Overview_3,_2015.jpg",
+     "depicts": "Mandai Crematorium",
+     "confidence": "high",
+     "reason": "lead image of the Mandai article (run #29)",
+     "refused": "refused by review (W8): a crematorium, not what the Mandai guide is about"
+    }
+   ]
   },
   {
    "key": "hero:singapore/marina-bay",
@@ -1952,7 +1987,7 @@
     "Marina Bay"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Marina_Bay,_Singapore"
@@ -1970,7 +2005,7 @@
     "East Coast"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Marine_Parade"
@@ -1985,17 +2020,29 @@
    "label": "Newton & Novena — guide hero",
    "names": [
     "Newton",
-    "Novena"
+    "Novena",
+    "Saint Alphonsus",
+    "St Alphonsus"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Newton,_Singapore",
-    "https://en.wikipedia.org/wiki/Novena,_Singapore"
+    "https://en.wikipedia.org/wiki/Novena,_Singapore",
+    "https://en.wikipedia.org/wiki/Novena_Church"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [
+    {
+     "file": "File:Novena Square 3.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Novena_Square_3.JPG",
+     "depicts": "Novena Square",
+     "confidence": "high",
+     "reason": "lead image (run #29)",
+     "refused": "refused by visual review (W8): a mall façade whose name is the subject (signage rule)"
+    }
+   ]
   },
   {
    "key": "hero:singapore/old-airport-road",
@@ -2007,7 +2054,7 @@
     "Old Airport"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Kallang_Airport"
@@ -2025,7 +2072,7 @@
     "MacPherson"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Potong_Pasir",
@@ -2043,7 +2090,7 @@
     "Punggol"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Punggol",
@@ -2062,13 +2109,21 @@
     "Redhill"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Queenstown,_Singapore"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [
+    {
+     "file": "File:Queenstown hdb.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Queenstown_hdb.jpg",
+     "depicts": "HDB flats along Strathmore Avenue, Queenstown",
+     "confidence": "high",
+     "reason": "title names Queenstown; summary: thirty-storey flats, Strathmore Avenue, 2005"
+    }
+   ]
   },
   {
    "key": "hero:singapore/southern-ridges",
@@ -2081,7 +2136,7 @@
     "Mount Faber"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Southern_Ridges",
@@ -2099,13 +2154,28 @@
     "Tiong Bahru"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Tiong_Bahru"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [
+    {
+     "file": "File:57 and 58 Tiong Bahru Road from Seng Poh Road - 2022-08-14.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:57_and_58_Tiong_Bahru_Road_from_Seng_Poh_Road_-_2022-08-14.jpg",
+     "depicts": "Tiong Bahru art-deco SIT flats from Seng Poh Road (August 2022)",
+     "confidence": "high",
+     "reason": "title names Tiong Bahru Road; category: Singapore Improvement Trust flats, Tiong Bahru Estate"
+    },
+    {
+     "file": "File:Tiong Bahru 9, Jul 06.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Tiong_Bahru_9,_Jul_06.JPG",
+     "depicts": "Tiong Bahru estate (July 2006)",
+     "confidence": "high",
+     "reason": "title names Tiong Bahru"
+    }
+   ]
   },
   {
    "key": "hero:singapore/toa-payoh",
@@ -2116,7 +2186,7 @@
     "Toa Payoh"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Toa_Payoh",
@@ -2134,7 +2204,7 @@
     "Serangoon"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Serangoon"
@@ -2152,13 +2222,28 @@
     "Thomson"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/MacRitchie_Reservoir"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [
+    {
+     "file": "File:MacRitchie Reservoir.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:MacRitchie_Reservoir.jpg",
+     "depicts": "Boardwalk and pavilion, MacRitchie Reservoir Park",
+     "confidence": "high",
+     "reason": "title names MacRitchie Reservoir; summary: Calvin Teo, June 2005"
+    },
+    {
+     "file": "File:Sunset at Macritchie Reservoir (8128197465).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sunset_at_Macritchie_Reservoir_(8128197465).jpg",
+     "depicts": "MacRitchie Reservoir at sunset",
+     "confidence": "high",
+     "reason": "title names MacRitchie Reservoir; summary: Erwin Soo 2012"
+    }
+   ]
   },
   {
    "key": "hero:singapore/bagan",
@@ -2169,13 +2254,28 @@
     "Bagan"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Bagan"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [
+    {
+     "file": "File:Bagan, Myanmar, Htilominlo Temple and other Buddhist stupas in Bagan plain.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bagan,_Myanmar,_Htilominlo_Temple_and_other_Buddhist_stupas_in_Bagan_plain.jpg",
+     "depicts": "Htilominlo Temple and stupas across the Bagan plain",
+     "confidence": "high",
+     "reason": "title names Bagan and the Bagan plain; summary: Vyacheslav Argenberg, January 2021"
+    },
+    {
+     "file": "File:Old Bagan, Myanmar, Landscape of ancient Bagan city.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Old_Bagan,_Myanmar,_Landscape_of_ancient_Bagan_city.jpg",
+     "depicts": "The landscape of ancient Bagan",
+     "confidence": "high",
+     "reason": "title names Old Bagan"
+    }
+   ]
   },
   {
    "key": "hero:singapore/bali",
@@ -2186,7 +2286,7 @@
     "Bali"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Bali",
@@ -2205,7 +2305,7 @@
     "Chao Phraya"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Bangkok",
@@ -2223,7 +2323,7 @@
     "Cebu"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Cebu_City"
@@ -2240,7 +2340,7 @@
     "Chiang Mai"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Chiang_Mai"
@@ -2257,7 +2357,7 @@
     "Ipoh"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Ipoh"
@@ -2276,7 +2376,7 @@
     "National Monument"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Jakarta",
@@ -2292,17 +2392,29 @@
    "label": "Kuala Lumpur — guide hero",
    "names": [
     "Kuala Lumpur",
-    "Petronas"
+    "Petronas",
+    "Merdeka Square",
+    "Dataran Merdeka"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Kuala_Lumpur",
-    "https://en.wikipedia.org/wiki/Petronas_Towers"
+    "https://en.wikipedia.org/wiki/Petronas_Towers",
+    "https://en.wikipedia.org/wiki/Merdeka_Square,_Kuala_Lumpur"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [
+    {
+     "file": "File:Bukit Bintang junction in 2024 2.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bukit_Bintang_junction_in_2024_2.jpg",
+     "depicts": "Bukit Bintang junction",
+     "confidence": "high",
+     "reason": "lead image of the Kuala Lumpur article (run #29)",
+     "refused": "refused by visual review (W8): a busy street of billboards and a fast-food logo (signage rule)"
+    }
+   ]
   },
   {
    "key": "hero:singapore/luang-prabang",
@@ -2313,13 +2425,28 @@
     "Luang Prabang"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Luang_Prabang"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [
+    {
+     "file": "File:Mekong River (Luang Prabang).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mekong_River_(Luang_Prabang).jpg",
+     "depicts": "The Mekong at Luang Prabang (August 2009)",
+     "confidence": "high",
+     "reason": "title names the Mekong at Luang Prabang; summary: Allie Caulfield, CC BY 2.0"
+    },
+    {
+     "file": "File:Mekong-River-Near-Luang-Prabang.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mekong-River-Near-Luang-Prabang.jpg",
+     "depicts": "The Mekong near Luang Prabang (2017)",
+     "confidence": "high",
+     "reason": "title names Luang Prabang; summary: Bjørn Christian Tørrissen, CC BY-SA 4.0"
+    }
+   ]
   },
   {
    "key": "hero:singapore/malacca",
@@ -2331,7 +2458,7 @@
     "Melaka"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Malacca_City",
@@ -2349,7 +2476,7 @@
     "Manila"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Manila",
@@ -2368,7 +2495,7 @@
     "Penang"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/George_Town,_Penang"
@@ -2385,7 +2512,7 @@
     "Phnom Penh"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Phnom_Penh"
@@ -2403,13 +2530,28 @@
     "Angkor"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Siem_Reap"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [
+    {
+     "file": "File:Bayon temple at Angkor Thom 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bayon_temple_at_Angkor_Thom_01.jpg",
+     "depicts": "The Bayon, Angkor Thom",
+     "confidence": "high",
+     "reason": "title names the Bayon temple at Angkor Thom; summary: Satdeep Gill 2022, CC BY-SA 4.0"
+    },
+    {
+     "file": "File:Bayon, Angkor Thom, Camboya, 2013-08-17, DD 37.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bayon,_Angkor_Thom,_Camboya,_2013-08-17,_DD_37.JPG",
+     "depicts": "The Bayon, Angkor Thom (August 2013)",
+     "confidence": "high",
+     "reason": "title names the Bayon, Angkor Thom; Commons picture of the day 24 March 2015"
+    }
+   ]
   },
   {
    "key": "hero:singapore/yangon",
@@ -2420,7 +2562,7 @@
     "Yangon"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Yangon"
@@ -2438,7 +2580,7 @@
     "Jogja"
    ],
    "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner)",
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
    "articles": [
     "https://en.wikipedia.org/wiki/Yogyakarta"
@@ -4006,9 +4148,20 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Nipponbashi",
+   "skip": "brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "priority": "row",
-   "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Nipponbashi Osaka Japan01-r.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nipponbashi_Osaka_Japan01-r.jpg",
+     "depicts": "Den Den Town street",
+     "confidence": "high",
+     "reason": "lead image of the cited article (run #29)",
+     "refused": "refused by visual review (W8): a shop street dominated by signage (signage rule; the same file was refused for Den Den Town)"
+    }
+   ]
   },
   {
    "key": "landmark:osaka#shinsaibashi-parco-character-floors",

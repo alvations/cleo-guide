@@ -220,7 +220,8 @@ for (const t of cm.targets) {
     else if (t.candidates.length && (rec.kind === 'food' || rec.closed || row.country === 'vietnam')) cmBad.push(`${t.key}: candidates on a food/closed/Vietnam record`);
   }
   if (t.type === 'hero' && /^vietnam/.test(t.depicts.replace('hub:', '')) && t.candidates.length) cmBad.push(`${t.key}: Vietnam hero candidates`);
-  if (t.skip && t.candidates.length) cmBad.push(`${t.key}: candidates on a skipped target`);
+  if (t.skip && t.candidates.some(c => !c.refused))   // refused records stay: a refused file is refused for every target
+   cmBad.push(`${t.key}: candidates on a skipped target`);
   for (const c of t.candidates) {
     if (!/^File:.+\.(jpe?g|png|webp|tiff?)$/i.test(c.file) || !/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/.test(c.pageUrl)) cmBad.push(`${t.key}: file/pageUrl ${c.file}`);
     if (!['high', 'med'].includes(c.confidence) || !c.reason || !c.depicts || (c.refused != null && typeof c.refused !== 'string')) cmBad.push(`${t.key}: ${c.file} confidence/reason/depicts`);
