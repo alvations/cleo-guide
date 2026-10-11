@@ -46,7 +46,7 @@
     var set = [].slice.call(d.querySelectorAll('li.pl')).filter(function (x) { return !x.hidden; }), i = set.indexOf(c), nIn = d.querySelectorAll('li.pl[data-a="' + a + '"]').length;
     if (i < 0) { set = [c]; i = 0; }
     var pv1 = set[(i - 1 + set.length) % set.length], nx1 = set[(i + 1) % set.length], vw = d.documentElement.getAttribute('data-view') || 'atlas', vname = vw.charAt(0).toUpperCase() + vw.slice(1);   // set before paint, so right even before views.js runs
-    var navRow = '<div class="sh-nav"><button class="btn btn-quiet" data-sh="all">' + icon('chev-l') + '<span>All ' + info.total + ' places</span></button><span class="sm" data-sh-pos>' + (i + 1) + ' of ' + set.length + ' in this ' + esc(vname) + ' view</span>' +
+    var navRow = '<div class="sh-nav"><button class="btn btn-quiet" data-sh="all">' + icon('chev-l') + '<span>All ' + info.total + ' places</span></button><span class="sm" data-sh-pos>' + (i + 1) + ' of ' + set.length + '<span class="long"> in this ' + esc(vname) + ' view</span></span>' +
       (set.length > 1 ? '<span class="pn"><button class="btn btn-icon btn-ghost" data-sh="go" data-to="' + esc(C.pid(pv1)) + '" aria-label="Previous: ' + esc(C.name(pv1)) + '">' + icon('chev-l') + '</button>' +
         '<button class="btn btn-icon btn-ghost" data-sh="go" data-to="' + esc(C.pid(nx1)) + '" aria-label="Next: ' + esc(C.name(nx1)) + '">' + icon('chev-r') + '</button></span>' : '') + '</div>';
     var rank = '<p class="sm sh-rank">No. ' + c.getAttribute('data-n') + ' of ' + nIn + ' in ' + esc(C.label('a', a)) + '</p>';
@@ -67,7 +67,7 @@
     var exp = vw === 'gallery';    // A-04: in Gallery the sheet is the experience page
     return '<div class="sheet detail' + (exp ? ' exp' : '') + '" role="dialog" aria-modal="true" aria-labelledby="sh-t"><span class="grab" aria-hidden="true"></span>' +
       '<button class="btn btn-icon close" data-sh="x" aria-label="Close">' + icon('close') + '</button>' + navRow +
-      '<div class="hero-plate" style="--area:' + esc(((info.areas || {})[a] || {}).c || 'var(--city)') + '">' + loc + '<div aria-hidden="true">' + q('.pl-cover', c).innerHTML + '</div></div>' +
+      '<div class="hero-plate' + (q('.pl-photo', c) ? ' has-photo' : '') + (closed ? ' is-closed' : '') + '" style="--area:' + esc(((info.areas || {})[a] || {}).c || 'var(--city)') + '">' + (q('.pl-photo', c) ? q('.pl-photo', c).outerHTML : '') + loc + '<div class="plate-art" aria-hidden="true">' + q('.pl-cover', c).innerHTML + '</div></div>' +
       '<div class="content"><div class="badges">' + (closed ? '<span class="status closed">Closed · kept for the record</span>' : tier ? tier.outerHTML.replace('class="tier', 'class="tier lg') : '') +
       '<span class="sm">in ' + esc(C.label('a', a)) + ' · pin ' + c.getAttribute('data-n') + '</span></div><h2 class="d2" id="sh-t">' + (q('.pl-vert', c) && q('.pl-n .nat', c) ? esc(C.name(c)) + ' <span class="vh">' + esc(q('.pl-n .nat', c).textContent) + '</span>' : q('.pl-n a', c).innerHTML) + '</h2>' +
       rank + (w ? (exp ? '<h3 class="section-t">Why it’s here</h3>' : '') + '<p class="why">' + w.innerHTML + '</p>' : '') +
