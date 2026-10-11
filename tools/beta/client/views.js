@@ -187,15 +187,21 @@
   const fitSplit = C.fitSplit = () => { if (!split || !C.desk() || cur !== 'atlas') return; split.style.removeProperty('--atlas-top');
     const t = Math.round(split.getBoundingClientRect().top + (window.scrollY || 0)); if (t > 0) split.style.setProperty('--atlas-top', t + 'px'); const m = C.map && C.map(); if (m) m.invalidateSize(); };
   let rt; on(window, 'resize', () => { clearTimeout(rt); rt = setTimeout(fitSplit, 150); });
+  // W7: the search pill lives in the city bar; on the phone map the city bar steps aside (the Atlas chip row holds the
+  // switcher and the toolbar), so the pill rides in the toolbar there and comes home on leaving
+  const spill = $('[data-cleo-search]'), spHome = spill && spill.parentNode, tbS = $('[data-cleo-toolbar]');
+  const spillTo = a => { if (!spill || !tbS || !spHome) return; if (a) { if (spill.parentNode !== tbS) tbS.insertBefore(spill, tbS.firstChild); } else if (spill.parentNode !== spHome) spHome.insertBefore(spill, spHome.firstChild); };
   function atlasIn() {
     if (!split) return;
     const m = !C.desk(); html.classList.toggle('atlas-m', m); html.classList.toggle('atlas-d', !m);
+    spillTo(m);
     if (C.need) C.need('atlas', () => { if (cur === 'atlas' && C.msIn) { C.msIn(); fitSplit(); } });
     if (C.loadMap) C.loadMap(() => { fitSplit(); if (C.msArea) C.msArea(); });
     requestAnimationFrame(fitSplit); if (d.fonts && d.fonts.ready) d.fonts.ready.then(fitSplit);
     nopin();
   }
   function atlasOut() {
+    spillTo(false);
     ['atlas-m', 'atlas-d', 'ms-list', 'ms-on'].forEach(k => html.classList.remove(k));
     if (C.msOut) C.msOut(); if (split) split.style.removeProperty('--atlas-top');
   }
