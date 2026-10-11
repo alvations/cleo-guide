@@ -1520,3 +1520,26 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - The fix put the runner context in job-level env, which GitHub rejects, so runs 2–3 failed. Fixed and re-triggered.
     - The report is now printed to the job log and run summary, so it can be reviewed without committing anything.
     - Phase-2 government sources researched (2ce8e431): OneMap needs a token (owner decision); the German state house-coordinate files are open; the Japan Address Base Registry and the US Census Geocoder are guards only.
+
+- 2026-10-11 22:00Z · **Orchestrator** · the owner delegates decisions · commit: this entry's commit
+  - **The owner:** "You decide the answers to your question if you're asking for permissions then I say just yes."
+  - **Location verification, all six questions decided** (recorded in docs/LOCATION-VERIFY-ACTIONS.md by the lane):
+    1. ODbL: yes. OSM-derived coordinates may enter the registry with the OSM object as `source`.
+    2. An agent lane may review, under a bar:
+       - `high` place-specific matches (OSM POI with a matching name, a Wikidata P625 item, or the official site's JSON-LD) are accepted;
+       - `med` rows are accepted only with a second independent source within 50 m;
+       - `low` rows, street-level matches and shared OSM objects are never accepted;
+       - closures need a real `statusSource` under rule 4c.
+    3. A paced sweep: ≤ 300 Nominatim requests a day, one city per run.
+    4. Reports are committed as the audit trail: a `commit=true` line in REQUEST, or a dispatch with `dry_run=false`.
+    5. Phase 2: German state house-coordinate files and the Japan Address Base Registry (as a guard) are yes. Luxembourg, France, Belgium and the Netherlands get researched. OneMap is approved but needs a login only the owner can create, so the adapter skips it until an Actions secret exists.
+    6. A quarterly status-only sweep: yes. The schedule is added once the CLI exists; it fires from the default branch after the next deploy.
+  - **Next for the lane:** apply accepted rows locally with `--accept`, rebuild, and run the gates (--geocheck, --statuscheck, validate, test, beta:check), city by city.
+  - **D-39 ratified:** label, don't strip.
+  - **D-41 (new):** a second locale ships as an **AI-reviewed tier, labelled on the page**; `reviewed: true` stays human-only.
+    - New **i18n lane** `session_01HB7igqdcuhrau7mUWSauDL` builds Japanese (`ja`): one agent translates, an independent subagent reviews, and the changes are recorded in `design/beta/i18n/ja-REVIEW.md`. The switcher appears by rule, with a visible note and hreflang ja.
+    - This answers ROUND-7's owner-blocked "reviewed second locale" without claiming a human sign-off.
+  - **Not changed, because these are content rules rather than permissions:** food places still get no photos. Only a photo that truly shows the place counts.
+  - **Still needs the owner's own hands (optional):**
+    - the photo library's API key as an Actions secret (worth about +0.1);
+    - a OneMap login as Actions secrets, for Singapore pins.
