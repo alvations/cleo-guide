@@ -206,19 +206,25 @@ source must be an `unsplash.com` photo page), renders the Unsplash credit line, 
 (`{type: hero|cover, key}`) for hero and cover photos that do not belong to one record. Everything else is unchanged:
 no file without a complete row, no row without its file, no closed or Vietnamese place.
 
-### Fetch and commit, once the owner allows the hosts
+### Fetch and commit
 
-Prerequisites (owner): allow `api.unsplash.com` and `images.unsplash.com` in the environment's network policy;
-create an Unsplash developer app and put its **Access Key** in `UNSPLASH_ACCESS_KEY` (an environment secret, never in
-the repo). Demo apps get 50 requests an hour; each photo costs 2 API calls (photo + download event), so about 25
-photos per hour until the app is approved for production.
+**Owner-approved path: GitHub Actions.** The owner chose to fetch on a GitHub-hosted runner, which can reach both hosts:
+`.github/workflows/beta-fetch-unsplash.yml` (orchestrator) runs the script with `UNSPLASH_ACCESS_KEY` from a repository
+secret, then `npm run beta && npm run validate && npm test`, and commits `beta/` only if every gate passes. It runs on
+manual dispatch or on a push that touches the manifest, the script or the workflow. The sandbox itself still cannot
+reach the hosts and never tries to.
+
+Prerequisites (owner): create an Unsplash developer app and put its **Access Key** in the `UNSPLASH_ACCESS_KEY`
+repository secret (never in the repo). Demo apps get 50 requests an hour. Each photo costs 2 API calls (photo +
+download event), so the script spends at most 45 calls per run (`--budget`), about 22 photos, and stops cleanly. Targets
+that already have a credit row are skipped, so the next run resumes where the last one stopped.
 
 ```bash
-node tools/beta/imagery/fetch-unsplash.js                       # dry run: the plan, no network, no key needed
-node tools/beta/imagery/fetch-unsplash.js --type landmark --go  # fetch landmarks (high confidence only)
-node tools/beta/imagery/fetch-unsplash.js --key hero:tokyo --go # one target
+node tools/beta/imagery/fetch-unsplash.js                       # no key: prints the plan, fetches nothing, exit 0
+UNSPLASH_ACCESS_KEY=… node tools/beta/imagery/fetch-unsplash.js # fetch (high confidence, no flags, ≤ 45 API calls)
+… fetch-unsplash.js --dry-run                                   # plan only, even with a key
+… fetch-unsplash.js --type landmark --key landmark:tokyo#senso-ji --min med --allow-flag people-visible
 cd tools && npm run beta && npm test                            # the gate renders them, or names the problem
-git add beta/assets/img/photos/<new files> beta/assets/img/CREDITS.json && git commit
 ```
 
 Per target the script takes the first candidate that passes, in manifest order:
@@ -234,9 +240,11 @@ Per target the script takes the first candidate that passes, in manifest order:
    `sourceUrl` (photo page + utm), `licence: "Unsplash License"`, `licenceUrl`, `provider: "unsplash"`, `unsplashId`,
    `credit: "Photo by <name> on Unsplash"`, `modified`, `fetched`, `confidence`.
 
-It exits with a clear message and writes nothing when `UNSPLASH_ACCESS_KEY` is missing (exit 2) or when either host
-is unreachable or answered by a policy proxy (exit 3). It must never be run through a proxy, mirror, CI job or any
-other path that sidesteps the network policy.
+Exit codes: **0** when it is done or there is nothing to do, including no `UNSPLASH_ACCESS_KEY` (it prints the plan and
+fetches nothing); **1** for a bad option; **3** when either host is unreachable or answered by a policy proxy;
+**4** when an API or image request fails. It prints every kept and refused photo with a reason, and the API calls used.
+It writes `CREDITS.json` after each photo, so a stop keeps the finished work. It runs only where the hosts are allowed
+(the Actions workflow above), never through a proxy, mirror or other workaround.
 
 **One tension for the owner to decide.** The Unsplash API guidelines ask API apps to *hotlink* the returned image URLs,
 while our rules self-host every asset (content never depends on a CDN; a blocked CDN costs a map, not a page). The
