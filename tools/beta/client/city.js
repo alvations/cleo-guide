@@ -240,7 +240,7 @@
   const pinIcon = c => window.L.divIcon({ className: pinCls(c), iconSize: null, html: '<span>' + (at(c, 'data-t') === '1' && !c.hasAttribute('data-closed') ? '<i aria-hidden="true">★</i>' : '') + at(c, 'data-n') + '</span>' });
   const pinEl = c => { const k = c && markers[pid(c)]; return k && k.getElement && k.getElement(); };
   const hot = (c, o) => { const k = c && markers[pid(c)], el = pinEl(c); if (!k) return; if (el) el.classList.toggle('hot', o);
-    if (k.setZIndexOffset) k.setZIndexOffset(o ? 1000 : at(c, 'data-t') === '1' ? 300 : 0);
+    if (k.setZIndexOffset) k.setZIndexOffset(o ? 1000 : at(c, 'data-t') === '1' ? 600 : 0);
     const m = inCl[pid(c)], ce = m && m.getElement && m.getElement(); if (ce) ce.classList.toggle('hot', o); };
   ['mouseover', 'focusin', 'mouseout', 'focusout'].forEach((ev, i) => on(d, ev, e => {
     const c = e.target.closest && e.target.closest('li.pl'); if (c && !(e.relatedTarget && c.contains(e.relatedTarget))) hot(c, i < 2); }));
@@ -288,7 +288,7 @@
     // every place gets its pin, stamped or not (unstamped = a start-tag stub from Cleo.defer.peek(); click stamps it)
     cards.concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => {
       const ll = (at(c, 'data-ll') || '').split(','); if (ll.length !== 2) return;
-      const id = pid(c), k = markers[id] = L.marker([+ll[0], +ll[1]], { icon: pinIcon(c), keyboard: false, zIndexOffset: at(c, 'data-t') === '1' ? 300 : 0 }).addTo(map); if (c.stub) stub[id] = c;
+      const id = pid(c), k = markers[id] = L.marker([+ll[0], +ll[1]], { icon: pinIcon(c), keyboard: false, zIndexOffset: at(c, 'data-t') === '1' ? 600 : 0 }).addTo(map); if (c.stub) stub[id] = c;
       k.on('click', () => { const r = byId[id] || (Cleo.defer && Cleo.defer.stampFor(id)); if (r) pin(r); });
       k.on('mouseover', () => { const r = byId[id]; if (r) { r.classList.add('is-hover'); hot(r, true); } });
       k.on('mouseout', () => { const r = byId[id]; if (r) { r.classList.remove('is-hover'); hot(r, false); } });

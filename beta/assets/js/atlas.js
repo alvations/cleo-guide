@@ -39,17 +39,25 @@ const tl = L.point(Math.min(sz.x - 1, o.paddingTopLeft[0] - 24), Math.min(sz.y -
 return L.latLngBounds(map.containerPointToLatLng(tl), map.containerPointToLatLng(br));
 };
 let selC = null;
-const msArea = C.msArea = () => {
+const PER = 48; let lim = PER, pager = null;
+const msArea = C.msArea = more => {
 const map = C.map();
 const want = !!map && atlas() && map.getSize().x > 0 && !C.msAll && !S.day && (!desk() || C.msLive !== false);
-if (!want) { H.classList.remove('ms-on'); C.msN = null; if (C.msPaint) C.msPaint(); return; }
-const b = box(), inB = c => { const ll = llOf(c); return !!ll && b.contains(ll); };
-if (Cleo.defer) Cleo.defer.peek().filter(inB).forEach(s => Cleo.defer.stampFor(C.pid(s)));
-let nIn = 0, nOut = Cleo.defer ? Cleo.defer.peek().length : 0;
-qa('li.pl').forEach(c => { if (c.hidden) { c.classList.remove('ms-out'); return; }
-const o = !inB(c) && !c.classList.contains('is-target') && c !== selC; c.classList.toggle('ms-out', o); if (o) nOut++; else nIn++; });
+if (!want) { H.classList.remove('ms-on'); C.msN = null; if (pager) pager.hidden = true; if (C.msPaint) C.msPaint(); return; }
+if (more !== true) lim = PER;
+const b = box(), keep = c => c.classList && (c.classList.contains('is-target') || c === selC), inB = c => { const ll = llOf(c); return (!!ll && b.contains(ll)) || keep(c); };
+const ord = {}; C.sections.forEach((s, i) => { ord[at(s, 'data-area')] = i; });
+const tier = c => c.hasAttribute('data-closed') ? 4 : +at(c, 'data-t') || 3;
+const all = qa('li.pl').filter(c => !c.hidden).concat(Cleo.defer ? Cleo.defer.peek() : []);
+const inn = all.filter(inB).sort((x, y) => S.sort ? 0 : tier(x) - tier(y) || C.num(x) - C.num(y) || (ord[at(x, 'data-a')] || 0) - (ord[at(y, 'data-a')] || 0));
+const show = {}; inn.slice(0, lim).concat(inn.filter(keep)).forEach(c => {
+show[C.pid(c)] = 1; if (!C.byId[C.pid(c)] && Cleo.defer) Cleo.defer.stampFor(C.pid(c)); });
+qa('li.pl').forEach(c => c.classList.toggle('ms-out', !c.hidden && !show[C.pid(c)] && !keep(c)));
 qa('section.area').forEach(s => s.classList.toggle('ms-empty', !s.querySelector('li.pl:not([hidden]):not(.ms-out)')));
-C.msN = [nIn, nOut]; H.classList.add('ms-on'); here(false);
+if (!pager && lp) { pager = d.createElement('p'); pager.className = 'ms-pager'; lp.insertBefore(pager, $('#how-we-choose', lp)); on(pager, 'click', e => { if (e.target.closest('button')) { lim += PER; msArea(true); } }); }
+const left = inn.length - lim;
+if (pager) { pager.hidden = left <= 0; pager.innerHTML = left > 0 ? '<button type="button" class="btn btn-ghost">Show ' + Math.min(PER, left) + ' more</button> <span>' + lim.toLocaleString('en-US') + ' of ' + pl(inn.length) + ' in this area</span>' : ''; }
+C.msN = [inn.length, all.length - inn.length]; H.classList.add('ms-on'); here(false);
 if (C.msPaint) C.msPaint();
 };
 C.after.push(() => { if (atlas() && C.map()) msArea(); });
@@ -60,14 +68,13 @@ on(hereB, 'click', () => { C.msAll = false; msArea(); if (lp) lp.scrollLeft = 0;
 if (hereB) hereB.hidden = !o;
 };
 const pinSel = (c, o) => { const el = C.pinEl(c), m = inCl[C.pid(c)], ce = m && m.getElement && m.getElement(); if (el) el.classList.toggle('sel', o); if (ce) ce.classList.toggle('sel', o);
-const k = C.markers[C.pid(c)]; if (k && k.setZIndexOffset) k.setZIndexOffset(o ? 1200 : at(c, 'data-t') === '1' ? 300 : 0); };
+const k = C.markers[C.pid(c)]; if (k && k.setZIndexOffset) k.setZIndexOffset(o ? 1200 : at(c, 'data-t') === '1' ? 600 : 0); };
 let quiet = 0;
 const select = C.select = (c, how) => {
 if (!c) return;
 if (selC && selC !== c) { selC.classList.remove('is-sel', 'is-focus'); pinSel(selC, false); }
 const again = selC === c; selC = c; c.classList.add('is-sel', 'is-focus'); pinSel(c, true);
-if (c.classList.contains('ms-out')) msArea();
-if (c.classList.contains('ms-out')) c.classList.remove('ms-out');
+if (c.classList.contains('ms-out')) msArea(true);
 if (desk()) {
 const into = sm => { if (!lp || !lp.scrollTo || selC !== c) return; const r = c.getBoundingClientRect(), pr = lp.getBoundingClientRect(), hd = $('.ms-head', lp), top = pr.top + (hd ? hd.offsetHeight : 0);
 if (r.top < top || r.bottom > pr.bottom) lp.scrollTo({ top: lp.scrollTop + r.top - pr.top - (pr.height - r.height) / 2, behavior: sm && !C.still() ? 'smooth' : 'auto' }); };
@@ -111,6 +118,7 @@ poi.innerHTML = '<a class="ms-pv" href="' + C.esc(Cleo.route.href(r)) + '">' + '
 '<span class="ms-pv-b"><span class="ms-pv-e">' + ($('.pl-e', c) ? C.esc($('.pl-e', c).textContent.replace(/\s+/g, ' ').trim()) : '') + '</span>' +
 '<span class="ms-pv-n">' + C.esc(nmT) + '</span>' + (w ? '<span class="ms-pv-w">' + C.esc(w.textContent.trim()) + '</span>' : '') +
 (s ? '<span class="ms-pv-s">' + C.esc(s.textContent.replace(/\s+/g, ' ').replace(/\s+,/g, ',').trim()) + '</span>' : '') + '</span></a>' +
+(ph && $('figcaption', ph.closest('figure') || c) ? '<p class="ms-pv-c">' + $('figcaption', ph.closest('figure')).innerHTML + '</p>' : '') +
 '<button type="button" class="btn btn-icon ms-pv-x" aria-label="Close the preview">' + C.icon('close') + '</button>';
 poi.hidden = false; place();
 };
