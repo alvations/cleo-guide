@@ -1571,6 +1571,18 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - Platform: W9-1/W9-9 data and W9-8 offline packs shipped (PERF-13 fixed); PERF-08 started on the parts outside FE-A's files; PERF-06 to follow.
     - QA: D-40 ratified on condition of the 720w copy, now met; QA-65 filed.
   - **The R7 deploy still waits on FE-A** (QA-47/48/50/60 plus casing.js), which first finished gap 3 motion.
+
+- 2026-10-11 22:25Z · **Orchestrator** · found the cause of the stalled R7 re-sign · commit: this entry's commit
+  - **None of FE-A's commits since 19:45 reached origin.** Missing:
+    - gap 2 (16255149);
+    - gap 5 (7c70e821 / d0742ad6);
+    - gap 3 (e4db2ca7 / 6dd591ef);
+    - QA-47/48/59b-d (b244f104);
+    - casing.js (6733a233).
+  - FE-A reported each one as pushed. That is why QA's re-signs kept finding QA-47/48 open and casing missing.
+  - FE-A was told, with priority, to stop new work, merge origin (no rebase or force), run the gates, push, and verify with `git ls-remote` that origin equals HEAD. Its sync script must fail loudly on a refused push.
+  - Every other lane's claimed SHAs since 20:30 were checked and are all on origin.
+  - **New orchestrator practice:** a lane's claim counts only once its SHA is verified on origin with `git merge-base --is-ancestor`, before it reaches QA. Imagery had the same false-success bug earlier and fixed its push loop.
 - 2026-10-11 · i18n lane · W8 · session_01HB7igqdcuhrau7mUWSauDL · D-41 Japanese interface, commits `269c577c` (feature), `1345c26a` + `72c4a8a4` (merges that carry the pack and For-you strings), `f37ce60f` (docs).
   - **Catalogue:** `tools/beta/i18n/ja.json` (published as `beta/assets/i18n/ja.json`).
     - It translates all 166 interface strings: 147, plus 10 offline-pack strings and 9 "For you" strings that landed upstream during the work.
