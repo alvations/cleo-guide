@@ -38,7 +38,8 @@ const tripPage = require('./lib/render/trip');                  // FE-C W9-4: be
 const shell = require('./lib/render/shell');                       // FE-B: site context for header/footer
 const hub = require('./lib/render/hub');                           // FE-B: country hubs + SEA archive
 const method = require('./lib/render/method');                     // FE-B: how-we-choose.html, 404.html
-const changesPage = require('./lib/render/changes');               // W4 gap #9: human-readable "What changed" per page
+const changesPage = require('./lib/render/changes');
+const recognition = require('./lib/recognition');                 // W9-1 / W9-9 (platform): design/beta/RECOGNITION.md               // W4 gap #9: human-readable "What changed" per page
 
 const BETA = path.join(ROOT, 'beta');
 const args = new Set(process.argv.slice(2));
@@ -55,6 +56,7 @@ for (const r of cityRows) {
   r.recs = normalise(r);
   if (r.recs.length !== r.counts.P + r.counts.F) errors.push(`${r.live}: model ${r.recs.length} != live ${r.counts.P + r.counts.F}`);
   r.sources = pageSources(r, r.recs);             // stamps rec.src (publisher ids) — M1-10
+  r.recog = recognition.pageRecognition(r, r.recs, r.sources.list, ROOT);   // W9-1/W9-9: badges + local favourites from source keys only
   r.stats = stats.pageStats(r, r.recs);           // every number the page prints — M1-20
   r.guide = guide(r, r.recs);                     // ★ signature, canon-first food order, day plans, recently closed (W2)
   r.order = views.stamp(r, r.recs);               // W3 P-01: rank/of/k3 on every record; the view order (area, then rank)
@@ -221,6 +223,8 @@ for (const r of cityRows) {
     // W8 FE-B: Guidebook chapters lead with a credited photo where one exists — per area, the first open SIGHT in view
     // order with a credited photo (imagery gate: never closed, never Vietnam; never a food place). Caption = TASL, linked.
     chapterPhotos: chapterPhotos(r),
+    // W9-1 / W9-9 (platform): per-page recognition summary; per place `rec` {award, video, cited} and `lf` ride on places[]
+    recognition: r.recog,
     places: r.recs.map(x => (x.pv && x.pv.src ? Object.assign({}, x, { pv: Object.assign({}, x.pv, { src: undefined }) }) : x))
       .map(x => quoted.quotes(x) ? Object.assign({}, x, { pq: quoted.researched(x) || r.stats.lastChecked || 'undated' }) : x),
   }));
