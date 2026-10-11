@@ -615,6 +615,42 @@ html body #cleo-sheet .detail .fact .btn{max-width:100%;height:auto;min-height:4
 /* R7 gap 2(b): the bars are fully opaque — content never ghosts through the top bar (was paper 96 %) */
 html:root body .topbar,html:root body .topbar.on-night{background:var(--paper)}
 html body .tabbar{background:var(--surface)}
+/* ---- 17. R7 gap 5: food covers read as intentional — the dish in display type on the eat-and-drink tint, under the
+   kind glyph (food places never get photos; a blank sand box read as "not loaded") ---- */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-cover,html .view-gallery .gc .cover.food{background:color-mix(in srgb,var(--sun) 16%,var(--sand))!important;container-type:inline-size;align-content:center;gap:8px}
+html main[data-city] li.pl>.pl-cover .pl-dish,html .view-gallery .gc .cover .dish{display:block;max-width:86%;margin:0;color:var(--ink);font:500 clamp(14px,10cqi,28px)/1.08 var(--font-display);letter-spacing:-.01em;text-align:center;text-wrap:balance;overflow-wrap:anywhere}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-cover .pl-glyph,html .view-gallery .gc .cover.food .gl,html .view-gallery .gc .cover.food .gl .ico{width:24px;height:24px;color:var(--ink-2)}
+html main[data-city] li.pl[data-k=f]>.pl-cover .pl-vert{display:none}
+/* the ratified Gallery card (QA W7): no write-up / look-for / address on the card face. v2's clamp rule
+   (.pls .pl:not(.is-target):not(:target):not(:focus-within) .pl-w, 0-6-0) re-showed the write-up on phones, above the name */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>:is(.pl-w,.pl-k,.pl-ad){display:none!important}
+/* B-08: the map pill steps aside (scrolling down, or a card title under it); it fades, then stops being hit-testable */
+html main[data-city] .mappill:not([hidden]){transition:opacity var(--dur-2) var(--ease-out),transform var(--dur-2) var(--ease-out),visibility 0s}
+html main[data-city] .mappill.away:not([hidden]){opacity:0;visibility:hidden;transform:translate(-50%,12px);transition:opacity var(--dur-2) var(--ease-out),transform var(--dur-2) var(--ease-out),visibility 0s var(--dur-2)}
+@media (prefers-reduced-motion:reduce){html main[data-city] .mappill:not([hidden]),html main[data-city] .mappill.away:not([hidden]){transition:none}}
+/* R7 gap 5: no blank band beside the desktop hero — the photo takes the height of the text column (name, line, start,
+   facts) instead of a fixed 4:3 that ran ~170 px past it; never shorter than 300 px (object-fit crops, never stretches) */
+@media (min-width:1024px){
+  html[data-view=gallery] main[data-city]>.masthead .hero-media{align-self:stretch;aspect-ratio:auto;display:grid;grid-template-rows:minmax(300px,1fr) auto}
+  html[data-view=gallery] main[data-city]>.masthead .hero-media img{contain:size;width:100%;height:100%;min-height:300px;aspect-ratio:auto;object-fit:cover}
+}
+/* the category bar is sticky over the cards: v2's right-edge fade is a mask, so it faded the bar's own paper too and let
+   the cards scrolling beneath show through ("+2 more" ghosting at 1024). No mask; the cut-off last tile says "scrolls" */
+@media (min-width:768px){html body nav.rail#cleo-rail{-webkit-mask:none;mask:none}}
+/* ---- 18. W8 grid density (1024 / 1280 / 1440): no lone card on an area's last row. From 600 px the area section is the
+   grid (its <ol> keeps its list semantics but lays out as contents), so the area's own end actions ("See these N on the
+   map", "Your day here") take the rest of the last row — or a full row when the last row is already full ---- */
+@media (min-width:600px){
+  html[data-view=gallery] main[data-city] .split section.area{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(16px,1.6vw,24px);row-gap:0}
+  html[data-view=gallery] main[data-city] .split section.area>*{grid-column:1/-1}
+  html[data-view=gallery] main[data-city] .split section.area>ol.pls{display:contents}
+  html[data-view=gallery] main[data-city] .split section.area>ol.pls>li.pl{grid-column:auto;margin-bottom:clamp(28px,3vw,40px)}
+  html[data-view=gallery] main[data-city] .split section.area>.area-end{grid-column:1/-1;align-self:start;align-content:center;justify-content:center;min-height:120px;margin:0 0 clamp(28px,3vw,40px);padding:16px;border:1px dashed var(--line-strong);border-radius:var(--w7-media)}
+  html[data-view=gallery] main[data-city] .split section.area>.area-end:empty{display:none}
+  html[data-view=gallery] main[data-city] .split section.area>.area-end [data-cleo-map]{display:inline-flex}
+}
+@media (min-width:1024px){html[data-view=gallery] main[data-city] .split section.area{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:1280px){html[data-view=gallery] main[data-city] .split section.area{grid-template-columns:repeat(4,minmax(0,1fr))}}
 
 /* ==========================================================================
    atlas.css — Atlas map-search (Atlas lane, W7 Amendment 2: the real-estate map-search pattern, for travel).

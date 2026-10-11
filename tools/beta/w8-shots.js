@@ -42,6 +42,8 @@ const SETS = [
   { id: 'place-tokyo-end', url: 'beta/cities/tokyo.html#p=kanda-myojin', wait: 900, act: () => { const s = document.querySelector('#cleo-sheet .sheet-b, #cleo-sheet [data-sh-body], #cleo-sheet .body') || document.querySelector('#cleo-sheet'); [s].concat([...document.querySelectorAll('#cleo-sheet *')].filter(e => e.scrollHeight > e.clientHeight + 40)).forEach(e => e && (e.scrollTop = 1e5)); } },
   { id: 'place-closed', url: 'beta/cleveland.html#p=heinens-downtown', wait: 900 },
   { id: 'gallery-bar-scrolled', url: 'beta/cities/tokyo.html', wait: 700, scroll: 2.2 },
+  { id: 'food-grid', url: 'beta/cities/tokyo.html#view=gallery&mode=food', wait: 900, scroll: 1.2 },
+  { id: 'food-rows', url: 'beta/cleveland.html', wait: 900, scroll: 2.2 },
   { id: 'grid-1024', url: 'beta/cities/tokyo.html#all=1', wait: 700, scroll: 1.6, w: 1024 },
   { id: 'grid-1280', url: 'beta/cities/tokyo.html#all=1', wait: 700, scroll: 1.6, w: 1280 },
   { id: 'grid-1440', url: 'beta/cities/tokyo.html#all=1', wait: 700, scroll: 1.6, w: 1440 },

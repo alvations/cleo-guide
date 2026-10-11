@@ -15,7 +15,9 @@ const { sentence, ownWords } = require('./casing');
 // grid card (lazy, sized, alt = what it depicts, TASL credit in the figcaption). Never for a closed place (the gate).
 const capText = c => captionHtml(c).replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
 const phOf = r => { const p = !r.closed && PH[r.id]; return p ? [p.src, p.w, p.h, p.credit.depicts, capText(p.credit), (p.widths || []).map(x => [x.src, x.w])] : null; };
-const slim = r => Object.assign(Object.fromEntries(SLIM.filter(k => r[k] != null && r[k] !== '' && r[k] !== false).map(k => [k, r[k]])), phOf(r) ? { ph: phOf(r) } : {});
+let CZ = {}, OWN = null;                       // W8: cuisine names by id, for a food card's dish line (sentence case)
+const dishOf = r => { const n = r.kind === 'food' && (r.cz || []).map(id => CZ[id]).filter(Boolean)[0]; return n ? sentence(n.split(/ & |, | \(/)[0], OWN) : ''; };
+const slim = r => Object.assign(Object.fromEntries(SLIM.filter(k => r[k] != null && r[k] !== '' && r[k] !== false).map(k => [k, r[k]])), phOf(r) ? { ph: phOf(r) } : {}, dishOf(r) ? { d: dishOf(r) } : {});
 const pl = n => n + (n === 1 ? ' place' : ' places');
 
 function rowsOf(j, name) {
@@ -26,6 +28,7 @@ function rowsOf(j, name) {
   const inC = id => ord.filter(r => (r.g || []).indexOf(id) >= 0), inCz = id => ord.filter(r => (r.cz || []).indexOf(id) >= 0), out = [], used = {};
   // W8 (owner): row titles are sentence case at display time (lib/casing.js); the page's own place names keep their capitals
   const own = ownWords(name, ...(j.areas || []).map(a => a.n));
+  CZ = Object.fromEntries((j.cuisines || []).map(c => [c.id, c.n])); OWN = own;
   const add = (t, sub, k, v, list, star) => { if (!list.length || used[k + '=' + v]) return; used[k + '=' + v] = 1; out.push([sentence(t, own), sub, k, v, star, list.length, list.slice(0, 12).map(slim)]); };
   const star = (j.collections || []).filter(c => /^★/.test(c.n) && inC(c.id).length)[0], sg = G.signature;
   let sig = [];

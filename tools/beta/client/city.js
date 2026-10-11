@@ -29,6 +29,17 @@
   const nameOf = c => { const a = $('.pl-n a', c); if (!a) return ''; const x = a.cloneNode(true); if (c.querySelector('.pl-vert')) $$('.nat', x).forEach(v => v.remove()); return x.textContent.trim(); };
   const C = Cleo.city = { name: nameOf, byId, info, key, pid, been, desk, esc, icon, trap, cards, S, lens: {}, after: [], rank: null, why: null, dist: null };
   $$('[data-cleo-rail],[data-cleo-toolbar],[data-cleo-search],[data-cleo-mappill]').forEach(el => { el.hidden = false; });
+  // R7 gap 5 (B-08): the floating "Show map" pill never sits on a card title. It steps aside while the page scrolls down
+  // and comes back when the page settles (or scrolls up) only if no title is under it; the city bar's switcher always
+  // reaches the map. Hidden = visibility:hidden (not focusable, not hit-testable).
+  { const pill = $('[data-cleo-mappill]');
+    if (pill) { let y0 = scrollY, t = 0;
+      const covers = () => { const r = pill.getBoundingClientRect(); if (!r.width) return false; pill.style.pointerEvents = 'none';
+        const hit = [0.1, 0.5, 0.9].some(fx => [0.2, 0.8].some(fy => d.elementsFromPoint(r.left + r.width * fx, r.top + r.height * fy).some(e => e !== pill && e.closest('.pl-n, .gc-n, .pl-e, .gc-b'))));
+        pill.style.pointerEvents = ''; return hit; };
+      const settle = () => { pill.classList.toggle('away', covers()); };
+      window.addEventListener('scroll', () => { const y = scrollY; if (y > y0 + 2) pill.classList.add('away'); y0 = y; clearTimeout(t); t = setTimeout(settle, 140); }, { passive: true });
+      on(window, 'resize', settle); setTimeout(settle, 300); on(d, 'cleo:stamped', () => { clearTimeout(t); t = setTimeout(settle, 140); }); } }
   // For you / Near me (foryou.js) and Your day (day.js) load on first use — a tap, a stored interest or a #day= route
   const need = C.need = (n, cb) => {
     if ({ foryou: C.fy, day: C.day, atlas: C.atlasTools }[n]) { if (cb) cb(); return; }
@@ -147,6 +158,15 @@
     syncMarkers(); C.after.forEach(f => f());
   };
   C.apply = () => apply();
+  // W8 grid density: an area's end actions take the rest of its last card row (a lone last card never sits by itself);
+  // a full last row gets the actions on a row of their own. Counts what is shown (lens, pager), recomputed after every change
+  let endsQ = 0;
+  const fillEnds = () => { endsQ = 0; $$('.split section.area').forEach(sec => { const e = $(':scope > .area-end', sec); if (!e) return;
+    const cols = getComputedStyle(sec).display === 'grid' ? getComputedStyle(sec).gridTemplateColumns.split(' ').length : 1;
+    const n = $$('li.pl', sec).filter(c => !c.hidden && !c.classList.contains('pg-off')).length, rem = cols > 1 ? n % cols : 0;
+    e.style.gridColumn = rem ? 'span ' + (cols - rem) : ''; }); };
+  const ends = () => { if (!endsQ) endsQ = requestAnimationFrame(fillEnds); };
+  C.after.push(ends); on(window, 'resize', ends); on(d, 'cleo:stamped', ends); on(window, 'hashchange', () => setTimeout(ends, 0));
 
   let lastP = '', lastA = '';
   const onRoute = C.onRoute = () => {
@@ -186,8 +206,12 @@
     const na = $('.pl-n .nat', c), g0 = Array.from(na ? na.textContent.replace(/^\s*\(|\)\s*$/g, '') : ''), g = g0.length <= 7 ? g0 : [], nm = $('.pl-n', c).textContent.replace(/\s*[—–-]+\s*CLOSED\b.*$/i, '');
     p.innerHTML = (g.length ? '<span class="pl-vert' + (g.length > 4 ? ' long' : '') + '"' + (info.lang ? ' lang="' + info.lang + '"' : '') + '>' + esc(g.join('')) + '</span>'
       : '<span class="pl-ini" data-i="' + esc((nm.replace(/^(The|La|Le|El|Il|Der|Die|Das)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || ['·'])[0]) + '"></span>') +
-      '<svg class="pl-glyph"><use href="#i-' + at(c, 'data-gl') + '"/></svg>';
+      '<svg class="pl-glyph"><use href="#i-' + at(c, 'data-gl') + '"/></svg>' + dishOf(c);
   };
+  // R7 gap 5 (food covers): food places never get photos (honesty rule), so their cover names the dish in display type
+  // on the eat-and-drink tint, under the kind glyph — an intentional face, never a blank box that reads as "not loaded"
+  const dishOf = c => { if (at(c, 'data-k') !== 'f') return ''; const x = $('.pl-e .in-d', c), t = x ? x.textContent.replace(/^\s*·\s*/, '').trim() : '';
+    return '<span class="pl-dish">' + esc(t || 'Eat & drink') + '</span>'; };
   const paint = () => {
     const s = Cleo.saved ? Cleo.saved.all() : {}, b = been.all();
     cards.forEach(c => {
