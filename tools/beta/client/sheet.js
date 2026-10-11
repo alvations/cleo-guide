@@ -143,9 +143,11 @@
   // the place detail shows the photo's full TASL credit (title, author, licence, source); the card carries the short form
   // (TASL: the short card credit names author, licence and source and keeps the file title on its source link; the detail
   // spells the title out in front)
-  // W8 (QA-51): the sheet's media slot is up to ~1,024 px, so the card's `sizes` (≈ 25vw) would fetch the 500 w file and
-  // stretch it. The copy asks for the slot's width and never displays wider than its largest file (no upscaling).
+  // W8 (QA-51; FE-A + platform): the sheet's media slot is up to ~1,024 px, so the card's `sizes` (≈ 25vw, or the 3×
+  // density cap) would fetch the 500 w file and stretch it. The copy asks for the slot's width and never displays wider
+  // than its largest file (no upscaling).
   var fullCap = function (f) { var x = f.cloneNode(true), cap = q('figcaption', x), t = cap && q('a[title]', cap), im = q('img', x);
+    if (im) im.removeAttribute('data-sizes0');
     if (t && !q('.cap-t', cap)) cap.insertAdjacentHTML('afterbegin', '<span class="cap-t">' + esc(t.getAttribute('title')) + '</span> · ');
     if (im) { var mw = Math.max.apply(0, (im.getAttribute('srcset') || '').split(',').map(function (z) { return parseInt((/\s(\d+)w\s*$/.exec(z) || [])[1], 10) || 0; }).concat([+im.getAttribute('width') || 0]));
       im.setAttribute('sizes', '(min-width: 1024px) min(1024px, 88vw), 100vw'); im.setAttribute('loading', 'eager');

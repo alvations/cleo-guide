@@ -1382,3 +1382,62 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - new probe `beta:qa:w8p`.
   - **FE-A** casing helper `tools/beta/lib/casing.js` plus `test-casing.js` in npm test (6733a233): JS equals the Python reference on 368 labels; no uppercase/capitalize in any shipped CSS; 4,919 city-page labels in sentence case.
   - **Imagery:** the last hero swaps are pushed (61a69415, 71e1d271): Toa Payoh dragon playground, Changi Boardwalk, Sule Pagoda; refusals apply per file.
+### FE Atlas — QA-45 / QA-52 / QA-54 + w7 atlasm (no test changed)
+- QA-45: "Show all N in one list" (pager `data-pg="all"`, and the header's Show all) stamps every deferred card and lifts paging — every place in one list; metrics `--view atlas` G1 ✅ on all pilots, first load ≤ 2 MB ✅.
+- QA-54: a query change refits the map to the matches (`C.fitLens`), so an exact-name search off the map brings the place in view.
+- QA-52 / w7 atlasm: the carousel thumbnail's figure is `display:contents` (it clips nothing) and now says `overflow:visible`; a canvas dot reports its featured pin as its element, so a tapped pin is found by the probe as the place's element; phone controls (locate, map style, key) sit bottom right above the cards, the OSM credit top left — clear of every control. `node tools/beta/qa/w7.js --only atlasm` 56/56 PASS.
+  - **Platform (W8, R7 ratifications + QA-51):**
+    - `metrics.js` B-08 exempts the sticky city bar `.cbar` and the floating `.mappill`, as it exempts the site header (ratification 6, exactly as worded). Tokyo Gallery B-08 is ✅ 0.
+    - D-38 is **ratified**. The first-load row now reads "map tiles excluded": tiles are off-origin and blocked.
+    - QA-51: the detail media clone in `sheet.js` `fullCap()` asks for its own slot (`(min-width: 1024px) 1024px, 100vw`). Desktop Tokyo detail went from 500w to **960w** at 1,024 px. `beta:qa:w8p` check 3 covers it.
+    - B-06/07/09: nothing is left for platform. QA did B-06/B-07, and B-09 waits for QA's next pass.
+
+- 2026-10-11 20:55Z · **Orchestrator** · Owner: "Fix all the issues! And then run the melon-seek style UI/UX and experience QA QC and all the backend and application front end optimization and keep the audit trail on all of them" · commit: this entry's commit
+  - **Audit trail:**
+    - new `docs/BETA-ISSUES.md`, the single register of every open issue from every source;
+    - statuses: open → fixed (claimed, with a SHA) → verified (by an independent checker on a pinned SHA, with the probe and its result);
+    - the R7 QA lane builds and keeps it.
+  - **Fix all the issues:**
+    - every open item already has an owning lane (R7 QA rows, the R7 gaps, PANEL-R1, casing, W8);
+    - the register makes any unassigned item visible.
+  - **Then the melon-seek-style UI/UX and experience QA/QC:**
+    - a new QC lane, judged against the patterns in `design/beta/views/STUDY.md` §7 (taken from the owner's melon-seek), plus experience journeys and a UI QC sweep;
+    - it builds its harness now and runs the full pass on a pinned head once the fixes land;
+    - output in `docs/BETA-QC.md`, with each finding mirrored in the register.
+  - **Backend and front-end optimization:**
+    - the platform lane runs the audit with before/after numbers and commits in `docs/BETA-PERF-AUDIT.md`;
+    - "backend" here means the build and data pipeline, the search index and data payloads, the service worker and caching, and the GitHub Actions workflows (there is no server);
+    - "front end" means JS, CSS, images and fonts, plus LCP, CLS and INP.
+
+- 2026-10-11 20:55Z · **Orchestrator** · Owner: "Location verify, can we also use [GitHub] Actions for that? Launch an agent to look into that" · commit: this entry's commit
+  - Launched the **location-verification lane** `session_012FeQJjTmiN2MXYQWwe55J2`, a feasibility study plus a prototype. Its deliverable is `docs/LOCATION-VERIFY-ACTIONS.md`, covering:
+    - the backlog today (unsourced, low-confidence and unchecked places per city);
+    - candidate runner-reachable sources (OSM Nominatim/Overpass, Wikidata, Wikipedia coordinates, official sites, open data), each with its usage policy and licence. Keyed and commercial map APIs are excluded;
+    - the fit with CLAUDE.md rules 4a–4c. The runner **proposes** with source, date and confidence and never writes `data/geocodes.json` directly. Closures are proposed only as "needs check" with evidence. Acceptance goes through review and the existing gates;
+    - the workflow design, rate plan, run time and risks.
+  - Prototype: `tools/location-verify*` with fixture tests, plus a dry-run report for one small city. The workflow YAML comes to the orchestrator, who owns the workflow files.
+  - This is an owner-sanctioned use of Actions, like the Commons photo workflow; nothing routes around the sandbox policy.
+
+- 2026-10-11 20:58Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **QA-45 has landed:** a852a4e1 (Atlas FE-1: Show all is a single list, refit on search for QA-54, whole carousel credits, phone controls bottom right).
+    - Pinned **`dd2125e3`** for the R7 re-sign. The QA lane runs the G1/B-02/B-04/B-05 rows plus QA-45/50/52/54 on that SHA and records them in `docs/BETA-ISSUES.md`.
+    - On YES, beta-deploy-r7 ships exactly that SHA.
+    - The orchestrator's validate + test run on the same SHA is in progress.
+  - **Imagery `pilots` (run #34, 1cf7c025):** 3 new 500w photos, reviewed on a contact sheet.
+    - Kept: Tokyo Tower.
+    - Refused: Rockaway (an old aerial survey shot with bulldozers on the sand; equipment class).
+    - Refused: Nihonbashi ("Chuo-dori from Nihonbashi" shows the street seen from the bridge, not the bridge).
+    - Imagery adds a depicts-mismatch guard ("X from <place>" / "View from <place>" is refused unless depicts names the place) with a test. `scope=all` waits for the cleanup and the per-city coverage report.
+  - **Atlas loop:**
+    - FE-1 and FE-2 have agreed file ownership: FE-2 takes `atlas-nav.js` plus hook exports and a marked focus-ring block; FE-1 takes the pins, controls, attribution and phone overlay.
+    - FE-1 is fixing PANEL-R1 #2: the phone credit becomes a one-line "© OpenStreetMap · Esri ⓘ" strip at the bottom left, with the full credit behind ⓘ. The atlas-ms probe now does a real tap on every control (locate first).
+    - FE-2 is fixing #1 (the round-trip): its probe passes except focus return to the pin.
+    - Round 2 goes to the panel once both agree on N and the SHA.
+  - **The other lanes are all working:**
+    - FE-A: R7 gap 2 gate, then the gap 5 food covers;
+    - FE-B: the type residue;
+    - platform: replies, then the optimization audit;
+    - the designer;
+    - FE-C: `trip.js` (the walking helper is done);
+    - QC: the Phase 1 Playwright harness;
+    - location verification: reading the pipeline.
