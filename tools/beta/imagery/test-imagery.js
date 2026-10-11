@@ -157,7 +157,7 @@ const refOf = t => (/(?:<img class="motif" src="|<image href=")([^'"?]+)/.exec(t
 const hasMotif = t => !!refOf(t) && fs.existsSync(path.join(BETA, refOf(t)));
 /** a credited photo in this fragment: a photo element AND a visible TASL credit (figcaption, .credit or .hero-credit). */
 const hasCreditedPhoto = t => /<(?:img class="ph"|figure class="photo)/.test(t) &&
-  /<(?:figcaption|small class="credit"|p class="hero-credit")[^>]*>[\s\S]*?(?:by |Photo: )[\s\S]*?<a [^>]*rel="license/.test(t);
+  /<(?:figcaption|small class="credit"|p class="credit"|p class="hero-credit")[^>]*>[\s\S]*?(?:by |Photo: )[\s\S]*?<a [^>]*rel="license/.test(t);
 const artOrPhoto = t => hasMotif(t) || hasCreditedPhoto(t);
 const heroOf = h => (/<section class="chero[\s\S]*?<\/section>/.exec(h) || [''])[0];
 ok(tiles.length > 0 && tiles.every(artOrPhoto), `every landing city tile carries an existing motif or a credited photo (${tiles.length})`);
