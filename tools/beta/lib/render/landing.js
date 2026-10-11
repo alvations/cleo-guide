@@ -52,7 +52,7 @@ ${more.length ? `<h3 class="more-h d3">${esc(t('hub.more', { country: c.name }))
     best.pages.sort((a, b) => b.sg.n - a.sg.n || (a.r.name < b.r.name ? -1 : 1));
     const top = best.pages[0], lens = top.sg.kind === 'collection' && top.sg.c && top.sg.c[0] ? 'c=' + encodeURIComponent(top.sg.c[0]) : 'sig=1';
     const where = best.pages.length > 1 ? esc(t('land.sig.across', { n: best.pages.length, country: c.name })) + ' ' + best.pages.slice(0, 3).map(x => `${esc(x.r.name)} ${x.sg.n}`).join(' · ') + (best.pages.length > 3 ? ' …' : '') : esc(t('land.sig.in', { city: top.r.name }));
-    return `<a class="rail-i sig" href="${esc(top.r.beta)}#${lens}">${icon(top.sg.kind === 'collection' ? 'star4' : 'forkknife', 'g ico')}<span class="k">★ ${esc(c.name)}</span><span class="t">${esc(best.title)}</span><span class="d">${where}</span><span class="n">${best.n.toLocaleString('en-US')}</span></a>`;
+    return `<a class="rail-i sig" href="${esc(top.r.beta)}#${lens}">${icon(top.sg.kind === 'collection' ? 'star4' : 'forkknife', 'g ico')}<span class="k">★ ${esc(c.name)}</span><span class="t">${esc(top.sg.label || best.title)}</span><span class="d">${where}</span><span class="n">${best.n.toLocaleString('en-US')}</span></a>`;
   }).filter(Boolean);
   const editorialHtml = editorial.length ? `<section class="section editorial-s" aria-labelledby="ed-h"><div class="rail-head"><h2 class="d2" id="ed-h">${esc(t('land.sig.h'))}<span class="n">${esc(t('land.sig.n', { n: editorial.length }))}</span></h2></div>
 <nav class="rail editorial" aria-label="${esc(t('land.sig.h'))}">
