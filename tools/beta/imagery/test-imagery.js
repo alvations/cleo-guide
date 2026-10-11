@@ -98,7 +98,7 @@ ok(fixture([Object.assign({}, slotRow, { record: { page: 'tokyo', id: open.id } 
 const cmn = Object.assign({}, good, { file: 'a-960.png', provider: 'wikimedia-commons', sourceUrl: 'https://commons.wikimedia.org/wiki/File:Senso-ji,_Asakusa,_Tokyo.jpg', variants: [{ file: 'a-480.png', width: 480, height: 320 }] });
 r = fixture([cmn], ['a-960.png', 'a-480.png']);
 const cph = r.byPage.tokyo && r.byPage.tokyo[open.id];
-ok(r.errors.length === 0 && cph && cph.srcset.length === 2, 'Commons row with a size variant → one photo, srcset of 2 (the variant is covered by the row\'s credit)');
+ok(r.errors.length === 0 && cph && cph.widths.length === 2 && cph.srcset === 'assets/img/photos/a-480.png 480w, assets/img/photos/a-960.png 960w', 'Commons row with a size variant → one photo, srcset of 2 (the variant is covered by the row\'s credit)');
 const cfig = cph ? photos.figureHtml(cph, '../') : '';
 ok(/ srcset="\.\.\/assets\/img\/photos\/a-480\.png 480w, \.\.\/assets\/img\/photos\/a-960\.png 960w" sizes="[^"]+"/.test(cfig) && /loading="lazy"/.test(cfig), 'card figure: sized srcset (480w, 960w) + sizes, lazy');
 ok(fixture([cmn], ['a-960.png']).errors.some(e => /variant a-480\.png — no such file/.test(e)), 'variant file missing → refused');
@@ -108,11 +108,12 @@ ok(photos.creditProblems(Object.assign({}, cmn, { sourceUrl: 'https://upload.wik
 const hero = Object.assign({}, cmn, { slot: { type: 'hero', key: 'tokyo' }, depicts: 'Tokyo skyline' }); delete hero.record;
 r = fixture([hero], ['a-960.png', 'a-480.png']);
 const hph = r.bySlot['hero:tokyo'];
-ok(r.errors.length === 0 && hph && hph.srcset.length === 2, 'Commons hero slot with a variant → bySlot hero:tokyo');
+ok(r.errors.length === 0 && hph && hph.widths.length === 2, 'Commons hero slot with a variant → bySlot hero:tokyo');
 const hfig = hph ? photos.heroHtml(hph, '../') : '', hcred = hph ? photos.heroCreditHtml(hph) : '';
 ok(/<figure class="photo hero-photo"/.test(hfig) && /fetchpriority="high"/.test(hfig) && !/loading="lazy"/.test(hfig) && /alt="Tokyo skyline"/.test(hfig) && /sizes="100vw"/.test(hfig) && /class="hero-scrim" aria-hidden="true"/.test(hfig), 'hero figure: eager (fetchpriority high, not lazy), srcset at 100vw, alt, scrim for text contrast');
 ok(/^<p class="hero-credit"[^>]*>Photo: “[^”]+” by A\. Photographer, <a [^>]*rel="license[^"]*"[^>]*>CC BY-SA 4\.0<\/a>, via <a [^>]*>Wikimedia Commons<\/a>/.test(hcred), 'hero credit: a visible TASL line in the text flow (title, author, licence link, source)');
-ok(imagery.heroFor({ imagery: { hero: hph } }) === hph && imagery.heroFor({ imagery: {} }) === null && imagery.heroFor(null) === null, 'heroFor: the credited hero, else null (renderer keeps the motif)');
+ok(imagery.heroFor({ imagery: { hero: hph } }) === hph && imagery.heroFor({ imagery: { slots: r.bySlot } }, 'tokyo') === hph && imagery.heroFor({ imagery: { slots: r.bySlot } }, 'kyoto') === null && imagery.heroFor({ imagery: {} }) === null && imagery.heroFor(null) === null, 'heroFor(row) / heroFor(reg, key): the credited hero, else null (renderer keeps the motif)');
+ok(/^<figure class="photo hero-media"><img [^>]*srcset=[^>]*fetchpriority="high"[^>]*><figcaption>“/.test(hph ? photos.heroHtml(hph, '../', 'photo hero-media') : ''), 'heroHtml with a media-slot class: in-flow, eager, with its TASL figcaption (FE-B hub hero)');
 ok(fixture([Object.assign({}, hero, { slot: { type: 'hero', key: 'vietnam/hanoi' } })], ['a-960.png', 'a-480.png']).errors.some(e => /freedom of panorama/.test(e)), 'Vietnam city hero slot → refused');
 
 // ---------------------------------------------------------------- 3. motifs

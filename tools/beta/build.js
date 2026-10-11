@@ -94,6 +94,8 @@ else assetsV.css = sha(fs.readFileSync(cssPath));
 // Source owned by FE-A (tools/beta/lib/render/fe-a.css); DES upstreams rules into cleo.css over time.
 const feaCss = fs.readFileSync(path.join(__dirname, 'lib', 'render', 'fe-a.css'));
 emit('assets/fe-a.css', feaCss); const feaV = sha(feaCss);
+// FE-B page CSS (W7): landing, hubs and static pages — tokens only; source owned by FE-B (lib/render/fe-b.css).
+const febCss = fs.readFileSync(require('./lib/render/shell').FEB_CSS_SRC); emit('assets/fe-b.css', febCss);
 const tokPath = path.join(BETA, 'assets', 'tokens.css');          // optional design tokens (designer, M0-01)
 if (fs.existsSync(tokPath)) assetsV.tokens = sha(fs.readFileSync(tokPath));
 emit('assets/icon.svg', fs.readFileSync(path.join(__dirname, 'static', 'icon.svg')));
@@ -262,7 +264,7 @@ emit('data/manifest.json', JSON.stringify({
 // Self-hosted fonts (designer, beta/assets/fonts) are precached so offline type matches online type.
 const FONTS = path.join(BETA, 'assets', 'fonts');
 const fontFiles = fs.existsSync(FONTS) ? fs.readdirSync(FONTS).filter(f => f.endsWith('.woff2')).sort().map(f => './assets/fonts/' + f) : [];
-const shellFiles = ['./index.html', './saved.html', './manifest.webmanifest', './assets/icon.svg', `./assets/cleo.css?v=${assetsV.css}`, `./${ctx.feaCss}`]
+const shellFiles = ['./index.html', './saved.html', './manifest.webmanifest', './assets/icon.svg', `./assets/cleo.css?v=${assetsV.css}`, `./${ctx.feaCss}`, `./assets/fe-b.css?v=${require('./lib/render/shell').febV()}`]
   .concat(fontFiles)
   .concat(assetsV.tokens ? [`./assets/tokens.css?v=${assetsV.tokens}`] : [])
   .concat(['./how-we-choose.html'])                                 // FE-B method page, offline too

@@ -1,0 +1,11 @@
+{
+ "_doc": "W7 designer: every palette direction scored 1-10 on the nine W7-BRIEFS criteria, on the same v2 type + component layer, from the real-page mockups in directions/shots/<id>/ (390 and 1440, light and dark). AA is measured (directions/contrast.json), the rest is the designer's judgement against RESEARCH.md.",
+ "criteria": ["modern-minimal", "marketplace-grade clarity", "palette uniqueness", "classy, not tacky", "luxury feel", "readability", "AA light + dark", "consistency across views", "photo-friendliness"],
+ "directions": {
+  "juniper": {"scores": [9, 9, 6, 8, 7, 9, 10, 9, 7], "note": "Calm and safe, but deep green is the default 'wellness' accent and it fights foliage in photos of parks, gardens and shrines."},
+  "oxblood": {"scores": [9, 9, 9, 9, 9, 9, 10, 9, 9], "note": "A tailoring colour on bone. It reads expensive at heart size, is far from any reference red (ΔE76 49 from the marketplace coral, 38 from the label red), and stays out of the way of food and city photos because it appears so rarely."},
+  "petrol": {"scores": [9, 9, 7, 8, 7, 9, 10, 9, 8], "note": "Architectural and crisp. The cool mist ground makes warm food photography look slightly grey, and blue-green is close to the map's water."},
+  "ember": {"scores": [8, 9, 5, 7, 7, 9, 10, 9, 7], "note": "Warm and friendly. Terracotta is the most common 'travel' accent, so it scores lowest on uniqueness. Orange competes with warm food photos and sits only ΔE 21 from the retired R6 vermilion."}
+ },
+ "winner": "oxblood"
+}

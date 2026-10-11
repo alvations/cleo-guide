@@ -73,6 +73,8 @@ function imageSize(buf) {
   return null;
 }
 
+/** beta-root-relative srcset string ("assets/img/photos/x-480.jpg 480w, …"), or '' with no variants. */
+const srcsetStr = set => set.length > 1 ? set.map(x => `${x.src} ${x.w}w`).join(', ') : '';
 const httpsUrl = u => /^https:\/\/[^\s]+$/i.test(String(u || ''));
 const isUnsplash = c => /^Unsplash License$/i.test(String(c.licence || '').trim());
 /** A hub hero for Vietnam would show Vietnamese places (no freedom of panorama): refused like a Vietnamese record. */
@@ -109,7 +111,7 @@ function creditProblems(c) {
 /**
  * Load and gate every photo. `pages` maps page key → { country, recs } (the beta model).
  * Returns { byPage: {pageKey: {placeId: photo}}, bySlot: {"hero:key" | "cover:key": photo}, credits, errors }
- * where photo = {file, src, w, h, credit}.
+ * where photo = {file, src, w, h, widths: [{src, w, h}], srcset: "src 480w, src 960w" | '', credit} (paths beta-relative).
  */
 function loadPhotos(betaDir, pages) {
   const errors = [], byPage = {}, bySlot = {};
@@ -150,7 +152,7 @@ function loadPhotos(betaDir, pages) {
       if (!size || !size.w || !size.h) { errors.push(`${where}: cannot read the image size — add width and height`); return; }
       if (bySlot[sk]) { errors.push(`${where}: ${sk} already has a photo`); return; }
       const set = sizesOf(c, where, size); if (!set) return;
-      bySlot[sk] = { file: c.file, src: `${PHOTO_DIR}/${c.file}`, w: size.w, h: size.h, srcset: set, credit: c };
+      bySlot[sk] = { file: c.file, src: `${PHOTO_DIR}/${c.file}`, w: size.w, h: size.h, widths: set, srcset: srcsetStr(set), credit: c };
       return;
     }
     const pg = pages[c.record.page];
@@ -164,7 +166,7 @@ function loadPhotos(betaDir, pages) {
     const page = (byPage[c.record.page] = byPage[c.record.page] || {});
     if (page[c.record.id]) { errors.push(`${where}: ${c.record.id} already has a photo`); return; }
     const set = sizesOf(c, where, size); if (!set) return;
-    page[c.record.id] = { file: c.file, src: `${PHOTO_DIR}/${c.file}`, w: size.w, h: size.h, srcset: set, credit: c };
+    page[c.record.id] = { file: c.file, src: `${PHOTO_DIR}/${c.file}`, w: size.w, h: size.h, widths: set, srcset: srcsetStr(set), credit: c };
   });
   for (const f of files) {
     if (!EXT.test(f)) errors.push(`beta/${PHOTO_DIR}/${f}: not an image this pipeline accepts (.jpg/.png/.webp)`);
@@ -189,7 +191,7 @@ function hostOf(u) { const m = /^https:\/\/(?:www\.)?([^/]+)/i.exec(u); return m
 const CARD_SIZES = '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw';
 /** srcset + sizes attributes when the photo has size variants (else ''). */
 function srcsetAttr(photo, up, sizes) {
-  const set = photo.srcset || [];
+  const set = photo.widths || [];
   return set.length > 1 ? ` srcset="${set.map(s => `${esc(up + s.src)} ${s.w}w`).join(', ')}" sizes="${esc(sizes)}"` : '';
 }
 /**
@@ -209,6 +211,8 @@ function figureHtml(photo, up = '', cls = 'photo', opts = {}) {
  * credited hero slot exists — otherwise the page is byte-identical.
  */
 function heroHtml(photo, up = '', cls = 'photo hero-photo') {
+  // an in-flow media slot (e.g. FE-B's hub 'photo hero-media'): eager, sized, with its TASL figcaption
+  if (cls !== 'photo hero-photo') return figureHtml(photo, up, cls, { eager: true, sizes: '(min-width: 1024px) 50vw, 100vw' });
   const g = 'var(--hero-scrim,var(--night,#14161c))';
   const scrim = `<span class="hero-scrim" aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(90deg,color-mix(in srgb,${g} 90%,transparent) 0,color-mix(in srgb,${g} 78%,transparent) 45%,color-mix(in srgb,${g} 38%,transparent) 100%)"></span>`;
   const c = photo.credit;

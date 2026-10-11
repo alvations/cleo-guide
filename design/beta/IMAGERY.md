@@ -352,7 +352,11 @@ Still refuses anything uncredited. New in W7:
 - **Cards** (`li.pl`): `<figure class="photo pl-photo">` with `srcset` (480w, 960w) and
   `sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"`, `loading="lazy"`, explicit width and height,
   `alt` = what it depicts, and the TASL `figcaption` laid over the bottom of the photo.
-- **City heroes** (`.masthead .g-hero-x`) and **hub heroes** (`.chero`): `imagery.heroHtml()` is a full-bleed
+- **Hub heroes and hub/landing city cards** belong to FE-B (`hub.js`, `landing.js`). They call `imagery.heroFor(reg, key)`
+  (slot `hero:<country or page key>` from `reg.imagery.slots`) and `imagery.heroHtml(ph, up, 'photo hero-media')`.
+  With a media-slot class that is an in-flow, eager figure with `srcset` and its TASL `figcaption`. `photo.srcset` is a
+  beta-relative string (`"assets/img/photos/x-480.jpg 480w, …"`). `photo.widths` holds the same sizes as objects.
+- **City heroes** (`.masthead .g-hero-x`, `city.js`): `imagery.heroHtml()` with the default class is a full-bleed
   `<figure class="photo hero-photo">` behind the headline. It is eager (`fetchpriority="high"`) with `srcset` at
   `100vw` and a scrim in the hero's ground colour (`--hero-scrim`, default `--night`), so the text stays at AA. It
   replaces the pin sky only when a credited hero exists. `imagery.heroCreditHtml()` puts the credit as a small

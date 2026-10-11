@@ -13,7 +13,7 @@
  * Model fields (documented for FE lanes; all paths are beta-root-relative and carry a ?v= content hash):
  *   row.imagery     = { motif: {night, ink, why}, photos: {placeId: {src, w, h, srcset, credit}}, hero }   (city rows)
  *   country.imagery = { motif: {night, ink, why}, hero }
- *   reg.imagery     = { collections: {kind: {night, ink, why}}, collectionKind(id, name) → kind, photoCount }
+ *   reg.imagery     = { collections: {kind: {night, ink, why}}, collectionKind(id, name) → kind, photoCount, slots }
  * Static outputs: beta/assets/img/motifs/*.svg, beta/assets/img/motifs/index.json, beta/assets/img/manifest.json.
  * Owner-edited inputs (never generated): beta/assets/img/CREDITS.json, beta/assets/img/photos/*.
  */
@@ -53,7 +53,7 @@ function build({ reg, cityRows, emit, errors, sha, betaDir }) {
   let photoCount = 0;
   for (const r of cityRows) { r.imagery.photos = ph.byPage[r.key] || {}; r.imagery.hero = ph.bySlot[`hero:${r.key}`] || null; photoCount += Object.keys(r.imagery.photos).length; }
   for (const c of reg.countries) if (c.imagery) c.imagery.hero = ph.bySlot[`hero:${c.key}`] || null;   // country hub hero (W7)
-  reg.imagery = { collections, collectionKind, photoCount, heroCount: Object.keys(ph.bySlot).filter(k => k.startsWith('hero:')).length };
+  reg.imagery = { collections, collectionKind, photoCount, slots: ph.bySlot, heroCount: Object.keys(ph.bySlot).filter(k => k.startsWith('hero:')).length };
   return reg.imagery;
 }
 
@@ -106,10 +106,15 @@ function motifSvg(m, up = '', { tone = 'night', fit = 'xMidYMax slice', style = 
 }
 
 /**
- * The credited hero photo for a city row (row.imagery.hero) or a country (country.imagery.hero), or null — then the
+ * The credited hero photo for a city row (row.imagery.hero), a country (country.imagery.hero) or any key via
+ * heroFor(reg, key) (reg.imagery.slots), or null — then the
  * renderer keeps its motif / calm cover and the page is unchanged. Vietnam never has one (refused at build).
  */
-function heroFor(obj) { return (obj && obj.imagery && obj.imagery.hero) || null; }
+function heroFor(obj, key) {
+  const im = obj && obj.imagery; if (!im) return null;
+  if (key != null && im.slots) return im.slots[`hero:${key}`] || null;   // heroFor(reg, key): FE-B hubs/landing
+  return im.hero || null;                                                 // heroFor(row) / heroFor(country)
+}
 
 /** The credited local photo for a record, or null. Closed places never get one (also refused at build). */
 function photoFor(row, rec) {
