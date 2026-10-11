@@ -240,8 +240,8 @@
   C.msIn = () => {
     build(); unpark(); deco();
     const x = $('.ms-x', bar);
-    // phones: filters first, the view switcher last; desktop: area chips in the results head
-    if (!desk()) { park(tb, bar, x); park(nav, bar, null); } else { park(tb, bar, x); if (achips) park(achips, head, $('.ms-more', head).nextSibling); }
+    // phones: the filter chips (the view switcher stays in FE-A's search bar when there is one); desktop: area chips in the results head
+    if (!desk()) { park(tb, bar, x); if (!(nav && nav.closest('.cbar'))) park(nav, bar, null); } else { park(tb, bar, x); if (achips) park(achips, head, $('.ms-more', head).nextSibling); }
     if (desk() && listOn) listMode(false);
     if (H.classList.contains('ms-nomap')) C.onNoMap();
     msArea();
