@@ -355,7 +355,10 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
     await sleep(700);
     const withLL = d.querySelectorAll('li.pl[data-ll]').length;
     chk('leaflet mounted', !!d.querySelector('#cleo-map .leaflet-pane'), true);
-    chk('one marker per pinned place', d.querySelectorAll('#cleo-map .leaflet-overlay-pane path').length, withLL);
+    // W6 (FE-A, coordinated): at dense zooms nearby pins gather into a count bubble (.pin-cl); a pin is either drawn or
+    // counted in exactly one bubble, so pins + bubble counts == pinned places
+    const nCl = [...d.querySelectorAll('#cleo-map .pin-cl')].reduce((t, b) => t + +b.textContent, 0);
+    chk('one marker per pinned place (drawn, or counted in one cluster bubble)', d.querySelectorAll('#cleo-map .leaflet-overlay-pane path').length + nCl, withLL);
     const hosts = [...new Set([...fs.readFileSync(path.join(BETA, 'assets/js/city.js'), 'utf8').matchAll(/tileLayer\('https:\/\/([^/']+)/g)].map(m => m[1]))];
     // Tiles that never load (blocked network): after 4 errors the dead map gives way to the schematic + VOICE copy.
     const W = d.defaultView, el = d.getElementById('cleo-map'), hs = {};

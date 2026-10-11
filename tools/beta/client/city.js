@@ -31,7 +31,7 @@
   $$('[data-cleo-rail],[data-cleo-toolbar]').forEach(el => { el.hidden = false; });
   // For you / Near me (foryou.js) and Your day (day.js) load on first use — a tap, a stored interest or a #day= route
   const need = C.need = (n, cb) => {
-    if (n === 'foryou' ? C.fy : C.day) { if (cb) cb(); return; }
+    if ({ foryou: C.fy, day: C.day, atlas: C.atlasTools }[n]) { if (cb) cb(); return; }
     const q = need.q[n] = need.q[n] || []; q.push(cb); if (q.length > 1) return;
     const s = d.createElement('script'); s.src = (Cleo.root || '../') + 'assets/js/' + n + '.js?v=' + ((info.js || {})[n] || ''); s.async = true;
     s.onload = () => q.splice(0).forEach(f => f && f()); d.head.appendChild(s);
@@ -56,7 +56,11 @@
     else if ((b = t.closest('.pl-s button.src'))) { e.preventDefault(); go({ src: at(b, 'data-src') }); }
     else if ((b = t.closest('[data-rail]'))) rail.scrollBy({ left: +at(b, 'data-rail') * rail.clientWidth * 0.8, behavior: 'smooth' });
     else if ((b = t.closest('[data-unset]'))) { const u = cur(), x = at(b, 'data-unset'); delete u[x]; if (x === 'q') { S.q = fi.value = ''; apply(); } go(u); }
-    else if ((b = t.closest('[data-cleo-map]'))) { const m = Cleo.route.parse(); if (m.map) history.back(); else { m.map = at(b, 'data-cleo-map') || '1'; go(m); } }
+    else if ((b = t.closest('[data-cleo-map]'))) {
+      const m = Cleo.route.parse(), a = at(b, 'data-cleo-map');
+      if (C.mapFirst && C.mapFirst()) { if (b.classList.contains('mapclose')) C.detent('full', true); else { if (a && m.map !== a) { m.map = a; go(m); } else if (a) fitArea(a); C.detent('peek'); } }
+      else if (a) loadMap(() => fitArea(a));
+    }
     else if ((b = t.closest('[data-cleo-tray]'))) T.open(at(b, 'data-cleo-tray'), b);
     else if ((b = t.closest('button.pl-save')) && Cleo.saved) Cleo.saved.toggle(key + '/' + pid(b.closest('li.pl')));
   });
@@ -131,7 +135,7 @@
   };
   C.apply = () => apply();
 
-  let lastP = '';
+  let lastP = '', lastA = '';
   const onRoute = C.onRoute = () => {
     const r = Cleo.route.parse(), mm = /^#p-(.+)$/.exec(location.hash);
     if (mm && byId[decodeURIComponent(mm[1])]) r.p = decodeURIComponent(mm[1]);
@@ -143,10 +147,12 @@
     if (tg && !visible(tg)) { S.mode = 'all'; LENS.forEach(k => { S[k] = ''; }); S.q = ''; if (fi) fi.value = ''; }
     apply();
     $$('li.pl.is-target').forEach(c => { if (c !== tg) c.classList.remove('is-target'); });
-    const mob = !!r.map && !desk();
+    const mob = !desk() && (C.view || d.documentElement.getAttribute('data-view')) === 'atlas', fa = r.map && r.map !== '1' ? r.map : S.a;
     if (split) { if (mob) split.setAttribute('data-view', 'map'); else split.removeAttribute('data-view'); }
     // the fit waits a frame: the Atlas tray (views.js) settles on this same route change, and overMap() measures it
-    if (mob) loadMap(() => { map.invalidateSize(); if (r.map !== '1' || (focusA && !S.day)) { const a = r.map !== '1' ? r.map : focusA; requestAnimationFrame(() => { if (map) { map.invalidateSize(); fitArea(a); } }); } }); else closePoi();
+    if (mob) loadMap(() => { map.invalidateSize(); const a = fa || (r.map && focusA && !S.day ? focusA : ''); if (a && !tg) requestAnimationFrame(() => { if (map) { map.invalidateSize(); fitArea(a); } }); });
+    else { closePoi(1); if (S.a && S.a !== lastA && map && desk() && !tg && !S.day) fitArea(S.a); }
+    lastA = S.a;
     if (tg) {
       tg.classList.add('is-target');
       if (r.p !== lastP || !(Cleo.sheet && Cleo.sheet.isOpen())) {
@@ -228,11 +234,12 @@
   const accent = ((window.getComputedStyle && getComputedStyle(main).getPropertyValue('--city')) || '').trim() || '#C23A1C';
   const style = c => { const cl = c.hasAttribute('data-closed');
     return { radius: at(c, 'data-t') === '1' && !cl ? 7 : 5, weight: 1.5, color: '#fff', fillColor: cl ? '#999' : ((info.areas || {})[at(c, 'data-a')] || {}).c || '#555', fillOpacity: cl ? 0.45 : 0.92 }; };
-  const hot = (c, o) => { const k = c && markers[pid(c)]; if (!k) return; k.setStyle(o ? { radius: 10, weight: 3, color: accent } : style(c)); if (o) k.bringToFront();
+  const hot = (c, o) => { const k = c && markers[pid(c)]; if (!k) return; k.setStyle(o ? { radius: 10, weight: 3, color: accent } : style(c)); if (o && map && map.hasLayer(k)) k.bringToFront();
     const el = k.getTooltip && k.getTooltip() && k.getTooltip().getElement(); if (el) el.classList.toggle('sel', o); };
   ['mouseover', 'focusin', 'mouseout', 'focusout'].forEach((ev, i) => on(d, ev, e => {
     const c = e.target.closest && e.target.closest('li.pl'); if (c && !(i > 1 && e.relatedTarget && c.contains(e.relatedTarget))) hot(c, i < 2); }));
-  const syncMarkers = () => { if (map) { try { map.stop(); } catch (e) {} } if (map) cards.forEach(c => { const k = markers[pid(c)]; if (!k) return; if (!c.hidden) { if (!map.hasLayer(k)) k.addTo(map); } else if (map.hasLayer(k)) map.removeLayer(k); }); };
+  const syncMarkers = () => { if (map) { try { map.stop(); } catch (e) {} } if (map) { cards.forEach(c => { const k = markers[pid(c)]; if (!k) return; if (!c.hidden) { if (!map.hasLayer(k) && !inCl[pid(c)]) k.addTo(map); } else if (map.hasLayer(k)) map.removeLayer(k); }); cluster(); } };
+  const inCl = C.inCl = {}, cluster = () => { if (map && C.cluster) C.cluster(); };
   // the map follows the reading (ROUND-1 #6): fit to the area in view, fly to the open sheet's place, numbers on the
   // focused area's pins at every zoom; a user who pans or zooms keeps control for 8 s
   const still = () => !window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -261,6 +268,7 @@
   };
   if (window.IntersectionObserver) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) follow(at(e.target, 'data-area')); }), { rootMargin: '-35% 0px -55% 0px' }); sections.forEach(x => io.observe(x)); }
   C.map = () => map; C.markers = markers; C.loadMap = cb => loadMap(cb);
+  C.stub = id => stub[id]; C.pin = c => pin(c); C.fly = ll => fly(ll); C.still = () => still(); C.auto = () => { auto = Date.now(); }; C.num = num; C.sections = sections;
   const el0 = () => d.getElementById('cleo-map') || main;
   // QA-34: on phones the Atlas tray (bottom) and the view switcher (top) float over the full-bleed map, so a fit that
   // ignores them parks pins underneath, where a tap hits the tray instead of the pin. Fit inside the uncovered band.
@@ -273,7 +281,10 @@
   // ROUND-3 #2: one sheet on the phone map: while a pin sheet is up, the Atlas tray steps aside (html.poi-on), and it
   // comes back when the sheet closes. Nothing is removed: the tray keeps every row, only hidden from view meanwhile.
   const poiOn = v => { d.documentElement.classList.toggle('poi-on', v); const lp = $('.listpane'); if (lp && !desk()) { if (v && d.documentElement.classList.contains('atlas-m')) lp.setAttribute('inert', ''); else lp.removeAttribute('inert'); } };
-  const closePoi = () => { if (poi && !poi.hidden) { poi.hidden = true; poi.innerHTML = ''; poiOn(false); } };
+  // W6: Back closes the pin sheet
+  let poiPushed = 0;
+  const closePoi = how => { if (poi && !poi.hidden) { poi.hidden = true; poi.innerHTML = ''; poiOn(false); } if (poiPushed && !how) history.back(); poiPushed = 0; };
+  on(window, 'popstate', () => { if (poiPushed) closePoi(1); });
   // pin → peek sheet: a compact summary (≤ 40 % of the screen, so the map stays visible); the grabber expands it to the full card
   const peekName = c => { const a = $('.pl-n a', c), x = a && a.cloneNode(true); if (!x) return ''; $$('.nat', x).forEach(v => v.remove()); return x.textContent.trim(); };   // ROUND-2 #2: no "(native)" in the peek title
   const openPoi = c => {
@@ -286,10 +297,12 @@
     cp.classList.add('pk-full'); poi.appendChild(cp);
     poi.insertAdjacentHTML('beforeend', '<div class="row-actions"><button class="btn btn-ghost" data-poi="x">Close</button><a class="btn btn-primary" href="#p-' + pid(c) + '">Open</a></div>');
     poi.classList.remove('full'); poi.hidden = false; poiOn(true); $('[data-poi="x"]', poi).focus();
+    if (!poiPushed) { try { history.pushState({ poi: 1 }, '', location.href); poiPushed = 1; } catch (e) {} }
     if (map && markers[pid(c)]) { map.panTo(markers[pid(c)].getLatLng(), { animate: false }); map.panBy([0, poi.offsetHeight / 2], { animate: false }); }
   };
   let poiFrom = null;
-  on(poi, 'click', e => { const b = e.target.closest('[data-poi],a'); if (!b) return; if (at(b, 'data-poi') === 'grow') { poi.classList.toggle('full'); b.setAttribute('aria-expanded', String(poi.classList.contains('full'))); } else closePoi(); });
+  on(poi, 'click', e => { const b = e.target.closest('[data-poi],a'); if (!b) return; if (at(b, 'data-poi') === 'grow') { poi.classList.toggle('full'); b.setAttribute('aria-expanded', String(poi.classList.contains('full'))); return; }
+    if (b.tagName === 'A') { e.preventDefault(); closePoi(1); location.replace(at(b, 'href')); } else closePoi(); });
   on(poi, 'keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); closePoi(); if (poiFrom && poiFrom.focus) poiFrom.focus(); } });
   C.openPoi = c => openPoi(c);
   const pin = c => {
@@ -301,7 +314,7 @@
     const L = window.L, el = d.getElementById('cleo-map'); if (map || !L || !L.map || !el) return false;
     el.innerHTML = '';
     const z = info.center || [0, 0, 2], E = 'https://server.arcgisonline.com/ArcGIS/rest/services/', ea = { attribution: 'Tiles &copy; Esri', maxZoom: 19 };
-    map = L.map(el, { scrollWheelZoom: false }).setView([z[0], z[1]], z[2] || 11);
+    map = L.map(el, { scrollWheelZoom: false, zoomControl: false }).setView([z[0], z[1]], z[2] || 11);
     bases.street = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' });
     bases.light = L.tileLayer(E + 'Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', Object.assign({ maxNativeZoom: 16 }, ea));
     bases.satellite = L.tileLayer(E + 'World_Imagery/MapServer/tile/{z}/{y}/{x}', ea);
@@ -315,10 +328,13 @@
       const te = k.getTooltip().getElement && k.getTooltip().getElement(), ac = ((info.areas || {})[at(c, 'data-a')] || {}).c; if (te && ac) { te.style.setProperty('--ac', ac); te.style.setProperty('--area', ac); }   // ROUND-2 #2: area-coloured labels
       k.on('click', () => { const r = byId[id] || (Cleo.defer && Cleo.defer.stampFor(id)); if (r) pin(r); });
     });
-    const zl = () => { el.classList.toggle('zoom-lo', map.getZoom() < 14); focusPins(); }; map.on('zoomend', zl); zl();
+    L.control.zoom({ position: desk() ? 'topleft' : 'topright' }).addTo(map);
+    need('atlas', () => { if (C.atlasTools && map) { C.atlasTools(L, el); cluster(); focusPins(); } });
+    const zl = () => { el.classList.toggle('zoom-lo', map.getZoom() < 14); cluster(); focusPins(); }; map.on('zoomend', zl); zl();
     let fr = 0; map.on('moveend', () => { cancelAnimationFrame(fr); fr = requestAnimationFrame(focusPins); });   // labels settle after a fly
     map.on('dragstart', () => { userAt = Date.now(); }); map.on('zoomstart', () => { if (Date.now() - auto > 1500) userAt = Date.now(); });
-    syncMarkers(); C.after.forEach(f => f()); const a0 = focusA; focusA = ''; follow(a0 || at(sections[0] || main, 'data-area')); return true;
+    syncMarkers(); C.after.forEach(f => f());
+    const r0 = Cleo.route.parse().p, a0 = focusA; focusA = ''; if (r0 && markers[r0] && desk()) { focusA = at(byId[r0] || main, 'data-a') || ''; setTimeout(() => fly(markers[r0].getLatLng()), 0); } else follow(a0 || at(sections[0] || main, 'data-area')); return true;
   };
   C.setBase = k => { store.set('base', k); if (!map || !bases[k]) return; for (const x in bases) if (map.hasLayer(bases[x])) map.removeLayer(bases[x]); bases[k].addTo(map); };
   const loadMap = cb => {
@@ -345,6 +361,4 @@
     ['pointerup', 'pointercancel', 'pointerleave'].forEach(k => r.addEventListener(k, up)); });
   onRoute();
   if ((store.get('interests', []) || []).length) need('foryou');
-  // W3: the map belongs to Atlas (views.js mounts it on switch); Gallery / Guidebook / Insights don't build ~1k pin nodes
-  if (desk() && /^(atlas|)$/.test(d.documentElement.getAttribute('data-view') || '')) { if (window.requestIdleCallback) requestIdleCallback(() => loadMap(), { timeout: 1500 }); else setTimeout(loadMap, 300); }
 })();

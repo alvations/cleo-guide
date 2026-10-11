@@ -97,8 +97,7 @@
     const b = cur !== 'atlas' && e.target.closest && e.target.closest('[data-cleo-map]'); if (!b || !ok('atlas')) return;
     e.preventDefault(); e.stopPropagation(); store.set('view', 'atlas');
     const r = Cleo.route.parse(), a = at(b, 'data-cleo-map'); delete r.pg; delete r.all; delete r.p; r.view = 'atlas';
-    // phones: the map opens in this same tap (ROUND-5 gap #3), not the Atlas list; desktop Atlas always shows it
-    if (a || mobile()) r.map = a || '1'; else delete r.map;
+    if (a) r.map = a; else delete r.map;
     show('atlas', { user: 1 }); location.hash = Cleo.route.href(r);
   }, true);
   const fromHash = () => {
@@ -163,48 +162,52 @@
   on(window, 'afterprint', () => page());
   if (window.matchMedia) { const mq = matchMedia('(min-width: 640px)'); const f = () => page(); if (mq.addEventListener) mq.addEventListener('change', f); else if (mq.addListener) mq.addListener(f); }
 
-  /* ---- Atlas (SPEC §3.2): desktop split; phone map under a tray with peek / half / full detents (#map=1 = peek) ---- */
-  const DET = ['peek', 'half', 'full'], tb = $('[data-cleo-toolbar]'), rail = $('#cleo-rail');
+  /* ---- Atlas, map-first (W6): desktop map ≥ 60 % + list panel; phones map + tray peek/half/full ---- */
+  const DET = ['peek', 'half', 'full'], tb = $('[data-cleo-toolbar]'), rail = $('#cleo-rail'), rbar = $('.railbar');
   let grab = null, moved = [], det = 'peek', pushedDet = 0;
   const mobile = () => !C.desk();
   const setDet = (v, push) => {
     det = v; if (split) split.setAttribute('data-detent', v);
-    if (grab) { grab.setAttribute('aria-label', 'Tray: ' + v + '. Change the tray size'); grab.setAttribute('aria-expanded', String(v !== 'peek')); }
+    if (grab) { grab.setAttribute('aria-label', 'List: ' + v + '. Change the list size'); grab.setAttribute('aria-expanded', String(v !== 'peek')); }
     if (push && v === 'full' && !pushedDet) { try { history.pushState({ detent: 1 }, '', location.href); pushedDet = 1; } catch (e) {} }
+    if (v === 'peek' && lp) lp.scrollTop = 0;
     const m = C.map && C.map(); if (m) setTimeout(() => { try { m.invalidateSize(); } catch (e) {} }, 220);
   };
+  C.mapFirst = () => cur === 'atlas' && mobile();
+  C.detent = (v, push) => { if (v) setDet(v, push); return det; };
+  const park = (el, host, before) => { if (el && el.parentNode !== host) { moved.push([el, el.parentNode, el.nextSibling]); host.insertBefore(el, before || null); } };
+  const unpark = () => moved.splice(0).reverse().forEach(([el, par, nx]) => { if (nx && nx.parentNode === par) par.insertBefore(el, nx); else par.appendChild(el); });
+  function head() {   // the grab: tap or swipe steps the detents
+    let th = $('.tray-head', lp); if (th) return th;
+    th = d.createElement('div'); th.className = 'tray-head'; th.innerHTML = '<button type="button" class="grab" data-detent-cycle aria-expanded="false"><span class="vh">List size</span></button>';
+    grab = th.firstChild; lp.insertBefore(th, lp.firstChild);
+    let y0 = null, sw = 0; on(th, 'pointerdown', e => { y0 = e.clientY; sw = 0; }); on(th, 'pointerup', e => { if (y0 == null) return; const dy = e.clientY - y0; y0 = null;
+      if (Math.abs(dy) < 24) return; sw = 1; const i = DET.indexOf(det); setDet(DET[Math.max(0, Math.min(2, i + (dy < 0 ? 1 : -1)))], dy < 0); });
+    on(grab, 'click', () => { if (sw) { sw = 0; return; } const i = DET.indexOf(det); setDet(DET[(i + 1) % 3], true); });
+    return th;
+  }
   function atlasIn() {
     if (!split) return;
-    html.classList.toggle('atlas-m', mobile());
-    // phones: list first (the W2 page, QA-31); the tray detents live over the map, opened by Map / #map=
-    if (mobile() && !Cleo.route.parse().map) { atlasOut(); return; }
-    if (!mobile()) { atlasOut(true); if (C.loadMap) C.loadMap(() => { const m = C.map(); if (m) setTimeout(() => { try { m.invalidateSize(); } catch (e) {} }, 0); }); return; }
-    if (!grab) {
-      const th = d.createElement('div'); th.className = 'tray-head';
-      th.innerHTML = '<button type="button" class="grab" data-detent-cycle aria-expanded="true"><span class="vh">Tray size</span></button>';
-      grab = th.firstChild; lp.insertBefore(th, lp.firstChild);
-      // swipe on the handle: up = one detent up, down = one down
-      let y0 = null, swiped = 0; on(th, 'pointerdown', e => { y0 = e.clientY; swiped = 0; }); on(th, 'pointerup', e => { if (y0 == null) return; const dy = e.clientY - y0; y0 = null;
-        if (Math.abs(dy) < 24) return; swiped = 1; const i = DET.indexOf(det); setDet(DET[Math.max(0, Math.min(2, i + (dy < 0 ? 1 : -1)))], dy < 0); });
-      on(grab, 'click', () => { if (swiped) { swiped = 0; return; } const i = DET.indexOf(det); setDet(DET[(i + 1) % 3], true); });
+    html.classList.toggle('atlas-m', mobile()); html.classList.toggle('atlas-d', !mobile());
+    const th = head();
+    if (!mobile()) {
+      unpark(); const at0 = th.nextSibling; [rail, rbar, tb].forEach(el => park(el, lp, at0));
+      split.removeAttribute('data-detent');
+      if (C.loadMap) C.loadMap(() => { if (C.fitSplit) C.fitSplit(); });
+      nopin(); return;
     }
-    const th = $('.tray-head', lp);
-    [tb, rail].forEach(el => { if (el && el.parentNode !== th) { moved.push([el, el.parentNode, el.nextSibling]); th.appendChild(el); } });
+    unpark(); [tb, rail].forEach(el => park(el, th));
     if (C.loadMap) C.loadMap(() => { const m = C.map(); if (m) m.invalidateSize(); });
-    setDet(det);
-    nopin();
+    setDet(det); nopin();
   }
-  function atlasOut(keep) {
-    html.classList.remove('atlas-m'); if (lp) lp.removeAttribute('inert');   // a pin sheet's inert tray never outlives the phone map
-    moved.splice(0).reverse().forEach(([el, par, nx]) => { if (nx && nx.parentNode === par) par.insertBefore(el, nx); else par.appendChild(el); });
-    if (split && !keep) split.removeAttribute('data-detent');
-    if (cur === 'atlas' && split) nopin();
+  function atlasOut() {
+    html.classList.remove('atlas-m'); html.classList.remove('atlas-d'); if (lp) lp.removeAttribute('inert');   // a pin sheet's inert tray never outlives the phone map
+    unpark(); if (split) { split.removeAttribute('data-detent'); split.style.removeProperty('--atlas-top'); }
   }
   on(d, 'keydown', e => { if (e.key !== 'Escape' || cur !== 'atlas' || !mobile() || det === 'peek') return;
     if ((Cleo.sheet && Cleo.sheet.isOpen()) || $('.overlay:not([hidden])') || ($('#cleo-poi') && !$('#cleo-poi').hidden)) return;
     setDet(det === 'full' ? 'half' : 'peek'); });
   on(window, 'popstate', () => { if (pushedDet) { pushedDet = 0; if (cur === 'atlas' && det === 'full') setDet('half'); } });
-  on(window, 'hashchange', () => { if (cur === 'atlas' && mobile()) { const inMap = html.classList.contains('atlas-m'); if (!!Cleo.route.parse().map !== inMap) { if (!inMap) det = 'peek'; atlasIn(); } } });
   if (window.matchMedia) { const mq = matchMedia('(min-width: 1024px)'); const f = () => { if (cur === 'atlas') atlasIn(); }; if (mq.addEventListener) mq.addEventListener('change', f); else if (mq.addListener) mq.addListener(f); }
   // places without a verified pin are listed, never dropped (R-17): a floating badge on the Atlas map says so
   function nopin() {
@@ -212,7 +215,7 @@
     const n = qa('li.pl').filter(c => !c.hasAttribute('data-ll')).length + (Cleo.defer ? Cleo.defer.peek().filter(c => !c.hasAttribute('data-ll')).length : 0);
     let b = $('.nopin', mp); if (!n) { if (b) b.remove(); return; }
     if (!b) { b = d.createElement('p'); b.className = 'nopin'; mp.appendChild(b); }
-    b.textContent = n + ' without a verified pin · listed below';
+    b.textContent = n + ' without a verified pin · in the list';
   }
 
   // area chips (Atlas tray head): one tap = the area lens, a second tap clears it. Drawn here from the blob + card attrs.

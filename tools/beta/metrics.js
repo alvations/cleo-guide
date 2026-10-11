@@ -186,7 +186,8 @@ const PROBE = () => {
   // masthead
   // priority order (querySelector with a list returns the first in DOM order, which is the shell header)
   const mastEl = ['.masthead', '[data-cleo-masthead]', 'header.hero', '.hero'].map(q => document.querySelector(q)).find(Boolean);
-  const mastBottom = mastEl && vis(mastEl) ? Math.round(mastEl.getBoundingClientRect().bottom + scrollY) : null;
+  // W6 (FE-A, coordinated): on the Atlas phone map the masthead collapses to 0 px (visually hidden, h1 kept for AT)
+  const mastBottom = mastEl && vis(mastEl) ? Math.round(mastEl.getBoundingClientRect().bottom + scrollY) : mastEl && de.classList.contains('atlas-m') ? 0 : null;
 
   // interactive controls
   const CTRL = 'a[href], button, input:not([type=hidden]), select, textarea, summary, [role=button], [role=tab], [role=link], [tabindex]:not([tabindex="-1"])';
@@ -407,6 +408,9 @@ async function overlapScan(page) {
       if (!fr.length) continue;
       for (const t of document.querySelectorAll('li.pl .pl-n')) {
         if (!vis(t)) continue; const a = t.getBoundingClientRect(); if (a.bottom < 0 || a.top > vh) continue;
+        // W6 (FE-A, coordinated): a title scrolled out of its own scroll pane (the Atlas tray) is clipped, not covered
+        let clip = false; for (let e = t.parentElement; e && e !== document.body && !clip; e = e.parentElement) { const o = getComputedStyle(e).overflowY; if (o !== 'visible') { const q = e.getBoundingClientRect(); clip = a.bottom <= q.top || a.top >= q.bottom; } }
+        if (clip) continue;
         for (const [f, b] of fr) {
           if (f.contains(t)) continue;
           if (a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top) { hits++; if (where.length < 5) where.push((f.className || f.tagName) + ' over ' + t.textContent.trim().slice(0, 30)); }
@@ -479,10 +483,13 @@ async function mapSync(page) {
       const lb = list && list.getBoundingClientRect();
       const fc = [...document.querySelectorAll('li.pl')].find(c => c.getBoundingClientRect().height > 0);
       const fr = fc && fc.getBoundingClientRect();
-      r.split = !!fr && b.width > 0 && b.left >= fr.right - 2 && b.left > innerWidth * 0.4;   // map to the right of the cards
-      window.scrollTo(0, 2500); await new Promise(x => setTimeout(x, 120));
+      // map to the right of the cards (W6: Atlas gives the map ≥ 60 %, so the list may be narrower than 40 %)
+      r.split = !!fr && b.width > 0 && b.left >= fr.right - 2 && b.left > innerWidth * 0.25;
+      // sticky = the map stays in view while the list scrolls — the window, or (W6 Atlas) the list's own scroll pane
+      const pane = fc && (() => { for (let e = fc.parentElement; e && e !== document.body; e = e.parentElement) { const o = getComputedStyle(e).overflowY; if ((o === 'auto' || o === 'scroll') && e.scrollHeight > e.clientHeight) return e; } return null; })();
+      if (pane) pane.scrollTop = 2500; else window.scrollTo(0, 2500); await new Promise(x => setTimeout(x, 120));
       const b2 = mapEl.getBoundingClientRect(); r.sticky = b2.top < innerHeight && b2.bottom > 0 && b2.height > 200;
-      window.scrollTo(0, 0); await new Promise(x => setTimeout(x, 120));
+      if (pane) pane.scrollTop = 0; window.scrollTo(0, 0); await new Promise(x => setTimeout(x, 120));
     }
     const paths = () => [...document.querySelectorAll('.leaflet-overlay-pane path.leaflet-interactive, .leaflet-marker-icon')];
     r.markers = paths().length;
@@ -539,6 +546,10 @@ async function sheetFlow(page) {
   const r = {};
   await page.evaluate(SHEET_VIS);
   r.toggle = await page.evaluate(() => {
+    // W6 (FE-A, coordinated with QA): Atlas phones open map-first — the map is already full screen, so the toggle measured
+    // is the visible one ("List" over the map), and it is not tapped before the pin test
+    const mf = document.documentElement.classList.contains('atlas-m') && [...document.querySelectorAll('.mapclose')].find(window.__qaVis);
+    if (mf) { mf.setAttribute('data-qa-toggle', '1'); mf.setAttribute('data-qa-mapfirst', '1'); const b = mf.getBoundingClientRect(); return { w: Math.round(b.width), h: Math.round(b.height), name: 'map-first: ' + (mf.textContent || '').trim(), mapFirst: true }; }
     const c = document.querySelector('.map-toggle, [data-cleo-map=""]') || [...document.querySelectorAll('button, a, [role=button]')].find(b =>
       /^(show (the )?)?map\b/i.test((b.getAttribute('aria-label') || b.textContent || '').trim()) && window.__qaVis(b));
     if (!c || !window.__qaVis(c)) return null;
@@ -547,12 +558,14 @@ async function sheetFlow(page) {
   });
   if (r.toggle) {
     r.toggle.ok44 = r.toggle.w >= 44 && r.toggle.h >= 44;
-    await page.click('[data-qa-toggle]', { timeout: 3000 }).catch(() => {});
+    if (!r.toggle.mapFirst) await page.click('[data-qa-toggle]', { timeout: 3000 }).catch(() => {});
     await page.waitForTimeout(900);
     r.fullMap = await page.evaluate(() => { const m = document.querySelector('#cleo-map, .leaflet-container'); if (!m) return false; const b = m.getBoundingClientRect(); return b.height >= innerHeight * 0.7 && b.width >= innerWidth * 0.95; });
     // a real tap on a visible pin
     const pinSel = await page.evaluate(() => {
-      const ps = [...document.querySelectorAll('.leaflet-overlay-pane path.leaflet-interactive, .leaflet-marker-icon')].filter(p => { const b = p.getBoundingClientRect(); return b.width > 0 && b.top > 80 && b.bottom < innerHeight - 80 && b.left > 10 && b.right < innerWidth - 10; });
+      // a pin a finger can actually reach: on screen and not under the tray or a control (W6: not a cluster bubble)
+      const ps = [...document.querySelectorAll('.leaflet-overlay-pane path.leaflet-interactive, .leaflet-marker-icon:not(.pin-cl)')].filter(p => { const b = p.getBoundingClientRect(); if (!(b.width > 0 && b.top > 80 && b.bottom < innerHeight - 80 && b.left > 10 && b.right < innerWidth - 10)) return false;
+        const t = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2); return !!t && (t === p || p.contains(t)); });
       if (!ps.length) return false; ps[Math.floor(ps.length / 2)].setAttribute('data-qa-pin', '1'); return true;
     });
     if (pinSel) {

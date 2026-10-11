@@ -281,6 +281,36 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     chk('no js errors', errs.length === 0 && rm.errs.length === 0, errs.concat(rm.errs).slice(0, 2));
   }
 
+  console.log('\n== W6: Atlas map-first (owner 2026-10-11) ==');
+  {
+    const page = 'cities/tokyo.html';
+    let { d, w, errs } = boot(page, { hash: '#view=atlas', mobile: true }); await sleep(150);
+    const html = d.documentElement, split = d.querySelector('.split'), lp = d.querySelector('.listpane');
+    chk('phone Atlas opens map-first: html.atlas-m, the map view, the tray at peek', html.classList.contains('atlas-m') && split.getAttribute('data-view') === 'map' && split.getAttribute('data-detent') === 'peek', [html.className, split.getAttribute('data-detent')]);
+    chk('…with no map= in the URL (map-first is the Atlas default, not a route)', !/map=/.test(w.location.hash), w.location.hash);
+    chk('…the toolbar and rail live in the tray head', !!lp.querySelector('.tray-head [data-cleo-toolbar]') && !!lp.querySelector('.tray-head #cleo-rail'));
+    d.querySelector('.mapclose').click(); await sleep(20);
+    chk('"List" over the map opens the full tray', split.getAttribute('data-detent') === 'full');
+    d.querySelector('.map-toggle[data-cleo-map]').click(); await sleep(20);
+    chk('"Map" in the tray lowers it to the peek, still on the map', split.getAttribute('data-detent') === 'peek' && html.classList.contains('atlas-m'));
+    const poi = d.getElementById('cleo-poi'), n0 = w.history.length;
+    w.Cleo.city.openPoi(d.querySelector('li.pl[data-ll]')); await sleep(10);
+    chk('a pin sheet adds one history entry', !poi.hidden && w.history.length === n0 + 1, [w.history.length, n0]);
+    w.history.back(); await sleep(60);
+    chk('Back closes the pin sheet and stays on the map', poi.hidden && html.classList.contains('atlas-m') && !html.classList.contains('poi-on'));
+    d.querySelector('.area-end [data-cleo-map]').click(); await sleep(30);
+    chk('"See these n on the map" names its area (map=<A>) and lowers the tray', /map=[A-Z]/.test(w.location.hash) && split.getAttribute('data-detent') === 'peek', w.location.hash);
+    chk('no js errors (phone)', errs.length === 0, errs.slice(0, 2));
+    ({ d, w, errs } = boot(page, { hash: '#view=atlas&map=1', mobile: true })); await sleep(150);
+    chk('#view=atlas&map=1 still opens the map', d.documentElement.classList.contains('atlas-m') && d.querySelector('.split').getAttribute('data-detent') === 'peek');
+    ({ d, w, errs } = boot(page, { hash: '#view=atlas' })); await sleep(150);
+    const lp2 = d.querySelector('.listpane');
+    chk('desktop Atlas: rail and toolbar move into the list side panel', d.documentElement.classList.contains('atlas-d') && lp2.querySelector(':scope > [data-cleo-toolbar]') && lp2.querySelector(':scope > #cleo-rail'));
+    d.querySelector('[data-cleo-views] button[data-view="gallery"]').click(); await sleep(30);
+    chk('…and go back where they were outside Atlas', !lp2.querySelector('[data-cleo-toolbar],#cleo-rail') && !d.documentElement.classList.contains('atlas-d'));
+    chk('no js errors (desktop)', errs.length === 0, errs.slice(0, 2));
+  }
+
   console.log(failures ? `\n>>> FAIL — ${failures} FE-A check(s) failed` : '\n>>> PASS — FE-A: for-you reorders only, days honest, near-me in memory, pin sheet Esc, shared lists, views (switcher, pager, Atlas, sheet n of N)');
   process.exit(failures ? 1 : 0);
 })();
