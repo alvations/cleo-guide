@@ -249,6 +249,18 @@ async function reachable() {
   } catch (e) { return e.cause ? e.cause.code || e.cause.message : e.message; }
 }
 
+/**
+ * Widths per class (W8 repo-size decision): heroes take --hero-widths; a guide's lead card and first-row sights (what a
+ * visitor sees first) take --widths (500 + 960); every other card takes only the smallest card width (≈ 35 KB each).
+ */
+function widthsFor(t, o) {
+  if (t.type === 'hero') return o.heroWidths;
+  return t.priority ? o.widths : [Math.min(...o.widths)];
+}
+/** A target's Wikipedia articles to try for a lead image, in order: `articles` (heroes: the town, then iconic sights), else `article`. */
+const articlesOf = t => (t.articles && t.articles.length ? t.articles : t.article ? [t.article] : []);
+/** Maps, heraldry, flags, montages and logos are not a photo of the place (W8: town-article lead images). */
+const NOT_A_PHOTO = /\b(maps?|locator|location map|coat of arms|coats of arms|flag of|seal of|emblem|montage|collage|logo)\b/i;
 /** What a run may fetch (W8): a stray run can never pull the whole tier-1 set. */
 const SCOPES = ['heroes', 'priority', 'pilots', 'all'];
 function inScope(t, scope) {
@@ -276,7 +288,7 @@ function plan(man, credits, o) {
     if (where.why) { out.push({ t, skip: where.why }); continue; }
     if (where.page ? haveRecord.has(`${where.page}#${where.id}`) : haveSlot.has(`hero:${where.slot.key}`)) { out.push({ t, skip: 'already has a credited photo' }); continue; }
     const cands = (t.candidates || []).filter(c => !c.refused && RANK[c.confidence] >= RANK[o.min] && (c.flags || []).every(f => o.allow.includes(f)));
-    const lead = (o.wikiLead || t.wikiLead) && t.type === 'landmark' && t.article;   // W8: the manifest opts a target in
+    const lead = (o.wikiLead || t.wikiLead) && articlesOf(t).length > 0;   // W8: the manifest opts a target in (heroes too)
     if (!cands.length && !lead) { out.push({ t, skip: (t.candidates || []).length ? `no ${o.min}+ candidate without an unaccepted flag` : (t.article ? 'no candidate (pass --wiki-lead to try the article lead image)' : 'no candidate') }); continue; }
     out.push({ t, where, cands, lead });
   }
@@ -292,9 +304,11 @@ async function main() {
   const todo = todo0.filter(p => !p.skip);
   const skips = todo0.length - todo.length;
   console.log(`fetch-commons: scope ${o.scope} — ${todo0.length} target(s): ${todo.length} to try, ${skips} skipped`);
-  for (const p of todo) console.log(`  try   ${p.t.key} → ${p.cands.map(c => `${c.file} (${c.confidence})`).join(' | ')}${p.lead ? `${p.cands.length ? ' | ' : ''}lead image of ${p.t.article}` : ''}`);
+  for (const p of todo) console.log(`  try   ${p.t.key} → ${p.cands.map(c => `${c.file} (${c.confidence})`).join(' | ')}${p.lead ? `${p.cands.length ? ' | ' : ''}lead image of ${articlesOf(p.t).join(' / ')}` : ''}`);
   const why = {}; todo0.filter(p => p.skip).forEach(p => { const k = p.skip.replace(/ \(.*$/, '').replace(/ — .*$/, ''); why[k] = (why[k] || 0) + 1; });
   for (const [k, n] of Object.entries(why).sort((a, b) => b[1] - a[1])) console.log(`  skip  ${n} × ${k}`);
+  // a landmark caught only by a venue word in its name is listed, so a person can spot a wrongly skipped building
+  for (const p of todo0.filter(p => p.skip && /named so/.test(p.skip))) console.log(`  skip  venue by name: ${p.t.key} (${p.t.label}) — review if this is a landmark, not a venue`);
   if (o.dry) { console.log('\n--dry-run — nothing fetched.'); return; }
   const off = await reachable();
   if (off) {
@@ -310,7 +324,7 @@ async function main() {
     return r.json(); };
   fs.mkdirSync(PHOTO_DIR, { recursive: true });
   const today = new Date().toISOString().slice(0, 10);
-  const widthsOf = t => t.type === 'hero' ? o.heroWidths : o.widths, maxOf = t => { const w = widthsOf(t); return w[w.length - 1]; };
+  const widthsOf = t => widthsFor(t, o), maxOf = t => { const w = widthsOf(t); return w[w.length - 1]; };
   const kept = [], refused = [];
   let imgBytes = 0, stopped = false, imgTries = 0, imgFails = 0;
 
@@ -335,6 +349,7 @@ async function main() {
     const cats = (pg.categories || []).map(c => c.title.replace(/^Category:/, ''));
     const desc = strip(val('ImageDescription')), obj = strip(val('ObjectName'));
     if (t.type === 'hero' && !t.winterOk && GLOOM.test(`${pg.title} ${obj} ${desc}`)) return { why: 'a hero wants a bright, warm-season or golden-hour view; the title or description says winter, snow, overcast or fog' };
+    if (NOT_A_PHOTO.test(`${pg.title} ${obj}`)) return { why: 'a map, coat of arms, flag, montage or logo — not a photo of the place' };
     if (subjectRefused(SIGNAGE, t, `${pg.title} ${obj} ${desc}`)) return { why: 'title or description suggests signage, lettering, a logo or advertising is the subject' };
     if (subjectRefused(CLOSEUP, t, `${pg.title} ${obj} ${desc} ${cats.join(' | ')}`)) return { why: 'title, description or categories suggest equipment, people or a close-up is the subject, not the place' };
     if (!namesPlace(t.names, pg.title, obj, desc, cats.join('|'))) return { why: `title, description and categories do not name ${t.label}` };
@@ -426,7 +441,7 @@ async function main() {
       file: main.file,
       ...(p.where.page ? { record: { page: p.where.page, id: p.where.id } } : { slot: p.where.slot }),
       title: info.obj || name.replace(/\.[a-z0-9]+$/i, ''),
-      depicts: c.depicts || p.t.label,
+      depicts: c.depicts || info.obj || name.replace(/\.[a-z0-9]+$/i, '').replace(/[_]+/g, ' '),
       author: info.author,
       sourceUrl: `https://commons.wikimedia.org/wiki/${encodeURIComponent(info.title.replace(/ /g, '_')).replace(/%3A/i, ':').replace(/%2C/g, ',').replace(/%28/g, '(').replace(/%29/g, ')')}`,
       licence: info.lic.licence,
@@ -448,15 +463,17 @@ async function main() {
     if (!o.noRescan) await rescan();
     for (const p of todo) {
       let done = false;
-      const tries = p.cands.slice();
-      for (let i = 0; i <= tries.length && !done; i++) {
+      const tries = p.cands.slice(), arts = p.lead ? articlesOf(p.t).slice() : [];
+      const refusedFile = new Set((p.t.candidates || []).filter(c => c.refused).map(c => c.file));
+      for (let i = 0; !done; i++) {
         let c = tries[i];
-        if (!c) {                                    // candidates exhausted: the article's lead image, once
-          if (!p.lead || p.leadTried) break;
-          p.leadTried = true;
-          const f = await leadOf(p.t.article);
-          if (!f) { refused.push(`${p.t.key}: the article has no lead image`); break; }
-          c = { file: f, confidence: 'lead', depicts: p.t.label.replace(/\s*\([^)]*\)\s*$/, '') };
+        if (!c) {                                    // candidates exhausted: the articles' lead images, in order
+          const art = arts.shift();
+          if (!art) break;
+          const f = await leadOf(art);
+          if (!f) { refused.push(`${p.t.key}: ${art} has no lead image`); continue; }
+          if (refusedFile.has(f)) { refused.push(`${p.t.key} ${f}: refused after review (lead image of ${art})`); continue; }
+          c = { file: f, confidence: 'lead', depicts: p.t.type === 'hero' ? '' : p.t.label.replace(/\s*\([^)]*\)\s*$/, '') };
         }
         const r = await inspect(p.t, c.file);
         if (r.why) { refused.push(`${p.t.key} ${c.file}: ${r.why}`); continue; }
@@ -477,4 +494,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { widthsFor, articlesOf, NOT_A_PHOTO, SCOPES, inScope, RESCAN_KEPT, authorOf, cleanAuthor, authorProblems, derivativeNote, SIGNAGE, CLOSEUP, subjectRefused, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };

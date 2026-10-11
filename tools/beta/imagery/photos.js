@@ -51,6 +51,7 @@ const SCHEMA = {
   height: 'optional: pixel height (read from the file when omitted)',
   variants: 'optional: [{ file, width, height }] — smaller sizes of the same image for srcset (same credit; e.g. the 480 px copy of a 960 px file)',
   provider: 'optional: "wikimedia-commons" | "unsplash" — who hosts the source page (Commons rows must link a commons.wikimedia.org File: page)',
+  color: 'optional: the photo\'s dominant colour "#rrggbb" (recompress.js) — a fade-in placeholder behind the image; exposed as photo.color',
 };
 
 /** Pixel size of a PNG / JPEG / WebP from its header; null if unknown (then the credit must carry width/height). */
@@ -152,7 +153,7 @@ function loadPhotos(betaDir, pages) {
       if (!size || !size.w || !size.h) { errors.push(`${where}: cannot read the image size — add width and height`); return; }
       if (bySlot[sk]) { errors.push(`${where}: ${sk} already has a photo`); return; }
       const set = sizesOf(c, where, size); if (!set) return;
-      bySlot[sk] = { file: c.file, src: `${PHOTO_DIR}/${c.file}`, w: size.w, h: size.h, widths: set, srcset: srcsetStr(set), credit: c };
+      bySlot[sk] = { file: c.file, src: `${PHOTO_DIR}/${c.file}`, w: size.w, h: size.h, widths: set, srcset: srcsetStr(set), color: /^#[0-9a-f]{6}$/i.test(c.color || '') ? c.color : null, credit: c };
       return;
     }
     const pg = pages[c.record.page];
@@ -166,7 +167,7 @@ function loadPhotos(betaDir, pages) {
     const page = (byPage[c.record.page] = byPage[c.record.page] || {});
     if (page[c.record.id]) { errors.push(`${where}: ${c.record.id} already has a photo`); return; }
     const set = sizesOf(c, where, size); if (!set) return;
-    page[c.record.id] = { file: c.file, src: `${PHOTO_DIR}/${c.file}`, w: size.w, h: size.h, widths: set, srcset: srcsetStr(set), credit: c };
+    page[c.record.id] = { file: c.file, src: `${PHOTO_DIR}/${c.file}`, w: size.w, h: size.h, widths: set, srcset: srcsetStr(set), color: /^#[0-9a-f]{6}$/i.test(c.color || '') ? c.color : null, credit: c };
   });
   for (const f of files) {
     if (!EXT.test(f)) errors.push(`beta/${PHOTO_DIR}/${f}: not an image this pipeline accepts (.jpg/.png/.webp)`);
