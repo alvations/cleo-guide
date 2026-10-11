@@ -6,8 +6,11 @@
    Rules baked in:
    - one calm shared frame (paper / ink / gilt) + ONE local accent per city (data-city skin);
    - every text pair below is WCAG 2.2 AA (verified by design/beta/tools/contrast.py — table in DESIGN-SYSTEM.md);
-   - two families only: a fashion Didone for the voice, a humanist geometric sans for the interface;
-     both fall back to system faces so content reads if Google Fonts never arrives;
+   - two families only (W6, design/beta/style/DECISION.md): Playfair — a sturdy Didone-descended serif, one optical cut —
+     for the voice; Inter for the interface. Both self-hosted (beta/assets/fonts, OFL), Latin + Vietnamese subsets; CJK
+     falls through to the system stack below. No font service is ever contacted;
+   - one disciplined set, after melon-seek: one token per font role, one radius pair (--radius / --radius-sm), a 3-step
+     shadow scale (--shadow-sm / --shadow / --shadow-lg), tabular figures wherever we count;
    - motion collapses to 0 under prefers-reduced-motion.
    ========================================================================== */
 
@@ -48,9 +51,10 @@
   --city-on:      #FFFFFF;   /* text on a --city fill */
 
   /* ---- Type ---- */
-  --font-display: "Bodoni Moda", "Bodoni 72", "Didot", "Bodoni MT", "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-ui:      "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-                  "Hiragino Sans", "Noto Sans JP", "IPAGothic", sans-serif;
+  --font-display: "Playfair", "Playfair Display", "Didot", "Bodoni 72", Georgia, "Times New Roman",
+                  "Hiragino Mincho ProN", "Noto Serif JP", "Noto Serif CJK JP", "IPAMincho", serif;
+  --font-ui:      "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+                  "Hiragino Sans", "Noto Sans JP", "Noto Sans CJK JP", "IPAGothic", sans-serif;
   --font-native:  "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif CJK JP", "IPAMincho",
                   "IPAGothic", serif;   /* native-script plates (東京, 浅草寺); system faces first-class */
 
@@ -63,8 +67,13 @@
   --fs-body: 16px;  --lh-body: 1.5;
   --fs-sm:   14px;  --lh-sm:   1.42;
   --fs-xs:   12.5px;--lh-xs:   1.35;   /* eyebrow (≤1 per card), legal, credits */
-  --fw-ui: 450; --fw-ui-strong: 650;
-  --track-eyebrow: .06em;
+  /* W6 interface steps between sm and body — the only two in-between sizes components may use (no 13.5 / 14.5 px) */
+  --fs-meta: 13px;                     /* meta lines, chip counts, chart labels */
+  --fs-ui:   15px;                     /* buttons, chips, list rows */
+  --fw-ui: 400; --fw-ui-strong: 600;
+  --track-eyebrow: .05em;
+  --track-display: -.012em;            /* Playfair at ≥ 20 px */
+  --num: lining-nums tabular-nums;     /* every count, rank, stat and chart value */
 
   /* ---- Space (4-pt) ---- */
   --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px;
@@ -72,15 +81,20 @@
   --gutter: 16px;                 /* page side gutter (mobile) */
   --maxw: 1360px;
 
-  /* ---- Radius ---- */
-  --r-xs: 6px; --r-s: 10px; --r-m: 16px; --r-l: 24px; --r-pill: 999px;
+  /* ---- Radius (W6: one scale; melon-seek-style aliases) ---- */
+  --r-xs: 6px; --r-s: 8px; --r-m: 12px; --r-l: 20px; --r-pill: 999px;
+  --radius-sm: var(--r-s);  --radius: var(--r-m);  --radius-lg: var(--r-l);
 
-  /* ---- Elevation ---- */
+  /* ---- Elevation (W6: three steps — sm rests, md lifts on hover/active, lg floats: sheets, popovers, dialogs) ---- */
+  --shadow-sm: 0 1px 2px rgba(25, 22, 19, .06);
+  --shadow:    0 1px 3px rgba(25, 22, 19, .08), 0 4px 12px rgba(25, 22, 19, .06);
+  --shadow-lg: 0 12px 32px rgba(25, 22, 19, .16), 0 2px 6px rgba(25, 22, 19, .08);
   --e-0: none;
-  --e-1: 0 1px 2px rgba(25, 22, 19, .06), 0 2px 10px rgba(25, 22, 19, .05);
-  --e-2: 0 6px 18px rgba(25, 22, 19, .10), 0 2px 4px rgba(25, 22, 19, .06);
-  --e-3: 0 -10px 40px rgba(25, 22, 19, .18), 0 -1px 0 rgba(25, 22, 19, .04);
-  --e-4: 0 24px 64px rgba(14, 21, 38, .28);
+  --e-1: var(--shadow-sm);
+  --e-2: var(--shadow);
+  --e-3: 0 -12px 32px rgba(25, 22, 19, .16), 0 -2px 6px rgba(25, 22, 19, .06);   /* --shadow-lg, cast upward (bottom sheet) */
+  --e-4: var(--shadow-lg);
+  --focus-ring: 0 0 0 3px color-mix(in srgb, var(--focus) 35%, transparent);
 
   /* ---- Motion ---- */
   --dur-1: 120ms; --dur-2: 220ms; --dur-3: 360ms; --dur-4: 520ms;
@@ -121,7 +135,7 @@
     --warn:#F0BE5A; --warn-soft:#3A2D12; --focus:#8FB0FF;
     --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70; --series-4:#c98500; --series-5:#d55181; --series-6:#9085e9; --series-other:#b4ada2; --chart-grid:#2F2B26; --chart-gap:#1B1916;
     --motif-ink: radial-gradient(rgba(255,255,255,.075) 1px, transparent 1.5px) 0 0 / 22px 22px;
-    --e-1: 0 1px 2px rgba(0,0,0,.4); --e-2: 0 8px 24px rgba(0,0,0,.45); --e-3: 0 -10px 40px rgba(0,0,0,.55);
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.4); --shadow: 0 1px 3px rgba(0,0,0,.45), 0 4px 12px rgba(0,0,0,.35); --shadow-lg: 0 12px 32px rgba(0,0,0,.55), 0 2px 6px rgba(0,0,0,.4); --e-3: 0 -12px 32px rgba(0,0,0,.55);
     color-scheme: dark;
   }
 }
@@ -133,7 +147,7 @@
   --warn:#F0BE5A; --warn-soft:#3A2D12; --focus:#8FB0FF;
   --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70; --series-4:#c98500; --series-5:#d55181; --series-6:#9085e9; --series-other:#b4ada2; --chart-grid:#2F2B26; --chart-gap:#1B1916;
   --motif-ink: radial-gradient(rgba(255,255,255,.075) 1px, transparent 1.5px) 0 0 / 22px 22px;
-  --e-1: 0 1px 2px rgba(0,0,0,.4); --e-2: 0 8px 24px rgba(0,0,0,.45); --e-3: 0 -10px 40px rgba(0,0,0,.55);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.4); --shadow: 0 1px 3px rgba(0,0,0,.45), 0 4px 12px rgba(0,0,0,.35); --shadow-lg: 0 12px 32px rgba(0,0,0,.55), 0 2px 6px rgba(0,0,0,.4); --e-3: 0 -12px 32px rgba(0,0,0,.55);
   color-scheme: dark;
 }
 /* ---------------- City skins (generated by design/beta/tools/skins.py from skins.json — do not hand-edit) ----------------
