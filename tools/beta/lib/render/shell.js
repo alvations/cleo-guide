@@ -54,8 +54,12 @@ const assetV = (k, file) => (SITE.assetsV && SITE.assetsV[k]) || ver(file);
  *  (in place of the Wave 0 baseline cleo.css, whose selectors clash with Constellation's — DES UX-20). */
 function styles(depth) {
   const up = '../'.repeat(depth);
-  return [`<link rel="stylesheet" href="${up}assets/cleo.css?v=${assetV('css', path.join(ROOT, 'beta', 'assets', 'cleo.css'))}">`];
+  return [`<link rel="stylesheet" href="${up}assets/cleo.css?v=${assetV('css', path.join(ROOT, 'beta', 'assets', 'cleo.css'))}">`,
+    `<link rel="stylesheet" href="${up}assets/fe-b.css?v=${febV()}">`];
 }
+/** W7: FE-B's page stylesheet (landing, hubs, static pages) — source lib/render/fe-b.css, emitted by build.js. */
+const FEB_CSS_SRC = path.join(__dirname, 'fe-b.css');
+const febV = () => ver(FEB_CSS_SRC);
 
 
 // ---------------------------------------------------------------- icons (inline sprite, no network)
@@ -175,4 +179,4 @@ ${tabbar ? tabBar({ depth, current }) : ''}
 <script src="${up}assets/js/search.js?v=${v('search.js')}" defer></script>`;
 }
 
-module.exports = { localeSwitch, siteBar, footer, tabBar, styles, setSite, site, trail, icon, MARK, LIVE_BASE };
+module.exports = { FEB_CSS_SRC, febV, localeSwitch, siteBar, footer, tabBar, styles, setSite, site, trail, icon, MARK, LIVE_BASE };

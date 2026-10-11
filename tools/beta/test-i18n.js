@@ -73,6 +73,8 @@ const cityRow = (key, live, country, n, name = 'Testville') => ({ kind: 'city', 
   recs: Array.from({ length: n }, (_, i) => rec(key + i, i, i ? 'sight' : 'food')), colors: { A: '#336699' },
   stats: { total: n, sights: n - 1, food: 1, open: n, closed: 0, pins: n, verifiedPins: n, statusChecked: n, lastChecked: '2026-10-03' },
   guide: { signature: { kind: 'collection', c: ['ANIME'], title: 'Testville Gazette', n: 3 } },
+  // W7: named sources, so the cards' "Recommended by … + n more" line is rendered (and checked) in pseudo
+  sources: { list: ['s1', 's2', 's3'].map(id => ({ id, name: 'Testville Gazette', n: 2 })).concat({ id: 'guide', name: 'Testville', n: 1 }) },
   data: { meta: { h1Main: 'Testville' }, AREAS: [{ id: 'A', n: 'Testville' }], CATS: [{ id: 'ANIME', n: 'Anime' }], CUISINES: [] } });
 const reg2 = { rows: [cityRow('testville', 'cities/testville.html', 'tl', 6), cityRow('testburg', 'cities/testburg.html', 'tl', 3, 'Testburg'),
   cityRow('sg-a', 'Singapore/a.html', 'sg', 2), cityRow('vn-a', 'Vietnam/a.html', 'vn', 2),

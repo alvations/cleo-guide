@@ -25,86 +25,10 @@
 <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/tokens.css?v=34c20b63ec">
 <link rel="stylesheet" href="../assets/cleo.css?v=0675341af6">
+<link rel="stylesheet" href="../assets/fe-b.css?v=95502b144d">
 
 
 <script src="../assets/js/core.js?v=391c852b58" defer></script>
-<style>
-.tile .art .dots{stroke:var(--dot,var(--on-night))}
-.tile.c-night .art .dots{stroke:var(--on-night)}.tile.c-night .art .dots.t1{stroke:var(--gilt-soft)}
-.tile.c-wash .art{background:var(--motif,none),linear-gradient(160deg,var(--city-wash),var(--surface));color:var(--ink)}
-.tile.c-wash .art .native,.tile.c-wash .art .ini{color:var(--city-ink)}
-.tile.c-wash .art .dots,.tile.c-paper .art .dots{stroke:var(--dot,var(--city-ink))}.tile.c-wash .art .dots.t1,.tile.c-paper .art .dots.t1{stroke:var(--ink)}
-.tile.c-city .art{background:var(--motif,none),radial-gradient(120% 140% at 0 100%,color-mix(in srgb,var(--night) 35%,transparent),transparent 60%),var(--city);color:var(--city-on)}
-.tile.c-city .art .dots{stroke:var(--city-on);stroke-opacity:.9}.tile.c-city .art .dots.t1{stroke:var(--city-on)}
-.tile.c-city .art .native,.tile.c-city .art .ini{color:var(--city-on)}.tile.c-city .art .bar{background:var(--night)}
-.tile.c-paper .art{background:var(--motif,none),repeating-radial-gradient(circle at 70% 120%,transparent 0 13px,color-mix(in srgb,var(--city) 16%,transparent) 13px 14px),var(--sand);color:var(--ink)}
-.tile.c-paper .art .native,.tile.c-paper .art .ini{color:var(--ink)}
-.tile .art .ini{position:absolute;right:14px;bottom:6px;font:italic 500 84px/1 var(--font-display);opacity:.9;color:var(--on-night)}
-.tile .art .native{color:var(--on-night)}
-.tiles.hub2 .tile .art .ini{font-size:52px;bottom:4px}
-.tile .sigline{font-size:13.5px;line-height:1.35;color:var(--ink-2);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.tile .sigline span+span::before{content:" · ";color:var(--ink-3)}
-.tile .star{font-size:12.5px}
-.tile:hover .art svg,.tile:focus-visible .art svg{transform:scale(1.04)}.tile .art svg{transition:transform .5s var(--ease,ease)}
-@media (prefers-reduced-motion:reduce){.tile .art svg{transition:none}.tile:hover .art svg{transform:none}}
-.chero{position:relative;background:var(--night);color:var(--on-night);overflow:hidden;isolation:isolate}
-.chero .sky{position:absolute;inset:0;z-index:-1;background:var(--motif,none)}
-.chero .sky svg{position:absolute;inset:0;width:100%;height:100%}
-.chero .sky .dots{stroke:var(--on-night);stroke-linecap:round;fill:none;stroke-opacity:.9}.chero .sky .dots.t1{stroke:var(--gilt-soft)}
-.chero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--night) 0,color-mix(in srgb,var(--night) 70%,transparent) 55%,transparent)}
-.chero .inner{max-width:var(--maxw);margin:0 auto;padding:28px var(--gutter) 26px}
-.chero .kicker{color:var(--on-night-2);font-size:15px;margin:0 0 6px}
-.chero h1{margin:0;color:var(--on-night)}
-.chero .why{font:italic 500 21px/1.3 var(--font-display);color:var(--on-night);margin:10px 0 0;max-width:40ch}
-.chero .why .l span+span::before{content:" · ";font-style:normal;color:var(--on-night-2)}
-.chero .facts{color:var(--on-night-2);font-size:15px;margin:12px 0 0;max-width:60ch}
-.chero .facts b{color:var(--on-night);font-weight:650}.chero .facts a{color:var(--on-night)}
-.chero .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.chero .btn{min-height:var(--tap)}
-.chero .btn-ghost{color:var(--on-night);border-color:color-mix(in srgb,var(--on-night) 45%,transparent);background:transparent}
-.chero .accentbar{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--city,var(--gilt-soft))}
-@media(max-width:639px){.chero .blurb-c{display:none}.chero .sky{opacity:.45}.chero .why{font-size:19px}.chero .inner{padding:20px var(--gutter) 22px}.chero h1{font-size:44px}}
-@media(min-width:900px){.chero .inner{padding:44px var(--gutter) 40px}.chero .why{font-size:26px}}
-.share-note{font-size:14px;color:var(--on-night-2);align-self:center}
-.themes .theme-rail{list-style:none;margin:12px 0 0;padding:2px 2px 10px;display:grid;grid-auto-flow:column;grid-auto-columns:min(74%,290px);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}
-@media(min-width:1100px){.themes .theme-rail{grid-auto-columns:calc((100% - 36px)/4)}}
-.themes .rail-head .n{display:block;margin-top:4px;font:450 14px/1.3 var(--font-ui);color:var(--ink-3);letter-spacing:0}
-@media(min-width:900px){.themes .rail-head .n{display:inline;margin-left:12px}}
-.theme-main{min-height:170px}
-.theme{scroll-snap-align:start;display:grid;grid-template-rows:1fr auto;border-radius:var(--r-l);overflow:hidden;background:var(--surface);border:1px solid var(--line)}
-.theme-main{display:grid;gap:4px;align-content:end;min-height:150px;padding:16px;text-decoration:none;color:var(--on-night);background:var(--motif,none),var(--night)}
-.theme.t-1 .theme-main{background:var(--motif,none),linear-gradient(150deg,var(--night-2),var(--night))}
-.theme.t-2 .theme-main{background:var(--motif,none),repeating-linear-gradient(135deg,transparent 0 10px,color-mix(in srgb,var(--on-night) 6%,transparent) 10px 11px),var(--night)}
-.theme.t-3 .theme-main{background:var(--motif,none),radial-gradient(120% 120% at 100% 0,var(--night-2),var(--night) 70%)}
-.theme-n{font:500 44px/1 var(--font-display);color:var(--gilt-soft)}
-.theme-t{font:500 23px/1.15 var(--font-display);color:var(--on-night)}
-.theme-w{font-size:13.5px;line-height:1.35;color:var(--on-night-2)}
-.theme-c{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 12px}
-.theme-c a{display:inline-flex;align-items:center;gap:5px;min-height:var(--tap);padding:0 12px;border:1px solid var(--line-strong);border-radius:var(--r-pill);font-size:13.5px;text-decoration:none;color:var(--ink)}
-.theme-c a b{font-weight:650;color:var(--ink-2)}
-.theme-c .more-n{font-size:13px;color:var(--ink-3);align-self:center;padding:0 4px}
-.theme-main:hover .theme-t{text-decoration:underline;text-underline-offset:4px}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .tile.c-night .art .dots.t1,:root:not([data-theme=light]) .chero .sky .dots.t1{stroke:var(--gilt)}:root:not([data-theme=light]) .theme-n{color:var(--gilt)}:root:not([data-theme=light]) .tile.c-wash .art .dots,:root:not([data-theme=light]) .tile.c-paper .art .dots{stroke:var(--city-ink)}:root:not([data-theme=light]) .tile.c-wash .art .dots.t1,:root:not([data-theme=light]) .tile.c-paper .art .dots.t1{stroke:var(--ink)}}
-:root[data-theme=dark] .tile.c-night .art .dots.t1,:root[data-theme=dark] .chero .sky .dots.t1{stroke:var(--gilt)}:root[data-theme=dark] .theme-n{color:var(--gilt)}:root[data-theme=dark] .tile.c-wash .art .dots,:root[data-theme=dark] .tile.c-paper .art .dots{stroke:var(--city-ink)}:root[data-theme=dark] .tile.c-wash .art .dots.t1,:root[data-theme=dark] .tile.c-paper .art .dots.t1{stroke:var(--ink)}
-.results .grp.guides ol{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0}
-.results a.is-kb,.results a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-.results mark{background:var(--gilt-soft);color:var(--ink);border-radius:2px}
-
-.motif{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 100%;z-index:-1;pointer-events:none}
-.theme-main{position:relative;isolation:isolate}.chero .sky .motif{object-fit:contain;object-position:100% 100%;z-index:0}
-/* ROUND-2 gap #4 (FE-B half): landing editorial rail — compact ★ tiles that scroll sideways; designer's .rail-i.sig skin */
-.editorial-s .rail-head h2 .n{margin-left:12px;font:500 15px/1.3 var(--font-ui);color:var(--ink-3)}
-html .rail.editorial{display:flex;flex-wrap:nowrap;gap:12px;overflow-x:auto;scroll-snap-type:x proximity;padding:4px 2px 14px;margin:0;grid-template-rows:none;height:auto}
-html .rail.editorial .rail-i{flex:0 0 min(80vw,300px);align-content:start;height:auto;min-height:0;aspect-ratio:auto;scroll-snap-align:start;text-decoration:none;color:var(--city-on,var(--on-night));display:grid;grid-template-columns:22px 1fr auto;gap:2px 10px;align-items:start;padding:14px 16px;border-radius:16px;font-size:inherit}
-html .rail.editorial .rail-i .g{grid-row:1/span 3;margin:2px 0 0}
-html .rail.editorial .rail-i .k{grid-column:2;font:600 12px/1.3 var(--font-ui);letter-spacing:.02em;opacity:.9}
-html .rail.editorial .rail-i .t{grid-column:2;font:500 21px/1.15 var(--font-display)}
-html .rail.editorial .rail-i .d{grid-column:2;font:13px/1.4 var(--font-ui);opacity:.9}
-html .rail.editorial .rail-i .n{grid-column:3;grid-row:1/span 2;font:500 26px/1 var(--font-display);color:inherit}
-/* W3 B-04: "Read as a guidebook" / "See it in numbers" under each hub tile (44 px targets) */
-li.dest>.dest-views{display:flex;flex-wrap:wrap;gap:0 16px;margin:4px 2px 0;font-size:14px}
-li.dest>.dest-views a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink-2,inherit);text-underline-offset:3px}
-</style>
 </head>
 <body class="has-tabbar">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol><symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol><symbol id="i-seal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.3l1.4 3 3.2.3-2.4 2.2.7 3.1L12 14.3l-2.9 1.6.7-3.1-2.4-2.2 3.2-.3z"/></symbol><symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-star4" viewBox="0 0 24 24"><path d="M12 2.5l2.1 7.4 7.4 2.1-7.4 2.1-2.1 7.4-2.1-7.4L2.5 12l7.4-2.1z"/></symbol><symbol id="i-offline" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M7.6 7.6A5 5 0 0 0 7 9.5 4 4 0 0 0 7 17.5h10M10 5a5 5 0 0 1 6.9 3.5h.6a3.5 3.5 0 0 1 2.4 6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.2"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.2"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V4M8 8l4-4 4 4"/><path d="M6 12v7h12v-7"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.4a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.6" r="2.4"/></symbol></defs></svg><a class="skip" href="#main">Skip to content</a>
@@ -121,41 +45,45 @@ li.dest>.dest-views a{display:inline-flex;align-items:center;min-height:44px;col
 </div></header>
 <div class="banners" data-cleo-banners aria-live="polite"></div>
 <main id="main" class="feb">
-<section class="chero masthead" aria-labelledby="cn"><div class="sky" aria-hidden="true"><img class="motif" src="../assets/img/motifs/belgium.svg" alt="" decoding="async"><svg viewBox="0 0 900 360" preserveAspectRatio="xMaxYMid meet" aria-hidden="true" focusable="false"><path class="dots" stroke-width="3" stroke-opacity=".75" d="M461 61h0M464 63h0M460 65h0M459 66h0M462 60h0M464 62h0M460 62h0M462 63h0M463 57h0M463 54h0M470 67h0M477 63h0M479 129h0M481 129h0M500 95h0M501 94h0M480 132h0M478 140h0M479 133h0M465 58h0M464 59h0M467 62h0M466 64h0M464 60h0M464 56h0M463 68h0M466 63h0M468 66h0M463 60h0M468 67h0M462 66h0M461 65h0M464 54h0M462 65h0M468 65h0M466 61h0M479 131h0M501 92h0M467 76h0M461 62h0M470 63h0M466 69h0M464 58h0M466 59h0M310 124h0M312 124h0M310 125h0M310 123h0M305 117h0M310 119h0M281 137h0M264 147h0M282 137h0M255 155h0M311 116h0M308 122h0M306 114h0M309 122h0M311 123h0M311 124h0M306 122h0M289 137h0M287 132h0M270 141h0M454 203h0M458 195h0M461 198h0M456 204h0M456 203h0M454 198h0M456 198h0M457 198h0M449 177h0M448 178h0M450 194h0M452 194h0M458 209h0M441 199h0M447 185h0M452 209h0M445 203h0M453 179h0M458 211h0M466 224h0M455 191h0M456 190h0M456 205h0M450 201h0M453 202h0M456 193h0M450 204h0M454 194h0M450 193h0M449 204h0M454 199h0M455 199h0M451 201h0M448 213h0M450 215h0M461 209h0M468 207h0M463 205h0M454 200h0M196 69h0M199 63h0M195 67h0M197 65h0M209 51h0M208 51h0M131 55h0M127 59h0M128 58h0M191 21h0M168 76h0M175 27h0M127 56h0M90 92h0M196 65h0M197 57h0M195 66h0M199 65h0M194 67h0M195 64h0M127 58h0M125 58h0M130 56h0M202 28h0M197 19h0M158 49h0M152 41h0M171 29h0M190 35h0M200 65h0M89 89h0M729 270h0M729 273h0M726 277h0M784 310h0M791 323h0M725 268h0M726 272h0M671 292h0M818 288h0M691 287h0M790 285h0M724 271h0M662 336h0M787 279h0M790 286h0M793 290h0M792 325h0M776 269h0M781 307h0M829 274h0M731 309h0M729 295h0M648 305h0M731 277h0M740 266h0M728 279h0M734 278h0M728 284h0M483 129h0M480 131h0M451 79h0M436 35h0M460 56h0M463 59h0M467 70h0M468 70h0M466 62h0M315 120h0M312 121h0M308 127h0M311 121h0M307 119h0M310 126h0M312 123h0M286 138h0M287 130h0M263 147h0M302 127h0M310 117h0M309 119h0M308 123h0M313 121h0M279 144h0M271 147h0M454 196h0M449 200h0M459 190h0M450 203h0M451 198h0M460 193h0M448 217h0M200 64h0M198 62h0M178 27h0M191 35h0M125 59h0M197 68h0M196 64h0M730 269h0M799 318h0M764 279h0M727 274h0M703 342h0M790 291h0M792 288h0M794 286h0M713 284h0M801 299h0M743 284h0M735 251h0M728 299h0M750 329h0M659 318h0M731 274h0M727 273h0M729 271h0"/><path class="dots t1" stroke-width="4.8" d="M462 62h0M462 61h0M463 58h0M461 66h0M467 63h0M465 75h0M480 130h0M480 128h0M500 94h0M449 120h0M488 140h0M465 69h0M463 63h0M463 62h0M464 65h0M467 68h0M464 64h0M467 64h0M478 129h0M469 68h0M502 93h0M487 69h0M471 99h0M466 70h0M463 61h0M463 64h0M459 67h0M473 69h0M308 120h0M310 121h0M309 121h0M308 121h0M309 120h0M310 120h0M309 127h0M308 125h0M277 140h0M290 133h0M311 120h0M310 122h0M309 123h0M292 135h0M282 139h0M451 195h0M451 196h0M453 197h0M452 195h0M453 195h0M452 198h0M450 199h0M451 199h0M453 194h0M452 203h0M460 198h0M449 178h0M452 196h0M453 196h0M489 201h0M463 256h0M453 180h0M457 184h0M443 188h0M466 199h0M450 196h0M450 188h0M452 197h0M458 199h0M451 197h0M450 197h0M455 202h0M447 197h0M446 196h0M459 218h0M473 204h0M453 205h0M456 206h0M450 192h0M449 193h0M196 66h0M197 66h0M197 67h0M196 67h0M196 68h0M209 50h0M127 57h0M111 68h0M153 43h0M71 93h0M74 98h0M198 65h0M199 64h0M198 66h0M128 57h0M126 58h0M191 22h0M201 18h0M211 19h0M74 99h0M198 64h0M730 267h0M727 267h0M729 267h0M728 267h0M726 275h0M728 274h0M727 269h0M761 253h0M651 313h0M794 322h0M727 268h0M727 271h0M759 327h0M707 286h0M729 268h0M793 322h0M709 257h0M695 291h0M652 313h0M726 269h0M728 269h0M813 335h0M728 328h0M649 326h0M685 330h0M780 249h0M806 240h0M643 302h0M789 287h0M726 268h0M732 291h0M728 268h0M729 269h0M727 270h0M726 274h0M730 268h0M730 270h0"/></svg></div><div class="inner">
-  <p class="kicker">Country guide · drawn from 638 verified pins</p>
+<section class="chero" aria-labelledby="cn"><div class="inner">
+<div class="copy">
+  <p class="kicker"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Country guide · 638 verified pins</p>
   <h1 class="title d1" id="cn">Belgium</h1>
-  <p class="why"><span class="vh">Known for: </span><span class="l"><span>Sint-Baafskathedraal</span><span>Grand Curtius</span><span>De Koninck</span></span></p>
+  <p class="why"><span class="k">Known for:</span> <span class="l"><span>Sint-Baafskathedraal</span><span>Grand Curtius</span><span>De Koninck</span></span></p>
   <p class="facts"><b>5 guides · 651 places</b> · 305 sights · 346 to eat &amp; drink · status last checked 2026-10-03.</p>
   <p class="facts blurb-c">Five city maps — Antwerp, Ghent, Brussels, Bruges and Liège (Wallonia), each with its surrounding area, beer &amp; breweries front and centre. All five live.</p>
-  <div class="acts"><button type="button" class="btn btn-ghost" data-cleo-share data-title="Belgium — 5 sourced guides · Cleo" data-url="https://alvations.github.io/cleo-guide/beta/Belgium/" hidden><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-share"/></svg>Share Belgium</button><a class="btn btn-ghost" href="../how-we-choose.html">How we choose</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>
-</div><span class="accentbar"></span></section>
+  <div class="acts"><a class="btn btn-primary" href="#destinations">See all 5 guides</a><button type="button" class="btn btn-ghost" data-cleo-share data-title="Belgium — 5 sourced guides · Cleo" data-url="https://alvations.github.io/cleo-guide/beta/Belgium/" hidden><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-share"/></svg>Share Belgium</button><a class="btn btn-ghost" href="../how-we-choose.html"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seal"/></svg>How we choose</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>
+</div>
+<div class="hero-media cover c-1" aria-hidden="true"><picture><source media="(prefers-color-scheme: dark)" srcset="../assets/img/motifs/belgium.svg"><img class="motif" src="../assets/img/motifs/belgium.ink.svg" alt="" decoding="async"></picture><span class="big">651</span><span class="big-l">places, each with its sources</span></div>
+</div></section>
 <div class="wrap section" id="destinations">
-  <ul class="tiles hub2" aria-label="Belgium guides">
-<li class="dest" data-page="antwerp" data-gen="new"><a href="../cities/antwerp.html" class="tile c-night skin-vermilion">
-<span class="art"><img class="motif" src="../assets/img/motifs/antwerp.svg" alt="" loading="lazy" decoding="async"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" stroke-width="2.2" stroke-opacity=".75" d="M148 16h0M152 18h0M150 15h0M152 17h0M151 17h0M147 17h0M151 19h0M151 16h0M156 19h0M159 25h0"/><path class="dots t1" stroke-width="3.5" d="M149 17h0M149 16h0M151 13h0M149 18h0M147 22h0M155 18h0M153 35h0M173 107h0M172 105h0M154 27h0M150 19h0M150 18h0M151 21h0M156 25h0M151 20h0M155 20h0M171 106h0M173 105h0M159 26h0M160 66h0M154 28h0M150 16h0M164 26h0"/></svg><span class="ini" aria-hidden="true">A</span><span class="bar"></span></span>
-<span class="txt"><h3>Antwerp</h3>
+<div class="rail-head"><h2 class="d2" id="grid-h">Guides in Belgium<span class="n">5 guides</span></h2></div>
+  <ul class="tiles hub2 cards" aria-labelledby="grid-h">
+<li class="dest" data-page="antwerp" data-gen="new"><a href="../cities/antwerp.html" class="tile card c-0">
+<span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/antwerp.ink.svg" alt="" loading="lazy" decoding="async"></span></span>
+<span class="card-body txt"><h3 class="card-t">Antwerp</h3>
 <span class="counts"><span class="dest-c">137 places<span class="hide-m"> · 59 sights · 78 to eat &amp; drink</span></span></span>
-<span class="sigline"><span>frites</span><span>chocolate</span><span>Onze-Lieve-Vrouwekathedraal</span></span></span></a><p class="dest-views"><a href="../cities/antwerp.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Antwerp</span></a><a href="../cities/antwerp.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Antwerp</span></a></p></li>
-<li class="dest" data-page="ghent" data-gen="new"><a href="../cities/ghent.html" class="tile c-wash skin-lake">
-<span class="art"><img class="motif" src="../assets/img/motifs/ghent.svg" alt="" loading="lazy" decoding="async"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" style="--dot:#16A085" stroke-width="2.2" stroke-opacity=".75" d="M225 18h0M224 14h0M220 16h0M226 34h0M224 13h0M227 38h0M228 29h0M229 27h0M223 14h0M221 15h0M227 15h0M221 16h0M226 20h0M222 20h0M220 22h0"/><path class="dots" style="--dot:#C0504D" stroke-width="2.2" stroke-opacity=".75" d="M96 90h0M101 91h0"/><path class="dots t1" style="--dot:#16A085" stroke-width="3.5" d="M221 14h0M227 20h0M225 19h0M221 17h0M225 16h0M223 13h0M226 14h0M223 19h0M222 45h0M224 44h0M217 36h0M221 19h0M225 15h0M223 15h0M222 15h0M230 14h0M224 12h0M229 24h0M219 15h0M222 29h0M222 16h0M223 16h0"/><path class="dots t1" style="--dot:#C0504D" stroke-width="3.5" d="M138 73h0M148 84h0M100 99h0"/></svg><span class="ini" aria-hidden="true">G</span><span class="bar"></span></span>
-<span class="txt"><h3>Ghent</h3>
+<span class="sigline"><b class="k">Known for</b><span>frites</span><span>chocolate</span><span>Onze-Lieve-Vrouwekathedraal</span></span><span class="recby"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seal"/></svg><span>Recommended by <b>Wikipedia (NL), Gault&amp;Millau België</b> + 67 more</span></span></span></a><p class="dest-views"><a href="../cities/antwerp.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Antwerp</span></a><a href="../cities/antwerp.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Antwerp</span></a></p></li>
+<li class="dest" data-page="ghent" data-gen="new"><a href="../cities/ghent.html" class="tile card c-1">
+<span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/ghent.ink.svg" alt="" loading="lazy" decoding="async"></span></span>
+<span class="card-body txt"><h3 class="card-t">Ghent</h3>
 <span class="counts"><span class="dest-c">108 places<span class="hide-m"> · 53 sights · 55 to eat &amp; drink</span></span></span>
-<span class="sigline"><span>frites</span><span>chocolate</span><span>Sint-Baafskathedraal</span></span></span></a><p class="dest-views"><a href="../cities/ghent.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Ghent</span></a><a href="../cities/ghent.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Ghent</span></a></p></li>
-<li class="dest" data-page="brussels" data-gen="new"><a href="../cities/brussels.html" class="tile c-city skin-moss">
-<span class="art"><img class="motif" src="../assets/img/motifs/brussels.svg" alt="" loading="lazy" decoding="async"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" style="--dot:#8E44AD" stroke-width="2.2" stroke-opacity=".75" d="M142 39h0M141 42h0M159 78h0M176 40h0M191 54h0"/><path class="dots t1" style="--dot:#8E44AD" stroke-width="3.5" d="M145 41h0M144 42h0M142 44h0M151 50h0M151 51h0M152 48h0M147 40h0M153 39h0M149 53h0M137 59h0M144 59h0M153 33h0M145 40h0M147 82h0M190 52h0M189 55h0M149 46h0M153 47h0M146 38h0M149 38h0M138 44h0M146 51h0M147 51h0M144 40h0M177 59h0M146 39h0M142 51h0M137 49h0M153 46h0M165 72h0M155 90h0M167 94h0M138 23h0M153 34h0M132 30h0"/></svg><span class="ini" aria-hidden="true">B</span><span class="bar"></span></span>
-<span class="txt"><h3>Brussels</h3>
+<span class="sigline"><b class="k">Known for</b><span>frites</span><span>chocolate</span><span>Sint-Baafskathedraal</span></span><span class="recby"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seal"/></svg><span>Recommended by <b>Visit Gent (officiële stadstoerisme), Wikipedia (NL/EN)</b> + 47 more</span></span></span></a><p class="dest-views"><a href="../cities/ghent.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Ghent</span></a><a href="../cities/ghent.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Ghent</span></a></p></li>
+<li class="dest" data-page="brussels" data-gen="new"><a href="../cities/brussels.html" class="tile card c-2">
+<span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/brussels.ink.svg" alt="" loading="lazy" decoding="async"></span></span>
+<span class="card-body txt"><h3 class="card-t">Brussels</h3>
 <span class="counts"><span class="dest-c">139 places<span class="hide-m"> · 71 sights · 68 to eat &amp; drink</span></span></span>
-<span class="sigline"><span>waffle</span><span>frites</span><span>Grand-Place / Grote Markt</span></span></span></a><p class="dest-views"><a href="../cities/brussels.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Brussels</span></a><a href="../cities/brussels.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Brussels</span></a></p></li>
-<li class="dest" data-page="bruges" data-gen="new"><a href="../cities/bruges.html" class="tile c-paper skin-neon">
-<span class="art"><img class="motif" src="../assets/img/motifs/bruges.svg" alt="" loading="lazy" decoding="async"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" style="--dot:#6A8D3F" stroke-width="2.2" stroke-opacity=".75" d="M240 50h0M147 55h0M143 61h0M144 60h0M220 15h0"/><path class="dots" style="--dot:#C0504D" stroke-width="2.2" stroke-opacity=".75" d="M226 72h0M229 66h0M225 70h0M224 71h0M226 67h0M226 68h0M228 67h0"/><path class="dots t1" style="--dot:#6A8D3F" stroke-width="3.5" d="M241 50h0M142 58h0M123 72h0M174 41h0M79 108h0M144 58h0M142 59h0M219 16h0"/><path class="dots t1" style="--dot:#C0504D" stroke-width="3.5" d="M226 69h0M226 70h0M225 71h0M225 72h0M227 69h0M226 71h0M225 69h0M228 68h0M229 67h0M227 67h0"/></svg><span class="ini" aria-hidden="true">B</span><span class="bar"></span></span>
-<span class="txt"><h3>Bruges</h3>
+<span class="sigline"><b class="k">Known for</b><span>waffle</span><span>frites</span><span>Grand-Place / Grote Markt</span></span><span class="recby"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seal"/></svg><span>Recommended by <b>Wikipedia (FR/EN), visit.brussels</b> + 73 more</span></span></span></a><p class="dest-views"><a href="../cities/brussels.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Brussels</span></a><a href="../cities/brussels.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Brussels</span></a></p></li>
+<li class="dest" data-page="bruges" data-gen="new"><a href="../cities/bruges.html" class="tile card c-3">
+<span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/bruges.ink.svg" alt="" loading="lazy" decoding="async"></span></span>
+<span class="card-body txt"><h3 class="card-t">Bruges</h3>
 <span class="counts"><span class="dest-c">123 places<span class="hide-m"> · 63 sights · 60 to eat &amp; drink</span></span></span>
-<span class="sigline"><span>chocolate</span><span>trappist</span><span>Markt</span></span></span></a><p class="dest-views"><a href="../cities/bruges.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Bruges</span></a><a href="../cities/bruges.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Bruges</span></a></p></li>
-<li class="dest" data-page="liege" data-gen="new"><a href="../cities/liege.html" class="tile c-night skin-lagoon">
-<span class="art"><img class="motif" src="../assets/img/motifs/liege.svg" alt="" loading="lazy" decoding="async"><svg viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path class="dots" stroke-width="2.2" stroke-opacity=".75" d="M141 14h0M143 12h0M145 16h0M142 14h0M143 14h0M145 12h0M145 20h0M141 26h0"/><path class="dots t1" stroke-width="3.5" d="M146 12h0M143 13h0M141 23h0M144 22h0M142 16h0M234 88h0M142 17h0M142 12h0M186 94h0M114 39h0M144 13h0M234 87h0M98 45h0M141 15h0M144 14h0M261 105h0M144 96h0M85 99h0M229 40h0M140 14h0M150 46h0M143 15h0M145 15h0M143 16h0M142 23h0M146 16h0M147 14h0M147 16h0"/></svg><span class="ini" aria-hidden="true">L</span><span class="bar"></span></span>
-<span class="txt"><h3>Liège</h3>
+<span class="sigline"><b class="k">Known for</b><span>chocolate</span><span>trappist</span><span>Markt</span></span><span class="recby"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seal"/></svg><span>Recommended by <b>Visit Bruges (official city tourism), Michelin Guide Belgium</b> + 69 more</span></span></span></a><p class="dest-views"><a href="../cities/bruges.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Bruges</span></a><a href="../cities/bruges.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Bruges</span></a></p></li>
+<li class="dest" data-page="liege" data-gen="new"><a href="../cities/liege.html" class="tile card c-0">
+<span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/liege.ink.svg" alt="" loading="lazy" decoding="async"></span></span>
+<span class="card-body txt"><h3 class="card-t">Liège</h3>
 <span class="counts"><span class="dest-c">144 places<span class="hide-m"> · 59 sights · 85 to eat &amp; drink</span></span></span>
-<span class="sigline"><span>gaufre</span><span>boulets</span><span>Palais des Princes-Évêques</span></span></span></a><p class="dest-views"><a href="../cities/liege.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Liège</span></a><a href="../cities/liege.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Liège</span></a></p></li>
+<span class="sigline"><b class="k">Known for</b><span>gaufre</span><span>boulets</span><span>Palais des Princes-Évêques</span></span><span class="recby"><svg class="ico sm" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seal"/></svg><span>Recommended by <b>Gault&amp;millau, Wikipedia</b> + 38 more</span></span></span></a><p class="dest-views"><a href="../cities/liege.html#view=guidebook" data-view-link="guidebook">Read as a guidebook<span class="vh"> — Liège</span></a><a href="../cities/liege.html#view=insights" data-view-link="insights">See it in numbers<span class="vh"> — Liège</span></a></p></li>
   </ul>
 
 </div>
@@ -164,20 +92,20 @@ li.dest>.dest-views a{display:inline-flex;align-items:center;min-height:44px;col
 
 <ul class="theme-rail" aria-label="Collections in Belgium">
 <li class="theme t-0">
-<a class="theme-main" href="../cities/liege.html#cz=FINE"><span class="theme-n">121</span><span class="theme-t">Michelin &amp; fine dining</span><span class="theme-w">Starred and bib-gourmand tables, each with its source · across Belgium</span></a>
+<a class="theme-main" href="../cities/liege.html#cz=FINE"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/collections/fine.ink.svg" alt="" loading="lazy" decoding="async"></span><span class="theme-n">121</span><span class="theme-t">Michelin &amp; fine dining</span><span class="theme-w">Starred and bib-gourmand tables, each with its source · across Belgium</span></a>
 <span class="theme-c"><a href="../cities/liege.html#cz=FINE">Liège <b>59</b></a><a href="../cities/antwerp.html#cz=FINE">Antwerp <b>23</b></a><a href="../cities/bruges.html#cz=FINE">Bruges <b>21</b></a><a href="../cities/brussels.html#cz=FINE">Brussels <b>12</b></a><span class="more-n">+1 more guide</span></span></li>
 <li class="theme t-1">
-<a class="theme-main" href="../cities/brussels.html#c=UNESCO"><span class="theme-n">29</span><span class="theme-t">World Heritage</span><span class="theme-w">UNESCO-listed sites, pinned to the door · across Belgium</span></a>
+<a class="theme-main" href="../cities/brussels.html#c=UNESCO"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/collections/unesco.ink.svg" alt="" loading="lazy" decoding="async"></span><span class="theme-n">29</span><span class="theme-t">World Heritage</span><span class="theme-w">UNESCO-listed sites, pinned to the door · across Belgium</span></a>
 <span class="theme-c"><a href="../cities/brussels.html#c=UNESCO">Brussels <b>12</b></a><a href="../cities/bruges.html#c=UNESCO">Bruges <b>7</b></a><a href="../cities/antwerp.html#c=UNESCO">Antwerp <b>5</b></a><a href="../cities/ghent.html#c=UNESCO">Ghent <b>3</b></a><span class="more-n">+1 more guide</span></span></li>
 <li class="theme t-2">
-<a class="theme-main" href="../cities/antwerp.html#cz=BEER"><span class="theme-n">63</span><span class="theme-t">Beer halls &amp; brewers</span><span class="theme-w">Trappist taps, Kölsch and the brown cafés that pour them · across Belgium</span></a>
+<a class="theme-main" href="../cities/antwerp.html#cz=BEER"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/collections/beer.ink.svg" alt="" loading="lazy" decoding="async"></span><span class="theme-n">63</span><span class="theme-t">Beer halls &amp; brewers</span><span class="theme-w">Trappist taps, Kölsch and the brown cafés that pour them · across Belgium</span></a>
 <span class="theme-c"><a href="../cities/antwerp.html#cz=BEER">Antwerp <b>19</b></a><a href="../cities/brussels.html#cz=BEER">Brussels <b>15</b></a><a href="../cities/bruges.html#cz=BEER">Bruges <b>10</b></a><a href="../cities/ghent.html#cz=BEER">Ghent <b>10</b></a><span class="more-n">+1 more guide</span></span></li>
 <li class="theme t-3">
-<a class="theme-main" href="../cities/bruges.html#c=FREE"><span class="theme-n">103</span><span class="theme-t">Free to visit</span><span class="theme-w">Museums, parks and landmarks that cost nothing · across Belgium</span></a>
+<a class="theme-main" href="../cities/bruges.html#c=FREE"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/collections/free.ink.svg" alt="" loading="lazy" decoding="async"></span><span class="theme-n">103</span><span class="theme-t">Free to visit</span><span class="theme-w">Museums, parks and landmarks that cost nothing · across Belgium</span></a>
 <span class="theme-c"><a href="../cities/bruges.html#c=FREE">Bruges <b>29</b></a><a href="../cities/brussels.html#c=FREE">Brussels <b>21</b></a><a href="../cities/antwerp.html#c=FREE">Antwerp <b>19</b></a><a href="../cities/ghent.html#c=FREE">Ghent <b>19</b></a><span class="more-n">+1 more guide</span></span></li>
 </ul></section></div>
-<section class="wrap section" aria-labelledby="else-h"><h2 class="d2" id="else-h">Elsewhere in Cleo</h2>
-<div class="countries" style="margin-top:12px"><a class="pill" href="../index.html#us">United States <span class="n">4,144</span></a><a class="pill" href="../Singapore/index.html">Singapore <span class="n">598</span></a><a class="pill" href="../Vietnam/index.html">Vietnam <span class="n">183</span></a><a class="pill" href="../Germany/index.html">Germany <span class="n">751</span></a><a class="pill" href="../Japan/index.html">Japan <span class="n">2,092</span></a></div></section>
+<section class="wrap section" aria-labelledby="else-h"><div class="rail-head"><h2 class="d2" id="else-h">Elsewhere in Cleo</h2></div>
+<ul class="ccards"><li><a class="ccard c-0" href="../index.html#us"><span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/us.ink.svg" alt="" loading="lazy" decoding="async"></span></span><span class="card-body"><span class="card-t">United States</span><span class="counts">21 guides · 4,144 places</span></span></a></li><li><a class="ccard c-1" href="../Singapore/index.html"><span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/singapore.ink.svg" alt="" loading="lazy" decoding="async"></span></span><span class="card-body"><span class="card-t">Singapore</span><span class="counts">29 guides · 598 places</span></span></a></li><li><a class="ccard c-2" href="../Vietnam/index.html"><span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/vietnam.ink.svg" alt="" loading="lazy" decoding="async"></span></span><span class="card-body"><span class="card-t">Vietnam</span><span class="counts">5 guides · 183 places</span></span></a></li><li><a class="ccard c-3" href="../Germany/index.html"><span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/germany.ink.svg" alt="" loading="lazy" decoding="async"></span></span><span class="card-body"><span class="card-t">Germany</span><span class="counts">3 guides · 751 places</span></span></a></li><li><a class="ccard c-0" href="../Japan/index.html"><span class="card-media"><span class="cover" aria-hidden="true"><img class="motif" src="../assets/img/motifs/japan.ink.svg" alt="" loading="lazy" decoding="async"></span></span><span class="card-body"><span class="card-t">Japan</span><span class="counts">5 guides · 2,092 places</span></span></a></li></ul></section>
 </main>
 
 <footer class="footer" role="contentinfo"><div class="wrap">

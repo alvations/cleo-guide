@@ -827,3 +827,17 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - Type plan: an expressive self-hosted OFL display face with Vietnamese, plus a highly legible text face.
   - Owner: "autonomously continue and fan out on all lanes".
   - FE-B (landing + hubs) launched now instead of waiting for the R6 sessions. The amendment was sent to the designer, FE-A and imagery lanes.
+
+- 2026-10-11 · FE-B (W7) · **Landing, country hubs and static pages rebuilt image-first, search-first and calm.**
+  - **Landing:** a light, search-first hero with one headline in the display face ("Where to next?", with a sunny highlighter swipe as the single expressive moment), a big search pill and country pills. Below it: one row of image-first city cards per live country, the ★ signature row and collections as image cards, a quiet "How we choose" strip with computed counts (named sources, places pinned, closed places kept), and country cards.
+  - **Card anatomy (shared with FE-A):** a rounded media slot, then name / counts / "Known for" / "Recommended by {top sources} + n more". There is no frame or border, and a soft lift on hover that is off under reduced motion.
+    - **Photo:** the imagery lane's credited photo (`hero:<key>` slot, else the best-sourced open tier-1 sight; never Vietnam), with its TASL credit under the card.
+    - **No-photo cover:** a calm neutral ground in 4 rotating tones, the city's own paper-ground line motif and its native-script name.
+  - **Hubs:**
+    - Retired the navy night hero, star-field particle art, skins and purple tiles.
+    - The hero is now copy plus media: a credited hero photo, or the calm cover with the place count as the big number. A primary CTA, share and method sit beside it.
+    - Below the hero: a "Guides in {country}" card grid (1/2/3/4 columns), the collections as image cards, and country cards.
+  - **Static pages:** method, accessibility and 404 use a light page head and the same type and spacing (17 px prose, display-face numbers).
+  - **CSS:** one cached stylesheet `assets/fe-b.css` (source `tools/beta/lib/render/fe-b.css`, tokens only, reading `--accent`/`--sun`/`--cover-1..4` with today's tokens as the fallback) replaces the inline glue CSS each hub and landing page used to carry.
+  - **Weight:** the landing went from 83 KB to ≈72 KB raw (≈11 KB gzip).
+  - **Tests:** test-i18n's fixture gains named sources, so the card's "Recommended by" line is checked in pseudo. That extends the check; nothing was relaxed.
