@@ -23,6 +23,8 @@
   var LANG = { japan: 'ja', singapore: 'zh', vietnam: 'vi' };
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
   var plural = function (n, w, pl) { return n + ' ' + (n === 1 ? w : (pl || w + 's')); };
+  var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  var longDate = function (v) { var m = /^(\d{4})-(\d{2})(?:-(\d{2}))?/.exec(v || ''); return m ? (m[3] ? +m[3] + ' ' : '') + MONTHS[+m[2] - 1] + ' ' + m[1] : String(v || ''); };
   var shortArea = function (n) { return String(n || '').split(/\s+[(—–]\s*|\s+\(/)[0].trim(); };
 
   /* ---- the view model: one record set, view order = area order then rank (P-01 `rank` when the build ships it) ---- */
@@ -147,20 +149,48 @@
     });
     if (count !== M.N) throw new Error('guidebook lost records: ' + count + ' != ' + M.N);
     var sig = g.signature;
-    var cover = '<header class="gcover"><p class="kicker">A field guide · ' + plural(A, 'chapter') + ' · ' + plural(M.N, 'place') + '</p>' +
-      '<h1 class="hero-t" tabindex="-1">' + esc(d.name) + (d.nat ? ' <span class="native"' + (M.lang ? ' lang="' + M.lang + '"' : '') + '>' + esc(d.nat) + '</span>' : '') + '</h1>' +
+    var ed = edition(d), cp0 = d.coverPhoto;
+    var cphoto = cp0 ? '<figure class="photo gc-photo"><img src="' + esc(up + cp0.src) + '"' +
+      (cp0.set && cp0.set.length > 1 ? ' srcset="' + cp0.set.map(function (w) { return esc(up + w[0]) + ' ' + w[1] + 'w'; }).join(', ') + '" sizes="(min-width: 1024px) 760px, 92vw"' : '') +
+      ' width="' + cp0.w + '" height="' + cp0.h + '" alt="' + esc(cp0.alt) + '" decoding="async" style="aspect-ratio:16/9;height:auto;object-fit:cover"><figcaption>' + cp0.cap + '</figcaption></figure>' : '';
+    // W9-10: every number on the edition line is the page JSON's own (stats.total / stats.closed / stats.lastChecked)
+    var edl = ed ? '<p class="edition" data-edition="' + ed + '"><b>' + longDate(ed) + ' edition</b> · <span data-n="total">' + plural(st.total || M.N, 'place') + '</span>' +
+      ' · <span data-n="closed">' + (st.closed || 0) + ' closed</span>' + (st.lastChecked ? ' · <span data-d="checked">checked to <time datetime="' + esc(st.lastChecked) + '">' + longDate(st.lastChecked) + '</time></span>' : '') + '</p>' : '';
+    var cover = '<header class="gcover' + (cphoto ? ' has-photo' : '') + '">' + cphoto + '<p class="kicker">A field guide · ' + plural(A, 'chapter') + ' · ' + plural(M.N, 'place') + '</p>' +
+      '<h1 class="hero-t" tabindex="-1">' + esc(d.name) + (d.nat ? ' <span class="native"' + (M.lang ? ' lang="' + M.lang + '"' : '') + '>' + esc(d.nat) + '</span>' : '') + '</h1>' + edl +
       (g.tileLine && g.tileLine.text ? '<p class="lead">' + esc(g.tileLine.text) + '</p>' : '') +
       '<p class="gfacts">' + [plural(st.sights || 0, 'sight'), plural(st.food || 0, 'place') + ' to eat and drink', plural(st.sources || 0, 'named source'),
-        (st.verifiedPins || 0) + ' of ' + (st.pins || 0) + ' pins verified'].concat(st.lastChecked ? ['status checked to ' + st.lastChecked] : []).map(esc).join(' · ') + '</p>' +
-      (sig ? '<p class="gsig">★ ' + esc(sig.title) + ': ' + plural(sig.n, 'place') + ', marked through the chapters.</p>' : '') + '</header>';
+        (st.verifiedPins || 0) + ' of ' + (st.pins || 0) + ' pins verified'].concat(st.lastChecked ? ['status checked to ' + longDate(st.lastChecked)] : []).map(esc).join(' · ') + '</p>' +
+      (sig ? '<p class="gsig">★ ' + esc(sig.title) + ': ' + plural(sig.n, 'place') + ', marked through the chapters.</p>' : '') + '</header>' + since(M, up);
     var nav = '<div class="bk" data-cleo-book>' +
       '<nav class="toc" aria-label="Chapters"><p class="eyebrow">Contents</p><ol>' + toc.join('') + '</ol>' +
-      '<button type="button" class="btn btn-ghost" data-cleo-print>Print this guide</button></nav>' +
+      '<button type="button" class="btn btn-ghost" data-cleo-print>Print as booklet</button></nav>' +
       '<div class="bk-main">' + cover;
     var app = appendix(M);
     // `lazy`: the same book, contents + chapter shells first; mount() fills each body (and the appendix) on approach
     var lazy = nav + parts.map(function (c) { return c.shell + '</div></article>'; }).join('') + '<div data-gb-appendix></div></div></div>';
     return { html: nav + chapters.join('') + app + '</div></div>', lazy: lazy, parts: parts, appendix: app, entries: count, model: M };
+  }
+
+  /* ---- W9-10 the dated edition: the edition = the newest month in the page's dated change log (data, never the clock) ---- */
+  function edition(d) {
+    var top = (d.changes || []).reduce(function (m, c) { return c.d > m ? c.d : m; }, '');
+    return top.slice(0, 7);
+  }
+  // "Since the last edition": every dated change in the edition month, as the "What changed" page words it
+  function since(M, root) {
+    var d = M.d, ed = edition(d); if (!ed) return '';
+    var line = function (c) {
+      // the closure's sourced note is on the place and on "What changed" (it can quote money: the views carry no prices)
+      if (c.kind === 'closed') return 'Closed, kept for the record: <a href="#p=' + encodeURIComponent(c.id) + '">' + esc(c.name) + '</a>';
+      if (c.kind === 'checked') return 'Open or closed status checked for ' + plural(c.n, 'place') + (c.closed ? ' (' + c.closed + ' found closed)' : '');
+      return plural(c.n, 'map pin') + ' verified';
+    };
+    var rows = (d.changes || []).filter(function (c) { return String(c.d).slice(0, 7) === ed; });
+    return '<section class="gb-since" id="gb-since" aria-labelledby="gb-since-h" data-edition="' + ed + '"><h2 class="d2" id="gb-since-h">Since the last edition</h2>' +
+      '<p>What changed in ' + esc(d.name) + ' during ' + longDate(ed) + ', from the dated checks on record.' +
+      (d.changesPage ? ' <a href="' + esc(root + d.changesPage) + '">Every change, with dates</a>' : '') + '</p>' +
+      '<ol class="since">' + rows.map(function (c) { return '<li data-kind="' + esc(c.kind) + '"><time datetime="' + esc(c.d) + '">' + longDate(c.d) + '</time> <span>' + line(c) + '</span></li>'; }).join('') + '</ol></section>';
   }
 
   /* ---- sources appendix (B-03): every source of the page with its URLs and record count, then the method notes ---- */
@@ -280,5 +310,5 @@
   function printAll() { var C = window.Cleo || {}; if (C.defer) C.defer.all(); if (host) syncLens(host); window.print(); }
   function unmount() { off.splice(0).forEach(function (f) { f(); }); Object.keys(lazy).forEach(function (k) { lazy[k].cancel(); }); lazy = {}; book = null; if (host) { host.innerHTML = ''; host.classList.remove('view-guidebook'); } host = null; }
 
-  return { model: model, render: render, intro: intro, TEMPLATE: TEMPLATE, mount: mount, unmount: unmount, sourceUrls: sourceUrls, shortArea: shortArea };
+  return { model: model, render: render, intro: intro, edition: edition, longDate: longDate, TEMPLATE: TEMPLATE, mount: mount, unmount: unmount, sourceUrls: sourceUrls, shortArea: shortArea };
 });

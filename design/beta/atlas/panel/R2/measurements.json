@@ -11218,6 +11218,49 @@
    },
    "mapViewInUrl": false,
    "errors": []
+  },
+  "keyboard-deep-tokyo": {
+   "firstCard": 39,
+   "mapFocusableAt": 226,
+   "tabsToFirstPin": 227,
+   "pinLabelsSample": [
+    "Edo-Tokyo Museum, sight, Must see",
+    "Imperial Palace East Gardens, sight, Must see",
+    "Tsukiji Hongan-ji, sight, Must see",
+    "Toraya Akasaka flagship, eat and drink, Must see"
+   ],
+   "pinFocusRingVisible": true,
+   "stopsJustBeforeMap": [
+    "Wikipedia",
+    "Your day here · 6 stops",
+    "Show 40 more",
+    "Show all 379 in one list"
+   ],
+   "enterOnPin": {
+    "preview": true,
+    "focusStays": "pin"
+   },
+   "escapeAfterPinPreview": "focus back on the pin",
+   "arrowKeysPanFocusedMap": true,
+   "note": "erratum: the round-2 keyboard run stopped scanning 6 stops after the first card, so it never reached the map and pins, which come after the whole list"
+  },
+  "keyboard-deep-cleveland": {
+   "firstCard": 30,
+   "mapFocusableAt": 205,
+   "tabsToFirstPin": 206,
+   "pinLabelsSample": [
+    "West Side Market, sight, Must see",
+    "Chess Collection — Cleveland Public Library MAIN Library, sight, …",
+    "Superior Phở, eat and drink, Must see",
+    "The Arcade (Old Arcade), sight, Must see"
+   ],
+   "pinFocusRingVisible": true,
+   "enterOnPin": {
+    "preview": true,
+    "focusStays": "pin"
+   },
+   "escapeAfterPinPreview": "focus back on the pin",
+   "arrowKeysPanFocusedMap": true
   }
  },
  "shots": [
