@@ -13,9 +13,10 @@
  *    label check only guards against an id meaning something else on another page.
  * W7 (image-first): every city is a borderless card — rounded media slot, then name, counts, "Known for" and
  * "Recommended by". The media is the imagery lane's credited photo when one exists (hero:<key> slot, else the city's
- * best-sourced open must-see), otherwise the calm no-photo cover: a quiet neutral ground in one of four tones (so no
- * two neighbouring covers match) and the city's own original line motif (paper-ground drawing); the name is set in type
- * right under it (plus the native-script name on the cover where the live page prints one).
+ * best-sourced open must-see), otherwise the design system's calm no-photo cover (design/beta/css/v2.css V2.7): a
+ * quiet ground, one small icon and the name set in type (plus the native-script name where the live page prints one).
+ * The city's line motif stays referenced in the cover (the imagery gate) but v2 does not draw it. Cover tone classes
+ * c-0…c-3 rotate so no two neighbouring covers are marked alike.
  * No night ground, particle art, skins or purple tiles. Motifs and photos below the fold load lazily.
  * Styles: lib/render/fe-b.css (tokens only), published as assets/fe-b.css.
  */
@@ -138,7 +139,7 @@ function cityTile(row, i, { up = '', views = false, reg = null, dense = false, e
   const canon = !sig && f.canon.length ? `<span class="canon">${f.canon.map(c => `<span>${esc(c)}</span>`).join('')}</span>` : '';
   const rb = f.recby.n ? `<span class="recby">${icon('seal', 'ico sm')}<span>${esc(t('card.recby'))} <b>${esc(f.recby.names.join(', '))}</b>${f.recby.n > f.recby.names.length ? ` ${esc(t('card.recby.more', { n: fmt(f.recby.n - f.recby.names.length) }))}` : ''}</span></span>` : '';
   return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}" class="tile card c-${i % 4}">
-<span class="card-media"><span class="cover" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}${f.native ? `<span class="native">${esc(f.native)}</span>` : ''}</span>${ph ? photoImg(ph, up, { sizes: dense ? SIZES.dense : SIZES.hub, eager }) : ''}${star}</span>
+<span class="card-media"><span class="cover" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}${icon('pin', 'gl ico')}<span class="cover-n">${esc(f.name)}</span>${f.native ? `<span class="native">${esc(f.native)}</span>` : ''}</span>${ph ? photoImg(ph, up, { sizes: dense ? SIZES.dense : SIZES.hub, eager }) : ''}${star}</span>
 <span class="card-body txt"><h3 class="card-t">${esc(f.name)}</h3>
 <span class="counts"><span class="dest-c">${plural('hub.places', f.n)}<span class="hide-m"> · ${esc(t('hub.sights', { n: fmt(f.P) }))} · ${esc(t('hub.food', { n: fmt(f.F) }))}</span></span></span>
 ${sig}${canon}${rb}</span></a>${credit(ph)}${views && row.gen === 'new' ? viewLinks(row, up) : ''}</li>`;
@@ -284,7 +285,7 @@ function ogFor(key) {
 function countryCards(list, up = '', reg = null) {
   return `<ul class="ccards">${list.map((o, i) => {
     const mf = motif(o.key, 'ink'), ph = photoOf(o.key, reg, null);
-    return `<li><a class="ccard c-${i % 4}" href="${up}${esc(o.href)}"><span class="card-media"><span class="cover" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}</span>${ph ? photoImg(ph, up, { sizes: SIZES.dense }) : ''}</span><span class="card-body"><span class="card-t">${esc(o.name)}</span><span class="counts">${plural('hub.guides', o.guides)} · ${plural('hub.places', o.places)}</span></span></a>${credit(ph)}</li>`;
+    return `<li><a class="ccard c-${i % 4}" href="${up}${esc(o.href)}"><span class="card-media"><span class="cover" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}${icon('compass', 'gl ico')}<span class="cover-n">${esc(o.name)}</span></span>${ph ? photoImg(ph, up, { sizes: SIZES.dense }) : ''}</span><span class="card-body"><span class="card-t">${esc(o.name)}</span><span class="counts">${plural('hub.guides', o.guides)} · ${plural('hub.places', o.places)}</span></span></a>${credit(ph)}</li>`;
   }).join('')}</ul>`;
 }
 
