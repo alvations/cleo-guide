@@ -123,6 +123,10 @@ const strip = h => String(h || '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, '
 /** Corporate signage, logos or advertising as the subject (owner review, W7): such a file is refused. */
 const SIGNAGE = /\b(logos?|signage|signboards?|billboards?|advertis\w*|neon signs?)\b/i;
 
+/** City and hub heroes: bright, warm-season or golden-hour establishing shots (owner review, W7). A gloomy one is refused
+ * unless the target says `winterOk` (a winter destination). Night views stay allowed; night-time construction does not. */
+const GLOOM = /\b(winter|snow\w*|overcast|fog\w*|blizzard|ice storm|construction)\b/i;
+
 /** A run fails only when more than a quarter of the attempted downloads failed (a single bad file is skipped). */
 const tooManyFailures = (tries, fails) => tries >= 4 && fails / tries > 0.25;
 
@@ -260,6 +264,7 @@ async function main() {
     if (/personality|trademark/i.test(val('Restrictions') || '') && !o.allow.includes('people-visible')) return { why: `restrictions: ${strip(val('Restrictions'))}` };
     const cats = (pg.categories || []).map(c => c.title.replace(/^Category:/, ''));
     const desc = strip(val('ImageDescription')), obj = strip(val('ObjectName'));
+    if (t.type === 'hero' && !t.winterOk && GLOOM.test(`${pg.title} ${obj} ${desc}`)) return { why: 'a hero wants a bright, warm-season or golden-hour view; the title or description says winter, snow, overcast or fog' };
     if (SIGNAGE.test(`${pg.title} ${obj} ${desc}`)) return { why: 'title or description suggests signage, a logo or advertising is the subject' };
     if (!namesPlace(t.names, pg.title, obj, desc, cats.join('|'))) return { why: `title, description and categories do not name ${t.label}` };
     return { ok: { title: pg.title, ii, lic, author, desc, obj, cats } };
@@ -363,4 +368,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { SIGNAGE, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { SIGNAGE, GLOOM, fold, namesPlace, licenceOf, snapWidths, tooManyFailures, fileBase, recordCheck, slotCheck, plan, strip };
