@@ -539,3 +539,20 @@ html .view-gallery .gc .cover .gl .ico{width:30px;height:30px}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo figcaption,html .view-gallery li.gc .gc-cred{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:unset}
 html .view-gallery li.gc>.pl-s{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-height:44px}
 html .view-gallery li.gc>.pl-s .rest{display:none}
+/* credits never clip the author or the licence (licence terms): every credit wraps in full, under its media */
+html main[data-city] li.pl>.pl-photo figcaption,html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-photo figcaption,html .view-gallery li.gc .gc-cred,html .view-gallery li.gc>.gc-photo figcaption,html main[data-city]>.masthead .hero-media figcaption,html body #cleo-sheet .detail .hero-plate>.photo figcaption{white-space:normal;overflow:visible;text-overflow:clip;-webkit-line-clamp:unset;display:block;max-height:none}
+html main[data-city]>.masthead .hero-media{aspect-ratio:auto;overflow:visible;background:none;border-radius:0}
+html main[data-city]>.masthead .hero-media img{aspect-ratio:3/1;height:auto;border-radius:var(--r-l)}
+html main[data-city]>.masthead .hero-media figcaption{position:static;max-width:none;margin:6px 0 0;padding:0;border-radius:0;background:none;color:var(--ink-3);font:400 var(--fs-xs)/1.4 var(--font-ui)}
+@media (min-width:1024px){html[data-view=gallery] main[data-city]>.masthead .hero-media img{aspect-ratio:4/3}}
+/* place detail: the photo fills its slot (cover crop, capped height), never letterboxed */
+html body #cleo-sheet .detail .hero-plate.has-photo>.photo{width:100%}
+html body #cleo-sheet .detail .hero-plate.has-photo>.photo img{display:block;width:100%;max-width:none;object-fit:cover;max-height:420px}
+/* W7 card, from the Atlas lane's review: "Recommended by" = the first source + "+n more" (all of them in the detail), so a
+   narrow card never ends on a dangling comma; and the area is dropped from the eyebrow where the list is grouped by area */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s .src:not(:first-of-type),html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s :is(.more,.rest){display:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s .src::after{content:none}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s[data-more]::after{content:"+" attr(data-more) " more";color:var(--ink-3);margin-left:4px;font:400 var(--fs-sm)/1.4 var(--font-ui)}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) section.area li.pl>.pl-e .in-a,html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) section.area li.pl>.pl-e .in-d .sep{display:none}
+html .view-gallery li.gc .pl-s .src::after{content:none}
+html .view-gallery li.gc .pl-s .more{color:var(--ink-3);margin-left:4px}

@@ -1032,3 +1032,20 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - On phones Atlas follows FE-A's rule: the city bar steps aside, and the chip row carries the search pill and the switcher.
     - In Atlas the write-up stays hidden even on the selected card. The selection ring sits on the media image.
     - Gates all PASS; `atlas-ms.js` 85/85; w2 map 35/35.
+  - **Follow-up 4 (orchestrator 16:52 / 17:05):**
+    - **Credits never clip.** Cards, rows, the hero strip and the detail use imagery's short `captionHtml` ("Photo: author · licence · Wikimedia Commons (resized)", the file title on the link). It wraps in full under the media, and on phones the hero credit sits under the strip.
+    - **Place detail.** It spells the title out in front, for the full TASL credit. The photo fills its slot with `object-fit:cover`, max 420 px: no letterbox.
+    - **Phone `#p=` deep link.** Gallery rows no longer stamp behind an open place sheet. Before, they grew 2,422 → 3,156 nodes within 0.5 s; now Tokyo holds 2,167 for 3 s. The rows resume once the sheet closes and the reader is near them.
+    - **`w7-shots.js`.** The offline tile stub is a neutral land colour (#F2EFE9, dark #24211D); the README says tiles are stubbed.
+    - **New probe** `npm run beta:probe:fe-a` (`tools/beta/w7-fe-a-probe.js`, Playwright). It checks, and passes:
+      - no credit ellipsised, clamped or cut (6 page/viewport cases);
+      - phone deep links ≤ 3,000 nodes for 3 s (Tokyo ×2, New York), with rows resuming after close;
+      - the sheet count over the whole view ("… of 488");
+      - the grow motion: 1 transition and `--dur-grow` 340 ms; under reduced motion no transition, 0 animations and `--dur-grow` 0.
+
+      Result: `design/beta/eval/w7/fe-a/probe.txt`.
+    - Shots re-taken.
+  - **Follow-up 5 (Atlas lane review of the shared card):**
+    - **Area hook.** The eyebrow's area is now `.in-a` and the dish `.in-d` (with a `.sep`). Both the Gallery grid and any `.w7-cards` list hide the area under an area heading. The text is unchanged for search and AT.
+    - **Recommended by.** The card shows the first source plus "+n more" (`.pl-s[data-more]`; row cards `.more`). The full list is in the detail, and a narrow card no longer ends on a dangling comma.
+

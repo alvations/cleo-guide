@@ -132,7 +132,7 @@ function card(r, num, ctx) {
   const where = [aName, dish].filter(Boolean).map(esc).join(' · ');
   const eyebrow = r.closed
     ? `Closed — kept for the record${prov.ss ? ` · per ${esc(prov.ss)}` : ''}${pv.checked ? `, checked ${esc(pv.checked)}` : ''}`
-    : `${tier(r.t)} <span class="in">within ${where}</span>`;
+    : `${tier(r.t)} <span class="in"><span class="in-a">within ${esc(aName)}</span>${dish ? `<span class="in-d"><span class="sep"> · </span>${esc(dish)}</span>` : ''}</span>`;   // in-a: hidden where the list is grouped by area (W7 card)
   // Recommended by: every publisher is a chip that opens its source view (M1-10); CSS shows three, then "+N".
   const ids = (r.src || []).filter(s => s !== 'guide');
   // literal ', ' stays for screen readers / copy; DES's cleo.css 15.3 glues a drawn comma to each name (QA-18)
@@ -160,7 +160,7 @@ function card(r, num, ctx) {
 <p class="pl-e">${r.closed ? `${eyebrow} <span class="pl-num" aria-label="Map pin ${num}">${num}</span>` : `<span class="pl-num" aria-label="Map pin ${num}">${num}</span> ${eyebrow}`}</p>
 <h3 class="pl-n"><a href="#p-${esc(r.id)}">${nm}</a></h3>
 ${r.w ? `<p class="pl-w">${prose(r.w)}</p>` : ''}${r.k ? `<p class="pl-k${isNote ? ' note' : ''}"><span class="lbl">${isNote ? 'Your guide’s note' : 'Look for'}</span> ${prose(r.k)}</p>` : ''}${r.ad ? `<p class="pl-ad">${esc(r.ad)}</p>` : ''}
-<p class="pl-s"><span class="lbl">Recommended by</span> ${rec}</p></li>`;
+<p class="pl-s"${ids.length > 1 ? ` data-more="${ids.length - 1}"` : ''}><span class="lbl">Recommended by</span> ${rec}</p></li>`;
 }
 
 /* ---- "For you" (M2-05): interests → collection / cuisine IDS only (Wenwen rule: never a dish or name keyword).
