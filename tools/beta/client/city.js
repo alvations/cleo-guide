@@ -38,6 +38,13 @@
   };
   need.q = {};
   const rail = $('#cleo-rail'), shown = $('#cleo-shown'), lens = $('#cleo-lens'), applied = $('[data-cleo-applied]'), fi = $('#cleo-filter'), split = $('.split');
+  // R7 gap 2(c): the placeholder is never clipped mid-letter — "Search {city}" where it fits, else "Search" (a narrow
+  // phone pill, a long guide name), else none; re-fitted whenever the box changes size
+  if (fi) { const full = fi.placeholder, cv = d.createElement('canvas').getContext('2d'), fit = () => { if (!fi.clientWidth) return;
+      const c = getComputedStyle(fi), room = fi.clientWidth - parseFloat(c.paddingLeft) - parseFloat(c.paddingRight); cv.font = c.fontWeight + ' ' + c.fontSize + ' ' + c.fontFamily;
+      fi.placeholder = cv.measureText(full).width <= room ? full : cv.measureText('Search').width <= room ? 'Search' : ''; };   // '': the icon-only pill (Atlas toolbar); the label names it
+    if (window.ResizeObserver) new ResizeObserver(fit).observe(fi); else on(window, 'resize', fit);
+    if (d.fonts && d.fonts.ready) d.fonts.ready.then(fit); }
   const shown0 = shown ? shown.innerHTML : '';
   const go = C.go = (r, rep) => Cleo.route.go(r, rep);
   const cur = () => { const r = {}; if (S.mode !== 'all') r.mode = S.mode; LENS.concat('sort').forEach(k => { if (S[k]) r[k] = S[k]; }); return r; };

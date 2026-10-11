@@ -124,6 +124,45 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
     }
     await ctx.close();
   }
+  console.log('# polish (R7 gap 2a/b/c/e): credits fit their boxes, bars opaque, placeholder whole, no upscaled photo');
+  for (const w of [390, 1440]) for (const scheme of ['light', 'dark']) {
+    const ctx = await ctxFor(b, w, scheme);
+    for (const u of ['cleveland.html', 'cities/tokyo.html', 'cities/tokyo.html#all=1', 'cities/tokyo.html#view=atlas', 'cities/tokyo.html#day=TAITO', 'Singapore/chinatown.html']) {
+      const page = await ctx.newPage(); await page.goto(BASE + 'beta/' + u, { waitUntil: 'load' }); await page.waitForTimeout(1300);
+      await page.evaluate(async () => { for (let y = 0; y < 3000; y += 600) { scrollTo(0, y); await new Promise(r => setTimeout(r, 80)); } scrollTo(0, 400); });
+      await page.waitForTimeout(400);
+      const r = await page.evaluate(() => { const vis = e => e.getClientRects().length && getComputedStyle(e).display !== 'none' && getComputedStyle(e).visibility !== 'hidden';
+        const creds = [...document.querySelectorAll('figcaption, .gc-cred, .hero-credit, .credit, [class*="cred"]')].filter(vis);
+        const over = creds.filter(e => e.scrollHeight > e.clientHeight + 1 || e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim().slice(0, 40));
+        const alpha = c => { const m = /\/\s*([\d.]+)\s*\)$|rgba\([^)]*,\s*([\d.]+)\)$/.exec(c); return m ? +(m[1] || m[2]) : 1; };
+        const bars = [...document.querySelectorAll('.topbar, .cbar, .tabbar')].filter(vis).map(e => [e.className.split(' ')[0], alpha(getComputedStyle(e).backgroundColor)]).filter(x => x[1] < 1);
+        const i = document.getElementById('cleo-filter'); let ph = null;
+        if (i && vis(i) && i.clientWidth) { const c = getComputedStyle(i), cv = document.createElement('canvas').getContext('2d'); cv.font = c.fontWeight + ' ' + c.fontSize + ' ' + c.fontFamily;
+          ph = cv.measureText(i.placeholder).width <= i.clientWidth - parseFloat(c.paddingLeft) - parseFloat(c.paddingRight) + 0.5 ? null : i.placeholder; }
+        const up = [...document.querySelectorAll('main img[srcset], #cleo-sheet img[srcset]')].filter(e => vis(e) && e.complete && e.currentSrc).map(e => {
+          const fw = +((/-(\d+)\.(?:jpe?g|webp|png)$/.exec(e.currentSrc) || [])[1] || 0); return [e.currentSrc.split('/').pop(), fw, Math.round(e.getBoundingClientRect().width)]; })
+          .filter(x => x[1] && x[2] > x[1] + 1);
+        return { n: creds.length, over, bars, ph, up }; });
+      // R7 2(g): the dek and the masthead stat line never end on a single word or token (scrolled to the top)
+      const widows = await page.evaluate(() => { scrollTo(0, 0); const out = [];
+        for (const el of document.querySelectorAll('main > .masthead :is(.g-lead, .dek, .facts)')) {
+          if (!el.getClientRects().length || getComputedStyle(el).display === 'none') continue;
+          const words = [], tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+          for (let n; (n = tw.nextNode());) for (const m of n.textContent.matchAll(/\S+/g)) { const r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length); const b = r.getClientRects()[0]; if (b) words.push([Math.round(b.top), m[0]]); }
+          const lines = [...new Set(words.map(x => x[0]))]; if (lines.length < 2) continue;
+          const last = words.filter(x => x[0] === lines[lines.length - 1]).map(x => x[1]).filter(t => !/^[·•|—-]$/.test(t));
+          if (last.length < 2) out.push(el.className + ': "' + last.join(' ') + '"');
+        } return out; });
+      const tag = `@${w} ${scheme} ${u}`;
+      ok(!r.over.length, `${tag}: ${r.n} credits, none overflow their box`, r.over.slice(0, 3));
+      ok(!r.bars.length, `${tag}: top bar / city bar / tab bar fully opaque`, r.bars);
+      ok(!r.ph, `${tag}: the search placeholder fits unclipped`, r.ph);
+      ok(!r.up.length, `${tag}: no photo shown wider than its file`, r.up.slice(0, 3));
+      if (!/view=atlas|day=/.test(u)) ok(!widows.length, `${tag}: no single-word last line in the dek or the stat line`, widows);
+      await page.close();
+    }
+    await ctx.close();
+  }
   await b.close();
   console.log(fails ? `\n>>> FAIL — ${fails} FE-A W8 check(s)` : '\n>>> PASS — FE-A W8: a day from saved places, edited, shared, printed and reopened, by keyboard');
   process.exit(fails ? 1 : 0);

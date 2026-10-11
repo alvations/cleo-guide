@@ -612,3 +612,6 @@ html body #cleo-sheet .detail .content{min-width:0}
 html body #cleo-sheet .detail .content>*{min-width:0}
 html body #cleo-sheet .detail .fact>div{min-width:0}
 html body #cleo-sheet .detail .fact .btn{max-width:100%;height:auto;min-height:44px;white-space:normal;text-align:left;line-height:1.3;padding-block:10px}
+/* R7 gap 2(b): the bars are fully opaque — content never ghosts through the top bar (was paper 96 %) */
+html:root body .topbar,html:root body .topbar.on-night{background:var(--paper)}
+html body .tabbar{background:var(--surface)}
