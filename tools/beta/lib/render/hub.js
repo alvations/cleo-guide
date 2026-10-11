@@ -145,7 +145,7 @@ function cityTile(row, i, { up = '', views = false, reg = null, dense = false, a
   const canon = !sig && f.canon.length ? `<span class="canon">${f.canon.map(c => `<span>${esc(c)}</span>`).join('')}</span>` : '';
   // "Recommended by": the most-citing source by name, then "+ n more" — one form on every screen, never clipped
   const rb = f.recby.n ? `<span class="recby"><span>${esc(t('card.recby'))} <b>${esc(f.recby.names[0])}</b>${f.recby.n > 1 ? ` ${esc(t('card.recby.more', { n: fmt(f.recby.n - 1) }))}` : ''}</span></span>` : '';
-  return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}" class="tile card c-${i % 4}">
+  return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"${fyAttr(row)}><a href="${up}${esc(row.beta)}" class="tile card c-${i % 4}">
 <span class="card-media">${ph ? photoImg(ph, up, { sizes: dense ? SIZES.dense : SIZES.hub })   /* a credited photo fills the slot: no cover markup under it */
   : `<span class="cover" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}${icon('pin', 'gl ico')}<span class="cover-n">${esc(f.name)}</span>${f.native ? `<span class="native">${esc(f.native)}</span>` : ''}</span>`}${star}</span>
 <span class="card-body txt"><h3 class="card-t">${esc(f.name)}</h3>
@@ -160,10 +160,23 @@ function viewLinks(row, up = '') {
 }
 
 /** Compact row for pages a country lists beyond its headline cities (thin towns): name + count, no art. */
+// W9-3: open places per interest id ("history:12 food:40"), read by client/interests.js for the "For you" rail
+const fyAttr = row => row.fy && row.fy.length ? ` data-fy="${row.fy.map(([id, n]) => id + ':' + n).join(' ')}"` : '';
+
+/** W9-3 "For you": an empty, hidden rail the client fills from the stored interests (reorders guides, never hides one). */
+function forYou() {
+  const { INTERESTS } = require('./city');
+  const labels = Object.fromEntries(INTERESTS.map(([id]) => [id, t('fy.i.' + id)]));
+  return `<section class="section foryou-s" id="foryou" data-cleo-fy hidden aria-labelledby="fy-h" data-labels="${esc(JSON.stringify(labels))}" data-because="${esc(t('fy.because'))}">
+<div class="rail-head"><h2 class="d2" id="fy-h">${esc(t('fy.h'))}</h2><button type="button" class="more btn-quiet" data-cleo-fy-clear>${esc(t('fy.clear'))}</button></div>
+<p class="sm muted fy-note">${esc(t('fy.note'))}</p>
+<ol class="morelist fy-list"></ol></section>`;
+}
+
 function moreRow(row, up = '') {
   const f = facts(row);
   const sig = f.sig.slice(0, 2).map(x => esc(x.name)).join(' · ');
-  return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}"><span class="dest-n">${esc(f.name)}</span><span class="dest-c">${plural('hub.places', f.n)}</span>${sig ? `<span class="dest-s">${sig}</span>` : ''}</a></li>`;
+  return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"${fyAttr(row)}><a href="${up}${esc(row.beta)}"><span class="dest-n">${esc(f.name)}</span><span class="dest-c">${plural('hub.places', f.n)}</span>${sig ? `<span class="dest-s">${sig}</span>` : ''}</a></li>`;
 }
 
 /** Split a country's place pages into the hub's headline cities and the rest, in the live hub's order. */
@@ -365,6 +378,7 @@ ${siteBar({ depth, current: 'hub', rel: row.beta })}
 </div>
 ${groups ? '' : media}
 </div></section>
+${groups ? '' : `<div class="wrap">${forYou()}</div>`}
 <div class="wrap section" id="destinations">
 ${groups ? groups.map(g => `<section class="csec" id="${esc(g.c.key)}" aria-labelledby="g-${esc(g.c.key)}"><div class="rail-head"><h2 class="d2" id="g-${esc(g.c.key)}">${esc(g.c.name)}<span class="n">${plural('hub.guides', g.pages.length)}${g.c.live === false ? ` · ${esc(t('hub.preview'))}` : ''}</span></h2></div>
 <ul class="morelist">\n${g.pages.map(r => moreRow(r, up)).join('\n')}\n</ul></section>`).join('\n') : `<div class="rail-head"><h2 class="d2" id="grid-h">${esc(t('hub.grid.h', { country: c.name }))}<span class="n">${plural('hub.guides', all.length)}</span></h2></div>
@@ -379,10 +393,11 @@ ${rail ? `<div class="wrap">${rail}</div>` : ''}
 ${countryCards(others, up, reg)}</section>
 </main>
 ${footer({ depth, tabbar: true, current: 'hub' })}
+${groups ? '' : `<script src="${up}assets/js/interests.js?v=${ctx.assetsV.interests}" defer></script>`}
 </body>
 </html>
 `;
 }
 
-module.exports = { ogFor, renderCountry, renderArchive, cityTile, moreRow, facts, countryPages, nativeName, countryCards,
+module.exports = { ogFor, renderCountry, renderArchive, cityTile, moreRow, forYou, facts, countryPages, nativeName, countryCards,
   signature, shortName, themes, themeRail, THEMES, motif, photoOf };

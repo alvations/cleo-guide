@@ -286,6 +286,14 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 @media(min-width:900px){:is(.view-guidebook, [data-cleo-book]) .hero-t{font-size:var(--fs-hero)}
 }
 :is(.view-guidebook, [data-cleo-book]) .gcover .lead{font:italic 400 var(--fs-lead)/1.4 var(--font-display);margin:16px 0 10px;max-width:40ch}
+:is(.view-guidebook, [data-cleo-book]) .gc-photo{margin:0 0 var(--s-5);border-radius:var(--r-m);overflow:hidden}
+:is(.view-guidebook, [data-cleo-book]) .gc-photo img{display:block;width:100%}
+:is(.view-guidebook, [data-cleo-book]) .edition{font-size:var(--fs-body);color:var(--ink);margin:var(--s-3) 0 0;font-variant-numeric:tabular-nums}
+:is(.view-guidebook, [data-cleo-book]) .edition time{font-variant-numeric:normal}
+:is(.view-guidebook, [data-cleo-book]) .gb-since{padding:var(--s-6) 0 var(--s-4);border-bottom:1px solid var(--line)}
+:is(.view-guidebook, [data-cleo-book]) .gb-since .since{list-style:none;padding:0;margin:var(--s-3) 0 0}
+:is(.view-guidebook, [data-cleo-book]) .gb-since .since li{padding:var(--s-2) 0;border-top:1px solid var(--line)}
+:is(.view-guidebook, [data-cleo-book]) .gb-since time{display:block;font-size:var(--fs-sm);color:var(--ink-2)}
 :is(.view-guidebook, [data-cleo-book]) .gfacts,:is(.view-guidebook, [data-cleo-book]) .gsig{font-size:var(--fs-sm);color:var(--ink-2);margin:6px 0}
 :is(.view-guidebook, [data-cleo-book]) .ch{padding:40px 0 8px;border-bottom:1px solid var(--line)}
 :is(.view-guidebook, [data-cleo-book]) .ch-h{border-left:5px solid var(--ac);padding-left:16px;margin-bottom:18px}
@@ -418,6 +426,12 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
      places, already printed as entries) is left out — only when the book is actually mounted, so JS-off still prints it */
   html[data-view="guidebook"]:has([data-cleo-book]) :is(main > .masthead, .split, .lens, .shown) { display: none !important; }
   .gb-appendix { break-before: page; }
+  /* W9-10 booklet: the edition cover and "Since the last edition" each take a page of their own */
+  :is(.view-guidebook, [data-cleo-book]) .gcover { break-after: page; border: 0; }
+  .view-guidebook > [data-gb-count] { display: none !important; }
+  :is(.view-guidebook, [data-cleo-book]) .gb-since { break-after: page; border: 0; }
+  :is(.view-guidebook, [data-cleo-book]) .gc-photo { break-inside: avoid; max-height: 60vh; }
+  :is(.view-guidebook, [data-cleo-book]) .gc-photo img { max-height: 55vh; }
   :is(.view-guidebook, [data-cleo-book]) .ch:first-of-type { break-before: auto; }
   :is(.view-guidebook, [data-cleo-book]) .ge, :is(.view-guidebook, [data-cleo-book]) .facts-box { break-inside: avoid; }
   :is(.vw, [data-cleo-book], [data-cleo-insights]) .src { border: 0; padding: 0; min-height: 0; background: none; color: #000; }

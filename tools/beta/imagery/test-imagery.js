@@ -292,7 +292,8 @@ const rank = p => ({ lead: 0, row: 1 })[p.t.priority] ?? (p.t.pilot ? 2 : 3);
 ok(fplan.findIndex(p => p.t.type === 'landmark') === fplan.filter(p => p.t.type === 'hero').length && lm.every((p, i) => !i || rank(lm[i - 1]) <= rank(p)), 'fetch-commons: heroes first, then lead cards, first rail rows, pilot tier-1 sights, then the rest (W8 order)');
 { // W8 per-class widths: heroes and first-screen cards 500 + 960; every other card 500 only (repo size)
   const o = { widths: [500, 960], heroWidths: [500, 960] };
-  ok(JSON.stringify(fc.widthsFor({ type: 'hero' }, o)) === '[500,960]' && JSON.stringify(fc.widthsFor({ type: 'landmark', priority: 'lead' }, o)) === '[500,960]' && JSON.stringify(fc.widthsFor({ type: 'landmark', priority: 'row' }, o)) === '[500,960]' && JSON.stringify(fc.widthsFor({ type: 'landmark', pilot: true }, o)) === '[500]' && JSON.stringify(fc.widthsFor({ type: 'landmark' }, o)) === '[500]', 'fetch-commons widths per class: heroes, lead cards and first rows 500 + 960; every other card 500 only');
+  ok(JSON.stringify(fc.widthsFor({ type: 'hero' }, o)) === '[500,960]' && JSON.stringify(fc.widthsFor({ type: 'landmark', priority: 'lead' }, o)) === '[500,960]' && JSON.stringify(fc.widthsFor({ type: 'landmark', priority: 'row' }, o)) === '[500,960]' && JSON.stringify(fc.widthsFor({ type: 'landmark', pilot: true }, o)) === '[500,720]' && JSON.stringify(fc.widthsFor({ type: 'landmark' }, o)) === '[500,720]' && fc.DERIVED_W === 720, 'fetch-commons widths per class: heroes, lead cards and first rows 500 + 960; every other card 500 + a 720 copy derived from the 960 thumbnail (D-40)');
+  { const rc2 = require('./recompress'); ok(rc2.targetOf({ record: {} }, 720, true) === 75 * 1024 && rc2.targetOf({ record: {} }, 500, false) === 45 * 1024, 'recompress: a card\'s 720 w copy ≤ 75 KB (D-40)'); }
   ok(fc.NOT_A_PHOTO.test('File:Bangkok Montage 2021.jpg') && fc.NOT_A_PHOTO.test('File:Coat of arms of Ipoh.png') && fc.NOT_A_PHOTO.test('File:Singapore location map.png') && !fc.NOT_A_PHOTO.test('File:Marina Bay Sands at dusk.jpg'), 'fetch-commons: a map, coat of arms, flag, montage or logo is never a photo of the place');
   ok(JSON.stringify(fc.articlesOf({ articles: ['a', 'b'], article: 'c' })) === '["a","b"]' && JSON.stringify(fc.articlesOf({ article: 'c' })) === '["c"]' && fc.articlesOf({}).length === 0, 'fetch-commons: a hero tries its articles in order (the town, then an iconic sight)');
 }
@@ -303,6 +304,7 @@ ok(fplan.findIndex(p => p.t.type === 'landmark') === fplan.filter(p => p.t.type 
     .filter(pg => !heroes.has(pg.key)).filter(pg => { const t = T.get(pg.key); return !t || !(t.skip || t.candidates.some(c => !c.refused) || (t.articles || []).length); }).map(pg => pg.key);
   ok(!bare.length, `every guide: a credited hero, a hero target to try, or a stated reason (Vietnam)${bare.length ? ': ' + bare.join(', ') : ''}`);
 }
+ok(['hero:singapore/queenstown', 'hero:singapore/dempsey-hill', 'hero:singapore/jalan-besar', 'hero:vietnam/hanoi'].every(k => (cm.targets.find(t => t.key === k) || {}).skip), 'R7-g1: the stated hero gaps (Queenstown, Dempsey Hill, Jalan Besar, Vietnam) carry their reason in the manifest');
 { // --scope: what a run may fetch (W8)
   const sp = s => fc.plan(cm, { credits: [] }, { scope: s, keys: [], types: [], min: 'high', allow: [], wikiLead: false, pilot: false }).filter(p => !p.skip);
   const H = sp('heroes'), P = sp('priority'), PI = sp('pilots'), A = sp('all');

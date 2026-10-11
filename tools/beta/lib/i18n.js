@@ -44,9 +44,18 @@ function reviewed() {
   return fs.readdirSync(DIR).filter(f => f.endsWith('.json')).sort().map(f => load(f.slice(0, -5))).filter(c => c.reviewed === true)
     .map(c => ({ locale: c.locale, name: c.name }));
 }
+/** i18n D-41: locales the switcher offers — human-reviewed ("reviewed": true → tier 'human') AND AI-reviewed (a translator
+ *  agent plus an independent AI reviewer recorded in "review": {by: "ai", …} → tier 'ai'). An 'ai' locale is labelled on
+ *  every page while active (client/locale.js); "reviewed": true stays reserved for a human sign-off. en first. */
+function offered() {
+  return fs.readdirSync(DIR).filter(f => f.endsWith('.json')).sort().map(f => load(f.slice(0, -5)))
+    .map(c => c.reviewed === true ? { locale: c.locale, name: c.name, tier: 'human' }
+      : c.review && c.review.by === 'ai' && c.review.reviewer ? { locale: c.locale, name: c.name, tier: 'ai' } : null)
+    .filter(Boolean).sort((a, b) => (a.locale === 'en' ? -1 : b.locale === 'en' ? 1 : a.locale < b.locale ? -1 : 1));
+}
 /** Published catalogues: beta/assets/i18n/<locale>.json for every catalogue file (reviewed or not). */
 function files() {
   return fs.readdirSync(DIR).filter(f => f.endsWith('.json')).sort().map(f => [`assets/i18n/${f}`, fs.readFileSync(path.join(DIR, f))]);
 }
 
-module.exports = { t, tn, setLocale, locale, reviewed, files, pseudoText, used, EN };
+module.exports = { t, tn, setLocale, locale, reviewed, offered, files, pseudoText, used, EN };
