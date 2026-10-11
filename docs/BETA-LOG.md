@@ -1045,4 +1045,40 @@ Append-only. One entry per session per wave: date, lane, session id, what change
 
       Result: `design/beta/eval/w7/fe-a/probe.txt`.
     - Shots re-taken.
+  - **Follow-up 5 (Atlas lane review of the shared card):**
+    - **Area hook.** The eyebrow's area is now `.in-a` and the dish `.in-d` (with a `.sep`). Both the Gallery grid and any `.w7-cards` list hide the area under an area heading. The text is unchanged for search and AT.
+    - **Recommended by.** The card shows the first source plus "+n more" (`.pl-s[data-more]`; row cards `.more`). The full list is in the detail, and a narrow card no longer ends on a dangling comma.
 
+
+- 2026-10-11 17:45Z · **Orchestrator** · W7 check-in: lanes closing out · commit: this entry's commit
+  - **FE-A done** (61075ef9 motion, e2f19499 n of N, eb7f4053 / 1d47e800):
+    - `cleo-grow` card-to-sheet view transition at `--dur-grow` 340 ms, off under reduced motion;
+    - the sheet count reads "… of 488";
+    - credits use the short `captionHtml`, wrap in full under the media and are never clipped;
+    - the detail photo is cover-fit, max 420 px;
+    - the shot stub tile is #F2EFE9 (dark #24211D);
+    - phone `#p=` node growth fixed (rows hold while a sheet is open; Tokyo 2,167 for 3 s).
+    - New browser probe `npm run beta:probe:fe-a`, outside `npm test`; R7 QA runs it.
+    - Last nits sent: the repeated "within <area>" eyebrow under the same area header, and the dangling comma in "Recommended by".
+  - **FE-B done** (052194f5, e26abe6c, e694a6b7):
+    - the country "Known for" comes from the child guides' signatures, skipping guides with none, deduplicated by the guides' own canon synonym sets, with a test. Belgium reads "gaufre · frites · chocolate"; Singapore "chicken rice · laksa · Hokkien mee";
+    - a render guard and test stop a hub hero file being reused by a card on the same page;
+    - short credits sit under the hub hero and every landing/hub card.
+  - **Designer done** (4e61a9ca): Atlas/Guidebook cover credits sit under the media, never clipped. It flagged over-long author fields (Yasukuni 488 characters, Chrysler 120, US/DC 87), which went to imagery with the 17:12 author-sanitising request plus a test.
+  - **Platform:**
+    - `metrics.js` counts each URL once (Chromium's cache is off under `ctx.route`, so photos were double-counted) and adds a `first load … transfer` row;
+    - true Tokyo first-load transfer: Atlas 818 KB desktop / 1,845 KB phone@3×, Gallery 928 / 1,627;
+    - the hidden Atlas hero is no longer fetched (151 KB → 0) via `imagery.heroPreload()`;
+    - asked to confirm the first-load row is gated at 2.0 MB and recorded for R7 QA.
+  - **Imagery round 3** (ca83e28c / c0575dcd):
+    - `captionHtml` short credit, with the title in the source link's aria-label;
+    - card `sizes` default;
+    - CLOSEUP and extended SIGNAGE refusals, plus a RESCAN on every run;
+    - a one-file-one-row test;
+    - `recompress.js` (photos 36 → 17 MB locally).
+    - **Workflow** (6ae949ee): installs sharp (`--no-save`) before the fetch and runs `recompress.js` after it, before the gates.
+    - Contact sheet after run #18 (success): Belgium (Gravensteen), Dayton, Germany (Bonn Altes Rathaus), Hokkaido (Otaru canal), Silicon Valley (Stanford), US (Golden Gate) and Youngstown (Lanterman's Mill) accepted.
+    - Wheeling rejected: a hazy aerial; it keeps the calm cover.
+    - Erie (white sky) is weak; swap it if a bright lead exists.
+    - Run #19 (sharp + recompress) is in progress.
+  - **Atlas** (68ae2639): shared card face in the desktop grid and phone list, phone peek with the photo, OSM credit clear of the pill, phone chip row. Still owed: the Tokyo Atlas node and byte numbers after a first-page-only stamp (platform measured about 10.5 k nodes on desktop), and the lens deep link fitting all matches.
