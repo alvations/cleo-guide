@@ -310,6 +310,38 @@ emit('data/manifest.json', JSON.stringify({
   totals: { pages: cityRows.length, places: totalLive },
 }, null, 1));
 
+// ---------------------------------------------------------------- W9-8 offline city packs (platform)
+// data/packs/<page>.json lists EVERY file "Keep <city> offline" stores, with its exact byte size, as the URL the page
+// actually requests (?v= hashes included): the page; its dataset, links slice and Gallery rows; the shared CSS, all JS
+// (lazy views too), fonts and icon; Leaflet (so Atlas runs and falls back to the schematic offline, never caching tiles);
+// its map art; and every photo it shows at the SMALLEST width (500w). The client shows the size before the tap; the
+// service worker stores the files in a cache that a deploy never wipes (PERF-13). Tiles are never listed.
+const sizeOf = rel => { const b = out.get(rel); if (b != null) return (Buffer.isBuffer(b) ? b : Buffer.from(b)).length;
+  const p = path.join(BETA, rel); return fs.existsSync(p) ? fs.statSync(p).size : -1; };
+const smallest = rel => { const m = /^(.*)-960\.(jpe?g|png)$/.exec(rel); return m && sizeOf(m[1] + '-500.' + m[2]) >= 0 ? m[1] + '-500.' + m[2] : rel; };
+for (const r of cityRows) {
+  const html = out.get(r.beta); if (html == null) continue;
+  const H = String(html), dir = path.posix.dirname(r.beta), refs = new Set([r.beta]);
+  const add = u => { if (!u || /^(https?:|data:|#|mailto:|javascript:)/.test(u)) return; u = u.replace(/&amp;/g, '&').split('#')[0];
+    const [p0, q] = u.split('?'); const rel = path.posix.normalize(path.posix.join(dir, p0));
+    if (rel.startsWith('..') || !/^(assets|data)\//.test(rel) || /^assets\/og\//.test(rel)) return;
+    refs.add(smallest(rel) + (q && smallest(rel) === rel ? '?' + q : '')); };
+  for (const m of H.matchAll(/\b(?:src|href|data-art)="([^"]+)"/g)) add(m[1]);
+  for (const m of H.matchAll(/\bsrcset="([^"]+)"/g)) for (const c of m[1].split(',')) add(c.trim().split(/\s+/)[0]);
+  const f = r.fileKey;
+  for (const d of [`data/places/${f}.json`, `data/links/${f}.json`, `data/gallery/${f}.json`]) if (sizeOf(d) >= 0) refs.add(d);
+  try { const g = JSON.stringify(JSON.parse(String(out.get(`data/gallery/${f}.json`) || '{}')));
+    for (const m of g.matchAll(/"(assets\/img\/[^"]+\.(?:jpe?g|png))"/g)) refs.add(smallest(m[1])); } catch (e) { /* no rows */ }
+  for (const k of Object.keys(assetsV).filter(k => k !== 'css' && k !== 'tokens')) refs.add(`assets/js/${k}.js?v=${assetsV[k]}`);
+  for (const x of ['assets/vendor/leaflet/leaflet.js', 'assets/vendor/leaflet/leaflet.css', 'assets/icon.svg', 'manifest.webmanifest']) refs.add(x);
+  if (fs.existsSync(path.join(BETA, 'assets', 'fonts'))) for (const x of fs.readdirSync(path.join(BETA, 'assets', 'fonts')).filter(x => x.endsWith('.woff2')).sort()) refs.add('assets/fonts/' + x);
+  const files = [...refs].map(u => [u, sizeOf(u.split('?')[0])]).filter(([u, n]) => n >= 0).sort((a, b) => a[0] < b[0] ? -1 : 1);
+  const missing = [...refs].filter(u => sizeOf(u.split('?')[0]) < 0);
+  if (missing.length) errors.push(`offline pack ${f}: ${missing.length} referenced file(s) missing: ${missing.slice(0, 3).join(', ')}`);
+  emit(`data/packs/${f}.json`, JSON.stringify({ _generated: 'tools/beta/build.js — do not edit (W9-8 offline city pack)', v: 1,
+    key: r.key, page: r.beta, name: r.name, bytes: files.reduce((t, x) => t + x[1], 0), files }));
+}
+
 // Self-hosted fonts (designer, beta/assets/fonts) are precached so offline type matches online type.
 const FONTS = path.join(BETA, 'assets', 'fonts');
 const fontFiles = fs.existsSync(FONTS) ? fs.readdirSync(FONTS).filter(f => f.endsWith('.woff2')).sort().map(f => './assets/fonts/' + f) : [];
