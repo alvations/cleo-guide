@@ -42,8 +42,8 @@
    "withArticle": 632
   },
   "candidates": {
-   "total": 366,
-   "high": 352,
+   "total": 371,
+   "high": 357,
    "med": 14,
    "low": 0
   },
@@ -5498,6 +5498,28 @@
      "confidence": "high",
      "reason": "title names Nihonbashi Bridge (photo upload; NOT the Hiroshige print \"Nihonbashi bridge.jpg\")",
      "refused": "refused by R7 QA-53 (W8): a woodblock print (Hiroshige) — artwork, not the place today"
+    },
+    {
+     "file": "File:Chuo-dori from Nihonbashi.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Chuo-dori_from_Nihonbashi.jpg",
+     "depicts": "Chūō-dōri seen from Nihonbashi",
+     "confidence": "high",
+     "reason": "lead image of the cited article (pilots run #34)",
+     "refused": "refused by visual review (W8): the street seen from the bridge, not the bridge (a view from the place)"
+    },
+    {
+     "file": "File:Nihonbashi bridge.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nihonbashi_bridge.jpg",
+     "depicts": "Nihonbashi Bridge",
+     "confidence": "high",
+     "reason": "title names Nihonbashi bridge (W8 re-lead)"
+    },
+    {
+     "file": "File:Kirin Statue (Nihonbashi Bridge).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kirin_Statue_(Nihonbashi_Bridge).jpg",
+     "depicts": "The bronze kirin guarding Nihonbashi Bridge (1911)",
+     "confidence": "high",
+     "reason": "title names the Kirin statue of Nihonbashi Bridge; summary: Phlizz, January 2020, CC BY-SA 4.0; the 1911 bronze is long out of copyright"
     }
    ]
   },
@@ -7814,7 +7836,22 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Rockaway_Beach_aerial_view.jpg",
      "depicts": "Rockaway Beach from the air",
      "confidence": "high",
-     "reason": "title names Rockaway Beach"
+     "reason": "title names Rockaway Beach",
+     "refused": "refused by visual review (W8): an old aerial survey shot with bulldozers on the sand (vehicles/equipment), and no boardwalk"
+    },
+    {
+     "file": "File:Rockaway Boardwalk jeh.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rockaway_Boardwalk_jeh.JPG",
+     "depicts": "The Rockaway boardwalk on a sunny afternoon (2008)",
+     "confidence": "high",
+     "reason": "title names the Rockaway Boardwalk; summary: Jim.henderson, sunny early afternoon"
+    },
+    {
+     "file": "File:Rockaway Beach Queens.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rockaway_Beach_Queens.JPG",
+     "depicts": "Rockaway Beach, Queens",
+     "confidence": "high",
+     "reason": "title names Rockaway Beach, Queens; summary: Urielevy 2013, CC BY-SA 4.0"
     }
    ]
   },
