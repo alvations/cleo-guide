@@ -1,5 +1,5 @@
 <!-- simulated composite persona; round 2 returns, verbatim except rule-6 redactions. The LAST section is the scored return (after the keyboard / search-ring erratum); earlier sections are kept for the record. -->
-<!-- return 1 of 3 -->
+<!-- return 1 of 4 -->
 ## FE
 ### Scores
 | Row | Max | R0 | Score | Evidence for each point lost (and for any move > 3) |
@@ -70,7 +70,7 @@
 
 ---
 
-<!-- return 2 of 3 -->
+<!-- return 2 of 4 -->
 ## FE
 ### Scores
 | Row | Max | Prev | Score | Evidence for each point lost (and for any move > 3) |
@@ -164,7 +164,7 @@
 
 ---
 
-<!-- return 3 of 3 -->
+<!-- return 3 of 4 -->
 ## FE
 ### Scores
 | Row | Max | Prev | Score | Evidence for each point lost (and for any move > 3) |
@@ -250,3 +250,104 @@
   - "preview → place detail (#p=, view kept)" PASSes on every page, but it only covers the preview path. The card path the panel measured loses the view on every desktop page (d-roundtrip viewKept false).
   - "#view=atlas&p= opens the detail with the place on the map" PASSes while pinUnderSheet is true on 8 of 8.
   - The R1 credit/locate false pass is now genuinely fixed (locateCoveredBy null).
+
+---
+
+<!-- return 4 of 4 -->
+## FE
+### Scores
+| Row | Max | Prev | Score | Evidence for each point lost (and for any move > 3) |
+|---|---|---|---|---|
+| R1 Map-first composition | 15 | 9 | 9.5 | **Plus:** on phone the credit is now one line and the controls moved to the bottom-right. That takes the phone's clear map from 59 % back to 64 % (EVIDENCE first-screen table). You see named places, not numbers.<br>**−3:** the desktop chrome above the map is still 208 px, against about 120 (chromeAbovePx 208 on every 1440 row; tokyo-1440-light-default.jpg).<br>**−1.5:** the desktop map is 46 / 44 % of the first screen (box / clear). Its 60 % width only just meets the bar.<br>**−1:** the phone's clear map is 64 % against a 75 % target, though the map box is 92 % (mapClearPct 64 on every 390 row). |
+| R2 Pin/cluster legibility | 20 | 14.5 | 18 | **Move +3.5.** Fixed since R1:<br>• Closed places are marked on the map. The pp-x pin is labelled "Heinen's Downtown · Closed" (tasks.T4-closed.pinClassAtPlace), and closed dots are slashed (cleveland-390-after-detail-close.jpg, real/R2/cleveland-390-light-1-default.jpg).<br>• Dots now show kind and tier: sun rings for must-sees, squares for food, grey circles for sights (real/R2/tokyo-390-light-1-default.jpg).<br>• On phone, names survive zooming better: Cleveland went from 1 to 4, New York from 2 to 5 (EVIDENCE zoom table).<br>• Labels are 14 px, with 16 px glyphs (fontSizes.pin min 14; fe-a.css `.pp .ico{width:16px}`).<br>• Every first screen still has 0 numbered labels and 0 clusters.<br>**−1:** dense carpets of dots in central Tokyo and Manhattan, with dots overlapping each other (canvas.dotsShown 354 / 340 at 390; real/R2/tokyo-390-light-1-default.jpg, real/R2/newyork-390-light-1-default.jpg).<br>**−0.5:** zooming in on phone still thins the names: Cleveland shows 4 names among 30 dots, Chinatown 1 (m-light-zoom2 namedLabels, canvas.dotsShown).<br>**−0.5:** cards and the carousel carry rank numbers ("1…n", "★ 7") that the pins don't show, yet the area card says "numbered to match the map" (T2-tokyo-1440-lunch.jpg, T2-tokyo-390-lunch.jpg). |
+| R3 Searching with the map | 15 | 8.5 | 9 | **Plus:** on desktop, live search is honest after a pan (d-light-pan Tokyo 80→61, New York 136→58), and "Show all" restores every place. On phone, "Search this area" no longer collides with the credit (tokyo-390-light-zoomed.jpg).<br>**−2.5:** after locate-me in Shibuya, the list isn't the map's area (tasks.T3-d / T3-m listShows vs truth; T3-tokyo-1440-food-near.jpg, T3-tokyo-390-food-near.jpg):<br>• Desktop reads "23 places in this map area" and leads with Toraya Akasaka and Myojaku in Minato-ku.<br>• Phone reads "List · 10" and leads with Isegen in Chiyoda-ku.<br>• Nonbei Yokochō (90 m, tier 1) is a named pin next to the location dot but never comes first.<br>• Cards show no distances, and "Nearest to me" isn't applied.<br>**−2:** counts stack up. One view shows "379 places in this map area", "109 more outside", "Show all 488", the chip counts and "43 places · area 1 of 13" (tokyo-1440-light-default.jpg). With Must see on, it adds "177 places across 13 areas", "Show all 177" and a second "Show all 488" (T1-tokyo-1440-saved.jpg).<br>**−1:** a duplicate "Must see ×" chip sits beside the "Must see" toggle (T1-tokyo-1440-saved.jpg, T1-tokyo-390-must-see.jpg).<br>**−0.5:** on phone, the count still says "351 places in this map area" after two zoom steps with only 45 dots in view, until you tap "Search this area" (m-light-zoom2 countLine; tokyo-390-light-list-mode.jpg). |
+| R4 Card ↔ pin ↔ preview ↔ detail | 15 | 7.5 | 7 | **Plus:**<br>• Hover and focus sync both ways (cardFocusLightsPin true; probe hover checks PASS).<br>• The preview no longer covers its pin (tokyo-1440-light-pin-selected.jpg).<br>• Enter on a pin opens its preview with focus kept on the pin, and Escape returns to it (keyboard-deep-tokyo).<br>• The detail rank now agrees with the list ("No. 1 of 43", tokyo-1440-deeplink.jpg).<br>**−3:** closing the detail never restores the view. Tokyo goes from z 13.5 to 15 on desktop and z 13 to 15 on phone, Cleveland z 14 to 15, New York z 13 to 15, and Chinatown desktop shifts about 280 m (viewKept false on 7 of 8). The desktop page also scrolls (tokyo-1440-after-detail-close.jpg).<br>**−1.5:** focus lands on BODY after closing, on New York desktop and phone and on Cleveland phone (focusAfterClose).<br>**−1.5:** the deep-linked pin sits under the panel on 8 of 8 pairs, up from 7 of 8. On desktop the 560 px sheet covers the map centre, where the pin is (pinUnderSheet true, pinOffsetFromCentrePx 1; tokyo-1440-deeplink.jpg).<br>**−1:** one place carries four different numbers. Sensō-ji is card 4, "pin 4", "No. 21 of 44 in Taitō-ku" and "257 of 488 in this Atlas view" (T5-tokyo-1440-share.jpg).<br>**−1:** the toast says "it opens this exact view", but mapViewInUrl is false. The link reopens at z 12.5 instead of Asakusa at z 15 (tasks.T5-d / T5-m). |
+| R5 Phone experience | 15 | 8 | 11.5 | **Move +3.5.** Fixed since R1:<br>• A real tap on locate-me now hits it (tasks.T3-m.locateCoveredBy null; in R1 the attribution caught it).<br>• The credit is one line at the bottom-left.<br>• Key, base switch and locate sit bottom-right at about 58–70 % of the screen height, within thumb reach (real/R2/tokyo-390-light-1-default.jpg).<br>• "Search this area" clears the credit.<br>• The carousel and pins stay in sync both ways (probe swipe and pin checks PASS; tokyo-390-light-pin-selected.jpg), List/Map works, and overflowX is 0.<br>**−1:** the carousel shows one card per screen, so it takes two swipes to read three names (tasks.T1-m log).<br>**−1:** there's no area control on the first screen, so the half-day task stays city-wide (T2-tokyo-m and T2-cleveland-m areaFound false; T2-tokyo-390-lunch.jpg).<br>**−1:** the clear map is 64 % at 390 and 38 % at 200 %. At 200 % the chip row covers the Key control and the carousel takes the lower third (z200-default mapClearPct 38; tokyo-200pct-default.jpg, newyork-200pct-default.jpg).<br>**−0.5:** after locate-me, the carousel leads with Isegen (Chiyoda-ku), which isn't on the map you're looking at (T3-tokyo-390-food-near.jpg). |
+| R6 Visual craft | 10 | 7 | 6.5 | **Plus:** the Esri gray canvas is calm in light and dark and suits the sun/ink palette (real/R2/tokyo-1440-light-1-default.jpg, tokyo-1440-dark-1-default.jpg, tokyo-390-dark-3-pin.jpg). Pins, chips, carousel and preview read as one family.<br>**−1.5:** many previews and cards show an empty cover with a glyph instead of a photo (real/R2/cleveland-1440-light-3-pin.jpg, real/R2/tokyo-1440-dark-3-pin.jpg, T3-tokyo-1440-food-near.jpg, T2-tokyo-1440-lunch.jpg).<br>**−1:** after a detail round-trip or a keyboard card focus, the desktop page scrolls and the sticky chrome overlaps. The chip row shows through under the header, and the count line and Satellite button are cut (tokyo-1440-after-detail-close.jpg, newyork-1440-after-detail-close.jpg, tokyo-1440-keyboard-card-focus.jpg).<br>**−1:** small layout defects on phone:<br>• In the header, the breadcrumb chevron runs into the country name ("United States›New Yo…") on New York, Cleveland and Chinatown (newyork-390-light-default.jpg, real/R2/newyork-390-light-1-default.jpg, chinatown-390-light-zoomed.jpg).<br>• The focus ring on a carousel card title renders as a broken bracket (tokyo-390-after-detail-close.jpg).<br>• An empty band sits under the tiles-blocked list (tokyo-390-tiles-blocked.jpg). |
+| R7 Trust & access | 10 | 5.5 | 7 | **Plus:**<br>• Sources show on cards, preview and detail.<br>• Closures are flagged on the card, the detail and now the map.<br>• Every page has 0 contrast fails.<br>• Reduced motion is honoured (city.js `matchMedia('(prefers-reduced-motion: reduce)')`, atlas.js `animate:!e.still()`).<br>• With tiles or the library blocked, every place is still listed (488 / 194 / 16 / 508, 0 errors; tokyo-1440-library-blocked.jpg).<br>• Per the erratum: every named pin is a Tab stop with a name, kind and tier label and a visible ring, and arrow keys pan the focused map (keyboard-deep-tokyo, keyboard-deep-cleveland).<br>• The search box shows a 2 px ring through `.spill:focus-within` (fe-a.css; erratum item 2).<br>**−1.5:** card, preview and credit text is still 12 px at min and median (fontSizes.card median 12; d-light-select preview fs 12).<br>**−0.5:** 26 targets on the Tokyo 1440 first screen are under 44 px. The 16 pins have a 44 px hit area (fe-a.css `.pp>span::before{inset:-6px -2px}`), but credit links are only 15 px tall (targets.examples "CC BY 2.0 58×15").<br>**−1:** there's no skip link to the map or the results. The map is Tab stop 226 and the first pin 227, about 190 stops after the first card, while the map comes first visually (keyboard-deep-tokyo mapFocusableAt 226, tabsToFirstPin 227). |
+| **TOTAL** | 100 | **60** | **68.5** | |
+
+**Erratum changes:**
+- **Keyboard (item 1).** My first return (68.0) already used the corrected facts. I scored the keyboard loss in R7 at −1 (a complete, labelled path, but about 190 stops in with no skip link), and R4 counted the pin Enter/Escape behaviour as a plus.
+- **Search ring (item 2).** This one moves a score. I've removed the −0.5 for the search input having no focus ring, because the wrapper's `.spill:focus-within` ring is now verified (fe-a.css).
+- **Result.** R7 goes from 6.5 to 7 and the total from 68.0 to 68.5. No other row changed. In T6 and Top fix 1, I dropped the search-ring claim.
+
+### Task results
+- **T1: yes on desktop (5 steps), partly on phone (7 steps).**
+  - The first screen names must-sees on the map: Imperial Palace East Gardens, Edo-Tokyo Museum, Tsukiji Hongan-ji, Tokyo National Museum (tokyo-1440-light-default.jpg).
+  - Saving two works. Saved reads 2, and the saved pins get heart badges on the map (T1-tokyo-1440-saved.jpg).
+  - There's no open-now or "tonight" signal, so I had to read card text to pick one for tonight.
+  - On phone, the duplicate "Must see ×" / "Must see" chips confused me, and reading three names took two swipes (T1-tokyo-390-must-see.jpg).
+- **T2: yes on desktop (3 steps), partly on phone (2 steps, no area).**
+  - On desktop, "Taitō-ku 44" then "Eat & drink" gives 23 places, led by Usagiya, Yanaka Ginza and Komagata Dozeu. Cleveland: University Circle 59 → 15.
+  - The area card's "numbered to match the map" confused me, because the map has no numbers. Most food cards have no photo (T2-tokyo-1440-lunch.jpg).
+  - On phone there's no area control on the first screen, so the results stayed city-wide: 187 in Tokyo, 24 in Cleveland (T2-tokyo-m areaFound false).
+- **T3: partly (3 steps).**
+  - Locate-me is now tappable on phone (locateCoveredBy null) and centres Shibuya at z 15.
+  - Nonbei Yokochō and The Bellwood are named pins next to the location dot.
+  - But the desktop list leads with Toraya Akasaka (Minato-ku), and the phone carousel leads with Isegen (Chiyoda-ku) under "List · 10".
+  - Cards show no distances, and the "Nearest to me" sort exists but isn't applied (T3-tokyo-1440-food-near.jpg, T3-tokyo-390-food-near.jpg).
+- **T4: partly.**
+  - The card and detail are clear: "Closed — kept for the record · checked 2026-08-10 · per Signal Cleveland and TheStreet".
+  - The map now marks the place: a "· Closed" pin at the deep-link zoom, and slashed dots when zoomed out.
+  - Coming back doesn't restore the view (Cleveland z 14 to 15, list scroll +23 px), and on Cleveland phone focus drops to BODY (T4-cleveland-1440-closed-place.jpg, cleveland d- / m-roundtrip).
+- **T5: partly.**
+  - The place link (`#view=atlas&p=senso-ji`) reopens the detail, but its pin is under the panel (8 of 8).
+  - A map-view link isn't possible. The toast still promises "this exact view", but the link reopens at z 12.5 instead of Asakusa at z 15 (T5-tokyo-1440-reopen-view.jpg; mapViewInUrl false).
+- **T6: partly.**
+  - **Keyboard.** The first card is Tab stop 39 on Tokyo and 30 on Cleveland. Enter opens the detail with focus on Close, Escape returns to the card, and focusing a card lights its pin. The search box shows its ring on the wrapper.
+    - The map (stop 226) and the pins (from 227) are fully usable: labelled, with a visible ring. Enter opens the preview, Escape returns to the pin, and arrow keys pan.
+    - But there's no skip link, so you Tab through every card first.
+  - **200 %.** There's no overflow, but only 38 % of the map is clear, and the chip row covers the Key control (tokyo-200pct-default.jpg).
+  - **Library blocked.** Excellent: every place is listed, there's a dot-plot stand-in with a notice, and 0 errors (tokyo-1440-library-blocked.jpg).
+
+### Top three fixes
+1. **Put the map within reach of the keyboard.**
+   - Add "Skip to map" and "Skip to results" links, or move the map pane ahead of the list in DOM order so that it matches the visual order.
+   - Restore focus to the opener after the detail closes.
+   - Acceptance:
+     - On Tokyo desktop, from page top, the first pin is reached in 12 or fewer Tab stops (keyboard-deep-tokyo tabsToFirstPin ≤ 12, mapFocusableAt ≤ 15).
+     - tabsToFirstCard is ≤ 20.
+     - focusAfterClose is the opening card on all 8 round-trip pairs, never BODY.
+2. **Keep the user's place, and make "this exact view" true.**
+   - Snapshot the centre, zoom, list scroll and opener before opening the detail, and restore all of them on Escape, Close and Back, without scrolling the page.
+   - Write `&ll=lat,lng,z` into shared links.
+   - Offset the deep-link centre so the pin sits in the map area the sheet doesn't cover.
+   - Acceptance:
+     - viewKept is true on 8 of 8 round-trips, listScrollAfter equals listScrollBefore, and desktop scrollY is 0 after closing.
+     - T5-d / T5-m report mapViewInUrl true, and the reopened view is within 0.002° at the same zoom.
+     - pinUnderSheet is false on all 4 desktop deep links.
+3. **Make the list honest about the map after locate and zoom.**
+   - Locate-me should switch the sort to Nearest and show distances on cards.
+   - The phone count shouldn't claim "in this map area" while it's stale.
+   - Remove the "numbered to match the map" copy and the duplicate "Must see ×" chip.
+   - Acceptance:
+     - T3-d and T3-m listShows.top[0] is Nonbei Yokochō, all top 5 are within 1.2 km, and every card shows a distance.
+     - The m-light-zoom2 countLine matches the places in view, or reads as stale until "Search this area" is tapped.
+     - T1 shows exactly one Must-see control.
+
+### Blocker / High findings
+- **High: the detail round-trip loses the map view, and sometimes focus.**
+  - viewKept is false on 7 of 8 pairs, focus lands on BODY on 3 pairs, and the desktop page scrolls under the sticky chrome.
+  - Evidence: d- / m-roundtrip; tokyo-1440-after-detail-close.jpg, newyork-1440-after-detail-close.jpg.
+- **High: deep links and sharing mislead.**
+  - The deep-linked pin is under the detail panel on 8 of 8 pairs, a regression from 7 of 8.
+  - The share toast promises "this exact view", but mapViewInUrl is false (d-deeplink; tasks.T5-d / T5-m).
+- **High: after locate-me, the list and carousel aren't the map's area.**
+  - "23 places in this map area" leads with Minato-ku places, and "List · 10" leads with Isegen in Chiyoda.
+  - The nearest tier-1 place, 90 m away, never comes first (tasks.T3-d / T3-m listShows vs truth).
+- **High: map and pins are keyboard-usable but only after the whole list.**
+  - They're about 190 stops after the first card (Tab stop 226 / 227), with no skip link. The visual order (map first) and the DOM order (map last) disagree (keyboard-deep-tokyo).
+  - The pins themselves are well built: labelled, ringed, Enter/Escape and arrow-key pan all work.
+- **High: card, preview and credit text is still 12 px** (fontSizes.card median 12; d-light-select preview fs 12).
+- **High (process): the front-end acceptance probe still passes a view check the panel fails.**
+  - "preview → place detail (#p=, view kept)" PASSes on every page, but it only covers the preview path. The card path the panel measured loses the view on every desktop page (d-roundtrip viewKept false).
+  - "#view=atlas&p= opens the detail with the place on the map" PASSes while pinUnderSheet is true on 8 of 8.
+  - The R1 credit/locate false pass is now genuinely fixed (locateCoveredBy null).
+
+---
+
+<!-- final confirmation: R7 re-score for erratum item 2 -->
+FE confirmed R7 = 7 and TOTAL = 68.5 after erratum item 2: the wrapper's `.spill:focus-within` ring counts, and the
+Atlas `box-shadow:none!important` override applies only to `#cleo-filter`. The keyboard loss stays at −1, for the
+missing skip link, with the map about 190 stops in. Nothing else changes.

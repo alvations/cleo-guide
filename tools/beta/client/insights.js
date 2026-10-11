@@ -238,6 +238,34 @@
     var c7 = card('tier', 'The tier ladder per area', 'Open places by tier (' + (N - T.closed) + ' of ' + N + '). Tiers are graded within each area, so every area has its own must-sees.',
       stacked(A.map(function (a) { return { label: a.name, key: a.id, v: I.tiers[a.id] }; }), ts, 'Area', function (a, t) { return gal({ a: a, t: t }); }, 'tier', false),
       note('tier', T.closed + ' closed places carry no tier and are counted in the closures card instead.'));
+    // 8 · W9-1 recognition: platform's per-place `rec`, made only from each record's own source keys (an award source,
+    // a vetted creator video, ≥ 3 distinct sources). Open places only — a closed place is never a live recommendation.
+    var RC = d.recognition, c8;
+    var recOf = function (p) { var r = p.rec || {}; return { award: !!(r.award && r.award.length), video: !!r.video, cited: !!r.cited }; };
+    if (!RC) c8 = card('rec', 'Recognised places by area', 'This guide has no recognition data yet.', '<p class="empty">Stated, not filled.</p>');
+    else {
+      var rk = { award: 0, video: 0, cited: 0 }, rTot = 0, rOpen = 0, rClosed = 0, rRows = A.map(function (a) {
+        var v = { award: 0, video: 0, cited: 0 }, n = 0, open = 0;
+        d.places.forEach(function (p) {
+          if (p.a !== a.id) return; var r = recOf(p), any = r.award || r.video || r.cited;
+          if (p.closed) { if (any) rClosed++; return; }
+          open++; if (!any) return; n++; Object.keys(v).forEach(function (k) { if (r[k]) { v[k]++; rk[k]++; } });
+        });
+        rTot += n; rOpen += open;
+        return { label: a.name, key: a.id, n: n, c: a.c, v: v, open: open };
+      });
+      var kinds = [['award', 'Award source'], ['video', 'Creator video'], ['cited', 'Cited by 3 or more']].filter(function (k) { return rk[k[0]]; });
+      var rTable = details('Show as a table', '<table><thead><tr><th scope="col">Area</th>' + kinds.map(function (k) { return '<th scope="col">' + k[1] + '</th>'; }).join('') +
+        '<th scope="col">Recognised</th><th scope="col">Open places</th></tr></thead><tbody>' + rRows.map(function (r) {
+          return '<tr><th scope="row">' + esc(r.label) + '</th>' + kinds.map(function (k) { return '<td>' + r.v[k[0]] + '</td>'; }).join('') + '<td>' + r.n + '</td><td>' + r.open + '</td></tr>';
+        }).join('') + '</tbody></table>');
+      c8 = card('rec', 'Recognised places by area', 'Open places with at least one recognition, per area: an award source, a vetted creator video, or three or more distinct sources, each read from the place’s own sources. A place counts once (' + rTot + ' of ' + rOpen + ' open places).',
+        (rTot ? both(barSvg, [rRows, function (a) { return gal({ a: a }); }, 'rec', '']) : '<p class="empty">No open place in this guide carries a recognition.</p>') + rTable,
+        note('rec', [rk.video ? '' : 'No vetted creator video is on record for this guide, so that kind is absent rather than zero-filled.',
+          rClosed ? plural(rClosed, 'closed place') + ' with a recognition ' + (rClosed === 1 ? 'is' : 'are') + ' left out; closures are counted in their own card.' : '',
+          'Recognition is only what the sources say; nothing is inferred.'].filter(Boolean).join(' ')));
+      I.rec = { total: rTot, open: rOpen, closed: rClosed, kinds: rk, perArea: rRows.reduce(function (o, r) { o[r.key] = r.n; return o; }, {}) };
+    }
     // the "All N places" index
     var byId = {}; d.places.forEach(function (p) { byId[p.id] = p; });
     var parts = A.map(function (a) {
@@ -249,7 +277,7 @@
     if (nIdx !== N) throw new Error('insights index lost records: ' + nIdx + ' != ' + N);
     var top = '<div class="ins" data-cleo-insights><header class="ins-h"><h1 class="d2" tabindex="-1">' + esc(name) + ' in numbers</h1>' +
       '<p class="sub">Every number below is computed from the ' + N + ' places in this guide. Every chart accounts for all of them, and every bar opens those places in the Gallery.</p></header>' +
-      tilesH + '<div class="igrid">' + c1 + c2 + c3 + c4 + c5 + c6 + c7 + '</div>' +
+      tilesH + '<div class="igrid">' + c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + '</div>' +
       '<section class="icard ixall" aria-labelledby="ix-t"><h2 class="d3" id="ix-t">All ' + N + ' places</h2><p class="sub">Every place the charts count, by area in rank order. Each opens its entry.</p><div class="ixg">';
     // `lazy` (W4 gap #6): the same page with the index body empty; mount() streams its area sections in on approach
     var tables = TBL; TBL = null; ONLY = '';
