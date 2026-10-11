@@ -199,30 +199,52 @@ and residential block numbers (地番 / 住居表示) are a **trial release**
 download site is **unconfirmed**, as is its terms page
 ([base_registry_address_tos](https://www.digital.go.jp/policies/base_registry_address_tos)).
 
+**Download.**
+- Town master (`mt_town_all.csv.zip`, zipped UTF-8 CSV) is listed on the Digital Agency's registry catalogue
+  ([日本 町字マスター](https://registry-catalog.registries.digital.go.jp/dataset/6d580ee7-0633-4942-a794-88b688e4c2e7/resource/0c2a98b1-6c5a-4484-abfa-e7306f3d3087)).
+- The download site is [dataset.address-br.digital.go.jp](https://dataset.address-br.digital.go.jp/). Its town data
+  became the official version in June 2025.
+- The **direct file URL and the exact column headers** (e.g. `代表点_緯度`) were **not confirmed**. `--abr-file`
+  fails loudly with the header it found if they differ.
+
 **Verdict. Phase 2, recommended for Japan.** Okinawa (286 rows), Hokkaido, Osaka, Kyoto and Tokyo. Caveat: many
 points are **town-block representatives, not buildings**. So it is a **wrong-town / wrong-block guard**, `low`
 unless a house-level record exists, never a pin on its own. The Okinawa registry rows carry no postcodes; their
 addresses must be matched in Japanese.
 
-#### Germany: NRW official house coordinates (Geobasis NRW, Bezirksregierung Köln)
+#### Germany: NRW (Geobasis NRW, Bezirksregierung Köln): use the open Gebäudereferenzen, not the house coordinates
 
-**Data.** Official house coordinates and building outlines. Bulk download from **opengeodata.nrw.de**.
+> **Correction (2026-10-11).** An earlier version of this section said the official NRW **house coordinates** were
+> open under dl-de/zero. **They are not.** Hauskoordinaten, with postal data, are obtained and **licensed through the
+> Zentrale Stelle Hauskoordinaten und Hausumringe (ZSHH)** under AdV rules
+> ([Geobasis NRW: Gebäudereferenzen](https://www.bezreg-koeln.nrw.de/geobasis-nrw/produkte-und-dienste/liegenschaftskataster/aktuelles-liegenschaftskataster/gebaeudereferenzen),
+> [AdV-MIS: Hauskoordinaten NW](https://advmis.geodatenzentrum.de/trefferanzeige?docuuid=5cc6fe01-11e7-4293-bf85-1d8320e72022&plugid=%2Fingrid-group%3Aiplug-csw-dsc&docid=ioCm9XYBWW0O27vjPIOA)).
+> The nationwide HK-DE product is CSV/UTF-8, but it also comes through ZSHH
+> ([HK-DE documentation](https://sg.geodatenzentrum.de/web_public/gdz/dokumentation/deu/hk-de.pdf)). **Out.**
+
+**Data.** The open product is the **Gebäudereferenzen** (building reference points) on **OpenGeodata.NRW**.
+- It is a file server organised by product, with the geobasis products under `/produkte/geobasis/`
+  ([Geobasis NRW: Open Data](https://www.bezreg-koeln.nrw.de/geobasis-nrw/open-data)).
+- The Gebäudereferenzen carry **no postal information** (no postcode, no postal place name).
 
 **Key.** None.
 
 **Rate limit.** None; it is a one-off download.
 
-**Licence.** Geobasis NRW data is published under **Datenlizenz Deutschland – Zero 2.0**: any use, no conditions
-([GDI-DE catalogue record](https://gdk.gdi-de.org/geonetwork/srv/api/records/c2195ebe-dad7-4f5e-9bc3-79a30d3373f3),
-[OSM wiki: Aachen data sources](https://wiki.openstreetmap.org/wiki/DE:Aachen_Datenquellen)). An older harvested
-record lists dl-de/by-2.0, so confirm on the dataset page. **Municipal** house-coordinate sets differ: Essen lists
-dl-de/zero and CC BY variants, Bottrop is internal-only
-([open.nrw](https://ckan.open.nrw.de/dataset/amtliche-hauskoordinaten-essen-e/resource/a2e764ca-e309-42bb-b385-acf259635d0d)).
-Use only the **state** file.
+**Licence.** **Datenlizenz Deutschland – Zero 2.0**: any use, no conditions (Geobasis NRW open-data page; GDI-DE
+catalogue record). Municipal house-coordinate sets differ: Essen lists dl-de/zero and CC BY variants; Bottrop is
+internal-only. Use the **state** Gebäudereferenzen only.
 
-**Verdict. Phase 2, recommended.** Rhineland (270 rows: Cologne 50xxx, Düsseldorf 40xxx, Bonn 53xxx) and the German
-part of Aachen (202 rows, 52xxx). These are exact address points, graded `med`; agreement within 40 m lifts a named
-candidate to `high`.
+**Adapter.** Because there is no postcode, `--house-file` keys these on **town + street + house number** (it accepts
+either postcode or town columns).
+
+**Download URL.** **Not confirmed.** Search returned the portal and the product page, but no file path. A person
+must take the path from the OpenGeodata.NRW listing before a download step is added.
+
+**Verdict. Phase 2, recommended once the path is confirmed.**
+- Covers Rhineland (270 rows: Cologne 50xxx, Düsseldorf 40xxx, Bonn 53xxx) and the German part of Aachen (202 rows,
+  52xxx).
+- These are building points, graded `med`; agreement within 40 m lifts a named candidate to `high`.
 
 #### Germany: Rhineland-Palatinate house coordinates (LVermGeo RLP)
 
@@ -369,15 +391,15 @@ Vaals).
 | Singapore | 712 | Wikidata, Wikipedia, Nominatim, Overpass, official sites | **OneMap**, needs a free token, so the owner decides (§ 7, Q5) |
 | Saarland region (Saarland, Rhineland-Palatinate, Luxembourg, France) | 409 | same | **LVGL Saarland** (66xxx) + **LVermGeo RLP** (54–57xxx, 67xxx) + Luxembourg **BD-Adresses** + France **BAN** (Moselle) |
 | Okinawa | 286 | same; OSM coverage in Okinawa is uneven | **Address Base Registry**, as a guard only |
-| Rhineland (Cologne, Düsseldorf, Bonn) | 270 | same | **Geobasis NRW** house coordinates (dl-de/zero) |
-| Aachen (incl. Belgium and Netherlands) | 202 | same | **Geobasis NRW** for 52xxx; **BeST** (Belgium, needs Lambert 72) and **PDOK** (Netherlands) |
+| Rhineland (Cologne, Düsseldorf, Bonn) | 270 | same | **Geobasis NRW Gebäudereferenzen** (dl-de/zero; the house coordinates themselves are licensed, not open) |
+| Aachen (incl. Belgium and Netherlands) | 202 | same | **Geobasis NRW Gebäudereferenzen** for 52xxx; **BeST** (Belgium, needs Lambert 72) and **PDOK** (Netherlands) |
 | San Francisco, Orlando, Chicago and other US cities | 183, 149, 122… | same | **Census Geocoder**, as a guard only |
 
 **Prototype status (59c0144b).**
 
 | adapter | flag | what it does |
 |---|---|---|
-| German house-coordinate files | `--house-file <path>[::licence]` | Header-driven: `STN/HNR/ADZ/PLZ/ONM/OST/NORD` and aliases; UTM 32 or lat/lng. Exact postcode + street + number → `gov-address`, graded `med`. |
+| German house-coordinate / building-reference files | `--house-file <path>[::licence]` | Header-driven: `STN/HNR/ADZ/PLZ/ONM/OST/NORD` and aliases; UTM 32 or lat/lng. Exact postcode + street + number, or town + street + number when the file has no postcode (NRW Gebäudereferenzen) → `gov-address`, graded `med`. |
 | Japan Address Base Registry | `--abr-file <path>` | Wrong-town guard notes only; never proposes a pin |
 | OneMap | — | Postal-code search; reads `ONEMAP_EMAIL` / `ONEMAP_PASSWORD` if set. Without them it is skipped with a logged note; the token is never logged or reported. |
 
