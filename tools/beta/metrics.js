@@ -510,6 +510,8 @@ async function mapSync(page) {
     r.pinned = document.querySelectorAll('li.pl[data-ll]').length;
     r.markerNumbers = [...document.querySelectorAll('.leaflet-marker-icon, .leaflet-tooltip')].filter(m => /^\s*\d+\s*$/.test(m.textContent)).length;
     r.pinLabels = document.querySelectorAll('.leaflet-tooltip.pin-n').length;
+    // SPEC-v3 (Atlas review loop): the map carries no numbers; pins are named (kind glyph + place name) — counted here
+    r.namedPins = [...document.querySelectorAll('.leaflet-marker-icon.pp')].filter(m => /\p{L}/u.test(m.textContent)).length;
     // hover a card → some marker's style changes
     const snap = () => paths().map(p => (p.getAttribute('class') || '') + (p.getAttribute('stroke-width') || '') + (p.getAttribute('fill-opacity') || '') + (p.getAttribute('d') || '').length + (p.style.cssText || ''));
     const card = [...document.querySelectorAll('li.pl[data-ll]')].find(c => !c.closest('[hidden]'));
@@ -793,7 +795,7 @@ function grade(m) {
       `toggle ${sf.toggle ? sf.toggle.w + '×' + sf.toggle.h : 'none'}, full map ${!!sf.fullMap}, pin sheet ${ps ? `close ${ps.closeVisible}, esc ${ps.escCloses}, back ${ps.backCloses}` : 'none'}` +
       (mp ? `, map-search: own card ${mp.card && mp.card.own} in view ${mp.card && mp.card.inView} → detail ${!!mp.detail} close ${mp.detail && mp.detail.closeVisible} esc ${mp.escCloses} back ${mp.backCloses} atlas ${mp.stayedOnPage}` : ''));
     rows['B-08 floaters over titles = 0'] = P(mo.overlap && mo.overlap.hits === 0, mo.overlap ? mo.overlap.hits : null);
-    rows['B-09 pin numbers == card numbers'] = de.sync ? P((de.sync.markerNumbers > 0 || de.sync.pinLabels > 0) && de.sync.orderingStated, `numbered pins ${de.sync.markerNumbers} (pin-n labels ${de.sync.pinLabels}), ordering stated ${de.sync.orderingStated}`) : P(false, 'n/a');
+    rows['B-09 pin numbers == card numbers'] = de.sync ? P((de.sync.markerNumbers > 0 || de.sync.pinLabels > 0 || de.sync.namedPins > 0) && de.sync.orderingStated, `numbered pins ${de.sync.markerNumbers} (pin-n labels ${de.sync.pinLabels}), named pins ${de.sync.namedPins}, ordering stated ${de.sync.orderingStated}`) : P(false, 'n/a');
     rows['B-10 filter tray + "Show N places"'] = de.tray ? P(de.tray.tray && !!de.tray.showN, de.tray.tray ? de.tray.showN : (de.tray.button ? 'button, no tray' : 'no Filters control')) : P(false, 'n/a');
     rows['B-12 closed with tier glyph = 0'] = P(mo.closedWithTier === 0, mo.closedWithTier + ' of ' + mo.closed + ' closed');
     rows['B-16 cards per mobile screen ≥2'] = P(mo.cardsPerScreen != null && mo.cardsPerScreen >= 2, mo.cardsPerScreen);
