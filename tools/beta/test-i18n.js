@@ -82,7 +82,9 @@ const reg2 = { rows: [cityRow('testville', 'cities/testville.html', 'tl', 6), ci
   { kind: 'archive-hub', beta: 'Singapore/singapore-old.html', live: 'Singapore/singapore-old.html', gen: 'new', key: 'sea', country: 'sg', data: { meta: { h1Main: 'Testland' } } }],
   countries: [{ key: 'tl', name: 'Testland', live: true, order: 1, hub: 'Testland/index.html', cityPages: ['cities/testville.html'], blurb: 'Testville Gazette' },
     { key: 'sg', name: 'Testland', live: false, order: 2, kind: 'engine', cityPages: [] }] };
-reg2.rows[3].country = 'zz';                                   // a page outside every region → "elsewhere in the region"
+reg2.rows[3].country = 'zz';
+// W9-2: the landing's "<month> in Cleo" module (data/changes.json rows)
+reg2.changes = Object.assign([{ key: 'testville', name: 'Testville', changesPage: 'changes/testville.html', month: { checked: 3, closed: 1, pins: 2 } }], { month: '2026-10' });                                   // a page outside every region → "elsewhere in the region"
 shell.setSite(reg2, {});
 const lctx = { assetsV: { core: 'x', css: 'x', landing: 'x' }, betaBase: 'https://example.test/beta' };
 const DATA2 = DATA.concat(['Anime', 'Testburg']);

@@ -33,7 +33,7 @@
   },
   "pilotLandmarks": {
    "targets": 180,
-   "skipped": 71,
+   "skipped": 73,
    "withHigh": 103
   },
   "otherLandmarks": {
@@ -42,12 +42,12 @@
    "withArticle": 632
   },
   "candidates": {
-   "total": 363,
-   "high": 349,
+   "total": 381,
+   "high": 367,
    "med": 14,
    "low": 0
   },
-  "targetsWithHigh": 168,
+  "targetsWithHigh": 169,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -1683,7 +1683,29 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Ang_Mo_Kio_Town_Garden_West_Singapore_-_panoramio.jpg",
      "depicts": "Ang Mo Kio Town Garden West",
      "confidence": "high",
-     "reason": "title names Ang Mo Kio Town Garden West (copied from the category listing)"
+     "reason": "title names Ang Mo Kio Town Garden West (copied from the category listing)",
+     "refused": "refused by visual review (W8): the park's name sign is the centre of the frame (signage rule)"
+    },
+    {
+     "file": "File:Ang Mo Kio Town Garden West Singapore - panoramio (1).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ang_Mo_Kio_Town_Garden_West_Singapore_-_panoramio_(1).jpg",
+     "depicts": "Ang Mo Kio Town Garden West",
+     "confidence": "high",
+     "reason": "title names Ang Mo Kio Town Garden West (copied from the category listing; another view)"
+    },
+    {
+     "file": "File:Ang Mo Kio Town Garden West Singapore - panoramio (2).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ang_Mo_Kio_Town_Garden_West_Singapore_-_panoramio_(2).jpg",
+     "depicts": "Ang Mo Kio Town Garden West",
+     "confidence": "high",
+     "reason": "title names Ang Mo Kio Town Garden West (copied from the category listing; another view)"
+    },
+    {
+     "file": "File:Ang Mo Kio Park Connector - 2022-11-07.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ang_Mo_Kio_Park_Connector_-_2022-11-07.jpg",
+     "depicts": "Ang Mo Kio Park Connector (November 2022)",
+     "confidence": "high",
+     "reason": "title names the Ang Mo Kio Park Connector"
     },
     {
      "file": "File:AngMoKio.JPG",
@@ -1877,6 +1899,32 @@
    ],
    "wikiLead": true,
    "candidates": []
+  },
+  {
+   "key": "hero:singapore/queenstown",
+   "type": "hero",
+   "depicts": "hub:singapore/queenstown",
+   "label": "Queenstown & Redhill — guide hero",
+   "names": [
+    "Queenstown",
+    "Redhill"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Queenstown,_Singapore"
+   ],
+   "wikiLead": true,
+   "candidates": [
+    {
+     "file": "File:Queenstown hdb.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Queenstown_hdb.jpg",
+     "depicts": "HDB flats along Strathmore Avenue, Queenstown",
+     "confidence": "high",
+     "reason": "title names Queenstown; summary: thirty-storey flats, Strathmore Avenue, 2005"
+    }
+   ]
   },
   {
    "key": "hero:singapore/jalan-besar",
@@ -2121,32 +2169,6 @@
    ],
    "wikiLead": true,
    "candidates": []
-  },
-  {
-   "key": "hero:singapore/queenstown",
-   "type": "hero",
-   "depicts": "hub:singapore/queenstown",
-   "label": "Queenstown & Redhill — guide hero",
-   "names": [
-    "Queenstown",
-    "Redhill"
-   ],
-   "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "articles": [
-    "https://en.wikipedia.org/wiki/Queenstown,_Singapore"
-   ],
-   "wikiLead": true,
-   "candidates": [
-    {
-     "file": "File:Queenstown hdb.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Queenstown_hdb.jpg",
-     "depicts": "HDB flats along Strathmore Avenue, Queenstown",
-     "confidence": "high",
-     "reason": "title names Queenstown; summary: thirty-storey flats, Strathmore Avenue, 2005"
-    }
-   ]
   },
   {
    "key": "hero:singapore/southern-ridges",
@@ -3204,7 +3226,18 @@
    "article": "https://en.wikipedia.org/wiki/MacRitchie_Reservoir",
    "priority": "lead",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Info Board MacRitchie Reservoir Singapore Feb23 D72 25337.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Info_Board_MacRitchie_Reservoir_Singapore_Feb23_D72_25337.jpg",
+     "depicts": "MacRitchie info board",
+     "confidence": "high",
+     "reason": "lead image (run #35)",
+     "refused": "refused (W8): an information board — signage is the subject"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/yangon#shwedagon-pagoda",
@@ -3481,10 +3514,10 @@
    "names": [
     "Meadowcroft Rockshelter & Historic Village",
     "Meadowcroft Rockshelter",
-    "Historic Village",
-    "Meadowcroft"
+    "Historic Village"
    ],
    "pilot": true,
+   "skip": "R7 QA-63: the only other Commons photo is under 640 px; every file is a rock close-up — calm cover (stated)",
    "priority": "row",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
@@ -3494,14 +3527,16 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Meadowcroft_Rockshelter_07.jpg",
      "depicts": "Meadowcroft Rockshelter (2012)",
      "confidence": "high",
-     "reason": "title names Meadowcroft Rockshelter"
+     "reason": "title names Meadowcroft Rockshelter",
+     "refused": "refused by R7 QA-63 (W8): a rock close-up"
     },
     {
      "file": "File:MeadowcroftRockshelter.jpg",
      "pageUrl": "https://commons.wikimedia.org/wiki/File:MeadowcroftRockshelter.jpg",
      "depicts": "Meadowcroft Rockshelter near Avella (2010)",
      "confidence": "high",
-     "reason": "title names Meadowcroft Rockshelter; summary CC BY-SA 2.0, Lee Paxton (573 px only)"
+     "reason": "title names Meadowcroft Rockshelter; summary CC BY-SA 2.0, Lee Paxton (573 px only)",
+     "refused": "refused (W8): too small (573 px wide; minimum 640)"
     }
    ]
   },
@@ -3529,6 +3564,7 @@
     "Trolley Museum"
    ],
    "pilot": true,
+   "skip": "R7 QA-63: every Commons photo shows a trolley (equipment) rather than the place — calm cover (stated)",
    "priority": "row",
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
    "searched": "2026-10-11",
@@ -3538,7 +3574,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:PA_Trolley_Museum_071907_008.jpg",
      "depicts": "Pennsylvania Trolley Museum, Washington, PA (2007)",
      "confidence": "high",
-     "reason": "title names the PA Trolley Museum; summary CC BY 2.0, John Mueller"
+     "reason": "title names the PA Trolley Museum; summary CC BY 2.0, John Mueller",
+     "refused": "refused by R7 QA-63 (W8): equipment (a trolley) fills the frame"
     }
    ]
   },
@@ -4781,7 +4818,22 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Maneki-neko_(Japanese_Lucky_Cat)_Statues_at_Gotokuji_Temple,_Tokyo.jpg",
      "depicts": "Maneki-neko figurines at Gōtoku-ji",
      "confidence": "high",
-     "reason": "title names Gotokuji Temple"
+     "reason": "title names Gotokuji Temple",
+     "refused": "refused by R7 QA-63 (W8): a figurine close-up, not the temple grounds"
+    },
+    {
+     "file": "File:Gotokuji Temple (Cat Temple).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Gotokuji_Temple_(Cat_Temple).jpg",
+     "depicts": "Gōtoku-ji temple grounds",
+     "confidence": "high",
+     "reason": "title names Gotokuji Temple (QA-63 re-lead)"
+    },
+    {
+     "file": "File:Dedicated Maneki-nekos (招き猫) in Gotoku-ji (豪徳寺) - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Dedicated_Maneki-nekos_(%E6%8B%9B%E3%81%8D%E7%8C%AB)_in_Gotoku-ji_(%E8%B1%AA%E5%BE%B3%E5%AF%BA)_-_panoramio.jpg",
+     "depicts": "Rows of dedicated maneki-neko at Gōtoku-ji",
+     "confidence": "high",
+     "reason": "title names Gotoku-ji; the rows of figurines on the grounds (QA-63)"
     }
    ]
   },
@@ -5476,6 +5528,28 @@
      "confidence": "high",
      "reason": "title names Nihonbashi Bridge (photo upload; NOT the Hiroshige print \"Nihonbashi bridge.jpg\")",
      "refused": "refused by R7 QA-53 (W8): a woodblock print (Hiroshige) — artwork, not the place today"
+    },
+    {
+     "file": "File:Chuo-dori from Nihonbashi.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Chuo-dori_from_Nihonbashi.jpg",
+     "depicts": "Chūō-dōri seen from Nihonbashi",
+     "confidence": "high",
+     "reason": "lead image of the cited article (pilots run #34)",
+     "refused": "refused by visual review (W8): the street seen from the bridge, not the bridge (a view from the place)"
+    },
+    {
+     "file": "File:Nihonbashi bridge.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Nihonbashi_bridge.jpg",
+     "depicts": "Nihonbashi Bridge",
+     "confidence": "high",
+     "reason": "title names Nihonbashi bridge (W8 re-lead)"
+    },
+    {
+     "file": "File:Kirin Statue (Nihonbashi Bridge).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kirin_Statue_(Nihonbashi_Bridge).jpg",
+     "depicts": "The bronze kirin guarding Nihonbashi Bridge (1911)",
+     "confidence": "high",
+     "reason": "title names the Kirin statue of Nihonbashi Bridge; summary: Phlizz, January 2020, CC BY-SA 4.0; the 1911 bronze is long out of copyright"
     }
    ]
   },
@@ -6149,7 +6223,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Shinobazu_Pond_@_Ueno_Park_(11096102376).jpg",
      "depicts": "Shinobazu Pond in Ueno Park",
      "confidence": "high",
-     "reason": "title names Shinobazu Pond, Ueno Park; summary CC BY 2.0, Guilhem Vellut"
+     "reason": "title names Shinobazu Pond, Ueno Park; summary CC BY 2.0, Guilhem Vellut",
+     "refused": "refused by R7 QA-63 (W8): dead lotus stalks (close-up of vegetation)"
     },
     {
      "file": "File:Shinobazu no Ike Bentendō in Ueno Park (50786252291).jpg",
@@ -6157,6 +6232,20 @@
      "depicts": "Bentendō on Shinobazu Pond, Ueno Park",
      "confidence": "high",
      "reason": "title names Ueno Park"
+    },
+    {
+     "file": "File:Ueno Park - Tokyo - Japan (15863485412).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ueno_Park_-_Tokyo_-_Japan_(15863485412).jpg",
+     "depicts": "Ueno Park (2014)",
+     "confidence": "high",
+     "reason": "title names Ueno Park; summary: Cesar I. Martins, CC BY 2.0 (QA-63 re-lead)"
+    },
+    {
+     "file": "File:Sakura in bloom @ Gojoten Shrine @ Ueno Park (13439354374).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sakura_in_bloom_@_Gojoten_Shrine_@_Ueno_Park_(13439354374).jpg",
+     "depicts": "Cherry blossom at Gojōten Shrine, Ueno Park",
+     "confidence": "high",
+     "reason": "title names Ueno Park; summary: Guilhem Vellut, March 2014, CC BY 2.0"
     }
    ]
   },
@@ -6457,7 +6546,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Cleveland_Museum_of_Art_-_old_wing.jpg",
      "depicts": "The 1916 building of the Cleveland Museum of Art",
      "confidence": "high",
-     "reason": "title names the Cleveland Museum of Art; summary: public domain, Daderot 2008"
+     "reason": "title names the Cleveland Museum of Art; summary: public domain, Daderot 2008",
+     "refused": "refused by R7 QA-63 (W8): an \"OPEN\" banner is the subject (signage)"
     },
     {
      "file": "File:Cleveland Museum of Art Breuer Entrance.jpg",
@@ -6468,6 +6558,20 @@
      "flags": [
       "outdated"
      ]
+    },
+    {
+     "file": "File:Cleveland Museum of Art - south facade.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cleveland_Museum_of_Art_-_south_facade.jpg",
+     "depicts": "The south façade of the Cleveland Museum of Art",
+     "confidence": "high",
+     "reason": "title names the Cleveland Museum of Art south façade (copied from the exterior category; QA-63)"
+    },
+    {
+     "file": "File:Cleveland Museum of Art.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cleveland_Museum_of_Art.jpg",
+     "depicts": "The Cleveland Museum of Art",
+     "confidence": "high",
+     "reason": "title names the Cleveland Museum of Art"
     }
    ]
   },
@@ -6488,7 +6592,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Cuyahoga_River,_Cuyahoga_Valley_National_Park,_Ohio.jpg",
      "depicts": "The Cuyahoga River in Cuyahoga Valley National Park",
      "confidence": "high",
-     "reason": "title names Cuyahoga Valley National Park"
+     "reason": "title names Cuyahoga Valley National Park",
+     "refused": "refused by R7 QA-63 (W8): a weir — not the valley the park is known for"
     },
     {
      "file": "File:Cuyahoga Valley National Park 20.jpg",
@@ -6496,6 +6601,13 @@
      "depicts": "Cuyahoga Valley National Park (2014)",
      "confidence": "high",
      "reason": "title names Cuyahoga Valley National Park"
+    },
+    {
+     "file": "File:Ohio and Erie Canal Towpath Trail Section.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Ohio_and_Erie_Canal_Towpath_Trail_Section.jpg",
+     "depicts": "The Towpath Trail through Cuyahoga Valley",
+     "confidence": "high",
+     "reason": "title names the Ohio and Erie Canal Towpath Trail; category: Cuyahoga Valley National Park (QA-63)"
     }
    ]
   },
@@ -7394,7 +7506,8 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Diabeacon_2006.jpg",
      "depicts": "Entrance of Dia:Beacon, the former Nabisco printing plant (2006)",
      "confidence": "high",
-     "reason": "title names Dia Beacon; summary: NRHP entrance photo"
+     "reason": "title names Dia Beacon; summary: NRHP entrance photo",
+     "refused": "refused by R7 QA-63 (W8): a lawn — the museum does not read"
     },
     {
      "file": "File:Dia Beacon NY1.jpg",
@@ -7402,6 +7515,13 @@
      "depicts": "Dia:Beacon building, Beacon, New York",
      "confidence": "high",
      "reason": "title names Dia Beacon (copied from the category listing)"
+    },
+    {
+     "file": "File:Beacon dia cote.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Beacon_dia_cote.JPG",
+     "depicts": "The Dia:Beacon museum building",
+     "confidence": "high",
+     "reason": "title names Dia Beacon; summary: the Dia:Beacon Museum (QA-63)"
     }
    ]
   },
@@ -7792,7 +7912,22 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:Rockaway_Beach_aerial_view.jpg",
      "depicts": "Rockaway Beach from the air",
      "confidence": "high",
-     "reason": "title names Rockaway Beach"
+     "reason": "title names Rockaway Beach",
+     "refused": "refused by visual review (W8): an old aerial survey shot with bulldozers on the sand (vehicles/equipment), and no boardwalk"
+    },
+    {
+     "file": "File:Rockaway Boardwalk jeh.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rockaway_Boardwalk_jeh.JPG",
+     "depicts": "The Rockaway boardwalk on a sunny afternoon (2008)",
+     "confidence": "high",
+     "reason": "title names the Rockaway Boardwalk; summary: Jim.henderson, sunny early afternoon"
+    },
+    {
+     "file": "File:Rockaway Beach Queens.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rockaway_Beach_Queens.JPG",
+     "depicts": "Rockaway Beach, Queens",
+     "confidence": "high",
+     "reason": "title names Rockaway Beach, Queens; summary: Urielevy 2013, CC BY-SA 4.0"
     }
    ]
   },
@@ -7824,7 +7959,15 @@
      "pageUrl": "https://commons.wikimedia.org/wiki/File:30_Rockefeller_Plaza_(NBC_headquarters).jpg",
      "depicts": "30 Rockefeller Plaza",
      "confidence": "high",
-     "reason": "title names 30 Rockefeller Plaza"
+     "reason": "title names 30 Rockefeller Plaza",
+     "refused": "refused by R7 QA-63 (W8): a blurred night shot"
+    },
+    {
+     "file": "File:Channel gardens rockefeller center NYC.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Channel_gardens_rockefeller_center_NYC.jpg",
+     "depicts": "The Channel Gardens, Rockefeller Center",
+     "confidence": "high",
+     "reason": "title names the Channel Gardens, Rockefeller Center (QA-63)"
     }
    ]
   },

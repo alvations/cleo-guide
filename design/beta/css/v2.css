@@ -19,11 +19,11 @@
 :root body { background: var(--paper); color: var(--ink); font-family: var(--font-ui); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility; font-feature-settings: "cv11", "ss01" 0; }
 :root :is(h1, h2, .d-hero, .d1, .d2, .masthead h1, .area-n, .row-h h2) { font-family: var(--font-display); font-weight: var(--fw-display); letter-spacing: var(--track-display); font-style: normal; }
-:root :is(h3, .d3, .gc-n, .pl-n) { font-family: var(--font-ui); font-weight: var(--fw-ui-strong); letter-spacing: -.006em; font-style: normal; }
+:root :is(h3, .d3, .gc-n, .pl-n) { font-family: var(--font-ui); font-weight: var(--fw-ui-strong); letter-spacing: var(--track-tight); font-style: normal; }
 /* no italic faces ship in v2 (display + Inter roman only), so a leftover `italic` rule never fakes a slant */
 :root { font-synthesis-style: none; }
 /* city and country names are display type (W7 amendment) — hub / landing tiles; place names stay in the UI face */
-:root :is(.tile h3, .dest h3, .feb .card-t) { font-family: var(--font-display); font-weight: var(--fw-display); letter-spacing: -.012em; }
+:root :is(.tile h3, .dest h3, .feb .card-t) { font-family: var(--font-display); font-weight: var(--fw-display); letter-spacing: var(--track-tight); }
 /* italic display voice retired: deks, notes, leads, initials and the hero's emphasised word set upright in the sans */
 :root :is(.masthead .dek, .g-lead, .lead, .note p, .pl-k.note p, .pl-k .note-t, .lens > p:first-of-type, .gk, .gap .d3, em.it, .it, .stamp,
   .view-gallery .note, .view-gallery .ghero .lead, .gcover .lead) { font-style: normal; font-family: var(--font-ui); }
@@ -36,7 +36,7 @@
 ::selection { background: var(--accent-wash); color: var(--ink); }
 
 /* ---------- V2.1 brand & top bar: paper, a hairline, no blur, no night variant ---------- */
-:root .brand b, :root [data-cleo-shell=topbar] .brand b { font: 600 var(--fs-lead)/1 var(--font-display); font-style: normal; letter-spacing: -.035em; color: var(--ink); }
+:root .brand b, :root [data-cleo-shell=topbar] .brand b { font: 600 var(--fs-lead)/1 var(--font-display); font-style: normal; letter-spacing: var(--track-hero); color: var(--ink); }
 :root .brand .mark { color: var(--accent); }
 :root .brand small, :root .brand .sub { color: var(--ink-3); font-weight: 400; }
 :root .topbar, :root .topbar.on-night { background: color-mix(in srgb, var(--paper) 96%, transparent); color: var(--ink); border-bottom: 1px solid var(--line);
@@ -44,7 +44,7 @@
 :root .topbar :is(a, button) { color: var(--ink); }
 :root .topnav a { font-weight: 500; color: var(--ink-2); border-radius: var(--r-pill); }
 :root .topnav a:hover { color: var(--ink); background: var(--sand); }
-:root .topnav a[aria-current] { color: var(--ink); background: transparent; box-shadow: inset 0 -2px 0 var(--ink); border-radius: 0; }
+:root .topnav a[aria-current] { color: var(--ink); background: transparent; box-shadow: var(--underline-active); border-radius: 0; }
 :root .count-dot { background: var(--accent); color: var(--on-accent); }
 
 /* ---------- V2.2 buttons: ink primary, hairline secondary, no lift ---------- */
@@ -81,16 +81,16 @@
 :root .hero, :root .feb .hero { background: var(--paper); background-image: none; color: var(--ink); }
 :root .hero::before, :root .hero::after, :root .hero .sky { display: none !important; }
 :root .hero .inner { text-align: center; padding-bottom: 40px; }
-:root .hero .d-hero { color: var(--ink); max-width: 18ch; margin-inline: auto; font-weight: 600; letter-spacing: -.035em; }
+:root .hero .d-hero { color: var(--ink); max-width: 18ch; margin-inline: auto; font-weight: 600; letter-spacing: var(--track-hero); }
 :root .hero :is(.kicker, .sub) { color: var(--ink-2); margin-inline: auto; }
-:root .hero .kicker { font-size: var(--fs-meta); font-weight: 500; letter-spacing: .02em; color: var(--ink-3); }
+:root .hero .kicker { font-size: var(--fs-meta); font-weight: 500; letter-spacing: var(--track-eyebrow); color: var(--ink-3); }
 :root .hero form.search { max-width: 640px; margin-inline: auto; }
 
 /* ---------- V2.6 masthead (hub, city): the city name, one line, the count — on the ground, no art ---------- */
 :root .masthead, :root main > .masthead, :root .chero, :root .view-gallery .ghero { background: var(--paper) !important; background-image: none !important; color: var(--ink); box-shadow: none; }
 :root .masthead::before, :root .masthead::after, :root .masthead .sky, :root .masthead .g-sky, :root .masthead .accentbar, :root .masthead .motif, :root .chero .sky { display: none !important; }
 :root .masthead :is(h1, .title, .g-kick, .g-lead, .facts, .eyebrow, .kicker, .why, .dek) { color: inherit; text-shadow: none !important; }
-:root .masthead :is(.eyebrow, .kicker, .g-kick) { color: var(--ink-3); font-size: var(--fs-meta); font-weight: 500; letter-spacing: .02em; text-transform: none; }
+:root .masthead :is(.eyebrow, .kicker, .g-kick) { color: var(--ink-3); font-size: var(--fs-meta); font-weight: 500; letter-spacing: var(--track-eyebrow); text-transform: none; }
 :root .masthead :is(.facts, .dek, .g-lead, .why) { color: var(--ink-2); }
 :root .masthead .facts b { color: var(--ink); }
 :root .masthead a { color: inherit; text-decoration-color: var(--line-strong); }
@@ -113,14 +113,14 @@
 :root .detail .hero-plate::before { display: none !important; }
 :root :is(.cover, .pl-cover, .detail .hero-plate, .tile .art) :is(.g-art, .pinart, .g-ring, .loc, .map, .motif, .bar, .pl-ini, .ini, .stamp) { display: none !important; }
 :root :is(.cover, .pl-cover, .detail .hero-plate) :is(.plate, .pl-vert, .vert) { writing-mode: horizontal-tb !important; position: absolute !important; inset: auto auto 14px 16px !important;
-  font: 500 var(--fs-meta)/1.2 var(--font-ui) !important; letter-spacing: .02em !important; color: var(--ink-3) !important; max-height: none !important; transform: none !important;
+  font: 500 var(--fs-meta)/1.2 var(--font-ui) !important; letter-spacing: var(--track-eyebrow)!important; color: var(--ink-3) !important; max-height: none !important; transform: none !important;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: calc(100% - 32px); opacity: 1 !important; }
 :root :is(.cover, .pl-cover) .plate.i { display: none !important; }
 :root :is(.cover, .pl-cover) .gl, :root .pl-glyph { color: var(--ink-3) !important; stroke: currentColor !important; opacity: .8; }
 :root :is(.cover, .pl-cover) img:not([data-art]) { width: 100%; height: 100%; object-fit: cover; display: block; }
 :root .tile .art :is(img.motif, svg) { display: none !important; }
 :root .tile .art .native { writing-mode: horizontal-tb !important; inset: auto auto 12px 14px !important; font: 500 var(--fs-meta)/1.2 var(--font-ui) !important;
-  letter-spacing: .04em !important; color: var(--ink-3) !important; }
+  letter-spacing: var(--track-eyebrow)!important; color: var(--ink-3) !important; }
 :root .tile .art { min-height: 0; }
 :root :is(.cover, .pl-cover).closed, :root .pl[data-closed] .pl-cover { background: var(--sand) !important; }
 /* closed: calm but unmistakable — a quiet chip, not a hatch */
@@ -146,9 +146,9 @@
   background: var(--surface) !important; background-image: none !important; color: var(--ink) !important; border: 1px solid var(--line) !important; box-shadow: none !important; animation: none !important; }
 :root :is(.rail-i, .coll)::before, :root :is(.rail-i, .coll)::after { display: none !important; }
 :root .rail-i :is(.k, .d) { color: var(--ink-3) !important; font-weight: 500; }
-:root .rail-i .t { font-family: var(--font-ui) !important; font-weight: 600 !important; font-style: normal !important; color: var(--ink) !important; letter-spacing: -.006em; }
+:root .rail-i .t { font-family: var(--font-ui) !important; font-weight: 600 !important; font-style: normal !important; color: var(--ink) !important; letter-spacing: var(--track-tight); }
 :root .rail-i .n { color: var(--ink-3) !important; }
-:root .rail-i[aria-pressed="true"] { border-color: var(--ink) !important; box-shadow: inset 0 0 0 1px var(--ink) !important; }
+:root .rail-i[aria-pressed="true"] { border-color: var(--ink) !important; box-shadow: var(--ring-pressed)!important; }
 :root .rail-i:hover { border-color: var(--ink-3) !important; }
 
 /* ---------- V2.10 view switcher: an understated segmented control ---------- */
@@ -160,7 +160,7 @@
 /* ---------- V2.11 sheets, tray, dialogs, toasts, tab bar, banners ---------- */
 :root :is(.sheet, .tray, .poi-sheet, dialog) { background: var(--surface); box-shadow: var(--shadow-lg); border: 0; }
 :root .toast { background: var(--ink); color: var(--paper); border-radius: var(--r-s); box-shadow: var(--shadow-lg); }
-:root .tabbar { background: color-mix(in srgb, var(--surface) 97%, transparent); border-top: 1px solid var(--line); box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+:root .tabbar { background: var(--surface); border-top: 1px solid var(--line); box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
 :root .tabbar a { color: var(--ink-3); }
 :root .tabbar a[aria-current="page"], :root .tabbar a[aria-current="page"] .ico { color: var(--ink); }
 :root :is(.banner.offline, .banner.shared) { background: var(--sand); color: var(--ink); }
@@ -197,10 +197,10 @@
    closed place, never invented) and the heart "pop" ring. No gradient, no glow, no confetti. .sticker is the component
    FE-A / FE-B put on card media (top-left, like the marketplace's badge); .tier.t1 picks it up where it already exists. */
 :root .sticker, :root .tier.t1:not(.lg) { display: inline-flex; align-items: center; gap: 5px; background: var(--sun-wash); color: var(--on-sun-wash);
-  font: 600 var(--fs-xs)/1 var(--font-ui); letter-spacing: .01em; padding: 6px 10px; border-radius: var(--r-pill); box-shadow: none; }
+  font: 600 var(--fs-xs)/1 var(--font-ui); letter-spacing: var(--track-eyebrow); padding: 6px 10px; border-radius: var(--r-pill); box-shadow: none; }
 :root .sticker .ico, :root .tier.t1:not(.lg) .ico { width: 13px; height: 13px; color: currentColor; }
 :root :is(.cover, .pl-cover) .sticker { position: absolute; top: 12px; left: 12px; z-index: 2; background: color-mix(in srgb, var(--surface) 94%, transparent); color: var(--ink); }
-:root .heart[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--sun-wash), var(--shadow-sm); }
+:root .heart[aria-pressed="true"] { box-shadow: var(--ring-sun), var(--shadow-sm); }
 @media (prefers-reduced-motion: no-preference) {
   :root .heart[aria-pressed="true"] svg { animation: v2-pop var(--dur-pop) var(--ease-spring) 1; }
   @keyframes v2-pop { 0% { transform: scale(.7); } 60% { transform: scale(1.18); } 100% { transform: scale(1); } }

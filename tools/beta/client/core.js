@@ -242,6 +242,19 @@
     return pd[f];
   };
 
+  /* ---- per-place source links (beta/data/links/<fileKey>.json, perf audit PERF-04): {g: {sourceKey: groupId},
+   * p: {placeId: [[sourceKey, url], …]}} — what the place detail needs, ~7× smaller than the page dataset ---- */
+  var lk = {};
+  Cleo.links = function (key) {
+    var f = String(key || '').replace(/\//g, '--');
+    if (!lk[f]) {
+      lk[f] = window.fetch ? fetch(Cleo.root + 'data/links/' + f + '.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        : Promise.reject(new Error('no fetch'));
+      lk[f].catch(function () { delete lk[f]; });
+    }
+    return lk[f];
+  };
+
   /* ---- "your guide" data (build-time, tools/beta/lib/guide.js): signature, foodOrder, days, closed ---- */
   Cleo.guide = function (key) { return Cleo.pageData(key).then(function (d) { return d.guide; }); };
 
@@ -254,6 +267,14 @@
       return 2 * 6371.0088 * Math.asin(Math.min(1, Math.sqrt(h)));
     },
     fmt: function (km) { return km < 0.1 ? 'next door (under 0.1 km straight-line)' : (km < 10 ? km.toFixed(1) : Math.round(km)) + ' km straight-line'; },
+    /** THE walking estimate (SPEC-v3 §3.4 / §10; W9-4 trips, W9-5 base) — one function, no second copy: straight-line
+     *  metres ÷ 80 m a minute. Metres round to 10 under 1 km, one decimal of a km above. Callers state ASSUME once per view. */
+    MPM: 80, ASSUME: 'Walk times are straight-line, about 80 m a minute — an estimate, not a route',
+    walk: function (km) {
+      var m = km * 1000, r = Math.round(m / 10) * 10, min = Math.round(m / 80);
+      var dist = r < 1000 ? r + ' m' : (m / 1000).toFixed(1) + ' km';
+      return { m: m, min: min, dist: dist, text: dist + ' · ' + (min < 1 ? 'under 1 min walk' : min + ' min walk') };
+    },
     ll: function (el) { var v = (el && el.getAttribute('data-ll') || '').split(','); return v.length === 2 ? [+v[0], +v[1]] : null; }
   };
 
@@ -302,7 +323,7 @@
    * `cleo:stamped` {cards} synchronously, so page scripts adopt the new cards before their own handlers run. ---- */
   var D = Cleo.defer = {
     pending: function () { return [].slice.call(document.querySelectorAll('noscript[data-cleo-defer]')); },
-    stamp: function (ns) {
+    stamp: function (ns, quiet) {   // quiet: the caller emits one cleo:stamped for the whole batch (perf audit PERF-0x)
       if (!ns || !ns.parentNode) return [];
       var t = document.createElement('template'), ol = ns.parentNode;
       t.innerHTML = ns.children && ns.children.length ? ns.innerHTML : ns.textContent;   // scripting off in this parser → already elements
@@ -311,10 +332,11 @@
       var gap = ol.querySelector('.cleo-defer-gap');
       if (gap) { var left = 0; [].forEach.call(ol.querySelectorAll('noscript[data-cleo-defer]'), function (x) { left += +x.getAttribute('data-n') || 0; });
         if (left) gap.style.height = Math.round(left * (+gap.getAttribute('data-est') || 0)) + 'px'; else ol.removeChild(gap); }
-      if (cards.length) emit('cleo:stamped', { cards: cards });
+      if (cards.length && !quiet) emit('cleo:stamped', { cards: cards });
       return cards;
     },
-    all: function () { var out = []; D.pending().forEach(function (ns) { out = out.concat(D.stamp(ns)); }); if (io) { io.disconnect(); io = null; }
+    all: function () { var out = []; D.pending().forEach(function (ns) { out = out.concat(D.stamp(ns, 1)); }); if (io) { io.disconnect(); io = null; }
+      if (out.length) emit('cleo:stamped', { cards: out });   // ONE event for every chunk: listeners adopt and re-page once, not per chunk
       VC.slice().forEach(function (c) { c.all(); }); return out; },             // view chunks too (R-33)
     /** Stamp the chunk holding place `id` (a map pin of a not-yet-stamped card). Returns the card or null. */
     stampFor: function (id) {
@@ -356,7 +378,7 @@
       D.pending().forEach(function (ns) {
         var cards = cardsOf(ns), hit = cards.map(function (c) { var m = /\bid="([^"]*)"/.exec(c.slice(0, c.indexOf('>'))); return !!(m && want.has(m[1])); });
         if (!hit.some(Boolean)) return;
-        if (hit.every(Boolean)) { out = out.concat(D.stamp(ns)); return; }
+        if (hit.every(Boolean)) { out = out.concat(D.stamp(ns, 1)); return; }
         var ol = ns.parentNode, runs = [], cur = null, made = [];
         cards.forEach(function (c, i) { if (!cur || cur.h !== hit[i]) runs.push(cur = { h: hit[i], c: [] }); cur.c.push(c); });
         runs.forEach(function (r) {
@@ -364,8 +386,9 @@
           n.setAttribute('style', 'display:contents'); n.textContent = '\n' + r.c.join('\n') + '\n'; ol.insertBefore(n, ns); if (r.h) made.push(n);
         });
         ol.removeChild(ns);
-        made.forEach(function (n) { out = out.concat(D.stamp(n)); });
+        made.forEach(function (n) { out = out.concat(D.stamp(n, 1)); });
       });
+      if (out.length) emit('cleo:stamped', { cards: out });
       return out;
     }
   };

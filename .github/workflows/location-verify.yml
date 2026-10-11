@@ -1,0 +1,150 @@
+# Location verification: PROPOSE pin / address / open-closed corrections for one city from open, key-free sources
+# (Wikidata, Wikipedia GeoData, OSM Nominatim + Overpass, the place's own website).
+#
+# Why this runs on GitHub Actions: the authoring sandbox cannot reach those hosts (org egress policy); a GitHub-hosted
+# runner can. The job writes a REPORT only (docs/geoverify/<city>.{json,md}). It never touches data/geocodes.json:
+# a person reviews the rows and applies accepted ones locally with `node tools/location-verify.js --accept`, then the
+# gates run (research.js --geocheck/--statuscheck, npm run validate, npm test). Design: docs/LOCATION-VERIFY-ACTIONS.md.
+#
+# Manual dispatch only, never on a schedule (the Nominatim usage policy discourages periodic bulk geocoding). One run at
+# a time (concurrency group), so we are a single, polite client towards Nominatim and Overpass.
+name: location-verify
+
+on:
+  workflow_dispatch:
+    inputs:
+      city:
+        description: "City key in data/geocodes.json (e.g. wheeling-wv)"
+        required: true
+        default: wheeling-wv
+      scope:
+        description: "Rows to check: unverified,low,med,high,status,all (comma-separated)"
+        required: false
+        default: unverified,low,status
+      limit:
+        description: "At most this many rows (0 = all in scope)"
+        required: false
+        default: "0"
+      nominatim_max:
+        description: "Nominatim requests this run (policy: <= 1/s, cached; keep the daily total modest)"
+        required: false
+        default: "300"
+      dry_run:
+        description: "true = report as a workflow artifact only; false = also commit docs/geoverify/<city>.* to the branch"
+        type: boolean
+        required: false
+        default: true
+  # A push of docs/geoverify/REQUEST (key=value lines: city, scope, limit, nominatim_max, commit) also starts a run, and
+  # registers this workflow so it can then be dispatched. A push run commits its report only with `commit=true`
+  # (owner decision 2026-10-11: reports are committed as the audit trail; they are proposals, never registry changes).
+  push:
+    branches: [claude/peaceful-goodall-i0hsrt]
+    paths:
+      - docs/geoverify/REQUEST
+
+permissions:
+  contents: write
+
+concurrency:
+  group: location-verify
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/peaceful-goodall-i0hsrt
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Resolve and check inputs (dispatch inputs, or docs/geoverify/REQUEST on a push; push runs are dry runs)
+        env:
+          IN_CITY: ${{ github.event.inputs.city }}
+          IN_SCOPE: ${{ github.event.inputs.scope }}
+          IN_LIMIT: ${{ github.event.inputs.limit }}
+          IN_NMAX: ${{ github.event.inputs.nominatim_max }}
+          IN_DRY: ${{ github.event.inputs.dry_run }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = push ]; then
+            f=docs/geoverify/REQUEST
+            [ -f "$f" ] || { echo "::error::$f is missing"; exit 1; }
+            get() { sed -n "s/^$1=//p" "$f" | head -n1 | tr -d '\r'; }
+            IN_CITY=$(get city); IN_SCOPE=$(get scope); IN_LIMIT=$(get limit); IN_NMAX=$(get nominatim_max)
+            [ "$(get commit)" = true ] && COMMIT=true || COMMIT=false
+          else
+            [ "$IN_DRY" = false ] && COMMIT=true || COMMIT=false
+          fi
+          CITY="${IN_CITY:-wheeling-wv}"; SCOPE="${IN_SCOPE:-unverified,low,status}"; LIMIT="${IN_LIMIT:-0}"; NOMINATIM_MAX="${IN_NMAX:-300}"
+          # validate BEFORE anything reaches GITHUB_ENV (each value is one safe token)
+          [[ "$CITY" =~ ^[a-z0-9-]+$ ]] || { echo "::error::bad city key"; exit 1; }
+          [[ "$SCOPE" =~ ^[a-z,]+$ ]] || { echo "::error::bad scope"; exit 1; }
+          [[ "$LIMIT" =~ ^[0-9]+$ ]] || { echo "::error::bad limit"; exit 1; }
+          [[ "$NOMINATIM_MAX" =~ ^[0-9]+$ && "$NOMINATIM_MAX" -le 1000 ]] || { echo "::error::nominatim_max must be 0..1000"; exit 1; }
+          CITY="$CITY" node -e "const c=require('./data/geocodes.json').cities; if(!c[process.env.CITY]){console.error('::error::unknown city '+process.env.CITY); process.exit(1)}"
+          { echo "CITY=$CITY"; echo "SCOPE=$SCOPE"; echo "LIMIT=$LIMIT"; echo "NOMINATIM_MAX=$NOMINATIM_MAX"; echo "COMMIT=$COMMIT"; } >> "$GITHUB_ENV"
+          # the response cache: absolute and outside the checkout (actions/cache refuses '..'; the runner context is not
+          # available in job-level env, so it is set here)
+          echo "LV_CACHE_DIR=$RUNNER_TEMP/lv-cache" >> "$GITHUB_ENV"
+          echo "city=$CITY scope=$SCOPE limit=$LIMIT nominatim_max=$NOMINATIM_MAX commit=$COMMIT event=$GITHUB_EVENT_NAME"
+
+      - name: Restore the response cache (the Nominatim policy requires caching; reruns resume)
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/lv-cache
+          key: location-verify-${{ env.CITY }}-${{ github.run_id }}
+          restore-keys: |
+            location-verify-${{ env.CITY }}-
+            location-verify-
+
+      - name: Unit tests (no network)
+        run: node tools/location-verify.test.js
+
+      - name: Verify (writes docs/geoverify/<city>.json and .md only)
+        run: |
+          args=(--city "$CITY" --scope "$SCOPE" --nominatim-max "$NOMINATIM_MAX")
+          [ "$LIMIT" != "0" ] && args+=(--limit "$LIMIT")
+          node tools/location-verify.js "${args[@]}"
+          # the report is also printed to the log and the run summary, so it can be reviewed without downloading the
+          # artifact or committing anything (proposals only; nothing here changes the registry)
+          cat "docs/geoverify/$CITY.md" | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Guard - the registry and everything else are untouched
+        run: |
+          changed=$(git status --porcelain | awk '{print $2}' | grep -v '^docs/geoverify/' || true)
+          if [ -n "$changed" ]; then echo "::error::unexpected changes:"; echo "$changed"; exit 1; fi
+
+      - name: Upload the report
+        uses: actions/upload-artifact@v4
+        with:
+          name: geoverify-${{ env.CITY }}-${{ github.run_id }}
+          path: docs/geoverify/${{ env.CITY }}.*
+
+      - name: Commit the report (dispatch with dry_run=false, or a REQUEST with commit=true)
+        if: ${{ env.COMMIT == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "docs/geoverify/$CITY.json" "docs/geoverify/$CITY.md"
+          if git diff --cached --quiet; then echo "No report change."; exit 0; fi
+          git commit -m "Location-verify report: $CITY (proposals only; review + --accept + gates before any registry change)"
+          # Other lanes push to this branch while the job runs. This job adds only docs/geoverify/<city>.*; any merge
+          # conflict outside that stops the job; a conflict on our own report keeps ours (it is the fresh run).
+          for i in 1 2 3; do
+            git fetch origin claude/peaceful-goodall-i0hsrt || { sleep $((i * 10)); continue; }
+            if ! git merge --no-edit origin/claude/peaceful-goodall-i0hsrt; then
+              conflicted=$(git diff --name-only --diff-filter=U)
+              if printf '%s\n' "$conflicted" | grep -v "^docs/geoverify/$CITY\." | grep -q .; then
+                echo "::error::merge conflict outside the report:"; printf '%s\n' "$conflicted"; git merge --abort; exit 1
+              fi
+              git checkout --ours -- "docs/geoverify/$CITY.json" "docs/geoverify/$CITY.md"
+              git add "docs/geoverify/$CITY.json" "docs/geoverify/$CITY.md" && git commit --no-edit
+            fi
+            git push origin HEAD:claude/peaceful-goodall-i0hsrt && exit 0
+            sleep $((i * 10))
+          done
+          exit 1

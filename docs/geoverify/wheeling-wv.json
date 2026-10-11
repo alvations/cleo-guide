@@ -1,0 +1,722 @@
+{
+ "meta": {
+  "tool": "tools/location-verify.js 0.1.0",
+  "city": "wheeling-wv",
+  "generated": "2026-10-11",
+  "scope": [
+   "unverified",
+   "low",
+   "status"
+  ],
+  "sources": [
+   "wikidata",
+   "wikipedia",
+   "nominatim",
+   "overpass",
+   "official"
+  ],
+  "rowsInScope": 22,
+  "rowsChecked": 22,
+  "anchor": {
+   "lat": 40.06692,
+   "lng": -80.72444,
+   "radiusM": 150000
+  },
+  "mode": "offline-plan",
+  "userAgent": "CleoGuideLocationVerify/0.1.0 (https://github.com/alvations/cleo-guide; location-verify proposals, reviewed by a person) node",
+  "rule": "PROPOSALS ONLY. Nothing here is in data/geocodes.json until a person reviews a row (review.decision) and runs --accept locally, then the gates (research.js --geocheck/--statuscheck, npm run validate, npm test).",
+  "note": "The sources are not reachable from here (org egress policy). This is the PLAN only: nothing was fetched and nothing is proposed. Run the workflow on a GitHub-hosted runner for real proposals.",
+  "estimate": {
+   "requests": 116,
+   "nominatimRequests": 33,
+   "minutes": 3
+  }
+ },
+ "summary": {
+  "planned": 22
+ },
+ "rows": [
+  {
+   "name": "DiCarlo's Pizza",
+   "current": {
+    "address": "1311 Main St, Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "dicarloswv.com official site; Yelp updated Aug 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Coleman's Fish Market",
+   "current": {
+    "address": "2226 Market St (Centre Market), Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "colemansfishmkt.com official site; centremarket.org shops listing",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Vagabond Kitchen",
+   "current": {
+    "address": "1201 Market St, Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "OpenTable (updated 2026); wvtourism.com listing",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Later Alligator",
+   "current": {
+    "address": "2145 Market St, Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "lateralligator.net official site; Yelp updated 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Sarah's on Main",
+   "current": {
+    "address": "2122 Main St, Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "sarahsonmainwv Facebook / Toast ordering; Yelp updated Jul 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Avenue Eats",
+   "current": {
+    "address": "1230 Water St, Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "avenueeats.com official site; Yelp updated Aug 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Greco's",
+   "current": {
+    "address": "45 Washington Ave, Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "grecoswheeling.com official site; Yelp updated Aug 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "The Alpha Tavern (formerly Ye Olde Alpha)",
+   "current": {
+    "address": "50 Carmel Rd, Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "alphatavernwv.com official site (prior 'Ye Olde Alpha' Yelp page marked CLOSED reflects the rebrand; The Alpha Tavern operates at same address)",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Wheeling Brewing Company — CLOSED",
+   "current": {
+    "address": "2247 Market St (Centre Market), Wheeling, WV 26003",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "closed",
+    "statusSource": "Yelp listing 'WHEELING BREWING COMPANY - CLOSED' (updated Jul 2026); BeerAdvocate location marked closed",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Angelo's Restaurant",
+   "current": {
+    "address": "2109 N Franklin Dr, Washington, PA 15301",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "OpenTable (updated 2026); Yelp updated Aug 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Sarris Candies",
+   "current": {
+    "address": "511 Adams Ave, Canonsburg, PA 15317",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "sarriscandies.com official store page (est. 1960, operating)",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Mehlman's Cafeteria",
+   "current": {
+    "address": "51800 National Rd E, St. Clairsville, OH 43950",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "mehlman.com official site; Yelp updated Aug 2026 (Wed-Sun)",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Undo's West",
+   "current": {
+    "address": "51130 National Rd, St. Clairsville, OH 43950",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "undos.com official site; OpenTable (updated 2026); Yelp updated Jul 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Gulla's Lunch",
+   "current": {
+    "address": "3073 Belmont St, Bellaire, OH 43906",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "visitbelmontcounty.com listing; Yelp updated Jun 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Dickens Victorian Village",
+   "current": {
+    "address": "708 Wheeling Ave, Cambridge, OH 43725",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "ohio.org / dickensvictorianvillage.com — welcome center operating (2026)",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Hopalong Cassidy Museum",
+   "current": {
+    "address": "627 Wheeling Ave, Cambridge, OH 43725",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "visitguernseycounty.com — Hopalong Cassidy exhibit at visitor center (standalone museum burned 2016)",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Great Guernsey Trail",
+   "current": {
+    "address": "Trailhead near Cambridge / Old Washington, Cambridge, OH 43725",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "traillink.com / nrtapplication.org — active rail-trail (2026)",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Zanesville Museum of Art",
+   "current": {
+    "address": "620 Military Rd, Zanesville, OH 43701",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "zanesvilleart.org plan-your-visit; Yelp updated July 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Alan Cottrill Sculpture Studio & Gallery",
+   "current": {
+    "address": "110 S 6th St, Zanesville, OH 43701",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "alancottrill.com; visitzanesville.com; Yelp updated July 2025",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Kennedy's Bakery",
+   "current": {
+    "address": "1025 Wheeling Ave, Cambridge, OH 43725",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "visitguernseycounty.com; Yelp updated August 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Adornetto's Pizzeria",
+   "current": {
+    "address": "2224 Maple Ave, Zanesville, OH 43701",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "visitzanesville.com; Yelp updated June 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  },
+  {
+   "name": "Weasel Boy Brewing Company",
+   "current": {
+    "address": "126 Muskingum Ave, Zanesville, OH 43701",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "confidence": "UNVERIFIED",
+    "verified": "2026-08-27",
+    "status": "open",
+    "statusSource": "weaselboybrewing.com; Yelp updated May 2026",
+    "statusChecked": "2026-08-27"
+   },
+   "scope": [
+    "unverified"
+   ],
+   "outcome": "planned",
+   "plan": [
+    "wikidata: wbsearchentities + wbgetentities (P625, P856, P6375, P576, P3999, P5817)",
+    "wikipedia: GeoData prop=coordinates for the linked article (if any)",
+    "nominatim: name+address search, then address search (only if no high candidate yet)",
+    "official site: robots.txt, then home page schema.org geo/address + closure notice",
+    "overpass: named objects within 80 m incl. lifecycle tags (batched 20/query)"
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   }
+  }
+ ]
+}

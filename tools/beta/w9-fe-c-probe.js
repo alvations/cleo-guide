@@ -1,0 +1,102 @@
+#!/usr/bin/env node
+'use strict';
+/**
+ * tools/beta/w9-fe-c-probe.js — FE-C W9 probe (real Chromium, offline: same-origin files from disk, tiles stubbed,
+ * every other off-origin request aborted and counted). Exit 1 on any FAIL. Shots → design/beta/eval/w9/fe-c/.
+ *
+ *   cd tools && NODE_PATH=$(npm root -g) node beta/w9-fe-c-probe.js      (npm run beta:probe:fe-c)
+ *
+ *  trip-keys   at 390 and 1440, light and dark: from=all → choose 3 days → make the trip, by keyboard alone
+ *  trip-link   the #trip= link reopens in a fresh context (no storage) with identical days and order
+ *  trip-print  the booklet PDF has one page per day plus the cover and the left-out page
+ *  trip-map    "Open day 1 on the map" opens the guide in day mode with exactly the trip's stops, in order
+ *  offorigin   0 off-origin requests (tiles stubbed only on the guide page)
+ */
+const fs = require('fs');
+const path = require('path');
+const { chromium } = require('playwright');
+
+const ROOT = path.resolve(__dirname, '..', '..'), BASE = 'https://cleo.local/', SHOTS = path.join(ROOT, 'design/beta/eval/w9/fe-c');
+const T = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.png': 'image/png', '.woff2': 'font/woff2' };
+const TILE = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGP48OHDfwAJigPgXSGvvwAAAABJRU5ErkJggg==', 'base64');
+let fails = 0;
+const ok = (c, msg, v) => { if (!c) fails++; console.log(`  ${c ? 'PASS' : 'FAIL'}  ${msg}${v !== undefined ? ' = ' + JSON.stringify(v) : ''}`); };
+const SAVED = {};
+['senso-ji', 'tokyo-national-museum', 'ueno-park', 'kappabashi-dogu-gai', 'yanaka-cemetery', 'asakusa-shrine', 'national-museum-of-western-art', 'shibuya-scramble-crossing',
+  'yoyogi-park', 'meiji-jingu', 'hachiko-statue', 'unicorn-gundam-statue-divercity-tokyo-plaza', 'shinjuku-golden-gai', 'isegen', 'kanda-myojin'].forEach((id, i) => { SAVED['tokyo/' + id] = { t: i }; });
+
+async function open(b, url, o = {}) {
+  const ctx = await b.newContext({ viewport: { width: o.w || 390, height: o.h || 844 }, isMobile: (o.w || 390) < 500, hasTouch: (o.w || 390) < 500, serviceWorkers: 'block', colorScheme: o.dark ? 'dark' : 'light' });
+  const off = [];
+  await ctx.route('**/*', r => { const u = r.request().url();
+    if (/tile\.openstreetmap\.org|arcgisonline\.com/.test(u) && o.tiles) return r.fulfill({ status: 200, contentType: 'image/png', body: TILE });
+    if (!u.startsWith(BASE)) { off.push(u); return r.abort('blockedbyclient'); }
+    const p = path.join(ROOT, decodeURIComponent(new URL(u).pathname));
+    if (!fs.existsSync(p) || fs.statSync(p).isDirectory()) return r.fulfill({ status: 404, body: '' });
+    return r.fulfill({ status: 200, contentType: T[path.extname(p)] || 'application/octet-stream', body: fs.readFileSync(p) }); });
+  if (o.saved) await ctx.addInitScript(s => { try { localStorage.setItem('cleo:v1:saved', s); } catch (e) {} }, JSON.stringify(o.saved));
+  if (o.dark) await ctx.addInitScript(() => { try { localStorage.setItem('cleo:v1:theme', '"dark"'); } catch (e) {} });
+  const page = await ctx.newPage(), errs = []; page.on('pageerror', e => errs.push(e.message));
+  await page.goto(BASE + 'beta/' + url, { waitUntil: 'load' }); await page.waitForTimeout(o.settle || 700);
+  return { ctx, page, errs, off };
+}
+const DAYS = () => [...document.querySelectorAll('.tday')].map(s => [...s.querySelectorAll('.tstop .go')].map(a => a.getAttribute('href').split('#p=')[1]));
+/** Tab until the focused element matches `test` (max n presses). */
+async function tabTo(page, test, n = 80) {
+  for (let i = 0; i < n; i++) { await page.keyboard.press('Tab'); if (await page.evaluate(test)) return true; }
+  return false;
+}
+
+(async () => {
+  fs.mkdirSync(SHOTS, { recursive: true });
+  let b; try { b = await chromium.launch(); } catch (e) { b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' }); }
+  let link = null, ref = null;
+  console.log('# trip-keys (keyboard only) and shots');
+  for (const w of [390, 1440]) for (const dark of [false, true]) {
+    const tag = `${w}-${dark ? 'dark' : 'light'}`, s = await open(b, 'trip.html', { w, dark, saved: SAVED, h: w < 500 ? 844 : 900 });
+    await s.page.screenshot({ path: path.join(SHOTS, `trip-home-${tag}.png`) });
+    let k = await tabTo(s.page, () => document.activeElement && document.activeElement.getAttribute('href') === '#from=all');
+    await s.page.keyboard.press('Enter'); await s.page.waitForTimeout(500);
+    k = k && await tabTo(s.page, () => document.activeElement && document.activeElement.name === 'days');
+    // radios: arrow keys move the choice; land on 3 days
+    for (let i = 0; i < 7 && await s.page.evaluate(() => document.activeElement.value !== '3'); i++) await s.page.keyboard.press('ArrowRight');
+    await s.page.screenshot({ path: path.join(SHOTS, `trip-build-${tag}.png`) });
+    k = k && await tabTo(s.page, () => document.activeElement && document.activeElement.type === 'submit');
+    await s.page.keyboard.press('Enter'); await s.page.waitForTimeout(600);
+    const days = await s.page.evaluate(DAYS), url = s.page.url(), focus = await s.page.evaluate(() => document.activeElement.id);
+    ok(k && days.length === 3 && /#trip=/.test(url) && focus === 'tp-h', `${tag}: built a 3-day trip by keyboard alone, focus on its title`, [days.length, focus]);
+    const over = await s.page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
+    ok(over <= 0, `${tag}: no sideways scroll`, over);
+    await s.page.screenshot({ path: path.join(SHOTS, `trip-${tag}.png`), fullPage: true });
+    ok(!s.errs.length && !s.off.length, `${tag}: 0 page errors, 0 off-origin requests`, [s.errs.slice(0, 2), s.off.slice(0, 2)]);
+    if (!link) { link = url.split('/beta/')[1]; ref = days; }
+    await s.ctx.close();
+  }
+
+  console.log('# trip-link (fresh context, no storage)');
+  { const s = await open(b, link, { w: 1440 }); const days = await s.page.evaluate(DAYS);
+    ok(JSON.stringify(days) === JSON.stringify(ref), 'the link reopens identical days and order', days);
+    const lo = await s.page.evaluate(() => [...document.querySelectorAll('.tp-left li')].map(li => li.textContent));
+    ok(lo.some(t => /CLOSED[\s\S]*Closed — kept for the record/.test(t)) && lo.every(t => /Closed —|Didn’t fit|No verified pin/.test(t)), 'every left-out place is named with its reason', lo.length);
+
+    console.log('# trip-print');
+    await s.page.emulateMedia({ media: 'print' });
+    const vis = await s.page.evaluate(() => [...document.querySelectorAll('.sharebar, .tday-acts, [data-cleo-shell]')].filter(e => e.getClientRects().length).length);
+    ok(vis === 0, 'print hides the actions and the site bar', vis);
+    const pdf = await s.page.pdf({ format: 'A5', printBackground: true }), pages = (pdf.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length;
+    ok(pages === ref.length + 2, `the booklet has one page per day + cover + left out (${ref.length + 2})`, pages);
+    fs.writeFileSync(path.join(SHOTS, 'trip-booklet.pdf'), pdf);
+    await s.ctx.close(); }
+
+  console.log('# trip-map (a day opens in day mode on its guide)');
+  { const s = await open(b, link, { w: 1440 }); const href = await s.page.getAttribute('[data-tp-day="1"]', 'href'); await s.ctx.close();
+    const m = await open(b, href.split('/beta/')[1], { w: 1440, tiles: true, settle: 1800 });
+    const st = await m.page.evaluate(() => [...document.querySelectorAll('.day .stops .go')].map(a => a.getAttribute('href').replace('#p-', '')));
+    ok(JSON.stringify(st) === JSON.stringify(ref[0]), 'day mode shows exactly day 1\'s stops in order', st);
+    await m.page.screenshot({ path: path.join(SHOTS, 'trip-day1-on-map-1440-light.png') });
+    ok(!m.errs.length, 'guide page: 0 page errors', m.errs.slice(0, 2)); await m.ctx.close(); }
+
+  await b.close();
+  console.log(fails ? `\n>>> FAIL — ${fails}` : '\n>>> PASS — FE-C W9 probe');
+  process.exit(fails ? 1 : 0);
+})();

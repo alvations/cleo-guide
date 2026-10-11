@@ -427,6 +427,23 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
   // Platform W8 (R7 gap 7): the one shared stylesheet ships ≤ 200 KB raw (dead R6 rules removed by tools/beta/css-dead.py,
   // comments stripped by build-css.py; the sources keep theirs)
   chk('cleo.css ≤ 200 KB raw (200,000 B)', size('assets/cleo.css'), n => n <= 200000);
+  // Perf audit PERF-04: the place detail reads data/links/<page>.json, a slice of the page dataset. It must say exactly
+  // what the dataset says: every place's http(s) source links and every source key's publisher group, nothing else.
+  {
+    const bad = [];
+    for (const pg of manifest.pages.filter(p => p.kind === 'city')) {
+      const f = pg.key.replace(/\//g, '--'), dp = path.join(BETA, 'data/places', f + '.json'), dl = path.join(BETA, 'data/links', f + '.json');
+      if (!fs.existsSync(dp)) continue;
+      if (!fs.existsSync(dl)) { bad.push(f + ': no links slice'); continue; }
+      const D = JSON.parse(fs.readFileSync(dp, 'utf8')), L = JSON.parse(fs.readFileSync(dl, 'utf8')), g = {};
+      for (const s of D.sourceIndex || []) for (const e of s.entries || []) g[e.key] = s.id;
+      if (JSON.stringify(g) !== JSON.stringify(L.g)) bad.push(f + ': groups differ');
+      for (const x of D.places) { const want = (x.s || []).filter(y => y && /^https?:\/\//.test(y[1] || ''));
+        if (JSON.stringify(want.length ? want : undefined) !== JSON.stringify(L.p[x.id])) { bad.push(f + '/' + x.id); break; } }
+      if (Object.keys(L.p).some(id => !D.places.find(x => x.id === id))) bad.push(f + ': extra ids');
+    }
+    chk('data/links/<page>.json == the page dataset\'s source links and groups, every page', bad.slice(0, 5), a => a.length === 0);
+  }
   chk('search index ≤ 250 KB gzip (lazy)', KB(gz('data/search.json')), n => n <= 250);
 
   console.log(failures ? `\n>>> FAIL — ${failures} beta check(s) failed` : '\n>>> PASS — beta: counts == live, reproducible, guarded, renders with no CDN');
