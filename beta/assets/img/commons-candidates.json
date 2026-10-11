@@ -37,8 +37,8 @@
   },
   "otherLandmarks": {
    "targets": 1150,
-   "skipped": 208,
-   "withArticle": 645
+   "skipped": 221,
+   "withArticle": 633
   },
   "candidates": {
    "total": 324,
@@ -8647,7 +8647,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/875_North_Michigan_Avenue",
-   "wikiLead": true,
+   "skip": "venue (paid observation deck, like Shibuya Sky) — never a photo",
    "candidates": []
   },
   {
@@ -8700,7 +8700,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Auditorium_Building",
-   "wikiLead": true,
+   "skip": "venue (theatre) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -8847,7 +8847,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Civic_Opera_House_(Chicago)",
-   "wikiLead": true,
+   "skip": "venue (opera house) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -9334,7 +9334,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Music_Box_Theatre_(Chicago)",
-   "wikiLead": true,
+   "skip": "venue (theatre) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -9600,7 +9600,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Steppenwolf_Theatre_Company",
-   "wikiLead": true,
+   "skip": "venue (theatre) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -11024,7 +11024,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Fulton_Opera_House",
-   "wikiLead": true,
+   "skip": "venue (theatre) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -11418,7 +11418,7 @@
    ],
    "pilot": false,
    "article": "https://ja.wikipedia.org/wiki/エスコンフィールドHOKKAIDO",
-   "wikiLead": true,
+   "skip": "venue (ballpark) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -13341,7 +13341,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Al._Ringling_Theatre",
-   "wikiLead": true,
+   "skip": "venue (theatre) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -13354,7 +13354,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/American_Players_Theatre",
-   "wikiLead": true,
+   "skip": "venue (theatre) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -13555,7 +13555,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Stoughton_Opera_House",
-   "wikiLead": true,
+   "skip": "venue (opera house) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -15172,7 +15172,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Enzian_Theater",
-   "wikiLead": true,
+   "skip": "venue (theater) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -16515,7 +16515,7 @@
    ],
    "pilot": false,
    "article": "https://en.wikipedia.org/wiki/Bucks_County_Playhouse",
-   "wikiLead": true,
+   "skip": "venue (playhouse) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {
@@ -21104,6 +21104,7 @@
     "Robins Theatre"
    ],
    "pilot": false,
+   "skip": "venue (theatre) — never a photo (named so; W8 guard for records without a venue tag)",
    "candidates": []
   },
   {

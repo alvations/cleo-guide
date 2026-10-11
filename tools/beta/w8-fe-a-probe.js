@@ -1,0 +1,109 @@
+#!/usr/bin/env node
+'use strict';
+/**
+ * tools/beta/w8-fe-a-probe.js — FE-A W8 probe: the "Your day" flow, end to end, by keyboard (real Chromium, offline:
+ * same-origin files from disk, tiles stubbed, every other off-origin request aborted). Exit 1 on any FAIL.
+ *
+ *   cd tools && npm run beta:probe:fe-a:w8
+ *
+ * At 390 and 1440: save places → "Your list" → "Plan a day from these" (Enter) → the day opens with its summary
+ * (stops, km) in view → Edit stops → move a stop (Enter) → remove a stop (Enter) → Share (Enter; the link is captured) →
+ * Print (Enter; window.print is called, print media hides the controls and keeps the stops) → the shared link opens in a
+ * fresh browser (no storage) with the same stops in the same order, the summary on the map in Atlas and in the list.
+ * Every control in the flow is reached with Tab from the day's heading, not only focused by script.
+ */
+const fs = require('fs');
+const path = require('path');
+const { chromium } = require('playwright');
+
+const ROOT = path.resolve(__dirname, '..', '..'), BASE = 'https://cleo.local/';
+const T = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.png': 'image/png', '.woff2': 'font/woff2' };
+const TILE = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGP48OHDfwAJigPgXSGvvwAAAABJRU5ErkJggg==', 'base64');
+const SAVE = ['senso-ji', 'ueno-park', 'kappabashi-dogu-gai', 'ameya-yokocho', 'kanda-myojin'];   // 4 in Taitō-ku, 1 elsewhere
+let fails = 0;
+const ok = (c, msg, v) => { if (!c) fails++; console.log(`  ${c ? 'PASS' : 'FAIL'}  ${msg}${v !== undefined ? ' = ' + JSON.stringify(v) : ''}`); };
+
+async function ctxFor(b, w, scheme) {
+  const ctx = await b.newContext({ viewport: { width: w, height: 844 }, isMobile: w < 500, hasTouch: w < 500, serviceWorkers: 'block', colorScheme: scheme || 'light' });
+  await ctx.route('**/*', r => { const u = r.request().url();
+    if (/tile\.openstreetmap\.org|arcgisonline\.com/.test(u)) return r.fulfill({ status: 200, contentType: 'image/png', body: TILE });
+    if (!u.startsWith(BASE)) return r.abort('blockedbyclient');
+    const p = path.join(ROOT, decodeURIComponent(new URL(u).pathname));
+    if (!fs.existsSync(p) || fs.statSync(p).isDirectory()) return r.fulfill({ status: 404, body: '' });
+    return r.fulfill({ status: 200, contentType: T[path.extname(p)] || 'application/octet-stream', body: fs.readFileSync(p) }); });
+  await ctx.addInitScript(() => { window.__shared = []; window.__printed = 0; window.print = () => { window.__printed++; };
+    Object.defineProperty(navigator, 'share', { configurable: true, value: o => { window.__shared.push(o.url); return Promise.resolve(); } }); });
+  return ctx;
+}
+// Tab from the focused element until `sel` has focus (≤ max presses); true when reached by keyboard alone
+async function tabTo(page, sel, max = 40) {
+  for (let i = 0; i < max; i++) { if (await page.evaluate(s => !!document.activeElement && document.activeElement.matches(s), sel)) return true; await page.keyboard.press('Tab'); }
+  return page.evaluate(s => !!document.activeElement && document.activeElement.matches(s), sel);
+}
+const stopsOf = page => page.evaluate(() => [...document.querySelectorAll('#cleo-lens .stop .go')].map(a => a.getAttribute('href').replace(/^#p-/, '')));
+const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = document.querySelector(s); if (!e || !e.getClientRects().length) return false; const r = e.getBoundingClientRect();
+  if (r.top < 0 || r.bottom > innerHeight || r.left < 0 || r.right > innerWidth) return false;
+  const h = document.elementFromPoint(r.left + Math.min(r.width / 2, 24), r.top + r.height / 2); return why ? [r.top, r.bottom, r.left, h && (h.className || h.tagName)] : !!h && (e === h || e.contains(h)); }, [sel, why]);
+
+(async () => {
+  let b; try { b = await chromium.launch(); } catch (e) { b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' }); }
+  for (const w of [390, 1440]) {
+    console.log(`# Your day @${w}: build from saved → reorder / remove → share → print → reopen`);
+    const ctx = await ctxFor(b, w), page = await ctx.newPage(), errs = []; page.on('pageerror', e => errs.push(e.message));
+    await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(900);
+    await page.evaluate(ids => Cleo.saved.add(ids.map(x => 'tokyo/' + x)), SAVE);   // the same store the hearts write
+    await page.evaluate(() => { location.hash = '#mine=1'; }); await page.waitForTimeout(700);
+    await page.focus('#cleo-lens h2').catch(() => {}); await page.evaluate(() => { const h = document.querySelector('#cleo-lens h2'); if (h) { h.tabIndex = -1; h.focus(); } });
+    ok(await tabTo(page, '[data-cleo-dayfrom]'), `@${w} "Your list" offers "Plan a day from these", reached by Tab`);
+    await page.keyboard.press('Enter'); await page.waitForTimeout(900);
+    let st = await stopsOf(page);
+    ok(/day=TAITO/.test(await page.evaluate(() => location.hash)) && st.length === 4 && SAVE.slice(0, 4).every(x => st.includes(x)), `@${w} Enter builds a day from the 4 saved places in Taitō-ku (the 5th is elsewhere)`, st);
+    ok(await page.evaluate(() => document.activeElement && document.activeElement.id === 'day-h'), `@${w} focus moves to the day's heading`);
+    ok(await inView(page, '#day-h') && await inView(page, '#cleo-lens .daysum'), `@${w} the heading and the summary (stops, km) are in view, clear of the sticky bars`);
+    const sum = await page.evaluate(() => document.querySelector('#cleo-lens .daysum').innerText.replace(/\s+/g, ' ').trim());
+    ok(/^4 stops [\d.]+ k?m/.test(sum), `@${w} the summary reads stops and distance`, sum);
+    for (const s of ['[data-dy="share"]', '[data-dy="print"]', '[data-dy="kml"]', '[data-dy="edit"]']) {
+      await page.evaluate(() => document.getElementById('day-h').focus());
+      ok(await tabTo(page, '#cleo-lens ' + s), `@${w} ${s} is reached by Tab from the heading`);
+    }
+    await page.keyboard.press('Enter'); await page.waitForTimeout(300);           // Edit stops
+    const before = await stopsOf(page);
+    await page.evaluate(() => document.getElementById('day-h').focus());
+    ok(await tabTo(page, '#cleo-lens [data-dy="down"][data-i="0"]', 60), `@${w} "Move later" on stop 1 is reached by Tab (editing)`);
+    await page.keyboard.press('Enter'); await page.waitForTimeout(300);
+    st = await stopsOf(page);
+    ok(st[0] === before[1] && st[1] === before[0], `@${w} Enter moves stop 1 later`, st);
+    ok(await page.evaluate(() => !!document.activeElement.closest('#cleo-lens .stop')), `@${w} focus stays on the moved stop's controls`);
+    await page.evaluate(() => document.getElementById('day-h').focus());
+    ok(await tabTo(page, '#cleo-lens [data-dy="rm"][data-i="3"]', 60), `@${w} "Remove" on stop 4 is reached by Tab`);
+    await page.keyboard.press('Enter'); await page.waitForTimeout(300);
+    st = await stopsOf(page);
+    ok(st.length === 3 && !st.includes(before[3]), `@${w} Enter removes stop 4 (3 left)`, st);
+    await page.evaluate(() => document.getElementById('day-h').focus());
+    await tabTo(page, '#cleo-lens [data-dy="share"]'); await page.keyboard.press('Enter'); await page.waitForTimeout(300);
+    const url = (await page.evaluate(() => window.__shared))[0] || '';
+    ok(/#day=TAITO&s=/.test(url) && url.split('&s=')[1] === st.join(','), `@${w} Share hands over a link carrying the edited stops, in order`, url.replace(/^.*#/, '#'));
+    await page.evaluate(() => document.getElementById('day-h').focus());
+    await tabTo(page, '#cleo-lens [data-dy="print"]'); await page.keyboard.press('Enter'); await page.waitForTimeout(200);
+    ok(await page.evaluate(() => window.__printed) === 1, `@${w} Print (Enter) opens the print dialog`);
+    await page.emulateMedia({ media: 'print' });
+    const pr = await page.evaluate(() => { const v = s => [...document.querySelectorAll(s)].some(e => e.getClientRects().length && getComputedStyle(e).display !== 'none');
+      return { stops: v('#cleo-lens .stop'), sum: v('#cleo-lens .daysum'), bar: v('#cleo-lens .sharebar'), pill: v('.mappill:not([hidden])') }; });
+    ok(pr.stops && pr.sum && !pr.bar && !pr.pill, `@${w} print keeps the summary and stops, drops the buttons and the map pill`, pr);
+    await page.emulateMedia({ media: 'screen' });
+    ok(!errs.length, `@${w} 0 page errors while building`, errs.slice(0, 2)); await ctx.close();
+
+    // the link reopens the day in a fresh browser: no storage, nothing saved
+    const ctx2 = await ctxFor(b, w), p2 = await ctx2.newPage(), e2 = []; p2.on('pageerror', e => e2.push(e.message));
+    await p2.goto(url.replace(/^https?:\/\/[^/]+\//, BASE), { waitUntil: 'load' }); await p2.waitForTimeout(1600);
+    const view = await p2.evaluate(() => document.documentElement.getAttribute('data-view'));
+    ok(JSON.stringify(await stopsOf(p2)) === JSON.stringify(st), `@${w} the shared link reopens the same day, same order (view: ${view})`, await stopsOf(p2));
+    const chip = await p2.evaluate(() => { const c = document.querySelector('.day-chip'); return c ? c.textContent.replace(/\s+/g, ' ').trim() : ''; });
+    ok(/3 stops · [\d.]+ k?m/.test(chip) && await inView(p2, '.day-chip'), `@${w} the day's summary sits on the map, in view and uncovered`, chip);
+    ok(await p2.evaluate(() => !localStorage.getItem('cleo:v1:days')), `@${w} opening a shared day stores nothing`);
+    ok(!e2.length, `@${w} 0 page errors on reopen`, e2.slice(0, 2)); await ctx2.close();
+  }
+  await b.close();
+  console.log(fails ? `\n>>> FAIL — ${fails} FE-A W8 check(s)` : '\n>>> PASS — FE-A W8: a day from saved places, edited, shared, printed and reopened, by keyboard');
+  process.exit(fails ? 1 : 0);
+})().catch(e => { console.error(e); process.exit(1); });

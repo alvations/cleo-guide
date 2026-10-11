@@ -52,6 +52,7 @@
     else if ((b = t.closest('[data-cleo-foryou]'))) need('foryou', () => C.fy.open(b));
     else if ((b = t.closest('[data-cleo-near]'))) need('foryou', () => C.near(b));
     else if ((b = t.closest('[data-cleo-day]'))) need('day', () => C.day.open(at(b, 'data-cleo-day')));
+    else if (t.closest('[data-cleo-dayfrom]')) need('day', () => C.day.fromSaved());
     else if ((b = t.closest('.rail-i'))) { const k = RAIL.filter(x => b.hasAttribute('data-' + x))[0], o = {}; if (k && S[k] !== at(b, 'data-' + k)) o[k] = at(b, 'data-' + k); go(o); }
     else if ((b = t.closest('.pl-s button.src'))) { e.preventDefault(); go({ src: at(b, 'data-src') }); }
     else if ((b = t.closest('[data-rail]'))) rail.scrollBy({ left: +at(b, 'data-rail') * rail.clientWidth * 0.8, behavior: 'smooth' });
@@ -109,7 +110,12 @@
     else if (lk === 'closed') h = '<h2>Recently closed — kept for the record (' + n + ')</h2><p>Closed places stay on the guide, flagged, with the source and date of the closure check — so a pin never reads as “go here today”. Newest check first.</p><div class="row">' + all + '</div>';
     else if (lk === 'sig' && info.sig) h = '<span class="eyebrow">★ Signature · ' + esc(info.sig.why || '') + '</span><h2>' + esc(info.sig.t) + ' (' + n + ')</h2>' +
       (info.sig.dishes.length ? '<p>' + info.sig.dishes.map(x => '<b>' + esc(x[0]) + '</b> ' + x[1]).join(' · ') + '</p>' : '') + '<p>' + pl(n) + ' across ' + ar(nA) + ' — numbered to match the map.</p><div class="row">' + all + '</div>';
-    else if (lk === 'mine') h = '<h2>Your list in ' + esc(info.name) + ' (' + n + ')</h2><p>Saved on this device. <a href="' + (Cleo.root || '../') + 'saved.html">All your lists</a></p><div class="row">' + all + '</div>';
+    else if (lk === 'mine') {   // W8: a saved list becomes a day in one tap (the area with the most saved, open, pinned places)
+      const per = {}; Object.keys(Cleo.saved ? Cleo.saved.all() : {}).forEach(r => { const c = r.slice(0, r.lastIndexOf('/')) === key && C.byId[r.slice(r.lastIndexOf('/') + 1)];
+        if (c && !c.hasAttribute('data-closed') && c.getAttribute('data-ll')) per[c.getAttribute('data-a')] = (per[c.getAttribute('data-a')] || 0) + 1; });
+      const plan = Object.keys(per).some(a => per[a] >= 2) ? '<button type="button" class="btn btn-primary" data-cleo-dayfrom>' + icon('route') + '<span>Plan a day from these</span></button>' : '';
+      h = '<h2>Your list in ' + esc(info.name) + ' (' + n + ')</h2><p>Saved on this device. <a href="' + (Cleo.root || '../') + 'saved.html">All your lists</a></p><div class="row">' + plan + all + '</div>';
+    }
     else if (lk === 'src') {
       const s = (info.src || {})[S.src] || [S.src, n, 0, '', ''];
       h = '<h2>Everything ' + esc(s[0]) + ' recommends in ' + esc(info.name) + ' (' + n + ')</h2>' + (s[5] ? '<p>' + esc(s[5]) + '</p>' : '') +

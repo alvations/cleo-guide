@@ -2449,3 +2449,8 @@ html:root[data-view=atlas] #cleo-grid li.pl:not(.w7-cards li) > figure.pl-photo 
 :root :is(.eyebrow, .kicker, .g-kick, .g-lead-k) { letter-spacing: 0; }
 :root :is(p, .lens p, .ch-intro)::first-letter { float: none; font: inherit; color: inherit; margin: 0; padding: 0; initial-letter: normal; }
 :root :is(.plate.i, .pl-ini, .ini, .initial) { display: none !important; }
+
+/* ---------- V2.19 Type residue (FE-B audit): one step for the masthead native name; no widows in Guidebook and Insights ---------- */
+:root .masthead .title .native { font-size: var(--fs-sm); }
+:root :is(.gcover .lead, .gfacts, .ch-intro, .hoods, .ins-h p, .icard p) { text-wrap: pretty; }
+:root :is(.ch-h h2, .ins-h h2) { text-wrap: balance; }
