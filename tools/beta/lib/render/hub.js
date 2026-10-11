@@ -337,6 +337,8 @@ function render(row, reg, ctx, { c, main, more, all, groups }) {
   const pins = all.reduce((s, r) => s + (r.recs || []).filter(x => x.la != null && !x.closed && (!x.pv || x.pv.pin !== 'low')).length, 0);
   const rail = groups ? '' : themeRail(reg, { up, country: c.key, heading: t('hub.themes.country', { country: c.name }), id: 'themes' });
   const shareUrl = BETA_BASE + '/' + row.beta.replace(/index\.html$/, '');
+  // QA-59: a country's live blurb (data/countries.json, live copy) is not shown on its hub — "Known for" and the stat
+  // line say it plainly; only the archive's own catalogue dek (hub.archive.blurb) is.
   // Share + method: in the hero on wide screens; on phones after the city grid, so the first screen is photo, name and cards (B-05)
   const acts2 = `<div class="acts2"><button type="button" class="btn btn-quiet" data-cleo-share data-title="${esc(title)}" data-url="${esc(shareUrl)}" hidden>${icon('share', 'ico sm')}${esc(t('hub.share', { country: c.name }))}</button><a class="btn btn-quiet" href="${up}how-we-choose.html">${icon('seal', 'ico sm')}${esc(t('shell.nav.method'))}</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>`;
   // Hero media: the imagery lane's credited hero photo, else the calm cover — the country's line drawing (paper ground;
@@ -359,7 +361,7 @@ ${siteBar({ depth, current: 'hub', rel: row.beta })}
   <p class="facts"><b>${plural('hub.guides', all.length)} · ${plural('hub.places', n)}</b><span class="hide-m"> · ${esc(t('hub.sights', { n: fmt(P) }))} · ${esc(t('hub.food', { n: fmt(F) }))}${checked ? ` · ${esc(t('hub.checked', { d: checked }))}` : ''}</span>.</p>
   <div class="acts"><a class="btn btn-primary" href="#destinations">${esc(t('hub.cta', { n: all.length }))}</a></div>
   ${acts2}
-  ${c.blurb ? `<p class="facts blurb-c">${esc(c.blurb)}</p>` : ''}
+  ${groups && c.blurb ? `<p class="facts blurb-c">${esc(c.blurb)}</p>` : ''}
 </div>
 ${groups ? '' : media}
 </div></section>
@@ -370,7 +372,7 @@ ${groups ? groups.map(g => `<section class="csec" id="${esc(g.c.key)}" aria-labe
 ${main.map((r, i) => cityTile(r, i, { up, views: true, reg, avoid: heroSrc })).join('\n')}
   </ul>`}
 ${more.length ? `<h2 class="d3 more-h">${esc(t('hub.more', { country: c.name }))}</h2>\n<ul class="morelist">\n${more.map(r => moreRow(r, up)).join('\n')}\n</ul>` : ''}
-${groups ? '' : `<div class="acts2-m">${c.blurb ? `<p class="facts blurb-c">${esc(c.blurb)}</p>` : ''}${acts2.replace(' data-cleo-share-note', '')}</div>`}
+${groups ? '' : `<div class="acts2-m">${acts2.replace(' data-cleo-share-note', '')}</div>`}
 </div>
 ${rail ? `<div class="wrap">${rail}</div>` : ''}
 <section class="wrap section" aria-labelledby="else-h"><div class="rail-head"><h2 class="d2" id="else-h">${esc(t('hub.else'))}</h2></div>
