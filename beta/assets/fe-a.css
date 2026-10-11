@@ -567,6 +567,27 @@ html main[data-city] .day-chip span:last-child{color:var(--ink-2);font-variant-n
   #cleo-lens.is-day .sharebar,#cleo-lens.is-day .ops,#cleo-lens.is-day .more,.day-chip{display:none!important}
   #cleo-lens.is-day .daysum{break-inside:avoid}#cleo-lens.is-day .stop{break-inside:avoid}
 }
+/* ---- 15. W8 place detail (D12/D13): one rhythm, sources under the name, closures loud ---- */
+html body #cleo-sheet .detail .content>.closed-banner{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0 0 16px;padding:14px 16px;border:0;border-left:4px solid var(--closed);border-radius:var(--r-m);background:var(--closed-soft);color:var(--closed);font:400 var(--fs-sm)/1.45 var(--font-ui)}
+html body #cleo-sheet .detail .closed-banner b{font:600 var(--fs-lead)/1.2 var(--font-ui)}
+html body #cleo-sheet .detail .content>.closed-banner+.badges:not(:has(.tier)){margin-top:-4px}
+html body #cleo-sheet .detail #sh-t{margin:8px 0 6px}
+html body #cleo-sheet .detail .sh-by{margin:0;color:var(--ink-2);font:400 var(--fs-ui)/1.4 var(--font-ui)}
+html body #cleo-sheet .detail .sh-by b{color:var(--ink);font-weight:600}
+html body #cleo-sheet .detail .sh-by+.sh-rank{margin-top:2px}
+html body #cleo-sheet .detail .content>:is(div,.section-t):not(.badges):not(.closed-banner){margin-top:20px;padding-top:20px}
+html body #cleo-sheet .detail .why{margin-top:16px}
+/* a place with no photo: a short calm plate (the locator and glyph), never a screen of empty sand */
+html body #cleo-sheet .detail .hero-plate:not(.has-photo){aspect-ratio:auto;height:clamp(120px,22vh,180px)}
+html body #cleo-sheet .detail .hero-plate:not(.has-photo) .pl-glyph{width:28px;height:28px;padding:16px}
+html body #cleo-sheet .detail .hero-plate:not(.has-photo) .locator{top:12px;bottom:12px;height:auto;width:auto;aspect-ratio:4/3}
+@media (min-width:1024px){html body #cleo-sheet .detail .hero-plate:not(.has-photo){height:clamp(140px,22vh,200px)}}
+html body #cleo-sheet .detail .hero-plate.is-closed::after{content:none}
+/* W8 (R7 2d): the overlay is a direct child of main, so main's "> * {max-width; margin-inline:auto}" boxed the scrim to
+   1280 px; a fixed overlay always spans the viewport. Outside Atlas the desktop place sheet is a centred dialog. */
+html body main[data-city]>.overlay:is(#cleo-sheet,#cleo-fy){max-width:none;margin:0;inset:0}
+@media (min-width:1024px){html body #cleo-sheet.overlay:not(.side){align-items:center;justify-content:center;padding:24px}
+  html body #cleo-sheet.overlay:not(.side) .sheet{max-height:calc(100vh - 48px);border-radius:var(--r-l)}}
 
 /* ==========================================================================
    atlas.css — Atlas map-search (Atlas lane, W7 Amendment 2: the real-estate map-search pattern, for travel).
