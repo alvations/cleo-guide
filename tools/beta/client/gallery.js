@@ -21,7 +21,7 @@
   // cards to the place detail's locator, so a grid page no longer fetches one art file per area.
   // W7: a credited photo (lib/gallery.js ph) laid over the calm cover, the same slot as the grid card's figure.pl-photo
   const root = Cleo.root || '../';
-  const phImg = p => p ? '<img class="gc-img" src="' + esc(root + p[0]) + '"' + (p[5] && p[5].length > 1 ? ' srcset="' + p[5].map(x => esc(root + x[0]) + ' ' + x[1] + 'w').join(', ') + '" sizes="(min-width: 1024px) 300px, 80vw"' : '') +
+  const phImg = p => p ? '<img class="gc-img" src="' + esc(root + p[0]) + '"' + (p[5] && p[5].length > 1 ? ' srcset="' + p[5].map(x => esc(root + x[0]) + ' ' + x[1] + 'w').join(', ') + '" sizes="(min-resolution: 2.5dppx) and (max-width: 1023px) 166px, (min-width: 1024px) 300px, 80vw"' : '') +
     ' width="' + p[1] + '" height="' + p[2] + '" alt="" loading="lazy" decoding="async">' : '';
   // the TASL credit, as text under the media (the card is one link; the linked credit is in the place detail)
   const phCred = p => p ? '<span class="gc-cred">' + esc(p[4]) + '</span>' : '';

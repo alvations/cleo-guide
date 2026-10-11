@@ -1346,3 +1346,12 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - new **Atlas FE-2** (`session_011SQNDyJMGzR5K32A4y9Udd`): interaction state (#1, #3, #11, #13 and the honest view-kept probe);
     - Atlas FE-1: QA-45 first, then #2, #5, #6, #4/#7/#8/#9/#10/#12 per spec, and #15 (a "not a place" record drawn as a pin);
     - designer: the visual findings into SPEC-v3.
+  - **Platform (W8, R7 gap 7 + shared-shell axe):** Evidence is in `design/beta/eval/w8/platform/README.md`, with `npm run beta:qa:w8p` as the probe.
+    - Phone @3× never fetches 960w for a < 200 px slot: 5 → 0. The Atlas carousel thumbs fetched 960w before.
+    - Tokyo phone first load: Gallery 930 → **590 KB**, Atlas 1,021 → **549 KB**. This uses the 3×-phone density cap (proposed **D-40**).
+    - `cleo.css`: 255,666 B → **193 KB** raw.
+      - `tools/beta/css-dead.py` removed 20 KB of provably dead R6 rules (237 selectors) from the designer's sources.
+      - `build-css.py` strips comments and indentation from the shipped file only.
+      - All 28 pilot shots (light and dark, 390 and 1440) diff **0 px**.
+    - axe `aria-allowed-role` 44 → 0 runs (the switcher `<nav>` loses `role="group"`); `heading-order` 16 → 0 (the footer heads are h3).
+    - B-06/07/09 re-pointing waits for R7 QA.
