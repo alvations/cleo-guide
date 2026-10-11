@@ -1,0 +1,131 @@
+# Wave 7: full UI/UX overhaul (owner request, 2026-10-11)
+
+The owner looked at the R6 build and said the colour scheme, the styles and everything else are **still far from the competitors**. They asked for a proper UI/UX overhaul with this target:
+
+- **Modern and minimal**, with the clarity, whitespace and image-first browsing of the leading home-rental marketplace.
+- **A colour scheme that is our own**: unique, classy and luxurious, **never tacky**.
+- **Reference points:** the restraint of premium athleisure and fashion labels, i.e. calm neutrals, large photography, quiet UI chrome, confident type and very few accents.
+
+This wave replaces the R6 art direction. It does not polish it. Specifically, **retire** the following:
+- the navy "night" hero with multicolour particle clouds;
+- gold-tinted illustrated plates as the default card cover;
+- purple signature tiles;
+- the italic display deks;
+- any decoration that competes with the content.
+
+Keep everything that makes the guide honest. Every place must stay reachable, attribution and "Recommended by" stay visible, closures stay flagged, and nothing may be fabricated.
+
+## Common rules (every lane)
+
+- **Branch and git**
+  - Work only on `claude/peaceful-goodall-i0hsrt`.
+  - Run `git pull --no-rebase` before every push. Never reset or force-push. Commit explicit paths only.
+  - End every commit with:
+    `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`
+    `Claude-Session: https://claude.ai/code/session_01PCNcUkfa5S1N1BKGzZA4xx`
+- **Before every commit:** `cd tools && npm run validate && npm test && npm run beta:check` must all pass.
+- **Rules from CLAUDE.md and `docs/BETA-PROGRAM.md` apply:**
+  - Beta scope only. Never touch the live site, the live builders or `data/`.
+  - Every place stays reachable.
+  - No CDN for content. Fonts are self-hosted woff2 under OFL or Apache, with the licence committed.
+  - OSM and Esri tiles only.
+  - Contrast is AA in light and dark. Reduced motion is respected. Targets are at least 44 px.
+- **Rule 6.** Never name or allude to a third-party travel, hotel, review, booking, fashion or apparel brand, or its style, in anything committed: code, copy, docs, file names or commit messages. Describe references neutrally, for example "the leading home-rental marketplace" or "premium athleisure labels". melon-seek is the owner's own site, so it may be named.
+- **Scripts:** Latin with diacritics (macrons) and Vietnamese must render in the chosen faces. CJK must fall back cleanly to system faces. Verify all three.
+- **Budgets:**
+  - Tokyo default view ≤ 2.0 MB transfer, FCP at 4× CPU ≤ 1.0 s, eager JS ≤ 40 KB gzip.
+  - Photos are lazy below the fold and served as sized `srcset`.
+- **Screenshots:** Playwright with the preinstalled Chromium; never run `playwright install`. Capture at 390×844 and 1440×900, in light and dark.
+- **Coordination:** the orchestrator passes session IDs between lanes. Message a sibling lane (send_message) before you change a file it owns. The designer owns `tokens.css` and the base component styles. FE-A owns the city pages and views (`fe-a.css`, `views.css`, view JS). FE-B owns the hubs, landing and country pages. Imagery owns `beta/assets/img/**` and `tools/beta/imagery/**`.
+
+## Lane: designer (art direction + design system v2)
+
+1. **Research and write it down neutrally.**
+   - Study the visual language of the leading home-rental marketplace and of premium athleisure and fashion labels:
+     - palette and how sparingly the accent is used;
+     - type families, sizes and weights;
+     - whitespace and grid;
+     - photo treatment and image ratios;
+     - card anatomy, buttons, nav and search, icons and motion.
+   - Use WebSearch only; WebFetch is blocked by policy.
+   - Write it up in `design/beta/style/v2/RESEARCH.md`, describing each reference neutrally.
+2. **Palettes.** Propose at least **4 unique palette directions** in `design/beta/style/v2/directions/`.
+   - Each one is a full light and dark token set: ground, surface, ink scale, lines, one signature accent, state colours, and map-pin and area colours that sit quietly with the palette.
+   - Each needs mockups at 390 and 1440 of the landing page, a country hub, a city page in Gallery and in Atlas, and a place detail.
+   - Each must be ours, not a reference's palette.
+   - Avoid gold gradients, neon, purple chrome, multi-colour UI chrome and heavy shadows.
+3. **Type.** Re-decide it.
+   - The default to test is one modern, refined sans across UI and display: tight tracking at large sizes, 400/500/600, tabular numerals.
+   - A serif may stay only if it clearly earns its place, for example in the wordmark alone.
+   - Compare at least 3 self-hostable OFL faces that ship Vietnamese.
+4. **Iconography and covers.**
+   - One thin, consistent line-icon set (inline SVG).
+   - A calm **no-photo cover**: a quiet neutral ground, a small category icon and a typographic name, never a busy illustration. It must sit gracefully next to real photos.
+5. **Score and decide.**
+   - Score every direction on one card: modern-minimal, marketplace-grade clarity, palette uniqueness, classy and not tacky, luxury feel, readability, AA in light and dark, consistency across views, and photo-friendliness.
+   - Record the winner and why in `design/beta/style/v2/DECISION.md`, with a decision row in `docs/BETA-DECISIONS.md`.
+   - Build `design/beta/style/v2/board.html`: a self-contained, single-file page comparing the directions (swatches, type specimens, mockup images inlined or relative) so the owner can review it.
+6. **Implement design system v2 across the whole beta.**
+   - Tokens (`tokens.css`), base components (buttons, chips, the search pill, cards, sheets, tabs and the view switcher, the tray, toasts), city skins reduced to a quiet accent or none, dark mode, focus rings and motion.
+   - Update `design/beta/DESIGN-SYSTEM.md`.
+   - Retire the night hero, particle art and gold plates as defaults.
+   - Put before/after screenshots in `design/beta/style/v2/after/`.
+
+## Lane: FE-A (city pages + views UX overhaul)
+
+Rebuild the city-page experience with marketplace-grade patterns, using only the designer's tokens (no raw colours).
+
+1. **Header.**
+   - Compact and sticky, with a centered **search pill** (place, dish, area).
+   - The view switcher (Gallery, Atlas, Guidebook, Insights) becomes an understated segmented control. On phones it becomes a tab bar or a sheet.
+2. **Category bar.** A horizontally scrolling bar of line icons plus labels (collections, cuisines, areas), replacing the chip clutter. The active state is an underline.
+3. **Image-first grid.**
+   - Card = rounded media, about 4:3 or square, with a heart in the corner. Below it sit 2–3 lines: the name, then area · kind, then "Recommended by N".
+   - No card frame, border or heavy shadow.
+   - Columns: 1 at 390, 2 at 768, 3 at 1024, 4 at 1440.
+   - Pressed and hover states.
+   - Use real photos where the imagery lane provides them, and the designer's calm no-photo cover otherwise.
+4. **Hero.** Quiet: the city name, one line and the count, with an optional photo. No particle art.
+5. **Map.**
+   - A floating **"Show map / Show list" pill** on the phone Gallery, as in the marketplace pattern, opening the map-first Atlas.
+   - Keep everything R6 Atlas delivers: tray, ≥ 60 % desktop map, numbered pins, two-way sync. Restyle the pins and tray in the new system.
+6. **Place detail.**
+   - A clean detail page or sheet: large media at the top, then the title, a meta row, and sections divided by hairlines (Why it's here, Recommended by, Practical).
+   - A sticky action bar with Save, Directions and Share.
+   - Closed places show a calm but unmistakable "Closed" state.
+7. **Guidebook and Insights.** Restyled in the same system.
+8. **Gates.** Every existing gate stays green: P-04/G1 reachability, views.js, w5.js and the w2 map probe. Never weaken a test. If a measurement rule must change because the UI changed, record the change in BETA-LOG for QA to ratify.
+9. **Evidence:** `design/beta/eval/w7/fe-a/`.
+
+## Lane: FE-B (landing, hubs and country pages)
+
+The orchestrator launches this lane once the R6 review sessions finish.
+
+1. **Landing.** Search-first: a large search pill. Below it sit rows of destination cards (image-first, same card anatomy as FE-A), a quiet "How we choose" strip and the countries.
+2. **Country and region hubs.** An image-first city grid and editorial rails as image cards. Retire the purple signature tiles and the night hero.
+3. **Static pages** (method, accessibility, etc.): the same type and spacing system.
+4. **Evidence:** `design/beta/eval/w7/fe-b/`.
+
+## Lane: imagery (real photos through GitHub Actions, no key needed)
+
+Photos are what make a marketplace-grade, image-first page. Unsplash still waits on the owner's key. Wikimedia Commons needs **no key**, and a GitHub-hosted runner can reach it.
+
+1. **Manifest.** Build `beta/assets/img/commons-candidates.json` with WebSearch (allowed_domains commons.wikimedia.org / wikipedia.org).
+   - Cover city and hub heroes, and the top sights (tier-1 first) on every page.
+   - Each candidate records the File: title, what it depicts and a confidence grade.
+   - High confidence = the file title or description names that exact place.
+2. **Fetch script.** Write `tools/beta/imagery/fetch-commons.js`.
+   - Use the Commons API (`action=query&prop=imageinfo&iiprop=url|size|extmetadata&iiurlwidth=…`).
+   - Keep free licences only: CC0, PD, CC BY and CC BY-SA. Refuse NC and ND.
+   - Re-check that the file's title, description or categories name the place.
+   - Download sized thumbnails, writing two widths for `srcset` if the gate is extended to allow size variants of one credited record.
+   - Write TASL credit rows to CREDITS.json.
+   - Respect the API etiquette: set a descriptive User-Agent and throttle requests.
+   - With no network, exit 0 and print the plan.
+3. **Rules.**
+   - **Never** a photo for food places or venues.
+   - Never for closed places or Vietnam (no freedom of panorama).
+   - Only where the photo truly shows the place.
+   - The credit gate and `test-imagery.js` keep refusing anything uncredited.
+4. **Workflow.** Do **not** edit `.github/workflows/`. Tell the orchestrator the exact command and it will wire it into `beta-fetch-unsplash.yml`, which runs on a GitHub runner, rebuilds and gates the beta, and commits.
+5. **Render.** Make sure the builder renders credited photos into heroes and cards: lazy, sized, with alt text, and with a small credit line or a credit in the sheet. Coordinate the card markup with FE-A.

@@ -806,3 +806,18 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Launched in parallel:**
     - QA full pass (session_01RX4nPDtmV2V1kHSaN6tG7z). It also rules on the Atlas lane's metrics.js/test-beta.js rule edits and on D-36.
     - Independent evaluator (session_01KXg4vAizpiCSSLznCKWvJh): ROUND-6.md, with the rubric, the Typography & style sub-scorecard, D1–D11 and the owner-blocked points. Not told the target.
+
+- 2026-10-11 13:20Z · orchestrator · **Owner request: full UI/UX overhaul.**
+  - **What the owner said:** the colours, styles and everything else are still far from the competitors.
+  - **The target:**
+    - modern and minimal, at the image-first clarity of the leading home-rental marketplace;
+    - a unique colour scheme that is classy and luxurious, never tacky;
+    - the restraint of premium athleisure and fashion labels as reference.
+  - **Opened Wave 7** (`design/beta/eval/W7-BRIEFS.md`) with four lanes:
+    - designer: research, at least 4 unique palette directions, a type re-decision, an owner review board, then design system v2 across the beta;
+    - FE-A: city pages and views, with a search pill, category icon bar, image-first grid, map/list pill and a new place detail;
+    - FE-B: landing and hubs, launched once the R6 review sessions finish;
+    - imagery: Wikimedia Commons photos through GitHub Actions. They need no key; Unsplash still waits on the owner.
+  - **Retired as defaults:** the night hero, particle art, gold plates and purple tiles.
+  - **Checklist:** row D12 added to ROUNDS-6-9.
+  - **Round 6:** the QA and evaluator sessions keep running on 2f227631. Their scores are the baseline the overhaul is measured against.
