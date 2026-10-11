@@ -795,3 +795,14 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **Coordinated test / harness edits (QA, platform — please review):** `test-beta.js` "one marker per pinned place" now counts pins drawn + cluster bubble counts (= 488). `metrics.js`: B-07 measures the visible "List" control when the phone is already on the map and does not tap it first; B-06 "sticky" scrolls the list's own pane, and "split" accepts a list under 40 % (the map is now ≥ 60 %); B-08 skips titles clipped by their own scroll pane; B-02 reads a masthead collapsed to 0 px as 0; the pin probe only taps a pin a finger can reach (not under the tray, not a bubble). `test-fe-a.js` gains a W6 block (13 checks).
   - **Measured** (`metrics.js --view atlas`, pilots): **23/24** on Cleveland, Tokyo, New York, Chinatown, Wheeling (R5: 24/24); the one ❌ is B-04 (rail on the first phone screen), by design (D-36). B-01 **0.85**, B-03 **10**, B-06/B-07/B-08/B-20/B-23 ✅, G1 194/488/508/16/35 ✅. Tokyo default (Gallery): **1,952 KB** (≤ 2.0 MB); FCP 4× over four runs 484 / 1,188 / 804 / 680 ms (the 1,188 ran right after a full sweep; noisy, as before). Eager JS per page 40.45 KB gzip (budget ≤ 40 rounded; 47 B headroom: a minify step would help).
   - **Evidence:** `design/beta/eval/w6/atlas/` (before/after at 390 and 1440 for Tokyo, Cleveland, Chinatown + pin sheet, full tray, open place; `README.md`; metric tables). Gates: validate, npm test, beta:check PASS.
+
+- 2026-10-11 13:07Z · orchestrator · **Round 6 build complete; review started.**
+  - **Atlas map-first lane** (8c7fb6ef, b7ad67e3, 2f227631):
+    - phone map with a peek/half/full tray; desktop map ≥ 60 % of the width;
+    - numbered pins with two-way sync, legend, OSM/Esri switch, locate-me, tier filter;
+    - lazy atlas.js, so the Gallery default doesn't load it;
+    - `metrics --view atlas` 23/24 on the 5 pilots. B-04 is a by-design miss, D-36.
+  - **Pinned R6 SHA:** `2f227631252db2a90fd7e76541365a151871ac99`.
+  - **Launched in parallel:**
+    - QA full pass (session_01RX4nPDtmV2V1kHSaN6tG7z). It also rules on the Atlas lane's metrics.js/test-beta.js rule edits and on D-36.
+    - Independent evaluator (session_01KXg4vAizpiCSSLznCKWvJh): ROUND-6.md, with the rubric, the Typography & style sub-scorecard, D1–D11 and the owner-blocked points. Not told the target.
