@@ -128,7 +128,7 @@ It ends with a dot row, "More places · zoom in to see their names". With an are
 - No visible number on the map at any zoom on Tokyo, Cleveland, Chinatown and New York. The map attribution text is the only exception. **Numbered labels: 0** (R0 asked ≤ 20).
 - Default Tokyo view (1440×900): between 12 and 16 labelled pills, from at least 5 different areas, Must-sees first; no density disc; ≥ 1 food pill; no truncated label. **Named labels ≥ 5; visible clusters 0** (R0 asked ≤ 15). **No two visible pins carry the same text.**
 - Tokyo zoomed in two steps from the default: **named labels ≥ 10**.
-- 390×844: ≤ 8 labelled pills, with no pill under the chip row, the peek or the carousel. **No count bubble at all** (R0 asked the largest ≤ 99).
+- 390×844: ≤ 8 labelled pills, with no pill under the chip row, the peek or the carousel. **No count bubble at all** (R0 asked the largest ≤ 99). **Density discs on the phone first screen ≤ 10** (0 at the default zoom 12; discs only draw at zoom ≤ 11).
 - Every pin's hit area is ≥ 44 × 44 px; every dot's canvas hit circle is ≥ 44 px.
 - Every featured pin exposes `data-kind` and an aria-label with its kind; a closed pin's aria-label contains "Closed".
 - Pan and zoom produce no more than 16 + 1 marker DOM nodes. Page DOM ≤ 3,000. Dots render on canvas in one neutral (two shades by kind).
