@@ -113,6 +113,14 @@ Known hard limit in this sandbox: restaurant **place-pins often won't surface vi
 (WebFetch is blocked); those are finished with the browser **`tools/geocode-helper.html`** (reaches the
 map servers) or any Places-API channel — the backlog is the queue for that pass.
 
+**Proposals from GitHub Actions (since 2026-10-11).** A GitHub-hosted runner can reach open geodata that this sandbox
+cannot: Wikidata, Wikipedia GeoData, OSM Nominatim and Overpass, and official sites (after robots.txt). The
+`location-verify` workflow writes **proposals only** to `docs/geoverify/<city>.{json,md}`, each with its source URL,
+date, grade and licence. A reviewer accepts rows under the bar in
+[`LOCATION-VERIFY-ACTIONS.md` §8](LOCATION-VERIFY-ACTIONS.md#8-owner-decisions--2026-10-11). `node tools/location-verify.js
+--accept <report>` (local only) applies them to `data/geocodes.json`, and then this stage's gates run as usual.
+Request a run by editing `docs/geoverify/REQUEST`.
+
 ## Stage 6 — Build & gate
 `consolidate → build-<city>.py → cities/<city>.html`. Gates, all required and enforced **in code**
 (not asserted): `--geocheck` PASS, `--statuscheck` CONSISTENT, **`--sourcecheck` PASS**, **`--buildcheck`
