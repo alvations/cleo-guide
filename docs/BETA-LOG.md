@@ -1408,3 +1408,12 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - the platform lane runs the audit with before/after numbers and commits in `docs/BETA-PERF-AUDIT.md`;
     - "backend" here means the build and data pipeline, the search index and data payloads, the service worker and caching, and the GitHub Actions workflows (there is no server);
     - "front end" means JS, CSS, images and fonts, plus LCP, CLS and INP.
+
+- 2026-10-11 20:55Z · **Orchestrator** · Owner: "Location verify, can we also use [GitHub] Actions for that? Launch an agent to look into that" · commit: this entry's commit
+  - Launched the **location-verification lane** `session_012FeQJjTmiN2MXYQWwe55J2`, a feasibility study plus a prototype. Its deliverable is `docs/LOCATION-VERIFY-ACTIONS.md`, covering:
+    - the backlog today (unsourced, low-confidence and unchecked places per city);
+    - candidate runner-reachable sources (OSM Nominatim/Overpass, Wikidata, Wikipedia coordinates, official sites, open data), each with its usage policy and licence. Keyed and commercial map APIs are excluded;
+    - the fit with CLAUDE.md rules 4a–4c. The runner **proposes** with source, date and confidence and never writes `data/geocodes.json` directly. Closures are proposed only as "needs check" with evidence. Acceptance goes through review and the existing gates;
+    - the workflow design, rate plan, run time and risks.
+  - Prototype: `tools/location-verify*` with fixture tests, plus a dry-run report for one small city. The workflow YAML comes to the orchestrator, who owns the workflow files.
+  - This is an owner-sanctioned use of Actions, like the Commons photo workflow; nothing routes around the sandbox policy.

@@ -243,6 +243,7 @@ open/closed status), `docs/CITIES.md` (one row per city), `docs/AGENT-PROMPTS.md
 | `session_013eanpBxmbgvhv8ELajtv2Q` | Beta W8 — product: one-up feature audit (ONE-UP.md) | 2026-10-11 20:08 | completed, archived | ONE-UP.md: 7 competitor families, the other views, top-10 one-ups (≈ +1.2), refusals; reconciled with SPEC-v3 §10 (706632a4, 2c3a98ab) |
 | `session_01SxU3Mdpo1UAQyJQJmnMFtG` | Beta W9 — FE-C: trips, set as my base, share cards | 2026-10-11 20:43 | running | — |
 | `session_01MYsz5PHtY39stLxc8rMmqj` | Beta QC — melon-seek-style UI/UX and experience QA/QC (docs/BETA-QC.md) | 2026-10-11 20:50 | running | — |
+| `session_012FeQJjTmiN2MXYQWwe55J2` | Location verification via GitHub Actions — feasibility + prototype (docs/LOCATION-VERIFY-ACTIONS.md) | 2026-10-11 20:54 | running | — |
 | `session_01VDFVuQ72NNS18uAcxwDEou` | Beta Round 3 — independent evaluator | 2026-10-10 15:05 | completed, archived | design/beta/eval/ROUND-3.md: R3 80.8 (A71 B84 C91 D88) |
 | `session_013p6wtCFUuNa7M5yALNp5JE` | Beta W3 — fix lane (QA-32/33/34) | 2026-10-10 15:18 | completed, archived | b5a95f6c: Guidebook 44 px targets, Insights focus ring, phone pin → sheet; QA re-signed YES on 83c51890 → deployed PR #5 |
 | `session_01TPCWCMYD2HDRMEduEtaw9P` | Beta W4 — Designer + imagery art | 2026-10-10 15:58 | completed, archived | Gallery cover variety (category motifs, tier plates), motion layer (reduced-motion safe), polish, QA-35; REVIEW-W4.md |
