@@ -29,6 +29,7 @@ const imagery = require('../../imagery');                          // imagery la
 const { captionHtml } = require('../../imagery/photos');
 const { fmt, sumStats } = require('../stats');
 const { t, tn } = require('../i18n');                // W5 gap #7: every hub/tile string comes from the catalogue
+const { CANON, fold } = require('../guide');         // dish synonyms (dedup of the hub "Known for" line)
 
 const BETA = path.resolve(__dirname, '..', '..', '..', '..', 'beta');
 /** Counted phrase from the catalogue: plural('hub.places', 3) → "3 places"; the `.one` variant for 1. Escaped. */
@@ -267,17 +268,43 @@ function renderArchive(row, reg, ctx) {
 }
 
 /** The country's most-recommended open must-sees across all its guides (the hero's "why go" line). */
+/**
+ * Dedup only: two names for one dish (gaufre ≡ waffle) count once on a hub's "Known for" line. The equivalence comes
+ * from the guides' own canon table (lib/guide.js CANON, where synonyms are written "gaufre|waffle|waffles"), so no
+ * hand-kept list: the class of a name is the sorted set of the synonyms it appears with.
+ */
+const DISH_CLASS = (() => {
+  const m = new Map();
+  for (const c of Object.values(CANON)) for (const d of c.dishes || []) {
+    const alts = d.split('|').map(fold), k = alts.slice().sort().join('|');
+    for (const x of alts) if (!m.has(x)) m.set(x, k);
+  }
+  return m;
+})();
+const dishClass = name => DISH_CLASS.get(fold(name)) || fold(name);
+
 function countrySignature(all) {
-  // Built from the guides' own signatures (signature(): the guide's curated tile line, else its most-cited open
-  // tier-1 sights): the first item of each of the country's three largest guides, one per guide, no repeats.
-  const out = [], seen = new Set(), cities = new Set();
+  // Built from the guides' own signatures (lib/guide.js tile lines: canon dishes, then the top landmark), guides in
+  // place-count order, one item per guide, no two of the same dish class: first the guides' dishes, then their
+  // landmarks; only if that still gives fewer than three does a guide without a tile line lend its most-cited open
+  // tier-1 sight (signature()).
+  const out = [], seen = new Set(), used = new Set();
   const bySize = all.slice().sort((a, b) => (b.counts.P + b.counts.F) - (a.counts.P + a.counts.F) || (a.name < b.name ? -1 : 1));
+  const take = (r, names, kind) => {
+    const n = names.find(x => x && !seen.has(dishClass(x)));
+    if (!n) return;
+    seen.add(dishClass(n)); used.add(r.name); out.push({ name: n, kind, city: r.name });
+  };
+  const tl = r => r.guide && r.guide.tileLine;
+  const dishes = r => tl(r).parts.slice(0, tl(r).landmark ? -1 : undefined).map(shortName);
+  const landmark = r => tl(r).landmark ? [shortName(tl(r).parts[tl(r).parts.length - 1])] : [];
+  for (const pick of [dishes, landmark]) for (const r of bySize) {
+    if (out.length >= 3) break;
+    if (!used.has(r.name) && tl(r)) take(r, pick(r), pick === dishes ? 'food' : 'sight');
+  }
   for (const r of bySize) {
     if (out.length >= 3) break;
-    if (cities.has(r.name)) continue;                 // the SEA archive mirrors some pages under another folder
-    const s = signature(r).find(x => !seen.has(x.name.toLowerCase()));
-    if (!s) continue;
-    seen.add(s.name.toLowerCase()); cities.add(r.name); out.push({ name: s.name, kind: s.kind, city: r.name });
+    if (!used.has(r.name) && !tl(r)) take(r, signature(r).map(x => x.name), 'sight');
   }
   return out;
 }
