@@ -302,7 +302,7 @@ async function pinTarget(page, phone) {
     const { ctx, page, errors } = await open(browser, vk, 'beta/cities/tokyo.html#view=atlas', { tiles: 'stub' });
     const steps = [];
     const firstScreen = await page.evaluate(() => { const vis = e => { const r = e.getBoundingClientRect(); return r.width && r.top >= 0 && r.bottom <= innerHeight && r.left >= 0 && r.right <= innerWidth; };
-      return { namesVisible: [...document.querySelectorAll('li.pl .pl-n')].filter(vis).map(e => e.textContent.trim().slice(0, 40)), mustSeeNamedOnMap: [...document.querySelectorAll('.leaflet-marker-icon.pp-1')].filter(vis).map(e => e.textContent.trim()) }; });
+      return { namesVisible: [...document.querySelectorAll('li.pl .pl-n')].filter(vis).map(e => e.textContent.trim().slice(0, 40)), mustSeeNamedOnMap: [...document.querySelectorAll('.leaflet-marker-icon.pp-1')].filter(e => vis(e.firstElementChild || e)).map(e => e.textContent.trim()) }; });
     steps.push('open Atlas: names readable on first screen = ' + firstScreen.namesVisible.length + ' (' + firstScreen.namesVisible.slice(0, 4).join(' | ') + '); must-see pins on map show only "' + firstScreen.mustSeeNamedOnMap.slice(0, 5).join('", "') + '"');
     await page.click('.ms-bar .ms-must'); await sleep(900); steps.push('tap "Must see" chip');
     const ms = await page.evaluate(() => ({ count: (document.querySelector('.ms-count') || {}).textContent, names: [...document.querySelectorAll('li.pl')].filter(e => e.offsetParent && !e.hidden).slice(0, 6).map(e => e.querySelector('.pl-n').textContent.trim().slice(0, 40)) }));

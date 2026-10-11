@@ -126,8 +126,8 @@ const credit = ph => ph ? `<p class="credit">${captionHtml(ph.credit)}</p>` : ''
 
 // ---------------------------------------------------------------- city card
 /** Sizes for the card media: 1/2/3/4 columns (hubs) or 2/3/4 (landing). */
-const SIZES = { hub: '(min-width:1280px) 300px, (min-width:1024px) 31vw, (min-width:640px) 46vw, 92vw',
-  dense: '(min-width:1280px) 300px, (min-width:1024px) 23vw, (min-width:768px) 31vw, 42vw' };
+const SIZES = { hub: '(min-width:1280px) 300px, (min-width:1024px) 31vw, (min-width:640px) 46vw, 112px',
+  dense: '(min-width:1280px) 300px, (min-width:1024px) 23vw, (min-width:768px) 31vw, (min-width:640px) 42vw, 112px' };
 // Budget note (W7): on a 390 px phone the dense grid's card is ~170 px; 42vw keeps a 3× screen on the 500w copy
 // (≈ 491 px), where 46vw tipped it to 960w and put the landing over 2 MB. Cards are never eager: on a phone the first
 // row sits below the search hero, so only a hub hero photo is fetched eagerly.
@@ -143,7 +143,9 @@ function cityTile(row, i, { up = '', views = false, reg = null, dense = false, a
   const sig = f.sig.length ? `<span class="sigline"><b class="k">${esc(t('card.known'))}</b>${f.sig.map(x => `<span>${esc(x.name)}</span>`).join('')}</span>` : '';
   const star = f.star ? `<span class="star sticker">${icon('star4', 'ico sm')}${esc(f.star.name)} · ${fmt(f.star.n)}</span>` : '';
   const canon = !sig && f.canon.length ? `<span class="canon">${f.canon.map(c => `<span>${esc(c)}</span>`).join('')}</span>` : '';
-  const rb = f.recby.n ? `<span class="recby">${icon('seal', 'ico sm')}<span>${esc(t('card.recby'))} <b>${esc(f.recby.names.join(', '))}</b>${f.recby.n > f.recby.names.length ? ` ${esc(t('card.recby.more', { n: fmt(f.recby.n - f.recby.names.length) }))}` : ''}</span></span>` : '';
+  // "Recommended by": two names on wider screens; on phones (compact rows, B-05) the first name + "n more", never clipped
+  const more = k => f.recby.n > k ? ` ${esc(t('card.recby.more', { n: fmt(f.recby.n - k) }))}` : '';
+  const rb = f.recby.n ? `<span class="recby">${icon('seal', 'ico sm')}<span class="rb-full">${esc(t('card.recby'))} <b>${esc(f.recby.names.join(', '))}</b>${more(f.recby.names.length)}</span><span class="rb-short">${esc(t('card.recby'))} <b>${esc(f.recby.names[0])}</b>${more(1)}</span></span>` : '';
   return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}" class="tile card c-${i % 4}">
 <span class="card-media"><span class="cover" aria-hidden="true">${mf ? `<img class="motif" src="${up}${mf}" alt="" loading="lazy" decoding="async">` : ''}${icon('pin', 'gl ico')}<span class="cover-n">${esc(f.name)}</span>${f.native ? `<span class="native">${esc(f.native)}</span>` : ''}</span>${ph ? photoImg(ph, up, { sizes: dense ? SIZES.dense : SIZES.hub }) : ''}${star}</span>
 <span class="card-body txt"><h3 class="card-t">${esc(f.name)}</h3>
@@ -160,7 +162,8 @@ function viewLinks(row, up = '') {
 /** Compact row for pages a country lists beyond its headline cities (thin towns): name + count, no art. */
 function moreRow(row, up = '') {
   const f = facts(row);
-  return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}"><span class="dest-n">${esc(f.name)}</span><span class="dest-c">${plural('hub.places', f.n)}</span></a></li>`;
+  const sig = f.sig.slice(0, 2).map(x => esc(x.name)).join(' · ');
+  return `<li class="dest" data-page="${esc(row.key)}" data-gen="${row.gen}"><a href="${up}${esc(row.beta)}"><span class="dest-n">${esc(f.name)}</span><span class="dest-c">${plural('hub.places', f.n)}</span>${sig ? `<span class="dest-s">${sig}</span>` : ''}</a></li>`;
 }
 
 /** Split a country's place pages into the hub's headline cities and the rest, in the live hub's order. */
@@ -334,6 +337,8 @@ function render(row, reg, ctx, { c, main, more, all, groups }) {
   const pins = all.reduce((s, r) => s + (r.recs || []).filter(x => x.la != null && !x.closed && (!x.pv || x.pv.pin !== 'low')).length, 0);
   const rail = groups ? '' : themeRail(reg, { up, country: c.key, heading: t('hub.themes.country', { country: c.name }), id: 'themes' });
   const shareUrl = BETA_BASE + '/' + row.beta.replace(/index\.html$/, '');
+  // Share + method: in the hero on wide screens; on phones after the city grid, so the first screen is photo, name and cards (B-05)
+  const acts2 = `<div class="acts2"><button type="button" class="btn btn-quiet" data-cleo-share data-title="${esc(title)}" data-url="${esc(shareUrl)}" hidden>${icon('share', 'ico sm')}${esc(t('hub.share', { country: c.name }))}</button><a class="btn btn-quiet" href="${up}how-we-choose.html">${icon('seal', 'ico sm')}${esc(t('shell.nav.method'))}</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>`;
   // Hero media: the imagery lane's credited hero photo, else the calm cover — the country's line drawing (paper ground;
   // the night-ground drawing under a dark scheme) and the one expressive moment: the place count in the display face.
   const ph = groups ? null : photoOf(c.key, reg, null);
@@ -351,9 +356,9 @@ ${siteBar({ depth, current: 'hub', rel: row.beta })}
   <p class="kicker">${icon('pin', 'ico sm')}${esc(t(groups ? 'hub.kicker.archive' : 'hub.kicker'))} · ${plural('hub.pins', pins)}</p>
   <h1 class="title d1" id="cn">${esc(c.name)}</h1>
   ${sig.length ? `<p class="why"><span class="k">${esc(t('hub.known'))}</span> <span class="l">${sig.map(s => `<span>${esc(s.name)}</span>`).join('')}</span></p>` : ''}
-  <p class="facts"><b>${plural('hub.guides', all.length)} · ${plural('hub.places', n)}</b> · ${esc(t('hub.sights', { n: fmt(P) }))} · ${esc(t('hub.food', { n: fmt(F) }))}${checked ? ` · ${esc(t('hub.checked', { d: checked }))}` : ''}.</p>
+  <p class="facts"><b>${plural('hub.guides', all.length)} · ${plural('hub.places', n)}</b><span class="hide-m"> · ${esc(t('hub.sights', { n: fmt(P) }))} · ${esc(t('hub.food', { n: fmt(F) }))}${checked ? ` · ${esc(t('hub.checked', { d: checked }))}` : ''}</span>.</p>
   <div class="acts"><a class="btn btn-primary" href="#destinations">${esc(t('hub.cta', { n: all.length }))}</a></div>
-  <div class="acts2"><button type="button" class="btn btn-quiet" data-cleo-share data-title="${esc(title)}" data-url="${esc(shareUrl)}" hidden>${icon('share', 'ico sm')}${esc(t('hub.share', { country: c.name }))}</button><a class="btn btn-quiet" href="${up}how-we-choose.html">${icon('seal', 'ico sm')}${esc(t('shell.nav.method'))}</a><span class="share-note" data-cleo-share-note aria-live="polite"></span></div>
+  ${acts2}
   ${c.blurb ? `<p class="facts blurb-c">${esc(c.blurb)}</p>` : ''}
 </div>
 ${groups ? '' : media}
@@ -365,6 +370,7 @@ ${groups ? groups.map(g => `<section class="csec" id="${esc(g.c.key)}" aria-labe
 ${main.map((r, i) => cityTile(r, i, { up, views: true, reg, avoid: heroSrc })).join('\n')}
   </ul>`}
 ${more.length ? `<h2 class="d3 more-h">${esc(t('hub.more', { country: c.name }))}</h2>\n<ul class="morelist">\n${more.map(r => moreRow(r, up)).join('\n')}\n</ul>` : ''}
+${groups ? '' : `<div class="acts2-m">${c.blurb ? `<p class="facts blurb-c">${esc(c.blurb)}</p>` : ''}${acts2.replace(' data-cleo-share-note', '')}</div>`}
 </div>
 ${rail ? `<div class="wrap">${rail}</div>` : ''}
 <section class="wrap section" aria-labelledby="else-h"><div class="rail-head"><h2 class="d2" id="else-h">${esc(t('hub.else'))}</h2></div>
