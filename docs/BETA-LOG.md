@@ -732,3 +732,10 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - **`tools/beta/imagery/fetch-unsplash.js`:** a dry run by default. With `--go` it uses the official API (`GET /photos/:id`, then `download_location`), re-checks every candidate (id, not premium, the API text names the landmark), stores 960 px WebP in `beta/assets/img/photos/` and writes "Photo by <name> on Unsplash" rows to CREDITS.json. It exits 2 without `UNSPLASH_ACCESS_KEY` and 3 when a host is blocked.
   - **Gate (`photos.js`):** accepts the Unsplash License (pinned licence URL plus an unsplash.com photo page) and renders the Unsplash credit line. It also adds `slot` rows for hero and cover photos; a Vietnam hub hero is refused. New tests in test-imagery.js check these rules and the manifest.
   - **Owner decisions:** (1) allow the two hosts and add the key; (2) the API guidelines prefer hotlinking but our rule self-hosts, so confirm with Unsplash or use manual downloads (see IMAGERY.md); (3) whether a natural-landscape Vietnam hub hero is acceptable. The renderers do not consume hero and cover slots yet; that is front-end work for the next round.
+
+- 2026-10-11 · orchestrator · Owner asked for the Unsplash photos to come through GitHub Actions, and authorised the permission rules for it.
+  - **Added** `.github/workflows/beta-fetch-unsplash.yml`. A GitHub-hosted runner can reach the Unsplash API; this sandbox cannot.
+  - **Triggers:** manual dispatch, or a push to this branch that touches the candidate manifest, the fetch script or the workflow.
+  - **Run:** runs `tools/beta/imagery/fetch-unsplash.js` (official API, high-confidence title matches only, no Unsplash+, `download_location` fired), rebuilds the beta, runs `validate` and `test`, then commits the photos and their "Photo by X on Unsplash" credits.
+  - **Skips cleanly:** if the `UNSPLASH_ACCESS_KEY` repository secret or the script is missing, it warns and commits nothing.
+  - **Settings:** scoped allow rules in `.claude/settings.json`.
