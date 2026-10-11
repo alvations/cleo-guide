@@ -1,0 +1,184 @@
+/* Cleo beta — locale.js (i18n lane, D-41). Applies a second interface locale in the browser.
+ * Pages are built in English. When the visitor picked another OFFERED locale (the switcher, or ?lang=), this fetches
+ * assets/i18n/en.json + <locale>.json and swaps every catalogue string it finds: whole text nodes, whole element runs
+ * (a template whose placeholder holds an element, e.g. "Where to {em}?"), the label attributes and the title. Values
+ * filled into a template are data and pass through untouched. An AI-reviewed locale carries a visible note on every
+ * page. The pre-paint snippet in <head> (render/common.js) holds the paint until this is done, so nothing shifts.
+ * Storage goes through Cleo.store (try/catch) or a local try/catch; a failed fetch falls back to English. */
+(function () {
+  'use strict';
+  var d = document.documentElement;
+  var KEY = 'cleo:v1:locale';
+  var me = document.currentScript && document.currentScript.src || '';
+  var root = me ? me.replace(/assets\/js\/locale\.js.*$/, '') : '';
+  function reveal() { d.classList.remove('cleo-l10n-wait'); }
+  function getStored() {
+    if (window.Cleo && window.Cleo.store) return window.Cleo.store.get('locale', null);
+    try { return JSON.parse(window.localStorage.getItem(KEY)); } catch (e) { return null; }
+  }
+  function setStored(l) {
+    if (window.Cleo && window.Cleo.store) return window.Cleo.store.set('locale', l);
+    try { window.localStorage.setItem(KEY, JSON.stringify(l)); } catch (e) {}
+  }
+
+  var buttons = [].slice.call(document.querySelectorAll('[data-cleo-locale]'));
+  var offered = buttons.map(function (b) { return b.getAttribute('data-cleo-locale'); });
+  var m = /[?&]lang=([a-z-]+)/.exec(location.search);
+  var want = m ? m[1] : getStored();
+  if (offered.indexOf(want) < 0) want = 'en';
+  if (m && offered.indexOf(m[1]) >= 0) setStored(m[1]);
+
+  buttons.forEach(function (b) {
+    var l = b.getAttribute('data-cleo-locale');
+    b.setAttribute('aria-pressed', String(l === want));
+    b.addEventListener('click', function () {
+      if (l === want) return;
+      setStored(l);
+      var u = location.href.replace(/([?&])lang=[a-z-]+&?/, '$1').replace(/[?&](#|$)/, '$1');
+      if (u === location.href) location.reload(); else location.href = u;
+    });
+  });
+  if (want === 'en') { if (d.lang !== 'en' && offered.length) d.lang = 'en'; reveal(); return; }
+  d.lang = want;
+
+  function get(l) {
+    return fetch(root + 'assets/i18n/' + l + '.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+  }
+  Promise.all([get('en'), get(want)]).then(function (cats) {
+    apply(cats[0], cats[1], want);
+    reveal();
+  }).catch(function () { d.lang = 'en'; reveal(); });
+
+  /* ---- the swap ---- */
+  var NUM = { n: 1, places: 1, guides: 1, countries: 1, checked: 1, closed: 1, pins: 1 };
+  var MK = '', MK2 = '';                     // private-use markers standing for child elements
+  function reEsc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+  function build(en, to) {
+    var exact = {}, tpl = [];
+    Object.keys(en.strings).forEach(function (k) {
+      var a = en.strings[k], b = to.strings[k];
+      if (b == null || a === b || k === 'land.month.names') return;
+      if (!/\{[a-z]+\}/.test(a)) { exact[a.trim()] = b; return; }
+      var names = [];
+      var src = a.trim().split(/(\{[a-z]+\})/).map(function (p) {
+        var v = /^\{([a-z]+)\}$/.exec(p);
+        if (!v) return reEsc(p);
+        names.push(v[1]);
+        return NUM[v[1]] ? '(\\d[\\d,.]*)' : '([\\s\\S]+?)';
+      }).join('');
+      tpl.push({ k: k, re: new RegExp('^' + src + '$'), pre: /:$/.test(a) ? new RegExp('^' + src + '(\\s[\\s\\S]*)$') : null, names: names, to: b, len: a.replace(/\{[a-z]+\}/g, '').length,
+        num: names.filter(function (n) { return NUM[n]; }).length });
+    });
+    // most literal text first; on a tie the numeric template wins ("21 guides" is {n} guides, not {country} guides)
+    tpl.sort(function (x, y) { return y.len - x.len || y.num - x.num; });
+    var enM = (en.strings['land.month.names'] || '').split(','), toM = (to.strings['land.month.names'] || '').split(',');
+    function month(v) {                                   // "October 2026" → "2026年10月" (ja); other locales keep the order
+      var mm = /^([A-Za-z]+) (\d{4})$/.exec(v), i = mm ? enM.indexOf(mm[1]) : -1;
+      if (i < 0 || !toM[i]) return v;
+      return to.locale === 'ja' ? mm[2] + '年' + toM[i] : toM[i] + ' ' + mm[2];
+    }
+    function fill(t, mt, tail) {
+      var vars = {};
+      t.names.forEach(function (n, i) { vars[n] = mt[i + 1]; });
+      if (t.k === 'land.month.h' && vars.month) vars.month = month(vars.month);
+      return t.to.replace(/\{([a-z]+)\}/g, function (x, n) { return n in vars ? vars[n] : x; }) + (tail || '');
+    }
+    function whole(core) {
+      if (Object.prototype.hasOwnProperty.call(exact, core)) return exact[core];
+      for (var i = 0; i < tpl.length; i++) {               // longest template first; a "…:" label may lead a data run
+        var mt = tpl[i].re.exec(core); if (mt) return fill(tpl[i], mt);
+        var mp = tpl[i].pre && tpl[i].pre.exec(core); if (mp) return fill(tpl[i], mp.slice(0, -1), mp[mp.length - 1]);
+      }
+      // "203 pins verified." — a catalogue phrase closed by a full stop the template doesn't carry
+      if (/[^.]\.$/.test(core)) { var r = whole(core.slice(0, -1)); if (r != null) return r + (to.locale === 'ja' ? '。' : '.'); }
+      return null;
+    }
+    function one(s) {
+      var core = s.trim();
+      if (!core || !/[A-Za-z]/.test(core)) return null;
+      var r = whole(core);
+      return r == null ? null : s.slice(0, s.indexOf(core)) + r + s.slice(s.indexOf(core) + core.length);
+    }
+    // Whole string first; failing that, the string is cut finer and finer — " · " segments and parentheses, then
+    // sentences, then the element markers — and each piece is tried on its own. Pieces that are data pass through.
+    var CUT = [function (x) { return x.split(/(\s*·\s*|\s*[()]\s*)/); },
+      function (x) { return x.match(/[^.!?]+(?:[.!?]+(?=\s|$)|$)\s*|[.!?]+/g) || [x]; },
+      function (x) { return x.split(new RegExp('(' + MK + '\\d+' + MK2 + ')')); }];
+    function cut(x, lv, st) {
+      var r = one(x);
+      if (r != null) { st.hit = true; return r; }
+      if (lv >= CUT.length) return x;
+      var ps = CUT[lv](x);
+      if (ps.length < 2) return cut(x, lv + 1, st);
+      return ps.map(function (p) { return p ? cut(p, lv + 1, st) : p; }).join('');
+    }
+    return function tr(s) {
+      var st = { hit: false }, out = cut(s, 0, st);
+      return st.hit ? out : null;
+    };
+  }
+
+  var SKIP = { SCRIPT: 1, STYLE: 1, TEMPLATE: 1, NOSCRIPT: 1, TIME: 1, svg: 1, SVG: 1 };
+  function translateEl(el, tr) {
+    var kids = [].slice.call(el.childNodes);
+    if (!kids.some(function (n) { return n.nodeType === 3 && /[A-Za-z]/.test(n.nodeValue); })) return;
+    if (!kids.some(function (n) { return n.nodeType === 1; })) {      // plain text run: swap the text nodes in place
+      kids.forEach(function (n) { if (n.nodeType === 3) { var r = tr(n.nodeValue); if (r != null) n.nodeValue = r; } });
+      return;
+    }
+    var els = [], shape = kids.map(function (n) {
+      if (n.nodeType === 3) return n.nodeValue;
+      if (n.nodeType === 1) { els.push(n); return MK + (els.length - 1) + MK2; }
+      return '';
+    }).join('');
+    var r = tr(shape); if (r == null) return;
+    var used = 0, frag = document.createDocumentFragment();
+    r.split(new RegExp('(' + MK + '\\d+' + MK2 + ')')).forEach(function (p) {
+      var x = new RegExp('^' + MK + '(\\d+)' + MK2 + '$').exec(p);
+      if (x) { frag.appendChild(els[+x[1]]); used++; } else if (p) frag.appendChild(document.createTextNode(p));
+    });
+    if (used !== els.length) return;                       // never drop an element; leave the run in English instead
+    while (el.firstChild) el.removeChild(el.firstChild);
+    el.appendChild(frag);
+  }
+
+  function apply(en, to, l) {
+    var tr = build(en, to);
+    var page = d.getAttribute('data-cleo-page');
+    // Landing, hubs and What changed are catalogue-built end to end; elsewhere only the shared shell is.
+    var scopes = /^(landing|hub|changes)$/.test(page) ? [document.body]
+      : [].slice.call(document.querySelectorAll('[data-cleo-shell=topbar], .tabbar, .footer, .skip'));
+    scopes.forEach(function (sc) {
+      [sc].concat([].slice.call(sc.querySelectorAll('*'))).forEach(function (el) {
+        if (SKIP[el.nodeName] || el.closest('svg,script,style,[data-cleo-l10n-skip]')) return;
+        ['aria-label', 'title', 'placeholder', 'alt'].forEach(function (a) {
+          if (!el.hasAttribute(a)) return;
+          var r = tr(el.getAttribute(a)); if (r != null) el.setAttribute(a, r);
+        });
+        translateEl(el, tr);
+      });
+    });
+    var tt = tr(document.title); if (tt != null) document.title = tt;
+    if (to.review && to.review.by === 'ai' && to.reviewed !== true && to.note) note(to, l);
+  }
+
+  // D-41: an AI-reviewed locale is labelled on every page while it is active.
+  function note(to, l) {
+    var p = document.createElement('p');
+    p.className = 'l10n-note'; p.setAttribute('role', 'note'); p.setAttribute('lang', l); p.setAttribute('data-cleo-l10n-note', to.review.by);
+    var a = document.createElement('a');
+    a.href = 'https://github.com/alvations/cleo-guide/issues/new?labels=translation&title=' + encodeURIComponent('Japanese interface: ') +
+      '&body=' + encodeURIComponent(location.href.split('#')[0] + '\n\n');
+    a.rel = 'noopener'; a.textContent = to.note.report;
+    var en = document.createElement('span'); en.lang = 'en'; en.textContent = to.note.en;
+    p.appendChild(document.createTextNode(to.note.text + ' '));
+    p.appendChild(en); p.appendChild(a);
+    var bar = document.querySelector('[data-cleo-shell=topbar]');
+    var anchor = document.querySelector('[data-cleo-banners]') || bar;
+    // Over the landing's night hero the bar floats (position: absolute): put the note after the hero instead.
+    if (bar && bar.classList.contains('on-night')) { var main = document.querySelector('main'); anchor = main && main.firstElementChild || anchor; }
+    if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(p, anchor.nextSibling); else document.body.insertBefore(p, document.body.firstChild);
+  }
+  window.CleoLocale = { build: build, apply: apply, locale: want };
+})();

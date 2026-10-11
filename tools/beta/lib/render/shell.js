@@ -14,7 +14,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { esc } = require('../html');
-const { t, reviewed, locale } = require('../i18n');   // W4 gap #8: every shell string comes from the catalogue
+const { t, offered, locale } = require('../i18n');  // i18n D-41: offered() (human + AI tier)   // W4 gap #8: every shell string comes from the catalogue
 const LIVE_BASE = 'https://alvations.github.io/cleo-guide';
 const ROOT = path.resolve(__dirname, '..', '..', '..', '..');
 
@@ -108,9 +108,9 @@ function crumbs(rel, up) {
 }
 
 // ---------------------------------------------------------------- locale switcher (M3-03)
-/** Rendered only once a second REVIEWED locale exists (tools/beta/i18n/*.json "reviewed": true). Until then: nothing. */
+/** Rendered once a second OFFERED locale exists (i18n D-41: human-reviewed, or AI-reviewed and labelled on the page). */
 function localeSwitch() {
-  const locs = reviewed();
+  const locs = offered();   // i18n D-41: human- and AI-reviewed locales (an AI tier carries a note, client/locale.js)
   if (locs.length < 2) return '';
   return `<nav class="locales" aria-label="${t('shell.locale.label')}">${locs.map(l => `<button type="button" class="btn btn-quiet" data-cleo-locale="${esc(l.locale)}" lang="${esc(l.locale)}" aria-pressed="${l.locale === locale()}">${esc(l.name)}</button>`).join('')}</nav>`;
 }

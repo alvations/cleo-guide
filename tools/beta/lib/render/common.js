@@ -20,6 +20,27 @@ function compactLd(ld) {
   return Object.assign({}, ld, { itemListElement: ld.itemListElement.map(e => (e && e.item ? { '@type': 'ListItem', position: e.position, name: e.item.name, url: e.item.url } : e)) });
 }
 
+// i18n D-41: a second, offered locale (human- or AI-reviewed) is applied in the browser by client/locale.js. The pre-paint
+// snippet reads the remembered choice (try/catch) or ?lang=, sets <html lang>, and holds the paint until the catalogue is
+// applied (1.5 s failsafe), so the swap never shows as a layout shift. Japanese uses the existing font stack with Japanese
+// system fallbacks (no CDN) and phrase-aware line breaking. Renders nothing while only en is offered.
+const L10N_CSS = '.locales{display:flex;gap:2px;align-items:center;flex:none}.locales .btn{min-height:44px;min-width:44px;padding:0 10px;font-size:var(--fs-sm)}' +
+  '.locales .btn[aria-pressed="true"]{background:var(--sand)}.on-night .locales .btn{color:var(--on-night)}.on-night .locales .btn[aria-pressed="true"]{background:rgba(255,255,255,.12)}' +
+  '@media(max-width:899px){.locales .btn[aria-pressed="true"]{display:none}}html.cleo-l10n-wait body{visibility:hidden}' +
+  'html:lang(ja){--font-ui:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Yu Gothic",Meiryo,"Noto Sans JP","Noto Sans CJK JP","IPAGothic",sans-serif;' +
+  '--font-display:"Bricolage Grotesque","Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Yu Gothic",Meiryo,"Noto Sans JP","Noto Sans CJK JP","IPAGothic",sans-serif}' +
+  'html:lang(ja) body{line-break:strict;word-break:normal}@supports (word-break:auto-phrase){html:lang(ja) body{word-break:auto-phrase}}' +
+  'html:lang(ja) :is(h1,h2,h3,.btn,.pill,.topnav a,.tabbar a,.fh,.kicker){word-break:keep-all;overflow-wrap:anywhere}' +
+  '.l10n-note{margin:0;padding:10px var(--gutter,16px);background:var(--sand);color:var(--ink);font-size:var(--fs-sm);line-height:1.6;text-align:center}.l10n-note span[lang="en"]{display:block;color:var(--ink-2);font-size:var(--fs-meta)}' +
+  '.l10n-note a{color:inherit;text-underline-offset:3px;display:inline-flex;align-items:center;min-height:44px}';
+function l10nHead(up, assetsV) {
+  const others = i18n.offered().map(l => l.locale).filter(l => l !== 'en');
+  if (!others.length) return '';
+  return `<style data-cleo-l10n>${L10N_CSS}</style>
+<script>(function(){var d=document.documentElement,o=${JSON.stringify(others)},l=null,m=/[?&]lang=([a-z-]+)/.exec(location.search);if(m)l=m[1];else try{l=JSON.parse(localStorage.getItem("cleo:v1:locale"))}catch(e){}if(o.indexOf(l)<0)return;d.lang=l;d.classList.add("cleo-l10n-wait");setTimeout(function(){d.classList.remove("cleo-l10n-wait")},1500)})()</script>
+<script src="${up}assets/js/locale.js?v=${assetsV.locale}" defer></script>`;
+}
+
 function head({ page, title, description, rel, depth, ogImage, jsonld, assetsV, preload = [], from = 'data', css = null }) {
   const up = '../'.repeat(depth);
   const url = BETA_BASE + '/' + rel.replace(/(^|\/)index\.html$/, '$1');
@@ -33,7 +54,7 @@ function head({ page, title, description, rel, depth, ogImage, jsonld, assetsV, 
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${esc(url)}">
-${i18n.reviewed().map(l => `<link rel="alternate" hreflang="${esc(l.locale)}" href="${esc(url)}">`).join('\n')}
+${i18n.offered().map(l => `<link rel="alternate" hreflang="${esc(l.locale)}" href="${esc(l.locale === 'en' ? url : url + '?lang=' + l.locale)}">`).join('\n') /* i18n D-41 */}
 <link rel="alternate" hreflang="x-default" href="${esc(url)}">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#F7F4EE">
@@ -53,6 +74,7 @@ ${assetsV.tokens ? `<link rel="stylesheet" href="${up}assets/tokens.css?v=${asse
 ${preload.join('\n')}
 ${jsonld ? '<script type="application/ld+json">' + jsonInline(compactLd(jsonld)) + '</script>' : ''}
 <script src="${up}assets/js/core.js?v=${assetsV.core}" defer></script>
+${l10nHead(up, assetsV) /* i18n D-41 */}
 </head>`;
 }
 
