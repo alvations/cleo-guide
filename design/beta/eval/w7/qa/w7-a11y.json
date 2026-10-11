@@ -1,6 +1,595 @@
 {
- "head": "63805e3e681ea60da1ce78326d302812717c2c9b",
+ "head": "badcc20dbae7f4e4f47023048e85a58552cede24",
  "checks": [
+  {
+   "group": "axe",
+   "name": "cleveland.html gallery mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cleveland.html gallery mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "194 places · 4 areas · every o"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Fox 8 Cleveland"
+    ],
+    [
+     14,
+     "pl-w",
+     "This is the right building. Th"
+    ],
+    [
+     14,
+     "pl-w",
+     "Five-story glass-roofed atrium"
+    ],
+    [
+     14,
+     "pl-w",
+     "The 42nd floor of a 52-story t"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cleveland.html gallery mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html gallery mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html gallery mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html gallery desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cleveland.html gallery desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "194 places · 4 areas · every o"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Fox 8 Cleveland"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Atlas Obscura, "
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Bourdain / TV, "
+    ],
+    [
+     14,
+     "pl-e",
+     "28 Worth the detour within Dow"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cleveland.html gallery desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html gallery desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html gallery desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html atlas mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cleveland.html atlas mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "194 places · 4 areas · every o"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cleveland.html atlas mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 33,
+    "eg": [
+     [
+      52,
+      42,
+      "INPUT "
+     ],
+     [
+      97,
+      41,
+      "A The Arcade (Old "
+     ],
+     [
+      137,
+      41,
+      "A Terminal Tower O"
+     ],
+     [
+      143,
+      41,
+      "A Soldiers' & Sail"
+     ],
+     [
+      87,
+      20,
+      "A Free Stamp"
+     ],
+     [
+      95,
+      41,
+      "A Rock & Roll Hall"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html atlas mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html atlas mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html atlas desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cleveland.html atlas desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "194 places · 4 areas · every o"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Atlas Obscura, "
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Bourdain / TV, "
+    ],
+    [
+     14,
+     "pl-e",
+     "28 Worth the detour within Dow"
+    ],
+    [
+     14,
+     "pl-e",
+     "29 Worth the detour within Dow"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cleveland.html atlas desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 9,
+    "eg": [
+     [
+      18,
+      18,
+      "INPUT "
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html atlas desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html atlas desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html guidebook mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cleveland.html guidebook mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "gfacts",
+     "148 sights · 46 places to eat "
+    ],
+    [
+     14,
+     "gsig",
+     "★ Only in Cleveland: 18 places"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cleveland.html guidebook mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 1,
+    "eg": [
+     [
+      294,
+      42,
+      "A Chess Collection"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html guidebook mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html guidebook mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html guidebook desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cleveland.html guidebook desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "gfacts",
+     "148 sights · 46 places to eat "
+    ],
+    [
+     14,
+     "gsig",
+     "★ Only in Cleveland: 18 places"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cleveland.html guidebook desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 4,
+    "eg": [
+     [
+      268,
+      42,
+      "A Chess Collection"
+     ],
+     [
+      226,
+      21,
+      "A Slyman's Restaur"
+     ],
+     [
+      232,
+      21,
+      "A Soldiers' & Sail"
+     ],
+     [
+      88,
+      21,
+      "A Free Stamp"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html guidebook desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html guidebook desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html insights mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cleveland.html insights mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "sub",
+     "Every number below is computed"
+    ],
+    [
+     14,
+     "sub",
+     "Share of sights, places to eat"
+    ],
+    [
+     12,
+     "fn",
+     "This city has no pop-culture c"
+    ],
+    [
+     14,
+     "sub",
+     "Citations per area by source: "
+    ],
+    [
+     12,
+     "fn",
+     "Citations, not places: a place"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cleveland.html insights mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 18,
+    "eg": [
+     [
+      31,
+      44,
+      "[object SVGAnimatedStr All of Cleveland"
+     ],
+     [
+      8,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      34,
+      44,
+      "[object SVGAnimatedStr University Circl"
+     ],
+     [
+      19,
+      44,
+      "[object SVGAnimatedStr Suburbs, Metropa"
+     ],
+     [
+      10,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      27,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html insights mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html insights mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html insights desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cleveland.html insights desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "sub",
+     "Every number below is computed"
+    ],
+    [
+     14,
+     "sub",
+     "Share of sights, places to eat"
+    ],
+    [
+     12,
+     "fn",
+     "This city has no pop-culture c"
+    ],
+    [
+     14,
+     "sub",
+     "Citations per area by source: "
+    ],
+    [
+     12,
+     "fn",
+     "Citations, not places: a place"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cleveland.html insights desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 14,
+    "eg": [
+     [
+      22,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      27,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      19,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      19,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      32,
+      44,
+      "[object SVGAnimatedStr University Circl"
+     ],
+     [
+      22,
+      44,
+      "[object SVGAnimatedStr University Circl"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cleveland.html insights desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cleveland.html insights desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
   {
    "group": "axe",
    "name": "cities/tokyo.html gallery mobile light: axe serious/critical = 0",
@@ -315,12 +904,17 @@
    "name": "cities/tokyo.html guidebook mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
    "ok": false,
    "evidence": {
-    "n": 1,
+    "n": 2,
     "eg": [
      [
       294,
       42,
       "A Imperial Palace "
+     ],
+     [
+      193,
+      21,
+      "A Yasukuni Shrine "
      ]
     ]
    }
@@ -367,12 +961,22 @@
    "name": "cities/tokyo.html guidebook desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
    "ok": false,
    "evidence": {
-    "n": 3,
+    "n": 6,
     "eg": [
      [
       268,
       42,
       "A Imperial Palace "
+     ],
+     [
+      193,
+      21,
+      "A Yasukuni Shrine "
+     ],
+     [
+      173,
+      21,
+      "A Kanda Myōjin 神田明"
      ],
      [
       215,
@@ -383,6 +987,11 @@
       268,
       42,
       "A Mandarake Comple"
+     ],
+     [
+      252,
+      21,
+      "A Kanda Yabu Soba "
      ]
     ]
    }
@@ -413,29 +1022,29 @@
    "ok": false,
    "evidence": [
     [
+     14,
+     "sub",
+     "Every number below is computed"
+    ],
+    [
+     14,
+     "sub",
+     "Share of sights, places to eat"
+    ],
+    [
      12,
      "fn",
      "Pop culture = sights in the ci"
     ],
     [
+     14,
+     "sub",
+     "Citations per area by source: "
+    ],
+    [
      12,
      "fn",
      "Citations, not places: a place"
-    ],
-    [
-     12,
-     "fn",
-     "Computed from 487 of 488 place"
-    ],
-    [
-     12,
-     "fn",
-     "Closed places stay in every vi"
-    ],
-    [
-     12,
-     "fn",
-     "Bars count canon places whose "
     ]
    ]
   },
@@ -505,29 +1114,29 @@
    "ok": false,
    "evidence": [
     [
+     14,
+     "sub",
+     "Every number below is computed"
+    ],
+    [
+     14,
+     "sub",
+     "Share of sights, places to eat"
+    ],
+    [
      12,
      "fn",
      "Pop culture = sights in the ci"
     ],
     [
+     14,
+     "sub",
+     "Citations per area by source: "
+    ],
+    [
      12,
      "fn",
      "Citations, not places: a place"
-    ],
-    [
-     12,
-     "fn",
-     "Computed from 487 of 488 place"
-    ],
-    [
-     12,
-     "fn",
-     "Closed places stay in every vi"
-    ],
-    [
-     12,
-     "fn",
-     "Bars count canon places whose "
     ]
    ]
   },
@@ -587,45 +1196,45 @@
   },
   {
    "group": "axe",
-   "name": "cleveland.html gallery mobile light: axe serious/critical = 0",
+   "name": "cities/newyork.html gallery mobile light: axe serious/critical = 0",
    "ok": true,
    "evidence": []
   },
   {
    "group": "body",
-   "name": "cleveland.html gallery mobile: body copy ≥ 16 px",
+   "name": "cities/newyork.html gallery mobile: body copy ≥ 16 px",
    "ok": false,
    "evidence": [
     [
      14,
      "facts",
-     "194 places · 4 areas · every o"
+     "508 places · 6 areas · every o"
     ],
     [
      0,
      "pl-s",
-     "Recommended by Fox 8 Cleveland"
+     "Recommended by The Metropolita"
     ],
     [
      14,
      "pl-w",
-     "This is the right building. Th"
+     "Encyclopedic art museum on Mus"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by The Metropolita"
     ],
     [
      14,
      "pl-w",
-     "Five-story glass-roofed atrium"
-    ],
-    [
-     14,
-     "pl-w",
-     "The 42nd floor of a 52-story t"
+     "843-acre landscaped park by Ol"
     ]
    ]
   },
   {
    "group": "targets",
-   "name": "cleveland.html gallery mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "name": "cities/newyork.html gallery mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
    "ok": true,
    "evidence": {
     "n": 0,
@@ -634,7 +1243,7 @@
   },
   {
    "group": "focus",
-   "name": "cleveland.html gallery mobile: focus ring on the first 40 tab stops",
+   "name": "cities/newyork.html gallery mobile: focus ring on the first 40 tab stops",
    "ok": false,
    "evidence": [
     "INPUT "
@@ -642,51 +1251,51 @@
   },
   {
    "group": "axe",
-   "name": "cleveland.html gallery mobile dark: axe serious/critical = 0",
+   "name": "cities/newyork.html gallery mobile dark: axe serious/critical = 0",
    "ok": true,
    "evidence": []
   },
   {
    "group": "axe",
-   "name": "cleveland.html gallery desktop light: axe serious/critical = 0",
+   "name": "cities/newyork.html gallery desktop light: axe serious/critical = 0",
    "ok": true,
    "evidence": []
   },
   {
    "group": "body",
-   "name": "cleveland.html gallery desktop: body copy ≥ 16 px",
+   "name": "cities/newyork.html gallery desktop: body copy ≥ 16 px",
    "ok": false,
    "evidence": [
     [
      14,
      "facts",
-     "194 places · 4 areas · every o"
+     "508 places · 6 areas · every o"
     ],
     [
      0,
      "pl-s",
-     "Recommended by Fox 8 Cleveland"
+     "Recommended by The Metropolita"
     ],
     [
      0,
      "pl-s",
-     "Recommended by Atlas Obscura, "
+     "Recommended by The Metropolita"
     ],
     [
      0,
      "pl-s",
-     "Recommended by Bourdain / TV, "
+     "Recommended by NYC Tourism + C"
     ],
     [
-     14,
-     "pl-e",
-     "28 Worth the detour within Dow"
+     0,
+     "pl-s",
+     "Recommended by NYC Tourism + C"
     ]
    ]
   },
   {
    "group": "targets",
-   "name": "cleveland.html gallery desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "name": "cities/newyork.html gallery desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
    "ok": true,
    "evidence": {
     "n": 0,
@@ -695,7 +1304,7 @@
   },
   {
    "group": "focus",
-   "name": "cleveland.html gallery desktop: focus ring on the first 40 tab stops",
+   "name": "cities/newyork.html gallery desktop: focus ring on the first 40 tab stops",
    "ok": false,
    "evidence": [
     "INPUT "
@@ -703,34 +1312,34 @@
   },
   {
    "group": "axe",
-   "name": "cleveland.html gallery desktop dark: axe serious/critical = 0",
+   "name": "cities/newyork.html gallery desktop dark: axe serious/critical = 0",
    "ok": true,
    "evidence": []
   },
   {
    "group": "axe",
-   "name": "cleveland.html atlas mobile light: axe serious/critical = 0",
+   "name": "cities/newyork.html atlas mobile light: axe serious/critical = 0",
    "ok": true,
    "evidence": []
   },
   {
    "group": "body",
-   "name": "cleveland.html atlas mobile: body copy ≥ 16 px",
+   "name": "cities/newyork.html atlas mobile: body copy ≥ 16 px",
    "ok": false,
    "evidence": [
     [
      14,
      "facts",
-     "194 places · 4 areas · every o"
+     "508 places · 6 areas · every o"
     ]
    ]
   },
   {
    "group": "targets",
-   "name": "cleveland.html atlas mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "name": "cities/newyork.html atlas mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
    "ok": false,
    "evidence": {
-    "n": 38,
+    "n": 40,
     "eg": [
      [
       52,
@@ -738,36 +1347,36 @@
       "INPUT "
      ],
      [
+      131,
+      41,
+      "A The Metropolitan"
+     ],
+     [
+      94,
+      20,
+      "A Central Park"
+     ],
+     [
       97,
       41,
-      "A The Arcade (Old "
+      "A Empire State Bui"
      ],
      [
-      137,
+      150,
       41,
-      "A Terminal Tower O"
+      "A Museum of Modern"
      ],
      [
-      143,
+      79,
       41,
-      "A Soldiers' & Sail"
-     ],
-     [
-      87,
-      20,
-      "A Free Stamp"
-     ],
-     [
-      95,
-      41,
-      "A Rock & Roll Hall"
+      "A Radio City Music"
      ]
     ]
    }
   },
   {
    "group": "focus",
-   "name": "cleveland.html atlas mobile: focus ring on the first 40 tab stops",
+   "name": "cities/newyork.html atlas mobile: focus ring on the first 40 tab stops",
    "ok": false,
    "evidence": [
     "INPUT "
@@ -775,51 +1384,51 @@
   },
   {
    "group": "axe",
-   "name": "cleveland.html atlas mobile dark: axe serious/critical = 0",
+   "name": "cities/newyork.html atlas mobile dark: axe serious/critical = 0",
    "ok": true,
    "evidence": []
   },
   {
    "group": "axe",
-   "name": "cleveland.html atlas desktop light: axe serious/critical = 0",
+   "name": "cities/newyork.html atlas desktop light: axe serious/critical = 0",
    "ok": true,
    "evidence": []
   },
   {
    "group": "body",
-   "name": "cleveland.html atlas desktop: body copy ≥ 16 px",
+   "name": "cities/newyork.html atlas desktop: body copy ≥ 16 px",
    "ok": false,
    "evidence": [
     [
      14,
      "facts",
-     "194 places · 4 areas · every o"
+     "508 places · 6 areas · every o"
     ],
     [
      0,
      "pl-s",
-     "Recommended by Atlas Obscura, "
+     "Recommended by The Metropolita"
     ],
     [
      0,
      "pl-s",
-     "Recommended by Bourdain / TV, "
+     "Recommended by NYC Tourism + C"
     ],
     [
-     14,
-     "pl-e",
-     "28 Worth the detour within Dow"
+     0,
+     "pl-s",
+     "Recommended by NYC Tourism + C"
     ],
     [
-     14,
-     "pl-e",
-     "29 Worth the detour within Dow"
+     0,
+     "pl-s",
+     "Recommended by NYC Tourism + C"
     ]
    ]
   },
   {
    "group": "targets",
-   "name": "cleveland.html atlas desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "name": "cities/newyork.html atlas desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
    "ok": false,
    "evidence": {
     "n": 9,
@@ -859,7 +1468,7 @@
   },
   {
    "group": "focus",
-   "name": "cleveland.html atlas desktop: focus ring on the first 40 tab stops",
+   "name": "cities/newyork.html atlas desktop: focus ring on the first 40 tab stops",
    "ok": false,
    "evidence": [
     "INPUT "
@@ -867,108 +1476,1264 @@
   },
   {
    "group": "axe",
-   "name": "cleveland.html atlas desktop dark: axe serious/critical = 0",
+   "name": "cities/newyork.html atlas desktop dark: axe serious/critical = 0",
    "ok": true,
    "evidence": []
   },
   {
    "group": "axe",
-   "name": "cleveland.html guidebook mobile light: axe serious/critical = 0",
+   "name": "cities/newyork.html guidebook mobile light: axe serious/critical = 0",
    "ok": true,
    "evidence": []
   },
   {
    "group": "body",
-   "name": "cleveland.html guidebook mobile: body copy ≥ 16 px",
+   "name": "cities/newyork.html guidebook mobile: body copy ≥ 16 px",
    "ok": false,
    "evidence": [
     [
      14,
      "gfacts",
-     "148 sights · 46 places to eat "
+     "219 sights · 289 places to eat"
     ],
     [
      14,
      "gsig",
-     "★ Only in Cleveland: 18 places"
+     "★ New York classics: 31 places"
     ]
    ]
   },
   {
    "group": "targets",
-   "name": "cleveland.html guidebook mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
-   "ok": false,
-   "evidence": {
-    "n": 1,
-    "eg": [
-     [
-      294,
-      42,
-      "A Chess Collection"
-     ]
-    ]
-   }
-  },
-  {
-   "group": "focus",
-   "name": "cleveland.html guidebook mobile: focus ring on the first 40 tab stops",
-   "ok": false,
-   "evidence": [
-    "INPUT "
-   ]
-  },
-  {
-   "group": "axe",
-   "name": "cleveland.html guidebook mobile dark: axe serious/critical = 0",
-   "ok": true,
-   "evidence": []
-  },
-  {
-   "group": "axe",
-   "name": "cleveland.html guidebook desktop light: axe serious/critical = 0",
-   "ok": true,
-   "evidence": []
-  },
-  {
-   "group": "body",
-   "name": "cleveland.html guidebook desktop: body copy ≥ 16 px",
-   "ok": false,
-   "evidence": [
-    [
-     14,
-     "gfacts",
-     "148 sights · 46 places to eat "
-    ],
-    [
-     14,
-     "gsig",
-     "★ Only in Cleveland: 18 places"
-    ]
-   ]
-  },
-  {
-   "group": "targets",
-   "name": "cleveland.html guidebook desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "name": "cities/newyork.html guidebook mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
    "ok": false,
    "evidence": {
     "n": 2,
     "eg": [
      [
+      251,
+      21,
+      "A The Metropolitan"
+     ],
+     [
+      95,
+      21,
+      "A Central Park"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/newyork.html guidebook mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html guidebook mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html guidebook desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/newyork.html guidebook desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "gfacts",
+     "219 sights · 289 places to eat"
+    ],
+    [
+     14,
+     "gsig",
+     "★ New York classics: 31 places"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/newyork.html guidebook desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 6,
+    "eg": [
+     [
+      251,
+      21,
+      "A The Metropolitan"
+     ],
+     [
+      95,
+      21,
+      "A Central Park"
+     ],
+     [
+      165,
+      21,
+      "A Empire State Bui"
+     ],
+     [
+      88,
+      21,
+      "A Joe's Pizza"
+     ],
+     [
+      36,
+      21,
+      "A Cote"
+     ],
+     [
+      81,
+      21,
+      "A Via Carota"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/newyork.html guidebook desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html guidebook desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html insights mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/newyork.html insights mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "sub",
+     "Every number below is computed"
+    ],
+    [
+     14,
+     "sub",
+     "Share of sights, places to eat"
+    ],
+    [
+     12,
+     "fn",
+     "Pop culture = sights in the ci"
+    ],
+    [
+     14,
+     "sub",
+     "Citations per area by source: "
+    ],
+    [
+     12,
+     "fn",
+     "Citations, not places: a place"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/newyork.html insights mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 16,
+    "eg": [
+     [
+      4,
+      44,
+      "[object SVGAnimatedStr All of New York "
+     ],
+     [
+      42,
+      44,
+      "[object SVGAnimatedStr Manhattan · Sigh"
+     ],
+     [
+      7,
+      44,
+      "[object SVGAnimatedStr Manhattan · Pop "
+     ],
+     [
+      1,
+      44,
+      "[object SVGAnimatedStr The Bronx · Pop "
+     ],
+     [
+      6,
+      44,
+      "[object SVGAnimatedStr Staten Island · "
+     ],
+     [
+      13,
+      44,
+      "[object SVGAnimatedStr Day Trips · Eat "
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/newyork.html insights mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html insights mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html insights desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/newyork.html insights desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "sub",
+     "Every number below is computed"
+    ],
+    [
+     14,
+     "sub",
+     "Share of sights, places to eat"
+    ],
+    [
+     12,
+     "fn",
+     "Pop culture = sights in the ci"
+    ],
+    [
+     14,
+     "sub",
+     "Citations per area by source: "
+    ],
+    [
+     12,
+     "fn",
+     "Citations, not places: a place"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/newyork.html insights desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 22,
+    "eg": [
+     [
+      12,
+      44,
+      "[object SVGAnimatedStr All of New York "
+     ],
+     [
+      19,
+      44,
+      "[object SVGAnimatedStr Manhattan · Pop "
+     ],
+     [
+      3,
+      44,
+      "[object SVGAnimatedStr Brooklyn · Pop c"
+     ],
+     [
+      3,
+      44,
+      "[object SVGAnimatedStr Queens · Pop cul"
+     ],
+     [
+      6,
+      44,
+      "[object SVGAnimatedStr The Bronx · Pop "
+     ],
+     [
+      17,
+      44,
+      "[object SVGAnimatedStr Staten Island · "
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/newyork.html insights desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/newyork.html insights desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html gallery mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Singapore/chinatown.html gallery mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "16 places · 1 area · every one"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Roots.gov.sg (N"
+    ],
+    [
+     14,
+     "pl-w",
+     "Singapore's most famous chicke"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Michelin Guide,"
+    ],
+    [
+     14,
+     "pl-w",
+     "Peppery Teochew bak kut teh; a"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "Singapore/chinatown.html gallery mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Singapore/chinatown.html gallery mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html gallery mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html gallery desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Singapore/chinatown.html gallery desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "16 places · 1 area · every one"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Roots.gov.sg (N"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Roots.gov.sg (N"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Roots.gov.sg (N"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Michelin Guide,"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "Singapore/chinatown.html gallery desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Singapore/chinatown.html gallery desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html gallery desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html atlas mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Singapore/chinatown.html atlas mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "16 places · 1 area · every one"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "Singapore/chinatown.html atlas mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 16,
+    "eg": [
+     [
+      52,
+      42,
+      "INPUT "
+     ],
+     [
+      155,
+      41,
+      "A Tian Tian Hainan"
+     ],
+     [
+      156,
+      20,
+      "A Song Fa Bak Kut "
+     ],
+     [
+      126,
+      41,
+      "A JUMBO Seafood (R"
+     ],
+     [
+      115,
+      41,
+      "A Sri Mariamman Te"
+     ],
+     [
+      147,
+      41,
+      "A Buddha Tooth Rel"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Singapore/chinatown.html atlas mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html atlas mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html atlas desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Singapore/chinatown.html atlas desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "16 places · 1 area · every one"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Michelin Guide,"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Michelin Guide,"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Eatbook.sg, Wik"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Roots.gov.sg (N"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "Singapore/chinatown.html atlas desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 7,
+    "eg": [
+     [
+      18,
+      18,
+      "INPUT "
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Singapore/chinatown.html atlas desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html atlas desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html guidebook mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Singapore/chinatown.html guidebook mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "gfacts",
+     "4 sights · 12 places to eat an"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "Singapore/chinatown.html guidebook mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 3,
+    "eg": [
+     [
+      262,
+      21,
+      "A Tian Tian Hainan"
+     ],
+     [
+      158,
+      21,
+      "A Song Fa Bak Kut "
+     ],
+     [
+      259,
+      21,
+      "A JUMBO Seafood (R"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Singapore/chinatown.html guidebook mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html guidebook mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html guidebook desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Singapore/chinatown.html guidebook desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "gfacts",
+     "4 sights · 12 places to eat an"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "Singapore/chinatown.html guidebook desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 6,
+    "eg": [
+     [
+      262,
+      21,
+      "A Tian Tian Hainan"
+     ],
+     [
+      158,
+      21,
+      "A Song Fa Bak Kut "
+     ],
+     [
+      259,
+      21,
+      "A JUMBO Seafood (R"
+     ],
+     [
+      177,
+      21,
+      "A Sri Mariamman Te"
+     ],
+     [
       268,
       42,
-      "A Chess Collection"
+      "A Buddha Tooth Rel"
      ],
      [
-      226,
+      268,
+      42,
+      "A Famous Sungei Ro"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Singapore/chinatown.html guidebook desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html guidebook desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html insights mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Singapore/chinatown.html insights mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "sub",
+     "Every number below is computed"
+    ],
+    [
+     14,
+     "sub",
+     "Share of sights, places to eat"
+    ],
+    [
+     12,
+     "fn",
+     "This city has no pop-culture c"
+    ],
+    [
+     14,
+     "sub",
+     "Citations per area by source: "
+    ],
+    [
+     12,
+     "fn",
+     "Citations, not places: a place"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "Singapore/chinatown.html insights mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 7,
+    "eg": [
+     [
+      33,
+      44,
+      "[object SVGAnimatedStr All of Chinatown"
+     ],
+     [
+      33,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ],
+     [
+      18,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ],
+     [
+      18,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ],
+     [
+      14,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ],
+     [
+      14,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Singapore/chinatown.html insights mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html insights mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html insights desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "Singapore/chinatown.html insights desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "sub",
+     "Every number below is computed"
+    ],
+    [
+     14,
+     "sub",
+     "Share of sights, places to eat"
+    ],
+    [
+     12,
+     "fn",
+     "This city has no pop-culture c"
+    ],
+    [
+     14,
+     "sub",
+     "Citations per area by source: "
+    ],
+    [
+     12,
+     "fn",
+     "Citations, not places: a place"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "Singapore/chinatown.html insights desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 4,
+    "eg": [
+     [
+      37,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ],
+     [
+      37,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ],
+     [
+      27,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ],
+     [
+      41,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "Singapore/chinatown.html insights desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "Singapore/chinatown.html insights desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html gallery mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/wheeling.html gallery mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "35 places · 5 areas · every on"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by James Beard Fou"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Federal Highway"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Federal Highway"
+    ],
+    [
+     14,
+     "pl-w",
+     "The oldest major long-span sus"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/wheeling.html gallery mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/wheeling.html gallery mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html gallery mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html gallery desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/wheeling.html gallery desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "35 places · 5 areas · every on"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by James Beard Fou"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Federal Highway"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by Federal Highway"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by e-WV: The West "
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/wheeling.html gallery desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": true,
+   "evidence": {
+    "n": 0,
+    "eg": []
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/wheeling.html gallery desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html gallery desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html atlas mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/wheeling.html atlas mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "35 places · 5 areas · every on"
+    ],
+    [
+     12,
+     "ms-rec",
+     "Recommended by James Beard Fou"
+    ],
+    [
+     12,
+     "ms-rec",
+     "Recommended by Federal Highway"
+    ],
+    [
+     12,
+     "ms-k",
+     "Zanesville & the National Road"
+    ],
+    [
+     12,
+     "ms-k",
+     "Zanesville & the National Road"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/wheeling.html atlas mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 33,
+    "eg": [
+     [
+      52,
+      42,
+      "INPUT "
+     ],
+     [
+      144,
+      41,
+      "A Wheeling Suspens"
+     ],
+     [
+      143,
+      41,
+      "A West Virginia In"
+     ],
+     [
+      118,
+      41,
+      "A Centre Market Hi"
+     ],
+     [
+      83,
+      41,
+      "A Figaretti's Rest"
+     ],
+     [
+      103,
+      41,
+      "A Oglebay Resort &"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/wheeling.html atlas mobile: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html atlas mobile dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html atlas desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/wheeling.html atlas desktop: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "facts",
+     "35 places · 5 areas · every on"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by e-WV: The West "
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by WV Dept. of Art"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by WV Tourism (Alm"
+    ],
+    [
+     0,
+     "pl-s",
+     "Recommended by James Beard Fou"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/wheeling.html atlas desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 6,
+    "eg": [
+     [
+      18,
+      18,
+      "INPUT "
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/wheeling.html atlas desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html atlas desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html guidebook mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/wheeling.html guidebook mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "gfacts",
+     "28 sights · 7 places to eat an"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/wheeling.html guidebook mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 2,
+    "eg": [
+     [
+      223,
       21,
-      "A Slyman's Restaur"
+      "A Wheeling Suspens"
+     ],
+     [
+      251,
+      21,
+      "A West Virginia In"
      ]
     ]
    }
   },
   {
    "group": "focus",
-   "name": "cleveland.html guidebook desktop: focus ring on the first 40 tab stops",
+   "name": "cities/wheeling.html guidebook mobile: focus ring on the first 40 tab stops",
    "ok": false,
    "evidence": [
     "INPUT "
@@ -976,91 +2741,158 @@
   },
   {
    "group": "axe",
-   "name": "cleveland.html guidebook desktop dark: axe serious/critical = 0",
+   "name": "cities/wheeling.html guidebook mobile dark: axe serious/critical = 0",
    "ok": true,
    "evidence": []
   },
   {
    "group": "axe",
-   "name": "cleveland.html insights mobile light: axe serious/critical = 0",
+   "name": "cities/wheeling.html guidebook desktop light: axe serious/critical = 0",
    "ok": true,
    "evidence": []
   },
   {
    "group": "body",
-   "name": "cleveland.html insights mobile: body copy ≥ 16 px",
+   "name": "cities/wheeling.html guidebook desktop: body copy ≥ 16 px",
    "ok": false,
    "evidence": [
+    [
+     14,
+     "gfacts",
+     "28 sights · 7 places to eat an"
+    ]
+   ]
+  },
+  {
+   "group": "targets",
+   "name": "cities/wheeling.html guidebook desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "ok": false,
+   "evidence": {
+    "n": 5,
+    "eg": [
+     [
+      223,
+      21,
+      "A Wheeling Suspens"
+     ],
+     [
+      251,
+      21,
+      "A West Virginia In"
+     ],
+     [
+      235,
+      21,
+      "A Centre Market Hi"
+     ],
+     [
+      166,
+      21,
+      "A Figaretti's Rest"
+     ],
+     [
+      173,
+      21,
+      "A Oglebay Resort &"
+     ]
+    ]
+   }
+  },
+  {
+   "group": "focus",
+   "name": "cities/wheeling.html guidebook desktop: focus ring on the first 40 tab stops",
+   "ok": false,
+   "evidence": [
+    "INPUT "
+   ]
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html guidebook desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "axe",
+   "name": "cities/wheeling.html insights mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "body",
+   "name": "cities/wheeling.html insights mobile: body copy ≥ 16 px",
+   "ok": false,
+   "evidence": [
+    [
+     14,
+     "sub",
+     "Every number below is computed"
+    ],
+    [
+     14,
+     "sub",
+     "Share of sights, places to eat"
+    ],
     [
      12,
      "fn",
      "This city has no pop-culture c"
     ],
     [
+     14,
+     "sub",
+     "Citations per area by source: "
+    ],
+    [
      12,
      "fn",
      "Citations, not places: a place"
-    ],
-    [
-     12,
-     "fn",
-     "Computed from 180 of 194 place"
-    ],
-    [
-     12,
-     "fn",
-     "Closed places stay in every vi"
-    ],
-    [
-     12,
-     "fn",
-     "Bars count canon places whose "
     ]
    ]
   },
   {
    "group": "targets",
-   "name": "cleveland.html insights mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "name": "cities/wheeling.html insights mobile: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
    "ok": false,
    "evidence": {
-    "n": 8,
+    "n": 9,
     "eg": [
      [
-      31,
+      26,
       44,
-      "[object SVGAnimatedStr All of Cleveland"
+      "[object SVGAnimatedStr All of Wheeling "
      ],
      [
-      8,
+      11,
       44,
-      "[object SVGAnimatedStr Downtown & The F"
+      "[object SVGAnimatedStr Wheeling, WV · E"
      ],
      [
-      34,
+      33,
       44,
-      "[object SVGAnimatedStr University Circl"
+      "[object SVGAnimatedStr Cambridge & Guer"
      ],
      [
-      19,
+      33,
       44,
-      "[object SVGAnimatedStr Suburbs, Metropa"
+      "[object SVGAnimatedStr Zanesville & the"
      ],
      [
-      10,
+      29,
       44,
-      "[object SVGAnimatedStr Downtown & The F"
+      "[object SVGAnimatedStr Wheeling, WV · W"
      ],
      [
-      27,
+      40,
       44,
-      "[object SVGAnimatedStr Downtown & The F"
+      "[object SVGAnimatedStr Wheeling, WV · W"
      ]
     ]
    }
   },
   {
    "group": "focus",
-   "name": "cleveland.html insights mobile: focus ring on the first 40 tab stops",
+   "name": "cities/wheeling.html insights mobile: focus ring on the first 40 tab stops",
    "ok": false,
    "evidence": [
     "INPUT "
@@ -1068,91 +2900,71 @@
   },
   {
    "group": "axe",
-   "name": "cleveland.html insights mobile dark: axe serious/critical = 0",
+   "name": "cities/wheeling.html insights mobile dark: axe serious/critical = 0",
    "ok": true,
    "evidence": []
   },
   {
    "group": "axe",
-   "name": "cleveland.html insights desktop light: axe serious/critical = 0",
+   "name": "cities/wheeling.html insights desktop light: axe serious/critical = 0",
    "ok": true,
    "evidence": []
   },
   {
    "group": "body",
-   "name": "cleveland.html insights desktop: body copy ≥ 16 px",
+   "name": "cities/wheeling.html insights desktop: body copy ≥ 16 px",
    "ok": false,
    "evidence": [
+    [
+     14,
+     "sub",
+     "Every number below is computed"
+    ],
+    [
+     14,
+     "sub",
+     "Share of sights, places to eat"
+    ],
     [
      12,
      "fn",
      "This city has no pop-culture c"
     ],
     [
+     14,
+     "sub",
+     "Citations per area by source: "
+    ],
+    [
      12,
      "fn",
      "Citations, not places: a place"
-    ],
-    [
-     12,
-     "fn",
-     "Computed from 180 of 194 place"
-    ],
-    [
-     12,
-     "fn",
-     "Closed places stay in every vi"
-    ],
-    [
-     12,
-     "fn",
-     "Bars count canon places whose "
     ]
    ]
   },
   {
    "group": "targets",
-   "name": "cleveland.html insights desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
+   "name": "cities/wheeling.html insights desktop: targets ≥ 44 × 44 in the first two screens (inline prose links exempt)",
    "ok": false,
    "evidence": {
-    "n": 14,
+    "n": 2,
     "eg": [
      [
-      22,
+      29,
       44,
-      "[object SVGAnimatedStr Downtown & The F"
+      "[object SVGAnimatedStr Wheeling, WV · E"
      ],
      [
-      27,
+      41,
       44,
-      "[object SVGAnimatedStr Downtown & The F"
-     ],
-     [
-      19,
-      44,
-      "[object SVGAnimatedStr Downtown & The F"
-     ],
-     [
-      19,
-      44,
-      "[object SVGAnimatedStr Downtown & The F"
-     ],
-     [
-      32,
-      44,
-      "[object SVGAnimatedStr University Circl"
-     ],
-     [
-      22,
-      44,
-      "[object SVGAnimatedStr University Circl"
+      "[object SVGAnimatedStr Cambridge & Guer"
      ]
     ]
    }
   },
   {
    "group": "focus",
-   "name": "cleveland.html insights desktop: focus ring on the first 40 tab stops",
+   "name": "cities/wheeling.html insights desktop: focus ring on the first 40 tab stops",
    "ok": false,
    "evidence": [
     "INPUT "
@@ -1160,7 +2972,7 @@
   },
   {
    "group": "axe",
-   "name": "cleveland.html insights desktop dark: axe serious/critical = 0",
+   "name": "cities/wheeling.html insights desktop dark: axe serious/critical = 0",
    "ok": true,
    "evidence": []
   },
@@ -1662,12 +3474,581 @@
  "info": {},
  "a11y": [
   {
+   "rel": "cleveland.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "194 places · 4 areas · every o"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Fox 8 Cleveland"
+     ],
+     [
+      14,
+      "pl-w",
+      "This is the right building. Th"
+     ],
+     [
+      14,
+      "pl-w",
+      "Five-story glass-roofed atrium"
+     ],
+     [
+      14,
+      "pl-w",
+      "The 42nd floor of a 52-story t"
+     ]
+    ],
+    "smallN": 29,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "194 places · 4 areas · every o"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Fox 8 Cleveland"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Atlas Obscura, "
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Bourdain / TV, "
+     ],
+     [
+      14,
+      "pl-e",
+      "28 Worth the detour within Dow"
+     ]
+    ],
+    "smallN": 15,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1",
+    "heading-order(moderate)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "194 places · 4 areas · every o"
+     ]
+    ],
+    "smallN": 1,
+    "targets": [
+     [
+      52,
+      42,
+      "INPUT "
+     ],
+     [
+      97,
+      41,
+      "A The Arcade (Old "
+     ],
+     [
+      137,
+      41,
+      "A Terminal Tower O"
+     ],
+     [
+      143,
+      41,
+      "A Soldiers' & Sail"
+     ],
+     [
+      87,
+      20,
+      "A Free Stamp"
+     ],
+     [
+      95,
+      41,
+      "A Rock & Roll Hall"
+     ]
+    ],
+    "targetsN": 33,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1",
+    "heading-order(moderate)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "194 places · 4 areas · every o"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Atlas Obscura, "
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Bourdain / TV, "
+     ],
+     [
+      14,
+      "pl-e",
+      "28 Worth the detour within Dow"
+     ],
+     [
+      14,
+      "pl-e",
+      "29 Worth the detour within Dow"
+     ]
+    ],
+    "smallN": 8,
+    "targets": [
+     [
+      18,
+      18,
+      "INPUT "
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ]
+    ],
+    "targetsN": 9,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "gfacts",
+      "148 sights · 46 places to eat "
+     ],
+     [
+      14,
+      "gsig",
+      "★ Only in Cleveland: 18 places"
+     ]
+    ],
+    "smallN": 2,
+    "targets": [
+     [
+      294,
+      42,
+      "A Chess Collection"
+     ]
+    ],
+    "targetsN": 1,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "gfacts",
+      "148 sights · 46 places to eat "
+     ],
+     [
+      14,
+      "gsig",
+      "★ Only in Cleveland: 18 places"
+     ]
+    ],
+    "smallN": 2,
+    "targets": [
+     [
+      268,
+      42,
+      "A Chess Collection"
+     ],
+     [
+      226,
+      21,
+      "A Slyman's Restaur"
+     ],
+     [
+      232,
+      21,
+      "A Soldiers' & Sail"
+     ],
+     [
+      88,
+      21,
+      "A Free Stamp"
+     ]
+    ],
+    "targetsN": 4,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "sub",
+      "Every number below is computed"
+     ],
+     [
+      14,
+      "sub",
+      "Share of sights, places to eat"
+     ],
+     [
+      12,
+      "fn",
+      "This city has no pop-culture c"
+     ],
+     [
+      14,
+      "sub",
+      "Citations per area by source: "
+     ],
+     [
+      12,
+      "fn",
+      "Citations, not places: a place"
+     ]
+    ],
+    "smallN": 15,
+    "targets": [
+     [
+      31,
+      44,
+      "[object SVGAnimatedStr All of Cleveland"
+     ],
+     [
+      8,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      34,
+      44,
+      "[object SVGAnimatedStr University Circl"
+     ],
+     [
+      19,
+      44,
+      "[object SVGAnimatedStr Suburbs, Metropa"
+     ],
+     [
+      10,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      27,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ]
+    ],
+    "targetsN": 18,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "sub",
+      "Every number below is computed"
+     ],
+     [
+      14,
+      "sub",
+      "Share of sights, places to eat"
+     ],
+     [
+      12,
+      "fn",
+      "This city has no pop-culture c"
+     ],
+     [
+      14,
+      "sub",
+      "Citations per area by source: "
+     ],
+     [
+      12,
+      "fn",
+      "Citations, not places: a place"
+     ]
+    ],
+    "smallN": 15,
+    "targets": [
+     [
+      22,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      27,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      19,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      19,
+      44,
+      "[object SVGAnimatedStr Downtown & The F"
+     ],
+     [
+      32,
+      44,
+      "[object SVGAnimatedStr University Circl"
+     ],
+     [
+      22,
+      44,
+      "[object SVGAnimatedStr University Circl"
+     ]
+    ],
+    "targetsN": 14,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cleveland.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
    "rel": "cities/tokyo.html",
    "view": "gallery",
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": {
     "smallBody": [
      [
@@ -1712,7 +4093,9 @@
    "vp": "mobile",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": null
   },
   {
@@ -1721,7 +4104,9 @@
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": {
     "smallBody": [
      [
@@ -1766,7 +4151,9 @@
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": null
   },
   {
@@ -1776,6 +4163,7 @@
    "scheme": "light",
    "serious": [],
    "other": [
+    "aria-allowed-role(minor)×1",
     "heading-order(moderate)×1"
    ],
    "ux": {
@@ -1834,6 +4222,7 @@
    "scheme": "dark",
    "serious": [],
    "other": [
+    "aria-allowed-role(minor)×1",
     "heading-order(moderate)×1"
    ],
    "ux": null
@@ -1844,7 +4233,9 @@
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": {
     "smallBody": [
      [
@@ -1873,7 +4264,7 @@
       "Recommended by Tokyo Cheapo, R"
      ]
     ],
-    "smallN": 7,
+    "smallN": 6,
     "targets": [
      [
       18,
@@ -1920,7 +4311,9 @@
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": null
   },
   {
@@ -1929,7 +4322,9 @@
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": {
     "smallBody": [
      [
@@ -1949,9 +4344,14 @@
       294,
       42,
       "A Imperial Palace "
+     ],
+     [
+      193,
+      21,
+      "A Yasukuni Shrine "
      ]
     ],
-    "targetsN": 1,
+    "targetsN": 2,
     "focusN": 40,
     "foc": 40,
     "noRing": [
@@ -1965,7 +4365,9 @@
    "vp": "mobile",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": null
   },
   {
@@ -1974,7 +4376,9 @@
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": {
     "smallBody": [
      [
@@ -1996,6 +4400,16 @@
       "A Imperial Palace "
      ],
      [
+      193,
+      21,
+      "A Yasukuni Shrine "
+     ],
+     [
+      173,
+      21,
+      "A Kanda Myōjin 神田明"
+     ],
+     [
       215,
       21,
       "A Chidorigafuchi 千"
@@ -2004,9 +4418,14 @@
       268,
       42,
       "A Mandarake Comple"
+     ],
+     [
+      252,
+      21,
+      "A Kanda Yabu Soba "
      ]
     ],
-    "targetsN": 3,
+    "targetsN": 6,
     "focusN": 40,
     "foc": 40,
     "noRing": [
@@ -2020,7 +4439,9 @@
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": null
   },
   {
@@ -2029,36 +4450,38 @@
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": {
     "smallBody": [
+     [
+      14,
+      "sub",
+      "Every number below is computed"
+     ],
+     [
+      14,
+      "sub",
+      "Share of sights, places to eat"
+     ],
      [
       12,
       "fn",
       "Pop culture = sights in the ci"
      ],
      [
+      14,
+      "sub",
+      "Citations per area by source: "
+     ],
+     [
       12,
       "fn",
       "Citations, not places: a place"
-     ],
-     [
-      12,
-      "fn",
-      "Computed from 487 of 488 place"
-     ],
-     [
-      12,
-      "fn",
-      "Closed places stay in every vi"
-     ],
-     [
-      12,
-      "fn",
-      "Bars count canon places whose "
      ]
     ],
-    "smallN": 6,
+    "smallN": 15,
     "targets": [
      [
       12,
@@ -2105,7 +4528,9 @@
    "vp": "mobile",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": null
   },
   {
@@ -2114,36 +4539,38 @@
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": {
     "smallBody": [
+     [
+      14,
+      "sub",
+      "Every number below is computed"
+     ],
+     [
+      14,
+      "sub",
+      "Share of sights, places to eat"
+     ],
      [
       12,
       "fn",
       "Pop culture = sights in the ci"
      ],
      [
+      14,
+      "sub",
+      "Citations per area by source: "
+     ],
+     [
       12,
       "fn",
       "Citations, not places: a place"
-     ],
-     [
-      12,
-      "fn",
-      "Computed from 487 of 488 place"
-     ],
-     [
-      12,
-      "fn",
-      "Closed places stay in every vi"
-     ],
-     [
-      12,
-      "fn",
-      "Bars count canon places whose "
      ]
     ],
-    "smallN": 6,
+    "smallN": 15,
     "targets": [
      [
       33,
@@ -2190,45 +4617,49 @@
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": null
   },
   {
-   "rel": "cleveland.html",
+   "rel": "cities/newyork.html",
    "view": "gallery",
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": {
     "smallBody": [
      [
       14,
       "facts",
-      "194 places · 4 areas · every o"
+      "508 places · 6 areas · every o"
      ],
      [
       0,
       "pl-s",
-      "Recommended by Fox 8 Cleveland"
+      "Recommended by The Metropolita"
      ],
      [
       14,
       "pl-w",
-      "This is the right building. Th"
+      "Encyclopedic art museum on Mus"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by The Metropolita"
      ],
      [
       14,
       "pl-w",
-      "Five-story glass-roofed atrium"
-     ],
-     [
-      14,
-      "pl-w",
-      "The 42nd floor of a 52-story t"
+      "843-acre landscaped park by Ol"
      ]
     ],
-    "smallN": 29,
+    "smallN": 41,
     "targets": [],
     "targetsN": 0,
     "focusN": 40,
@@ -2239,50 +4670,54 @@
    }
   },
   {
-   "rel": "cleveland.html",
+   "rel": "cities/newyork.html",
    "view": "gallery",
    "vp": "mobile",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": null
   },
   {
-   "rel": "cleveland.html",
+   "rel": "cities/newyork.html",
    "view": "gallery",
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": {
     "smallBody": [
      [
       14,
       "facts",
-      "194 places · 4 areas · every o"
+      "508 places · 6 areas · every o"
      ],
      [
       0,
       "pl-s",
-      "Recommended by Fox 8 Cleveland"
+      "Recommended by The Metropolita"
      ],
      [
       0,
       "pl-s",
-      "Recommended by Atlas Obscura, "
+      "Recommended by The Metropolita"
      ],
      [
       0,
       "pl-s",
-      "Recommended by Bourdain / TV, "
+      "Recommended by NYC Tourism + C"
      ],
      [
-      14,
-      "pl-e",
-      "28 Worth the detour within Dow"
+      0,
+      "pl-s",
+      "Recommended by NYC Tourism + C"
      ]
     ],
-    "smallN": 15,
+    "smallN": 20,
     "targets": [],
     "targetsN": 0,
     "focusN": 40,
@@ -2293,21 +4728,24 @@
    }
   },
   {
-   "rel": "cleveland.html",
+   "rel": "cities/newyork.html",
    "view": "gallery",
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": null
   },
   {
-   "rel": "cleveland.html",
+   "rel": "cities/newyork.html",
    "view": "atlas",
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
    "other": [
+    "aria-allowed-role(minor)×1",
     "heading-order(moderate)×1"
    ],
    "ux": {
@@ -2315,7 +4753,7 @@
      [
       14,
       "facts",
-      "194 places · 4 areas · every o"
+      "508 places · 6 areas · every o"
      ]
     ],
     "smallN": 1,
@@ -2326,32 +4764,32 @@
       "INPUT "
      ],
      [
+      131,
+      41,
+      "A The Metropolitan"
+     ],
+     [
+      94,
+      20,
+      "A Central Park"
+     ],
+     [
       97,
       41,
-      "A The Arcade (Old "
+      "A Empire State Bui"
      ],
      [
-      137,
+      150,
       41,
-      "A Terminal Tower O"
+      "A Museum of Modern"
      ],
      [
-      143,
+      79,
       41,
-      "A Soldiers' & Sail"
-     ],
-     [
-      87,
-      20,
-      "A Free Stamp"
-     ],
-     [
-      95,
-      41,
-      "A Rock & Roll Hall"
+      "A Radio City Music"
      ]
     ],
-    "targetsN": 38,
+    "targetsN": 40,
     "focusN": 40,
     "foc": 40,
     "noRing": [
@@ -2360,52 +4798,55 @@
    }
   },
   {
-   "rel": "cleveland.html",
+   "rel": "cities/newyork.html",
    "view": "atlas",
    "vp": "mobile",
    "scheme": "dark",
    "serious": [],
    "other": [
+    "aria-allowed-role(minor)×1",
     "heading-order(moderate)×1"
    ],
    "ux": null
   },
   {
-   "rel": "cleveland.html",
+   "rel": "cities/newyork.html",
    "view": "atlas",
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": {
     "smallBody": [
      [
       14,
       "facts",
-      "194 places · 4 areas · every o"
+      "508 places · 6 areas · every o"
      ],
      [
       0,
       "pl-s",
-      "Recommended by Atlas Obscura, "
+      "Recommended by The Metropolita"
      ],
      [
       0,
       "pl-s",
-      "Recommended by Bourdain / TV, "
+      "Recommended by NYC Tourism + C"
      ],
      [
-      14,
-      "pl-e",
-      "28 Worth the detour within Dow"
+      0,
+      "pl-s",
+      "Recommended by NYC Tourism + C"
      ],
      [
-      14,
-      "pl-e",
-      "29 Worth the detour within Dow"
+      0,
+      "pl-s",
+      "Recommended by NYC Tourism + C"
      ]
     ],
-    "smallN": 10,
+    "smallN": 16,
     "targets": [
      [
       18,
@@ -2447,90 +4888,49 @@
    }
   },
   {
-   "rel": "cleveland.html",
+   "rel": "cities/newyork.html",
    "view": "atlas",
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": null
   },
   {
-   "rel": "cleveland.html",
+   "rel": "cities/newyork.html",
    "view": "guidebook",
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": {
     "smallBody": [
      [
       14,
       "gfacts",
-      "148 sights · 46 places to eat "
+      "219 sights · 289 places to eat"
      ],
      [
       14,
       "gsig",
-      "★ Only in Cleveland: 18 places"
+      "★ New York classics: 31 places"
      ]
     ],
     "smallN": 2,
     "targets": [
      [
-      294,
-      42,
-      "A Chess Collection"
-     ]
-    ],
-    "targetsN": 1,
-    "focusN": 40,
-    "foc": 40,
-    "noRing": [
-     "INPUT "
-    ]
-   }
-  },
-  {
-   "rel": "cleveland.html",
-   "view": "guidebook",
-   "vp": "mobile",
-   "scheme": "dark",
-   "serious": [],
-   "other": [],
-   "ux": null
-  },
-  {
-   "rel": "cleveland.html",
-   "view": "guidebook",
-   "vp": "desktop",
-   "scheme": "light",
-   "serious": [],
-   "other": [],
-   "ux": {
-    "smallBody": [
-     [
-      14,
-      "gfacts",
-      "148 sights · 46 places to eat "
-     ],
-     [
-      14,
-      "gsig",
-      "★ Only in Cleveland: 18 places"
-     ]
-    ],
-    "smallN": 2,
-    "targets": [
-     [
-      268,
-      42,
-      "A Chess Collection"
-     ],
-     [
-      226,
+      251,
       21,
-      "A Slyman's Restaur"
+      "A The Metropolitan"
+     ],
+     [
+      95,
+      21,
+      "A Central Park"
      ]
     ],
     "targetsN": 2,
@@ -2542,83 +4942,161 @@
    }
   },
   {
-   "rel": "cleveland.html",
+   "rel": "cities/newyork.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cities/newyork.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "gfacts",
+      "219 sights · 289 places to eat"
+     ],
+     [
+      14,
+      "gsig",
+      "★ New York classics: 31 places"
+     ]
+    ],
+    "smallN": 2,
+    "targets": [
+     [
+      251,
+      21,
+      "A The Metropolitan"
+     ],
+     [
+      95,
+      21,
+      "A Central Park"
+     ],
+     [
+      165,
+      21,
+      "A Empire State Bui"
+     ],
+     [
+      88,
+      21,
+      "A Joe's Pizza"
+     ],
+     [
+      36,
+      21,
+      "A Cote"
+     ],
+     [
+      81,
+      21,
+      "A Via Carota"
+     ]
+    ],
+    "targetsN": 6,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/newyork.html",
    "view": "guidebook",
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": null
   },
   {
-   "rel": "cleveland.html",
+   "rel": "cities/newyork.html",
    "view": "insights",
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": {
     "smallBody": [
      [
+      14,
+      "sub",
+      "Every number below is computed"
+     ],
+     [
+      14,
+      "sub",
+      "Share of sights, places to eat"
+     ],
+     [
       12,
       "fn",
-      "This city has no pop-culture c"
+      "Pop culture = sights in the ci"
+     ],
+     [
+      14,
+      "sub",
+      "Citations per area by source: "
      ],
      [
       12,
       "fn",
       "Citations, not places: a place"
-     ],
-     [
-      12,
-      "fn",
-      "Computed from 180 of 194 place"
-     ],
-     [
-      12,
-      "fn",
-      "Closed places stay in every vi"
-     ],
-     [
-      12,
-      "fn",
-      "Bars count canon places whose "
      ]
     ],
-    "smallN": 6,
+    "smallN": 15,
     "targets": [
      [
-      31,
+      4,
       44,
-      "[object SVGAnimatedStr All of Cleveland"
+      "[object SVGAnimatedStr All of New York "
      ],
      [
-      8,
+      42,
       44,
-      "[object SVGAnimatedStr Downtown & The F"
+      "[object SVGAnimatedStr Manhattan · Sigh"
      ],
      [
-      34,
+      7,
       44,
-      "[object SVGAnimatedStr University Circl"
+      "[object SVGAnimatedStr Manhattan · Pop "
      ],
      [
-      19,
+      1,
       44,
-      "[object SVGAnimatedStr Suburbs, Metropa"
+      "[object SVGAnimatedStr The Bronx · Pop "
      ],
      [
-      10,
+      6,
       44,
-      "[object SVGAnimatedStr Downtown & The F"
+      "[object SVGAnimatedStr Staten Island · "
      ],
      [
-      27,
+      13,
       44,
-      "[object SVGAnimatedStr Downtown & The F"
+      "[object SVGAnimatedStr Day Trips · Eat "
      ]
     ],
-    "targetsN": 8,
+    "targetsN": 16,
     "focusN": 40,
     "foc": 40,
     "noRing": [
@@ -2627,83 +5105,87 @@
    }
   },
   {
-   "rel": "cleveland.html",
+   "rel": "cities/newyork.html",
    "view": "insights",
    "vp": "mobile",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": null
   },
   {
-   "rel": "cleveland.html",
+   "rel": "cities/newyork.html",
    "view": "insights",
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": {
     "smallBody": [
      [
+      14,
+      "sub",
+      "Every number below is computed"
+     ],
+     [
+      14,
+      "sub",
+      "Share of sights, places to eat"
+     ],
+     [
       12,
       "fn",
-      "This city has no pop-culture c"
+      "Pop culture = sights in the ci"
+     ],
+     [
+      14,
+      "sub",
+      "Citations per area by source: "
      ],
      [
       12,
       "fn",
       "Citations, not places: a place"
-     ],
-     [
-      12,
-      "fn",
-      "Computed from 180 of 194 place"
-     ],
-     [
-      12,
-      "fn",
-      "Closed places stay in every vi"
-     ],
-     [
-      12,
-      "fn",
-      "Bars count canon places whose "
      ]
     ],
-    "smallN": 6,
+    "smallN": 15,
     "targets": [
      [
-      22,
+      12,
       44,
-      "[object SVGAnimatedStr Downtown & The F"
-     ],
-     [
-      27,
-      44,
-      "[object SVGAnimatedStr Downtown & The F"
+      "[object SVGAnimatedStr All of New York "
      ],
      [
       19,
       44,
-      "[object SVGAnimatedStr Downtown & The F"
+      "[object SVGAnimatedStr Manhattan · Pop "
      ],
      [
-      19,
+      3,
       44,
-      "[object SVGAnimatedStr Downtown & The F"
+      "[object SVGAnimatedStr Brooklyn · Pop c"
      ],
      [
-      32,
+      3,
       44,
-      "[object SVGAnimatedStr University Circl"
+      "[object SVGAnimatedStr Queens · Pop cul"
      ],
      [
-      22,
+      6,
       44,
-      "[object SVGAnimatedStr University Circl"
+      "[object SVGAnimatedStr The Bronx · Pop "
+     ],
+     [
+      17,
+      44,
+      "[object SVGAnimatedStr Staten Island · "
      ]
     ],
-    "targetsN": 14,
+    "targetsN": 22,
     "focusN": 40,
     "foc": 40,
     "noRing": [
@@ -2712,12 +5194,1148 @@
    }
   },
   {
-   "rel": "cleveland.html",
+   "rel": "cities/newyork.html",
    "view": "insights",
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "16 places · 1 area · every one"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Roots.gov.sg (N"
+     ],
+     [
+      14,
+      "pl-w",
+      "Singapore's most famous chicke"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Michelin Guide,"
+     ],
+     [
+      14,
+      "pl-w",
+      "Peppery Teochew bak kut teh; a"
+     ]
+    ],
+    "smallN": 29,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "16 places · 1 area · every one"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Roots.gov.sg (N"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Roots.gov.sg (N"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Roots.gov.sg (N"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Michelin Guide,"
+     ]
+    ],
+    "smallN": 15,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1",
+    "heading-order(moderate)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "16 places · 1 area · every one"
+     ]
+    ],
+    "smallN": 1,
+    "targets": [
+     [
+      52,
+      42,
+      "INPUT "
+     ],
+     [
+      155,
+      41,
+      "A Tian Tian Hainan"
+     ],
+     [
+      156,
+      20,
+      "A Song Fa Bak Kut "
+     ],
+     [
+      126,
+      41,
+      "A JUMBO Seafood (R"
+     ],
+     [
+      115,
+      41,
+      "A Sri Mariamman Te"
+     ],
+     [
+      147,
+      41,
+      "A Buddha Tooth Rel"
+     ]
+    ],
+    "targetsN": 16,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1",
+    "heading-order(moderate)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "16 places · 1 area · every one"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Michelin Guide,"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Michelin Guide,"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Eatbook.sg, Wik"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Roots.gov.sg (N"
+     ]
+    ],
+    "smallN": 12,
+    "targets": [
+     [
+      18,
+      18,
+      "INPUT "
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ]
+    ],
+    "targetsN": 7,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "gfacts",
+      "4 sights · 12 places to eat an"
+     ]
+    ],
+    "smallN": 1,
+    "targets": [
+     [
+      262,
+      21,
+      "A Tian Tian Hainan"
+     ],
+     [
+      158,
+      21,
+      "A Song Fa Bak Kut "
+     ],
+     [
+      259,
+      21,
+      "A JUMBO Seafood (R"
+     ]
+    ],
+    "targetsN": 3,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "gfacts",
+      "4 sights · 12 places to eat an"
+     ]
+    ],
+    "smallN": 1,
+    "targets": [
+     [
+      262,
+      21,
+      "A Tian Tian Hainan"
+     ],
+     [
+      158,
+      21,
+      "A Song Fa Bak Kut "
+     ],
+     [
+      259,
+      21,
+      "A JUMBO Seafood (R"
+     ],
+     [
+      177,
+      21,
+      "A Sri Mariamman Te"
+     ],
+     [
+      268,
+      42,
+      "A Buddha Tooth Rel"
+     ],
+     [
+      268,
+      42,
+      "A Famous Sungei Ro"
+     ]
+    ],
+    "targetsN": 6,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "sub",
+      "Every number below is computed"
+     ],
+     [
+      14,
+      "sub",
+      "Share of sights, places to eat"
+     ],
+     [
+      12,
+      "fn",
+      "This city has no pop-culture c"
+     ],
+     [
+      14,
+      "sub",
+      "Citations per area by source: "
+     ],
+     [
+      12,
+      "fn",
+      "Citations, not places: a place"
+     ]
+    ],
+    "smallN": 15,
+    "targets": [
+     [
+      33,
+      44,
+      "[object SVGAnimatedStr All of Chinatown"
+     ],
+     [
+      33,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ],
+     [
+      18,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ],
+     [
+      18,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ],
+     [
+      14,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ],
+     [
+      14,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ]
+    ],
+    "targetsN": 7,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "sub",
+      "Every number below is computed"
+     ],
+     [
+      14,
+      "sub",
+      "Share of sights, places to eat"
+     ],
+     [
+      12,
+      "fn",
+      "This city has no pop-culture c"
+     ],
+     [
+      14,
+      "sub",
+      "Citations per area by source: "
+     ],
+     [
+      12,
+      "fn",
+      "Citations, not places: a place"
+     ]
+    ],
+    "smallN": 15,
+    "targets": [
+     [
+      37,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ],
+     [
+      37,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ],
+     [
+      27,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ],
+     [
+      41,
+      44,
+      "[object SVGAnimatedStr Chinatown & CBD "
+     ]
+    ],
+    "targetsN": 4,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "35 places · 5 areas · every on"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by James Beard Fou"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Federal Highway"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Federal Highway"
+     ],
+     [
+      14,
+      "pl-w",
+      "The oldest major long-span sus"
+     ]
+    ],
+    "smallN": 51,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "gallery",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "35 places · 5 areas · every on"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by James Beard Fou"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Federal Highway"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by Federal Highway"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by e-WV: The West "
+     ]
+    ],
+    "smallN": 38,
+    "targets": [],
+    "targetsN": 0,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "gallery",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1",
+    "heading-order(moderate)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "35 places · 5 areas · every on"
+     ],
+     [
+      12,
+      "ms-rec",
+      "Recommended by James Beard Fou"
+     ],
+     [
+      12,
+      "ms-rec",
+      "Recommended by Federal Highway"
+     ],
+     [
+      12,
+      "ms-k",
+      "Zanesville & the National Road"
+     ],
+     [
+      12,
+      "ms-k",
+      "Zanesville & the National Road"
+     ]
+    ],
+    "smallN": 11,
+    "targets": [
+     [
+      52,
+      42,
+      "INPUT "
+     ],
+     [
+      144,
+      41,
+      "A Wheeling Suspens"
+     ],
+     [
+      143,
+      41,
+      "A West Virginia In"
+     ],
+     [
+      118,
+      41,
+      "A Centre Market Hi"
+     ],
+     [
+      83,
+      41,
+      "A Figaretti's Rest"
+     ],
+     [
+      103,
+      41,
+      "A Oglebay Resort &"
+     ]
+    ],
+    "targetsN": 33,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "atlas",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1",
+    "heading-order(moderate)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "facts",
+      "35 places · 5 areas · every on"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by e-WV: The West "
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by WV Dept. of Art"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by WV Tourism (Alm"
+     ],
+     [
+      0,
+      "pl-s",
+      "Recommended by James Beard Fou"
+     ]
+    ],
+    "smallN": 35,
+    "targets": [
+     [
+      18,
+      18,
+      "INPUT "
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ],
+     [
+      88,
+      28,
+      "tier t1 Must see"
+     ]
+    ],
+    "targetsN": 6,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "atlas",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "gfacts",
+      "28 sights · 7 places to eat an"
+     ]
+    ],
+    "smallN": 1,
+    "targets": [
+     [
+      223,
+      21,
+      "A Wheeling Suspens"
+     ],
+     [
+      251,
+      21,
+      "A West Virginia In"
+     ]
+    ],
+    "targetsN": 2,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "guidebook",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "gfacts",
+      "28 sights · 7 places to eat an"
+     ]
+    ],
+    "smallN": 1,
+    "targets": [
+     [
+      223,
+      21,
+      "A Wheeling Suspens"
+     ],
+     [
+      251,
+      21,
+      "A West Virginia In"
+     ],
+     [
+      235,
+      21,
+      "A Centre Market Hi"
+     ],
+     [
+      166,
+      21,
+      "A Figaretti's Rest"
+     ],
+     [
+      173,
+      21,
+      "A Oglebay Resort &"
+     ]
+    ],
+    "targetsN": 5,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "guidebook",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "sub",
+      "Every number below is computed"
+     ],
+     [
+      14,
+      "sub",
+      "Share of sights, places to eat"
+     ],
+     [
+      12,
+      "fn",
+      "This city has no pop-culture c"
+     ],
+     [
+      14,
+      "sub",
+      "Citations per area by source: "
+     ],
+     [
+      12,
+      "fn",
+      "Citations, not places: a place"
+     ]
+    ],
+    "smallN": 13,
+    "targets": [
+     [
+      26,
+      44,
+      "[object SVGAnimatedStr All of Wheeling "
+     ],
+     [
+      11,
+      44,
+      "[object SVGAnimatedStr Wheeling, WV · E"
+     ],
+     [
+      33,
+      44,
+      "[object SVGAnimatedStr Cambridge & Guer"
+     ],
+     [
+      33,
+      44,
+      "[object SVGAnimatedStr Zanesville & the"
+     ],
+     [
+      29,
+      44,
+      "[object SVGAnimatedStr Wheeling, WV · W"
+     ],
+     [
+      40,
+      44,
+      "[object SVGAnimatedStr Wheeling, WV · W"
+     ]
+    ],
+    "targetsN": 9,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "insights",
+   "vp": "mobile",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": null
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
+   "ux": {
+    "smallBody": [
+     [
+      14,
+      "sub",
+      "Every number below is computed"
+     ],
+     [
+      14,
+      "sub",
+      "Share of sights, places to eat"
+     ],
+     [
+      12,
+      "fn",
+      "This city has no pop-culture c"
+     ],
+     [
+      14,
+      "sub",
+      "Citations per area by source: "
+     ],
+     [
+      12,
+      "fn",
+      "Citations, not places: a place"
+     ]
+    ],
+    "smallN": 13,
+    "targets": [
+     [
+      29,
+      44,
+      "[object SVGAnimatedStr Wheeling, WV · E"
+     ],
+     [
+      41,
+      44,
+      "[object SVGAnimatedStr Cambridge & Guer"
+     ]
+    ],
+    "targetsN": 2,
+    "focusN": 40,
+    "foc": 40,
+    "noRing": [
+     "INPUT "
+    ]
+   }
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "view": "insights",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ],
    "ux": null
   },
   {
@@ -2726,7 +6344,9 @@
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": {
     "smallBody": [
      [
@@ -2749,7 +6369,9 @@
    "vp": "mobile",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": null
   },
   {
@@ -2758,7 +6380,9 @@
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": {
     "smallBody": [
      [
@@ -2781,7 +6405,9 @@
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": null
   },
   {
@@ -2790,7 +6416,9 @@
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": {
     "smallBody": [],
     "smallN": 0,
@@ -2807,7 +6435,9 @@
    "vp": "mobile",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": null
   },
   {
@@ -2816,7 +6446,9 @@
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": {
     "smallBody": [],
     "smallN": 0,
@@ -2833,7 +6465,9 @@
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": null
   },
   {
@@ -2842,7 +6476,9 @@
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": {
     "smallBody": [
      [
@@ -2885,7 +6521,9 @@
    "vp": "mobile",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": null
   },
   {
@@ -2894,7 +6532,9 @@
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": {
     "smallBody": [
      [
@@ -2937,7 +6577,9 @@
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": null
   },
   {
@@ -2946,7 +6588,9 @@
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": {
     "smallBody": [
      [
@@ -2969,7 +6613,9 @@
    "vp": "mobile",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": null
   },
   {
@@ -2978,7 +6624,9 @@
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": {
     "smallBody": [
      [
@@ -3001,7 +6649,9 @@
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": null
   },
   {
@@ -3010,7 +6660,9 @@
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": {
     "smallBody": [
      [
@@ -3038,7 +6690,9 @@
    "vp": "mobile",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": null
   },
   {
@@ -3047,7 +6701,9 @@
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": {
     "smallBody": [
      [
@@ -3075,7 +6731,9 @@
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": null
   },
   {
@@ -3084,7 +6742,9 @@
    "vp": "mobile",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": {
     "smallBody": [],
     "smallN": 0,
@@ -3101,7 +6761,9 @@
    "vp": "mobile",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": null
   },
   {
@@ -3110,7 +6772,9 @@
    "vp": "desktop",
    "scheme": "light",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": {
     "smallBody": [],
     "smallN": 0,
@@ -3127,7 +6791,9 @@
    "vp": "desktop",
    "scheme": "dark",
    "serious": [],
-   "other": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ],
    "ux": null
   }
  ]

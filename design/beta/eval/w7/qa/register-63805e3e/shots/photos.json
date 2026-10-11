@@ -1,0 +1,3828 @@
+{
+ "checks": [
+  {
+   "name": "every licence free (CC0/PD/CC BY/CC BY-SA) with its deed URL — 245 rows",
+   "ok": true,
+   "ev": []
+  },
+  {
+   "name": "every source is the Commons File: page of its title",
+   "ok": true,
+   "ev": []
+  },
+  {
+   "name": "every author is a clean name (no markup/URL/licence/date, ≤ 60 chars)",
+   "ok": true,
+   "ev": []
+  },
+  {
+   "name": "every file and variant exists",
+   "ok": true,
+   "ev": []
+  },
+  {
+   "name": "no Commons file (title or sha1) in two rows",
+   "ok": true,
+   "ev": []
+  },
+  {
+   "name": "no photo on a food place",
+   "ok": true,
+   "ev": []
+  },
+  {
+   "name": "no photo on a venue (bar/shop/market/mall/hawker/theatre/arena/entertainment/nightlife/stadium/music tags)",
+   "ok": true,
+   "ev": []
+  },
+  {
+   "name": "no photo on a closed place",
+   "ok": true,
+   "ev": []
+  },
+  {
+   "name": "no Vietnam photo (record or hero slot)",
+   "ok": true,
+   "ev": []
+  },
+  {
+   "name": "rows: heroes / cards",
+   "ok": null,
+   "ev": {
+    "heroes": 80,
+    "cards": 165
+   }
+  },
+  {
+   "name": "every photo URL in 179 built pages has a credit row",
+   "ok": true,
+   "ev": []
+  },
+  {
+   "name": "every server-rendered photo <img> is followed by its own credit (author + licence deed link + File: page link)",
+   "ok": true,
+   "ev": []
+  },
+  {
+   "name": "no Vietnam page carries a photo of a Vietnamese place (other countries' cards allowed)",
+   "ok": true,
+   "ev": []
+  },
+  {
+   "name": "no hub/city hero photo is reused as a card on the same page (server-rendered)",
+   "ok": true,
+   "ev": []
+  },
+  {
+   "name": "credit rows whose photo no built page references (client-drawn rows may still use them)",
+   "ok": null,
+   "ev": []
+  }
+ ],
+ "rows": [
+  {
+   "file": "hero--cleveland-960.jpg",
+   "slot": "hero:cleveland",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Cleveland skyline across Lake Erie from Lakewood Park",
+   "title": "Cleveland skyline from Lakewood Park, June 2024",
+   "author": "Erik Drost",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--japan-960.jpg",
+   "slot": "hero:japan",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Mount Fuji from Lake Kawaguchi",
+   "title": "Mount Fuji from Lake Kawaguchi (2015-10-26)",
+   "author": "Alpsdake",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--singapore-960.jpg",
+   "slot": "hero:singapore",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Marina Bay and the Singapore skyline at dusk",
+   "title": "Marina Bay and the Singapore skyline at dusk - 20110311",
+   "author": "William Cho",
+   "licence": "CC BY-SA 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--osaka-960.jpg",
+   "slot": "hero:osaka",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Osaka Castle keep tower (2015)",
+   "title": "Osaka Castle Keep Tower in 201504 001",
+   "author": "Mc681",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--okinawa-960.jpg",
+   "slot": "hero:okinawa",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Furuzamami Beach, Zamami Island, Okinawa",
+   "title": "Furuzamami beach Okinawa Zamami",
+   "author": "Hashi photo",
+   "licence": "CC BY 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--chicago-960.jpg",
+   "slot": "hero:chicago",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Chicago skyline from Lake Michigan",
+   "title": "Chicago Skyline pictured from Lake Michigan",
+   "author": "Ashokf11",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--pittsburgh-960.jpg",
+   "slot": "hero:pittsburgh",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Downtown Pittsburgh from Mount Washington",
+   "title": "Downtown Pittsburgh seen from Mt. Washington",
+   "author": "EEJCC",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--philadelphia-960.jpg",
+   "slot": "hero:philadelphia",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Philadelphia skyline from the Schuylkill River",
+   "title": "Philadelphia skyline 20240528 (cropped 2-1)",
+   "author": "颐园居",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--washingtondc-960.jpg",
+   "slot": "hero:washingtondc",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "United States Capitol, west front",
+   "title": "United States Capitol west front edit2 (cropped)",
+   "author": "Architect of the Capitol",
+   "licence": "Public domain",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--sanfrancisco-960.jpg",
+   "slot": "hero:sanfrancisco",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "San Francisco skyline from the Golden Gate Bridge",
+   "title": "San Francisco skyline from Golden Gate Bridge, 09 2017",
+   "author": "Mariordo (Mario Roberto Durán Ortiz)",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--columbus-960.jpg",
+   "slot": "hero:columbus",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Downtown Columbus skyline from North Bank Park on the Scioto River",
+   "title": "View of Downtown Columbus Ohio OH from North Bank Park Pavillion on Scioto River",
+   "author": "Rfgagel",
+   "licence": "Public domain",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--miami-960.jpg",
+   "slot": "hero:miami",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Downtown Miami skyline at night across Biscayne Bay",
+   "title": "Downtown Miami, Florida skyline viewed at night over the Biscayne Bay",
+   "author": "Daniel Christensen",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--brussels-960.jpg",
+   "slot": "hero:brussels",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Grand-Place, Brussels",
+   "title": "Grand Place, Brussels, Belgium",
+   "author": "Theedi",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--antwerp-960.jpg",
+   "slot": "hero:antwerp",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Grote Markt and City Hall, Antwerp (2007)",
+   "title": "Grote Markt (Antwerpen)",
+   "author": "Maros M r a z ( Maros )",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--rhineland-960.jpg",
+   "slot": "hero:rhineland",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "View over Bonn from the Rabenlay Skywalk (2025)",
+   "title": "Bonn, Rabenlay Skywalk, Blick auf Bonn -- 2025 -- 2604",
+   "author": "Dietmar Rabich",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--saarland-960.jpg",
+   "slot": "hero:saarland",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "The Saar loop at Mettlach",
+   "title": "Saarschleife at Mettlach (2457306844)",
+   "author": "Wolfgang Staudt from Saarbruecken, Germany",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--asukayama-park-960.jpg",
+   "slot": null,
+   "record": "tokyo#asukayama-park",
+   "name": "Asukayama Park (飛鳥山公園)",
+   "kind": "sight",
+   "g": [
+    "NATURE",
+    "MUS",
+    "FREE",
+    "CASTLE"
+   ],
+   "depicts": "Asukayama Park, Kita, Tokyo",
+   "title": "Asukayama Park",
+   "author": "↑ＰＯＮ",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--chidorigafuchi-960.jpg",
+   "slot": null,
+   "record": "tokyo#chidorigafuchi",
+   "name": "Chidorigafuchi (千鳥ヶ淵緑道)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "NATURE",
+    "FREE",
+    "CASTLE"
+   ],
+   "depicts": "Cherry blossom along the Chidorigafuchi moat",
+   "title": "Chidorigafuchi sakura",
+   "author": "\"Tyoron2\"",
+   "licence": "Public domain",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--chureito-pagoda-arakurayama-sengen-park-960.jpg",
+   "slot": null,
+   "record": "tokyo#chureito-pagoda-arakurayama-sengen-park",
+   "name": "Chūreitō Pagoda — Arakurayama Sengen Park (忠霊塔)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "VIEW",
+    "TEMPLE",
+    "NATURE"
+   ],
+   "depicts": "Chūrei-tō pagoda and Mount Fuji, Arakurayama Sengen Park",
+   "title": "Chureito Pagoda and Mount Fuji",
+   "author": "Manishprabhune",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--edo-tokyo-museum-960.jpg",
+   "slot": null,
+   "record": "tokyo#edo-tokyo-museum",
+   "name": "Edo-Tokyo Museum",
+   "kind": "sight",
+   "g": [
+    "MUS",
+    "ICON",
+    "CASTLE",
+    "NATURE"
+   ],
+   "depicts": "Edo-Tokyo Museum building, Ryōgoku (Kikutake, 1993)",
+   "title": "Edo-Tokyo Museum",
+   "author": "Wiiii",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--edo-tokyo-open-air-architectural-museum-960.jpg",
+   "slot": null,
+   "record": "tokyo#edo-tokyo-open-air-architectural-museum",
+   "name": "Edo-Tokyo Open Air Architectural Museum (江戸東京たてもの園)",
+   "kind": "sight",
+   "g": [
+    "MUS",
+    "CASTLE",
+    "NATURE",
+    "ONSEN"
+   ],
+   "depicts": "East Zone of the Edo-Tokyo Open Air Architectural Museum at dusk",
+   "title": "Edo-Tokyo Open Air Architectural Museum PB252276",
+   "author": "Kestrel",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--enoshima-960.jpg",
+   "slot": null,
+   "record": "tokyo#enoshima",
+   "name": "Enoshima (江の島)",
+   "kind": "sight",
+   "g": [
+    "NATURE",
+    "TEMPLE",
+    "VIEW"
+   ],
+   "depicts": "Enoshima from Kugenuma beach",
+   "title": "Enoshima view from Kugenuma beach",
+   "author": "Quercus acuta",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--gotoku-ji-960.jpg",
+   "slot": null,
+   "record": "tokyo#gotoku-ji",
+   "name": "Gōtoku-ji (豪徳寺)",
+   "kind": "sight",
+   "g": [
+    "TEMPLE",
+    "POP",
+    "FREE"
+   ],
+   "depicts": "Maneki-neko figurines at Gōtoku-ji",
+   "title": "Maneki-neko (Japanese Lucky Cat) Statues at Gotokuji Temple, Tokyo",
+   "author": "Niwrat",
+   "licence": "CC0 1.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--great-buddha-of-kamakura-kotoku-in-960.jpg",
+   "slot": null,
+   "record": "tokyo#great-buddha-of-kamakura-kotoku-in",
+   "name": "Great Buddha of Kamakura — Kōtoku-in (鎌倉大仏)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "TEMPLE"
+   ],
+   "depicts": "The Great Buddha of Kamakura at Kōtoku-in",
+   "title": "The Great Buddha of Kōtoku-in (Kamakura Daibutsu)",
+   "author": "Dandy1022",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--hakone-shrine-960.jpg",
+   "slot": null,
+   "record": "tokyo#hakone-shrine",
+   "name": "Hakone Shrine (箱根神社)",
+   "kind": "sight",
+   "g": [
+    "TEMPLE",
+    "NATURE",
+    "FREE",
+    "CASTLE"
+   ],
+   "depicts": "Hakone Shrine on the shore of Lake Ashi",
+   "title": "Hakone Shrine, Hakone, Kanagawa Prefecture, November 2016",
+   "author": "Leng Cheng",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--hama-rikyu-gardens-960.jpg",
+   "slot": null,
+   "record": "tokyo#hama-rikyu-gardens",
+   "name": "Hama-rikyū Gardens (浜離宮恩賜庭園)",
+   "kind": "sight",
+   "g": [
+    "GARDEN",
+    "VIEW"
+   ],
+   "depicts": "Hama-rikyū Garden in winter",
+   "title": "Hama-rikyū Garden in winter - Tokyo, Japan - DSC09535",
+   "author": "Daderot",
+   "licence": "CC0 1.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--hase-dera-kamakura-960.jpg",
+   "slot": null,
+   "record": "tokyo#hase-dera-kamakura",
+   "name": "Hase-dera, Kamakura (長谷寺)",
+   "kind": "sight",
+   "g": [
+    "TEMPLE",
+    "VIEW"
+   ],
+   "depicts": "Kannon-dō hall of Hase-dera, Kamakura",
+   "title": "Kamakura Hasedera Kannondou",
+   "author": "Junichi",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--imperial-palace-east-gardens-960.jpg",
+   "slot": null,
+   "record": "tokyo#imperial-palace-east-gardens",
+   "name": "Imperial Palace East Gardens (皇居東御苑)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "CASTLE",
+    "GARDEN",
+    "FREE"
+   ],
+   "depicts": "Imperial Palace East Gardens, Tokyo",
+   "title": "Imperial Palace East Garden",
+   "author": "john w",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--inokashira-park-960.jpg",
+   "slot": null,
+   "record": "tokyo#inokashira-park",
+   "name": "Inokashira Park (井の頭恩賜公園)",
+   "kind": "sight",
+   "g": [
+    "ANIME",
+    "NATURE",
+    "FREE",
+    "TEMPLE"
+   ],
+   "depicts": "Inokashira Park in spring, Mitaka",
+   "title": "Mitaka Inokashira Park In Spring 1",
+   "author": "京浜にけ",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--kameido-tenjin-shrine-960.jpg",
+   "slot": null,
+   "record": "tokyo#kameido-tenjin-shrine",
+   "name": "Kameido Tenjin Shrine (亀戸天神社)",
+   "kind": "sight",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "FREE",
+    "ICON"
+   ],
+   "depicts": "Wisteria at Kameido Tenjin Shrine",
+   "title": "Kameido Tenjin Shrine",
+   "author": "Manishprabhune",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--kaminarimon-960.jpg",
+   "slot": null,
+   "record": "tokyo#kaminarimon",
+   "name": "Kaminarimon (雷門)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "FREE",
+    "MUS"
+   ],
+   "depicts": "Kaminarimon, the outer gate of Sensō-ji",
+   "title": "Kaminarimon (outer gate), Sensoji Temple, Akakusa, Tokyo",
+   "author": "Daderot",
+   "licence": "Public domain",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--kanda-myojin-960.jpg",
+   "slot": null,
+   "record": "tokyo#kanda-myojin",
+   "name": "Kanda Myōjin (神田明神)",
+   "kind": "sight",
+   "g": [
+    "ANIME",
+    "TEMPLE",
+    "POP",
+    "CASTLE"
+   ],
+   "depicts": "Cherry blossom at Kanda Myōjin",
+   "title": "Sakura at Kanda Myojin Shrine (5618203831)",
+   "author": "Yoshikazu TAKADA from Tokyo, Japan",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--kegon-falls-960.jpg",
+   "slot": null,
+   "record": "tokyo#kegon-falls",
+   "name": "Kegon Falls (華厳滝)",
+   "kind": "sight",
+   "g": [
+    "NATURE",
+    "VIEW",
+    "TEMPLE"
+   ],
+   "depicts": "Kegon Falls, Nikkō National Park",
+   "title": "Kegon falls nikko 2006-11-04",
+   "author": "Geomr~commonswiki",
+   "licence": "CC BY-SA 1.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--kiyosumi-garden-960.jpg",
+   "slot": null,
+   "record": "tokyo#kiyosumi-garden",
+   "name": "Kiyosumi Garden (清澄庭園)",
+   "kind": "sight",
+   "g": [
+    "GARDEN",
+    "NATURE"
+   ],
+   "depicts": "Kiyosumi Teien Japanese garden",
+   "title": "Kiyosumi Teien - Japanese gardern 1",
+   "author": "Kakidai",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--koishikawa-korakuen-960.jpg",
+   "slot": null,
+   "record": "tokyo#koishikawa-korakuen",
+   "name": "Koishikawa Kōrakuen (小石川後楽園)",
+   "kind": "sight",
+   "g": [
+    "GARDEN",
+    "NATURE"
+   ],
+   "depicts": "Koishikawa Kōrakuen Gardens",
+   "title": "Koishikawa Korakuen Gardens (11168129956)",
+   "author": "Guilhem Vellut from Annecy, France",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--kokyo-gaien-and-nijubashi-960.jpg",
+   "slot": null,
+   "record": "tokyo#kokyo-gaien-and-nijubashi",
+   "name": "Kōkyo Gaien & Nijūbashi (皇居外苑・二重橋)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "CASTLE",
+    "FREE",
+    "GARDEN"
+   ],
+   "depicts": "Nijūbashi bridge at the Imperial Palace",
+   "title": "Nijubashi Bridge. Tokyo. (42521677522)",
+   "author": "Bernard Spragg. NZ from Christchurch, New Zealand",
+   "licence": "Public domain",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--meiji-jingu-960.jpg",
+   "slot": null,
+   "record": "tokyo#meiji-jingu",
+   "name": "Meiji Jingū (明治神宮)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "FREE",
+    "NATURE"
+   ],
+   "depicts": "Meiji Shrine, Shibuya",
+   "title": "Meiji-Jingu-Shrine-01",
+   "author": "Rs1421",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--meiji-jingu-gaien-and-icho-namiki-ginkgo-avenue-960.jpg",
+   "slot": null,
+   "record": "tokyo#meiji-jingu-gaien-and-icho-namiki-ginkgo-avenue",
+   "name": "Meiji Jingū Gaien & Ichō Namiki Ginkgo Avenue (明治神宮外苑 いちょう並木)",
+   "kind": "sight",
+   "g": [
+    "NATURE",
+    "FREE",
+    "TEMPLE",
+    "CASTLE"
+   ],
+   "depicts": "Ginkgo avenue (Ichō Namiki) of Meiji Jingū Gaien in autumn",
+   "title": "Jingu Gaien Ginkgo Street in Autumn 5",
+   "author": "Kakidai",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--mount-takao-960.jpg",
+   "slot": null,
+   "record": "tokyo#mount-takao",
+   "name": "Mount Takao (高尾山)",
+   "kind": "sight",
+   "g": [
+    "NATURE",
+    "TEMPLE",
+    "VIEW"
+   ],
+   "depicts": "Izuna Gongen-dō hall of Yakuō-in on Mount Takao",
+   "title": "Mount Takao - Yakuo-in Temple (9409445148)",
+   "author": "Rob Young from United Kingdom",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--nezu-museum-960.jpg",
+   "slot": null,
+   "record": "tokyo#nezu-museum",
+   "name": "Nezu Museum (根津美術館)",
+   "kind": "sight",
+   "g": [
+    "MUS",
+    "GARDEN"
+   ],
+   "depicts": "Entrance approach of the Nezu Museum, Minami-Aoyama",
+   "title": "Nezu museum entrance tokyo 2014",
+   "author": "Kentin",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--nezu-shrine-960.jpg",
+   "slot": null,
+   "record": "tokyo#nezu-shrine",
+   "name": "Nezu Shrine (根津神社)",
+   "kind": "sight",
+   "g": [
+    "TEMPLE",
+    "FREE",
+    "CASTLE"
+   ],
+   "depicts": "Nezu Shrine, Bunkyō (2010)",
+   "title": "Nezu Shrine 2010",
+   "author": "Wiiii",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--nikko-tosho-gu-960.jpg",
+   "slot": null,
+   "record": "tokyo#nikko-tosho-gu",
+   "name": "Nikkō Tōshō-gū (日光東照宮)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "MUS"
+   ],
+   "depicts": "Yōmeimon gate, Nikkō Tōshō-gū (2024)",
+   "title": "Nikko Toshogu Yomeimon Gate 2024",
+   "author": "Jpatokal",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--owakudani-960.jpg",
+   "slot": null,
+   "record": "tokyo#owakudani",
+   "name": "Ōwakudani (大涌谷)",
+   "kind": "sight",
+   "g": [
+    "NATURE",
+    "VIEW",
+    "ONSEN"
+   ],
+   "depicts": "Ōwakudani valley from the Hakone cable car",
+   "title": "View of Owakudani Valley from Hakone Cable Car",
+   "author": "そらみみ",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--rikugien-gardens-960.jpg",
+   "slot": null,
+   "record": "tokyo#rikugien-gardens",
+   "name": "Rikugien Gardens (六義園)",
+   "kind": "sight",
+   "g": [
+    "GARDEN"
+   ],
+   "depicts": "Rikugien Garden, Komagome",
+   "title": "Rikugien Garden @ Komagome (11165834675)",
+   "author": "Guilhem Vellut from Annecy, France",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--shibamata-taishakuten-960.jpg",
+   "slot": null,
+   "record": "tokyo#shibamata-taishakuten",
+   "name": "Shibamata Taishakuten (柴又帝釈天)",
+   "kind": "sight",
+   "g": [
+    "TEMPLE",
+    "MUS"
+   ],
+   "depicts": "Shibamata Taishakuten (2009)",
+   "title": "Shibamata Taishakuten -02",
+   "author": "Aimaimyi",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--shinjuku-gyoen-national-garden-960.jpg",
+   "slot": null,
+   "record": "tokyo#shinjuku-gyoen-national-garden",
+   "name": "Shinjuku Gyoen National Garden (新宿御苑)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "GARDEN",
+    "NATURE"
+   ],
+   "depicts": "The Japanese garden in Shinjuku Gyoen",
+   "title": "Shinjuku-Gyoen Japan-garden",
+   "author": "MaedaAkihiko",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--state-guest-house-akasaka-palace-960.jpg",
+   "slot": null,
+   "record": "tokyo#state-guest-house-akasaka-palace",
+   "name": "State Guest House, Akasaka Palace (迎賓館赤坂離宮)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "CASTLE",
+    "GARDEN"
+   ],
+   "depicts": "Main entrance of the State Guest House, Akasaka Palace",
+   "title": "State Guest House Akasaka Palace main entrance",
+   "author": "Yasu",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--suga-shrine-stairs-yotsuya-960.jpg",
+   "slot": null,
+   "record": "tokyo#suga-shrine-stairs-yotsuya",
+   "name": "Suga Shrine stairs, Yotsuya (須賀神社 男坂)",
+   "kind": "sight",
+   "g": [
+    "ANIME",
+    "POP",
+    "TEMPLE",
+    "FREE"
+   ],
+   "depicts": "The stairs below Suga Shrine, Yotsuya",
+   "title": "Suga Shrine stairs low-angle 20161113-071158",
+   "author": "Hisagi",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--toki-no-kane-kawagoe-time-bell-799.jpg",
+   "slot": null,
+   "record": "tokyo#toki-no-kane-kawagoe-time-bell",
+   "name": "Toki no Kane — Kawagoe Time Bell (時の鐘)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "CASTLE",
+    "FREE",
+    "VIEW"
+   ],
+   "depicts": "Toki no Kane bell tower, Kawagoe (2013)",
+   "title": "TokiNoKane Kawagoe 2013Feb",
+   "author": "Kentagon",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--tokyo-960.jpg",
+   "slot": "hero:tokyo",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Tokyo skyline at sunset around Tokyo Tower (golden hour)",
+   "title": "Minato City, Tokyo, Japan",
+   "author": "David Kernan",
+   "licence": "CC BY 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--newyork-960.jpg",
+   "slot": "hero:newyork",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Brooklyn Bridge and Downtown Manhattan at golden hour",
+   "title": "Brooklyn Bridge, Downtown Manhattan, and Freedom Tower, golden hour (20137848066)",
+   "author": "John Cunniff from New York, NY, USA",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--tokyo-national-museum-960.jpg",
+   "slot": null,
+   "record": "tokyo#tokyo-national-museum",
+   "name": "Tokyo National Museum (東京国立博物館)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "MUS",
+    "TEMPLE",
+    "CASTLE"
+   ],
+   "depicts": "Honkan of the Tokyo National Museum",
+   "title": "Tokyo National Museum, Honkan 2010",
+   "author": "Wiiii",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--tokyo-skytree-960.jpg",
+   "slot": null,
+   "record": "tokyo#tokyo-skytree",
+   "name": "Tokyo Skytree (東京スカイツリー)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "VIEW",
+    "MUS"
+   ],
+   "depicts": "Tokyo Skytree, Sumida (2016)",
+   "title": "Tokyo Skytree Japan",
+   "author": "Mattias Hill",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--tokyo-station-marunouchi-building-960.jpg",
+   "slot": null,
+   "record": "tokyo#tokyo-station-marunouchi-building",
+   "name": "Tokyo Station Marunouchi Building (東京駅丸の内駅舎)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "CASTLE",
+    "FREE"
+   ],
+   "depicts": "Tokyo Station Marunouchi Building",
+   "title": "Tokyo Station (Marunouchi Building)",
+   "author": "Alexandr3126",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--tsurugaoka-hachimangu-960.jpg",
+   "slot": null,
+   "record": "tokyo#tsurugaoka-hachimangu",
+   "name": "Tsurugaoka Hachimangū (鶴岡八幡宮)",
+   "kind": "sight",
+   "g": [
+    "TEMPLE",
+    "FREE"
+   ],
+   "depicts": "Dance stage and main hall of Tsurugaoka Hachimangū",
+   "title": "Tsurugaoka Hachimangu 001",
+   "author": "Ocdp",
+   "licence": "CC0 1.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--ueno-park-960.jpg",
+   "slot": null,
+   "record": "tokyo#ueno-park",
+   "name": "Ueno Park (上野恩賜公園)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "NATURE",
+    "FREE",
+    "MUS"
+   ],
+   "depicts": "Shinobazu Pond in Ueno Park",
+   "title": "Shinobazu Pond @ Ueno Park (11096102376)",
+   "author": "Guilhem Vellut from Annecy, France",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--ukiyo-e-ota-memorial-museum-of-art-960.jpg",
+   "slot": null,
+   "record": "tokyo#ukiyo-e-ota-memorial-museum-of-art",
+   "name": "Ukiyo-e Ōta Memorial Museum of Art (太田記念美術館)",
+   "kind": "sight",
+   "g": [
+    "MUS",
+    "CASTLE"
+   ],
+   "depicts": "Ōta Memorial Museum of Art, Jingūmae",
+   "title": "Ota-Memorial-Museum-Harajuku-01",
+   "author": "Rs1421",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--yasukuni-shrine-960.jpg",
+   "slot": null,
+   "record": "tokyo#yasukuni-shrine",
+   "name": "Yasukuni Shrine (靖國神社)",
+   "kind": "sight",
+   "g": [
+    "TEMPLE",
+    "CASTLE",
+    "MUS"
+   ],
+   "depicts": "Haiden (worship hall) of Yasukuni Shrine",
+   "title": "2018 Haiden (Yasukuni Shrine)",
+   "author": "Kakidai",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--yoyogi-national-gymnasium-960.jpg",
+   "slot": null,
+   "record": "tokyo#yoyogi-national-gymnasium",
+   "name": "Yoyogi National Gymnasium (国立代々木競技場)",
+   "kind": "sight",
+   "g": [
+    "CASTLE",
+    "FREE",
+    "ICON",
+    "NATURE"
+   ],
+   "depicts": "Yoyogi National Gymnasium from the Gorin footbridge (2020)",
+   "title": "Yoyogi National Gymnasium 20200607-3",
+   "author": "Suicasmo",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "tokyo--zojo-ji-960.jpg",
+   "slot": null,
+   "record": "tokyo#zojo-ji",
+   "name": "Zōjō-ji (増上寺)",
+   "kind": "sight",
+   "g": [
+    "TEMPLE",
+    "FREE",
+    "ICON",
+    "GARDEN"
+   ],
+   "depicts": "Zōjō-ji, Minato, Tokyo (2014)",
+   "title": "Zojo-ji Temple Minata Tokyo August 2014 04",
+   "author": "Piotrus",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "cleveland--a-christmas-story-house-and-museum-960.jpg",
+   "slot": null,
+   "record": "cleveland#a-christmas-story-house-and-museum",
+   "name": "A Christmas Story House & Museum",
+   "kind": "sight",
+   "g": [],
+   "depicts": "A Christmas Story House, Tremont (2008)",
+   "title": "A Christmas Story house",
+   "author": "J. Miers",
+   "licence": "CC BY-SA 1.0",
+   "confidence": "high"
+  },
+  {
+   "file": "cleveland--cleveland-museum-of-art-960.jpg",
+   "slot": null,
+   "record": "cleveland#cleveland-museum-of-art",
+   "name": "Cleveland Museum of Art",
+   "kind": "sight",
+   "g": [],
+   "depicts": "The 1916 building of the Cleveland Museum of Art",
+   "title": "Cleveland Museum of Art - old wing",
+   "author": "Daderot",
+   "licence": "Public domain",
+   "confidence": "high"
+  },
+  {
+   "file": "cleveland--cuyahoga-valley-national-park-960.jpg",
+   "slot": null,
+   "record": "cleveland#cuyahoga-valley-national-park",
+   "name": "Cuyahoga Valley National Park",
+   "kind": "sight",
+   "g": [],
+   "depicts": "The Cuyahoga River in Cuyahoga Valley National Park",
+   "title": "Cuyahoga River, Cuyahoga Valley National Park, Ohio",
+   "author": "Ken Lund",
+   "licence": "CC BY-SA 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "cleveland--franklin-castle-960.jpg",
+   "slot": null,
+   "record": "cleveland#franklin-castle",
+   "name": "Franklin Castle",
+   "kind": "sight",
+   "g": [],
+   "depicts": "Franklin Castle (Hannes Tiedemann House), Ohio City",
+   "title": "Hannes Tiedemann House Cleveland Ohio",
+   "author": "Christopher Busta-Peck",
+   "licence": "CC BY-SA 1.0",
+   "confidence": "high"
+  },
+  {
+   "file": "cleveland--huntington-reservation-and-beach-960.jpg",
+   "slot": null,
+   "record": "cleveland#huntington-reservation-and-beach",
+   "name": "Huntington Reservation & Beach",
+   "kind": "sight",
+   "g": [],
+   "depicts": "Huntington Beach, Bay Village, with the Cleveland skyline beyond",
+   "title": "Huntington Beach With Downtown Cleveland In Background",
+   "author": "Heather McLaughlin from Cleveland, Ohio, United States",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "cleveland--lake-view-cemetery-whole-grounds-960.jpg",
+   "slot": null,
+   "record": "cleveland#lake-view-cemetery-whole-grounds",
+   "name": "Lake View Cemetery (whole grounds)",
+   "kind": "sight",
+   "g": [],
+   "depicts": "James A. Garfield Memorial in Lake View Cemetery",
+   "title": "James A. Garfield Memorial, Lakeview Cemetery, Cleveland Ohio",
+   "author": "Ray Curtis",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "cleveland--rock-and-roll-hall-of-fame-960.jpg",
+   "slot": null,
+   "record": "cleveland#rock-and-roll-hall-of-fame",
+   "name": "Rock & Roll Hall of Fame",
+   "kind": "sight",
+   "g": [],
+   "depicts": "Rock and Roll Hall of Fame building, Cleveland (2016)",
+   "title": "Rock and Roll Hall of Fame, May 2016",
+   "author": "MusikAnimal",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "cleveland--rocky-river-reservation-and-fort-hill-stairs-960.jpg",
+   "slot": null,
+   "record": "cleveland#rocky-river-reservation-and-fort-hill-stairs",
+   "name": "Rocky River Reservation & Fort Hill Stairs",
+   "kind": "sight",
+   "g": [],
+   "depicts": "Rocky River Reservation, Cleveland Metroparks",
+   "title": "Rocky River Reservation",
+   "author": "Chris Light",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "cleveland--soldiers-and-sailors-monument-960.jpg",
+   "slot": null,
+   "record": "cleveland#soldiers-and-sailors-monument",
+   "name": "Soldiers' & Sailors' Monument",
+   "kind": "sight",
+   "g": [],
+   "depicts": "Soldiers' and Sailors' Monument, Public Square, Cleveland",
+   "title": "Soldiers' and Sailors' Monument (Cleveland)",
+   "author": "Cards84664",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "cleveland--squires-castle-640.jpg",
+   "slot": null,
+   "record": "cleveland#squires-castle",
+   "name": "Squire's Castle",
+   "kind": "sight",
+   "g": [],
+   "depicts": "Squire's Castle, North Chagrin Reservation",
+   "title": "Squire's Castle 2",
+   "author": "sunsets_for_you",
+   "licence": "CC BY-SA 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "cleveland--st-theodosius-russian-orthodox-cathedral-960.jpg",
+   "slot": null,
+   "record": "cleveland#st-theodosius-russian-orthodox-cathedral",
+   "name": "St. Theodosius Russian Orthodox Cathedral",
+   "kind": "sight",
+   "g": [],
+   "depicts": "Onion domes of St. Theodosius Cathedral above I-490, Tremont",
+   "title": "St. Theodosius Russian Orthodox Cathedral, Tremont, Cleveland, OH - 52048996485",
+   "author": "w_lemay",
+   "licence": "CC BY-SA 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "cleveland--steamship-william-g-mather-960.jpg",
+   "slot": null,
+   "record": "cleveland#steamship-william-g-mather",
+   "name": "Steamship William G. Mather",
+   "kind": "sight",
+   "g": [],
+   "depicts": "Steamship William G. Mather museum ship, Cleveland",
+   "title": "SteamshipWilliamGMather",
+   "author": "JuanPDP",
+   "licence": "Public domain",
+   "confidence": "high"
+  },
+  {
+   "file": "cleveland--terminal-tower-observation-deck-960.jpg",
+   "slot": null,
+   "record": "cleveland#terminal-tower-observation-deck",
+   "name": "Terminal Tower Observation Deck",
+   "kind": "sight",
+   "g": [],
+   "depicts": "Terminal Tower from the Warehouse District",
+   "title": "Cleveland - Terminal Tower",
+   "author": "edseloh",
+   "licence": "CC BY-SA 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "cleveland--the-arcade-old-arcade-960.jpg",
+   "slot": null,
+   "record": "cleveland#the-arcade-old-arcade",
+   "name": "The Arcade (Old Arcade)",
+   "kind": "sight",
+   "g": [],
+   "depicts": "The Cleveland Arcade, 401 Euclid Avenue",
+   "title": "Cleveland Arcade (Cleveland, Ohio)",
+   "author": "Martin Linsey, HABS photographer",
+   "licence": "Public domain",
+   "confidence": "high"
+  },
+  {
+   "file": "cleveland--virginia-kendall-ledges-overlook-960.jpg",
+   "slot": null,
+   "record": "cleveland#virginia-kendall-ledges-overlook",
+   "name": "Virginia Kendall Ledges Overlook",
+   "kind": "sight",
+   "g": [],
+   "depicts": "Rock staircase on the Ledges trail, Virginia Kendall",
+   "title": "Rock Staircase along the trail at Virginia Kendall Ledges within Cuyahoga Valley National Park",
+   "author": "Benjaminlehmanphotography",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "cleveland--wade-memorial-chapel-960.jpg",
+   "slot": null,
+   "record": "cleveland#wade-memorial-chapel",
+   "name": "Wade Memorial Chapel",
+   "kind": "sight",
+   "g": [],
+   "depicts": "Main entrance of the Wade Memorial Chapel, Lake View Cemetery",
+   "title": "Wade Memorial Chapel, Lakeview Cemetery, Cleveland Ohio",
+   "author": "Ray Curtis",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--american-museum-of-natural-history-960.jpg",
+   "slot": null,
+   "record": "newyork#american-museum-of-natural-history",
+   "name": "American Museum of Natural History",
+   "kind": "sight",
+   "g": [
+    "MUS"
+   ],
+   "depicts": "Central Park West façade of the American Museum of Natural History",
+   "title": "Facade of the American museum of natural history NYC (1)",
+   "author": "Ferfive",
+   "licence": "CC BY 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--bethesda-terrace-and-fountain-960.jpg",
+   "slot": null,
+   "record": "newyork#bethesda-terrace-and-fountain",
+   "name": "Bethesda Terrace and Fountain",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "depicts": "Bethesda Fountain from Bethesda Terrace, Central Park",
+   "title": "Bethesda Fountain from the Bethesda Terrace - Central Park - NYC - August 23 2009 - 2",
+   "author": "Francisco Diez from New Jersey, USA",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--brooklyn-botanic-garden-960.jpg",
+   "slot": null,
+   "record": "newyork#brooklyn-botanic-garden",
+   "name": "Brooklyn Botanic Garden",
+   "kind": "sight",
+   "g": [
+    "PARK"
+   ],
+   "depicts": "Japanese Hill-and-Pond Garden, Brooklyn Botanic Garden",
+   "title": "Brooklyn Botanic Garden - 20200911 - 18 - Japanese Hill-and-Pond Garden",
+   "author": "Andre Carrotflower",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--brooklyn-bridge-park-960.jpg",
+   "slot": null,
+   "record": "newyork#brooklyn-bridge-park",
+   "name": "Brooklyn Bridge Park",
+   "kind": "sight",
+   "g": [
+    "ROOF",
+    "PARK",
+    "ICON",
+    "WATER"
+   ],
+   "depicts": "Brooklyn Bridge Park Piers 5 and 6 with Manhattan and the Brooklyn Bridge",
+   "title": "Brooklyn Bridge Park Pier 5 and 6",
+   "author": "Wusel007",
+   "licence": "CC0 1.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--brooklyn-museum-960.jpg",
+   "slot": null,
+   "record": "newyork#brooklyn-museum",
+   "name": "Brooklyn Museum",
+   "kind": "sight",
+   "g": [
+    "MUS",
+    "PARK"
+   ],
+   "depicts": "Exterior of the Brooklyn Museum, Eastern Parkway",
+   "title": "Exterior of the Brooklyn Museum",
+   "author": "Kidfly182",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--cathedral-of-st-john-the-divine-960.jpg",
+   "slot": null,
+   "record": "newyork#cathedral-of-st-john-the-divine",
+   "name": "Cathedral of St. John the Divine",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "depicts": "West façade of the Cathedral of St. John the Divine (2009)",
+   "title": "The Cathedral Church of Saint John the Divine",
+   "author": "Simon.Absonditus",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--central-park-960.jpg",
+   "slot": null,
+   "record": "newyork#central-park",
+   "name": "Central Park",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "depicts": "Bow Bridge in autumn, Central Park",
+   "title": "Bow Bridge in Autumn, Central Park",
+   "author": "David Joyce from Gray, TN, United States",
+   "licence": "CC BY-SA 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--chrysler-building-960.jpg",
+   "slot": null,
+   "record": "newyork#chrysler-building",
+   "name": "Chrysler Building",
+   "kind": "sight",
+   "g": [
+    "ARCH"
+   ],
+   "depicts": "Crown of the Chrysler Building",
+   "title": "Chrysler building- top",
+   "author": "Petri Krohn",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--dia-beacon-960.jpg",
+   "slot": null,
+   "record": "newyork#dia-beacon",
+   "name": "Dia Beacon",
+   "kind": "sight",
+   "g": [
+    "MUS"
+   ],
+   "depicts": "Entrance of Dia:Beacon, the former Nabisco printing plant (2006)",
+   "title": "Diabeacon 2006",
+   "author": "Rolf Müller",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--empire-state-building-756.jpg",
+   "slot": null,
+   "record": "newyork#empire-state-building",
+   "name": "Empire State Building",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "ARCH"
+   ],
+   "depicts": "Empire State Building from the Top of the Rock (2010)",
+   "title": "Empire State Building from the Top of the Rock",
+   "author": "Jiuguang Wang",
+   "licence": "Public domain",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--flatiron-building-960.jpg",
+   "slot": null,
+   "record": "newyork#flatiron-building",
+   "name": "Flatiron Building",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "ARTS"
+   ],
+   "depicts": "Flatiron Building, Manhattan (2019)",
+   "title": "Flatiron Building, Manhattan, New York, USA",
+   "author": "dconvertini",
+   "licence": "CC BY-SA 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--freshkills-park-960.jpg",
+   "slot": null,
+   "record": "newyork#freshkills-park",
+   "name": "Freshkills Park",
+   "kind": "sight",
+   "g": [
+    "PARK"
+   ],
+   "depicts": "Freshkills Park, Staten Island",
+   "title": "Freshkills Park in Staten Island, New York",
+   "author": "Jonathan Warren",
+   "licence": "CC0 1.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--neue-galerie-new-york-960.jpg",
+   "slot": null,
+   "record": "newyork#neue-galerie-new-york",
+   "name": "Neue Galerie New York",
+   "kind": "sight",
+   "g": [
+    "ARCH"
+   ],
+   "depicts": "Neue Galerie New York in the William Starr Miller House, 1048 Fifth Avenue",
+   "title": "Neue Galerie New York (51333722560)",
+   "author": "Eden, Janine and Jim from New York City",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--new-york-botanical-garden-960.jpg",
+   "slot": null,
+   "record": "newyork#new-york-botanical-garden",
+   "name": "New York Botanical Garden",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "depicts": "Enid A. Haupt Conservatory, New York Botanical Garden",
+   "title": "New York Botanical Garden October 2016 004",
+   "author": "King of Hearts",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--new-york-chinese-scholars-garden-800.jpg",
+   "slot": null,
+   "record": "newyork#new-york-chinese-scholars-garden",
+   "name": "New York Chinese Scholar's Garden",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "WATER"
+   ],
+   "depicts": "The New York Chinese Scholar's Garden at Snug Harbor",
+   "title": "NewYorkChineseScholarGarden",
+   "author": "Igor koyfman",
+   "licence": "Public domain",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--new-york-state-pavilion-960.jpg",
+   "slot": null,
+   "record": "newyork#new-york-state-pavilion",
+   "name": "New York State Pavilion",
+   "kind": "sight",
+   "g": [
+    "ICON"
+   ],
+   "depicts": "Observation towers from inside the New York State Pavilion (2015)",
+   "title": "New York State Pavilion with Towers",
+   "author": "Erin Slonaker",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--pelham-bay-park-960.jpg",
+   "slot": null,
+   "record": "newyork#pelham-bay-park",
+   "name": "Pelham Bay Park",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "WATER"
+   ],
+   "depicts": "Orchard Beach in Pelham Bay Park from the air (2020)",
+   "title": "Orchard Beach - Pelham Bay Park - The Bronx",
+   "author": "Bebo2good1",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--prospect-park-960.jpg",
+   "slot": null,
+   "record": "newyork#prospect-park",
+   "name": "Prospect Park",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "FAM"
+   ],
+   "depicts": "Long Meadow, Prospect Park, on a fall morning (2018)",
+   "title": "Fall Morning Prospect Park Long Meadow",
+   "author": "Badtartin",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--rockefeller-center-960.jpg",
+   "slot": null,
+   "record": "newyork#rockefeller-center",
+   "name": "Rockefeller Center",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "ICON",
+    "ARCH",
+    "WATER"
+   ],
+   "depicts": "30 Rockefeller Plaza",
+   "title": "30 Rockefeller Plaza (NBC headquarters)",
+   "author": "句",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--snug-harbor-cultural-center-and-botanical-garden-960.jpg",
+   "slot": null,
+   "record": "newyork#snug-harbor-cultural-center-and-botanical-garden",
+   "name": "Snug Harbor Cultural Center & Botanical Garden",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "WATER",
+    "FREE"
+   ],
+   "depicts": "Northern buildings of Sailors' Snug Harbor, Staten Island (2007)",
+   "title": "Sailors-snug-harbor",
+   "author": "Dmadeo",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--solomon-r-guggenheim-museum-960.jpg",
+   "slot": null,
+   "record": "newyork#solomon-r-guggenheim-museum",
+   "name": "Solomon R. Guggenheim Museum",
+   "kind": "sight",
+   "g": [
+    "MUS"
+   ],
+   "depicts": "Solomon R. Guggenheim Museum (Frank Lloyd Wright, 1959)",
+   "title": "Solomon R. Guggenheim Museum New York City",
+   "author": "Kristoffer Arvidsson (Göteborgs konstmuseum)",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--st-patricks-cathedral-960.jpg",
+   "slot": null,
+   "record": "newyork#st-patricks-cathedral",
+   "name": "St. Patrick's Cathedral",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "ARCH"
+   ],
+   "depicts": "Fifth Avenue façade of St. Patrick's Cathedral (2012)",
+   "title": "NYC - St. Patrick's Cathedral - Facade",
+   "author": "Jean-Christophe BENOIST",
+   "licence": "CC BY 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--staten-island-ferry-st-george-terminal-960.jpg",
+   "slot": null,
+   "record": "newyork#staten-island-ferry-st-george-terminal",
+   "name": "Staten Island Ferry (St. George Terminal)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "WATER",
+    "FREE"
+   ],
+   "depicts": "St. George Ferry Terminal, Staten Island (2014)",
+   "title": "Saint George Terminal",
+   "author": "Fletcher6",
+   "licence": "CC BY 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--the-metropolitan-museum-of-art-960.jpg",
+   "slot": null,
+   "record": "newyork#the-metropolitan-museum-of-art",
+   "name": "The Metropolitan Museum of Art",
+   "kind": "sight",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "depicts": "Fifth Avenue entrance façade of the Metropolitan Museum of Art",
+   "title": "Metropolitan Museum of Art (The Met) - Central Park, NYC",
+   "author": "Hugo Schneider",
+   "licence": "CC BY-SA 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--van-cortlandt-park-960.jpg",
+   "slot": null,
+   "record": "newyork#van-cortlandt-park",
+   "name": "Van Cortlandt Park",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "depicts": "Van Cortlandt Lake in Van Cortlandt Park",
+   "title": "Van Cortlandt Lake, The Bronx",
+   "author": "Mbochart",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "newyork--whitney-museum-of-american-art-960.jpg",
+   "slot": null,
+   "record": "newyork#whitney-museum-of-american-art",
+   "name": "Whitney Museum of American Art",
+   "kind": "sight",
+   "g": [
+    "MUS"
+   ],
+   "depicts": "Whitney Museum (Renzo Piano, 2015) from the west, 99 Gansevoort Street",
+   "title": "Whitney Museum from west",
+   "author": "Beyond My Ken",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "singapore--chinatown--buddha-tooth-relic-temple-and-museum-960.jpg",
+   "slot": null,
+   "record": "singapore/chinatown#buddha-tooth-relic-temple-and-museum",
+   "name": "Buddha Tooth Relic Temple & Museum",
+   "kind": "sight",
+   "g": [
+    "TEMPLE",
+    "MUS"
+   ],
+   "depicts": "Buddha Tooth Relic Temple and Museum from South Bridge Road (2010)",
+   "title": "Buddha Tooth Relic Temple and Museum",
+   "author": "Riction",
+   "licence": "CC BY 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "singapore--chinatown--sri-mariamman-temple-960.jpg",
+   "slot": null,
+   "record": "singapore/chinatown#sri-mariamman-temple",
+   "name": "Sri Mariamman Temple",
+   "kind": "sight",
+   "g": [
+    "TEMPLE",
+    "VIEW",
+    "ARCH"
+   ],
+   "depicts": "Gopuram of the Sri Mariamman Temple, South Bridge Road",
+   "title": "Gopuram of Sri Mariamman Temple, Singapore, 20240122 0842 2942",
+   "author": "Jakub Hałun",
+   "licence": "CC BY 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "wheeling--meadowcroft-rockshelter-and-historic-village-960.jpg",
+   "slot": null,
+   "record": "wheeling#meadowcroft-rockshelter-and-historic-village",
+   "name": "Meadowcroft Rockshelter & Historic Village",
+   "kind": "sight",
+   "g": [
+    "HIST"
+   ],
+   "depicts": "Meadowcroft Rockshelter (2012)",
+   "title": "Meadowcroft Rockshelter 07",
+   "author": "Jbarta",
+   "licence": "CC0 1.0",
+   "confidence": "high"
+  },
+  {
+   "file": "wheeling--pennsylvania-trolley-museum-960.jpg",
+   "slot": null,
+   "record": "wheeling#pennsylvania-trolley-museum",
+   "name": "Pennsylvania Trolley Museum",
+   "kind": "sight",
+   "g": [
+    "MUS"
+   ],
+   "depicts": "Pennsylvania Trolley Museum, Washington, PA (2007)",
+   "title": "PA Trolley Museum 071907 008",
+   "author": "John Mueller from Shenandoah Valley of VA, USA",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "wheeling--west-virginia-independence-hall-960.jpg",
+   "slot": null,
+   "record": "wheeling#west-virginia-independence-hall",
+   "name": "West Virginia Independence Hall",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "HIST",
+    "MUS",
+    "FREE"
+   ],
+   "depicts": "West Virginia Independence Hall, 1528 Market Street",
+   "title": "West Virginia Independence Hall",
+   "author": "WeaponizingArchitecture",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "wheeling--wheeling-suspension-bridge-960.jpg",
+   "slot": null,
+   "record": "wheeling#wheeling-suspension-bridge",
+   "name": "Wheeling Suspension Bridge",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH"
+   ],
+   "depicts": "Wheeling Suspension Bridge over the Ohio River (HAER, Library of Congress)",
+   "title": "Wheeling Suspension Bridge",
+   "author": "Unknown author",
+   "licence": "Public domain",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--statecollege-960.jpg",
+   "slot": "hero:statecollege",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Old Main, Penn State University Park, in summer",
+   "title": "Penn state old main summer",
+   "author": "George Chriss",
+   "licence": "CC BY 2.5",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--indianapolis-960.jpg",
+   "slot": "hero:indianapolis",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "The Central Canal and the downtown Indianapolis skyline",
+   "title": "Indy Central Canal",
+   "author": "Daniel Schwen",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--harrisburg-960.jpg",
+   "slot": "hero:harrisburg",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "The Pennsylvania State Capitol dome from State Street, Harrisburg",
+   "title": "Pennsylvania State Capitol from State Street, Harrisburg, PA - 52441712893",
+   "author": "w_lemay",
+   "licence": "CC BY-SA 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--bruges-960.jpg",
+   "slot": "hero:bruges",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "The Rozenhoedkaai canal, Bruges",
+   "title": "Brugge-CanalRozenhoedkaai",
+   "author": "Jean-Christophe BENOIST",
+   "licence": "CC BY 2.5",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--liege-960.jpg",
+   "slot": "hero:liege",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Montagne de Bueren stairway, Liège",
+   "title": "Montagne de Bueren Liège",
+   "author": "FriedrichFrisch",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--aachen-960.jpg",
+   "slot": "hero:aachen",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "The Markt and City Hall, Aachen",
+   "title": "Aachen, Markt mit Rathaus",
+   "author": "Armin Kleiner",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--us-960.jpg",
+   "slot": "hero:us",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Golden Gate Bridge at golden hour",
+   "title": "Golden Gate Bridge At Golden Hour",
+   "author": "Ashley98lee",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--belgium-960.jpg",
+   "slot": "hero:belgium",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Gravensteen castle, Ghent, at golden hour",
+   "title": "Gravensteen, Ghent (DSCF0191)",
+   "author": "Trougnouf (Benoit Brummer)",
+   "licence": "CC BY 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--germany-960.jpg",
+   "slot": "hero:germany",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Old Town Hall on the Markt, Bonn (2009)",
+   "title": "Altes Rathaus, Bonn",
+   "author": "Mike Peel",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--hokkaido-960.jpg",
+   "slot": "hero:hokkaido",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Otaru Canal, Hokkaido, in summer (17 August 2014)",
+   "title": "Otaru Canal 20140817",
+   "author": "Suicasmo",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--siliconvalley-960.jpg",
+   "slot": "hero:siliconvalley",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Stanford Memorial Church from the Main Quad (June 2025)",
+   "title": "Stanford Memorial Church (2025)-L1007381",
+   "author": "Frank Schulenburg",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--dayton-960.jpg",
+   "slot": "hero:dayton",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Dayton skyline over the Great Miami River",
+   "title": "DaytonSkylineGMRiver",
+   "author": "The Mighty Tim Inconnu from Dayton, United States of America",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--youngstown-960.jpg",
+   "slot": "hero:youngstown",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Lanterman's Mill, Mill Creek Park, Youngstown (May 2008)",
+   "title": "Lanterman's Mill - Mill Creek Park",
+   "author": "Keith Roberts",
+   "licence": "Public domain",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--erie-960.jpg",
+   "slot": "hero:erie",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Erie's bayfront and downtown from the Bicentennial Tower (14 June 2013)",
+   "title": "Erie Pa from Bicentennial Tower",
+   "author": "AndreCarrotflower",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "kyoto--kyoto-international-manga-museum-960.jpg",
+   "slot": null,
+   "record": "kyoto#kyoto-international-manga-museum",
+   "name": "Kyoto International Manga Museum",
+   "kind": "sight",
+   "g": [
+    "ANIME",
+    "MUS",
+    "POP"
+   ],
+   "depicts": "Kyoto International Manga Museum",
+   "title": "京都国際マンガミュージアム",
+   "author": "ja:利用者:珈琲ルンバ",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--bagan--bagan-archaeological-zone-960.jpg",
+   "slot": null,
+   "record": "singapore/bagan#bagan-archaeological-zone",
+   "name": "Bagan Archaeological Zone",
+   "kind": "sight",
+   "g": [
+    "HERITAGE",
+    "TEMPLE"
+   ],
+   "depicts": "Bagan Archaeological Zone",
+   "title": "Bagan, Burma",
+   "author": "Corto Maltese 1999",
+   "licence": "CC BY 2.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--bangkok--grand-palace-and-wat-phra-kaew-960.jpg",
+   "slot": null,
+   "record": "singapore/bangkok#grand-palace-and-wat-phra-kaew",
+   "name": "Grand Palace & Wat Phra Kaew",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "TEMPLE"
+   ],
+   "depicts": "Grand Palace & Wat Phra Kaew",
+   "title": "0005574 - Wat Phra Kaew 006",
+   "author": "Preecha.MJ",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--bukit-timah--singapore-botanic-gardens-960.jpg",
+   "slot": null,
+   "record": "singapore/bukit-timah#singapore-botanic-gardens",
+   "name": "Singapore Botanic Gardens",
+   "kind": "sight",
+   "g": [
+    "HERITAGE",
+    "PARK"
+   ],
+   "depicts": "Palm Valley, Singapore Botanic Gardens (August 2006)",
+   "title": "Singapore Botanic Gardens Palm Valley",
+   "author": "Calvin teo",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "singapore--changi--jewel-changi-airport-and-hsbc-rain-vortex-960.jpg",
+   "slot": null,
+   "record": "singapore/changi#jewel-changi-airport-and-hsbc-rain-vortex",
+   "name": "Jewel Changi Airport & HSBC Rain Vortex",
+   "kind": "sight",
+   "g": [
+    "TEMPLE",
+    "PARK",
+    "ARCH"
+   ],
+   "depicts": "Jewel Changi Airport & HSBC Rain Vortex",
+   "title": "Jewel Changi Airport 13-11-2023(1)",
+   "author": "LN9267",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--chiang-mai--wat-phra-that-doi-suthep-960.jpg",
+   "slot": null,
+   "record": "singapore/chiang-mai#wat-phra-that-doi-suthep",
+   "name": "Wat Phra That Doi Suthep",
+   "kind": "sight",
+   "g": [
+    "TEMPLE"
+   ],
+   "depicts": "Wat Phra That Doi Suthep",
+   "title": "Wat Phra That Doi Suthep - Chiang Mai",
+   "author": "JJ Harrison",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--civic-district--national-gallery-singapore-960.jpg",
+   "slot": null,
+   "record": "singapore/civic-district#national-gallery-singapore",
+   "name": "National Gallery Singapore",
+   "kind": "sight",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "depicts": "National Gallery Singapore",
+   "title": "Interior of the National Gallery Singapore",
+   "author": "Basile Morin",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--jakarta--kota-tua-old-batavia-960.jpg",
+   "slot": null,
+   "record": "singapore/jakarta#kota-tua-old-batavia",
+   "name": "Kota Tua (Old Batavia)",
+   "kind": "sight",
+   "g": [
+    "HERITAGE",
+    "PARK",
+    "MUS",
+    "ARCH"
+   ],
+   "depicts": "Kota Tua",
+   "title": "Batavia City Hall (Jakarta History Museum) Fatahillah Square (2025) - img 01",
+   "author": "Chainwit.",
+   "licence": "CC BY 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--luang-prabang--luang-prabang-old-town-wat-xieng-thong-960.jpg",
+   "slot": null,
+   "record": "singapore/luang-prabang#luang-prabang-old-town-wat-xieng-thong",
+   "name": "Luang Prabang Old Town (Wat Xieng Thong)",
+   "kind": "sight",
+   "g": [
+    "HERITAGE",
+    "TEMPLE",
+    "ARCH"
+   ],
+   "depicts": "Luang Prabang Old Town",
+   "title": "Phou si Luang Prabang Laos プーシーの丘 ラオス・ルアンプラバーン DSCF6777",
+   "author": "松岡明芳",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--malacca--a-famosa-and-dutch-square-jonker-street-960.jpg",
+   "slot": null,
+   "record": "singapore/malacca#a-famosa-and-dutch-square-jonker-street",
+   "name": "A Famosa & Dutch Square (Jonker Street)",
+   "kind": "sight",
+   "g": [
+    "HERITAGE",
+    "TEMPLE",
+    "ARCH"
+   ],
+   "depicts": "A Famosa & Dutch Square",
+   "title": "A Famosa Fortress",
+   "author": "Chongkian",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--manila--intramuros-960.jpg",
+   "slot": null,
+   "record": "singapore/manila#intramuros",
+   "name": "Intramuros",
+   "kind": "sight",
+   "g": [
+    "HERITAGE",
+    "ARCH"
+   ],
+   "depicts": "Intramuros",
+   "title": "Baluartillo de San José, Manila, Filipinas, 2023-08-26, DD 41",
+   "author": "Diego Delso",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--marina-bay--gardens-by-the-bay-960.jpg",
+   "slot": null,
+   "record": "singapore/marina-bay#gardens-by-the-bay",
+   "name": "Gardens by the Bay",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "PARK",
+    "ARCH"
+   ],
+   "depicts": "Gardens by the Bay",
+   "title": "Supertree Grove, Gardens by the Bay, Singapore - 20120712-02",
+   "author": "Shiny Things",
+   "licence": "CC BY 2.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--marine-parade--east-coast-park-960.jpg",
+   "slot": null,
+   "record": "singapore/marine-parade#east-coast-park",
+   "name": "East Coast Park",
+   "kind": "sight",
+   "g": [
+    "PARK"
+   ],
+   "depicts": "East Coast Park beach at sunset (August 2023)",
+   "title": "East Coast Park Beach as the sun sets in Singapore",
+   "author": "AnamikaWrites",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "singapore--phnom-penh--royal-palace-and-silver-pagoda-960.jpg",
+   "slot": null,
+   "record": "singapore/phnom-penh#royal-palace-and-silver-pagoda",
+   "name": "Royal Palace & Silver Pagoda",
+   "kind": "sight",
+   "g": [
+    "TEMPLE"
+   ],
+   "depicts": "Royal Palace & Silver Pagoda",
+   "title": "Le Palais Royal (Phnom Penh) (6997773481)",
+   "author": "Jean-Pierre Dalbéra from Paris, France",
+   "licence": "CC BY 2.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--siem-reap--angkor-wat-960.jpg",
+   "slot": null,
+   "record": "singapore/siem-reap#angkor-wat",
+   "name": "Angkor Wat",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "HERITAGE",
+    "TEMPLE",
+    "ARCH"
+   ],
+   "depicts": "Angkor Wat",
+   "title": "Angkor Wat",
+   "author": "Bjørn Christian Tørrissen",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--southern-ridges--southern-ridges-and-henderson-waves-960.jpg",
+   "slot": null,
+   "record": "singapore/southern-ridges#southern-ridges-and-henderson-waves",
+   "name": "Southern Ridges & Henderson Waves",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "depicts": "Southern Ridges & Henderson Waves",
+   "title": "HendersonWaves-Singapore-externalview-20090220",
+   "author": "Kok Leng Yeo from Singapore.",
+   "licence": "CC BY 2.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--yangon--shwedagon-pagoda-960.jpg",
+   "slot": null,
+   "record": "singapore/yangon#shwedagon-pagoda",
+   "name": "Shwedagon Pagoda",
+   "kind": "sight",
+   "g": [
+    "TEMPLE"
+   ],
+   "depicts": "Shwedagon Pagoda",
+   "title": "Shwedagon Pagoda 2017",
+   "author": "Bjørn Christian Tørrissen",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--yogyakarta--borobudur-960.jpg",
+   "slot": null,
+   "record": "singapore/yogyakarta#borobudur",
+   "name": "Borobudur",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "HERITAGE",
+    "TEMPLE"
+   ],
+   "depicts": "Borobudur",
+   "title": "Pradaksina",
+   "author": "Heri nugroho",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "wheeling--blaine-hill-s-bridge-960.jpg",
+   "slot": null,
+   "record": "wheeling#blaine-hill-s-bridge",
+   "name": "Blaine Hill \"S\" Bridge",
+   "kind": "sight",
+   "g": [
+    "HIST",
+    "ARCH",
+    "PARK"
+   ],
+   "depicts": "Blaine Hill \"S\" Bridge",
+   "title": "Blaine Hill S Bridge Ohio",
+   "author": "Bwsmith84",
+   "licence": "CC BY 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hokkaido--goryokaku-960.jpg",
+   "slot": null,
+   "record": "hokkaido#goryokaku",
+   "name": "Goryōkaku (五稜郭)",
+   "kind": "sight",
+   "g": [
+    "ANIME",
+    "ICON",
+    "CASTLE",
+    "NATURE"
+   ],
+   "depicts": "Goryōkaku",
+   "title": "Hakodate Goryokaku Panorama 1",
+   "author": "Keihin nike",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hokkaido--jozankei-onsen-960.jpg",
+   "slot": null,
+   "record": "hokkaido#jozankei-onsen",
+   "name": "Jōzankei Onsen (定山渓温泉)",
+   "kind": "sight",
+   "g": [
+    "ANIME",
+    "ONSEN",
+    "NATURE"
+   ],
+   "depicts": "Jōzankei Onsen, Sapporo",
+   "title": "Jozankei Hot Springs. (47978462228)",
+   "author": "MIKI Yoshihito from Sapporo City,Hokkaido., JAPAN",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hokkaido--otaru-city-general-museum-960.jpg",
+   "slot": null,
+   "record": "hokkaido#otaru-city-general-museum",
+   "name": "Otaru City General Museum (小樽市総合博物館)",
+   "kind": "sight",
+   "g": [
+    "ANIME",
+    "MUS",
+    "CASTLE"
+   ],
+   "depicts": "Otaru City General Museum",
+   "title": "Otaru city museum main entrance",
+   "author": "Twilight2640",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hokkaido--sapporo-beer-museum-960.jpg",
+   "slot": null,
+   "record": "hokkaido#sapporo-beer-museum",
+   "name": "Sapporo Beer Museum (サッポロビール博物館)",
+   "kind": "sight",
+   "g": [
+    "ANIME",
+    "MUS"
+   ],
+   "depicts": "Sapporo Beer Museum exterior (May 2007)",
+   "title": "Sapporo Beer Museum",
+   "author": "K. Takeda",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hokkaido--shiroi-koibito-park-960.jpg",
+   "slot": null,
+   "record": "hokkaido#shiroi-koibito-park",
+   "name": "Shiroi Koibito Park (白い恋人パーク)",
+   "kind": "sight",
+   "g": [
+    "ANIME",
+    "POP",
+    "MUS",
+    "NATURE"
+   ],
+   "depicts": "Shiroi Koibito Park",
+   "title": "Shiroi Koibito Park 20260703o",
+   "author": "掬茶",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hokkaido--tsukigata-kabato-museum-former-kabato-prison-960.jpg",
+   "slot": null,
+   "record": "hokkaido#tsukigata-kabato-museum-former-kabato-prison",
+   "name": "Tsukigata Kabato Museum — former Kabato Prison (月形樺戸博物館)",
+   "kind": "sight",
+   "g": [
+    "ANIME",
+    "MUS",
+    "NATURE"
+   ],
+   "depicts": "Tsukigata Kabato Museum — former Kabato Prison",
+   "title": "Tsukigata Kabato museum",
+   "author": "Totti",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "kyoto--daikichiyama-observation-deck-960.jpg",
+   "slot": null,
+   "record": "kyoto#daikichiyama-observation-deck",
+   "name": "Daikichiyama Observation Deck (大吉山展望台, Buttoku-san)",
+   "kind": "sight",
+   "g": [
+    "ANIME",
+    "POP",
+    "VIEW",
+    "NATURE"
+   ],
+   "depicts": "Daikichiyama Observation Deck",
+   "title": "Mt.Daikichi-Yama 03",
+   "author": "SRIA",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "kyoto--uji-bridge-960.jpg",
+   "slot": null,
+   "record": "kyoto#uji-bridge",
+   "name": "Uji Bridge",
+   "kind": "sight",
+   "g": [
+    "ANIME",
+    "CASTLE",
+    "VIEW",
+    "FREE"
+   ],
+   "depicts": "Uji Bridge",
+   "title": "Uji-Bridge",
+   "author": "京都東",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "okinawa--azama-sun-sun-beach-960.jpg",
+   "slot": null,
+   "record": "okinawa#azama-sun-sun-beach",
+   "name": "Azama Sun Sun Beach (あざまサンサンビーチ)",
+   "kind": "sight",
+   "g": [
+    "ANIME",
+    "NATURE"
+   ],
+   "depicts": "Azama Sun-Sun Beach from Route 331 (March 2015)",
+   "title": "View of Azama Sun-Sun Beach from Japan National Route 331 2",
+   "author": "そらみみ",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "okinawa--cape-chinen-park-960.jpg",
+   "slot": null,
+   "record": "okinawa#cape-chinen-park",
+   "name": "Cape Chinen Park (知念岬公園)",
+   "kind": "sight",
+   "g": [
+    "ANIME",
+    "VIEW",
+    "POP",
+    "NATURE"
+   ],
+   "depicts": "Cape Chinen Park, Nanjō",
+   "title": "Cape Chinen Park",
+   "author": "そらみみ",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "okinawa--nirai-kanai-bridge-overlook-960.jpg",
+   "slot": null,
+   "record": "okinawa#nirai-kanai-bridge-overlook",
+   "name": "Nirai Kanai Bridge overlook (ニライカナイ橋)",
+   "kind": "sight",
+   "g": [
+    "ANIME",
+    "VIEW",
+    "POP",
+    "FREE"
+   ],
+   "depicts": "Nirai Kanai Bridge (August 2022)",
+   "title": "Nirai Kanai Bridge 202208",
+   "author": "Kugel~commonswiki",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "siliconvalley--baylands-nature-preserve-960.jpg",
+   "slot": null,
+   "record": "siliconvalley#baylands-nature-preserve",
+   "name": "Baylands Nature Preserve",
+   "kind": "sight",
+   "g": [
+    "PARK"
+   ],
+   "depicts": "Baylands Nature Preserve",
+   "title": "Palo Alto Baylands January 2013 005",
+   "author": "King of Hearts",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "siliconvalley--cantor-arts-center-960.jpg",
+   "slot": null,
+   "record": "siliconvalley#cantor-arts-center",
+   "name": "Cantor Arts Center",
+   "kind": "sight",
+   "g": [
+    "MUS",
+    "FREE",
+    "PARK",
+    "ICON"
+   ],
+   "depicts": "Cantor Arts Center",
+   "title": "Iris & B. Gerald Cantor Center for Visual Arts, Stanford, California - 20060728",
+   "author": "David Monniaux",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "siliconvalley--stanford-dish-loop-960.jpg",
+   "slot": null,
+   "record": "siliconvalley#stanford-dish-loop",
+   "name": "Stanford Dish Loop",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "ICON",
+    "VIEW",
+    "FREE"
+   ],
+   "depicts": "Stanford Dish Loop",
+   "title": "Radio telescope The Dish",
+   "author": "Steve Jurvetson from Menlo Park, USA",
+   "licence": "CC BY 2.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--bangkok--wat-arun-960.jpg",
+   "slot": null,
+   "record": "singapore/bangkok#wat-arun",
+   "name": "Wat Arun",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "TEMPLE"
+   ],
+   "depicts": "Wat Arun",
+   "title": "เจดีย์ประธานทรงปรางค์วัดอรุณ2",
+   "author": "Mastertongapollo",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--bangkok--wat-pho-960.jpg",
+   "slot": null,
+   "record": "singapore/bangkok#wat-pho",
+   "name": "Wat Pho",
+   "kind": "sight",
+   "g": [
+    "TEMPLE"
+   ],
+   "depicts": "Wat Pho",
+   "title": "พระพุทธไสยาสวัดพระเชตุพน",
+   "author": "Mastertongapollo",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--kuala-lumpur--batu-caves-960.jpg",
+   "slot": null,
+   "record": "singapore/kuala-lumpur#batu-caves",
+   "name": "Batu Caves",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "PARK",
+    "ARCH"
+   ],
+   "depicts": "Batu Caves",
+   "title": "Batu Caves stairs 2022-05",
+   "author": "Chainwit.",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--mandai--night-safari-960.jpg",
+   "slot": null,
+   "record": "singapore/mandai#night-safari",
+   "name": "Night Safari",
+   "kind": "sight",
+   "g": [
+    "FAM"
+   ],
+   "depicts": "Night Safari",
+   "title": "Entrance of Night Safari, Singapore, 2012",
+   "author": "Allie Caulfield",
+   "licence": "CC BY 2.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--manila--san-agustin-church-960.jpg",
+   "slot": null,
+   "record": "singapore/manila#san-agustin-church",
+   "name": "San Agustin Church",
+   "kind": "sight",
+   "g": [
+    "HERITAGE",
+    "TEMPLE"
+   ],
+   "depicts": "San Agustin Church",
+   "title": "San Agustin Church, Intramuros, Manila City",
+   "author": "Johngaje92",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--marina-bay--marina-bay-sands-skypark-observation-deck-960.jpg",
+   "slot": null,
+   "record": "singapore/marina-bay#marina-bay-sands-skypark-observation-deck",
+   "name": "Marina Bay Sands SkyPark Observation Deck",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "PARK",
+    "VIEW",
+    "ARCH"
+   ],
+   "depicts": "The CBD skyline from the Marina Bay Sands SkyPark at night",
+   "title": "1 marina bay sands skypark night view CBD skyline",
+   "author": "chensiyuan",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "singapore--marina-bay--merlion-park-960.jpg",
+   "slot": null,
+   "record": "singapore/marina-bay#merlion-park",
+   "name": "Merlion Park",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "PARK",
+    "ARCH"
+   ],
+   "depicts": "Merlion Park",
+   "title": "Singapore Skyline 2019-10",
+   "author": "Unwicked",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--southern-ridges--haw-par-villa-960.jpg",
+   "slot": null,
+   "record": "singapore/southern-ridges#haw-par-villa",
+   "name": "Haw Par Villa",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FAM"
+   ],
+   "depicts": "Haw Par Villa",
+   "title": "A walk in Haw Par Villa Singapore (2025) - img 15",
+   "author": "Chainwit.",
+   "licence": "CC BY 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "singapore--yogyakarta--prambanan-960.jpg",
+   "slot": null,
+   "record": "singapore/yogyakarta#prambanan",
+   "name": "Prambanan",
+   "kind": "sight",
+   "g": [
+    "HERITAGE",
+    "TEMPLE"
+   ],
+   "depicts": "Prambanan",
+   "title": "Prambanan Temple Yogyakarta Indonesia",
+   "author": "Christopher Michel",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "tokyo--national-museum-of-western-art-960.jpg",
+   "slot": null,
+   "record": "tokyo#national-museum-of-western-art",
+   "name": "National Museum of Western Art (国立西洋美術館)",
+   "kind": "sight",
+   "g": [
+    "MUS",
+    "UNESCO"
+   ],
+   "depicts": "National Museum of Western Art",
+   "title": "National museum of western art05s3200",
+   "author": "663highland",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "tokyo--senso-ji-960.jpg",
+   "slot": null,
+   "record": "tokyo#senso-ji",
+   "name": "Sensō-ji (浅草寺)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "FREE"
+   ],
+   "depicts": "Sensō-ji",
+   "title": "Sensoji 2023",
+   "author": "Akonnchiroll",
+   "licence": "CC0 1.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "wheeling--zanesville-y-bridge-800.jpg",
+   "slot": null,
+   "record": "wheeling#zanesville-y-bridge",
+   "name": "Zanesville Y-Bridge",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH"
+   ],
+   "depicts": "Zanesville Y-Bridge",
+   "title": "ZanesvilleOH YBridge",
+   "author": "MauriceJFox3",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "aachen--aachener-rathaus-and-kronungssaal-960.jpg",
+   "slot": null,
+   "record": "aachen#aachener-rathaus-and-kronungssaal",
+   "name": "Aachener Rathaus & Krönungssaal",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH"
+   ],
+   "depicts": "Aachener Rathaus & Krönungssaal",
+   "title": "AC BD Rathaus Aachen Südseite 2026",
+   "author": "Grunpfnul",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "aachen--bonnefantenmuseum-960.jpg",
+   "slot": null,
+   "record": "aachen#bonnefantenmuseum",
+   "name": "Bonnefantenmuseum",
+   "kind": "sight",
+   "g": [
+    "MUS",
+    "ARCH",
+    "ICON"
+   ],
+   "depicts": "Bonnefantenmuseum",
+   "title": "Rocket-shaped cupola of the Bonnefantenmuseum in Maastricht-Centrum (DSCF7938)",
+   "author": "Trougnouf (Benoit Brummer)",
+   "licence": "CC BY 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "aachen--burg-monschau-960.jpg",
+   "slot": null,
+   "record": "aachen#burg-monschau",
+   "name": "Burg Monschau",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH"
+   ],
+   "depicts": "Burg Monschau",
+   "title": "Burg Monschau 2",
+   "author": "Steffen Heinz Caronna",
+   "licence": "CC BY 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "aachen--burg-nideggen-and-burgenmuseum-960.jpg",
+   "slot": null,
+   "record": "aachen#burg-nideggen-and-burgenmuseum",
+   "name": "Burg Nideggen & Burgenmuseum",
+   "kind": "sight",
+   "g": [
+    "HIST",
+    "ARCH",
+    "MUS",
+    "ICON"
+   ],
+   "depicts": "Burg Nideggen & Burgenmuseum",
+   "title": "BurgNideggen Wohnturm",
+   "author": "Túrelio",
+   "licence": "CC BY-SA 2.5",
+   "confidence": "lead"
+  },
+  {
+   "file": "aachen--burg-stolberg-960.jpg",
+   "slot": null,
+   "record": "aachen#burg-stolberg",
+   "name": "Burg Stolberg",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH"
+   ],
+   "depicts": "Burg Stolberg",
+   "title": "Stolberg, Burg Stolberg Dm1-13-07---94 vanaf de Finkenberggasse IMG 8067 2023-09-02 12.30",
+   "author": "Michielverbeek",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "aachen--energeticon-960.jpg",
+   "slot": null,
+   "record": "aachen#energeticon",
+   "name": "ENERGETICON",
+   "kind": "sight",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "depicts": "ENERGETICON",
+   "title": "Grube Anna, Schmiede (3)",
+   "author": "ArthurMcGill",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "aachen--hohes-venn-hautes-fagnes-moorland-reserve-and-boardwalks-960.jpg",
+   "slot": null,
+   "record": "aachen#hohes-venn-hautes-fagnes-moorland-reserve-and-boardwalks",
+   "name": "Hohes Venn / Hautes Fagnes — moorland reserve & boardwalks",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "PARK",
+    "FREE"
+   ],
+   "depicts": "Hohes Venn / Hautes Fagnes — moorland reserve & boardwalks",
+   "title": "0 Xhoffraix - Grande-Fagne (Trôs Brôli) et caillebotis de La Vecquée (5)",
+   "author": "Jean-Pol GRANDMONT",
+   "licence": "CC BY 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "aachen--ns-dokumentation-vogelsang-bestimmung-herrenmensch-960.png",
+   "slot": null,
+   "record": "aachen#ns-dokumentation-vogelsang-bestimmung-herrenmensch",
+   "name": "NS-Dokumentation Vogelsang — 'Bestimmung: Herrenmensch'",
+   "kind": "sight",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH"
+   ],
+   "depicts": "NS-Dokumentation Vogelsang — 'Bestimmung: Herrenmensch'",
+   "title": "Burg Vogelsang",
+   "author": "VoWo",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "aachen--st-nikolaus-kirche-eupen-960.jpg",
+   "slot": null,
+   "record": "aachen#st-nikolaus-kirche-eupen",
+   "name": "St.-Nikolaus-Kirche Eupen",
+   "kind": "sight",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE",
+    "ICON"
+   ],
+   "depicts": "St.-Nikolaus-Kirche Eupen",
+   "title": "St. Nikolaus Eupen 02",
+   "author": "Sir Gawain",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "aachen--wesertalsperre-weser-dam-and-visitor-centre-960.jpg",
+   "slot": null,
+   "record": "aachen#wesertalsperre-weser-dam-and-visitor-centre",
+   "name": "Wesertalsperre (Weser dam & visitor centre)",
+   "kind": "sight",
+   "g": [
+    "HIST",
+    "PARK",
+    "ICON",
+    "MUS"
+   ],
+   "depicts": "Wesertalsperre",
+   "title": "View of the Wesertalsperre from the access road, Eupen, 2021",
+   "author": "DimiTalen",
+   "licence": "CC0 1.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "aachen--zitadelle-julich-and-museum-zitadelle-960.jpg",
+   "slot": null,
+   "record": "aachen#zitadelle-julich-and-museum-zitadelle",
+   "name": "Zitadelle Jülich & Museum Zitadelle",
+   "kind": "sight",
+   "g": [
+    "HIST",
+    "ARCH",
+    "MUS",
+    "ICON"
+   ],
+   "depicts": "Zitadelle Jülich & Museum Zitadelle",
+   "title": "Aerial image of Zitadelle Jülich (view from the west)",
+   "author": "Carsten Steger",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "akron--akron-art-museum-960.jpg",
+   "slot": null,
+   "record": "akron#akron-art-museum",
+   "name": "Akron Art Museum",
+   "kind": "sight",
+   "g": [
+    "MUS",
+    "FREE"
+   ],
+   "depicts": "Akron Art Museum",
+   "title": "AkronArtMuseum2009",
+   "author": "Sleepydre",
+   "licence": "Public domain",
+   "confidence": "lead"
+  },
+  {
+   "file": "akron--akron-zoo-960.jpg",
+   "slot": null,
+   "record": "akron#akron-zoo",
+   "name": "Akron Zoo",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "FAM"
+   ],
+   "depicts": "Akron Zoo",
+   "title": "Penguin Point at the Akron Zoo",
+   "author": "Geographer365",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "akron--anna-dean-farm-barns-o-c-barber-960.jpg",
+   "slot": null,
+   "record": "akron#anna-dean-farm-barns-o-c-barber",
+   "name": "Anna-Dean Farm Barns (O.C. Barber)",
+   "kind": "sight",
+   "g": [
+    "ARCH",
+    "FAM"
+   ],
+   "depicts": "Anna-Dean Farm Barns",
+   "title": "ANNA-DEAN FARM. BARBERTON, SUMMIT COUNTY",
+   "author": "Jerrye & Roy Klotz, MD",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "akron--dr-bobs-home-birthplace-of-alcoholics-anonymous-960.jpg",
+   "slot": null,
+   "record": "akron#dr-bobs-home-birthplace-of-alcoholics-anonymous",
+   "name": "Dr. Bob's Home (birthplace of Alcoholics Anonymous)",
+   "kind": "sight",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "depicts": "Dr. Bob's Home",
+   "title": "Dr. Bob's House",
+   "author": "Nyttend",
+   "licence": "Public domain",
+   "confidence": "lead"
+  },
+  {
+   "file": "akron--gorge-metro-park-960.jpg",
+   "slot": null,
+   "record": "akron#gorge-metro-park",
+   "name": "Gorge Metro Park",
+   "kind": "sight",
+   "g": [
+    "PARK"
+   ],
+   "depicts": "Gorge Metro Park",
+   "title": "Mary Campbell Cave 1",
+   "author": "Jeffmedkeff",
+   "licence": "CC BY-SA 2.5",
+   "confidence": "lead"
+  },
+  {
+   "file": "akron--nelson-kennedy-ledges-state-park-960.jpg",
+   "slot": null,
+   "record": "akron#nelson-kennedy-ledges-state-park",
+   "name": "Nelson-Kennedy Ledges State Park",
+   "kind": "sight",
+   "g": [
+    "PARK"
+   ],
+   "depicts": "Nelson-Kennedy Ledges State Park",
+   "title": "Nelson-Kennedy Ledges State Park",
+   "author": "E Photos",
+   "licence": "CC BY 2.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "akron--stan-hywet-hall-and-gardens-960.jpg",
+   "slot": null,
+   "record": "akron#stan-hywet-hall-and-gardens",
+   "name": "Stan Hywet Hall & Gardens",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "PARK",
+    "ARCH"
+   ],
+   "depicts": "Stan Hywet Hall & Gardens",
+   "title": "Stan Hywet Hall 2",
+   "author": "Brandon Bisel",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "antwerp--antwerpen-centraal-centraal-station-960.jpg",
+   "slot": null,
+   "record": "antwerp#antwerpen-centraal-centraal-station",
+   "name": "Antwerpen-Centraal (Centraal Station)",
+   "kind": "sight",
+   "g": [
+    "ICON",
+    "ARCH",
+    "HIST",
+    "FREE"
+   ],
+   "depicts": "Antwerpen-Centraal",
+   "title": "Antwerpen-Centraal aerial 4",
+   "author": "DRG-fan",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "brussels--africamuseum-musee-royal-de-lafrique-centrale-960.jpg",
+   "slot": null,
+   "record": "brussels#africamuseum-musee-royal-de-lafrique-centrale",
+   "name": "AfricaMuseum — Musée royal de l'Afrique centrale",
+   "kind": "sight",
+   "g": [
+    "MUS",
+    "PARK",
+    "HIST"
+   ],
+   "depicts": "AfricaMuseum — Musée royal de l'Afrique centrale",
+   "title": "AfricaMuseum - 2023-02-09 - 03",
+   "author": "Jmh2o",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "brussels--basilique-du-sacre-c-ur-de-koekelberg-960.jpg",
+   "slot": null,
+   "record": "brussels#basilique-du-sacre-c-ur-de-koekelberg",
+   "name": "Basilique du Sacré-Cœur de Koekelberg",
+   "kind": "sight",
+   "g": [
+    "ARCH",
+    "HIST",
+    "ICON",
+    "MUS"
+   ],
+   "depicts": "Basilique du Sacré-Cœur de Koekelberg",
+   "title": "Bruxelles - Basilique Nationale du Sacré-Cœur à Koekelberg (5)",
+   "author": "Fred Romero from Paris, France",
+   "licence": "CC BY 2.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "brussels--mont-des-arts-960.jpg",
+   "slot": null,
+   "record": "brussels#mont-des-arts",
+   "name": "Mont des Arts",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FREE",
+    "MUS"
+   ],
+   "depicts": "Mont des Arts",
+   "title": "Mont des Arts, Brussels, Belgium",
+   "author": "Julian Lupyan",
+   "licence": "CC0 1.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "brussels--musees-royaux-des-beaux-arts-de-belgique-960.jpg",
+   "slot": null,
+   "record": "brussels#musees-royaux-des-beaux-arts-de-belgique",
+   "name": "Musées royaux des Beaux-Arts de Belgique",
+   "kind": "sight",
+   "g": [
+    "MUS"
+   ],
+   "depicts": "Musées royaux des Beaux-Arts de Belgique",
+   "title": "Musées Royaux des Beaux-Arts Belgique 1101",
+   "author": "Michel wal",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "brussels--parc-du-cinquantenaire-960.jpg",
+   "slot": null,
+   "record": "brussels#parc-du-cinquantenaire",
+   "name": "Parc du Cinquantenaire",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "HIST",
+    "FREE",
+    "ARCH"
+   ],
+   "depicts": "Parc du Cinquantenaire",
+   "title": "Arco del Cincuentenario, Bruselas, Bélgica, 2021-12-15, DD 115-135 HDR PAN",
+   "author": "Diego Delso",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "brussels--serres-royales-de-laeken-735.jpg",
+   "slot": null,
+   "record": "brussels#serres-royales-de-laeken",
+   "name": "Serres Royales de Laeken",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "ARCH",
+    "HIST",
+    "CANAL"
+   ],
+   "depicts": "Serres Royales de Laeken",
+   "title": "Laeken Greenhouses",
+   "author": "Joris Van Grieken",
+   "licence": "Public domain",
+   "confidence": "lead"
+  },
+  {
+   "file": "chicago--adler-planetarium-960.jpg",
+   "slot": null,
+   "record": "chicago#adler-planetarium",
+   "name": "Adler Planetarium",
+   "kind": "sight",
+   "g": [
+    "ROOF",
+    "MUS",
+    "ICON",
+    "FAM"
+   ],
+   "depicts": "Adler Planetarium",
+   "title": "Adler Planetarium E",
+   "author": "Sea Cow",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "chicago--alfred-caldwell-lily-pool-960.jpg",
+   "slot": null,
+   "record": "chicago#alfred-caldwell-lily-pool",
+   "name": "Alfred Caldwell Lily Pool",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FLW",
+    "WATER"
+   ],
+   "depicts": "Alfred Caldwell Lily Pool",
+   "title": "Alfred Caldwell Lily Pond with rocks",
+   "author": "Marilyn Engwall",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "chicago--baha-i-house-of-worship-960.jpg",
+   "slot": null,
+   "record": "chicago#baha-i-house-of-worship",
+   "name": "Baháʼí House of Worship",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "ARCH",
+    "WATER",
+    "FREE"
+   ],
+   "depicts": "Baháʼí House of Worship",
+   "title": "Baha'i Temple - Wilmette, IL",
+   "author": "Wenbinbin2010",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "chicago--basilica-of-st-hyacinth-960.jpg",
+   "slot": null,
+   "record": "chicago#basilica-of-st-hyacinth",
+   "name": "Basilica of St. Hyacinth",
+   "kind": "sight",
+   "g": [
+    "ARCH"
+   ],
+   "depicts": "Basilica of St. Hyacinth",
+   "title": "Chicago, IL Basilica of St. Hyacinth",
+   "author": "IvoShandor",
+   "licence": "CC BY 3.0 US",
+   "confidence": "lead"
+  },
+  {
+   "file": "chicago--buckingham-fountain-960.jpg",
+   "slot": null,
+   "record": "chicago#buckingham-fountain",
+   "name": "Buckingham Fountain",
+   "kind": "sight",
+   "g": [
+    "PARK",
+    "ICON",
+    "FREE"
+   ],
+   "depicts": "Buckingham Fountain",
+   "title": "Buckingham Fountain Wikivoyage",
+   "author": "H. Michael Miley from Schaumburg, USA",
+   "licence": "CC BY-SA 2.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--chinatown-960.jpg",
+   "slot": "hero:singapore/chinatown",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Aerial perspective of Singapore's Chinatown",
+   "title": "Aerial perspective of Singapore's Chinatown",
+   "author": "Bob Tan",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--cincinnati-960.jpg",
+   "slot": "hero:cincinnati",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Downtown Cincinnati viewed from Devou Park (cropped)",
+   "title": "Downtown Cincinnati viewed from Devou Park (cropped)",
+   "author": "EEJCC",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--balestier-960.jpg",
+   "slot": "hero:singapore/balestier",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Balestier Road",
+   "title": "Balestier Road",
+   "author": "Terence Ong",
+   "licence": "CC BY 2.5",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--bedok-960.jpg",
+   "slot": "hero:singapore/bedok",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "North-eastern shore of Bedok Reservoir",
+   "title": "North-eastern shore of Bedok Reservoir",
+   "author": "Wzhkevin",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--bishan-960.jpg",
+   "slot": "hero:singapore/bishan",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Kallang River at Bishan Park",
+   "title": "Kallang River at Bishan Park",
+   "author": "Pagodashophouse",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--bukit-timah-960.jpg",
+   "slot": "hero:singapore/bukit-timah",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "A hike to the Bukit Timah Summit (2025) - img 12",
+   "title": "A hike to the Bukit Timah Summit (2025) - img 12",
+   "author": "Chainwit.",
+   "licence": "CC BY 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--civic-district-960.jpg",
+   "slot": "hero:singapore/civic-district",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Aerial view of the Civic District, Singapore - 20110224",
+   "title": "Aerial view of the Civic District, Singapore - 20110224",
+   "author": "William Cho",
+   "licence": "CC BY-SA 2.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--geylang-960.jpg",
+   "slot": "hero:singapore/geylang",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Geylang-Road-By-Night-2008",
+   "title": "Geylang-Road-By-Night-2008",
+   "author": "Bjørn Christian Tørrissen",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--holland-village-960.jpg",
+   "slot": "hero:singapore/holland-village",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Holland village - panoramio",
+   "title": "Holland village - panoramio",
+   "author": "Qingwu Zhou (周庆武)",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--jurong-960.jpg",
+   "slot": "hero:singapore/jurong",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Southern to middle part of Jurong Lake, Singapore",
+   "title": "Southern to middle part of Jurong Lake, Singapore",
+   "author": "Groyn88",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--kampong-glam-960.jpg",
+   "slot": "hero:singapore/kampong-glam",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Kampong Glam aerial shot - 20250628 - RSKY",
+   "title": "Kampong Glam aerial shot - 20250628 - RSKY",
+   "author": "Robert Sim",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--katong-joo-chiat-960.jpg",
+   "slot": "hero:singapore/katong-joo-chiat",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "The Red House in Katong, Singapore, 20230715",
+   "title": "The Red House in Katong, Singapore, 20230715",
+   "author": "Robert Sim",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--little-india-960.jpg",
+   "slot": "hero:singapore/little-india",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Little India (4048444495)",
+   "title": "Little India (4048444495)",
+   "author": "KimonBerlin",
+   "licence": "CC BY-SA 2.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--marina-bay-960.jpg",
+   "slot": "hero:singapore/marina-bay",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Marina Bay Singapore-3499",
+   "title": "Marina Bay Singapore-3499",
+   "author": "Bijay Chaurasia",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--marine-parade-960.jpg",
+   "slot": "hero:singapore/marine-parade",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Marine Parade Promeanade 2",
+   "title": "Marine Parade Promeanade 2",
+   "author": "Terence Ong",
+   "licence": "CC BY 2.5",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--old-airport-road-960.jpg",
+   "slot": "hero:singapore/old-airport-road",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Kafv210117",
+   "title": "Kafv210117",
+   "author": "Daniel Taka",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--potong-pasir-macpherson-960.jpg",
+   "slot": "hero:singapore/potong-pasir-macpherson",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Potong Pasir Community Club",
+   "title": "Potong Pasir Community Club",
+   "author": "Terence Ong",
+   "licence": "CC BY 2.5",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--punggol-960.jpg",
+   "slot": "hero:singapore/punggol",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Punggol Town Centre",
+   "title": "Punggol Town Centre",
+   "author": "Deoma12",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--southern-ridges-960.jpg",
+   "slot": "hero:singapore/southern-ridges",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Forest Walk, Southern Ridges",
+   "title": "Forest Walk, Southern Ridges",
+   "author": "Kars Alfrink",
+   "licence": "CC BY 2.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--upper-serangoon-960.jpg",
+   "slot": "hero:singapore/upper-serangoon",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Serangoon North HDB",
+   "title": "Serangoon North HDB",
+   "author": "Terence Ong",
+   "licence": "CC BY 2.5",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--bali-960.jpg",
+   "slot": "hero:singapore/bali",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "TanahLot 2014",
+   "title": "TanahLot 2014",
+   "author": "Grayswoodsurrey",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--bangkok-960.jpg",
+   "slot": "hero:singapore/bangkok",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "4Y1A1159 Bangkok (33536795515)",
+   "title": "4Y1A1159 Bangkok (33536795515)",
+   "author": "Ninara from Helsinki, Finland",
+   "licence": "CC BY 2.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--cebu-960.jpg",
+   "slot": "hero:singapore/cebu",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Cebu city skyline 2025",
+   "title": "Cebu city skyline 2025",
+   "author": "DisRaptor18",
+   "licence": "CC0 1.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--chiang-mai-960.jpg",
+   "slot": "hero:singapore/chiang-mai",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "0020-วัดพระสิงห์วรมหาวิหาร",
+   "title": "0020-วัดพระสิงห์วรมหาวิหาร",
+   "author": "Nawit science",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--ipoh-960.jpg",
+   "slot": "hero:singapore/ipoh",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Ipoh skyline 24-2",
+   "title": "Ipoh skyline 24-2",
+   "author": "HundenvonPenang",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--jakarta-960.jpg",
+   "slot": "hero:singapore/jakarta",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Bundaran Hotel Indonesia (2025) (cropped)",
+   "title": "Bundaran Hotel Indonesia (2025) (cropped)",
+   "author": "Medelam",
+   "licence": "CC BY 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--malacca-960.jpg",
+   "slot": "hero:singapore/malacca",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Melaka View",
+   "title": "Melaka View",
+   "author": "Atlasmotor",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--manila-960.jpg",
+   "slot": "hero:singapore/manila",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Cityscape of Manila, 2025 (01)",
+   "title": "Cityscape of Manila, 2025 (01)",
+   "author": "Bahnfrend",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--penang-960.jpg",
+   "slot": "hero:singapore/penang",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Skyline of George Town, Penang at night Nov2024-29-17",
+   "title": "Skyline of George Town, Penang at night Nov2024-29-17",
+   "author": "HundenvonPenang",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--phnom-penh-960.jpg",
+   "slot": "hero:singapore/phnom-penh",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Phnom Penh skyline from TK district Dec 2024",
+   "title": "Phnom Penh skyline from TK district Dec 2024",
+   "author": "Looppty",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--yogyakarta-960.jpg",
+   "slot": "hero:singapore/yogyakarta",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Jogja - Tugu Monument (2025) - img 06",
+   "title": "Jogja - Tugu Monument (2025) - img 06",
+   "author": "Chainwit.",
+   "licence": "CC BY 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--kyoto-960.jpg",
+   "slot": "hero:kyoto",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Kiyomizu-dera, Kyoto",
+   "title": "Kyoto-Kiyomizudera, Japan",
+   "author": "Alberto Carrasco Casado",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--orlando-960.jpg",
+   "slot": "hero:orlando",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Lake Eola Park, downtown Orlando, on a sunny afternoon",
+   "title": "Lake-eola-park-orlando-florida",
+   "author": "OrlandoThings.com",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--madison-960.jpg",
+   "slot": "hero:madison",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "The Wisconsin State Capitol, Madison, in July",
+   "title": "The Wisconsin State Capitol in July",
+   "author": "Ander107",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--ghent-960.jpg",
+   "slot": "hero:ghent",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "The Graslei along the Leie from the Grasbrug, Ghent (May 2014)",
+   "title": "Graslei Ghent",
+   "author": "Martinvl",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--wheeling-960.jpg",
+   "slot": "hero:wheeling",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Downtown Wheeling from Wheeling Island (June 2020)",
+   "title": "Downtown Wheeling, WV - 20200628 - 14 - Skyline from Wheeling Island",
+   "author": "Andre Carrotflower",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--singapore--ang-mo-kio-960.jpg",
+   "slot": "hero:singapore/ang-mo-kio",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Ang Mo Kio Town Garden West",
+   "title": "Ang Mo Kio Town Garden West Singapore - panoramio",
+   "author": "Qingwu Zhou (周庆武)",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--singapore--upper-thomson-960.jpg",
+   "slot": "hero:singapore/upper-thomson",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Boardwalk and pavilion, MacRitchie Reservoir Park",
+   "title": "MacRitchie Reservoir",
+   "author": "Calvin Teo",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--singapore--bagan-960.jpg",
+   "slot": "hero:singapore/bagan",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Htilominlo Temple and stupas across the Bagan plain",
+   "title": "Bagan, Myanmar, Htilominlo Temple and other Buddhist stupas in Bagan plain",
+   "author": "Vyacheslav Argenberg",
+   "licence": "CC BY 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--singapore--luang-prabang-960.jpg",
+   "slot": "hero:singapore/luang-prabang",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "The Mekong at Luang Prabang (August 2009)",
+   "title": "Mekong River (Luang Prabang)",
+   "author": "Allie Caulfield",
+   "licence": "CC BY 2.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--singapore--siem-reap-960.jpg",
+   "slot": "hero:singapore/siem-reap",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "The Bayon, Angkor Thom",
+   "title": "Bayon temple at Angkor Thom 01",
+   "author": "Satdeep Gill",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--akron-960.jpg",
+   "slot": "hero:akron",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Akron skyline at sunset from the Towpath Trail",
+   "title": "Akron Skyline at Sunset",
+   "author": "Dillguy9",
+   "licence": "CC0 1.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--singapore--mandai-960.jpg",
+   "slot": "hero:singapore/mandai",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Upper Seletar Reservoir",
+   "title": "Upper Seletar Reservoir",
+   "author": "Redthreadhx",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--newton-novena-960.jpg",
+   "slot": "hero:singapore/newton-novena",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Church of Saint Alphonsus, or Novena Church",
+   "title": "Church of Saint Alphonsus, or Novena Church",
+   "author": "Exec8",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--kuala-lumpur-960.jpg",
+   "slot": "hero:singapore/kuala-lumpur",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Dataran Merdeka 2",
+   "title": "Dataran Merdeka 2",
+   "author": "Haakon S. Krohn",
+   "licence": "CC BY-SA 3.0",
+   "confidence": "lead"
+  },
+  {
+   "file": "hero--singapore--changi-960.jpg",
+   "slot": "hero:singapore/changi",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Sunrise from the Changi Boardwalk",
+   "title": "Sunrise seen from Changi Boardwalk",
+   "author": "Kenrick95",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--singapore--toa-payoh-960.jpg",
+   "slot": "hero:singapore/toa-payoh",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "The Toa Payoh dragon playground (March 2025)",
+   "title": "Original \"Toa Payoh Dragon Playground\", Singapore (2025) - img 02",
+   "author": "Chainwit.",
+   "licence": "CC BY 4.0",
+   "confidence": "high"
+  },
+  {
+   "file": "hero--singapore--yangon-960.jpg",
+   "slot": "hero:singapore/yangon",
+   "record": null,
+   "name": null,
+   "kind": null,
+   "g": null,
+   "depicts": "Sule Pagoda, downtown Yangon",
+   "title": "Sule Pagoda Yangoon",
+   "author": "kallerna",
+   "licence": "CC BY-SA 4.0",
+   "confidence": "high"
+  }
+ ]
+}
