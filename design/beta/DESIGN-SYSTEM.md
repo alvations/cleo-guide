@@ -41,8 +41,12 @@
 | Display 1 (city, country) | Bricolage 600, −0.024 em | 34 / 52 |
 | Display 2 (sections, sheet titles) | Bricolage 600 | 22 / 28 |
 | Card title | **Inter 600** | 16 |
-| Lead / body / small / meta / UI | Inter 400–500 | 17 · 16 · 14 · 13 · 15 |
+| Lead / body / small = UI / meta / xs | Inter 400–500 | 17·18 / 16 / 14 / 13 / 12 |
 
+- **Five steps between 12 and 17 px:** 12 · 13 · 14 · 16 · 17. Only weights 400 / 500 / 600 / 700 render, and there is no 13.5 px.
+  - `style/v2/tools/normalize-v2.py` snaps every raw size and radius in the designer's sources onto tokens, and has a `--check` mode.
+  - The probes confirm it: `eval/r6/tools/probe-type.js` and `probe-css.py`. In the designer's CSS the only raw font size left is `.5em` (the native script after a city name), and the only raw radii are `50%` and `3px`.
+- **Optical size:** headlines of 40 px and up use Bricolage's opsz 72 instance. Headlines, deks and subtitles use `text-wrap: balance / pretty`.
 - Tabular figures appear wherever we count (`--num`).
 - CJK falls back to the system sans.
 - Fonts are self-hosted OFL subsets (vi, latin-ext, latin), with `font-display: swap`.
@@ -51,7 +55,8 @@
 
 - **Radius:** 8 px for buttons and controls, 12 px for inputs and small media, 16 px for card media and sheets, and pill for chips, search, the switcher and stickers.
 - **Elevation:** `--e-1` is none. `--shadow` is used on hover and floating controls, `--shadow-lg` on sheets and dialogs.
-- **Motion:** durations are 120, 200, 320 and 480 ms; primary paths stay at 200 ms or less. The heart pop is the only spring. `prefers-reduced-motion` sets every duration to 0.
+- **Motion:** durations are 120, 200, 320 and 480 ms; primary paths stay at 200 ms or less. The signature moment is the tapped cover or pin growing into the sheet: `--dur-grow` 340 ms with `--ease-grow`, using view transitions plus a FLIP fallback. The heart pop is the only spring. `prefers-reduced-motion` sets every duration to 0. Spec: [`style/v2/MOTION.md`](style/v2/MOTION.md).
+- **Elevation, three steps:** `--shadow-sm` (the switcher thumb and the heart chip), `--shadow` (the search pill, hover, floating controls) and `--shadow-lg` (sheets and dialogs). Resting cards have none (`--e-1: none`).
 - **Icons:** one line set of 73 icons on a 24 px grid, with a 1.5 stroke and round caps (`style/v2/icons/icons.json`). Every subject is generic, never a venue.
 
 ## v2.5 Components (base layer, `css/v2.css`)
