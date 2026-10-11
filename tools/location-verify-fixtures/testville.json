@@ -148,6 +148,50 @@
      "status": "closed",
      "statusSource": "synthetic: closed 2020",
      "statusChecked": "2026-01-01"
+    },
+    "Street Echo Museum": {
+     "address": "627 Long Ave, Testville, ZZ 99901",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Street Echo Village": {
+     "address": "708 Long Ave, Testville, ZZ 99901",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Twin Shop One": {
+     "address": "20 Twin St, Testville, ZZ 99901",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
+    },
+    "Twin Shop Two": {
+     "address": "20 Twin St, Testville, ZZ 99901",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
     }
    }
   }
@@ -407,6 +451,87 @@
      }
     ]
    }
+  },
+  {
+   "host": "nominatim.openstreetmap.org",
+   "params": {
+    "q": "627 Long Ave, Testville, ZZ 99901"
+   },
+   "body": [
+    {
+     "lat": "0.50470",
+     "lon": "-30.50910",
+     "category": "highway",
+     "type": "primary",
+     "addresstype": "road",
+     "osm_type": "way",
+     "osm_id": 4004,
+     "name": "",
+     "namedetails": {},
+     "address": {
+      "house_number": "627",
+      "road": "Long Avenue",
+      "city": "Testville",
+      "postcode": "99901"
+     },
+     "extratags": {}
+    }
+   ]
+  },
+  {
+   "host": "nominatim.openstreetmap.org",
+   "params": {
+    "q": "708 Long Ave, Testville, ZZ 99901"
+   },
+   "body": [
+    {
+     "lat": "0.50470",
+     "lon": "-30.50910",
+     "category": "highway",
+     "type": "primary",
+     "addresstype": "road",
+     "osm_type": "way",
+     "osm_id": 4004,
+     "name": "",
+     "namedetails": {},
+     "address": {
+      "house_number": "708",
+      "road": "Long Avenue",
+      "city": "Testville",
+      "postcode": "99901"
+     },
+     "extratags": {}
+    }
+   ]
+  },
+  {
+   "host": "nominatim.openstreetmap.org",
+   "params": {
+    "q": "20 Twin St, Testville, ZZ 99901"
+   },
+   "body": [
+    {
+     "lat": "0.50600",
+     "lon": "-30.50600",
+     "category": "building",
+     "type": "yes",
+     "addresstype": "building",
+     "osm_type": "way",
+     "osm_id": 5005,
+     "name": "",
+     "namedetails": {},
+     "address": {
+      "house_number": "20",
+      "road": "Twin Street",
+      "city": "Testville",
+      "postcode": "99901"
+     },
+     "extratags": {
+      "building": "yes",
+      "addr:housenumber": "20"
+     }
+    }
+   ]
   }
  ]
 }
