@@ -179,7 +179,8 @@ const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(
 /**
  * Visible TASL caption (title, author, source, licence) — the credit is shown wherever the photo is.
  * Default: the short card line `Photo: <author> · <licence> · <source> (resized)`; the file title rides as the
- * source link's title attribute, the licence and source stay links. opts.full: the whole sentence
+ * source link's title attribute and accessible name (CC 2.x/3.0 ask for the title when supplied), the licence
+ * and source stay links; the source link is the Commons File: page, which carries the full TASL record. opts.full: the whole sentence
  * (“Title” by Author, licence, via source — what was changed) for a place detail view.
  */
 function captionHtml(c, opts = {}) {
@@ -192,7 +193,7 @@ function captionHtml(c, opts = {}) {
   if (opts.full) return `“${esc(title)}” by ${esc(c.author)}, ${lic}, via <a href="${esc(c.sourceUrl)}" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${c.modified ? ` — ${esc(c.modified)}` : ''}`;
   // CC BY / BY-SA ask only that changes be indicated: "(resized)" for the pipeline's size copies, else the note as written
   const changed = !c.modified ? '' : /^resized\b/i.test(c.modified) ? ' (resized)' : ` (${esc(c.modified)})`;
-  return `Photo: ${esc(c.author)} · ${lic} · <a href="${esc(c.sourceUrl)}" title="“${esc(title)}”" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${changed}`;
+  return `Photo: ${esc(c.author)} · ${lic} · <a href="${esc(c.sourceUrl)}" title="“${esc(title)}”" aria-label="“${esc(title)}” on ${esc(hostOf(c.sourceUrl))}" rel="noopener" target="_blank">${esc(hostOf(c.sourceUrl))}</a>${changed}`;
 }
 function hostOf(u) { const m = /^https:\/\/(?:www\.)?([^/]+)/i.exec(u); return m ? m[1].replace(/^commons\.wikimedia\.org$/, 'Wikimedia Commons') : 'source'; }
 
@@ -209,7 +210,8 @@ function srcsetAttr(photo, up, sizes) {
  * opts.sizes overrides the srcset sizes; opts.eager (heroes) loads it at once with fetchpriority=high.
  */
 function figureHtml(photo, up = '', cls = 'photo', opts = {}) {
-  const c = photo.credit, load = opts.eager ? ' fetchpriority="high"' : ' loading="lazy"';
+  // opts.preloaded (platform W7): lazy, so a hidden hero (Atlas) is never fetched; heroPreload() fetches it early otherwise
+  const c = photo.credit, load = opts.preloaded ? ' loading="lazy" fetchpriority="high"' : opts.eager ? ' fetchpriority="high"' : ' loading="lazy"';
   return `<figure class="${cls}"><img src="${esc(up + photo.src)}"${srcsetAttr(photo, up, opts.sizes || CARD_SIZES)} width="${photo.w}" height="${photo.h}" alt="${esc(c.depicts)}"${load} decoding="async"><figcaption>${captionHtml(c)}</figcaption></figure>`;
 }
 /**
@@ -220,14 +222,29 @@ function figureHtml(photo, up = '', cls = 'photo', opts = {}) {
  * facts and buttons): heroCreditHtml() is a visible line in the text flow, under the actions. Rendered ONLY when a
  * credited hero slot exists — otherwise the page is byte-identical.
  */
-function heroHtml(photo, up = '', cls = 'photo hero-photo') {
+const HERO_SIZES = '(min-width: 1024px) 50vw, 100vw';
+function heroHtml(photo, up = '', cls = 'photo hero-photo', opts = {}) {
   // an in-flow media slot (e.g. FE-B's hub 'photo hero-media'): eager, sized, with its TASL figcaption
-  if (cls !== 'photo hero-photo') return figureHtml(photo, up, cls, { eager: true, sizes: '(min-width: 1024px) 50vw, 100vw' });
+  if (cls !== 'photo hero-photo') return figureHtml(photo, up, cls, Object.assign({ eager: true, sizes: HERO_SIZES }, opts));
   const g = 'var(--hero-scrim,var(--night,#14161c))';
   const scrim = `<span class="hero-scrim" aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(90deg,color-mix(in srgb,${g} 90%,transparent) 0,color-mix(in srgb,${g} 78%,transparent) 45%,color-mix(in srgb,${g} 38%,transparent) 100%)"></span>`;
   const c = photo.credit;
   return `<figure class="${cls}" style="position:absolute;inset:0;margin:0;z-index:-2;border-radius:0">` +
     `<img style="width:100%;height:100%;object-fit:cover;display:block" src="${esc(up + photo.src)}"${srcsetAttr(photo, up, '100vw')} width="${photo.w}" height="${photo.h}" alt="${esc(c.depicts)}" fetchpriority="high" decoding="async">${scrim}</figure>`;
+}
+/**
+ * Platform W7: an inline <head> script (emit it after the view boot script) that preloads a hero rendered with { preloaded: true } (lazy), at high priority,
+ * unless the page opens in `skipView` (the hash view=, else the stored preference), where the hero is hidden and must
+ * not be fetched. Same srcset/sizes as the <img>, so the browser reuses the preloaded response. No document.write.
+ */
+function heroPreload(photo, up = '', sizes = HERO_SIZES, skipView = 'atlas') {
+  const set = (photo.widths || []).map(s => `${up + s.src} ${s.w}w`).join(', ');
+  const j = x => JSON.stringify(x).replace(/</g, '\\u003c');
+  // the page's view boot script (city.js viewHead) has already set html[data-view]; fall back to hash, then storage
+  return `<script>(function(){var v=document.documentElement.getAttribute('data-view')||(/[#&]view=([a-z]+)/.exec(location.hash)||[])[1];if(!v){try{v=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}` +
+    `if(v===${j(skipView)})return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=${j(up + photo.src)};` +
+    (set ? `l.setAttribute('imagesrcset',${j(set)});l.setAttribute('imagesizes',${j(sizes)});` : '') +
+    `l.setAttribute('fetchpriority','high');document.head.appendChild(l)})()</script>`;
 }
 /** The hero photo's visible TASL credit, one small line in the text flow (inherits the hero's text colour). */
 function heroCreditHtml(photo) {
@@ -235,4 +252,4 @@ function heroCreditHtml(photo) {
   return `<p class="hero-credit" style="margin:12px 0 0;font-size:12px;line-height:1.45;opacity:.8;max-width:70ch">${/^Photo/.test(cap) ? '' : 'Photo: '}${cap.replace(/<a /g, '<a style="color:inherit" ')}</p>`;
 }
 
-module.exports = { loadPhotos, creditProblems, figureHtml, heroHtml, heroCreditHtml, captionHtml, imageSize, SCHEMA, PHOTO_DIR, CREDITS, LICENCE_OK, CARD_SIZES };
+module.exports = { loadPhotos, creditProblems, figureHtml, heroHtml, heroPreload, HERO_SIZES, heroCreditHtml, captionHtml, imageSize, SCHEMA, PHOTO_DIR, CREDITS, LICENCE_OK, CARD_SIZES };

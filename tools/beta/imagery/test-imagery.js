@@ -115,7 +115,7 @@ ok(/^<p class="hero-credit"[^>]*>Photo: A\. Photographer · <a [^>]*rel="license
 { // card credit: short TASL line; the full sentence only on request (place detail)
   const rc = Object.assign({}, cmn, { title: 'Senso-ji, Asakusa', modified: 'resized to 500 and 960 px wide' });
   const short = photos.captionHtml(rc), full = photos.captionHtml(rc, { full: true });
-  ok(short === 'Photo: A. Photographer · <a href="' + rc.licenceUrl.replace(/&/g, '&amp;') + '" rel="license noopener" target="_blank">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Senso-ji,_Asakusa,_Tokyo.jpg" title="“Senso-ji, Asakusa”" rel="noopener" target="_blank">Wikimedia Commons</a> (resized)', 'card credit: "Photo: author · licence · source (resized)" — title on the source link, licence + source linked');
+  ok(short === 'Photo: A. Photographer · <a href="' + rc.licenceUrl.replace(/&/g, '&amp;') + '" rel="license noopener" target="_blank">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Senso-ji,_Asakusa,_Tokyo.jpg" title="“Senso-ji, Asakusa”" aria-label="“Senso-ji, Asakusa” on Wikimedia Commons" rel="noopener" target="_blank">Wikimedia Commons</a> (resized)', 'card credit: "Photo: author · licence · source (resized)" — title on the source link, licence + source linked');
   ok(/^“Senso-ji, Asakusa” by A\. Photographer, <a [^>]*rel="license[^"]*"[^>]*>CC BY-SA 4\.0<\/a>, via <a [^>]*>Wikimedia Commons<\/a> — resized to 500 and 960 px wide$/.test(full), 'captionHtml(c, {full:true}): the whole TASL sentence for a place detail');
   ok(/ sizes="\(max-width: 639px\) 92vw, \(max-width: 1023px\) 45vw, 25vw"/.test(photos.figureHtml(cph, '../')) && / sizes="120px"/.test(photos.figureHtml(cph, '../', 'photo', { sizes: '120px' })), 'card sizes default: 92vw on phones, 45vw tablets, 25vw desktop; callers can pass a smaller sizes (thumbnails)');
 }
@@ -237,6 +237,23 @@ ok(JSON.stringify(fc.snapWidths([480, 960], 4000)) === '[500,960]' && JSON.strin
 ok(!fc.tooManyFailures(10, 1) && !fc.tooManyFailures(2, 1) && fc.tooManyFailures(8, 3), 'fetch-commons: one failed thumbnail is skipped; the run fails only past 25 % failed downloads');
 ok(fc.GLOOM.test('Old Main Snow PSU') && fc.GLOOM.test('Skyline on an overcast winter day') && !fc.GLOOM.test('Downtown Miami skyline at night') && !fc.GLOOM.test('Brooklyn Bridge at golden hour'), 'fetch-commons: a hero whose title or description says winter, snow, overcast or fog is refused (night views allowed)');
 ok(fc.SIGNAGE.test('Shop signage in Dotonbori') && fc.SIGNAGE.test('Billboards at night') && !fc.SIGNAGE.test('Tokyo Tower at night') && !fc.SIGNAGE.test('30 Rockefeller Plaza (NBC headquarters)'), 'fetch-commons: a file whose subject is signage, a logo or advertising is refused');
+ok(fc.SIGNAGE.test('Youngstown skyline with the YOUNGSTOWN letters sign') && fc.SIGNAGE.test('Hotel lettering') && fc.subjectRefused(fc.SIGNAGE, { label: 'Youngstown', names: ['Youngstown'] }, 'Big letters sign in Wean Park') && !fc.subjectRefused(fc.SIGNAGE, { label: 'Sign Hill', names: ['Sign Hill'] }, 'Sign Hill letters from the bay'), 'fetch-commons: lettering and letter signs are refused too — unless the sign is the place itself (Sign Hill)');
+ok(fc.subjectRefused(fc.CLOSEUP, { label: 'Dayton', names: ['Dayton'] }, 'RiverScape MetroPark, Dayton | person holding black drone controller') && fc.CLOSEUP.test('Hands on a remote') && fc.CLOSEUP.test('Selfie at the falls') && fc.CLOSEUP.test('Close-up of a lantern') && !fc.CLOSEUP.test('Aerial view of the Great Miami River') && !fc.subjectRefused(fc.CLOSEUP, { label: 'National Portrait Gallery', names: ['National Portrait Gallery'] }, 'National Portrait Gallery facade'), 'fetch-commons: equipment / people / close-up subjects (drone controller, hands, selfie, close-up) refused; a portrait gallery keeps its photo');
+{ // recompress.js: size targets per copy, Commons JPEGs only, once per row; the card credit still says "(resized)"
+  const rc = require('./recompress');
+  const card = { provider: 'wikimedia-commons', file: 'x-960.jpg', width: 960, record: {} }, hero = Object.assign({}, card, { slot: { type: 'hero', key: 'tokyo' } });
+  ok(rc.targetOf(card, 500, false) === 45 * 1024 && rc.targetOf(card, 960, true) === 110 * 1024 && rc.targetOf(hero, 960, true) === 160 * 1024 && rc.targetOf(hero, 500, false) === 45 * 1024, 'recompress: targets — card 500 w ≤ 45 KB, card 960 w ≤ 110 KB, hero 960 w ≤ 160 KB');
+  ok(rc.eligible(card) && !rc.eligible(Object.assign({}, card, { modified: 'resized to 500 and 960 px wide; ' + rc.MARK })) && !rc.eligible(Object.assign({}, card, { provider: 'unsplash' })) && !rc.eligible(Object.assign({}, card, { file: 'x.png' })), 'recompress: Commons JPEG rows only, each once (idempotent after every fetch)');
+  ok(/ \(resized\)$/.test(photos.captionHtml(Object.assign({}, cmn, { modified: 'resized to 500 and 960 px wide; ' + rc.MARK }))) && photos.captionHtml(Object.assign({}, cmn, { modified: 'resized to 500 and 960 px wide; ' + rc.MARK }), { full: true }).includes('recompressed'), 'recompressed rows: short credit "(resized)", the full credit names both changes');
+}
+{ // one Commons file, one credit row: never the same photo as two heroes, or as a hero and a card (owner review, W7)
+  const seen = new Map(), dups = [];
+  for (const c of (JSON.parse(fs.readFileSync(path.join(BETA, 'assets', 'img', 'CREDITS.json'), 'utf8')).credits || [])) {
+    const k = c.commonsTitle || c.sourceUrl, where = c.slot ? `hero:${c.slot.key}` : `${c.record.page}#${c.record.id}`;
+    if (seen.has(k)) dups.push(`${k}: ${seen.get(k)} + ${where}`); else seen.set(k, where);
+  }
+  ok(!dups.length, `no Commons file is credited twice (heroes vs heroes, heroes vs cards)${dups.length ? ': ' + dups.join('; ') : ''}`);
+}
 const refusedC = cm.targets.flatMap(t => t.candidates.filter(c => c.refused).map(c => [t, c]));
 ok(refusedC.every(([, c]) => c.refused.length > 10) && fc.plan(cm, { credits: [] }, { keys: [], types: [], min: 'high', allow: [], wikiLead: false, pilot: false }).filter(p => !p.skip).every(p => p.cands.every(c => !c.refused)), `fetch-commons: candidates refused after visual review carry a reason and are never fetched (${refusedC.length})`);
 ok(fc.fileBase({ type: 'landmark', depicts: 'singapore/chinatown#sri-mariamman-temple' }) === 'singapore--chinatown--sri-mariamman-temple' && fc.fileBase({ type: 'hero', depicts: 'hub:singapore/chinatown' }) === 'hero--singapore--chinatown', 'fetch-commons: file names follow the photos/ convention');
