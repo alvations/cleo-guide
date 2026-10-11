@@ -29,7 +29,7 @@
   },
   "heroes": {
    "targets": 89,
-   "withHigh": 50
+   "withHigh": 53
   },
   "pilotLandmarks": {
    "targets": 180,
@@ -42,12 +42,12 @@
    "withArticle": 632
   },
   "candidates": {
-   "total": 354,
-   "high": 340,
+   "total": 363,
+   "high": 349,
    "med": 14,
    "low": 0
   },
-  "targetsWithHigh": 165,
+  "targetsWithHigh": 168,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -1780,7 +1780,30 @@
     "https://en.wikipedia.org/wiki/Changi_Beach_Park"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [
+    {
+     "file": "File:Sunrise seen from Changi Boardwalk.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sunrise_seen_from_Changi_Boardwalk.jpg",
+     "depicts": "Sunrise from the Changi Boardwalk",
+     "confidence": "high",
+     "reason": "title names the Changi Boardwalk; summary: near Changi Beach Park"
+    },
+    {
+     "file": "File:Changi Beach Park, Nov 2014.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Changi_Beach_Park,_Nov_2014.jpg",
+     "depicts": "Changi Beach Park (November 2014)",
+     "confidence": "high",
+     "reason": "title names Changi Beach Park (copied from the category listing)"
+    },
+    {
+     "file": "File:Jewel Changi Rain Vortex (1).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Jewel_Changi_Rain_Vortex_(1).jpg",
+     "depicts": "Jewel Changi Rain Vortex",
+     "confidence": "high",
+     "reason": "lead image (run #29)",
+     "refused": "refused by visual review (W8): repeats the Jewel subject of the Changi lead card"
+    }
+   ]
   },
   {
    "key": "hero:singapore/civic-district",
@@ -2183,7 +2206,8 @@
    "depicts": "hub:singapore/toa-payoh",
    "label": "Toa Payoh — guide hero",
    "names": [
-    "Toa Payoh"
+    "Toa Payoh",
+    "Dragon Playground"
    ],
    "pilot": false,
    "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
@@ -2193,7 +2217,30 @@
     "https://en.wikipedia.org/wiki/Toa_Payoh_Town_Park"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [
+    {
+     "file": "File:Original \"Toa Payoh Dragon Playground\", Singapore (2025) - img 02.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Original_%22Toa_Payoh_Dragon_Playground%22,_Singapore_(2025)_-_img_02.jpg",
+     "depicts": "The Toa Payoh dragon playground (March 2025)",
+     "confidence": "high",
+     "reason": "title names the Toa Payoh Dragon Playground; summary: Chainwit, CC BY 4.0. Public play equipment; Singapore has freedom of panorama for works in public places"
+    },
+    {
+     "file": "File:Dragon playground in front of Block 28 Toa Payoh Lorong 6.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Dragon_playground_in_front_of_Block_28_Toa_Payoh_Lorong_6.jpg",
+     "depicts": "The dragon playground at Toa Payoh Lorong 6",
+     "confidence": "high",
+     "reason": "title names the dragon playground, Toa Payoh (copied from the category listing)"
+    },
+    {
+     "file": "File:Toa Payoh Mall 10.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Toa_Payoh_Mall_10.JPG",
+     "depicts": "Toa Payoh Mall",
+     "confidence": "high",
+     "reason": "lead image (run #29)",
+     "refused": "refused by visual review (W8): a mall — the dragon playground is the town's icon"
+    }
+   ]
   },
   {
    "key": "hero:singapore/upper-serangoon",
@@ -2559,7 +2606,9 @@
    "depicts": "hub:singapore/yangon",
    "label": "Yangon — guide hero",
    "names": [
-    "Yangon"
+    "Yangon",
+    "Sule Pagoda",
+    "Sule"
    ],
    "pilot": false,
    "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
@@ -2568,7 +2617,30 @@
     "https://en.wikipedia.org/wiki/Yangon"
    ],
    "wikiLead": true,
-   "candidates": []
+   "candidates": [
+    {
+     "file": "File:Sule Pagoda Yangoon.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sule_Pagoda_Yangoon.jpg",
+     "depicts": "Sule Pagoda, downtown Yangon",
+     "confidence": "high",
+     "reason": "title names Sule Pagoda (spelled Yangoon); summary: kallerna, own work"
+    },
+    {
+     "file": "File:Sule Pagoda Yangon Burma.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Sule_Pagoda_Yangon_Burma.JPG",
+     "depicts": "Sule Pagoda, Yangon (March 2008)",
+     "confidence": "high",
+     "reason": "title names Sule Pagoda, Yangon; summary: ArtemFrolov, CC BY-SA"
+    },
+    {
+     "file": "File:ShwedagonPagoda.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:ShwedagonPagoda.jpg",
+     "depicts": "Shwedagon Pagoda",
+     "confidence": "high",
+     "reason": "lead image (run #29)",
+     "refused": "refused by visual review (W8): repeats the Shwedagon subject of the Yangon lead card"
+    }
+   ]
   },
   {
    "key": "hero:singapore/yogyakarta",
