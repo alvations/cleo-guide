@@ -225,6 +225,21 @@ for (const r of cityRows) {
 }
 const totalLive = cityRows.reduce((s, r) => s + r.counts.P + r.counts.F, 0);
 if (searchItems.length !== totalLive) errors.push(`search index ${searchItems.length} != live total ${totalLive}`);
+// W9-6 (FE-B "paste a link"): host → the publishers whose cited URLs live there, with the guides and place counts each
+// recommends. Search reads it when a query is a URL; the pasted URL is only parsed, never fetched. From each page's own
+// source index (lib/sources.js domains), so a host maps only to sources the guides actually cite.
+{
+  const hosts = {};
+  for (const r of cityRows) for (const s of (r.sources && r.sources.list) || []) {
+    if (s.id === 'guide') continue;
+    for (const dom of new Set((s.domains || []).map(d => String(d).toLowerCase().replace(/^www\./, '')).filter(Boolean)))
+      (hosts[dom] = hosts[dom] || []).push([r.beta, r.name, s.id, s.name, s.n]);   // that guide's own id + name for the source
+  }
+  for (const h of Object.keys(hosts)) hosts[h].sort((x, y) => y[4] - x[4] || (x[0] < y[0] ? -1 : 1));
+  emit('data/source-hosts.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
+    _doc: 'W9-6 paste a link: host (lowercase, no www.) → [[beta page, guide name, that page\'s source id, its name there, places it recommends there]…], most places first. Built from the guides\' own cited URLs; nothing is fetched from a pasted URL.',
+    hosts: Object.fromEntries(Object.keys(hosts).sort().map(h => [h, hosts[h]])) }));
+}
 emit('data/sources.json', JSON.stringify({ _generated: 'tools/beta/build.js — do not edit', v: 1,
   _doc: 'Every publisher cited on any beta place page: id, display name, text authority mark, total records citing it, and [pageKey, n] per page. Per-page detail (entries, place ids) is in data/places/<page>.json sourceIndex.',
   sources: siteSources(cityRows) }));
