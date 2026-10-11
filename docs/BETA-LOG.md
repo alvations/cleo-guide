@@ -1082,3 +1082,10 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - Erie (white sky) is weak; swap it if a bright lead exists.
     - Run #19 (sharp + recompress) is in progress.
   - **Atlas** (68ae2639): shared card face in the desktop grid and phone list, phone peek with the photo, OSM credit clear of the pill, phone chip row. Still owed: the Tokyo Atlas node and byte numbers after a first-page-only stamp (platform measured about 10.5 k nodes on desktop), and the lens deep link fitting all matches.
+  - **Card-face test cases (orchestrator 17:41):** `beta:probe:fe-a` now checks the card face on Tokyo Gallery (grid at 1440/390, rails) and on Atlas (Tokyo, Cleveland `.w7-cards`):
+    - no card under an area header shows its area;
+    - rail cards (no header) keep it;
+    - "Recommended by" never ends on a dangling comma or a cut chip.
+
+    The probe caught a long source name cut in Cleveland's narrow Atlas cards. That line now wraps instead of clipping. All PASS (`design/beta/eval/w7/fe-a/probe.txt`).
+
