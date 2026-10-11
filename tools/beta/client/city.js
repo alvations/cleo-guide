@@ -300,9 +300,12 @@
     const r0 = Cleo.route.parse().p;
     if (r0 && markers[r0]) setTimeout(() => fly(markers[r0].getLatLng()), 0);
     else if (S.a) setTimeout(() => fitArea(S.a), 0);
+    else if (S.mode !== 'all' || S.q || LENS.some(k => S[k])) setTimeout(fitLens, 0);   // a lens link: every match on the map, so the count is the lens total
     else setTimeout(fitCore, 0);
     return true;
   };
+  const fitLens = () => { if (!live() || !map.getSize().x) return; const ll = cards.filter(c => !c.hidden && markers[pid(c)]).map(c => markers[pid(c)].getLatLng());
+    if (ll.length) { auto = Date.now(); map.fitBounds(window.L.latLngBounds(ll), Object.assign(overMap(), { maxZoom: 15, animate: false })); } };
   // QA-44: the first view fits the city's core (pins within 3× the median distance of the median point, else 95 %) (a far outlier — a day trip, a mis-filed place — never zooms
   // the city out to a country); every place stays in the list, behind "Show all" and a zoom out
   const fitCore = () => { if (!live() || !map.getSize().x) return; const ll = Object.keys(markers).map(id => markers[id].getLatLng()); if (ll.length < 2) return;

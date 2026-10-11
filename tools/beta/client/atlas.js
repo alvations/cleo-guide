@@ -59,27 +59,36 @@
   const PER = 48; let lim = PER, pager = null;
   const msArea = C.msArea = more => {
     const map = C.map();
-    const want = !!map && atlas() && map.getSize().x > 0 && !C.msAll && !S.day && (!desk() || C.msLive !== false);
-    if (!want) { H.classList.remove('ms-on'); C.msN = null; if (pager) pager.hidden = true; if (C.msPaint) C.msPaint(); return; }
+    // the list always pages by 48 in Atlas (a day route excepted): filtered to the map area while the map is up and
+    // "Search as I move" is on; the whole lens when there is no map (or "Show all") — never every card at once
+    if (!atlas() || S.day) { qa('li.pl.ms-out').forEach(c => c.classList.remove('ms-out')); H.classList.remove('ms-on'); C.msN = null; if (pager) pager.hidden = true; held(); if (C.msPaint) C.msPaint(); return; }
+    const area = !!map && map.getSize().x > 0 && !C.msAll && (!desk() || C.msLive !== false);
     if (more !== true) lim = PER;
-    const b = box(), keep = c => c.classList && (c.classList.contains('is-target') || c === selC), inB = c => { const ll = llOf(c); return (!!ll && b.contains(ll)) || keep(c); };
+    // a place without a verified pin has no "outside": it is always listed (last), so no lens count ever loses it
+    const b = area ? box() : null, keep = c => c.classList && (c.classList.contains('is-target') || c === selC), inB = c => { const ll = llOf(c); return !b || !ll || b.contains(ll) || keep(c); };
     // which places make the first page: "Top ranked" across the map area — each area's own tier (graded within its area,
     // never re-graded), then its rank — so every area's Must sees are on page 1. Shown grouped by area, in guide order.
     const ord = {}; C.sections.forEach((s, i) => { ord[at(s, 'data-area')] = i; });
     const tier = c => c.hasAttribute('data-closed') ? 4 : +at(c, 'data-t') || 3;
     const all = qa('li.pl').filter(c => !c.hidden).concat(Cleo.defer ? Cleo.defer.peek() : []);
-    const inn = all.filter(inB).sort((x, y) => S.sort ? 0 : tier(x) - tier(y) || C.num(x) - C.num(y) || (ord[at(x, 'data-a')] || 0) - (ord[at(y, 'data-a')] || 0));
-    const show = {}; inn.slice(0, lim).concat(inn.filter(keep)).forEach(c => {   // the selected / open place always shows
-      show[C.pid(c)] = 1; if (!C.byId[C.pid(c)] && Cleo.defer) Cleo.defer.stampFor(C.pid(c)); });
+    const inn = all.filter(inB).sort((x, y) => !llOf(x) - !llOf(y) || (S.sort ? 0 : tier(x) - tier(y) || C.num(x) - C.num(y) || (ord[at(x, 'data-a')] || 0) - (ord[at(y, 'data-a')] || 0)));
+    // only the cards on show are built: exactly these ids (Cleo.defer.stampIds splits their chunks), never the whole area
+    const show = {}, need = new Set(); inn.slice(0, lim).concat(inn.filter(keep)).forEach(c => { show[C.pid(c)] = 1; if (!C.byId[C.pid(c)]) need.add('p-' + C.pid(c)); });   // the selected / open place always shows
+    // while the map is still on its way, page what is already built: its own first fit picks the page to build
+    if (need.size && Cleo.defer && (map || H.classList.contains('ms-nomap'))) { if (Cleo.defer.stampIds) Cleo.defer.stampIds(need); else need.forEach(id => Cleo.defer.stampFor(id.slice(2))); }
     qa('li.pl').forEach(c => c.classList.toggle('ms-out', !c.hidden && !show[C.pid(c)] && !keep(c)));
     qa('section.area').forEach(s => s.classList.toggle('ms-empty', !s.querySelector('li.pl:not([hidden]):not(.ms-out)')));
     if (!pager && lp) { pager = d.createElement('p'); pager.className = 'ms-pager'; lp.insertBefore(pager, $('#how-we-choose', lp)); on(pager, 'click', e => { if (e.target.closest('button')) { lim += PER; msArea(true); } }); }
     const left = inn.length - lim;
-    if (pager) { pager.hidden = left <= 0; pager.innerHTML = left > 0 ? '<button type="button" class="btn btn-ghost">Show ' + Math.min(PER, left) + ' more</button> <span>' + lim.toLocaleString('en-US') + ' of ' + pl(inn.length) + ' in this area</span>' : ''; }
-    deco(); C.msN = [inn.length, all.length - inn.length]; H.classList.add('ms-on'); here(false);
+    if (pager) { pager.hidden = left <= 0; pager.innerHTML = left > 0 ? '<button type="button" class="btn btn-ghost">Show ' + Math.min(PER, left) + ' more</button> <span>' + lim.toLocaleString('en-US') + ' of ' + pl(inn.length) + (area ? ' in this area' : '') + '</span>' : ''; }
+    deco(); face(); C.msN = area ? [inn.length, all.length - inn.length] : null; H.classList.add('ms-on'); held(); here(false);
     if (C.msPaint) C.msPaint();
   };
-  C.after.push(() => { if (atlas() && C.map()) msArea(); });
+  // while the map-area filter is on, Atlas stamps exactly its page (like the Gallery pager): the lazy scroll stamping
+  // holds, so scrolling the list never builds hidden cards; "Show all" lifts the hold (D.resume) and stamping goes on
+  if (Cleo.defer) { const h0 = Cleo.defer.hold; Cleo.defer.hold = () => !!(h0 && h0()) || (atlas() && H.classList.contains('ms-on')); }
+  let wasOn = false; const held = () => { const o = H.classList.contains('ms-on'); if (wasOn && !o && Cleo.defer && Cleo.defer.resume) Cleo.defer.resume(); wasOn = o; };
+  C.after.push(() => { if (atlas()) msArea(); });
 
   /* ---- "Search this area" (phones, after the reader pans or zooms; never live, so the carousel never jumps) ---- */
   let hereB = null;
@@ -173,11 +182,11 @@
       (cl0 ? '<a class="ms-cr" href="' + C.esc(cl0.href) + '" target="_blank" rel="noopener" title="' + C.esc(cap.textContent.trim()) + '" aria-label="Photo credit: ' + C.esc(cap.textContent.trim()) + '">©</a>' : ''));
     const nm = $('.pl-n', c); if (nm) nm.insertAdjacentHTML('afterend', '<p class="ms-k"><span class="ms-a">' + C.esc(a) + ' · </span>' + C.esc(kind) + '</p>' +
       '<p class="ms-rec">' + (s0 ? 'Recommended by <b>' + C.esc(s0) + '</b>' + (ss.length > 1 ? ' +' + (ss.length - 1) : '') : 'Added by the guide') + '</p>');
-    const im = fig && $('img', fig); if (im) { im.setAttribute('data-sizes0', im.getAttribute('sizes') || ''); im.setAttribute('sizes', '240px'); }   // the 500w copy
+    const im = fig && $('img', fig); if (im && !im.hasAttribute('data-sizes0')) im.setAttribute('data-sizes0', im.getAttribute('sizes') || '');
   });
   const undeco = () => { qa('li.pl img[data-sizes0]').forEach(im => { im.setAttribute('sizes', at(im, 'data-sizes0')); im.removeAttribute('data-sizes0'); });
     qa('li.pl[data-ms]').forEach(x => x.removeAttribute('data-ms')); qa('li.pl :is(.ms-bd,.ms-cr,.ms-k,.ms-rec)').forEach(x => x.remove()); };
-  on(d, 'cleo:stamped', () => { if (atlas()) deco(); });
+  on(d, 'cleo:stamped', () => { if (atlas()) { deco(); face(); } });
 
   /* ---- the Atlas chrome (moved off the eager path): filter bar, results line, List / Map pill ---- */
   const split = $('.split'), tb = $('[data-cleo-toolbar]'), nav = $('[data-cleo-views]'), achips = $('.area-chips');
@@ -227,7 +236,10 @@
   };
   C.after.push(paintMs); on(d, 'cleo:stamped', () => { if (atlas()) requestAnimationFrame(paintMs); }); on(d, 'cleo:saved', paintMs);
   // phones: List ⇄ Map. The list is the full-screen image-first list of the places in the map area (Back closes it).
-  const face = () => { if (lp) lp.classList.toggle('w7-cards', atlas() && (desk() || listOn)); };   // FE-A's shared card face, except the carousel
+  // FE-A's shared card face, except the carousel; phone thumbs ask for the 500w copy (carousel 120px, list 240px)
+  const face = () => { const car = atlas() && !desk() && !listOn; if (lp) lp.classList.toggle('w7-cards', atlas() && !car);
+    const s = car ? '120px' : atlas() && !desk() ? '240px' : null;   // phone list: the 500w copy too (budget); desktop: the card default
+    qa('li.pl img[data-sizes0]').forEach(im => { const v = s || at(im, 'data-sizes0'); if (at(im, 'sizes') !== v) im.setAttribute('sizes', v); }); };
   const listMode = C.listMode = (o, push) => {
     if (!!o === listOn && !push) return; listOn = !!o && !desk(); H.classList.toggle('ms-list', listOn); face();
     if (listOn && push && !pushedList) { try { history.pushState({ msList: 1 }, '', location.href); pushedList = 1; } catch (e) {} }
@@ -237,9 +249,12 @@
   };
   on(window, 'popstate', () => { if (pushedList) { pushedList = 0; if (listOn) listMode(false); } });
   on(d, 'keydown', e => { if (e.key !== 'Escape' || !atlas() || !listOn || (Cleo.sheet && Cleo.sheet.isOpen()) || $('.overlay:not([hidden])')) return; listMode(false, true); });
-  C.onNoMap = () => { C.msN = null; H.classList.remove('ms-on'); if (atlas() && !desk()) listMode(true); paintMs(); };
+  C.onNoMap = () => { C.msN = null; if (atlas() && !desk()) listMode(true); msArea(); };
+  // a typed search keeps the phone search pill open (it collapses to a 44 px button when empty)
+  const fq = $('#cleo-filter'), sq = () => { const s = fq && fq.closest('.spill'); if (s) s.classList.toggle('has-q', !!fq.value); };
+  on(fq, 'input', sq);
   C.msIn = () => {
-    build(); unpark(); deco(); face();
+    build(); unpark(); deco(); face(); sq();
     const x = $('.ms-x', bar);
     // phones: the chip row carries FE-A's search pill (in the toolbar) and the switcher last; desktop: area chips in the results head
     if (!desk()) { park(tb, bar, x); park(nav, bar, null); } else { park(tb, bar, x); if (achips) park(achips, head, $('.ms-more', head).nextSibling); }
@@ -247,7 +262,7 @@
     if (H.classList.contains('ms-nomap')) C.onNoMap();
     msArea();
   };
-  C.msOut = () => { listOn = false; unpark(); undeco(); if (lp) lp.classList.remove('w7-cards'); closePoi(); };
+  C.msOut = () => { listOn = false; unpark(); undeco(); if (lp) lp.classList.remove('w7-cards'); closePoi(); held(); };
 
   /* ---- locate-me: opt-in, one reading, memory only ---- */
   let me = null, meL = null;

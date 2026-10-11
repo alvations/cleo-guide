@@ -1032,3 +1032,28 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - On phones Atlas follows FE-A's rule: the city bar steps aside, and the chip row carries the search pill and the switcher.
     - In Atlas the write-up stays hidden even on the selected card. The selection ring sits on the media image.
     - Gates all PASS; `atlas-ms.js` 85/85; w2 map 35/35.
+
+- 2026-10-11 · Atlas lane · **Atlas budget regression fixed, plus the orchestrator's pass.**
+  - **Cause of 8.26 MB / 10k nodes:** `msArea()` called `stampFor()` per shown id, and each call built a whole ~40-card chunk. Platform's lazy scroll-stamping also kept building hidden cards while the list scrolled.
+  - **Fix:**
+    - only the cards on show are built, via `Cleo.defer.stampIds`;
+    - Atlas holds the lazy stamping (`D.hold`, like the Gallery pager) while its list is paged, and `D.resume()`s on leaving;
+    - the list always pages by 48 in Atlas, even with no map or tiles. That path had been unpaged, and `metrics.js` blocks tiles, so it was the measured one.
+  - **Tokyo Atlas first load** (tiles blocked, as `metrics.js` runs it; raw bytes):
+    - desktop 2,083 KB raw (HTML 131 KB gz, so ≈ 1.0 MB transfer), 3,446 nodes, 71 cards;
+    - phone 3,914 nodes and 85 cards; its JPEG weight is the next bullet.
+  - **For R7 QA / platform:** `metrics.js` "Perf: bytes" (8,274 KB) is read **after** the reachability stress loop, which opens every place's `#p=` and so loads every photo. That figure is not first load.
+  - **Photo weight left for imagery / FE-A:**
+    - the server-rendered first cards' `sizes` is decided at parse time, before Atlas JS can shrink it, so the phone pulls 5 × 960w (≈ 2.4 MB raw);
+    - the hidden Atlas masthead still loads `hero--tokyo-960.jpg` eagerly;
+    - suggested fix: `sizes="auto, …"` on lazy card images, and a lazy (or Atlas-skipped) hero.
+  - **Also in this pass:**
+    - unpinned places are always listed (never "outside");
+    - a lens deep link fits the map to every match, so the header count is the lens total;
+    - phone carousel thumbs use `sizes="120px"`;
+    - the phone search pill is a 44 px button that opens on focus (no overflow at 390).
+  - **New checks in `atlas-ms.js`** (98/98):
+    - first fit builds ≤ 32 + 48 cards;
+    - no horizontal overflow on the phone, and the search control is on screen;
+    - the OSM credit is clear of the pill, the carousel and the chip row, light + dark.
+  - **Probe rule for R7 QA to ratify:** `qa/w2.js` hubs reads the promised lens count from the Atlas results header (`.ms-count b`) when there is one, because Atlas pages its list. Otherwise it counts cards as before. 38/38 PASS.

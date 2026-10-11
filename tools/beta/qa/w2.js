@@ -473,7 +473,11 @@ async function hubs() {
   for (const [href, n] of links) {
     const [rel, hash] = href.split('#');
     const { ctx, page, st } = await open(rel, 'desktop', { hash: '#' + hash, settle: 700 });
-    const got = await page.evaluate(() => { if (window.Cleo && Cleo.defer && Cleo.defer.all) Cleo.defer.all();
+    // W7 Atlas map-search: a lens link opens Atlas, whose list pages by 48 — the promised count is the results header's
+    // total (the map is fitted to every match), not the cards on the first page (docs/BETA-LOG.md, for R7 QA to ratify).
+    // Elsewhere (no results header) the rendered cards are counted as before.
+    const got = await page.evaluate(() => { const hd = document.querySelector('.ms-head .ms-count b'); if (hd && hd.offsetParent) return +hd.textContent.replace(/[^\d]/g, '');
+      if (window.Cleo && Cleo.defer && Cleo.defer.all) Cleo.defer.all();
       return [...document.querySelectorAll('li.pl')].filter(c => !c.closest('[hidden]') && !c.hidden && getComputedStyle(c).display !== 'none').length; });
     if (got !== n || st.errors.length) mism.push({ href, promised: n, shown: got, errors: st.errors.slice(0, 1) });
     await ctx.close();
