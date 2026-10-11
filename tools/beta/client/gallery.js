@@ -24,7 +24,7 @@
   const phImg = p => p ? '<img class="gc-img" src="' + esc(root + p[0]) + '"' + (p[5] && p[5].length > 1 ? ' srcset="' + p[5].map(x => esc(root + x[0]) + ' ' + x[1] + 'w').join(', ') + '" sizes="(min-width: 1024px) 300px, 80vw"' : '') +
     ' width="' + p[1] + '" height="' + p[2] + '" alt="" loading="lazy" decoding="async">' : '';
   // the TASL credit, as text under the media (the card is one link; the linked credit is in the place detail)
-  const phCred = p => p ? '<span class="gc-cred">Photo: ' + esc(p[4]) + '</span>' : '';
+  const phCred = p => p ? '<span class="gc-cred">' + esc(p[4]) + '</span>' : '';
   const CJK = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af\uf900-\ufaff]/;
   const gcard = (r, i) => {
     const nat = r.nat && r.n.slice(-r.nat.length - 2) === '(' + r.nat + ')' ? r.nat : '', g = Array.from(nat);
@@ -53,7 +53,10 @@
     const f = String(info.file || C.key).replace(/\//g, '--');
     (window.fetch ? fetch(Cleo.root + 'data/gallery/' + f + '.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }) : Promise.reject(new Error('no fetch'))).then(o => {
       pending.push.apply(pending, o.rows); lead = o.lead;
-      if ('IntersectionObserver' in window) io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; io.unobserve(e.target); watch(stampRow()); }), { rootMargin: '200px 0px' });
+      if ('IntersectionObserver' in window) io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; io.unobserve(e.target);
+        // W7: not behind an open place sheet (a #p= deep link keeps the page light, ≤ 3,000 nodes); the next row waits for its close
+        if (Cleo.sheet && Cleo.sheet.isOpen()) { const t = e.target, w = () => { if (Cleo.sheet.isOpen()) setTimeout(w, 600); else io.observe(t); }; setTimeout(w, 600); return; }
+        watch(stampRow()); }), { rootMargin: '200px 0px' });
       watch(stampRow());
       // the lead card: floats in the hero on desktop; on phones and tablets it is the first card under the hero, so a
       // real place card (cover, name, Recommended by, heart) sits inside the first screen (ROUND-4 #2, B-01)

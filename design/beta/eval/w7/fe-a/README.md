@@ -9,8 +9,7 @@ Brief: `design/beta/eval/W7-BRIEFS.md` → "Lane: FE-A". Log entry: `docs/BETA-L
   Tokyo Gallery (first screen + one scroll + grid page 2), Cleveland and Chinatown Gallery, Cleveland
   "Recently closed" lens, Tokyo Atlas, the Kanda Myōjin place detail, Tokyo Guidebook and Insights.
 - Re-shoot: `cd tools && NODE_PATH=$(npm root -g) node beta/w7-shots.js --out design/beta/eval/w7/fe-a/after`
-  (same-origin files from disk, tiles stubbed, every other off-origin request aborted: no CDN).
+  (same-origin files from disk; **map tiles are stubbed offline** with a flat neutral land colour, #F2EFE9 light / the sand token dark, so Atlas shots show pins on a plain ground, not real streets; every other off-origin request is aborted: no CDN).
 
 All colours, radii, shadows, durations and faces in the W7 layer are design-system tokens, so these shots show the
-structure on the R6 tokens; design system v2 restyles it without a markup change. Photos: none are committed yet
-(the imagery lane's Commons run is pending), so every card shows the calm no-photo cover.
+structure on the R6 tokens; design system v2 restyles it without a markup change. Shot on the head with design system v2 and the imagery lane's credited Commons photos; cards without a photo show the calm cover.

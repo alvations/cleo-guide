@@ -75,7 +75,7 @@
     var exp = vw === 'gallery';    // A-04: in Gallery the sheet is the experience page
     return '<div class="sheet detail' + (exp ? ' exp' : '') + '" role="dialog" aria-modal="true" aria-labelledby="sh-t"><span class="grab" aria-hidden="true"></span>' +
       '<button class="btn btn-icon close" data-sh="x" aria-label="Close">' + icon('close') + '</button>' + navRow +
-      '<div class="hero-plate' + (q('.pl-photo', c) ? ' has-photo' : '') + (closed ? ' is-closed' : '') + '" style="--area:' + esc(((info.areas || {})[a] || {}).c || 'var(--city)') + '">' + (q('.pl-photo', c) ? q('.pl-photo', c).outerHTML : '') + loc + '<div class="plate-art" aria-hidden="true">' + q('.pl-cover', c).innerHTML + '</div></div>' +
+      '<div class="hero-plate' + (q('.pl-photo', c) ? ' has-photo' : '') + (closed ? ' is-closed' : '') + '" style="--area:' + esc(((info.areas || {})[a] || {}).c || 'var(--city)') + '">' + (q('.pl-photo', c) ? fullCap(q('.pl-photo', c)) : '') + loc + '<div class="plate-art" aria-hidden="true">' + q('.pl-cover', c).innerHTML + '</div></div>' +
       '<div class="content"><div class="badges">' + (closed ? '<span class="status closed">Closed · kept for the record</span>' : tier ? tier.outerHTML.replace('class="tier', 'class="tier lg') : '') +
       '<span class="sm">in ' + esc(C.label('a', a)) + ' · pin ' + c.getAttribute('data-n') + '</span></div><h2 class="d2" id="sh-t">' + (q('.pl-vert', c) && q('.pl-n .nat', c) ? esc(C.name(c)) + ' <span class="vh">' + esc(q('.pl-n .nat', c).textContent) + '</span>' : q('.pl-n a', c).innerHTML) + '</h2>' +
       rank + (w ? (exp ? '<h3 class="section-t">Why it’s here</h3>' : '') + '<p class="why">' + w.innerHTML + '</p>' : '') +
@@ -129,6 +129,12 @@
     d.body.appendChild(el); setTimeout(function () { el.remove(); }, 2600);
   });
   // the media of the card a reader just tapped (its photo, else its calm cover), for the grow-into-sheet transition
+  // the place detail shows the photo's full TASL credit (title, author, licence, source); the card carries the short form
+  // (TASL: the short card credit names author, licence and source and keeps the file title on its source link; the detail
+  // spells the title out in front)
+  var fullCap = function (f) { var x = f.cloneNode(true), cap = q('figcaption', x), t = cap && q('a[title]', cap);
+    if (t && !q('.cap-t', cap)) cap.insertAdjacentHTML('afterbegin', '<span class="cap-t">' + esc(t.getAttribute('title')) + '</span> · ');
+    return x.outerHTML; };
   var grow = null;
   d.addEventListener('click', function (e) {
     var t = e.target.closest && e.target.closest('li.pl .pl-n a, li.pl > .pl-cover, li.pl > .pl-photo, li.gc .gc-a'); if (!t) return;

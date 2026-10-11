@@ -18,7 +18,13 @@ const ONLY = (arg('--only', '') || '').split(',').filter(Boolean);
 const BASE = 'https://cleo.local/';
 const VP = { m: { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true }, d: { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 } };
 const TYPES = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
-const TILE = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGN482YJAAT0Aqt4WyN2AAAAAElFTkSuQmCC', 'base64');
+// offline tile stub: a flat 1×1 PNG in a neutral land colour (light #F2EFE9, dark = the sand token #24211D); no tile host is contacted
+const zlib = require('zlib');
+const png1 = (r, g, b) => { const crc = buf => { let c, k, t = []; for (let n = 0; n < 256; n++) { c = n; for (k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } c = 0xFFFFFFFF; for (const x of buf) c = t[(c ^ x) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; };
+  const chunk = (type, data) => { const l = Buffer.alloc(4); l.writeUInt32BE(data.length); const td = Buffer.concat([Buffer.from(type), data]); const c = Buffer.alloc(4); c.writeUInt32BE(crc(td)); return Buffer.concat([l, td, c]); };
+  const ih = Buffer.alloc(13); ih.writeUInt32BE(1, 0); ih.writeUInt32BE(1, 4); ih[8] = 8; ih[9] = 2;
+  return Buffer.concat([Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), chunk('IHDR', ih), chunk('IDAT', zlib.deflateSync(Buffer.from([0, r, g, b]))), chunk('IEND', Buffer.alloc(0))]); };
+const TILES = { light: png1(0xF2, 0xEF, 0xE9), dark: png1(0x24, 0x21, 0x1D) };
 const SETS = [
   { id: 'tokyo-gallery', url: 'beta/cities/tokyo.html' },
   { id: 'tokyo-gallery-s1', url: 'beta/cities/tokyo.html', scroll: 1, wait: 600 },
@@ -42,7 +48,7 @@ const SETS = [
     const ctx = await browser.newContext(Object.assign({ colorScheme: scheme, serviceWorkers: 'block' }, vp));
     await ctx.route('**/*', async r => {
       const u = r.request().url();
-      if (/tile\.openstreetmap\.org|arcgisonline\.com/.test(u)) return r.fulfill({ status: 200, contentType: 'image/png', body: TILE });
+      if (/tile\.openstreetmap\.org|arcgisonline\.com/.test(u)) return r.fulfill({ status: 200, contentType: 'image/png', body: TILES[scheme] });
       if (!u.startsWith(BASE)) return r.abort('blockedbyclient');
       const p = path.join(ROOT, decodeURIComponent(new URL(u).pathname));
       if (!fs.existsSync(p) || fs.statSync(p).isDirectory()) return r.fulfill({ status: 404, body: '' });
