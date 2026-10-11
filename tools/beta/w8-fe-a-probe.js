@@ -103,6 +103,27 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
     ok(await p2.evaluate(() => !localStorage.getItem('cleo:v1:days')), `@${w} opening a shared day stores nothing`);
     ok(!e2.length, `@${w} 0 page errors on reopen`, e2.slice(0, 2)); await ctx2.close();
   }
+  console.log('# place detail (QA-51, QA-59b/d, R7 2d, closures)');
+  for (const w of [390, 1440]) {
+    const ctx = await ctxFor(b, w);
+    for (const [u, id] of [['cities/tokyo.html', 'kanda-myojin'], ['cleveland.html', 'west-side-market'], ['cleveland.html', 'heinens-downtown'], ['cities/newyork.html', 'katzs-delicatessen']]) {
+      const page = await ctx.newPage(); await page.goto(BASE + 'beta/' + u + '#p=' + id, { waitUntil: 'load' }); await page.waitForTimeout(1500);
+      const r = await page.evaluate(() => { const h = document.getElementById('cleo-sheet'), sh = h.querySelector('.sheet'), im = h.querySelector('.hero-plate img');
+        const fw = im ? +((/-(\d+)\.(?:jpe?g|webp)$/.exec(im.currentSrc) || [])[1] || 0) : 0;
+        const over = [...h.querySelectorAll('.content *')].filter(e => e.getClientRects().length && e.getBoundingClientRect().right > sh.getBoundingClientRect().right + 1).map(e => e.className || e.tagName).slice(0, 3);
+        const lone = [...h.querySelectorAll('.srclist .acts > *')].filter(e => { const rs = [...e.getClientRects()]; return rs.length > 1 && rs[rs.length - 1].width < 30; }).length;
+        const pri = h.querySelector('.actions .btn-primary'), hr = h.getBoundingClientRect(), sr = sh.getBoundingClientRect();
+        return { img: im ? [fw, Math.round(im.getBoundingClientRect().width)] : null, over, lone, closed: !!h.querySelector('.closed-banner'), pri: pri ? pri.textContent.trim() : '',
+          scrim: getComputedStyle(h).backgroundColor, full: Math.round(hr.left) === 0 && Math.round(hr.width) === innerWidth, centred: Math.abs((sr.left + sr.right) / 2 - innerWidth / 2) < 2 }; });
+      if (r.img) ok(r.img[1] <= r.img[0], `@${w} ${id}: the detail photo is never upscaled (file ${r.img[0]} w shown at ${r.img[1]} px)`);
+      ok(!r.over.length, `@${w} ${id}: nothing in the detail runs past the sheet's edge`, r.over);
+      ok(!r.lone, `@${w} ${id}: no source-link icon wraps onto a line of its own`);
+      if (r.closed) ok(!/Directions/.test(r.pri), `@${w} ${id}: a closed place never offers Directions as its primary action`, r.pri);
+      if (w === 1440) ok(r.full && r.centred && !/rgba\(0, 0, 0, 0\)|transparent/.test(r.scrim), `@${w} ${id}: the desktop sheet is centred over a full-viewport scrim`, r);
+      await page.close();
+    }
+    await ctx.close();
+  }
   await b.close();
   console.log(fails ? `\n>>> FAIL — ${fails} FE-A W8 check(s)` : '\n>>> PASS — FE-A W8: a day from saved places, edited, shared, printed and reopened, by keyboard');
   process.exit(fails ? 1 : 0);

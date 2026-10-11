@@ -9,6 +9,8 @@
   var q = function (s, el) { return (el || d).querySelector(s); };
   var dom = function (u) { return (/^https?:\/\/(?:www\.)?([^/?#]+)/i.exec(u || '') || [])[1] || ''; };
   var fact = function (i, b, m) { return '<div class="fact">' + icon(i) + '<div><b>' + b + '</b>' + (m || '') + '</div></div>'; };
+  // QA-59d: an icon never wraps onto a line of its own — it rides with the last word
+  var glue = function (t, i) { var w = String(t).split(' '), last = w.pop(); return (w.length ? esc(w.join(' ')) + ' ' : '') + '<span class="nw">' + esc(last) + ' ' + icon(i) + '</span>'; };
   var ref = function () { return C.key + '/' + C.pid(card); };
 
   function build(c) {
@@ -23,8 +25,8 @@
       var g = b.getAttribute('data-src'), s = (info.src || {})[g] || [b.textContent, 0, 0, '', ''];
       return '<li' + (s[3] ? ' class="auth"' : '') + ' data-g="' + esc(g) + '"><span class="mono" aria-hidden="true">' + esc(s[0].charAt(0)) + '</span><div><span class="nm">' + esc(s[0]) + '</span>' +
         '<span class="ttl">' + esc([s[3] && s[3] + ' (authority)', dom(s[4])].filter(Boolean).join(' · ')) + '</span></div><div class="acts">' +
-        '<button class="go" data-src="' + esc(g) + '">All ' + s[1] + ' ' + esc(info.name) + ' picks citing ' + esc(s[0]) + ' ' + icon('chev-r') + '</button>' +
-        (s[4] ? '<a class="out" href="' + esc(s[4]) + '"' + NT + '>Read ' + icon('external') + '<span class="vh"> ' + esc(s[0]) + '</span></a>' : '') + '</div></li>';
+        '<button class="go" data-src="' + esc(g) + '">All ' + s[1] + ' ' + esc(info.name) + ' picks citing ' + glue(s[0], 'chev-r') + '</button>' +
+        (s[4] ? '<a class="out" href="' + esc(s[4]) + '"' + NT + '>' + glue('Read', 'external') + '<span class="vh"> ' + esc(s[0]) + '</span></a>' : '') + '</div></li>';
     }).join('') + (q('.pl-s .added', c) ? '<li><span class="mono" aria-hidden="true">·</span><div><span class="nm">Added by the guide</span><span class="ttl">General knowledge — not from a cited source</span></div></li>' : '');
     // W8 (D12/D13 "sources always visible"): who recommends it, right under the name; the full list follows Why it's here
     var by = [].map.call(c.querySelectorAll('.pl-s button.src'), function (b) { return ((info.src || {})[b.getAttribute('data-src')] || [b.textContent])[0]; }),
@@ -111,7 +113,7 @@
       (rec ? rec.s : []).forEach(function (x) {
         var li = kg[x[0]] && host.querySelector('.srclist li[data-g="' + kg[x[0]] + '"]'), u = /^https?:\/\/\S+$/.test(x[1] || '') ? x[1] : '';
         if (!li || !u) return;
-        var a = q('a.out', li); if (!a) { q('.acts', li).insertAdjacentHTML('beforeend', '<a class="out"' + NT + '>Read ' + icon('external') + '</a>'); a = q('a.out', li); }
+        var a = q('a.out', li); if (!a) { q('.acts', li).insertAdjacentHTML('beforeend', '<a class="out"' + NT + '>' + glue('Read', 'external') + '</a>'); a = q('a.out', li); }
         a.href = u; q('.ttl', li).textContent = dom(u);
         var pr = host.querySelector('.primary-link[data-g="' + kg[x[0]] + '"]'); if (pr) { pr.href = u; pr.hidden = false; }
       });
@@ -141,8 +143,13 @@
   // the place detail shows the photo's full TASL credit (title, author, licence, source); the card carries the short form
   // (TASL: the short card credit names author, licence and source and keeps the file title on its source link; the detail
   // spells the title out in front)
-  var fullCap = function (f) { var x = f.cloneNode(true), cap = q('figcaption', x), t = cap && q('a[title]', cap);
+  // W8 (QA-51): the sheet's media slot is up to ~1,024 px, so the card's `sizes` (≈ 25vw) would fetch the 500 w file and
+  // stretch it. The copy asks for the slot's width and never displays wider than its largest file (no upscaling).
+  var fullCap = function (f) { var x = f.cloneNode(true), cap = q('figcaption', x), t = cap && q('a[title]', cap), im = q('img', x);
     if (t && !q('.cap-t', cap)) cap.insertAdjacentHTML('afterbegin', '<span class="cap-t">' + esc(t.getAttribute('title')) + '</span> · ');
+    if (im) { var mw = Math.max.apply(0, (im.getAttribute('srcset') || '').split(',').map(function (z) { return parseInt((/\s(\d+)w\s*$/.exec(z) || [])[1], 10) || 0; }).concat([+im.getAttribute('width') || 0]));
+      im.setAttribute('sizes', '(min-width: 1024px) min(1024px, 88vw), 100vw'); im.setAttribute('loading', 'eager');
+      if (mw) { im.style.maxWidth = mw + 'px'; x.style.setProperty('--ph-max', mw + 'px'); } }
     return x.outerHTML; };
   var grow = null;
   d.addEventListener('click', function (e) {

@@ -44,5 +44,30 @@
   PASS  @1440 the day's summary sits on the map, in view and uncovered = "Your day Taitō-ku 3 stops · 2.8 km"
   PASS  @1440 opening a shared day stores nothing
   PASS  @1440 0 page errors on reopen = []
+# place detail (QA-51, QA-59b/d, R7 2d, closures)
+  PASS  @390 kanda-myojin: the detail photo is never upscaled (file 500 w shown at 358 px)
+  PASS  @390 kanda-myojin: nothing in the detail runs past the sheet's edge = []
+  PASS  @390 kanda-myojin: no source-link icon wraps onto a line of its own
+  PASS  @390 west-side-market: nothing in the detail runs past the sheet's edge = []
+  PASS  @390 west-side-market: no source-link icon wraps onto a line of its own
+  PASS  @390 heinens-downtown: nothing in the detail runs past the sheet's edge = []
+  PASS  @390 heinens-downtown: no source-link icon wraps onto a line of its own
+  PASS  @390 heinens-downtown: a closed place never offers Directions as its primary action = ""
+  PASS  @390 katzs-delicatessen: nothing in the detail runs past the sheet's edge = []
+  PASS  @390 katzs-delicatessen: no source-link icon wraps onto a line of its own
+  PASS  @1440 kanda-myojin: the detail photo is never upscaled (file 960 w shown at 960 px)
+  PASS  @1440 kanda-myojin: nothing in the detail runs past the sheet's edge = []
+  PASS  @1440 kanda-myojin: no source-link icon wraps onto a line of its own
+  PASS  @1440 kanda-myojin: the desktop sheet is centred over a full-viewport scrim = {"img":[960,960],"over":[],"lone":0,"closed":false,"pri":"Directions","scrim":"rgba(28, 25, 23, 0.4)","full":true,"centred":true}
+  PASS  @1440 west-side-market: nothing in the detail runs past the sheet's edge = []
+  PASS  @1440 west-side-market: no source-link icon wraps onto a line of its own
+  PASS  @1440 west-side-market: the desktop sheet is centred over a full-viewport scrim = {"img":null,"over":[],"lone":0,"closed":false,"pri":"Directions","scrim":"rgba(28, 25, 23, 0.4)","full":true,"centred":true}
+  PASS  @1440 heinens-downtown: nothing in the detail runs past the sheet's edge = []
+  PASS  @1440 heinens-downtown: no source-link icon wraps onto a line of its own
+  PASS  @1440 heinens-downtown: a closed place never offers Directions as its primary action = ""
+  PASS  @1440 heinens-downtown: the desktop sheet is centred over a full-viewport scrim = {"img":null,"over":[],"lone":0,"closed":true,"pri":"","scrim":"rgba(28, 25, 23, 0.4)","full":true,"centred":true}
+  PASS  @1440 katzs-delicatessen: nothing in the detail runs past the sheet's edge = []
+  PASS  @1440 katzs-delicatessen: no source-link icon wraps onto a line of its own
+  PASS  @1440 katzs-delicatessen: the desktop sheet is centred over a full-viewport scrim = {"img":null,"over":[],"lone":0,"closed":false,"pri":"Directions","scrim":"rgba(28, 25, 23, 0.4)","full":true,"centred":true}
 
 >>> PASS — FE-A W8: a day from saved places, edited, shared, printed and reopened, by keyboard

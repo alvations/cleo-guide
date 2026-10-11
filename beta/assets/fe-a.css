@@ -588,6 +588,30 @@ html body #cleo-sheet .detail .hero-plate.is-closed::after{content:none}
 html body main[data-city]>.overlay:is(#cleo-sheet,#cleo-fy){max-width:none;margin:0;inset:0}
 @media (min-width:1024px){html body #cleo-sheet.overlay:not(.side){align-items:center;justify-content:center;padding:24px}
   html body #cleo-sheet.overlay:not(.side) .sheet{max-height:calc(100vh - 48px);border-radius:var(--r-l)}}
+/* ---- 16. W8 QA-47 / QA-48 / QA-55 / QA-59c / R7 2g: the phone first screen, readable prose, whole labels ---- */
+/* the phone hero strip is 4:1 (was 3:1) so the masthead stays ≤ 0.6 of the screen and the category bar on the first
+   screen; the dek and the facts line wrap balanced (no "· 1 closed" or "Tokyo Museum" alone on the last line) */
+@media (max-width:1023px){html main[data-city]>.masthead .hero-media img{aspect-ratio:4/1}
+  html main[data-city]>.masthead .hero-media{margin-top:12px}
+  html main[data-city]>.masthead .dek,html main[data-city]>.masthead .g-lead{margin-top:8px}}
+html main[data-city]>.masthead :is(.dek,.g-lead,.facts){text-wrap:balance}
+/* sentences people read are ≥ 16 px (D13): the facts line and card write-ups */
+html main[data-city]>.masthead .facts{font-size:var(--fs-body);line-height:1.45}
+html main[data-city] li.pl .pl-w{font-size:var(--fs-body)}
+/* category-bar labels never ellipsise: up to two balanced lines */
+html body nav.rail#cleo-rail .rail-i .t{max-width:120px;overflow:visible;text-overflow:clip;white-space:normal;text-wrap:balance;text-align:center}
+/* QA-51: the detail photo is never wider than its largest file; narrower files sit centred on the plate */
+html body #cleo-sheet .detail .hero-plate.has-photo>.photo img{margin-inline:auto;border-radius:var(--r-l)}
+html body #cleo-sheet .detail .nw{white-space:nowrap}
+/* QA-59b: the detail meta row ("in Ohio City & Tremont · pin 12") wraps inside the sheet, never off its edge */
+html body #cleo-sheet .detail .badges{display:flex;flex-wrap:wrap;align-items:center;min-width:0}
+html body #cleo-sheet .detail .badges>.sm{min-width:0;overflow-wrap:anywhere}
+/* QA-59b root cause: a long nowrap fact button ("Add to your day in West Side, Ohio City & Tremont") widened the whole
+   content column past the sheet; fact buttons wrap, and the columns may shrink */
+html body #cleo-sheet .detail .content{min-width:0}
+html body #cleo-sheet .detail .content>*{min-width:0}
+html body #cleo-sheet .detail .fact>div{min-width:0}
+html body #cleo-sheet .detail .fact .btn{max-width:100%;height:auto;min-height:44px;white-space:normal;text-align:left;line-height:1.3;padding-block:10px}
 
 /* ==========================================================================
    atlas.css — Atlas map-search (Atlas lane, W7 Amendment 2: the real-estate map-search pattern, for travel).
