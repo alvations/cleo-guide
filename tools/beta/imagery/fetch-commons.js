@@ -23,8 +23,8 @@
  *                        venue-check, panorama, outdated, author-check. Only after a person has LOOKED at the photo.
  *   --wiki-lead          for a landmark with no usable candidate, try the lead image of its cited Wikipedia article
  *                        (same licence and depicts checks)
- *   --widths a,b         stored widths for card photos (srcset; default 480,960; the largest is the credited file)
- *   --hero-widths a,b    stored widths for hero photos (default 640,1280: a phone at 3× and a desktop hero)
+ *   --widths a,b         card photo widths (srcset; default 480,960 → snapped to 500,960; the largest is the credited file)
+ *   --hero-widths a,b    hero photo widths (default 640,1280 → snapped to 500,1280)
  *   --delay <ms>         pause between requests (default 400; API etiquette)
  *
  * Per target it takes the first candidate that passes, in manifest order:
@@ -35,8 +35,10 @@
  *      640 px wide, not a panorama wider than 3:1.
  *   3. Depicts re-check: the file title, its description or one of its visible categories must contain one of the
  *      target's `names` (compared without spaces, punctuation or diacritics). Otherwise refused.
- *   4. Download the server-side thumbnails (one per width, never wider than the original) from upload.wikimedia.org
- *      and store them as beta/assets/img/photos/<base>-<w>.<ext>.
+ *   4. Download the server-side thumbnails: each asked width is snapped to Commons' standard thumbnail steps (250, 330,
+ *      500, 960, 1280, 1920 — other widths answer HTTP 400), its URL comes from the API for that width, never wider than
+ *      the original. Stored as beta/assets/img/photos/<base>-<w>.<ext>. A failed thumbnail refuses that candidate; a
+ *      429/5xx from the image host stops the run cleanly (the next run resumes).
  *   5. Write/replace its CREDITS.json row: the largest width is `file`, the others are `variants` (same credit), plus
  *      title, depicts, author, sourceUrl (the Commons file page), licence, licenceUrl, provider, commonsTitle, sha1,
  *      modified ("resized"), fetched, confidence.
@@ -113,6 +115,21 @@ function licenceOf(short, url) {
   return { why: `licence ${s} is not CC0 / PD / CC BY / CC BY-SA` };
 }
 const strip = h => String(h || '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/\s+/g, ' ').trim();
+
+/**
+ * Commons serves thumbnails only at its standard widths (a non-standard width such as 640 answers HTTP 400), so each
+ * asked width is snapped to the nearest standard step, never wider than the original (then the original is used).
+ */
+const STD_WIDTHS = [250, 330, 500, 960, 1280, 1920];
+function snapWidths(ws, orig) {
+  const out = [];
+  for (const w of ws) {
+    const s = STD_WIDTHS.reduce((a, b) => Math.abs(b - w) < Math.abs(a - w) ? b : a);
+    const v = s >= orig ? orig : s;
+    if (!out.includes(v)) out.push(v);
+  }
+  return out.sort((a, b) => a - b);
+}
 
 /** File base for a target: landmark → <page with / → -->--<id>; hero → hero--<key>. */
 function fileBase(t) {
@@ -219,7 +236,7 @@ async function main() {
 
   /** Re-read one File: from the API and apply every check. Returns {ok:info} or {why}. */
   async function inspect(t, title) {
-    const j = await api({ action: 'query', titles: title, prop: 'imageinfo|categories', iiprop: 'url|size|mime|sha1|extmetadata', iiurlwidth: maxOf(t), iiextmetadatafilter: 'LicenseShortName|LicenseUrl|Artist|ImageDescription|ObjectName|Restrictions|AttributionRequired', clshow: '!hidden', cllimit: 50 });
+    const j = await api({ action: 'query', titles: title, prop: 'imageinfo|categories', iiprop: 'url|size|mime|sha1|extmetadata', iiurlwidth: snapWidths(widthsOf(t), 1e9).pop(), iiextmetadatafilter: 'LicenseShortName|LicenseUrl|Artist|ImageDescription|ObjectName|Restrictions|AttributionRequired', clshow: '!hidden', cllimit: 50 });
     const pg = j.query && j.query.pages && j.query.pages[0];
     if (!pg || pg.missing || !pg.imageinfo || !pg.imageinfo[0]) return { why: 'no such file on Commons (renamed or deleted)' };
     const ii = pg.imageinfo[0], em = ii.extmetadata || {}, val = k => em[k] && em[k].value;
@@ -250,20 +267,31 @@ async function main() {
 
   async function store(p, c, info) {
     const { ii } = info, ext = ii.mime === 'image/png' ? 'png' : ii.mime === 'image/webp' ? 'webp' : 'jpg', base = fileBase(p.t);
-    const want = widthsOf(p.t), maxW = maxOf(p.t);
-    const ws = want.filter(w => w < ii.width).concat(ii.width < maxW ? [ii.width] : []).filter((w, i, a) => a.indexOf(w) === i);
-    const thumb = ii.thumburl || ii.url, out = [];
+    const ws = snapWidths(widthsOf(p.t), ii.width), out = [];
     for (const w of ws) {
-      const url = w === ii.width ? ii.url : thumb.replace(/\/(\d+)px-([^/]+)$/, `/${w}px-$2`);
+      // the URL comes from the API for that exact width (Commons serves only its standard thumbnail sizes, and the
+      // API knows the current host and path); the original only when it is no wider than the step asked for
+      let url = ii.url, tw = ii.width, th = ii.height;
+      if (w < ii.width) {
+        if (w === ii.thumbwidth && ii.thumburl) { url = ii.thumburl; tw = ii.thumbwidth; th = ii.thumbheight; }
+        else {
+          const j = await api({ action: 'query', titles: info.title, prop: 'imageinfo', iiprop: 'url|size', iiurlwidth: w });
+          const t = j.query && j.query.pages && j.query.pages[0] && j.query.pages[0].imageinfo && j.query.pages[0].imageinfo[0];
+          if (!t || !t.thumburl) return { why: `no ${w} px thumbnail from the API` };
+          url = t.thumburl; tw = t.thumbwidth; th = t.thumbheight;
+        }
+      }
       const img = await get(url, { accept: 'image/*', timeout: 60000 });
       const type = img.headers.get('content-type') || '';
-      if (!img.ok || !/^image\//.test(type)) die(`image ${url} → HTTP ${img.status} ${type}; stopping.`, 4);
+      if (img.status === 429 || img.status >= 500) throw Object.assign(new Error(`image host answered HTTP ${img.status}`), { budget: true, why: `image host HTTP ${img.status} — stopping; the next run resumes` });
+      if (!img.ok || !/^image\//.test(type)) return { why: `thumbnail ${url} → HTTP ${img.status} ${type}` };
       const buf = Buffer.from(await img.arrayBuffer());
-      const h = Math.round(ii.height * w / ii.width), file = `${base}-${w}.${ext}`;
+      const file = `${base}-${tw}.${ext}`;
       fs.writeFileSync(path.join(PHOTO_DIR, file), buf); imgBytes += buf.length;
-      out.push({ file, w, h, kb: Math.round(buf.length / 1024) });
+      out.push({ file, w: tw, h: th, kb: Math.round(buf.length / 1024) });
       await sleep(o.delay);
     }
+    if (!out.length) return { why: 'no thumbnail could be stored' };
     const main = out[out.length - 1], variants = out.slice(0, -1).map(v => ({ file: v.file, width: v.w, height: v.h }));
     const name = info.title.replace(/^File:/, '');
     credits.credits = credits.credits.filter(x => x.file !== main.file && !(x.variants || []).some(v => v.file === main.file));
@@ -286,7 +314,7 @@ async function main() {
       confidence: c.confidence,
     });
     fs.writeFileSync(CREDITS, JSON.stringify(credits, null, 1) + '\n');   // after each photo, so a stop keeps the work
-    return `${p.t.key} ← ${info.title} (${info.lic.licence}, ${info.author}) → ${out.map(v => `${v.file} ${v.kb} KB`).join(', ')}`;
+    return { ok: `${p.t.key} ← ${info.title} (${info.lic.licence}, ${info.author}) → ${out.map(v => `${v.file} ${v.kb} KB`).join(', ')}` };
   }
 
   try {
@@ -304,11 +332,13 @@ async function main() {
         }
         const r = await inspect(p.t, c.file);
         if (r.why) { refused.push(`${p.t.key} ${c.file}: ${r.why}`); continue; }
-        kept.push(await store(p, c, r.ok)); done = true;
+        const st = await store(p, c, r.ok);
+        if (st.why) { refused.push(`${p.t.key} ${c.file}: ${st.why}`); continue; }
+        kept.push(st.ok); done = true;
       }
       if (!done && !p.cands.length && !p.lead) refused.push(`${p.t.key}: nothing to try`);
     }
-  } catch (e) { if (!e.budget) throw e; stopped = true; }
+  } catch (e) { if (!e.budget) throw e; stopped = true; if (e.why) refused.push(e.why); }
 
   console.log(`\nKept ${kept.length}:`); kept.forEach(k => console.log(`  ok    ${k}`));
   console.log(`Refused ${refused.length}:`); refused.forEach(k => console.log(`  no    ${k}`));
@@ -317,4 +347,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => die(e.stack || String(e), 4));
-module.exports = { fold, namesPlace, licenceOf, fileBase, recordCheck, slotCheck, plan, strip };
+module.exports = { fold, namesPlace, licenceOf, snapWidths, fileBase, recordCheck, slotCheck, plan, strip };
