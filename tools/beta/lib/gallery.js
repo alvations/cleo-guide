@@ -8,10 +8,16 @@
  * sources, live order). Row: [title, subtitle, lens key, value, ★, n, records ≤ 12].
  */
 const SLIM = ['id', 'n', 'nat', 'a', 'closed', 't', 'src', 'w', 'kind', 'la', 'ln'];
-const slim = r => Object.fromEntries(SLIM.filter(k => r[k] != null && r[k] !== '' && r[k] !== false).map(k => [k, r[k]]));
+let PH = {};                                   // W7: credited photos for this page (imagery lane, credit-gated), by place id
+const { captionHtml } = require('../imagery/photos');
+// ph = [src, w, h, alt, caption html, [[src, w]…]] — paths are beta-root-relative; gallery.js draws the same figure as the
+// grid card (lazy, sized, alt = what it depicts, TASL credit in the figcaption). Never for a closed place (the gate).
+const phOf = r => { const p = !r.closed && PH[r.id]; return p ? [p.src, p.w, p.h, p.credit.depicts, captionHtml(p.credit), (p.widths || []).map(x => [x.src, x.w])] : null; };
+const slim = r => Object.assign(Object.fromEntries(SLIM.filter(k => r[k] != null && r[k] !== '' && r[k] !== false).map(k => [k, r[k]])), phOf(r) ? { ph: phOf(r) } : {});
 const pl = n => n + (n === 1 ? ' place' : ' places');
 
 function rowsOf(j, name) {
+  PH = j.photos || {};
   const ar = (j.areas || []).map(a => a.id), named = r => (r.src || []).filter(x => x !== 'guide').length, G = j.guide || {};
   const ord = (j.places || []).map((r, i) => [r, i]).sort(([x, i], [y, k]) => { const ax = ar.indexOf(x.a), ay = ar.indexOf(y.a);
     return (ax < 0 ? 1e3 : ax) - (ay < 0 ? 1e3 : ay) || (x.closed ? 1 : 0) - (y.closed ? 1 : 0) || x.t - y.t || named(y) - named(x) || i - k; }).map(p => p[0]);
