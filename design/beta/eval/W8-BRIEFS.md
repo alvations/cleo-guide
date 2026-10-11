@@ -54,3 +54,24 @@ Atlas files (`atlas.js`, `atlas.css`, the Atlas parts of the view JS) belong to 
    - Report coverage per city before and after.
 2. **Weight.** New files go through recompress on the runner. Report the Tokyo, Cleveland and New York first-load transfer (desktop and phone@3×) after the run, and keep it ≤ 2.0 MB.
 3. After each Actions run, tell the orchestrator. The orchestrator reviews a contact sheet of every new photo.
+
+## Owner request (2026-10-11 18:50Z): retire superfluous capitals across the UI
+
+> "And those capital initials everywhere in the UI I don't think we need them they are superfluous and don't serve any purpose! Have the UI and front end engineer revise that too!!!"
+
+**The rule** (the designer writes it into `design/beta/DESIGN-SYSTEM.md` and audits every surface in `design/beta/CASING-AUDIT.md`):
+- **Sentence case for every UI label:** category and rail names, section titles, buttons, chips, eyebrows, chart titles and table headers. For example "Iconic & Must-See" → "Iconic & must-see", "Free to Visit" → "Free to visit".
+- **No `text-transform: uppercase` or `capitalize`.**
+- **No decorative initials:** no `::first-letter` drop caps in Guidebook chapter or collection intros, and no cover initial plates (`.pl-ini`, `.cover .plate.i`).
+- **Capitals that carry meaning stay:**
+  - the first word;
+  - proper nouns and place names (from the page's own data, plus a small curated list);
+  - acronyms (UNESCO, JNTO, NPS);
+  - source names exactly as their publishers write them.
+- Native scripts and diacritics are untouched.
+- Data is not edited. Casing happens at display time through one shared helper, `tools/beta/lib/casing.js` (`sentence(label)`).
+
+**Owners:**
+- FE-A: the helper; city pages, cards, Gallery, detail; the casing test wired into `npm test` (no uppercase/capitalize transforms, no styled `::first-letter`, no Title Case UI labels outside the allowlist).
+- FE-B: landing, hubs, Guidebook, Insights, "What changed", how-we-choose.
+- Atlas lane: Atlas surfaces, in its next SPEC-v3 slice.
