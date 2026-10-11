@@ -42,12 +42,12 @@
    "withArticle": 632
   },
   "candidates": {
-   "total": 371,
-   "high": 357,
+   "total": 372,
+   "high": 358,
    "med": 14,
    "low": 0
   },
-  "targetsWithHigh": 168,
+  "targetsWithHigh": 169,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -1901,6 +1901,32 @@
    "candidates": []
   },
   {
+   "key": "hero:singapore/queenstown",
+   "type": "hero",
+   "depicts": "hub:singapore/queenstown",
+   "label": "Queenstown & Redhill — guide hero",
+   "names": [
+    "Queenstown",
+    "Redhill"
+   ],
+   "pilot": false,
+   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "articles": [
+    "https://en.wikipedia.org/wiki/Queenstown,_Singapore"
+   ],
+   "wikiLead": true,
+   "candidates": [
+    {
+     "file": "File:Queenstown hdb.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Queenstown_hdb.jpg",
+     "depicts": "HDB flats along Strathmore Avenue, Queenstown",
+     "confidence": "high",
+     "reason": "title names Queenstown; summary: thirty-storey flats, Strathmore Avenue, 2005"
+    }
+   ]
+  },
+  {
    "key": "hero:singapore/jalan-besar",
    "type": "hero",
    "depicts": "hub:singapore/jalan-besar",
@@ -2143,32 +2169,6 @@
    ],
    "wikiLead": true,
    "candidates": []
-  },
-  {
-   "key": "hero:singapore/queenstown",
-   "type": "hero",
-   "depicts": "hub:singapore/queenstown",
-   "label": "Queenstown & Redhill — guide hero",
-   "names": [
-    "Queenstown",
-    "Redhill"
-   ],
-   "pilot": false,
-   "searchedVia": "Wikipedia article lead image (resolved and checked on the runner) + WebSearch allowed_domains=[commons.wikimedia.org]",
-   "searched": "2026-10-11",
-   "articles": [
-    "https://en.wikipedia.org/wiki/Queenstown,_Singapore"
-   ],
-   "wikiLead": true,
-   "candidates": [
-    {
-     "file": "File:Queenstown hdb.jpg",
-     "pageUrl": "https://commons.wikimedia.org/wiki/File:Queenstown_hdb.jpg",
-     "depicts": "HDB flats along Strathmore Avenue, Queenstown",
-     "confidence": "high",
-     "reason": "title names Queenstown; summary: thirty-storey flats, Strathmore Avenue, 2005"
-    }
-   ]
   },
   {
    "key": "hero:singapore/southern-ridges",
@@ -3226,7 +3226,18 @@
    "article": "https://en.wikipedia.org/wiki/MacRitchie_Reservoir",
    "priority": "lead",
    "wikiLead": true,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Info Board MacRitchie Reservoir Singapore Feb23 D72 25337.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Info_Board_MacRitchie_Reservoir_Singapore_Feb23_D72_25337.jpg",
+     "depicts": "MacRitchie info board",
+     "confidence": "high",
+     "reason": "lead image (run #35)",
+     "refused": "refused (W8): an information board — signage is the subject"
+    }
+   ]
   },
   {
    "key": "landmark:singapore/yangon#shwedagon-pagoda",
