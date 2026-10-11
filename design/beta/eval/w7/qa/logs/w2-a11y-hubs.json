@@ -1,0 +1,748 @@
+{
+ "checks": [
+  {
+   "group": "hubs",
+   "name": "hub tile lines are signature lines, never category labels (70 tiles)",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "hubs",
+   "name": "every motif referenced by a hub tile exists",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "hubs",
+   "name": "≥ 4 tile compositions; no two neighbouring tiles share one",
+   "ok": true,
+   "evidence": {
+    "kinds": [
+     "c-night skin-vermilion",
+     "c-wash skin-lake",
+     "c-city skin-moss",
+     "c-paper skin-neon",
+     "c-night skin-lagoon",
+     "c-night",
+     "c-wash",
+     "c-city",
+     "c-paper",
+     "c-wash skin-glacier",
+     "c-paper skin-plum",
+     "c-paper skin-saffron",
+     "c-city skin-saffron",
+     "c-wash skin-plum"
+    ],
+    "adj": []
+   }
+  },
+  {
+   "group": "hubs",
+   "name": "landing editorial rail: 38 deep links open with the promised count",
+   "ok": false,
+   "evidence": [
+    {
+     "href": "cities/kyoto.html#c=TEMPLE",
+     "promised": 158,
+     "shown": 48,
+     "errors": []
+    },
+    {
+     "href": "cities/tokyo.html#c=TEMPLE",
+     "promised": 79,
+     "shown": 48,
+     "errors": []
+    },
+    {
+     "href": "Vietnam/ho-chi-minh-city.html#c=TEMPLE",
+     "promised": 52,
+     "shown": 48,
+     "errors": []
+    },
+    {
+     "href": "cities/liege.html#cz=FINE",
+     "promised": 59,
+     "shown": 48,
+     "errors": []
+    },
+    {
+     "href": "cities/kyoto.html#cz=FINE",
+     "promised": 52,
+     "shown": 48,
+     "errors": []
+    },
+    {
+     "href": "cities/tokyo.html#cz=FINE",
+     "promised": 52,
+     "shown": 48,
+     "errors": []
+    }
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "index.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "index.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "index.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Japan/index.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Japan/index.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Japan/index.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Vietnam/index.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Vietnam/index.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Vietnam/index.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cleveland.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cleveland.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cleveland.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/tokyo.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/tokyo.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/tokyo.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/newyork.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/newyork.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/newyork.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Singapore/chinatown.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Singapore/chinatown.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "Singapore/chinatown.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/wheeling.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/wheeling.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "cities/wheeling.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "saved.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "saved.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "saved.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "accessibility.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "accessibility.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "accessibility.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "how-we-choose.html mobile light: axe serious/critical = 0",
+   "ok": false,
+   "evidence": [
+    "scrollable-region-focusable×1: .tablewrap — Element should have focusable content"
+   ]
+  },
+  {
+   "group": "a11y",
+   "name": "how-we-choose.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "how-we-choose.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "404.html mobile light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "404.html desktop light: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "404.html desktop dark: axe serious/critical = 0",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "a11y",
+   "name": "keyboard: first Tab is the skip link",
+   "ok": true,
+   "evidence": {
+    "t": "Skip to content",
+    "href": "#main"
+   }
+  },
+  {
+   "group": "a11y",
+   "name": "keyboard: Enter opens the sheet with focus inside; Esc closes and restores focus to the card",
+   "ok": true,
+   "evidence": {
+    "op": {
+     "open": true,
+     "inSheet": true
+    },
+    "back": {
+     "closed": true,
+     "focus": "p-imperial-palace-east-gardens"
+    }
+   }
+  },
+  {
+   "group": "a11y",
+   "name": "keyboard: For you picker traps focus, Esc closes and returns focus",
+   "ok": true,
+   "evidence": {
+    "fy": {
+     "inside": true
+    },
+    "fy2": {
+     "closed": true,
+     "back": true
+    }
+   }
+  },
+  {
+   "group": "a11y",
+   "name": "accessibility page linked from every beta page (95)",
+   "ok": true,
+   "evidence": []
+  }
+ ],
+ "railMismatch": [
+  {
+   "href": "cities/kyoto.html#c=TEMPLE",
+   "promised": 158,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "cities/tokyo.html#c=TEMPLE",
+   "promised": 79,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "Vietnam/ho-chi-minh-city.html#c=TEMPLE",
+   "promised": 52,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "cities/liege.html#cz=FINE",
+   "promised": 59,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "cities/kyoto.html#cz=FINE",
+   "promised": 52,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "cities/tokyo.html#cz=FINE",
+   "promised": 52,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "cities/tokyo.html#c=FREE",
+   "promised": 125,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "cities/okinawa.html#c=FREE",
+   "promised": 108,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "cities/saarland.html#c=FREE",
+   "promised": 88,
+   "shown": 48,
+   "errors": []
+  },
+  {
+   "href": "cities/hokkaido.html#c=FREE",
+   "promised": 82,
+   "shown": 48,
+   "errors": []
+  }
+ ],
+ "axe": [
+  {
+   "rel": "index.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "index.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "index.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "Japan/index.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "Japan/index.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "Japan/index.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "Vietnam/index.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "Vietnam/index.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "Vietnam/index.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×2"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cleveland.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/tokyo.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/newyork.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "Singapore/chinatown.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "cities/wheeling.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "aria-allowed-role(minor)×1"
+   ]
+  },
+  {
+   "rel": "saved.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "saved.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "saved.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "accessibility.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "accessibility.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "accessibility.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "how-we-choose.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [
+    {
+     "id": "scrollable-region-focusable",
+     "impact": "serious",
+     "n": 1,
+     "eg": [
+      ".tablewrap — Element should have focusable content"
+     ]
+    }
+   ],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "how-we-choose.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "how-we-choose.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "404.html",
+   "vp": "mobile",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "404.html",
+   "vp": "desktop",
+   "scheme": "light",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  },
+  {
+   "rel": "404.html",
+   "vp": "desktop",
+   "scheme": "dark",
+   "serious": [],
+   "other": [
+    "heading-order(moderate)×1"
+   ]
+  }
+ ],
+ "summary": {
+  "checks": 44,
+  "pass": 42,
+  "fail": 2,
+  "at": "2026-10-10T13:47:30.153Z"
+ }
+}

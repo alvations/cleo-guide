@@ -1260,3 +1260,17 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - visual findings → designer (SPEC-v3 slices; slice 1 refined in b62cce9a: one glyph, sun-wash Must-see, short names with collide-to-dot, 16/8 pins, neutral dots; basemap settled: Esri Light/Dark Gray Canvas following the theme);
     - front-end findings #2/#4/#11/#13/#5/#3 → Atlas lane, after slice 1.
   - Round 1 starts when slice 1 + the basemap ship.
+
+- 2026-10-11 19:32Z · **Orchestrator** · Round 7 result and the W8 part 2 fan-out · commit: this entry's commit
+  - **ROUND-7** (on `badcc20d`; 61184481 / 7e7c3762): **88.5** = A 83 (+6), B 91 (+3), C 96, D 89. Δ +3.1 vs R6 85.4.
+    - Typography & style 241/300 (R6 223); 7 items below 8: T7, S2, S3, C3, K5, K8, K9.
+    - D1–D13: 6 ✅, 7 ◐ (D2, D6, D7, D9, D11, D12, D13), 0 ✕.
+    - Owner-blocked about +0.6 (second locale, the price/rating call, the Unsplash top-up). The evaluator puts the team-recoverable points at about 3.0.
+    - Budgets: Tokyo default 652/940 KB first load, FCP 4× 340 ms, every page ≤ 2.0 MB and ≤ 1 s, axe 0 serious/critical in 80 runs, B-23 0/179.
+  - **W8 part 2** (`design/beta/eval/W8-BRIEFS.md`), from the R7 gaps:
+    - imagery: coverage (+1.15);
+    - FE-A: polish (+0.52), two more delight moments (+0.46), first-screen metrics, food covers;
+    - FE-B: B-05 hubs, the Insights v2 series, letter-spacing/shadow/tabular residue, widows, axe moderates;
+    - platform (reopened): photo `sizes`, the 700 KB phone target, cleo.css ≤ 200 KB with the R6 layers pruned, shell axe moderates, and the B-06/07/09 re-pointing after QA ratifies;
+    - Atlas residuals (gap 4) stay in the Atlas panel loop.
+  - The R7 evaluator session is archived. R7 QA is still running; on QA YES the deploy goes ahead (beta-deploy-r7).
