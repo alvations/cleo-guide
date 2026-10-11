@@ -119,6 +119,21 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
   const e = boot('trip.html', { storage: 'throws' }); await sleep(50);
   chk('nothing saved: the empty state, no errors', /Nothing saved yet/.test(e.d.getElementById('cleo-trip').textContent) && e.errs.length === 0, e.errs);
 
+  console.log('\n== SAVED → TRIP: the "Make a trip" hook (saved.js, FE-C W9-4 hook) ==');
+  const lst = [{ id: 'lweek', n: 'Weekend', r: ['tokyo/senso-ji', 'tokyo/asakusa-shrine', 'tokyo/kappabashi-dogu-gai', 'tokyo/ueno-park'] }];
+  for (const [label, hash, seed] of [['a named list', '#v=lweek', { saved, lists: lst }], ['a shared list link', '#list=tokyo:senso-ji,asakusa-shrine,ueno-park&n=Shared', null]]) {
+    const sv = boot('saved.html', { hash, seed }); await sleep(200);
+    const ln = sv.d.querySelector('[data-cleo-trip]'), href = ln && ln.getAttribute('href');
+    chk(`${label}: Saved offers "Make a trip"`, !!ln && /^trip\.html#(from=lweek|list=tokyo)/.test(href), href);
+    if (!ln) continue;
+    const tp = boot('trip.html', { hash: href.slice('trip.html'.length), seed }); await sleep(150);
+    const f = tp.d.getElementById('tp-form');
+    if (f) { f.dispatchEvent(new tp.w.Event('submit', { cancelable: true })); await sleep(50); tp.w.dispatchEvent(new tp.w.HashChangeEvent('hashchange')); await sleep(150); }
+    const got = days(tp.d).flat().sort(), want = (label === 'a named list' ? lst[0].r : ['tokyo/senso-ji', 'tokyo/asakusa-shrine', 'tokyo/ueno-park']).map(r => r.split('/')[1]).sort();
+    chk(`${label}: the link opens a trip of exactly that list`, JSON.stringify(got) === JSON.stringify(want), got);
+    chk(`${label}: no js errors`, !sv.errs.length && !tp.errs.length, sv.errs.concat(tp.errs).slice(0, 2));
+  }
+
   console.log('\n== PRINT: one day a page ==');
   const css = require('./lib/render/trip').CSS;
   chk('booklet: each day breaks to a new page, actions hidden', /@media print\{[^]*\.tday\{break-before:page;break-inside:avoid/.test(css) && /@media print\{[^]*\.sharebar/.test(css));
