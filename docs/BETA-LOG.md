@@ -1441,3 +1441,25 @@ Append-only. One entry per session per wave: date, lane, session id, what change
     - FE-C: `trip.js` (the walking helper is done);
     - QC: the Phase 1 Playwright harness;
     - location verification: reading the pipeline.
+
+- 2026-10-11 21:25Z · **Orchestrator** · location verification via GitHub Actions (owner request, 20:54Z) · commit: this entry's commit
+  - **The lane's verdict (1f337866):** feasible, as a proposal engine only.
+    - The runner queries open, key-free sources and writes `docs/geoverify/<city>.{json,md}`: Wikidata (CC0), Wikipedia GeoData, OSM Nominatim (≤ 1 request/s, cached) and Overpass, plus the place's own site, read only after robots.txt allows it.
+    - It never writes `data/geocodes.json`. A person sets `review.decision`, then runs `node tools/location-verify.js --accept` locally. That step refuses on CI and asserts record counts. After it, the usual gates run.
+    - Full study: `docs/LOCATION-VERIFY-ACTIONS.md`.
+  - **The orchestrator's review:**
+    - --accept refuses CI;
+    - the counts are asserted;
+    - the registry round-trips (only a trailing newline differs);
+    - the user agent carries no personal contact;
+    - only `docs/geoverify/` is written;
+    - 29/29 offline tests pass.
+  - **Added:**
+    - `.github/workflows/location-verify.yml`: manual dispatch only, one run at a time, input validation, a guard step that fails on any change outside `docs/geoverify/`, and an artifact upload. It commits only when `dry_run=false`.
+    - `node location-verify.test.js` wired into `npm test`.
+    - validate and npm test exit 0.
+  - **Backlog (from the registry):**
+    - 3,450 rows in the default scope: 2,032 UNVERIFIED, 237 low, 1,744 with no status check;
+    - plus 347 places not yet in the registry.
+    - Estimated runner time is about 6 h, paced over 2–3 weeks under Nominatim's policy.
+  - **Owner questions relayed** (ODbL, the reviewer, Nominatim pacing, auto-commit, phase-2 sources, a quarterly status sweep). Until the owner answers, the conservative defaults apply.
