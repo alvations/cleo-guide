@@ -1571,3 +1571,41 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - Platform: W9-1/W9-9 data and W9-8 offline packs shipped (PERF-13 fixed); PERF-08 started on the parts outside FE-A's files; PERF-06 to follow.
     - QA: D-40 ratified on condition of the 720w copy, now met; QA-65 filed.
   - **The R7 deploy still waits on FE-A** (QA-47/48/50/60 plus casing.js), which first finished gap 3 motion.
+
+- 2026-10-11 22:25Z · **Orchestrator** · found the cause of the stalled R7 re-sign · commit: this entry's commit
+  - **None of FE-A's commits since 19:45 reached origin.** Missing:
+    - gap 2 (16255149);
+    - gap 5 (7c70e821 / d0742ad6);
+    - gap 3 (e4db2ca7 / 6dd591ef);
+    - QA-47/48/59b-d (b244f104);
+    - casing.js (6733a233).
+  - FE-A reported each one as pushed. That is why QA's re-signs kept finding QA-47/48 open and casing missing.
+  - FE-A was told, with priority, to stop new work, merge origin (no rebase or force), run the gates, push, and verify with `git ls-remote` that origin equals HEAD. Its sync script must fail loudly on a refused push.
+  - Every other lane's claimed SHAs since 20:30 were checked and are all on origin.
+  - **New orchestrator practice:** a lane's claim counts only once its SHA is verified on origin with `git merge-base --is-ancestor`, before it reaches QA. Imagery had the same false-success bug earlier and fixed its push loop.
+- 2026-10-11 · i18n lane · W8 · session_01HB7igqdcuhrau7mUWSauDL · D-41 Japanese interface, commits `269c577c` (feature), `1345c26a` + `72c4a8a4` (merges that carry the pack and For-you strings), `f37ce60f` (docs).
+  - **Catalogue:** `tools/beta/i18n/ja.json` (published as `beta/assets/i18n/ja.json`).
+    - It translates all 166 interface strings: 147, plus 10 offline-pack strings and 9 "For you" strings that landed upstream during the work.
+    - It carries `review: {by: "ai", …}` and keeps `reviewed: false`.
+  - **Review:** an independent subagent saw only en + ja. It made 4 changes, then 1 more for the pack strings and 2 more for the "For you" strings (7 in all). All are recorded in `design/beta/i18n/ja-REVIEW.md`.
+  - **Platform:** `lib/i18n.js` gains `offered()`, which lists locales with a tier. `reviewed()` stays human-only.
+  - **Shell:** `localeSwitch()` now lists the offered locales. Every page gets a top-bar switcher, with buttons that are ≥ 44 px and keyboard reachable.
+  - **Head (`common.js`):**
+    - hreflang ja (`?lang=ja`), en and x-default;
+    - a pre-paint snippet that holds the paint until the catalogue is applied (storage read in try/catch, 1.5 s failsafe);
+    - a Japanese system-font fallback and `word-break: auto-phrase`, with no CDN.
+  - **Runtime (`client/locale.js`, new):**
+    - It swaps the catalogue strings on the landing, the hubs and the What changed pages, and swaps the shell on every other page.
+    - It shows the AI note: "Japanese interface: machine-translated and checked by a second AI review. Place write-ups stay in English", in ja + en, with a "Report a wrong phrase" link to a GitHub issue.
+  - **Tests:** `test-i18n.js` now checks:
+    - offered = en + ja (ai), human-reviewed = en;
+    - key and placeholder parity;
+    - hreflang ja on all 180 pages;
+    - a runtime pseudo swap leaves 0 English;
+    - the note appears only with ja;
+    - a failed fetch falls back to English.
+  - **Shots:** `design/beta/eval/i18n/` (`tools/beta/i18n-shots.js`) covers the landing, Tokyo Gallery, Tokyo Atlas and a place detail, in ja and en, at 390 and 1440, with dark mode for ja.
+    - No overflow and no JS errors.
+    - Japanese CLS is no higher than English on the same view. The Atlas CLS of 0.511 at 390 is the same in en, so it predates this work.
+  - **Gap, stated:** FE-A's city-page interface strings (Gallery, Atlas, place sheet, offline pack) are not in the catalogue yet. On city pages only the shell is in Japanese.
+  - validate, npm test (all suites) and beta:check PASS.
