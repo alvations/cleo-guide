@@ -727,3 +727,232 @@ QA re-signs when, on a pinned SHA:
 - `w6.js` `--only axe` is 80/80.
 
 QA sign-off: NO
+
+## 2026-10-11 · QA · Wave 7 full pass · session_017FLWXa5zgGWvqNo4C3UsvH
+
+**Tested SHA: `badcc20dbae7f4e4f47023048e85a58552cede24`**, pinned in a clean worktree (`git worktree add ../qa-r7 badcc20`). Nothing after it was measured. The W6 baseline for regressions is the R6 pin `2f22763`, measured in its own worktree with **the same `metrics.js`** (`metrics-gallery-W6pin-same-harness.md`), so every before/after pair below uses one harness.
+
+**Gates** (on the pin, after `npm install --no-audit --no-fund`; `npm ci` still can't run, QA-39):
+- validate ✅.
+- `npm test` ✅: 552 PASS, 0 FAIL. Includes `check-google.py`, test-contract, test-honesty (rule-6 brand scan), test-imagery, test-fe-a and P-04.
+- `beta:check` ✅: 179 pages, 84 place pages, 8,458 places, beta == live.
+- Eager JS **28.1 KB gzip** on the heaviest page (cleveland.html), now gated unrounded at ≤ 40.0 KB.
+
+**New QA harnesses** (no existing gate or test weakened):
+- `tools/beta/qa/w7.js`: the W7 probe, independent of `metrics.js` and `atlas-ms.js`. It supersedes `w6.js` for Atlas, because the R6 tray that `w6.js` drives is retired. `w6.js` is left as it was.
+- `tools/beta/qa/w7-photos.js`: a static photo and credit honesty audit, plus a contact sheet of every photo.
+- `metrics.js` B-07: the map-search path, **added** (rule below).
+
+Evidence is in `design/beta/eval/w7/qa/`: screenshots, JSON, `contact-*.jpg` and `logs/`.
+
+### Ratification of the W7 rule changes
+
+| # | Rule change (lane) | Verdict | Reason | Independent probe |
+|---|---|---|---|---|
+| 1 | `test-beta.js` "one marker per pinned place" counts `.leaflet-marker-icon.pp` label pins + bubble counts (Atlas) | **Ratified** | Same invariant, new selector. QA checks the partition, not only the sum. | `w7.js cluster`, phone, default zoom, 5/5: drawn ∪ clustered == pinned, overlap 0, lost 0, bubble sum == clustered, `.pp` in DOM == drawn. Cleveland 21 + 173, Tokyo 14 + 474, New York 21 + 487, Chinatown 16 + 0, Wheeling 1 + 34. |
+| 2 | `test-fe-a.js` W6 tray checks replaced by W7 map-search checks (Atlas) | **Ratified** | Every retired tray check has a W7 counterpart that measures the same outcome: List adds one history entry and Back closes it; a pin selects exactly one card; Esc closes the preview; map-first with nothing over the map; the chip row holds the switcher. | `w7.js atlasm` 5/5: List → list, Back → map, still in Atlas. Pin → one selected card. Desktop preview: Esc closes. |
+| 3 | `w2.js` mobile flow: the pin "peek" is the carousel holding the selected card (≤ 40 %); bubbles are tapped until a pin shows (Atlas) | **Ratified** | Same outcome: a pin shows its place in a bounded overlay and the map stays usable. Tapping a bubble is what a reader does. Note: the "Esc closes the pin sheet" assertion is now vacuous on phones (no sheet opens), so B-07 (row 12) carries the close and Back checks. | `w7.js atlasm` 5/5: a real touch on a reachable pin selects **its own** card, wholly on screen (y 708–832), with the pin marked `sel`. `w2.js` map 35/35. |
+| 4 | `metrics.js` B-06 `split`: the map may sit on either side of the cards (Atlas) | **Ratified** | Same outcome: map and list side by side, with no overlap. The ≥ 40 % grade is unchanged, and `w7.js` grades the 58 %. | `w7.js atlasd` 5/5: map 60 %, left 0, reaches the bottom of the screen, 2-column grid. `metrics --view atlas` B-06 ✅ 5/5. |
+| 5 | `w2.js` hubs: a lens link into Atlas reads the results header total, not the rendered cards (Atlas) | **Ratified** | The header is a true count. QA checked it against the cards a reader can actually page to. | `w7.js lens`: 38 landing-rail links × 3 ways (as shared, remembered Atlas view, `&view=atlas`) = **114/114**. Header == promise == cards reached via Show all + "Show 40 more", unique ids, 0 errors. Every lens link opens Atlas (implied view). |
+| 6 | B-08 exempts the sticky city bar `.cbar` and the floating `.mappill`, as it exempts the site header (FE-A) | **Ratified** (to be implemented in `metrics.js` exactly as worded; until then QA grades it with `w7.js b08`) | Same outcome as the header exemption. Titles pass under a 70 px sticky bar and a 137 × 48 pill while scrolling, but none is covered at reading position. All Gallery B-08 hits are these two elements and nothing else (Cleveland 6, Tokyo 1, New York 6, Chinatown 6, Wheeling 3; W6 pin 0). | `w7.js b08`: every sampled title scrolled to the centre hit-tests to itself, 5 pilots × phone/desktop (16–48 titles each). Note: on the phone first screen the pill does cover the lead card's area · kind line (`gallery-tokyo-390-dark.jpg`); that line is not a title. |
+| 7 | B-08 in phone Atlas treats a title beneath **its own scroll pane's sticky head** as clipped (FE-A) | **Rejected → QA-46 (High)** | It weakens the gate. Under this rule the R6 defect QA-37 (a 370 px sticky tray head covering the list, ~70 px of list visible) would have graded B-08 green. A title under a sticky head is covered, not clipped. Moot today (the tray is retired and the rule was never coded), but it must not be adopted. | W6 `w6.js` independent B-08 found 5/5 pilots covered. That is exactly the case this rule would exempt. |
+| 8 | `w2.js` map probe skips the `.map-toggle` tap when `html.atlas-m` and the map is already on screen (FE-A) | **Ratified** | Same rule QA ratified for `metrics.js` B-07 in W6. The map is measured, not assumed: `fullMap` is still required. | `w2.js` map 35/35. `w7.js atlasm`: map box 92 % of the first screen. |
+| 9 | Gallery cards hide `.pl-w`, `.pl-k`, `.pl-ad` (kept in the DOM, detail, Atlas rows, Guidebook) (FE-A) | **Ratified** | Nothing honesty-bearing is hidden. "Recommended by" stays on every card, and closures still read "Closed". Search and AT still see the text. | `w7.js gallery` 5 × 2: every visible card shows "Recommended by"/"Added by"; every closed place (e.g. Tokyo's Unicorn Gundam statue) reads "Closed" on its card. `metrics` G6 0 without; G1 ✅ 5/5. |
+| 10 | `metrics.js` counts each URL once (platform) | **Ratified** | `ctx.route()` disables Chromium's cache, so repeats were double-counted. A real browser fetches a URL once per load. | `w7.js perf` counts unique URLs from response bodies. It matches `metrics.js` first load to the KB (Tokyo Gallery 652 / 940 KB both). |
+| 11 | **D-38**: the budget is first-load transfer (no scroll, network idle + 2 s, gzip for text), gated ≤ 2.0 MB on desktop **and** phone@3×; whole-session bytes as information (platform) | **Ratified** | This is how W6 QA itself measured the budget (`w6.js` first-load bodies), and how ROUND-1 framed it. It adds a gate: before W7 the `metrics.js` bytes row was information only. It also adds phone@3×. **Condition:** tile bytes are off-origin and excluded (stubbed or blocked in every harness), so the row must say so. QA records the tile count: Tokyo Atlas loads 44 tiles (desktop) and 27 (phone). At a typical ~20–25 KB per OSM tile that adds ≈ 0.6–1.1 MB, which still keeps Tokyo Atlas under 2.0 MB. | `w7.js perf` (below). |
+| 12 | **B-07 rewritten for map-search** (QA; specified here, implemented in `metrics.js` as an addition) | **New rule** | **B-07 (W7):** the map is up (phones: at load in Atlas, or after the map pill elsewhere), and the visible map/list control is ≥ 44 × 44. A real tap on a reachable pin, its label hit-testing to itself (a bubble is tapped to zoom in when no pin is in reach), shows **that** place: its own card, selected and wholly on screen in the carousel, with no sheet over the map. One tap on that card opens the detail with a visible Close. Esc closes it. Re-opened, Back closes it, and the reader is still in Atlas on the same page. The row passes on the W6 path (pin sheet: Close, Esc, Back) **or** the complete W7 path. Nothing in the W6 path is relaxed, and the W7 path has one more step. | `metrics.js` B-07 ✅ 5/5 in Gallery and in Atlas. Before this change, Tokyo read "pin sheet none" (all pins clustered), and on the W6 pin `metrics.js` gave New York ❌ "pin sheet none". `w7.js` grades the same rule independently: desktop pin → preview naming the place → detail → Esc → Back, 5/5; phone pin → own card → detail → Esc → Back, 5/5. |
+| 13 | **B-04** (rail on the first phone screen) in Atlas under map-search | **Ratified as by design** (D-36 carried) | B-04 keeps grading the default view (Gallery). In map-search Atlas there is **no** rail on the phone, in map or list. The collection lenses (e.g. Anime, Free) are one tap away under Filters, but "A day in …" and "For you" have no entry point in Atlas: **QA-57**. | `w7.js atlasm` B-04 recorded `false` on 5/5. Filters tray contents probed on Tokyo phone and desktop. |
+
+Out of scope for ratification but recorded: `test-beta.js` tightened its Gallery and deep-link stamping limits (24 live; a deep link stamps only its card), and `test-contract.js` now also scans the client source for `localStorage` outside try. Both are stricter.
+
+### W7 acceptance (W7-BRIEFS, every lane and both amendments)
+
+**Atlas map-search (Amendment 2): `w7.js atlasd/atlasm`, 5 pilots, plus `atlas-ms.js` 98/98**
+
+Desktop 1440 × 900, 5/5:
+- ✅ Map 60 %, on the left, full height.
+- ✅ 2-column image-first grid.
+- ✅ Zoom and pan change the count, with "N more outside this area" offered (Tokyo 435 → 198 → 161).
+- ✅ "Show all" + "Show 40 more" lists every place exactly once (194/488/508/16/35).
+- ✅ Real-mouse hover works both ways: card → pin `hot`, pin → card `is-hover`.
+- ✅ A pin click puts its card in view in the list pane, and the window never scrolls.
+- ✅ Pin → preview naming the place → detail.
+- ✅ OSM attribution: visible at 12 px, hit-tests to itself, clear of every control.
+- ✅ 0 JS errors.
+
+Phone 390 × 844, 5/5:
+- ✅ The map is 92 % of the first screen; 69 % stays uncovered by the chip row and the carousel.
+- ✅ The city is named on the first screen (QA-40).
+- ✅ The List pill is ≥ 44 × 44, with no horizontal overflow.
+- ✅ Pin → own card in the carousel → detail.
+- ✅ A carousel swipe selects the centred card and marks its pin.
+- ✅ List → image-first list; Back → map.
+- ✅ OSM attribution sits clear of the pill, the carousel and the chip row.
+- ❌ **QA-52**: carousel photo credits are clipped.
+
+Reachability:
+- ✅ `#view=atlas&p=` opens the detail for **every** place with Atlas kept: 1,241 × phone + desktop, 0 misses.
+- ✅ Search by name: 25 samples per pilot.
+- ◐ Search: one exception, the off-map outlier (**QA-54**).
+- ❌ **QA-45**: the `metrics.js` G1 "scroll to every place" hard gate regressed in Atlas.
+
+Map library blocked:
+- ✅ 5 × 2: "Map unavailable right now — every place is listed here."
+- ✅ A card is on screen.
+- ✅ Every place is pageable.
+- ✅ 0 JS errors.
+
+Storage throws:
+- ✅ 5 × 2: Atlas and the map render.
+- ✅ The base switch goes to Satellite.
+- ✅ Must see → `t=1`.
+- ✅ The List pill works.
+- ✅ 0 errors.
+
+Tiles:
+- ✅ Only `tile.openstreetmap.org` (25,585 requests) and `server.arcgisonline.com` (191).
+- ✅ `check-google.py`.
+
+**Cards, motion and detail (FE-A): `npm run beta:probe:fe-a` 33/33**
+- ✅ Credits are never ellipsised in Gallery or the detail (6 cases).
+- ✅ Phone `#p=` deep link holds 2,204–2,322 nodes for 3 s.
+- ✅ The sheet count reads "7 of 488 in this Gallery view".
+- ✅ The card face has no repeated area and no dangling separator.
+- ✅ Motion: 1 view transition at `--dur-grow` 340 ms. Under reduced motion: 0 transitions, 0 animations, 0 ms.
+- ✅ Grid columns are 1 / 2 / 3 / 4 at 390 / 768 / 1024 / 1440, borderless (border 0, no shadow), media 16:10 / 4:3, heart on every card.
+- ✅ Place detail on 5 × 2: the photo fills its slot with `object-fit: cover` (no letterbox).
+- ✅ The sticky Save · Directions · Share bar stays on screen when the detail scrolls, with 48 px buttons.
+- ✅ Esc closes the detail; Back closes it and stays on the page.
+- ❌ **QA-50**: the detail shows a wrong rank count.
+- ❌ **QA-51**: the desktop detail photo is upscaled.
+
+**Landing and hubs (FE-B)**
+- ✅ Hub hero photo first on phones, one primary CTA ("See all 5 guides"), short credit under it (`hub-japan-390-light.jpg`).
+- ✅ The Japan "Known for" line is built from the guides' signatures (Edomae sushi · Okinawa soba · jingisukan).
+- ✅ No hub hero file is reused as a card on the same page (`w7-photos.js`, server-rendered).
+- ✅ `w2.js` hubs: 70 tiles, signature lines; landing editorial rail 38/38.
+- ✅ Landing first load 731 KB desktop / 559 KB phone@3×.
+- ❌ **QA-49**: B-05 regressed.
+
+**Imagery (D9).** 131 credit rows: 37 heroes and 94 cards. Licences: CC BY-SA 4.0 ×47, 3.0 ×22, 2.0 ×10, 1.0 ×3; CC BY 2.0 ×17, 3.0 ×4, 4.0 ×4, 2.5 ×3; PD ×13; CC0 ×8.
+
+`w7-photos.js` passes 12 of 13 checks:
+- ✅ Every licence is free, and every licence URL is its CC deed.
+- ✅ Every source is the Commons File: page of its title.
+- ✅ Every file and variant exists.
+- ✅ No Commons file appears in two rows (title or sha1).
+- ✅ No photo on a food place, a venue (bar/shop/market/mall/hawker/theatre/arena/nightlife/stadium/music tags), a closed place, or anything in Vietnam. Vietnam pages show only other countries' cards.
+- ✅ Every server-rendered photo `<img>` across 179 pages is followed by its own credit: author, licence deed link and File: page link.
+- ❌ **QA-56**: the author field is not a clean name (author check).
+
+Visual review of **every** photo (37 heroes + 94 cards, `contact-0…5.jpg`):
+- Most truly show their place.
+- ❌ **QA-53**: some don't, or are flagged under the brief's rules.
+
+Other imagery results:
+- ✅ `test-imagery.js` passes in `npm test`.
+- ✅ Credits are whole in Gallery and the detail (FE-A probe).
+
+**Type: `w7.js type` 19/19**
+- ✅ Bricolage Grotesque and Inter draw every letter on all 4 Vietnam pages (Ho Chi Minh City: 47 Vietnamese characters), the 5 pilots, the landing and the Japan hub, with **no** fallback glyph.
+- ✅ CJK falls back to a CJK system face (IPAGothic 603/603 on Tokyo).
+- ✅ The "ō" macron is drawn at DPR 1, 18 and 24 px, in both faces (`type-macron-vn-cjk-dpr1.jpg`).
+- ✅ 2 families and 7 subset woff2 files, all `font-display: swap`, OFL texts committed, no font service. Tokyo first load fetches 88 KB of fonts.
+
+**Accessibility: `w7.js a11y`, 104 rows** (4 views × 5 pilots × phone/desktop × light/dark, plus the landing and 5 country hubs × 2 × 2)
+- ✅ **Axe serious/critical = 0 on all 104** (QA-38 fixed: Insights 20/20).
+- ✅ `metrics.js` B-23 contrast AA is 0/0 in light and night on every pilot and the landing, B-20 is 0 targets under 44 px, and M1-16 focus is 30/30.
+- ✅ Focus: `w7.js`'s ring heuristic flags only `#cleo-filter`. That is a false positive: its pill shows a 2 px ink ring via `:focus-within`.
+- ✅ Targets: the heuristic's flags are Atlas card-name links (the whole card is the link, checked by hit-test), desktop stickers at 28 px (desktop), and the ratified Guidebook and Insights exemptions.
+- ❌ **QA-55**: body text under 16 px.
+
+**Budgets (`w7.js perf`, independent, run alone; D-38 first load, each URL once, gzip for text)**
+
+| Page | Desktop 1440: transfer (raw) | Phone 390@3×: transfer (raw) | FCP 4×, median of 3 (desktop / phone) | DOM at first load | Tiles requested (stubbed) |
+|---|---|---|---|---|---|
+| Tokyo default (Gallery) | **652 KB** (1,696) | **940 KB** (1,984) | 268 / 268 ms | 2,855 / 2,254 | — |
+| Tokyo Atlas | **612 KB** (1,757); tiles blocked 612 | **900 KB** (2,045); tiles blocked **1,020** | 332 / 304 ms | **2,693 / 2,616**; blocked 2,422 / 2,453 | 44 / 27 |
+| Landing | **731 KB** (1,057) | **559 KB** (885) | 448 / 404 ms | 1,836 | — |
+| Japan hub | **439 KB** (701) | **705 KB** (967) | 300 / 316 ms | 575 | — |
+
+All ✅: ≤ 2.0 MB (2,000,000 B), FCP 4× ≤ 1.0 s, Tokyo Atlas ≤ 3,000 nodes, eager JS 28.1 KB ≤ 40 KB, axe 0. `metrics.js` agrees (Gallery initial 652 / 940, Atlas 612 / 1,020).
+
+Whole-session bytes, for information (`metrics.js`, every probe and stress loop, each URL once): Tokyo Gallery 3,423 KB, Cleveland 1,735 KB, landing 1,603 KB.
+
+### Re-test of the R6 findings
+
+| ID | Status on `badcc20` | Evidence |
+|---|---|---|
+| QA-36 `_leaflet_pos` | **Fixed** | `repro-qa36.js` 0/20. `views.js` 319/320 (the one FAIL is the known record-prose INFO, as at R5). 0 JS errors in every `w7.js` Atlas load, tiles stubbed or Leaflet blocked. |
+| QA-37 370 px tray head | **Fixed (tray retired)** | `metrics --view atlas` B-08 0 on 5/5; `atlas-ms.js` independent B-08 for carousel and list ✅. The rule that would have hidden it is rejected (QA-46). |
+| QA-38 Insights axe | **Fixed** | Axe 0 serious/critical on all 20 Insights rows. |
+| QA-39 workflow `npm ci` | **Fixed** | `beta-fetch-unsplash.yml:56` runs `npm install --no-audit --no-fund`. Runs #11–#19 landed photos (BETA-LOG). |
+| QA-40 city not named | **Fixed** | City named on the first phone screen, 5/5 (header crumb). |
+| QA-41 bubbles read as ranks | **Fixed** | At default zoom, pins are light pills carrying their number (★ for Must see); clusters are dark round count bubbles (`atlas-390-cities_tokyo.jpg`). |
+| QA-42 lead-card heart | **Fixed** | A real tap on the lead card's heart saves it (`aria-pressed=true`, no sheet) on 5/5. The 44 × 44 button receives 82–84 % of its box. |
+| QA-43 eager JS headroom | **Fixed** | 28.1 KB gzip, gated unrounded at 40.0. |
+| QA-44 Chinatown fit | **Fixed for the fit** (phone zoom 15). The Bangkok record stays a live-data issue (PM), and it now surfaces as QA-54. | `w7.js cluster` |
+
+### No regression (vs W5 full pass, R5 follow-up and W6 pass)
+
+| Check | Result |
+|---|---|
+| `w5.js` | ✅ **64/64** |
+| `views.js` | ✅ **319/320** (the known record-prose INFO only; QA-36 gone) |
+| `w2.js` | ✅ map + hubs **39/39**, everything else **179/179** (For you, day, near, saved, ★, DOM, OG, a11y on hubs, storage). QA-26 is no longer reproduced. |
+| G1 on the Gallery default | ✅ 5/5 (deep 194/488/508/16/35, search, scroll, no-JS) |
+| B-01 / B-03 first-screen rules (W5) | ✅ B-01 0.42–0.64 (W6 0.50–0.56), B-03 7–9 (W6 7), both within the ratified ≤ 1.0 / ≤ 14 |
+| `metrics.js` Gallery, same harness, W6 pin → W7 | Cleveland 22 → 21, Tokyo 22 → 19 (20 after the B-07 bubble step, re-run `--only cities/tokyo`), New York 21 → 22, Chinatown 21 → 22, Wheeling 22 → 22 of 25. Landing 11 → 10 of 11. ❌ regressions: **QA-47** B-02, **QA-48** B-04 Tokyo, **QA-49** B-05. B-08 hits are the ratified exemption (row 6). |
+| `metrics.js` Atlas | 21–23/25. ❌ **QA-45** G1 (hard gate) on Cleveland, Tokyo and New York, which was ✅ in W6. B-04 by design (row 13). |
+
+### Design-conformance checklist D1–D13
+
+| Row | State on `badcc20` | Evidence |
+|---|---|---|
+| D1 four views | ✅ | `views.js` 319/320, `w5.js` 64/64, P-04 in `npm test`; `#view=` links reproduce the view (lens × 3 ways). |
+| D2 Atlas map-search | ◐ | All Amendment 2 acceptances ✅ (above, `atlas-ms.js` 98/98, `w7.js` 107/111 Atlas checks). Open: QA-45 (G1 regression), QA-52, QA-54, QA-57. |
+| D3 Gallery | ◐ | Rows + All N grid, lead card on the first phone screen (B-01 ✅), covers vary by kind, deep links land (G1 ✅). Open: QA-47, QA-48. |
+| D4 Guidebook | ✅ | Unchanged behaviour; axe 0; `views.js` ✅. |
+| D5 Insights | ✅ | Axe 0 (QA-38 fixed); table fallback and 44 px hit areas as ratified. Its small prose is counted under D13 (QA-55). |
+| D6 type | ✅ (QA scope) | Self-hosted OFL Bricolage + Inter; Vietnamese, macrons and CJK verified. Sub-scores belong to the evaluator. |
+| D7 tokens | Not measured by QA | (evaluator; FE-A reports tokens-only CSS) |
+| D8 luxury × fun | Not measured by QA | (evaluator) |
+| D9 photos | ◐ | 131 credited Commons photos shipped keylessly; TASL and licence honesty ✅. Open: QA-53 (subjects), QA-56 (authors), QA-51 (detail resolution). |
+| D10 honesty | ✅ | Every place kept (beta == live 8,458); attribution (G6 0 without); closures flagged (B-12, contract, the "Closed" card check); brand scan clean on every page; no `document.write`; no CDN; OSM/Esri only. Rule-6 slips in committed **docs** are QA-58 (Low). |
+| D11 perf + a11y | ✅ | Budgets above; axe 0/104; B-23 AA 0/0 light and night; B-20 0; focus 30/30. |
+| D12 modern-minimal, marketplace-grade | ◐ | Structure ✅: compact sticky city bar with a search pill, category icon bar with underline, borderless image-first 1/2/3/4 grid with a heart, floating map pill, detail with large media, hairline sections and a sticky action bar. Night hero, particles, gold plates and purple tiles retired (0 found). Open: QA-49 (landing first screen), QA-51 (soft detail photo), QA-59 (layout nits). Palette and clarity scores belong to the evaluator. |
+| D13 Gen Z × every generation | ◐ | Expressive display + legible text face, heart pop and the grow motion (reduced-motion safe), sources always visible. Open: QA-55 (prose under 16 px). Sub-scores belong to the evaluator. |
+
+### Findings
+
+| ID | Sev | Finding | Steps → expected vs actual | Evidence | Owner |
+|---|---|---|---|---|---|
+| QA-45 | **High** (regression, hard gate) | **Atlas G1 "every place reachable by scrolling" fails.** The Atlas list pages by 40 (map area, or the whole lens after "Show all"). Reaching every place takes "Show all" plus up to 12 "Show 40 more" taps (Tokyo). Gallery solved the same trade-off in W5 with one "Show all N on one page" tap; Atlas has no equivalent. | `metrics.js --view atlas`. **Expected:** G1 ✅, as on the W6 pin. **Actual:** "scrolled 42 / 43 / 264" of 194 / 488 / 508 (Cleveland, Tokyo, New York): HARD-GATE FAIL. Deep links (100 %), search and the pager do reach everything (`w7.js`), but a 12-tap pager is not the ratified one tap + scroll. Fix: a one-tap "Show all N in one list" in Atlas (DOM grows only on request, as in Gallery), or bring a reach rule to QA that measures the same outcome. | `logs/metrics-atlas.log`, `metrics-atlas.md` | Atlas |
+| QA-46 | **High** (rule) | **FE-A's proposed B-08 rule for phone Atlas is rejected.** "A title beneath its own scroll pane's sticky head counts as clipped" would have graded QA-37 green. Not implemented in any gate. | Do not adopt it. A title under a sticky head is covered. No product change is needed while the tray stays retired; it is listed so that the rule is not merged later. | Ratification row 7 | FE-A |
+| QA-47 | Med (regression, blocks sign-off) | **Gallery B-02 masthead is over 0.6 of the phone screen** on Cleveland and Tokyo: 513 px > 506. The W7 quiet hero with the 3:1 photo strip and its two-line credit is taller. | Phone, the default view. **Expected:** ≤ 506 px, as on the W6 pin (429 / 407). **Actual:** 513 / 513. New York 468 ✅. | `metrics-gallery.md` vs `metrics-gallery-W6pin-same-harness.md` | FE-A |
+| QA-48 | Med (regression, blocks sign-off) | **Gallery B-04 Tokyo: the category bar starts below the first phone screen**, at 859 px > 844. It moved under the lead card in W7. | Phone, Tokyo default. **Expected:** on the first screen, as on the W6 pin (800). **Actual:** 859. The count is still 4/5 (Chinatown now passes), but Tokyo's cell regressed. | same | FE-A |
+| QA-49 | Med (regression, blocks sign-off) | **Landing B-05: no city card is wholly above the phone fold.** The search-first hero, the country pills and the row header push the first cards to y ≈ 522, and the cards are taller than the space left. | Phone 390, the landing. **Expected:** ≥ 2 cards (W6 ✅ 2). **Actual:** 0. | `landing-390-light.jpg`, `metrics-gallery.md` | FE-B |
+| QA-50 | Med | **The detail's rank line is wrong on a deep link:** "No. 2 of 1 in Jōhoku" (data: 2 of 37); Cleveland "No. 3 of 1" (3 of 52); New York "No. 15 of 24 in Manhattan" (15 of 264). `sheet.js` counts the stamped `li.pl` in the area. Since W7, a deep link stamps only its own card. | Open `cities/tokyo.html#p=asukayama-park`. **Expected:** "No. 2 of 37". **Actual:** "No. 2 of 1". A false fact in our own copy. Use the area count from the page data (`stats.perArea`), as "n of N" now does. | `detail-390-cleveland.jpg`, `logs/w7-func.log` | FE-A |
+| QA-51 | Med | **The desktop detail photo is upscaled about 2×.** `sheet.js` copies the card's `img` with the card `sizes` (`… 25vw`), so the 1,024 px media slot shows the 500 w file. | Desktop 1440, `#p=` any photo place. **Expected:** the 960 w file or larger, not a soft image. **Actual:** `currentSrc` `…-500.jpg` at 1,024 CSS px, on 5/5 pilots (`detail-1440-top-tokyo.jpg` is visibly soft). | `logs/w7-func.log` | FE-A (+ imagery for the widths) |
+| QA-52 | Med | **Phone Atlas carousel credits are clipped.** The `figcaption` renders in a 4 px wide column inside the 104 × 104 thumb: "Photo:" and part of an author name show over the photo, and the rest is cut. | Phone, `#view=atlas`. **Expected:** a whole credit under the media, or the © link as the visible credit with the caption hidden (brief: credit visible and never clipped). **Actual:** 4/5 pilots (Chinatown has no carousel photo). The grid and the phone list are fine. | `atlas-390-cities_tokyo.jpg`, `w7-atlasd-atlasm.json` | Atlas |
+| QA-53 | Med | **Some photos don't show their place, or break the fetch rules.** Not the place: **Tokyo Tower** (tour buses and people), **Rockaway Beach & Boardwalk** (construction site), **MoMA** (a delivery van in the street), **Nihonbashi Bridge** (a Hiroshige woodblock print, not a photograph of today's bridge). Weak or flagged: Dia Beacon (lawn, no building); Rockefeller Center (blurred night close-up); Cuyahoga Valley NP (a weir close-up); Ueno Park (dead lotus close-up); Gōtoku-ji (figurines close-up); Meadowcroft (rock close-up); Pennsylvania Trolley Museum (equipment); Cleveland Museum of Art ("OPEN" banner dominates). Heroes, grey or overcast: Kyoto (white sky), Orlando, Madison, Ghent, Hokkaido; Erie (hazy). Akron is a highway and parking deck. No near-duplicate hero pair. | Visual review of all 131 (`contact-*.jpg`). **Expected (IMAGERY / brief):** the photo truly shows the place; no close-ups, equipment or signage; no overcast heroes. **Actual:** above. Swap or drop them; a dropped photo leaves the calm cover. | `contact-1…5.jpg` | imagery |
+| QA-54 | Med | **Atlas search can show "0 places in this map area" for an exact name.** A matching place outside the first fit stays filtered out by the map area. | `Singapore/chinatown.html#view=atlas`, search "Nai Ek Roll Noodle". **Expected:** the match shown, with the map fitted to the results, as a lens deep link does. **Actual:** "0 places in this map area · 1 more outside this area. Show all 1" (phone and desktop). Reachable with one more tap, but it reads as "not found". | `atlas-1440-search-outlier-chinatown.jpg` | Atlas |
+| QA-55 | Med | **Prose under 16 px** against D13 (body ≥ 16 px for every generation): Insights subtitles (14 px) and footnotes such as "Citations, not places: …" (12 px); the city facts line (14 px); Guidebook chapter facts (14 px); card write-ups where shown (14 px). The detail prose is 17 px ✅. | Any pilot. **Expected:** ≥ 16 px for sentences people read. **Actual:** 12–14 px (`w7-a11y.json` `smallBody`). | `logs/w7-a11y.log` | designer + FE-A |
+| QA-56 | Low | **Author fields that are not clean names:** "User:LimoWreck" (Ghent hero), "User:Piotrus" (Zōjō-ji), "J. Miers - User: (WT-shared) Jtesla16 at wts wikivoyage" (A Christmas Story House, shown in full in the detail), "Petri Krohn (English Wikipedia)" (Chrysler Building). | `w7-photos.js` author check. Credit the person as the source page names them, without wiki markup. | `logs/w7-photos.log`, `detail-390-cleveland.jpg` | imagery |
+| QA-57 | Low | **No entry point to "A day in …" or "For you" from Atlas.** The collections rail is not rendered in phone or desktop Atlas, and Filters carries the collection lenses but not the day plans or For you. Day routes still draw from a `#day=` link (`w2.js` day ✅). | Atlas, look for a day plan. **Expected:** the brief's "day routes drawn on the map" reachable from the Atlas UI. **Actual:** only via another view or a link. | Tray probe in this run | Atlas |
+| QA-58 | Low | **Rule 6 in committed docs:** a real-estate brand is quoted in `W7-BRIEFS.md:187` and `BETA-LOG.md:865` (the owner's message, verbatim); a home-rental brand in `DESIGN-SYSTEM.md:93` and `BETA-DECISIONS.md` D-09; a booking brand in `BETA-DECISIONS.md`. The page scan (test-honesty) is clean. These are docs, so the owning lanes should paraphrase them. | `grep -i` over files changed since `2f22763` | orchestrator (+ designer for DESIGN-SYSTEM) |
+| QA-59 | Low | Layout nits: (a) a desktop Atlas card's 2-line name clamp lets a third line (the native name) peek over "Recommended by" (Tokyo "Katsushika Shibamata Tora-san Museum"); (b) the phone detail meta row runs off the right edge ("… Ohio City & Tremont · pin"); (c) desktop category-bar labels are ellipsised ("Anime, Manga & P…", "UNESCO World He…"); (d) the detail's "Read" chevron wraps onto its own line; (e) the Japan hub copy says "each driven to New York density" (internal jargon). | Screenshots as named | `atlas-1440-preview-cities_tokyo.jpg`, `detail-390-cleveland.jpg`, `gallery-tokyo-1440-light.jpg`, `detail-1440-cities_tokyo.jpg`, `hub-japan-390-light.jpg` | FE-A (a–d), FE-B (e) |
+
+Carried: the PM call on record prose with prices and ratings (the `views.js` INFO).
+
+**Why NO:**
+- QA-45 regresses a hard gate (G1 in Atlas) that passed in W6.
+- QA-46 is a High (a proposed rule that weakens B-08).
+- QA-47, QA-48 and QA-49 each regress a `metrics.js` cell that was ✅ on the W6 pin with the same harness.
+
+QA re-signs when, on a pinned SHA:
+- `metrics.js --view atlas` shows G1 ✅ on 5/5;
+- `metrics.js` Gallery shows B-02 ✅ on 5/5, B-04 ✅ on Tokyo, and B-05 ✅ on the landing (or the owning lane brings a re-measured rule that QA ratifies, as in W5);
+- QA-50 and QA-52 pass in `w7.js --only detail,atlasm`.
+
+QA sign-off: NO
