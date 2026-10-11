@@ -114,10 +114,45 @@
 .feb .credit a { color: inherit; }
 @media (max-width: 479px) { .feb .dense .card-t { font-size: var(--fs-lead); } .feb .dense .recby .ico { display: none; }
   .feb .dense .card-body .sigline { -webkit-line-clamp: 3; } .feb .dense .recby > span { -webkit-line-clamp: 3; } }
+/* "Recommended by": two source names from 640 px; on phones one name + "n more" (never clipped) */
+.feb .recby .rb-short { display: none; }
+@media (max-width: 639px) { .feb .recby .rb-full { display: none; } .feb .recby .rb-short { display: inline; } }
+
+/* ---------- phones (< 640 px): city cards become compact rows — media left, text right, one link (B-05: two cards on the
+   first phone screen of the landing and every hub, QA-49). No line clamps: nothing is ellipsised (QA-59). ---------- */
+@media (max-width: 639px) {
+  .feb .tiles.cards, .feb .tiles.cards.dense { grid-template-columns: 1fr; gap: 14px; }
+  .feb .tiles.dense .card-body .sigline { display: none; }   /* landing rows on phones: name, count, Recommended by (the city page carries Known for) */
+  .feb .tile.card { display: grid; grid-template-columns: 112px minmax(0, 1fr); align-items: start; gap: 0 14px; }
+  .feb .tile.card .card-media, .feb .dense .card-media { aspect-ratio: 1 / 1; border-radius: var(--r-m); }
+  .feb .tile.card .card-media > .cover { padding: 8px; gap: 4px; }
+  .feb .tile.card .cover-n, .feb .tile.card .cover .native { display: none; }
+  .feb .tile.card .card-media > .sticker { left: 6px; right: 6px; bottom: 6px; max-width: none; padding: 3px 7px; font-size: var(--fs-xs); white-space: normal; }
+  .feb .tile.card .card-body { gap: 2px; padding: 0; }
+  .feb .tile.card .card-t, .feb .dense .card-t { font-size: var(--fs-lead); }
+  .feb .card-body .sigline, .feb .card-body .canon, .feb .recby > span, .feb .dense .card-body .sigline, .feb .dense .recby > span { display: inline; -webkit-line-clamp: unset; overflow: visible; }
+  .feb .card-body .sigline, .feb .card-body .canon { display: block; font-size: var(--fs-sm); }
+  .feb .recby .ico { display: none; }
+  .feb li.dest > .credit, .feb li.dest > .dest-views { margin-left: 128px; }
+  .lhero .countries { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; margin: 16px calc(var(--gutter) * -1) 0; padding: 0 var(--gutter); }
+  .lhero .countries .pill { flex: none; }
+  .feb #destinations { padding-top: 12px; }
+  .feb #destinations > .rail-head { margin-bottom: 12px; }
+}
+.feb .acts2-m { display: none; }
+@media (max-width: 639px) { .feb .acts2-m { display: block; margin-top: 16px; } .feb .acts2-m .acts2 { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+  .feb .acts2-m .btn { min-height: var(--tap); padding: 0 4px; border: 0; background: none; color: var(--ink-2); font-size: var(--fs-sm); text-decoration: underline; text-underline-offset: 3px; } }
+
+/* compact list rows ("More in …", the archive): two lines, ≥ 80 px — name, then count and what the guide is known for */
+.feb .morelist a { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "n c" "s s"; align-content: center; gap: 2px 12px; min-height: 80px; }
+.feb .morelist .dest-n { grid-area: n; }
+.feb .morelist .dest-c { grid-area: c; }
+.feb .morelist .dest-s { grid-area: s; font-size: var(--fs-sm); color: var(--ink-2); }
+
 /* W3 B-04: "Read as a guidebook" / "See it in numbers" under each hub card (44 px targets) */
 .feb li.dest > .dest-views { display: flex; flex-wrap: wrap; gap: 0 16px; margin: 2px 2px 0; font-size: var(--fs-sm); }
 .feb li.dest > .dest-views a { display: inline-flex; align-items: center; min-height: var(--tap); color: var(--ink-2); text-underline-offset: 3px; }
-.feb .morelist a { border-radius: var(--r-m); border-color: var(--line); background: var(--surface); min-height: 52px; }
+.feb .morelist a { border-radius: var(--r-m); border-color: var(--line); background: var(--surface); min-height: 80px; }
 .feb .morelist a:hover { border-color: var(--ink); }
 
 /* ---------- rows of image cards: ★ signatures + collections (a row on phones, a grid from 1024 px) ---------- */
@@ -187,7 +222,7 @@
 .feb .chero h1 { margin: 0; color: var(--ink); letter-spacing: var(--track-display, -.02em); }
 .feb .chero .why { margin: 14px 0 0; max-width: 46ch; font-size: var(--fs-lead); line-height: var(--lh-lead); color: var(--ink); }
 .feb .chero .why .k { font-weight: 600; color: var(--ink-2); }
-.feb .chero .why .l span + span::before { content: " · "; color: var(--ink-3); }
+.feb .chero .why .l span:not(:last-child)::after { content: " ·"; color: var(--ink-3); }   /* the separator ends a line, never starts one */
 .feb .chero .facts { margin: 12px 0 0; max-width: 60ch; color: var(--ink-2); font-size: var(--fs-body); }
 .feb .chero .facts b { color: var(--ink); font-weight: 600; }
 .feb .chero .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 20px; }
@@ -234,6 +269,26 @@
 
 /* platform W7 (R6 gap #4, B-20): the masthead's city link (What changed pages) is a ≥ 44 px target even for short names */
 .feb .masthead .eyebrow a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+
+/* phones: the hub hero stays photo-first but compact — 2:1 media, name, Known for, the short stat line — so two city
+   cards sit on the first screen (B-05, QA-49). The CTA is redundant there (the grid follows); share, method and the
+   dek move to just after the grid (.acts2-m). Kept last so it wins over the hero rules above. */
+@media (max-width: 639px) {
+  .feb .chero .acts, .feb .chero .copy > .acts2, .feb .chero .copy > .blurb-c { display: none; }
+  .feb .chero .hero-media, .feb .chero .hero-media.photo img { aspect-ratio: 12 / 5; }
+  .feb .chero .kicker { margin-bottom: 4px; }
+  .feb .chero .why { margin-top: 8px; font-size: var(--fs-body); }
+  .feb .chero .facts { margin-top: 6px; }
+  .feb .chero .inner { gap: 14px; }
+  .feb .acts2-m .blurb-c { margin: 12px 0 0; color: var(--ink-2); }
+}
+
+/* phones, compact rows: exactly one "Recommended by" form, and no ★ sticker on the 112 px thumbnail (it is on the city page) */
+@media (max-width: 639px) {
+  .feb .tile.card .recby { display: block; }
+  .feb .tile.card .recby > .rb-full { display: none; }
+  .feb .tile.card .card-media > .sticker { display: none; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .feb .card-media, .feb .theme-main .cover, .feb .rail.editorial .rail-i.sig::before { transition: none; }
