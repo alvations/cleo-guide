@@ -163,6 +163,10 @@
     /** Only the lens keys of a route object (drops p, view, pg, all…). */
     pick: function (o) { var out = {}; (o = o || {}); Cleo.lens.KEYS.forEach(function (k) { if (o[k]) out[k] = o[k]; }); return out; },
     on: function (o) { return Object.keys(Cleo.lens.pick(o)).length > 0; },
+    /** PERF-08: the lens of the current route (or {}), and whether a card OR a deferred stub is shown under it — a stub
+     *  has no `hidden`, so consumers that mix stamped cards with Cleo.defer stubs ask this instead of `!c.hidden`. */
+    current: function () { return Cleo.lens.pick(Cleo.route.parse()); },
+    shows: function (c) { if (!c) return false; if (!c.stub) return !c.hidden; var L = Cleo.lens.current(); return !Cleo.lens.on(L) || Cleo.lens.match(c, L); },
     /** Apply: set `hidden` on every card (never removes a node). Returns the number shown. */
     apply: function (cards, o) { var n = 0; [].forEach.call(cards, function (c) { var v = Cleo.lens.match(c, o); c.hidden = !v; if (v) n++; }); return n; }
   };
@@ -349,19 +353,34 @@
     },
     /** Lightweight stand-ins for unstamped cards, parsed from their start tags only: {id, getAttribute, hasAttribute}.
      *  Enough to draw a map pin (data-ll, data-n, data-a, data-t, data-closed) without building the card. */
-    peek: function () {
-      var out = [];
+    /** opts.lens (a lens object, Cleo.lens.pick of a route): only the stubs that lens shows (PERF-08); default: every stub */
+    peek: function (opts) {
+      var out = [], L = opts && opts.lens && Cleo.lens.on(opts.lens) ? opts.lens : null;
       D.pending().forEach(function (ns) {
         var src = ns.children && ns.children.length ? ns.innerHTML : ns.textContent, re = /<li class="pl[ "][^>]*>/g, m;
         while ((m = re.exec(src))) {
           var at = {}, a = /([a-z-]+)(?:="([^"]*)")?/g, x, tag = m[0].slice(3, -1);
           while ((x = a.exec(tag))) at[x[1]] = x[2] === undefined ? '' : x[2].replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-          out.push({ id: at.id, stub: true, getAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k) ? this._a[k] : null; },
-            hasAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k); }, _a: at });
+          var st = { id: at.id, stub: true, getAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k) ? this._a[k] : null; },
+            hasAttribute: function (k) { return Object.prototype.hasOwnProperty.call(this._a, k); }, _a: at };
+          if (!L || Cleo.lens.match(st, L)) out.push(st);
         }
       });
       return out;
     },
+    /** PERF-08: stamp only the cards a lens shows (the rest stay deferred, still reachable: "Show all", deep links, search,
+     *  print, find-in-page stamp them). A text query (q) can't be judged on a stub (it has only its id), so q stamps
+     *  everything, as before. Returns the stamped cards. */
+    stampLens: function (o) {
+      var L = Cleo.lens.pick(o || {});
+      if (!Cleo.lens.on(L)) return [];
+      if (L.q) return D.all();
+      var ids = new Set(D.peek({ lens: L }).map(function (s) { return s.id; }));
+      return ids.size ? D.stampIds(ids) : [];
+    },
+    /** PERF-08 switch: when true, a lens route stamps only its matching cards (stampLens) instead of every card. Off until
+     *  every consumer that reads stubs (pins, counts, pager) reads them through peek({lens}) — see BETA-PERF-AUDIT PERF-08. */
+    selective: false,
     /** Every card in document (= view) order, stamped or not, WITHOUT stamping: [{id:'p-…', a, el|null, ns|null}].
      *  Lets the Gallery pager place a deep link on its page and stamp only that page (platform W7, R6 gap #5). */
     order: function () {
@@ -512,12 +531,17 @@
   // a place link (card, pin, shared #p=, Back/Forward between sheets) needs only its own card (R-32, gap #6); anything
   // else addressed by the URL needs every card. Registered when core.js runs — before any page script's listener — so
   // stamped cards are adopted before the page routes.
-  var routed = function () { if (!D.pending().length && !VC.length) return; var q = quiet(); if (q === 'p') stampPlace(); else if (!q) allNow(); };
+  // PERF-08: a route whose only non-quiet keys are lens keys stamps just what the lens shows (when D.selective is on)
+  var lensOnly = function () { var r = Cleo.route.parse(), ks = Object.keys(r); return Cleo.lens.on(r) && ks.every(function (k) { return QUIET.indexOf(k) >= 0 || Cleo.lens.KEYS.indexOf(k) >= 0; }) ? r : null; };
+  var routed = function () { if (!D.pending().length && !VC.length) return; var q = quiet(); if (q === 'p') stampPlace(); else if (!q) { var lr = D.selective && lensOnly(); if (lr) D.stampLens(lr); else allNow(); } };
   window.addEventListener('hashchange', routed);
   document.addEventListener('cleo:route', routed);
   window.addEventListener('beforeprint', allNow);
   var NEEDS_ALL = '[data-mode],[data-cleo-all],.rail-i,.pl-s button.src,[data-cleo-tray],[data-cleo-map],[data-unset],[data-tr],[data-cleo-day],[data-cleo-near],[data-cleo-foryou],[data-cleo-mine]';
-  document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest(NEEDS_ALL)) allNow(); }, true);
+  // a lens control (.rail-i collection, [data-mode]) routes through the hash: with D.selective on, routed() stamps only
+  // what that lens shows, so the click itself no longer stamps everything (PERF-08)
+  var LENS_CTL = '.rail-i:not([data-cleo-foryou]):not([data-cleo-day]):not([data-cleo-near]):not([data-cleo-mine]),[data-mode]';
+  document.addEventListener('click', function (e) { var t = e.target.closest && e.target.closest(NEEDS_ALL); if (!t) return; if (D.selective && t.matches(LENS_CTL)) return; allNow(); }, true);
   document.addEventListener('focusin', function (e) { if (e.target.matches && e.target.matches('#cleo-filter,main input[type=search]')) allNow(); }, true);
   document.addEventListener('keydown', function (e) { if ((e.ctrlKey || e.metaKey) && (e.key === 'f' || e.key === 'F' || e.key === 'g')) allNow(); }, true);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', deferInit); else deferInit();
