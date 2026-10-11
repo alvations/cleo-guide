@@ -45,10 +45,18 @@
     // area order, then rank), and "No. r of n in {area}". Previous / next wrap at the ends.
     var set = [].slice.call(d.querySelectorAll('li.pl')).filter(function (x) { return !x.hidden; }), i = set.indexOf(c), nIn = d.querySelectorAll('li.pl[data-a="' + a + '"]').length;
     if (i < 0) { set = [c]; i = 0; }
+    // W7: with no lens on, "n of N" counts the whole view order, stamped or not (Cleo.defer.order, platform W7), so a far
+    // #p= reads "k of 488", not "k of the cards stamped so far"; an unstamped neighbour is reached through its #p= route
+    var ord = Cleo.defer && Cleo.defer.order && set.length === d.querySelectorAll('li.pl').length ? Cleo.defer.order() : null, oi = ord ? ord.map(function (x) { return x.id; }).indexOf(c.id) : -1;
+    if (ord && ord.length > set.length && oi >= 0) {
+      var stub = function (x) { return x.el || { id: x.id, stub: 1 }; };
+      set = ord.map(stub); i = oi;
+    }
+    var nm = function (x) { return x.stub ? '' : C.name(x); };
     var pv1 = set[(i - 1 + set.length) % set.length], nx1 = set[(i + 1) % set.length], vw = d.documentElement.getAttribute('data-view') || 'atlas', vname = vw.charAt(0).toUpperCase() + vw.slice(1);   // set before paint, so right even before views.js runs
     var navRow = '<div class="sh-nav"><button class="btn btn-quiet" data-sh="all">' + icon('chev-l') + '<span>All ' + info.total + ' places</span></button><span class="sm" data-sh-pos>' + (i + 1) + ' of ' + set.length + '<span class="long"> in this ' + esc(vname) + ' view</span></span>' +
-      (set.length > 1 ? '<span class="pn"><button class="btn btn-icon btn-ghost" data-sh="go" data-to="' + esc(C.pid(pv1)) + '" aria-label="Previous: ' + esc(C.name(pv1)) + '">' + icon('chev-l') + '</button>' +
-        '<button class="btn btn-icon btn-ghost" data-sh="go" data-to="' + esc(C.pid(nx1)) + '" aria-label="Next: ' + esc(C.name(nx1)) + '">' + icon('chev-r') + '</button></span>' : '') + '</div>';
+      (set.length > 1 ? '<span class="pn"><button class="btn btn-icon btn-ghost" data-sh="go" data-to="' + esc(C.pid(pv1)) + '" aria-label="' + (nm(pv1) ? 'Previous: ' + esc(nm(pv1)) : 'Previous place') + '">' + icon('chev-l') + '</button>' +
+        '<button class="btn btn-icon btn-ghost" data-sh="go" data-to="' + esc(C.pid(nx1)) + '" aria-label="' + (nm(nx1) ? 'Next: ' + esc(nm(nx1)) : 'Next place') + '">' + icon('chev-r') + '</button></span>' : '') + '</div>';
     var rank = '<p class="sm sh-rank">No. ' + c.getAttribute('data-n') + ' of ' + nIn + ' in ' + esc(C.label('a', a)) + '</p>';
     // Close by: the 4 nearest open places with a pin, straight-line (never a walking time we don't hold)
     var near = '';
