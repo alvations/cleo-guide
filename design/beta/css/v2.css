@@ -19,9 +19,11 @@
 :root body { background: var(--paper); color: var(--ink); font-family: var(--font-ui); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility; font-feature-settings: "cv11", "ss01" 0; }
 :root :is(h1, h2, .d-hero, .d1, .d2, .masthead h1, .area-n, .row-h h2) { font-family: var(--font-display); font-weight: var(--fw-display); letter-spacing: var(--track-display); font-style: normal; }
-:root :is(h3, .d3, .gc-n, .pl-n, .tile h3) { font-family: var(--font-ui); font-weight: var(--fw-ui-strong); letter-spacing: -.006em; font-style: normal; }
+:root :is(h3, .d3, .gc-n, .pl-n) { font-family: var(--font-ui); font-weight: var(--fw-ui-strong); letter-spacing: -.006em; font-style: normal; }
 /* no italic faces ship in v2 (display + Inter roman only), so a leftover `italic` rule never fakes a slant */
 :root { font-synthesis-style: none; }
+/* city and country names are display type (W7 amendment) — hub / landing tiles; place names stay in the UI face */
+:root :is(.tile h3, .dest h3, .feb .card-t) { font-family: var(--font-display); font-weight: var(--fw-display); letter-spacing: -.012em; }
 /* italic display voice retired: deks, notes, leads, initials and the hero's emphasised word set upright in the sans */
 :root :is(.masthead .dek, .g-lead, .lead, .note p, .pl-k.note p, .pl-k .note-t, .lens > p:first-of-type, .gk, .gap .d3, em.it, .it, .stamp,
   .view-gallery .note, .view-gallery .ghero .lead, .gcover .lead) { font-style: normal; font-family: var(--font-ui); }
