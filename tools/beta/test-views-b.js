@@ -32,8 +32,8 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
 
 (async () => {
   console.log('FE-B views — Guidebook + Insights (W3)');
-  let bad = { n: [], once: [], order: [], empty: [], tier: [], intro: [], src: [], sums: [], plat: [], pop: [], idx: [], honest: [], quoted: [], chph: [] };
-  let nChPh = 0;
+  let bad = { n: [], once: [], order: [], empty: [], tier: [], intro: [], src: [], sums: [], plat: [], pop: [], idx: [], honest: [], quoted: [], chph: [], edition: [], since: [], cover: [] };
+  let nChPh = 0, nCover = 0, nSince = 0;
   const quoted = require('./lib/quoted');
   let nQuoted = 0;
   for (const f of files) {
@@ -98,6 +98,33 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
       const fig = (h.match(new RegExp('<article class="ch" id="gb-area-' + aid + '"[\\s\\S]*?<figure class="photo ch-photo">([\\s\\S]*?)</figure>')) || [])[1] || '';
       if (!/<figcaption>[\s\S]*rel="license/.test(fig) || !/alt="[^"]+"/.test(fig) || !/loading="lazy"/.test(fig)) bad.chph.push(`${f} ${aid}: figure/credit`);
     }
+    // ---- W9-10 · the dated edition: the cover's numbers are the page JSON's; the edition month is the newest change date
+    {
+      const top = (d.changes || []).map(c => c.d).sort().pop() || '', ed = top.slice(0, 7);
+      const line = (h.match(/<p class="edition" data-edition="([^"]+)">([\s\S]*?)<\/p>/) || []);
+      const st = d.stats, closed = d.places.filter(p => p.closed).length;
+      const num = k => +((line[2] || '').match(new RegExp('data-n="' + k + '">([\\d,]+)')) || [])[1];
+      if (!ed || line[1] !== ed || !line[2].includes(G.longDate(ed) + ' edition')) bad.edition.push(`${f}: edition ${line[1]} != ${ed}`);
+      else if (num('total') !== N || st.total !== N || num('closed') !== closed || st.closed !== closed
+        || !line[2].includes(`datetime="${st.lastChecked}"`) || (d.places.map(p => (p.pv || {}).checked || '').sort().pop() || st.lastChecked) !== st.lastChecked)
+        bad.edition.push(`${f}: cover ${num('total')}/${num('closed')} vs ${N}/${closed}`);
+      // "Since the last edition": every dated change in the edition month, nothing else, each dated
+      const sec = (h.match(/<section class="gb-since"[\s\S]*?<\/section>/) || [''])[0];
+      const want = (d.changes || []).filter(c => c.d.slice(0, 7) === ed);
+      const got = [...sec.matchAll(/<li data-kind="([^"]+)"><time datetime="([^"]+)">/g)].map(m => m[1] + '@' + m[2]);
+      nSince += got.length;
+      if (got.join() !== want.map(c => c.kind + '@' + c.d).join() || (d.changesPage && !sec.includes(`href="${d.changesPage}"`))) bad.since.push(f);
+      for (const c of want.filter(c => c.kind === 'closed')) if (!sec.includes(`href="#p=${encodeURIComponent(c.id)}"`)) bad.since.push(`${f}: ${c.id}`);
+      // the cover photo: credited, never Vietnam; if it depicts one of this guide's places, an open sight
+      const cp = d.coverPhoto;
+      if (cp) {
+        nCover++;
+        const rec = d.places.find(p => cp.src.includes('--' + p.id + '-'));
+        if (d.country === 'vietnam' || (rec && (rec.closed || rec.kind !== 'sight'))) bad.cover.push(`${f}: ${cp.src}`);
+        const fig = (h.match(/<figure class="photo gc-photo">([\s\S]*?)<\/figure>/) || [])[1] || '';
+        if (!/<figcaption>[\s\S]*rel="license/.test(fig) || !/alt="[^"]+"/.test(fig)) bad.cover.push(`${f}: figure/credit`);
+      } else if (/gc-photo/.test(h)) bad.cover.push(`${f}: photo without coverPhoto`);
+    }
     // ---- D-39 · price/rating prose is labelled, not stripped: the note on exactly the records whose own prose quotes one
     for (const p of d.places) {
       const q = quoted.quotes(p), li = (h.match(new RegExp('<li class="ge" id="gb-' + p.id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '"[\\s\\S]*?</li>')) || [''])[0];
@@ -125,6 +152,19 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
   chk('insights: index lists N names; no script/CDN in the view', !bad.idx.length, bad.idx);
   chk('honesty: no price / rating / booking / hours strings in either view', !bad.honest.length, bad.honest);
   chk(`W8: Guidebook chapter photos (${nChPh}) are open sights with a linked credit under the media, never Vietnam`, !bad.chph.length && nChPh > 0, bad.chph.slice(0, 4));
+  chk('W9-10: edition month = newest change date; cover numbers = page JSON (places, closed, checked-to date)', !bad.edition.length, bad.edition.slice(0, 4));
+  chk(`W9-10: "Since the last edition" lists exactly the edition month's dated changes (${nSince}), closures linked, full log linked`, !bad.since.length && nSince > 0, bad.since.slice(0, 4));
+  chk(`W9-10: edition cover photos (${nCover}) credited, never Vietnam, never a food or closed place`, !bad.cover.length && nCover > 0, bad.cover.slice(0, 4));
+  {
+    const css = fs.readFileSync(path.join(BETA, 'assets', 'cleo.css'), 'utf8');
+    let pr = '';                                       // every @media print block, by brace matching
+    for (let i = css.indexOf('@media print'); i >= 0; i = css.indexOf('@media print', i + 1)) {
+      let j = css.indexOf('{', i) + 1, depth = 1; const a = j;
+      while (depth && j < css.length) { if (css[j] === '{') depth++; else if (css[j] === '}') depth--; j++; }
+      pr += css.slice(a, j - 1) + '\n';
+    }
+    chk('W9-10 booklet print: the cover and "Since the last edition" each on a page of their own', /\.gcover\s*\{[^}]*break-after:\s*page/.test(pr) && /\.gb-since\s*\{[^}]*break-after:\s*page/.test(pr), true);
+  }
   chk(`D-39: dated-quote note on every record whose prose quotes a price or rating, and on no other (${nQuoted} records)`, !bad.quoted.length && nQuoted > 100, bad.quoted.slice(0, 4));
 
   // ---- 4 · jsdom on pilot city pages, storage blocked
