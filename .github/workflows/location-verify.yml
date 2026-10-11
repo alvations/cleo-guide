@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 340
     env:
-      LV_CACHE_DIR: ${{ github.workspace }}/../lv-cache
+      LV_CACHE_DIR: ${{ runner.temp }}/lv-cache   # absolute, outside the checkout (actions/cache refuses '..')
     steps:
       - uses: actions/checkout@v4
         with:
@@ -89,7 +89,7 @@ jobs:
       - name: Restore the response cache (the Nominatim policy requires caching; reruns resume)
         uses: actions/cache@v4
         with:
-          path: ${{ github.workspace }}/../lv-cache
+          path: ${{ runner.temp }}/lv-cache
           key: location-verify-${{ env.CITY }}-${{ github.run_id }}
           restore-keys: |
             location-verify-${{ env.CITY }}-
@@ -103,6 +103,9 @@ jobs:
           args=(--city "$CITY" --scope "$SCOPE" --nominatim-max "$NOMINATIM_MAX")
           [ "$LIMIT" != "0" ] && args+=(--limit "$LIMIT")
           node tools/location-verify.js "${args[@]}"
+          # the report is also printed to the log and the run summary, so it can be reviewed without downloading the
+          # artifact or committing anything (proposals only; nothing here changes the registry)
+          cat "docs/geoverify/$CITY.md" | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Guard - the registry and everything else are untouched
         run: |
