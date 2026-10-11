@@ -158,6 +158,7 @@
       if (r.p !== lastP || !(Cleo.sheet && Cleo.sheet.isOpen())) {
         tg.scrollIntoView({ block: 'center' });
         if (map && markers[r.p]) fly(markers[r.p].getLatLng());
+        if (C.select && C.view === 'atlas') C.select(tg, 'route');   // selected + labelled on the map (SPEC-v3 §1.4)
         if (Cleo.sheet) Cleo.sheet.open(tg); else { const l = $('.pl-n a', tg); if (l && l.focus) l.focus({ preventScroll: true }); }
       }
     } else if (Cleo.sheet && Cleo.sheet.isOpen()) Cleo.sheet.close(true);
@@ -232,23 +233,18 @@
 
   let map = null, loading = 0;
   const markers = {}, bases = {}, waiters = [];
-  // W7 Atlas map-search: every pin is a label pill (the guide's pin number, ★ for Must see) — a light DOM marker, no
-  // per-pin tooltip. Sight vs eat & drink in two quiet tokens; closed = struck, kept; saved = a heart. Hover/selected
-  // turn it ink-filled (CSS .hot/.sel). The class list is the whole state, so a repaint never rebuilds the marker.
-  const pinCls = c => { const cl = c.hasAttribute('data-closed'), sv = !!(Cleo.saved ? Cleo.saved.all() : {})[key + '/' + pid(c)];
-    return 'pp pp-' + (at(c, 'data-k') === 'f' ? 'f' : 's') + (at(c, 'data-t') === '1' && !cl ? ' pp-1' : '') + (cl ? ' pp-x' : '') + (sv ? ' pp-sv' : ''); };
-  const pinIcon = c => window.L.divIcon({ className: pinCls(c), iconSize: null, html: '<span>' + (at(c, 'data-t') === '1' && !c.hasAttribute('data-closed') ? '<i aria-hidden="true">★</i>' : '') + at(c, 'data-n') + '</span>' });
-  const pinEl = c => { const k = c && markers[pid(c)]; return k && k.getElement && k.getElement(); };
-  const hot = (c, o) => { const k = c && markers[pid(c)], el = pinEl(c); if (!k) return; if (el) el.classList.toggle('hot', o);
-    if (k.setZIndexOffset) k.setZIndexOffset(o ? 1000 : at(c, 'data-t') === '1' ? 600 : 0);
-    const m = inCl[pid(c)], ce = m && m.getElement && m.getElement(); if (ce) ce.classList.toggle('hot', o); };
+  // SPEC-v3 slice 1 ("places on a map, not numbers on a grid"): every place is a quiet DOT on one shared canvas layer
+  // (zero DOM nodes; city.js); atlas.js lifts the best places in view into labelled pins (kind glyph + name, ≤ 24) and
+  // draws density discs at region zoom. No numbers on the map. Before atlas.js arrives the dots are plain.
+  const dotStyle = c => (C.dotStyle ? C.dotStyle(c) : { radius: 3.5, weight: 1.5, color: '#fff', fillColor: '#948B83', fillOpacity: 1 });
+  const pinEl = c => (c && C.pinOf ? C.pinOf(pid(c)) : null);
+  const hot = (c, o) => { if (c && C.hotPin) C.hotPin(c, o); };
   ['mouseover', 'focusin', 'mouseout', 'focusout'].forEach((ev, i) => on(d, ev, e => {
     const c = e.target.closest && e.target.closest('li.pl'); if (c && !(e.relatedTarget && c.contains(e.relatedTarget))) hot(c, i < 2); }));
   const syncMarkers = () => { if (!map) return; try { map.stop(); } catch (e) {}
-    const sv = Cleo.saved ? Cleo.saved.all() : {};
-    cards.forEach(c => { const k = markers[pid(c)]; if (!k) return; const el = k.getElement && k.getElement(); if (el) el.classList.toggle('pp-sv', !!sv[key + '/' + pid(c)]);
-      if (!c.hidden) { if (!map.hasLayer(k) && !inCl[pid(c)]) k.addTo(map); } else if (map.hasLayer(k)) map.removeLayer(k); }); cluster(); };
-  const inCl = C.inCl = {}, cluster = () => { if (map && C.cluster) C.cluster(); };
+    cards.forEach(c => { const k = markers[pid(c)]; if (!k) return; if (!c.hidden) { if (!dots.hasLayer(k)) k.addTo(dots); } else if (dots.hasLayer(k)) dots.removeLayer(k); }); feature(); };
+  let dots = null;   // the canvas layer group holding every dot
+  const inCl = C.inCl = {}, feature = () => { if (map && C.feature) C.feature(); };
   const still = () => !window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches;
   let auto = 0; const stub = {};   // unstamped cards (Cleo.defer.peek) that already have a pin
   const live = () => !!map && !!map._loaded && !!map.getContainer().parentNode;   // R6 QA High: never touch a removed map (_leaflet_pos)
@@ -285,23 +281,27 @@
     const fail = () => { const m0 = map; if (!m0) return; try { m0.stop(); } catch (e) {} if (m0._animatingZoom) { m0.once('zoomend', () => setTimeout(fail, 0)); return; }
       map = null; Object.keys(inCl).forEach(k => delete inCl[k]); Cleo.mapFallback(el, m0); d.documentElement.classList.add('ms-nomap'); if (C.onNoMap) C.onNoMap(); };
     if (Cleo.watchTiles) Cleo.watchTiles(b0, fail);
-    // every place gets its pin, stamped or not (unstamped = a start-tag stub from Cleo.defer.peek(); click stamps it)
+    // every place gets its dot, stamped or not (unstamped = a start-tag stub from Cleo.defer.peek(); click stamps it) —
+    // one canvas renderer, so 500+ places cost no DOM nodes and pan smoothly; a generous click tolerance (thumbs)
+    const c2d = (() => { try { return !!d.createElement('canvas').getContext('2d'); } catch (e) { return false; } })();   // no 2D canvas → SVG dots, same API
+    const cv = C.canvas = c2d ? L.canvas({ padding: 0.3, tolerance: 8 }) : L.svg({ padding: 0.3 }); dots = C.dots = L.layerGroup().addTo(map);
+    const card = id => byId[id] || (Cleo.defer && Cleo.defer.stampIds ? Cleo.defer.stampIds(new Set(['p-' + id]))[0] : Cleo.defer && Cleo.defer.stampFor(id));
+    C.cardOf = id => byId[id] || card(id);
     cards.concat(Cleo.defer ? Cleo.defer.peek() : []).forEach(c => {
       const ll = (at(c, 'data-ll') || '').split(','); if (ll.length !== 2) return;
-      const id = pid(c), k = markers[id] = L.marker([+ll[0], +ll[1]], { icon: pinIcon(c), keyboard: false, zIndexOffset: at(c, 'data-t') === '1' ? 600 : 0 }).addTo(map); if (c.stub) stub[id] = c;
-      k.on('click', () => { const r = byId[id] || (Cleo.defer && Cleo.defer.stampFor(id)); if (r) pin(r); });
-      k.on('mouseover', () => { const r = byId[id]; if (r) { r.classList.add('is-hover'); hot(r, true); } });
-      k.on('mouseout', () => { const r = byId[id]; if (r) { r.classList.remove('is-hover'); hot(r, false); } });
+      const id = pid(c), k = markers[id] = L.circleMarker([+ll[0], +ll[1]], Object.assign({ renderer: cv, bubblingMouseEvents: false }, dotStyle(c))).addTo(dots); if (c.stub) stub[id] = c;
+      k.on('click', () => { const r = byId[id] || card(id); if (r) pin(r); });
+      k.on('mouseover', () => { const r = byId[id]; if (r) r.classList.add('is-hover'); if (C.hotId) C.hotId(id, true); });
+      k.on('mouseout', () => { const r = byId[id]; if (r) r.classList.remove('is-hover'); if (C.hotId) C.hotId(id, false); });
     });
-    L.control.zoom({ position: desk() ? 'topleft' : 'topright' }).addTo(map);
-    map.on('zoomend', cluster);
-    need('atlas', () => { if (C.atlasTools && live()) { C.atlasTools(L, el); cluster(); } });
+    if (desk()) L.control.zoom({ position: 'topleft' }).addTo(map);   // phones pinch (SPEC-v3 §2.2)
+    need('atlas', () => { if (C.atlasTools && live()) { C.atlasTools(L, el); feature(); } });
     syncMarkers(); C.after.forEach(f => f());
     const r0 = Cleo.route.parse().p;
     if (r0 && markers[r0]) setTimeout(() => fly(markers[r0].getLatLng()), 0);
     else if (S.a) setTimeout(() => fitArea(S.a), 0);
     else if (S.mode !== 'all' || S.q || LENS.some(k => S[k])) setTimeout(fitLens, 0);   // a lens link: every match on the map, so the count is the lens total
-    else setTimeout(fitCore, 0);
+    else setTimeout(() => { if (!(C.fitDefault && C.fitDefault())) fitCore(); }, 0);   // the city core, or the last view of this city (atlas.js)
     return true;
   };
   const fitLens = () => { if (!live() || !map.getSize().x) return; const ll = cards.filter(c => !c.hidden && markers[pid(c)]).map(c => markers[pid(c)].getLatLng());

@@ -368,8 +368,12 @@ const shown = d => d.querySelectorAll('li.pl:not([hidden])').length;
     // W6 (FE-A, coordinated): at dense zooms nearby pins gather into a count bubble (.pin-cl); a pin is either drawn or
     // counted in exactly one bubble, so pins + bubble counts == pinned places. W7 Atlas map-search: a pin is a label-pill
     // marker (.leaflet-marker-icon.pp), no longer an SVG circle path — same invariant, the new pin's selector.
-    const nCl = [...d.querySelectorAll('#cleo-map .pin-cl')].reduce((t, b) => t + +b.textContent, 0);
-    chk('one marker per pinned place (drawn, or counted in one cluster bubble)', d.querySelectorAll('#cleo-map .leaflet-marker-icon.pp').length + nCl, withLL);
+    // SPEC-v3 slice 1 (Atlas review loop): every pinned place is ONE dot on a shared canvas layer (no DOM node, no number),
+    // and atlas.js lifts at most 24 of them into labelled pins — same invariant (one marker per pinned place), the new layer
+    const W0 = d.defaultView, nDots = Object.keys(W0.Cleo.city.markers).length;
+    chk('one marker per pinned place (a canvas dot each)', nDots, withLL);
+    const icons = [...d.querySelectorAll('#cleo-map .leaflet-marker-icon')];
+    chk('labelled map pins ≤ 24 + 1, and no marker is a bare number (rank or count)', [icons.length <= 25, icons.some(e => /^\s*★?\s*\d+\s*$/.test(e.textContent))].join(), 'true,false');
     const hosts = [...new Set([...fs.readFileSync(path.join(BETA, 'assets/js/city.js'), 'utf8').matchAll(/tileLayer\('https:\/\/([^/']+)/g)].map(m => m[1]))];
     // Tiles that never load (blocked network): after 4 errors the dead map gives way to the schematic + VOICE copy.
     const W = d.defaultView, el = d.getElementById('cleo-map'), hs = {};

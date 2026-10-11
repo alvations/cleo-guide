@@ -90,6 +90,7 @@ const state = page => page.evaluate(() => {
   };
 });
 const nIn = s => +((/([\d,]+)/.exec(s.count) || [0, '0'])[1].replace(/,/g, ''));
+const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v3): kept as a hook for the check's wording
 
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
@@ -104,6 +105,14 @@ const nIn = s => +((/([\d,]+)/.exec(s.count) || [0, '0'])[1].replace(/,/g, ''));
       const t = dark ? '-dark' : '';
       let { ctx, page, errors } = await open(browser, D, url + '#view=atlas', { tiles: 'stub', dark });
       const s0 = await state(page); R[`${key}-d${t}`] = s0;
+      if (!dark) {   // SPEC-v3 slice 1 acceptance (§1.6): places, not numbers
+        await sleep(300);
+        const pv = await page.evaluate(() => { const ic = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon')];
+          return { pins: ic.filter(e => e.classList.contains('pp')).length, areas: new Set(ic.map(e => e.getAttribute('data-a')).filter(Boolean)).size, food: ic.filter(e => e.classList.contains('pp-f')).length,
+            bare: ic.filter(e => /^\s*★?\s*\d+\s*$/.test(e.textContent)).length, discs: Cleo.city.discs || 0, dots: Object.keys(Cleo.city.markers).length, markerNodes: document.querySelectorAll('#cleo-map .leaflet-marker-pane *').length }; });
+        chk(`${key} desktop: no number on the map (no rank pills, no count bubbles)`, pv.bare === 0 && !document_hasClusters(pv), pv);
+        if (key === 'tokyo') chk(`tokyo desktop: default view shows 18–24 labelled pins from ≥ 6 areas, ≥ 1 food pin, no density disc`, pv.pins >= 18 && pv.pins <= 24 && pv.areas >= 6 && pv.food >= 1 && pv.discs === 0, pv);
+      }
       if (!dark) { const nc = await page.evaluate(() => document.querySelectorAll('li.pl').length), live0 = (fs.readFileSync(path.join(ROOT, url), 'utf8').match(/<li class="pl[ "]/g) || []).length;
         chk(`${key} desktop: the first fit builds one page of cards, not the area (≤ 32 live + 40)`, nc <= 32 + 40 + 2, { cards: nc }); }
       await snap(page, `${key}-atlas-1440${t}`);
@@ -119,22 +128,24 @@ const nIn = s => +((/([\d,]+)/.exec(s.count) || [0, '0'])[1].replace(/,/g, ''));
         await page.evaluate(() => { const m = Cleo.city.map(); const s = m.getSize(); m.panBy([s.x * 0.45, s.y * 0.35], { animate: false }); });
         await sleep(700); const s2 = await state(page);
         chk(`${key} desktop: panning changes the list count`, nIn(s2) !== nIn(s1), [s1.count, s2.count]);
+        const mk = await page.evaluate(() => document.querySelectorAll('#cleo-map .leaflet-marker-icon').length);
+        chk(`${key} desktop: after zoom and pan at most 24 + 1 marker nodes (dots on canvas)`, mk <= 25, mk);
         await page.click('.ms-more [data-ms="all"]'); await sleep(300); const s3 = await state(page);
         const total = await page.evaluate(() => Cleo.city.info.total);
         chk(`${key} desktop: "Show all" restores every place`, nIn(s3) === total && s3.cardsVisible > 0, [s3.count, total]);
         await page.click('.ms-more [data-ms="area"]'); await sleep(300);
-        await page.evaluate(v => Cleo.city.map().setView([v[0], v[1]], v[2], { animate: false }), v0); await sleep(600);   // back to the first view for the sync checks
+        await page.evaluate(v => { Cleo.city.map().setView([v[0], v[1]], v[2], { animate: false }); }, v0); await sleep(600);   // back to the first view for the sync checks
         // hover sync: card → pin and pin → card
         const hv = await page.evaluate(async () => {
-          // a pin inside a cluster lights its bubble instead (the pin isn't drawn at this zoom)
-          const el = x => Cleo.city.pinEl(x) || (Cleo.city.inCl[x.id.slice(2)] && Cleo.city.inCl[x.id.slice(2)].getElement());
-          const c = [...document.querySelectorAll('li.pl[data-ll]')].find(x => x.offsetParent && el(x)); if (!c) return null;
+          // SPEC-v3: a featured place's pill lights; a dot-only place shows as a labelled pill while hovered
+          const el = x => Cleo.city.pinEl(x);
+          const c = [...document.querySelectorAll('li.pl[data-ll]')].find(x => x.offsetParent); if (!c) return null;
           c.dispatchEvent(new MouseEvent('mouseover', { bubbles: true })); await new Promise(r => setTimeout(r, 50));
-          const a = el(c).classList.contains('hot'); c.dispatchEvent(new MouseEvent('mouseout', { bubbles: true }));
+          const a = !!el(c) && el(c).classList.contains('hot'); c.dispatchEvent(new MouseEvent('mouseout', { bubbles: true }));
           return { id: c.id, cardToPin: a };
         });
         // a pin whose card is on the list's current page (the list pages by 48, like listing results)
-        const findPin = () => page.evaluate(() => { const C = Cleo.city, els = Object.keys(C.markers).filter(id => C.byId[id] && C.byId[id].offsetParent).map(id => C.markers[id].getElement()).filter(Boolean).map(e => [e, e.firstElementChild.getBoundingClientRect()]).filter(([e, r]) => r.left > 120 && r.right < innerWidth * 0.55 && r.top > 260 && r.bottom < innerHeight - 120);
+        const findPin = () => page.evaluate(() => { const C = Cleo.city, els = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp[data-id]')].filter(e => { const c = C.byId[e.getAttribute('data-id')]; return c && c.offsetParent; }).map(e => [e, e.firstElementChild.getBoundingClientRect()]).filter(([e, r]) => r.left > 120 && r.right < innerWidth * 0.55 && r.top > 260 && r.bottom < innerHeight - 120);
           const [e, r] = els[Math.floor(els.length / 2)] || []; return e ? { x: r.left + r.width / 2, y: r.top + r.height / 2, n: e.textContent } : null; });
         let pinBox = await findPin();
         for (let i = 0; i < 3 && !pinBox; i++) { await page.evaluate(() => { const m = Cleo.city.map(); m.setZoom(m.getZoom() + 1, { animate: false }); }); await sleep(700); pinBox = await findPin(); }   // zoom in until one is unclustered
@@ -181,6 +192,10 @@ const nIn = s => +((/([\d,]+)/.exec(s.count) || [0, '0'])[1].replace(/,/g, ''));
         return { box: [Math.round(r.top), Math.round(r.bottom)], pill: hit(document.querySelector('.ms-toggle')), carousel: hit(document.querySelector('.listpane')), bar: hit(document.querySelector('.ms-bar')) }; });
       chk(`${key} phone${t}: the OSM credit is visible and clear of the pill, the carousel and the chip row`, att && !att.pill && !att.carousel && !att.bar, att);
       if (!dark) {
+        const pp = await page.evaluate(() => { const lp = document.querySelector('.listpane').getBoundingClientRect(), bar = document.querySelector('.ms-bar').getBoundingClientRect();
+          const ps = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp')].map(e => (e.firstElementChild || e).getBoundingClientRect());
+          return { pins: ps.length, under: ps.filter(r => r.bottom > lp.top + 2 || r.top < bar.bottom - 2).length }; });
+        chk(`${key} phone: ≤ 12 labelled pins, none under the carousel or the chip row`, pp.pins <= 12 && pp.under === 0, pp);
         const nc = await page.evaluate(() => document.querySelectorAll('li.pl').length);
         chk(`${key} phone: the first fit builds one page of cards, not the area (≤ 32 live + 40)`, nc <= 32 + 40 + 2, { cards: nc });
         const ov = await page.evaluate(() => { const s = document.querySelector('.ms-bar .spill'), r = s && s.getBoundingClientRect(); return { page: document.documentElement.scrollWidth - innerWidth, spill: r ? [Math.round(r.left), Math.round(r.right)] : null }; });
@@ -217,7 +232,7 @@ const nIn = s => +((/([\d,]+)/.exec(s.count) || [0, '0'])[1].replace(/,/g, ''));
         await snap(page, `${key}-atlas-390-pin`);
         chk(`${key} phone: pin → its carousel card in view`, pc && pc.inView && pc.pinSel, pc);
         // swipe the carousel → another pin lights
-        const sw = await page.evaluate(async () => { const lp = document.querySelector('.listpane'), s0 = (document.querySelector('.pp.sel') || {}).textContent; lp.scrollBy({ left: lp.clientWidth * 0.86 }); await new Promise(r => setTimeout(r, 700));
+        const sw = await page.evaluate(async () => { const lp = document.querySelector('.listpane'), s0 = (document.querySelector('.pp.sel') || {}).textContent; lp.scrollBy({ left: (lp.scrollLeft + lp.clientWidth >= lp.scrollWidth - 4 ? -1 : 1) * lp.clientWidth * 0.86 }); await new Promise(r => setTimeout(r, 700));   // at the end of the carousel, swipe back
           return { before: s0, after: (document.querySelector('.pp.sel') || {}).textContent, card: (document.querySelector('li.pl.is-sel') || {}).id }; });
         chk(`${key} phone: swiping the carousel selects the next card's pin`, sw.card && sw.card !== (pc || {}).card, sw);
         // pan → "Search this area" → the carousel refreshes
@@ -252,8 +267,9 @@ const nIn = s => +((/([\d,]+)/.exec(s.count) || [0, '0'])[1].replace(/,/g, ''));
     for (const [vk, vp] of [['390', M], ['1440', D]]) {
       const id = (/<li class="pl[^"]*" id="p-([a-z0-9-]+)"[^>]*data-ll="/.exec(fs.readFileSync(path.join(ROOT, url), 'utf8')) || [])[1];
       const { ctx, page, errors } = await open(browser, vp, url + '#view=atlas&p=' + id, { tiles: 'stub', wait: 1500 });
-      const r = await page.evaluate(id => { const m = Cleo.city.map(), c = document.getElementById('p-' + id), ll = c.getAttribute('data-ll').split(',').map(Number);
-        return { sheet: !!document.querySelector('#cleo-sheet:not([hidden])'), inView: !!m && m.getBounds().contains(ll) }; }, id);
+      const r = await page.evaluate(id => { const m = Cleo.city.map(), c = document.getElementById('p-' + id), ll = c.getAttribute('data-ll').split(',').map(Number), pe = Cleo.city.pinOf(id);
+        return { sheet: !!document.querySelector('#cleo-sheet:not([hidden])'), inView: !!m && m.getBounds().contains(ll), z: m && m.getZoom(), selected: !!pe && pe.classList.contains('sel') }; }, id);
+      chk(`${key} ${vk}: #p= shows the place selected and labelled at zoom ≥ 15`, r.selected && r.z >= 15, r);
       await snap(page, `${key}-atlas-${vk}-deeplink`);
       chk(`${key} ${vk}: #view=atlas&p= opens the detail with the place on the map`, r.sheet && r.inView, r);
       chk(`${key} ${vk} deep link: 0 page errors`, errors.length === 0, errors.slice(0, 2)); await ctx.close();

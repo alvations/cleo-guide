@@ -1217,3 +1217,20 @@ Append-only. One entry per session per wave: date, lane, session id, what change
   - On the phone carousel the thumbnail's figure steps aside (`display: contents`), and its credit runs the card's full width under the thumbnail and text: author · licence · source, in full.
   - The carousel card grows to 150 px, and the © shortcut is hidden there.
   - New `atlas-ms.js` check: every carousel credit sits inside its card with no overflow. Evidence: `design/beta/eval/w7/atlas/tokyo-atlas-390-day-credit.jpg`.
+
+- 2026-10-11 · Atlas lane · **Atlas review loop, round 1: SPEC-v3 slice 1 built** ("places on a map, not numbers on a grid").
+  - **Markers:**
+    - every place is a quiet canvas dot (area colour, muted; Must see 9 px; closed hollow), with zero DOM nodes;
+    - up to 24 (12 on phones) of the best places in view become labelled pins (area dot · sun star for Must see · kind glyph · name; closed dashed with " · Closed"; saved heart chip; selected ink with a tail);
+    - unnumbered density discs appear at region zoom.
+    - No rank pills, count bubbles or numbers on the map.
+  - **Map priority** (tier, then a round-robin across areas, sources, rank) is computed in atlas.js from the cards' own attributes. That is equivalent to the spec's build-time `mp`, and FE-A's builder stays untouched.
+  - **Default view:** the top 30 by priority (12 on phones) inside the city core. The last view per city is kept in sessionStorage (try/catch). `#p=` opens selected at zoom ≥ 15. An empty-map click clears the selection.
+  - **Placement:** pins never sit under the chip row, the carousel, a map control or the List pill.
+  - **Phones:** no + / − (pinch).
+  - **Probe-rule changes for QA to ratify:**
+    1. `test-beta.js` "one marker per pinned place" now counts the canvas dots (one each). A new check: ≤ 25 marker nodes and no bare-number marker.
+    2. `metrics.js` B-09 also accepts named pins, because the map now carries no numbers by spec.
+    3. `atlas-ms.js` hover and pin checks target the labelled pins (`.pp[data-id]`); count bubbles are retired. New slice-1 acceptance checks.
+  - **Gates:** validate + `npm test` + `beta:check` PASS; `atlas-ms.js` 117/117; w2 map + hubs 39/39.
+  - **Budget:** Tokyo Atlas 1440 ≈ 614 KB / 2,695 nodes; 390@3× ≈ 902 KB / 2,581 nodes.
