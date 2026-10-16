@@ -1,0 +1,127 @@
+{
+ "head": "995e25294",
+ "checks": [
+  {
+   "group": "honesty",
+   "name": "cleveland.html #view=gallery (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "cleveland.html #view=atlas (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "cleveland.html #view=guidebook (sheet open)",
+   "status": "FAIL",
+   "evidence": [
+    "Look for: Closed Monday. Around $13 for nine holes, $20 for eighteen."
+   ]
+  },
+  {
+   "group": "honesty",
+   "name": "cleveland.html #view=insights (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "cities/tokyo.html #view=gallery (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "cities/tokyo.html #view=atlas (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "cities/tokyo.html #view=guidebook (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "cities/tokyo.html #view=insights (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "cities/newyork.html #view=gallery (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "cities/newyork.html #view=atlas (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "cities/newyork.html #view=guidebook (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "cities/newyork.html #view=insights (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "Singapore/chinatown.html #view=gallery (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "Singapore/chinatown.html #view=atlas (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "Singapore/chinatown.html #view=guidebook (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "Singapore/chinatown.html #view=insights (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "cities/wheeling.html #view=gallery (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "cities/wheeling.html #view=atlas (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "cities/wheeling.html #view=guidebook (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  },
+  {
+   "group": "honesty",
+   "name": "cities/wheeling.html #view=insights (sheet open)",
+   "status": "PASS",
+   "evidence": []
+  }
+ ]
+}
