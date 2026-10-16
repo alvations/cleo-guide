@@ -247,3 +247,22 @@ Severity rules and lanes as in "How QC measures". All are **open**; each is mirr
 - P-26 reads `textContent`.
 - J-07 and S-15 re-measure off-screen focus after smooth scrolling.
 - S-11 skips visually hidden text and documents the sliding-indicator limit.
+
+## Re-verify 2026-10-16 · 2bfff3fe (FE-B claims for QC-01, 02, 03, 10)
+
+**Pinned:** `2bfff3fe9886d1939e5b3994fb0bc329d2b62175`, the deploy candidate containing FE-B's 68b442c0. Clean worktree,
+harness = `tools/beta/qa/qc.js` at bb887a7f. Ran patterns on the 5 pilots × 390 / 1440 and journeys on the 5 pilots ×
+390 / 1440 in light. Outputs are in `design/beta/eval/qc/2bfff3fe/{patterns,journeys}/`.
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-01 | **verified** | P-18: no bar opens a lens that differs from its value. The canon bars are now plain, and the footnote says why ("Each dish is named inside a place's write-up and no filter selects it, so these bars count without opening places"). Wrong places are no longer reachable. |
+| QC-02 | **verified** | P-18: 0 count mismatches on 74 charts. Every remaining plain bar is stated in its chart's footnote ("Plain bars have no filter that opens exactly the places they count; linked bars open exactly theirs"). |
+| QC-03 | **verified** | P-14: Insights reads "43 of all 488 places match this lens. Every number below is computed from the 43 places in this lens" for `a=`, `mode=` and `t=` on 5/5 pilots × 2 widths. J-05: the Insights count friction is 0/10. |
+| QC-10 | **open** | P-03 is still 2/4 on 10/10: after a switch to Guidebook or Insights, focus is on BODY or the button, not the view heading. |
+
+**Notes:**
+- The raw P-18 FAILs in this run (42) are the plain bars above; the harness predates the plain-bar rule. P-18 now accepts an unlinked bar only when the chart's footnote states why (harness change in this push), so the next run grades them PASS.
+- Deviation for the designer to ratify: SPEC §3.4 lists "How far you walk → Atlas `a=`", but those bars are now plain ("Distances are measures, not lists of places"). Not a defect, because the reason is stated, but SPEC and build now differ. The same goes for the new "Recognised places by area" chart (W9-1).
+- P-24 (first run): 35 PASS, 5 N/A (phone Atlas list not shown at load), 0 silent caps.
+

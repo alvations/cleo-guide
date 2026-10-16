@@ -4,7 +4,7 @@ Session: `session_017FLWXa5zgGWvqNo4C3UsvH`. Orchestrator: `session_01PCNcUkfa5S
 
 ## Task
 
-- R7 re-sign and YES/NO for deploy. The current candidate is `2bfff3fe9886d1939e5b3994fb0bc329d2b62175` (be74c82f + FE-B's QC-01/02/03/10).
+- R7 re-sign and YES/NO for deploy. 2bfff3fe was NO (only QA-69 fails; open High 0). Next: the orchestrator pins a head with FE-A's QA-69 fix.
 - Keep `docs/BETA-ISSUES.md` current: verify every claimed fix on a pinned SHA, with the probe and the result.
 - Rule on measurement-rule changes that lanes propose.
 
@@ -17,6 +17,7 @@ Session: `session_017FLWXa5zgGWvqNo4C3UsvH`. Orchestrator: `session_01PCNcUkfa5S
   - 387f1306: pre-measure on b5f0afa1;
   - f00f2312: pre-measure on 0ecf62aa;
   - c5dbeef3: QC rows, QC-01 reproduced.
+- The 2bfff3fe delta re-sign: NO on QA-69 only; QC-01 and QA-61 verified; QA-68 probe fix in `metrics.js`.
 - 3480f399: re-sign on be74c82f. All R7 rows pass. **NO** on QA-69 (Gallery B-07 regression: the phone map pill is hidden at load, FE-A 7c70e821) and on QC-01. The QA-66 B-23 probe fix (`metrics.js` `bgOf`) landed here.
 - Rulings:
   - D-40 ratified with a 720w condition; the orchestrator later chose option (a);
@@ -25,8 +26,8 @@ Session: `session_017FLWXa5zgGWvqNo4C3UsvH`. Orchestrator: `session_01PCNcUkfa5S
 
 ## Next
 
-1. Finish the delta re-sign on `2bfff3fe`. Run the commands below; compare with `design/beta/eval/w7/qa/resign-be74c82f/`.
-2. Verify QC-01 there: every Insights link opens exactly its count; the canon bars are not links and carry the note.
+1. On the next pin (with QA-69): run the delta re-sign (`git diff --stat 2bfff3fe..<pin>`; re-run the touched rows; always Gallery B-07 on 5/5, run twice because it depends on scroll state). Run the commands below; compare with `design/beta/eval/w7/qa/resign-be74c82f/`.
+2. QC-01 is verified on 2bfff3fe; re-check it only if `insights.js` changed. Verify QC-01 there: every Insights link opens exactly its count; the canon bars are not links and carry the note.
 3. Re-check QA-69 (`page-eval.js m cleveland.html` → `.mappill` must be visible at load) and Gallery B-07.
 4. Reply YES/NO to the orchestrator with the open High/Blocker count. YES needs: 0 open High/Blocker, every R7 row ✅, and no regression versus be74c82f.
 5. Then:
@@ -55,7 +56,7 @@ Put evidence in `design/beta/eval/w7/qa/resign-<sha>/`. Never overwrite the R7 e
 
 ## In flight
 
-- Delta re-sign runs on `2bfff3fe`: gates, `metrics-qa.js` Gallery and Atlas, `w7.js`, reach.
+- Nothing. Waiting on FE-A's QA-69 fix and the orchestrator's pin.
 
 ## Notes
 
