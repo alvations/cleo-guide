@@ -57,6 +57,9 @@
   }
   var pickLens = function (o) { var out = {}; LENS.forEach(function (k) { if (o && o[k]) out[k] = String(o[k]); }); return out; };
 
+  // R7-g6 (DESIGN-SYSTEM v2 §V2.13): the data's saturated area colours are mixed toward the palette, as on the map
+  var muted = function (hex) { return 'color-mix(in oklab, ' + hex + ' var(--area-mix, 50%), var(--area-mute, #948B83))'; };
+
   /* ---- the numbers (P-03 shape when the build ships it; the same rules otherwise) ---- */
   function numbers(d) {
     var places = d.places, N = places.length, g = d.guide || {}, pop = {}, areas = (d.areas || []).slice(), by = {};
@@ -80,7 +83,7 @@
     var K3 = count(places, k3);
     var canon = g.canon || null;
     var I = {
-      N: N, areas: areas.map(function (a) { return { id: a.id, name: shortArea(a.n), c: (d.colors || {})[a.id] || '#888' }; }),
+      N: N, areas: areas.map(function (a) { return { id: a.id, name: shortArea(a.n), c: muted((d.colors || {})[a.id] || '#888') }; }),
       tiles: { places: N, areas: areas.length, sights: (K3.sight || 0) + (K3.pop || 0), food: K3.food || 0, pop: hasPop ? (K3.pop || 0) : null,
         sources: (d.stats || {}).sources || Object.keys(cites).length, citations: places.reduce(function (s, p) { return s + (p.src || []).length; }, 0),
         closed: places.filter(function (p) { return p.closed; }).length, lastChecked: (d.stats || {}).lastChecked || '' },

@@ -48,8 +48,8 @@
   // phone pill, a long guide name), else none; re-fitted whenever the box changes size
   if (fi) { let full = fi.placeholder; const cv = d.createElement('canvas').getContext('2d'), fit = () => { if (!fi.clientWidth) return;
       const c = getComputedStyle(fi), room = fi.clientWidth - parseFloat(c.paddingLeft) - parseFloat(c.paddingRight); cv.font = c.fontWeight + ' ' + c.fontSize + ' ' + c.fontFamily;
-      fi.placeholder = cv.measureText(full).width <= room ? full : cv.measureText(tt('city.search.short', 'Search')).width <= room ? tt('city.search.short', 'Search') : ''; };
-    on(d, 'cleo:locale', () => { full = tt('city.search', 'Search {city}', { city: info.name }); fit(); });   // i18n D-41   // '': the icon-only pill (Atlas toolbar); the label names it
+      fi.placeholder = cv.measureText(full).width <= room ? full : cv.measureText(tt('city.search.short', 'Search')).width <= room ? tt('city.search.short', 'Search') : ''; };   // '': the icon-only pill (Atlas toolbar); the label names it
+    on(d, 'cleo:locale', () => { full = tt('city.search', 'Search {city}', { city: info.name }); fit(); });   // i18n D-41
     if (window.ResizeObserver) new ResizeObserver(fit).observe(fi); else on(window, 'resize', fit);
     if (d.fonts && d.fonts.ready) d.fonts.ready.then(fit); }
   const shown0 = shown ? shown.innerHTML : '';
@@ -243,7 +243,7 @@
   // R7 gap 5 (food covers): food places never get photos (honesty rule), so their cover names the dish in display type
   // on the eat-and-drink tint, under the kind glyph — an intentional face, never a blank box that reads as "not loaded"
   const dishOf = c => { if (at(c, 'data-k') !== 'f') return ''; const x = $('.pl-e .in-d', c), t = x ? x.textContent.replace(/^\s*·\s*/, '').trim() : '';
-    return '<span class="pl-dish">' + esc(t || C.label('a', at(c, 'data-a'))) + '</span>'; };   // no dish or cuisine to name: the area (food covers (c))
+    return t ? '<span class="pl-dish">' + esc(t) + '</span>' : ''; };   // no dish or cuisine to name: a glyph-only cover (designer: the area is never a cover word)
   const paint = () => {
     const s = Cleo.saved ? Cleo.saved.all() : {}, b = been.all();
     cards.forEach(c => {

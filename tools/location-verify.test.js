@@ -351,6 +351,30 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     assert.ok(!d.some(x => /Stall Ten/.test(x.a.name + x.b.name)), 'a stall inside a market is not a duplicate');
     assert.ok(d.some(x => x.kind === 'similar names, same spot' && /Bell Tavern/.test(x.a.name)), '"The X" vs "X" at one spot is');
   });
+  await t('multi-country keys get one anchor per region; postcodes normalise to the country', () => {
+    assert.strictEqual(LV.regionOf('1 Fullerton Road, Singapore 049213'), 'singapore');
+    assert.strictEqual(LV.regionOf('Blk 320 Shunfu Road, S570320'), 'singapore');
+    assert.strictEqual(LV.regionOf('Ben Thanh Market, Ho Chi Minh City, Vietnam'), 'vietnam');
+    const e = {};
+    for (let i = 0; i < 6; i++) { e['sg' + i] = { address: `${i} Road, Singapore 0${i}0000`, lat: 1.3 + i / 1000, lng: 103.8, confidence: 'high' };
+      e['vn' + i] = { address: `${i} Street, Ho Chi Minh City, Vietnam`, lat: 10.77 + i / 1000, lng: 106.7, confidence: 'high' }; }
+    const a = LV.regionAnchors(e); assert.ok(a.singapore && a.vietnam);
+    assert.ok(Math.abs(a.vietnam.lat - 10.77) < 0.01 && Math.abs(a.singapore.lat - 1.3) < 0.01);
+    assert.strictEqual(LV.regionAnchors({ a: { address: 'x, Singapore', lat: 1, lng: 1, confidence: 'high' } }), null, 'one region → city anchor');
+  });
+  await t('rows that need Nominatim after the per-run cap are skipped, not no-match', async () => {
+    const http = new LV.Http({ fixtures: fx.responses, nominatimMax: 0, today: '2026-10-16' });
+    const r5 = await LV.run({ city: 'testville-zz', registry: fx.registry, scope: ['unverified'], sources: ['nominatim'], http, mode: 'fixtures', today: '2026-10-16' });
+    const fish = r5.rows.find(r => r.name === 'Fictional Fish Market');
+    assert.strictEqual(fish.outcome, 'skipped'); assert.ok(/budget/.test(fish.notes[0]));
+  });
+  await t('--orphans: alias vs dataset-held vs research-only vs stale (real repo, structural checks)', () => {
+    const cities = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'geocodes.json'), 'utf8')).cities;
+    const cls = LV.classifyOrphans({ singapore: cities.singapore });
+    const a = cls.singapore.a.map(x => x.name);
+    assert.ok(!a.includes('75 Ah Balling Peanut Soup (Punggol Coast)'), 'two branches are not aliases');
+    for (const k of ['a', 'b', 'c', 'd']) assert.ok(Array.isArray(cls.singapore[k]));
+  });
   await t('markdown report renders every row', () => {
     const md = LV.toMarkdown(rep); for (const r of rep.rows) assert.ok(md.includes(r.name.replace(/\|/g, '\\|')), r.name);
   });

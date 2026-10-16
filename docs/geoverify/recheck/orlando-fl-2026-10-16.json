@@ -1,0 +1,182 @@
+{
+ "meta": {
+  "tool": "tools/location-verify.js 0.1.0",
+  "city": "orlando-fl",
+  "generated": "2026-10-16",
+  "scope": [
+   "unverified",
+   "low",
+   "status"
+  ],
+  "sources": [
+   "nominatim",
+   "official",
+   "overpass",
+   "census"
+  ],
+  "rowsInScope": 1,
+  "rowsChecked": 1,
+  "anchor": {
+   "lat": 28.450387,
+   "lng": -81.4633,
+   "radiusM": 100301
+  },
+  "regionalAnchors": [
+   "fl",
+   "singapore"
+  ],
+  "mode": "live",
+  "userAgent": "CleoGuideLocationVerify/0.1.0 (https://github.com/alvations/cleo-guide; location-verify proposals, reviewed by a person) node",
+  "rule": "PROPOSALS ONLY. Nothing here is in data/geocodes.json until a person reviews a row (review.decision) and runs --accept locally, then the gates (research.js --geocheck/--statuscheck, npm run validate, npm test).",
+  "phase2": {
+   "houseFiles": [],
+   "abr": null,
+   "onemap": null
+  },
+  "requests": {
+   "network": 5,
+   "cacheHits": 0,
+   "nominatim": 2,
+   "failures": [
+    "disneyworld.disney.go.com timeout",
+    "overpass-api.de HTTP 502"
+   ],
+   "byHost": {
+    "nominatim.openstreetmap.org": {
+     "requests": 2,
+     "failed": 0
+    },
+    "disneyworld.disney.go.com": {
+     "requests": 1,
+     "failed": 1
+    },
+    "overpass-api.de": {
+     "requests": 1,
+     "failed": 1
+    },
+    "overpass.private.coffee": {
+     "requests": 1,
+     "failed": 0
+    }
+   }
+  },
+  "attribution": "Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright",
+  "hardFailure": false,
+  "recheck": {
+   "names": [
+    "ABC Commissary"
+   ],
+   "sources": [
+    "nominatim",
+    "official",
+    "overpass",
+    "census"
+   ]
+  }
+ },
+ "summary": {
+  "move": 1
+ },
+ "rows": [
+  {
+   "name": "ABC Commissary",
+   "current": {
+    "address": "Commissary Lane, Disney's Hollywood Studios, 351 S Studio Dr, Lake Buena Vista, FL",
+    "lat": 28.35608,
+    "lng": -81.56024,
+    "source": "https://www.wikidata.org/wiki/Q19871385 (wikidata, retrieved 2026-10-11; location-verify proposal accepted by orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx: Meets LOCATION-VERIFY §8 rule 2 (wikidata coordinate with an independent source within 40 m); orchestrator checks: place-specific item, not closed, within the guide region)",
+    "confidence": "high",
+    "verified": "2026-10-16",
+    "status": "open",
+    "statusSource": "Recommended as open in https://www.disneytouristblog.com/best-disney-world-counter-service-restaurants/",
+    "statusChecked": "2026-10-03"
+   },
+   "scope": [
+    "recheck"
+   ],
+   "outcome": "move",
+   "proposal": {
+    "kind": "osm-poi",
+    "lat": 28.3561,
+    "lng": -81.55986,
+    "address": "Commissary Lane, Bay Lake, Florida 32830",
+    "matchedName": "ABC Commissary",
+    "sourceUrl": "https://www.openstreetmap.org/way/294899619",
+    "retrieved": "2026-10-16",
+    "licence": "ODbL-1.0 — © OpenStreetMap contributors",
+    "grade": "high",
+    "gradeWhy": [
+     "OSM place object, name + address agree"
+    ],
+    "nameSim": 1,
+    "addressAgreement": {
+     "houseNumber": null,
+     "street": true,
+     "postcode": null
+    },
+    "distanceM": 38,
+    "osmObject": {
+     "id": "way/294899619",
+     "class": "amenity=restaurant",
+     "addresstype": "amenity",
+     "name": "ABC Commissary",
+     "address": "Commissary Lane, Bay Lake, Florida 32830",
+     "houseNumber": null,
+     "tags": {
+      "website": "https://disneyworld.disney.go.com/dining/hollywood-studios/abc-commissary/",
+      "building": "yes"
+     }
+    },
+    "coordDecimals": null,
+    "multiSite": false,
+    "entrance": false,
+    "corroboratedBy": []
+   },
+   "notes": [
+    "robots.txt unreachable (This operation was aborted); official site skipped (RFC 9309: assume disallow on server error)",
+    "overpass: HTTP 500"
+   ],
+   "evidence": [],
+   "candidates": [
+    {
+     "kind": "osm-poi",
+     "name": "ABC Commissary",
+     "lat": 28.3561,
+     "lng": -81.55986,
+     "grade": "high",
+     "nameSim": 1,
+     "sourceUrl": "https://www.openstreetmap.org/way/294899619",
+     "retrieved": "2026-10-16",
+     "osmClass": "amenity=restaurant",
+     "osm": "way/294899619",
+     "addresstype": "amenity",
+     "distanceFromCurrentM": 38
+    }
+   ],
+   "review": {
+    "decision": null,
+    "by": null,
+    "why": null,
+    "date": null
+   },
+   "secondSource": null,
+   "assist": {
+    "verdict": "hold",
+    "why": [
+     "OSM POI without an exact address match (house number null, street true)"
+    ]
+   },
+   "recheck": {
+    "verdict": "corroborated",
+    "by": [
+     {
+      "kind": "osm-poi",
+      "name": "ABC Commissary",
+      "distanceM": 37,
+      "sourceUrl": "https://www.openstreetmap.org/way/294899619"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -6,10 +6,18 @@ test-views-b.js). Report to the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx) 
 
 ## Task
 
-Idle after D-42 (QC-19 + QC-20) and QC-18. Waiting for QC re-verification.
+R7 evaluator gaps on today's head (orchestrator, 2026-10-16): (1) R7-g6 palette / token residue — pushed, shadows 13 → 10
+waits on FE-A / Atlas snaps; (2) R7-g2 (g) no single-word last line (dek, masthead stat line, hub Known for) at 390 + 1440
+and (h) phone "Start with" card = desktop "Start with …" link, as tests over 84 city pages + hubs + landing; (3) R7-g5
+B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Done
 
+- R7-g6 (FE-B part): Insights area marks muted through v2 (--area-mix toward --area-mute; series stay --series-*);
+  tabular figures 100 % on Guidebook facts + Insights numbers (tools/beta/feb-tabular.js); contrast.py 0 below minimum;
+  letter-spacing 6 distinct raw (<= 6); shadows 13 (target 10: FE-A .pl-cover .g-ring + li.pl.is-target>.pl-cover,
+  Atlas .pp .pp-h + .m-legend .kd + .pp-1.sel>span — sent to owners). Pinned in test-views-b (ceiling 13 until then).
+- QA harness views.js Q-04 honesty: longest-first data strip (f21538c81) — 20/20.
 - D-42 = QC-19 + QC-20: eb231ff0a (merged 6583673c2). lib/quoted.js adds POPULARITY + HOURS to PRICE_RATING; pq on 510
   records; note "Prices, ratings and times are quoted…"; sheet gap line "We don’t track opening hours or prices" (one
   string in FE-A's sheet.js; en + ja catalogue); both honesty greps allow exactly the new sentences.
@@ -55,6 +63,7 @@ Nothing unpushed.
   `node beta/test-beta.js`, `node beta/qa/test-honesty.js`, `node beta/imagery/test-imagery.js`.
 - FE-A follow-up: a fresh Tokyo deep link #p=senso-ji at 195 px leaves the page scrolled past <main> (scrollY 13018,
   card off-screen) — reported to FE-A.
+- Tabular probe: `tools/beta/feb-tabular.js`.
 - Thumb probe: `tools/beta/feb-ind.js [page]`.
 - Switcher probe: `tools/beta/feb-switcher.js [page]` (same static server).
 - B-05 probe: `tools/beta/feb-b05.js` (needs `python3 -m http.server 8765 -d <repo>`; ≥ 2 on landing + every hub).
