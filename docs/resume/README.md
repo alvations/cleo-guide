@@ -20,3 +20,6 @@ container, a new session) with little loss. The orchestrator's checkpoint is [`.
    - **Notes:** decisions, file ownership agreements, gotchas.
 5. **On a usage-limit warning,** push a checkpoint at once.
 6. **On resume,** pull, read your file and `docs/BETA-RESUME.md`, run the gates, then continue from **Next**.
+7. **Nothing you need lives only in a scratchpad.** Any script you rely on to continue goes under `tools/`, committed:
+   push/sync scripts, generators, candidate lists, probes, review helpers. Scratchpads and containers can vanish during
+   a stop. Imagery found its manifest generator scratchpad-only and committed it (`tools/beta/imagery/manifest/`).

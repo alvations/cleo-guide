@@ -674,3 +674,8 @@ html main[data-city] nav.views .v-ind{display:none}
   html.ph-fade main[data-city] figure.photo::before,html.ph-fade .view-gallery li.gc .cover::before{transition:none}
   html main[data-city] nav.views.has-ind .v-ind{transition:none}
 }
+/* QA-59a: the name link keeps its 44 px tap padding (12 px above and below) but a clamped third line (a long name, or the
+   native name) showed inside that bottom padding. A paint-only mask hides the padding band; the hit area is unchanged,
+   and the mask is dropped while the link has keyboard focus so the focus ring is whole */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a{-webkit-mask:linear-gradient(#000,#000) top/100% calc(100% - 12px) no-repeat;mask:linear-gradient(#000,#000) top/100% calc(100% - 12px) no-repeat}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a:focus-visible{-webkit-mask:none;mask:none}
