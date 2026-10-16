@@ -827,6 +827,24 @@ async function addressCheck(http, row, anchor) {
     distanceM: haversineM(row.proposal.lat, row.proposal.lng, parseFloat(x.lat), parseFloat(x.lon)) };
 }
 
+/**
+ * Daily Nominatim ledger (owner decision: <= dailyMax requests per UTC DAY across all runs, not per run).
+ * docs/geoverify/NOMINATIM-LEDGER.json is committed with the report, so the count survives across runs and cities.
+ */
+const LEDGER = path.join(ROOT, 'docs', 'geoverify', 'NOMINATIM-LEDGER.json');
+function ledgerRemaining(file, day) {
+  if (!fs.existsSync(file)) return { remaining: Infinity, max: null };
+  const l = JSON.parse(fs.readFileSync(file, 'utf8')); const used = ((l.days || {})[day] || {}).used || 0;
+  return { remaining: Math.max(0, (l.dailyMax || 300) - used), max: l.dailyMax || 300, used };
+}
+function ledgerRecord(file, day, city, n, note) {
+  if (!n || !fs.existsSync(file)) return;
+  const l = JSON.parse(fs.readFileSync(file, 'utf8')); l.days = l.days || {};
+  const d = l.days[day] = l.days[day] || { used: 0, runs: [] };
+  d.used += n; d.runs.push(Object.assign({ city, n }, note ? { note } : {}));
+  fs.writeFileSync(file, JSON.stringify(l, null, 1) + '\n');
+}
+
 // ───────────────────────────────────────────────────────── the run ──
 
 async function checkRow(http, place, anchor, sources, ctx = {}) {
@@ -1292,6 +1310,7 @@ function parseArgs(argv) {
     else if (a === '--recheck-out') o.recheckOut = path.resolve(v());
     else if (a === '--include-orphans') o.includeOrphans = true; // also registry rows on neither the page nor the dataset
     else if (a === '--orphans') o.orphans = true;
+    else if (a === '--ignore-ledger') o.ignoreLedger = true; // tests / one-off: do not read or write the daily ledger
     else if (a === '--reassist') (o.reassist = o.reassist || []).push(path.resolve(v())); // offline: recompute assist only
     else if (a === '--dry-run') o.dryRun = true; // report mode is always a dry run; with --accept: show, write nothing
     else throw Object.assign(new Error(`unknown option ${a}`), { code: 1 });
@@ -1372,6 +1391,7 @@ async function main() {
 
 async function main1(o) {
   let mode = 'live', fixtures = null;
+  const day = new Date().toISOString().slice(0, 10);
   if (o.houseFiles && !o.houseSets) o.houseSets = o.houseFiles.map(h => { const s = P2.loadHouseCoords(h.f, { licence: h.licence }); console.log(`house coordinates: ${s.label} — ${s.count} points (${s.skipped} skipped)`); return s; });
   if (o.abrFile && !o.abr) { o.abr = P2.loadAbr(o.abrFile); console.log(`ABR: ${o.abr.count} town points`); }
   if (o.fixturesPath) {
@@ -1381,11 +1401,21 @@ async function main1(o) {
   }
   else if (o.offline) mode = 'offline-plan';
   else { const off = await reachable(); if (off) { console.log(`Wikidata is not reachable from here (${off}). Writing the offline PLAN report (exit 0).\n  Real proposals come from the GitHub-hosted runner. Do NOT route around a block.`); mode = 'offline-plan'; } }
+  if (mode === 'live' && !o.ignoreLedger) {
+    const L = ledgerRemaining(o.ledgerFile || LEDGER, day);
+    if (L.max != null && L.remaining < o.nominatimMax) {
+      console.log(`Nominatim daily allowance: ${L.used}/${L.max} used today (${day}); this run may use ${L.remaining}.`);
+      o.nominatimMax = L.remaining;
+    }
+  }
   const rep = await run({ ...o, fixtures, mode });
+  if (mode === 'live' && rep.meta.requests) ledgerRecord(o.ledgerFile || LEDGER, day, o.city, rep.meta.requests.nominatim, o.names ? 're-check' : null);
   fs.mkdirSync(o.out, { recursive: true });
   if (o.names) {
     // A re-check of named rows never touches the city report (which carries reviews): its own file under recheck/.
-    const out = o.recheckOut || path.join(ROOT, 'docs', 'geoverify', 'recheck', `${o.city}-${rep.meta.generated}.json`);
+    // One file per (city, date, names): a later re-check never overwrites an earlier one's evidence.
+    const slug = o.names.length === 1 ? normName(o.names[0]).replace(/ /g, '-').slice(0, 40) : crypto.createHash('sha1').update(o.names.join('|')).digest('hex').slice(0, 8);
+    let out = o.recheckOut || path.join(ROOT, 'docs', 'geoverify', 'recheck', `${o.city}-${rep.meta.generated}-${slug}.json`);
     if (!path.resolve(out).startsWith(path.join(ROOT, 'docs', 'geoverify', 'recheck'))) throw Object.assign(new Error('--recheck-out must be under docs/geoverify/recheck/'), { code: 1 });
     fs.mkdirSync(path.dirname(out), { recursive: true });
     rep.meta.recheck = { names: o.names, sources: o.sources };
@@ -1424,4 +1454,4 @@ if (require.main === module) {
 }
 
 module.exports = { normName, nameSim, haversineM, parseAddress, addrAgreement, isExtended, gradeCandidate, decide, osmClosureEvidence,
-  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, classifyOrphans, regionOf, regionAnchors, findDuplicates, recheckVerdict, addressCheck, isOrderingHost, hostResemblesName, siteLabel, carryReviews, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };
+  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, ledgerRemaining, ledgerRecord, classifyOrphans, regionOf, regionAnchors, findDuplicates, recheckVerdict, addressCheck, isOrderingHost, hostResemblesName, siteLabel, carryReviews, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };

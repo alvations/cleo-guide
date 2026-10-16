@@ -58,11 +58,15 @@
   function unmount(v) { const m = reg[v]; if (m && m.on) { m.on = 0; try { m.unmount && m.unmount(host); } catch (e) {} } if (host && !(reg[cur] && reg[cur].on)) host.hidden = true; }
 
   function paintNav() { if (!nav) return; qa('button[data-view]', nav).forEach(b => b.setAttribute('aria-pressed', String(at(b, 'data-view') === cur))); }   // FE-B QC-09: pressed state only (no menu)
+  let vxT = 0;
   function show(v, o) {
     if (!ok(v)) v = DEF;
     const prev = cur, changed = v !== prev || o.first;
     if (v !== prev) { mem[prev] = window.scrollY || 0; unmount(prev); }
     cur = v; html.setAttribute('data-view', v); C.view = v; paintNav();
+    // PERF-16 (designer, views.css eddbb7b0): the fallback cross-fade keys on html[data-vx], set for 300 ms on a reader's
+    // switch only — never on first paint or a deep-link restore (a :has() on html re-ran on every DOM mutation)
+    if (o.user && v !== prev) { html.setAttribute('data-vx', ''); clearTimeout(vxT); vxT = setTimeout(() => html.removeAttribute('data-vx'), 300); }
     if (v === 'atlas') atlasIn(); else atlasOut();
     if (v !== 'gallery' && Cleo.defer && Cleo.defer.resume) Cleo.defer.resume();   // the lazy observer takes over again
     if (v === 'gallery' && !C.gallery) need('gallery');            // the Gallery extras (rows, covers) load on first use

@@ -26,7 +26,7 @@ The orchestrator does the review, `--accept`, rebuild and gates (§ Owner decisi
 | miami-fl | **committed** 4f73fb2a (re-scored 855a21bc → pass 2): registry duplicate Fillmore open + CLOSED | **2** (orchestrator) |
 | erie-pa | **committed** 0929302d (re-scored): pin 39 · confirm 17 · move 1 · ambiguous 2 · shared 6 (registry dups Tandoori Hut ×2, Enrique's open+CLOSED) · no-match 14 — assist pass 27 · review 9 · hold 5 · no-change 12 · reject 26 | — (sent) |
 | philadelphia-pa | **committed** e590eeb2 (re-scored 094f5550): pin 27 · confirm 15 · move 1 · ambiguous 2 · shared 2 (dup Manakeesh open+CLOSED) · no-match 31 — assist pass 25 · review 10 · hold 5 · no-change 3 · reject 35 | — (sent) |
-| singapore | committed 3a513510 but **invalid**: 682/712 no-match (single anchor for an SE-Asia key + Nominatim cap reported as no-match). Fixed 3490e42a. **Re-run needed** (≈3 runs). | — |
+| singapore | re-run 1 committed ffecac1c: pin 40 · confirm 27 · move 2 · conflict 6 · ambiguous 8 · no-match 100 · **skipped 527 (budget)** — resume ≤ 300 Nominatim/DAY (≈3 days) | — (batch accept after the final run) |
 
 Tool SHAs:
 
@@ -43,24 +43,25 @@ Tool SHAs:
 | c2306ba1 | name-only Nominatim fallback |
 | (git log: "circuit breaker") | per-host circuit breaker; 502 handled as a back-off |
 
-Tests: `node tools/location-verify.test.js`, 60 tests. Also: adfb052d `--names` re-check mode · f29ae0f1 `--duplicates` → docs/geoverify/DUPLICATES.md (42 pairs). Latest tool SHAs: b4ef10ed (generic unofficial-geo signals, no brand names), 855a21bc (Wikipedia≠independent, moved-place guard, extended/closed rules, --reassist).
+Tests: `node tools/location-verify.test.js`, 62 tests. Also: adfb052d `--names` re-check mode · f29ae0f1 `--duplicates` → docs/geoverify/DUPLICATES.md (42 pairs). Latest tool SHAs: b4ef10ed (generic unofficial-geo signals, no brand names), 855a21bc (Wikipedia≠independent, moved-place guard, extended/closed rules, --reassist).
 
 ## Next
 
-1. Re-check chain (`q.sh` from the separate worktree `scratchpad/qwt`, never the main checkout):
-   - The SF names re-check is in flight; Orlando (ABC Commissary) is pushed automatically when SF's recheck file lands.
-   - Then combine `docs/geoverify/recheck/*.md` into **docs/geoverify/recheck-wikidata-2026-10-16.md**.
-2. Singapore re-run: REQUEST `city=singapore … commit=true`, repeated until no `skipped` rows remain.
-3. Duplicates:
-   - Pittsburgh and Youngstown are done (18aaf4b8).
-   - Waiting on the orchestrator: an orphan-registry cleanup vs per-twin research (all other pairs are registry-only).
-   - Aachen "- CLOSED" hyphen record still to fix.
-4. Location-verify page-scope filter (on-page rows first), pending the orchestrator.
-5. Then saarland, okinawa, rhineland, aachen.
+1. **Nominatim pace is per UTC day (≤ 300 across ALL runs).**
+   - It was breached on 2026-10-16 (~1,570), and the ledger was added in c59aca30. Check
+     docs/geoverify/NOMINATIM-LEDGER.json before any REQUEST.
+   - The orchestrator still has to make the workflow commit the ledger file.
+2. **Singapore:** push REQUEST `city=singapore … commit=true` once per day, until 0 skipped. Then send the final SHA for
+   the batch accept.
+3. **Then** saarland, okinawa, rhineland, aachen, at the same daily pace.
+4. **Done today:**
+   - re-check (4573ae25) and the Hotel Utah settle: OSM wins, Census 13 m vs 58 m;
+   - duplicates and orphans (DUPLICATES.md, ORPHANS.md; (d) decided, b8926d86);
+   - page ∪ dataset scope (385f6189).
 
 ## In flight
 
-- SF names re-check run; q.sh chain (bb9l…) waiting to push Orlando. Nothing unpushed.
+- Nothing. Nominatim allowance for 2026-10-16 is spent.
 
 ## Notes
 
@@ -68,6 +69,9 @@ Tests: `node tools/location-verify.test.js`, 60 tests. Also: adfb052d `--names` 
 - **Re-score without network:** `node tools/location-verify.js --reassist docs/geoverify/<city>.json` (assist column only; reviews untouched). Never on a city whose run is in flight.
 - **Never run queue scripts in the main checkout**: a background script once committed REQUEST inside a manual merge. Use `scratchpad/q.sh` (own worktree, detached at origin, only REQUEST).
 - **Beta merge conflicts**: take theirs for beta/*, rebuild (`npm run beta`), then gates. Never hand-merge generated files.
+- **Scope (385f6189):** default is page ∪ dataset. The ~2,000 "orphans" are almost all (b), dataset rows held for a
+  pin. `--orphans` → ORPHANS.md; `--duplicates` → DUPLICATES.md. Both keep a Decisions log.
+- **Re-check (4573ae25):** 3 corroborated, Hotel Utah moved 71 m. The orchestrator applied it in f9e717dc.
 - **Queue step:** fetch until `git log origin/<branch>` shows "Location-verify report: <prev>", pull, write REQUEST
   (`city=<next>` with scope `unverified,low,status`, limit 0, nominatim_max 300, `commit=true`), commit, push, verify
   with ls-remote.
