@@ -82,4 +82,5 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 All of CLAUDE.md applies, plus rule 6 (no third-party travel, booking, review or fashion brand names), sentence case, no
 CDN for content, OSM/Esri tiles only, and localStorage in try/catch. Never force-push or rewrite history. Push loops
-gate on the npm test exit code and verify the push with ls-remote. The orchestrator owns `.github/workflows/*`.
+gate on the npm test exit code and verify the push with ls-remote. Never run two `npm test` at once in one container: each
+runs 4 jobs, and the contention fails test-honesty and test-views spuriously (seen 15:00Z; each passed alone). The orchestrator owns `.github/workflows/*`.
