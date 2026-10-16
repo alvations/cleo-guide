@@ -76,6 +76,7 @@ Current rows:
     - That gives 75.4 % clear map (50.7 % at 200 %) and 14 controls above the first card, so B-03 passes.
     - The kit `bag` and `spire` (no cross) are to be used. The spire is for churches only; synagogue, mosque and non-Japan temple fall through to the kind glyph.
     - FE-1 has been told. I'm waiting on its head for the dot sign-off.
+11. **QC-30 casing** (FE-A, 2026-10-16): approved the place-name rule (whole name, then capitalised runs, then single words not in `generic`). FE-A moves the generic list into `design/beta/casing/allowlist.json` as `"generic"`. **Next:** once FE-A sends the SHA, mirror the rule in `sentence_case.py` and DESIGN-SYSTEM §v2.6.
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight
