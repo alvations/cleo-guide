@@ -187,7 +187,7 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     const N = load(file + '.json').places.length;
     let html = fs.readFileSync(path.join(BETA, page), 'utf8').replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
       (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
-    html = html.replace('</body>', ['guidebook', 'insights'].map(x => '<script>' + fs.readFileSync(path.join(__dirname, 'client', x + '.js'), 'utf8') + '</script>').join('') + '</body>');
+    html = html.replace('</body>', () => ['guidebook', 'insights'].map(x => '<script>' + fs.readFileSync(path.join(__dirname, 'client', x + '.js'), 'utf8') + '</script>').join('') + '</body>');
     const errs = [];
     const dom = new JSDOM(html, { runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + page,
       beforeParse(w) {
@@ -348,7 +348,7 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     const boot = (page, hash) => {
       let html = fs.readFileSync(path.join(BETA, page), 'utf8').replace(/<script src="((?:\.\.\/)*assets\/js\/[a-z-]+\.js)\?v=[^"]*" defer><\/script>/g,
         (m, src) => '<script>' + fs.readFileSync(path.join(BETA, path.dirname(page), src), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>');
-      html = html.replace('</body>', ['guidebook', 'insights'].map(x => '<script>' + fs.readFileSync(path.join(__dirname, 'client', x + '.js'), 'utf8') + '</script>').join('') + '</body>');
+      html = html.replace('</body>', () => ['guidebook', 'insights'].map(x => '<script>' + fs.readFileSync(path.join(__dirname, 'client', x + '.js'), 'utf8') + '</script>').join('') + '</body>');
       const dom = new JSDOM(html, { runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/beta/' + page + hash,
         beforeParse(w) { w.Element.prototype.scrollIntoView = function () {}; w.matchMedia = () => ({ matches: false, addListener() {}, removeListener() {} }); w.scrollTo = () => {};
           w.fetch = u => { const p = path.join(BETA, /data\/places\//.test(u) ? 'data/places/' + u.split('data/places/')[1] : new URL(u, w.location.href).pathname.replace(/^\/beta\//, ''));
