@@ -61,7 +61,10 @@ Put evidence in `design/beta/eval/w7/qa/resign-<sha>/`. Never overwrite the R7 e
 
 ## In flight
 
-- Nothing running. R7 is signed off. Next: verify QA-79's fix (87f814ad) and the dev-only work (Atlas rev 5, PERF-08 re-land through `perf08-regress.sh`, W9 rows) when the next release pin comes.
+- Nothing running. r7 is live: PR #9 merged b54b3745 as 4382a187 (identical tree), and Pages built at 21:34Z.
+- Next on dev:
+  1. Verify platform's PERF-08 flip SHA with `tools/beta/qa/perf08-regress.sh`, plus `views.js --only links`, `w7.js --only lens` and the QC-26 A/B.
+  2. On the next release pin (after Atlas rev 5 reaches panel R4): QA-79's fix 87f814ad (`w2.js --only dom`), QC-04/D-43, W9-2, QC-30, QC-32, QC-33 and W8-I18N-SEARCH, plus the usual delta and regression sweep against b54b3745.
 
 ## Notes
 
