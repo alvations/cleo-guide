@@ -242,7 +242,10 @@ for line in open(f'{S}/cands.tsv', encoding='utf-8'):
     c = {'file': 'File:' + f, 'pageUrl': 'https://commons.wikimedia.org/wiki/File:' + urllib.parse.quote(f.replace(' ', '_'), safe="(),'!&-_.~*;:@"), 'depicts': dep, 'confidence': conf, 'reason': why}
     if flags.strip(): c['flags'] = flags.strip().split(',')
     if refused.strip(): c['refused'] = refused.strip()
-    if any(x['file'] == c['file'] for x in cands[key]): continue
+    prev = next((x for x in cands[key] if x['file'] == c['file']), None)
+    if prev:   # one entry per file; a later refusal (a visual review) wins over an earlier vetting, and is never undone
+        if c.get('refused') and not prev.get('refused'): prev['refused'] = c['refused']
+        continue
     cands[key].append(c)
 
 # W8: what a visitor sees first on each guide — the gallery's lead card, then its first rail row

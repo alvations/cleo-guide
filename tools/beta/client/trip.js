@@ -129,7 +129,9 @@
     return { ref: r, key: pg(r), id: p.id, a: p.a, ll: p.la != null && p.ln != null ? [+p.la, +p.ln] : null, closed: closed, t: p.t, rank: p.rank, p: p };
   }
   var keysOf = function (refs) { return refs.map(pg).filter(function (k, i, a) { return k && a.indexOf(k) === i; }); };
-  var label = function (p) { var nat = p.nat && p.n.slice(-p.nat.length - 2) === '(' + p.nat + ')' ? p.nat : ''; return nat ? p.n.slice(0, -nat.length - 2).trim() : p.n; };
+  // display name: the native aside and the data's " — CLOSED" marker are dropped (the marker shows as a Closed chip; data keeps it)
+  var label = function (p) { var n = String(p.n).replace(/\s+[—–-]+\s*CLOSED\b.*$/, ''), nat = p.nat && n.slice(-p.nat.length - 2) === '(' + p.nat + ')' ? p.nat : ''; return nat ? n.slice(0, -nat.length - 2).trim() : n; };
+  var cap = function (s) { s = String(s); return s.charAt(0).toUpperCase() + s.slice(1); };   // sentence case: the first word of a label (§v2.6)
   function firstSource(x) {
     var D = data[x.key], s = (x.p.src || []).filter(function (k) { return k !== 'guide'; });
     if (!s.length) return Cleo.t('city.card.added', 'Added by the guide (general knowledge)');
@@ -248,7 +250,7 @@
             var p = x.p, nx = u.items[i + 1], lw = nx ? Cleo.geo.walk(legs[i + 1]) : null;
             return '<li class="tstop"><span class="n" aria-hidden="true">' + (i + 1) + '</span><div class="tstop-b">' +
               '<a class="go" href="' + esc(Cleo.root + D.href + '#p=' + encodeURIComponent(p.id)) + '"><span class="vh">' + esc(Cleo.t('trip.stop.n', 'Stop {n}:', { n: i + 1 })) + ' </span>' + esc(label(p)) + '</a>' +
-              '<span class="sm">' + esc(p.kind === 'food' ? Cleo.t('day.kind.food', 'eat & drink') : Cleo.t('day.kind.sight', 'sight')) + (tier(p.t) ? ' · ' + esc(tier(p.t)) : '') + '</span>' +
+              '<span class="sm">' + esc(cap(p.kind === 'food' ? Cleo.t('day.kind.food', 'eat & drink') : Cleo.t('day.kind.sight', 'sight'))) + (tier(p.t) ? ' · ' + esc(tier(p.t)) : '') + '</span>' +
               '<p class="tstop-src">' + esc(firstSource(x)) + '</p>' +
               (p.pv && p.pv.checked ? '<p class="chk">' + esc(Cleo.t('trip.checked', 'Open when last checked · {date}', { date: p.pv.checked })) + '</p>' : '') + '</div>' +
               (lw ? '<p class="leg">' + esc(Cleo.t('trip.leg', '{walk} to stop {n}', { walk: lw.text, n: i + 2 })) +
@@ -260,7 +262,7 @@
       var tw = Cleo.geo.walk(tot);
       var lo = left.length ? '<section class="tp-left" aria-labelledby="tp-left-h"><h2 id="tp-left-h">' + esc(Cleo.t('trip.left', 'Left out ({n})', { n: left.length })) + '</h2><ul>' + left.map(function (l) {
         var D = data[l.x.key], p = l.x.p;
-        return '<li' + (l.why === 'closed' ? ' class="closed"' : '') + '><a href="' + esc(Cleo.root + D.href + '#p=' + encodeURIComponent(p.id)) + '">' + esc(label(p)) + '</a> <span class="sm">' + esc(D.name) + '</span><p>' + esc(reason(l, asked)) + '</p></li>';
+        return '<li' + (l.why === 'closed' ? ' class="closed"' : '') + '><a href="' + esc(Cleo.root + D.href + '#p=' + encodeURIComponent(p.id)) + '">' + esc(label(p)) + '</a>' + (l.x.closed ? '<span class="tp-closed">' + esc(Cleo.t('sheet.closed', 'Closed')) + '</span>' : '') + ' <span class="sm">' + esc(D.name) + '</span><p>' + esc(reason(l, asked)) + '</p></li>';
       }).join('') + '</ul></section>' : '';
       var gone = unknown.length ? '<p class="tp-gone" role="note">' + esc(unknown.length === 1 ? Cleo.t('trip.gone.one', '1 place in this link is no longer listed in a guide: {ids}. The link may be older than the guide.', { ids: unknown.map(idOf).join(', ') })
         : Cleo.t('trip.gone', '{n} places in this link are no longer listed in a guide: {ids}. The link may be older than the guide.', { n: unknown.length, ids: unknown.map(idOf).join(', ') })) + '</p>' : '';
@@ -291,8 +293,8 @@
     var ox = (W - sx * k) / 2, oy = (H - sy * k) / 2;
     var xy = pts.map(function (p) { return [(ox + (p[1] - x0) * cx * k).toFixed(1), (oy + (y1 - p[0]) * k).toFixed(1)]; });
     return '<svg class="tday-sk" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(Cleo.t('trip.sketch', 'Sketch of day {n}: {stops} in walking order, drawn from the guide’s own pins', { n: n, stops: N.stop(pts.length) })) + '">' +
-      '<polyline points="' + xy.map(function (q) { return q.join(','); }).join(' ') + '" fill="none" stroke="var(--area,var(--city))" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round"/>' +
-      xy.map(function (q, i) { return '<g><circle cx="' + q[0] + '" cy="' + q[1] + '" r="10" fill="var(--area,var(--city))" stroke="var(--surface)" stroke-width="2"/><text x="' + q[0] + '" y="' + q[1] + '" dy="4" text-anchor="middle">' + (i + 1) + '</text></g>'; }).join('') + '</svg>';
+      '<polyline points="' + xy.map(function (q) { return q.join(','); }).join(' ') + '" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round"/>' +
+      xy.map(function (q, i) { return '<g><circle cx="' + q[0] + '" cy="' + q[1] + '" r="10" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/><text x="' + q[0] + '" y="' + q[1] + '" dy="4" text-anchor="middle">' + (i + 1) + '</text></g>'; }).join('') + '</svg>';
   }
 
   function kml(T) {

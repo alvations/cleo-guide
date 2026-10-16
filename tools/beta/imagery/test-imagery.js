@@ -304,6 +304,12 @@ ok(fc.authorProblems('Architect of the Capitol; derivative work: O.J.').length &
 }
 const refusedC = cm.targets.flatMap(t => t.candidates.filter(c => c.refused).map(c => [t, c]));
 ok(refusedC.every(([, c]) => c.refused.length > 10) && fc.plan(cm, { credits: [] }, { keys: [], types: [], min: 'high', allow: [], wikiLead: false, pilot: false }).filter(p => !p.skip).every(p => p.cands.every(c => !c.refused)), `fetch-commons: candidates refused after visual review carry a reason and are never fetched (${refusedC.length})`);
+{ // run #52: a refusal appended to cands.tsv was dropped when the same file had an earlier vetted line — every refusal must reach the manifest
+  const tsv = path.join(__dirname, 'manifest', 'cands.tsv');
+  const lost = !fs.existsSync(tsv) ? [] : fs.readFileSync(tsv, 'utf8').split('\n').map(l => l.split('\t')).filter(p => p.length >= 7 && p[6].trim())
+    .filter(([key, f]) => !(cm.targets.find(t => t.key === key) || { candidates: [] }).candidates.some(c => c.file === 'File:' + f && c.refused)).map(([key, f]) => `${key} ${f}`);
+  ok(!lost.length, `manifest: every refusal in manifest/cands.tsv reaches commons-candidates.json, even when the file was vetted on an earlier line${lost.length ? ': ' + lost.join('; ') : ''}`);
+}
 ok(fc.fileBase({ type: 'landmark', depicts: 'singapore/chinatown#sri-mariamman-temple' }) === 'singapore--chinatown--sri-mariamman-temple' && fc.fileBase({ type: 'hero', depicts: 'hub:singapore/chinatown' }) === 'hero--singapore--chinatown', 'fetch-commons: file names follow the photos/ convention');
 const fplan = fc.plan(cm, { credits: [] }, { scope: 'all', keys: [], types: [], min: 'high', allow: [], wikiLead: false, pilot: false }).filter(p => !p.skip);
 ok(fplan.length > 100 && fplan.every(p => (p.cands.length || p.lead) && p.cands.every(c => c.confidence === 'high' && !(c.flags || []).length) && !p.t.skip), `fetch-commons default plan: ${fplan.length} targets, high-confidence unflagged candidates (or a cited article's lead image), never a skipped (venue/food/closed/Vietnam) target`);
