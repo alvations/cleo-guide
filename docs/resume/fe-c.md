@@ -33,11 +33,12 @@ Earlier: W9-4, W9-5 (FE-C part) and W9-7 are done.
 | w8p fix: Gallery/Guidebook/preview badges read the place's own card (stamped or `Cleo.defer.peek()` stub), never `Cleo.pageData` — Tokyo phone first load 762 → 656 KB | b8a3a6ae2 | — |
 | W9 audit (AUDIT.md + tools/beta/qa/w9-audit/) | 78065c843 | — |
 | W9-2 card line "Status checked <d Mon>" (client/fresh.js, lazy; text in a CSS attr() so search never matches it) + "Follow changes" line (lib/render/fresh-ui.js, OFF until fresh.feed's ja lands; key in pending-en.json) | 38228322b | — |
-| batch 4 ja merged: W9-9 local favourites LIVE (patch applied, removed), "Follow changes" LIVE on 84 pages; QC-23 closed "Before it closed" row visible in the detail (CSS-hidden on the card; city.js onSheet hook for deep links); QC-24 rec/lf chips named | this push | — |
+| batch 4 ja merged: W9-9 local favourites LIVE (patch applied, removed), "Follow changes" LIVE on 84 pages; QC-23 closed "Before it closed" row visible in the detail (CSS-hidden on the card; city.js onSheet hook for deep links); QC-24 rec/lf chips named | 9c1331525 (QC verified at f96a1e94) | — |
+| QC-05 empty state: client/empty.js (lazy, city.js hook after the mode-chip line) — names the search, Clear search + Show all N, in the lens slot and on the Atlas map (phone; desktop states it in the list), no mode chip pressed; batch 5 ja merged; probe `empty` (5 pilots × Gallery/Atlas × 390/1440) + test-fe-c EMPTY | this push | — |
 
 ## Next
 
-W9 audit: design/beta/eval/w9/AUDIT.md (scripts in tools/beta/qa/w9-audit/) is written and was sent to QA session_017FLWXa5zgGWvqNo4C3UsvH. W9-2 card line + "Follow changes" and W9-9 are live; pending-*.json are empty. QC-17: FE-1 done at 03c9fc58d (phone carousel wraps p.pl-base). Next: anything new from the orchestrator / QC (session_01MYsz5PHtY39stLxc8rMmqj).
+W9 audit: design/beta/eval/w9/AUDIT.md (scripts in tools/beta/qa/w9-audit/) is written and was sent to QA session_017FLWXa5zgGWvqNo4C3UsvH. W9-2 card line + "Follow changes" and W9-9 are live; pending-*.json are empty. QC-17: FE-1 done at 03c9fc58d (phone carousel wraps p.pl-base). Next: QC-04 per D-43 (orchestrator): low pins (`pv.pin === 'low'`, info.prov 'l…') stay on the map; card "Approximate pin", detail "Approximate map pin: the coordinate we hold is not yet verified to the door" in place of "Pinned to the door: low confidence", Atlas badge "N approximate pins" next to the no-coordinate count; no marker change (FE-1 rev 5). Strings → i18n batch 6. Test: every low card carries the label and nothing else does. Tell QC P-17 should accept "Approximate pin" per D-43.
 
 
 Orchestrator order (2026-10-16 14:52Z):

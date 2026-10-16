@@ -1,0 +1,2 @@
+# Append-only logs: concurrent lanes append entries at the end; keep both sides instead of conflicting.
+docs/BETA-LOG.md merge=union
