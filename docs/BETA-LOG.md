@@ -2023,3 +2023,7 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - QC-32 (raw notes in data/prov) filed.
   - QC-30 went to FE-A, and QC-31 and QC-32 to FE-B.
 - **Dev only:** i18n W8-I18N-SEARCH (a46f6ec7). FE-1 has 3 items: the 235649e51 button.src at 38 px (B-20), QC-05 rendered twice on desktop Atlas with hard-coded English, and the chip overflow.
+- **Phone selection, label clear of the controls:**
+  - Selecting a place on a phone pans it clear of the Near me / Map pills: the pan's padding adds the controls column's width and height plus the label's height.
+  - A selected or saved pin that fits no anchor among the other pills takes an anchor clear of the map's controls and edges (the other pills give way), and falls back to above only if none exists.
+  - Checked on Tokyo, Cleveland, New York and Chinatown at 390: the selected label overlaps no control.
