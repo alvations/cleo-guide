@@ -117,12 +117,17 @@
   function page() {
     const cards = qa('li.pl'), secs = qa('section.area');
     if (cur !== 'gallery') { cards.forEach(c => c.classList.remove('pg-off')); secs.forEach(s => s.classList.remove('pg-empty')); if (pager) pager.hidden = true; return; }
-    const r = Cleo.route.parse(), all = r.all === '1', per = size(), lensOn = cards.some(c => c.hidden);
+    // PERF-08: a lens is on when the route carries one (a selective lens leaves its non-matches unstamped, so no card is hidden)
+    const r = Cleo.route.parse(), all = r.all === '1', per = size(), lensOn = cards.some(c => c.hidden) || (!!Cleo.lens && Cleo.lens.on(Cleo.lens.pick(r)));
     let pend = Cleo.defer ? Cleo.defer.peek().length : 0;
     let pg = Math.max(1, parseInt(r.pg, 10) || 1);
     const deep = !!r.p || /^#(p|area)-/.test(location.hash);          // an addressed place / area needs the true view order
     const fine = !!(Cleo.defer && Cleo.defer.order && Cleo.defer.stampIds);
-    if (pend && (all || lensOn || (!fine && (pg > 1 || deep)))) { Cleo.defer.all(); pend = 0; if (lensOn) { C.apply(); return; } }   // re-apply: new cards must meet the lens
+    // PERF-08 (platform): under Cleo.defer.selective a lens builds only the cards it shows (stampLens); the stubs left are
+    // outside it, so the pager counts the shown cards only. "Show all" (all=1) still builds every card.
+    if (pend && lensOn && !all && fine && Cleo.defer.selective && Cleo.defer.stampLens) {
+      const got = Cleo.defer.peek({ lens: Cleo.lens.pick(r) }).length ? Cleo.defer.stampLens(r) : []; pend = 0; if (got.length) { C.apply(); return; } }
+    else if (pend && (all || lensOn || (!fine && (pg > 1 || deep)))) { Cleo.defer.all(); pend = 0; if (lensOn) { C.apply(); return; } }   // re-apply: new cards must meet the lens
     const h = location.hash, mp = /^#p-(.+)$/.exec(h), ma = /^#area-(.+)$/.exec(h), tid = r.p || (mp && decodeURIComponent(mp[1]));
     // Platform W7 (R6 gap #5): with no lens, any page (a deep link, page > 1, page 1) stamps only the cards it shows, placed
     // by the full view order (stamped cards + deferred stubs) — not every card (a phone #p= built 12.8k nodes).
