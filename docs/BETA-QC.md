@@ -525,3 +525,17 @@ version scanned visible text only and gave 91/91 PASS. It now also scans deferre
 - Verified 25.
 - Open 3: Med 1 (QC-04), Low 2 (QC-13, 14). High 0.
 
+## Re-verify 2026-10-16 · 7857f885 (FE-C claim for QC-04, under D-43)
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-04 | **verified** | `qc.js --only patterns --pages cleveland`, P-17 with the D-43 rule: PASS at 390 and 1440 (0 records without a coordinate; 1 low pin; the badge reads "1 approximate pin" and is on screen: x 12, y 176 on phone; x 779, y 836 on desktop). Okinawa: "195 approximate pins" matches its 195 low pins. The Cleveland card carries "Approximate pin"; the detail reads "Approximate map pin: the coordinate we hold is not yet verified to the door". Tokyo has 0 low pins and no badge. `qc-04-badge-*.json`, `qc-04-atlas-1440.jpg`. |
+
+**Register:**
+- Verified 26.
+- Open 2: Low 2 (QC-13 FE-1, QC-14 designer). Med 0 · High 0 · Blocker 0.
+
+Pending on the next pin (orchestrator): FE-B's honesty-leak fixes (712e746f, aee184d3).
+- "What changed" pages, Atom feeds and `data/places/*.json` carry only a "Status source" link.
+- how-we-choose carries the new m.not.p line.
+
