@@ -85,7 +85,8 @@ Nothing unpushed.
   card off-screen) — reported to FE-A.
 - Tabular probe: `tools/beta/feb-tabular.js`.
 - Thumb probe: `tools/beta/feb-ind.js [page]`.
-- Switcher probe: `tools/beta/feb-switcher.js [page]` (same static server).
+- Switcher probe: `tools/beta/feb-switcher.js [page] [view]` (same static server; view defaults to gallery). Atlas
+  (FE-1 0e8faff9a) passes all 8 rows.
 - B-05 probe: `tools/beta/feb-b05.js` (needs `python3 -m http.server 8765 -d <repo>`; ≥ 2 on landing + every hub).
 - Push with `tools/beta/feb-push.sh` (merges origin, regenerates beta/ on generated conflicts, stops on any source
   conflict or leftover conflict marker, verifies the ref moved). Re-run the gates on the merged head afterwards.

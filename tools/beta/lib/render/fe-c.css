@@ -7,7 +7,7 @@
 .rb:hover{text-decoration:underline;text-underline-offset:3px}
 .rb-award{background:var(--sun-wash);color:var(--on-sun-wash)}
 .sheet .fact .pl-rec{margin:0}
-.sheet .fact .pl-rec[hidden]{display:flex}
+.pl>.pl-rec.closed{display:none}   /* QC-23: a closed place's row shows in its detail only */
 .gc-rec{display:flex;margin-top:var(--s-1)}.gc-rec .rb{min-height:24px;pointer-events:none}.ge-rec{margin:var(--s-1) 0}
 /* FE-C (W9-2) the quiet "Status checked <d Mon>" card line (client/fresh.js). The text is a CSS attr(), out of the card's
    textContent so search never matches the date. Ink-3 on paper. */
@@ -15,3 +15,4 @@
 .pl-chk{display:block;margin:var(--s-1) 0 0;font-size:var(--fs-xs);line-height:1.4;color:var(--ink-3)}
 .pl-chk::before{content:attr(data-t)}
 .feedline a{font-weight:600}
+.lf-gap{margin:0;font-size:var(--fs-sm);color:var(--ink-2);max-width:62ch}.lf-gap .lbl{display:block;font-weight:600;color:var(--ink);margin-bottom:var(--s-1)}.lf-rule{max-width:62ch;color:var(--ink-2)}

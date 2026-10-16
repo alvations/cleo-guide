@@ -2,7 +2,7 @@
  * writes from platform's data only (lib/render/recognition-ui.js: data-rec / data-rec0 kinds, data-ra / data-rv source
  * ids). One link per award or creator-video source (#src=<id>, named as the card's own "Recommended by" chip names it) and
  * "Cited by n sources" (n = the card's named publishers, platform's rec.cited) linking to the detail, where every source
- * is listed. A closed place's row is hidden on the card and labelled "Before it closed" for its detail (sheet.js FE-C
+ * is listed. A closed place's row is hidden on the card (CSS) and labelled "Before it closed" for its detail (sheet.js FE-C
  * hook copies it). The Gallery row cards, the Guidebook entries and the Atlas map preview get the same row from the place's
  * own card (never the page dataset: first-screen weight). Loaded on pages that have recognised places (city.js FE-C hook); nothing here is inferred. */
 (function () {
@@ -18,7 +18,7 @@
     words(c, 'data-ra').forEach(function (s) { out.push('<a class="rb rb-award" href="#src=' + esc(s) + '">' + esc(Cleo.t('rec.award', 'Award · {src}', { src: name(s) })) + '</a>'); });
     words(c, 'data-rv').forEach(function (s) { out.push('<a class="rb rb-video" href="#src=' + esc(s) + '">' + esc(Cleo.t('rec.video', 'Creator video · {src}', { src: name(s) })) + '</a>'); });
     if (k.indexOf('cited') >= 0) out.push('<a class="rb rb-cited" href="#p=' + encodeURIComponent(id) + '">' + esc(Cleo.t('rec.cited', 'Cited by {n} sources', { n: words(c, 'data-src').filter(function (s) { return s !== 'guide'; }).length })) + '</a>');
-    return closed ? '<p class="pl-rec closed" hidden><span class="lbl">' + esc(Cleo.t('rec.before', 'Before it closed:')) + '</span> ' + out.join(' ') + '</p>'
+    return closed ? '<p class="pl-rec closed"><span class="lbl">' + esc(Cleo.t('rec.before', 'Before it closed:')) + '</span> ' + out.join(' ') + '</p>'
       : '<p class="pl-rec"><span class="vh">' + esc(Cleo.t('rec.label', 'Recognition')) + '</span> ' + out.join(' ') + '</p>';
   }
   function paint(cards) {
@@ -72,7 +72,19 @@
     for (var i = 0; i < ms.length; i++) for (var j = 0; j < ms[i].addedNodes.length; j++) { var n = ms[i].addedNodes[j];
       if (n.nodeType === 1 && (n.matches('li.gc, li.ge, a.ms-pv') || n.querySelector('li.gc, li.ge, a.ms-pv'))) { later(); return; } }
   }).observe(d.body, { childList: true, subtree: true });   // body: the Atlas preview (#cleo-poi) sits outside #main
-  Cleo.recog = { paint: paint, row: row, views: paintViews };
+  // QC-23: the detail always carries the row, a closed place's "Before it closed" one included. sheet.js copies the card's row
+  // when it is drawn; on a deep link the sheet can open before this module has painted, so city.js's onSheet hook calls this
+  // and the row goes in before the share fact. A closed card's row is hidden by CSS on the card (.pl > .pl-rec.closed), not by
+  // a hidden attribute, so the copy is visible in the detail.
+  function sheet(c, ico) {
+    var sh = d.querySelector('#cleo-sheet .sheet'); if (!sh || !c || sh.querySelector('.fact .pl-rec')) return;
+    var share = sh.querySelector('[data-cleo-card="place"]'); if (share && 'p-' + share.getAttribute('data-id') !== c.id) return;   // another place's sheet
+    if (!c.querySelector(':scope > .pl-rec')) paint([c]);
+    var r = c.querySelector(':scope > .pl-rec'); if (!r) return;
+    var html = '<div class="fact">' + (ico || '') + '<div>' + r.outerHTML + '</div></div>', at = share && share.closest('.fact');
+    if (at) at.insertAdjacentHTML('beforebegin', html); else (sh.querySelector('.content') || sh).insertAdjacentHTML('beforeend', html);
+  }
+  Cleo.recog = { paint: paint, row: row, views: paintViews, sheet: sheet };
   paintViews();
   paint(d.querySelectorAll('li.pl[data-rec], li.pl[data-rec0]'));
   d.addEventListener('cleo:stamped', function (e) { paint((e.detail && e.detail.cards) || []); });            // later chunks (core defer)
