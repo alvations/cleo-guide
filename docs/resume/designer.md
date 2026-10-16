@@ -76,6 +76,15 @@ Current rows:
     - That gives 75.4 % clear map (50.7 % at 200 %) and 14 controls above the first card, so B-03 passes.
     - The kit `bag` and `spire` (no cross) are to be used. The spire is for churches only; synagogue, mosque and non-Japan temple fall through to the kind glyph.
     - FE-1 has been told. I'm waiting on its head for the dot sign-off.
+11. **QC-30 casing** (FE-A, 2026-10-16): approved the place-name rule (whole name, then capitalised runs, then single words not in `generic`). FE-A moves the generic list into `design/beta/casing/allowlist.json` as `"generic"`. **Next:** once FE-A sends the SHA, mirror the rule in `sentence_case.py` and DESIGN-SYSTEM §v2.6.
+12. **QC-31 (raw colours and radii)**, 2026-10-16:
+    - New tokens: `--mask`, `--on-photo`, `--scrim-photo`, `--shade-text(-strong)`, `--on-night-hover`, `--on-night-line`, `--star`, `--city-glow`, `--print-ink/-paper/-rule`, `--r-xxs` (2px).
+    - cleo.css and constellation.css are now at 0 raw colours. The grab bars use `--r-pill`.
+    - FE-A has the names for fe-a.css (12 colours, 2 radii). Census script: count the beta/assets/*.css colours outside custom-property declarations (qc.js S-01).
+13. **R4 dot sign-off** (real/R4 on 45379fbf):
+    - **Light: signed off.** Circle 184 against canvas 230; square 92.
+    - **Dark: fix sent to FE-1.** The circle fill measured 90 against 77 (1.2:1) and read as rings. Use 45 % circles and 80 % squares, with targets of ≥ 2:1 and ≥ 4.5:1 measured on the tile.
+    - Hold "round 4 ready" until the dark set is re-shot and re-signed. The orchestrator has been told.
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight

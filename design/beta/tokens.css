@@ -122,8 +122,22 @@
   --maxw: 1360px;
 
   /* ---- Radius: 8 controls · 12 inputs & small media · 16 card media & sheets · pill ---- */
-  --r-xs: 6px; --r-s: 8px; --r-m: 12px; --r-l: 16px; --r-pill: 999px;
+  --r-xxs: 2px; --r-xs: 6px; --r-s: 8px; --r-m: 12px; --r-l: 16px; --r-pill: 999px;   /* --r-xxs: focus ring, <mark>, small handles (QC-31) */
   --radius-sm: var(--r-s);  --radius: var(--r-m);  --radius-lg: var(--r-l);
+
+  /* ---- Fixed colours (QC-31): every raw colour lives here, not in component CSS. Same values in both themes. ---- */
+  --mask:            #000;                     /* mask-image stops: only alpha matters; partial stops use color-mix(var(--mask) N%, transparent) */
+  --on-photo:        #fff;                     /* text over a photo, with --scrim-photo or --shade-text behind it */
+  --scrim-photo:     rgba(0, 0, 0, .65);       /* photo caption gradient */
+  --shade-text:      rgba(0, 0, 0, .55);       /* text-shadow under photo text */
+  --shade-text-strong: rgba(0, 0, 0, .7);      /* the same, for small text on busy photos */
+  --on-night-hover:  rgba(255, 255, 255, .1);  /* hover and current fills on the .on-night top bar */
+  --on-night-line:   rgba(255, 255, 255, .12); /* hairline on the footer */
+  --star:            #F5EEDF;                  /* landing star field; tints via color-mix(var(--star) N%, transparent) */
+  --city-glow:       #C8574F;                  /* landing glow when a page sets no --city */
+  --print-ink:       #000;
+  --print-paper:     #fff;
+  --print-rule:      #ccc;
 
   /* ---- Elevation: soft and rare. Resting cards: none. ---- */
   --shadow-sm: 0 1px 2px rgba(28, 25, 23, .06);

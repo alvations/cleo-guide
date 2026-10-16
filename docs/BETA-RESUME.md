@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 19:40Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 20:38Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -33,20 +33,23 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 - **QA said NO on pin 4aba38b3** (18:56Z, 025bac06), with 0 open High or Blocker. Every row passed except two small regressions:
   - **QA-77 (Med, FE-C):** the recognition badges `a.rb` are only 32 px tall, so B-20 fails on phone in Gallery and Atlas. Fix: a 44 px hit area.
   - **QA-78 (Low, imagery):** the Duquesne Incline credit author is a Flickr URL (CREDITS.json, from 6c007a0d5). Fix: the creator as credited, and a fetcher guard plus a test.
-- **The next pin is the release branch `beta-deploy-r7`**, not the dev head. It holds 4aba38b3 plus ported fixes only, so QA's delta stays short and the Atlas rev 5 work that landed since the pin stays out.
-  - Worktree: `/home/user/rel-r7` (`tools/node_modules` is a symlink; never commit it).
-  - Release head **33a44d167981177bf3f3b901ecc860d0ad61e69f**. It ports, on top of 4aba38b3:
-    - QA-74, the motion tokens (af1a0e2a);
-    - QC-28, the Erie prose (2bbae5ac);
-    - QA-78, the Duquesne credit, with the fetcher guard and the test (9c6cd576, without the run #64 photos);
-    - FE-B's honesty-leak fixes (712e746f, aee184d3) and i18n's m.not.p ja (96d46d0b);
-    - dev's 8 data commits since the pin: QC-25 closure sources batches 1–5, Sokolowski's 2020, and the Orlando/DC prose (9fa62209, filed as QC-29 on the release);
-    - QC-25's closed-card line, from 5d3dc985 without its fe-a.css focus-ring part.
-  - Gates on 33a44d16: validate, npm test alone, beta:check and w8p (Tokyo 620 KB, Atlas 392 KB) all pass.
-  - Leak sweep of shipped HTML and XML: 0 "kept flagged", "worklist", "per editorial rule" or "verify before publish". beta/data/prov/*.json, the open-data sidecar no client reads, still holds raw coordinate notes, as dev does (Low, follow-up).
-  - Not in this release: QC-04 (D-43 labels), Atlas rev 5, PERF-08 and FE-A's 752a77fc. They ship in the next one, from the dev head.
-  - Port QA-77 when FE-C sends its SHA: `git diff <sha>^ <sha> -- <source files> | git apply` in the worktree, then `npm run beta`, the gates, commit, push and ls-remote. Then send QA the full SHA.
-  - QA's delta: B-20 on the pilots (Gallery and Atlas), w7-photos and the QA-74 motion tokens, plus the regression sweep (metrics ×2, Atlas, w7, views, w8p, the QC-26 A/B).
+- **Deploy pin (20:16Z): `b54b3745ce28166bd072808f3e5f3fdbf05b9d49`** on the release branch `beta-deploy-r7` (worktree `/home/user/rel-r7`; `tools/node_modules` there is a symlink, so never commit it). QA (delta re-sign) and QC (final-pin pass) were asked at 20:16Z.
+  - It is 4aba38b3 plus ported fixes only:
+    - QA-77, the badge 44 px hit area (from d2cc5400a, its fe-c.css rules only);
+    - QA-78, the Duquesne credit, with the guard and the test;
+    - QA-74, the motion tokens and the drift test;
+    - FE-B's leak fixes and the m.not.p ja;
+    - QC-25's closed-card line and the D-42 colophon (from 5d3dc985, without its focus-ring CSS);
+    - the trip.html source link (cf0218a1b);
+    - dev's 8 post-pin data commits (closure sources, Sokolowski's, the Erie, Orlando and DC prose).
+  - My checks on b54b3745:
+    - validate, npm test alone and beta:check pass;
+    - w8p passes (Tokyo 621 KB, Atlas 392 KB);
+    - B-20 mobile is 0 on 5 pilots (newyork's metrics run hung here, so QA covers NY);
+    - merge-tree into the Pages branch is clean.
+  - **QC: PASS on b54b3745** (20:35Z, 7c5ea616). Sweep 2236 PASS; the 4 FAILs are the filed Low QC-30 and QC-31. S-16 91/91, leak greps 0, and the QA-77 hit areas are ≥ 44 px with 0 overlaps and no CLS. A new Med, QC-33 (pre-existing CLS 0.42–0.53 on a guidebook/insights deep link at 1440), went to FE-B and platform for the next release.
+  - **Waiting on QA's verdict.**
+  - Not in it: QC-04, Atlas rev 5, PERF-08, W8-I18N-SEARCH. They ship next, from the dev head.
 - **On YES:**
   1. open a PR from `beta-deploy-r7` into `claude/cleveland-page-creation-pant4l` (live is still 9f54587d; check with merge-tree first);
   2. merge with `expectedHeadSha` = the full SHA;

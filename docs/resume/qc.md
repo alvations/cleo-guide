@@ -37,6 +37,8 @@ never weakens a gate.
 - `9c133152`: QC-23 and QC-24 verified.
 - `4aba38b3` (deploy pin): QC-26 and QC-22 verified; new QC-27 (Low, i18n: tier translated as 評価).
 - `9fba196e`: QC-27 verified.
+- `r7-b54b3745` (final release pin): PASS. Sweep 4 FAIL = filed QC-30/31; S-16 91/91; leaks 0; m.not.p en/ja; QA-77 badges ≥ 44 px, 0 in-view overlaps, no shift. New QC-33 (Med): Guidebook/Insights deep-link CLS ≈ 0.5 at 1440, pre-existing.
+- `r7-33a44d16` (release): QC-29 verified (S-16 91/91); every sweep FAIL accounted for: S-15 and part of S-08/S-01 were probe bugs (fixed in 6a93f81d); new QC-30 (casing ownWords), QC-31 (raw colours/radii), QC-32 (prov sidecar notes). Clean sweep: 4 FAIL, all filed.
 - `r7-19af6d81` (release branch pre-check): FE-B leaks PASS; m.not.p en/ja PASS; QC-28 PASS; S-16 FAIL on 4 pages → new QC-29 (ports 9fa622096 + 5d3dc9850 missing).
 - `7857f885`: QC-04 verified (D-43 approximate pins).
 - `cc127fb1`: QC-28 verified (S-16 91/91; TODO/FIXME now case-sensitive).
@@ -47,14 +49,10 @@ never weakens a gate.
 
 ## In flight
 
-A sweep runs at 1440 on release head **33a44d16** (scratch worktree `qc-33a44d16`) with the old probe; leak greps there are already 0. Harness change pushed in this commit:
-- S-15 accepts a settled `:focus-within` wrapper ring (the search field draws a 2px ring that transitions in; the probe read it before the transition);
-- S-08 exempts place names in group labels (South Dade, Ohio Valley, Laos…);
-- S-01 no longer counts a 50% radius, em font sizes or all-token shadows.
-
-Next: re-run S-01/S-08/S-15 with the new probe on 33a44d16. File QC-30 (S-08: casing.js `ownWords` keeps Park/River/Yokochō mid-label; designer + FE-A), QC-31 (data/prov sidecar raw notes; FE-B) and QC-32 (S-01: 66 raw colours and 11 px radii outside tokens: cleo.css 49/5, constellation.css 5/4, fe-a.css 12/2; designer + FE-B). Close QC-29 if S-16 is 0. QC-13 and QC-14 are open (Low).
+Nothing unpushed and no long run. r7 has signed off (PASS). Re-verify QC-13, 14, 30, 31, 32 and 33 as lanes claim fixes. Use `qc-view-cls.js <root> <out>` for QC-33 (all views at 390/1440).
 
 Next harness work:
+- Fold deep-link view CLS (qc-view-cls.js) into S-12 for city pages at 1440.
 - P-25 and P-26 must discount entries that carry the D-42 note.
 - P-13 and P-15 must open the phone Atlas "Show list" before measuring.
 - J-10 and J-11 should also run under `?lang=ja`.
@@ -64,7 +62,7 @@ Next harness work:
 - The harness has known artefacts, already handled. Don't re-file:
   - S-06: a label hidden by text-indent;
   - S-11: the sliding switcher indicator, the same as QA-66;
-  - S-15: the search ring sits on its wrapper;
+  - S-15: the wrapper ring is now handled in the probe (6a93f81d); a new S-15 FAIL is real;
   - `content-visibility` cards (read `textContent`);
   - smooth scroll during Tab.
 - An S-11 FAIL needs a look at a screenshot before it is filed.

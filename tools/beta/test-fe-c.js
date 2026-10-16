@@ -119,6 +119,8 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
   chk('the closed place is left out with its reason, a Closed chip, never the raw "— CLOSED" marker', !!left && /Unicorn Gundam[\s\S]*Closed — kept for the record, never planned \(checked/.test(left.textContent) &&
     !!left.querySelector('.tp-closed') && left.querySelector('.tp-closed').textContent === 'Closed' && !/— CLOSED/.test(left.textContent));
   chk('places that did not fit are named with the reason', /Didn’t fit in 3 days/.test(left ? left.textContent : ''));
+  { const lk = left && [...left.querySelectorAll('li.closed a[rel="noopener"]')][0], uj = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places/tokyo.json'), 'utf8')).places.find(p => /unicorn/.test(p.id)).pv.ss;
+    chk('the closed place\'s status source is a link (pv.ss), named by its host, never a bare URL', !!lk && lk.getAttribute('href') === uj && lk.textContent === 'tokyoweekender.com' && /Source: tokyoweekender\.com/.test(left.textContent) && !/Source: https?:/.test(left.textContent), lk && [lk.getAttribute('href'), lk.textContent]); }
   chk('the unknown id is reported, not dropped', /no-such-place/.test((a.d.querySelector('.tp-gone') || {}).textContent || ''));
   chk('no closed place in any day', [...a.d.querySelectorAll('.tday')].every(s => !/CLOSED/.test(s.textContent)));
   const dl = a.d.querySelector('[data-tp-day="1"]').getAttribute('href');
@@ -319,13 +321,27 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     g.d.querySelectorAll('li.pl[id^="p-"]').forEach(c => { const iso = c.getAttribute('data-checked'), e = c.querySelector(':scope > .pl-chk');
       if (!iso) { if (e) probs.push([c.id, 'line without a date']); return; }
       n++; if (!e) return probs.push([c.id, 'no line']);
-      if (e.getAttribute('data-d') !== iso || e.getAttribute('data-t') !== 'Status checked ' + fmt(iso)) probs.push([c.id, e.getAttribute('data-t'), iso]);
-      if (e.textContent) probs.push([c.id, 'date in the card text (search would match it)']);
-      if (/open now|hours|open until|closes at/i.test(e.getAttribute('data-t'))) probs.push([c.id, 'implies open now or hours']); });
-    chk(`Tokyo: ${n} dated cards each draw "Status checked <d Mon>" equal to data-checked, out of the card text`, probs.length === 0 && n > 400, probs.slice(0, 4));
-    chk('Tokyo: the date is not searchable text (a search for "Oct" matches no card by its date)', ![...g.d.querySelectorAll('li.pl .pl-chk')].some(e => /Oct/.test(e.textContent)));
+      if (e.getAttribute('data-d') !== iso || e.textContent !== 'Status checked ' + fmt(iso)) probs.push([c.id, e.textContent, iso]);
+      if (!e.hasAttribute('data-nosearch') || /Status checked/.test(g.w.Cleo.lens.text(c))) probs.push([c.id, 'the line feeds the search']);
+      if (/open now|hours|open until|closes at/i.test(e.textContent)) probs.push([c.id, 'implies open now or hours']); });
+    chk(`Tokyo: ${n} dated cards each show "Status checked <d Mon>" as real text equal to data-checked, skipped by the search`, probs.length === 0 && n > 400, probs.slice(0, 4));
+    { const q = boot('cleveland.html', { hash: '#q=aug', mods: ['fresh'] }); await sleep(400); q.w.Cleo.defer.all(); await sleep(80);
+      const shown = [...q.d.querySelectorAll('li.pl[id^="p-"]')].filter(c => !c.hidden), byOwn = shown.filter(c => { const k = c.cloneNode(true); k.querySelectorAll('[data-nosearch]').forEach(x => x.remove()); return /aug/i.test(k.textContent.normalize('NFD').replace(/[\u0300-\u036f]/g, '')); });
+      const aug = [...q.d.querySelectorAll('li.pl .pl-chk')].filter(e => / Aug$/.test(e.textContent)).length;
+      chk(`Cleveland #q=aug (its cards were checked in August: ${aug} lines read "… Aug"): ${shown.length} cards shown, each by its own text, none by the checked line`, shown.length === byOwn.length && aug > 100, [shown.length, byOwn.length]); }
+    { const q = boot('cleveland.html', { hash: '#q=' + encodeURIComponent('8月') }); await sleep(300);
+      chk('Cleveland #q=8月 (the ja form of its checked month) matches no card', ![...q.d.querySelectorAll('li.pl[id^="p-"]')].some(c => !c.hidden)); }
     chk('fresh.js is lazy (no page loads it eagerly)', !/<script[^>]+fresh\.js/.test(fs.readFileSync(path.join(BETA, 'cities/tokyo.html'), 'utf8')));
     chk('no js errors (fresh)', g.errs.length === 0, g.errs.slice(0, 2));
+    // W9-2 (a): the Gallery row cards carry the same line, dated from the place's own card (no page data fetched)
+    const gg = boot('cleveland.html', { hash: '#view=gallery', mods: ['gallery', 'fresh'] }); await sleep(900);
+    const gcs = [...gg.d.querySelectorAll('li.gc[data-id]')], gp = [];
+    gcs.forEach(r => { const id = r.getAttribute('data-id'), c = gg.d.getElementById('p-' + id) || (gg.w.Cleo.defer.peek().find(s => s.id === 'p-' + id)), iso = c && c.getAttribute('data-checked'), e = r.querySelector('.pl-chk');
+      if (!iso) { if (e) gp.push([id, 'line without a date']); return; }
+      if (!e || e.getAttribute('data-d') !== iso || e.textContent !== 'Status checked ' + fmt(iso) || !e.hasAttribute('data-nosearch')) gp.push([id, e && e.textContent, iso]); });
+    chk(`Cleveland Gallery: all ${gcs.length} row cards carry "Status checked <d Mon>" equal to the place's data-checked`, gcs.length > 0 && gp.length === 0, gp.slice(0, 4));
+    chk('the row-card line fetches no page data', !gg.net.some(u => /data\/places\//.test(u)), gg.net.filter(u => /data\/places\//.test(u)));
+    chk('no js errors (fresh, gallery)', !gg.errs.length, gg.errs.slice(0, 2));
   }
 
   console.log('\n== LF (W9-9): local favourites, the rule holds for every place ==');

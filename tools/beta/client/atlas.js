@@ -123,7 +123,11 @@
       const p = map.latLngToContainerPoint(C.markers[id].getLatLng()), w = boxOf(c, nameOf(id));
       const fits = r => { const hit = q => r.l < q.r && r.r > q.l && r.t < q.b && r.b > q.t; return !(r.t < topL || r.b > botL || r.l < 0 || r.r > sz.x || placed.some(hit) || avoid.some(hit)); };
       let a = ANCH.find(x => fits(boxAt(p, w, x)));
-      if (!a) { if (first(id) === 2) continue; a = 't'; }   // saved / selected: always labelled, above
+      if (!a) { if (first(id) === 2) continue;
+        // saved / selected: always labelled — an anchor clear of the map's controls and edges if one exists (other pills
+        // give way to it), else above
+        const clear = r => !(r.t < topL || r.b > botL || r.l < 0 || r.r > sz.x || avoid.some(q => r.l < q.r && r.r > q.l && r.t < q.b && r.b > q.t));
+        a = ANCH.find(x => clear(boxAt(p, w, x))) || 't'; }
       placed.push(boxAt(p, w, a)); want[id] = 1; anc[id] = a; order.push(id);
     }
     Object.keys(pins).forEach(id => { if (!want[id]) { map.removeLayer(pins[id]); delete pins[id]; } });
@@ -289,7 +293,11 @@
     // the carousel now covers the bottom: keep the selected place in the uncovered band (no move when it already is)
     const map = C.map(), k = C.markers[C.pid(c)];
     // (not for a #p= route or under an open detail: atlas-nav.js places those, out from under the sheet)
-    if (map && k && how !== 'route' && !H.classList.contains('ms-list') && !(Cleo.sheet && Cleo.sheet.isOpen()) && !(C.navHold && C.navHold())) { quiet = Date.now(); try { map.panInside(k.getLatLng(), Object.assign(C.overMap(), { animate: !C.still(), duration: 0.35 })); } catch (e) {} }
+    if (map && k && how !== 'route' && !H.classList.contains('ms-list') && !(Cleo.sheet && Cleo.sheet.isOpen()) && !(C.navHold && C.navHold())) { quiet = Date.now();
+      // clear of the Near me / Map pills too (they stack bottom right, above the carousel), so its label has room
+      const o = C.overMap(), cr = $('.leaflet-bottom.leaflet-right'), cb = cr ? cr.getBoundingClientRect() : { width: 0, height: 0 };
+      o.paddingBottomRight = [Math.max(o.paddingBottomRight[0], Math.round(cb.width) + 24), o.paddingBottomRight[1] + Math.round(cb.height) + 48];   // + the label above the point
+      try { map.panInside(k.getLatLng(), Object.assign(o, { animate: !C.still(), duration: 0.35 })); } catch (e) {} }
   };
   // the carousel: the card nearest the middle after a swipe settles is the selected one
   let st = 0, qSwipe = 0;
