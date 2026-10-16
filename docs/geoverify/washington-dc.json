@@ -272,7 +272,8 @@
    }
   },
   "attribution": "Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright",
-  "hardFailure": false
+  "hardFailure": false,
+  "reassisted": "2026-10-16"
  },
  "summary": {
   "no-match": 31,
@@ -1788,9 +1789,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "hold",
+    "verdict": "review",
     "why": [
-     "OSM POI without an exact address match (house number true, street false)"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -4486,7 +4487,7 @@
    "assist": {
     "verdict": "hold",
     "why": [
-     "med: needs a second independent source within 50 m (Census point is 63 m away)"
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
     ]
    }
   },
@@ -5509,9 +5510,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "pass",
+    "verdict": "review",
     "why": [
-     "OSM POI, name 1, house number + street match"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -6259,9 +6260,9 @@
     "date": null
    },
    "assist": {
-    "verdict": "hold",
+    "verdict": "review",
     "why": [
-     "OSM POI without an exact address match (house number true, street false)"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -7108,9 +7109,9 @@
     "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
    },
    "assist": {
-    "verdict": "hold",
+    "verdict": "review",
     "why": [
-     "med: needs a second independent source within 50 m (Census point is 266 m away)"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
