@@ -439,7 +439,7 @@ ${sprite}
 ${siteBar({ depth, current: 'city', rel: row.beta })}
 <main id="main" data-city="${esc(row.key)}">
 <div class="cbar"><div class="cbar-in"><div class="spill" role="search" data-cleo-search hidden>${ico('search')}<label class="vh" for="cleo-filter">${esc(tr('city.search', { city: name }))}</label><input id="cleo-filter" type="search" placeholder="${esc(tr('city.search', { city: name }))}" autocomplete="off" enterkeyhint="search"><span class="hint" aria-hidden="true">${tr('city.search.hint')}</span></div>
-${switcher}</div></div>
+${switcher}<script>(function(h,n){var w=document.querySelector('.topbar .wrap'),a=w&&w.querySelector('.top-actions');if(h.classList.contains('atlas-d')&&h.getAttribute('data-view')==='atlas'&&n&&a){n.setAttribute('data-pre','');w.insertBefore(n,a)}})(document.documentElement,document.currentScript.previousElementSibling)</script></div></div>
 <button type="button" class="mappill" data-cleo-map="" data-cleo-mappill hidden>${ico('map')}<span>${tr('city.mappill')}</span></button>
 <p class="vh" id="cleo-view-live" aria-live="polite"></p>
 <header class="masthead">${motifSvg(row.imagery && row.imagery.motif, up, { fit: 'xMaxYMax meet', style: 'position:absolute;inset:0;width:100%;height:100%;z-index:-3;opacity:.42;-webkit-mask-image:linear-gradient(90deg,transparent 35%,#000 75%);mask-image:linear-gradient(90deg,transparent 35%,#000 75%)' })}

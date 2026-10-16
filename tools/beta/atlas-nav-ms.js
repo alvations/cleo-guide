@@ -341,7 +341,9 @@ async function finish(page, s0, opener, close) {
     const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html' + h, { waitUntil: 'commit' }); const seen = [];
     for (let i = 0; i < 32; i++) { const x = await page.evaluate(() => { const m = window.Cleo && Cleo.city && Cleo.city.map && Cleo.city.map(); return { c: ((document.querySelector('.ms-count') || {}).textContent || '').trim(), more: ((document.querySelector('.ms-more') || {}).textContent || '').trim(), z: m ? m.getZoom() : null }; }).catch(() => null);
       if (x && (!seen.length || seen[seen.length - 1].c !== x.c || seen[seen.length - 1].more !== x.more || seen[seen.length - 1].z !== x.z)) seen.push(x); await sleep(100); }
-    const zf = seen.length ? seen[seen.length - 1].z : null, early = seen.filter(x => (/places here/.test(x.c) || /Show all/.test(x.more)) && x.z !== zf);
+    // D-46 (FE-1, logged): the list now shows before the map with the count of the view the map WILL open on (atlas.js
+    // predict()), so a count before the fit is allowed only when it IS the settled count — any other count still fails
+    const fin = seen[seen.length - 1] || {}, zf = seen.length ? fin.z : null, early = seen.filter(x => (/places here/.test(x.c) || /Show all/.test(x.more)) && x.z !== zf && (x.c !== fin.c || x.more !== fin.more));
     chk(`QA-76 tokyo ${vn} ${h}: no map-area count or "Show all" on the starting view before the first fit`, zf !== null && early.length === 0, { final: seen[seen.length - 1], early: early.slice(0, 2) });
     await ctx.close();
   }

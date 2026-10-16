@@ -681,7 +681,7 @@ html .views[data-cleo-views] .v-ind{display:none}
 @media (min-width:1024px){
   html .views[data-cleo-views].has-ind{isolation:isolate}
   html main[data-city] .views[data-cleo-views].has-ind{position:relative}
-  html .views[data-cleo-views].has-ind .v-ind{display:block;position:absolute;z-index:-1;border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--shadow-sm);pointer-events:none;transition:left 240ms var(--ease-out),width 240ms var(--ease-out),top 240ms var(--ease-out)}
+  html .views[data-cleo-views].has-ind .v-ind{display:block;position:absolute;z-index:-1;border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--shadow-sm);pointer-events:none;left:0;top:0;transition:transform 240ms var(--ease-out),width 240ms var(--ease-out)}
   html .views[data-cleo-views].has-ind button[aria-pressed=true]{background:transparent;box-shadow:none}
 }
 @keyframes w8-vin{from{opacity:0}to{opacity:1}}

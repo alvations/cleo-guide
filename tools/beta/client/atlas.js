@@ -166,8 +166,44 @@
   C.hotPin = (c, o) => C.hotId(C.pid(c), o);
 
   /* ---- the map-area filter ---- */
+  // D-46 (Atlas is the default view): the list shows AT ONCE, before the map library arrives. Its first page is the one
+  // the map will open on — the same first fit city.js makes, done here in plain Web Mercator (Leaflet's getBoundsZoom /
+  // fitBounds at zoomSnap 0.5), so the map mounting later changes nothing in the list: no wait and no shift. Only first
+  // views that are pure maths are predicted (no hash, a shared #at= view, the session's last view, an area); a #p= place,
+  // a lens link or Top picks hold the list for the first map pass as before (the 3 s JS / 4 s CSS backstops remain)
+  const prj = (lat, lng, z) => { const k = 256 * Math.pow(2, z), si = Math.max(-0.9999, Math.min(0.9999, Math.sin(lat * Math.PI / 180))); return [k * (lng + 180) / 360, k * (0.5 - Math.log((1 + si) / (1 - si)) / (4 * Math.PI))]; };
+  const unp = (x, y, z) => { const k = 256 * Math.pow(2, z); return [Math.atan(Math.sinh(Math.PI * (1 - 2 * y / k))) * 180 / Math.PI, x / k * 360 - 180]; };
+  const fitZ = (ll, o, maxZ, sz) => { const tl = o.paddingTopLeft, br = o.paddingBottomRight;
+    const s = Math.min(...ll.map(p => p[0])), n = Math.max(...ll.map(p => p[0])), w = Math.min(...ll.map(p => p[1])), e = Math.max(...ll.map(p => p[1]));
+    const a = prj(n, w, 0), b = prj(s, e, 0), sc = Math.min((sz[0] - tl[0] - br[0]) / (b[0] - a[0]), (sz[1] - tl[1] - br[1]) / (b[1] - a[1]));
+    let z = Math.log(sc) / Math.LN2; z = Math.round(z / 0.005) * 0.005; z = Math.min(maxZ, Math.max(0, Math.min(19, Math.floor(z / 0.5) * 0.5)));
+    const p = prj(s, w, z), q = prj(n, e, z); return unp((p[0] + q[0] + br[0] - tl[0]) / 2, (p[1] + q[1] + br[1] - tl[1]) / 2, z).concat(z); };
+  const lls = () => qa('li.pl').concat(Cleo.defer ? Cleo.defer.peek() : []).filter(c => !c.hasAttribute('data-np')).map(c => [C.pid(c), llOf(c), c]).filter(x => x[1]);
+  const predict = () => {
+    const el = $('#cleo-map'), r = Cleo.route.parse(); if (!el || !el.clientWidth || !el.clientHeight || r.p || r.top || topOn() || S.q || (S.mode && S.mode !== 'all') || (C.LENS || []).some(k => k !== 'a' && S[k])) return null;
+    const sz = [el.clientWidth, el.clientHeight], at0 = /^(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?),(\d+(?:\.\d+)?)$/.exec(r.at || '');
+    if (r.at) return at0 ? { v: [+at0[1], +at0[2], +at0[3]], sz } : null;
+    if (S.a) { const a = lls().filter(x => at(x[2], 'data-a') === S.a).map(x => x[1]); return a.length ? { v: fitZ(a, C.overMap(), 16, sz), sz } : null; }
+    let v = null; try { v = JSON.parse(sessionStorage.getItem(VK) || 'null'); } catch (e) {}
+    if (v && v.length === 3) return { v, sz };
+    // fitDefault's own steps (below), on the same places: the top 30 (12 on phones) by map priority in the core, less outliers
+    const all = lls().map(x => [x[0], x[1]]); if (all.length < 2) return null;
+    const md = a => a.slice().sort((x, y) => x - y)[a.length >> 1], c0 = [md(all.map(p => p[1][0])), md(all.map(p => p[1][1]))];
+    const dist = (p, c) => Math.hypot(p[0] - c[0], (p[1] - c[1]) * Math.cos(c[0] * Math.PI / 180));
+    const ds = all.map(x => dist(x[1], c0)).sort((x, y) => x - y), core = ds[Math.min(ds.length - 1, Math.floor(ds.length * 0.6))];
+    const k = all.filter(x => dist(x[1], c0) <= core).sort((x, y) => MP[x[0]] - MP[y[0]]).slice(0, desk() ? 30 : 12).map(x => x[1]);
+    const c1 = [md(k.map(p => p[0])), md(k.map(p => p[1]))], m1 = md(k.map(p => dist(p, c1))) || 1e-6, top = k.filter(p => dist(p, c1) <= 2.5 * m1); if (!top.length) return null;
+    const o = C.overMap(); o.paddingTopLeft = o.paddingTopLeft.map(x => x + 16); o.paddingBottomRight = o.paddingBottomRight.map(x => x + 16);
+    let bb = top; const sym = top.concat(top.map(p => [2 * c1[0] - p[0], 2 * c1[1] - p[1]])), z0 = fitZ(bb, o, 16, sz)[2];
+    if (!desk() && z0 < 16 && fitZ(sym, o, 16, sz)[2] >= z0 - 1) bb = sym;
+    return { v: fitZ(bb, o, 16, sz), sz };
+  };
   const box = () => {   // the uncovered part of the map (phones: between the chip row and the carousel), as lat/lng bounds
-    const map = C.map(), sz = map.getSize(), o = C.overMap(), L = window.L;
+    const map = C.map(), o = C.overMap(), L = window.L;
+    if (!map) { const pv = predict(); if (!pv) return null; const [la, ln, z] = pv.v, c = prj(la, ln, z), ox = c[0] - pv.sz[0] / 2, oy = c[1] - pv.sz[1] / 2;
+      const nw = unp(ox + o.paddingTopLeft[0] - 24, oy + o.paddingTopLeft[1] - 24, z), se = unp(ox + pv.sz[0] - o.paddingBottomRight[0] + 24, oy + pv.sz[1] - o.paddingBottomRight[1] + 24, z);
+      return { pred: true, contains: p => p[0] <= nw[0] && p[0] >= se[0] && p[1] >= nw[1] && p[1] <= se[1] }; }
+    const sz = map.getSize();
     const tl = L.point(Math.min(sz.x - 1, o.paddingTopLeft[0] - 24), Math.min(sz.y - 1, o.paddingTopLeft[1] - 24)), br = L.point(Math.max(tl.x + 1, sz.x - o.paddingBottomRight[0] + 24), Math.max(tl.y + 1, sz.y - o.paddingBottomRight[1] + 24));
     return L.latLngBounds(map.containerPointToLatLng(tl), map.containerPointToLatLng(br));
   };
@@ -201,14 +237,15 @@
     // "Search as I move" is on; the whole lens when there is no map (or "Show all") — never every card at once
     // QA-45 (G1): "Show all N in one list" — one tap puts every place in one scrollable list (all stamped, unpaged), as
     // the Gallery pager's "Show all on one page" does; "Only show this map area" / a pan of the map pages it again
-    if (!atlas() || S.day || C.msOne) { topMap(null); C.msTop = null; flat(); if (C.msOne && atlas() && Cleo.defer) Cleo.defer.all(); qa('li.pl.ms-out').forEach(c => c.classList.remove('ms-out')); qa('section.area.ms-empty').forEach(s => s.classList.remove('ms-empty')); H.classList.remove('ms-on'); if (atlas()) H.classList.add('ms-ready'); C.msN = null; if (pager) pager.hidden = true; held(); deco(); face(); if (C.msPaint) C.msPaint(); return; }
+    if (!atlas() || S.day || C.msOne) { topMap(null); C.msTop = null; flat(); if (C.msOne && atlas() && Cleo.defer) Cleo.defer.all(); qa('li.pl.ms-out').forEach(c => c.classList.remove('ms-out')); qa('section.area.ms-empty').forEach(s => s.classList.remove('ms-empty')); H.classList.remove('ms-on'); if (atlas()) H.classList.add('ms-ready', 'ms-paged'); C.msN = null; if (pager) pager.hidden = true; held(); deco(); face(); if (C.msPaint) C.msPaint(); return; }
     const T = topOn() ? topSet() : null; topMap(T);
-    const area = !T && !!map && map.getSize().x > 0 && !C.msAll && (!desk() || C.msLive !== false);
+    const pre = !map && !T && !C.msAll && !H.classList.contains('ms-nomap') && (!desk() || C.msLive !== false) ? box() : null;   // D-46: the map's first view, ahead of the map
+    const area = !T && (!!map && map.getSize().x > 0 || !!pre) && !C.msAll && (!desk() || C.msLive !== false);
     if (more !== true && C.navKeep && C.navKeep()) { if (C.msPaint) C.msPaint(); return; }   // a round-trip keeps the list it left (atlas-nav.js)
     if (area && more !== true && C.navFitPending && C.navFitPending()) { if (C.msPaint) C.msPaint(); return; }   // QA-76: no map-area pass on the pre-fit view (atlas-nav.js)
     if (more !== true) lim = PER;
     // a place without a verified pin has no "outside": it is always listed (last), so no lens count ever loses it
-    const b = area ? box() : null, keep = c => c.classList && (c.classList.contains('is-target') || c === selC), inB = c => { if (T) return !!T[C.pid(c)] || keep(c); const ll = llOf(c); return !b || !ll || b.contains(ll) || keep(c); };
+    const b = area ? pre || box() : null, keep = c => c.classList && (c.classList.contains('is-target') || c === selC), inB = c => { if (T) return !!T[C.pid(c)] || keep(c); const ll = llOf(c); return !b || !ll || b.contains(ll) || keep(c); };
     // which places make each page: the guide's own order (area, then rank within it — tiers are graded per area), the
     // order the list is shown in; page 1 reuses the cards the page already rendered, so a first fit builds ≤ 1 page
     const ord = {}; C.sections.forEach((s, i) => { ord[at(s, 'data-area')] = i; });
@@ -219,8 +256,9 @@
     // only the cards on show are built: exactly these ids (Cleo.defer.stampIds splits their chunks), never the whole area
     const show = {}, need = new Set(); inn.slice(0, lim).concat(inn.filter(keep)).forEach(c => { show[C.pid(c)] = 1; if (!C.byId[C.pid(c)]) need.add('p-' + C.pid(c)); });   // the selected / open place always shows
     // while the map is still on its way, page what is already built: its own first fit picks the page to build
-    if (need.size && Cleo.defer && (map || H.classList.contains('ms-nomap'))) { if (Cleo.defer.stampIds) Cleo.defer.stampIds(need); else need.forEach(id => Cleo.defer.stampFor(id.slice(2))); }
+    if (need.size && Cleo.defer && (map || pre || H.classList.contains('ms-nomap'))) { if (Cleo.defer.stampIds) Cleo.defer.stampIds(need); else need.forEach(id => Cleo.defer.stampFor(id.slice(2))); }
     lastShow = show; qa('li.pl').forEach(c => c.classList.toggle('ms-out', !c.hidden && !show[C.pid(c)] && !keep(c)));
+    H.classList.add('ms-paged');   // INP: until this first pass, desktop Atlas lays out no card (atlas.css) — a Guidebook-built list was 488 cards reflowed per forced layout
     flat();
     qa('section.area').forEach(s => s.classList.toggle('ms-empty', !s.querySelector('li.pl:not([hidden]):not(.ms-out)')));
     // the first map-area pass has picked the page (or there is no map / the reader asked for all): the list can be drawn
@@ -439,7 +477,7 @@
     if (!none) $('.ms-more', head).innerHTML = tp ? '<button type="button" class="btn btn-quiet" data-ms="all">Show all ' + tp[1].toLocaleString('en-US') + '</button>'
       : onA && n[1] ? '<button type="button" class="btn btn-quiet" data-ms="all">Show all ' + (n[0] + n[1]).toLocaleString('en-US') + '</button>'
       : all ? '<button type="button" class="btn btn-quiet" data-ms="area">' + (C.map() ? 'Only show this map area' : 'Show 40 at a time') + '</button>' : '';
-    $('.ms-live', head).hidden = !C.map() || !desk();
+    $('.ms-live', head).hidden = !C.map() || !desk();   // its 44 px row is reserved (atlas.css .ms-row), so it arriving with the map moves nothing (D-46)
     $('.ms-top', bar).setAttribute('aria-pressed', String(!!C.msTop)); $('.ms-mine', bar).setAttribute('aria-pressed', String(!!S.mine));
     const sv = Cleo.saved ? Object.keys(Cleo.saved.all()).filter(r => r.slice(0, r.lastIndexOf('/')) === C.key).length : 0; $('.ms-mine .n', bar).textContent = sv || '';
     $('select', bar).value = S.sort || '';
@@ -481,21 +519,21 @@
   // a #p= that routed before this file arrived: select it now (selected + labelled on the map, SPEC-v3 §1.4)
   const routeSel = () => { const p = Cleo.route.parse().p, c = p && C.byId[p]; if (c && selC !== c) select(c, 'route'); };
   C.msIn = () => {
-    setTimeout(() => H.classList.add('ms-ready'), 3000);   // never hold the list longer than this, map or not
+    setTimeout(() => H.classList.add('ms-ready', 'ms-paged'), 3000);   // never hold the list longer than this, map or not
     build(); unpark(); deco(); face(); setTimeout(routeSel, 0); sq();
     const x = $('.ms-x', bar);
     // phones: the chip row carries FE-A's search pill (in the toolbar) and the switcher last; desktop: area chips in the results head
     if (!desk()) { park(tb, bar, x); } else {   // phones: the view switch stays in FE-A's city bar, its own row under the header (QC-09)
       // desktop (SPEC-v3 §2.1): ONE bar — the search pill (in the toolbar), the chips, then the view switch; the notes and
       // the footer go to the end of the list column, since the document does not scroll in Atlas
-      const sp = $('[data-cleo-search]'); park(tb, bar, x); if (sp && tb) park(sp, tb, tb.firstChild); const tw = $('.topbar .wrap'); park(nav, tw || bar, tw ? $('.top-actions', tw) : null);   // the view switch: the header's right
+      const sp = $('[data-cleo-search]'); park(tb, bar, x); if (sp && tb) park(sp, tb, tb.firstChild); const tw = $('.topbar .wrap'); if (nav && nav.hasAttribute('data-pre')) { nav.removeAttribute('data-pre'); if (nav.parentNode === tw) moved.push([nav, $('main>.cbar .cbar-in'), null]); } park(nav, tw || bar, tw ? $('.top-actions', tw) : null);   // D-46: the page parked it at parse time (render/city.js), so the header never moves; its home is still the city bar   // the view switch: the header's right
       if (achips) park(achips, head, $('.ms-more', head).nextSibling);
       [$('main>.about'), $('body>.method'), $('body>.footer')].forEach(el => park(el, lp, null)); }   // the map-first DOM order (Tab reaches the map before the list) is atlas-nav.js's (FE-2)
     if (desk() && listOn) listMode(false);
     if (H.classList.contains('ms-nomap')) C.onNoMap();
     msArea();
   };
-  C.msOut = () => { listOn = false; qa('li.pl').forEach(c => { c.style.order = ''; }); unpark(); undeco(); if (lp) lp.classList.remove('w7-cards'); closePoi(); held(); };
+  C.msOut = () => { listOn = false; H.classList.remove('ms-paged'); qa('li.pl').forEach(c => { c.style.order = ''; }); unpark(); undeco(); if (lp) lp.classList.remove('w7-cards'); closePoi(); held(); };
 
   /* ---- locate-me: opt-in, one reading, memory only ---- */
   let meL = null;   // `me` (the reader's location, memory only) is declared at the top: feature() reads it
