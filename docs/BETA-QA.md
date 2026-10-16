@@ -1189,3 +1189,57 @@ Open High/Blocker: **0**.
 **Why NO:** QC-26, QA-75 and QA-76 regress rows that were ✅ on be74c82f.
 
 QA sign-off: NO
+
+## 2026-10-16 · QA · R7 delta re-sign on 4aba38b3 · session_017FLWXa5zgGWvqNo4C3UsvH
+
+**Tested SHA: `4aba38b3e15c83d40aafbed5f569aa30da5a074b`**, in a clean worktree, run alone in the container. Using `merge-base --is-ancestor`, QA checked that it contains:
+- afb09e74b (PERF-08 off);
+- 13b9b6f2e and 3929ad4b (QC-26);
+- 927c6b011 (QA-76);
+- b8a3a6ae and 8b06f542 (w8p);
+- a7b4a980 (QA-70) and fd54b823 (QA-71);
+- 8b75a69e (QA's B-07 probe);
+- 00a64631 (FE-1 Atlas switch row);
+- the FE-B claims d24811fba, a44d836fb, 58bfcb68d and 96c94c42e.
+
+Gates:
+- validate ✅.
+- `npm test` ✅: ALL SUITES PASS, 785 PASS.
+- `beta:check` ✅: 180 pages, 8,702 places, beta == live.
+
+Evidence is in `design/beta/eval/w7/qa/resign-4aba38b3/`.
+
+**Harness edits by other lanes, read and accepted:**
+- `test-honesty.js` and `views.js` allow one more exact stated-gap sentence: "We don't add ratings, prices or opening hours of our own" (QC-22, D-42).
+- `w4.js` drops the same sentence from its honesty line.
+- `test-beta.js` picks any sight when no card is unbuilt, and asserts DOM < total only while `selective` is on.
+
+**QA harness change (ratified here):** the `w7.js` storage row now taps "Top picks" (`.ms-top`) where the page has no Must see chip. SPEC-v3 rev 4 §2.4 (39e218e68) replaced the chip. The hash must then carry `top=1` (or `t=1`). With the old chip-only rule, the row failed 10/10 on the pin. With the new rule it passes 20/20 on the pin and still 20/20 on 3ba696e8, which has the chip.
+
+| Re-sign row | Result |
+|---|---|
+| QC-26 A/B (16 cases, 390 + 1440) | ✅ the pin matches be74c82f in every case |
+| QA-75 `views.js` | ✅ 320 PASS, 0 FAIL (links 140/140) |
+| QA-76 `w7.js` lens | ✅ |
+| QA-70: first pin (median of 3, interleaved, alone) | ✅ Tokyo 697 ms (be74c82f 2,253); New York 1,074 (2,284) |
+| QA-71 swipe after the round trip | ✅ 5/5 |
+| Gallery B-07, 2 runs | ✅ 5/5 and 5/5 |
+| Phone Atlas, full pass (FE-1 switch row): `w7.js` atlasd/atlasm/detail/nocdn/storage; Atlas metrics B-06/B-07/B-08/B-09/B-23 | ✅ the switch row sits under the header (4 × 44 px), no horizontal overflow |
+| G1 | ✅ Gallery 5/5, Atlas 5/5; reach 8/8 |
+| B-02 / B-04 / B-05 / B-08 / B-23 | ✅ (Atlas B-04 "no rail" by design, D-36) |
+| w8p | ✅ Tokyo phone 620 KB, Atlas 392 KB; 0 oversize fetches |
+| QA-72, QA-73, QA-59b, QA-55, R7-g6 | ✅ verified (see the register) |
+| W9-6 acc1/acc4 | ✅ |
+| **B-20** tap targets | ❌ **QA-77**: W9-1 recognition badges are 32 px links (Gallery 19/3/5/9 on Tokyo, NY, Chinatown, Wheeling; it was 0 everywhere) |
+| **`w7-photos.js`** | ❌ **QA-78**: one credit's author is a Flickr URL (12/13; it was 13/13) |
+| QA-74 (motion) | open, not a regression: the token change is in `design/beta/tokens.css` only, and the shipped `beta/assets/tokens.css` still has 320 ms |
+
+Open High/Blocker: **0**.
+
+**Why NO:** QA-77 (Med, FE-C) and QA-78 (Low, imagery) regress rows that were ✅ on 3ba696e8 and be74c82f. Both are small fixes:
+- QA-77: give `a.rb` a 44 px hit area.
+- QA-78: put the photographer's name in the author field.
+
+Every other row passes, including all three regressions from 3ba696e8.
+
+QA sign-off: NO

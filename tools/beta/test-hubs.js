@@ -203,6 +203,10 @@ console.log('\n== W9-2: "<month> in Cleo" from data/changes.json; What changed l
   const GEO = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'geocodes.json'), 'utf8')).cities, notes = {};
   Object.values(GEO).forEach(c => Object.entries(c || {}).forEach(([nm, e]) => { if (e && e.status === 'closed' && e.statusSource) (notes[baseName(nm)] = notes[baseName(nm)] || []).push(e.statusSource); }));
   const rt = C.pages.reduce((t, p) => t + JSON.parse(rd('data/places/' + p.changesPage.replace(/^changes\//, '').replace(/\.html$/, '.json'))).changes.filter(e => e.kind === 'closed' && e.d.slice(0, 7) === C.month && (notes[e.name] || []).some(n => RETIRING.test(n))).length, 0);
+  // QC-25: no closure note text on any What changed page — a "Status source" link (an http URL) or nothing
+  const CHG = C.pages.map(p => [p.changesPage, rd(p.changesPage)]), snip = Object.values(notes).flat().map(n => String(n).replace(/https?:\/\/\S+/g, '').replace(/[&<>"']/g, ' ').trim().slice(0, 40)).filter(x => x.length >= 20);
+  chk('no closure note text on any changes page (QC-25): no "Status source:" prose, no note snippet, source links are http(s)', CHG.filter(([, h]) => /Status source:/.test(h) || snip.some(x => h.includes(x)) ||
+    [...h.matchAll(/<a href="([^"]*)"[^>]*>Status source<\/a>/g)].some(m => !/^https?:\/\//.test(m[1]))).map(([f]) => f), a => a.length === 0);
   // QC-25: no closure note text in any shipped JSON — only its URL (src)
   chk('no closure note text ships in data/places/*.json (QC-25)', C.pages.filter(p => JSON.parse(rd('data/places/' + p.changesPage.replace(/^changes\//, '').replace(/\.html$/, '.json'))).changes.some(e => 'note' in e || (e.src && !/^https?:\/\//.test(e.src)))).map(p => p.key), a => a.length === 0);
   chk(`retiring (${rt}) == closures this month whose sourced note announces a retirement or a last day`, sum('retiring') === rt, true);
