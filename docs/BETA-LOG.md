@@ -1776,3 +1776,13 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - FE-A: food covers per the designer (the cover word is never a source or award), B-20 tier links at 44 px, and the false pin-numbers sentence removed;
     - FE-B: QC-10 follow-up (no focus move on a locale or lens redraw);
     - i18n: every lane's interface is catalogued, and QC-16 is claimed (7bd091cd).
+- 2026-10-16 · FE-A · **Spec change: one visible number in the place detail** (SPEC-v3 §3.6 rev 4/5, PANEL-R2 #11, PANEL-R3 #2; the designer confirmed this on 2026-10-16).
+  - The detail now shows only "No. k of n in {area}".
+  - "· pin N" is dropped from the badge line (en and ja `sheet.badge`): pins carry no numbers.
+  - The view position ("k of N in this {view} view") is no longer shown. It stays for assistive tech as a visually hidden `[data-sh-pos]`, together with the previous/next buttons' names, so QC's P-21/P-22 still read it.
+  - **This supersedes the R6/W7 acceptance of a visible "k of 488".** `w7-fe-a-probe.js` now asserts the new state at 390 and 1440:
+    - the hidden position still counts the whole view ("… of 488");
+    - the visible text has no "k of N" and no "pin N";
+    - exactly one "No. k of n in {area}".
+  - It is a spec change, not a weakened test.
+  - It applies to the Gallery and Atlas detail alike, since both use one component.
