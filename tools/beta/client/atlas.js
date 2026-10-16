@@ -383,6 +383,10 @@
       else if (b.classList.contains('ms-mine')) { if (r.mine) delete r.mine; else r.mine = '1'; C.go(r); } });
     on($('select', bar), 'change', e => { const v = e.target.value, r = Cleo.route.parse(); delete r.p; if (v) r.sort = v; else delete r.sort; C.go(r);
       if (v === 'near' && !C.dist) C.need('foryou', () => C.near()); });
+    // QC-05: the empty state's way back — clear the search, or every lens (the view and the map stay)
+    on(head, 'click', e => { const x = e.target.closest('[data-ms-clear]'); if (!x) return; const r = Cleo.route.parse(), keep = { view: r.view || 'atlas' };
+      if (r.at) keep.at = r.at; const fi = $('#cleo-filter'); if (fi && fi.value) { fi.value = ''; fi.dispatchEvent(new Event('input', { bubbles: true })); sq(); }
+      if (at(x, 'data-ms-clear') === 'q') { delete r.q; C.go(r); } else C.go(keep); });
     on(head, 'click', e => { const b = e.target.closest('[data-ms]'); if (!b) return; C.msAll = C.msOne = at(b, 'data-ms') === 'all';
       const r = Cleo.route.parse(); if (C.msOne && r.top) { delete r.top; C.go(r); } else msArea(); });   // "Show all N" = one list (QA-45)
   }
@@ -392,11 +396,15 @@
     if (!head) return;
     const pend = lensStubs().length, N = qa('li.pl').filter(c => !c.hidden).length + pend, n = C.msN, onA = !!n && H.classList.contains('ms-on'), all = !!C.msOne || (!!C.msAll && !!C.map());
     const tot = '<span class="ms-sortby" title="Ordered by tier within each area, then by number of named sources">' + (SORT.filter(x => x[0] === (S.sort || ''))[0] || SORT[0])[1] + '</span>';
-    const tp = C.msTop;
-    $('.ms-count', head).innerHTML = tp ? 'Top <b>' + tp[0].toLocaleString('en-US') + '</b> picks · ' + tot
+    const tp = C.msTop, total = (C.info && C.info.total) || 0;
+    // QC-05: a search (or lens) that matches nothing says so and offers the way back — never a blank map and "0"
+    const none = !tp && N === 0 && total > 0;
+    if (none) { $('.ms-count', head).innerHTML = S.q ? 'No places match “' + C.esc(S.q) + '”' : 'No places match these filters';
+      $('.ms-more', head).innerHTML = (S.q ? '<button type="button" class="btn btn-quiet" data-ms-clear="q">Clear search</button> ' : '') + '<button type="button" class="btn btn-quiet" data-ms-clear="all">Show all ' + total.toLocaleString('en-US') + '</button>'; }
+    else $('.ms-count', head).innerHTML = tp ? 'Top <b>' + tp[0].toLocaleString('en-US') + '</b> picks · ' + tot
       : onA ? '<b>' + n[0].toLocaleString('en-US') + '</b> ' + (n[0] === 1 ? 'place' : 'places') + ' here · ' + tot
       : (all ? 'Showing all <b>' : 'All <b>') + N.toLocaleString('en-US') + '</b> ' + (N === 1 ? 'place' : 'places') + ' · ' + tot;
-    $('.ms-more', head).innerHTML = tp ? '<button type="button" class="btn btn-quiet" data-ms="all">Show all ' + tp[1].toLocaleString('en-US') + '</button>'
+    if (!none) $('.ms-more', head).innerHTML = tp ? '<button type="button" class="btn btn-quiet" data-ms="all">Show all ' + tp[1].toLocaleString('en-US') + '</button>'
       : onA && n[1] ? '<button type="button" class="btn btn-quiet" data-ms="all">Show all ' + (n[0] + n[1]).toLocaleString('en-US') + '</button>'
       : all ? '<button type="button" class="btn btn-quiet" data-ms="area">' + (C.map() ? 'Only show this map area' : 'Show 40 at a time') + '</button>' : '';
     $('.ms-live', head).hidden = !C.map() || !desk();
@@ -405,6 +413,7 @@
     $('select', bar).value = S.sort || '';
     const k = onA ? n[0] : N;
     tog.innerHTML = listOn ? C.icon('map') + '<span>Map</span>' : desk() || H.classList.contains('ms-car') ? C.icon('list') + '<span>List · ' + k.toLocaleString('en-US') + '</span>'
+      : none ? '<i class="ms-handle" aria-hidden="true"></i><span>No places match · Show the list</span>'
       : '<i class="ms-handle" aria-hidden="true"></i><span><b>' + k.toLocaleString('en-US') + '</b> ' + (k === 1 ? 'place' : 'places') + ' here · Show list</span>';   // the phone peek
     tog.setAttribute('aria-pressed', String(listOn)); tog.setAttribute('aria-label', listOn ? 'Show the map' : 'Show the list of ' + pl(k));
   };
