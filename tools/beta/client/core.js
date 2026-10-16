@@ -415,10 +415,11 @@
       var ids = new Set(D.peek({ lens: L }).map(function (s) { return s.id; }));
       return ids.size ? D.stampIds(ids) : [];
     },
-    /** PERF-08 switch: when true, a lens route stamps only its matching cards (stampLens) instead of every card. On since
-     *  every consumer that reads stubs (pins, counts, pager, Atlas) reads them through peek({lens}) / Cleo.lens.shows —
-     *  see BETA-PERF-AUDIT PERF-08. */
-    selective: true,
+    /** PERF-08 switch: when true, a lens route stamps only its matching cards (stampLens) instead of every card. OFF again
+     *  (2026-10-16): with it on, QA-75 (a deep-linked tier lens dropped under a remembered Guidebook/Insights view), QA-76
+     *  (Atlas "Show all N" mid-fit) and likely QC-26 (sheet "1 of N") — consumers that still read stamped cards as the
+     *  whole set. Re-land after the deploy with those fixed and probed — see BETA-PERF-AUDIT PERF-08. */
+    selective: false,
     /** Every card in document (= view) order, stamped or not, WITHOUT stamping: [{id:'p-…', a, el|null, ns|null}].
      *  Lets the Gallery pager place a deep link on its page and stamp only that page (platform W7, R6 gap #5). */
     order: function () {

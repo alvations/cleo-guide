@@ -38,7 +38,7 @@ There is no server, so "backend" here means the build and data side.
 | PERF-05 | CI: beta-fetch-unsplash, beta-atlas-real-shots | 5 min 55 s run, gates 4 min 58 s, every push | runs with nothing new skip the rebuild; npm and Playwright cached; gates faster through PERF-01 | fixed (claimed); measure the next runs |
 | PERF-06 | CLS: Gallery on phone | 0.29–0.34 (5 pilots); desktop ≈ 0.10 | phone **0–0.007**, desktop **0.001** | fixed (bcf94510, merged df4382d2) |
 | PERF-07 | CLS: Atlas on first load | desktop 1.05–1.57, phone 0.18 | — | open → Atlas lane |
-| PERF-08 | INP: switch to Atlas; filter remainder | Atlas: phone 2,896 ms, desktop 792 ms; filter phone 712, desktop 896 ms (df4382d2) | Atlas: phone **1,240**, desktop **672**; filter phone **544**, desktop **824** ms | partly fixed (1538974d, merged 455b8b05): lens builds only what it shows; QA to verify; still > 200 ms |
+| PERF-08 | INP: switch to Atlas; filter remainder | Atlas: phone 2,896 ms, desktop 792 ms; filter phone 712, desktop 896 ms (df4382d2) | Atlas: phone **1,240**, desktop **672**; filter phone **544**, desktop **824** ms | switched OFF again (QA-75, QA-76, QC-26); re-land after the deploy |
 | PERF-09 | LCP | ≤ 1.2 s on every page and viewport (local) | — | meets target |
 | PERF-10 | Font preload (Inter and Bricolage Latin) | — | tried and measured worse; **reverted** | rejected |
 | PERF-11 | CSS after the W8 prune | cleo.css 193.7 KB raw / 34 KB gzip; fe-a.css 114 KB / 22 KB | dead code in the lane sheets is 1.6 KB (reported) | no change |
@@ -131,6 +131,12 @@ There is no server, so "backend" here means the build and data side.
   - city.js (FE-A, agreed): counts and "Showing n of N", sections, every marker (a stamped card or a stub, through `Cleo.lens.shows`) and `fitLens` read the unstamped stubs. views.js: the Gallery pager stamps through `stampLens` under a lens. atlas.js: FE-1 at 7831b0c5.
   - test-beta: the two "a lens stamps every card" checks became QA's outcome checks (a)–(h) — shown == F, every food place is a card, cards + stubs == total, "Show all" builds every card, clearing the lens then scrolling (Atlas) or paging (Gallery) reaches every card, the visible count == F, a `#p=` link and a typed search reach a place outside the lens, markers == pinned. A food lens on Tokyo now builds 290 of 488 cards.
 - **Result (`beta:perf --only inp`, Tokyo, 4× CPU, median of 3; before = df4382d2, after = 455b8b05, same session):** phone — filter 712 → 544, open a place 360 → 400 (noise band), Guidebook 320 → 240, Atlas 2,896 → 1,240 ms; desktop — filter 896 → 824, open 248 → 264, Guidebook 304 → 224, Atlas 792 → 672 ms. Every row still misses 200 ms: the rest is the Atlas map build (Atlas lane, TBT) and `apply()` over the stamped cards. Both heads carry the QA-70 `:has()` rules, so they are compared like for like.
+- **Switched off again (2026-10-16, `Cleo.defer.selective = false`, the code kept behind the flag):** QA's verdict on pin 3ba696e8 was NO, and 1538974d bisected for:
+  - **QA-75:** a deep-linked tier lens was dropped under a remembered Guidebook/Insights view (`views.js --only links` 70/70 → 62/8);
+  - **QA-76:** Atlas "N more outside this area. Show all M" was read mid-first-fit from the stamped cards only (`w7.js --only lens` 33/114 failing);
+  - **QC-26 (same cause):** the sheet's "1 of 488" on a cold Atlas lens deep link.
+  With the flag off: `views.js --only links` 140/140, QC-26 probe "1 of 43" at 390 and 1440. The INP gains above are given back until it re-lands.
+- **To re-land:** the lens must be applied before selective stamping is observed. Every consumer that counts "shown" or "all" (atlas.js ms-more, sheet.js "n of N", views.js remembered-view routing) must read `Cleo.defer.peek({lens})`. Add QA-75 / QA-76 / QC-26 as probes first.
 - **Probe:** `beta:perf`, inp rows.
 
 ### PERF-16: `:has()` anchored on html / body / main (QA-70)
