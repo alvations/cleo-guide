@@ -338,7 +338,9 @@
     poi.innerHTML = '<a class="ms-pv' + (ph ? '' : ' ms-pv-t') + '" href="' + C.esc(Cleo.route.href(r)) + '">' + (ph ? '<span class="ms-pv-m ph">' + media + '</span>' : '') +
       '<span class="ms-pv-b"><span class="ms-pv-e">' + ($('.pl-e', c) ? C.esc($('.pl-e', c).textContent.replace(/\s+/g, ' ').trim()) : '') + '</span>' +
       '<span class="ms-pv-n">' + chip + C.esc(nmT) + '</span>' + (w ? '<span class="ms-pv-w">' + C.esc(w.textContent.trim()) + '</span>' : '') +
-      (s ? '<span class="ms-pv-s">' + C.esc(s.textContent.replace(/\s+/g, ' ').replace(/\s+,/g, ',').trim()) + '</span>' : '') + '</span></a>' +
+      (s ? '<span class="ms-pv-s">' + C.esc(s.textContent.replace(/\s+/g, ' ').replace(/\s+,/g, ',').trim()) + '</span>' : '') +
+      // D-43 (designer): a low-confidence pin draws like any dot; the preview says so in words — FE-C's card label, one string
+      ($('.pl-approx', c) ? '<span class="ms-pv-a">' + C.esc($('.pl-approx', c).textContent.trim()) + '</span>' : '') + '</span></a>' +
       (ph && $('figcaption', ph.closest('figure') || c) ? '<p class="ms-pv-c">' + $('figcaption', ph.closest('figure')).innerHTML + '</p>' : '') +
       '<button type="button" class="btn btn-icon ms-pv-x" aria-label="Close the preview">' + C.icon('close') + '</button>';
     poi.hidden = false; place();
