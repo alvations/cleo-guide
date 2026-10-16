@@ -207,7 +207,7 @@ const tokyoData = JSON.parse(fs.readFileSync(path.join(BETA, 'data', 'places', f
       await page.addScriptTag({ content: AXE });
       const ax = await page.evaluate(async () => (await axe.run(document, { resultTypes: ['violations'] })).violations.filter(v => /serious|critical/.test(v.impact)).map(v => v.id + '×' + v.nodes.length));
       const t = await page.evaluate(visText);
-      const hon = t.split('\n').map(l => l.replace(/No ratings, prices or (?:opening )?hours are shown[^.]*\.?|Status source: .*/g, '')).filter(l => HONESTY.test(l)).slice(0, 2);   // stated gap + closure source (rule 4c)
+      const hon = t.split('\n').map(l => l.replace(/No ratings, prices or (?:opening )?hours are shown[^.]*\.?|We don['’]t add ratings, prices or opening hours of our own\.|Status source: .*/g, '')).filter(l => HONESTY.test(l)).slice(0, 2);   // stated gap + closure source (rule 4c)
       check('changes', `${rel} ${vp} ${scheme}: renders, 0 errors, axe 0 serious/critical, honest`, resp.status() === 200 && t.length > 200 && !errs.length && !ax.length && !hon.length, { len: t.length, errs, axe: ax, honesty: hon });
       if (rel === 'changes/tokyo.html' && scheme === 'light') await shot(page, `changes-tokyo-${vp}`);
       await ctx.close();

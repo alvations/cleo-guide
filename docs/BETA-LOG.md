@@ -1862,3 +1862,12 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - location: the Hotel Utah accept, orphans classified, and the daily Nominatim ledger, with a scheduled task at 03:17 UTC (trig_01P2RWA4kn9SKwApTwLdtSrm);
     - imagery: waves 2 and 3 (Pittsburgh, DC, Bruges, Youngstown).
   - **Gates on 7c280435:** validate, npm test (alone) and beta:check are all green.
+## FE-A — QA-72, QC-22, QA-73, QA-55 (Guidebook), R7-g6 tokens, D-40 (a) Gallery sizes (2026-10-16)
+- **QA-72:** the detail's "Read what <source> says" link wraps inside its button. The label is in `.lbl` and the icon rides the last word (QA-59d). The button is ≥ 44 px. The Met at 390 is now 350 px wide and inside the sheet (was 455 px).
+- **QA-59b:** the nav row has no "k of N" since ad23309d (§3.6), so nothing is left to clip. The probe asserts it on 40 New York places.
+- **QC-22 (spec/copy change):** `city.how.order` now reads "We don’t add ratings, prices or opening hours of our own. Any quoted in a write-up are the source’s, dated." (D-42). The ja is drafted and sent to i18n for review.
+  - The honesty scanners' allowlists (`qa/test-honesty.js`, `qa/views.js`, `qa/w4.js`) gain this one exact sentence, next to the old one. This is not a weakening: the sentence is a disclaimer, and every other ratings/prices mention is still flagged.
+- **QA-73:** on phones the US crumb reads "‹ US". The full name stays in the link, visually hidden, so assistive tech reads "United States". Desktop is unchanged. The short form is used only for a 2-letter country key with a name over 10 characters (`lib/render/shell.js` `trail()`).
+- **QA-55 (Guidebook):** `.gfacts` and `.gsig` use `--fs-body` (16 px).
+- **R7-g6:** fe-a.css has no raw letter-spacing left (12 → `--track-tight` / `--track-vert` / 0) and no raw `var(--city)` rings (→ `--ring-select` / `--ring-select-halo`).
+- **D-40 (a):** Gallery cards ask for 240 px on 3× phones when they have a 600–799 w copy, matching `cardSizes()`. Kanda Myōjin loads once. `beta:qa:w8p` Tokyo phone: 617 KB.
