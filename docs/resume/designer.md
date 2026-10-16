@@ -65,6 +65,11 @@ Current rows:
    - **QA-67 detail media:** ≥ 800 w approved. Narrow copies drop the colour-mix bands, and the plate is image-width, centred.
    - **Detail numbering confirmed:** drop "pin N" and the nav "k of N"; keep "No. k of n". FE-A logs the spec change in BETA-LOG.
    - **Food covers (6edb6acb):** OK, except the fallback. The area is not a cover word, so use the cuisine, else a glyph-only cover. V2.21 applies `--cover-food` in the base layer.
+7. **PERF-16:** all 8 html-, body- and :root-anchored `:has()` rules in the designer CSS are replaced.
+   - `html[data-cleo-page=city]` for the backgrounds and the guidebook hide.
+   - `.stamp.stamp-in` for the stamp.
+   - `html[data-vx]` for the view cross-fade, which needs views.js (FE-A) to set `data-vx` for about 300 ms on a switch.
+   - Platform: remove the 7 entries from the allowlist.
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight

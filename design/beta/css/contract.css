@@ -43,8 +43,8 @@ code, kbd, samp, pre { font-family: var(--font-ui); }   /* M1-15: two families o
 main { display: block; max-width: none; margin: 0; padding: 0 var(--gutter); background: var(--paper); }   /* bands go full-bleed */
 main:not(.feb) > :not(.masthead):not(.rail) { max-width: calc(var(--maxw) - 2 * var(--gutter)); margin-inline: auto; }
 :root { --bleed: max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter))); }
-:root:has(main[data-city^="singapore/"]), :root:has(main[data-city^="vietnam/"]) { background: var(--paper); }
-body:has(main[data-city]) { background: var(--paper); }
+html[data-cleo-page="city"] { background: var(--paper); }   /* PERF-16: build-time page attribute, not :root:has(main…) */
+html[data-cleo-page="city"] body { background: var(--paper); }
 
 /* ---------- 2. M1-08 tier glyph ladder: one class, identical on card · sheet · map ----------
    <i class="tg" data-t="1" aria-hidden="true"></i> — or any element with .tg.t1/.t2/.t3. Drawn as a mask in
@@ -662,7 +662,7 @@ html .pin-n:not(.sel):not(.day) { box-shadow: inset 0 -3px 0 var(--ac, transpare
 @keyframes w3-door { 0% { transform: none; } 40% { transform: translateY(-3px) rotate(-8deg); } 100% { transform: none; } }
 @media (prefers-reduced-motion: no-preference) {
   .pl-save[aria-pressed="true"]::before, .heart[aria-pressed="true"] .ico, .sv-heart[aria-pressed="true"]::before { animation: w3-pop 380ms var(--ease-spring, cubic-bezier(.34,1.56,.64,1)) 1; }
-  .stamp:not([hidden]) { animation: w3-stamp 360ms var(--ease-out) 1; }
+  .stamp.stamp-in:not([hidden]) { animation: w3-stamp 360ms var(--ease-out) 1; }   /* PERF-16: city.js beat() adds .stamp-in on the tap only */
   .rail-i[aria-pressed="true"] > .g, .rail-i[aria-pressed="true"] > .ico { animation: w3-door 420ms var(--ease-spring, ease-out) 1; }
   .rail-i.door:active > .ico { transform: scale(.9); transition: transform var(--dur-1) var(--ease-out); }
   .pills .pill[aria-pressed="true"], .modes button[aria-pressed="true"] { animation: w3-pop 300ms var(--ease-out) 1; }
