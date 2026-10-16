@@ -57,8 +57,16 @@
     '<p class="sub">' + esc(subT(x[1])) + '</p></div><button type="button" class="btn btn-ghost" data-g-see="' + esc(x[2]) + '" data-v="' + esc(x[3]) + '">' + tt('gal.seeall', 'See all {n}', { n: x[5] }) + '</button></header>' +
     '<ol class="rail g-rail">' + x[6].map((r, k) => gcard(r, k)).join('') + '</ol></section>';
   let nRow = 0;
-  const stampRow = () => { const x = pending.shift(); if (!x) return null; rowsHost.insertAdjacentHTML('beforeend', rowHtml(x, nRow++)); hearts(rowsHost); return rowsHost.lastElementChild; };
-  const watch = el => { if (!el || !pending.length) return; if (!io) { while (pending.length) stampRow(); return; } io.observe(el); };
+  // platform (M3-06, marked block): the next row is drawn when the END of the drawn rows nears the viewport (a 0-height
+  // marker inside the rows host, so it hides with it), not when the last row's top does. A below-fold second row no longer
+  // counts against the initial DOM (Tokyo desktop 3,082 → < 2,900 nodes); every row still arrives as the reader scrolls.
+  let end = null;
+  const stampRow = () => { const x = pending.shift(); if (!x) return null; const h = rowHtml(x, nRow++), m = end && end.parentNode === rowsHost;
+    if (m) end.insertAdjacentHTML('beforebegin', h); else rowsHost.insertAdjacentHTML('beforeend', h); hearts(rowsHost); return m ? end.previousElementSibling : rowsHost.lastElementChild; };
+  const watch = el => { if (!el || !pending.length) return; if (!io) { while (pending.length) stampRow(); return; }
+    if (!end || end.parentNode !== rowsHost) { end = d.createElement('div'); end.className = 'g-rows-end'; end.setAttribute('aria-hidden', 'true'); rowsHost.appendChild(end); }
+    io.unobserve(end); io.observe(end); };
+  // /platform
   function start() {
     if (started || !rowsHost || !Cleo.pageData) return; started = 1;
     const f = String(info.file || C.key).replace(/\//g, '--');
