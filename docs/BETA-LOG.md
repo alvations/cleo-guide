@@ -1705,3 +1705,17 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - Beta is at 8,627 places. validate, npm test and beta:check all pass.
   - **FE-C:** next work is Cleo.t on its strings, then the W9-1 card and detail UI, then the W9-9 lens. Both W9 items moved from FE-A, who keeps QA-69 first because it blocks the deploy.
   - **Deploy gate:** still waiting for FE-A's QA-69. Then pin a head with 2bfff3fe and the fix; QA re-runs B-07 Gallery, QC-01 and the regression rows.
+- 2026-10-16 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · D-41 city pages in Japanese (W8-I18N-JA gap 1) and QC-12.
+  - **QC-12 (`79bc6d73`):** the desktop top bar no longer shifts after load.
+    - The switcher sits right of the spacer (CSS order, so tab order is unchanged), and the hidden night toggle keeps its space.
+    - The top bar has dropped out of every QC shift list.
+  - **City server render (`46dc887b`):** every interface string in `lib/render/city.js` now comes from the catalogue: 90 keys plus FE-C's `city.sort.base`.
+    - The English is byte-identical: all 180 pages are unchanged.
+  - **City client modules (this commit):** sheet, city, views, gallery, day and foryou use `Cleo.t` (`tt`). The English passed to each call equals en.json, and test-i18n checks it.
+    - Each module redraws on `cleo:locale`. locale.js fires that event while the page is still held, then reveals it two frames later.
+    - The page-wide swap skips browser-drawn containers and data (record names, write-ups, sources, photos, collection, cuisine and area names).
+    - Japanese CLS is 0–0.007 on the landing, Gallery, Atlas and place detail. A deep-link sheet was 0.655 before the redraw moved inside the hold.
+  - **Catalogue:** 419 keys. Independent review rounds 4 and 5 made 9 + 8 changes (`design/beta/i18n/ja-REVIEW.md`).
+  - **Harness note:** test-views inlines scripts with `String.replace`, so client code must not contain `$&` or `$'`. A `$&` in gallery.js broke 24 checks once; both are now avoided.
+  - **Left English (data or other lanes):** dish, area and source names are data. "Set as my base" is FE-C's base.js, flagged to them. Guidebook and Insights are FE-B's views, not yet catalogued.
+  - validate, npm test (all suites) and beta:check PASS.

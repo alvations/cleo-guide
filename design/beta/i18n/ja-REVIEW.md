@@ -1,6 +1,6 @@
 # Japanese interface catalogue: independent review (D-41)
 
-- **Catalogue:** `tools/beta/i18n/ja.json`, published as `beta/assets/i18n/ja.json`. It has 256 interface strings (166, plus 90 city-page strings in round 4) and the AI-tier note: 147 at first, plus 10 offline-pack strings and 9 "For you" strings that landed upstream during the work.
+- **Catalogue:** `tools/beta/i18n/ja.json`, published as `beta/assets/i18n/ja.json`. It has 419 interface strings (147 at first; the rest added with the offline pack, For you and the city page) and the AI-tier note: 147 at first, plus 10 offline-pack strings and 9 "For you" strings that landed upstream during the work.
 - **Translator:** an AI agent (session_01HB7igqdcuhrau7mUWSauDL).
 - **Reviewer:** an independent AI subagent. It was given only `en.json`, `ja.json` and the review brief, and none of the translator's reasoning.
 - **Date:** 2026-10-11.
@@ -67,4 +67,19 @@ These keys came in when the city page's server-rendered interface (`lib/render/c
 | `city.elsewhere` | その他の地域 | その他のエリア | The catalogue's term for an area is エリア. |
 | `city.area.day` | この地域の1日プラン · {n}か所 | このエリアの1日プラン · {n}か所 | Same reason: エリア. |
 
-**Total: 16 changes over four rounds.**
+## Round 5: the browser-drawn city-page strings (`sheet.*`, `gal.*`, `views.*`, `day.*`, new `city.*` and `fy.*` keys; 8 changes, applied)
+
+These came in when FE-A's client modules (sheet, city, views, gallery, day, foryou) moved to `Cleo.t`. A fresh independent subagent reviewed them under the same brief, with access only to the two catalogues.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `sheet.pinned` | 入口までピン: 確度 {c} | ピンは入口の位置: 確度 {c} | 「入口までピン」 doesn't read; the English means the pin is placed at the door. |
+| `sheet.been.on` | 行った ✓ | 行った場所 ✓ | Matches 行った場所 in city.stamp, city.been and sheet.been.off. |
+| `sheet.wasat` | かつての場所 | かつての所在地 | かつての場所 could read as the place itself having changed; 所在地 says where it stood. |
+| `gal.sub.top` | {places} · 最上位の評価(エリアごと) | {places} · 最上位(エリアごとに評価) | Same phrasing as city.across.t (エリアごとに評価). |
+| `gal.sub.canon` | {places} · {city}で知られるもの | {places} · {city}ならではの定番 | で知られるもの read unnaturally; aligns with 定番 in fy.sub.canon. |
+| `city.empty.note` | 絞り込みで場所が消えることはありません。 | 絞り込みで場所が完全に消えることはありません。 | "for good" had been dropped (filters can hide places for a while). |
+| `city.mine.all` | すべてのリスト | すべてのマイリスト | Glossary term マイリスト. |
+| `city.src.entries` | 番号付きの{n}項目すべてがここにあります。 | この出典の番号付き{n}項目すべてを掲載しています。 | "its" (this source's) had been dropped; 掲載 aligns with other strings. |
+
+**Total: 24 changes over five rounds.**
