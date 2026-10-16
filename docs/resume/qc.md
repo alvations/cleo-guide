@@ -37,6 +37,7 @@ never weakens a gate.
 - `9c133152`: QC-23 and QC-24 verified.
 - `4aba38b3` (deploy pin): QC-26 and QC-22 verified; new QC-27 (Low, i18n: tier translated as 評価).
 - `9fba196e`: QC-27 verified.
+- `e1503766`: QC-25 verified (city pages). Pending: FE-B's "What changed" pages and how-we-choose D-42 line, to re-check when FE-B sends the SHA.
 - `3a0ecfec`: QC-11 and QC-12 verified (S-12 all 91 pages at 390, 768 and 1440).
 
 ## In flight
