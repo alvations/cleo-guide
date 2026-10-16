@@ -36,9 +36,9 @@ There is no server, so "backend" here means the build and data side.
 | PERF-03 | INP: collection filter (Tokyo Gallery) | phone 960 ms, desktop 1,064 ms | phone **≈ 450–520 ms**, desktop **≈ 580 ms** | partly fixed; rest = PERF-08 |
 | PERF-04 | First "open a place" download | Tokyo 104 KB gzip (+ a 430 KB parse) | **14 KB gzip** | fixed |
 | PERF-05 | CI: beta-fetch-unsplash, beta-atlas-real-shots | 5 min 55 s run, gates 4 min 58 s, every push | runs with nothing new skip the rebuild; npm and Playwright cached; gates faster through PERF-01 | fixed (claimed); measure the next runs |
-| PERF-06 | CLS: Gallery on phone | 0.29–0.34 (5 pilots) | — | open → FE-A |
+| PERF-06 | CLS: Gallery on phone | 0.29–0.34 (5 pilots); desktop ≈ 0.10 | phone **0–0.007**, desktop **0.001** | fixed (bcf94510, merged df4382d2) |
 | PERF-07 | CLS: Atlas on first load | desktop 1.05–1.57, phone 0.18 | — | open → Atlas lane |
-| PERF-08 | INP: switch to Atlas; filter remainder | Atlas: phone ≈ 1.6 s, desktop ≈ 0.5 s; filter ≈ 0.5 s | — | open → Atlas lane + FE-A + platform |
+| PERF-08 | INP: switch to Atlas; filter remainder | Atlas: phone 2,896 ms, desktop 792 ms; filter phone 712, desktop 896 ms (df4382d2) | Atlas: phone **1,240**, desktop **672**; filter phone **544**, desktop **824** ms | partly fixed (1538974d, merged 455b8b05): lens builds only what it shows; QA to verify; still > 200 ms |
 | PERF-09 | LCP | ≤ 1.2 s on every page and viewport (local) | — | meets target |
 | PERF-10 | Font preload (Inter and Bricolage Latin) | — | tried and measured worse; **reverted** | rejected |
 | PERF-11 | CSS after the W8 prune | cleo.css 193.7 KB raw / 34 KB gzip; fe-a.css 114 KB / 22 KB | dead code in the lane sheets is 1.6 KB (reported) | no change |
@@ -46,6 +46,7 @@ There is no server, so "backend" here means the build and data side.
 | PERF-13 | Service-worker caching | the cache name is the build hash, so every deploy wipes a reader's offline cities | offline packs live in `cleo-packs`, which a deploy never wipes | fixed (2e4faf42) |
 | PERF-14 | Photos on phone @3× (W8) | Tokyo first load 930 KB; 960w photos in 104 px slots | **590 KB**; none | fixed (e83b6cc3) |
 | PERF-15 | Eager JS and deep-link DOM (W7) | 40.45 KB gzip; #p= 12,459 nodes | **27.4 KB**; **≈ 2.2 k** | fixed (eb47e76) |
+| PERF-16 | `:has()` anchored on html / body / main (QA-70) | map pill → first pin, phone Gallery: Tokyo 1,654 → 2,481 ms (be74c82f → 530dc83b) | guard: `tools/beta/test-css-has.js` in `npm test`; 7 known cleo.css selectors to remove | guard landed; fe-a.css rules fixed by FE-2; cleo.css → designer |
 
 ## Items
 
@@ -97,12 +98,18 @@ There is no server, so "backend" here means the build and data side.
 - **After:** to be measured on the next runs. Expected: a nothing-new push run takes ≈ 1 min, and a run with photos has gates of ≈ 2–2.5 min.
 - **Commit:** fc861679. **Probe:** the Actions run timings (`actions_list` jobs/steps).
 
-### PERF-06: CLS, Gallery on phone (open, FE-A)
+### PERF-06: CLS, Gallery on phone (fixed, platform marked blocks in FE-A's files)
 - **Measured:** Tokyo 0.315, New York 0.341, Wheeling 0.341, Chinatown 0.312, Cleveland 0.294. Desktop is ≈ 0.04 (Wheeling 0.059).
 - **Cause (element timeline):**
   - at ≈ 1.2 s, JS reveals `#cleo-rail` and `.toolbar`, which were hidden;
   - at ≈ 1.6 s and 1.9 s, `.g-rows` is built client-side (0 → 465 → 975 px) above the grid.
 - **Suggested fix (sent to FE-A):** show the rail and toolbar by CSS keyed on `html[data-view=gallery]`, which the head boot script already sets, and server-render the rows or reserve their height.
+- **Fix (platform, marked `PERF-06` blocks, agreed with FE-A):**
+  - render/city.js puts `data-lead` on `#cleo-lead` and `data-rows="N"` on `#cleo-rows-host` only where `lib/gallery.js rowsOf()` gives a lead / rows (3 Singapore pages have none);
+  - fe-a.css: phones reserve the lead slot (320 px) until `.g-lead-on`, an empty `#cleo-rows-host[data-rows]` reserves 470 px, and the hidden phone `#cleo-rail` keeps its box (`visibility:hidden`) while JS is on (`html[data-view]`) until city.js unhides it. None applies under `.lens-on`.
+  - After FE-A's QA-48/60 move put the rail above the phone lead, the rail reveal alone was 0.105 (Tokyo, New York); the rail line took it to 0.007.
+- **Result (`beta:perf`, 4× CPU, median of 3):** phone Cleveland 0.228 → 0.000, Tokyo 0.323 → 0.007, New York 0.234 → 0.007, Chinatown 0.192 → 0.000, Wheeling 0.255 → 0.000; desktop ≈ 0.10 → 0.001.
+- **Commits:** bcf94510, merged df4382d2. G1 `w7.js --only lens,reach` 21/21 on bcf94510; views.js 315/320, the same 5 honesty FAILs as the pre-change head f47945e9.
 - **Probe:** `beta:perf`, load rows.
 
 ### PERF-07: CLS, Atlas on first load (open, Atlas lane)
@@ -118,8 +125,18 @@ There is no server, so "backend" here means the build and data side.
 - **Causes:**
   - Atlas builds the map and `msArea()` stamps every in-area card at first fit (Atlas lane).
   - A lens still stamps every card, although only the matching ones are shown.
-- **Proposal:** "a lens stamps only the cards it shows" (`Cleo.defer.stampIds` over `Cleo.lens.match` on the stubs; a `q` text lens keeps stamping everything). It touches core (platform), views.js and city.js (FE-A), atlas.js pins for unstamped stubs (Atlas), and test-beta's "a lens stamps every card", which would be restated as "every matching card is stamped and shown; every other place stays reachable". To be agreed with FE-A and the Atlas lane before it lands.
+- **Proposal (now landed, see Result):** "a lens stamps only the cards it shows" (`Cleo.defer.stampIds` over `Cleo.lens.match` on the stubs; a `q` text lens keeps stamping everything). It touches core (platform), views.js and city.js (FE-A), atlas.js pins for unstamped stubs (Atlas), and test-beta's "a lens stamps every card", which would be restated as "every matching card is stamped and shown; every other place stays reachable". To be agreed with FE-A and the Atlas lane before it lands.
+- **Landed (1538974d, merged 455b8b05), `Cleo.defer.selective = true`:**
+  - core.js: a lens-only route — and a lens link on load — stamps just the matching cards (`stampLens`), plus its `#p=` place and every view chunk. While a lens is on, the lazy observer waits and the list spacers fold; both resume when it clears. The rail "Show all" still builds every card at once; a typed search (focus) and print still build everything.
+  - city.js (FE-A, agreed): counts and "Showing n of N", sections, every marker (a stamped card or a stub, through `Cleo.lens.shows`) and `fitLens` read the unstamped stubs. views.js: the Gallery pager stamps through `stampLens` under a lens. atlas.js: FE-1 at 7831b0c5.
+  - test-beta: the two "a lens stamps every card" checks became QA's outcome checks (a)–(h) — shown == F, every food place is a card, cards + stubs == total, "Show all" builds every card, clearing the lens then scrolling (Atlas) or paging (Gallery) reaches every card, the visible count == F, a `#p=` link and a typed search reach a place outside the lens, markers == pinned. A food lens on Tokyo now builds 290 of 488 cards.
+- **Result (`beta:perf --only inp`, Tokyo, 4× CPU, median of 3; before = df4382d2, after = 455b8b05, same session):** phone — filter 712 → 544, open a place 360 → 400 (noise band), Guidebook 320 → 240, Atlas 2,896 → 1,240 ms; desktop — filter 896 → 824, open 248 → 264, Guidebook 304 → 224, Atlas 792 → 672 ms. Every row still misses 200 ms: the rest is the Atlas map build (Atlas lane, TBT) and `apply()` over the stamped cards. Both heads carry the QA-70 `:has()` rules, so they are compared like for like.
 - **Probe:** `beta:perf`, inp rows.
+
+### PERF-16: `:has()` anchored on html / body / main (QA-70)
+- **Measured** (`tools/beta/qa/first-pin.sh`: phone Gallery 390, tap the map pill, time to the first `.leaflet-marker-icon`, median of 3, unthrottled): Tokyo be74c82f 1,654 ms → 530dc83b 2,481 ms. Bisect: first bad 7e746d9b (parent c54e55d1: Tokyo 1,502 → 2,602 ms, New York 1,790 → 2,757 ms).
+- **Mechanism:** a `:has()` on `<main>` is re-checked on every DOM change inside it (each card stamped, each pin). 7e746d9b added `main[data-city]:has(.views[data-cleo-views]:not([hidden]))>.overlay…` (2 rules): without them 7e746d9b is 1,529 ms. On tip addeb1f7 a second pair, `main[data-city]:has(>.overlay…)>.cbar…`, costs as much: removing only the first pair leaves 2,485 ms, both pairs 1,666 ms. A direct-child `:has(>…)` is no cheaper here.
+- **Fix:** FE-2 keys the rules on attributes the script sets (`main[data-views-on]`). **Guard:** `tools/beta/test-css-has.js` (in `npm test`) fails on any `:has()` (incl. `:not(:has(`) anchored on html / body / main in the shipped CSS; 7 pre-existing cleo.css selectors are listed exactly as KNOWN (worth ≈ 100 ms here), the list may only shrink — designer.
 
 ### PERF-09: LCP (meets target)
 - Every page and viewport is ≤ 1.2 s at 4× CPU (phone Tokyo Atlas 1,168 ms is the worst).

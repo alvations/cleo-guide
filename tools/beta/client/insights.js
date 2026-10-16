@@ -287,7 +287,7 @@
     var ts = [{ id: '1', name: TIER[1], c: SER[5] }, { id: '2', name: TIER[2], c: SER[0] }, { id: '3', name: TIER[3], c: OTHER }];
     var c7 = card('tier', 'The tier ladder per area', 'Open places by tier (' + (N - T.closed) + ' of ' + N + '). Tiers are graded within each area, so every area has its own must-sees.',
       stacked(A.map(function (a) { return { label: a.name, key: a.id, v: I.tiers[a.id] }; }), ts, 'Area', function (a, t, n, lab) { return exact('tier')(t ? { a: a, t: t } : { a: a }, n, lab); }, 'tier', false),
-      note('tier', T.closed + ' closed places carry no tier and are counted in the closures card instead.'));
+      note('tier', T.closed === 1 ? '1 closed place carries no tier and is counted in the closures card instead.' : T.closed + ' closed places carry no tier and are counted in the closures card instead.'));   // platform (i18n): singular
     // 8 · W9-1 recognition: platform's per-place `rec`, made only from each record's own source keys (an award source,
     // a vetted creator video, ≥ 3 distinct sources). Open places only — a closed place is never a live recommendation.
     var RC = d.recognition, c8;
