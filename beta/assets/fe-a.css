@@ -703,6 +703,15 @@ html body #cleo-sheet .detail .hero-plate.has-photo.ph-fit{max-width:min(var(--p
 html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame{overflow:hidden;border-radius:var(--r-l)}
 html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame{--ph-band:color-mix(in srgb,var(--ph,var(--sand)) 45%,var(--sand))}
 html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame>.photo img{border-radius:0;box-shadow:calc(-1 * var(--ph-max)) 0 0 0 var(--ph-band),var(--ph-max) 0 0 0 var(--ph-band)}
+/* PERF-06 (platform, marked block): reserve the phone lead card and the category rows before gallery.js draws them from
+   data/gallery/<page>.json, so the grid below does not jump (Gallery phone CLS 0.29–0.34 → ≤ 0.01). Keyed on the
+   template's data-lead / data-rows, which the build sets only where the guide has a lead / rows. */
+@media (max-width:1023px){html[data-view=gallery]:not(.g-lead-on):not(.lens-on) #cleo-lead.g-lead-slot[data-lead]{display:block;max-width:var(--maxw);margin:0 auto;padding:4px var(--gutter) 0;min-height:320px;box-sizing:border-box}}
+html[data-view=gallery]:not(.lens-on) #cleo-rows-host[data-rows]:empty{min-height:470px}
+/* the category rail above the lead ships `hidden` (no-JS) and city.js unhides it after first paint: with JS on (the head
+   script has set data-view) its box is kept, invisible, so the lead under it does not drop (phone CLS 0.105 → 0) */
+@media (max-width:1023px){html[data-view=gallery] main[data-city]>nav.rail#cleo-rail[hidden]{display:flex!important;visibility:hidden}}
+/* /PERF-06 */
 
 /* ==========================================================================
    atlas.css — Atlas map-search (Atlas lane, W7 Amendment 2: the real-estate map-search pattern, for travel).
