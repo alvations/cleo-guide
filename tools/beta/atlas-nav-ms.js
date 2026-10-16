@@ -148,9 +148,11 @@ async function finish(page, s0, opener, close) {
           const sh = document.querySelector('#cleo-sheet:not([hidden]) .sheet'), sr = sh && sh.getBoundingClientRect(), mr = document.getElementById('cleo-map').getBoundingClientRect();
           const px = pt ? [mr.left + pt.x, mr.top + pt.y] : null, under = !!(px && sr && px[0] >= sr.left && px[0] <= sr.right && px[1] >= sr.top && px[1] <= sr.bottom);
           const onMap = !!px && px[0] >= mr.left && px[0] <= mr.right && px[1] >= mr.top && px[1] <= mr.bottom;
-          return { sheet: !!sh, pinUnderSheet: under, onMap, z: m && m.getZoom(), scrollY: Math.round(scrollY) }; }, id);
+          // R7-g4 (c): "not scrolled" means the window AND every ancestor of the map (Atlas holds html/body at overflow:hidden)
+          const anc = []; for (let e = document.getElementById('cleo-map').parentElement; e; e = e.parentElement) if (e.scrollTop) anc.push((e.id || e.tagName.toLowerCase()) + ' ' + e.scrollTop);
+          return { sheet: !!sh, pinUnderSheet: under, onMap, z: m && m.getZoom(), scrollY: Math.round(scrollY), ancestorsScrolled: anc }; }, id);
         R[`${key}-${vn}-deeplink`] = r;
-        chk(`#1 ${key} ${vn}: deep link — the place is on the map, not under the detail, zoom ≥ 15, scrollY 0`, r.sheet && !r.pinUnderSheet && r.onMap && r.z >= 15 && r.scrollY === 0, r);
+        chk(`#1 ${key} ${vn}: deep link — the place is on the map, not under the detail, zoom ≥ 15, scrollY 0 (desktop: no map ancestor scrolled either)`, r.sheet && !r.pinUnderSheet && r.onMap && r.z >= 15 && r.scrollY === 0 && (vk === 'm' || r.ancestorsScrolled.length === 0), r);
         if (errors.length) chk(`#1 ${key} ${vn} deep link: 0 page errors`, false, errors.slice(0, 2));
         await ctx.close(); }
     }
@@ -197,7 +199,9 @@ async function finish(page, s0, opener, close) {
     for (let i = 0; i < 400 && (firstCard < 0 || firstPin < 0 || mapAt < 0); i++) {
       await page.keyboard.press('Tab');
       const s = await page.evaluate(() => { const a = document.activeElement; if (!a || a === document.body) return null; const st = getComputedStyle(a), w = a.closest('.spill'), ws = w && getComputedStyle(w);
-        const ring = (st.outlineStyle !== 'none' && parseFloat(st.outlineWidth) > 0) || (st.boxShadow && st.boxShadow !== 'none') || (!!ws && ws.boxShadow && ws.boxShadow !== 'none');
+        // a card's name link is ringed by its card (one ring per card, PANEL-R3 #9/#14), like the search box by its pill
+        const li = a.closest('.pl-n') && a.closest('li.pl'), ls = li && getComputedStyle(li);
+        const ring = (st.outlineStyle !== 'none' && parseFloat(st.outlineWidth) > 0) || (st.boxShadow && st.boxShadow !== 'none') || (!!ws && ws.boxShadow && ws.boxShadow !== 'none') || (!!ls && ls.outlineStyle !== 'none' && parseFloat(ls.outlineWidth) > 0);
         return { d: a.tagName.toLowerCase() + '.' + String(a.className).split(' ')[0] + ' ' + (a.getAttribute('aria-label') || a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 30), card: !!a.closest('li.pl'), pin: a.classList.contains('leaflet-marker-icon'), map: a.id === 'cleo-map' || a.classList.contains('leaflet-container'), ring }; });
       if (!s) continue; stops.push(s); const n = stops.length;
       if (s.card && firstCard < 0) firstCard = n; if (s.pin && firstPin < 0) firstPin = n; if (s.map && mapAt < 0) mapAt = n; if (!s.ring) noRing.push(n + ' ' + s.d);
@@ -341,6 +345,14 @@ async function finish(page, s0, opener, close) {
     chk(`QA-76 tokyo ${vn} ${h}: no map-area count or "Show all" on the starting view before the first fit`, zf !== null && early.length === 0, { final: seen[seen.length - 1], early: early.slice(0, 2) });
     await ctx.close();
   }
+
+  // PANEL-R3 #9/#14: exactly one unclipped focus ring at every stop inside a card (tools/beta/fe2/rings.js), phone + desktop,
+  // light + dark, Tokyo and Cleveland
+  for (const rel of ['cities/tokyo.html', 'cleveland.html']) { if (ONLY && !ONLY.split(',').some(k => rel.includes(k))) continue;
+    const q = require('child_process').spawnSync(process.execPath, [path.join(__dirname, 'fe2', 'rings.js'), rel], { env: process.env, encoding: 'utf8' });
+    const lines = String(q.stdout || '').split('\n').filter(l => /^(PASS|FAIL)  rings/.test(l));
+    if (!lines.length) chk(`rings ${rel}: probe ran`, false, String(q.stderr || '').slice(0, 300));
+    lines.forEach(l => chk('R3 #9/#14 ' + l.replace(/^(PASS|FAIL)  /, '').replace(/  \{.*$/, ''), /^PASS/.test(l), l.replace(/^.*?  \{/, '{').slice(0, 300))); }
 
   // QA-71: after a place is opened and closed (card → detail → Back), swiping the phone carousel still moves the selection,
   // as it does before the round-trip: two swipes, the card in the middle is the selected one each time (QA's 5 pilots)

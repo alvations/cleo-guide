@@ -232,9 +232,10 @@
   function nopin() {
     const mp = $('.mappane'); if (!mp) return;
     const n = qa('li.pl').filter(c => !c.hasAttribute('data-ll')).length + (Cleo.defer ? Cleo.defer.peek().filter(c => !c.hasAttribute('data-ll')).length : 0);
-    let b = $('.nopin', mp); if (!n) { if (b) b.remove(); return; }
+    const lo = Object.keys(info.prov || {}).filter(k => String(info.prov[k]).charAt(0) === 'l').length;   // FE-C QC-04 hook (D-43): low pins stay on the map, counted and named
+    let b = $('.nopin', mp); if (!n && !lo) { if (b) b.remove(); return; }
     if (!b) { b = d.createElement('p'); b.className = 'nopin'; mp.appendChild(b); }
-    b.textContent = tt('views.nopin', '{n} without a verified pin · in the list', { n });
+    b.textContent = [n ? tt('views.nopin', '{n} without a verified pin · in the list', { n }) : '', lo ? (lo === 1 ? tt('views.approx.one', '1 approximate pin') : tt('views.approx', '{n} approximate pins', { n: lo })) : ''].filter(Boolean).join(' · ');
   }
   // area chips (Atlas list head on desktop; the Area tray elsewhere): one tap = the area lens, a second tap clears it. Drawn here from the blob + card attrs.
   const chips = $('.area-chips');

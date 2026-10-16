@@ -767,6 +767,10 @@
     "city.empty.q": "No places match “{q}”.",
     "city.empty.qnote": "Try another spelling, or search for a dish or an area.",
     "city.empty.search": "Clear search",
-    "city.empty.f": "No places match these filters."
+    "city.empty.f": "No places match these filters.",
+    "sheet.pin.approx": "Approximate pin",
+    "sheet.pin.approx.d": "Approximate map pin: the coordinate we hold is not yet verified to the door",
+    "views.approx": "{n} approximate pins",
+    "views.approx.one": "1 approximate pin"
   }
 }

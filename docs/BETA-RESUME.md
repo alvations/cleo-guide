@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 18:26Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 18:52Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -38,7 +38,7 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
     - QA-70 and QA-71.
   - Orchestrator checks on the pin: validate ✅, npm test (alone) ✅, beta:check ✅; w8p ✅ (Tokyo 620 KB, Atlas 392 KB); `views.js --only links` 140 PASS / 0 FAIL.
   - It merges into `claude/cleveland-page-creation-pant4l` as before; check with merge-tree before the PR.
-- **Since pinning:** QC verified QC-26 and QC-22 on the pin (1d973acc). FE-2 re-gated it green, including atlas-ms and the QC-26/QA-76 probes. QA's full delta suite was running at 18:05Z.
+- **Since pinning:** QC verified QC-26 and QC-22 on the pin (1d973acc). FE-2 re-gated it green, including atlas-ms and the QC-26/QA-76 probes. QA's delta suite (18:47Z): the w7 no-CDN storage row passes 20/20 on the pin and on 3ba696e8 once the harness accepts "Top picks". That failure was a harness artefact of the ratified spec change. QA is now checking the fix claims QA-72, QA-73, QA-59b and QA-55. No verdict yet.
 - **History:** 530dc83b NO (QA-70/71). 3ba696e8 NO (QC-26/QA-75/QA-76, all from PERF-08), though B-07 5/5 on 3ba696e8 beat be74c82f's 1/5.
 - **PERF-08 re-lands after the deploy,** behind tests covering QA-75/76 and QC-26.
 - Not blocking: QA-61 and QA-68. QA-67 is fixed (f08f892d).
@@ -55,9 +55,9 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 | What | State | Next |
 |---|---|---|
 | Imagery | All 32 run #48 refusals applied. Run #52 (`all`) yield collapsed to about 4%, so no more plain `all` runs (orchestrator, 15:27Z). Candidate wave 1 (cb5dfd79): 20 vetted titles for 10 empty leads and first-row slots, and 6 stated gaps. Push run #54 is running. D-40a: the 720w leads are capped at 45 KB; Tokyo phone@3× is 607 KB | Imagery contact-sheets #54 and sends only the "?" rows. Wave 2 is about 40 targets from the guides with the lowest tier-1 share |
-| Location verification | Accepted today: Wheeling 7, SF 112, Orlando 7, Chicago 48, DC 38, Miami 2, Erie 27, Philadelphia 25. Beta is at 8,704 places. The assist rules now treat Wikipedia as not independent of Wikidata, add a moved-place guard, hold extended features, and send closed places to review. Singapore (run 22) is in flight | Review Singapore when it commits. Then the 4-row Wikidata re-check (the workflow's re-check mode, a74735f4: SF then Orlando), then `--duplicates` (open plus CLOSED pairs in 4 cities), then Saarland, Okinawa, Rhineland, Aachen |
+| Location verification | Accepted today: Wheeling 7, SF 112, Orlando 7, Chicago 48, DC 38, Miami 2, Erie 27, Philadelphia 25. Beta is at 8,704 places. The assist rules now treat Wikipedia as not independent of Wikidata, add a moved-place guard, hold extended features, and send closed places to review. Singapore (run 22) is in flight. QC-25 closure sources: batch 1 (15 URLs) and batch 2 (14) landed. Sokolowski's corrected to closed 2020 (04026e9d). Decisions sent: Hot Sauce Williams Lee Rd gets one more search to replace a map-listing URL; Uncle Liu's goes UNVERIFIED-status (review sites alone fail 4c) | Batches 3–4 (31 rows). Review Singapore when it commits. Then the 4-row Wikidata re-check (the workflow's re-check mode, a74735f4: SF then Orlando), then `--duplicates` (open plus CLOSED pairs in 4 cities), then Saarland, Okinawa, Rhineland, Aachen |
 | Atlas panel | **R3 80.7** (min 74.0, SD 2.86) at 537cfb8c; R0 56.1 → R1 63.8 → R2 70.9 → R3 80.7. SPEC-v3 rev 5 (46f4abe3). Rev 5 work landing: FE-1 R3 #4 dots and glyphs (f51bb0a4); FE-2 #7, the 108 px shift (in progress) | FE-1 and FE-2 finish rev 5, plus R7-g4. The designer signs off the dots on real shots before "round 4 ready". **With the R4 announcement, the orchestrator sends the panel one method note:** the card focus ring is drawn on the parent card (`.pl:has(.pl-n a:focus-visible)`), so a probe that reads only the focused link's own outline will report "no ring". |
-| QC | 20 rows: verified 7 (01, 02, 03, 06, 07, 08, 09); QC-10 fixed, verified on 639d2b1b; open 12 (Med 9, Low 3, High 0). QC-15 → FE-C; QC-16 → i18n (fixed 7bd091cd, claimed); QC-17 → FE-1 with FE-C; QC-18 → FE-B; QC-19/20 → FE-B under D-42 | QC re-verifies on the next pin |
+| QC | 27 rows: verified 24; open 3 (Med 1: QC-04; Low 2: QC-13, QC-14); High 0. QC-05 verified on e353df08 (3bc6e602). The P-17 harness follows D-43: "n without a verified pin" plus "n approximate pin(s)" | QC-04: FE-C sends its SHA once i18n's ja batch 6 lands (staged e08d33ec). QC-13 → FE-1, QC-14 → designer |
 | Perf | PERF-06 landed (bcf94510). QA-70 is the `:has()` cause; PERF-16 is the designer's cleo.css selectors | Platform: re-measure QA-70, the `:has()` lint, then the PERF-08 FE parts, PERF-14, and the "1 closed places" plural |
 
 ## Lanes
