@@ -242,14 +242,15 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     { const g = boot('cities/tokyo.html', { mods: ['recognition'] }); await sleep(200); g.w.Cleo.defer.all(); await sleep(50);
       const by = {}; tj.places.forEach(p => { by[p.id] = p; }); const probs = []; let rows = 0;
       g.d.querySelectorAll('li.pl[id^="p-"]').forEach(c => { const p = by[c.id.slice(2)], rec = p.rec || {}, r = c.querySelector(':scope > .pl-rec');
-        const n = (rec.award || []).length + (rec.video || []).length + (rec.cited >= 3 ? 1 : 0);
+        const n = (rec.award || []).length + (rec.video || []).length;   // R8 #2e: a card leaves "Cited by" to its "+N more"
+        if (r && r.querySelector('.rb-cited')) probs.push(p.id + ' card shows Cited by and +N more');
         if (!n) { if (r) probs.push(p.id + ' extra'); return; } rows++;
         if (!r || r.querySelectorAll('a.rb').length !== n) { probs.push(p.id + ' count'); return; }
         if (!!p.closed !== r.classList.contains('closed')) probs.push(p.id + ' closed must be hidden (and only closed)');
         (rec.award || []).forEach(id => { const a = r.querySelector('a.rb-award[href="#src=' + id + '"]'); const nm = c.querySelector('.pl-s button.src[data-src="' + id + '"]');
           if (!a || a.textContent !== 'Award · ' + (nm ? nm.textContent.trim() : id)) probs.push(p.id + ' award ' + id); });
-        if (rec.cited >= 3 && (r.querySelector('a.rb-cited') || {}).textContent !== 'Cited by ' + rec.cited + ' sources') probs.push(p.id + ' cited'); });
-      chk(`Tokyo: recognition.js draws ${rows} badge rows, each equal to the data (award named by the card's own chip; closed hidden)`, rows > 200 && probs.length === 0, probs.slice(0, 4));
+        });
+      chk(`Tokyo: recognition.js draws ${rows} card badge rows, each equal to the data (award named by the card's own chip; closed hidden; never "Cited by" beside "+N more")`, rows > 100 && probs.length === 0, probs.slice(0, 4));
       chk('no js errors (recognition.js)', !g.errs.length, g.errs.slice(0, 2)); }
     // the Gallery row cards (li.gc) and the Guidebook entries (li.ge): badges from the page dataset, the same rec data
     for (const [view, sel, links] of [['gallery', 'li.gc[data-id]', false], ['guidebook', 'li.ge[data-id]', true]]) {
@@ -257,11 +258,11 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
       if (g.w.Cleo.recog) g.w.Cleo.recog.views(); await sleep(300);
       const by = {}; tj.places.forEach(p => { by[p.id] = p; }); const els = [...g.d.querySelectorAll(sel)], probs = []; let withB = 0;
       els.forEach(el => { const p = by[el.getAttribute('data-id')], rec = (p && !p.closed && p.rec) || null, r = el.querySelector('.gc-rec, .ge-rec');
-        const n = rec ? (rec.award || []).length + (rec.video || []).length + (rec.cited >= 3 ? 1 : 0) : 0;
+        const n = rec ? (rec.award || []).length + (rec.video || []).length + (links && rec.cited >= 3 ? 1 : 0) : 0;   // R8 #2e: a Gallery card has "+N more"
         if (!n) { if (r) probs.push(p.id + ' badge without data'); return; } withB++;
         if (!r || r.querySelectorAll('.rb').length !== n) probs.push(p.id + ' count');
         else if (links !== !!r.querySelector('a.rb') || (!links && el.querySelector('a .gc-rec a'))) probs.push(p.id + ' link shape'); });
-      chk(`${view}: ${els.length} cards, ${withB} with badges, each equal to the data (${links ? 'links' : 'text inside the card link'})`, els.length > 0 && withB > 0 && probs.length === 0, probs.slice(0, 4));
+      chk(`${view}: ${els.length} cards, ${withB} with badges, each equal to the data (${links ? 'links' : 'text inside the card link'})`, els.length > 0 && (withB > 0 || !links) && probs.length === 0, probs.slice(0, 4));   // Gallery: its first rows may carry no award / video
       chk(`${view}: no js errors`, !g.errs.length, g.errs.slice(0, 2));
     }
     const wantA = tj.places.filter(p => !p.closed && (p.rec || {}).award).map(p => 'p-' + p.id).sort();
@@ -275,6 +276,9 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     const aw = tj.places.find(p => !p.closed && (p.rec || {}).award);
     const r2 = boot('cities/tokyo.html', { hash: '#p=' + aw.id, mods: ['recognition'] }); await sleep(400);
     const fact = [...r2.d.querySelectorAll('#cleo-sheet .fact')].find(x => x.querySelector('.pl-rec'));
+    { const ci = tj.places.find(p => !p.closed && (p.rec || {}).cited >= 3 && (p.rec.award || []).length), r3 = boot('cities/tokyo.html', { hash: '#p=' + ci.id, mods: ['recognition'] }); await sleep(400);
+      const f3 = [...r3.d.querySelectorAll('#cleo-sheet .fact')].find(x => x.querySelector('.pl-rec')), card = r3.d.getElementById('p-' + ci.id);
+      chk('R8 #2e: the card shows its award without "Cited by" (its "+N more" says it); the detail keeps "Cited by N sources"', !!f3 && (f3.querySelector('a.rb-cited') || {}).textContent === 'Cited by ' + ci.rec.cited + ' sources' && !!f3.querySelector('a.rb-award') && !!card.querySelector('.pl-rec .rb-award') && !card.querySelector('.rb-cited') && card.querySelector('.pl-s').hasAttribute('data-more'), ci.id); }
     chk('the detail shows the place\'s badges, each a link', !!fact && fact.querySelectorAll('a.rb').length >= 1 && /^#src=/.test(fact.querySelector('a.rb').getAttribute('href')));
     chk('no js errors (recognition)', !r1.errs.length && !r2.errs.length, r1.errs.concat(r2.errs).slice(0, 2));
     // QC-23: a closed place's "Before it closed" row shows in its detail, also when the sheet opens before recognition.js
@@ -285,7 +289,7 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
       const f = g.d.querySelector('#cleo-sheet .fact .pl-rec'), c = g.d.getElementById('p-kim-keat-hokkien-mee'), cr = c && c.querySelector(':scope > .pl-rec');
       chk('QC-23: a closed place\'s detail shows "Before it closed" with its badges, after a late module load (deep link)', !before && !!f && f.classList.contains('closed') && !f.hasAttribute('hidden') &&
         /^Before it closed:/.test(f.textContent.trim()) && f.querySelectorAll('a.rb').length >= 1, f && f.outerHTML.slice(0, 120));
-      chk('QC-23: the card\'s own copy is hidden by CSS (class closed), not a hidden attribute', !!cr && cr.classList.contains('closed') && !cr.hasAttribute('hidden') &&
+      chk('QC-23: the card carries no visible copy (cited-only: none; else hidden by CSS, class closed, not a hidden attribute)', (!cr || (cr.classList.contains('closed') && !cr.hasAttribute('hidden'))) &&
         /\.pl>\.pl-rec\.closed\{display:none\}/.test(fs.readFileSync(path.join(__dirname, 'lib/render/fe-c.css'), 'utf8')));
       g.w.Cleo.recog.sheet(c, ''); chk('QC-23: the row goes in once', g.d.querySelectorAll('#cleo-sheet .fact .pl-rec').length === 1);
       chk('no js errors (QC-23)', !g.errs.length, g.errs.slice(0, 2)); }

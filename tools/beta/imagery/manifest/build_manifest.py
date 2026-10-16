@@ -60,6 +60,13 @@ SKIP = {
 BRAND_STORE = re.compile(r"Mandarake|Pok[eé]mon Center|Nintendo KYOTO|Animate |Jump Shop|Kiddy Land|Gashapon|Capcom Store|PARCO Character|Kotobukiya|Character Street|Super Potato|Anime Center|Characters World", re.I)
 VENUE_NAME = re.compile(r"\b(Theat(?:re|er)|Opera House|Playhouse|Ballpark|Arena|Stadium|Concert Hall)\b", re.I)
 SKIP.update({
+ 'okinawa#17end-shimoji-island': "no file found (only 'Shimojishima Runway17.jpg', subject unconfirmed) (wave 5 search) — calm cover (stated, W8)",
+ 'okinawa#uegusuku-castle-ruins-kume-island': 'no file found (wave 5 search) — calm cover (stated, W8)',
+ 'saarland#saarlandmuseum-moderne-galerie': 'only details/interiors (results were sculptures/artworks; no confirmed building exterior) (wave 5 search) — calm cover (stated, W8)',
+ 'saarland#romische-villa-nennig': 'only details/interiors (mosaic photos/archival excavation images; no villa or shelter exterior found) (wave 5 search) — calm cover (stated, W8)',
+ 'okinawa#kakazu-ridge-kakazu-takadai-park': 'only a crowd photo on Commons (wave 5 search) — calm cover (stated, W8)',
+})
+SKIP.update({
  'bruges#basiliek-van-het-heilig-bloed': 'both vetted Commons files refused (run #60 close-up, run #64 a painted triptych) — calm cover (stated, W8)',
  'bruges#zwin-natuurpark': 'both vetted Commons files refused (a plain beach; a housing estate) — calm cover (stated, W8)',
 })
@@ -263,9 +270,7 @@ HERO_ARTICLES = {
  'wheeling': ('Wheeling', ['Wheeling'], ['https://en.wikipedia.org/wiki/Wheeling,_West_Virginia']),
 }
 HERO_STATED = {
- 'singapore/queenstown': "its only Commons photo has no author in its metadata (not marked own work) and the town article's lead image doesn't show Queenstown — the guide keeps its motif hero (stated)",
  'singapore/dempsey-hill': 'no Commons photo of Dempsey Hill turned up and its article has no lead image — the guide keeps its motif hero (stated)',
- 'singapore/jalan-besar': 'only a constituency locator map and a non-free photo on Commons — the guide keeps its motif hero (stated)',
 }
 HERO_VN = ['singapore/hanoi', 'singapore/hoi-an', 'vietnam/hanoi', 'vietnam/ho-chi-minh-city', 'vietnam/hoi-an']
 PILOT_HEROES = ['tokyo','cleveland','newyork','singapore/chinatown','wheeling','japan','us','singapore','belgium','germany']

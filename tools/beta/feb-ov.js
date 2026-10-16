@@ -37,10 +37,15 @@ const VPS = [[390, 844, 1], [390, 664, 1], [844, 390, 1], [768, 1024, 0], [1024,
       return { share, over, layers: L.map(({ el, ...x }) => x) };
     });
     const m0 = await meas();
-    await p.mouse.wheel(0, 1600); await p.waitForTimeout(500); await p.mouse.wheel(0, 900); await p.waitForTimeout(700);
+    for (let i = 0; i < 6; i++) { await p.mouse.wheel(0, 100); await p.waitForTimeout(40); } await p.waitForTimeout(500);   // §v2.12 5: a 600 px scroll down
     const m1 = await meas();
-    out.push({ pg, view, vp: `${w}x${h}`, theme, load: m0.share, scrolled: m1.share, over: m1.over, layers0: m0.layers, layers1: m1.layers });
-    console.log(`${pg.padEnd(40)} ${(w + 'x' + h).padEnd(9)} ${theme.padEnd(5)} load ${String(m0.share).padStart(3)}%  scrolled ${String(m1.share).padStart(3)}%  ${m1.over.length ? 'OVERLAP ' + m1.over.join(',') + '  ' : ''}${m1.layers.map(x => `${x.sel}[${x.pos[0]} ${x.top}-${x.bottom}]`).join(' ')}`);
+    for (let i = 0; i < 3; i++) { await p.mouse.wheel(0, -40); await p.waitForTimeout(40); } await p.waitForTimeout(500);   // …then a scroll back up
+    const m2 = await meas();
+    // OV-00 budgets (§v2.12 2): [at rest, after a scroll down] by viewport
+    const B = { '390x844': [13, 7], '390x664': [16, 8], '844x390': [13, 13], '768x1024': [11, 6], '1024x768': [8, 8], '1440x900': [8, 8] }[`${w}x${h}`];
+    const ok = m0.share <= B[0] && m1.share <= B[1];
+    out.push({ pg, view, vp: `${w}x${h}`, theme, ok, budget: B, load: m0.share, scrolled: m1.share, up: m2.share, over: m1.over, layers0: m0.layers, layers1: m1.layers });
+    console.log(`${ok ? 'ok  ' : 'OVER'} ${pg.padEnd(40)} ${(w + 'x' + h).padEnd(9)} ${theme.padEnd(5)} load ${String(m0.share).padStart(3)}%  scrolled ${String(m1.share).padStart(3)}% up ${String(m2.share).padStart(3)}% (budget ${B.join('/')})  ${m1.over.length ? 'OVERLAP ' + m1.over.join(',') + '  ' : ''}${m1.layers.map(x => `${x.sel}[${x.pos[0]} ${x.top}-${x.bottom}]`).join(' ')}`);
     await c.close();
   }
   await b.close(); if (process.argv[2]) fs.writeFileSync(process.argv[2], JSON.stringify(out, null, 1));
