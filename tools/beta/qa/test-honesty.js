@@ -59,7 +59,7 @@ const HONESTY = /(?:[$€£¥₫₩]\s?\d|\b\d+\s?(?:usd|eur|sgd|jpy|vnd|dollars
 // its text after "kept for the record ·" is the closure source (rule 4c), a data-rendered source label
 // D-39 / D-42 (FE-B): the dated-quote label on records whose own prose quotes a price, rating or time is a stated
 // limit of the data, like the gap lines above — exact sentence only.
-const ALLOWED = /Closed — kept for the record · .*|We don['’]t track opening hours or prices|No ratings, prices or (?:opening )?hours are shown|review-aggregator star ratings never count as the recommender|Prices, ratings and times are quoted from the source at the time of research \((?:\d{4}-\d{2}-\d{2}|undated)\)\./gi;
+const ALLOWED = /Closed — kept for the record · .*|We don['’]t track opening hours or prices|No ratings, prices or (?:opening )?hours are shown|We don['’]t add ratings, prices or opening hours of our own|review-aggregator star ratings never count as the recommender|Prices, ratings and times are quoted from the source at the time of research \((?:\d{4}-\d{2}-\d{2}|undated)\)\./gi;
 
 let failures = 0;
 const hits = { honesty: [], brand: [], prose: [] };

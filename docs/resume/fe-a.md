@@ -28,7 +28,10 @@ Fix the R7 QA and QC rows routed to FE-A, then the designer's follow-ups, in the
 - **Food covers (designer sign-off a/b/c):** `--cover-food` token, word capped at `--fs-d2`, word from `tools/beta/lib/dish.js` (never a source or award; area fallback), the grid kind line drops the duplicate dish; test in test-fe-a. SHA: see the commit titled "food covers per the designer's sign-off"
 - **Copy:** dropped "— numbered to match the map" in client/city.js: 99e78046
 
+- **Bundle (16:00Z/16:17Z/16:43Z orders):** QA-72, QC-22, QA-73, QA-59b (confirmed), QA-55 Guidebook, R7-g6 tracking + shadows, D-40 (a) Gallery sizes. SHA: the commit titled "QA-72 …". Probe rows in w8-fe-a-probe.js.
+
 ## Next (in order)
+0. Then: W9-2 card part ("Checked <date>") — ask FE-C first (they are auditing W9). FE-1 proposal: phone-Atlas sheet at ~62vh (PANEL-R2 #1) — answer/plan. Designer optional nit: pointer-open focuses the dialog, not the ✕.
 1. ~~**Food covers**~~ DONE (this push; see Done) (designer sign-off, docs/resume/designer.md "Food-cover review", DESIGN-SYSTEM §v2.11):
    - (a) `background: var(--cover-food)` for food and `var(--cover-sight)` for sights; drop the literal sun mix and its `!important`;
    - (b) word `font-size: clamp(var(--fs-ui), 9cqi, var(--fs-d2))`;
