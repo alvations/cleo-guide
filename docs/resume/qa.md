@@ -17,6 +17,8 @@ Session: `session_017FLWXa5zgGWvqNo4C3UsvH`. Orchestrator: `session_01PCNcUkfa5S
   - 387f1306: pre-measure on b5f0afa1;
   - f00f2312: pre-measure on 0ecf62aa;
   - c5dbeef3: QC rows, QC-01 reproduced.
+- **R7 signed off: YES on b54b3745 under D-45** (QA-79 waived for r7; fix 87f814ad on dev, to verify on the next release pin).
+- The b54b3745 deploy-pin re-sign (beta-deploy-r7): NO on QA-79 only, the Tokyo desktop DOM at 3,074 (≤ 3,000; be74c82f 2,879). QA-77, QA-78 and QA-74 are verified. The B-07 probe is hardened (settle look, place markers only, id kept on window). A waiver decision for r7 would make it YES with no re-test.
 - The 4aba38b3 delta re-sign: NO on QA-77 (W9-1 badges, 32 px links, B-20) and QA-78 (credit author is a URL). QC-26, QA-75, QA-76, QA-72, QA-73, QA-59b, QA-55 and R7-g6 are verified; QA-74 is not in the shipped CSS. The w7 storage row now accepts Top picks (§2.4).
 - The 3ba696e8 delta re-sign: NO on QC-26, QA-75 and QA-76 (the last two from PERF-08, 1538974d). QA-70 verified. B-07 probe fix (3 s pin wait) ratified; on the same probe the pin is 5/5 twice, and be74c82f fails 4/5 (QA-69).
 - Register hygiene on 995e2529: every "claim not on origin" SHA is on origin. Verified QA-59c, QA-59d, QA-71 and R7-g3. New: QA-72, QA-73, QA-74. The open R7 gap list and owners were sent to the orchestrator.
@@ -59,7 +61,10 @@ Put evidence in `design/beta/eval/w7/qa/resign-<sha>/`. Never overwrite the R7 e
 
 ## In flight
 
-- Nothing running. Next pin: verify QA-77 (B-20 = 0 on the pilots, Gallery and Atlas) and QA-78 (`w7-photos.js` 13/13), then a short regression pass (metrics Gallery ×2 + Atlas, `w7.js` atlasd/atlasm/detail/nocdn/lens, `views.js`, w8p, the QC-26 A/B). Also still to do: QA-74 in the shipped CSS, R7-g2 (g) widows and R7-g5 `--all`, the W9-2 lede/HOURS.
+- Nothing running. r7 is live: PR #9 merged b54b3745 as 4382a187 (identical tree), and Pages built at 21:34Z.
+- Next on dev:
+  1. Verify platform's PERF-08 flip SHA with `tools/beta/qa/perf08-regress.sh`, plus `views.js --only links`, `w7.js --only lens` and the QC-26 A/B.
+  2. On the next release pin (after Atlas rev 5 reaches panel R4): QA-79's fix 87f814ad (`w2.js --only dom`), QC-04/D-43, W9-2, QC-30, QC-32, QC-33 and W8-I18N-SEARCH, plus the usual delta and regression sweep against b54b3745.
 
 ## Notes
 
