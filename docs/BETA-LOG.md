@@ -1719,3 +1719,18 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **Harness note:** test-views inlines scripts with `String.replace`, so client code must not contain `$&` or `$'`. A `$&` in gallery.js broke 24 checks once; both are now avoided.
   - **Left English (data or other lanes):** dish, area and source names are data. "Set as my base" is FE-C's base.js, flagged to them. Guidebook and Insights are FE-B's views, not yet catalogued.
   - validate, npm test (all suites) and beta:check PASS.
+
+- 2026-10-16 15:15Z · **Orchestrator** · deploy candidate pinned; DC pins; location-verify commit step · commit: this entry's commit
+  - **Deploy candidate `530dc83b6e45c88afe764779b1451f201a883410`:**
+    - It carries 2bfff3fe (QC-01, which QA verified in 90c6c65a: NO on QA-69 only, open High 0) and FE-A's QA-69 fix 69ca3690.
+    - validate, npm test and beta:check are green. QA is re-signing it.
+    - It merges cleanly into `claude/cleveland-page-creation-pant4l` (merge-tree clean).
+    - Tokyo and NY Gallery B-07 "pin sheet none" went to Atlas FE-2 to reproduce. QA rules on it against be74c82f.
+  - **Washington DC location verify:** 38 of the 40 pass rows were accepted, including the 59 m move of Chả Lụa Ngọc Hưng off a low pin.
+    - Held: Four Sisters (closed) and Pizza Mart (its "official" geo is a third-party ordering site).
+    - Rebuilt `cities/washingtondc.html`: 171 places, 0 missing. geocheck PASS, statuscheck consistent. Beta is at 8,664 places.
+  - **location-verify.yml commit step:** if the branch changed the city's report during the run (review decisions committed mid-run), the step now takes the branch's copy and re-runs from the response cache, so the tool carries every review forward. Before this, it kept the runner's copy and would have dropped those decisions.
+    - It was simulated in a scratch repo in two cases. With a mid-run review, the review is carried and the re-run output kept. With only an unrelated push, the fresh run wins.
+    - The sweep mode keeps ours, as before.
+  - **QC** (2ed1ddce): QC-01/02/03 verified on 2bfff3fe; QC-10 is still open and went back to FE-B. The designer ratifies the SPEC §3.4 plain-bar wording.
+  - **FE-A** got the designer's three food-cover changes. QC and the designer were given 530dc83b to work on.
