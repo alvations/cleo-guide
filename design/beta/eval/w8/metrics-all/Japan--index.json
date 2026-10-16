@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-16T14:19:52.370Z",
+ "generated": "2026-10-16T16:22:03.189Z",
  "viewports": {
   "mobile": "390x844@3 touch",
   "desktop": "1440x900",
@@ -23,7 +23,7 @@
     "legacy": true,
     "firstCardTop": null,
     "screensToFirstCard": null,
-    "mastheadPx": null,
+    "mastheadPx": 416,
     "controlsAbove": 0,
     "controlsAboveOnScreen": 0,
     "controlsAboveList": [],
@@ -66,7 +66,7 @@
     "unnamedControls": 0,
     "unnamedList": [],
     "domNodes": 558,
-    "fcp": 268,
+    "fcp": 240,
     "fontSampleN": 148,
     "fontsDeclared": {
      "Bricolage Grotesque": 26,
@@ -100,14 +100,14 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 698801,
-    "bytesAllResponses": 698801,
+    "bytes": 699472,
+    "bytesAllResponses": 699472,
     "initial": {
-     "bytes": 698801,
-     "gz": 454317
+     "bytes": 699472,
+     "gz": 454564
     },
     "session": {
-     "bytes": 698801
+     "bytes": 699472
     },
     "offOriginBlocked": 0,
     "night": {
@@ -128,7 +128,7 @@
     "legacy": true,
     "firstCardTop": null,
     "screensToFirstCard": null,
-    "mastheadPx": null,
+    "mastheadPx": 612,
     "controlsAbove": 0,
     "controlsAboveOnScreen": 0,
     "controlsAboveList": [],
@@ -203,14 +203,14 @@
     "errors": [],
     "stressErrorSample": [],
     "local404": [],
-    "bytes": 698801,
-    "bytesAllResponses": 698801,
+    "bytes": 699472,
+    "bytesAllResponses": 699472,
     "initial": {
-     "bytes": 698801,
-     "gz": 454317
+     "bytes": 699472,
+     "gz": 454564
     },
     "session": {
-     "bytes": 698801
+     "bytes": 699472
     },
     "offOriginBlocked": 0,
     "night": {
@@ -228,9 +228,9 @@
     "text": 3355
    },
    "cpu4x": {
-    "fcp": 492,
-    "dcl": 503,
-    "loadMs": 716
+    "fcp": 384,
+    "dcl": 370,
+    "loadMs": 607
    },
    "verdict": {
     "rows": {
@@ -280,11 +280,11 @@
      },
      "Perf: bytes / DOM / FCP / FCP 4×": {
       "pass": null,
-      "val": "682 KB · 558 nodes · 236 ms · 492 ms"
+      "val": "683 KB · 558 nodes · 236 ms · 384 ms"
      },
      "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
       "pass": true,
-      "val": "444 KB (682 KB) · 444 KB (682 KB)"
+      "val": "444 KB (683 KB) · 444 KB (683 KB)"
      }
     },
     "passed": 11,

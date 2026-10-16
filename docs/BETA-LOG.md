@@ -1797,3 +1797,68 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - exactly one "No. k of n in {area}".
   - It is a spec change, not a weakened test.
   - It applies to the Gallery and Atlas detail alike, since both use one component.
+### FE Atlas (FE-1) — SPEC-v3 rev 4: phone first screen (PANEL-R2 #2), Top picks (R2 #3, §2.4), count line (§2.3), dots and glyphs (R2 #6)
+- **Phone first screen (§2.2):**
+  - The map plus a 64 px list peek ("288 places here · Show list"; a tap opens the list). The carousel appears only after a selection (pin, dot, card, search result) or Near me, and the selected place is panned into the uncovered band. Escape (decided in the capture phase, so closing the detail never also drops the carousel) or a tap on empty map brings the peek back.
+  - The map controls are two labelled 44 px pills, "Near me" and "Map" (the style on show; it cycles to Satellite). At ≤ 300 px wide they keep the glyph and aria-label.
+  - The Key is never on the map on phones: it is the last section of Filters ("Map key"). Area is already the first.
+  - The header shows the back chevron (to the parent page) and the city name, with no breadcrumb trail and no wordmark.
+  - The kind chips carry no counts.
+  - Carousel cards are 282 px wide with a 72 px thumbnail. The name, kind line and "Recommended by" wrap and never truncate; the selected-state carousel is 196 px tall so nothing is cut.
+  - `C.overMap()` counts the peek as covered, so the fit and the pin labels keep clear of it.
+- **Top picks (§2.4):** the bar's Must see chip is replaced by ONE best-places control, "Top picks": the first 30 (desktop) or 12 (phone) places by map priority. Turning it on fits the map to the picks and leaves only them on the map. The count line reads "Top 30 picks"; "Show all 488" or turning it off restores every place and the reader's previous view. The route key is `top=1`, registered with a validator. Must see stays as information (the sun-wash pill, the card sticker, the Tier section in Filters).
+- **Count line (§2.3):** "354 places here · Top ranked" plus one "Show all 488". "N more outside this area" is removed. **Measurement-rule change for QA to ratify:** `qa/w7.js` atlasd "zoom/pan changes the count; "N more outside" offered" looks for the text "more outside", which §2.3 deliberately removes. The equivalent signal is the "Show all N" button (my atlas-ms check now asserts that). I haven't edited QA's harness.
+- **Measurement-rule note for QA (B-01 in Atlas on phones):** the spec's first phone screen has no card on it (map + peek), so `metrics --view atlas` B-01 "screens to first card" reads null on the phone. A card is one tap away (the peek). Please ratify a peek-aware rule for Atlas, or tell me to put a card on the first phone screen.
+- **Cards:** no rank number on Atlas cards (§2.3: the order is the ranking). "Recommended by" names two sources then "+n more".
+- **Dots (R2 #6):** an 8 px circle for sights and an 8 px rounded square for eat & drink (key updated to match).
+- **Map glyphs (R2 #6, rev 4 order):** the type noun in the place's own name first, then the collection glyph, then the compass. Japanese suffixes count as nouns: -ji / -dera / -in → lantern, -jinja / -gū / -taisha → torii, -jō → castle, -za → ticket, -en / -teien → leaf, yokochō / -dōri / -gai → awning. Built per place at build time (`data-mg`).
+- New atlas-ms checks: the phone first screen is map + a 64 px peek with no carousel (the carousel title and credit checks now run after a pin tap); Top picks (one best-places control, ≤ 30 on the map, count line names it, off restores every place); pins are measured against whichever bottom overlay is showing.
+- Not mine, red on origin too (6872dd51): w2 a11y Tokyo desktop dark, contrast 4.14 on `.food[data-gl=lantern] > .v.plate[lang=ja]` (FE-A's cover plate); reported to FE-A.
+- `tools/beta/test-fe-a.js` phone chip-row check: it expected the bar's `.ms-must` chip; per SPEC-v3 §2.4 it now expects the one best-places control `.ms-top` and **no** `.ms-must` in the bar (stricter: it also catches a second best-places control).
+- `test-fe-a.js` phone: "the Must see chip is the t=1 lens" → "the Top picks chip is the top=1 route and shows pressed" (the chip it clicked no longer exists; Must see stays reachable as Filters → Tier, t=1).
+- **Merged with Atlas FE-2 slices 1–2 (atlas-nav.js).** Fixes found in the combined head:
+  - **Paged list after Back:** cards stamped late (a Back that builds more) carry `ms-out`, but the carousel/grid face `#cleo-grid li.pl{display:grid}` outranked the hide rule, so the carousel grew to every place. `#cleo-grid li.pl.ms-out` is now `display:none !important`, and late-stamped cards join the page only if it shows them.
+  - **Swipe after closing the detail** (FE-2 fixed the same in atlas-nav.js as QA-71 — theirs kept on merge; QA w7 atlasm "swiping the carousel selects the centred card"; red on origin 10f5ea27 for NY / Chinatown / Wheeling): atlas-nav.js's close handler re-applied the saved carousel scroll at 30–800 ms and stopped only on a trusted pointer/key event, so a swipe right after Back was undone. The restore now stops once anything but itself has moved the list. Also, atlas.js's carousel scroll handler re-reads the middle card when the nav hold ends, instead of dropping the scroll. QA atlasm 56/56.
+  - **Far jumps:** a carousel jump of more than two card-widths is instant (a 12,000 px glide read as noise, and probes measured it mid-flight).
+  - **Phone select pan:** it skips `#p=` routes, an open detail and the nav hold, so it never fights atlas-nav.js's placement.
+  - **FE-2's probe:** `pickCard` in atlas-nav-ms.js opens the carousel with a pin tap on phones (marked FE-1 block): since §2.2 the phone's first screen has no cards.
+- **Still red, not fixable in Atlas files:** the #1 phone deep link (`pinUnderSheet` on 4/4 at 390). The phone detail sheet covers 116 → 844 px of an 844 px screen, so no band is left above it. SPEC §3.2 needs a partial-height phone sheet in Atlas; proposed to FE-A (sheet owner) and FE-2.
+- **R2 #13:** desktop pin select scrolls the list only to the nearest edge, and only when the card is off-screen (never past it to the footer).
+- **Keyboard (FE-2's (b)):** on desktop, msIn puts the map pane before the list in the DOM, so Tab reaches the map and its pins before the list. The explicit grid columns keep the layout; msOut restores the order.
+- **R2 #8:** the desktop preview and the phone carousel have no media block when there's no photo. The preview leads with a 40 px `--sand` glyph chip beside the name.
+- **R2 #7:** the phone ⓘ is itself a 44 × 44 button (no pseudo hit area), inside the one-line 20 px strip; attribution links get a ≥ 24 px tall hit box. Photo-credit links in cards are unchanged: padding them made the credit's scrollHeight exceed its box (QA "credits are whole").
+- 2026-10-16 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · W8-I18N-MAPRACE: the orchestrator assigned it to i18n, and FE-A was told.
+  - **Symptom:** when map tiles never load, `fail()` in client/city.js removes the map. A canvas redraw that Leaflet had already queued then runs with no 2D context and throws `TypeError … reading 'save'` at `Canvas._clear`. Nothing is visible, because the schematic has already replaced the map.
+  - **Scope, corrected:** this is not ja-only. The new test reproduces it in English at 390 px too; the ja probe had only ever looked at ja.
+  - **Fix:** one guard in `mountMap`, marked `// i18n D-41 / W8-I18N-MAPRACE`. The canvas renderer's `_redraw` does nothing once it has no context. `fail()`, atlas.js and the rest of the map path are unchanged.
+  - **Test:** test-i18n runs a real browser with the tile hosts blocked, on `#view=atlas&t=1`, ja and en, at 390 and 1440. It requires errors=0.
+    - Against the old city.js it fails: `ja @390` and `en @390` each throw the error.
+    - With the fix it passes.
+    - It prints SKIP where playwright is missing.
+
+### FE Atlas (FE-1) — SPEC-v3 rev 5 (PANEL-R3 #4 part) · FE-B R7-g6 shadows
+- **No sun on the map:** dots and pills carry no tier colour. Sights are light 7 px circles (`--ink` at 30 %) and eat & drink dark 8 px squares (`--ink` at 72 %; dark mode 30 % / 50 %), both with a 1.5 px surface halo. Every pill uses the surface treatment, and Must see shows in the preview, the card sticker and Filters → Tier. The Key drops its Must-see pill and draws the dots as on the map.
+- **Glyphs:**
+  - Step 0 is the per-place overrides in `design/beta/atlas/glyph-overrides.json` (Free Stamp → frame, The Arcade → bag, A Christmas Story House → frame), read at build time.
+  - New nouns: brewing / brewery / distillery / winery / taproom → bottle (Great Lakes Brewing); statue / sculpture → frame; market / shop / bookstore / arcade / yokochō / -dōri / -gai → bag.
+  - Worship outside Japan → spire.
+  - Two original line glyphs were added on the 24 px grid: `bag` and `spire`. `frame` comes from the design kit.
+- **Labels:**
+  - The location dot after Near me is a placed box, so no label covers it.
+  - After placing by estimate, `feature()` measures the real rendered pills. A pill nearer than 4 px to one already kept goes back to a dot; the selected and saved places stay labelled.
+- **FE-B R7-g6:** `.pp .pp-h` now uses `var(--ring-quiet)`, and the `.pp-1.sel` sun ring is removed (no sun on pills). The Key dots drop their 1 px surface halo rather than take the 4 px `--ring-surface`, which would swamp a 7 px dot. That leaves 3 fewer raw shadows in atlas.css.
+- The duplicate map-pane DOM move in msIn is dropped: atlas-nav.js (FE-2) owns the map-first Tab order.
+
+- 2026-10-16 17:02Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **Deploy pin 3ba696e8:** QA's suite is running; B-07 is being A/B-tested against be74c82f with the same probe. Platform's first-pin shows the pin is back at the be74c82f level (Tokyo 1,653 vs 1,564 ms; NY 1,807 vs 1,760 ms).
+  - **Landed since 16:22Z:**
+    - platform: the `:has()` lint in npm test (cf6e0357), `npm run checkpoint` wrapping sync-push.sh (eedeac35), the sync-push fix for an uncommitted beta/ regeneration plus a test (43d9a895), and the R8 measurement kit draft (5f977955);
+    - FE-B: R7-g6 (letter-spacing 6, tabular 100 %, chart tokens), R7-g2 g/h, R7-g5 hubs/landing at 0 failing, QC-19 complete, QA-55 for hubs, and the switcher probe waiting for the transition;
+    - FE-A: §3.6 one visible number, designer follow-ups, and the deep-link keep-in-view;
+    - FE-C: W9-1 badges on every card type and the Recognised filter; W9-9 parked for ja;
+    - i18n: QC-21 and W8-I18N-MAPRACE;
+    - designer: QA-74 (motion ≤ 300 ms) and QA-55 footnotes at 14 px;
+    - QC: QC-11 and QC-12 verified;
+    - location: the Hotel Utah accept, orphans classified, and the daily Nominatim ledger, with a scheduled task at 03:17 UTC (trig_01P2RWA4kn9SKwApTwLdtSrm);
+    - imagery: waves 2 and 3 (Pittsburgh, DC, Bruges, Youngstown).
+  - **Gates on 7c280435:** validate, npm test (alone) and beta:check are all green.

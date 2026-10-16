@@ -192,7 +192,7 @@
 .feb .theme-main:hover .cover { transform: translateY(-3px); box-shadow: var(--e-2); }
 .feb .theme-n { grid-area: m; align-self: start; justify-self: start; margin: var(--s-4) 0 0 var(--s-4); font: 600 var(--fs-d1)/1 var(--font-display); letter-spacing: var(--track-display); color: var(--ink); }
 .feb .theme-t { grid-area: t; font: 500 var(--fs-d3)/1.15 var(--font-display); color: var(--ink); }
-.feb .theme-w { grid-area: w; font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--ink-2); }
+.feb .theme-w { grid-area: w; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--ink-2); }   /* QA-55: prose at the body size (>= 16 px) */
 .feb .theme-main:hover .theme-t { text-decoration: underline; text-underline-offset: 4px; }
 .feb .theme-c { display: flex; flex-wrap: wrap; gap: var(--s-2); padding: 0; }
 .feb .theme-c a { display: inline-flex; align-items: center; gap: var(--s-1); min-height: var(--tap); padding: 0 var(--s-4); border: 1px solid var(--line-strong);
@@ -219,7 +219,7 @@
 .feb .ccard .card-media { aspect-ratio: 3 / 2; }
 .feb .ccard .card-t { font: 500 var(--fs-d3)/1.15 var(--font-display); }
 .feb .ccard .counts { font-size: var(--fs-sm); color: var(--ink-3); }
-.feb .archive { margin: var(--s-7) 0 0; }
+.feb .archive { margin: var(--s-7) 0 0; font-size: var(--fs-body); line-height: var(--lh-body); }   /* QA-55: a sentence, not a caption (.sm is 14 px) */
 
 /* ---------- country hub hero: copy + media (credited photo, or the calm cover with the big count) ---------- */
 .feb .chero { position: relative; background: var(--paper); color: var(--ink); }

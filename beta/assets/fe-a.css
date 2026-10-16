@@ -749,12 +749,11 @@ a.pp{color:inherit;text-decoration:none}a.pp:focus{outline:none}a.pp:focus-visib
 .pp>span::after{content:"";position:absolute;left:50%;bottom:-7px;width:10px;height:7px;margin-left:-5px;background:inherit;clip-path:polygon(0 0,100% 0,50% 100%)}   /* the tail */
 .pp>span>b{font-weight:600}
 .pp .ico{flex:none;width:16px;height:16px;color:var(--ink-2);stroke-width:1.5}
-.pp-1>span{background:var(--sun-wash);color:var(--on-sun-wash);border-color:color-mix(in srgb,var(--sun) 55%,transparent)}.pp-1 .ico{color:var(--on-sun-wash)}
+/* rev 5 (R3 #4): no sun treatment on pills — every pill is the surface pill; Must see shows in the preview, the card sticker and Filters → Tier */
 .pp-x>span{background:var(--sand);color:var(--ink-3);border:1px dashed var(--line-strong)}.pp-x .ico{color:var(--ink-3)}
-.pp .pp-h{position:absolute;right:-7px;top:-8px;display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--surface);box-shadow:0 0 0 1px var(--line);color:var(--accent);font:normal var(--fs-xs)/1 var(--font-ui)}
+.pp .pp-h{position:absolute;right:-7px;top:-8px;display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--surface);box-shadow:var(--ring-quiet);color:var(--accent);font:normal var(--fs-xs)/1 var(--font-ui)}
 .pp.hot>span,.pp:hover>span{border-color:var(--ink);box-shadow:var(--shadow)}
 .pp.sel>span{background:var(--ink);color:var(--paper);border-color:var(--ink);box-shadow:var(--shadow)}.pp.sel .ico{color:var(--paper)}
-.pp-1.sel>span{box-shadow:0 0 0 2px var(--sun),var(--shadow)}
 .day-on .leaflet-marker-icon.pp{display:none}                                         /* a day shows its numbered stops only */
 
 /* ---- map controls: one family of 44 px buttons ---- */
@@ -765,10 +764,10 @@ a.pp{color:inherit;text-decoration:none}a.pp:focus{outline:none}a.pp:focus-visib
 .leaflet-container .m-legend{display:block;padding:0;border-radius:var(--r-m);max-width:270px}
 .leaflet-container .m-legend summary{display:flex;align-items:center;gap:6px;min-height:44px;padding:0 12px;cursor:pointer;list-style:none}
 .leaflet-container .m-legend summary::-webkit-details-marker{display:none}
-.leaflet-container .m-legend ul{list-style:none;margin:0;padding:2px 12px 12px;display:grid;gap:8px;font-size:var(--fs-meta);line-height:1.3;color:var(--ink-2)}
-.leaflet-container .m-legend li{display:flex;align-items:center;gap:10px}
-.leaflet-container .m-legend .kd{flex:none;width:7px;height:7px;border-radius:50%;background:color-mix(in srgb,var(--ink) 38%,var(--paper));box-shadow:0 0 0 1px var(--surface)}.leaflet-container .m-legend .kd.f{width:6px;height:6px;border-radius:1.5px;background:color-mix(in srgb,var(--ink) 62%,var(--paper));margin-left:2px}   /* eat & drink: a rounded square */
-.m-legend b.pp{position:relative;display:inline-block;flex:none;width:140px;height:32px}.m-legend b.pp>span{left:0;top:0;transform:none;cursor:default}.m-legend b.pp>span::after{display:none}
+:is(.leaflet-container .m-legend,.ms-key) ul{list-style:none;margin:0;padding:2px 12px 12px;display:grid;gap:8px;font-size:var(--fs-meta);line-height:1.3;color:var(--ink-2)}
+:is(.leaflet-container .m-legend,.ms-key) li{display:flex;align-items:center;gap:10px}
+:is(.leaflet-container .m-legend,.ms-key) .kd{flex:none;width:7px;height:7px;border-radius:50%;background:color-mix(in srgb,var(--ink) 30%,var(--paper))}:is(.leaflet-container .m-legend,.ms-key) .kd.f{width:8px;height:8px;border-radius:1px;background:color-mix(in srgb,var(--ink) 72%,var(--paper));margin-left:2px}   /* eat & drink: a rounded square */
+:is(.m-legend,.ms-key) b.pp{position:relative;display:inline-block;flex:none;width:140px;height:32px}:is(.m-legend,.ms-key) b.pp>span{left:0;top:0;transform:none;cursor:default}:is(.m-legend,.ms-key) b.pp>span::after{display:none}
 .leaflet-container .leaflet-control-zoom a{width:44px;height:44px;line-height:44px;background:var(--surface);color:var(--ink);border-color:var(--line)}
 html .leaflet-container .leaflet-control-attribution{background:color-mix(in srgb,var(--surface) 85%,transparent);color:var(--ink-2)}
 html .leaflet-container .leaflet-control-attribution a{color:var(--ink)}
@@ -801,7 +800,8 @@ html[data-view=atlas] .ms-nomap-n{display:none;margin:0 0 8px;padding:10px 14px;
 html.ms-nomap[data-view=atlas] .ms-nomap-n{display:block}
 html[data-view=atlas] .ms-head .area-chips{display:flex;gap:8px;overflow-x:auto;padding:6px 0 2px;scrollbar-width:thin}
 /* the map-area filter: classes only — a card outside the area is out of the list, never out of the guide */
-html.ms-on[data-view=atlas] :is(li.pl.ms-out,section.area.ms-empty,.cleo-defer-gap){display:none}   /* in-area stubs are stamped by atlas.js */
+html.ms-on[data-view=atlas] :is(li.pl.ms-out,section.area.ms-empty,.cleo-defer-gap){display:none}
+html.ms-on[data-view=atlas] #cleo-grid li.pl.ms-out{display:none!important}   /* outranks the carousel / grid card faces (#cleo-grid li.pl{display:grid}) */   /* in-area stubs are stamped by atlas.js */
 html[data-view=atlas] .ms-pager{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 14px;margin:24px 0;color:var(--ink-2);font-size:var(--fs-sm)}
 html[data-view=atlas] .ms-pager[hidden],html:not(.ms-on) .ms-pager,html:not([data-view=atlas]) .ms-pager{display:none}
 /* Atlas shows the cards, the map shows the rest: no rail, no Gallery pager, no lens line duplicating the head */
@@ -832,7 +832,7 @@ html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n{margin:10px 0
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n a{display:inline;min-height:0;padding:0;color:var(--ink);text-decoration:none}
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n a::after{content:"";position:absolute;inset:0;z-index:1}   /* the whole card opens the place */
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n .nat{display:none}
-html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.ms-k,.ms-rec){margin:0;padding:0;min-height:0;font-size:var(--fs-sm);line-height:1.45;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.ms-k,.ms-rec){margin:0;padding:0;min-height:0;font-size:var(--fs-sm);line-height:1.35;color:var(--ink-2);white-space:normal;overflow:visible}
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-rec b{font-weight:600;color:var(--ink)}
 html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl :is(.stamp,.pl-why){display:none}
 
@@ -848,6 +848,10 @@ html[data-view=atlas] #cleo-grid.w7-cards li.pl:is(.is-hover,.is-sel){outline:no
 html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700;inset:auto;left:0;top:0;width:300px;max-height:none;overflow:hidden;padding:0;margin:0;border:0;border-radius:var(--r-l);background:var(--surface);box-shadow:var(--e-4);transform:none}
 .ms-pv{display:block;color:var(--ink);text-decoration:none}
 .ms-pv-m{display:block;aspect-ratio:16/9;background:var(--sand);overflow:hidden}.ms-pv-m img{width:100%;height:100%;object-fit:cover;display:block}
+.ms-pv-t .ms-pv-n{display:flex;align-items:center;gap:10px}   /* R2 #8: no photo → a text card led by a 40 px glyph chip */
+.ms-pv-g{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:var(--r-m);background:var(--sand);color:var(--ink-3)}.ms-pv-g .ico{width:22px;height:22px}
+/* R2 #7: licence links get a ≥ 24 px tall hit box without moving the line */
+html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
 .ms-pv-m .pl-cover{position:relative;width:100%;height:100%;margin:0;border-radius:0;aspect-ratio:auto}
 .ms-pv-b{display:grid;gap:4px;padding:12px 14px 14px}
 .ms-pv-e{font-size:var(--fs-xs);color:var(--ink-3);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
@@ -876,7 +880,6 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
   html.atlas-d[data-view=atlas] .topbar .wrap>.views{flex:none;margin:0 0 0 auto;position:static}
   html.atlas-d[data-view=atlas] .topbar .wrap>.views+.top-actions{margin-left:12px}
   html.atlas-d[data-view=atlas] .ms-bar{max-width:none}
-  html.atlas-d[data-view=atlas] .ms-bar .modes .n{display:none}   /* kind chips carry no counts (§2.1); the count line does */
   html.atlas-d[data-view=atlas] .ms-bar .toolbar>.spill{flex:0 1 340px;min-width:220px;margin:0}
   html.atlas-d[data-view=atlas] .ms-bar .toolbar>.spill .hint{display:none}
   /* the document does not scroll in Atlas: map and list fill the screen under the 108 px, only the list scrolls, and the
@@ -943,30 +946,42 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
   html.atlas-m[data-view=atlas]:not(.ms-list) .listpane :is(section.area,section.area>ol.pls){display:contents}
   html.atlas-m[data-view=atlas]:not(.ms-list) .listpane section.area>:not(ol){display:none}
   /* the carousel: the same card face, side by side — media left, text right (sections and lists step aside) */
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl{flex:0 0 min(84vw,360px);scroll-snap-align:center;display:grid;grid-template-columns:104px minmax(0,1fr);grid-template-rows:auto auto auto;align-content:center;column-gap:12px;
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl{flex:0 0 min(282px,78vw);scroll-snap-align:center;display:grid;grid-template-columns:72px minmax(0,1fr);grid-template-rows:auto auto auto;align-content:center;column-gap:12px;
     height:var(--car-h);padding:10px 12px 10px 10px;overflow:hidden;background:var(--surface);border-radius:var(--r-l);box-shadow:var(--e-2);container-type:normal}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.pl-cover,figure.pl-photo){grid-column:1;grid-row:1/span 3;width:104px;height:calc(var(--car-h) - 20px);aspect-ratio:auto;border-radius:var(--r-m)}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.pl-cover,figure.pl-photo){grid-column:1;grid-row:1/span 3;width:72px;height:72px;align-self:start;aspect-ratio:auto;border-radius:var(--r-m)}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.pl-n,.ms-k,.ms-rec){grid-column:2;padding:0}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n{grid-row:1}html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-k{grid-row:2;margin-right:30px}html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-rec{grid-row:3}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n{margin:0 30px 2px 0;font-size:var(--fs-body)}
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.ms-k,.ms-rec){font-size:var(--fs-xs)}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-n{margin:0 30px 2px 0;font-size:var(--fs-body);line-height:1.25;overflow:visible;white-space:normal;-webkit-line-clamp:unset;display:block}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>:is(.ms-k,.ms-rec){font-size:var(--fs-sm)}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid section.area .ms-a{display:inline}   /* the carousel crosses areas: name it */
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-bd{left:14px;top:14px;right:auto}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl .ms-bd .sticker{display:none}
   /* the photo credit is never clipped: the thumbnail's figure steps aside and its credit runs the card's full width
      under the thumb and text (author · licence · source in full); the © shortcut is then redundant */
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo{display:contents!important;overflow:visible!important}   /* a contents box clips nothing; say so in its style too */
-  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo img{grid-column:1;grid-row:1/span 3;width:104px;height:88px;align-self:start;object-fit:cover;border-radius:var(--r-m)}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo img{grid-column:1;grid-row:1/span 3;width:72px;height:72px;align-self:start;object-fit:cover;border-radius:var(--r-m)}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo figcaption{grid-column:1/-1;grid-row:4;position:static!important;width:auto!important;height:auto!important;max-width:none!important;clip:auto!important;overflow:visible!important;display:block!important;-webkit-line-clamp:unset!important;white-space:normal!important;margin:6px 0 0!important;padding:0!important;background:none!important;font:400 var(--fs-xs)/1.3 var(--font-ui)!important;color:var(--ink-3)!important;position:relative;z-index:2}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>figure.pl-photo figcaption a{color:var(--ink-2)}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.ms-cr{display:none}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl:has(>figure.pl-photo){align-content:start}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl>.pl-x{top:2px;right:2px}
+  /* R2 #8: a carousel card with no photo has no media block — no empty frame; its text takes the width */
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl:not(:has(>figure.pl-photo))>.pl-cover{display:none}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl:not(:has(>figure.pl-photo)){grid-template-columns:minmax(0,1fr)}
+  html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl:not(:has(>figure.pl-photo))>:is(.pl-n,.ms-k,.ms-rec){grid-column:1}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl.is-sel{outline:2px solid var(--ink);outline-offset:-2px}
   html.atlas-m[data-view=atlas]:not(.ms-list) #cleo-grid li.pl.is-sel>:is(.pl-cover,figure.pl-photo){outline:none}
   /* the List / Map pill, bottom centre */
   html.atlas-m[data-view=atlas] .ms-toggle{display:inline-flex;align-items:center;gap:8px;position:fixed;z-index:35;left:50%;bottom:calc(var(--car-h) + 24px);transform:translateX(-50%);min-height:var(--tap);padding:0 20px;border-radius:var(--r-pill);box-shadow:var(--e-4);white-space:nowrap}
   html.atlas-m.ms-list[data-view=atlas] .ms-toggle{bottom:14px}
+  /* the first screen: map + a 64 px list peek ("128 places here · Show list"); the carousel comes after a selection (.ms-car) */
+  html.atlas-m[data-view=atlas]:not(.ms-list):not(.ms-car){--car-h:16px}
+  html.atlas-m.ms-car[data-view=atlas]:not(.ms-list){--car-h:196px}   /* names and "Recommended by" wrap, never truncate (§2.3, §3.3): the selected-state carousel is as tall as they need */
+  html.atlas-m[data-view=atlas]:not(.ms-list):not(.ms-car) .listpane{display:none}
+  html.atlas-m[data-view=atlas]:not(.ms-list):not(.ms-car) .ms-toggle{left:0;right:0;bottom:0;transform:none;width:100%;min-height:64px;padding:12px 16px 14px;flex-direction:column;justify-content:flex-start;gap:8px;
+    border-radius:var(--r-l) var(--r-l) 0 0;background:var(--surface);color:var(--ink);font:400 var(--fs-body)/1.2 var(--font-ui);box-shadow:var(--e-4)}
+  html.atlas-m[data-view=atlas] .ms-toggle .ms-handle{display:block;width:36px;height:4px;border-radius:2px;background:var(--line-strong)}
+  html.atlas-m[data-view=atlas] .ms-toggle b{font-weight:600}
   html.atlas-m.ms-list[data-view=atlas] .split::after{content:"";position:fixed;z-index:34;left:0;right:0;bottom:0;height:72px;background:var(--paper);border-top:1px solid var(--line)}   /* the Map pill sits in its own band, never over a card */
   html.atlas-m.ms-nomap[data-view=atlas] .ms-toggle{display:none}
   /* list mode: the map area's places as a full-screen image-first list */
@@ -981,26 +996,36 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
   html.atlas-m[data-view=atlas] .ms-here{display:inline-flex;align-items:center;gap:6px;position:absolute;z-index:690;left:50%;top:calc(var(--cbar-o) + 112px);transform:translateX(-50%);min-height:var(--tap);padding:0 18px;border:0;border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font:600 var(--fs-ui)/1 var(--font-ui);box-shadow:var(--e-4);white-space:nowrap}
   html.atlas-m[data-view=atlas] .ms-here[hidden],html.atlas-m.ms-list[data-view=atlas] .ms-here{display:none}
   html.atlas-m[data-view=atlas] .leaflet-top{top:calc(var(--cbar-o) + 62px)}
-  html.atlas-m[data-view=atlas] .leaflet-container :is(.m-base,.m-legend summary){width:44px;padding:0;justify-content:center}
-  html.atlas-m[data-view=atlas] .leaflet-container :is(.m-base,.m-legend summary)>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  /* two labelled 44 px pills (SPEC-v3 §2.2): "Near me" and "Map" (cycles to Satellite); at 200 % they keep the glyph and aria-label */
+  html.atlas-m[data-view=atlas] .leaflet-container :is(.m-base,.m-locate){width:auto;min-width:var(--tap);padding:0 14px 0 12px;gap:6px;justify-content:flex-start}
+  html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-right{display:flex;flex-direction:column;align-items:flex-end}
+  @media (max-width:300px){html.atlas-m[data-view=atlas] .leaflet-container :is(.m-base,.m-locate)>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}html.atlas-m[data-view=atlas] .leaflet-container :is(.m-base,.m-locate){padding:0;justify-content:center}}
   html.atlas-m[data-view=atlas] .leaflet-container .m-legend[open]{width:auto}
   html.atlas-m[data-view=atlas] .leaflet-bottom{bottom:calc(var(--car-h) + 76px)}
   /* OSM credit: one line, bottom left, never wraps; the ⓘ (a 44 px hit area) opens the full credit */
   html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-left .leaflet-control-attribution.m-attr{position:relative;display:flex;align-items:center;gap:4px;margin:0 0 0 12px;padding:0 2px 0 6px;max-height:20px;white-space:nowrap;background:color-mix(in srgb,var(--surface) 70%,transparent);color:var(--ink-2);border-radius:var(--r-s)}
   html.atlas-m[data-view=atlas] .m-attr .m-attr-s a{color:var(--ink-2)}
-  html.atlas-m[data-view=atlas] .m-attr .m-attr-i{position:relative;display:inline-grid;place-items:center;width:20px;height:20px;margin:0;padding:0;border:0;background:none;color:var(--ink-2);font:inherit;line-height:1;cursor:pointer}
-  html.atlas-m[data-view=atlas] .m-attr .m-attr-i::before{content:"";position:absolute;left:50%;top:50%;width:44px;height:44px;transform:translate(-50%,-50%)}
+  html.atlas-m[data-view=atlas] .m-attr .m-attr-i{position:relative;display:inline-grid;place-items:center;width:44px;height:44px;margin:-12px -12px -12px -10px;padding:0;border:0;background:none;color:var(--ink-2);font:inherit;line-height:1;cursor:pointer}
   html.atlas-m[data-view=atlas] .m-attr .m-attr-i:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
   html.atlas-m[data-view=atlas] .m-attr .m-attr-pop{position:absolute;left:0;bottom:calc(100% + 8px);width:max-content;max-width:calc(100vw - 24px);padding:8px 10px;white-space:normal;background:var(--surface);color:var(--ink-2);border:1px solid var(--line);border-radius:var(--r-m);box-shadow:var(--e-2);line-height:1.5}
   html.atlas-m[data-view=atlas] .m-attr .m-attr-pop[hidden]{display:none}
   html.atlas-m[data-view=atlas] .leaflet-bottom.leaflet-right .leaflet-control{margin:8px 12px 0 0}   /* locate, map style, key: bottom right above the cards */
   html.atlas-m[data-view=atlas] .leaflet-control-attribution{font-size:var(--fs-xs);line-height:1.5;padding:0 6px;border-radius:var(--r-s)}
   html.atlas-m[data-view=atlas] .topbar .crumbs :is(a~.sep,a~.here){display:inline}   /* QA-40: the city named in the header */
+  html.atlas-m[data-view=atlas] .topbar .crumbs{display:flex;align-items:center;min-width:0;flex:1 1 auto;margin-left:-12px}
+  html.atlas-m[data-view=atlas] .topbar .crumbs .sep{display:none!important}
+  html.atlas-m[data-view=atlas] .topbar .crumbs>a:not(:last-of-type){display:none}
+  html.atlas-m[data-view=atlas] .topbar .crumbs>a:last-of-type{display:inline-grid;place-items:center;flex:none;width:var(--tap);height:var(--tap);font-size:0;color:var(--ink)}
+  html.atlas-m[data-view=atlas] .topbar .crumbs>a:last-of-type::before{content:"‹";font:400 28px/1 var(--font-ui)}
+  html.atlas-m[data-view=atlas] .topbar .crumbs .here{font:600 var(--fs-lead)/1.2 var(--font-ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  html.atlas-m[data-view=atlas] .topbar .brand{display:none}   /* phones: back + the city name (SPEC-v3 §2.2) */
   html.atlas-m[data-view=atlas] .nopin{bottom:calc(var(--car-h) + 80px);right:auto;left:12px}
   html.atlas-m[data-view=atlas] #cleo-poi{display:none!important}
 }
 @media (min-width:600px) and (max-width:1023px){html.atlas-m.ms-list[data-view=atlas] .listpane .pls{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @keyframes ms-reveal{to{visibility:visible}}
+.ms-key{margin:0;padding:0;border:0}html[data-view=atlas] .ms-bar .modes .n{display:none}   /* kind chips carry no counts (§2.1, §2.2); the count line does */
+.ms-key ul{padding:4px 0 0}html:not([data-view=atlas]) .ms-key{display:none}   /* the phone Key lives in Filters, in Atlas only */
 @media (prefers-reduced-motion:reduce){.pp>span{transition:none}}
 
 /* atlas-nav.css (Atlas FE-2 lane): the Atlas map's interaction state — rides after atlas.css in assets/fe-a.css.
@@ -1021,3 +1046,15 @@ html.atlas-m[data-view=atlas]:not(.ms-list) .ms-head .ms-near-n{display:none}
 html[data-view=atlas] .ms-ring{display:inline-flex;align-items:center;gap:6px;flex:none}
 html[data-view=atlas] .ms-ring .ms-ring-l{font:500 var(--fs-sm)/1.2 var(--font-ui);color:var(--ink-2);white-space:nowrap}
 html[data-view=atlas] .ms-ring .chip[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* FE-C (W9-1) recognition badges on the place card and in the detail. Tokens only; rides in the fe-a.css bundle
+   (build.js). Award = the sun-wash treatment (recognition, like must-see); cited and creator video = sand. */
+.pl .pl-rec{order:98;grid-column:1/-1}
+.pl-rec{margin:var(--s-1) 0 0;display:flex;flex-wrap:wrap;gap:var(--s-1) var(--s-2);align-items:center}
+.pl-rec .lbl{font-size:var(--fs-xs);color:var(--ink-3)}
+.rb{display:inline-flex;align-items:center;min-height:32px;padding:0 var(--s-3);border-radius:var(--r-pill);background:var(--sand);color:var(--ink);font:600 var(--fs-xs)/1.2 var(--font-ui);text-decoration:none;position:relative;z-index:3}
+.rb:hover{text-decoration:underline;text-underline-offset:3px}
+.rb-award{background:var(--sun-wash);color:var(--on-sun-wash)}
+.sheet .fact .pl-rec{margin:0}
+.sheet .fact .pl-rec[hidden]{display:flex}
+.gc-rec{display:flex;margin-top:var(--s-1)}.gc-rec .rb{min-height:24px;pointer-events:none}.ge-rec{margin:var(--s-1) 0}

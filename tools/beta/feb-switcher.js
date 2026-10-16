@@ -8,8 +8,9 @@ const page0 = process.argv[2] || 'cities/tokyo.html';
   const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
   let bad = 0;
   // [width, DPR, how the sheet opens]: 'hash' = a fresh #p=senso-ji deep link (the orchestrator's 200 % case), else a card tap
-  for (const [w, dpr, how] of [[390, 3, 'click'], [768, 1, 'click'], [1024, 1, 'click'], [1440, 1, 'click'], [260, 2, 'click'], [195, 2, 'hash'], [195, 2, 'click']]) {
-    const p = await b.newPage({ viewport: { width: w, height: 844 }, deviceScaleFactor: dpr });
+  // the last row is a control under reduced motion (no transition at all)
+  for (const [w, dpr, how, rm] of [[390, 3, 'click'], [768, 1, 'click'], [1024, 1, 'click'], [1440, 1, 'click'], [260, 2, 'click'], [195, 2, 'hash'], [195, 2, 'click'], [390, 3, 'click', 'reduce']]) {
+    const p = await b.newPage({ viewport: { width: w, height: 844 }, deviceScaleFactor: dpr, reducedMotion: rm || 'no-preference' });
     const errs = []; p.on('pageerror', e => errs.push(e.message));
     const deep = how === 'hash' && page0 === 'cities/tokyo.html';   // a fresh load of the deep link (the sheet opens on load)
     await p.goto('http://127.0.0.1:8765/beta/' + page0 + (deep ? '#view=gallery&p=senso-ji' : '#view=gallery')); await p.waitForTimeout(deep ? 1500 : 800);
@@ -22,7 +23,10 @@ const page0 = process.argv[2] || 'cities/tokyo.html';
     const s0 = await st();
     const small = s0.segs.filter(x => !x.vis || x.w < (w < 300 ? 60 : 44) || x.h < 44);   // < 300 px: the 2 x 2 grid, each >= 60 x 44
     // open a place sheet, then check each segment is still hit-testable, and tap Guidebook once
-    if (!deep) { await p.evaluate(() => { const a = document.querySelector('li.pl .pl-n a'); if (a) a.click(); }); await p.waitForTimeout(600); }
+    if (!deep) { await p.evaluate(() => { const a = document.querySelector('li.pl .pl-n a'); if (a) a.click(); }); await p.waitForTimeout(150); }
+    // the sheet grows in through a view transition (~430–480 ms, starting 80–120 ms after the tap) during which
+    // elementFromPoint returns <html>: wait until no animation runs (2 s cap) instead of a fixed delay
+    await p.waitForFunction(() => document.getAnimations().every(a => a.playState !== 'running'), null, { timeout: 2000 }).catch(() => {});
     const open1 = await p.evaluate(() => !!(window.Cleo && Cleo.sheet && Cleo.sheet.isOpen()));
     const s1 = await st();
     const covered = s1.segs.filter(x => !x.hit).map(x => x.v);
@@ -31,7 +35,7 @@ const page0 = process.argv[2] || 'cities/tokyo.html';
     const after = await p.evaluate(() => ({ view: document.documentElement.getAttribute('data-view'), sheet: !!(window.Cleo && Cleo.sheet && Cleo.sheet.isOpen()), focus: document.activeElement && document.activeElement.tagName, hash: location.hash }));
     const ok = s0.tag === 'DIV' && s0.role === 'group' && s0.label === 'View' && s0.pressed.length === 1 && !small.length && open1 && (w >= 640 || (!covered.length && after.view === 'guidebook' && !after.sheet && /^H[12]$/.test(after.focus))) && !errs.length;
     if (!ok) bad++;
-    console.log(`${ok ? 'PASS' : 'FAIL'} ${w}px@${dpr}x ${how}  ${JSON.stringify({ segs: s0.segs.map(x => `${x.v} ${x.w}x${x.h}`), small, sheetOpen: open1, covered, after, errs })}`);
+    console.log(`${ok ? 'PASS' : 'FAIL'} ${w}px@${dpr}x ${how}${rm ? ' reduced-motion' : ''}  ${JSON.stringify({ segs: s0.segs.map(x => `${x.v} ${x.w}x${x.h}`), small, sheetOpen: open1, covered, after, errs })}`);
     await p.close();
   }
   await b.close();

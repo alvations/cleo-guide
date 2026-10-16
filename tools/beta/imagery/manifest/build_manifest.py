@@ -76,6 +76,9 @@ SKIP.update({
  'washingtondc#u-s-marine-corps-war-memorial-iwo-jima': 'sculpture (1954): the US has no freedom of panorama for sculpture — calm cover (stated)',
  'washingtondc#national-world-war-ii-memorial': 'modern memorial with copyrighted sculpture (2004): the US has no freedom of panorama for sculpture — calm cover (stated)',
  'washingtondc#african-american-civil-war-memorial-and-museum': 'the memorial is a modern sculpture (1997): the US has no freedom of panorama for sculpture — calm cover (stated)',
+ 'youngstown#dave-grohl-alley': 'candidate wave 3: an alley of modern murals — copyrighted artwork is the subject — calm cover (stated)',
+ 'youngstown#past-times-arcade': 'candidate wave 3: an arcade (a venue) — never a photo — calm cover (stated)',
+ 'bruges#garnaalvissers-te-paard-oostduinkerke': 'candidate wave 3: a living tradition — the horseback shrimp fishers themselves are the subject (people rule) — calm cover (stated)',
  'chicago#site-of-the-great-chicago-fire-pillar-of-fire': 'R7-g1: the only Commons lead image is a DeKoven Street view of parked cars; no file shows the site or the Pillar of Fire sculpture — calm cover (stated)',
  'chicago#360-chicago-875-north-michigan-avenue': 'venue (paid observation deck, like Shibuya Sky) — never a photo',
  'kyoto#marufukuro-former-nintendo-headquarters': 'no Commons file shows the 1930 Marufukuro building (only the later research centre and a name plate) — gap stated',
@@ -84,6 +87,17 @@ SKIP.update({
 })
 # extra names a file title/description/category may use for the place (matched without spaces/diacritics)
 NAMES = {
+ 'bruges#belfort-van-brugge': ['Belfort van Brugge', 'Belfort', 'Belfry of Bruges', 'Belfry of Brugge'],
+ 'bruges#stadhuis-van-brugge': ['Stadhuis van Brugge', 'Stadhuis', 'City Hall of Brugge', 'Bruges City Hall'],
+ 'bruges#begijnhof-ten-wijngaerde': ['Begijnhof Ten Wijngaerde', 'Begijnhof', 'Beguinage of Brugge'],
+ 'bruges#de-burg': ['De Burg', 'Burg square', 'Burg (Brugge)'],
+ 'bruges#basiliek-van-het-heilig-bloed': ['Basiliek van het Heilig Bloed', 'Heilig Bloed', 'Basilica of the Holy Blood'],
+ 'bruges#onze-lieve-vrouwekerk-michelangelos-madonna': ['Onze-Lieve-Vrouwekerk', 'Church of Our Lady'],
+ 'bruges#zwin-natuurpark': ['Zwin Natuurpark', 'Zwin'],
+ 'bruges#damme-historisch-stadje-and-boekendorp': ['Damme'],
+ 'youngstown#national-mckinley-birthplace-memorial-and-museum': ['National McKinley Birthplace Memorial', 'McKinley Memorial', 'McKinley Birthplace'],
+ 'pittsburgh#grandview-avenue-overlook-mount-washington': ['Grandview Avenue', 'Mount Washington', 'Mt. Washington'],
+ 'washingtondc#smithsonian-american-art-museum-and-national-portrait-galler': ['Smithsonian American Art Museum', 'National Portrait Gallery', 'Old Patent Office', 'Patent Office Building'],
  'okinawa#cape-chinen-park': ['Chinen'],
  'okinawa#azama-sun-sun-beach': ['Azama'],
  'okinawa#nirai-kanai-bridge-overlook': ['Nirai Kanai'],
