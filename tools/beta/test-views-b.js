@@ -370,6 +370,21 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     }
     chk('QC-10 (jsdom): a keyboard switch to Guidebook / Insights moves focus to the view\'s h1', got.every(x => x[1] && x[2] === 'H1' && x[3]), got);
   }
+  // ---- QC-09 / QC-06 (DESIGN-SYSTEM §v2.11): the switcher is a labelled group of 4 pressed toggles on every city page, never
+  // collapsed, and no shipped rule shrinks a segment under 44 px (layout probe: tools/beta/feb-switcher.js)
+  {
+    const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (e.name === 'data' || e.name === 'assets' ? [] : walk(path.join(dir, e.name))) : e.name.endsWith('.html') ? [path.join(dir, e.name)] : []);
+    const badSw = []; let nSw = 0;
+    for (const f of walk(BETA)) {
+      const h = fs.readFileSync(f, 'utf8'); if (!/data-cleo-page="city"/.test(h)) continue; nSw++;
+      const g = (/<(\w+) class="views" data-cleo-views role="group" aria-label="View" hidden>([\s\S]*?)<\/\1>/.exec(h) || []);
+      const bs = [...(g[2] || '').matchAll(/<button type="button" data-view="(\w+)" aria-pressed="(true|false)" data-label="[^"]+">/g)];
+      if (g[1] !== 'div' || bs.length !== 4 || bs.filter(x => x[2] === 'true').length !== 1 || /<nav class="views"/.test(h)) badSw.push(path.relative(BETA, f));
+    }
+    const css = ['cleo.css', 'fe-a.css'].map(f => fs.readFileSync(path.join(BETA, 'assets', f), 'utf8')).join('\n');
+    const shrink = (css.match(/\.views[^{}]*button[^{}]*\{[^}]*min-height:\s*(?:[0-3]\d|4[0-3])px/g) || []).concat(css.match(/views[^{}]*:not\(\.open\)/g) || [], css.match(/content:\s*"View: "/g) || []);
+    chk(`QC-09/QC-06: the switcher is div[role=group][aria-label=View] with 4 pressed toggles (exactly one on) on ${nSw} city pages; no collapse, no "View:" prefix, no segment under 44 px`, !badSw.length && nSw >= 84 && !shrink.length, badSw.slice(0, 3).concat(shrink.slice(0, 3)));
+  }
   console.log(failures ? `\n>>> FAIL — ${failures} FE-B view check(s) failed` : '\n>>> PASS — FE-B views: Guidebook + Insights hold every place, numbers add up, hub links resolve');
   process.exitCode = failures ? 1 : 0;
 })();
