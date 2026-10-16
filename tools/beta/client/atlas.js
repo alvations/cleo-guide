@@ -165,6 +165,7 @@
     // the Gallery pager's "Show all on one page" does; "Only show this map area" / a pan of the map pages it again
     if (!atlas() || S.day || C.msOne) { if (C.msOne && atlas() && Cleo.defer) Cleo.defer.all(); qa('li.pl.ms-out').forEach(c => c.classList.remove('ms-out')); qa('section.area.ms-empty').forEach(s => s.classList.remove('ms-empty')); H.classList.remove('ms-on'); C.msN = null; if (pager) pager.hidden = true; held(); deco(); face(); if (C.msPaint) C.msPaint(); return; }
     const area = !!map && map.getSize().x > 0 && !C.msAll && (!desk() || C.msLive !== false);
+    if (more !== true && C.navKeep && C.navKeep()) { if (C.msPaint) C.msPaint(); return; }   // a round-trip keeps the list it left (atlas-nav.js)
     if (more !== true) lim = PER;
     // a place without a verified pin has no "outside": it is always listed (last), so no lens count ever loses it
     const b = area ? box() : null, keep = c => c.classList && (c.classList.contains('is-target') || c === selC), inB = c => { const ll = llOf(c); return !b || !ll || b.contains(ll) || keep(c); };
@@ -231,7 +232,7 @@
   // the carousel: the card nearest the middle after a swipe settles is the selected one
   let st = 0, qSwipe = 0;
   on(lp, 'scroll', () => {
-    if (desk() || !atlas() || H.classList.contains('ms-list')) return;
+    if (desk() || !atlas() || H.classList.contains('ms-list') || (C.navHold && C.navHold())) return;
     clearTimeout(st); st = setTimeout(() => {
       const mid = lp.getBoundingClientRect().left + lp.clientWidth / 2;
       const c = qa('li.pl', lp).filter(x => x.offsetWidth && !x.hidden).sort((x, y) => { const a = x.getBoundingClientRect(), b = y.getBoundingClientRect(); return Math.abs(a.left + a.width / 2 - mid) - Math.abs(b.left + b.width / 2 - mid); })[0];
@@ -391,7 +392,7 @@
       if (!meL) meL = window.L.layerGroup().addTo(m); meL.clearLayers();
       if (p.coords.accuracy) window.L.circle(me, { radius: p.coords.accuracy, className: 'me-acc', weight: 1, interactive: false }).addTo(meL);
       window.L.circleMarker(me, { radius: 7, weight: 2, fillOpacity: 1, interactive: false, className: 'me' }).addTo(meL);
-      say('You are here — shown on this device only, never stored, gone when you reload.'); C.fly(me);
+      say('You are here — shown on this device only, never stored, gone when you reload.'); if (!(C.onLocate && C.onLocate(me))) C.fly(me);   // atlas-nav.js: nearest first
     }, err => { b.classList.remove('busy'); say(err && err.code === 1 ? 'Location permission was declined. Nothing was stored.' : 'Couldn’t get your location.'); },
     { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
   };
@@ -444,7 +445,7 @@
     map.on('click', () => { closePoi(); unselect(); });   // an empty-map click clears the selection
     map.on('moveend zoomend', () => C.feature());
     map.on('moveend', () => {
-      const u = user; user = 0; place(); if (!atlas()) return; keepView();
+      const u = user; user = 0; place(); if (!atlas() || (C.navHold && C.navHold())) return; keepView();   // a detail is open or closing (atlas-nav.js)
       if (desk()) { clearTimeout(mt); mt = setTimeout(msArea, 180); return; }
       if (u) { if (H.classList.contains('ms-on')) here(true); return; }   // the reader moved the map: offer, never jump
       if (Date.now() - quiet < 1200) return;      // the carousel's own gentle pan never reshuffles the carousel
@@ -457,7 +458,7 @@
   // the circle round the median point holding 60 % of places — less outliers beyond 2.5× the median distance
   const VK = 'cleo:atlas-view:' + C.key;
   let viewReady = false;   // the map's own first set-up never counts as "the last view"
-  const keepView = () => { const m = C.map(); if (!m || !atlas() || !viewReady) return; const c = m.getCenter(); try { sessionStorage.setItem(VK, JSON.stringify([+c.lat.toFixed(5), +c.lng.toFixed(5), m.getZoom()])); } catch (e) {} };
+  const keepView = () => { const m = C.map(); if (!m || !atlas() || !viewReady || (C.navPrivate && C.navPrivate())) return; const c = m.getCenter(); try { sessionStorage.setItem(VK, JSON.stringify([+c.lat.toFixed(5), +c.lng.toFixed(5), m.getZoom()])); } catch (e) {} };   // never the view centred on the reader (atlas-nav.js)
   C.fitDefault = () => {
     const m = C.map(), L = window.L; if (!m || !m.getSize().x) return false;
     let v = null; try { v = JSON.parse(sessionStorage.getItem(VK) || 'null'); } catch (e) {}

@@ -281,6 +281,9 @@
       } else el.innerHTML = '<p class="count" data-gb-count></p>' + r.html;
       el.removeAttribute('aria-busy');
       syncSaved(el); syncLens(el);
+      // QC-10 (SPEC §5): after a switch by the user (focus still on the view switcher), focus moves to the book's heading
+      var fa = document.activeElement, h1 = el.querySelector('h1');
+      if (h1 && fa && fa.closest && fa.closest('[data-cleo-views]')) h1.focus({ preventScroll: true });
       var on = function (t, ev, f) { t.addEventListener(ev, f); off.push(function () { t.removeEventListener(ev, f); }); };
       on(el, 'click', function (e) {
         var b = e.target.closest('[data-cleo-print]'); if (b) { printAll(); return; }

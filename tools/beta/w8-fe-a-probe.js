@@ -201,6 +201,21 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
     const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(600);
     const c = await page.evaluate(() => { const f = document.querySelector('main figure.photo[style*="--ph"]'); return f ? getComputedStyle(f, '::before').content : 'no photo'; });
     ok(c === 'none' || c === 'normal', 'without JS no placeholder ever covers a photo', c); await ctx.close(); }
+  console.log('# QC-07: Esc returns focus to the control that opened the sheet');
+  for (const w of [390, 1440]) {
+    const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(1500);
+    for (const sel of ['.g-rows li.gc .gc-a', '#cleo-lead li.gc .gc-a', 'li.pl:not(.pg-off) .pl-n a']) {
+      const tag = await page.evaluate(s => { const e = [...document.querySelectorAll(s)].find(x => x.getClientRects().length); if (!e) return null; e.scrollIntoView({ block: 'center' }); e.setAttribute('data-qc07', '1'); e.focus(); return e.getAttribute('href'); }, sel);
+      if (!tag) { console.log(`  (skip @${w} ${sel}: none visible)`); continue; }
+      await page.keyboard.press('Enter'); await page.waitForTimeout(700);
+      const open = await page.evaluate(() => !document.getElementById('cleo-sheet').hidden);
+      await page.keyboard.press('Escape'); await page.waitForTimeout(500);
+      const back = await page.evaluate(() => { const a = document.activeElement; return { same: !!a && a.getAttribute('data-qc07') === '1', got: a ? (a.className || a.tagName) + ' ' + (a.getAttribute('href') || '') : null }; });
+      await page.evaluate(() => document.querySelectorAll('[data-qc07]').forEach(e => e.removeAttribute('data-qc07')));
+      ok(open && back.same, `@${w} ${sel} ${tag}: Enter opens the sheet, Esc returns focus to that same control`, back.got);
+    }
+    await ctx.close();
+  }
   await b.close();
   console.log(fails ? `\n>>> FAIL — ${fails} FE-A W8 check(s)` : '\n>>> PASS — FE-A W8: a day from saved places, edited, shared, printed and reopened, by keyboard');
   process.exit(fails ? 1 : 0);

@@ -80,7 +80,7 @@
 /* ---------- V2.5 landing hero: light, search-first, no skyline, no stars ---------- */
 :root .hero, :root .feb .hero { background: var(--paper); background-image: none; color: var(--ink); }
 :root .hero::before, :root .hero::after, :root .hero .sky { display: none !important; }
-:root .hero .inner { text-align: center; padding-bottom: 40px; }
+:root .hero .inner { text-align: center; padding-bottom: var(--s-8); }
 :root .hero .d-hero { color: var(--ink); max-width: 18ch; margin-inline: auto; font-weight: 600; letter-spacing: var(--track-hero); }
 :root .hero :is(.kicker, .sub) { color: var(--ink-2); margin-inline: auto; }
 :root .hero .kicker { font-size: var(--fs-meta); font-weight: 500; letter-spacing: var(--track-eyebrow); color: var(--ink-3); }
@@ -152,7 +152,7 @@
 :root .rail-i:hover { border-color: var(--ink-3) !important; }
 
 /* ---------- V2.10 view switcher: an understated segmented control ---------- */
-:root .views[data-cleo-views] > div, :root .views[data-cleo-views][aria-label] { background: var(--sand); border: 0; box-shadow: none; border-radius: var(--r-pill); padding: 3px; }
+:root .views[data-cleo-views] > div, :root .views[data-cleo-views][aria-label] { background: var(--sand); border: 0; box-shadow: none; border-radius: var(--r-pill); padding: var(--s-1); }
 :root .views[data-cleo-views] button { color: var(--ink-2); font-weight: 500; border-radius: var(--r-pill); }
 :root .views[data-cleo-views] button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }
 :root .views[data-cleo-views] button[aria-pressed="true"] .ico { color: var(--ink); }
@@ -196,8 +196,8 @@
    ONE warm, flat highlight per screen family: the sticker badge for a data-backed distinction ("Must see" — never on a
    closed place, never invented) and the heart "pop" ring. No gradient, no glow, no confetti. .sticker is the component
    FE-A / FE-B put on card media (top-left, like the marketplace's badge); .tier.t1 picks it up where it already exists. */
-:root .sticker, :root .tier.t1:not(.lg) { display: inline-flex; align-items: center; gap: 5px; background: var(--sun-wash); color: var(--on-sun-wash);
-  font: 600 var(--fs-xs)/1 var(--font-ui); letter-spacing: var(--track-eyebrow); padding: 6px 10px; border-radius: var(--r-pill); box-shadow: none; }
+:root .sticker, :root .tier.t1:not(.lg) { display: inline-flex; align-items: center; gap: var(--s-1); background: var(--sun-wash); color: var(--on-sun-wash);
+  font: 600 var(--fs-xs)/1 var(--font-ui); letter-spacing: var(--track-eyebrow); padding: var(--s-2) var(--s-3); border-radius: var(--r-pill); box-shadow: none; }
 :root .sticker .ico, :root .tier.t1:not(.lg) .ico { width: 13px; height: 13px; color: currentColor; }
 :root :is(.cover, .pl-cover) .sticker { position: absolute; top: 12px; left: 12px; z-index: 2; background: color-mix(in srgb, var(--surface) 94%, transparent); color: var(--ink); }
 :root .heart[aria-pressed="true"] { box-shadow: var(--ring-sun), var(--shadow-sm); }
@@ -234,21 +234,21 @@
 :root .masthead { --hero-scrim: var(--paper); }
 :root figure.photo:not(.hero-photo) { overflow: visible; background: transparent; border-radius: 0; }
 :root figure.photo:not(.hero-photo) > img { border-radius: var(--r-l); display: block; width: 100%; }
-:root figure.photo:not(.hero-photo) figcaption { position: static; background: none; color: var(--ink-3); padding: 6px 2px 0; font-size: var(--fs-xs); line-height: 1.4; text-wrap: pretty; }
+:root figure.photo:not(.hero-photo) figcaption { position: static; background: none; color: var(--ink-3); padding: var(--s-2) 2px 0; font-size: var(--fs-xs); line-height: 1.4; text-wrap: pretty; }
 :root figure.photo figcaption a, :root .hero-credit a, :root .cover .credit a { color: inherit; text-decoration-color: var(--line-strong); }
 :root .hero-credit { color: var(--ink-3); font-size: var(--fs-xs); text-shadow: none; }
 :root .masthead:has(.hero-photo) .g-lead-card .gc, html:root[data-view=gallery] .masthead:has(.hero-photo) .g-lead-card .gc {
-  background: var(--surface); border-radius: var(--r-l); padding: 10px 10px 8px; box-shadow: var(--shadow-lg); }
+  background: var(--surface); border-radius: var(--r-l); padding: var(--s-3) var(--s-3) var(--s-2); box-shadow: var(--shadow-lg); }
 :root :is(.cover, .pl-cover) .credit { background: color-mix(in srgb, var(--surface) 92%, transparent); color: var(--ink-2); }
 /* phones: the hero text spans the full width, so the photo wash is flat (no fade under the text) */
 @media (max-width: 899px) { :root .masthead .hero-scrim { background: color-mix(in srgb, var(--paper) 86%, transparent) !important; } }
-:root .masthead .hero-credit { line-height: 1.4; margin-block: 8px; }
+:root .masthead .hero-credit { line-height: 1.4; margin-block: var(--s-2); }
 :root :is(.hero-credit, figure.photo figcaption, .cover .credit) a { display: inline; min-height: 0; min-width: 0; padding: 0; }
 
 /* V2.17b Atlas list photos: the TASL credit is a caption under the (in-flow) media — not an overlay pill, not ellipsised.
    Scoped to the current Atlas list; the shared .w7-cards card (absolute media box) places its own credit (FE-A). */
 html:root[data-view=atlas] #cleo-grid li.pl:not(.w7-cards li) > figure.pl-photo figcaption { position: static; inset: auto; max-width: none;
-  padding: 6px 2px 0; border-radius: 0; background: none; color: var(--ink-3); font: 400 var(--fs-xs)/1.4 var(--font-ui);
+  padding: var(--s-2) 2px 0; border-radius: 0; background: none; color: var(--ink-3); font: 400 var(--fs-xs)/1.4 var(--font-ui);
   white-space: normal; overflow: visible; text-overflow: clip; display: block; -webkit-line-clamp: unset; line-clamp: none; max-height: none; height: auto; }
 
 /* ---------- V2.18 casing rule (owner, W7): no superfluous capitals. Labels are sentence case and never transformed;
