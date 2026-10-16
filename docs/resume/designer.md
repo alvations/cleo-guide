@@ -63,6 +63,12 @@ Current rows:
    - `.stamp.stamp-in` for the stamp.
    - `html[data-vx]` for the view cross-fade, which needs views.js (FE-A) to set `data-vx` for about 300 ms on a switch.
    - Platform: remove the 7 entries from the allowlist.
+8. **QA-74 and QA-55** (2026-10-16):
+   - Motion: `--dur-3` is 280 ms; `--dur-grow` and `--dur-pop` are 300 ms.
+   - Every one-shot moment is now ≤ 300 ms. Bob, ring, sheen, stamp, pop and door point at `--dur-pop`.
+   - Spring easing is used only for the heart and save pops; the looping tile twinkle is removed.
+   - Insights `.fn` footnotes are now `--fs-sm` (14 px).
+   - QA has been told.
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight

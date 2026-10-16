@@ -10,7 +10,8 @@
  * Hooks this file provides to city.js / atlas.js — each is optional, so either file works without this one:
  *   C.placeOpen(card, marker) → true when Atlas hosts the detail (city.js onRoute then neither scrolls nor flies)
  *   C.atView() → true when the URL's view was applied (city.js mountMap then skips its own first fit)
- *   C.navHold() → true while a detail is open or being closed (atlas.js moveend / carousel scroll stand still)
+ *   C.navHold() → true while a detail is open or being closed (atlas.js moveend stands still)
+ *   C.navScrollHold() → true while the detail is open or the restore's own scroll is settling (atlas.js carousel scroll)
  *   C.navKeep() → true while only the open place changed (atlas.js: the route's list refresh stands still)
  *   C.freshPlace() → true when a fresh #p= load is being placed (city.js mountMap then doesn't fly)
  *   C.clearPin() → pan the open place out from under the detail, by the minimum needed
@@ -60,6 +61,10 @@
   let idleSig = null;
   const rec = () => { if (idle() && atlas()) { last = snapNow(); idleSig = sig(); } };
   C.navHold = () => !!open || Date.now() < holdTo;
+  // the carousel's "middle card is selected" stands still only while the detail is open and for the scroll events the
+  // restore itself makes, never for a reader's swipe after closing (QA-71)
+  let ownScroll = 0;
+  C.navScrollHold = () => !!open || Date.now() - ownScroll < 250;
   C.navKeep = () => atlas() && idleSig !== null && (!!open || hasP() || (Date.now() < holdTo && userAt <= closedAt)) && sig() === idleSig;
   ['pointerdown', 'wheel', 'keydown', 'touchstart'].forEach(ev => on(d, ev, e => { if (!e.isTrusted) return; userAt = Date.now(); }, { capture: true, passive: true }));
   on(window, 'scroll', rec, { passive: true });
@@ -139,7 +144,7 @@
       const moved = l => put && ((window.scrollY || 0) !== put[0] || (l && (l.scrollTop !== put[1] || l.scrollLeft !== put[2])));
       const fix = () => {
         const l = lp(); if (gone || userAt > t0 || moved(l)) { gone = true; return; }
-        if (s) { if ((window.scrollY || 0) !== s.y) window.scrollTo(0, s.y); if (l) { if (l.scrollTop !== s.t) l.scrollTop = s.t; if (l.scrollLeft !== s.x) l.scrollLeft = s.x; } }
+        if (s) { if ((window.scrollY || 0) !== s.y) window.scrollTo(0, s.y); if (l && (l.scrollTop !== s.t || l.scrollLeft !== s.x)) { ownScroll = Date.now(); l.scrollTop = s.t; l.scrollLeft = s.x; } }
         put = [window.scrollY || 0, l ? l.scrollTop : 0, l ? l.scrollLeft : 0];
         back(st.opener);
       };
@@ -147,7 +152,7 @@
       fix(); [30, 160, 450, 800].forEach(t => setTimeout(fix, t));
       // the carousel's own "the card in the middle is the selected one" stood still during the hold: once it lifts, let it
       // look again, so a swipe made meanwhile still selects its card (and an untouched carousel keeps the open place)
-      setTimeout(() => { const l = lp(); if (l && !C.navHold()) l.dispatchEvent(new Event('scroll')); }, Math.max(0, holdTo - Date.now()) + 30);
+      setTimeout(() => { const l = lp(); if (l && !C.navScrollHold()) l.dispatchEvent(new Event('scroll')); }, 300);
       return res;
     };
   };

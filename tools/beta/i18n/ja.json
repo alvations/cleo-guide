@@ -297,7 +297,7 @@
     "sheet.official": "公式サイトを見る",
     "sheet.readwhat": "{source}の記事を読む",
     "sheet.close": "閉じる",
-    "sheet.badge": "{area} · ピン {n}",
+    "sheet.badge": "{area}",
     "sheet.why": "掲載の理由",
     "sheet.quoted": "価格・星評価・時間は、調査時点の出典からの引用です({d})。",
     "sheet.part": "含まれるコレクション",
@@ -715,6 +715,9 @@
     "m.th.guides": "ガイド",
     "m.th.places": "場所",
     "m.th.pins": "高確度のピン",
-    "m.th.closed": "閉店(記録として掲載)"
+    "m.th.closed": "閉店(記録として掲載)",
+    "page.trip.title": "旅程 · Cleo",
+    "page.trip.desc": "保存した場所から数日間の旅程を作ります。1日1エリア、近い順、徒歩時間の目安つきで、閉店した場所は理由を添えて除外します。リンク1つ、印刷できる冊子、KMLで使えます。",
+    "page.trip.nojs": "旅程は保存した場所からブラウザ内で作るため、このページにはスクリプトが必要です。各ガイドとマイリストはスクリプトなしでも使えます。"
   }
 }

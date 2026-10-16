@@ -58,11 +58,15 @@
   function unmount(v) { const m = reg[v]; if (m && m.on) { m.on = 0; try { m.unmount && m.unmount(host); } catch (e) {} } if (host && !(reg[cur] && reg[cur].on)) host.hidden = true; }
 
   function paintNav() { if (!nav) return; qa('button[data-view]', nav).forEach(b => b.setAttribute('aria-pressed', String(at(b, 'data-view') === cur))); }   // FE-B QC-09: pressed state only (no menu)
+  let vxT = 0;
   function show(v, o) {
     if (!ok(v)) v = DEF;
     const prev = cur, changed = v !== prev || o.first;
     if (v !== prev) { mem[prev] = window.scrollY || 0; unmount(prev); }
     cur = v; html.setAttribute('data-view', v); C.view = v; paintNav();
+    // PERF-16 (designer, views.css eddbb7b0): the fallback cross-fade keys on html[data-vx], set for 300 ms on a reader's
+    // switch only — never on first paint or a deep-link restore (a :has() on html re-ran on every DOM mutation)
+    if (o.user && v !== prev) { html.setAttribute('data-vx', ''); clearTimeout(vxT); vxT = setTimeout(() => html.removeAttribute('data-vx'), 300); }
     if (v === 'atlas') atlasIn(); else atlasOut();
     if (v !== 'gallery' && Cleo.defer && Cleo.defer.resume) Cleo.defer.resume();   // the lazy observer takes over again
     if (v === 'gallery' && !C.gallery) need('gallery');            // the Gallery extras (rows, covers) load on first use
@@ -246,7 +250,14 @@
   window.CleoViewQueue = { push: x => api.register(x[0], x[1]) };
 
   // first paint: the head script set html[data-view]; a stored preference is written into the hash (Back, shares)
-  if (nav) nav.hidden = false;
+  // PERF (QA-70, bisected to 7e746d9b): the phone sheets' "below the switcher" rules key on data-views-on and the switcher's
+  // "pinned while a sheet is open" rules on data-overlay-on (fe-a.css), not on :has() over <main>, which re-matched on every
+  // card stamped into <main> and held the main thread ~1.5 s after "Show map"
+  const mn0 = d.getElementById('main');
+  if (nav) { nav.hidden = false; if (mn0) mn0.setAttribute('data-views-on', ''); }
+  { const ov = ['cleo-sheet', 'cleo-fy', 'cleo-tray'].map(i => d.getElementById(i)).filter(Boolean);   // the old :has(>.overlay:not([hidden]):not(.side)) test
+    const ovOn = () => { if (mn0) mn0.toggleAttribute('data-overlay-on', ov.some(e => !e.hidden && !e.classList.contains('side') && e.parentNode === mn0)); };
+    if (mn0 && ov.length && window.MutationObserver) { const mo = new MutationObserver(ovOn); ov.forEach(e => mo.observe(e, { attributes: true, attributeFilter: ['hidden', 'class'] })); ovOn(); } }
   const r0 = Cleo.route.parse(), hv = isRoute(location.hash) && r0.view;
   const im = implied(r0), sv = store.get('view', '');
   let v0 = hv && ok(hv) ? hv : im !== DEF ? im : !isRoute(location.hash) ? cur : ok(sv) ? sv : DEF;

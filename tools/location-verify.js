@@ -44,6 +44,7 @@ const os = require('os');
 const path = require('path');
 const crypto = require('crypto');
 const P2 = require('./location-verify-phase2.js');
+const SCOPE = require('./location-verify-scope.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const GEOCODES = path.join(ROOT, 'data', 'geocodes.json');
@@ -826,6 +827,24 @@ async function addressCheck(http, row, anchor) {
     distanceM: haversineM(row.proposal.lat, row.proposal.lng, parseFloat(x.lat), parseFloat(x.lon)) };
 }
 
+/**
+ * Daily Nominatim ledger (owner decision: <= dailyMax requests per UTC DAY across all runs, not per run).
+ * docs/geoverify/NOMINATIM-LEDGER.json is committed with the report, so the count survives across runs and cities.
+ */
+const LEDGER = path.join(ROOT, 'docs', 'geoverify', 'NOMINATIM-LEDGER.json');
+function ledgerRemaining(file, day) {
+  if (!fs.existsSync(file)) return { remaining: Infinity, max: null };
+  const l = JSON.parse(fs.readFileSync(file, 'utf8')); const used = ((l.days || {})[day] || {}).used || 0;
+  return { remaining: Math.max(0, (l.dailyMax || 300) - used), max: l.dailyMax || 300, used };
+}
+function ledgerRecord(file, day, city, n, note) {
+  if (!n || !fs.existsSync(file)) return;
+  const l = JSON.parse(fs.readFileSync(file, 'utf8')); l.days = l.days || {};
+  const d = l.days[day] = l.days[day] || { used: 0, runs: [] };
+  d.used += n; d.runs.push(Object.assign({ city, n }, note ? { note } : {}));
+  fs.writeFileSync(file, JSON.stringify(l, null, 1) + '\n');
+}
+
 // ───────────────────────────────────────────────────────── the run ──
 
 async function checkRow(http, place, anchor, sources, ctx = {}) {
@@ -861,13 +880,21 @@ async function run(opts) {
   if (!entries) throw Object.assign(new Error(`unknown city key "${opts.city}" (keys: ${Object.keys(reg.cities || {}).join(', ')})`), { code: 1 });
   const anchor = cityAnchor(entries);
   const regional = regionAnchors(entries);
+  // Scope: places on the page ∪ places in the city's dataset (a dataset row held for want of a pin ships once
+  // accepted). Registry entries in neither are orphans: out of scope unless --include-orphans.
+  let pageOrDs = null, orphansSkipped = 0;
+  if (!opts.includeOrphans && !opts.names && !opts.registry) {
+    const pg = SCOPE.pageNames(opts.city), ds = SCOPE.datasetNames(opts.city);
+    if (pg.size || ds.size) pageOrDs = new Set([...pg, ...ds]);
+  }
   let rows = Object.entries(entries).map(([name, e]) => ({ name, e, why: opts.names ? (opts.names.includes(name) ? ['recheck'] : []) : scopeReasons(e, opts.scope) })).filter(r => r.why.length);
+  if (pageOrDs) { const before = rows.length; rows = rows.filter(r => pageOrDs.has(r.name)); orphansSkipped = before - rows.length; }
   if (opts.names) { const miss = opts.names.filter(n => !entries[n]); if (miss.length) throw Object.assign(new Error(`--names not in ${opts.city}: ${miss.join(' | ')}`), { code: 1 }); }
   const inScope = rows.length;
   if (opts.limit) rows = rows.slice(0, opts.limit);
   const sources = new Set(opts.sources);
   const meta = { tool: `tools/location-verify.js ${VERSION}`, city: opts.city, generated: today, scope: opts.scope, sources: [...sources],
-    rowsInScope: inScope, rowsChecked: rows.length, anchor, regionalAnchors: regional ? Object.keys(regional) : null, mode: opts.mode, userAgent: UA,
+    rowsInScope: inScope, rowsChecked: rows.length, orphansSkipped, anchor, regionalAnchors: regional ? Object.keys(regional) : null, mode: opts.mode, userAgent: UA,
     rule: 'PROPOSALS ONLY. Nothing here is in data/geocodes.json until a person reviews a row (review.decision) and runs --accept locally, then the gates (research.js --geocheck/--statuscheck, npm run validate, npm test).' };
   const report = { meta, summary: {}, rows: [] };
 
@@ -1094,6 +1121,59 @@ function duplicatesMarkdown(list, today) {
   return L.join('\n') + '\n';
 }
 
+/**
+ * Classify registry entries that are NOT on the city's page:
+ *   (a) alias of an on-page name (same normalised name, or ≥ 0.9 similar and within 50 m where one name starts with the
+ *       other) — merge candidates;  (b) in the dataset but not rendered (held for a pin, or dropped by a gate) — keep;
+ *   (c) only in research files (dropped by the merit bar / editorial review) — keep;  (d) none of these — stale, listed.
+ */
+function classifyOrphans(cities) {
+  const out = {};
+  for (const [city, entries] of Object.entries(cities).sort()) {
+    const pg = SCOPE.pageNames(city); if (!pg.size) { out[city] = { skipped: 'no built page found' }; continue; }
+    const ds = SCOPE.datasetNames(city), rs = SCOPE.researchNames(city);
+    const byNorm = new Map([...pg].map(n => [normName(n), n]));
+    const res = { a: [], b: [], c: [], d: [] };
+    for (const [n, e] of Object.entries(entries)) {
+      if (pg.has(n)) continue;
+      const row = { name: n, pin: e.lat == null ? 'UNVERIFIED' : `${e.lat}, ${e.lng} (${e.confidence})`, status: e.status || null, statusSource: e.statusSource || '', source: e.source || '' };
+      if (ds.has(n)) { res.b.push({ ...row, why: e.lat == null || String(e.source).toUpperCase() === 'UNVERIFIED' ? 'held: no verified pin' : 'pinned but not rendered (a build gate dropped it)' }); continue; }
+      // Same name but DIFFERENT parenthetical qualifiers is two branches ("… (Punggol Coast)" vs "… (One Punggol)").
+      const qual = x => ((String(x).match(/\(([^)]*)\)/) || [])[1] || '').trim().toLowerCase();
+      let alias = byNorm.get(normName(n)) || null;
+      if (alias && qual(n) && qual(alias) && qual(n) !== qual(alias)) alias = null;
+      if (!alias && e.lat != null) for (const p of pg) {
+        const pe = entries[p]; if (!pe || pe.lat == null) continue;
+        const [x, y] = [normName(n), normName(p)].sort((u, v) => u.length - v.length);
+        if (nameSim(n, p) >= 0.9 && y.startsWith(x) && haversineM(e.lat, e.lng, pe.lat, pe.lng) <= 50) { alias = p; break; }
+      }
+      if (alias) { res.a.push({ ...row, aliasOf: alias }); continue; }
+      if (rs.has(n)) { res.c.push({ ...row, why: 'research record exists; not in the dataset (merit bar / editorial)' }); continue; }
+      res.d.push(row);
+    }
+    out[city] = res;
+  }
+  return out;
+}
+function orphansMarkdown(cls, today) {
+  const esc = s => String(s == null ? '' : s).replace(/\|/g, '\\|').replace(/\n/g, ' ');
+  const tot = k => Object.values(cls).reduce((t, c) => t + ((c[k] || []).length), 0);
+  const L = ['# Registry entries not on their city page (location-verify --orphans)', '',
+    `_Generated ${today}. Report only, except class (a), whose merges are logged below. Classes: **(a)** alias of an on-page name (merge, keeping source / pin / status in \`note\`) · **(b)** in the dataset but not rendered (held for a pin, or a gate drop) — keep · **(c)** only in research files (merit bar / editorial) — keep · **(d)** none of these — stale, listed for a decision (archive with a reason, never silent deletion)._`, '',
+    `**Totals:** (a) ${tot('a')} · (b) ${tot('b')} · (c) ${tot('c')} · (d) ${tot('d')}`, '',
+    '| city | (a) alias | (b) dataset, held | (c) research only | (d) stale |', '|---|---|---|---|---|'];
+  for (const [c, r] of Object.entries(cls)) L.push(r.skipped ? `| ${c} | — | — | — | — (${r.skipped}) |` : `| ${c} | ${r.a.length} | ${r.b.length} | ${r.c.length} | ${r.d.length} |`);
+  L.push('');
+  for (const [k, title] of [['a', '(a) Aliases of an on-page name'], ['d', '(d) Stale: no page, dataset, research row or alias'], ['c', '(c) Research only (kept)']]) {
+    const rows = Object.entries(cls).flatMap(([c, r]) => (r[k] || []).map(x => ({ c, ...x }))); if (!rows.length) continue;
+    L.push(`## ${title}`, '', k === 'a' ? '| city | registry name | alias of (on page) | pin | status |' : '| city | registry name | pin | status | status source |', k === 'a' ? '|---|---|---|---|---|' : '|---|---|---|---|---|');
+    for (const x of rows) L.push(k === 'a' ? `| ${x.c} | ${esc(x.name)} | ${esc(x.aliasOf)} | ${x.pin} | ${x.status} |` : `| ${x.c} | ${esc(x.name)} | ${x.pin} | ${x.status} | ${esc(x.statusSource).slice(0, 100)} |`);
+    L.push('');
+  }
+  L.push('_(b) rows are not listed one by one: they are the dataset rows the geocode backlog already tracks (docs/GEOCODE-BACKLOG.md); location-verify keeps them in scope._');
+  return L.join('\n') + '\n';
+}
+
 function toMarkdown(rep) {
   const m = rep.meta, L = [];
   L.push(`# Location-verify report — ${m.city}`, '');
@@ -1101,6 +1181,7 @@ function toMarkdown(rep) {
   L.push(`> ${m.rule}`, '');
   if (m.note) L.push(`> **${m.note}**`, '');
   if (m.estimate) L.push(`Estimate for a live run of these rows: ~${m.estimate.requests} requests (${m.estimate.nominatimRequests} to Nominatim), ~${m.estimate.minutes} min.`, '');
+  if (m.orphansSkipped) L.push(`${m.orphansSkipped} registry row(s) on neither the page nor the dataset were left out (orphans; \`--include-orphans\` to check them).`, '');
   if (m.anchor) L.push(`City anchor (median of high-confidence pins): ${round5(m.anchor.lat)}, ${round5(m.anchor.lng)} · candidates farther than ${(m.anchor.radiusM / 1000).toFixed(0)} km are discarded as same-name-elsewhere.`, '');
   if (m.reviewsCarried || m.reviewsStale || m.reviewsOrphaned) L.push(`Reviews carried from the previous report: ${m.reviewsCarried || 0}${m.reviewsStale ? ` · STALE (proposal changed, re-review): ${m.reviewsStale.join(', ')}` : ''}${m.reviewsOrphaned ? ` · rows no longer in scope (decisions kept in meta.reviewsOrphaned): ${m.reviewsOrphaned.map(x => x.name).join(', ')}` : ''}`, '');
   if (m.requests) L.push(`Requests: ${m.requests.network} network · ${m.requests.cacheHits} cache hits · ${m.requests.nominatim} Nominatim${m.requests.failures.length ? ` · failures: ${m.requests.failures.slice(0, 5).join('; ')}` : ''}`, '');
@@ -1227,6 +1308,9 @@ function parseArgs(argv) {
     else if (a === '--accept') o.accept = path.resolve(v());
     else if (a === '--names') o.names = v().split('|').map(x => x.trim()).filter(Boolean); // re-check these rows only
     else if (a === '--recheck-out') o.recheckOut = path.resolve(v());
+    else if (a === '--include-orphans') o.includeOrphans = true; // also registry rows on neither the page nor the dataset
+    else if (a === '--orphans') o.orphans = true;
+    else if (a === '--ignore-ledger') o.ignoreLedger = true; // tests / one-off: do not read or write the daily ledger
     else if (a === '--reassist') (o.reassist = o.reassist || []).push(path.resolve(v())); // offline: recompute assist only
     else if (a === '--dry-run') o.dryRun = true; // report mode is always a dry run; with --accept: show, write nothing
     else throw Object.assign(new Error(`unknown option ${a}`), { code: 1 });
@@ -1257,6 +1341,17 @@ async function main() {
     console.log('| city | entries | unverified | low | med | status unchecked | closed |\n|---|---|---|---|---|---|---|');
     rows.forEach(r => console.log(`| ${r.city} | ${r.entries} | ${r.unverified} | ${r.low} | ${r.med} | ${r.statusUnchecked} | ${r.closed} |`));
     console.log(`| **total** | **${t('entries')}** | **${t('unverified')}** | **${t('low')}** | **${t('med')}** | **${t('statusUnchecked')}** | **${t('closed')}** |`);
+    return 0;
+  }
+  if (o.orphans) {
+    const today = o.today || new Date().toISOString().slice(0, 10);
+    const cls = classifyOrphans(JSON.parse(fs.readFileSync(o.geocodes || GEOCODES, 'utf8')).cities);
+    const outp = path.join(ROOT, 'docs', 'geoverify', 'ORPHANS.md');
+    const prev = fs.existsSync(outp) ? fs.readFileSync(outp, 'utf8') : ''; const i = prev.indexOf('\n## Decisions');
+    fs.writeFileSync(outp, orphansMarkdown(cls, today) + (i >= 0 ? prev.slice(i) : ''));
+    fs.writeFileSync(outp.replace(/\.md$/, '.json'), JSON.stringify(cls, null, 1) + '\n');
+    const t = k => Object.values(cls).reduce((s, c) => s + ((c[k] || []).length), 0);
+    console.log(`wrote ${path.relative(ROOT, outp)} — (a) ${t('a')} · (b) ${t('b')} · (c) ${t('c')} · (d) ${t('d')}`);
     return 0;
   }
   if (o.duplicates) {
@@ -1296,6 +1391,7 @@ async function main() {
 
 async function main1(o) {
   let mode = 'live', fixtures = null;
+  const day = new Date().toISOString().slice(0, 10);
   if (o.houseFiles && !o.houseSets) o.houseSets = o.houseFiles.map(h => { const s = P2.loadHouseCoords(h.f, { licence: h.licence }); console.log(`house coordinates: ${s.label} — ${s.count} points (${s.skipped} skipped)`); return s; });
   if (o.abrFile && !o.abr) { o.abr = P2.loadAbr(o.abrFile); console.log(`ABR: ${o.abr.count} town points`); }
   if (o.fixturesPath) {
@@ -1305,11 +1401,21 @@ async function main1(o) {
   }
   else if (o.offline) mode = 'offline-plan';
   else { const off = await reachable(); if (off) { console.log(`Wikidata is not reachable from here (${off}). Writing the offline PLAN report (exit 0).\n  Real proposals come from the GitHub-hosted runner. Do NOT route around a block.`); mode = 'offline-plan'; } }
+  if (mode === 'live' && !o.ignoreLedger) {
+    const L = ledgerRemaining(o.ledgerFile || LEDGER, day);
+    if (L.max != null && L.remaining < o.nominatimMax) {
+      console.log(`Nominatim daily allowance: ${L.used}/${L.max} used today (${day}); this run may use ${L.remaining}.`);
+      o.nominatimMax = L.remaining;
+    }
+  }
   const rep = await run({ ...o, fixtures, mode });
+  if (mode === 'live' && rep.meta.requests) ledgerRecord(o.ledgerFile || LEDGER, day, o.city, rep.meta.requests.nominatim, o.names ? 're-check' : null);
   fs.mkdirSync(o.out, { recursive: true });
   if (o.names) {
     // A re-check of named rows never touches the city report (which carries reviews): its own file under recheck/.
-    const out = o.recheckOut || path.join(ROOT, 'docs', 'geoverify', 'recheck', `${o.city}-${rep.meta.generated}.json`);
+    // One file per (city, date, names): a later re-check never overwrites an earlier one's evidence.
+    const slug = o.names.length === 1 ? normName(o.names[0]).replace(/ /g, '-').slice(0, 40) : crypto.createHash('sha1').update(o.names.join('|')).digest('hex').slice(0, 8);
+    let out = o.recheckOut || path.join(ROOT, 'docs', 'geoverify', 'recheck', `${o.city}-${rep.meta.generated}-${slug}.json`);
     if (!path.resolve(out).startsWith(path.join(ROOT, 'docs', 'geoverify', 'recheck'))) throw Object.assign(new Error('--recheck-out must be under docs/geoverify/recheck/'), { code: 1 });
     fs.mkdirSync(path.dirname(out), { recursive: true });
     rep.meta.recheck = { names: o.names, sources: o.sources };
@@ -1348,4 +1454,4 @@ if (require.main === module) {
 }
 
 module.exports = { normName, nameSim, haversineM, parseAddress, addrAgreement, isExtended, gradeCandidate, decide, osmClosureEvidence,
-  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, regionOf, regionAnchors, findDuplicates, recheckVerdict, addressCheck, isOrderingHost, hostResemblesName, siteLabel, carryReviews, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };
+  siteClosureNotice, parseJsonLd, robotsAllows, demoteSharedObjects, reviewAssist, ledgerRemaining, ledgerRecord, classifyOrphans, regionOf, regionAnchors, findDuplicates, recheckVerdict, addressCheck, isOrderingHost, hostResemblesName, siteLabel, carryReviews, coordDecimals, namesAPart, osmEvidence, shardCities, wikidataFacts, cityAnchor, scopeReasons, backlog, run, accept, toMarkdown, Http, estimate, UA, ENDPOINT };

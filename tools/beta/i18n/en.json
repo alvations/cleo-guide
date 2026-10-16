@@ -335,7 +335,7 @@
     "sheet.official": "Visit the official site",
     "sheet.readwhat": "Read what {source} says",
     "sheet.close": "Close",
-    "sheet.badge": "in {area} · pin {n}",
+    "sheet.badge": "in {area}",
     "sheet.why": "Why it’s here",
     "sheet.quoted": "Prices, ratings and times are quoted from the source at the time of research ({d}).",
     "sheet.part": "Part of",
@@ -753,6 +753,9 @@
     "m.th.guides": "Guides",
     "m.th.places": "Places",
     "m.th.pins": "Pins at high confidence",
-    "m.th.closed": "Closed, kept"
+    "m.th.closed": "Closed, kept",
+    "page.trip.title": "Trips · Cleo",
+    "page.trip.desc": "Make a trip of several days from places you saved: one area a day, nearest next, walking estimates, closed places left out with the reason. One link, a printable booklet and KML.",
+    "page.trip.nojs": "Trips are made in your browser from places you saved, so this page needs its script. Every guide and your saved list work without it."
   }
 }
