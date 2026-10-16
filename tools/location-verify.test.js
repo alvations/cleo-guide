@@ -230,6 +230,16 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     const v = LV.reviewAssist({ outcome: 'pin', proposal: { grade: 'high', kind: 'official', nameSim: 0.2, matchedName: 'Disney Springs' } });
     assert.strictEqual(v.verdict, 'hold');
   });
+  await t('optional-source failures never fail the run; core-source failures do', async () => {
+    const mk = (failHost) => ({ count: 0, max: 1e9, cacheHits: 0, nomCount: 0, failures: [], byHost: {},
+      async request(url) { const h = new URL(url).host; this.count++; const b = this.byHost[h] = this.byHost[h] || { requests: 0, failed: 0 }; b.requests++;
+        if (h === failHost) { b.failed++; this.failures.push(h + ' timeout'); return { status: 0, body: '', error: 'timeout' }; }
+        return { status: 599, body: '' }; },
+      async json(url, o) { const r = await this.request(url, o); return { ...r, json: null }; } });
+    const base = { city: 'testville-zz', registry: fx.registry, scope: ['all'], sources: ['wikidata', 'official'], mode: 'fixtures', today: '2026-10-11' };
+    const a = await LV.run({ ...base, http: mk('museum.example') }); assert.strictEqual(a.meta.hardFailure, false, 'official site down is not fatal');
+    const b = await LV.run({ ...base, http: mk('www.wikidata.org') }); assert.strictEqual(b.meta.hardFailure, true, 'Wikidata down is fatal');
+  });
   await t('markdown report renders every row', () => {
     const md = LV.toMarkdown(rep); for (const r of rep.rows) assert.ok(md.includes(r.name.replace(/\|/g, '\\|')), r.name);
   });
