@@ -38,16 +38,16 @@
   },
   "otherLandmarks": {
    "targets": 1151,
-   "skipped": 236,
+   "skipped": 239,
    "withArticle": 627
   },
   "candidates": {
-   "total": 500,
-   "high": 486,
+   "total": 526,
+   "high": 512,
    "med": 14,
    "low": 0
   },
-  "targetsWithHigh": 251,
+  "targetsWithHigh": 265,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -9619,10 +9619,29 @@
    "depicts": "bruges#basiliek-van-het-heilig-bloed",
    "label": "Basiliek van het Heilig Bloed",
    "names": [
-    "Basiliek van het Heilig Bloed"
+    "Basiliek van het Heilig Bloed",
+    "Heilig Bloed",
+    "Basilica of the Holy Blood"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Brugge - Basiliek van het Heilig Bloed 1504.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Brugge_-_Basiliek_van_het_Heilig_Bloed_1504.jpg",
+     "depicts": "The Basiliek van het Heilig Bloed on the Burg",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Basiliek van het Heilig Bloed"
+    },
+    {
+     "file": "File:Brugge - Basiliek van het Heilig Bloed 1448.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Brugge_-_Basiliek_van_het_Heilig_Bloed_1448.jpg",
+     "depicts": "The Basiliek van het Heilig Bloed",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Basiliek van het Heilig Bloed"
+    }
+   ]
   },
   {
    "key": "landmark:bruges#begijnhof-ten-wijngaerde",
@@ -9630,10 +9649,29 @@
    "depicts": "bruges#begijnhof-ten-wijngaerde",
    "label": "Begijnhof Ten Wijngaerde",
    "names": [
-    "Begijnhof Ten Wijngaerde"
+    "Begijnhof Ten Wijngaerde",
+    "Begijnhof",
+    "Beguinage of Brugge"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Brügge Begijnhof Ten Wijngaerde Hof 05.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Br%C3%BCgge_Begijnhof_Ten_Wijngaerde_Hof_05.jpg",
+     "depicts": "The courtyard of the Begijnhof Ten Wijngaerde",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Begijnhof Ten Wijngaerde; Zairon"
+    },
+    {
+     "file": "File:Prinselijk Begijnhof Ten Wijngaerde - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Prinselijk_Begijnhof_Ten_Wijngaerde_-_panoramio.jpg",
+     "depicts": "The Begijnhof Ten Wijngaerde",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Begijnhof Ten Wijngaerde"
+    }
+   ]
   },
   {
    "key": "landmark:bruges#belfort-van-brugge",
@@ -9641,10 +9679,30 @@
    "depicts": "bruges#belfort-van-brugge",
    "label": "Belfort van Brugge",
    "names": [
-    "Belfort van Brugge"
+    "Belfort van Brugge",
+    "Belfort",
+    "Belfry of Bruges",
+    "Belfry of Brugge"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Belfort Brugge.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Belfort_Brugge.jpg",
+     "depicts": "The Belfry of Bruges (Belfort van Brugge)",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names Belfort Brugge; L. Ellis"
+    },
+    {
+     "file": "File:Belfry of Bruges (Belfort van Brugge) Bell tower of Bruges, Belgium (Ank Kumar, Infosys Limited) 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Belfry_of_Bruges_(Belfort_van_Brugge)_Bell_tower_of_Bruges,_Belgium_(Ank_Kumar,_Infosys_Limited)_01.jpg",
+     "depicts": "The Belfry of Bruges (Belfort van Brugge)",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Belfort van Brugge"
+    }
+   ]
   },
   {
    "key": "landmark:bruges#boottocht-op-de-brugse-reien",
@@ -9666,7 +9724,24 @@
     "Damme"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Damme town hall, Belgium.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Damme_town_hall,_Belgium.jpg",
+     "depicts": "The town hall of Damme",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names Damme town hall"
+    },
+    {
+     "file": "File:Book market in front of the Damme town hall, Belgium.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Book_market_in_front_of_the_Damme_town_hall,_Belgium.jpg",
+     "depicts": "The book market in front of Damme town hall",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names Damme; the book village"
+    }
+   ]
   },
   {
    "key": "landmark:bruges#de-burg",
@@ -9674,10 +9749,29 @@
    "depicts": "bruges#de-burg",
    "label": "De Burg",
    "names": [
-    "De Burg"
+    "De Burg",
+    "Burg square",
+    "Burg (Brugge)"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Burg square - Brugge.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Burg_square_-_Brugge.jpg",
+     "depicts": "The Burg square, Bruges",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Burg square, Brugge"
+    },
+    {
+     "file": "File:Burg Square - Bruges, Belgium - panoramio.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Burg_Square_-_Bruges,_Belgium_-_panoramio.jpg",
+     "depicts": "The Burg square, Bruges",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names Burg Square, Bruges"
+    }
+   ]
   },
   {
    "key": "landmark:bruges#de-haan-concessie-belle-epoquewijk",
@@ -9701,6 +9795,7 @@
     "Garnaalvissers te paard"
    ],
    "pilot": false,
+   "skip": "candidate wave 3: a living tradition — the horseback shrimp fishers themselves are the subject (people rule) — calm cover (stated)",
    "candidates": []
   },
   {
@@ -9712,7 +9807,17 @@
     "Groeningemuseum"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Groeningemuseum.001 - Brugge.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Groeningemuseum.001_-_Brugge.jpg",
+     "depicts": "The Groeningemuseum, Bruges",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Groeningemuseum"
+    }
+   ]
   },
   {
    "key": "landmark:bruges#james-ensorhuis",
@@ -9755,10 +9860,28 @@
    "depicts": "bruges#onze-lieve-vrouwekerk-michelangelos-madonna",
    "label": "Onze-Lieve-Vrouwekerk (Michelangelo's Madonna)",
    "names": [
-    "Onze-Lieve-Vrouwekerk"
+    "Onze-Lieve-Vrouwekerk",
+    "Church of Our Lady"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Brugge, Onze-Lieve-Vrouwekerk.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Brugge,_Onze-Lieve-Vrouwekerk.JPG",
+     "depicts": "The Onze-Lieve-Vrouwekerk and its brick tower",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Onze-Lieve-Vrouwekerk"
+    },
+    {
+     "file": "File:ID82359-Brugge Onze-Lieve-Vrouwekerk-PM 07950.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:ID82359-Brugge_Onze-Lieve-Vrouwekerk-PM_07950.jpg",
+     "depicts": "The Onze-Lieve-Vrouwekerk, Bruges",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Onze-Lieve-Vrouwekerk"
+    }
+   ]
   },
   {
    "key": "landmark:bruges#rozenhoedkaai",
@@ -9769,7 +9892,24 @@
     "Rozenhoedkaai"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Rozenhoedkaai Brugge.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rozenhoedkaai_Brugge.jpg",
+     "depicts": "The Rozenhoedkaai, Bruges",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names Rozenhoedkaai; Hans Hillewaert"
+    },
+    {
+     "file": "File:Rozenhoedkaai (canal) and Belfry of Bruges, Bruges, Belgium (Ank Kumar, Infosys Limited) 07.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rozenhoedkaai_(canal)_and_Belfry_of_Bruges,_Bruges,_Belgium_(Ank_Kumar,_Infosys_Limited)_07.jpg",
+     "depicts": "The Rozenhoedkaai canal with the Belfry behind",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names Rozenhoedkaai"
+    }
+   ]
   },
   {
    "key": "landmark:bruges#sint-janshospitaal-and-memlingcollectie",
@@ -9782,7 +9922,24 @@
     "Memlingcollectie"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Bruges Belgium Sint-Janshospitaal-01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bruges_Belgium_Sint-Janshospitaal-01.jpg",
+     "depicts": "The Sint-Janshospitaal, Bruges",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Sint-Janshospitaal; CEphoto, Uwe Aranas"
+    },
+    {
+     "file": "File:Bruges Sint-Janshospitaal 9319 CH82410.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Bruges_Sint-Janshospitaal_9319_CH82410.JPG",
+     "depicts": "The Sint-Janshospitaal, Bruges",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Sint-Janshospitaal"
+    }
+   ]
   },
   {
    "key": "landmark:bruges#stadhuis-van-brugge",
@@ -9790,10 +9947,30 @@
    "depicts": "bruges#stadhuis-van-brugge",
    "label": "Stadhuis van Brugge",
    "names": [
-    "Stadhuis van Brugge"
+    "Stadhuis van Brugge",
+    "Stadhuis",
+    "City Hall of Brugge",
+    "Bruges City Hall"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Brugge - Stadhuis van Brugge (48196317306).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Brugge_-_Stadhuis_van_Brugge_(48196317306).jpg",
+     "depicts": "The Stadhuis van Brugge (city hall) on the Burg",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Stadhuis van Brugge"
+    },
+    {
+     "file": "File:Stadhuis brugge.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Stadhuis_brugge.jpg",
+     "depicts": "The Stadhuis van Brugge",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): in Category:City Hall of Brugge"
+    }
+   ]
   },
   {
    "key": "landmark:bruges#zwin-natuurpark",
@@ -9801,10 +9978,28 @@
    "depicts": "bruges#zwin-natuurpark",
    "label": "Zwin Natuurpark",
    "names": [
-    "Zwin Natuurpark"
+    "Zwin Natuurpark",
+    "Zwin"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Zwin 32.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Zwin_32.jpg",
+     "depicts": "The Zwin nature reserve, Knokke",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names Zwin; FrDr (2022)"
+    },
+    {
+     "file": "File:Het Zwin.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Het_Zwin.JPG",
+     "depicts": "The Zwin nature reserve",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names Het Zwin"
+    }
+   ]
   },
   {
    "key": "landmark:brussels#africamuseum-musee-royal-de-lafrique-centrale",
@@ -19265,7 +19460,9 @@
    "names": [
     "Grandview Avenue Overlook, Mount Washington",
     "Grandview Avenue Overlook",
-    "Mount Washington"
+    "Mount Washington",
+    "Grandview Avenue",
+    "Mt. Washington"
    ],
    "pilot": false,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
@@ -23272,7 +23469,9 @@
    "names": [
     "Smithsonian American Art Museum & National Portrait Gallery",
     "Smithsonian American Art Museum",
-    "National Portrait Gallery"
+    "National Portrait Gallery",
+    "Old Patent Office",
+    "Patent Office Building"
    ],
    "pilot": false,
    "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
@@ -23502,7 +23701,17 @@
     "Butler Institute of American Art"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Butler Institute of American Art 07.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Butler_Institute_of_American_Art_07.jpg",
+     "depicts": "The front of the Butler Institute of American Art",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the Butler Institute of American Art"
+    }
+   ]
   },
   {
    "key": "landmark:youngstown#dave-grohl-alley",
@@ -23513,6 +23722,7 @@
     "Dave Grohl Alley"
    ],
    "pilot": false,
+   "skip": "candidate wave 3: an alley of modern murals — copyrighted artwork is the subject — calm cover (stated)",
    "candidates": []
   },
   {
@@ -23547,7 +23757,24 @@
     "Lanterman's Mill"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Mill Creek Park Lanterman's Mill.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mill_Creek_Park_Lanterman's_Mill.jpg",
+     "depicts": "Lanterman's Mill and its falls, Mill Creek Park",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names Lanterman's Mill"
+    },
+    {
+     "file": "File:Lanterman's Mill - Mill Creek Park.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Lanterman's_Mill_-_Mill_Creek_Park.jpg",
+     "depicts": "Lanterman's Mill, Mill Creek Park",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names Lanterman's Mill"
+    }
+   ]
   },
   {
    "key": "landmark:youngstown#national-mckinley-birthplace-memorial-and-museum",
@@ -23556,10 +23783,29 @@
    "label": "National McKinley Birthplace Memorial & Museum",
    "names": [
     "National McKinley Birthplace Memorial & Museum",
-    "National McKinley Birthplace Memorial"
+    "National McKinley Birthplace Memorial",
+    "McKinley Memorial",
+    "McKinley Birthplace"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:McKinley Memorial - Niles.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:McKinley_Memorial_-_Niles.jpg",
+     "depicts": "The National McKinley Birthplace Memorial, Niles",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): in Category:National McKinley Birthplace Memorial; Wiki Loves Monuments 2021"
+    },
+    {
+     "file": "File:William McKinley Memorial , Niles, OH (15229739714).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:William_McKinley_Memorial_,_Niles,_OH_(15229739714).jpg",
+     "depicts": "The McKinley Memorial, Niles",
+     "confidence": "high",
+     "reason": "candidate wave 3 (W8 vetting, 2026-10-16): title names the McKinley Memorial, Niles"
+    }
+   ]
   },
   {
    "key": "landmark:youngstown#national-packard-museum",
@@ -23581,6 +23827,7 @@
     "Past Times Arcade"
    ],
    "pilot": false,
+   "skip": "candidate wave 3: an arcade (a venue) — never a photo — calm cover (stated)",
    "candidates": []
   },
   {

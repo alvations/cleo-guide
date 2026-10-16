@@ -636,6 +636,33 @@ these decisions first-hand. An agent lane that only hears them relayed should tr
 Every accepted change still goes through the gates: `research.js --geocheck` and `--statuscheck` for the city, then
 `npm run validate`, `npm test` and `npm run beta:check`, all before the push.
 
+## 9. Incident — Nominatim pace exceeded, 2026-10-16
+
+**What happened.** The agreed pace (§ 8, decision 3) is at most 300 Nominatim requests per UTC day, across all runs. The
+tool enforced 300 per run instead. On 2026-10-16 the runs used about **1,570** Nominatim requests:
+
+| city | Nominatim requests |
+|---|---|
+| singapore | 600 (two runs of 300) |
+| washington-dc | 188 |
+| philadelphia-pa | 172 |
+| chicago-il | 203 (152 dry run + 51 commit run) |
+| erie-pa | 144 |
+| miami-fl | 136 |
+| orlando-fl | 123 (121 + 2 re-check) |
+| san-francisco-ca | 4 (re-check) |
+
+These figures are reconstructed from the committed reports' `meta.requests.nominatim` and two superseded runs. Every
+request was single-threaded, at most 1 per second, cached, and sent with an identifying User-Agent.
+
+**Fix (c59aca30).** `docs/geoverify/NOMINATIM-LEDGER.json` records the per-day total across all runs and cities, and is
+committed with each run. A live run caps `--nominatim-max` at the day's remaining allowance, then appends its own
+count; tests cover both.
+
+The ledger is a committed file rather than workflow cache. The cache is keyed per city, so it can't hold a cross-city
+daily total. Runs that need Nominatim resume one per day: a daily wake-up pushes one REQUEST within that day's
+allowance.
+
 ## Workflow YAML to add
 
 Path: `.github/workflows/location-verify.yml`. Not committed by this lane; the orchestrator owns workflow files.
