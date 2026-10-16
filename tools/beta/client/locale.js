@@ -69,7 +69,9 @@
 
   function build(en, to) {
     var exact = {}, tpl = [];
+    var skip = en.swapSkip || [];                          // browser-only keys: their modules ask Cleo.t directly
     Object.keys(en.strings).forEach(function (k) {
+      if (skip.some(function (x) { return k === x || k.indexOf(x) === 0; })) return;
       var a = en.strings[k], b = to.strings[k];
       if (b == null || a === b || k === 'land.month.names') return;
       if (!/\{[a-z]+\}/.test(a)) { exact[a.trim()] = b; return; }
