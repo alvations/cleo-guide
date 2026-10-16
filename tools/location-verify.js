@@ -472,7 +472,8 @@ class Http {
     this.count++; if (h === 'nominatim.openstreetmap.org') this.nomCount++;
     const bh = this.byHost[h] = this.byHost[h] || { requests: 0, failed: 0 }; bh.requests++;
     this.last[h] = Date.now();
-    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 30000);
+    // Overpass queries carry their own [timeout:60|90]; the client must wait longer than the server does.
+    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), h === 'overpass-api.de' ? 120000 : 30000);
     try {
       const r = await fetch(url, { method, body, signal: ctl.signal, redirect: 'follow',
         headers: Object.assign({ 'User-Agent': UA, 'Api-User-Agent': UA, Accept: accept }, body ? { 'Content-Type': 'application/x-www-form-urlencoded' } : {}, extra || {}) });
