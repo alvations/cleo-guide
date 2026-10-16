@@ -275,7 +275,7 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     // that is the source's text, not our name field, so captions are left out of the "never unaccented" scan (imagery W7)
     const ours = html.replace(/<figcaption>[\s\S]*?<\/figcaption>|<small class="credit">[\s\S]*?<\/small>|<p class="hero-credit"[\s\S]*?<\/p>/g, '');
     chk('Kanda Myōjin: card, lead CTA and JSON-LD all carry the macron', /Kanda Myōjin <span class="nat"/.test(html) && /Start with Kanda Myōjin/.test(html) && /"name":"Kanda Myōjin/.test(html) && !/Kanda Myojin/.test(ours));
-    chk('hero dek keeps Jōnan · Jōsai · Jōhoku', /Jōnan · Jōsai · Jōhoku/.test(html));
+    chk('hero dek keeps Jōnan · Jōsai · Jōhoku', /Jōnan[\u00a0 ]· Jōsai[\u00a0 ]· Jōhoku/.test(html));   // FE-C R8 #2c: the space before "·" is non-breaking
     const gb = (html.match(/<button type="button" data-view="gallery"[^>]*>.*?<\/button>/) || [''])[0];
     chk('Gallery switcher glyph is the grid, not the Saved heart', /#i-grid/.test(gb) && !/#i-heart/.test(gb) && /<symbol id="i-grid"/.test(html), gb.slice(0, 120));
 
