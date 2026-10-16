@@ -140,4 +140,105 @@ Run on all 91 pages at 390, 768, 1024 and 1440 in light, plus 390 and 1440 in da
 
 ## Pass log
 
-No pass yet. The first full pass runs when the orchestrator sends "QC pass at &lt;sha&gt;".
+## Pass 2026-10-11 · f2c39d69 (baseline) + b5f0afa1 (FE-A re-check)
+
+**Pinned:** `f2c39d69ece50a954e922d7705f207daae03bab2` (the orchestrator's baseline, validate and `npm test` green). The
+orchestrator then reported that FE-A's gap 2 / 3 / 5 work and the casing helper had landed only at `b5f0afa1`, so the
+whole pass ran again on `b5f0afa1`. Each SHA ran in its own clean worktree, with the harness byte-identical to
+`tools/beta/qa/qc.js` at 4db273ed. **Every finding below reproduces on both SHAs** unless it says otherwise. The
+filed findings were spot-checked again on the head `0ecf62aa` (2026-10-16, 113 commits later) and **all still
+reproduce there** (canon bars, kind bars, Insights lens, Cleveland badge, Atlas lens count).
+
+**Outputs:** `design/beta/eval/qc/<sha>/{patterns,journeys,sweep}/{qc.json,summary.md}` for both SHAs.
+`design/beta/eval/qc/b5f0afa1/evidence/qc-NN-*.jpg` holds one shot per finding, made by
+`node beta/qa/qc-evidence.js --label <sha>`. `design/beta/eval/qc/b5f0afa1/patterns/shots/` holds one Atlas reference
+per pilot and viewport. The per-state run shots (≈ 80 MB) were not committed; a re-run reproduces them, and the
+`shot` paths in `qc.json` name them.
+
+### Raw counts (harness statuses, before triage)
+
+| Group | f2c39d69 PASS / WARN / FAIL / N/A | b5f0afa1 PASS / WARN / FAIL / N/A |
+|---|---|---|
+| A. patterns (5 pilots × 390 / 1440) | 533 / 69 / 90 / 11 | 531 / 71 / 90 / 11 |
+| B. journeys (7 pages × 2 viewports × 2 themes) | 200 / 60 / 8 / 40 | 200 / 64 / 4 / 40 |
+| C. sweep (91 pages × 6 loads) | 4,826 / 876 / 805 / 56 | 4,826 / 683 / 998 / 56 |
+
+**Journeys** (success on b5f0afa1; f2c39d69 is the same except J-02 has 3 more "no" and J-07 has one more "no"):
+- J-01: 20/20 yes.
+- J-01h: 8/8 yes.
+- J-02: 16 partial, 4 no.
+- J-03: 12/12 yes.
+- J-04: 20/20 yes.
+- J-05: 20 partial.
+- J-06: 28/28 yes.
+- J-07: 28 partial.
+- J-08, J-09, J-10, J-11: 28/28 yes each.
+
+Back and Forward, 200 % zoom, reduced motion, the map library blocked and storage blocked all hold on every page,
+viewport and theme. Shared links reopen the same place and view; the shortlist survives a reopen. Closures are
+honest in every view. "Who recommends this" works from every sheet.
+
+### Triage: every FAIL accounted for
+
+| Raw FAIL | Disposition |
+|---|---|
+| P-01 (10), J-05 phone switcher | **QC-09** |
+| P-03 (WARN 10) | **QC-10** |
+| P-10 (10) map view not in the hash | Confirms **PANEL-R1-#13**; not re-filed |
+| P-14 (40), P-15 (5 phone Atlas), J-05 counts | **QC-03** (Insights) and **QC-13** (Atlas). The Insights footnote lines that P-14 also listed ("Computed from 487 of 488") are correct sub-counts, so that part is harness strictness. |
+| P-17 (2) | **QC-04** |
+| P-18 (20 / 22) | **QC-01**, **QC-02** |
+| P-25 (1), P-26 Chinatown (1), f2c39d69 only | The price and "most popular" lines are in the record's own write-up. They are labelled under D-39 on b5f0afa1 (P-25 / P-26 PASS); the detail half is QA-65. Not re-filed. |
+| P-26 New York 1440 (1) | **Harness artefact.** The cards use `content-visibility:auto`, so off-screen cards report no `innerText`. The credits are present; checked on screen. Probe fixed (reads `textContent`). |
+| S-01 token census: raw colour 62, radius 50, letter-spacing 13, shadow 13, font size 3 outside `tokens.css` | Evidence for **R7-g6** (in progress); not re-filed |
+| S-05 (10) | **QC-05**. "No switcher to probe" on phones is the collapsed switcher, part of QC-09. |
+| S-06 (504) | **Harness artefact.** `button.pl-save` hides its "Save" label with `text-indent: 200%` on purpose. Probe fixed. |
+| S-08 (46 / 30) | Data labels (collection and cuisine names, region names): **OWNER-casing**; not re-filed |
+| S-10 (84, all at 768) | **QC-06** |
+| S-11 (0 / 252) | **Harness artefact**, the same as QA-66. The new sliding indicator under the selected switcher label is a positioned sibling the ancestor walk cannot see; the label reads fine on screen in both themes. The probe now skips visually hidden text; the limit is documented in the harness. |
+| S-12 (96 / 51) | **QC-11** (FE-A, extends PERF-06) and **QC-12** (platform, new on b5f0afa1) |
+| S-15 (69 / 71), J-07 "INPUT no ring" | **Harness artefact.** The search field's ring is drawn on an outer wrapper, visible on screen (`qc-07` probe shot, not committed). Not filed. |
+| J-07 "focused elements off-screen" | **Harness artefact.** Smooth scrolling was still running when the probe measured. The probe now re-measures after 700 ms. |
+| J-07 focus after Esc | **QC-07** |
+| J-02 | **QC-08** |
+| S-03 (WARN 546) | **QC-14** |
+| J-07 Wheeling 390 light (1 run, f2c39d69 only: Enter did nothing three times) | Not reproduced in the other 27 runs or on b5f0afa1; flake, not filed |
+
+**Not measured this pass:** P-24 (no silent caps) has no automated probe yet. It is covered indirectly by P-13 (every
+view reaches all N) and P-23 (the pager), and gets its own probe before the re-pass.
+
+### Findings
+
+Severity rules and lanes as in "How QC measures". All are **open**; each is mirrored in `BETA-ISSUES.md`.
+
+| Id | Sev | Lane | Finding | Steps | Expected | Actual (both SHAs; head 0ecf62aa where checked) | Evidence |
+|---|---|---|---|---|---|---|---|
+| **QC-01** | **High** | FE-B | The signature-canon chart's dish bars all open one cuisine lens, so a bar opens places it does not count. | Insights → "The signature canon" → tap "soba: 15". | Each bar opens the places it counts (STUDY §7 "charts as filters"; SPEC §3.4). | Every dish bar links `cz=<first cuisine>`. Tokyo: soba 15, tempura 14 and unagi 9 all open `cz=SUSHI` (33 places). Cleveland: "Polish Boy: 1" opens 18. New York: "bagel: 1" opens 23. Chinatown: "laksa: 1" opens 2. | `b5f0afa1/evidence/qc-01-canon-bars.jpg`; `*/patterns/qc.json` P-18 |
+| **QC-02** | Med | FE-B | Bars whose measure is not a lens open a broader lens with a different count, and nothing says so. | Insights → "What each area is for" → "All of Tokyo · Sights: 213". | The bar's number equals what opens, or the arrival says why it differs. | Sights 213 opens `mode=sights` with 263 (pop-culture sights are their own segment). "Jōtō · Pop culture: 3" opens 2. Cleveland tier ladder "Downtown · all 38" opens 42 (closed places included). "Other sources: n" segments open the whole area. | `qc-02-kind-bars.jpg`; P-18 |
+| **QC-03** | Med | FE-B | Insights ignores the lens in its numbers. | `#view=insights&a=CYD` (also `mode=food`, `t=1`). | "Insights shows the lensed numbers" (SPEC §2.5); the count line reads "43 of all 488". | "Every number below is computed from the 488 places", tiles 488 / 263 / 225, every chart unfiltered, with the "Chiyoda-ku" chip on. 5/5 pilots × 2 widths; J-05 20/20 runs. | `qc-03-insights-lens.jpg`; P-14, J-05 |
+| **QC-04** | Med | Atlas FE-1 | No "without a verified pin" badge on a page with an unpinned record. | Cleveland, Atlas. | "1 without a verified pin · listed below" (SPEC §3.2; STUDY §7). | No badge at 390 or 1440. The record is `rocky-river-reservation-and-fort-hill-stairs`, pin `low`. | `qc-04-no-pin-badge.jpg`; P-17 |
+| **QC-05** | Med | Atlas FE-1 | A search with no match shows an empty map and "List · 0", with no message and no way out. | `#q=zzqxjv` on any pilot. | An empty state that says nothing matched, with "Clear search" / "Show all N". | A blank map, "List · 0", and the "All 488" chip still pressed. 5/5 pilots × 2 widths. | `qc-05-empty-search.jpg`; S-05 |
+| **QC-06** | Med | FE-A | The view switcher is under the 44 px target at tablet width. | Any city page at 768 px. | Every segment ≥ 44 px (SPEC §2.4, §5). | Gallery 100 × 40, Atlas 85 × 40, Guidebook 125 × 40, Insights 105 × 40 on 84/84 city pages. | `qc-06-switcher-768.jpg`; S-10 |
+| **QC-07** | Med | FE-A | Esc from the sheet returns focus to a different card for the same place, not to the control that opened it. | Keyboard: Tab to the first card, Enter, Esc. | Focus returns to the opener. | Focus lands on another instance of the place (the lead card or a rail) outside the opener's card. 20/20 city runs on both SHAs. | J-07 in `*/journeys/qc.json` |
+| **QC-08** | Med | FE-A | "Best food near X" takes 5 steps through the Filters tray, and the top of the page ignores the lens. | Gallery: Eat & drink → area → open the first. | ≤ 4 steps; the first card on screen is inside the lens. | No area control outside the Filters tray (20/20). After the lens, the lead card ("Start with Kanda Myōjin", a Chiyoda sight) is still the first card (8/20). Visible food cards are out of rank order in 4/20. | `qc-08-food-lens-top.jpg`; J-02 |
+| **QC-09** | Low | FE-A + designer | The phone switcher is collapsed into one control, and an open sheet covers it. | 390 px: switch views; open a place, then switch. | A 4-segment control (SPEC §2.4) as `role=group`, reachable with a sheet open. | One "Gallery ▾" control, 2 taps per switch (10/10 phone runs). The sheet covers it, so you must close it first (10/10). `nav[data-cleo-views]` has no `role=group` (10/10). If the dropdown is a deliberate design change, record it in SPEC. | `qc-09-sheet-covers-switcher.jpg`; P-01, J-05 |
+| **QC-10** | Low | FE-B | After a switch to Guidebook or Insights, focus stays on the button or body. | Switch views by keyboard. | Focus moves to the view's heading (SPEC §5). | Gallery and Atlas move focus to their h1; Guidebook and Insights do not (2/4 on 10/10). The announcement itself is right. | P-03 |
+| **QC-11** | Med | FE-A | Layout shift on load beyond PERF-06: the rail and toolbar arrive late at phone and tablet widths. | Load a city page at 390 or 768. | CLS ≤ 0.1. | b5f0afa1: CLS > 0.1 on 15 pages at 390 light (12 dark), max 0.41 (`#cleo-rail`, `.toolbar`, `.split`), and on 7 pages at 768, max 0.32. f2c39d69: 20 / 16 pages at 390 and 25 at 768, max 0.50 (Ho Chi Minh City at 768). Extends PERF-06 (390 only) to 768. | S-12 in `*/sweep/qc.json` |
+| **QC-12** | Med | platform | The top bar shifts on desktop after load; on b5f0afa1 the shifting nodes are the new locale links. | Load a city page at 1440. | CLS ≤ 0.1. | b5f0afa1: `.topnav`, `.locales`, `.area-end` / `.top-actions` shift up to 0.23 on 11 pages at 1440 light (6 dark). f2c39d69: a `.topnav` / `.top-actions` shift up to 0.19 on 9 pages at 1440 and 10 at 1024 (Singapore and Vietnam pages). | S-12 |
+| **QC-13** | Low | Atlas FE-1 | The Atlas count line drops the total under a lens, and the phone Atlas has no count line. | `#view=atlas&a=CYD`; phone Atlas. | "43 of all 488 places" (SPEC §2.1). | Desktop says "43 places in this map area" or "All 43 places". The phone shows only "All 488" (chip) and "List · 351" (the map area). Related to PANEL-R1-#8. | `qc-13-atlas-lens-count.jpg`; P-14, P-15 |
+| **QC-14** | Low | designer | Spacing is off the 4 px scale. | Sweep, all pages. | Margins, paddings and gaps on the `--s-*` scale (4 px steps). | 46 % of measured values are off-scale; the commonest are 6, 5, 7 and 9 px. | S-03 |
+
+**By severity:** Blocker 0 · High 1 · Med 9 · Low 4.
+**By lane:**
+- FE-A: 5 (QC-06, 07, 08, 09, 11).
+- FE-B: 4 (QC-01, 02, 03, 10).
+- Atlas FE-1: 3 (QC-04, 05, 13).
+- platform: 1 (QC-12).
+- designer: 1 (QC-14), plus a share of QC-09.
+- Atlas FE-2, FE-C, imagery: 0.
+
+**Harness changes made during triage** (they only remove false positives; no threshold was loosened):
+- S-06 skips text-indent image replacement.
+- P-26 reads `textContent`.
+- J-07 and S-15 re-measure off-screen focus after smooth scrolling.
+- S-11 skips visually hidden text and documents the sliding-indicator limit.
