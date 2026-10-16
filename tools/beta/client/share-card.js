@@ -13,7 +13,10 @@
   var W = 1080, H = 1920, P = 80;
   var COL = { paper: '#F7F4EE', ink: '#1C1A17', ink2: '#4A453E', ink3: '#6F685F', line: '#DDD6CA', wash: '#EFE9DF' };
   var FD = '"Bricolage Grotesque", "Inter", system-ui, sans-serif', FU = '"Inter", system-ui, sans-serif';
-  var TIER = ['', 'Must see', 'Worth the detour', 'Deep cut'];
+  if (!Cleo.t) Cleo.t = function (k, e, v) { return v ? e.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? v[n] : m; }) : e; };   // i18n D-41
+  var TIER = function (t) { return t === 1 ? Cleo.t('tier.1', 'Must see') : t === 2 ? Cleo.t('tier.2', 'Worth the detour') : t === 3 ? Cleo.t('tier.3', 'Deep cut') : ''; };
+  var N = { place: function (n) { return n === 1 ? Cleo.t('trip.n.place.one', '{n} place', { n: n }) : Cleo.t('hub.places', '{n} places', { n: n }); },
+    day: function (n) { return n === 1 ? Cleo.t('trip.n.day.one', '{n} day', { n: n }) : Cleo.t('trip.n.day', '{n} days', { n: n }); } };
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var isClosed = function (p) { return !!p.closed || /\bclosed\b/i.test((p.pv || {}).status || '') || / [—–-]+ CLOSED\b/.test(p.n); };
   var label = function (p) { var n = String(p.n).replace(/\s+[—–-]+\s*CLOSED\b.*$/, ''), nat = p.nat && n.slice(-p.nat.length - 2) === '(' + p.nat + ')' ? p.nat : ''; return nat ? n.slice(0, -nat.length - 2).trim() : n; };
@@ -21,7 +24,7 @@
   /** "Recommended by X + n more" from a place's source ids and the guide's source index (honest when only the guide). */
   function srcLine(p, names) {
     var s = (p.src || []).filter(function (k) { return k !== 'guide'; });
-    return s.length ? 'Recommended by ' + (names[s[0]] || s[0]) + (s.length > 1 ? ' + ' + (s.length - 1) + ' more' : '') : 'Added by the guide (general knowledge)';
+    return !s.length ? Cleo.t('city.card.added', 'Added by the guide (general knowledge)') : s.length > 1 ? Cleo.t('src.recby.more', 'Recommended by {src} + {n} more', { src: names[s[0]] || s[0], n: s.length - 1 }) : Cleo.t('card.recby', 'Recommended by') + ' ' + (names[s[0]] || s[0]);
   }
   var latest = function (ps) { return ps.map(function (p) { return (p.pv || {}).checked || ''; }).filter(Boolean).sort().pop() || ''; };
 
@@ -36,33 +39,35 @@
       out.eyebrow = (G.name || '') + (G.areas[p.a] ? ' · ' + shortArea(G.areas[p.a]) : '');
       out.title = label(p); out.nat = p.nat || '';
       out.photo = I.photo || null; out.initial = (out.title.replace(/^(The|La|Le|El|Il)\s+/i, '').match(/[A-Za-z0-9À-ɏ]/) || [out.title.charAt(0) || '·'])[0];
-      out.status = closed ? 'Closed · kept for the record' : (TIER[p.t] || '');
+      out.closed = closed; out.status = closed ? Cleo.t('gal.closed', 'Closed · kept for the record') : TIER(p.t);
       out.source = srcLine(p, G.src);
-      out.checked = pv.checked ? (closed ? 'Closed when checked · ' : 'Open when last checked · ') + pv.checked : '';
+      out.checked = pv.checked ? (closed ? Cleo.t('share.checked.closed', 'Closed when checked · {date}', { date: pv.checked }) : Cleo.t('trip.checked', 'Open when last checked · {date}', { date: pv.checked })) : '';
       out.why = closed ? '' : (p.w || '');
       out.credit = out.photo && out.photo.credit ? out.photo.credit : '';
     } else {
       var days = I.days || [{ area: null, guide: G, places: I.places }], all = [];
       out.accent = (G.colors && I.places && I.places[0] && G.colors[I.places[0].a]) || '#C23A1C';
       out.title = I.title || '';
-      out.eyebrow = kind === 'trip' ? 'Your trip · ' + days.length + (days.length === 1 ? ' day' : ' days') : kind === 'day' ? 'Your day' + (G.name ? ' · ' + G.name : '') : 'A list' + (G.name ? ' · ' + G.name : '');
+      out.eyebrow = kind === 'trip' ? Cleo.t('share.eb.trip', 'Your trip · {days}', { days: N.day(days.length) }) : kind === 'day' ? (G.name ? Cleo.t('share.eb.day.in', 'Your day · {guide}', { guide: G.name }) : Cleo.t('day.k', 'Your day'))
+        : (G.name ? Cleo.t('share.eb.list.in', 'A list · {guide}', { guide: G.name }) : Cleo.t('share.eb.list', 'A list'));
       days.forEach(function (dy, di) {
         var g = dy.guide || G;
         dy.places.forEach(function (q, i) {
           all.push(q);
-          out.stops.push({ day: kind === 'trip' ? di + 1 : 0, n: i + 1, name: label(q), source: srcLine(q, g.src || {}), closed: isClosed(q), dayLabel: kind === 'trip' && i === 0 ? 'Day ' + (di + 1) + (dy.area ? ' · ' + dy.area : '') : '' });
+          out.stops.push({ day: kind === 'trip' ? di + 1 : 0, n: i + 1, name: label(q), source: srcLine(q, g.src || {}), closed: isClosed(q), dayLabel: kind === 'trip' && i === 0 ? (dy.area ? Cleo.t('trip.day.chip', 'Day {n} · {area}', { n: di + 1, area: dy.area }) : Cleo.t('share.day', 'Day {n}', { n: di + 1 })) : '' });
           if (q.la != null && !isClosed(q)) out.route.push({ ll: [+q.la, +q.ln], n: i + 1, day: di, col: (g.colors || {})[q.a] || out.accent });
         });
       });
       var km = 0; days.forEach(function (dy) { var pts = dy.places.filter(function (q) { return q.la != null && !isClosed(q); }); for (var i = 1; i < pts.length; i++) km += Cleo.geo.km([pts[i - 1].la, pts[i - 1].ln], [pts[i].la, pts[i].ln]); });
-      out.status = all.length + (all.length === 1 ? ' place' : ' places') + (kind !== 'list' && km ? ' · ' + Cleo.geo.walk(km).dist + ' between stops, straight-line' : '');
-      out.source = 'Each stop names who recommends it';
-      var lc = latest(all); out.checked = lc ? 'Status checked to ' + lc : '';
-      if (all.some(isClosed)) out.closedNote = 'Closed places are kept for the record, not as stops';
+      out.status = N.place(all.length) + (kind !== 'list' && km ? ' · ' + Cleo.t('share.between', '{dist} between stops, straight-line', { dist: Cleo.geo.walk(km).dist }) : '');
+      out.source = Cleo.t('share.each', 'Each stop names who recommends it');
+      var lc = latest(all); out.checked = lc ? Cleo.t('share.checked.to', 'Status checked to {date}', { date: lc }) : '';
+      if (all.some(isClosed)) out.closedNote = Cleo.t('share.closed.note', 'Closed places are kept for the record, not as stops');
       out.credit = '';
     }
     out.lines = [out.eyebrow, out.title, out.status, out.source, out.checked, out.credit].filter(Boolean);
-    out.alt = 'Share card: ' + out.lines.join('. ') + (out.stops.length ? '. Stops: ' + out.stops.map(function (s) { return (s.day ? 'day ' + s.day + ' ' : '') + s.n + ' ' + s.name + (s.closed ? ' (closed, kept for the record)' : '') + ' (' + s.source + ')'; }).join('; ') : '') + '.';
+    out.alt = Cleo.t('share.alt', 'Share card: {lines}', { lines: out.lines.join('. ') }) + (out.stops.length ? '. ' + Cleo.t('share.alt.stops', 'Stops: {stops}', { stops: out.stops.map(function (s) {
+      return (s.day ? Cleo.t('share.alt.day', 'day {n}', { n: s.day }) + ' ' : '') + s.n + ' ' + s.name + (s.closed ? ' ' + Cleo.t('share.alt.closed', '(closed, kept for the record)') : '') + ' (' + s.source + ')'; }).join('; ') }) : '') + '.';
     return out;
   }
 
@@ -107,13 +112,13 @@
       else {                                                   // the calm cover: the area's colour and the name's first letter
         x.fillStyle = S.accent; x.fillRect(0, 0, W, ph); x.fillStyle = 'rgba(255,255,255,.9)'; x.font = '600 520px ' + FD; x.textAlign = 'center'; x.fillText(S.initial, W / 2, ph / 2 + 190); x.textAlign = 'left';
       }
-      if (S.status === 'Closed · kept for the record') { x.fillStyle = 'rgba(28,26,23,.55)'; x.fillRect(0, 0, W, ph); }
+      if (S.closed) { x.fillStyle = 'rgba(28,26,23,.55)'; x.fillRect(0, 0, W, ph); }
       y = ph + 34;
       if (S.credit) { y = text(x, S.credit, y + 4, { font: '400 26px ' + FU, color: COL.ink3, lh: 34, lines: 2 }); }
       y += 44;
       y = text(x, S.eyebrow, y, { font: '600 32px ' + FU, color: COL.ink3, lh: 42, lines: 1 });
       y = text(x, S.title, y + 66, { font: '600 84px ' + FD, lh: 92, lines: 3 });
-      if (S.status) { y += 14; x.font = '600 34px ' + FU; var tw = x.measureText(S.status).width + 44; x.fillStyle = S.status.indexOf('Closed') === 0 ? COL.ink : S.accent; x.beginPath(); x.roundRect ? x.roundRect(P, y, tw, 58, 29) : x.rect(P, y, tw, 58); x.fill(); x.fillStyle = '#fff'; x.fillText(S.status, P + 22, y + 40); y += 58; }
+      if (S.status) { y += 14; x.font = '600 34px ' + FU; var tw = x.measureText(S.status).width + 44; x.fillStyle = S.closed ? COL.ink : S.accent; x.beginPath(); x.roundRect ? x.roundRect(P, y, tw, 58, 29) : x.rect(P, y, tw, 58); x.fill(); x.fillStyle = '#fff'; x.fillText(S.status, P + 22, y + 40); y += 58; }
       if (S.why && lean < 2) y = text(x, S.why, y + 64, { font: '400 34px ' + FU, color: COL.ink2, lh: 46, lines: lean ? 2 : 3 });
       y = text(x, S.source, y + 60, { font: '600 34px ' + FU, lh: 44, lines: 2 });
       if (S.checked) y = text(x, S.checked, y + 14, { font: '400 30px ' + FU, color: COL.ink2, lh: 40, lines: 1 });
@@ -133,16 +138,16 @@
         x.fillStyle = s.closed ? COL.ink3 : S.accent; x.beginPath(); x.arc(P + 22, y + 32, 22, 0, 2 * Math.PI); x.fill(); x.fillStyle = '#fff'; x.font = '700 22px ' + FU; x.textAlign = 'center'; x.fillText(String(s.n), P + 22, y + 40); x.textAlign = 'left';
         text(x, s.name, y + 42, { x: P + 64, max: W - 2 * P - 64, font: '600 ' + (tr ? 32 : 36) + 'px ' + FU, lh: 44, lines: 1 });
         // a closed stop says so on its own line, which is never cut: the name may be ellipsised, the flag may not
-        text(x, (s.closed ? 'Closed · kept for the record · ' : '') + s.source, y + (tr ? 78 : 84), { x: P + 64, max: W - 2 * P - 64, font: '400 ' + (tr ? 26 : 28) + 'px ' + FU, color: s.closed ? COL.ink : COL.ink2, lh: 36, lines: 1 });
+        text(x, (s.closed ? Cleo.t('gal.closed', 'Closed · kept for the record') + ' · ' : '') + s.source, y + (tr ? 78 : 84), { x: P + 64, max: W - 2 * P - 64, font: '400 ' + (tr ? 26 : 28) + 'px ' + FU, color: s.closed ? COL.ink : COL.ink2, lh: 36, lines: 1 });
         y += rh; shown++;
       }
-      if (shown < S.stops.length) y = text(x, '+ ' + (S.stops.length - shown) + ' more in the link', y + 34, { font: '600 30px ' + FU, color: COL.ink2, lh: 40, lines: 1 });
+      if (shown < S.stops.length) y = text(x, Cleo.t('share.more', '+ {n} more in the link', { n: S.stops.length - shown }), y + 34, { font: '600 30px ' + FU, color: COL.ink2, lh: 40, lines: 1 });
       if (S.closedNote) y = text(x, S.closedNote, y + 30, { font: '400 28px ' + FU, color: COL.ink2, lh: 36, lines: 1 });
       if (S.checked) text(x, S.checked, H - 214, { font: '400 30px ' + FU, color: COL.ink2, lh: 40, lines: 1 });
     }
     // the foot: the wordmark and where it lives (same on every card)
     x.fillStyle = COL.line; x.fillRect(P, H - 170, W - 2 * P, 2);
-    text(x, 'Cleo · sourced city guides', H - 104, { font: '600 34px ' + FD, lh: 40, lines: 1 });
+    text(x, Cleo.t('share.foot', 'Cleo · sourced city guides'), H - 104, { font: '600 34px ' + FD, lh: 40, lines: 1 });
     text(x, S.url, H - 58, { font: '400 26px ' + FU, color: COL.ink3, lh: 32, lines: 1 });
     return c;
   }
@@ -174,7 +179,8 @@
     if (kind === 'day' && C) {
       var ids = [].map.call(d.querySelectorAll('.day .stops .go'), function (a) { return decodeURIComponent((a.getAttribute('href') || '').replace(/^#p-/, '')); });
       return guide(C.key).then(function (G) { var a = C.S.day, ps = ids.map(function (i) { return G.by[i]; }).filter(Boolean);
-        return { kind: kind, name: 'A day in ' + shortArea(G.areas[a] || a), I: { guide: G, places: ps, title: 'A day in ' + shortArea(G.areas[a] || a), url: shortUrl(location.href.split('#')[0] + '#day=' + a) } }; });
+        var dn = Cleo.t('day.h', 'A day in {area}', { area: shortArea(G.areas[a] || a) });
+        return { kind: kind, name: dn, I: { guide: G, places: ps, title: dn, url: shortUrl(location.href.split('#')[0] + '#day=' + a) } }; });
     }
     if (kind === 'list') {
       var refs = Cleo.listCodec.decode(b.getAttribute('data-refs') || ''), keys = refs.map(function (r) { return r.slice(0, r.lastIndexOf('/')); }).filter(function (k, i, a) { return a.indexOf(k) === i; });
@@ -183,7 +189,7 @@
         var ps = [], G0 = gs.filter(Boolean)[0] || { src: {}, areas: {}, colors: {} }, merged = { name: keys.length === 1 && G0.name ? G0.name : '', src: {}, areas: {}, colors: {} };
         gs.forEach(function (g) { if (g) { Object.assign(merged.src, g.src); Object.assign(merged.colors, g.colors); } });
         refs.forEach(function (r) { var g = by[r.slice(0, r.lastIndexOf('/'))], p = g && g.by[r.slice(r.lastIndexOf('/') + 1)]; if (p) ps.push(p); });
-        var nm = b.getAttribute('data-name') || 'A list';
+        var nm = b.getAttribute('data-name') || Cleo.t('share.eb.list', 'A list');
         return { kind: kind, name: nm, I: { guide: merged, places: ps, title: nm, url: shortUrl(location.href.split('#')[0]) } };
       });
     }
@@ -224,12 +230,12 @@
     try { file = new File([res.blob], res.name, { type: 'image/png' }); } catch (e) {}
     var canFiles = !!(file && navigator.canShare && navigator.share && (function () { try { return navigator.canShare({ files: [file] }); } catch (e) { return false; } })());
     var o = d.createElement('div'); o.id = 'cleo-card-dlg'; o.className = 'card-dlg';
-    o.innerHTML = '<div class="card-dlg-b" role="dialog" aria-modal="true" aria-labelledby="card-dlg-h"><h2 id="card-dlg-h">Share as an image</h2>' +
+    o.innerHTML = '<div class="card-dlg-b" role="dialog" aria-modal="true" aria-labelledby="card-dlg-h"><h2 id="card-dlg-h">' + esc(Cleo.t('card.share.image', 'Share as an image')) + '</h2>' +
       '<img src="' + url + '" width="270" height="480" alt="' + esc(res.S.alt) + '">' +
-      '<p class="sm">1080 × 1920 PNG, drawn on this device. It names the source, the date we last checked' + (res.S.credit ? ' and the photo’s credit' : '') + '.</p>' +
-      '<p class="card-dlg-a">' + (canFiles ? '<button type="button" class="btn btn-primary" data-card="share">Share image</button>' : '') +
-      '<a class="btn ' + (canFiles ? 'btn-ghost' : 'btn-primary') + '" data-card="dl" href="' + url + '" download="' + esc(res.name) + '">Download PNG</a>' +
-      '<button type="button" class="btn btn-quiet" data-card="x">Close</button></p></div>';
+      '<p class="sm">' + esc(res.S.credit ? Cleo.t('share.dlg.photo', '1080 × 1920 PNG, drawn on this device. It names the source, the date we last checked and the photo’s credit.') : Cleo.t('share.dlg', '1080 × 1920 PNG, drawn on this device. It names the source and the date we last checked.')) + '</p>' +
+      '<p class="card-dlg-a">' + (canFiles ? '<button type="button" class="btn btn-primary" data-card="share">' + esc(Cleo.t('share.share', 'Share image')) + '</button>' : '') +
+      '<a class="btn ' + (canFiles ? 'btn-ghost' : 'btn-primary') + '" data-card="dl" href="' + url + '" download="' + esc(res.name) + '">' + esc(Cleo.t('share.dl', 'Download PNG')) + '</a>' +
+      '<button type="button" class="btn btn-quiet" data-card="x">' + esc(Cleo.t('sheet.close', 'Close')) + '</button></p></div>';
     d.body.appendChild(o);
     var close = function () { o.remove(); URL.revokeObjectURL(url); d.removeEventListener('keydown', key, true); if (opener && opener.focus) opener.focus(); };
     var key = function (e) {
@@ -259,7 +265,7 @@
     if (b.getAttribute('aria-busy') === 'true') return Promise.resolve(null);
     b.setAttribute('aria-busy', 'true');
     return make(b).then(function (res) { b.removeAttribute('aria-busy'); api.last = res; preview(res, b); return res; },
-      function () { b.removeAttribute('aria-busy'); if (Cleo.emit) Cleo.emit('cleo:toast', 'The image couldn’t be made here. The link still works.'); return null; });
+      function () { b.removeAttribute('aria-busy'); if (Cleo.emit) Cleo.emit('cleo:toast', Cleo.t('share.fail', 'The image couldn’t be made here. The link still works.')); return null; });
   };
   api.spec = spec; api.draw = draw; api.W = W; api.H = H;
   if (Cleo.need && Cleo.need.done) Cleo.need.done('share-card');
