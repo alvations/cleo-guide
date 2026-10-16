@@ -48,7 +48,11 @@ Wait for "round 3 ready at `<sha>`" from the front-end lane or the orchestrator.
 
 ## In flight
 
-Nothing. The R2 report is pushed, and the panel is waiting for the R3 head.
+Round 3 has started on head `537cfb8c` (received from session_011SQNDyJMGzR5K32A4y9Udd at 2026-10-16 14:06Z).
+- The worktree is at `../panel-r3`.
+- The evidence probes are running.
+- Real-tile shots for R3 were requested from the front-end lane (SHOTS-REQUEST still read R2).
+- Steps done this round: worktree.
 
 ## Notes
 
