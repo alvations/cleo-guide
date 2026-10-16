@@ -1648,3 +1648,35 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **Imagery:** `all` dispatched at budget 1200.
   - **Location verification:** reports will now be committed per city for review (Orlando, Chicago, DC, Miami, Erie, Philadelphia next).
   - **FE-C** was found on a stray local branch `work-fec`. It was told to merge onto the designated branch and verify the push.
+
+- 2026-10-16 · **FE-C** · closes **W9-5** (FE-C part: "Set as my base") · f70222d9f (head 517142af7)
+  - `tools/beta/client/base.js` (new, lazy):
+    - any open, pinned place's sheet offers "Set as my base";
+    - every card in Gallery, the list and Atlas (and its map preview), Guidebook and Saved then reads "650 m from <base> · 8 min walk", with the assumption (straight-line, about 80 m a minute) stated once per view;
+    - "Nearest to my base" sort; clearing restores the guide's order exactly;
+    - a closed or unpinned place can't be a base; one closed since is cleared with the reason;
+    - Atlas FE-2 ring API: `Cleo.base.ll/from/ready`, `cleo:base`, `cleo:base-ready`.
+  - core.js (platform told): route key `base`, `Cleo.base` state (`&base=` for the visit, `Cleo.store` 'mybase'), and the `Cleo.need` lazy loader.
+  - FE-A files: marked `FE-C W9-5 hook` blocks in city.js, render/city.js and render/saved.js (FE-A told).
+  - Tests: test-fe-c.js BASE (84 guides × 5 bases = 42,885 card lines equal to haversine; storage throwing; closed refused; sort and restore; sheet; Saved; lazy). Probe base-keys / base-lazy (keyboard, 390/1440, light and dark, every view, 0 off-origin requests). Shots: `design/beta/eval/w9/fe-c/base-*`.
+  - Open: the Atlas 5/10/15-min ring (W9-5 acceptance 5–6) is Atlas FE-2's, after their round 3.
+
+- 2026-10-16 · **Atlas FE-2** · closes **PANEL-R1-#1**, **PANEL-R1-#13**, **PANEL-R1-#11**, **PANEL-R1-#3** (FE-2 parts) and the PANEL-R1 probe-honesty note · round-3 head `537cfb8c65524a8da72a5fb4f2824bb084cfe399`
+  - Code: `tools/beta/client/atlas-nav.js` (new; ships inside `assets/js/atlas.js` via build.js) and `tools/beta/lib/render/atlas-nav.css` (after atlas.css), plus one-line optional hooks in atlas.js (FE-1 agreed) and city.js (FE-A told).
+  - **#1 round-trip:** opening a place from a card, a pin or the preview never flies the map or scrolls the page. Escape, Close and Back restore the centre (0 px), zoom, page and list scroll, the List count and pill, and focus on the opener (card or pin). A fresh `#p=` load sits at zoom ≥ 15, clear of the detail, at scrollY 0. On phone Atlas the detail sheet is 58vh, so the pin keeps a map band.
+  - **#13 view in the URL:** `#…&at=lat,lng,zoom` (the key `c=` is the category lens), written by replaceState on moveend. It reopens within 1 px and the same zoom and wins over the session view. The share toast reads "Link copied · opens <place> on this map view".
+  - **#11 keyboard:**
+    - "Skip to the map" and "Skip to the results" follow the shell skip link;
+    - in Atlas the map pane comes before the list in the document (Tab: map at stop 28, was 230; first pin 4 stops in via the skip link);
+    - with a pin focused, the arrow keys move between pins in map-priority order;
+    - Enter opens the preview and Escape returns to the pin (FE-1's link pins);
+    - 0 stops without a ring.
+  - **#3 near me:**
+    - locate-me sorts one list nearest first across areas;
+    - every card shows "90 m · about 1 min walk" (straight-line, 80 m a minute, stated in the count block);
+    - T3 at Shibuya + Eat & drink puts Nonbei Yokochō first at 90 m on both viewports;
+    - the first card is in bounds, and the pill equals the List-mode count;
+    - the view centred on the reader is never written to the URL or sessionStorage.
+  - Probes: `tools/beta/atlas-nav-ms.js`, run by `atlas-ms.js`. The atlas-ms "view kept" check now asserts centre, zoom, scrolls, count and focus. The baseline had 36 FAILs; now 0 FAIL.
+  - Gates on 537cfb8c: validate, npm test, beta:check and atlas-ms all PASS.
+  - Open: the W9-5 5/10/15-min base ring (FE-C's API is in), and SPEC-v3 rev 4 §3.6 one numbering in the detail (to verify with FE-A).

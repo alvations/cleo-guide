@@ -107,10 +107,14 @@ const minify = (f, src) => {
     format: { comments: false, quote_style: 3, ascii_only: false } });
   return r.code;
 };
-for (const f of fs.readdirSync(CLIENT).filter(f => f.endsWith('.js')).sort()) {
+// Atlas FE-2: client/atlas-nav.js (the map's interaction state) ships inside assets/js/atlas.js — one request, and it
+// always runs right after atlas.js. Each file keeps its own source so the two Atlas lanes never edit the same lines.
+const RIDES = { 'atlas.js': ['atlas-nav.js'] }, RIDERS = new Set([].concat(...Object.values(RIDES)));
+const clientSrc = f => [f].concat(RIDES[f] || []).map(x => fs.readFileSync(path.join(CLIENT, x), 'utf8')).join('\n');
+for (const f of fs.readdirSync(CLIENT).filter(f => f.endsWith('.js') && !RIDERS.has(f)).sort()) {
   let code;
-  try { code = minify(f, fs.readFileSync(path.join(CLIENT, f), 'utf8')); }
-  catch (e) { errors.push(`minify ${f}: ${e.message}`); code = fs.readFileSync(path.join(CLIENT, f), 'utf8'); }
+  try { code = minify(f, clientSrc(f)); }
+  catch (e) { errors.push(`minify ${f}: ${e.message}`); code = clientSrc(f); }
   const body = Buffer.from(`/* generated (minified) from tools/beta/client/${f} — do not edit here */\n` + code + '\n');
   emit('assets/js/' + f, body); assetsV[f.replace(/\.js$/, '')] = sha(body);
 }
@@ -120,7 +124,8 @@ else assetsV.css = sha(fs.readFileSync(cssPath));
 // FE-A page CSS (W2): city + saved mechanics cleo.css doesn't define yet, cached once instead of inlined per page.
 // Source owned by FE-A (tools/beta/lib/render/fe-a.css); DES upstreams rules into cleo.css over time.
 // Atlas lane (W7 Amendment 2): Atlas map-search CSS (tools/beta/lib/render/atlas.css) rides in the same file — one request.
-const feaCss = Buffer.concat([fs.readFileSync(path.join(__dirname, 'lib', 'render', 'fe-a.css')), Buffer.from('\n'), fs.readFileSync(path.join(__dirname, 'lib', 'render', 'atlas.css'))]);
+// Atlas FE-2: lib/render/atlas-nav.css (the map's interaction state) rides after it.
+const feaCss = Buffer.concat(['fe-a.css', 'atlas.css', 'atlas-nav.css'].map((f, i) => Buffer.concat([Buffer.from(i ? '\n' : ''), fs.readFileSync(path.join(__dirname, 'lib', 'render', f))])));
 emit('assets/fe-a.css', feaCss); const feaV = sha(feaCss);
 // FE-B page CSS (W7): landing, hubs and static pages — tokens only; source owned by FE-B (lib/render/fe-b.css).
 const febCss = fs.readFileSync(require('./lib/render/shell').FEB_CSS_SRC); emit('assets/fe-b.css', febCss);

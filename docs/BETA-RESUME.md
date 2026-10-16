@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 13:50Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 14:08Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -30,12 +30,11 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 ## Deploy gate (now)
 
-- **Step 1:** QA runs the R7 re-sign rows on the pinned **`be74c82f2680009c726ac8ac54731ef97773dfb8`**. validate, npm
-  test and beta:check are green on it.
-- **Step 2:** **QC-01 (High, FE-B)** is the only open High, and it blocks a YES. When FE-B pushes the fix:
-  1. pin a new head that contains it;
-  2. QA verifies QC-01 plus a delta check (the gates, plus any re-sign row whose files changed between the SHAs);
-  3. YES/NO on that head.
+- **R7 re-sign on be74c82f: NO** (QA 3480f399). Every R7 row passes. Two things block the YES:
+  - **QC-01** (High), already fixed in **2bfff3fe** (FE-B 68b442c0);
+  - **QA-69**, a regression from FE-A 7c70e821: the phone Gallery map pill is hidden at load (B-07 "toggle none" on 4 pilots). It was routed to FE-A first at 14:07Z; the fix keeps the pill visible at load.
+- **Next:** when QA-69 lands, pin a head containing 2bfff3fe and the QA-69 fix, and gate it. QA then re-runs B-07 Gallery, QC-01 and the regression rows, and gives YES/NO on that head.
+- Not blocking: QA-67 (detail matte), QA-61 (phone Atlas search box size), QA-68 (B-08 probe artefact; QA fixes the probe).
 - **On YES:**
   1. `git push origin <sha>:refs/heads/beta-deploy-r7`;
   2. a PR into `claude/cleveland-page-creation-pant4l`;

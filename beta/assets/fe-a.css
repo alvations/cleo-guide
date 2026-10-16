@@ -674,6 +674,11 @@ html main[data-city] nav.views .v-ind{display:none}
   html.ph-fade main[data-city] figure.photo::before,html.ph-fade .view-gallery li.gc .cover::before{transition:none}
   html main[data-city] nav.views.has-ind .v-ind{transition:none}
 }
+/* QA-59a: the name link keeps its 44 px tap padding (12 px above and below) but a clamped third line (a long name, or the
+   native name) showed inside that bottom padding. A paint-only mask hides the padding band; the hit area is unchanged,
+   and the mask is dropped while the link has keyboard focus so the focus ring is whole */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a{-webkit-mask:linear-gradient(#000,#000) top/100% calc(100% - 12px) no-repeat;mask:linear-gradient(#000,#000) top/100% calc(100% - 12px) no-repeat}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a:focus-visible{-webkit-mask:none;mask:none}
 
 /* ==========================================================================
    atlas.css — Atlas map-search (Atlas lane, W7 Amendment 2: the real-estate map-search pattern, for travel).
@@ -951,3 +956,18 @@ html[data-view=atlas] .mappane #cleo-poi.poi-sheet{position:absolute;z-index:700
 @media (min-width:600px) and (max-width:1023px){html.atlas-m.ms-list[data-view=atlas] .listpane .pls{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @keyframes ms-reveal{to{visibility:visible}}
 @media (prefers-reduced-motion:reduce){.pp>span{transition:none}}
+
+/* atlas-nav.css (Atlas FE-2 lane): the Atlas map's interaction state — rides after atlas.css in assets/fe-a.css.
+ * Phones, Atlas only: the place detail is a sheet over the map that leaves a band of map above it, so the open place's
+ * pin is never under the sheet (SPEC-v3 §3.2). It scrolls inside; the other views keep FE-A's full-height sheet. */
+@media (max-width:1023.98px){
+  html.atlas-m[data-view=atlas] #cleo-sheet .sheet.detail{max-height:58vh}
+}
+/* skip links (§5): the page's own skip link style; Atlas only */
+html:not([data-view=atlas]) .ms-skip{display:none}
+/* "Nearest to me": one list across areas (atlas-nav.js moves the cards into section.ms-near while it is on) */
+html.atlas-m[data-view=atlas]:not(.ms-list) .listpane :is(section.ms-near,section.ms-near>ol.pls){display:contents}
+html.ms-on[data-view=atlas] main[data-city] #cleo-grid section.ms-near li.pl.ms-out{display:none}   /* outside the map area / page */
+.ms-d{font-weight:600;color:var(--ink)}
+.ms-head .ms-near-n{margin:4px 0 8px;font-size:var(--fs-sm);color:var(--ink-2)}
+html.atlas-m[data-view=atlas]:not(.ms-list) .ms-head .ms-near-n{display:none}
