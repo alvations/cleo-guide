@@ -260,10 +260,15 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     const badT = tiles.filter(([, href, , t, n]) => {
       if (!fs.existsSync(path.join(BETA, href))) return true;
       const title = t.replace(/&amp;/g, '&'), seen = new Set();
+<<<<<<< HEAD
+      // OWNER-casing (6b48078d) sentence-cases the ★ label on the page; the guide keeps the data title, so match without case
+      const tot = guide.filter(g => g.signature && g.signature.title.toLowerCase() === title.toLowerCase() && !seen.has(g.name) && seen.add(g.name)).reduce((a, g) => a + g.signature.n, 0);
+=======
       // the tile prints the group's display label (sentence case, lib/casing.js); the group is keyed on the data title
       const { sentence, ownWords } = require('./lib/casing');
       const same = g => g.signature.title === title || sentence(g.signature.title, ownWords(g.name)) === title;
       const tot = guide.filter(g => g.signature && same(g) && !seen.has(g.name) && seen.add(g.name)).reduce((a, g) => a + g.signature.n, 0);
+>>>>>>> 99e78046de9dcc1729f3d3a87429a13704f51c79
       return +n.replace(/,/g, '') > tot || +n.replace(/,/g, '') <= 0;
     });
     chk(`landing: editorial rail has one ★ tile per live country (${tiles.length}/${live}), counts from the guides, links resolve`, tiles.length === live && !badT.length, badT.map(x => x[3]));
