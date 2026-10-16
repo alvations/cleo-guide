@@ -209,7 +209,10 @@ const CARD_SIZES = '(min-resolution: 2.5dppx) and (max-width: 1023px) 166px, (ma
 // 240px on a 3× phone, so it resolves to the 720w copy — a true 2× cap. Cards with a 960w copy (lead, first row) keep the
 // 166px clause (the 500w copy), which holds the Tokyo phone first load ≤ 700 KB.
 const CARD_SIZES_720 = CARD_SIZES.replace('(max-width: 1023px) 166px,', '(max-width: 1023px) 240px,');
-const cardSizes = photo => { const ws = (photo.widths || []).map(x => x.w); return ws.length && Math.max(...ws) <= 720 ? CARD_SIZES_720 : CARD_SIZES; };
+// D-40a (imagery, approved 2026-10-16): any card with a ~720w copy (600–799 w: the weight cap scales some to 640–799) caps
+// 3× phones at 240px so they take it, even when a 960 also exists (lead/first-row cards: 500 + 720 + 960). 1×/2× and desktop
+// resolve as before; the detail slot passes its own opts.sizes (→ 960).
+const cardSizes = photo => ((photo.widths || []).some(x => x.w >= 600 && x.w < 800) ? CARD_SIZES_720 : CARD_SIZES);
 /** srcset + sizes attributes when the photo has size variants (else ''). */
 function srcsetAttr(photo, up, sizes) {
   const set = photo.widths || [];
