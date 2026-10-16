@@ -37,7 +37,8 @@ Earlier: W9-4, W9-5 (FE-C part) and W9-7 are done.
 | QC-05 empty state: client/empty.js (lazy, city.js hook after the mode-chip line) — names the search, Clear search + Show all N, in the lens slot and on the Atlas map (phone; desktop states it in the list), no mode chip pressed; batch 5 ja merged; probe `empty` (5 pilots × Gallery/Atlas × 390/1440) + test-fe-c EMPTY | e353df08e | — |
 | QC-04 (D-43): fresh.js "Approximate pin" card tag; sheet.js hook (detail fact); views.js hook (badge counts low pins); fe-c.css gives `.nopin` its missing base position (it sat below the map, unseen); test-fe-c APPROX. Batch 6 ja merged | 7857f8855 | — |
 | QA-77 (deploy blocker, B-20): `a.rb` badge links are 44 px targets (−6 px block margins, pill painted by an inset ::before at 32 px; wrapped rows 12 px apart); metrics B-20 = 0 on the pilots, Gallery + Atlas, mobile; probe `rec-tap`; probe base-keys waits for `.ms-ready` on desktop Atlas | d2cc5400a (only fe-c.css needed for the beta-deploy-r7 port) | — |
-| trip.html: a closed place's status source (pv.ss, now a URL from FE-B's model) is a link named by its host (`trip.why.source`, translate=no); test-fe-c + test-i18n trip case | this push | — |
+| trip.html: a closed place's status source (pv.ss, now a URL from FE-B's model) is a link named by its host (`trip.why.source`, translate=no); test-fe-c + test-i18n trip case | 539e07d5a | — |
+| W9-2 (a): "Status checked <d Mon>" also on Gallery row cards (li.gc) and the Atlas preview (a.ms-pv), dated from the place's card/stub (fresh.js views()); test-fe-c FRESH (Cleveland 71/71 rows) + probe rec-pv. Next (b2): when platform lands `data-nosearch` in Cleo.lens.text, switch .pl-chk lines to real text with data-nosearch, drop attr(); test "oct" / 10月 matches no card by the line | this push | — |
 
 ## Next
 

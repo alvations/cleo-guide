@@ -40,3 +40,5 @@ a.rb::before{content:"";position:absolute;inset:6px 0;z-index:-1;border-radius:i
 a.rb.rb-award{background:none}a.rb.rb-award::before{background:var(--sun-wash)}
 .pl-rec:has(>a.rb){row-gap:12px;margin-top:14px}.ge-rec:has(>a.rb){margin-bottom:10px}
 .sheet .fact .pl-rec:has(>a.rb){margin:6px 0}
+/* W9-2 (a): the same quiet line inside the Gallery row card and the Atlas map preview (fresh.js) */
+.gc-chk,.pv-chk{margin-top:var(--s-1)}.gc-b>.gc-chk{order:98}.gc-b>.gc-rec{order:99}
