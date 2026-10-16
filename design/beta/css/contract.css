@@ -156,9 +156,9 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
 .masthead .eyebrow { color: var(--on-night-2); font: 500 var(--fs-sm)/1.4 var(--font-ui); letter-spacing: 0; text-transform: none; margin: 0 0 2px; }
 .masthead h1 { font: 500 var(--fs-d1)/var(--lh-d1) var(--font-display); letter-spacing: var(--track-tight); margin: 0; color: var(--on-night); }
 .masthead h1 .native, .masthead .native { font: 400 .5em/1 var(--font-native); color: var(--on-night-2); margin-left: .3em; letter-spacing: var(--track-eyebrow); }
-.masthead .dek { margin: var(--s-2) 0 0; color: var(--on-night-2); font-size: var(--fs-sm); line-height: 1.45;
+.masthead .dek { margin: var(--s-2) 0 0; color: var(--on-night-2); font-size: var(--fs-sm); line-height: var(--lh-sm);
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; max-width: 62ch; }
-.masthead .stats, .masthead .facts { margin: var(--s-2) 0 0; color: var(--on-night-2); font-size: var(--fs-sm); line-height: 1.5; max-width: 84ch; }
+.masthead .stats, .masthead .facts { margin: var(--s-2) 0 0; color: var(--on-night-2); font-size: var(--fs-sm); line-height: var(--lh-lead); max-width: 84ch; }
 .masthead time, .masthead .nw { white-space: nowrap; }
 .masthead .stats strong, .masthead .stats b, .masthead .facts b { color: var(--on-night); font-weight: 600; }
 .masthead a { color: var(--on-night); text-underline-offset: 3px; }
@@ -269,20 +269,20 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
 .pl-e:has(.tg, .tier)::before { display: none !important; }           /* FE-A's explicit glyph replaces the fallback */
 .pl-e .tier, .pl-e a { position: relative; z-index: 2; }
 /* body rows */
-.pl-w { padding-top: var(--s-3); font-size:var(--fs-ui); line-height: 1.5; color: var(--ink-2); }
+.pl-w { padding-top: var(--s-3); font-size:var(--fs-ui); line-height: var(--lh-lead); color: var(--ink-2); }
 /* density (M1-11: ≥ 2 cards per phone screen): the write-up previews 3 lines in the list; the whole text stays in the DOM
    (search, print, screen readers) and opens when the card is the target (tap → #p-id) or holds focus. Know-before is never
    clamped — corrections such as Cleveland's 325-not-525 note must stay visible on the card. */
 @media (max-width: 639px) {
   .pls .pl:not(.is-target):not(:target):not(:focus-within) .pl-w { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 }
-.pl-k { padding-top: var(--s-3); font-size:var(--fs-sm); line-height: 1.45; color: var(--ink-2); }
+.pl-k { padding-top: var(--s-3); font-size:var(--fs-sm); line-height: var(--lh-sm); color: var(--ink-2); }
 /* know-before: neutral (D-06 keeps the accent for actions); FE-A's .pl-k.note (prose "Your guide's note") gets the italic voice */
 .pl-k .lbl { display: block; font: 600 var(--fs-meta)/1.3 var(--font-ui); color: var(--ink-3); margin-bottom: 2px; }
 .pl-k:has(.lbl) { margin: var(--s-2) var(--s-4) 0; padding: var(--s-2) var(--s-3); border-left: 3px solid var(--area-c); background: var(--sand); border-radius: var(--r-s); }
 .pl-k.note p { font: italic 400 var(--fs-body)/1.45 var(--font-display); color: var(--ink); }
 .pl-ad { padding-top: var(--s-2); font-size:var(--fs-meta); color: var(--ink-3); }
-.pl-s { position: relative; z-index: 2; padding-top: var(--s-2); font-size:var(--fs-meta); line-height: 1.3; color: var(--ink-2); }
+.pl-s { position: relative; z-index: 2; padding-top: var(--s-2); font-size:var(--fs-meta); line-height: var(--lh-d3); color: var(--ink-2); }
 .pl-s .lbl { display: block; font: 600 var(--fs-meta)/1.3 var(--font-ui); color: var(--ink-3); margin: 0 0 0; }
 .pl-s a { display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap); min-width: var(--tap); padding: 0 2px; font-weight: 600; color: var(--ink);
   text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 4px; text-decoration-thickness: 1px; }
@@ -332,13 +332,13 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
     linear-gradient(90deg, color-mix(in srgb, var(--ink) 5%, transparent) 1px, transparent 1px) 0 0 / 88px 88px,
     var(--sand); }
 .map-fallback { max-width: 34ch; margin: 0; padding: var(--s-3) var(--s-4); border-radius: var(--r-m); background: color-mix(in srgb, var(--surface) 90%, transparent);
-  color: var(--ink-2); font-size:var(--fs-sm); line-height: 1.45; text-align: center; box-shadow: var(--e-1); }
+  color: var(--ink-2); font-size:var(--fs-sm); line-height: var(--lh-sm); text-align: center; box-shadow: var(--e-1); }
 /* platform's verified-pin schematic (lib/art.js): <figure class="map-art map-fallback"><img …><figcaption>…</figcaption></figure> */
 #cleo-map figure.map-art { position: absolute; inset: 0; margin: 0; max-width: none; padding: 0; border-radius: 0; background: none; box-shadow: none; display: block; }
 #cleo-map figure.map-art img { position: absolute; inset: 16px 16px 56px; width: calc(100% - 32px) !important; height: calc(100% - 72px) !important; max-width: none !important; object-fit: contain; }
 #cleo-map figure.map-art figcaption { position: absolute; left: 12px; right: 12px; bottom: 12px; margin: 0 auto; width: max-content; max-width: calc(100% - 24px);
   padding: var(--s-2) var(--s-4); border-radius: var(--r-pill); background: color-mix(in srgb, var(--surface) 92%, transparent); box-shadow: var(--e-1);
-  font-size:var(--fs-meta); line-height: 1.35; color: var(--ink-2); text-align: center; }
+  font-size:var(--fs-meta); line-height: var(--lh-xs); color: var(--ink-2); text-align: center; }
 /* area silhouettes from verified pins (assets/art/<city>/<AREA>.svg) on area heads */
 .area .shape, .area-shape { float: right; width: 84px; height: 64px; object-fit: contain; margin: 0 0 var(--s-1) var(--s-3); opacity: .9; }
 .mappane .credit { font-size: var(--fs-xs); color: var(--ink-3); }
@@ -355,7 +355,7 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
 /* Leaflet chrome in the house style (tiles stay OSM/Esri; the credit stays visible and ≥ 12 px) */
 .leaflet-container, .leaflet-container .leaflet-bar a, .leaflet-control-zoom span { font-family: var(--font-ui) !important; }
 .leaflet-container { font: 500 var(--fs-meta)/1.4 var(--font-ui) !important; background: var(--sand) !important; }
-.leaflet-container .leaflet-control-attribution { font-size: var(--fs-xs); line-height: 1.5; color: var(--ink-2); background: color-mix(in srgb, var(--surface) 86%, transparent); padding: 2px var(--s-2); border-radius: var(--r-xs) 0 0 0; }
+.leaflet-container .leaflet-control-attribution { font-size: var(--fs-xs); line-height: var(--lh-lead); color: var(--ink-2); background: color-mix(in srgb, var(--surface) 86%, transparent); padding: 2px var(--s-2); border-radius: var(--r-xs) 0 0 0; }
 .leaflet-container .leaflet-control-attribution a { color: var(--ink); min-height: 0; display: inline-block; padding: var(--s-2) 0; }
 .leaflet-bar { border: 1px solid var(--line) !important; box-shadow: var(--e-1) !important; border-radius: var(--r-s) !important; overflow: hidden; }
 .leaflet-bar a { width: var(--tap) !important; height: var(--tap) !important; line-height: var(--tap) !important; color: var(--ink) !important; background: var(--surface) !important; }
@@ -419,7 +419,7 @@ html .pl-e { padding-right: 60px; }
 /* vertical native plate: FIT, never clip (ROUND-1 #4). The cover is a size container; glyphs scale with its height and
    wrap into a second column for 5–7 glyph names (.long). The name keeps clear of the plate's widest case. */
 html .pl-cover { container-type: size; }
-html .pl-cover .pl-vert { top: 14px; right: 62px; bottom: 14px; max-height: none; white-space: normal; overflow: visible; line-height: 1.04;
+html .pl-cover .pl-vert { top: 14px; right: 62px; bottom: 14px; max-height: none; white-space: normal; overflow: visible; line-height: var(--lh-hero);
   font-size: var(--fs-lead); font-size: var(--fs-d2); letter-spacing: var(--track-eyebrow); }
 html .pl-cover .pl-vert.long { font-size: var(--fs-lead); font-size: var(--fs-d2); }
 html .pl-cover .pl-glyph { right: 18px; bottom: 14px; width: 24px; height: 24px; }
@@ -444,9 +444,9 @@ html .pl[data-closed]::before { background: repeating-linear-gradient(135deg, tr
 /* 15.3 "Recommended by" (QA-18): no space before commas, no stray comma on its own line. The literal ", " text nodes stay
    in the DOM (screen readers, copy-paste) but render at 0; each source draws its own comma, glued to its name. */
 html .pl-s { font-size: 0; line-height: 0; }
-html .pl-s > * { font-size:var(--fs-meta); line-height: 1.3; }
+html .pl-s > * { font-size:var(--fs-meta); line-height: var(--lh-d3); }
 html .pl-s .lbl { font-size:var(--fs-meta); margin-right: var(--s-2); }
-html .pl-s .src { justify-content: flex-start; gap: 0; padding: 0; margin-right: var(--s-2); text-align: left; line-height: 1.25; }
+html .pl-s .src { justify-content: flex-start; gap: 0; padding: 0; margin-right: var(--s-2); text-align: left; line-height: var(--lh-d2); }
 html .pl-s .src:not(:last-child)::after { content: ","; display: inline-block; color: var(--ink-3); font-weight: 500; text-decoration: none; }
 html .pl-s .added { font-size:var(--fs-xs); vertical-align: middle; }
 /* label inline on phones too: one flowing line "Recommended by Wikipedia, GO Tokyo, Time Out" (+ density, B-16) */
@@ -460,7 +460,7 @@ html .sheet.detail > .close { top: 10px; right: 12px; width: var(--tap); height:
 html .detail .hero-plate { margin: var(--s-9) var(--s-4) 0; height: 168px; border-radius: var(--r-m);
   background: var(--motif-ink), color-mix(in srgb, var(--area, var(--city)) 16%, var(--surface)); container-type: size; }
 html .detail .hero-plate::before { width: 6px; background: linear-gradient(180deg, var(--area, var(--city)) 0 70%, var(--city-2) 70%); }
-html .detail .hero-plate .pl-vert { top: 18px; right: 26px; bottom: 18px; max-height: none; white-space: normal; line-height: 1.04;
+html .detail .hero-plate .pl-vert { top: 18px; right: 26px; bottom: 18px; max-height: none; white-space: normal; line-height: var(--lh-hero);
   font-size: var(--fs-d2); font-size: var(--fs-d2); color: color-mix(in srgb, var(--area, var(--city)) 45%, var(--ink)); }
 html .detail .hero-plate .pl-vert.long { font-size: var(--fs-d2); font-size: var(--fs-d2); }
 html .detail .hero-plate .pl-ini { color: color-mix(in srgb, var(--area, var(--city)) 55%, transparent); }
@@ -469,11 +469,11 @@ html .detail .hero-plate .pl-glyph { left: 22px; bottom: 18px; width: 36px; heig
 html .detail .content { padding-top: var(--s-5); }
 html .detail .why { font: 400 var(--fs-lead)/1.62 var(--font-ui); color: var(--ink-2); max-width: 62ch; }
 html .detail .why b, html .detail .why strong { color: var(--ink); font-weight: 600; }
-html .detail h2.d2 { font-size: var(--fs-d2); line-height: 1.12; letter-spacing: var(--track-tight); text-wrap: balance; }
+html .detail h2.d2 { font-size: var(--fs-d2); line-height: var(--lh-d1); letter-spacing: var(--track-tight); text-wrap: balance; }
 html .detail .section-t, html .detail h3.section-t { font: 600 var(--fs-sm)/1.3 var(--font-ui); color: var(--ink-3); letter-spacing: var(--track-eyebrow); margin: 0 0 var(--s-2); }
 html .detail .pills .pill { min-height: var(--tap); font-size:var(--fs-sm); }
 html .detail .hero-plate:has(.loc) .pl-glyph { display: none; }   /* FE-A's locator inset (.loc) replaces the generic glyph */
-html .srclist .go { text-align: left; font-weight: 600; color: var(--ink); line-height: 1.35; }
+html .srclist .go { text-align: left; font-weight: 600; color: var(--ink); line-height: var(--lh-xs); }
 @media (min-width: 1024px) {
   html .detail .hero-plate { height: 200px; margin: var(--s-9) var(--s-6) 0; }
   html .detail .content { padding-inline: var(--s-6); }
@@ -558,7 +558,7 @@ html .sharebar .btn { min-height: var(--tap); }   /* was 40 px on phones (B-20) 
 .interest .glyph .g { width: 30px; height: 30px; }
 .interest[aria-pressed="true"] .tick::after { content: "✓"; font: 700 var(--fs-sm)/1 var(--font-ui); }
 .because { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-2); margin: var(--s-2) 0 var(--s-1); padding: var(--s-3) var(--s-4); border-radius: var(--r-m);
-  background: var(--city-wash); color: var(--ink); font-size:var(--fs-sm); line-height: 1.45; }
+  background: var(--city-wash); color: var(--ink); font-size:var(--fs-sm); line-height: var(--lh-sm); }
 .because::before { content: ""; width: 20px; height: 20px; flex: none; background: var(--city-ink); -webkit-mask: var(--g-star4) center / contain no-repeat; mask: var(--g-star4) center / contain no-repeat; }
 .because b { font-weight: 600; }
 .because .n { color: var(--ink-2); }

@@ -9,6 +9,20 @@
   var Cleo = window.Cleo = window.Cleo || {};
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var FOLD = 8;
+  // OV-00 (DESIGN-SYSTEM §v2.12 rule 1, FE-B): a guest bar gets `cls` after a ≥ 24 px scroll down and loses it on a ≥ 24 px
+  // scroll up, near the top, or when focus enters it (it stays in the tab order). The CSS moves it by transform only.
+  // Returns an unbind function. Used by the shell tab bar here and the Guidebook Contents strip (guidebook.js).
+  Cleo.compact = function (el, cls) {
+    if (!el) return function () {};
+    var p = window.scrollY, a = p, dir = 0;
+    var f = function () {
+      var n = window.scrollY, nd = n > p ? 1 : n < p ? -1 : dir; if (nd !== dir) { dir = nd; a = p; } p = n;
+      if (n < 8 || (dir < 0 && a - n >= 24)) el.classList.remove(cls); else if (dir > 0 && n - a >= 24) el.classList.add(cls);
+    }, u = function () { el.classList.remove(cls); };
+    window.addEventListener('scroll', f, { passive: true }); el.addEventListener('focusin', u);
+    return function () { window.removeEventListener('scroll', f); el.removeEventListener('focusin', u); el.classList.remove(cls); };
+  };
+  Cleo.compact(document.querySelector('.tabbar'), 'is-away');
   // i18n D-41: interface strings from the catalogue (Cleo.t, head snippet); the English here equals en.json (test-i18n).
   // Values are escaped before they are filled in, so the English output is unchanged.
   var tt = function (k, e, v) { return Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? v[n] : m; }) : e; };

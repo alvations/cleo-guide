@@ -79,7 +79,7 @@
   /* size / line-height pairs — mobile first, desktop step-up below */
   --fs-hero: 38px;  --lh-hero: 1.06;   /* landing hero */
   --fs-d1:   34px;  --lh-d1:   1.08;   /* city / country name */
-  --fs-d2:   22px;  --lh-d2:   1.2;    /* section & sheet titles */
+  --fs-d2:   24px;  --lh-d2:   1.2;    /* section & sheet titles — 24 px: the display face's floor (R8 T7; V2.22) */
   --fs-d3:   16px;  --lh-d3:   1.3;    /* place name on a card (UI face, 600) */
   --fs-lead: 17px;  --lh-lead: 1.5;
   --fs-body: 16px;  --lh-body: 1.55;   /* ≥ 16 px body for every reader */
