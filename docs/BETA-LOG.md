@@ -1963,3 +1963,4 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **Raised, not changed:**
   - metrics B-20 on the phone counts FE-C's "Cited by N sources" badges (`a.rb-cited`, 32 px tall) in the Atlas list. Reported to FE-C.
   - metrics B-03 reads 15 controls on 3 pilots against a limit of 14. The spec's phone chrome is header 4 + switcher 4 + chips 7 = 15, and the switcher row is required (QC-09). Raised with QA and the designer.
+- **Card text (rev 5 §2.3 / §5, R3 #3), Atlas only:** the "Recommended by" label, source links and "+n more" are 16 px. The tier sticker ("Must see") and the cover's native-name line are 14 px. `.pl-s` itself is left alone: FE-A hides the extra sources' separators at font-size 0. Under 14 px now: photo credits (allowed) and FE-C's "Cited by" badges (reported).

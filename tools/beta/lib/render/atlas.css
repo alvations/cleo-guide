@@ -342,6 +342,9 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
   html.atlas-d[data-view=atlas] .topbar .crumbs>a:last-of-type{position:relative;display:inline-block;width:var(--tap);height:var(--tap);overflow:hidden;white-space:nowrap;text-indent:var(--tap);color:var(--ink)}
   html.atlas-d[data-view=atlas] .topbar .crumbs>a:last-of-type::before{content:"‹";position:absolute;inset:0;display:grid;place-items:center;text-indent:0;font:400 24px/1 var(--font-ui)}
 }
+/* rev 5 §2.3 / §5 (R3 #3): card text ≥ 14 px, and the name, why and sources at 16 — only credits (and the attribution) are smaller */
+html[data-view=atlas] #cleo-grid li.pl .pl-s :is(.lbl,.src,a,button){font-size:var(--fs-body);line-height:1.4}   /* not .pl-s itself: FE-A hides the extra sources' separators at font-size 0 */
+html[data-view=atlas] #cleo-grid li.pl :is(.sticker,.ms-bd span,.pl-e a.tier,.pl-e a.tier span,.pl-vert){font-size:var(--fs-sm)}
 /* rev 5 §2.3 (R3 #2): no rank badges on Atlas cards in any sort — the order is the ranking; ranks stay in the Guidebook */
 html[data-view=atlas] #cleo-grid li.pl .pl-num{display:none}
 .ms-key{margin:0;padding:0;border:0}html[data-view=atlas] .ms-bar .modes .n{display:none}   /* kind chips carry no counts (§2.1, §2.2); the count line does */
