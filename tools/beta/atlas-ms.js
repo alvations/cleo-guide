@@ -273,7 +273,7 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
           return { seen, covered: cov.length, eg: cov.slice(0, 3) }; });
         // SPEC-v3 §2.2: the first screen is map + peek, no carousel; a pin tap brings the carousel — its titles are checked there
         const car0 = await page.evaluate(() => { const L = document.querySelector('.listpane'), pk = document.querySelector('.ms-toggle'), r = pk.getBoundingClientRect(); return { carousel: !!L.offsetWidth, peek: Math.round(r.height), peekBottom: Math.round(innerHeight - r.bottom), text: pk.textContent.trim() }; });
-        chk(`${key} phone: first screen is map + a 64 px list peek ("N places here · Show list"), no carousel`, !car0.carousel && car0.peek >= 60 && car0.peek <= 72 && car0.peekBottom <= 1 && /places? here · Show list/.test(car0.text), car0);
+        chk(`${key} phone: first screen is map + a 64 px list peek ("N places here · Show list"), no carousel`, !car0.carousel && car0.peek >= 60 && car0.peek <= 72 && car0.peekBottom <= 1 && /places? here( · checked [^·]+)? · Show list/.test(car0.text), car0);
         await page.evaluate(() => { const e = [...document.querySelectorAll('#cleo-map .leaflet-marker-icon.pp')].find(x => { const r = x.getBoundingClientRect(); return r.top > 140 && r.bottom < innerHeight - 120; }); if (e) e.click(); });
         await sleep(900);
         const cvMap = await cover();

@@ -1975,3 +1975,22 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - **QC-28 fixed** (2bbae5ac) and verified by QC (1f0c09e3).
 - **D-44 added:** the closure-evidence classes. It reverses the earlier instruction to set Uncle Liu's to UNVERIFIED-status, which would have dropped its CLOSED marker. QC-25 closure sources are done: 55 of 60 rows have a URL.
 - **Forwarded:** FE-B's leak fixes (b6e0c2b0e) to QC, and FE-B's m.not.p ja to i18n. The ja has two sentences the en lacks, so i18n will check it.
+- **QC-13:** under a lens the count line keeps the total: "177 places here, of all 488" with the map, and "177 of all 488 places" without it.
+- **QC-04:** already met by FE-C's D-43 hook in views.js ("1 approximate pin" on Cleveland, both viewports).
+- **R7-g4 (d):** the phone peek reads "351 places here · checked 2 Oct · Show list". The date is the earliest open/closed check across the guide's places, so it's true of every place.
+- **R7-g4 (e):** desktop Atlas has For you, Your day and Near me as quiet buttons in the list head (city.js handles them by attribute), so they're reachable without horizontal scroll at 1024 and 1440. "For you" opens its dialog.
+
+## 2026-10-16 19:40Z · orchestrator check-in
+
+- **Release branch `beta-deploy-r7` is at 33a44d16.** It is 4aba38b3 plus these ports:
+  - QA-74, the motion tokens;
+  - QC-28, the Erie prose;
+  - QA-78, the Duquesne credit (from 9c6cd576);
+  - FE-B's leak fixes and the m.not.p ja;
+  - dev's post-pin data commits (closure sources, Sokolowski's, the Orlando/DC prose that QC filed as QC-29 on the release);
+  - QC-25's closed-card line.
+- Gates and w8p are green on 33a44d16. The leak sweep of shipped HTML/XML finds 0.
+- QA-77 (FE-C badge hit area) is the last port. FE-C is working on it.
+- **QC:** QC-04 verified (5d2ffb27); open 2 Low.
+- **Platform:** PERF-08 is ready to re-land with a new npm test guard (cae66e3c). The flip waits for "go" after the deploy.
+- **Imagery:** QA-78 fixed (9c6cd576); run #64 reviewed (7 kept, 2 refused); tier-1 509/999.

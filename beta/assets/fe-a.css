@@ -789,6 +789,7 @@ html .leaflet-container .leaflet-control-attribution a{color:var(--ink)}
 
 /* ---- the filter bar + results head (both layouts) ---- */
 .ms-bar,.ms-head,.ms-toggle,.ms-here{display:none}
+html:not(.atlas-d) .ms-head .ms-doors{display:none}   /* phones: Near me is the map pill; the doors stay in their own views */
 html[data-view=atlas] .ms-bar{display:flex;align-items:center;gap:8px;flex-wrap:nowrap}
 html[data-view=atlas] .ms-bar>.toolbar{display:contents}
 html[data-view=atlas] .ms-bar :is(.map-toggle,.applied:empty){display:none!important}
@@ -936,6 +937,7 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:5px 0}
   html.atlas-d[data-view=atlas] .listpane section.area>:not(ol){display:none}
   html.atlas-d[data-view=atlas] .listpane li.pl{grid-column:auto}
   html.atlas-d[data-view=atlas] .ms-head .area-chips{display:none}
+  html.atlas-d[data-view=atlas] .ms-head .ms-doors{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0}html.atlas-d[data-view=atlas] .ms-head .ms-doors .btn{min-height:var(--tap);gap:6px}
   html.atlas-d[data-view=atlas] .leaflet-top.leaflet-left{top:4px}
 }
 
