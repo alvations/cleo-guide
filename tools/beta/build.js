@@ -111,10 +111,12 @@ const minify = (f, src) => {
 // always runs right after atlas.js. Each file keeps its own source so the two Atlas lanes never edit the same lines.
 const RIDES = { 'atlas.js': ['atlas-nav.js'] }, RIDERS = new Set([].concat(...Object.values(RIDES)));
 const clientSrc = f => [f].concat(RIDES[f] || []).map(x => fs.readFileSync(path.join(CLIENT, x), 'utf8')).join('\n');
-for (const f of fs.readdirSync(CLIENT).filter(f => f.endsWith('.js') && !RIDERS.has(f)).sort()) {
-  let code;
-  try { code = minify(f, clientSrc(f)); }
-  catch (e) { errors.push(`minify ${f}: ${e.message}`); code = clientSrc(f); }
+// core.js goes last: its Cleo.need() carries the build's version of the lazy platform modules (__V_<name>__ → hash), so a
+// page without a version map (landing, hubs) still asks for the exact URL the worker precached
+for (const f of fs.readdirSync(CLIENT).filter(f => f.endsWith('.js') && !RIDERS.has(f)).sort((x, y) => (x === 'core.js') - (y === 'core.js') || (x < y ? -1 : x > y ? 1 : 0))) {
+  let code; const src = f === 'core.js' ? clientSrc(f).replace(/__V_([a-z-]+)__/g, (m, n) => { if (!assetsV[n]) errors.push(`core.js asks for lazy module ${n} (no client/${n}.js)`); return assetsV[n] || ''; }) : clientSrc(f);
+  try { code = minify(f, src); }
+  catch (e) { errors.push(`minify ${f}: ${e.message}`); code = src; }
   const body = Buffer.from(`/* generated (minified) from tools/beta/client/${f} — do not edit here */\n` + code + '\n');
   emit('assets/js/' + f, body); assetsV[f.replace(/\.js$/, '')] = sha(body);
 }
