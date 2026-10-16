@@ -19,9 +19,11 @@ plural (i18n).
   removing lines 197–198 alone leaves Tokyo at 2,485 ms; removing 201–202 too gives 1,666 ms (be74c82f: 1,654).
   Fix is FE-2's (`main[data-views-on]`); reported to the orchestrator for FE-2.
 - D-40a `cardSizes()` (600–799 w copy → 240px on 3× phones): 3a0ecfec. w8p Tokyo phone 651 KB, Atlas 567 KB.
-- QC-12 (1440 top-bar CLS): 91/91 S-12 PASS on 3a0ecfec, max 0.0044 (evidence design/beta/eval/qc/qc12-3a0ecfec/).
+- QC-12 (1440 top-bar CLS) and QC-11 (768): VERIFIED by QC on 3a0ecfec (db9824aa) — closed by PERF-06.
 - Lint tools/beta/test-css-has.js committed unwired (7110b59b); no allowlist (designer eddbb7b0 removed theirs).
 - sync-push.sh: a clean merge's rebuilt beta/ is committed; dirty beta/ never pushes (exit 6); test-sync-push.js: a9ed1e0f.
+- W9-9 acc1 typing: 1,814 → 2,183 of 2,552 publishers typed (registry key/host/domain agreement, guide OFFICIAL key, explicit
+  host rules); 369 untyped listed in beta/data/recognition-untyped.json (stated gap). W9-8: offline-pack.js in npm test.
 - R8 measurement kit: design/beta/eval/r8/README.md (+ r8/tools/pair.py).
 - Probe: tools/beta/qa/first-pin.sh (time to first pin after the map-pill tap, clean worktree per SHA, bisect mode).
 
@@ -41,6 +43,8 @@ plural (i18n).
 - views.js honesty: 1 FAIL left (Cleveland Guidebook, Birdietown) → FE-B.
 
 ## Notes
+
+- Evidence goes under design/beta/eval/perf/ (platform's path), never design/beta/eval/qc/ (QC-only; QC asked).
 
 - `Cleo.defer.selective = true` (core.js): a lens-only route stamps only its matches (+ its #p= place + view chunks);
   the lazy observer waits and list spacers fold while a lens is on, and resume when it clears. Consumers of stubs read

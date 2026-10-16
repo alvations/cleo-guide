@@ -19,7 +19,7 @@
 - This push: candidate wave 2. Pittsburgh and Washington DC had 0 tier-1 photos because their places carry no Wikipedia link (so no lead image to try). Added 56 vetted Commons titles for 29 targets and 7 stated gaps (DC modern sculpture memorials without US freedom of panorama, the 600 px Carnegie Free Library, the Pittsburgh trolley museum). Not found yet: Heinz History Center, Pump House, Air & Space (Mall), Udvar-Hazy, Army museum.
 
 - This push: candidate wave 3. 26 vetted titles for 13 Bruges and Youngstown places, English name aliases (NAMES) so the Dutch-named Bruges targets match Commons titles, and 3 stated gaps (Dave Grohl Alley murals, Past Times Arcade, Garnaalvissers te paard). Not found yet: Atlantikwall Raversyde (numbered series, exact title unconfirmed), De Haan, Ensorhuis, NAVIGO, the boat tour, DeYor, Packard Museum, Youngstown Historical Center, Fellows Riverside Gardens.
-- PENDING after run #58 lands: refuse the Cebu façade (orchestrator: a crowd fills the foreground), remove it from NO720, then let the next run try 'Basilica Minore del Santo Niño in Cebu City 02.jpg'.
+- This push: run #58 reviewed (design/beta/imagery-runs/run-58.md). 11 kept, 5 refused (Cebu per the orchestrator; CMoA banners; Duquesne skyline; Grandview street; Gotoku-ji figurines, so CLOSEUP now names maneki-neko). Mattress Factory is '?'. DC got 0 rows because the budget ran out; the next run (budget 600) covers DC + wave 3 + the retries.
 - FE-A asked (16:10Z) to switch gallery.js `sizes` to 240px for cards with a 600–799 copy (platform's cardSizes landed 3a0ecfec). Re-run w8p when FE-A pushes.
 
 **In flight:**

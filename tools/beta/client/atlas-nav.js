@@ -80,6 +80,22 @@
     const li = t.closest('li.pl'); if (li && t.closest('a,.pl-cover,.pl-photo') && !t.closest('.pl-x,.ms-cr,figcaption')) { rec(); frozen = last; opener = { card: li.id }; }
   };
   on(d, 'click', mark, true);
+  // PANEL-R3 #7 (the 108 px shift): a card's own link is "#p-<id>", a real fragment, so following it scrolled the nearest
+  // scrollable ancestor (<body>, overflow:hidden in Atlas) to the card before any script ran. In Atlas a plain click
+  // routes as #…&p=<id> instead (no fragment, no native scroll); a modified click (new tab, …) keeps the link.
+  on(d, 'click', e => {
+    if (!atlas() || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = e.target.closest && e.target.closest('li.pl a[href^="#p-"]'), m = a && /^#p-(.+)$/.exec(a.getAttribute('href') || ''); if (!m) return;
+    e.preventDefault(); const r = route(); delete r.pg; delete r.all; try { r.p = decodeURIComponent(m[1]); } catch (x) { return; }
+    location.hash = Cleo.route.href(r);
+  });
+  // ...and whatever else asks for it (an old #p- entry in the history, a focus), nothing above the map ever scrolls in
+  // desktop Atlas: the page holds still and only the list column scrolls
+  d.addEventListener('scroll', e => {
+    if (!atlas() || !desktop()) return;
+    const t = e.target === d ? d.scrollingElement : e.target, map = $('#cleo-map');
+    if (t && t.scrollTop && map && t !== lp() && t.contains && t.contains(map)) t.scrollTop = 0;
+  }, { capture: true, passive: true });
   on(d, 'keydown', e => { if (e.key === 'Enter') mark(e); }, true);
 
   /* ---- the open place in the part of the map the detail doesn't cover ---- */
@@ -141,7 +157,9 @@
       // the restore re-applies while the route settles, but it stops the moment anything else moves the page, the list or
       // the carousel (QA-71: a swipe right after Back was put back; the carousel kept the place just opened)
       let gone = false, put = null;
-      const moved = l => put && ((window.scrollY || 0) !== put[0] || (l && (l.scrollTop !== put[1] || l.scrollLeft !== put[2])));
+      // (horizontal only: that is the phone carousel's swipe; the desktop list's own re-centring of the selected card is
+      // vertical and programmatic, and is put back like the rest, unless the reader acts — userAt)
+      const moved = l => put && l && l.scrollLeft !== put[2];
       const fix = () => {
         const l = lp(); if (gone || userAt > t0 || moved(l)) { gone = true; return; }
         if (s) { if ((window.scrollY || 0) !== s.y) window.scrollTo(0, s.y); if (l && (l.scrollTop !== s.t || l.scrollLeft !== s.x)) { ownScroll = Date.now(); l.scrollTop = s.t; l.scrollLeft = s.x; } }

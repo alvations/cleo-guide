@@ -95,7 +95,7 @@ function trail(rel) {
   if (!pg) return out;
   const c = SITE.countries.find(x => x.key === pg.country);
   if (pg.kind === 'country-hub') return out.concat({ name: c ? c.name : pg.name });
-  if (c) out.push({ name: c.name, href: c.href });
+  if (c) out.push({ name: c.name, href: c.href, short: c.key.length === 2 && c.name.length > 10 ? c.key.toUpperCase() : '' });   // QA-73: "‹ US" on phones
   return out.concat({ name: pg.name });
 }
 
@@ -104,7 +104,7 @@ function crumbs(rel, up) {
   const tr = trail(rel).slice(1);
   if (!tr.length) return '';
   return `<nav class="crumbs" aria-label="${t('shell.crumbs.label')}">${tr.map((c, i) => (i ? '<span class="sep" aria-hidden="true">›</span>' : '') +
-    (c.href ? `<a class="c${i}" href="${up}${esc(c.href)}">${esc(c.name)}</a>` : `<span class="here" aria-current="page">${esc(c.name)}</span>`)).join('')}</nav>`;
+    (c.href ? `<a class="c${i}" href="${up}${esc(c.href)}">${c.short ? `<span class="sh" aria-hidden="true">${esc(c.short)}</span><span class="lg">${esc(c.name)}</span>` : esc(c.name)}</a>` : `<span class="here" aria-current="page">${esc(c.name)}</span>`)).join('')}</nav>`;
 }
 
 // ---------------------------------------------------------------- locale switcher (M3-03)

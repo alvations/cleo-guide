@@ -389,12 +389,13 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     chk(`QC-09/QC-06: the switcher is div[role=group][aria-label=View] with 4 pressed toggles (exactly one on) on ${nSw} city pages; no collapse, no "View:" prefix, no segment under 44 px`, !badSw.length && nSw >= 84 && !shrink.length, badSw.slice(0, 3).concat(shrink.slice(0, 3)));
   }
   // ---- R7-g6: token residue pinned (design/beta/eval/r6/tools/probe-css.py over the shipped CSS) and Insights area marks
-  // muted through the v2 tokens (no raw data hex as a fill). Shadows: ceiling 13 today; R7's 10 lands with the FE-A / Atlas
-  // snaps (.pl-cover .g-ring, li.pl.is-target>.pl-cover, .pp .pp-h, .m-legend .kd, .pp-1.sel>span) — then lower it.
+  // muted through the v2 tokens (no raw data hex as a fill). After the FE-A (8b06f542) and Atlas (7c280435) snaps the
+  // letter-spacing is all tokens (0 raw) and 7 raw shadows remain, each reading a per-element value (--ac, --area, a --city
+  // mix) or the search pill's focus ring — pinned there (R7's bar is <= 6 / <= 10), so a new raw value fails here.
   {
     const j = JSON.parse(require('child_process').execFileSync('python3', [path.join(ROOT, 'design/beta/eval/r6/tools/probe-css.py'), ROOT], { encoding: 'utf8' }));
     const ls = j['letter-spacing'].distinct_raw, sh = j['box-shadow'].distinct_raw;
-    chk(`R7-g6: distinct raw letter-spacings <= 6 (${ls}) and raw box-shadows <= 13 (${sh}) across the shipped CSS`, ls <= 6 && sh <= 13, { ls, sh });
+    chk(`R7-g6: no raw letter-spacing (${ls}; tokens only) and raw box-shadows <= 7 (${sh}) across the shipped CSS (not var(), not 0/normal/none)`, ls === 0 && sh <= 7, { ls, sh });
     const raw = files.filter(f => /fill:#[0-9a-f]{3,8}/i.test(I.render(load(f)).html));
     chk('R7-g6: Insights marks take token colours (series tokens, area hues muted toward --area-mute), never a raw hex fill', raw.length === 0, raw);
   }

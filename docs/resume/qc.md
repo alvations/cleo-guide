@@ -33,11 +33,17 @@ never weakens a gate.
 - `f7fa616d`: QC-16 verified; new QC-21 (Low, i18n); QC-18 observed fixed (unclaimed).
 - `a498adf5`: QC-21 verified.
 - `995e2529`: QC-18 and QC-20 verified; QC-19 still open (2 Cleveland records); new QC-22 (Low).
+- `8f21eda9`: QC-10, 15, 17 and 19 verified; QC-22 still open; new QC-23 to QC-26 (W9-1 recognition pass plus the QC-26 regression).
 - `3a0ecfec`: QC-11 and QC-12 verified (S-12 all 91 pages at 390, 768 and 1440).
 
 ## In flight
 
 Nothing unpushed and no long run. Waiting on lane claims and the next pin.
+
+Next harness work:
+- P-25 and P-26 must discount entries that carry the D-42 note.
+- P-13 and P-15 must open the phone Atlas "Show list" before measuring.
+- J-10 and J-11 should also run under `?lang=ja`.
 
 ## Notes
 

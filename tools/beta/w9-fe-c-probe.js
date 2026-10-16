@@ -14,6 +14,7 @@
  *  base-keys   (W9-5) at 390 and 1440, light and dark: a place sheet → "Set as my base" by keyboard; then Gallery, Atlas and
  *              Guidebook each show the assumption once and the line on every visible card; Saved too
  *  base-lazy   a first load with no base never requests base.js; with a base it is requested once
+ *  rec-pv      (W9-1) the Atlas map preview of a recognised place carries its badges (text: the preview is one link)
  *  card        (W9-7) place (photo), closed place, day, list (Saved) and trip: a 1080×1920 PNG; its preview's alt text names
  *              the source line, the checked date and (photo cards) the credit; 0 off-origin requests from the tap to the
  *              preview; works with the map library blocked; Web Share gets an image/png file where supported, else a download
@@ -123,6 +124,8 @@ async function tabTo(page, test, n = 80) {
     ok(await s.page.evaluate(() => document.getElementById('cleo-sheet').hidden), `${tag}: QC-15 Escape closes the sheet after the action`);
     for (const v of ['gallery', 'atlas', 'guidebook']) {
       await s.page.evaluate(v => { location.hash = '#view=' + v + '&base=senso-ji'; }, v); await s.page.waitForTimeout(1600);
+      // phone Atlas opens map-first (the "n places here · Show list" peek): open the list, as a reader would
+      if (v === 'atlas' && w < 500) { const t = await s.page.$('.ms-toggle[aria-pressed="false"]'); if (t) { await t.click(); await s.page.waitForTimeout(700); } }
       await s.page.evaluate(v => { const sel = { gallery: 'li.gc[data-id]', atlas: 'li.pl[id^="p-"]', guidebook: 'li.ge[data-id]' }[v];
         const c = [...document.querySelectorAll(sel)].find(e => e.getClientRects().length); if (c) c.scrollIntoView({ block: 'center' }); }, v); await s.page.waitForTimeout(600);
       const r = await s.page.evaluate(() => {
@@ -145,6 +148,13 @@ async function tabTo(page, test, n = 80) {
     ok(sr.lines >= 10 && sr.notes === 1, `${tag} Saved: the line on Tokyo cards, the assumption once`, sr);
     await sv.page.screenshot({ path: path.join(SHOTS, `base-saved-${tag}.png`) }); await sv.ctx.close();
   }
+
+  console.log('# rec-pv (W9-1 badges in the Atlas preview)');
+  { const s = await open(b, 'cities/tokyo.html#view=atlas', { w: 1440, tiles: true, settle: 2500 });
+    const r = await s.page.evaluate(async () => { const c = document.querySelector('li.pl[data-ra]'); if (!c || !Cleo.city.openPoi) return null; Cleo.city.openPoi(c);
+      await new Promise(x => setTimeout(x, 500)); const a = document.querySelector('a.ms-pv'), g = a && a.querySelector('.gc-rec');
+      return { id: c.id, n: (c.getAttribute('data-ra') || '').split(' ').length + ((c.getAttribute('data-rec') || '').includes('cited') ? 1 : 0), got: g ? g.querySelectorAll('.rb').length : 0, links: g ? g.querySelectorAll('a').length : -1, text: g && g.textContent }; });
+    ok(r && r.got === r.n && r.links === 0, 'the Atlas preview of a recognised place shows its badges, as text', r); ok(!s.errs.length, 'rec-pv: 0 page errors', s.errs.slice(0, 2)); await s.ctx.close(); }
 
   console.log('# card (share images)');
   const CARDS = path.join(SHOTS, 'cards'); fs.mkdirSync(CARDS, { recursive: true });

@@ -278,6 +278,39 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
     }
     await ctx.close();
   }
+  console.log('# QA-72 / QA-59b / QA-73 / QA-55: the detail link wraps, one number, the short crumb, Guidebook prose at 16 px');
+  {
+    const ctx = await ctxFor(b, 390), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/newyork.html', { waitUntil: 'load' }); await page.waitForTimeout(1300);
+    const ids = await page.evaluate(() => [...document.querySelectorAll('li.pl[id]')].slice(0, 40).map(l => l.id.replace(/^p-/, '')));
+    let worst = null, checked = 0, chev = 0, short = 0, nav = [];
+    for (const id of ids) {
+      await page.evaluate(i => { location.hash = 'p=' + i; }, id); await page.waitForTimeout(450);
+      const r = await page.evaluate(() => {
+        const sh = document.querySelector('#cleo-sheet .sheet'), a = document.querySelector('#cleo-sheet .primary-link:not([hidden])');
+        const n0 = document.querySelector('#cleo-sheet .sh-nav'), nc = n0 && n0.cloneNode(true); if (nc) nc.querySelectorAll('.vh').forEach(e => e.remove()); const navT = nc ? nc.textContent.replace(/\s+/g, ' ') : '';   // what is seen: the screen-reader position is .vh
+        if (!sh || !a) return { navT };
+        const s = sh.getBoundingClientRect(), b = a.getBoundingClientRect(), nw = a.querySelector('.nw'), lb = a.querySelector('.lbl');
+        const lines = lb ? lb.getClientRects() : [], last = lines.length ? lines[lines.length - 1] : null, nr = nw && nw.getBoundingClientRect();
+        return { navT, txt: a.innerText.trim(), w: Math.round(b.width), over: Math.round(b.right - s.right), h: Math.round(b.height), onLast: !!(nr && last && Math.abs(nr.bottom - last.bottom) < 2) };
+      });
+      nav.push(r.navT);
+      if (r.txt) { checked++; if (r.onLast) chev++; if (r.h < 44) short++; if (!worst || r.w > worst.w || r.over > worst.over) worst = Object.assign({ id }, r); }
+      await page.keyboard.press('Escape'); await page.waitForTimeout(200);
+    }
+    ok(checked >= 10 && worst.over <= 0, `QA-72 @390: the primary link stays inside the sheet on ${checked} New York places (widest)`, worst && [worst.id, worst.txt, worst.w, worst.over]);
+    ok(chev === checked && !short, 'QA-72 / QA-59d: the icon rides the label\'s last line and the link is ≥ 44 px tall', [chev, checked, short]);
+    ok(nav.every(t => !/\d+\s+of\s+\d+/.test(t) && !/pin \d/i.test(t)), 'QA-59b / §3.6: the nav row carries no "k of N" and no pin number (nothing left to clip)', nav.find(t => /\d+\s+of\s+\d+/.test(t)));
+    const cr = await page.evaluate(() => { const a = document.querySelector('.topbar .crumbs a.c0'); if (!a) return null; const r = a.getBoundingClientRect(); const sh = a.querySelector('.sh'), lg = a.querySelector('.lg'); return { txt: sh && sh.getClientRects().length ? sh.textContent : null, lgW: lg ? Math.round(lg.getBoundingClientRect().width) : null, sw: a.scrollWidth, cw: a.clientWidth, right: Math.round(r.right), vw: innerWidth, name: lg ? lg.textContent : '' }; });
+    ok(cr && cr.txt === 'US' && cr.lgW <= 1 && cr.sw <= cr.cw + 1 && cr.right <= cr.vw && cr.name === 'United States', 'QA-73 @390: the crumb reads "‹ US", unclipped, and keeps "United States" for assistive tech', cr);
+    await page.goto(BASE + 'beta/cities/newyork.html#view=guidebook', { waitUntil: 'load' }); await page.waitForTimeout(1500);
+    const fs = await page.evaluate(() => [...document.querySelectorAll('.gfacts,.gsig')].filter(e => e.getClientRects().length).map(e => parseFloat(getComputedStyle(e).fontSize)));
+    ok(fs.length && fs.every(x => x >= 16), 'QA-55 @390: Guidebook .gfacts and .gsig at ≥ 16 px', fs);
+    await ctx.close();
+    const c2 = await ctxFor(b, 1440), p2 = await c2.newPage(); await p2.goto(BASE + 'beta/cities/newyork.html', { waitUntil: 'load' }); await p2.waitForTimeout(900);
+    const cr2 = await p2.evaluate(() => { const a = document.querySelector('.topbar .crumbs a.c0'); return a ? a.innerText.trim() : null; });
+    ok(cr2 === 'United States', 'QA-73 @1440: the desktop crumb keeps the full name', cr2);
+    await c2.close();
+  }
   await b.close();
   console.log(fails ? `\n>>> FAIL — ${fails} FE-A W8 check(s)` : '\n>>> PASS — FE-A W8: a day from saved places, edited, shared, printed and reopened, by keyboard');
   process.exit(fails ? 1 : 0);
