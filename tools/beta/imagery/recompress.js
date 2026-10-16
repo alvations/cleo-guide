@@ -125,7 +125,6 @@ const NO720 = {
   'hokkaido--sapporo-beer-museum-960.jpg': 'busy photo; a 45 KB copy shrinks to 518 px wide',
   'kyoto--uji-bridge-960.jpg': 'busy photo; a 45 KB copy shrinks to 518 px wide',
   'singapore--southern-ridges--haw-par-villa-960.jpg': 'busy photo; a 45 KB copy shrinks to 518 px wide',
-  'singapore--cebu--basilica-minore-del-santo-nino-and-magellans-cross-960.jpg': 'busy photo (festival crowd); the runner\'s 45 KB copy shrank to 518 px wide',
 };
 const needs720 = (row, prio) => row.provider === 'wikimedia-commons' && row.record && !NO720[row.file] && prio.has(`${row.record.page}#${row.record.id}`) &&
   filesOf(row).some(f => /-960\.jpe?g$/i.test(f.file)) && !filesOf(row).some(f => classWidth(f) >= 600 && classWidth(f) < 800);

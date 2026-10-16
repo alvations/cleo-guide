@@ -50,7 +50,7 @@ Fix the R7 QA and QC rows routed to FE-A, then the designer's follow-ups, in the
    - **leave the `.views[data-cleo-views]` lines (FE-B QC-09 / QC-10) alone** until FE-B lands its 200 % fix;
    - check Gallery and the detail at 390 and 1440.
 
-8. **FE-B finding: fresh `#view=gallery&p=senso-ji` at 195×422** lands scrollY past main's end (card off-screen). Investigate the deep-link scrollIntoView vs deferred chunks growing (client/city.js onRoute).
+8. ~~DONE (commit "deep link keeps its card in view")~~ **FE-B finding: fresh `#view=gallery&p=senso-ji` at 195×422** lands scrollY past main's end (card off-screen). Investigate the deep-link scrollIntoView vs deferred chunks growing (client/city.js onRoute).
 9. Designer: QA-67 narrow-photo fit + cover-word fallback done in 8427064e — confirm sign-off.
 
 ## In flight

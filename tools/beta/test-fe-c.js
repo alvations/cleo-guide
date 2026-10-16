@@ -246,6 +246,19 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
         if (rec.cited >= 3 && (r.querySelector('a.rb-cited') || {}).textContent !== 'Cited by ' + rec.cited + ' sources') probs.push(p.id + ' cited'); });
       chk(`Tokyo: recognition.js draws ${rows} badge rows, each equal to the data (award named by the card's own chip; closed hidden)`, rows > 200 && probs.length === 0, probs.slice(0, 4));
       chk('no js errors (recognition.js)', !g.errs.length, g.errs.slice(0, 2)); }
+    // the Gallery row cards (li.gc) and the Guidebook entries (li.ge): badges from the page dataset, the same rec data
+    for (const [view, sel, links] of [['gallery', 'li.gc[data-id]', false], ['guidebook', 'li.ge[data-id]', true]]) {
+      const g = boot('cities/tokyo.html', { hash: '#view=' + view, mods: ['recognition', 'gallery', 'guidebook'] }); await sleep(900);
+      if (g.w.Cleo.recog) g.w.Cleo.recog.views(); await sleep(300);
+      const by = {}; tj.places.forEach(p => { by[p.id] = p; }); const els = [...g.d.querySelectorAll(sel)], probs = []; let withB = 0;
+      els.forEach(el => { const p = by[el.getAttribute('data-id')], rec = (p && !p.closed && p.rec) || null, r = el.querySelector('.gc-rec, .ge-rec');
+        const n = rec ? (rec.award || []).length + (rec.video || []).length + (rec.cited >= 3 ? 1 : 0) : 0;
+        if (!n) { if (r) probs.push(p.id + ' badge without data'); return; } withB++;
+        if (!r || r.querySelectorAll('.rb').length !== n) probs.push(p.id + ' count');
+        else if (links !== !!r.querySelector('a.rb') || (!links && el.querySelector('a .gc-rec a'))) probs.push(p.id + ' link shape'); });
+      chk(`${view}: ${els.length} cards, ${withB} with badges, each equal to the data (${links ? 'links' : 'text inside the card link'})`, els.length > 0 && withB > 0 && probs.length === 0, probs.slice(0, 4));
+      chk(`${view}: no js errors`, !g.errs.length, g.errs.slice(0, 2));
+    }
     const wantA = tj.places.filter(p => !p.closed && (p.rec || {}).award).map(p => 'p-' + p.id).sort();
     const r1 = boot('cities/tokyo.html', { hash: '#rec=award' }); await sleep(300); r1.w.Cleo.defer.all(); await sleep(50);
     const vis = d => [...d.querySelectorAll('li.pl')].filter(c => !c.hidden).map(c => c.id).sort();

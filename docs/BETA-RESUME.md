@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 16:22Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 17:02Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -35,6 +35,10 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
   - validate, npm test (alone) and beta:check are green. It merges cleanly into `claude/cleveland-page-creation-pant4l`.
   - Platform measures first pin against be74c82f, then wires the `:has()` lint. No product-code pushes from platform until QA rules.
 - The previous candidate, 530dc83b, was NO on QA-70 and QA-71 (566d606e). Both are now fixed in the pin.
+- **QA status (16:43Z):** the suite is still running. Gallery B-07 failed on Tokyo/NY in QA's first runs with the fixed 900 ms wait. QA is A/B-ing the same probe on be74c82f and 3ba696e8, alone in the container.
+  - Platform's first-pin: be74c82f Tokyo 1,564 / NY 1,760 ms vs 3ba696e8 1,653 / 1,807 ms, within noise. 530dc83b was 2,481 ms.
+  - FE-2: even be74c82f's first label pin is about 1.0–1.3 s, so the 900 ms wait is marginal.
+  - Rule given to QA: the same probe on both heads; no worse than be74c82f passes.
 - Not blocking: QA-61 and QA-68. QA-67 is fixed (f08f892d).
 - **On YES:**
   1. `git push origin <sha>:refs/heads/beta-deploy-r7`;
@@ -50,7 +54,7 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 |---|---|---|
 | Imagery | All 32 run #48 refusals applied. Run #52 (`all`) yield collapsed to about 4%, so no more plain `all` runs (orchestrator, 15:27Z). Candidate wave 1 (cb5dfd79): 20 vetted titles for 10 empty leads and first-row slots, and 6 stated gaps. Push run #54 is running. D-40a: the 720w leads are capped at 45 KB; Tokyo phone@3× is 607 KB | Imagery contact-sheets #54 and sends only the "?" rows. Wave 2 is about 40 targets from the guides with the lowest tier-1 share |
 | Location verification | Accepted today: Wheeling 7, SF 112, Orlando 7, Chicago 48, DC 38, Miami 2, Erie 27, Philadelphia 25. Beta is at 8,704 places. The assist rules now treat Wikipedia as not independent of Wikidata, add a moved-place guard, hold extended features, and send closed places to review. Singapore (run 22) is in flight | Review Singapore when it commits. Then the 4-row Wikidata re-check (the workflow's re-check mode, a74735f4: SF then Orlando), then `--duplicates` (open plus CLOSED pairs in 4 cities), then Saarland, Okinawa, Rhineland, Aachen |
-| Atlas panel | **R3 80.7** (min 74.0, SD 2.86) at 537cfb8c; R0 56.1 → R1 63.8 → R2 70.9 → R3 80.7. SPEC-v3 rev 5 (46f4abe3) | FE-1 and FE-2 build rev 5 toward R4, after QA-70/71. The designer signs off the dots on real shots before "round 4 ready" |
+| Atlas panel | **R3 80.7** (min 74.0, SD 2.86) at 537cfb8c; R0 56.1 → R1 63.8 → R2 70.9 → R3 80.7. SPEC-v3 rev 5 (46f4abe3). Rev 5 work landing: FE-1 R3 #4 dots and glyphs (f51bb0a4); FE-2 #7, the 108 px shift (in progress) | FE-1 and FE-2 finish rev 5, plus R7-g4. The designer signs off the dots on real shots before "round 4 ready" |
 | QC | 20 rows: verified 7 (01, 02, 03, 06, 07, 08, 09); QC-10 fixed, verified on 639d2b1b; open 12 (Med 9, Low 3, High 0). QC-15 → FE-C; QC-16 → i18n (fixed 7bd091cd, claimed); QC-17 → FE-1 with FE-C; QC-18 → FE-B; QC-19/20 → FE-B under D-42 | QC re-verifies on the next pin |
 | Perf | PERF-06 landed (bcf94510). QA-70 is the `:has()` cause; PERF-16 is the designer's cleo.css selectors | Platform: re-measure QA-70, the `:has()` lint, then the PERF-08 FE parts, PERF-14, and the "1 closed places" plural |
 
@@ -70,7 +74,7 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 | Panel (scores only; never tell it a target) | session_01EKzwLjqF1Z1gwXWgbrrr2S | waiting for "round 4 ready at <sha>" | docs/resume/panel.md |
 | Imagery | session_011rg9RMooGaKrmENvBZ7MvX | vetted-candidate waves (WebSearch, about 40 per wave); run #54 review | docs/resume/imagery.md |
 | i18n | session_01HB7igqdcuhrau7mUWSauDL | all lanes catalogued; review rounds on new keys; QC-16 | docs/resume/i18n.md |
-| Location verify | session_012FeQJjTmiN2MXYQWwe55J2 | Singapore, the Wikidata re-check, `--duplicates` | docs/resume/location-verify.md |
+| Location verify (woken daily 03:17 UTC by trig_01P2RWA4kn9SKwApTwLdtSrm; disable when the queue is empty) | session_012FeQJjTmiN2MXYQWwe55J2 | Singapore, the Wikidata re-check, `--duplicates` | docs/resume/location-verify.md |
 
 ## Standing rules
 

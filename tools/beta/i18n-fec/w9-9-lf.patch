@@ -1,5 +1,5 @@
 diff --git a/tools/beta/client/city.js b/tools/beta/client/city.js
-index b3383b627..bf9d7dfbd 100644
+index bd9ebefe0..c03f8ab0e 100644
 --- a/tools/beta/client/city.js
 +++ b/tools/beta/client/city.js
 @@ -11,7 +11,7 @@
@@ -32,7 +32,7 @@ index b3383b627..bf9d7dfbd 100644
      else if (lk === 'closed') h = '<h2>' + tt('city.closed.h', 'Recently closed — kept for the record ({n})', { n }) + '</h2><p>' + tt('city.closed.p', 'Closed places stay on the guide, flagged, with the source and date of the closure check — so a pin never reads as “go here today”. Newest check first.') + '</p><div class="row">' + all + '</div>';
      else if (lk === 'sig' && info.sig) h = '<span class="eyebrow">' + tt('city.sig.k', '★ Signature') + ' · ' + esc(info.sig.why || '') + '</span><h2>' + esc(info.sig.t) + ' (' + n + ')</h2>' +
        (info.sig.dishes.length ? '<p>' + info.sig.dishes.map(x => '<b>' + esc(x[0]) + '</b> ' + x[1]).join(' · ') + '</p>' : '') + '<p>' + tt('city.across', '{places} across {areas}.', { places: pl(n), areas: ar(nA) }) + '</p><div class="row">' + all + '</div>';
-@@ -270,7 +272,7 @@
+@@ -281,7 +283,7 @@
    on(d, 'cleo:stamped', e => { ((e.detail || {}).cards || []).forEach(c => { if (byId[pid(c)] === c) return; cards.push(c); byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
      $$('section.area').forEach(s => { if (sections.indexOf(s) < 0) sections.push(s); }); paint(); });
  
@@ -80,13 +80,13 @@ index a07f61031..553ed9514 100644
      fs('base', tr('city.base'), pill('base', 'street', tr('city.base.street')) + pill('base', 'light', tr('city.base.light')) + pill('base', 'satellite', tr('city.base.satellite'))) +
      `</div><footer><button type="button" class="btn btn-quiet" data-tr="clear">${tr('city.tray.clear')}</button><button type="button" class="btn btn-primary" data-tr="go">${tr('city.tray.go', { n: recs.length })}</button></footer></div></div>`;
 diff --git a/tools/beta/lib/render/fe-c.css b/tools/beta/lib/render/fe-c.css
-index 2e63fd377..668c5c108 100644
+index a94109392..3cc02de99 100644
 --- a/tools/beta/lib/render/fe-c.css
 +++ b/tools/beta/lib/render/fe-c.css
-@@ -8,3 +8,4 @@
- .rb-award{background:var(--sun-wash);color:var(--on-sun-wash)}
+@@ -9,3 +9,4 @@
  .sheet .fact .pl-rec{margin:0}
  .sheet .fact .pl-rec[hidden]{display:flex}
+ .gc-rec{display:flex;margin-top:var(--s-1)}.gc-rec .rb{min-height:24px;pointer-events:none}.ge-rec{margin:var(--s-1) 0}
 +.lf-gap{margin:0;font-size:var(--fs-sm);color:var(--ink-2);max-width:62ch}.lf-gap .lbl{display:block;font-weight:600;color:var(--ink);margin-bottom:var(--s-1)}.lf-rule{max-width:62ch;color:var(--ink-2)}
 diff --git a/tools/beta/lib/render/recognition-ui.js b/tools/beta/lib/render/recognition-ui.js
 index 295333a1e..ec1a637ee 100644
@@ -132,7 +132,7 @@ index 295333a1e..ec1a637ee 100644
 -module.exports = { ON, kinds, attr, html, trayPills, railTile, EN };
 +module.exports = { ON, kinds, attr, html, trayPills, railTile, lfAttr, lfOn, lfTray, lfTile, EN };
 diff --git a/tools/beta/test-fe-c.js b/tools/beta/test-fe-c.js
-index 9a134c27f..dfdc0255d 100644
+index 58c3862f9..c69a483b2 100644
 --- a/tools/beta/test-fe-c.js
 +++ b/tools/beta/test-fe-c.js
 @@ -17,6 +17,9 @@
@@ -145,7 +145,7 @@ index 9a134c27f..dfdc0255d 100644
   *  BASE   (W9-5) 84 guides × 5 bases: every card line = haversine from the base, rounded by Cleo.geo.walk; the assumption
   *         once per view; a closed place can't be a base; Nearest to my base sorts by it and clearing restores the order
   *         exactly; storage throwing, &base= still works; the sheet offers it only for open, pinned places; Saved shows it.
-@@ -261,6 +264,36 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
+@@ -274,6 +277,36 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
      chk('no js errors (recognition)', !r1.errs.length && !r2.errs.length, r1.errs.concat(r2.errs).slice(0, 2));
    }
  
