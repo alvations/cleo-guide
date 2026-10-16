@@ -3,4 +3,4 @@ scope=unverified,low,status
 limit=0
 nominatim_max=300
 commit=false
-# dry run 2: Overpass retry in batches of 10; Wikidata closure only from the place itself; Census second source for med rows
+# dry run 3: only core-source failures fail the run (run 13 exited 4 on Overpass/official-site/Census failures)
