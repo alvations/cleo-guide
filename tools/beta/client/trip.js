@@ -168,7 +168,12 @@
     if (S) return build(r, S);
     home();
   }
-  function focusH() { var h = d.getElementById('tp-h'); if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); } }
+  // a redraw for the locale (cleo:locale) never moves focus: quiet holds the selector of the control that had it, put back after
+  var quiet = false;
+  function focusH() {
+    if (quiet) { var q = quiet; quiet = false; var el = typeof q === 'string' && box.querySelector(q); if (el) el.focus({ preventScroll: true }); return; }
+    var h = d.getElementById('tp-h'); if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+  }
 
   /* ---- home: choose where the trip comes from; your trips on this device ---- */
   function home() {
@@ -279,7 +284,7 @@
         '</header>' + gone + (days.length ? html : '<p class="sv-empty">' + esc(Cleo.t('trip.noday', 'No day can be planned from this link: every place in it is closed, unpinned or no longer listed.')) + '</p>') + lo;
       box._trip = { name: name, days: days, left: left, unknown: unknown, asked: asked };
       Cleo.emit('cleo:trip', box._trip);                        // share-card.js (W9-7) and tests listen
-      if (+r.d && d.getElementById('tday-' + r.d)) { var h = d.getElementById('tday-h-' + r.d); h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); h.closest('section').scrollIntoView(); }
+      if (+r.d && d.getElementById('tday-' + r.d) && !quiet) { var h = d.getElementById('tday-h-' + r.d); h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); h.closest('section').scrollIntoView(); }
       else focusH();
     });
   }
@@ -323,6 +328,11 @@
     else if (k === 'kml' && T) kml(T);
     else if (k === 'forget') { var t = trips(); t.splice(+b.getAttribute('data-i'), 1); st.set('trips', t); paint(); var f = d.querySelector('.tp-mine button, .tp-from a'); if (f) f.focus(); }
   });
-  window.addEventListener('hashchange', function () { if (!/^#tday-\d+$/.test(location.hash)) paint(); });
+  window.addEventListener('hashchange', function () { if (!/^#tday-\d+$/.test(location.hash)) { quiet = false; paint(); } });
+  // i18n D-41: the ja catalogue can arrive after the first draw; draw again in it, keeping the reader's place and focus
+  d.addEventListener('cleo:locale', function () {
+    var a = d.activeElement, at = a && box.contains(a) && ['data-tp', 'data-cleo-card', 'data-tp-day', 'data-tp-go', 'id'].filter(function (x) { return a.hasAttribute(x); })[0];
+    quiet = at ? '[' + at + '="' + a.getAttribute(at).replace(/"/g, '') + '"]' : true; var y = window.scrollY; paint(); setTimeout(function () { window.scrollTo(0, y); }, 0);
+  });
   paint();
 })();

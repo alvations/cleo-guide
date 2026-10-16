@@ -124,6 +124,13 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
   chk('reopened with storage throwing: identical days and order', JSON.stringify(days(b.d)) === JSON.stringify(D1), days(b.d));
   chk('reopened: the same left-out list and unknown report', (b.d.querySelector('.tp-left') || {}).textContent === left.textContent && !!b.d.querySelector('.tp-gone'));
   chk('no js errors (reopen)', b.errs.length === 0, b.errs.slice(0, 2));
+  // i18n D-41: the ja catalogue arriving after the first draw redraws the trip in it, and focus stays on the same control
+  { const sb = b.d.querySelector('[data-tp="kml"]'); sb.focus();
+    b.w.CleoL10n = { 'trip.kml': 'KML⟦x⟧', 'day.kml': 'KML⟦x⟧', 'trip.share': '共有⟦x⟧' };
+    b.d.dispatchEvent(new b.w.CustomEvent('cleo:locale', { detail: { locale: 'ja' } })); await sleep(150);
+    const ae = b.d.activeElement;
+    chk('cleo:locale: the trip redraws in the new catalogue and focus stays on the same control', /⟦x⟧/.test(b.d.querySelector('[data-tp="share"]').textContent) && !!ae && ae.getAttribute('data-tp') === 'kml', ae && ae.outerHTML.slice(0, 60));
+    b.w.CleoL10n = null; }
   const c = boot('trip.html', { hash: url + '&d=2' }); await sleep(150);
   chk('&d=2 focuses day 2', c.d.activeElement && c.d.activeElement.id === 'tday-h-2', c.d.activeElement && c.d.activeElement.id);
 
