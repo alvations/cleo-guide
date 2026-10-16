@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 22:47Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 23:05Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -21,7 +21,7 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 ## Goals (owner)
 
-- The overall independent review ≥ 98. Last measured: R7 88.5 at badcc20d. The R8 evaluator runs after the next deploy.
+- The overall independent review ≥ 98. Last measured: **R8 90.7** on the live r7 b54b3745 (R7 88.5). R8's gaps #1–#7 are routed (imagery, FE-1/FE-2, FE-A, FE-B, FE-C, the designer, platform; QA files R8-g rows).
 - The Atlas map panel ≥ 95. R0 56.1 → R1 63.8 → R2 70.9 → **R3 80.7** (at 537cfb8c).
 - Fix all issues, with the melon-seek-style UX QA/QC and the optimization audit, keeping the audit trail
   (`docs/BETA-ISSUES.md`, `docs/BETA-QC.md`, `docs/BETA-PERF-AUDIT.md`).

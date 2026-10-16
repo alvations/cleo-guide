@@ -179,4 +179,22 @@ PR alvations/cleo-guide#9 merged the QA-signed `b54b3745` into the Pages branch 
 - the lazy offline pack;
 - PERF-08.
 
-The R8 independent evaluation scores this deploy.
+**R8 independent evaluation (2026-10-16, design/beta/eval/ROUND-8.md): 88.5 → 90.7.**
+
+| Dimension | R7 | R8 |
+|---|---|---|
+| A. Look & feel (40 %) | 83 | 87 |
+| B. UX & ergonomics (25 %) | 91 | 92 |
+| C. Feature coverage (20 %) | 96 | 97 |
+| D. Unique strengths (15 %) | 89 | 90 |
+| **Overall** | **88.5** | **90.7** |
+
+- Typography and style: 250/300.
+- D1–D13: 6 ✅, 7 ◐, none ✕.
+- Owner-blocked: about 0.4, a human review of the Japanese interface and the Unsplash key.
+- The team can still earn about 2.5. The top gaps:
+  1. sight photos, +0.92;
+  2. polish, +0.47;
+  3. map motion, +0.34;
+  4. Atlas residuals, +0.30;
+  5. accessibility regressions, +0.19.
