@@ -1072,3 +1072,34 @@ Also recorded:
 **Ratification:** the QA-66 probe fix to `metrics.js` `bgOf` measures what is actually painted under text, and nothing is exempted. A `pointer-events:none` layer above text now counts as covering it, so the change is stricter where it applies.
 
 QA sign-off: NO
+
+## 2026-10-16 · QA · R7 delta re-sign on 2bfff3fe · session_017FLWXa5zgGWvqNo4C3UsvH
+
+**Tested SHA: `2bfff3fe9886d1939e5b3994fb0bc329d2b62175`** (be74c82f + FE-B 68b442c0), in a clean worktree.
+
+Gates:
+- validate ✅.
+- `npm test` ✅.
+- `beta:check` ✅: 8,577 places, beta == live.
+
+`git diff --stat be74c82f..2bfff3fe` touches `atlas.js`/`atlas.css`, `fe-a.css`, `insights.js` and `guidebook.js`, and rebuilds `beta/`. So every re-sign row was re-run. Evidence is in `design/beta/eval/w7/qa/resign-2bfff3fe/`.
+
+| Row | Result |
+|---|---|
+| G1 Gallery + Atlas | ✅ 5/5 + 5/5 |
+| B-02 / B-04 (Tokyo, Wheeling) / B-05 | ✅ / ✅ 482, 458 / ✅ |
+| QA-50, QA-52, QA-54, QA-65, casing | ✅ |
+| B-23 (QA-66 probe) | ✅ 0/0 light + night, Gallery and Atlas |
+| B-20 Atlas (QA-61) | ✅ 0 on 5/5 (fixed) |
+| QC-01 | ✅ Tokyo 154/154 and Cleveland 53/53 Insights links open exactly their count; the canon bars are not links and carry the note |
+| **Gallery B-07 (QA-69)** | ❌ Cleveland, Chinatown, Wheeling: "toggle none". The phone map pill is hidden at load. |
+
+`metrics.js` scores: Gallery 22–23/25, Atlas 24/25 on every pilot.
+
+Open High/Blocker: **0**.
+
+**Why NO:** QA-69 regresses B-07, which was ✅ on dd2125e3 and b5f0afa1. It is FE-A's, at the top of its queue.
+
+QA-68 probe fix: B-08 now cuts each title by its clipping panes before testing overlap. It extends the W6-ratified "clipped by its own pane" rule from wholly to partly clipped titles. Measured B-08 is unchanged on this SHA (✅ 0, both views).
+
+QA sign-off: NO

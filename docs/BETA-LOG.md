@@ -1690,3 +1690,18 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - preview with matching alt text, then Web Share with files where supported, a PNG download otherwise.
   - Hooks: "Share as an image" as marked `FE-C W9-7 hook` lines in sheet.js, day.js and saved.js (FE-A told); core.js delegated tap (platform told).
   - Tests: test-fe-c.js CARD (8,577 places: source and date on every card, closed stated, credit with photo; specs; every share action; lazy at the page version). Probe card section: six cases, including the map library blocked, all 1080×1920; 0 off-origin requests from tap to preview; Web Share image/png; download fallback; preview at 390/1440, light and dark. Cards: `design/beta/eval/w9/fe-c/cards/`.
+
+- 2026-10-16 14:55Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **Imagery run #48:** the orchestrator decided the 17 open rows from the contact sheets, kept 11 and refused 6:
+    - CMA (the OPEN banners, SIGNAGE);
+    - Asahiyama (VEHICLES);
+    - Gotoku-ji, ICON Park and Bonnet House (WRONG SUBJECT);
+    - Harvey Milk Plaza (GLOOM).
+
+    With the lane's 15 REFUSE and 11 SIGNAGE rows, that makes 32 refusals (e716d941). The imagery lane applies them, then dispatches the next `all` at budget 1200.
+  - **Chicago location verify:** 48 of the 53 pass rows were accepted (`--accept`; ACCEPTED.md has one line per row).
+    - Held: Dear Margaret and Les Nomades (closed), Big Marsh Park (a park), Paseo Boricua (a street stretch), Chief O'Neill's (no registry address).
+    - Rebuilt `cities/chicago.html`: 412 places, 0 missing. `--geocheck chicago-il` PASS; `--statuscheck` consistent, with 5 places not yet closure-checked.
+    - Beta is at 8,627 places. validate, npm test and beta:check all pass.
+  - **FE-C:** next work is Cleo.t on its strings, then the W9-1 card and detail UI, then the W9-9 lens. Both W9 items moved from FE-A, who keeps QA-69 first because it blocks the deploy.
+  - **Deploy gate:** still waiting for FE-A's QA-69. Then pin a head with 2bfff3fe and the fix; QA re-runs B-07 Gallery, QC-01 and the regression rows.
