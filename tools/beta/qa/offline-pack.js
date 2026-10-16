@@ -60,6 +60,10 @@ let fails = 0; const chk = (ok, msg, v) => { console.log(`  ${ok ? 'PASS' : 'FAI
     if (first) { await p.evaluate(id => { location.hash = '#view=gallery&p=' + id; }, first); await sleep(900);
       const det = await p.evaluate(() => { const d = document.querySelector('[role=dialog]:not([hidden]) h2, [role=dialog]:not([hidden]) h1, .sheet:not([hidden]) h2'); return d ? d.textContent.trim().slice(0, 40) : null; });
       chk(!!det, 'offline detail opens (deep link)', det); }
+    // the pack UI itself offline (pack.js is lazy since 2026-10-16: it must come from the worker's cache, and say "kept")
+    await sleep(1500);
+    const ui = await p.evaluate(() => { const b = document.querySelector('[data-cleo-pack]'), d = b && b.querySelector('[data-pack-done]'); return { api: !!(window.Cleo && Cleo.pack), shown: !!b && !b.hidden, done: d && !d.hidden ? d.textContent.trim() : null }; });
+    chk(ui.api && ui.shown && !!ui.done, 'offline: the lazy pack module loads and the control shows the kept state', ui);
     // Guidebook (its view JS and the page dataset come from the pack)
     await p.evaluate(() => { location.hash = '#view=guidebook'; }); await sleep(2500);
     const gb = await p.evaluate(() => { if (window.Cleo && Cleo.defer) Cleo.defer.all(); const c = document.querySelector('[data-gb-count]'); return { li: document.querySelectorAll('li.ge').length, line: c ? c.textContent.trim() : null }; });
