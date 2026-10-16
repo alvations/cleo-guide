@@ -730,6 +730,7 @@
     "m.pins.h": "Pins, checked to the door",
     "m.gaps": "Stated gaps",
     "m.not": "What we don't show",
+    "m.not.p": "We don’t add ratings, review counts, prices or opening hours of our own; any quoted in a write-up are the source’s, dated. We don’t guess — check hours before you go.",
     "m.stats": "The guide in numbers",
     "m.st.places": "places in {n} guides",
     "m.st.src": "named sources, {n} citations",
@@ -766,6 +767,10 @@
     "city.empty.q": "No places match “{q}”.",
     "city.empty.qnote": "Try another spelling, or search for a dish or an area.",
     "city.empty.search": "Clear search",
-    "city.empty.f": "No places match these filters."
+    "city.empty.f": "No places match these filters.",
+    "sheet.pin.approx": "Approximate pin",
+    "sheet.pin.approx.d": "Approximate map pin: the coordinate we hold is not yet verified to the door",
+    "views.approx": "{n} approximate pins",
+    "views.approx.one": "1 approximate pin"
   }
 }

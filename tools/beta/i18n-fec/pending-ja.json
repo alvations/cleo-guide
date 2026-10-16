@@ -1,9 +1,4 @@
 {
-  "_doc": "FE-C batch 6 (QC-04 per D-43, approximate pins): ja from the i18n lane (D-41, AI tier); review round 16 in design/beta/i18n/ja-REVIEW.md. Merged with pending-en.json by merge.py.",
-  "strings": {
-    "sheet.pin.approx": "ピンはおおよその位置",
-    "sheet.pin.approx.d": "地図のピンはおおよその位置: 当ガイドが持つ座標は、まだ入口の位置まで検証されていません",
-    "views.approx": "ピンがおおよその位置の場所 {n}か所",
-    "views.approx.one": "ピンがおおよその位置の場所 1か所"
-  }
+  "_doc": "Empty: batch 6 merged.",
+  "strings": {}
 }
