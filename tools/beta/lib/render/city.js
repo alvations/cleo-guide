@@ -318,7 +318,8 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   byArea.forEach(l => ordered.push(...l)); ordered.push(...orderArea(orphan));
   // W8 (R6 gap #8): the lead is ONE pick, lib/gallery.js rowsOf().lead — the record the lead card draws — so "Start with"
   // can never name a different place from the card under it (two near-identical pickers had drifted on 17 of 21 pages)
-  const leadId = (galleryRows({ areas: areasAll, collections: page.CATS || [], cuisines: page.CUISINES || [], guide: row.guide, places: recs }, name).lead || {}).id;
+  const gRows = galleryRows({ areas: areasAll, collections: page.CATS || [], cuisines: page.CUISINES || [], guide: row.guide, places: recs }, name);
+  const leadId = (gRows.lead || {}).id;
   const leadR = recs.find(r => r.id === leadId) || ordered.find(r => !r.closed) || ordered[0];
   // W7 (owner: full UI/UX overhaul): a quiet hero — the city name, one line and the count line, with the imagery lane's
   // credited city photo when there is one. The night-sky art and the action pair are retired; the grid, the category bar
@@ -426,8 +427,11 @@ ${gapHtml.join('\n')}${closedTile ? '\n' + closedTile : ''}
 </nav>
 <div class="railbar" data-cleo-rail hidden><button type="button" class="btn btn-icon btn-ghost" data-rail="-1" aria-label="Previous collections">${ico('chev-l')}</button><button type="button" class="btn btn-icon btn-ghost" data-rail="1" aria-label="Next collections">${ico('chev-r')}</button></div>
 <!-- QA-48 / QA-60 (B-04): the category bar sits above the phone lead card, so it is on the first screen on every page, not only where the hero is short -->
-<div class="g-lead-slot vw view-gallery" id="cleo-lead"><p class="g-lead-k">Start with</p></div>
-<div class="g-rows vw view-gallery" id="cleo-rows-host"></div>
+<!-- PERF-06 (platform, marked block): data-lead / data-rows say the client WILL draw a lead card / N rows here, so fe-a.css
+     reserves their space on phones before the fetch lands (Gallery phone CLS); absent where the guide has none -->
+<div class="g-lead-slot vw view-gallery" id="cleo-lead"${gRows.lead ? ' data-lead' : ''}><p class="g-lead-k">Start with</p></div>
+<div class="g-rows vw view-gallery" id="cleo-rows-host"${gRows.rows.length ? ` data-rows="${gRows.rows.length}"` : ''}></div>
+<!-- /PERF-06 -->
 <div class="toolbar" data-cleo-toolbar hidden>
 ${seg}
 <button type="button" class="btn btn-ghost area-btn" data-cleo-tray="area" aria-haspopup="dialog">${ico('pin')}<span class="lbl">Area</span></button>

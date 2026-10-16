@@ -674,3 +674,9 @@ html main[data-city] nav.views .v-ind{display:none}
   html.ph-fade main[data-city] figure.photo::before,html.ph-fade .view-gallery li.gc .cover::before{transition:none}
   html main[data-city] nav.views.has-ind .v-ind{transition:none}
 }
+/* PERF-06 (platform, marked block): reserve the phone lead card and the category rows before gallery.js draws them from
+   data/gallery/<page>.json, so the grid below does not jump (Gallery phone CLS 0.29–0.34 → ≤ 0.01). Keyed on the
+   template's data-lead / data-rows, which the build sets only where the guide has a lead / rows. */
+@media (max-width:1023px){html[data-view=gallery]:not(.g-lead-on):not(.lens-on) #cleo-lead.g-lead-slot[data-lead]{display:block;max-width:var(--maxw);margin:0 auto;padding:4px var(--gutter) 0;min-height:320px;box-sizing:border-box}}
+html[data-view=gallery]:not(.lens-on) #cleo-rows-host[data-rows]:empty{min-height:470px}
+/* /PERF-06 */
