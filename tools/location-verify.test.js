@@ -368,6 +368,13 @@ async function t(name, fn) { try { await fn(); n++; } catch (e) { fails.push(`${
     const fish = r5.rows.find(r => r.name === 'Fictional Fish Market');
     assert.strictEqual(fish.outcome, 'skipped'); assert.ok(/budget/.test(fish.notes[0]));
   });
+  await t('--orphans: alias vs dataset-held vs research-only vs stale (real repo, structural checks)', () => {
+    const cities = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'geocodes.json'), 'utf8')).cities;
+    const cls = LV.classifyOrphans({ singapore: cities.singapore });
+    const a = cls.singapore.a.map(x => x.name);
+    assert.ok(!a.includes('75 Ah Balling Peanut Soup (Punggol Coast)'), 'two branches are not aliases');
+    for (const k of ['a', 'b', 'c', 'd']) assert.ok(Array.isArray(cls.singapore[k]));
+  });
   await t('markdown report renders every row', () => {
     const md = LV.toMarkdown(rep); for (const r of rep.rows) assert.ok(md.includes(r.name.replace(/\|/g, '\\|')), r.name);
   });

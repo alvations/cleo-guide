@@ -17,6 +17,7 @@ Session: `session_017FLWXa5zgGWvqNo4C3UsvH`. Orchestrator: `session_01PCNcUkfa5S
   - 387f1306: pre-measure on b5f0afa1;
   - f00f2312: pre-measure on 0ecf62aa;
   - c5dbeef3: QC rows, QC-01 reproduced.
+- Register hygiene on 995e2529: every "claim not on origin" SHA is on origin. Verified QA-59c, QA-59d, QA-71 and R7-g3. New: QA-72, QA-73, QA-74. The open R7 gap list and owners were sent to the orchestrator.
 - The 530dc83b delta re-sign: NO on QA-70 and QA-71; QA-69 verified.
 - The 2bfff3fe delta re-sign: NO on QA-69 only; QC-01 and QA-61 verified; QA-68 probe fix in `metrics.js`.
 - 3480f399: re-sign on be74c82f. All R7 rows pass. **NO** on QA-69 (Gallery B-07 regression: the phone map pill is hidden at load, FE-A 7c70e821) and on QC-01. The QA-66 B-23 probe fix (`metrics.js` `bgOf`) landed here.
@@ -56,7 +57,8 @@ Put evidence in `design/beta/eval/w7/qa/resign-<sha>/`. Never overwrite the R7 e
 
 ## In flight
 
-- Nothing. Waiting on QA-70 (platform) and QA-71 (Atlas FE-2), then the orchestrator's pin.
+- `metrics.js --all` on 995e2529 (R7-g5, 180 pages) is running in `/home/user/qa-head`. Its output goes to the scratchpad, `head/mall.json`. When it finishes, record the failing-page counts for B-02/04/05/08/20 on R7-g5. If the run is lost, rerun it on the next pin.
+- Waiting on QA-70 (Atlas FE-2) and the orchestrator's pin. FE-B claims are coming for R7-g6, R7-g2 (g)/(h) and R7-g5 (hubs, landing).
 
 ## Notes
 
