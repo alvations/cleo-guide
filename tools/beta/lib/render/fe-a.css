@@ -706,3 +706,12 @@ html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame>.photo img{border-r
 /* food covers (c), designer sign-off: the cover names the dish, so a food card's kind line drops its duplicate dish (the
    area line stays where the card is not under its own area header) */
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-e .in-d{display:none}
+/* PERF-06 (platform, marked block): reserve the phone lead card and the category rows before gallery.js draws them from
+   data/gallery/<page>.json, so the grid below does not jump (Gallery phone CLS 0.29–0.34 → ≤ 0.01). Keyed on the
+   template's data-lead / data-rows, which the build sets only where the guide has a lead / rows. */
+@media (max-width:1023px){html[data-view=gallery]:not(.g-lead-on):not(.lens-on) #cleo-lead.g-lead-slot[data-lead]{display:block;max-width:var(--maxw);margin:0 auto;padding:4px var(--gutter) 0;min-height:320px;box-sizing:border-box}}
+html[data-view=gallery]:not(.lens-on) #cleo-rows-host[data-rows]:empty{min-height:470px}
+/* the category rail above the lead ships `hidden` (no-JS) and city.js unhides it after first paint: with JS on (the head
+   script has set data-view) its box is kept, invisible, so the lead under it does not drop (phone CLS 0.105 → 0) */
+@media (max-width:1023px){html[data-view=gallery] main[data-city]>nav.rail#cleo-rail[hidden]{display:flex!important;visibility:hidden}}
+/* /PERF-06 */

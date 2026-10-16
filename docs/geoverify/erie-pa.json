@@ -116,7 +116,8 @@
    }
   },
   "attribution": "Contains information from OpenStreetMap, © OpenStreetMap contributors, available under the Open Database Licence (ODbL) — https://www.openstreetmap.org/copyright",
-  "hardFailure": false
+  "hardFailure": false,
+  "reassisted": "2026-10-16"
  },
  "summary": {
   "confirm": 17,
@@ -313,7 +314,7 @@
    "assist": {
     "verdict": "review",
     "why": [
-     "med + second source: US Census point 25 m away (“1201 STATE ST, ERIE, PA, 16501”; interpolated, read it)"
+     "closed place: a pin keeps its story on the map — the reviewer decides whether it gets one"
     ]
    }
   },
@@ -6122,9 +6123,9 @@
     "licence": "US Census Bureau TIGER/Line address-range geocode (interpolated; federal data)"
    },
    "assist": {
-    "verdict": "review",
+    "verdict": "hold",
     "why": [
-     "med + second source: US Census point 43 m away (“3018 STATE ST, ERIE, PA, 16508”; interpolated, read it)"
+     "extended feature (street, district, park, island…): pin the entrance / most-visited point by hand"
     ]
    }
   },

@@ -106283,11 +106283,11 @@
    },
    "Jungle Queen Riverboat": {
     "address": "801 Seabreeze Blvd, Fort Lauderdale (Bahia Mar dock)",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "lat": 26.11127,
+    "lng": -80.10602,
+    "source": "https://www.openstreetmap.org/node/1439350923 (osm-poi, retrieved 2026-10-16; location-verify proposal accepted by orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx: Meets LOCATION-VERIFY §8 rule 2 (OSM POI, name 1, house number + street match); orchestrator checks: within the guide region, no shared coordinate, not a closed place)",
+    "verified": "2026-10-16",
+    "confidence": "high",
     "status": "unknown",
     "statusSource": "",
     "statusChecked": "2026-10-03"
@@ -106834,11 +106834,11 @@
    },
    "Superblue Miami": {
     "address": "Allapattah (opposite the Rubell Museum), Miami, FL",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "verified": "2026-10-03",
-    "confidence": "UNVERIFIED",
+    "lat": 25.7985,
+    "lng": -80.2157,
+    "source": "https://www.superblue.com/miami/ (official, retrieved 2026-10-16; location-verify proposal accepted by orchestrator session_01PCNcUkfa5S1N1BKGzZA4xx: Meets LOCATION-VERIFY §8 rule 2 (official site's schema.org geo with the exact street address (1101 NW 23rd St)); orchestrator checks: within the guide region, no shared coordinate, not a closed place)",
+    "verified": "2026-10-16",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Exhibitions running 1 Nov 2025–31 Jan 2026 and a 2026 programme calendar (ticketfairy/artrabbit listings). Checked 2026-10-03.",
     "statusChecked": "2026-10-03"
