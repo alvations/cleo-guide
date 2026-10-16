@@ -7,6 +7,7 @@
 const { esc } = require('../html');
 const { head, siteBar, footer, styles } = require('./common');
 const { icon, site } = require('./shell');
+const { t } = require('../i18n');   // i18n D-41: the method pages' headings, labels and buttons come from the catalogue
 
 const PAGE_CSS = `
 .tablewrap{overflow-x:auto;margin:16px 0 8px}.ctable{border-collapse:collapse;width:100%;min-width:520px;font-size:15px}
@@ -71,27 +72,27 @@ function methodPage(reg, ctx) {
   const n = v => v.toLocaleString('en-US');
   const title = 'How we choose · Cleo';
   const desc = `How ${n(s.places)} places got onto Cleo's maps: named sources, a merit bar, tiers graded within each area, pins checked to the door and closures checked against a source.`;
-  const toc = [['merit', 'The merit bar'], ['sources', 'Sources'], ['tiers', 'Tiers'], ['pins', 'Pins'], ['closures', 'Closed places'], ['gaps', 'Stated gaps'], ['added', 'Added by the guide']];
+  const toc = [['merit', t('m.merit')], ['sources', t('m.sources')], ['tiers', t('m.tiers')], ['pins', t('foot.method.pins')], ['closures', t('foot.method.closures')], ['gaps', t('m.gaps')], ['added', t('sheet.added')]];   // i18n D-41
   return `${head({ page: 'method', title, description: desc, rel: 'how-we-choose.html', depth: 0, assetsV: ctx.assetsV, css: styles(0), from: 'every live place page (computed stats)' }).replace('</head>', `<style>${PAGE_CSS}</style>\n</head>`)}
 <body class="has-tabbar">
 ${siteBar({ depth: 0, current: 'method', rel: 'how-we-choose.html' })}
 <main id="main" class="feb">
 <section class="page-head" aria-labelledby="mh"><div class="inner">
-  <h1 class="title d1" id="mh">How we choose</h1>
+  <h1 class="title d1" id="mh">${t('page.method')}</h1>
   <p class="lead">Every place on every Cleo map is there because someone credible recommended it — and you can see who. Here is the whole method, with the numbers as they stand today.</p>
 </div></section>
 <div class="wrap section">
-  <div class="stats" role="list" aria-label="The guide in numbers">
-    <div role="listitem"><b>${n(s.places)}</b><span>places in ${s.guides} guides</span></div>
-    <div role="listitem"><b>${n(s.publishers)}</b><span>named sources, ${n(s.cites)} citations</span></div>
-    <div role="listitem"><b>${n(s.pinned)}</b><span>pinned places (${n(s.pinHigh)} at high confidence)</span></div>
-    <div role="listitem"><b>${n(s.closed)}</b><span>closed places kept, flagged</span></div>
+  <div class="stats" role="list" aria-label="${t('m.stats')}">
+    <div role="listitem"><b>${n(s.places)}</b><span>${t('m.st.places', { n: s.guides })}</span></div>
+    <div role="listitem"><b>${n(s.publishers)}</b><span>${t('m.st.src', { n: n(s.cites) })}</span></div>
+    <div role="listitem"><b>${n(s.pinned)}</b><span>${t('m.st.pins', { n: n(s.pinHigh) })}</span></div>
+    <div role="listitem"><b>${n(s.closed)}</b><span>${t('m.st.closed')}</span></div>
   </div>
   <p class="sm muted">${n(s.checked)} of ${n(s.places)} places carry a recorded status check${s.last ? `; the most recent was ${esc(s.last)}` : ''}. Computed from the guides when this page was built.</p>
   ${countryTable(reg)}
-  <nav class="toc" aria-label="On this page">${toc.map(([id, t]) => `<a class="pill" href="#${id}">${t}</a>`).join('')}</nav>
+  <nav class="toc" aria-label="${t('m.toc')}">${toc.map(([id, t]) => `<a class="pill" href="#${id}">${t}</a>`).join('')}</nav>
   <div class="prose">
-  <h2 class="d2" id="merit">The merit bar</h2>
+  <h2 class="d2" id="merit">${t('m.merit')}</h2>
   <p>Being listed somewhere is not a reason to add a place. A mention only earns a place the right to be measured. It goes in when it clears at least one of these:</p>
   <ul>
     <li><b>Institutional authority</b> — a Michelin distinction, a James Beard win or semifinalist nod, a national-park or UNESCO designation.</li>
@@ -102,11 +103,11 @@ ${siteBar({ depth: 0, current: 'method', rel: 'how-we-choose.html' })}
   <p>Then we keep the standouts. Four near-identical places doing the same thing is padding, and padding is a reason to drop.</p>
   <p>Food starts from what is unique to each city — its own dishes and drinks — before anything else.</p>
 
-  <h2 class="d2" id="sources">Sources</h2>
+  <h2 class="d2" id="sources">${t('m.sources')}</h2>
   <p>A place needs <b>at least two credible sources</b>, or a single Michelin or James Beard recognition. Review sites such as Yelp and TripAdvisor never count as the recommender; they may only help measure popularity. Anonymous listicles and content farms are rejected.</p>
   <p>Every card says <b>Recommended by</b> and names its sources, so you can follow any source to everything else it recommends. Across the guides that is ${n(s.publishers)} named sources and ${n(s.cites)} citations.</p>
 
-  <h2 class="d2" id="tiers">Tiers, graded within each area</h2>
+  <h2 class="d2" id="tiers">${t('m.tiers.h')}</h2>
   <p>Distinctions are graded inside each area of a city, not across the whole city — otherwise everything would cluster downtown. A place is a must-see <i>in its area</i>.</p>
   <div class="ladder">
     <div><span class="tier t1 lg">${TIER_SVG[1]}<span>Must see</span></span><span class="sm muted">${n(s.t1)} places</span></div>
@@ -115,21 +116,21 @@ ${siteBar({ depth: 0, current: 'method', rel: 'how-we-choose.html' })}
   </div>
   <p>These are our own marks. They are not ratings, and a closed place never carries one.</p>
 
-  <h2 class="d2" id="pins">Pins, checked to the door</h2>
+  <h2 class="d2" id="pins">${t('m.pins.h')}</h2>
   <p>Every address and coordinate is checked against a real source — the place's official site, a map provider's place pin, OpenStreetMap or Wikipedia's published coordinates — never from memory. Each pin keeps its source, a confidence grade and the date it was verified.</p>
   <p>After every build the pins are audited again for placement. A pin read from a map's viewport instead of the place itself can land a street away, so those are re-checked and fixed. A coordinate we can't verify doesn't go on the map. ${n(s.pinned)} of ${n(s.places)} places are pinned; ${n(s.pinHigh)} at high confidence.</p>
 
-  <h2 class="d2" id="closures">Closed places</h2>
+  <h2 class="d2" id="closures">${t('foot.method.closures')}</h2>
   <p>Every place's open or closed status is checked against a real source: its own site or socials, a map listing marked permanently closed, a news story, or an official municipal page. The check date travels with the place.</p>
   <p><b>Closed places stay, flagged.</b> They keep their card so the record is honest, carry "Closed · kept for the record" with the source and date, and never carry a tier. Today that is ${n(s.closed)} places.</p>
 
-  <h2 class="d2" id="gaps">Stated gaps</h2>
+  <h2 class="d2" id="gaps">${t('m.gaps')}</h2>
   <p>When a city has nothing that clears the bar for something — a cuisine, a kind of place — the guide says so in plain words instead of filling the slot with a weaker pick. Those notes appear on each city page under "How this guide was made".</p>
 
-  <h2 class="d2" id="added">Added by the guide</h2>
+  <h2 class="d2" id="added">${t('sheet.added')}</h2>
   <p>A few places were added from the guide's own general knowledge rather than a named source. They are labelled <b>Added by the guide (general knowledge)</b> and are never relabelled as sourced. That is ${n(s.added)} of ${n(s.places)} places.</p>
 
-  <h2 class="d2" id="not">What we don't show</h2>
+  <h2 class="d2" id="not">${t('m.not')}</h2>
   <p>No star ratings, review counts, prices or opening hours — they aren't in our data, and we don't guess. Check hours before you go.</p>
   <p>How the site itself is built for every reader — keyboard, screen reader, low vision, no network — is on the <a href="accessibility.html">accessibility page</a>.</p>
   </div>
@@ -149,9 +150,9 @@ ${siteBar({ depth: 0, current: 'other', rel: '404.html' })}
 <main id="main" class="feb" style="min-height:calc(100svh - 64px)"><div class="wrap section">
 <div class="state" data-cleo-state="unknown-page">
   ${icon('compass', 'ico lg')}
-  <h1 class="d2">We couldn't find that page.</h1>
+  <h1 class="d2">${t('nf.h')}</h1>
   <p>It may have been renamed. Every guide is still listed — ${T.places.toLocaleString('en-US')} places across ${T.guides} guides.</p>
-  <p><a class="btn btn-primary" href="index.html#destinations">See every destination</a> <a class="btn btn-ghost" href="index.html#search">Search every place</a></p>
+  <p><a class="btn btn-primary" href="index.html#destinations">${t('nf.all')}</a> <a class="btn btn-ghost" href="index.html#search">${t('shell.search')}</a></p>
 </div>
 </div></main>
 ${footer({ depth: 0, tabbar: true, current: 'other' })}
@@ -172,11 +173,11 @@ function accessibilityPage(reg, ctx) {
 ${siteBar({ depth: 0, current: 'other', rel: 'accessibility.html' })}
 <main id="main" class="feb">
 <section class="page-head" aria-labelledby="ah"><div class="inner">
-  <h1 class="title d1" id="ah">Accessibility</h1>
+  <h1 class="title d1" id="ah">${t('page.accessibility')}</h1>
   <p class="lead">A guide is only useful if you can read it. Cleo aims to meet <b>WCAG 2.2 level AA</b> on every page, for every one of its ${T.places.toLocaleString('en-US')} places — and to say plainly where it doesn't yet.</p>
 </div></section>
 <div class="wrap section prose">
-  <h2 class="d2" id="commit">What we commit to</h2>
+  <h2 class="d2" id="commit">${t('a.commit')}</h2>
   <ul class="a11y-list">
     ${li('Everything is readable without the map.', 'Every place is in the list as text — name, write-up, address, who recommends it, open or closed. The map is an extra; if it fails to load, nothing is lost.')}
     ${li('Everything is readable without a network or script.', 'Pages are plain HTML with system-font fallbacks; search, saving and filters add to it but are never needed to read a guide.')}
@@ -187,9 +188,9 @@ ${siteBar({ depth: 0, current: 'other', rel: 'accessibility.html' })}
     ${li('Motion only if you want it.', 'With “reduce motion” set on your device, nothing animates.')}
     ${li('Storage is optional.', 'If your browser blocks storage, your list still works for the session and the page tells you so.')}
   </ul>
-  <h2 class="d2" id="measured">How it is measured</h2>
+  <h2 class="d2" id="measured">${t('a.measured')}</h2>
   <p>Each build is checked by an automated harness at a phone size (390 × 844) and a desktop size (1440 × 900) across every page: contrast in both editions, tap-target size, overflow, visible focus, landmarks, skip link, accessible names, and that every place can be reached by scrolling, by deep link, by search and with scripts off. The latest results are kept in the project's QA log alongside the evidence.</p>
-  <h2 class="d2" id="gaps">Known gaps</h2>
+  <h2 class="d2" id="gaps">${t('a.gaps')}</h2>
   <p>These are open today. We list them instead of claiming conformance we haven't measured.</p>
   <ul class="a11y-list">
     ${li('Map pins are not a keyboard list.', 'Pins on the map can be reached with a pointer; with a keyboard or screen reader, use the list, which carries every place the map shows, in the same order and numbering.')}
@@ -198,10 +199,10 @@ ${siteBar({ depth: 0, current: 'other', rel: 'accessibility.html' })}
     ${li('English only.', 'The interface is in English. Place names stay in their own script.')}
     ${li('Not yet audited by a person.', 'The checks above are automated. A manual audit with assistive-technology users has not been done yet.')}
   </ul>
-  <h2 class="d2" id="contact">Tell us about a barrier</h2>
+  <h2 class="d2" id="contact">${t('a.contact')}</h2>
   <p>If something on Cleo is hard to use, please <a href="${esc(issue)}">open an issue on GitHub</a> with the page and what happened. You don't need to know the technical cause — “I couldn't reach the Close button with the keyboard on the Tokyo page” is exactly the kind of report we need.</p>
 </div>
-<div class="wrap" style="padding-bottom:32px"><p><a class="btn btn-primary" href="${esc(issue)}">Report an accessibility problem</a> <a class="btn btn-ghost" href="how-we-choose.html">How we choose places</a></p></div>
+<div class="wrap" style="padding-bottom:32px"><p><a class="btn btn-primary" href="${esc(issue)}">${t('a.report')}</a> <a class="btn btn-ghost" href="how-we-choose.html">${t('a.how')}</a></p></div>
 </main>
 ${footer({ depth: 0, tabbar: true, current: 'other' })}
 </body>

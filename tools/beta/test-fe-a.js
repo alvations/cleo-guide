@@ -240,7 +240,7 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     d.querySelector('#cleo-sheet [data-sh="go"][aria-label^="Next"]').click(); await sleep(60);
     chk('next walks the view order', /p=/.test(w.location.hash) && w.location.hash.indexOf(set[2].id.slice(2)) > 0 && d.querySelector('#cleo-sheet [data-sh-pos]').textContent.startsWith('3 of '), w.location.hash);
     chk('Gallery sheet = experience page (Plan your visit, one primary link, Close by)', !!d.querySelector('#cleo-sheet .sheet.exp .plan') && d.querySelectorAll('#cleo-sheet .primary-link').length <= 1 && !!d.querySelector('#cleo-sheet .closeby'));
-    const st = d.querySelector('#cleo-sheet').textContent.replace(/Hours and prices aren’t in our data/g, '');
+    const st = d.querySelector('#cleo-sheet').textContent.replace(/We don’t track opening hours or prices/g, '');
     chk('no price / booking / rating / availability on the sheet', !/(\$|¥|€|£)\s?\d|\bbook(ing| now)\b|\breserv|\bavailab|\brating|\bstars?\b|\bprice/i.test(st));
     const hrefs = [...d.querySelectorAll('#cleo-sheet a[href]')].map(a => a.getAttribute('href')).filter(h => !h.startsWith('#'));
     chk('every outbound sheet link is absolute https', hrefs.every(h => /^https:\/\//.test(h)), hrefs.filter(h => !/^https:/.test(h)).slice(0, 3));

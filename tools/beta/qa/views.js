@@ -208,7 +208,7 @@ async function honesty() {
       const { ctx, page } = await open(rel, 'mobile', { hash: '#view=' + v + '&p=' + encodeURIComponent(d.places[0].id), settle: 900 });
       const s = await page.evaluate(STATE);
       const bad = s.text.split(/\n+/).map(l => l.trim()).filter(l => l && !data.has(l))
-        .map(l => l.replace(/Hours and prices aren['’]t in our data|No ratings, prices or (?:opening )?hours are shown|review-aggregator star ratings never count as the recommender|Closed — kept for the record · .*/g, ''))
+        .map(l => l.replace(/We don['’]t track opening hours or prices|Prices, ratings and times are quoted from the source at the time of research \([^)]*\)\.|No ratings, prices or (?:opening )?hours are shown|review-aggregator star ratings never count as the recommender|Closed — kept for the record · .*/g, ''))
         .filter(l => { let t = l; for (const x of data) if (x.length > 12 && t.includes(x)) t = t.split(x).join(' '); return HONESTY.test(t); });
       check('honesty', `${rel} #view=${v} (sheet open)`, viewOk(s, v) === null && !bad.length ? null : !bad.length, bad.slice(0, 3));
       await ctx.close();
