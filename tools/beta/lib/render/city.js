@@ -342,7 +342,9 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   const DV = 'gallery';
   const VIEWS = ['gallery', 'atlas'].concat(['guidebook', 'insights'].filter(v => ctx.assetsV[v]));
   const VLBL = { gallery: [tr('city.view.gallery'), 'grid'], atlas: [tr('city.view.atlas'), 'map'], guidebook: [tr('city.view.guidebook'), 'list'], insights: [tr('city.view.insights'), 'sliders'] };   // i18n D-41: views, tray, masthead
-  const switcher = `<nav class="views" data-cleo-views aria-label="${tr('city.view.label')}" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === DV}">${ico(VLBL[v][1])}<span>${VLBL[v][0]}</span></button>`).join('')}</nav>`;
+  // FE-B QC-09 (DESIGN-SYSTEM §v2.11): a labelled group of four pressed-state toggles, never a <nav> (axe: no group role on
+  // nav); four segments at every width, one tap per switch; data-label = the visible tooltip when only the glyph shows
+  const switcher = `<div class="views" data-cleo-views role="group" aria-label="${tr('city.view.label')}" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === DV}" data-label="${VLBL[v][0]}">${ico(VLBL[v][1])}<span class="l">${VLBL[v][0]}</span></button>`).join('')}</div>`;
   const areaChips = areas.length > 1 ? `<div class="area-chips" role="group" aria-label="${tr('city.areas.label')}" data-cleo-toolbar hidden></div>` : '';   // views.js draws the chips (page weight)
   // the view is set before first paint (SPEC §2.4): hash, then the stored preference (try/catch), then Gallery
   const viewHead = `<script>(function(){var v=${JSON.stringify(VIEWS)},h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)(?:day|mode|a|t|c|cz|src|closed|q|sig|gap)=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}` +

@@ -128,9 +128,6 @@ html[data-view=gallery] .pl-cover .g-art{display:block}
 @media (max-width:639px){html[data-view=guidebook] .masthead,html[data-view=insights] .masthead{min-height:0;padding-bottom:6px}html[data-view=guidebook] .masthead :is(.facts,.dek,.eyebrow,svg),html[data-view=insights] .masthead :is(.facts,.dek,.eyebrow,svg){display:none}html[data-view=guidebook] .masthead h1,html[data-view=insights] .masthead h1{font-size:var(--fs-d2)}}
 /* QA-30: the hero's primary action on the night sky, both themes (was 1:1 in night mode) */
 .g-acts .btn-primary,.g-acts .btn-primary:hover{background:var(--on-night);color:var(--night);border-color:var(--on-night)}
-/* phones: the switcher collapses to the current view; tapping it opens all four (QA-31 · B-03 ≤ 14 controls) */
-@media (max-width:639px){html nav.views[data-cleo-views][aria-label]:not(.open){grid-template-columns:1fr;display:grid}html nav.views[data-cleo-views]:not(.open) button[aria-pressed=false]{display:none}
-  html nav.views[data-cleo-views] button[aria-pressed=true]::before{content:"View: ";font-weight:400;color:var(--ink-3)}html nav.views[data-cleo-views]:not(.open) button[aria-pressed=true]::after{content:"▾";margin-left:6px;color:var(--ink-3)}}
 /* ROUND-4 #3: masthead prose links stay inline (the inline-flex 44 px box swallowed the space before the date and
    opened uneven line gaps); the 44 px hit area comes from block padding, which never changes an inline line box */
 .masthead .facts a:not(.btn){display:inline;min-height:0;padding:12px 0;margin:0}
@@ -175,31 +172,38 @@ html main[data-city] .spill input#cleo-filter{border-radius:0;height:auto;flex:1
 .spill .hint{flex:none;color:var(--ink-3);font-size:var(--fs-sm);white-space:nowrap;padding-right:10px}@media (max-width:899px){.spill .hint{display:none}}
 .spill input::placeholder{color:var(--ink-3);opacity:1;font-weight:400}
 .spill:hover{box-shadow:var(--e-2)}.spill:focus-within{border-color:var(--ink);box-shadow:0 0 0 2px var(--focus),var(--e-2)}
-/* the switcher: an understated segmented control (desktop) — the page's own nav, no longer pinned into the site bar */
-html main[data-city] nav.views[data-cleo-views]{position:relative;top:auto;right:auto;flex:none;display:flex;gap:2px;margin:0;width:auto;max-width:none;padding:3px;background:transparent;border:1px solid var(--line);border-radius:var(--r-pill);box-shadow:none;z-index:46}
-html main[data-city] nav.views[data-cleo-views][hidden]{display:none}
-html main[data-city] nav.views[data-cleo-views] button{flex:0 0 auto;min-height:44px;padding:0 14px;gap:7px;border-radius:var(--r-pill);background:transparent;color:var(--ink-2);font:500 var(--fs-sm)/1 var(--font-ui);box-shadow:none}
-html main[data-city] nav.views[data-cleo-views] button:hover{color:var(--ink);background:var(--sand)}
-html main[data-city] nav.views[data-cleo-views] button[aria-pressed=true]{background:var(--ink);color:var(--paper);font-weight:600}
-html main[data-city] nav.views[data-cleo-views] button[aria-pressed=true] .ico{color:inherit}
-html main[data-city] nav.views[data-cleo-views] button .ico{width:17px;height:17px}
+/* the switcher — FE-B QC-09 / QC-06 (DESIGN-SYSTEM §v2.11): a labelled group of four pressed toggles at every width, one
+   tap per switch; a --sand track with a --surface thumb on the pressed segment; every segment >= 44 px */
+html main[data-city] .views[data-cleo-views]{position:relative;top:auto;right:auto;flex:none;display:flex;gap:2px;margin:0;width:auto;max-width:none;padding:var(--s-1);background:var(--sand);border:0;border-radius:var(--r-pill);box-shadow:none;z-index:46}
+html main[data-city] .views[data-cleo-views][hidden]{display:none}
+html main[data-city] .views[data-cleo-views] button{flex:0 0 auto;min-height:var(--tap);min-width:var(--tap);padding:0 var(--s-4);gap:var(--s-2);border-radius:var(--r-pill);background:transparent;color:var(--ink-2);font:500 var(--fs-sm)/1 var(--font-ui);box-shadow:none}
+html main[data-city] .views[data-cleo-views] button:hover{color:var(--ink)}
+html main[data-city] .views[data-cleo-views] button[aria-pressed=true]{background:var(--surface);color:var(--ink);font-weight:600;box-shadow:var(--shadow-sm)}
+html main[data-city] .views[data-cleo-views] button[aria-pressed=true] .ico{color:inherit}
+html main[data-city] .views[data-cleo-views] button .ico{width:17px;height:17px}
 @media (min-width:1024px){
   .cbar-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,560px) minmax(min-content,1fr);gap:20px}
   .cbar-in>.spill{grid-column:2}
-  html main[data-city] .cbar-in>nav.views[data-cleo-views]{grid-column:3;justify-self:end}
-  html main[data-city] nav.views[data-cleo-views] button{min-height:44px}
+  html main[data-city] .cbar-in>.views[data-cleo-views]{grid-column:3;justify-self:end}
 }
-/* phones and tablets: the switcher is one compact "current view" control beside the pill; it opens the four as a menu */
+/* phones: the switcher alone is a 52 px row under the header, sticky with it; search is the header's search icon */
 @media (max-width:639px){
-  html main[data-city] .cbar-in{gap:8px}
-  html main[data-city] nav.views[data-cleo-views][aria-label]:not(.open){display:flex;grid-template-columns:none;padding:0;border:0}
-  html main[data-city] nav.views[data-cleo-views]:not(.open) button[aria-pressed=true]{min-height:48px;padding:0 12px;background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:var(--e-1)}
-  html main[data-city] nav.views[data-cleo-views] button[aria-pressed=true]::before{content:none}
-  html main[data-city] nav.views[data-cleo-views] button .ico{display:inline-block}
-  html main[data-city] nav.views[data-cleo-views]:not(.open) button[aria-pressed=true]>span{max-width:74px;overflow:hidden;text-overflow:ellipsis}
-  html main[data-city] nav.views[data-cleo-views].open{position:absolute;right:var(--gutter);top:calc(100% - 6px);display:grid;grid-template-columns:1fr;min-width:210px;padding:6px;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-m);box-shadow:var(--e-4)}
-  html main[data-city] nav.views[data-cleo-views].open button{justify-content:flex-start;min-height:48px;border-radius:var(--r-s);font-size:var(--fs-ui)}
-  .cbar-in{position:relative}
+  html main[data-city]{--cbar-h:52px}
+  html main[data-city] .cbar-in{display:block;min-height:var(--cbar-h);padding:var(--s-1) var(--gutter)}
+  html main[data-city] .cbar .spill{display:none}
+  html main[data-city] .views[data-cleo-views]{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%;padding:0}
+  html main[data-city] .views[data-cleo-views] button{min-width:0;padding:0 var(--s-1)}
+  /* every phone sheet (place detail, filters, list) stops below the switcher, scrim included: it stays visible and hit-testable */
+  html body main[data-city]:has(.views[data-cleo-views]:not([hidden]))>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not(.side){top:calc(var(--bar-h) + var(--cbar-h))}
+  html body main[data-city]:has(.views[data-cleo-views]:not([hidden]))>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not(.side) :is(.sheet,.tray){max-height:calc(100dvh - var(--bar-h) - var(--cbar-h))}
+}
+@media (max-width:399px){html main[data-city] .views[data-cleo-views] button .ico{display:none}}
+/* < 300 px (200 % zoom on a phone): the glyph only; the label stays the accessible name and shows as a tooltip on focus / press */
+@media (max-width:299px){
+  html main[data-city] .views[data-cleo-views] button .ico{display:inline-block}
+  html main[data-city] .views[data-cleo-views] button>.l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  html main[data-city] .views[data-cleo-views] button{position:relative}
+  html main[data-city] .views[data-cleo-views] button:is(:focus-visible,:active)::after{content:attr(data-label);position:absolute;top:calc(100% + var(--s-1));left:50%;transform:translateX(-50%);z-index:70;padding:var(--s-1) var(--s-2);border-radius:var(--r-s);background:var(--ink);color:var(--paper);font:500 var(--fs-sm)/1.2 var(--font-ui);white-space:nowrap;pointer-events:none}
 }
 /* ---- 2. a quiet hero: the city name, one line and the count line (no night sky, no particle art) ---- */
 html main[data-city]>.masthead{background:none;color:var(--ink);min-height:0;display:flex;flex-direction:column;align-items:flex-start;margin-inline:auto;max-width:var(--maxw);padding:clamp(20px,4vw,48px) var(--gutter) clamp(12px,2vw,24px);overflow:visible;isolation:auto;border:0}
@@ -662,17 +666,17 @@ html.ph-fade main[data-city] figure.photo.in::before{opacity:0}
 html.ph-fade .view-gallery li.gc .cover.has-ph[style*="--ph"]::before{content:"";display:block;position:absolute;inset:0;z-index:2;background:var(--ph);pointer-events:none;transition:opacity 280ms var(--ease-out)}
 html.ph-fade .view-gallery li.gc .cover.has-ph.in::before{opacity:0}
 /* 2. Switching views: the switcher's selection slides to the new view (desktop pill row), and the page content fades in */
-html main[data-city] nav.views .v-ind{display:none}
+html main[data-city] .views[data-cleo-views] .v-ind{display:none}
 @media (min-width:1024px){
-  html main[data-city] nav.views.has-ind{position:relative;isolation:isolate}
-  html main[data-city] nav.views.has-ind .v-ind{display:block;position:absolute;z-index:-1;border-radius:var(--r-pill);background:var(--ink);pointer-events:none;transition:left 240ms var(--ease-out),width 240ms var(--ease-out),top 240ms var(--ease-out)}
-  html main[data-city] nav.views.has-ind button[aria-pressed=true]{background:transparent}
+  html main[data-city] .views[data-cleo-views].has-ind{position:relative;isolation:isolate}
+  html main[data-city] .views[data-cleo-views].has-ind .v-ind{display:block;position:absolute;z-index:-1;border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--shadow-sm);pointer-events:none;transition:left 240ms var(--ease-out),width 240ms var(--ease-out),top 240ms var(--ease-out)}
+  html main[data-city] .views[data-cleo-views].has-ind button[aria-pressed=true]{background:transparent;box-shadow:none}
 }
 @keyframes w8-vin{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:no-preference){html main[data-city].v-swap>:not(.cbar):not(.overlay):not(.mappill):not(.tray){animation:w8-vin 240ms var(--ease-out) both}}
 @media (prefers-reduced-motion:reduce){
   html.ph-fade main[data-city] figure.photo::before,html.ph-fade .view-gallery li.gc .cover::before{transition:none}
-  html main[data-city] nav.views.has-ind .v-ind{transition:none}
+  html main[data-city] .views[data-cleo-views].has-ind .v-ind{transition:none}
 }
 /* QA-59a: the name link keeps its 44 px tap padding (12 px above and below) but a clamped third line (a long name, or the
    native name) showed inside that bottom padding. A paint-only mask hides the padding band; the hit area is unchanged,
