@@ -197,9 +197,18 @@ console.log('\n== W9-2: "<month> in Cleo" from data/changes.json; What changed l
   chk('module present, for the newest month on record', !!sec && sec.querySelector('.month-lede').dataset.month === C.month, true);
   const lede = sec ? sec.querySelector('.month-lede').textContent : '';
   chk('lede numbers == changes.json sums (re-checked, closed, retiring, pins, guides)', [n(sum('checked')), n(sum('closed')), n(sum('retiring')) + ' of them retiring', n(sum('pins')), String(act.length)].every(x => lede.includes(x)), true);
-  // retiring is recomputed here from the closure notes themselves (lib/changes.js RETIRING), never typed
-  const { RETIRING } = require('./lib/changes');
-  const rt = C.pages.reduce((t, p) => t + JSON.parse(rd('data/places/' + p.changesPage.replace(/^changes\//, '').replace(/\.html$/, '.json'))).changes.filter(e => e.kind === 'closed' && e.d.slice(0, 7) === C.month && RETIRING.test(e.note || '')).length, 0);
+  // retiring is recomputed here from the closure notes themselves (lib/changes.js RETIRING), never typed. QC-25: the
+  // notes never ship, so they are read from data/geocodes.json (closed entries, by base name) for each closure this month
+  const { RETIRING } = require('./lib/changes'), { baseName } = require('./lib/model');
+  const GEO = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'data', 'geocodes.json'), 'utf8')).cities, notes = {};
+  Object.values(GEO).forEach(c => Object.entries(c || {}).forEach(([nm, e]) => { if (e && e.status === 'closed' && e.statusSource) (notes[baseName(nm)] = notes[baseName(nm)] || []).push(e.statusSource); }));
+  const rt = C.pages.reduce((t, p) => t + JSON.parse(rd('data/places/' + p.changesPage.replace(/^changes\//, '').replace(/\.html$/, '.json'))).changes.filter(e => e.kind === 'closed' && e.d.slice(0, 7) === C.month && (notes[e.name] || []).some(n => RETIRING.test(n))).length, 0);
+  // QC-25: no closure note text on any What changed page — a "Status source" link (an http URL) or nothing
+  const CHG = C.pages.map(p => [p.changesPage, rd(p.changesPage)]), snip = Object.values(notes).flat().map(n => String(n).replace(/https?:\/\/\S+/g, '').replace(/[&<>"']/g, ' ').trim().slice(0, 40)).filter(x => x.length >= 20);
+  chk('no closure note text on any changes page (QC-25): no "Status source:" prose, no note snippet, source links are http(s)', CHG.filter(([, h]) => /Status source:/.test(h) || snip.some(x => h.includes(x)) ||
+    [...h.matchAll(/<a href="([^"]*)"[^>]*>Status source<\/a>/g)].some(m => !/^https?:\/\//.test(m[1]))).map(([f]) => f), a => a.length === 0);
+  // QC-25: no closure note text in any shipped JSON — only its URL (src)
+  chk('no closure note text ships in data/places/*.json (QC-25)', C.pages.filter(p => JSON.parse(rd('data/places/' + p.changesPage.replace(/^changes\//, '').replace(/\.html$/, '.json'))).changes.some(e => 'note' in e || (e.src && !/^https?:\/\//.test(e.src)))).map(p => p.key), a => a.length === 0);
   chk(`retiring (${rt}) == closures this month whose sourced note announces a retirement or a last day`, sum('retiring') === rt, true);
   const mName = JSON.parse(rd('assets/i18n/en.json')).strings['land.month.names'].split(',')[+C.month.slice(5, 7) - 1] + ' ' + C.month.slice(0, 4);
   chk(`heading reads "This month in Cleo"; the lede names the month (${mName})`, !!sec && sec.querySelector('#month-h').textContent === 'This month in Cleo' && lede.startsWith('In ' + mName + ':'), true);

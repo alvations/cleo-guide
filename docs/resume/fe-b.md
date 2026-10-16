@@ -13,6 +13,12 @@ B-02/B-04/B-05/B-08/B-20 at 0 failing hub + landing pages (metrics-all sweep).
 
 ## Done
 
+- QC-25 leftovers (from FE-A): closure statusSource notes no longer ship anywhere — What changed pages, Atom feeds and
+  data/places/*.json carry only the note's first URL (pv.ss / changes src; "Status source" link). The note stays
+  build-side (non-enumerable) for the retiring count; test-hubs recounts it from data/geocodes.json and checks no note
+  ships. lib/model.js edit is small and marked (statusUrl, same rule as render/city.js). Method page line is the
+  D-42 form via the catalogue (m.not.p, en + ja; ja sent to i18n); honesty allowlists (qa/test-honesty, views, w4) allow
+  exactly that sentence; test-hubs asserts no note text on any changes page.
 - W9-6 acc1 + acc4 (paste a link): build.js writes data/source-hosts.json v2 from each source's domains AND every cited
   URL's host (2,227 hosts; gotokyo.org → GO Tokyo), plus 32 lazily-loaded shards data/source-urls/<djb2 % 32>.json keyed
   by the normalised URL (host without www. + path, no query/hash/index.html/trailing slash) for an exact "Recommended on

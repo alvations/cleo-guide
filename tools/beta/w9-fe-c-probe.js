@@ -15,6 +15,8 @@
  *              Guidebook each show the assumption once and the line on every visible card; Saved too
  *  base-lazy   a first load with no base never requests base.js; with a base it is requested once
  *  rec-pv      (W9-1) the Atlas map preview of a recognised place carries its badges (text: the preview is one link)
+ *  empty       (QC-05, S-05-style) #q=zzqxjv on 5 pilots × Gallery/Atlas × 390/1440: a visible message naming the search,
+ *              "Clear search" and "Show all N" (each works), the count reads 0, no "All N" chip pressed, no sideways scroll
  *  card        (W9-7) place (photo), closed place, day, list (Saved) and trip: a 1080×1920 PNG; its preview's alt text names
  *              the source line, the checked date and (photo cards) the credit; 0 off-origin requests from the tap to the
  *              preview; works with the map library blocked; Web Share gets an image/png file where supported, else a download
@@ -156,6 +158,22 @@ async function tabTo(page, test, n = 80) {
       return { id: c.id, n: (c.getAttribute('data-ra') || '').split(' ').length + ((c.getAttribute('data-rec') || '').includes('cited') ? 1 : 0), got: g ? g.querySelectorAll('.rb').length : 0, links: g ? g.querySelectorAll('a').length : -1, text: g && g.textContent }; });
     ok(r && r.got === r.n && r.links === 0, 'the Atlas preview of a recognised place shows its badges, as text', r); ok(!s.errs.length, 'rec-pv: 0 page errors', s.errs.slice(0, 2)); await s.ctx.close(); }
 
+  console.log('# empty (QC-05: a search with no match states it, and offers a way out)');
+  for (const rel of ['cities/tokyo.html', 'cleveland.html', 'cities/newyork.html', 'Singapore/chinatown.html', 'cities/wheeling.html']) for (const w of [390, 1440]) for (const v of ['gallery', 'atlas']) {
+    const tag = `${rel.split('/').pop().replace('.html', '')} ${v} ${w}`, s = await open(b, rel + '#view=' + v + '&q=zzqxjv', { w, tiles: true, settle: 1500 });
+    const st = await s.page.evaluate(() => { const vis = e => { if (!e) return false; const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && getComputedStyle(e).visibility !== 'hidden'; };
+      const box = [...document.querySelectorAll('[data-cleo-empty]')].find(vis), cards = [...document.querySelectorAll('li.pl, li.gc, li.ge')].filter(vis).length;
+      const zero = [...document.querySelectorAll('.ms-head, .ms-toggle, .ms-car, #cleo-shown, .pager')].filter(vis).map(e => e.textContent.replace(/\s+/g, ' ').trim()).filter(t => /\b0 places|No places match/.test(t)).length;
+      return { msg: box ? box.textContent.replace(/\s+/g, ' ').trim() : null, clear: !!(box && box.querySelector('[data-unset="q"]')), all: !!(box && box.querySelector('[data-cleo-all]')), cards, zero,
+        pressedAll: [...document.querySelectorAll('button[data-mode][aria-pressed="true"]')].filter(vis).map(b => b.textContent.trim()), over: document.documentElement.scrollWidth - innerWidth }; });
+    ok(!!st.msg && /No places match “zzqxjv”/.test(st.msg) && st.clear && st.all && st.cards === 0 && st.zero > 0 && !st.pressedAll.length && st.over <= 0,
+      `${tag}: the empty state names the search, offers Clear search + Show all, count 0, no chip pressed`, st.msg ? { zero: st.zero, pressed: st.pressedAll, over: st.over } : st);
+    if (rel === 'cities/tokyo.html') await s.page.screenshot({ path: path.join(SHOTS, `empty-${v}-${w}.png`) });
+    const btn = s.page.locator('[data-cleo-empty] [data-unset="q"]').filter({ visible: true }).first(); await btn.click(); await s.page.waitForTimeout(500);
+    const after = await s.page.evaluate(() => ({ q: /[#&]q=/.test(location.hash), box: [...document.querySelectorAll('[data-cleo-empty]')].length, input: (document.getElementById('cleo-filter') || {}).value }));
+    ok(!after.q && !after.box && !after.input, `${tag}: "Clear search" clears the search and the state`, after);
+    await s.ctx.close();
+  }
   console.log('# card (share images)');
   const CARDS = path.join(SHOTS, 'cards'); fs.mkdirSync(CARDS, { recursive: true });
   const CASES = [

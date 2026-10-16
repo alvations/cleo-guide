@@ -360,6 +360,51 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     chk('no js errors (local favourites)', !g.errs.length, g.errs.slice(0, 2));
   }
 
+  console.log('\n== EMPTY (QC-05): a search with no match states it and offers a way out ==');
+  {
+    const g = boot('cities/tokyo.html', { hash: '#q=zzqxjv', mods: ['empty'] }); await sleep(300);
+    const box = g.d.querySelector('#cleo-lens [data-cleo-empty]'), lens = g.d.getElementById('cleo-lens');
+    chk('the lens states it, naming the search', !!box && !lens.hidden && box.querySelector('h2').textContent === 'No places match “zzqxjv”.', box && box.textContent);
+    chk('it offers "Clear search" and "Show all 488"', !!box && (box.querySelector('[data-unset="q"]') || {}).textContent === 'Clear search' && (box.querySelector('[data-cleo-all]') || {}).textContent === 'Show all 488');
+    chk('the map carries the same state (Atlas)', !!g.d.querySelector('.mappane [data-cleo-empty][role="status"]'));
+    chk('no "All N" mode chip stays pressed while nothing is shown', !g.d.querySelector('button[data-mode][aria-pressed="true"]'));
+    chk('no card is shown', ![...g.d.querySelectorAll('li.pl')].some(c => !c.hidden));
+    box.querySelector('[data-unset="q"]').click(); await sleep(150);
+    chk('"Clear search" clears the search and the state, and every place is back', !/[#&]q=/.test(g.w.location.hash) && !g.d.querySelector('[data-cleo-empty]') && g.d.querySelectorAll('li.pl:not([hidden])').length > 0 && !!g.d.querySelector('button[data-mode][aria-pressed="true"]'));
+    const g2 = boot('cities/tokyo.html', { hash: '#q=senso', mods: ['empty'] }); await sleep(300);
+    chk('a search that matches draws no empty state', !g2.d.querySelector('[data-cleo-empty]'));
+    const g3 = boot('cities/tokyo.html', { hash: '#q=zzqxjv' }); await sleep(300);
+    chk('empty.js is lazy: requested only on an empty result', !/<script[^>]+empty\.js/.test(fs.readFileSync(path.join(BETA, 'cities/tokyo.html'), 'utf8')) && !!g3.d.querySelector('script[src*="assets/js/empty.js"]'));
+    chk('no js errors (empty)', !g.errs.length && !g2.errs.length, g.errs.concat(g2.errs).slice(0, 2));
+  }
+
+  console.log('\n== APPROX (QC-04, D-43): a low-graded pin stays on the map, labelled "Approximate pin" ==');
+  {
+    const bad = []; let nlow = 0;
+    for (const f of files) {
+      const j = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places', f), 'utf8')), html = fs.readFileSync(path.join(BETA, j.beta), 'utf8');
+      const info = JSON.parse(/<script type="application\/json" id="cleo-city">([\s\S]*?)<\/script>/.exec(html)[1]), pr = info.prov || {};
+      for (const p of j.places) { const lo = (p.pv || {}).pin === 'low', pl = String(pr[p.id] || '').charAt(0) === 'l'; if (lo) nlow++; if (lo !== pl) bad.push([j.key, p.id, (p.pv || {}).pin, pr[p.id]]); }
+    }
+    chk(`${files.length} pages: the page's provenance marks exactly the ${nlow} places whose pv.pin is low`, bad.length === 0 && nlow > 0, bad.slice(0, 4));
+    const oj = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places/okinawa.json'), 'utf8')), lowIds = new Set(oj.places.filter(p => (p.pv || {}).pin === 'low').map(p => 'p-' + p.id));
+    const g = boot('cities/okinawa.html', { mods: ['fresh'] }); await sleep(250); g.w.Cleo.defer.all(); await sleep(80);
+    const probs = []; let lab = 0;
+    g.d.querySelectorAll('li.pl[id^="p-"]').forEach(c => { const e = c.querySelector(':scope > .pl-approx');
+      if (lowIds.has(c.id)) { if (!e || e.textContent !== 'Approximate pin') probs.push([c.id, 'no label']); else lab++; } else if (e) probs.push([c.id, 'label on a pin that is not low']); });
+    chk(`Okinawa: every low-pin card (${lab} of ${lowIds.size}) says "Approximate pin" and no other card does`, probs.length === 0 && lab === lowIds.size, probs.slice(0, 4));
+    const s = boot('cleveland.html', { hash: '#p=rocky-river-reservation-and-fort-hill-stairs' }); await sleep(400);
+    const sh = (s.d.getElementById('cleo-sheet') || {}).textContent || '';
+    chk('Cleveland detail of the low pin: "Approximate map pin: … not yet verified to the door", never "Pinned to the door"', /Approximate map pin: the coordinate we hold is not yet verified to the door/.test(sh) && !/Pinned to the door/.test(sh));
+    const s2 = boot('cleveland.html', { hash: '#p=beck-center-for-the-arts' }); await sleep(400);
+    chk('a high pin\'s detail still reads "Pinned to the door"', /Pinned to the door/.test((s2.d.getElementById('cleo-sheet') || {}).textContent || ''));
+    const a = boot('cleveland.html', { hash: '#view=atlas' }); await sleep(500);
+    chk('Cleveland Atlas badge counts it: "1 approximate pin"', ((a.d.querySelector('.mappane .nopin') || {}).textContent || '') === '1 approximate pin', (a.d.querySelector('.mappane .nopin') || {}).textContent);
+    const a2 = boot('cities/okinawa.html', { hash: '#view=atlas' }); await sleep(500);
+    chk(`Okinawa Atlas badge: "${lowIds.size} approximate pins"`, ((a2.d.querySelector('.mappane .nopin') || {}).textContent || '') === lowIds.size + ' approximate pins', (a2.d.querySelector('.mappane .nopin') || {}).textContent);
+    chk('no js errors (approx)', !g.errs.length && !s.errs.length && !a.errs.length, g.errs.concat(s.errs, a.errs).slice(0, 2));
+  }
+
   console.log('\n== BASE (W9-5): every card, every guide, 5 bases each ==');
   {
     const R = Math.PI / 180, hav = (a, b) => { const h = Math.sin((b[0] - a[0]) * R / 2) ** 2 + Math.cos(a[0] * R) * Math.cos(b[0] * R) * Math.sin((b[1] - a[1]) * R / 2) ** 2; return 2 * 6371.0088 * Math.asin(Math.min(1, Math.sqrt(h))); };

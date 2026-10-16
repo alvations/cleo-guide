@@ -36,6 +36,10 @@ never weakens a gate.
 - `8f21eda9`: QC-10, 15, 17 and 19 verified; QC-22 still open; new QC-23 to QC-26 (W9-1 recognition pass plus the QC-26 regression).
 - `9c133152`: QC-23 and QC-24 verified.
 - `4aba38b3` (deploy pin): QC-26 and QC-22 verified; new QC-27 (Low, i18n: tier translated as 評価).
+- `9fba196e`: QC-27 verified.
+- `edf94546`: new sweep check S-16 (internal editorial phrases, incl. deferred cards); QC-28 (Low, data: Erie "Kept flagged").
+- `e353df08`: QC-05 verified. P-17 follows D-43 (approximate pins); QC-04 waits on FE-C's SHA.
+- `e1503766`: QC-25 verified (city pages). Pending: FE-B's "What changed" pages and how-we-choose D-42 line, to re-check when FE-B sends the SHA.
 - `3a0ecfec`: QC-11 and QC-12 verified (S-12 all 91 pages at 390, 768 and 1440).
 
 ## In flight
