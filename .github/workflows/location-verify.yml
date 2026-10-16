@@ -87,6 +87,7 @@ jobs:
             [ -f "$f" ] || { echo "::error::$f is missing"; exit 1; }
             get() { sed -n "s/^$1=//p" "$f" | head -n1 | tr -d '\r'; }
             IN_CITY=$(get city); IN_SCOPE=$(get scope); IN_LIMIT=$(get limit); IN_NMAX=$(get nominatim_max)
+            IN_NAMES=$(get names); IN_SOURCES=$(get sources)
             [ "$(get commit)" = true ] && COMMIT=true || COMMIT=false
           else
             [ "$IN_DRY" = false ] && COMMIT=true || COMMIT=false
@@ -98,12 +99,24 @@ jobs:
           [[ "$LIMIT" =~ ^[0-9]+$ ]] || { echo "::error::bad limit"; exit 1; }
           [[ "$NOMINATIM_MAX" =~ ^[0-9]+$ && "$NOMINATIM_MAX" -le 1000 ]] || { echo "::error::nominatim_max must be 0..1000"; exit 1; }
           CITY="$CITY" node -e "const c=require('./data/geocodes.json').cities; if(!c[process.env.CITY]){console.error('::error::unknown city '+process.env.CITY); process.exit(1)}"
+          # optional re-check of named registry rows (names= / sources= in REQUEST): place names carry apostrophes, so the
+          # value is checked by node from the environment and only ever used quoted from env, never through an expression
+          if [ -n "${IN_NAMES:-}" ]; then
+            NAMES="$IN_NAMES" node -e "const n=process.env.NAMES; if(n.length>500||!/^[\p{L}\p{M}\p{N} &'\u2019.,()!:+\/#|-]+$/u.test(n)){console.error('::error::bad names (one line; letters incl. accented, digits, space and &\'\u2019.,()!:+/#-| only; max 500)'); process.exit(1)}"
+            SOURCES="${IN_SOURCES:-nominatim,official,overpass,census}"
+            [[ "$SOURCES" =~ ^[a-z,]+$ ]] || { echo "::error::bad sources"; exit 1; }
+            { echo "NAMES=$IN_NAMES"; echo "SOURCES=$SOURCES"; } >> "$GITHUB_ENV"
+          fi
           { echo "CITY=$CITY"; echo "SCOPE=$SCOPE"; echo "LIMIT=$LIMIT"; echo "NOMINATIM_MAX=$NOMINATIM_MAX"; echo "COMMIT=$COMMIT"; } >> "$GITHUB_ENV"
           # the response cache: absolute and outside the checkout (actions/cache refuses '..'; the runner context is not
           # available in job-level env, so it is set here)
           echo "LV_CACHE_DIR=$RUNNER_TEMP/lv-cache" >> "$GITHUB_ENV"
-          { echo "MODE=city"; echo "REPORT_PREFIX=docs/geoverify/$CITY."; echo "ARTIFACT_PATH=docs/geoverify/$CITY.*"; } >> "$GITHUB_ENV"
-          echo "city=$CITY scope=$SCOPE limit=$LIMIT nominatim_max=$NOMINATIM_MAX commit=$COMMIT event=$GITHUB_EVENT_NAME"
+          if [ -n "${IN_NAMES:-}" ]; then
+            { echo "MODE=recheck"; echo "REPORT_PREFIX=docs/geoverify/recheck/"; echo "ARTIFACT_PATH=docs/geoverify/recheck/"; } >> "$GITHUB_ENV"
+          else
+            { echo "MODE=city"; echo "REPORT_PREFIX=docs/geoverify/$CITY."; echo "ARTIFACT_PATH=docs/geoverify/$CITY.*"; } >> "$GITHUB_ENV"
+          fi
+          echo "city=$CITY scope=$SCOPE limit=$LIMIT nominatim_max=$NOMINATIM_MAX commit=$COMMIT event=$GITHUB_EVENT_NAME names=${IN_NAMES:+set}"
 
       - name: Restore the response cache (the Nominatim policy requires caching; reruns resume)
         uses: actions/cache@v4
@@ -127,6 +140,12 @@ jobs:
           if [ "$MODE" = sweep ]; then
             node tools/location-verify.js --status-sweep --shard "$SHARD" --max-minutes 330
             { echo "### Status sweep, shard $SHARD"; ls docs/geoverify/status/ 2>/dev/null; } | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          if [ "$MODE" = recheck ]; then
+            # independent sources only; writes docs/geoverify/recheck/<city>-<date>.*, never the city report
+            node tools/location-verify.js --city "$CITY" --names "$NAMES" --sources "$SOURCES" --nominatim-max "$NOMINATIM_MAX"
+            cat docs/geoverify/recheck/"$CITY"-*.md 2>/dev/null | tee -a "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           args=(--city "$CITY" --scope "$SCOPE" --nominatim-max "$NOMINATIM_MAX")
@@ -160,6 +179,7 @@ jobs:
           git add -- "$REPORT_PREFIX"*
           if git diff --cached --quiet; then echo "No report change."; exit 0; fi
           if [ "$MODE" = sweep ]; then msg="Location-verify status sweep, shard $SHARD (proposals only; review + --accept + gates before any registry change)"
+          elif [ "$MODE" = recheck ]; then msg="Location-verify re-check: $CITY, named rows against independent sources (proposals only)"
           else msg="Location-verify report: $CITY (proposals only; review + --accept + gates before any registry change)"; fi
           git commit -m "$msg"
           # A reviewer may commit review decisions to this city's report while the job runs. Our copy carried the
