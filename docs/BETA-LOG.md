@@ -2221,3 +2221,10 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - Overlay ledger: 19 rows. OV-00 is set, and S-17 is graded against it. FE-C and FE-B have claimed their first fixes, and FE-A has landed OV-01's header part.
 - D-46 waits on the Atlas stamp budget (platform).
 - R8 is relayed to the owner.
+
+## 2026-10-16 23:42Z · orchestrator: red head
+
+- On 6b2faadd, the eager JS budget fails: cleveland 40.05 against 40.0 KB gzip. It's a merge race: changes that were each green alone add up to +751 B.
+- Platform owns the fix and is restoring headroom. FE-B is folding Cleo.compact into Cleo.chrome. All lanes are told: no eager bytes until green.
+- The designer confirmed the food-cover spec (6b2faadd4, §v2.7a): imagery builds it in motifs.js, FE-A places it.
+- FE-B: OV-00 shell compaction (c84fe342), R8 #5b and #2d (c41f5531).
