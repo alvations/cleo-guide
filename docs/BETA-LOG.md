@@ -2050,3 +2050,12 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - fec4f90b, QC-32;
   - a46f6ec7, W8-I18N-SEARCH.
 - **Budget:** Cleveland eager JS is at 39.97/40 KB. Platform is moving the offline-pack UI behind Cleo.need (about 1 KB).
+
+## FE-A — QC-31, fe-a.css raw colours to tokens (2026-10-16)
+- fe-a.css source has no raw colours left:
+  - 4 × `var(--surface,#fff)` → `var(--surface)` and 3 × `var(--paper,#fff)` → `var(--paper)` (tokens.css defines both, in both themes);
+  - the QA-59a name mask `linear-gradient(#000,#000)` → `linear-gradient(var(--mask),var(--mask))`, on both the mask and -webkit-mask declarations.
+- The rest of the census is in atlas.css, which is Atlas's (off-limits to FE-A); reported to Atlas FE-1:
+  - `rgba(0,0,0,.7)` text-shadow → `--shade-text-strong`;
+  - the `.ms-handle` 2 px radius and a 1 px radius → `--r-xxs`.
+- Gate note: `qa/offline-pack.js`'s desktop "Map unavailable" check is timing-flaky after any fe-a.css change (a no-op rule fails 2/6, HEAD 10/10). It reads after a fixed 4 s sleep, and the first runs after a rebuild start cold. Reported to platform with a condition-wait suggestion. npm test was green on this tree before the push.
