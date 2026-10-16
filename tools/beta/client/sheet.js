@@ -100,6 +100,7 @@
       (chk ? fact('stamp', 'Status checked ' + esc(chk), '<span class="muted">' + (closed ? 'Closed' : 'Open when last checked') + '</span>') : '') +
       fact('info', 'Hours and prices aren’t in our data', '<span class="muted">Check before you go.</span>') +
       '<div class="fact">' + icon('stamp') + '<div><button class="btn btn-ghost" data-sh="been" aria-pressed="' + been + '">' + (been ? 'Been there ✓' : 'Mark as been there') + '</button></div></div>' +
+      /* FE-C W9-7 hook: a portrait share image of this place (share-card.js, loaded on tap by core) */ '<div class="fact">' + icon('share') + '<div><button type="button" class="btn btn-ghost" data-cleo-card="place" data-id="' + esc(id) + '">Share as an image</button></div></div>' +
       (planned && !closed && ll ? '<div class="fact">' + icon('route') + '<div><button class="btn btn-ghost" data-sh="day" aria-pressed="' + !!inDay + '">' + (inDay ? 'In your day ✓' : 'Add to your day in ' + esc(C.label('a', a))) + '</button></div></div>' : '') +
       '<p class="sm"><a href="https://github.com/alvations/cleo-guide/issues/new?title=' + encodeURIComponent('Correction: ' + name + ' (' + info.name + ')') + '"' + NT + '>Suggest a correction</a></p></div></div>' +
       '<div class="actions"><button class="btn btn-ghost" data-sh="save" aria-pressed="' + !!saved + '">' + icon('heart') + '<span>' + (saved ? 'Saved' : 'Save') + '</span></button>' +
