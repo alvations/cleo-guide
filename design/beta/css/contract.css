@@ -198,8 +198,7 @@ main:not(.feb) > .masthead { margin-inline: calc(var(--gutter) * -1); padding: v
 /* ---------- 6. Toolbar (filled by city.js: .modes · #cleo-filter · .shown) ---------- */
 .toolbar { position: relative; top: auto; z-index: 30; display: flex; flex-wrap: wrap; gap: var(--s-2); align-items: center; padding: var(--s-3) 0 var(--s-2);
   background: transparent; border: 0; backdrop-filter: none; -webkit-backdrop-filter: none; }
-@media (min-width: 1024px) { .toolbar { position: sticky; top: var(--bar-h); background: color-mix(in srgb, var(--paper) 92%, transparent);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: var(--hairline-below); } }
+@media (min-width: 1024px) { .toolbar { position: sticky; top: var(--bar-h); background: var(--paper); box-shadow: var(--hairline-below); } }
 .modes { display: flex; gap: var(--s-1); padding: var(--s-1); background: var(--sand); border-radius: var(--r-pill); max-width: 100%; overflow-x: auto; scrollbar-width: none; }
 .modes button { display: inline-flex; align-items: center; gap: var(--s-2); min-height: var(--tap); padding: 0 var(--s-4); border: 0; border-radius: var(--r-pill);
   background: transparent; color: var(--ink-2); font-weight: 600; font-size:var(--fs-sm); white-space: nowrap; }

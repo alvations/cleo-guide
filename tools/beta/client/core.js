@@ -522,7 +522,18 @@
     // just that card (its chunk stays deferred: R6 gap #5); unknown id: let the page see everything ("not found" path)
     if (!document.getElementById('p-' + id) && !D.stampIds(new Set(['p-' + id])).length) D.all();
   }
+  var bootDeferred = document.readyState !== 'loading';   // core.js ran after the document was parsed (script defer)
   function deferInit() {
+    // D-46 (platform): a page that BOOTS in Atlas builds its ranked first page itself (atlas.js msArea → stampIds). The
+    // server's live first chunk (guide order: no-JS and the Gallery's page 1) mostly falls outside it, so those cards go
+    // back to deferred stubs, in place, before any page script collects them (Atlas initial DOM ≤ 2,900; order unchanged)
+    // only when core.js itself ran after parsing (deferred scripts, as every page loads it): an inline/parser-time run (a
+    // test harness) may already have page scripts holding the live cards, which must then stay
+    if (D.selective && bootDeferred && document.documentElement.getAttribute('data-view') === 'atlas') [].forEach.call(document.querySelectorAll('ol.pls'), function (ol) {
+      var live = [].filter.call(ol.children, function (c) { return c.matches('li.pl'); }); if (!live.length) return;
+      var n = document.createElement('noscript'); n.setAttribute('data-cleo-defer', ''); n.setAttribute('data-n', String(live.length)); n.setAttribute('style', 'display:contents');
+      n.textContent = '\n' + live.map(function (c) { return c.outerHTML; }).join('\n') + '\n'; ol.insertBefore(n, live[0]); live.forEach(function (c) { ol.removeChild(c); });
+    });
     var list = D.pending(); if (!list.length) return;
     var h = location.hash;
     // a browser without IntersectionObserver (and jsdom) gets every card — degrade to "all cards", never "some cards".

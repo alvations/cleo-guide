@@ -304,3 +304,19 @@
 /* W9-3 "For you" rail: the Clear control is a button styled as the rail-head link; ≥ 44 px target */
 .foryou-s [data-cleo-fy-clear] { min-height: var(--tap); padding-inline: 0; background: none; border: 0; font: inherit; color: inherit; cursor: pointer; }
 .foryou-s .fy-note { margin-block: 0 var(--s-3); }
+
+/* OV-00 (DESIGN-SYSTEM §v2.12, FE-B shell): the tab bar is a guest bar — it slides down out of view on a scroll down and
+   returns on a scroll up / focus (Cleo.compact, search.js). Phone landscape (< 500 px tall): one 48 px header bar carries
+   the site nav (Destinations, How we choose; search and your list are its actions); the tab bar steps aside. */
+.tabbar{transition:transform var(--dur-2) var(--ease-out)}
+.tabbar.is-away{transform:translateY(100%)}
+@media (prefers-reduced-motion:reduce){.tabbar{transition:none}}
+@media (max-width:899px) and (max-height:500px){
+  body.has-tabbar{--bar-h:48px;padding-bottom:0}
+  body.has-tabbar>.tabbar{display:none}
+  body.has-tabbar .topnav{display:flex}
+}
+
+/* R8 gap #5b (B-20): the What changed "Status source" link is a stand-alone control after the sentence, not prose — a
+   44 px tap area (min-height --tap), the text unchanged */
+.chg a.chg-src{display:inline-flex;align-items:center;min-height:var(--tap);min-width:var(--tap)}
