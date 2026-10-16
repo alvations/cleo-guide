@@ -192,7 +192,7 @@ function card(r, num, ctx) {
    
     r.g.length && `data-g="${esc(r.g.join(' '))}"`, r.cz.length && `data-cz="${esc(r.cz.join(' '))}"`,
     r.src && r.src.length && `data-src="${esc(r.src.join(' '))}"`,
-    r.la != null && `data-ll="${r.la},${r.ln}"`, pv.checked && `data-checked="${esc(pv.checked)}"`, r.closed && 'data-closed', RU.attr(r) /* FE-C W9-1 hook */, r.warn && 'data-warn', r.np && 'data-np', r.pq && `data-pq="${esc(r.pq)}"`].filter(Boolean).join(' ');   // data-pq: FE-B D-39 (QA-65)
+    r.la != null && `data-ll="${r.la},${r.ln}"`, pv.checked && `data-checked="${esc(pv.checked)}"`, r.closed && 'data-closed', RU.attr(r) /* FE-C W9-1 hook */, RU.lfAttr(r, ctx.lfOn) /* FE-C W9-9 hook */, r.warn && 'data-warn', r.np && 'data-np', r.pq && `data-pq="${esc(r.pq)}"`].filter(Boolean).join(' ');   // data-pq: FE-B D-39 (QA-65)
   // W7 media slot (contract in docs/BETA-LOG.md): the calm cover (.pl-cover), a credited photo laid over it when the imagery
   // lane has one (figure.photo.pl-photo: lazy, sized, alt = what it depicts, credit in the figcaption), and the heart (.pl-x)
   return `<li class="pl${r.closed ? ' pl--closed' : ''}" id="p-${esc(r.id)}" ${attrs}><div class="pl-cover" aria-hidden="true"></div>${(ph => ph ? tinted(figureHtml(ph, ctx.up || '', 'photo pl-photo'), ph) : '')(ctx.photo && ctx.photo(r))}<p class="pl-x" hidden></p>
@@ -295,6 +295,7 @@ function render(row, recs, ctx) {
   if (free) free.cls = 'door';
   mods.push(`<button type="button" class="rail-i door mine" data-cleo-mine aria-pressed="false" hidden><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg><span class="k">${tr('shell.saved')}</span><span class="t">${tr('city.door.mine.t')}</span><span class="n" data-cleo-mine-n>0</span></button>`);
   if (RU.railTile(recs)) mods.push(RU.railTile(recs));   // FE-C W9-1 hook: the "Recognised" door
+  if (RU.lfTile(row.recog)) mods.push(RU.lfTile(row.recog));   // FE-C W9-9 hook: the "Local favourites" door (only where the lens exists)
   if (recs.some(r => r.la != null)) mods.push(`<button type="button" class="rail-i door" data-cleo-near aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-locate"/></svg><span class="k">${tr('city.door.near.k')}</span><span class="t">${tr('city.door.near.t')}</span><span class="d">${tr('city.door.near.d')}</span></button>`);
   const nClosed = cnt(r => r.closed);
   const closedTile = nClosed ? `<button type="button" class="rail-i gap" data-closed="1" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-archive"/></svg><span class="k">${tr('city.door.closed.k')}</span><span class="t">${tr('city.door.closed.t')}</span><span class="n${nClosed === 1 ? ' one' : ''}">${nClosed}</span></button>` : '';
@@ -307,7 +308,7 @@ function render(row, recs, ctx) {
 
   /* -- area chapters -- */
   const lang = { japan: 'ja', singapore: 'zh' }[row.country] || '';
-  const cardCtx = { japan: row.country === 'japan', key: row.key, page, srcById, srcNames: Object.values(srcById || {}).map(x => x && (x.name || x.n)).filter(Boolean), areaName, prov, lang, up, SC, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
+  const cardCtx = { lfOn: RU.lfOn(row.recog) /* FE-C W9-9 hook */, japan: row.country === 'japan', key: row.key, page, srcById, srcNames: Object.values(srcById || {}).map(x => x && (x.name || x.n)).filter(Boolean), areaName, prov, lang, up, SC, photo: rec => photoFor(row, rec) };   // photo: imagery lane (credit-gated, null today)
   let placed = 0;
   const chapter = (a, list, i, total) => {
     const [head1, hoods] = a ? areaSplit(a.n) : [tr('city.elsewhere'), ''];   // i18n D-41: chapter strings
@@ -410,6 +411,7 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     fs('cz', tr('city.tray.cz'), cuis.filter(c => cnt(r => r.cz.includes(c.id))).map(c => pill('cz', c.id, c.n, cnt(r => r.cz.includes(c.id)))).join('')) +
     fs('sort', tr('city.tray.sort'), pill('sort', '', tr('city.sort.guide')) + pill('sort', 'src', tr('city.sort.src')) + pill('sort', 'az', 'A–Z') + pill('sort', 'near', tr('city.sort.near')) + pill('sort', 'base', tr('city.sort.base')).replace('<button', '<button hidden') /* FE-C W9-5 hook: base.js shows it */) +
     fs('rec', tr('rec.label'), RU.trayPills(recs, pill)) +   // FE-C W9-1 hook: the recognition filter
+    fs('lf', tr('lf.label'), RU.lfTray(row.recog, pill)) +   // FE-C W9-9 hook: local favourites, or its stated gap
     fs('been', tr('city.been'), pill('been', '', tr('city.been.all')) + pill('been', 'hide', tr('city.been.hide')) + pill('been', 'only', tr('city.been.only'))) +
     fs('base', tr('city.base'), pill('base', 'street', tr('city.base.street')) + pill('base', 'light', tr('city.base.light')) + pill('base', 'satellite', tr('city.base.satellite'))) +
     `</div><footer><button type="button" class="btn btn-quiet" data-tr="clear">${tr('city.tray.clear')}</button><button type="button" class="btn btn-primary" data-tr="go">${tr('city.tray.go', { n: recs.length })}</button></footer></div></div>`;

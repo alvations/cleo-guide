@@ -24,9 +24,8 @@ SPEC-v3 rev 5 items from PANEL-R3 (80.7):
   views.js): a3da0b4b.
 
 ## Next
-0. QA-76 (transient "N more outside… Show all" during the first map fit, PERF-08), co-owned with platform
-   (session_01USPS1inq7bUDfyw89evKMA): asked them whether they take it; if not, msArea publishes no ms-more until the
-   first fit settles. Timebox ~18:20Z (otherwise platform reverts 1538974d's FE parts).
+0. QA-76 fixed in the push carrying this line (C.navFitPending gates msArea's map-area pass until the first fit lands;
+   probe "QA-76" in atlas-nav-ms, Tokyo × 2 viewports × plain/lens). QC-26 green on the pushed head 3929ad4b.
 1. R3 #8 guards are in atlas-nav-ms.js: a fresh `at=` (Asakusa z15) load lists only in-bounds places on both viewports
    (passes on today's head: Sensō-ji first, 0 outside); after a phone zoom the pill and count equal the places in view
    OR "Search this area" is offered. The pill still reads "351 places here" with 43 in view. FE-1's copy, raised with

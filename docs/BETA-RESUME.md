@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 17:38Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 18:00Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -30,12 +30,16 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 ## Deploy gate (now)
 
-- **Pin 3ba696e8 is NO** (QA, 17:30Z). Open High is 0. QA-70 and QA-71 are fixed (Tokyo first pin is 2,237 ms against 2,291 on be74c82f). Three Med regressions against be74c82f:
-  - **QC-26:** a first-area Atlas deep link's sheet shows "1 of 488". Bisected to PERF-08 1538974d. FE-2 has a fix in sheet.js (the no-lens shortcut only applies with no lens, search or kind filter), with a probe at 12/12; push about 17:50Z.
-  - **QA-75:** the tier lens is dropped on `#view=gallery|atlas&t=1` when the remembered view is Guidebook or Insights (views.js links 62/8). Bisected to PERF-08. Platform owns it.
-  - **QA-76:** a transient "N more outside… Show all" during the first map fit, then "Showing all 382" (w7 lens 33/114 FAIL). Bisected to PERF-08. Platform with FE-2.
-  - **Timebox:** fix forward by about 18:20Z, otherwise platform reverts 1538974d's FE parts with `git revert` and PERF-08 re-lands after the deploy.
-- **Next pin:** the head with QC-26, QA-75 and QA-76 fixed. It must also have w8p green (Tokyo 618 KB, fixed by FE-C b8a3a6ae and FE-A 8b06f542). Gate it: validate, npm test alone, beta:check, w8p, views.js links and w7 lens. QA then runs a delta: those rows, B-07 with its 3 s findPin poll, and the claims since 3ba696e8.
+- **The deploy candidate is pinned at `4aba38b3e15c83d40aafbed5f569aa30da5a074b`** (17:58Z). QA is running the delta re-sign (asked 17:58Z).
+  - It carries the fixes for QA's NO on 3ba696e8:
+    - PERF-08 switched off (platform afb09e74b), which clears QA-75, QA-76 and QC-26;
+    - QC-26 fixed forward (FE-2 13b9b6f2e/3929ad4b) and QA-76 fixed forward (FE-2 927c6b011);
+    - the w8p fixes (FE-C b8a3a6ae, FE-A 8b06f542);
+    - QA-70 and QA-71.
+  - Orchestrator checks on the pin: validate ✅, npm test (alone) ✅, beta:check ✅; w8p ✅ (Tokyo 620 KB, Atlas 392 KB); `views.js --only links` 140 PASS / 0 FAIL.
+  - It merges into `claude/cleveland-page-creation-pant4l` as before; check with merge-tree before the PR.
+- **History:** 530dc83b NO (QA-70/71). 3ba696e8 NO (QC-26/QA-75/QA-76, all from PERF-08), though B-07 5/5 on 3ba696e8 beat be74c82f's 1/5.
+- **PERF-08 re-lands after the deploy,** behind tests covering QA-75/76 and QC-26.
 - Not blocking: QA-61 and QA-68. QA-67 is fixed (f08f892d).
 - **On YES:**
   1. `git push origin <sha>:refs/heads/beta-deploy-r7`;

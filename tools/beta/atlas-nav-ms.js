@@ -329,6 +329,19 @@ async function finish(page, s0, opener, close) {
     String(q.stdout || '').split('\n').filter(l => /^(PASS|FAIL)  QC-26/.test(l)).forEach(l => chk(l.replace(/^(PASS|FAIL)  /, '').replace(/  \{.*$/, '') + (ai === '0' ? ' [first area]' : ' [second area]'), /^PASS/.test(l), l.replace(/^.*?  \{/, '{').slice(0, 300)));
     if (q.status !== 0 && !/QC-26/.test(String(q.stdout))) chk(`QC-26 probe ran (area ${ai})`, false, String(q.stderr || '').slice(0, 300)); }
 
+  // QA-76: no map-area count on the map's starting view. During a fresh load, every "N places here" (and any "Show all")
+  // the count block shows is computed at the zoom the first fit settles on, never at the page's starting centre
+  if (PAGES.some(p => p[0] === 'tokyo')) for (const [vk, vp] of [['d', D], ['m', M]]) for (const h of ['#view=atlas', '#view=atlas&t=1']) {
+    const vn = vk === 'd' ? '1440' : '390', ctx = await browser.newContext(Object.assign({ reducedMotion: 'reduce' }, vp));
+    await ctx.route('**/*', route => { const u = new URL(route.request().url()); if (/tile\.openstreetmap\.org|arcgisonline\.com/.test(u.host)) return route.fulfill({ body: TILE, headers: { 'content-type': 'image/png' } }); if (u.origin + '/' !== BASE) return route.abort(); const f = path.join(ROOT, decodeURIComponent(u.pathname)); if (!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) return route.fulfill({ status: 404, body: 'not found' }); return route.fulfill({ body: fs.readFileSync(f), headers: { 'content-type': TYPES[path.extname(f)] || 'application/octet-stream' } }); });
+    const page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html' + h, { waitUntil: 'commit' }); const seen = [];
+    for (let i = 0; i < 32; i++) { const x = await page.evaluate(() => { const m = window.Cleo && Cleo.city && Cleo.city.map && Cleo.city.map(); return { c: ((document.querySelector('.ms-count') || {}).textContent || '').trim(), more: ((document.querySelector('.ms-more') || {}).textContent || '').trim(), z: m ? m.getZoom() : null }; }).catch(() => null);
+      if (x && (!seen.length || seen[seen.length - 1].c !== x.c || seen[seen.length - 1].more !== x.more || seen[seen.length - 1].z !== x.z)) seen.push(x); await sleep(100); }
+    const zf = seen.length ? seen[seen.length - 1].z : null, early = seen.filter(x => (/places here/.test(x.c) || /Show all/.test(x.more)) && x.z !== zf);
+    chk(`QA-76 tokyo ${vn} ${h}: no map-area count or "Show all" on the starting view before the first fit`, zf !== null && early.length === 0, { final: seen[seen.length - 1], early: early.slice(0, 2) });
+    await ctx.close();
+  }
+
   // QA-71: after a place is opened and closed (card → detail → Back), swiping the phone carousel still moves the selection,
   // as it does before the round-trip: two swipes, the card in the middle is the selected one each time (QA's 5 pilots)
   for (const url of ['beta/cleveland.html', 'beta/cities/tokyo.html', 'beta/cities/newyork.html', 'beta/Singapore/chinatown.html', 'beta/cities/wheeling.html']) {

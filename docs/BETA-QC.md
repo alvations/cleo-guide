@@ -438,3 +438,30 @@ Both probes will be updated before the next pass.
 - Verified 17: QC-01, 02, 03, 06, 07, 08, 09, 10, 11, 12, 15, 16, 17, 18, 19, 20, 21.
 - Open 9: Med 4 (QC-04, 05, 23, 26), Low 5 (QC-13, 14, 22, 24, 25). High 0 · Blocker 0.
 
+## Re-verify 2026-10-16 · 9c133152 (FE-C claims for QC-23, QC-24)
+
+Clean worktree at `9c1331525`. QC probe at 390 and 1440. Output: `design/beta/eval/qc/9c133152/qc-23-24-probe.json`.
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-23 | **verified** | Toa Payoh `kim-keat-hokkien-mee` and `hup-chong-hakka-yong-tau-foo`, both closed: the sheet shows "Before it closed: Cited by 3 sources" / "… 6 sources" (a 32 px row) on a cold deep link and on the card-click path. The closed card's own copy is display:none by class (the design: shown in the detail) (`qc-23-before-it-closed.jpg`). |
+| QC-24 | **verified** | The `#rec=any` chip reads "Recognised" (aria "Remove Recognised"); under `?lang=ja` it reads "注目" ("注目を外す"). The new `#lf=1` chip reads "Local favourites" (`qc-24-chip.jpg`). |
+
+**Register:**
+- Verified 19: QC-01–03, 06–12, 15–21, 23, 24.
+- Open 7: Med 3 (QC-04, 05, 26), Low 4 (QC-13, 14, 22, 25). High 0.
+
+## Re-verify 2026-10-16 · 4aba38b3 (deploy pin; QC-26, QC-22)
+
+Clean worktree at `4aba38b3e15c83d40aafbed5f569aa30da5a074b`. Outputs are in `design/beta/eval/qc/4aba38b3/`.
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-26 | **verified** | A cold `#view=atlas&a=…&p=…` at 390 and 1440: Tokyo CYD "1 of 43" (43 shown), Cleveland DT "4 of 42" (42), New York MAN "1 of 264" (264); Next stays in the lens. Fix: PERF-08 switched off (afb09e74) plus FE-2's sheet.js fix (13b9b6f2). |
+| QC-22 | **verified** | 0 built pages carry "No ratings, prices or opening hours are shown". The line now reads "We don’t add ratings, prices or opening hours of our own. Any quoted in a write-up are the source’s, dated." and is translated in ja. The footer colophon is FE-A's separate follow-up, outside this row. |
+| **QC-27** (new, Low, i18n) | open | The ja line renders "ordered by tier" as 「評価順」, which reads as "rating order", and so contradicts the same sentence and the method page ("our own marks. They are not ratings"). Suggest a term for tier that is not 評価 (rating). |
+
+**Register:**
+- Verified 21: QC-01–03, 06–12, 15–24, 26.
+- Open 6: Med 2 (QC-04, 05), Low 4 (QC-13, 14, 25, 27). High 0.
+

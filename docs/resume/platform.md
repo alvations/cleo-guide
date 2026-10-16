@@ -24,6 +24,7 @@ plural (i18n).
 - sync-push.sh: a clean merge's rebuilt beta/ is committed; dirty beta/ never pushes (exit 6); test-sync-push.js: a9ed1e0f.
 - W9-9 acc1 typing: 1,814 → 2,183 of 2,552 publishers typed (registry key/host/domain agreement, guide OFFICIAL key, explicit
   host rules); 369 untyped listed in beta/data/recognition-untyped.json (stated gap). W9-8: offline-pack.js in npm test.
+- Build scripts: guards before the write (22 + belgium_build), tools/test-builds.js in npm test: 967d43a3.
 - R8 measurement kit: design/beta/eval/r8/README.md (+ r8/tools/pair.py).
 - Probe: tools/beta/qa/first-pin.sh (time to first pin after the map-pill tap, clean worktree per SHA, bisect mode).
 
@@ -35,7 +36,9 @@ plural (i18n).
 
 1. QA-70: FE-2's fix a7b4a980; first-pin on 3ba696e8 = be74c82f level (Tokyo 1,653 vs 1,564; NY 1,807 vs 1,760 ms). With QA.
 2. `:has()` lint wired into npm test (test:serial); no allowlist.
-3. PERF-08 is with QA (SHA dd8331cd sent); fix forward on their findings. PERF-14 re-checked (w8p 608/651 KB).
+3. PERF-08 OFF (afb09e74; pin 4aba38b3). Re-land AFTER the deploy, only when tools/beta/qa/perf08-regress.sh passes with
+   selective on: views.js links (QA-75), w7 lens (QA-76), my sheet check + FE-2's fe2/qc26.js first/second area (QC-26).
+   Fix QA-75 first (remembered Guidebook/Insights view + deep-linked lens). No product pushes until QA rules on 4aba38b3. PERF-14 re-checked (w8p 608/651 KB).
 
 ## In flight
 
@@ -46,7 +49,7 @@ plural (i18n).
 
 - Evidence goes under design/beta/eval/perf/ (platform's path), never design/beta/eval/qc/ (QC-only; QC asked).
 
-- `Cleo.defer.selective = true` (core.js): a lens-only route stamps only its matches (+ its #p= place + view chunks);
+- `Cleo.defer.selective` (core.js; OFF since QA-75/76 — when on): a lens-only route stamps only its matches (+ its #p= place + view chunks);
   the lazy observer waits and list spacers fold while a lens is on, and resume when it clears. Consumers of stubs read
   them through `Cleo.defer.peek({lens})` / `Cleo.lens.shows(c)` (city.js counts/sections/pins/fitLens, views.js pager,
   atlas.js by FE-1 at 7831b0c5).

@@ -411,7 +411,6 @@ new = re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></
 assert not re.search(r"\\u[0-9a-fA-F]{4}", re.sub(r"<script[\s\S]*?</script>", "", new)), "literal \\uXXXX escape leaked into visible HTML \u2014 use real characters in page prose, not \\u escapes"
 import engine_guard  # no map may ship the Google "API key" base-map surface
 new = engine_guard.fix_basemap_tiles(engine_guard.strip_google(new)); engine_guard.assert_no_google(new, OUT)
-open(OUT, "w", encoding="utf-8").write(new)
 
 # --- asserts ---
 assert ", Cleveland OH" not in new, "gmaps city not swapped"
@@ -421,6 +420,8 @@ assert "P.forEach((p,i)=>{p.id='s'+i" in new, "id/kind tagging loop missing"
 # address city), never on a legitimate local address.
 _leakseg = new[new.index("const S = {"):new.index("const ALL")]
 assert "Cleveland" not in re.sub(r"Cleveland Ave(?:nue)?", "", _leakseg), "Cleveland leaked into data"
+# every check on `new` above passes before anything is written (CLAUDE.md rule 2: refuse to write on a failed check)
+open(OUT, "w", encoding="utf-8").write(new)
 print("sights:", nP, "food:", nF, "total:", TOTAL)
 print("remaining 'Cleveland' mentions (expect 1 parity note):", new.count("Cleveland"))
 print("OK wrote", OUT)

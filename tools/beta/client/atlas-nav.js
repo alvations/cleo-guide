@@ -13,6 +13,7 @@
  *   C.navHold() → true while a detail is open or being closed (atlas.js moveend stands still)
  *   C.navScrollHold() → true while the detail is open or the restore's own scroll is settling (atlas.js carousel scroll)
  *   C.navKeep() → true while only the open place changed (atlas.js: the route's list refresh stands still)
+ *   C.navFitPending() → true until the map's first fit has landed (atlas.js: no map-area pass on the starting view)
  *   C.freshPlace() → true when a fresh #p= load is being placed (city.js mountMap then doesn't fly)
  *   C.clearPin() → pan the open place out from under the detail, by the minimum needed
  *   C.navPrivate() → true while the map is still the one centred on the reader (atlas.js keepView then stores nothing)
@@ -189,6 +190,7 @@
   on(window, 'hashchange', onRt); on(d, 'cleo:route', onRt);
   const hook = () => {
     const m = C.map(); if (!m || m._navHooked) return; m._navHooked = 1;
+
     // a click inside the preview card is not a click on the map (Leaflet would clear the selection and drop its pin)
     const pv = $('#cleo-poi'); if (pv) pv._leaflet_disable_click = true;
     m.on('moveend', () => { if (meView && userAt > meAt + 400) meView = false; if (open) open.moved = true; rec(); writeAt(); });
@@ -197,8 +199,17 @@
     if (parseAt() && !atDone && !userAt) C.atView();
     if (open && open.fresh) C.freshPlace();
   };
-  const t0 = C.atlasTools; C.atlasTools = function () { const r = t0 && t0.apply(this, arguments); hook(); return r; };
-  if (C.map()) hook();
+  // QA-76: until the map's first fit (city core, saved or shared view, area, lens or place) has landed, the map still
+  // shows the page's starting centre, and a map-area pass there published "450 places here · Show all 488" for a
+  // moment. The pass waits for that first fit (C.autoAt marks it), 1.5 s at most, then runs once. Armed before
+  // atlas.js's own set-up pass runs.
+  let fitWait = false;
+  C.navFitPending = () => fitWait;
+  const fitGate = () => { const m = C.map(); if (!m || m._navFit) return; m._navFit = 1; if (C.autoAt && C.autoAt() > 0) return; fitWait = true;
+    const done = () => { if (!fitWait) return; fitWait = false; m.off('moveend', onFit); if (C.msArea) C.msArea(); };
+    const onFit = () => { if (C.autoAt && C.autoAt() > 0) done(); }; m.on('moveend', onFit); setTimeout(done, 1500); };
+  const t0 = C.atlasTools; C.atlasTools = function () { fitGate(); const r = t0 && t0.apply(this, arguments); hook(); return r; };
+  if (C.map()) { fitGate(); hook(); }
   if (hasP() && atlas()) { open = { snap: null, opener: null, moved: false, fresh: true }; wrap(); C.freshPlace(); }   // a deep link that routed before this file
 
   /* ---- keyboard (§5, PANEL-R1 #11): skip links, and the arrow keys between pins ---- */
