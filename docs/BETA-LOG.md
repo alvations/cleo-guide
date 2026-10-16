@@ -2154,3 +2154,16 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - FE-1/FE-2, FE-A, FE-B and FE-C fix and claim rows;
   - QA adds the B-25 pin gate.
 - r8 ships with no open High/Med OV rows.
+
+## FE-A — OV-01: only the header stays (owner directive; DESIGN-SYSTEM §v2.12, SPEC-v3 §2.0) (2026-10-16)
+- **Header height:** the city header is 52 px on phones, 56 px from 1024 and 48 px in landscape (`--bar-h` in fe-a.css, city pages only).
+- **Shared compact state:** `Cleo.chrome.compact(on)` / `idle(ms)` and `html.ov-c` (views.js, eager, small).
+  - Triggers: a ≥ 24 px scroll down sets it; a ≥ 24 px scroll up, focus inside a guest bar, or any open overlay clears it. The Atlas lane drives it from the reader's own pan (`compact(true,'pan')`, then `idle(1200)`).
+  - Under it, the view-switch row and the sticky category rail slide up under the header by transform only, instant under reduced motion.
+- **Landscape (height < 500):** the switch sits in the header row; nothing else is sticky; phone Atlas gives the switch row's band back to the map.
+- **Desktop and tablet scroll pages (≥ 1024):** only the header is sticky.
+- **Measured on Punggol:**
+  - P2 phone Atlas at rest: 31 % (≤ 32);
+  - Gallery after a scroll: P2 7.8 % (≤ 8), L 12.3 % (≤ 13), D 6.2 % (≤ 8);
+  - desktop Gallery at rest: 6.2 % (was 25 %).
+- **The Atlas lane's part** (chip row, peek, pan trigger) is in the ledger under OV-01.
