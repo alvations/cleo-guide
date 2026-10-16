@@ -258,6 +258,17 @@
      "status": "open",
      "statusSource": "synthetic test fixture — not a real place",
      "statusChecked": "2026-01-01"
+    },
+    "Park Pavilion Grill": {
+     "address": "Adventure Land, Testville Resort, ZZ 99901",
+     "lat": null,
+     "lng": null,
+     "source": "UNVERIFIED",
+     "verified": "2026-01-01",
+     "confidence": "UNVERIFIED",
+     "status": "open",
+     "statusSource": "synthetic test fixture — not a real place",
+     "statusChecked": "2026-01-01"
     }
    }
   }
@@ -802,6 +813,31 @@
      }
     }
    }
+  },
+  {
+   "host": "nominatim.openstreetmap.org",
+   "params": {
+    "q": "Park Pavilion Grill"
+   },
+   "body": [
+    {
+     "lat": "0.50420",
+     "lon": "-30.49580",
+     "category": "amenity",
+     "type": "restaurant",
+     "addresstype": "amenity",
+     "osm_type": "node",
+     "osm_id": 9009,
+     "name": "Park Pavilion Grill",
+     "namedetails": {
+      "name": "Park Pavilion Grill"
+     },
+     "address": {
+      "city": "Testville"
+     },
+     "extratags": {}
+    }
+   ]
   }
  ]
 }
