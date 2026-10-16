@@ -671,6 +671,16 @@ html.ph-fade main[data-city] figure.photo.in::before{opacity:0}
 html.ph-fade .view-gallery li.gc .cover.has-ph[style*="--ph"]::before{content:"";display:block;position:absolute;inset:0;z-index:2;background:var(--ph);pointer-events:none;transition:opacity 280ms var(--ease-out)}
 html.ph-fade .view-gallery li.gc .cover.has-ph.in::before{opacity:0}
 /* 2. Switching views: the switcher's selection slides to the new view (desktop pill row), and the page content fades in */
+/* FE-B OV (overlay ledger): below the desktop side column, the Guidebook Contents strip sticks under the city bar at its
+   measured bottom (guidebook.js sets --gb-toc-top), not the shared 105 px that left it 20–36 px under the bar */
+@media (max-width:1023px){html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{top:var(--gb-toc-top,105px)}}
+/* …and on a short screen (phone landscape) it scrolls away with the page instead of stacking a third bar (52 % chrome) */
+@media (max-width:1023px) and (max-height:500px){html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{position:static}}
+/* FE-B OV-00 (§v2.12 rule 1): below the desktop side column the Contents strip is a guest row — on a scroll down it slides
+   up behind the header (transform only, --dur-2), on a scroll up / focus it returns (Cleo.compact in search.js) */
+@media (max-width:1023px){html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{transition:transform var(--dur-2) var(--ease-out)}
+  html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc.is-away{transform:translateY(calc(-1 * var(--gb-toc-top,105px) - 100%))}}
+@media (prefers-reduced-motion:reduce){html[data-view=guidebook] main[data-city] :is(.view-guidebook,[data-cleo-book]) .toc{transition:none}}
 /* FE-B QC-33: a deep link into Guidebook / Insights painted the About + method section and the footer first, then the view
    mounted above them and pushed them down (load CLS 0.42–0.58 at 1440). Until the view host has content, it holds one
    viewport of room (data-view is set from the hash in <head>, before first paint), so they first paint below the fold. */
@@ -681,7 +691,7 @@ html .views[data-cleo-views] .v-ind{display:none}
 @media (min-width:1024px){
   html .views[data-cleo-views].has-ind{isolation:isolate}
   html main[data-city] .views[data-cleo-views].has-ind{position:relative}
-  html .views[data-cleo-views].has-ind .v-ind{display:block;position:absolute;z-index:-1;border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--shadow-sm);pointer-events:none;transition:left 240ms var(--ease-out),width 240ms var(--ease-out),top 240ms var(--ease-out)}
+  html .views[data-cleo-views].has-ind .v-ind{display:block;position:absolute;z-index:-1;border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--shadow-sm);pointer-events:none;left:0;top:0;transition:transform 240ms var(--ease-out),width 240ms var(--ease-out)}
   html .views[data-cleo-views].has-ind button[aria-pressed=true]{background:transparent;box-shadow:none}
 }
 @keyframes w8-vin{from{opacity:0}to{opacity:1}}
@@ -763,3 +773,31 @@ html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead{grid-column:1/-1}
 html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead>:is(.pl-cover,figure.pl-photo){aspect-ratio:3/2;height:auto}
 html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead>figure.pl-photo img{width:100%;height:100%;object-fit:cover}
 html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead>.pl-n{font-size:var(--fs-d2)}
+/* ---- OV-01 (owner directive; DESIGN-SYSTEM §v2.12, SPEC-v3 §2.0): only the header always stays ----
+   The city header is 52 px on phones and 56 px from 1024. Every other sticky row is a guest: under html.ov-c
+   (Cleo.chrome, views.js: a ≥ 24 px scroll down, or the Atlas lane's pan) the view-switch row and the sticky category
+   rail slide up under the header by transform only (no reflow, no shift) and come back on a scroll up, focus, a sheet,
+   or idle. Reduced motion: the same states, instantly. The Atlas lane styles its own bars (chip row, peek) the same way */
+html:root{--bar-h:52px}
+@media (min-width:1024px){html:root{--bar-h:56px}}
+html body .topbar{z-index:46}
+html body main[data-city]>.cbar,html body main[data-city]>nav.rail#cleo-rail{transition:transform var(--dur-2,200ms) var(--ease-out,ease-out)}
+html.ov-c body main[data-city]>.cbar{transform:translateY(calc(-100% - 1px));pointer-events:none}
+html.ov-c body main[data-city]>.cbar:focus-within{transform:none;pointer-events:auto}
+html.ov-c[data-view=gallery] body main[data-city]>nav.rail#cleo-rail{transform:translateY(calc(-1 * (var(--cbar-h) + 100%)));pointer-events:none}
+@media (prefers-reduced-motion:reduce){html body main[data-city]>.cbar,html body main[data-city]>nav.rail#cleo-rail{transition:none}}
+/* landscape phones (height < 500): one 48 px bar. The view switch rides in the header row (as on desktop) and nothing
+   else is sticky; in phone Atlas the switch row's band is given back to the map (--cbar-o: 0) */
+@media (max-height:499px) and (orientation:landscape){
+  html:root{--bar-h:48px}
+  html body main[data-city]>.cbar{position:relative;top:auto}
+  html body main[data-city]>nav.rail#cleo-rail{position:relative;top:auto}
+  html body main[data-city] .views[data-cleo-views]{position:fixed;top:2px;right:112px;z-index:60;width:auto;height:44px;margin:0;padding:2px}
+  html body main[data-city] .views[data-cleo-views] button{height:40px;min-height:0;padding:0 var(--s-3)}
+  html.atlas-m[data-view=atlas]:root{--cbar-o:0px}
+  html.atlas-m[data-view=atlas] body main[data-city]>.cbar{height:0;min-height:0;background:transparent;border:0;pointer-events:none}
+  html.atlas-m[data-view=atlas] body main[data-city]>.cbar .views{pointer-events:auto}
+}
+/* desktop and tablet scroll pages: the view switch already rides in the header (≥ 1024), so the search row and the category
+   rail are not sticky at all — only the header stays (§v2.12.2: ≤ 8 % at T2 / D) */
+@media (min-width:1024px){html body main[data-city]>.cbar,html[data-view=gallery] body main[data-city]>nav.rail#cleo-rail{position:relative;top:auto}}
