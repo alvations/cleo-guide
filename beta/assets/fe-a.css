@@ -670,17 +670,20 @@ html.ph-fade main[data-city] figure.photo.in::before{opacity:0}
 html.ph-fade .view-gallery li.gc .cover.has-ph[style*="--ph"]::before{content:"";display:block;position:absolute;inset:0;z-index:2;background:var(--ph);pointer-events:none;transition:opacity 280ms var(--ease-out)}
 html.ph-fade .view-gallery li.gc .cover.has-ph.in::before{opacity:0}
 /* 2. Switching views: the switcher's selection slides to the new view (desktop pill row), and the page content fades in */
-html main[data-city] .views[data-cleo-views] .v-ind{display:none}
+/* FE-B QC-18: the thumb works wherever the switcher lives (the Atlas parks it in the header, outside <main>): it is
+   positioned against its containing block by city.js, and the switcher is its own stacking context so it paints above the track */
+html .views[data-cleo-views] .v-ind{display:none}
 @media (min-width:1024px){
-  html main[data-city] .views[data-cleo-views].has-ind{position:relative;isolation:isolate}
-  html main[data-city] .views[data-cleo-views].has-ind .v-ind{display:block;position:absolute;z-index:-1;border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--shadow-sm);pointer-events:none;transition:left 240ms var(--ease-out),width 240ms var(--ease-out),top 240ms var(--ease-out)}
-  html main[data-city] .views[data-cleo-views].has-ind button[aria-pressed=true]{background:transparent;box-shadow:none}
+  html .views[data-cleo-views].has-ind{isolation:isolate}
+  html main[data-city] .views[data-cleo-views].has-ind{position:relative}
+  html .views[data-cleo-views].has-ind .v-ind{display:block;position:absolute;z-index:-1;border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--shadow-sm);pointer-events:none;transition:left 240ms var(--ease-out),width 240ms var(--ease-out),top 240ms var(--ease-out)}
+  html .views[data-cleo-views].has-ind button[aria-pressed=true]{background:transparent;box-shadow:none}
 }
 @keyframes w8-vin{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:no-preference){html main[data-city].v-swap>:not(.cbar):not(.overlay):not(.mappill):not(.tray){animation:w8-vin 240ms var(--ease-out) both}}
 @media (prefers-reduced-motion:reduce){
   html.ph-fade main[data-city] figure.photo::before,html.ph-fade .view-gallery li.gc .cover::before{transition:none}
-  html main[data-city] .views[data-cleo-views].has-ind .v-ind{transition:none}
+  html .views[data-cleo-views].has-ind .v-ind{transition:none}
 }
 /* QA-59a: the name link keeps its 44 px tap padding (12 px above and below) but a clamped third line (a long name, or the
    native name) showed inside that bottom padding. A paint-only mask hides the padding band; the hit area is unchanged,

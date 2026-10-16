@@ -132,6 +132,9 @@ chk('a missing key throws (no silent English fallback)', (() => { try { i18n.t('
 // i18n D-41: swapSkip keys are browser-only (Cleo.t); a server render that used one would stay English on ja pages
 const skipK = k => (en.swapSkip || []).some(x => k === x || k.indexOf(x) === 0);
 chk('no server-rendered catalogue string is in swapSkip (those stay out of the page-wide swap)', [...i18n.used].filter(skipK), []);
+// QC-21: and statically — every t()/tr()/tn() key named in a server renderer (lib/render/*.js), fixtures or not
+const RENDER = fs.readdirSync(path.join(__dirname, 'lib', 'render')).filter(f => f.endsWith('.js')).map(f => [f, fs.readFileSync(path.join(__dirname, 'lib', 'render', f), 'utf8')]);
+chk('no server renderer names a swapSkip key (a ja page would leave it English)', RENDER.flatMap(([f, src]) => [...src.matchAll(/\b(?:t|tr|tn)\(\s*'([^']+)'/g)].map(m => m[1]).filter(skipK).map(k => f + ': ' + k)), []);
 
 console.log('\n== hreflang + lang ==');
 i18n.setLocale('en');
@@ -157,7 +160,7 @@ const byEn = {};
 Object.keys(en.strings).forEach(k => (byEn[en.strings[k]] = byEn[en.strings[k]] || new Set()).add(ja.strings[k]));
 chk('identical en strings → identical ja (the runtime swap matches by text)', Object.keys(byEn).filter(e => byEn[e].size > 1), []);
 chk('land.month.names: 12 names', ja.strings['land.month.names'].split(',').length, 12);
-chk('ja carries the AI-tier note (ja + en sentence + report label)', [!!ja.note.text, /machine-translated and checked by a second AI review\. Place write-ups stay in English\./.test(ja.note.en), /Report a wrong phrase/.test(ja.note.report)], [true, true, true]);
+chk('ja carries the AI-tier note (ja + en sentence + report label)', [!!ja.note.text, /machine-translated and checked by a second AI review\. Place write-ups (and [^.]+ )?stay in English\./.test(ja.note.en), /Report a wrong phrase/.test(ja.note.report)], [true, true, true]);
 chk('catalogue published at beta/assets/i18n/ja.json', fs.existsSync(path.join(BETA, 'assets', 'i18n', 'ja.json')), true);
 
 console.log('\n== D-41: SWITCHER + hreflang on every page ==');
@@ -212,7 +215,7 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     const dj = await runtime(html, `https://example.test/beta/${rel}`, CATS, 'ja');
     const note = dj.querySelector('.l10n-note');
     chk(`${rel} in ja: <html lang="ja">, AI note shown (ja + en sentence + report link), ja button pressed`,
-      [dj.documentElement.lang, !!note, note && note.getAttribute('lang'), !!(note && note.querySelector('span[lang="en"]') && /Place write-ups stay in English/.test(note.textContent)), !!(note && note.querySelector('a[href^="https://github.com/alvations/cleo-guide/issues/new"]')), dj.querySelector('[data-cleo-locale="ja"]').getAttribute('aria-pressed')],
+      [dj.documentElement.lang, !!note, note && note.getAttribute('lang'), !!(note && note.querySelector('span[lang="en"]') && /Place write-ups (and [^.]+ )?stay in English/.test(note.textContent)), !!(note && note.querySelector('a[href^="https://github.com/alvations/cleo-guide/issues/new"]')), dj.querySelector('[data-cleo-locale="ja"]').getAttribute('aria-pressed')],
       ['ja', true, 'ja', true, true, 'true']);
     chk(`${rel} in ja: the shell is Japanese (skip link, nav label, footer heading)`, [dj.querySelector('.skip').textContent, dj.querySelector('.footer .fh') && dj.querySelector('.footer .fh').textContent], [ja.strings['shell.skip'], ja.strings['foot.destinations']]);
     chk(`${rel} in ja: counts take the numeric template ("21 guides" → 21件のガイド, never "{country} guides")`, (dj.body.textContent.match(/\d+のガイド/g) || []).slice(0, 3), []);
