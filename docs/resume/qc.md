@@ -30,6 +30,8 @@ never weakens a gate.
    - QC-15…20 → `qc-evidence.js --only qc-15,…` plus the exploration script logic recorded in BETA-QC.md.
 3. For each pass: a clean worktree on the pinned SHA, then commit only `qc.json`, `summary.md` and the evidence.
 
+- `f7fa616d`: QC-16 verified; new QC-21 (Low, i18n); QC-18 observed fixed (unclaimed).
+
 ## In flight
 
 Nothing unpushed and no long run. Waiting on lane claims and the next pin.
