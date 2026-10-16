@@ -40,3 +40,5 @@ a.rb.rb-award{background:none}a.rb.rb-award::before{background:var(--sun-wash)}
 .sheet .fact .pl-rec:has(>a.rb){margin:6px 0}
 /* W9-2 (a): the same quiet line inside the Gallery row card and the Atlas map preview (fresh.js) */
 .gc-chk,.pv-chk{margin-top:var(--s-1)}.gc-b>.gc-chk{order:98}.gc-b>.gc-rec{order:99}
+/* QC-05: in Atlas the list head states it (atlas.js, FE-1, from the same city.empty.* keys): one empty state per view */
+html[data-view=atlas] [data-cleo-empty]{display:none}
