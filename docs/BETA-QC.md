@@ -385,3 +385,56 @@ Clean worktree at `3a0ecfec`. QC re-ran its own sweep (light, all 91 pages) at 3
 Other sweep FAILs on this SHA are the known classes: S-15 (the search ring on its wrapper, a harness artefact), S-08
 (data-label casing, OWNER-casing) and S-01 (the token census, R7-g6).
 
+## Re-verify 2026-10-16 · 8f21eda9 (current head) + W9-1 recognition pass
+
+**Pinned:** origin head `8f21eda9514104e294f61d7083b20a5b2d099c01`, in a clean worktree. It contains 70060b33, 96c94c42,
+78e4ab74, a8d30a16, 4cf7d7eb and df4382d2. The deploy pin `3ba696e8` contains only some of these, so this head is used,
+as the orchestrator asked. Ran `qc.js --only patterns` (5 pilots × 390 / 1440) plus targeted QC probes. Outputs are in
+`design/beta/eval/qc/8f21eda9/`.
+
+| Id | Result | Evidence |
+|---|---|---|
+| QC-10 | **verified** | P-03 4/4 on 10/10 (each view's h1 takes focus after a switch). |
+| QC-11, QC-12 | verified earlier on 3a0ecfec | — |
+| QC-15 | **verified** | After "Set as my base", focus is on "Clear my base" and Esc closes the sheet, at 390 and 1440. |
+| QC-17 | **verified (superseded)** | The phone Atlas carousel was replaced by a peek tray ("351 places here · Show list"). In the list, no base line has a clipping ancestor. |
+| QC-19 | **verified** | D-42 scan: 0 of 32 matching entries in the 5 pilot Guidebooks lack the note; `cain-park` and `tita-floras` now carry it. |
+| QC-22 | open | The FE-A change has not landed: 117 built pages still say "No ratings, prices or opening hours are shown". |
+| QC-04 | open (no claim) | P-17 ❌ 2/2 Cleveland. |
+| QC-13 | open (no claim) | Desktop Atlas reads "All 43 places" under a lens. |
+
+**W9-1 recognition (FE-C 4cf7d7eb), melon-seek pass.** Tokyo (250 recognised of 488), Cleveland (4) and Toa Payoh (22),
+at 1440. Output: `w9-1-recognition.json`.
+- ✅ **No badge without data:** 0 places show a badge without `rec`; 0 recognised open places lack one.
+- ✅ **The badges are honest:**
+  - "Cited by N sources" equals the record's named sources, with "guide" excluded (0 mismatches);
+  - "Award · Michelin Guide — Bib Gourmand" links to `#src=michelin-bib`, the source lens;
+  - "Cited by" links to the place's own sheet.
+- ✅ **The `#rec=any` lens:**
+  - it shows exactly the recognised open places (Tokyo 250, Toa Payoh 20 of 22: the 2 closed are excluded);
+  - the section heading states the count ("Awards and much-cited places (250)");
+  - a fresh context reproduces it.
+- ❌ **QC-23:** "Before it closed" is never visible. See below.
+- ❌ **QC-24:** the lens chip label is the raw "any".
+
+**Regression found by the re-run.** P-21 FAILs 6/40: **QC-26**, the cold Atlas deep link with a lens.
+
+**Harness notes (not findings):**
+- P-25 and P-26 still list D-42-labelled lines; the probe does not yet discount entries that carry the D-42 note. QC-19's own scan covers them.
+- P-13 and P-15 at 390 Atlas count 0 because the new phone Atlas keeps its list behind "Show list".
+
+Both probes will be updated before the next pass.
+
+### New findings
+
+| Id | Sev | Lane | Finding | Steps | Expected | Actual | Evidence |
+|---|---|---|---|---|---|---|---|
+| **QC-23** | Med | FE-C | "Before it closed" recognition is never shown. | Toa Payoh: the card and the sheet for `kim-keat-hokkien-mee` (closed; `rec.cited` 3). | The closed card and the sheet show "Before it closed: Cited by 3 sources" (the W9-1 brief). | `.pl-rec.closed` is rendered with `hidden` (display none) on the card; the sheet shows only "Closed". Same for `hup-chong-hakka-yong-tau-foo`. | `evidence/qc-23-closed-no-rec.jpg` |
+| **QC-24** | Low | FE-C | The `#rec=any` lens chip shows the raw hash value. | Open `cities/tokyo.html#rec=any`. | A chip that names the lens ("Recognised" or "Awards and much-cited"), with a matching accessible name. | The chip reads "any ✕"; its aria-label is "Remove any". | `evidence/qc-24-rec-chip.jpg` |
+| **QC-25** | Low | FE-A + data | A closed card prints the raw status-source note. | Toa Payoh `kim-keat-hokkien-mee` card. | "Closed — kept for the record · checked 2026-09-02", with the source in plain words. | "… · per Flagged closed per worklist designation (kept, flagged per editorial rule); building geocoded, checked 2026-09-02". | `evidence/qc-23-closed-no-rec.jpg` |
+| **QC-26** | Med | Atlas FE-2 | **Regression since 530dc83b:** a cold Atlas deep link with a lens does not apply the lens. | Fresh load of `cities/tokyo.html#view=atlas&a=CYD&p=imperial-palace-east-gardens`; then Next. | 43 shown; the sheet reads "1 of 43 in this Atlas view" (as on 530dc83b). | 488 shown; "1 of 488". After Next it reads "2 of 43". Tokyo, Cleveland and New York, at 390 and 1440. Gallery is correct. | `qc-26-atlas-lens-deeplink.json`; P-21 |
+
+**Register after this pass:**
+- Verified 17: QC-01, 02, 03, 06, 07, 08, 09, 10, 11, 12, 15, 16, 17, 18, 19, 20, 21.
+- Open 9: Med 4 (QC-04, 05, 23, 26), Low 5 (QC-13, 14, 22, 24, 25). High 0 · Blocker 0.
+

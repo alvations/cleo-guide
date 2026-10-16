@@ -3,8 +3,8 @@
  * ids). One link per award or creator-video source (#src=<id>, named as the card's own "Recommended by" chip names it) and
  * "Cited by n sources" (n = the card's named publishers, platform's rec.cited) linking to the detail, where every source
  * is listed. A closed place's row is hidden on the card and labelled "Before it closed" for its detail (sheet.js FE-C
- * hook copies it). The Gallery row cards, the Guidebook entries and the Atlas map preview get the same row from the page
- * dataset. Loaded on pages that have recognised places (city.js FE-C hook); nothing here is inferred. */
+ * hook copies it). The Gallery row cards, the Guidebook entries and the Atlas map preview get the same row from the place's
+ * own card (never the page dataset: first-screen weight). Loaded on pages that have recognised places (city.js FE-C hook); nothing here is inferred. */
 (function () {
   'use strict';
   var Cleo = window.Cleo || {}, d = document;
@@ -27,34 +27,45 @@
       var old = c.querySelector(':scope > .pl-rec'), h = row(c); if (old) old.remove(); if (h) c.insertAdjacentHTML('beforeend', h);
     });
   }
-  // Gallery row cards (li.gc) and Guidebook entries (li.ge) are drawn in the browser from the page dataset, so their badges
-  // come from the same dataset (platform's rec, the source index's names), never from markup. A Gallery card is one link
-  // (to the detail), so its badges are text; a Guidebook entry's badges are links. A closed place carries none here.
-  var key = (d.getElementById('main') || { getAttribute: function () { return ''; } }).getAttribute('data-city') || '', PD = null;
-  var pd = function () { return PD || (PD = Cleo.pageData && key ? Cleo.pageData(key).then(function (j) {
-    var by = {}, nm = {}; (j.places || []).forEach(function (p) { by[p.id] = p; }); (j.sourceIndex || []).forEach(function (x) { nm[x.id] = String(x.name || x.id).split(' · ')[0]; });
-    return { by: by, nm: nm }; }) : Promise.reject(new Error('no page data'))); };
-  function badges(p, nm, links) {
-    var rec = p && !p.closed && p.rec; if (!rec) return '';
-    var out = [], one = function (cls, href, text) { out.push(links ? '<a class="rb ' + cls + '" href="' + esc(href) + '">' + esc(text) + '</a>' : '<span class="rb ' + cls + '">' + esc(text) + '</span>'); };
-    (rec.award || []).forEach(function (s) { one('rb-award', '#src=' + s, Cleo.t('rec.award', 'Award · {src}', { src: nm[s] || s })); });
-    (rec.video || []).forEach(function (s) { one('rb-video', '#src=' + s, Cleo.t('rec.video', 'Creator video · {src}', { src: nm[s] || s })); });
-    if (rec.cited >= 3) one('rb-cited', '#p=' + encodeURIComponent(p.id), Cleo.t('rec.cited', 'Cited by {n} sources', { n: rec.cited }));
+  // Gallery row cards (li.gc), Guidebook entries (li.ge) and the Atlas map preview get the same badges as the place's own
+  // card, read from that card's attributes (stamped, or its Cleo.defer.peek() stub): the first screen never fetches the
+  // page dataset for them (beta:qa:w8p, Tokyo phone first load). A Gallery card / preview is one link, so its badges are
+  // text; a Guidebook entry's badges are links. A closed place carries none here.
+  var NM = null;
+  function names() {   // source id -> the name its "Recommended by" chip shows, from the page's chips (stamped or deferred)
+    if (NM) return NM; NM = {};
+    var re = /<button type="button" class="src[^"]*" data-src="([^"]+)">([^<]*)</g, m, put = function (s, t) { if (!NM[s] && t) NM[s] = t.replace(/&amp;/g, '&').trim(); };
+    [].forEach.call(d.querySelectorAll('button.src[data-src]'), function (b) { put(b.getAttribute('data-src'), b.textContent); });
+    [].forEach.call(d.querySelectorAll('noscript, template'), function (ns) { var s = ns.children && ns.children.length ? ns.innerHTML : ns.textContent; while ((m = re.exec(s))) put(m[1], m[2]); });
+    return NM;
+  }
+  var STUB = null;
+  function card(pid) {
+    var c = d.getElementById('p-' + pid); if (c && c.matches('li.pl')) return c;
+    if (!STUB) { STUB = {}; ((Cleo.defer && Cleo.defer.peek && Cleo.defer.peek()) || []).forEach(function (s) { STUB[String(s.id).replace(/^p-/, '')] = s; }); }
+    return STUB[pid] || null;
+  }
+  function badges(c, links) {
+    var k = c && words(c, 'data-rec'); if (!k || !k.length) return '';   // data-rec0 (closed): none here
+    var nm = names(), out = [], one = function (cls, href, text) { out.push(links ? '<a class="rb ' + cls + '" href="' + esc(href) + '">' + esc(text) + '</a>' : '<span class="rb ' + cls + '">' + esc(text) + '</span>'); };
+    words(c, 'data-ra').forEach(function (s) { one('rb-award', '#src=' + s, Cleo.t('rec.award', 'Award · {src}', { src: nm[s] || s })); });
+    words(c, 'data-rv').forEach(function (s) { one('rb-video', '#src=' + s, Cleo.t('rec.video', 'Creator video · {src}', { src: nm[s] || s })); });
+    if (k.indexOf('cited') >= 0) { var id = String(c.id || '').replace(/^p-/, '');
+      one('rb-cited', '#p=' + encodeURIComponent(id), Cleo.t('rec.cited', 'Cited by {n} sources', { n: words(c, 'data-src').filter(function (s) { return s !== 'guide'; }).length })); }
     return out.join(' ');
   }
   function paintViews() {
     var todo = [].filter.call(d.querySelectorAll('li.gc[data-id], li.ge[data-id], a.ms-pv'), function (el) { return !el.hasAttribute('data-rec-done'); });
     if (!todo.length) return;
-    pd().then(function (D) {
-      todo.forEach(function (el) {
-        if (el.hasAttribute('data-rec-done')) return; el.setAttribute('data-rec-done', '');
-        var pv = el.matches('a.ms-pv'), pid = pv ? decodeURIComponent((/[#&]p=([^&]+)/.exec(el.getAttribute('href') || '') || [])[1] || '') : el.getAttribute('data-id');
-        var isGc = el.matches('li.gc') || pv, h = badges(D.by[pid], D.nm, !isGc); if (!h) return;   // the Atlas preview (a.ms-pv) is one link too: text
-        var row = '<' + (isGc ? 'span' : 'p') + ' class="pl-rec ' + (isGc ? 'gc-rec' : 'ge-rec') + '"><span class="vh">' + esc(Cleo.t('rec.label', 'Recognition')) + '</span> ' + h + '</' + (isGc ? 'span' : 'p') + '>';
-        var at = pv ? el.querySelector('.ms-pv-b') : isGc ? el.querySelector('.gc-b') : el.querySelector('.ge-m');
-        if (isGc) (at || el).insertAdjacentHTML('beforeend', row); else if (at) at.insertAdjacentHTML('afterend', row); else el.insertAdjacentHTML('beforeend', row);
-      });
-    }, function () {});
+    STUB = null;   // chunks may have been stamped since: re-read
+    todo.forEach(function (el) {
+      el.setAttribute('data-rec-done', '');
+      var pv = el.matches('a.ms-pv'), pid = pv ? decodeURIComponent((/[#&]p=([^&]+)/.exec(el.getAttribute('href') || '') || [])[1] || '') : el.getAttribute('data-id');
+      var isGc = el.matches('li.gc') || pv, h = badges(card(pid), !isGc); if (!h) return;
+      var row = '<' + (isGc ? 'span' : 'p') + ' class="pl-rec ' + (isGc ? 'gc-rec' : 'ge-rec') + '"><span class="vh">' + esc(Cleo.t('rec.label', 'Recognition')) + '</span> ' + h + '</' + (isGc ? 'span' : 'p') + '>';
+      var at = pv ? el.querySelector('.ms-pv-b') : isGc ? el.querySelector('.gc-b') : el.querySelector('.ge-m');
+      if (isGc) (at || el).insertAdjacentHTML('beforeend', row); else if (at) at.insertAdjacentHTML('afterend', row); else el.insertAdjacentHTML('beforeend', row);
+    });
   }
   var raf = 0, later = function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; paintViews(); }); };
   if ('MutationObserver' in window) new MutationObserver(function (ms) {

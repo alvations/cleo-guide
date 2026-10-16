@@ -33,22 +33,17 @@ never weakens a gate.
 - `f7fa616d`: QC-16 verified; new QC-21 (Low, i18n); QC-18 observed fixed (unclaimed).
 - `a498adf5`: QC-21 verified.
 - `995e2529`: QC-18 and QC-20 verified; QC-19 still open (2 Cleveland records); new QC-22 (Low).
+- `8f21eda9`: QC-10, 15, 17 and 19 verified; QC-22 still open; new QC-23 to QC-26 (W9-1 recognition pass plus the QC-26 regression).
 - `3a0ecfec`: QC-11 and QC-12 verified (S-12 all 91 pages at 390, 768 and 1440).
 
 ## In flight
 
-- **Re-verify on head `8f21eda9`**, per the orchestrator at 16:36Z. The worktree is in the scratchpad (`qc-8f21eda9`).
-  - Done in scratch:
-    - QC-15 verified (focus stays on "Clear my base"; Esc closes).
-    - QC-17 resolved by the redesign: no carousel; the list's base lines are unclipped.
-    - QC-19 verified (0 of 32 missing the note).
-    - QC-22 still open (117 pages carry "No ratings, prices or opening hours are shown").
-  - The patterns run is in progress, for QC-10 P-03, QC-04 P-17 and QC-13 P-14.
-- **W9-1 recognition pass is done.** The data is clean: no badge without data, cited counts correct, the `#rec=any` lens round-trips. New:
-  - QC-23: "Before it closed" is hidden on cards and absent from the sheet.
-  - QC-24: the lens chip label is the raw "any".
-  - QC-25: the closed card shows raw status-source jargon.
-- **Then:** write it up (BETA-QC, register QC rows), commit the outputs, and send the orchestrator the counts.
+Nothing unpushed and no long run. Waiting on lane claims and the next pin.
+
+Next harness work:
+- P-25 and P-26 must discount entries that carry the D-42 note.
+- P-13 and P-15 must open the phone Atlas "Show list" before measuring.
+- J-10 and J-11 should also run under `?lang=ja`.
 
 ## Notes
 

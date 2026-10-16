@@ -28,9 +28,14 @@ Earlier: W9-4, W9-5 (FE-C part) and W9-7 are done.
 | i18n batch 3 (page.trip.*), cleo:locale redraw on trip.html | 0aa56b33f | — |
 | W9-1 recognition: badges (client/recognition.js from card attributes), Recognised lens + tray + rail door, detail row | 4cf7d7ebd | — |
 | W9-9 local favourites: parked patch + 7 pending en strings | b20bc4a32 | — |
-| W9-1 gap: badges on Gallery rows + Guidebook entries | this push | — |
+| W9-1 gap: badges on Gallery rows + Guidebook entries | e1540ffd | — |
+| W9-1 Atlas preview badges | bdafa7a46 | — |
+| w8p fix: Gallery/Guidebook/preview badges read the place's own card (stamped or `Cleo.defer.peek()` stub), never `Cleo.pageData` — Tokyo phone first load 762 → 656 KB | this push | — |
 
 ## Next
+
+After the w8p fix: write design/beta/eval/w9/AUDIT.md (audit results in the conversation log: W9-2 partial, W9-6 fail acc1, the rest pass), copy the audit scripts under tools/beta/qa/w9-audit/, then send QA session_017FLWXa5zgGWvqNo4C3UsvH the SHA.
+
 
 Orchestrator order (2026-10-16 14:52Z):
 1. **i18n: done.** All FE-C strings are in en + ja (see tools/beta/i18n-fec/README.md for new ones).
