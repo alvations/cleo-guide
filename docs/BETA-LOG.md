@@ -2209,3 +2209,11 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - QA files them as R8-g rows.
 - QC's S-17 overlay probe is in (9a2a10c8); the r7 audit is running (about 2.5 h).
 - D-46: FE-A's part 1 is in (678f9939). The flip waits on platform's Atlas initial-stamp budget (Tokyo is 3,587 nodes with Atlas first).
+
+## 2026-10-16 23:20Z · orchestrator check-in
+
+- Dev head fb730533 is gated green.
+- INP: 18.5 s → 0.45 s (e0b79e23).
+- Overlay ledger: 19 rows. OV-00 is set, and S-17 is graded against it. FE-C and FE-B have claimed their first fixes, and FE-A has landed OV-01's header part.
+- D-46 waits on the Atlas stamp budget (platform).
+- R8 is relayed to the owner.
