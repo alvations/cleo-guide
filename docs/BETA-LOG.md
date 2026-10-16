@@ -2094,3 +2094,9 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - PR alvations/cleo-guide#9 merged b54b3745 into the Pages branch with expectedHeadSha (merge 4382a187), and the Pages build started 21:33Z.
 - beta-deploy-r7 merged back into dev with `-s ours` (beef84ec): every ported commit is already on dev.
 - The changelog entry is added. Next: the R8 evaluator, and the PERF-08 "go" to platform.
+
+## 2026-10-16 21:46Z · orchestrator: owner decision D-46
+
+- The owner said: "Let's make atlas the default view then the list. That will differentiate us from our competitors."
+- Recorded as D-46 (2c44f676). Atlas becomes the default; the switcher order is Atlas, Gallery, Guidebook, Insights.
+- Routed to FE-A (lead), platform, FE-1/FE-2, QA, QC and the designer. It ships in the next release with Atlas rev 5.
