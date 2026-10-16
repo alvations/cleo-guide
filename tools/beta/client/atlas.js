@@ -261,11 +261,12 @@
   };
   // the carousel: the card nearest the middle after a swipe settles is the selected one
   let st = 0, qSwipe = 0;
-  // while a detail is open or closing (atlas-nav.js restores the carousel), a scroll waits; once the hold ends the card in
-  // the middle is read again — a swipe made during the hold still selects, a restore lands back on the same card
+  // while atlas-nav.js restores the carousel (its own restore only, C.navScrollHold), a scroll waits; once the hold ends the
+  // card in the middle is read again — a swipe made during the hold still selects, a restore lands back on the same card
+  const held2 = () => (C.navScrollHold ? C.navScrollHold() : !!(C.navHold && C.navHold()));
   const swiped = () => {
     if (desk() || !atlas() || H.classList.contains('ms-list')) return;
-    if (C.navHold && C.navHold()) { clearTimeout(st); st = setTimeout(swiped, 300); return; }
+    if (held2()) { clearTimeout(st); st = setTimeout(swiped, 300); return; }
     clearTimeout(st); st = setTimeout(() => {
       const mid = lp.getBoundingClientRect().left + lp.clientWidth / 2;
       const c = qa('li.pl', lp).filter(x => x.offsetWidth && !x.hidden).sort((x, y) => { const a = x.getBoundingClientRect(), b = y.getBoundingClientRect(); return Math.abs(a.left + a.width / 2 - mid) - Math.abs(b.left + b.width / 2 - mid); })[0];

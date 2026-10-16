@@ -6,9 +6,9 @@ This spec answers ROUND-6 gap #1 and the owner amendment's "small moments of del
 
 | Token | Value | Use |
 |---|---|---|
-| `--dur-grow` | 340 ms (≤ 400) | the cover or pin growing into the sheet |
+| `--dur-grow` | 300 ms (≤ 300, the R7 delight cap) | the cover or pin growing into the sheet |
 | `--ease-grow` | `cubic-bezier(.2, .9, .1, 1)` | fast out of the tap, long soft landing |
-| `--dur-pop` / `--ease-spring` | 320 ms / `cubic-bezier(.34, 1.56, .64, 1)` | the heart pop, the only spring |
+| `--dur-pop` / `--ease-spring` | 300 ms / `cubic-bezier(.34, 1.56, .64, 1)` | the heart pop, the only spring |
 | `--dur-1…4` | 120 / 200 / 320 / 480 ms | everything else; primary paths stay at 200 ms or less |
 
 Under `prefers-reduced-motion: reduce`, every one of these is `0ms`. V2.16 also sets `animation: none` on every view-transition pseudo-element and on `.v2-grow`. A test that asserts 0 running animations under reduced motion therefore holds.

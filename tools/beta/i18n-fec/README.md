@@ -3,16 +3,14 @@
 test-i18n needs en.json and ja.json to match key for key, and FE-C never writes ja. So a new FE-C string waits here
 until the i18n lane supplies its Japanese. Then en and ja land in one commit together with the code that uses them.
 
-**Done so far:**
-- batch 1 (trip.js plus rec.*): merged by FE-C in d1d476cbc;
-- batch 2 (base.js, share-card.js and the core walk helper): merged by the i18n lane with FE-C's patch in 50eb108c2.
+**All three batches are merged:**
+- batch 1 (trip.js + rec.*): FE-C, d1d476cbc;
+- batch 2 (base.js, share-card.js, the core walk helper): the i18n lane with FE-C's patch, 50eb108c2;
+- batch 3 (trip.html server strings, `page.trip.*`; server keys avoid `swapSkip` prefixes such as `trip.`): FE-C.
 
-**Now:** `pending-en.json` holds batch 3, trip.html's three server strings (`trip.page.title`, `.desc`, `.nojs`).
-The flow:
-1. the i18n lane writes `pending-ja.json` with the same keys and `{placeholders}`;
-2. run `python3 tools/beta/i18n-fec/merge.py`;
-3. convert lib/render/trip.js to `t('trip.page.*')`;
-4. `npm run beta`, the gates, push.
+**For new FE-C strings:**
+1. write them to `pending-en.json` and ask the i18n lane for `pending-ja.json`;
+2. run `merge.py`, so en and ja land in one commit together with the code that uses them.
 
 Files:
 - `merge.py`: checks and merges in one step (`--check` reports only);

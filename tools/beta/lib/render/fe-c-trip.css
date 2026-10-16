@@ -1,6 +1,6 @@
 /* trip.html page CSS (FE-C, W9-4): tokens only; inlined by lib/render/trip.js. Print = a booklet, one day a page. */
 .trip-page{padding-bottom:48px}.tp-head{display:grid;gap:var(--s-2);margin:var(--s-5) 0 var(--s-4)}.tp-head h1{margin:0}.tp-head .lede{margin:0;max-width:62ch;color:var(--ink-2)}
-.tp-sum{margin:0;font:600 var(--fs-ui)/1.4 var(--font-ui)}.tp-head .caveat{max-width:62ch;background:var(--sand);color:var(--ink-2)}
+.tp-sum{margin:0;font:600 var(--fs-ui)/1.4 var(--font-ui)}.tp-head .caveat{max-width:62ch}
 .tp-head h1[tabindex="-1"]:focus,.tday h2[tabindex="-1"]:focus{outline:none}
 .tp-closed{display:inline-flex;align-items:center;margin-left:var(--s-2);padding:0 var(--s-2);border-radius:var(--r-pill);background:var(--sand);color:var(--closed);font:600 var(--fs-xs)/1.8 var(--font-ui)}
 .tp-pick{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:var(--s-2)}.tp-pick .n{font-weight:400;color:var(--ink-3)}.tp-pick [aria-disabled=true]{opacity:.55;pointer-events:none}

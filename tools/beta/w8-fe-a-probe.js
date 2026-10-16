@@ -238,8 +238,8 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
         const hw = Math.round(h.getBoundingClientRect().width), iw = Math.round(i.getBoundingClientRect().width), fw = +((/-(\d+)\.(?:jpe?g|webp)$/.exec(i.currentSrc) || [])[1] || 0);
         return { cls: h.className.replace(/\s+/g, ' '), hw, iw, fw, bg: getComputedStyle(h).backgroundColor, band: getComputedStyle(i).boxShadow.slice(0, 60) }; });
       if (!r) { ok(false, `${id}: detail photo present`); await page.close(); continue; }
-      if (/ph-fit/.test(r.cls)) ok(Math.abs(r.hw - r.iw) <= 1 && r.iw <= r.fw, `${id}: a wide copy sets the slot — media ${r.iw} px = slot ${r.hw} px, file ${r.fw} w, no band`, r);
-      else ok(/ph-frame/.test(r.cls) && r.iw <= r.fw && /rgb/.test(r.band) && !/241, 237, 231/.test(r.band), `${id}: a narrow copy sits at its own width (${r.iw} ≤ ${r.fw}) in side bands of its own tone, not sand`, r);
+      // designer sign-off: wide or narrow, the plate takes the image's own width (centred), never bands of any colour
+      ok(Math.abs(r.hw - r.iw) <= 1 && r.iw <= r.fw && (r.band === 'none' || !r.band), `${id}: the plate fits the image — media ${r.iw} px = plate ${r.hw} px, file ${r.fw} w, no band`, r);
       await page.close();
     }
     await ctx.close(); }

@@ -194,12 +194,12 @@ html main[data-city] .views[data-cleo-views] button .ico{width:17px;height:17px}
   html main[data-city] .views[data-cleo-views]{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%;padding:0}
   html main[data-city] .views[data-cleo-views] button{min-width:0;padding:0 var(--s-1)}
   /* every phone sheet (place detail, filters, list) stops below the switcher, scrim included: it stays visible and hit-testable */
-  html body main[data-city]:has(.views[data-cleo-views]:not([hidden]))>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not(.side){top:calc(var(--bar-h) + var(--cbar-h))}
-  html body main[data-city]:has(.views[data-cleo-views]:not([hidden]))>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not(.side) :is(.sheet,.tray){max-height:calc(100dvh - var(--bar-h) - var(--cbar-h))}
+  html body main[data-city][data-views-on]:not([data-views-on=off]):not([hidden])>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not(.side){top:calc(var(--bar-h) + var(--cbar-h))}
+  html body main[data-city][data-views-on]:not([data-views-on=off]):not([hidden])>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not(.side) :is(.sheet,.tray){max-height:calc(100dvh - var(--bar-h) - var(--cbar-h))}
   /* ...and wherever the page is scrolled (a deep link can land past the list, where the sticky bar has left with <main>),
      the row is pinned under the header while a sheet is open; its bar keeps its height, so nothing shifts behind the sheet */
-  html body main[data-city]:has(>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not([hidden]):not(.side))>.cbar{min-height:var(--cbar-h)}
-  html body main[data-city]:has(>.overlay:is(#cleo-sheet,#cleo-fy,#cleo-tray):not([hidden]):not(.side))>.cbar>.cbar-in{position:fixed;top:var(--bar-h);left:0;right:0;z-index:61;background:var(--paper);border-bottom:1px solid var(--line)}
+  html body main#main[data-city][data-overlay-on]:not([data-overlay-on=off]):not([hidden])>.cbar{min-height:var(--cbar-h)}
+  html body main#main[data-city][data-overlay-on]:not([data-overlay-on=off]):not([hidden])>.cbar>.cbar-in{position:fixed;top:var(--bar-h);left:0;right:0;z-index:61;background:var(--paper);border-bottom:1px solid var(--line)}
 }
 @media (max-width:399px){html main[data-city] .views[data-cleo-views] button .ico{display:none}}
 /* < 300 px (200 % zoom on a phone, DESIGN-SYSTEM §v2.11 corrected): a 2 x 2 grid of glyph-only segments, each >= 60 x 44 (a
@@ -703,9 +703,12 @@ html.lens-on.g-lead-on[data-view=gallery] .g-lead-slot{display:none}
 html body #cleo-sheet .detail .hero-plate.has-photo{background:transparent!important}
 html body #cleo-sheet .detail .hero-plate.has-photo.ph-fit{max-width:min(var(--ph-max),calc(100% - 32px));margin-left:auto;margin-right:auto}
 @media (min-width:1024px){html body #cleo-sheet .detail .hero-plate.has-photo.ph-fit{max-width:min(var(--ph-max),calc(100% - 56px))}}
-html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame{overflow:hidden;border-radius:var(--r-l)}
-html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame{--ph-band:color-mix(in srgb,var(--ph,var(--sand)) 45%,var(--sand))}
-html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame>.photo img{border-radius:0;box-shadow:calc(-1 * var(--ph-max)) 0 0 0 var(--ph-band),var(--ph-max) 0 0 0 var(--ph-band)}
+/* designer QA-67 sign-off: a narrow copy (< 800 w) gets no bands at all — like a wide one, the plate takes the image's own
+   width, centred on the sheet's surface, the image rounded; the caption sits under it, from its left edge, wrapping at its
+   width; the mini-map stays inside the image's top-right corner */
+html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame{max-width:min(var(--ph-max),calc(100% - 32px));margin-left:auto;margin-right:auto}
+@media (min-width:1024px){html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame{max-width:min(var(--ph-max),calc(100% - 56px))}}
+html body #cleo-sheet .detail .hero-plate.has-photo>.photo figcaption{max-width:100%}
 /* food covers (c), designer sign-off: the cover names the dish, so a food card's kind line drops its duplicate dish (the
    area line stays where the card is not under its own area header) */
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-e .in-d{display:none}

@@ -134,7 +134,8 @@
 
   /* ---- the place sheet (city.js FE-C hook → C.baseSheet): "Set as my base", or "Your base ✓ · Clear" ---- */
   if (C) {
-    C.baseSheet = function (c) {
+    // opt (QC-15): {focus: true} keeps focus in the sheet on the fact's new control (Escape still closes it); {say: text} announces it
+    C.baseSheet = function (c, opt) {
       var k = B.page(), host = d.getElementById('cleo-sheet'), id = C.pid(c);
       load(k).then(function (D) {
         var sh = host && host.querySelector('.sheet'); if (!sh || !D || C.pid(c) !== id) return;
@@ -142,12 +143,15 @@
         if (old) old.remove();
         if (why && !mineB) return;                            // a closed or unpinned place is never offered as a base
         var f = b && !mineB ? B.from([+p.la, +p.ln], k) : null;
-        var html = '<div class="fact" data-cleo-base-fact><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><div>' +
+        var html = '<div class="fact" data-cleo-base-fact data-id="' + esc(id) + '"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><div><p class="vh" role="status" data-cleo-base-live></p>' +
           (f ? '<p class="sm">' + esc(f.text) + ' <span class="muted">' + esc(Cleo.t('base.sl', '(straight-line)')) + '</span></p>' : '') +
           (mineB ? '<p><b>' + esc(Cleo.t('base.yours', 'Your base')) + '</b> <button type="button" class="btn btn-quiet" data-cleo-base="clear">' + esc(Cleo.t('base.clear', 'Clear my base')) + '</button></p>'
             : '<button type="button" class="btn btn-ghost" data-cleo-base="set" data-id="' + esc(id) + '">' + esc(b ? Cleo.t('base.instead', 'Make this my base instead') : Cleo.t('base.make', 'Set as my base')) + '</button>') + '</div></div>';
         var at = sh.querySelector('.fact:last-of-type'), facts = at ? at.parentNode : sh.querySelector('.actions');
         if (at) at.insertAdjacentHTML('afterend', html); else if (facts) facts.insertAdjacentHTML('beforebegin', html);
+        var fx = sh.querySelector('[data-cleo-base-fact]');
+        if (fx && opt && opt.focus) { var bt = fx.querySelector('button'); if (bt) bt.focus({ preventScroll: true }); }
+        if (fx && opt && opt.say) setTimeout(function () { var lv = fx.querySelector('[data-cleo-base-live]'); if (lv) lv.textContent = opt.say; }, 60);   // after insertion, so it is read
       });
     };
     /** Sort key for "Nearest to my base" (city.js hook): km from the base, unpinned last. */
@@ -157,8 +161,8 @@
   d.addEventListener('click', function (e) {
     var b = e.target.closest && e.target.closest('[data-cleo-base]'); if (!b) return;
     var k = b.getAttribute('data-k') || B.page(), act = b.getAttribute('data-cleo-base');
-    if (act === 'set') { var id = b.getAttribute('data-id'); if (B.choose(k, id) && C && C.byId[id]) C.baseSheet(C.byId[id]); }
-    else if (act === 'clear') { B.clear(k); if (C && C.baseSheet) { var sh = d.querySelector('#cleo-sheet [data-cleo-base-fact]'); if (sh) { var r = Cleo.route.parse(); if (r.p && C.byId[r.p]) C.baseSheet(C.byId[r.p]); } } }
+    if (act === 'set') { var id = b.getAttribute('data-id'); if (B.choose(k, id) && C && C.byId[id]) C.baseSheet(C.byId[id], { focus: true, say: Cleo.t('base.set.toast', 'Your base is {base}. Every card now shows how far it is.', { base: B.name(k) }) }); }
+    else if (act === 'clear') { var inSheet = !!b.closest('#cleo-sheet'); B.clear(k); if (C && C.baseSheet) { var sh = d.querySelector('#cleo-sheet [data-cleo-base-fact]'), sid = sh && sh.getAttribute('data-id'); if (sid && C.byId[sid]) { C.baseSheet(C.byId[sid], inSheet ? { focus: true, say: Cleo.t('base.cleared', 'Base cleared. The guide’s own order is back.') } : null); } } }
     else if (act === 'sort' && C) { var r2 = Cleo.route.parse(); if (C.S.sort === 'base') delete r2.sort; else r2.sort = 'base'; C.go(r2); }
     else return;
     schedule(); if (C && C.apply) C.apply();
@@ -166,7 +170,7 @@
   d.addEventListener('cleo:base', function () { schedule(); });
   d.addEventListener('cleo:view', function () { schedule(); });
   var css = d.createElement('style');
-  css.textContent = '.pl .pl-base{order:99;grid-column:1/-1}.pl-base,.gc-base,.ge-base{margin:4px 0 0;font:500 var(--fs-sm)/1.35 var(--font-ui);color:var(--ink-2)}.ms-pv-base{display:block;margin-top:2px;font-size:var(--fs-sm);color:var(--ink-2)}' +
+  css.textContent = '.pl .pl-base{order:99;grid-column:1/-1}.pl-base,.gc-base,.ge-base,.ms-pv-base{white-space:normal;overflow-wrap:anywhere;min-width:0;max-width:100%}.pl-base,.gc-base,.ge-base{margin:4px 0 0;font:500 var(--fs-sm)/1.35 var(--font-ui);color:var(--ink-2)}.ms-pv-base{display:block;margin-top:2px;font-size:var(--fs-sm);color:var(--ink-2)}' +
     '.base-note{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin:8px 0;padding:8px 12px;border:1px solid var(--line);border-radius:var(--r-m);background:var(--surface);font-size:var(--fs-sm);color:var(--ink-2)}' +
     '.base-note p{margin:0}.base-note b{color:var(--ink)}.base-acts{display:flex;flex-wrap:wrap;gap:var(--s-2)}.base-acts .btn{min-height:var(--tap)}.base-acts .btn[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}.ms-head .base-note{margin:6px 0 0}';
   d.head.appendChild(css);

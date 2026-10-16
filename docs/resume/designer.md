@@ -37,7 +37,12 @@ Current rows:
 
 ## Next
 
-1. **QC-14 follow-up.** FE-B is done: fe-b.css 38f57e81, and a re-run of the tool finds 0. FE-A (fe-a.css, 118) and FE-1 (atlas.css, 42) were asked to run `python3 design/beta/tools/snap-spacing.py <file>` *after* their priority rows. Re-measure each lane's file when it pushes. Once all three are at 0, tell the R7 QA lane (session_017FLWXa5zgGWvqNo4C3UsvH) that QC-14 is ready to verify.
+1. **QC-14 follow-up.** Re-measured on 2026-10-16 with snap-spacing.py:
+   - fe-a.css: 0 off-scale (287240c2).
+   - fe-b.css: 0.
+   - fe-c-trip.css: 0.
+   - designer CSS: 0.
+   - **Only atlas.css is left: 43 off-scale** (FE-1, after rev 5). When it's 0, tell R7 QA (session_017FLWXa5zgGWvqNo4C3UsvH) that QC-14 is ready.
 2. **PANEL-R3 (80.7) folded into SPEC-v3 rev 5:**
    - no sun on dots or pills;
    - light circle vs dark square, with a sign-off on real shots;
@@ -48,19 +53,7 @@ Current rows:
 
    FE-1 and FE-2 have been briefed. **Next:** when a new head lands, the designer signs off on `real/R4/tokyo-390-light-1-default.jpg` dots; then send the panel "round 4 ready" through FE or the orchestrator. Remind FE-A about the "Numbers on the cards match the pins" copy.
 3. **QC-09: closed.** R7 QA verified it independently on adfb052d. QC-06 (768 px, 44 px segments) was verified with it.
-5. **FE-C review (W9-4/5/7).** Ten findings went to FE-C (session_01SxU3Mdpo1UAQyJQJmnMFtG) on 2026-10-16:
-   - the share-card initial on a teal block;
-   - coral Must-see;
-   - the hard-coded COL palette and #C23A1C;
-   - the wordmark;
-   - the trip-day stripe and purple;
-   - the h1 focus ring;
-   - casing;
-   - the caveat on sun-wash;
-   - spacing;
-   - the base-sort pressed state.
-
-   Re-review when FE-C sends new shots.
+5. **FE-C review (W9-4/5/7): signed off** on 70060b332. All ten findings are fixed. The base `.caveat` is now sand, `--ink-3` icon, 14 px, so the estimate note reads as a note, not a warning.
 6. **FE-A reviews (2026-10-16):**
    - **QA-67 detail media:** ≥ 800 w approved. Narrow copies drop the colour-mix bands, and the plate is image-width, centred.
    - **Detail numbering confirmed:** drop "pin N" and the nav "k of N"; keep "No. k of n". FE-A logs the spec change in BETA-LOG.
@@ -70,6 +63,12 @@ Current rows:
    - `.stamp.stamp-in` for the stamp.
    - `html[data-vx]` for the view cross-fade, which needs views.js (FE-A) to set `data-vx` for about 300 ms on a switch.
    - Platform: remove the 7 entries from the allowlist.
+8. **QA-74 and QA-55** (2026-10-16):
+   - Motion: `--dur-3` is 280 ms; `--dur-grow` and `--dur-pop` are 300 ms.
+   - Every one-shot moment is now ≤ 300 ms. Bob, ring, sheen, stamp, pop and door point at `--dur-pop`.
+   - Spring easing is used only for the heart and save pops; the looping tile twinkle is removed.
+   - Insights `.fn` footnotes are now `--fs-sm` (14 px).
+   - QA has been told.
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight
