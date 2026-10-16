@@ -52,5 +52,17 @@ Status: open → claimed (fix SHA) → verified (QC SHA). Owner: the lane that f
 | OV-05 | same | The attribution pill "© OpenStreetMap · Esri ⓘ" spans about half the width on phone | ≈ 50 % of the width | FE-1 | open |
 | OV-06 | same | The chip row floats over the top of the map with no scroll affordance; "Top picks" is cut at the edge | the row covers the map's top band | FE-1, designer | open |
 | OV-07 | same | None of the overlays respond to the reader's pan or zoom: nothing compacts, so the map stays a strip | behaviour | FE-1, FE-A | open |
+| OV-08 | trip.html / Tokyo place · share-card preview · 844×390 (landscape) · light, dark | The 9:16 preview was taller than the screen inside a centred dialog that did not scroll: the top of the card (its cover and title) and the dialog heading were cut off | image 478 px in a 390 px viewport; heading off screen | FE-C | claimed (this push): the preview is sized from the viewport height, and short landscape puts it beside the text; whole dialog on screen, 9:16, no scroll at 390×664, 844×390, 768×1024, 1024×768 (probe `card-fit`) |
+| OV-09 | Tokyo · Atlas · 1024×768 · light, dark | The place sheet opens as a side panel over the map and leaves a ≈ 70 px strip: the selected pin (senso-ji) is under the sheet | sheet 100 % of height, ≈ 52 % of width; pin covered | FE-A (sheet), FE-1 (map pan) | open |
+| OV-10 | Tokyo · Gallery · 390×844, 390×664 · light, dark | With the place sheet open, the site header and the view switch stay above it (they are inert behind the modal) | 116 px = 14 % (844) / 17 % (664) of chrome over an 86 % sheet | FE-A | open |
+| OV-11 | Tokyo · Gallery · 844×390 · light, dark | The place sheet takes 92 % of a landscape screen and slides under the header | sheet top 31 px; header 64 px over it | FE-A | open |
+| OV-12 | Tokyo `#base=` · Gallery / Atlas list · 390×844 · light, dark | The base note ("Your base … Walk times are straight-line …" + "Nearest to my base" / "Clear my base") is in-flow, not fixed, but tall on phone | 133 px = 16 % of the viewport, once, scrolls away | FE-C | measured, awaiting OV-00 (in-flow notices); can compact to one line + two buttons |
+
+FE-C audit (fe-c-overlay.js, `cd tools && NODE_PATH=$(npm root -g) node beta/qa/overlay/fe-c-overlay.js`), all six ledger viewports ×
+light/dark, no other instances on FE-C surfaces: trip.html (builder and a trip) and saved.html carry only the shared site
+header (6–16 % of the height; 16 % at 844×390 is OV-01's header, FE-A); toasts (trip "Link copied", base set/clear, the
+sheet's) are gone 4 s after they appear, at every viewport; the empty states are in-flow (the Atlas one is FE-1's list head,
+QC-05); no FE-C layer collides with another control. Not FE-C's and not measured here: the offline-pack banner (platform,
+pack.js) and the language switch (header, i18n / FE-A).
 
 QC's S-17 sweep adds rows for every other page, view, viewport and theme. Lanes claim them with their fix SHA.
