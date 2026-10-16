@@ -14,6 +14,8 @@ for vp in m d; do
   R=$(node tools/beta/qa/page-eval.js $vp 'cities/tokyo.html#view=atlas&a=CYD&p=imperial-palace-east-gardens' "(async()=>{await new Promise(r=>setTimeout(r,2500));const g=document.querySelector('[role=dialog]:not([hidden])');const t=g?g.innerText.match(/\d+ of \d+/):null;return [document.querySelectorAll('li.pl:not([hidden])').length,t&&t[0]].join('|')})()" 2>/dev/null)
   echo "QC-26 $vp: $R"; [ "$R" = '"43|1 of 43"' ] || F=1
 done
+# the initial-DOM budget (M3-06; selective changes what is built at load)
+node tools/beta/qa/test-dom-budget.js || F=1
 # FE-2's Atlas interaction probes on Tokyo, incl. its "QA-76" block (plain + lens, 390 / 1440; ≈ 3 min)
 NODE_PATH=$(npm root -g 2>/dev/null) node tools/beta/atlas-nav-ms.js --only tokyo || F=1
 # FE-2's QC-26 probe (3 pilots × 390/1440), the second area (default) and the first area (AREA_IDX=0)

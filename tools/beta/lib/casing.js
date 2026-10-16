@@ -29,13 +29,34 @@ function sentence(s, extra) {
   if (!s) return s;
   const own = extra || EMPTY;
   const guard = [];
-  PHR_RE.forEach(re => { s = s.replace(re, m => { guard.push(m); return '\x00' + (guard.length - 1) + '\x00'; }); });
+  const ownRe = (own.phrases || []).map(p => new RegExp('(?<![\\p{L}\\p{N}_])' + esc(p) + '(?![\\p{L}\\p{N}_])', 'gu'));
+  PHR_RE.concat(ownRe).forEach(re => { s = s.replace(re, m => { guard.push(m); return '\x00' + (guard.length - 1) + '\x00'; }); });
   let first = !s.replace(/^[★ ]+/, '').startsWith('\x00');                 // a label opening with a kept phrase has had its first word
   const out = s.replace(TOK, w => { if (first) { first = false; return w; } return keep(w, own) ? w : w[0].toLowerCase() + w.slice(1); });
   return out.replace(/\x00(\d+)\x00/g, (m, i) => guard[+i]);
 }
 
-// the page's own proper nouns: every capitalised word in its city name, native name and area names
-const ownWords = (...names) => new Set(names.filter(Boolean).join(' ').match(TOK) || []);
+// QC-30: generic geography words (allowlist.json "generic"). In a page's own place names they are part of a name ("Lincoln Park", "Ohio Valley",
+// "Omoide Yokochō"), so they keep their capital only inside that whole name, never on their own ("Theme-park rides",
+// "Lakefront, river & water", "Izakaya, yakitori & yokochō").
+const GENERIC = new Set(A.generic || []);   // allowlist.json "generic" (designer's list, lower case)
+// the page's own proper nouns, from its city name, native name and area names: each whole name, and each run of
+// capitalised words in it, is kept as a phrase ("South Dade", "Ohio City"), and each of its words that is not a generic geography word is kept alone too
+// ("Havana", "SoDo"). Returned as a Set of words carrying .phrases.
+const ownWords = (...names) => {
+  const words = new Set(), phrases = new Set();
+  for (const n of names.filter(Boolean)) {
+    // the whole name as written, and without its parenthetical ("A day in District 1", "A day in The Loop & Downtown")
+    [String(n), String(n).replace(/\s*\(.*$/, '').trim()].forEach(x => { if (/\S\s+\S/.test(x)) phrases.add(x); });
+    // a run: capitalised tokens joined only by spaces (any other separator, or a lower-case word, ends it)
+    for (const m of String(n).matchAll(/(?:[\p{Lu}][\p{L}\p{N}'’.-]*)(?: [\p{Lu}][\p{L}\p{N}'’.-]*)*/gu)) {
+      const run = m[0].replace(/[.]+$/, ''), toks = run.match(TOK) || [];
+      if (toks.length > 1) phrases.add(run);
+      toks.forEach(w => { if (!GENERIC.has(w.toLowerCase())) words.add(w); });
+    }
+  }
+  words.phrases = [...phrases].sort((x, y) => y.length - x.length);
+  return words;
+};
 
 module.exports = { sentence, ownWords };

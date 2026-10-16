@@ -40,7 +40,7 @@ SPEC-v3 rev 5 for panel round 4 (R3 scored 80.7), plus QC / QA items. In order:
   - FE-C's `.rb` badge hit area (B-20);
   - the DOM budget on Tokyo desktop (3,082 on origin, not Atlas's);
   - FE-A's partial-height phone sheet proposal (R2 #1 deep link).
-- **Residual polish:** on the phone, the selected pin's label can sit under the Near me pill when the carousel opens.
+- Fixed in this push: the selected pin's label stays clear of the phone controls.
 
 ## In flight
 - Nothing unpushed except what the current commit carries.
