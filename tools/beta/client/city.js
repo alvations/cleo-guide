@@ -60,7 +60,7 @@
     if (d.fonts && d.fonts.ready) d.fonts.ready.then(fit); }
   const shown0 = shown ? shown.innerHTML : '';
   const go = C.go = (r, rep) => Cleo.route.go(r, rep);
-  const cur = () => { const r = {}; if (S.mode !== 'all') r.mode = S.mode; LENS.concat('sort').forEach(k => { if (S[k]) r[k] = S[k]; }); return r; };
+  const cur = () => { const r = {}; if (S.mode !== 'all') r.mode = S.mode; LENS.concat('sort').forEach(k => { if (S[k]) r[k] = S[k]; }); if (S.q) r.q = S.q; return r; };
   const label = C.label = (k, v) => k === 'sig' ? (info.sig || {}).t || tt('city.sig.t', 'Signature') : k === 't' ? ['', tt('tier.1', 'Must see'), tt('tier.2', 'Worth the detour'), tt('tier.3', 'Deep cut')][v] : k === 'src' ? ((info.src || {})[v] || [v])[0] : k === 'closed' ? tt('city.door.closed.t', 'Recently closed') : k === 'mine' ? tt('shell.saved', 'Your list')
     : k === 'a' ? ((info.areas || {})[v] || {}).n || v : k === 'been' ? (v === 'hide' ? tt('city.been.hide', 'Hide been there') : tt('city.been.only', 'Only been there')) : k === 'rec' ? ({ award: tt('rec.f.award', 'Has an award'), video: tt('rec.f.video', 'Has a creator video'), cited: tt('rec.f.cited', 'Cited by 3 or more sources') }[v] || tt('rec.tile.k', 'Recognised')) : k === 'lf' ? tt('lf.label', 'Local favourites') /* FE-C QC-24 / W9-9 hook */ : k === 'q' ? '“' + v + '”' : (info.cats || {})[v] || v;
 
@@ -85,7 +85,10 @@
     else if ((b = t.closest('[data-cleo-tray]'))) T.open(at(b, 'data-cleo-tray'), b);
     else if ((b = t.closest('button.pl-save')) && Cleo.saved) Cleo.saved.toggle(key + '/' + pid(b.closest('li.pl')));
   });
-  let tq; on(fi, 'input', () => { clearTimeout(tq); tq = setTimeout(() => { S.q = fi.value; apply(); }, 120); });
+  // the route is the search's source of truth: typing writes q= (one history entry as a search starts, then in place), so a
+  // bare link clears it and Back / Forward restore it
+  let tq; on(fi, 'input', () => { clearTimeout(tq); tq = setTimeout(() => { const r = Cleo.route.parse(), had = !!r.q; S.q = fi.value; if (S.q) r.q = S.q; else delete r.q; delete r.pg;
+    const h = Cleo.route.href(r); if (!had && S.q) location.hash = h; else { try { history.replaceState(history.state, '', h === '#' ? location.pathname + location.search : h); } catch (e) {} apply(); } }, 120); });
 
   // THE lens predicate is platform's Cleo.lens.match (P-02: one predicate in every view); the page-only lenses follow
   const visible = c => {
@@ -218,7 +221,7 @@
     if (r.day && !C.day) need('day', () => C.apply());
     S.mode = r.mode === 'sights' || r.mode === 'food' ? r.mode : 'all';
     LENS.forEach(k => { S[k] = r[k] || ''; }); S.sort = r.sort || '';
-    if (r.q !== undefined) { S.q = r.q; if (fi) fi.value = r.q; }
+    S.q = r.q || ''; if (fi && fi.value !== S.q) fi.value = S.q;   // no q= in the route, no search (FE-B finding)
     const tg = r.p && byId[r.p];
     if (tg && !visible(tg)) { S.mode = 'all'; LENS.forEach(k => { S[k] = ''; }); S.q = ''; if (fi) fi.value = ''; }
     apply();

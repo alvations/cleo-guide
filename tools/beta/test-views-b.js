@@ -213,8 +213,29 @@ const textOf = h => h.replace(/<[^>]+>/g, ' ').replace(/&#39;/g, "'").replace(/&
     const vis = [...host.querySelectorAll('li.ge:not([hidden])')].map(li => li.getAttribute('data-k3'));
     const cards = [...d.querySelectorAll('li.pl:not([hidden])')].length;
     chk(`${page}: guidebook follows the city lens (mode=food → only food entries, == visible cards)`, vis.length > 0 && vis.every(k => k === 'food') && vis.length === cards && /of all \d+ places/.test(host.querySelector('[data-gb-count]').textContent), [vis.length, cards]);
-    w.location.hash = '';
-    for (let i = 0; i < 40 && host.querySelectorAll('li.ge[hidden]').length; i++) await sleep(50);
+    // QC-34: under a lens the Contents counts each chapter's visible entries; a chapter with none leaves the Contents.
+    // Synced on the count line; the Contents total must equal its "s of all N"; mounted chapters must match entry by entry.
+    const cnt = () => (host.querySelector('[data-gb-count]') || {}).textContent || '';
+    const shownN = () => { const m = /^(\d+) of all/.exec(cnt()) || /^All (\d+)/.exec(cnt()); return m ? +m[1] : -1; };
+    const settle = async want => { let prev = ''; for (let i = 0; i < 80; i++) { await sleep(50); const c = cnt(); if (want.test(c) && c === prev) return; prev = c; } };
+    const tocState = () => { const rows = [...host.querySelectorAll('a[data-gb-ch]')].map(a => ({ id: a.getAttribute('data-gb-ch'), hidden: a.closest('li').hidden, m: +a.querySelector('.meta').textContent }));
+      const bad = rows.map(r => { const art = host.querySelector(`article.ch[data-area="${r.id}"] .gl`) && host.querySelector(`article.ch[data-area="${r.id}"]`);
+        const n = art ? art.querySelectorAll('li.ge:not([hidden])').length : null;
+        return (r.hidden !== (r.m === 0)) || (n !== null && n !== r.m) ? `${r.id}: contents ${r.hidden ? 'hidden' : ''}${r.m}, chapter ${n}` : null; }).filter(Boolean);
+      const sum = rows.reduce((t, r) => t + r.m, 0); if (sum !== shownN()) bad.push(`contents total ${sum} != shown ${shownN()}`);
+      return { shown: rows.filter(r => !r.hidden).length, bad }; };
+    const toc0 = host.querySelectorAll('a[data-gb-ch]').length;
+    const word = page === 'cities/tokyo.html' ? 'ramen' : ((d.querySelector('li.pl .pl-n a') || {}).textContent || 'a').trim().split(/\s+/)[0].toLowerCase();
+    const area2 = host.querySelectorAll('a[data-gb-ch]')[Math.min(1, toc0 - 1)].getAttribute('data-gb-ch');
+    const tocRes = [];
+    for (const hsh of ['#mode=food', '#q=' + encodeURIComponent(word), '#a=' + area2]) {
+      w.location.hash = hsh; await settle(/ of all /); const st = tocState(); tocRes.push([hsh, cnt().split(' match')[0], st.shown, st.bad]);
+      w.location.hash = '#q='; await settle(/^All /); w.location.hash = ''; await settle(/^All /);   // '#q=' clears the city's kept search (city.js S.q)
+    }
+    chk(`${page}: QC-34 Contents follow the lens (mode=food, q=, a=): each count == the chapter's visible entries, total == "s of all N", empty chapters leave the Contents; a= keeps 1 of ${toc0}`,
+      tocRes.every(r => !r[3].length) && (toc0 === 1 || tocRes[2][2] === 1), tocRes.map(r => [r[0], r[1], r[2], r[3].slice(0, 2)]));
+    const st0 = tocState();
+    chk(`${page}: lens cleared → Contents back at full count, every chapter listed`, !st0.bad.length && st0.shown === toc0, st0);
     chk(`${page}: lens cleared → all entries back`, host.querySelectorAll('li.ge:not([hidden])').length === N, host.querySelectorAll('li.ge:not([hidden])').length);
     // save toggles through Cleo.saved (memory store when storage throws)
     const sv = host.querySelector('[data-cleo-ref]'); if (sv) sv.click(); await sleep(2);

@@ -49,7 +49,9 @@ git worktree add --detach ../qa-pin <SHA>          # a clean checkout of the pin
 cd ../qa-pin/tools && npm install --no-audit --no-fund
 npm run validate && npm test && npm run beta:check
 cp <latest origin>/tools/beta/metrics.js beta/metrics-qa.js   # only if the pin predates a QA probe fix
-node beta/metrics-qa.js --out <scratch>/mg.json             # Gallery pilots: B-02, B-04, B-05, B-07, B-08, B-20, B-23, G1
+node beta/metrics-qa.js --out <scratch>/md.json             # the DEFAULT view (Atlas after D-46): B-01a, B-24, B-07, B-20, B-23, G1
+node beta/metrics-qa.js --view gallery --out <scratch>/mg.json   # Gallery pinned: B-01, B-02, B-04, B-05, B-07, B-08, B-20, B-23, G1
+# pins before D-46 lands: QA_DEFAULT_VIEW=gallery for w4/w5/views (tools/beta/qa/default-view.js)
 node beta/metrics-qa.js --view atlas --out <scratch>/ma.json  # Atlas pilots: G1, B-07, B-08, B-20, B-23
 node beta/qa/w7.js --only atlasd,atlasm,detail,nocdn,lens    # QA-45/50/52, credits, the detail, no-CDN, lens totals
 QA_PILOTS=Singapore/chinatown.html,cities/tokyo.html node beta/qa/w7.js --only reach   # QA-54 search
@@ -61,7 +63,10 @@ Put evidence in `design/beta/eval/w7/qa/resign-<sha>/`. Never overwrite the R7 e
 
 ## In flight
 
-- Nothing running. R7 is signed off. Next: verify QA-79's fix (87f814ad) and the dev-only work (Atlas rev 5, PERF-08 re-land through `perf08-regress.sh`, W9 rows) when the next release pin comes.
+- Nothing running. r7 is live: PR #9 merged b54b3745 as 4382a187 (identical tree), and Pages built at 21:34Z.
+- Next on dev:
+  1. Verify platform's PERF-08 flip SHA with `tools/beta/qa/perf08-regress.sh`, plus `views.js --only links`, `w7.js --only lens` and the QC-26 A/B.
+  2. On the next release pin (after Atlas rev 5 reaches panel R4): QA-79's fix 87f814ad (`w2.js --only dom`), QC-04/D-43, W9-2, QC-30, QC-32, QC-33 and W8-I18N-SEARCH, plus the usual delta and regression sweep against b54b3745.
 
 ## Notes
 

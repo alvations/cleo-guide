@@ -24,6 +24,7 @@ function offlineStrings(city, n) {
 }
 const { head, siteBar, footer, BETA_BASE } = require('./common');
 const { rowsOf: galleryRows } = require('../gallery');
+const { leadCardHtml, ENABLED: SSR_LEAD } = require('../lead-card');   // PERF-18 (platform)
 const { sentence, ownWords } = require('../casing');
 // QC-25: the first http(s) URL in a geocodes statusSource note, or '' (the note itself is never shown)
 const statusUrl = n => ((/https?:\/\/[^\s;,'"()<>]+/.exec(String(n || '')) || [])[0] || '').replace(/[.]+$/, '');
@@ -339,7 +340,8 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   byArea.forEach(l => ordered.push(...l)); ordered.push(...orderArea(orphan));
   // W8 (R6 gap #8): the lead is ONE pick, lib/gallery.js rowsOf().lead — the record the lead card draws — so "Start with"
   // can never name a different place from the card under it (two near-identical pickers had drifted on 17 of 21 pages)
-  const gRows = galleryRows({ areas: areasAll, collections: page.CATS || [], cuisines: page.CUISINES || [], guide: row.guide, places: recs }, name);
+  // PERF-18 (platform): photos too, as data/gallery/<page>.json is built, so the server-rendered lead card carries its photo
+  const gRows = galleryRows({ areas: areasAll, collections: page.CATS || [], cuisines: page.CUISINES || [], guide: row.guide, places: recs, photos: (row.imagery && row.imagery.photos) || {} }, name);
   const leadId = (gRows.lead || {}).id;
   const leadR = recs.find(r => r.id === leadId) || ordered.find(r => !r.closed) || ordered[0];
   // W7 (owner: full UI/UX overhaul): a quiet hero — the city name, one line and the count line, with the imagery lane's
@@ -369,7 +371,12 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   const switcher = `<div class="views" data-cleo-views role="group" aria-label="${tr('city.view.label')}" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === DV}" data-label="${VLBL[v][0]}">${ico(VLBL[v][1])}<span class="l">${VLBL[v][0]}</span></button>`).join('')}</div>`;
   const areaChips = areas.length > 1 ? `<div class="area-chips" role="group" aria-label="${tr('city.areas.label')}" data-cleo-toolbar hidden></div>` : '';   // views.js draws the chips (page weight)
   // the view is set before first paint (SPEC §2.4): hash, then the stored preference (try/catch), then Gallery
-  const viewHead = `<script>(function(){var v=${JSON.stringify(VIEWS)},h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)(?:day|mode|a|t|c|cz|src|closed|q|sig|gap)=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}` +
+  // D-46 (owner: Atlas is the default view): the city's first impression in Atlas sits at the top of the list column —
+  // name, dek, "N places picked by M sources" — server-rendered and shown by CSS from first paint (no eager JS, CLS 0).
+  // Shared with the Atlas lane's phone list-sheet intro (FE-1 styles html.atlas-m .at-intro)
+  const atDek = m.h1Thin || heroLine || '';
+  const atIntro = `<header class="at-intro" data-cleo-intro><h2 class="at-name">${esc(name)}</h2>${atDek ? `<p class="at-dek dek">${esc(atDek)}</p>` : ''}<p class="at-n">${esc(tr('city.intro.n', { n: recs.length.toLocaleString('en-US'), m: (st.sources || srcList.length).toLocaleString('en-US') }))}</p></header>`;
+  const viewHead = `<script>(function(){var v=${JSON.stringify(VIEWS)},h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)(?:pg|all)=/.test(h))s='gallery';else if(/(?:^#|&)(?:day|mode|a|t|c|cz|src|closed|q|sig|gap)=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}` +
     `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'${DV}';document.documentElement.setAttribute('data-view',x);if(x==='atlas')document.documentElement.classList.add(!window.matchMedia||matchMedia('(min-width:1024px)').matches?'atlas-d':'atlas-m')})()</script>`;
 
   /* -- sprite: only the glyphs this page uses -- */
@@ -399,6 +406,9 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
     // area locator art (lib/art.js): [src, w, h, pad, minLat, minLng, maxLat, maxLng, kx, ky] → the sheet's inset
     art: Object.fromEntries(Object.entries((row.art && row.art.areas) || {}).map(([a, x]) => [a, [up + x.src, x.w, x.h, x.proj.pad].concat(x.proj.box, [+x.proj.kx.toFixed(4), +x.proj.ky.toFixed(4)])])),
   };
+  // PERF-18 (platform, marked): the phone lead card rendered here, in the reserved slot, so it paints with the HTML (Tokyo
+  // phone LCP); gallery.js adopts it. Same template as gallery.js gcard(lead, 1, true) — test-beta compares them.
+  const leadSSR = SSR_LEAD && gRows.lead ? leadCardHtml(gRows.lead, blob, cardsHtml, up) : '';
 
   /* -- filter tray (M1-07), server-rendered so it costs no client JS; city.js only opens it and applies it -- */
   const pill = (k, v, t, n) => `<button type="button" class="pill" data-f="${k}" data-v="${esc(v)}" aria-pressed="false">${esc(t)}${n != null ? ` <span class="n">${n}</span>` : ''}</button>`;
@@ -454,7 +464,7 @@ ${gapHtml.join('\n')}${closedTile ? '\n' + closedTile : ''}
 <!-- QA-48 / QA-60 (B-04): the category bar sits above the phone lead card, so it is on the first screen on every page, not only where the hero is short -->
 <!-- PERF-06 (platform, marked block): data-lead / data-rows say the client WILL draw a lead card / N rows here, so fe-a.css
      reserves their space on phones before the fetch lands (Gallery phone CLS); absent where the guide has none -->
-<div class="g-lead-slot vw view-gallery" id="cleo-lead"${gRows.lead ? ' data-lead' : ''}><p class="g-lead-k">${tr('city.lead.k')}</p></div>
+<div class="g-lead-slot vw view-gallery" id="cleo-lead"${gRows.lead ? ' data-lead' : ''}><p class="g-lead-k">${tr('city.lead.k')}</p>${leadSSR}</div>
 <div class="g-rows vw view-gallery" id="cleo-rows-host"${gRows.rows.length ? ` data-rows="${gRows.rows.length}"` : ''}></div>
 <!-- /PERF-06 -->
 <div class="toolbar" data-cleo-toolbar hidden>
@@ -468,6 +478,7 @@ ${areaChips}
 <div class="view-host" id="cleo-view" hidden></div>
 <div class="split">
 <div class="listpane" id="cleo-grid"><script>(function(h,g){if(h.classList.contains('atlas-d'))g.classList.add('w7-cards')})(document.documentElement,document.currentScript.parentNode)</script>
+${atIntro}
 <div class="lens" id="cleo-lens" aria-live="polite" hidden></div>
 <p class="shown" id="cleo-shown" aria-live="polite"></p>
 ${cardsHtml}

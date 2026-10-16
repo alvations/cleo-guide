@@ -1,0 +1,602 @@
+{
+ "generated": "2026-10-16T22:14:39.247Z",
+ "viewports": {
+  "mobile": "390x844@3 touch",
+  "desktop": "1440x900",
+  "narrow": "360x780"
+ },
+ "network": "all off-origin requests blocked (tiles stubbed 1x1 only in map-sync runs)",
+ "pages": [
+  {
+   "page": "cities/tokyo.html",
+   "gen": "new",
+   "expected": {
+    "total": 488,
+    "sights": 263,
+    "food": 225,
+    "live": "cities/tokyo.html"
+   },
+   "mobile": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 390,
+    "vh": 844,
+    "title": "Tokyo — 488 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 73,
+    "cardsVisible": 40,
+    "legacy": false,
+    "firstCardTop": 319,
+    "screensToFirstCard": 0.38,
+    "mastheadPx": 0,
+    "controlsAbove": 13,
+    "controlsAboveOnScreen": 13,
+    "controlsAboveList": [
+     "a.c0 \"Japan\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "button \"All 488\"",
+     "button \"Sights 263\"",
+     "button \"Eat & drink 225\"",
+     "button.chip.ms-top \"Top picks\"",
+     "button.btn.btn-primary \"Keep Tokyo offline\""
+    ],
+    "tapSmall": 0,
+    "tapSmallKinds": {},
+    "tapSmallList": [],
+    "textNodes": 411,
+    "upperNodes": 18,
+    "upperPct": 4.4,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: john w · CC BY 2.\"",
+    "contrastChecked": 380,
+    "contrastUnknown": 11,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.cbar \"GalleryAtlasGuidebookIns\"",
+     "div.ms-bar \"Search Tokyoplace · dish\"",
+     "div#cleo-grid.listpane.w7-cards \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 355,
+    "cardsPerScreen": 2.38,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 3996,
+    "fcp": 244,
+    "fontSampleN": 391,
+    "fontsDeclared": {
+     "Inter": 610,
+     "Bricolage Grotesque": 16,
+     "Hiragino Sans": 9
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Inter": 6477,
+      "IPAGothic": 435,
+      "Bricolage Grotesque 96pt ExtraBold": 119
+     },
+     "primary": [
+      "Inter",
+      "IPAGothic",
+      "Bricolage Grotesque 96pt ExtraBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 30,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 2029073,
+    "bytesAllResponses": 2029073,
+    "initial": {
+     "bytes": 1826621,
+     "gz": 589559
+    },
+    "session": {
+     "bytes": 2029073
+    },
+    "offOriginBlocked": 40,
+    "night": {
+     "contrastChecked": 380,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "view": {
+     "now": "atlas",
+     "paint": "atlas",
+     "cls": 0
+    },
+    "atlasFirst": {
+     "leaflet": true,
+     "mapPct": 86,
+     "clearPct": 74,
+     "photos": 0,
+     "intro": {
+      "city": false,
+      "dek": false,
+      "leadPhoto": false
+     },
+     "tray": {
+      "text": "351 places here · checked 2 Oct · Show list",
+      "w": 390,
+      "h": 56
+     },
+     "named": 7,
+     "namedEg": [
+      "Edo-Tokyo Museum",
+      "Imperial Palace East Gardens",
+      "Tsukiji Hongan-ji",
+      "Tokyo National Museum",
+      "Udatsu Sushi"
+     ],
+     "pinsNamed": 7,
+     "cardsNamed": 0
+    },
+    "sheetFlow": {
+     "toggle": {
+      "w": 390,
+      "h": 56,
+      "name": "map-first: 351 places here · checked 2 Oct · Show list",
+      "mapFirst": true,
+      "ok44": true
+     },
+     "fullMap": true,
+     "pinSheet": null,
+     "msPin": {
+      "card": {
+       "id": "tsukiji-hongan-ji",
+       "own": true,
+       "inView": true
+      },
+      "detail": {
+       "cls": "sheet detail",
+       "h": 490,
+       "closeVisible": true,
+       "modal": true,
+       "grab": true,
+       "has": {
+        "sources": true,
+        "directions": true,
+        "pin": true,
+        "status": true,
+        "save": true,
+        "share": true
+       }
+      },
+      "escCloses": true,
+      "backCloses": true,
+      "stayedOnPage": true,
+      "ok": true
+     },
+     "detail": {
+      "cls": "sheet detail",
+      "h": 490,
+      "closeVisible": true,
+      "modal": true,
+      "grab": true,
+      "has": {
+       "sources": true,
+       "directions": true,
+       "pin": true,
+       "status": true,
+       "save": true,
+       "share": true
+      },
+      "focusTrapped": true,
+      "escCloses": true,
+      "focusRestored": true,
+      "backCloses": true,
+      "stayedOnPage": true
+     }
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "desktop": {
+    "loadErr": null,
+    "kind": "city",
+    "vw": 1440,
+    "vh": 900,
+    "title": "Tokyo — 488 sourced places · Cleo",
+    "overflowX": 0,
+    "cards": 72,
+    "cardsVisible": 40,
+    "legacy": false,
+    "firstCardTop": 280,
+    "screensToFirstCard": 0.31,
+    "mastheadPx": null,
+    "controlsAbove": 25,
+    "controlsAboveOnScreen": 25,
+    "controlsAboveList": [
+     "a.brand \"cleofield guides\"",
+     "a.c0 \"Japan\"",
+     "a \"Destinations\"",
+     "a \"How we choose\"",
+     "button.btn.btn-quiet \"English\"",
+     "button.btn.btn-quiet \"日本語\"",
+     "button \"Gallery\"",
+     "button \"Atlas\"",
+     "button \"Guidebook\"",
+     "button \"Insights\"",
+     "button.btn.btn-icon",
+     "a.btn.btn-icon",
+     "a.btn.btn-icon",
+     "input#cleo-filter",
+     "button \"All 488\"",
+     "button \"Sights 263\"",
+     "button \"Eat & drink 225\"",
+     "button.btn.btn-ghost \"Area\"",
+     "button.btn.btn-ghost \"Filters\"",
+     "button.chip.ms-top \"Top picks\"",
+     "button.chip.ms-mine \"Saved\"",
+     "select \"Top rankedMost sourcesA–\"",
+     "button.btn.btn-quiet \"For you\"",
+     "button.btn.btn-quiet \"Your day\"",
+     "button.btn.btn-quiet \"Near me\""
+    ],
+    "tapSmall": 5,
+    "tapSmallKinds": {
+     "button": 4,
+     "input#cleo-filter 286x25": 1
+    },
+    "tapSmallList": [
+     "button \"Gallery\" 113x36",
+     "button \"Atlas\" 113x36",
+     "button \"Guidebook\" 113x36",
+     "button \"Insights\" 113x36",
+     "input#cleo-filter 286x25"
+    ],
+    "textNodes": 457,
+    "upperNodes": 18,
+    "upperPct": 3.9,
+    "minFontPx": 12,
+    "minFontEl": "figcaption \"Photo: john w · CC BY 2.\"",
+    "contrastChecked": 425,
+    "contrastUnknown": 10,
+    "contrastFails": 0,
+    "contrastFailList": [],
+    "floaters": [
+     "div.ms-head \"Map unavailable right no\""
+    ],
+    "railVisible": false,
+    "railTop": null,
+    "railOnFirstScreen": false,
+    "railItems": 0,
+    "railFirst": null,
+    "cityCardsAbove": 0,
+    "cardMedianH": 354,
+    "cardsPerScreen": 2.54,
+    "noAttribution": 0,
+    "noAttributionIds": [],
+    "closed": 0,
+    "closedWithTier": 0,
+    "closedWithTierIds": [],
+    "closedUnflagged": 0,
+    "landmarks": {
+     "header": true,
+     "nav": true,
+     "main": true,
+     "footer": true
+    },
+    "skipLink": true,
+    "unnamedControls": 0,
+    "unnamedList": [],
+    "domNodes": 3931,
+    "fcp": 216,
+    "fontSampleN": 400,
+    "fontsDeclared": {
+     "Bricolage Grotesque": 16,
+     "Inter": 649,
+     "Hiragino Sans": 9
+    },
+    "hasMapEl": true,
+    "fonts": {
+     "all": {
+      "Bricolage Grotesque 96pt ExtraBold": 104,
+      "Inter": 6575,
+      "IPAGothic": 435
+     },
+     "primary": [
+      "Inter",
+      "IPAGothic",
+      "Bricolage Grotesque 96pt ExtraBold"
+     ],
+     "fallback": []
+    },
+    "focus": {
+     "checked": 28,
+     "invisible": []
+    },
+    "overlap": {
+     "positions": 20,
+     "hits": 0,
+     "where": []
+    },
+    "errorsLoad": 0,
+    "reach": {
+     "dom": 488,
+     "scrolled": 488,
+     "missing": 0,
+     "missingIds": [],
+     "dup": 0,
+     "deepLinks": {
+      "n": 488,
+      "ok": 488,
+      "bad": []
+     },
+     "search": {
+      "n": 26,
+      "ok": 26,
+      "bad": []
+     }
+    },
+    "tray": {
+     "button": true,
+     "tray": true,
+     "showN": "Show 488 places",
+     "groups": [
+      "AreaChiyoda-ku 43Chū",
+      "Area",
+      "Distinction — graded",
+      "Distinction — graded",
+      "Recommended byWikipe",
+      "Recommended by",
+      "CollectionAnime, man",
+      "Collection",
+      "CuisineSushi & kaise",
+      "Cuisine",
+      "Sort within each are",
+      "Sort within each are"
+     ],
+     "escCloses": false
+    },
+    "errorsStress": 0,
+    "errors": [],
+    "stressErrorSample": [],
+    "local404": [],
+    "bytes": 8039098,
+    "bytesAllResponses": 8039098,
+    "initial": {
+     "bytes": 2149675,
+     "gz": 912613
+    },
+    "session": {
+     "bytes": 8039098
+    },
+    "offOriginBlocked": 72,
+    "night": {
+     "contrastChecked": 425,
+     "contrastFails": 0,
+     "contrastFailList": []
+    },
+    "view": {
+     "now": "atlas",
+     "paint": "atlas",
+     "cls": 0.0051
+    },
+    "atlasFirst": {
+     "leaflet": true,
+     "mapPct": 88,
+     "clearPct": 88,
+     "photos": 2,
+     "intro": {
+      "city": false,
+      "dek": false,
+      "leadPhoto": false
+     },
+     "tray": null,
+     "named": 16,
+     "namedEg": [
+      "Edo-Tokyo Museum",
+      "Imperial Palace East Gardens",
+      "Tsukiji Hongan-ji",
+      "Toraya Akasaka flagship",
+      "Suga Shrine stairs"
+     ],
+     "pinsNamed": 15,
+     "cardsNamed": 2
+    },
+    "sync": {
+     "mounted": true,
+     "mapWidthPct": 64,
+     "split": true,
+     "sticky": true,
+     "markers": 16,
+     "pinned": 59,
+     "markerNumbers": 0,
+     "pinLabels": 0,
+     "namedPins": 16,
+     "hoverHighlights": true,
+     "pinClick": {
+      "cardHighlighted": true,
+      "cardInView": true,
+      "sheet": true
+     },
+     "orderingStated": true
+    },
+    "tileHosts": [
+     "server.arcgisonline.com"
+    ],
+    "tileHostsOk": true
+   },
+   "narrow": {
+    "vw": 360,
+    "overflowX": 0
+   },
+   "noJs": {
+    "cards": 488,
+    "text": 19012
+   },
+   "cpu4x": {
+    "fcp": 396,
+    "dcl": 1087,
+    "loadMs": 1787
+   },
+   "verdict": {
+    "rows": {
+     "B-01 screens to first card ≤1.0": {
+      "pass": null,
+      "val": "0.38 (Atlas: recorded; see B-01a)"
+     },
+     "B-01a Atlas first screen: clear map ≥ 75 %, peek tray, ≥ 3 real places named (D-46, §1.7)": {
+      "pass": false,
+      "val": "phone clear 74% (box 86%) · tray \"351 places here · checked 2 Oct · Show list\" 390×56 · named 7 (Edo-Tokyo Museum, Imperial Palace East Gardens, Tsukiji Hongan-ji) · desktop named 16"
+     },
+     "B-01b first-screen art: phone photo; desktop city name, dek, lead photo (§1.7)": {
+      "pass": null,
+      "val": "WARN · phone photos 0 (gate warn) · desktop intro city ✗ dek ✗ leadPhoto ✗ (gate warn)"
+     },
+     "B-24 first load: CLS < 0.01, view set before first paint (D-46)": {
+      "pass": true,
+      "val": "CLS 0 / 0.0051 · view at paint atlas→atlas / atlas→atlas"
+     },
+     "B-02 masthead ≤0.6 screen": {
+      "pass": true,
+      "val": 0
+     },
+     "B-03 controls above first card ≤14": {
+      "pass": true,
+      "val": "13 on-screen / 13 total"
+     },
+     "B-04 rail on first screen": {
+      "pass": null,
+      "val": "Atlas (D-36, D-46): recorded — no rail"
+     },
+     "B-06 split view + sticky map + sync": {
+      "pass": true,
+      "val": "split true, sticky true, map 64%, hover→pin true, pin→card true"
+     },
+     "B-07 mobile map toggle + sheet (Close, Esc, Back)": {
+      "pass": true,
+      "val": "toggle 390×56, full map true, pin sheet none, map-search: own card true in view true → detail true close true esc true back true atlas true"
+     },
+     "B-08 floaters over titles = 0": {
+      "pass": true,
+      "val": 0
+     },
+     "B-09 pin numbers == card numbers": {
+      "pass": true,
+      "val": "numbered pins 0 (pin-n labels 0), named pins 16, ordering stated true"
+     },
+     "B-10 filter tray + \"Show N places\"": {
+      "pass": true,
+      "val": "Show 488 places"
+     },
+     "B-12 closed with tier glyph = 0": {
+      "pass": true,
+      "val": "0 of 0 closed"
+     },
+     "B-16 cards per mobile screen ≥2": {
+      "pass": true,
+      "val": 2.38
+     },
+     "B-17 sheet content (sources, directions, pin, status, save, share, trap)": {
+      "pass": true,
+      "val": "missing: none · close true · trap true · esc true · back true · focus restored true"
+     },
+     "G1 reachability 100% (scroll, deep link, search, no-JS)": {
+      "pass": true,
+      "val": "data 488 · DOM 488 · scrolled 488 · deep 488/488 · search 26/26 · no-JS 488"
+     },
+     "G6 \"Recommended by\" on every card": {
+      "pass": true,
+      "val": "0 cards without · 0 closed unflagged"
+     },
+     "B-18 font families ≤2 (+CJK)": {
+      "pass": true,
+      "val": "declared: Inter, Bricolage Grotesque · rendered here: Inter, IPAGothic, Bricolage Grotesque 96pt ExtraBold"
+     },
+     "B-19 uppercase text nodes <15%": {
+      "pass": true,
+      "val": "4.4% (18/411)"
+     },
+     "B-20 tap targets <44 = 0 (mobile)": {
+      "pass": true,
+      "val": 0
+     },
+     "B-21 smallest text ≥12px": {
+      "pass": true,
+      "val": "12px figcaption \"Photo: john w · CC BY 2.\""
+     },
+     "B-22 overflow 0 at 360 + 390": {
+      "pass": true,
+      "val": "390:0 360:0"
+     },
+     "B-23 contrast AA light + night": {
+      "pass": true,
+      "val": "light 0/0 · night 0/0 (mobile/desktop)"
+     },
+     "M1-16 focus visible": {
+      "pass": true,
+      "val": "30/30"
+     },
+     "M1-16 landmarks + skip link + names": {
+      "pass": true,
+      "val": "landmarks ok · skip true · unnamed 0"
+     },
+     "G4 no-CDN render, 0 JS errors": {
+      "pass": true,
+      "val": "errors 0 · 404 0 · off-origin blocked 112"
+     },
+     "Stress: JS errors, every deep link at machine speed (info)": {
+      "pass": null,
+      "val": "0 errors"
+     },
+     "Tiles OSM/Esri only": {
+      "pass": true,
+      "val": "server.arcgisonline.com"
+     },
+     "Perf: bytes / DOM / FCP / FCP 4×": {
+      "pass": null,
+      "val": "7851 KB · 3931 nodes · 216 ms · 396 ms"
+     },
+     "Perf: initial load transfer ≤ 2.0 MB, map tiles excluded (desktop · phone@3×; raw in brackets)": {
+      "pass": true,
+      "val": "891 KB (2,099 KB) · 576 KB (1,784 KB)"
+     }
+    },
+    "passed": 24,
+    "total": 25,
+    "hardFail": []
+   }
+  }
+ ]
+}

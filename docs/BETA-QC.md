@@ -599,3 +599,14 @@ Outputs are in `design/beta/eval/qc/r7-b54b3745/`. Sweep: `qc.js --only sweep --
 **Register:**
 - Verified 27.
 - Open 6: Med 1 (QC-33), Low 5 (QC-13, 14, 30, 31, 32). High 0 · Blocker 0.
+
+## Dev check 2026-10-16 · cceabd64 (FE-C heads-ups: the Atlas empty state from 70ddc1c9, "Status checked" as real text from 86b7558e)
+
+Evidence is in `design/beta/eval/qc/dev-cceabd64/`.
+
+| Check | Result | Evidence |
+|---|---|---|
+| QC-05 under FE-1's single Atlas empty state | **holds** | `#view=<v>&q=zzqxjv` on Tokyo, Cleveland and New York at 390 and 1440. Gallery: "No places match “…”" + Show all N, and the way out restores the cards. Atlas 1440: `.ms-head` "No places match “…”" + Clear search + Show all N; Clear search returns the map list ("450 places here"). Atlas 390: the peek tray says "No places match · Show the list"; following it shows the same head, and Clear search works. Guidebook: summary line "0 of all N places match this lens." + Show all N. |
+| Harness S-05 | **widened** (not weakened) | The empty-state probe now runs in each of Gallery, Atlas and Guidebook, not only the default view. It reads the Guidebook's "0 of all N places match" line and follows Atlas's phone "Show the list" step before looking for the way out. Pilots pass in every view (Tokyo, Cleveland × 390/1440). |
+| W9-2 "Status checked <d Mon>" as real text | **OK** | Tokyo: 61 `.pl-chk` elements, all `[data-nosearch]`, and the text is in the card's `innerText`. Search: "status checked" → "No places match"; "checked" → 1, "Oct" → 6, "2026" → 40 cards. Every match is explained by the card's other text: 0 cards matched only through the date line. The sweep at 1440 on 3 pages shows no new S-08, S-16 or S-06 hits from the line. |
+| Guidebook Contents under a lens | **FAIL** → **QC-34** | Contents keeps the chapter totals whatever the lens. `q=ramen`: the summary says "34 of all 488 places match" and the body shows 34, but Contents lists Chiyoda-ku 43 / Chūō-ku 49 / Minato-ku 54 while those chapters show 1 / 2 / 1. `a=CHUO`: Contents still lists every ward at full count, though only Chūō-ku is shown. `q=zzqxjv`: 0 match, Contents unchanged. Cause: `client/guidebook.js:153` writes `lst.length` once, at build. The same code is on r7 (b54b3745) and 4aba38b3, so it's pre-existing. `qc-34-guidebook-contents-1440.jpg`. |

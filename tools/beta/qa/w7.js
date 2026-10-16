@@ -411,7 +411,8 @@ async function nocdn(rel) {
 /* ---------------- B-08 proposal: titles under .cbar / .mappill ---------------- */
 async function b08(rel) {
   for (const vp of ['mobile', 'desktop']) {
-    const { ctx, page } = await open(rel, vp, { settle: 1500 });
+    // the .cbar / .mappill floaters are the Gallery's (pinned; D-46 makes Atlas the default, whose B-08 is metrics.js's)
+    const { ctx, page } = await open(rel, vp, { hash: '#view=gallery', settle: 1500 });
     const r = await page.evaluate(async () => {
       const fl = ['.cbar', '.mappill'].map(s => document.querySelector(s)).filter(e => e && __vis(e)).map(e => ({ cls: e.className.toString().slice(0, 20), pos: getComputedStyle(e).position, h: Math.round(e.getBoundingClientRect().height), w: Math.round(e.getBoundingClientRect().width) }));
       const ts = [...document.querySelectorAll('li.pl .pl-n')].filter(t => __vis(t)); const step = Math.max(1, Math.floor(ts.length / 30)); let seen = 0; const cov = [];
@@ -428,7 +429,7 @@ async function b08(rel) {
 async function gallery(rel) {
   const d = DATA[rel], closed = d.places.filter(p => /CLOSED/i.test(p.n)).map(p => p.id);
   for (const vp of ['mobile', 'desktop']) {
-    const { ctx, page } = await open(rel, vp, { settle: 1500 });
+    const { ctx, page } = await open(rel, vp, { hash: '#view=gallery', settle: 1500 });   // tests the Gallery itself (D-46)
     const r = await page.evaluate(async ids => {
       const all = document.querySelector('.g-pager [data-pg="all"]'); if (all) { all.click(); await new Promise(r => setTimeout(r, 400)); }
       const vc = [...document.querySelectorAll('li.pl')].filter(c => __vis(c));
@@ -632,7 +633,7 @@ async function fcp4(rel, hash, vp) {
 async function perf() {
   const med = a => a.slice().sort((x, y) => x - y)[Math.floor(a.length / 2)];
   const K = n => Math.round(n / 1024);
-  const pages = [['Tokyo Gallery (default)', 'cities/tokyo.html', ''], ['Tokyo Atlas', 'cities/tokyo.html', '#view=atlas'], ['Landing', 'index.html', ''], ['Japan hub', 'Japan/index.html', '']];
+  const pages = [['Tokyo Gallery', 'cities/tokyo.html', '#view=gallery'], ['Tokyo default view', 'cities/tokyo.html', ''], ['Tokyo Atlas', 'cities/tokyo.html', '#view=atlas'], ['Landing', 'index.html', ''], ['Japan hub', 'Japan/index.html', '']];
   R.perf = [];
   for (const [label, rel, hash] of pages) for (const vp of ['desktop', 'phone3']) {
     const w = await weigh(rel, hash, vp);

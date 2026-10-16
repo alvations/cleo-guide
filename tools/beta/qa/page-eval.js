@@ -8,7 +8,7 @@
  * Examples (R7 re-sign checks):
  *   QC-01   node tools/beta/qa/page-eval.js d 'cities/tokyo.html#view=insights' "(async()=>{await new Promise(r=>setTimeout(r,1800));return [...document.querySelectorAll('a[href]')].filter(a=>/cz=|c=/.test(a.getAttribute('href'))).map(a=>[a.textContent.trim().slice(0,30),a.getAttribute('href')])})()"
  *   QA-65   node tools/beta/qa/page-eval.js d 'cities/tokyo.html#p=tempura-abe-honten' "(async()=>{await new Promise(r=>setTimeout(r,2500));return /quoted from the source/.test(document.getElementById('sh-t').closest('[role=dialog]').innerText)})()"
- *   QA-69   node tools/beta/qa/page-eval.js m 'cleveland.html' "(async()=>{await new Promise(r=>setTimeout(r,1500));const p=document.querySelector('.mappill');return [p.className,getComputedStyle(p).visibility]})()"
+ *   QA-69   node tools/beta/qa/page-eval.js m 'cleveland.html#view=gallery' "(async()=>{await new Promise(r=>setTimeout(r,1500));const p=document.querySelector('.mappill');return [p.className,getComputedStyle(p).visibility]})()"
  */
 'use strict';
 const http = require('http'), fs = require('fs'), path = require('path');

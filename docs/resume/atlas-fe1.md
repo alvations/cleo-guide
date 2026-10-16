@@ -24,6 +24,7 @@ SPEC-v3 rev 5 for panel round 4 (R3 scored 80.7), plus QC / QA items. In order:
 7. QC-14: run `python3 design/beta/tools/snap-spacing.py tools/beta/lib/render/atlas.css`, then check 390 and 1440.
 
 ## Done (pushed)
+- ec71a4ad pre-R4: B-20 source chip 44 px (+ ellipsis, title on cut chips), QC-05 in catalogue strings (FE-C hides theirs), rev 5a phone chrome (search via the header icon, 48 px chip row, 56 px peek, "Search this area" at 160 and hidden on the first screen), kit bag/spire with spire for churches only, dark dots 45 % / 80 %. Atlas metrics on 5 pilots: B-20 0, B-03 13–14, B-08 0.
 - 03c9fc58 QC-17 · 0e8faff9 phone switcher row + chip order · 4888cd5a desktop header (#5), no rank badges, QC-05 · 0118f115 one ranked list (#2), B-21 · bbe11d60 card text 16/14 (#3) · (this push) QC-13, R7-g4 (d) checked date in the peek, (e) desktop doors; QC-04 met by FE-C.
 - d2b6ead3 checkpoint + push script · 66c2a8e1 QC-14 spacing, R7-g4 (b) probe · 45379fbf local/R4 evidence, SHOTS-REQUEST = R4.
 - (this push) rev 5 #4 part: no sun on dots/pills, sight 7 px circle @30 % / food 8 px square @72 %, glyph overrides (step 0) + new nouns (bottle, frame, bag) + spire, location dot as a placed box, measured pill gaps ≥ 4 px; FE-B shadows → tokens.
@@ -34,6 +35,9 @@ SPEC-v3 rev 5 for panel round 4 (R3 scored 80.7), plus QC / QA items. In order:
 - Rev 4 phone first screen (peek, labelled pills, Key in Filters), Top picks, count line, 8 px dots, noun-first glyphs. Merged with FE-2 slices 1–2: the paged list survives late stamping, a swipe after Back, preview with no media, nearest-edge scroll. See BETA-LOG "SPEC-v3 rev 4" and the merge notes.
 
 ## Next
+- **Waiting on:** the orchestrator's real re-shoot of 0a4e5751 (requested), the designer's dark-dot re-sign, and FE-2's re-run.
+- **Settled:** D-43 declined; the preview says "Approximate pin" (0a4e5751). FE-C's Atlas empty-state hide landed (70ddc1c9e). "Search as I move" stays off on phones (designer agreed).
+- **Then:** give FE-2 the SHA, and announce "round 4 ready at <sha>" to the panel with the orchestrator copied.
 - **Round 4:** wait for (1) the real/R4 shots (orchestrator runs the workflow), (2) the designer's dots sign-off, (3) FE-2's go or SHA (their #7 108 px shift, R7-g4 c). Then send the panel (session_01EKzwLjqF1Z1gwXWgbrrr2S) exactly "round 4 ready at <sha>", after telling FE-2.
 - **Open decisions** (designer / QA): clear map ~74 % with the required switcher row; B-03's ≤ 14 against the spec's 15 phone controls; review of the `bag` and `spire` glyphs.
 - **Watch:**
