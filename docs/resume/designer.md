@@ -49,7 +49,7 @@ Current rows:
 
 ## In flight
 
-- A full `npm test` run on 82946f4f was started 2026-10-16. Nothing is unpushed.
+- Nothing. The full `npm test` passed on 82946f4f (exit 0, no FAIL). Nothing is unpushed.
 
 ## Notes
 
