@@ -14,6 +14,8 @@ for vp in m d; do
   R=$(node tools/beta/qa/page-eval.js $vp 'cities/tokyo.html#view=atlas&a=CYD&p=imperial-palace-east-gardens' "(async()=>{await new Promise(r=>setTimeout(r,2500));const g=document.querySelector('[role=dialog]:not([hidden])');const t=g?g.innerText.match(/\d+ of \d+/):null;return [document.querySelectorAll('li.pl:not([hidden])').length,t&&t[0]].join('|')})()" 2>/dev/null)
   echo "QC-26 $vp: $R"; [ "$R" = '"43|1 of 43"' ] || F=1
 done
+# desktop switch → Atlas INP (797258c2 regression guard; 1,500 ms ceiling at 1× CPU)
+node tools/beta/qa/atlas-switch-inp.js || F=1
 # the initial-DOM budget (M3-06; selective changes what is built at load)
 node tools/beta/qa/test-dom-budget.js || F=1
 # FE-2's Atlas interaction probes on Tokyo, incl. its "QA-76" block (plain + lens, 390 / 1440; ≈ 3 min)

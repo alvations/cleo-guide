@@ -1,0 +1,328 @@
+{
+ "tokyo-phone": {
+  "first": {
+   "mapBox": [
+    116,
+    728
+   ],
+   "mapShare": 0.86,
+   "lastChecked": [],
+   "lastCheckedAny": 0
+  },
+  "open": {
+   "rankPins": 8,
+   "clusters": 0,
+   "pinW": [
+    83,
+    160,
+    242
+   ],
+   "pinH": [
+    32,
+    32,
+    32
+   ],
+   "pinLook": "rgb(255, 255, 255) / rgb(28, 25, 23) / r 999px",
+   "clusterLook": null,
+   "clusterSize": null
+  },
+  "zoomed": {
+   "rankPins": 8,
+   "clusters": 0,
+   "pinW": [
+    83,
+    160,
+    242
+   ],
+   "pinH": [
+    32,
+    32,
+    32
+   ],
+   "pinLook": "rgb(255, 255, 255) / rgb(28, 25, 23) / r 999px",
+   "clusterLook": null,
+   "clusterSize": null
+  },
+  "pinTap": {
+   "tappedCorner": true,
+   "card": "p-tsukiji-hongan-ji",
+   "inView": true
+  },
+  "carouselCredit": [],
+  "mustChip": [],
+  "day": {
+   "routes": 0,
+   "routeTopBottom": [
+    null,
+    null
+   ],
+   "carouselTop": 636,
+   "stops": 0,
+   "stopsUnderCarousel": 0,
+   "hash": "#day=TAITO&at=35.70995%2C139.77396%2C15"
+  },
+  "errors": 0
+ },
+ "cleveland-phone": {
+  "first": {
+   "mapBox": [
+    116,
+    728
+   ],
+   "mapShare": 0.86,
+   "lastChecked": [],
+   "lastCheckedAny": 0
+  },
+  "open": {
+   "rankPins": 8,
+   "clusters": 0,
+   "pinW": [
+    110,
+    160,
+    212
+   ],
+   "pinH": [
+    32,
+    32,
+    32
+   ],
+   "pinLook": "rgb(255, 255, 255) / rgb(28, 25, 23) / r 999px",
+   "clusterLook": null,
+   "clusterSize": null
+  },
+  "zoomed": {
+   "rankPins": 8,
+   "clusters": 0,
+   "pinW": [
+    110,
+    160,
+    212
+   ],
+   "pinH": [
+    32,
+    32,
+    32
+   ],
+   "pinLook": "rgb(255, 255, 255) / rgb(28, 25, 23) / r 999px",
+   "clusterLook": null,
+   "clusterSize": null
+  },
+  "pinTap": {
+   "tappedCorner": true,
+   "card": "p-chess-collection-cleveland-public-library-main-library",
+   "inView": true
+  },
+  "carouselCredit": [
+   {
+    "li": "p-the-arcade-old-arcade",
+    "text": "Photo: Martin Linsey, HABS photographer · Public d",
+    "clip": true,
+    "fs": "16px",
+    "box": [
+     0,
+     0
+    ]
+   }
+  ],
+  "mustChip": [],
+  "errors": 0
+ },
+ "chinatown-phone": {
+  "first": {
+   "mapBox": [
+    116,
+    728
+   ],
+   "mapShare": 0.86,
+   "lastChecked": [],
+   "lastCheckedAny": 0
+  },
+  "open": {
+   "rankPins": 6,
+   "clusters": 0,
+   "pinW": [
+    157,
+    255,
+    288
+   ],
+   "pinH": [
+    32,
+    32,
+    32
+   ],
+   "pinLook": "rgb(255, 255, 255) / rgb(28, 25, 23) / r 999px",
+   "clusterLook": null,
+   "clusterSize": null
+  },
+  "zoomed": {
+   "rankPins": 6,
+   "clusters": 0,
+   "pinW": [
+    157,
+    255,
+    288
+   ],
+   "pinH": [
+    32,
+    32,
+    32
+   ],
+   "pinLook": "rgb(255, 255, 255) / rgb(28, 25, 23) / r 999px",
+   "clusterLook": null,
+   "clusterSize": null
+  },
+  "pinTap": {
+   "tappedCorner": true,
+   "card": "p-sri-mariamman-temple",
+   "inView": true
+  },
+  "carouselCredit": [
+   {
+    "li": "p-sri-mariamman-temple",
+    "text": "Photo: Jakub Hałun · CC BY 4.0 · Wikimedia Commons",
+    "clip": true,
+    "fs": "16px",
+    "box": [
+     0,
+     0
+    ]
+   },
+   {
+    "li": "p-buddha-tooth-relic-temple-and-museum",
+    "text": "Photo: Riction · CC BY 3.0 · Wikimedia Commons (re",
+    "clip": true,
+    "fs": "16px",
+    "box": [
+     0,
+     0
+    ]
+   }
+  ],
+  "mustChip": [],
+  "errors": 0
+ },
+ "tokyo-desktop": {
+  "layout": {
+   "mapPct": 64,
+   "mapLeft": 0,
+   "mapH": 792,
+   "cols": 2,
+   "cardsInView": 4,
+   "rail": [
+    "foryou:not in view",
+    "day:not in view",
+    "near:not in view"
+   ],
+   "results": "359 places here · Top ranked"
+  },
+  "open": {
+   "rankPins": 16,
+   "clusters": 0,
+   "pinW": [
+    83,
+    157,
+    242
+   ],
+   "pinH": [
+    32,
+    32,
+    32
+   ],
+   "pinLook": "rgb(255, 255, 255) / rgb(28, 25, 23) / r 999px",
+   "clusterLook": null,
+   "clusterSize": null
+  },
+  "zoomed": {
+   "rankPins": 16,
+   "clusters": 0,
+   "pinW": [
+    83,
+    157,
+    242
+   ],
+   "pinH": [
+    32,
+    32,
+    32
+   ],
+   "pinLook": "rgb(255, 255, 255) / rgb(28, 25, 23) / r 999px",
+   "clusterLook": null,
+   "clusterSize": null
+  },
+  "pinClick": {
+   "preview": true,
+   "card": "p-imperial-palace-east-gardens",
+   "cardInView": true,
+   "scrollY": 0
+  },
+  "deep": {
+   "sheet": true,
+   "scrollY": 0,
+   "mapBottom": 900,
+   "bandUnderMap": 0
+  },
+  "errors": 0
+ },
+ "cleveland-desktop": {
+  "layout": {
+   "mapPct": 64,
+   "mapLeft": 0,
+   "mapH": 792,
+   "cols": 2,
+   "cardsInView": 4,
+   "rail": [
+    "foryou:not in view",
+    "day:not in view",
+    "near:not in view"
+   ],
+   "results": "87 places here · Top ranked"
+  },
+  "open": {
+   "rankPins": 16,
+   "clusters": 0,
+   "pinW": [
+    91,
+    160,
+    341
+   ],
+   "pinH": [
+    32,
+    32,
+    32
+   ],
+   "pinLook": "rgb(255, 255, 255) / rgb(28, 25, 23) / r 999px",
+   "clusterLook": null,
+   "clusterSize": null
+  },
+  "zoomed": {
+   "rankPins": 16,
+   "clusters": 0,
+   "pinW": [
+    91,
+    160,
+    341
+   ],
+   "pinH": [
+    32,
+    32,
+    32
+   ],
+   "pinLook": "rgb(255, 255, 255) / rgb(28, 25, 23) / r 999px",
+   "clusterLook": null,
+   "clusterSize": null
+  },
+  "pinClick": {
+   "preview": true,
+   "card": "p-west-side-market",
+   "cardInView": true,
+   "scrollY": 0
+  },
+  "deep": {
+   "sheet": true,
+   "scrollY": 0,
+   "mapBottom": 900,
+   "bandUnderMap": 0
+  },
+  "errors": 0
+ }
+}

@@ -371,7 +371,12 @@ ${orderArea(list).map((r, j) => card(r, j + 1, cardCtx)).join('\n')}
   const switcher = `<div class="views" data-cleo-views role="group" aria-label="${tr('city.view.label')}" hidden>${VIEWS.map(v => `<button type="button" data-view="${v}" aria-pressed="${v === DV}" data-label="${VLBL[v][0]}">${ico(VLBL[v][1])}<span class="l">${VLBL[v][0]}</span></button>`).join('')}</div>`;
   const areaChips = areas.length > 1 ? `<div class="area-chips" role="group" aria-label="${tr('city.areas.label')}" data-cleo-toolbar hidden></div>` : '';   // views.js draws the chips (page weight)
   // the view is set before first paint (SPEC §2.4): hash, then the stored preference (try/catch), then Gallery
-  const viewHead = `<script>(function(){var v=${JSON.stringify(VIEWS)},h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)(?:day|mode|a|t|c|cz|src|closed|q|sig|gap)=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}` +
+  // D-46 (owner: Atlas is the default view): the city's first impression in Atlas sits at the top of the list column —
+  // name, dek, "N places picked by M sources" — server-rendered and shown by CSS from first paint (no eager JS, CLS 0).
+  // Shared with the Atlas lane's phone list-sheet intro (FE-1 styles html.atlas-m .at-intro)
+  const atDek = m.h1Thin || heroLine || '';
+  const atIntro = `<header class="at-intro" data-cleo-intro><h2 class="at-name">${esc(name)}</h2>${atDek ? `<p class="at-dek dek">${esc(atDek)}</p>` : ''}<p class="at-n">${esc(tr('city.intro.n', { n: recs.length.toLocaleString('en-US'), m: (st.sources || srcList.length).toLocaleString('en-US') }))}</p></header>`;
+  const viewHead = `<script>(function(){var v=${JSON.stringify(VIEWS)},h=location.hash,m=/(?:^#|&)view=([a-z]+)/.exec(h),s=null;if(!m&&(!h||h.indexOf('=')>0)){if(/(?:^#|&)(?:pg|all)=/.test(h))s='gallery';else if(/(?:^#|&)(?:day|mode|a|t|c|cz|src|closed|q|sig|gap)=/.test(h))s='atlas';else try{s=JSON.parse(localStorage.getItem('cleo:v1:view'))}catch(e){}}` +
     `var x=m&&v.indexOf(m[1])>=0?m[1]:!m&&v.indexOf(s)>=0?s:'${DV}';document.documentElement.setAttribute('data-view',x);if(x==='atlas')document.documentElement.classList.add(!window.matchMedia||matchMedia('(min-width:1024px)').matches?'atlas-d':'atlas-m')})()</script>`;
 
   /* -- sprite: only the glyphs this page uses -- */
@@ -473,6 +478,7 @@ ${areaChips}
 <div class="view-host" id="cleo-view" hidden></div>
 <div class="split">
 <div class="listpane" id="cleo-grid"><script>(function(h,g){if(h.classList.contains('atlas-d'))g.classList.add('w7-cards')})(document.documentElement,document.currentScript.parentNode)</script>
+${atIntro}
 <div class="lens" id="cleo-lens" aria-live="polite" hidden></div>
 <p class="shown" id="cleo-shown" aria-live="polite"></p>
 ${cardsHtml}

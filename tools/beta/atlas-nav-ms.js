@@ -356,6 +356,31 @@ async function finish(page, s0, opener, close) {
     if (!lines.length) chk(`rings ${rel}: probe ran`, false, String(q.stderr || '').slice(0, 300));
     lines.forEach(l => chk('R3 #9/#14 ' + l.replace(/^(PASS|FAIL)  /, '').replace(/  \{.*$/, ''), /^PASS/.test(l), l.replace(/^.*?  \{/, '{').slice(0, 300))); }
 
+  // D-46 (Atlas is the default city view): with no hash at all the page lands in Atlas, and everything above still holds
+  // from a bare URL. Runs when the page's own default view (#cleo-city "dv") is Atlas; until then it says it was skipped.
+  for (const [key, url] of PAGES) {
+    const dv = (/"dv":"([a-z]+)"/.exec(fs.readFileSync(path.join(ROOT, url), 'utf8')) || [])[1];
+    if (dv !== 'atlas') { console.log(`SKIP  D-46 ${key}: the page's default view is "${dv}", not Atlas yet`); continue; }
+    for (const [vk, vp] of [['d', D], ['m', M]]) {
+      const vn = vk === 'd' ? '1440' : '390';
+      { const { ctx, page, errors } = await open(browser, vp, url);
+        const r = await page.evaluate(() => ({ view: document.documentElement.getAttribute('data-view'), hash: location.hash, map: !!(Cleo.city.map && Cleo.city.map()), y: Math.round(scrollY) }));
+        chk(`D-46 ${key} ${vn}: a bare URL lands in Atlas with the map, the page unscrolled, and at most the view written (#at=…, no view key)`, r.view === 'atlas' && r.map && r.y === 0 && /^(#at=[^&]+)?$/.test(r.hash), r);
+        if (errors.length) chk(`D-46 ${key} ${vn} bare: 0 page errors`, false, errors.slice(0, 2));
+        await ctx.close(); }
+      for (const close of ['esc', 'back']) { const { ctx, page, errors } = await open(browser, vp, url);
+        const r = await roundTrip(page, vk, 'card', close);
+        chk(`D-46 ${key} ${vn}: from a bare URL, card → detail → ${close === 'esc' ? 'Escape' : 'Back'} keeps centre (≤ 1 px), zoom, scroll, count, pill and focus`, r.ok, r);
+        if (errors.length) chk(`D-46 ${key} ${vn} ${close}: 0 page errors`, false, errors.slice(0, 2));
+        await ctx.close(); }
+    }
+    { const { ctx, page } = await open(browser, D, url); await page.evaluate(() => { const m = Cleo.city.map(); m.fire('dragstart'); m.panBy([120, 80], { animate: false }); m.fire('dragend'); }); await sleep(600);
+      const u = await page.evaluate(() => { const m = Cleo.city.map(), c = m.getCenter(); return { hash: location.hash, lat: c.lat, lng: c.lng, z: m.getZoom() }; }); await ctx.close();
+      const o = await open(browser, D, url + u.hash), px = await centrePx(o.page, u), z = await o.page.evaluate(() => Cleo.city.map() && Cleo.city.map().getZoom()), v = await o.page.evaluate(() => document.documentElement.getAttribute('data-view'));
+      chk(`D-46 ${key} 1440: a view link with no view key (${u.hash.slice(0, 40)}) reopens Atlas on the same view (≤ 1 px, same zoom)`, /^#at=/.test(u.hash) && v === 'atlas' && px !== null && px <= 1 && z === u.z, { hash: u.hash, view: v, px, zoom: [u.z, z] });
+      await o.ctx.close(); }
+  }
+
   // QA-71: after a place is opened and closed (card → detail → Back), swiping the phone carousel still moves the selection,
   // as it does before the round-trip: two swipes, the card in the middle is the selected one each time (QA's 5 pilots)
   for (const url of ['beta/cleveland.html', 'beta/cities/tokyo.html', 'beta/cities/newyork.html', 'beta/Singapore/chinatown.html', 'beta/cities/wheeling.html']) {

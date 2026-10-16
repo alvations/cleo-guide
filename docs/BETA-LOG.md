@@ -2137,3 +2137,63 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **Left, not Atlas's:** a 0.0001 header web-font swap (the brand and breadcrumb narrow by 2–3 px at ~170–270 ms) on every view. Reported to the orchestrator for FE-B / platform.
   - **The D-46 probe check:** an Atlas element's shift must be 0 (any source inside the split, the chip row, the list head, the map or the list), and the page total is printed and bounded at ≤ 0.001.
 - **Phone peek word spaces (designer, R4b):** rev 5a's peek made its text span `display:flex`, and a flex row drops the spaces between its inline children ("351places here ·checked 2 Oct· Show list"). It is a block line again. The probe's peek check missed it because it read `textContent`; it now reads the rendered `innerText`, which is stricter.
+- 2026-10-16 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · PERF-18: the ja side of Platform's build-rendered lead card (option (c), proposed to Platform and the orchestrator).
+  - **locale.js:** re-says every `[data-l10n]` phrase (key, plus `data-l10n-v` JSON values) in the loaded catalogue at the start of the swap, inside the paint hold. It works even inside a client-drawn container such as `.g-lead-card`. Values fill in as text, never as HTML. An unknown key or bad JSON leaves the English in place.
+  - **Helper:** `common.l10nSpan(key, vars, tag)` renders the English with those attributes.
+  - **Inert for now:** nothing emits `data-l10n` yet. Platform's card (`tools/beta/lib/lead-card.js`) stays OFF until it uses `l10nSpan` and passes the Tokyo runtime pseudo check.
+  - **Tests:** test-i18n covers the helper output and the runtime re-say, including the unknown-key and bad-JSON cases.
+
+## 2026-10-16 21:52Z · orchestrator check-in
+
+- The dev head b1a7fc6e is gated green (validate, npm test alone, beta:check; w2 dom 12/12).
+- The r7 deploy is live (4382a187). The R8 evaluator is running.
+- Atlas: real shots R4b committed on ffbb225a. R4 is held for D-46 and the dark-dot re-sign.
+- Platform: Tokyo phone LCP diagnosed (the Gallery lead card, 3.1 s). A build-time card brings it to 0.98 s; it's off pending i18n's (c) hook. Under D-46 the LCP target moves to the Atlas default, and platform measures that next.
+
+## FE-A — D-46 part 1: Atlas first impression, legacy pager links, search route (2026-10-16)
+- **City intro:** server-rendered at the top of the Atlas list column: name, dek, "N places picked by M sources" (`city.intro.n`, en + ja).
+  - Desktop Atlas only for now; it paints before `.ms-ready` and is 79 px tall (≤ 88).
+  - Shared with the Atlas lane for the phone list sheet.
+- **Lead card:** `.w7-cards li.pl.pl-lead` spans both list columns with 3:2 media. The CSS is inert until the Atlas lane marks the first card of its order on a cold, unfiltered load.
+- **Legacy links:** `#pg=` / `#all=1` with no `view=` imply Gallery (views.js `implied()` and the head script), ready for the Atlas default.
+- **Search (FE-B finding):** the route is the source of truth. Typing writes `q=` (one history entry, then in place); a link with no `q=` clears the box and the filter; Back restores it. test-fe-a gains 4 checks.
+- **Not in this push:** the default flip itself, held until `w2 --only dom` is green with Atlas first (Tokyo 3,587 nodes today).
+## 2026-10-16 22:10Z · orchestrator
+
+- **INP regression on dev:** desktop switch → Atlas is 21 s (it was 0.7 s), and filters are about 2× slower. The suspect is 797258c2, Atlas rev 5's one ranked list. It is not in the live r7.
+- FE-1/FE-2 are fixing it at top priority. Platform is bisecting and adding a regression guard. It blocks the r8 pin and D-46.
+- QC-34 is fixed (76957fa1). FE-A got the stale-search item, where clearing the hash keeps the S.q search.
+
+## 2026-10-16 22:37Z · orchestrator check-in
+
+- The dev head d8369d2f is gated green.
+- PERF-08 re-landed (447d97c5).
+- On the INP regression: FE-2 has a first step in (5491ea13), and QC's P-32 reads about 1 s unthrottled.
+- QA ratified B-01a and B-24 (52245d25). Phone clear map reads 74 %, so FE-1 takes the 52 px header.
+- The R8 evaluator's metrics sweep is at 54/180.
+
+## 2026-10-16 22:47Z · orchestrator: owner directive, the overlay and chrome audit
+
+- The owner sent a screenshot of live Punggol Atlas on phone, in dark mode. In the owner's words: "some layers are not moving and taking up all the space. Improve it but don't just fix this. Audit the whole beta site… keep a ledger… check them doing the QC QA checks and patches."
+- The ledger is docs/BETA-OVERLAY-LEDGER.md, seeded with OV-01..07 from the screenshot.
+- Routed:
+  - the designer sets the OV-00 budgets and rules;
+  - QC builds the S-17 probe and runs the full audit;
+  - FE-1/FE-2, FE-A, FE-B and FE-C fix and claim rows;
+  - QA adds the B-25 pin gate.
+- r8 ships with no open High/Med OV rows.
+
+## 2026-10-16 23:05Z · orchestrator: R8 is in
+
+- R8 scored the live r7 (b54b3745) at **90.7**, up from R7's 88.5: A 87 (+4), B 92, C 97, D 90.
+- **The top gaps are routed:**
+  1. sight photos, to imagery;
+  2. polish, to FE-A, FE-B, FE-C and FE-1;
+  3. map motion, to FE-1 and the designer;
+  4. Atlas residuals, to FE-1/FE-2, with the D-43 marker re-ruling going to the designer;
+  5. accessibility regressions, to FE-C (axe 2.87:1 on the sheet), FE-B (Status source links) and QA (B-03);
+  6. DOM and CSS weight, to platform;
+  7. token residue, to the designer and FE-B.
+- QA files them as R8-g rows.
+- QC's S-17 overlay probe is in (9a2a10c8); the r7 audit is running (about 2.5 h).
+- D-46: FE-A's part 1 is in (678f9939). The flip waits on platform's Atlas initial-stamp budget (Tokyo is 3,587 nodes with Atlas first).

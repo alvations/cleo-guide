@@ -747,3 +747,19 @@ html body #cleo-sheet .sheet.detail:focus{outline:none}
    ran past a 219 px card column. On the compact card faces the one visible chip fits its line, ending in an ellipsis;
    its full name is still its accessible text and the detail lists every source in full */
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s .src{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
+/* D-46: the city intro at the top of the Atlas list column (desktop; the Atlas lane styles it for the phone list sheet).
+   Shown from first paint by html.atlas-d (head script), ≤ 88 px: name and dek on one line where they fit, count below */
+html body .at-intro{display:none}
+html.atlas-d[data-view=atlas] body .listpane>.at-intro{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;column-gap:var(--s-3);row-gap:var(--s-1);grid-column:1/-1;margin:0;padding:var(--s-4) var(--s-5) var(--s-2)}
+html.atlas-d[data-view=atlas] body .at-intro .at-name{margin:0;min-width:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font:600 var(--fs-d2)/1.15 var(--font-display);letter-spacing:var(--track-tight);color:var(--ink)}
+html.atlas-d[data-view=atlas] body .at-intro .at-dek{margin:0;min-width:0;font:400 var(--fs-body)/1.35 var(--font-ui);color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html.atlas-d[data-view=atlas] body .at-intro .at-n{grid-column:1/-1;margin:0;font:500 var(--fs-sm)/1.35 var(--font-ui);color:var(--ink-3)}
+/* …above the Atlas list head (atlas.css orders .ms-head -2 and every other list child last), and visible from first paint:
+   it does not wait for the map (.ms-ready), so the name and dek are the first thing the list column shows */
+html.atlas-d[data-view=atlas] body .split>.listpane>.at-intro{order:-3;visibility:visible;animation:none}
+/* D-46 (B-01a): on a cold, unfiltered Atlas load the lead place card spans both list columns, its media at 3:2. The Atlas
+   lane marks it (.pl-lead on the first card of its order, set while the list is still held before .ms-ready, so no shift) */
+html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead{grid-column:1/-1}
+html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead>:is(.pl-cover,figure.pl-photo){aspect-ratio:3/2;height:auto}
+html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead>figure.pl-photo img{width:100%;height:100%;object-fit:cover}
+html.atlas-d[data-view=atlas] body .w7-cards li.pl.pl-lead>.pl-n{font-size:var(--fs-d2)}

@@ -87,6 +87,13 @@ Current rows:
     - Hold "round 4 ready" until the dark set is re-shot and re-signed. The orchestrator has been told.
     - FE-1 has the fix in ec71a4ad, together with rev 5a and the glyphs. **Next:** re-sign the dark set from the next real shots.
     - Decisions written into SPEC §1.1 and §2.2: on phones, "Search as I move" defaults to off; D-43 is declined (no third dot state; low-confidence pins say "Approximate location" in words).
+14. **D-46: Atlas is the default view**, with the order Atlas, Gallery, Guidebook, Insights. "Gallery" keeps its name.
+    - Updated in views/SPEC.md, DESIGN-SYSTEM §v2.11, and SPEC-v3 status and §1.7.
+    - §1.7 covers the cold first screen: 3 photo thumbnails in the phone peek, a city intro opening the list, and a lead card at 3:2. It also has the no-map fixes: neutral dots, no edge-stacked rings, one notice.
+    - The notes have gone to the orchestrator; FE-A, FE-1 and FE-2 build it.
+15. **R4b (ffbb225a): dark dots signed off.** Circles measure 2.2:1 and squares 4.9:1. D-43 is a clear no (FE-1 0a4e5751, "Approximate pin"). **Blocker for round 4:** the R4b phone peek lost its word spaces. It's with FE-1; a local shot of the fix is enough, then round 4 is ready.
+16. **OV-00** (owner directive, Punggol screenshot): written into SPEC-v3 §2.0 (Atlas budgets per viewport, at rest and while panning; auto-compact; icon-only control stack; collapsing attribution; label caps, count and coverage; the "Search this area" slot; chip-row fade; landscape) and DESIGN-SYSTEM §v2.12 (site-wide: only the header always stays; second rows compact on scroll; scroll-page budgets; floating, toast and banner rules; sideways edges). QC and the orchestrator have the numbers. The ledger is docs/BETA-OVERLAY-LEDGER.md (orchestrator and QC's), where my row is OV-00.
+17. **OV-00 addition, one search per screen** (DESIGN-SYSTEM §v2.12 3a): on city pages, desktop uses the city field (no header icon); phone uses the header icon, which opens the city search. The last result row is always "Search all guides for q". FE-B and FE-A have been told.
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight

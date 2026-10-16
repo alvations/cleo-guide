@@ -49,7 +49,9 @@ git worktree add --detach ../qa-pin <SHA>          # a clean checkout of the pin
 cd ../qa-pin/tools && npm install --no-audit --no-fund
 npm run validate && npm test && npm run beta:check
 cp <latest origin>/tools/beta/metrics.js beta/metrics-qa.js   # only if the pin predates a QA probe fix
-node beta/metrics-qa.js --out <scratch>/mg.json             # Gallery pilots: B-02, B-04, B-05, B-07, B-08, B-20, B-23, G1
+node beta/metrics-qa.js --out <scratch>/md.json             # the DEFAULT view (Atlas after D-46): B-01a, B-24, B-07, B-20, B-23, G1
+node beta/metrics-qa.js --view gallery --out <scratch>/mg.json   # Gallery pinned: B-01, B-02, B-04, B-05, B-07, B-08, B-20, B-23, G1
+# pins before D-46 lands: QA_DEFAULT_VIEW=gallery for w4/w5/views (tools/beta/qa/default-view.js)
 node beta/metrics-qa.js --view atlas --out <scratch>/ma.json  # Atlas pilots: G1, B-07, B-08, B-20, B-23
 node beta/qa/w7.js --only atlasd,atlasm,detail,nocdn,lens    # QA-45/50/52, credits, the detail, no-CDN, lens totals
 QA_PILOTS=Singapore/chinatown.html,cities/tokyo.html node beta/qa/w7.js --only reach   # QA-54 search

@@ -68,8 +68,12 @@
   C.navScrollHold = () => !!open || Date.now() - ownScroll < 250;
   C.navKeep = () => atlas() && idleSig !== null && (!!open || hasP() || (Date.now() < holdTo && userAt <= closedAt)) && sig() === idleSig;
   ['pointerdown', 'wheel', 'keydown', 'touchstart'].forEach(ev => on(d, ev, e => { if (!e.isTrusted) return; userAt = Date.now(); }, { capture: true, passive: true }));
-  on(window, 'scroll', rec, { passive: true });
-  d.addEventListener('scroll', e => { if (e.target === lp()) rec(); }, { capture: true, passive: true });
+  // scroll events come in bursts (a view switch lays out hundreds of cards): take one snapshot per frame, never one per
+  // event (each reads scrollTop, a forced layout; INP on the desktop switch to Atlas, 16 Oct). A click still snapshots
+  // at once (mark → rec).
+  let recQ = 0; const recSoon = () => { if (recQ) return; recQ = requestAnimationFrame(() => { recQ = 0; rec(); }); };
+  on(window, 'scroll', recSoon, { passive: true });
+  d.addEventListener('scroll', e => { if (e.target === lp()) recSoon(); }, { capture: true, passive: true });
   // the opener: a card (its name link, cover or photo), the preview (→ whatever opened the preview), or a pin
   const mark = e => {
     const t = e.target; if (!t || !t.closest || !atlas()) return;

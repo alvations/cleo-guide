@@ -37,6 +37,7 @@ never weakens a gate.
 - `9c133152`: QC-23 and QC-24 verified.
 - `4aba38b3` (deploy pin): QC-26 and QC-22 verified; new QC-27 (Low, i18n: tier translated as 評価).
 - `9fba196e`: QC-27 verified.
+- `dev cceabd64` (FE-C heads-ups): QC-05 holds under the single Atlas empty state; S-05 now runs in every view; W9-2 date line is search-safe; new QC-34 (Low, FE-B: Guidebook Contents ignores the lens).
 - `r7-b54b3745` (final release pin): PASS. Sweep 4 FAIL = filed QC-30/31; S-16 91/91; leaks 0; m.not.p en/ja; QA-77 badges ≥ 44 px, 0 in-view overlaps, no shift. New QC-33 (Med): Guidebook/Insights deep-link CLS ≈ 0.5 at 1440, pre-existing.
 - `r7-33a44d16` (release): QC-29 verified (S-16 91/91); every sweep FAIL accounted for: S-15 and part of S-08/S-01 were probe bugs (fixed in 6a93f81d); new QC-30 (casing ownWords), QC-31 (raw colours/radii), QC-32 (prov sidecar notes). Clean sweep: 4 FAIL, all filed.
 - `r7-19af6d81` (release branch pre-check): FE-B leaks PASS; m.not.p en/ja PASS; QC-28 PASS; S-16 FAIL on 4 pages → new QC-29 (ports 9fa622096 + 5d3dc9850 missing).
@@ -49,12 +50,16 @@ never weakens a gate.
 
 ## In flight
 
-Nothing unpushed and no long run. r7 has signed off (PASS). Re-verify QC-13, 14, 30, 31, 32 and 33 as lanes claim fixes. Use `qc-view-cls.js <root> <out>` for QC-33 (all views at 390/1440).
+**Owner directive (top priority): overlay and chrome audit.** The ledger is `docs/BETA-OVERLAY-LEDGER.md` (QC keeps it).
+- S-17 = `tools/beta/qa/qc-overlay.js`: every page × view (atlas, gallery, guidebook, insights, sheet; page for non-city pages) × 6 viewports × light/dark. It samples an 8 px grid and classifies the topmost element; measures chrome bands and area, clear map, label coverage, widest label, overlaps and collisions, Search this area, toasts and duplicates, at load, during a pan or scroll, and at idle. It flags the worst 10 % per metric plus binary instances, and shoots the worst of each group. Output in `design/beta/eval/qc/overlay/<label>/`.
+- qc.js runs S-17 on the default view in every sweep (WARN on binary instances).
+- Full audit running: r7 (`--root` worktree `qc-b54b3745`, label `r7-b54b3745`, log `scratchpad/ov-r7.log`). Then dev, then ledger rows (OV-08+) grouped by kind × view × viewport, with owners, and a reply to the orchestrator with the row count by owner.
+- Seen in the Punggol test on dev: phone Atlas chrome bands 25.7 % (390×844), 32.5 % (390×664), 55 % (844×390), no compaction on pan, widest label 47–56 % of the map width. The tray text renders as "16places here ·checked 3 Oct· Show list" (spaces lost; check on r7, then file).
 
 Next harness work:
+- Add a Contents-vs-lens count check to the COUNTS probe (QC-34 class) once FE-B fixes it.
 - Fold deep-link view CLS (qc-view-cls.js) into S-12 for city pages at 1440.
 - P-25 and P-26 must discount entries that carry the D-42 note.
-- P-13 and P-15 must open the phone Atlas "Show list" before measuring.
 - J-10 and J-11 should also run under `?lang=ja`.
 
 ## Notes

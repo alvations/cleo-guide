@@ -36,7 +36,7 @@ switch). A view is a **lens and a layout, never a different record set**.
    - Charts are inline SVG.
    - Map tiles are OSM or Esri only, and the map is progressive enhancement over the pin art.
    - No `document.write`. Every storage call goes through `Cleo.store` (try/catch, in-memory fallback).
-6. **Naming.** The views are **Gallery, Atlas, Guidebook, Insights**. No third-party travel, hotel, review or
+6. **Naming.** The views are **Atlas, Gallery, Guidebook, Insights**, in that order (D-46). No third-party travel, hotel, review or
    guidebook brand is named or alluded to in code, class names, copy or docs. Source labels on cards come verbatim
    from the data registry, because they are attribution and not a design reference.
 
@@ -86,7 +86,7 @@ All four views read one client model and one set of lenses. Nothing in this sect
 | | Spec |
 |---|---|
 | Hash key | `view=gallery\|atlas\|guidebook\|insights`, in the existing `Cleo.route` grammar (`k=v&k=v`). It combines with every other key: `#view=atlas&a=CYD&p=kanda-myojin`. |
-| Default | **Gallery**: the strongest first screen, and the round's look-and-feel goal. When the view equals the default, `view=` is left out of the hash. |
+| Default | **Atlas** (owner decision D-46, 2026-10-16: "make atlas the default view then the list. That will differentiate us from our competitors."). Its cold first screen must earn back the art Gallery used to lead with: atlas/SPEC-v3 §1.7. When the view equals the default, `view=` is left out of the hash. An old link with no `view=` now opens Atlas with the same lens, area and place keys, which is safe: every key Gallery read, Atlas reads too. |
 | Precedence | 1. `view=` in the hash. 2. The visitor's last view, from `Cleo.store.get('view')`. 3. The default. An unknown value falls back to the default silently and is rewritten with `replaceState`. |
 | Remember | On every switch, `Cleo.store.set('view', v)` (try/catch inside `Cleo.store`; with storage blocked, the memory holds for the session). This is a preference, not state. |
 | Share | Share buttons (sheet, list, page) **always write `view=` explicitly**, so a link reproduces what the sender saw, whatever the receiver's preference. |
