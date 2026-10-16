@@ -1243,3 +1243,44 @@ Open High/Blocker: **0**.
 Every other row passes, including all three regressions from 3ba696e8.
 
 QA sign-off: NO
+
+## 2026-10-16 · QA · R7 delta re-sign on the deploy pin b54b3745 · session_017FLWXa5zgGWvqNo4C3UsvH
+
+**Tested SHA: `b54b3745ce28166bd072808f3e5f3fdbf05b9d49`** (branch `beta-deploy-r7`) in a clean worktree, run alone in the container. It is 4aba38b3 (checked with `merge-base --is-ancestor`) plus the ported fixes. The diff from 4aba38b3 in `tools/` and `design/beta/tokens.css` is 19 files; all of them were read.
+
+Gates:
+- validate ✅.
+- `npm test` ✅: ALL SUITES PASS, 789 PASS.
+- `beta:check` ✅: 180 pages, 8,702 places, beta == live.
+
+Evidence is in `design/beta/eval/w7/qa/resign-b54b3745/`.
+
+**Harness edits by other lanes, read and accepted:** `test-honesty.js`, `views.js` and `w4.js` now allow the D-42 method sentence with an optional "review counts, ". It is still an exact sentence.
+
+**QA probe fixes (ratified here; `metrics.js` B-07):**
+1. After the first marker appears, the probe takes one more look 600 ms later, once the first fit has settled.
+2. Only a place marker (an entry in `Cleo.city.markers`) counts as a pin.
+3. The tapped pin's id is also kept on `window`, because selecting a pin can re-render its element.
+
+Before the fixes, Wheeling failed B-07 in isolation on both 4aba38b3 and b54b3745: "own card false", id null. That is the same failure on both, so it is not a regression. After the fixes, Wheeling passes 2/2 on both. The pin rule and both paths are unchanged.
+
+| Re-sign row | Result |
+|---|---|
+| QA-77 B-20 tap targets | ✅ 0 on every pilot, NY included: Gallery in 4 runs, Atlas in 2 |
+| QA-78 credits (`w7-photos.js`) | ✅ 13/13 |
+| QA-74 motion (`motion-probe.js`) | ✅ 0 animations over 300 ms; none under reduced motion; shipped tokens == design tokens |
+| Honesty: `test-honesty.js`, `views.js` honesty, the method page | ✅ all PASS; `views.js` 320/0; the method line is in the D-42 form |
+| QC-26 A/B | ✅ 8/8 match be74c82f |
+| QA-70 first pin (median of 3, interleaved) | ✅ Tokyo 701 ms (be74c82f 2,261); NY 1,054 (2,438) |
+| Gallery B-07 (2 runs, probe fix) / Atlas B-07 | ✅ 5/5, 5/5 / 5/5 |
+| G1, B-02, B-04, B-05, B-08, B-23 | ✅ (Atlas B-04 "no rail" by design, D-36); reach 8/8 |
+| `w7.js` atlasd, atlasm, detail, nocdn, storage, lens | ✅ 172/172 |
+| w8p | ✅ Tokyo phone 609 KB, Atlas 392 KB |
+| `w4.js` | 38/45, the same 7 FAILs on be74c82f and 4aba38b3, so not a regression. Four are W4 rules that later decisions replaced: Atlas as default (W5 Gallery default) and no language switcher (D-41 ja locale). The folded "Kanda Myojin" is a Commons file title quoted verbatim in a credit. The Insights table fallback was already absent on be74c82f |
+| **W2 DOM budget** | ❌ **QA-79**: Tokyo desktop initial DOM 3,074 against ≤ 3,000; be74c82f 2,879 |
+
+Open High/Blocker: **0**.
+
+**Why NO:** QA-79 (Low) is the only row that regresses against be74c82f. Every other row passes. Accepting a known budget miss is the owner's or orchestrator's decision, not QA's. If a decision row records a waiver for r7, with the fix scheduled on dev, nothing else blocks and no re-test is needed.
+
+QA sign-off: NO
