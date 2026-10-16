@@ -370,7 +370,10 @@ const order = d => [...d.querySelectorAll('li.pl')].map(li => li.id);
     for (const f of walk(BETA)) { const h = fs.readFileSync(f, 'utf8'); if (!/data-cleo-page="city"/.test(h)) continue;
       for (const m of h.matchAll(/class="in-d"><span class="sep"> · <\/span>([^<]*)/g)) { n++; if (AWARD.test(m[1])) bad.push([path.relative(BETA, f), m[1]]); } }
     for (const g of fs.readdirSync(path.join(BETA, 'data/gallery'))) for (const r of JSON.parse(fs.readFileSync(path.join(BETA, 'data/gallery', g), 'utf8')).rows) for (const x of r[6]) if (x.d) { n++; if (AWARD.test(x.d)) bad.push([g, x.id, x.d]); }
-    chk(`${n} food card dish words: none is an award or source ("Michelin" falls through to the cuisine, else the area)`, n > 500 && !bad.length, bad.slice(0, 4));
+    chk(`${n} food card dish words: none is an award or source ("Michelin" falls through to the cuisine, else no word)`, n > 500 && !bad.length, bad.slice(0, 4));
+    const tk = fs.readFileSync(path.join(BETA, 'cities/tokyo.html'), 'utf8'), seg = id => tk.slice(tk.indexOf('id="p-' + id + '"'), tk.indexOf('id="p-' + id + '"') + 1500);
+    chk('a source named like a cuisine never blocks it (Rokurinsha → "Ramen", not hidden by "Ramen Adventures")', /class="in-d"><span class="sep"> · <\/span>Ramen</.test(seg('rokurinsha-tokyo-ramen-street')));
+    chk('no cuisine but an award → no dish word at all (Sézanne), never the area', !/class="in-d"/.test(seg('sezanne').split('</li>')[0]));
   }
 
   console.log(failures ? `\n>>> FAIL — ${failures} FE-A check(s) failed` : '\n>>> PASS — FE-A: for-you reorders only, days honest, near-me in memory, pin sheet Esc, shared lists, views (switcher, pager, Atlas, sheet n of N)');

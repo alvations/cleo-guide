@@ -703,9 +703,12 @@ html.lens-on.g-lead-on[data-view=gallery] .g-lead-slot{display:none}
 html body #cleo-sheet .detail .hero-plate.has-photo{background:transparent!important}
 html body #cleo-sheet .detail .hero-plate.has-photo.ph-fit{max-width:min(var(--ph-max),calc(100% - 32px));margin-left:auto;margin-right:auto}
 @media (min-width:1024px){html body #cleo-sheet .detail .hero-plate.has-photo.ph-fit{max-width:min(var(--ph-max),calc(100% - 56px))}}
-html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame{overflow:hidden;border-radius:var(--r-l)}
-html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame{--ph-band:color-mix(in srgb,var(--ph,var(--sand)) 45%,var(--sand))}
-html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame>.photo img{border-radius:0;box-shadow:calc(-1 * var(--ph-max)) 0 0 0 var(--ph-band),var(--ph-max) 0 0 0 var(--ph-band)}
+/* designer QA-67 sign-off: a narrow copy (< 800 w) gets no bands at all — like a wide one, the plate takes the image's own
+   width, centred on the sheet's surface, the image rounded; the caption sits under it, from its left edge, wrapping at its
+   width; the mini-map stays inside the image's top-right corner */
+html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame{max-width:min(var(--ph-max),calc(100% - 32px));margin-left:auto;margin-right:auto}
+@media (min-width:1024px){html body #cleo-sheet .detail .hero-plate.has-photo.ph-frame{max-width:min(var(--ph-max),calc(100% - 56px))}}
+html body #cleo-sheet .detail .hero-plate.has-photo>.photo figcaption{max-width:100%}
 /* food covers (c), designer sign-off: the cover names the dish, so a food card's kind line drops its duplicate dish (the
    area line stays where the card is not under its own area header) */
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl[data-k=f]>.pl-e .in-d{display:none}
