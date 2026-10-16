@@ -1284,3 +1284,9 @@ Open High/Blocker: **0**.
 **Why NO:** QA-79 (Low) is the only row that regresses against be74c82f. Every other row passes. Accepting a known budget miss is the owner's or orchestrator's decision, not QA's. If a decision row records a waiver for r7, with the fix scheduled on dev, nothing else blocks and no re-test is needed.
 
 QA sign-off: NO
+
+### Sign-off on b54b3745 under D-45 · QA
+
+The orchestrator recorded **D-45** in `docs/BETA-DECISIONS.md` (c6f0f9f3), which waives QA-79 (Tokyo desktop DOM 3,074 > 3,000) for the r7 deploy only. The fix is claimed on dev at 87f814ad and will be verified on the next release pin. QA-79 was the only row that failed on `b54b3745ce28166bd072808f3e5f3fdbf05b9d49`. With it waived, every re-sign row passes and Open High/Blocker is 0. No re-test is needed: nothing in the pin changed.
+
+QA sign-off: YES (b54b3745, under D-45)

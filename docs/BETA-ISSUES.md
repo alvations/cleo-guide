@@ -183,7 +183,7 @@ The QA lane builds and keeps this table from every source listed above, starting
 | QA-76 | R7 delta re-sign 3ba696e8 | **Regression (PERF-08):** on an Atlas lens deep link, "N more outside this area. Show all 158" is offered during the first map fit (about 300 ms after load). Tapping it shows "Showing all 382 places", including places outside the lens, so the count breaks its promise | platform (PERF-08) + Atlas FE-2 | verified | afb09e74b; FE-2 927c6b011 | 3ba696e8 · `w7.js --only lens` ❌ 33/114 link × way cases (Kyoto #c=TEMPLE: header 158, paged 382), in 2 of 2 runs. Bisect: be74c82f and bcf94510 PASS; 1538974d FAIL. Repro: `page-eval.js d 'cities/kyoto.html#c=TEMPLE'`, then click `.ms-more [data-ms=all]` at +300 ms. Med; blocks the re-sign<br>**4aba38b3 (R7 delta re-sign, QA):** `w7.js` lens ✅, 0 FAIL in the full w7 run; also 1/1 on aff53656. |
 | QA-77 | R7 delta re-sign 4aba38b3 | **Regression (W9-1):** the recognition badges on cards ("Cited by 3 sources", "Award · Michelin…") are links 32 px tall, so B-20 (tap targets < 44 = 0) fails on phone: Gallery Tokyo 19, NY 3, Chinatown 5, Wheeling 9; Atlas Tokyo 21, NY 12, Chinatown 5, Wheeling 10. It was 0 on every pilot on 3ba696e8 and be74c82f | FE-C (W9-1) | verified | — | 4aba38b3 · `metrics.js` B-20, 2 Gallery runs + Atlas; `tapSmallList` a.rb.rb-cited 132×32, a.rb.rb-award 120–258×32. Med; blocks the re-sign<br>**b54b3745 (deploy pin, beta-deploy-r7; QA):** B-20 = 0 on every pilot in Gallery (4 runs) and Atlas (2 runs), New York included ✅. |
 | QA-78 | R7 delta re-sign 4aba38b3 | Photo credit author is a URL: the Pittsburgh Duquesne Incline card credits "Photo: https://www.flickr.com/photos/arne_heggestad/" instead of the photographer's name (CC BY-SA 2.0 attribution) | imagery | verified | — | 4aba38b3 · `w7-photos.js` 12/13 ("every author is a clean name"; it was 13/13 on 3ba696e8); row added by 6c007a0d5. Low; a regression of a gate row, so it blocks the re-sign<br>**b54b3745 (deploy pin, beta-deploy-r7; QA):** the author is "arne_heggestad (Flickr)"; `w7-photos.js` 13/13 ✅. |
-| QA-79 | R7 delta re-sign b54b3745 | **Budget regression:** Tokyo desktop initial DOM is 3,074 nodes against the W2 budget of ≤ 3,000; be74c82f is 2,879 (+195). Tokyo mobile (2,443), NY desktop (2,897) and NY mobile (2,264) pass; every place stays reachable after stamp-all (488/488) | platform (fix on dev) | open | — | b54b3745 · `w2.js --only dom` 11/12; be74c82f 12/12, same harness, same container, run alone (`resign-b54b3745/w2dom-*.log`). Also 3,074 on 4aba38b3 (orchestrator). Low |
+| QA-79 | R7 delta re-sign b54b3745 | **Budget regression:** Tokyo desktop initial DOM is 3,074 nodes against the W2 budget of ≤ 3,000; be74c82f is 2,879 (+195). Tokyo mobile (2,443), NY desktop (2,897) and NY mobile (2,264) pass; every place stays reachable after stamp-all (488/488) | platform (fix on dev) | waived for r7 (D-45); fixed on dev (claimed) | 87f814ad (dev; not in the r7 pin) | b54b3745 · `w2.js --only dom` 11/12; be74c82f 12/12, same harness, same container, run alone (`resign-b54b3745/w2dom-*.log`). Also 3,074 on 4aba38b3 (orchestrator). Low<br>**QA, after D-45 (c6f0f9f3):** waived for the r7 deploy only. The fix is claimed on dev at 87f814ad (Tokyo desktop 3,082 → 2,821; `w2 --only dom` now in npm test). QA verifies it on the next release pin. |
 
 ### Register state · 63805e3e · QA register keeper (session_017FLWXa5zgGWvqNo4C3UsvH)
 
@@ -260,3 +260,10 @@ Closed: R7-g3 (verified on 995e2529) and R7-g7 (verified). Open rows the R8 eval
 - QA-74 (designer);
 - QA-70 (Atlas FE-2 / platform);
 - QA-67 and QA-57 (unchanged).
+
+### Register state · b54b3745 (r7 deploy pin) · QA
+
+R7 is signed off as YES under D-45. Open High/Blocker: 0.
+
+- Verified on the pin: QA-77, QA-78, QA-74, QC-26, QA-75, QA-76 and QA-70.
+- QA-79 is waived for r7 only. Its fix, 87f814ad, is on dev and is to be verified on the next release pin.
