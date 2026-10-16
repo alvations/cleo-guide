@@ -624,10 +624,6 @@ html main[data-city] li.pl[data-k=f]>.pl-cover .pl-vert{display:none}
 /* the ratified Gallery card (QA W7): no write-up / look-for / address on the card face. v2's clamp rule
    (.pls .pl:not(.is-target):not(:target):not(:focus-within) .pl-w, 0-6-0) re-showed the write-up on phones, above the name */
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>:is(.pl-w,.pl-k,.pl-ad){display:none!important}
-/* B-08: the map pill steps aside (scrolling down, or a card title under it); it fades, then stops being hit-testable */
-html main[data-city] .mappill:not([hidden]){transition:opacity var(--dur-2) var(--ease-out),transform var(--dur-2) var(--ease-out),visibility 0s}
-html main[data-city] .mappill.away:not([hidden]){opacity:0;visibility:hidden;transform:translate(-50%,12px);transition:opacity var(--dur-2) var(--ease-out),transform var(--dur-2) var(--ease-out),visibility 0s var(--dur-2)}
-@media (prefers-reduced-motion:reduce){html main[data-city] .mappill:not([hidden]),html main[data-city] .mappill.away:not([hidden]){transition:none}}
 /* R7 gap 5: no blank band beside the desktop hero — the photo takes the height of the text column (name, line, start,
    facts) instead of a fixed 4:3 that ran ~170 px past it; never shorter than 300 px (object-fit crops, never stretches) */
 @media (min-width:1024px){

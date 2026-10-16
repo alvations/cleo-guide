@@ -220,6 +220,16 @@ const inView = (page, sel, why) => page.evaluate(([s, why]) => { const e = docum
     ok(!r.lead && r.k === 'f' && r.a === 'TAITO', `@${w}: under Eat & drink + Taitō-ku the lead card steps aside and the first card is a Taitō-ku food place`, r);
     await ctx.close();
   }
+  console.log('# QA-69: the phone Gallery\'s "Show map" pill is visible at load and at rest (the first screen\'s way to the map)');
+  { const ctx = await ctxFor(b, 390);
+    for (const u of ['cleveland.html', 'cities/tokyo.html', 'cities/newyork.html', 'Singapore/chinatown.html', 'cities/wheeling.html']) {
+      const page = await ctx.newPage(); await page.goto(BASE + 'beta/' + u, { waitUntil: 'load' }); await page.waitForTimeout(1500);
+      const at = async () => page.evaluate(() => { const p = document.querySelector('[data-cleo-mappill]'); if (!p) return 'none'; const c = getComputedStyle(p), r = p.getBoundingClientRect();
+        return !p.hidden && c.display !== 'none' && c.visibility === 'visible' && +c.opacity > 0.9 && r.bottom <= innerHeight && r.top >= 0 ? 'visible' : [c.display, c.visibility, c.opacity, Math.round(r.top)].join(' '); });
+      const v0 = await at(); await page.evaluate(() => scrollBy(0, 900)); await page.waitForTimeout(800); const v1 = await at();
+      ok(v0 === 'visible' && v1 === 'visible', `@390 ${u}: the pill is visible at load and after scrolling down`, [v0, v1]); await page.close();
+    }
+    await ctx.close(); }
   console.log('# QC-07: Esc returns focus to the control that opened the sheet');
   for (const w of [390, 1440]) {
     const ctx = await ctxFor(b, w), page = await ctx.newPage(); await page.goto(BASE + 'beta/cities/tokyo.html', { waitUntil: 'load' }); await page.waitForTimeout(1500);

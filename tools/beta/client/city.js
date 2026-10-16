@@ -29,17 +29,8 @@
   const nameOf = c => { const a = $('.pl-n a', c); if (!a) return ''; const x = a.cloneNode(true); if (c.querySelector('.pl-vert')) $$('.nat', x).forEach(v => v.remove()); return x.textContent.trim(); };
   const C = Cleo.city = { name: nameOf, byId, info, key, pid, been, desk, esc, icon, trap, cards, S, lens: {}, after: [], rank: null, why: null, dist: null };
   $$('[data-cleo-rail],[data-cleo-toolbar],[data-cleo-search],[data-cleo-mappill]').forEach(el => { el.hidden = false; });
-  // R7 gap 5 (B-08): the floating "Show map" pill never sits on a card title. It steps aside while the page scrolls down
-  // and comes back when the page settles (or scrolls up) only if no title is under it; the city bar's switcher always
-  // reaches the map. Hidden = visibility:hidden (not focusable, not hit-testable).
-  { const pill = $('[data-cleo-mappill]');
-    if (pill) { let y0 = scrollY, t = 0;
-      const covers = () => { const r = pill.getBoundingClientRect(); if (!r.width) return false; pill.style.pointerEvents = 'none';
-        const hit = [0.1, 0.5, 0.9].some(fx => [0.2, 0.8].some(fy => d.elementsFromPoint(r.left + r.width * fx, r.top + r.height * fy).some(e => e !== pill && e.closest('.pl-n, .gc-n, .pl-e, .gc-b'))));
-        pill.style.pointerEvents = ''; return hit; };
-      const settle = () => { pill.classList.toggle('away', covers()); };
-      window.addEventListener('scroll', () => { const y = scrollY; if (y > y0 + 2) pill.classList.add('away'); y0 = y; clearTimeout(t); t = setTimeout(settle, 140); }, { passive: true });
-      on(window, 'resize', settle); setTimeout(settle, 300); on(d, 'cleo:stamped', () => { clearTimeout(t); t = setTimeout(settle, 140); }); } }
+  // QA-69: the floating "Show map" pill stays visible at load and at rest — the first screen's way to the map. (The W8
+  // step-aside hid it at load whenever a card title sat under it; B-08 passes under the ratified .mappill exemption.)
   // For you / Near me (foryou.js) and Your day (day.js) load on first use — a tap, a stored interest or a #day= route
   const need = C.need = (n, cb) => {
     if ({ foryou: C.fy, day: C.day, atlas: C.atlasTools }[n]) { if (cb) cb(); return; }
