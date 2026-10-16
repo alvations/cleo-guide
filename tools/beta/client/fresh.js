@@ -1,7 +1,8 @@
 /* Cleo beta — fresh.js (FE-C, W9-2 "Freshness everywhere", card half; QC-04 "Approximate pin"). A quiet "Status checked <d Mon>" line on each
  * place card, from the card's own data-checked (the build writes it from the record's pv.checked; nothing is inferred).
- * The date only, never "open now" or hours. The text rides in a CSS attr() so it stays out of the card's text: a search
- * for "oct" must not match every card (Cleo.lens.text reads textContent). Loaded on every city page (city.js FE-C hook). */
+ * The date only, never "open now" or hours. Real text (find-in-page, screen readers, copy all read it) marked data-nosearch,
+ * so the search skips it (Cleo.lens.text and city.js's typed search, platform f03b03cf): "oct" never matches every card.
+ * Loaded lazily on every city page (city.js FE-C hook). */
 (function () {
   'use strict';
   var Cleo = window.Cleo || {}, d = document;
@@ -30,8 +31,7 @@
       var iso = c.getAttribute('data-checked'), s = day(iso); if (!s) return;
       var el = c.querySelector(':scope > .pl-chk');
       if (!el) { el = d.createElement('span'); el.className = 'pl-chk'; c.appendChild(el); }
-      el.setAttribute('data-t', Cleo.t('sheet.status', 'Status checked {d}', { d: s })); el.setAttribute('data-d', iso);
-      el.setAttribute('role', 'note'); el.setAttribute('aria-label', el.getAttribute('data-t'));
+      el.textContent = Cleo.t('sheet.status', 'Status checked {d}', { d: s }); el.setAttribute('data-d', iso); el.setAttribute('data-nosearch', '');
     });
   }
   // W9-2 (a): the Gallery row cards (li.gc) and the Atlas map preview (a.ms-pv) carry the same line, dated from the place's
@@ -51,7 +51,7 @@
       var old = el.querySelector('.pl-chk'); if (old) old.remove();
       if (!s) return;
       var x = d.createElement('span'); x.className = 'pl-chk ' + (pv ? 'pv-chk' : 'gc-chk');
-      x.setAttribute('data-t', Cleo.t('sheet.status', 'Status checked {d}', { d: s })); x.setAttribute('data-d', iso);
+      x.textContent = Cleo.t('sheet.status', 'Status checked {d}', { d: s }); x.setAttribute('data-d', iso); x.setAttribute('data-nosearch', '');
       (at || el).appendChild(x);   // inside the one card link: text, not a target (the card says it in its accessible name)
     });
   }

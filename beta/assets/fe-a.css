@@ -671,6 +671,10 @@ html.ph-fade main[data-city] figure.photo.in::before{opacity:0}
 html.ph-fade .view-gallery li.gc .cover.has-ph[style*="--ph"]::before{content:"";display:block;position:absolute;inset:0;z-index:2;background:var(--ph);pointer-events:none;transition:opacity 280ms var(--ease-out)}
 html.ph-fade .view-gallery li.gc .cover.has-ph.in::before{opacity:0}
 /* 2. Switching views: the switcher's selection slides to the new view (desktop pill row), and the page content fades in */
+/* FE-B QC-33: a deep link into Guidebook / Insights painted the About + method section and the footer first, then the view
+   mounted above them and pushed them down (load CLS 0.42–0.58 at 1440). Until the view host has content, it holds one
+   viewport of room (data-view is set from the hash in <head>, before first paint), so they first paint below the fold. */
+html:is([data-view=guidebook],[data-view=insights]) main[data-city]>#cleo-view:is([hidden],:empty){display:block!important;min-height:100vh}
 /* FE-B QC-18: the thumb works wherever the switcher lives (the Atlas parks it in the header, outside <main>): it is
    positioned against its containing block by city.js, and the switcher is its own stacking context so it paints above the track */
 html .views[data-cleo-views] .v-ind{display:none}
@@ -739,6 +743,10 @@ html main[data-city] :is(.view-guidebook,[data-cleo-book]) :is(.gfacts,.gsig){fo
 /* Designer nit: a tap or deep link focuses the dialog itself (tabindex -1), which shows no ring; a keyboard open still
    focuses ✕ with its ring */
 html body #cleo-sheet .sheet.detail:focus{outline:none}
+/* W7 face check (Cleveland Atlas @1440): a long publisher name ("Fox 8 Cleveland (WJW) — NE Ohio fish-fry guide", 375 px)
+   ran past a 219 px card column. On the compact card faces the one visible chip fits its line, ending in an ellipsis;
+   its full name is still its accessible text and the detail lists every source in full */
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-s .src{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
 
 /* ==========================================================================
    atlas.css — Atlas map-search (Atlas lane, W7 Amendment 2: the real-estate map-search pattern, for travel).
@@ -1137,11 +1145,9 @@ html[data-view=atlas] main[data-city] #cleo-grid li.pl:not(:has(.pl-n a:focus-vi
 .sheet .fact .pl-rec{margin:0}
 .pl>.pl-rec.closed{display:none}   /* QC-23: a closed place's row shows in its detail only */
 .gc-rec{display:flex;margin-top:var(--s-1)}.gc-rec .rb{min-height:24px;pointer-events:none}.ge-rec{margin:var(--s-1) 0}
-/* FE-C (W9-2) the quiet "Status checked <d Mon>" card line (client/fresh.js). The text is a CSS attr(), out of the card's
-   textContent so search never matches the date. Ink-3 on paper. */
+/* FE-C (W9-2) the quiet "Status checked <d Mon>" card line (client/fresh.js): real text, data-nosearch. Ink-3 on paper. */
 .pl .pl-chk{order:97;grid-column:1/-1}
 .pl-chk{display:block;margin:var(--s-1) 0 0;font-size:var(--fs-xs);line-height:1.4;color:var(--ink-3)}
-.pl-chk::before{content:attr(data-t)}
 .feedline a{font-weight:600}
 .lf-gap{margin:0;font-size:var(--fs-sm);color:var(--ink-2);max-width:62ch}.lf-gap .lbl{display:block;font-weight:600;color:var(--ink);margin-bottom:var(--s-1)}.lf-rule{max-width:62ch;color:var(--ink-2)}
 /* FE-C (QC-05) the stated empty state (client/empty.js): in the lens slot, and a calm card on the map (Atlas) */

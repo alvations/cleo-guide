@@ -2011,6 +2011,15 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - **Review:** round 18 made 5 changes. Total: 84 changes over eighteen rounds.
   - **Also flagged:** FE-1's Atlas list head (client/atlas.js:420-436) hard-codes its QC-05 empty state. FE-C pointed FE-1 at `city.empty.*`, and the orchestrator knows.
 
+## FE-A — QC-30 casing of a page's own place names; W7 card chip fit (2026-10-16)
+- **QC-30 (designer-approved rule):** a page's own place names keep their capitals in three ways:
+  - as whole names (the area name, and the area name without its parenthetical);
+  - as runs of capitalised words inside a name ("Ohio City", "Omoide Yokochō");
+  - as single words, but only words not in the designer's new `generic` list in `design/beta/casing/allowlist.json` (park, river, yokochō, compass and position words…).
+  - **Changes:** "Theme-park rides & attractions", "Theme-park signature eats" (Orlando), "Lakefront, river & water" (Chicago), "Izakaya, yakitori & yokochō", "Nightlife, yokochō & districts" (Tokyo). Nothing else changes on the 84 pages.
+  - test-casing.js gains 7 cases.
+  - The designer will mirror the rule in sentence_case.py and DESIGN-SYSTEM §v2.6.
+- **W7 face check (red on origin):** a long publisher name ran past a 219 px Atlas card column (Cleveland @1440, Prosperity Social Club). On the compact card faces the one visible source chip now fits its line, ending in an ellipsis; the full name is its accessible text and is listed in the detail.
 ## 2026-10-16 20:17Z · orchestrator check-in
 
 - **Deploy pin `b54b3745` (beta-deploy-r7):** 33a44d16 plus QA-77 (FE-C's badge hit area, fe-c.css rules only) and the trip.html source link.
@@ -2065,3 +2074,16 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
   - B-03: 13–14 controls above the first card;
   - B-08: 0.
   - Gates: `npm run validate`, `npm test` and `beta:check` pass; `atlas-ms.js` on Cleveland passes in full, including the B-08 list-scrolled check.
+## 2026-10-16 21:00Z · orchestrator check-in
+
+- **Deploy pin b54b3745:** QC PASS. QA's suite is running.
+- **Dev-only landings (all SHAs verified on origin):**
+  - QC-33, the deep-link CLS fix, CLS 0.42–0.58 → 0 (86318253c);
+  - M3-06, Tokyo desktop DOM 3,082 → 2,821, with w2 dom now in npm test (87f814ad);
+  - QC-30, casing (0dc9dabb), which also fixes the chip overflow;
+  - W9-2 (b2), "Status checked" as real text with data-nosearch (86b7558e4);
+  - platform's data-nosearch (f03b03cf).
+- **Platform's queue:**
+  1. the offline-pack UI behind Cleo.need (eager JS is at 39.97/40 KB);
+  2. Tokyo phone LCP at 2.9 s against the 2.0 s target.
+- **FE-1:** button.src B-20, one QC-05 empty state, and the designer's dark-dot contrast fix. Then the R4 re-shoot.

@@ -5,26 +5,45 @@ JS helper; this file is the spec's executable form and the audit tool.
     python3 design/beta/casing/sentence_case.py --check    # exit 1 if a label would change that the table doesn't list
 Rule: keep the label's first letter; keep allowlisted phrases and words; keep ALL-CAPS words (len ≥ 2) and words with an
 internal capital or is a single capital letter; lowercase every other word's first letter. Hyphenated words are cased per segment (Italian-American,
-must-see, sub-Saharan). Source names are NOT passed through this (publishers' own casing)."""
+must-see, sub-Saharan). Source names are NOT passed through this (publishers' own casing).
+A page's own place names (QC-30) keep their capitals: each whole name (and the name without its parenthetical), each
+run of capitalised words in it, and each of its single words not in allowlist.json "generic" (Park, River, Yokochō stay
+lower case on their own). own_words() builds that set; tools/beta/lib/casing.js ownWords() is its JS port."""
 import glob, json, os, re, sys
 H = os.path.dirname(os.path.abspath(__file__)); R = os.path.join(H, '..', '..', '..')
 A = json.load(open(os.path.join(H, 'allowlist.json')))
-PHR = sorted(A['phrases'], key=len, reverse=True); WORDS = set(A['words'])
+PHR = sorted(A['phrases'], key=len, reverse=True); WORDS = set(A['words']); GENERIC = set(A.get('generic', []))
 TOK = re.compile(r"[A-Za-zÀ-ɏḀ-ỿ][\wÀ-ɏḀ-ỿ'’]*")
 
-def keep(w):
-    return w in WORDS or w.isupper() or any(c.isupper() for c in w[1:])   # isupper(): BBQ, TV, and single letters (U-pick)
+def keep(w, own=frozenset()):
+    return w in WORDS or w in own or w.isupper() or any(c.isupper() for c in w[1:])   # isupper(): BBQ, TV, and single letters (U-pick)
 
-def sentence_case(s):
+RUN = re.compile(r"[^\W\d_a-zß-ÿ][\w'’.-]*(?: [^\W\d_a-zß-ÿ][\w'’.-]*)*")   # capitalised tokens joined only by spaces
+
+def own_words(*names):
+    """A page's own place names → (words, phrases). Mirrors casing.js ownWords()."""
+    words, phrases = set(), set()
+    for n in filter(None, names):
+        for x in (str(n), re.sub(r'\s*\(.*$', '', str(n)).strip()):
+            if re.search(r'\S\s+\S', x): phrases.add(x)
+        for m in RUN.finditer(str(n)):
+            if not m.group(0)[0].isupper(): continue
+            run = m.group(0).rstrip('.'); toks = TOK.findall(run)
+            if len(toks) > 1: phrases.add(run)
+            words.update(w for w in toks if w.lower() not in GENERIC)
+    return words, sorted(phrases, key=len, reverse=True)
+
+def sentence_case(s, own=None):
     if not s: return s
-    guard = []                                     # protect allowlisted phrases with placeholders
+    words, own_phr = own or (frozenset(), [])
+    guard = []                                     # protect allowlisted (and the page's own) phrases with placeholders
     def put(m): guard.append(m.group(0)); return f'\x00{len(guard) - 1}\x00'
-    for p in PHR: s = re.sub(r'(?<![\w])' + re.escape(p) + r'(?![\w])', put, s)
+    for p in PHR + list(own_phr): s = re.sub(r'(?<![\w])' + re.escape(p) + r'(?![\w])', put, s)
     first = [not s.lstrip('★ ').startswith('\x00')]     # a label that opens with a kept phrase has had its first word
     def fix(m):
         w = m.group(0)
         if first[0]: first[0] = False; return w     # the label's first word keeps its capital
-        return w if keep(w) else w[0].lower() + w[1:]
+        return w if keep(w, words) else w[0].lower() + w[1:]
     out = TOK.sub(fix, s)
     return re.sub(r'\x00(\d+)\x00', lambda m: guard[int(m.group(1))], out)
 

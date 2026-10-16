@@ -29,6 +29,17 @@ console.log('# casing: the JS helper matches the designer\'s spec');
   const ex = [['Iconic & Must-See', 'Iconic & must-see'], ['Free to Visit', 'Free to visit'], ['UNESCO World Heritage', 'UNESCO World Heritage'], ['Italian-American Classics', 'Italian-American classics']];
   chk('the brief\'s examples', ex.every(([a, b]) => sentence(a) === b), ex.map(([a]) => sentence(a)));
   chk('the page\'s own place names keep their capitals', sentence('Only in Cleveland', ownWords('Cleveland')) === 'Only in Cleveland');
+  // QC-30: an area name's generic geography word keeps its capital only inside that whole name, never on its own
+  const q30 = [
+    ['Theme-Park rides & attractions', ['Orlando', 'Winter Park, Baldwin Park & Maitland', 'Mills 50, Milk District, Audubon Park & SoDo'], 'Theme-park rides & attractions'],
+    ['Lakefront, River & water', ['Chicago', 'The Loop & Downtown (River North, Streeterville, Gold Coast)'], 'Lakefront, river & water'],
+    ['Izakaya, yakitori & Yokochō', ['Tokyo', '東京', 'Shinjuku-ku (Kabukichō · Golden Gai · Omoide Yokochō · Shinjuku Gyoen)'], 'Izakaya, yakitori & yokochō'],
+    ['Best of Ohio City', ['Cleveland', 'Ohio City & Tremont'], 'Best of Ohio City'],
+    ['Wicker Park finds', ['Chicago', 'Northwest Side (Wicker Park, Bucktown, Ukrainian Village)'], 'Wicker Park finds'],
+    ['SoDo coffee', ['Orlando', 'Mills 50, Milk District, Audubon Park & SoDo'], 'SoDo coffee'],
+    ['Only in New York', ['New York'], 'Only in New York']];
+  const q30bad = q30.filter(([l, n, want]) => sentence(l, ownWords(...n)) !== want).map(([l, n]) => [l, sentence(l, ownWords(...n))]);
+  chk(`QC-30: generic words (Park, River, Yokochō) lower case on their own; named places keep their capitals (${q30.length} cases)`, !q30bad.length, q30bad);
 }
 
 console.log('# casing: no uppercase / capitalize transforms, no styled first letters, in any shipped stylesheet');
