@@ -1764,3 +1764,15 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - QC-18 (the ja switcher indicator offset, Low) → FE-B;
     - QC-19 (a rating or popularity line without the D-39 note) and QC-20 (hours in prose) → FE-B, under **D-42**.
   - **D-42** (docs/BETA-DECISIONS.md): extend D-39 to hours, keeping "label, don't strip". The note becomes "Prices, ratings and times are quoted from the source at the time of research (<date>)", and the sheet says "We don't track opening hours or prices."
+
+- 2026-10-16 15:40Z · **Orchestrator** · check-in · commit: this entry's commit
+  - **QA-70 cause:** FE-2 and platform bisected it independently to 7e746d9b. On today's tip, four `:has()` rules on `<main>` in fe-a.css (197–198 and 201–202) cost about 0.8–1 s of main-thread time per map open. Platform showed that rekeying 197–198 alone still left Tokyo at 2,485 ms; all four removed gives 1,666 ms (be74c82f: 1,654 ms).
+    - FE-2 rekeys all four on script-set attributes.
+    - Platform adds a `:has()` lint with a shrink-only allowlist for 7 cleo.css selectors (PERF-16 → the designer).
+  - **QA-71:** green in FE-2's local tests; the push is pending.
+  - **Location-verify workflow:** a re-check mode for named rows (a74735f4), with names validated by node from env. The location lane's `--duplicates` report was approved.
+  - **Imagery:** plain `all` runs are retired (about 4% yield). Vetted-candidate waves are approved; wave 1 is 20 titles, 6 stated gaps, and run #54 is running. The Pullman Porter photo was refused.
+  - **Pushed today by the lanes:**
+    - FE-A: food covers per the designer (the cover word is never a source or award), B-20 tier links at 44 px, and the false pin-numbers sentence removed;
+    - FE-B: QC-10 follow-up (no focus move on a locale or lens redraw);
+    - i18n: every lane's interface is catalogued, and QC-16 is claimed (7bd091cd).
