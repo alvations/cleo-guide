@@ -38,16 +38,16 @@
   },
   "otherLandmarks": {
    "targets": 1151,
-   "skipped": 229,
+   "skipped": 236,
    "withArticle": 627
   },
   "candidates": {
-   "total": 444,
-   "high": 430,
+   "total": 500,
+   "high": 486,
    "med": 14,
    "low": 0
   },
-  "targetsWithHigh": 222,
+  "targetsWithHigh": 251,
   "gaps": [
    "landmark:tokyo#tokyo-anime-center-dnp-plaza-shibuya — brand store — its signage and branding are the subject; never a photo (W8 gap stated)",
    "landmark:wheeling#lemoyne-house — only a historical-marker photo on Commons — not the house (gap stated)",
@@ -19089,6 +19089,7 @@
     "Music Hall"
    ],
    "pilot": false,
+   "skip": "candidate wave 2: the only Commons photo of the Andrew Carnegie Free Library (Carnegie, PA) is 600 px wide, under the 640 px floor — calm cover (stated)",
    "candidates": []
   },
   {
@@ -19100,7 +19101,17 @@
     "Carnegie Museum of Art"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Carnegie Museum of Art.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Carnegie_Museum_of_Art.JPG",
+     "depicts": "The Carnegie Museum of Art, Pittsburgh (Scaife wing by Edward Larrabee Barnes)",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Carnegie Museum of Art"
+    }
+   ]
   },
   {
    "key": "landmark:pittsburgh#carnegie-museum-of-natural-history",
@@ -19111,7 +19122,24 @@
     "Carnegie Museum of Natural History"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Carnegie Museum of Natural History 04.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Carnegie_Museum_of_Natural_History_04.JPG",
+     "depicts": "The Carnegie Museum of Natural History, Pittsburgh",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Carnegie Museum of Natural History; Piotrus"
+    },
+    {
+     "file": "File:Carnegie Museum of Natural History - Mar 2025.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Carnegie_Museum_of_Natural_History_-_Mar_2025.jpg",
+     "depicts": "The Carnegie Museum of Natural History, Pittsburgh",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Carnegie Museum of Natural History"
+    }
+   ]
   },
   {
    "key": "landmark:pittsburgh#carrie-blast-furnaces-national-historic-landmark",
@@ -19122,7 +19150,24 @@
     "Carrie Blast Furnaces National Historic Landmark"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Carrie Blast Furnaces National Historic landmark.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Carrie_Blast_Furnaces_National_Historic_landmark.jpg",
+     "depicts": "The Carrie Blast Furnaces, Rankin",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Carrie Blast Furnaces National Historic Landmark"
+    },
+    {
+     "file": "File:Carrie Furnaces, Rankin PA (8907645223).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Carrie_Furnaces,_Rankin_PA_(8907645223).jpg",
+     "depicts": "The Carrie Blast Furnaces, Rankin",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Carrie Furnaces, Rankin PA"
+    }
+   ]
   },
   {
    "key": "landmark:pittsburgh#cathedral-of-learning-and-the-nationality-rooms",
@@ -19137,7 +19182,24 @@
     "the Nationality Room"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Cathedral of Learning at Pitt.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cathedral_of_Learning_at_Pitt.jpg",
+     "depicts": "The Cathedral of Learning, University of Pittsburgh",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Cathedral of Learning"
+    },
+    {
+     "file": "File:Cathedral of Learning (University of Pittsburgh, seen from the lawn).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Cathedral_of_Learning_(University_of_Pittsburgh,_seen_from_the_lawn).jpg",
+     "depicts": "The Cathedral of Learning seen from the lawn",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Cathedral of Learning"
+    }
+   ]
   },
   {
    "key": "landmark:pittsburgh#duquesne-incline",
@@ -19148,7 +19210,24 @@
     "Duquesne Incline"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Duquesne Incline (50076338942) (cropped).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Duquesne_Incline_(50076338942)_(cropped).jpg",
+     "depicts": "The Duquesne Incline, Pittsburgh",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Duquesne Incline"
+    },
+    {
+     "file": "File:Pittsburgh duqesne incline.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Pittsburgh_duqesne_incline.jpg",
+     "depicts": "The Duquesne Incline, Pittsburgh",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): in Category:Duquesne Incline"
+    }
+   ]
   },
   {
    "key": "landmark:pittsburgh#fallingwater",
@@ -19159,7 +19238,24 @@
     "Fallingwater"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Fallingwater - by Frank Lloyd Wright.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fallingwater_-_by_Frank_Lloyd_Wright.jpg",
+     "depicts": "Fallingwater by Frank Lloyd Wright",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names Fallingwater"
+    },
+    {
+     "file": "File:Frank Lloyd Wright - Fallingwater exterior 5.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Frank_Lloyd_Wright_-_Fallingwater_exterior_5.JPG",
+     "depicts": "Fallingwater, exterior",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names Fallingwater exterior"
+    }
+   ]
   },
   {
    "key": "landmark:pittsburgh#grandview-avenue-overlook-mount-washington",
@@ -19172,7 +19268,24 @@
     "Mount Washington"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Downtown Pittsburgh seen from Mt. Washington.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Pittsburgh_seen_from_Mt._Washington.jpg",
+     "depicts": "The view from the Grandview Avenue overlook on Mount Washington over Downtown Pittsburgh",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): the overlook is the view itself: Downtown Pittsburgh seen from Mount Washington"
+    },
+    {
+     "file": "File:Grandview Avenue, Mount Washington, Pittsburgh, 2020-10-08, 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Grandview_Avenue,_Mount_Washington,_Pittsburgh,_2020-10-08,_01.jpg",
+     "depicts": "Grandview Avenue on Mount Washington",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names Grandview Avenue, Mount Washington"
+    }
+   ]
   },
   {
    "key": "landmark:pittsburgh#heinz-memorial-chapel",
@@ -19183,7 +19296,24 @@
     "Heinz Memorial Chapel"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Heinz Memorial Chapel, University of Pittsburgh, Bellefield Avenue, Oakland, Pittsburgh, PA - 53618613276.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Heinz_Memorial_Chapel,_University_of_Pittsburgh,_Bellefield_Avenue,_Oakland,_Pittsburgh,_PA_-_53618613276.jpg",
+     "depicts": "Heinz Memorial Chapel, University of Pittsburgh",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names Heinz Memorial Chapel"
+    },
+    {
+     "file": "File:Heinz Memorial Chapel.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Heinz_Memorial_Chapel.jpg",
+     "depicts": "Heinz Memorial Chapel, Pittsburgh",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): in Category:Heinz Chapel"
+    }
+   ]
   },
   {
    "key": "landmark:pittsburgh#kennywood",
@@ -19194,7 +19324,24 @@
     "Kennywood"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Kennywood Park.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kennywood_Park.JPG",
+     "depicts": "Kennywood amusement park (Phantom's Revenge)",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names Kennywood Park"
+    },
+    {
+     "file": "File:Kennywood Jack Rabbit DSCN2786.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Kennywood_Jack_Rabbit_DSCN2786.JPG",
+     "depicts": "The Jack Rabbit coaster (1921) at Kennywood",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names Kennywood"
+    }
+   ]
   },
   {
    "key": "landmark:pittsburgh#mattress-factory",
@@ -19205,7 +19352,17 @@
     "Mattress Factory"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Mattress Factory Museum.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mattress_Factory_Museum.jpg",
+     "depicts": "The Mattress Factory museum building, Pittsburgh",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Mattress Factory Museum"
+    }
+   ]
   },
   {
    "key": "landmark:pittsburgh#pennsylvania-trolley-museum",
@@ -19216,6 +19373,7 @@
     "Pennsylvania Trolley Museum"
    ],
    "pilot": false,
+   "skip": "R7 QA-63: every Commons photo shows a trolley (equipment) rather than the place — calm cover (stated)",
    "candidates": []
   },
   {
@@ -19228,7 +19386,24 @@
     "Phipps Conservatory and Botanical Garden"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Phipps conservatory 0.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Phipps_conservatory_0.JPG",
+     "depicts": "Phipps Conservatory, Pittsburgh",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names Phipps Conservatory; Piotrus"
+    },
+    {
+     "file": "File:Phipps Conservatory winter 2015 welcome center.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Phipps_Conservatory_winter_2015_welcome_center.jpg",
+     "depicts": "Phipps Conservatory welcome center",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names Phipps Conservatory"
+    }
+   ]
   },
   {
    "key": "landmark:pittsburgh#point-state-park-and-the-fort-pitt-museum",
@@ -19241,7 +19416,24 @@
     "the Fort Pitt Museum"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Point State Park in Fall.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Point_State_Park_in_Fall.jpg",
+     "depicts": "Point State Park in autumn",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names Point State Park"
+    },
+    {
+     "file": "File:Fountain at Point State Park (14314947915).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fountain_at_Point_State_Park_(14314947915).jpg",
+     "depicts": "The fountain at Point State Park",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names Point State Park"
+    }
+   ]
   },
   {
    "key": "landmark:pittsburgh#pump-house-and-battle-of-homestead-site",
@@ -19276,7 +19468,24 @@
     "Andy Warhol Museum"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Andy Warhol Museum, Pittsburgh, 2015-06-17, 01.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Andy_Warhol_Museum,_Pittsburgh,_2015-06-17,_01.jpg",
+     "depicts": "The Andy Warhol Museum (former Frick & Lindsay building), Pittsburgh",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Andy Warhol Museum"
+    },
+    {
+     "file": "File:The Andy Warhol Museum.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Andy_Warhol_Museum.jpg",
+     "depicts": "The Andy Warhol Museum, Pittsburgh",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Andy Warhol Museum"
+    }
+   ]
   },
   {
    "key": "landmark:rhineland#abtei-brauweiler",
@@ -22649,6 +22858,7 @@
     "African American Civil War Memorial"
    ],
    "pilot": false,
+   "skip": "the memorial is a modern sculpture (1997): the US has no freedom of panorama for sculpture — calm cover (stated)",
    "candidates": []
   },
   {
@@ -22660,7 +22870,24 @@
     "Arlington National Cemetery"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Arlington National Cemetery Headstones.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Arlington_National_Cemetery_Headstones.jpg",
+     "depicts": "Rows of headstones at Arlington National Cemetery",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names Arlington National Cemetery"
+    },
+    {
+     "file": "File:Rows of headstones at Arlington National Cemetery.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Rows_of_headstones_at_Arlington_National_Cemetery.jpg",
+     "depicts": "Rows of headstones at Arlington National Cemetery",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names Arlington National Cemetery"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#eastern-market",
@@ -22695,7 +22922,24 @@
     "George Washington's Mount Vernon"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Mount Vernon the home of George Washington from driveway.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mount_Vernon_the_home_of_George_Washington_from_driveway.JPG",
+     "depicts": "The Mount Vernon mansion seen from the driveway",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names Mount Vernon, the home of George Washington"
+    },
+    {
+     "file": "File:WestFrontMansionMountVernon.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:WestFrontMansionMountVernon.jpg",
+     "depicts": "The west front of the Mount Vernon mansion",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): in Category:Mansion at Mount Vernon (exterior)"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#georgetown-waterfront-and-the-c-and-o-canal",
@@ -22720,7 +22964,24 @@
     "Great Falls Park"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Great Falls Park Potomac River 02.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Great_Falls_Park_Potomac_River_02.jpg",
+     "depicts": "The Great Falls of the Potomac at Great Falls Park",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names Great Falls Park"
+    },
+    {
+     "file": "File:Great Falls of the Potomac River - NPS.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Great_Falls_of_the_Potomac_River_-_NPS.jpg",
+     "depicts": "The Great Falls of the Potomac River",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Great Falls of the Potomac; NPS"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#john-f-kennedy-center-for-the-performing-arts",
@@ -22744,7 +23005,24 @@
     "Library of Congres"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Library of Congress 01.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Library_of_Congress_01.JPG",
+     "depicts": "The Library of Congress Thomas Jefferson Building",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Library of Congress; Ad Meskens"
+    },
+    {
+     "file": "File:Library of Congress (1).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Library_of_Congress_(1).jpg",
+     "depicts": "The Library of Congress",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Library of Congress"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#lincoln-memorial",
@@ -22755,7 +23033,24 @@
     "Lincoln Memorial"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Lincoln Memorial Front View.jpeg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Lincoln_Memorial_Front_View.jpeg",
+     "depicts": "The Lincoln Memorial, front view",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Lincoln Memorial"
+    },
+    {
+     "file": "File:The Lincoln Memorial (7189327895).jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Lincoln_Memorial_(7189327895).jpg",
+     "depicts": "The Lincoln Memorial",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Lincoln Memorial"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#martin-luther-king-jr-memorial",
@@ -22766,6 +23061,7 @@
     "Martin Luther King Jr. Memorial"
    ],
    "pilot": false,
+   "skip": "modern sculpture (2011): the US has no freedom of panorama for sculpture — calm cover (stated)",
    "candidates": []
   },
   {
@@ -22800,7 +23096,24 @@
     "National Archives Museum"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:US National Archives Building.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:US_National_Archives_Building.jpg",
+     "depicts": "The National Archives Building, Washington",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the US National Archives Building"
+    },
+    {
+     "file": "File:National Archives Building.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:National_Archives_Building.jpg",
+     "depicts": "The National Archives Building, Washington",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the National Archives Building"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#national-gallery-of-art",
@@ -22811,7 +23124,24 @@
     "National Gallery of Art"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:National Gallery of Art - West Building.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:National_Gallery_of_Art_-_West_Building.JPG",
+     "depicts": "The National Gallery of Art West Building, south façade",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the National Gallery of Art West Building"
+    },
+    {
+     "file": "File:West Building of the National Gallery of Art.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:West_Building_of_the_National_Gallery_of_Art.JPG",
+     "depicts": "The West Building of the National Gallery of Art",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the National Gallery of Art"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#national-museum-of-african-american-history-and-culture",
@@ -22822,7 +23152,24 @@
     "National Museum of African American History and Culture"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Museum of African American History & Culture - Wide Angle.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Museum_of_African_American_History_&_Culture_-_Wide_Angle.jpg",
+     "depicts": "The National Museum of African American History and Culture with the Washington Monument",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): in Category:National Museum of African American History and Culture (building, 2016)"
+    },
+    {
+     "file": "File:African American Museum August 2016 03.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:African_American_Museum_August_2016_03.jpg",
+     "depicts": "The National Museum of African American History and Culture",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): in Category:National Museum of African American History and Culture"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#national-museum-of-american-history",
@@ -22833,7 +23180,24 @@
     "National Museum of American History"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:National Museum of American History.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:National_Museum_of_American_History.jpg",
+     "depicts": "The National Museum of American History, Washington",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the National Museum of American History"
+    },
+    {
+     "file": "File:Aerial view of National Museum of American History.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_National_Museum_of_American_History.jpg",
+     "depicts": "The National Museum of American History from the air",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the National Museum of American History; Carol M. Highsmith"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#national-museum-of-natural-history",
@@ -22844,7 +23208,24 @@
     "National Museum of Natural History"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:National Museum of Natural History - IMG 1966.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:National_Museum_of_Natural_History_-_IMG_1966.JPG",
+     "depicts": "The National Museum of Natural History, Washington",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the National Museum of Natural History"
+    },
+    {
+     "file": "File:National Museum of Natural History.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:National_Museum_of_Natural_History.jpg",
+     "depicts": "The National Museum of Natural History, Washington",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the National Museum of Natural History"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#national-museum-of-the-united-states-army",
@@ -22866,6 +23247,7 @@
     "National World War II Memorial"
    ],
    "pilot": false,
+   "skip": "modern memorial with copyrighted sculpture (2004): the US has no freedom of panorama for sculpture — calm cover (stated)",
    "candidates": []
   },
   {
@@ -22893,7 +23275,24 @@
     "National Portrait Gallery"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Smithsonian American Art Museum exterior.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Smithsonian_American_Art_Museum_exterior.jpg",
+     "depicts": "The Smithsonian American Art Museum and National Portrait Gallery (Old Patent Office Building)",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Smithsonian American Art Museum"
+    },
+    {
+     "file": "File:Old Patent Office, Washington, D.C. 2011.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Old_Patent_Office,_Washington,_D.C._2011.jpg",
+     "depicts": "The Old Patent Office Building, home of the Smithsonian American Art Museum and National Portrait Gallery",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): the building that houses both museums"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#steven-f-udvar-hazy-center-air-and-space",
@@ -22915,7 +23314,24 @@
     "Phillips Collection"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:The Phillips Collection.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Phillips_Collection.JPG",
+     "depicts": "The Phillips Collection, Dupont Circle",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Phillips Collection"
+    },
+    {
+     "file": "File:The Phillips Collection building.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Phillips_Collection_building.jpg",
+     "depicts": "The Phillips Collection building",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Phillips Collection"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#the-wharf",
@@ -22938,7 +23354,24 @@
     "White House"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:North Façade White House.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:North_Fa%C3%A7ade_White_House.JPG",
+     "depicts": "The north façade of the White House",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the White House north façade"
+    },
+    {
+     "file": "File:The White House June 2024.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:The_White_House_June_2024.jpg",
+     "depicts": "The White House seen from Lafayette Square",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the White House"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#thomas-jefferson-memorial",
@@ -22949,7 +23382,24 @@
     "Thomas Jefferson Memorial"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Jefferson Memorial Washington April 2017 002.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Jefferson_Memorial_Washington_April_2017_002.jpg",
+     "depicts": "The Jefferson Memorial seen across the Tidal Basin",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Jefferson Memorial"
+    },
+    {
+     "file": "File:Thomas Jefferson Memorial front.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Thomas_Jefferson_Memorial_front.jpg",
+     "depicts": "The Thomas Jefferson Memorial, front",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Thomas Jefferson Memorial"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#u-s-marine-corps-war-memorial-iwo-jima",
@@ -22960,6 +23410,7 @@
     "U.S. Marine Corps War Memorial"
    ],
    "pilot": false,
+   "skip": "sculpture (1954): the US has no freedom of panorama for sculpture — calm cover (stated)",
    "candidates": []
   },
   {
@@ -22971,7 +23422,24 @@
     "United States Capitol"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:US Capitol west side.JPG",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:US_Capitol_west_side.JPG",
+     "depicts": "The United States Capitol, west front",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the US Capitol west side; Commons featured picture"
+    },
+    {
+     "file": "File:United States Capitol - west front.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:United_States_Capitol_-_west_front.jpg",
+     "depicts": "The United States Capitol, west front",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the United States Capitol; Architect of the Capitol (public domain)"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#vietnam-veterans-memorial",
@@ -22982,6 +23450,7 @@
     "Vietnam Veterans Memorial"
    ],
    "pilot": false,
+   "skip": "modern memorial artwork (1982): the US has no freedom of panorama for sculpture — calm cover (stated)",
    "candidates": []
   },
   {
@@ -22993,7 +23462,24 @@
     "Washington Monument"
    ],
    "pilot": false,
-   "candidates": []
+   "searchedVia": "WebSearch allowed_domains=[commons.wikimedia.org]",
+   "searched": "2026-10-11",
+   "candidates": [
+    {
+     "file": "File:Washington Monument, Washington DC.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Washington_Monument,_Washington_DC.jpg",
+     "depicts": "The Washington Monument",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Washington Monument"
+    },
+    {
+     "file": "File:Washington Monument 2022.jpg",
+     "pageUrl": "https://commons.wikimedia.org/wiki/File:Washington_Monument_2022.jpg",
+     "depicts": "The Washington Monument",
+     "confidence": "high",
+     "reason": "candidate wave 2 (W8 vetting, 2026-10-16): title names the Washington Monument"
+    }
+   ]
   },
   {
    "key": "landmark:washingtondc#wolf-trap-national-park-for-the-performing-arts",
