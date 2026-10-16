@@ -5,7 +5,7 @@
 
    Markup hooks (for FE-A / FE-B — announced in docs/BETA-LOG.md):
      html[data-view=gallery|atlas|guidebook|insights]   set before paint by the head script (SPEC §2.4)
-     nav.views[data-cleo-views] > button[data-view][aria-pressed]  (+ optional svg.ico, span.l label)
+     .views[data-cleo-views] > button[data-view][aria-pressed]  (+ optional svg.ico, span.l label)
      each view module's root:  class="vw view-<name>"   (e.g. <section class="vw view-insights">)
      covers:   .cover[style="--ac:<area hex>"] > .pinart (img|svg) · .me (ringed pin, style left/top %) · .plate.v|.plate.i · .gl
                photo variant: .cover.photo > img.ph + .credit   ·   closed: .cover.closed
@@ -16,21 +16,21 @@
    ========================================================================== */
 
 /* ---------- V1. The view switcher (SPEC §2.4): 4-segment control, 44 px, buttons not links ---------- */
-nav.views[data-cleo-views] { margin: 8px 0 4px; }
-nav.views[data-cleo-views] > div, nav.views[data-cleo-views][aria-label] { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px;
+.views[data-cleo-views] { margin: 8px 0 4px; }
+.views[data-cleo-views] > div, .views[data-cleo-views][aria-label] { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px;
   padding: 3px; background: var(--sand); border-radius: var(--r-pill); }
-nav.views[data-cleo-views] button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: var(--tap, 44px); min-width: 0;
+.views[data-cleo-views] button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: var(--tap, 44px); min-width: 0;
   padding: 0 10px; border: 0; border-radius: var(--r-pill); background: transparent; color: var(--ink-2); font: 600 var(--fs-sm)/1 var(--font-ui);
   cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-nav.views[data-cleo-views] button .ico { width: 18px; height: 18px; flex: none; }
-nav.views[data-cleo-views] button:hover { color: var(--ink); }
-nav.views[data-cleo-views] button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--e-1); }
-nav.views[data-cleo-views] button[aria-pressed="true"] .ico { color: var(--city-ink, var(--city)); }
-nav.views[data-cleo-views] button:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
-@media (max-width: 480px) { nav.views[data-cleo-views] button { padding: 0 4px; font-size:var(--fs-meta); gap: 4px; } nav.views[data-cleo-views] button .ico { width: 16px; height: 16px; } }
-@media (max-width: 399px) { nav.views[data-cleo-views] button .ico { display: none; } }
-@media (min-width: 900px) { nav.views[data-cleo-views] { margin: 0; width: min(460px, 100%); } }
-nav.views[data-cleo-views][hidden] { display: none; }
+.views[data-cleo-views] button .ico { width: 18px; height: 18px; flex: none; }
+.views[data-cleo-views] button:hover { color: var(--ink); }
+.views[data-cleo-views] button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--e-1); }
+.views[data-cleo-views] button[aria-pressed="true"] .ico { color: var(--city-ink, var(--city)); }
+.views[data-cleo-views] button:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+@media (max-width: 480px) { .views[data-cleo-views] button { padding: 0 4px; font-size:var(--fs-sm); gap: 4px; } .views[data-cleo-views] button .ico { width: 16px; height: 16px; } }
+@media (max-width: 399px) { .views[data-cleo-views] button .ico { display: none; } }
+@media (min-width: 900px) { .views[data-cleo-views] { margin: 0; width: min(460px, 100%); } }
+.views[data-cleo-views][hidden] { display: none; }
 
 /* shared count line + lens bar + pager (every view; SPEC §2.1–2.3) */
 :is(.vw, [data-cleo-book], [data-cleo-insights]) .count, .views-count { margin: 12px 0; font-size:var(--fs-sm); color: var(--ink-2); }
@@ -406,8 +406,8 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 @media (prefers-reduced-motion: no-preference) {
   html[data-view] :is(.vw, [data-cleo-book], [data-cleo-insights]) { animation: vw-in var(--dur-3, 240ms) var(--ease-out, ease-out); }
   @supports (view-transition-name: none) { ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 220ms; } }
-  nav.views[data-cleo-views] button { transition: background-color var(--dur-2, 160ms), color var(--dur-2, 160ms), box-shadow var(--dur-2, 160ms); }
-  nav.views[data-cleo-views] button:active { transform: scale(.97); }
+  .views[data-cleo-views] button { transition: background-color var(--dur-2, 160ms), color var(--dur-2, 160ms), box-shadow var(--dur-2, 160ms); }
+  .views[data-cleo-views] button:active { transform: scale(.97); }
   :is(.vw, [data-cleo-book], [data-cleo-insights]) .gc-a:hover .cover, :is(.vw, [data-cleo-book], [data-cleo-insights]) .gc-a:focus-visible .cover { transform: translateY(-3px); box-shadow: var(--e-2), inset 0 -5px 0 var(--ac); }
   :is(.vw, [data-cleo-book], [data-cleo-insights]) .cover { transition: transform var(--dur-3, 240ms) var(--ease-out, ease-out), box-shadow var(--dur-3, 240ms); }
   :is(.vw, [data-cleo-book], [data-cleo-insights]) .gc-a:hover .cover .me { animation: w2-ring 700ms var(--ease-out, ease-out) 1; }
@@ -420,7 +420,7 @@ html[data-view="gallery"] main > .masthead .g-sky { -webkit-mask-image: linear-g
 
 /* ---------- V9. Print (Guidebook; SPEC §3.3): chapter per page, 2-col entries, chips as text, chrome hidden ---------- */
 @media print {
-  nav.views[data-cleo-views], :is(.vw, [data-cleo-book], [data-cleo-insights]) .pager, :is(.vw, [data-cleo-book], [data-cleo-insights]) .heart, :is(.vw, [data-cleo-book], [data-cleo-insights]) .tbl summary { display: none !important; }
+  .views[data-cleo-views], :is(.vw, [data-cleo-book], [data-cleo-insights]) .pager, :is(.vw, [data-cleo-book], [data-cleo-insights]) .heart, :is(.vw, [data-cleo-book], [data-cleo-insights]) .tbl summary { display: none !important; }
   :is(.view-guidebook, [data-cleo-book]) .toc { display: none !important; }
   /* the mounted guidebook is the one printed copy: its own cover replaces the masthead, and the canonical list (same
      places, already printed as entries) is left out — only when the book is actually mounted, so JS-off still prints it */
@@ -514,10 +514,10 @@ html[data-view="gallery"] .split .pl-cover[data-comp="4"] .g-art { width: 62%; r
   /* sheet rise: the place sheet and the Gallery sheet come up from the foot (side sheets keep their slide) */
   .overlay:not(.side) .sheet, .sheet.detail:not(.side .sheet) { animation: w4-rise var(--dur-3, 240ms) var(--ease-out, ease-out) 1; }
   /* view switch cross-fade: plays when the reader picks a view (the switcher holds focus), never on first paint */
-  html[data-view="gallery"]:has(nav.views :focus) :is(main > .masthead, .split, .vw:not([hidden])) { animation: w4-xf-g 220ms var(--ease-out, ease-out) 1; }
-  html[data-view="atlas"]:has(nav.views :focus) :is(main > .masthead, .split) { animation: w4-xf-a 220ms var(--ease-out, ease-out) 1; }
-  html[data-view="guidebook"]:has(nav.views :focus) :is([data-cleo-book], .vw:not([hidden])) { animation: w4-xf-b 220ms var(--ease-out, ease-out) 1; }
-  html[data-view="insights"]:has(nav.views :focus) :is([data-cleo-insights], .vw:not([hidden])) { animation: w4-xf-i 220ms var(--ease-out, ease-out) 1; }
+  html[data-view="gallery"]:has(.views[data-cleo-views] :focus) :is(main > .masthead, .split, .vw:not([hidden])) { animation: w4-xf-g 220ms var(--ease-out, ease-out) 1; }
+  html[data-view="atlas"]:has(.views[data-cleo-views] :focus) :is(main > .masthead, .split) { animation: w4-xf-a 220ms var(--ease-out, ease-out) 1; }
+  html[data-view="guidebook"]:has(.views[data-cleo-views] :focus) :is([data-cleo-book], .vw:not([hidden])) { animation: w4-xf-b 220ms var(--ease-out, ease-out) 1; }
+  html[data-view="insights"]:has(.views[data-cleo-views] :focus) :is([data-cleo-insights], .vw:not([hidden])) { animation: w4-xf-i 220ms var(--ease-out, ease-out) 1; }
   ::view-transition-old(root) { animation: 160ms ease-out both w4-fade-out; }
   ::view-transition-new(root) { animation: 220ms ease-out both w4-xf-g; }
   /* Insights bars grow as their chart enters the screen (a scroll-driven timeline: scrolled, never timed). Each chart is

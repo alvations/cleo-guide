@@ -152,10 +152,10 @@
 :root .rail-i:hover { border-color: var(--ink-3) !important; }
 
 /* ---------- V2.10 view switcher: an understated segmented control ---------- */
-:root nav.views[data-cleo-views] > div, :root nav.views[data-cleo-views][aria-label] { background: var(--sand); border: 0; box-shadow: none; border-radius: var(--r-pill); padding: 3px; }
-:root nav.views[data-cleo-views] button { color: var(--ink-2); font-weight: 500; border-radius: var(--r-pill); }
-:root nav.views[data-cleo-views] button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }
-:root nav.views[data-cleo-views] button[aria-pressed="true"] .ico { color: var(--ink); }
+:root .views[data-cleo-views] > div, :root .views[data-cleo-views][aria-label] { background: var(--sand); border: 0; box-shadow: none; border-radius: var(--r-pill); padding: 3px; }
+:root .views[data-cleo-views] button { color: var(--ink-2); font-weight: 500; border-radius: var(--r-pill); }
+:root .views[data-cleo-views] button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }
+:root .views[data-cleo-views] button[aria-pressed="true"] .ico { color: var(--ink); }
 
 /* ---------- V2.11 sheets, tray, dialogs, toasts, tab bar, banners ---------- */
 :root :is(.sheet, .tray, .poi-sheet, dialog) { background: var(--surface); box-shadow: var(--shadow-lg); border: 0; }
