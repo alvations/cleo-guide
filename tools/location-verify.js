@@ -592,6 +592,25 @@ async function fromNominatim(http, place, anchor) {
     }
     if (cands.some(c => c.kind === 'osm-poi' && nameSim(place.name, c.name) >= 0.85)) break; // no need for the address query
   }
+  // Fallback: the bare name inside the city box. Generic or descriptive addresses ("Magic Kingdom, Bay Lake, FL") make
+  // the name+address query miss POIs that OSM does have. A name-only hit has no address corroboration, so it grades
+  // med at best (hold until a second source agrees) — unless its own address matches the registry's.
+  if (!cands.some(c => nameSim(place.name, c.name || '') >= 0.85) && anchor) {
+    const dLat = anchor.radiusM / 111000, dLng = dLat / Math.cos(anchor.lat * Math.PI / 180);
+    const params = { q: bare, format: 'jsonv2', addressdetails: 1, extratags: 1, namedetails: 1, limit: 5, bounded: 1,
+      viewbox: [anchor.lng - dLng, anchor.lat + dLat, anchor.lng + dLng, anchor.lat - dLat].map(round5).join(',') };
+    const r = await http.json(`${ENDPOINT.nominatim}?${qs(params)}`);
+    for (const x of (Array.isArray(r.json) ? r.json : [])) {
+      const lat = parseFloat(x.lat), lng = parseFloat(x.lon); const nm = (x.namedetails && x.namedetails.name) || x.name || '';
+      const cls = x.category || x.class; const a = x.address || {};
+      if (!isFinite(lat) || !nm || !OSM_PLACE_CLASSES.test(cls) || nameSim(place.name, nm) < 0.85) continue;
+      cands.push({ kind: 'osm-poi', source: 'nominatim', name: nm, lat, lng, houseNumber: a.house_number || null, street: a.road || null, postcode: a.postcode || null,
+        address: [[a.house_number, a.road].filter(Boolean).join(' '), a.city || a.town || a.village || a.hamlet, [a.state, a.postcode].filter(Boolean).join(' ')].filter(Boolean).join(', '),
+        osmClass: `${cls}=${x.type}`, osm: x.osm_type && x.osm_id ? `${x.osm_type}/${x.osm_id}` : null, addresstype: x.addresstype || null, nameOnly: true,
+        sourceUrl: x.osm_type && x.osm_id ? `https://www.openstreetmap.org/${x.osm_type}/${x.osm_id}` : 'https://nominatim.openstreetmap.org/',
+        retrieved: r.retrieved, licence: LICENCE.osm, tags: x.extratags || {} });
+    }
+  }
   return { cands, statusCodes: urls };
 }
 

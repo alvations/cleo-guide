@@ -367,7 +367,12 @@
     build(); unpark(); deco(); face(); setTimeout(routeSel, 0); sq();
     const x = $('.ms-x', bar);
     // phones: the chip row carries FE-A's search pill (in the toolbar) and the switcher last; desktop: area chips in the results head
-    if (!desk()) { park(tb, bar, x); park(nav, bar, null); } else { park(tb, bar, x); if (achips) park(achips, head, $('.ms-more', head).nextSibling); }
+    if (!desk()) { park(tb, bar, x); park(nav, bar, null); } else {
+      // desktop (SPEC-v3 §2.1): ONE bar — the search pill (in the toolbar), the chips, then the view switch; the notes and
+      // the footer go to the end of the list column, since the document does not scroll in Atlas
+      const sp = $('[data-cleo-search]'); park(tb, bar, x); if (sp && tb) park(sp, tb, tb.firstChild); const tw = $('.topbar .wrap'); park(nav, tw || bar, tw ? $('.top-actions', tw) : null);   // the view switch: the header's right
+      if (achips) park(achips, head, $('.ms-more', head).nextSibling);
+      [$('main>.about'), $('body>.method'), $('body>.footer')].forEach(el => park(el, lp, null)); }
     if (desk() && listOn) listMode(false);
     if (H.classList.contains('ms-nomap')) C.onNoMap();
     msArea();
@@ -470,10 +475,11 @@
     if (!top.length) return false;
     const o = C.overMap(); o.paddingTopLeft = o.paddingTopLeft.map(x => x + 16); o.paddingBottomRight = o.paddingBottomRight.map(x => x + 16);   // ≈ 48 px
     // centred on the top places' own median point (their busiest spot), not their bounds' middle — so zooming in from the
-    // first screen lands among places, not in a gap between neighbourhoods (PANEL-R1 #4); the frame may widen by ≤ 1 step
+    // first screen lands among places, not in a gap between neighbourhoods (PANEL-R1 #4, phones; desktop keeps the bounds'
+    // middle so its wide map pans between neighbourhoods); the frame may widen by ≤ 1 step
     let bb = L.latLngBounds(top); const sym = L.latLngBounds(top.concat(top.map(p => L.latLng(2 * c1[0] - p.lat, 2 * c1[1] - p.lng))));
     const op = Object.assign({}, o, { maxZoom: 16 }), z0 = m.getBoundsZoom(bb, false, L.point(op.paddingTopLeft).add(op.paddingBottomRight));
-    if (z0 < 16 && m.getBoundsZoom(sym, false, L.point(op.paddingTopLeft).add(op.paddingBottomRight)) >= z0 - 1) bb = sym;   // a small town already fits at street zoom: leave it
+    if (!desk() && z0 < 16 && m.getBoundsZoom(sym, false, L.point(op.paddingTopLeft).add(op.paddingBottomRight)) >= z0 - 1) bb = sym;   // a small town already fits at street zoom: leave it
     C.auto(); m.fitBounds(bb, Object.assign(o, { maxZoom: 16, animate: false })); return true;
   };
   const unselect = () => { if (!selC) return; selC.classList.remove('is-sel', 'is-focus'); selC = null; C.feature(); };

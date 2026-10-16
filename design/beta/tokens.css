@@ -108,6 +108,10 @@
   --underline-quiet: inset 0 -5px 0 var(--line-strong);
   --underline-active: inset 0 -2px 0 var(--ink);
   --hairline-below: 0 1px 0 var(--line);
+  /* ---- No-photo covers (W8 FE-A gap 5): eat & drink gets a faint warm wash, kept well clear of --sun-wash,
+     which is reserved for must-see and data-backed stickers ---- */
+  --cover-food: color-mix(in srgb, var(--sun) 7%, var(--sand));
+  --cover-sight: var(--sand);
   --num: lining-nums tabular-nums;
   --icon-stroke: 1.5;
 
