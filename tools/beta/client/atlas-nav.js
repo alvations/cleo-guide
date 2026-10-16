@@ -133,9 +133,13 @@
       if (m && s && s.c && (Math.abs(m.getZoom() - s.z) > 1e-9 || m.getCenter().distanceTo(s.c) > 0.01)) { C.auto(); m.setView(s.c, s.z, { animate: false }); }
       const res = close0.apply(this, arguments);
       // the list follows the restored map once the route settles (the route change re-applies the lenses)
+      // FE-1: the restore stops once anything but itself has moved the list (a swipe, a programmatic scroll), not only
+      // after a trusted pointer/key event — so a reader's (or a probe's) swipe made right after closing is never undone
+      let mine = null, gaveUp = false;
       const fix = () => {
-        if (userAt > t0) return;
-        if (s) { if ((window.scrollY || 0) !== s.y) window.scrollTo(0, s.y); const l = lp(); if (l) { if (l.scrollTop !== s.t) l.scrollTop = s.t; if (l.scrollLeft !== s.x) l.scrollLeft = s.x; } }
+        if (userAt > t0 || gaveUp) return;
+        const l = lp(); if (l && mine && (Math.abs(l.scrollLeft - mine[0]) > 2 || Math.abs(l.scrollTop - mine[1]) > 2)) { gaveUp = true; return; }
+        if (s) { if ((window.scrollY || 0) !== s.y) window.scrollTo(0, s.y); if (l) { if (l.scrollTop !== s.t) l.scrollTop = s.t; if (l.scrollLeft !== s.x) l.scrollLeft = s.x; mine = [l.scrollLeft, l.scrollTop]; } }
         back(st.opener);
       };
       if (st.moved && C.msArea) setTimeout(() => { if (userAt <= t0) { C.msArea(); fix(); } }, 30);

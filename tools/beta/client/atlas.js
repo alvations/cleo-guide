@@ -165,7 +165,7 @@
   const topSet = () => { const o = {}; Object.keys(C.markers).filter(id => { const c = rec(id); return c && shows(c) && !c.hasAttribute('data-closed'); })
     .sort((x, y) => MP[x] - MP[y]).slice(0, desk() ? 30 : 12).forEach(id => { o[id] = 1; }); return o; };
   C.topSet = () => (topOn() ? topSet() : null);
-  let topHid = [], topWas = false, topV = null;
+  let topHid = [], topWas = false, topV = null, lastShow = null;
   const topMap = T => { const map = C.map(); if (!map) return;
     topHid.forEach(id => { const k = C.markers[id]; if (k && !C.dots.hasLayer(k)) k.addTo(C.dots); }); topHid = [];
     if (T) Object.keys(C.markers).forEach(id => { const k = C.markers[id]; if (!T[id] && C.dots.hasLayer(k)) { C.dots.removeLayer(k); topHid.push(id); } });
@@ -179,15 +179,10 @@
     // "Search as I move" is on; the whole lens when there is no map (or "Show all") — never every card at once
     // QA-45 (G1): "Show all N in one list" — one tap puts every place in one scrollable list (all stamped, unpaged), as
     // the Gallery pager's "Show all on one page" does; "Only show this map area" / a pan of the map pages it again
-<<<<<<< HEAD
     if (!atlas() || S.day || C.msOne) { topMap(null); C.msTop = null; if (C.msOne && atlas() && Cleo.defer) Cleo.defer.all(); qa('li.pl.ms-out').forEach(c => c.classList.remove('ms-out')); qa('section.area.ms-empty').forEach(s => s.classList.remove('ms-empty')); H.classList.remove('ms-on'); C.msN = null; if (pager) pager.hidden = true; held(); deco(); face(); if (C.msPaint) C.msPaint(); return; }
     const T = topOn() ? topSet() : null; topMap(T);
     const area = !T && !!map && map.getSize().x > 0 && !C.msAll && (!desk() || C.msLive !== false);
-=======
-    if (!atlas() || S.day || C.msOne) { if (C.msOne && atlas() && Cleo.defer) Cleo.defer.all(); qa('li.pl.ms-out').forEach(c => c.classList.remove('ms-out')); qa('section.area.ms-empty').forEach(s => s.classList.remove('ms-empty')); H.classList.remove('ms-on'); C.msN = null; if (pager) pager.hidden = true; held(); deco(); face(); if (C.msPaint) C.msPaint(); return; }
-    const area = !!map && map.getSize().x > 0 && !C.msAll && (!desk() || C.msLive !== false);
     if (more !== true && C.navKeep && C.navKeep()) { if (C.msPaint) C.msPaint(); return; }   // a round-trip keeps the list it left (atlas-nav.js)
->>>>>>> 10f5ea27c9a86cf30406ba2d4c1f9218effe6b08
     if (more !== true) lim = PER;
     // a place without a verified pin has no "outside": it is always listed (last), so no lens count ever loses it
     const b = area ? box() : null, keep = c => c.classList && (c.classList.contains('is-target') || c === selC), inB = c => { if (T) return !!T[C.pid(c)] || keep(c); const ll = llOf(c); return !b || !ll || b.contains(ll) || keep(c); };
@@ -200,7 +195,7 @@
     const show = {}, need = new Set(); inn.slice(0, lim).concat(inn.filter(keep)).forEach(c => { show[C.pid(c)] = 1; if (!C.byId[C.pid(c)]) need.add('p-' + C.pid(c)); });   // the selected / open place always shows
     // while the map is still on its way, page what is already built: its own first fit picks the page to build
     if (need.size && Cleo.defer && (map || H.classList.contains('ms-nomap'))) { if (Cleo.defer.stampIds) Cleo.defer.stampIds(need); else need.forEach(id => Cleo.defer.stampFor(id.slice(2))); }
-    qa('li.pl').forEach(c => c.classList.toggle('ms-out', !c.hidden && !show[C.pid(c)] && !keep(c)));
+    lastShow = show; qa('li.pl').forEach(c => c.classList.toggle('ms-out', !c.hidden && !show[C.pid(c)] && !keep(c)));
     qa('section.area').forEach(s => s.classList.toggle('ms-empty', !s.querySelector('li.pl:not([hidden]):not(.ms-out)')));
     // the first map-area pass has picked the page (or there is no map / the reader asked for all): the list can be drawn
     if (area || C.msAll || H.classList.contains('ms-nomap') || !C.loadMap) H.classList.add('ms-ready');
@@ -244,7 +239,9 @@
     if (desk()) {
       // the list pane scrolls, the page never does; once more after late stamping above it settles
       const into = sm => { if (!lp || !lp.scrollTo || selC !== c) return; const r = c.getBoundingClientRect(), pr = lp.getBoundingClientRect(), hd = $('.ms-head', lp), top = pr.top + (hd ? hd.offsetHeight : 0);
-        if (r.top < top || r.bottom > pr.bottom) lp.scrollTo({ top: lp.scrollTop + r.top - pr.top - (pr.height - r.height) / 2, behavior: sm && !C.still() ? 'smooth' : 'auto' }); };
+        if (!r.height) return;   // not laid out yet (being stamped): the second pass places it
+        const dy = r.top < top ? r.top - top - 12 : r.bottom > pr.bottom ? r.bottom - pr.bottom + 12 : 0;   // nearest edge, only when off-screen (R2 #13)
+        if (dy) lp.scrollTo({ top: lp.scrollTop + dy, behavior: sm && !C.still() ? 'smooth' : 'auto' }); };
       into(1); setTimeout(() => into(0), 650);
       if (how === 'pin') preview(c);
       return;
@@ -254,21 +251,28 @@
       quiet = Date.now(); try { map.panInside(k.getLatLng(), Object.assign(C.overMap(), { animate: !C.still(), duration: 0.35 })); } catch (e) {}
       return;
     }
-    if (lp && lp.scrollTo && !H.classList.contains('ms-list')) { qSwipe = Date.now(); lp.scrollTo({ left: c.offsetLeft - (lp.clientWidth - c.offsetWidth) / 2, behavior: C.still() ? 'auto' : 'smooth' }); }
+    // a near card glides into place; a far one (more than two widths away) jumps — a long glide is slow and reads as noise
+    if (lp && lp.scrollTo && !H.classList.contains('ms-list')) { qSwipe = Date.now(); const x = c.offsetLeft - (lp.clientWidth - c.offsetWidth) / 2;
+      lp.scrollTo({ left: x, behavior: C.still() || Math.abs(x - lp.scrollLeft) > 2 * lp.clientWidth ? 'auto' : 'smooth' }); }
     // the carousel now covers the bottom: keep the selected place in the uncovered band (no move when it already is)
     const map = C.map(), k = C.markers[C.pid(c)];
-    if (map && k && !H.classList.contains('ms-list')) { quiet = Date.now(); try { map.panInside(k.getLatLng(), Object.assign(C.overMap(), { animate: !C.still(), duration: 0.35 })); } catch (e) {} }
+    // (not for a #p= route or under an open detail: atlas-nav.js places those, out from under the sheet)
+    if (map && k && how !== 'route' && !H.classList.contains('ms-list') && !(Cleo.sheet && Cleo.sheet.isOpen()) && !(C.navHold && C.navHold())) { quiet = Date.now(); try { map.panInside(k.getLatLng(), Object.assign(C.overMap(), { animate: !C.still(), duration: 0.35 })); } catch (e) {} }
   };
   // the carousel: the card nearest the middle after a swipe settles is the selected one
   let st = 0, qSwipe = 0;
-  on(lp, 'scroll', () => {
-    if (desk() || !atlas() || H.classList.contains('ms-list') || (C.navHold && C.navHold())) return;
+  // while a detail is open or closing (atlas-nav.js restores the carousel), a scroll waits; once the hold ends the card in
+  // the middle is read again — a swipe made during the hold still selects, a restore lands back on the same card
+  const swiped = () => {
+    if (desk() || !atlas() || H.classList.contains('ms-list')) return;
+    if (C.navHold && C.navHold()) { clearTimeout(st); st = setTimeout(swiped, 300); return; }
     clearTimeout(st); st = setTimeout(() => {
       const mid = lp.getBoundingClientRect().left + lp.clientWidth / 2;
       const c = qa('li.pl', lp).filter(x => x.offsetWidth && !x.hidden).sort((x, y) => { const a = x.getBoundingClientRect(), b = y.getBoundingClientRect(); return Math.abs(a.left + a.width / 2 - mid) - Math.abs(b.left + b.width / 2 - mid); })[0];
       if (c && c !== selC) select(c, Date.now() - qSwipe < 900 ? 'pinned' : 'swipe');
     }, 140);
-  }, { passive: true });
+  };
+  on(lp, 'scroll', swiped, { passive: true });
 
   /* ---- the preview card on the map (desktop): photo or calm cover, name, one line, sources → the place ---- */
   const poi = $('#cleo-poi');
@@ -285,11 +289,13 @@
     if (!poi) return; pvC = c;
     const ph = $('.pl-photo img, figure.photo img', c), cov = $('.pl-cover', c), nm = $('.pl-n a', c), w = $('.pl-w', c), s = $('.pl-s', c);
     const r = Cleo.route.parse(); delete r.pg; delete r.all; r.p = C.pid(c);
-    const media = ph ? '<img src="' + C.esc(ph.currentSrc || ph.src) + '" alt="" loading="lazy" decoding="async">' : cov ? '<div class="pl-cover" aria-hidden="true">' + cov.innerHTML + '</div>' : '';
+    // R2 #8 (SPEC-v3 §2.3): a photo, or NO media block — a text card led by a 40 px glyph chip beside the name
+    const media = ph ? '<img src="' + C.esc(ph.currentSrc || ph.src) + '" alt="" loading="lazy" decoding="async">' : '';
+    const chip = ph ? '' : '<span class="ms-pv-g" aria-hidden="true"><svg class="ico"><use href="#i-' + C.esc(glyph(c)) + '"/></svg></span>';
     const nmT = nm ? (C.name(c) || nm.textContent) : '';
-    poi.innerHTML = '<a class="ms-pv" href="' + C.esc(Cleo.route.href(r)) + '">' + '<span class="ms-pv-m' + (ph ? ' ph' : '') + '">' + media + '</span>' +
+    poi.innerHTML = '<a class="ms-pv' + (ph ? '' : ' ms-pv-t') + '" href="' + C.esc(Cleo.route.href(r)) + '">' + (ph ? '<span class="ms-pv-m ph">' + media + '</span>' : '') +
       '<span class="ms-pv-b"><span class="ms-pv-e">' + ($('.pl-e', c) ? C.esc($('.pl-e', c).textContent.replace(/\s+/g, ' ').trim()) : '') + '</span>' +
-      '<span class="ms-pv-n">' + C.esc(nmT) + '</span>' + (w ? '<span class="ms-pv-w">' + C.esc(w.textContent.trim()) + '</span>' : '') +
+      '<span class="ms-pv-n">' + chip + C.esc(nmT) + '</span>' + (w ? '<span class="ms-pv-w">' + C.esc(w.textContent.trim()) + '</span>' : '') +
       (s ? '<span class="ms-pv-s">' + C.esc(s.textContent.replace(/\s+/g, ' ').replace(/\s+,/g, ',').trim()) + '</span>' : '') + '</span></a>' +
       (ph && $('figcaption', ph.closest('figure') || c) ? '<p class="ms-pv-c">' + $('figcaption', ph.closest('figure')).innerHTML + '</p>' : '') +
       '<button type="button" class="btn btn-icon ms-pv-x" aria-label="Close the preview">' + C.icon('close') + '</button>';
@@ -376,7 +382,8 @@
       : '<i class="ms-handle" aria-hidden="true"></i><span><b>' + k.toLocaleString('en-US') + '</b> ' + (k === 1 ? 'place' : 'places') + ' here · Show list</span>';   // the phone peek
     tog.setAttribute('aria-pressed', String(listOn)); tog.setAttribute('aria-label', listOn ? 'Show the map' : 'Show the list of ' + pl(k));
   };
-  C.after.push(paintMs); on(d, 'cleo:stamped', () => { if (atlas()) requestAnimationFrame(paintMs); }); on(d, 'cleo:saved', paintMs);
+  // cards stamped later (a deep link, a route that builds more) join the page only if it shows them: a kept list stays the list
+  C.after.push(paintMs); on(d, 'cleo:stamped', () => { if (!atlas()) return; if (lastShow && H.classList.contains('ms-on')) qa('li.pl:not(.ms-out)').forEach(c => { if (!c.hidden && !lastShow[C.pid(c)] && c !== selC && !c.classList.contains('is-target')) c.classList.add('ms-out'); }); requestAnimationFrame(paintMs); }); on(d, 'cleo:saved', paintMs);
   // phones: List ⇄ Map. The list is the full-screen image-first list of the places in the map area (Back closes it).
   // FE-A's shared card face, except the carousel; phone thumbs ask for the 500w copy (carousel 120px, list 240px)
   const face = () => { const car = atlas() && !desk() && !listOn; if (lp) lp.classList.toggle('w7-cards', atlas() && !car);
@@ -409,7 +416,8 @@
       // the footer go to the end of the list column, since the document does not scroll in Atlas
       const sp = $('[data-cleo-search]'); park(tb, bar, x); if (sp && tb) park(sp, tb, tb.firstChild); const tw = $('.topbar .wrap'); park(nav, tw || bar, tw ? $('.top-actions', tw) : null);   // the view switch: the header's right
       if (achips) park(achips, head, $('.ms-more', head).nextSibling);
-      [$('main>.about'), $('body>.method'), $('body>.footer')].forEach(el => park(el, lp, null)); }
+      [$('main>.about'), $('body>.method'), $('body>.footer')].forEach(el => park(el, lp, null));
+      if (mp && lp && split && mp.parentNode === split) park(mp, split, lp); }   // Tab reaches the map (its pins) before the list; columns are explicit
     if (desk() && listOn) listMode(false);
     if (H.classList.contains('ms-nomap')) C.onNoMap();
     msArea();
@@ -429,11 +437,7 @@
       if (!meL) meL = window.L.layerGroup().addTo(m); meL.clearLayers();
       if (p.coords.accuracy) window.L.circle(me, { radius: p.coords.accuracy, className: 'me-acc', weight: 1, interactive: false }).addTo(meL);
       window.L.circleMarker(me, { radius: 7, weight: 2, fillOpacity: 1, interactive: false, className: 'me' }).addTo(meL);
-<<<<<<< HEAD
-      say('You are here — shown on this device only, never stored, gone when you reload.'); car(true); C.fly(me);
-=======
-      say('You are here — shown on this device only, never stored, gone when you reload.'); if (!(C.onLocate && C.onLocate(me))) C.fly(me);   // atlas-nav.js: nearest first
->>>>>>> 10f5ea27c9a86cf30406ba2d4c1f9218effe6b08
+      say('You are here — shown on this device only, never stored, gone when you reload.'); car(true); if (!(C.onLocate && C.onLocate(me))) C.fly(me);   // atlas-nav.js: nearest first
     }, err => { b.classList.remove('busy'); say(err && err.code === 1 ? 'Location permission was declined. Nothing was stored.' : 'Couldn’t get your location.'); },
     { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
   };
