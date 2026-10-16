@@ -25,6 +25,8 @@ function offlineStrings(city, n) {
 const { head, siteBar, footer, BETA_BASE } = require('./common');
 const { rowsOf: galleryRows } = require('../gallery');
 const { sentence, ownWords } = require('../casing');
+// QC-25: the first http(s) URL in a geocodes statusSource note, or '' (the note itself is never shown)
+const statusUrl = n => ((/https?:\/\/[^\s;,'"()<>]+/.exec(String(n || '')) || [])[0] || '').replace(/[.]+$/, '');
 const { dishOf } = require('../dish');
 const COUNTRIES = (() => { try { return JSON.parse(require('fs').readFileSync(require('path').resolve(__dirname, '../../../../data/countries.json'), 'utf8')).countries; } catch (e) { return []; } })();
 
@@ -168,7 +170,7 @@ function card(r, num, ctx) {
   const pv = r.pv || {}, prov = ctx.prov[r.id] || {};
   const where = [aName, dish].filter(Boolean).map(esc).join(' · ');
   const eyebrow = r.closed
-    ? (prov.ss ? `${tr('city.card.closed')} · ${esc(tr(pv.checked ? 'city.card.perc' : 'city.card.per', { src: prov.ss, d: pv.checked }))}` : esc(tr(pv.checked ? 'city.card.closed.c' : 'city.card.closed', { d: pv.checked })))   // i18n D-41
+    ? esc(tr(pv.checked ? 'city.card.closed.c' : 'city.card.closed', { d: pv.checked }))   // i18n D-41; QC-25: the clean closed line, never the status note
     : `${tier(r.t)} <span class="in"><span class="in-a">${esc(tr('city.card.within', { area: aName }))}</span>${dish ? `<span class="in-d"><span class="sep"> · </span>${esc(dish)}</span>` : ''}</span>`;   // in-a: hidden where the list is grouped by area (W7 card)
   // Recommended by: every publisher is a chip that opens its source view (M1-10); CSS shows three, then "+N".
   const ids = (r.src || []).filter(s => s !== 'guide');
@@ -254,7 +256,8 @@ function render(row, recs, ctx) {
   const prov = {};
   for (const r of recs) {
     const g = geo[r.n] || geo[r.n.replace(/\s*[—–-]+\s*CLOSED\b.*$/i, '').trim()];
-    if (g) prov[r.id] = { pc: g.confidence || '', pv: g.verified || '', ss: r.closed ? g.statusSource || '' : '' };
+    // QC-25: statusSource is a research note; only its first URL ever reaches the page (the detail's "Source" link)
+    if (g) prov[r.id] = { pc: g.confidence || '', pv: g.verified || '', ss: r.closed ? statusUrl(g.statusSource) : '' };
   }
 
   /* -- day plans per area (platform's index when it ships one: row.dayPlans {AREA: [ids]}) -- */

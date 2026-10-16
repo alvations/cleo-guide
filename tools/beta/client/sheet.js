@@ -36,7 +36,7 @@
       byline = by.length ? '<p class="sh-by">' + (by.length > 1 ? tt('sheet.by.more', 'Recommended by {source} and {n} more', { source: '<b>' + esc(by[0]) + '</b>', n: by.length - 1 }) : tt('sheet.by', 'Recommended by {source}', { source: '<b>' + esc(by[0]) + '</b>' })) + '</p>'
         : q('.pl-s .added', c) ? '<p class="sh-by">' + tt('city.card.added', 'Added by the guide (general knowledge)') + '</p>' : '';
     // closures are loud: a banner above the name with the check date and source, and Directions is never the primary action
-    var shut = closed ? '<div class="closed-banner" role="note"><b>' + tt('sheet.closed', 'Closed') + '</b><span>' + tt('sheet.closed.note', 'Kept for the record, not as a suggestion') + (chk ? esc(tt('sheet.checked', ' · checked {d}', { d: chk })) : '') + (pv[2] ? esc(tt('sheet.per', ' · per {src}', { src: pv[2] })) : '') + '</span></div>' : '';
+    var shut = closed ? '<div class="closed-banner" role="note"><b>' + tt('sheet.closed', 'Closed') + '</b><span>' + tt('sheet.closed.note', 'Kept for the record, not as a suggestion') + (chk ? esc(tt('sheet.checked', ' · checked {d}', { d: chk })) : '') + (/^https?:\/\//.test(pv[2]) ? ' · <a href="' + esc(pv[2]) + '"' + NT + '>' + esc(tt('sheet.closed.src', 'source')) + '</a>' : '') + '</span></div>' : '';
     var dir = ll ? '<div class="links"><a class="btn btn-ghost" href="https://maps.apple.com/?daddr=' + ll + '"' + NT + '>Apple Maps</a>' +
       '<a class="btn btn-ghost" href="https://www.openstreetmap.org/?mlat=' + ll.replace(',', '&amp;mlon=') + '#map=17/' + ll.replace(',', '/') + '"' + NT + '>OpenStreetMap</a>' +
       '<a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=' + ll + '"' + NT + '>Google Maps</a></div>' : '';

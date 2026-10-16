@@ -198,4 +198,6 @@ A fresh independent subagent kept all four drafts:
 
 **Result:** 評価 now appears in the ja interface only as 星評価.
 
+**FE-A's D-42 colophon (5d3dc985), reviewed in the same round and accepted as is:** `foot.colophon` reads …星評価・価格・営業時間を独自に付け加えることはありません。引用しているものは出典のもので、日付を添えています。 It mirrors the reviewed `city.how.order`, and it uses 星評価 for ratings.
+
 **Total: 74 changes over fifteen rounds.**
