@@ -69,7 +69,11 @@ let fails = 0; const chk = (ok, msg, v) => { console.log(`  ${ok ? 'PASS' : 'FAI
     const gb = await p.evaluate(() => { if (window.Cleo && Cleo.defer) Cleo.defer.all(); const c = document.querySelector('[data-gb-count]'); return { li: document.querySelectorAll('li.ge').length, line: c ? c.textContent.trim() : null }; });
     chk(gb.li === total && new RegExp('All ' + total + ' places').test(gb.line || ''), 'offline Guidebook: every place present', gb);
     // Atlas: map unavailable, every place listed
-    await p.evaluate(() => { location.hash = '#view=atlas'; }); await sleep(4000);
+    await p.evaluate(() => { location.hash = '#view=atlas'; });
+    // wait for the map to give way (watchTiles needs 4 tile errors, plus a zoomend if mid-animation): a cold browser after a
+    // rebuild could take longer than a fixed sleep (FE-A's evidence: 2 of 6 runs after a no-op CSS change). Same assertion.
+    await p.waitForFunction(() => /Map unavailable/.test((document.getElementById('cleo-map') || {}).textContent || ''), null, { timeout: 15000 }).catch(() => {});
+    await sleep(300);
     const at = await p.evaluate(() => { const m = document.getElementById('cleo-map'); return { text: m ? m.textContent.replace(/\s+/g, ' ').trim().slice(0, 90) : '', cards: document.querySelectorAll('li.pl').length + (window.Cleo && Cleo.defer ? Cleo.defer.peek().length : 0) }; });
     chk(new RegExp('Map unavailable · all ' + total + ' places listed').test(at.text) && at.cards === total, 'offline Atlas: "Map unavailable · all N places listed", every place listed', at);
     chk(errs.length === 0, 'no page errors offline', errs.slice(0, 3));
