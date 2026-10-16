@@ -1,0 +1,684 @@
+{
+ "head": "0e8faff9a53d67788feb7d375d82a0579888ab2e",
+ "checks": [
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: map ≥ 58 % wide, on the left, to the bottom of the screen",
+   "ok": true,
+   "evidence": {
+    "mapW": 64,
+    "left": 0,
+    "top": 108,
+    "bottom": 900,
+    "vh": 900,
+    "cols": 2,
+    "count": 87,
+    "head": "87 places here · Top ranked",
+    "more": "Show all 194",
+    "scrollH": 900
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: the list is a 2-column card grid",
+   "ok": true,
+   "evidence": 2
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: photo credits on the grid cards are whole",
+   "ok": true,
+   "evidence": {
+    "n": 3,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: zoom/pan changes the count; \"N more outside\" or \"Show all <N > shown>\" offered",
+   "ok": true,
+   "evidence": {
+    "first": 87,
+    "zoomed": 25,
+    "panned": 17,
+    "more": "Show all 194"
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: \"Show all\" + \"Show 40 more\" lists every place once (194)",
+   "ok": true,
+   "evidence": {
+    "head": "Showing all 194 places · Top ranked",
+    "clicks": 0,
+    "n": 194,
+    "uniq": 194
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: hovering a pin lights its card (real mouse)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: pin → its card in view in the list pane, the page never scrolls",
+   "ok": true,
+   "evidence": {
+    "open": true,
+    "name": "Li Wah — Cantonese dim sum carts",
+    "want": "Li Wah — Cantonese dim sum carts",
+    "sel": true,
+    "cardInView": true,
+    "scrollY": 0
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: B-07 (W7) pin → preview naming the place → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "pv": [
+     true,
+     "Li Wah — Cantonese dim sum carts"
+    ],
+    "dd": {
+     "open": {
+      "title": "Li Wah — Cantonese dim sum carts",
+      "close": true
+     },
+     "same": true,
+     "hash1": "#view=atlas&at=41.49081%2C-81.70255%2C13.5&p=li-wah-cantonese-dim-sum-carts",
+     "esc": true,
+     "reopen": true,
+     "back": true,
+     "stay": {
+      "view": "atlas",
+      "url": "/beta/cleveland.html"
+     }
+    }
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: hovering a card lights its pin (real mouse)",
+   "ok": true,
+   "evidence": {
+    "card": "p-chess-collection-cleveland-public-library-main-library",
+    "c2p": true
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 462,
+     "y": 868,
+     "w": 458,
+     "h": 32,
+     "b": 900,
+     "r": 921
+    },
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cleveland.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: map ≥ 58 % wide, on the left, to the bottom of the screen",
+   "ok": true,
+   "evidence": {
+    "mapW": 64,
+    "left": 0,
+    "top": 108,
+    "bottom": 900,
+    "vh": 900,
+    "cols": 2,
+    "count": 359,
+    "head": "359 places here · Top ranked",
+    "more": "Show all 488",
+    "scrollH": 900
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: the list is a 2-column card grid",
+   "ok": true,
+   "evidence": 2
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: photo credits on the grid cards are whole",
+   "ok": true,
+   "evidence": {
+    "n": 4,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: zoom/pan changes the count; \"N more outside\" or \"Show all <N > shown>\" offered",
+   "ok": true,
+   "evidence": {
+    "first": 359,
+    "zoomed": 27,
+    "panned": 61,
+    "more": "Show all 488"
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: \"Show all\" + \"Show 40 more\" lists every place once (488)",
+   "ok": true,
+   "evidence": {
+    "head": "Showing all 488 places · Top ranked",
+    "clicks": 0,
+    "n": 488,
+    "uniq": 488
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: hovering a pin lights its card (real mouse)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: pin → its card in view in the list pane, the page never scrolls",
+   "ok": true,
+   "evidence": {
+    "open": true,
+    "name": "Bar Benfiddich",
+    "want": "Bar Benfiddich",
+    "sel": true,
+    "cardInView": true,
+    "scrollY": 0
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: B-07 (W7) pin → preview naming the place → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "pv": [
+     true,
+     "Bar Benfiddich"
+    ],
+    "dd": {
+     "open": {
+      "title": "Bar Benfiddich",
+      "close": true
+     },
+     "same": true,
+     "hash1": "#view=atlas&at=35.69007%2C139.64868%2C13&p=bar-benfiddich",
+     "esc": true,
+     "reopen": true,
+     "back": true,
+     "stay": {
+      "view": "atlas",
+      "url": "/beta/cities/tokyo.html"
+     }
+    }
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: hovering a card lights its pin (real mouse)",
+   "ok": true,
+   "evidence": {
+    "card": "p-imperial-palace-east-gardens",
+    "c2p": true
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 462,
+     "y": 868,
+     "w": 458,
+     "h": 32,
+     "b": 900,
+     "r": 921
+    },
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/tokyo.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: map ≥ 58 % wide, on the left, to the bottom of the screen",
+   "ok": true,
+   "evidence": {
+    "mapW": 64,
+    "left": 0,
+    "top": 108,
+    "bottom": 900,
+    "vh": 900,
+    "cols": 2,
+    "count": 346,
+    "head": "346 places here · Top ranked",
+    "more": "Show all 508",
+    "scrollH": 900
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: the list is a 2-column card grid",
+   "ok": true,
+   "evidence": 2
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: photo credits on the grid cards are whole",
+   "ok": true,
+   "evidence": {
+    "n": 3,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: zoom/pan changes the count; \"N more outside\" or \"Show all <N > shown>\" offered",
+   "ok": true,
+   "evidence": {
+    "first": 346,
+    "zoomed": 19,
+    "panned": 17,
+    "more": "Show all 508"
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: \"Show all\" + \"Show 40 more\" lists every place once (508)",
+   "ok": true,
+   "evidence": {
+    "head": "Showing all 508 places · Top ranked",
+    "clicks": 0,
+    "n": 508,
+    "uniq": 508
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: hovering a pin lights its card (real mouse)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: pin → its card in view in the list pane, the page never scrolls",
+   "ok": true,
+   "evidence": {
+    "open": true,
+    "name": "Roberta's",
+    "want": "Roberta's",
+    "sel": true,
+    "cardInView": true,
+    "scrollY": 0
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: B-07 (W7) pin → preview naming the place → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "pv": [
+     true,
+     "Roberta's"
+    ],
+    "dd": {
+     "open": {
+      "title": "Roberta's",
+      "close": true
+     },
+     "same": true,
+     "hash1": "#view=atlas&at=40.70578%2C-74.00151%2C12.5&p=robertas",
+     "esc": true,
+     "reopen": true,
+     "back": true,
+     "stay": {
+      "view": "atlas",
+      "url": "/beta/cities/newyork.html"
+     }
+    }
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: hovering a card lights its pin (real mouse)",
+   "ok": true,
+   "evidence": {
+    "card": "p-the-metropolitan-museum-of-art",
+    "c2p": true
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 462,
+     "y": 868,
+     "w": 458,
+     "h": 32,
+     "b": 900,
+     "r": 921
+    },
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/newyork.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: map ≥ 58 % wide, on the left, to the bottom of the screen",
+   "ok": true,
+   "evidence": {
+    "mapW": 64,
+    "left": 0,
+    "top": 108,
+    "bottom": 900,
+    "vh": 900,
+    "cols": 2,
+    "count": 15,
+    "head": "15 places here · Top ranked",
+    "more": "Show all 16",
+    "scrollH": 900
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: the list is a 2-column card grid",
+   "ok": true,
+   "evidence": 2
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: photo credits on the grid cards are whole",
+   "ok": true,
+   "evidence": {
+    "n": 1,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: zoom/pan changes the count; \"N more outside\" or \"Show all <N > shown>\" offered",
+   "ok": true,
+   "evidence": {
+    "first": 15,
+    "zoomed": 4,
+    "panned": 3,
+    "more": "Show all 16"
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: \"Show all\" + \"Show 40 more\" lists every place once (16)",
+   "ok": true,
+   "evidence": {
+    "head": "Showing all 16 places · Top ranked",
+    "clicks": 0,
+    "n": 16,
+    "uniq": 16
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: hovering a pin lights its card (real mouse)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: pin → its card in view in the list pane, the page never scrolls",
+   "ok": true,
+   "evidence": {
+    "open": true,
+    "name": "Ah Tai Hainanese Chicken Rice",
+    "want": "Ah Tai Hainanese Chicken Rice",
+    "sel": true,
+    "cardInView": true,
+    "scrollY": 0
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: B-07 (W7) pin → preview naming the place → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "pv": [
+     true,
+     "Ah Tai Hainanese Chicken Rice"
+    ],
+    "dd": {
+     "open": {
+      "title": "Ah Tai Hainanese Chicken Rice",
+      "close": true
+     },
+     "same": true,
+     "hash1": "#view=atlas&at=1.28038%2C103.83875%2C16&p=ah-tai-hainanese-chicken-rice",
+     "esc": true,
+     "reopen": true,
+     "back": true,
+     "stay": {
+      "view": "atlas",
+      "url": "/beta/Singapore/chinatown.html"
+     }
+    }
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: hovering a card lights its pin (real mouse)",
+   "ok": true,
+   "evidence": {
+    "card": "p-tian-tian-hainanese-chicken-rice",
+    "c2p": true
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 462,
+     "y": 868,
+     "w": 458,
+     "h": 32,
+     "b": 900,
+     "r": 921
+    },
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "Singapore/chinatown.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: map ≥ 58 % wide, on the left, to the bottom of the screen",
+   "ok": true,
+   "evidence": {
+    "mapW": 64,
+    "left": 0,
+    "top": 108,
+    "bottom": 900,
+    "vh": 900,
+    "cols": 2,
+    "count": 17,
+    "head": "17 places here · Top ranked",
+    "more": "Show all 42",
+    "scrollH": 900
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: the list is a 2-column card grid",
+   "ok": true,
+   "evidence": 2
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: photo credits on the grid cards are whole",
+   "ok": true,
+   "evidence": {
+    "n": 2,
+    "bad": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: zoom/pan changes the count; \"N more outside\" or \"Show all <N > shown>\" offered",
+   "ok": true,
+   "evidence": {
+    "first": 17,
+    "zoomed": 10,
+    "panned": 5,
+    "more": "Show all 42"
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: \"Show all\" + \"Show 40 more\" lists every place once (42)",
+   "ok": true,
+   "evidence": {
+    "head": "Showing all 42 places · Top ranked",
+    "clicks": 0,
+    "n": 42,
+    "uniq": 42
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: hovering a pin lights its card (real mouse)",
+   "ok": true,
+   "evidence": true
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: pin → its card in view in the list pane, the page never scrolls",
+   "ok": true,
+   "evidence": {
+    "open": true,
+    "name": "Oglebay Resort & Park",
+    "want": "Oglebay Resort & Park",
+    "sel": true,
+    "cardInView": true,
+    "scrollY": 0
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: B-07 (W7) pin → preview naming the place → detail (Close) → Esc closes → Back closes, still in Atlas",
+   "ok": true,
+   "evidence": {
+    "pv": [
+     true,
+     "Oglebay Resort & Park"
+    ],
+    "dd": {
+     "open": {
+      "title": "Oglebay Resort & Park",
+      "close": true
+     },
+     "same": true,
+     "hash1": "#view=atlas&at=40.05695%2C-80.73967%2C12.5&p=oglebay-resort-and-park",
+     "esc": true,
+     "reopen": true,
+     "back": true,
+     "stay": {
+      "view": "atlas",
+      "url": "/beta/cities/wheeling.html"
+     }
+    }
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: hovering a card lights its pin (real mouse)",
+   "ok": true,
+   "evidence": {
+    "card": "p-wheeling-suspension-bridge",
+    "c2p": true
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: OSM attribution visible, ≥ 12 px, not covered, clear of every control",
+   "ok": true,
+   "evidence": {
+    "text": "Leaflet | Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap",
+    "osm": true,
+    "px": 12,
+    "box": {
+     "x": 462,
+     "y": 868,
+     "w": 458,
+     "h": 32,
+     "b": 900,
+     "r": 921
+    },
+    "hitOwn": true,
+    "overlaps": []
+   }
+  },
+  {
+   "group": "atlasd",
+   "name": "cities/wheeling.html: 0 JS errors",
+   "ok": true,
+   "evidence": []
+  },
+  {
+   "group": "tiles",
+   "name": "every tile request went to OSM or Esri",
+   "ok": true,
+   "evidence": {
+    "server.arcgisonline.com": 1100
+   }
+  }
+ ],
+ "info": {}
+}
