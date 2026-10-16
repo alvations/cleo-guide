@@ -11,7 +11,7 @@
   const fold = Cleo.fold || (s => String(s || '').toLowerCase());
   cards.forEach(c => { byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
   const desk = () => !window.matchMedia || matchMedia('(min-width: 1024px)').matches;
-  const LENS = ['sig', 'c', 'cz', 't', 'src', 'a', 'been', 'gap', 'closed', 'mine', 'day', 'rec'], RAIL = ['sig', 'c', 'cz', 't', 'src', 'gap', 'closed', 'rec'],   // 'rec': FE-C W9-1 hook
+  const LENS = ['sig', 'c', 'cz', 't', 'src', 'a', 'been', 'gap', 'closed', 'mine', 'day', 'rec', 'lf'], RAIL = ['sig', 'c', 'cz', 't', 'src', 'gap', 'closed', 'rec', 'lf'],   // 'rec': FE-C W9-1 hook, 'lf': W9-9
   S = { mode: 'all', q: '', sort: '' };
   const store = Cleo.store || { get: (k, x) => x, set: () => {} };
   const been = { all: () => { const b = store.get('been', {}); return b && typeof b === 'object' ? b : {}; },
@@ -45,6 +45,7 @@
   { const prev = C.onSheet; C.onSheet = c => { if (prev) prev(c); if (Cleo.need) Cleo.need('base', () => C.baseSheet && C.baseSheet(c)); }; }
   // FE-C W9-1 hook: the recognition badges are drawn by recognition.js (lazy) on pages that have recognised places
   if (Cleo.need && d.querySelector('.rail-i[data-rec]')) Cleo.need('recognition');
+  { const prev = C.onSheet; C.onSheet = c => { if (prev) prev(c); if (Cleo.need && (c.hasAttribute('data-rec') || c.hasAttribute('data-rec0'))) Cleo.need('recognition', () => Cleo.recog && Cleo.recog.sheet(c, icon('seal'))); }; }   // FE-C QC-23 hook: the detail's row on a deep link
   // FE-C W9-2 hook: the quiet "Status checked <d Mon>" card line is drawn by fresh.js (lazy) from each card's data-checked
   if (Cleo.need) Cleo.need('fresh');
   need.q = {};
@@ -61,7 +62,7 @@
   const go = C.go = (r, rep) => Cleo.route.go(r, rep);
   const cur = () => { const r = {}; if (S.mode !== 'all') r.mode = S.mode; LENS.concat('sort').forEach(k => { if (S[k]) r[k] = S[k]; }); return r; };
   const label = C.label = (k, v) => k === 'sig' ? (info.sig || {}).t || tt('city.sig.t', 'Signature') : k === 't' ? ['', tt('tier.1', 'Must see'), tt('tier.2', 'Worth the detour'), tt('tier.3', 'Deep cut')][v] : k === 'src' ? ((info.src || {})[v] || [v])[0] : k === 'closed' ? tt('city.door.closed.t', 'Recently closed') : k === 'mine' ? tt('shell.saved', 'Your list')
-    : k === 'a' ? ((info.areas || {})[v] || {}).n || v : k === 'been' ? (v === 'hide' ? tt('city.been.hide', 'Hide been there') : tt('city.been.only', 'Only been there')) : k === 'q' ? '“' + v + '”' : (info.cats || {})[v] || v;
+    : k === 'a' ? ((info.areas || {})[v] || {}).n || v : k === 'been' ? (v === 'hide' ? tt('city.been.hide', 'Hide been there') : tt('city.been.only', 'Only been there')) : k === 'rec' ? ({ award: tt('rec.f.award', 'Has an award'), video: tt('rec.f.video', 'Has a creator video'), cited: tt('rec.f.cited', 'Cited by 3 or more sources') }[v] || tt('rec.tile.k', 'Recognised')) : k === 'lf' ? tt('lf.label', 'Local favourites') /* FE-C QC-24 / W9-9 hook */ : k === 'q' ? '“' + v + '”' : (info.cats || {})[v] || v;
 
   on(d, 'click', e => {
     const t = e.target; let b;
@@ -93,6 +94,7 @@
     if (S.sig && !(info.sig && info.sig.ids.indexOf(pid(c)) >= 0)) return false;
     if ((S.mine && !(Cleo.saved && Cleo.saved.has(key + '/' + pid(c)))) || (S.day && C.inDay && !C.inDay(pid(c)))) return false;
     if (S.rec && !(at(c, 'data-rec') || '').split(' ').some(x => x && (S.rec === 'any' || x === S.rec))) return false;   // FE-C W9-1 hook: recognised (open places only carry data-rec)
+    if (S.lf && !c.hasAttribute('data-lf')) return false;   // FE-C W9-9 hook: local favourites (platform's rec.lf, open places only)
     if (C.ringKeep && !C.ringKeep(c)) return false;   // Atlas FE-2 W9-5 hook: the walking ring from your base (atlas-nav.js)
     return !S.q || fold(S.q).split(/\s+/).every(w => !w || text[pid(c)].indexOf(w) >= 0);
   };
@@ -131,10 +133,11 @@
     const gap = t => '<div class="gap"><span class="eyebrow">' + tt('city.gap.k', 'Stated gap') + '</span>' + t + '</div>';
     if (shown) shown.innerHTML = n === tot ? shown0 : n ? tt('city.shown', 'Showing {n} of {total} places in {areas}', { n: '<b>' + n + '</b>', total: tot, areas: ar(nA) }) + tt('city.facts.order', '. Ordered by tier, then by number of named sources.')
       : '<b>' + tt('city.empty', 'No places match.') + '</b> ' + tt('city.empty.note', 'Filters never hide places for good.') + ' <button class="btn btn-quiet" data-cleo-all>' + tt('city.empty.clear', 'Clear filters ({places})', { places: pl(tot) }) + '</button>';
-    const lk = ['day', 'sig', 'src', 'gap', 'closed', 'mine', 'rec', 'c', 'cz', 't', 'a'].filter(k => S[k])[0];   // 'rec': FE-C W9-1 hook
+    const lk = ['day', 'sig', 'src', 'gap', 'closed', 'mine', 'rec', 'lf', 'c', 'cz', 't', 'a'].filter(k => S[k])[0];   // 'rec': FE-C W9-1 hook, 'lf': W9-9
     let h = '';
     if (C.lens[lk]) h = C.lens[lk](n, nA, all);
     else if (lk === 'rec') h = '<span class="eyebrow">' + esc(Cleo.t('rec.tile.d', 'From the sources we hold')) + '</span><h2>' + esc({ award: Cleo.t('rec.f.award', 'Has an award'), video: Cleo.t('rec.f.video', 'Has a creator video'), cited: Cleo.t('rec.f.cited', 'Cited by 3 or more sources') }[S.rec] || Cleo.t('rec.tile.t', 'Awards and much-cited places')) + ' (' + n + ')</h2><div class="row">' + all + '</div>';   // FE-C W9-1 hook
+    else if (lk === 'lf') h = '<span class="eyebrow">' + esc(Cleo.t('lf.label', 'Local favourites')) + '</span><h2>' + esc(Cleo.t('lf.h', 'Local favourites ({n})', { n: n })) + '</h2><p class="lf-rule">' + esc(Cleo.t('lf.rule', 'Open places recommended only by local press, local writers or vetted creators — none by an official or tourism source, and every source typed in our registry.')) + '</p><div class="row">' + all + '</div>';   // FE-C W9-9 hook: the rule, printed
     else if (lk === 'closed') h = '<h2>' + tt('city.closed.h', 'Recently closed — kept for the record ({n})', { n }) + '</h2><p>' + tt('city.closed.p', 'Closed places stay on the guide, flagged, with the source and date of the closure check — so a pin never reads as “go here today”. Newest check first.') + '</p><div class="row">' + all + '</div>';
     else if (lk === 'sig' && info.sig) h = '<span class="eyebrow">' + tt('city.sig.k', '★ Signature') + ' · ' + esc(info.sig.why || '') + '</span><h2>' + esc(info.sig.t) + ' (' + n + ')</h2>' +
       (info.sig.dishes.length ? '<p>' + info.sig.dishes.map(x => '<b>' + esc(x[0]) + '</b> ' + x[1]).join(' · ') + '</p>' : '') + '<p>' + tt('city.across', '{places} across {areas}.', { places: pl(n), areas: ar(nA) }) + '</p><div class="row">' + all + '</div>';
@@ -283,7 +286,7 @@
   on(d, 'cleo:stamped', e => { ((e.detail || {}).cards || []).forEach(c => { if (byId[pid(c)] === c) return; cards.push(c); byId[pid(c)] = c; text[pid(c)] = fold(c.textContent); });
     $$('section.area').forEach(s => { if (sections.indexOf(s) < 0) sections.push(s); }); paint(); });
 
-  const tray = $('#cleo-tray'), TK = ['a', 't', 'src', 'c', 'cz', 'sort', 'been', 'rec'];   // 'rec': FE-C W9-1 hook
+  const tray = $('#cleo-tray'), TK = ['a', 't', 'src', 'c', 'cz', 'sort', 'been', 'rec', 'lf'];   // 'rec': FE-C W9-1 hook, 'lf': W9-9
   let P = {}, opener = null, pushed = 0, after = null;
   const tpaint = () => {
     $$('.pill', tray).forEach(b => { const k = at(b, 'data-f'); b.setAttribute('aria-pressed', String((k === 'base' ? ({ 'street!': 'street', satellite: 'satellite' })[store.get('base', 'map')] || 'light' : P[k] || '') === at(b, 'data-v'))); });

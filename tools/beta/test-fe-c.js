@@ -17,6 +17,9 @@
  *  REC    (W9-1) on all 84 built pages, every card's badges equal platform's rec data exactly (none inferred): award
  *         links to its own award source, "Cited by n sources" carries n, a closed place has no data-rec and only a hidden
  *         copy for its detail. The Recognised lens shows exactly the recognised open places; "Show all" restores every place.
+ *  LF     (W9-9) the Local favourites lens exists exactly where platform's data allows it (n ≥ 5, no gap); every place in it
+ *         is open and every one of its sources is typed local press / writer or vetted creator (the printed rule); elsewhere
+ *         the tray states the gap and there is no door.
  *  BASE   (W9-5) 84 guides × 5 bases: every card line = haversine from the base, rounded by Cleo.geo.walk; the assumption
  *         once per view; a closed place can't be a base; Nearest to my base sorts by it and clearing restores the order
  *         exactly; storage throwing, &base= still works; the sheet offers it only for open, pinned places; Saved shows it.
@@ -240,7 +243,7 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
         const n = (rec.award || []).length + (rec.video || []).length + (rec.cited >= 3 ? 1 : 0);
         if (!n) { if (r) probs.push(p.id + ' extra'); return; } rows++;
         if (!r || r.querySelectorAll('a.rb').length !== n) { probs.push(p.id + ' count'); return; }
-        if (!!p.closed !== r.hidden) probs.push(p.id + ' closed must be hidden (and only closed)');
+        if (!!p.closed !== r.classList.contains('closed')) probs.push(p.id + ' closed must be hidden (and only closed)');
         (rec.award || []).forEach(id => { const a = r.querySelector('a.rb-award[href="#src=' + id + '"]'); const nm = c.querySelector('.pl-s button.src[data-src="' + id + '"]');
           if (!a || a.textContent !== 'Award · ' + (nm ? nm.textContent.trim() : id)) probs.push(p.id + ' award ' + id); });
         if (rec.cited >= 3 && (r.querySelector('a.rb-cited') || {}).textContent !== 'Cited by ' + rec.cited + ' sources') probs.push(p.id + ' cited'); });
@@ -272,6 +275,25 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     const fact = [...r2.d.querySelectorAll('#cleo-sheet .fact')].find(x => x.querySelector('.pl-rec'));
     chk('the detail shows the place\'s badges, each a link', !!fact && fact.querySelectorAll('a.rb').length >= 1 && /^#src=/.test(fact.querySelector('a.rb').getAttribute('href')));
     chk('no js errors (recognition)', !r1.errs.length && !r2.errs.length, r1.errs.concat(r2.errs).slice(0, 2));
+    // QC-23: a closed place's "Before it closed" row shows in its detail, also when the sheet opens before recognition.js
+    // has loaded (a deep link: the module arrives after, through the city.js onSheet hook)
+    { const g = boot('Singapore/toa-payoh.html', { hash: '#p=kim-keat-hokkien-mee' }); await sleep(400);
+      const before = !!g.d.querySelector('#cleo-sheet .fact .pl-rec');
+      g.w.eval(fs.readFileSync(path.join(BETA, 'assets/js/recognition.js'), 'utf8')); await sleep(80);
+      const f = g.d.querySelector('#cleo-sheet .fact .pl-rec'), c = g.d.getElementById('p-kim-keat-hokkien-mee'), cr = c && c.querySelector(':scope > .pl-rec');
+      chk('QC-23: a closed place\'s detail shows "Before it closed" with its badges, after a late module load (deep link)', !before && !!f && f.classList.contains('closed') && !f.hasAttribute('hidden') &&
+        /^Before it closed:/.test(f.textContent.trim()) && f.querySelectorAll('a.rb').length >= 1, f && f.outerHTML.slice(0, 120));
+      chk('QC-23: the card\'s own copy is hidden by CSS (class closed), not a hidden attribute', !!cr && cr.classList.contains('closed') && !cr.hasAttribute('hidden') &&
+        /\.pl>\.pl-rec\.closed\{display:none\}/.test(fs.readFileSync(path.join(__dirname, 'lib/render/fe-c.css'), 'utf8')));
+      g.w.Cleo.recog.sheet(c, ''); chk('QC-23: the row goes in once', g.d.querySelectorAll('#cleo-sheet .fact .pl-rec').length === 1);
+      chk('no js errors (QC-23)', !g.errs.length, g.errs.slice(0, 2)); }
+    // QC-24: the applied-filter chip names the lens, never its raw value ("any", "1")
+    { const g = boot('cities/tokyo.html', { hash: '#rec=any', mods: ['recognition'] }); await sleep(300);
+      const x = g.d.querySelector('.chip-x[data-unset="rec"]');
+      chk('QC-24: #rec=any chip reads "Recognised", aria "Remove Recognised"', !!x && x.textContent.trim() === 'Recognised' && x.getAttribute('aria-label') === 'Remove Recognised', x && [x.textContent, x.getAttribute('aria-label')]);
+      const g2 = boot('cities/tokyo.html', { hash: '#rec=award', mods: ['recognition'] }); await sleep(300);
+      const x2 = g2.d.querySelector('.chip-x[data-unset="rec"]');
+      chk('QC-24: #rec=award chip reads "Has an award"', !!x2 && x2.textContent.trim() === 'Has an award', x2 && x2.textContent); }
   }
 
   console.log('\n== FRESH (W9-2, card + city half): "Status checked <d Mon>" from pv.checked; "Follow changes" ==');
@@ -304,6 +326,38 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
     chk('Tokyo: the date is not searchable text (a search for "Oct" matches no card by its date)', ![...g.d.querySelectorAll('li.pl .pl-chk')].some(e => /Oct/.test(e.textContent)));
     chk('fresh.js is lazy (no page loads it eagerly)', !/<script[^>]+fresh\.js/.test(fs.readFileSync(path.join(BETA, 'cities/tokyo.html'), 'utf8')));
     chk('no js errors (fresh)', g.errs.length === 0, g.errs.slice(0, 2));
+  }
+
+  console.log('\n== LF (W9-9): local favourites, the rule holds for every place ==');
+  {
+    const bad = []; let on = 0, gaps = 0, nlf = 0;
+    for (const f of files) {
+      const j = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places', f), 'utf8')), html = fs.readFileSync(path.join(BETA, j.beta), 'utf8').replace(/<\/?noscript[^>]*>/g, '');
+      const L = (j.recognition || {}).localFavourites || {}, grp = {}; (j.sourceIndex || []).forEach(x => { grp[x.id] = x.group; });
+      const door = /class="rail-i door" data-lf="1"/.test(html), tags = html.match(/<li class="pl[^>]*>/g) || [];
+      const lfIds = tags.filter(t => / data-lf="1"/.test(t)).map(t => /id="p-([^"]+)"/.exec(t)[1]);
+      if (!L.gap && L.n > 0) { on++;
+        if (!door) bad.push([j.key, 'no door']);
+        if (lfIds.length !== L.n) bad.push([j.key, 'count', lfIds.length, L.n]);
+        const by = {}; j.places.forEach(p => { by[p.id] = p; });
+        lfIds.forEach(id => { const p = by[id], src = p.src || [];
+          if (p.closed || !src.length || !src.every(s => grp[s] === 'local' || grp[s] === 'creator')) bad.push([j.key, id, 'breaks the rule', src.map(s => grp[s])]); });
+        nlf += lfIds.length;
+      } else { gaps++;
+        if (door || lfIds.length) bad.push([j.key, 'a lens where platform states a gap']);
+        if (!/<p class="lf-gap">/.test(html)) bad.push([j.key, 'gap not stated']); }
+    }
+    chk(`${on} guides show the lens (${nlf} places, each meeting the printed rule); ${gaps} state the gap with no door`, bad.length === 0 && on > 0, bad.slice(0, 4));
+    const cj = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places/cleveland.json'), 'utf8')), want = cj.places.filter(p => p.lf).map(p => 'p-' + p.id).sort();
+    const g = boot('cleveland.html', { hash: '#lf=1' }); await sleep(300); g.w.Cleo.defer.all(); await sleep(50);
+    const vis = [...g.d.querySelectorAll('li.pl')].filter(c => !c.hidden).map(c => c.id).sort();
+    chk('Cleveland #lf=1 shows exactly its local favourites', JSON.stringify(vis) === JSON.stringify(want), [vis.length, want.length]);
+    chk('the lens prints the rule and offers "Show all"', (g.d.querySelector('#cleo-lens .lf-rule') || {}).textContent === cj.recognition.localFavourites.rule && !!g.d.querySelector('#cleo-lens [data-cleo-all]'));
+    g.d.querySelector('#cleo-lens [data-cleo-all]').click(); await sleep(80);
+    chk('"Show all" restores every place', [...g.d.querySelectorAll('li.pl')].filter(c => !c.hidden).length === cj.places.length);
+    { const g3 = boot('cleveland.html', { hash: '#lf=1' }); await sleep(300); const x = g3.d.querySelector('.chip-x[data-unset="lf"]');
+      chk('QC-24: #lf=1 chip reads "Local favourites"', !!x && x.textContent.trim() === 'Local favourites' && x.getAttribute('aria-label') === 'Remove Local favourites', x && x.textContent); }
+    chk('no js errors (local favourites)', !g.errs.length, g.errs.slice(0, 2));
   }
 
   console.log('\n== BASE (W9-5): every card, every guide, 5 bases each ==');
