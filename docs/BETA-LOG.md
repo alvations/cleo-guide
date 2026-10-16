@@ -1888,3 +1888,14 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
     - New: QC-23 (Before it closed never visible), QC-24 (the "any" chip) and QC-25 (a raw status note on closed cards), routed to FE-C and FE-A. QC-26 is above.
   - **FE-C's W9 audit** (78065c84): the gaps went to FE-B (W9-2 acc2/acc5, W9-6 acc1/acc4), platform (W9-8 pack test, W9-9 publisher typing) and location (7 closed places without a statusSource).
   - **FE-A** (8b06f542): QA-72, QA-73, QC-22, QA-55 and R7-g6 in fe-a.css. FE-B: R7-g6 closed, with 0 letter-spacings and 7 shadows pinned.
+
+## FE-A — QC-25 closed cards, D-42 colophon, one focus ring per card (2026-10-16)
+- **QC-25:** closed cards show only the clean line, "Closed — kept for the record[, checked <date>]".
+  - `statusSource` in geocodes is a research note, and it is never printed. `lib/render/city.js` `statusUrl()` keeps only its first URL.
+  - The detail's closed banner shows that URL as a "source" link. With no URL, it shows "Closed" alone.
+  - 60 of the 71 closed places have no URL in their note. They are listed in `docs/qc25-closed-no-source-url.txt` for the location-verify lane.
+  - The i18n keys `city.card.per`, `city.card.perc` and `sheet.per` (en and ja) are removed; test-i18n requires no dead strings. `sheet.closed.src` is added.
+- **Colophon (D-42):** `foot.colophon` now reads "We don’t add ratings, prices or opening hours of our own; any quoted are the source’s, dated. Check before you go."
+  - The honesty allowlists already carry this sentence's prefix. `qa/w4.js` now also accepts the ";" ending. No other loosening.
+- **R3 #9/#14 (designer):** inside `.w7-cards` and the Gallery split, the card name link and its `::after` draw no outline. The card's own ring (cleo.css) is the only one.
+- **Probe:** w8-fe-a-probe.js adds one-ring checks at 390 and 1440 in Gallery and Atlas, a numberless Atlas nav row, no status note on any city page, and the colophon line.
