@@ -182,6 +182,11 @@ Wrapping: headings and short hero lines use `text-wrap: balance`, deks and subti
   - **390 px: PASS.** `div[role=group][aria-label=View]`, 4 buttons each 78 × 44, one pressed. With `#p=senso-ji` open (sheet top at 116 px), `elementFromPoint` returns each segment.
   - **200 % (195 px): FAIL.** There are 4 segments in one row, each 29 × 44, which is under the 44 px target, and the labels still render. Sheet reachability passes.
   - The fix belongs in `fe-a.css` (the `html main[data-city] .views[data-cleo-views]` rules near lines 194–203): add the < 300 px 2 × 2 glyph-only grid above.
+- **Re-verification on 2026-10-16, head after 639d2b1be: PASS at both widths.**
+  - **390 px:** 4 segments, each 78 × 44.
+  - **195 px (DPR 2):** a 2 × 2 grid of 61 × 44 glyph-only segments.
+  - **Both:** `role=group`, one pressed. With `#p=senso-ji` open, elementFromPoint returns every segment; the sheet top is 116 px at 390 and 162 px at 195.
+  - FE-B also pins the row under the header while a sheet is open, so reachability holds wherever the page is scrolled. Accepted.
 - **Acceptance (qc.js P-01, J-05):**
   - at 390 and at 200 % zoom, four segments are visible and each switch is 1 tap;
   - every segment is ≥ 44 × 44 px;

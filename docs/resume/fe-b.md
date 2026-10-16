@@ -10,6 +10,10 @@ Idle after QC-10 (reopened by QC) and the B-04 / B-20 sweep. Waiting for QC re-v
 
 ## Done
 
+- QC-09 at 200 % (designer's corrected §v2.11): < 300 px is a 2 x 2 glyph-only grid (61 x 44 at 195 px DPR 2), --cbar-h
+  98 px there; on phones with a sheet open the switcher row is pinned under the header (a deep link can land past
+  <main>, where the sticky bar had left). Probes: tools/beta/feb-switcher.js (incl. 195 px + fresh #p=senso-ji),
+  tools/beta/feb-p03.js (focus to the h1 after each switch).
 - QC-10 (reopened): a user switch to Guidebook / Insights focuses a placeholder h1 named for the view at once (views.js),
   then the module's own h1 once drawn (ctx.user, used once). Probe: H1 at 700 ms on all 4 switches, cold load untouched.
 - B-04 / B-20 sweep (R7 gap 5): all 180 pages, design/beta/eval/w8/metrics-all/ + REPORT.md. B-04: 0 of 84 place pages
@@ -41,6 +45,8 @@ Nothing unpushed.
 
 - Gates before every push, fail-fast: `cd tools && npm run validate && npm test && npm run beta:check`, plus
   `node beta/test-beta.js`, `node beta/qa/test-honesty.js`, `node beta/imagery/test-imagery.js`.
+- FE-A follow-up: a fresh Tokyo deep link #p=senso-ji at 195 px leaves the page scrolled past <main> (scrollY 13018,
+  card off-screen) — reported to FE-A.
 - Switcher probe: `tools/beta/feb-switcher.js [page]` (same static server).
 - B-05 probe: `tools/beta/feb-b05.js` (needs `python3 -m http.server 8765 -d <repo>`; ≥ 2 on landing + every hub).
 - Push with `tools/beta/feb-push.sh` (merges origin, regenerates beta/ on generated conflicts, stops on any source
