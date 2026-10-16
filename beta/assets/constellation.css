@@ -17,7 +17,7 @@ img, svg { display: block; max-width: 100%; }
 a { color: inherit; }
 button, input, select { font: inherit; color: inherit; }
 button { cursor: pointer; }
-:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 3px; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--r-xxs); }
 .vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .skip { position: absolute; left: 8px; top: -60px; z-index: 100; background: var(--ink); color: var(--paper);
   padding: var(--s-3) var(--s-4); border-radius: var(--r-s); text-decoration: none; }
@@ -73,12 +73,12 @@ em.it, .it { font-style: italic; }
   text-decoration: none; font-weight: var(--fw-ui-strong); font-size:var(--fs-ui); color: var(--ink-2); }
 .on-night .topnav a { color: var(--on-night-2); }
 .topnav a[aria-current="page"] { color: var(--ink); background: var(--sand); }
-.on-night .topnav a[aria-current="page"] { color: var(--on-night); background: rgba(255,255,255,.1); }
+.on-night .topnav a[aria-current="page"] { color: var(--on-night); background: var(--on-night-hover); }
 .topbar .spacer { flex: 1; }
 .top-actions { display: flex; gap: var(--s-1); align-items: center; }
 .top-actions .btn-icon { background: transparent; border: 0; color: inherit; }
 .top-actions .btn-icon:hover { background: var(--sand); }
-.on-night .top-actions .btn-icon:hover { background: rgba(255,255,255,.1); }
+.on-night .top-actions .btn-icon:hover { background: var(--on-night-hover); }
 .count-dot { position: relative; }
 .count-dot[data-n]::after { content: attr(data-n); position: absolute; top: 6px; right: 4px; min-width: 18px; height: 18px;
   border-radius: var(--r-s); background: var(--city); color: var(--city-on); font-size: var(--fs-xs); font-weight: 700; display: grid; place-items: center; padding: 0 var(--s-1); }
@@ -136,7 +136,7 @@ body.has-tabbar { padding-bottom: calc(var(--tab-h) + 8px); }
 .suggest a { display: flex; align-items: center; gap: var(--s-3); min-height: 52px; padding: var(--s-2) var(--s-4); text-decoration: none; }
 .suggest a:hover, .suggest a[aria-selected="true"] { background: var(--sand); }
 .suggest a .meta { margin-left: auto; font-size:var(--fs-meta); color: var(--ink-3); }
-.suggest mark { background: var(--gilt-soft); color: inherit; border-radius: 3px; padding: 0 1px; }
+.suggest mark { background: var(--gilt-soft); color: inherit; border-radius: var(--r-xxs); padding: 0 1px; }
 
 /* ---------- Segmented tabs (Sights · Eat & drink · Your day) ---------- */
 .seg { display: flex; gap: var(--s-1); padding: var(--s-1); background: var(--sand); border-radius: var(--r-pill); width: max-content; max-width: 100%; }
@@ -322,7 +322,7 @@ body.has-tabbar { padding-bottom: calc(var(--tab-h) + 8px); }
 
 /* ---------- Detail sheet / page ---------- */
 .sheet { background: var(--surface); border-radius: var(--r-l) var(--r-l) 0 0; box-shadow: var(--e-3); position: relative; }
-.sheet .grab { width: 40px; height: 5px; border-radius: 3px; background: var(--line-strong); margin: var(--s-2) auto 0; }
+.sheet .grab { width: 40px; height: 5px; border-radius: var(--r-pill); background: var(--line-strong); margin: var(--s-2) auto 0; }
 .sheet .close { position: absolute; top: 10px; right: 10px; z-index: 3; background: var(--surface); border: 1px solid var(--line); }
 .sheet .actions { position: sticky; bottom: 0; display: grid; grid-template-columns: auto 1fr 1fr; gap: var(--s-2); padding: 12px var(--gutter) calc(12px + env(safe-area-inset-bottom));
   background: color-mix(in srgb, var(--surface) 94%, transparent); backdrop-filter: blur(12px); border-top: 1px solid var(--line); }
@@ -349,7 +349,7 @@ body.has-tabbar { padding-bottom: calc(var(--tab-h) + 8px); }
 }
 .poi-sheet { position: absolute; z-index: 6; left: 0; right: 0; bottom: 0; background: var(--surface); border-radius: var(--r-l) var(--r-l) 0 0;
   box-shadow: var(--e-3); padding-bottom: calc(10px + env(safe-area-inset-bottom)); }
-.poi-sheet .grab { width: 40px; height: 5px; border-radius: 3px; background: var(--line-strong); margin: var(--s-2) auto var(--s-2); }
+.poi-sheet .grab { width: 40px; height: 5px; border-radius: var(--r-pill); background: var(--line-strong); margin: var(--s-2) auto var(--s-2); }
 .poi-sheet .hdr { display: flex; align-items: center; justify-content: space-between; padding: 0 var(--s-3) 0 var(--gutter); }
 .poi-sheet .peek { display: flex; gap: var(--s-2); overflow-x: auto; scroll-snap-type: x mandatory; padding: var(--s-2) var(--gutter) var(--s-3); scrollbar-width: none; }
 .poi-sheet .peek::-webkit-scrollbar { display: none; }
@@ -454,7 +454,7 @@ body.has-tabbar { padding-bottom: calc(var(--tab-h) + 8px); }
 .footer .cols { display: grid; gap: var(--s-6); grid-template-columns: repeat(2, 1fr); }
 .footer h4, .footer h3, .footer h2.fh { color: var(--on-night); font: 600 var(--fs-meta)/1 var(--font-ui); margin: 0 0 var(--s-2); }
 .footer ul { list-style: none; margin: 0; padding: 0; }
-.footer .legal { border-top: 1px solid rgba(255,255,255,.12); margin-top: 28px; padding-top: var(--s-4); font-size:var(--fs-xs); line-height: 1.6; }
+.footer .legal { border-top: 1px solid var(--on-night-line); margin-top: 28px; padding-top: var(--s-4); font-size:var(--fs-xs); line-height: 1.6; }
 .footer .brand b { color: var(--on-night); }
 @media (min-width: 900px) { .footer { padding-bottom: var(--s-7); } .footer .cols { grid-template-columns: 2fr 1fr 1fr 1fr; } }
 
@@ -472,8 +472,8 @@ body.has-tabbar { padding-bottom: calc(var(--tab-h) + 8px); }
 .credit { font-size: var(--fs-xs); color: var(--ink-3); line-height: 1.4; }
 .credit a { color: var(--ink-2); }
 figure.photo { margin: 0; position: relative; border-radius: var(--r-m); overflow: hidden; background: var(--sand); }
-figure.photo figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: var(--s-2) var(--s-3); font-size: var(--fs-xs); color: #fff;
-  background: linear-gradient(transparent, rgba(0,0,0,.65)); }
+figure.photo figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: var(--s-2) var(--s-3); font-size: var(--fs-xs); color: var(--on-photo);
+  background: linear-gradient(transparent, var(--scrim-photo)); }
 .area-head .shape .d, .mini .d { fill: var(--ink-3); }
 .state .art { fill: none; stroke: currentColor; stroke-width: 1.5; }
 @media (max-width: 639px) { .sharebar .btn { min-height: 40px; padding: 0 var(--s-4); font-size:var(--fs-sm); } .sharebar .btn-ghost.opt { display: none; } }

@@ -15,11 +15,11 @@ SPEC-v3 rev 5 items from PANEL-R3 (80.7):
 
 ## Done
 - PANEL-R1 #1, #13, #11, #3 + probe honesty: 537cfb8c (round 3 head), BETA-LOG 03678da1.
-- R3 #9/#14 one focus ring per card stop (atlas-nav.css; probe tools/beta/fe2/rings.js in atlas-nav-ms) and R7-g4 (c)
-  deep-link ancestor scroll check: in the push carrying this line.
+- R3 #9/#14 one focus ring per card stop (atlas-nav.css; probe tools/beta/fe2/rings.js in atlas-nav-ms; designer signed
+  off) and R7-g4 (c) deep-link ancestor scroll check: 1e8b23ad.
 - QA-76 (pre-fit "Show all" transient): 4aba38b3, re-gated green on the pushed head.
-- QC-26 (cold lens deep link "1 of 488"; bisected to PERF-08 1538974d): sheet.js shortcut only with no lens on, in the
-  push carrying this line. Probe tools/beta/fe2/qc26.js (in atlas-nav-ms).
+- QC-26 (cold lens deep link "1 of 488"; bisected to PERF-08 1538974d): sheet.js shortcut only with no lens on, 3929ad4b.
+  Platform switched PERF-08 off (aff53656) and runs qc26.js + the QA-76 block in tools/beta/qa/perf08-regress.sh. Probe tools/beta/fe2/qc26.js (in atlas-nav-ms).
 - PANEL-R3 #7 (108 px layout shift): e7986460 (full gates green on the pushed head).
 - W9-5 walking ring from your base: 417da6aa. Phone 58vh detail above the QC-09 cap: ecae30b3.
 - QA-71 (swipe after Back): fd54b823; hardening (carousel holds only against the restore's own scroll): a3da0b4b.
@@ -27,15 +27,11 @@ SPEC-v3 rev 5 items from PANEL-R3 (80.7):
   views.js): a3da0b4b.
 
 ## Next
-0. QA-76 fixed in the push carrying this line (C.navFitPending gates msArea's map-area pass until the first fit lands;
-   probe "QA-76" in atlas-nav-ms, Tokyo × 2 viewports × plain/lens). QC-26 green on the pushed head 3929ad4b.
-1. R3 #8 guards are in atlas-nav-ms.js: a fresh `at=` (Asakusa z15) load lists only in-bounds places on both viewports
-   (passes on today's head: Sensō-ji first, 0 outside); after a phone zoom the pill and count equal the places in view
-   OR "Search this area" is offered. The pill still reads "351 places here" with 43 in view. FE-1's copy, raised with
-   FE-1 (proposal: the pill says it's the last searched area, or counts the view live). Tighten the check once FE-1 picks.
-2. Remove atlas-nav.js `order()` once FE-1 confirms their msIn park covers phone too (offered 16 Oct).
-3. Round 4: FE-1 declares it on a combined head; check my probes on that SHA first.
-4. Rev 5 #9/#14 rings: waiting on the designer's choice of which card ring to keep (the containers were sent).
+1. Round 4: FE-1 declares it on a head that carries everything below (66c2a8e1 does; atlas-nav-ms PASS there) once the
+   designer signs off the dots. If the SHA moves, re-run `node tools/beta/atlas-nav-ms.js` on it first.
+2. R3 #8: the guards pass; the phone pill after a zoom reads "351 places here" with 43 in view. That's FE-1's copy, raised
+   with them. Tighten the check once FE-1 picks a wording or a live count.
+3. QA-70 flake ruling is QA's (FE-B's switcher probe races the sheet's view transition).
 ## In flight
 - Nothing unpushed. QA-70 flake counts were sent to the orchestrator (feb-switcher Tokyo, 10 runs per head):
   be74c82f 0/10, 530dc83b 10/10 (195/260 expected there; 390 click 2/10), a3da0b4b 4/10 (390 click). The probe races
@@ -46,7 +42,6 @@ SPEC-v3 rev 5 items from PANEL-R3 (80.7):
   C.navKeep, C.navPrivate, C.onLocate (atlas.js); C.ringKeep (city.js visible()). FE-1 agreed; FE-A told.
 - The view key is `at=lat,lng,z`; `c=` is the category lens.
 - Pushing: `tools/beta/fe2/fast-sync.sh` (resume rule 8). Timing probe for the map open: `tools/beta/fe2/first-pin.js`.
-- FE-1 owns pins, chrome, list and atlas.css, and parks `.mappane` before `.listpane` on desktop; atlas-nav.js
-  `order()` does the same idempotently (both kept).
+- FE-1 owns pins, chrome, list and atlas.css. The map-before-list DOM order is atlas-nav.js `order()` (FE-1 dropped theirs).
 - Known red on origin, not this lane's: atlas-ms "cleveland phone: independent B-08 … list scrolled" sees 0 titles
   (FE-1's check; red with and without this lane's CSS, 16 Oct 18:40Z).
