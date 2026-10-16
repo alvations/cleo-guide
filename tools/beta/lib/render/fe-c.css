@@ -15,3 +15,11 @@
 .pl-chk{display:block;margin:var(--s-1) 0 0;font-size:var(--fs-xs);line-height:1.4;color:var(--ink-3)}
 .pl-chk::before{content:attr(data-t)}
 .feedline a{font-weight:600}
+/* QA-77 (B-20): a badge link is a 44 px tap target that still looks like a 32 px pill. The box grows 6 px above and below
+   (negative block margins keep the layout), the pill is painted 6 px in from it. Wrapped rows get a 12 px row gap so two
+   rows' hit areas never overlap. Span badges (the Gallery card / Atlas preview, inside one link) are not targets: unchanged. */
+a.rb{min-height:44px;margin-block:-6px;background:none;isolation:isolate}
+a.rb::before{content:"";position:absolute;inset:6px 0;z-index:-1;border-radius:inherit;background:var(--sand)}
+a.rb.rb-award{background:none}a.rb.rb-award::before{background:var(--sun-wash)}
+.pl-rec:has(>a.rb){row-gap:12px;margin-top:14px}.ge-rec:has(>a.rb){margin-bottom:10px}
+.sheet .fact .pl-rec:has(>a.rb){margin:6px 0}

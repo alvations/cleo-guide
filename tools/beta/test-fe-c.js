@@ -116,6 +116,8 @@ const days = d => [...d.querySelectorAll('.tday')].map(s => [...s.querySelectorA
   chk('the closed place is left out with its reason, a Closed chip, never the raw "— CLOSED" marker', !!left && /Unicorn Gundam[\s\S]*Closed — kept for the record, never planned \(checked/.test(left.textContent) &&
     !!left.querySelector('.tp-closed') && left.querySelector('.tp-closed').textContent === 'Closed' && !/— CLOSED/.test(left.textContent));
   chk('places that did not fit are named with the reason', /Didn’t fit in 3 days/.test(left ? left.textContent : ''));
+  { const lk = left && [...left.querySelectorAll('li.closed a[rel="noopener"]')][0], uj = JSON.parse(fs.readFileSync(path.join(BETA, 'data/places/tokyo.json'), 'utf8')).places.find(p => /unicorn/.test(p.id)).pv.ss;
+    chk('the closed place\'s status source is a link (pv.ss), named by its host, never a bare URL', !!lk && lk.getAttribute('href') === uj && lk.textContent === 'tokyoweekender.com' && /Source: tokyoweekender\.com/.test(left.textContent) && !/Source: https?:/.test(left.textContent), lk && [lk.getAttribute('href'), lk.textContent]); }
   chk('the unknown id is reported, not dropped', /no-such-place/.test((a.d.querySelector('.tp-gone') || {}).textContent || ''));
   chk('no closed place in any day', [...a.d.querySelectorAll('.tday')].every(s => !/CLOSED/.test(s.textContent)));
   const dl = a.d.querySelector('[data-tp-day="1"]').getAttribute('href');

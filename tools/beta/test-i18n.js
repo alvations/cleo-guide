@@ -289,7 +289,7 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     const leftTrip = [];
     box.querySelectorAll('svg text').forEach(n => n.remove());
     const tw = dT.createTreeWalker(box, 4);
-    for (let n; (n = tw.nextNode());) { const t = n.nodeValue.trim(); if (!/[A-Za-z]{2,}/.test(t) || /⟦/.test(t) || names.has(t.toLowerCase())) continue; leftTrip.push(t.slice(0, 60)); }
+    for (let n; (n = tw.nextNode());) { const t = n.nodeValue.trim(); if (!/[A-Za-z]{2,}/.test(t) || /⟦/.test(t) || names.has(t.toLowerCase()) || (n.parentElement && n.parentElement.closest('[translate="no"]'))) continue; leftTrip.push(t.slice(0, 60)); }   // [translate=no]: data (a source's host), as on city pages
     box.querySelectorAll('[aria-label]').forEach(el => { const v = el.getAttribute('aria-label'); if (/[A-Za-z]{2,}/.test(v) && !/⟦/.test(v)) leftTrip.push('@' + v.slice(0, 50)); });
     chk('trip.html, runtime pseudo catalogue: the trip has 0 English interface strings (data exempt)', [box.querySelectorAll('.tday').length > 0, !!box.querySelector('.tp-left'), [...new Set(leftTrip)].slice(0, 12)], [true, true, []]);
   }
