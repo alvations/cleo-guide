@@ -293,6 +293,17 @@ const PSEUDO = { locale: 'ja', name: 'ps', strings: Object.fromEntries(Object.en
     box.querySelectorAll('[aria-label]').forEach(el => { const v = el.getAttribute('aria-label'); if (/[A-Za-z]{2,}/.test(v) && !/⟦/.test(v)) leftTrip.push('@' + v.slice(0, 50)); });
     chk('trip.html, runtime pseudo catalogue: the trip has 0 English interface strings (data exempt)', [box.querySelectorAll('.tday').length > 0, !!box.querySelector('.tp-left'), [...new Set(leftTrip)].slice(0, 12)], [true, true, []]);
   }
+  // PERF-18 (Platform's build-rendered lead card): a server phrase marked data-l10n="key" (+ data-l10n-v JSON) is re-said
+  // by locale.js inside the paint hold, even inside a client-drawn container; an unknown key is left as it is
+  {
+    const tok = fs.readFileSync(path.join(BETA, 'cities', 'tokyo.html'), 'utf8').replace('</body>',
+      '<div class="g-lead-card" data-ssr><span id="l1" data-l10n="gal.more" data-l10n-v=\'{"n":3}\'>+3 more</span><span id="l2" data-l10n="gal.see">See</span><span id="l3" data-l10n="no.such.key">Keep</span><span id="l4" data-l10n="gal.see" data-l10n-v="{bad">See</span></div></body>');
+    chk('common.l10nSpan renders the English with its key and values', common.l10nSpan('gal.more', { n: 3 }), '<span data-l10n="gal.more" data-l10n-v="{&quot;n&quot;:3}">+3 more</span>');
+    const dS = await runtime(tok, 'https://example.test/beta/cities/tokyo.html?lang=ja', { en: i18n.EN, ja: PSEUDO });
+    const fillP = (k, v) => PSEUDO.strings[k].replace(/\{([a-z]+)\}/g, (m, n) => n in v ? String(v[n]) : m);
+    chk('data-l10n: a marked server phrase is re-said in the loaded catalogue (values filled as text; unknown key and bad JSON left alone)',
+      ['l1', 'l2', 'l3', 'l4'].map(i => dS.getElementById(i).textContent), [fillP('gal.more', { n: 3 }), PSEUDO.strings['gal.see'], 'Keep', 'See']);
+  }
   // W8-I18N-SEARCH: the site-wide search (client/search.js: the top-bar panel and the landing's results) under the PSEUDO
   // catalogue: every output path has 0 English interface words. Data here is Japanese, so any ASCII word is interface.
   {
