@@ -25,10 +25,7 @@
     set: function (k, v) { rawSet('cleo:v1:' + k, JSON.stringify(v)); }
   };
 
-  function emit(name, detail) {
-    var ev; try { ev = new CustomEvent(name, { detail: detail }); } catch (e) { ev = document.createEvent('CustomEvent'); ev.initCustomEvent(name, false, false, detail); }
-    document.dispatchEvent(ev);
-  }
+  function emit(name, detail) { document.dispatchEvent(new CustomEvent(name, { detail: detail })); }   // ES2017 target: CustomEvent is everywhere
   Cleo.emit = emit;
 
   /* ---- saved places: { "<pageKey>/<placeId>": {t: savedAtMs} } ---- */
@@ -629,7 +626,7 @@
       return out.filter(function (u, i) { return out.indexOf(u) === i; });
     },
     save: function () {
-      if (!('serviceWorker' in navigator) || !navigator.serviceWorker.controller && !navigator.serviceWorker.ready) return Promise.reject(new Error('no service worker'));
+      if (!navigator.serviceWorker) return Promise.reject(new Error('no service worker'));
       return navigator.serviceWorker.ready.then(function (reg) {
         return new Promise(function (ok) {
           var t = setTimeout(function () { ok({ n: 0, ok: 0, timeout: true }); }, 15000);
