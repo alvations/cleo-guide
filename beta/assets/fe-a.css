@@ -971,3 +971,7 @@ html.ms-on[data-view=atlas] main[data-city] #cleo-grid section.ms-near li.pl.ms-
 .ms-d{font-weight:600;color:var(--ink)}
 .ms-head .ms-near-n{margin:4px 0 8px;font-size:var(--fs-sm);color:var(--ink-2)}
 html.atlas-m[data-view=atlas]:not(.ms-list) .ms-head .ms-near-n{display:none}
+/* the walking ring from your base (W9-5) */
+html[data-view=atlas] .ms-ring{display:inline-flex;align-items:center;gap:6px;flex:none}
+html[data-view=atlas] .ms-ring .ms-ring-l{font:500 var(--fs-sm)/1.2 var(--font-ui);color:var(--ink-2);white-space:nowrap}
+html[data-view=atlas] .ms-ring .chip[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
