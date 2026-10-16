@@ -46,7 +46,7 @@ There is no server, so "backend" here means the build and data side.
 | PERF-13 | Service-worker caching | the cache name is the build hash, so every deploy wipes a reader's offline cities | offline packs live in `cleo-packs`, which a deploy never wipes | fixed (2e4faf42) |
 | PERF-14 | Photos on phone @3× (W8) | Tokyo first load 930 KB; 960w photos in 104 px slots | **590 KB**; none | fixed (e83b6cc3) |
 | PERF-15 | Eager JS and deep-link DOM (W7) | 40.45 KB gzip; #p= 12,459 nodes | **27.4 KB**; **≈ 2.2 k** | fixed (eb47e76) |
-| PERF-16 | `:has()` anchored on html / body / main (QA-70) | map pill → first pin, phone Gallery: Tokyo 1,654 → 2,481 ms (be74c82f → 530dc83b) | guard: `tools/beta/test-css-has.js` in `npm test`; 7 known cleo.css selectors to remove | guard landed; fe-a.css rules fixed by FE-2; cleo.css → designer |
+| PERF-16 | `:has()` anchored on html / body / main (QA-70) | map pill → first pin, phone Gallery: Tokyo 1,654 → 2,481 ms (be74c82f → 530dc83b) | guard: `tools/beta/test-css-has.js` in `npm test`; 7 known cleo.css selectors to remove | fixed: FE-2 a7b4a980 (fe-a.css), designer eddbb7b0 (cleo.css); first pin on 3ba696e8 Tokyo 1,653 / NY 1,807 ms vs be74c82f 1,564 / 1,760; lint in `npm test`, no allowlist |
 
 ## Items
 
@@ -136,7 +136,8 @@ There is no server, so "backend" here means the build and data side.
 ### PERF-16: `:has()` anchored on html / body / main (QA-70)
 - **Measured** (`tools/beta/qa/first-pin.sh`: phone Gallery 390, tap the map pill, time to the first `.leaflet-marker-icon`, median of 3, unthrottled): Tokyo be74c82f 1,654 ms → 530dc83b 2,481 ms. Bisect: first bad 7e746d9b (parent c54e55d1: Tokyo 1,502 → 2,602 ms, New York 1,790 → 2,757 ms).
 - **Mechanism:** a `:has()` on `<main>` is re-checked on every DOM change inside it (each card stamped, each pin). 7e746d9b added `main[data-city]:has(.views[data-cleo-views]:not([hidden]))>.overlay…` (2 rules): without them 7e746d9b is 1,529 ms. On tip addeb1f7 a second pair, `main[data-city]:has(>.overlay…)>.cbar…`, costs as much: removing only the first pair leaves 2,485 ms, both pairs 1,666 ms. A direct-child `:has(>…)` is no cheaper here.
-- **Fix:** FE-2 keys the rules on attributes the script sets (`main[data-views-on]`). **Guard:** `tools/beta/test-css-has.js` (in `npm test`) fails on any `:has()` (incl. `:not(:has(`) anchored on html / body / main in the shipped CSS; 7 pre-existing cleo.css selectors are listed exactly as KNOWN (worth ≈ 100 ms here), the list may only shrink — designer.
+- **Fix:** FE-2 keys the rules on attributes the script sets (`main[data-views-on]`). **Guard:** `tools/beta/test-css-has.js` (in `npm test`) fails on any `:has()` (incl. `:not(:has(`) anchored on html / body / main in the shipped CSS; the designer removed the 7 pre-existing cleo.css selectors (+1 `:root`) in eddbb7b0 (worth ≈ 100 ms here), so the lint has no allowlist.
+- **Verified (`first-pin.sh`, median of 3):** be74c82f Tokyo 1,564 / New York 1,760 ms; deploy candidate 3ba696e8 (FE-2's fix a7b4a980) Tokyo 1,653 / New York 1,807 ms — back at the good level (530dc83b was 2,481 / ≈ 2,760).
 
 ### PERF-09: LCP (meets target)
 - Every page and viewport is ≤ 1.2 s at 4× CPU (phone Tokyo Atlas 1,168 ms is the worst).
