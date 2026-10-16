@@ -18,6 +18,10 @@
 
 - This push: candidate wave 2. Pittsburgh and Washington DC had 0 tier-1 photos because their places carry no Wikipedia link (so no lead image to try). Added 56 vetted Commons titles for 29 targets and 7 stated gaps (DC modern sculpture memorials without US freedom of panorama, the 600 px Carnegie Free Library, the Pittsburgh trolley museum). Not found yet: Heinz History Center, Pump House, Air & Space (Mall), Udvar-Hazy, Army museum.
 
+- This push: candidate wave 3. 26 vetted titles for 13 Bruges and Youngstown places, English name aliases (NAMES) so the Dutch-named Bruges targets match Commons titles, and 3 stated gaps (Dave Grohl Alley murals, Past Times Arcade, Garnaalvissers te paard). Not found yet: Atlantikwall Raversyde (numbered series, exact title unconfirmed), De Haan, Ensorhuis, NAVIGO, the boat tour, DeYor, Packard Museum, Youngstown Historical Center, Fellows Riverside Gardens.
+- PENDING after run #58 lands: refuse the Cebu façade (orchestrator: a crowd fills the foreground), remove it from NO720, then let the next run try 'Basilica Minore del Santo Niño in Cebu City 02.jpg'.
+- FE-A asked (16:10Z) to switch gallery.js `sizes` to 240px for cards with a 600–799 copy (platform's cardSizes landed 3a0ecfec). Re-run w8p when FE-A pushes.
+
 **In flight:**
 - Run #48's 32 refusals are APPLIED in this push (orchestrator's final list, recorded in design/beta/imagery-runs/run-48.md). CREDITS 580 → 548.
 - D-40a data has LANDED: 38 lead/first-row cards have a 720 copy ≤ 45 KB. 7 are in `NO720` in recompress.js (busy or tall photos that only fit by shrinking below 600 px) and keep 500 + 960. The cap went from 55 to 45 KB because 55 measured Tokyo phone@3× at 703 KB once the 720-aware `sizes` was applied; 45 measures 691 KB. Platform still has to switch `cardSizes()` to the 720 copy (asked); until then phones load the 500 and Tokyo is 649 KB.
