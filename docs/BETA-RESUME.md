@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 18:00Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 18:26Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -38,6 +38,7 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
     - QA-70 and QA-71.
   - Orchestrator checks on the pin: validate ✅, npm test (alone) ✅, beta:check ✅; w8p ✅ (Tokyo 620 KB, Atlas 392 KB); `views.js --only links` 140 PASS / 0 FAIL.
   - It merges into `claude/cleveland-page-creation-pant4l` as before; check with merge-tree before the PR.
+- **Since pinning:** QC verified QC-26 and QC-22 on the pin (1d973acc). FE-2 re-gated it green, including atlas-ms and the QC-26/QA-76 probes. QA's full delta suite was running at 18:05Z.
 - **History:** 530dc83b NO (QA-70/71). 3ba696e8 NO (QC-26/QA-75/QA-76, all from PERF-08), though B-07 5/5 on 3ba696e8 beat be74c82f's 1/5.
 - **PERF-08 re-lands after the deploy,** behind tests covering QA-75/76 and QC-26.
 - Not blocking: QA-61 and QA-68. QA-67 is fixed (f08f892d).
