@@ -38,7 +38,9 @@ plural (i18n).
 2. `:has()` lint wired into npm test (test:serial); no allowlist.
 3. PERF-08 OFF (afb09e74; pin 4aba38b3). Re-land AFTER the deploy, only when tools/beta/qa/perf08-regress.sh passes with
    selective on: views.js links (QA-75), w7 lens (QA-76), my sheet check + FE-2's fe2/qc26.js first/second area (QC-26).
-   Fix QA-75 first (remembered Guidebook/Insights view + deep-linked lens). No product pushes until QA rules on 4aba38b3. PERF-14 re-checked (w8p 608/651 KB).
+   QA-75 root cause (FE-A): city.js's cleo:stamped adopted cards later stamped by Cleo.defer.all()/allNow without applying
+   the lens; FE-A's marked block fixes it (links 140/140 with the flag forced on; SHA pending). On re-land add a jsdom check:
+   selective on → lens → Cleo.defer.all() → shown == lens count. No product pushes until QA rules on 4aba38b3. PERF-14 re-checked (w8p 608/651 KB).
 
 ## In flight
 
