@@ -33,6 +33,7 @@ never weakens a gate.
 - `f7fa616d`: QC-16 verified; new QC-21 (Low, i18n); QC-18 observed fixed (unclaimed).
 - `a498adf5`: QC-21 verified.
 - `995e2529`: QC-18 and QC-20 verified; QC-19 still open (2 Cleveland records); new QC-22 (Low).
+- `3a0ecfec`: QC-11 and QC-12 verified (S-12 all 91 pages at 390, 768 and 1440).
 
 ## In flight
 
