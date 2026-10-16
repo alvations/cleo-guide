@@ -880,6 +880,7 @@ html[data-view=atlas] .leaflet-control-attribution a{padding:var(--s-1) 0}
 .ms-pv-e{font-size:var(--fs-xs);color:var(--ink-3);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
 .ms-pv-n{font:var(--fw-display) var(--fs-lead)/1.15 var(--font-display);letter-spacing:var(--track-display)}
 .ms-pv-w{font-size:var(--fs-sm);line-height:var(--lh-sm);color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ms-pv-a{font-size:var(--fs-sm);line-height:var(--lh-sm);color:var(--ink-2)}   /* D-43: "Approximate pin" in the preview */
 .ms-pv-c{margin:0;padding:0 var(--s-4) var(--s-3);font-size:var(--fs-xs);line-height:1.35;color:var(--ink-3)}.ms-pv-c a{color:var(--ink-2)}
 .ms-pv-s{font-size:var(--fs-xs);color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
 .ms-pv:hover .ms-pv-n,.ms-pv:focus-visible .ms-pv-n{text-decoration:underline;text-underline-offset:3px}

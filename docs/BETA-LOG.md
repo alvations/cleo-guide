@@ -2094,3 +2094,4 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - PR alvations/cleo-guide#9 merged b54b3745 into the Pages branch with expectedHeadSha (merge 4382a187), and the Pages build started 21:33Z.
 - beta-deploy-r7 merged back into dev with `-s ours` (beef84ec): every ported commit is already on dev.
 - The changelog entry is added. Next: the R8 evaluator, and the PERF-08 "go" to platform.
+- **D-43 (designer declined a third dot state):** at 7 px an outlined dot reads as the closed hollow dot, so a low-confidence pin draws like any other dot. The Atlas preview now carries FE-C's card label "Approximate pin" (`sheet.pin.approx`), so there is one string; the detail already says so (sheet.js). Low pins per pilot, from data/geocodes.json: Cleveland 1, Tokyo 0, New York 0, Chinatown 0, Wheeling 0 (Singapore as a whole: 4). Sent to the orchestrator for the 4b re-verify pass.
