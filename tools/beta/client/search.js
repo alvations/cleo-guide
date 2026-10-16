@@ -9,35 +9,43 @@
   var Cleo = window.Cleo = window.Cleo || {};
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var FOLD = 8;
+  // i18n D-41: interface strings from the catalogue (Cleo.t, head snippet); the English here equals en.json (test-i18n).
+  // Values are escaped before they are filled in, so the English output is unchanged.
+  var tt = function (k, e, v) { return Cleo.t ? Cleo.t(k, e, v) : v ? e.replace(/\{([a-z]+)\}/g, function (m, n) { return n in v ? v[n] : m; }) : e; };
+  // i18n D-41: what was drawn is drawn again in the loaded catalogue (cleo:locale), e.g. the landing's ?q= results
+  var drawn = [];
+  var redraw = function (el, fn) { drawn = drawn.filter(function (d) { return d.el !== el && d.el.isConnected; }); drawn.push({ el: el, fn: fn }); };
+  document.addEventListener('cleo:locale', function () { drawn.slice().forEach(function (d) { if (d.el.isConnected) d.fn(); }); });
 
   function total(data) { return data.items.length.toLocaleString('en-US'); }
 
   /** Render all matches for q into el, grouped by guide in best-match order. Returns the hit count. */
   Cleo.renderHits = function (el, data, q, onClear) {
+    redraw(el, function () { Cleo.renderHits(el, data, q, onClear); });
     var hits = Cleo.search(data, q), groups = [], by = {};
     hits.forEach(function (h) { var k = h.it[0]; if (!by[k]) { by[k] = { pg: h.pg, hits: [] }; groups.push(by[k]); } by[k].hits.push(h); });
     var gq = Cleo.fold ? Cleo.fold(q).split(/\s+/).filter(Boolean) : [];
     var guides = gq.length ? data.pages.filter(function (pg) { var h = Cleo.fold(pg[1] + ' ' + pg[3]); return gq.every(function (t) { return h.indexOf(t) >= 0; }); }) : [];
-    var gHtml = guides.length ? '<section class="grp guides"><h3>' + (guides.length === 1 ? 'Guide' : guides.length + ' guides') + '</h3><ol>' +
+    var gHtml = guides.length ? '<section class="grp guides"><h3>' + (guides.length === 1 ? tt('srch.guide.one', 'Guide') : tt('srch.guides', '{n} guides', { n: guides.length })) + '</h3><ol>' +
       guides.slice(0, 12).map(function (pg) { return '<li><a class="pill" href="' + esc((Cleo.root || '') + pg[2]) + '">' + esc(pg[1]) + '</a></li>'; }).join('') + '</ol></section>' : '';
     if (!hits.length && guides.length) {
-      el.innerHTML = '<h2 class="d3">' + guides.length + ' ' + (guides.length === 1 ? 'guide' : 'guides') + ' for “' + esc(q) + '”</h2>' + gHtml;
+      el.innerHTML = '<h2 class="d3">' + (guides.length === 1 ? tt('srch.guides.for.one', '1 guide for “{q}”', { q: esc(q) }) : tt('srch.guides.for', '{n} guides for “{q}”', { n: guides.length, q: esc(q) })) + '</h2>' + gHtml;
     } else if (!hits.length) {
-      el.innerHTML = '<div class="state" data-cleo-state="no-results"><h3>No places match “' + esc(q) + '”.</h3>' +
-        '<p>Search looks at place names, areas and guide names across all ' + total(data) + ' places. Try a city, a neighbourhood or a dish.</p>' +
-        '<button type="button" class="btn btn-ghost" data-cleo-clear>Clear search · see all ' + total(data) + ' places</button></div>';
+      el.innerHTML = '<div class="state" data-cleo-state="no-results"><h3>' + tt('city.empty.q', 'No places match “{q}”.', { q: esc(q) }) + '</h3>' +
+        '<p>' + tt('srch.none.p', 'Search looks at place names, areas and guide names across all {n} places. Try a city, a neighbourhood or a dish.', { n: total(data) }) + '</p>' +
+        '<button type="button" class="btn btn-ghost" data-cleo-clear>' + tt('srch.clear', 'Clear search · see all {n} places', { n: total(data) }) + '</button></div>';
     } else {
-      el.innerHTML = '<h2 class="d3">' + hits.length + ' ' + (hits.length === 1 ? 'place' : 'places') + ' for “' + esc(q) + '”' +
-        ' <span class="sm muted">in ' + groups.length + ' ' + (groups.length === 1 ? 'guide' : 'guides') + '</span></h2>' +
+      el.innerHTML = '<h2 class="d3">' + (hits.length === 1 ? tt('srch.hits.one', '1 place for “{q}”', { q: esc(q) }) : tt('srch.hits', '{n} places for “{q}”', { n: hits.length, q: esc(q) })) +
+        ' <span class="sm muted">' + (groups.length === 1 ? tt('srch.in.one', 'in 1 guide') : tt('srch.in', 'in {n} guides', { n: groups.length })) + '</span></h2>' +
         gHtml +
         groups.map(function (g, gi) {
           return '<section class="grp"><h3>' + esc(g.pg[1]) + ' <span class="sm muted">' + g.hits.length + '</span></h3><ol>' +
             g.hits.map(function (h, i) {
               var it = h.it, href = (Cleo.root || '') + g.pg[2] + (g.pg[4] ? '#p=' + encodeURIComponent(it[1]) : '');
               return '<li' + (i >= FOLD ? ' hidden' : '') + '><a href="' + esc(href) + '"><span>' + esc(it[2]) + '</span><span class="meta">' +
-                (it[3] === 'f' ? 'Eat &amp; drink' : 'Sight') + (it[6] ? ' · ' + esc(it[6]) : '') + (it[5] ? ' · Closed, kept for the record' : '') + '</span></a></li>';
+                esc(it[3] === 'f' ? tt('city.mode.food', 'Eat & drink') : tt('srch.sight', 'Sight')) + (it[6] ? ' · ' + esc(it[6]) : '') + (it[5] ? ' · ' + tt('srch.closed', 'Closed, kept for the record') : '') + '</span></a></li>';
             }).join('') + '</ol>' +
-            (g.hits.length > FOLD ? '<button type="button" class="btn btn-quiet" data-cleo-more="' + gi + '">Show all ' + g.hits.length + ' in ' + esc(g.pg[1]) + '</button>' : '') +
+            (g.hits.length > FOLD ? '<button type="button" class="btn btn-quiet" data-cleo-more="' + gi + '">' + tt('srch.more', 'Show all {n} in {guide}', { n: g.hits.length, guide: esc(g.pg[1]) }) + '</button>' : '') +
             '</section>';
         }).join('');
     }
@@ -54,8 +62,9 @@
   };
 
   Cleo.indexFailed = function (el) {
-    el.innerHTML = '<div class="state" data-cleo-state="index-failed"><h3>Search couldn’t load.</h3>' +
-      '<p>It needs the site index, which isn’t reachable right now. Every guide is still listed and every page works.</p></div>';
+    redraw(el, function () { Cleo.indexFailed(el); });
+    el.innerHTML = '<div class="state" data-cleo-state="index-failed"><h3>' + tt('srch.fail.h', 'Search couldn’t load.') + '</h3>' +
+      '<p>' + tt('srch.fail.p', 'It needs the site index, which isn’t reachable right now. Every guide is still listed and every page works.') + '</p></div>';
   };
 
   /* ---- W9-6 paste a link: a source URL opens the places that source recommends. The URL is only PARSED (its host),
@@ -87,21 +96,23 @@
   };
   var SUGGEST = 'https://github.com/alvations/cleo-guide/issues/new?labels=source-suggestion';
   Cleo.renderSource = function (el, idx, host, exact, url) {
+    redraw(el, function () { Cleo.renderSource(el, idx, host, exact, url); });
     var h = host, rows = null;
     while (h && !(rows = (idx.hosts || {})[h])) h = h.indexOf('.') > 0 && h.split('.').length > 2 ? h.slice(h.indexOf('.') + 1) : null;   // sub.example.com → example.com
-    var plural = function (n, w) { return n.toLocaleString('en-US') + ' ' + w + (n === 1 ? '' : 's'); };
-    var note = '<p class="sm muted">Cleo only read the link’s address; nothing was opened or fetched from it.</p>';
+    var plural = function (n, w) { return w === 'guide' ? (n === 1 ? tt('srch.guide.n1', '1 guide') : tt('srch.guides', '{n} guides', { n: n.toLocaleString('en-US') }))
+      : n === 1 ? tt('srch.place.n1', '1 place') : tt('srch.places.n', '{n} places', { n: n.toLocaleString('en-US') }); };
+    var note = '<p class="sm muted">' + tt('srch.src.note', 'Cleo only read the link’s address; nothing was opened or fetched from it.') + '</p>';
     if (!rows && !(exact && exact.length)) {
       var href = SUGGEST + '&title=' + encodeURIComponent('Source suggestion: ' + host) + '&body=' + encodeURIComponent('**Source:** ' + (url || host) + '\n\n**Why it is worth reading:**\n\n---\nFiled from the beta search (paste a link).');
-      el.innerHTML = '<div class="state" data-cleo-state="no-source"><h3>No guide cites ' + esc(host) + ' yet.</h3>' +
-        '<p>Paste a link from a source the guides name — a newspaper, a guidebook, a creator — to see the places it recommends. If this one is worth reading, suggest it: the link opens a pre-filled issue on the project’s GitHub.</p>' +
-        '<p><a class="btn btn-quiet" data-cleo-suggest href="' + esc(href) + '" target="_blank" rel="noopener">Suggest this source</a></p>' + note + '</div>';
+      el.innerHTML = '<div class="state" data-cleo-state="no-source"><h3>' + tt('srch.src.none.h', 'No guide cites {host} yet.', { host: esc(host) }) + '</h3>' +
+        '<p>' + tt('srch.src.none.p', 'Paste a link from a source the guides name — a newspaper, a guidebook, a creator — to see the places it recommends. If this one is worth reading, suggest it: the link opens a pre-filled issue on the project’s GitHub.') + '</p>' +
+        '<p><a class="btn btn-quiet" data-cleo-suggest href="' + esc(href) + '" target="_blank" rel="noopener">' + tt('srch.src.suggest', 'Suggest this source') + '</a></p>' + note + '</div>';
       return 0;
     }
     var out = '', total = 0;
     // a specific page: the places citing exactly that URL come first
     if (exact && exact.length) {
-      out += '<section class="grp" data-cleo-source-url><h2 class="d3">Recommended on this page <span class="sm muted">' + plural(exact.length, 'place') + '</span></h2><ol>' +
+      out += '<section class="grp" data-cleo-source-url><h2 class="d3">' + tt('srch.src.page', 'Recommended on this page') + ' <span class="sm muted">' + plural(exact.length, 'place') + '</span></h2><ol>' +
         exact.map(function (r) { return '<li><a href="' + esc((Cleo.root || '') + r[0] + '#p=' + encodeURIComponent(r[2])) + '"><span>' + esc(r[3]) + '</span><span class="meta">' + esc(r[1]) + ' · ' + esc(r[5]) + '</span></a></li>'; }).join('') + '</ol></section>';
     }
     // the source's view (VOICE.md rule 5): "Everything <source> recommends, in N guides" — one per publisher on that site
@@ -110,7 +121,7 @@
       rows.forEach(function (r) { if (!by[r[3]]) { by[r[3]] = []; order.push(r[3]); } by[r[3]].push(r); });
       order.forEach(function (name) {
         var g = by[name], n = g.reduce(function (t, r) { return t + r[4]; }, 0); total += n;
-        out += '<section class="grp"><h2 class="d3" data-cleo-source="' + esc(h) + '">Everything ' + esc(name) + ' recommends, in ' + plural(g.length, 'guide') +
+        out += '<section class="grp"><h2 class="d3" data-cleo-source="' + esc(h) + '">' + tt('srch.src.all', 'Everything {source} recommends, in {guides}', { source: esc(name), guides: plural(g.length, 'guide') }) +
           ' <span class="sm muted">' + plural(n, 'place') + '</span></h2><ol>' + g.map(function (r) {
             return '<li><a href="' + esc((Cleo.root || '') + r[0] + '#src=' + encodeURIComponent(r[2])) + '"><span>' + esc(r[1]) + '</span><span class="meta">' + plural(r[4], 'place') + '</span></a></li>';
           }).join('') + '</ol></section>';
@@ -152,7 +163,7 @@
     var note = b.parentNode && b.parentNode.querySelector('[data-cleo-share-note]');
     var say = function (t) { if (note) note.textContent = t; };
     if (navigator.share) { navigator.share({ title: title, url: url }).catch(function () {}); return; }
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(function () { say('Link copied'); }, function () { say(url); });
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(function () { say(tt('srch.copied', 'Link copied')); }, function () { say(url); });
     else say(url);
   });
 
@@ -169,11 +180,11 @@
       panel = document.createElement('div');
       panel.className = 'searchpanel';
       panel.setAttribute('role', 'dialog');
-      panel.setAttribute('aria-label', 'Search every place');
+      panel.setAttribute('aria-label', tt('shell.search', 'Search every place'));
       panel.innerHTML = '<div class="wrap"><form class="search compact" role="search" data-cleo-panel-form>' +
-        '<label class="vh" for="cleo-pq">Search every place</label>' +
-        '<input id="cleo-pq" type="search" placeholder="A city, a dish, a shrine…" autocomplete="off" enterkeyhint="search">' +
-        '<button type="button" class="btn btn-icon btn-quiet" data-cleo-panel-close aria-label="Close search"><svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-close"/></svg></button>' +
+        '<label class="vh" for="cleo-pq">' + tt('shell.search', 'Search every place') + '</label>' +
+        '<input id="cleo-pq" type="search" placeholder="' + esc(tt('land.search.ph', 'A city, a dish, a shrine…')) + '" autocomplete="off" enterkeyhint="search">' +
+        '<button type="button" class="btn btn-icon btn-quiet" data-cleo-panel-close aria-label="' + esc(tt('srch.close', 'Close search')) + '"><svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-close"/></svg></button>' +
         '</form><div class="results" aria-live="polite"></div></div>';
       var bar = document.querySelector('[data-cleo-shell="topbar"]');
       (bar && bar.parentNode ? bar.parentNode : document.body).insertBefore(panel, bar ? bar.nextSibling : null);

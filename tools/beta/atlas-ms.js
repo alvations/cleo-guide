@@ -338,6 +338,18 @@ const document_hasClusters = pv => false;   // count bubbles are retired (SPEC-v
       chk(`${key} ${vk}: #view=atlas&p= opens the detail with the place on the map`, r.sheet && r.inView, r);
       chk(`${key} ${vk} deep link: 0 page errors`, errors.length === 0, errors.slice(0, 2)); await ctx.close();
     }
+    // R7-g4 (b): a pin (or dot) whose card is off the shown page brings that card into the list, in view and selected
+    for (const [vk, vp] of [['390', M], ['1440', D]]) {
+      const { ctx, page, errors } = await open(browser, vp, url + '#view=atlas', { tiles: 'stub', wait: 1500 });
+      const res = await page.evaluate(async () => { const C = Cleo.city, m = C.map(), b = m.getBounds(), out = [];
+        const offPage = [...document.querySelectorAll('li.pl.ms-out')].concat(Cleo.defer ? Cleo.defer.peek() : []).filter(c => { const ll = (c.getAttribute('data-ll') || '').split(',').map(Number); return ll.length === 2 && b.contains(ll) && C.markers[c.id.slice(2)]; }).slice(0, 4);
+        for (const s of offPage) { const id = s.id.slice(2); C.markers[id].fire('click'); await new Promise(r => setTimeout(r, 900));
+          const c = document.getElementById('p-' + id), r = c && c.getBoundingClientRect(), lp = document.querySelector('.listpane').getBoundingClientRect();
+          out.push({ id: id.slice(0, 24), ok: !!c && !c.classList.contains('ms-out') && !!c.offsetWidth && c.classList.contains('is-sel') && r.top >= lp.top - 1 && r.bottom <= lp.bottom + 1 && r.left >= lp.left - 1 && r.right <= lp.right + 1 }); }
+        return out; });
+      chk(`${key} ${vk}: a pin whose card is off the shown page brings the card into the list, in view and selected (R7-g4 b)`, res.every(x => x.ok), res.length ? res : 'no place off the shown page in view (a small town: every place is on page 1)');
+      if (errors.length) chk(`${key} ${vk} pin→card: 0 page errors`, false, errors.slice(0, 2)); await ctx.close();
+    }
     // QC-05: a search with no match says so and offers "Clear search" / "Show all N"; clearing brings the places back
     for (const [vk, vp] of [['390', M], ['1440', D]]) {
       const { ctx, page, errors } = await open(browser, vp, url + '#view=atlas&q=zzqxjv', { tiles: 'stub', wait: 1500 });
