@@ -436,9 +436,14 @@ async function overlapScan(page) {
       const fr = floaters.filter(vis).map(f => [f, f.getBoundingClientRect()]);
       if (!fr.length) continue;
       for (const t of document.querySelectorAll('li.pl .pl-n')) {
-        if (!vis(t)) continue; const a = t.getBoundingClientRect(); if (a.bottom < 0 || a.top > vh) continue;
-        // W6 (FE-A, coordinated): a title scrolled out of its own scroll pane (the Atlas tray) is clipped, not covered
-        let clip = false; for (let e = t.parentElement; e && e !== document.body && !clip; e = e.parentElement) { const o = getComputedStyle(e).overflowY; if (o !== 'visible') { const q = e.getBoundingClientRect(); clip = a.bottom <= q.top || a.top >= q.bottom; } }
+        if (!vis(t)) continue; const a0 = t.getBoundingClientRect(); if (a0.bottom < 0 || a0.top > vh) continue;
+        // W6 (FE-A, coordinated): a title scrolled out of its own scroll pane (the Atlas tray) is clipped, not covered.
+        // QA R7 (QA-68): the same for the PART of a title its pane clips, so a title straddling the pane edge is tested on
+        // what the pane actually shows (the cut rect), never on its invisible part. Wholly-clipped titles skip, as before.
+        let a = { left: a0.left, right: a0.right, top: a0.top, bottom: a0.bottom }, clip = false;
+        for (let e = t.parentElement; e && e !== document.body && !clip; e = e.parentElement) { const st = getComputedStyle(e); if (st.overflowY !== 'visible' || st.overflowX !== 'visible') { const q = e.getBoundingClientRect();
+          if (st.overflowY !== 'visible') { a.top = Math.max(a.top, q.top); a.bottom = Math.min(a.bottom, q.bottom); } if (st.overflowX !== 'visible') { a.left = Math.max(a.left, q.left); a.right = Math.min(a.right, q.right); }
+          clip = a.bottom - a.top < 1 || a.right - a.left < 1; } }
         if (clip) continue;
         for (const [f, b] of fr) {
           if (f.contains(t)) continue;

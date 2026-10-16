@@ -2,7 +2,7 @@
  * Phones, Atlas only: the place detail is a sheet over the map that leaves a band of map above it, so the open place's
  * pin is never under the sheet (SPEC-v3 §3.2). It scrolls inside; the other views keep FE-A's full-height sheet. */
 @media (max-width:1023.98px){
-  html.atlas-m[data-view=atlas] #cleo-sheet .sheet.detail{max-height:58vh}
+  html.atlas-m.ms-on[data-view=atlas] body main[data-city] #cleo-sheet.overlay:not(.side) .sheet.detail{max-height:58vh}   /* above FE-A's QC-09 viewport cap, phone Atlas only */
 }
 /* skip links (§5): the page's own skip link style; Atlas only */
 html:not([data-view=atlas]) .ms-skip{display:none}
