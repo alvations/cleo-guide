@@ -2109,6 +2109,34 @@ Measured with a PerformanceObserver over load + 2.5 s, 4× CPU, stub tiles (phon
 - The owner said: "Let's make atlas the default view then the list. That will differentiate us from our competitors."
 - Recorded as D-46 (2c44f676). Atlas becomes the default; the switcher order is Atlas, Gallery, Guidebook, Insights.
 - Routed to FE-A (lead), platform, FE-1/FE-2, QA, QC and the designer. It ships in the next release with Atlas rev 5.
+
+## 2026-10-16 · FE-1 · D-46 (Atlas is the default view): the list shows at once on a slow map library
+
+- **What changed:** atlas.js `predict()` computes the view the map will open on, using the same first fit city.js makes (fitDefault's top 30 / 12 by map priority, minus outliers; the session's last view; a shared `#at=`; an area). It does this in plain Web Mercator, mirroring Leaflet's getBoundsZoom / fitBounds at zoomSnap 0.5. The first map-area page is taken from that view, so `ms-ready` is set at once and the map's arrival changes nothing in the list. A `#p=` place, a lens link and Top picks still wait for the first map pass, with the 3 s JS / 4 s CSS fallbacks as backstops.
+- **New probe** (`atlas-ms.js`, D-46): the map library is served 3 s late. At 1 s, desktop shows ≥ 3 list cards with no map yet, and after the map mounts they are the same cards in the same order. The phone peek's count is there at once and equals the map's own. CLS is 0 over the whole load.
+- **Rule change, FE-2's QA-76 (`atlas-nav-ms.js`):** it was "no map-area count before the first fit". It is now "a count before the fit only if it equals the settled count". Any count computed at the starting centre still fails. Measured on Tokyo at 1440 / 390: the early count is 359 / 351, the same as the settled count.
+
+## 2026-10-16 · FE-1 · INP: desktop switch → Atlas 18.5 s → 0.65 s (platform's perf.js, Tokyo, 4× CPU)
+
+- **Cause** (CPU profile and timeline trace of perf.js's own sequence: a collection filter, a place, then Guidebook, then Atlas):
+  - The Guidebook builds all 488 Tokyo cards (19,099 DOM nodes).
+  - On the switch, every forced layout on the way into Atlas reflowed all 488 cards in the Atlas grid. That held until atlas.js's first list pass marked the off-page cards `ms-out`.
+  - The forced layouts come from views.js `fitSplit` and city.js `overMap` (getBoundingClientRect), `document.fonts.ready`, and computed-style reads. That is about 30 style and layout passes at 600–1,000 ms each.
+  - Click to paint was 26.6 s in the trace; perf.js measured 18,544 ms.
+- **Fix:** desktop Atlas lays out no card until that first pass (`.ms-paged`, set in msArea and cleared in msOut). The backstops are the 3 s JS fallback and a 4 s CSS reveal, so the list never depends on atlas.js (rule 4).
+- **perf.js `--only inp --runs 3`:**
+  - desk switch → Atlas: 18,544 → 648 ms (920 / 608 / 648);
+  - phone switch → Atlas: 272 ms.
+  - The Gallery collection-filter rows (desk 1,072, phone 928) run before atlas.js is loaded, so they are not this cause. They were handed back to platform's bisect.
+- **Also:** the view switch's indicator now moves by `transform`, not `left`/`top`, so re-placing it at boot or at the Atlas header park is not a layout shift (0.003 per Atlas load). FE-A's probes (feb-ind, w8-fe-a) pass.
+- **D-46 CLS on a desktop Atlas load** (traced with layout-shift sources: Tokyo, Cleveland, Chinatown, New York, Wheeling at 1440):
+  - **The view switch's indicator sliding by `left`** (0.003): it now moves by transform.
+  - **"Search as I move the map" arriving with the map** (the count row grew 22 → 44 px, 0.001): the row reserves its 44 px.
+  - **The view switch shown and parked by JS** (the header's links jumped 72–113 px, 0.0007–0.0017): the page parks it at parse time (an inline script after the switcher in render/city.js) and keeps its box while hidden. atlas.js records the city bar as its home, so leaving Atlas still restores it.
+  - **The split's height fallback** `--atlas-top,140px` against a measured 108 px (the map pane's bottom badges dropped 32 px, 0.0007): the fallback is now `var(--bar-h) + 52px`.
+  - **Left, not Atlas's:** a 0.0001 header web-font swap (the brand and breadcrumb narrow by 2–3 px at ~170–270 ms) on every view. Reported to the orchestrator for FE-B / platform.
+  - **The D-46 probe check:** an Atlas element's shift must be 0 (any source inside the split, the chip row, the list head, the map or the list), and the page total is printed and bounded at ≤ 0.001.
+- **Phone peek word spaces (designer, R4b):** rev 5a's peek made its text span `display:flex`, and a flex row drops the spaces between its inline children ("351places here ·checked 2 Oct· Show list"). It is a block line again. The probe's peek check missed it because it read `textContent`; it now reads the rendered `innerText`, which is stricter.
 - 2026-10-16 · i18n lane · W9 · session_01HB7igqdcuhrau7mUWSauDL · PERF-18: the ja side of Platform's build-rendered lead card (option (c), proposed to Platform and the orchestrator).
   - **locale.js:** re-says every `[data-l10n]` phrase (key, plus `data-l10n-v` JSON values) in the loaded catalogue at the start of the swap, inside the paint hold. It works even inside a client-drawn container such as `.g-lead-card`. Values fill in as text, never as HTML. An unknown key or bad JSON leaves the English in place.
   - **Helper:** `common.l10nSpan(key, vars, tag)` renders the English with those attributes.
