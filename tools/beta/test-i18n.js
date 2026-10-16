@@ -28,7 +28,7 @@ const chk = (name, got, want) => {
 };
 
 // A fixture site: one country, one city, one dated event of each kind. The names are DATA (allowed through).
-const DATA = ['Testville Gazette', 'Old Mill Diner', 'Testland', 'Testville'];   // longest first
+const DATA = ['Testville Gazette', 'Testville gazette', 'Old Mill Diner', 'Testland', 'Testville'];   // longest first; 'Testville gazette' = the ★ collection title as displayed (sentence case, lib/casing.js)
 const reg = { rows: [{ kind: 'city', beta: 'cities/testville.html', key: 'testville', country: 'tl', counts: { P: 2, F: 1 }, data: { meta: { h1Main: 'Testville' } } },
   { kind: 'country-hub', beta: 'Testland/index.html', live: 'Testland/index.html', gen: 'new', key: 'tl', country: 'tl', data: { meta: { h1Main: 'Testland' } } }],
   countries: [{ key: 'tl', name: 'Testland', live: true, order: 1, hub: 'Testland/index.html' }] };
