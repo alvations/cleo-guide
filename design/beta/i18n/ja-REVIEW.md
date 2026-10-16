@@ -117,4 +117,15 @@ These keys came in when the i18n lane catalogued `client/guidebook.js` and `clie
 | `ins.src.t` | 各エリアを推薦しているのは | 各エリアを推薦している出典 | A heading should be a noun phrase. |
 | `ins.rec.cited` | 3件以上の出典が掲載 | 3件以上の出典に掲載 | "Cited by" is passive. |
 
-**Total: 45 changes over seven rounds.**
+## Round 8: FE-C's second batch (43 new keys: `base.*`, `geo.walk.*`, `share.*`; 4 changes, applied)
+
+FE-C's pending list grew to 122 keys: the round-6 strings plus 43 new ones. At FE-C's request the i18n lane merged all 122 into en.json and ja.json together with FE-C's prepared client patch, in one commit. A fresh independent subagent reviewed the 43 new strings under the same brief.
+
+| Key | Before | After | Why |
+|---|---|---|---|
+| `base.from` | 起点: | 拠点: | The から word order doesn't fit between distance and name, so it must be a label, and the catalogue's term is 拠点. |
+| `base.cleared.why` | 拠点を解除しました: {why}。 | 拠点が解除されました: {why}。 | The English is passive (the guide cleared it, not the user). |
+| `share.checked.to` | {date}まで営業状況を確認 | 営業状況は{date}時点で確認済み | まで read as "will check until"; the meaning is "checked as of". |
+| `share.more` | ほか{n}か所はリンクで | ほか{n}か所はリンク先に | リンクで read unfinished. |
+
+**Total: 49 changes over eight rounds.**
