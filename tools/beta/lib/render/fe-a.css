@@ -73,9 +73,9 @@ html .pls .pl-s{padding-top:var(--s-3);padding-bottom:var(--s-2)}
 .day>header .eyebrow,.lens .eyebrow{text-transform:none;letter-spacing:0}
 .day:not(.editing) .stop .ops{display:none}.day [data-dy=edit][aria-pressed=true]{background:var(--ink);color:var(--paper)}
 /* ---- W3 views (FE-A A-01…A-05): structural base keyed on html[data-view]; DES layers the look in views.css ---- */
-.views{display:flex;gap:var(--s-1);margin:var(--s-2) auto 0;max-width:var(--maxw);padding:var(--s-1);background:var(--surface,#fff);border:1px solid var(--line);border-radius:var(--r-pill);position:relative;z-index:30}
+.views{display:flex;gap:var(--s-1);margin:var(--s-2) auto 0;max-width:var(--maxw);padding:var(--s-1);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-pill);position:relative;z-index:30}
 .views[hidden]{display:none}.views button{flex:1;min-height:var(--tap);display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);border:0;background:none;border-radius:var(--r-pill);font:inherit;font-size:var(--fs-sm);color:var(--ink-2);cursor:pointer}
-.views button[aria-pressed=true]{background:var(--ink);color:var(--paper,#fff);font-weight:600}.views button:focus-visible{outline:3px solid var(--focus);outline-offset:1px}
+.views button[aria-pressed=true]{background:var(--ink);color:var(--paper);font-weight:600}.views button:focus-visible{outline:3px solid var(--focus);outline-offset:1px}
 @media (max-width:399px){.views .ico{display:none}}
 @media (min-width:1024px){.views{position:fixed;top:calc((var(--bar-h) - 52px)/2);right:max(calc(var(--gutter) + 120px),calc((100vw - var(--maxw))/2 + 120px));margin:0;z-index:60;width:auto}.views button{flex:0 0 auto;padding:0 var(--s-4)}}
 .view-host{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
@@ -97,7 +97,7 @@ html.lens-on[data-view=gallery] .g-rows{display:none}
 .g-row .row-h .btn{flex:none}.gc .pl-e{display:flex;gap:var(--s-2);align-items:center;font-size:var(--fs-xs);color:var(--ink-3)}.gc .pl-s{margin:var(--s-1) 0 0}
 .gc .heart[aria-pressed=true] .ico{fill:var(--city);color:var(--city)}.g-lead-card{list-style:none}.g-lead-card .cover{height:clamp(160px,17vw,240px);aspect-ratio:auto}.g-lead-card .gc{background:var(--surface);color:var(--ink);border-radius:var(--r-l);padding:var(--s-3) var(--s-3) var(--s-4);box-shadow:var(--e-4)}
 .pl-cover .g-art{position:absolute;right:4%;top:50%;transform:translateY(-50%);width:66%;display:none}.pl-cover .g-art img{display:block;width:100%;height:auto;opacity:.9}
-.pl-cover .g-ring{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border:3px solid var(--surface,#fff);border-radius:50%;background:var(--city);box-shadow:var(--ring-select)}
+.pl-cover .g-ring{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border:3px solid var(--surface);border-radius:50%;background:var(--city);box-shadow:var(--ring-select)}
 /* the All N grid: the canonical list, no map, 1 / 2 / 4 columns, paged by views.js */
 html[data-view=gallery] .split{display:block}html[data-view=gallery] .mappane{display:none!important}
 html[data-view=gallery] .split .pls{grid-template-columns:minmax(0,1fr)}
@@ -106,13 +106,13 @@ html[data-view=gallery] .split .pls{grid-template-columns:minmax(0,1fr)}
 html[data-view=gallery] .cleo-defer-gap,.pl.pg-off,section.area.pg-empty{display:none!important}
 html[data-view=gallery] .pl-cover .g-art{display:block}
 .pager{display:grid;justify-items:center;gap:var(--s-2);margin:var(--s-6) 0 var(--s-2);text-align:center}.pager[hidden]{display:none!important}
-.pg-n{display:flex;flex-wrap:wrap;gap:var(--s-1);justify-content:center;align-items:center}.pg-n button{min-width:var(--tap);min-height:var(--tap);border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface,#fff);font:inherit;cursor:pointer}
-.pg-n button[aria-current=page]{background:var(--ink);color:var(--paper,#fff);border-color:var(--ink);font-weight:600}.pg-n button:disabled{opacity:.4;cursor:default}.pg-n .gap{padding:0 var(--s-1);color:var(--ink-3)}
+.pg-n{display:flex;flex-wrap:wrap;gap:var(--s-1);justify-content:center;align-items:center}.pg-n button{min-width:var(--tap);min-height:var(--tap);border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);font:inherit;cursor:pointer}
+.pg-n button[aria-current=page]{background:var(--ink);color:var(--paper);border-color:var(--ink);font-weight:600}.pg-n button:disabled{opacity:.4;cursor:default}.pg-n .gap{padding:0 var(--s-1);color:var(--ink-3)}
 .pg-line{margin:0;color:var(--ink-2);font-size:var(--fs-sm)}.pager p{margin:0}
 /* area chips (Atlas tray head; Gallery toolbar) */
 /* Atlas (map search): its layout, pins, clusters and map tools live in ./atlas.css (Atlas lane, W7), appended to this file at build */
-.area-chips .chip{flex:0 0 auto;min-height:var(--tap);display:inline-flex;align-items:center;gap:var(--s-2);padding:0 var(--s-3);border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface,#fff);font:inherit;font-size:var(--fs-meta);cursor:pointer}
-.area-chips .chip i{width:10px;height:10px;border-radius:50%;background:var(--area,var(--city))}.area-chips .chip .n{color:var(--ink-3)}.area-chips .chip[aria-pressed=true]{background:var(--ink);color:var(--paper,#fff)}.area-chips .chip[aria-pressed=true] .n{color:inherit}
+.area-chips .chip{flex:0 0 auto;min-height:var(--tap);display:inline-flex;align-items:center;gap:var(--s-2);padding:0 var(--s-3);border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);font:inherit;font-size:var(--fs-meta);cursor:pointer}
+.area-chips .chip i{width:10px;height:10px;border-radius:50%;background:var(--area,var(--city))}.area-chips .chip .n{color:var(--ink-3)}.area-chips .chip[aria-pressed=true]{background:var(--ink);color:var(--paper)}.area-chips .chip[aria-pressed=true] .n{color:inherit}
 /* sheet additions (A-05) + the experience page (A-04, Gallery) */
 .sh-nav{display:flex;align-items:center;gap:var(--s-2);flex-wrap:wrap;padding:var(--s-2) var(--s-9) var(--s-2) var(--s-4);border-bottom:1px solid var(--line)}.sh-nav .pn{margin-left:auto;display:flex;gap:var(--s-1)}.sh-nav .btn-quiet{min-height:var(--tap)}
 .sh-rank{margin:2px 0 0;color:var(--ink-3)}.closeby ul{margin:var(--s-2) 0 0;padding:0;list-style:none;display:grid;gap:2px}.closeby a{display:inline-flex;min-height:var(--tap);align-items:center}
@@ -693,7 +693,7 @@ html .views[data-cleo-views] .v-ind{display:none}
 /* QA-59a: the name link keeps its 44 px tap padding (12 px above and below) but a clamped third line (a long name, or the
    native name) showed inside that bottom padding. A paint-only mask hides the padding band; the hit area is unchanged,
    and the mask is dropped while the link has keyboard focus so the focus ring is whole */
-html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a{-webkit-mask:linear-gradient(#000,#000) top/100% calc(100% - 12px) no-repeat;mask:linear-gradient(#000,#000) top/100% calc(100% - 12px) no-repeat}
+html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a{-webkit-mask:linear-gradient(var(--mask),var(--mask)) top/100% calc(100% - 12px) no-repeat;mask:linear-gradient(var(--mask),var(--mask)) top/100% calc(100% - 12px) no-repeat}
 html main[data-city] :is(html[data-view=gallery] .split,.w7-cards) li.pl>.pl-n a:focus-visible{-webkit-mask:none;mask:none}
 /* ---- 20. QC-08: "best food near X" in three taps — Eat & drink, an area chip, the first card. In Gallery the area chips
    (drawn by views.js for every view) are a sideways row in the toolbar instead of behind the Area tray, and once a lens

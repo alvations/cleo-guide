@@ -5,7 +5,7 @@ session. The orchestrator rewrites it at every check-in, at least every 30–45 
 checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README.md)). The full history is in
 `docs/BETA-LOG.md`, the session table is `docs/AGENT-LEDGER.md`, and the issue register is `docs/BETA-ISSUES.md`.
 
-**Last updated:** 2026-10-16 21:36Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
+**Last updated:** 2026-10-16 21:46Z by the orchestrator (session_01PCNcUkfa5S1N1BKGzZA4xx).
 
 ## Resume in five steps
 
@@ -45,6 +45,7 @@ checkpoint in `docs/resume/<lane>.md` (see [docs/resume/README.md](resume/README
 
 | What | State | Next |
 |---|---|---|
+| **D-46 Atlas default (owner, 21:45Z)** | Owner: "make atlas the default view then the list". The order is Atlas, Gallery, Guidebook, Insights; precedence stays hash → stored → default. Assigned: FE-A leads (core.js DEFAULT, city.js VIEWS and viewHead, hero preload, test-fe-a); platform (atlas.js boot and budgets, before/after perf); FE-1/FE-2 (the list never waits on the map, the phone first screen, CLS 0); QA and QC (re-point their default-view harnesses, an Atlas first-screen criterion); designer (SPEC, first impression, switcher sign-off) | Ships in the next release with Atlas rev 5. Panel R4 then scores Atlas as the default |
 | Imagery | All 32 run #48 refusals applied. Run #52 (`all`) yield collapsed to about 4%, so no more plain `all` runs (orchestrator, 15:27Z). Candidate wave 1 (cb5dfd79): 20 vetted titles for 10 empty leads and first-row slots, and 6 stated gaps. Push run #54 is running. D-40a: the 720w leads are capped at 45 KB; Tokyo phone@3× is 607 KB | Imagery contact-sheets #54 and sends only the "?" rows. Wave 2 is about 40 targets from the guides with the lowest tier-1 share |
 | Location verification | Accepted today: Wheeling 7, SF 112, Orlando 7, Chicago 48, DC 38, Miami 2, Erie 27, Philadelphia 25. Beta is at 8,704 places. The assist rules now treat Wikipedia as not independent of Wikidata, add a moved-place guard, hold extended features, and send closed places to review. Singapore (run 22) is in flight. QC-25 closure sources are done: 55 of 60 closed rows have a URL (batches 1–5, last 9338a4ce). D-44 settles the evidence classes. Sokolowski's corrected to closed 2020 (04026e9d). Decisions sent: Hot Sauce Williams Lee Rd gets one more search to replace a map-listing URL; Uncle Liu's goes UNVERIFIED-status (review sites alone fail 4c) | Batches 3–4 (31 rows). Review Singapore when it commits. Then the 4-row Wikidata re-check (the workflow's re-check mode, a74735f4: SF then Orlando), then `--duplicates` (open plus CLOSED pairs in 4 cities), then Saarland, Okinawa, Rhineland, Aachen |
 | Atlas panel | **R3 80.7** (min 74.0, SD 2.86) at 537cfb8c; R0 56.1 → R1 63.8 → R2 70.9 → R3 80.7. SPEC-v3 rev 5 (46f4abe3). Rev 5 work landing: FE-1 R3 #4 dots and glyphs (f51bb0a4); FE-2 #7, the 108 px shift (in progress) | FE-1 and FE-2 finish rev 5, plus R7-g4. The designer signs off the dots on real shots before "round 4 ready". **With the R4 announcement, the orchestrator sends the panel one method note:** the card focus ring is drawn on the parent card (`.pl:has(.pl-n a:focus-visible)`), so a probe that reads only the focused link's own outline will report "no ring". |
