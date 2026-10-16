@@ -47,7 +47,7 @@ Current rows:
    - no rank badges and no "pin N".
 
    FE-1 and FE-2 have been briefed. **Next:** when a new head lands, the designer signs off on `real/R4/tokyo-390-light-1-default.jpg` dots; then send the panel "round 4 ready" through FE or the orchestrator. Remind FE-A about the "Numbers on the cards match the pins" copy.
-3. **QC-09: PASS** at 390 and 200 % on the head after 639d2b1be. QA has been told. Done.
+3. **QC-09: closed.** R7 QA verified it independently on adfb052d. QC-06 (768 px, 44 px segments) was verified with it.
 4. **Reconcile SPEC-v3 §10** with `design/beta/eval/ONE-UP.md` when the product lane lands it.
 
 ## In flight
