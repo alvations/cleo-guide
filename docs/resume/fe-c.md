@@ -19,27 +19,33 @@ Earlier: W9-4, W9-5 (FE-C part) and W9-7 are done.
 | W9-4 trips | ce4c6a7c (+ saved.js hook 3686baa5) | 0498bdc7 |
 | W9-5 base | f70222d9f | 65d061aed |
 | W9-7 share cards | 0f8598c0b | 9f503f9ff |
-| i18n prep: tools/beta/i18n-fec/ (pending-en.json, merge.py, trip-i18n.patch), W9-1 render helper (unwired) | this push | — |
+| i18n prep, batch 1 + W9-1 render helper (unwired) | f15de9b4e | — |
+| i18n prep, batch 2: base.js, share-card.js, core walk; one combined patch | this push | — |
 
 ## Next
 
-1. **i18n (blocked on the i18n lane's ja):**
-   - when `tools/beta/i18n-fec/pending-ja.json` exists, follow `tools/beta/i18n-fec/README.md`;
-   - then convert base.js and share-card.js in the same way: new keys → pending-en.json → ask i18n for ja;
-   - add a test-i18n case for trip.html (runtime pseudo swap: 0 English outside data).
-2. **W9-1:** `lib/render/recognition-ui.js` is written but not wired. Its strings are in pending-en.json, so wiring it waits for the ja too.
-   - Wiring = FE-C W9-1 hook lines:
-     - render/city.js card(): `${RU.attr(r)}` in attrs, `${RU.html(r, srcById)}` after `.pl-s`;
-     - tray fieldset `RU.trayPills(recs, pill)`, rail tile `RU.railTile(recs)`;
-     - city.js: 'rec' in LENS / RAIL / TK, plus a visible() line on data-rec and a lens header;
-     - sheet.js: a fact that shows the card's `.pl-rec` (or the hidden closed copy).
-   - CSS: a new lib/render/fe-c.css concatenated into fe-a.css (a build.js line, platform).
-   - Tell FE-A before pushing hooks into their files.
-3. W9-9 local favourites lens after W9-1, on `rec.lf` / `recognition.localFavourites` (rule printed, gap stated).
+Orchestrator order (2026-10-16 14:52Z):
+1. **i18n:**
+   - the i18n lane adds the 122 keys of `tools/beta/i18n-fec/pending-en.json` to en.json and ja.json themselves (they offered);
+   - then `git apply tools/beta/i18n-fec/fec-i18n.patch`, `npm run beta`, the gates, push;
+   - then add a test-i18n case for trip.html (runtime pseudo swap, 0 English outside data).
+   - If the patch no longer applies, regenerate it with `tools/beta/i18n-fec/apply.py`; the replacements are in the old scratch scripts, so redo them by hand from the patch hunks.
+2. **Designer findings (a)–(j)** (designer `session_011YjA2jku166RJrUyCiQV6B`), BEFORE W9-1:
+   - share-card: the calm glyph cover (`--cover-sight` / `--cover-food`, glyph 120 px in `--ink-3`), no initial on teal; the dark overlay only over a photo;
+   - share-card: "Must see" as a `--sun-wash` / `--on-sun-wash` pill; the palette read from tokens with the light values forced; no #C23A1C, `--accent` only for day-route numbers;
+   - share-card: the lowercase "cleo" wordmark with its star, and the real URL;
+   - trip.html: hairline cards (drop the 4 px area border); stop numbers and the route in `--accent`; an 8 px `--area` dot before the eyebrow;
+   - trip.html: no focus ring on the h1 at load (`[tabindex="-1"]:focus{outline:none}`);
+   - trip.html: "Sight · Must see" (sentence case); the closed name without "— CLOSED", plus a Closed chip;
+   - trip.html: the caveat on `--sand` with `--ink-2`, not sun-wash;
+   - trip.html: spacing tokens (`python3 design/beta/tools/snap-spacing.py`);
+   - base: the pressed state on "Nearest to my base" (`--ink` fill), and the distance format as Atlas §3.4.
+   - Then re-shoot (`w9-fe-c-probe.js`) and send the designer the SHA.
+3. W9-1 (wire recognition-ui.js; hooks listed in the README of the i18n prep), then W9-9.
 
 ## In flight
 
-Nothing unpushed. Waiting on: the i18n lane (`session_01HB7igqdcuhrau7mUWSauDL`) for pending-ja.json.
+Nothing unpushed. Waiting on: the i18n lane for the en + ja of 122 keys.
 
 ## Notes
 
