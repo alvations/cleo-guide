@@ -48680,17 +48680,6 @@
     "statusSource": "",
     "statusChecked": "2026-09-01"
    },
-   "Het Romeins Museum (Thermenmuseum) - CLOSED": {
-    "address": "Coriovallumstraat 9, 6411 CA Heerlen, Netherlands",
-    "lat": 50.885,
-    "lng": 5.976669,
-    "source": "Wikidata Q153193 (Thermenmuseum, Coriovallumstraat 9)",
-    "verified": "2026-09-01",
-    "confidence": "high",
-    "status": "open",
-    "statusSource": "",
-    "statusChecked": "2026-09-01"
-   },
    "Netherlands American Cemetery": {
     "address": "Amerikaanse Begraafplaats 1, 6269 NA Margraten, Netherlands",
     "lat": 50.8175,
@@ -49437,7 +49426,8 @@
     "confidence": "high",
     "status": "closed",
     "statusSource": "https://www.hetromeinsmuseum.nl/geschiedenis",
-    "statusChecked": "2026-09-01"
+    "statusChecked": "2026-09-01",
+    "note": "merged alias 'Het Romeins Museum (Thermenmuseum) - CLOSED' 2026-10-16 (registry-only, status wrongly 'open' with no statusSource; same Wikidata Q153193 pin)"
    },
    "Aachener Brauhaus": {
     "address": "Kapuzinergraben 4, 52062 Aachen, Germany",
